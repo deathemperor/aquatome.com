@@ -18,7 +18,8 @@
       "regions": [
         "Amazon",
         "Marañón",
-        "Ucayali"
+        "Ucayali",
+        "Río Ucayali"
       ],
       "sources": [
         "planetcatfish",
@@ -27,7 +28,7 @@
       "quotes": [
         {
           "source": "planetcatfish",
-          "quote": "Type locality: Yarinachocha, Río Ucayali drainage, Ucayali Dept., Peru.",
+          "quote": "South America: Upper and lower Amazon River basin, including the Upper Amazon, Marañón and Ucayali. Type locality: Yarinachocha, Río Ucayali drainage, Ucayali Dept., Peru.",
           "countries": [
             "PE"
           ],
@@ -41,6 +42,14 @@
             "Amazon",
             "Marañón",
             "Ucayali"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Upper and lower Amazon River basin. Type locality: Peru, Ucayali Department, Pucallpa, Yari-nachocha, Río Ucayali drainage, 8º23'S, 74º32'W.",
+          "countries": [],
+          "regions": [
+            "Río Ucayali"
           ]
         }
       ]

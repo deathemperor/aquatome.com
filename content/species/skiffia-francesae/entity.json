@@ -10,6 +10,26 @@
     "mexico",
     "rio-teuchitlan"
   ],
+  "range": {
+    "records": {
+      "taxonKey": 2347690,
+      "total": 11,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "MX",
+          11
+        ]
+      ],
+      "cells": [
+        [
+          -104.0625,
+          19.6875,
+          11
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

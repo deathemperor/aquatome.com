@@ -245,6 +245,8 @@ const readJson = async <T>(file: string) => JSON.parse(await readFile(file, 'utf
 export async function makeMaterial(root: string, d: { research: Llm; llm: Llm }, a: MaterialAsk, o: MaterialOptions = {}) {
   // The site's loader refuses a page whose parent has none: checked before anything is asked or written.
   if (a.parent && !(await readJson(join(root, 'content/materials', a.parent, 'entity.json')))) throw new Error(`${a.id}: its parent "${a.parent}" has no page yet: write it first`)
+  // A page whose text a person fixed (bodyFixed, as on a guide) is theirs: never written again, and nothing is asked.
+  if ((await readJson<{ bodyFixed?: boolean }>(join(root, 'content/materials', a.id, 'vi.json')))?.bodyFixed) throw new Error(`${a.id}: a person fixed this page's text (bodyFixed): it isn't written again`)
   // A page is one piece of the step's day (pieces.ts): it starts only if what's left covers a page as the last one cost,
   // and its whole cost goes on record for the next.
   return piece(a.id, () => writeMaterial(root, d, a, o), { now: o.now })

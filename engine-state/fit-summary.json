@@ -1,5 +1,5 @@
 {
- "day": "2026-11-14",
+ "day": "2026-11-15",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -11,32 +11,32 @@
  },
  "langs": {
   "vi": {
-   "pages": 4248,
-   "read": 3696,
-   "wrong": 1632,
+   "pages": 4250,
+   "read": 3697,
+   "wrong": 1623,
    "pct": 44,
-   "held": 461
+   "held": 448
   },
   "id": {
-   "pages": 1390,
-   "read": 1231,
-   "wrong": 356,
+   "pages": 1400,
+   "read": 1239,
+   "wrong": 359,
    "pct": 29,
    "held": 94
   },
   "th": {
-   "pages": 1371,
-   "read": 1190,
-   "wrong": 331,
+   "pages": 1384,
+   "read": 1201,
+   "wrong": 334,
    "pct": 28,
    "held": 89
   },
   "ms": {
-   "pages": 275,
-   "read": 234,
-   "wrong": 74,
+   "pages": 291,
+   "read": 250,
+   "wrong": 79,
    "pct": 32,
-   "held": 33
+   "held": 37
   }
  },
  "labels": {
@@ -58,38 +58,51 @@
  },
  "sample": [
   {
-   "lang": "id",
-   "path": "/id/ikan/rainbow-robber-tetra/",
-   "url": "https://aquatome.com/id/ikan/rainbow-robber-tetra/",
-   "title": "Rainbow Robber Tetra",
-   "wrong": []
-  },
-  {
-   "lang": "th",
-   "path": "/th/fish/alcolapia-grahami/",
-   "url": "https://aquatome.com/th/fish/alcolapia-grahami/",
-   "title": "เกรแฮมส์โซดาซิคลิด",
-   "wrong": []
-  },
-  {
    "lang": "vi",
-   "path": "/vi/ca/ca-tren-bau/",
-   "url": "https://aquatome.com/ca/ca-tren-bau/",
-   "title": "Cá trèn bầu",
+   "path": "/vi/ca/ca-hemibagrus-microphthalmus/",
+   "url": "https://aquatome.com/ca/ca-hemibagrus-microphthalmus/",
+   "title": "Cá Hemibagrus microphthalmus",
    "wrong": [
     {
      "check": "words",
-     "quote": "nhiều khả năng"
+     "quote": "Nhiều khả năng"
+    },
+    {
+     "check": "words",
+     "quote": "giữ lãnh thổ"
     },
     {
      "check": "words",
      "quote": "ghi nhận"
+    }
+   ]
+  },
+  {
+   "lang": "vi",
+   "path": "/vi/ca/ca-mystacoleucus-greenwayi/",
+   "url": "https://aquatome.com/ca/ca-mystacoleucus-greenwayi/",
+   "title": "Cá Mystacoleucus greenwayi",
+   "wrong": [
+    {
+     "check": "words",
+     "quote": "bạn cần"
     },
     {
      "check": "words",
-     "quote": "thức ăn sống"
+     "quote": "Dù vậy"
+    },
+    {
+     "check": "words",
+     "quote": "Nhiều khả năng"
     }
    ]
+  },
+  {
+   "lang": "id",
+   "path": "/id/ikan/cory-habrosus/",
+   "url": "https://aquatome.com/id/ikan/cory-habrosus/",
+   "title": "Cory habrosus",
+   "wrong": []
   }
  ]
 }

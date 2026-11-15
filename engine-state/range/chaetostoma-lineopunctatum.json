@@ -1,41 +1,64 @@
 {
   "id": "chaetostoma-lineopunctatum",
   "native": {
-    "input": "f9f65c71b0fdf76a",
-    "at": "2026-11-14T05:39:06.336Z",
-    "claims": [],
+    "input": "36e57676aa59517e",
+    "at": "2026-11-14T17:19:02.525Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Peru: Aguaytia, Pachitea and Pisqui River basins in the Ucayali River drainage.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
     "regions": [
       {
-        "name": "Rio San Alejandro",
-        "source": "planetcatfish",
-        "quote": "The L number specifically was collected in the Rio San Alejandro.",
-        "ok": true
-      },
-      {
-        "name": "Marañón",
-        "source": "planetcatfish",
-        "quote": "Amazon, Upper Amazon, Marañón, Ucayali, San Alejandro.",
-        "ok": true
-      },
-      {
         "name": "Ucayali",
-        "source": "planetcatfish",
-        "quote": "Amazon, Upper Amazon, Marañón, Ucayali, San Alejandro.",
+        "source": "scotcat",
+        "quote": "Peru: Aguaytia, Pachitea and Pisqui River basins in the Ucayali River drainage.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Aguaytia",
+        "source": "scotcat",
+        "quote": "Peru: Aguaytia, Pachitea and Pisqui River basins in the Ucayali River drainage.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Pachitea",
+        "source": "scotcat",
+        "quote": "Peru: Aguaytia, Pachitea and Pisqui River basins in the Ucayali River drainage.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Pisqui",
+        "source": "scotcat",
+        "quote": "Peru: Aguaytia, Pachitea and Pisqui River basins in the Ucayali River drainage.",
+        "country": "PE",
         "ok": true
       },
       {
         "name": "Amazon",
         "source": "planetcatfish",
-        "quote": "Amazon, Upper Amazon, Marañón, Ucayali, San Alejandro.",
+        "quote": "The L number specifically was collected in the Rio San Alejandro. Amazon, Upper Amazon, Marañón, Ucayali, San Alejandro.",
+        "ok": true
+      },
+      {
+        "name": "Marañón",
+        "source": "planetcatfish",
+        "quote": "The L number specifically was collected in the Rio San Alejandro. Amazon, Upper Amazon, Marañón, Ucayali, San Alejandro.",
         "ok": true
       }
     ],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [
-        "PE"
-      ],
+      "pagesOnly": [],
       "sourcesOnly": []
     }
   },
@@ -73,8 +96,10 @@
         1
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-14T05:39:06.336Z"
+    "native": [
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T17:19:02.525Z"
   }
 }

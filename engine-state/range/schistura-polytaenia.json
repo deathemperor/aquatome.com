@@ -1,0 +1,59 @@
+{
+  "id": "schistura-polytaenia",
+  "native": {
+    "input": "183619ccfc5929dd",
+    "at": "2026-11-14T17:19:02.525Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Schistura polytaenia is a nemacheilid loach known only from its type locality, an Irrawaddy tributary in Tengchong County, Yunnan, China.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the type locality, a tributary of the Irrawaddy River in Tengchong County, Yunnan Province, southwestern China.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Irrawaddy",
+        "source": "seriouslyfish",
+        "quote": "Known only from the type locality, a tributary of the Irrawaddy River in Tengchong County, Yunnan Province, southwestern China.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Schistura polytaenia",
+    "status": "ACCEPTED",
+    "taxonKey": 5787892,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        6
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ]
+    ],
+    "native": [
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T17:19:02.525Z"
+  }
+}

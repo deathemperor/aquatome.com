@@ -1,10 +1,13 @@
 {
   "slug": "red",
-  "name": "Red",
-  "altNames": [],
+  "name": "sông Hồng",
+  "altNames": [
+    "Red"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

@@ -1,13 +1,21 @@
 {
   "id": "nanobagrus-stellatus",
   "native": {
-    "input": "738c2814de1e39ea",
-    "at": "2026-11-14T05:39:06.336Z",
+    "input": "66289591b6925c76",
+    "at": "2026-11-14T17:19:02.525Z",
     "claims": [
       {
         "code": "ID",
         "status": "native",
         "source": "planetcatfish",
+        "quote": "Asia: Sumatra, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "scotcat",
         "quote": "Asia: Sumatra, Indonesia.",
         "words": "Indonesia",
         "ok": true
@@ -20,12 +28,45 @@
         "quote": "Asia: Sumatra, Indonesia.",
         "country": "ID",
         "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "scotcat",
+        "quote": "Asia: Sumatra, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Batang Hari",
+        "source": "scotcat",
+        "quote": "This species is known from the Batang Hari drainage in Sumatra, and the Pahang and Endau river drainages in the Malay Peninsula.",
+        "ok": true
+      },
+      {
+        "name": "Pahang",
+        "source": "scotcat",
+        "quote": "This species is known from the Batang Hari drainage in Sumatra, and the Pahang and Endau river drainages in the Malay Peninsula.",
+        "ok": true
+      },
+      {
+        "name": "Endau",
+        "source": "scotcat",
+        "quote": "This species is known from the Batang Hari drainage in Sumatra, and the Pahang and Endau river drainages in the Malay Peninsula.",
+        "ok": true
+      },
+      {
+        "name": "Malay Peninsula",
+        "source": "scotcat",
+        "quote": "This species is known from the Batang Hari drainage in Sumatra, and the Pahang and Endau river drainages in the Malay Peninsula.",
+        "ok": true
       }
     ],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "MY"
+      ],
       "sourcesOnly": []
     }
   },

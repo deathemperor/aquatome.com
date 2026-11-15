@@ -12,6 +12,245 @@
     "venezuela",
     "casiquiare"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "VE"
+      ],
+      "regions": [
+        "Rio Negro",
+        "Casiquiare",
+        "Anavilhanas"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Goulding's piranha, Serrasalmus gouldingi, is a deep-bodied piranha from the rio Negro drainage in Brazil and the Casiquiare system in Venezuela.",
+          "countries": [
+            "BR",
+            "VE"
+          ],
+          "regions": [
+            "Rio Negro",
+            "Casiquiare"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is widely distributed within the rio Negro drainage in northern Brazil, from above its confluence with the Casiquiare watershed at least as far south as the Archipelago das Anavilhanas in the lower Negro basin, and possibly to its mouth.",
+          "countries": [],
+          "regions": [
+            "Anavilhanas"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354151,
+      "total": 155,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "BR",
+          120
+        ],
+        [
+          "VE",
+          33
+        ],
+        [
+          "CO",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -70.3125,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          0,
+          3,
+          3
+        ],
+        [
+          -68.90625,
+          1.40625,
+          2,
+          1
+        ],
+        [
+          -67.5,
+          0,
+          9,
+          9
+        ],
+        [
+          -67.5,
+          1.40625,
+          16,
+          16
+        ],
+        [
+          -67.5,
+          2.8125,
+          7,
+          7
+        ],
+        [
+          -67.5,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -66.09375,
+          1.40625,
+          5,
+          5
+        ],
+        [
+          -64.6875,
+          -2.8125,
+          6,
+          6
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          5,
+          5
+        ],
+        [
+          -64.6875,
+          0,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -2.8125,
+          6,
+          6
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          -61.875,
+          -8.4375,
+          4,
+          4
+        ],
+        [
+          -61.875,
+          -5.625,
+          7,
+          7
+        ],
+        [
+          -61.875,
+          -4.21875,
+          7,
+          7
+        ],
+        [
+          -61.875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          7,
+          7
+        ],
+        [
+          -60.46875,
+          2.8125,
+          5,
+          5
+        ],
+        [
+          -59.0625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          6,
+          6
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          8,
+          8
+        ],
+        [
+          -57.65625,
+          1.40625,
+          12,
+          12
+        ],
+        [
+          -56.25,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -2.8125,
+          11,
+          11
+        ],
+        [
+          -52.03125,
+          -2.8125,
+          9,
+          9
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

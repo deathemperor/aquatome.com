@@ -303,6 +303,21 @@
       "kept": true
     }
   ],
+  "vi/guides/youtube-2OLhjT-24lU#body": [
+    {
+      "at": "2026-11-15T00:32:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [
+        "\"xe được sưởi bằng nhiệt độ phòng đặt bể\" became \"trong xe để ấm ngang phòng đặt bể\": slight nuance shift, essentially same meaning",
+        "\"Cá từ bể nhà mang sang nên ít bị sốc hơn\" gained \"Vì là\": causal framing is the same"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/youtube-2Wjd1L52uWE#body": [
     {
       "at": "2026-11-11T09:48:21Z",
@@ -312,6 +327,23 @@
         "\"cây ráy (Cryptocoryne)\" became \"tiêu thảo (Cryptocoryne)\" in the third step. This is a different common name, though Cryptocoryne is still given. The first step keeps \"ráy\" for the epiphyte plants, so the two steps now disagree.",
         "\"Nhổ cây như ... sẽ làm đục nước nhiều, nhưng lọc sẽ làm nước trong lại khá nhanh\": a contrast is added, a small nuance shift.",
         "\"Làm nhẹ tay\" became \"Nhấc nhẹ tay\": \"nhấc\" (lift) is added, a minor change."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-2htJPBhx7Cs#body": [
+    {
+      "at": "2026-11-14T17:34:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "Said more surely than before: \"Cá chuột cũng nuôi được ở đây.\" (was: \"Cá chuột cũng có thể nuôi được.\")",
+        "\"Cá sặc vằn (danio)\" became \"Cá ngựa vằn (danio)\": the common name changed. It is probably the same fish, but the name is different.",
+        "\"Cá chuột cũng có thể nuôi được\" became \"Cá chuột cũng nuôi được ở đây\": the \"có thể\" is gone, and \"ở đây\" is a small addition.",
+        "\"hy vọng là không nhiều rêu, chỉ cần vài con\" became \"hy vọng là không nhiều rêu và chỉ cần vài con\": the meaning is the same, with slightly different phrasing."
       ],
       "attempt": "first",
       "kept": false
@@ -381,6 +413,20 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/guides/youtube-KhlxefF9aRg#body": [
+    {
+      "at": "2026-11-14T17:33:03Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [
+        "Dropped the English gloss \"(root tab)\" after \"phân nhét\". This is a minor loss of precision."
+      ],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/guides/youtube-LmUGilbUlzY#body": [
@@ -505,6 +551,21 @@
       "kept": true
     }
   ],
+  "vi/guides/youtube-XvXnPFqpa6E#body": [
+    {
+      "at": "2026-11-14T17:32:27Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "\"Giữ tannin lại bằng lọc\" became \"Chạy lọc để lọc bỏ tannin\". The meaning shifts slightly and is less clear.",
+        "\"ram Apistogramma\" became \"cá phượng hoàng, cá Apistogramma\". This reads as two species where BEFORE may have named one, and it adds the name \"cá phượng hoàng\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/youtube-Z2zNU9D9OWE#body": [
     {
       "at": "2026-11-13T05:48:09Z",
@@ -529,6 +590,20 @@
         "\"viên thức ăn chìm cho rêu hại (algae wafer)\" became \"viên tảo chìm (algae wafer)\": drops the idea of food for algae-eaters and implies the wafer is made of algae; minor nuance shift",
         "\"Một cách dụ\" (one way) became \"Muốn dụ cua ra thì\" (to lure the crab out): slightly less hedged, as it no longer presents this as just one option",
         "\"ngay lập tức\" is a slight intensification of \"ngay\"; negligible"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-b0pr4vEjJ_k#body": [
+    {
+      "at": "2026-11-15T00:36:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "Added \"(cỏ ngọc trai)\" for Glossostigma, replacing the original name \"Ngưu mao chiên\"; a new name not in BEFORE, and possibly a different plant."
       ],
       "attempt": "first",
       "kept": true
@@ -644,6 +719,22 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/guides/youtube-zJcimXCpXtY#body": [
+    {
+      "at": "2026-11-15T00:32:51Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.68,
+      "notes": [
+        "Name changed: \"Cá ngân long vàng (gold harlequin)\" became \"Cá tam giác vàng (gold harlequin)\". This swaps the fish's Vietnamese name, which is a name change in a strict reading.",
+        "\"Cuối cùng chọn cá tetra xanh\" adds a sense of a final decision after comparison. BEFORE only says the fish \"nên được chọn\" (should be chosen), a recommendation.",
+        "\"đứng yên nhiều\" became \"hay đứng yên\". The frequency is kept, with a slight nuance shift."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ]
 }

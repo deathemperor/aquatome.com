@@ -122,6 +122,24 @@ test("a day's guide picture that is a plant's photo carries its box, as the guid
   expect(day?.guideImgBox).toEqual(photoBox(plant))
 }, 120_000)
 
+// A day's guide card the calendar names no photo for shows the picture its page opens on, never none (the owner, 10 and 13
+// Nov; on 14 Nov 9 of Hôm nay's guide cards had none while their pages opened on one: a head under 1,140 px, a section's
+// picture, a video's poster or a fish the guide names).
+test("a day's guide card with no photo named shows the picture its page opens on, an article's and a video's", async () => {
+  const vi = await getContent('vi')
+  const article = vi.guides.find(g => !g.video && guideImage(vi, g))!, video = vi.guides.find(g => g.video && guideImage(vi, g))!
+  const days = [article, video].map((g, i) => ({ date: `2026-11-1${i + 2}`, guide: `guides/${g.id}` }))
+  const index = appIndex('vi', vi, new Map(), vi.species, { calendar: CurationSchema.parse({ version: 1, weeks: [], days }), today: '2026-11-12' })
+  const listed = new Set(index.items.map(i => i.path))
+  for (const [i, g] of [article, video].entries()) {
+    const ph = guideImage(vi, g)!, day = index.home.days?.[i]
+    expect(day?.guideImg, g.id).toBe((ph.large ?? ph).url)
+    // The page's own head: an article's lead, a video's poster.
+    const doc = guideDoc('vi', vi, g, listed)
+    expect([ph.url, ph.large?.url, smallSrc(ph)]).toContain((doc.lead ?? doc.video?.poster)?.src)
+  }
+}, 120_000)
+
 // An equipment page's card and head are its hero, by the same box rule (the reviewer, 13 Nov: both left the box out).
 test("an equipment page's hero the cards refuse: its card and its head both carry its whole area", async () => {
   const was = await getContent('vi')

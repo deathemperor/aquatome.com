@@ -10,6 +10,63 @@
     "thailand",
     "salween"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Salween",
+        "Nam Lang",
+        "Nam Khong",
+        "Pang Mapha"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Schistura oedipus is a troglomorphic nemacheilid loach restricted to five caves in the Pang Mapha karst, Mae Hong Son province, northwest Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Pang Mapha"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Streams flowing from these caves drain into the Nam Lang and Nam Khong rivers of the Salween drainage system, and the two easternmost caves, Tham Huet and Tham Nong Pha Cham, are both tributaries of the former.",
+          "countries": [],
+          "regions": [
+            "Salween",
+            "Nam Lang",
+            "Nam Khong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5204909,
+      "total": 2,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "TH",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          18.28125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

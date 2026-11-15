@@ -12,6 +12,71 @@
     "rio-iriri",
     "rio-xingu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Xingu",
+        "Rio Iriri"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Spectracanthicus zuanoni L 354 originates from the Rio Xingu and the Rio Iriri in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Xingu",
+            "Rio Iriri"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7658518,
+      "total": 110,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "BR",
+          110
+        ]
+      ],
+      "cells": [
+        [
+          -54.84375,
+          -5.625,
+          35,
+          35
+        ],
+        [
+          -53.4375,
+          -5.625,
+          65,
+          65
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          6,
+          6
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

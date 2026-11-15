@@ -343,7 +343,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   const items: AppItem[] = []
   const home: AppHome = { groups: [], fish: [], plants: [], guides: [] }
   /** Each guide's path in this index, by its id. */
-  const guideAt = new Map<string, string>()
+  const guideAt = new Map<string, string>(), guideLead = new Map<string, string>()
   const words = (labels: Record<string | number, string>) => Object.fromEntries(Object.entries(labels).map(([k, v]) => [k, t(v)]))
   const labels: AppLabels = {
     group: words(GROUP_LABELS), section: words(GUIDE_KIND_LABELS), ...(Object.fromEntries(Object.entries(PLANT_LABELS).map(([k, v]) => [k, words(v)])) as Pick<AppLabels, keyof typeof PLANT_LABELS>),
@@ -411,6 +411,8 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
       const ph = guideImage(c, g)
       const path = at(`/vi/huong-dan/${g.t.slug}/`)
       guideAt.set(g.id, path)
+      // The picture its page opens on (guide-page.ts, app-page.ts), by its large copy as a day's card loads a head.
+      if (ph) guideLead.set(`guides/${g.id}`, (ph.large ?? ph).url)
       items.push(clean({ kind: 'guide', name: g.t.name, aka: aka(g.t.altNames), path, img: ph && cardSrc(ph), imgBox: boxOf(ph), section: g.kind, about: about.length ? about : undefined, video: g.video?.durationSec }))
     }
     home.guides = leadGuides(c).map(g => at(`/vi/huong-dan/${g.t.slug}/`))
@@ -478,7 +480,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
       if (p.large && sameShape(p, p.large)) copy(p.large.url, box)
     }
     const boxAt = (u: string) => (own.has(u) ? own.get(u) : copies.get(u) ?? undefined)
-    Object.assign(home, curationFor(cur.calendar, lang, cur.today, ref => { const p = refs.get(ref); return p && paths.has(p) ? p : undefined }, c.cards, c.photoWaits, boxAt))
+    Object.assign(home, curationFor(cur.calendar, lang, cur.today, ref => { const p = refs.get(ref); return p && paths.has(p) ? p : undefined }, c.cards, c.photoWaits, boxAt, ref => guideLead.get(ref)))
     const chips = chipsFor(lang, c, everySpecies, cur.calendar.chips, { species: appSpecies(lang, c), breeds: appBreeds(lang, c) })
     const guidePath = new Map(appGuides(lang, c).map(g => [g.id, at(`/vi/huong-dan/${g.t.slug}/`)]))
     const hand = (ids: string[] = []) => ids.flatMap(id => guidePath.get(id) ?? [])

@@ -1,0 +1,78 @@
+{
+  "id": "serrasalmus-sanchezi",
+  "native": {
+    "input": "c0f242fec38e3123",
+    "at": "2026-11-15T00:17:46.244Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Sanchez's piranha, Serrasalmus sanchezi, is a small piranha endemic to Peru, collected from rivers including the Ucayali, Itayi and Pacaya.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Peru where it's been collected from several rivers including the Rio Ucayali, Rio Itayi and Rio Pacaya.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ucayali",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Peru where it's been collected from several rivers including the Rio Ucayali, Rio Itayi and Rio Pacaya.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Itayi",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Peru where it's been collected from several rivers including the Rio Ucayali, Rio Itayi and Rio Pacaya.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Pacaya",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Peru where it's been collected from several rivers including the Rio Ucayali, Rio Itayi and Rio Pacaya.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Serrasalmus sanchezi",
+    "status": "ACCEPTED",
+    "taxonKey": 2354163,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-15T00:17:46.244Z"
+  }
+}

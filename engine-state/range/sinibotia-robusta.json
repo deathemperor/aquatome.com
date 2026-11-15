@@ -1,0 +1,72 @@
+{
+  "id": "sinibotia-robusta",
+  "native": {
+    "input": "0c4fe7ce412aabb5",
+    "at": "2026-11-15T00:17:46.244Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Kansu loach, Sinibotia robusta, is a botiid loach from the Zhu Jiang (Pearl River) system in Guangxi, southern China.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: China.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Zhu Jiang",
+        "source": "seriouslyfish",
+        "quote": "The Kansu loach, Sinibotia robusta, is a botiid loach from the Zhu Jiang (Pearl River) system in Guangxi, southern China.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Liu Jiang",
+        "source": "seriouslyfish",
+        "quote": "S. robusta has been recorded from several other tributary drainages of the Zhu Jiang system including the Liu Jiang and Gui Jiang.",
+        "ok": true
+      },
+      {
+        "name": "Gui Jiang",
+        "source": "seriouslyfish",
+        "quote": "S. robusta has been recorded from several other tributary drainages of the Zhu Jiang system including the Liu Jiang and Gui Jiang.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Sinibotia robusta",
+    "status": "ACCEPTED",
+    "taxonKey": 2367825,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-15T00:17:46.244Z"
+  }
+}

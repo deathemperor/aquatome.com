@@ -3,16 +3,18 @@ import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
-import { loadAll, mayPublish, resolveDataCard, type Translation } from '@aq/schema'
+import { GALLERY_POST, loadAll, mayPublish, RETIRED_GUIDES, resolveDataCard, type Translation } from '@aq/schema'
 import { checkPages, RATCHETED, ratcheted, RULES } from '../src/content-rules'
 import { englishOf } from '../src/english'
+import { tilapiaUnnamed } from '../src/kind-words'
 import { droppedName, FISH_NAMES, KIND_PASSAGES, oldNames } from '../src/names'
 import { altKey, NOT_ITS } from '../src/alt-names'
-import { MISMATCHED } from '../src/gbif'
+import { GROUP_ORDERS, MISMATCHED } from '../src/gbif'
 import { productOf } from '../src/fit'
 import { loadPages } from '../src/pages'
-import { ENGLISH_PLACE_WORD } from '../src/place-names'
+import { ENGLISH_PLACE_WORD, kindTwice } from '../src/place-names'
 import { roundPage } from '../src/round'
+import { snapshotName } from '../src/snapshot'
 import { mendPart } from '../src/source-figures'
 import { fishThaiLai, wordingSlips } from '../src/sanitize'
 import { cardOf, cardProblems, readSummaries } from '../src/summaries'
@@ -218,6 +220,13 @@ test('no Vietnamese place name keeps River, Island, Lake, Basin, Province, Mount
   expect(names.filter(n => ENGLISH_PLACE_WORD.test(n))).toEqual([])
 })
 
+// "dãy Cardamon range": the sweep keeps the Vietnamese kind word alone (the chief of staff, 14 Nov 2026).
+test('no Vietnamese place name says its kind in Vietnamese and again in English', () => {
+  const dir = fileURLToPath(new URL('../../../content/places', import.meta.url))
+  const names = readdirSync(dir).map(id => (JSON.parse(readFileSync(`${dir}/${id}/vi.json`, 'utf8')) as { name: string }).name)
+  expect(names.filter(n => kindTwice(n))).toEqual([])
+})
+
 // Alone, these read as a province or as nothing: "Bắc Giang" on a Chinese fish, "Mã" on a Vietnamese one.
 test('no river a Vietnamese reader knows by name goes without its "sông"', () => {
   const dir = fileURLToPath(new URL('../../../content/places', import.meta.url))
@@ -341,6 +350,47 @@ test('no two guides in a language share a title, and none is only a name', async
   expect(findings.map(f => `${f.page.lang}/${f.page.id}: ${f.detail}`)).toEqual([])
 }, slow(300_000))
 
+// Curation & Media, 2026-11-15: "Một loài cá rô phi lùn hoàn toàn mới" for "A brand-new dwarf cichlid". "Cá rô phi" is a
+// tilapia, and a guide's title heads it, picks its picture and made its address. A guide whose English is kept here
+// (sources/) says "rô phi" in its title only where that English names a tilapia; a video's transcript isn't kept here, and
+// isn't judged. The two that did on 15 Nov were titled by hand (nameFixed), their old address forwarding with no note, so
+// the tilapia's words aren't searched for.
+const CICHLID_TITLES: Record<string, { name: string; was: string }> = {
+  'glaser-en-25-perchlike-fishes-25d-perchlike-fishes-4-south-american-dwarf-cichlids-a-brandnew-dwarf-cichlid-apistogramma-sp-cristal-en':
+    { name: 'Một loài cá cichlid lùn hoàn toàn mới: Apistogramma sp. Cristal', was: 'mot-loai-ca-ro-phi-lun-hoan-toan-moi-apistogramma-sp-cristal' },
+  'seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy':
+    { name: 'Những thay đổi lớn trong phân loại cá cichlid Tân Thế Giới', was: 'nhung-thay-doi-lon-trong-phan-loai-ca-ro-phi-tan-the-gioi' },
+}
+test('no guide calls a cichlid a tilapia in its title', () => {
+  const root = fileURLToPath(new URL('../../../', import.meta.url))
+  const dir = join(root, 'content/guides')
+  const wrong = readdirSync(dir).filter(id => existsSync(join(dir, id, 'vi.json'))).flatMap(id => {
+    const e = JSON.parse(readFileSync(join(dir, id, 'entity.json'), 'utf8')) as { source: string; sourceUrl: string }
+    const en = join(root, 'sources', e.source, `${snapshotName(e.sourceUrl)}.md`)
+    const t = JSON.parse(readFileSync(join(dir, id, 'vi.json'), 'utf8')) as Translation
+    return existsSync(en) && tilapiaUnnamed(t.name, readFileSync(en, 'utf8')) ? [`${id}: ${t.name}`] : []
+  })
+  expect(wrong).toEqual([])
+  for (const [id, r] of Object.entries(CICHLID_TITLES)) {
+    const t = JSON.parse(readFileSync(join(dir, id, 'vi.json'), 'utf8')) as Translation & { redirectFrom?: { slug: string; name: string }[] }
+    expect([t.name, t.nameFixed, t.altNames.filter(n => /rô phi/i.test(n)), t.redirectFrom], id).toEqual([r.name, true, [], [{ slug: r.was, name: '' }]])
+    expect(t.slug, id).not.toMatch(/ro-phi/)
+  }
+})
+
+// The chief of staff, 14 Nov 2026: the gallery posts of other people's tanks (66 on 14 Nov) and the 13 Nov sheet's
+// seller-site notices go off for good, every address forwarding (@aq/schema retired.ts). Each named one is a guide the
+// content has, and each forwards to a page it has: a typo would leave a guide up, or forward to nothing.
+test('every guide taken off for good is one the content has, and forwards to a page it has', () => {
+  const content = fileURLToPath(new URL('../../../content', import.meta.url))
+  for (const [id, to] of Object.entries(RETIRED_GUIDES)) {
+    expect(existsSync(join(content, 'guides', id, 'vi.json')), id).toBe(true)
+    if (to !== 'guides') expect(existsSync(join(content, to.kind, to.id, 'vi.json')), `${id} → ${to.kind}/${to.id}`).toBe(true)
+  }
+  expect(Object.keys(RETIRED_GUIDES)).toHaveLength(19)
+  expect(readdirSync(join(content, 'guides')).filter(id => GALLERY_POST.test(id)).length).toBeGreaterThanOrEqual(66)
+})
+
 // The chief of staff's rulings of 2026-11-12 on the tap-water report. Each is a hand fix the engine keeps: a guide's body
 // marked bodyFixed, a page's part marked fixed (in English and in each language beside it), a note of ours in localNote.
 // The own-voice audit (the chief of staff, 2026-11-12: a source is never credited with words it did not say). A hand fix
@@ -437,24 +487,16 @@ test('the tap-water fixes hold: Seachem Prime named at its dose, our note on wat
 // GBIF's fuzzy matches made a catfish page a tube worm's (Brochis arcuata → Ditrupa arietina, Sabellida), and its exact
 // Mollienisia, a moth's genus, gave a molly page a moth's family (Noctuidae). The engine now takes a match only of an animal
 // the page's group can be (gbif.ts pageTaxon). This holds each fish or shrimp page's order to its group; "other" and
-// "snails", too many orders to name, are held by that class check alone. The two above are folded (page-folds.ts); a
-// spiny eel filed with the loaches waits for its own fix.
-const GROUP_ORDERS: Record<string, string[]> = {
-  catfish: ['Siluriformes'],
-  tetras: ['Characiformes'], characins: ['Characiformes'], characoids: ['Characiformes'],
-  barbs: ['Cypriniformes'], danios: ['Cypriniformes'], rasboras: ['Cypriniformes'], cyprinid: ['Cypriniformes'],
-  loaches: ['Cypriniformes'],
-  cichlids: ['Perciformes', 'Cichliformes'], labyrinth: ['Perciformes', 'Anabantiformes'], gobies: ['Perciformes', 'Gobiiformes'],
-  killifish: ['Cyprinodontiformes', 'Beloniformes'], livebearers: ['Cyprinodontiformes', 'Beloniformes'],
-  rainbowfish: ['Atheriniformes'], shrimp: ['Decapoda'],
-}
+// "snails", too many orders to name, are held by that class check alone. The two above are folded (page-folds.ts). The
+// table is the engine's own (gbif.ts GROUP_ORDERS), which places a new page by it (pageGroup). A spiny eel filed with the
+// loaches went to "other" with the order's 16 other pages (the chief of staff, 14 Nov 2026).
 test('every species page\'s order fits its group', () => {
   const root = fileURLToPath(new URL('../../../content/species', import.meta.url))
   const off = readdirSync(root).filter(id => {
     const e = JSON.parse(readFileSync(join(root, id, 'entity.json'), 'utf8')) as { group: string; order: string }
     return GROUP_ORDERS[e.group] !== undefined && !GROUP_ORDERS[e.group]!.includes(e.order)
   })
-  expect(off.sort()).toEqual(['macrognathus-siamensis'])
+  expect(off.sort()).toEqual([])
 })
 
 // The chief of staff, 2026-11-13: the skunk cory's text under a tube worm's name ends as one page with its fish's, the
@@ -493,4 +535,18 @@ test('no page keeps another fish\'s name a person found on it', () => {
     }
   }
   expect(left).toEqual([])
+})
+
+// A mend of 14 Nov made the fire-bellied toad guide say of every tank built for toads what its video says of one tank.
+// The chief of staff, 15 Nov: held by hand until the sentence-only mend cuts that line. The hold names the guide as its
+// folder does, and every language the guide has is held with it, so the site's build leaves it out.
+test('the fire-bellied toad guide is held by hand in every language it has', () => {
+  const id = 'youtube-UkkP80wMn_s'
+  const byHand = JSON.parse(readFileSync(fileURLToPath(new URL('../../../engine-state/held-by-hand.json', import.meta.url)), 'utf8')) as Record<string, { checks: string[]; at: string }>
+  const hold = { checks: ['source'], at: '2026-11-15' }
+  expect(byHand[`guides/${id}`]).toMatchObject(hold)
+  const dir = fileURLToPath(new URL(`../../../content/guides/${id}`, import.meta.url))
+  const langs = readdirSync(dir).filter(f => f !== 'entity.json' && f.endsWith('.json'))
+  expect(langs).toContain('vi.json')
+  for (const f of langs) expect((JSON.parse(readFileSync(join(dir, f), 'utf8')) as Translation).held, f).toEqual(hold)
 })

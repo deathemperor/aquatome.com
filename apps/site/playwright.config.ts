@@ -24,10 +24,11 @@ export default defineConfig({
   projects: [
     { name: 'phone', testIgnore: /owner-capture/, use: ourDevice(devices['Pixel 7']!) },
     { name: 'desktop', testIgnore: /owner-capture/, use: { ...ourDevice(devices['Desktop Chrome']!), viewport: { width: 1280, height: 800 } } },
-    // Only where WebKit is installed (ci.yml): the owner's picture, what can go wrong with it being WebKit's; and a fish
-    // page's photo column on a computer, which Safari has sized its own way (photo-column.spec.ts).
+    // Only where WebKit is installed (ci.yml): the owner's picture, what can go wrong with it being WebKit's; a material
+    // page's edge on an iPhone, which Safari clips its own way (material-pages.spec.ts); and a fish page's photo column on
+    // a computer, which Safari has sized its own way (photo-column.spec.ts).
     ...(process.env.E2E_WEBKIT ? [
-      { name: 'iphone', testMatch: /owner-capture/, use: ourDevice(devices['iPhone 13']!) },
+      { name: 'iphone', testMatch: /owner-capture|material-pages/, use: ourDevice(devices['iPhone 13']!) },
       { name: 'safari', testMatch: /photo-column/, use: { ...ourDevice(devices['Desktop Safari']!), viewport: { width: 1280, height: 800 } } },
     ] : []),
   ],

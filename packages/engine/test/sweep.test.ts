@@ -1152,3 +1152,89 @@ test("a photo on the never-again list leaves every equipment page and each langu
   expect(r.again.filter(x => x.startsWith('equipment/')).length).toBe(5)
   expect((await sweep(root)).again).toEqual([])
 })
+
+test('a photo with a cleared shop\'s own mark kept goes after every unmarked photo, one its source names only to the genus too; a second sweep changes nothing', async () => {
+  const root = await store()
+  await sweep(root)
+  const at = 'content/species/corydoras-sterbai/entity.json'
+  const e = await json(root, at)
+  const own = e.photos[0]
+  const genus = photo('https://media.aquatome.com/commons/genus.webp', 'Corydoras sp.')
+  const page = 'https://bwaquatics.com/products/corydoras-sterbai'
+  const kept = { ...photo('https://media.aquatome.com/bwaquatics/kept.webp', 'Corydoras sterbai'), source: 'bwaquatics', sourceUrl: page }
+  const screen = await json(root, 'engine-state/_photo-watermarks.json').catch(() => ({}))
+  await writeFile(join(root, 'engine-state/_photo-watermarks.json'), JSON.stringify({ ...screen, [kept.url]: { ocr: [], watermark: true, kind: 'logo', retainedOwnMark: { source: 'bwaquatics', sourceUrl: page, owner: 'source' } } }))
+  const yes = { ok: 'yes', typical: true, person: false, logo: false }
+  await writeFile(join(root, 'engine-state/_photo-subjects.json'), JSON.stringify({ [own.url]: { 'corydoras-sterbai': yes }, [kept.url]: { 'corydoras-sterbai': { ...yes, logo: true } } }))
+  await writeFile(join(root, at), JSON.stringify({ ...e, photos: [own, kept, genus] }))
+  await sweep(root)
+  expect((await json(root, at)).photos.map((p: { url: string }) => p.url)).toEqual([own.url, genus.url, kept.url])
+  expect((await sweep(root)).files).toEqual([])
+})
+
+test('a head the photo check calls young gives way to the page\'s own photo it calls grown, typical or not; a pick of the young one stays; a second sweep changes nothing', async () => {
+  // The chief of staff, 15 Nov (young-heads.ts), after the Deocata pipefish page led with its young among snails.
+  const root = await store()
+  await sweep(root)
+  const at = 'content/species/corydoras-sterbai/entity.json'
+  const e = await json(root, at)
+  const young = photo('https://media.aquatome.com/commons/young.webp', 'Corydoras sterbai')
+  const grown = photo('https://media.aquatome.com/commons/grown.webp', 'Corydoras sterbai')
+  const seen = { ok: 'yes', typical: false, person: false, logo: false, note: '' }
+  await writeFile(join(root, 'engine-state/_photo-subjects.json'), JSON.stringify({ [young.url]: { 'corydoras-sterbai': { ...seen, young: true } }, [grown.url]: { 'corydoras-sterbai': { ...seen, young: false } } }))
+  await writeFile(join(root, at), JSON.stringify({ ...e, photos: [young, grown] }))
+  const urls = async () => (await json(root, at)).photos.map((p: { url: string }) => p.url)
+  await writeFile(join(root, 'engine-state/_photo-head-picks.json'), JSON.stringify({ 'species/corydoras-sterbai': young.url }))
+  await sweep(root)
+  expect(await urls()).toEqual([young.url, grown.url])
+  await writeFile(join(root, 'engine-state/_photo-head-picks.json'), '{}')
+  await sweep(root)
+  expect(await urls()).toEqual([grown.url, young.url])
+  expect((await sweep(root)).files).toEqual([])
+})
+
+test('a head its source names only to the genus goes behind a photo named to the species that passes as a head; a pick of it still leads; a second sweep changes nothing', async () => {
+  const root = await store()
+  await sweep(root)
+  const at = 'content/species/corydoras-sterbai/entity.json'
+  const e = await json(root, at)
+  const own = e.photos[0]
+  const genus = photo('https://media.aquatome.com/commons/genus.webp', 'Corydoras sp.')
+  await writeFile(join(root, at), JSON.stringify({ ...e, photos: [genus, own] }))
+  // Nothing named to the species passes yet: it stays.
+  expect((await sweep(root)).named).toEqual([])
+  expect((await json(root, at)).photos.map((p: { url: string }) => p.url)).toEqual([genus.url, own.url])
+  await writeFile(join(root, 'engine-state/_photo-subjects.json'), JSON.stringify({ [own.url]: { 'corydoras-sterbai': { ok: 'yes', typical: true, person: false, logo: false } } }))
+  const r = await sweep(root)
+  expect((await json(root, at)).photos.map((p: { url: string }) => p.url)).toEqual([own.url, genus.url])
+  expect(r.named).toEqual([`species/corydoras-sterbai: ${genus.url} -> ${own.url}`])
+  expect((await sweep(root)).files).toEqual([])
+  // A person's pick of it leads, reported as a pick, and stays.
+  await writeFile(join(root, 'engine-state/_photo-head-picks.json'), JSON.stringify({ 'species/corydoras-sterbai': genus.url }))
+  const picked = await sweep(root)
+  expect((await json(root, at)).photos.map((p: { url: string }) => p.url)).toEqual([genus.url, own.url])
+  expect([picked.named, picked.heads]).toEqual([[], [`species/corydoras-sterbai: ${own.url} -> ${genus.url}`]])
+  expect((await sweep(root)).files).toEqual([])
+})
+
+// 14 Nov 2026: a model filed a new spiny eel with the loaches, and the pages run's checks held its work. The sweep runs
+// before every run's checks, a held batch's retry included, so it moves such a page to the group its order allows.
+test("a species page whose order its group doesn't allow is moved to the group the order allows, its file's layout kept", async () => {
+  const root = await store()
+  const c = join(root, 'content')
+  const put = async (id: string, order: string, group: string, indent: number) => {
+    await mkdir(join(c, 'species', id), { recursive: true })
+    await writeFile(join(c, 'species', id, 'entity.json'), `${JSON.stringify({ ...species(id, 'Macrognathus x'), order, group }, null, indent)}\n`)
+  }
+  await put('macrognathus-x', 'Synbranchiformes', 'loaches', 1)
+  await put('corydoras-x', 'Siluriformes', 'loaches', 2)
+  await put('botia-x', 'Cypriniformes', 'loaches', 2)
+  const before = await readFile(join(c, 'species/macrognathus-x/entity.json'), 'utf8')
+  const r = await sweep(root)
+  expect(r.regrouped).toEqual(['corydoras-x', 'macrognathus-x'])
+  expect(r.files).toEqual(expect.arrayContaining(['species/macrognathus-x/entity.json', 'species/corydoras-x/entity.json']))
+  expect(await readFile(join(c, 'species/macrognathus-x/entity.json'), 'utf8')).toBe(before.replace('"group": "loaches"', '"group": "other"'))
+  expect((await json(root, 'content/species/corydoras-x/entity.json')).group).toBe('catfish')
+  expect((await json(root, 'content/species/botia-x/entity.json')).group).toBe('loaches')
+  expect((await sweep(root)).regrouped).toEqual([])
+})

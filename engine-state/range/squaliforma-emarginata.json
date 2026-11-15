@@ -1,0 +1,185 @@
+{
+  "id": "squaliforma-emarginata",
+  "native": {
+    "input": "89519eb1dcc8d16c",
+    "at": "2026-11-15T00:17:46.244Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The red fin thresher plec, Aphanotorulus emarginatus, is a suckermouth catfish from the Amazon region of Brazil, Ecuador, Peru and Bolivia.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The red fin thresher plec, Aphanotorulus emarginatus, is a suckermouth catfish from the Amazon region of Brazil, Ecuador, Peru and Bolivia.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The red fin thresher plec, Aphanotorulus emarginatus, is a suckermouth catfish from the Amazon region of Brazil, Ecuador, Peru and Bolivia.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The red fin thresher plec, Aphanotorulus emarginatus, is a suckermouth catfish from the Amazon region of Brazil, Ecuador, Peru and Bolivia.",
+        "words": "Bolivia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Xingú",
+        "source": "seriouslyfish",
+        "quote": "L011 hails from the Rio Xingú, L035 from the Rio Araguaia and L116 from the Rio Trombetas.",
+        "ok": true
+      },
+      {
+        "name": "Rio Araguaia",
+        "source": "seriouslyfish",
+        "quote": "L011 hails from the Rio Xingú, L035 from the Rio Araguaia and L116 from the Rio Trombetas.",
+        "ok": true
+      },
+      {
+        "name": "Rio Trombetas",
+        "source": "seriouslyfish",
+        "quote": "L011 hails from the Rio Xingú, L035 from the Rio Araguaia and L116 from the Rio Trombetas.",
+        "ok": true
+      },
+      {
+        "name": "Rio Napo",
+        "source": "seriouslyfish",
+        "quote": "L108 is native to the Rio Napo in Ecuador.",
+        "country": "EC",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Squaliforma emarginata",
+    "status": "ACCEPTED",
+    "taxonKey": 2339599,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        103
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        80
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        79
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        34
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        34
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        28
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        16
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        16
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        14
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        14
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        12
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        12
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        12
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        11
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        11
+      ],
+      [
+        "58414378-4fb2-47e0-8dd5-8b55d5c77117",
+        9
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        8
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        6
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        4
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        4
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "EC",
+      "PE",
+      "BO"
+    ],
+    "requests": 12,
+    "at": "2026-11-15T00:17:46.244Z"
+  }
+}

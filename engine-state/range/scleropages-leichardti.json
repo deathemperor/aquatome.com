@@ -1,0 +1,100 @@
+{
+  "id": "scleropages-leichardti",
+  "native": {
+    "input": "bd91143fe71d5700",
+    "at": "2026-11-14T17:19:02.525Z",
+    "claims": [
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Fitzroy River system of North-eastern Queensland, Australia.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "It's commonly known as the spotted or southern saratoga in Australia, and somewhat bizarrely is classed as a protected species in Indonesia, where it in fact has never been recorded.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Fitzroy River",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Fitzroy River system of North-eastern Queensland, Australia.",
+        "country": "AU",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Scleropages leichardti",
+    "status": "ACCEPTED",
+    "taxonKey": 2402237,
+    "datasets": [
+      [
+        "e4473544-f4cd-4429-b791-39d6e1fdb0a4",
+        120
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        41
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        22
+      ],
+      [
+        "39905320-6c8a-11de-8226-b8a03c50a862",
+        4
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "18c93d12-34fb-4d3f-903c-b77215a1dcc9",
+        1
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        1
+      ],
+      [
+        "84a649ce-ff81-420d-9c41-aa1de59e3766",
+        1
+      ],
+      [
+        "d51f93a6-a5b7-4025-83a9-3f7b8525755a",
+        1
+      ]
+    ],
+    "native": [
+      "AU"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T17:19:02.525Z"
+  }
+}

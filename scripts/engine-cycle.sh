@@ -320,6 +320,11 @@ if part rewrite; then
     ahead pnpm engine localize-equipment --lang "$lang" --limit "${LOCALIZE_EQUIPMENT_AHEAD_LIMIT:-2}"
     ahead pnpm engine localize-cards --lang "$lang"
   done
+  # Indonesian, Thai and Malay place names, each judged alone against its source's sentence (place-judge.ts), after every
+  # translation, Malay's too (the rewrites and translations spend first, cycle-languages.test.ts): the
+  # unjudged first, the lowest batch score first, JUDGE_PLACES_LIMIT a cycle (the chief of staff, 15 Nov 2026: at most
+  # 300). One that fails shows the source's name on the site until a name passes.
+  pnpm engine judge-places --limit "${JUDGE_PLACES_LIMIT:-300}" || log "judge-places: failed"
   # Diễn Đàn Cá Cảnh's guide sections, read for orientation (notes on each thread, never its text), 5 s between requests:
   # leads for breed and guide research (forum.ts).
   pnpm engine forum --limit "${FORUM_LIMIT:-10}" --pages 3 || log "forum: failed"
@@ -360,8 +365,9 @@ if part rewrite; then
     pnpm engine fit --front --limit "${FIT_FRONT_LIMIT:-6}" || log "fit: failed"
     # The reader-fit rewrite (fit-rewrite.ts): pages on the site that fail reader fit, the front list first, then the
     # most read; pages the gate held new before them (fit-front.json, lane). A run's front-list pages hold the next run's
-    # until the chief of staff has read them (fit-front.json, cleared, one run at a time).
-    pnpm engine fit-rewrite --front --limit "${FIT_REWRITE_LIMIT:-12}" || log "fit-rewrite: failed"
+    # until the chief of staff has read them (fit-front.json, cleared, one run at a time). The pages with a foreign product
+    # share the lane's place (products). 24 a run from 15 Nov, after the chief of staff read the lane's first clean run.
+    pnpm engine fit-rewrite --front --limit "${FIT_REWRITE_LIMIT:-24}" || log "fit-rewrite: failed"
   else
     log "fit-rewrite: skipped, the cycle has run $(( SECONDS / 60 )) min"
   fi

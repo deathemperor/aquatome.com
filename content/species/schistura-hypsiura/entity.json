@@ -10,6 +10,44 @@
     "myanmar",
     "kyeintali-chaung"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Kyeinthali Chaung"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The super convict loach, Schistura hypsiura, is a nemacheilid loach known only from a short coastal river in southern Rakhine State, western Myanmar.",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Myanmar: Rakhine State: Kyeinthali Chaung at Ka La Byin, about 17°56'N, 94°30'E'.",
+          "countries": [],
+          "regions": [
+            "Kyeinthali Chaung"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8117099,
+      "total": 0,
+      "fetched": "2026-11-14",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

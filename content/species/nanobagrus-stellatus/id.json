@@ -10,13 +10,18 @@
     "habitat:planetcatfish": "<p>Genus lele bagrid Nanobagrus ditemukan di seluruh kawasan Sunda di Asia Tenggara. Anggotanya biasanya menghuni sungai-sungai kecil di dalam hutan dengan arus sedang.</p>",
     "reproduction:planetcatfish": "<p>Belum dilaporkan. Tidak ada laporan pemijahan.</p>",
     "notes:planetcatfish": "<p>Anggota genus ini dibedakan dari lele bagrid lainnya oleh ukuran dewasanya yang mini (ukuran maksimum di bawah sekitar 45 mm SL); tonjolan supraoksipital yang tereduksi; elemen pelat nuchal anterior yang tereduksi; serta fontanel kranial posterior yang besar dan menonjol.</p><p>Tubuh berwarna cokelat dengan tiga baris bintik berwarna krem yang terletak di atas, di sepanjang, dan di bawah gurat sisi.</p><p>Etimologi: dari bahasa Latin, nanus, yang berarti kerdil, dan bagrus, nama sebuah genus lele yang sering dipakai untuk membentuk nama genus.</p>",
-    "references:planetcatfish": "<p>Journal of Natural History v. 34 (no. 2), pp 278, Fig. 5a.</p>"
+    "references:planetcatfish": "<p>Journal of Natural History v. 34 (no. 2), pp 278, Fig. 5a.</p>",
+    "quickFacts:scotcat": "<p>Deskripsi: Duri sirip punggung (total): 1; jari-jari lunak sirip punggung (total): 7–8; duri sirip dubur: 0; jari-jari lunak sirip dubur: 13–15; ruas tulang belakang: 34–36. Tubuh ramping (tinggi tubuh di bagian anus 14,1–15,9% SL); pangkal sirip lemak pendek (panjang pangkal sirip lemak 12,8–16,4% SL); mata besar (diameter mata 12,3–16,1% HL).</p><p>Warna: Tubuh berwarna cokelat dengan tiga baris bintik berwarna krem yang terletak di atas, di sepanjang, dan di bawah gurat sisi.</p>",
+    "distribution:scotcat": "<p>Asia: Sumatra, Indonesia. Spesies ini diketahui berasal dari daerah aliran Sungai Batang Hari di Sumatra, serta daerah aliran Sungai Pahang dan Sungai Endau di Semenanjung Malaya.</p>",
+    "notes:scotcat": "<p>Etimologi: Nama genus Nanobagrus: dari bahasa Latin, nannus = kecil + bahasa Mozarab bagre, bahasa Yunani pagros = sejenis ikan, Dentex sp. Nama spesies stellatus: dari bahasa Latin yang berarti berbintang atau berbintik, merujuk pada pola bintik berwarna krem di tubuhnya.</p><p>Daftar Merah IUCN: Potensi ancaman meliputi kerusakan habitat akibat penggundulan hutan karena penebangan kayu dan alih fungsi lahan menjadi perkebunan. Namun, dampak langsung ancaman-ancaman ini terhadap luas habitat dan status populasinya belum diketahui. Karena sebaran spesies ini luas, kecil kemungkinan jumlah lokasinya kurang dari lima. Ancaman yang meluas dianggap kecil kemungkinannya mendorong spesies ini menjadi kritis (critically endangered) atau punah dalam 1–2 generasi. Oleh karena itu, Nanobagrus stellatus dinilai berstatus Risiko Rendah (Least Concern) (IUCN 2020).</p>",
+    "references:scotcat": "<p>Froese, R. and D. Pauly. Editors. 2024. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 02/2024 ). Ng, H.H. 2020. Nanobagrus stellatus. The IUCN Red List of Threatened Species 2020. Romero, P., 2002. An etymological dictionary of taxonomy. Madrid, unpublished. Tan, H.H. and H.H. Ng 2000 The catfishes (Teleostei: Siluriformes) of central Sumatra. J. Nat. Hist. 34:267-303.</p>"
   },
   "quality": {
     "score": 0.85,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.85
+      "planetcatfish": 0.85,
+      "scotcat": 0.85
     }
   }
 }

@@ -1,0 +1,563 @@
+{
+  "found": true,
+  "sources": [
+    {
+      "url": "https://chiaki.vn/lua-hai-son-quy-chuyen-dung-setup-be-thuy-sinh-lua-hai-son-quy-da-xu-ly",
+      "title": "Lũa Hải Sơn Quỳ Trang Trí Hồ Thủy Sinh - Gỗ Chịu Nước Bố Cục Độc Đáo, Sẵn Sàng Sử Dụng cho Hồ Cá Cảnh",
+      "kind": "shop"
+    },
+    {
+      "url": "https://cabaymau.vn/cac-loai-lua-thuy-sinh/",
+      "title": "Hướng Dẫn Chi Tiết Về Lũa Thủy Sinh Và Các Loại Phổ Biến",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquasetup.com/tong-quan-cach-xu-ly-lua-thuy-sinh/",
+      "title": "Tổng quan cách xử lý lũa thủy sinh",
+      "kind": "article"
+    },
+    {
+      "url": "https://becamanhtuan.com/lua-cho-be-thuy-sinh-va-kien-thuc-co-ban-ve-chung/",
+      "title": "Lũa cho bể thủy sinh: chọn loại nào và xử lý ra sao?",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquariumcare.vn/tin-tuc/2385/cach-xu-ly-lua-thuy-sinh-cho-be-ca-cua-ban.html",
+      "title": "Cách Xử Lý Lũa Thủy Sinh Cho Bể Cá Của Bạn - Vi Sinh Cá Cảnh Aquarium Care",
+      "kind": "shop"
+    },
+    {
+      "url": "https://cacanhthaihoa.com/kien-thuc/cac-buoc-xu-ly-go-lua-cho-be-ca-thuy-sinh.html",
+      "title": "Các bước xử lý gỗ lũa cho bể cá thủy sinh",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquariumcare.vn/tin-tuc/1297/truoc-khi-setup-lua-thuy-sinh-nen-xu-ly-the-nao-.html",
+      "title": "Trước Khi Setup Lũa Thủy Sinh Nên Xử Lý Thế Nào ? - Vi Sinh Cá Cảnh Aquarium Care",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquamart.vn/lua-thuy-sinh/",
+      "title": "Lũa thủy sinh - Aqua Mart",
+      "kind": "shop"
+    },
+    {
+      "url": "https://shopthuysinh.com/lua-thuy-sinh-dung-de-setup-bo-cuc-ho-thuy-sinh/",
+      "title": "Lũa thủy sinh dùng để setup bố cục hồ thủy sinh - ShopThuySinh.com",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhxanh.vn/sp/lua-do-quyen-nguyen-khoi/",
+      "title": "Lũa đổ quyên nguyên khối - Shop Thủy Sinh Xanh",
+      "kind": "shop"
+    },
+    {
+      "url": "https://hcmtoplist.com/top-10-dia-chi-ban-lua-thuy-sinh-o-tphcm-tot-nhat",
+      "title": "Top 10 địa chỉ bán lũa thủy sinh ở TPHCM mẫu mã đẹp",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.liveaquaria.com/article/91/",
+      "title": "Freshwater Planted Aquarium Set-Up: Adding Driftwood to Your Aquarium",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquascapinglove.com/?p=1105",
+      "title": "Aquarium Driftwood Used in Aquascaping: Hardscape Essentials Part 3",
+      "kind": "article"
+    }
+  ],
+  "facts": [
+    {
+      "section": "about",
+      "fact": "Lũa is wood from tree trunks or roots that has lain in rivers, streams, lakes or the sea for a long time.",
+      "source": 1
+    },
+    {
+      "section": "about",
+      "fact": "Water and current wear away the soft outer wood and leave a hard, dense core with twisted shapes and a smooth surface.",
+      "source": 1
+    },
+    {
+      "section": "about",
+      "fact": "Lũa is the core left after a dead tree is worn by water, rots or is eaten by termites. The core resists decay because of dense cellulose or resin.",
+      "source": 5
+    },
+    {
+      "section": "about",
+      "fact": "Lũa is described as solid, pest-resistant wood from the core of old dead trees.",
+      "source": 6
+    },
+    {
+      "section": "about",
+      "fact": "Most lũa floats because it has dried for years, and it sinks only once fully waterlogged.",
+      "source": 5
+    },
+    {
+      "section": "about",
+      "fact": "Weight depends on the species and on where the piece came from in the tree. Trunk bases are heavier.",
+      "source": 5
+    },
+    {
+      "section": "about",
+      "fact": "Hard lũa sinks faster than soft lũa.",
+      "source": 2
+    },
+    {
+      "section": "about",
+      "fact": "Most lũa sold is already peeled. It has no chemicals or preservatives and generally no strong smell.",
+      "source": 1
+    },
+    {
+      "section": "about",
+      "fact": "Lũa linh sam comes in many shapes and sizes, with fine grain and many veins in places.",
+      "source": 1
+    },
+    {
+      "section": "about",
+      "fact": "Lũa bonsai is shaped like a miniature bonsai tree, with a trunk and roots worked by hand. It may have sharp edges.",
+      "source": 1
+    },
+    {
+      "section": "about",
+      "fact": "Lũa đỗ quyên has soft, curving branches. It is bright yellow when new and darkens to deep brown after soaking.",
+      "source": 1
+    },
+    {
+      "section": "about",
+      "fact": "Lũa rễ rừng is small, long, soft pieces in root clusters that look like a tangled root network.",
+      "source": 1
+    },
+    {
+      "section": "about",
+      "fact": "Lũa hải sơn quỳ is sold as a complete trunk with roots. The root base keeps it stable on the bottom.",
+      "source": 1
+    },
+    {
+      "section": "about",
+      "fact": "Lũa hải sơn quỳ is rough and gnarled, yellow with reddish-brown tones, and of Vietnamese origin.",
+      "source": 0
+    },
+    {
+      "section": "about",
+      "fact": "Lũa thạch sùng is straight wood with all or part of its bark kept, giving a rustic look.",
+      "source": 1
+    },
+    {
+      "section": "about",
+      "fact": "Lũa cholla comes from the desert cholla cactus. It is a hollow cylinder with many small holes.",
+      "source": 1
+    },
+    {
+      "section": "about",
+      "fact": "Dead mangrove wood (sú, vẹt, đước) forms in only a few years, so it is weak, not durable and of low decorative value.",
+      "source": 5
+    },
+    {
+      "section": "about",
+      "fact": "Trade names listed by one Vietnamese shop: kim sa tùng, hải sơn tùng, nhọ nồi, vân thép (san đá miếng), đỗ quyên xoắn, đỗ quyên, linh sam, xương trùm, lũa cành, hải sơn quỳ and rễ rừng.",
+      "source": 7
+    },
+    {
+      "section": "about",
+      "fact": "Hải Sơn Tùng and Ngọc Linh Sam are named as dried trees that can be used as lũa.",
+      "source": 6
+    },
+    {
+      "section": "about",
+      "fact": "Lũa linh sam, đỗ quyên and trà rừng are described as resistant to termites and rot.",
+      "source": 8
+    },
+    {
+      "section": "about",
+      "fact": "Artificial lũa made from safe materials is an option when natural lũa isn't available.",
+      "source": 4
+    },
+    {
+      "section": "about",
+      "fact": "Malaysian driftwood is dark with linear shapes and sinks. Mopani has gnarled branches and is lighter than Malaysian. American driftwood is generally light in colour and floats.",
+      "source": 12
+    },
+    {
+      "section": "water",
+      "fact": "Lũa releases tannins and humic acid, which tint the water yellow, tea-coloured or dark brown to black.",
+      "source": 1
+    },
+    {
+      "section": "water",
+      "fact": "Lũa lowers pH by about 0.5–1.0 units, which suits soft, slightly acidic water.",
+      "source": 1
+    },
+    {
+      "section": "water",
+      "fact": "Tannins lower pH slightly but do not make the water toxic. Different lũa releases different amounts of tannin.",
+      "source": 2
+    },
+    {
+      "section": "water",
+      "fact": "Tannins darken the water, are harmless to fish and slowly lower pH. Keepers use this to make the soft water many tropical fish prefer.",
+      "source": 11
+    },
+    {
+      "section": "water",
+      "fact": "Malaysian and Mopani wood lower pH. Boiling Mopani removes its pH-lowering effect.",
+      "source": 12
+    },
+    {
+      "section": "water",
+      "fact": "About 2 weeks of soaking can remove roughly 70% of the initial tannin (a hobbyist observation).",
+      "source": 1
+    },
+    {
+      "section": "water",
+      "fact": "Tannin release continues over a long period, and the wood's surface can soften after more than 5 years.",
+      "source": 1
+    },
+    {
+      "section": "water",
+      "fact": "Water changes or activated carbon in the filter reduce the tint if it gets too dark.",
+      "source": 1
+    },
+    {
+      "section": "water",
+      "fact": "Purigen or activated carbon can clear leftover tannin colour.",
+      "source": 11
+    },
+    {
+      "section": "water",
+      "fact": "If the yellow colour bothers you, change water often in the first few weeks.",
+      "source": 2
+    },
+    {
+      "section": "water",
+      "fact": "All lũa slowly breaks down over time and clouds the water. Filter wool in the filter helps.",
+      "source": 2
+    },
+    {
+      "section": "water",
+      "fact": "A white slime can appear a few days after the wood goes in. It is common, does no harm and fades as the tank settles.",
+      "source": 2
+    },
+    {
+      "section": "water",
+      "fact": "Badly prepared lũa can make the water cloudy and raise nitrate and nitrite.",
+      "source": 6
+    },
+    {
+      "section": "water",
+      "fact": "New lũa may slime (ra nhớt) unless it is soaked or boiled first.",
+      "source": 0
+    },
+    {
+      "section": "prepare",
+      "fact": "Shop-bought lũa is usually already treated. Lũa collected outdoors should be dried in strong sun for about 2 months or longer.",
+      "source": 2
+    },
+    {
+      "section": "prepare",
+      "fact": "Knock out soil and sand, brush with a dry brush, then sand off the bark, finishing with fine sandpaper.",
+      "source": 2
+    },
+    {
+      "section": "prepare",
+      "fact": "Soak for a few days to one or two weeks so the wood releases tannin and takes up water.",
+      "source": 2
+    },
+    {
+      "section": "prepare",
+      "fact": "Do not boil lũa: it can kill germs and help it waterlog, but it damages the inner structure and makes the wood break down faster.",
+      "source": 2
+    },
+    {
+      "section": "prepare",
+      "fact": "Clean off dust, boil for 1–2 hours, then soak for 1–4 weeks depending on size and type, changing the water daily, until the water stays fairly clear and the wood sinks.",
+      "source": 1
+    },
+    {
+      "section": "prepare",
+      "fact": "Hải sơn quỳ: soak for 5 to 7 days or boil for 30 minutes to 1 hour, then rinse well until no slime appears.",
+      "source": 0
+    },
+    {
+      "section": "prepare",
+      "fact": "Scrub with a stiff brush to remove dust, soil, loose bark and soft rotten spots.",
+      "source": 3
+    },
+    {
+      "section": "prepare",
+      "fact": "Boil small pieces to clean them faster. Large pieces may need repeated soaking and scrubbing instead.",
+      "source": 3
+    },
+    {
+      "section": "prepare",
+      "fact": "Don't put new lũa in the tank straight after buying it.",
+      "source": 3
+    },
+    {
+      "section": "prepare",
+      "fact": "Boil for 10–15 minutes, then move the wood to cold water.",
+      "source": 4
+    },
+    {
+      "section": "prepare",
+      "fact": "Long soak: 2–3 weeks in clean water in a large container, changing the water daily.",
+      "source": 4
+    },
+    {
+      "section": "prepare",
+      "fact": "Boil for 5–10 minutes, then cool in cold water. This is said to cut total preparation time by 50–70%.",
+      "source": 6
+    },
+    {
+      "section": "prepare",
+      "fact": "Without treatment, preparation can take 1 to 3 months depending on the type of wood.",
+      "source": 6
+    },
+    {
+      "section": "prepare",
+      "fact": "Large pieces that won't fit in a pot can be left outdoors in sun and rain.",
+      "source": 6
+    },
+    {
+      "section": "prepare",
+      "fact": "Salt method: soak in salt solution for 1 week, then in plain water for 2 to 3 weeks.",
+      "source": 5
+    },
+    {
+      "section": "prepare",
+      "fact": "Boiling also opens the wood's pores so water gets in and the wood sinks more easily. Large pieces can be treated section by section with hot water.",
+      "source": 5
+    },
+    {
+      "section": "prepare",
+      "fact": "To sink it, tie or wedge stones against it, set weights into a hole sealed with silicone, screw weights on and hide them with Anubias or java fern, or tie it to suction cups.",
+      "source": 5
+    },
+    {
+      "section": "prepare",
+      "fact": "Floating wood can be weighed down with stones or tied to base rocks until it sinks.",
+      "source": 3
+    },
+    {
+      "section": "prepare",
+      "fact": "Scrub with a clean brush and no soap or chemical cleaners. Soak fully submerged for at least 1 to 2 weeks.",
+      "source": 11
+    },
+    {
+      "section": "prepare",
+      "fact": "Change the soaking water when it darkens, using dechlorinated or RO water, until it stops colouring for several days in a row.",
+      "source": 11
+    },
+    {
+      "section": "prepare",
+      "fact": "Boil for 1 to 2 hours to speed tannin release and kill algal and fungal spores.",
+      "source": 11
+    },
+    {
+      "section": "prepare",
+      "fact": "Boil for about 1 to 3 hours. Cure for 1 to 2 weeks as a minimum, changing all the water each time.",
+      "source": 12
+    },
+    {
+      "section": "suits",
+      "fact": "Lũa gives fish and shrimp places to hide and gives plants something to attach to.",
+      "source": 2
+    },
+    {
+      "section": "suits",
+      "fact": "Betta, neon and high-quality guppy suit lũa because they prefer soft, acidic water.",
+      "source": 1
+    },
+    {
+      "section": "suits",
+      "fact": "Plecos, shrimp and snails graze the biofilm on wood. Nerite snails are recommended for cleaning new wood.",
+      "source": 1
+    },
+    {
+      "section": "suits",
+      "fact": "Shrimp, apple snails, pencilfish, otos and plecos eat the white slime on new lũa.",
+      "source": 2
+    },
+    {
+      "section": "suits",
+      "fact": "Cholla wood gives shelter to shrimp and small fry and suits shrimp tanks.",
+      "source": 1
+    },
+    {
+      "section": "suits",
+      "fact": "Linh sam suits Iwagumi or Ryuoh-style layouts, rễ rừng suits blackwater biotopes, and thạch sùng with rễ rừng suits flooded-forest layouts.",
+      "source": 1
+    },
+    {
+      "section": "suits",
+      "fact": "Moss, bucep and ráy can be tied to bonsai lũa. Shade-tolerant small-leaved plants do well under thạch sùng.",
+      "source": 1
+    },
+    {
+      "section": "suits",
+      "fact": "Moss, ferns, Bucephalandra and rhizome plants can be tied to lũa without planting them in the substrate.",
+      "source": 3
+    },
+    {
+      "section": "suits",
+      "fact": "A single compact piece suits small tanks. A main piece with side branches suits long tanks.",
+      "source": 3
+    },
+    {
+      "section": "suits",
+      "fact": "Hải sơn quỳ pieces suit tanks from 40 to 120 cm and work in rock-and-wood and biotope layouts.",
+      "source": 0
+    },
+    {
+      "section": "suits",
+      "fact": "Neon, cardinal, rummynose and bleeding heart tetras suit tea-stained blackwater tanks.",
+      "source": 11
+    },
+    {
+      "section": "suits",
+      "fact": "Java moss and java fern can be tied to driftwood with fishing line, which is removed once they attach.",
+      "source": 11
+    },
+    {
+      "section": "suits",
+      "fact": "Avoid lũa with sharp or pointed edges if you keep long-finned fish such as betta, whose fins can snag and tear.",
+      "source": 2
+    },
+    {
+      "section": "suits",
+      "fact": "Bonsai lũa with sharp edges can injure long-finned guppy or betta.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Putting fresh, undried wood in the tank.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Choosing lũa too big for a small tank, which leaves little swimming space.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Choosing lũa for its looks alone without checking it fits the tank.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Skipping proper preparation, which can lead to yellow water or mould.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Tying on too many plants, which hides the wood's shape, or crowding several pieces into a small tank.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Taking a smooth, hand-shaped piece from a roadside seller for natural lũa.",
+      "source": 5
+    },
+    {
+      "section": "mistakes",
+      "fact": "Expecting no colour in the water after treatment. Some tint is normal.",
+      "source": 5
+    },
+    {
+      "section": "mistakes",
+      "fact": "Using chemicals without expert advice, or flame treatment, which can stain or damage the wood.",
+      "source": 6
+    },
+    {
+      "section": "mistakes",
+      "fact": "Using too many chemicals when treating lũa.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Using driftwood sold for reptiles, which may contain chemicals harmful to fish.",
+      "source": 11
+    },
+    {
+      "section": "mistakes",
+      "fact": "Not anchoring large pieces, which can stay buoyant even after soaking.",
+      "source": 11
+    },
+    {
+      "section": "mistakes",
+      "fact": "Cleaning the wood with chemical cleaners.",
+      "source": 12
+    },
+    {
+      "section": "buy",
+      "fact": "Vietnamese aquarium shops sell lũa as dedicated product categories, for example Aqua Mart, Shop Thủy Sinh Xanh (Gò Vấp, HCM) and ShopThuySinh.com.",
+      "source": 7
+    },
+    {
+      "section": "buy",
+      "fact": "Shop Thủy Sinh Xanh in Gò Vấp, HCM sells whole-piece lũa đổ quyên and asks customers to call before visiting.",
+      "source": 9
+    },
+    {
+      "section": "buy",
+      "fact": "At ShopThuySinh.com, customers can choose any piece and shape they like. Wood can be used whole or built up from smaller pieces.",
+      "source": 8
+    },
+    {
+      "section": "buy",
+      "fact": "Lũa is sold per piece (by layout) or by weight. Pieces from hobbyist collectors are often of higher quality.",
+      "source": 6
+    },
+    {
+      "section": "buy",
+      "fact": "HCM shops listed for lũa include Hồ Cá Nam Hải Dương, Trung Tín, Tiệm Thủy Sinh 24h, Best AQUA, Lâm Kim Chi, Phương Nhi Aquarium, Cảnh Dương, Thuỷ Sinh Phố, AquaZone and Bảo Trân Aquarium.",
+      "source": 10
+    },
+    {
+      "section": "buy",
+      "fact": "Visit in person to compare pieces. Lâm Kim Chi takes online orders and delivers.",
+      "source": 10
+    },
+    {
+      "section": "buy",
+      "fact": "Ask how a piece was processed, check that it sinks quickly, and pick solid, hard wood whose size suits the tank.",
+      "source": 10
+    },
+    {
+      "section": "buy",
+      "fact": "Choose old, firm wood with little rot and no fresh sap. Avoid soft or spongy pieces.",
+      "source": 3
+    },
+    {
+      "section": "buy",
+      "fact": "Avoid wood with an unusual smell. Check for cracks, crumbling areas, mould and heavy rot.",
+      "source": 3
+    },
+    {
+      "section": "buy",
+      "fact": "Look for remains of twigs, roots, bark or the trunk's original shape. Natural pieces are not evenly glossy or smooth.",
+      "source": 5
+    },
+    {
+      "section": "buy",
+      "fact": "A hollow, soft or spongy inside suggests mangrove wood.",
+      "source": 5
+    },
+    {
+      "section": "buy",
+      "fact": "Check whether the lũa is already treated, how much tannin that kind releases, whether its edges are sharp, and whether its size suits the tank.",
+      "source": 2
+    },
+    {
+      "section": "buy",
+      "fact": "Check that the size fits your tank, since sizes vary, and that the weight matches the listing.",
+      "source": 0
+    },
+    {
+      "section": "buy",
+      "fact": "Confirm the driftwood is labelled safe for aquarium use.",
+      "source": 11
+    }
+  ],
+  "at": "2026-11-14"
+}

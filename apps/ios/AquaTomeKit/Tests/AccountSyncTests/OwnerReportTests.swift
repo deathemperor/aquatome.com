@@ -133,6 +133,7 @@ func itemOfPath() {
   #expect(OwnerReportPlace.item(of: "/vi/ca/ca-neon-vua/")! == ("fish", "ca-neon-vua"))
   #expect(OwnerReportPlace.item(of: "/ca/ca-neon-vua/")! == ("fish", "ca-neon-vua"))
   #expect(OwnerReportPlace.item(of: "/id/ikan/x/")! == ("fish", "x"))
+  #expect(OwnerReportPlace.item(of: "/vi/vat-lieu/lua/")! == ("material", "lua"))
   #expect(OwnerReportPlace.item(of: "/th/fish/x/")! == ("fish", "x"))
   #expect(OwnerReportPlace.item(of: "/huong-dan/thay-nuoc/")! == ("guide", "thay-nuoc"))
   #expect(OwnerReportPlace.item(of: "/video/channel/PLx/")! == ("video", "PLx"))

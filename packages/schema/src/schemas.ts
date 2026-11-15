@@ -55,7 +55,8 @@ const Alteration = z.object({
   checks:z.object({species:HashPair,ownership:HashPair,noTrace:HashPair.optional(),preservation:HashPair.optional()}).optional(),
 })
 const OriginalPicture = z.object({ url: z.string(), width: z.number(), height: z.number(), thumb: z.string().optional(), large: z.object({ url: z.string(), width: z.number(), height: z.number() }).optional() })
-const Photo = z.object({ url: z.string(), thumb: z.string().optional(), width: z.number(), height: z.number(), large: z.object({ url: z.string(), width: z.number(), height: z.number() }).optional(), licence: z.string(), author: z.string(), authorUrl: z.string().optional(), sourceUrl: z.string(), caption: z.string().optional(), source: SourceId.optional(), ownerCrop: z.object({ id: z.string(), pixelHash: Hash }).optional(), headFit: z.literal("contain").optional(), generated: Generated.optional(), altered: z.array(Alteration).optional(), original: OriginalPicture.optional(), subject: PixelBox.optional() })
+/** `sourceCaption`: the source's own description of the photo, kept where our caption replaces it (the album step), for the engine's genus rule; no page shows it. */
+const Photo = z.object({ url: z.string(), thumb: z.string().optional(), width: z.number(), height: z.number(), large: z.object({ url: z.string(), width: z.number(), height: z.number() }).optional(), licence: z.string(), author: z.string(), authorUrl: z.string().optional(), sourceUrl: z.string(), caption: z.string().optional(), sourceCaption: z.string().optional(), source: SourceId.optional(), ownerCrop: z.object({ id: z.string(), pixelHash: Hash }).optional(), headFit: z.literal("contain").optional(), generated: Generated.optional(), altered: z.array(Alteration).optional(), original: OriginalPicture.optional(), subject: PixelBox.optional() })
 export const PhotoSchema = Photo
 const Video = z.object({ youtubeId: z.string(), title: z.string(), durationSec: z.number(), lang: z.string() })
 const ProductSlot = z.object({ category: z.string(), keywords: z.array(z.string()) })
@@ -381,7 +382,12 @@ export const TranslationSchema = z.object({
   tested: z.array(CitedText).optional(),
   /** Owner-chosen main name, or a place's from the Vietnamese place-names step: the engine never replaces it. */
   nameFixed: z.boolean().optional(),
-  /** Owner-fixed text: the engine never replaces this guide's body (nameFixed's kin, for a fix made by hand). */
+  /**
+   * A place's name in another language judged alone against its source's sentence (the engine's place-judge.ts): `ok`
+   * false, and the place has no name in that language until a name passes (load.ts placeNamed).
+   */
+  nameCheck: z.object({ ok: z.boolean(), score: z.number(), at: z.string(), why: z.string().optional() }).optional(),
+  /** Owner-fixed text: the engine never replaces this guide's body, or a material page's text (nameFixed's kin, for a fix made by hand). */
   bodyFixed: z.boolean().optional(),
   /** Owner-fixed questions, set with bodyFixed on a video guide: written again, it keeps this FAQ (its other writers leave a video guide with a fixed body alone; a topic guide's and a translated guide's writers don't read this mark). */
   faqFixed: z.boolean().optional(),

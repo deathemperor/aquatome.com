@@ -1,23 +1,22 @@
 {
   "id": "betta-miniopinna",
   "native": {
-    "input": "ac276125fa86dd51",
-    "at": "2026-11-06T18:08:44.169Z",
+    "input": "aa3717e6e475c6bd",
+    "at": "2026-11-14T17:19:02.525Z",
     "claims": [
       {
         "code": "ID",
         "status": "native",
-        "source": "bwaquatics",
-        "quote": "Indonesia.",
+        "source": "seriouslyfish",
+        "quote": "Betta miniopinna is a small bubble-nesting labyrinth fish endemic to Bintan Island, Indonesia, where it is known from a few northern localities.",
         "words": "Indonesia",
-        "ok": false,
-        "why": "no sentence"
+        "ok": true
       },
       {
         "code": "ID",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Endemic to Bintan Island, Riau Islands province, Indonesia, where it is known only from a handful of localities in the northern portion of the island.",
+        "source": "bwaquatics",
+        "quote": "Betta miniopinna was described in 1994 from the remaining primary peat swamp forest on Bintan Island in the Riau Islands, Indonesia.",
         "words": "Indonesia",
         "ok": true
       }
@@ -26,7 +25,21 @@
       {
         "name": "Bintan Island",
         "source": "seriouslyfish",
-        "quote": "Endemic to Bintan Island, Riau Islands province, Indonesia, where it is known only from a handful of localities in the northern portion of the island.",
+        "quote": "Betta miniopinna is a small bubble-nesting labyrinth fish endemic to Bintan Island, Indonesia, where it is known from a few northern localities.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Bintan Island",
+        "source": "bwaquatics",
+        "quote": "Betta miniopinna was described in 1994 from the remaining primary peat swamp forest on Bintan Island in the Riau Islands, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Riau Islands",
+        "source": "bwaquatics",
+        "quote": "Betta miniopinna was described in 1994 from the remaining primary peat swamp forest on Bintan Island in the Riau Islands, Indonesia.",
         "country": "ID",
         "ok": true
       }

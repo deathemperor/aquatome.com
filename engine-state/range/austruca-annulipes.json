@@ -1,0 +1,166 @@
+{
+  "id": "austruca-annulipes",
+  "native": {
+    "input": "d42d4c9e2808b9bb",
+    "at": "2026-11-14T17:19:02.525Z",
+    "claims": [
+      {
+        "code": "PH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Philippines, Indonesia, Malaysia.",
+        "words": "Philippines",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Philippines, Indonesia, Malaysia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Philippines, Indonesia, Malaysia.",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Austruca annulipes",
+    "status": "ACCEPTED",
+    "taxonKey": 9240145,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        293
+      ],
+      [
+        "393b8c26-e4e0-4dd0-a218-93fc074ebf4e",
+        274
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        156
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        21
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        16
+      ],
+      [
+        "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+        10
+      ],
+      [
+        "9668b676-f762-11e1-a439-00145eb45e9a",
+        10
+      ],
+      [
+        "4ed1f109-0bf2-45c1-94ee-88078dc512dd",
+        8
+      ],
+      [
+        "7b84c0a2-f762-11e1-a439-00145eb45e9a",
+        7
+      ],
+      [
+        "da6a07ed-9eee-460d-9448-910f542c1a7b",
+        7
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        6
+      ],
+      [
+        "cd6fe3a0-eee9-4066-8420-e36313ed833d",
+        5
+      ],
+      [
+        "6653064e-e52e-40bd-936f-1456a33dd1de",
+        3
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        2
+      ],
+      [
+        "9e11d9e2-68b8-45a3-88dc-a79c9ccb9f77",
+        2
+      ],
+      [
+        "dc9d3765-58ed-4752-a04b-333ce5e40006",
+        2
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        2
+      ],
+      [
+        "07822a89-26a1-4e20-a733-08aae375638b",
+        1
+      ],
+      [
+        "1bfb9389-ed6e-4415-81fe-c235e56fc70d",
+        1
+      ],
+      [
+        "3e0e4ec9-1905-4cae-9691-c0fa79361ac3",
+        1
+      ],
+      [
+        "4d0b1b2a-3209-49ce-bb93-7503e4868019",
+        1
+      ],
+      [
+        "4fc42f17-eaeb-4296-949d-34b8414eb1c1",
+        1
+      ],
+      [
+        "54facf62-bf0c-43e7-9972-4fdc407fa6c5",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "7b7bb606-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "be00c56f-ab20-4418-9d3e-b55793638d09",
+        1
+      ],
+      [
+        "c6b86c40-ff71-4e5e-902c-111f400d0d56",
+        1
+      ]
+    ],
+    "native": [
+      "PH",
+      "ID",
+      "MY"
+    ],
+    "requests": 16,
+    "at": "2026-11-14T17:19:02.525Z"
+  }
+}

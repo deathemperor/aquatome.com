@@ -1,0 +1,95 @@
+{
+  "id": "sphaerichthys-vaillanti",
+  "native": {
+    "input": "8c9b8cba3aa363d3",
+    "at": "2026-11-15T00:17:46.244Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Vaillant's chocolate gourami, Sphaerichthys vaillanti, is a labyrinth fish that appears to be endemic to the Kapuas drainage in Indonesian Borneo.",
+        "words": "Indonesian",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Their origin is Kalimantan, the Indonesian part of Borneo.",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "Vaillant's chocolate gourami, Sphaerichthys vaillanti, is a labyrinth fish that appears to be endemic to the Kapuas drainage in Indonesian Borneo.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Vaillant's chocolate gourami, Sphaerichthys vaillanti, is a labyrinth fish that appears to be endemic to the Kapuas drainage in Indonesian Borneo.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Danau Sentarum",
+        "source": "seriouslyfish",
+        "quote": "It appears to be endemic to the Kapuas drainage where it's also been recorded from the Danau Sentarum lake system itself as well as further downstream near the city of Sintang.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "glaser",
+        "quote": "Their origin is Kalimantan, the Indonesian part of Borneo.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Kalimantan",
+        "source": "glaser",
+        "quote": "Their origin is Kalimantan, the Indonesian part of Borneo.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Sphaerichthys vaillanti",
+    "status": "ACCEPTED",
+    "taxonKey": 2394136,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-15T00:17:46.244Z"
+  }
+}

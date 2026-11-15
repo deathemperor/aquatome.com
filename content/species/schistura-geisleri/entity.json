@@ -10,6 +10,66 @@
     "thailand",
     "chao-phraya"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Chao Phraya",
+        "Mekong",
+        "Tapi River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Schistura geisleri is a small nemacheilid loach widespread in the Chao Phraya river system of western Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Widespread throughout much of western Thailand in the Chao Phraya river system, and has been recorded from headwaters of the Mekong in the northern province of Chiang Rai and the Tapi River basin in southern (peninsular) Surat Thani province.",
+          "countries": [],
+          "regions": [
+            "Chao Phraya",
+            "Mekong",
+            "Tapi River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5204984,
+      "total": 6,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "TH",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          18.28125,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

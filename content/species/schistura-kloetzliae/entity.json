@@ -11,6 +11,67 @@
     "mekong",
     "laos"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "LA"
+      ],
+      "regions": [
+        "Mengla River",
+        "Mekong",
+        "Nanlahae",
+        "Mozhehe",
+        "Nam Youan"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Schistura kloetzliae is a nemacheilid loach known only from the Mengla River system in Yunnan, China, and Luang Namtha province, northern Laos.",
+          "countries": [
+            "CN",
+            "LA"
+          ],
+          "regions": [
+            "Mengla River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Mengla is a tributary of the upper Mekong basin and S. kloetzliae has been collected from several of its tributaries including the Nanlahae, Mozhehe, and Nam Youan.",
+          "countries": [],
+          "regions": [
+            "Mekong",
+            "Nanlahae",
+            "Mozhehe",
+            "Nam Youan"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5204964,
+      "total": 3,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "LA",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          21.09375,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

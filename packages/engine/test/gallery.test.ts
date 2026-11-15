@@ -10,6 +10,7 @@ import { mirrorPlan } from '../src/mirror-photos'
 import { WikimediaRefused } from '../src/wikimedia-rest'
 import { breedNames, commonsCandidates, dhash, galleries, isSetup, orderAlbums, rankGallery, screenedAt, screenTagged, VET_SCHEMA, type GalleryDeps, type GalleryPhoto, type Look, type Vet } from '../src/gallery'
 import { slow } from '@aq/schema/test-time'
+import { knownNames, namedAs } from '../src/photo-named'
 
 const meta = (licence: string, artist = '<a href="x">Ann</a>, [[User:Bo K|Bo]]') => ({ LicenseShortName: { value: licence }, Artist: { value: artist } })
 const info = (title: string, licence: string, width = 2000) => ({
@@ -56,6 +57,24 @@ test("commons: a file whose own categories or description say it is a drawing, f
   })
   expect(asked).toBe('LicenseShortName|Artist|ImageDescription|Categories')
   expect(c.map(x => x.key)).toEqual(['File:A.jpg'])
+})
+
+test("commons: a candidate keeps its file's own description beside the caption the album step writes, for the genus rule (the chief of staff, 2026-11-14)", async () => {
+  const withMeta = (title: string, extra: Record<string, { value: string }>) => { const x = info(title, 'CC BY 4.0'); Object.assign(x.imageinfo[0]!.extmetadata, extra); return x }
+  const all: Record<string, unknown> = {
+    'File:Pseudoplatystoma tigrinum1.jpg': withMeta('File:Pseudoplatystoma tigrinum1.jpg', { ImageDescription: { value: 'Tiger sorubim <i>Pseudoplatystoma fasciatum</i>' } }),
+    'File:B.jpg': info('File:B.jpg', 'CC BY 4.0'),
+  }
+  const c = await commonsCandidates('Pseudoplatystoma fasciatum', async (u: string) => {
+    const q = new URL(u).searchParams
+    if (q.get('list') === 'categorymembers') return { query: { categorymembers: Object.keys(all).map(title => ({ ns: 6, title })) } }
+    if (q.get('list') === 'search') return { query: { search: [] } }
+    return { query: { pages: Object.fromEntries(q.get('titles')!.split('|').map((t, i) => [String(i), all[t]])) } }
+  })
+  expect(c.map(x => [x.key, x.sourceCaption])).toEqual([['File:Pseudoplatystoma tigrinum1.jpg', 'Tiger sorubim Pseudoplatystoma fasciatum'], ['File:B.jpg', undefined]])
+  // The album step writes our caption and keeps the source's words beside it.
+  const { kept } = await screenTagged([c[0]!], 'Pseudoplatystoma fasciatum', 'Cá da trơn mũi xẻng', deps({ look: async (f, p) => keepAll(f, p, 1) }))
+  expect(kept[0]!.photo).toMatchObject({ caption: 'ảnh 1', sourceCaption: 'Tiger sorubim Pseudoplatystoma fasciatum' })
 })
 
 test('commons: files with long names are asked for in addresses the server takes, each file once', async () => {
@@ -714,4 +733,17 @@ test('last item cost refuses admission without calls or content writes', async (
     expect(report.failed).toEqual([])
     expect(calls).toBe(0)
   })
+})
+
+test("gallery order: a photo its source names only to the genus or as another fish goes behind those named to the species, among the sure and the can't-tell alike, and stays", () => {
+  const p = (id: string, title: string): GalleryPhoto => ({ url: id, width: 1000, height: 800, licence: 'CC BY', author: 'a', sourceUrl: `https://commons.wikimedia.org/wiki/File:${title}.jpg`, kind: 'male' })
+  const page = { sci: 'Heros severus', known: knownNames([{ scientificName: 'Heros severus' }, { scientificName: 'Heros notatus' }]) }
+  const named = (x: GalleryPhoto) => namedAs(x, page)
+  const photos = [p('notatus', 'Heros_notatus01'), p('a', 'Heros_severus_1'), p('unsure-genus', 'Heros_sp'), p('b', 'Heros_severus_2'), p('unsure', 'Heros_severus_3')]
+  const cantTell = (u: string) => u.startsWith('unsure')
+  const at = screenedAt(['File:Heros notatus01.jpg', 'File:Heros severus 1.jpg', 'File:Heros sp.jpg', 'File:Heros severus 2.jpg', 'File:Heros severus 3.jpg'])
+  expect(rankGallery(photos, cantTell, at).map(x => x.url)).toEqual(['notatus', 'a', 'b', 'unsure-genus', 'unsure'])
+  const once = rankGallery(photos, cantTell, at, () => ({}), named)
+  expect(once.map(x => x.url)).toEqual(['a', 'b', 'notatus', 'unsure', 'unsure-genus'])
+  expect(rankGallery(once, cantTell, at, () => ({}), named)).toEqual(once)
 })

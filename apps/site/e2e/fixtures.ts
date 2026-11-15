@@ -12,7 +12,8 @@ export const test = base.extend<{ errors: string[] }>({
     await page.route(url => url.origin !== own || url.pathname === '/_e', route => route.abort())
     const errors: string[] = []
     page.on('pageerror', e => errors.push(`exception: ${e.message}`))
-    page.on('console', m => { if (m.type() === 'error' && !/Failed to load resource|net::ERR_FAILED/.test(m.text())) errors.push(`console: ${m.text()}`) })
+    // WebKit words a blocked beacon its own way.
+    page.on('console', m => { if (m.type() === 'error' && !/Failed to load resource|net::ERR_FAILED|^Beacon API cannot load \S+\/_e\b/.test(m.text())) errors.push(`console: ${m.text()}`) })
     await use(errors)
   }, { auto: true }],
 })

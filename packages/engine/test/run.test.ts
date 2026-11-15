@@ -125,6 +125,25 @@ test('second identical run makes no llm calls and changes no file', async () => 
   expect(await tree(root)).toEqual(before)
 })
 
+test("a re-read whose page no longer shows our photos never leaves the page with none: the old ones stay, held for a person's second look", async () => {
+  // 14 Nov 2026: a pages rewrite took Betta rutilans' only photo when the shop's page no longer gave it, and Commons had none.
+  const root = await fresh()
+  await runEngine(deps(root, { urls: ['paracheirodon-axelrodi'] }).d, { sources: ['seriouslyfish'] })
+  const file = join(root, 'content/species/paracheirodon-axelrodi/entity.json')
+  const before = JSON.parse(await readFile(file, 'utf8')).photos as { url: string }[]
+  expect(before.length).toBeGreaterThan(0)
+  const { d } = deps(root, { urls: ['paracheirodon-axelrodi'] })
+  const html = fx('pages/seriouslyfish-cardinal.html').replace(/<img\b[^>]*>/gi, '')
+  d.fetcher.get = async (u: string) => ({ status: 200, html, finalUrl: u })
+  const http = d.http
+  d.http = async (u: string) => { if (u.includes('gbif')) return http(u); throw new Error('HTTP 500') }
+  await runEngine(d, { sources: ['seriouslyfish'], only: /axelrodi/, force: true })
+  expect((JSON.parse(await readFile(file, 'utf8')).photos as { url: string }[]).map(p => p.url)).toEqual(before.map(p => p.url))
+  const held = JSON.parse(await readFile(join(root, 'engine-state/_photo-second-look.json'), 'utf8'))
+  expect(Object.keys(held).sort()).toEqual(before.map(p => p.url).sort())
+  for (const u of before.map(p => p.url)) expect(held[u]).toMatchObject({ step: 'the pages rewrite', pages: ['species/paracheirodon-axelrodi'] })
+})
+
 test('force re-translates only the pages matched by `only`, even when unchanged', async () => {
   const root = await fresh()
   await runEngine(deps(root, { urls: ['paracheirodon-axelrodi', 'symphysodon-discus'] }).d, { sources: ['seriouslyfish'] })

@@ -10,6 +10,50 @@
     "indonesia",
     "sumatra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Sumatra"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the provinces of Aceh and West Sumatra, Sumatra, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Sumatra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2376117,
+      "total": 20,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "ID",
+          20
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          -1.40625,
+          20,
+          20
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

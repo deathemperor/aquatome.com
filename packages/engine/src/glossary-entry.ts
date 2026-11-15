@@ -9,7 +9,7 @@ import { isMarketplace } from './marketplaces'
 import { logReviews, readReviews } from './review-log'
 import { withTanks } from './round'
 import { sanitizeHtml, unescapePlain } from './sanitize'
-import { checkSentences, rewordLoose, stopNote } from './glossary-facts'
+import { checkSentences, droppedInRewrite, rewordLoose, stopNote } from './glossary-facts'
 import { genera, judgeKindNames, kindNames } from './glossary-names'
 import { FACTS_SCHEMA, researchPrompt, viFacts, type TopicFacts } from './topics'
 
@@ -41,6 +41,12 @@ type Asks = {
    * 600 is the chief of staff's word.
    */
   length?: { words: number; why: string }
+  /**
+   * What a rewrite of the saved entry may take out (droppedInRewrite): sentences, a passage's or a phrase, each exactly as
+   * the entry writes it, read by the chief of staff before the run. A review note never frees a sentence (the seventh read,
+   * 15 Nov 2026).
+   */
+  free?: string[]
 }
 const ASKS = JSON.parse(readFileSync(new URL('./glossary-asks.json', import.meta.url), 'utf8')) as Record<string, Asks>
 const ENTRY_SCHEMA = {
@@ -254,6 +260,9 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     : o.revise && vi.body ? { score: vi.quality.score, broken: 0, notes: [], entry: { definition: vi.definition ?? '', altNames: [], body: vi.body, related: entity.related ?? [] } } satisfies Draft
       : null
   if ((o.fromDraft || o.accept) && (!draft || !saved)) return { id, refused: [`no kept draft${saved ? '' : ' or research'} to ${o.accept ? 'accept' : 'revise'}`] }
+  // A revision starts from the saved entry, which the drop check holds it to: never from a kept draft (the eighth read's
+  // Sonnet reviewer: with --from-draft as well, the draft stood in for the saved text).
+  if (o.revise && (o.fromDraft || o.accept)) return { id, refused: ['--revise starts from the saved entry, not with --from-draft or --accept'] }
   if (o.revise && (!draft || !saved)) return { id, refused: [`no saved entry${saved ? '' : ' or research'} to revise`] }
   if (draftText !== null) {
     const traces = (await readReviews(root, 'glossary'))[`vi/glossary/${id}`] ?? []
@@ -329,15 +338,18 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     const [f, r] = await Promise.all([checkSentences(d.llm, forWriter, e), rules(e)])
     const long = lengthNotes(e.body, named, asks.length?.words)
     const unborne = f.stops.map(stopNote)
-    return { score: f.score, notes: [...unborne, ...r, ...long.notes], broken: r.length + long.notes.length, stops: unborne.length + r.filter(stops).length + (long.stop ? 1 : 0), loose: f.loose }
+    return { score: f.score, notes: [...unborne, ...r, ...long.notes], broken: r.length + long.notes.length, stops: unborne.length + r.filter(stops).length + (long.stop ? 1 : 0), loose: f.loose, stopped: f.stops }
   }
-  type Checked = { score: number; notes: string[]; broken: number; stops?: number; loose?: Awaited<ReturnType<typeof checkSentences>>['loose'] }
+  type Checked = { score: number; notes: string[]; broken: number; stops?: number; loose?: Awaited<ReturnType<typeof checkSentences>>['loose']; stopped?: Awaited<ReturnType<typeof checkSentences>>['stops'] }
   const stopping = (r: Checked) => r.stops ?? r.broken
   const passes = (r: Checked) => r.score >= QUALITY_THRESHOLD && !stopping(r)
-  // Saved beats unsaved; then fewer notes that stop, a fact score at the bar, fewer notes of advice; then, but for a
-  // revision of a kept draft, the better grounded. Fact notes aren't counted: the check caps them at ten and they
-  // include remarks that a line is supported (Lũa's eighth).
-  const rank = (r: Checked) => [passes(r) ? 0 : 1, stopping(r), r.score >= QUALITY_THRESHOLD ? 0 : 1, r.broken - stopping(r)]
+  // Saved beats unsaved; then fewer notes that stop, a fact score at the bar, fewer house rules unmet, fewer notes of
+  // advice; then, but for a revision of a kept draft, the better grounded. Fact notes aren't counted: the check caps them at
+  // ten and they include remarks that a line is supported (Lũa's eighth). An unmet rule, the term's own notes among them,
+  // outranks a length under its stop (the chief of staff, 15 Nov 2026: chu trình nitơ's rewrite put its seeding sentence
+  // back, ran 476 words of 450, tied with the saved text that hadn't, and lost the tie).
+  const unmet = (r: Checked) => r.notes.filter(n => ruleNumbers(n).length && !stops(n)).length
+  const rank = (r: Checked) => [passes(r) ? 0 : 1, stopping(r), r.score >= QUALITY_THRESHOLD ? 0 : 1, unmet(r), r.broken - stopping(r)]
   const better = (r: Checked, b: Checked) => {
     const [x, y] = [rank(r), rank(b)]
     const i = x.findIndex((v, j) => v !== y[j])
@@ -362,16 +374,30 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     // A rewrite on the notes, and a second while the best still isn't saved (the chief of staff, 14 Nov 2026: Lũa's fifth
     // left six rule breaks after its one rewrite).
     // A fresh draft or a revised entry gets one rewrite on any notes, a kept draft one past its length (its trim pass).
-    for (let i = 0; i < 2 && (!passes(review) || (i === 0 && (!draft || o.revise || review.notes.some(isLength)) && review.notes.length)); i++) {
-      const again = await write(review.notes, w)
+    // A rewrite of a saved entry may take out only what a stop note or the term's `free` list lets go (the chief of staff,
+    // 15 Nov 2026: each of pH's and chu trình nitơ's revisions fixed what was asked and dropped something already read). What
+    // it took out of any other sentence stops it from being saved, and goes back to the writer once more, against the text
+    // the rewrites started from. A fresh draft, which no one has read, is trimmed as it must be.
+    const start = w
+    const freed: NonNullable<Checked['stopped']> = []
+    let dropped: string[] = []
+    for (let i = 0; i < 2 && (!passes(review) || (i === 0 && (!draft || o.revise || review.notes.some(isLength)) && review.notes.length) || dropped.length); i++) {
+      const notes = [...review.notes, ...dropped]
+      // A sentence the fact check stopped may go from where it stood.
+      freed.push(...(review.stopped ?? []))
+      const again = await write(notes, w)
+      dropped = o.revise ? droppedInRewrite(start, again, forWriter, freed, [...pages.flatMap(l => l.split(' | ').slice(0, 2)), ...kindNames(start, taxa).fit.map(k => k.name)], asks.free) : []
       const r = await check(again)
+      if (dropped.length) { r.notes = [...dropped, ...r.notes]; r.stops = stopping(r) + dropped.length; r.broken += dropped.length }
       tries.push(r)
       if (better(r, review)) { w = again; review = r }
     }
     // The middle path for loose, once, on the entry about to be saved; what it did is logged with the entry's notes. The
-    // whole entry is read again after it, and a sentence that read stops keeps it from being saved, kept for a reader.
+    // whole entry is read again after it, and a sentence that read stops keeps it from being saved, kept for a reader. The
+    // house rules are read again too, and a rewording one of their notes is about, or one that drops a figure, a named
+    // example (the pages' names, the kinds') or a caution, goes back to its old wording.
     if (passes(review) && review.loose?.length) {
-      const m = await rewordLoose(d.llm, o.writeModel ?? 'opus', forWriter, w, review.loose)
+      const m = await rewordLoose(d.llm, o.writeModel ?? 'opus', forWriter, w, review.loose, { rules, names: [...pages.flatMap(l => l.split(' | ').slice(0, 2)), ...kindNames(w, taxa).fit.map(k => k.name)] })
       w = m.entry
       // The reworded entry is the one saved, so its length is counted again: past the cap, it stops (Codex, 14 Nov 2026).
       const long = lengthNotes(w.body, named, asks.length?.words)

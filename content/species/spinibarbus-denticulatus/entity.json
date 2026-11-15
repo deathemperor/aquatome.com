@@ -10,6 +10,76 @@
     "china",
     "vietnam"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "VN"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This large barb originates from the south of China and the north of Vietnam.",
+          "countries": [
+            "CN",
+            "VN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2365468,
+      "total": 27,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "VN",
+          22
+        ],
+        [
+          "CN",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          37.96875,
+          2,
+          2
+        ],
+        [
+          105.46875,
+          15.46875,
+          20,
+          20
+        ],
+        [
+          105.46875,
+          22.5,
+          3,
+          3
+        ],
+        [
+          111.09375,
+          22.5,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -1,0 +1,81 @@
+{
+  "id": "schistura-kloetzliae",
+  "native": {
+    "input": "683ef64034ef0ec4",
+    "at": "2026-11-14T17:19:02.525Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Schistura kloetzliae is a nemacheilid loach known only from the Mengla River system in Yunnan, China, and Luang Namtha province, northern Laos.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Schistura kloetzliae is a nemacheilid loach known only from the Mengla River system in Yunnan, China, and Luang Namtha province, northern Laos.",
+        "words": "Laos",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mengla River",
+        "source": "seriouslyfish",
+        "quote": "Schistura kloetzliae is a nemacheilid loach known only from the Mengla River system in Yunnan, China, and Luang Namtha province, northern Laos.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "The Mengla is a tributary of the upper Mekong basin and S. kloetzliae has been collected from several of its tributaries including the Nanlahae, Mozhehe, and Nam Youan.",
+        "ok": true
+      },
+      {
+        "name": "Nanlahae",
+        "source": "seriouslyfish",
+        "quote": "The Mengla is a tributary of the upper Mekong basin and S. kloetzliae has been collected from several of its tributaries including the Nanlahae, Mozhehe, and Nam Youan.",
+        "ok": true
+      },
+      {
+        "name": "Mozhehe",
+        "source": "seriouslyfish",
+        "quote": "The Mengla is a tributary of the upper Mekong basin and S. kloetzliae has been collected from several of its tributaries including the Nanlahae, Mozhehe, and Nam Youan.",
+        "ok": true
+      },
+      {
+        "name": "Nam Youan",
+        "source": "seriouslyfish",
+        "quote": "The Mengla is a tributary of the upper Mekong basin and S. kloetzliae has been collected from several of its tributaries including the Nanlahae, Mozhehe, and Nam Youan.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Schistura kloetzliae",
+    "status": "ACCEPTED",
+    "taxonKey": 5204964,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ]
+    ],
+    "native": [
+      "CN",
+      "LA"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T17:19:02.525Z"
+  }
+}

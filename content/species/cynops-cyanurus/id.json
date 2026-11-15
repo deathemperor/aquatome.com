@@ -8,7 +8,6 @@
     "Salamanader perut api chuxiong"
   ],
   "sections": {
-    "distribution:glaser": "<p>Menurut pemasoknya, newt ini dikoleksi dari Provinsi Hubei, Tiongkok.</p>",
     "maintenance:glaser": "<p>Newt perut api dari genus Cynops adalah newt yang sangat cocok untuk akuarium. Sebagian besar individunya bisa dengan mudah dibiasakan hidup di air sepanjang tahun.</p>",
     "diet:glaser": "<p>Hidup di air membuat pemberian pakan jauh lebih mudah. Di darat, newt sangat suka bersembunyi dan hanya mau makan pakan hidup, sedangkan di air mereka juga mau menerima pakan beku.</p>"
   },
@@ -18,11 +17,5 @@
     "bySource": {
       "glaser": 0.85
     }
-  },
-  "held": {
-    "checks": [
-      "source"
-    ],
-    "at": "2026-11-13"
   }
 }

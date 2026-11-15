@@ -1,6 +1,6 @@
 import { execFileSync } from 'node:child_process'
 import { existsSync } from 'node:fs'
-import { cp, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { cp, mkdir, mkdtemp, readdir, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
@@ -13,6 +13,7 @@ import { plantsWithoutPlanting } from '../src/planting'
 import { lastKept, logReviews, readReviews } from '../src/review-log'
 import { needsFetch, type UrlState } from '../src/state'
 import { rewriteExisting } from '../src/vi-backfill'
+import { gateMend } from '../src/video-mend'
 import { VI_WRITE } from '../src/vi-rewrite'
 
 const FIXTURE = new URL('../../../apps/site/test/fixture-content', import.meta.url).pathname
@@ -174,6 +175,11 @@ test('a text put back is kept, with its checks and their quotes: the text before
   await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Đặt hàng ở Petco.</p>` })
   expect((await gate(root, { llm: reader(), now, mend: async () => false })).report.revert).toHaveLength(1)
   expect((await readJson(root, PUT_BACK)).text.body).toContain('Đặt hàng ở Petco')
+  // A mend refused with why: put back the same, and the run lists the page and the reason (the chief of staff, 14 Nov 2026).
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Đặt hàng ở Petco nữa.</p>` })
+  const refused = await gate(root, { llm: reader(), now, mend: async () => ({ refused: 'a sentence no finding names was changed or left out: "x"' }) })
+  expect(refused.report.revert).toHaveLength(1)
+  expect(refused.report.refused).toEqual([expect.stringMatching(/^\/vi\/huong-dan\/.+\/: a sentence no finding names was changed or left out: "x"$/)])
 })
 
 test('advice that would hurt is never the mender\'s to reword, and it mends so many pages a run', async () => {
@@ -324,6 +330,29 @@ test('a page held by hand is held in every language it has, with no read, whatev
   await gate(root, { llm: reader(calls), now })
   expect(calls.length).toBeGreaterThan(0)
   for (const f of [VI, MS]) expect((await readJson(root, f)).held, f).toBeUndefined()
+})
+
+// The chief of staff, 14 Nov 2026: the gallery posts of other people's tanks and the seller-site notices go off for good,
+// every address forwarding (@aq/schema retired.ts). Each is held in every language, unread, whatever writes it.
+test('a guide off the site for good is held in every language, with no read, whatever writes it', async () => {
+  const root = await repo()
+  const id = '2hraquarist-blogs-aquascaping-ideas-a-tank-of-someone-else'
+  const dir = `content/guides/${id}`
+  await cp(join(root, 'content/guides/youtube-r53ZQW0m8VM'), join(root, dir), { recursive: true })
+  await edit(root, `${dir}/entity.json`, e => { e.id = id })
+  await edit(root, `${dir}/vi.json`, t => { t.slug = 'mot-be-cua-nguoi-khac'; delete t.held })
+  const langs = (await readdir(join(root, dir))).filter(f => /^[a-z]{2}\.json$/.test(f))
+  const calls: string[] = []
+  await gate(root, { llm: reader(calls), now })
+  expect(calls).toHaveLength(0)
+  for (const f of langs) expect((await readJson(root, `${dir}/${f}`)).held, f).toEqual({ checks: ['off'], at: '2026-11-15' })
+  save(root, 'retired')
+
+  // A writer that drops the hold: held again, still unread.
+  await edit(root, `${dir}/vi.json`, t => { delete t.held; t.body = '<p>Viết lại.</p>' })
+  await gate(root, { llm: reader(calls), now })
+  expect(calls).toHaveLength(0)
+  expect((await readJson(root, `${dir}/vi.json`)).held).toEqual({ checks: ['off'], at: '2026-11-15' })
 })
 
 test('with the accounts out, a new page waits held and a live one keeps its committed text; over the limit too', async () => {
@@ -944,6 +973,24 @@ test('a video guide held already goes to its editor only within the run\'s held 
   expect((await readJson(root, GUIDE)).body).not.toContain('Petco')
 })
 
+// The chief of staff, 15 Nov 2026: the cloud's gate sent 12 held video guides a cycle to their editor, and each failed on its
+// transcript (GitHub's runners have no yt-dlp) before any model call: a run's mend and a log line each, for nothing.
+test('the gate on GitHub\'s runners has no video mender: a held guide is sent nowhere and logs no failure; the Mac\'s gate sends it', async () => {
+  const root = await repo()
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Mua ở Petco.</p>`; t.held = { checks: ['shop'], at: '2026-11-08' } })
+  save(root, 'held')
+  const asked: string[] = []
+  const fetch = async (id: string): Promise<string | null> => { asked.push(id); throw new Error('yt-dlp: command not found') }
+  const yt = { transcript: fetch, transcribe: fetch }
+  const cloud = await gate(root, { llm: reader(), now, mend: gateMend(root, { llm: reader(), yt }, 'github'), heldMends: 1 })
+  expect(asked).toEqual([])
+  expect(cloud.report.failed).toEqual([])
+  expect((await readJson(root, GUIDE)).held).toEqual({ checks: ['shop'], at: '2026-11-08' })
+  const mac = await gate(root, { llm: reader(), now, mend: gateMend(root, { llm: reader(), yt }, 'mac'), heldMends: 1 })
+  expect(asked).toEqual(['r53ZQW0m8VM'])
+  expect(mac.report.failed).toEqual([expect.stringContaining('mend: yt-dlp: command not found')])
+})
+
 // Astra's read of 14 Nov 2026: a guide held for harm, read now with a shop only, went to its editor and out.
 test('a guide held for harm, a kit or a dose never goes to its editor, and stays held for it, though its read now finds only a shop', async () => {
   const root = await repo()
@@ -981,4 +1028,49 @@ test('a mended text that can\'t be read again is put back, so the file and the r
   const t = await readJson(root, 'content/guides/youtube-new-shop/vi.json')
   expect(t.body).toBe(body)
   expect(t.held).toEqual({ checks: ['shop'], at: '2026-11-09' })
+})
+
+// The chief of staff, 14 Nov 2026: three of the night's seven new video guides were held for the source talking and units
+// together, which no editor took; one also for the video's own dose. The editor takes source and units together, never
+// units alone, and a dose it may take (video-mend.ts decides); a held dose goes to it only while the read still finds it.
+const dosed = (calls: string[] = []): Llm => (async (a: { prompt: string }) => {
+  const r = await reader(calls)(a as Parameters<Llm>[0]) as { findings: object[] }
+  return { ...r, findings: [...r.findings, ...(a.prompt.includes('4 nắp') ? [{ check: 'dose', part: 'P1', quote: 'bể này dùng khoảng 4 nắp', why: 'an amount', fix: '', product: '' }] : [])] }
+}) as Llm
+const dropper = (root: string, sent: string[]) => async (p: Page, fs: FitFinding[]) => {
+  sent.push(`${p.id}: ${[...new Set(fs.map(f => f.check))].sort().join(', ')}`)
+  await edit(root, `content/guides/${p.id}/vi.json`, t => { t.body = (t.body as string).replace(/<p>[^<]*(?:Petco|4 nắp)[^<]*<\/p>/g, '') })
+  return true
+}
+test('a new video guide held for a source line and units goes to its editor; units alone doesn\'t', async () => {
+  const root = await repo()
+  const dir = 'content/guides/youtube-r53ZQW0m8VM'
+  for (const id of ['youtube-new-both', 'youtube-new-units']) {
+    await cp(join(root, dir), join(root, `content/guides/${id}`), { recursive: true })
+    await edit(root, `content/guides/${id}/entity.json`, e => { e.id = id })
+  }
+  await edit(root, 'content/guides/youtube-new-both/vi.json', t => { t.slug = 'new-both'; t.body = '<p>Mua lọc ở Petco.</p><p>Bể 10 gallon là đủ.</p>' })
+  await edit(root, 'content/guides/youtube-new-units/vi.json', t => { t.slug = 'new-units'; t.body = '<p>Bể 10 gallon là đủ.</p>' })
+  const sent: string[] = []
+  await gate(root, { llm: reader(), now, mend: dropper(root, sent), jobs: 1 })
+  expect(sent).toEqual(['youtube-new-both: shop, units'])
+})
+
+test('a guide held for the video\'s own dose goes to its editor while the read finds it, and stays held for it when the read doesn\'t', async () => {
+  const root = await repo()
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Châm vi sinh ngay, bể này dùng khoảng 4 nắp.</p>`; t.held = { checks: ['dose'], at: '2026-11-08' } })
+  save(root, 'held')
+  const sent: string[] = []
+  const r = await gate(root, { llm: dosed(), now, mend: dropper(root, sent), heldMends: 1 })
+  expect(sent).toEqual(['youtube-r53ZQW0m8VM: dose'])
+  expect(r.report.release).toHaveLength(1)
+  expect((await readJson(root, GUIDE)).body).not.toContain('4 nắp')
+  // Held for a dose the read no longer finds, beside a shop: not sent, and held for the dose still.
+  const again = await repo()
+  await edit(again, GUIDE, t => { t.body = `${t.body as string}<p>Mua ở Petco.</p>`; t.held = { checks: ['dose'], at: '2026-11-08' } })
+  save(again, 'held')
+  const none: string[] = []
+  await gate(again, { llm: dosed(), now, mend: dropper(again, none), heldMends: 1 })
+  expect(none).toEqual([])
+  expect((await readJson(again, GUIDE)).held).toEqual({ checks: ['dose', 'shop'], at: '2026-11-09' })
 })

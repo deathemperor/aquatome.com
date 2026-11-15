@@ -1,10 +1,13 @@
 {
   "slug": "guiana-shield",
-  "name": "Guiana Shield",
-  "altNames": [],
+  "name": "khiên Guiana",
+  "altNames": [
+    "Guiana Shield"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

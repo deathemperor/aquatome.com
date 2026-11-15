@@ -1,0 +1,84 @@
+{
+  "id": "schistura-schultzi",
+  "native": {
+    "input": "d51c70aa3aac0d95",
+    "at": "2026-11-14T17:19:02.525Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Schistura schultzi is a nemacheilid loach from Mekong tributaries in northern Thailand, and probably also Bokeo province in Laos.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Schistura schultzi is a nemacheilid loach from Mekong tributaries in northern Thailand, and probably also Bokeo province in Laos.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Huey Melao on Doi Hua Mot, northern Thailand' and the full extent of its range is unclear.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded from tributaries within the Mekong watershed in Chiang Rai and Loei provinces, northern Thailand where it may also occur in the Mae Nam Nan river system, while it can probably also be found in Bokeo province, Laos.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded from tributaries within the Mekong watershed in Chiang Rai and Loei provinces, northern Thailand where it may also occur in the Mae Nam Nan river system, while it can probably also be found in Bokeo province, Laos.",
+        "words": "Laos",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Schistura schultzi is a nemacheilid loach from Mekong tributaries in northern Thailand, and probably also Bokeo province in Laos.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Mae Nam Nan",
+        "source": "seriouslyfish",
+        "quote": "It's been recorded from tributaries within the Mekong watershed in Chiang Rai and Loei provinces, northern Thailand where it may also occur in the Mae Nam Nan river system, while it can probably also be found in Bokeo province, Laos.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "LA"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Schistura schultzi",
+    "status": "ACCEPTED",
+    "taxonKey": 5205027,
+    "datasets": [],
+    "native": [
+      "TH"
+    ],
+    "requests": 2,
+    "at": "2026-11-14T17:19:02.525Z"
+  }
+}

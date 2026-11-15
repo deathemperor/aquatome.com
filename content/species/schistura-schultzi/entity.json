@@ -12,6 +12,47 @@
     "laos",
     "bokeo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Mekong",
+        "Mae Nam Nan"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Schistura schultzi is a nemacheilid loach from Mekong tributaries in northern Thailand, and probably also Bokeo province in Laos.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Mekong"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's been recorded from tributaries within the Mekong watershed in Chiang Rai and Loei provinces, northern Thailand where it may also occur in the Mae Nam Nan river system, while it can probably also be found in Bokeo province, Laos.",
+          "countries": [],
+          "regions": [
+            "Mae Nam Nan"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205027,
+      "total": 0,
+      "fetched": "2026-11-14",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

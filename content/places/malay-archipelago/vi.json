@@ -1,10 +1,13 @@
 {
   "slug": "malay-archipelago",
-  "name": "Malay Archipelago",
-  "altNames": [],
+  "name": "quần đảo Mã Lai",
+  "altNames": [
+    "Malay Archipelago"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

@@ -11,6 +11,97 @@
     "mekong",
     "cambodia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "KH"
+      ],
+      "regions": [
+        "Koh Chang",
+        "Cardamon mountain range",
+        "Mekong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The ornate tiger sand loach, Pogonoschistura kohchangensis, is a nemacheilid loach from southeastern Thailand and southwestern Cambodia.",
+          "countries": [
+            "TH",
+            "KH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from Koh Chang island plus Chon Buri, Rayong, Chanthaburi and Trat provinces, southeastern Thailand, and the northern end of the Cardamon mountain range, southwestern Cambodia.",
+          "countries": [],
+          "regions": [
+            "Koh Chang",
+            "Cardamon mountain range"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's also expected to occur in tributaries of the lower Mekong drainage in both Thailand and Cambodia.",
+          "countries": [],
+          "regions": [
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205066,
+      "total": 6,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "TH",
+          5
+        ],
+        [
+          "KH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          11.25,
+          1,
+          1
+        ],
+        [
+          101.25,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          11.25,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

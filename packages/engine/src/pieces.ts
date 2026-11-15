@@ -107,6 +107,7 @@ export const WRAPPED: Record<string, string> = {
   'write-ideas': 'ideas.ts', summaries: 'summaries.ts', 'rewrite-vi': 'vi-backfill.ts', 'fit-rewrite': 'fit-rewrite.ts',
   localize: 'localize.ts', 'localize-guides': 'topics.ts', reader: 'reader.ts', run: 'run.ts', videos: 'youtube.ts',
   gallery: 'gallery.ts', 'album-ask': 'album-ask.ts', 'review-backfill': 'review-backfill.ts', 'review-backfill-97': 'review-backfill.ts', material: 'materials.ts',
+  'judge-places': 'place-judge.ts',
 }
 /** Steps with no engine items to check. */
 export const ONE_CALL: Record<string, string> = {
@@ -117,5 +118,6 @@ export const ONE_CALL: Record<string, string> = {
   'card-crops': 'Reserved ceiling; no engine CLI handler in this checkout.',
   'chat-board': 'Ceiling set ahead of its step; no engine CLI handler yet. When one lands, it goes on WRAPPED or here with its reason.',
   'glossary-entry': 'Ceiling set ahead of its step; no engine CLI handler yet. When one lands, it goes on WRAPPED or here with its reason.',
+  'quota-road-test': "The AI lead's end-to-end test of the board's quota road, outside the engine, on 15 Nov alone: four calls it logs itself.",
 
 }

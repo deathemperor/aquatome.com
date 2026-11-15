@@ -6,6 +6,26 @@
   "genus": "Scolichthys",
   "group": "livebearers",
   "places": [],
+  "range": {
+    "records": {
+      "taxonKey": 2349717,
+      "total": 4,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "GT",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -90,
+          15.46875,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

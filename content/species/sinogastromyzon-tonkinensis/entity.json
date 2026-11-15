@@ -11,6 +11,83 @@
     "red-river",
     "vietnam"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VN",
+        "CN"
+      ],
+      "regions": [
+        "Red River",
+        "Lixianjiang River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Lai Chau, Tonkin, northern Vietnam', in the lower Red River system, and this species appears endemic to that drainage in Yunnan province, southern China and northern Vietnam.",
+          "countries": [
+            "VN",
+            "CN"
+          ],
+          "regions": [
+            "Red River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In 2009 at a locality in the Menyejiang River, a tributary of the Lixianjiang River within the Red River basin, Puer County, Yunnan province, China, it was collected alongside the congener Sinogastromyzon macrostoma plus Vanmanenia sp., Beaufortia sp., Garra sp. and Pseudecheneis paviei.",
+          "countries": [],
+          "regions": [
+            "Lixianjiang River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358685,
+      "total": 9,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "VN",
+          8
+        ],
+        [
+          "CN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          21.09375,
+          5,
+          5
+        ],
+        [
+          102.65625,
+          22.5,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          37.96875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -10,6 +10,118 @@
     "papua-new-guinea",
     "normanby-island"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PG"
+      ],
+      "regions": [
+        "New Guinea",
+        "Normanby",
+        "New Hanover",
+        "Bougainville"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Letak Creek, 25 kilometers southeast of Wewak, Papua New Guinea' with additional records from northern New Guinea and the islands of Normanby, New Hanover, and Bougainville off the northeastern coast of Papua New Guinea.",
+          "countries": [
+            "PG"
+          ],
+          "regions": [
+            "New Guinea",
+            "Normanby",
+            "New Hanover",
+            "Bougainville"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208963,
+      "total": 12,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "PG",
+          8
+        ],
+        [
+          "AU",
+          2
+        ],
+        [
+          "ID",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          129.375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          135,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          143.4375,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          144.84375,
+          -18.28125,
+          1,
+          0
+        ],
+        [
+          144.84375,
+          -16.875,
+          1,
+          0
+        ],
+        [
+          149.0625,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          150.46875,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          151.875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          151.875,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          154.6875,
+          -7.03125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

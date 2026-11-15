@@ -11,6 +11,66 @@
     "venezuela",
     "rio-atrato"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Rio Atrato"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "atratoensis: after the type locality, the Rio Atrato in Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Rio Atrato"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354716,
+      "total": 10,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "CO",
+          9
+        ],
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          5.625,
+          6,
+          6
+        ],
+        [
+          -77.34375,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          -71.71875,
+          -14.0625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

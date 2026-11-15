@@ -1,0 +1,79 @@
+{
+  "id": "sphaerichthys-selatanensis",
+  "native": {
+    "input": "0327bfdfaecaabe0",
+    "at": "2026-11-15T00:17:46.244Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Native to southern Borneo (Indonesia).",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from close to the city of Banjarmasin in South Kalimantan (Kalimantan Selatan), Borneo, Indonesia, and appears well distributed in southern Borneo, having also been recorded from close to the settlement of Sampit several hundred kilometres east in Central Kalimantan (Kalimantan Tengah) province.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "bwaquatics",
+        "quote": "Native to southern Borneo (Indonesia).",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Described from close to the city of Banjarmasin in South Kalimantan (Kalimantan Selatan), Borneo, Indonesia, and appears well distributed in southern Borneo, having also been recorded from close to the settlement of Sampit several hundred kilometres east in Central Kalimantan (Kalimantan Tengah) province.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "glaser",
+        "quote": "The species originates from Kalimantan in the southeast part of the island of Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Kalimantan",
+        "source": "glaser",
+        "quote": "The species originates from Kalimantan in the southeast part of the island of Borneo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Sphaerichthys selatanensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2394129,
+    "datasets": [
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        5
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-15T00:17:46.244Z"
+  }
+}

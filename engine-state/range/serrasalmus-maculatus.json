@@ -1,0 +1,205 @@
+{
+  "id": "serrasalmus-maculatus",
+  "native": {
+    "input": "22a771a84b357e13",
+    "at": "2026-11-15T00:17:46.244Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the rio Guaporé in Mato Grosso state, western Brazil but now considered widespread in the Amazon, Paraguay and Paraná river systems in Colombia, Peru, Brazil, Bolivia, Paraguay, Uruguay and Argentina.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the rio Guaporé in Mato Grosso state, western Brazil but now considered widespread in the Amazon, Paraguay and Paraná river systems in Colombia, Peru, Brazil, Bolivia, Paraguay, Uruguay and Argentina.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the rio Guaporé in Mato Grosso state, western Brazil but now considered widespread in the Amazon, Paraguay and Paraná river systems in Colombia, Peru, Brazil, Bolivia, Paraguay, Uruguay and Argentina.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the rio Guaporé in Mato Grosso state, western Brazil but now considered widespread in the Amazon, Paraguay and Paraná river systems in Colombia, Peru, Brazil, Bolivia, Paraguay, Uruguay and Argentina.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the rio Guaporé in Mato Grosso state, western Brazil but now considered widespread in the Amazon, Paraguay and Paraná river systems in Colombia, Peru, Brazil, Bolivia, Paraguay, Uruguay and Argentina.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "UY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the rio Guaporé in Mato Grosso state, western Brazil but now considered widespread in the Amazon, Paraguay and Paraná river systems in Colombia, Peru, Brazil, Bolivia, Paraguay, Uruguay and Argentina.",
+        "words": "Uruguay",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the rio Guaporé in Mato Grosso state, western Brazil but now considered widespread in the Amazon, Paraguay and Paraná river systems in Colombia, Peru, Brazil, Bolivia, Paraguay, Uruguay and Argentina.",
+        "words": "Argentina",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Described from the rio Guaporé in Mato Grosso state, western Brazil but now considered widespread in the Amazon, Paraguay and Paraná river systems in Colombia, Peru, Brazil, Bolivia, Paraguay, Uruguay and Argentina.",
+        "ok": true
+      },
+      {
+        "name": "Paraguay",
+        "source": "seriouslyfish",
+        "quote": "Described from the rio Guaporé in Mato Grosso state, western Brazil but now considered widespread in the Amazon, Paraguay and Paraná river systems in Colombia, Peru, Brazil, Bolivia, Paraguay, Uruguay and Argentina.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Paraná",
+        "source": "seriouslyfish",
+        "quote": "Described from the rio Guaporé in Mato Grosso state, western Brazil but now considered widespread in the Amazon, Paraguay and Paraná river systems in Colombia, Peru, Brazil, Bolivia, Paraguay, Uruguay and Argentina.",
+        "ok": true
+      },
+      {
+        "name": "Rio Guaporé",
+        "source": "seriouslyfish",
+        "quote": "Described from the rio Guaporé in Mato Grosso state, western Brazil but now considered widespread in the Amazon, Paraguay and Paraná river systems in Colombia, Peru, Brazil, Bolivia, Paraguay, Uruguay and Argentina.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Serrasalmus maculatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2354117,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        257
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        122
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        84
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        83
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        81
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        64
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        60
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        33
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        33
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        30
+      ],
+      [
+        "58414378-4fb2-47e0-8dd5-8b55d5c77117",
+        24
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        23
+      ],
+      [
+        "ada824f0-5741-4f99-8452-9bcf46472a84",
+        4
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "d4b3cce1-4594-47bb-b1e2-1ace65458a11",
+        2
+      ],
+      [
+        "f8ba5386-8b91-4976-95bd-692e5d105eae",
+        2
+      ],
+      [
+        "527885fc-bae8-48fd-8e13-349bb6dae9b8",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "CO",
+      "PE",
+      "BR",
+      "BO",
+      "PY",
+      "UY",
+      "AR"
+    ],
+    "requests": 12,
+    "at": "2026-11-15T00:17:46.244Z"
+  }
+}

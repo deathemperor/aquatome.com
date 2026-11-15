@@ -11,6 +11,40 @@
     "borneo",
     "mentaya"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Mentaya River",
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The giant chocolate gourami, Sphaerichthys acrostoma, is a small gourami known only from the Mentaya River drainage in Indonesian Borneo.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Mentaya River",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394135,
+      "total": 0,
+      "fetched": "2026-11-15",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

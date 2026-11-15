@@ -1,0 +1,62 @@
+{
+  "id": "schistura-kodaguensis",
+  "native": {
+    "input": "ee0dc776c94ab2db",
+    "at": "2026-11-14T17:19:02.525Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Schistura kodaguensis is a small nemacheilid loach from the Western Ghats of Karnataka, India, confirmed only from a tributary of the Cauvery.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Kotu Hola, near Merkara, Karnataka, India' which corresponds to Kootu Hole near Madikeri in Coorg District within the Western Ghats mountains of southwestern Karnataka.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Western Ghats",
+        "source": "seriouslyfish",
+        "quote": "Schistura kodaguensis is a small nemacheilid loach from the Western Ghats of Karnataka, India, confirmed only from a tributary of the Cauvery.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Cauvery",
+        "source": "seriouslyfish",
+        "quote": "Its wider distribution is unclear, with the single confirmed locality a tributary stream in the Cauvery (Kaveri) River system.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Schistura kodaguensis",
+    "status": "ACCEPTED",
+    "taxonKey": 9665967,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T17:19:02.525Z"
+  }
+}

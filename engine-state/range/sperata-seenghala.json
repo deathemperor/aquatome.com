@@ -1,0 +1,151 @@
+{
+  "id": "sperata-seenghala",
+  "native": {
+    "input": "6f8c2f99944943a1",
+    "at": "2026-11-15T00:17:46.244Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Sperata seenghala (Sykes, 1839). Common name: Giant River-catfish. Type locality: Deccan, India. Maximum size 150 cm SL. Temperature 20–25°C, pH 6.0–7.0.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "AF",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Afghanistan, Pakistan, India, Nepal and Bangladesh, including the Krishna, Ganges (Padma) and Indus basins.",
+        "words": "Afghanistan",
+        "ok": true
+      },
+      {
+        "code": "PK",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Afghanistan, Pakistan, India, Nepal and Bangladesh, including the Krishna, Ganges (Padma) and Indus basins.",
+        "words": "Pakistan",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Afghanistan, Pakistan, India, Nepal and Bangladesh, including the Krishna, Ganges (Padma) and Indus basins.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "NP",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Afghanistan, Pakistan, India, Nepal and Bangladesh, including the Krishna, Ganges (Padma) and Indus basins.",
+        "words": "Nepal",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Afghanistan, Pakistan, India, Nepal and Bangladesh, including the Krishna, Ganges (Padma) and Indus basins.",
+        "words": "Bangladesh",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Krishna",
+        "source": "planetcatfish",
+        "quote": "Asia: Afghanistan, Pakistan, India, Nepal and Bangladesh, including the Krishna, Ganges (Padma) and Indus basins.",
+        "ok": true
+      },
+      {
+        "name": "Ganges",
+        "source": "planetcatfish",
+        "quote": "Asia: Afghanistan, Pakistan, India, Nepal and Bangladesh, including the Krishna, Ganges (Padma) and Indus basins.",
+        "ok": true
+      },
+      {
+        "name": "Indus",
+        "source": "planetcatfish",
+        "quote": "Asia: Afghanistan, Pakistan, India, Nepal and Bangladesh, including the Krishna, Ganges (Padma) and Indus basins.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Sperata seenghala",
+    "status": "ACCEPTED",
+    "taxonKey": 2338061,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        90
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        60
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        7
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        4
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        2
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        2
+      ],
+      [
+        "50dc97cf-251f-471e-997d-2f9d7d39a1be",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "9613ee46-eb0d-49fe-9ea6-f23bb27adadd",
+        1
+      ],
+      [
+        "a4202e55-050a-46a2-9c56-8b8507015ce7",
+        1
+      ],
+      [
+        "ed820bdb-4345-4143-a280-4fbffaacd31d",
+        1
+      ]
+    ],
+    "native": [
+      "IN",
+      "AF",
+      "PK",
+      "NP",
+      "BD"
+    ],
+    "requests": 12,
+    "at": "2026-11-15T00:17:46.244Z"
+  }
+}

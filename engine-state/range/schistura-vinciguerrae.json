@@ -1,0 +1,117 @@
+{
+  "id": "schistura-vinciguerrae",
+  "native": {
+    "input": "9c72bfa5a00926c7",
+    "at": "2026-11-14T17:19:02.525Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Schistura vinciguerrae is a nemacheilid loach from the Irrawaddy, Salween and Chindwin river basins in Myanmar and northeastern India.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Schistura vinciguerrae is a nemacheilid loach from the Irrawaddy, Salween and Chindwin river basins in Myanmar and northeastern India.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Meekalam, Myanmar', corresponding to an area in current-day Tanintharyi Region, Myanmar, and this species is known from the Irrawaddy and Salween river basins in Myanmar, plus the Chindwin watershed in Myanmar and northeastern India.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Meekalam, Myanmar', corresponding to an area in current-day Tanintharyi Region, Myanmar, and this species is known from the Irrawaddy and Salween river basins in Myanmar, plus the Chindwin watershed in Myanmar and northeastern India.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Unconfirmed records also exist from the Salween basin in Yunnan Province, China.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "At one locality in Myanmar it was collected from fast-flowing channels with bare substrates, close to a waterfall.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Irrawaddy",
+        "source": "seriouslyfish",
+        "quote": "Schistura vinciguerrae is a nemacheilid loach from the Irrawaddy, Salween and Chindwin river basins in Myanmar and northeastern India.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Salween",
+        "source": "seriouslyfish",
+        "quote": "Schistura vinciguerrae is a nemacheilid loach from the Irrawaddy, Salween and Chindwin river basins in Myanmar and northeastern India.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Chindwin",
+        "source": "seriouslyfish",
+        "quote": "Schistura vinciguerrae is a nemacheilid loach from the Irrawaddy, Salween and Chindwin river basins in Myanmar and northeastern India.",
+        "country": "MM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CN"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Schistura vinciguerrae",
+    "status": "ACCEPTED",
+    "taxonKey": 5205021,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        17
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        16
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        5
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ]
+    ],
+    "native": [
+      "MM",
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T17:19:02.525Z"
+  }
+}

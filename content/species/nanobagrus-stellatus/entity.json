@@ -19,10 +19,15 @@
         "ID"
       ],
       "regions": [
-        "Sumatra"
+        "Sumatra",
+        "Batang Hari",
+        "Pahang",
+        "Endau",
+        "Malay Peninsula"
       ],
       "sources": [
-        "planetcatfish"
+        "planetcatfish",
+        "scotcat"
       ],
       "quotes": [
         {
@@ -33,6 +38,17 @@
           ],
           "regions": [
             "Sumatra"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "This species is known from the Batang Hari drainage in Sumatra, and the Pahang and Endau river drainages in the Malay Peninsula.",
+          "countries": [],
+          "regions": [
+            "Batang Hari",
+            "Pahang",
+            "Endau",
+            "Malay Peninsula"
           ]
         }
       ]

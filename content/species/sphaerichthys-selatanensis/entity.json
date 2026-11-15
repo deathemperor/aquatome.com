@@ -11,6 +11,73 @@
     "borneo",
     "kalimantan-selatan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Kalimantan"
+      ],
+      "sources": [
+        "bwaquatics",
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "bwaquatics",
+          "quote": "Native to southern Borneo (Indonesia).",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Borneo"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The species originates from Kalimantan in the southeast part of the island of Borneo.",
+          "countries": [],
+          "regions": [
+            "Kalimantan"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394129,
+      "total": 6,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "ID",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          111.09375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          113.90625,
+          -2.8125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

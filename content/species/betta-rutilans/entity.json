@@ -19,9 +19,11 @@
       "regions": [
         "Borneo",
         "Mempawah",
-        "Kepayang"
+        "Kepayang",
+        "Kapuas"
       ],
       "sources": [
+        "bwaquatics",
         "seriouslyfish"
       ],
       "quotes": [
@@ -31,16 +33,25 @@
           "countries": [
             "ID"
           ],
-          "regions": []
+          "regions": [
+            "Borneo"
+          ]
         },
         {
           "source": "seriouslyfish",
           "quote": "The species has been collected from localities connected with the rivers Mempawah and Kepayang close to the town of Anjungan in Kalimantan Barat (West Kalimantan) province, Borneo, Indonesia.",
           "countries": [],
           "regions": [
-            "Borneo",
             "Mempawah",
             "Kepayang"
+          ]
+        },
+        {
+          "source": "bwaquatics",
+          "quote": "Betta rutilans is found in the Kapuas basin in West Kalimantan, Borneo.",
+          "countries": [],
+          "regions": [
+            "Kapuas"
           ]
         }
       ]
