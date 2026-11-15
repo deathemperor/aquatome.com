@@ -60,9 +60,16 @@ test("videos: an email address an uploader wrote into a title is never stored, n
   expect(videoTitle('mailto:fishroom@example.com Betta')).toBe('Betta')
   expect(videoTitle('Apistogramma jürgen.müller@example.de')).toBe('Apistogramma')
   expect(videoTitle('Apistogramma ju\u0308rgen.mu\u0308ller@example.de')).toBe('Apistogramma')
-  // Nothing away from the address changes, and a file name with an "@" is no address.
+  expect(videoTitle('Betta (fishroom@example.com) [a.keeper@example.org]')).toBe('Betta')
+  expect(videoTitle('「fishroom@example.com」 Betta')).toBe('Betta')
+  expect(videoTitle("Betta o'brien@example.com, a&b@example.org")).toBe('Betta')
+  expect(videoTitle('Betta, fishroom@example.com.')).toBe('Betta.')
+  expect(videoTitle('Betta -- fishroom@example.com -- Fish')).toBe('Betta -- Fish')
+  // Nothing away from the address changes, an accent written as a letter and a mark included, and a file name with an
+  // "@" is no address.
   expect(videoTitle('Temp: -2°C :-) -- Hello ! fishroom@example.com')).toBe('Temp: -2°C :-) -- Hello !')
-  for (const t of ['Discus 4K@60fps.mp4', 'Rescape 1080p@60fps.mov HD', 'Koi@2.5kg', 'fish @ home w/@Some.Channel']) expect(videoTitle(t)).toBe(t)
+  expect(videoTitle('Ca\u0301 betta fishroom@example.com')).toBe('Ca\u0301 betta')
+  for (const t of ['Discus 4K@60fps.mp4', 'Rescape 1080p@60fps.mov HD', 'Clip@60fps.webp HD', 'Clip@60fps.ts HD', 'Koi@2.5kg', 'fish @ home w/@Some.Channel']) expect(videoTitle(t)).toBe(t)
   // Thai and Chinese run their words together: the words beside an address stay.
   expect(videoTitle('ปลากัดป่าfishroom@example.com')).toBe('ปลากัดป่า')
   expect(videoTitle('野生斗鱼fishroom@example.com')).toBe('野生斗鱼')
