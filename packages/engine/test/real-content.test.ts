@@ -210,11 +210,14 @@ const SOURCE_FIGURES = [
 // metric stays as the source has it (the glass tetra's 60 × 38 cm, 68 litres, which add up, as 60 × 40 × 30 doesn't);
 // litres we converted from US gallons are rounded, with "about" (the black ghost's 200, 300, 450 and 700); and the
 // decorator crab's breeding line keeps the source's words, our labelled note beside it, and the page is out. Each part
-// fixed, so no read of the source, translation or mender changes it.
+// fixed, so no read of the source, translation or mender changes it, and the English says the same, as a language not yet
+// written is translated from it. Whether the crab stays out is the gate's: its hold isn't held here.
 test("the chief of staff's rulings on the source figures stay, each part fixed", () => {
   const root = fileURLToPath(new URL('../../../content/species', import.meta.url))
   const read = (id: string, file: string) => JSON.parse(readFileSync(join(root, id, file), 'utf8'))
-  const fixed = (id: string, key: string, source: string) => (read(id, 'entity.json').sections as { key: string; source: string; fixed?: boolean }[]).find(s => s.key === key && s.source === source)?.fixed
+  const parts = (id: string) => read(id, 'entity.json').sections as { key: string; source: string; html: string; fixed?: boolean }[]
+  const fixed = (id: string, key: string, source: string) => parts(id).find(s => s.key === key && s.source === source)?.fixed
+  const english = (id: string, key: string, source: string) => parts(id).find(s => s.key === key && s.source === source)!.html
   const tetra = read('moenkhausia-oligolepis', 'vi.json').sections['aquariumSize:seriouslyfish']
   expect(tetra).toContain('Đáy bể 60 × 38 cm. Thể tích khoảng 68 lít.')
   expect(tetra).toContain('Một bể 60 × 38 × 30 cm, tức khoảng 68 lít')
@@ -228,14 +231,35 @@ test("the chief of staff's rulings on the source figures stay, each part fixed",
     expect(ghost, lang).not.toMatch(/208|284|454|681/)
   }
   expect(fixed('apteronotus-albifrons', 'aquariumSize', 'aquariumcoop')).toBe(true)
-  const note = { vi: 'Ghi chú của AquaTome:</strong> Chỉ tắt sục khí trong lúc gom ấu trùng, rồi bật lại ngay.', id: 'Catatan AquaTome:</strong>', th: 'หมายเหตุจาก AquaTome:</strong>' } as const
+  expect(english('apteronotus-albifrons', 'aquariumSize', 'aquariumcoop')).toMatch(/about 200 litres.*about 300 litres.*about 450 or 700 litres/)
+  expect(english('apteronotus-albifrons', 'aquariumSize', 'aquariumcoop')).not.toMatch(/208|284|454|681|gallon/)
+  const note = {
+    vi: '<p><strong>Ghi chú của AquaTome:</strong> Chỉ tắt sục khí trong lúc gom ấu trùng, rồi bật lại ngay.</p>',
+    id: '<p><strong>Catatan AquaTome:</strong> Hentikan aerasi hanya selama mengumpulkan larva, lalu segera nyalakan kembali.</p>',
+    th: '<p><strong>หมายเหตุจาก AquaTome:</strong> หยุดให้อากาศเฉพาะระหว่างรวบรวมลูกปูวัยอ่อนเท่านั้น แล้วกลับมาให้อากาศทันที</p>',
+  } as const
   for (const [lang, said] of Object.entries(note)) {
     const t = read('camposcia-retusa', `${lang}.json`) as Translation
-    expect(t.held, lang).toBeUndefined()
-    expect(t.sections!['reproduction:aquatome'], lang).toContain(said)
+    expect(t.sections!['reproduction:aquatome'], lang).toBe(said)
     expect(t.sections!['reproduction:aquariumbreeder'], lang).toMatch(/26[.,]7–28[.,]9/)
   }
+  expect(english('camposcia-retusa', 'reproduction', 'aquatome')).toBe("<p><strong>AquaTome's note:</strong> Turn the aeration off only while gathering the larvae, then back on straight away.</p>")
+  const breeding = parts('camposcia-retusa').map(s => `${s.key}:${s.source}`)
+  expect(breeding.indexOf('reproduction:aquatome')).toBe(breeding.indexOf('reproduction:aquariumbreeder') + 1)
   expect(fixed('camposcia-retusa', 'reproduction', 'aquatome')).toBe(true)
+  expect(fixed('camposcia-retusa', 'reproduction', 'aquariumbreeder')).toBe(true)
+  // The engine's figure steps find nothing to change in any of them: the mender (which doesn't read `fixed`) and the rounding.
+  const ruled = [['moenkhausia-oligolepis', 'aquariumSize:seriouslyfish', ['vi']], ['apteronotus-albifrons', 'aquariumSize:aquariumcoop', ['vi', 'id', 'th']],
+    ['camposcia-retusa', 'reproduction:aquariumbreeder', ['vi', 'id', 'th']]] as const
+  for (const [id, part, langs] of ruled) {
+    const en = englishOf(read(id, 'entity.json').sections)
+    for (const lang of langs) {
+      const text = (read(id, `${lang}.json`) as Translation).sections![part]!
+      const m = mendPart(text, en.sections[part]!, lang)
+      expect(m && 'text' in m ? m.text : text, `${lang} ${id} mender`).toBe(text)
+      expect(roundPage({ sections: { [part]: text } }, lang, en).sections![part], `${lang} ${id} rounding`).toBe(text)
+    }
+  }
 })
 
 test.each(SOURCE_FIGURES)("the source's own figures: %s %s keeps the English's tank", async (lang, id, part, want) => {
