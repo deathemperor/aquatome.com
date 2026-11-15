@@ -100,8 +100,8 @@ test("a loop says how a card frames it, fill or whole, and the calendar keeps th
     licence: 'CC BY 4.0', licenceUrl: 'https://creativecommons.org/licenses/by/4.0/', author: 'Someone', source: 'https://commons.wikimedia.org/wiki/File:X.webm',
   }
   const read = (frame?: string) => CurationSchema.safeParse({ version: 1, weeks: [], days: [], loops: { x: { ...loop, frame } } })
-  expect(read('fill').data?.loops?.x.frame).toBe('fill')
-  expect(read('whole').data?.loops?.x.frame).toBe('whole')
-  expect(read().data?.loops?.x.frame).toBeUndefined()
+  expect(read('fill').data?.loops?.x?.frame).toBe('fill')
+  expect(read('whole').data?.loops?.x?.frame).toBe('whole')
+  expect(read().data?.loops?.x?.frame).toBeUndefined()
   for (const frame of ['crop', 'Fill', '']) expect(read(frame).success, frame).toBe(false)
 })
