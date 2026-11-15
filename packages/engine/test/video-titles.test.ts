@@ -169,3 +169,12 @@ test("tidyTitle, the second reviewer's cases: a figure already written with a se
   expect(tidyTitle('Ikan Paracheirodon (Cheirodon) axelrodi', 'id')).toBe('Ikan Paracheirodon (Cheirodon) axelrodi')
   expect(tidyTitle('Lọc thùng Eheim 2217 Jr.', 'vi')).toBe('Lọc thùng Eheim 2217 Jr.')
 })
+
+test("tidyTitle drops a bracket repeating words the title gave anywhere before it, and writes the page's scientific name in the page's capitals (the editors, round 8)", () => {
+  expect(tidyTitle('Cá da trơn Amblyceps foratum bạch tạng (Amblyceps foratum) hiếm', 'vi')).toBe('Cá da trơn Amblyceps foratum bạch tạng hiếm')
+  expect(tidyTitle('Ikan Paracheirodon (Cheirodon) axelrodi', 'id')).toBe('Ikan Paracheirodon (Cheirodon) axelrodi')
+  expect(tidyTitle('Cá Betta và cá Corydoras (Corydoras paleatus)', 'vi')).toBe('Cá Betta và cá Corydoras (Corydoras paleatus)')
+  expect(tidyTitle('Siput Nerite Waigiensis red racer (Vittina Waigiensis)', 'id', 'Vittina waigiensis')).toBe('Siput Nerite Waigiensis red racer (Vittina waigiensis)')
+  expect(tidyTitle('Ikan Discus (Symphysodon discus)', 'ms', 'Symphysodon aequifasciatus')).toBe('Ikan Discus (Symphysodon discus)')
+  expect(tidyTitle('Cá Vittina waigiensisx', 'vi', 'Vittina waigiensis')).toBe('Cá Vittina waigiensisx')
+})

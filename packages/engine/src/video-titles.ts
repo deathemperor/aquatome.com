@@ -25,13 +25,18 @@ const TIDY: Record<Lang, { about: string; litres: string; thousands: string; par
 
 /**
  * A title as kept, the same every run whatever the model wrote (the editors, 15 Nov): no full stop at the end (an
- * abbreviation keeps its dot); no bracket that only repeats the name before it, which "the page's name, then the scientific
- * name in brackets" writes when the page is named by its scientific name. With the page's language: a gallon size's litres
+ * abbreviation keeps its dot); no bracket that only repeats words the title gave before it, which "the page's name, then the
+ * scientific name in brackets" writes when the page is named by its scientific name; the page's scientific name in the
+ * page's capitals. With the page's language: a gallon size's litres
  * say "about" where no word stands before the number ("more than" stays), and carry the language's thousands mark, a part number takes no comma before it, and a page name's "fish"
  * word ("Ikan", "Cá") is lower case after the title's first word.
  */
-export function tidyTitle(title: string, lang?: Lang): string {
-  let t = title.trim().replace(/\s*\(([^()]+)\)/g, (m, inner: string, at: number, all: string) => /\p{L}.*\p{L}.*\p{L}/u.test(inner) && new RegExp(`(^|\\s)${inner.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`, 'iu').test(all.slice(0, at).trim()) ? '' : m)
+export function tidyTitle(title: string, lang?: Lang, scientificName?: string): string {
+  const escaped = (s: string) => s.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  // A bracket whose words the title already gave, as whole words, anywhere before it ("… Amblyceps foratum bạch tạng (Amblyceps foratum)").
+  let t = title.trim().replace(/\s*\(([^()]+)\)/g, (m, inner: string, at: number, all: string) => /\p{L}.*\p{L}.*\p{L}/u.test(inner) && new RegExp(`(^|\\s)${escaped(inner)}(?=[\\s,]|$)`, 'iu').test(all.slice(0, at).trim()) ? '' : m)
+  // The page's scientific name as the page spells it: a video's "Vittina Waigiensis" is the page's "Vittina waigiensis" (the editors, round 8).
+  if (scientificName) t = t.replace(new RegExp(`(?<!\\p{L})${escaped(scientificName)}(?!\\p{L})`, 'giu'), scientificName)
   const w = lang && TIDY[lang]
   if (w) {
     t = t.replace(new RegExp(`(gallons?|galon|gelen|แกลลอน) \\((\\S+ )?(\\d[\\d.,]*) ${w.litres}\\)`, 'g'), (m, unit: string, before: string | undefined, n: string) => {
@@ -50,7 +55,7 @@ export function tidyTitle(title: string, lang?: Lang): string {
 
 type Video = { youtubeId: string; title: string; lang: string }
 type Page = { t?: { name?: string }; name?: string }
-type Todo = Video & { about: string }
+type Todo = Video & { about: string; scientificName?: string }
 
 /** Whether a translated title can be kept: written in the page's language, and not the foreign title handed back. */
 export function titleFits(text: string, original: string, lang: Lang): boolean {
@@ -87,7 +92,7 @@ export async function translateVideoTitles(root: string, llm: Llm, lang: Lang, o
       const name = t.t?.name ?? t.name ?? e?.name ?? id
       for (const v of e?.videos ?? e?.reviews?.videos ?? []) {
         if (speaksPageLang(v, lang) || todo.has(v.youtubeId) || v.youtubeId in kept || (o.only ? !o.only.includes(v.youtubeId) : !o.redo && v.youtubeId in done)) continue
-        todo.set(v.youtubeId, { ...v, about: e?.scientificName ? `${name}, ${e.scientificName}` : name })
+        todo.set(v.youtubeId, { ...v, about: e?.scientificName ? `${name}, ${e.scientificName}` : name, scientificName: e?.scientificName })
       }
     }
   }
@@ -106,7 +111,7 @@ export async function translateVideoTitles(root: string, llm: Llm, lang: Lang, o
         for (const x of r.titles ?? []) {
           const v = batch[x.n - 1]
           if (!v) continue
-          const text = tidyTitle(x.title ?? '', lang)
+          const text = tidyTitle(x.title ?? '', lang, v.scientificName)
           if (titleFits(text, v.title, lang)) { done[v.youtubeId] = text; report.titles++; report.left-- } else report.rejected.push(`${v.youtubeId}: ${v.title} -> ${text}`)
         }
         await save() // after every batch: a stopped run keeps what it finished
