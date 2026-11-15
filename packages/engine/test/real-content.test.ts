@@ -80,10 +80,11 @@ test('no page, fish summary or caption calls a fish "thài lài"', async () => {
 }, slow(300_000))
 
 // The owner, 2026-11-15, on a fiddler crab's page headed "Cá Austruca annulipes": an animal that isn't a fish is never
-// named as one. Not a fish, as the app reads it: a shrimp or a snail, or an order that isn't a fish's ("-iformes"). A
-// new page takes its kind's word (kind-words.ts plainName, since 14 Nov); a page's name is kept once written, so one
-// named before that keeps "Cá" until a person renames it (names.ts FISH_NAMES). Indonesian and Malay "Ikan", Thai "ปลา".
-const FISH_WORD: Partial<Record<string, RegExp>> = { vi: /^cá(?![\p{L}\p{M}])/iu, id: /^ikan(?!\p{L})/iu, ms: /^ikan(?!\p{L})/iu, th: /^ปลา/u }
+// named as one. Not a fish: a shrimp or a snail, or an order that isn't a fish's (kind-words.ts isFish; the app's rule
+// too, agreed with the iOS Content Lead). A new page takes its kind's word (kind-words.ts plainName, since 14 Nov); a
+// page's name is kept once written, so one named before that keeps "Cá" until a person renames it (names.ts FISH_NAMES).
+// Indonesian and Malay "Ikan", Thai "ปลา", but for Thai's own names of a starfish (ปลาดาว) and a squid (ปลาหมึก).
+const FISH_WORD: Partial<Record<string, RegExp>> = { vi: /^cá(?![\p{L}\p{M}])/iu, id: /^ikan(?!\p{L})/iu, ms: /^ikan(?!\p{L})/iu, th: /^ปลา(?!ดาว|หมึก)/u }
 test('no page for an animal that isn\'t a fish names it a fish, in any language', () => {
   const species = fileURLToPath(new URL('../../../content/species', import.meta.url))
   const named = readdirSync(species).flatMap(id => {
