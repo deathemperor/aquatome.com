@@ -1,7 +1,7 @@
 import { compactRejection } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { join, relative } from 'node:path'
 import { parse } from 'node-html-parser'
 import { loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type Summary, type WrittenLang } from '@aq/schema'
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
@@ -12,7 +12,7 @@ import { droppedName, FISH_NAMES, KIND_PASSAGES, ownWords, type FishName, type K
 import { withLNumber } from './l-numbers'
 import { pickStands, readPersonYes } from './person-yes'
 import { EMPTY_CAP, refusedOn, type PhotoVerdict } from './photo-check'
-import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmails, dropEmailsDeep, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, fixTranslation, hasEmail, isAdPoster, notAlive, isMap, unwellOff, NAMED_KINDS, renameFishNames, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
+import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmails, dropEmailsDeep, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, fixTranslation, hasEmail, isAdPoster, isMediaFile, notAlive, isMap, unwellOff, NAMED_KINDS, renameFishNames, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields, type PageKind } from './pages'
 import { foldPages } from './page-folds'
 import { sweepPlaceNames } from './place-names'
@@ -382,17 +382,26 @@ export async function dropEmailsEverywhere(content: string): Promise<{ files: st
       lost((a as Record<string, unknown>)[k], (b as Record<string, unknown>)[dropEmails(k)], at ? `${at}.${name}` : name, file)
     })
   }
-  const files = (await readdir(content, { recursive: true })).filter(f => f.endsWith('.json')).sort()
-  // About 29,000 files: read 64 at a time, as a file read one after another costs a minute on a busy machine.
+  // The files the real-content test reads: every one but a picture or a video.
+  const files = (await readdir(content, { recursive: true, withFileTypes: true }))
+    .filter(d => d.isFile() && !isMediaFile(d.name)).map(d => relative(content, join(d.parentPath, d.name))).sort()
+  // About 29,000 files: read 64 at a time, as a file read one after another costs a minute on a busy machine. A file is
+  // judged by its strings, never its raw text: an escape's letter before an "@" ("\n@…") is no address.
   const hits: { f: string; raw: string }[] = []
   for (let i = 0; i < files.length; i += 64) {
     for (const h of await Promise.all(files.slice(i, i + 64).map(async f => {
       const raw = await readFile(join(content, f), 'utf8')
-      return hasEmail(raw) ? { f, raw } : null
+      return raw.includes('@') ? { f, raw } : null
     }))) if (h) hits.push(h)
   }
   for (const { f, raw } of hits) {
-    const data = JSON.parse(raw) as unknown
+    if (!f.endsWith('.json')) {
+      const text = dropEmails(raw)
+      if (text !== raw) { await writeFile(join(content, f), text); changed.push(f) }
+      continue
+    }
+    let data: unknown
+    try { data = JSON.parse(raw) } catch { continue } // the real-content test names it
     const out = dropEmailsDeep(data)
     if (JSON.stringify(out) === JSON.stringify(data)) continue
     lost(data, out, '', f)

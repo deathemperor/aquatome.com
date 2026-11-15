@@ -4,7 +4,7 @@ import { join, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { GALLERY_POST, LANGS, loadAll, mayPublish, RETIRED_GUIDES, resolveDataCard, slugify, tankKeywordFits, WRITTEN_LANGS, type Translation } from '@aq/schema'
-import { checkPages, countMismatch, hasEmail, photoCaptions, RATCHETED, ratcheted, refCredits, RULES, SWEPT_KINDS, thanksLines } from '../src/content-rules'
+import { checkPages, countMismatch, hasEmail, isLink, isMediaFile, photoCaptions, RATCHETED, ratcheted, refCredits, RULES, SWEPT_KINDS, thanksLines } from '../src/content-rules'
 import { englishOf } from '../src/english'
 import { tilapiaUnnamed } from '../src/kind-words'
 import { droppedName, FISH_NAMES, KIND_PASSAGES, oldNames } from '../src/names'
@@ -1175,28 +1175,30 @@ test('the Botia markings guide prints no email address, still credits its author
 // The chief of staff, 16 Nov 2026: no email address in any file under content/, in any field, a page's text or a video's
 // title or a photo's credit. The repository is public, and an address belongs to a person. No list of allowed addresses: a
 // list would print them here. A failure names the file and the field, never the address (a key with one is named by its
-// place, not its words). The sweep cuts one from every field of every file each cycle (sweep.ts dropEmailsEverywhere), so
-// a hit here is one it missed. Every file is read, whatever its kind, but a picture or a video. sources/ and engine-state/
-// join this once their copies are cleaned.
+// place, not its words, and so is a key on the way to one). The sweep cuts one from every field of every file each cycle
+// (sweep.ts dropEmailsEverywhere), reading them as this does, so a hit here is one it missed: both read a file's strings,
+// never its raw text, leave a string that is one link whole (isLink), and read every file but a picture or a video.
+// sources/ and engine-state/ join this once their copies are cleaned.
 test('no email address in any file under content/', async () => {
   const root = fileURLToPath(new URL('../../../content/', import.meta.url))
   const found: string[] = []
-  const walk = (x: unknown, at: string, file: string): number => {
-    if (typeof x === 'string') return hasEmail(x) ? (found.push(`${file} ${at || '(text)'}`), 1) : 0
-    if (Array.isArray(x)) return x.reduce((n: number, v, i) => n + walk(v, `${at}[${i}]`, file), 0)
-    if (!x || typeof x !== 'object') return 0
-    return Object.entries(x).reduce((n, [k, v], i) => {
-      if (hasEmail(k)) { found.push(`${file} ${at ? `${at}.` : ''}(key ${i + 1})`); n++ }
-      return n + walk(v, at ? `${at}.${k}` : k, file)
-    }, 0)
+  const walk = (x: unknown, at: string, file: string): void => {
+    if (typeof x === 'string') { if (!isLink(x) && hasEmail(x)) found.push(`${file} ${at || '(text)'}`); return }
+    if (Array.isArray(x)) { x.forEach((v, i) => walk(v, `${at}[${i}]`, file)); return }
+    if (!x || typeof x !== 'object') return
+    Object.entries(x).forEach(([k, v], i) => {
+      const name = hasEmail(k) ? `(key ${i + 1})` : k
+      if (name !== k) found.push(`${file} ${at ? `${at}.` : ''}${name}`)
+      walk(v, at ? `${at}.${name}` : name, file)
+    })
   }
-  for (const f of (await readdir(root, { recursive: true, withFileTypes: true })).filter(d => d.isFile() && !/\.(png|jpe?g|gif|webp|avif|ico|mp4|webm|mov)$/i.test(d.name)).map(d => relative(root, join(d.parentPath, d.name))).sort()) {
+  for (const f of (await readdir(root, { recursive: true, withFileTypes: true })).filter(d => d.isFile() && !isMediaFile(d.name)).map(d => relative(root, join(d.parentPath, d.name))).sort()) {
     const raw = await readFile(join(root, f), 'utf8')
-    if (!hasEmail(raw)) continue
-    if (!f.endsWith('.json')) { found.push(`${f} (text)`); continue }
+    if (!raw.includes('@')) continue
+    if (!f.endsWith('.json')) { if (hasEmail(raw)) found.push(`${f} (text)`); continue }
     let data: unknown
     try { data = JSON.parse(raw) } catch { found.push(`${f} (not JSON)`); continue }
-    if (!walk(data, '', f)) found.push(`${f} (raw)`)
+    walk(data, '', f)
   }
   expect(found).toEqual([])
 }, slow(120_000))

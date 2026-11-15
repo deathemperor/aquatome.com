@@ -517,14 +517,14 @@ export const dropThanks = (html: string) => (/cảm ơn|cám ơn|terima kasih|pe
  * name with a scale mark or a frame rate ("ảnh@2x.PNG", "1080p@60fps.mov") isn't one: a picture, video, sound or code
  * file's extension, any case, is no address's end. Before the "@", Latin letters with their accents, digits and "._%+-",
  * as videos.ts reads a video's title: Thai and Chinese run their words together, and a wider class would take the words
- * beside an address with it. An address ends where no letter, digit or further part follows ("logo@2x.min.js" is a
- * file), and a link's user ("https://user@host", "https://user:pass@host") is no person's address. Each part is held to an
+ * beside an address with it. An address ends where no Latin letter or digit follows, nor a file's extension
+ * ("logo@2x.min.js" is a file; "1080p@60fps.movไทย" too), and a link's user ("https://user@host", "https://user:pass@host") is no person's address. Each part is held to an
  * address's own limits (64 letters before the "@", 63 a part), and a match starts only where an address can, so no
  * string, however long, makes it slow: the sweep reads every file each cycle.
  */
 const LETTER = String.raw`\p{Script=Latin}\p{Nd}\u0300-\u036f`
-const FILE = '3gp|asf|avi|avif|bmp|css|dng|flv|gif|heic|heif|ico|jfif|jpe?g|js|m2ts|m4a|m4v|mkv|mov|mp3|mp4|mpe?g|mts|mxf|ogg|ogv|pdf|png|raw|rmvb|svg|tiff?|ts|vob|wav|webm|webp|wmv|zip'
-const EMAIL = String.raw`(?<![${LETTER}._%+-])(?<!\/\/[^\s/@]{0,64})(?:mailto:)?[${LETTER}._%+-]{1,64}(?:['’&=][${LETTER}._%+-]{1,64}){0,3}@[${LETTER}-]{1,63}(?:\.[${LETTER}-]{1,63}){0,8}\.(?!(?:${FILE})(?![\p{L}\p{N}\p{M}]))\p{Script=Latin}{2,24}(?![\p{Script=Latin}\p{N}\p{M}]|\.[${LETTER}])`
+const FILE = '3gp|aac|asf|ass|avi|avif|bmp|css|dng|flac|flv|gif|hdr|heic|heif|ico|jfif|jpe?g|js|m2ts|m4a|m4v|mkv|mov|mp3|mp4|mpe?g|mts|mxf|ogg|ogv|opus|pdf|png|raw|rmvb|srt|svg|tiff?|ts|vob|vtt|wav|webm|webp|wmv|zip'
+const EMAIL = String.raw`(?<![${LETTER}._%+-])(?<!\/\/[^\s/@]{0,64})(?:mailto:)?[${LETTER}._%+-]{1,64}(?:['’&=][${LETTER}._%+-]{1,64}){0,3}@[${LETTER}-]{1,63}(?:\.[${LETTER}-]{1,63}){0,8}\.(?!(?:${FILE})(?![\p{Script=Latin}\p{N}\p{M}]))\p{Script=Latin}{2,24}(?![\p{Script=Latin}\p{N}\p{M}]|\.(?:${FILE})(?![\p{Script=Latin}\p{N}\p{M}]))`
 const ANY_EMAIL = new RegExp(EMAIL, 'iu')
 const BRACKETED_EMAIL = new RegExp(String.raw`(?<!\s)\s*(?:\(|\[|&lt;|<)\s*${EMAIL}\s*(?:\)|\]|&gt;|>)`, 'giu')
 const BARE_EMAIL = new RegExp(String.raw`(?<!\s)\s*${EMAIL}`, 'giu')
@@ -539,11 +539,16 @@ export const dropEmails = (html: string) => {
   for (let i = 0; i < 3 && hasEmail(out); i++) out = out.replace(MAILTO_LINK, '$1').replace(BRACKETED_EMAIL, '').replace(BARE_EMAIL, '')
   return out
 }
+/** A string that is one link and nothing else ("https://example.net/?mail=…"): the check and the cut leave it whole. */
+export const isLink = (s: string) => /^(?:https?|ftp):\/\/\S+$/iu.test(s)
+/** A picture or a video, which the check and the cut don't read. */
+export const isMediaFile = (f: string) => /\.(?:png|jpe?g|gif|webp|avif|ico|mp4|webm|mov)$/iu.test(f)
 /**
  * A stored file's data with the email addresses cut from every string, its keys too (dropEmails): the captions' translations
- * are keyed by the Vietnamese caption, which then reads as its photo's does. Its shape stays.
+ * are keyed by the Vietnamese caption, which then reads as its photo's does. A string that is one link stays whole
+ * (isLink). Its shape stays.
  */
-export const dropEmailsDeep = <T>(v: T): T => (typeof v === 'string' ? dropEmails(v)
+export const dropEmailsDeep = <T>(v: T): T => (typeof v === 'string' ? (isLink(v) ? v : dropEmails(v))
   : Array.isArray(v) ? v.map(dropEmailsDeep)
   : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).map(([k, x]) => [dropEmails(k), dropEmailsDeep(x)]))
   : v) as T

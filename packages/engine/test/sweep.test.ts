@@ -1314,11 +1314,16 @@ test("an email address goes from a page's text, and from every field of every fi
     photos: [{ url: 'https://user@example.net/ca@2x.PNG', caption: 'Ảnh của someone@example.org' }, { url: 'https://example.net/b.webp', author: 'someone@example.org' }],
   }, 4)
   await put('captions/id.json', { 'Ảnh của someone@example.org': 'Foto', 'Ảnh của x@example.net': 'Foto 2' })
-  await put('places/a/vi.json', { name: 'Nơi', note: 'Giá 50k @ tiệm, theo @seriouslyfish' })
+  // None here: an "@" in prose, a handle, a letter of an escape before a handle ("\n@…"), a link.
+  await put('places/a/vi.json', { name: 'Nơi', note: 'Giá 50k @ tiệm, theo @seriouslyfish', more: 'x:\n@fish.keeper', url: 'https://example.net/?mail=someone@example.org' })
+  // A text file is cut as text; a file that isn't JSON is left for the real-content test to name.
+  await mkdir(join(c, 'notes'), { recursive: true })
+  await writeFile(join(c, 'notes/a.md'), 'Hỏi tại (someone@example.org).\n')
+  await writeFile(join(c, 'notes/broken.json'), '{ "a": "someone@example.org" ')
   const untouched = await readFile(join(c, 'places/a/vi.json'), 'utf8')
   // A field the cut leaves empty, and two keys it makes one, are listed for a person, an address's key by its place.
   expect(await dropEmailsEverywhere(c)).toEqual({
-    files: ['captions/id.json', 'species/a-fish/entity.json'],
+    files: ['captions/id.json', 'notes/a.md', 'species/a-fish/entity.json'],
     emptied: ['captions/id.json (top) (two keys made one)', 'species/a-fish/entity.json photos[1].author'],
   })
   const raw = await readFile(join(c, 'species/a-fish/entity.json'), 'utf8')
@@ -1329,6 +1334,7 @@ test("an email address goes from a page's text, and from every field of every fi
   expect(e.photos).toEqual([{ url: 'https://user@example.net/ca@2x.PNG', caption: 'Ảnh của' }, { url: 'https://example.net/b.webp', author: '' }])
   expect(JSON.parse(await readFile(join(c, 'captions/id.json'), 'utf8'))).toEqual({ 'Ảnh của': 'Foto 2' })
   expect(await readFile(join(c, 'places/a/vi.json'), 'utf8')).toBe(untouched)
+  expect(await readFile(join(c, 'notes/a.md'), 'utf8')).toBe('Hỏi tại.\n')
   expect(await dropEmailsEverywhere(c)).toEqual({ files: [], emptied: [] })
 })
 

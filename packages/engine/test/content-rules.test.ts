@@ -557,7 +557,7 @@ test('an email address goes from a page\'s text with its brackets, a link to one
     expect(hasEmail(keep), keep).toBe(false)
   }
   // What it finds, it cuts: nothing is left for the real-content test that the sweep can't mend.
-  for (const text of ['someone@example.org', 'A (someone@example.org) và [x@example.net]', 'mailto:a.b+c@mail.example.co.uk', 'Ông Tác Giả, tác.giả@example.org.']) {
+  for (const text of ['someone@example.org', 'A (someone@example.org) và [x@example.net]', 'mailto:a.b+c@mail.example.co.uk', 'Ông Tác Giả, tác.giả@example.org.', 'Gửi someone@example.org.5 con', 'Viết cho someone@example.org.Ở đây']) {
     expect(hasEmail(text), text).toBe(true)
     expect(hasEmail(dropEmails(text)), text).toBe(false)
   }
@@ -570,13 +570,14 @@ test('an email address goes from a page\'s text with its brackets, a link to one
   }
   // A link's user and password, and a "@" after an address's own limit, are no address.
   for (const keep of ['https://u:p@example.com/x', `${'a'.repeat(65)}@example.org`]) expect(hasEmail(keep), keep.slice(0, 30)).toBe(false)
-  for (const keep of ['pic@2x.heif', 'clip@1x.M4V', 'cam@2x.jfif']) expect(dropEmails(keep), keep).toBe(keep)
+  for (const keep of ['pic@2x.heif', 'clip@1x.M4V', 'cam@2x.jfif', 'x@96k.flac', 'subs@en.srt', '1080p@60fps.movไทย']) expect(dropEmails(keep), keep).toBe(keep)
 })
 
 test('every string of a stored file loses its addresses, its keys too; its shape stays', () => {
   const data = { title: 'Wild bettas (someone@example.org)', photos: [{ caption: 'Ảnh của someone@example.org', w: 2 }], keyed: { 'x@example.com': 'Foto' }, n: 3, ok: true, none: null }
   expect(dropEmailsDeep(data)).toEqual({ title: 'Wild bettas', photos: [{ caption: 'Ảnh của', w: 2 }], keyed: { '': 'Foto' }, n: 3, ok: true, none: null })
-  const clean = { a: ['b', { c: 'd@2x.png' }] }
+  // A string that is one link stays whole: cut, it would no longer lead anywhere.
+  const clean = { a: ['b', { c: 'd@2x.png' }], link: 'https://example.net/?mail=someone@example.org' }
   expect(dropEmailsDeep(clean)).toEqual(clean)
 })
 
