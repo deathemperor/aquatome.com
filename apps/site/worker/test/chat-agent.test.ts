@@ -431,6 +431,34 @@ test('check_tank_mates in the reader\'s tank checks it as the tank page does, wi
   await expect(tool.run({ fish: neon4, tank: null, tankId: 'tank-1' }, { photosLeft: 0 })).rejects.toThrow(/can't be read/)
 })
 
+test("the chat finds only fish and plants by id: a guide's, a term's, a series' or a kind of kit's id names no page to it", async () => {
+  // The app index gives every kind its id (the app's language switch), unique within a kind only: a glossary term and a
+  // kind of kit are both "co2". A tank, the page a chat starts from and the tools name fish and plants alone.
+  const items = [
+    { kind: 'glossary', id: 'co2', name: 'CO2', path: '/vi/thuat-ngu/co2/' },
+    { kind: 'equipment', id: 'co2', name: 'Bộ CO2', path: '/vi/thiet-bi/co2/' },
+    { kind: 'guide', id: 'thay-nuoc', name: 'Thay nước', path: '/vi/huong-dan/thay-nuoc/' },
+    { kind: 'video', id: 'PLseries', name: 'Loạt video', path: '/vi/video/loat/' },
+    { kind: 'fish', id: 'danio-rerio', name: 'Cá ngựa vằn', path: '/vi/ca/ca-ngua-van/' },
+    { kind: 'plant', id: 'rotala-rotundifolia', name: 'Rotala đỏ', path: '/vi/cay/rotala-do/' },
+  ]
+  const guide = { kind: 'guide', title: 'Thay nước', blocks: [{ t: 'p', c: ['Thay một phần ba mỗi tuần.'] }] }
+  const h = (await handbookOf({
+    index: async () => ({ lang: 'vi', items, shards: { guide: { n: 1 } } }),
+    shard: async () => ({ v: 1, pages: { '/vi/huong-dan/thay-nuoc/': guide } }),
+  } as never, 'vi'))!
+  expect(h.byId('danio-rerio')?.path).toBe('/vi/ca/ca-ngua-van/')
+  expect(h.byId('rotala-rotundifolia')?.path).toBe('/vi/cay/rotala-do/')
+  for (const id of ['co2', 'thay-nuoc', 'PLseries']) expect(h.byId(id), id).toBeUndefined()
+  expect(JSON.stringify(firstMessage('vi', 'Hỏi', [], { about: 'thay-nuoc' }, h))).not.toContain('The chat is about')
+  // Nor does the model see one: a search lists, and a page read gives, a fish's or plant's id alone.
+  const found = JSON.parse((await run('search_handbook', { query: 'CO2', kind: null }, h)).out as string) as { kind: string; id?: string }[]
+  expect(found.map(x => x.kind).sort()).toEqual(['equipment', 'glossary'])
+  for (const x of found) expect(x.id, x.kind).toBeUndefined()
+  expect(JSON.parse((await run('search_handbook', { query: 'Cá ngựa vằn', kind: null }, h)).out as string)[0]).toMatchObject({ kind: 'fish', id: 'danio-rerio' })
+  expect(JSON.parse((await run('read_page', { path: '/vi/huong-dan/thay-nuoc/', heading: null }, h)).out as string).id).toBeUndefined()
+})
+
 test('a section is every block under its heading, to the next heading, however many: the part of the page the site draws', async () => {
   const path = '/vi/huong-dan/dai/'
   const paras = Array.from({ length: 12 }, (_, i) => ({ t: 'p', c: [`Đoạn ${i + 1}.`] }))
