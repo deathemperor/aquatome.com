@@ -305,7 +305,8 @@ test('a rewording that drops a piece of advice, an option or a step the old word
 // Grok's read of 15 Nov 2026: four ways a rewrite on notes still lost a read sentence with no note to say so.
 test('a rewrite\'s drop check: a part with one word left, a figure by its number, a phrase let go only, and a definition cut while its sentence stands in the body', () => {
   const said = { facts: [{ fact: 'pH 4.0 is ten times more acidic than pH 5.0; cardinals live below pH 5.5' }, { fact: 'Change 20–30% weekly; wait 4 weeks' }] }
-  const drop = (before: { definition: string; body: string }, after: { definition: string; body: string }, notes: string[] = [], free: string[] = []) => droppedInRewrite(before, after, said, notes, [], free)
+  type Stop = Parameters<typeof droppedInRewrite>[3][number]
+  const drop = (before: { definition: string; body: string }, after: { definition: string; body: string }, stops: Stop[] = [], free: string[] = []) => droppedInRewrite(before, after, said, stops, [], free)
   const note = (t: string, lost: string) => `The rewrite dropped from "${t}" ${lost}, and nothing lets that sentence go: write it as it was, word for word.`
   const one = 'Một câu.'
   // A part kept only by "nước", which the merged sentence says for another reason.
@@ -330,36 +331,30 @@ test('a rewrite\'s drop check: a part with one word left, a figure by its number
   // Grok's second read: half a part's words left is not enough, here "lấy" of "lấy nước".
   const seeding = 'Châm thêm men vi sinh của hãng uy tín, hoặc lấy nước, bông lọc từ một bể đã ổn định; riêng vật liệu lọc thì chỉ lấy từ bể đã ổn định mà cá trong đó đều khỏe.'
   expect(drop({ definition: one, body: `<p>${seeding}</p>` }, { definition: one, body: '<p>Châm thêm men vi sinh của hãng uy tín, hoặc lấy từ một bể đã ổn định; riêng thì chỉ lấy từ bể đã ổn định mà cá trong đó đều khỏe.</p>' })[0]).toContain('the advice "lấy nước"')
-  // The seventh read: a review note frees nothing, whatever it quotes. Notes quote a sentence to keep it, to place an
-  // addition beside it or to say where a thing already stands (pH's and nitrogen's real notes), and to change it.
-  const sudden = 'Điều cần tránh là pH đổi đột ngột.'
-  const steady = { definition: `pH là độ chua của nước. ${sudden}`, body: '<p>Đo pH mỗi tuần.</p>' }
-  expect(drop(steady, { ...steady, definition: 'pH là độ chua của nước.' }, [`Rule 4: the warning already stands in "${sudden}"; don't say it again in the body.`])).toHaveLength(1)
+  // A sentence with quotation marks of its own, on the free list, goes; a stop lets go the sentence the check stopped.
   const shop = 'Nhiều tiệm ghi lũa sa tùng là "không ra màu", còn tạp chí cá cảnh thì nói gỗ nào cũng tiết tanin.'
-  expect(drop({ definition: one, body: `<p>${shop}</p><p>Gỗ mềm.</p>` }, { definition: one, body: '<p>Gỗ mềm.</p>' }, [`Rules 4 and 12: "${shop}" must come out.`])).toHaveLength(1)
+  expect(drop({ definition: one, body: `<p>${shop}</p><p>Gỗ mềm.</p>` }, { definition: one, body: '<p>Gỗ mềm.</p>' })).toHaveLength(1)
   expect(drop({ definition: one, body: `<p>${shop}</p><p>Gỗ mềm.</p>` }, { definition: one, body: '<p>Gỗ mềm.</p>' }, [], [shop])).toEqual([])
-  // Grok's third read: a step inside another sentence's quotation marks isn't freed by a stop note on that sentence, nor is
-  // a sentence a note only mentions; a passage on the free list frees each of its sentences.
+  expect(drop({ definition: one, body: `<p>${shop}</p><p>Gỗ mềm.</p>` }, { definition: one, body: '<p>Gỗ mềm.</p>' }, [{ text: shop }])).toEqual([])
+  // Grok's third read: a step inside another sentence's quotation marks isn't freed by a stop on that sentence; a passage
+  // on the free list frees each of its sentences.
   const step = { facts: [{ fact: 'Soak new wood 2 weeks before use.' }] }
   const shopSays = 'Nhiều tiệm ghi "Ngâm 2 tuần." là đủ, còn sách thì nói khác.'
-  const stepGone = droppedInRewrite({ definition: one, body: `<p>Ngâm 2 tuần.</p><p>${shopSays}</p>` }, { definition: one, body: `<p>${shopSays}</p>` }, step, [`"${shopSays}": the facts don't carry it (unsupported, unsupported, unsupported): a shop's claim`])
+  const stepGone = droppedInRewrite({ definition: one, body: `<p>Ngâm 2 tuần.</p><p>${shopSays}</p>` }, { definition: one, body: `<p>${shopSays}</p>` }, step, [{ text: shopSays }])
   expect(stepGone).toHaveLength(1)
   expect(stepGone[0]).toContain('the advice "Ngâm 2 tuần"')
-  expect(drop({ definition: one, body: '<p>Đừng sốc cá.</p><p>Thả từ từ.</p>' }, { definition: one, body: '<p>Thả từ từ.</p>' }, ['Rule 9: Đừng sốc cá. is clear, but "thả ngay" is reckless.'])[0]).toContain('the caution "đừng"')
+  expect(drop({ definition: one, body: '<p>Đừng sốc cá.</p><p>Thả từ từ.</p>' }, { definition: one, body: '<p>Thả từ từ.</p>' })[0]).toContain('the caution "đừng"')
   expect(drop({ definition: one, body: '<p>Lũa nổi. Đừng luộc lũa.</p><p>Thả từ từ.</p>' }, { definition: one, body: '<p>Thả từ từ.</p>' }, [], ['Lũa nổi. Đừng luộc lũa.'])).toEqual([])
   const passage = 'Lũa nổi. Nhiều tiệm ghi "không ra màu", còn tạp chí thì nói khác.'
   expect(drop({ definition: one, body: `<p>${passage}</p><p>Gỗ mềm.</p>` }, { definition: one, body: '<p>Gỗ mềm.</p>' }, [], [passage])).toEqual([])
-  // Grok's fourth and fifth reads: a stop note on a piece the splitter cut inside a quotation frees that piece, never the
+  // Grok's fourth to sixth reads: a stop on a piece the splitter cut inside a quotation frees that piece, never the
   // separate step.
   const told = 'Sách nói "xong." Ngâm 2 tuần.'
-  expect(droppedInRewrite({ definition: one, body: `<p>Ngâm 2 tuần.</p><p>${told}</p>` }, { definition: one, body: `<p>${told}</p>` }, step, [`"${told}": the facts don't carry it`])[0]).toContain('the advice "Ngâm 2 tuần"')
-  expect(droppedInRewrite({ definition: one, body: '<p>Ngâm 2 tuần.</p><p>Sách nói "Xong. Ngâm 2 tuần."</p>' }, { definition: one, body: '<p>Sách nói "Xong. Ngâm 2 tuần."</p>' }, step, ['"Ngâm 2 tuần."": the facts don\'t carry it'])[0]).toContain('the advice "Ngâm 2 tuần"')
-  // Grok's sixth read: a cut piece that goes on after its own closing mark, or keeps the stop outside it. Its stop note frees
-  // that piece only.
-  for (const shop of ['Sách nói "Xong. Ngâm 2 tuần." Rồi thôi.', 'Sách nói "Xong. Ngâm 2 tuần".']) {
-    const piece = sentences({ definition: '', body: `<p>${shop}</p>` }).at(-1)!.text
-    expect(droppedInRewrite({ definition: one, body: `<p>Ngâm 2 tuần.</p><p>${shop}</p>` }, { definition: one, body: `<p>${shop}</p>` }, step, [`"${piece}": the facts don't carry it`])[0]).toContain('the advice "Ngâm 2 tuần"')
-    expect(droppedInRewrite({ definition: one, body: `<p>Ngâm 2 tuần.</p><p>${shop}</p>` }, { definition: one, body: '<p>Ngâm 2 tuần.</p>' }, step, [`"${shop.split(' Ngâm')[0]}": the facts don't carry it`, `"${piece}": the reads left it unjudged`])).toEqual([])
+  expect(droppedInRewrite({ definition: one, body: `<p>Ngâm 2 tuần.</p><p>${told}</p>` }, { definition: one, body: `<p>${told}</p>` }, step, [{ text: told }])[0]).toContain('the advice "Ngâm 2 tuần"')
+  for (const shop of ['Sách nói "Xong. Ngâm 2 tuần."', 'Sách nói "Xong. Ngâm 2 tuần." Rồi thôi.', 'Sách nói "Xong. Ngâm 2 tuần".']) {
+    const pieces = sentences({ definition: '', body: `<p>${shop}</p>` }).map(x => ({ text: x.text }))
+    expect(droppedInRewrite({ definition: one, body: `<p>Ngâm 2 tuần.</p><p>${shop}</p>` }, { definition: one, body: `<p>${shop}</p>` }, step, pieces.slice(-1))[0]).toContain('the advice "Ngâm 2 tuần"')
+    expect(droppedInRewrite({ definition: one, body: `<p>Ngâm 2 tuần.</p><p>${shop}</p>` }, { definition: one, body: '<p>Ngâm 2 tuần.</p>' }, step, pieces)).toEqual([])
   }
   // A sentence moved from the body to the definition is kept.
   expect(drop({ definition: 'Lũa là gỗ khô.', body: '<p>Lũa làm nước ngả vàng.</p>' }, { definition: 'Lũa là gỗ khô. Lũa làm nước ngả vàng.', body: '' })).toEqual([])
@@ -376,6 +371,10 @@ test('a rewrite\'s drop check: a part with one word left, a figure by its number
   expect(drop(kinds('Lũa mopani'), { definition: one, body: `<ul><li><strong>Lũa đỗ quyên</strong> Chìm nhanh. ${none}</li><li><strong>Lũa mopani</strong> Nổi lâu.</li></ul>` }))
     .toEqual([note(none, `the advice "${none.slice(0, -1)}" under Lũa mopani`)])
   expect(drop(kinds('Lũa mopani'), kinds('Gỗ mopani'))).toEqual([])
+  // The eighth read: a stop on one copy lets that copy go, not the other kind's.
+  const cutBoth = { definition: one, body: '<ul><li><strong>Lũa đỗ quyên</strong> Chìm nhanh.</li><li><strong>Lũa mopani</strong> Nổi lâu.</li></ul>' }
+  expect(drop(kinds('Lũa mopani'), cutBoth, [{ text: none, item: 'Lũa mopani' }])).toEqual([note(none, `the advice "${none.slice(0, -1)}" under Lũa đỗ quyên`)])
+  expect(drop(kinds('Lũa mopani'), cutBoth, [{ text: none, item: 'Lũa mopani' }, { text: none, item: 'Lũa đỗ quyên' }])).toEqual([])
 })
 
 test('a reworded sentence in the body is written back escaped, and one still loose stays, logged; a rewording of two sentences isn\'t placed', async () => {

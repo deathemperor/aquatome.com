@@ -9,7 +9,7 @@ import { isMarketplace } from './marketplaces'
 import { logReviews, readReviews } from './review-log'
 import { withTanks } from './round'
 import { sanitizeHtml, unescapePlain } from './sanitize'
-import { checkSentences, droppedInRewrite, isDrop, rewordLoose, stopNote } from './glossary-facts'
+import { checkSentences, droppedInRewrite, rewordLoose, stopNote } from './glossary-facts'
 import { genera, judgeKindNames, kindNames } from './glossary-names'
 import { FACTS_SCHEMA, researchPrompt, viFacts, type TopicFacts } from './topics'
 
@@ -335,9 +335,9 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     const [f, r] = await Promise.all([checkSentences(d.llm, forWriter, e), rules(e)])
     const long = lengthNotes(e.body, named, asks.length?.words)
     const unborne = f.stops.map(stopNote)
-    return { score: f.score, notes: [...unborne, ...r, ...long.notes], broken: r.length + long.notes.length, stops: unborne.length + r.filter(stops).length + (long.stop ? 1 : 0), loose: f.loose }
+    return { score: f.score, notes: [...unborne, ...r, ...long.notes], broken: r.length + long.notes.length, stops: unborne.length + r.filter(stops).length + (long.stop ? 1 : 0), loose: f.loose, stopped: f.stops }
   }
-  type Checked = { score: number; notes: string[]; broken: number; stops?: number; loose?: Awaited<ReturnType<typeof checkSentences>>['loose'] }
+  type Checked = { score: number; notes: string[]; broken: number; stops?: number; loose?: Awaited<ReturnType<typeof checkSentences>>['loose']; stopped?: Awaited<ReturnType<typeof checkSentences>>['stops'] }
   const stopping = (r: Checked) => r.stops ?? r.broken
   const passes = (r: Checked) => r.score >= QUALITY_THRESHOLD && !stopping(r)
   // Saved beats unsaved; then fewer notes that stop, a fact score at the bar, fewer house rules unmet, fewer notes of
@@ -376,14 +376,14 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     // it took out of any other sentence stops it from being saved, and goes back to the writer once more, against the text
     // the rewrites started from. A fresh draft, which no one has read, is trimmed as it must be.
     const start = w
-    const asked: string[] = []
+    const freed: NonNullable<Checked['stopped']> = []
     let dropped: string[] = []
     for (let i = 0; i < 2 && (!passes(review) || (i === 0 && (!draft || o.revise || review.notes.some(isLength)) && review.notes.length) || dropped.length); i++) {
       const notes = [...review.notes, ...dropped]
-      // A stop note frees its sentence; a drop's own note never does.
-      asked.push(...review.notes.filter(n => !isDrop(n)))
+      // A sentence the fact check stopped may go from where it stood.
+      freed.push(...(review.stopped ?? []))
       const again = await write(notes, w)
-      dropped = o.revise ? droppedInRewrite(start, again, forWriter, asked, [...pages.flatMap(l => l.split(' | ').slice(0, 2)), ...kindNames(start, taxa).fit.map(k => k.name)], asks.free) : []
+      dropped = o.revise ? droppedInRewrite(start, again, forWriter, freed, [...pages.flatMap(l => l.split(' | ').slice(0, 2)), ...kindNames(start, taxa).fit.map(k => k.name)], asks.free) : []
       const r = await check(again)
       if (dropped.length) { r.notes = [...dropped, ...r.notes]; r.stops = stopping(r) + dropped.length; r.broken += dropped.length }
       tries.push(r)
