@@ -3,6 +3,7 @@ import { expect, test } from 'vitest'
 import { glossaryKinds, PictureSet, type GlossaryEntity, type Localized, type Photo } from '@aq/schema'
 import { getContent } from '../src/lib/content'
 import { bodySections, glossaryParts, linkedTermPaths, nameCount, termTitle, tipLine, usedPictures, usedRows } from '../src/lib/glossary-page'
+import { smallSrc } from '../src/lib/img'
 import { DIST, page } from './dist'
 
 // A term's page (pages/thuat-ngu/[slug].astro): its other names, its definition's links, and every page that uses it.
@@ -193,7 +194,8 @@ test('every photo a term holds, and every named kind\'s photo, is drawn on its b
       if (lang !== 'vi' && !existsSync(`${DIST}${path}index.html`)) continue
       const drawn = new PictureSet(c.pictureHashes)
       for (const img of page(path).dom.querySelectorAll('main img')) drawn.add(img.getAttribute('src') ?? undefined)
-      for (const p of photos) expect(drawn.has(p.url) || drawn.has(p.thumb), `${path} draws ${p.url}`).toBe(true)
+      // As the page draws it: the photo, its thumb, or the small copy a row draws (a Wikimedia photo's 500px size).
+      for (const p of photos) expect(drawn.has(p.url) || drawn.has(p.thumb) || drawn.has(smallSrc(p)), `${path} draws ${p.url}`).toBe(true)
       held += photos.length
     }
   }

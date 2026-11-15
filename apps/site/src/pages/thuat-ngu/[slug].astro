@@ -54,7 +54,8 @@ const REFS_SHOWN = 5
   {p.album.length > 0 && (
     <ul class="album">{p.album.map(a => {
       // A kind's photo is captioned with its kind's name first; its own caption, where it opens with that name, after it.
-      const rest = a.name && a.photo.caption?.startsWith(a.name) ? a.photo.caption.slice(a.name.length).replace(/^[\s:–-]+/, '') : a.photo.caption
+      const opens = a.name && a.photo.caption?.toLocaleLowerCase(lang).startsWith(a.name.toLocaleLowerCase(lang))
+      const rest = opens ? a.photo.caption!.slice(a.name!.length).replace(/^[\s:–-]+/, '') : a.photo.caption
       return (
         <li><figure>
           <a href={a.photo.url} tabindex="-1"><img src={smallSrc(a.photo)} width={a.photo.width} height={a.photo.height} alt={a.photo.caption ?? a.name ?? g.t.name} loading="lazy" decoding="async" /></a>
