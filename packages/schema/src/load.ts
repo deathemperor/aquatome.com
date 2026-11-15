@@ -14,7 +14,7 @@ import { judgeQuality, speciesDepth } from './depth'
 import { isAllowedLicence } from './licence'
 import { isVietnamese, markVietnameseNames } from './text'
 import { videosForPage } from './videos'
-import { BreedSchema, CaptionsSchema, VideoGeneratedSchema, VideoTitlesSchema, OneVoiceSchema, PageDatesSchema, PictureHashesSchema, ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MATERIAL_SECTION_ORDER, MaterialSchema, MarketSchema, mayPublish, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
+import { BreedSchema, CaptionsSchema, VideoGeneratedSchema, VideoTitlesSchema, VideoTitlesOnSchema, OneVoiceSchema, PageDatesSchema, PictureHashesSchema, ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MATERIAL_SECTION_ORDER, MaterialSchema, MarketSchema, mayPublish, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
 import type { PictureHashes } from './pictures'
 import type { BreedEntity, ChangelogEntry, EquipmentGuide, GlossaryEntity, GuideEntity, Lang, Market, MaterialEntity, Photo, Video, PlaceEntity, PlantEntity, ProductEntity, Section, Series, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
 
@@ -330,9 +330,14 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // unless it's spoken in the page's language.
   const titlesFile = join(root, 'video-titles', `${lang}.json`)
   const videoTitles = (await exists(titlesFile)) ? await readJson(titlesFile, VideoTitlesSchema) : {}
+  // A language's translated titles show once it's in on.json, one line each, added with the chief of staff's yes; until then
+  // only the kept ones the editors passed do, and every other video keeps its own title (the chief of staff, 15 Nov).
+  const onFile = join(root, 'video-titles', 'on.json'), keptFile = join(root, 'video-titles', 'kept.json')
+  const titlesOn = (await exists(onFile)) && (await readJson(onFile, VideoTitlesOnSchema)).includes(lang)
+  const keptTitles = (await exists(keptFile)) ? await readJson(keptFile, VideoTitlesSchema) : {}
   const generatedFile = join(root, 'video-generated.json')
   const videoGenerated = (await exists(generatedFile)) ? await readJson(generatedFile, VideoGeneratedSchema) : {}
-  const forPage = <V extends Video>(videos: V[], o?: { order?: boolean; requireTitle?: boolean }) => videosForPage(videos, lang, videoTitles, videoGenerated, { requireTitle: REQUIRE_VIDEO_TITLE, ...o })
+  const forPage = <V extends Video>(videos: V[], o?: { order?: boolean; requireTitle?: boolean }) => videosForPage(videos, lang, videoTitles, videoGenerated, { requireTitle: REQUIRE_VIDEO_TITLE, on: titlesOn, kept: keptTitles, ...o })
 
   const voices = (await exists(join(root, 'one-voice.json'))) ? await readJson(join(root, 'one-voice.json'), OneVoiceSchema) : {}
   // After the depth is judged: a block set aside here still counts for the page's place in search.

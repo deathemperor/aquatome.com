@@ -13,13 +13,18 @@ export const speaksPageLang = (v: { lang: string }, lang: Lang) => baseLang(v.la
  * and a generated video marked. A video spoken in the page's language needs no translation and is never left out; another
  * with no translated title yet isn't shown (`requireTitle`). `order: false` keeps the order, where it means something (a
  * product's top review).
+ *
+ * `on: false`, a language whose titles aren't turned on yet (content/video-titles/on.json; the chief of staff, 15 Nov):
+ * only the titles in `kept` (content/video-titles/kept.json, the ones the editors passed) show translated; every other
+ * foreign video keeps its own title, marked `ownTitle`, and none is left out for want of one.
  */
-export function videosForPage<V extends Video>(videos: V[], lang: Lang, titles: Record<string, string>, generated: Record<string, string>, o: { order?: boolean; requireTitle?: boolean } = {}): V[] {
+export function videosForPage<V extends Video>(videos: V[], lang: Lang, titles: Record<string, string>, generated: Record<string, string>, o: { order?: boolean; requireTitle?: boolean; on?: boolean; kept?: Record<string, string> } = {}): V[] {
+  const on = o.on ?? true
   const out = videos.flatMap(v => {
     const mark = generated[v.youtubeId] ? { generated: true as const } : {}
     if (speaksPageLang(v, lang)) return [{ ...v, ...mark }]
-    const title = titles[v.youtubeId]
-    if (!title) return o.requireTitle ? [] : [{ ...v, ...mark }]
+    const title = on || v.youtubeId in (o.kept ?? {}) ? titles[v.youtubeId] : undefined
+    if (!title) return !on ? [{ ...v, ...mark, ownTitle: true as const }] : o.requireTitle ? [] : [{ ...v, ...mark }]
     return [{ ...v, ...mark, title, originalTitle: v.title }]
   })
   return o.order === false ? out : [...out.filter(v => speaksPageLang(v, lang)), ...out.filter(v => !speaksPageLang(v, lang))]

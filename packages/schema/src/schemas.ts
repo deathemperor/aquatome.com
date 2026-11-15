@@ -58,8 +58,11 @@ const OriginalPicture = z.object({ url: z.string(), width: z.number(), height: z
 /** `sourceCaption`: the source's own description of the photo, kept where our caption replaces it (the album step), for the engine's genus rule; no page shows it. */
 const Photo = z.object({ url: z.string(), thumb: z.string().optional(), width: z.number(), height: z.number(), large: z.object({ url: z.string(), width: z.number(), height: z.number() }).optional(), licence: z.string(), author: z.string(), authorUrl: z.string().optional(), sourceUrl: z.string(), caption: z.string().optional(), sourceCaption: z.string().optional(), source: SourceId.optional(), ownerCrop: z.object({ id: z.string(), pixelHash: Hash }).optional(), headFit: z.literal("contain").optional(), generated: Generated.optional(), altered: z.array(Alteration).optional(), original: OriginalPicture.optional(), subject: PixelBox.optional() })
 export const PhotoSchema = Photo
-/** `originalTitle` and `generated` are the loader's (videosForPage): the engine writes neither. */
-const Video = z.object({ youtubeId: z.string(), title: z.string(), durationSec: z.number(), lang: z.string(), originalTitle: z.string().optional(), generated: z.literal(true).optional() })
+/**
+ * `originalTitle`, `generated` and `ownTitle` are the loader's (videosForPage): the engine writes none. `ownTitle`: a foreign
+ * video shown with its own title because its page's language isn't turned on for translated titles yet.
+ */
+const Video = z.object({ youtubeId: z.string(), title: z.string(), durationSec: z.number(), lang: z.string(), originalTitle: z.string().optional(), generated: z.literal(true).optional(), ownTitle: z.literal(true).optional() })
 const ProductSlot = z.object({ category: z.string(), keywords: z.array(z.string()) })
 
 const CountryCode = z.string().refine(isCountryCode, { message: 'not an ISO 3166-1 alpha-2 country code' })
@@ -273,6 +276,8 @@ export const EquipmentSchema = z.object({
 export const CaptionsSchema = z.record(z.string(), z.string())
 /** Video titles in one language (content/video-titles/<lang>.json): YouTube id → the title on that language's pages. */
 export const VideoTitlesSchema = z.record(z.string(), z.string())
+/** The languages whose translated video titles all show (content/video-titles/on.json): one line each, added with the chief of staff's yes. */
+export const VideoTitlesOnSchema = z.array(z.enum(['vi', 'id', 'th', 'ms']))
 /** Videos made by generation (content/video-generated.json): YouTube id → what we saw. Each shows an AI label, and none feeds a guide, a loop or a still. */
 export const VideoGeneratedSchema = z.record(z.string(), z.string())
 /** content/picture-hashes.json: each photo's 64-bit difference hash (hex) by its address (pictures.ts). */

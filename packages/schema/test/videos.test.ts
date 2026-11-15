@@ -1,4 +1,4 @@
-import { expect, test } from 'vitest'
+import { describe, expect, test } from 'vitest'
 import { languageWord, videosForPage } from '../src/videos'
 
 const v = (youtubeId: string, title: string, lang: string) => ({ youtubeId, title, durationSec: 60, lang })
@@ -34,4 +34,32 @@ test("a video's language as a word in the page's language; none where the tag na
   expect(languageWord('en', 'ms')).toBe('bahasa Inggeris')
   expect(languageWord('zxx', 'vi')).toBeUndefined()
   expect(languageWord('und', 'vi')).toBeUndefined()
+})
+
+describe('a language not yet turned on for translated titles (content/video-titles/on.json; the chief of staff, 15 Nov)', () => {
+  const vids = [
+    { youtubeId: 'kept1', title: 'Heckel tank tour', durationSec: 60, lang: 'en' },
+    { youtubeId: 'other', title: 'Discus care guide', durationSec: 60, lang: 'en' },
+    { youtubeId: 'none1', title: 'Discus breeding', durationSec: 60, lang: 'en' },
+    { youtubeId: 'vivi1', title: 'Nuôi cá đĩa', durationSec: 60, lang: 'vi' },
+  ]
+  const titles = { kept1: 'Tham quan bể cá đĩa Heckel', other: 'Hướng dẫn nuôi cá đĩa' }
+  const kept = { kept1: 'passed at 9' }
+  test('shows only the kept titles translated; every other foreign video keeps its own title, marked, and none is hidden', () => {
+    const out = videosForPage(vids, 'vi', titles, {}, { requireTitle: true, on: false, kept })
+    expect(out.map(v => [v.youtubeId, v.title, v.ownTitle ?? false])).toEqual([
+      ['vivi1', 'Nuôi cá đĩa', false],
+      ['kept1', 'Tham quan bể cá đĩa Heckel', false],
+      ['other', 'Discus care guide', true],
+      ['none1', 'Discus breeding', true],
+    ])
+  })
+  test('turned on, every stored title shows, and a foreign video with none is hidden as before', () => {
+    const out = videosForPage(vids, 'vi', titles, {}, { requireTitle: true, on: true, kept })
+    expect(out.map(v => [v.youtubeId, v.title, v.ownTitle ?? false])).toEqual([
+      ['vivi1', 'Nuôi cá đĩa', false],
+      ['kept1', 'Tham quan bể cá đĩa Heckel', false],
+      ['other', 'Hướng dẫn nuôi cá đĩa', false],
+    ])
+  })
 })
