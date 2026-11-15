@@ -1086,7 +1086,9 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
         }
       }
       sections = sections.flatMap(x => {
-        if (!isShop(x.source) || x.key === 'references') return [x]
+        // A part a person fixed is theirs (schemas.ts Section.fixed): a seller notice's line cut by hand can say "shipped as
+        // stock fish" or "in our fishhouse" and still be the fact that stays (15 Nov 2026).
+        if (!isShop(x.source) || x.key === 'references' || x.fixed) return [x]
         const k = `${x.key}:${x.source}`
         const has = langs.filter(l => l.t.sections[k] !== undefined)
         const { en, tr } = withoutShopTalk(x.html, Object.fromEntries(has.map(l => [l.f, l.t.sections[k]!])))
@@ -1100,7 +1102,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
       // the chief of staff and left (Astra's read: two shops' notices under one heading each took the other for the text
       // that stays, and both went).
       const vi = langs.find(l => l.f.endsWith('/vi.json'))?.t
-      const notices = new Set(sections.filter(x => isShop(x.source) && x.key !== 'references' && !!vi?.sections[`${x.key}:${x.source}`] && dealerNotice(vi.sections[`${x.key}:${x.source}`]!)))
+      const notices = new Set(sections.filter(x => isShop(x.source) && x.key !== 'references' && !x.fixed && !!vi?.sections[`${x.key}:${x.source}`] && dealerNotice(vi.sections[`${x.key}:${x.source}`]!)))
       sections = sections.filter(x => {
         const k = `${x.key}:${x.source}`
         if (!notices.has(x)) return true

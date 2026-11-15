@@ -542,6 +542,35 @@ test('a shop\'s part that is wholly its notice of a batch or stock comes off whe
   expect(again.dealerOnly).toEqual(['species/corydoras-adolfoi: beforeYouBuy:glaser', 'species/corydoras-adolfoi: diet:glaser', 'species/corydoras-adolfoi: diet:bwaquatics'])
 })
 
+// A part a person fixed (schemas.ts Section.fixed) is theirs: the shop-talk and notice cuts leave it, whatever its words.
+// A seller notice's lasting line, cut from the notice by hand, said "shipped as stock fish" (15 Nov 2026).
+test('a shop\'s part a person fixed keeps its words through the shop-talk and notice cuts', async () => {
+  const root = await store()
+  const file = (f: string) => join(root, 'content/species/corydoras-adolfoi', f)
+  const e = JSON.parse(await readFile(file('entity.json'), 'utf8'))
+  e.sections.push(
+    { key: 'notes', source: 'glaser', sourceUrl: 'https://glaser/x', html: '<p>Hybrids are to be expected, since the fish were shipped as stock fish.</p>', fixed: true },
+    { key: 'behaviour', source: 'glaser', sourceUrl: 'https://glaser/y', html: '<p>In our fishhouse the fish hide in filter wool.</p>', fixed: true },
+    { key: 'distribution', source: 'glaser', sourceUrl: 'https://glaser/z', html: '<p>Currently wild collected fish from Venezuela are on offer.</p>', fixed: true },
+  )
+  await writeFile(file('entity.json'), JSON.stringify(e, null, 1))
+  const vi = JSON.parse(await readFile(file('vi.json'), 'utf8'))
+  Object.assign(vi.sections, {
+    'notes:glaser': '<p>Cá lai là chuyện phải tính tới, vì cá được chở đi làm cá giống.</p>',
+    'behaviour:glaser': '<p>Ở trại cá của Glaser, cá trốn trong bông lọc.</p>',
+    'distribution:glaser': '<p>Hiện ngoài tiệm có bán cá bắt ngoài tự nhiên ở Venezuela.</p>',
+  })
+  await writeFile(file('vi.json'), JSON.stringify(vi, null, 1))
+
+  const r = await sweep(root)
+  expect([r.shop, r.dealer, r.dealerOnly]).toEqual([[], [], []])
+  const glaser = (x: { sections: { key: string; source: string; html: string }[] }) => x.sections.filter(s => s.source === 'glaser').map(s => `${s.key} ${s.html}`)
+  expect(glaser(JSON.parse(await readFile(file('entity.json'), 'utf8')))).toEqual(glaser(e))
+  const sections = JSON.parse(await readFile(file('vi.json'), 'utf8')).sections
+  const keys = ['notes:glaser', 'behaviour:glaser', 'distribution:glaser']
+  expect(keys.map(k => sections[k])).toEqual(keys.map(k => vi.sections[k]))
+})
+
 const WEEKLY = "claude failed (1): You've hit your weekly limit · resets Nov 14 at 8am (Asia/Saigon)"
 // The guide body the sweep already leaves in place, so a counted title is the only thing that would change the file.
 const CLEAN = '<h3>Đèn</h3><p><strong>Sai lầm 1:</strong> đèn mạnh.</p><p><strong>Sai lầm 2:</strong> bật lâu.</p><h3>CO2</h3><p><strong>Sai lầm 3:</strong> thiếu CO2.</p><h3>Phân nền</h3><h3>Kết luận</h3><p>Kiên nhẫn là chính, thay nước đều đặn mỗi tuần và theo dõi cây.</p>'
