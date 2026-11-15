@@ -44,15 +44,25 @@ test('videos: youtube search vetted by the llm', async () => {
 
 test("videos: an email address an uploader wrote into a title is never stored, nor the bracket it leaves; a title with none is kept as it is (the chief of staff, 16 Nov)", async () => {
   // Made-up addresses on the example domains, in the two shapes found on 16 Nov: in the middle, and alone in a bracket.
-  expect(videoTitle('Petrochromis fishroom@example.com zum 2. Mal,  34 WF.AVI')).toBe('Petrochromis zum 2. Mal, 34 WF.AVI')
+  expect(videoTitle('Petrochromis fishroom@example.com zum 2. Mal,  34 WF.AVI')).toBe('Petrochromis zum 2. Mal,  34 WF.AVI')
   expect(videoTitle("LET'S PRESERVE WILD BETTA UBERIS. (a.keeper+tanks@mail.example.org)")).toBe("LET'S PRESERVE WILD BETTA UBERIS.")
   expect(videoTitle('Cardinal tetra care  @ home [part 1]')).toBe('Cardinal tetra care  @ home [part 1]')
-  // What an address leaves: a doubled or end separator, a space before a stop, any empty bracket; and an accented one.
+  // What an address leaves, cleaned where it stood: a separator beside it, the space before a stop, a bracket or quotes
+  // around it, a label before it inside a bracket, a "mailto:"; two in a row; and an accented one, however its accents are written.
   expect(videoTitle('Wild bettas | fishroom@example.com | part 2')).toBe('Wild bettas | part 2')
+  expect(videoTitle('Bettas | fishroom@example.com | a.keeper@example.org | part 2')).toBe('Bettas | part 2')
   expect(videoTitle('Contact: fishroom@example.com')).toBe('Contact')
   expect(videoTitle('Betta uberis fishroom@example.com.')).toBe('Betta uberis.')
   expect(videoTitle('{fishroom@example.com} Bettas <fishroom@example.com>')).toBe('Bettas')
+  expect(videoTitle('«fishroom@example.com» Bettas 【fishroom@example.com】')).toBe('Bettas')
+  expect(videoTitle('Bettas (contact: fishroom@example.com) part 2')).toBe('Bettas (contact) part 2')
+  expect(videoTitle('Bettas (fishroom@example.com, part 2)')).toBe('Bettas (part 2)')
+  expect(videoTitle('mailto:fishroom@example.com Betta')).toBe('Betta')
   expect(videoTitle('Apistogramma jürgen.müller@example.de')).toBe('Apistogramma')
+  expect(videoTitle('Apistogramma ju\u0308rgen.mu\u0308ller@example.de')).toBe('Apistogramma')
+  // Nothing away from the address changes, and a file name with an "@" is no address.
+  expect(videoTitle('Temp: -2°C :-) -- Hello ! fishroom@example.com')).toBe('Temp: -2°C :-) -- Hello !')
+  for (const t of ['Discus 4K@60fps.mp4', 'Rescape 1080p@60fps.mov HD', 'Koi@2.5kg', 'fish @ home w/@Some.Channel']) expect(videoTitle(t)).toBe(t)
   // Thai and Chinese run their words together: the words beside an address stay.
   expect(videoTitle('ปลากัดป่าfishroom@example.com')).toBe('ปลากัดป่า')
   expect(videoTitle('野生斗鱼fishroom@example.com')).toBe('野生斗鱼')

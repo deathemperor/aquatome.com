@@ -5,12 +5,12 @@ import { mkdir, mkdtemp, readdir, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { expect, test } from 'vitest'
+import { expect, test, vi } from 'vitest'
 import { LlmError } from '../src/claude'
 import { fitRules } from '../src/fit'
 import type { Page } from '../src/pages'
 import { logReviews, readReviews } from '../src/review-log'
-import { chaptersFrom, crowdLines, editDraft, flatEntries, lowVideoGuides, parseTranscript, recheckedGuides, retry403, reviewDraft, storyboardInterval, videoGuides, ytApi, type VideoMeta, type YouTube } from '../src/youtube'
+import { chaptersFrom, crowdLines, editDraft, flatEntries, lowVideoGuides, parseTranscript, recheckedGuides, retry403, reviewDraft, storyboardInterval, videoGuides, ytApi, ytDlp, type VideoMeta, type YouTube } from '../src/youtube'
 
 const ev = (s: number, text: string) => ({ tStartMs: s * 1000, segs: [{ utf8: text }] })
 
@@ -577,6 +577,24 @@ test("ytApi: an email address in a playlist's or a video's title is taken out be
   const yt = ytApi('K', get)
   expect(await yt.playlist('PL1')).toMatchObject({ title: 'Bettas', videos: [{ id: 'a1', title: 'Part 1' }] })
   expect((await yt.video('a1')).title).toBe('Part 1')
+})
+
+test("yt-dlp's reader, used with no API key: an email address in a playlist's, its videos' or a video's title is taken out before anything stores it (the chief of staff, 16 Nov)", async () => {
+  // A stand-in yt-dlp first on the path, answering the playlist and the video calls; nothing reaches YouTube.
+  const bin = await mkdtemp(join(tmpdir(), 'aq-yt-dlp-'))
+  await writeFile(join(bin, 'playlist.json'), JSON.stringify({ title: 'Bettas fishroom@example.com', entries: [{ id: 'a1', title: 'Part 1 (fishroom@example.com)' }] }))
+  await writeFile(join(bin, 'video.json'), JSON.stringify({ title: 'Part 1 (fishroom@example.com)', duration: 60, availability: 'public', language: 'en' }))
+  await writeFile(join(bin, 'yt-dlp'), `#!/bin/sh\ncase "$*" in *--flat-playlist*) cat "${bin}/playlist.json" ;; *) cat "${bin}/video.json" ;; esac\n`, { mode: 0o755 })
+  const path = process.env.PATH
+  process.env.PATH = `${bin}:${path}`
+  vi.stubGlobal('fetch', async () => ({ ok: true }))
+  try {
+    expect(await ytDlp.playlist('PL1')).toMatchObject({ title: 'Bettas', videos: [{ id: 'a1', title: 'Part 1' }] })
+    expect((await ytDlp.video('a1')).title).toBe('Part 1')
+  } finally {
+    process.env.PATH = path
+    vi.unstubAllGlobals()
+  }
 })
 
 test("yt-dlp's searches and a channel's playlists: an email address in a found title is taken out before anything stores it (the chief of staff, 16 Nov)", () => {

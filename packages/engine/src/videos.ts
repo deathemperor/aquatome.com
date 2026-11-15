@@ -19,25 +19,33 @@ export const readVideoRejected = async (root: string) =>
   JSON.parse(await readFile(join(root, 'engine-state/_video-rejected.json'), 'utf8').catch(() => '{}')) as Record<string, string>
 
 // Latin letters with their accents (an uploader's own name), and digits. Not every script's letters: Thai and Chinese
-// titles run their words together, and a wider class would take the words beside an address with it.
-const EMAIL = /[\p{Script=Latin}\p{Nd}._%+-]+@[\p{Script=Latin}\p{Nd}-]+(?:\.[\p{Script=Latin}\p{Nd}-]+)*\.\p{Script=Latin}{2,}/gu
-const SEPS = '|/·•:;,–—-'
-const DOUBLED = new RegExp(`([${SEPS}])(?:\\s*[${SEPS}])+`, 'g')
-const ENDS = new RegExp(`^[\\s${SEPS}]+|[\\s${SEPS}]+$`, 'g')
+// titles run their words together, and a wider class would take the words beside an address with it. An address ends
+// where no letter or digit follows its last part, and a video or picture file's extension is no address's end, so a file
+// name ("4K@60fps.mp4", "1080p@60fps.mov") isn't one.
+const EMAIL = /(?:mailto:)?[\p{Script=Latin}\p{Nd}._%+-]+@[\p{Script=Latin}\p{Nd}-]+(?:\.[\p{Script=Latin}\p{Nd}-]+)*\.(?!(?:avi|flv|gif|jpe?g|mkv|mov|mpe?g|png|webm|wmv)(?![\p{L}\p{N}]))\p{Script=Latin}{2,}(?![\p{L}\p{N}])/giu
+// What an address leaves is cleaned only where it stood (A marks it): the rest of the title stays as written.
+const A = '\u0000', SEP = '[|/·•:;,–—-]', OPEN = '[(\\[{<«【（"“\'‘]', CLOSE = '[)\\]}>»】）"”\'’]'
+const LEFT: [RegExp, string][] = [
+  [new RegExp(`${A}(?:\\s*${SEP}?\\s*${A})+`, 'g'), A], // two addresses in a row are one
+  [new RegExp(`${OPEN}\\s*${A}\\s*${CLOSE}`, 'g'), A], // a bracket or quotes around it alone
+  [new RegExp(`${SEP}?\\s*${A}\\s*(?=${CLOSE})`, 'g'), ''], // last in a bracket: "(contact: …)"
+  [new RegExp(`(?<=${OPEN})\\s*${A}\\s*${SEP}?\\s*`, 'g'), ''], // first in a bracket
+  [new RegExp(`(${SEP})\\s*${A}\\s*${SEP}`, 'g'), '$1'], // between two separators: one stays
+  [new RegExp(`^\\s*${A}\\s*${SEP}?\\s*|\\s*${SEP}?\\s*${A}\\s*$`, 'g'), ''], // at either end, with its separator
+  [new RegExp(`\\s*${A}\\s*(?=[.,;:!?…])`, 'g'), ''], // before a stop
+  [new RegExp(`\\s*${A}\\s*`, 'g'), ' '],
+]
 
 /**
  * A video's title as the engine stores it: an email address its uploader wrote into it is taken out, with what it
- * leaves (an empty bracket, a separator doubled or left at either end, a space before a stop), so no run writes a
- * personal address into the repository (the chief of staff, 16 Nov). A title with none, or no title, is kept as it is.
+ * leaves where it stood (a bracket or quotes around it, a separator beside it, the space before a stop), so no run
+ * writes a personal address into the repository (the chief of staff, 16 Nov). Accents written as a letter and a mark are
+ * read as one letter. A title with none, or no title, is kept as it is, byte for byte.
  */
 export function videoTitle(raw: string): string {
-  if (!raw?.match(EMAIL)) return raw
-  return raw.replace(EMAIL, ' ')
-    .replace(/\(\s*\)|\[\s*\]|\{\s*\}|<\s*>/g, ' ')
-    .replace(DOUBLED, '$1')
-    .replace(ENDS, '')
-    .replace(/\s+([.,;:!?])/g, '$1')
-    .replace(/\s{2,}/g, ' ').trim()
+  const t = raw?.normalize('NFC')
+  if (!t?.match(EMAIL)) return raw
+  return LEFT.reduce((s, [re, to]) => s.replace(re, to), t.replace(EMAIL, A))
 }
 
 /** 2–4 relevant YouTube videos, none of `skip` (the rejected ones); [] when no YOUTUBE_API_KEY is configured. */
