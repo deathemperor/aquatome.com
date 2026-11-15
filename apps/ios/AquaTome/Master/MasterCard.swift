@@ -143,7 +143,9 @@ struct MasterCard: View {
 
   /// What didn't go, one line each, under the button: the steps that failed, then what hasn't come back.
   @ViewBuilder private var problems: some View {
-    let lines = master.refusal + (master.run?.failed.map(\.line) ?? []) + (master.run?.pending.compactMap(\.problem) ?? [])
+    let all = master.refusal + (master.run?.failed.map(\.line) ?? []) + (master.run?.pending.compactMap(\.problem) ?? [])
+    // Once each: several put-backs can share a line (the tanks not read).
+    let lines = all.reduce(into: [String]()) { if !$0.contains($1) { $0.append($1) } }
     if !lines.isEmpty {
       VStack(alignment: .leading, spacing: 4) {
         ForEach(lines, id: \.self) { line in
@@ -186,7 +188,6 @@ struct MasterCard: View {
   }
 }
 
-/// The ready card as one VoiceOver element, with its buttons as actions; as it is otherwise.
 /// The card's filled buttons, "Bắt đầu" and "Kết thúc": one colour on another, semibold, full width, 50 pt tall,
 /// growing with the text. While steps go out the button takes no taps but keeps its colours, so "Đang gửi…" and its
 /// spinner stay readable (the Design Lead, 15 Nov); disabled otherwise, it greys as iOS's do.
@@ -210,6 +211,7 @@ private struct Filled: ButtonStyle {
   }
 }
 
+/// The ready card as one VoiceOver element, with its buttons as actions; as it is otherwise.
 private struct OneElement: ViewModifier {
   let on: Bool
   let label: String

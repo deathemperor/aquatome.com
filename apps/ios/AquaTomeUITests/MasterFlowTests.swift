@@ -106,6 +106,23 @@ final class MasterFlowTests: XCTestCase {
     XCTAssertTrue(element(app, "master-start").exists, "not ready")
   }
 
+  func testWithTheTanksUnreadAtTheEndNothingGoesBackAndNothingIsDropped() {
+    // The tanks on the phone not read at the end (a newer app's file, or one that can't be read): which devices are
+    // still on a tank isn't known, so none is called deleted. Nothing goes back; each stays owed, with the tank list's
+    // words, for "Trả lại" once they read.
+    let app = launch()
+    make(app, end: "60", light: true)
+    tap(app, "master-start")
+    expect(app, "master-log", contains: "lamp on+white", timeout: 40)
+    expect(app, "master-end", contains: "Kết thúc", timeout: 40)
+    let again = launch(["-seed-tanks", "unreadable"], signIn: false, reset: false)
+    tap(again, "master-end")
+    expect(again, "master-problems", contains: "Không đọc được các bể đã lưu trên máy này.", timeout: 40)
+    XCTAssertTrue(element(again, "master-put-back").waitForExistence(timeout: 10), "nothing left owed")
+    let log = element(again, "master-log")
+    XCTAssertFalse(log.exists && log.label.contains("back"), log.exists ? log.label : "")
+  }
+
   func testAnEndWhileTheAppWasClosedPutsThePlugsBackAndTheLampWaitsForTraLai() {
     // Ends 15 s after the press; noticed more than 5 s late counts as the app away at the end (two minutes in the app).
     let args = ["-master-ends-in", "15", "-master-late-after", "5"]

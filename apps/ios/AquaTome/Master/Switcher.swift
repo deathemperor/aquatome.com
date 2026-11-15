@@ -29,6 +29,16 @@ final class Switcher {
     c.isLamp ? String(localized: "Đèn Love Ecology") : outlet(c)?.name ?? String(localized: "Ổ cắm")
   }
 
+  /// Why which devices are on a tank isn't known: the tanks on this phone weren't read (a newer app's, or unreadable), so
+  /// none can be called deleted. The tank list's own words.
+  var unreadTanks: String? {
+    switch tanks.problem {
+    case .newerStore: String(localized: "Các bể trên máy này được lưu bằng bản ứng dụng mới hơn. Cập nhật AquaTome để xem và sửa.")
+    case .unreadable: String(localized: "Không đọc được các bể đã lưu trên máy này. Dữ liệu được giữ nguyên.")
+    default: nil
+    }
+  }
+
   /// Why a command can't be sent whatever happens: its device is no longer on a tank. Nil while it is.
   func gone(_ c: DeviceCommand) -> String? {
     if c.isLamp { return tanks.store.device(c.device)?.isLoveEcology == true ? nil : String(localized: "Đèn này không còn trên bể nào.") }

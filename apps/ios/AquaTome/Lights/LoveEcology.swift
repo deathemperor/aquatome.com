@@ -122,13 +122,17 @@ final class LoveEcologyModel {
   /// The commands broadcast, by id, for the UI tests.
   private(set) var sent: [String] = []
   @ObservationIgnored private var ending: Task<Void, Never>?
+  /// Which send is the latest: a repeat tap on the same command replaces the first, whose answer is then ignored.
+  @ObservationIgnored private var latest = 0
 
   /// Broadcasts a command for three seconds. Another tap meanwhile replaces it.
   func send(_ command: FishLamp.Command) {
     ending?.cancel()
+    latest += 1
+    let mine = latest
     status = .sending(command.id)
     LampRadio.start(command.uuids, by: self) { [weak self] e in
-      guard let self, self.status == .sending(command.id) else { return }
+      guard let self, self.latest == mine, self.status == .sending(command.id) else { return }
       if let e { self.status = .problem(e); return }
       self.sent.append(command.id)
       LampMemory.sent(command.id)

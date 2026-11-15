@@ -57,12 +57,15 @@ final class MasterModel {
 
   func save(_ b: MasterButton) {
     button = b
+    // Why the last press sent nothing was about the button as it was.
+    refusal = []
     UserDefaults.standard.set(try? JSONEncoder().encode(b), forKey: Self.buttonKey)
   }
 
   /// What a press still owes stays, with its "Trả lại", on the card without a button.
   func delete() {
     button = nil
+    refusal = []
     UserDefaults.standard.removeObject(forKey: Self.buttonKey)
     if run.map({ !$0.isRunning && $0.pending.isEmpty }) == true {
       run = nil
@@ -164,6 +167,14 @@ final class MasterModel {
     let left = Dictionary(r.steps.filter { !missed.contains($0.target) }.map { ($0.target, $0.on) }, uniquingKeysWith: { _, last in last })
     r.failed = []
     EndNotice.cancel()
+    // The tanks on this phone not read: which devices are still on one isn't known, so nothing goes back and nothing is
+    // dropped as deleted. Each stays owed, with the tank list's words, for "Trả lại" once they read.
+    if let unread = switcher.unreadTanks {
+      for b in r.pending { if let i = r.back.firstIndex(of: b) { r.back[i].problem = unread } }
+      run = r
+      keep()
+      return
+    }
     await switcher.plugs.refresh()
     let board = switcher.plugs.board
     for b in r.pending {
