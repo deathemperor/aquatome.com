@@ -1118,3 +1118,17 @@ test('the algae guide is held by hand in every language while its Thai text carr
   const th = JSON.parse(readFileSync(join(root, `content/guides/${id}/th.json`), 'utf8')) as Translation
   for (const dose of ['Easy Carbo', '1 มล. ต่อ 50 ลิตร', 'Flourish Excel', '5 มล. ต่อ 40 ลิตร']) expect(th.body, dose).toContain(dose)
 })
+
+// The chief of staff, 16 Nov 2026: the video guide on where to learn aquascaping named three private hobbyists in passing
+// (a group's admin, a website's owner, the keeper of a well-known tank). The names go by hand, the group, the site and the
+// forum topic stay named, and the body, the questions and the title are fixed, since a redo writes from the video's
+// transcript, which still says them. The check reads a form of address before a capitalised name, so the test needn't
+// repeat the names.
+test('the guide on where to learn aquascaping names no private person in passing, and is fixed by hand', () => {
+  const t = JSON.parse(readFileSync(fileURLToPath(new URL('../../../content/guides/youtube-qzPVpr89Ugo/vi.json', import.meta.url)), 'utf8')) as Translation & Record<string, unknown>
+  const all = [t.name, t.body, ...(t.summary ?? []), ...(t.faq ?? []).flatMap(f => [f.q, f.a])].join('\n')
+  expect(all).not.toMatch(/(?<!\p{L})(?:anh|chị|ông|bà|cô|chú|bác)\s+\p{Lu}/u)
+  expect(t.body).toContain('Admin nhóm đã đăng nhiều bài hữu ích trong mục thông báo.')
+  expect(t.body).toContain('Thủy Sinh AZ')
+  for (const mark of ['bodyFixed', 'faqFixed', 'nameFixed']) expect(t[mark], mark).toBe(true)
+})
