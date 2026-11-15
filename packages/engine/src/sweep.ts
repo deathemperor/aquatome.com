@@ -12,7 +12,7 @@ import { droppedName, FISH_NAMES, KIND_PASSAGES, ownWords, type FishName, type K
 import { withLNumber } from './l-numbers'
 import { pickStands, readPersonYes } from './person-yes'
 import { EMPTY_CAP, refusedOn, type PhotoVerdict } from './photo-check'
-import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmails, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, fixTranslation, isAdPoster, notAlive, isMap, unwellOff, NAMED_KINDS, renameFishNames, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
+import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmails, dropEmailsDeep, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, fixTranslation, hasEmail, isAdPoster, notAlive, isMap, unwellOff, NAMED_KINDS, renameFishNames, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields, type PageKind } from './pages'
 import { foldPages } from './page-folds'
 import { sweepPlaceNames } from './place-names'
@@ -53,7 +53,8 @@ import { namedOn, namedOrder, passesHead } from './photo-named'
  *   <name>."): the block cut (dropPhotoCaptions, dropThanks); a caption that says something more than what its photo
  *   shows keeps its words, its label and credits cut (dropPhotoCaptions)
  * - an email address, in any part of a page, its references too: cut with the brackets round it, a link to one keeping its
- *   words (dropEmails). The repository is public; the real-content test fails on one in any file under content/
+ *   words (dropEmails); then, last, in every field of every file under content/ (dropEmailsEverywhere). The repository is
+ *   public; the real-content test fails on one in any file under content/, so the sweep mends every hit it can have
  * - "© <name>" after a work's title in a fish page's references: the "©" and the name cut, the title and link kept (dropRefCredits)
  * - a photo whose caption names another fish the site has, or is a map, or a Wikimedia Commons photo whose own words say
  *   it is a paper's plate, a microscope picture, a drawing or a dish: off that page (its file and its gallery). A map or
@@ -358,6 +359,32 @@ export async function renameCaptions(content: string, rows: readonly FishName[] 
     // In place, so the file's order stays and a diff shows only the keys.
     await write(file, raw, Object.fromEntries(Object.entries(map).map(([k, v]) => [rekey.get(k) ?? k, v])))
     changed.push(`captions/${f}`)
+  }
+  return changed
+}
+
+/**
+ * An email address anywhere under content/, in any file and field the steps above don't write (a fish page's source text, a
+ * photo's caption or credit, a video's title, a place, a name or a question): cut (dropEmailsDeep), so every hit the
+ * real-content test can have is one the cycle mends. A file with no "@" is not parsed. The files changed.
+ */
+export async function dropEmailsEverywhere(content: string): Promise<string[]> {
+  const changed: string[] = []
+  const files = (await readdir(content, { recursive: true })).filter(f => f.endsWith('.json')).sort()
+  // About 29,000 files: read 64 at a time, as a file read one after another costs a minute on a busy machine.
+  const hits: { f: string; raw: string }[] = []
+  for (let i = 0; i < files.length; i += 64) {
+    for (const h of await Promise.all(files.slice(i, i + 64).map(async f => {
+      const raw = await readFile(join(content, f), 'utf8')
+      return hasEmail(raw) ? { f, raw } : null
+    }))) if (h) hits.push(h)
+  }
+  for (const { f, raw } of hits) {
+    const data = JSON.parse(raw) as unknown
+    const out = dropEmailsDeep(data)
+    if (JSON.stringify(out) === JSON.stringify(data)) continue
+    await write(join(content, f), raw, out)
+    changed.push(f)
   }
   return changed
 }
@@ -1254,6 +1281,11 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   albums.files.forEach(changed)
   report.albums = albums.leads
   report.noAnimal = await noAnimalHeads(root, o.today ?? vnDate(new Date()))
+  // Last, after every step that writes a file: an email address left in any of them.
+  for (const f of await dropEmailsEverywhere(content)) {
+    changed(f)
+    ;(report.text['emails'] ??= []).push(f.replace(/\.json$/, ''))
+  }
   return report
 }
 

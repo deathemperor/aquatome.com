@@ -1,6 +1,6 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { readdir, readFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { join, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { GALLERY_POST, LANGS, loadAll, mayPublish, RETIRED_GUIDES, resolveDataCard, slugify, tankKeywordFits, WRITTEN_LANGS, type Translation } from '@aq/schema'
@@ -1174,22 +1174,29 @@ test('the Botia markings guide prints no email address, still credits its author
 
 // The chief of staff, 16 Nov 2026: no email address in any file under content/, in any field, a page's text or a video's
 // title or a photo's credit. The repository is public, and an address belongs to a person. No list of allowed addresses: a
-// list would print them here. A failure names the file and the field, never the address. The sweep cuts one from a page's
-// text each cycle (content-rules.ts dropEmails); every other field's writer keeps none. sources/ and engine-state/ join
-// this once their copies are cleaned.
+// list would print them here. A failure names the file and the field, never the address (a key with one is named by its
+// place, not its words). The sweep cuts one from every field of every file each cycle (sweep.ts dropEmailsEverywhere), so
+// a hit here is one it missed. Every file is read, whatever its kind, but a picture or a video. sources/ and engine-state/
+// join this once their copies are cleaned.
 test('no email address in any file under content/', async () => {
   const root = fileURLToPath(new URL('../../../content/', import.meta.url))
   const found: string[] = []
-  const walk = (x: unknown, at: string, file: string): void => {
-    if (typeof x === 'string') { if (hasEmail(x)) found.push(`${file} ${at || '(text)'}`) }
-    else if (Array.isArray(x)) x.forEach((v, i) => walk(v, `${at}[${i}]`, file))
-    else if (x && typeof x === 'object') for (const [k, v] of Object.entries(x)) walk(v, at ? `${at}.${k}` : k, file)
+  const walk = (x: unknown, at: string, file: string): number => {
+    if (typeof x === 'string') return hasEmail(x) ? (found.push(`${file} ${at || '(text)'}`), 1) : 0
+    if (Array.isArray(x)) return x.reduce((n: number, v, i) => n + walk(v, `${at}[${i}]`, file), 0)
+    if (!x || typeof x !== 'object') return 0
+    return Object.entries(x).reduce((n, [k, v], i) => {
+      if (hasEmail(k)) { found.push(`${file} ${at ? `${at}.` : ''}(key ${i + 1})`); n++ }
+      return n + walk(v, at ? `${at}.${k}` : k, file)
+    }, 0)
   }
-  for (const f of (await readdir(root, { recursive: true })).filter(f => /\.(json|md|txt)$/.test(f)).sort()) {
+  for (const f of (await readdir(root, { recursive: true, withFileTypes: true })).filter(d => d.isFile() && !/\.(png|jpe?g|gif|webp|avif|ico|mp4|webm|mov)$/i.test(d.name)).map(d => relative(root, join(d.parentPath, d.name))).sort()) {
     const raw = await readFile(join(root, f), 'utf8')
-    if (!raw.includes('@') || !hasEmail(raw)) continue
-    if (f.endsWith('.json')) walk(JSON.parse(raw), '', f)
-    else found.push(`${f} (text)`)
+    if (!hasEmail(raw)) continue
+    if (!f.endsWith('.json')) { found.push(`${f} (text)`); continue }
+    let data: unknown
+    try { data = JSON.parse(raw) } catch { found.push(`${f} (not JSON)`); continue }
+    if (!walk(data, '', f)) found.push(`${f} (raw)`)
   }
   expect(found).toEqual([])
 }, slow(120_000))

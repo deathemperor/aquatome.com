@@ -514,19 +514,37 @@ export const dropThanks = (html: string) => (/cảm ơn|cám ơn|terima kasih|pe
 /**
  * An email address. The repository is public and an address belongs to a person, so no page prints one (the chief of
  * staff, 16 Nov 2026): a source's letters had printed their author's in each header ("Từ: <name> (<address>)"). A file
- * name with a scale mark ("ảnh@2x.png") isn't an address.
+ * name with a scale mark or a frame rate ("ảnh@2x.PNG", "1080p@60fps.mov") isn't one: a picture, video, sound or code
+ * file's extension, any case, is no address's end. Before the "@", Latin letters with their accents, digits and "._%+-",
+ * as videos.ts reads a video's title: Thai and Chinese run their words together, and a wider class would take the words
+ * beside an address with it. An address ends where no letter, digit or further part follows ("logo@2x.min.js" is a
+ * file), and a link's user ("https://user@host") is no person's address.
  */
-const EMAIL = String.raw`[\p{L}\p{N}._%+-]+@[\p{L}\p{N}-]+(?:\.[\p{L}\p{N}-]+)*\.(?!(?:png|jpe?g|gif|webp|avif|svg|mp4|webm|pdf)(?![\p{L}\p{N}]))\p{L}{2,}(?![\p{L}\p{N}])`
-export const hasEmail = (text: string) => new RegExp(EMAIL, 'u').test(text)
+const LETTER = String.raw`\p{Script=Latin}\p{Nd}̀-ͯ`
+const FILE = 'asf|avi|avif|bmp|css|dng|flv|gif|heic|ico|jpe?g|js|m4a|mkv|mov|mp3|mp4|mpe?g|mts|mxf|ogg|ogv|pdf|png|raw|rmvb|svg|tiff?|ts|vob|wav|webm|webp|wmv|zip'
+const EMAIL = String.raw`(?<![${LETTER}._%+-]|\/\/)(?:mailto:)?[${LETTER}._%+-]+(?:['’&=][${LETTER}._%+-]+)*@[${LETTER}-]+(?:\.[${LETTER}-]+)*\.(?!(?:${FILE})(?![\p{L}\p{N}\p{M}]))\p{Script=Latin}{2,}(?![\p{Script=Latin}\p{N}\p{M}]|\.[${LETTER}])`
+const ANY_EMAIL = new RegExp(EMAIL, 'iu')
+const BRACKETED_EMAIL = new RegExp(String.raw`\s*(?:\(|\[|&lt;|<)\s*${EMAIL}\s*(?:\)|\]|&gt;|>)`, 'giu')
+const BARE_EMAIL = new RegExp(String.raw`\s*${EMAIL}`, 'giu')
+const MAILTO_LINK = /<a\b[^>]*\bhref\s*=\s*["']mailto:[^"']*["'][^>]*>([\s\S]*?)<\/a>/giu
+export const hasEmail = (text: string) => text.includes('@') && ANY_EMAIL.test(text)
 /**
  * The text without its email addresses: a link to one keeps its words, and an address goes with the brackets round it and
- * the space before it. Only the text between tags is read, so a photo's file name in a tag stays as it is.
+ * the space before it. What hasEmail finds, this cuts, so the sweep mends every hit the real-content test can have.
  */
-export const dropEmails = (html: string) => (!hasEmail(html) ? html : html
-  .replace(/<a\b[^>]*\bhref\s*=\s*["']mailto:[^"']*["'][^>]*>([\s\S]*?)<\/a>/giu, '$1')
-  .replace(/(<[^>]*>)|[^<]+/gu, (text, tag?: string) => tag ?? text
-    .replace(new RegExp(String.raw`\s*(?:\(|\[|&lt;)\s*${EMAIL}\s*(?:\)|\]|&gt;)`, 'gu'), '')
-    .replace(new RegExp(String.raw`\s*${EMAIL}`, 'gu'), '')))
+export const dropEmails = (html: string) => {
+  let out = html
+  for (let i = 0; i < 3 && hasEmail(out); i++) out = out.replace(MAILTO_LINK, '$1').replace(BRACKETED_EMAIL, '').replace(BARE_EMAIL, '')
+  return out
+}
+/**
+ * A stored file's data with the email addresses cut from every string, its keys too (dropEmails): the captions' translations
+ * are keyed by the Vietnamese caption, which then reads as its photo's does. Its shape stays.
+ */
+export const dropEmailsDeep = <T>(v: T): T => (typeof v === 'string' ? dropEmails(v)
+  : Array.isArray(v) ? v.map(dropEmailsDeep)
+  : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).map(([k, x]) => [dropEmails(k), dropEmailsDeep(x)]))
+  : v) as T
 
 /**
  * "© <name>" in a fish page's references, after a work's title ("The ETYFish Project Fish Name Etymology Database ©

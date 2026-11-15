@@ -7,7 +7,7 @@ import { LlmError, type Llm } from '../src/claude'
 import { checkPages, RATCHETED, ratcheted, RULES } from '../src/content-rules'
 import { loadPages } from '../src/pages'
 import { checkPagePhotos } from '../src/photo-check'
-import { kindPassages, nameFish, sweep, sweepTranslation } from '../src/sweep'
+import { dropEmailsEverywhere, kindPassages, nameFish, sweep, sweepTranslation } from '../src/sweep'
 import { atCeiling } from './at-ceiling'
 
 const photo = (url: string, caption: string) => ({ url, width: 1200, height: 800, licence: 'CC BY 4.0', author: 'A', sourceUrl: 'https://commons.wikimedia.org/x', caption })
@@ -1295,4 +1295,35 @@ test("a species page whose order its group doesn't allow is moved to the group t
   expect((await json(root, 'content/species/corydoras-x/entity.json')).group).toBe('catfish')
   expect((await json(root, 'content/species/botia-x/entity.json')).group).toBe('loaches')
   expect((await sweep(root)).regrouped).toEqual([])
+})
+
+// The chief of staff, 16 Nov 2026: no email address in any file under content/. The sweep cuts one from a page's text with
+// its other text fixes, then from every field of every file, so each hit the real-content test can have is one the cycle
+// mends (the independent reader of #1476). Addresses here are the reserved example domains.
+test("an email address goes from a page's text, and from every field of every file under content/, a caption's translation key too; a file with none stays byte for byte", async () => {
+  const swept = sweepTranslation({ body: '<p>Từ: Tác Giả (someone@example.org) Ngày: 5 tháng 8 năm 2002</p>' }, 'guides')
+  expect(swept.t.body).toBe('<p>Từ: Tác Giả Ngày: 5 tháng 8 năm 2002</p>')
+  expect(swept.fixed).toContain('emails')
+  const root = await mkdtemp(join(tmpdir(), 'sweep-'))
+  const c = join(root, 'content')
+  const put = async (path: string, data: unknown, indent = 2) => { await mkdir(join(c, path, '..'), { recursive: true }); await writeFile(join(c, path), `${JSON.stringify(data, null, indent)}\n`) }
+  await put('species/a-fish/entity.json', {
+    id: 'a-fish',
+    sections: [{ key: 'notes', html: '<p>Write to the author (someone@example.org).</p>' }],
+    videos: [{ youtubeId: 'x', title: 'Wild bettas (fishroom@example.com)' }, { youtubeId: 'y', title: 'Bettas 1080p@60fps.MOV' }],
+    photos: [{ url: 'https://user@example.net/ca@2x.PNG', caption: 'Ảnh của someone@example.org' }],
+  }, 4)
+  await put('captions/id.json', { 'Ảnh của someone@example.org': 'Foto' })
+  await put('places/a/vi.json', { name: 'Nơi', note: 'Giá 50k @ tiệm, theo @seriouslyfish' })
+  const untouched = await readFile(join(c, 'places/a/vi.json'), 'utf8')
+  expect(await dropEmailsEverywhere(c)).toEqual(['captions/id.json', 'species/a-fish/entity.json'])
+  const raw = await readFile(join(c, 'species/a-fish/entity.json'), 'utf8')
+  expect(raw.startsWith('{\n    "id"'), 'its indentation').toBe(true)
+  const e = JSON.parse(raw)
+  expect(e.sections[0].html).toBe('<p>Write to the author.</p>')
+  expect(e.videos.map((v: { title: string }) => v.title)).toEqual(['Wild bettas', 'Bettas 1080p@60fps.MOV'])
+  expect(e.photos[0]).toEqual({ url: 'https://user@example.net/ca@2x.PNG', caption: 'Ảnh của' })
+  expect(JSON.parse(await readFile(join(c, 'captions/id.json'), 'utf8'))).toEqual({ 'Ảnh của': 'Foto' })
+  expect(await readFile(join(c, 'places/a/vi.json'), 'utf8')).toBe(untouched)
+  expect(await dropEmailsEverywhere(c)).toEqual([])
 })

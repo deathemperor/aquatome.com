@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import {
-  blocks, cardSlips, checkPages, gluedSyllables, claimsControl, countEvidence, countMismatch, cutFurniture, dropEmails, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, emptySections, englishSentences, fixStored, fixTranslation, furniture,
+  blocks, cardSlips, checkPages, gluedSyllables, claimsControl, countEvidence, countMismatch, cutFurniture, dropEmails, dropEmailsDeep, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, emptySections, englishSentences, fixStored, fixTranslation, furniture,
   hasEmail, imperialUnits, isPermissionNote, isPhotoCaption, isThanks, labelSlips, leftoverMarkup, longFurniture, namesSource, numberSlips, otherFish, photoCaptions, plainEntities, ratcheted, refCredits, renumberLabels, RULES, rulesReport, sfScoreFixed, sourcePagePhrases, stripCount,
   renameStored, renameFishNames, renameSwapped, swappedNames, thanksLines, titleCount, unwellOff, vietnameseLeft, wrongFish, captionFlaw, type Ctx,
 } from '../src/content-rules'
@@ -544,12 +544,35 @@ test('an email address goes from a page\'s text with its brackets, a link to one
   expect(dropEmails('<p>Viết cho tôi: <a href="mailto:someone@example.com">gửi thư</a>.</p>')).toBe('<p>Viết cho tôi: gửi thư.</p>')
   expect(dropEmails('<p>Hỏi tại &lt;first.last+tag@mail.example.co.uk&gt; hoặc [x_y@example.net].</p>')).toBe('<p>Hỏi tại hoặc.</p>')
   expect(dropEmails('<p>Liên hệ someone@example.org</p>')).toBe('<p>Liên hệ</p>')
-  // Not addresses: a photo's file name in a tag or in text, a social handle, an "@" in prose.
-  for (const keep of ['<p><img src="/img/ca@2x.png" alt="cá"> ảnh@2x.jpg</p>', '<p>Tweet tới @seriouslyfish!</p>', '<p>Giá 50k @ tiệm</p>']) {
+  expect(dropEmails("Bettas <O'Keeper@Example.ORG>")).toBe('Bettas')
+  // Thai runs its words together: the address goes, the words beside it stay whole.
+  expect(dropEmails('ติดต่อsomeone@example.orgได้เลย')).toBe('ติดต่อได้เลย')
+  // Not addresses: a photo's or a video's file name in a tag or in text, any case; a social handle; an "@" in prose; a
+  // link's user; a version.
+  for (const keep of [
+    '<p><img src="/img/ca@2x.png" alt="cá"> ảnh@2x.JPG</p>', 'Bettas 1080p@60fps.mov', 'Clip@60fps.ts', 'logo@2x.min.js', 'icon@3x.HEIC',
+    '<p>Tweet tới @seriouslyfish!</p>', '<p>Giá 50k @ tiệm</p>', 'https://user@example.net/x', 'https://medium.com/@keeper', 'react@18.3.1',
+  ]) {
     expect(dropEmails(keep), keep).toBe(keep)
     expect(hasEmail(keep), keep).toBe(false)
   }
-  expect(hasEmail('someone@example.org')).toBe(true)
+  // What it finds, it cuts: nothing is left for the real-content test that the sweep can't mend.
+  for (const text of ['someone@example.org', 'A (someone@example.org) và [x@example.net]', 'mailto:a.b+c@mail.example.co.uk', 'Ông Tác Giả, tác.giả@example.org.']) {
+    expect(hasEmail(text), text).toBe(true)
+    expect(hasEmail(dropEmails(text)), text).toBe(false)
+  }
+  // A file with no "@" is read in no time: the sweep reads every file each cycle.
+  const long = 'a'.repeat(1_000_000)
+  const t0 = performance.now()
+  expect(hasEmail(long)).toBe(false)
+  expect(performance.now() - t0).toBeLessThan(50)
+})
+
+test('every string of a stored file loses its addresses, its keys too; its shape stays', () => {
+  const data = { title: 'Wild bettas (someone@example.org)', photos: [{ caption: 'Ảnh của someone@example.org', w: 2 }], keyed: { 'x@example.com': 'Foto' }, n: 3, ok: true, none: null }
+  expect(dropEmailsDeep(data)).toEqual({ title: 'Wild bettas', photos: [{ caption: 'Ảnh của', w: 2 }], keyed: { '': 'Foto' }, n: 3, ok: true, none: null })
+  const clean = { a: ['b', { c: 'd@2x.png' }] }
+  expect(dropEmailsDeep(clean)).toEqual(clean)
 })
 
 // Page Recovery, 2026-11-12: about 130 fish pages' references named a database's compiler after "©". The name is invented.
