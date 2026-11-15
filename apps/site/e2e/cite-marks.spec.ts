@@ -15,44 +15,63 @@ async function pageOf(request: APIRequestContext, kind: string): Promise<string 
 }
 
 /**
- * A paragraph in the page's text column, beside its first mark (or its first paragraph): a word, a mark, a few words, and a
- * mark that ends the line. Set to the right, so only words stand between the marks, as on the driftwood pages: an element
- * between them would keep `.cite + .cite` from matching at all.
+ * Paragraphs in the page's text column, beside its first mark (or its first paragraph), each set to the right so its last
+ * mark ends the line: a word, a mark, a few words and a mark, so only words stand between the marks, as on the driftwood
+ * pages (an element between them would keep `.cite + .cite` from matching at all); and a line ending in a group of two
+ * and of three, a researched block's "2 3", whose last mark reached 30 px past it, 418 px on a 412 px phone (Fable's read,
+ * 15 Nov 2026). For each: its marks on one line, the last one's gap to the line's end, and the marks a tap at each one's
+ * centre lands on.
  */
 const worstCase = (page: Page) => page.evaluate(() => {
   const near = document.querySelector('main a.cite')?.closest('p, li') ?? document.querySelector('main p')!
-  const p = document.createElement('p')
-  p.innerHTML = 'Lũa <a class="cite" href="#">1</a> ngâm kỹ <a class="cite" href="#">2</a>'
-  p.style.textAlign = 'right'
-  near.after(p)
-  const [first, last] = [...p.querySelectorAll('.cite')]
-  const box = last!.getBoundingClientRect()
-  return { gap: p.getBoundingClientRect().right - box.right, sameLine: Math.abs(first!.getBoundingClientRect().top - box.top) < 2 }
+  const mark = (n: number) => `<a class="cite" href="#">${n}</a>`
+  const lines = [`Lũa ${mark(1)} ngâm kỹ ${mark(2)}`, `Lũa ngâm kỹ<span class="marks">${mark(2)} ${mark(3)}</span>`, `Lũa ngâm kỹ<span class="marks">${mark(1)} ${mark(2)} ${mark(3)}</span>`]
+  const ps = lines.map(html => {
+    const p = document.createElement('p')
+    p.innerHTML = html
+    p.style.textAlign = 'right'
+    return p
+  })
+  near.after(...ps)
+  return ps.map(p => {
+    p.scrollIntoView({ block: 'center' })
+    const marks = [...p.querySelectorAll<HTMLElement>('.cite')]
+    const boxes = marks.map(m => m.getBoundingClientRect())
+    const hit = boxes.map(b => marks.indexOf(document.elementFromPoint(b.x + b.width / 2, b.y + b.height / 2)?.closest<HTMLElement>('.cite') as HTMLElement))
+    return { gap: p.getBoundingClientRect().right - boxes.at(-1)!.right, sameLine: boxes.every(b => Math.abs(b.top - boxes[0]!.top) < 2), hit }
+  })
 })
 
 for (const kind of ['fish', 'plants', 'guides', 'videos', 'products', 'glossary', 'materials']) {
-  test(`a source mark at a line's end, a few words after another, keeps its tap area inside a phone screen (${kind})`, async ({ page, request }, info) => {
+  test(`a source mark at a line's end, a few words after another or last in a group, keeps its tap area inside a phone screen (${kind})`, async ({ page, request }, info) => {
     test.skip(info.project.name !== 'phone', 'the phone layout')
     const path = await pageOf(request, kind)
     test.skip(!path, `no ${kind} page`)
     await page.goto(path!)
     expect(await sideways(page), 'the page as it is').toBeNull()
-    const at = await worstCase(page)
-    expect(at.sameLine, 'both marks on one line').toBe(true)
-    expect(at.gap, 'the second mark ends the line').toBeLessThan(3)
+    for (const [i, at] of (await worstCase(page)).entries()) {
+      expect(at.sameLine, `line ${i + 1}: its marks on one line`).toBe(true)
+      expect(at.gap, `line ${i + 1}: its last mark ends the line`).toBeLessThan(3)
+      expect(at.hit, `line ${i + 1}: a tap on each mark opens that mark`).toEqual(at.hit.map((_, j) => j))
+    }
     expect(await sideways(page), 'with the worst case').toBeNull()
   })
 }
 
-// Marks in one group still reach away from each other: the first's area ends at its right edge, the last's starts at its left.
+// Marks in one group reach away from each other: a tap a little left of the first opens the first, a little right of the
+// last opens the last, and a tap on each mark opens that mark, in a group of two and of three.
 test('marks side by side in one group take each other\'s side for their tap areas', async ({ page }) => {
   await page.goto('/huong-dan/')
-  const group = await page.evaluate(() => {
+  const groups = await page.evaluate(() => [2, 3].map(n => {
     const p = document.createElement('p')
-    p.innerHTML = 'Lũa<span class="marks"><a class="cite" href="#">1</a> <a class="cite" href="#">2</a></span>'
+    p.innerHTML = `Lũa<span class="marks">${Array.from({ length: n }, (_, i) => `<a class="cite" href="#">${i + 1}</a>`).join(' ')}</span> ngâm kỹ.`
     document.querySelector('main')!.append(p)
-    const [a, b] = [...p.querySelectorAll('.cite')]
-    return { first: getComputedStyle(a!, '::before').right, last: getComputedStyle(b!, '::before').left }
-  })
-  expect(group).toEqual({ first: '0px', last: '0px' })
+    p.scrollIntoView({ block: 'center' })
+    const marks = [...p.querySelectorAll<HTMLElement>('.cite')]
+    const at = (x: number, y: number) => marks.indexOf(document.elementFromPoint(x, y)?.closest<HTMLElement>('.cite') as HTMLElement)
+    const boxes = marks.map(m => m.getBoundingClientRect())
+    const mid = (b: DOMRect) => b.y + b.height / 2
+    return { centres: boxes.map(b => at(b.x + b.width / 2, mid(b))), left: at(boxes[0]!.left - 8, mid(boxes[0]!)), right: at(boxes.at(-1)!.right + 8, mid(boxes.at(-1)!)) }
+  }))
+  expect(groups).toEqual([{ centres: [0, 1], left: 0, right: 1 }, { centres: [0, 1, 2], left: 0, right: 2 }])
 })
