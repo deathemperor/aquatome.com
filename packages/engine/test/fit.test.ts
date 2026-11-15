@@ -476,7 +476,10 @@ test('units: a length a keeper writes isn\'t counted, under 10 cm a whole or hal
     ['Lớp nền dày 2,54 cm.', 'dày 2,54 cm', 'vi'],
     ['Lớp sỏi dày 3,8 cm.', 'lớp sỏi dày 3,8 cm', 'vi'],
     ['Lót tấm neoprene dày khoảng 1,3 cm.', 'dày khoảng 1,3 cm', 'vi'],
-    // another figure beside the length, a length per something (a source's per inch), a tank's sides, 10 cm and up
+    // a pipe's size (keepers buy pipe by its mm size); another figure beside the length; a length per something (a
+    // source's per inch); a tank's sides; 10 cm and up
+    ['Lắp uniseal và ống PVC 2,5 cm.', 'lắp uniseal và ống PVC 2,5 cm', 'vi'],
+    ['Lấy ống PVC đường kính 2,5–5 cm.', 'Lấy ống PVC đường kính 2,5–5 cm', 'vi'],
     ['Bể 38 lít, nền dày 2,5 cm.', 'Bể 38 lít, nền dày 2,5 cm', 'vi'],
     ['Kira-kira 40 liter air bagi setiap 2.5 cm panjang ikan.', 'bagi setiap 2.5 cm panjang ikan', 'ms'],
     ['Bể 91 × 38 × 30 cm.', 'Bể 91 × 38 × 30 cm', 'vi'],

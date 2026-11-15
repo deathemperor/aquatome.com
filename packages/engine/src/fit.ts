@@ -645,17 +645,20 @@ export function doseGroups(pages: Page[], state: FitState): DoseGroup[] {
 const LENGTH_CM = /(\d+(?:[.,]\d+)?)(?:\s*(?:[–-]|đến|tới|to|hingga|sampai|ถึง)\s*(\d+(?:[.,]\d+)?))?\s*(?:cm|ซม\.?)(?![\p{L}\p{N}])/giu
 /** What a length is per: a stocking rule's "mỗi 2,5 cm" is a source's per inch (breed-units.ts), never a keeper's figure. */
 const PER_LENGTH = /(?:mỗi|trên|per|setiap|ต่อ|\/)\s*(?:khoảng\s*)?$/iu
+/** A pipe's size: keepers here buy pipe by its millimetre size, so an inch pipe written "2,5 cm" stays a fault. */
+const PIPE = /(?:ống|đường kính|pipe|tube|hose|diameter|pipa|selang|paip|diameter|ท่อ|เส้นผ่าน)[^\d.;!?]{0,20}$/iu
 /**
  * A units finding whose figures are all lengths a keeper here writes (the chief of staff, 16 Nov 2026): under 10 cm, a
  * whole or half centimetre ("sau một tuần mực nước có thể tụt gần 2,5 cm", "2,5–5 cm" of gravel). A converted oddity
- * still counts ("2,54 cm", "3,8 cm"), and so does a quote with any other figure, a length per something, or a tank's
- * sides. From 10 cm up the checklist says it (a whole centimetre within a tenth), and the model's finding stands.
+ * still counts ("2,54 cm", "3,8 cm"), and so does a quote with any other figure, a length per something, a pipe's size
+ * or a tank's sides. From 10 cm up the checklist says it (a whole centimetre within a tenth), and the model's finding
+ * stands.
  */
 export function keeperLengths(quote: string): boolean {
   if (/\d\s*[×x]\s*\d/u.test(quote)) return false
   const found = [...quote.matchAll(LENGTH_CM)]
   if (!found.length || /\d/.test(quote.replace(LENGTH_CM, ' '))) return false
-  return found.every(m => !PER_LENGTH.test(quote.slice(Math.max(0, m.index - 24), m.index)) &&
+  return found.every(m => !PER_LENGTH.test(quote.slice(Math.max(0, m.index - 24), m.index)) && !PIPE.test(quote.slice(Math.max(0, m.index - 32), m.index)) &&
     [m[1], m[2]].filter((n): n is string => !!n).every(n => { const v = Number(n.replace(',', '.')); return v < 10 && Number.isInteger(v * 2) }))
 }
 
