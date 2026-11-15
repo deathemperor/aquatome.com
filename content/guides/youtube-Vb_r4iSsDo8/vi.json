@@ -39,11 +39,12 @@
     }
   },
   "bodyFixed": true,
+  "faqFixed": true,
   "held": {
     "checks": [
-      "kit"
+      "kit",
+      "source"
     ],
-    "at": "2026-11-14"
-  },
-  "faqFixed": true
+    "at": "2026-11-15"
+  }
 }

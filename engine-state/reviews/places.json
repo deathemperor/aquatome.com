@@ -136,6 +136,18 @@
       "kept": true
     }
   ],
+  "id/places/agnebi": [
+    {
+      "at": "2026-11-15T11:06:47Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/agnebi-river": [
     {
       "at": "2026-11-08T05:19:45Z",
@@ -1126,6 +1138,20 @@
       "kept": true
     }
   ],
+  "id/places/batang-hari-river": [
+    {
+      "at": "2026-11-15T11:06:47Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "Batang Hari: the source name 'sông Batang Hari' is Vietnamese; the Indonesian form is Sungai Batang Hari, and the bare 'Batang Hari' lacks 'Sungai'"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/batang-kayan": [
     {
       "at": "2026-11-14T05:11:41Z",
@@ -1251,6 +1277,18 @@
     {
       "at": "2026-11-08T05:19:45Z",
       "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/belem": [
+    {
+      "at": "2026-11-15T11:06:47Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
       "score": 0.3,
       "notes": [],
       "attempt": "first",
@@ -1485,6 +1523,18 @@
       "kept": true
     }
   ],
+  "id/places/bia": [
+    {
+      "at": "2026-11-15T11:06:47Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/bilauktaung": [
     {
       "at": "2026-11-08T05:19:45Z",
@@ -1594,6 +1644,20 @@
       "kept": true
     }
   ],
+  "id/places/black-volta": [
+    {
+      "at": "2026-11-15T11:06:47Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "sông Volta Đen → Volta Hitam (the source name is Vietnamese; the Indonesian form is Sungai Volta Hitam)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/boadzulu": [
     {
       "at": "2026-11-09T11:45:44Z",
@@ -1688,6 +1752,18 @@
       "kept": true
     }
   ],
+  "id/places/bonin": [
+    {
+      "at": "2026-11-15T11:06:47Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/bori-pat": [
     {
       "at": "2026-11-09T15:40:53Z",
@@ -1748,6 +1824,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/brantas-river": [
+    {
+      "at": "2026-11-15T11:06:47Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "Brantas: the source name 'sông Brantas' is Vietnamese; the Indonesian form is Sungai Brantas, and the bare 'Brantas' lacks 'Sungai'"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -2245,6 +2335,18 @@
       "kept": true
     }
   ],
+  "id/places/cesar": [
+    {
+      "at": "2026-11-15T11:06:47Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/chachoengsao": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -2651,6 +2753,20 @@
       "kept": true
     }
   ],
+  "id/places/cikeruh-river": [
+    {
+      "at": "2026-11-15T11:06:47Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "Cikeruh: the source name 'sông Cikeruh' is Vietnamese; the Indonesian form is Sungai Cikeruh, and the bare 'Cikeruh' lacks 'Sungai'"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/ciliwung": [
     {
       "at": "2026-11-08T15:22:21Z",
@@ -2731,6 +2847,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/code-river": [
+    {
+      "at": "2026-11-15T11:06:47Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "Code: the source name 'sông Code' is Vietnamese; the Indonesian form is Sungai Code, and the bare 'Code' lacks 'Sungai'"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -4537,6 +4667,20 @@
       "cli": "2.1.322",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/iriomote-island": [
+    {
+      "at": "2026-11-15T11:06:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "Iriomote: the source name 'đảo Iriomote' is Vietnamese; the Indonesian form is Pulau Iriomote, and the bare 'Iriomote' lacks 'Pulau'"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -7890,6 +8034,20 @@
       "kept": true
     }
   ],
+  "id/places/mariana-islands": [
+    {
+      "at": "2026-11-15T11:06:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "Mariana: the source name 'quần đảo Mariana' is Vietnamese; the Indonesian form is Kepulauan Mariana"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/maringa-river": [
     {
       "at": "2026-11-08T05:20:55Z",
@@ -10122,6 +10280,20 @@
       "kept": true
     }
   ],
+  "id/places/pegunungan-sewu": [
+    {
+      "at": "2026-11-15T11:06:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "Pegunungan Sewu: the source name 'dãy Sewu' is Vietnamese; the Indonesian form is Pegunungan Sewu"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/perak-river": [
     {
       "at": "2026-11-08T05:20:56Z",
@@ -10300,6 +10472,18 @@
       "notes": [
         "\"Po He\": the hyphen was dropped from the source \"Po-He\". This is minor and probably acceptable, but the atlas spelling is uncertain."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/pohnpei": [
+    {
+      "at": "2026-11-15T11:06:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -11080,6 +11264,20 @@
       "kept": true
     }
   ],
+  "id/places/rio-chacu": [
+    {
+      "at": "2026-11-15T11:06:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "Chacu: the source name 'sông Chacu' is Vietnamese; the Indonesian form is Sungai Chacu, and the bare 'Chacu' lacks 'Sungai'"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-chio": [
     {
       "at": "2026-11-14T05:11:43Z",
@@ -11724,6 +11922,20 @@
       "kept": true
     }
   ],
+  "id/places/rio-mapirito": [
+    {
+      "at": "2026-11-15T11:06:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "Mapirito: the source name 'sông Mapirito' is Vietnamese; the Indonesian form is Sungai Mapirito, and the bare 'Mapirito' lacks 'Sungai'"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-maraca": [
     {
       "at": "2026-11-09T00:08:05Z",
@@ -12343,6 +12555,18 @@
       "kept": true
     }
   ],
+  "id/places/rio-shishita": [
+    {
+      "at": "2026-11-15T11:06:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-siapa": [
     {
       "at": "2026-11-08T20:40:33Z",
@@ -12869,6 +13093,18 @@
       "at": "2026-11-08T05:21:30Z",
       "model": "sonnet",
       "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/ryukyu": [
+    {
+      "at": "2026-11-15T11:06:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -15712,6 +15948,18 @@
       "kept": true
     }
   ],
+  "id/places/yaeyama": [
+    {
+      "at": "2026-11-15T11:06:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/yahukimo": [
     {
       "at": "2026-11-12T13:10:56Z",
@@ -15719,6 +15967,18 @@
       "ran": "claude-sonnet-5-5",
       "cli": "2.1.322",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/yaku": [
+    {
+      "at": "2026-11-15T11:06:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -16151,6 +16411,18 @@
       "ran": "claude-sonnet-5-5",
       "cli": "2.1.322",
       "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/agnebi": [
+    {
+      "at": "2026-11-15T11:22:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -17610,6 +17882,20 @@
       "kept": true
     }
   ],
+  "ms/places/batang-hari-river": [
+    {
+      "at": "2026-11-15T11:22:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "Batang Hari (river): should be \"Sungai Batang Hari\""
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/batang-kayan": [
     {
       "at": "2026-11-14T05:31:10Z",
@@ -17755,6 +18041,18 @@
       "at": "2026-11-08T12:43:56Z",
       "model": "sonnet",
       "score": 0.55,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/belem": [
+    {
+      "at": "2026-11-15T11:22:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -18072,6 +18370,18 @@
       "kept": true
     }
   ],
+  "ms/places/bia": [
+    {
+      "at": "2026-11-15T11:22:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/bihar": [
     {
       "at": "2026-11-08T03:36:45Z",
@@ -18190,6 +18500,20 @@
       "model": "sonnet",
       "score": 0.55,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/black-volta": [
+    {
+      "at": "2026-11-15T11:22:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "Volta Hitam (river): should be \"Sungai Volta Hitam\""
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -18318,6 +18642,20 @@
       "kept": true
     }
   ],
+  "ms/places/bonin": [
+    {
+      "at": "2026-11-15T11:22:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "Bonin: should be \"Kepulauan Bonin\""
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/bori-pat": [
     {
       "at": "2026-11-10T10:07:21Z",
@@ -18428,6 +18766,20 @@
       "model": "sonnet",
       "score": 0.55,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/brantas-river": [
+    {
+      "at": "2026-11-15T11:22:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "Brantas (river): a Malay atlas writes \"Sungai Brantas\"; the \"Sungai\" is missing"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -18990,6 +19342,18 @@
       "kept": true
     }
   ],
+  "ms/places/cesar": [
+    {
+      "at": "2026-11-15T11:22:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/chalakkudy": [
     {
       "at": "2026-11-08T12:43:56Z",
@@ -19352,6 +19716,20 @@
       "kept": true
     }
   ],
+  "ms/places/cikeruh-river": [
+    {
+      "at": "2026-11-15T11:22:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "Cikeruh (river): should be \"Sungai Cikeruh\""
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/ciliwung": [
     {
       "at": "2026-11-08T15:47:58Z",
@@ -19422,6 +19800,20 @@
       "model": "sonnet",
       "score": 0.55,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/code-river": [
+    {
+      "at": "2026-11-15T11:22:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "Code (river): should be \"Sungai Code\""
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -21465,6 +21857,18 @@
       "notes": [
         "iriomote → 'Iriomote' lacks 'Pulau Iriomote'"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/iriomote-island": [
+    {
+      "at": "2026-11-15T11:22:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -24905,6 +25309,18 @@
       "kept": true
     }
   ],
+  "ms/places/mariana-islands": [
+    {
+      "at": "2026-11-15T11:22:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/maringa-river": [
     {
       "at": "2026-11-08T12:45:10Z",
@@ -27060,6 +27476,18 @@
       "kept": true
     }
   ],
+  "ms/places/pegunungan-sewu": [
+    {
+      "at": "2026-11-15T11:22:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/penang": [
     {
       "at": "2026-11-08T03:37:06Z",
@@ -27304,6 +27732,18 @@
       "notes": [
         "po-he: \"Po He\" (should be Sungai Po / Po He, inconsistent)"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/pohnpei": [
+    {
+      "at": "2026-11-15T11:22:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -28312,6 +28752,20 @@
       "kept": true
     }
   ],
+  "ms/places/rio-chacu": [
+    {
+      "at": "2026-11-15T11:22:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "Chacu (river): should be \"Sungai Chacu\""
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/rio-chio": [
     {
       "at": "2026-11-14T05:31:12Z",
@@ -29006,6 +29460,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/rio-mapirito": [
+    {
+      "at": "2026-11-15T11:22:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "Mapirito (river): should be \"Sungai Mapirito\""
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -29720,6 +30188,20 @@
       "kept": true
     }
   ],
+  "ms/places/rio-shishita": [
+    {
+      "at": "2026-11-15T11:22:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "Shishita (river): should be \"Sungai Shishita\""
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/rio-siapa": [
     {
       "at": "2026-11-09T00:52:35Z",
@@ -30371,6 +30853,20 @@
       "score": 0.3,
       "notes": [
         "'Kepulauan Ryukyu' ok but 'Bukit Sivalik' vs 'Banjaran Siwalik' inconsistent"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/ryukyu": [
+    {
+      "at": "2026-11-15T11:22:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "Ryukyu: should be \"Kepulauan Ryukyu\""
       ],
       "attempt": "first",
       "kept": true
@@ -33470,6 +33966,18 @@
       "kept": true
     }
   ],
+  "ms/places/yaeyama": [
+    {
+      "at": "2026-11-15T11:22:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/yahukimo": [
     {
       "at": "2026-11-12T13:20:46Z",
@@ -33477,6 +33985,18 @@
       "ran": "claude-sonnet-5-5",
       "cli": "2.1.322",
       "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/yaku": [
+    {
+      "at": "2026-11-15T11:22:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -33948,6 +34468,20 @@
       "score": 0.5,
       "notes": [
         "The Thai names are mostly plausible, but the source labels for several entries are Vietnamese (sông, đảo, bãi đá). This is not a problem with the Thai itself."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/agnebi": [
+    {
+      "at": "2026-11-15T11:09:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Thai transliterations are mostly plausible, but several are questionable:"
       ],
       "attempt": "first",
       "kept": true
@@ -35001,6 +35535,20 @@
       "kept": true
     }
   ],
+  "th/places/batang-hari-river": [
+    {
+      "at": "2026-11-15T11:09:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Thai transliterations are mostly plausible, but several are questionable:"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/batang-kayan": [
     {
       "at": "2026-11-14T05:18:30Z",
@@ -35119,6 +35667,20 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/belem": [
+    {
+      "at": "2026-11-15T11:09:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Thai transliterations are mostly plausible, but several are questionable:"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -35370,6 +35932,20 @@
       "kept": true
     }
   ],
+  "th/places/bia": [
+    {
+      "at": "2026-11-15T11:09:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Thai transliterations are mostly plausible, but several are questionable:"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/bilauktaung": [
     {
       "at": "2026-11-08T05:27:08Z",
@@ -35482,6 +36058,21 @@
       "kept": true
     }
   ],
+  "th/places/black-volta": [
+    {
+      "at": "2026-11-15T11:09:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Thai transliterations are mostly plausible, but several are questionable:",
+        "\"วอลตาดำ\" (black-volta): Black Volta is usually วอลตาดำ, acceptable, but the source name is Vietnamese"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/boadzulu": [
     {
       "at": "2026-11-09T11:49:05Z",
@@ -35578,6 +36169,21 @@
       "kept": true
     }
   ],
+  "th/places/bonin": [
+    {
+      "at": "2026-11-15T11:09:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Thai transliterations are mostly plausible, but several are questionable:",
+        "\"โบนิน\" (Bonin, in TW): Bonin Islands are in Japan (Ogasawara, หมู่เกาะโอกาซาวาระ), not Taiwan; the usual Thai name is หมู่เกาะโบนิน"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/bori-pat": [
     {
       "at": "2026-11-09T15:46:42Z",
@@ -35640,6 +36246,20 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/brantas-river": [
+    {
+      "at": "2026-11-15T11:09:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Thai transliterations are mostly plausible, but several are questionable:"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -36159,6 +36779,20 @@
       "kept": true
     }
   ],
+  "th/places/cesar": [
+    {
+      "at": "2026-11-15T11:09:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Thai transliterations are mostly plausible, but several are questionable:"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/chachoengsao": [
     {
       "at": "2026-11-06T12:36:00Z",
@@ -36579,6 +37213,20 @@
       "kept": true
     }
   ],
+  "th/places/cikeruh-river": [
+    {
+      "at": "2026-11-15T11:09:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Thai transliterations are mostly plausible, but several are questionable:"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/ciliwung": [
     {
       "at": "2026-11-08T15:23:58Z",
@@ -36654,6 +37302,21 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/code-river": [
+    {
+      "at": "2026-11-15T11:09:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Thai transliterations are mostly plausible, but several are questionable:",
+        "\"โจเด\" (Code River): should be โจเดอ or โชเด; doubtful"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -38576,6 +39239,21 @@
       "score": 0.6,
       "notes": [
         "อิริโอโมเตะ (Iriomote): usual Thai is อิริโอโมเตะ — ok; Thai atlas may use อิริโอโมเตะ"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/iriomote-island": [
+    {
+      "at": "2026-11-15T11:09:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Thai transliterations are mostly plausible, but several are questionable:",
+        "\"เกาะอิริโอโมเตะ\" (Iriomote): usual Thai is เกาะอิริโอโมเตะ; ok"
       ],
       "attempt": "first",
       "kept": true
@@ -42066,6 +42744,21 @@
       "kept": true
     }
   ],
+  "th/places/mariana-islands": [
+    {
+      "at": "2026-11-15T11:09:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Thai transliterations are mostly plausible, but several are questionable:",
+        "\"หมู่เกาะมาเรียนา\" (mariana-islands, in PW): Marianas are not in Palau; Thai is หมู่เกาะมาเรียนา"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/maringa-river": [
     {
       "at": "2026-11-08T05:28:39Z",
@@ -44430,6 +45123,21 @@
       "kept": true
     }
   ],
+  "th/places/pegunungan-sewu": [
+    {
+      "at": "2026-11-15T11:09:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Thai transliterations are mostly plausible, but several are questionable:",
+        "\"เปอกูนุงันเซวู\" (Pegunungan Sewu): should be เปอกูนุงันเซวู; ok but non-standard"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/penang": [
     {
       "at": "2026-11-06T12:36:17Z",
@@ -44620,6 +45328,21 @@
       "cli": "2.1.322",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/pohnpei": [
+    {
+      "at": "2026-11-15T11:09:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Thai transliterations are mostly plausible, but several are questionable:",
+        "\"โปนเป\" (Pohnpei, in PW): Pohnpei is in Micronesia (FSM), not Palau; Thai is usually โปนเป"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -45440,6 +46163,20 @@
       "kept": true
     }
   ],
+  "th/places/rio-chacu": [
+    {
+      "at": "2026-11-15T11:09:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Thai transliterations are mostly plausible, but several are questionable:"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-chio": [
     {
       "at": "2026-11-14T05:18:31Z",
@@ -46092,6 +46829,20 @@
       "kept": true
     }
   ],
+  "th/places/rio-mapirito": [
+    {
+      "at": "2026-11-15T11:09:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Thai transliterations are mostly plausible, but several are questionable:"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-maraca": [
     {
       "at": "2026-11-09T00:10:26Z",
@@ -46715,6 +47466,20 @@
       "kept": true
     }
   ],
+  "th/places/rio-shishita": [
+    {
+      "at": "2026-11-15T11:09:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Thai transliterations are mostly plausible, but several are questionable:"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-siapa": [
     {
       "at": "2026-11-08T20:47:48Z",
@@ -47303,6 +48068,21 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/ryukyu": [
+    {
+      "at": "2026-11-15T11:09:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Thai transliterations are mostly plausible, but several are questionable:",
+        "\"ริวกิว\" (Ryukyu, in TW): Ryukyu is in Japan, not Taiwan"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -50263,6 +51043,21 @@
       "kept": true
     }
   ],
+  "th/places/yaeyama": [
+    {
+      "at": "2026-11-15T11:09:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Thai transliterations are mostly plausible, but several are questionable:",
+        "\"ยาเอยามะ\" (Yaeyama, in TW): Yaeyama is in Japan; Thai is usually ยาเอยามะ or หมู่เกาะยาเอยามะ"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/yahukimo": [
     {
       "at": "2026-11-12T13:12:17Z",
@@ -50271,6 +51066,20 @@
       "cli": "2.1.322",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/yaku": [
+    {
+      "at": "2026-11-15T11:09:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Thai transliterations are mostly plausible, but several are questionable:"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -50681,6 +51490,17 @@
       "notes": [
         "Nothing is wrong. Every name either keeps the source spelling or keeps the proper name and puts the generic word in Vietnamese: sông (river), đảo (island), bãi đá (rocks)."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/agnebi": [
+    {
+      "at": "2026-11-15T11:04:40Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -52160,6 +52980,17 @@
       "kept": true
     }
   ],
+  "vi/places/batang-hari-river": [
+    {
+      "at": "2026-11-15T11:04:40Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/batang-kayan": [
     {
       "at": "2026-11-14T05:11:09Z",
@@ -52323,6 +53154,17 @@
       "notes": [
         "No entry points to the wrong place. Every name is either a form Vietnamese readers use or the source spelling with its generic word in Vietnamese."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/belem": [
+    {
+      "at": "2026-11-15T11:04:40Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -52608,6 +53450,17 @@
       "kept": true
     }
   ],
+  "vi/places/bia": [
+    {
+      "at": "2026-11-15T11:04:40Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/bihar": [
     {
       "at": "2026-11-07T20:33:12Z",
@@ -52738,6 +53591,19 @@
       "kept": true
     }
   ],
+  "vi/places/black-volta": [
+    {
+      "at": "2026-11-15T11:04:40Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "No wrong places found. Each name is either one Vietnamese readers use (for example 'sông Volta Đen' and 'quần đảo Mariana'), or the source's name with its generic word put into Vietnamese ('sông', 'đảo', 'dãy')."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/bo-river": [
     {
       "at": "2026-11-07T20:33:13Z",
@@ -52858,6 +53724,17 @@
       "kept": true
     }
   ],
+  "vi/places/bonin": [
+    {
+      "at": "2026-11-15T11:04:40Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/bori-pat": [
     {
       "at": "2026-11-09T15:37:27Z",
@@ -52948,6 +53825,17 @@
     {
       "at": "2026-11-07T20:33:13Z",
       "model": "sonnet",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/brantas-river": [
+    {
+      "at": "2026-11-15T11:04:40Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
       "score": 0.95,
       "notes": [],
       "attempt": "first",
@@ -53539,6 +54427,17 @@
       "kept": true
     }
   ],
+  "vi/places/cesar": [
+    {
+      "at": "2026-11-15T11:04:40Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/ceyhan": [
     {
       "at": "2026-11-07T20:33:13Z",
@@ -54023,6 +54922,17 @@
       "kept": true
     }
   ],
+  "vi/places/cikeruh-river": [
+    {
+      "at": "2026-11-15T11:04:40Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/ciliwung": [
     {
       "at": "2026-11-08T15:21:54Z",
@@ -54106,6 +55016,17 @@
     {
       "at": "2026-11-07T20:33:13Z",
       "model": "sonnet",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/code-river": [
+    {
+      "at": "2026-11-15T11:04:40Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
       "score": 0.95,
       "notes": [],
       "attempt": "first",
@@ -56421,6 +57342,17 @@
       "model": "sonnet",
       "cli": "2.1.322",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/iriomote-island": [
+    {
+      "at": "2026-11-15T11:04:40Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -60823,6 +61755,19 @@
       "kept": true
     }
   ],
+  "vi/places/mariana-islands": [
+    {
+      "at": "2026-11-15T11:04:40Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "No wrong places found. Each name is either one Vietnamese readers use (for example 'sông Volta Đen' and 'quần đảo Mariana'), or the source's name with its generic word put into Vietnamese ('sông', 'đảo', 'dãy')."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/maringa-river": [
     {
       "at": "2026-11-08T05:15:07Z",
@@ -63748,6 +64693,19 @@
       "kept": true
     }
   ],
+  "vi/places/pegunungan-sewu": [
+    {
+      "at": "2026-11-15T11:04:40Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "Minor: 'dãy Sewu' is acceptable, though 'dãy núi Sewu' would be more natural. 'Ryukyu' and 'Yaku' are kept as in the source. Vietnamese also uses 'Lưu Cầu' and 'Yakushima' for these, but keeping the source's spelling is not wrong."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/penang": [
     {
       "at": "2026-11-07T20:37:55Z",
@@ -63975,6 +64933,17 @@
       "model": "sonnet",
       "cli": "2.1.322",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/pohnpei": [
+    {
+      "at": "2026-11-15T11:04:40Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -64980,6 +65949,17 @@
       "kept": true
     }
   ],
+  "vi/places/rio-chacu": [
+    {
+      "at": "2026-11-15T11:04:40Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-chio": [
     {
       "at": "2026-11-14T05:11:10Z",
@@ -65682,6 +66662,17 @@
     {
       "at": "2026-11-07T20:38:47Z",
       "model": "sonnet",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-mapirito": [
+    {
+      "at": "2026-11-15T11:04:40Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
       "score": 0.95,
       "notes": [],
       "attempt": "first",
@@ -66437,6 +67428,17 @@
       "kept": true
     }
   ],
+  "vi/places/rio-shishita": [
+    {
+      "at": "2026-11-15T11:04:40Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-siapa": [
     {
       "at": "2026-11-08T20:36:09Z",
@@ -67107,6 +68109,19 @@
       "notes": [
         "Every name refers to the right place. Generic words (river, Río/Rio, Islands, mountain range) are put into Vietnamese as sông, quần đảo and dãy, and the proper names keep the source spelling.",
         "'quần đảo Ryukyu' for the 'Ryuku Islands' entry fixes the misspelling in the source. This is correct."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/ryukyu": [
+    {
+      "at": "2026-11-15T11:04:40Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "Minor: 'dãy Sewu' is acceptable, though 'dãy núi Sewu' would be more natural. 'Ryukyu' and 'Yaku' are kept as in the source. Vietnamese also uses 'Lưu Cầu' and 'Yakushima' for these, but keeping the source's spelling is not wrong."
       ],
       "attempt": "first",
       "kept": true
@@ -70861,6 +71876,17 @@
       "kept": true
     }
   ],
+  "vi/places/yaeyama": [
+    {
+      "at": "2026-11-15T11:04:40Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/yahukimo": [
     {
       "at": "2026-11-12T13:10:35Z",
@@ -70868,6 +71894,19 @@
       "cli": "2.1.322",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/yaku": [
+    {
+      "at": "2026-11-15T11:04:40Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "Minor: 'dãy Sewu' is acceptable, though 'dãy núi Sewu' would be more natural. 'Ryukyu' and 'Yaku' are kept as in the source. Vietnamese also uses 'Lưu Cầu' and 'Yakushima' for these, but keeping the source's spelling is not wrong."
+      ],
       "attempt": "first",
       "kept": true
     }

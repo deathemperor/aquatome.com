@@ -1,0 +1,40 @@
+{
+  "id": "oziotelphusa-ceylonensis",
+  "native": {
+    "input": "0bcad10e08d113f2",
+    "at": "2026-11-15T11:29:40.250Z",
+    "claims": [
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Sri Lanka.",
+        "words": "Sri Lanka",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Oziotelphusa ceylonensis",
+    "status": "ACCEPTED",
+    "taxonKey": 5972619,
+    "datasets": [
+      [
+        "56aa0680-0c60-11dd-84cd-b8a03c50a862",
+        1
+      ]
+    ],
+    "native": [
+      "LK"
+    ],
+    "requests": 11,
+    "at": "2026-11-15T11:29:40.250Z"
+  }
+}

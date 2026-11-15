@@ -1,8 +1,8 @@
 {
   "id": "distichodus-sexfasciatus",
   "native": {
-    "input": "bcabc6f32dc40423",
-    "at": "2026-11-08T03:17:10.020Z",
+    "input": "8ee6af97863c536e",
+    "at": "2026-11-15T11:29:40.250Z",
     "claims": [
       {
         "code": "CM",
@@ -25,30 +25,6 @@
         "status": "native",
         "source": "seriouslyfish",
         "quote": "The six-banded distichodus, Distichodus sexfasciatus, is a large citharinid from Cameroon, the Democratic Republic of Congo and Tanzania.",
-        "words": "Tanzania",
-        "ok": true
-      },
-      {
-        "code": "CM",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Cameroon, Democratic Republic of Congo, Tanzania.",
-        "words": "Cameroon",
-        "ok": true
-      },
-      {
-        "code": "CD",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Cameroon, Democratic Republic of Congo, Tanzania.",
-        "words": "Democratic Republic of Congo",
-        "ok": true
-      },
-      {
-        "code": "TZ",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Cameroon, Democratic Republic of Congo, Tanzania.",
         "words": "Tanzania",
         "ok": true
       }

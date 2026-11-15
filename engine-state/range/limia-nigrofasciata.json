@@ -1,8 +1,8 @@
 {
   "id": "limia-nigrofasciata",
   "native": {
-    "input": "3698c2c418010639",
-    "at": "2026-11-09T16:24:16.651Z",
+    "input": "2dc6373308cdfd3d",
+    "at": "2026-11-15T11:29:40.250Z",
     "claims": [
       {
         "code": "HT",
@@ -23,17 +23,9 @@
       {
         "code": "HT",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Haiti and the Dominican Republic.",
+        "source": "glaser",
+        "quote": "Initially it is found on Haiti, but is has been kept and bred in aquaria since 1912 already.",
         "words": "Haiti",
-        "ok": true
-      },
-      {
-        "code": "DO",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Haiti and the Dominican Republic.",
-        "words": "Dominican Republic",
         "ok": true
       }
     ],

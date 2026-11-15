@@ -1,8 +1,8 @@
 {
   "id": "hemichromis-bimaculatus",
   "native": {
-    "input": "5b1f9c7bef17b083",
-    "at": "2026-11-09T20:43:02.940Z",
+    "input": "805b1ff9d4e845c4",
+    "at": "2026-11-15T11:29:40.250Z",
     "claims": [
       {
         "code": "GN",
@@ -21,23 +21,31 @@
         "ok": true
       },
       {
-        "code": "GN",
+        "code": "CM",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Widespread down Africa's western coast from South Guinea to Central Liberia.",
-        "words": "Guinea",
+        "source": "glaser",
+        "quote": "Origin: Cameroon, Nigeria (Benue river).",
+        "words": "Cameroon",
         "ok": true
       },
       {
-        "code": "LR",
+        "code": "NG",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Widespread down Africa's western coast from South Guinea to Central Liberia.",
-        "words": "Liberia",
+        "source": "glaser",
+        "quote": "Origin: Cameroon, Nigeria (Benue river).",
+        "words": "Nigeria",
         "ok": true
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Benue",
+        "source": "glaser",
+        "quote": "Origin: Cameroon, Nigeria (Benue river).",
+        "country": "NG",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {
@@ -181,9 +189,11 @@
     ],
     "native": [
       "GN",
-      "LR"
+      "LR",
+      "CM",
+      "NG"
     ],
     "requests": 16,
-    "at": "2026-11-09T20:43:02.940Z"
+    "at": "2026-11-15T11:29:40.250Z"
   }
 }

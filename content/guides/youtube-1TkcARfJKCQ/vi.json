@@ -39,10 +39,11 @@
     },
     "chat": false
   },
-  "held": {
-    "checks": [],
-    "at": "2026-11-08"
-  },
   "bodyFixed": true,
-  "faqFixed": true
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-15"
+  }
 }

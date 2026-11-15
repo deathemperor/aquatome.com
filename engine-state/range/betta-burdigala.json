@@ -1,8 +1,8 @@
 {
   "id": "betta-burdigala",
   "native": {
-    "input": "7cb5c51966d2dc77",
-    "at": "2026-11-06T15:17:52.851Z",
+    "input": "71484a9d597b8efb",
+    "at": "2026-11-15T11:29:40.250Z",
     "claims": [
       {
         "code": "ID",
@@ -15,8 +15,8 @@
       {
         "code": "ID",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Endemic to the island of Bangka just off the east coast of Sumatra, Bangka-Belitung province, Indonesia with type locality '4 kilometers north of Bikang village on road from Koba to Toboali, Bangka, Indonesia'.",
+        "source": "bwaquatics",
+        "quote": "Betta burdigala is endemic to the peat swamps of Bangka Island, off the east coast of Sumatra, Indonesia.",
         "words": "Indonesia",
         "ok": true
       }
@@ -26,6 +26,13 @@
         "name": "Bangka",
         "source": "seriouslyfish",
         "quote": "Betta burdigala is a small bubble-nesting labyrinth fish endemic to the island of Bangka, off the east coast of Sumatra, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Bangka",
+        "source": "bwaquatics",
+        "quote": "Betta burdigala is endemic to the peat swamps of Bangka Island, off the east coast of Sumatra, Indonesia.",
         "country": "ID",
         "ok": true
       }

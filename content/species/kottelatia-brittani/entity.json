@@ -16,15 +16,17 @@
   "range": {
     "native": {
       "countries": [
-        "MY"
+        "MY",
+        "SG"
       ],
       "regions": [
-        "Johore River",
-        "Sumatra",
-        "Batang Hari"
+        "Johor River",
+        "Batang Hari",
+        "Sumatra"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -33,8 +35,22 @@
           "countries": [
             "MY"
           ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Origin: Singapore.",
+          "countries": [
+            "SG"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It was described from Segamat District within the Johor River watershed, Johor state, southern Peninsular Malaysia, but the type specimens were obtained via a Singapore wholesaler so it's possible that a mistake was made as there exist no other records of the species in Peninsular Malaysia.",
+          "countries": [],
           "regions": [
-            "Johore River"
+            "Johor River"
           ]
         },
         {
@@ -42,8 +58,8 @@
           "quote": "There appears to be a possibility that it is endemic to Sumatra, since a record from the Batang Hari river, in Jambi province (Tan & Kottelat, 2009) appears to represent the first official record since the description was published.",
           "countries": [],
           "regions": [
-            "Sumatra",
-            "Batang Hari"
+            "Batang Hari",
+            "Sumatra"
           ]
         }
       ]
@@ -51,7 +67,7 @@
     "records": {
       "taxonKey": 5962766,
       "total": 5,
-      "fetched": "2026-11-09",
+      "fetched": "2026-11-15",
       "countries": [
         [
           "ID",

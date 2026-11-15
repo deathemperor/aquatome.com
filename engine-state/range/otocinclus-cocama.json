@@ -1,8 +1,8 @@
 {
   "id": "otocinclus-cocama",
   "native": {
-    "input": "ddd9bb1205cded0b",
-    "at": "2026-11-11T02:57:45.598Z",
+    "input": "87d43b93ae781630",
+    "at": "2026-11-15T11:29:40.250Z",
     "claims": [
       {
         "code": "PE",
@@ -17,6 +17,14 @@
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Type locality is 'Quebrada Yamayacu, about 4°55'S, 73°43'W, tributary to the caño of the cocha Supay in Jenaro Herrera, Provincia Requena, Departamento Loreto, Peru', and O. cocama is thought to occur throughout the lower Ucayali and Marañon in Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Peru.",
         "words": "Peru",
         "ok": true
       }

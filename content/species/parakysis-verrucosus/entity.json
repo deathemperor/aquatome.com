@@ -15,8 +15,9 @@
   "range": {
     "native": {
       "countries": [
+        "MY",
         "ID",
-        "MY"
+        "SG"
       ],
       "regions": [
         "Malay Peninsula",
@@ -27,9 +28,18 @@
         "Riau Archipelago"
       ],
       "sources": [
-        "scotcat"
+        "scotcat",
+        "glaser"
       ],
       "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Mawai District, Johore, Malaysia.",
+          "countries": [
+            "MY"
+          ],
+          "regions": []
+        },
         {
           "source": "scotcat",
           "quote": "Asia: Malay Peninsula, through to the Greater Sunda Isles of Borneo, Indonesia and Sumatra.",
@@ -43,10 +53,10 @@
           ]
         },
         {
-          "source": "scotcat",
-          "quote": "Type locality: Mawai District, Johore, Malaysia.",
+          "source": "glaser",
+          "quote": "Malaysia; Singapore is also given as origin.",
           "countries": [
-            "MY"
+            "SG"
           ],
           "regions": []
         },
@@ -65,7 +75,7 @@
     "records": {
       "taxonKey": 2340929,
       "total": 7,
-      "fetched": "2026-11-11",
+      "fetched": "2026-11-15",
       "countries": [
         [
           "MY",

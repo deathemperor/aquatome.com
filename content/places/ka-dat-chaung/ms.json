@@ -3,6 +3,12 @@
   "name": "Ka Dat Chaung",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.4,
+    "at": "2026-11-15T11:26:33.793Z",
+    "why": "\"Chaung\" is the Burmese word for creek or river, and the name keeps it without the Malay kind word \"Sungai\", so an atlas in Malaysia would write \"Sungai Ka Dat\"."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

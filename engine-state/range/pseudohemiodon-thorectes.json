@@ -1,0 +1,35 @@
+{
+  "id": "pseudohemiodon-thorectes",
+  "native": {
+    "input": "598d42f24406aaac",
+    "at": "2026-11-15T11:29:40.250Z",
+    "claims": [
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Bolivia.",
+        "words": "Bolivia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudohemiodon thorectes",
+    "status": "ACCEPTED",
+    "taxonKey": 2340380,
+    "datasets": [],
+    "native": [
+      "BO"
+    ],
+    "requests": 2,
+    "at": "2026-11-15T11:29:40.250Z"
+  }
+}

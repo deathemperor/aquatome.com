@@ -1,8 +1,8 @@
 {
   "id": "danio-aesculapii",
   "native": {
-    "input": "5be701865a74f939",
-    "at": "2026-11-07T16:21:07.852Z",
+    "input": "c416c4ff966a9d70",
+    "at": "2026-11-15T11:29:40.250Z",
     "claims": [
       {
         "code": "MM",
@@ -10,6 +10,14 @@
         "source": "seriouslyfish",
         "quote": "Endemic to the Rakhine Yoma/Arakan mountains in Rakhine state, western Myanmar; this range forms a natural barrier which cuts the state off from the remainder of the country.",
         "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This species was first imported from Burma in 2005.",
+        "words": "Burma",
         "ok": true
       }
     ],

@@ -16,16 +16,15 @@
   "range": {
     "native": {
       "countries": [
-        "PA"
+        "PA",
+        "CO"
       ],
       "regions": [
-        "Chagres",
-        "Bayano",
-        "Tuira",
-        "Sambú"
+        "Rio Chacu"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -37,14 +36,13 @@
           "regions": []
         },
         {
-          "source": "seriouslyfish",
-          "quote": "Known localities include the ríos Chagres, Cupe, Missimbi, Platenal, Frijoles, Bayano, Ipeti, Sucubti, Sabalo, Pirra, Pepé, Sambú, Morti, Uruseca, Meteti and Tuira.",
-          "countries": [],
+          "source": "glaser",
+          "quote": "Colombia, Rio Chacu.",
+          "countries": [
+            "CO"
+          ],
           "regions": [
-            "Chagres",
-            "Bayano",
-            "Tuira",
-            "Sambú"
+            "Rio Chacu"
           ]
         }
       ]
@@ -52,7 +50,7 @@
     "records": {
       "taxonKey": 5208427,
       "total": 106,
-      "fetched": "2026-11-08",
+      "fetched": "2026-11-15",
       "countries": [
         [
           "PA",
@@ -98,13 +96,13 @@
           -77.34375,
           4.21875,
           6,
-          0
+          6
         ],
         [
           -77.34375,
           5.625,
           1,
-          0
+          1
         ]
       ]
     }

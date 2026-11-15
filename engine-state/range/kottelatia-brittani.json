@@ -1,8 +1,8 @@
 {
   "id": "kottelatia-brittani",
   "native": {
-    "input": "110158e3ab202ad0",
-    "at": "2026-11-10T07:58:31.896Z",
+    "input": "3ba7bbd983feab06",
+    "at": "2026-11-15T11:29:40.250Z",
     "claims": [
       {
         "code": "MY",
@@ -19,24 +19,32 @@
         "quote": "Specimens collected from the Kapuas drainage in Kalimantan Barat (West Kalimantan) province, Indonesia (Borneo) and initially identified as this species were subsequently described as Rasbora kalbarensis (Kottelat, 1991).",
         "words": "Indonesia",
         "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Singapore.",
+        "words": "Singapore",
+        "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Johore River",
+        "name": "Johor River",
         "source": "seriouslyfish",
-        "quote": "Type locality is 'Johore River, Segamat, Malaysia'.",
+        "quote": "It was described from Segamat District within the Johor River watershed, Johor state, southern Peninsular Malaysia, but the type specimens were obtained via a Singapore wholesaler so it's possible that a mistake was made as there exist no other records of the species in Peninsular Malaysia.",
         "country": "MY",
         "ok": true
       },
       {
-        "name": "Sumatra",
+        "name": "Batang Hari",
         "source": "seriouslyfish",
         "quote": "There appears to be a possibility that it is endemic to Sumatra, since a record from the Batang Hari river, in Jambi province (Tan & Kottelat, 2009) appears to represent the first official record since the description was published.",
         "ok": true
       },
       {
-        "name": "Batang Hari",
+        "name": "Sumatra",
         "source": "seriouslyfish",
         "quote": "There appears to be a possibility that it is endemic to Sumatra, since a record from the Batang Hari river, in Jambi province (Tan & Kottelat, 2009) appears to represent the first official record since the description was published.",
         "ok": true
@@ -66,9 +74,10 @@
       ]
     ],
     "native": [
-      "MY"
+      "MY",
+      "SG"
     ],
     "requests": 12,
-    "at": "2026-11-09T09:57:55.009Z"
+    "at": "2026-11-15T11:29:40.250Z"
   }
 }

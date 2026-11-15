@@ -1,8 +1,8 @@
 {
   "id": "satanoperca-mapiritensis",
   "native": {
-    "input": "8e41050194bc534c",
-    "at": "2026-11-14T11:07:07.888Z",
+    "input": "24be4a2783e60cdc",
+    "at": "2026-11-15T11:29:40.250Z",
     "claims": [
       {
         "code": "VE",
@@ -19,6 +19,15 @@
         "quote": "Similar-looking fish have been collected in rivers draining towards Guyana, e.g., the Río Cuyuni, but it is unclear whether they are conspecific or not.",
         "words": "Guyana",
         "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Venezuela.",
+        "words": "Venezuela",
+        "ok": false,
+        "why": "no sentence"
       }
     ],
     "regions": [

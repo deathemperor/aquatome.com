@@ -9,6 +9,34 @@
     "south-america",
     "bolivia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BO"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Bolivia.",
+          "countries": [
+            "BO"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340380,
+      "total": 0,
+      "fetched": "2026-11-15",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

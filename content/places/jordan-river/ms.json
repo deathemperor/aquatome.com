@@ -1,8 +1,13 @@
 {
   "slug": "jordan-river",
-  "name": "Jordan",
+  "name": "Sungai Jordan",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.96,
+    "at": "2026-11-15T11:26:33.584Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

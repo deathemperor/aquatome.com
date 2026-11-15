@@ -25,10 +25,11 @@
       "regions": [
         "La Plata",
         "Paraná",
-        "Rio Jacuhy"
+        "Patos Lagoon"
       ],
       "sources": [
-        "planetcatfish"
+        "planetcatfish",
+        "scotcat"
       ],
       "quotes": [
         {
@@ -49,8 +50,14 @@
           "countries": [
             "BR"
           ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Otocinclus flexilis is endemic to the Patos Lagoon basin, Rio Grande do Sul, Brazil.",
+          "countries": [],
           "regions": [
-            "Rio Jacuhy"
+            "Patos Lagoon"
           ]
         }
       ]

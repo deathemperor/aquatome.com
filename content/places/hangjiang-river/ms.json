@@ -1,8 +1,13 @@
 {
   "slug": "hangjiang-river",
-  "name": "Hangjiang",
+  "name": "Sungai Hangjiang",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-15T11:25:38.712Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

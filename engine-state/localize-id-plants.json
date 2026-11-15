@@ -1006,17 +1006,27 @@
     ]
   },
   "glossostigma-elatinoides": {
-    "at": "2026-10-31",
-    "from": "2026-10-30",
+    "at": "2026-11-15",
+    "from": "2026-11-14",
     "name": "Glossostigma",
     "confidence": "high",
     "score": 0.75,
-    "notes": [
-      "Item 1: \"Asal\" is slightly awkward as a label; \"Asal\" alone is okay but \"Asal daerah\" or \"Asal negara\" is more natural.",
-      "Item 3: \"tanaman air terkecil\" – the source says aquarium plants; \"tanaman akuarium terkecil\" is more faithful.",
-      "Item 3: \"bergaya Jepang\" for \"Japanese-inspired\" is fine, but \"banyak dicari\" is slightly loose; \"sangat diminati\" would be more natural.",
-      "Item 2: \"menaunginya\" is a bit stiff; \"menutupi/menaungi\" is acceptable, but \"menutupi\" is more common among hobbyists."
-    ]
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "df2d730f4a3c",
+      "maintenance:tropica": "a05a85abd59f",
+      "notes:tropica": "1561001f69cd"
+    },
+    "failed": {
+      "at": "2026-11-15T11:04:47.000Z",
+      "parts": {
+        "quickFacts:aquariumbreeder": "5fdf59697245",
+        "distribution:aquariumbreeder": "ff51df00aaf4",
+        "habitat:aquariumbreeder": "47f628bc0309",
+        "maintenance:aquariumbreeder": "d7d6768a820d",
+        "notes:aquariumbreeder": "89c3e687f6b8"
+      }
+    }
   },
   "gratiola-viscidula": {
     "at": "2026-11-01",

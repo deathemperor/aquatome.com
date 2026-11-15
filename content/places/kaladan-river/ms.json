@@ -1,8 +1,13 @@
 {
   "slug": "kaladan-river",
-  "name": "Kaladan",
+  "name": "Sungai Kaladan",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-15T11:26:51.238Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

@@ -1,0 +1,59 @@
+{
+  "id": "tachysurus-argentivittatus",
+  "native": {
+    "input": "19f0a0af59a82372",
+    "at": "2026-11-15T11:29:40.250Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: China. Also reported from Russian waters: Amur and Ussuri.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "RU",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: China. Also reported from Russian waters: Amur and Ussuri.",
+        "words": "Russian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amur",
+        "source": "planetcatfish",
+        "quote": "Asia: China. Also reported from Russian waters: Amur and Ussuri.",
+        "country": "RU",
+        "ok": true
+      },
+      {
+        "name": "Ussuri",
+        "source": "planetcatfish",
+        "quote": "Asia: China. Also reported from Russian waters: Amur and Ussuri.",
+        "country": "RU",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Tachysurus argentivittatus",
+    "status": "ACCEPTED",
+    "taxonKey": 5961270,
+    "datasets": [],
+    "native": [
+      "CN",
+      "RU"
+    ],
+    "requests": 2,
+    "at": "2026-11-15T11:29:40.250Z"
+  }
+}
