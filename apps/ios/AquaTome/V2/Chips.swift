@@ -17,7 +17,7 @@ struct ChipsRow: View {
         ForEach(chips) { c in
           link(c) {
             HStack(spacing: 8) {
-              V2Photo(src: c.chip.img, box: c.chip.imgBox)
+              V2Photo(src: c.photoOf == nil ? nil : c.chip.img, box: c.chip.imgBox)
                 .frame(width: picture * 1.5, height: picture)
                 .clipShape(.rect(cornerRadius: 6, style: .continuous))
                 .accessibilityHidden(true)
@@ -51,6 +51,12 @@ struct ChipsRow: View {
       NavigationLink(value: ChipRoute(shelf: c), label: label)
     }
   }
+}
+
+extension HandbookShelves.ChipShelf {
+  /// The page whose photo the chip shows, as the site names it (`imgOf`). The chip's page names and links that fish (the
+  /// chief, 15 Nov), so the chip shows its photo only with it: never a photo whose fish it can't name.
+  var photoOf: HandbookIndex.Item? { chip.img == nil ? nil : pages.first { $0.contentId == chip.imgOf } }
 }
 
 /// A chip's page, pushed (`ChipPage`).
@@ -89,10 +95,24 @@ struct ChipPage: View {
     .accessibilityIdentifier("v2-chip-page")
   }
 
-  /// "153 trang", or "1 trang · 4 bài viết" when guides are about it.
+  /// "153 trang", or "1 trang · 4 bài viết" when guides are about it; then whose photo the chip shows, "Ảnh: Cá ngựa
+  /// vằn", the name opening its page.
   private var holds: some View {
     let n = shelf.pages.count, g = shelf.guides.count
-    return Text(g > 0 ? "\(n) trang · \(g) bài viết" : "\(n) trang").font(.subheadline).foregroundStyle(.v2Faint)
+    return VStack(alignment: .leading, spacing: 0) {
+      Text(g > 0 ? "\(n) trang · \(g) bài viết" : "\(n) trang")
+      if let fish = shelf.photoOf {
+        NavigationLink(value: fish) {
+          Text("Ảnh") + Text(verbatim: ": ") + Text(verbatim: fish.name).foregroundStyle(.tint)
+        }
+        .buttonStyle(.plain)
+        .frame(minHeight: 44, alignment: .leading)
+        .contentShape(.rect)
+        .accessibilityIdentifier("v2-chip-photo-of")
+      }
+    }
+    .font(.subheadline)
+    .foregroundStyle(.v2Faint)
   }
 
   /// Its guides, then its video guides, as Tìm's results; no heading where there are none.

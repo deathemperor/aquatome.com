@@ -1508,8 +1508,8 @@ final class V2FlowTests: XCTestCase {
   }
 
   /// What a chip opens (spec-chips.md): a group of one page and no guide, that page; one with a guide, a pushed page under
-  /// the chip's name with iOS's back button, a wide card (not the grid), then its guides and video guides; from six pages,
-  /// the grid.
+  /// the chip's name with iOS's back button, whose photo the chip shows, a wide card (not the grid), then its guides and
+  /// video guides; from six pages, the grid.
   func testAChipOpensItsGroupAsItsSizeSays() {
     let app = launch("-v2", "YES", "-equipment")
     app.launchForFlow()
@@ -1525,6 +1525,13 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.navigationBars["Tetra"].exists, "the chip's page isn't under its name")
     XCTAssertTrue(app.pageBack.exists, "no back button on the chip's page")
     XCTAssertTrue(app.staticTexts["1 trang · 1 bài viết"].exists, "the chip's page doesn't say what it holds")
+    // Whose photo the chip shows, named, and opening that fish's page (the chief, 15 Nov).
+    let photoOf = app.buttons["v2-chip-photo-of"]
+    XCTAssertEqual(photoOf.label, "Ảnh: Cá neon", "the chip's page doesn't name whose photo it shows")
+    photoOf.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the photo's fish didn't open")
+    app.leavePage()
+    XCTAssertTrue(page.waitForExistence(timeout: 5), "not back on the chip's page")
     // The grid has the list's filter; wide cards have none.
     XCTAssertFalse(app.buttons["filter"].exists, "a group of one page in the grid")
     XCTAssertTrue(app.staticTexts["Bài viết"].exists && app.staticTexts["Video"].exists, "no guides or video guides under the group")
@@ -1537,6 +1544,7 @@ final class V2FlowTests: XCTestCase {
     }
     many.tap()
     XCTAssertTrue(app.buttons["filter"].waitForExistence(timeout: 5), "a group of eight pages not in the grid")
+    XCTAssertFalse(app.buttons["v2-chip-photo-of"].exists, "a chip with no photo names one")
   }
 
 

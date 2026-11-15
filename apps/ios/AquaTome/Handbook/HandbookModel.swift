@@ -525,10 +525,12 @@ extension HandbookIndex {
   /// UI tests' chips on Khám phá: one page alone (it opens that page), one with a guide and a video guide (a wide card and
   /// both lists), two pages (wide cards), and the kit's many fish (`-equipment`: the grid; left out without them).
   static let fixtureChips: [Home.Chip] = [
-    .init(id: "dia", name: "Dĩa", order: 1, count: 1, members: ["symphysodon-aequifasciatus"], img: "https://media.aquatome.com/a/dia-large.webp"),
-    .init(id: "tetra", name: "Tetra", order: 2, count: 1, members: ["paracheirodon-innesi"], img: "https://media.aquatome.com/a/neon-large.webp",
+    .init(id: "dia", name: "Dĩa", order: 1, count: 1, members: ["symphysodon-aequifasciatus"], img: "https://media.aquatome.com/a/dia-large.webp",
+          imgOf: "symphysodon-aequifasciatus"),
+    .init(id: "tetra", name: "Tetra", order: 2, count: 1, members: ["paracheirodon-innesi"], img: "https://media.aquatome.com/a/neon-large.webp", imgOf: "paracheirodon-innesi",
           guides: ["/vi/huong-dan/nuoi-ca-neon/"], videos: ["/vi/huong-dan/cach-han-che-reu-hai/"]),
-    .init(id: "nho", name: "Cá nhỏ", order: 3, count: 2, members: ["paracheirodon-innesi", "danio-rerio"], img: "https://media.aquatome.com/a/danio-large.webp"),
+    .init(id: "nho", name: "Cá nhỏ", order: 3, count: 2, members: ["paracheirodon-innesi", "danio-rerio"], img: "https://media.aquatome.com/a/danio-large.webp",
+          imgOf: "danio-rerio"),
     .init(id: "ca-thu", name: "Cá thử", order: 4, count: 8, members: (1...8).map { "ca-thu-\($0)" }),
   ]
 

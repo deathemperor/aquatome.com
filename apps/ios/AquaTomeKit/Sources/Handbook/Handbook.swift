@@ -325,24 +325,26 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
       /// A member's photo whose fish a 3:2 frame keeps, and where the fish is in it.
       public let img: String?
       public let imgBox: PhotoBox?
+      /// The member whose photo `img` is, by content id: the chip's page names and links that fish (the chief, 15 Nov).
+      public let imgOf: String?
       /// The guides about the group, written and on video, by index path in the index's order: empty where it has none.
       public let guides: [String]
       public let videos: [String]
 
       public init(id: String, name: String, order: Int, count: Int, members: [String], img: String? = nil, imgBox: PhotoBox? = nil,
-                  guides: [String] = [], videos: [String] = []) {
+                  imgOf: String? = nil, guides: [String] = [], videos: [String] = []) {
         self.id = id; self.name = name; self.order = order; self.count = count; self.members = members; self.img = img
-        self.imgBox = imgBox; self.guides = guides; self.videos = videos
+        self.imgBox = imgBox; self.imgOf = imgOf; self.guides = guides; self.videos = videos
       }
 
-      enum CodingKeys: String, CodingKey { case id, name, order, count, members, img, imgBox, guides, videos }
+      enum CodingKeys: String, CodingKey { case id, name, order, count, members, img, imgBox, imgOf, guides, videos }
       public init(from decoder: any Decoder) throws {
         let c = try decoder.container(keyedBy: CodingKeys.self)
         func read<T: Decodable>(_ k: CodingKeys) -> T? { (try? c.decodeIfPresent(T.self, forKey: k)) ?? nil }
         id = try c.decode(String.self, forKey: .id); name = try c.decode(String.self, forKey: .name)
         order = try c.decode(Int.self, forKey: .order); count = try c.decode(Int.self, forKey: .count)
         members = try c.decode([String].self, forKey: .members)
-        img = read(.img); imgBox = (read(.imgBox) as PhotoBox?)?.valid
+        img = read(.img); imgBox = (read(.imgBox) as PhotoBox?)?.valid; imgOf = read(.imgOf)
         guides = read(.guides) ?? []; videos = read(.videos) ?? []
       }
     }
