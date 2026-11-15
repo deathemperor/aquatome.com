@@ -6,6 +6,7 @@ import { isVietnamese } from '@aq/schema/text'
 import { LlmError, type Llm } from './claude'
 import { TARGETS, type TargetLang } from './localize'
 import { withTanks } from './round'
+import { recordRefusals } from './video-title-check'
 
 const PROMPT = withTanks(readFileSync(new URL('./prompts/video-titles.md', import.meta.url), 'utf8'))
 const SCHEMA = { type: 'object', required: ['titles'], properties: { titles: { type: 'array', items: { type: 'object', required: ['n', 'title'], properties: { n: { type: 'number' }, title: { type: 'string' } } } } } }
@@ -86,6 +87,10 @@ export async function translateVideoTitles(root: string, llm: Llm, lang: Lang, o
   // Titles the editors read and passed, kept as they are in every language: no run makes them again (the chief of staff, 15 Nov).
   const kept = (await read<Record<string, string>>(join(root, 'content/video-titles/kept.json'))) ?? {}
   const todo = new Map<string, Todo>()
+  // What each foreign video's pages are about, by scientific name (a product by its page): a video on the pages of more than
+  // one fish gets no title, as one title would name one page's fish on the other (the editors, round 10: a glass-catfish
+  // video on both Kryptopterus pages was named for the one met first).
+  const about = new Map<string, Set<string>>()
   for (const kind of ['species', 'products']) {
     for (const id of (await readdir(join(root, 'content', kind)).catch(() => [] as string[])).sort()) {
       const t = await read<Page>(join(root, 'content', kind, id, `${lang}.json`))
@@ -93,11 +98,17 @@ export async function translateVideoTitles(root: string, llm: Llm, lang: Lang, o
       const e = await read<{ scientificName?: string; name?: string; videos?: Video[]; reviews?: { videos: Video[] } }>(join(root, 'content', kind, id, 'entity.json'))
       const name = t.t?.name ?? t.name ?? e?.name ?? id
       for (const v of e?.videos ?? e?.reviews?.videos ?? []) {
-        if (speaksPageLang(v, lang) || todo.has(v.youtubeId) || v.youtubeId in kept || (o.only ? !o.only.includes(v.youtubeId) : !o.redo && v.youtubeId in done)) continue
+        if (speaksPageLang(v, lang) || v.youtubeId in kept) continue
+        about.set(v.youtubeId, (about.get(v.youtubeId) ?? new Set()).add(e?.scientificName ?? `${kind}/${id}`))
+        if (todo.has(v.youtubeId) || (o.only ? !o.only.includes(v.youtubeId) : !o.redo && v.youtubeId in done)) continue
         todo.set(v.youtubeId, { ...v, about: e?.scientificName ? `${name}, ${e.scientificName}` : name, scientificName: e?.scientificName })
       }
     }
   }
+  // Such a video keeps its own title, recorded with the reason where the site reads refusals (video-title-check.ts).
+  const shared = [...about].filter(([, fish]) => fish.size > 1)
+  for (const [id] of shared) todo.delete(id)
+  if (shared.length) await recordRefusals(root, lang, Object.fromEntries(shared.map(([id, fish]) => [id, { ok: false, kind: 'wrong fish' as const, why: `on the pages of ${fish.size} fish (${[...fish].join(', ')}): one title would name one page's fish on the other` }])))
   const rows = [...todo.values()]
   const batches = Array.from({ length: Math.ceil(rows.length / BATCH) }, (_, i) => rows.slice(i * BATCH, (i + 1) * BATCH))
   const target = lang === 'vi' ? VI : TARGETS[lang as TargetLang]

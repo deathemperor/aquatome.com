@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs'
-import { readdir, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { speaksPageLang, type Lang } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
@@ -60,6 +60,7 @@ export async function checkVideoTitles(root: string, llm: Llm, lang: Lang, title
  */
 export async function recordRefusals(root: string, lang: Lang, checks: Record<string, TitleCheck>) {
   const file = join(root, 'content/video-titles', `${lang}.refused.json`)
+  await mkdir(join(root, 'content/video-titles'), { recursive: true })
   const refused = JSON.parse(await readFile(file, 'utf8').catch(() => '{}')) as Record<string, string>
   for (const [id, c] of Object.entries(checks)) if (c.ok) delete refused[id]; else refused[id] = `${c.kind ?? 'unsure'}: ${c.why ?? ''}`.trim()
   await writeFile(file, `${JSON.stringify(Object.fromEntries(Object.entries(refused).sort(([a], [b]) => a.localeCompare(b))), null, 2)}\n`)

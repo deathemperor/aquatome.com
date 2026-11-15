@@ -13,7 +13,8 @@ async function store() {
   await put('content/species/a/entity.json', { scientificName: 'Aus bus', videos: [video('en-a', 'Keeping Aus'), video('vi-a', 'Nuôi cá A', 'vi'), video('us-a', 'Aus tank tour', 'en-US')] })
   await put('content/species/a/vi.json', { name: 'Cá A' })
   await put('content/species/a/th.json', { name: 'ปลาเอ' })
-  await put('content/species/b/entity.json', { scientificName: 'Bus', videos: [video('en-a', 'Keeping Aus'), video('th-b', 'เลี้ยงปลา', 'th')] })
+  // b is a second page of the same fish, so the video on both is asked about once.
+  await put('content/species/b/entity.json', { scientificName: 'Aus bus', videos: [video('en-a', 'Keeping Aus'), video('th-b', 'เลี้ยงปลา', 'th')] })
   await put('content/species/b/vi.json', { name: 'Cá B' })
   await put('content/products/d/entity.json', { name: 'Đèn D', reviews: { videos: [video('en-d', 'Lamp D after 6 months')] } })
   await put('content/products/d/vi.json', { name: 'Đèn D' })
@@ -182,4 +183,22 @@ test("tidyTitle drops a bracket repeating words the title gave anywhere before i
 test('tidyTitle writes "gallon" where a Vietnamese title says "galông", and the litres beside it are set as for any gallon (the editors, round 9)', () => {
   expect(tidyTitle('Cá hỏa tiễn cỡ lớn trong bể 700 galông (2650 lít)', 'vi')).toBe('Cá hỏa tiễn cỡ lớn trong bể 700 gallon (khoảng 2.650 lít)')
   expect(tidyTitle('Bể 42 galon (sekitar 159 liter)', 'id')).toBe('Bể 42 galon (sekitar 159 liter)')
+})
+
+test("a video on the pages of two fish gets no title: it keeps its own, recorded with the reason, and every other video is written as before (the editors, round 10)", async () => {
+  const root = await store()
+  const put = async (path: string, data: unknown) => { await mkdir(join(root, path, '..'), { recursive: true }); await writeFile(join(root, path), JSON.stringify(data)) }
+  for (const [id, sci, name] of [['c', 'Kryptopterus bicirrhis', 'Cá nheo kính'], ['e', 'Kryptopterus vitreolus', 'Cá thủy tinh']]) {
+    await put(`content/species/${id}/entity.json`, { scientificName: sci, videos: [video('glass', 'Glass Catfish Care')] })
+    await put(`content/species/${id}/vi.json`, { name })
+  }
+  const seen: string[] = []
+  expect(await translateVideoTitles(root, model({ seen }), 'vi')).toMatchObject({ titles: 4, left: 0 })
+  expect(seen.some(s => s.endsWith('|Glass Catfish Care'))).toBe(false)
+  expect(await titles(root, 'vi')).not.toHaveProperty('glass')
+  expect(JSON.parse(await readFile(join(root, 'content/video-titles/vi.refused.json'), 'utf8'))).toEqual({ glass: "wrong fish: on the pages of 2 fish (Kryptopterus bicirrhis, Kryptopterus vitreolus): one title would name one page's fish on the other" })
+  // Not by --only or --redo either.
+  expect(await translateVideoTitles(root, model(), 'vi', { only: ['glass'] })).toMatchObject({ titles: 0 })
+  expect(await translateVideoTitles(root, model(), 'vi', { redo: true })).toMatchObject({ titles: 4 })
+  expect(await titles(root, 'vi')).not.toHaveProperty('glass')
 })
