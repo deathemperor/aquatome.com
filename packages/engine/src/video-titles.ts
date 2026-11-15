@@ -27,9 +27,10 @@ export function titleFits(text: string, original: string, lang: Lang): boolean {
 /**
  * Video titles in a page's language (the owner's report, 2026-11-10: a Vietnamese page listing English titles). For every
  * language's pages that have videos, each video not spoken in that language, once: content/video-titles/<lang>.json,
- * YouTube id → title. The loader shows them (videosForPage). `limit`: model calls this run, 40 titles each.
+ * YouTube id → title. The loader shows them (videosForPage). `limit`: model calls this run, 40 titles each. `only`: just
+ * these videos, made again even where a title is kept (a page's titles redone after the prompt changes, the Heckel's first).
  */
-export async function translateVideoTitles(root: string, llm: Llm, lang: Lang, o: { limit?: number; parallel?: number; model?: string } = {}) {
+export async function translateVideoTitles(root: string, llm: Llm, lang: Lang, o: { limit?: number; parallel?: number; model?: string; only?: string[] } = {}) {
   const file = join(root, 'content/video-titles', `${lang}.json`)
   const done = VideoTitlesSchema.parse(JSON.parse(await readFile(file, 'utf8').catch(() => '{}')))
   const save = async () => {
@@ -45,7 +46,7 @@ export async function translateVideoTitles(root: string, llm: Llm, lang: Lang, o
       const e = await read<{ scientificName?: string; name?: string; videos?: Video[]; reviews?: { videos: Video[] } }>(join(root, 'content', kind, id, 'entity.json'))
       const name = t.t?.name ?? t.name ?? e?.name ?? id
       for (const v of e?.videos ?? e?.reviews?.videos ?? []) {
-        if (speaksPageLang(v, lang) || v.youtubeId in done || todo.has(v.youtubeId)) continue
+        if (speaksPageLang(v, lang) || todo.has(v.youtubeId) || (o.only ? !o.only.includes(v.youtubeId) : v.youtubeId in done)) continue
         todo.set(v.youtubeId, { ...v, about: e?.scientificName ? `${name}, ${e.scientificName}` : name })
       }
     }

@@ -74,3 +74,13 @@ test('--limit is calls; a usage limit stops with what was finished kept', async 
   expect(await translateVideoTitles(root, model({ stop: true }), 'vi')).toMatchObject({ titles: 0, stopped: 'usage limit' })
   expect(await translateVideoTitles(root, model(), 'vi', { limit: 0 })).toMatchObject({ titles: 0, left: 4 })
 })
+
+test('--only makes just those titles again, kept ones included, and leaves every other title as it was', async () => {
+  const root = await store()
+  await translateVideoTitles(root, model(), 'vi')
+  const before = await titles(root, 'vi')
+  const seen: string[] = []
+  expect(await translateVideoTitles(root, model({ seen, answer: t => `mới: ${t}` }), 'vi', { only: ['en-a'] })).toMatchObject({ titles: 1 })
+  expect(seen).toEqual(['Cá A, Aus bus|Keeping Aus'])
+  expect(await titles(root, 'vi')).toEqual({ ...before, 'en-a': 'mới: Keeping Aus' })
+})
