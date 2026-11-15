@@ -74,7 +74,6 @@ struct TankTrial {
   static let addedRow = "trial-added", verdictRow = "tank-verdict"
 }
 
-/// The tool's marks for its four answers.
 /// A check's rows, as a tank's "Nuôi chung" draws them and the chat's tank-mates block does: the verdict with its mark,
 /// the warnings, how full the tank is and its notes, then what wasn't counted or checked. A row each in a list.
 struct TankCheckRows: View {
@@ -98,6 +97,7 @@ struct TankCheckRows: View {
   }
 }
 
+/// The tool's marks for its four answers.
 private struct Mark: View {
   let level: String
   var body: some View {

@@ -683,7 +683,8 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertTrue(app.staticTexts["còn tiếp: 1 phần"].waitForExistence(timeout: 5), "what it can't draw isn't counted")
     let linked = app.links["Cá neon sống theo đàn"]
     XCTAssertTrue(linked.exists, "no link in its text")
-    app.descendants(matching: .any).matching(identifier: "chat-section").element(boundBy: 1).coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.05)).tap()
+    // On its text, where a long one opens: the header has no tap of its own, so a tap there would pass with or without.
+    app.descendants(matching: .any).matching(identifier: "chat-section").element(boundBy: 1).staticTexts["Tóm tắt nhanh"].firstMatch.tap()
     XCTAssertFalse(app.buttons["Thu gọn"].waitForExistence(timeout: 2), "nothing to open, and yet it opened")
     linked.tap()
     XCTAssertTrue(element(app, "v2-species").waitForExistence(timeout: 10), "the link in its text did nothing")
@@ -719,7 +720,7 @@ final class ChatFlowTests: XCTestCase {
     tools.element(boundBy: 0).tap()
     XCTAssertTrue(app.navigationBars["Kiểm tra nuôi chung"].waitForExistence(timeout: 5), "not the app's tool")
     XCTAssertEqual(element(app, "mate-count").value as? String, "6", "not set to the link's fish")
-    app.navigationBars.buttons.firstMatch.tap()
+    app.leavePage()
     let tank = tools.element(boundBy: 1)
     reveal(app, tank)
     XCTAssertTrue(app.descendants(matching: .any).matching(NSPredicate(format: "label CONTAINS 'Bể cũ, 100 cm: Cá neon × 6, Ốc lạ, thêm Cá betta × 1'")).firstMatch.exists,
