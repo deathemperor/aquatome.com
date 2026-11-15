@@ -21,6 +21,16 @@ test('a term\'s kinds are the items under its "Các loại" or "Các dạng" hea
   expect(glossaryKinds('<h3>Nên làm gì</h3><ul><li><strong>Ngâm</strong>: 1–2 tuần.</li></ul>')).toEqual([])
 })
 
+// The Sonnet reviewer, 15 Nov 2026: a list inside an item, a list of mistakes, a list past another heading level and an
+// entity each read as kinds or misread one.
+test('a list inside a kind\'s item, a list of mistakes and what comes after the next heading are no kinds; entities are read', () => {
+  expect(glossaryKinds('<h3>Các loại lũa</h3><ul><li><strong>Lũa A</strong>: x<ul><li>Cỡ nhỏ: y</li><li>Cỡ lớn: z</li></ul></li><li>Lũa B: w</li></ul><h2>Khác</h2><ul><li>Rác: y</li></ul>'))
+    .toEqual([{ id: 'lua-a', name: 'Lũa A' }, { id: 'lua-b', name: 'Lũa B' }])
+  expect(glossaryKinds('<h3>Các loại lỗi hay gặp</h3><ul><li>Ngâm thiếu: x</li></ul>')).toEqual([])
+  expect(glossaryKinds('<h3>Các loại lũa</h3><ul><li>Lũa đỏ &amp; đen: x</li><li>Lũa&nbsp;sừng: y</li></ul>'))
+    .toEqual([{ id: 'lua-do-den', name: 'Lũa đỏ & đen' }, { id: 'lua-sung', name: 'Lũa\u00a0sừng' }])
+})
+
 test('a term keeps one photo a kind, filed by the kind\'s id', () => {
   const photo = { url: 'https://media.aquatome.com/x/a.webp', width: 1000, height: 667, licence: 'dùng với sự cho phép', author: 'A shop', sourceUrl: 'https://example.org/a' }
   const term = (kinds: unknown) => GlossarySchema.safeParse({ id: 'lua', en: 'Driftwood', kinds }).success
