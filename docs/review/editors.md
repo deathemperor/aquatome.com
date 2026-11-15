@@ -15,6 +15,7 @@ scores, to be read again:
 - the guide writer's voice A (prompts from rounds 9 to 11), on the three sample guides: blue-green algae, quarantine, shopping list.
 - the privacy page's Hỏi AquaTome section in all five languages, with its lines in the retention and account-deletion lists (`apps/site/src/pages/chinh-sach-bao-mat/index.astro`).
 - the chat's first lines, in all four languages (`OPENING_SYSTEM`, `apps/site/worker/chat/agent.ts`): merged at round five's prompt, plus three changes no editor has read: when a line may open "về chuyện", no "về việc" or "việc + động từ", and a long post's earlier questions passed along with its end.
+- the Kuala Lumpur fish expo and the Chihiros light's clock cards (`content/cards`, 15 Nov), read in Vietnamese by two seats, then changed in two sentences after a code review (below) that no editor has read; their Malay, Indonesian and Thai are the engine's translations, read by no editor.
 
 ## The chat's first lines (2026-11-10)
 
@@ -220,6 +221,30 @@ Round 10 (14 Nov): both seats held 9 in all four languages. Held, both seats: th
 shelf names the otocinclus too, "Cá chuột, cá otto và cá lau kiếng", in the style guide's spelling, which the Writing
 Lead settled (references: "cá otto" forum 2.0 a million words, shop blogs 47.1; "cá oto" 0 in both). Dropped: Malay "berkumpulan" without
 "hidup" (xAI, reversing round 8's change both seats asked for).
+
+## The expo and light-clock cards (2026-11-15)
+
+Three rounds on two Hôm nay cards in Vietnamese (`content/cards/event-malaysia-aquatic-expo-2026`,
+`content/cards/product-chihiros-clock-power-cut`), with the Anthropic and xAI seats. OpenAI and Google sat out (not in
+Cursor's weekly usage, as on 14 Nov). Not tallied in the table below.
+
+| Round | Event (Anthropic, xAI) | Product (Anthropic, xAI) |
+|---|---|---|
+| 1 | 8, 8 | 7, 8 |
+| 2 | 8, 8 | 9, 9 |
+| 3 | 9, 9 | (done) |
+
+Held, both seats: the event's opening hours line named a page no source names, so it now says the hours weren't out
+as of 15 Nov; "quốc tế" and "của Malaysia" both leaning on "thủy sinh"; the product card's colon after the test; "chúng
+tôi" for AquaTome; "chỉnh lại giờ" twice, and "nên… Vì vậy". Held by the references: "mất điện thì" (forum and video 5 a
+million words) over "mất điện là" (0). Faithful, Anthropic with the source read: "sai giờ", not "lệch giờ" (the test saw
+the clock at 0, not whether it drifts), and the firmware the test ran named. Left, one seat each, both cards at 9: the
+ticket price ahead of the ticket line; "cũng chưa thử"; "Tính đến 15/11… vẫn chưa".
+
+After round 3 a code review (xAI) held that the listings disagree on the hours and that the product card's "nhớ chỉnh
+lại giờ" is advice the test doesn't give. The event's hours line now gives both listings' versions and the hall's zone,
+and the product card says what the test saw: the clock was right again only once its time was set. Neither sentence
+has had an editor's round: with Cursor out until 18 Nov, only the Anthropic seat can sit.
 
 ## Vietnamese
 

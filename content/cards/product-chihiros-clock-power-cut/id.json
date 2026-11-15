@@ -1,0 +1,5 @@
+{
+  "eyebrow": "Peralatan",
+  "title": "Saat listrik padam, jadwal lampu Chihiros WRGB II Slim meleset",
+  "body": "<p>AquaTome menguji lampu Chihiros WRGB II Slim dengan firmware 24 dan mendapati bahwa setiap kali listrik padam, jam internal lampu kembali ke 0. Jadwal nyala-mati yang sudah disimpan berjalan mengikuti jam ini, sehingga lampu akan menyala dan mati pada jam yang salah. Dalam pengujian, jam baru kembali tepat setelah jamnya disetel ulang. AquaTome belum menguji seri Chihiros lain, maupun WRGB II Slim dengan firmware lain.</p>"
+}
