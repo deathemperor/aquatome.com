@@ -526,7 +526,7 @@
     }
   ],
   "api": {
-    "note": "Billed money: what the chat's board spends on the chat's own Anthropic keys, paid from the API's credit, apart from the Mac's and GitHub's quota so it never takes the engine's room (src/billed.ts). Its tables are in force by their `from`, as the machines' are, so one day can be raised alone. A billed run stops at its line and says so (the chief of staff, 15 Nov 2026: $15 a day to start, raised for a day when a board needs it).",
+    "note": "Billed money: what the chat's board spends on the chat's own Anthropic keys, paid from the API's credit, apart from the Mac's and GitHub's quota so it never takes the engine's room (src/billed.ts). Its tables are in force by their `from`, as the machines' are, so one day can be raised alone: a table from that day, and one from the next back down. A billed call is held at its worst before it goes, and a run stops at its line and says so (the chief of staff, 15 Nov 2026: $15 a day to start, raised for a day when a board needs it).",
     "tables": [
       {
         "from": "2026-11-15T00:00:00+07:00",

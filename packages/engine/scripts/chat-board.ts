@@ -49,6 +49,7 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { parseArgs } from 'node:util'
 import { costOf as mainCost, priceOf as mainPrice } from '../../../apps/site/worker/fishid/claude'
+import type { KeyEntry } from '../../../apps/site/worker/fishid/keys'
 import { Billed, BilledLimit, worstOf, type Tokens } from '../src/billed'
 import { ceilingsAsMain, costLog, leftYielding, nameStep, stepName } from '../src/ceiling'
 import { claudeCli, claudeTools } from '../src/claude'
@@ -89,7 +90,8 @@ const { positionals, values: args } = parseArgs({
  * before it goes and logged after (billed.ts), apart from the Mac's quota. Prices are main's (fishid/claude.ts).
  */
 const billed = new Billed()
-const tokensOf = (u: any): Tokens => ({ input: u?.input_tokens ?? 0, output: u?.output_tokens ?? 0, cacheRead: u?.cache_read_input_tokens ?? 0, cacheWrite: u?.cache_creation_input_tokens ?? 0 })
+/** A reply's usage as tokens; none when the API sent none, and the call then counts at its worst (billed.ts). */
+const tokensOf = (u: any): Tokens | undefined => (u ? { input: u.input_tokens ?? 0, output: u.output_tokens ?? 0, cacheRead: u.cache_read_input_tokens ?? 0, cacheWrite: u.cache_creation_input_tokens ?? 0 } : undefined)
 if (args.step) nameStep(args.step)
 
 type Post = { id: string; topic: string; post: string; short: string; tank: PostTank }
@@ -150,8 +152,9 @@ async function answer() {
   const { handbookOf } = await import(`${W}/apps/site/worker/chat/handbook.ts`)
   // A checkout from before the handover (8 Nov) had none, as its Worker didn't: its questions go without.
   const handoverFor = existsSync(`${W}/apps/site/worker/chat/handover.ts`) ? (await import(`${W}/apps/site/worker/chat/handover.ts`)).handoverFor : undefined
-  const { clientFor, costOf } = await import(`${W}/apps/site/worker/fishid/claude.ts`)
-  const { healthyKeys, loadKeys, memoryHealth, rotate } = await import(`${W}/apps/site/worker/fishid/keys.ts`)
+  // The keys and their client are main's, whatever checkout's chat is asked: a call is one request, held and logged once.
+  const { clientFor } = await import('../../../apps/site/worker/fishid/claude')
+  const { healthyKeys, loadKeys, memoryHealth, rotate } = await import('../../../apps/site/worker/fishid/keys')
   const get = async (path: string) => { const r = await fetch(new URL(path, args.site)); return r.ok ? r.json() : null }
   const hb = await handbookOf({ index: (l: string) => get(`/app/${l}.json`), shard: (l: string, k: string, n: number) => get(`/app/pages/${l}/${k}-${n}.json`), topics: (l: string) => get(`/app/chat/${l}.json`) }, 'vi')
   const given = new Map<string, { path: string; heading: string | null }[]>()
@@ -161,7 +164,7 @@ async function answer() {
   const store = memoryHealth()
   // As the Worker sends: every call goes through the keys in turn, a key that fails rotated past.
   // Each call's start, length and output, so the time rule can be set from the calls' own times.
-  const sender = (healthy: unknown[], log: { call: number; at: number; ms: number; out?: number; tools?: number; failed?: boolean }[] = [], t0 = Date.now()) => {
+  const sender = (healthy: KeyEntry[], log: { call: number; at: number; ms: number; out?: number; tools?: number; failed?: boolean }[] = [], t0 = Date.now()) => {
     const once = async (c: any, b: any, timeoutMs: number, o: any) => {
       const stop = new AbortController(), t0 = Date.now()
       let timer = setTimeout(() => stop.abort(), timeoutMs), began = false
@@ -189,7 +192,7 @@ async function answer() {
         return billed.call({ model: b.model, worst: worstOf(b, mainPrice(b.model)), key: k.hash }, async () => {
           const m = await once(c, b, Math.min(left, o.timeoutMs), o)
           const tokens = tokensOf(m.usage)
-          return { value: m, usd: mainCost(b.model, tokens), tokens }
+          return { value: m, usd: tokens ? mainCost(b.model, tokens) : NaN, tokens }
         })
       }, { budgetMs: o.timeoutMs })
       if (!r.ok && billed.stopped) throw new BilledLimit(billed.stopped)
@@ -215,8 +218,11 @@ async function answer() {
         ...(tanks.length && handoverFor ? { handover: () => handoverFor({ question: asked(p, f), start: {}, tanks, hb, lang: 'vi', search: async () => found ?? [] }) } : {}),
         onText: () => undefined,
       })
+      // Stopped at the billed line (the agent's loop hands back what its send threw): asked again on the next run, and
+      // an answer that came is kept, since it was paid for.
+      if (!run.answer?.text && (run.error instanceof BilledLimit || billed.stopped)) return
       const toolUses = run.history.flatMap((m: any) => (Array.isArray(m.content) ? m.content : []).filter((b: any) => b.type === 'tool_use').map((b: any) => `${b.name} ${JSON.stringify(b.input)}`))
-      done.set(id, { id, post: p.id, topic: p.topic, form: f, text: run.answer?.text, blocks: run.blocks, suggestions: run.answer?.suggestions, stopped: run.stopped, calls: run.calls, asked: toolUses, timing, ms: Date.now() - began, usd: costOf(args.model, run.spent), ...(run.answer ? {} : { failed: String(run.error?.message ?? run.stopped).slice(0, 160) }) })
+      done.set(id, { id, post: p.id, topic: p.topic, form: f, text: run.answer?.text, blocks: run.blocks, suggestions: run.answer?.suggestions, stopped: run.stopped, calls: run.calls, asked: toolUses, timing, ms: Date.now() - began, usd: mainCost(args.model, run.spent), ...(run.answer ? {} : { failed: String(run.error?.message ?? run.stopped).slice(0, 160) }) })
     } catch (e: any) {
       if (billed.stopped) return
       done.set(id, { id, post: p.id, topic: p.topic, form: f, ms: Date.now() - began, usd: 0, failed: String(e?.message ?? e).slice(0, 160) })
@@ -325,11 +331,11 @@ async function plain() {
       const m: any = await billed.call({ model: body.model, worst: worstOf(body, mainPrice(body.model)), key: keys[0]!.hash }, async () => {
         const r: any = await client.messages.create(body as any, { timeout: 120_000 })
         const tokens = tokensOf(r.usage)
-        return { value: r, usd: mainCost(body.model, tokens), tokens }
+        return { value: r, usd: tokens ? mainCost(body.model, tokens) : NaN, tokens }
       })
       // A cut-off answer is a failure, asked again on the next run, never judged as whole.
       if (m.stop_reason !== 'end_turn') throw new Error(`stopped: ${m.stop_reason}`)
-      return { text: m.content.filter((b: any) => b.type === 'text').map((b: any) => b.text).join(''), usd: mainCost(args.model!, tokensOf(m.usage)) }
+      return { text: m.content.filter((b: any) => b.type === 'text').map((b: any) => b.text).join(''), usd: mainCost(args.model!, tokensOf(m.usage) ?? { input: 0, output: 0 }) }
     }
   }
   let n = 0
