@@ -985,6 +985,16 @@ The layers above still check the result.
       article it reprints ("Được Loaches Online chuyển thể với sự cho phép.", "… dengan izin", "… โดยได้รับอนุญาต"):
       dropped, its paragraph too when it is all there is (owner, 2026-11-05). A sentence that only has the words ("Chỉ
       bắt cá với sự cho phép của cơ quan quản lý.") stays. No audit rule holds it at zero yet: the sweep alone
+    - a source's photo caption or credit left as a block of its own in a guide's text, its photo not with it ("Ảnh:
+      <name>", "Hình: …", "Foto: …", "ภาพ: …", a caption ending "© <name>"); a source's thanks to a named person or shop
+      as a block of its own ("Cảm ơn <name>.", "Terima kasih kepada <name>.", "Thanks to <name> for the photos"); and
+      "© <name>" after a work's title in a fish page's references, the title and link kept (Page Recovery, 2026-11-12:
+      121 caption lines in 21 guides, 17 pages of thanks, about 130 fish pages' references). Only whole blocks of that
+      shape: a label word that starts another word ("Ảnh hưởng:", "ภาพรวม:"), a thanks inside care advice, a thanks to no
+      one named or with another sentence beside it, a caption in a `<figure>` and a "©" with a year or two names stay.
+      Like the cuts above, it cleans a part a person fixed too, since it adds no word. No audit rule lists them (their
+      words are people's names, and the report is public): a real-content test sweeps every stored page in memory and
+      holds them at zero
     - a photo whose caption names another species the site has a page for, with nothing saying the fish is still the
       page's ("in a batch of", "here with", "known as"), or that is a map, or a Wikimedia Commons photo whose file name
       or description says it is no photo of the living fish (a paper's plate, a microscope picture, a drawing, a dish:

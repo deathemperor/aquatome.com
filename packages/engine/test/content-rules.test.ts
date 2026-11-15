@@ -3,9 +3,9 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import {
-  blocks, cardSlips, checkPages, gluedSyllables, claimsControl, countMismatch, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, emptySections, englishSentences, fixStored, fixTranslation, furniture,
-  imperialUnits, isPermissionNote, labelSlips, leftoverMarkup, longFurniture, namesSource, numberSlips, otherFish, plainEntities, ratcheted, renumberLabels, RULES, rulesReport, sfScoreFixed, sourcePagePhrases, stripCount,
-  renameStored, renameFishNames, renameSwapped, swappedNames, titleCount, unwellOff, vietnameseLeft, wrongFish, captionFlaw, type Ctx,
+  blocks, cardSlips, checkPages, gluedSyllables, claimsControl, countMismatch, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, emptySections, englishSentences, fixStored, fixTranslation, furniture,
+  imperialUnits, isPermissionNote, isPhotoCaption, isThanks, labelSlips, leftoverMarkup, longFurniture, namesSource, numberSlips, otherFish, photoCaptions, plainEntities, ratcheted, refCredits, renumberLabels, RULES, rulesReport, sfScoreFixed, sourcePagePhrases, stripCount,
+  renameStored, renameFishNames, renameSwapped, swappedNames, thanksLines, titleCount, unwellOff, vietnameseLeft, wrongFish, captionFlaw, type Ctx,
 } from '../src/content-rules'
 import { pagePath, pageUrl, type Page } from '../src/pages'
 import { phraseSlips } from '../src/phrases'
@@ -390,6 +390,119 @@ test('a sentence that only says the text is translated, adapted or used with per
   }
   // Nothing to drop: the text as it was, byte for byte.
   expect(dropPermissionNotes('<p>Nước <b>mềm</b>.</p>\n<p>Thay nước.</p>')).toBe('<p>Nước <b>mềm</b>.</p>\n<p>Thay nước.</p>')
+})
+
+// Page Recovery, 2026-11-12: 121 lines in 21 Vietnamese guides were a source's photo captions or credits, the photos
+// not on our page. The names here are invented.
+test('a source\'s photo caption or credit left as a block of its own: cut, in each language', () => {
+  const care = '<p>Thay 20% nước mỗi tuần.</p>'
+  for (const caption of [
+    'Ảnh: Nguyễn Văn A',
+    'Hình: Staurogyne repens.',
+    'Hình ảnh: Ảnh đầu tiên: Nguyễn Văn A. Các ảnh khác: Trần Thị B.',
+    'Chú thích ảnh: Một con suối được phục hồi. © Jane Example',
+    'Lá mục cũng là thức ăn cho cá bột của một số loài © Jane Example',
+    `${'Hội thảo có người nuôi cá từ nhiều nơi trong vùng. '.repeat(8)}© Example Group`,
+    'Y. splendida © Jane Example © J. Example',
+    'Maskaheros argenteus ©Example.dk',
+    'Ảnh: Jane Example / Wikimedia Commons / CC BY 3.0',
+    'Hình 1. Phức hợp này chia thành ba nhóm. © Jane Example',
+    '(Ảnh: Nguyễn Văn A)',
+    'Foto: Jane Example',
+    'Gambar: ikan jantan di sebelah kiri.',
+    'ภาพ: Jane Example',
+    'ภาพถ่าย: ปลาตัวผู้',
+    'Photo: Jane Example',
+  ]) {
+    expect(isPhotoCaption(caption), caption).toBe(true)
+    expect(dropPhotoCaptions(`${care}<p>${caption}</p>${care}`), caption).toBe(`${care}${care}`)
+  }
+  // In a list item, a div, or set in italics.
+  expect(dropPhotoCaptions(`${care}<ul><li>Ảnh: Nguyễn Văn A</li></ul><div>© Jane Example</div><p><em>Ảnh: Trần Thị B</em></p>`)).toBe(care)
+  expect(photoCaptions(`${care}<p><em>Ảnh: Trần Thị B</em></p>`)).toEqual(['Ảnh: Trần Thị B'])
+  // A caption inside a figure belongs to its image, and stays.
+  const figure = '<figure><img src="a.webp"><figcaption>Ảnh: Nguyễn Văn A</figcaption></figure>'
+  expect(dropPhotoCaptions(`${care}${figure}`)).toBe(`${care}${figure}`)
+  // Near misses: a word that starts like a label, a sentence about photos, a "©" with a sentence after it, a long block.
+  for (const near of [
+    'Ảnh hưởng của pH: cá yếu đi khi pH xuống dưới 6.',
+    'Hình dạng lá: dài và mảnh.',
+    'Khi chụp ảnh cá, hãy tắt đèn flash để cá không hoảng.',
+    'Ảnh chụp bể sau hai tuần cho thấy rêu đã phủ kín nền, nên tỉa bớt.',
+    'ภาพรวม: ปลาชนิดนี้เลี้ยงง่าย',
+    'Fotosintesis: tanaman butuh cahaya 8 jam sehari.',
+    'Hình 3 cho thấy cá đực có vây dài hơn cá cái.',
+    'Bài viết © Jane Example. Cá cần nước mềm và thay nước đều đặn mỗi tuần.',
+    `${'Cá cần nước mềm, thay nước đều. '.repeat(15)}© Jane Example`,
+    `Ảnh: ${'cá cần nước mềm, thay nước đều, '.repeat(7)}nhất là khi nuôi cá con.`,
+  ]) {
+    expect(isPhotoCaption(near), near).toBe(false)
+    expect(dropPhotoCaptions(`<p>${near}</p>`)).toBe(`<p>${near}</p>`)
+  }
+  // Nothing to cut: the text as it was, byte for byte.
+  expect(dropPhotoCaptions('<p>Nước <b>mềm</b>.</p>\n<p>Thay nước: mỗi tuần.</p>')).toBe('<p>Nước <b>mềm</b>.</p>\n<p>Thay nước: mỗi tuần.</p>')
+})
+
+// Page Recovery, 2026-11-12: 17 pages kept a source's thanks to the people who helped it. The names here are invented.
+test('a source\'s thanks to a named person or shop, as a block of its own: cut, in each language', () => {
+  const care = '<p>Cá cần nước mềm.</p>'
+  for (const thanks of [
+    'Cảm ơn Nguyễn Văn A.',
+    'Cảm ơn J. D. Example đã góp ý cho phần thông tin này.',
+    'Xin cảm ơn Jane Example đã góp ý và bổ sung, và John Example đã đưa ra gợi ý.',
+    'Xin chân thành cảm ơn Trần Thị B và Tiến sĩ Lê Văn C đã góp ý biên tập.',
+    'Cảm ơn Jane Example, John Example và các cộng tác viên thường xuyên Ann, Bob cùng Example.dk đã cho phép dùng ảnh.',
+    'Cảm ơn Toko-Contoh.com.',
+    'Cảm ơn Nguyễn Văn An. Cảm ơn Trần Thị Bình.',
+    'Terima kasih kepada Toko Contoh.',
+    'Penghargaan kepada Jane Example.',
+    'Terima kasih kepada Jane Example atas foto-fotonya.',
+    'ขอบคุณ Jane Example',
+    'Thanks to Jane Example for the photos.',
+  ]) {
+    expect(isThanks(thanks), thanks).toBe(true)
+    expect(dropThanks(`${care}<p>${thanks}</p>`), thanks).toBe(care)
+  }
+  expect(thanksLines(`${care}<p>Cảm ơn Nguyễn Văn A.</p>`)).toEqual(['Cảm ơn Nguyễn Văn A.'])
+  // Near misses: a thanks in care advice, a thanks to no one named, a thanks with another sentence, "cảm ơn" inside a
+  // sentence (a fish's behaviour), the reader thanked, a figure, and a Thai name in Thai letters (no capital to tell it).
+  for (const near of [
+    'Cảm ơn Seachem Prime giúp khử clo, bạn có thể thay nước máy ngay.',
+    'Cảm ơn Seachem Prime, amoniac được trung hòa ngay sau khi thay nước.',
+    'Cảm ơn lớp rêu dày, cá con có chỗ trốn.',
+    'Cảm ơn những người đã đăng các mẩu thông tin nhỏ làm nền cho bài này.',
+    'Cảm ơn Nguyễn Văn A vì những bức ảnh này. Chúng cho thấy suối nơi cá sống.',
+    'Cá không biết cảm ơn bạn, nhưng chúng sẽ khỏe hơn khi nước sạch.',
+    'Cảm ơn bạn đã đọc bài viết.',
+    'Cảm ơn Nguyễn Văn A đã đo pH 6,5 ở suối.',
+    'Terima kasih atas perhatian Anda.',
+    'ขอบคุณคุณสมชายที่ให้ภาพ',
+  ]) {
+    expect(isThanks(near), near).toBe(false)
+    expect(dropThanks(`<p>${near}</p>`)).toBe(`<p>${near}</p>`)
+  }
+})
+
+// Page Recovery, 2026-11-12: about 130 fish pages' references named a database's compiler after "©". The name is invented.
+test('"© <name>" after a work\'s title in the references: the name goes, the title and its link stay', () => {
+  const work = 'The ETYFish Project Fish Name Etymology Database'
+  expect(dropRefCredits(`<p>${work} © Jane Example.</p>`)).toBe(`<p>${work}.</p>`)
+  expect(dropRefCredits(`<ul><li>${work} © Jane Example.</li></ul>`)).toBe(`<ul><li>${work}.</li></ul>`)
+  expect(dropRefCredits(`<p>Factsheet no. 12. ${work} © Jane Example.</p><p>Example, J. 2009. A paper.</p>`)).toBe(`<p>Factsheet no. 12. ${work}.</p><p>Example, J. 2009. A paper.</p>`)
+  expect(dropRefCredits(`<p><a href="https://example.org/">${work}</a> © J. van Example</p>`)).toBe(`<p><a href="https://example.org/">${work}</a></p>`)
+  expect(dropRefCredits(`<p>${work} © Jane E.</p>`)).toBe(`<p>${work}.</p>`)
+  expect(refCredits(`<p>${work} © Jane Example.</p>`)).toEqual(['© Jane Example'])
+  // Near misses: no "©", a year, two names, the citation going on after the name: left as they are.
+  for (const near of [
+    `<p>${work}.</p>`,
+    '<p>Example, J. and A. Example. 2009. A paper. Zootaxa 12: 1–20.</p>',
+    `<p>${work} © 2010 Jane Example.</p>`,
+    `<p>${work} © Jane Example and John Example.</p>`,
+    `<p>${work} © Jane Example The IUCN Red List.</p>`,
+  ]) {
+    expect(dropRefCredits(near), near).toBe(near)
+    expect(refCredits(near), near).toEqual([])
+  }
 })
 
 test('the source site\'s comments, comment form and related posts: found as headings or lines of their own, and cut', () => {

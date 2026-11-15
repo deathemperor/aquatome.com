@@ -1,6 +1,6 @@
 import { readFile, readdir, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { HTMLElement, parse } from 'node-html-parser'
+import { HTMLElement, parse, TextNode } from 'node-html-parser'
 import { headingRoles, imperialLeft, LANGS, ownNumber, WRITTEN_LANGS, type DataCardField, type Lang, type WrittenLang } from '@aq/schema'
 import { tidyName } from './alt-names'
 import { showsLNumber, withLNumber } from './l-numbers'
@@ -312,6 +312,116 @@ export function dropPermissionNotes(html: string): string {
     else p.remove()
   }
   return changed ? root.toString() : html
+}
+
+/** The innermost paragraphs, list items and divs of a text, outside a figure (a caption there belongs to its image). */
+const leafBlocks = (root: HTMLElement) => root.querySelectorAll('p, li, div').filter(el => {
+  if (el.querySelector('p, li, div, ul, ol, table, figure, img')) return false
+  for (let n: HTMLElement | null = el.parentNode; n; n = n.parentNode) if (n.rawTagName === 'figure') return false
+  return true
+})
+const textOf = (el: HTMLElement) => el.text.replace(/\s+/g, ' ').trim()
+const wordCount = (s: string) => s.split(' ').filter(Boolean).length
+/** Every leaf block of a text that `is` says goes, cut: the text as it was when there is none. */
+function cutBlocks(html: string, is: (text: string) => boolean): string {
+  const root = parse(html)
+  const cut = leafBlocks(root).filter(el => is(textOf(el)))
+  if (!cut.length) return html
+  for (const el of cut) el.remove()
+  return dropEmptyBlocks(root.toString()).trim()
+}
+const foundBlocks = (html: string, is: (text: string) => boolean) => leafBlocks(parse(html)).map(textOf).filter(is)
+
+/**
+ * A source's photo caption or credit left in a text as a block of its own, the photo it went with not there: "Ảnh:
+ * <name>", "Hình: Staurogyne repens.", "Foto: …", "ภาพ: …", "Hình 1. …", or a caption ending in its photographer's
+ * "© <name>". A page's photos carry their own captions and credits, and a caption whose photo the page doesn't show reads
+ * as a stray line. Only a whole block of that shape: a label (50 words at most) needs its colon right after it ("Ảnh
+ * hưởng của pH:", "ภาพรวม:", "Fotosintesis:" stay); a "©" must be the block's end, with at most a name after it, in a
+ * block of 100 words at most (the longest caption on 12 Nov had 89, of a meeting's photo); a sentence about taking
+ * photos stays. A caption inside a <figure> belongs to its image, and stays.
+ */
+const CAPTION_LABEL = /^\(?\s*(?:(?:chú thích ảnh|nguồn ảnh|hình ảnh|ảnh|hình|photo(?:graph)?s?(?: credits?)?|image|picture|foto|gambar|sumber foto|kredit foto|ภาพถ่าย|ภาพประกอบ|ภาพ|รูปภาพ|รูป|ที่มาภาพ|เครดิตภาพ)\s*:|(?:hình|ảnh|figure|fig\.|gambar|ภาพที่)\s*\d{1,2}\s*[:.](?=\s))/iu
+export const isPhotoCaption = (text: string) => {
+  if (!text) return false
+  if (CAPTION_LABEL.test(text)) return wordCount(text) <= 50
+  // The credit at the end: after the last "©", a name and nothing else (eight words at most, no sentence after it).
+  const at = text.lastIndexOf('©')
+  if (at < 0 || wordCount(text) > 100) return false
+  const after = text.slice(at + 1).trim()
+  return after.length > 0 && after.length <= 60 && wordCount(after) <= 8 && !/[.!?]\s+\p{Ll}/u.test(after)
+}
+/** The orphan photo captions in a text (isPhotoCaption). */
+export const photoCaptions = (html: string) => (/©|:|\d[.:]/.test(html) ? foundBlocks(html, isPhotoCaption) : [])
+/** The text without them. */
+export const dropPhotoCaptions = (html: string) => (/©|:|\d[.:]/.test(html) ? cutBlocks(html, isPhotoCaption) : html)
+
+/**
+ * A source's thanks to the people or shops who helped it, as a block of its own: "Cảm ơn <name>.", "Xin cảm ơn <name> đã
+ * góp ý", "Terima kasih kepada <name>.", "Penghargaan kepada <name>.", "ขอบคุณ <name>", "Thanks to <name> for the
+ * photos". Not ours to say (PRODUCT.md: never the author on a page): the page's sources' list says whose text it is.
+ * Every sentence of the block is a thanks to names (capitalised, not "Bạn" or "Anda"; Thai names only in Latin letters,
+ * since Thai script has no capitals to tell a name by), and after the names comes nothing, or a reason that is help with
+ * the text: "đã góp ý", "vì những bức ảnh", "atas izinnya", "for the photos". A block with any other sentence stays, as
+ * does a thanks inside care advice ("Cảm ơn Seachem Prime giúp khử clo" has no reason word after the name), a figure, and
+ * "cảm ơn" anywhere but a sentence's start.
+ */
+const THANKS_WORD = /^(?:xin\s+)?(?:(?:chân thành|đặc biệt|rất|gửi lời|xin gửi lời)\s+)?(?:cảm ơn|cám ơn)(?:\s+(?:chân thành|rất nhiều|đặc biệt))?(?:\s+(?:tới|đến))?\s+|^(?:(?:ucapan|jutaan)\s+)?(?:terima\s+kasih|penghargaan|berterima\s+kasih)(?:\s+(?:banyak|khusus|juga))?\s+(?:kepada|buat|untuk)\s+|^(?:ขอ)?ขอบคุณ(?:มาก)?(?:\s*(?:แก่|ถึง|คุณ))?\s*|^(?:(?:many|special|our)\s+)?thanks\s+(?:also\s+)?(?:go\s+)?(?:to\s+)|^(?:we\s+(?:would\s+like\s+to\s+)?)?thank(?:s)?\s+(?:you\s+)?(?:to\s+)?/iu
+const NOT_A_NAME = /^(?:bạn|anda|kamu|awak|you|quý|everyone|all)(?!\p{L})/iu
+/** A word of a name: capitalised, an initial, a site's name with its domain, or a word inside one ("De la", "van", "Tiến sĩ"). */
+const NAME_WORD = /^(?:\p{Lu}[\p{L}\p{M}'’.-]*|de|da|del|der|den|la|le|van|von|dos|do|du|bin|binti|sĩ)$/u
+const JOIN = /^(?:và|cùng|and|&|dan|serta|และ)$/iu
+/** Words for a group among the names: "và các cộng tác viên thường xuyên <names>", "our regular contributors". */
+const GROUP = /^(?:các|những|cộng|tác|viên|thường|xuyên|nhóm|para|rekan|kontributor|tetap|the|our|regular|contributors|team)$/iu
+const REASON_START = /^(?:đã|vì|về|cho|for|atas|karena|kerana|yang|untuk|ที่|สำหรับ)$/iu
+const THANKS_FOR = /(?<!\p{L})(?:góp ý|bổ sung|ảnh|hình|cho phép|giúp|chia sẻ|thông tin|hỗ trợ|cung cấp|biên tập|hiệu đính|nhận xét|gợi ý|đóng góp|tư liệu|mẫu vật|bantuan|foto|gambar|izin|informasi|maklumat|masukan|saran|koreksi|komentar|membantu|sumbangan|help|photos?|photographs?|images?|pictures?|permission|information|comments?|review|assistance|input|suggestions?|specimens?|ภาพ|รูป|ข้อมูล|ความช่วยเหลือ|อนุญาต|คำแนะนำ)(?!\p{L})/iu
+const isThanksSentence = (s: string) => {
+  const m = s.match(THANKS_WORD)
+  if (!m) return false
+  const rest = s.slice(m[0].length).replace(/[.!]+$/, '').trim()
+  if (!/^\p{Lu}/u.test(rest) || NOT_A_NAME.test(rest) || /\d|[:;]/.test(rest)) return false
+  const ws = rest.replace(/,/g, ' ').split(' ').filter(Boolean)
+  const at = ws.findIndex(w => !NAME_WORD.test(w) && !JOIN.test(w) && !GROUP.test(w))
+  if (at < 0) return ws.length <= 30
+  const reason = ws.slice(at)
+  return REASON_START.test(reason[0]!) && reason.length <= 20 && THANKS_FOR.test(reason.join(' '))
+}
+export const isThanks = (text: string) => {
+  if (!text || !/cảm ơn|cám ơn|terima kasih|penghargaan|ขอบคุณ|thank/iu.test(text)) return false
+  // Sentences end at a stop before a space; an initial's stop ("J. D. Example") is no end.
+  const sentences = text.split(/(?<=[.!?])(?<!(?:^|\s)\p{Lu}\.)\s+/u).filter(Boolean)
+  return sentences.length > 0 && sentences.every(isThanksSentence)
+}
+/** The thanks lines in a text (isThanks). */
+export const thanksLines = (html: string) => (/cảm ơn|cám ơn|terima kasih|penghargaan|ขอบคุณ|thank/iu.test(html) ? foundBlocks(html, isThanks) : [])
+/** The text without them. */
+export const dropThanks = (html: string) => (/cảm ơn|cám ơn|terima kasih|penghargaan|ขอบคุณ|thank/iu.test(html) ? cutBlocks(html, isThanks) : html)
+
+/**
+ * "© <name>" in a fish page's references, after a work's title ("The ETYFish Project Fish Name Etymology Database ©
+ * <name>."): its compiler's name, which a page doesn't print. The "©" and the name go; the work's title, its link and the
+ * stop after stay. Only one name ending its citation (a stop, a comma, the end): a "©" with a year, two names, or more of
+ * the citation after the name is left as it is.
+ */
+// A stop inside a name only before small letters (a site's domain); a stop after the surname ends the citation.
+const REF_NAME = String.raw`(?:\p{Lu}\.|\p{Lu}[\p{L}\p{M}'’-]*(?:\.\p{Ll}+)*)`
+const REF_PARTICLE = String.raw`(?:de|da|del|der|den|la|le|van|von|dos|do|du)`
+const REF_CREDIT = new RegExp(String.raw`\s*©\s*${REF_NAME}(?:\s+(?:${REF_PARTICLE}\s+)*${REF_NAME}){0,3}(?=\s*(?:[.,;)]|$))`, 'gu')
+/** A text's own words, a text node at a time: what the references fix reads and changes. */
+const textNodes = (n: HTMLElement): TextNode[] => n.childNodes.flatMap(c => (c instanceof HTMLElement ? textNodes(c) : c instanceof TextNode ? [c] : []))
+/** The "© <name>" credits in a references text, as written. */
+export const refCredits = (html: string) => (html.includes('©') ? textNodes(parse(html)).flatMap(t => [...t.rawText.matchAll(REF_CREDIT)].map(m => m[0].trim())) : [])
+/** The references text without them: only its words change, never a tag or a link. */
+export function dropRefCredits(html: string): string {
+  if (!html.includes('©')) return html
+  const root = parse(html)
+  let changed = false
+  for (const t of textNodes(root)) {
+    // A name ending in an initial takes the citation's stop with it: the stop stays.
+    const now = t.rawText.replace(REF_CREDIT, m => (m.endsWith('.') ? '.' : ''))
+    if (now !== t.rawText) { t.rawText = now; changed = true }
+  }
+  return changed ? dropEmptyBlocks(root.toString()).trim() : html
 }
 
 /**

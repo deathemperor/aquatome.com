@@ -3,8 +3,8 @@ import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
-import { GALLERY_POST, loadAll, mayPublish, RETIRED_GUIDES, resolveDataCard, type Translation } from '@aq/schema'
-import { checkPages, RATCHETED, ratcheted, RULES } from '../src/content-rules'
+import { GALLERY_POST, loadAll, mayPublish, RETIRED_GUIDES, resolveDataCard, WRITTEN_LANGS, type Translation } from '@aq/schema'
+import { checkPages, photoCaptions, RATCHETED, ratcheted, refCredits, RULES, SWEPT_KINDS, thanksLines } from '../src/content-rules'
 import { englishOf } from '../src/english'
 import { tilapiaUnnamed } from '../src/kind-words'
 import { droppedName, FISH_NAMES, KIND_PASSAGES, oldNames } from '../src/names'
@@ -19,6 +19,7 @@ import { mendPart } from '../src/source-figures'
 import { fishThaiLai, wordingSlips } from '../src/sanitize'
 import { cardOf, cardProblems, readSummaries } from '../src/summaries'
 import { cardSchool, readTraits } from '../src/traits'
+import { sweepTranslation } from '../src/sweep'
 import { slow } from '@aq/schema/test-time'
 
 // The real content/, not the test store, as a public build shows it. Each class of defect here has a fix the engine
@@ -35,6 +36,28 @@ test('no page has a defect the sweep fixes', async () => {
   const left = Object.fromEntries(Object.keys(RATCHETED).map(id => [id, held.filter(f => f.rule === id).map(f => `${f.page.path}: ${f.detail}`)]))
   expect(left, 'run pnpm engine sweep').toEqual(Object.fromEntries(Object.keys(RATCHETED).map(id => [id, []])))
 }, slow(300_000)) // every page of the real content, in three languages: about 100 s on 2,599 pages
+
+// Page Recovery, 2026-11-12: a source's photo captions and credits left in a guide's text (121 lines in 21 Vietnamese
+// guides), its thanks to the people who helped it (17 pages), and the compiler's name after "©" in about 130 fish pages'
+// references. The sweep cuts them each cycle, before the build; this holds what it leaves, on every stored page as the
+// sweep would leave it. In memory: the content here is the last cycle's, and its next sweep writes the cut. What fails
+// names the page, the part and how many, never the words: they carry people's names, and this log is public.
+test('after the sweep, no page keeps a stray photo caption, a source\'s thanks or a name after "©" in its references', async () => {
+  const content = fileURLToPath(new URL('../../../content', import.meta.url))
+  const left: string[] = []
+  for (const kind of SWEPT_KINDS) for (const id of await readdir(join(content, kind)).catch(() => [] as string[])) for (const lang of WRITTEN_LANGS) {
+    const raw = await readFile(join(content, kind, id, `${lang}.json`), 'utf8').catch(() => null)
+    if (!raw) continue
+    const t = sweepTranslation(JSON.parse(raw) as Translation & { body?: string; definition?: string }, kind).t
+    const fields = [...Object.entries(t.sections ?? {}).map(([k, html]) => [`sections.${k}`, html] as const), ...(t.body !== undefined ? [['body', t.body] as const] : []), ...(t.definition !== undefined ? [['definition', t.definition] as const] : [])]
+    for (const [field, html] of fields) {
+      const refs = field.startsWith('sections.references')
+      const n = { captions: kind === 'guides' && field === 'body' ? photoCaptions(html).length : 0, thanks: refs ? 0 : thanksLines(html).length, '©': refs ? refCredits(html).length : 0 }
+      for (const [what, k] of Object.entries(n)) if (k) left.push(`${lang}/${kind}/${id} ${field}: ${what} ×${k}`)
+    }
+  }
+  expect(left, 'fix the sweep (content-rules.ts dropPhotoCaptions, dropThanks, dropRefCredits)').toEqual([])
+}, slow(300_000)) // every stored page in four languages, swept in memory: about 40 s
 
 // The owner's names of 2026-11-07. The sweep writes each when the sentence says which fish it is (renameSwapped), so what
 // fails here is a sentence it left, the fish unclear: a page that keeps one is written again.
