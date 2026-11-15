@@ -129,6 +129,28 @@
       {
         "source": "planetcatfish",
         "value": 10.2
+      },
+      {
+        "source": "scotcat",
+        "value": 10
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
       }
     ]
   },
@@ -140,16 +162,34 @@
       "html": "<ul><li>Scientific name: Neoplecostomus microps (Steindachner, 1877)</li><li>Common names: LDA034, Microps-Neoplecostomus (Germany), Small Eyed Lobe Pleco, Småøjet Kvastsugemalle (Denmark)</li><li>Type locality: Rio de Janeiro (possibly Rio Parahyba), Brazil.</li><li>Etymology: Genus: Greek, neos = new + Greek, plekos,-eos = twisted. The specific epithet refers to its small (micro = small) eyes (-ops = eyes).</li><li>IUCN Red List: Least Concern (last assessed 2021).</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/neoplecostomus_microps.htm",
+      "html": "<ul><li>LDA number: LDA034</li><li>Synonym: Plecostomus microps</li><li>IUCN Red List: Least Concern</li></ul><p>Etymology: the specific name microps means small appearance.</p><p>Description: tooth row of lower jaw followed by one to several series of distinct, enlarged papillae; abdomen with a rather regular six-sided shield of small, prickly platelets, bordered on all sides by a naked area.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1336",
       "html": "<p>South America: Paraíba do Sul River basin. Rio de Janeiro State rivers, Paraíba do Sul and Macaé.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/neoplecostomus_microps.htm",
+      "html": "<p>South America: Brazil, Paraíba do Sul River basin. Type locality: the vicinity of Rio de Janeiro [Brazil].</p><p>The species has a wide geographic distribution in southeastern Brazil. Neoplecostomus currently comprises 18 described species (2026), with most occurring in streams draining the Brazilian Crystalline Shield.</p>"
+    },
+    {
       "key": "habitat",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1336",
       "html": "<p>In nature, adults and subadults are found in rapids flowing over stones on sandy or muddy substrates. Juveniles below 32 mm SL are found almost exclusively in planted stream margins (in nature, mostly Zingiberaceae) with slower currents.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/neoplecostomus_microps.htm",
+      "html": "<p>Neoplecostomus microps occurred only in fast-flowing stretches with stones and boulders, typical of the upper and middle stretches of the Macaé River. Individuals (n = 290) were limited to fast-flowing stretches, and the distribution was related to ontogenetic development. Larvae in post-flexion occurred in the marginal vegetation, and adults only in gaps between boulders and stones in the river channel. Juveniles occurred in both environments.</p>"
     },
     {
       "key": "waterConditions",
@@ -164,16 +204,40 @@
       "html": "<p>Male N. microps show an epidermal growth along the pelvic-fin spine, forming a flap that projects toward the side of the body; this flap was observed in juvenile males 32 mm SL and larger. No females showed this epidermal expansion. Another difference observed between the sexes was in the genital area. In females, the anal and urogenital pores were very close, with the middle of the papillae merged, giving the appearance of a single opening. The males showed a separation between the anal and urogenital pores, featuring two distinct and defined openings. Males are generally larger than females. In a survey of sexually mature wild adults, the smallest female and smallest male found were 58.0 mm and 64.0 mm, respectively.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/neoplecostomus_microps.htm",
+      "html": "<p>The anal and urogenital papillae are separated in males and merged in females, and there is an epidermal growth along the pectoral-fin spine of males.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1336",
       "html": "<p>From Brito et al. (2016, Biota Neotrop. vol.16, no.2): in nature, spawns were found at two sites in the Macaé River basin in November and January, during the rainy season, exclusively in rapid stretches. Of the total of eight spawns found, six were in the upper Macaé River and two in the Boa Esperança River, a left tributary of the middle Macaé River. The characteristics of the sites were similar, with the fast-flowing portion associated with stones and boulders (i.e., headwaters). Eggs were found attached to the undersides of stones, in cavities formed in the river bottom. Brito et al. (2016) suggest that adults choose stones as spawning sites based upon the presence of cavities or gaps (formed between the stone and riverbed) appropriate for the surface, size and position relative to the current. Adults seem to prefer large, flat stones over smaller rounder stones. The number of eggs per stone ranged from 62 to 375. Eggs in different stages of development were found on the same stone. The egg colours ranged from yellow-gold, in eggs full of yolk in early development, to brown, in eggs with pigmented embryos in an advanced stage of development.</p><p>There is no breeding report.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/neoplecostomus_microps.htm",
+      "html": "<p>Spawns were found in the natural habitat in rapid stretches, with the eggs attached to the lower surface of stones in openings formed in the riverbed. The number of eggs per stone ranged from 62 to 375, with significant differences among the mean sizes of the eggs.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/neoplecostomus_microps.htm",
+      "html": "<p>IUCN Red List: despite ongoing threats, the species is assessed as Least Concern due to its apparent tolerance to environmental degradation (IUCN 2023).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1336",
       "html": "<p>Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften. Mathematisch-Naturwissenschaftliche Classe v. 74 (1. Abth.), pp 688 [130], Pl. 13.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/neoplecostomus_microps.htm",
+      "html": "<p>Baensch, H.A. and R. Riehl, 1997. Aquarien Atlas, Band 5. Mergus Verlag, Melle, Germany. 1148 p.</p><p>Brito, M.F.G., Lazzarotto, H., Caramaschi, E.P. 2016. Life-history features of a rapids-dwelling loricariid catfish from Atlantic forest streams, Brazil. Biota Neotropica. 16(2): e20150068.</p><p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Cherobim, Arieli Matheus, Lazzarotto, Henrique, &amp; Langeani, Francisco. (2016). A new species of the catfish Neoplecostomus (Loricariidae: Neoplecostominae) from a coastal drainage in southeastern Brazil. Neotropical Ichthyology, 14(4), e160015.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2019. FishBase. www.fishbase.org, (08/2019).</p><p>Perez, A. 2023. Neoplecostomus microps. The IUCN Red List of Threatened Species 2023.</p>"
     }
   ],
   "photos": [
@@ -235,5 +299,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13"
+  "updatedAt": "2026-11-14"
 }

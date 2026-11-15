@@ -59,6 +59,13 @@
           "min": 20,
           "max": 26
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
       }
     ],
     "ph": [
@@ -83,6 +90,10 @@
       {
         "source": "seriouslyfish",
         "value": 1.7
+      },
+      {
+        "source": "glaser",
+        "value": 2
       }
     ],
     "tankCm": [
@@ -95,6 +106,10 @@
       {
         "source": "seriouslyfish",
         "value": 4
+      },
+      {
+        "source": "glaser",
+        "value": 2
       }
     ]
   },
@@ -106,10 +121,22 @@
       "html": "<p>Danionella dracula is a miniature cyprinid known only from the Mogaung Chaung, a tributary of the Ayeyarwady in Kachin State, northern Myanmar. Males carry a row of tooth-like processes in the jaws ending in a large fang-like pair, a structure unique among cypriniform fishes according to current knowledge. It grows to around 17 mm SL, has been sold as Danionella sp. 'neon green', and is best kept alone in a school of a dozen or more.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danionella_dracula_en/",
+      "html": "<p>Danionella are extremely small cyprinids, which never grow larger than 2 cm. The species that was discovered first – Danionella translucida – was thought to be the smallest cyprinid in the world, until the even smaller genus Paedocypris was discovered.</p><p>Currently, four species are recognized by science, three from Burma and one from northern India. It was only last year (2009) that a new species from Burma was described and given the unusual name Danionella dracula.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danionella-dracula",
       "html": "<p>Known only from the Mogaung Chaung (Mogaung stream), Myitkyina District, Kachin State, northern Myanmar. This is a tributary of the Ayeyarwady River and the species is probably found only over a relatively small area.</p><p>The full type locality is 'Stream at Sha Du Zup between Mogaung and Tanai, Myitkina district, Kachin State, Myanmar'.</p><p>D. mirifica is also native to Myitkyina, and Myanmar represents a centre of diversity for the genus with at least four endemic species.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danionella_dracula_en/",
+      "html": "<p>Origin: Burma.</p>"
     },
     {
       "key": "habitat",
@@ -130,10 +157,22 @@
       "html": "<p>Should be maintained in a planted set-up with gentle water movement, ideally with a layer of vegetation covering at least part of the surface.</p><p>Some clumps of Taxiphyllum or similar would be a useful addition as they will provide a source of micro-organisms upon which both fry and adults can feed. An air-powered sponge-type filter unit is best and should be matured before the fish are added.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danionella_dracula_en/",
+      "html": "<p>Danionella are not difficult to keep at all. However, due to their small size they need tiny live food and should be kept in one-species-tanks. But they are neither getting sicknesses easily nor are they delicate.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danionella-dracula",
       "html": "<ul><li>Temperature: 20–26°C. In Kachin the air temperature varies between 26.6°C in summer and 15.5°C in winter. Under aquarium conditions the fish seem most comfortable between 20 and 26°C.</li><li>pH: 6.5–7.5</li><li>Hardness: The water in northern Myanmar is typically soft so aim for somewhere within the range 1–5 dGH.</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danionella_dracula_en/",
+      "html": "<p>They are kept best at room temperature (18-22°C). Water chemistry is of little importance, best is medium hard water and a neutral pH.</p>"
     },
     {
       "key": "diet",
@@ -154,10 +193,22 @@
       "html": "<p>Females are noticeably deeper-bodied than males and when gravid eggs are often visible within the body cavity.</p><p>The mouth parts of older male specimens are characteristically enlarged and contain a series of 6-13 tooth-like processes culminating in a greatly-enlarged fang-like pair at the front of the upper jaw (see 'Notes') whereas in females they are relatively undeveloped. The genital papillae of males is also between the pelvic fins and thus anterior to that of females.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danionella_dracula_en/",
+      "html": "<p>Although no cyprinid has real teeth on the jaws, it was found that in males of the new Danionella, small teeth-like extensions on the jaws became visible under the microscope. The two foremost pairs of \"teeth\" are even fang-like, which reminded the describers of the fangs of the legendary vampire Count Dracula. Sadly these \"teeth\" are not visible in live specimens.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danionella-dracula",
       "html": "<p>This species may not have been bred in aquaria although Pete Liptrot and Paul Dixon of the Bolton Museum Aquarium, UK, have achieved great success with an unidentified congener, probably D. translucida. They first noticed fry from their group of 24 adults after moving the school to a dedicated set-up planted with mature Java moss and have since rewarded with regular batches of fry.</p><p>The eggs were deposited in individual, cone-shaped masses directly onto the substrate and fry raised using a combination of Paramecium and green water until large enough to accept Artemia nauplii and microworm. A number of spinal deformities were observed in the second generation of fry.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danionella_dracula_en/",
+      "html": "<p>They spawn in javamoss or on filter foam.</p>"
     },
     {
       "key": "notes",
@@ -207,7 +258,32 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "HMGstgMDwlo",
+      "title": "Рыба-дракула / Danionella dracula",
+      "durationSec": 210,
+      "lang": "ru"
+    },
+    {
+      "youtubeId": "KqF5f-derRM",
+      "title": "Danionella dracula",
+      "durationSec": 15,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "pSvVwvP8y3s",
+      "title": "Vampire Danio (Danionella Dracula)",
+      "durationSec": 52,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "fVB5Bowr_s0",
+      "title": "Danionella Dracula school doing great after a week #aquarium #exoticaquariumfish",
+      "durationSec": 60,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -237,5 +313,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-14"
 }

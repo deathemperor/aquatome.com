@@ -17,9 +17,11 @@
     "diet:scotcat": "<p>Cá ăn gần như mọi loại thức ăn trong bể: rau củ, thức ăn viên nén, thức ăn viên và thức ăn dạng mảnh loại tốt.</p>",
     "notes:scotcat": "<p>Màu sắc của loài này rất đa dạng. Khi lớn dần đến tuổi trưởng thành, cá có thể đổi màu, rõ nhất là các vây ngả sang vàng.</p><p>Nguồn gốc tên gọi: tên loài luteus trong tiếng Latin nghĩa là màu vàng, ám chỉ màu vàng cam của cá lúc còn sống.</p>",
     "references:scotcat": "<p>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Hypostomus luteus. The IUCN Red List of Threatened Species 2022.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>",
-    "quickFacts:glaser": "<p>Nhiều người coi Hypostomus luteus là loài cá lau kiếng đẹp nhất. Phải lớn hẳn thì cá mới lên màu vàng đỏ, còn lúc nhỏ chúng có màu đen, điểm các đốm sáng.</p>",
-    "distribution:glaser": "<p>Nguồn gốc: Paraguay.</p>",
-    "dimorphism:glaser": "<p>Cá non màu đen, có các đốm sáng. Khi đã lớn hẳn, cá chuyển sang màu vàng đỏ.</p>"
+    "quickFacts:glaser": "<p>Nguồn gốc: Brazil, Argentina. Tên Latin: Hypostomus luteus.</p>",
+    "distribution:glaser": "<p>Loài này sống ở miền nam Brazil và miền bắc Argentina.</p>",
+    "notes:glaser": "<p>Đây có lẽ là loài đẹp nhất trong giống Hypostomus. Nhiều loài cá lau kiếng khác càng lớn càng xỉn màu, còn loài này thì ngược lại. Màu vàng trên thân nó cứ lan rộng dần theo tuổi, nên cá càng già càng đẹp.</p>",
+    "aquariumSize:glaser": "<p>Cá có thể dài hơn 30 cm, nên phải chuẩn bị bể đủ rộng cho nó.</p>",
+    "waterConditions:glaser": "<p>Loài này sống ở vùng phía nam, nên chắc là chịu được nước lạnh. Có thể nuôi nó trong bể để trong nhà mà không cần sưởi.</p>"
   },
   "quality": {
     "score": 0.8,
@@ -27,7 +29,7 @@
     "bySource": {
       "planetcatfish": 0.8,
       "scotcat": 0.9,
-      "glaser": 0.9
+      "glaser": 0.8
     }
   }
 }

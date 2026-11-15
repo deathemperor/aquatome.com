@@ -1,0 +1,87 @@
+{
+  "id": "rineloricaria-castroi",
+  "scientificName": "Rineloricaria castroi",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Rineloricaria",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-trombetas",
+    "peru"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 18
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hemiloricaria_castroi_en/",
+      "html": "<p>Hemiloricaria castroi can reach a length of about 18 cm and is one of the bigger members of the genus. Origin: Peru. Available size: 10–12 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hemiloricaria_castroi_en/",
+      "html": "<p>It was described scientifically from the Rio Trombetas in Brazil, but it also obviously appears in Peru.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hemiloricaria_castroi_en/",
+      "html": "<p>It now seems that the phenomenon of golden wild-collected loricariids that return to a normal colour phase under aquarium conditions is relatively widespread within the family. It is already known for Parancistrus aurantiacus, but also, for example, for Otocinclus vestitus. However, the reason for this drastic change of colour is still unknown.</p><p>Lexicon: Hemiloricaria: hemi is ancient Greek and means \"half\", loricaria is another genus of whiptail catfish. castroi: dedication name.</p><p>Suggestion of a common name: Finband whiptail cat.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/817931b012cad6fb.webp",
+      "thumb": "https://media.aquatome.com/glaser/817931b012cad6fb-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hemiloricaria_castroi_en/",
+      "caption": "Hemiloricaria castroi",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "HwS4vsYpfgo",
+      "title": "Rineloricaria castroi colombia",
+      "durationSec": 35,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "máy bơm sục khí"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "cát sông cho cá lau kiếng"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-14"
+}

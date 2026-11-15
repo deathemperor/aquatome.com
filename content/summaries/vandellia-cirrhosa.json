@@ -1,12 +1,14 @@
 {
   "id": "vandellia-cirrhosa",
-  "summary": "Cá candiru (Vandellia cirrhosa) là loài ký sinh hút máu, dài 17 cm, sống ở pH 6–7, chỉ hợp với người chấp nhận nuôi riêng một mình. Hồ sơ không ghi bể tối thiểu hay nhiệt độ, nên chưa đủ để nói cần bể cỡ nào. Khó nhất là cho ăn: đã có người thử mang cá thái nhỏ, nhỏ máu và thức ăn thông thường, nhưng có vẻ cá chỉ ăn được bằng cách hút máu từ cá còn sống.",
+  "summary": "Cá candiru (Vandellia cirrhosa) là loài ký sinh hút máu, phải nuôi riêng một bể, không hợp để chung với cá khác. Thẻ ghi pH 6–7, cá lớn tới 17 cm; hồ sơ nói cá không ưa ánh sáng mạnh nên thả thêm cây nổi. Khó nhất là thức ăn: mang cá thái nhỏ, nhỏ máu bằng ống nhỏ giọt và thức ăn thông thường đều đã có người thử, nhưng cá có vẻ chỉ ăn được bằng cách hút từ cá còn sống.",
   "mistakes": [
-    "Thả chung với cá khác, kể cả cá nhỏ hơn: cá có thể chết chỉ sau một lần bị ký sinh, nên nuôi riêng.",
-    "Cho ăn thức ăn thông thường, mang cá thái nhỏ hay nhỏ máu: đã có người thử, nhưng có vẻ cá chỉ ăn được bằng cách hút từ cá còn sống, đừng trông vào cách này.",
-    "Để bể sáng gắt: cá có vẻ không ưa ánh sáng mạnh, nên thả thêm cây nổi để che bớt."
+    "Nuôi chung với cá khác, kể cả cá nhỏ hơn: cá có thể chết ngay sau một lần bị ký sinh, nên nuôi riêng một bể.",
+    "Dùng ánh sáng mạnh cho bể: cá có vẻ không ưa, nên thả thêm cây nổi để che bớt."
   ],
-  "speciesUpdatedAt": "2026-10-30",
-  "generatedAt": "2026-10-31T16:37:36.612Z",
-  "review": "approved"
+  "speciesUpdatedAt": "2026-11-14",
+  "generatedAt": "2026-11-14T23:39:52.288Z",
+  "review": "pending",
+  "problems": [
+    "Summary: \"hồ sơ nói cá không ưa ánh sáng mạnh\" drops the page's hedge. The page says \"Cá có vẻ không ưa ánh sáng mạnh\" (the fish seems not to like strong light), so a tentative observation becomes a certainty."
+  ]
 }

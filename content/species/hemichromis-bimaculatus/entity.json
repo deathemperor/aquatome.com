@@ -8,7 +8,10 @@
   "places": [
     "africa",
     "liberia",
-    "guinea"
+    "guinea",
+    "cameroon",
+    "benue",
+    "nigeria"
   ],
   "range": {
     "native": {
@@ -840,6 +843,10 @@
       {
         "source": "seriouslyfish",
         "value": 15
+      },
+      {
+        "source": "glaser",
+        "value": 7
       }
     ],
     "tankCm": [
@@ -863,10 +870,22 @@
       "html": "<p>Rubricatochromis bimaculatus, the jewel cichlid, is a cichlid from Africa's western coast, between southern Guinea and central Liberia. Regularly seen in the trade and often sold as a community fish, it is not recommended for the beginner or the general community tank, and it becomes very aggressive when spawning. It can be told from Hemichromis lifalili by a third black spot, on the caudal peduncle. It is still often sold as Hemichromis bimaculatus.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/hemichromis_cf_cristatus_benue__en/",
+      "html": "<p>This beautiful cichlid comes from the Benue river. The females grow to at least 5 cm, while the males reach a maximum size of 7 cm.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rubricatochromis-bimaculatus",
       "html": "<p>Widespread down Africa's western coast from South Guinea to Central Liberia.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/hemichromis_cf_cristatus_benue__en/",
+      "html": "<p>Origin: Cameroon, Nigeria (Benue river).</p>"
     },
     {
       "key": "habitat",
@@ -905,6 +924,12 @@
       "html": "<p>A territorial species that becomes incredibly aggressive when spawning. It can be kept with larger Alestiid tetras such as Congo tetras, Synodontis catfish, Loricariids, and in a large enough tank, other African cichlids such as Steatocranus. It is best kept in pairs, although simply purchasing a pair will usually result in the weaker fish being killed. A group of young fish should be purchased and a pair allowed to form from those.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/hemichromis_cf_cristatus_benue__en/",
+      "html": "<p>Among themselves they are peaceful and they can also be kept with other fish. There is a slightly rough behaviour, which is typical for all red cichlids, but much less than in all other Hemichromis!</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rubricatochromis-bimaculatus",
@@ -926,31 +951,56 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/3084eae53bbfefa5.webp",
+      "thumb": "https://media.aquatome.com/commons/3084eae53bbfefa5-480.webp",
       "width": 960,
       "height": 569,
-      "licence": "CC BY-SA 3.0",
-      "author": "Wikimedia Commons",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hemichromis_bimaculatus1.jpg",
-      "caption": "Hemichromis bimaculatus1.jpg",
-      "thumb": "https://media.aquatome.com/commons/3084eae53bbfefa5-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/3084eae53bbfefa5-large.webp",
         "width": 1124,
         "height": 666
-      }
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hemichromis_bimaculatus1.jpg",
+      "caption": "Hemichromis bimaculatus1.jpg"
     },
     {
       "url": "https://media.aquatome.com/commons/a48f06cc2dbd0f2f.webp",
+      "thumb": "https://media.aquatome.com/commons/a48f06cc2dbd0f2f-480.webp",
       "width": 960,
       "height": 731,
       "licence": "CC BY-SA 4.0",
       "author": "NasserHalaweh",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichlidae_Hemichromis_bimaculatus_1.jpg",
-      "caption": "Hemichromis bimaculatus AFRICAN JEWELFISH. Wilhelma Zoological-Botanical Garden.",
-      "thumb": "https://media.aquatome.com/commons/a48f06cc2dbd0f2f-480.webp"
+      "caption": "Hemichromis bimaculatus AFRICAN JEWELFISH. Wilhelma Zoological-Botanical Garden."
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "3a8Z15VUqrM",
+      "title": "Red Jewel Cichlid Fry -  Hemichromis Bimaculatus",
+      "durationSec": 199,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "h0KFiykxAz4",
+      "title": "Red Jewel Cichlid (Hemichromis bimaculatus) with new fry, Blue Fish Aquarium",
+      "durationSec": 14,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "RNnKfBwiTG4",
+      "title": "4 months old Hemichromis bimaculatus",
+      "durationSec": 44,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "H0B5UGE6v9w",
+      "title": "Hemichromis Bimaculatus (Red Jewel Cichlid)",
+      "durationSec": 16,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -978,5 +1028,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-14"
 }

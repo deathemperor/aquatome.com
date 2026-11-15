@@ -10,7 +10,8 @@
     "brazil",
     "rio-negro",
     "venezuela",
-    "orinoco"
+    "orinoco",
+    "colombia"
   ],
   "range": {
     "native": {
@@ -570,6 +571,13 @@
           "min": 26,
           "max": 30
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 26,
+          "max": 30
+        }
       }
     ],
     "gh": [
@@ -585,6 +593,10 @@
       {
         "source": "seriouslyfish",
         "value": 10
+      },
+      {
+        "source": "glaser",
+        "value": 20
       }
     ],
     "tankCm": [
@@ -608,16 +620,34 @@
       "html": "<p>Mesonauta insignis is a cichlid from the Orinoco and Negro drainages in Brazil and Venezuela. It looks very similar to M. festivus, and there is some debate that it is the fish sold in aquatic stores as the flag cichlid. Both species are probably sold under that name, depending on where the fish were caught and exported from. A peaceful cichlid, it becomes more aggressive when breeding.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/mesonauta_insignis_en/",
+      "html": "<p>This cichlid grows to approx. 20 cm.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/mesonauta-insignis",
       "html": "<p>South America: Brazil and Venezuela: Orinoco and Negro drainages.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/mesonauta_insignis_en/",
+      "html": "<p>Venezuela, Colombia. It lives in the catchment area of the Orinoco.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/mesonauta-insignis",
       "html": "<p>Well planted rivers.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/mesonauta_insignis_en/",
+      "html": "<p>It mostly lives in slowly flowing or even standing waters. You often find it right in front of the shore, where it inhabits the upper water layer.</p>"
     },
     {
       "key": "aquariumSize",
@@ -638,16 +668,34 @@
       "html": "<ul><li>Temperature: 26–30 °C (79–86 °F)</li><li>pH: found in a broad range of conditions in the wild. In captivity a pH of around 6.5 is ideal.</li><li>Hardness: up to 20 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/mesonauta_insignis_en/",
+      "html": "<p>Like all other flagcichlids, M. insignis should not be kept under 26°C, as they would fade. If you increase the temperature to 30°C, however, they will show themselves in their most beautiful colouring. Slightly sour and soft waters also increase their colour.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/mesonauta-insignis",
       "html": "<p>Omnivorous in nature. Will eat most dried foods, such as cichlid pellets. Supplement this with bloodworm, brineshrimp and other live or frozen foods. Vegetable matter such as algae wafers, spirulina or blanched greens can also be offered.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/mesonauta_insignis_en/",
+      "html": "<p>Regarding nutrition M. insignis is totally uncomplicated, as these are classic omnivores.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/mesonauta-insignis",
       "html": "<p>Peaceful cichlid, although becomes more aggressive when breeding. Can be kept with other peaceful cichlids such as geophagus and apistogramma and other peaceful community species such as tetras, barbs and small catfish.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/mesonauta_insignis_en/",
+      "html": "<p>They are not suitable for planted aquariums, as they often start to pull at the plants as they get older. Smaller fish are also not safe from this species and can extend their menu.</p>"
     },
     {
       "key": "dimorphism",
@@ -662,6 +710,12 @@
       "html": "<p>Breeding takes place on a flat stone or similar area. Once the breeding area is prepared, eggs will be deposited by the female and then fertilised by the male. In excess of 200 eggs may be laid. Both fish guard the eggs and when the fry hatch two to three days later, they are transferred to a pit where the parents keep them until they become free-swimming. This is usually 3–4 days after hatching. Both fish assume parental duties but can be easily spooked, often leading to them eating the fry. It is advisable that the breeding tank be placed in a quiet location and disturbed as little as possible. Fry can be fed on newly-hatched brineshrimp and powdered fry foods until large enough to take bigger foods.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/mesonauta_insignis_en/",
+      "html": "<p>M. insignis is an open breeder, laying its eggs on plant leaves or roots. The way flagcichlids lead their young is interesting to watch time and again, since the shoal of young fish mostly stays above the body of the parents and not, as is typical for cichlids, below them.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/mesonauta-insignis",
@@ -671,31 +725,56 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/6596cc24c43d5d3f.webp",
+      "thumb": "https://media.aquatome.com/commons/6596cc24c43d5d3f-480.webp",
       "width": 960,
       "height": 632,
-      "licence": "CC BY 2.0",
-      "author": "Clinton & Charles Robertson",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mesonauta_insignis_2.jpg",
-      "caption": "Mesonauta insignis",
-      "thumb": "https://media.aquatome.com/commons/6596cc24c43d5d3f-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/6596cc24c43d5d3f-large.webp",
         "width": 1600,
         "height": 1054
-      }
+      },
+      "licence": "CC BY 2.0",
+      "author": "Clinton & Charles Robertson",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mesonauta_insignis_2.jpg",
+      "caption": "Mesonauta insignis"
     },
     {
       "url": "https://media.aquatome.com/commons/6680b783a4ae7a05.webp",
+      "thumb": "https://media.aquatome.com/commons/6680b783a4ae7a05-480.webp",
       "width": 960,
       "height": 659,
       "licence": "CC BY 2.0",
       "author": "Clinton & Charles Robertson from RAF Lakenheath, UK & San Marcos, TX, USA & UK",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichlidae_Mesonauta_insignis_(5806478593).jpg",
-      "caption": "Cichlidae Mesonauta insignis",
-      "thumb": "https://media.aquatome.com/commons/6680b783a4ae7a05-480.webp"
+      "caption": "Cichlidae Mesonauta insignis"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "gNiq6BLT9XM",
+      "title": "Mesonauta Insignis Pair",
+      "durationSec": 70,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "UwgTMUTZAx0",
+      "title": "Mesonauta insignis 🇩🇪 bred",
+      "durationSec": 51,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "h9IsWZO-PQA",
+      "title": "My Flag Cichlid (Mesonauta Insignis) pair",
+      "durationSec": 46,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "-O17kvREY0o",
+      "title": "BIOTOP - Mesonauta insignis, Venezuela",
+      "durationSec": 62,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -724,5 +803,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-14"
 }

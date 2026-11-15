@@ -3,21 +3,31 @@
   "name": "Cá da trơn râu thìa",
   "altNames": [
     "Cá trê râu thìa",
-    "Spatula-barbeled Catfish"
+    "Spatula-barbeled catfish"
   ],
   "sections": {
     "quickFacts:glaser": "<p>Cá da trơn râu thìa là loài đặc hữu của hồ Tanganyika. Nó sinh sản theo kiểu rất lạ với một loài cá da trơn: cả cá bố lẫn cá mẹ cùng ngậm trứng trong miệng. Đây là loài cá da trơn nhỏ và là loài duy nhất trong giống của nó. Muốn nhận ra nó thì nhìn đôi râu dài ở hai bên hàm trên, đầu râu bẹt ra như cái thìa. Cá dài tổng cộng khoảng 9 cm.</p>",
     "distribution:glaser": "<p>Hồ Tanganyika.</p>",
     "maintenance:glaser": "<p>Loài này nuôi trong bể không khó lắm. Chúng sống về đêm, ban ngày vẫn ra kiếm ăn nhưng lúc đèn sáng thì chủ yếu nằm nghỉ ở chỗ tối hoặc trong hang. Vì vậy trong bể phải có sẵn hang và chỗ tối cho chúng.</p>",
     "behaviour:glaser": "<p>Cá khá hiền, nhưng con cá nào nhỏ vừa miệng thì chúng coi là mồi và có thể ăn mất.</p>",
-    "reproduction:glaser": "<p>Loài này ấp trứng bằng miệng, cả cá bố lẫn cá mẹ cùng ngậm.</p>"
+    "reproduction:glaser": "<p>Loài này ấp trứng bằng miệng, cả cá bố lẫn cá mẹ cùng ngậm.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: cá da trơn râu thìa</li><li>Tên đồng nghĩa: không có</li><li>Danh sách đỏ IUCN: loài này sống rộng khắp vùng ven bờ hồ Tanganyika và không gặp mối đe dọa nào trên diện rộng. IUCN xếp nó vào mức Ít quan tâm (IUCN 2020).</li></ul>",
+    "distribution:scotcat": "<p>Châu Phi: hồ Tanganyika.</p>",
+    "habitat:scotcat": "<p>Loài này sống ở vùng nước gần bờ, sâu tới 20 m, và chỉ có ở dải ven bờ nhiều đá. Nó nằm trên đáy, tựa vào đôi râu hàm trên đã biến đổi. Cá hoạt động về đêm. Ban ngày chúng nằm nghỉ dưới đá và trong các khe hở của nền đá hoặc đá vụn.</p>",
+    "aquariumSize:scotcat": "<p>Bể: 60 lít.</p>",
+    "waterConditions:scotcat": "<p>Nước nên có pH 7,6 và độ cứng 12. Nhiệt độ chịu được là 25°C.</p>",
+    "equipment:scotcat": "<p>Đèn bể nên để càng tối càng tốt, miễn là vẫn nhìn thấy cá. Loài này thích bể bày đá, cây và lũa.</p>",
+    "diet:scotcat": "<p>Trong dạ dày cá người ta tìm thấy tôm, đôi khi có mảnh ấu trùng côn trùng, và cả xác cá. Số xác cá này có vẻ là cá họ Clupeidae, có thể là Limnothrissa. Ngoài tự nhiên chúng ăn ấu trùng côn trùng và giáp xác. Trong bể thì chúng ăn hầu hết các loại thức ăn, chẳng hạn trùng huyết đông lạnh, viên chìm cho cá da trơn, giun trắng (cho ít thôi), tôm và tép.</p>",
+    "behaviour:scotcat": "<p>Đây là loài cá hiền, sống ở tầng đáy. Nên nuôi theo đàn, vì chúng thích có đồng loại bên cạnh và sẽ thấy yên tâm hơn. Loài cá da trơn này khá nhút nhát, có thể bị bắt nạt nếu nuôi chung với cá lớn và dữ. Giống mọi loài cá kiểu Bagridae, ban đêm nó hay để ý tới cá nhỏ và có thể ăn cá bột. Dù sao thì đây vẫn là lựa chọn tốt cho bể Rift Valley nuôi chung nhiều loài.</p>",
+    "reproduction:scotcat": "<p>Loài đẻ trứng. Đây là lần đầu tiên có báo cáo về một loài cá da trơn mà cả cá bố lẫn cá mẹ cùng ngậm trứng trong miệng.</p>",
+    "notes:scotcat": "<p>Từ nguyên: tên loài typus nghĩa là loài này là loài điển hình của giống.</p>"
   },
   "quality": {
     "score": 0.8,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.8
-    },
-    "reason": "thin"
+      "glaser": 0.8,
+      "scotcat": 0.85
+    }
   }
 }

@@ -1,0 +1,117 @@
+{
+  "id": "serrasalmus-eigenmanni",
+  "scientificName": "Serrasalmus eigenmanni",
+  "order": "Characiformes",
+  "family": "Serrasalmidae",
+  "genus": "Serrasalmus",
+  "group": "characoids",
+  "places": [
+    "south-america",
+    "peru",
+    "brazil",
+    "guyana",
+    "venezuela"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 20
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus_eigenmanni_peru_en/",
+      "html": "<ul><li>Common name: Eigenmann's piranha</li><li>Maximum length reported: around 20 cm</li><li>Origin of this import: Peru</li><li>Lexicon: Serrasalmus: from Latin, means \"salmon with a saw\". Refers to the saw-like arranged scales along the keel of the breast. eigenmanni: dedication name.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus_eigenmanni_peru_en/",
+      "html": "<p>This medium sized and very interesting piranha was imported from Peru. This is worth mentioning, as so far S. eigenmanni has been \"only\" reported from Brazil, the Guyanas, and Venezuela.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus_eigenmanni_peru_en/",
+      "html": "<p>Serrasalmus eigenmanni belongs to a group of piranhas that live solitary and feed in nature mainly on the fins of other fish. In captivity it is no problem to feed the fish with any other meat.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus_eigenmanni_peru_en/",
+      "html": "<p>It is of course not possible to keep S. eigenmanni in community with other fish.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus_eigenmanni_peru_en/",
+      "html": "<p>The determination is based on the work by Jégu &amp; Santos (1988). Following these authors, the species-specific characters of S. eigenmanni are as follows: a dark spot behind the opercle; a dark base of the caudal fin; a very deep body; a short snout. However, due to the well known difficulties regarding piranha systematics it might be necessary one day to realize that this fish might belong to another species.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/935991d1e233650c.webp",
+      "thumb": "https://media.aquatome.com/glaser/935991d1e233650c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus_eigenmanni_peru_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "5oCP6hPNSQw",
+      "title": "Serrasalmus - Pristobrycon Eigenmanni feeding on earthworms",
+      "durationSec": 72,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "i3WRDA5BwPg",
+      "title": "Pristobrycon Serrasalmus Eigenmanni feeding",
+      "durationSec": 112,
+      "lang": "zxx"
+    },
+    {
+      "youtubeId": "5t0_HebZOV4",
+      "title": "🐟 Piranha - serrasalmus eigenmanni 🐟",
+      "durationSec": 40,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "hoDXzOJD-gs",
+      "title": "Serrasalmus - Pristobrycon Eigenmanni (Brazilian wild piranha)",
+      "durationSec": 72,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm",
+        "bể cá lớn nuôi cá hổ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy lọc cho bể cá hổ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá săn mồi",
+        "thức ăn cá hổ piranha"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-14"
+}
