@@ -38,7 +38,7 @@
   --page: 1200px;
   /* A guide's cover when it has no picture (GuideCard): its kind's cloth, the rings, the seal's edge and the kind's mark. */
   --ring: rgb(243 238 227 / 0.11); --seal: rgb(243 238 227 / 0.38); --mark: #f3eee3;
-  --cloth-setup: #3c5566; --cloth-care: #1d5b60; --cloth-breeding: #6f532b; --cloth-disease: #7f3a2b;
+  --cloth-setup: #3c5566; --cloth-care: #1d5b60; --cloth-breeding: #6f532b; --cloth-disease: #734338;
   --cloth-aquascaping: #505a2c; --cloth-plantCare: #2f6b4f; --cloth-discovery: #44456c;
 }
 
