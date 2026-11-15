@@ -1298,7 +1298,8 @@ if (cmd === 'photo-privacy') {
   if (values.write) await recordRefusals(ROOT, lang, r.checks)
   const checked = Object.keys(r.checks).length, refused = Object.values(r.checks).filter(c => !c.ok).length
   console.log(`video-titles-check ${lang}: ${checked} checked, ${refused} refused, ${r.failed.length} failed${r.stopped ? `, stopped (${r.stopped})` : ''}`)
-  // More than one title in ten refused: the language isn't turned on until the chief of staff has heard (16 Nov).
+  // More than one title in ten refused: the language isn't turned on until the chief of staff has heard (16 Nov). The check
+  // itself stops at the first mark of 200 titles over it (video-title-check.ts MARK); what it checked is recorded with --write.
   if (checked && refused * 10 > checked) console.log(`  over one in ten refused (${refused} of ${checked}): stop, and tell the chief of staff before ${lang} is turned on`)
 } else if (cmd === 'wikidata-names') {
   // The names Wikidata gives each species in another language, added to its page's other names where no other page uses them.

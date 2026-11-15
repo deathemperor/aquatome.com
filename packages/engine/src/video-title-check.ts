@@ -9,6 +9,8 @@ const PROMPT = readFileSync(new URL('./prompts/video-title-check.md', import.met
 const KINDS = ['wrong fish', 'wrong figure', 'dropped', 'added', 'strength'] as const
 const SCHEMA = { type: 'object', required: ['checks'], properties: { checks: { type: 'array', items: { type: 'object', required: ['n', 'ok'], properties: { n: { type: 'number' }, ok: { type: 'boolean' }, kind: { type: 'string', enum: [...KINDS] }, why: { type: 'string' } } } } } }
 const BATCH = 40
+/** Every this many titles checked, a language's refusals so far are counted; over one in ten stops it there (the chief of staff, 16 Nov). */
+export const MARK = 200
 
 export type TitleCheck = { ok: boolean; kind?: (typeof KINDS)[number]; why?: string }
 
@@ -37,6 +39,7 @@ export async function checkVideoTitles(root: string, llm: Llm, lang: Lang, title
   const list = [...rows.values()]
   const report = { checks: {} as Record<string, TitleCheck>, failed: [] as string[], stopped: '' }
   const target = lang === 'vi' ? { lang: 'Vietnamese', country: 'Vietnam' } : TARGETS[lang as TargetLang]
+  let marked = 0
   for (let i = 0; i < list.length && !report.stopped; i += BATCH) {
     const batch = list.slice(i, i + BATCH)
     const prompt = `${PROMPT.replaceAll('{{LANG}}', target.lang).replaceAll('{{COUNTRY}}', target.country)}\n\n${batch.map((r, j) => `${j + 1}. [${r.about}] ${r.title}\n   ${target.lang}: ${r.written}`).join('\n')}`
@@ -45,6 +48,14 @@ export async function checkVideoTitles(root: string, llm: Llm, lang: Lang, title
       for (const c of r.checks ?? []) {
         const row = batch[c.n - 1]
         if (row) report.checks[row.youtubeId] = c.ok ? { ok: true } : { ok: false, kind: c.kind, why: c.why }
+      }
+      // At the first MARK titles checked and every MARK after, counted on all checked so far: over one in ten refused stops
+      // the language, what was checked kept as checked, and the chief of staff is told before it is turned on.
+      const done = Object.values(report.checks), mark = Math.floor(done.length / MARK) * MARK
+      if (mark > marked) {
+        marked = mark
+        const refused = done.filter(c => !c.ok).length
+        if (refused * 10 > done.length) report.stopped = `over one in ten refused at ${mark} titles: ${refused} of ${done.length}`
       }
     } catch (err) {
       if (err instanceof LlmError) report.stopped = err.message
