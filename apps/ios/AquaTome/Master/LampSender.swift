@@ -31,15 +31,19 @@ enum LampRadio {
 /// The last command this phone sent the lamp (its card's off, on or a colour, or the master button's), kept across
 /// launches: the lamp reports nothing, so this is all the phone knows of it, and what the master button puts it back to.
 enum LampMemory {
-  private static let key = "lamp.last"
+  private static let key = "lamp.last", atKey = "lamp.lastAt"
 
   static var last: DeviceCommand? {
     UserDefaults.standard.data(forKey: key).flatMap { try? JSONDecoder().decode(DeviceCommand.self, from: $0) }
   }
 
+  /// When it was sent.
+  static var lastAt: Date? { UserDefaults.standard.object(forKey: atKey) as? Date }
+
   static func remember(_ c: DeviceCommand) {
     let kept = DeviceCommand(device: c.device, on: c.on, colour: c.on ? c.colour : nil)
     UserDefaults.standard.set(try? JSONEncoder().encode(kept), forKey: key)
+    UserDefaults.standard.set(Date(), forKey: atKey)
   }
 
   /// The card sent one of its recordings: off, on or a colour. Its trials say nothing of what the lamp shows.

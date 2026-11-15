@@ -66,22 +66,23 @@ final class Switcher {
   static func unreached(_ name: String) -> String { String(localized: "Không tới được ổ \(name): kiểm tra mạng rồi thử lại") }
 
   /// What the chat may switch, as it is now: each outlet on, off or not known, and whether its plug was reached (the
-  /// list read once); the lamp, only what this phone last sent it, never whether it is on.
+  /// list read once); the lamp, only what this phone last sent it and when, never whether it is on.
   struct State: Equatable {
     let target: DeviceTarget
     let on: Bool?
     let reached: Bool
     let lastSent: DeviceCommand?
+    let lastSentAt: Date?
   }
 
   /// `lamp`: where the app offers the lamp (the owner's account).
   func states(lamp: Bool) async -> [State] {
     await plugs.refresh()
     return DeviceCommand.offerable(tanks.store, lamp: lamp).map { t in
-      if t.outlet == nil { return State(target: t, on: nil, reached: false, lastSent: LampMemory.last) }
+      if t.outlet == nil { return State(target: t, on: nil, reached: false, lastSent: LampMemory.last, lastSentAt: LampMemory.lastAt) }
       let key = outlet(DeviceCommand(device: t.device, outlet: t.outlet, on: true))?.key
       let reached = key.map { plugs.board.online(provider: $0.provider, device: $0.device) == true } ?? false
-      return State(target: t, on: key.flatMap(plugs.board.on), reached: reached, lastSent: nil)
+      return State(target: t, on: key.flatMap(plugs.board.on), reached: reached, lastSent: nil, lastSentAt: nil)
     }
   }
 }
