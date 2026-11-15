@@ -1,8 +1,8 @@
 import { existsSync, readdirSync } from 'node:fs'
 import { expect, test } from 'vitest'
-import type { GlossaryEntity, Localized } from '@aq/schema'
+import type { GlossaryEntity, Localized, Photo } from '@aq/schema'
 import { getContent } from '../src/lib/content'
-import { bodySections, glossaryParts, linkedTermPaths, nameCount, termTitle, tipLine, usedRows } from '../src/lib/glossary-page'
+import { bodySections, glossaryParts, linkedTermPaths, nameCount, termTitle, tipLine, usedPictures, usedRows } from '../src/lib/glossary-page'
 import { DIST, page } from './dist'
 
 // A term's page (pages/thuat-ngu/[slug].astro): its other names, its definition's links, and every page that uses it.
@@ -139,4 +139,18 @@ test('every term page: the jump row only for a term in parts, related terms in o
   }
   // The fixture holds a term in parts (lũa) and one with more than five sources: both rules were read.
   expect([rows > 0, folded > 0]).toEqual([true, true])
+})
+
+// The live checks, 15 Nov 2026: /thuat-ngu/tinh-lanh-tho/ showed one photo twice, on two crayfish guides that share it.
+test('a term\'s rows show no picture twice: a row whose picture the page shows already takes its next one, else none', () => {
+  const photo = (name: string) => ({ url: `https://media.aquatome.com/commons/${name}.webp`, width: 960, height: 720 }) as Photo
+  const own = photo('own'), a = photo('a'), b = photo('b'), copy = photo('a-copy'), plant = photo('plant')
+  // The same picture in two files counts as one (PictureSet).
+  const c = { pictureHashes: { [a.url]: '0f1e2d3c4b5a6978', [copy.url]: '0f1e2d3c4b5a6978' } }
+  const guides = { g1: [a], g2: [copy, b], g3: [a] }, ids: (keyof typeof guides)[] = ['g1', 'g2', 'g3']
+  const fish = [{ href: '/vi/ca/x/', name: 'x', photo: own }, { href: '/vi/ca/y/', name: 'y', photo: b }]
+  const r = usedPictures(c, [own], { guides: ids, fish, plants: [{ href: '/vi/cay/z/', name: 'z', photo: plant }] }, g => guides[g])
+  expect(r.guides).toEqual([a, b, null])
+  expect(r.fish).toEqual([null, null]) // the term's own photo is above them; b went to the second guide
+  expect(r.plants).toEqual([plant])
 })
