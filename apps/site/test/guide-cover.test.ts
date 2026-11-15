@@ -1,6 +1,7 @@
-import { FIRST_GUIDES, type Content } from '@aq/schema'
+import { FIRST_GUIDES, type Content, type GuideEntity, type Localized } from '@aq/schema'
 import { expect, test } from 'vitest'
 import { appIndex } from '../src/lib/app-index'
+import { guideDoc, listedPaths } from '../src/lib/app-page'
 import { getContent } from '../src/lib/content'
 import { coverStyle } from '../src/lib/cover-style'
 import { guideParts } from '../src/lib/guide-page'
@@ -64,4 +65,30 @@ test("the app's Khám phá shelf and a series' next parts keep to guides with a 
   expect(parts.next[0]!.id).toBe(two.id)
   expect(parts.appNext.map(x => x.id)).not.toContain(two.id)
   expect(parts.appNext.every(x => guideImage(c2, x))).toBe(true)
+}, 120_000)
+
+// Fable's read of #1384: what the app is sent, not only guideParts. A guide page's next reads keep to guides with a
+// picture, and where a series' next part has none, the guides read instead are "Bài tiếp theo", not "Phần tiếp theo".
+test("the app's copy of a guide page reads next only guides with a picture, under the heading they take", async () => {
+  const c = await getContent('vi')
+  const nextReads = (c: Content, g: Localized<GuideEntity>) => {
+    const b = guideDoc('vi', c, g, listedPaths('vi', c)).blocks.find(b => b.t === 'pages' && ['Phần tiếp theo', 'Bài tiếp theo'].includes(b.title))
+    return b?.t === 'pages' ? { title: b.title, paths: b.paths } : undefined
+  }
+  const has = (r: ReturnType<typeof nextReads>, slug: string) => !!r?.paths.some(p => p.includes(`/${slug}/`))
+  const lead = leadGuides(c)
+  const [first, g] = [lead[0]!, lead[1]!]
+  expect(has(nextReads(c, first), g.t.slug)).toBe(true)
+  const c2 = { ...c, guides: c.guides.map(x => (x.id === g.id ? { ...g, photos: [], t: { ...g.t, name: 'Thay nước cho bể' } } : x)) } as Content
+  expect(has(nextReads(c2, c2.guides.find(x => x.id === first.id)!), g.t.slug)).toBe(false)
+
+  const one = c.guides.find(y => y.video?.series?.id === 'PLtest')!
+  const part = (photos: typeof one.photos) => ({ ...one, id: 'youtube-part-two', photos, t: { ...one.t, slug: 'phan-hai', name: 'Phần hai' }, video: { ...one.video!, youtubeId: 'part-two', series: { id: 'PLtest', position: 1 }, figures: [] } })
+  const pictured = { ...c, guides: [...c.guides, part([guideImage(c, one)!])] } as Content
+  expect(nextReads(pictured, one)).toMatchObject({ title: 'Phần tiếp theo' })
+  expect(has(nextReads(pictured, one), 'phan-hai')).toBe(true)
+  const bare = { ...c, guides: [...c.guides, part([])] } as Content
+  expect(guideImage(bare, bare.guides.at(-1)!)).toBeUndefined()
+  expect(has(nextReads(bare, one), 'phan-hai')).toBe(false)
+  expect(nextReads(bare, one)?.title ?? 'Bài tiếp theo').toBe('Bài tiếp theo')
 }, 120_000)
