@@ -416,7 +416,7 @@ test('each seller notice\'s lasting fact is on its fish\'s page as the build sho
     const said = words(readFileSync(join(root, '../sources/glaser', file), 'utf8'))
     for (const sentence of words(part!.html).split(/(?<=[.!?])\s+/)) expect(said, `${fish}: "${sentence}"`).toContain(sentence.replace(/[.!?]$/, ''))
   }
-})
+}, slow(300_000)) // the real content loaded once, as the build does
 
 test('every guide taken off for good is one the content has, and forwards to a page it has', () => {
   const content = fileURLToPath(new URL('../../../content', import.meta.url))
