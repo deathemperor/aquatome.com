@@ -84,3 +84,35 @@ test('a stored Commons credit with an email address keeps only the name, in plac
   expect(after).not.toContain('@')
   expect(await tidyCredits(root)).toEqual({ files: 0, authors: 0 })
 })
+
+// A made-up place: a test never holds a real address (the chief of staff, 16 Nov 2026).
+const place = 'Depicted place: 1 Example Road, Sampletown, ST 00000, Nowhere (1°00′00″N 2°00′00″W / 1.0°N 2.0°W / 1.0; -2.0)'
+
+test("where a Commons photo was taken is no part of its credit: the name before Commons' place line stays", () => {
+  // As an Artist field reads when Commons adds the place after the name (three crayfish albums, 16 Nov 2026).
+  expect(authorText(`<a href="https://www.inaturalist.org/people/1">A. Photographer</a> ${place}`)).toBe('A. Photographer')
+  expect(tidyAuthor(`A. Photographer ${place}`)).toBe('A. Photographer')
+  expect(tidyAuthor(`photographer ${place.replace('Depicted', 'depicted')}`)).toBe('photographer')
+  expect(tidyAuthor(place)).toBe('Wikimedia Commons')
+  // A place in a name, or a credit with no place line: as it was.
+  expect(tidyAuthor('A. Photographer, Sampletown Aquarium')).toBe('A. Photographer, Sampletown Aquarium')
+  expect(tidyAuthor('')).toBe('')
+})
+
+test('a stored Commons credit with a place keeps only the name, in place; the next run finds nothing', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'cr-'))
+  await mkdir(join(root, 'gallery'), { recursive: true })
+  const credit = `A. Photographer ${place}`
+  const gallery = { id: 'crayfish', photos: [
+    { author: credit, sourceUrl: 'https://commons.wikimedia.org/wiki/File:C.jpg' },
+    { author: 'B. Other', sourceUrl: 'https://commons.wikimedia.org/wiki/File:D.jpg' },
+  ] }
+  const raw = `${JSON.stringify(gallery, null, 2)}\n`
+  await writeFile(join(root, 'gallery', 'crayfish.json'), raw)
+
+  expect(await tidyCredits(root)).toEqual({ files: 1, authors: 1 })
+  const after = await readFile(join(root, 'gallery', 'crayfish.json'), 'utf8')
+  expect(after).toBe(raw.replace(JSON.stringify(credit), '"A. Photographer"'))
+  expect(after).not.toContain('Depicted place')
+  expect(await tidyCredits(root)).toEqual({ files: 0, authors: 0 })
+})
