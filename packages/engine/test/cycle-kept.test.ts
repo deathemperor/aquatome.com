@@ -468,6 +468,19 @@ test("after a pass, a push lost to main whose sweep changes only the pages' date
   expect(bad.checks).toBe('2')
 }, slow(120_000))
 
+test('after a pass, a push lost to main whose sweep changes only the dates is checked again when both sides changed the calendar', () => {
+  // Readers' catch: the calendar merges line by line, and the loader doesn't open it.
+  const { c, kept, log, checks } = raced('content/curation.json', '1\\n2\\n3\\n4\\nmain', {
+    before: c => c.sh("printf '1\\n2\\n3\\n4\\n5\\n' > content/curation.json && git add . && git commit -qm cal && git push -q 2>/dev/null && printf 'run\\n2\\n3\\n4\\n5\\n' > content/curation.json"),
+    pnpm: '[ "$1 $2" = "engine sweep" ] && grep -q main content/curation.json && echo dated > content/page-dates.json',
+  })
+  expect(log).toContain('LOG the calendar changed on main and in this run: checked again')
+  expect(log).not.toContain(AGAIN)
+  expect(log).toContain(`LOG published ${kept}`)
+  expect(checks).toBe('2')
+  expect(c.onMain('content/curation.json').split('\n')).toEqual(['run', '2', '3', '4', 'main'])
+}, slow(60_000))
+
 test('after a pass, a push lost to main whose migration fails is not published, though a second migration would pass', () => {
   // Grok's read: the check swept again, which cleared the failed migration's flag, and the tests then passed. A run's own
   // push sweeps once and publishes nothing.
@@ -639,7 +652,7 @@ test('the migration the cycle calls is a command of the engine', () => {
   // Missing, every run would keep its work and publish nothing.
   expect(readFileSync(join(ROOT, 'packages/engine/src/cli.ts'), 'utf8')).toContain("cmd === 'photo-privacy'")
   // So is the content's load: missing, every sweep that changed only the dates would be checked in full, as before.
-  expect(readFileSync(join(ROOT, 'scripts/cycle-checks.sh'), 'utf8')).toContain('&& pnpm engine check-content ||')
+  expect(readFileSync(join(ROOT, 'scripts/cycle-checks.sh'), 'utf8')).toContain('  net nice -n 10 pnpm engine check-content || return 1')
   expect(readFileSync(join(ROOT, 'packages/engine/src/cli.ts'), 'utf8')).toContain("cmd === 'check-content'")
 })
 const privacy = `checks() { echo tests >> "$HOME/order"; ! grep -q legacy engine-state/*.json; }`

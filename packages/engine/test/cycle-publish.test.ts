@@ -3,6 +3,7 @@ import { chmodSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from '
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { slow } from '@aq/schema/test-time'
 import { expect, test } from 'vitest'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
@@ -42,7 +43,7 @@ test("a clean pull that brings main's commits in is swept before the push, and t
   // Kept work: after a pull that brought main's commits in, checked in full until it has passed; then swept, and checked
   // again only if the sweep changed more than the pages' dates or the migration failed, as a run's own push does, on that
   // one sweep.
-  expect(script('cycle-checks.sh')).toMatch(/if \[ "\$\(git rev-parse origin\/main 2>\/dev\/null\)" != "\$main" \] && \[ -z "\$check" \]; then\n\s*head=\$\(git rev-parse HEAD\)\n\s*sweep_merged\n\s*swept=1\n\s*if swept_clean "\$head"; then/)
+  expect(script('cycle-checks.sh')).toMatch(/if \[ "\$\(git rev-parse origin\/main 2>\/dev\/null\)" != "\$main" \] && \[ -z "\$check" \]; then\n\s*head=\$\(git rev-parse HEAD\)\n\s*sweep_merged\n\s*swept=1\n\s*if swept_clean "\$head" "\$main" "\$\(git rev-parse origin\/main\)"; then/)
   expect(script('cycle-checks.sh')).toMatch(/\n\s*fi\n\s*if \[ -n "\$check" \]; then\n\s*\[ -n "\$swept" \] \|\| sweep_merged/)
 
   const dir = mkdtempSync(join(tmpdir(), 'aq-pulled-'))
@@ -87,7 +88,17 @@ test("a clean pull that brings main's commits in is swept before the push, and t
   onMain('m6.json')
   expect(pull({ DATES: 'd3' })).toBe('push') // the dates as they were: nothing to commit
   expect([swept(), dated()]).toEqual([6, 2])
-})
+  // Readers' catch, 15 Nov 2026: the calendar merges line by line, and the loader doesn't open it. One side's change goes
+  // with the dates; both sides' is checked in full.
+  sh("printf '1\\n2\\n3\\n4\\n5\\n' > content/curation.json && git add . && git commit -qm cal && git push -q 2>/dev/null", other)
+  expect(pull({ DATES: 'd4' })).toBe('push') // main's calendar only
+  expect([swept(), dated()]).toEqual([7, 3])
+  sh("sed -i.bak 1s/1/run/ content/curation.json && rm content/curation.json.bak && git commit -qam 'run calendar'", repo)
+  sh("sed -i.bak 5s/5/main/ content/curation.json && rm content/curation.json.bak && git commit -qam 'lead calendar' && git push -q 2>/dev/null", other)
+  expect(pull({ DATES: 'd5' })).toBe('test') // both sides' calendar: no load, the tests
+  expect([swept(), dated()]).toEqual([8, 3])
+  expect(sh('cat content/curation.json', repo).trim().split('\n')).toEqual(['run', '2', '3', '4', 'main'])
+}, slow(120_000))
 
 // The photos part of 2026-11-08: its calendar clashed with an editor's re-plan, and the line-by-line merge named one guide
 // on two days running.

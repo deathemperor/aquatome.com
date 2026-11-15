@@ -600,7 +600,7 @@ push_kept() {
       head=$(git rev-parse HEAD)
       sweep_merged
       swept=1
-      if swept_clean "$head"; then
+      if swept_clean "$head" "$main" "$(git rev-parse origin/main)"; then
         log "main moved and the sweep changed nothing the checks read: pushing again, not checked again, as a run's own push does"
       else
         check=1
@@ -657,13 +657,13 @@ sweep_merged() {
 # merges item by item (merge-entity.mjs keeps an item one side changed), so a photo removed on main could come back on a
 # page this run also changed, and stay for a cycle, until the next sweep (the chief of staff, 2026-11-12). So after a pull
 # that brought main's commits in, the sweep runs on the merge, as after a clash. `swept_pull <main before the pull>` is
-# true when the sweep had nothing to do, or changed only the pages' dates on content that loads (swept_clean), so the
-# push goes ahead, and false otherwise, so the tests run again.
+# true when the sweep had nothing to do, or changed only the pages' dates on content that loads and a calendar only one
+# side changed (swept_clean), so the push goes ahead, and false otherwise, so the tests run again.
 swept_pull() {
   [ "$(git rev-parse '@{u}' 2>/dev/null)" = "$1" ] && return 0
   local head; head=$(git rev-parse HEAD)
   sweep_merged
-  swept_clean "$head"
+  swept_clean "$head" "$1" "$(git rev-parse '@{u}')"
 }
 # The sweep after a pull dates the pages main's commits changed (content/page-dates.json, the sitemap's dates), so it
 # changes that file at nearly every pull while main takes content, and each change was a full re-test: on 15 Nov the
@@ -671,16 +671,25 @@ swept_pull() {
 # sweeps that reached main from 10 to 15 Nov, 58 changed that file alone. No test reads a real page's date: the site's
 # tests build from their fixture content, and the tests that load the real content only parse that file (load.ts). But
 # the dates move because main brought pages, and that re-test was then the only check of main's new pages merged with
-# this run's (a reader's catch, 15 Nov). So a sweep that changed only the dates is checked by loading the content as
-# those tests load it, every language, the dates in their format (check-content, content-check.ts): under a minute, with
-# no turn in the checks queue. A load that fails, or anything else the sweep changed, is checked in full (the chief of
-# staff, 15 Nov). The load doesn't stand for the other rules those tests hold the real content to.
-# `swept_clean <HEAD before the sweep>` is true when the migration didn't fail and the sweep committed nothing, or only
-# dates, on content that loads.
+# this run's (a reader's catch, 15 Nov). So a sweep that changed only the dates is checked by loading the content with
+# the site's loader, everything in it, every language, the dates in their format (check-content, content-check.ts): 34 s
+# to 3 minutes on this Mac by its load, at low priority and under net's limit, with no turn in the checks queue. A load
+# that fails, or anything else the sweep changed, is checked in full (the chief of staff, 15 Nov). The load doesn't stand
+# for the other rules those tests hold the real content to, nor for files the loader doesn't open. One of those is
+# checked in full when both sides changed it: the calendar (content/curation.json), which merges line by line and which
+# this run and a lead's PR both write, so their merge is a calendar neither tested (no page twice in four weeks, every
+# fish day's photo, the hand lists' guides; the photos part of 8 Nov; readers' catch, 15 Nov).
+# `swept_clean <HEAD before the sweep> <main before the pull> <main after it>` is true when the migration didn't fail and
+# the sweep committed nothing, or only dates, on content that loads, with a calendar only one side changed.
 swept_clean() {
   [ -z "${MIGRATE_FAILED:-}" ] || return 1
   [ "$(git rev-parse HEAD)" != "$1" ] || return 0
-  [ "$(git diff --no-renames --name-only "$1" HEAD)" = content/page-dates.json ] && pnpm engine check-content || return 1
+  [ "$(git diff --no-renames --name-only "$1" HEAD)" = content/page-dates.json ] || return 1
+  if ! git diff --quiet "$2" "$3" -- content/curation.json && ! git diff --quiet "$3" "$1" -- content/curation.json; then
+    log "the calendar changed on main and in this run: checked again"
+    return 1
+  fi
+  net nice -n 10 pnpm engine check-content || return 1
   log "the sweep changed only the pages' dates, and the content loads as the site's loader loads it: not checked again"
 }
 # Work whose checks passed but whose push lost to main three times (each try pulled, swept and pushed while main moved
