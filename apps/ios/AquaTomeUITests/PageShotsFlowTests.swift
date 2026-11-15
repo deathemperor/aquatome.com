@@ -94,6 +94,49 @@ final class PageShotsFlowTests: XCTestCase {
   func testTheChat() { shootChat("chat-light") }
   func testTheChatInTheDark() { shootChat("chat-dark", dark: true) }
   func testTheChatInTheLargestText() { shootChat("chat-largest-light", size: largest) }
+  /// For Design's parity (15 Nov): a long section opened, its "Thu gọn" in view and measured; then a species card's page,
+  /// and iOS's back to the chat, where it was left. v2, light.
+  func testTheChatsOpenSectionAndBackFromACardsPage() {
+    let app = launch(dark: false, size: nil, ["-fake-accounts", "on", "-reset-fake-server", "-chat-blocks"], look: .v2)
+    let tabs = app.tabBars.buttons
+    XCTAssertTrue(tabs.firstMatch.waitForExistence(timeout: 10), "no tabs")
+    tabs.element(boundBy: tabs.count - 1).tap()
+    open(app, "ca neon", "Cá neon")
+    let entry = app.scrolledDown(to: app.descendants(matching: .any)["chat-entry"].firstMatch)
+    entry.tap()
+    let sign = app.descendants(matching: .any)["apple-sign-in"].firstMatch
+    XCTAssertTrue(sign.waitForExistence(timeout: 5), "no sign-in")
+    sign.tap()
+    let chip = app.buttons.matching(identifier: "chat-chip").firstMatch
+    XCTAssertTrue(chip.waitForExistence(timeout: 10), "no starters")
+    chip.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["chat-answer"].firstMatch.waitForExistence(timeout: 60), "no whole answer")
+    func shot(_ what: String) {
+      settle()
+      let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+      a.name = "shot-chat-parity-\(what)"
+      a.lifetime = .keepAlways
+      add(a)
+    }
+    let section = app.scrolledDown(to: app.descendants(matching: .any)["chat-section"].firstMatch)
+    section.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+    let close = app.buttons["Thu gọn"]
+    XCTAssertTrue(close.waitForExistence(timeout: 5), "the section didn't open")
+    _ = app.scrolledDown(to: close)
+    shot("01-section-open")
+    let size = XCTAttachment(string: "Thu gọn: \(close.frame.width) × \(close.frame.height) pt at \(close.frame.minX), \(close.frame.minY)")
+    size.name = "chat-parity-thu-gon-frame"
+    size.lifetime = .keepAlways
+    add(size)
+    XCTAssertGreaterThanOrEqual(close.frame.height, 44, "Thu gọn under 44 pt")
+    let page = app.scrolledDown(to: app.buttons.matching(identifier: "chat-card-open").firstMatch)
+    shot("02-before-the-page")
+    page.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 10), "the card's page didn't open")
+    app.leavePage()
+    XCTAssertTrue(page.waitForExistence(timeout: 5), "not back in the chat")
+    shot("03-back-in-the-chat")
+  }
   func testFishId() { shootFishId("fish-id-light") }
   func testFishIdInTheDark() { shootFishId("fish-id-dark", dark: true) }
   func testAKindOfKit() { shoot("kit-light", "loc", "Lọc", more: ["-equipment"]) }
