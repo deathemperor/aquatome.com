@@ -37,6 +37,7 @@ final class MasterFlowTests: XCTestCase {
     expect(again, "master-log", lacks: "switch_2 back")
     XCTAssertTrue(element(again, "master-start").waitForExistence(timeout: 40), "not ready again")
     XCTAssertFalse(element(again, "master-problems").exists, element(again, "master-problems").label)
+    shoot("left-as-is")
   }
 
   func testEndsByTheClockAndPutsBackTheLastColourSentToTheLamp() {
@@ -82,10 +83,11 @@ final class MasterFlowTests: XCTestCase {
   }
 
   func testWithBluetoothOffTheLampSaysSoAndThePlugsStillGo() {
-    let app = launch(["-fake-lamp-off"])
+    let app = launch(["-fake-lamp-off", "-dark"])
     make(app, end: "120")
     tap(app, "master-start")
     expect(app, "master-problems", contains: "Bật Bluetooth để gửi lệnh tới đèn.", timeout: 40)
+    shoot("failed-dark")
     expect(app, "master-log", contains: "switch_3 off")
   }
 
@@ -96,6 +98,7 @@ final class MasterFlowTests: XCTestCase {
     tap(app, "master-start")
     expect(app, "master-problems", contains: "Không tới được ổ CO2: kiểm tra mạng rồi thử lại", timeout: 40)
     expect(app, "master-problems", contains: "Không tới được ổ Quạt: kiểm tra mạng rồi thử lại")
+    shoot("unreached")
     // Nothing went, the lamp included, and it isn't running.
     let log = element(app, "master-log")
     XCTAssertFalse(log.exists && !log.label.isEmpty, log.exists ? log.label : "")
@@ -189,6 +192,7 @@ final class MasterFlowTests: XCTestCase {
     tap(app, "master-done")
     tap(app, "master-start")
     XCTAssertTrue(element(app, "master-since").waitForExistence(timeout: 20), "not running")
+    expect(app, "master-end", contains: "Kết thúc", timeout: 40)
     shoot("running-until-tap-\(name)")
   }
 

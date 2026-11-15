@@ -57,7 +57,7 @@ struct MasterCard: View {
       }
       Text(verbatim: summary).font(.subheadline).foregroundStyle(.secondary).accessibilityIdentifier("master-summary")
       Button { Task { await master.start() } } label: {
-        sendingOr(Text("Bắt đầu")).frame(maxWidth: .infinity)
+        sendingOr(Text("Bắt đầu")).fontWeight(.semibold).frame(maxWidth: .infinity)
       }
       .buttonStyle(.borderedProminent).controlSize(.large)
       .disabled(master.sending || b.steps.isEmpty || master.trial.state != .idle)
