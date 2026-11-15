@@ -467,6 +467,17 @@ test('each seller notice\'s lasting fact is on its fish\'s page as the build sho
 // The seller notices kept as guides (the Writing Lead, 15 Nov 2026): cut, a sentence of the dealer's own kept under the
 // dealer's name, and fixed, so no rewrite brings a stock line back; the two whose titles announced an arrival renamed from
 // the notice's own facts, the old address forwarding.
+// The Cichla hybrid notice's lasting line (the Writing Lead, 15 Nov 2026): the genus grown from five species to 15, on C.
+// ocellaris's dealer part, where the wild-hybrids line is; not the dealer's own hybrids' looks, nor the genus's record size.
+test('C. ocellaris\'s dealer notes say the genus grew from five species to 15, and give no second size', () => {
+  const dir = fileURLToPath(new URL('../../../content/species/cichla-ocellaris', import.meta.url))
+  const en = (JSON.parse(readFileSync(join(dir, 'entity.json'), 'utf8')) as { sections: { key: string; source: string; html: string }[] }).sections.find(s => s.key === 'notes' && s.source === 'glaser')!.html
+  const vi = (JSON.parse(readFileSync(join(dir, 'vi.json'), 'utf8')) as Translation).sections!['notes:glaser']!
+  expect(en).toContain('The 5 species known until then have become 15 species.')
+  expect(vi).toContain('chỉ có 5 loài được biết đến, nay đã thành 15 loài')
+  expect(`${en} ${vi}`).not.toMatch(/80|100 cm|intermediate|trung gian/)
+})
+
 test('the seller notices kept as guides say nothing of the dealer\'s stock, and the two renamed forward', () => {
   const dir = fileURLToPath(new URL('../../../content/guides', import.meta.url))
   const kept: [string, string?, string?][] = [
@@ -488,7 +499,7 @@ test('every guide taken off for good is one the content has, and forwards to a p
     expect(existsSync(join(content, 'guides', id, 'vi.json')), id).toBe(true)
     if (to !== 'guides') expect(existsSync(join(content, to.kind, to.id, 'vi.json')), `${id} → ${to.kind}/${to.id}`).toBe(true)
   }
-  expect(Object.keys(RETIRED_GUIDES)).toHaveLength(28)
+  expect(Object.keys(RETIRED_GUIDES)).toHaveLength(29)
   expect(readdirSync(join(content, 'guides')).filter(id => GALLERY_POST.test(id)).length).toBeGreaterThanOrEqual(66)
 })
 
