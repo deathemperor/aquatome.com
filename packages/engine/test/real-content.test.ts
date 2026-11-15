@@ -354,7 +354,8 @@ test('a heading whose sources could not both be true speaks with one voice', asy
 // The chief of staff, 15 Nov 2026: Seriously Fish gives the African snakehead, a 40 cm predator, a 38 × 38 cm base and 55
 // litres. Neither that figure nor the page's rounding of it is fit to read, so no source speaks under its tank heading
 // (one-voice.json), and its quick facts lose their tank line, fixed so no read or translation brings it back. It stays so
-// until a second source we may use gives a size that fits the fish.
+// until a second source we may use gives a size that fits the fish. Its buy list's tank search, written with the page,
+// said 55 litres too: it goes, and the sweep writes a tank search only from a tank the card shows, which it doesn't here.
 test('the African snakehead shows no tank size, in any language, and the engine keeps it so', async () => {
   const root = fileURLToPath(new URL('../../../content', import.meta.url))
   const dir = join(root, 'species/parachanna-obscura')
@@ -369,7 +370,10 @@ test('the African snakehead shows no tank size, in any language, and the engine 
     // Nor its text, which the gate's checks and the summary's writer read.
     expect(Object.keys(fish.t.sections).filter(k => k.startsWith('aquariumSize:')), lang).toEqual([])
     expect(Object.values(fish.t.sections).join(' '), lang).not.toMatch(tank)
+    expect(typeof resolveDataCard(fish.dataCard.tankCm ?? [], 'tankCm')?.value, lang).not.toBe('number')
   }
+  const slots = (JSON.parse(readFileSync(join(dir, 'entity.json'), 'utf8')) as { productSlots: { category: string; keywords: string[] }[] }).productSlots
+  expect(slots.find(x => x.category === 'be-ca')?.keywords).toEqual(['bể cá lớn nuôi cá săn mồi'])
   const summary = JSON.parse(readFileSync(join(root, 'summaries/parachanna-obscura.json'), 'utf8')) as { summary: string; mistakes: string[] }
   expect([summary.summary, ...summary.mistakes].join(' ')).not.toMatch(/lít|\d\s*[×x]\s*\d/u)
 }, slow(120_000))
