@@ -2,8 +2,7 @@
 import type { Localized, SpeciesEntity } from '@aq/schema'
 import type { SpeciesIndexItem } from '../scripts/filter'
 import { TEMPERAMENT_LABELS } from '../scripts/tankmates'
-import { avoidWhy, type AvoidReason } from '../lib/companions'
-import { cleanPhoto } from '../lib/home'
+import { avoidWhy, matePhoto, type AvoidReason } from '../lib/companions'
 import { smallSrc } from '../lib/img'
 import { fmt } from '../lib/format'
 import { i18n } from '../lib/i18n'
@@ -19,7 +18,7 @@ const { self, good, avoid, tool } = Astro.props
 const { t, lang } = i18n(Astro.url)
 const { num } = fmt(lang)
 const why = avoidWhy(t, self.name)
-const thumb = (s: Localized<SpeciesEntity>) => { const p = cleanPhoto(s.photos); return p && smallSrc(p) }
+const thumb = (s: Localized<SpeciesEntity>) => { const p = matePhoto(s); return p && smallSrc(p) }
 ---
 <section class="mates" aria-labelledby="mates-h" data-pagefind-ignore>
   <h3 id="mates-h">{t('Nuôi chung')}</h3>

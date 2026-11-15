@@ -13,7 +13,7 @@ import RedirectNote from '../../components/RedirectNote.astro'
 import BreedList from '../../components/BreedList.astro'
 import GlossaryTip from '../../components/GlossaryTip.astro'
 import { getContent } from '../../lib/content'
-import { creditsFor } from '../../lib/credits'
+import { creditsFor, VIDEO_CARDS } from '../../lib/credits'
 import { BREED_KIND, type Breed } from '../../lib/breeds'
 import { breedParts } from '../../lib/breed-page'
 import { dmy } from '../../lib/products'
@@ -41,7 +41,7 @@ const jsonld = [
 const title = t('{name}: nguồn gốc, cách nuôi, chọn mua', { name: b.t.name })
 const alternates = await alternatesOf('breeds', b.id)
 ---
-<Base title={`${title} — AquaTome`} description={b.t.summary?.join(' ')} image={b.photos[0]?.url} noindex={!b.t.quality.indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor([...strip, ...linePhotos].map(p => p ?? undefined))}>
+<Base title={`${title} — AquaTome`} description={b.t.summary?.join(' ')} image={b.photos[0]?.url} noindex={!b.t.quality.indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor([...strip, ...linePhotos, ...videoPhotos.slice(0, VIDEO_CARDS)].map(p => p ?? undefined))}>
   <Nav slot="header" />
   <nav class="wrap crumb" aria-label={t('Đường dẫn')}>
     <a href="/vi/ca/">{t('Loài cá')}</a>{parent && <> / <a href={parent.href}>{parent.name}</a></>}

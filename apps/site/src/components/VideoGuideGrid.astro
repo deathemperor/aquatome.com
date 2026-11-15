@@ -2,12 +2,13 @@
 import type { GuideEntity, Localized, Photo } from '@aq/schema'
 import GuideCard from './GuideCard.astro'
 import { i18n } from '../lib/i18n'
+import { VIDEO_CARDS } from '../lib/credits'
 /**
  * Video guides as cards, the first `max`. A phone shows two, with a button for the rest (without the script, all of them).
  * `photos`: each card's picture as its page chose it, in the same order (a page never shows one twice, lib/pictures.ts).
  */
 interface Props { guides: Localized<GuideEntity>[]; heading: string; max?: number; photos: (Photo | null)[] }
-const { guides, heading, max = 6, photos } = Astro.props
+const { guides, heading, max = VIDEO_CARDS, photos } = Astro.props
 const { t } = i18n(Astro.url)
 const shown = guides.slice(0, max)
 ---

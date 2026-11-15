@@ -9,6 +9,7 @@ import { sciBeside } from '../../lib/sci'
 import { i18n, langOf } from '../../lib/i18n'
 import { alternatesOf } from '../../lib/alternates'
 import { figureHtml } from '../../lib/figures'
+import { creditsFor } from '../../lib/credits'
 import { fmt } from '../../lib/format'
 import { smallSrc, tileFrame } from '../../lib/img'
 import { guideImages } from '../../lib/mentions'
@@ -43,7 +44,7 @@ const jumps = body.parts.length >= 2 ? [...body.parts, ...(p.total ? [{ href: '#
 // Sources: the first five, the rest folded.
 const REFS_SHOWN = 5
 ---
-<Browse title={glossaryTitle(lang, termTitle(g))} heading={g.t.name} description={g.t.definition} crumbs={[['/vi/thuat-ngu/', t('Thuật ngữ')]]} noindex={!g.t.quality.indexable} alternates={alternates}>
+<Browse title={glossaryTitle(lang, termTitle(g))} heading={g.t.name} description={g.t.definition} crumbs={[['/vi/thuat-ngu/', t('Thuật ngữ')]]} noindex={!g.t.quality.indexable} alternates={alternates} credits={creditsFor([p.photo, ...used.flatMap(u => u.rows.map(r => r.photo))])}>
   {p.otherNames.length > 0 && <p class="aka">{t('Tên khác: {names}', { names: p.otherNames.join(', ') })}</p>}
   <p class="en">{t('Tiếng Anh:')} <span lang="en">{g.en}</span>{g.latin && sciBeside(g.en ?? '', g.latin) && <>, <span class="sci">{g.latin}</span></>}</p>
   {p.definition && <p class="def" set:html={p.definition} />}
