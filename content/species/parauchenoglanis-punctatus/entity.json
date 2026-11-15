@@ -1,0 +1,112 @@
+{
+  "id": "parauchenoglanis-punctatus",
+  "scientificName": "Parauchenoglanis punctatus",
+  "order": "Siluriformes",
+  "family": "Claroteidae",
+  "genus": "Parauchenoglanis",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "congo-river"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 41
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1389",
+      "html": "<ul><li>Scientific name: Parauchenoglanis punctatus (Boulenger, 1902)</li><li>Common name: Spotted Giraffe Catfish</li><li>Type locality: Lindi River, Democratic Republic of Congo</li><li>Synonym: Auchenoglanis punctatus</li><li>IUCN Red List: Least Concern (last assessed 2009)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1389",
+      "html": "<p>Africa: Congo River system.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1389",
+      "html": "<p>In nature, it preys on insect larvae, crustaceans, and small fishes. It is not a fussy eater in the aquarium and will eat most foods.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1389",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1389",
+      "html": "<p>In all Parauchenoglanis the small eyes are not covered by a transparent skin (having a free border). The first dorsal spine is small, the second large and strong followed by seven branched fin rays (rarely eight). Pectoral fin with one spine and 7-8 branched rays, pelvic fin with six rays (of which five are branched), anal fin with 6-10 branched rays. Edge of caudal is straight or rounded.</p><p>This species' barbels are extremely long, maxillary barbel reaching at least to pectoral spine base, external mandibular barbel always reaching beyond spine tip. Adipose fin solid and higher than in other species (except for some adults of P. altipinnis). Head dark brown, typically darker than flanks, sometimes with indistinct, large, dark marks. Flanks brown, occasionally with a purple hue, and 6-10 (rarely 11) vertical rows of very dark to black separate dots, each smaller than the eye. In younger specimens dark vertical bands may be barely apparent. Belly pale brown to whitish.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1389",
+      "html": "<p>Proceedings of the Zoological Society of London 1902, v. 1 (pt 1) (art. 4), pp 267, Pl. 29 (figs. 1-1a).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "xefaNqTBl_A",
+      "title": "Parauchenoglanis punctatus",
+      "durationSec": 61,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "tJlkFb6mFB0",
+      "title": "Parauchenoglanis guttatus and punctatus",
+      "durationSec": 25,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "q-Wu3KseiDY",
+      "title": "Parauchenoglanis cf. punctatus feeding",
+      "durationSec": 143,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 200 cm",
+        "bể cá lớn nuôi cá da trơn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy bơm tạo dòng"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300w"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-15"
+}

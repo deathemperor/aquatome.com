@@ -234,6 +234,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/gnathochromis-permaxillaris",
       "html": "<p>This species was originally classified in the genus Limnochromis. There are a couple of colour morphs available and these should not be mixed in aquaria, as they may hybridise. In nature, this fish feeds in a similar way to Geophagus species, in that it will sift sand through its gills to extract invertebrates hidden in the substrate. It is a deep water fish and has been recorded foraging at depths of up to 200 metres. These movements seem to be related to the presence of the plankton on which the fish feed. Its upper lip is extended to extraordinary proportions, in a way that, when the mouth is opened, it faces downwards. It uses this like a vacuum in its sand-sifting activities. The lip extension is not present in juvenile fish, developing only when they mature.</p><p>G. permaxillaris is a rare fish in the trade, as it is difficult to collect in numbers. Not only does it inhabit deep water, but it is never found in large numbers, occurring only in small shoals or as solitary specimens. It is not a beginner's fish, being sensitive to deteriorating water quality.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/gnathochromis_permaxillaris_arrived_en/",
+      "html": "<p>Lexicon: Gnathochromis: ancient Greek, means \"jaw-chromis\", referring to the very special mouth structure. Chromis is another genus of fish. permaxillaris: Latin, means something like \"jaw with a backpack\", also referring to the mouth structure.</p><p>Suggestion of a common name: Vacuum cleaner cichlid</p>"
     }
   ],
   "photos": [
@@ -242,18 +248,43 @@
       "thumb": "https://media.aquatome.com/commons/2dc98346fafd5007-480.webp",
       "width": 1200,
       "height": 599,
-      "licence": "CC BY-SA 3.0",
-      "author": "H. Zell",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gnathochromis_permaxillaris_-_Karlsruhe_Zoo_01.jpg",
-      "caption": "Cá Gnathochromis permaxillaris trưởng thành bơi gần đá trong bể",
       "large": {
         "url": "https://media.aquatome.com/commons/2dc98346fafd5007-large.webp",
         "width": 2400,
         "height": 1199
-      }
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "H. Zell",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gnathochromis_permaxillaris_-_Karlsruhe_Zoo_01.jpg",
+      "caption": "Cá Gnathochromis permaxillaris trưởng thành bơi gần đá trong bể"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "dOVL3HbsrJI",
+      "title": "Rare Tanganyikan - The Gnathochromis Permaxillaris",
+      "durationSec": 27,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "2rJ0UydgMTw",
+      "title": "Gnathochromis permaxillaris Species Feature (Part 1)",
+      "durationSec": 1221,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "YiSd2YihDc4",
+      "title": "Gnathochromis permaxillaris with fry",
+      "durationSec": 56,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "FW8QMCnJ1Sw",
+      "title": "Gnathochromis permaxillaris",
+      "durationSec": 63,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -283,5 +314,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-15"
 }

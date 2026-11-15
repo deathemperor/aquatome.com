@@ -12,13 +12,36 @@
     "bangladesh",
     "myanmar",
     "china",
-    "tibet"
+    "tibet",
+    "brahmaputra"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 20
+      },
+      {
+        "source": "scotcat",
+        "value": 15
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ]
   },
@@ -30,16 +53,34 @@
       "html": "<ul><li>Scientific name: Pseudecheneis sulcata (McClelland, 1842)</li><li>Common name: Brahmaputra Suckerthroat</li><li>Type locality: Khasi Hills, Meghalaya, India</li><li>Sexing: not known</li><li>IUCN Red List: Least Concern (last assessed 2009)</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/pseudecheneis_sulcata.htm",
+      "html": "<ul><li>Common name: Sucker throat catfish</li><li>IUCN Red List: Least Concern (LC). Although there is insufficient information on population (and its trends) and biology of this species, indications from current surveys are that it is still relatively widely distributed and abundant. It is therefore assessed as Least Concern, but needs updating (IUCN 2021).</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1374",
       "html": "<p>Asia: India, Nepal and Bangladesh. Reported from Tibet and Myanmar.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/pseudecheneis_sulcata.htm",
+      "html": "<p>Asia: Brahmaputra drainage, India. Type locality: Kasyah [Khasi] Hills, Meghalaya, India.</p>"
+    },
+    {
       "key": "habitat",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1374",
       "html": "<p>Found in fast-flowing hill streams. Prefers deep riffles and runs over gravel and cobble substrates.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/pseudecheneis_sulcata.htm",
+      "html": "<p>Found in fast-flowing hill streams. Prefers deep riffles and runs over gravel, cobble substrates.</p>"
     },
     {
       "key": "dimorphism",
@@ -58,6 +99,18 @@
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1374",
       "html": "<p>Fishes of the genus Pseudecheneis can be differentiated from other Glyptosternine fish in having a thoracic adhesive apparatus consisting of a series of transverse ridges (laminae) separated by grooves (sulcae).</p><p>Pseudecheneis sulcata can be distinguished from congeners by a unique combination of characters, including the lack of a prominent bony spur on the anterodorsal surface of the first dorsal-fin pterygiophore, separate pelvic fins, a less convex snout when viewed laterally, presence of pale spots on the body, 36–39 vertebrae and 12–14 transverse laminae on the thoracic adhesive apparatus.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/pseudecheneis_sulcata.htm",
+      "html": "<p>Description: Dorsal soft rays (total): 7; anal soft rays: 11–12; vertebrae: 37–39. Excluding Pseudecheneis paviei, Pseudecheneis sulcatoides and Pseudecheneis sympelvica, this species differs from all other congeners by the absence of a prominent bony spur on the anterodorsal surface of the first dorsal-fin pterygiophore. It can be separated from these three species by the combination of the following characters: body elongate with 36–39 vertebrae; thoracic adhesive apparatus with 12–14 transverse laminae; separate pelvic fin; caudal peduncle length 25.0–28.3% SL (standard length); presence of a first-dorsal element; complex vertebra with bifid neural spines. Additional characters useful to distinguish this species include: caudal-peduncle depth 4.0–5.2% SL; eye diameter 8.8–10.6% HL (head length); pelvic-fin length 21.2–28.7% SL; length of adipose-fin base 17.8–22.7%; body with pale colored patches; neural spines of the last 2–3 preanal and first 6–7 postanal vertebrae gradually increasing in height; pectoral fin length 121.6–156.3% HL; and vertebrae 37.</p><p>Etymology: The specific name sulcata is Latin for furrowed or grooved, probably referring to the oval adhesive disk on the breast, \"composed of transverse plates\".</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/pseudecheneis_sulcata.htm",
+      "html": "<p>Alfred W. Thomson &amp; Lawrence M. Page; 30 October 2006. Genera of the Asian Catfish Families Sisoridae and Erethistidae (Teleostei: Siluriformes) (Zootaxa 1345). Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 08/2019 ). Zhou, W., X. Li and Y. Yang, 2008. A review of the catfish genus Pseudecheneis (Siluriformes: Sisoridae) from China, with the description of four new species from Yunnan. Raffles Bull. Zool. 56(1):107-124. Ng, H.H., 2006. The identity of Pseudecheneis sulcata (M'Clelland, 1842), with descriptions of two new species of rheophilic catfish (Teleostei: Sisoridae) from Nepal and China. Zootaxa 1254:45-68. Ng, H.H. 2010. Pseudecheneis sulcata. The IUCN Red List of Threatened Species 2010. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -119,7 +172,7 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13",
+  "updatedAt": "2026-11-15",
   "range": {
     "native": {
       "countries": [

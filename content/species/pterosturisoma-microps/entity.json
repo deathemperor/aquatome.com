@@ -7,7 +7,8 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "peru"
+    "peru",
+    "upper-amazon"
   ],
   "range": {
     "native": {
@@ -100,6 +101,34 @@
       {
         "source": "glaser",
         "value": 20
+      },
+      {
+        "source": "scotcat",
+        "value": 20
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 26,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "scotcat",
+        "value": 120
       }
     ]
   },
@@ -109,6 +138,12 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/pterosturiosoma_microps_en/",
       "html": "<p>Pterosturiosoma microps is one of the regularly imported Loricariidae from Peru, although not in bigger quantities. Even though it is more impressive in colour by its soft black-grey, it can still arouse enthusiasm by its remarkable appearance and its impressive but graceful fins. But its steady nursing is not quite easy.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterosturisoma_microps.htm",
+      "html": "<ul><li>Common name: Long-tailed Sturisoma</li></ul>"
     },
     {
       "key": "beforeYouBuy",
@@ -123,10 +158,28 @@
       "html": "<p>Origin: Peru.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterosturisoma_microps.htm",
+      "html": "<p>South America: Peru, Upper Amazon at Iquitos. This monotypic genus is known only from the upper Amazon River basin.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterosturisoma_microps.htm",
+      "html": "<p>Pterosturisoma is a rheophilic species.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/pterosturiosoma_microps_en/",
       "html": "<p>As these catfish grow to a length of 20 cm, the tank should include 250 litres.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterosturisoma_microps.htm",
+      "html": "<p>Tank size should be at least 4 ft (120 cm) in length.</p>"
     },
     {
       "key": "maintenance",
@@ -135,16 +188,52 @@
       "html": "<p>When the fish have got used to life in the aquarium and have recovered from the strains of transport, keeping them in a well-decorated and planted aquarium will be simple. Roots or the broad leaves of Vallisneria gigantea, for example, could be the preferred residences.</p><p>During the first time these fish persistently refuse to frequent a sandy or gravelled ground or other decoration materials, so they only eat what they find on still surfaces. Therefore it is recommended not to use substrate during quarantine, in order to get the animals into a good condition.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterosturisoma_microps.htm",
+      "html": "<p>Very sensitive to low oxygen contents and poor water conditions. Can be hard to get newly imported specimens to feed. A species that can only be kept by experienced aquarists who are used to keeping members of this family.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterosturisoma_microps.htm",
+      "html": "<p>Vegetable foods which can include peas. Other foods can also be given.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/pterosturiosoma_microps_en/",
       "html": "<p>Unfortunately P. microps can only be kept with really peaceful fish that do not compete with it for food, because it has no self-assertion.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterosturisoma_microps.htm",
+      "html": "<p>Males do not possess hypertrophied odontodes on the sides of the head or on the pectoral-fin spines. Nevertheless, Evers &amp; Seidel (2005) distinguished both sexes by the width of a naked trapezoidal area framed by four bony plates in the genital region. This area appeared broader in females, and longer and narrower in males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterosturisoma_microps.htm",
+      "html": "<p>Evers &amp; Seidel (2005) described this species as an open brooder.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/pterosturiosoma_microps_en/",
       "html": "<p>If you meet its requirements, P. microps can be an absolutely recommendable fish, but it surely is not an easy fish to keep.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterosturisoma_microps.htm",
+      "html": "<p>Pterosturisoma appears morphologically very similar to Lamontichthys, from which it differs primarily in the number of pectoral fin rays (i–6 in the former versus i–7 in the latter). These two genera share features with Sturisoma such as similar body depth at dorsal-fin origin, presence of filamentous extensions on caudal-fin spines, and complete abdominal plate cover extending to the lower lip margin. These features are never observed in Harttia, suggesting these two genera share a closer relationship with Sturisoma than with Harttia as hypothesized by Rapp Py-Daniel (1997).</p><p>Etymology: the specific name microps means small appearance.</p><p>IUCN Red List: despite the little information available on this species, it has a wide range and no apparent threats. Therefore, it is assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterosturisoma_microps.htm",
+      "html": "<p>Covain, Raphael; Fisch-Muller, Sonia (2007). \"The genera of the Neotropical armored catfish subfamily Loricariinae (Siluriformes: Loricariidae): a practical key and synopsis\". Zootaxa 1462: 1–40.</p><p>Evers, H.-G. &amp; I. Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944.</p><p>Salvador, G.N. 2023. Pterosturisoma microps. The IUCN Red List of Threatened Species 2023.</p>"
     }
   ],
   "photos": [
@@ -182,12 +271,36 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "Zu6w91LE0-c",
+      "title": "Pterosturisoma microps",
+      "durationSec": 31,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Gc0OfqrmvC8",
+      "title": "pterosturisoma microps breeding #fishbreeding #tropicalfish #rarefish #pleco",
+      "durationSec": 21,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "IqLh3M5Is-w",
+      "title": "Pterosturisoma microps in my south american biotope",
+      "durationSec": 40,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "BnRwTxhKNIg",
+      "title": "Ptero microps.MOV",
+      "durationSec": 32,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 250 lít",
         "bể cá 120cm"
       ]
     },
@@ -205,5 +318,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-14"
+  "updatedAt": "2026-11-15"
 }

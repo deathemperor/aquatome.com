@@ -1,12 +1,17 @@
 {
   "id": "cranoglanis-henrici",
-  "summary": "Cá da trơn Cranoglanis henrici lớn đến 29 cm, là cá săn mồi, hợp với người đã có kinh nghiệm và chịu làm việc với loài ít tài liệu. Nước mát 20–24 °C, pH 6–7,2. Hồ sơ không ghi bể tối thiểu hay độ khó. Khó nhất là tài liệu nuôi rất ít, loài này cũng ít xuất hiện trong giới chơi cá và chưa có ghi nhận sinh sản.",
+  "summary": "Loài này chỉ hợp với người chấp nhận nuôi khi tài liệu chăm sóc còn rất ít, vì cá cũng hiếm xuất hiện trong giới chơi cá cảnh. Cá lớn tới 29 cm, cần nước mát 20–24 °C, pH 6–7,2. Khó nhất là đây là cá săn mồi và thông tin nuôi còn thiếu.",
   "mistakes": [
-    "Đừng thả chung với cá nhỏ vì đây là cá săn mồi; hãy tính chuyện này trước khi mua.",
-    "Đừng giữ nước ấm như bể cá nhiệt đới thông thường; hãy giữ trong khoảng 20–24 °C.",
-    "Đừng nuôi khi chưa tìm hiểu kỹ vì tài liệu về Cranoglanis rất ít; hãy cân nhắc kỹ trước khi mua."
+    "Đừng mua khi chưa tính tới chuyện đây là cá săn mồi; hãy cân nhắc kỹ điều này trước khi mua.",
+    "Đừng để nước ấm hơn mức cá cần; giữ nhiệt độ trong khoảng 20–24 °C.",
+    "Đừng mua khi chưa tính tới kích thước trưởng thành 29 cm; hãy chuẩn bị bể đủ rộng từ đầu."
   ],
   "speciesUpdatedAt": "2026-11-02",
-  "generatedAt": "2026-11-02T20:41:46.644Z",
-  "review": "approved"
+  "writtenFrom": "c51093f8b8b6202f",
+  "generatedAt": "2026-11-15T11:21:55.092Z",
+  "review": "pending",
+  "problems": [
+    "\"Đừng mua khi chưa tính tới kích thước trưởng thành 29 cm; hãy chuẩn bị bể đủ rộng từ đầu\": the page gives no advice about tank size or space. It only lists the size, so this fix is invented.",
+    "\"Đừng để nước ấm hơn mức cá cần\": the page never warns against warm water or says this is a mistake. Only the card's 20–24 °C range exists, so this mistake and its fix are not on the page."
+  ]
 }

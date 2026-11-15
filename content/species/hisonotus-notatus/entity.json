@@ -1,0 +1,146 @@
+{
+  "id": "hisonotus-notatus",
+  "scientificName": "Hisonotus notatus",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hisonotus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-de-janeiro"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1390",
+      "html": "<ul><li>Scientific name: Hisonotus notatus Eigenmann &amp; Eigenmann, 1889</li><li>Common name: Black Otocinclus</li><li>IUCN Red List: Least Concern (last assessed 2018)</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hisonotus_notatus_en/",
+      "html": "<p>Origin: southeast Brazil. Requirements are the same as those of the Otocinclus species. A durable care.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1390",
+      "html": "<p>South America: Brazil. Rivers of Rio de Janeiro State (including Macaé), Minas Gerais State, Espirito Santo State and Sao Paulo State.</p><p>Type locality: Rio de Janeiro State, Santa Cruz, rio Guandu, Santa Cruz farm - Emperor Pedro II's farm, Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hisonotus_notatus_en/",
+      "html": "<p>From southeast Brazil some rare specimens could be imported, related to the popular Otocinclus species.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hisonotus_notatus_en/",
+      "html": "<p>In its homeland Hisonotus ornatus inhabits waters infested with weeds.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hisonotus_notatus_en/",
+      "html": "<p>The requirements for their maintenance do not differ from those of the Otocinclus species: good filtering and frequent water changes are the requirements for their well-being.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1390",
+      "html": "<ul><li>pH: 6.5–7.5</li><li>Temperature: 22–24°C</li><li>Other parameters: dH 20</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hisonotus_notatus_en/",
+      "html": "<p>It may not be kept too warm. 24°C probably represents the reasonable upper limit.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hisonotus_notatus_en/",
+      "html": "<p>Predominantly vegetable nutrition.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1390",
+      "html": "<p>Unreported. There is a single breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1390",
+      "html": "<p>Proceedings of the California Academy of Sciences (Series 2) v. 2, pp 41.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "KMlMjEwGI24",
+      "title": "Rare Fish Hisonotus notatus #fish #aquarium #rarefish #rare #fishkeeping #fishtank #aquascape",
+      "durationSec": 15,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "9-TQvfDAUMA",
+      "title": "ノタートゥスが産卵～孵化した水槽。スレンダー900 OFセットで育成中。",
+      "durationSec": 139,
+      "lang": "ja"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "máy bơm sục khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "viên rong tảo"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-15"
+}
