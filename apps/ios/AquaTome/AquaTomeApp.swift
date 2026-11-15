@@ -208,8 +208,8 @@ struct AquaTomeApp: App {
       // "Giao diện", app-wide at once; the page shots' dark run (PageShotsFlowTests) over it: the runner's own appearance
       // setting doesn't reach the app.
       .onChange(of: appearance, initial: true) { Appearance.apply(Self.testScheme ?? appearance.scheme) }
-      // The old look and back: v2 opens on Hôm nay, as it always has.
-      .onChange(of: v2) { v2Tab = .today }
+      // The old look and back: v2 opens on Hôm nay (or the tab the old look had in front, V2Root.follow), as it always has.
+      .onChange(of: v2) { _, on in if !on { v2Tab = .today } }
       .appIconsForTests()
       #if DEBUG
       .background {

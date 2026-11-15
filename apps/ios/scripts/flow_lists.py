@@ -33,7 +33,10 @@ TEST_SECONDS = {'AccountFlowTests': 63, 'AppIconFlowTests': 30, 'AppLinkFlowTest
                 'TankMatesFlowTests': 50, 'TankVolumeFlowTests': 54, 'TanksFlowTests': 30, 'TelemetryFlowTests': 38,
                 'V2FlowTests': 38, 'ViAtRootFlowTests': 25, 'VideoFlowTests': 35, 'WholePhotoFlowTests': 20,
                 # Skipped on GitHub's Macs: the Design Lead's shots of the Love Ecology card, taken on the night Mac.
-                'LoveEcologyShotsFlowTests': 1}
+                'LoveEcologyShotsFlowTests': 1,
+                # Not on GitHub yet: 8 tests on this Mac's 27.2 simulator (16 Nov), about 750 s; the largest text's shots
+                # and the switch with a plug, a light and an account take the longest.
+                'LanguageFlowTests': 100}
 FLOW_SECONDS = 45
 
 # What a path can reach. The longest prefix that matches a path decides: a list of flows (a class, or one of its
