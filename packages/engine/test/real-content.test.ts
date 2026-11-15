@@ -484,6 +484,31 @@ test('the tap-water fixes hold: Seachem Prime named at its dose, our note on wat
   }
 })
 
+// The site lead, 15 Nov 2026, at the chief of staff's word: the rewrites of 14 and 15 Nov cut flagged sentences, and a
+// rule then took any part left with one line or none, so ten fish lost a part whole. A care fact the source supports goes
+// back, fixed by hand; a remark, a source's own notes, habitat and distribution stay off. Two come back here (Leporinus's
+// came back on its own change): Geophagus harreri's spawning without its fry counts, the author's own, and Compsaraia
+// samueli's food without "in the fishhouse". The darter's garden pond and Beaufortia's unheated tank stay off: each was
+// written for a reader in a cold country.
+test('two care facts a rewrite took whole are back, fixed: Geophagus harreri spawns in the open on roots or stones, Compsaraia samueli eats Tubifex and small feeder fish', () => {
+  const root = fileURLToPath(new URL('../../../content', import.meta.url))
+  const read = <T>(path: string) => JSON.parse(readFileSync(join(root, path), 'utf8')) as T
+  const part = (id: string, key: string, source: string, lang: string) => ({
+    en: read<{ sections: { key: string; source: string; html: string; fixed?: boolean }[] }>(`species/${id}/entity.json`).sections.find(x => x.key === key && x.source === source),
+    t: read<{ sections: Record<string, string> }>(`species/${id}/${lang}.json`).sections[`${key}:${source}`],
+  })
+  const geophagus = part('geophagus-harreri', 'reproduction', 'glaser', 'vi')
+  expect(geophagus.en?.fixed).toBe(true)
+  expect(geophagus.en?.html).toBe('<p>The species belongs to the open brooders and uses roots or stones for spawning.</p>')
+  expect(geophagus.t).toBe('<p>Loài này đẻ trứng lộ thiên, đẻ lên rễ cây hoặc đá.</p>')
+  const compsaraia = part('compsaraia-samueli', 'diet', 'glaser', 'vi')
+  expect(compsaraia.en?.fixed).toBe(true)
+  expect(compsaraia.en?.html).toBe('<p>The fish are fed with Tubifex and small feeder fish (Tanichthys).</p>')
+  expect(compsaraia.t).toBe('<p>Cá được cho ăn trùng chỉ và cá mồi nhỏ (cá kim tơ, Tanichthys).</p>')
+  expect(part('compsaraia-samueli', 'diet', 'glaser', 'id').t).toBe('<p>Ikan ini diberi pakan cacing sutra dan ikan kecil sebagai pakan hidup (Tanichthys).</p>')
+  expect(part('compsaraia-samueli', 'diet', 'glaser', 'th').t).toBe('<p>ปลาชนิดนี้ได้รับอาหารเป็นไส้เดือนน้ำ (Tubifex) และปลาเล็กที่ใช้เป็นอาหาร (Tanichthys)</p>')
+})
+
 // GBIF's fuzzy matches made a catfish page a tube worm's (Brochis arcuata → Ditrupa arietina, Sabellida), and its exact
 // Mollienisia, a moth's genus, gave a molly page a moth's family (Noctuidae). The engine now takes a match only of an animal
 // the page's group can be (gbif.ts pageTaxon). This holds each fish or shrimp page's order to its group; "other" and
