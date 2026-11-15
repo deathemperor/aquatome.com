@@ -122,8 +122,8 @@
      "img": "https://media.aquatome.com/commons/9bd71e9d262fdea2-large.webp"
     },
     {
-     "page": "species/paracheirodon-innesi",
-     "img": "https://media.aquatome.com/commons/038fd41622de2f10-large.webp"
+     "page": "species/oryzias-dancena",
+     "img": "https://media.aquatome.com/inaturalist/304682978-large.webp"
     },
     {
      "page": "species/danio-tinwini",
@@ -722,8 +722,8 @@
      "img": "https://media.aquatome.com/commons/ca2a8705dff4e31e-large.webp"
     },
     {
-     "page": "species/paracheirodon-innesi",
-     "img": "https://media.aquatome.com/commons/038fd41622de2f10-large.webp"
+     "page": "species/pterophyllum-scalare",
+     "img": "https://media.aquatome.com/commons/45fccde9d99b3154-large.webp"
     },
     {
      "page": "species/hyphessobrycon-eques",
@@ -1178,10 +1178,10 @@
   },
   {
    "date": "2026-11-16",
-   "fish": "species/paracheirodon-innesi",
-   "img": "https://media.aquatome.com/commons/038fd41622de2f10-large.webp",
+   "fish": "species/boraras-maculatus",
+   "img": "https://media.aquatome.com/bwaquatics/34c8854d928bd864.webp",
    "guide": "guides/aquariumcoop-blogs-aquarium-schooling-fish-for-beginners",
-   "why": "Fish: Cá neon xanh, a small schooling fish for a small tank, well known."
+   "why": "Fish: Cá rasbora lùn, on this week's list, a small schooling fish for a small tank."
   },
   {
    "date": "2026-11-17",
@@ -1341,6 +1341,14 @@
    "guide": "guides/aquariumbreeder-crossbreeding-can-you-mix-different-color-shrimp",
    "guideImg": "https://media.aquatome.com/aquariumbreeder/04d8e1765b4ec85e.webp",
    "why": "Fish: Cá Tropheus duboisi, on this week's list. Guide: Lai tạo: Có thể nuôi chung các tép khác màu không?, the best left with a big enough photo."
+  },
+  {
+   "date": "2026-12-05",
+   "fish": "species/acnodon-normani",
+   "img": "https://media.aquatome.com/commons/38d8e400e9421e9a-large.webp",
+   "guide": "guides/sprucepets-aquarium-catfish-breeds-5115234",
+   "guideImg": "https://media.aquatome.com/sprucepets/eb26692e4b7b47a6.webp",
+   "why": "Fish: Cá pacu cừu, the best left with a big enough photo. Guide: 11 loài cá da trơn phù hợp cho bể cá tại nhà, the best left with a big enough photo."
   }
  ],
  "loops": {
@@ -1458,6 +1466,7 @@
   "species/hemigrammus-erythrozonus": "reader fit: elsewhere",
   "species/mikrogeophagus-ramirezi": "reader fit: source",
   "species/oryzias-latipes": "reader fit: elsewhere",
+  "species/paracheirodon-innesi": "reader fit: elsewhere",
   "species/poecilia-reticulata": "reader fit: elsewhere",
   "species/pristella-maxillaris": "reader fit: elsewhere",
   "species/symphysodon-aequifasciatus": "reader fit: source",

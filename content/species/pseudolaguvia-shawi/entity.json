@@ -164,7 +164,12 @@
       "author": "Beta Mahatvaraj",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudolaguvia_shawi_hi_res.jpg",
       "caption": "Pseudolaguvia shawi",
-      "thumb": "https://media.aquatome.com/commons/97d76c092c45a918-480.webp"
+      "thumb": "https://media.aquatome.com/commons/97d76c092c45a918-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/97d76c092c45a918-large.webp",
+        "width": 2000,
+        "height": 1200
+      }
     }
   ],
   "videos": [

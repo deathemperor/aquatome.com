@@ -489,11 +489,6 @@
       ]
     }
   },
-  "water": {
-    "kind": "brackish",
-    "source": "glaser",
-    "quote": "In nature, this fish lives in the lower parts of rivers and therefore likes some salt addition."
-  },
   "dataCard": {
     "sizeCm": [
       {
@@ -562,7 +557,12 @@
       "author": "Priyankar Chakraborty",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Acentrogobius_viridipunctatus.JPG",
       "caption": "Spotted Green Goby",
-      "thumb": "https://media.aquatome.com/commons/7ea8fcd7e12ba322-480.webp"
+      "thumb": "https://media.aquatome.com/commons/7ea8fcd7e12ba322-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/7ea8fcd7e12ba322-large.webp",
+        "width": 2216,
+        "height": 961
+      }
     }
   ],
   "videos": [],
@@ -583,5 +583,10 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-14"
+  "updatedAt": "2026-11-14",
+  "water": {
+    "kind": "brackish",
+    "source": "glaser",
+    "quote": "In nature, this fish lives in the lower parts of rivers and therefore likes some salt addition."
+  }
 }

@@ -53,7 +53,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bụi cây cắt cắm lên màu đỏ hồng rực rỡ trong hồ.",
-            "sharpness": 3321.3
+            "sharpness": 3321.3,
+            "person": false
           },
           {
             "t": 55,
@@ -61,7 +62,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các thân cây cắt cắm mọc dày bên cạnh hòn non bộ đá.",
-            "sharpness": 4680.9
+            "sharpness": 4680.9,
+            "person": false
           }
         ]
       },
@@ -74,15 +76,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bụi cây thân đỏ mọc rậm trong bể, chưa tỉa.",
-            "sharpness": 2738.9
-          },
-          {
-            "t": 130,
-            "url": "https://media.aquatome.com/video/zfTnqG22oS8/at130-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng nhíp cắm đoạn thân vừa cắt xuống nền.",
-            "sharpness": 4496.4
+            "sharpness": 2738.9,
+            "person": false
           }
         ],
         "photo": {
@@ -105,7 +100,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Kéo cắt tỉa ngọn cây thảm, các ngọn vụn rơi xuống nền.",
-            "sharpness": 2620.9
+            "sharpness": 2620.9,
+            "person": false
           },
           {
             "t": 220,
@@ -113,7 +109,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Những ngọn vừa cắt trôi lơ lửng phía trên thảm cây xanh.",
-            "sharpness": 2725.9
+            "sharpness": 2725.9,
+            "person": false
           }
         ]
       },
@@ -126,7 +123,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thảm cây xanh mướt phủ kín nền phía trước bể thủy sinh.",
-            "sharpness": 3030.8
+            "sharpness": 3030.8,
+            "person": false
           },
           {
             "t": 285,
@@ -134,7 +132,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Một cụm cây trải thảm nhỏ mọc dưới gốc lũa trong bể.",
-            "sharpness": 2133
+            "sharpness": 2133,
+            "person": false
           }
         ]
       },
@@ -161,15 +160,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây ráy (anubias) bám trên lũa và đá trong bể thủy sinh.",
-            "sharpness": 1119.3
-          },
-          {
-            "t": 375,
-            "url": "https://media.aquatome.com/video/zfTnqG22oS8/at375-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng tay bẻ đôi thân rễ ráy, không cần dùng kéo.",
-            "sharpness": 212.2
+            "sharpness": 1119.3,
+            "person": false
           }
         ]
       },
@@ -177,20 +169,13 @@
         "heading": "Gắn cây bám vào bố cục khi nhân giống",
         "moments": [
           {
-            "t": 410,
-            "url": "https://media.aquatome.com/video/zfTnqG22oS8/at410-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay nhét đoạn cây bám vào khe giữa đá và lũa.",
-            "sharpness": 8178.6
-          },
-          {
             "t": 420,
             "url": "https://media.aquatome.com/video/zfTnqG22oS8/at420-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Cây anubias đã bám chắc vào đá trong bố cục.",
-            "sharpness": 4475.2
+            "sharpness": 4475.2,
+            "person": false
           }
         ]
       }
