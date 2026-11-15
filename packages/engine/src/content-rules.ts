@@ -796,8 +796,8 @@ export const RULES: Rule[] = [
   },
   {
     id: 'title-count', title: 'Title promises a count the text doesn\'t have',
-    about: 'A title with a number ("10 loại cây…", "Top 5…") whose text has no run of numbered headings or labels, no list or bold leads of that many, and not enough headings for that many items. The sweep has the title rewritten (reviewer-gated), else drops the number from it; the address stays.',
-    check: p => p.fields.filter(f => f.field === 'body').flatMap(f => countMismatch(p.title, f.html) ?? []),
+    about: 'A title with a number ("10 loại cây…", "Top 5…") whose text has no run of numbered headings or labels, no list or bold leads of that many, and not enough headings for that many items. The sweep has the title rewritten (reviewer-gated), else drops the number from it; the address stays. A title a person fixed is left.',
+    check: p => p.nameFixed ? [] : p.fields.filter(f => f.field === 'body').flatMap(f => countMismatch(p.title, f.html) ?? []),
   },
   {
     id: 'guide-title', title: 'Two guides with one title, or a title that is only a name',

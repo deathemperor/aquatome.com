@@ -518,7 +518,8 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
           for (const f of fixed) (report.text[f] ??= []).push(`${kind}/${id}/${lang}`)
           if (kind === 'guides' && before.body !== undefined) guides.push({ key: lang === 'vi' ? id : `${id}:${lang}`, before: before.body, after: t.body! })
         }
-        if (kind === 'guides' && t.name && t.body && countMismatch(t.name, t.body)) counted.push({ file, raw, t, kind, lang, id })
+        // A title a person fixed (nameFixed) is theirs: its count stays, whatever this rule makes of the text.
+        if (kind === 'guides' && t.name && t.body && !t.nameFixed && countMismatch(t.name, t.body)) counted.push({ file, raw, t, kind, lang, id })
         if (kind === 'guides' && t.name) titled.push({ file, raw, t, lang, id, title: t.name })
       }
     }
