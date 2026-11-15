@@ -27,7 +27,7 @@
     },
     {
       "q": "Bể cầu vồng trồng dương xỉ được không?",
-      "a": "Có người vẫn giữ được dương xỉ trong bể cầu vồng, nhưng ở bể nuôi dày cá này thì dương xỉ không lên được. Bể chuyển sang ráy và lưỡi mèo, và một gợi ý là giảm khoảng 50% số cá nếu muốn giữ dương xỉ."
+      "a": "Bể cầu vồng thả dày có thể khó giữ dương xỉ, dù có người vẫn giữ được. Một bể như vậy đã chuyển sang ráy và lưỡi mèo, và một gợi ý là giảm khoảng 50% số cá nếu muốn giữ dương xỉ."
     }
   ],
   "cover": "Bể cầu vồng của Tùng cá",
@@ -43,5 +43,6 @@
     "checks": [],
     "at": "2026-11-08"
   },
-  "bodyFixed": true
+  "bodyFixed": true,
+  "faqFixed": true
 }
