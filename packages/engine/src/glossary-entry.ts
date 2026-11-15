@@ -326,7 +326,9 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     asks.write?.length ? `--- CHO MỤC NÀY ---\n${asks.write.join('\n')}` : '',
     // The term's own length, in place of the prompt's (Codex, 14 Nov 2026: the writer was never told pH's 600). As in
     // lengthNotes, it wins over the 900 and 60 a kind of a term with three kinds or more.
-    asks.length ? `--- ĐỘ DÀI ---\nKhoảng ${asks.length.words} chữ cả bài, thay cho độ dài nói ở trên.` : '',
+    // A term with kinds and its own length: each kind a line or two, as its picture shows how it looks (the Sonnet
+    // reviewer, 15 Nov 2026: the prompt's 60 words a kind would still pull the entry long).
+    asks.length ? `--- ĐỘ DÀI ---\nKhoảng ${asks.length.words} chữ cả bài, thay cho độ dài nói ở trên.${named >= 3 ? ' Mỗi loại một hai câu, vì ảnh của nó cho thấy nó trông thế nào.' : ''}` : '',
   ].filter(Boolean).map(x => `\n\n${x}`).join('')
   // A rewrite edits the draft before it: only the sentences a note quotes or points to change, every other one stays word
   // for word (the chief of staff, 14 Nov 2026: Lũa's three whole rewrites each brought fresh notes and didn't converge).

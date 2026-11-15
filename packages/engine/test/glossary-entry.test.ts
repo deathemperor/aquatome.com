@@ -307,6 +307,25 @@ test('a term\'s notes file sets its length: pH\'s 648 words get a trim pass and 
   for (const [id, a] of Object.entries(asks)) if (a.length) expect(a.length.words <= 600 || /chief of staff/.test(a.length.why), id).toBe(true)
 })
 
+// The owner, 15 Nov 2026: "what does each look like?". Nền bể names its kinds and sets its own length, 500: the writer is
+// told the 500, and that each kind takes a line or two, as its picture shows how it looks.
+test('a term with kinds and its own length tells the writer the length, and a line or two a kind', async () => {
+  const root = await site()
+  await mkdir(join(root, 'content/glossary/nen-be'), { recursive: true })
+  await writeFile(join(root, 'content/glossary/nen-be/entity.json'), JSON.stringify({ id: 'nen-be', en: 'Substrate' }))
+  await writeFile(join(root, 'content/glossary/nen-be/vi.json'), JSON.stringify({ slug: 'nen-be', name: 'Nền bể', altNames: [], sections: {}, definition: 'Lớp vật liệu phủ đáy bể.', quality: { score: 0.9, indexable: true } }))
+  const writes: string[] = []
+  const llm: Llm = async ({ prompt }) => {
+    if (prompt.startsWith('GLOSSARY RULES')) return { notes: [] } as never
+    if (isCheck(prompt)) return verdicts(prompt) as never
+    writes.push(prompt)
+    return written as never
+  }
+  await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'nen-be', { kind: 'setup' })
+  expect(writes[0]).toContain('--- ĐỘ DÀI ---\nKhoảng 500 chữ cả bài, thay cho độ dài nói ở trên. Mỗi loại một hai câu, vì ảnh của nó cho thấy nó trông thế nào.')
+  expect(writes[0]).toContain('--- LOẠI BÁN Ở VIỆT NAM ---\nđất nền (aqua soil)')
+})
+
 // Past Lũa's cap: its notes file names 17 kinds, so 1,920 words and a stop past 2,208.
 const longKinds = `<h3>Các loại lũa</h3><ul>${['Lũa linh sam', 'Lũa sa tùng', 'Mopani'].map(k => `<li><strong>${k}</strong> ${'gỗ '.repeat(800)}</li>`).join('')}</ul><p>Lũa khô nổi cho tới khi ngấm đủ nước.</p>`
 
