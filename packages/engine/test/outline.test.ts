@@ -72,6 +72,21 @@ test("an image's own address wins over its lazy ones; a placeholder file gives w
   expect(htmlToOutline(`<main><img src="${BLANK}" srcset="${BLANK} 1w" data-lazy-srcset="/big.jpg 1200w, /small.jpg 300w" width="300" alt="B"></main>`).images[0])
     .toEqual({ src: '/big.jpg', alt: 'B', width: 1200, displayWidth: 300 })
 })
+test('a real file whose name only starts like a placeholder is a photo; a stray % and a blank among the sizes break nothing', () => {
+  const one = (html: string) => htmlToOutline(`<main>${html}</main>`, undefined, PAGE).images.map(i => i.src)
+  expect(one('<img src="/up/transparent-shrimp-300x200.png" alt="a">')).toEqual(['/up/transparent-shrimp-300x200.png'])
+  expect(one('<img src="/up/Lazy-Susan.webp" alt="a">')).toEqual(['/up/Lazy-Susan.webp'])
+  expect(one('<img src="/up/pixel-shrimp.webp" data-src="/other.jpg" alt="a">')).toEqual(['/up/pixel-shrimp.webp'])
+  expect(one('<a href="/shop/x.jpg"><img src="/up/blank-tank.png" alt="a"></a>')).toEqual(['/up/blank-tank.png'])
+  expect(one('<img src="/i/pixel-1x1.png" data-src="/real.jpg" alt="a">')).toEqual(['/real.jpg'])
+  const pct = htmlToOutline('<main><p>Half off.</p><img src="/img/50%off.jpg" alt="a"></main>')
+  expect([pct.outline, pct.images.map(i => i.src)]).toEqual(['Half off.', ['/img/50%off.jpg']])
+  expect(one(`<img src="/own.jpg" srcset="${BLANK} 1w, /b.jpg 900w" alt="a">`)).toEqual(['/b.jpg'])
+  expect(one('<img src="/own.jpg" srcset="/a.jpg 600w, /i/pixel.png 1000w" alt="a">')).toEqual(['/a.jpg'])
+})
+test('a link around two blank images is neither one\'s file', () => {
+  expect(htmlToOutline(`<main><a href="/wp-content/uploads/w.jpg"><img src="${BLANK}" alt="icon"><img src="${BLANK}" alt="Mopani"></a></main>`, undefined, PAGE).images).toEqual([])
+})
 test('each photo read late keeps its own alt text and caption credit, even beside a blank that reads as none', () => {
   const figure = (file: string, alt: string, credit: string) => `<figure><a href="/wp-content/uploads/${file}"><img src="${BLANK}" alt="${alt}"></a><figcaption>${alt}. <span class="photo-credit">${credit}</span></figcaption></figure>`
   const o = htmlToOutline(`<main>${figure('malaysian.jpg', 'Malaysian driftwood', 'Photo A')}<figure><img src="${BLANK}" alt="Lost"><figcaption>Lost. <span class="photo-credit">Photo L</span></figcaption></figure>${figure('mopani.jpg', 'Mopani wood', 'Photo B')}</main>`, undefined, PAGE)

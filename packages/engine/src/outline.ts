@@ -51,10 +51,11 @@ const inProduct = (i: HTMLElement) => {
   return false
 }
 
-const linkOf = (i: HTMLElement) => {
-  for (let n = i.parentNode as HTMLElement | null; n && n.tagName; n = n.parentNode as HTMLElement | null) if (n.rawTagName?.toLowerCase() === 'a') return n.getAttribute('href')
+const anchorOf = (i: HTMLElement) => {
+  for (let n = i.parentNode as HTMLElement | null; n && n.tagName; n = n.parentNode as HTMLElement | null) if (n.rawTagName?.toLowerCase() === 'a') return n
   return undefined
 }
+const linkOf = (i: HTMLElement) => anchorOf(i)?.getAttribute('href')
 
 /** The credit line in the caption of the figure an image sits in (Seriously Fish: `<figcaption>…<span class="…credit…">`). */
 const creditOf = (i: HTMLElement) => {
@@ -68,13 +69,16 @@ const creditOf = (i: HTMLElement) => {
 
 /**
  * A page that loads its images late keeps a blank placeholder in an image's own address until its script puts the photo
- * in: Aquarium Breeder, 15 Nov 2026, whose driftwood article's four woods read as four blanks, and whose 109 guides held 36
- * photos between them. A blank is an empty address, a `data:` image, or a one-pixel or placeholder file by its name
- * ("blank.gif", "lazy-placeholder.png"). It's never the photo, and only a blank gives way: a real address is always kept
- * (the chief of staff, 15 Nov 2026).
+ * in: Aquarium Breeder, 15 Nov 2026, whose driftwood article's four woods read as four blanks. A blank is an empty address,
+ * a `data:` image, or a placeholder file by its bare name, or that name with a pixel size ("blank.gif", "pixel-1x1.png",
+ * "lazy-placeholder.png"): a real file that only starts with such a word ("transparent-shrimp.png") is a photo. It's never
+ * the photo, and only a blank gives way: a real address is always kept (the chief of staff, 15 Nov 2026).
  */
-const BLANK_FILE = /^(?:blank|spacer|pixel|1x1|transparent|placeholder|lazy|lazyload|lazy[-_]load|lazy[-_]placeholder)(?:[-_][a-z0-9]+)*\.(?:gif|png|svg|webp)$/i
-const fileName = (u: string) => decodeURIComponent(u.split(/[?#]/)[0]!.split('/').pop() ?? '')
+const BLANK_FILE = /^(?:blank|spacer|pixel|1x1|transparent|placeholder|lazy|lazyload|lazy[-_]load|lazy[-_]placeholder)(?:[-_]?\d+x\d+)?\.(?:gif|png|svg|webp)$/i
+const fileName = (u: string) => {
+  const name = u.split(/[?#]/)[0]!.split('/').pop() ?? ''
+  try { return decodeURIComponent(name) } catch { return name } // a stray "%" ("50%off.jpg") is part of the name
+}
 const blank = (u: string | undefined) => !u?.trim() || /^data:/i.test(u.trim()) || BLANK_FILE.test(fileName(u.trim()))
 const first = (i: HTMLElement, names: string[]) => names.map(n => i.getAttribute(n)).find(u => !blank(u))
 const IMAGE_FILE = /\.(jpe?g|png|webp|avif)$/i
@@ -82,11 +86,13 @@ const siteOf = (host: string) => host.toLowerCase().replace(/^www\./, '')
 /**
  * The link around a blank image, when it is the photo's own file on the page's own site (its host, or a host under its
  * domain such as its media host): never another page, a shop or a third site. Without the page's address, only a link
- * within the page's site (a relative one) is taken.
+ * within the page's site (a relative one) is taken. A link around more than one image is no one image's file, so none of
+ * them takes it (its alt text could be an icon's).
  */
 const fileLink = (i: HTMLElement, pageUrl?: string) => {
-  const l = linkOf(i)
-  if (!l) return undefined
+  const a = anchorOf(i)
+  const l = a?.getAttribute('href')
+  if (!a || !l || a.querySelectorAll('img').length !== 1) return undefined
   try {
     const page = new URL(pageUrl ?? 'https://page.invalid/')
     const to = new URL(l, page)
@@ -102,7 +108,10 @@ function pageImage(i: HTMLElement, pageUrl?: string): PageImage | null {
   const src = first(i, ['src', 'data-lazy-src', 'data-src', 'data-original']) ?? fileLink(i, pageUrl)
   const w = Number(i.getAttribute('width')) || undefined
   const h = Number(i.getAttribute('height')) || undefined
-  const set = (first(i, ['srcset', 'data-lazy-srcset', 'data-srcset']) ?? '').split(',').map(c => c.trim().split(/\s+/)).flatMap(([u, d]) => (u && !blank(u) && d?.endsWith('w') ? [{ u, w: Number.parseInt(d) }] : [])).sort((a, b) => b.w - a.w)[0]
+  // Each size on its own: a blank among them is passed over, and the first attribute with a real one is the set. A `data:`
+  // address has a comma in it, so it comes out whole before the list is split.
+  const sizes = (v: string | undefined) => (v ?? '').replace(/data:\S*/gi, '').split(',').map(c => c.trim().split(/\s+/)).flatMap(([u, d]) => (u && !blank(u) && d?.endsWith('w') ? [{ u, w: Number.parseInt(d) }] : []))
+  const set = ['srcset', 'data-lazy-srcset', 'data-srcset'].map(n => sizes(i.getAttribute(n))).find(c => c.length)?.sort((a, b) => b.w - a.w)[0]
   const alt = clean(i.getAttribute('alt') ?? '')
   if (set && (!w || set.w > w)) return { src: set.u, alt, width: set.w, ...(w ? { displayWidth: w } : {}), ...(h ? { displayHeight: h } : {}) }
   return src ? { src, alt, ...(w ? { displayWidth: w } : {}), ...(h ? { displayHeight: h } : {}) } : null
