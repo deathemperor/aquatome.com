@@ -15,8 +15,21 @@ export const authorText = (html = '') =>
 const ASSUMED = /^No machine-readable author provided\.\s*(.+?)\s+assumed \(based on copyright claims\)\.?$/i
 /** A user name from before Wikimedia's 2015 single-login merge, renamed with its wiki's: "RuthJM~commonswiki". */
 const RENAMED = /~[a-z_]*wiki\b/gi
+/**
+ * An email address, which some photographers put in their Artist field ("I'd appreciate if you could mail me (…)"). A
+ * credit is the photographer's name, and personal emails stay out of the repository (the chief of staff, 16 Nov 2026).
+ */
+const EMAIL = /[\w.%+-]+@[\w-]+(?:\.[\w-]+)+/g
+/** Where the name ends in such a field: its first bracket, comma, semicolon or dash. */
+const AFTER_NAME = /\s*[(<[,;]|\s+[-–—]\s/
 /** The user Commons names, as people know them: "RuthJM", not its placeholder sentence or its rename suffix. */
-export const tidyAuthor = (s: string) => s.replace(ASSUMED, '$1').replace(RENAMED, '').trim()
+export const tidyAuthor = (s: string) => {
+  const t = s.replace(ASSUMED, '$1').replace(RENAMED, '').trim()
+  if (!t.match(EMAIL)) return t
+  // Only the name before the rest, with no address left in it; a field with no name but the address is credited as the
+  // import credits a file with no author.
+  return t.split(AFTER_NAME)[0]!.replace(EMAIL, '').replace(/\s+/g, ' ').trim() || 'Wikimedia Commons'
+}
 
 /**
  * Wikimedia photos already in content credited as imported before tidyAuthor: each `author` beside a Wikimedia
