@@ -1104,8 +1104,9 @@ test('the leak-repair guide warns about super glue and acetone, and cites the sa
 // The chief of staff, 16 Nov 2026: the algae guide was held in Vietnamese since 11 Nov for a liquid carbon's dose and its
 // makers' products, and by hand in every language once its Thai page was found carrying the same doses. Vietnamese and
 // Thai take the Indonesian's way, in the Writing Lead's words: the liquid carbon by kind, at the dose on the label of the
-// product bought, every caution kept. All three bodies are fixed, so no rewrite brings a product's dose back where the
-// gate can't see one (it reads no dose or product outside Vietnamese), and the hand hold is lifted.
+// product bought, every caution kept. All three bodies are fixed, so a redo keeps them: the gate reads no dose or product
+// outside Vietnamese. A redo still writes the summary and FAQ fresh, from facts that name the products, so those are
+// checked here too. The hand hold is lifted.
 test('the algae guide gives the label\'s dose for liquid carbon in every language, names no product, and keeps its cautions', () => {
   const root = fileURLToPath(new URL('../../../', import.meta.url))
   const id = 'aquatome-reu-hai-trong-be-thuy-sinh-nguyen-nhan-va-cach-loai-bo'
@@ -1115,21 +1116,26 @@ test('the algae guide gives the label\'s dose for liquid carbon in every languag
   const want: Record<string, { label: string; kept: string[]; gone: string[] }> = {
     vi: {
       label: 'Theo liều ghi trên nhãn sản phẩm bạn mua',
-      kept: ['Nồng độ cao làm hao oxy, phải sục khí mạnh.', 'tuyệt đối không trộn chung', 'đeo kính và găng tay', 'Liều lớn có thể làm rữa lá Vallisneria', 'Anacharis chịu sản phẩm này đặc biệt kém', '5 ml cho mỗi 30 L'],
+      kept: ['Nồng độ cao làm hao oxy, phải sục khí mạnh.', 'tuyệt đối không trộn chung', 'rêu san hô (Riccardia) và Riccia fluitans, nên giữ thuốc tránh xa chúng', 'đeo kính và găng tay', 'không bán sản phẩm của mình như một thuốc diệt rêu', 'châm quá liều hoặc bơm thẳng lên cây có thể làm hại cây', 'Liều lớn có thể làm rữa lá Vallisneria', 'Anacharis chịu sản phẩm này đặc biệt kém', '5 ml cho mỗi 30 L'],
       gone: ['1 ml cho mỗi 50 L', '5 mL cho 40 L', '5 mL cho 200 L'],
     },
     th: {
       label: 'ตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อมา',
-      kept: ['ความเข้มข้นสูงจะดึงออกซิเจนในน้ำ', 'ห้ามผสมกันเด็ดขาด', 'ใส่แว่นตาและถุงมือ', 'ใบวาลิสเนอเรียละลาย', 'อนาคาริสไวต่อผลิตภัณฑ์นี้เป็นพิเศษ', 'ผงขจัดคราบสูตรออกซิเจน', '5 มล. ต่อปริมาตรตู้ 30 ลิตร'],
+      kept: ['ความเข้มข้นสูงจะดึงออกซิเจนในน้ำ', 'ห้ามผสมกันเด็ดขาด', 'Riccardia (มอสปะการัง) และ Riccia fluitans อย่าให้น้ำยาโดน', 'ใส่แว่นตาและถุงมือ', 'ไม่ได้ขายผลิตภัณฑ์ของตนเป็นยากำจัดตะไคร่', 'การใส่เกินขนาดหรือหยอดลงบนต้นไม้โดยตรง', 'ใบวาลิสเนอเรียละลาย', 'อนาคาริสไวต่อผลิตภัณฑ์นี้เป็นพิเศษ', '5 มล. ต่อปริมาตรตู้ 30 ลิตร'],
       gone: ['1 มล. ต่อ 50 ลิตร', '5 มล. ต่อ 40 ลิตร', '5 มล. ต่อ 200 ลิตร'],
     },
-    id: { label: 'Gunakan dosis sesuai label produk yang Anda beli', kept: ['jangan pernah dicampur'], gone: [] },
+    id: {
+      label: 'Gunakan dosis sesuai label produk yang Anda beli',
+      kept: ['Konsentrasi tinggi menghabiskan oksigen', 'jangan pernah dicampur', 'Riccardia (coral moss) dan Riccia fluitans', 'kacamata pelindung dan sarung tangan', 'tidak dipasarkan sebagai pembasmi alga', 'overdosis atau penyemprotan langsung ke tanaman', 'daun Vallisneria meleleh', 'Anacharis termasuk sangat sensitif'],
+      gone: [],
+    },
   }
   for (const [lang, w] of Object.entries(want)) {
     const t = page(lang)
     expect(t.held, lang).toBeUndefined()
     expect(t.bodyFixed, lang).toBe(true)
-    for (const name of ['Easy Carbo', 'Flourish Excel', 'Excel', 'OxiClean', ...w.gone]) expect(t.body, `${lang}: ${name}`).not.toContain(name)
+    const seen = [t.name, t.body, ...(t.summary ?? []), ...(t.faq ?? []).flatMap(f => [f.q, f.a])].join('\n')
+    for (const name of ['Easy Carbo', 'Flourish', 'Excel', 'OxiClean', 'Seachem', ...w.gone]) expect(seen, `${lang}: ${name}`).not.toContain(name)
     for (const s of [w.label, ...w.kept]) expect(t.body, `${lang}: ${s}`).toContain(s)
   }
 })
