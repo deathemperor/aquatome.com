@@ -1,4 +1,48 @@
 {
+  "vi/glossary/gh": [
+    {
+      "at": "2026-11-15T01:16:02Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Loose, reworded: \"Với loại test nhỏ giọt, lấy 5 mL nước bể rồi nhỏ thuốc từng giọt, mỗi giọt lắc một lần cho tới khi nước đổi từ cam sang xanh lá.\" → \"Với bộ test GH của API, tráng ống bằng nước bể, đổ nước bể tới vạch 5 mL rồi nhỏ thuốc từng giọt, mỗi giọt lắc một lần cho tới khi nước đổi từ cam sang xanh lá.\" (supported)",
+        "Loose, reworded: \"Muốn tăng GH thì dùng san hô vụn, khoảng 450 g cho bể 40 lít, trộn vào nền hoặc bỏ túi lưới đặt trong lọc, cứ 6–12 tháng thay một lần.\" → \"Muốn tăng GH thì dùng san hô vụn, khoảng 450 g cho bể 40 lít, trộn vào nền hoặc cho vào túi lưới, cứ 6–12 tháng thay một lần.\" (supported)",
+        "Loose, reworded: \"Bể tép thì ổn định là quan trọng nhất.\" → \"Với tép, sự ổn định được đặt lên trên gần như mọi thứ khác.\" (supported)",
+        "Rule 4: The entry says what GH measures twice. The definition says \"GH là độ cứng chung của nước, tức lượng canxi và magie hòa tan trong đó\", and the body opens with \"GH đếm các ion canxi và magie trong nước\". This should be said once, in one place."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-15T01:16:02Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Rule 4: The tip about topping off evaporated water appears twice. The causes paragraph says \"khi châm bù nước bay hơi bằng nước máy\", and the to-do list says it again as \"Châm bù nước bay hơi bằng nước RO hoặc nước cất để GH khỏi tăng dần\". It should be said once, in one place.",
+        "The entry is 515 words: hold it to about 400, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-15T01:16:02Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 0.98,
+      "notes": [
+        "\"Magie trên khoảng 10 mg/l có thể cản tép, ốc hấp thu canxi, nên muốn chắc thì đo riêng canxi bằng bộ test canxi nước ngọt.\": the facts don't carry it (unsupported, unsupported, loose): the facts don't say whose calcium uptake magnesium hinders; shrimp and snails added / facts don't say shrimp/snails' calcium uptake / calcium uptake narrowed to shrimp/snails; joins two sources",
+        "Rule 11: \"có thể dễ bùng rêu, nhất là rêu tóc\" uses \"rêu\" (moss) for algae. Per the TERMS it should be \"tảo\", e.g. \"dễ bùng tảo, nhất là tảo tóc\".",
+        "Rule 4: the number 17.9 appears twice: \"1 dGH bằng 17,9 ppm (mg/L)\" in the first paragraph and again in \"nhân với 17,9 thì ra mg/L\" in the testing step. It should be given once, in one place.",
+        "Rule 4: the advice to change water slowly is repeated in \"Nên giảm từ từ bằng những lần thay ít nước\", in \"Mỗi lần chỉ đổi một cách làm, đổi chậm, chẳng hạn thay 10% nước mỗi lần\" and in the mistake \"Đổi GH nhiều và nhanh trong bể tép\". It should be said once.",
+        "Rule 4: the advice to test GH is repeated in the definition (\"nên nuôi tép, ốc thì phải đo GH\"), in \"nên đo GH rồi hãy kết luận\" and in \"Đo GH định kỳ, đừng đoán là nó vẫn ổn\". It should be said once, in one place.",
+        "The entry is 771 words: hold it to about 400, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/glossary/lua": [
     {
       "at": "2026-11-14T04:29:50Z",
