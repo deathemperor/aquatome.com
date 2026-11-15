@@ -942,6 +942,15 @@ The layers above still check the result.
   Nov 2026 08:00, six a run, before the gate): only a volume that maps back to the table exactly, every place the page
   gives it, each part changed in its figures alone and within a tenth; a range, a size in between, inches or degrees
   stay held and are listed (the chief of staff, 2026-11-11).
+- **A held video guide's cut.** A video guide the gate holds only for sentences its read names as the source talking,
+  advice for a reader elsewhere, a foreign shop, a price or a product has those sentences cut whole by code
+  (`pnpm engine video-cut`, video-cut.ts, twelve a run in the Mac's photos part, before the units mend and the gate); a
+  "words" finding's fix goes in where it is a term for the term quoted. Each cut sentence is kept in
+  `engine-state/_video-cut.json` (guide, part, the sentence before it, the sentence, its finding), added to and never
+  rewritten, for the sentence-only mend to write the true ones back. A guide fixed by hand, one a person waits on (harm, a
+  kit, a dose), one whose saved read isn't of its text, and one a cut could break (a kept sentence reading on from a cut
+  one, a sentence before it announcing it, a dose in its paragraph, weather outdoors, more than a tenth of its words) stays
+  as it is and is listed (the chief of staff, 15 Nov 2026).
 - **One copy of each figure.** The data card holds a species' figures. Quick facts drop the items the card already has
   for that source, and the family (merge, and the page for older content); a block that states a figure the card shows
   otherwise says above itself which source it follows (`@aq/schema` card-facts). Found in a review: Cá neon vua's text

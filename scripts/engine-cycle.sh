@@ -397,6 +397,15 @@ fi
 # fish or a map taken off their page, card figures out of bounds hidden, titles promising a count their text lacks
 # rewritten (reviewer-gated) or their number dropped.
 pnpm engine sweep || log "sweep: failed"
+# A held video guide whose read names only sentences that go whole (the source talking, advice for a reader elsewhere, a
+# foreign shop, a price, a product) has them cut by code with no model, twelve guides a run, each cut sentence kept in
+# engine-state/_video-cut.json for the sentence-only mend to write the true ones back. A guide a cut could break, or one a
+# person waits on (harm, a kit, a dose), stays as it is (the chief of staff, 15 Nov 2026; video-cut.ts). The gate reads
+# each next. Before the units mend, which then takes a guide held for units alone, and in the Mac's photos part alone, as
+# the units mend is.
+if part photos; then
+  pnpm engine video-cut || log "video-cut: failed"
+fi
 # A page held for units alone: a tank converted from US gallons some other way ("115 lít") becomes the size a keeper here
 # names ("120 lít"), by code with no model, six pages a run; the gate reads each next and lets it out if it passes. It
 # starts on 13 Nov 2026 08:00, the easy-fish guide first (the chief of staff, 2026-11-11; units-mend.ts). In the Mac's
