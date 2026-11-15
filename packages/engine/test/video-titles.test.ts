@@ -84,3 +84,13 @@ test('--only makes just those titles again, kept ones included, and leaves every
   expect(seen).toEqual(['Cá A, Aus bus|Keeping Aus'])
   expect(await titles(root, 'vi')).toEqual({ ...before, 'en-a': 'mới: Keeping Aus' })
 })
+
+test("a full stop at the end comes off, but an abbreviation's dot stays (Thai 'ซม.', 'spp.')", async () => {
+  const root = await store()
+  const answers: Record<string, string> = { 'Keeping Aus': 'Nuôi cá A.', 'Aus tank tour': 'ปลาเอ 6 ซม.', 'Lamp D after 6 months': 'Hướng dẫn nuôi Farlowella spp.' }
+  await translateVideoTitles(root, model({ answer: t => answers[t] ?? t }), 'vi')
+  const vi = await titles(root, 'vi')
+  expect(vi['en-a']).toBe('Nuôi cá A')
+  expect(vi['us-a']).toBe('ปลาเอ 6 ซม.')
+  expect(vi['en-d']).toBe('Hướng dẫn nuôi Farlowella spp.')
+})

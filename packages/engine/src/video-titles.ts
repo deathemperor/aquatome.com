@@ -5,11 +5,14 @@ import { speaksPageLang, VideoTitlesSchema, type Lang } from '@aq/schema'
 import { isVietnamese } from '@aq/schema/text'
 import { LlmError, type Llm } from './claude'
 import { TARGETS, type TargetLang } from './localize'
+import { withTanks } from './round'
 
-const PROMPT = readFileSync(new URL('./prompts/video-titles.md', import.meta.url), 'utf8')
+const PROMPT = withTanks(readFileSync(new URL('./prompts/video-titles.md', import.meta.url), 'utf8'))
 const SCHEMA = { type: 'object', required: ['titles'], properties: { titles: { type: 'array', items: { type: 'object', required: ['n', 'title'], properties: { n: { type: 'number' }, title: { type: 'string' } } } } } }
 const BATCH = 40
 const THAI = /[฀-๿]/
+/** A dot that ends an abbreviation, kept when a title's full stop comes off: Thai's cm and mm, a scientific name's spp. or cf. */
+const ABBREVIATION = /(?:\b(?:spp?|ssp|var|cf|aff)|ซม|มม)\.$/
 const VI = { lang: 'Vietnamese', country: 'Vietnam', style: 'Style: plain written Vietnamese, as aquarium hobbyists in Vietnam write it: "bể", "cá", "thay nước", "cây thủy sinh". No phrasing that reads as translated from English. Say it as a keeper would, not as a book or the news.' }
 
 type Video = { youtubeId: string; title: string; lang: string }
@@ -66,7 +69,8 @@ export async function translateVideoTitles(root: string, llm: Llm, lang: Lang, o
         for (const x of r.titles ?? []) {
           const v = batch[x.n - 1]
           if (!v) continue
-          const text = x.title?.trim().replace(/\.$/, '').slice(0, 140) ?? ''
+          const raw = x.title?.trim() ?? ''
+          const text = (ABBREVIATION.test(raw) ? raw : raw.replace(/\.$/, '')).slice(0, 140)
           if (titleFits(text, v.title, lang)) { done[v.youtubeId] = text; report.titles++; report.left-- } else report.rejected.push(`${v.youtubeId}: ${v.title} -> ${text}`)
         }
         await save() // after every batch: a stopped run keeps what it finished
