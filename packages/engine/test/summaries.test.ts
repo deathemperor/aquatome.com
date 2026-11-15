@@ -174,8 +174,10 @@ async function dropLastSection(root: string) {
   await writeFile(AXEL(root), JSON.stringify({ ...page, sections: Object.fromEntries(keys.slice(0, -1).map(k => [k, page.sections[k]])) }))
 }
 const asBefore = async (root: string) => {
-  for (const { writtenFrom: _, ...s } of await readSummaries(root)) await writeFile(join(root, 'summaries', `${s.id}.json`), JSON.stringify(s))
+  for (const { writtenFrom: _, ...s } of await readSummaries(root)) await writeFile(join(root, 'summaries', `${s.id}.json`), `${JSON.stringify(s, null, 2)}\n`)
 }
+const commit = (root: string, what: string) => execSync(`git add -A && git -c user.email=t@example.com -c user.name=t -c commit.gpgsign=false commit -qm '${what}'`, { cwd: dirname(root) })
+const gitInit = (root: string) => { execSync('git init -q', { cwd: dirname(root) }); commit(root, 'summaries') }
 
 test('a page whose text changed is summarised again, though its date didn\'t move; a change outside its text is not', async () => {
   const root = await content()
@@ -195,8 +197,9 @@ test('a summary from before it kept its page\'s text: git says whether the page 
   const { llm, calls } = fake(() => OK)
   await draftSummaries(root, llm, { top: 100, now, publicBuild: false })
   await asBefore(root)
-  execSync('git init -q && git add -A && git -c user.email=t@example.com -c user.name=t -c commit.gpgsign=false commit -qm summaries', { cwd: dirname(root) })
+  gitInit(root)
   const before = new Map((await readSummaries(root)).map(s => [s.id, s.generatedAt]))
+  const innesi = join(root, 'summaries', 'paracheirodon-innesi.json'), raw = await readFile(innesi, 'utf8')
   await dropLastSection(root)
   calls.length = 0
   const later = () => new Date('2026-11-15T00:00:00Z')
@@ -204,9 +207,44 @@ test('a summary from before it kept its page\'s text: git says whether the page 
   const after = await readSummaries(root)
   expect(after.every(s => s.writtenFrom)).toBe(true)
   expect(after.filter(s => s.generatedAt !== before.get(s.id)).map(s => s.id)).toEqual(['paracheirodon-axelrodi'])
-  // Stamped: the field added, the rest of the file as it was.
-  expect(JSON.parse(await readFile(join(root, 'summaries', 'paracheirodon-innesi.json'), 'utf8'))).toEqual({ ...(await readSummaries(root)).find(s => s.id === 'paracheirodon-innesi') })
+  // Stamped: the field added at the end, the rest of the file as it was, to the character.
+  const { writtenFrom } = after.find(s => s.id === 'paracheirodon-innesi')!
+  expect(await readFile(innesi, 'utf8')).toBe(raw.replace(/\n\}\n$/, `,\n  "writtenFrom": ${JSON.stringify(writtenFrom)}\n}\n`))
   expect(calls.length).toBe(2) // one draft and its check
+}, 30_000)
+
+// Fable's read, 15 Nov 2026: the last commit to touch a summary isn't always the one that wrote it. pristella-maxillaris was
+// written 1 Nov, its page changed 2 Nov and a name fix touched the summary 7 Nov: read at the name fix, the page looked
+// unchanged, and the summary was stamped and never written again.
+test('a summary touched after its page changed, its writing date kept (a name fix), is still written again', async () => {
+  const root = await content()
+  const { llm } = fake(() => OK)
+  await draftSummaries(root, llm, { top: 100, now, publicBuild: false })
+  await asBefore(root)
+  gitInit(root)
+  await dropLastSection(root)
+  commit(root, 'the page changes')
+  const file = join(root, 'summaries', 'paracheirodon-axelrodi.json')
+  const s = JSON.parse(await readFile(file, 'utf8'))
+  await writeFile(file, `${JSON.stringify({ ...s, summary: s.summary.replace('nhỏ', 'nhỏ gọn') }, null, 2)}\n`)
+  commit(root, 'a name fix in the summary')
+  expect((await draftSummaries(root, llm, { top: 100, now, publicBuild: false })).approved).toEqual(['paracheirodon-axelrodi'])
+}, 30_000)
+
+// A run's commit rebased on main carries main's newer page beside a summary written from the page the run had: from that
+// commit alone the page looks unchanged. So a summary whose writing commit changed its page too is written again.
+test('a summary written in the same commit that changed its page is written again, from the page as it is', async () => {
+  const root = await content()
+  const { llm } = fake(() => OK)
+  await draftSummaries(root, llm, { top: 100, now, publicBuild: false })
+  await asBefore(root)
+  gitInit(root)
+  await dropLastSection(root)
+  const file = join(root, 'summaries', 'paracheirodon-axelrodi.json')
+  await writeFile(file, `${JSON.stringify({ ...JSON.parse(await readFile(file, 'utf8')), generatedAt: '2026-11-01T00:00:00.000Z' }, null, 2)}\n`)
+  commit(root, 'a run: the page and its summary')
+  expect((await draftSummaries(root, llm, { top: 100, now, publicBuild: false })).approved).toEqual(['paracheirodon-axelrodi'])
+  expect((await draftSummaries(root, llm, { top: 100, now, publicBuild: false })).approved).toEqual([])
 }, 30_000)
 
 test('without git, a summary from before it kept its page\'s text goes by the page\'s date, as before', async () => {

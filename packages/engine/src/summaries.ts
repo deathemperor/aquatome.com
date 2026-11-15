@@ -59,14 +59,21 @@ const pageHash = async (contentRoot: string, id: string) => textHash(JSON.parse(
 const git = promisify(execFile)
 /**
  * A summary with no `writtenFrom` (written before 15 Nov, or by a run on older code): its page's hash in the commit that
- * last wrote it, so a page changed since is done again. Undefined where git can't say (no repository, a summary not
- * committed yet, no page then): the date rule alone, as before.
+ * wrote it, the one its `generatedAt` first appears in. The last commit to touch the file isn't always that one: the
+ * sweep's wording, a name fix or a hand edit keep `generatedAt` (pristella-maxillaris: written 1 Nov, its page changed
+ * 2 Nov, a name fix 7 Nov; Fable's read). `due` when that commit changed the page too, as a run's commit rebased on
+ * main's newer page does: the summary may be from either page, so it is written again from the page as it is. Undefined
+ * where git can't say (no repository, a summary not committed yet, no page then): the date rule alone, as before.
  */
-async function hashWhenWritten(contentRoot: string, id: string): Promise<string | undefined> {
+async function pageWhenWritten(contentRoot: string, s: { id: string; generatedAt: string }): Promise<string | 'due' | undefined> {
   try {
-    const commit = (await git('git', ['log', '-1', '--format=%H', '--', join('summaries', `${id}.json`)], { cwd: contentRoot })).stdout.trim()
+    const file = join('summaries', `${s.id}.json`)
+    const commit = (await git('git', ['log', '-1', '--format=%H', `-S${JSON.stringify(s.generatedAt)}`, '--', file], { cwd: contentRoot })).stdout.trim()
     if (!commit) return undefined
-    return textHash(JSON.parse((await git('git', ['show', `${commit}:./${viFile(id)}`], { cwd: contentRoot, maxBuffer: 16 << 20 })).stdout))
+    const page = async (rev: string) => textHash(JSON.parse((await git('git', ['show', `${rev}:./${viFile(s.id)}`], { cwd: contentRoot, maxBuffer: 16 << 20 })).stdout))
+    const then = await page(commit)
+    const before = await page(`${commit}^`).catch(() => undefined) // a page the commit added, or the first commit: none before
+    return before !== undefined && before !== then ? 'due' : then
   } catch { return undefined }
 }
 
@@ -226,9 +233,9 @@ export async function draftSummaries(contentRoot: string, llm: Llm, opts: { top:
     const h = have.get(s.id)
     if (!h || h.speciesUpdatedAt !== s.updatedAt || (h.review === 'pending' && !h.problems)) return true
     const now = await pageHash(contentRoot, s.id)
-    const from = h.writtenFrom ?? await hashWhenWritten(contentRoot, s.id)
+    const from = h.writtenFrom ?? await pageWhenWritten(contentRoot, h)
     if (from === undefined) return false
-    if (from !== now) return true
+    if (from === 'due' || from !== now) return true
     if (!h.writtenFrom) await stamp(contentRoot, s.id, now)
     return false
   }
