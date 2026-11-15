@@ -255,7 +255,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const boxes = framed ? await stateRecord<Record<string, SubjectFractions | null>>(root, PHOTO_BOXES_FILE) : undefined
   const boxed = <P extends Photo>(p: P): P => {
     const { subject: _own, ...rest } = p
-    const f = boxes && (HAND_BOXES[p.url] ?? boxes[p.url]), subject = f && subjectPixels(f, p.width, p.height)
+    const f = framed ? HAND_BOXES[p.url] ?? boxes?.[p.url] : undefined, subject = f && subjectPixels(f, p.width, p.height)
     return subject ? { ...rest, subject } as P : _own ? rest as P : p
   }
   const caption = <P extends Photo>(p: P): P => {

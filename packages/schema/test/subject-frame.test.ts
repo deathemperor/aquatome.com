@@ -1,4 +1,4 @@
-import { cp, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -165,6 +165,10 @@ test('a box set by hand holds whatever the box step records for its photo: anoth
   expect(await subjects(Object.fromEntries(urls.map(u => [u, { x: 0, y: 0.566, w: 0.25, h: 0.4 }])))).toEqual(hand)
   expect(await subjects(Object.fromEntries(urls.map(u => [u, null])))).toEqual(hand)
   expect(await subjects({})).toEqual(hand)
+  // No record file at all (a checkout before the box step's first run): still the hand box.
+  await rm(join(site, 'engine-state', PHOTO_BOXES_FILE))
+  const none = await loadAll({ root: store, lang: 'vi', publicBuild: false, subjectFrames: true })
+  expect(Object.fromEntries(none.species.find(s => s.id === 'alpha')!.photos.filter(p => p.url in HAND_BOXES).map(p => [p.url, p.subject]))).toEqual(hand)
   // Off, no photo has a box, a hand box's included.
   const off = await loadAll({ root: store, lang: 'vi', publicBuild: false, subjectFrames: false })
   expect(off.species.find(s => s.id === 'alpha')!.photos.filter(p => p.url in HAND_BOXES).every(p => p.subject === undefined)).toBe(true)
