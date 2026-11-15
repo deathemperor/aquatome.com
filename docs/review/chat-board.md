@@ -35,3 +35,43 @@ the owner's way.
 The board ran from a checkout 178 commits behind main, so it read 13 Nov's ceilings and spent $34 that main had given
 the engine. A board step that calls a model now runs only when the checkout's ceilings are main's, and main can be
 fetched (`ceilingsAsMain`, `packages/engine/test/ceiling.test.ts`).
+
+## Board 2: the chat's model, asked the owner's way (16 Nov 2026)
+
+Our chat as on main on 15 Nov, over the live handbook with the reader still on the screen, writing with each of three
+models, against board 1's plain claude-opus-5-5. Each of the 44 held-out posts was asked as a short question with the
+tank saved. One more arm ran the chat's own prompts and tools through Claude Code on the subscription, writing with Opus
+(the chat's copy on the CLI). claude-opus-5-5 judged on 16 Nov. The real chat's answers were billed on the chat's keys:
+$7.19 on 15 Nov, then $7.52 on 16 Nov through the billed line for Opus's other 32. The judge and the CLI copy cost $22.50
+on the subscription.
+
+| Our chat writing with | Posts | Ours better | Theirs better | Tie | At least as good | Score | Mistakes an answer | Mistakes, ours less theirs (90% range) | First words, median / slowest tenth | Cost an answer | Answers a day at $50 |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Haiku 5.5 (on main now) | 44 | 2 | 38 | 4 | 14% | 5.0 v 7.4 | 2.47 v 0.48 | +1.99 (+1.64 to +2.33) | 16.6 / 24.6 s | $0.0064 | about 7,800 |
+| Sonnet 5.5 | 44 | 8 | 30 | 6 | 32% | 5.9 v 7.0 | 1.90 v 0.55 | +1.35 (+1.02 to +1.68) | 15.8 / 20.6 s | $0.099 | about 500 |
+| **Opus 5.5** | 43 | 21 | 11 | 11 | 74% (63 to 86%) | 7.0 v 6.5 | 1.06 v 0.85 | +0.21 (-0.19 to +0.62) | 19.6 / 28.1 s | $0.228 | about 220 |
+| Opus 5.5, the chat's copy on the CLI | 44 | 22 | 11 | 11 | 75% | 7.1 v 6.5 | 1.49 v 0.81 | +0.68 (+0.28 to +1.08) | 16.3 / 21.4 s | $0.148 | about 340 |
+
+Opus in the real chat, by subject:
+
+| | Posts | Ours better | Theirs better | Tie | Score | Mistakes an answer | Mistakes, ours less theirs (90% range) |
+|---|---|---|---|---|---|---|---|
+| Fish dying | 10 | 7 | 1 | 2 | 7.3 v 6.0 | 0.95 v 0.80 | +0.15 (-0.55 to +0.85) |
+| Sick fish | 10 | 1 | 5 | 4 | 6.3 v 7.3 | 1.35 v 0.35 | +1.00 (+0.30 to +1.70) |
+| Algae | 11 | 7 | 1 | 3 | 7.6 v 6.1 | 0.27 v 1.41 | -1.14 (-1.55 to -0.77) |
+| Cycling | 6 | 4 | 1 | 1 | 7.4 v 6.3 | 1.00 v 0.67 | +0.33 (-0.33 to +1.08) |
+| Stocking | 6 | 2 | 3 | 1 | 6.2 v 6.5 | 2.25 v 0.92 | +1.33 (+0.08 to +2.67) |
+
+Most of board 1's gap was the model. Writing with Opus, our chat is at least as good as plain Opus on three posts in
+four, and its mistakes are within the board's range of plain Opus's. On algae it makes fewer. Sick fish and stocking
+stay behind on every model: there our answers still make more mistakes than plain Opus's, with the range above zero.
+
+How the answers ended: Haiku wrote to its end on 22 of 44, ran out of time on 16 and reached the read cap (60,000 tokens)
+on 6. Sonnet: 22, 3 and 19. Opus: 15, 22 and 6, and one sick-fish post got no answer, no key answering for 48
+seconds; that post is left out of Opus's pairs. Each out of time still gave an answer, written in the last seconds.
+
+The tank review, one question ("is my tank all right?") on 15 saved tanks: today's chat (Haiku), with the tank, was better
+than plain Opus given only the question on all 15, scoring 6.4 v 2.6. It made 1.80 mistakes an answer against 0.30
+(+1.50, +1.00 to +2.03).
+
+Which model the chat writes with is the owner's choice.
