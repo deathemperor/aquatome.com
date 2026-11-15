@@ -28,3 +28,14 @@ test('each written title is read against its own title and the page, and a refus
   await recordRefusals(root, 'vi', r.checks)
   expect(JSON.parse(await readFile(join(root, 'content/video-titles/vi.refused.json'), 'utf8'))).toEqual({ 'en-a': 'added: "săn mồi" is the forum\'s name', zz: 'kept from before' })
 })
+
+test('a video on two pages is read against both, so a title named for one of them can\'t pass as right for the other (the editors, round 10)', async () => {
+  const root = await store()
+  await mkdir(join(root, 'content/species/b'), { recursive: true })
+  await writeFile(join(root, 'content/species/b/entity.json'), JSON.stringify({ scientificName: 'Bus cus', videos: [{ youtubeId: 'en-b', title: 'Aus tank tour', durationSec: 60, lang: 'en' }] }))
+  await writeFile(join(root, 'content/species/b/vi.json'), JSON.stringify({ name: 'Cá B' }))
+  const seen: string[] = []
+  const llm: Llm = async <T>({ prompt }: { prompt: string }) => { seen.push(prompt.split('\n\n').at(-1)!.trim()); return { checks: [] } as T }
+  await checkVideoTitles(root, llm, 'vi', { 'en-b': 'Tham quan bể cá A' })
+  expect(seen[0]).toBe('1. [Cá A, Aus bus | Cá B, Bus cus] Aus tank tour\n   Vietnamese: Tham quan bể cá A')
+})

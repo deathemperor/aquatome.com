@@ -29,8 +29,11 @@ export async function checkVideoTitles(root: string, llm: Llm, lang: Lang, title
       const name = t.name ?? e?.name ?? id
       for (const v of e?.videos ?? e?.reviews?.videos ?? []) {
         const written = titles[v.youtubeId]
-        if (!written || rows.has(v.youtubeId) || speaksPageLang(v, lang) || (o.only && !o.only.includes(v.youtubeId))) continue
-        rows.set(v.youtubeId, { youtubeId: v.youtubeId, title: v.title, written, about: e?.scientificName ? `${name}, ${e.scientificName}` : name })
+        if (!written || speaksPageLang(v, lang) || (o.only && !o.only.includes(v.youtubeId))) continue
+        // Every page the video sits on, so a title named for one of them can't pass as right for all (the editors, round 10).
+        const page = e?.scientificName ? `${name}, ${e.scientificName}` : name
+        const row = rows.get(v.youtubeId)
+        if (row) { if (!row.about.split(' | ').includes(page)) row.about += ` | ${page}` } else rows.set(v.youtubeId, { youtubeId: v.youtubeId, title: v.title, written, about: page })
       }
     }
   }
