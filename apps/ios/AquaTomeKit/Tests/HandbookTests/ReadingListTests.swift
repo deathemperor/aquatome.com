@@ -8,6 +8,8 @@ import Testing
   #expect(r.recent == ["/a/", "/b/"])
   for n in 0..<600 { r.read("/p\(n)/") }
   #expect(r.recent.count == ReadingList.recentMax && r.recent.first == "/p599/" && !r.recent.contains("/a/"))
+  // The oldest go: the 500 kept run from the last read back to the 100th.
+  #expect(r.recent.last == "/p100/")
 }
 
 /// A list kept when the app kept 20 comes back whole and grows past 20: nobody's pages read last are lost.

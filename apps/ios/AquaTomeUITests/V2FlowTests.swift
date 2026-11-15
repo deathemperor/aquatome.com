@@ -1429,17 +1429,41 @@ final class V2FlowTests: XCTestCase {
     app.openTab("Khám phá")
     let title = app.staticTexts["Đọc gần đây"]
     XCTAssertTrue(title.waitForExistence(timeout: 5), "no Đọc gần đây")
-    XCTAssertTrue(app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá quen 35")).firstMatch.exists, "the last read isn't first")
+    // A fish by its name alone, as a row reads it ("Cá quen 1, Genus…"): "Cá quen 1" isn't "Cá quen 10".
+    func fish(_ name: String, in q: XCUIElementQuery) -> XCUIElement {
+      q.matching(NSPredicate(format: "label == %@ OR label BEGINSWITH %@", name, name + ",")).firstMatch
+    }
+    let newest = fish("Cá quen 35", in: app.buttons)
+    XCTAssertTrue(newest.exists, "the last read isn't first")
+    // The row, paged to its end a column at a time: its 30th is the 6th read, and the 5th isn't in it. Its three rows of
+    // cards, by height, from the first; the shelves below hold the fish the row doesn't.
+    let y = newest.frame.midY, top = newest.frame.minY - 4, bottom = newest.frame.minY + 3 * (newest.frame.height + 12)
+    func inRow(_ e: XCUIElement) -> Bool { e.exists && e.frame.midY > top && e.frame.midY < bottom }
+    let thirtieth = fish("Cá quen 6", in: app.buttons)
+    let shown = { inRow(thirtieth) && app.frame.contains(thirtieth.frame) }
+    for _ in 0..<14 where !shown() {
+      app.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: app.frame.width * 0.85, dy: y))
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: app.frame.width * 0.15, dy: y)),
+               withVelocity: .default, thenHoldForDuration: 0.1)
+    }
+    XCTAssertTrue(shown(), "the row doesn't reach its 30th, the 6th read")
+    XCTAssertFalse(inRow(fish("Cá quen 5", in: app.buttons)), "a 31st in the row")
     let more = app.buttons.matching(NSPredicate(format: "label == %@", "Xem tất cả")).allElementsBoundByIndex
       .first { abs($0.frame.midY - title.frame.midY) < 30 }
     XCTAssertNotNil(more, "no Xem tất cả beside Đọc gần đây")
     more?.tap()
     let list = app.descendants(matching: .any)["recent"]
     XCTAssertTrue(list.waitForExistence(timeout: 5), "its list didn't open")
-    XCTAssertTrue(app.staticTexts["Cá quen 35"].waitForExistence(timeout: 5), "the last read isn't on the list")
+    let rows = list.descendants(matching: .any).matching(identifier: "item")
+    XCTAssertTrue(rows.firstMatch.waitForExistence(timeout: 5), "an empty list")
+    // Newest first, from the top.
+    let firstThree = rows.allElementsBoundByIndex.filter { app.frame.contains($0.frame) }.sorted { $0.frame.minY < $1.frame.minY }
+      .prefix(3).map { $0.label.components(separatedBy: ",")[0] }
+    XCTAssertEqual(firstThree, ["Cá quen 35", "Cá quen 34", "Cá quen 33"], "the list isn't newest first")
     // Past the row's 30: the first one read, the 35th from the newest.
-    for _ in 0..<8 where !app.staticTexts["Cá quen 1"].exists { list.swipeUp() }
-    XCTAssertTrue(app.staticTexts["Cá quen 1"].exists, "the list stops short of what's kept")
+    let first = fish("Cá quen 1", in: rows)
+    for _ in 0..<8 where !first.exists { list.swipeUp() }
+    XCTAssertTrue(first.exists, "the list stops short of what's kept")
   }
 
   /// A page just opened (`opened` comes), read down to its end: nowhere a row to v1's whole page.
