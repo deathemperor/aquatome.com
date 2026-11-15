@@ -167,6 +167,18 @@ export function glossaryParts(lang: Lang, c: Content, g: Localized<GlossaryEntit
   return { otherNames, definition, material, photo: photos[0], album, body, related, refs: g.refs ?? [], guides, fish, plants, total: usedCount(uses), more, treat }
 }
 
+/**
+ * A photo's caption in a term's photo row, for the page and the app's copy alike: a kind's name, then the rest of its own
+ * caption where that opens with the name (in any case), else all of it; a term's photo, its caption.
+ */
+export function albumCaption(lang: Lang, a: { photo: Photo; name?: string }): { name?: string; rest?: string } {
+  const caption = a.photo.caption
+  if (!a.name) return caption ? { rest: caption } : {}
+  const locale = LANG[lang].locale
+  const rest = caption?.toLocaleLowerCase(locale).startsWith(a.name.toLocaleLowerCase(locale)) ? caption.slice(a.name.length).replace(/^[\s:–-]+/, '') : caption
+  return rest ? { name: a.name, rest } : { name: a.name }
+}
+
 /** The rows a term's page shows of the pages that use it, each kind's, and whether a search finds the rest (USED_IN_ROWS). */
 export function usedRows<G, U>(p: { guides: G[]; fish: U[]; plants: U[]; total: number }) {
   const all = p.total <= USED_IN_ALL

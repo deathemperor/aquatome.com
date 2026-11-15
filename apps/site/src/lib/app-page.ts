@@ -14,7 +14,7 @@ import { cardRows } from './card-rows'
 import { nameAndSci, sciBeside } from './sci'
 import { FIELD_LABELS, fmt, GUIDE_KIND_LABELS } from './format'
 import { galleryNote } from './gallery'
-import { glossaryParts, USED_IN_SHOWN } from './glossary-page'
+import { albumCaption, glossaryParts, USED_IN_SHOWN } from './glossary-page'
 import { guideParts } from './guide-page'
 import { cleanPhoto } from './home'
 import { appLinks, appPath, isVietnamese, served, translator, type Lang, type T } from './i18n'
@@ -353,6 +353,11 @@ export function glossaryDoc(lang: Lang, c: Content, g: Localized<GlossaryEntity>
       ...(p.definition ? proseBlocks(lang, `<p>${p.definition}</p>`).blocks : []),
       ...(p.material ? [{ t: 'p' as const, c: [{ text: p.material.text, href: appPath(lang, p.material.href) }] }] : []),
       ...(p.photo && image(lang, p.photo, p.photo.caption) ? [{ t: 'figure' as const, img: image(lang, p.photo, p.photo.caption)!, ...(p.photo.caption ? { caption: [p.photo.caption] } : {}) }] : []),
+      // The rest of its photos and its kinds' (each named), as the page's row has them, one figure each.
+      ...p.album.flatMap(a => {
+        const img = image(lang, a.photo, a.photo.caption ?? a.name), { name, rest } = albumCaption(lang, a), caption = [name, rest].filter(Boolean).join(': ')
+        return img ? [{ t: 'figure' as const, img, ...(caption ? { caption: [caption] } : {}) }] : []
+      }),
       ...(p.treat ? [{ t: 'p' as const, c: [{ text: p.treat.text, href: appPath(lang, p.treat.href) }] }] : []),
       ...(p.body ? proseBlocks(lang, p.body).blocks : []),
       ...pagesBlock(lang, listed, t('Xem thêm'), p.related.map(r => `/vi/thuat-ngu/${r.t.slug}/`), p.related.length),

@@ -13,7 +13,7 @@ import { creditsFor } from '../../lib/credits'
 import { fmt } from '../../lib/format'
 import { smallSrc, tileFrame } from '../../lib/img'
 import { guideImages } from '../../lib/mentions'
-import { bodySections, glossaryParts, termTitle, tipLine, usedPictures, usedRows } from '../../lib/glossary-page'
+import { albumCaption, bodySections, glossaryParts, termTitle, tipLine, usedPictures, usedRows } from '../../lib/glossary-page'
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const c = await getContent(langOf(routePattern))
   return c.glossary.map(g => ({ params: { slug: g.t.slug }, props: { g } }))
@@ -53,13 +53,11 @@ const REFS_SHOWN = 5
   {p.photo && <Fragment set:html={figureHtml(lang, { photo: p.photo, label: p.photo.caption })} />}
   {p.album.length > 0 && (
     <ul class="album">{p.album.map(a => {
-      // A kind's photo is captioned with its kind's name first; its own caption, where it opens with that name, after it.
-      const opens = a.name && a.photo.caption?.toLocaleLowerCase(lang).startsWith(a.name.toLocaleLowerCase(lang))
-      const rest = opens ? a.photo.caption!.slice(a.name!.length).replace(/^[\s:–-]+/, '') : a.photo.caption
+      const { name, rest } = albumCaption(lang, a)
       return (
         <li><figure>
           <a href={a.photo.url} tabindex="-1"><img src={smallSrc(a.photo)} width={a.photo.width} height={a.photo.height} alt={a.photo.caption ?? a.name ?? g.t.name} loading="lazy" decoding="async" /></a>
-          <figcaption>{a.name && <strong>{a.name}</strong>}{rest && <span>{rest}</span>}</figcaption>
+          <figcaption>{name && <strong>{name}</strong>}{rest && <span>{rest}</span>}</figcaption>
         </figure></li>
       )
     })}</ul>
