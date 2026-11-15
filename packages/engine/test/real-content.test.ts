@@ -3,7 +3,7 @@ import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
-import { GALLERY_POST, LANGS, loadAll, mayPublish, RETIRED_GUIDES, resolveDataCard, tankKeywordFits, WRITTEN_LANGS, type Translation } from '@aq/schema'
+import { GALLERY_POST, LANGS, loadAll, mayPublish, RETIRED_GUIDES, resolveDataCard, slugify, tankKeywordFits, WRITTEN_LANGS, type Translation } from '@aq/schema'
 import { checkPages, photoCaptions, RATCHETED, ratcheted, refCredits, RULES, SWEPT_KINDS, thanksLines } from '../src/content-rules'
 import { englishOf } from '../src/english'
 import { tilapiaUnnamed } from '../src/kind-words'
@@ -531,8 +531,12 @@ const FOLDS: [string, string, string, string][] = [
   ['hyphessobrycon-pyrrhonotus', 'notes', 'https://www.aquariumglaser.de/en/fisharchive/hyphessobrycon-pyrrhonotus-juvenile/', 'en-fisharchive-hyphessobrycon-pyrrhonotus-juvenile.md'],
   ['cichla-ocellaris', 'notes', 'https://www.aquariumglaser.de/en/general/cichla-ocellaris-x-melaniae-hybrid-2/', 'en-general-cichla-ocellaris-x-melaniae-hybrid-2.md'],
   ['protopterus-dolloi', 'behaviour', 'https://www.aquariumglaser.de/en/29-lungfishes/lungfishes-from-the-congo/', 'en-29-lungfishes-lungfishes-from-the-congo.md'],
+  ['protopterus-annectens', 'behaviour', 'https://www.aquariumglaser.de/en/29-lungfishes/lungfishes-from-the-congo/', 'en-29-lungfishes-lungfishes-from-the-congo.md'],
   ['distichodus-sexfasciatus', 'notes', 'https://www.aquariumglaser.de/en/32-all-the-rest/congo_importation_arrived__en/', 'en-32-all-the-rest-congo-importation-arrived-en.md'],
   ['pelvicachromis-rubrolabiatus', 'dimorphism', 'https://www.aquariumglaser.de/en/32-all-the-rest/finally_an_import_from_guinea__en/', 'en-32-all-the-rest-finally-an-import-from-guinea-en.md'],
+  ['thoracocharax-stellatus', 'notes', 'https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/thoracocharax-stellatus-gasteropelecus-maculatus-jumbo-carnegiella-myersi-carnegiella-strigata-2/', 'en-09-characoids-tetra-relationship-thoracocharax-stellatus-gasteropelecus-maculatus-jumbo-carnegiella-myersi-carnegiella-strigata-2.md'],
+  ['carnegiella-myersi', 'dimorphism', 'https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/thoracocharax-stellatus-gasteropelecus-maculatus-jumbo-carnegiella-myersi-carnegiella-strigata-2/', 'en-09-characoids-tetra-relationship-thoracocharax-stellatus-gasteropelecus-maculatus-jumbo-carnegiella-myersi-carnegiella-strigata-2.md'],
+  ['acanthicus-adonis', 'notes', 'https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/huge_acanthicus_adonis_arrived__en/', 'en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-huge-acanthicus-adonis-arrived-en.md'],
 ]
 test('each seller notice\'s lasting fact is on its fish\'s page as the build shows it, cited to the notice, in its own sentences, and fixed', async () => {
   const root = fileURLToPath(new URL('../../../content', import.meta.url))
@@ -545,11 +549,50 @@ test('each seller notice\'s lasting fact is on its fish\'s page as the build sho
     expect(part, `${fish} ${key}`).toBeDefined()
     expect(part!.fixed, fish).toBe(true)
     expect(page!.t.sections[`${key}:glaser`], fish).toMatch(/^<p>.+<\/p>$/)
+    // Credited to the dealer by the page's references, never named in a sentence (the page read's rule; the Writing Lead,
+    // 15 Nov 2026).
+    expect(page!.t.sections[`${key}:glaser`], fish).not.toMatch(/Glaser/)
     // Every English sentence is the notice's own, word for word.
     const said = words(readFileSync(join(root, '../sources/glaser', file), 'utf8'))
     for (const sentence of words(part!.html).split(/(?<=[.!?])\s+/)) expect(said, `${fish}: "${sentence}"`).toContain(sentence.replace(/[.!?]$/, ''))
   }
 }, slow(300_000)) // the real content loaded once, as the build does
+
+// The seller notices kept as guides (the Writing Lead, 15 Nov 2026): cut, a sentence of the dealer's own kept under the
+// dealer's name, and fixed, so no rewrite brings a stock line back; the two whose titles announced an arrival renamed from
+// the notice's own facts, the old address forwarding.
+// The Cichla hybrid notice's lasting line (the Writing Lead, 15 Nov 2026): the genus grown from five species to 15, on C.
+// ocellaris's dealer part, where the wild-hybrids line is; not the dealer's own hybrids' looks, nor the genus's record size.
+test('C. ocellaris\'s dealer notes say the genus grew from five species to 15, and give no second size', () => {
+  const dir = fileURLToPath(new URL('../../../content/species/cichla-ocellaris', import.meta.url))
+  const en = (JSON.parse(readFileSync(join(dir, 'entity.json'), 'utf8')) as { sections: { key: string; source: string; html: string }[] }).sections.find(s => s.key === 'notes' && s.source === 'glaser')!.html
+  const vi = (JSON.parse(readFileSync(join(dir, 'vi.json'), 'utf8')) as Translation).sections!['notes:glaser']!
+  expect(en).toContain('The 5 species known until then have become 15 species.')
+  expect(vi).toContain('chỉ có 5 loài được biết đến, nay đã thành 15 loài')
+  expect(`${en} ${vi}`).not.toMatch(/80|100 cm|intermediate|trung gian/)
+})
+
+// The lungfish notice's bites (the Writing Lead, 15 Nov 2026): on P. annectens's page, the site having no P. aethiopicus
+// page, hedged as the notice is ("often", "it seems").
+test('P. annectens\'s dealer part says its bites often seem a mistake for food, hedged as the notice is', () => {
+  const vi = (JSON.parse(readFileSync(fileURLToPath(new URL('../../../content/species/protopterus-annectens/vi.json', import.meta.url)), 'utf8')) as Translation).sections!['behaviour:glaser']
+  expect(vi).toBe('<p>Ở P. aethiopicus và P. annectens, nhiều khi cá cắn nhau có vẻ chỉ là đớp nhầm vì tưởng mồi.</p>')
+})
+
+test('the seller notices kept as guides say nothing of the dealer\'s stock, and the two renamed forward', () => {
+  const dir = fileURLToPath(new URL('../../../content/guides', import.meta.url))
+  const kept: [string, string?, string?][] = [
+    ['glaser-en-08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc-labeo-parvus-and-l-barbatus-en'],
+    ['glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-l167-arrived-en', 'Cá L167: loài Cochliodon ăn gỗ từ Rio Negro', 'ca-l167-da-duoc-nhap-ve'],
+    ['glaser-en-10-catfishes-10c-catfishes-remaining-catfish-from-south-america-astroblepus-from-peru-imported-en', 'Cá Astroblepus: họ hàng không có giáp của các loài cá L', 'ca-da-tron-astroblepus-tu-peru-lan-dau-duoc-nhap-khau'],
+  ]
+  for (const [id, name, was] of kept) {
+    const t = JSON.parse(readFileSync(join(dir, id, 'vi.json'), 'utf8')) as Translation & { redirectFrom?: { slug: string; name: string }[] }
+    expect(t.bodyFixed, id).toBe(true)
+    expect(t.body, id).not.toMatch(/chúng tôi|khách hàng|hàng tồn kho|bán buôn|có hàng trở lại|đang có|Đợt này|lần đầu tiên|Lô cá này|Văn bản và ảnh|Glaser|nhập về đến giờ/iu)
+    if (name) expect([t.name, t.nameFixed, t.slug, t.redirectFrom], id).toEqual([name, true, slugify(name), [{ slug: was, name: '' }]])
+  }
+})
 
 test('every guide taken off for good is one the content has, and forwards to a page it has', () => {
   const content = fileURLToPath(new URL('../../../content', import.meta.url))
@@ -557,7 +600,7 @@ test('every guide taken off for good is one the content has, and forwards to a p
     expect(existsSync(join(content, 'guides', id, 'vi.json')), id).toBe(true)
     if (to !== 'guides') expect(existsSync(join(content, to.kind, to.id, 'vi.json')), `${id} → ${to.kind}/${to.id}`).toBe(true)
   }
-  expect(Object.keys(RETIRED_GUIDES)).toHaveLength(24)
+  expect(Object.keys(RETIRED_GUIDES)).toHaveLength(30)
   expect(readdirSync(join(content, 'guides')).filter(id => GALLERY_POST.test(id)).length).toBeGreaterThanOrEqual(66)
 })
 
