@@ -34,7 +34,7 @@ const unescape = (s: string) => s.replace(/&lt;/g, '<').replace(/&gt;/g, '>')
  * sometimes a street address> (<coordinates>)"): not a credit, and a street address may be someone's home (the chief
  * of staff, 16 Nov 2026). The credit ends where it starts.
  */
-const PLACE = /\s*\bDepicted place:[\s\S]*$/i
+const PLACE = /\s*Depicted place:[\s\S]*$/i
 /** The user Commons names, as people know them: "RuthJM", not its placeholder sentence or its rename suffix. */
 export const tidyAuthor = (s: string) => {
   const t = s.replace(PLACE, '').replace(ASSUMED, '$1').replace(RENAMED, '').trim()

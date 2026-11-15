@@ -91,6 +91,10 @@ const place = 'Depicted place: 1 Example Road, Sampletown, ST 00000, Nowhere (1Â
 test("where a Commons photo was taken is no part of its credit: the name before Commons' place line stays", () => {
   // As an Artist field reads when Commons adds the place after the name (three crayfish albums, 16 Nov 2026).
   expect(authorText(`<a href="https://www.inaturalist.org/people/1">A. Photographer</a> ${place}`)).toBe('A. Photographer')
+  // Commons' own shape (the name and the place in paragraphs of their own), and the label glued to the name once the
+  // tags come off (a reader's catch, 16 Nov 2026).
+  expect(authorText(`<p><a href="https://www.inaturalist.org/people/1">A. Photographer</a></p>\n<p>${place}</p>`)).toBe('A. Photographer')
+  expect(authorText(`<a href="https://www.inaturalist.org/people/1">A. Photographer</a><br><b>Depicted place</b>${place.slice('Depicted place'.length)}`)).toBe('A. Photographer')
   expect(tidyAuthor(`A. Photographer ${place}`)).toBe('A. Photographer')
   expect(tidyAuthor(`photographer ${place.replace('Depicted', 'depicted')}`)).toBe('photographer')
   expect(tidyAuthor(place)).toBe('Wikimedia Commons')
