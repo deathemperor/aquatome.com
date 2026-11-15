@@ -1,5 +1,5 @@
 {
   "eyebrow": "Thiết bị",
-  "title": "Đèn Chihiros WRGB II Slim mất điện thì lịch bật tắt chạy sai giờ",
-  "body": "<p>AquaTome thử trên đèn Chihiros WRGB II Slim, firmware 24, thấy hễ mất điện là đồng hồ trong đèn quay về 0. Lịch bật tắt đã lưu chạy theo chính đồng hồ này, nên đèn sẽ bật tắt sai giờ. Trong lần thử, đồng hồ chỉ đúng lại sau khi được chỉnh giờ. AquaTome chưa thử các dòng Chihiros khác, hay WRGB II Slim chạy firmware khác.</p>"
+  "title": "Đèn Chihiros WRGB II Slim: sau khi mất điện, đồng hồ trong đèn về 0",
+  "body": "<p>AquaTome thử trên đèn Chihiros WRGB II Slim, firmware 24: sau một lần mất điện, đồng hồ trong đèn về 0, và chỉ đúng lại khi được chỉnh giờ. Lịch bật tắt lưu trong đèn chạy theo đồng hồ này, nên đèn có thể bật tắt sai giờ cho đến lúc đó. AquaTome chưa thử các dòng Chihiros khác, hay WRGB II Slim chạy firmware khác.</p>"
 }
