@@ -154,3 +154,30 @@ test('a term\'s rows show no picture twice: a row whose picture the page shows a
   expect(r.fish).toEqual([null, null]) // the term's own photo is above them; b went to the second guide
   expect(r.plants).toEqual([plant])
 })
+
+// The chief of staff, 15 Nov 2026, on the live pages at 18:12: lá bàng held two photos and its page drew the first only,
+// and Lũa's bonsai and cholla, each a kind's photo, showed nowhere. A term's page shows every photo it holds, none twice:
+// each kind's photo (its kind named in the entry) claims first, captioned with its name, in the term's photo row until
+// the kinds row; the term's own photo is its first no kind holds; its other photos follow in the row.
+test('a term\'s page shows every photo it holds: its first under the title, the rest and its kinds\' photos, named, in a row, none twice', async () => {
+  const c = await getContent('vi')
+  const leaf = c.glossary.find(x => x.id === 'la-bang')!
+  expect(leaf.photos?.length).toBeGreaterThan(1)
+  const p = glossaryParts('vi', c, leaf)
+  expect([p.photo, ...p.album.map(a => a.photo)]).toEqual(leaf.photos)
+  expect(p.album.every(a => a.name === undefined)).toBe(true)
+  const lua = c.glossary.find(x => x.id === 'lua')!
+  const kinds = new Map((lua.kinds ?? []).map(k => [k.id, k.photo]))
+  expect([...kinds.keys()]).toEqual(expect.arrayContaining(['lua-bonsai', 'lua-cholla']))
+  const q = glossaryParts('vi', c, lua)
+  expect(q.photo).toEqual(lua.photos?.[0])
+  expect(q.album).toEqual(expect.arrayContaining([{ photo: kinds.get('lua-bonsai'), name: 'Lũa bonsai' }, { photo: kinds.get('lua-cholla'), name: 'Lũa cholla' }]))
+  // A kind's photo that is also the term's: shown once, as the kind's; the term opens on its next photo.
+  const shared = term({ ...lua, photos: [kinds.get('lua-bonsai')!, ...(lua.photos ?? [])] }, {})
+  const r = glossaryParts('vi', c, shared)
+  expect(r.photo).toEqual(lua.photos?.[0])
+  expect([r.photo, ...r.album.map(a => a.photo)].filter(x => x?.url === kinds.get('lua-bonsai')!.url)).toHaveLength(1)
+  // A kind the entry doesn't name has no name to show beside its photo: left out, as the engine reports it.
+  const unnamed = glossaryParts('vi', c, { ...lua, kinds: [{ id: 'lua-khong-co', photo: kinds.get('lua-cholla')! }] })
+  expect(unnamed.album.map(a => a.photo.url)).not.toContain(kinds.get('lua-cholla')!.url)
+})
