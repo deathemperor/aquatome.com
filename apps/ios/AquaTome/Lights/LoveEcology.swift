@@ -97,8 +97,11 @@ extension BluetoothLampAir: @preconcurrency CBPeripheralManagerDelegate {
 /// The simulator has no Bluetooth to broadcast with. `-fake-lamp-off`: Bluetooth is off. `-fake-lamp-late-first
 /// <seconds>`: the first start answers that late, as one waiting on Bluetooth might.
 @MainActor
+@Observable
 final class FakeLampAir: LampAir {
-  private var starts = 0
+  /// The broadcasts started, the card's and the master button's, for the UI tests: kept by the phone's one broadcaster,
+  /// whatever becomes of the card.
+  private(set) var starts = 0
 
   func start(_ uuids: [String], done: @escaping @MainActor (LampAirError?) -> Void) {
     let args = ProcessInfo.processInfo.arguments

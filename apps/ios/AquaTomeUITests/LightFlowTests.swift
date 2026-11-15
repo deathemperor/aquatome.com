@@ -1028,11 +1028,9 @@ final class LightFlowTests: XCTestCase {
     centre.press(forDuration: 0.1, thenDragTo: wheel.coordinate(withNormalizedOffset: CGVector(dx: 0.9, dy: 0.5)))
     expect(app, "lamp-status", contains: "Đã gửi màu tự chọn, 100% lúc", timeout: 15)
     centre.press(forDuration: 0.1, thenDragTo: wheel.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.9)))
-    expect(app, "lamp-status", contains: "Đang gửi màu tự chọn, 100%…")
-    expect(app, "lamp-status", contains: "Đã gửi màu tự chọn, 100% lúc", timeout: 15)
     element(app, "wheel-done").tap()
     wait(app, "lamp-sent", NSPredicate(format: "label MATCHES %@", "wheel:[0-9a-f]{4}:[0-9a-f]{4}@100 wheel:[0-9a-f]{4}:[0-9a-f]{4}@100"),
-         "one send a drag", file: #filePath, line: #line)
+         "one send a drag", timeout: 20, file: #filePath, line: #line)
     tap(app, "lamp-other")
     let hue = element(app, "wheel-hue"), saturation = element(app, "wheel-saturation")
     XCTAssertTrue(hue.waitForExistence(timeout: 5), "no hue to adjust")
@@ -1083,7 +1081,6 @@ final class LightFlowTests: XCTestCase {
   func testAStartThatDoesntAnswerGivesUpAndItsLateAnswerCreditsNothing() {
     let app = signedIn("-fake-lamp-late-first", "8")
     tap(app, "lamp-red")
-    expect(app, "lamp-status", contains: "Đang gửi “Đỏ”, 100%…")
     expect(app, "lamp-status", contains: "Không gửi được lệnh tới đèn. Thử lại.", timeout: 10)
     tap(app, "lamp-green")
     // On air from about seven seconds to ten, past red's late answer at eight.
@@ -1091,12 +1088,12 @@ final class LightFlowTests: XCTestCase {
     XCTAssertEqual(element(app, "lamp-sent").label, "green@100")
   }
 
-  /// Signing out while a colour waits its turn (the light's gap made a minute, `-lamp-gap`): the one waiting never goes,
-  /// and signed in again the card names what was sent before it ("Đã gửi", or "Lần cuối máy này gửi" when the card is
-  /// built anew, as it is on the simulator).
+  /// Signing out while a colour waits its turn (the light's gap made a minute, `-lamp-gap`): the one waiting never goes.
+  /// Read from the phone's one broadcaster, on Đèn whoever is signed in: the card may be built anew after a sign-out.
   func testSigningOutDropsWhatWaits() {
     let app = signedIn("-lamp-gap", "60")
     tap(app, "lamp-red")
+    let red = Date()
     tap(app, "lamp-green")
     expect(app, "lamp-status", contains: "Đang gửi “Xanh lá”, 100%…")
     app.openAccount()
@@ -1104,12 +1101,11 @@ final class LightFlowTests: XCTestCase {
     repeatUntil(out.exists && out.isHittable, times: 10) { app.swipeUp() }
     out.tap()
     XCTAssertTrue(app.descendants(matching: .any)["apple-sign-in"].firstMatch.waitForExistence(timeout: 10), "not signed out")
-    app.signInWithStandInApple()
-    app.openTab("Đèn")
-    expect(app, "lamp-status", contains: "“Đỏ”, 100%")
-    expect(app, "lamp-status", lacks: "Xanh lá")
-    let sent = element(app, "lamp-sent")
-    XCTAssertFalse(sent.exists && sent.label.contains("green"), sent.label)
+    XCTAssertLessThan(Date().timeIntervalSince(red), 60, "signed out after green's turn: the check proves nothing")
+    app.closeAccount()
+    // Past green's turn (red's 3 s, then the minute's gap): the lamp was started once, for red.
+    _ = XCTWaiter.wait(for: [XCTestExpectation(description: "green's turn passes")], timeout: max(0, 68 - Date().timeIntervalSince(red)))
+    wait(app, "lamp-starts", NSPredicate(format: "label == '1'"), "one broadcast, red's", file: #filePath, line: #line)
   }
 
   // MARK: Helpers

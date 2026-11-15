@@ -57,6 +57,10 @@ struct LightsView: View {
       .background {
         // The frames sent, for the UI tests to read (debug builds only).
         Text(verbatim: lights.sentFrames.joined(separator: " | ")).font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("frames")
+        // The Love Ecology lamp's broadcasts started on the simulator, the card's shown or not.
+        #if targetEnvironment(simulator)
+        Text(verbatim: "\((LampRadio.air as? FakeLampAir)?.starts ?? 0)").font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("lamp-starts")
+        #endif
       }
       #endif
     }
