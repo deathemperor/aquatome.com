@@ -81,10 +81,13 @@ struct MasterCard: View {
   private func running(_ run: MasterRun) -> some View {
     TimelineView(.periodic(from: run.started, by: 1)) { context in
       VStack(alignment: .leading, spacing: 8) {
-        HStack(alignment: .firstTextBaseline) {
-          Text(verbatim: master.button?.name ?? MasterModel.defaultName).font(.title3.weight(.semibold))
-          Spacer()
-          Text("Đang chạy").font(.subheadline)
+        // Side by side while both fit on one line; at the larger text the name on its own line, "Đang chạy" under it (the
+        // board; the Design Lead, 15 Nov).
+        let name = Text(verbatim: master.button?.name ?? MasterModel.defaultName).font(.title3.weight(.semibold))
+        let state = Text("Đang chạy").font(.subheadline)
+        ViewThatFits(in: .horizontal) {
+          HStack(alignment: .firstTextBaseline) { name; Spacer(); state }
+          VStack(alignment: .leading, spacing: 4) { name; state }
         }
         VStack(alignment: .leading, spacing: 0) {
           if let left = run.left(at: context.date) {

@@ -163,6 +163,7 @@ final class MasterFlowTests: XCTestCase {
     // The ask's own button: "Xóa nút" alone also finds the row that opened it.
     let delete = app.buttons["master-delete-yes"].firstMatch
     XCTAssertTrue(delete.waitForExistence(timeout: 5), "deleting doesn't ask")
+    shoot("delete-ask")
     delete.tap()
     XCTAssertTrue(element(app, "master-create").waitForExistence(timeout: 10), "not deleted")
   }
@@ -190,6 +191,12 @@ final class MasterFlowTests: XCTestCase {
     shoot("running-\(name)")
     tap(app, "master-end")
     XCTAssertTrue(element(app, "master-start").waitForExistence(timeout: 40), "not ready again")
+    // The sheet opened from Sửa, down to Xóa nút (the board's tiles 10 and 14); closed with Hủy.
+    tap(app, "master-edit")
+    reveal(app, "master-delete")
+    shoot("sheet-edit-\(name)")
+    app.navigationBars.buttons["Hủy"].firstMatch.tap()
+    XCTAssertTrue(element(app, "master-delete").waitForNonExistence(timeout: 5), "the sheet stayed")
     // Until Kết thúc: the start time in place of the time left.
     tap(app, "master-edit")
     tap(app, "master-end-tap")
@@ -265,6 +272,15 @@ final class MasterFlowTests: XCTestCase {
   /// Scrolled up, clear of the bars pinned to Đèn's bottom (its notice and write bars, the tab bar: a tap on a button
   /// under them lands on them), then tapped once it is enabled: "Kết thúc" waits while a start's steps go out.
   private func tap(_ app: XCUIApplication, _ id: String, file: StaticString = #filePath, line: UInt = #line) {
+    let e = reveal(app, id, file: file, line: line)
+    let enabled = XCTNSPredicateExpectation(predicate: NSPredicate(format: "isEnabled == true"), object: e)
+    XCTAssertEqual(XCTWaiter.wait(for: [enabled], timeout: 30), .completed, "\(id) never enabled", file: file, line: line)
+    e.tap()
+  }
+
+  /// Scrolls until the element is on screen and clear of the bottom bars, without tapping it.
+  @discardableResult
+  private func reveal(_ app: XCUIApplication, _ id: String, file: StaticString = #filePath, line: UInt = #line) -> XCUIElement {
     let e = element(app, id)
     let window = app.windows.firstMatch.frame
     // A list builds its rows only near the screen: at the largest text the sheet's Kết thúc rows are made when scrolled to.
@@ -293,9 +309,7 @@ final class MasterFlowTests: XCTestCase {
       let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0.97, dy: min(0.65, bottom / window.height)))
       from.press(forDuration: 0.05, thenDragTo: from.withOffset(CGVector(dx: 0, dy: dy)), withVelocity: .default, thenHoldForDuration: 0.2)
     }
-    let enabled = XCTNSPredicateExpectation(predicate: NSPredicate(format: "isEnabled == true"), object: e)
-    XCTAssertEqual(XCTWaiter.wait(for: [enabled], timeout: 30), .completed, "\(id) never enabled", file: file, line: line)
-    e.tap()
+    return e
   }
 
   private func expect(_ app: XCUIApplication, _ id: String, contains text: String, timeout: TimeInterval = 10, file: StaticString = #filePath, line: UInt = #line) {
