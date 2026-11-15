@@ -419,12 +419,13 @@ test("a push's next try never sends a tree its checks didn't see, though main's 
 // the migration failed, or it clashed. Here main moves while the first check runs, as on a busy day, so the first push is
 // refused for real. `before` runs ahead of the kept run, and what it leaves uncommitted goes into the kept work.
 type Clone = ReturnType<typeof clone>
-function raced(file: string, text: string, o: { before?: (c: Clone) => void; sweep?: string } = {}) {
+function raced(file: string, text: string, o: { before?: (c: Clone) => void; sweep?: string; pnpm?: string } = {}) {
   const c = clone()
   o.before?.(c)
   c.timedOutRun()
   const [kept = ''] = c.branches()
   if (o.sweep) c.sh(`printf '#!/bin/sh\\n[ "$1 $2" = "engine sweep" ] && ${o.sweep}\\nexit 0\\n' > "$HOME/bin/pnpm"`)
+  if (o.pnpm) c.sh(`printf '%s\\n' '#!/bin/sh' '${o.pnpm}' 'exit 0' > "$HOME/bin/pnpm"`)
   const move = `rm -rf "$HOME/other" && git clone -q "$HOME/origin.git" "$HOME/other" 2>/dev/null && cd "$HOME/other" && git config user.email a@example.com && git config user.name a && mkdir -p "$(dirname ${file})" && printf '%b\\n' '${text}' > ${file} && git add . && git commit -qm other && git push -q 2>/dev/null`
   const log = c.cycle(`checks() { echo run >> "$HOME/checked"; [ -f "$HOME/moved" ] || { touch "$HOME/moved"; ( ${move} ); }; }; publish_kept photos`)
   return { c, kept, log, checks: c.sh('grep -c run "$HOME/checked"') }
@@ -448,6 +449,17 @@ test('after a pass, a push lost to main is checked again when the sweep on the m
   expect(log).toContain(`LOG published ${kept}`)
   expect(checks).toBe('2')
   expect(c.onMain('content/s.json')).toBe('swept')
+}, slow(60_000))
+
+test('after a pass, a push lost to main whose migration fails is not published, though a second migration would pass', () => {
+  // Grok's read: the check swept again, which cleared the failed migration's flag, and the tests then passed. A run's own
+  // push sweeps once and publishes nothing.
+  const fails = 'if [ "$1 $2" = "engine photo-privacy" ] && [ -f content/c.json ] && [ ! -f "$HOME/failed-migration" ]; then touch "$HOME/failed-migration"; exit 1; fi'
+  const { c, log } = raced('content/c.json', 'sf', { pnpm: fails })
+  expect(log).not.toContain(AGAIN)
+  expect(log).not.toContain('LOG published')
+  expect(log).toContain("its photo records couldn't be migrated")
+  expect(c.onMain('content/b.json')).toBe('')
 }, slow(60_000))
 
 test('after a pass, a push lost to main that clashes with the work is checked again, its own lines kept', () => {

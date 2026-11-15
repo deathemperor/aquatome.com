@@ -571,11 +571,11 @@ ever_added() { git log --format= --name-only --no-renames --diff-filter=A "$1..$
 # passed ends its row, ended_row). `push_kept [<branch>]`: in the cloud, GitHub's branch of that exact name is deleted in
 # the same push as main's, both or neither, so work published is never published again from a branch left behind.
 push_kept() {
-  local check=1 clash main head
+  local check=1 clash main head swept
   # Each branch's own: an earlier branch's failed migration says nothing of this one (Astra's read, 13 Nov).
   KEPT_FAILED= KEPT_WHY= MIGRATE_FAILED= PASS_UNRECORDED= BRANCH=${1:-}
   for _ in 1 2 3; do
-    main=$(git rev-parse origin/main 2>/dev/null || true)
+    main=$(git rev-parse origin/main 2>/dev/null || true) swept=
     if ! net git pull -q --rebase origin main; then
       clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
       git rebase --abort 2>/dev/null || true
@@ -594,9 +594,12 @@ push_kept() {
     # too. On 15 Nov the held photos run of the night before passed its checks and lost its push three times, a full
     # re-test of 30 to 50 minutes each on a hot Mac, while main took leads' merges, most with code (the Site lead and the
     # chief of staff, 15 Nov).
+    # That sweep is the one the check sees, if it runs: a second would clear a failed migration's flag, and the tests
+    # would pass a tree whose photo records weren't migrated, which push() never publishes (Grok's read).
     if [ "$(git rev-parse origin/main 2>/dev/null)" != "$main" ] && [ -z "$check" ]; then
       head=$(git rev-parse HEAD)
       sweep_merged
+      swept=1
       if [ -z "${MIGRATE_FAILED:-}" ] && [ "$(git rev-parse HEAD)" = "$head" ]; then
         log "main moved and the sweep changed nothing: pushing again, not checked again, as a run's own push does"
       else
@@ -604,7 +607,7 @@ push_kept() {
       fi
     fi
     if [ -n "$check" ]; then
-      sweep_merged
+      [ -n "$swept" ] || sweep_merged
       if ! verify 'pnpm test'; then
         if [ -n "$TIMED_OUT" ]; then KEPT_WHY="tests out of time again"
         elif [ -n "${MIGRATE_FAILED:-}" ]; then KEPT_WHY="its photo records couldn't be migrated"
