@@ -357,7 +357,8 @@ struct SpeciesPage: View {
   /// just above; VoiceOver's do.
   private func quietAsk(_ route: ChatRoute) -> some View {
     NavigationLink(value: route) {
-      Label(item.kind == .plant ? "Hỏi về cây này" : "Hỏi về cá này", systemImage: "bubble.left.and.text.bubble.right.fill")
+      // A crab's, a shrimp's or a snail's page: "loài", not "cá" (the owner's report, 15 Nov).
+      Label(item.kind == .plant ? "Hỏi về cây này" : item.isFish ? "Hỏi về cá này" : "Hỏi về loài này", systemImage: "bubble.left.and.text.bubble.right.fill")
         .font(.body.weight(.semibold))
         .lineLimit(3)
         .foregroundStyle(.white)

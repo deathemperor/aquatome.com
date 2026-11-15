@@ -19,6 +19,9 @@ struct ChatSubject: Hashable, Codable {
   let guesses: String?
   /// From fish ID: the second guess's name, which a starter asks how to tell apart.
   let second: String?
+  /// Not a plant, and a fish: false for a crab, a shrimp, a snail, a frog (`Item.isFish`), which the app's own words call
+  /// "loài", not "cá".
+  var fish = true
 
   var fromPhoto: Bool { guesses != nil }
 }
@@ -34,7 +37,8 @@ extension ChatRoute {
   init?(about item: HandbookIndex.Item) {
     guard [.fish, .plant].contains(item.kind), let id = item.contentId else { return nil }
     self.init(start: Chat.Start(from: .species, about: id),
-              subject: ChatSubject(plant: item.kind == .plant, name: item.name, sci: item.subUnderName, img: item.img.flatMap(URL.init(string:)), guesses: nil, second: nil))
+              subject: ChatSubject(plant: item.kind == .plant, name: item.name, sci: item.subUnderName, img: item.img.flatMap(URL.init(string:)), guesses: nil, second: nil,
+                                   fish: item.isFish))
   }
 }
 

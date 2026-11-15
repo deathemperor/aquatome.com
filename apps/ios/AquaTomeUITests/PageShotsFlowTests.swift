@@ -109,6 +109,9 @@ final class PageShotsFlowTests: XCTestCase {
   func testTheTabBarOverTextInTheDark() { shootTabBar("tab-bar-text-dark", overText: true, dark: true) }
   func testTheTabBarOverPhotos() { shootTabBar("tab-bar-photos-light", overText: false) }
   func testTheTabBarOverPhotosInTheDark() { shootTabBar("tab-bar-photos-dark", overText: false, dark: true) }
+  // v2's glass bar over a page's text, a page from each of the five tabs (the owner's report of 15 Nov).
+  func testTheBarOverAPagesTextFromEachTab() { shootBarOverText("bar-text-light") }
+  func testTheBarOverAPagesTextFromEachTabInTheDark() { shootBarOverText("bar-text-dark", dark: true) }
   func testV2() { shootV2("v2-light") }
   func testV2InTheDark() { shootV2("v2-dark", dark: true) }
   func testV2InTheLargestText() { shootV2("v2-largest-light", size: largest) }
@@ -216,6 +219,60 @@ final class PageShotsFlowTests: XCTestCase {
     let until = Date().addingTimeInterval(5)
     while Date() < until { RunLoop.current.run(until: Date().addingTimeInterval(0.1)) }
     capture(app, name, dark: dark, large: true, screens: 6)
+  }
+
+  /// v2's glass tab bar over a page's text (the owner's report of 15 Nov: the fiddler crab's page, opened from Tìm, had its
+  /// summary under the bar, bent by the glass): a page opened from each of the five tabs, each scrolled until its text
+  /// reaches the bar. Hôm nay's fish of the day, Khám phá's first guide, Bể của tôi's tank, the Đèn tab itself, and the
+  /// neon's page from a search. A shot where a page didn't open shows where it stopped, for the shots to say so.
+  private func shootBarOverText(_ name: String, dark: Bool = false) {
+    let app = launch(dark: dark, size: nil, ["-seed-tanks", "life"], look: .v2)
+    var n = 0
+    func shot(_ tab: String) {
+      // Up most of a screen twice, slowly: the page's text under the bar, not flung past it.
+      for _ in 0..<2 {
+        app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.8))
+          .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.3)), withVelocity: .slow,
+                 thenHoldForDuration: 0.3)
+      }
+      n += 1
+      settle()
+      let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+      a.name = String(format: "shot-%@-%02d-%@", name, n, tab)
+      a.lifetime = .keepAlways
+      add(a)
+    }
+    let page = app.descendants(matching: .any)["v2-species"]
+    let fish = app.buttons["v2-fish-of-the-day"]
+    if fish.waitForExistence(timeout: 10) {
+      fish.tap()
+      _ = page.waitForExistence(timeout: 5)
+    }
+    shot("hom-nay")
+    app.openTab("Khám phá")
+    let guide = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", "Nuôi cá neon trong bể nhỏ")).firstMatch
+    if app.scrolledDown(to: guide).exists { guide.tap() }
+    shot("kham-pha")
+    app.openTab("Bể của tôi")
+    let tank = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", "Bể cá neon")).firstMatch
+    if tank.waitForExistence(timeout: 5) { tank.tap() }
+    shot("be-cua-toi")
+    app.openTab("Đèn")
+    shot("den")
+    // Tìm kiếm, the search tab: the last.
+    let tabs = app.tabBars.buttons
+    tabs.element(boundBy: tabs.count - 1).tap()
+    let field = app.searchFields.firstMatch
+    if field.waitForExistence(timeout: 5) {
+      field.tap()
+      field.typeText("ca neon")
+      let row = app.descendants(matching: .any).matching(identifier: "item").firstMatch
+      if row.waitForExistence(timeout: 5) {
+        row.tap()
+        _ = page.waitForExistence(timeout: 5)
+      }
+    }
+    shot("tim-kiem")
   }
 
   /// What's new (`-whats-new`): its row at the end of the Tìm home, then the list it opens.

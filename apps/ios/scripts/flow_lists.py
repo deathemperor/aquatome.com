@@ -70,7 +70,9 @@ SHOTS = {
               'testTheOwnersNeedsInTheLargestText', 'testTheOwnersDashboardWithNothingToDo', 'testTheDailyReportsDelivery', 'testAnOwnersSection',
               'testAnOwnersSectionInTheDark', 'testAnOwnersSectionInTheLargestText', 'testTheOwnersComments',
               'testTheOwnersCommentsInTheDark', 'testTheOwnersCommentsInTheLargestText', 'testTheDailyReportsSettings'],
-    'v2': ['testV2', 'testV2InTheDark', 'testV2InTheLargestText', 'testV2InMalayInTheDarkAtTheLargestText'],
+    # v2's Hôm nay, its fish of the day's page and Khám phá; and its glass bar over a page's text, a page from each tab.
+    'v2': ['testV2', 'testV2InTheDark', 'testV2InTheLargestText', 'testV2InMalayInTheDarkAtTheLargestText',
+           'testTheBarOverAPagesTextFromEachTab', 'testTheBarOverAPagesTextFromEachTabInTheDark'],
 }
 
 
