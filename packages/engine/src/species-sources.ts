@@ -67,8 +67,23 @@ const ANYWHERE = [
   /\b(?:1[89]|20)\d\d\b|\bL ?\d{2,3}\b/,
   /\b(?:tanks?|aquari\w*|communit\w*|water|feed\w*|food|keep\w*|kept|peaceful|hardy|temperature|pH)\b/i,
 ]
-/** Whether an English sentence of a dealer's is stock talk, by the line above. */
-export const stockTalk = (sentence: string) => STOCK.some(r => r.test(sentence)) && !ANYWHERE.some(r => r.test(sentence))
+/**
+ * The only words a stock-talk sentence is made of, once the size on offer and a binomial are taken out. A list of facts to
+ * spare can't be closed (the delta read of 15 Nov 2026: "Origin of the fish offered: wild caught (Sibu, Sarawak)", "The
+ * specimens offered are venomous", "Available size: 4-5 cm, up to 30 cm when mature" all went), so a sentence is stock
+ * talk only when nothing else is left: any other word, a place, a look, a caution, a figure, keeps it.
+ */
+const STOCK_WORDS = new Set(('a an the this these it they both and but or of from as on to only usually again currently now at present presently ' +
+  'moment time regular quite basis available offer offered stock is are was were be been originate originates german czech european bred ' +
+  'breeding breeder ones specimens specimen animals fish individuals wild caught collected captive two three few several received ' +
+  'obtained beautiful livebearer photos taken').split(' '))
+const SIZE_SAID = /\bavailable sizes?\s*:\s*(?:ca\.?|approx\.?)?\s*[\d.,]+\s*(?:[-–]\s*[\d.,]+\s*)?cm\b|\bcurrently\s+[\d.,]+\s*(?:[-–]\s*[\d.,]+\s*)?cm(?:\s+long)?\b/gi
+const BINOMIAL = /\b(?:\p{Lu}\.|\p{Lu}\p{Ll}+)\s+(\p{Ll}{3,})\b/gu
+const nothingElse = (sentence: string) =>
+  (sentence.replace(SIZE_SAID, ' ').replace(BINOMIAL, (name, epithet: string) => (STOCK_WORDS.has(epithet) ? name : ' ')).toLowerCase().match(/[\p{L}\p{N}]+/gu) ?? [])
+    .every(w => STOCK_WORDS.has(w))
+/** Whether an English sentence of a dealer's is stock talk, by the line above, with nothing else in it. */
+export const stockTalk = (sentence: string) => STOCK.some(r => r.test(sentence)) && !ANYWHERE.some(r => r.test(sentence)) && nothingElse(sentence)
 /** Whether every sentence of a dealer's English part is stock talk: the whole part goes, its heading with it if alone. */
 export function stockOnly(en: string): boolean {
   const said = parse(en.replace(/<br\s*\/?>/gi, '\n')).structuredText.split('\n')
