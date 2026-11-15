@@ -22,9 +22,14 @@ final class LanguageFlowTests: XCTestCase {
   private static let th = Words(fish: "ปลานีออน", sheet: "บัญชี", done: "เสร็จ", privacy: "สถิติไม่รวมบัญชี",
                                 tabs: ["วันนี้", "สำรวจ", "ตู้ของฉัน", "ไฟ"])
 
-  /// v2: a fish's page open on Khám phá, Thai picked from Bể của tôi, then Tiếng Việt again.
+  /// v2: a post open on Hôm nay and a fish's page on Khám phá, Thai picked from Bể của tôi, then Tiếng Việt again. Neither
+  /// page comes back on any tab (v2 hands Hôm nay's open post to Khám phá when it goes, but not for a language).
   func testAPickedLanguageShowsAtOnceOnV2() {
-    let app = launch(.v2)
+    let app = launch(.v2, "-plan", "-today", "2026-11-13")
+    let card = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(card.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    card.tap()
+    XCTAssertTrue(app.buttons["v2-close-post"].firstMatch.waitForExistence(timeout: 5), "Hôm nay's post didn't open")
     app.openTab("Khám phá")
     let neon = fish(app, Self.vi.fish)
     XCTAssertTrue(neon.waitForExistence(timeout: 10), "no Cá neon on Khám phá")
@@ -33,10 +38,13 @@ final class LanguageFlowTests: XCTestCase {
     app.openTab("Bể của tôi")
 
     pick(app, "ภาษาไทย", Self.th)
+    app.openTab("วันนี้")
+    XCTAssertFalse(app.buttons["v2-close-post"].firstMatch.exists, "Hôm nay's post is still open")
     app.openTab("สำรวจ")
     XCTAssertTrue(fish(app, Self.th.fish).waitForExistence(timeout: 10), "Khám phá's fish aren't in Thai")
     XCTAssertFalse(fish(app, Self.vi.fish).exists, "a Vietnamese name on Khám phá in Thai")
     XCTAssertFalse(app.buttons["v2-add"].exists, "the page opened before is still there")
+    XCTAssertFalse(app.buttons["v2-close-post"].firstMatch.exists, "Hôm nay's post moved to Khám phá")
     XCTAssertFalse(app.pageBack.exists, "Khám phá isn't at its first screen")
 
     pick(app, "Tiếng Việt", Self.vi, tab: "Khám phá")

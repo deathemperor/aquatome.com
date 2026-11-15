@@ -24,7 +24,10 @@ CLASS_SECONDS = {'FactsCardFlowTests': 280, 'FishIdFlowTests': 486, 'HandbookFlo
                  'FishPageEdgeSwipeFlowTests': 570, 'GuideEdgeSwipeFlowTests': 570, 'PostEdgeSwipeFlowTests': 570,
                  'NativePageFlowTests': 648, 'OfflineFlowTests': 225, 'PageShotsFlowTests': 2100, 'PlugFlowTests': 744,
                  'ReadingFlowTests': 69, 'TankCheckFlowTests': 67, 'TankLifeFlowTests': 280, 'TelemetryFlowTests': 136,
-                 'VideoFlowTests': 330}
+                 'VideoFlowTests': 330,
+                 # 8 tests on this Mac's 27.2 simulator (16 Nov), about 750 s: the largest text's shots and the switch with
+                 # a plug, a light and an account take the longest.
+                 'LanguageFlowTests': 800}
 FLOW_SECONDS = 45
 # One page shot: 1,770 s for the 48 of 2026-11-08's pull requests (37 s each; the class's 2,100 above is 57 of them).
 SHOT_SECONDS = 37
