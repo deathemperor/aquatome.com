@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { GlossarySchema, metricPage, QUALITY_THRESHOLD, TranslationSchema, type GlossaryEntity, type GuideEntity, type Translation } from '@aq/schema'
+import { glossaryKinds, GlossarySchema, metricPage, QUALITY_THRESHOLD, TranslationSchema, type GlossaryEntity, type GuideEntity, type Translation } from '@aq/schema'
 import type { Llm } from './claude'
 import { VI_STYLE as STYLE } from './phrases'
 import { isMarketplace } from './marketplaces'
@@ -452,9 +452,13 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     ...vi, altNames, definition: unescapePlain(w.definition).replace(/<[^>]+>/g, '').trim(), body: sanitizeHtml(w.body),
     quality: { score: review.score, indexable: true },
   }, 'vi'))
+  // Each kind's photo stays with the term (the spread above keeps it). One whose kind the new text no longer lists is named,
+  // never dropped: Curation files it again, or the next run writes the kind back (the chief of staff, 15 Nov 2026).
+  const listed = new Set(glossaryKinds(t.body ?? '').map(k => k.id))
+  const unplaced = (next.kinds ?? []).map(k => k.id).filter(k => !listed.has(k))
   await writeFile(join(dir, id, 'entity.json'), `${JSON.stringify(next, null, 2)}\n`)
   await writeFile(join(dir, id, 'vi.json'), `${JSON.stringify(t, null, 2)}\n`)
   // A kept draft is the entry's now, or older than it.
   await rm(draftFile, { force: true })
-  return { id, score: review.score, notes: review.notes, ...(o.accept ? { acceptedBy: o.accept } : {}), refs: refs.length, altNames: altNames.length - vi.altNames.length, related: next.related ?? [] }
+  return { id, score: review.score, notes: review.notes, ...(o.accept ? { acceptedBy: o.accept } : {}), refs: refs.length, altNames: altNames.length - vi.altNames.length, related: next.related ?? [], ...(unplaced.length ? { kindPhotosUnplaced: unplaced } : {}) }
 }

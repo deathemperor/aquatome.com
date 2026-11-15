@@ -112,6 +112,20 @@ test('a rewrite keeps the photos put on the term', async () => {
   expect(JSON.parse(await readFile(join(root, 'content/glossary/lua/entity.json'), 'utf8')).photos).toEqual([photo])
 })
 
+// The owner, 15 Nov 2026: "what does each look like?". Each kind's photo is Curation's: a rewrite keeps every one, and one
+// whose kind the new text no longer lists is named in the run's result, not dropped.
+test('a rewrite keeps each kind\'s photo, and names one whose kind the new text no longer lists', async () => {
+  const root = await site()
+  const photo = (n: string) => ({ url: `https://media.aquatome.com/x/${n}.webp`, width: 1000, height: 667, licence: 'dùng với sự cho phép', author: 'A shop', sourceUrl: `https://example.org/${n}` })
+  const kinds = [{ id: 'lua-do-quyen', photo: photo('a') }, { id: 'mopani', photo: photo('b') }]
+  await writeFile(join(root, 'content/glossary/lua/entity.json'), JSON.stringify({ id: 'lua', en: 'Driftwood', kinds }))
+  const body = '<h3>Các loại lũa</h3><ul><li><strong>Lũa đỗ quyên</strong> (spider wood): rễ cây đỗ quyên.</li></ul>'
+  const llm: Llm = async ({ prompt }) => (prompt.startsWith('GLOSSARY RULES') ? { notes: [] } : isCheck(prompt) ? verdicts(prompt) : { ...written, body }) as never
+  const r = await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'lua', { kind: 'aquascaping' })
+  expect(JSON.parse(await readFile(join(root, 'content/glossary/lua/entity.json'), 'utf8')).kinds).toEqual(kinds)
+  expect(r).toMatchObject({ id: 'lua', kindPhotosUnplaced: ['mopani'] })
+})
+
 // A shop's listing on a marketplace, or a post on a social network, found by research through search: never a source, and
 // nothing it alone says reaches the writer (the owner's rule; the Site Lead, 13 Nov 2026).
 test('a marketplace\'s or a social network\'s page is never a source, nor are the facts that cite it', async () => {
