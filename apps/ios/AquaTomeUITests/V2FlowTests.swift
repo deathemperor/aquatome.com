@@ -1264,6 +1264,30 @@ final class V2FlowTests: XCTestCase {
     XCTAssertLessThan(colour.distance(to: foot), 40, "white under the tab bar: \(colour) above, \(foot) under it")
   }
 
+  /// A fish's page whose head shows its photo whole, at rest: the ⋯ in iOS's glass beside the back in its own, on the
+  /// head's colour (Design's parity, 14 Nov). Before, it was bare dots there: not over the photo, so no dark circle, and in
+  /// glass only once scrolled. The stand-in photo is 8:3, which goes whole (`-wide-pictures`, as WholePhotoFlowTests).
+  func testAWholeHeadsMoreIsInGlassAtRest() {
+    let app = launch("-v2", "YES", "-fixed-pictures", "-wide-pictures")
+    app.launchForFlow()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 10), "no fish page")
+    let back = app.pageBack, more = app.buttons["page-more"]
+    XCTAssertTrue(back.waitForExistence(timeout: 5) && more.exists, "no back or ⋯ in the bar")
+    // The whole head under the bar: the stand-in's red end and its blue end both on the line just under the bar's foot.
+    // A banner would cut both away, and the check below would no longer be about a whole head.
+    Thread.sleep(forTimeInterval: 2)
+    let seen = Pixels(XCUIScreen.main.screenshot()), line = app.navigationBars.firstMatch.frame.maxY + 12
+    let along = stride(from: CGFloat(0), to: app.frame.width, by: 1).map { seen.at($0, line) }
+    XCTAssertTrue(along.contains { $0.r > 170 && $0.g < 90 && $0.b < 90 } && along.contains { $0.b > 170 && $0.r < 90 && $0.g < 120 },
+                  "the head isn't the whole photo: no red or no blue end under the bar")
+    func glass(_ b: XCUIElement, edge: CGFloat) -> Double { seen.at(b.frame.midX, b.frame.midY + 15).distance(to: seen.at(edge, b.frame.midY + 15)) }
+    let backGlass = glass(back, edge: 2), moreGlass = glass(more, edge: app.frame.width - 2)
+    XCTAssertGreaterThan(backGlass, 4, "iOS's glass behind the back doesn't show on the head's colour")
+    XCTAssertGreaterThan(moreGlass, backGlass / 2, "the ⋯ bare on a whole head's colour at rest, the back in its glass: \(moreGlass) against \(backGlass)")
+  }
+
   /// What's on the bar reads, on the page's colour and after it, and the name, once it has left the page, stays in the bar's
   /// middle as the colour goes. On the colour the back and the ⋯ are in iOS's glass alike; after it iOS can keep the dark
   /// scheme, white on the white band.
@@ -1280,6 +1304,23 @@ final class V2FlowTests: XCTestCase {
     }
     let back = app.pageBack
     XCTAssertTrue(back.exists, "iOS's glass on the page's colour")
+    // The ⋯ in iOS's glass on the colour, as the back is (Design's parity, 13 Nov: bare dots beside the back in its glass;
+    // 14 Nov: at rest too, over the whole head's colour). Under each symbol, inside its circle, the ground stands apart
+    // from the colour at the screen's edge on that line.
+    let more = app.buttons["page-more"]
+    func inGlass(_ when: String) {
+      let seen = Pixels(XCUIScreen.main.screenshot())
+      func glass(_ b: XCUIElement, edge: CGFloat) -> Double { seen.at(b.frame.midX, b.frame.midY + 15).distance(to: seen.at(edge, b.frame.midY + 15)) }
+      let backGlass = glass(back, edge: 2), moreGlass = glass(more, edge: app.frame.width - 2)
+      XCTAssertGreaterThan(backGlass, 4, "iOS's glass behind the back doesn't show on the colour \(when)")
+      XCTAssertGreaterThan(moreGlass, backGlass / 2, "the ⋯ bare on the colour \(when), the back in its glass: \(moreGlass) against \(backGlass)")
+    }
+    // Once the head's colour has come: the screen's edge on that line no longer the screen's own ground.
+    let plain = XCUIDevice.shared.appearance == .dark ? Pixels.RGB(r: 0, g: 0, b: 0) : Pixels.RGB(r: 255, g: 255, b: 255)
+    func edge() -> Pixels.RGB { Pixels(XCUIScreen.main.screenshot()).at(2, back.frame.midY + 15) }
+    repeatUntil(edge().distance(to: plain) > 8, times: 10) { Thread.sleep(forTimeInterval: 0.5) }
+    XCTAssertGreaterThan(edge().distance(to: plain), 8, "the head's colour never came under the bar")
+    inGlass("at rest")
     // The page's name under the bar, the bar still on the colour.
     let name = app.scrollViews.staticTexts["Cá neon"].firstMatch
     repeatUntil(name.frame.maxY < back.frame.maxY, times: 6) { up() }
@@ -1296,13 +1337,7 @@ final class V2FlowTests: XCTestCase {
     } else {
       chevronReads()
     }
-    // The ⋯ in iOS's glass on the colour, as the back is (Design's parity, 13 Nov: bare dots beside the back in its glass).
-    // Under each symbol, inside its circle, the ground stands apart from the colour at the screen's edge on that line.
-    let more = app.buttons["page-more"], seen = Pixels(XCUIScreen.main.screenshot())
-    func glass(_ b: XCUIElement, edge: CGFloat) -> Double { seen.at(b.frame.midX, b.frame.midY + 15).distance(to: seen.at(edge, b.frame.midY + 15)) }
-    let backGlass = glass(back, edge: 2), moreGlass = glass(more, edge: app.frame.width - 2)
-    XCTAssertGreaterThan(backGlass, 4, "iOS's glass behind the back doesn't show on the colour")
-    XCTAssertGreaterThan(moreGlass, backGlass / 2, "the ⋯ bare on the colour, the back in its glass: \(moreGlass) against \(backGlass)")
+    inGlass("once the name has gone under the bar")
     // The name in the bar from then on, the colour still under it, in the bar's middle.
     XCTAssertTrue(title.waitForExistence(timeout: 2), "no name in the bar once it has left the page")
     let onColour = title.frame

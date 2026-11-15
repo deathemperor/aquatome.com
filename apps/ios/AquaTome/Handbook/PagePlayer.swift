@@ -404,7 +404,8 @@ struct VideoSlot: View {
 
   @ViewBuilder private var picture: some View {
     if let head {
-      V2Photo(src: head.poster?.src, box: head.poster?.box, ground: colour) { colour = $0 }.aspectRatio(16 / 9, contentMode: .fit)
+      // A head: no cut, the fish clear of the edges, else whole (frames.md: a video guide's poster is a head).
+      V2Photo(src: head.poster?.src, box: head.poster?.box, ground: colour, clear: true) { colour = $0 }.aspectRatio(16 / 9, contentMode: .fit)
     } else {
       PageImage(src: PageDoc.thumbnail(id), ratio: 16 / 9, corner: 0)
     }

@@ -20,6 +20,8 @@ struct V2Photo: View {
   var ground: Color?
   /// A page's head: whole on `ground`, never on its own blur (the frames spec's page head, approved 11 Nov).
   var onGround = false
+  /// A card's or a head's: no cut, and the fish clear of the edges (`PhotoFrame.clear`). Rows and tiles allow a fin tip.
+  var clear = false
   var colour: ((Color) -> Void)?
   /// The photo's own shape (its width over its height), once it's there: a page's head takes it where the banner would cut it.
   var shape: ((CGFloat) -> Void)?
@@ -91,7 +93,9 @@ struct V2Photo: View {
   /// where they're narrow, else the same photo blurred (frames.md, the Design Lead, 13 Nov).
   @ViewBuilder private func framed(_ image: UIImage) -> some View {
     let aspect = image.size.width / max(image.size.height, 1), ratio = points.width / max(points.height, 1)
-    switch box == nil || points.width == 0 ? PhotoFrame.cover(x: 0.5, y: 0.5) : PhotoFrame.of(aspect: aspect, box: box, ratio: ratio) {
+    switch box == nil || points.width == 0 ? PhotoFrame.cover(x: 0.5, y: 0.5)
+      : clear ? PhotoFrame.clear(aspect: aspect, box: box, width: points.width, height: points.height)
+      : PhotoFrame.of(aspect: aspect, box: box, ratio: ratio) {
     case let .cover(x, y):
       let s = max(points.width / max(image.size.width, 1), points.height / max(image.size.height, 1))
       Image(uiImage: image).resizable().scaledToFill()
