@@ -672,8 +672,8 @@ swept_pull() {
 # reports, or a report alone (SWEPT_REPORTS: the photo-subjects review note and the list of heads with no animal). The one
 # test that reads those is the privacy test, which runs the photo records' guard over the real note and every engine-state
 # file; the migration in sweep_merged rewrites the note and runs that guard on the merge (MIGRATE_FAILED if it fails), and
-# the sweep after it writes only the list, whose link and day the guard passes over (a reader's catch, 15 Nov). The daily
-# report reads the list on main. No test reads a real page's date: the site's tests build from
+# of the two reports the sweep after it writes only the list, whose link and day the guard passes over (a reader's catch,
+# 15 Nov). The daily report reads the list on main. No test reads a real page's date: the site's tests build from
 # their fixture content, and the tests that load the real content only parse that file (load.ts). But the dates move
 # because main brought pages, and that re-test was then the only check of main's new pages merged with this run's (a
 # reader's catch, 15 Nov). So a sweep that changed only those files is checked by loading the content with the site's
