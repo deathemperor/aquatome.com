@@ -232,12 +232,12 @@ final class ChatFlowTests: XCTestCase {
     let entry = element(app, "chat-entry")
     reveal(app, entry)
     let saying = { app.descendants(matching: .any).matching(NSPredicate(format: "label CONTAINS[c] %@ OR value CONTAINS[c] %@", "cá này", "cá này")) }
-    XCTAssertEqual(saying().count, 0, "the crab's page says: \(saying().allElementsBoundByIndex.map(\.label))")
+    XCTAssertEqual(saying().count, 0, "the crab's page says: \(saying().allElementsBoundByIndex.map { $0.label })")
     entry.tap()
     let box = element(app, "chat-box")
     XCTAssertTrue(box.waitForExistence(timeout: 5), "no chat")
     XCTAssertEqual(box.placeholderValue ?? box.value as? String, "Hỏi về loài này…")
-    XCTAssertEqual(saying().count, 0, "the crab's chat says: \(saying().allElementsBoundByIndex.map(\.label))")
+    XCTAssertEqual(saying().count, 0, "the crab's chat says: \(saying().allElementsBoundByIndex.map { $0.label })")
   }
 
   /// Off on the server: no way into the chat from a fish's page.
