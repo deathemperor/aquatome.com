@@ -50,7 +50,7 @@ test("a clean pull that brings main's commits in is swept before the push, and t
   mkdirSync(join(dir, 'bin'))
   // The sweep alone: the photo records' migration before it (sweep_merged) has nothing to do here.
   // The content's load passes unless BAD is set.
-  writeFileSync(join(dir, 'bin/pnpm'), '#!/bin/sh\n[ "$2" = check-content ] && { echo dates >> ../dates.log; [ -z "$BAD" ]; exit; }\n[ "$2" = sweep ] || exit 0\necho swept >> ../swept.log\n[ -z "$FIXES" ] || echo "$FIXES" > content/b.json\n[ -z "$DATES" ] || echo "$DATES" > content/page-dates.json\n[ -z "$REPORT" ] || echo "$REPORT" > docs/review/photo-subjects.md\n')
+  writeFileSync(join(dir, 'bin/pnpm'), '#!/bin/sh\n[ "$2" = check-content ] && { echo dates >> ../dates.log; [ -z "$BAD" ]; exit; }\n[ "$2" = sweep ] || exit 0\necho swept >> ../swept.log\n[ -z "$FIXES" ] || echo "$FIXES" > content/b.json\n[ -z "$DATES" ] || echo "$DATES" > content/page-dates.json\n[ -z "$REPORT" ] || echo "$REPORT" > docs/review/photo-subjects.md\n[ -z "$NOANIMAL" ] || echo "$NOANIMAL" > engine-state/_photo-no-animal-heads.json\n[ -z "$LOOKALIKE" ] || echo "$LOOKALIKE" > docs/review/photo-subjects.md.bak\n')
   chmodSync(join(dir, 'bin/pnpm'), 0o755)
   const sh = (command: string, cwd = dir, env = {}) => execSync(command, { cwd, shell: '/bin/bash', encoding: 'utf8', env: { ...process.env, ...env, PATH: `${dir}/bin:${process.env.PATH}` } })
   const repo = join(dir, 'repo'), other = join(dir, 'other')
@@ -112,6 +112,15 @@ test("a clean pull that brings main's commits in is swept before the push, and t
   onMain('m8.json')
   expect(pull({ DATES: 'd6', REPORT: 'r2' })).toBe('push')
   expect([swept(), dated()]).toEqual([11, 5])
+  onMain('m9.json')
+  expect(pull({ NOANIMAL: 'n1' })).toBe('push')
+  expect([swept(), dated()]).toEqual([12, 6])
+  // A report and anything else, or a file whose name only starts like a report's, is checked in full.
+  onMain('m10.json')
+  expect(pull({ REPORT: 'r3', FIXES: '3' })).toBe('test')
+  onMain('m11.json')
+  expect(pull({ LOOKALIKE: 'l1' })).toBe('test')
+  expect([swept(), dated()]).toEqual([14, 6])
 }, slow(120_000))
 
 // The photos part of 2026-11-08: its calendar clashed with an editor's re-plan, and the line-by-line merge named one guide

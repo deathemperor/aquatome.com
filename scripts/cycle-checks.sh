@@ -692,7 +692,8 @@ swept_clean() {
     return 1
   fi
   [ "$(git rev-parse HEAD)" != "$1" ] || return 0
-  [ -z "$(git diff --no-renames --name-only "$1" HEAD | grep -vxE "$SWEPT_REPORTS" || true)" ] || return 1
+  local files; files=$(git diff --no-renames --name-only "$1" HEAD) || return 1
+  [ -z "$(grep -vxE "$SWEPT_REPORTS" <<<"$files" || true)" ] || return 1
   net nice -n 10 pnpm engine check-content || { log "the content didn't load, or took too long: checked again"; return 1; }
   log "the sweep changed only the pages' dates or its reports, and the content loads as the site's loader loads it: not checked again"
 }
