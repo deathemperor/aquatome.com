@@ -9339,7 +9339,7 @@
   },
   "id/species/betta-livida": {
     "at": "2026-11-15",
-    "hash": "d640bb5bbc5acefa",
+    "hash": "c4243a6405ce9355",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -9750,8 +9750,8 @@
     "products": []
   },
   "id/species/betta-smaragdina": {
-    "at": "2026-11-15",
-    "hash": "bbf01d6d1d2b4b1e",
+    "at": "2026-11-14",
+    "hash": "37310d98660447cd",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -12131,8 +12131,8 @@
     "products": []
   },
   "id/species/corydoras-adolfoi": {
-    "at": "2026-11-15",
-    "hash": "c65ade372fd3d025",
+    "at": "2026-11-10",
+    "hash": "a50e5de0f8fed200",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -12140,14 +12140,14 @@
         "check": "source",
         "part": "P6",
         "quote": "Saat ini dipelihara pada pH 6–7",
-        "why": "Describes how the source shop currently keeps its own stock, not advice for the reader.",
+        "why": "The shop is describing its own fish in stock, which the reader has never seen.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P8",
         "quote": "Saat ini diberi pakan blackworm, cacing darah beku, dan pelet.",
-        "why": "Describes how the source shop currently feeds its own stock.",
+        "why": "The shop is describing how it currently feeds its own stock.",
         "by": "model"
       }
     ],
@@ -12218,16 +12218,16 @@
     "products": []
   },
   "id/species/corydoras-armatus": {
-    "at": "2026-11-15",
-    "hash": "33bcdecb7dd00a63",
+    "at": "2026-11-10",
+    "hash": "0e638ed8e4f37c9d",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P3",
-        "quote": "April 2005: Ikan-ikan ini diimpor dari Kolombia.",
-        "why": "This is the source shop's own import news about its stock, which the reader doesn't know.",
+        "part": "P10",
+        "quote": "Ikan dari Venezuela baru saja diimpor sebagai spesimen yang sehat dan besar.",
+        "why": "This is the source shop's stock news about a recent import, which the reader knows nothing about.",
         "by": "model"
       }
     ],
@@ -12434,8 +12434,8 @@
     "products": []
   },
   "id/species/corydoras-ephippifer": {
-    "at": "2026-11-15",
-    "hash": "c863f6d9f2f13cf9",
+    "at": "2026-11-10",
+    "hash": "88ba8da1efb43411",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -15190,10 +15190,9 @@
     ]
   },
   "id/species/kottelatia-brittani": {
-    "at": "2026-11-15",
-    "hash": "3ae8da43384907a2",
+    "at": "2026-11-07",
+    "hash": "61332fbcb717bb2e",
     "model": "opus",
-    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -26567,24 +26566,12 @@
     "products": []
   },
   "th/plants/glossostigma-elatinoides": {
-    "at": "2026-11-15",
-    "hash": "e132504ca1582b73",
+    "at": "2026-11-08",
+    "hash": "da2c26815dc6bda6",
     "model": "opus",
-    "checklist": 3,
-    "findings": [
-      {
-        "check": "units",
-        "part": "P5",
-        "quote": "ปลูกห่างกัน 2.5 ซม. เพื่อให้ไหลแผ่ออกไปได้",
-        "why": "2.5 cm spacing is a converted 1 inch, not a figure a Thai keeper would use.",
-        "by": "model"
-      }
-    ],
-    "products": [
-      "ADA Amazonia aqua soil",
-      "CaribSea Eco-Complete",
-      "Seachem Fluorite"
-    ]
+    "checklist": 2,
+    "findings": [],
+    "products": []
   },
   "th/plants/gratiola-viscidula": {
     "at": "2026-11-08",
@@ -28563,10 +28550,10 @@
     "products": []
   },
   "th/species/altolamprologus-compressiceps": {
-    "at": "2026-11-15",
-    "hash": "2a31388d110ae858",
+    "at": "2026-11-08",
+    "hash": "6dd889fbc7195581",
     "model": "opus",
-    "checklist": 3,
+    "checklist": 2,
     "findings": [],
     "products": []
   },
@@ -32397,10 +32384,19 @@
   },
   "th/species/betta-livida": {
     "at": "2026-11-15",
-    "hash": "fdde757c806f7615",
+    "hash": "0c59c0b1a91e3e53",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "words",
+        "part": "P11",
+        "quote": "สามารถให้แบล็กเวิร์ม (blackworm) แบบเป็น",
+        "why": "Transliterated English 'live blackworm'; Thai keepers name live worms differently and say 'แบบมีชีวิต'/'อาหารสด'.",
+        "by": "model",
+        "fix": "ไส้เดือนน้ำแบบมีชีวิต"
+      }
+    ],
     "products": []
   },
   "th/species/betta-macrostoma": {
@@ -34562,16 +34558,16 @@
     "products": []
   },
   "th/species/cichla-ocellaris": {
-    "at": "2026-11-15",
-    "hash": "36abd5747c368b06",
+    "at": "2026-11-09",
+    "hash": "8d785edbaada5585",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
         "part": "P7",
-        "quote": "ปลาแลนซ์ฟิช ปลาไวต์เบต",
-        "why": "Lancefish and whitebait are frozen foods sold in UK fish shops, not something a keeper in Thailand would feed or find.",
+        "quote": "ปลาแลนซ์ (lancefish)",
+        "why": "Lancefish is a frozen food sold in UK shops. Keepers in Thailand don't know it and can't easily buy it.",
         "by": "model"
       }
     ],
@@ -35153,23 +35149,23 @@
     "products": []
   },
   "th/species/corydoras-adolfoi": {
-    "at": "2026-11-15",
-    "hash": "f52ac782361d1d97",
+    "at": "2026-11-10",
+    "hash": "067e8a5d56df31c9",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P6",
-        "quote": "ปัจจุบันเลี้ยงไว้ที่ค่า pH 6-7",
-        "why": "Describes the source shop's own tanks, which the reader doesn't know.",
+        "quote": "ปัจจุบันเลี้ยงไว้ที่ค่า pH 6–7",
+        "why": "The source shop speaks about how it currently keeps its own stock.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P8",
         "quote": "ปัจจุบันให้กินแบล็กเวิร์ม (blackworm) หนอนแดงแช่แข็ง และอาหารเม็ด",
-        "why": "Describes what the source shop currently feeds its own stock.",
+        "why": "The source shop describes what it currently feeds its own fish.",
         "by": "model"
       }
     ],
@@ -35448,16 +35444,16 @@
     "products": []
   },
   "th/species/corydoras-ephippifer": {
-    "at": "2026-11-15",
-    "hash": "fed0a3d83b0ddf66",
+    "at": "2026-11-10",
+    "hash": "09544e857fdd37b0",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P5",
-        "quote": "ปลาจับจากธรรมชาติที่นำเข้ามานี้ควรเลี้ยงในตู้ที่สะอาด",
-        "why": "Refers to the source importer's own stock ('these imported fish') as if the reader knew it.",
+        "part": "P8",
+        "quote": "ขณะนี้ยังไม่สามารถให้ลักษณะเฉพาะสำหรับจำแนกชนิดที่ละเอียดกว่านี้ได้ เนื่องจากไม่สามารถหาคำบรรยายต้นแบบของชนิดมาได้",
+        "why": "This is the source writer saying what they could not obtain, a voice the reader doesn't know.",
         "by": "model"
       }
     ],
@@ -127853,7 +127849,7 @@
   },
   "ms/species/altolamprologus-compressiceps": {
     "at": "2026-11-15",
-    "hash": "a2f58cd201e7f3ca",
+    "hash": "bee08b2142990b1c",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -129120,14 +129116,6 @@
       "Chihiros WRGB II Slim"
     ]
   },
-  "id/species/carnegiella-myersi": {
-    "at": "2026-11-15",
-    "hash": "42622cc3d189f0f7",
-    "model": "opus",
-    "checklist": 3,
-    "findings": [],
-    "products": []
-  },
   "id/species/chaetostoma-pearsei": {
     "at": "2026-11-15",
     "hash": "1e4038bdd770a2db",
@@ -129229,14 +129217,6 @@
     "findings": [],
     "products": []
   },
-  "ms/species/acanthicus-adonis": {
-    "at": "2026-11-15",
-    "hash": "c3eb2e296f054536",
-    "model": "opus",
-    "checklist": 3,
-    "findings": [],
-    "products": []
-  },
   "ms/species/amblyceps-tenuispinis": {
     "at": "2026-11-15",
     "hash": "13798902c199c928",
@@ -129296,14 +129276,6 @@
   "ms/species/ameiurus-brunneus": {
     "at": "2026-11-15",
     "hash": "b8335f8d7bdb480c",
-    "model": "opus",
-    "checklist": 3,
-    "findings": [],
-    "products": []
-  },
-  "th/species/carnegiella-myersi": {
-    "at": "2026-11-15",
-    "hash": "3c0538c95be71c4e",
     "model": "opus",
     "checklist": 3,
     "findings": [],

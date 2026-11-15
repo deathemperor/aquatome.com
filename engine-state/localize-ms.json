@@ -32,36 +32,23 @@
     ]
   },
   "acanthicus-adonis": {
-    "at": "2026-11-15",
-    "from": "2026-11-15",
+    "at": "2026-11-08",
+    "from": "2026-10-28",
     "name": "Adonis Pleco",
     "confidence": "medium",
-    "score": 0.55,
+    "score": 0.7,
     "notes": [
-      "Item 4: \"approx. 24,000 litres\" for 600 × 200 cm base is kept as in source, but \"liter\" is the US spelling; use \"liter\"→\"liter\" is acceptable in Malay, so no issue. Real problem is item 1: source says \"600 mm or more\" and MS \"60 cm\" is right, but item 13 says ~1 m, fine.",
-      "Item 7: \"lancefish\" translated as \"ikan belut pasir\" is wrong/misleading (sand eel/lance); lancefish are sand lances (Ammodytes). Use \"ikan lance/sand lance\" or similar, not \"belut\" (eel).",
-      "Item 7: \"kerang\" for cockles is fine, but \"sejuk beku\" is acceptable; main issue is \"belut pasir\".",
-      "Item 11: \"bernafas udara secara fakultatif\" is awkward; prefer \"boleh bernafas udara (fakultatif)\".",
-      "Item 11: \"satu taksa\" for a single taxon is fine; \"lengkung sirip dada\" for pectoral girdle is acceptable.",
-      "Item 8: \"akuarium awam\" for \"public aquaria magnitude\" is unclear; use \"akuarium awam (public aquarium)\" scale e.g. \"sebesar akuarium pameran awam\".",
-      "Item 10: \"gua\" for cave spawner; prefer \"ceruk/lubang\" as aquarium caves are not literal caves.",
-      "Item 1: \"Rated difficult because it needs a tank at least 2 m long\" rendered correctly, but \"ikan keli\" for loricariid is fine."
-    ],
-    "parts": {
-      "quickFacts:seriouslyfish": "1e6aeb02d158",
-      "distribution:seriouslyfish": "cf407a0b1887",
-      "habitat:seriouslyfish": "16ab3457cc6a",
-      "aquariumSize:seriouslyfish": "1245e2fc7f8b",
-      "maintenance:seriouslyfish": "d004ee53af4c",
-      "waterConditions:seriouslyfish": "d75a72d5094c",
-      "diet:seriouslyfish": "ff4c16e79c47",
-      "behaviour:seriouslyfish": "c95a2f92254b",
-      "dimorphism:seriouslyfish": "b9e4c89ef1de",
-      "reproduction:seriouslyfish": "2670f04217b7",
-      "notes:seriouslyfish": "bf1ca749673c",
-      "references:seriouslyfish": "b5da2f015943",
-      "notes:glaser": "383fdda85170"
-    }
+      "Item 1: '600 mm' left in mm; convert to metric cm ('60 cm atau lebih') for consistency with other units (item 1 and item 4 use cm/m).",
+      "Item 4: '600 × 200 cm' and '24,000 litres' fine, but 'diperlukan' sentence order is awkward; also 'liter' should be 'liter' consistently (ok) - minor.",
+      "Item 7: 'lancefish' left untranslated; use local term e.g. 'ikan lancefish (sand eel)' or 'ikan belanak/ikan puput' equivalent, or give a local name.",
+      "Item 7: 'sisa buangan/sisa organik manusia' is awkward; use 'sisa buangan manusia/sisa organik'.",
+      "Item 11: 'suckermouth armoured catfish' left in English; give Malay e.g. 'ikan keli bersungut penyedut berperisai' with English in brackets.",
+      "Item 11: 'mereka mampu menyedut udara atmosfera' - 'menyedut' is odd; use 'menarik nafas/bernafas dengan udara atmosfera'. 'fakultatif' placement awkward.",
+      "Item 1: 'Polka dot lyre tail pleco' left untranslated as a trade name is fine, but 'rio Tocantins' lacks 'Sungai' for clarity.",
+      "Item 1/11: 'tangki' vs 'akuarium' and 'yang paling besar atau kolam tropika' is ambiguous (largest tropical ponds?); use 'akuarium persendirian terbesar atau kolam tropika'.",
+      "Item 5: 'paip plastik' fine; 'jadual tukar air yang tetap' is slightly weaker than 'dedicated regime'; consider 'rejim tukar air yang khusus'.",
+      "Item 10: 'bertelur di dalam gua' - use 'pembiak gua' / 'bertelur dalam lubang/gua'; 'mengurus telur' should be 'menjaga telur'."
+    ]
   },
   "acanthicus-hystrix": {
     "at": "2026-11-08",
@@ -1602,17 +1589,13 @@
     }
   },
   "altolamprologus-compressiceps": {
-    "at": "2026-11-15",
-    "from": "2026-11-14",
+    "at": "2026-11-14",
+    "from": "2026-10-29",
     "name": "Compressiceps",
     "confidence": "medium",
     "score": 0.7,
     "notes": [
-      "Item 3: \"menyelinap masuk ke dalam celah-celah batu\" adds \"batu\" (rocks); the English says only \"crevices\". Use \"celah-celah\" alone.",
-      "Item 3: \"menunggu di situ untuk menyerang hendap\" is a bit wordy for \"lies there on the look-out\". Consider \"menunggu mangsa di situ\".",
-      "Item 4: \"bahan buangan\" is narrower than \"water load\" (pollutant load). Consider \"beban pencemar dalam air\".",
-      "Item 5: \"dikenali kerana tahap agresifnya yang rendah\" is stiff. Consider \"agresifnya rendah terhadap ikan lain dalam akuarium\".",
-      "Item 6: \"perbezaan jantina yang ketara\" is slightly vague for sexual dimorphism. Consider \"dimorfisme seksual yang ketara\"."
+      "Item 4: \"Isi padu: ~240 liter\" changes the source figure. The English already gives ~243 litres, and 64 US gal is not a listed tank size, so it should be rounded to a whole litre: \"~243 liter\"."
     ],
     "parts": {
       "quickFacts:seriouslyfish": "ae0811c6cda3",
@@ -1626,14 +1609,7 @@
       "dimorphism:seriouslyfish": "d1a922eded2a",
       "reproduction:seriouslyfish": "1c23c0daa7d2",
       "notes:seriouslyfish": "028d358b4ea1",
-      "references:seriouslyfish": "b73bb8525001",
-      "quickFacts:glaser": "e68f2e5a35a8",
-      "distribution:glaser": "65f0a3cbcd86",
-      "habitat:glaser": "f32b45df03f7",
-      "maintenance:glaser": "360cefd32e0a",
-      "behaviour:glaser": "f55363741938",
-      "dimorphism:glaser": "7b8169e21a2e",
-      "reproduction:glaser": "5b220f793fef"
+      "references:seriouslyfish": "b73bb8525001"
     }
   },
   "amaralia-hypsiura": {
@@ -2012,43 +1988,6 @@
       "habitat:scotcat": "c70a21e5bdfe",
       "notes:scotcat": "990a05be6851",
       "references:scotcat": "abbee23e1e02"
-    }
-  },
-  "amblydoras-nauticus": {
-    "at": "2026-11-15",
-    "from": "2026-11-06",
-    "name": "Talking Catfish",
-    "confidence": "medium",
-    "score": 0.95,
-    "notes": [
-      "Item 17: \"ikan keli lain seperti doradid lain\" repeats \"lain\"; drop one, e.g. \"ikan keli seperti doradid lain\"."
-    ],
-    "parts": {
-      "quickFacts:seriouslyfish": "fba2b4b9412c",
-      "quickFacts:planetcatfish": "1a096c98962d",
-      "quickFacts:glaser": "0125fd332694",
-      "beforeYouBuy:planetcatfish": "6e59027e805d",
-      "beforeYouBuy:glaser": "014c32597396",
-      "distribution:seriouslyfish": "801c13aa186e",
-      "distribution:planetcatfish": "a448028b8c21",
-      "distribution:glaser": "9bd98e7206e4",
-      "habitat:seriouslyfish": "830bb6fee599",
-      "aquariumSize:seriouslyfish": "a813b77e9623",
-      "maintenance:seriouslyfish": "e98f18123c8f",
-      "waterConditions:seriouslyfish": "cba8541da2e3",
-      "waterConditions:planetcatfish": "3118372d6fdc",
-      "equipment:planetcatfish": "86a552cd6cf0",
-      "diet:seriouslyfish": "e587bf87bf28",
-      "diet:planetcatfish": "e4f1dabc4ad6",
-      "behaviour:seriouslyfish": "9be906f6f796",
-      "behaviour:planetcatfish": "65ac4e85e02d",
-      "behaviour:glaser": "e82c37c4c8f4",
-      "dimorphism:seriouslyfish": "fd97c000e099",
-      "dimorphism:planetcatfish": "614d82c7934b",
-      "reproduction:seriouslyfish": "00b1ccc43c36",
-      "reproduction:planetcatfish": "a3e280867e00",
-      "notes:seriouslyfish": "4fcf7ffe75a4",
-      "references:planetcatfish": "661a55cf603a"
     }
   },
   "amblypharyngodon-chulabhornae": {

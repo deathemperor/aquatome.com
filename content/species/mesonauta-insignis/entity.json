@@ -17,16 +17,14 @@
     "native": {
       "countries": [
         "BR",
-        "VE",
-        "CO"
+        "VE"
       ],
       "regions": [
         "Orinoco",
         "Negro"
       ],
       "sources": [
-        "seriouslyfish",
-        "glaser"
+        "seriouslyfish"
       ],
       "quotes": [
         {
@@ -40,21 +38,13 @@
             "Orinoco",
             "Negro"
           ]
-        },
-        {
-          "source": "glaser",
-          "quote": "Venezuela, Colombia.",
-          "countries": [
-            "CO"
-          ],
-          "regions": []
         }
       ]
     },
     "records": {
       "taxonKey": 2369918,
       "total": 534,
-      "fetched": "2026-11-15",
+      "fetched": "2026-11-10",
       "countries": [
         [
           "BR",
@@ -148,13 +138,13 @@
           -71.71875,
           -4.21875,
           1,
-          1
+          0
         ],
         [
           -70.3125,
           -4.21875,
           2,
-          2
+          0
         ],
         [
           -70.3125,
@@ -178,13 +168,13 @@
           -68.90625,
           1.40625,
           6,
-          6
+          3
         ],
         [
           -68.90625,
           2.8125,
           11,
-          11
+          7
         ],
         [
           -68.90625,

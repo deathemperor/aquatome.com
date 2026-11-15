@@ -9,62 +9,14 @@
     "south-america",
     "brazil"
   ],
-  "range": {
-    "records": {
-      "taxonKey": 2342792,
-      "total": 47,
-      "fetched": "2026-11-15",
-      "countries": [
-        [
-          "SR",
-          44
-        ],
-        [
-          "BR",
-          3
-        ]
-      ],
-      "cells": [
-        [
-          -60.46875,
-          -1.40625,
-          1
-        ],
-        [
-          -59.0625,
-          2.8125,
-          2
-        ],
-        [
-          -59.0625,
-          4.21875,
-          4
-        ],
-        [
-          -57.65625,
-          -9.84375,
-          1
-        ],
-        [
-          -57.65625,
-          -5.625,
-          1
-        ],
-        [
-          -57.65625,
-          2.8125,
-          3
-        ],
-        [
-          -57.65625,
-          4.21875,
-          35
-        ]
-      ]
-    }
-  },
   "dataCard": {},
   "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_cf_bicolor_en/",
+      "html": "<p>May that be as it is: in any case the new Cory is a real eyecatcher.</p>"
+    },
     {
       "key": "equipment",
       "source": "glaser",
