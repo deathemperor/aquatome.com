@@ -11,6 +11,42 @@
     "russia",
     "amur"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "RU"
+      ],
+      "regions": [
+        "Amur",
+        "Ussuri"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: China. Also reported from Russian waters: Amur and Ussuri.",
+          "countries": [
+            "CN",
+            "RU"
+          ],
+          "regions": [
+            "Amur",
+            "Ussuri"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961270,
+      "total": 0,
+      "fetched": "2026-11-15",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

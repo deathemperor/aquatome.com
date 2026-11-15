@@ -3,6 +3,12 @@
   "name": "Huong",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-15T11:25:47.746Z",
+    "why": "The place is the Perfume River (sông Hương), and a Malaysian atlas would write \"Sungai Huong\" or \"Sungai Hương\", with the Malay word \"Sungai\" for river; bare \"Huong\" omits it."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

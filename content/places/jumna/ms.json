@@ -1,8 +1,13 @@
 {
   "slug": "jumna",
-  "name": "Jumna",
+  "name": "Sungai Yamuna",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-15T11:26:33.682Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

@@ -1,8 +1,13 @@
 {
   "slug": "chauvery",
-  "name": "Kaveri",
+  "name": "Sungai Kaveri",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-15T11:23:58.300Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

@@ -1,8 +1,8 @@
 {
   "id": "plotosus-canius",
   "native": {
-    "input": "423c80df167f8177",
-    "at": "2026-11-14T00:09:29.977Z",
+    "input": "1cb2962a3dba36c0",
+    "at": "2026-11-15T11:29:40.250Z",
     "claims": [
       {
         "code": "IN",
@@ -59,13 +59,63 @@
         "quote": "Indo-West Pacific: west and south coasts of India and off Sri Lanka, eastward along the coasts of Bangladesh and Myanmar, through the Indo-Australian Archipelago and the Philippines as far as Papua New Guinea.",
         "words": "Papua New Guinea",
         "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Indo-West Pacific: west and south coasts of India and off Sri Lanka eastward along the coasts of Bangladesh and Myanmar, through the Indo-Australian Archipelago and the Philippines as far as Papua New Guinea.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Indo-West Pacific: west and south coasts of India and off Sri Lanka eastward along the coasts of Bangladesh and Myanmar, through the Indo-Australian Archipelago and the Philippines as far as Papua New Guinea.",
+        "words": "Sri Lanka",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Indo-West Pacific: west and south coasts of India and off Sri Lanka eastward along the coasts of Bangladesh and Myanmar, through the Indo-Australian Archipelago and the Philippines as far as Papua New Guinea.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Indo-West Pacific: west and south coasts of India and off Sri Lanka eastward along the coasts of Bangladesh and Myanmar, through the Indo-Australian Archipelago and the Philippines as far as Papua New Guinea.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "PH",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Indo-West Pacific: west and south coasts of India and off Sri Lanka eastward along the coasts of Bangladesh and Myanmar, through the Indo-Australian Archipelago and the Philippines as far as Papua New Guinea.",
+        "words": "Philippines",
+        "ok": true
+      },
+      {
+        "code": "PG",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Indo-West Pacific: west and south coasts of India and off Sri Lanka eastward along the coasts of Bangladesh and Myanmar, through the Indo-Australian Archipelago and the Philippines as far as Papua New Guinea.",
+        "words": "Papua New Guinea",
+        "ok": true
       }
     ],
     "regions": [],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "ID"
+      ],
       "sourcesOnly": []
     }
   },

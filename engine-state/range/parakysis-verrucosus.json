@@ -1,9 +1,17 @@
 {
   "id": "parakysis-verrucosus",
   "native": {
-    "input": "8ce67413c8edefff",
-    "at": "2026-11-11T08:59:40.517Z",
+    "input": "d9d8e9c346cfa9b8",
+    "at": "2026-11-15T11:29:40.250Z",
     "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Mawai District, Johore, Malaysia.",
+        "words": "Malaysia",
+        "ok": true
+      },
       {
         "code": "ID",
         "status": "native",
@@ -15,9 +23,17 @@
       {
         "code": "MY",
         "status": "native",
-        "source": "scotcat",
-        "quote": "Type locality: Mawai District, Johore, Malaysia.",
+        "source": "glaser",
+        "quote": "Malaysia; Singapore is also given as origin.",
         "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Malaysia; Singapore is also given as origin.",
+        "words": "Singapore",
         "ok": true
       }
     ],
@@ -65,7 +81,9 @@
     "outranked": [],
     "origin": {
       "pagesOnly": [],
-      "sourcesOnly": []
+      "sourcesOnly": [
+        "SG"
+      ]
     }
   },
   "records": {
@@ -83,10 +101,11 @@
       ]
     ],
     "native": [
+      "MY",
       "ID",
-      "MY"
+      "SG"
     ],
     "requests": 11,
-    "at": "2026-11-11T08:59:40.517Z"
+    "at": "2026-11-15T11:29:40.250Z"
   }
 }

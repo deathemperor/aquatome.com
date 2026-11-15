@@ -21,10 +21,12 @@
         "NP"
       ],
       "regions": [
-        "Ganges-Brahmaputra"
+        "Ganges-Brahmaputra",
+        "Bengal"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -43,6 +45,14 @@
           "countries": [],
           "regions": [
             "Ganges-Brahmaputra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'ponds of the northern parts of Bengal'.",
+          "countries": [],
+          "regions": [
+            "Bengal"
           ]
         }
       ]

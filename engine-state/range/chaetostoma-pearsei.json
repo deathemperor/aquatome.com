@@ -1,0 +1,76 @@
+{
+  "id": "chaetostoma-pearsei",
+  "native": {
+    "input": "c407eea013d44546",
+    "at": "2026-11-15T11:29:40.250Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Colombia, Venezuela.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Colombia, Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "This Chaetostoma species is imported at regular intervals from the upper Orinoco through Puerto Ayacucho.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Chaetostoma pearsei",
+    "status": "ACCEPTED",
+    "taxonKey": 5202369,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "CO",
+      "VE"
+    ],
+    "requests": 11,
+    "at": "2026-11-15T11:29:40.250Z"
+  }
+}

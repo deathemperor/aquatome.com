@@ -9020,7 +9020,7 @@
   },
   "id/species/betta-burdigala": {
     "at": "2026-11-15",
-    "hash": "8903fbab01b6f003",
+    "hash": "ef9a220c4b41b36c",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -9339,7 +9339,7 @@
   },
   "id/species/betta-livida": {
     "at": "2026-11-15",
-    "hash": "c4243a6405ce9355",
+    "hash": "d640bb5bbc5acefa",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -9718,16 +9718,16 @@
     "products": []
   },
   "id/species/betta-siamorientalis": {
-    "at": "2026-11-09",
-    "hash": "e0242f76ddd12903",
+    "at": "2026-11-15",
+    "hash": "579ad94cd6b31862",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P5",
-        "quote": "Ikan yang ditawarkan di sini adalah tangkapan alam dari lokasi tipe di Long An, Vietnam.",
-        "why": "Refers to the source shop's own stock on offer.",
+        "part": "P2",
+        "quote": "Ukuran yang tersedia: 3–4 cm.",
+        "why": "Lists the source shop's stock sizes on offer, which the reader cannot buy.",
         "by": "model"
       }
     ],
@@ -9750,8 +9750,8 @@
     "products": []
   },
   "id/species/betta-smaragdina": {
-    "at": "2026-11-14",
-    "hash": "37310d98660447cd",
+    "at": "2026-11-15",
+    "hash": "bbf01d6d1d2b4b1e",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -9804,10 +9804,10 @@
     "products": []
   },
   "id/species/betta-stiktos": {
-    "at": "2026-11-08",
-    "hash": "c80f2ede74ed6162",
+    "at": "2026-11-15",
+    "hash": "2305361f2953eb7d",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -12131,8 +12131,8 @@
     "products": []
   },
   "id/species/corydoras-adolfoi": {
-    "at": "2026-11-10",
-    "hash": "a50e5de0f8fed200",
+    "at": "2026-11-15",
+    "hash": "c65ade372fd3d025",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -12140,14 +12140,14 @@
         "check": "source",
         "part": "P6",
         "quote": "Saat ini dipelihara pada pH 6–7",
-        "why": "The shop is describing its own fish in stock, which the reader has never seen.",
+        "why": "Describes how the source shop currently keeps its own stock, not advice for the reader.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P8",
         "quote": "Saat ini diberi pakan blackworm, cacing darah beku, dan pelet.",
-        "why": "The shop is describing how it currently feeds its own stock.",
+        "why": "Describes how the source shop currently feeds its own stock.",
         "by": "model"
       }
     ],
@@ -12218,16 +12218,16 @@
     "products": []
   },
   "id/species/corydoras-armatus": {
-    "at": "2026-11-10",
-    "hash": "0e638ed8e4f37c9d",
+    "at": "2026-11-15",
+    "hash": "33bcdecb7dd00a63",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P10",
-        "quote": "Ikan dari Venezuela baru saja diimpor sebagai spesimen yang sehat dan besar.",
-        "why": "This is the source shop's stock news about a recent import, which the reader knows nothing about.",
+        "part": "P3",
+        "quote": "April 2005: Ikan-ikan ini diimpor dari Kolombia.",
+        "why": "This is the source shop's own import news about its stock, which the reader doesn't know.",
         "by": "model"
       }
     ],
@@ -12434,8 +12434,8 @@
     "products": []
   },
   "id/species/corydoras-ephippifer": {
-    "at": "2026-11-10",
-    "hash": "88ba8da1efb43411",
+    "at": "2026-11-15",
+    "hash": "c863f6d9f2f13cf9",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -14256,8 +14256,8 @@
     "products": []
   },
   "id/species/danio-aesculapii": {
-    "at": "2026-11-14",
-    "hash": "67a6884b21739e02",
+    "at": "2026-11-15",
+    "hash": "6cf23d09751af63e",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -15190,9 +15190,10 @@
     ]
   },
   "id/species/kottelatia-brittani": {
-    "at": "2026-11-07",
-    "hash": "61332fbcb717bb2e",
+    "at": "2026-11-15",
+    "hash": "3ae8da43384907a2",
     "model": "opus",
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -26566,12 +26567,24 @@
     "products": []
   },
   "th/plants/glossostigma-elatinoides": {
-    "at": "2026-11-08",
-    "hash": "da2c26815dc6bda6",
+    "at": "2026-11-15",
+    "hash": "e132504ca1582b73",
     "model": "opus",
-    "checklist": 2,
-    "findings": [],
-    "products": []
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P5",
+        "quote": "ปลูกห่างกัน 2.5 ซม. เพื่อให้ไหลแผ่ออกไปได้",
+        "why": "2.5 cm spacing is a converted 1 inch, not a figure a Thai keeper would use.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "ADA Amazonia aqua soil",
+      "CaribSea Eco-Complete",
+      "Seachem Fluorite"
+    ]
   },
   "th/plants/gratiola-viscidula": {
     "at": "2026-11-08",
@@ -28550,10 +28563,10 @@
     "products": []
   },
   "th/species/altolamprologus-compressiceps": {
-    "at": "2026-11-08",
-    "hash": "6dd889fbc7195581",
+    "at": "2026-11-15",
+    "hash": "2a31388d110ae858",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -32085,7 +32098,7 @@
   },
   "th/species/betta-burdigala": {
     "at": "2026-11-15",
-    "hash": "4b63602eb289e542",
+    "hash": "ff20a6aafa0d719b",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -32384,19 +32397,10 @@
   },
   "th/species/betta-livida": {
     "at": "2026-11-15",
-    "hash": "0c59c0b1a91e3e53",
+    "hash": "fdde757c806f7615",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "words",
-        "part": "P11",
-        "quote": "สามารถให้แบล็กเวิร์ม (blackworm) แบบเป็น",
-        "why": "Transliterated English 'live blackworm'; Thai keepers name live worms differently and say 'แบบมีชีวิต'/'อาหารสด'.",
-        "by": "model",
-        "fix": "ไส้เดือนน้ำแบบมีชีวิต"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "th/species/betta-macrostoma": {
@@ -32730,23 +32734,23 @@
     "products": []
   },
   "th/species/betta-siamorientalis": {
-    "at": "2026-11-09",
-    "hash": "1ac96f2f438dc8cf",
+    "at": "2026-11-15",
+    "hash": "19afcac31d265c78",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P2",
-        "quote": "ขนาดที่มีจำหน่าย: 3–4 ซม.",
-        "why": "Gives the size the source shop sells these fish at, which is that shop's stock.",
+        "quote": "ขนาดที่มีจำหน่าย: 3-4 ซม.",
+        "why": "This is the shop's own sales listing for its stock, not a fact about the species.",
         "by": "model"
       },
       {
         "check": "source",
-        "part": "P5",
-        "quote": "ปลาในรายการนี้เป็นปลาที่จับจากธรรมชาติในแหล่งต้นแบบ (type locality) ที่ลองอาน ประเทศเวียดนาม",
-        "why": "Talks about the fish in the source shop's own sales listing as if the reader knew it.",
+        "part": "P1",
+        "quote": "ตัวที่พูดถึงนี้เป็นปลาที่จับจากธรรมชาติในจังหวัดลองอาน ประเทศเวียดนาม",
+        "why": "Refers to the source shop's own specimen as if the reader knew it.",
         "by": "model"
       }
     ],
@@ -32848,10 +32852,10 @@
     "products": []
   },
   "th/species/betta-stiktos": {
-    "at": "2026-11-08",
-    "hash": "944adbf1381de46b",
+    "at": "2026-11-15",
+    "hash": "2e0104d91e594407",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -34558,16 +34562,16 @@
     "products": []
   },
   "th/species/cichla-ocellaris": {
-    "at": "2026-11-09",
-    "hash": "8d785edbaada5585",
+    "at": "2026-11-15",
+    "hash": "36abd5747c368b06",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
         "part": "P7",
-        "quote": "ปลาแลนซ์ (lancefish)",
-        "why": "Lancefish is a frozen food sold in UK shops. Keepers in Thailand don't know it and can't easily buy it.",
+        "quote": "ปลาแลนซ์ฟิช ปลาไวต์เบต",
+        "why": "Lancefish and whitebait are frozen foods sold in UK fish shops, not something a keeper in Thailand would feed or find.",
         "by": "model"
       }
     ],
@@ -35149,23 +35153,23 @@
     "products": []
   },
   "th/species/corydoras-adolfoi": {
-    "at": "2026-11-10",
-    "hash": "067e8a5d56df31c9",
+    "at": "2026-11-15",
+    "hash": "f52ac782361d1d97",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P6",
-        "quote": "ปัจจุบันเลี้ยงไว้ที่ค่า pH 6–7",
-        "why": "The source shop speaks about how it currently keeps its own stock.",
+        "quote": "ปัจจุบันเลี้ยงไว้ที่ค่า pH 6-7",
+        "why": "Describes the source shop's own tanks, which the reader doesn't know.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P8",
         "quote": "ปัจจุบันให้กินแบล็กเวิร์ม (blackworm) หนอนแดงแช่แข็ง และอาหารเม็ด",
-        "why": "The source shop describes what it currently feeds its own fish.",
+        "why": "Describes what the source shop currently feeds its own stock.",
         "by": "model"
       }
     ],
@@ -35444,16 +35448,16 @@
     "products": []
   },
   "th/species/corydoras-ephippifer": {
-    "at": "2026-11-10",
-    "hash": "09544e857fdd37b0",
+    "at": "2026-11-15",
+    "hash": "fed0a3d83b0ddf66",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P8",
-        "quote": "ขณะนี้ยังไม่สามารถให้ลักษณะเฉพาะสำหรับจำแนกชนิดที่ละเอียดกว่านี้ได้ เนื่องจากไม่สามารถหาคำบรรยายต้นแบบของชนิดมาได้",
-        "why": "This is the source writer saying what they could not obtain, a voice the reader doesn't know.",
+        "part": "P5",
+        "quote": "ปลาจับจากธรรมชาติที่นำเข้ามานี้ควรเลี้ยงในตู้ที่สะอาด",
+        "why": "Refers to the source importer's own stock ('these imported fish') as if the reader knew it.",
         "by": "model"
       }
     ],
@@ -127849,7 +127853,7 @@
   },
   "ms/species/altolamprologus-compressiceps": {
     "at": "2026-11-15",
-    "hash": "bee08b2142990b1c",
+    "hash": "a2f58cd201e7f3ca",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -129115,5 +129119,267 @@
     "products": [
       "Chihiros WRGB II Slim"
     ]
+  },
+  "id/species/carnegiella-myersi": {
+    "at": "2026-11-15",
+    "hash": "42622cc3d189f0f7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/chaetostoma-pearsei": {
+    "at": "2026-11-15",
+    "hash": "1e4038bdd770a2db",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/corydoras-bicolor": {
+    "at": "2026-11-15",
+    "hash": "ce792a714c4214e0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/devario-affinis": {
+    "at": "2026-11-15",
+    "hash": "14ad0f23b45f44de",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/devario-apogon": {
+    "at": "2026-11-15",
+    "hash": "448721369f7a69f1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P11",
+        "quote": "Spesies ini kurang lebih belum dikenal di dunia akuarium saat tulisan ini dibuat",
+        "why": "Refers to when the original source article was written, a date the reader doesn't know.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/hemirhamphodon-tengah": {
+    "at": "2026-11-15",
+    "hash": "ebbaa6ec892dab24",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/plotosus-canius": {
+    "at": "2026-11-15",
+    "hash": "ce62462a049718ea",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/plants/glossostigma-elatinoides": {
+    "at": "2026-11-15",
+    "hash": "819f39be75715feb",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "ADA Amazonia aqua soil",
+      "CaribSea Eco-Complete",
+      "Seachem Fluorite"
+    ]
+  },
+  "ms/plants/gratiola-viscidula": {
+    "at": "2026-11-15",
+    "hash": "8474d4c1598b7f70",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P2",
+        "quote": "di bahagian hadapan atau tengah tangki",
+        "why": "\"Tangki\" is a dictionary translation of \"tank\"; Malaysian hobbyists call it an akuarium.",
+        "by": "model",
+        "fix": "akuarium"
+      }
+    ],
+    "products": []
+  },
+  "ms/plants/helanthium-bolivianum": {
+    "at": "2026-11-15",
+    "hash": "3e4d499572c871d1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/plants/helanthium-tenellum": {
+    "at": "2026-11-15",
+    "hash": "684425fc68f4fff9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/acanthicus-adonis": {
+    "at": "2026-11-15",
+    "hash": "c3eb2e296f054536",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/amblyceps-tenuispinis": {
+    "at": "2026-11-15",
+    "hash": "13798902c199c928",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/amblyceps-yunnanense": {
+    "at": "2026-11-15",
+    "hash": "efbce0b4b9815e7e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/amblydoras-nauticus": {
+    "at": "2026-11-15",
+    "hash": "24d65eba6c54b9e3",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Saiz yang dijual: 4–6 cm",
+        "why": "States the size the source exporter sells this fish at, i.e. its own stock.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "ms/species/amblypharyngodon-chulabhornae": {
+    "at": "2026-11-15",
+    "hash": "e45b7b7bfb35e20c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/amblyrhynchichthys-micracanthus": {
+    "at": "2026-11-15",
+    "hash": "fb2fe658a5dacebf",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/ameca-splendens": {
+    "at": "2026-11-15",
+    "hash": "a51b0f44db5c5f64",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/ameiurus-brunneus": {
+    "at": "2026-11-15",
+    "hash": "b8335f8d7bdb480c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/carnegiella-myersi": {
+    "at": "2026-11-15",
+    "hash": "3c0538c95be71c4e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/chaetostoma-pearsei": {
+    "at": "2026-11-15",
+    "hash": "b8ed62379bf6d46e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/corydoras-bicolor": {
+    "at": "2026-11-15",
+    "hash": "81e1b900c759893d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/desmopuntius-pentazona": {
+    "at": "2026-11-15",
+    "hash": "582c29fdd9007b86",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P4",
+        "quote": "ตัวอย่างจากธรรมชาติที่ปรากฏในภาพบางภาพดูเหมือนจะเก็บได้จากบริเวณใกล้เมืองเมอร์ซิง",
+        "why": "Refers to the source site's photos, which this page does not have.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/devario-acrostomus": {
+    "at": "2026-11-15",
+    "hash": "2c3893aa5d770f98",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/devario-acuticephala": {
+    "at": "2026-11-15",
+    "hash": "51fd17a07a7b7546",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P8",
+        "quote": "รวมถึงปลาแมวอย่าง Akysis, Hara หรือ Erethistes spp.",
+        "why": "\"ปลาแมว\" is a calque of \"catfish\"; in Thai it names a different fish (an anchovy).",
+        "by": "model",
+        "fix": "ปลาหนัง (แคทฟิช)"
+      }
+    ],
+    "products": []
+  },
+  "th/species/devario-aequipinnatus": {
+    "at": "2026-11-15",
+    "hash": "fb6574a722da2dc8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/devario-affinis": {
+    "at": "2026-11-15",
+    "hash": "6389954414198689",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
   }
 }

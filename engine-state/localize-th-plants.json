@@ -972,12 +972,27 @@
     ]
   },
   "glossostigma-elatinoides": {
-    "at": "2026-10-31",
-    "from": "2026-10-30",
+    "at": "2026-11-15",
+    "from": "2026-11-14",
     "name": "กลอสโซ่",
     "confidence": "high",
-    "score": 0.97,
-    "notes": []
+    "score": 0.88,
+    "notes": [
+      "Item 8: \"หอยญี่ปุ่น trapdoor\" mixes English into the Thai. Use one consistent Thai name, or give the English in brackets after it.",
+      "Item 8: the \"ปลาที่เลี้ยงร่วมได้\" heading covers only fish, but the list also includes shrimp and snails. Use a wider heading such as \"สัตว์น้ำที่เลี้ยงร่วมได้\".",
+      "Item 8: \"koi\" is rendered as \"ปลาคาร์ป\", which is too general. Use \"ปลาคราฟ/ปลาคาร์ปโคอิ\".",
+      "Item 3: the common name \"lopseed family\" is left out. Optional: add a Thai gloss for it."
+    ],
+    "parts": {
+      "quickFacts:tropica": "df2d730f4a3c",
+      "quickFacts:aquariumbreeder": "5fdf59697245",
+      "distribution:aquariumbreeder": "ff51df00aaf4",
+      "habitat:aquariumbreeder": "47f628bc0309",
+      "maintenance:tropica": "a05a85abd59f",
+      "maintenance:aquariumbreeder": "d7d6768a820d",
+      "notes:tropica": "1561001f69cd",
+      "notes:aquariumbreeder": "89c3e687f6b8"
+    }
   },
   "gratiola-viscidula": {
     "at": "2026-11-01",

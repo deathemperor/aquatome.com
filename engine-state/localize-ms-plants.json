@@ -1224,5 +1224,77 @@
       "quickFacts:tropica": "a3dcf5a5253e",
       "notes:tropica": "040700e237ad"
     }
+  },
+  "glossostigma-elatinoides": {
+    "at": "2026-11-15",
+    "from": "2026-11-14",
+    "name": "Glosso",
+    "confidence": "high",
+    "score": 0.88,
+    "notes": [
+      "In #6, \"penapis jaring\" for \"sieve\" is awkward, and \"penapis\" usually means a filter. Use \"penapis halus\" or \"jaring halus\" instead.",
+      "In #6, \"Trim\" is left in English. \"Pangkas\" is the more natural Malay and could be used throughout.",
+      "In #6, \"pertumbuhan tinggi dan jarang\" for \"leggy growth\" is a loose rendering. \"Pertumbuhan meninggi dan kurus (leggy)\" would be clearer."
+    ],
+    "parts": {
+      "quickFacts:tropica": "df2d730f4a3c",
+      "quickFacts:aquariumbreeder": "5fdf59697245",
+      "distribution:aquariumbreeder": "ff51df00aaf4",
+      "habitat:aquariumbreeder": "47f628bc0309",
+      "maintenance:tropica": "a05a85abd59f",
+      "maintenance:aquariumbreeder": "d7d6768a820d",
+      "notes:tropica": "1561001f69cd",
+      "notes:aquariumbreeder": "89c3e687f6b8"
+    }
+  },
+  "gratiola-viscidula": {
+    "at": "2026-11-15",
+    "from": "2026-10-30",
+    "name": "Gratiola viscidula",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"tumbuhan batang\" is acceptable, but \"tumbuhan berbatang\" is more natural for \"stem plant\"",
+      "\"Bentuk tenggelamnya\" is slightly awkward; \"bentuk terendam\" is the usual hobby term for the submersed form"
+    ],
+    "parts": {
+      "quickFacts:tropica": "3f73edfeb797",
+      "notes:tropica": "83a460f672ea"
+    }
+  },
+  "helanthium-bolivianum": {
+    "at": "2026-11-15",
+    "from": "2026-10-30",
+    "name": "Echinodorus Quadricostatus",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"Asal: Amerika Selatan\" – use \"Asal usul\" or \"Negara asal/Kawasan asal\" instead of \"Asal\".",
+      "\"tumbuhan akuatik\" – hobbyists say \"tumbuhan akuarium\" (aquarium plants); the source says aquarium plants.",
+      "\"dasar tangki\" – the source says \"bottom\"; use \"dasar\" or \"substrat\". \"tangki\" is an addition.",
+      "\"Daun yang terlalu pucat\" – source says \"Very light leaves\"; \"sangat pucat\" is closer.",
+      "\"menjadi 15-20 cm lebar\" – awkward; use \"mencapai lebar 15-20 cm\".",
+      "\"Sebelum ini dikenali sebagai Echinodorus 'Quadricostatus'\" – literal copy of the source, which is itself odd; keep but check that the name is not self-referential."
+    ],
+    "parts": {
+      "quickFacts:tropica": "247c05791b7f",
+      "notes:tropica": "95fdf5e8ad81"
+    }
+  },
+  "helanthium-tenellum": {
+    "at": "2026-11-15",
+    "from": "2026-10-30",
+    "name": "Helanthium tenellum 'Green'",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 1: \"tangki\" is acceptable, but \"akuarium\" would be more natural for an aquarium handbook.",
+      "Item 2: \"Tumbuhan latar depan\" is fine, but \"tumbuhan latar hadapan\" is the more standard form."
+    ],
+    "parts": {
+      "quickFacts:tropica": "76457b006b81",
+      "maintenance:tropica": "0ab12626cdd7",
+      "notes:tropica": "81835eaf6307"
+    }
   }
 }

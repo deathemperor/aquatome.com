@@ -3,6 +3,12 @@
   "name": "Indochina",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-15T11:25:57.506Z",
+    "why": "Malay atlases in Malaysia write \"Indochina\" as \"Indo-China\" or \"Indochina\" variably, but the standard Malay form is \"Indochina\" (DBP uses \"Indo-China\"/\"Indochina\"), so it is acceptable; however the region listing is odd."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

@@ -3,6 +3,12 @@
   "name": "Duthawadi",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-15T11:24:46.705Z",
+    "why": "The source uses Duthawadi as a river (the Duthawadi river system), so a Malay atlas would write \"Sungai Duthawadi\", and the bare name leaves out the kind word."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

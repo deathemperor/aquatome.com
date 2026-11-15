@@ -1,14 +1,22 @@
 {
   "id": "betta-siamorientalis",
   "native": {
-    "input": "c8b8bbf164e339ed",
-    "at": "2026-11-09T12:58:06.259Z",
+    "input": "b5fbe8256269728f",
+    "at": "2026-11-15T11:29:40.250Z",
     "claims": [
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Native to eastern Thailand, western Cambodia and parts of Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      },
       {
         "code": "TH",
         "status": "native",
         "source": "bwaquatics",
-        "quote": "Native to slow-moving, shallow waters in eastern Thailand (Chachoengsao, Sa Kaeo, Prachin Buri, Chon Buri provinces), western Cambodia, and parts of Vietnam.",
+        "quote": "Native to eastern Thailand, western Cambodia and parts of Vietnam.",
         "words": "Thailand",
         "ok": true
       },
@@ -16,16 +24,8 @@
         "code": "KH",
         "status": "native",
         "source": "bwaquatics",
-        "quote": "Native to slow-moving, shallow waters in eastern Thailand (Chachoengsao, Sa Kaeo, Prachin Buri, Chon Buri provinces), western Cambodia, and parts of Vietnam.",
+        "quote": "Native to eastern Thailand, western Cambodia and parts of Vietnam.",
         "words": "Cambodia",
-        "ok": true
-      },
-      {
-        "code": "VN",
-        "status": "native",
-        "source": "bwaquatics",
-        "quote": "Native to slow-moving, shallow waters in eastern Thailand (Chachoengsao, Sa Kaeo, Prachin Buri, Chon Buri provinces), western Cambodia, and parts of Vietnam.",
-        "words": "Vietnam",
         "ok": true
       },
       {

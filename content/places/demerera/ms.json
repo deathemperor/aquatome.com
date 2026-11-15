@@ -3,6 +3,12 @@
   "name": "Demerara",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-15T11:24:22.420Z",
+    "why": "The source means the Demerara River in Guyana, and Malay atlases would write \"Sungai Demerara\", so the bare \"Demerara\" leaves out the kind word \"Sungai\"."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

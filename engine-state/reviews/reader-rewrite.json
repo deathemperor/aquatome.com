@@ -84,6 +84,25 @@
       "kept": true
     }
   ],
+  "vi/guides/aquariumbreeder-how-to-set-up-a-freshwater-crab-tank#body": [
+    {
+      "at": "2026-11-15T11:39:07Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "\"Sơn nền\" became \"Sơn mặt sau bể\" – specifies back of tank, which BEFORE did not say; \"nền tối\" became \"phông nền tối\" (consistent but added specificity)",
+        "\"Tuyệt đối không dùng xà phòng\" strengthens \"Không dùng xà phòng\"",
+        "\"Lưu ý là phải đọc hướng dẫn\" became \"Đọc kỹ\" – slight addition of \"kỹ\"",
+        "\"Giấy không có chỗ nào ướt\" became \"Hết 24 giờ mà giấy vẫn khô hoàn toàn\" – minor rewording",
+        "\"hay dùng để lau rửa\" (often used for cleaning) became \"nhà nào cũng hay có sẵn\" (every home often has it) – meaning shifted from usage to availability, overgeneralised",
+        "\"chỉ dùng nước máy\" moved to rinse step, fine; \"cho sạch hẳn\" ok"
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/aquariumbreeder-old-tank-syndrome#body": [
     {
       "at": "2026-11-10T21:53:32Z",
@@ -360,6 +379,22 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/guides/youtube-9w1aF7SgDsk#body": [
+    {
+      "at": "2026-11-15T11:40:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "Said more surely than before: \"Tốt nhất là ADA Aqua Soil, muốn nền giàu dinh dưỡng hơn thì lót thêm một lớp Power Sand bên dưới.\" (was: \"Lựa chọn hàng đầu là ADA Aqua Soil, có thể lót Power Sand bên dưới cho giàu dinh dưỡng hơn.\")",
+        "\"phân nền (root tabs)\" became \"phân nhét\" - the term \"root tabs\" is dropped and the wording is awkward/ambiguous",
+        "\"thì lót thêm một lớp Power Sand\" - \"có thể lót\" (optional/may) turned into a conditional instruction; hedge nuance mostly kept but \"một lớp\" is added detail"
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/guides/youtube-AAjZ3Ldk4go#body": [

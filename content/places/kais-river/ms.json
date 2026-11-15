@@ -1,8 +1,13 @@
 {
   "slug": "kais-river",
-  "name": "Kais",
+  "name": "Sungai Kais",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-15T11:26:47.369Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false
