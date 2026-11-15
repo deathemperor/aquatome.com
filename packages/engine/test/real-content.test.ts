@@ -986,3 +986,24 @@ test('five held video guides say their one sentence plainly, in the Writing Lead
     for (const f of flags) expect(t[f], `${id}: ${f}`).toBe(true)
   }
 })
+
+// The chief of staff, 16 Nov 2026: the popeye guide said fish clinics exist in Hà Nội, TP.HCM and Đà Nẵng, and to get help
+// after 3–5 days of home treatment. Its one source for both, a shop's page, names no clinic and reads as machine-written.
+// The clinic sentences and the day count go by hand, every language's body is fixed so the topic writers keep it, and the
+// page still says whom to ask and when.
+test('the popeye guide names no clinic in a place and no day count, still says whom to ask, and is fixed by hand', () => {
+  const read = (lang: string) => JSON.parse(readFileSync(fileURLToPath(new URL(`../../../content/guides/aquatome-ca-bi-loi-mat-popeye-nguyen-nhan-cach-chua-va-phong/${lang}.json`, import.meta.url)), 'utf8')) as Translation & Record<string, unknown>
+  for (const lang of ['vi', 'id', 'th', 'ms']) {
+    const t = read(lang)
+    const all = [t.name, t.body, ...(t.summary ?? []), ...(t.faq ?? []).flatMap(f => [f.q, f.a])].join('\n')
+    for (const s of ['phòng khám', 'Hà Nội', 'TP.HCM', 'Đà Nẵng', 'kính hiển vi']) expect(all, `${lang}: ${s}`).not.toContain(s)
+    expect(all, `${lang}: a day count`).not.toMatch(/3\s*(?:[–-]|đến|sampai|hingga|ถึง)\s*5\s*(?:ngày|hari|วัน)/u)
+    expect(t.bodyFixed, `${lang}: bodyFixed`).toBe(true)
+  }
+  const vi = read('vi').body ?? ''
+  expect(vi).toContain('Bạn nên nhờ bác sĩ thú y có chữa cá, hoặc tiệm cá cảnh có người rành bệnh cá, xem giúp nếu gặp một trong các trường hợp sau:')
+  expect(vi).toContain('<li>Chữa ở nhà mà cá không đỡ.</li>')
+  // The saved facts lose both too, so a redo of the summary, the FAQ or another language can't bring them back.
+  const facts = readFileSync(fileURLToPath(new URL('../../../engine-state/topics/aquatome-ca-bi-loi-mat-popeye-nguyen-nhan-cach-chua-va-phong.json', import.meta.url)), 'utf8')
+  for (const s of ['3–5 days', 'Hà Nội', 'TP.HCM', 'Đà Nẵng', 'clinics']) expect(facts, `facts: ${s}`).not.toContain(s)
+})
