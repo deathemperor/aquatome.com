@@ -1,10 +1,10 @@
-import { cp, mkdtemp, rm, writeFile } from 'node:fs/promises'
+import { cp, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { describe, expect, test } from 'vitest'
 import { loadAll } from '../src/load'
-import { languageWord, videosForPage } from '../src/videos'
+import { languageWord, videosForPage, videosOnTwoFish } from '../src/videos'
 import type { Video } from '../src/types'
 
 const v = (youtubeId: string, title: string, lang: string) => ({ youtubeId, title, durationSec: 60, lang })
@@ -106,6 +106,46 @@ describe('a language not yet turned on for translated titles (content/video-titl
     expect(await ram()).toMatchObject({ title: 'German blue ram care guide', ownTitle: true })
     await rm(join(root, 'video-titles/vi.passed.json'))
     expect(await ram()).toMatchObject({ title: 'German blue ram care guide', ownTitle: true })
+  })
+  test('a video on the pages of two fish keeps its own title, marked, whatever the files say, a kept title or a pass included; another language\'s video and two pages of one fish don\'t count (the reviewers of the check, 16 Nov)', () => {
+    const pages = [
+      { fish: 'Symphysodon discus', videos: [v('kept1', 'Heckel tank tour', 'en'), v('other', 'Discus care guide', 'en'), v('vivi1', 'Nuôi cá đĩa', 'vi')] },
+      { fish: 'Symphysodon aequifasciatus', videos: [v('kept1', 'Heckel tank tour', 'en'), v('vivi1', 'Nuôi cá đĩa', 'vi')] },
+      { fish: 'Symphysodon discus', videos: [v('other', 'Discus care guide', 'en')] },
+    ]
+    const shared = videosOnTwoFish(pages, 'vi')
+    expect([...shared]).toEqual(['kept1'])
+    const out = videosForPage(vids, 'vi', titles, {}, { requireTitle: true, on: true, kept, refused: {}, passed: { other: 'Hướng dẫn nuôi cá đĩa' }, shared })
+    expect(out.map(v => [v.youtubeId, v.title, v.ownTitle ?? false])).toEqual([
+      ['vivi1', 'Nuôi cá đĩa', false],
+      ['kept1', 'Heckel tank tour', true],
+      ['other', 'Hướng dẫn nuôi cá đĩa', false],
+    ])
+  })
+  test('the loader counts each video\'s fish over every species and product page in the language, held ones too: one taken up by a second fish\'s page, or a product\'s reviews, shows its own title on both, though passed in its words; a refusal beside a matching pass shows its own title too', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'aq-shared-'))
+    await cp(fileURLToPath(new URL('../../../apps/site/test/fixture-content', import.meta.url)), root, { recursive: true })
+    const shown = async (id: string) => (await loadAll({ root, lang: 'vi', publicBuild: false, leaveOutHeld: true })).species.find(s => s.id === id)?.videos.find(v => v.youtubeId === 'enenenenene')
+    expect(await shown('mikrogeophagus-ramirezi')).toMatchObject({ title: 'Cách nuôi cá phượng hoàng xanh' })
+    const second = join(root, 'species/paracheirodon-axelrodi')
+    const e = JSON.parse(await readFile(join(second, 'entity.json'), 'utf8')), ram = JSON.parse(await readFile(join(root, 'species/mikrogeophagus-ramirezi/entity.json'), 'utf8'))
+    await writeFile(join(second, 'entity.json'), JSON.stringify({ ...e, videos: [...e.videos, ram.videos.find((x: Video) => x.youtubeId === 'enenenenene')] }))
+    expect(await shown('mikrogeophagus-ramirezi')).toMatchObject({ title: 'German blue ram care guide', ownTitle: true })
+    expect(await shown('paracheirodon-axelrodi')).toMatchObject({ title: 'German blue ram care guide', ownTitle: true })
+    // Held in Vietnamese, the second page is left out of the build but still counts.
+    const t = JSON.parse(await readFile(join(second, 'vi.json'), 'utf8'))
+    await writeFile(join(second, 'vi.json'), JSON.stringify({ ...t, held: { checks: ['fit'], at: '2026-11-16' } }))
+    expect(await shown('paracheirodon-axelrodi')).toBeUndefined()
+    expect(await shown('mikrogeophagus-ramirezi')).toMatchObject({ title: 'German blue ram care guide', ownTitle: true })
+    await writeFile(join(second, 'entity.json'), JSON.stringify(e))
+    expect(await shown('mikrogeophagus-ramirezi')).toMatchObject({ title: 'Cách nuôi cá phượng hoàng xanh' })
+    // A product's reviews count too, the product its own page.
+    const lamp = join(root, 'products/chihiros-wrgb-ii-slim/entity.json'), p = JSON.parse(await readFile(lamp, 'utf8'))
+    await writeFile(lamp, JSON.stringify({ ...p, reviews: { ...p.reviews, videos: [...p.reviews.videos, { ...ram.videos.find((x: Video) => x.youtubeId === 'enenenenene'), channel: 'C' }] } }))
+    expect(await shown('mikrogeophagus-ramirezi')).toMatchObject({ title: 'German blue ram care guide', ownTitle: true })
+    await writeFile(lamp, JSON.stringify(p))
+    await writeFile(join(root, 'video-titles/vi.refused.json'), JSON.stringify({ enenenenene: 'dropped: x' }))
+    expect(await shown('mikrogeophagus-ramirezi')).toMatchObject({ title: 'German blue ram care guide', ownTitle: true })
   })
   test('off, a refusal changes nothing: every foreign video but the kept already keeps its own title', () => {
     const out = videosForPage(vids, 'vi', titles, {}, { requireTitle: true, on: false, kept, refused: { other: 'x' } })

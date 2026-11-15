@@ -1,9 +1,9 @@
-import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { chmod, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError, type Llm } from '../src/claude'
-import { tidyTitle, titleFits, translateVideoTitles } from '../src/video-titles'
+import { tidyTitle, titleFits, titlesRunOptions, translateVideoTitles } from '../src/video-titles'
 
 const video = (youtubeId: string, title: string, lang = 'en') => ({ youtubeId, title, durationSec: 300, lang })
 
@@ -227,4 +227,22 @@ test("a title given new words loses the meaning check's verdicts on the old ones
   await translateVideoTitles(root, model({ answer: t => (t === 'Lamp D after 6 months' ? `bản dịch: ${t}` : `mới: ${t}`) }), 'vi', { redo: true, parallel: 2 })
   expect(JSON.parse(await readFile(join(dir, 'vi.passed.json'), 'utf8'))).toEqual({ 'en-d': 'bản dịch: Lamp D after 6 months' })
   expect(JSON.parse(await readFile(join(dir, 'vi.refused.json'), 'utf8'))).toEqual({})
+})
+
+test("the old words' verdicts come off before the new words are stored: where taking them off fails, the old words stay, so no verdict stands on words it wasn't given (the reviewers of the check, 16 Nov)", async () => {
+  const root = await store()
+  await translateVideoTitles(root, model(), 'vi')
+  const dir = join(root, 'content/video-titles')
+  await writeFile(join(dir, 'vi.refused.json'), JSON.stringify({ 'en-a': 'dropped: x' }))
+  await chmod(join(dir, 'vi.refused.json'), 0o444)
+  const r = await translateVideoTitles(root, model({ answer: t => `mới: ${t}` }), 'vi', { redo: true })
+  await chmod(join(dir, 'vi.refused.json'), 0o644)
+  expect(r.failed).toHaveLength(1)
+  expect((await titles(root, 'vi'))['en-a']).toBe('bản dịch: Keeping Aus')
+})
+
+test('video-titles-redo is --redo under its own name, on Opus; the cycle\'s video-titles and a plain --redo keep the default model', () => {
+  expect(titlesRunOptions('video-titles-redo', {})).toEqual({ limit: undefined, parallel: 1, only: undefined, redo: true, model: 'opus' })
+  expect(titlesRunOptions('video-titles', { redo: true, limit: '3', parallel: '2', only: 'a,b' })).toEqual({ limit: 3, parallel: 2, only: ['a', 'b'], redo: true, model: undefined })
+  expect(titlesRunOptions('video-titles', {})).toMatchObject({ redo: false, model: undefined })
 })

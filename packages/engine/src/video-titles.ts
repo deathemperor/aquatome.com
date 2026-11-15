@@ -1,12 +1,12 @@
 import { readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
-import { speaksPageLang, VideoTitlesSchema, type Lang } from '@aq/schema'
+import { pageFish, speaksPageLang, VideoTitlesSchema, type Lang } from '@aq/schema'
 import { isVietnamese } from '@aq/schema/text'
 import { LlmError, type Llm } from './claude'
 import { TARGETS, type TargetLang } from './localize'
 import { withTanks } from './round'
-import { forgetVerdicts, pageFish, recordVerdicts } from './video-title-check'
+import { forgetVerdicts, recordVerdicts } from './video-title-check'
 
 const PROMPT = withTanks(readFileSync(new URL('./prompts/video-titles.md', import.meta.url), 'utf8'))
 const SCHEMA = { type: 'object', required: ['titles'], properties: { titles: { type: 'array', items: { type: 'object', required: ['n', 'title'], properties: { n: { type: 'number' }, title: { type: 'string' } } } } } }
@@ -76,6 +76,16 @@ export function titleFits(text: string, original: string, lang: Lang): boolean {
  * every title made again (a full re-translation after the prompt changes). No run, with either or neither, touches a
  * title in content/video-titles/kept.json, YouTube id → why: those the editors passed, kept as they are.
  */
+/**
+ * A run's options from the command line. `video-titles-redo` is --redo under its own name, so a full re-translation has
+ * a spending line of its own, and writes on Opus, as the editors' rounds and its line were (#1455); the cycle's
+ * `video-titles` keeps the default model.
+ */
+export const titlesRunOptions = (cmd: string, v: { limit?: string; parallel?: string; only?: string; redo?: boolean }) => ({
+  limit: v.limit ? Number(v.limit) : undefined, parallel: v.parallel ? Number(v.parallel) : 1, only: v.only ? v.only.split(',') : undefined,
+  redo: Boolean(v.redo) || cmd === 'video-titles-redo', model: cmd === 'video-titles-redo' ? 'opus' : undefined,
+})
+
 export async function translateVideoTitles(root: string, llm: Llm, lang: Lang, o: { limit?: number; parallel?: number; model?: string; only?: string[]; redo?: boolean } = {}) {
   const file = join(root, 'content/video-titles', `${lang}.json`)
   const done = VideoTitlesSchema.parse(JSON.parse(await readFile(file, 'utf8').catch(() => '{}')))
@@ -126,15 +136,19 @@ export async function translateVideoTitles(root: string, llm: Llm, lang: Lang, o
       try {
         const prompt = `${PROMPT.replaceAll('{{LANG}}', target.lang).replaceAll('{{COUNTRY}}', target.country).replace('{{STYLE}}', target.style)}\n\n${batch.map((v, j) => `${j + 1}. [${v.about}] ${v.title}`).join('\n')}`
         const r = await llm<{ titles: { n: number; title: string }[] }>({ system: `You translate video titles into ${target.lang}. Reply only with JSON.`, prompt, schema: SCHEMA, model: o.model })
-        const changed: string[] = []
+        const fresh: Record<string, string> = {}
         for (const x of r.titles ?? []) {
           const v = batch[x.n - 1]
           if (!v) continue
           const text = tidyTitle(x.title ?? '', lang, v.scientificName)
-          if (titleFits(text, v.title, lang)) { if (done[v.youtubeId] !== text) changed.push(v.youtubeId); done[v.youtubeId] = text; report.titles++; report.left-- } else report.rejected.push(`${v.youtubeId}: ${v.title} -> ${text}`)
+          if (titleFits(text, v.title, lang)) { fresh[v.youtubeId] = text; report.titles++; report.left-- } else report.rejected.push(`${v.youtubeId}: ${v.title} -> ${text}`)
         }
-        await save() // after every batch: a stopped run keeps what it finished
+        // The old words' verdicts come off before the new words are stored: a run killed between the two leaves the old
+        // words with none, unread, never a verdict on words it wasn't given (the reviewers of the check, 16 Nov).
+        const changed = Object.keys(fresh).filter(id => done[id] !== fresh[id])
         await (forgetting = forgetting.then(() => forgetVerdicts(root, lang, changed)))
+        Object.assign(done, fresh)
+        await save() // after every batch: a stopped run keeps what it finished
       } catch (err) {
         if (err instanceof LlmError) report.stopped ||= err.message
         else report.failed.push((err as Error).message.slice(0, 200))

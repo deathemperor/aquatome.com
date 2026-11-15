@@ -13,7 +13,7 @@ import { markOutsideCrop, photoFitsCard, photoFitsHead, photoFitsWholeHead, SUBJ
 import { judgeQuality, speciesDepth } from './depth'
 import { isAllowedLicence } from './licence'
 import { isVietnamese, markVietnameseNames } from './text'
-import { videosForPage } from './videos'
+import { pageFish, videosForPage, videosOnTwoFish } from './videos'
 import { BreedSchema, CaptionsSchema, VideoGeneratedSchema, VideoTitlesSchema, VideoTitlesOnSchema, OneVoiceSchema, PageDatesSchema, PictureHashesSchema, ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MATERIAL_SECTION_ORDER, MaterialSchema, MarketSchema, mayPublish, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
 import type { PictureHashes } from './pictures'
 import type { BreedEntity, ChangelogEntry, EquipmentGuide, GlossaryEntity, GuideEntity, Lang, Market, MaterialEntity, Photo, Video, PlaceEntity, PlantEntity, ProductEntity, Section, Series, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
@@ -344,13 +344,17 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const passedTitles = (await exists(passedFile)) ? await readJson(passedFile, VideoTitlesSchema) : {}
   const generatedFile = join(root, 'video-generated.json')
   const videoGenerated = (await exists(generatedFile)) ? await readJson(generatedFile, VideoGeneratedSchema) : {}
-  const forPage = <V extends Video>(videos: V[], o?: { order?: boolean; requireTitle?: boolean }) => videosForPage(videos, lang, videoTitles, videoGenerated, { requireTitle: REQUIRE_VIDEO_TITLE, on: titlesOn, kept: keptTitles, refused: refusedTitles, passed: passedTitles, ...o })
+  // Every species and product page in this language, held ones too, as the writer counts them: a video on the pages of
+  // more than one fish keeps its own title on each, whatever the title files say (the reviewers of the check, 16 Nov).
+  const allSpecies = await loadKind(root, 'species', SpeciesSchema, lang), allProducts = await loadKind(root, 'products', ProductSchema, lang)
+  const sharedVideos = videosOnTwoFish([...allSpecies.map(s => ({ fish: pageFish('species', s.id, s), videos: s.videos })), ...allProducts.map(p => ({ fish: pageFish('products', p.id, null), videos: p.reviews?.videos ?? [] }))], lang)
+  const forPage = <V extends Video>(videos: V[], o?: { order?: boolean; requireTitle?: boolean }) => videosForPage(videos, lang, videoTitles, videoGenerated, { requireTitle: REQUIRE_VIDEO_TITLE, on: titlesOn, kept: keptTitles, refused: refusedTitles, passed: passedTitles, shared: sharedVideos, ...o })
 
   const voices = (await exists(join(root, 'one-voice.json'))) ? await readJson(join(root, 'one-voice.json'), OneVoiceSchema) : {}
   // After the depth is judged: a block set aside here still counts for the page's place in search.
   const generatedPages = new Set<string>()
   const rememberGenerated = <E extends { id: string; photos: Photo[] }>(page: E): E => { if (page.photos.some(p => p.generated)) generatedPages.add(page.id); return page }
-  const species = (await loadKind(root, 'species', SpeciesSchema, lang, leaveOutHeld)).map(rememberGenerated)
+  const species = allSpecies.filter(s => !(leaveOutHeld && s.t.held)).map(rememberGenerated)
     .map(s => oneVoice(judgeDepth({ ...s, sections: cleanSections(s.sections), photos: cleanPhotos(s.photos, `species/${s.id}`, s.scientificName), videos: forPage(s.videos), dataCard: cleanCard(s.dataCard, s.sections) }), voices[s.id]))
     .filter(s => s.sections.length > 0)
   const plants = (await loadKind(root, 'plants', PlantSchema, lang, leaveOutHeld)).map(rememberGenerated)
@@ -429,7 +433,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   }
 
   const products: Content['products'] = []
-  for (const p of await loadKind(root, 'products', ProductSchema, lang)) {
+  for (const p of allProducts) {
     const file = join(root, 'products', p.id, `${MARKET[lang]}.json`)
     // A product's reviews keep their order and all stay: the first is the one the page embeds, and its points cite them by number.
     const shown = p.reviews ? { ...p, reviews: { ...p.reviews, videos: forPage(p.reviews.videos, { order: false, requireTitle: false }) } } : p

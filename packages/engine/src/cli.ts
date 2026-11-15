@@ -95,8 +95,8 @@ import { makeSpecies, type VideoSource } from './species-research'
 import { speciesVideos } from './species-videos'
 import { findVideos, readVideoRejected } from './videos'
 import { localizeCaptions } from './captions'
-import { translateVideoTitles } from './video-titles'
-import { checkVideoTitles, recordVerdicts } from './video-title-check'
+import { titlesRunOptions, translateVideoTitles } from './video-titles'
+import { checkOutcome, checkUsage, checkVideoTitles, recordVerdicts } from './video-title-check'
 import { localizeEquipment } from './equipment-intl'
 import { addWikidataNames } from './wikidata'
 import { addPlantSynonyms } from './plant-synonyms'
@@ -1280,7 +1280,7 @@ if (cmd === 'photo-privacy') {
   // new titles (video-titles) keep theirs (ceilings.json). It writes on Opus, as the editors' rounds and its line were.
   const lang = values.lang as Lang
   if (!LANGS.includes(lang)) throw new Error(`usage: pnpm engine video-titles --lang ${LANGS.join('|')} [--limit N] [--parallel N] [--only youtubeId,youtubeId] [--redo]`)
-  const r = await translateVideoTitles(ROOT, claudeCli, lang, { limit: values.limit ? Number(values.limit) : undefined, parallel: values.parallel ? Number(values.parallel) : 1, only: values.only ? String(values.only).split(',') : undefined, redo: values.redo || cmd === 'video-titles-redo', model: cmd === 'video-titles-redo' ? 'opus' : undefined })
+  const r = await translateVideoTitles(ROOT, claudeCli, lang, titlesRunOptions(cmd, values))
   console.log(`video-titles ${lang}: ${r.titles} written, ${r.left} left, ${r.rejected.length} not kept, ${r.failed.length} failed${r.stopped ? `, stopped (${r.stopped})` : ''}`)
   for (const x of [...r.rejected, ...r.failed].slice(0, 30)) console.log(`  ${x}`)
 } else if (cmd === 'video-titles-check') {
@@ -1291,22 +1291,20 @@ if (cmd === 'photo-privacy') {
   // in <lang>.passed.json, without which the site shows the video's own title. Any title left unread (a stop, a failed
   // batch, a row the model left out) ends it with an error.
   const lang = values.lang as Lang
-  if (!LANGS.includes(lang) || !(values.out || values.write) || (values.write && values.titles)) throw new Error(`usage: pnpm engine video-titles-check --lang ${LANGS.join('|')} (--out <file> [--titles <file>] | --write) [--only youtubeId,youtubeId]`)
+  if (!LANGS.includes(lang) || !checkUsage(values)) throw new Error(`usage: pnpm engine video-titles-check --lang ${LANGS.join('|')} (--out <file> [--titles <file>] | --write) [--only youtubeId,youtubeId]`)
   const dir = join(ROOT, 'content/video-titles')
   const kept = JSON.parse(await readFile(join(dir, 'kept.json'), 'utf8').catch(() => '{}')) as Record<string, string>
   const titles = Object.fromEntries(Object.entries(JSON.parse(await readFile(values.titles ? String(values.titles) : join(dir, `${lang}.json`), 'utf8')) as Record<string, string>).filter(([id]) => !(id in kept)))
-  const r = await checkVideoTitles(ROOT, claudeCli, lang, titles, { only: values.only ? String(values.only).split(',') : undefined, record: values.write ? checks => recordVerdicts(ROOT, lang, checks, titles) : undefined })
+  // With --write, a title already refused, or passed in its present words, isn't read again and counts toward the stop line.
+  const map = async (file: string) => JSON.parse(await readFile(join(dir, file), 'utf8').catch(() => '{}')) as Record<string, string>
+  const verdicts = values.write ? { refused: await map(`${lang}.refused.json`), passed: await map(`${lang}.passed.json`) } : undefined
+  const r = await checkVideoTitles(ROOT, claudeCli, lang, titles, { only: values.only ? String(values.only).split(',') : undefined, record: values.write ? checks => recordVerdicts(ROOT, lang, checks, titles) : undefined, verdicts })
   if (values.out) await writeFile(String(values.out), `${JSON.stringify(r.checks, null, 2)}\n`)
-  const checked = Object.keys(r.checks).length, refused = Object.values(r.checks).filter(c => !c.ok).length, unread = r.given - checked
-  console.log(`video-titles-check ${lang}: ${r.given} to read, ${checked} checked, ${refused} refused, ${unread} unread (${r.unanswered.length} left out by the model), ${r.shared.length} on two fish's pages not read, ${r.failed.length} failed${r.stopped ? `, stopped (${r.stopped})` : ''}`)
-  for (const x of r.failed.slice(0, 10)) console.log(`  ${x}`)
-  if (unread || r.stopped || r.failed.length) {
-    console.log(`  ${unread} titles unread: the site shows their videos' own titles until a run reads them`)
-    process.exitCode = 1
-  }
-  // More than one title in ten refused: the language isn't turned on until the chief of staff has heard (16 Nov). The check
-  // itself stops at the first mark of 200 titles over it (video-title-check.ts MARK); what it checked is recorded with --write.
-  if (checked && refused * 10 > checked) console.log(`  over one in ten refused (${refused} of ${checked}): stop, and tell the chief of staff before ${lang} is turned on`)
+  // Unread titles, or more than one in ten refused over every title read in these words: an error, and the language isn't
+  // turned on until the chief of staff has heard (16 Nov). The check itself stops at a mark of 200 over it (MARK).
+  const outcome = checkOutcome(lang, r)
+  for (const line of outcome.lines) console.log(line)
+  process.exitCode = outcome.exitCode || process.exitCode
 } else if (cmd === 'wikidata-names') {
   // The names Wikidata gives each species in another language, added to its page's other names where no other page uses them.
   const lang = values.lang as TargetLang
