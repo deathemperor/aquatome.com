@@ -952,3 +952,21 @@ test('two guide titles say the count their own text gives, and are fixed by hand
     expect(countMismatch(t.name, t.body!), id).toBeTruthy()
   }
 })
+
+// The chief of staff's ask, 16 Nov 2026, in the Writing Lead's words: five held video guides get their one sentence by
+// hand (the video maker's own fish, rack or tank; a tank converted from gallons), each body fixed so no mend undoes it.
+test('five held video guides say their one sentence plainly, in the Writing Lead\'s words, and are fixed by hand', () => {
+  for (const [id, kept, gone, flags] of [
+    ['youtube-gJuWCudImSc', ['Cá con sinh ra ngay trong hồ thường quen người từ nhỏ.', 'khi chuyển ra hồ có thể trở nên nhát như cá hoang', 'Cây không chịu lạnh thì đợi trời ấm hẳn, hết rét rồi mới đem ra hồ trồng.'], ['còn cá lớn từng nuôi trong nhà, chuyển ra hồ'], ['bodyFixed']],
+    ['youtube-3jqe5KGD9lI', ['nhưng nếu kệ đủ chắc và bể có viền thì không thật sự cần', 'Nếu kệ đủ chắc và bể có viền thì không thật sự cần.'], ['kệ kiểu này'], ['bodyFixed', 'faqFixed']],
+    ['youtube-hTqxIrD_Vho', ['phần nước hơi nhỏ, kể cả với cá tí hon như Phoenix rasbora', 'Phần nước của một bể ốc đảo mini như vậy hơi nhỏ'], ['của bể này', 'mini này'], ['bodyFixed', 'faqFixed']],
+    ['youtube-Iinv7wWjhzA', ['40–120 lít', 'bể 40, 80 hay 100 lít', 'từ khoảng 120 lít trở xuống', 'Trong bể 100–120 lít', 'từ 80 lít trở lên'], ['38', '75 lít', '110 lít'], ['nameFixed', 'bodyFixed', 'faqFixed']],
+    ['youtube-OrW6PZgqKSM', ['khoảng 90 lít'], ['91 lít'], ['bodyFixed']],
+  ] as const) {
+    const t = JSON.parse(readFileSync(fileURLToPath(new URL(`../../../content/guides/${id}/vi.json`, import.meta.url)), 'utf8')) as Translation & Record<string, unknown>
+    const all = [t.name, t.body, ...(t.summary ?? []), ...(t.faq ?? []).flatMap(f => [f.q, f.a])].join('\n')
+    for (const s of kept) expect(all, `${id}: ${s}`).toContain(s)
+    for (const s of gone) expect(all, `${id}: ${s}`).not.toContain(s)
+    for (const f of flags) expect(t[f], `${id}: ${f}`).toBe(true)
+  }
+})
