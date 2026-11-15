@@ -115101,11 +115101,19 @@
     "products": []
   },
   "vi/species/mesonoemacheilus-herrei": {
-    "at": "2026-11-08",
-    "hash": "b2a71af632ae48c1",
+    "at": "2026-11-15",
+    "hash": "87d5b80ee36f3aab",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P10",
+        "quote": "chuyển sang bể 38 lít có gắn một lọc treo nhỏ",
+        "why": "38 litres is a converted 10-gallon tank size, not one a keeper in Vietnam would use.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "vi/species/mespilia-globulus": {
@@ -115405,16 +115413,30 @@
     "products": []
   },
   "vi/species/misgurnus-anguillicaudatus": {
-    "at": "2026-11-09",
-    "hash": "2afc28ef7654239a",
+    "at": "2026-11-15",
+    "hash": "31493f345482246f",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P1",
+        "quote": "Chiều dài bể tối thiểu: 91 cm cho cá non",
+        "why": "91 cm is a converted 3-foot (36-inch) tank length that nobody in Vietnam would use.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P11",
+        "quote": "Khi cá đã trưởng thành, bể cần dài ít nhất 122 cm.",
+        "why": "122 cm is a converted 4-foot tank length.",
+        "by": "model"
+      },
+      {
         "check": "words",
-        "part": "P21",
-        "quote": "Chạch thời tiết ăn được nhiều loại thức ăn",
-        "why": "Literal calque of the English trade name 'weather loach'; Vietnamese keepers call this fish chạch bùn.",
+        "part": "P8",
+        "quote": "chạch thời tiết (Weather Loach)",
+        "why": "This is a word-for-word translation of the English trade name; keepers in Vietnam call this fish chạch bùn.",
         "by": "model",
         "fix": "chạch bùn"
       }
@@ -115616,18 +115638,24 @@
     "products": []
   },
   "vi/species/monocirrhus-polyacanthus": {
-    "at": "2026-11-08",
-    "hash": "60ddb88f58595869",
+    "at": "2026-11-15",
+    "hash": "a91c95ab8bf11774",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "words",
-        "part": "P17",
-        "quote": "ví dụ cá da trơn bọc giáp hoặc các loài loricariid cỡ trung",
-        "why": "\"Cá da trơn bọc giáp\" is a literal calque of \"armoured catfish\"; keepers in Vietnam name these fish differently.",
-        "by": "model",
-        "fix": "cá chuột"
+        "check": "units",
+        "part": "P2",
+        "quote": "Bể tối thiểu: khoảng 75-95 lít",
+        "why": "75–95 litres is a conversion of 20–25 gallons, not a tank size keepers in Vietnam would give.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P9",
+        "quote": "Bể tối thiểu khoảng 75-95 lít.",
+        "why": "Converted from 20–25 gallons; not a natural local tank size.",
+        "by": "model"
       }
     ],
     "products": []
@@ -116063,11 +116091,20 @@
     "products": []
   },
   "vi/species/nannostomus-eques": {
-    "at": "2026-11-08",
-    "hash": "98a95f5d92ac4262",
+    "at": "2026-11-15",
+    "hash": "a81848e455e30667",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Cá chì eques (tên tiếng Anh là hockeystick pencilfish) thuộc họ Lebiasinidae.",
+        "why": "Keepers in Vietnam call Nannostomus pencilfish \"cá bút chì\", not \"cá chì\".",
+        "by": "model",
+        "fix": "cá bút chì eques"
+      }
+    ],
     "products": []
   },
   "vi/species/nannostomus-espei": {
@@ -116333,11 +116370,19 @@
     "products": []
   },
   "vi/species/nemacheilus-guentheri": {
-    "at": "2026-11-08",
-    "hash": "6fad5e5b674e3c11",
+    "at": "2026-11-15",
+    "hash": "bfaa6b415855f244",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P13",
+        "quote": "Cặp cá được chuyển sang một bể 38 lít có gắn lọc treo nhỏ.",
+        "why": "38 litres is a converted 10-gallon tank, a size no keeper in Vietnam would name.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "vi/species/nemacheilus-longistriatus": {
@@ -116460,11 +116505,19 @@
     "products": []
   },
   "vi/species/nemacheilus-triangularis": {
-    "at": "2026-11-08",
-    "hash": "b9583ed07b85d4c1",
+    "at": "2026-11-15",
+    "hash": "61c92ba7ac119893",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P10",
+        "quote": "rồi chuyển sang bể 38 lít gắn một lọc treo nhỏ",
+        "why": "38 litres is a converted 10-gallon tank size no keeper in Vietnam would use.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "vi/species/nemacheilus-troglocataractus": {
@@ -117116,8 +117169,8 @@
     "products": []
   },
   "vi/species/nothobranchius-eggersi": {
-    "at": "2026-11-09",
-    "hash": "f82e76c0cef1edcb",
+    "at": "2026-11-15",
+    "hash": "1aeac95a8a7f337d",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -117147,23 +117200,30 @@
     "products": []
   },
   "vi/species/nothobranchius-rachovii": {
-    "at": "2026-11-11",
-    "hash": "fb200baac207cb59",
+    "at": "2026-11-15",
+    "hash": "26a83f8cf9c01974",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
+        "part": "P9",
+        "quote": "thì phải dùng bể khoảng 57 lít",
+        "why": "57 litres is a converted 15-gallon tank size nobody in Vietnam would use.",
+        "by": "model"
+      },
+      {
+        "check": "units",
         "part": "P21",
         "quote": "lớp dày tối đa 2,5 cm",
-        "why": "A converted 1 inch, not a depth a Vietnamese keeper would give.",
+        "why": "2.5 cm substrate depth is a converted 1 inch.",
         "by": "model"
       },
       {
         "check": "words",
         "part": "P23",
         "quote": "cá killifish nhỏ (least killifish)",
-        "why": "Calque of the English common name for Heterandria formosa, which is a livebearer and not a killi.",
+        "why": "Literal calque of the English common name for Heterandria formosa, which is not a killifish.",
         "by": "model",
         "fix": "cá Heterandria formosa"
       }
@@ -117706,18 +117766,18 @@
     "products": []
   },
   "vi/species/oryzias-sarasinorum": {
-    "at": "2026-11-08",
-    "hash": "5615a384085153c3",
+    "at": "2026-11-15",
+    "hash": "8553699b2d7e7224",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "words",
         "part": "P10",
-        "quote": "cá bột ăn được ngay giun siêu nhỏ (microworm)",
-        "why": "Literal calque of 'microworm'; Vietnamese keepers have their own name for this live food.",
+        "quote": "giun siêu nhỏ (microworm)",
+        "why": "Literal rendering of 'microworm'; Vietnamese keepers use a set local name for this fry food.",
         "by": "model",
-        "fix": "giun vi sinh"
+        "fix": "trùn vi sinh"
       }
     ],
     "products": []
@@ -118056,8 +118116,8 @@
     "products": []
   },
   "vi/species/pacifastacus-leniusculus": {
-    "at": "2026-11-08",
-    "hash": "263aee9c972460df",
+    "at": "2026-11-15",
+    "hash": "6f480da36979bb9d",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -118287,11 +118347,20 @@
     "products": []
   },
   "vi/species/pangio-oblonga": {
-    "at": "2026-11-08",
-    "hash": "9a5871af86638f59",
+    "at": "2026-11-15",
+    "hash": "0ff9f4201ff2419a",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "words",
+        "part": "P8",
+        "quote": "giun vi mô (micro worm)",
+        "why": "Dictionary rendering of 'microworm'; Vietnamese keepers don't call it this.",
+        "by": "model",
+        "fix": "giun vi sinh (trùn vi sinh)"
+      }
+    ],
     "products": []
   },
   "vi/species/pangio-piperata": {
@@ -118555,18 +118624,24 @@
     ]
   },
   "vi/species/paracheirodon-innesi": {
-    "at": "2026-11-08",
-    "hash": "7798e25c99316797",
+    "at": "2026-11-15",
+    "hash": "8d2f30fb53e24153",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "words",
-        "part": "P16",
-        "quote": "Luôn nuôi cá neon thành đàn từ nửa tá con trở lên",
-        "why": "\"Nửa tá\" is a calque of the English \"half a dozen\"; keepers in Vietnam give the number.",
-        "by": "model",
-        "fix": "từ 6 con trở lên"
+        "check": "units",
+        "part": "P2",
+        "quote": "Kích thước bể tối thiểu: 38 lít",
+        "why": "38 litres is a converted 10-gallon tank size, not a size a keeper in Vietnam would quote.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P9",
+        "quote": "Nón cây alder cũng có tác dụng tương tự.",
+        "why": "Alder cones come from a temperate tree that keepers in Vietnam don't gather or usually buy.",
+        "by": "model"
       }
     ],
     "products": []
@@ -119032,18 +119107,32 @@
     "products": []
   },
   "vi/species/parosphromenus-anjunganensis": {
-    "at": "2026-11-08",
-    "hash": "fc5a11c4badf0c12",
+    "at": "2026-11-15",
+    "hash": "7a8522074fe867e7",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P5",
+        "quote": "trong bể khoảng 19-38 lít",
+        "why": "19–38 litres is a conversion of 5–10 US gallons, not a tank size used in Vietnam.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P7",
+        "quote": "Quả alder (alder cone) cũng dùng được cho mục đích này.",
+        "why": "Alder cones come from a temperate tree that keepers in Vietnam don't buy or gather.",
+        "by": "model"
+      },
+      {
         "check": "words",
         "part": "P11",
         "quote": "giun vi mô (micro worm)",
-        "why": "Literal calque of 'microworm'; Vietnamese keepers use a different name.",
+        "why": "A literal rendering of 'micro worm'; keepers in Vietnam call this live food something else.",
         "by": "model",
-        "fix": "giun vi sinh"
+        "fix": "trùn vi sinh"
       }
     ],
     "products": []
@@ -119164,18 +119253,31 @@
     "products": []
   },
   "vi/species/parosphromenus-ornaticauda": {
-    "at": "2026-11-08",
-    "hash": "cfe0922bdb35025f",
+    "at": "2026-11-15",
+    "hash": "f94f19af498d2444",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "words",
-        "part": "P12",
-        "quote": "nuôi cùng một đàn cá chép cỡ nhỏ, hiền như Boraras hay Sundadanio spp.",
-        "why": "Calque of 'small cyprinids'; 'cá chép' to a Vietnamese keeper means common carp.",
-        "by": "model",
-        "fix": "cá nhỏ họ cá chép (như cá lòng tong)"
+        "check": "units",
+        "part": "P6",
+        "quote": "nuôi một nhóm 5 con trong bể khoảng 19 lít trở lên",
+        "why": "19 litres is a converted 5-gallon tank size.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P8",
+        "quote": "Quả tống quán sủi (alder cone) cũng dùng được cho mục đích này.",
+        "why": "Alder cones come from a temperate tree that keepers in Vietnam don't usually buy or gather.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Parosphromenus ornaticauda (cá bắt từ tự nhiên)",
+        "why": "This looks like the source shop's note that its stock is wild-caught.",
+        "by": "model"
       }
     ],
     "products": []
@@ -119235,11 +119337,19 @@
     "products": []
   },
   "vi/species/parosphromenus-phoenicurus": {
-    "at": "2026-11-08",
-    "hash": "c826a68b4d4458bf",
+    "at": "2026-11-15",
+    "hash": "cfa158dd42348325",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "trong bể từ khoảng 19 lít trở lên",
+        "why": "19 litres is a converted 5-gallon tank size that nobody in Vietnam would use.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "vi/species/parosphromenus-quindecim": {
@@ -119913,41 +120023,31 @@
     "products": []
   },
   "vi/species/phenacogrammus-interruptus": {
-    "at": "2026-11-08",
-    "hash": "932f986852adac8e",
+    "at": "2026-11-15",
+    "hash": "6d143f38d4fc87ed",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
-        "part": "P19",
-        "quote": "lớp nền xốp dày khoảng 2,5 cm",
-        "why": "A 1-inch layer converted to metric, not a depth a Vietnamese writer would give.",
+        "part": "P2",
+        "quote": "Bể tối thiểu: khoảng 114 lít",
+        "why": "114 litres is a 30-gallon tank converted to litres, a size nobody in Vietnam uses.",
         "by": "model"
       },
       {
-        "check": "words",
+        "check": "units",
+        "part": "P7",
+        "quote": "bạn nên tính đến bể khoảng 208 lít",
+        "why": "208 litres is a 55-gallon tank converted to litres.",
+        "by": "model"
+      },
+      {
+        "check": "units",
         "part": "P19",
-        "quote": "Đem luộc một lượng rêu than bùn",
-        "why": "Literal calque of 'peat moss'; local keepers just say than bùn or peat moss.",
-        "by": "model",
-        "fix": "than bùn"
-      },
-      {
-        "check": "words",
-        "part": "P18",
-        "quote": "giun vi sinh (microworm)",
-        "why": "Dictionary term; Vietnamese keepers call microworms trùn vi sinh.",
-        "by": "model",
-        "fix": "trùn vi sinh"
-      },
-      {
-        "check": "words",
-        "part": "P15",
-        "quote": "Cá ngọc trai thiên hà (Danio margaritatus)",
-        "why": "Translation of 'celestial pearl danio'; locally it is called cá galaxy.",
-        "by": "model",
-        "fix": "cá galaxy"
+        "quote": "thành lớp nền xốp dày khoảng 2,5 cm",
+        "why": "A 2.5 cm substrate layer is a one-inch depth converted to centimetres.",
+        "by": "model"
       }
     ],
     "products": []
@@ -120335,11 +120435,33 @@
     "products": []
   },
   "vi/species/poecilia-wingei": {
-    "at": "2026-11-08",
-    "hash": "608e7dd0e9fe7917",
+    "at": "2026-11-15",
+    "hash": "1cd05f0d49aaf267",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P7",
+        "quote": "Bể tối thiểu cho cá Endler là 19-38 lít",
+        "why": "19 and 38 litres are 5 and 10 gallons converted, sizes nobody in Vietnam would give.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P7",
+        "quote": "Với bể 38 lít, hãy bắt đầu bằng một bộ ba",
+        "why": "A 38-litre tank is a 10-gallon tank converted.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P7",
+        "quote": "Bể 76 lít thì nên mua sáu đến chín con",
+        "why": "A 76-litre tank is a 20-gallon tank converted.",
+        "by": "model"
+      }
+    ],
     "products": [
       "Repashy"
     ]
@@ -120890,8 +121012,8 @@
     "products": []
   },
   "vi/species/procambarus-clarkii": {
-    "at": "2026-11-08",
-    "hash": "c559277bfafa2aff",
+    "at": "2026-11-15",
+    "hash": "341585013f8b2888",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -121239,10 +121361,10 @@
     "products": []
   },
   "vi/species/pseudogastromyzon-myersi": {
-    "at": "2026-11-08",
-    "hash": "35361031f37016e0",
+    "at": "2026-11-15",
+    "hash": "f89bd090c1f6fae2",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -121360,11 +121482,19 @@
     ]
   },
   "vi/species/pseudomugil-gertrudae": {
-    "at": "2026-11-08",
-    "hash": "ba07c81af768fa99",
+    "at": "2026-11-14",
+    "hash": "16b47a17b450e33e",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P6",
+        "quote": "Bể nuôi cần từ 38 lít trở lên.",
+        "why": "38 litres is a converted 10-gallon tank size, not a size keepers in Vietnam use.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "vi/species/pseudomugil-luminatus": {
@@ -122003,11 +122133,26 @@
     "products": []
   },
   "vi/species/puntius-titteya": {
-    "at": "2026-11-08",
-    "hash": "4469fa24c719b5d6",
+    "at": "2026-11-15",
+    "hash": "22f52a307977e0ce",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P3",
+        "quote": "Bể tối thiểu: khoảng 95 lít",
+        "why": "95 litres is a converted 25-gallon tank, a size nobody in Vietnam uses.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P9",
+        "quote": "Bạn có thể nuôi một nhóm sáu con trong bể từ 38 lít trở lên.",
+        "why": "38 litres is a converted 10-gallon tank.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "vi/species/puntius-vittatus": {
@@ -122141,11 +122286,19 @@
     "products": []
   },
   "vi/species/rasbora-caudimaculata": {
-    "at": "2026-11-08",
-    "hash": "41f37fd50e85ec5c",
+    "at": "2026-11-15",
+    "hash": "afea09854493e13a",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P11",
+        "quote": "chẳng hạn 120 × 30 × 30 cm (113 lít)",
+        "why": "113 litres doesn't match the 108 litres those sides give; it looks converted from a 30-gallon tank.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "vi/species/rasbora-cephalotaenia": {
@@ -122237,11 +122390,19 @@
     "products": []
   },
   "vi/species/rasbora-elegans": {
-    "at": "2026-11-08",
-    "hash": "5c095e91f18db506",
+    "at": "2026-11-15",
+    "hash": "13be023158b127fe",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P10",
+        "quote": "ví dụ cỡ 120 × 30 × 30 cm (113 lít)",
+        "why": "113 litres is a converted 30-gallon tank; 120×30×30 cm is only about 108 litres.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "vi/species/rasbora-kalochroma": {
@@ -122314,24 +122475,31 @@
     "products": []
   },
   "vi/species/rasbora-paucisqualis": {
-    "at": "2026-11-08",
-    "hash": "753bae3971031c68",
+    "at": "2026-11-15",
+    "hash": "50f3014a0b7722a1",
     "model": "opus",
     "checklist": 3,
     "findings": [],
     "products": []
   },
   "vi/species/rasbora-paviana": {
-    "at": "2026-11-08",
-    "hash": "597f7b80071f02b5",
+    "at": "2026-11-15",
+    "hash": "b0a82f59dea72495",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P11",
+        "quote": "chẳng hạn 120 × 30 × 30 cm (khoảng 113 lít)",
+        "why": "113 litres is a converted 30 US gallons, not the 108 litres these metric sides give.",
+        "by": "model"
+      },
+      {
         "check": "words",
         "part": "P11",
-        "quote": "Lúc đầu có thể đặt thêm một lọc trong (lọc nhúng chạy điện)",
-        "why": "\"Lọc nhúng chạy điện\" is a dictionary rendering of an internal filter, not hobby usage.",
+        "quote": "lọc trong (lọc nhúng chạy điện)",
+        "why": "A literal rendering of 'internal power filter'; keepers in Vietnam don't call it this.",
         "by": "model",
         "fix": "lọc chìm"
       }
@@ -123893,11 +124061,19 @@
     "products": []
   },
   "vi/species/serrasalmus-maculatus": {
-    "at": "2026-11-09",
-    "hash": "8e95957ba4da67df",
+    "at": "2026-11-15",
+    "hash": "b393d2244e1c2271",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P6",
+        "quote": "Nhiệt độ: 21,1–30 °C",
+        "why": "21,1 °C is a conversion of 70 °F, not a figure a Vietnamese keeper would give.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "vi/species/serrasalmus-manueli": {
@@ -123957,24 +124133,25 @@
     "products": []
   },
   "vi/species/serrasalmus-rhombeus": {
-    "at": "2026-11-07",
-    "hash": "e0907b83fd11f38c",
+    "at": "2026-11-15",
+    "hash": "ea575f073327fd73",
     "model": "opus",
+    "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P15",
         "quote": "Con cá trong ảnh thứ hai phía trên là ví dụ cho thấy chuyện này khó đến mức nào.",
-        "why": "Points to a photo from the source article that this page does not have, and tells the source's own fish story.",
+        "why": "Points to a photo from the source page that this page doesn't have, and tells the source's own fish story.",
         "by": "model"
       },
       {
         "check": "words",
         "part": "P9",
         "quote": "cá whitebait",
-        "why": "English food term that keepers in Vietnam do not use.",
+        "why": "An English food term left untranslated; keepers in Vietnam don't use it.",
         "by": "model",
-        "fix": "cá cơm / cá mồi nhỏ"
+        "fix": "cá cơm nhỏ"
       }
     ],
     "products": []
@@ -124042,11 +124219,27 @@
     "products": []
   },
   "vi/species/sewellia-lineolata": {
-    "at": "2026-11-08",
-    "hash": "f2d20a76a890b762",
+    "at": "2026-11-15",
+    "hash": "c0224bd98f098f98",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P8",
+        "quote": "bể 76 lít trồng dày cây",
+        "why": "76 litres is a converted 20-gallon tank size nobody in Vietnam would name.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P21",
+        "quote": "giun vi sinh (microworm)",
+        "why": "Literal translation; keepers in Vietnam call microworms 'vi trùn', as the page itself does in P20.",
+        "by": "model",
+        "fix": "vi trùn"
+      }
+    ],
     "products": [
       "Repashy"
     ]
@@ -124139,11 +124332,20 @@
     "products": []
   },
   "vi/species/silurus-glanis": {
-    "at": "2026-11-13",
-    "hash": "dd93f86d10b194c6",
+    "at": "2026-11-15",
+    "hash": "aa5b4e051e5f410c",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "words",
+        "part": "P12",
+        "quote": "cá trắng nhỏ (whitebait)",
+        "why": "Literal translation of English 'whitebait'; not how keepers in Vietnam name small feeder fish.",
+        "by": "model",
+        "fix": "cá mồi nhỏ"
+      }
+    ],
     "products": []
   },
   "vi/species/sinibotia-pulchra": {
@@ -124289,8 +124491,8 @@
     "products": []
   },
   "vi/species/sorubim-lima": {
-    "at": "2026-11-09",
-    "hash": "e74777f06ecd766a",
+    "at": "2026-11-15",
+    "hash": "5158820a15634b8b",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -124805,11 +125007,19 @@
     "products": []
   },
   "vi/species/symphysodon-discus": {
-    "at": "2026-11-08",
-    "hash": "e8eb067877ec0678",
+    "at": "2026-11-15",
+    "hash": "93f05a88debac8fd",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "tức khoảng 285 lít trở lên",
+        "why": "285 litres is a converted 75-gallon US tank size, not a size keepers in Vietnam use.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "vi/species/synaptolaemus-latofasciatus": {
@@ -126066,32 +126276,24 @@
     "products": []
   },
   "vi/species/trichogaster-lalius": {
-    "at": "2026-11-08",
-    "hash": "c0821a03f9aece33",
+    "at": "2026-11-15",
+    "hash": "94d46469915c3876",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P3",
+        "quote": "Bể tối thiểu: khoảng 19 lít",
+        "why": "19 litres is a converted 5-gallon tank size, not one a Vietnamese keeper would give.",
+        "by": "model"
+      },
+      {
         "check": "elsewhere",
         "part": "P31",
         "quote": "Họ không mua được cá sạch bệnh từ các trại ở Viễn Đông (chủ yếu là Singapore)",
-        "why": "Calling Asia the 'Far East' is a Western reader's view; for a reader in Vietnam these farms are nearby.",
+        "why": "Calling Singapore's farms the 'Far East' sees them from a Western reader's side, not a reader in Southeast Asia.",
         "by": "model"
-      },
-      {
-        "check": "elsewhere",
-        "part": "P4",
-        "quote": "dịch bệnh từ châu Á",
-        "why": "Treats Asia as a far-off source of disease, as seen by a reader outside Asia.",
-        "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P18",
-        "quote": "luân trùng, lươn giấm, vi giun hoặc trùng cỏ",
-        "why": "'vi giun' is a literal calque of 'microworm'.",
-        "by": "model",
-        "fix": "giun vi sinh"
       }
     ],
     "products": []
@@ -126153,11 +126355,34 @@
     "products": []
   },
   "vi/species/trichopodus-leerii": {
-    "at": "2026-11-08",
-    "hash": "050ee16db3739ab0",
+    "at": "2026-11-15",
+    "hash": "5ecd3516e7f3d637",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P8",
+        "quote": "Bể tối thiểu: khoảng 76 lít.",
+        "why": "76 litres is a converted 20-gallon tank, not a size used in Vietnam.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P8",
+        "quote": "trong bể khoảng 38 lít",
+        "why": "38 litres is a converted 10-gallon tank.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P19",
+        "quote": "giun vi (microworm)",
+        "why": "Literal translation of 'microworm'; Vietnamese keepers call it vi trùn.",
+        "by": "model",
+        "fix": "vi trùn"
+      }
+    ],
     "products": []
   },
   "vi/species/trichopodus-microlepis": {
@@ -126347,20 +126572,37 @@
     "products": []
   },
   "vi/species/trigonostigma-heteromorpha": {
-    "at": "2026-11-08",
-    "hash": "c1bdeee3cf3c2655",
+    "at": "2026-11-15",
+    "hash": "8e72304c9a695a09",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P12",
+        "quote": "Bể tối thiểu khoảng 38 lít. Bể khoảng 75 lít thường nuôi được tới 10 con cá tam giác.",
+        "why": "38 and 75 litres are 10 and 20 US gallons converted; nobody in Vietnam sizes tanks that way.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P14",
+        "quote": "lá dẻ gai, lá sồi",
+        "why": "Beech and oak leaves are European tank leaves that keepers in Vietnam don't buy or gather.",
+        "by": "model"
+      },
+      {
         "check": "source",
-        "part": "P21",
+        "part": "P33",
         "quote": "Trong ảnh, nó được ghi là T. cf. heteromorpha.",
-        "why": "Points at a photo from the source article that this page does not have.",
+        "why": "Refers to a photo from the source article that the page doesn't have.",
         "by": "model"
       }
     ],
-    "products": []
+    "products": [
+      "ADA Amazonia aqua soil",
+      "Fluval Plant and Shrimp Stratum"
+    ]
   },
   "vi/species/trigonostigma-somphongsi": {
     "at": "2026-11-08",

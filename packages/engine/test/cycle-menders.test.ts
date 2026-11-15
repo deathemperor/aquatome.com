@@ -3,6 +3,7 @@ import { mkdtempSync, readFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
+import { heldMendsOf } from '../src/gate'
 
 const script = readFileSync(new URL('../../../scripts/engine-cycle.sh', import.meta.url), 'utf8')
 
@@ -31,4 +32,16 @@ test('the units mender and the source figures run in the Mac\'s photos part alon
   }
   // The steps around it run in every part.
   for (const part of ['photos', 'pages', 'rewrite']) expect(stepsRun(part, part === 'rewrite')).toEqual(expect.arrayContaining(['metric', 'sweep']))
+})
+
+test('the held video guides go to their editor in the Mac\'s videos part alone, 24 a run: five parts sent the same ones', () => {
+  // The chief of staff, 15 Nov 2026: two rounds' 83 held mends from five parts went to 27 guides.
+  const read = (f: string) => readFileSync(new URL(`../../../scripts/${f}`, import.meta.url), 'utf8')
+  const videos = read('video-cycle.sh')
+  const at = videos.indexOf('export GATE_HELD_MENDS="${GATE_HELD_MENDS:-24}"')
+  expect(at).toBeGreaterThan(-1)
+  expect(at).toBeLessThan(videos.indexOf('gate_or_keep "content: videos"'))
+  for (const f of ['engine-cycle.sh', 'video-recheck.sh', 'cycle-checks.sh']) expect(read(f), f).not.toMatch(/GATE_HELD_MENDS/)
+  expect(heldMendsOf({})).toBe(0)
+  expect(heldMendsOf({ GATE_HELD_MENDS: '24' })).toBe(24)
 })

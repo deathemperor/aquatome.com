@@ -1,6 +1,6 @@
 import { dropCardRepeats, dropLowCo2, dropOffItems, figuresOffCard, linkTerms, litresOffCard, tankLengthFor, type Content, type DataCardField, type PlantEntity, type Range, type Section, type SourceId, type SpeciesEntity, type SpeciesRange, type Translation } from '@aq/schema'
 import { gapMatters } from './card-rows'
-import { citeMark, withCite } from './cite'
+import { citeGroup, citeMark, withCite } from './cite'
 import type { Figure } from './figures'
 import { isRange } from './format'
 import { translator, type Lang } from './i18n'
@@ -79,7 +79,7 @@ export function sectionParts(lang: Lang, c: Content, { sections, t, self, selfNa
       const off = card && key !== 'references' ? farFromCard([...figuresOffCard(card, x.source, html), ...(TANK_KEYS.has(key) ? litresOffCard(card, html) : [])]) : []
       const marks = x.source === 'aquatome' ? researchMarks(x) : []
       if (marks.length) fromResearch = true
-      return [{ ...x, off, vi: withCite(linkTerms(html, targets, 'ml', linked, own).html, marks.length ? marks.join(' ') : citeMark(lang, refNo(name, x.sourceUrl), name, x.sourceUrl)) }]
+      return [{ ...x, off, vi: withCite(linkTerms(html, targets, 'ml', linked, own).html, marks.length ? citeGroup(marks) : citeMark(lang, refNo(name, x.sourceUrl), name, x.sourceUrl)) }]
     }) }
   }).filter(x => x.blocks.length > 0)
   // Every page researched is listed, a figure's on the card too, after those the text cites.

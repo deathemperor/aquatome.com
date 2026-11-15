@@ -59,6 +59,14 @@ export function photoMark(lang: Lang, p: Credited): string {
   return `<a class="cite pic" href="${esc(p.sourceUrl)}" rel="noopener" data-term="${esc(who)}"${lic ? ` data-tip="${esc(lic)}"` : ''} data-more="${esc(t('Xem ảnh gốc ↗'))}" aria-label="${esc(lic ? `${who}, ${lic}` : who)}">©</a>`
 }
 
+/**
+ * Marks side by side ("2 3"), as one group: only marks in a group take each other's side for their 44 px (global.css).
+ * A rule over any two marks (`.cite + .cite`) matched across the words between them, as `+` skips text, so a mark a few
+ * words after another, at a line's end, reached 44 px right from its left edge and took a phone 6 px sideways (the
+ * driftwood pages, 15 Nov 2026). One mark is no group.
+ */
+export const citeGroup = (marks: string[]): string => (marks.length > 1 ? `<span class="marks">${marks.join(' ')}</span>` : marks.join(''))
+
 /** The mark at the end of a block's last sentence: inside its last paragraph or list item, else on a line of its own. */
 export function withCite(html: string, mark: string): string {
   const s = html.trimEnd()

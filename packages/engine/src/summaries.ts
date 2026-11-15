@@ -1,7 +1,10 @@
 import { piece } from './pieces'
+import { execFile } from 'node:child_process'
+import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
+import { promisify } from 'node:util'
 import { z } from 'zod'
 import { loadAll, POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, SummarySchema, type DataCardField, type Localized, type Range, type SpeciesEntity, type Summary } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
@@ -29,9 +32,49 @@ export async function readSummaries(contentRoot: string): Promise<Summary[]> {
   const files = await readdir(dir(contentRoot)).catch(() => [] as string[])
   return Promise.all(files.filter(f => f.endsWith('.json')).map(async f => SummarySchema.parse(JSON.parse(await readFile(join(dir(contentRoot), f), 'utf8')))))
 }
+/** `writtenFrom` added to a summary that has none, its fields as they are, in their order. */
+const stamp = async (contentRoot: string, id: string, writtenFrom: string) => {
+  const file = join(dir(contentRoot), `${id}.json`)
+  await writeFile(file, `${JSON.stringify({ ...JSON.parse(await readFile(file, 'utf8')), writtenFrom }, null, 2)}\n`)
+}
 const save = async (contentRoot: string, s: Summary) => {
   await mkdir(dir(contentRoot), { recursive: true })
   await writeFile(join(dir(contentRoot), `${s.id}.json`), `${JSON.stringify(s, null, 2)}\n`)
+}
+
+/**
+ * What a summary is written from, as the page's file holds it: the Vietnamese name, other names and text
+ * (content/species/<id>/vi.json), as a short hash. A summary keeps the one it was written from (`writtenFrom`) and is
+ * written again when its page's differs. On 15 Nov the killifish's summary still said what the rewrite of 14 Nov and a
+ * hand fix had taken out of its page (the importer's stock, "bred in tanks"): neither moved the page's date, which was
+ * all this step read, and 381 more shown summaries were older than a change to their page's text (the chief of staff).
+ */
+export function textHash(vi: unknown): string {
+  const v = (vi ?? {}) as { name?: unknown; altNames?: unknown; sections?: Record<string, unknown> }
+  const sections = Object.entries(v.sections ?? {}).sort(([a], [b]) => (a < b ? -1 : 1))
+  return createHash('sha256').update(JSON.stringify([v.name ?? '', v.altNames ?? [], sections])).digest('hex').slice(0, 16)
+}
+const viFile = (id: string) => join('species', id, 'vi.json')
+const pageHash = async (contentRoot: string, id: string) => textHash(JSON.parse(await readFile(join(contentRoot, viFile(id)), 'utf8').catch(() => 'null')))
+const git = promisify(execFile)
+/**
+ * A summary with no `writtenFrom` (written before 15 Nov, or by a run on older code): its page's hash in the commit that
+ * wrote it, the one its `generatedAt` first appears in. The last commit to touch the file isn't always that one: the
+ * sweep's wording, a name fix or a hand edit keep `generatedAt` (pristella-maxillaris: written 1 Nov, its page changed
+ * 2 Nov, a name fix 7 Nov; Fable's read). `due` when that commit changed the page too, as a run's commit rebased on
+ * main's newer page does: the summary may be from either page, so it is written again from the page as it is. Undefined
+ * where git can't say (no repository, a summary not committed yet, no page then): the date rule alone, as before.
+ */
+async function pageWhenWritten(contentRoot: string, s: { id: string; generatedAt: string }): Promise<string | 'due' | undefined> {
+  try {
+    const file = join('summaries', `${s.id}.json`)
+    const commit = (await git('git', ['log', '-1', '--format=%H', `-S${JSON.stringify(s.generatedAt)}`, '--', file], { cwd: contentRoot })).stdout.trim()
+    if (!commit) return undefined
+    const page = async (rev: string) => textHash(JSON.parse((await git('git', ['show', `${rev}:./${viFile(s.id)}`], { cwd: contentRoot, maxBuffer: 16 << 20 })).stdout))
+    const then = await page(commit)
+    const before = await page(`${commit}^`).catch(() => undefined) // a page the commit added, or the first commit: none before
+    return before !== undefined && before !== then ? 'due' : then
+  } catch { return undefined }
 }
 
 export function profile(s: Localized<SpeciesEntity>): string {
@@ -171,7 +214,7 @@ export async function summaryOrder(root: string, species: Localized<SpeciesEntit
   return [...species].sort((a, b) => rank(a) - rank(b) || b.t.quality.score - a.t.quality.score || a.id.localeCompare(b.id))
 }
 
-export type SummaryReport = { approved: string[]; pending: { id: string; problems: string[] }[]; failed: string[]; stopped: string }
+export type SummaryReport = { approved: string[]; pending: { id: string; problems: string[] }[]; failed: string[]; stopped: string; left?: number }
 
 /**
  * Summaries for every published species that has none, or whose page changed since. Each draft is checked against the
@@ -184,13 +227,31 @@ export type SummaryReport = { approved: string[]; pending: { id: string; problem
 export async function draftSummaries(contentRoot: string, llm: Llm, opts: { top: number; now: () => Date; publicBuild?: boolean; jobs?: number; only?: string[] }): Promise<SummaryReport> {
   const c = await loadAll({ root: contentRoot, lang: 'vi', publicBuild: opts.publicBuild ?? true })
   const have = new Map((await readSummaries(contentRoot)).map(s => [s.id, s]))
-  const stale = (s: Localized<SpeciesEntity>) => { const h = have.get(s.id); return !h || h.speciesUpdatedAt !== s.updatedAt || (h.review === 'pending' && !h.problems) }
-  const todo = (await summaryOrder(dirname(contentRoot), c.species)).filter(s => (opts.only ? opts.only.includes(s.id) : stale(s))).slice(0, opts.top)
-  const report: SummaryReport = { approved: [], pending: [], failed: [], stopped: '' }
+  // Done again: no summary, its page's date moved, a pending draft from before the check, or its page's text changed since it
+  // was written (textHash). One from before `writtenFrom` that git finds unchanged is stamped, so it isn't asked again.
+  const stale = async (s: Localized<SpeciesEntity>) => {
+    const h = have.get(s.id)
+    if (!h || h.speciesUpdatedAt !== s.updatedAt || (h.review === 'pending' && !h.problems)) return true
+    const now = await pageHash(contentRoot, s.id)
+    const from = h.writtenFrom ?? await pageWhenWritten(contentRoot, h)
+    if (from === undefined) return false
+    if (from === 'due' || from !== now) return true
+    if (!h.writtenFrom) await stamp(contentRoot, s.id, now)
+    return false
+  }
+  const order = await summaryOrder(dirname(contentRoot), c.species)
+  const due: boolean[] = []
+  let at = 0
+  await Promise.all(Array.from({ length: 8 }, async () => {
+    while (at < order.length) { const i = at++; due[i] = opts.only ? opts.only.includes(order[i]!.id) : await stale(order[i]!) }
+  }))
+  const all = order.filter((_, i) => due[i]), todo = all.slice(0, opts.top)
+  const report: SummaryReport = { approved: [], pending: [], failed: [], stopped: '', left: all.length - todo.length }
 
   const one = async (s: Localized<SpeciesEntity>) => {
     const card = cardOf(s)
     const input = `${cardBlock(card)}\n\n${profile(s)}`
+    const writtenFrom = await pageHash(contentRoot, s.id)
     const write = async (notes?: { draft: Draft; problems: string[] }) => {
       const redo = notes ? `\n\n---\n\nBẢN TRƯỚC (bị trả lại):\n${JSON.stringify(notes.draft)}\n\nLỗi phải sửa:\n${notes.problems.map(p => `- ${p}`).join('\n')}\n\nViết lại: sửa hoặc bỏ từng chỗ sai, không thêm gì mới.` : ''
       return Output.parse(await llm({ system: 'Reply only with JSON.', prompt: `${TEMPLATE}\n\n---\n\n${input}${redo}`, schema: SCHEMA }))
@@ -206,7 +267,7 @@ export async function draftSummaries(contentRoot: string, llm: Llm, opts: { top:
     // The check passes or fails: 1 or 0, its problems the notes.
     const tries: Review[] = [{ score: problems.length ? 0 : 1, notes: problems }]
     if (problems.length) { draft = await write({ draft, problems }); problems = await check(draft); tries.push({ score: problems.length ? 0 : 1, notes: problems }) }
-    const base = { id: s.id, ...draft, speciesUpdatedAt: s.updatedAt, generatedAt: opts.now().toISOString() }
+    const base = { id: s.id, ...draft, speciesUpdatedAt: s.updatedAt, writtenFrom, generatedAt: opts.now().toISOString() }
     if (problems.length) { await save(contentRoot, { ...base, review: 'pending', problems }); report.pending.push({ id: s.id, problems }) }
     else { await save(contentRoot, { ...base, review: 'approved' }); report.approved.push(s.id) }
     await logReviews(dirname(contentRoot), 'summary', { id: `species/${s.id}`, lang: 'vi' }, tries, tries.at(-1), { now: opts.now() })
