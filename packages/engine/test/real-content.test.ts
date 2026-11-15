@@ -948,8 +948,8 @@ test('two guide titles say the count their own text gives, and are fixed by hand
     expect(t.name, id).toBe(name)
     expect(t.nameFixed, id).toBe(true)
     expect(t.body, id).toContain(said)
-    // what the rule would do without the hand fix
-    expect(countMismatch(t.name, t.body!), id).toBeTruthy()
+    // The rule now reads the text's own count, its table and its chapters, and keeps both counts too.
+    expect(countMismatch(t.name, t.body!, t.chapters), id).toBeUndefined()
   }
 })
 
@@ -969,4 +969,20 @@ test('five held video guides say their one sentence plainly, in the Writing Lead
     for (const s of gone) expect(all, `${id}: ${s}`).not.toContain(s)
     for (const f of flags) expect(t[f], `${id}: ${f}`).toBe(true)
   }
+})
+
+// The chief of staff, 16 Nov 2026: "a live title whose number disagrees with its own text fails." Every guide on the site,
+// in every language, a title fixed by hand too (the sweep leaves those, so only this sees them): its number stands on what
+// the text says, a run, a list, a table, its chapters, its bold leads or its headings, and no larger count the text has.
+// What fails names the page and the reason, which the title and its numbers make.
+test('no live guide title promises a number its own text disagrees with', async () => {
+  const dir = fileURLToPath(new URL('../../../content/guides', import.meta.url))
+  const wrong: string[] = []
+  for (const id of (await readdir(dir)).sort()) for (const f of (await readdir(join(dir, id))).filter(f => f !== 'entity.json' && f.endsWith('.json'))) {
+    const t = JSON.parse(await readFile(join(dir, id, f), 'utf8')) as Translation & { held?: unknown }
+    if (t.held || !t.name || !t.body) continue
+    const why = countMismatch(t.name, t.body, t.chapters)
+    if (why) wrong.push(`${f.replace('.json', '')}/guides/${id}: "${t.name}": ${why}`)
+  }
+  expect(wrong).toEqual([])
 })
