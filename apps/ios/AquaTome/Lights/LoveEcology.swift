@@ -142,7 +142,8 @@ final class LoveEcologyModel {
   }
 
   /// Kept on the phone, so the line, the slider's place and Khác's colour come back after a relaunch. A JSON string, so a
-  /// launch argument can stand in for it (`-loveEcology.sent '{…}'`) to draw a state such as the day after.
+  /// launch argument can stand in for it to draw a state such as the day after: quoted as a property list string
+  /// (`-loveEcology.sent '"{\"last\":…}"'`), as unquoted braces are read as a dictionary.
   struct Kept: Codable {
     var last: Sent?
     /// The last colour sent, which the slider sends at its new level (white before any).
