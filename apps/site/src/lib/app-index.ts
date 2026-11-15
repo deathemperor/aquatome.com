@@ -184,7 +184,8 @@ export type AppHome = {
  * one photo of a member whose fish a 3:2 crop keeps (`img`, `imgBox`). `guides` and `videos`: the paths of the guides
  * about the group, written and on video, in the index's order (chipGuides); none where it has none.
  */
-export type AppChip = { id: string; name: string; order: number; count: number; members: string[]; img?: string; imgBox?: Box; guides?: string[]; videos?: string[] }
+/** `imgOf`: the member whose photo `img` is (one of `members`), so a chip names and links the fish its photo shows. */
+export type AppChip = { id: string; name: string; order: number; count: number; members: string[]; img?: string; imgBox?: Box; imgOf?: string; guides?: string[]; videos?: string[] }
 /**
  * The guides about a chip's group, by their titles (the chief of staff, 14 Nov): a guide whose title holds the chip's
  * word or one of a member's names, as this index has them, whole words (Thai, written without spaces, anywhere in it).
@@ -314,22 +315,25 @@ export function chipsFor(lang: Lang, c: Content, everySpecies: Content['species'
   })
   // Pictures go to the chips with fewest fish first, so a group of one fish keeps its best photo when a wider group holds
   // it too (Dĩa inside Cichlid châu Mỹ).
-  const used = new Set<string>(), pic = new Map<string, Photo>()
+  const used = new Set<string>(), pic = new Map<string, { p: Photo; of: string }>()
   for (const x of [...held].sort((a, b) => a.members.length - b.members.length)) {
     const cover = x.chip.cover ?? [], at = (id: string) => (cover.includes(id) ? cover.indexOf(id) : cover.length)
     const ranked = [...x.members].sort((a, b) => at(a.id) - at(b.id) || Math.min(b.photos.length, 3) - Math.min(a.photos.length, 3) || a.t.name.localeCompare(b.t.name, lang))
     // The members' heads first, the photo each card leads with and the engine ranked best; then their other photos, so a
     // head that doesn't qualify leaves the member's next photo in the running. 640 px wide or more first, within each.
     const fits = (p: Photo) => !p.generated && unmarked(p) && !refusedByCards(p) && foundBox(p) && frameOf(p.width / p.height, boxFractions(p), CHIP_RATIO).fit === 'cover'
-    const heads = ranked.flatMap(m => { const h = cleanPhoto(m.photos); return h && fits(h) ? [h] : [] }), head = new Set(heads)
-    const others = ranked.flatMap(m => m.photos.filter(p => !head.has(p) && fits(p)))
+    // Whose each photo is, the first member to show it: a head, or a photo from a member's page text (Cá chuột's).
+    const owner = new Map<Photo, string>()
+    const own = (p: Photo, id: string) => { if (!owner.has(p)) owner.set(p, id); return p }
+    const heads = ranked.flatMap(m => { const h = cleanPhoto(m.photos); return h && fits(h) ? [own(h, m.id)] : [] }), head = new Set(heads)
+    const others = ranked.flatMap(m => m.photos.filter(p => !head.has(p) && fits(p)).map(p => own(p, m.id)))
     const wide = (ps: Photo[]) => [...ps.filter(p => p.width >= 640), ...ps]
     const p = [...wide(heads), ...wide(others)].find(p => !used.has(p.url))
-    if (p) { used.add(p.url); pic.set(x.chip.id, p) }
+    if (p) { used.add(p.url); pic.set(x.chip.id, { p, of: owner.get(p)! }) }
   }
   return held.map((x, i) => {
-    const p = pic.get(x.chip.id)
-    return { id: x.chip.id, name: x.name, order: i + 1, count: x.members.length, members: x.members.map(m => m.id), ...(p ? { img: cardSrc(p), imgBox: photoBox(p) } : {}) }
+    const got = pic.get(x.chip.id)
+    return { id: x.chip.id, name: x.name, order: i + 1, count: x.members.length, members: x.members.map(m => m.id), ...(got ? { img: cardSrc(got.p), imgBox: photoBox(got.p), imgOf: got.of } : {}) }
   })
 }
 
