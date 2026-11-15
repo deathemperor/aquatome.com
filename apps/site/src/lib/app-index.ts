@@ -410,7 +410,8 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
       // Its card's picture on the site: its own photo, else one from its video's sections, else a fish or plant it names.
       const ph = guideImage(c, g)
       const path = at(`/vi/huong-dan/${g.t.slug}/`)
-      guideAt.set(g.id, path)
+      // Khám phá's guide shelf, Curation's list first: only a guide with a picture until the app draws covers, as home.guides.
+      if (ph) guideAt.set(g.id, path)
       // The picture its page opens on (guide-page.ts, app-page.ts), by its large copy as a day's card loads a head.
       if (ph) guideLead.set(`guides/${g.id}`, (ph.large ?? ph).url)
       items.push(clean({ kind: 'guide', name: g.t.name, aka: aka(g.t.altNames), path, img: ph && cardSrc(ph), imgBox: boxOf(ph), section: g.kind, about: about.length ? about : undefined, video: g.video?.durationSec }))

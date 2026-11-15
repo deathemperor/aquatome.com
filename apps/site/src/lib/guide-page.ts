@@ -118,11 +118,13 @@ export function guideParts(lang: Lang, c: Content, g: Localized<GuideEntity>) {
   const inSeries = series ? seriesGuides(c, series) : []
   const pos = inSeries.findIndex(x => x.id === g.id)
   // A series reads in the creator's order: the next parts first, then related guides.
-  const nextOf = (from: Localized<GuideEntity>[]) => series ? [...inSeries.slice(pos + 1, pos + 4), ...nextGuides(c, g, 3, from).filter(x => !inSeries.some(y => y.id === x.id))].slice(0, 3) : nextGuides(c, g, 3, from)
+  const nextOf = (keep: (x: Localized<GuideEntity>) => boolean) =>
+    series ? [...inSeries.slice(pos + 1, pos + 4).filter(keep), ...nextGuides(c, g, 3, leads.filter(keep)).filter(x => !inSeries.some(y => y.id === x.id))].slice(0, 3) : nextGuides(c, g, 3, leads.filter(keep))
   const leads = leadGuides(c)
-  const next = nextOf(leads)
-  // The app draws no cover yet (the Design Lead's app half, 15 Nov 2026): its guides to read next are those with a picture.
-  const appNext = nextOf(leads.filter(x => guideImage(c, x)))
+  const next = nextOf(() => true)
+  // The app draws no cover yet (the Design Lead's app half, 15 Nov 2026): its guides to read next, a series' next parts
+  // too, are those with a picture.
+  const appNext = nextOf(x => !!guideImage(c, x))
   // Below the text, in page order: the next guides' covers, then the fish and plant cards (a page of them, fish first: a
   // listicle names a hundred or more), each with a picture the page doesn't show yet, or none.
   const covers = next.map(x => shown.take(guideImages(c, x)) ?? null)

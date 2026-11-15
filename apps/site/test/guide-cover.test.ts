@@ -1,4 +1,4 @@
-import type { Content } from '@aq/schema'
+import { FIRST_GUIDES, type Content } from '@aq/schema'
 import { expect, test } from 'vitest'
 import { appIndex } from '../src/lib/app-index'
 import { getContent } from '../src/lib/content'
@@ -42,4 +42,26 @@ test("a guide with no picture stays in the site's guides to read next, and off t
   expect(parts.appNext.every(x => guideImage(c2, x))).toBe(true)
   expect(appIndex('vi', c2).home.guides).not.toContain(`/vi/huong-dan/${g.t.slug}/`)
   expect(appIndex('vi', c).home.guides).toContain(`/vi/huong-dan/${g.t.slug}/`)
+}, 120_000)
+
+// Grok's read of #1384: Khám phá's guide shelf (Curation's list first) and a series' next parts reached the app with no
+// picture. Until the app draws covers, every guide it shelves or offers next has one; the site keeps them, with a cover.
+test("the app's Khám phá shelf and a series' next parts keep to guides with a picture", async () => {
+  const c = await getContent('vi')
+  const g = leadGuides(c)[1]!
+  const path = `/vi/huong-dan/${g.t.slug}/`
+  const first = (x: typeof g) => ({ ...c, guides: c.guides.map(y => (y.id === g.id ? { ...x, id: FIRST_GUIDES[0]! } : y)) }) as Content
+  expect(appIndex('vi', first(g)).home.browse!.guides[0]).toBe(path)
+  const bare = first({ ...g, photos: [], t: { ...g.t, name: 'Thay nước cho bể' } })
+  expect(guideImage(bare, bare.guides.find(y => y.id === FIRST_GUIDES[0])!)).toBeUndefined()
+  expect(appIndex('vi', bare).home.browse!.guides).not.toContain(path)
+
+  const one = c.guides.find(y => y.video?.series?.id === 'PLtest')!
+  const two = { ...one, id: 'youtube-part-two', photos: [], t: { ...one.t, slug: 'phan-hai', name: 'Phần hai' }, video: { ...one.video!, youtubeId: 'part-two', series: { id: 'PLtest', position: 1 }, figures: [] } }
+  const c2 = { ...c, guides: [...c.guides, two] } as Content
+  expect(guideImage(c2, two)).toBeUndefined()
+  const parts = guideParts('vi', c2, one)
+  expect(parts.next[0]!.id).toBe(two.id)
+  expect(parts.appNext.map(x => x.id)).not.toContain(two.id)
+  expect(parts.appNext.every(x => guideImage(c2, x))).toBe(true)
 }, 120_000)
