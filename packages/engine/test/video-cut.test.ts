@@ -105,6 +105,8 @@ test('a guide is left as it is, and listed, where a cut could break it, take a s
     ['an item\'s label', held(`<ul><li><strong>Anubias ở đây</strong>: loại hiếm. Cây lớn rất chậm.</li></ul>${LONG}`, src('loại hiếm')), 'names or opens what follows'],
     ['a lead-in it would cut', held(`<p>Hồ ở đây chạy hai bơm:</p><ul><li>Bơm lớn cho thác.</li></ul>${LONG}`, src('Hồ ở đây chạy hai bơm')), 'names or opens what follows'],
     ['a step in the sentence', held(`<p>Ở đây có thể thêm cây nổi ở khu ao bên trái.</p>${LONG}`, src('Ở đây có thể thêm cây nổi ở khu ao bên trái')), 'a step or a caution'],
+    ['a name the guide speaks of again', held(`<p>Bể ở đây chạy hai lọc BioMaster.</p><p>BioMaster có ngăn lọc thô tháo nhanh.</p>${LONG}`, src('Bể ở đây chạy hai lọc BioMaster')), 'which the guide speaks of again'],
+    ['what comes later', held(`<p>Cách set dưới đây có một tấm kỷ niệm gắn trên kính sau.</p>${LONG}`, src('Cách set dưới đây có một tấm kỷ niệm gắn trên kính sau')), 'says what comes later'],
     ['a dose beside it', held(`<p>Bể ở đây chạy ba năm. Châm 1 ml cho mỗi 40 lít nước.</p>${LONG}`, src('Bể ở đây chạy ba năm')), 'a dose in the paragraph'],
     ['a dose by its measure', held(`<p>Bể ở đây chạy ba năm.</p><p>Bể nhỏ chỉ cần một nắp.</p>${LONG}`, src('Bể ở đây chạy ba năm')), 'a dose in the paragraph'],
     ['a pronoun after the cut', held(`<p>Bể ở đây có sưởi Dennerle rất gọn. Nó chỉ chạy ở một mức 25 °C.</p>${LONG}`, src('Bể ở đây có sưởi Dennerle rất gọn')), 'reads on from it'],

@@ -949,7 +949,7 @@ The layers above still check the result.
   before it, the sentence, its finding), added to and never rewritten, for the sentence-only mend to write the true
   ones back. A guide stays as it is, and is listed, where a person waits on it (harm, a kit, a dose), a person fixed it,
   its read isn't of its text, or a cut could break it or take a step: a sentence to cut with a step or a caution word
-  in it, a table cell, an item's label or a lead-in; a kept sentence next to it that points back, announces it or
+  in it, a table cell, an item's label or a lead-in, a name the guide speaks of again, or what comes later; a kept sentence next to it that points back, announces it or
   gives a figure or a price it set; a dose near it; more than a tenth of its words (the chief of staff, 15 Nov 2026,
   after two readers and a whole read of what was left).
 - **One copy of each figure.** The data card holds a species' figures. Quick facts drop the items the card already has

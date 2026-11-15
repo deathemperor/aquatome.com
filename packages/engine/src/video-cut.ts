@@ -23,7 +23,7 @@ import { blockOf, plain, quoted, sentences, splice, type Piece } from './sentenc
  *   - a quote not in its text, or across two sentences; a sentence that runs on into the next where a unit or an initial
  *     ends it ("50 W. Nó…");
  *   - a sentence to cut that is a table's cell, names its item ("<strong>X</strong>: …") or opens what follows (a colon),
- *     or gives a step or a caution anywhere in it; a dose (an amount, or "một nắp") in its paragraph or
+ *     names something the guide speaks of again, says what comes later, or gives a step or a caution anywhere in it; a dose (an amount, or "một nắp") in its paragraph or
  *     the sentence kept after it;
  *   - a sentence kept after a cut one that reads on from it (a connective, a pronoun, "này/đó" anywhere in it, "thứ hai"),
  *     gives a figure right after a cut one with figures, or speaks of money after a price that goes; a sentence kept
@@ -68,6 +68,10 @@ export function leans(sentence: string): boolean {
  */
 // "nên" after a comma is "so" ("…, nên mọi thứ đều tính theo…"), not "should".
 const STEP = /(?<![\p{L}])(?:(?<!,\s*)nên|cần|phải|hãy|đừng|tránh|cẩn thận|coi chừng|chú ý|lưu ý|nguy hiểm|độc|chết|bệnh|hại|thêm|dùng|cho vào|đặt|thay|châm|rửa|cắt|tắt|bật|chỉnh|kiểm tra|đo|giữ|trộn|ngâm|cách ly|cho ăn|chuyển|thả|mua|khoan|buộc|tìm)(?![\p{L}])/iu
+/** A sentence that says what comes later in the guide. */
+const ANNOUNCES = /(?<![\p{L}])(?:dưới đây|sau đây|bên dưới|như sau|bài này|cuối bài|phần dưới|phần sau|lát nữa)(?![\p{L}])/iu
+/** The names in a sentence: a word past its first that starts with a capital, of four letters or more ("BioMaster", "Twin"). */
+export const names = (sentence: string) => (sentence.split(/\s+/).slice(1).join(' ').match(/(?<![\p{L}\p{N}])\p{Lu}[\p{L}\p{N}-]{3,}/gu) ?? [])
 /** A dose said by its measure ("chỉ cần một nắp", "hai giọt"), which givesDose, reading amounts and units, doesn't see. */
 const MEASURE = /(?<![\p{L}])(?:nắp|muỗng|thìa|giọt|viên)(?![\p{L}])/iu
 /** A kept sentence on money right after a price that goes ("nên tổng tiền cá cũng không đáng là bao"). */
@@ -166,6 +170,8 @@ export function cutGuide(p: Page, t: Lang, e: FitEntry | undefined): Omit<VideoC
   const words = (html: string) => plain(html).split(/\s+/).filter(w => /[\p{L}\p{N}]/u.test(w)).length
   const lost = [...gone].reduce((n, [field, m]) => n + [...m.keys()].reduce((k, i) => k + words(pieces.get(field)!.filter(x => x.sentence)[i]!.html), 0), 0)
   const share = lost / Math.max(1, texts.reduce((n, x) => n + words(x.text), 0))
+  // The guide's whole text, to find a name a cut sentence gives that it speaks of again elsewhere.
+  const whole = texts.map(x => plain(x.text)).join(' ')
   const out: Omit<VideoCut, 'key' | 'file'> = { changes: [], cuts: [], swaps: [], unswapped: [], emptied: [] }
   const now = new Map<string, string>()
   for (const [field, m] of gone) {
@@ -186,6 +192,12 @@ export function cutGuide(p: Page, t: Lang, e: FitEntry | undefined): Omit<VideoC
       // for the mixer tap alone), which a whole-sentence cut would take.
       // Read whole: a read that quotes all of "Có thể thêm cây thủy sinh nổi, nhất là ở khu ao nông bên trái" for the source's
       // pond still takes a step with it.
+      // What it names that the guide speaks of again ("hai lọc BioMaster Thermo 600", then "BioMaster có ngăn lọc thô"), or
+      // what it says comes later ("Cách set dưới đây có … một tấm Nút Vàng YouTube", then a part on fixing "tấm trưng bày"):
+      // a whole read on 15 Nov found both, far from the cut.
+      const named = names(was).find(n => whole.split(n).length - 1 > was.split(n).length - 1)
+      if (named) return { left: `a sentence it would cut names "${named}", which the guide speaks of again, in ${field}: "${was}"` }
+      if (ANNOUNCES.test(was)) return { left: `a sentence it would cut says what comes later, in ${field}: "${was}"` }
       if (STEP.test(was)) return { left: `a sentence it would cut gives a step or a caution, in ${field}: "${was}"` }
       // A dose in the paragraph of a sentence it cuts: a person reads the paragraph whole.
       let after = i + 1
