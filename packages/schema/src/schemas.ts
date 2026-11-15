@@ -271,9 +271,11 @@ export const PageDatesSchema = z.record(z.string(), z.string().regex(/^\d{4}-\d{
 
 /**
  * content/one-voice.json: a species' id, then a heading (section key), then the one source that speaks under it. Where the
- * sources under a heading can't both be true, the page shows that source's text alone (load.ts).
+ * sources under a heading can't both be true, the page shows that source's text alone (load.ts). `false`: no source does,
+ * as none says what's fit to read there (the African snakehead's tank, the chief of staff, 15 Nov 2026), and the heading
+ * is off the page in every language, whatever a run writes under it.
  */
-export const OneVoiceSchema = z.record(z.string(), z.partialRecord(z.enum(SECTION_ORDER), SourceId))
+export const OneVoiceSchema = z.record(z.string(), z.partialRecord(z.enum(SECTION_ORDER), z.union([SourceId, z.literal(false)])))
 
 /**
  * A gallery photo can carry what the screening model said of it, so a top-up re-ranks the whole gallery: `best`, one of
