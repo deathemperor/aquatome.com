@@ -1,12 +1,11 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
-import { FIRST_GUIDES, FIRST_PLANTS, POPULAR, slugify, STAPLE_SPECIES, type Content } from '@aq/schema'
+import { CurationSchema, FIRST_GUIDES, FIRST_PLANTS, POPULAR, slugify, STAPLE_SPECIES, type Content } from '@aq/schema'
 import { pageShard, PageShard } from '@aq/schema/app-page'
 import { isVietnamese } from '@aq/schema/text'
 import { appBreeds, appIndex, appPlants, appSpecies, breedGroup, type AppIndex, type AppItem } from '../src/lib/app-index'
 import { glossaryParts } from '../src/lib/glossary-page'
 import { easyPlants, groupTiles, leadGuides } from '../src/lib/home'
-import { readCuration } from '../src/lib/curation'
 import { getContent } from '../src/lib/content'
 import { appPath, LANGS, localizePath, OTHER_LANGS } from '../src/lib/i18n'
 import { appHref, appPage, DIST, page } from './dist'
@@ -597,7 +596,8 @@ test('a breed\'s group: what it\'s a form of first (a species, or a breed in tur
 
 test("the app's featured fish and group tiles leave out a head the calendar keeps off cards, as the home page does", async () => {
   const c = await getContent('vi')
-  const calendar = readCuration()!, today = '2026-11-15'
+  // An empty calendar: the test content has none, and only its avoid list matters here.
+  const calendar = CurationSchema.parse({ version: 1, weeks: [], days: [] }), today = '2026-11-15'
   const before = appIndex('vi', c, undefined, c.species, { calendar, today })
   const fish = c.species.find(s => before.home.fish[0]!.endsWith(`/${s.t.slug}/`))!
   const tile = groupTiles('vi', c, undefined, calendar.avoid).find(t => t.photo)!
