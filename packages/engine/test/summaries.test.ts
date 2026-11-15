@@ -165,6 +165,20 @@ test('a pending draft from before the check is checked; a changed page is done a
   expect((await draftSummaries(root, llm, { top: 100, now, publicBuild: false })).approved.slice(0, 2)).toEqual(['paracheirodon-innesi', 'paracheirodon-axelrodi'])
 })
 
+// 15 Nov 2026, the chief of staff: a shown summary likely to say what its page dropped comes off the page (pending) until
+// it's written again, and is written first, before the fish readers look for first.
+test('a summary taken off its page until rewritten is written first, then the most-read', async () => {
+  const root = await content()
+  const { llm } = fake(() => OK)
+  await draftSummaries(root, llm, { top: 100, now, publicBuild: false })
+  const file = (id: string) => join(root, 'summaries', `${id}.json`)
+  const neon = JSON.parse(await readFile(file('paracheirodon-innesi'), 'utf8')), last = JSON.parse(await readFile(file('boraras-brigittae'), 'utf8'))
+  await writeFile(file('paracheirodon-innesi'), JSON.stringify({ ...neon, speciesUpdatedAt: '2026-01-01' })) // due, and read most
+  await writeFile(file('boraras-brigittae'), JSON.stringify({ ...last, review: 'pending' })) // taken off its page
+  expect((await draftSummaries(root, llm, { top: 1, now, publicBuild: false })).approved).toEqual(['boraras-brigittae'])
+  expect((await draftSummaries(root, llm, { top: 1, now, publicBuild: false })).approved).toEqual(['paracheirodon-innesi'])
+})
+
 // 15 Nov 2026, the chief of staff: the killifish's summary kept the importer's stock remark the rewrite had taken out of its
 // page, and "bred in tanks" a hand fix had. Neither moved the page's date, which was all this step read.
 const AXEL = (root: string) => join(root, 'species', 'paracheirodon-axelrodi', 'vi.json')

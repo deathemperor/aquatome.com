@@ -245,7 +245,10 @@ export async function draftSummaries(contentRoot: string, llm: Llm, opts: { top:
   await Promise.all(Array.from({ length: 8 }, async () => {
     while (at < order.length) { const i = at++; due[i] = opts.only ? opts.only.includes(order[i]!.id) : await stale(order[i]!) }
   }))
-  const all = order.filter((_, i) => due[i]), todo = all.slice(0, opts.top)
+  // A summary taken off its page until it's written again (pending, with no check's problems: one from before the check, or
+  // the 77 of 15 Nov likely to keep words their page had dropped, by the chief of staff's word) goes first, then most-read.
+  const off = (s: Localized<SpeciesEntity>) => { const h = have.get(s.id); return h?.review === 'pending' && !h.problems }
+  const all = order.filter((_, i) => due[i]).sort((a, b) => Number(off(b)) - Number(off(a))), todo = all.slice(0, opts.top)
   const report: SummaryReport = { approved: [], pending: [], failed: [], stopped: '', left: all.length - todo.length }
 
   const one = async (s: Localized<SpeciesEntity>) => {
