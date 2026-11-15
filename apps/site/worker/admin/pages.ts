@@ -1,6 +1,7 @@
 import { LANGS, OTHER_LANGS, prefixedLang } from '@aq/schema/langs'
 import { RUNS_PATH, runPath } from './runs'
 import type { FishIdStatus } from '../fishid/api'
+import type { Role } from '../fishid/ledger'
 import type { KeptRow } from '../fishid/kept'
 import type { Hidden } from '../hidden'
 import { isViPage, withoutVi } from '../paths'
@@ -339,6 +340,9 @@ function callsChart(s: FishIdStats, span: FishSpan): DayChart {
 const ZERO: Totals = { requests: 0, calls: 0, ok: 0, none: 0, blocked: 0, tin: 0, tout: 0, usd: 0, guessed: 0, linked: 0 }
 const chartNote = (span: FishSpan, tz: string, now: Date) => `Days in your time (${zoneName(tz, now)})${span.today !== undefined && span.key !== 'month' ? ', weeks Monday to Sunday' : ''}.`
 
+/** Chat's askers in the day's detail (chat/api.ts `roleOf`), in this order. */
+const ROLES: [Role, string][] = [['owner', 'yours'], ['tester', 'the test account’s'], ['reader', 'readers’']]
+
 /** The keys by number and the start of their hash, never the key; today is the tool's, from UTC midnight in the viewer's time. */
 function keysTable(k: FishIdStatus, now: Date, tz: string) {
   const began = `${now.toISOString().slice(0, 10)}T00:00:00Z`
@@ -357,6 +361,10 @@ function keysTable(k: FishIdStatus, now: Date, tz: string) {
   const detail: Cell[][] = [
     [{ text: 'Model' }, { text: k.model }],
     [{ text: 'Identifications that called Claude' }, { text: fmt(k.today) }],
+    ...ROLES.flatMap(([role, who]): Cell[][] => {
+      const d = k.chatBy?.[role]
+      return d?.asked ? [[{ text: `Chat questions, ${who}` }, { text: fmt(d.asked), sub: `${usd(d.usd)} of calls` }]] : []
+    }),
     ...ran.filter(([n]) => n).map(([n, what, sub]): Cell[] => [{ text: what }, { text: fmt(n), ...(sub ? { sub } : {}) }]),
   ]
   return {
