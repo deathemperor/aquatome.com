@@ -1172,6 +1172,27 @@ test('a photo with a cleared shop\'s own mark kept goes after every unmarked pho
   expect((await sweep(root)).files).toEqual([])
 })
 
+test('a head the photo check calls young gives way to the page\'s own photo it calls grown, typical or not; a pick of the young one stays; a second sweep changes nothing', async () => {
+  // The chief of staff, 15 Nov (young-heads.ts), after the Deocata pipefish page led with its young among snails.
+  const root = await store()
+  await sweep(root)
+  const at = 'content/species/corydoras-sterbai/entity.json'
+  const e = await json(root, at)
+  const young = photo('https://media.aquatome.com/commons/young.webp', 'Corydoras sterbai')
+  const grown = photo('https://media.aquatome.com/commons/grown.webp', 'Corydoras sterbai')
+  const seen = { ok: 'yes', typical: false, person: false, logo: false, note: '' }
+  await writeFile(join(root, 'engine-state/_photo-subjects.json'), JSON.stringify({ [young.url]: { 'corydoras-sterbai': { ...seen, young: true } }, [grown.url]: { 'corydoras-sterbai': { ...seen, young: false } } }))
+  await writeFile(join(root, at), JSON.stringify({ ...e, photos: [young, grown] }))
+  const urls = async () => (await json(root, at)).photos.map((p: { url: string }) => p.url)
+  await writeFile(join(root, 'engine-state/_photo-head-picks.json'), JSON.stringify({ 'species/corydoras-sterbai': young.url }))
+  await sweep(root)
+  expect(await urls()).toEqual([young.url, grown.url])
+  await writeFile(join(root, 'engine-state/_photo-head-picks.json'), '{}')
+  await sweep(root)
+  expect(await urls()).toEqual([grown.url, young.url])
+  expect((await sweep(root)).files).toEqual([])
+})
+
 test('a head its source names only to the genus goes behind a photo named to the species that passes as a head; a pick of it still leads; a second sweep changes nothing', async () => {
   const root = await store()
   await sweep(root)
