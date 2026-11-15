@@ -1052,3 +1052,21 @@ test('the popeye guide names no clinic in a place and no day count, still says w
   const facts = readFileSync(fileURLToPath(new URL('../../../engine-state/topics/aquatome-ca-bi-loi-mat-popeye-nguyen-nhan-cach-chua-va-phong.json', import.meta.url)), 'utf8')
   for (const s of ['3–5 days', 'Hà Nội', 'TP.HCM', 'Đà Nẵng', 'clinics']) expect(facts, `facts: ${s}`).not.toContain(s)
 })
+
+// The chief of staff, 16 Nov 2026: the algae guide, held in Vietnamese since 11 Nov for a liquid carbon's dose and its
+// makers' products, was live in Thai with the same doses word for word (and in Indonesian, which says "the label's dose").
+// The gate reads no dose or product outside Vietnamese, so the page is held by hand in every language, which a hand hold
+// does. This test goes with the hold: when the Thai text no longer carries the dose, the hold's line is lifted with it.
+test('the algae guide is held by hand in every language while its Thai text carries the Vietnamese one\'s product doses', () => {
+  const root = fileURLToPath(new URL('../../../', import.meta.url))
+  const id = 'aquatome-reu-hai-trong-be-thuy-sinh-nguyen-nhan-va-cach-loai-bo'
+  const byHand = JSON.parse(readFileSync(join(root, 'engine-state/held-by-hand.json'), 'utf8')) as Record<string, { checks: string[]; at: string }>
+  const hold = byHand[`guides/${id}`]
+  expect(hold?.checks).toEqual(['dose', 'product'])
+  for (const lang of ['vi', 'id', 'th']) {
+    const t = JSON.parse(readFileSync(join(root, `content/guides/${id}/${lang}.json`), 'utf8')) as Translation & { held?: unknown }
+    expect(t.held, lang).toEqual({ checks: hold!.checks, at: hold!.at })
+  }
+  const th = JSON.parse(readFileSync(join(root, `content/guides/${id}/th.json`), 'utf8')) as Translation
+  for (const dose of ['Easy Carbo', '1 มล. ต่อ 50 ลิตร', 'Flourish Excel', '5 มล. ต่อ 40 ลิตร']) expect(th.body, dose).toContain(dose)
+})
