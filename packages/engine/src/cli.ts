@@ -96,6 +96,7 @@ import { speciesVideos } from './species-videos'
 import { findVideos, readVideoRejected } from './videos'
 import { localizeCaptions } from './captions'
 import { translateVideoTitles } from './video-titles'
+import { checkVideoTitles } from './video-title-check'
 import { localizeEquipment } from './equipment-intl'
 import { addWikidataNames } from './wikidata'
 import { addPlantSynonyms } from './plant-synonyms'
@@ -167,7 +168,7 @@ const readersWanted = (() => {
 /** No people or marks: the model guide-photos and video-stills ask. */
 const guidePhotoLook: GuidePhotoDeps['look'] = (file, prompt) => claudeVision({ system: 'You look at pictures for an aquarium handbook. Reply only with JSON.', prompt, schema: GUIDE_PHOTO_SCHEMA, file, model: process.env.GUIDE_PHOTOS_MODEL ?? 'opus' })
 
-const { positionals, values } = parseArgs({ allowPositionals: true, options: { write: { type: 'boolean' }, 'empty-cap': { type: 'string' }, manifest: { type: 'string' }, heads: { type: 'boolean' }, 'back-check': { type: 'boolean' }, sources: { type: 'string' }, phrases: { type: 'boolean' }, calendar: { type: 'boolean' }, except: { type: 'string' }, limit: { type: 'string' }, fill: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, fresh: { type: 'boolean' }, 'from-draft': { type: 'boolean' }, revise: { type: 'boolean' }, 'top-up': { type: 'boolean' }, accept: { type: 'string' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, sf: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' }, pages: { type: 'string' }, fix: { type: 'boolean' }, rewrites: { type: 'string' }, popular: { type: 'boolean' }, titles: { type: 'string' }, 'photo-cap': { type: 'string' }, records: { type: 'string' }, 'no-new-pages': { type: 'boolean' }, video: { type: 'string' }, 'reviewed-before': { type: 'string' }, 'rechecked-since': { type: 'string' }, class: { type: 'string' }, clear: { type: 'boolean' }, days: { type: 'string' }, check: { type: 'boolean' }, gsc: { type: 'string' }, from: { type: 'string' }, mends: { type: 'string' }, first: { type: 'string' }, front: { type: 'boolean' }, record: { type: 'boolean' } } })
+const { positionals, values } = parseArgs({ allowPositionals: true, options: { write: { type: 'boolean' }, 'empty-cap': { type: 'string' }, manifest: { type: 'string' }, heads: { type: 'boolean' }, 'back-check': { type: 'boolean' }, sources: { type: 'string' }, phrases: { type: 'boolean' }, calendar: { type: 'boolean' }, except: { type: 'string' }, limit: { type: 'string' }, fill: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, fresh: { type: 'boolean' }, 'from-draft': { type: 'boolean' }, revise: { type: 'boolean' }, 'top-up': { type: 'boolean' }, accept: { type: 'string' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, sf: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' }, pages: { type: 'string' }, fix: { type: 'boolean' }, rewrites: { type: 'string' }, popular: { type: 'boolean' }, titles: { type: 'string' }, 'photo-cap': { type: 'string' }, records: { type: 'string' }, 'no-new-pages': { type: 'boolean' }, video: { type: 'string' }, 'reviewed-before': { type: 'string' }, 'rechecked-since': { type: 'string' }, class: { type: 'string' }, clear: { type: 'boolean' }, days: { type: 'string' }, check: { type: 'boolean' }, gsc: { type: 'string' }, from: { type: 'string' }, mends: { type: 'string' }, first: { type: 'string' }, front: { type: 'boolean' }, record: { type: 'boolean' }, out: { type: 'string' } } })
 
 /**
  * Openverse's API (anonymous: 20 requests a minute, 200 a day). A registered Openverse app raises that: its client id and
@@ -1280,6 +1281,16 @@ if (cmd === 'photo-privacy') {
   const r = await translateVideoTitles(ROOT, claudeCli, lang, { limit: values.limit ? Number(values.limit) : undefined, parallel: values.parallel ? Number(values.parallel) : 1, only: values.only ? String(values.only).split(',') : undefined, redo: values.redo })
   console.log(`video-titles ${lang}: ${r.titles} written, ${r.left} left, ${r.rejected.length} not kept, ${r.failed.length} failed${r.stopped ? `, stopped (${r.stopped})` : ''}`)
   for (const x of [...r.rejected, ...r.failed].slice(0, 30)) console.log(`  ${x}`)
+} else if (cmd === 'video-titles-check') {
+  // Each written title read again against the video's own title for a fault of meaning (video-title-check.ts). The titles
+  // come from --titles <file> (YouTube id → title), or the language's stored ones; the verdicts go to --out <file>.
+  const lang = values.lang as Lang
+  if (!LANGS.includes(lang) || !values.out) throw new Error(`usage: pnpm engine video-titles-check --lang ${LANGS.join('|')} --out <file> [--titles <file>] [--only youtubeId,youtubeId]`)
+  const titles = JSON.parse(await readFile(values.titles ? String(values.titles) : join(ROOT, 'content/video-titles', `${lang}.json`), 'utf8')) as Record<string, string>
+  const r = await checkVideoTitles(ROOT, claudeCli, lang, titles, { only: values.only ? String(values.only).split(',') : undefined })
+  await writeFile(String(values.out), `${JSON.stringify(r.checks, null, 2)}\n`)
+  const refused = Object.values(r.checks).filter(c => !c.ok).length
+  console.log(`video-titles-check ${lang}: ${Object.keys(r.checks).length} checked, ${refused} refused, ${r.failed.length} failed${r.stopped ? `, stopped (${r.stopped})` : ''}`)
 } else if (cmd === 'wikidata-names') {
   // The names Wikidata gives each species in another language, added to its page's other names where no other page uses them.
   const lang = values.lang as TargetLang
