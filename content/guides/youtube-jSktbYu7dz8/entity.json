@@ -83,7 +83,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh ngăn lọc phía sau bể với các tấm mút lọc.",
-            "sharpness": 15180.5
+            "sharpness": 15180.5,
+            "person": false
           }
         ],
         "photo": {
@@ -98,46 +99,8 @@
         }
       },
       {
-        "heading": "Làm nền dinh dưỡng giá rẻ thế nào",
-        "moments": [
-          {
-            "t": 650,
-            "url": "https://media.aquatome.com/video/jSktbYu7dz8/at650-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lớp nền sỏi trộn đất đã trải trong bể trống.",
-            "sharpness": 1087.5
-          },
-          {
-            "t": 810,
-            "url": "https://media.aquatome.com/video/jSktbYu7dz8/at810-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh nền sỏi trộn đất trải đều dưới đáy bể.",
-            "sharpness": 2159.1
-          }
-        ]
-      },
-      {
         "heading": "Vì sao phải phủ cát và chọn cát loại nào",
-        "moments": [
-          {
-            "t": 880,
-            "url": "https://media.aquatome.com/video/jSktbYu7dz8/at880-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bốc một vốc cát hạt vừa trên tay để xem độ mịn.",
-            "sharpness": 191.5
-          },
-          {
-            "t": 1000,
-            "url": "https://media.aquatome.com/video/jSktbYu7dz8/at1000-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lớp cát phủ dày trong bể, nhìn từ cạnh kính.",
-            "sharpness": 971.1
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/jSktbYu7dz8/p2-RvbV9zYW5kLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/jSktbYu7dz8/p2-RvbV9zYW5kLmpwZw-480.webp",
@@ -150,46 +113,8 @@
         }
       },
       {
-        "heading": "Dựng bố cục đảo bằng đá và lũa",
-        "moments": [
-          {
-            "t": 1290,
-            "url": "https://media.aquatome.com/video/jSktbYu7dz8/at1290-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cụm đá nham thạch đen và lũa rễ vươn lên giữa bể, cát bao quanh.",
-            "sharpness": 1030.5
-          },
-          {
-            "t": 1310,
-            "url": "https://media.aquatome.com/video/jSktbYu7dz8/at1310-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bố cục đảo đá và lũa trong bể Flex, chừa nước xung quanh.",
-            "sharpness": 1414.3
-          }
-        ]
-      },
-      {
         "heading": "Trồng cây gì và trồng thế nào",
-        "moments": [
-          {
-            "t": 1430,
-            "url": "https://media.aquatome.com/video/jSktbYu7dz8/at1430-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cầm bó dương xỉ Java lá hẹp trên tay trước khi trồng.",
-            "sharpness": 312.5
-          },
-          {
-            "t": 1520,
-            "url": "https://media.aquatome.com/video/jSktbYu7dz8/at1520-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt dương xỉ Java vào bể nhỏ để bắt đầu bố trí.",
-            "sharpness": 536.1
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/jSktbYu7dz8/p4-cnUtSW5kaWEuanBn.webp",
           "thumb": "https://media.aquatome.com/video/jSktbYu7dz8/p4-cnUtSW5kaWEuanBn-480.webp",
@@ -217,24 +142,7 @@
       },
       {
         "heading": "Thả cá đúng cách",
-        "moments": [
-          {
-            "t": 2400,
-            "url": "https://media.aquatome.com/video/jSktbYu7dz8/at2400-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Vợt cá và túi nước đặt trong xô để vớt cá.",
-            "sharpness": 198.4
-          },
-          {
-            "t": 2420,
-            "url": "https://media.aquatome.com/video/jSktbYu7dz8/at2420-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh nhỏ có cây xanh và đá, sẵn sàng thả cá.",
-            "sharpness": 1230.2
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/jSktbYu7dz8/p6-Z3JhZF96b28uanBn.webp",
           "thumb": "https://media.aquatome.com/video/jSktbYu7dz8/p6-Z3JhZF96b28uanBn-480.webp",
@@ -255,7 +163,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá nhỏ bơi giữa các bụi cây thủy sinh xanh và đỏ.",
-            "sharpness": 497.3
+            "sharpness": 497.3,
+            "person": false
           },
           {
             "t": 2530,
@@ -263,7 +172,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh nhỏ trồng nhiều cây, nền cát và đá, nhìn rõ cả bể.",
-            "sharpness": 1783
+            "sharpness": 1783,
+            "person": false
           }
         ],
         "photo": {

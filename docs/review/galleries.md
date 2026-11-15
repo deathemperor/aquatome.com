@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-15). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 654 | 30 | 9 | 22 | 671 |
-| rest | 20 | 1715 | 74 | 0 | 69 | 1720 |
+| covered | 30 | 664 | 30 | 9 | 23 | 680 |
+| rest | 20 | 1718 | 74 | 0 | 69 | 1723 |
 
-## Short of target: every source read (402)
+## Short of target: every source read (418)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -125,8 +125,8 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/gyrinocheilus-aymonieri | shop | 14 | 60 |
 | species/erpetoichthys-calabaricus | shop | 2 | 60 |
 | plants/sagittaria-subulata | shop | 13 | 60 |
+| plants/lilaeopsis-brasiliensis | shop | 8 | 60 |
 | species/trichopsis-vittata | shop | 11 | 60 |
-| plants/lilaeopsis-brasiliensis | shop | 9 | 60 |
 | species/boraras-urophthalmoides | shop | 1 | 60 |
 | plants/taxiphyllum-alternans | shop | 6 | 60 |
 | plants/fissidens-fontanus | shop | 22 | 60 |
@@ -298,6 +298,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/sphaerichthys-vaillanti | covered | 3 | 30 |
 | species/stiphodon-atropurpureus | covered | 3 | 30 |
 | species/stiphodon-ornatus | covered | 0 | 30 |
+| species/tatia-strigata | covered | 0 | 30 |
 | species/tetraodon-mbu | covered | 21 | 30 |
 | species/trichogaster-chuna | covered | 10 | 30 |
 | species/xyliphius-lepturus | covered | 0 | 30 |
@@ -356,6 +357,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/barboides-gracilis | covered | 0 | 30 |
 | species/barilius-ardens | covered | 0 | 30 |
 | species/barilius-bakeri | covered | 1 | 30 |
+| species/baryancistrus-beggini | covered | 0 | 30 |
 | species/baryancistrus-demantoides | covered | 1 | 30 |
 | species/baryancistrus-xanthellus | covered | 3 | 30 |
 | species/batasio-fasciolatus | covered | 0 | 30 |
@@ -418,3 +420,17 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/centromochlus-heckelii | covered | 0 | 30 |
 | species/cetopsis-coecutiens | covered | 0 | 30 |
 | species/chaca-bankanensis | covered | 1 | 30 |
+| species/chaca-chaca | covered | 0 | 30 |
+| species/chaetostoma-fischeri | covered | 0 | 30 |
+| species/chaetostoma-leucomelas | covered | 1 | 30 |
+| species/chaetostoma-lineopunctatum | covered | 0 | 30 |
+| species/chalceus-erythrurus | covered | 2 | 30 |
+| species/channa-maculata | covered | 4 | 30 |
+| species/channa-marulioides | covered | 4 | 30 |
+| species/channa-marulius | covered | 3 | 30 |
+| species/chela-cachius | covered | 0 | 30 |
+| species/chiloglanis-polypogon | covered | 0 | 30 |
+| species/chitala-blanci | covered | 0 | 30 |
+| species/chrysichthys-auratus | covered | 0 | 30 |
+| species/cichla-orinocensis | covered | 1 | 30 |
+| species/clarias-meladerma | covered | 0 | 30 |

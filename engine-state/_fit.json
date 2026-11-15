@@ -73782,18 +73782,10 @@
   },
   "vi/guides/youtube-G7GKeDki7a0": {
     "at": "2026-11-15",
-    "hash": "ed77f9a929a1dff8",
+    "hash": "f2fd6ed2b51c62ac",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "units",
-        "part": "TITLE",
-        "quote": "bể nano 19 lít",
-        "why": "19 litres is a converted 5-gallon tank size that nobody in Vietnam would use; the page body itself says 20 lít.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/guides/youtube-gA6luUHrVWU": {

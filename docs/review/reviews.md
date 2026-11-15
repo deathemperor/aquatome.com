@@ -8,8 +8,8 @@ under `<lang>/<path>`.
 
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
-| video-guide | 890 | 639 (vi 639) | 639 |
-| translation | 1646 | 257 (vi 257) | 257 |
+| video-guide | 914 | 656 (vi 656) | 656 |
+| translation | 1667 | 259 (vi 259) | 259 |
 | vi-rewrite | 336 | 19 (vi 19) | 19 |
 | reader-rewrite | 31 | 0 | 0 |
 | title | 25 | 0 | 0 |
@@ -17,32 +17,32 @@ under `<lang>/<path>`.
 | topic | 89 | 5 (ms 1, th 4) | 5 |
 | product | 15 | 1 (vi 1) | 1 |
 | product-reviews | 15 | 0 | 0 |
-| summary | 2115 | 99 (vi 99) | 99 |
+| summary | 2147 | 106 (vi 106) | 106 |
 | localize | 2094 | 856 (id 387, ms 53, th 416) | 856 |
 | glossary | 1 | 0 | 0 |
 | places | 6518 | 3974 (id 1347, ms 1344, th 1184, vi 99) | 1014 |
 | equipment | 5 | 0 | 0 |
 | planting | 31 | 0 | 0 |
-| species | 11 | 0 | 0 |
+| species | 12 | 0 | 0 |
 | material | 2 | 0 | 0 |
 
 ## video-guide: Vietnamese guides written from YouTube videos, against the transcript
 
-639 of 890 pages under the bar.
+656 of 914 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 563 | 1480 |
-| States as certain what the source hedges, or what garbled captions only hint at | 552 | 1677 |
-| Says what the source doesn't (invented, added) | 484 | 1190 |
-| Wording: unnatural, literal, stiff or chatty | 263 | 365 |
-| A number, unit, dose or price | 220 | 325 |
-| Repeats itself (intro, summary, steps and FAQ) | 126 | 148 |
-| Meaning changed or wrong | 111 | 126 |
-| Leaves out what the source says | 46 | 48 |
+| Other | 576 | 1510 |
+| States as certain what the source hedges, or what garbled captions only hint at | 570 | 1737 |
+| Says what the source doesn't (invented, added) | 497 | 1214 |
+| Wording: unnatural, literal, stiff or chatty | 272 | 383 |
+| A number, unit, dose or price | 226 | 333 |
+| Repeats itself (intro, summary, steps and FAQ) | 128 | 150 |
+| Meaning changed or wrong | 115 | 131 |
+| Leaves out what the source says | 48 | 50 |
 | Hobby terms and names | 42 | 42 |
-| Names or points to the video, channel, creator or source | 32 | 34 |
-| Off the title's topic | 23 | 23 |
+| Names or points to the video, channel, creator or source | 33 | 35 |
+| Off the title's topic | 24 | 24 |
 | Copied from the transcript or source | 22 | 24 |
 | Text left in another language | 6 | 6 |
 
@@ -126,20 +126,20 @@ under `<lang>/<path>`.
 
 ## translation: source pages translated into Vietnamese, against the English
 
-257 of 1646 pages under the bar.
+259 of 1667 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 248 | 771 |
-| Says what the source doesn't (invented, added) | 209 | 408 |
-| Wording: unnatural, literal, stiff or chatty | 200 | 384 |
+| Other | 249 | 775 |
+| Says what the source doesn't (invented, added) | 211 | 413 |
+| Wording: unnatural, literal, stiff or chatty | 200 | 385 |
 | Meaning changed or wrong | 164 | 258 |
-| Hobby terms and names | 127 | 168 |
-| Text left in another language | 90 | 111 |
+| Hobby terms and names | 128 | 173 |
+| Text left in another language | 91 | 113 |
 | Leaves out what the source says | 86 | 119 |
-| States as certain what the source hedges, or what garbled captions only hint at | 73 | 85 |
-| A number, unit, dose or price | 69 | 90 |
-| Repeats itself (intro, summary, steps and FAQ) | 57 | 68 |
+| States as certain what the source hedges, or what garbled captions only hint at | 74 | 86 |
+| A number, unit, dose or price | 70 | 91 |
+| Repeats itself (intro, summary, steps and FAQ) | 56 | 67 |
 | Names or points to the video, channel, creator or source | 10 | 11 |
 | Copied from the transcript or source | 3 | 3 |
 
@@ -391,16 +391,16 @@ under `<lang>/<path>`.
 
 ## summary: species' quick summaries (the numbers and claims check: 1 pass, 0 fail)
 
-99 of 2115 pages under the bar.
+106 of 2147 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Says what the source doesn't (invented, added) | 54 | 58 |
-| States as certain what the source hedges, or what garbled captions only hint at | 34 | 39 |
-| Other | 29 | 33 |
-| A number, unit, dose or price | 12 | 12 |
-| Leaves out what the source says | 11 | 12 |
-| Meaning changed or wrong | 8 | 8 |
+| Says what the source doesn't (invented, added) | 56 | 60 |
+| States as certain what the source hedges, or what garbled captions only hint at | 39 | 45 |
+| Other | 30 | 34 |
+| A number, unit, dose or price | 13 | 13 |
+| Leaves out what the source says | 12 | 13 |
+| Meaning changed or wrong | 9 | 9 |
 | Wording: unnatural, literal, stiff or chatty | 2 | 2 |
 | Off the title's topic | 1 | 1 |
 | Repeats itself (intro, summary, steps and FAQ) | 1 | 1 |
@@ -409,7 +409,7 @@ under `<lang>/<path>`.
 
 - The summary's "hợp người đã có bể đủ rộng cho cá cỡ này" suggests a large tank is needed. The page only says 200 litres or more is enough, so this is unsupported. — vi/species/aequidens-patricki, 0.00
 - The mistake "Đừng cho ăn đơn điệu một loại ... nên cho ăn đa dạng theo hướng đó" gives captive feeding advice. The page only lists the wild diet (động vật thân mềm, giáp xác, mùn bã thực vật). It never says what to feed in a tank or that a… — vi/species/ammoglanis-multidentatus, 0.00
-- "hợp với người đã quen cichlid lùn": the page never says the species suits experienced dwarf-cichlid keepers. It only says the fish is "không khó tính lắm", so this suitability claim is invented. — vi/species/apistogramma-velifera, 0.00
+- "chỉ nuôi với cá họ chép, cá da trơn, cichlid hoặc cá chạch sông": the page says only that these tank mates "thường nuôi chung được" if they are of suitable size and the tank is wide enough. It never says they are the only suitable ones, a… — vi/species/anabas-testudineus, 0.00
 
 ### States as certain what the source hedges, or what garbled captions only hint at
 
@@ -426,20 +426,20 @@ under `<lang>/<path>`.
 ### A number, unit, dose or price
 
 - "khó nhất là giữ nước mát": the page never says keeping water cool is hard. It only gives the 10–22 °C range, so this hardest point is the summary's own inference. — vi/species/channa-burmanica, 0.00
+- "Đừng để nước ấm hơn mức cá cần": the page never warns against warm water or says this is a mistake. Only the card's 20–24 °C range exists, so this mistake and its fix are not on the page. — vi/species/cranoglanis-henrici, 0.00
 - "38–48 °C": the card gives no temperature — vi/species/cyprinodon-julimes, 0.00
-- Mistake 1, «Để nước nóng quá khoảng 18–23 °C lâu ngày thì cá hay bị đuối»: this makes water above the 18–23 °C range the trigger. The page ties the problem to a tank 'trên 25°C trong thời gian dài', not to going just over 23 °C. The thresh… — vi/species/danio-jaintianensis, 0.00
 
 ### Leaves out what the source says
 
 - The page says male black lancers "có thể rất hung hăng giữ lãnh thổ" (can be very aggressive). The summary drops the hedge: "cá đực hung hăng giữ lãnh thổ". — vi/species/bagrichthys-hypselopterus, 0.00
 - Mistake 1: "cá lớn hoặc năng nổ hơn sẽ bắt nạt và tranh hết phần ăn" turns the page's hedge ("nhiều khả năng sẽ bắt nạt", meaning "likely") into a certainty. It also drops "hơn nhiều" (much larger or more active). — vi/species/betta-falx, 0.00
-- Mistake 2: "nên làm lọc sump" drops the page's condition "Nếu được". The page gives sump as preferred if possible, and otherwise says to buy the biggest filter and change water often. — vi/species/colossoma-macropomum, 0.00
+- Mistake 1: "nuôi lẻ thì cá nhút nhát hoặc hung hăng" drops the page's hedge. The page says a single fish "có thể trở nên nhút nhát, lầm lì hoặc hung hăng", so this turns a possibility into a certainty. — vi/species/chromobotia-macracanthus, 0.00
 
 ### Meaning changed or wrong
 
 - Mistake 2 "chọn bể nhỏ ... nên lo bể rộng ngay từ đầu" is advice the page doesn't give. The page says the fish can breed in a "bể khá nhỏ, chỉ cần từ 200 lít trở lên", so the fix of a spacious tank contradicts or goes beyond the page. — vi/species/aequidens-patricki, 0.00
+- "đèn sáng" listed as a mistake and "đèn khá tối" as the fix: the page only says the most popular tanks tend to have fairly dim light. It gives no rule that bright light is wrong, so this is advice the page doesn't give. — vi/species/anabas-testudineus, 0.00
 - Mistake 2 "Nuôi nhiều con Proteus chung một bể ... nên nuôi riêng một loài là hợp hơn": the page only says it is aggressive, especially to its own kind. It does not say that keeping several Proteus is a mistake. "Bể riêng một loài" on the … — vi/species/crenicichla-proteus, 0.00
-- Mistake 1, "Để cá trong bể nước tĩnh, nền mịn: nên bố trí nền đá và sỏi, tạo dòng chảy": the page says nothing about still water or fine substrate being wrong, and the fix is not on the page. — vi/species/microsynodontis-hirsuta, 0.00
 
 ### Wording: unnatural, literal, stiff or chatty
 
@@ -620,7 +620,7 @@ under `<lang>/<path>`.
 
 ## species: species pages AquaTome writes from research, and what a species video adds to a page, against their research or video
 
-0 of 11 pages under the bar.
+0 of 12 pages under the bar.
 
 ## material: hobby materials' pages (lũa, đá, nền), against their research
 
