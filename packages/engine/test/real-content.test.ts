@@ -936,20 +936,20 @@ test('the care facts the lane would cut whole are on hand-fixed text: a temperat
   }
 })
 
-// Page Recovery, 16 Nov 2026 (the chief of staff): the leak-repair guide's two findings were lengths keepers write
-// ("2,5–5 cm" of sealant, "tối đa 2,5 cm"), which the lengths line now lets out. But it sends a keeper here to American
-// silicones and super glues by name, and none is in the market table, so no check of the gate sees them. It stays held
-// by hand until Writing's plain words for those lists are in.
-test('the leak-repair guide, whose findings the lengths line lets out, stays held by hand for the American products it names', () => {
+// Page Recovery, 16 Nov 2026 (the chief of staff): the leak-repair guide sent a keeper here to seven American silicones and
+// super glues by name, none in the market table, so no check of the gate saw them; it was held by hand. The Writing
+// Lead's plain words replace the three lists (what to look for on the tube, a small tube, thin super glue), the body is
+// fixed by hand, and the hold is let go.
+test('the leak-repair guide says what to buy in plain words, no brands, and is out', () => {
   const root = fileURLToPath(new URL('../../../', import.meta.url))
   const id = 'aquariumbreeder-how-to-fix-a-leaking-aquarium-with-and-without-draining'
-  const byHand = JSON.parse(readFileSync(join(root, 'engine-state/held-by-hand.json'), 'utf8')) as Record<string, { checks: string[] }>
-  const body = (JSON.parse(readFileSync(join(root, `content/guides/${id}/vi.json`), 'utf8')) as Translation).body ?? ''
-  const named = ['Aqueon Fish Tank Silicone Sealant', 'ASI Aquarium Sealant', 'Insta-Cure 57 g Super Thin'].filter(n => body.includes(n))
-  if (named.length) {
-    expect(named.filter(n => productOf(n, 'vi')), 'a product the table knows: the gate can see it').toEqual([])
-    expect(byHand[`guides/${id}`]?.checks).toEqual(['product'])
-  }
+  const byHand = JSON.parse(readFileSync(join(root, 'engine-state/held-by-hand.json'), 'utf8')) as Record<string, unknown>
+  const t = JSON.parse(readFileSync(join(root, `content/guides/${id}/vi.json`), 'utf8')) as Translation & { bodyFixed?: boolean; held?: unknown }
+  for (const gone of ['GE Silicone', 'ASI Aquarium', 'Aqueon', 'Tub Clear', 'Ultra Gel', 'Insta-Cure', '57 g']) expect(t.body, gone).not.toContain(gone)
+  for (const kept of ['Khi mua keo silicone, chọn tuýp:', 'ghi rõ dùng được cho bể cá, hoặc là silicone 100%', 'không có chất chống nấm mốc', 'một tuýp nhỏ loại như trên là đủ', 'Keo 502 loại thật loãng, chảy gần như nước.']) expect(t.body, kept).toContain(kept)
+  expect(t.bodyFixed).toBe(true)
+  expect(t.held).toBeUndefined()
+  expect(byHand[`guides/${id}`]).toBeUndefined()
 })
 
 // The chief of staff, 16 Nov 2026: two titles say their true count again, fixed by hand so the sweep's count rule, which
