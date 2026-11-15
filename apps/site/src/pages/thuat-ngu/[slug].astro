@@ -13,7 +13,7 @@ import { creditsFor } from '../../lib/credits'
 import { fmt } from '../../lib/format'
 import { smallSrc, tileFrame } from '../../lib/img'
 import { guideImages } from '../../lib/mentions'
-import { bodySections, glossaryParts, termTitle, tipLine, usedPictures, usedRows } from '../../lib/glossary-page'
+import { albumCaption, bodySections, glossaryParts, termTitle, tipLine, usedPictures, usedRows } from '../../lib/glossary-page'
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const c = await getContent(langOf(routePattern))
   return c.glossary.map(g => ({ params: { slug: g.t.slug }, props: { g } }))
@@ -28,8 +28,9 @@ const p = glossaryParts(lang, c, g)
 // each, or all of them where they come to six or fewer; past that a search for every page that names it.
 type Row = { href: string; name: string; photo?: Photo; sci?: string; kind?: string; fish?: boolean }
 const rows = usedRows(p)
-// No picture twice on the page: the term's photo, then each row the first of its pictures not shown yet, else none.
-const pics = usedPictures(c, [p.photo], rows, x => guideImages(c, x))
+// No picture twice on the page: the term's photos and its kinds' (glossaryParts), then each row the first of its pictures
+// not shown yet, else none.
+const pics = usedPictures(c, [p.photo, ...p.album.map(a => a.photo)], rows, x => guideImages(c, x))
 const photo = (x: Photo | null | undefined) => (x ? { photo: x } : {})
 const used: { label: string; all: number; rows: Row[] }[] = [
   { label: t('Hướng dẫn'), all: p.guides.length, rows: rows.guides.map((x, i) => ({ href: `/vi/huong-dan/${x.t.slug}/`, name: x.t.name, ...photo(pics.guides[i]), kind: x.video ? t('Video hướng dẫn') : t('Hướng dẫn') })) },
@@ -44,12 +45,23 @@ const jumps = body.parts.length >= 2 ? [...body.parts, ...(p.total ? [{ href: '#
 // Sources: the first five, the rest folded.
 const REFS_SHOWN = 5
 ---
-<Browse title={glossaryTitle(lang, termTitle(g))} heading={g.t.name} description={g.t.definition} crumbs={[['/vi/thuat-ngu/', t('Thuật ngữ')]]} noindex={!g.t.quality.indexable} alternates={alternates} credits={creditsFor([p.photo, ...used.flatMap(u => u.rows.map(r => r.photo))])}>
+<Browse title={glossaryTitle(lang, termTitle(g))} heading={g.t.name} description={g.t.definition} crumbs={[['/vi/thuat-ngu/', t('Thuật ngữ')]]} noindex={!g.t.quality.indexable} alternates={alternates} credits={creditsFor([p.photo, ...p.album.map(a => a.photo), ...used.flatMap(u => u.rows.map(r => r.photo))])}>
   {p.otherNames.length > 0 && <p class="aka">{t('Tên khác: {names}', { names: p.otherNames.join(', ') })}</p>}
   <p class="en">{t('Tiếng Anh:')} <span lang="en">{g.en}</span>{g.latin && sciBeside(g.en ?? '', g.latin) && <>, <span class="sci">{g.latin}</span></>}</p>
   {p.definition && <p class="def" set:html={p.definition} />}
   {p.material && <p class="material-link"><a href={p.material.href}>{p.material.text}</a></p>}
   {p.photo && <Fragment set:html={figureHtml(lang, { photo: p.photo, label: p.photo.caption })} />}
+  {p.album.length > 0 && (
+    <ul class="album">{p.album.map(a => {
+      const { name, rest } = albumCaption(lang, a)
+      return (
+        <li><figure>
+          <a href={a.photo.url} tabindex="-1"><img src={smallSrc(a.photo)} width={a.photo.width} height={a.photo.height} alt={a.photo.caption ?? a.name ?? g.t.name} loading="lazy" decoding="async" /></a>
+          <figcaption>{name && <strong>{name}</strong>}{rest && <span>{rest}</span>}</figcaption>
+        </figure></li>
+      )
+    })}</ul>
+  )}
   {p.treat && <p class="treat"><a href={p.treat.href}>{p.treat.text}</a></p>}
   {jumps.length > 0 && <JumpChips items={jumps} />}
   {body.html && <div class="body" set:html={body.html} />}
@@ -108,6 +120,14 @@ const REFS_SHOWN = 5
   .refs ol { padding-left: 1.4em; margin: 0; }
   .refs li { padding-block: 2px; overflow-wrap: anywhere; }
   .refs a { display: inline-flex; align-items: center; min-height: 44px; }
+  /* A term's other photos, and its kinds' named, in a row under its first: two or three across a phone, as a fish page's
+     album row (the chief of staff, 15 Nov 2026). */
+  .album { list-style: none; margin: var(--space-3) 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(9.5rem, 45%), 1fr)); gap: var(--space-3); max-width: var(--measure); }
+  .album figure { margin: 0; }
+  .album a { display: block; background: var(--c-plate); }
+  .album img { display: block; width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: cover; }
+  .album figcaption { font: 0.85rem/1.35 var(--f-body); color: var(--c-ink-soft); margin-top: var(--space-1); overflow-wrap: anywhere; }
+  .album strong { display: block; font-weight: 600; color: var(--c-ink); }
   .used { margin-top: var(--space-6); max-width: var(--measure); }
   .used h2 { font-size: var(--step-1); }
   .used h3 { font-size: var(--step-0); margin: var(--space-4) 0 var(--space-2); }
