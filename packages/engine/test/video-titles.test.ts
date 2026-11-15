@@ -102,3 +102,19 @@ test('a bracket that only repeats the name before it comes off (a page named by 
   expect(tidyTitle('Bể 300 gallon (khoảng 1.136 lít).')).toBe('Bể 300 gallon (khoảng 1.136 lít)')
   expect(tidyTitle('ปลาเอ 6 ซม.')).toBe('ปลาเอ 6 ซม.')
 })
+
+test("in code, every run: 'about' before the litres a gallon size becomes, litres with the language's thousands mark, one form of a part number, and a page name's 'fish' word in lower case mid-title", () => {
+  expect(tidyTitle('Kemas kini akuarium 100 gelen (400 liter), Farlowella membiak lagi', 'ms')).toBe('Kemas kini akuarium 100 gelen (kira-kira 400 liter), Farlowella membiak lagi')
+  expect(tidyTitle('Akuarium 300 gelen (1136 liter) yang menakjubkan', 'ms')).toBe('Akuarium 300 gelen (kira-kira 1,136 liter) yang menakjubkan')
+  expect(tidyTitle('Bể cá đĩa 300 gallon (khoảng 1136 lít) quá đỉnh', 'vi')).toBe('Bể cá đĩa 300 gallon (khoảng 1.136 lít) quá đỉnh')
+  expect(tidyTitle('ตู้ปลา 300 แกลลอน (ประมาณ 1136 ลิตร)', 'th')).toBe('ตู้ปลา 300 แกลลอน (ประมาณ 1,136 ลิตร)')
+  expect(tidyTitle('Akuarium discus 300 galon (sekitar 1.136 liter)', 'id')).toBe('Akuarium discus 300 galon (sekitar 1.136 liter)')
+  expect(tidyTitle('Vật liệu lọc tốt nhất cho bể thủy sinh cá đĩa, phần 2', 'vi')).toBe('Vật liệu lọc tốt nhất cho bể thủy sinh cá đĩa phần 2')
+  expect(tidyTitle('Flame Tetra mula menghuni akuarium saya, bahagian 14', 'ms')).toBe('Flame Tetra mula menghuni akuarium saya bahagian 14')
+  expect(tidyTitle('Pemeliharaan, biologi, dan pakan Ikan Paradise (Macropodus opercularis)', 'id')).toBe('Pemeliharaan, biologi, dan pakan ikan Paradise (Macropodus opercularis)')
+  expect(tidyTitle('Ikan Discus (Symphysodon discus)', 'ms')).toBe('Ikan Discus (Symphysodon discus)')
+  expect(tidyTitle('Hướng dẫn nuôi Cá cành cây (Farlowella spp.) trong bể', 'vi')).toBe('Hướng dẫn nuôi cá cành cây (Farlowella spp.) trong bể')
+  // A title written in English-style capitals throughout keeps them: one lower-case word in it would read worse.
+  expect(tidyTitle('Cara Menyediakan Tangki Udang Pertama Anda', 'ms')).toBe('Cara Menyediakan Tangki Udang Pertama Anda')
+  expect(tidyTitle('Saya dapat cory istimewa! Ikan baharu untuk akuarium discus', 'ms')).toBe('Saya dapat cory istimewa! Ikan baharu untuk akuarium discus')
+})
