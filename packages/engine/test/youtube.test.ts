@@ -568,6 +568,17 @@ test('ytApi: playlist pages and video details from the Data API, with the key; p
   expect(asked).toHaveLength(4)
 })
 
+test("ytApi: an email address in a playlist's or a video's title is taken out before anything stores it (the chief of staff, 16 Nov)", async () => {
+  const get = async (u: string) => {
+    if (u.includes('/playlists?')) return { items: [{ snippet: { title: 'Bettas fishroom@example.com', channelTitle: 'C', channelId: 'UC1' } }] }
+    if (u.includes('/playlistItems?')) return { items: [{ snippet: { title: 'Part 1 (fishroom@example.com)', resourceId: { videoId: 'a1' } } }] }
+    return { items: [{ snippet: { title: 'Part 1 (fishroom@example.com)', channelTitle: 'C', channelId: 'UC1', description: '', thumbnails: {} }, contentDetails: { duration: 'PT1M' }, status: { embeddable: true, privacyStatus: 'public' } }] }
+  }
+  const yt = ytApi('K', get)
+  expect(await yt.playlist('PL1')).toMatchObject({ title: 'Bettas', videos: [{ id: 'a1', title: 'Part 1' }] })
+  expect((await yt.video('a1')).title).toBe('Part 1')
+})
+
 test('chapters: only when the description lists at least three, from 0:00, in order', () => {
   expect(chaptersFrom('1:00 a\n2:00 b\n3:00 c')).toEqual([])
   expect(chaptersFrom('0:00 a\n2:00 b')).toEqual([])

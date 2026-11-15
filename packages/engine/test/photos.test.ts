@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
 import { findPhotos, paperFigure, searchCommons, unfitCommons } from '../src/photos'
-import { findVideos } from '../src/videos'
+import { findVideos, videoTitle } from '../src/videos'
 
 const fixture = () => JSON.parse(readFileSync(new URL('./fixtures/commons/paracheirodon-axelrodi.json', import.meta.url), 'utf8'))
 
@@ -40,6 +40,18 @@ test('videos: youtube search vetted by the llm', async () => {
   expect(await findVideos(['Paracheirodon axelrodi', 'Cardinal tetra'], llm, http, { apiKey: 'KEY' })).toEqual([{ youtubeId: 'aaaaaaaaaaa', title: 'Cardinal tetra care', durationSec: 303, lang: 'en' }])
   // A rejected video (engine-state/_video-rejected.json) is never picked, even when the model would keep it.
   expect(await findVideos(['Paracheirodon axelrodi'], llm, http, { apiKey: 'KEY', skip: { aaaaaaaaaaa: 'dead: a fish on a ruler' } })).toEqual([])
+})
+
+test("videos: an email address an uploader wrote into a title is never stored, nor the bracket it leaves; a title with none is kept as it is (the chief of staff, 16 Nov)", async () => {
+  // Made-up addresses on the example domains, in the two shapes found on 16 Nov: in the middle, and alone in a bracket.
+  expect(videoTitle('Petrochromis fishroom@example.com zum 2. Mal,  34 WF.AVI')).toBe('Petrochromis zum 2. Mal, 34 WF.AVI')
+  expect(videoTitle("LET'S PRESERVE WILD BETTA UBERIS. (a.keeper+tanks@mail.example.org)")).toBe("LET'S PRESERVE WILD BETTA UBERIS.")
+  expect(videoTitle('Cardinal tetra care  @ home [part 1]')).toBe('Cardinal tetra care  @ home [part 1]')
+  const http = async (u: string) => u.includes('/search')
+    ? { items: [{ id: { videoId: 'aaaaaaaaaaa' } }] }
+    : { items: [{ id: 'aaaaaaaaaaa', snippet: { title: 'Wild bettas (fishroom@example.com)', description: 'x', defaultAudioLanguage: 'en' }, contentDetails: { duration: 'PT1M' } }] }
+  const llm = async <T,>() => ({ keep: ['aaaaaaaaaaa'] }) as T
+  expect((await findVideos(['Betta uberis'], llm, http, { apiKey: 'KEY' }))[0]!.title).toBe('Wild bettas')
 })
 
 /** The Java barb's Commons search (2026-11-07), in its order: what each file's own title, description and categories say. */
