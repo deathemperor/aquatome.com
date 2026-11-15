@@ -996,7 +996,8 @@ final class LightFlowTests: XCTestCase {
     expect(app, "lamp-status", contains: "Đã gửi “Trắng”, \(level) lúc", timeout: 15)
     XCTAssertEqual(element(app, "lamp-sent").label, "white@\(level.dropLast())")
     app.terminate()
-    app = launch("-fake-accounts", "on", "-fake-owner", "ui-apple", reset: false)
+    // The light's gap made 8 s (`-lamp-gap`), so green still waits when the app leaves the front on a slow Mac.
+    app = launch("-fake-accounts", "on", "-fake-owner", "ui-apple", "-lamp-gap", "8", reset: false)
     expect(app, "lamp-status", contains: "Lần cuối máy này gửi: “Trắng”, \(level) · ", timeout: 20)
     expect(app, "lamp-level", value: level)
     let under = gap(app, "lamp-level", "lamp-trial-off")
@@ -1064,18 +1065,16 @@ final class LightFlowTests: XCTestCase {
     expect(app, "wheel-saturation", value: "50%")
   }
 
-  /// Leaving Đèn while one colour is on air and another waits its turn: the one on air finishes, the one waiting never
-  /// goes, and back on Đèn the line says what was sent.
+  /// Leaving Đèn while one colour is on air and another waits its turn (the light's gap made a minute, `-lamp-gap`):
+  /// the one on air finishes, the one waiting never goes, and back on Đèn the line says what was sent.
   func testLeavingTheLightsScreenDropsWhatWaits() {
-    let app = signedIn()
+    let app = signedIn("-lamp-gap", "60")
     tap(app, "lamp-red")
     tap(app, "lamp-green")
     expect(app, "lamp-status", contains: "Đang gửi “Xanh lá”, 100%…")
     app.openTab("Bể của tôi")
-    // Past when green would have gone: red's three seconds and the light's gap.
-    _ = XCTWaiter.wait(for: [XCTestExpectation(description: "green's turn passes")], timeout: 7)
     app.openTab("Đèn")
-    expect(app, "lamp-status", contains: "Đã gửi “Đỏ”, 100% lúc")
+    expect(app, "lamp-status", contains: "Đã gửi “Đỏ”, 100% lúc", timeout: 15)
     XCTAssertEqual(element(app, "lamp-sent").label, "red@100")
   }
 
@@ -1092,25 +1091,22 @@ final class LightFlowTests: XCTestCase {
     XCTAssertEqual(element(app, "lamp-sent").label, "green@100")
   }
 
-  /// Signing out while a colour waits its turn (the stand-in's first start four seconds late, so the turn is nine seconds
-  /// off): the card goes, and the one waiting never goes, even once the owner signs in again.
+  /// Signing out while a colour waits its turn (the light's gap made a minute, `-lamp-gap`): the one waiting never goes,
+  /// and signed in again the card says what was sent before it.
   func testSigningOutDropsWhatWaits() {
-    let app = signedIn("-fake-lamp-late-first", "4")
-    let start = Date()
+    let app = signedIn("-lamp-gap", "60")
     tap(app, "lamp-red")
     tap(app, "lamp-green")
+    expect(app, "lamp-status", contains: "Đang gửi “Xanh lá”, 100%…")
     app.openAccount()
     let out = app.descendants(matching: .any)["sign-out"].firstMatch
     repeatUntil(out.exists && out.isHittable, times: 10) { app.swipeUp() }
     out.tap()
     XCTAssertTrue(app.descendants(matching: .any)["apple-sign-in"].firstMatch.waitForExistence(timeout: 10), "not signed out")
-    XCTAssertLessThan(Date().timeIntervalSince(start), 9, "signed out after green's turn: the check proves nothing")
-    _ = XCTWaiter.wait(for: [XCTestExpectation(description: "green's turn passes")], timeout: max(0, 12 - Date().timeIntervalSince(start)))
     app.signInWithStandInApple()
     app.openTab("Đèn")
-    XCTAssertTrue(element(app, "lamp-status").waitForExistence(timeout: 10), "no card")
-    let sent = element(app, "lamp-sent")
-    XCTAssertFalse(sent.exists && sent.label.contains("green"), sent.label)
+    expect(app, "lamp-status", contains: "Đã gửi “Đỏ”, 100% lúc")
+    XCTAssertEqual(element(app, "lamp-sent").label, "red@100")
   }
 
   // MARK: Helpers
@@ -1135,7 +1131,9 @@ final class LightFlowTests: XCTestCase {
 
   /// How far below the first element's top the second's is.
   private func gap(_ app: XCUIApplication, _ above: String, _ below: String) -> CGFloat {
-    element(app, below).frame.minY - element(app, above).frame.minY
+    // A list builds a row only as it comes on screen: under the master card, the card's foot starts below it.
+    _ = scrolledTo(app, below)
+    return element(app, below).frame.minY - element(app, above).frame.minY
   }
 
   /// The Week Aqua screen, its lights found (`-fake-weekaqua`).

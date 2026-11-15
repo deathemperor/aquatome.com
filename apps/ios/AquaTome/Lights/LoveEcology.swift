@@ -217,7 +217,15 @@ final class LoveEcologyModel {
   /// How long each command is broadcast, and the wait after one ends before the next starts: on 14 Nov the light didn't
   /// take an orange begun 0.9 s after a yellow it took had ended. A drag sends once the finger pauses this long, or lifts.
   static let seconds: Duration = .seconds(3)
-  static let pacer = FishLamp.Pacer(pause: .milliseconds(500), gap: .seconds(2))
+  static let pacer = FishLamp.Pacer(pause: .milliseconds(500), gap: .seconds(gap))
+  /// The light's gap: 2 s; `-lamp-gap <seconds>` in a debug build, so a flow can act while a send waits its turn.
+  private static var gap: Double {
+    #if DEBUG
+    let args = ProcessInfo.processInfo.arguments
+    if let i = args.firstIndex(of: "-lamp-gap"), i + 1 < args.count, let s = Double(args[i + 1]) { return s }
+    #endif
+    return 2
+  }
   /// How long a start's answer may take: Bluetooth says within a moment whether a broadcast started, or never.
   static let answer: Duration = .seconds(5)
   private static let key = "loveEcology.sent"
