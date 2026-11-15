@@ -407,7 +407,7 @@ private struct GroupTile: View {
   }
 
   var body: some View {
-    V2Photo(src: group.img, box: group.imgBox, ground: colour) { colour = $0 }
+    V2Photo(src: group.img, box: group.imgBox, ground: colour, clear: true) { colour = $0 }
       // No photo: the kind's mark on the colour, as a row's, not an empty block.
       .overlay { if group.img == nil { Image(systemName: HandbookIndex.Kind.fish.symbol).font(.title2).foregroundStyle(.white.opacity(0.4)).accessibilityHidden(true) } }
       // No fade with no photo to fade: it dimmed the mark under a name on two lines.
@@ -442,11 +442,11 @@ private struct FeaturedCard: View {
       // At the accessibility sizes the words would cover the photo: they go under it, on its colour.
       if size.isAccessibilitySize {
         VStack(spacing: 0) {
-          V2Photo(src: item.img, box: item.imgBox, ground: colour) { colour = $0 }.frame(height: 200)
+          V2Photo(src: item.img, box: item.imgBox, ground: colour, clear: true) { colour = $0 }.frame(height: 200)
           words.frame(maxWidth: .infinity, alignment: .leading).background(colour)
         }
       } else {
-        V2Photo(src: item.img, box: item.imgBox, ground: colour) { colour = $0 }
+        V2Photo(src: item.img, box: item.imgBox, ground: colour, clear: true) { colour = $0 }
           .modifier(WordsOnPhoto(colour: colour, edge: .bottom, height: height, fade: 44) { words })
       }
     }

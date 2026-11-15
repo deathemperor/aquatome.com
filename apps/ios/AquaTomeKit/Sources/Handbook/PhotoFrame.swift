@@ -30,6 +30,34 @@ public enum PhotoFrame: Equatable, Sendable {
     return across ? .cover(x: place, y: 0.5) : .cover(x: 0.5, y: place)
   }
 
+  /// The room a card or a head keeps between its fish and each edge it adds: 2% of that side, never under 4 points
+  /// (Design's frames.md, 14 Nov, confirmed by the chief of staff).
+  public static let clearShare = 0.02, clearPoints = 4.0
+  /// A fish's box this near the photo's own edge, on the side the frame cuts: the photo cuts the fish already, and the
+  /// frame keeps the lists' rule (`of`) rather than putting that cut inside a mat.
+  public static let ownEdge = 0.01
+
+  /// A card's or a head's frame, `width` × `height` points: no cut at all, and the fish clear of each edge the frame adds
+  /// by `clearShare` of that side or `clearPoints`, whichever is more. Centred if that holds, else moved onto the fish,
+  /// else the photo whole. Rows and list tiles keep `of`, where a fin tip at the edge doesn't read as cut.
+  public static func clear(aspect: Double, box: PhotoBox?, width: Double, height: Double) -> PhotoFrame {
+    guard let box, box.w > 0, box.h > 0, aspect > 0, width > 0, height > 0 else { return .cover(x: 0.5, y: 0.5) }
+    let ratio = width / height, across = aspect > ratio
+    let (span, a, b) = across ? (ratio / aspect, box.x, box.x + box.w) : (aspect / ratio, box.y, box.y + box.h)
+    if a < ownEdge || b > 1 - ownEdge { return of(aspect: aspect, box: box, ratio: ratio) }
+    let side = across ? width : height
+    // The room, as a share of the photo along the side the frame cuts: the window's `span` of it is `side` points.
+    let room = max(clearShare * side, clearPoints) / side * span
+    // An edge at the photo's own counts for nothing: the frame doesn't add it.
+    func clears(_ at: Double) -> Bool {
+      (at <= slack || at <= a - room + slack) && (at + span >= 1 - slack || at + span >= b + room - slack)
+    }
+    let centred = (1 - span) / 2, moved = min(max((a + b - span) / 2, 0), 1 - span)
+    guard let at = [centred, moved].first(where: clears) else { return .whole }
+    let place = span < 1 ? at / (1 - span) : 0.5
+    return across ? .cover(x: place, y: 0.5) : .cover(x: 0.5, y: place)
+  }
+
   /// What fills the rest of a frame around a photo shown whole: the frame's own ground (the mat), or the same photo
   /// blurred behind it.
   public enum Ground: String, Sendable { case mat, blur }

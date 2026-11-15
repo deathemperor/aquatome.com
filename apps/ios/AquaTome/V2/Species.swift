@@ -120,7 +120,7 @@ struct SpeciesPage: View {
   /// banner holds.
   private var wholeHead: CGSize? {
     guard hero != nil, let a = shape, a > 0, width > 0, viewport > 0,
-          PhotoFrame.of(aspect: a, box: heroBox, ratio: width / bannerHeight) == .whole else { return nil }
+          PhotoFrame.clear(aspect: a, box: heroBox, width: width, height: bannerHeight) == .whole else { return nil }
     let h = min(width / a, 420 - barFoot)
     return CGSize(width: h * a, height: h)
   }
@@ -381,7 +381,7 @@ struct SpeciesPage: View {
         if whole != nil { Color.clear.frame(height: barFoot) }
         // The taller banner, fading into the colour; or the whole photo under the bar, with a straight edge (`wholeHead`).
         // One photo either way, so it isn't drawn again when its shape comes.
-        let banner = V2Photo(src: hero, box: heroBox, ground: colour, onGround: true, colour: { colour = $0 }, shape: { heroShape = $0 })
+        let banner = V2Photo(src: hero, box: heroBox, ground: colour, onGround: true, clear: true, colour: { colour = $0 }, shape: { heroShape = $0 })
           .frame(width: whole?.width, height: whole?.height)
           .frame(maxWidth: .infinity)
           .containerRelativeFrame(.vertical) { h, _ in whole?.height ?? min(420, h * (size.isAccessibilitySize ? 0.34 : 0.46)) }

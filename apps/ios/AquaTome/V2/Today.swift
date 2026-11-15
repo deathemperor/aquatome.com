@@ -251,10 +251,10 @@ private struct FishOfTheDay: View {
         if size.isAccessibilitySize || img == nil {
           VStack(spacing: 0) {
             name.frame(maxWidth: .infinity, alignment: .leading).background(colour)
-            if img != nil { V2Photo(src: img, box: box, ground: colour) { colour = $0 }.frame(height: 260) }
+            if img != nil { V2Photo(src: img, box: box, ground: colour, clear: true) { colour = $0 }.frame(height: 260) }
           }
         } else {
-          V2Photo(src: img, box: box, ground: colour) { colour = $0 }
+          V2Photo(src: img, box: box, ground: colour, clear: true) { colour = $0 }
             .modifier(WordsOnPhoto(colour: colour, edge: .top, height: height) { name })
             .overlay(alignment: .bottom) {
               // Long, as `WordsOnPhoto`'s: on a photo with a black ground a short one ends in a hard stripe.
@@ -323,7 +323,7 @@ private struct GuideCard: View {
       Group {
         if img != nil {
           VStack(spacing: 0) {
-            V2Photo(src: img, box: box, ground: colour) { colour = $0 }
+            V2Photo(src: img, box: box, ground: colour, clear: true) { colour = $0 }
               .aspectRatio(16 / 9, contentMode: .fit)
               .overlay(alignment: .bottom) {
                 LinearGradient(colors: [colour.opacity(0), colour], startPoint: .top, endPoint: .bottom).frame(height: 40)
