@@ -432,3 +432,19 @@ func siteLinksForTheBrowserAreMarked() {
   #expect(HandbookIndex.Home.Day.key(late, in: TimeZone(identifier: "Asia/Ho_Chi_Minh")!) == "2026-11-13")
   #expect(HandbookIndex.Home.Day.key(late, in: TimeZone(identifier: "Asia/Tokyo")!) == "2026-11-14")
 }
+
+/// A tank's fish and plants find their own pages by id, never a guide's, a term's or kit's of the same id: ids are unique
+/// within a kind only, and other kinds carry them too.
+@Test func aTanksIdFindsAFishOrPlantNeverAnotherKindOfTheSameId() {
+  let items: [HandbookIndex.Item] = [
+    .init(kind: .glossary, contentId: "lua", name: "Lũa", path: "/vi/thuat-ngu/lua/"),
+    .init(kind: .plant, contentId: "lua", name: "Lũa (cây)", path: "/vi/cay/lua/"),
+    .init(kind: .equipment, contentId: "co2", name: "CO2", path: "/vi/thiet-bi/co2/"),
+    .init(kind: .guide, contentId: "nuoi-ca-neon", name: "Nuôi cá neon", path: "/vi/huong-dan/nuoi-ca-neon/"),
+    .init(kind: .fish, contentId: "paracheirodon-innesi", name: "Cá neon", path: "/vi/ca/ca-neon/"),
+  ]
+  let pages = HandbookIndex.tankPages(items)
+  #expect(pages["lua"]?.path == "/vi/cay/lua/")
+  #expect(pages["paracheirodon-innesi"]?.name == "Cá neon")
+  #expect(pages["co2"] == nil && pages["nuoi-ca-neon"] == nil)
+}

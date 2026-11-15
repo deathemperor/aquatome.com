@@ -92,9 +92,9 @@ final class ChatStore {
 
   /// The chat for `route`: the open one when it's the same start, by the same account, within its 24 hours; else the one
   /// kept on the phone, on the same terms (the app was closed meanwhile); else a new one.
-  func model(for route: ChatRoute, account: AccountModel, site: URL, lang: String) -> ChatModel {
+  func model(for route: ChatRoute, account: AccountModel, site: URL) -> ChatModel {
     if let current, current.route == route, current.continues(account: account.user?.id) { return current }
-    let m = ChatModel(route: route, account: account, site: site, lang: lang, store: self)
+    let m = ChatModel(route: route, account: account, site: site, store: self)
     current = m
     return m
   }
@@ -160,7 +160,6 @@ final class ChatModel {
 
   @ObservationIgnored private let account: AccountModel
   @ObservationIgnored private let site: URL
-  @ObservationIgnored private let lang: String
   @ObservationIgnored private weak var store: ChatStore?
   @ObservationIgnored private var conversation: Chat.Conversation?
   @ObservationIgnored private var running: Task<Void, Never>?
@@ -168,11 +167,10 @@ final class ChatModel {
   @ObservationIgnored private var runId = UUID()
   @ObservationIgnored private let path = NWPathMonitor()
 
-  init(route: ChatRoute, account: AccountModel, site: URL, lang: String, store: ChatStore) {
+  init(route: ChatRoute, account: AccountModel, site: URL, store: ChatStore) {
     self.route = route
     self.account = account
     self.site = site
-    self.lang = lang
     self.store = store
     if let k = Self.kept(), k.start == route.start, let user = account.user?.id, !k.conversation.ended(account: user, now: .now) {
       conversation = k.conversation
@@ -317,8 +315,11 @@ final class ChatModel {
     if first && !item.resumed { await account.sync() }
     // Left, or started over, meanwhile: the question waits, or is gone.
     guard !Task.isCancelled, index(id) != nil else { return }
+    // The app's language as the question goes (AppLanguageNow): another picked since the chat opened asks in that one,
+    // the answers before it staying as they were written.
+    let lang = AppLanguageNow.code
     let ask = { (token: String) in
-      Chat.ask(item.question, conversation: c.id, lang: self.lang, start: first ? self.route.start : nil, key: item.key, site: self.site,
+      Chat.ask(item.question, conversation: c.id, lang: lang, start: first ? self.route.start : nil, key: item.key, site: self.site,
                token: token, version: Self.version, ownCopy: Self.ownCopy)
     }
     var admitted = false

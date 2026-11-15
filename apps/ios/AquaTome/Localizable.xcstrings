@@ -17623,6 +17623,28 @@
         }
       }
     },
+    "Các trang đã lưu hoặc đã tải bằng ngôn ngữ khác vẫn còn trên máy, và sẽ hiện lại khi bạn chọn lại ngôn ngữ đó.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halaman yang disimpan atau diunduh dalam bahasa lain masih ada di ponsel, dan akan muncul lagi saat Anda memilih bahasa itu kembali."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halaman yang disimpan atau dimuat turun dalam bahasa lain masih ada pada telefon, dan akan muncul semula apabila anda memilih bahasa itu semula."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หน้าที่บันทึกหรือดาวน์โหลดไว้ในภาษาอื่นยังอยู่ในเครื่อง และจะกลับมาเมื่อคุณเลือกภาษานั้นอีกครั้ง"
+          }
+        }
+      }
+    },
     "Đã tắt đèn. Đèn bỏ qua lịch cho tới khi bấm “Theo lịch”.": {
       "localizations": {
         "id": {
@@ -20307,24 +20329,24 @@
         }
       }
     },
-    "Ứng dụng sẽ dùng %@ từ lần mở sau.": {
+    "Vài chữ do iOS hiện (nút Hủy khi tìm, bảng chia sẻ, màn đăng nhập, câu xin quyền) sẽ theo ngôn ngữ mới từ lần mở ứng dụng sau.": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "%@ akan dipakai saat aplikasi dibuka lagi."
+            "value": "Beberapa kata dari iOS (tombol Batal saat mencari, lembar berbagi, layar masuk, permintaan izin) akan mengikuti bahasa baru mulai saat aplikasi dibuka lagi."
           }
         },
         "ms": {
           "stringUnit": {
             "state": "translated",
-            "value": "Aplikasi akan menggunakan %@ apabila dibuka semula."
+            "value": "Beberapa perkataan daripada iOS (butang Batal semasa mencari, helaian kongsi, skrin log masuk, permintaan kebenaran) akan mengikut bahasa baharu apabila aplikasi dibuka semula."
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "จะใช้%@เมื่อเปิดแอปครั้งถัดไป"
+            "value": "คำบางคำที่ iOS แสดงเอง (ปุ่มยกเลิกตอนค้นหา หน้าแชร์ หน้าลงชื่อเข้าใช้ และคำขออนุญาต) จะเปลี่ยนตามภาษาใหม่เมื่อเปิดแอปครั้งถัดไป"
           }
         }
       }

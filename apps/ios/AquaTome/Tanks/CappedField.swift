@@ -18,8 +18,6 @@ struct CappedField: UIViewRepresentable {
 
   func makeUIView(context: Context) -> UITextField {
     let f = UITextField()
-    f.placeholder = String(localized: (prompt ?? title).inApp)
-    f.accessibilityLabel = String(localized: title.inApp)
     f.accessibilityIdentifier = id
     f.font = .preferredFont(forTextStyle: .body)
     f.adjustsFontForContentSizeCategory = true
@@ -37,6 +35,9 @@ struct CappedField: UIViewRepresentable {
   }
 
   func updateUIView(_ f: UITextField, context: Context) {
+    // In the app's language as it shows now: set on each update, not once, so another picked meanwhile reaches it.
+    f.placeholder = String(localized: (prompt ?? title).inApp)
+    f.accessibilityLabel = String(localized: title.inApp)
     // A form can hand over a new binding on each redraw (the plug form's outlets).
     context.coordinator.text = $text
     // Not while a word is being composed: the binding holds it cut, the field the whole of it until it's done.

@@ -63,8 +63,11 @@ struct BrowseView: View {
         .toolbar { KeepOffline(items: s.videoGuides) }
     case .saved:
       let saved = handbook.saved(nil)
-      List(saved) { item in
-        Row(item: item).swipeActions { Button("Bỏ lưu", role: .destructive) { handbook.toggleSaved(item) } }
+      List {
+        ForEach(saved) { item in
+          Row(item: item).swipeActions { Button("Bỏ lưu", role: .destructive) { handbook.toggleSaved(item) } }
+        }
+        if saved.isEmpty { ElsewhereNote(kept: false) }
       }
       .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
       .navigationTitle("Đã lưu để đọc sau")
@@ -92,6 +95,7 @@ struct BrowseView: View {
             let gone = rows.map { kept[$0] }
             Task { await handbook.unkeep(gone) }
           }
+        if kept.isEmpty { ElsewhereNote(saved: false) }
       }
       .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
       .navigationTitle("Đã tải để đọc offline")
@@ -152,5 +156,24 @@ private struct LatestList: View {
   static func change(_ e: Latest.Entry) -> String {
     let word = e.isNew ? String(localized: "Mới") : e.isUpdate ? String(localized: "Cập nhật") : nil
     return [e.shown, word, e.source].compactMap { $0 }.joined(separator: " · ")
+  }
+}
+
+/// One line where the pages saved, or kept to read offline, would be, when this language has none and another has some:
+/// they stay on the phone with their language (HandbookPaths, one set per language) and come back with it. The same words
+/// for both.
+struct ElsewhereNote: View {
+  @Environment(HandbookModel.self) private var handbook
+  /// Which of the two it speaks for.
+  var kept = true
+  var saved = true
+
+  var body: some View {
+    if (kept && handbook.keptElsewhere) || (saved && handbook.savedElsewhere) {
+      Text("Các trang đã lưu hoặc đã tải bằng ngôn ngữ khác vẫn còn trên máy, và sẽ hiện lại khi bạn chọn lại ngôn ngữ đó.")
+        .font(.footnote)
+        .foregroundStyle(.secondary)
+        .accessibilityIdentifier("kept-elsewhere")
+    }
   }
 }

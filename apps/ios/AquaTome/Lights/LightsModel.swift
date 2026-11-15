@@ -31,8 +31,24 @@ final class LightsModel {
 
   private(set) var found: [FoundLight] = []
   private(set) var isScanning = false
-  /// While connecting: what the card says (looking for a saved light, connecting, connecting again).
-  private(set) var connecting: String?
+  /// While connecting: what it's doing (looking for a saved light, connecting, connecting again), which the card says in
+  /// the app's language as it shows (`connectingText`), another picked meanwhile too.
+  private(set) var connecting: Connecting?
+  enum Connecting: Equatable {
+    /// Looking for the saved light, by its name.
+    case looking(String)
+    case connecting
+    case again
+  }
+
+  var connectingText: String? {
+    switch connecting {
+    case .looking(let name): String(localized: "Đang tìm \(name)…")
+    case .connecting: String(localized: "Đang kết nối…")
+    case .again: String(localized: "Đang kết nối lại…")
+    case nil: nil
+    }
+  }
   private(set) var light: FoundLight?
   private(set) var model: Model?
   private(set) var firmware: Int?
@@ -222,7 +238,7 @@ final class LightsModel {
     stopScan()
     attempt += 1
     let mine = attempt
-    connecting = String(localized: "Đang tìm \(Self.title(d))…")
+    connecting = .looking(Self.title(d))
     notice = nil
     do {
       let stream = try await radio.scan()
@@ -268,7 +284,7 @@ final class LightsModel {
     stopPreview() // one playing on the screen only: the light connected wasn't part of it
     attempt += 1
     let mine = attempt
-    connecting = again ? String(localized: "Đang kết nối lại…") : String(localized: "Đang kết nối…")
+    connecting = again ? .again : .connecting
     notice = nil
     defer { if mine == attempt { connecting = nil } }
     var s: LightSession?
@@ -418,7 +434,7 @@ final class LightsModel {
     on = p.on
     off = p.off
     levels = fit(scaled(Array(levels.prefix(channels.count)), to: p.level), to: levels.count)
-    planName = String(localized: p.name)
+    planName = String(localized: p.name.inApp)
     edited = true // even a preset the form already matched: chosen
     keepDraft()
   }

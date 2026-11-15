@@ -89,8 +89,10 @@ HANDBOOK_SCREENS = HANDBOOK_FLOWS + HANDBOOK_SHOTS
 # a tank's fish and plants, its guides), and the tank volume and tank-mates tools, which search and a page's links open
 # (AppScreen).
 # Also the anonymous statistics, which wait for the index's flag.
+# And the language picked while the app runs, which reads another language's index (the test index in it too).
 HANDBOOK_MODEL = HANDBOOK_SCREENS + ['TankCheckFlowTests', 'TanksFlowTests/testListsATanksFishAndPlantsAndOpensTheirPages',
-                                     'TankVolumeFlowTests', 'TankMatesFlowTests', 'TelemetryFlowTests', 'GuideTopFlowTests']
+                                     'TankVolumeFlowTests', 'TankMatesFlowTests', 'TelemetryFlowTests', 'GuideTopFlowTests',
+                                     'LanguageFlowTests']
 # A page open (PageView), or drawn by the app (NativePage): the flows that open one. In v2, a guide's top
 # (GuideTopFlowTests) and the flows that open a guide on Hôm nay and go back from it.
 PAGES = ['NativePageFlowTests', 'FactsCardFlowTests', 'ReaderPostFlowTests', 'ReadingFlowTests',
@@ -124,8 +126,9 @@ TANKS_TAB = ['TanksFlowTests', 'TankLifeFlowTests', 'TankCheckFlowTests', 'Accou
              'ReaderPostFlowTests/testABlockedPosterIsListedInTheAccountSheet', 'TankVolumeFlowTests',
              'TankMatesFlowTests', 'TelemetryFlowTests'] + LIGHTS_ON_TANKS
 KEPT_ROW = 'OfflineFlowTests/testTheAccountSheetCountsTheKeptPagesAndOpensTheirShelfOnTim'
+# Its row for the language, picked while the app runs: the language's flows.
 ACCOUNT_SHEET = ['AccountFlowTests', 'ReaderPostFlowTests', 'FishIdFlowTests', 'OwnerFlowTests', 'TelemetryFlowTests',
-                 'ProfilePictureFlowTests'] + shots('account')
+                 'ProfilePictureFlowTests', 'LanguageFlowTests'] + shots('account')
 REACH = {
     # The app's start (it routes a page's links to the tabs, wires a tank's wanted names and pages, sends the lights back
     # to their schedule when the app leaves, syncs the account), and what selects and runs the flows: every flow, as
@@ -217,7 +220,8 @@ REACH = {
     APP + 'Master/': ['MasterFlowTests', LOVE_ECOLOGY],
     # Fish ID sends as the reader's account (signed out, its sign-in comes first); the account also holds the owner's
     # dashboard (its session, and signing out on a 401).
-    APP + 'Account/': ['AccountFlowTests', 'ReaderPostFlowTests', 'FishIdFlowTests', 'OwnerFlowTests', 'ProfilePictureFlowTests', 'ChatFlowTests'],
+    APP + 'Account/': ['AccountFlowTests', 'ReaderPostFlowTests', 'FishIdFlowTests', 'OwnerFlowTests', 'ProfilePictureFlowTests', 'ChatFlowTests',
+                       'LanguageFlowTests'],
     # The Tài khoản sheet and the button that opens it on every tab: the flows that go through it (the account, the
     # blocked, the owner's dashboard, the anonymous statistics' switch), and the page shots, which take it; its card's
     # Apple and Google buttons too.
@@ -278,7 +282,7 @@ REACH = {
     'protocols/chat-stream-': ['ChatFlowTests'],
     'apps/ios/perf-budgets.json': NONE, 'apps/ios/scripts/check-perf.py': NONE,
     # Run by job `perf`, which runs on every ready pull request that changes what it builds or checks.
-    'apps/ios/scripts/check-strings.py': NONE,
+    'apps/ios/scripts/check-strings.py': NONE, 'apps/ios/scripts/localized_calls.py': NONE,
     'apps/ios/scripts/asc-build-state.mjs': NONE, 'apps/ios/scripts/testflight-notes.py': NONE,
     # The App Store's screenshots and listing (app-store.yml).
     'apps/ios/store/': NONE, 'apps/ios/scripts/asc-listing.mjs': NONE, 'apps/ios/scripts/store-shots.py': NONE,

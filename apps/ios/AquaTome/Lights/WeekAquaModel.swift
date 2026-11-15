@@ -396,10 +396,10 @@ final class WeekAquaModel {
     return "\(colour)\(bright) · " + String(localized: "bật \(s.on), tắt \(s.off)")
   }
 
-  /// When something was sent, in the phone's words ("3 thg 11, 21:35").
+  /// When something was sent, in the app's words ("3 thg 11, 21:35").
   static func day(_ timestamp: String) -> String {
     guard let ms = Timestamp.millis(timestamp) else { return "" }
-    return Date(timeIntervalSince1970: Double(ms) / 1000).formatted(date: .abbreviated, time: .shortened)
+    return Date(timeIntervalSince1970: Double(ms) / 1000).formatted(Date.FormatStyle(date: .abbreviated, time: .shortened, locale: .app))
   }
 
   static func describe(_ error: Error) -> String {

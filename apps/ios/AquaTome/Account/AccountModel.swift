@@ -349,10 +349,8 @@ final class AccountModel {
     }
   }
 
-  /// The app's language, for the Turnstile check and the mail: one the site has, else Vietnamese.
-  static var lang: String {
-    SiteLanguage.of(Bundle.main.preferredLocalizations).code
-  }
+  /// The app's language as shown now, for the Turnstile check and the mail: one the site has.
+  static var lang: String { AppLanguageNow.code }
   var turnstilePage: URL { api.turnstilePage(lang: Self.lang) }
 
   /// Emails a sign-in code, with a token from the Turnstile check (used either way). Whether it was sent; if not, the
@@ -593,6 +591,9 @@ final class AccountModel {
   }
 
   private func say(_ text: String, bad: Bool = false) { message = (text, bad) }
+
+  /// Another language picked (AquaTomeApp.speak): the line said in the old one goes, as what it told is done.
+  func clearMessage() { message = nil }
 
   private func problem(_ e: Error) -> String {
     switch e as? AccountError {
