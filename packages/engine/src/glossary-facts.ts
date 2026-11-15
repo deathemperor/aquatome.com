@@ -369,8 +369,11 @@ export function droppedInRewrite(before: { definition: string; body: string }, a
   const text = (k: string) => k.slice(2)
   const was = placed(before), is = placed(after)
   const quoted = notes.flatMap(quotes)
-  // A note holding the whole sentence quotes it whole, though its own quotation marks ("không ra màu") split the quote.
-  const whole = (t: string) => quoted.some(q => q.includes(t)) || notes.some(n => n.includes(t))
+  // A quote frees a sentence it is, or one of a passage's sentences: never one that is only words inside another sentence
+  // (Grok's third read: a shop's sentence quoting the step "Ngâm 2 tuần." freed the step). A sentence with its own
+  // quotation marks ("không ra màu") splits a note's quote of it, so the note's quote marks around it whole count too.
+  const whole = (t: string) => quoted.some(q => q === t || (q.includes(t) && sentences({ definition: q, body: '' }).some(s => s.text === t)))
+    || (/["“”]/.test(t) && notes.some(n => n.includes(`"${t}"`) || n.includes(`“${t}”`)))
   const unquoted = (t: string) => quoted.filter(q => t.includes(q)).reduce((s, q) => s.split(q).join(' '), t)
   const now = new Set(is), then = new Set(was)
   const gone = was.filter(k => !now.has(k) && !whole(text(k))).map(k => ({ t: text(k), u: unquoted(text(k)) }))

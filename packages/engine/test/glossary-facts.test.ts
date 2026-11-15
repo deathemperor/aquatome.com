@@ -333,6 +333,15 @@ test('a rewrite\'s drop check: a part with one word left, a figure by its number
   // A note holding a sentence whole frees it, though the sentence's own quotation marks split the note's quote.
   const shop = 'Nhiều tiệm ghi lũa sa tùng là "không ra màu", còn tạp chí cá cảnh thì nói gỗ nào cũng tiết tanin.'
   expect(drop({ definition: one, body: `<p>${shop}</p><p>Gỗ mềm.</p>` }, { definition: one, body: '<p>Gỗ mềm.</p>' }, [`Rules 4 and 12: "${shop}" must come out.`])).toEqual([])
+  // Grok's third read: a step inside another sentence's quotation marks isn't freed by a note on that sentence, nor is a
+  // sentence a note only mentions; a passage the note quotes frees each of its sentences.
+  const step = { facts: [{ fact: 'Soak new wood 2 weeks before use.' }] }
+  const shopSays = 'Nhiều tiệm ghi "Ngâm 2 tuần." là đủ, còn sách thì nói khác.'
+  const stepGone = droppedInRewrite({ definition: one, body: `<p>Ngâm 2 tuần.</p><p>${shopSays}</p>` }, { definition: one, body: `<p>${shopSays}</p>` }, step, [`"${shopSays}": the facts don't carry it (unsupported, unsupported, unsupported): a shop's claim`])
+  expect(stepGone).toHaveLength(1)
+  expect(stepGone[0]).toContain('the advice "Ngâm 2 tuần"')
+  expect(drop({ definition: one, body: '<p>Đừng sốc cá.</p><p>Thả từ từ.</p>' }, { definition: one, body: '<p>Thả từ từ.</p>' }, ['Rule 9: Đừng sốc cá. is clear, but "thả ngay" is reckless.'])[0]).toContain('the caution "đừng"')
+  expect(drop({ definition: one, body: '<p>Lũa nổi. Đừng luộc lũa.</p><p>Thả từ từ.</p>' }, { definition: one, body: '<p>Thả từ từ.</p>' }, ['Rule 4: "Lũa nổi. Đừng luộc lũa." repeats the soaking part'])).toEqual([])
   // A sentence moved from the body to the definition is kept.
   expect(drop({ definition: 'Lũa là gỗ khô.', body: '<p>Lũa làm nước ngả vàng.</p>' }, { definition: 'Lũa là gỗ khô. Lũa làm nước ngả vàng.', body: '' })).toEqual([])
 })
