@@ -4,7 +4,7 @@ import { LANG, translator, type Lang } from './i18n'
 import { tilePhoto } from './img'
 import { materialPath } from './materials'
 import { mentionIndex } from './mentions'
-import { tilePhotos } from './pictures'
+import { pagePictures, takeEach, tilePhotos } from './pictures'
 import { sciBeside } from './sci'
 import { sectionParts } from './section-parts'
 import { foldNearEmpty } from './sections'
@@ -159,6 +159,18 @@ export function usedRows<G, U>(p: { guides: G[]; fish: U[]; plants: U[]; total: 
   const all = p.total <= USED_IN_ALL
   const cut = <X>(xs: X[]) => (all ? xs : xs.slice(0, USED_IN_ROWS))
   return { guides: cut(p.guides), fish: cut(p.fish), plants: cut(p.plants), more: !all }
+}
+
+/**
+ * The pictures of a term's rows, none twice on its page (the site's rule, invariants.spec.ts "repeat"; the live checks,
+ * 15 Nov 2026: two crayfish guides that share a photo showed it twice on /thuat-ngu/tinh-lanh-tho/). After what the page
+ * shows above them (`shown`: the term's own photo), in the page's order, each row takes the first of its pictures the page
+ * doesn't show yet, else none, as every list does (pictures.ts takeEach).
+ */
+export function usedPictures<G>(c: Pick<Content, 'pictureHashes'>, shown: (Photo | undefined)[], rows: { guides: G[]; fish: TermUse[]; plants: TermUse[] }, guidePhotos: (g: G) => Photo[]) {
+  const pics = pagePictures(c)
+  for (const p of shown) pics.add(p?.url)
+  return { guides: takeEach(pics, rows.guides, guidePhotos), fish: takeEach(pics, rows.fish, x => [x.photo]), plants: takeEach(pics, rows.plants, x => [x.photo]) }
 }
 
 /**
