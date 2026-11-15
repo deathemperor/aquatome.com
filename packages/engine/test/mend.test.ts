@@ -332,6 +332,38 @@ test('a source finding on the "nhưng" clause of its sentence lets the writer cu
   expect(plainSource.whole.length).toBe(1)
 })
 
+// A stand-in read of 15 Nov 2026: a batch half's sentence kept with part of its clause ("…, nhưng khá hiền") passed every
+// check, saying of every Leporinus what was said of one batch; and a sentence after the cut, which may lean on the half
+// that went, was never shown to the reviewer.
+test('a batch half\'s sentence kept holds nothing of its clause, and the cut is offered only in a part\'s last sentence', async () => {
+  const LEP = '<p>Cá Leporinus đôi khi hay gây gổ với cá cùng loài, nhưng những con này tới giờ vẫn khá hiền.</p>'
+  const src = (quote: string) => ({ check: 'source' as FitCheck, quote })
+  const half = [{ ...src('nhưng những con này tới giờ vẫn khá hiền'), note: 'n', whole: false as const }]
+  for (const vi of [
+    'Cá Leporinus đôi khi hay gây gổ với cá cùng loài, nhưng tới giờ vẫn khá hiền.',
+    'Cá Leporinus đôi khi hay gây gổ với cá cùng loài, nhưng khá hiền.',
+    'Cá Leporinus đôi khi hay gây gổ với cá cùng loài và khá hiền.',
+    'Cá Leporinus đôi khi hay gây gổ với cá cùng loài, nhưng những con này tới giờ vẫn khá hiền.',
+  ]) {
+    const r = await mendPart(said(1, vi), LEP, half)
+    if (typeof r === 'string') throw new Error(r)
+    expect(r.whole, vi).toHaveLength(1)
+  }
+  // A quote without its joining word: the clause goes with it, and the cut is kept.
+  const bare = await mendPart(said(1, 'Cá Leporinus đôi khi hay gây gổ với cá cùng loài.'), LEP, [{ ...src('những con này tới giờ vẫn khá hiền.'), note: 'n', whole: false }])
+  if (typeof bare === 'string') throw new Error(bare)
+  expect([bare.whole, bare.unasked, bare.added]).toEqual([[], [], []])
+  // A sentence after it, in its paragraph or the next: not a batch half. One before it is.
+  const q = src('nhưng những con này tới giờ vẫn khá hiền')
+  expect(batchHalf(LEP.replace('</p>', ' Vì vậy có thể nuôi chung vài con.</p>'), q)).toBe(false)
+  expect(batchHalf(`${LEP}<p>Vì vậy có thể nuôi chung vài con.</p>`, q)).toBe(false)
+  expect(batchHalf(LEP.replace('<p>', '<p>Loài này sống ở suối. '), q)).toBe(true)
+  // After "Mặc dù" or "Tuy" what comes before the clause is half a sentence; after "Tuy nhiên" it is whole.
+  expect(batchHalf('<p>Mặc dù loài này ăn tạp, nhưng lô này kén ăn.</p>', src('nhưng lô này kén ăn'))).toBe(false)
+  expect(batchHalf('<p>Tuy loài này ăn tạp, nhưng lô này kén ăn.</p>', src('nhưng lô này kén ăn'))).toBe(false)
+  expect(batchHalf('<p>Tuy nhiên loài này ăn tạp, nhưng lô này kén ăn.</p>', src('nhưng lô này kén ăn'))).toBe(true)
+})
+
 // The chief of staff, 14 Nov 2026: a sentence left pointing at one that went whole may go with it, when it is the one
 // right after, in the same paragraph, its writer returns it empty and says why, and its reviewer agrees. Anything further,
 // the part isn't kept.

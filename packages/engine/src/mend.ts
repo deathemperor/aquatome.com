@@ -147,23 +147,33 @@ export const goesWhole = (check: FitCheck) => !DETAIL.includes(check)
 
 /**
  * Whether a source finding quotes exactly the second clause of its sentence, "X, nhưng Y" (or "song Y"), its joining word
- * and stop aside. Then the writer cuts only that clause, and its reviewer reads what's left as it reads any cut (the chief
+ * and stop aside, in the part's last sentence. Then the writer cuts only that clause, code refuses what's left if it keeps
+ * any of it, and its reviewer reads what's left as it reads any cut (the chief
  * of staff, 15 Nov 2026: "Cá Leporinus đôi khi hay gây gổ với cá cùng loài" is true of every Leporinus, and went whole
  * with "những con này tới giờ vẫn khá hiền", which was of one batch). The writer may still take the sentence whole, when
  * what's left isn't true of every such fish. A cut by code alone was tried first: three stand-in reads found it could
  * leave half a sentence, or one the next sentence leaned on, with nothing to read it.
  */
 const HALF = /,\s+(?:nhưng|song)(?! song)\s+/giu
+// "Tuy …, nhưng …", "Mặc dù …, nhưng …": what comes before the clause is half a sentence on its own.
+const CONCEDES = /^(?:tuy(?!\s+nhiên)|mặc dù|dù|dẫu)\s/iu
+/** A sentence's last ", nhưng"/", song" clause: what comes before it, the clause with its joining word, and after it. */
+const halves = (s: string) => {
+  const last = [...s.matchAll(HALF)].at(-1)
+  return last ? { head: s.slice(0, last.index!), tail: s.slice(last.index!), rest: s.slice(last.index! + last[0].length) } : undefined
+}
 export function batchHalf(html: string, f: { check: FitCheck; quote?: string }): boolean {
   if (f.check !== 'source' || !f.quote) return false
   const pieces = sentences(html)
   const on = quoted(pieces, f.quote)
-  if (on.length !== 1) return false
-  const s = plain(pieces.filter(p => p.sentence)[on[0]!]!.html)
-  const last = [...s.matchAll(HALF)].at(-1)
-  if (!last) return false
+  const all = pieces.filter(p => p.sentence)
+  // Only in the part's last sentence: one after it may lean on the half that goes ("Vì vậy …"), and the mender's reviewer
+  // reads only the sentences that changed (a stand-in read of 15 Nov 2026).
+  if (on.length !== 1 || on[0] !== all.length - 1) return false
+  const h = halves(plain(all[on[0]!]!.html))
+  if (!h || CONCEDES.test(h.head.trim())) return false
   const bare = (x: string) => norm(x).replace(/[.!?…]+$/u, '').replace(/^(?:nhưng|song)\s+/u, '').trim()
-  return bare(s.slice(last.index! + last[0].length)) === bare(f.quote)
+  return bare(h.rest) === bare(f.quote)
 }
 /**
  * The words `after` has that `before` hasn't, in its order: each of its words is the next of `before`'s that is still to
@@ -296,7 +306,13 @@ export async function mendPart(llm: Llm, html: string, fs: MendFinding[], o: { e
   // A sentence a finding takes whole (`goesWhole`): any answer for it but an empty one is refused, whatever its reviewer
   // scores.
   const whole = [...[...new Set(named.filter(f => goesWhole(f.check) && f.whole !== false).flatMap(f => f.sentences))].sort((a, b) => a - b)
-    .filter(n => raw.get(n - 1)).map(n => `Sentence ${n} goes whole, as its finding asks, and was kept as "${plain(raw.get(n - 1)!)}"`), ...stranded]
+    .filter(n => raw.get(n - 1)).map(n => `Sentence ${n} goes whole, as its finding asks, and was kept as "${plain(raw.get(n - 1)!)}"`), ...stranded,
+    // A batch half's sentence kept holds only what came before the clause: a word of the clause left says of every such
+    // fish what was said of one batch ("…, nhưng khá hiền"; a stand-in read of 15 Nov 2026), and so does the clause left.
+    ...[...new Set(named.filter(f => f.whole === false).flatMap(f => f.sentences))].sort((a, b) => a - b).filter(n => raw.get(n - 1)).flatMap(n => {
+      const left = addedWords(halves(plain(texts[n - 1]!))?.head ?? '', raw.get(n - 1)!)
+      return left.length ? [`Sentence ${n} keeps only what comes before its batch half, as its finding asks, and kept of the half: "${left.join(' ')}"`] : []
+    })]
   if (!changes.size) return { html, score: 1, notes: whole, lost: [], unasked: [], added: [], whole, gone: [] }
   // Every sentence to go: a part of three or fewer, each named by a finding that takes its sentence whole
   // (`goesWhole`: a price, product or shop finding cuts only its words, Grok's read), comes off the page whole
@@ -333,7 +349,8 @@ export async function mendPart(llm: Llm, html: string, fs: MendFinding[], o: { e
       // two sentences covers its words in each (Astra's read). A finding that takes its sentence whole covers all of it.
       // A batch half's sentence the writer kept loses only the quoted clause; one it took whole, all of it.
       const emptied = !(raw.get(i) ?? changes.get(i))
-      const covered = [...named.filter(f => f.sentences.includes(i + 1)).flatMap(f => (goesWhole(f.check) && (f.whole !== false || emptied) ? [texts[i]!] : [f.quote, ...(f.covers ?? [])])), ...licensed.filter(d => named[d.finding - 1]!.sentences.includes(i + 1)).map(d => d.text)]
+      // A kept one loses the clause with its joining word, whether or not the quote has it.
+      const covered = [...named.filter(f => f.sentences.includes(i + 1)).flatMap(f => (goesWhole(f.check) && (f.whole !== false || emptied) ? [texts[i]!] : f.whole === false ? [halves(plain(texts[i]!))?.tail ?? f.quote] : [f.quote, ...(f.covers ?? [])])), ...licensed.filter(d => named[d.finding - 1]!.sentences.includes(i + 1)).map(d => d.text)]
       const gone = lostFrom(words(texts[i]!), words(raw.get(i) ?? changes.get(i)!), covered.map(c => firstAt(flat.map(x => x.w), words(c)).flatMap(n => (flat[n]!.i === i ? [flat[n]!.k] : []))))
       return gone.length ? [`Left out of sentence ${i + 1}, and no finding asks for it to go: "${gone.join(' ')}"`] : []
     }),
