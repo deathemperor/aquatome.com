@@ -1,4 +1,9 @@
+import { cp, mkdtemp, rm, writeFile } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { describe, expect, test } from 'vitest'
+import { loadAll } from '../src/load'
 import { languageWord, videosForPage } from '../src/videos'
 import type { Video } from '../src/types'
 
@@ -74,6 +79,33 @@ describe('a language not yet turned on for translated titles (content/video-titl
     // A product's reviews, which keep their order and every video: the same mark.
     const reviews = videosForPage(vids, 'vi', titles, {}, { order: false, on: true, kept, refused })
     expect(reviews.find(v => v.youtubeId === 'other')).toMatchObject({ title: 'Discus care guide', ownTitle: true })
+  })
+  test('turned on, a stored title shows only where the check passed those very words; one it never read, or passed in other words, keeps the video\'s own title, marked (the reviewers of the check, 16 Nov)', () => {
+    const more: Video[] = [...vids, { youtubeId: 'later', title: 'Discus tank mates', durationSec: 60, lang: 'en' }, { youtubeId: 'redone', title: 'Discus water', durationSec: 60, lang: 'en' }]
+    const stored = { ...titles, later: 'Cá nuôi chung với cá đĩa', redone: 'Nước cho cá đĩa' }
+    const passed = { other: 'Hướng dẫn nuôi cá đĩa', redone: 'Nước nuôi cá đĩa, lần trước' }
+    const out = videosForPage(more, 'vi', stored, {}, { requireTitle: true, on: true, kept, refused: {}, passed })
+    expect(out.map(v => [v.youtubeId, v.title, v.ownTitle ?? false])).toEqual([
+      ['vivi1', 'Nuôi cá đĩa', false],
+      ['kept1', 'Tham quan bể cá đĩa Heckel', false],
+      ['other', 'Hướng dẫn nuôi cá đĩa', false],
+      ['later', 'Discus tank mates', true],
+      ['redone', 'Discus water', true],
+    ])
+    // A refusal still wins over a pass of the same words.
+    expect(videosForPage(more, 'vi', stored, {}, { on: true, kept, refused: { other: 'x' }, passed }).find(v => v.youtubeId === 'other')).toMatchObject({ title: 'Discus care guide', ownTitle: true })
+    // Off, passes change nothing.
+    expect(videosForPage(more, 'vi', stored, {}, { requireTitle: true, on: false, kept, passed }).filter(v => !v.ownTitle).map(v => v.youtubeId)).toEqual(['vivi1', 'kept1'])
+  })
+  test('the loader holds a stored title to the words the check passed (content/video-titles/<lang>.passed.json): none, or other words, shows the video\'s own title with the language on', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'aq-passed-'))
+    await cp(fileURLToPath(new URL('../../../apps/site/test/fixture-content', import.meta.url)), root, { recursive: true })
+    const ram = async () => (await loadAll({ root, lang: 'vi', publicBuild: false })).species.find(s => s.id === 'mikrogeophagus-ramirezi')!.videos.find(v => v.youtubeId === 'enenenenene')!
+    expect(await ram()).toMatchObject({ title: 'Cách nuôi cá phượng hoàng xanh', originalTitle: 'German blue ram care guide' })
+    await writeFile(join(root, 'video-titles/vi.passed.json'), JSON.stringify({ enenenenene: 'Hướng dẫn nuôi cá phượng hoàng xanh' }))
+    expect(await ram()).toMatchObject({ title: 'German blue ram care guide', ownTitle: true })
+    await rm(join(root, 'video-titles/vi.passed.json'))
+    expect(await ram()).toMatchObject({ title: 'German blue ram care guide', ownTitle: true })
   })
   test('off, a refusal changes nothing: every foreign video but the kept already keeps its own title', () => {
     const out = videosForPage(vids, 'vi', titles, {}, { requireTitle: true, on: false, kept, refused: { other: 'x' } })

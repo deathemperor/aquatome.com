@@ -21,14 +21,21 @@ export const speaksPageLang = (v: { lang: string }, lang: Lang) => baseLang(v.la
  * `refused` (content/video-titles/<lang>.refused.json, YouTube id → why): titles the meaning check refused. Such a video
  * keeps its own title, marked `ownTitle`, even with its language on, and is never left out for it; a kept title wins over
  * a refusal (the chief of staff, 16 Nov).
+ *
+ * `passed` (content/video-titles/<lang>.passed.json, YouTube id → the words the meaning check passed): given, a stored
+ * title shows with its language on only where the check passed those very words. One it never read (a stopped or failed
+ * run, a row it left out, a title written since) keeps the video's own title, marked, like a refusal (the reviewers of
+ * the check, 16 Nov). The loader always gives it; left out, as before the check, every stored title shows.
  */
-export function videosForPage<V extends Video>(videos: V[], lang: Lang, titles: Record<string, string>, generated: Record<string, string>, o: { order?: boolean; requireTitle?: boolean; on?: boolean; kept?: Record<string, string>; refused?: Record<string, string> } = {}): V[] {
+export function videosForPage<V extends Video>(videos: V[], lang: Lang, titles: Record<string, string>, generated: Record<string, string>, o: { order?: boolean; requireTitle?: boolean; on?: boolean; kept?: Record<string, string>; refused?: Record<string, string>; passed?: Record<string, string> } = {}): V[] {
   const on = o.on ?? true
   const out = videos.flatMap(v => {
     const mark = generated[v.youtubeId] ? { generated: true as const } : {}
     if (speaksPageLang(v, lang)) return [{ ...v, ...mark }]
-    const kept = v.youtubeId in (o.kept ?? {}), refused = !kept && v.youtubeId in (o.refused ?? {})
-    const title = (on && !refused) || kept ? titles[v.youtubeId] : undefined
+    const stored = titles[v.youtubeId]
+    const kept = v.youtubeId in (o.kept ?? {}), unread = !kept && stored !== undefined && o.passed !== undefined && o.passed[v.youtubeId] !== stored
+    const refused = !kept && (v.youtubeId in (o.refused ?? {}) || unread)
+    const title = (on && !refused) || kept ? stored : undefined
     if (!title) return !on || refused ? [{ ...v, ...mark, ownTitle: true as const }] : o.requireTitle ? [] : [{ ...v, ...mark }]
     return [{ ...v, ...mark, title, originalTitle: v.title }]
   })

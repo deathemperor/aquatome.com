@@ -338,9 +338,13 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // Titles the meaning check refused: the video keeps its own title, marked, even once the language is on (the chief of staff, 16 Nov).
   const refusedFile = join(root, 'video-titles', `${lang}.refused.json`)
   const refusedTitles = (await exists(refusedFile)) ? await readJson(refusedFile, VideoTitlesSchema) : {}
+  // The words the meaning check passed: with the language on, a stored title shows only where they are its words (the
+  // reviewers of the check, 16 Nov). No file is no title passed.
+  const passedFile = join(root, 'video-titles', `${lang}.passed.json`)
+  const passedTitles = (await exists(passedFile)) ? await readJson(passedFile, VideoTitlesSchema) : {}
   const generatedFile = join(root, 'video-generated.json')
   const videoGenerated = (await exists(generatedFile)) ? await readJson(generatedFile, VideoGeneratedSchema) : {}
-  const forPage = <V extends Video>(videos: V[], o?: { order?: boolean; requireTitle?: boolean }) => videosForPage(videos, lang, videoTitles, videoGenerated, { requireTitle: REQUIRE_VIDEO_TITLE, on: titlesOn, kept: keptTitles, refused: refusedTitles, ...o })
+  const forPage = <V extends Video>(videos: V[], o?: { order?: boolean; requireTitle?: boolean }) => videosForPage(videos, lang, videoTitles, videoGenerated, { requireTitle: REQUIRE_VIDEO_TITLE, on: titlesOn, kept: keptTitles, refused: refusedTitles, passed: passedTitles, ...o })
 
   const voices = (await exists(join(root, 'one-voice.json'))) ? await readJson(join(root, 'one-voice.json'), OneVoiceSchema) : {}
   // After the depth is judged: a block set aside here still counts for the page's place in search.
