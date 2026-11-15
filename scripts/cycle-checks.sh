@@ -571,12 +571,11 @@ ever_added() { git log --format= --name-only --no-renames --diff-filter=A "$1..$
 # passed ends its row, ended_row). `push_kept [<branch>]`: in the cloud, GitHub's branch of that exact name is deleted in
 # the same push as main's, both or neither, so work published is never published again from a branch left behind.
 push_kept() {
-  local check=1 clash main head mine
+  local check=1 clash main head
   # Each branch's own: an earlier branch's failed migration says nothing of this one (Astra's read, 13 Nov).
   KEPT_FAILED= KEPT_WHY= MIGRATE_FAILED= PASS_UNRECORDED= BRANCH=${1:-}
   for _ in 1 2 3; do
     main=$(git rev-parse origin/main 2>/dev/null || true)
-    mine=$(git diff --name-only "$main" HEAD 2>/dev/null || true)
     if ! net git pull -q --rebase origin main; then
       clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
       git rebase --abort 2>/dev/null || true
@@ -589,18 +588,17 @@ push_kept() {
     head=$(git rev-parse HEAD)
     [ -z "$BRANCH" ] || main_pages "$BRANCH"
     [ "$(git rev-parse HEAD)" = "$head" ] || check=1
-    # A clean pull that brought main's commits in is swept and checked too, as swept_pull says why. Once the work has
-    # passed, only swept when those commits leave its tests standing (quiet_pull), and checked again only if the sweep
-    # changed something, as a run's own push does.
+    # A clean pull that brought main's commits in is swept, as swept_pull says why. Before the work has passed on a newer
+    # main, it's checked in full; once it has, its lost push goes again as a run's own push does (push(), swept_pull):
+    # checked again only if the sweep changed something or the migration failed, whatever main's commits changed, code
+    # too. On 15 Nov the held photos run of the night before passed its checks and lost its push three times, a full
+    # re-test of 30 to 50 minutes each on a hot Mac, while main took leads' merges, most with code (the Site lead and the
+    # chief of staff, 15 Nov).
     if [ "$(git rev-parse origin/main 2>/dev/null)" != "$main" ] && [ -z "$check" ]; then
-      if quiet_pull "$main" "$mine"; then
-        head=$(git rev-parse HEAD)
-        sweep_merged
-        if [ -z "${MIGRATE_FAILED:-}" ] && [ "$(git rev-parse HEAD)" = "$head" ]; then
-          log "main moved by content only, none of this work's files, and the sweep changed nothing: pushing again, not checked again"
-        else
-          check=1
-        fi
+      head=$(git rev-parse HEAD)
+      sweep_merged
+      if [ -z "${MIGRATE_FAILED:-}" ] && [ "$(git rev-parse HEAD)" = "$head" ]; then
+        log "main moved and the sweep changed nothing: pushing again, not checked again, as a run's own push does"
       else
         check=1
       fi
@@ -625,15 +623,6 @@ push_kept() {
   done
   KEPT_WHY="the push didn't land"
   return 1
-}
-# Whether main's commits since $1 leave a passed check of the work standing: none of them changed code (what retry_held
-# counts as code) or one of the work's own files ($2, one a line, against $1). Then a push that lost to them is swept and
-# goes again; otherwise the work is checked again in full. On 14 Nov the held photos run passed its checks and lost its
-# push three times, each try a re-test of 30 to 50 minutes on a hot Mac while main moved on (the Site lead and the chief
-# of staff, 15 Nov). `quiet_pull <main before the pull> <the work's files>`.
-quiet_pull() {
-  git diff --quiet "$1" origin/main -- . ':!content' ':!sources' ':!engine-state' ':!docs' ':!*.md' || return 1
-  [ -z "$(comm -12 <(git diff --name-only "$1" origin/main | sort) <(sed '/^$/d' <<<"$2" | sort))" ]
 }
 # verify, as a cycle's commit needs it: the tests, which build the site from their own fixture content. The real site
 # (about 7,600 pages) isn't built here: that build was about 14 of the checks' 16 minutes on a GitHub runner and 1 to 3

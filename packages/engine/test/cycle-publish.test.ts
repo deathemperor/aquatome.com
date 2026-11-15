@@ -39,9 +39,9 @@ test('what the sweep changes after a merge is committed, and no change leaves no
 test("a clean pull that brings main's commits in is swept before the push, and the tests run again only when the sweep changed something", () => {
   expect(script('engine-cycle.sh')).toMatch(/elif ! swept_pull "\$main"; then\n\s*verify_cycle \|\|/)
   for (const f of ['video-cycle.sh', 'video-recheck.sh']) expect(script(f)).toMatch(/elif ! swept_pull "\$main"; then\n\s*verify 'pnpm test' \|\|/)
-  // Kept work: after a pull that brought main's commits in, checked again unless it has passed and those commits leave the
-  // pass standing (quiet_pull), when it's swept and checked again only if the sweep changed something.
-  expect(script('cycle-checks.sh')).toMatch(/if \[ "\$\(git rev-parse origin\/main 2>\/dev\/null\)" != "\$main" \] && \[ -z "\$check" \]; then\n\s*if quiet_pull "\$main" "\$mine"; then\n\s*head=\$\(git rev-parse HEAD\)\n\s*sweep_merged\n/)
+  // Kept work: after a pull that brought main's commits in, checked in full until it has passed; then swept, and checked
+  // again only if the sweep changed something or the migration failed, as a run's own push does.
+  expect(script('cycle-checks.sh')).toMatch(/if \[ "\$\(git rev-parse origin\/main 2>\/dev\/null\)" != "\$main" \] && \[ -z "\$check" \]; then\n\s*head=\$\(git rev-parse HEAD\)\n\s*sweep_merged\n\s*if \[ -z "\$\{MIGRATE_FAILED:-\}" \] && \[ "\$\(git rev-parse HEAD\)" = "\$head" \]; then/)
   expect(script('cycle-checks.sh')).toMatch(/\n\s*fi\n\s*if \[ -n "\$check" \]; then\n\s*sweep_merged/)
 
   const dir = mkdtempSync(join(tmpdir(), 'aq-pulled-'))
