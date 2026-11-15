@@ -29,10 +29,16 @@ final class Switcher {
     c.isLamp ? String(localized: "Đèn Love Ecology") : outlet(c)?.name ?? String(localized: "Ổ cắm")
   }
 
+  /// Why a command can't be sent whatever happens: its device is no longer on a tank. Nil while it is.
+  func gone(_ c: DeviceCommand) -> String? {
+    if c.isLamp { return tanks.store.device(c.device)?.isLoveEcology == true ? nil : String(localized: "Đèn này không còn trên bể nào.") }
+    return outlet(c) == nil ? String(localized: "Ổ cắm này không còn trên bể nào.") : nil
+  }
+
   /// Sets it, from the list last read (read it first: `plugs.refresh()`).
   func set(_ c: DeviceCommand) async -> SwitchResult {
+    if let gone = gone(c) { return .failed(gone) }
     if c.isLamp {
-      guard tanks.store.device(c.device)?.isLoveEcology == true else { return .failed(String(localized: "Đèn này không còn trên bể nào.")) }
       if let e = await lamp.send(c) { return .failed(e.line) }
       return .done
     }
@@ -57,7 +63,7 @@ final class Switcher {
     }
   }
 
-  private static func unreached(_ name: String) -> String { String(localized: "Không tới được ổ \(name): kiểm tra mạng rồi thử lại") }
+  static func unreached(_ name: String) -> String { String(localized: "Không tới được ổ \(name): kiểm tra mạng rồi thử lại") }
 
   /// What the chat may switch, as it is now: each outlet on, off or not known, and whether its plug was reached (the
   /// list read once); the lamp, only what this phone last sent it, never whether it is on.

@@ -28,6 +28,10 @@ final class BluetoothLampAir: NSObject, LampAir {
 
   func start(_ uuids: [String], done: @escaping @MainActor (LampAirError?) -> Void) {
     let ids = uuids.map { CBUUID(string: $0) }
+    // One broadcast at a time: one still starting, or waiting for Bluetooth, is replaced, and told it didn't go (the
+    // master button awaits its answer).
+    if let w = waiting { waiting = nil; w.done(.failed) }
+    if let s = starting { starting = nil; s(.failed) }
     guard let manager else {
       waiting = (ids, done)
       manager = CBPeripheralManager(delegate: self, queue: nil)
@@ -36,8 +40,10 @@ final class BluetoothLampAir: NSObject, LampAir {
     advertise(ids, on: manager, done: done)
   }
 
+  /// Ends the broadcast; one still starting, or waiting for Bluetooth, is told it didn't go.
   func stop() {
-    waiting = nil
+    if let w = waiting { waiting = nil; w.done(.failed) }
+    if let s = starting { starting = nil; s(.failed) }
     manager?.stopAdvertising()
   }
 
@@ -115,14 +121,13 @@ final class LoveEcologyModel {
   private(set) var status = Status.ready
   /// The commands broadcast, by id, for the UI tests.
   private(set) var sent: [String] = []
-  private var air: LampAir { LampRadio.air }
   @ObservationIgnored private var ending: Task<Void, Never>?
 
   /// Broadcasts a command for three seconds. Another tap meanwhile replaces it.
   func send(_ command: FishLamp.Command) {
     ending?.cancel()
     status = .sending(command.id)
-    air.start(command.uuids) { [weak self] e in
+    LampRadio.start(command.uuids, by: self) { [weak self] e in
       guard let self, self.status == .sending(command.id) else { return }
       if let e { self.status = .problem(e); return }
       self.sent.append(command.id)
@@ -130,7 +135,7 @@ final class LoveEcologyModel {
       self.ending = Task { [weak self] in
         try? await Task.sleep(for: LoveEcologyModel.seconds)
         guard !Task.isCancelled, let self else { return }
-        self.air.stop()
+        LampRadio.stop(by: self)
         self.status = .sent(command.id, Date())
       }
     }
@@ -140,7 +145,7 @@ final class LoveEcologyModel {
   func stop() {
     ending?.cancel()
     if case .sending = status {
-      air.stop()
+      LampRadio.stop(by: self)
       status = .ready
     }
   }
@@ -149,6 +154,7 @@ final class LoveEcologyModel {
 /// The light's card on the Đèn tab: on, off and the recorded colours. The owner's account alone.
 struct LoveEcologyCard: View {
   @Environment(AccountModel.self) private var account
+  @Environment(MasterModel.self) private var master
   @Environment(\.dynamicTypeSize) private var size
   @Environment(\.colorScheme) private var scheme
   /// The colour dots grow with their names, up to about a large tap target.
@@ -168,7 +174,7 @@ struct LoveEcologyCard: View {
               Text(Self.name(c.id)).opacity(sending(c) ? 0 : 1).overlay { if sending(c) { ProgressView() } }.frame(maxWidth: .infinity)
             }
             .buttonStyle(.bordered).controlSize(.large)
-            .disabled(othersWait(c))
+            .disabled(waits(c))
             .accessibilityLabel(Self.name(c.id))
             .accessibilityIdentifier("lamp-\(c.id)")
           }
@@ -187,8 +193,8 @@ struct LoveEcologyCard: View {
               .contentShape(Rectangle())
             }
             .buttonStyle(.plain)
-            .disabled(othersWait(c))
-            .opacity(othersWait(c) ? 0.4 : 1)
+            .disabled(waits(c))
+            .opacity(waits(c) ? 0.4 : 1)
             .accessibilityLabel(Self.name(c.id))
             .accessibilityIdentifier("lamp-\(c.id)")
           }
@@ -204,7 +210,7 @@ struct LoveEcologyCard: View {
                   .frame(maxWidth: .infinity)
               }
               .buttonStyle(.bordered)
-              .disabled(othersWait(c))
+              .disabled(waits(c))
               .accessibilityIdentifier("lamp-\(c.id)")
             }
           }
@@ -240,6 +246,9 @@ struct LoveEcologyCard: View {
   private func othersWait(_ c: FishLamp.Command) -> Bool {
     if case .sending(let id) = lamp.status { id != c.id } else { false }
   }
+
+  /// And all of them while the master button's steps go out: the two share the phone's one broadcast.
+  private func waits(_ c: FishLamp.Command) -> Bool { othersWait(c) || master.sending }
 
   private var statusLine: String {
     switch lamp.status {

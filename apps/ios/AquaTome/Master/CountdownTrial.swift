@@ -47,47 +47,56 @@ final class CountdownTrial {
   }
 
   /// Both ways on the one outlet: off, then a countdown (does it come back on at 0?); on, then a countdown (does it switch
-  /// off at 0, as CO2 will need?); then on, as it was found.
+  /// off at 0, as CO2 will need?); then on, as it was found, however it went.
   func run(_ target: DeviceTarget) async {
-    // As offered now: a role changed since it was picked (CO2, a heater) or an outlet gone off isn't tried.
-    guard state == .idle, outlets().contains(where: { $0.target == target }) else { return }
+    guard state == .idle else { return }
     let off = DeviceCommand(device: target.device, outlet: target.outlet, on: false)
     let on = DeviceCommand(device: target.device, outlet: target.outlet, on: true)
     guard let o = switcher.outlet(off) else { return }
     let (key, name) = (o.key, o.name)
     let at = MasterCard.time(Date())
-    defer { state = .idle }
-    let board = switcher.plugs.board
+    // Running from here, before the first wait: a press waits for it.
     state = .running(name: name, until: Date().addingTimeInterval(TimeInterval(Self.seconds)))
-    if case .failed(let line) = await switcher.set(off) { return keep("Không thử được: \(line)") }
+    defer { state = .idle }
+    // As offered now, read afresh: on, and not CO2 or a heater (a role changed since it was picked).
+    await switcher.plugs.refresh()
+    guard switcher.plugs.board.listError == nil, outlets().contains(where: { $0.target == target }) else {
+      return keep("Thử lúc \(at): chưa thử ổ \(name) (không đọc được ổ cắm, hoặc ổ không còn bật).")
+    }
+    if case .failed(let line) = await switcher.set(off) { return keep("Thử lúc \(at), ổ \(name): chưa tắt được: \(line)" + (await back(key, on))) }
+    let unknown = "không rõ kết quả (ổ không báo đã nhận đếm ngược, hoặc không đọc lại được)."
     // Off, then a countdown.
-    guard let cameOn = await countdown(key, name) else {
-      return keep("Thử lúc \(at): ổ \(name) không báo đã nhận đếm ngược." + (await back(on)))
-    }
+    guard let cameOn = await countdown(key, name) else { return keep("Thử lúc \(at), ổ \(name): \(unknown)" + (await back(key, on))) }
     let first = "Tắt rồi đếm ngược: " + (cameOn ? "bật lại khi về 0." : "vẫn tắt khi về 0.")
-    if !cameOn, case .failed(let line) = await switcher.set(on) { return keep("Thử lúc \(at), ổ \(name):\n\(first)\nChưa bật lại được: \(line)") }
-    // On, then a countdown.
-    guard let stayedOn = await countdown(key, name) else {
-      return keep("Thử lúc \(at), ổ \(name):\n\(first)\nLần hai: ổ không báo đã nhận đếm ngược." + (await back(on)))
+    if !cameOn {
+      _ = await switcher.plugs.board.countdown(key, seconds: 0)
+      if case .failed = await switcher.set(on) { return keep("Thử lúc \(at), ổ \(name):\n\(first)" + (await back(key, on))) }
     }
+    // On, then a countdown.
+    guard let stayedOn = await countdown(key, name) else { return keep("Thử lúc \(at), ổ \(name):\n\(first)\nLần hai: \(unknown)" + (await back(key, on))) }
     let second = "Bật rồi đếm ngược: " + (stayedOn ? "vẫn bật khi về 0." : "tắt khi về 0.")
-    // As it was found: on.
-    keep("Thử lúc \(at), ổ \(name):\n\(first)\n\(second)" + (stayedOn ? "" : await back(on)))
+    keep("Thử lúc \(at), ổ \(name):\n\(first)\n\(second)" + (await back(key, on)))
   }
 
   /// A countdown on the outlet, then the outlet read 10 seconds after it ends: whether it is on then; nil when the plug
-  /// didn't report the countdown.
+  /// didn't report the countdown, or the list couldn't be read again (an old list's answer isn't the outlet's).
   private func countdown(_ key: PlugBoard.Outlet, _ name: String) async -> Bool? {
     let board = switcher.plugs.board
     guard await board.countdown(key, seconds: Self.seconds) else { return nil }
     state = .running(name: name, until: Date().addingTimeInterval(TimeInterval(Self.seconds)))
     try? await Task.sleep(for: .seconds(Self.seconds + 10))
     await switcher.plugs.refresh()
-    return board.on(key) == true
+    guard board.listError == nil, let on = board.on(key) else { return nil }
+    return on
   }
 
-  /// Switched back on from the phone, as it was found, and said so.
-  private func back(_ on: DeviceCommand) async -> String {
+  /// As it was found, on every way out: a countdown still running ended (it would switch the outlet again at 0), the
+  /// outlet read afresh, and switched back on from the phone if it isn't on, said so.
+  private func back(_ key: PlugBoard.Outlet, _ on: DeviceCommand) async -> String {
+    let board = switcher.plugs.board
+    _ = await board.countdown(key, seconds: 0)
+    await switcher.plugs.refresh()
+    if board.listError == nil, board.on(key) == true { return "" }
     if case .failed(let line) = await switcher.set(on) { return "\nChưa bật lại được: \(line)" }
     return "\nĐiện thoại đã bật lại như lúc đầu."
   }

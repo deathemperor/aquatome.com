@@ -64,14 +64,14 @@ public struct MasterRun: Sendable, Equatable, Codable {
   /// A press at `now`: what each step puts back at the end. An outlet goes back to the state it had before (`before`;
   /// one already as asked has nothing to put back, and one whose state isn't known goes back the other way). The lamp
   /// reports nothing: it goes back to the last command this phone sent it (`lamp`), or the other way when there is none.
-  /// What an earlier press still owes (`owed`: an end while the app was away, a plug not reached) stays owed, and for a
-  /// device this press sets too it is what goes back: the state from before both.
-  public init(_ button: MasterButton, at now: Date, before: (DeviceCommand) -> Bool?, lamp: DeviceCommand?, owed: [DeviceCommand] = []) {
+  /// What an earlier press still owes (`owed`: an end while the app was away, a plug not reached) stays owed, held as it
+  /// was, and for a device this press sets too it is what goes back: the state from before both.
+  public init(_ button: MasterButton, at now: Date, before: (DeviceCommand) -> Bool?, lamp: DeviceCommand?, owed: [Back] = []) {
     started = now
     ends = button.minutes.map { now.addingTimeInterval(TimeInterval($0 * 60)) }
     steps = button.steps
-    let owedTargets = Set(owed.map(\.target))
-    back = owed.map { Back(command: $0) } + button.steps.filter { !owedTargets.contains($0.target) }.compactMap { step in
+    let owedTargets = Set(owed.map(\.command.target))
+    back = owed.map { var b = $0; b.problem = nil; return b } + button.steps.filter { !owedTargets.contains($0.target) }.compactMap { step in
       if step.isLamp {
         let last = lamp.map { DeviceCommand(device: step.device, on: $0.on, colour: $0.on ? $0.colour : nil) }
         if let last, last.on == step.on, last.colour == step.colour { return nil }
@@ -83,14 +83,16 @@ public struct MasterRun: Sendable, Equatable, Codable {
   }
 
   /// The steps that didn't go (`failed`), with the outlets as read after them (`now`): a plug that didn't answer may
-  /// still have switched. One that reads as it was has nothing to put back, nor a lamp step that failed (it sent
-  /// nothing), unless an earlier press owes it (`owed`). When every step failed and nothing is left, it ends at `t`.
-  public mutating func settle(_ failed: [Failed], now: (DeviceCommand) -> Bool?, owed: Set<DeviceTarget>, at t: Date) {
+  /// still have switched. Only one that reads as the step asked goes back: one as it was, or not known, has nothing to
+  /// put back (never a state the phone only guessed), nor a lamp step that failed before sending anything. `keeping`:
+  /// what goes back whatever (owed by an earlier press, a lamp step half sent). When every step failed and nothing is
+  /// left, it ends at `t`.
+  public mutating func settle(_ failed: [Failed], now: (DeviceCommand) -> Bool?, keeping: Set<DeviceTarget>, at t: Date) {
     self.failed = failed
     let missed = Set(failed.map(\.target))
     back.removeAll { b in
-      guard missed.contains(b.command.target), !owed.contains(b.command.target) else { return false }
-      return b.command.isLamp || now(b.command) == b.command.on
+      guard missed.contains(b.command.target), !keeping.contains(b.command.target) else { return false }
+      return b.command.isLamp || now(b.command) != !b.command.on
     }
     if missed.isSuperset(of: steps.map(\.target)), back.isEmpty { ended = t }
   }

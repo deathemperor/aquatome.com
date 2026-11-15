@@ -16,6 +16,8 @@ final class MasterModel {
   private(set) var sending = false
   /// What the last end left as it was, and why (nothing failed): shown until the next start.
   private(set) var notes: [String] = []
+  /// Why the last tap on Bắt đầu sent nothing: shown until the next.
+  private(set) var refusal: [String] = []
   let switcher: Switcher
   /// The owner's test of a plug's countdown.
   let trial: CountdownTrial
@@ -77,12 +79,19 @@ final class MasterModel {
     sending = true
     defer { sending = false; watch() }
     notes = []
+    refusal = []
     // Never CO2 on, never a heater (MasterButton.allows): the sheet offers neither; a step that does is not sent.
     let refused = button.steps.filter { !MasterButton.allows($0, role: role($0)) }
     button.steps.removeAll { refused.contains($0) }
     // What the last press hasn't put back yet (an end while the app was away, a plug not reached) stays owed.
-    let owed = run?.pending.map(\.command) ?? []
+    let owed = run?.pending ?? []
     await switcher.plugs.refresh()
+    // The list not read (the network, Tuya): how the outlets are now isn't known, so neither is what goes back. Nothing
+    // is sent; the lamp waits with them.
+    if switcher.plugs.current != nil, switcher.plugs.board.listError != nil, button.steps.contains(where: { !$0.isLamp }) {
+      refusal = button.steps.filter { !$0.isLamp }.map { Switcher.unreached(switcher.name($0)) }
+      return
+    }
     var states: [DeviceTarget: Bool] = [:]
     for s in button.steps { if let key = switcher.outlet(s)?.key, let on = switcher.plugs.board.on(key) { states[s.target] = on } }
     var r = MasterRun(button, at: now(), before: { states[$0.target] }, lamp: LampMemory.last, owed: owed)
@@ -94,6 +103,7 @@ final class MasterModel {
     run = r
     keep()
     let lampSteps = r.steps.filter(\.isLamp)
+    let lampSent = switcher.lamp.sent.count
     async let lampFailed = sendLamp(lampSteps)
     var failed: [MasterRun.Failed] = []
     for step in r.steps where !step.isLamp {
@@ -111,7 +121,9 @@ final class MasterModel {
       for s in r.steps { if let key = switcher.outlet(s)?.key, let on = switcher.plugs.board.on(key) { after[s.target] = on } }
     }
     let refusals = refused.map { MasterRun.Failed(target: $0.target, line: String(localized: "Nút không bật tắt ổ \(switcher.name($0)) được trong bản này.")) }
-    r.settle(refusals + failed, now: { after[$0.target] }, owed: Set(owed.map(\.target)), at: now())
+    // A lamp step that failed after one of its recordings went out ("on", then not its colour) changed the lamp.
+    let halfSent = switcher.lamp.sent.count > lampSent ? Set(lampSteps.map(\.target)) : []
+    r.settle(refusals + failed, now: { after[$0.target] }, keeping: Set(owed.map(\.command.target)).union(halfSent), at: now())
     run = r
     keep()
     if r.isRunning, let ends = r.ends { await EndNotice.schedule(at: ends, title: button.name) }
@@ -136,6 +148,7 @@ final class MasterModel {
     defer { sending = false; watch() }
     let t = now()
     let away = r.ended == nil && r.ends.map { t.timeIntervalSince($0) > 120 } == true
+    let endedBefore = r.ended
     if r.ended == nil { r.ended = t }
     // How each step that went left its outlet: one found back at the end was changed during the run.
     let missed = Set(r.failed.map(\.target))
@@ -148,6 +161,13 @@ final class MasterModel {
       guard let i = r.back.firstIndex(of: b) else { continue }
       let c = b.command
       let name = switcher.name(c)
+      // Its record gone from the tanks (the plug or the lamp deleted): nothing to put back to.
+      if let gone = switcher.gone(c) {
+        r.back[i].done = true
+        r.back[i].problem = nil
+        tell(gone)
+        continue
+      }
       if c.isLamp {
         if away && !byReader {
           r.back[i].problem = String(localized: "Đèn chưa về như cũ: đứng gần đèn rồi bấm Trả lại.")
@@ -179,6 +199,10 @@ final class MasterModel {
       case .done:
         r.back[i].done = true
         r.back[i].problem = nil
+        // Kept as each goes back: the app closed meanwhile doesn't send it again when it next opens.
+        var kept = r
+        kept.ended = endedBefore
+        store(kept)
         note(c.isLamp ? "lamp back \(LampSender.recordings(c).map(\.id).joined(separator: "+"))" : "\(c.outlet ?? "") back \(c.on ? "on" : "off")")
       case .failed(let line): r.back[i].problem = line
       }
@@ -206,9 +230,10 @@ final class MasterModel {
   }
 
   private func keep() {
-    let d = UserDefaults.standard
-    if let run { d.set(try? JSONEncoder().encode(run), forKey: Self.runKey) } else { d.removeObject(forKey: Self.runKey) }
+    if let run { store(run) } else { UserDefaults.standard.removeObject(forKey: Self.runKey) }
   }
+
+  private func store(_ r: MasterRun) { UserDefaults.standard.set(try? JSONEncoder().encode(r), forKey: Self.runKey) }
 
   private func note(_ s: String) { log.append(s) }
   private func tell(_ s: String) { if !notes.contains(s) { notes.append(s) } }

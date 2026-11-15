@@ -144,7 +144,7 @@ struct MasterCard: View {
 
   /// What didn't go, one line each, under the button: the steps that failed, then what hasn't come back.
   @ViewBuilder private var problems: some View {
-    let lines = (master.run?.failed.map(\.line) ?? []) + (master.run?.pending.compactMap(\.problem) ?? [])
+    let lines = master.refusal + (master.run?.failed.map(\.line) ?? []) + (master.run?.pending.compactMap(\.problem) ?? [])
     if !lines.isEmpty {
       VStack(alignment: .leading, spacing: 4) {
         ForEach(lines, id: \.self) { line in

@@ -212,6 +212,9 @@ REACH = {
     # The Week Aqua screen, which the page shots take too.
     APP + 'Lights/WeekAquaView.swift': ['LightFlowTests', CONNECT_SENT] + shots('light'),
     APP + 'Plugs/': ['PlugFlowTests'] + LIGHT_OUTLET,
+    # The master button on Đèn (its card, sheet, run and the owner's countdown test), and the broadcaster it shares with
+    # the Love Ecology light's card.
+    APP + 'Master/': ['MasterFlowTests', LOVE_ECOLOGY],
     # Fish ID sends as the reader's account (signed out, its sign-in comes first); the account also holds the owner's
     # dashboard (its session, and signing out on a 401).
     APP + 'Account/': ['AccountFlowTests', 'ReaderPostFlowTests', 'FishIdFlowTests', 'OwnerFlowTests', 'ProfilePictureFlowTests', 'ChatFlowTests'],
@@ -255,6 +258,9 @@ REACH = {
     KIT + 'Sources/AccountSync/': ['AccountFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests', 'FishIdFlowTests',
                                    'OwnerFlowTests', 'ProfilePictureFlowTests', 'ChatFlowTests'],
     KIT + 'Sources/Plugs/': ['PlugFlowTests'] + LIGHT_OUTLET,
+    # The master button's steps and run, worked out in the kit (job `kit`), and the commands it and the chat send.
+    KIT + 'Sources/Tanks/MasterButton.swift': ['MasterFlowTests'],
+    KIT + 'Sources/Tanks/DeviceCommand.swift': ['MasterFlowTests', LOVE_ECOLOGY],
     KIT + 'Sources/Chihiros/': ['LightFlowTests', CONNECT_SENT],
     # Week Aqua lights, on the lights tab beside the Chihiros ones.
     KIT + 'Sources/WeekAqua/': ['LightFlowTests'],

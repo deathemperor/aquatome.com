@@ -88,7 +88,7 @@ final class PlugsModel {
   /// reaches Tuya; `-seed-tuya-keys` starts with its keys entered. `-real-tuya` tries Tuya itself from the simulator.
   /// `-stand-in-strip <name>` names the first strip as its owner would in Smart Life (the App Store's screenshots, in
   /// each language). `-stand-in-timer enabled` gives its first outlet ("Đèn") Smart Life timers, off at 00:00 and on at
-  /// 18:00 every day; `disabled`, the same timers turned off.
+  /// 18:00 every day; `disabled`, the same timers turned off. `-stand-in-offline`: no network to it.
   static func forSimulator(_ args: [String]) -> PlugsModel {
     let strip = args.firstIndex(of: "-stand-in-strip").flatMap { $0 + 1 < args.count ? args[$0 + 1] : nil } ?? "Ổ cắm bể 60"
     let timer = args.firstIndex(of: "-stand-in-timer").flatMap { $0 + 1 < args.count ? args[$0 + 1] : nil }
@@ -110,6 +110,7 @@ final class PlugsModel {
       { var d = FakeTuya.Device(id: "fake-strip-3", name: "Ổ cắm ban công", status: [("switch_1", .bool(true))], names: [("switch_1", "Sủi khí")]); d.dropsOff = true; return d }(),
       FakeTuya.Device(id: "fake-sensor", name: "Nhiệt kế", status: [("va_temperature", .number(260))]),
     ])
+    fake.offline = args.contains("-stand-in-offline")
     let model = PlugsModel(store: TuyaKeyStore(inMemory: true)) { TuyaPlugs(keys: $0, send: { try await fake.send($0) }) }
     if args.contains("-seed-tuya-keys") {
       TuyaKeyStore.memory = standInKeys

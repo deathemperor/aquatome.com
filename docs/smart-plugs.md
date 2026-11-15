@@ -104,13 +104,16 @@ synced.
 
 - **A press** reads the list once (how each outlet is now), then sends each step once, as a tap would: an outlet already
   as asked has nothing to put back. A step that fails says why under the button; the others stay done. A plug that
-  didn't answer may still have switched, so after a failure the list is read again and only what changed goes back.
+  didn't answer may still have switched, so after a failure the list is read again and only an outlet that reads as
+  the step asked goes back: never one whose state the phone could only guess. A press whose list can't be read (no
+  network) sends nothing and says so. A device deleted from its tank during a run has nothing to go back to.
   What an earlier press still owes (the lamp after an end while the app was closed, a plug not reached) stays owed
   through the next press, and through deleting the button, until it is back.
 - **The end is the phone's**, while the app is open, or when it next opens: iOS runs nothing for the app at the end time
   otherwise. Where AquaTome's notifications are already allowed, one comes at the end time to say so; it never asks for
   them. The lamp hears the phone only close by and reports nothing: it goes back to the last command this phone sent it
-  (its card's or the button's), or the other way when there is none. Ended while the app was closed, the lamp waits for
+  (its card's or the button's), or the other way when there is none. The two share the phone's one broadcast: the
+  card waits while the button's steps go out, and a press replaces a broadcast of the card's. Ended while the app was closed, the lamp waits for
   the reader's "Trả lại" near it.
 - **Put back only what is still as the button left it.** An outlet its schedule or a hand switched during the run is
   left as it is, and the card says so. CO2 is never switched on by the phone at the end: its schedule may mean it off by
@@ -121,8 +124,9 @@ synced.
   they pick that is on (never CO2 or a heater), with the app open: an owner-only row on the card switches it off with a
   one-minute countdown (does it come back on at 0?), then on with another (does it switch off at 0, the way CO2 will
   need?), then leaves it on as it was found, and keeps what each did (`PlugSource.countdown`, read back once; the outlet
-  read 10 seconds after each end). It runs only while no press is running or owes anything, and a press waits for
-  it: each would read the other's switching as a hand's. The strips' Smart Life timers, which the app can read, will then rule out an outlet a
+  read 10 seconds after each end). It reads the list afresh first, and on every way out (each step done, or one that
+  failed) ends any countdown it may have left and switches the outlet back on if it isn't. It runs only while no
+  press is running or owes anything, and a press waits for it: each would read the other's switching as a hand's. The strips' Smart Life timers, which the app can read, will then rule out an outlet a
   timer switches before the run ends.
 - **Turning off a filter or an air pump** asks a second time when the button is set up.
 - Its steps are `DeviceCommand`s (protocols/device-command.schema.json), the shape the chat's commands will take: the

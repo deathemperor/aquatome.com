@@ -13,6 +13,19 @@ enum LampRadio {
     BluetoothLampAir()
     #endif
   }()
+  /// Who broadcasts now. A stop from another (the card's three seconds ending after the button took over) is ignored.
+  private static var holder: ObjectIdentifier?
+
+  static func start(_ uuids: [String], by who: AnyObject, done: @escaping @MainActor (LampAirError?) -> Void) {
+    holder = ObjectIdentifier(who)
+    air.start(uuids, done: done)
+  }
+
+  static func stop(by who: AnyObject) {
+    guard holder == ObjectIdentifier(who) else { return }
+    holder = nil
+    air.stop()
+  }
 }
 
 /// The last command this phone sent the lamp (its card's off, on or a colour, or the master button's), kept across
@@ -59,11 +72,15 @@ final class LampSender {
     for (i, r) in list.enumerated() {
       if i > 0 { try? await Task.sleep(for: .seconds(2)) }
       // Answered once: when the broadcast started, or why not.
-      let started: LampAirError? = await withCheckedContinuation { done in LampRadio.air.start(r.uuids) { done.resume(returning: $0) } }
-      if let started { return started }
+      let started: LampAirError? = await withCheckedContinuation { done in LampRadio.start(r.uuids, by: self) { done.resume(returning: $0) } }
+      if let started {
+        // "On" went out and its colour didn't: the lamp is on, in a colour not known.
+        if i > 0 { LampMemory.remember(DeviceCommand(device: c.device, on: true)) }
+        return started
+      }
       sent.append(r.id)
       try? await Task.sleep(for: LoveEcologyModel.seconds)
-      LampRadio.air.stop()
+      LampRadio.stop(by: self)
     }
     LampMemory.remember(c)
     return nil

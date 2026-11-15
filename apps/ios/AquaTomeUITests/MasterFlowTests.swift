@@ -86,6 +86,20 @@ final class MasterFlowTests: XCTestCase {
     expect(app, "master-log", contains: "switch_3 off")
   }
 
+  func testWithThePlugsUnreachedNothingGoesAndItSaysWhy() {
+    // No network to the stand-in Tuya cloud: how the outlets are now can't be read, so neither can what goes back.
+    let app = launch(["-stand-in-offline"])
+    make(app, end: "60")
+    tap(app, "master-start")
+    expect(app, "master-problems", contains: "Không tới được ổ CO2: kiểm tra mạng rồi thử lại", timeout: 40)
+    expect(app, "master-problems", contains: "Không tới được ổ Quạt: kiểm tra mạng rồi thử lại")
+    // Nothing went, the lamp included, and it isn't running.
+    let log = element(app, "master-log")
+    XCTAssertFalse(log.exists && !log.label.isEmpty, log.exists ? log.label : "")
+    XCTAssertFalse(element(app, "master-end").exists, "running though nothing went")
+    XCTAssertTrue(element(app, "master-start").exists, "not ready")
+  }
+
   func testTurningOffAFilterAsksAgainNoHeaterAndDeletingTheButtonAsksOnce() {
     let app = launch()
     tap(app, "master-create")
