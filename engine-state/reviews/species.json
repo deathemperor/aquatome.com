@@ -886,6 +886,43 @@
       "kept": false
     }
   ],
+  "vi/species/poecilia-wingei#e7HfD_6ofzc": [
+    {
+      "at": "2026-11-14T23:03:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.6,
+      "notes": [
+        "[distribution] El Tigre's origin (a stream of that name in the Campoma region) contradicts the page's notes, which say it was first sent by a Thai hatchery. NEW doesn't say it differs from the page.",
+        "[distribution] \"được bắt ở một con suối khác hẳn, tên là El Tigre\" largely repeats the page's distribution line that El Tigre was first collected at El Tigre, Venezuela.",
+        "[beforeYouBuy] \"Endler class N là những dòng truy được về tận vùng nước gốc... cá hoang dã chứ không phải cá lai\" repeats the page's \"Endler thuần chủng được gọi là Endler class N\".",
+        "[beforeYouBuy] \"gần như đã tuyệt chủng vì nước bị ô nhiễm\" is already on the page (extinct at Laguna de Patos after pollution).",
+        "[behaviour] \"hiếu động\" duplicates the page's \"rất hiếu động\" for Endlers. The class K comparison is from the video, but the paragraph is thin and partly redundant.",
+        "[reproduction] The advice on keeping the line pure and the point about females looking alike are the video speaker's opinion. They are written as fact, not as one keeper's view.",
+        "[diet] \"artemia mới nở\" and the live and frozen food advice overlap with the page's diet and fry-feeding text. \"Banana worm\" is a questionable reading of the transcript's \"banana\".",
+        "[maintenance] The tight-lid and jumping advice is one keeper's experience but is written as a rule (\"bể phải có nắp đậy kín\"), not as one keeper's view."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-14T23:03:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.72,
+      "notes": [
+        "The page says El Tigre was first sent out by a hatchery in Thailand, but the video says it was collected in its own stream, El Tigre, in the Campoma region. NEW states the video's version without saying it differs from the page.",
+        "\"vùng Cumana quanh Laguna de Patos\": the video only says \"lagoon deatos\" (garbled speech) for Cumana. Naming Laguna de Patos is an inference, and the page already has that lagoon.",
+        "[distribution] repeats the page's point that El Tigre is a pure wild strain from El Tigre. The stream and separate-population detail is new.",
+        "[diet] \"bo bo\" is already on the page's diet text. The video's \"daphnia\" is rendered as bo bo, which is fine, but that item adds nothing new.",
+        "[behaviour] \"hiếu động\" is already on the page, though the comparison with the class K hybrids is new and in the video."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/puntigrus-tetrazona#e-vMaC6qG9E": [
     {
       "at": "2026-11-14T03:29:59Z",

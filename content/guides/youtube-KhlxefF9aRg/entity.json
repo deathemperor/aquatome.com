@@ -98,20 +98,13 @@
         "heading": "Vì sao nền quan trọng với bể không lọc",
         "moments": [
           {
-            "t": 200,
-            "url": "https://media.aquatome.com/video/KhlxefF9aRg/at200-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lớp sỏi nhỏ đã đổ vào đáy bể bát thủy tinh.",
-            "sharpness": 668.9
-          },
-          {
             "t": 240,
             "url": "https://media.aquatome.com/video/KhlxefF9aRg/at240-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đổ phân nền vào lớp sỏi trong bát để chuẩn bị trộn đều.",
-            "sharpness": 174
+            "caption": "Đổ phân nền vào lớp sỏi nhỏ ở đáy bể bát.",
+            "sharpness": 174,
+            "person": false
           }
         ]
       },
@@ -119,20 +112,13 @@
         "heading": "Xếp đá và lũa thế nào",
         "moments": [
           {
-            "t": 340,
-            "url": "https://media.aquatome.com/video/KhlxefF9aRg/at340-hd.webp",
+            "t": 530,
+            "url": "https://media.aquatome.com/video/KhlxefF9aRg/at530-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Một viên đá đặt làm điểm nhấn trên nền cát trong bể thủy tinh tròn.",
-            "sharpness": 362.6
-          },
-          {
-            "t": 390,
-            "url": "https://media.aquatome.com/video/KhlxefF9aRg/at390-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đá cuội và khúc lũa chính xếp trên nền cát trong bể tròn.",
-            "sharpness": 426.9
+            "caption": "Cành lũa nhỏ luồn qua giữa các viên đá, quanh mép chừa chỗ trống.",
+            "sharpness": 320.9,
+            "person": false
           }
         ]
       },
@@ -144,16 +130,9 @@
             "url": "https://media.aquatome.com/video/KhlxefF9aRg/at690-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cây thấp mọc xanh tốt quanh lũa và đá trong bể.",
-            "sharpness": 610.2
-          },
-          {
-            "t": 700,
-            "url": "https://media.aquatome.com/video/KhlxefF9aRg/at700-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể đã trồng dày cây thủy sinh, tay đang chỉnh cây.",
-            "sharpness": 1865.6
+            "caption": "Cận cảnh cây lá dài mọc quanh đá và lũa trong bể.",
+            "sharpness": 610.2,
+            "person": false
           }
         ]
       },
@@ -165,92 +144,48 @@
             "url": "https://media.aquatome.com/video/KhlxefF9aRg/at830-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể cầu đã hardscape với lũa, đá và cỏ, chuẩn bị châm nước.",
-            "sharpness": 1788.4
-          },
-          {
-            "t": 840,
-            "url": "https://media.aquatome.com/video/KhlxefF9aRg/at840-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Châm nước vào bể cầu bằng ống có van khóa, nền sỏi rải mặt.",
-            "sharpness": 409.1
-          }
-        ]
-      },
-      {
-        "heading": "Cắm cây cắt cắm và bèo nổi",
-        "moments": [
-          {
-            "t": 950,
-            "url": "https://media.aquatome.com/video/KhlxefF9aRg/at950-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay dùng nhíp cắm ngọn cây cắt cắm xuống nền.",
-            "sharpness": 198
-          },
-          {
-            "t": 960,
-            "url": "https://media.aquatome.com/video/KhlxefF9aRg/at960-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể cầu nhỏ với đá lũa và cây cắt cắm mọc xanh tốt.",
-            "sharpness": 1084.6
+            "caption": "Bể cầu đã trồng cây, lũa và đá, chuẩn bị châm nước.",
+            "sharpness": 1788.4,
+            "person": false
           }
         ]
       },
       {
         "heading": "Đèn cho bể bát",
-        "moments": [
-          {
-            "t": 810,
-            "url": "https://media.aquatome.com/video/KhlxefF9aRg/at810-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cầm bể bát trồng cây thủy sinh, phía sau là bể lớn.",
-            "sharpness": 943.3
-          }
-        ],
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/KhlxefF9aRg/p5-oeXB1cylfNC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/KhlxefF9aRg/p5-oeXB1cylfNC5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/KhlxefF9aRg/p5-1bV9MaWdodC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/KhlxefF9aRg/p5-1bV9MaWdodC5qcGc-480.webp",
           "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Coughdrop12",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mini_caulerpa_(Caulerpa_brachypus)_4.jpg",
-          "caption": "Cụm rêu xanh mướt nổi bật trong bể thủy sinh nhỏ dưới đèn mạnh."
+          "height": 666,
+          "licence": "CC BY-SA 3.0",
+          "author": "Lime Huang",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
+          "caption": "Bể thủy sinh có đèn LED gắn phía trên, cây xanh mướt lên màu rõ."
         }
       },
       {
         "heading": "Thả ốc, tép và cá",
         "moments": [
           {
-            "t": 1310,
-            "url": "https://media.aquatome.com/video/KhlxefF9aRg/at1310-hd.webp",
+            "t": 1370,
+            "url": "https://media.aquatome.com/video/KhlxefF9aRg/at1370-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể bát chạy tự thân đã lên cây, sẵn sàng thả ốc, tép, cá.",
-            "sharpness": 1356.4
-          },
-          {
-            "t": 1480,
-            "url": "https://media.aquatome.com/video/KhlxefF9aRg/at1480-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng vợt lưới để thả sinh vật vào bể.",
-            "sharpness": 574.9
+            "caption": "Cá nhỏ bơi trong bể cầu đầy cây thủy sinh và lũa.",
+            "sharpness": 1542,
+            "person": false
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/KhlxefF9aRg/p6-YV9XaW5nZWkuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/KhlxefF9aRg/p6-YV9XaW5nZWkuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/KhlxefF9aRg/p6-hX1dpbmdlaS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/KhlxefF9aRg/p6-hX1dpbmdlaS5qcGc-480.webp",
           "width": 960,
           "height": 640,
           "licence": "CC BY-SA 4.0",
           "author": "Dgrummon",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Campoma_Bridge_number_28_Poecilia_Wingei.jpg",
-          "caption": "Cá Endler đực màu cam đen bơi giữa bể trồng cây, có ốc nhỏ phía dưới."
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Campoma_Bridge_number_8_Poecilia_Wingei.jpg",
+          "caption": "Cá Endler đực nhiều màu cam đen bơi trong bể thủy sinh."
         }
       },
       {
@@ -261,16 +196,18 @@
             "url": "https://media.aquatome.com/video/KhlxefF9aRg/at1540-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể bóng tròn mới setup với cây cắt xanh tốt và lũa.",
-            "sharpness": 1240.4
+            "caption": "Bể cầu thủy sinh với lũa, đá và nhiều cây cắt mới trồng.",
+            "sharpness": 1240.4,
+            "person": false
           },
           {
             "t": 1580,
             "url": "https://media.aquatome.com/video/KhlxefF9aRg/at1580-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh cây thủy sinh mới cắm trong bể tròn, có lũa và đá.",
-            "sharpness": 1446.1
+            "caption": "Cận cảnh cây cắt cắm trong bể cầu cùng lũa và đá.",
+            "sharpness": 1446.1,
+            "person": false
           }
         ]
       }

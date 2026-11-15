@@ -134,64 +134,29 @@
     "figures": [
       {
         "heading": "Vì sao nên sơn nền sau màu đen",
-        "moments": [
-          {
-            "t": 150,
-            "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at150-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Mặt sau bể kính đã được sơn đen tuyền, làm nổi bật mọi thứ phía trước.",
-            "sharpness": 841.3
-          },
-          {
-            "t": 160,
-            "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at160-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể có nền sau đen, nước trông đậm và sâu hơn hẳn.",
-            "sharpness": 352.2
-          }
-        ]
-      },
-      {
-        "heading": "Dựng lũa trước, làm nền sau",
-        "moments": [
-          {
-            "t": 480,
-            "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at480-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khung lũa manzanita nhiều cành dựng đứng trong bể trống chưa có nền.",
-            "sharpness": 1617.9
-          },
-          {
-            "t": 490,
-            "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at490-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bơm keo dán các khúc lũa lại với nhau.",
-            "sharpness": 898.3
-          }
-        ]
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/p0-NlbGxhdHVzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/6BD1Nscv4Fc/p0-NlbGxhdHVzLmpwZw-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 3.0",
+          "author": "Jón Helgi Jónsson (Amything)",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Astronotus_ocellatus.jpg",
+          "caption": "Cá tai tượng nổi bật trên nền đen, màu sắc hiện rõ hẳn lên."
+        }
       },
       {
         "heading": "Túi dinh dưỡng chỉ đặt chỗ sẽ trồng cây",
         "moments": [
           {
-            "t": 580,
-            "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at580-hd.webp",
+            "t": 690,
+            "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at690-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Phân nền cũ nghiền vụn trong cối, dùng làm lớp đáy cho túi.",
-            "sharpness": 471.4
-          },
-          {
-            "t": 660,
-            "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at660-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Một túi nền nhỏ đặt giữa các thanh lũa trên đáy bể trống.",
-            "sharpness": 676.3
+            "caption": "Một mảng nền nhỏ đặt giữa lũa, chỉ ở chỗ sẽ trồng cây.",
+            "sharpness": 1832,
+            "person": false
           }
         ]
       },
@@ -199,20 +164,22 @@
         "heading": "Rải cát và sỏi cho lớp mặt",
         "moments": [
           {
-            "t": 780,
-            "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at780-hd.webp",
+            "t": 770,
+            "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at770-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đang rải cát sáng màu lên nền quanh khối lũa và đá.",
-            "sharpness": 2091.1
+            "caption": "Lớp cát lót màu vàng được rải quanh lũa và đá ở đáy bể.",
+            "sharpness": 1644.4,
+            "person": false
           },
           {
             "t": 810,
             "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at810-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Lớp cát mặt đã rải xong, phủ đều quanh lũa và đá.",
-            "sharpness": 1245.2
+            "caption": "Cát sáng màu phủ phía trước, làm nổi bật khối lũa và đá.",
+            "sharpness": 1245.2,
+            "person": false
           }
         ],
         "photo": {
@@ -223,48 +190,29 @@
           "licence": "CC BY-SA 2.0",
           "author": "kerinin",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diatom_sand.jpg",
-          "caption": "Lớp cát trắng trải sát đáy bể, cạnh khối đá lũa xốp."
+          "caption": "Lớp cát mịn trải dưới đáy bể, cạnh khối đá lũa."
         }
-      },
-      {
-        "heading": "Thả lá khô và làm nước trong",
-        "moments": [
-          {
-            "t": 990,
-            "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at990-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Quả khô nổi trên mặt nước, một số đã chìm xuống đáy bể.",
-            "sharpness": 1853
-          },
-          {
-            "t": 1020,
-            "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at1020-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đổ nước luộc lá màu nâu vào bể, nước ngả màu vàng nâu.",
-            "sharpness": 1535.7
-          }
-        ]
       },
       {
         "heading": "Nhuộm nước đen bằng trà rooibos",
         "moments": [
           {
-            "t": 1470,
-            "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at1470-hd.webp",
+            "t": 1480,
+            "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at1480-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể vừa đổ nước trà, màu nâu đỏ bắt đầu tản ra.",
-            "sharpness": 1748.9
+            "caption": "Bể toàn cảnh nước mới ngả vàng nâu nhẹ, có lũa và lá khô.",
+            "sharpness": 2031.7,
+            "person": false
           },
           {
-            "t": 1540,
-            "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at1540-hd.webp",
+            "t": 1560,
+            "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at1560-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể nước đã nhuộm nâu đỏ đậm, lũa và đá hiện rõ.",
-            "sharpness": 1147.5
+            "caption": "Nước bể đã ngả màu nâu đỏ đậm của trà, nhìn rõ lũa và lá.",
+            "sharpness": 310.2,
+            "person": false
           }
         ],
         "photo": {
@@ -275,27 +223,20 @@
           "licence": "CC BY-SA 3.0",
           "author": "soultea.de/André Helbig",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Frisch_aufgebr%C3%BChter_Rooibos.jpg",
-          "caption": "Ly và ấm trà rooibos nâu đỏ đậm, đúng màu nước dùng để nhuộm bể."
+          "caption": "Nước trà rooibos nâu đỏ đậm trong tách và bình thủy tinh."
         }
       },
       {
         "heading": "Chọn và trồng cây cho bể nước đen",
         "moments": [
           {
-            "t": 1270,
-            "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at1270-hd.webp",
+            "t": 1410,
+            "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at1410-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cây Cryptocoryne với bộ rễ dài cùng mảnh giấy ăn để quấn rễ.",
-            "sharpness": 977.3
-          },
-          {
-            "t": 1390,
-            "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at1390-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng nhíp trồng cây vào bể lũa, chỉ để vài điểm xanh thưa.",
-            "sharpness": 2130.1
+            "caption": "Bể nước đen với lũa, lá khô và vài cây trồng thưa.",
+            "sharpness": 2333.1,
+            "person": false
           }
         ],
         "photo": {
@@ -306,27 +247,20 @@
           "licence": "CC BY 4.0",
           "author": "Yercaud-elango",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cryptocoryne_lucens-2-veda_aquarium-bengaluru-India.jpg",
-          "caption": "Cryptocoryne lá xanh mọc thành bụi trên lớp nền sẫm màu trong bể."
+          "caption": "Cụm Cryptocoryne lá xanh mọc gọn trên lớp nền tối trong bể."
         }
       },
       {
         "heading": "Thả cá vào bể mới",
         "moments": [
           {
-            "t": 2370,
-            "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at2370-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đàn cá ông tiên bơi quanh các khúc lũa trong bể.",
-            "sharpness": 272.1
-          },
-          {
             "t": 2380,
             "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at2380-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cá ông tiên bơi giữa lũa trong bể nước trà.",
-            "sharpness": 269.7
+            "caption": "Cá ông tiên bơi giữa lũa và cây trong bể mới.",
+            "sharpness": 269.7,
+            "person": false
           }
         ],
         "photo": {
@@ -337,29 +271,8 @@
           "licence": "CC BY 4.0",
           "author": "Versions111",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pterophyllum_scalare_03.jpg",
-          "caption": "Cá ông tiên vàng bơi giữa đám cây thủy sinh xanh trong bể."
+          "caption": "Cá ông tiên vàng bơi giữa đám cây thủy sinh trong bể."
         }
-      },
-      {
-        "heading": "Những ngày đầu: test nước và cho ăn",
-        "moments": [
-          {
-            "t": 2630,
-            "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at2630-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ống nghiệm test nước bên cạnh bảng so màu để đọc kết quả.",
-            "sharpness": 563.5
-          },
-          {
-            "t": 2690,
-            "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at2690-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh có cây xanh um tùm, nhìn từ phía trước.",
-            "sharpness": 1115.4
-          }
-        ]
       }
     ]
   }
