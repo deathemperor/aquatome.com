@@ -95,8 +95,8 @@ export function numberSlips(hs: string[]): string[] {
 const COUNT_NOUN = 'loại|loài|cách|mẹo|bước|lý do|sai lầm|dấu hiệu|cây|cá|điều|thứ|ý tưởng|câu hỏi|nguyên nhân|lưu ý|bí quyết|jenis|cara|tips?|langkah|alasan|kesalahan|tanda|ikan|tanaman|hal|sebab|punca|kesilapan|petua|tumbuhan|perkara|ชนิด|วิธี|ข้อ|เคล็ดลับ|สัญญาณ|สายพันธุ์|ขั้นตอน|ways|types|species|signs|reasons|mistakes|steps'
 const COUNT = new RegExp(`(?<![\\d.,])(\\d{1,2})\\s*(?=(?:${COUNT_NOUN})(?![\\p{L}]))`, 'iu')
 const TOP = /\btop\s?(\d{1,2})\b/i
-/** "Hơn 50 loại…", "lebih dari 30 jenis": a title promising more than its number. */
-const MORE_THAN = /(?:hơn|trên|over|more than|lebih dari(?:pada)?)\s+(?=\d)/iu
+/** "Hơn 50 loại…", "lebih dari 30 jenis": a title promising more than its count, the word right before the count's own number and noun ("Bể trên 100 lít: 5 loài…" isn't one). */
+const MORE_THAN = new RegExp(`(?:hơn|trên|over|more than|lebih dari(?:pada)?)\\s+(?=\\d{1,2}\\s*(?:${COUNT_NOUN})(?![\\p{L}]))`, 'iu')
 /** "10 loại cây…", "Top 7…", "7 Jenis…", "ไม้น้ำ 10 ชนิด": the number of things a title promises, if it promises one. */
 export function titleCount(title: string): number | undefined {
   const m = title.match(COUNT) ?? title.match(TOP)
@@ -183,8 +183,8 @@ function statedCounts(text: string, noun: string): number[] {
   const re = new RegExp(`(?<![\\p{L}\\d.,])(?:(\\d{1,2})|(${VI_NUMBER}))\\s+${noun.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{L}])`, 'giu')
   return [...text.matchAll(re)].map(m => (m[1] ? Number(m[1]) : viNumber(m[2]!)))
 }
-/** A video guide's chapters without its opening and closing ones ("Mục lục", "Mở đầu", "Kết luận"). */
-const CHAPTER_FRAME = /^(?:mục lục|mở đầu|mở bài|giới thiệu|kết luận|lời kết|tổng kết|intro(?:duction)?|outro|pendahuluan|pengenalan|kesimpulan|penutup|บทนำ|สรุป)\b/iu
+/** A video guide's opening and closing chapters, as a whole chapter's title ("Mục lục", "Mở đầu", "Kết", "Lời cuối"): not items. */
+const CHAPTER_FRAME = /^(?:mục lục|mở đầu|mở bài|lời mở đầu|giới thiệu|tổng quan|kết|kết luận|kết thúc|kết bài|lời kết|lời cuối|lời cảm ơn|tổng kết|nhận xét cuối|intro(?:duction)?|outro|pendahuluan|pengenalan|kesimpulan|penutup|บทนำ|สรุป)\s*[.:]?$/iu
 /** Each table's rows of data (a row with a cell that isn't a heading). */
 const tableRows = (root: HTMLElement) => root.querySelectorAll('table').map(t => t.querySelectorAll('tr').filter(r => r.querySelector('td')).length)
 
