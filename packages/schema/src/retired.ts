@@ -47,8 +47,9 @@ export const RETIRED_GUIDES: Readonly<Record<string, RetiredTo>> = {
   // A. adonis's 1 m as "is said to" are on their pages. The lungfish notice's daily watch and wool method are on P.
   // dolloi's page, and its bites often a mistake for food on P. annectens's (the site has no P. aethiopicus page). The C.
   // narcissus notice's C. robustus lines (both sexes grow the long dorsal fin; the sexes are best told apart by the ventral
-  // fins) are C. robustus's dealer sexing part, under the notice's address (the Writing Lead, 15 Nov 2026); nothing of C.
-  // narcissus moves, and the site has no C. narcissus page.
+  // fins) are C. robustus's dealer sexing part, under the notice's address (the Writing Lead, 15 Nov 2026). Nothing of C.
+  // narcissus moves to its page (ruling b): the forms I and II are the dealer's, and "almost 10 cm" would be a second size
+  // beside the page's 7.5 cm.
   'glaser-en-09-characoids-tetra-relationship-thoracocharax-stellatus-gasteropelecus-maculatus-jumbo-carnegiella-myersi-carnegiella-strigata-2': fish('thoracocharax-stellatus'),
   'glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-huge-acanthicus-adonis-arrived-en': fish('acanthicus-adonis'),
   'glaser-en-29-lungfishes-lungfishes-from-the-congo': fish('protopterus-dolloi'),
