@@ -524,7 +524,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       try {
         const r = await get(url)
         networkFailures = 0
-        const o = htmlToOutline(r.html, src.contentSelector)
+        const o = htmlToOutline(r.html, src.contentSelector, url)
         if (isChallenge(o.title, o.outline)) {
           await block()
           await save({ ...base, ...keep(prev), status: 'blocked', attempts: 0, error: `challenge: ${o.title}` })

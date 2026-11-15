@@ -92,7 +92,7 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
           if (source === 'glaser') intake[url] = d.now().toISOString()
           const r = await get(url)
           if (r.status === 404 && url === scotcat) { tried[url] = d.now().toISOString(); continue } // ScotCat has it under another name, or not at all
-          const o = htmlToOutline(r.html, src.contentSelector)
+          const o = htmlToOutline(r.html, src.contentSelector, url)
           if (r.status >= 400 || isChallenge(o.title, o.outline)) throw new Error(r.status >= 400 ? `HTTP ${r.status}` : 'challenge')
           // Same photos as the engine takes: from their own pages where the source keeps them there (ScotCat).
           const images = src.photoPages ? await linkedPhotos(r.html, url, src.photoPages, get) : o.images

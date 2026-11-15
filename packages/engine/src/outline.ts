@@ -66,12 +66,43 @@ const creditOf = (i: HTMLElement) => {
   return undefined
 }
 
+/**
+ * A page that loads its images late keeps a blank placeholder in an image's own address until its script puts the photo
+ * in: Aquarium Breeder, 15 Nov 2026, whose driftwood article's four woods read as four blanks, and whose 109 guides held 36
+ * photos between them. A blank is an empty address, a `data:` image, or a one-pixel or placeholder file by its name
+ * ("blank.gif", "lazy-placeholder.png"). It's never the photo, and only a blank gives way: a real address is always kept
+ * (the chief of staff, 15 Nov 2026).
+ */
+const BLANK_FILE = /^(?:blank|spacer|pixel|1x1|transparent|placeholder|lazy|lazyload|lazy[-_]load|lazy[-_]placeholder)(?:[-_][a-z0-9]+)*\.(?:gif|png|svg|webp)$/i
+const fileName = (u: string) => decodeURIComponent(u.split(/[?#]/)[0]!.split('/').pop() ?? '')
+const blank = (u: string | undefined) => !u?.trim() || /^data:/i.test(u.trim()) || BLANK_FILE.test(fileName(u.trim()))
+const first = (i: HTMLElement, names: string[]) => names.map(n => i.getAttribute(n)).find(u => !blank(u))
+const IMAGE_FILE = /\.(jpe?g|png|webp|avif)$/i
+const siteOf = (host: string) => host.toLowerCase().replace(/^www\./, '')
+/**
+ * The link around a blank image, when it is the photo's own file on the page's own site (its host, or a host under its
+ * domain such as its media host): never another page, a shop or a third site. Without the page's address, only a link
+ * within the page's site (a relative one) is taken.
+ */
+const fileLink = (i: HTMLElement, pageUrl?: string) => {
+  const l = linkOf(i)
+  if (!l) return undefined
+  try {
+    const page = new URL(pageUrl ?? 'https://page.invalid/')
+    const to = new URL(l, page)
+    if (!IMAGE_FILE.test(to.pathname)) return undefined
+    const site = siteOf(page.hostname), host = siteOf(to.hostname)
+    return host === site || host.endsWith(`.${site}`) ? l : undefined
+  } catch { return undefined }
+}
+
 /** A srcset `w` is a file width; width/height attributes only describe the page layout. */
-function pageImage(i: HTMLElement): PageImage | null {
-  const src = i.getAttribute('src') ?? i.getAttribute('data-src')
+function pageImage(i: HTMLElement, pageUrl?: string): PageImage | null {
+  // Its own address first; for a blank, the lazy address (and the lazy set of sizes below), then the link to its file.
+  const src = first(i, ['src', 'data-lazy-src', 'data-src', 'data-original']) ?? fileLink(i, pageUrl)
   const w = Number(i.getAttribute('width')) || undefined
   const h = Number(i.getAttribute('height')) || undefined
-  const set = (i.getAttribute('srcset') ?? i.getAttribute('data-srcset') ?? '').split(',').map(c => c.trim().split(/\s+/)).flatMap(([u, d]) => (u && d?.endsWith('w') ? [{ u, w: Number.parseInt(d) }] : [])).sort((a, b) => b.w - a.w)[0]
+  const set = (first(i, ['srcset', 'data-lazy-srcset', 'data-srcset']) ?? '').split(',').map(c => c.trim().split(/\s+/)).flatMap(([u, d]) => (u && !blank(u) && d?.endsWith('w') ? [{ u, w: Number.parseInt(d) }] : [])).sort((a, b) => b.w - a.w)[0]
   const alt = clean(i.getAttribute('alt') ?? '')
   if (set && (!w || set.w > w)) return { src: set.u, alt, width: set.w, ...(w ? { displayWidth: w } : {}), ...(h ? { displayHeight: h } : {}) }
   return src ? { src, alt, ...(w ? { displayWidth: w } : {}), ...(h ? { displayHeight: h } : {}) } : null
@@ -99,14 +130,15 @@ function headings(scope: HTMLElement): Map<HTMLElement, string> {
  */
 const AD_INSERTS = '.humix-universal-js-insert, .ez-video-wrap, .ezoic-ad, [id^="ezoic-pub-ad-placeholder"]'
 
-export function htmlToOutline(html: string, contentSelector?: string): { title: string; outline: string; images: PageImage[] } {
+/** `pageUrl`: the page's own address, which an image loaded late may take its photo's file from (`fileLink`). */
+export function htmlToOutline(html: string, contentSelector?: string, pageUrl?: string): { title: string; outline: string; images: PageImage[] } {
   const root = parse(html, { comment: false })
   const title = clean(root.querySelector('title')?.text ?? root.querySelector('h1')?.text ?? '')
   const scope = (contentSelector && root.querySelector(contentSelector)) || root.querySelector('main') || root.querySelector('article') || root.querySelector('body') || root
   for (const ad of scope.querySelectorAll(AD_INSERTS)) ad.remove()
   const under = headings(scope)
   const images = scope.querySelectorAll('img').flatMap(i => {
-    const p = pageImage(i)
+    const p = pageImage(i, pageUrl)
     const heading = under.get(i)
     const link = linkOf(i)
     const credit = creditOf(i)
