@@ -298,6 +298,19 @@ test('each breed\'s copy reads as its built page: header, parents, card sources,
   for (const t of ['p', 'trust', 'gallery', 'summary', 'faq', 'refs']) expect(seen.has(t), t).toBe(true)
 })
 
+test('a breed\'s sections open by their headings\' ids, the web page\'s and the copy\'s the same', async () => {
+  // The board, 16 Nov: no heading on a breed's page had an id, so the chat couldn't open a ranchu's care section.
+  const c = await getContent('vi')
+  const d = breedDoc('vi', c, c.breeds.find(b => b.id === 'pigeon-blood-discus')!, listedPaths('vi', c))
+  const heads = all(d, 'h')
+  expect(heads.map(h => h.text)).toContain('Nguồn gốc')
+  const { dom } = appPage(d.path)
+  for (const h of heads) {
+    expect(h.id, h.text).toMatch(/^[a-z0-9-]+$/)
+    expect(txt(dom.querySelector(`[id="${h.id}"]`)), h.text).toBe(h.text)
+  }
+})
+
 test('a breed\'s lines are its copy\'s cards, each a form of it; a line\'s copy says what it is a form of, linked', async () => {
   const c = await getContent('vi')
   const pigeon = c.breeds.find(b => b.id === 'pigeon-blood-discus')!
