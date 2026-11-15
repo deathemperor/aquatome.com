@@ -1526,8 +1526,8 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.pageBack.exists, "no back button on the chip's page")
     XCTAssertTrue(app.staticTexts["1 trang · 1 bài viết"].exists, "the chip's page doesn't say what it holds")
     // Whose photo the chip shows, named, and opening that fish's page (the chief, 15 Nov).
-    let photoOf = app.buttons["v2-chip-photo-of"]
-    XCTAssertEqual(photoOf.label, "Ảnh: Cá neon", "the chip's page doesn't name whose photo it shows")
+    let photoOf = app.links["v2-chip-photo-of"]
+    XCTAssertEqual(photoOf.label, "Ảnh đại diện nhóm: Cá neon", "the chip's page doesn't name whose photo it shows")
     photoOf.tap()
     XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the photo's fish didn't open")
     app.leavePage()
@@ -1544,7 +1544,7 @@ final class V2FlowTests: XCTestCase {
     }
     many.tap()
     XCTAssertTrue(app.buttons["filter"].waitForExistence(timeout: 5), "a group of eight pages not in the grid")
-    XCTAssertFalse(app.buttons["v2-chip-photo-of"].exists, "a chip with no photo names one")
+    XCTAssertFalse(app.links["v2-chip-photo-of"].exists, "a chip with no photo names one")
   }
 
 

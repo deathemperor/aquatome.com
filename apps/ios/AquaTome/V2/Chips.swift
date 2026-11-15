@@ -95,24 +95,39 @@ struct ChipPage: View {
     .accessibilityIdentifier("v2-chip-page")
   }
 
-  /// "153 trang", or "1 trang · 4 bài viết" when guides are about it; then whose photo the chip shows, "Ảnh: Cá ngựa
-  /// vằn", the name opening its page.
+  /// "153 trang", or "1 trang · 4 bài viết" when guides are about it; under it, whose photo the chip shows, "Ảnh đại
+  /// diện nhóm: Cá ngựa vằn", one link to that fish's page (Design, 16 Nov). It leads to the credit, which stays on the
+  /// fish's page with the photo.
   private var holds: some View {
     let n = shelf.pages.count, g = shelf.guides.count
     return VStack(alignment: .leading, spacing: 0) {
       Text(g > 0 ? "\(n) trang · \(g) bài viết" : "\(n) trang")
       if let fish = shelf.photoOf {
         NavigationLink(value: fish) {
-          Text("Ảnh") + Text(verbatim: ": ") + Text(verbatim: fish.name).foregroundStyle(.tint)
+          Text("Ảnh đại diện nhóm: \(Text(verbatim: fish.name).foregroundStyle(.tint))")
+            .multilineTextAlignment(.leading)
+            .fixedSize(horizontal: false, vertical: true)
         }
-        .buttonStyle(.plain)
+        .buttonStyle(Dims())
+        // Drawn at the text's height, tapped over 44 points.
         .frame(minHeight: 44, alignment: .leading)
         .contentShape(.rect)
+        .padding(.vertical, -max(0, (44 - line) / 2))
+        .accessibilityRemoveTraits(.isButton)
+        .accessibilityAddTraits(.isLink)
         .accessibilityIdentifier("v2-chip-photo-of")
       }
     }
     .font(.subheadline)
     .foregroundStyle(.v2Faint)
+  }
+
+  /// A line of the subheadline, for the photo line's tap beyond its text.
+  @ScaledMetric(relativeTo: .subheadline) private var line: CGFloat = 20
+
+  /// The press dims the line.
+  private struct Dims: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View { configuration.label.opacity(configuration.isPressed ? 0.5 : 1) }
   }
 
   /// Its guides, then its video guides, as Tìm's results; no heading where there are none.
