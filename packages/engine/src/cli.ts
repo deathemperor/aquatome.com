@@ -714,13 +714,13 @@ if (cmd === 'photo-privacy') {
     if (ran) await writeFile(lastFile, `${JSON.stringify(ran, null, 1)}\n`)
   }
 } else if (cmd === 'video-cut') {
-  // A held video guide's sentences its read names as the source talking, advice for elsewhere, a shop, a price or a product
-  // cut whole, and its words findings' fixes put in (video-cut.ts): code, no model; each cut sentence kept in
+  // A held video guide's sentences its read names as the source talking, a shop, a price or a product cut whole (advice
+  // for elsewhere waits for the mend), and its words findings' fixes put in (video-cut.ts): code, no model; each cut sentence kept in
   // engine-state/_video-cut.json for the mend to write back; the gate reads the guide after.
   // pnpm engine video-cut [--limit N: guides, 12] [--first vi/guides/<id>,…] [--dry-run: what it would change, old beside new]
   const r = await videoCut(ROOT, { limit: Number(values.limit ?? VIDEO_CUT_LIMIT), ...(values.first ? { first: values.first.split(',') } : {}), dryRun: !!values['dry-run'] })
   for (const c of r.cut) {
-    console.log(`${values['dry-run'] ? 'would cut' : 'cut'}: ${c.key} ${c.cuts.length} sentences, ${c.swaps.length} words${c.emptied.length ? `, emptied ${c.emptied.join('; ')}` : ''}`)
+    console.log(`${values['dry-run'] ? 'would cut' : 'cut'}: ${c.key} ${c.cuts.length} sentences, ${c.swaps.length} words`)
     for (const x of c.cuts) console.log(`  gone (${x.check}) ${x.field}: "${x.html.replace(/<[^>]+>/g, '')}"`)
     for (const x of c.swaps) console.log(`  words ${x.field}: "${x.quote}" → "${x.fix}"`)
   }

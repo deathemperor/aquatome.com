@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { fitKey, fitText, type FitCheck, type FitState } from '../src/fit'
 import { loadPages } from '../src/pages'
-import { applyCut, leans, swapOf, VIDEO_CUT_FILE, videoCut } from '../src/video-cut'
+import { leans, swapOf, VIDEO_CUT_FILE, videoCut } from '../src/video-cut'
 
 const FIXTURE = new URL('../../../apps/site/test/fixture-content', import.meta.url).pathname
 const GUIDE = 'content/guides/youtube-r53ZQW0m8VM/vi.json'
@@ -20,13 +20,13 @@ const LONG =
 
 type Said = { check: FitCheck; quote: string; field?: string; fix?: string }
 /** The fixture content with the guide held for `checks`, its text `body`, and a saved read finding `said` in it. */
-async function held(body: string, said: Said[], o: { checks?: string[]; summary?: string[]; stale?: boolean; bodyFixed?: boolean } = {}) {
+async function held(body: string, said: Said[], o: { checks?: string[]; summary?: string[]; faq?: { q: string; a: string }[]; stale?: boolean; bodyFixed?: boolean } = {}) {
   const root = await mkdtemp(join(tmpdir(), 'video-cut-'))
   await cp(FIXTURE, join(root, 'content'), { recursive: true })
   await mkdir(join(root, 'engine-state'))
   const t = JSON.parse(await readFile(join(root, GUIDE), 'utf8'))
   const checks = o.checks ?? [...new Set(said.filter(x => x.check !== 'words').map(x => x.check))]
-  await writeFile(join(root, GUIDE), `${JSON.stringify({ ...t, body, summary: o.summary ?? [], faq: [], ...(o.bodyFixed ? { bodyFixed: true } : {}), held: { checks, at: '2026-11-09' } }, null, 2)}\n`)
+  await writeFile(join(root, GUIDE), `${JSON.stringify({ ...t, body, summary: o.summary ?? [], faq: o.faq ?? [], ...(o.bodyFixed ? { bodyFixed: true } : {}), held: { checks, at: '2026-11-09' } }, null, 2)}\n`)
   const p = (await loadPages(join(root, 'content'), ['vi'])).find(x => x.id === 'youtube-r53ZQW0m8VM')!
   const { parts, hash } = fitText(p)
   const part = (field = 'body') => parts.find(x => x.field === field)!.id
@@ -54,7 +54,7 @@ test('a held video guide has each sentence its read names as the source talking 
 })
 
 test('the list is only added to, an entry a guide and run, and a guide on it already is not cut again', async () => {
-  const other = { 'vi/guides/youtube-other 2026-11-16T08:00:00.000Z': { key: 'vi/guides/youtube-other', at: '2026-11-16T08:00:00.000Z', read: 'r1', cuts: [], swaps: [], emptied: [] } }
+  const other = { 'vi/guides/youtube-other 2026-11-16T08:00:00.000Z': { key: 'vi/guides/youtube-other', at: '2026-11-16T08:00:00.000Z', read: 'r1', cuts: [], swaps: [] } }
   const body = `<p>Bể ở đây chạy hơn ba năm. Phân nền giúp rễ khỏe.</p>${LONG}`
   const root = await held(body, [{ check: 'source', quote: 'Bể ở đây chạy hơn ba năm' }])
   await writeFile(join(root, VIDEO_CUT_FILE), JSON.stringify(other))
@@ -64,7 +64,7 @@ test('the list is only added to, an entry a guide and run, and a guide on it alr
   expect(list['vi/guides/youtube-other 2026-11-16T08:00:00.000Z']).toEqual(other['vi/guides/youtube-other 2026-11-16T08:00:00.000Z'])
   // Once cut, a guide is the mend's: a second cut could take another tenth.
   const again = await held(body, [{ check: 'source', quote: 'Bể ở đây chạy hơn ba năm' }])
-  await writeFile(join(again, VIDEO_CUT_FILE), JSON.stringify({ [`${KEY} earlier`]: { key: KEY, at: 'earlier', read: 'r0', cuts: [], swaps: [], emptied: [] } }))
+  await writeFile(join(again, VIDEO_CUT_FILE), JSON.stringify({ [`${KEY} earlier`]: { key: KEY, at: 'earlier', read: 'r0', cuts: [], swaps: [] } }))
   const r = await videoCut(again, { now })
   expect(r.cut).toEqual([])
   expect(r.left).toEqual([`${KEY}: cut once already`])
@@ -101,10 +101,19 @@ test('a guide is left as it is, and listed, where a cut could break it, take a s
     ['fixed by hand', held(`<p>Bể ở đây chạy hơn ba năm.</p>${LONG}`, src('Bể ở đây chạy hơn ba năm'), { bodyFixed: true }), 'fixed by hand'],
     ['a read of other text', held(`<p>Bể ở đây chạy hơn ba năm.</p>${LONG}`, src('Bể ở đây chạy hơn ba năm'), { stale: true }), 'no saved read'],
     ['a unit before a full stop', held(`<p>Bể ở đây có sưởi 50 W. Sưởi đặt gần chỗ nước chảy.</p>${LONG}`, src('Bể ở đây có sưởi 50 W')), 'runs on into the next'],
+    ['a unit before a figure', held(`<p>Bể ở đây có sưởi 50 W. 2 cây đặt gần chỗ nước chảy.</p>${LONG}`, src('Bể ở đây có sưởi 50 W')), 'runs on into the next'],
     ['a table\'s cell', held(`<table><tr><td>Đá của tiệm ở đây</td><td>Đá vôi</td></tr></table>${LONG}`, src('Đá của tiệm ở đây')), 'a table\'s cell'],
     ['an item\'s label', held(`<ul><li><strong>Anubias ở đây</strong>: loại hiếm. Cây lớn rất chậm.</li></ul>${LONG}`, src('loại hiếm')), 'names or opens what follows'],
     ['a lead-in it would cut', held(`<p>Hồ ở đây chạy hai bơm:</p><ul><li>Bơm lớn cho thác.</li></ul>${LONG}`, src('Hồ ở đây chạy hai bơm')), 'names or opens what follows'],
     ['a step in the sentence', held(`<p>Ở đây có thể thêm cây nổi ở khu ao bên trái.</p>${LONG}`, src('Ở đây có thể thêm cây nổi ở khu ao bên trái')), 'a step or a caution'],
+    ['a step by a verb Fable listed', held(`<p>Ở đây vớt cá kia ra.</p>${LONG}`, src('Ở đây vớt cá kia ra')), 'a step or a caution'],
+    ['a heading', held(`<h2>Bể ở đây chạy ba năm</h2>${LONG}`, src('Bể ở đây chạy ba năm')), 'a heading or a question'],
+    ['a question', held(LONG, [{ check: 'source', quote: 'Bể ở đây chạy bao lâu', field: 'faq.0.q' }], { faq: [{ q: 'Bể ở đây chạy bao lâu?', a: 'Rửa bông lọc bằng nước bể, không rửa bằng nước máy.' }] }), 'a heading or a question'],
+    ['an answer it would empty', held(LONG, [{ check: 'source', quote: 'Bể ở đây chạy ba năm', field: 'faq.0.a' }], { faq: [{ q: 'Chạy bao lâu?', a: 'Bể ở đây chạy ba năm.' }] }), 'every sentence of faq.0.a would go'],
+    ['a summary point it would empty', held(LONG, [{ check: 'source', quote: 'Bể ở đây chạy ba năm', field: 'summary.0' }], { summary: ['Bể ở đây chạy ba năm.', 'Châm đều.'] }), 'every sentence of summary.0 would go'],
+    ['a list it would empty', held(`<p>Phân nền giúp rễ khỏe.</p><ul><li>Bể ở đây chạy ba năm.</li></ul>${LONG}`, src('Bể ở đây chạy ba năm')), 'a list whole'],
+    ['a heading it would leave bare', held(`<h2>Bể ở đây</h2><p>Bể ở đây chạy ba năm.</p><h2>Phân nền</h2>${LONG}`, src('Bể ở đây chạy ba năm')), 'a heading with nothing under it'],
+    ['the maker\'s own tank before a kept sentence', held(`<p>Bể này đã tính sẵn chuyện tháo lọc. Khi cần vệ sinh, chỉ việc nhấc tấm đá trên cùng.</p>${LONG}`, src('Bể này đã tính sẵn chuyện tháo lọc')), 'the maker\'s own tank'],
     ['a name the guide speaks of again', held(`<p>Bể ở đây chạy hai lọc BioMaster.</p><p>BioMaster có ngăn lọc thô tháo nhanh.</p>${LONG}`, src('Bể ở đây chạy hai lọc BioMaster')), 'which the guide speaks of again'],
     ['what comes later', held(`<p>Cách set dưới đây có một tấm kỷ niệm gắn trên kính sau.</p>${LONG}`, src('Cách set dưới đây có một tấm kỷ niệm gắn trên kính sau')), 'says what comes later'],
     ['a dose beside it', held(`<p>Bể ở đây chạy ba năm. Châm 1 ml cho mỗi 40 lít nước.</p>${LONG}`, src('Bể ở đây chạy ba năm')), 'a dose in the paragraph'],
@@ -144,7 +153,9 @@ test('a swap is a term for a term: a fix with choices, commas, what to say, or o
   expect(swapOf('rêu cây (moss)', 'moss')).toBeUndefined()
 })
 
-test('a summary point or an answer a cut empties goes, its question with it', () => {
-  const t = { summary: ['Bể ở đây chạy ba năm.', 'Châm đều.'], faq: [{ q: 'Bao lâu?', a: 'Ba năm.' }, { q: 'Bao nhiêu?', a: '1 lần.' }] }
-  expect(applyCut(t, { changes: [{ field: 'summary.0', old: 'Bể ở đây chạy ba năm.', now: '' }, { field: 'faq.0.a', old: 'Ba năm.', now: '' }], emptied: [] })).toEqual({ summary: ['Châm đều.'], faq: [{ q: 'Bao nhiêu?', a: '1 lần.' }] })
+test('a words fix whose quote stands twice in its part is left for the mend', async () => {
+  const body = `<p>Lọc trong chạy êm. Bể ở đây chạy hơn ba năm. Lọc trong dễ rửa.</p>${LONG}`
+  const r = await videoCut(await held(body, [{ check: 'source', quote: 'Bể ở đây chạy hơn ba năm' }, { check: 'words', quote: 'Lọc trong', fix: 'lọc chìm' }]), { now })
+  expect(r.cut[0]!.swaps).toEqual([])
+  expect(r.cut[0]!.unswapped).toEqual(['body: "Lọc trong" (lọc chìm)'])
 })

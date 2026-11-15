@@ -22,15 +22,16 @@ import { blockOf, plain, quoted, sentences, splice, type Piece } from './sentenc
  *     advice for elsewhere among them; one whose saved read isn't of its text as it stands;
  *   - a quote not in its text, or across two sentences; a sentence that runs on into the next where a unit or an initial
  *     ends it ("50 W. Nó…");
- *   - a sentence to cut that is a table's cell, names its item ("<strong>X</strong>: …") or opens what follows (a colon),
- *     names something the guide speaks of again, says what comes later, or gives a step or a caution anywhere in it; a dose (an amount, or "một nắp") in its paragraph or
- *     the sentence kept after it;
+ *   - a sentence to cut that is a table's cell, a heading or a question, names its item ("<strong>X</strong>: …") or opens
+ *     what follows (a colon), names something the guide speaks of again, says what comes later, or gives a step or a
+ *     caution anywhere in it; a dose (an amount, or "một nắp") in its paragraph or the sentence kept after it;
  *   - a sentence kept after a cut one that reads on from it (a connective, a pronoun, "này/đó" anywhere in it, "thứ hai"),
- *     gives a figure right after a cut one with figures, or speaks of money after a price that goes; a sentence kept
- *     before one that opens it (a colon) or announces a count ("nhờ hai điều");
- *   - a body every sentence of which would go, or a cut of more than a tenth of its words.
+ *     gives a figure right after a cut one with figures, speaks of money after a price that goes, or follows in its
+ *     paragraph a cut one about the maker's own tank ("Bể này…"); a sentence kept before one that opens it (a colon) or
+ *     announces a count ("nhờ hai điều");
+ *   - a cut that would empty a part (the body, a summary point, an answer), a list or a heading, or take more than a
+ *     tenth of the guide's words.
  * - A units finding stays: units-mend.ts takes a guide held for units alone, the run after the gate has read the cut.
- * - What a cut empties goes with it: a summary point, a question and its answer, a list, a heading with nothing under it.
  */
 export const VIDEO_CUT_FILE = 'engine-state/_video-cut.json'
 /**
@@ -67,7 +68,7 @@ export function leans(sentence: string): boolean {
  * ("bù lại chúng sống lâu", "ít nơi bán"); a step or a caution may not (the chief of staff, 15 Nov 2026).
  */
 // "nên" after a comma is "so" ("…, nên mọi thứ đều tính theo…"), not "should".
-const STEP = /(?<![\p{L}])(?:(?<!,\s*)nên|cần|phải|hãy|đừng|tránh|cẩn thận|coi chừng|chú ý|lưu ý|nguy hiểm|độc|chết|bệnh|hại|thêm|dùng|cho vào|đặt|thay|châm|rửa|cắt|tắt|bật|chỉnh|kiểm tra|đo|giữ|trộn|ngâm|cách ly|cho ăn|chuyển|thả|mua|khoan|buộc|tìm)(?![\p{L}])/iu
+const STEP = /(?<![\p{L}])(?:(?<!,\s*)nên|cần|phải|hãy|đừng|tránh|cẩn thận|coi chừng|chú ý|lưu ý|nguy hiểm|độc|chết|bệnh|hại|thêm|dùng|cho vào|đặt|thay|châm|rửa|cắt|tắt|bật|chỉnh|kiểm tra|đo|giữ|trộn|ngâm|cách ly|cho ăn|chuyển|thả|mua|khoan|buộc|tìm|luộc|đậy|hạ|xếp|lắp|hút|vớt|trồng|xả)(?![\p{L}])/iu
 /** A sentence that says what comes later in the guide. */
 const ANNOUNCES = /(?<![\p{L}])(?:dưới đây|sau đây|bên dưới|như sau|bài này|cuối bài|phần dưới|phần sau|lát nữa)(?![\p{L}])/iu
 /** The names in a sentence: a word past its first that starts with a capital, of four letters or more ("BioMaster", "Twin"). */
@@ -76,6 +77,11 @@ export const names = (sentence: string) => (sentence.split(/\s+/).slice(1).join(
 const MEASURE = /(?<![\p{L}])(?:nắp|muỗng|thìa|giọt|viên)(?![\p{L}])/iu
 /** A kept sentence on money right after a price that goes ("nên tổng tiền cá cũng không đáng là bao"). */
 const MONEY = /(?<![\p{L}])(?:tiền|giá|rẻ|đắt|chi phí|đáng là bao|tốn kém)(?![\p{L}])/iu
+/**
+ * The maker's own tank ("Bể này đã tính sẵn chuyện tháo lọc"): what its paragraph says after it may be of that tank too, and
+ * would read as general once it goes ("chỉ việc nhấc tấm đá phiến trên cùng", Fable's read of 15 Nov 2026).
+ */
+const OWN = /(?<![\p{L}])(?:(?:bể|hồ)\s+này|bể (?:của )?mình|bể trong video)(?![\p{L}])/iu
 /** Which sentences sit in a table's cell: a cut there leaves the cell empty and its row or column unnamed. */
 const cells = (pieces: Piece[]) => {
   let cell = false
@@ -112,28 +118,20 @@ export type VideoCut = {
   swaps: { field: string; quote: string; fix: string }[]
   /** Words findings whose fix isn't a term to put in: left for the mend. */
   unswapped: string[]
-  /** What went because a cut emptied it: a summary point, a question and its answer, a heading. */
-  emptied: string[]
 }
 export type VideoCutReport = { cut: VideoCut[]; left: string[] }
 /** The list, an entry for each guide and run ("<guide> <time>"): two clones' runs add different keys, which the JSON-map merge keeps both of. */
-type Kept = Record<string, { key: string; at: string; read: string; cuts: CutLine[]; swaps: VideoCut['swaps']; emptied: string[] }>
+type Kept = Record<string, { key: string; at: string; read: string; cuts: CutLine[]; swaps: VideoCut['swaps'] }>
 type Lang = Record<string, unknown> & { held?: Held; body?: string; bodyFixed?: boolean; faqFixed?: boolean; summary?: string[]; faq?: { q: string; a: string }[] }
 
-/** A body without lists, and headings, that a cut left with nothing under them: what went, for the report. */
-function tidy(html: string): { html: string; emptied: string[] } {
-  const emptied: string[] = []
-  let out = html, was = ''
-  while (out !== was) {
-    was = out
-    out = out.replace(/<(ul|ol)\b[^>]*>\s*<\/\1>/gi, '')
-    out = out.replace(/<h([1-6])\b[^>]*>([\s\S]*?)<\/h\1>(?=\s*(?:<h([1-6])\b|$))/gi, (all, level: string, text: string, next?: string) => {
-      if (next !== undefined && Number(next) > Number(level)) return all
-      emptied.push(`heading "${plain(text)}"`)
-      return ''
-    })
-  }
-  return { html: out.trim(), emptied }
+/**
+ * Whether a cut body loses a list whole (splice takes one whose every item went) or leaves a heading with nothing under
+ * it: what stood around them would be about nothing (Fable's read of 15 Nov 2026).
+ */
+function breaks(old: string, now: string): boolean {
+  const lists = (h: string) => h.match(/<(?:ul|ol)\b/gi)?.length ?? 0
+  const bare = (h: string) => [...h.matchAll(/<h([1-6])\b[^>]*>[\s\S]*?<\/h\1>(?=\s*(?:<h([1-6])\b|$))/gi)].filter(m => m[2] === undefined || Number(m[2]) <= Number(m[1])).length
+  return lists(now) < lists(old) || bare(now) > bare(old)
 }
 
 /**
@@ -172,7 +170,7 @@ export function cutGuide(p: Page, t: Lang, e: FitEntry | undefined): Omit<VideoC
   const share = lost / Math.max(1, texts.reduce((n, x) => n + words(x.text), 0))
   // The guide's whole text, to find a name a cut sentence gives that it speaks of again elsewhere.
   const whole = texts.map(x => plain(x.text)).join(' ')
-  const out: Omit<VideoCut, 'key' | 'file'> = { changes: [], cuts: [], swaps: [], unswapped: [], emptied: [] }
+  const out: Omit<VideoCut, 'key' | 'file'> = { changes: [], cuts: [], swaps: [], unswapped: [] }
   const now = new Map<string, string>()
   for (const [field, m] of gone) {
     const ps = pieces.get(field)!
@@ -185,6 +183,8 @@ export function cutGuide(p: Page, t: Lang, e: FitEntry | undefined): Omit<VideoC
       if (/[.!?…]\s+["“‘(«]*[\p{Lu}\d]/u.test(plain(said[i]!))) return { left: `a sentence it would cut runs on into the next, in ${field}: "${plain(said[i]!)}"` }
       const was = plain(said[i]!)
       if (cell[i]) return { left: `a sentence it would cut is a table's cell, in ${field}: "${was}"` }
+      // A heading names its section and a question its answer: either cut leaves the rest under nothing (Fable's read).
+      if (heading[i] || /^faq\.\d+\.q$/.test(field)) return { left: `a sentence it would cut is a heading or a question, in ${field}: "${was}"` }
       // A label ("<strong>Anubias 'Needle Leaf'</strong>: …") names what its item is about, and a lead-in ending in a colon
       // opens what follows: either cut leaves the rest about nothing.
       if (/<(?:strong|b)\b/i.test(said[i]!) || /^[^.:!?]{1,60}:\s/u.test(was) || /[:：]\s*$/.test(was)) return { left: `a sentence it would cut names or opens what follows it, in ${field}: "${was}"` }
@@ -213,19 +213,20 @@ export function cutGuide(p: Page, t: Lang, e: FitEntry | undefined): Omit<VideoC
         // A figure kept right after a cut one that set its terms ("Một cây sưởi khoảng 25 W…" after the tank and the room).
         if (block[j] === block[i] && /\d/.test(was) && /\d/.test(next)) return { left: `a figure kept after a cut one with figures, in ${field}: "${next}"` }
         if (f.check === 'price' && MONEY.test(next)) return { left: `a sentence on money kept after a price that goes, in ${field}: "${next}"` }
+        if (block[j] === block[i] && OWN.test(was)) return { left: `a sentence kept after a cut one about the maker's own tank may be of that tank, in ${field}: "${next}"` }
       }
       // The sentence kept before it, if it opens what was cut ("Có thể thử các loại sau:").
       let k = i - 1
       while (m.has(k)) k--
       if (k >= 0 && (/[:：]\s*$/.test(plain(said[k]!)) || FORETELLS.test(plain(said[k]!)))) return { left: `a sentence kept before a cut one opens it, in ${field}: "${plain(said[k]!)}"` }
     }
-    if (field === 'body' && m.size >= said.length) return { left: 'every sentence of its body would go' }
+    if (m.size >= said.length) return { left: `every sentence of ${field} would go` }
     for (const [i, f] of [...m].sort(([a], [b]) => a - b)) {
       let b = i - 1
       while (b >= 0 && m.has(b)) b--
       out.cuts.push({ field, before: b >= 0 ? plain(said[b]!) : '', html: said[i]!, check: f.check, why: f.why, quote: f.quote ?? '' })
     }
-    now.set(field, m.size >= said.length ? '' : splice(ps, new Map([...m.keys()].map(i => [i, '']))))
+    now.set(field, splice(ps, new Map([...m.keys()].map(i => [i, '']))))
   }
   // Last, so a guide a cut would break is listed for that first.
   if (share > VIDEO_CUT_SHARE) return { left: `the cut would take ${Math.round(share * 100)}% of its words` }
@@ -240,11 +241,8 @@ export function cutGuide(p: Page, t: Lang, e: FitEntry | undefined): Omit<VideoC
   }
   for (const [field, text] of now) {
     const old = texts.find(x => x.field === field)!.text
-    if (field === 'body') {
-      const t2 = tidy(text)
-      out.emptied.push(...t2.emptied)
-      out.changes.push({ field, old, now: t2.html })
-    } else out.changes.push({ field, old, now: text.trim() })
+    if (field === 'body' && breaks(old, text)) return { left: 'a cut would take a list whole or leave a heading with nothing under it' }
+    out.changes.push({ field, old, now: text.trim() })
   }
   return out
 }
@@ -253,19 +251,14 @@ export function cutGuide(p: Page, t: Lang, e: FitEntry | undefined): Omit<VideoC
 const path = (field: string) => field.split('.').map(x => (/^\d+$/.test(x) ? Number(x) : x))
 const get = (t: unknown, at: (string | number)[]) => at.reduce<unknown>((o, k) => (o as Record<string | number, unknown>)?.[k], t)
 
-/** The guide's file with the cut's changes: a summary point or an answer left empty goes, its question with it. */
-export function applyCut(t: Lang, c: Pick<VideoCut, 'changes' | 'emptied'>): Lang {
+/** The guide's file with the cut's changes: no part is ever emptied (cutGuide holds a guide where one would be). */
+export function applyCut(t: Lang, c: Pick<VideoCut, 'changes'>): Lang {
   const next = structuredClone(t)
-  const dropSummary = new Set<number>(), dropFaq = new Set<number>()
   for (const ch of c.changes) {
     const at = path(ch.field)
-    if (at[0] === 'summary' && !ch.now) { dropSummary.add(at[1] as number); continue }
-    if (at[0] === 'faq' && !ch.now) { dropFaq.add(at[1] as number); continue }
     const o = get(next, at.slice(0, -1)) as Record<string | number, string>
     o[at.at(-1)!] = ch.now
   }
-  if (next.summary) next.summary = next.summary.filter((_, i) => !dropSummary.has(i))
-  if (next.faq) next.faq = next.faq.filter((_, i) => !dropFaq.has(i))
   return next
 }
 
@@ -299,7 +292,7 @@ export async function videoCut(root: string, o: { limit?: number; first?: readon
     if (r.changes.some(c => (get(t, path(c.field)) as string | undefined)?.trim() !== c.old.trim())) { report.left.push(`${key}: its file isn't the text its read was of`); continue }
     report.cut.push({ key, file, ...r })
     if (o.dryRun) continue
-    kept[`${key} ${at}`] = { key, at, read: state[key]!.hash, cuts: r.cuts, swaps: r.swaps, emptied: r.emptied }
+    kept[`${key} ${at}`] = { key, at, read: state[key]!.hash, cuts: r.cuts, swaps: r.swaps }
     // The list first, so a run stopped between the two never leaves a cut that isn't on it.
     await writeFile(keptFile, `${JSON.stringify(Object.fromEntries(Object.entries(kept).sort(([a], [b]) => a.localeCompare(b))), null, 2)}\n`)
     await writeFile(join(root, file), `${JSON.stringify(applyCut(t, r), null, 2)}\n`)

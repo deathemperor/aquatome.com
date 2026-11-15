@@ -397,8 +397,8 @@ fi
 # fish or a map taken off their page, card figures out of bounds hidden, titles promising a count their text lacks
 # rewritten (reviewer-gated) or their number dropped.
 pnpm engine sweep || log "sweep: failed"
-# A held video guide whose read names only sentences that go whole (the source talking, advice for a reader elsewhere, a
-# foreign shop, a price, a product) has them cut by code with no model, twelve guides a run, each cut sentence kept in
+# A held video guide whose read names only sentences that go whole (the source talking, a foreign shop, a price, a
+# product; advice for a reader elsewhere waits for the mend) has them cut by code with no model, twelve guides a run, each cut sentence kept in
 # engine-state/_video-cut.json for the sentence-only mend to write the true ones back. A guide a cut could break, or one a
 # person waits on (harm, a kit, a dose), stays as it is (the chief of staff, 15 Nov 2026; video-cut.ts). The gate reads
 # each next. Before the units mend, which then takes a guide held for units alone, and in the Mac's photos part alone, as
