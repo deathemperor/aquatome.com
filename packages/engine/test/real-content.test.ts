@@ -477,7 +477,7 @@ test('the seller notices kept as guides say nothing of the dealer\'s stock, and 
   for (const [id, name, was] of kept) {
     const t = JSON.parse(readFileSync(join(dir, id, 'vi.json'), 'utf8')) as Translation & { redirectFrom?: { slug: string; name: string }[] }
     expect(t.bodyFixed, id).toBe(true)
-    expect(t.body, id).not.toMatch(/chúng tôi|khách hàng|hàng tồn kho|bán buôn|có hàng trở lại|đang có|Đợt này|lần đầu tiên|Lô cá này|Frank Schäfer/iu)
+    expect(t.body, id).not.toMatch(/chúng tôi|khách hàng|hàng tồn kho|bán buôn|có hàng trở lại|đang có|Đợt này|lần đầu tiên|Lô cá này|Văn bản và ảnh/iu)
     if (name) expect([t.name, t.nameFixed, t.slug, t.redirectFrom], id).toEqual([name, true, slugify(name), [{ slug: was, name: '' }]])
   }
 })
@@ -488,7 +488,7 @@ test('every guide taken off for good is one the content has, and forwards to a p
     expect(existsSync(join(content, 'guides', id, 'vi.json')), id).toBe(true)
     if (to !== 'guides') expect(existsSync(join(content, to.kind, to.id, 'vi.json')), `${id} → ${to.kind}/${to.id}`).toBe(true)
   }
-  expect(Object.keys(RETIRED_GUIDES)).toHaveLength(28)
+  expect(Object.keys(RETIRED_GUIDES)).toHaveLength(26)
   expect(readdirSync(join(content, 'guides')).filter(id => GALLERY_POST.test(id)).length).toBeGreaterThanOrEqual(66)
 })
 
