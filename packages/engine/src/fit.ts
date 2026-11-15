@@ -641,6 +641,24 @@ export function doseGroups(pages: Page[], state: FitState): DoseGroup[] {
   return [...groups.values()].sort((a, b) => b.conflicts.length - a.conflicts.length || b.rows.length - a.rows.length || a.treatment.localeCompare(b.treatment))
 }
 
+/** A length in cm, or a range of two ("2,5 cm", "2,5 – 5 cm", "2.5–4 ซม."). */
+const LENGTH_CM = /(\d+(?:[.,]\d+)?)(?:\s*(?:[–-]|đến|tới|to|hingga|sampai|ถึง)\s*(\d+(?:[.,]\d+)?))?\s*(?:cm|ซม\.?)(?![\p{L}\p{N}])/giu
+/** What a length is per: a stocking rule's "mỗi 2,5 cm" is a source's per inch (breed-units.ts), never a keeper's figure. */
+const PER_LENGTH = /(?:mỗi|trên|per|setiap|ต่อ|\/)\s*(?:khoảng\s*)?$/iu
+/**
+ * A units finding whose figures are all lengths a keeper here writes (the chief of staff, 16 Nov 2026): under 10 cm, a
+ * whole or half centimetre ("sau một tuần mực nước có thể tụt gần 2,5 cm", "2,5–5 cm" of gravel). A converted oddity
+ * still counts ("2,54 cm", "3,8 cm"), and so does a quote with any other figure, a length per something, or a tank's
+ * sides. From 10 cm up the checklist says it (a whole centimetre within a tenth), and the model's finding stands.
+ */
+export function keeperLengths(quote: string): boolean {
+  if (/\d\s*[×x]\s*\d/u.test(quote)) return false
+  const found = [...quote.matchAll(LENGTH_CM)]
+  if (!found.length || /\d/.test(quote.replace(LENGTH_CM, ' '))) return false
+  return found.every(m => !PER_LENGTH.test(quote.slice(Math.max(0, m.index - 24), m.index)) &&
+    [m[1], m[2]].filter((n): n is string => !!n).every(n => { const v = Number(n.replace(',', '.')); return v < 10 && Number.isInteger(v * 2) }))
+}
+
 /** Everything found on a page: the rules', the model's, and each product the model named that the table says is hard to find here. */
 export function fitFindings(p: Page, entry?: FitEntry): FitFinding[] {
   const named = (entry?.products ?? []).flatMap(n => {
@@ -649,7 +667,7 @@ export function fitFindings(p: Page, entry?: FitEntry): FitFinding[] {
   })
   // What it's for, not how: two readers agree on the first and not on the second, which is only for comparing doses.
   const unsaid = (entry?.doses ?? []).filter(d => !d.use).map(d => ({ check: 'dose-purpose' as const, part: '', quote: clip(d.quote), why: 'doesn\'t say what this dose is for', by: 'model' as const }))
-  const all = dedupe([...fitRules(p), ...(entry?.findings ?? []), ...named, ...unsaid])
+  const all = dedupe([...fitRules(p), ...(entry?.findings ?? []), ...named, ...unsaid]).filter(f => f.check !== 'units' || !keeperLengths(f.quote))
   if (!p.en || !all.some(f => f.check === 'units')) return all
   const { parts } = fitText(p)
   return all.filter(f => !givenBySource(p, f, parts))
