@@ -202,3 +202,17 @@ test("a video on the pages of two fish gets no title: it keeps its own, recorded
   expect(await translateVideoTitles(root, model(), 'vi', { redo: true })).toMatchObject({ titles: 4 })
   expect(await titles(root, 'vi')).not.toHaveProperty('glass')
 })
+
+test("a title stored for such a video before is taken out, so the meaning check, which reads the stored titles, can't pass it and clear its refusal", async () => {
+  const root = await store()
+  const put = async (path: string, data: unknown) => { await mkdir(join(root, path, '..'), { recursive: true }); await writeFile(join(root, path), JSON.stringify(data)) }
+  for (const [id, sci] of [['c', 'Kryptopterus bicirrhis'], ['e', 'Kryptopterus vitreolus']]) {
+    await put(`content/species/${id}/entity.json`, { scientificName: sci, videos: [video('glass', 'Glass Catfish Care')] })
+    await put(`content/species/${id}/vi.json`, { name: id })
+  }
+  await translateVideoTitles(root, model(), 'vi')
+  // A run with nothing else to write takes it out too.
+  await put('content/video-titles/vi.json', { ...(await titles(root, 'vi')), glass: 'Nuôi cá nheo kính' })
+  expect(await translateVideoTitles(root, model(), 'vi')).toMatchObject({ titles: 0 })
+  expect(await titles(root, 'vi')).not.toHaveProperty('glass')
+})
