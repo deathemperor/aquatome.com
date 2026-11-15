@@ -92,3 +92,16 @@ test('a loop cut from YouTube is CC BY 3.0 and keeps its whole record: title, cu
   const { title: _t, cut: _c, checkedAt: _d, snapshot: _s, ...bare } = yt
   expect(LoopSchema.safeParse({ ...bare, licence: 'CC BY 4.0', licenceUrl: 'https://creativecommons.org/licenses/by/4.0/', source: 'https://commons.wikimedia.org/wiki/File:X.webm' }).success).toBe(true)
 })
+
+test("a loop says how a card frames it, fill or whole, and the calendar keeps the mark when it's read and written again", async () => {
+  const { CurationSchema } = await import('../src/index')
+  const loop = {
+    src: 'https://media.aquatome.com/loops/x-1.mp4', poster: 'https://media.aquatome.com/loops/x-1.webp', w: 1080, h: 1080, seconds: 6,
+    licence: 'CC BY 4.0', licenceUrl: 'https://creativecommons.org/licenses/by/4.0/', author: 'Someone', source: 'https://commons.wikimedia.org/wiki/File:X.webm',
+  }
+  const read = (frame?: string) => CurationSchema.safeParse({ version: 1, weeks: [], days: [], loops: { x: { ...loop, frame } } })
+  expect(read('fill').data?.loops?.x.frame).toBe('fill')
+  expect(read('whole').data?.loops?.x.frame).toBe('whole')
+  expect(read().data?.loops?.x.frame).toBeUndefined()
+  for (const frame of ['crop', 'Fill', '']) expect(read(frame).success, frame).toBe(false)
+})
