@@ -1,6 +1,6 @@
 import { existsSync, readdirSync } from 'node:fs'
 import { expect, test } from 'vitest'
-import type { GlossaryEntity, Localized, Photo } from '@aq/schema'
+import { glossaryKinds, PictureSet, type GlossaryEntity, type Localized, type Photo } from '@aq/schema'
 import { getContent } from '../src/lib/content'
 import { bodySections, glossaryParts, linkedTermPaths, nameCount, termTitle, tipLine, usedPictures, usedRows } from '../src/lib/glossary-page'
 import { DIST, page } from './dist'
@@ -161,23 +161,41 @@ test('a term\'s rows show no picture twice: a row whose picture the page shows a
 // the kinds row; the term's own photo is its first no kind holds; its other photos follow in the row.
 test('a term\'s page shows every photo it holds: its first under the title, the rest and its kinds\' photos, named, in a row, none twice', async () => {
   const c = await getContent('vi')
-  const leaf = c.glossary.find(x => x.id === 'la-bang')!
-  expect(leaf.photos?.length).toBeGreaterThan(1)
-  const p = glossaryParts('vi', c, leaf)
-  expect([p.photo, ...p.album.map(a => a.photo)]).toEqual(leaf.photos)
-  expect(p.album.every(a => a.name === undefined)).toBe(true)
-  const lua = c.glossary.find(x => x.id === 'lua')!
-  const kinds = new Map((lua.kinds ?? []).map(k => [k.id, k.photo]))
-  expect([...kinds.keys()]).toEqual(expect.arrayContaining(['lua-bonsai', 'lua-cholla']))
-  const q = glossaryParts('vi', c, lua)
-  expect(q.photo).toEqual(lua.photos?.[0])
-  expect(q.album).toEqual(expect.arrayContaining([{ photo: kinds.get('lua-bonsai'), name: 'Lũa bonsai' }, { photo: kinds.get('lua-cholla'), name: 'Lũa cholla' }]))
+  const g = c.glossary.find(x => x.id === 'ca-dan')!
+  const [danio, boraras] = g.photos ?? []
+  const neon = g.kinds?.find(k => k.id === 'ca-neon')?.photo
+  expect(danio && boraras && neon).toBeTruthy()
+  const p = glossaryParts('vi', c, g)
+  expect(p.photo).toEqual(danio)
+  expect(p.album).toEqual([{ photo: boraras }, { photo: neon, name: 'Cá neon' }])
   // A kind's photo that is also the term's: shown once, as the kind's; the term opens on its next photo.
-  const shared = term({ ...lua, photos: [kinds.get('lua-bonsai')!, ...(lua.photos ?? [])] }, {})
-  const r = glossaryParts('vi', c, shared)
-  expect(r.photo).toEqual(lua.photos?.[0])
-  expect([r.photo, ...r.album.map(a => a.photo)].filter(x => x?.url === kinds.get('lua-bonsai')!.url)).toHaveLength(1)
+  const shared = glossaryParts('vi', c, { ...g, kinds: [{ id: 'ca-tran-chau', photo: danio! }] })
+  expect(shared.photo).toEqual(boraras)
+  expect(shared.album).toEqual([{ photo: danio, name: 'Cá trân châu' }])
   // A kind the entry doesn't name has no name to show beside its photo: left out, as the engine reports it.
-  const unnamed = glossaryParts('vi', c, { ...lua, kinds: [{ id: 'lua-khong-co', photo: kinds.get('lua-cholla')! }] })
-  expect(unnamed.album.map(a => a.photo.url)).not.toContain(kinds.get('lua-cholla')!.url)
+  expect(glossaryParts('vi', c, { ...g, kinds: [{ id: 'ca-khong-co', photo: neon! }] }).album).toEqual([{ photo: boraras }])
+})
+
+// The chief of staff, 15 Nov 2026: "a photo that's stored and unseen is the same complaint again" (the owner's: the page
+// doesn't show the thing). Every photo the build kept for a term (after the screen, as getContent loads it like the build)
+// and every kind's photo whose kind its entry names is drawn on the term's built page, in every language. Failed on the
+// page of 15 Nov: lá bàng's second photo and Lũa's bonsai and cholla.
+test('every photo a term holds, and every named kind\'s photo, is drawn on its built page', async () => {
+  let held = 0
+  for (const lang of ['vi', 'id', 'th', 'ms'] as const) {
+    const c = await getContent(lang).catch(() => null)
+    if (!c) continue
+    for (const g of c.glossary) {
+      const named = new Set(glossaryKinds(g.t.body ?? '').map(k => k.id))
+      const photos = [...(g.photos ?? []), ...(g.kinds ?? []).filter(k => named.has(k.id)).map(k => k.photo)]
+      if (!photos.length) continue
+      const path = `${lang === 'vi' ? '' : `/${lang}`}/thuat-ngu/${g.t.slug}/`
+      if (lang !== 'vi' && !existsSync(`${DIST}${path}index.html`)) continue
+      const drawn = new PictureSet(c.pictureHashes)
+      for (const img of page(path).dom.querySelectorAll('main img')) drawn.add(img.getAttribute('src') ?? undefined)
+      for (const p of photos) expect(drawn.has(p.url) || drawn.has(p.thumb), `${path} draws ${p.url}`).toBe(true)
+      held += photos.length
+    }
+  }
+  expect(held).toBeGreaterThan(0)
 })
