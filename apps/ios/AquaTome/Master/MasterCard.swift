@@ -56,7 +56,7 @@ struct MasterCard: View {
         Button("Sửa") { editing = true }.font(.subheadline).disabled(master.sending).accessibilityIdentifier("master-edit")
       }
       Text(verbatim: summary).font(.subheadline).foregroundStyle(.secondary).accessibilityIdentifier("master-summary")
-      Button { Task { await master.start() } } label: { sendingOr(Text("Bắt đầu")) }
+      Button { Task { await master.start() } } label: { sendingOr(Text("Bắt đầu"), colour: ink) }
       .buttonStyle(Filled(fill: .accentColor, words: ink, keepsLook: master.sending))
       .disabled(master.sending || b.steps.isEmpty || master.trial.state != .idle)
       .accessibilityIdentifier("master-start")
@@ -103,7 +103,7 @@ struct MasterCard: View {
         Text(verbatim: master.summary(run.steps) + " · " + (run.ends.map { String(localized: "kết thúc lúc \(Self.time($0))") } ?? String(localized: "đến khi bạn bấm Kết thúc")))
           .font(.subheadline).opacity(0.85)
           .accessibilityIdentifier("master-summary")
-        Button { Task { await master.finish(byReader: true) } } label: { sendingOr(Text("Kết thúc")) }
+        Button { Task { await master.finish(byReader: true) } } label: { sendingOr(Text("Kết thúc"), colour: .accentColor) }
         .buttonStyle(Filled(fill: ink, words: .accentColor, keepsLook: master.sending))
         .disabled(master.sending)
         .accessibilityIdentifier("master-end")
@@ -129,9 +129,10 @@ struct MasterCard: View {
   private var ink: Color { scheme == .dark ? Color(red: 0, green: 0x24 / 255, blue: 0x1B / 255) : .white }
 
   /// The button's words, or "Đang gửi…" with a spinner while steps go out.
-  @ViewBuilder private func sendingOr(_ words: Text) -> some View {
+  @ViewBuilder private func sendingOr(_ words: Text, colour: Color) -> some View {
     if master.sending {
-      HStack(spacing: 8) { ProgressView(); Text("Đang gửi…") }
+      // The spinner in the words' colour too: the button, disabled meanwhile, would grey it (the Design Lead, 15 Nov).
+      HStack(spacing: 8) { ProgressView().tint(colour).environment(\.isEnabled, true); Text("Đang gửi…") }
     } else {
       words
     }

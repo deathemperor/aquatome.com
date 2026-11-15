@@ -179,12 +179,14 @@ final class MasterFlowTests: XCTestCase {
     XCTAssertTrue(element(app, "master-create").waitForExistence(timeout: 10), "no card")
     shoot("none-\(name)")
     make(app, end: "120", shots: name)
+    top(app)
     shoot("ready-\(name)")
     tap(app, "master-start")
     // Its steps going out: "Đang gửi…" in Kết thúc's place (the lamp's two recordings take about eight seconds).
     shoot("sending-\(name)")
     XCTAssertTrue(element(app, "master-left").waitForExistence(timeout: 20), "not running")
     expect(app, "master-end", contains: "Kết thúc", timeout: 40)
+    top(app)
     shoot("running-\(name)")
     tap(app, "master-end")
     XCTAssertTrue(element(app, "master-start").waitForExistence(timeout: 40), "not ready again")
@@ -195,10 +197,17 @@ final class MasterFlowTests: XCTestCase {
     tap(app, "master-start")
     XCTAssertTrue(element(app, "master-since").waitForExistence(timeout: 20), "not running")
     expect(app, "master-end", contains: "Kết thúc", timeout: 40)
+    top(app)
     shoot("running-until-tap-\(name)")
   }
 
   // MARK: Helpers
+
+  /// Back to the top of Đèn before a shot, as the taps scroll it up (at the largest text the card's heading goes under
+  /// the bar). Only on the tab itself: a drag down on a sheet would close it.
+  private func top(_ app: XCUIApplication) {
+    for _ in 0..<3 { app.swipeDown(velocity: .fast) }
+  }
 
   /// The app on Đèn as the owner, the stand-in Tuya cloud's keys entered and the master flows' tank with its strips.
   private func launch(_ more: [String] = [], signIn: Bool = true, reset: Bool = true) -> XCUIApplication {
