@@ -46,10 +46,13 @@ export const RETIRED_GUIDES: Readonly<Record<string, RetiredTo>> = {
   // The Writing Lead's rulings of 15 Nov 2026 on the four held back: the hatchetfish imports' size and C. myersi's males,
   // A. adonis's 1 m as "is said to" are on their pages. The lungfish notice's daily watch and wool method are on P.
   // dolloi's page, and its bites often a mistake for food on P. annectens's (the site has no P. aethiopicus page). The C.
-  // narcissus notice stays on until C. robustus's sexes told apart by the ventral fins are on its page.
+  // narcissus notice's C. robustus lines (both sexes grow the long dorsal fin; the sexes are best told apart by the ventral
+  // fins) are C. robustus's dealer sexing part, under the notice's address (the Writing Lead, 15 Nov 2026); nothing of C.
+  // narcissus moves, and the site has no C. narcissus page.
   'glaser-en-09-characoids-tetra-relationship-thoracocharax-stellatus-gasteropelecus-maculatus-jumbo-carnegiella-myersi-carnegiella-strigata-2': fish('thoracocharax-stellatus'),
   'glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-huge-acanthicus-adonis-arrived-en': fish('acanthicus-adonis'),
   'glaser-en-29-lungfishes-lungfishes-from-the-congo': fish('protopterus-dolloi'),
+  'glaser-en-10-catfishes-10a-catfishes-corydoras-co-show-corydoras-arrived-en': fish('corydoras-robustus'),
 }
 
 /** 2hraquarist's gallery posts of other people's tanks: every one, those written later too, off to the guides list. */

@@ -532,6 +532,7 @@ const FOLDS: [string, string, string, string][] = [
   ['cichla-ocellaris', 'notes', 'https://www.aquariumglaser.de/en/general/cichla-ocellaris-x-melaniae-hybrid-2/', 'en-general-cichla-ocellaris-x-melaniae-hybrid-2.md'],
   ['protopterus-dolloi', 'behaviour', 'https://www.aquariumglaser.de/en/29-lungfishes/lungfishes-from-the-congo/', 'en-29-lungfishes-lungfishes-from-the-congo.md'],
   ['protopterus-annectens', 'behaviour', 'https://www.aquariumglaser.de/en/29-lungfishes/lungfishes-from-the-congo/', 'en-29-lungfishes-lungfishes-from-the-congo.md'],
+  ['corydoras-robustus', 'dimorphism', 'https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/show_corydoras_arrived__en/', 'en-10-catfishes-10a-catfishes-corydoras-co-show-corydoras-arrived-en.md'],
   ['distichodus-sexfasciatus', 'notes', 'https://www.aquariumglaser.de/en/32-all-the-rest/congo_importation_arrived__en/', 'en-32-all-the-rest-congo-importation-arrived-en.md'],
   ['pelvicachromis-rubrolabiatus', 'dimorphism', 'https://www.aquariumglaser.de/en/32-all-the-rest/finally_an_import_from_guinea__en/', 'en-32-all-the-rest-finally-an-import-from-guinea-en.md'],
   ['thoracocharax-stellatus', 'notes', 'https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/thoracocharax-stellatus-gasteropelecus-maculatus-jumbo-carnegiella-myersi-carnegiella-strigata-2/', 'en-09-characoids-tetra-relationship-thoracocharax-stellatus-gasteropelecus-maculatus-jumbo-carnegiella-myersi-carnegiella-strigata-2.md'],
@@ -576,7 +577,20 @@ test('C. ocellaris\'s dealer notes say the genus grew from five species to 15, a
 // page, hedged as the notice is ("often", "it seems").
 test('P. annectens\'s dealer part says its bites often seem a mistake for food, hedged as the notice is', () => {
   const vi = (JSON.parse(readFileSync(fileURLToPath(new URL('../../../content/species/protopterus-annectens/vi.json', import.meta.url)), 'utf8')) as Translation).sections!['behaviour:glaser']
-  expect(vi).toBe('<p>Ở P. aethiopicus và P. annectens, nhiều khi cá cắn nhau có vẻ chỉ là đớp nhầm vì tưởng mồi.</p>')
+  expect(vi).toBe('<p>Cá cắn nhau nhiều khi có vẻ là đớp nhầm vì tưởng là mồi.</p>')
+})
+
+// C. robustus's sexing part (the Writing Lead, 15 Nov 2026): the narcissus notice's two lines under its address, so the
+// ventral fins link to a page that says them; "females a little bigger" stays in the quick facts, under the bred article.
+// Indonesian and Thai lose their old text, so the translator makes the new part.
+test('C. robustus\'s dealer sexing part is the notice\'s ventral-fins line, and its quick facts keep the females\' size', () => {
+  const dir = fileURLToPath(new URL('../../../content/species/corydoras-robustus', import.meta.url))
+  const read = <T>(f: string) => JSON.parse(readFileSync(join(dir, f), 'utf8')) as T
+  const parts = read<{ sections: { key: string; source: string; html: string }[] }>('entity.json').sections.filter(s => s.source === 'glaser')
+  expect(parts.find(s => s.key === 'dimorphism')!.html).toContain('The sexes can be told best apart by the shape of the ventral fins.')
+  expect(parts.find(s => s.key === 'quickFacts')!.html).toContain('Females become somewhat bigger than males.')
+  expect(read<Translation>('vi.json').sections!['dimorphism:glaser']).toBe('<p>Ở C. robustus, cả cá đực lẫn cá cái đều có vây lưng dài. Cách phân biệt đực cái tốt nhất là nhìn hình dạng vây bụng.</p>')
+  for (const l of ['id', 'th']) expect(read<Translation>(`${l}.json`).sections!['dimorphism:glaser'], l).toBeUndefined()
 })
 
 test('the seller notices kept as guides say nothing of the dealer\'s stock, and the two renamed forward', () => {
@@ -600,7 +614,7 @@ test('every guide taken off for good is one the content has, and forwards to a p
     expect(existsSync(join(content, 'guides', id, 'vi.json')), id).toBe(true)
     if (to !== 'guides') expect(existsSync(join(content, to.kind, to.id, 'vi.json')), `${id} → ${to.kind}/${to.id}`).toBe(true)
   }
-  expect(Object.keys(RETIRED_GUIDES)).toHaveLength(30)
+  expect(Object.keys(RETIRED_GUIDES)).toHaveLength(31)
   expect(readdirSync(join(content, 'guides')).filter(id => GALLERY_POST.test(id)).length).toBeGreaterThanOrEqual(66)
 })
 
