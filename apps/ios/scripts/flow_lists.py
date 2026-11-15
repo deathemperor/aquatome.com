@@ -121,9 +121,12 @@ LOVE_ECOLOGY = ['LightFlowTests/' + t for t in (
     'testTheOwnersLoveEcologyLightTakesOffThenAColour', 'testTheLoveEcologyCardKeepsWhatWasSentAndWhatLeavingCutOff',
     'testKhacsWheelSendsOncePerDragAndIsTwoValuesToAdjust', 'testAKeptRecordWithoutALevelOrWithAHueBelowZeroStillReads',
     'testLeavingTheLightsScreenDropsWhatWaits', 'testAStartThatDoesntAnswerGivesUpAndItsLateAnswerCreditsNothing',
-    'testSigningOutDropsWhatWaits')]
-# The master button's flow that puts the lamp back to the colour the Love Ecology card sent: the two share its broadcast.
-MASTER_LAMP = 'MasterFlowTests/testEndsByTheClockAndPutsBackTheLastColourSentToTheLamp'
+    'testSigningOutDropsWhatWaits', 'testSigningOutOnAnotherTabStopsTheCardsSendOnAir')]
+# The master button's flows that share the lamp's broadcast with the Love Ecology card: its put-back to the colour the
+# card sent, the card's send its lamp step cuts short, and the gap the card's next send waits after the step.
+MASTER_LAMP = ['MasterFlowTests/' + t for t in (
+    'testEndsByTheClockAndPutsBackTheLastColourSentToTheLamp', 'testACardSendTheButtonsLampStepCutsIsNotShownAsSent',
+    'testTheCardsNextSendWaitsTheGapAfterTheButtonsLampStep')]
 # The tanks tab: a tank's own flows, its plugs section and its hint that opens the Tài khoản sheet (where the account and
 # the posters blocked are, not here), a page's links and the handbook's tools that open it, and the lights kept on a tank.
 TANKS_TAB = ['TanksFlowTests', 'TankLifeFlowTests', 'TankCheckFlowTests', 'AccountFlowTests', 'PlugFlowTests',
@@ -216,7 +219,7 @@ REACH = {
     APP + 'Telemetry/TelemetrySwitch.swift': ACCOUNT_SHEET,
     APP + 'Lights/': ['LightFlowTests', CONNECT_SENT],
     # The Love Ecology light's card sends through the broadcaster it shares with the master button.
-    APP + 'Lights/LoveEcology.swift': ['LightFlowTests', CONNECT_SENT, MASTER_LAMP],
+    APP + 'Lights/LoveEcology.swift': ['LightFlowTests', CONNECT_SENT] + MASTER_LAMP,
     # The light's card, which the page shots also take (with its outlet's warning), for a change's before and after.
     APP + 'Lights/LightsView.swift': ['LightFlowTests', CONNECT_SENT] + shots('light') + [
                                       'AccountFlowTests/testTheAccountIsInTheProfileSheetFromEveryTab'],
@@ -344,7 +347,7 @@ def check(runs, left, reached):
                   ['apps/ios/scripts/a-new-script.sh', 'apps/ios/design/at-1024.png']):
         assert runs(paths) == [] and left(paths) == '', paths
     assert reached([KIT + 'Sources/FishLamp/love-ecology.json']) == set(LOVE_ECOLOGY)
-    assert reached([APP + 'Lights/LoveEcology.swift']) == {'LightFlowTests', CONNECT_SENT, MASTER_LAMP}
+    assert reached([APP + 'Lights/LoveEcology.swift']) == {'LightFlowTests', CONNECT_SENT, *MASTER_LAMP}
     # What it leaves to main: the classes of the flows it reaches that it doesn't run.
     assert left([APP + 'Handbook/HomeList.swift']) == ' '.join(sorted(set(HANDBOOK_FLOWS + ['TankVolumeFlowTests', 'ViAtRootFlowTests'])))
     assert left([APP + 'Lights/Radio.swift']) == 'LightFlowTests TelemetryFlowTests'

@@ -1108,6 +1108,26 @@ final class LightFlowTests: XCTestCase {
     wait(app, "lamp-starts", NSPredicate(format: "label == '1'"), "one broadcast, red's", file: #filePath, line: #line)
   }
 
+  /// Signed out on another tab while the card's send is on air (held five minutes here): it stops at the sign-out, not
+  /// when its time is up, though the card isn't on screen.
+  func testSigningOutOnAnotherTabStopsTheCardsSendOnAir() {
+    let app = signedIn("-lamp-on-air", "300")
+    tap(app, "lamp-red")
+    let red = Date()
+    expect(app, "lamp-status", contains: "Đang gửi “Đỏ”, 100%…")
+    wait(app, "lamp-starts", NSPredicate(format: "label == '1'"), "red on air", file: #filePath, line: #line)
+    app.openTab("Bể của tôi")
+    app.openAccount()
+    let out = app.descendants(matching: .any)["sign-out"].firstMatch
+    repeatUntil(out.exists && out.isHittable, times: 10) { app.swipeUp() }
+    out.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["apple-sign-in"].firstMatch.waitForExistence(timeout: 10), "not signed out")
+    app.closeAccount()
+    app.openTab("Đèn")
+    wait(app, "lamp-stops", NSPredicate(format: "label == '1'"), "red stopped at the sign-out", file: #filePath, line: #line)
+    XCTAssertLessThan(Date().timeIntervalSince(red), 290, "past red's five minutes on air: the check proves nothing")
+  }
+
   // MARK: Helpers
 
   /// The owner signed in on the stand-in server, on Đèn.

@@ -112,7 +112,9 @@ final class FakeLampAir: LampAir {
     }
     done(args.contains("-fake-lamp-off") ? .off : nil)
   }
-  func stop() {}
+  /// The broadcasts stopped by their holder, the same way.
+  private(set) var stops = 0
+  func stop() { stops += 1 }
 }
 #endif
 
@@ -229,6 +231,15 @@ final class LoveEcologyModel {
     #endif
     return 2
   }
+  /// How long the card broadcasts each: `seconds`; `-lamp-on-air <seconds>` in a debug build, so a flow can act while
+  /// one is on air.
+  private static var airTime: Duration {
+    #if DEBUG
+    let args = ProcessInfo.processInfo.arguments
+    if let i = args.firstIndex(of: "-lamp-on-air"), i + 1 < args.count, let s = Double(args[i + 1]) { return .seconds(s) }
+    #endif
+    return seconds
+  }
   /// How long a start's answer may take: Bluetooth says within a moment whether a broadcast started, or never.
   static let answer: Duration = .seconds(5)
   private static let key = "loveEcology.sent"
@@ -282,6 +293,9 @@ final class LoveEcologyModel {
   /// The master button's steps are going out: nothing of the card's starts meanwhile.
   @ObservationIgnored private var held = false
   @ObservationIgnored private var listening: (any NSObjectProtocol)?
+  @ObservationIgnored private var account: AccountModel?
+  /// The account was the owner's when last heard.
+  @ObservationIgnored private var owned = false
 
   init() {
     let kept = UserDefaults.standard.string(forKey: Self.key).flatMap { try? JSONDecoder().decode(Kept.self, from: Data($0.utf8)) } ?? Kept()
@@ -352,7 +366,8 @@ final class LoveEcologyModel {
   }
 
   /// While the master button's steps go out (`on`), nothing of the card's starts: the press is the newer choice, so what
-  /// waits is dropped, and one still starting stops; a choice made meanwhile waits for the steps to end.
+  /// waits is dropped, and one still starting stops; a choice made meanwhile waits for the steps to end, then the gap
+  /// after them, as after the card's own.
   func hold(_ on: Bool) {
     guard on != held else { return }
     held = on
@@ -360,8 +375,30 @@ final class LoveEcologyModel {
       if watchdog != nil { stopOnAir() }
       drop()
     } else {
+      lastEnded = .now
       next()
     }
+  }
+
+  /// Whether the card is for this account: the owner's, signed in.
+  static func owns(_ account: AccountModel) -> Bool { account.owner.isOwner == true && account.user != nil }
+
+  /// The account the card shows for, heard from then on, whatever screen is showing (a tab off screen may not run the
+  /// card's own checks): signed out, or no longer the owner's, the card's broadcast stops.
+  func watch(_ account: AccountModel) {
+    guard self.account !== account else { return }
+    self.account = account
+    track()
+  }
+
+  private func track() {
+    guard let account else { return }
+    let owns = withObservationTracking { Self.owns(account) } onChange: { [weak self] in
+      // Told before the change: read again after it.
+      Task { @MainActor [weak self] in self?.track() }
+    }
+    if owned, !owns { stop() }
+    owned = owns
   }
 
   /// What waits doesn't go, nor a drag not yet sent: the line names the one on air, or says again what it said before.
@@ -477,12 +514,14 @@ final class LoveEcologyModel {
       Self.remember(q.send)
       // Held to its end whatever the screen does: a broadcast left going would go on until the app left the front.
       self.ending = Task {
-        try? await Task.sleep(for: Self.seconds)
+        try? await Task.sleep(for: Self.airTime)
         guard !Task.isCancelled else { return }
+        // Gone only if the card held the broadcaster to the end: the master button's lamp step takes it at once.
+        let whole = LampRadio.holds(self)
         LampRadio.stop(by: self)
         self.onAir = nil
         self.lastEnded = .now
-        self.ended(q)
+        if whole { self.ended(q) } else { self.cutShort(q) }
         self.next()
       }
     }
@@ -498,6 +537,14 @@ final class LoveEcologyModel {
     if case .wheel(let w) = q.send.choice { kept.wheel = w }
     // Named or not, it's what the line goes back to if the one it names is dropped.
     if named == q.n { line = .sent(done) } else { settled = .sent(done) }
+  }
+
+  /// Its broadcast taken by the master button before its end: never shown as gone. The line, if it names it, says again
+  /// what it said before, and what's kept stays as it was.
+  private func cutShort(_ q: Queued) {
+    guard named == q.n else { return }
+    named = nil
+    line = settled
   }
 
   /// A recording as it is, or a colour built with the next byte 0.
@@ -659,7 +706,7 @@ struct LoveEcologyCard: View {
   @State private var wheel = false
 
   /// The owner's account alone.
-  private var shown: Bool { account.owner.isOwner == true && account.user != nil && !LoveEcologyModel.commands.isEmpty }
+  private var shown: Bool { LoveEcologyModel.owns(account) && !LoveEcologyModel.commands.isEmpty }
 
   var body: some View {
     if shown {
@@ -733,11 +780,14 @@ struct LoveEcologyCard: View {
       .frame(maxWidth: .infinity, alignment: .leading)
       .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 12))
       .sheet(isPresented: $wheel) { ColourWheelSheet(lamp: lamp) }
-      // Gone because the account signed out or isn't the owner's: the card's broadcast stops. Gone from the screen: the
-      // one on air finishes, nothing waiting goes. (The background is the model's: LoveEcologyModel.leave.)
-      .onDisappear { if shown { lamp.leftScreen() } else { lamp.stop() } }
+      // Gone from the screen: the one on air finishes, nothing waiting goes. (Signing out and the background are the
+      // model's: LoveEcologyModel.watch and leave.)
+      .onDisappear { if shown { lamp.leftScreen() } }
       // The two share the phone's one broadcast.
-      .onAppear { lamp.hold(master.sending) }
+      .onAppear {
+        lamp.hold(master.sending)
+        lamp.watch(account)
+      }
       .onChange(of: master.sending) { lamp.hold(master.sending) }
       .onChange(of: lamp.line) {
         switch lamp.line {

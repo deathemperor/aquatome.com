@@ -56,6 +56,46 @@ final class MasterFlowTests: XCTestCase {
     XCTAssertTrue(element(app, "master-start").waitForExistence(timeout: 10), "not ready again")
   }
 
+  /// The card's send cut short by the button's lamp step isn't shown as gone: the line says again what it said before (a
+  /// white kept from yesterday), and nothing more is broadcast. The card's send is held on air a minute here, so the
+  /// step surely comes during it.
+  func testACardSendTheButtonsLampStepCutsIsNotShownAsSent() {
+    let at = Date().addingTimeInterval(-86_400).timeIntervalSinceReferenceDate
+    let kept = #"{"last":{"send":{"choice":{"swatch":{"_0":"white"}},"level":100},"at":\#(at)},"colour":{"swatch":{"_0":"white"}},"level":100}"#
+    let app = launch(["-lamp-on-air", "60", "-loveEcology.sent", "\"" + kept.replacingOccurrences(of: "\"", with: "\\\"") + "\""])
+    make(app, end: "tap")
+    tap(app, "lamp-red")
+    let red = Date()
+    expect(app, "lamp-status", contains: "Đang gửi “Đỏ”, 100%…")
+    top(app)
+    tap(app, "master-start")
+    expect(app, "master-log", contains: "lamp on+white", timeout: 40)
+    XCTAssertLessThan(Date().timeIntervalSince(red), 55, "the step came after red's minute: the check proves nothing")
+    // Red's minute ends with the broadcaster taken from it.
+    expect(app, "lamp-status", contains: "Lần cuối máy này gửi: “Trắng”", timeout: 70)
+    expect(app, "lamp-lines", lacks: "Đã gửi “Đỏ”")
+    XCTAssertEqual(element(app, "lamp-sent").label, "red@100", "the card sent more")
+    // Started three times: red, then the step's on and white.
+    XCTAssertEqual(element(app, "lamp-starts").label, "3", "the lamp was sent more")
+  }
+
+  /// After the button's lamp step, the card's next send waits the light's gap, as after one of its own (five minutes here):
+  /// the lamp takes nothing begun too soon after the last.
+  func testTheCardsNextSendWaitsTheGapAfterTheButtonsLampStep() {
+    let app = launch(["-lamp-gap", "300"])
+    make(app, end: "tap")
+    tap(app, "master-start")
+    expect(app, "master-log", contains: "lamp on+white", timeout: 40)
+    // Tapped once the button's steps have ended (the swatch waits for them).
+    tap(app, "lamp-red")
+    let red = Date()
+    expect(app, "lamp-status", contains: "Đang gửi “Đỏ”, 100%…")
+    _ = XCTWaiter.wait(for: [XCTestExpectation(description: "a moment")], timeout: 5)
+    // Still waiting: the lamp started twice, for the step's on and white.
+    XCTAssertEqual(element(app, "lamp-starts").label, "2", "red went without the gap")
+    XCTAssertLessThan(Date().timeIntervalSince(red), 240, "checked past the gap: the check proves nothing")
+  }
+
   func testTheUntilKetThucButtonShowsWhenItStarted() {
     let app = launch()
     make(app, end: "tap")

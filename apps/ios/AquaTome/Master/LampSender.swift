@@ -21,8 +21,11 @@ enum LampRadio {
     air.start(uuids, done: done)
   }
 
+  /// Whether `who` still broadcasts: false once another took the broadcaster, or after a stop.
+  static func holds(_ who: AnyObject) -> Bool { holder == ObjectIdentifier(who) }
+
   static func stop(by who: AnyObject) {
-    guard holder == ObjectIdentifier(who) else { return }
+    guard holds(who) else { return }
     holder = nil
     air.stop()
   }
