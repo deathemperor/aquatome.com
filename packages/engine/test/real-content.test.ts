@@ -593,6 +593,21 @@ test('C. robustus\'s dealer sexing part is the notice\'s ventral-fins line, and 
   for (const l of ['id', 'th']) expect(read<Translation>(`${l}.json`).sections!['dimorphism:glaser'], l).toBeUndefined()
 })
 
+// Two more lasting lines (the Writing Lead, 15 Nov 2026), each under its notice's address so its link goes to a page that
+// says it: the lungfish notice's "predators, for experienced keepers only" on P. dolloi, with its other lines, about the
+// group ("Các loài … đều"), since "Cá phổi châu Phi" is P. annectens's page name; and the eques notice's look-alike line
+// on C. duplicareus, after the name's meaning in the part already under that address (the Writing Lead, 16:24).
+// Indonesian and Thai have no such part, so the translator makes it.
+test('P. dolloi\'s dealer part says African lungfishes are predators for experienced keepers, and C. duplicareus\'s that it is hard to tell from C. adolfoi', () => {
+  const read = <T>(fish: string, f: string) => JSON.parse(readFileSync(fileURLToPath(new URL(`../../../content/species/${fish}/${f}`, import.meta.url)), 'utf8')) as T
+  const en = (fish: string, key: string) => read<{ sections: { key: string; source: string; html: string }[] }>(fish, 'entity.json').sections.find(s => s.key === key && s.source === 'glaser')!.html
+  expect(en('protopterus-dolloi', 'behaviour')).toMatch(/^<p>African lungfishes are predatory fish and suited only for specialists\. The pugnacity/)
+  expect(read<Translation>('protopterus-dolloi', 'vi.json').sections!['behaviour:glaser']).toMatch(/^<p>Các loài cá phổi châu Phi đều là cá săn mồi, chỉ hợp với người chơi đã có kinh nghiệm\. Có vẻ/)
+  expect(en('corydoras-duplicareus', 'notes')).toBe('<p>duplicareus: Latin for doubled; refers to the extreme similarity to C. adolfoi.</p><p>The only problem with this Corydoras gem is to distinguish it from its close relative C. adolfoi. Otherwise the fish is undemanding.</p>')
+  expect(read<Translation>('corydoras-duplicareus', 'vi.json').sections!['notes:glaser']).toBe('<p>duplicareus: tiếng Latinh nghĩa là "nhân đôi", ý chỉ loài này cực kỳ giống C. adolfoi.</p><p>Cái khó duy nhất với loài cá chuột này là phân biệt nó với cá chuột Adolfo (C. adolfoi), một loài rất gần. Ngoài chuyện đó thì cá dễ nuôi.</p>')
+  for (const l of ['id', 'th']) expect(read<Translation>('corydoras-duplicareus', `${l}.json`).sections!['notes:glaser'], l).toBeUndefined()
+})
+
 test('the seller notices kept as guides say nothing of the dealer\'s stock, and the two renamed forward', () => {
   const dir = fileURLToPath(new URL('../../../content/guides', import.meta.url))
   const kept: [string, string?, string?][] = [
