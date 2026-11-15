@@ -405,6 +405,24 @@ test('check_tank_mates in the reader\'s tank checks it as the tank page does, wi
   await expect(tool.run({ fish: neon4, tank: null, tankId: 'tank-1' }, { photosLeft: 0 })).rejects.toThrow(/can't be read/)
 })
 
+test("the chat finds only fish and plants by id: a guide's, a term's, a series' or a kind of kit's id names no page to it", async () => {
+  // The app index gives every kind its id (the app's language switch), unique within a kind only: a glossary term and a
+  // kind of kit are both "co2". A tank, the page a chat starts from and the tools name fish and plants alone.
+  const items = [
+    { kind: 'glossary', id: 'co2', name: 'CO2', path: '/vi/thuat-ngu/co2/' },
+    { kind: 'equipment', id: 'co2', name: 'Bộ CO2', path: '/vi/thiet-bi/co2/' },
+    { kind: 'guide', id: 'thay-nuoc', name: 'Thay nước', path: '/vi/huong-dan/thay-nuoc/' },
+    { kind: 'video', id: 'PLseries', name: 'Loạt video', path: '/vi/video/loat/' },
+    { kind: 'fish', id: 'danio-rerio', name: 'Cá ngựa vằn', path: '/vi/ca/ca-ngua-van/' },
+    { kind: 'plant', id: 'rotala-rotundifolia', name: 'Rotala đỏ', path: '/vi/cay/rotala-do/' },
+  ]
+  const h = (await handbookOf({ index: async () => ({ lang: 'vi', items }), shard: async () => null } as never, 'vi'))!
+  expect(h.byId('danio-rerio')?.path).toBe('/vi/ca/ca-ngua-van/')
+  expect(h.byId('rotala-rotundifolia')?.path).toBe('/vi/cay/rotala-do/')
+  for (const id of ['co2', 'thay-nuoc', 'PLseries']) expect(h.byId(id), id).toBeUndefined()
+  expect(JSON.stringify(firstMessage('vi', 'Hỏi', [], { about: 'thay-nuoc' }, h))).not.toContain('The chat is about')
+})
+
 test('a section is every block under its heading, to the next heading, however many: the part of the page the site draws', async () => {
   const path = '/vi/huong-dan/dai/'
   const paras = Array.from({ length: 12 }, (_, i) => ({ t: 'p', c: [`Đoạn ${i + 1}.`] }))
