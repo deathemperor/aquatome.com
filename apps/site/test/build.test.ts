@@ -246,9 +246,9 @@ describe("a species page's videos in the reader's language (the owner's report, 
     expect(rows[1]!.getAttribute('data-title-from')).toBe('German blue ram care guide')
     expect(rows[0]!.getAttribute('data-title-from')).toBeUndefined()
   })
-  test('its language is a word, never a code; a generated one says so; one with no speech says that', () => {
+  test('its language is a word, never a code; a generated one carries no mark (the owner\'s call); one with no speech says that', () => {
     expect(under(0)).toBe('2:05, tiếng Việt')
-    expect(under(1)).toBe('5:00, tiếng Anh, do AI tạo')
+    expect(under(1)).toBe('5:00, tiếng Anh')
     expect(under(2)).toBe('1:05, không lời')
   })
   test("a foreign video with no title in this language isn't shown", () => {
