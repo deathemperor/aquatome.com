@@ -56,10 +56,8 @@ struct MasterCard: View {
         Button("Sửa") { editing = true }.font(.subheadline).disabled(master.sending).accessibilityIdentifier("master-edit")
       }
       Text(verbatim: summary).font(.subheadline).foregroundStyle(.secondary).accessibilityIdentifier("master-summary")
-      Button { Task { await master.start() } } label: {
-        sendingOr(Text("Bắt đầu")).fontWeight(.semibold).frame(maxWidth: .infinity)
-      }
-      .buttonStyle(.borderedProminent).controlSize(.large)
+      Button { Task { await master.start() } } label: { sendingOr(Text("Bắt đầu")) }
+      .buttonStyle(Filled(fill: .accentColor, words: ink, keepsLook: master.sending))
       .disabled(master.sending || b.steps.isEmpty || master.trial.state != .idle)
       .accessibilityIdentifier("master-start")
       problems
@@ -81,9 +79,7 @@ struct MasterCard: View {
   }
 
   private func running(_ run: MasterRun) -> some View {
-    // Dark words on mint in dark, white on green in light: the tint's own pair.
-    let ink = scheme == .dark ? Color(red: 0, green: 0x24 / 255, blue: 0x1B / 255) : .white
-    return TimelineView(.periodic(from: run.started, by: 1)) { context in
+    TimelineView(.periodic(from: run.started, by: 1)) { context in
       VStack(alignment: .leading, spacing: 8) {
         HStack(alignment: .firstTextBaseline) {
           Text(verbatim: master.button?.name ?? MasterModel.defaultName).font(.title3.weight(.semibold))
@@ -107,12 +103,8 @@ struct MasterCard: View {
         Text(verbatim: master.summary(run.steps) + " · " + (run.ends.map { String(localized: "kết thúc lúc \(Self.time($0))") } ?? String(localized: "đến khi bạn bấm Kết thúc")))
           .font(.subheadline).opacity(0.85)
           .accessibilityIdentifier("master-summary")
-        Button { Task { await master.finish(byReader: true) } } label: {
-          sendingOr(Text("Kết thúc")).font(.headline).foregroundStyle(Color.accentColor)
-            .frame(maxWidth: .infinity, minHeight: 50)
-            .background(ink, in: Capsule())
-        }
-        .buttonStyle(.plain)
+        Button { Task { await master.finish(byReader: true) } } label: { sendingOr(Text("Kết thúc")) }
+        .buttonStyle(Filled(fill: ink, words: .accentColor, keepsLook: master.sending))
         .disabled(master.sending)
         .accessibilityIdentifier("master-end")
         problems
@@ -132,6 +124,9 @@ struct MasterCard: View {
         .accessibilityIdentifier("master-put-back")
     }
   }
+
+  /// The tint's words: dark on mint in dark, white on green in light.
+  private var ink: Color { scheme == .dark ? Color(red: 0, green: 0x24 / 255, blue: 0x1B / 255) : .white }
 
   /// The button's words, or "Đang gửi…" with a spinner while steps go out.
   @ViewBuilder private func sendingOr(_ words: Text) -> some View {
@@ -188,6 +183,29 @@ struct MasterCard: View {
 }
 
 /// The ready card as one VoiceOver element, with its buttons as actions; as it is otherwise.
+/// The card's filled buttons, "Bắt đầu" and "Kết thúc": one colour on another, semibold, full width, 50 pt tall,
+/// growing with the text. While steps go out the button takes no taps but keeps its colours, so "Đang gửi…" and its
+/// spinner stay readable (the Design Lead, 15 Nov); disabled otherwise, it greys as iOS's do.
+private struct Filled: ButtonStyle {
+  let fill: Color
+  let words: Color
+  let keepsLook: Bool
+  @Environment(\.isEnabled) private var enabled
+
+  func makeBody(configuration: Configuration) -> some View {
+    let greyed = !enabled && !keepsLook
+    configuration.label
+      .font(.headline)
+      .multilineTextAlignment(.center)
+      .foregroundStyle(greyed ? Color.secondary : words)
+      .tint(greyed ? Color.secondary : words)
+      .padding(.vertical, 12)
+      .frame(maxWidth: .infinity, minHeight: 50)
+      .background(greyed ? Color(.tertiarySystemFill) : fill, in: Capsule())
+      .opacity(configuration.isPressed ? 0.8 : 1)
+  }
+}
+
 private struct OneElement: ViewModifier {
   let on: Bool
   let label: String

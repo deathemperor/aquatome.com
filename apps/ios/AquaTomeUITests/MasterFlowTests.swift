@@ -148,6 +148,8 @@ final class MasterFlowTests: XCTestCase {
     XCTAssertTrue(app.staticTexts["Tắt lọc trong lúc chạy nút?"].waitForNonExistence(timeout: 5), "the second ask stayed")
     expect(app, "master-choice-Bật", contains: "Bật")
     XCTAssertTrue(element(app, "master-choice-Bật").isSelected, "Lọc turned off without a yes")
+    // What makes leaving out Hủy safe (the Design Lead, 15 Nov): after a tap outside, the check still on Bật.
+    shoot("second-ask-cancelled")
     tap(app, "master-choice-Tắt")
     let anyway = app.buttons["master-turn-off-anyway"].firstMatch
     XCTAssertTrue(anyway.waitForExistence(timeout: 5), "no second ask")
