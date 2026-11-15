@@ -94,12 +94,13 @@ final class LanguageFlowTests: XCTestCase {
     let light = app.buttons["light"].firstMatch
     XCTAssertTrue(light.waitForExistence(timeout: 5), "no light found")
     light.tap()
+    // Read, not tapped: its words are all the test needs, wherever the card has it.
     let preset = element(app, "preset-new")
-    repeatUntil(preset.exists && preset.isHittable, times: 10) { app.swipeUp() }
+    repeatUntil(preset.exists, times: 12) { app.swipeUp() }
     XCTAssertTrue(preset.label.contains("ตู้"), "the preset isn't in Thai to start with: \(preset.label)")
     pick(app, "Tiếng Việt", Self.vi)
     let again = element(app, "preset-new")
-    repeatUntil(again.exists && again.isHittable, times: 10) { app.swipeUp() }
+    repeatUntil(again.exists, times: 12) { app.swipeUp() }
     XCTAssertTrue(again.label.contains("Bể mới trồng"), "the preset's name isn't in Vietnamese: \(again.label)")
     app.openTab("Bể của tôi")
     XCTAssertTrue(app.buttons["add-first"].waitForExistence(timeout: 5), "not a new phone")
