@@ -16,6 +16,10 @@ struct AquaTomeApp: App {
   /// Whether the chat is on (its entries), and the conversation kept.
   @State private var chat = ChatStore()
   @State private var tab = Tab.handbook
+  /// v2's tab in front (V2Root), kept here so a language picked while the app runs leaves it in front.
+  @State private var v2Tab = V2Tab.today
+  /// The language shown (AppLanguageNow): picked in the Tài khoản sheet, at once.
+  @State private var language = AppLanguageNow.shared
   @State private var tanksPath = NavigationPath()
   @State private var handbookPath = NavigationPath()
   /// The profile button's sheet (AccountView), open.
@@ -96,7 +100,7 @@ struct AquaTomeApp: App {
         // v2, unless the reader went back to the old look (V2Switch): the same models and links (V2Root). iOS 17 has
         // the old look alone.
         if v2, #available(iOS 18, *) {
-          V2Root(tab: $tab, handbookPath: $handbookPath, tanksPath: $tanksPath)
+          V2Root(tab: $tab, handbookPath: $handbookPath, tanksPath: $tanksPath, selection: $v2Tab, lang: language.code)
         } else {
           TabView(selection: $tab) {
             HandbookView(path: $handbookPath)
@@ -111,6 +115,9 @@ struct AquaTomeApp: App {
           }
         }
       }
+      // A language picked in the Tài khoản sheet: every tab drawn again in it, at its first screen (`speak`), as opening
+      // the app in it would. Here, under the sheet, which stays open, and over nothing that runs once a launch.
+      .id(language.code)
       // The account and the app's settings: a sheet from the profile button on every tab (ProfileButton), as the App
       // Store's is, not a tab of its own.
       .sheet(isPresented: $showingAccount) { AccountView() }
@@ -137,8 +144,11 @@ struct AquaTomeApp: App {
       .environment(master)
       .environment(telemetry)
       .environment(chat)
-      // Dates and numbers in the app's language, as its words are (Locale.app).
-      .environment(\.locale, .app)
+      .environment(language)
+      // SwiftUI's own words (Text keys, titles, buttons, tabs, alerts), dates and numbers in the app's language
+      // (Locale.app), and in another at once.
+      .environment(\.locale, language.locale)
+      .environment(\.speak) { speak($0) }
       // The site's pages the app has as its own tabs (the handbook's Chihiros tool, a page's "Xem trong Bể của tôi →").
       .environment(\.openScreen) { open($0) }
       // A link for the browser (About, Privacy, "Mở trong trình duyệt"…): our copies' to the site go marked (OwnCopy).
@@ -198,6 +208,8 @@ struct AquaTomeApp: App {
       // "Giao diện", app-wide at once; the page shots' dark run (PageShotsFlowTests) over it: the runner's own appearance
       // setting doesn't reach the app.
       .onChange(of: appearance, initial: true) { Appearance.apply(Self.testScheme ?? appearance.scheme) }
+      // The old look and back: v2 opens on Hôm nay, as it always has.
+      .onChange(of: v2) { v2Tab = .today }
       .appIconsForTests()
       #if DEBUG
       .background {
@@ -221,6 +233,26 @@ struct AquaTomeApp: App {
     #else
     nil
     #endif
+  }
+
+  /// A language picked in the Tài khoản sheet, shown at once, as opening the app in it would but without closing it: every
+  /// tab back at its first screen (the one in front stays in front, and the sheet stays open), the notices on screen gone,
+  /// the handbook's index in it read; the lights' connections, the plugs and the account as they were.
+  private func speak(_ to: SiteLanguage) {
+    guard to != language.site else { return }
+    // Before the tabs are drawn again: a page left on a stack would open once more, onto the new language's pages read.
+    handbookPath = NavigationPath()
+    tanksPath = NavigationPath()
+    // Sentences finished in the old language: what they told is done.
+    lights.notice = nil
+    lights.weekAqua.notice = nil
+    account.clearMessage()
+    // What was recorded in the old language goes with it, first.
+    telemetry.speaks(to.code)
+    handbook.speak(to.code)
+    language.use(to)
+    // After the words: the press's end notification, waiting, in them.
+    Task { await master.speaks() }
   }
 
   /// One of the app's own screens: its tab, and the tank the link names if it's one of the reader's.
@@ -351,14 +383,11 @@ private extension View {
 }
 
 extension Locale {
-  /// The app's: its words' language (`Bundle.main.preferredLocalizations`, as SiteLanguage reads it), with the phone's own
-  /// locale when that's in the same language. A phone in a language the app doesn't have (English) shows the app's words
-  /// in Vietnamese, but once the app had Malay, iOS made `Locale.current` Malay's (ms_US, 8 Nov), and dates and decimals
-  /// followed it.
-  static let app: Locale = {
-    let code = SiteLanguage.of(Bundle.main.preferredLocalizations).code
-    return Locale.current.language.languageCode?.identifier == code ? .current : Locale(identifier: code)
-  }()
+  /// The app's: its words' language as shown now (AppLanguageNow), with the phone's own locale when that's in the same
+  /// language. A phone in a language the app doesn't have (English) shows the app's words in Vietnamese, but once the app
+  /// had Malay, iOS made `Locale.current` Malay's (ms_US, 8 Nov), and dates and decimals followed it. Read each time: a
+  /// language picked while the app runs changes it.
+  static var app: Locale { AppLanguageNow.locale }
 }
 
 extension LocalizedStringResource {

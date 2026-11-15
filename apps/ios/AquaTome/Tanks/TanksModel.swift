@@ -155,7 +155,8 @@ final class TanksModel {
   // MARK: Lights, remembered as the site's light page does (a failed save shows on this tab; the light goes on working)
 
   /// The tank a light met for the first time goes on, when there is none yet.
-  static let newTankName = String(localized: "Bể của tôi")
+  /// In the app's language as a light first connects: a name kept once written, as the reader's own.
+  static var newTankName: String { String(localized: "Bể của tôi") }
 
   /// A Chihiros light just connected: its saved record, or a new one on the first tank.
   func metLight(bleName: String, model: String) {

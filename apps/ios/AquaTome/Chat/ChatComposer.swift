@@ -209,7 +209,7 @@ private struct StopCard: View {
 
   /// When the day starts again, as the reader's clock reads it: "7:00 sáng mai", or "sáng nay" before it.
   static func when(_ reset: Date, now: Date = .now) -> String {
-    let time = reset.formatted(date: .omitted, time: .shortened)
+    let time = reset.formatted(Date.FormatStyle(date: .omitted, time: .shortened, locale: .app))
     let today = Calendar.current.isDate(reset, inSameDayAs: now)
     let morning = Calendar.current.component(.hour, from: reset) < 11
     return switch (today, morning) {

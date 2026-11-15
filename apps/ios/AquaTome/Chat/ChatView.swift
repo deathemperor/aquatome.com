@@ -41,7 +41,7 @@ struct ChatView: View {
       Text("Cuộc này sẽ không mở lại được.")
     }
     .onAppear {
-      if model == nil { model = store.model(for: route, account: account, site: handbook.site, lang: handbook.lang) }
+      if model == nil { model = store.model(for: route, account: account, site: handbook.site) }
       // A question still being answered when the app last closed: asked again with its key.
       model?.resume()
     }

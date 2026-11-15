@@ -106,7 +106,7 @@ struct LightOutletFact: View {
     } else {
       // The days' names in the app's language, Monday first.
       var calendar = Calendar(identifier: .gregorian)
-      calendar.locale = Locale(identifier: Bundle.main.preferredLocalizations.first ?? "vi")
+      calendar.locale = .app
       let names = calendar.standaloneWeekdaySymbols
       at = String(localized: "\(t.time) vào \([1, 2, 3, 4, 5, 6, 0].filter { t.days[$0] }.map { names[$0] }.joined(separator: ", "))")
     }

@@ -23,7 +23,9 @@ group written together, their colour, daily timer and clock, and, since they rep
 them kept on their records, known by their address (`bleAddress`), as docs/my-tanks-sync.md describes. The profile button at the top right of each tab opens **Tài khoản**, a sheet
 (as the App Store's), laid out as iOS's settings: the aquatome.com account (below: who is signed in and since when, the
 sync's state with the one button that helps, a passkey), the owner's dashboard for the owner's account (with its to-dos
-counted), the app's icon and the pages kept to read offline (opening their shelf on Tìm), the anonymous statistics'
+counted), the app's icon, its language (shown at once, every tab back at its first screen in it and the sheet staying open
+in its words; kept as iOS's Settings → AquaTome → Language keeps it) and the pages kept to read offline (opening their
+shelf on Tìm), the anonymous statistics'
 switch and the posters blocked on this phone (their own page), the site's about, contact and privacy pages (in the
 browser), then signing out, deleting the account and the app's version. It says so when the server offers no accounts or
 can't be reached (the account signed in on the phone shows as last seen, with its last sync), and the button carries a

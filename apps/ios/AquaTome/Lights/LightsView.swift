@@ -236,7 +236,7 @@ private struct BusyCard: View {
 
   var body: some View {
     VStack(alignment: .leading, spacing: 12) {
-      Text(verbatim: lights.connecting ?? "").font(.title3.weight(.semibold))
+      Text(verbatim: lights.connectingText ?? "").font(.title3.weight(.semibold))
       ProgressView().frame(maxWidth: .infinity)
       Button("Hủy") { lights.disconnect() }.buttonStyle(.bordered).controlSize(.large).accessibilityIdentifier("disconnect")
     }

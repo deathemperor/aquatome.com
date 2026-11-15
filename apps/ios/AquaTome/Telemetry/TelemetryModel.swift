@@ -88,6 +88,17 @@ final class TelemetryModel {
     #endif
   }
 
+  /// Another language picked while the app runs (AquaTomeApp.speak): what was recorded goes now, in the language it was
+  /// seen in, and what's recorded next is in `lang`.
+  func speaks(_ lang: String) {
+    #if DEBUG
+    let sending = telemetry.speaks(lang)
+    Task { await sending.value; look() }
+    #else
+    telemetry.speaks(lang)
+    #endif
+  }
+
   /// The app went to the background: what's recorded goes now, with a little time asked of iOS to finish.
   func leave() {
     let t = telemetry

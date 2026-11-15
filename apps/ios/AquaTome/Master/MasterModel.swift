@@ -69,7 +69,7 @@ final class MasterModel {
   }
 
   /// The reader's own name for it, or the drawing's.
-  static let defaultName = String(localized: "Ngắm bể")
+  static var defaultName: String { String(localized: "Ngắm bể") }
 
   func save(_ b: MasterButton) {
     button = b
@@ -340,6 +340,13 @@ final class MasterModel {
     if owner() == true { Task { await finish(byReader: false) } }
   }
 
+  /// Another language picked while the app runs (AquaTomeApp.speak): the press's end notification, if one waits, set again
+  /// in the words of that language, for the same end and under the same name.
+  func speaks() async {
+    guard let r = run, r.isRunning, let ends = r.ends, let name = button?.name, await EndNotice.waiting() else { return }
+    await EndNotice.schedule(at: ends, title: name)
+  }
+
   /// Wakes at the end while it runs (the app open).
   private func watch() {
     waiter?.cancel()
@@ -380,4 +387,9 @@ enum EndNotice {
   }
 
   static func cancel() { UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [id]) }
+
+  /// Whether one is set and hasn't come yet.
+  static func waiting() async -> Bool {
+    await UNUserNotificationCenter.current().pendingNotificationRequests().contains { $0.identifier == id }
+  }
 }
