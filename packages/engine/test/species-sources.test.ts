@@ -52,6 +52,20 @@ test('a dealer\'s part that is stock talk in every sentence goes whole, in every
   expect(withoutShopTalk(glass, { vi: '<p>a</p>' }).en).toBe(glass)
 })
 
+// The fresh read of 15 Nov: true-anywhere facts the first word list took for stock talk. merge.ts runs this filter on a
+// dealer's new text with no one reading, so each must stay alone.
+test('a dealer\'s sentence true wherever the fish is bought is no stock talk, alone or not', () => {
+  for (const s of [
+    'All Sheatfish in the trade are artificially bred ones.',
+    'These cichlids have not been imported for a long time; all specimens in the hobby are bred ones.',
+    'So it is always available in the shops and almost all of the offered fish are bred ones.',
+    'Both sexes of the variety currently available have black bands in the vertical fins.',
+    'It is offered under the name Ampullaria cornuarietis, which is now only used as a synonym.',
+    'This species grows to 10 cm and is currently available.',
+    'Juveniles are now available; they need live prey.',
+  ]) expect(stockOnly(`<p>${s}</p>`), s).toBe(false)
+})
+
 test('a dealer\'s list line of the size it sells goes; the same words inside a paragraph wait for the sentence mend', () => {
   const en = '<ul><li>Origin: Argentina</li><li>Available size: 3-4 cm</li></ul>'
   const vi = '<ul><li>Nguồn gốc: Argentina</li><li>Cỡ cá bán: 3-4 cm</li></ul>'
@@ -62,4 +76,11 @@ test('a dealer\'s list line of the size it sells goes; the same words inside a p
   const eel = '<ul><li>Origin: D.R. Congo</li><li>Available size: 10-15 cm</li></ul><p>The species grows to about 15 cm in length.</p>'
   const eelVi = '<p>Nguồn gốc: CHDC Congo. Cỡ cá bán: 10–15 cm.</p><p>Loài này dài tới khoảng 15 cm.</p>'
   expect(withoutShopTalk(eel, { vi: eelVi })).toEqual({ en: eel, tr: { vi: eelVi } })
+  // A fact on the same line keeps the line; so does a translation whose block there gives other figures (another order).
+  const more = '<ul><li>Origin: Peru</li><li>Available size: 4-5 cm; adults reach 12 cm</li></ul>'
+  expect(withoutShopTalk(more, { vi: '<ul><li>a</li><li>b 4-5 12</li></ul>' }).en).toBe(more)
+  // A decimal comma is the same figure.
+  expect(withoutShopTalk('<ul><li>Origin: Thailand</li><li>Available size: 0.3–0.5 cm</li></ul>', { vi: '<ul><li>Xuất xứ: Thái Lan</li><li>Cỡ thường bán: 0,3–0,5 cm</li></ul>' }).tr.vi).toBe('<ul><li>Xuất xứ: Thái Lan</li></ul>')
+  const swapped = { vi: '<ul><li>Cỡ cá bán: 3-4 cm</li><li>Nguồn gốc: Argentina</li></ul>' }
+  expect(withoutShopTalk(en, swapped)).toEqual({ en, tr: swapped })
 })

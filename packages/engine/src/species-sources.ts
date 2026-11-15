@@ -30,10 +30,14 @@ const leaves = (root: HTMLElement) => root.querySelectorAll(LEAF).filter(el => !
 
 /** A list line giving the size the dealer sells ("Available size: 4–5 cm"), not one the fish grows to. */
 const SIZE_ON_OFFER = /^available sizes?\s*:/i
+/** A size line that is only that: no other fact rides on it ("…; adults reach 12 cm" stays). */
+const SIZE_ONLY = /^available sizes?\s*:\s*(?:ca\.?\s*)?[\d.,]+\s*(?:[-–]\s*[\d.,]+\s*)?cm\.?$/i
 /** The positions of an English section's blocks that are a shop's own talk. */
 export const shopTalkBlocks = (en: string) => leaves(parse(en)).flatMap((el, i) => (shopTalk(el.text.replace(/\s+/g, ' ')) ? [i] : []))
-/** The positions of a shop's list lines of the size it sells. */
-const sizeLines = (en: string) => leaves(parse(en)).flatMap((el, i) => (el.tagName === 'LI' && SIZE_ON_OFFER.test(el.text.replace(/\s+/g, ' ').trim()) ? [i] : []))
+/** The positions of a shop's list lines of the size it sells, and nothing else. */
+const sizeLines = (en: string) => leaves(parse(en)).flatMap((el, i) => (el.tagName === 'LI' && SIZE_ONLY.test(el.text.replace(/\s+/g, ' ').trim()) ? [i] : []))
+/** A line's figures, as a translation writes them too ("4-5" and "4–5", "0.3" and "0,3" alike). */
+const figures = (text: string) => (text.match(/\d+(?:[.,]\d+)?/g) ?? []).map(x => x.replace(',', '.')).join(' ')
 
 /**
  * Stock talk (the chief of staff, 15 Nov 2026): a dealer's sentence true only of its own country and shelf, not of the
@@ -56,7 +60,9 @@ const ANYWHERE = [
   /\b(?:rare|rarely|rarit(?:y|ies)|seldom|occasionally|hardly ever|sought[- ]after|first|extinct|exports?|exported|fully grown|maximum|adults?|native|region)\b/i,
   /\bno (?:regular |commercial )?(?:imports?|importations?)\b/i,
   /\b(?:counterpart|relatives?|similar|resembl\w*|distinguish\w*|looks? like)\b/i,
-  /\b(?:only|exclusively|mostly|mainly)\b.*\bbred\b/i,
+  /\b(?:only|exclusively|mostly|mainly|all|always)\b.*\bbred\b|\balways\b/i,
+  /\bin the (?:trade|hobby|shops?)\b|\bsynonym|\bunder the name\b/i,
+  /\b(?:grows?|grown|reach(?:es)?|attains?|need\w*|requir\w*|prefer\w*|eats?|prey|colou?r\w*|bands?|stripes?|spots?|fins?|pattern\w*)\b/i,
   /\b(?:from|in|via) (?:the )?(?!German\b|Czech\b|European\b)\p{Lu}\p{Ll}+/u,
   /\b(?:1[89]|20)\d\d\b|\bL ?\d{2,3}\b/,
   /\b(?:tanks?|aquari\w*|communit\w*|water|feed\w*|food|keep\w*|kept|peaceful|hardy|temperature|pH)\b/i,
@@ -95,8 +101,13 @@ export function withoutShopTalk<T extends Record<string, string>>(en: string, tr
   const count = leaves(parse(en)).length
   // A size line goes only where every translation matches the English block for block: else the part keeps it, and its
   // facts, for the sentence mend.
+  // …and only where that block in each translation gives the same figures, so a translation in another order keeps it.
+  const enLeaves = leaves(parse(en))
   const sizes = sizeLines(en).filter(i => !talk.includes(i))
-  const matched = Object.values(tr).every(html => leaves(parse(html)).length === count)
+  const matched = Object.values(tr).every(html => {
+    const els = leaves(parse(html))
+    return els.length === count && sizes.every(i => figures(els[i]!.text) === figures(enLeaves[i]!.text))
+  })
   const drop = [...talk, ...(matched ? sizes : [])].sort((a, b) => a - b)
   if (!drop.length) return { en, tr }
   const out = Object.fromEntries(Object.entries(tr).map(([k, html]) => [k, dropBlocks(html, count, drop)]))
