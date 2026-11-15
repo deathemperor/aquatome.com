@@ -576,7 +576,7 @@ test('C. ocellaris\'s dealer notes say the genus grew from five species to 15, a
 // page, hedged as the notice is ("often", "it seems").
 test('P. annectens\'s dealer part says its bites often seem a mistake for food, hedged as the notice is', () => {
   const vi = (JSON.parse(readFileSync(fileURLToPath(new URL('../../../content/species/protopterus-annectens/vi.json', import.meta.url)), 'utf8')) as Translation).sections!['behaviour:glaser']
-  expect(vi).toBe('<p>Cá cắn nhau nhiều khi có vẻ là đớp nhầm vì tưởng là mồi.</p>')
+  expect(vi).toBe('<p>Ở P. aethiopicus và P. annectens, nhiều khi cá cắn nhau có vẻ chỉ là đớp nhầm vì tưởng mồi.</p>')
 })
 
 test('the seller notices kept as guides say nothing of the dealer\'s stock, and the two renamed forward', () => {
