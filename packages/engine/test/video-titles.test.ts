@@ -216,3 +216,15 @@ test("a title stored for such a video before is taken out, so the meaning check,
   expect(await translateVideoTitles(root, model(), 'vi')).toMatchObject({ titles: 0 })
   expect(await titles(root, 'vi')).not.toHaveProperty('glass')
 })
+
+test("a title given new words loses the meaning check's verdicts on the old ones, so the site shows the video's own title until the check reads the new; the same words keep theirs (the reviewers of the check, 16 Nov)", async () => {
+  const root = await store()
+  await translateVideoTitles(root, model(), 'vi')
+  const dir = join(root, 'content/video-titles')
+  await writeFile(join(dir, 'vi.passed.json'), JSON.stringify({ 'en-a': 'bản dịch: Keeping Aus', 'en-d': 'bản dịch: Lamp D after 6 months' }))
+  await writeFile(join(dir, 'vi.refused.json'), JSON.stringify({ 'us-a': 'dropped: x' }))
+  // en-a and us-a get new words; en-d is written again in the same words.
+  await translateVideoTitles(root, model({ answer: t => (t === 'Lamp D after 6 months' ? `bản dịch: ${t}` : `mới: ${t}`) }), 'vi', { redo: true, parallel: 2 })
+  expect(JSON.parse(await readFile(join(dir, 'vi.passed.json'), 'utf8'))).toEqual({ 'en-d': 'bản dịch: Lamp D after 6 months' })
+  expect(JSON.parse(await readFile(join(dir, 'vi.refused.json'), 'utf8'))).toEqual({})
+})

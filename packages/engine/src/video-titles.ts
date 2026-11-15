@@ -6,7 +6,7 @@ import { isVietnamese } from '@aq/schema/text'
 import { LlmError, type Llm } from './claude'
 import { TARGETS, type TargetLang } from './localize'
 import { withTanks } from './round'
-import { recordRefusals } from './video-title-check'
+import { forgetVerdicts, pageFish, recordVerdicts } from './video-title-check'
 
 const PROMPT = withTanks(readFileSync(new URL('./prompts/video-titles.md', import.meta.url), 'utf8'))
 const SCHEMA = { type: 'object', required: ['titles'], properties: { titles: { type: 'array', items: { type: 'object', required: ['n', 'title'], properties: { n: { type: 'number' }, title: { type: 'string' } } } } } }
@@ -99,7 +99,7 @@ export async function translateVideoTitles(root: string, llm: Llm, lang: Lang, o
       const name = t.t?.name ?? t.name ?? e?.name ?? id
       for (const v of e?.videos ?? e?.reviews?.videos ?? []) {
         if (speaksPageLang(v, lang) || v.youtubeId in kept) continue
-        about.set(v.youtubeId, (about.get(v.youtubeId) ?? new Set()).add(e?.scientificName ?? `${kind}/${id}`))
+        about.set(v.youtubeId, (about.get(v.youtubeId) ?? new Set()).add(pageFish(kind, id, e)))
         if (todo.has(v.youtubeId) || (o.only ? !o.only.includes(v.youtubeId) : !o.redo && v.youtubeId in done)) continue
         todo.set(v.youtubeId, { ...v, about: e?.scientificName ? `${name}, ${e.scientificName}` : name, scientificName: e?.scientificName })
       }
@@ -110,26 +110,31 @@ export async function translateVideoTitles(root: string, llm: Llm, lang: Lang, o
   for (const [id] of shared) todo.delete(id)
   // A title stored for one before is taken out: the meaning check reads the stored titles, and a pass would clear the refusal.
   if (shared.some(([id]) => id in done)) { for (const [id] of shared) delete done[id]; await save() }
-  if (shared.length) await recordRefusals(root, lang, Object.fromEntries(shared.map(([id, fish]) => [id, { ok: false, kind: 'wrong fish' as const, why: `on the pages of ${fish.size} fish (${[...fish].join(', ')}): one title would name one page's fish on the other` }])))
+  if (shared.length) await recordVerdicts(root, lang, Object.fromEntries(shared.map(([id, fish]) => [id, { ok: false, kind: 'wrong fish' as const, why: `on the pages of ${fish.size} fish (${[...fish].join(', ')}): one title would name one page's fish on the other` }])))
   const rows = [...todo.values()]
   const batches = Array.from({ length: Math.ceil(rows.length / BATCH) }, (_, i) => rows.slice(i * BATCH, (i + 1) * BATCH))
   const target = lang === 'vi' ? VI : TARGETS[lang as TargetLang]
   const report = { titles: 0, rejected: [] as string[], failed: [] as string[], stopped: '', left: rows.length }
   const calls = batches.slice(0, o.limit ?? batches.length)
   let next = 0
+  // A title given new words loses the meaning check's verdicts on the old ones (video-title-check.ts): the site shows the
+  // video's own title until the check reads the new. One batch at a time, as the batches may run side by side.
+  let forgetting = Promise.resolve()
   const work = async () => {
     while (next < calls.length && !report.stopped) {
       const batch = calls[next++]!
       try {
         const prompt = `${PROMPT.replaceAll('{{LANG}}', target.lang).replaceAll('{{COUNTRY}}', target.country).replace('{{STYLE}}', target.style)}\n\n${batch.map((v, j) => `${j + 1}. [${v.about}] ${v.title}`).join('\n')}`
         const r = await llm<{ titles: { n: number; title: string }[] }>({ system: `You translate video titles into ${target.lang}. Reply only with JSON.`, prompt, schema: SCHEMA, model: o.model })
+        const changed: string[] = []
         for (const x of r.titles ?? []) {
           const v = batch[x.n - 1]
           if (!v) continue
           const text = tidyTitle(x.title ?? '', lang, v.scientificName)
-          if (titleFits(text, v.title, lang)) { done[v.youtubeId] = text; report.titles++; report.left-- } else report.rejected.push(`${v.youtubeId}: ${v.title} -> ${text}`)
+          if (titleFits(text, v.title, lang)) { if (done[v.youtubeId] !== text) changed.push(v.youtubeId); done[v.youtubeId] = text; report.titles++; report.left-- } else report.rejected.push(`${v.youtubeId}: ${v.title} -> ${text}`)
         }
         await save() // after every batch: a stopped run keeps what it finished
+        await (forgetting = forgetting.then(() => forgetVerdicts(root, lang, changed)))
       } catch (err) {
         if (err instanceof LlmError) report.stopped ||= err.message
         else report.failed.push((err as Error).message.slice(0, 200))

@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { checkVideoTitles, recordRefusals } from '../src/video-title-check'
+import { checkVideoTitles, forgetVerdicts, recordVerdicts } from '../src/video-title-check'
 
 async function store() {
   const root = await mkdtemp(join(tmpdir(), 'video-title-check-'))
@@ -14,19 +14,61 @@ async function store() {
   return root
 }
 
-test('each written title is read against its own title and the page, and a refusal is recorded with its reason; one that now passes comes off (the chief of staff, 16 Nov)', async () => {
+test('each written title is read against its own title and the page, on Opus; a refusal is recorded with its reason, a pass with the words it passed (the chief of staff, 16 Nov)', async () => {
   const root = await store()
-  const seen: string[] = []
-  const llm: Llm = async <T>({ prompt }: { prompt: string }) => {
+  const seen: string[] = [], models: (string | undefined)[] = []
+  const llm: Llm = async <T>({ prompt, model }: { prompt: string; model?: string }) => {
     seen.push(prompt.split('\n\n').at(-1)!.trim())
+    models.push(model)
     return { checks: [{ n: 1, ok: false, kind: 'added', why: '"săn mồi" is the forum\'s name' }, { n: 2, ok: true }] } as T
   }
-  const r = await checkVideoTitles(root, llm, 'vi', { 'en-a': 'Cá A săn mồi hiếm', 'en-b': 'Tham quan bể cá A' })
+  const titles = { 'en-a': 'Cá A săn mồi hiếm', 'en-b': 'Tham quan bể cá A' }
+  const r = await checkVideoTitles(root, llm, 'vi', titles)
   expect(seen[0]).toBe('1. [Cá A, Aus bus] RARE Predatory Fish Forum Aus\n   Vietnamese: Cá A săn mồi hiếm\n2. [Cá A, Aus bus] Aus tank tour\n   Vietnamese: Tham quan bể cá A')
+  expect(models).toEqual(['opus'])
   expect(r.checks).toEqual({ 'en-a': { ok: false, kind: 'added', why: '"săn mồi" is the forum\'s name' }, 'en-b': { ok: true } })
-  await writeFile(join(root, 'content/video-titles/vi.refused.json'), JSON.stringify({ 'en-b': 'dropped: earlier run', zz: 'kept from before' }))
-  await recordRefusals(root, 'vi', r.checks)
-  expect(JSON.parse(await readFile(join(root, 'content/video-titles/vi.refused.json'), 'utf8'))).toEqual({ 'en-a': 'added: "săn mồi" is the forum\'s name', zz: 'kept from before' })
+  await recordVerdicts(root, 'vi', r.checks, titles)
+  const file = async (name: string) => JSON.parse(await readFile(join(root, 'content/video-titles', name), 'utf8'))
+  expect(await file('vi.refused.json')).toEqual({ 'en-a': 'added: "săn mồi" is the forum\'s name' })
+  expect(await file('vi.passed.json')).toEqual({ 'en-b': 'Tham quan bể cá A' })
+})
+
+test('a pass never clears a refusal: a second read of the same words is no new word on them; a refusal takes a pass off, and new words from the writer take both off (the reviewers of the check, 16 Nov)', async () => {
+  const root = await store()
+  const titles = { 'en-a': 'Cá A săn mồi hiếm', 'en-b': 'Tham quan bể cá A' }
+  await recordVerdicts(root, 'vi', { 'en-a': { ok: false, kind: 'added', why: 'x' }, 'en-b': { ok: true } }, titles)
+  await recordVerdicts(root, 'vi', { 'en-a': { ok: true }, 'en-b': { ok: false, kind: 'dropped', why: 'y' } }, titles)
+  const file = async (name: string) => JSON.parse(await readFile(join(root, 'content/video-titles', name), 'utf8'))
+  expect([await file('vi.refused.json'), await file('vi.passed.json')]).toEqual([{ 'en-a': 'added: x', 'en-b': 'dropped: y' }, {}])
+  await forgetVerdicts(root, 'vi', ['en-a'])
+  expect(await file('vi.refused.json')).toEqual({ 'en-b': 'dropped: y' })
+  await recordVerdicts(root, 'vi', { 'en-a': { ok: true } }, titles)
+  expect(await file('vi.passed.json')).toEqual({ 'en-a': 'Cá A săn mồi hiếm' })
+})
+
+test('a video on the pages of two fish is not read, so no pass can undo the writer\'s refusal; a row the model leaves out is counted unread, and each batch is recorded as it comes (the reviewers of the check, 16 Nov)', async () => {
+  const root = await store()
+  await mkdir(join(root, 'content/species/b'), { recursive: true })
+  await writeFile(join(root, 'content/species/b/entity.json'), JSON.stringify({ scientificName: 'Aus cus', videos: [{ youtubeId: 'en-b', title: 'Aus tank tour', durationSec: 60, lang: 'en' }] }))
+  await writeFile(join(root, 'content/species/b/vi.json'), JSON.stringify({ name: 'Cá B' }))
+  const ids = Array.from({ length: 45 }, (_, i) => `x${i}`)
+  const e = JSON.parse(await readFile(join(root, 'content/species/a/entity.json'), 'utf8'))
+  e.videos.push(...ids.map(youtubeId => ({ youtubeId, title: `Aus ${youtubeId}`, durationSec: 60, lang: 'en' })))
+  await writeFile(join(root, 'content/species/a/entity.json'), JSON.stringify(e))
+  const titles = { 'en-a': 'Cá A săn mồi hiếm', 'en-b': 'Tham quan bể cá A', ...Object.fromEntries(ids.map(id => [id, `Cá A ${id}`])) }
+  const sent: string[][] = [], recorded: string[][] = []
+  // Passes every row but the last of each batch, which it leaves out; the second call fails.
+  const llm: Llm = async <T>({ prompt }: { prompt: string }) => {
+    const rows = prompt.split('\n').filter(l => /^\d+\. \[/.test(l))
+    sent.push(rows)
+    if (sent.length === 2) throw new Error('the reply was cut off')
+    return { checks: rows.slice(0, -1).map((_, j) => ({ n: j + 1, ok: true })) } as T
+  }
+  const r = await checkVideoTitles(root, llm, 'vi', titles, { record: async c => { recorded.push(Object.keys(c)) } })
+  expect(r.shared).toEqual(['en-b'])
+  expect(sent.flat().some(l => l.includes('Aus tank tour'))).toBe(false)
+  expect([r.given, Object.keys(r.checks).length, r.unanswered.length, r.failed.length]).toEqual([46, 39, 1, 1])
+  expect(recorded).toEqual([Object.keys(r.checks)])
 })
 
 test("over one in ten refused at a mark of 200 titles stops the language there, its checked titles kept as checked; one in ten exactly goes on (the chief of staff, 16 Nov 02:12)", async () => {
