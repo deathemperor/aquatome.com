@@ -539,7 +539,12 @@
       "author": "Cliff",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Semaprochilodus_insignis.jpg",
       "caption": "Semaprochilodus insignis",
-      "thumb": "https://media.aquatome.com/commons/6901d1bb9159c261-480.webp"
+      "thumb": "https://media.aquatome.com/commons/6901d1bb9159c261-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/6901d1bb9159c261-large.webp",
+        "width": 1280,
+        "height": 960
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/4717e5d8c15db3c6.webp",

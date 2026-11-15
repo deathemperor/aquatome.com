@@ -1,6 +1,21 @@
 {
  "queue": [],
- "judged": [],
- "hashes": {},
- "commons": "2026-11-09"
+ "judged": [
+  "inat:608859711",
+  "inat:608859734",
+  "inat:608859754"
+ ],
+ "hashes": {
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/608859734/large.jpg": "e2f2f2fc70f8c8f9",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/608859754/large.jpg": "cede964f6dbd9eee"
+ },
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 188334,
+  "pass": "done",
+  "after": {
+   "research": 335183398,
+   "agree": 378785089
+  }
+ }
 }

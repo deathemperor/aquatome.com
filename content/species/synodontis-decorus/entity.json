@@ -373,7 +373,12 @@
       "author": "John P. Friel Ph.D.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Synodontis_decorus_53146686.jpg",
       "caption": "Decorated Squeaker (Synodontis decorus)",
-      "thumb": "https://media.aquatome.com/commons/b80dee14f9be1f1f-480.webp"
+      "thumb": "https://media.aquatome.com/commons/b80dee14f9be1f1f-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/b80dee14f9be1f1f-large.webp",
+        "width": 1280,
+        "height": 960
+      }
     }
   ],
   "videos": [],

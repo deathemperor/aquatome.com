@@ -21056,25 +21056,17 @@
     "products": []
   },
   "ms/species/akysis-maculipinnis": {
-    "at": "2026-11-14",
-    "hash": "7ad66d1472d04640",
+    "at": "2026-11-15",
+    "hash": "f686ef087bbfe8b5",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "source",
-        "part": "P15",
-        "quote": "Penghargaan kepada Frank Strozyk.",
-        "why": "A thanks line from the source article to a person the reader doesn't know.",
+        "check": "elsewhere",
+        "part": "P8",
+        "quote": "daun beech, oak atau ketapang kering semuanya sesuai",
+        "why": "Beech and oak leaves are something a European keeper picks up outside; a Malaysian keeper uses ketapang and other local leaves.",
         "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P15",
-        "quote": "menggunakan air yang telah diperam",
-        "why": "'Diperam' is a literal rendering of 'aged water'. Malaysian keepers don't use it for water.",
-        "by": "model",
-        "fix": "air yang telah diendapkan"
       }
     ],
     "products": []
@@ -127531,22 +127523,15 @@
   },
   "id/species/danio-meghalayensis": {
     "at": "2026-11-15",
-    "hash": "fd40819cd4cbdd99",
+    "hash": "182631c14bb9e9fb",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "source",
-        "part": "P9",
-        "quote": "Terima kasih kepada Dennis Ball.",
-        "why": "Thanks to a person from the source article, whom the reader does not know.",
-        "by": "model"
-      },
-      {
         "check": "elsewhere",
         "part": "P5",
         "quote": "jadi ikan ini paling baik dipelihara di akuarium tanpa pemanas",
-        "why": "An unheated tank stays cool only in a temperate climate with seasons; in Indonesia it would sit around 26–30 °C, far above the 16–21 °C range given.",
+        "why": "This assumes a cool-climate home where an unheated tank stays at 16–21 °C. In Indonesia an unheated tank is about 26–30 °C, above the 25 °C the page warns against.",
         "by": "model"
       }
     ],
