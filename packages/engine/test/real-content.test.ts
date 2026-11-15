@@ -1005,6 +1005,13 @@ test('the ich and parasite guides name no US medicine, give the label\'s dose, a
     expect(t.body, t.slug).toContain('4–5 g muối mỗi lít trong 7–10 ngày')
   }
   for (const kept of ['malachite green và formalin', 'soi mẫu da hoặc mang dưới kính hiển vi', 'ít nhất 3–5 lần', 'thay ngay nước sạch, nhiều oxy']) expect(ich.body, kept).toContain(kept)
+  // The fresh read's hold: never "stop after the minimum treatments" beside "don't stop while fish die"; the old 5 days
+  // stays for the "maybe not ich" stop, and a label's own schedule wins over the page's.
+  expect(ich.body).toContain('Đó là số lần tối thiểu: cá còn chết vì ich thì chưa ngừng thuốc. Trong nước ấm, trị 5 ngày mà đốm vẫn không giảm')
+  expect(ich.body).not.toContain('Trị đủ số lần như vậy')
+  expect(ich.body).toContain('Nhãn ghi lịch châm khác thì theo nhãn.')
+  expect(parasites.body?.match(/nhãn ghi (?:lịch châm )?khác thì theo nhãn/g)?.length).toBe(4)
+  expect(parasites.body).toContain('Cá da trơn và cá chạch có thể nhạy hơn với thay đổi độ mặn')
   for (const kept of ['Thuốc có praziquantel và metronidazole', 'Scutariella japonica', 'Thuốc có cyromazine', 'Thuốc có levamisole']) expect(parasites.body, kept).toContain(kept)
   for (const t of [ich, parasites]) expect((t as Translation & { refs?: { url: string }[] }).refs?.map(r => r.url), t.slug).toEqual(['https://ask.ifas.ufl.edu/publication/FA006/pdf', 'https://rainbowfish.angfa.org.au/disease_prevention_and_control/chemical_treatments.html'])
   const boxes = ['b300caaf93b370a4', '623edd3a383cea26'].map(h => `https://media.aquatome.com/aquariumcoop/${h}.webp`)
