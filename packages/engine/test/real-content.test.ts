@@ -935,3 +935,19 @@ test('the care facts the lane would cut whole are on hand-fixed text: a temperat
     for (const s of gone) expect(t.body, `${guide}: ${s}`).not.toContain(s)
   }
 })
+
+// Page Recovery, 16 Nov 2026 (the chief of staff): the leak-repair guide's one finding was "2,5–5 cm" of sealant, a length
+// keepers write, which the lengths line now lets out. But it sends a keeper here to American silicones and super glues by
+// name, and none is in the market table, so no check of the gate sees them. It stays held by hand until Writing's plain
+// words for those lists are in.
+test('the leak-repair guide, whose one finding the lengths line lets out, stays held by hand for the American products it names', () => {
+  const root = fileURLToPath(new URL('../../../', import.meta.url))
+  const id = 'aquariumbreeder-how-to-fix-a-leaking-aquarium-with-and-without-draining'
+  const byHand = JSON.parse(readFileSync(join(root, 'engine-state/held-by-hand.json'), 'utf8')) as Record<string, { checks: string[] }>
+  const body = (JSON.parse(readFileSync(join(root, `content/guides/${id}/vi.json`), 'utf8')) as Translation).body ?? ''
+  const named = ['Aqueon Fish Tank Silicone Sealant', 'ASI Aquarium Sealant', 'Insta-Cure 57 g Super Thin'].filter(n => body.includes(n))
+  if (named.length) {
+    expect(named.filter(n => productOf(n, 'vi')), 'a product the table knows: the gate can see it').toEqual([])
+    expect(byHand[`guides/${id}`]?.checks).toEqual(['product'])
+  }
+})
