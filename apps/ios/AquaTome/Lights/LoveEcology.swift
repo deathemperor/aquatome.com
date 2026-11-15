@@ -493,7 +493,8 @@ final class LoveEcologyModel {
       kept.level = q.send.level
     }
     if case .wheel(let w) = q.send.choice { kept.wheel = w }
-    if named == q.n { line = .sent(done) }
+    // Named or not, it's what the line goes back to if the one it names is dropped.
+    if named == q.n { line = .sent(done) } else { settled = .sent(done) }
   }
 
   /// A recording as it is, or a colour built with the next byte 0.

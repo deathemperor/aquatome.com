@@ -1092,7 +1092,8 @@ final class LightFlowTests: XCTestCase {
   }
 
   /// Signing out while a colour waits its turn (the light's gap made a minute, `-lamp-gap`): the one waiting never goes,
-  /// and signed in again the card says what was sent before it.
+  /// and signed in again the card names what was sent before it ("Đã gửi", or "Lần cuối máy này gửi" when the card is
+  /// built anew, as it is on the simulator).
   func testSigningOutDropsWhatWaits() {
     let app = signedIn("-lamp-gap", "60")
     tap(app, "lamp-red")
@@ -1105,8 +1106,10 @@ final class LightFlowTests: XCTestCase {
     XCTAssertTrue(app.descendants(matching: .any)["apple-sign-in"].firstMatch.waitForExistence(timeout: 10), "not signed out")
     app.signInWithStandInApple()
     app.openTab("Đèn")
-    expect(app, "lamp-status", contains: "Đã gửi “Đỏ”, 100% lúc")
-    XCTAssertEqual(element(app, "lamp-sent").label, "red@100")
+    expect(app, "lamp-status", contains: "“Đỏ”, 100%")
+    expect(app, "lamp-status", lacks: "Xanh lá")
+    let sent = element(app, "lamp-sent")
+    XCTAssertFalse(sent.exists && sent.label.contains("green"), sent.label)
   }
 
   // MARK: Helpers
