@@ -176,6 +176,29 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertTrue(element(app, "chat-reported").waitForExistence(timeout: 5), "not sent")
   }
 
+  /// The sheet at its tallest: at the largest text, a send that failed says so under "Gửi", and with the keyboard up "Gửi"
+  /// still sits whole above it (Design, 15 Nov: the line that makes the sheet tallest).
+  func testAtTheLargestTextAFailedSendKeepsGuiAboveTheKeyboard() {
+    let app = launch("-chat-report-fails", "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
+    openReportSheet(app)
+    let reason = element(app, "chat-report-reason")
+    XCTAssertTrue(reason.waitForExistence(timeout: 5), "no sheet")
+    reason.tap()
+    let keyboard = app.keyboards.firstMatch
+    XCTAssertTrue(keyboard.waitForExistence(timeout: 5), "no keyboard")
+    reason.typeText("Sai số lít ở câu thứ hai")
+    let send = app.buttons["chat-report-send"]
+    send.tap()
+    XCTAssertTrue(element(app, "chat-report-failed").waitForExistence(timeout: 5), "no line saying it failed")
+    // The keyboard up again if the tap took it down.
+    if !keyboard.exists { reason.tap() }
+    XCTAssertTrue(keyboard.waitForExistence(timeout: 5), "no keyboard")
+    RunLoop.current.run(until: Date().addingTimeInterval(1.5))
+    XCTAssertLessThanOrEqual(send.frame.maxY, keyboard.frame.minY + 0.5, "Gửi under the keyboard: \(send.frame) and \(keyboard.frame)")
+    XCTAssertGreaterThanOrEqual(send.frame.height, 44, "Gửi's tap area cut: \(send.frame)")
+    XCTAssertTrue(send.isHittable, "Gửi can't be tapped")
+  }
+
   /// A failure has no finished answer to report.
   func testAFailedAnswerHasNoReport() {
     let app = launch("-chat-failed")
