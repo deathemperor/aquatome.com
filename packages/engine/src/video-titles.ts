@@ -13,7 +13,16 @@ const BATCH = 40
 const THAI = /[฀-๿]/
 /** A dot that ends an abbreviation, kept when a title's full stop comes off: Thai's cm and mm, a scientific name's spp. or cf. */
 const ABBREVIATION = /(?:\b(?:spp?|ssp|var|cf|aff)|ซม|มม)\.$/
-const VI = { lang: 'Vietnamese', country: 'Vietnam', style: 'Style: plain written Vietnamese, as aquarium hobbyists in Vietnam write it: "bể", "cá", "thay nước", "cây thủy sinh". No phrasing that reads as translated from English. Say it as a keeper would, not as a book or the news.' }
+const VI = { lang: 'Vietnamese', country: 'Vietnam', style: 'Style: plain written Vietnamese, as aquarium hobbyists in Vietnam write it: "bể", "cá", "thay nước", "cây thủy sinh". No phrasing that reads as translated from English. Say it as a keeper would, not as a book or the news. Numbers: 1.136 lít, 1,5 cm, a space before a unit. A fish\'s young take one "cá": "Cá con hồng ngọc hai chấm", "Cá L354 con".' }
+
+/**
+ * A title as kept: no full stop at the end (an abbreviation keeps its dot), and no bracket that only repeats the name before
+ * it, which the rule "the page's name, then the scientific name in brackets" writes when the page is named by its scientific name.
+ */
+export function tidyTitle(title: string): string {
+  const t = title.trim().replace(/\s*\(([^()]+)\)/g, (m, inner: string, at: number, all: string) => all.slice(0, at).trim().toLowerCase().endsWith(inner.trim().toLowerCase()) ? '' : m)
+  return (ABBREVIATION.test(t) ? t : t.replace(/\.$/, '')).slice(0, 140)
+}
 
 type Video = { youtubeId: string; title: string; lang: string }
 type Page = { t?: { name?: string }; name?: string }
@@ -69,8 +78,7 @@ export async function translateVideoTitles(root: string, llm: Llm, lang: Lang, o
         for (const x of r.titles ?? []) {
           const v = batch[x.n - 1]
           if (!v) continue
-          const raw = x.title?.trim() ?? ''
-          const text = (ABBREVIATION.test(raw) ? raw : raw.replace(/\.$/, '')).slice(0, 140)
+          const text = tidyTitle(x.title ?? '')
           if (titleFits(text, v.title, lang)) { done[v.youtubeId] = text; report.titles++; report.left-- } else report.rejected.push(`${v.youtubeId}: ${v.title} -> ${text}`)
         }
         await save() // after every batch: a stopped run keeps what it finished

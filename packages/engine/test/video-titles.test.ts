@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError, type Llm } from '../src/claude'
-import { titleFits, translateVideoTitles } from '../src/video-titles'
+import { tidyTitle, titleFits, translateVideoTitles } from '../src/video-titles'
 
 const video = (youtubeId: string, title: string, lang = 'en') => ({ youtubeId, title, durationSec: 300, lang })
 
@@ -93,4 +93,12 @@ test("a full stop at the end comes off, but an abbreviation's dot stays (Thai '�
   expect(vi['en-a']).toBe('Nuôi cá A')
   expect(vi['us-a']).toBe('ปลาเอ 6 ซม.')
   expect(vi['en-d']).toBe('Hướng dẫn nuôi Farlowella spp.')
+})
+
+test('a bracket that only repeats the name before it comes off (a page named by its scientific name)', () => {
+  expect(tidyTitle('Cá Champsochromis spilorhynchus (Champsochromis spilorhynchus) 6 cm')).toBe('Cá Champsochromis spilorhynchus 6 cm')
+  expect(tidyTitle('Hướng dẫn nuôi cá Elassoma gilberti (Elassoma gilberti)')).toBe('Hướng dẫn nuôi cá Elassoma gilberti')
+  expect(tidyTitle('Cá đĩa Heckel (Symphysodon discus)')).toBe('Cá đĩa Heckel (Symphysodon discus)')
+  expect(tidyTitle('Bể 300 gallon (khoảng 1.136 lít).')).toBe('Bể 300 gallon (khoảng 1.136 lít)')
+  expect(tidyTitle('ปลาเอ 6 ซม.')).toBe('ปลาเอ 6 ซม.')
 })
