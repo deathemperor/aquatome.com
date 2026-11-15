@@ -33,6 +33,7 @@ import { gate, heldMendsOf, writeFitSummary } from './gate'
 import { restingFetch } from './wikimedia-rest'
 import { fitRewrite } from './fit-rewrite'
 import { unitsMend } from './units-mend'
+import { videoCut, VIDEO_CUT_LIMIT } from './video-cut'
 import { recordSourceFigures, sourceFigures } from './source-figures'
 import fitFront from './fit-front.json'
 import { firstRun, frontEarly, frontHeld, frontPlan, offLane, orderFront, type FirstRun, type HeldMark } from './fit-front'
@@ -712,6 +713,19 @@ if (cmd === 'photo-privacy') {
     const ran = values.front && !only && !plan.held ? firstRun(offLane(r, plan.lane), new Date().toISOString()) : undefined
     if (ran) await writeFile(lastFile, `${JSON.stringify(ran, null, 1)}\n`)
   }
+} else if (cmd === 'video-cut') {
+  // A held video guide's sentences its read names as the source talking, a shop, a price or a product cut whole (advice
+  // for elsewhere waits for the mend), and its words findings' fixes put in (video-cut.ts): code, no model; each cut sentence kept in
+  // engine-state/_video-cut.json for the mend to write back; the gate reads the guide after.
+  // pnpm engine video-cut [--limit N: guides, 12] [--first vi/guides/<id>,…] [--dry-run: what it would change, old beside new]
+  const r = await videoCut(ROOT, { limit: Number(values.limit ?? VIDEO_CUT_LIMIT), ...(values.first ? { first: values.first.split(',') } : {}), dryRun: !!values['dry-run'] })
+  for (const c of r.cut) {
+    console.log(`${values['dry-run'] ? 'would cut' : 'cut'}: ${c.key} ${c.cuts.length} sentences, ${c.swaps.length} words`)
+    for (const x of c.cuts) console.log(`  gone (${x.check}) ${x.field}: "${x.html.replace(/<[^>]+>/g, '')}"`)
+    for (const x of c.swaps) console.log(`  words ${x.field}: "${x.quote}" → "${x.fix}"`)
+  }
+  for (const x of r.left) console.log(`left held: ${x}`)
+  console.log(`video-cut: ${r.cut.length} cut, ${r.left.length} left held`)
 } else if (cmd === 'units-mend') {
   // A page held for units alone gets a tank converted from US gallons as the size a keeper here names ("115 lít" → "120
   // lít", units-mend.ts): code, no model, so no ceiling line; the gate reads it after. From 13 Nov 2026 08:00, but a dry run.
