@@ -1274,11 +1274,13 @@ if (cmd === 'photo-privacy') {
   if (!(lang in TARGETS)) throw new Error(`usage: pnpm engine localize-captions --lang ${WRITTEN_OTHER_LANGS.join('|')} [--limit N]`)
   const r = await localizeCaptions(ROOT, claudeCli, lang, { limit: values.limit ? Number(values.limit) : undefined })
   console.log(`localize-captions ${lang}: ${r.done.length} pages done, ${r.left} left, ${r.failed.length} failed${r.stopped ? `, stopped (${r.stopped})` : ''}\n${[...r.done, ...r.failed].join('\n')}`)
-} else if (cmd === 'video-titles') {
+} else if (cmd === 'video-titles' || cmd === 'video-titles-redo') {
   // A video's title in the language of the pages that show it, once each (video-titles.ts); --limit model calls, 40 titles each.
+  // video-titles-redo is --redo under its own name, so a full re-translation has a spending line of its own and the cycle's
+  // new titles (video-titles) keep theirs (ceilings.json).
   const lang = values.lang as Lang
   if (!LANGS.includes(lang)) throw new Error(`usage: pnpm engine video-titles --lang ${LANGS.join('|')} [--limit N] [--parallel N] [--only youtubeId,youtubeId] [--redo]`)
-  const r = await translateVideoTitles(ROOT, claudeCli, lang, { limit: values.limit ? Number(values.limit) : undefined, parallel: values.parallel ? Number(values.parallel) : 1, only: values.only ? String(values.only).split(',') : undefined, redo: values.redo })
+  const r = await translateVideoTitles(ROOT, claudeCli, lang, { limit: values.limit ? Number(values.limit) : undefined, parallel: values.parallel ? Number(values.parallel) : 1, only: values.only ? String(values.only).split(',') : undefined, redo: values.redo || cmd === 'video-titles-redo' })
   console.log(`video-titles ${lang}: ${r.titles} written, ${r.left} left, ${r.rejected.length} not kept, ${r.failed.length} failed${r.stopped ? `, stopped (${r.stopped})` : ''}`)
   for (const x of [...r.rejected, ...r.failed].slice(0, 30)) console.log(`  ${x}`)
 } else if (cmd === 'video-titles-check') {
