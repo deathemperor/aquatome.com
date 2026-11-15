@@ -8,6 +8,7 @@ import { setsCookies, THUMB_WIDTH } from './thumb'
 import { awaitsScreen, type PhotoScreenEntry } from './photo-screen'
 import { ownerCropApproved, ownerCropCanonical } from './owner-crops'
 import { generatedApproved, isOwnerCrop, IMAGE_SWITCHES, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, realPhotosFirst, validImageJudgmentHashes, type ImageSwitches } from './image-policy'
+import { HAND_BOXES } from './hand-boxes'
 import { markOutsideCrop, photoFitsCard, photoFitsHead, photoFitsWholeHead, SUBJECT_FRAMES, subjectPixels, validCropGeometry, type SubjectFractions } from './image-geometry'
 import { judgeQuality, speciesDepth } from './depth'
 import { isAllowedLicence } from './licence'
@@ -249,12 +250,12 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const captions = lang !== 'vi' && (await exists(captionsFile)) ? await readJson(captionsFile, CaptionsSchema) : {}
   // Where the fish is in each photo, from the engine's record and behind its switch (SUBJECT_FRAMES): with it off no photo
   // has a box. Here a photo the record doesn't know, or where it found no animal, has none; a page's and an album's take
-  // their whole area below (`wholeBoxes`).
+  // their whole area below (`wholeBoxes`). A box set by hand (HAND_BOXES) wins over the record's.
   const framed = opts.subjectFrames ?? SUBJECT_FRAMES
   const boxes = framed ? await stateRecord<Record<string, SubjectFractions | null>>(root, PHOTO_BOXES_FILE) : undefined
   const boxed = <P extends Photo>(p: P): P => {
     const { subject: _own, ...rest } = p
-    const f = boxes?.[p.url], subject = f && subjectPixels(f, p.width, p.height)
+    const f = framed ? HAND_BOXES[p.url] ?? boxes?.[p.url] : undefined, subject = f && subjectPixels(f, p.width, p.height)
     return subject ? { ...rest, subject } as P : _own ? rest as P : p
   }
   const caption = <P extends Photo>(p: P): P => {

@@ -1,9 +1,9 @@
-import { cp, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
-import { loadAll, PHOTO_BOXES_FILE, SUBJECT_CUT, SUBJECT_FRAMES, subjectFrame, subjectPixels, type PixelBox, type SubjectFrame } from '../src/index'
+import { HAND_BOXES, loadAll, PHOTO_BOXES_FILE, SUBJECT_CUT, SUBJECT_FRAMES, subjectFrame, subjectPixels, type PixelBox, type SubjectFrame } from '../src/index'
 
 const fixture = fileURLToPath(new URL('./fixtures/store', import.meta.url))
 const centred = { fit: 'cover', x: 0.5, y: 0.5 }
@@ -142,4 +142,34 @@ test("a plant's photo taller than it is wide takes its whole area as its box; a 
     'tall.webp': { x0: 0, y0: 0, x1: 600, y1: 900 }, 'wide.webp': undefined, 'square.webp': undefined, 'album-tall.webp': { x0: 0, y0: 0, x1: 500, y1: 1000 },
   })
   expect(Object.values(await subjects(false)).every(s => s === undefined)).toBe(true)
+})
+
+test('a box set by hand holds whatever the box step records for its photo: another box, no animal, or none yet', async () => {
+  const site = await mkdtemp(join(tmpdir(), 'aq-hand-boxes-'))
+  const store = join(site, 'content')
+  await cp(fixture, store, { recursive: true })
+  const file = join(store, 'species', 'alpha', 'entity.json')
+  const e = JSON.parse(await readFile(file, 'utf8'))
+  const urls = Object.keys(HAND_BOXES)
+  expect(urls).toHaveLength(4)
+  e.photos = [...e.photos, ...urls.map((url, i) => ({ url, width: 1000, height: 750, licence: 'CC BY 4.0', author: 'A', sourceUrl: `https://x/hand-${i}` }))]
+  await writeFile(file, JSON.stringify(e))
+  await mkdir(join(site, 'engine-state'))
+  const subjects = async (record: Record<string, unknown>) => {
+    await writeFile(join(site, 'engine-state', PHOTO_BOXES_FILE), JSON.stringify(record))
+    const c = await loadAll({ root: store, lang: 'vi', publicBuild: false, subjectFrames: true })
+    return Object.fromEntries(c.species.find(s => s.id === 'alpha')!.photos.filter(p => p.url in HAND_BOXES).map(p => [p.url, p.subject]))
+  }
+  const hand = Object.fromEntries(urls.map(u => [u, subjectPixels(HAND_BOXES[u]!, 1000, 750)]))
+  // Vision's box on the wrong thing, as the record had it on 15 Nov; a run that finds no animal; one not run yet.
+  expect(await subjects(Object.fromEntries(urls.map(u => [u, { x: 0, y: 0.566, w: 0.25, h: 0.4 }])))).toEqual(hand)
+  expect(await subjects(Object.fromEntries(urls.map(u => [u, null])))).toEqual(hand)
+  expect(await subjects({})).toEqual(hand)
+  // No record file at all (a checkout before the box step's first run): still the hand box.
+  await rm(join(site, 'engine-state', PHOTO_BOXES_FILE))
+  const none = await loadAll({ root: store, lang: 'vi', publicBuild: false, subjectFrames: true })
+  expect(Object.fromEntries(none.species.find(s => s.id === 'alpha')!.photos.filter(p => p.url in HAND_BOXES).map(p => [p.url, p.subject]))).toEqual(hand)
+  // Off, no photo has a box, a hand box's included.
+  const off = await loadAll({ root: store, lang: 'vi', publicBuild: false, subjectFrames: false })
+  expect(off.species.find(s => s.id === 'alpha')!.photos.filter(p => p.url in HAND_BOXES).every(p => p.subject === undefined)).toBe(true)
 })

@@ -1,11 +1,11 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
-import { FIRST_GUIDES, FIRST_PLANTS, POPULAR, slugify, STAPLE_SPECIES, type Content } from '@aq/schema'
+import { CurationSchema, FIRST_GUIDES, FIRST_PLANTS, POPULAR, slugify, STAPLE_SPECIES, type Content } from '@aq/schema'
 import { pageShard, PageShard } from '@aq/schema/app-page'
 import { isVietnamese } from '@aq/schema/text'
 import { appBreeds, appIndex, appPlants, appSpecies, breedGroup, type AppIndex, type AppItem } from '../src/lib/app-index'
 import { glossaryParts } from '../src/lib/glossary-page'
-import { easyPlants, leadGuides } from '../src/lib/home'
+import { easyPlants, groupTiles, leadGuides } from '../src/lib/home'
 import { getContent } from '../src/lib/content'
 import { appPath, LANGS, localizePath, OTHER_LANGS } from '../src/lib/i18n'
 import { appHref, appPage, DIST, page } from './dist'
@@ -592,4 +592,19 @@ test('a breed\'s group: what it\'s a form of first (a species, or a breed in tur
   expect(breedGroup({ parents: [{ name: 'Amphilophus trimaculatus', certain: true }, { name: 'Cá đĩa', species: 'symphysodon-aequifasciatus', certain: false }] }, groups, breeds)).toBe('cichlids')
   expect(breedGroup({ basedOn: 'unknown', parents: [{ name: 'x', species: 'carassius-auratus', certain: true }] }, groups, breeds)).toBe('other')
   expect(breedGroup({ basedOn: 'loop-a', parents: [] }, groups, breeds), 'a loop ends').toBeUndefined()
+})
+
+test("the app's featured fish and group tiles leave out a head the calendar keeps off cards, as the home page does", async () => {
+  const c = await getContent('vi')
+  // An empty calendar: the test content has none, and only its avoid list matters here.
+  const calendar = CurationSchema.parse({ version: 1, weeks: [], days: [] }), today = '2026-11-15'
+  const before = appIndex('vi', c, undefined, c.species, { calendar, today })
+  const fish = c.species.find(s => before.home.fish[0]!.endsWith(`/${s.t.slug}/`))!
+  const tile = groupTiles('vi', c, undefined, calendar.avoid).find(t => t.photo)!
+  const avoid = { ...calendar.avoid, [fish.photos.find(p => !p.generated)!.url]: 'a drawing', [tile.photo!.url]: 'a figure plate' }
+  const after = appIndex('vi', c, undefined, c.species, { calendar: { ...calendar, avoid }, today })
+  expect(after.home.fish).not.toContain(before.home.fish[0])
+  const img = (x: AppIndex) => x.home.groups.find(g => g.id === tile.group)?.img
+  expect(img(before)).toBeDefined()
+  expect(img(after)).not.toBe(img(before))
 })
