@@ -72,8 +72,8 @@ test('every kind of page\'s files is dated, and nothing else in content', () => 
   for (const f of ['page-dates.json', 'picture-hashes.json', 'changelog.json', 'sources.json', 'captions/th.json', 'series/x.json', 'species/x/notes.txt']) expect(isPageFile(f), f).toBe(false)
 })
 
-// A push takes a sweep that changed only this file without the tests once it parses as the site reads it (swept_clean).
-test("the pages' dates check passes the dates the sweep writes, and fails a file the site's loader would refuse", async () => {
+// Part of the content's check (content-check.ts), which lets a push take a sweep that changed only this file without the tests.
+test("the pages' dates check passes the dates the sweep writes, and fails a file the site's loader would refuse, or none", async () => {
   const dir = await content({ 'species/x/vi.json': VI, 'gallery/x.json': { photos: [] } })
   await updatePageDates(dir, '2026-11-15')
   expect(await checkPageDates(dir)).toBe(2)

@@ -452,17 +452,17 @@ test('after a pass, a push lost to main is checked again when the sweep on the m
 }, slow(60_000))
 
 // The chief of staff, 15 Nov 2026: the sweep on the merge dates main's changed pages, nearly every time main takes content.
-test("after a pass, a push lost to main whose sweep changes only the pages' dates goes again, the dates checked, not the tests", () => {
+test("after a pass, a push lost to main whose sweep changes only the pages' dates goes again, the content loaded, not the tests", () => {
   const dated = '[ -f content/c.json ] && echo dated > content/page-dates.json'
-  const { c, kept, log, checks } = raced('content/c.json', 'sf', { pnpm: `[ "$1 $2" = "engine sweep" ] && ${dated}; [ "$1 $2" = "engine check-page-dates" ] && echo dates-checked >> "$HOME/checked"` })
-  expect(log).toContain("LOG the sweep changed only the pages' dates, and they parse as the site reads them: not checked again")
+  const { c, kept, log, checks } = raced('content/c.json', 'sf', { pnpm: `[ "$1 $2" = "engine sweep" ] && ${dated}; [ "$1 $2" = "engine check-content" ] && echo dates-checked >> "$HOME/checked"` })
+  expect(log).toContain("LOG the sweep changed only the pages' dates, and the content loads as the site's loader loads it: not checked again")
   expect(log).toContain(AGAIN)
   expect(log).toContain(`LOG published ${kept}`)
   expect(checks).toBe('1')
   expect(c.sh('grep -c dates-checked "$HOME/checked"')).toBe('1')
   expect([c.onMain('content/page-dates.json'), c.onMain('content/b.json')]).toEqual(['dated', 'photos'])
-  // Dates that don't parse are checked in full.
-  const bad = raced('content/c.json', 'sf', { pnpm: `[ "$1 $2" = "engine sweep" ] && ${dated}; [ "$1 $2" = "engine check-page-dates" ] && exit 1` })
+  // Content that doesn't load is checked in full.
+  const bad = raced('content/c.json', 'sf', { pnpm: `[ "$1 $2" = "engine sweep" ] && ${dated}; [ "$1 $2" = "engine check-content" ] && exit 1` })
   expect(bad.log).not.toContain(AGAIN)
   expect(bad.log).toContain(`LOG published ${bad.kept}`)
   expect(bad.checks).toBe('2')
@@ -638,9 +638,9 @@ test('the migration the cycle calls is a command of the engine', () => {
   expect(readFileSync(join(ROOT, 'scripts/cycle-checks.sh'), 'utf8')).toContain('pnpm engine photo-privacy --write ||')
   // Missing, every run would keep its work and publish nothing.
   expect(readFileSync(join(ROOT, 'packages/engine/src/cli.ts'), 'utf8')).toContain("cmd === 'photo-privacy'")
-  // So is the pages' dates check: missing, every sweep that changed only them would be checked in full, as before.
-  expect(readFileSync(join(ROOT, 'scripts/cycle-checks.sh'), 'utf8')).toContain('&& pnpm engine check-page-dates ||')
-  expect(readFileSync(join(ROOT, 'packages/engine/src/cli.ts'), 'utf8')).toContain("cmd === 'check-page-dates'")
+  // So is the content's load: missing, every sweep that changed only the dates would be checked in full, as before.
+  expect(readFileSync(join(ROOT, 'scripts/cycle-checks.sh'), 'utf8')).toContain('&& pnpm engine check-content ||')
+  expect(readFileSync(join(ROOT, 'packages/engine/src/cli.ts'), 'utf8')).toContain("cmd === 'check-content'")
 })
 const privacy = `checks() { echo tests >> "$HOME/order"; ! grep -q legacy engine-state/*.json; }`
 // As engine-cycle.sh ends: main caught up with, swept and checked, then pushed.

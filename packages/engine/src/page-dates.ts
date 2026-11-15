@@ -44,8 +44,8 @@ export async function updatePageDates(contentRoot: string, day = new Date().toIS
 }
 
 /**
- * The pages' dates as the site's loader reads them (load.ts, PageDatesSchema): the number of files dated, or it throws. A
- * push takes a sweep that changed only this file without the tests once it reads (swept_clean, cycle-checks.sh).
+ * The pages' dates in the format the site's loader reads (load.ts, PageDatesSchema), and the file there: the loader takes a
+ * missing one as no dates, which a sweep never leaves. The number of files dated, or it throws (checkContent).
  */
 export async function checkPageDates(contentRoot: string) {
   return Object.keys(PageDatesSchema.parse(JSON.parse(await readFile(join(contentRoot, 'page-dates.json'), 'utf8')))).length

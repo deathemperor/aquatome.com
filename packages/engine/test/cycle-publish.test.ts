@@ -48,8 +48,8 @@ test("a clean pull that brings main's commits in is swept before the push, and t
   const dir = mkdtempSync(join(tmpdir(), 'aq-pulled-'))
   mkdirSync(join(dir, 'bin'))
   // The sweep alone: the photo records' migration before it (sweep_merged) has nothing to do here.
-  // The pages' dates' check passes unless BAD is set.
-  writeFileSync(join(dir, 'bin/pnpm'), '#!/bin/sh\n[ "$2" = check-page-dates ] && { echo dates >> ../dates.log; [ -z "$BAD" ]; exit; }\n[ "$2" = sweep ] || exit 0\necho swept >> ../swept.log\n[ -z "$FIXES" ] || echo "$FIXES" > content/b.json\n[ -z "$DATES" ] || echo "$DATES" > content/page-dates.json\n')
+  // The content's load passes unless BAD is set.
+  writeFileSync(join(dir, 'bin/pnpm'), '#!/bin/sh\n[ "$2" = check-content ] && { echo dates >> ../dates.log; [ -z "$BAD" ]; exit; }\n[ "$2" = sweep ] || exit 0\necho swept >> ../swept.log\n[ -z "$FIXES" ] || echo "$FIXES" > content/b.json\n[ -z "$DATES" ] || echo "$DATES" > content/page-dates.json\n')
   chmodSync(join(dir, 'bin/pnpm'), 0o755)
   const sh = (command: string, cwd = dir, env = {}) => execSync(command, { cwd, shell: '/bin/bash', encoding: 'utf8', env: { ...process.env, ...env, PATH: `${dir}/bin:${process.env.PATH}` } })
   const repo = join(dir, 'repo'), other = join(dir, 'other')
@@ -72,14 +72,14 @@ test("a clean pull that brings main's commits in is swept before the push, and t
   expect(swept()).toBe(2)
   expect(sh('git log --format=%s', repo).trim().split('\n')).toEqual(['content: sweep on main as it is now', 'run', 'm2.json', 'm1.json', 'main'])
   expect(sh('git status --porcelain', repo).trim()).toBe('')
-  // The chief of staff, 15 Nov 2026: a sweep that changed only the pages' dates has them checked, not the tests.
+  // The chief of staff, 15 Nov 2026: a sweep that changed only the pages' dates has the content loaded, not the tests.
   const dated = () => { try { return readFileSync(join(dir, 'dates.log'), 'utf8').trim().split('\n').length } catch { return 0 } }
   onMain('m3.json')
   expect(pull({ DATES: 'd1' })).toBe('push')
   expect([swept(), dated()]).toEqual([3, 1])
   expect(sh('git show --name-only --format= HEAD', repo).trim()).toBe('content/page-dates.json')
   onMain('m4.json')
-  expect(pull({ DATES: 'd2', BAD: '1' })).toBe('test') // the dates don't parse
+  expect(pull({ DATES: 'd2', BAD: '1' })).toBe('test') // the content doesn't load
   expect([swept(), dated()]).toEqual([4, 2])
   onMain('m5.json')
   expect(pull({ DATES: 'd3', FIXES: '2' })).toBe('test') // the dates and more

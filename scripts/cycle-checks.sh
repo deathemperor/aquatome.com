@@ -657,8 +657,8 @@ sweep_merged() {
 # merges item by item (merge-entity.mjs keeps an item one side changed), so a photo removed on main could come back on a
 # page this run also changed, and stay for a cycle, until the next sweep (the chief of staff, 2026-11-12). So after a pull
 # that brought main's commits in, the sweep runs on the merge, as after a clash. `swept_pull <main before the pull>` is
-# true when the sweep had nothing to do or changed only the pages' dates (swept_clean), so the push goes ahead, and false
-# when it changed more, so the tests run again.
+# true when the sweep had nothing to do, or changed only the pages' dates on content that loads (swept_clean), so the
+# push goes ahead, and false otherwise, so the tests run again.
 swept_pull() {
   [ "$(git rev-parse '@{u}' 2>/dev/null)" = "$1" ] && return 0
   local head; head=$(git rev-parse HEAD)
@@ -669,17 +669,19 @@ swept_pull() {
 # changes that file at nearly every pull while main takes content, and each change was a full re-test: on 15 Nov the
 # photos run, its checks passed, lost its push at 09:07 and was tested in full again for two pages' dates. Of the 85
 # sweeps that reached main from 10 to 15 Nov, 58 changed that file alone. No test reads a real page's date: the site's
-# tests build from their fixture content, and the tests that load the real content only parse that file (load.ts). So a
-# sweep that changed only it is checked as they read it, the file parsed against its schema (check-page-dates), in
-# seconds and with no turn in the checks queue, and anything else it changed is checked in full (the chief of staff,
-# 15 Nov).
+# tests build from their fixture content, and the tests that load the real content only parse that file (load.ts). But
+# the dates move because main brought pages, and that re-test was then the only check of main's new pages merged with
+# this run's (a reader's catch, 15 Nov). So a sweep that changed only the dates is checked by loading the content as
+# those tests load it, every language, the dates in their format (check-content, content-check.ts): under a minute, with
+# no turn in the checks queue. A load that fails, or anything else the sweep changed, is checked in full (the chief of
+# staff, 15 Nov). The load doesn't stand for the other rules those tests hold the real content to.
 # `swept_clean <HEAD before the sweep>` is true when the migration didn't fail and the sweep committed nothing, or only
-# dates that parse.
+# dates, on content that loads.
 swept_clean() {
   [ -z "${MIGRATE_FAILED:-}" ] || return 1
   [ "$(git rev-parse HEAD)" != "$1" ] || return 0
-  [ "$(git diff --name-only "$1" HEAD)" = content/page-dates.json ] && pnpm engine check-page-dates || return 1
-  log "the sweep changed only the pages' dates, and they parse as the site reads them: not checked again"
+  [ "$(git diff --no-renames --name-only "$1" HEAD)" = content/page-dates.json ] && pnpm engine check-content || return 1
+  log "the sweep changed only the pages' dates, and the content loads as the site's loader loads it: not checked again"
 }
 # Work whose checks passed but whose push lost to main three times (each try pulled, swept and pushed while main moved
 # on: five merges in forty minutes on 14 Nov, when the sf run lost three) is kept as work out of time is, and the next run
