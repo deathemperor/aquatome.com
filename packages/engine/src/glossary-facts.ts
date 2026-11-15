@@ -267,7 +267,9 @@ const factText = (facts: object) => ((facts as { facts?: { fact: string }[] }).f
  * quoted sentence keeps its own quotation marks whole ("Nhiều tiệm ghi "không ra màu", còn…"; Grok's reads, 15 Nov 2026:
  * paired left to right, the words after an inner quote became a quote of their own). A straight mark at the start, or after
  * a space or an opening bracket and before a character, opens; any other closes the last one open. One written \" (a saved
- * review's "là \"không ra màu\", còn…") is a mark inside the quote, never its end.
+ * review's "là \"không ra màu\", còn…") is a mark inside the quote, never its end. A quote with another mark right outside it
+ * is no quote (Grok's fifth read: a stop note on a piece the splitter cut inside a quotation, "Ngâm 2 tuần."", read as the
+ * separate step "Ngâm 2 tuần." and freed it): such a piece stays held, on the safe side.
  */
 const quotes = (note: string) => {
   const found: string[] = [], open: number[] = []
@@ -275,7 +277,10 @@ const quotes = (note: string) => {
     const c = note[i]
     if (note[i - 1] === '\\') continue
     if (c === '“' || (c === '"' && (i === 0 || /[\s([]/.test(note[i - 1]!)) && /\S/.test(note[i + 1] ?? ''))) open.push(i + 1)
-    else if ((c === '"' || c === '”') && open.length) { const at = open.pop()!; if (!open.length) found.push(note.slice(at, i)) }
+    else if ((c === '"' || c === '”') && open.length) {
+      const at = open.pop()!
+      if (!open.length && !/["“”]/.test(note[i + 1] ?? '') && !/["“”]/.test(note[at - 2] ?? '')) found.push(note.slice(at, i))
+    }
   }
   return found.map(q => q.replace(/\\"/g, '"').trim()).filter(q => q.length >= 3)
 }
