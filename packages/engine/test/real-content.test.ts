@@ -441,6 +441,7 @@ const FOLDS: [string, string, string, string][] = [
   ['hyphessobrycon-pyrrhonotus', 'notes', 'https://www.aquariumglaser.de/en/fisharchive/hyphessobrycon-pyrrhonotus-juvenile/', 'en-fisharchive-hyphessobrycon-pyrrhonotus-juvenile.md'],
   ['cichla-ocellaris', 'notes', 'https://www.aquariumglaser.de/en/general/cichla-ocellaris-x-melaniae-hybrid-2/', 'en-general-cichla-ocellaris-x-melaniae-hybrid-2.md'],
   ['protopterus-dolloi', 'behaviour', 'https://www.aquariumglaser.de/en/29-lungfishes/lungfishes-from-the-congo/', 'en-29-lungfishes-lungfishes-from-the-congo.md'],
+  ['protopterus-annectens', 'behaviour', 'https://www.aquariumglaser.de/en/29-lungfishes/lungfishes-from-the-congo/', 'en-29-lungfishes-lungfishes-from-the-congo.md'],
   ['distichodus-sexfasciatus', 'notes', 'https://www.aquariumglaser.de/en/32-all-the-rest/congo_importation_arrived__en/', 'en-32-all-the-rest-congo-importation-arrived-en.md'],
   ['pelvicachromis-rubrolabiatus', 'dimorphism', 'https://www.aquariumglaser.de/en/32-all-the-rest/finally_an_import_from_guinea__en/', 'en-32-all-the-rest-finally-an-import-from-guinea-en.md'],
   ['thoracocharax-stellatus', 'notes', 'https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/thoracocharax-stellatus-gasteropelecus-maculatus-jumbo-carnegiella-myersi-carnegiella-strigata-2/', 'en-09-characoids-tetra-relationship-thoracocharax-stellatus-gasteropelecus-maculatus-jumbo-carnegiella-myersi-carnegiella-strigata-2.md'],
@@ -481,6 +482,13 @@ test('C. ocellaris\'s dealer notes say the genus grew from five species to 15, a
   expect(`${en} ${vi}`).not.toMatch(/80|100 cm|intermediate|trung gian/)
 })
 
+// The lungfish notice's bites (the Writing Lead, 15 Nov 2026): on P. annectens's page, the site having no P. aethiopicus
+// page, hedged as the notice is ("often", "it seems").
+test('P. annectens\'s dealer part says its bites often seem a mistake for food, hedged as the notice is', () => {
+  const vi = (JSON.parse(readFileSync(fileURLToPath(new URL('../../../content/species/protopterus-annectens/vi.json', import.meta.url)), 'utf8')) as Translation).sections!['behaviour:glaser']
+  expect(vi).toBe('<p>Cá cắn nhau nhiều khi có vẻ là đớp nhầm vì tưởng là mồi.</p>')
+})
+
 test('the seller notices kept as guides say nothing of the dealer\'s stock, and the two renamed forward', () => {
   const dir = fileURLToPath(new URL('../../../content/guides', import.meta.url))
   const kept: [string, string?, string?][] = [
@@ -502,7 +510,7 @@ test('every guide taken off for good is one the content has, and forwards to a p
     expect(existsSync(join(content, 'guides', id, 'vi.json')), id).toBe(true)
     if (to !== 'guides') expect(existsSync(join(content, to.kind, to.id, 'vi.json')), `${id} → ${to.kind}/${to.id}`).toBe(true)
   }
-  expect(Object.keys(RETIRED_GUIDES)).toHaveLength(29)
+  expect(Object.keys(RETIRED_GUIDES)).toHaveLength(30)
   expect(readdirSync(join(content, 'guides')).filter(id => GALLERY_POST.test(id)).length).toBeGreaterThanOrEqual(66)
 })
 

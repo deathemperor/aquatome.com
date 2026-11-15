@@ -44,11 +44,12 @@ export const RETIRED_GUIDES: Readonly<Record<string, RetiredTo>> = {
   'glaser-en-32-all-the-rest-congo-importation-arrived-en': fish('distichodus-sexfasciatus'),
   'glaser-en-32-all-the-rest-finally-an-import-from-guinea-en': fish('pelvicachromis-rubrolabiatus'),
   // The Writing Lead's rulings of 15 Nov 2026 on the four held back: the hatchetfish imports' size and C. myersi's males,
-  // A. adonis's 1 m as "is said to" are on their pages. The C. narcissus and lungfish notices stay on until a ruling on a
-  // line each has that no page has: C. robustus's sexes told apart by the ventral fins, and P. aethiopicus's and
-  // P. annectens's bites often a mistake for food (the lungfish's daily watch and wool method are on P. dolloi's page).
+  // A. adonis's 1 m as "is said to" are on their pages. The lungfish notice's daily watch and wool method are on P.
+  // dolloi's page, and its bites often a mistake for food on P. annectens's (the site has no P. aethiopicus page). The C.
+  // narcissus notice stays on until C. robustus's sexes told apart by the ventral fins are on its page.
   'glaser-en-09-characoids-tetra-relationship-thoracocharax-stellatus-gasteropelecus-maculatus-jumbo-carnegiella-myersi-carnegiella-strigata-2': fish('thoracocharax-stellatus'),
   'glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-huge-acanthicus-adonis-arrived-en': fish('acanthicus-adonis'),
+  'glaser-en-29-lungfishes-lungfishes-from-the-congo': fish('protopterus-dolloi'),
 }
 
 /** 2hraquarist's gallery posts of other people's tanks: every one, those written later too, off to the guides list. */
