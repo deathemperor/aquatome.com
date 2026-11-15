@@ -458,6 +458,9 @@ test('each seller notice\'s lasting fact is on its fish\'s page as the build sho
     expect(part, `${fish} ${key}`).toBeDefined()
     expect(part!.fixed, fish).toBe(true)
     expect(page!.t.sections[`${key}:glaser`], fish).toMatch(/^<p>.+<\/p>$/)
+    // Credited to the dealer by the page's references, never named in a sentence (the page read's rule; the Writing Lead,
+    // 15 Nov 2026).
+    expect(page!.t.sections[`${key}:glaser`], fish).not.toMatch(/Glaser/)
     // Every English sentence is the notice's own, word for word.
     const said = words(readFileSync(join(root, '../sources/glaser', file), 'utf8'))
     for (const sentence of words(part!.html).split(/(?<=[.!?])\s+/)) expect(said, `${fish}: "${sentence}"`).toContain(sentence.replace(/[.!?]$/, ''))
@@ -488,7 +491,7 @@ test('the seller notices kept as guides say nothing of the dealer\'s stock, and 
   for (const [id, name, was] of kept) {
     const t = JSON.parse(readFileSync(join(dir, id, 'vi.json'), 'utf8')) as Translation & { redirectFrom?: { slug: string; name: string }[] }
     expect(t.bodyFixed, id).toBe(true)
-    expect(t.body, id).not.toMatch(/chúng tôi|khách hàng|hàng tồn kho|bán buôn|có hàng trở lại|đang có|Đợt này|lần đầu tiên|Lô cá này|Văn bản và ảnh/iu)
+    expect(t.body, id).not.toMatch(/chúng tôi|khách hàng|hàng tồn kho|bán buôn|có hàng trở lại|đang có|Đợt này|lần đầu tiên|Lô cá này|Văn bản và ảnh|Glaser|nhập về đến giờ/iu)
     if (name) expect([t.name, t.nameFixed, t.slug, t.redirectFrom], id).toEqual([name, true, slugify(name), [{ slug: was, name: '' }]])
   }
 })
