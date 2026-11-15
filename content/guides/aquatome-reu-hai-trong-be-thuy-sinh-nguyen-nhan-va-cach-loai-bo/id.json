@@ -68,5 +68,12 @@
   "quality": {
     "score": 0.82,
     "indexable": true
+  },
+  "held": {
+    "checks": [
+      "dose",
+      "product"
+    ],
+    "at": "2026-11-16"
   }
 }
