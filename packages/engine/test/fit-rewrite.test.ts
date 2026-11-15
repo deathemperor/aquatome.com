@@ -844,6 +844,27 @@ test('a part a cut reduces to one line goes off the page in every language, its 
   expect(JSON.parse(await readFile(oneFile, 'utf8')).sections['habitat:seriouslyfish']).toBe('<p>Ao cạn nhiều cỏ ở cao nguyên Shan.</p>')
 })
 
+// The chief of staff, 15 Nov 2026: a one-line part went whole for its batch half ("Leporinus sometimes fight their own
+// kind, but these fish are quite peaceful so far"), and the page lost a true line. The writer cuts only that half.
+test('a source finding on a sentence\'s batch half sends the writer to cut only that half; the part and its true half stay', async () => {
+  const root = await content()
+  const file = join(root, 'content/species', ID, 'vi.json')
+  const vi = JSON.parse(await readFile(file, 'utf8'))
+  vi.sections['habitat:seriouslyfish'] = '<p>Loài cá này đôi khi hay gây gổ với cá cùng loài, nhưng những con này tới giờ vẫn khá hiền.</p>'
+  await writeFile(file, JSON.stringify(vi, null, 2))
+  const p = await danio(root)
+  const batch = { check: 'source' as const, part: part(p, 'sections.habitat:seriouslyfish'), quote: 'nhưng những con này tới giờ vẫn khá hiền', why: 'the source\'s own fish' }
+  const { llm, calls } = fakeLlm(vi => vi.replace(', nhưng những con này tới giờ vẫn khá hiền', ''), 0.9)
+  const prompts: string[] = []
+  const r = await fitRewrite(root, [p], reading(p, [batch]), { llm: (async (a: { prompt: string }) => { prompts.push(a.prompt); return llm(a as never) }) as Llm, now: () => new Date() }, { limit: 5 })
+  expect(calls).toEqual(['rewrite', 'review'])
+  expect(prompts[0]).toContain('Only the quoted clause goes')
+  expect(r.rewritten).toEqual(['vi/species/danio-margaritatus sections.habitat:seriouslyfish (0.90)'])
+  expect(JSON.parse(await readFile(file, 'utf8')).sections['habitat:seriouslyfish']).toBe('<p>Loài cá này đôi khi hay gây gổ với cá cùng loài.</p>')
+  const entity = JSON.parse(await readFile(join(root, 'content/species', ID, 'entity.json'), 'utf8'))
+  expect(entity.sections.map((x: { key: string }) => x.key)).toContain('habitat')
+})
+
 // The chief of staff, 14 Nov 2026: four pages were held for good on one-line parts that were all the source's, which no
 // dealer check takes. A part of three sentences or fewer whose every sentence goes whole comes off the page.
 test('a short part whose every sentence goes whole comes off the page, with its heading when it was the only text; a longer one stays held', async () => {

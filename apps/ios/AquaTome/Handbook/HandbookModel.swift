@@ -410,6 +410,8 @@ final class HandbookModel {
       let latest = args.contains("-whats-new") ? "/app/latest/vi.json" : nil
       // `-breeds`: the site lists a breed of the discus too, as it lists breeds.
       var items = (args.contains("-breeds") ? f.items + HandbookIndex.fixtureBreeds : f.items) + (kit ? HandbookIndex.fixtureKit : [])
+      // `-crab`: a crab among the fish pages, as the site lists about 90 that aren't fish (`fixtureCrab`).
+      if args.contains("-crab") { items.append(HandbookIndex.fixtureCrab) }
       // `-series N`: N video series, the fixture's own first (0: none, as the Indonesian and Thai sites have).
       if let n = args.firstIndex(of: "-series").flatMap({ $0 + 1 < args.count ? Int(args[$0 + 1]) : nil }) {
         let own = items.filter { $0.kind == .video }
@@ -466,7 +468,8 @@ final class HandbookModel {
         : launch.contains("-long-page") ? HandbookIndex.fixturePagesLong
         : launch.contains("-long-part") ? HandbookIndex.fixturePagesWithLongParts
         : launch.contains("-long-guide") ? HandbookIndex.fixturePagesWithALongGuide
-        : launch.contains("-lead-in-gallery") ? HandbookIndex.fixturePagesLeadInGallery : HandbookIndex.fixturePages
+        : launch.contains("-lead-in-gallery") ? HandbookIndex.fixturePagesLeadInGallery
+        : launch.contains("-crab") ? HandbookIndex.fixturePagesWithACrab : HandbookIndex.fixturePages
       // `-slow-pages`: a page that takes its time to be read.
       let slow = launch.contains("-slow-pages")
       return PageCache(dir: dir, site: site, fetch: { _ in
@@ -591,6 +594,20 @@ extension HandbookIndex {
           of: "symphysodon-aequifasciatus",
           card: .init(tempC: .init(min: 28, max: 30), ph: .init(min: 5.5, max: 7), sizeCm: 15, tankCm: 120, difficulty: 7)),
   ]
+
+  /// UI tests' crab among the fish pages (`-crab`; the owner's report of 15 Nov, the fiddler crab's page): its order a
+  /// crab's, and the neon's page under its address and name (`fixturePagesWithACrab`).
+  static let fixtureCrab = Item(kind: .fish, contentId: "austruca-annulipes", name: "Cua đồng hồ", sub: "Austruca annulipes",
+                                path: "/vi/ca/cua-dong-ho/", group: "other", tax: ["Decapoda", "Ocypodidae", "Austruca"])
+  static let fixturePagesWithACrab: Data = {
+    guard var o = try? JSONSerialization.jsonObject(with: fixturePages) as? [String: Any], var pages = o["pages"] as? [String: Any],
+          var page = pages["/vi/ca/ca-neon/"] as? [String: Any] else { return fixturePages }
+    page["path"] = fixtureCrab.path
+    page["title"] = fixtureCrab.name
+    pages[fixtureCrab.path] = page
+    o["pages"] = pages
+    return (try? JSONSerialization.data(withJSONObject: o)) ?? fixturePages
+  }()
 
   /// UI tests' page of a kind of kit (`-equipment`), as the site writes it.
   static let fixtureKitPages = Data(#"""

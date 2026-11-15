@@ -7899,6 +7899,28 @@
         }
       }
     },
+    "Hỏi gì về loài này?": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mau tanya apa tentang spesies ini?"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apa soalan anda tentang spesies ini?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อยากถามอะไรเกี่ยวกับสายพันธุ์นี้"
+          }
+        }
+      }
+    },
     "Hỏi lại": {
       "localizations": {
         "id": {
@@ -8115,6 +8137,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "ถามเกี่ยวกับต้นไม้นี้…"
+          }
+        }
+      }
+    },
+    "Hỏi về loài này": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tanya tentang spesies ini"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tanya tentang spesies ini"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ถามเกี่ยวกับสายพันธุ์นี้"
+          }
+        }
+      }
+    },
+    "Hỏi về loài này…": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tanya tentang spesies ini…"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tanya tentang spesies ini…"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ถามเกี่ยวกับสายพันธุ์นี้…"
           }
         }
       }
@@ -9589,6 +9655,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ติดต่อ"
+          }
+        }
+      }
+    },
+    "Loài": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Spesies"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Spesies"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "สายพันธุ์"
           }
         }
       }

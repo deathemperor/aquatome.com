@@ -1,0 +1,126 @@
+{
+  "id": "synaptolaemus-latofasciatus",
+  "native": {
+    "input": "a3db2a7112f665ac",
+    "at": "2026-11-15T05:39:34.625Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Orinoco River, Venezuela', but this species is widely distributed throughout the upper Orinoco, Casiquiare Canal and middle-to-lower Amazon region in Venezuela and Brazil, with records from the rios Negro, Madeira, Trombetas, Xingu and Tapajós.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Orinoco River, Venezuela', but this species is widely distributed throughout the upper Orinoco, Casiquiare Canal and middle-to-lower Amazon region in Venezuela and Brazil, with records from the rios Negro, Madeira, Trombetas, Xingu and Tapajós.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Orinoco River, Venezuela', but this species is widely distributed throughout the upper Orinoco, Casiquiare Canal and middle-to-lower Amazon region in Venezuela and Brazil, with records from the rios Negro, Madeira, Trombetas, Xingu and Tapajós.",
+        "ok": true
+      },
+      {
+        "name": "Casiquiare Canal",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Orinoco River, Venezuela', but this species is widely distributed throughout the upper Orinoco, Casiquiare Canal and middle-to-lower Amazon region in Venezuela and Brazil, with records from the rios Negro, Madeira, Trombetas, Xingu and Tapajós.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Orinoco River, Venezuela', but this species is widely distributed throughout the upper Orinoco, Casiquiare Canal and middle-to-lower Amazon region in Venezuela and Brazil, with records from the rios Negro, Madeira, Trombetas, Xingu and Tapajós.",
+        "ok": true
+      },
+      {
+        "name": "Negro",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Orinoco River, Venezuela', but this species is widely distributed throughout the upper Orinoco, Casiquiare Canal and middle-to-lower Amazon region in Venezuela and Brazil, with records from the rios Negro, Madeira, Trombetas, Xingu and Tapajós.",
+        "ok": true
+      },
+      {
+        "name": "Madeira",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Orinoco River, Venezuela', but this species is widely distributed throughout the upper Orinoco, Casiquiare Canal and middle-to-lower Amazon region in Venezuela and Brazil, with records from the rios Negro, Madeira, Trombetas, Xingu and Tapajós.",
+        "ok": true
+      },
+      {
+        "name": "Xingu",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Orinoco River, Venezuela', but this species is widely distributed throughout the upper Orinoco, Casiquiare Canal and middle-to-lower Amazon region in Venezuela and Brazil, with records from the rios Negro, Madeira, Trombetas, Xingu and Tapajós.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Synaptolaemus latofasciatus",
+    "status": "ACCEPTED",
+    "taxonKey": 6165567,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        4
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        4
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "VE",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-15T05:39:34.625Z"
+  }
+}

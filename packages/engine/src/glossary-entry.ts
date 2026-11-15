@@ -81,8 +81,11 @@ const RULES_SCHEMA = { type: 'object', required: ['notes'], properties: { notes:
 export const ruleNumbers = (note: string) => [...(/^Rules?\s+(\d+(?:\s*(?:,|and|&)\s*\d+)*)\s*:/i.exec(note)?.[1] ?? '').matchAll(/\d+/g)].map(m => Number(m[0]))
 const isLength = (note: string) => /^(The entry is|An item is) \d+ words/.test(note)
 
-/** A draft the step kept, unsaved: its fact score, its notes (the fact check's first, then the rules', then length's), how many of them stop a save. */
-export type Draft = { score: number; broken: number; notes: string[]; entry: Entry }
+/**
+ * A draft the step kept, unsaved: its fact score, its notes (the fact check's first, then the rules', then length's), how
+ * many of them stop a save. `unread`: kept past its stop, so never read (its score is no score).
+ */
+export type Draft = { score: number; broken: number; notes: string[]; entry: Entry; unread?: true }
 
 /**
  * What each house rule's break does (the chief of staff, 14 Nov 2026: "which notes stop a save (facts, names,
@@ -101,6 +104,9 @@ export const stops = (note: string) => { const r = ruleNumbers(note); return !r.
  * repetition, order and length notes). Empty when it may be.
  */
 export function refusals(d: Draft): string[] {
+  // A draft past its stop was never read (the chief of staff, 15 Nov 2026: no reads for an entry that can't be saved), so
+  // there is nothing to take on anyone's word: a longer length goes in the term's notes file, and a run from the draft reads it.
+  if (d.unread) return ['it was never read: it is past its length. Set its length in the notes file and run it from its draft']
   const out = d.score < QUALITY_THRESHOLD ? [`its fact score ${d.score} is under the bar, ${QUALITY_THRESHOLD}`] : []
   for (const n of d.notes.slice(0, d.notes.length - d.broken)) if (FACT_STOP.test(n)) out.push(`a sentence the facts don't carry: ${n.slice(0, 160)}`)
   for (const n of d.notes.slice(d.notes.length - d.broken)) if (!isLength(n) && stops(n)) out.push(`a note that stops a save: ${n.slice(0, 160)}`)
@@ -334,13 +340,20 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     })).notes ?? []
     return judgeKindNames(notes, k, ruleNumbers)
   }
-  const check = async (e: Entry) => {
+  // The length is counted before any paid read (the chief of staff, 15 Nov 2026: dry food and Artemia each paid about $3 of
+  // reads to stop on a word count). An entry past its stop can't be saved, so it isn't read: its length notes go back to the
+  // writer. One the step wrote goes back to be trimmed once before it is read at all.
+  const size = (e: Entry) => lengthNotes(e.body, named, asks.length?.words)
+  const fit = async (e: Entry) => (size(e).stop ? write(size(e).notes, e) : e)
+  const check = async (e: Entry): Promise<Checked> => {
+    const long = size(e)
+    if (long.stop) return { score: 0, notes: long.notes, broken: long.notes.length, stops: 1, unread: true }
     const [f, r] = await Promise.all([checkSentences(d.llm, forWriter, e), rules(e)])
-    const long = lengthNotes(e.body, named, asks.length?.words)
     const unborne = f.stops.map(stopNote)
     return { score: f.score, notes: [...unborne, ...r, ...long.notes], broken: r.length + long.notes.length, stops: unborne.length + r.filter(stops).length + (long.stop ? 1 : 0), loose: f.loose, stopped: f.stops }
   }
-  type Checked = { score: number; notes: string[]; broken: number; stops?: number; loose?: Awaited<ReturnType<typeof checkSentences>>['loose']; stopped?: Awaited<ReturnType<typeof checkSentences>>['stops'] }
+  /** `unread`: past its stop, so not read; its notes are its length's. */
+  type Checked = { score: number; notes: string[]; broken: number; stops?: number; loose?: Awaited<ReturnType<typeof checkSentences>>['loose']; stopped?: Awaited<ReturnType<typeof checkSentences>>['stops']; unread?: true }
   const stopping = (r: Checked) => r.stops ?? r.broken
   const passes = (r: Checked) => r.score >= QUALITY_THRESHOLD && !stopping(r)
   // Saved beats unsaved; then fewer notes that stop, a fact score at the bar, fewer house rules unmet, fewer notes of
@@ -349,7 +362,9 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   // outranks a length under its stop (the chief of staff, 15 Nov 2026: chu trình nitơ's rewrite put its seeding sentence
   // back, ran 476 words of 450, tied with the saved text that hadn't, and lost the tie).
   const unmet = (r: Checked) => r.notes.filter(n => ruleNumbers(n).length && !stops(n)).length
-  const rank = (r: Checked) => [passes(r) ? 0 : 1, stopping(r), r.score >= QUALITY_THRESHOLD ? 0 : 1, unmet(r), r.broken - stopping(r)]
+  // An unread draft, past its stop, ranks below any read one: nothing in it is known but its length (the Sonnet reviewer,
+  // 15 Nov 2026: one read and in its length, with two sentences stopped, lost to it and was never kept).
+  const rank = (r: Checked) => [passes(r) ? 0 : 1, r.unread ? 1 : 0, stopping(r), r.score >= QUALITY_THRESHOLD ? 0 : 1, unmet(r), r.broken - stopping(r)]
   const better = (r: Checked, b: Checked) => {
     const [x, y] = [rank(r), rank(b)]
     const i = x.findIndex((v, j) => v !== y[j])
@@ -367,7 +382,10 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   } else {
     // A kept draft is read again first: its notes were read against the term's notes as they were then (Lũa's seventh: three
     // of its four came from the notes file's wording, since fixed).
+    // A saved entry being revised isn't trimmed first: the drop check holds the rewrites to it. Past its stop, it isn't read
+    // either, and its length notes lead the first rewrite.
     w = draft ? draft.entry : await write()
+    if (!o.revise) w = await fit(w)
     review = await check(w)
     tries.push(review)
     const from = review
@@ -385,7 +403,7 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
       const notes = [...review.notes, ...dropped]
       // A sentence the fact check stopped may go from where it stood.
       freed.push(...(review.stopped ?? []))
-      const again = await write(notes, w)
+      const again = await fit(await write(notes, w))
       dropped = o.revise ? droppedInRewrite(start, again, forWriter, freed, [...pages.flatMap(l => l.split(' | ').slice(0, 2)), ...kindNames(start, taxa).fit.map(k => k.name)], asks.free) : []
       const r = await check(again)
       if (dropped.length) { r.notes = [...dropped, ...r.notes]; r.stops = stopping(r) + dropped.length; r.broken += dropped.length }
@@ -397,19 +415,18 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     // house rules are read again too, and a rewording one of their notes is about, or one that drops a figure, a named
     // example (the pages' names, the kinds') or a caution, goes back to its old wording.
     if (passes(review) && review.loose?.length) {
-      const m = await rewordLoose(d.llm, o.writeModel ?? 'opus', forWriter, w, review.loose, { rules, names: [...pages.flatMap(l => l.split(' | ').slice(0, 2)), ...kindNames(w, taxa).fit.map(k => k.name)] })
+      // Its rewordings may not take the entry past its length, or make one already past it longer (the chief of staff, 15 Nov
+      // 2026: Artemia's took 455 words to 480, past its stop): an entry with no note on its length keeps none, or is no longer.
+      const before = words(w.body), fits = (e: Entry) => words(e.body) <= before || !size(e).notes.some(n => n.startsWith('The entry is'))
+      const m = await rewordLoose(d.llm, o.writeModel ?? 'opus', forWriter, w, review.loose, { rules, names: [...pages.flatMap(l => l.split(' | ').slice(0, 2)), ...kindNames(w, taxa).fit.map(k => k.name)], fits })
       w = m.entry
-      // The reworded entry is the one saved, so its length is counted again: past the cap, it stops (Codex, 14 Nov 2026).
-      const long = lengthNotes(w.body, named, asks.length?.words)
-      const over = long.stop ? long.notes.slice(0, 1) : []
-      review.notes = [...m.stops.map(stopNote), ...m.log, ...review.notes, ...over]
-      review.stops = stopping(review) + m.stops.length + over.length
-      review.broken += over.length
+      review.notes = [...m.stops.map(stopNote), ...m.log, ...review.notes]
+      review.stops = stopping(review) + m.stops.length
       if (m.score !== undefined) review.score = m.score
     }
     // Kept for a reader to judge (the chief of staff, 14 Nov 2026): the draft that came closest, and why it wasn't saved.
     // A revision that came no closer leaves the draft it revised as it was.
-    const keep = !passes(review) && (review !== from || !draft) ? `${JSON.stringify({ score: review.score, broken: review.broken, notes: review.notes, entry: w }, null, 2)}\n` : null
+    const keep = !passes(review) && (review !== from || !draft) ? `${JSON.stringify({ score: review.score, broken: review.broken, notes: review.notes, entry: w, ...(review.unread ? { unread: true } : {}) }, null, 2)}\n` : null
     // A draft left as it was carries its digest on this run's reading of it, so the log's last few reviews always hold the
     // kept draft's (it keeps six: Codex's read, 14 Nov 2026).
     const still = draftText !== null && !passes(review) && !keep

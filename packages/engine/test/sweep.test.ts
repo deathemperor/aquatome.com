@@ -542,6 +542,35 @@ test('a shop\'s part that is wholly its notice of a batch or stock comes off whe
   expect(again.dealerOnly).toEqual(['species/corydoras-adolfoi: beforeYouBuy:glaser', 'species/corydoras-adolfoi: diet:glaser', 'species/corydoras-adolfoi: diet:bwaquatics'])
 })
 
+// A part a person fixed (schemas.ts Section.fixed) is theirs: the shop-talk and notice cuts leave it, whatever its words.
+// A seller notice's lasting line, cut from the notice by hand, said "shipped as stock fish" (15 Nov 2026).
+test('a shop\'s part a person fixed keeps its words through the shop-talk and notice cuts', async () => {
+  const root = await store()
+  const file = (f: string) => join(root, 'content/species/corydoras-adolfoi', f)
+  const e = JSON.parse(await readFile(file('entity.json'), 'utf8'))
+  e.sections.push(
+    { key: 'notes', source: 'glaser', sourceUrl: 'https://glaser/x', html: '<p>Hybrids are to be expected, since the fish were shipped as stock fish.</p>', fixed: true },
+    { key: 'behaviour', source: 'glaser', sourceUrl: 'https://glaser/y', html: '<p>In our fishhouse the fish hide in filter wool.</p>', fixed: true },
+    { key: 'distribution', source: 'glaser', sourceUrl: 'https://glaser/z', html: '<p>Currently wild collected fish from Venezuela are on offer.</p>', fixed: true },
+  )
+  await writeFile(file('entity.json'), JSON.stringify(e, null, 1))
+  const vi = JSON.parse(await readFile(file('vi.json'), 'utf8'))
+  Object.assign(vi.sections, {
+    'notes:glaser': '<p>Cá lai là chuyện phải tính tới, vì cá được chở đi làm cá giống.</p>',
+    'behaviour:glaser': '<p>Ở trại cá của Glaser, cá trốn trong bông lọc.</p>',
+    'distribution:glaser': '<p>Hiện ngoài tiệm có bán cá bắt ngoài tự nhiên ở Venezuela.</p>',
+  })
+  await writeFile(file('vi.json'), JSON.stringify(vi, null, 1))
+
+  const r = await sweep(root)
+  expect([r.shop, r.dealer, r.dealerOnly]).toEqual([[], [], []])
+  const glaser = (x: { sections: { key: string; source: string; html: string }[] }) => x.sections.filter(s => s.source === 'glaser').map(s => `${s.key} ${s.html}`)
+  expect(glaser(JSON.parse(await readFile(file('entity.json'), 'utf8')))).toEqual(glaser(e))
+  const sections = JSON.parse(await readFile(file('vi.json'), 'utf8')).sections
+  const keys = ['notes:glaser', 'behaviour:glaser', 'distribution:glaser']
+  expect(keys.map(k => sections[k])).toEqual(keys.map(k => vi.sections[k]))
+})
+
 const WEEKLY = "claude failed (1): You've hit your weekly limit · resets Nov 14 at 8am (Asia/Saigon)"
 // The guide body the sweep already leaves in place, so a counted title is the only thing that would change the file.
 const CLEAN = '<h3>Đèn</h3><p><strong>Sai lầm 1:</strong> đèn mạnh.</p><p><strong>Sai lầm 2:</strong> bật lâu.</p><h3>CO2</h3><p><strong>Sai lầm 3:</strong> thiếu CO2.</p><h3>Phân nền</h3><h3>Kết luận</h3><p>Kiên nhẫn là chính, thay nước đều đặn mỗi tuần và theo dõi cây.</p>'
@@ -614,6 +643,22 @@ test('a title rewritten by the model is kept when the reviewer passes it, and th
   const adapted = sweepTranslation({ body: '<p>Chúng chỉ đang ngủ thôi.</p><p>Bài gốc đăng trên Tropical World Magazine, số 9. Được Loaches Online chuyển thể với sự cho phép.</p>' })
   expect(adapted).toEqual({ t: { body: '<p>Chúng chỉ đang ngủ thôi.</p><p>Bài gốc đăng trên Tropical World Magazine, số 9.</p>' }, fixed: ['permission'] })
   expect(sweepTranslation(adapted.t).fixed).toEqual([])
+})
+
+// Page Recovery, 2026-11-12: a source's photo captions in a guide's text, its thanks, and the "© <name>" in a fish page's
+// references, cut each cycle, as the other text fixes are: a part a person fixed too (bodyFixed), since none of them adds a
+// word. The names are invented.
+test('the sweep cuts a guide\'s stray photo captions, a source\'s thanks and the names after "©" in the references', () => {
+  const care = '<p>Thay 20% nước mỗi tuần.</p>'
+  const guide = { body: `${care}<p>Ảnh: Nguyễn Văn A</p><p>Lá mục là thức ăn cho cá bột © Jane Example</p><p>Cảm ơn Jane Example đã góp ý.</p>`, bodyFixed: true }
+  expect(sweepTranslation(guide, 'guides')).toEqual({ t: { body: care, bodyFixed: true }, fixed: ['captions', 'thanks'] })
+  // A caption is a guide's: a fish page's part or a breed's text keeps a line of that shape.
+  expect(sweepTranslation({ body: `${care}<p>Ảnh: Nguyễn Văn A</p>` }, 'breeds').fixed).toEqual([])
+  const work = 'The ETYFish Project Fish Name Etymology Database'
+  const fish = { sections: { 'notes:x': `${care}<p>Terima kasih kepada Toko Contoh.</p>`, 'references:x': `<p>${work} © Jane Example.</p>` } }
+  expect(sweepTranslation(fish, 'species')).toEqual({ t: { sections: { 'notes:x': care, 'references:x': `<p>${work}.</p>` } }, fixed: ['thanks', 'ref-credits'] })
+  // Once is enough: a second pass changes nothing.
+  expect(sweepTranslation(sweepTranslation(fish, 'species').t, 'species').fixed).toEqual([])
 })
 
 test("a language the site doesn't serve yet is swept too: its text fixed, its names its own", async () => {

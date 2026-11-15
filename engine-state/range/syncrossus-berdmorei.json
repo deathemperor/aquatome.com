@@ -1,0 +1,100 @@
+{
+  "id": "syncrossus-berdmorei",
+  "native": {
+    "input": "289d86ebc017f199",
+    "at": "2026-11-15T05:39:34.625Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "In the original description Blyth gave somewhat vague type locality details of 'Tennasserim provinces' but according to current knowledge this species occurs throughout the Irrawaddy, Sittaung, and Salween river systems in Myanmar.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "To the north of this range it's been recorded in the border state of Manipur, northeastern India and to the south may occur in a small part of western Thailand since the Ataran, a tributary of the Salween known as the 'Kasat' in Thai, has headwaters there.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "To the north of this range it's been recorded in the border state of Manipur, northeastern India and to the south may occur in a small part of western Thailand since the Ataran, a tributary of the Salween known as the 'Kasat' in Thai, has headwaters there.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Irrawaddy",
+        "source": "seriouslyfish",
+        "quote": "In the original description Blyth gave somewhat vague type locality details of 'Tennasserim provinces' but according to current knowledge this species occurs throughout the Irrawaddy, Sittaung, and Salween river systems in Myanmar.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Sittaung",
+        "source": "seriouslyfish",
+        "quote": "In the original description Blyth gave somewhat vague type locality details of 'Tennasserim provinces' but according to current knowledge this species occurs throughout the Irrawaddy, Sittaung, and Salween river systems in Myanmar.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Salween",
+        "source": "seriouslyfish",
+        "quote": "In the original description Blyth gave somewhat vague type locality details of 'Tennasserim provinces' but according to current knowledge this species occurs throughout the Irrawaddy, Sittaung, and Salween river systems in Myanmar.",
+        "country": "MM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Syncrossus berdmorei",
+    "status": "ACCEPTED",
+    "taxonKey": 2368159,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        7
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "MM",
+      "IN",
+      "TH"
+    ],
+    "requests": 12,
+    "at": "2026-11-15T05:39:34.625Z"
+  }
+}

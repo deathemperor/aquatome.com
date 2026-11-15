@@ -1,8 +1,13 @@
 {
   "slug": "myntdu-river",
-  "name": "Myntdu",
+  "name": "Sungai Myntdu",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-15T05:31:59.720Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

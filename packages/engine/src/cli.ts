@@ -29,16 +29,18 @@ import { checkPages, fixStored, rulesReport } from './content-rules'
 import { loadPages } from './pages'
 import { copiesToRedo, redoCopies, type Redone } from './seasons'
 import { FIT_KINDS, fitDue, fitFindings, fitKey, fitReport, runFit, type FitState } from './fit'
-import { gate, writeFitSummary } from './gate'
+import { gate, heldMendsOf, writeFitSummary } from './gate'
 import { restingFetch } from './wikimedia-rest'
 import { fitRewrite } from './fit-rewrite'
 import { unitsMend } from './units-mend'
+import { videoCut, VIDEO_CUT_LIMIT } from './video-cut'
 import { recordSourceFigures, sourceFigures } from './source-figures'
 import fitFront from './fit-front.json'
 import { firstRun, frontEarly, frontHeld, frontPlan, offLane, orderFront, type FirstRun, type HeldMark } from './fit-front'
 import { candidates, cardsOf, checkCalendar, demandByPath, plan, readCalendar, readVerdicts, writeCalendar } from './curation'
 import { phraseMatch } from './phrases'
 import { readerReport, readPages } from './reader'
+import { checkContent } from './content-check'
 import { updatePageDates } from './page-dates'
 import { sweep } from './sweep'
 import { dropFacePhotos, visionFaces } from './faces'
@@ -299,7 +301,7 @@ if (cmd === 'photo-privacy') {
     console.log(`approved: ${done.length}${done.length ? ` (${done.join(', ')})` : ''}`)
   } else {
     const r = await draftSummaries(contentRoot, claudeCli, { top: Number(values.top ?? 30), jobs: Number(values.jobs ?? 1), only: values.only?.split(',').map(x => x.trim()).filter(Boolean), now: () => new Date() })
-    console.log(`summaries: ${r.approved.length} approved, ${r.pending.length} left pending, ${r.failed.length} failed${r.stopped ? `, stopped (${r.stopped})` : ''}`)
+    console.log(`summaries: ${r.approved.length} approved, ${r.pending.length} left pending, ${r.failed.length} failed${r.left ? `, ${r.left} more to write` : ''}${r.stopped ? `, stopped (${r.stopped})` : ''}`)
     for (const p of r.pending) console.log(`pending: ${p.id}: ${p.problems.join(' | ')}`)
     if (r.failed.length) console.log(`failed: ${r.failed.join(', ')}`)
   }
@@ -587,6 +589,10 @@ if (cmd === 'photo-privacy') {
   // After the sweep's own fixes, so a fix a reader sees dates its page (page-dates.ts).
   const dated = await updatePageDates(join(ROOT, 'content'))
   console.log(`page dates: ${dated.files} files, ${dated.changed} changed`)
+} else if (cmd === 'check-content') {
+  // The content loads in every language, its pages' dates in their format, or a failure: a push takes a sweep that
+  // changed only the dates without the tests once it loads (content-check.ts, swept_clean in cycle-checks.sh).
+  console.log(`content: loads in every language; page dates: ${await checkContent(join(ROOT, 'content'))} files`)
 } else if (cmd === 'audit') {
   // Pictures per page → docs/review/content-audit.md; every published page against the content rules, in each language →
   // docs/review/content-rules.md (reports only; nothing is hidden). --fix: first the rules' safe fixes on the stored text,
@@ -707,6 +713,19 @@ if (cmd === 'photo-privacy') {
     const ran = values.front && !only && !plan.held ? firstRun(offLane(r, plan.lane), new Date().toISOString()) : undefined
     if (ran) await writeFile(lastFile, `${JSON.stringify(ran, null, 1)}\n`)
   }
+} else if (cmd === 'video-cut') {
+  // A held video guide's sentences its read names as the source talking, a shop, a price or a product cut whole (advice
+  // for elsewhere waits for the mend), and its words findings' fixes put in (video-cut.ts): code, no model; each cut sentence kept in
+  // engine-state/_video-cut.json for the mend to write back; the gate reads the guide after.
+  // pnpm engine video-cut [--limit N: guides, 12] [--first vi/guides/<id>,…] [--dry-run: what it would change, old beside new]
+  const r = await videoCut(ROOT, { limit: Number(values.limit ?? VIDEO_CUT_LIMIT), ...(values.first ? { first: values.first.split(',') } : {}), dryRun: !!values['dry-run'] })
+  for (const c of r.cut) {
+    console.log(`${values['dry-run'] ? 'would cut' : 'cut'}: ${c.key} ${c.cuts.length} sentences, ${c.swaps.length} words`)
+    for (const x of c.cuts) console.log(`  gone (${x.check}) ${x.field}: "${x.html.replace(/<[^>]+>/g, '')}"`)
+    for (const x of c.swaps) console.log(`  words ${x.field}: "${x.quote}" → "${x.fix}"`)
+  }
+  for (const x of r.left) console.log(`left held: ${x}`)
+  console.log(`video-cut: ${r.cut.length} cut, ${r.left.length} left held`)
 } else if (cmd === 'units-mend') {
   // A page held for units alone gets a tank converted from US gallons as the size a keeper here names ("115 lít" → "120
   // lít", units-mend.ts): code, no model, so no ceiling line; the gate reads it after. From 13 Nov 2026 08:00, but a dry run.
@@ -754,12 +773,13 @@ if (cmd === 'photo-privacy') {
   // fails is held back, a live page that got worse gets its committed text back, a page no rewording fixes is held.
   // A video guide worse only for a sentence (a shop or a price abroad, talk about the video) has it fixed by the video's
   // editor and is read again instead (video-mend.ts), --mends pages a run; what does go back is kept (engine-state/put-back/).
-  // A new video guide held only for such sentences goes to the editor first too, and so do GATE_HELD_MENDS (12) of the held
-  // ones a run (the chief of staff, 14 Nov 2026). On the Mac only: the cloud has no yt-dlp for the transcript (gateMend).
+  // A new video guide held only for such sentences goes to the editor first too, and so do GATE_HELD_MENDS of the held
+  // ones a run, in the Mac's videos part alone (the chief of staff, 14 and 15 Nov 2026; heldMendsOf). On the Mac only: the
+  // cloud has no yt-dlp for the transcript (gateMend).
   // pnpm engine gate [--limit N: model reads at most] [--jobs N] [--mends N: new and live pages sent to the mender's editor at most, 20; 0: none]
   const { report: r, state, pages, held } = await gate(ROOT, {
     llm: claudeCli, model: process.env.FIT_MODEL ?? 'opus', jobs: Number(values.jobs ?? 3), limit: Number(values.limit ?? 150),
-    mend: gateMend(ROOT, { llm: claudeCli, yt: youtube(), write: { style: true, model: process.env.VIDEO_MODEL ?? 'opus' } }), mends: Number(values.mends ?? process.env.GATE_MENDS ?? 20), heldMends: Number(process.env.GATE_HELD_MENDS ?? 12),
+    mend: gateMend(ROOT, { llm: claudeCli, yt: youtube(), write: { style: true, model: process.env.VIDEO_MODEL ?? 'opus' } }), mends: Number(values.mends ?? process.env.GATE_MENDS ?? 20), heldMends: heldMendsOf(),
   })
   await writeFile(join(ROOT, 'docs/review/fit.md'), fitReport(pages, state))
   await writeFitSummary(ROOT, pages, state, { held })

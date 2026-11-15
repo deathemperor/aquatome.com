@@ -58,10 +58,16 @@ figure.inl figcaption { font-size: 0.85rem; color: var(--c-ink-soft); margin-top
   transition: color 0.15s ease-out, background-color 0.15s ease-out;
 }
 .cite::before { content: ''; position: absolute; left: 50%; top: 50%; width: 44px; height: 44px; transform: translate(-50%, -50%); }
-/* Marks side by side (a review's "2 3"): each one's 44 px reaches away from the other, never over it. */
-.cite:has(+ .cite)::before { left: auto; right: 0; transform: translateY(-50%); }
-.cite + .cite::before { left: 0; transform: translateY(-50%); }
-.cite + .cite:has(+ .cite)::before { left: 0; right: 0; width: auto; }
+/* Marks side by side (a review's "2 3"): each one's 44 px reaches away from the other and never takes its tap. Only in one group
+   (lib/cite.ts citeGroup): `+` skips the words between two marks, and a mark a few words after another reached right
+   past a phone's edge (the driftwood pages, 15 Nov 2026). The last one's starts 10 px before it, over the space between
+   them, so at a line's end it reaches 20 px past the mark, inside the 24 px gutter (.wrap): from its left edge it reached
+   30 px, 418 px on a 412 px phone (Fable's read, 15 Nov 2026). The marks before it sit above it, so those 10 px never take
+   a tap from them. */
+.marks > .cite:has(+ .cite) { z-index: 1; }
+.marks > .cite:has(+ .cite)::before { left: auto; right: 0; transform: translateY(-50%); }
+.marks > .cite + .cite::before { left: -10px; transform: translateY(-50%); }
+.marks > .cite + .cite:has(+ .cite)::before { left: 0; right: 0; width: auto; }
 .cite:hover, .cite:focus-visible, .cite[aria-describedby] { color: var(--c-paper); background: var(--c-moss); }
 .cite-line { margin: 0; }
 /* Small links on a line of their own (the breadcrumb, a fish's country, a credit line): the same 44 px, centred on each,

@@ -1,8 +1,13 @@
 {
   "slug": "rio-essequibo",
-  "name": "Essequibo",
+  "name": "Sungai Essequibo",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-15T05:34:34.224Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

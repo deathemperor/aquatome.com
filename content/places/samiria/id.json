@@ -3,6 +3,12 @@
   "name": "Samiria",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.72,
+    "at": "2026-11-15T05:36:39.793Z",
+    "why": "\"Samiria\" keeps the proper name's spelling, which is fine, but the source means the Samiria river basin, and an Indonesian atlas would normally add the kind word, as in \"Sungai Samiria\"."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

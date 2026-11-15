@@ -234,7 +234,7 @@ struct ItemRow: View {
         // when there's no picture to show it on).
         if let sub = item.subUnderName { Text(sub).font(.caption).italic(item.kind != .video).foregroundStyle(.secondary) }
         else if lengthInLine, let s = item.video { Text(verbatim: "\(HandbookIndex.Kind.video.title) · \(clock(s))").font(.caption).foregroundStyle(.secondary) }
-        else { Text(item.video != nil ? HandbookIndex.Kind.video.title : item.kind.title).font(.caption).foregroundStyle(.secondary) }
+        else { Text(item.video != nil ? HandbookIndex.Kind.video.title : item.kindTitle).font(.caption).foregroundStyle(.secondary) }
       }
     }
     .accessibilityElement(children: .combine)
@@ -260,6 +260,12 @@ struct ItemRow: View {
       }
     }
   }
+}
+
+extension HandbookIndex.Item {
+  /// What it is, where a line under its name says so: its kind's word, but "Loài" for a crab's, a shrimp's or a snail's
+  /// fish page (`isFish`; the owner's report of 15 Nov), never "Loài cá".
+  var kindTitle: String { kind == .fish && !isFish ? String(localized: "Loài") : kind.title }
 }
 
 extension HandbookIndex.Kind {

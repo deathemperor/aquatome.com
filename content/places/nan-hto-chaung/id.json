@@ -3,6 +3,12 @@
   "name": "Nan Hto Chaung",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-15T05:32:19.193Z",
+    "why": "\"Chaung\" is Burmese for stream/creek, a kind word that Indonesian atlases would typically render as \"Sungai\", e.g. \"Sungai Nan Hto\", so the bare name keeps the Burmese generic term untranslated."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

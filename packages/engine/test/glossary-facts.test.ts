@@ -142,34 +142,42 @@ test('"not a claim" takes a sentence out of the score, and never keeps two stops
 // The middle path's trial on Lũa (14 Nov 2026): 4 of 12 rewordings hedged ("many sources say…, but one notes…"), a rewording
 // can read worse than the line it replaced, and a sentence's verdict moved with what stood around it (Codex).
 test('the middle path rewords loose sentences once, no hedge, then reads the whole entry again; a rewording that stops goes back', async () => {
+  // The definition's second sentence: its first is never reworded (below).
+  const e = entry
   const loose = [
     { text: 'Lá bàng làm pH xuống.', block: 'Lá bàng làm pH xuống. Nên thả lá từ từ rồi đo pH.', heading: 'Trong bể', verdicts: ['loose' as const, 'loose' as const], why: ['stronger than the facts'] },
-    { text: 'pH đo độ chua của nước.', block: entry.definition, verdicts: ['loose' as const, 'loose' as const], why: ['also alkalinity'] },
+    { text: 'Nó đi từ 0 tới 14.', block: e.definition, verdicts: ['loose' as const, 'loose' as const], why: ['also alkalinity'] },
     { text: 'Làm pH lên: san hô.', block: 'Làm pH lên: san hô.', verdicts: ['loose' as const, 'loose' as const], why: ['x'] },
   ]
-  const added = 'pH đo độ chua hay kiềm của nước & nhiều hơn.'
-  const reword = { 'Lá bàng làm pH xuống.': 'Lá bàng làm pH xuống chút ít.', 'pH đo độ chua của nước.': added }
+  const added = 'Nó đi từ 0 tới 14 & hơn nữa.'
+  const reword = { 'Lá bàng làm pH xuống.': 'Lá bàng làm pH xuống chút ít.', 'Nó đi từ 0 tới 14.': added }
   const { llm, calls } = model([{ [added]: 'unsupported: added' }, { [added]: 'unsupported: added' }, {}], [], reword)
-  const r = await rewordLoose(llm, 'opus', facts, entry, loose)
+  const r = await rewordLoose(llm, 'opus', facts, e, loose)
   expect(calls[0]).toContain('không rào đón ("có nguồn cho rằng", "nhiều nguồn", "có tiệm ghi")')
   expect(calls[0]).toContain('1. CÂU: Lá bàng làm pH xuống.\n   ĐOẠN: Lá bàng làm pH xuống. Nên thả lá từ từ rồi đo pH.\n   LÝ DO: stronger than the facts')
   // The whole entry as it would be saved, read three times as the first check read it.
   expect(calls).toHaveLength(4)
-  expect(calls[1]).toContain(`SENTENCES:\n1. ${added}\n2. Nó đi từ 0 tới 14.\n[Trong bể]\n3. Trong bể\n4. Lá bàng làm pH xuống chút ít.\n5. Nên thả lá từ từ rồi đo pH.\n[Trong bể › Làm pH lên]\n6. Làm pH lên: san hô.`)
+  expect(calls[1]).toContain(`SENTENCES:\n1. pH đo độ chua của nước.\n2. ${added}\n[Trong bể]\n3. Trong bể\n4. Lá bàng làm pH xuống chút ít.\n5. Nên thả lá từ từ rồi đo pH.\n[Trong bể › Làm pH lên]\n6. Làm pH lên: san hô.`)
   expect(r.entry.body).toBe('<h3>Trong bể</h3><p>Lá bàng làm pH xuống chút ít. Nên thả lá từ từ rồi đo pH.</p><ul><li><strong>Làm pH lên:</strong> san hô.</li></ul>')
-  expect(r.entry.definition).toBe(entry.definition)
+  expect(r.entry.definition).toBe(e.definition)
   expect(r.stops).toEqual([])
   expect(r.score).toBe(1)
   expect(r.log).toEqual([
     'Loose, left as written (not placeable): "Làm pH lên: san hô."',
     'Loose, reworded: "Lá bàng làm pH xuống." → "Lá bàng làm pH xuống chút ít." (supported)',
-    `Loose, rewording read as unsupported, old wording kept for the reader: "pH đo độ chua của nước." (not "${added}": unsupported, unsupported, supported)`,
+    `Loose, rewording read as unsupported, old wording kept for the reader: "Nó đi từ 0 tới 14." (not "${added}": unsupported, unsupported, supported)`,
   ])
   // A sentence the rewording didn't touch, read as a stop in the whole entry: returned, so the entry isn't saved.
   const other = model([{ 'Nên thả lá từ từ rồi đo pH.': 'unsupported: advice' }, { 'Nên thả lá từ từ rồi đo pH.': 'unsupported: advice' }, {}], [], reword)
   const kept = await rewordLoose(other.llm, 'opus', facts, entry, loose.slice(0, 1))
   expect(kept.stops.map(x => x.text)).toEqual(['Nên thả lá từ từ rồi đo pH.'])
   expect(kept.score).toBe(0.83)
+  // The chief of staff, 15 Nov 2026: the definition's first sentence says what the thing is, and the step leaves it as
+  // written (Artemia's became its English name). Nothing is asked of the model.
+  const lead = model([{}, {}, {}], [], { 'pH đo độ chua của nước.': 'pH có tên tiếng Anh.' })
+  const left = await rewordLoose(lead.llm, 'opus', facts, entry, [{ ...loose[1]!, text: 'pH đo độ chua của nước.' }])
+  expect(left).toEqual({ entry, log: ['Loose, left as written (the definition\'s first sentence): "pH đo độ chua của nước."'], stops: [] })
+  expect(lead.calls).toEqual([])
 })
 
 // The chief of staff, 15 Nov 2026: chu trình nitơ's rewording read only the facts, and put a brand where a kind stood (house
@@ -201,7 +209,7 @@ test('a rewording a house rules note quotes goes back to its old wording; one no
 test('going back puts in again only the rewordings that stay; a note is about a rewording by the words it put in or took out', async () => {
   const flag = (text: string, block: string) => ({ text, block, verdicts: ['loose' as const, 'loose' as const], why: ['x'] })
   // The definition's rewording stops and goes back; the body's had taken the definition's old words, so it can't stay.
-  const e = { definition: 'Dùng thuốc khử clo.', body: '<p>Rồi thả cá.</p>' }
+  const e = { definition: 'Khử clo cho nước máy. Dùng thuốc khử clo.', body: '<p>Rồi thả cá.</p>' }
   const one = model([{ 'Khử clo trước.': 'unsupported: x' }, { 'Khử clo trước.': 'unsupported: x' }, {}], [], { 'Dùng thuốc khử clo.': 'Khử clo trước.', 'Rồi thả cá.': 'Dùng thuốc khử clo.' })
   const quoting = async () => ['Rule 12: "Dùng thuốc khử clo." is not in THIS TERM.']
   const r = await rewordLoose(one.llm, 'opus', facts, e, [flag('Dùng thuốc khử clo.', e.definition), flag('Rồi thả cá.', 'Rồi thả cá.')], { rules: quoting })

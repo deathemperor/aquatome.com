@@ -7,7 +7,7 @@ import { LlmError, type Llm } from './claude'
 import { FIT_TITLE, fitDue, fitFindings, fitKey, fitText, type FitCheck, type FitFinding, type FitState } from './fit'
 import { rewriteForReader } from './for-reader'
 import { METRIC_KINDS } from './metric'
-import { cutWhole, goesWhole, mendPart, words as mendWords } from './mend'
+import { batchHalf, cutWhole, goesWhole, mendPart, words as mendWords } from './mend'
 import { fixedParts, loadPages, type Page } from './pages'
 import { piece } from './pieces'
 import { fieldOf as partOf, norm, type ReaderFinding } from './reader'
@@ -111,7 +111,7 @@ export const rewriteDue = (p: Page, state: FitState) =>
 
 /** A breed page's units: its litres are our conversion of a source's US figure, named as keepers here say. */
 const BREED_UNITS = `This page has no English beside it: its litres are our conversion of a source's US figure, and are named as keepers here say, worked out from the source's own US figure (${TANK_RULE.en}; another size the nearest round figure keepers say, a minimum never more than a twentieth under it). A tank or water per fish, or per cm of a fish, is an allowance, not a dose: it is named so too. A dose's amount and the water it goes into stay exact`
-const asNote = (f: FitFinding, figures?: BreedFigure[]): ReaderFinding => ({
+const asNote = (f: FitFinding, figures?: BreedFigure[], half?: boolean): ReaderFinding => ({
   kind: 'language', severity: 'high', part: f.part, quote: f.quote,
   problem: f.check === 'words' ? `A word keepers here don't use${f.fix ? `: write "${f.fix}"` : ''}.`
     : f.check === 'units' && figures ? `${FIT_TITLE.units}: ${f.why}. ${BREED_UNITS}.${figures.length ? ` Write exactly these figures: ${figuresSaid(figures)}. Change no other figure.` : ''} Give no US figure.`
@@ -121,6 +121,9 @@ const asNote = (f: FitFinding, figures?: BreedFigure[]): ReaderFinding => ({
     // On where a statement applies (a dealer's batch, the source's own photo or tank), or a check code can't tell: the
     // sentence goes whole, as what's left of it could say of every fish what was said of one (the chief of staff, 14 Nov
     // 2026; mend.ts `goesWhole`).
+    // A source finding on the second clause of "X, nhưng Y": that clause goes, unless what's left can't stand for every
+    // such fish (mend.ts batchHalf; the chief of staff, 15 Nov 2026: "the writer cuts only the batch half").
+    : half ? `${FIT_TITLE[f.check]}: ${f.why}. Only the quoted clause goes, with its joining word ("nhưng", "song"): the rest of the sentence stays word for word and ends with a full stop. If what's left isn't a whole sentence true of every such fish (it still speaks of these fish, the source's own tank or work, or the present, or it waits for the clause that went), the whole sentence goes: return it empty.`
     : goesWhole(f.check) ? `${FIT_TITLE[f.check]}: ${f.why}. The whole sentence goes: return it empty.`
     // A detail inside it is cut, never said another way (the chief of staff, 14 Nov 2026; mend.ts addedWords holds it).
     : `${FIT_TITLE[f.check]}: ${f.why}. Cut the quoted words, or the whole sentence if nothing true is left without them: never say it another way, and put in nothing it didn't say.`,
@@ -143,7 +146,7 @@ const figureRuns = (from: string) => {
   return runs.filter(r => r.length).map(r => r.join(' '))
 }
 /** A finding as the writer's note on the sentences it quotes (a breed page's units with the figures to write). */
-const noteOf = (f: FitFinding, figures?: BreedFigure[]) => { const n = asNote(f, figures); return `${n.problem}${n.fix ? ` Nên viết: "${n.fix}"` : ''}` }
+const noteOf = (f: FitFinding, figures?: BreedFigure[], half?: boolean) => { const n = asNote(f, figures, half); return `${n.problem}${n.fix ? ` Nên viết: "${n.fix}"` : ''}` }
 
 /** `gone`: each sentence a kept part lost whole, and each that went with it, for the chief of staff (mend.ts `Mended`). */
 export type RewriteReport = { rewritten: string[]; notKept: string[]; skipped: string[]; failed: string[]; stopped: string; gone: string[] }
@@ -253,7 +256,7 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
               return fs.filter(x => !seen.has(`${block}|${x.at}`) && !!seen.add(`${block}|${x.at}`)).map(x => ({ ...x, block }))
             })
             const said = figures.length ? `This is a breed page with no English source: its litres are our conversion of a source's US figure, and the editor was told to name these as keepers here say, from the source's own US figure, a minimum never more than a twentieth under it: ${figuresSaid(figures)}. Those changes are correct, not errors.` : undefined
-            const r = await mendPart(d.llm, html, now.map(f => ({ check: f.check, quote: f.quote ?? '', note: noteOf(f, told.get(f)), covers: told.get(f)?.flatMap(x => figureRuns(x.from)), ...(f.check === 'words' && f.fix ? { adds: [f.fix] } : told.get(f)?.length ? { adds: told.get(f)!.map(x => x.to) } : {}) })), { en: p.en?.[field], source: source && names[source]?.name, model: 'opus', metric: METRIC_KINDS.includes(p.kind), ...(said ? { figures: said } : {}) })
+            const r = await mendPart(d.llm, html, now.map(f => { const half = batchHalf(html, f); return { check: f.check, quote: f.quote ?? '', note: noteOf(f, told.get(f), half), covers: told.get(f)?.flatMap(x => figureRuns(x.from)), ...(f.check === 'words' && f.fix ? { adds: [f.fix] } : told.get(f)?.length ? { adds: told.get(f)!.map(x => x.to) } : {}), ...(half ? { whole: false as const } : {}) } }), { en: p.en?.[field], source: source && names[source]?.name, model: 'opus', metric: METRIC_KINDS.includes(p.kind), ...(said ? { figures: said } : {}) })
             if (typeof r === 'string') { report.skipped.push(`${key} ${field}: ${r}`); continue }
             let next = faq ? parse(r.html).text.trim() : r.html
             // Kept at the bar, leaving out only what a finding asks to go, saying nothing more surely than before (hedges.ts),

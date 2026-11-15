@@ -1,8 +1,13 @@
 {
   "slug": "phrom-river",
-  "name": "พรหม",
+  "name": "Sungai Phrom",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-15T05:33:42.225Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

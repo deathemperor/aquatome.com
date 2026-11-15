@@ -3,7 +3,8 @@
   "name": "Cá nheo biển Plotosus canius",
   "altNames": [
     "Grå Koralmalle",
-    "Gray eel-catfish"
+    "Gray eel-catfish",
+    "Cá nheo lươn xám"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Plotosus canius Hamilton, 1822</li><li>Nơi thu mẫu chuẩn: nam Bengal, Ấn Độ.</li><li>Nhận dạng: loài này màu nâu xám trơn, chóp vây lưng màu đen. Ban đêm, trên thân nó hiện lên các vằn sọc. Nó khác Plotosus lineatus trưởng thành ở cặp râu mũi dài, có thể dài quá mắt.</li></ul>",
@@ -11,14 +12,21 @@
     "waterConditions:planetcatfish": "<p>Loài này sống ở nước lợ và cả nước mặn.</p>",
     "reproduction:planetcatfish": "<p>Chưa có tài liệu nào nói loài này sinh sản ra sao. Cũng chưa có báo cáo nào về chuyện cho đẻ.</p>",
     "notes:planetcatfish": "<p>Gai ở các vây phía trước có nọc độc mạnh.</p>",
-    "references:planetcatfish": "<p>An account of the fishes found in the river Ganges, pp 142, 374, Pl. 15 (fig. 44).</p>"
+    "references:planetcatfish": "<p>An account of the fishes found in the river Ganges, pp 142, 374, Pl. 15 (fig. 44).</p>",
+    "quickFacts:scotcat": "<p>Họ: Plotosidae. Kích thước: 120 cm. Nhiệt độ: 24–26 °C. pH: 8,0–8,5. Cá có một màu nâu xám, chóp vây lưng đen, ban đêm thì hiện lên các sọc vằn. Gai ở các vây phía trước có nọc độc mạnh. Cá lớn của loài này khác Plotosus lineatus trưởng thành ở cặp râu mũi dài, có thể dài quá mắt.</p>",
+    "beforeYouBuy:scotcat": "<p>Loài này lớn quá khổ, bể nuôi trong nhà không đủ chỗ.</p>",
+    "distribution:scotcat": "<p>Ấn Độ Dương – Tây Thái Bình Dương. Cá có từ bờ tây, bờ nam Ấn Độ và vùng biển ngoài khơi Sri Lanka, sang phía đông dọc bờ biển Bangladesh và Myanmar, qua quần đảo Ấn Độ–Australia và Philippines, xa nhất tới Papua New Guinea.</p>",
+    "habitat:scotcat": "<p>Cá lớn chủ yếu sống ở cửa sông và đầm phá, đôi khi ngược sông lên tới chỗ nước gần như ngọt. Loài này sống ở vùng hạ lưu sông, trong cả nước ngọt lẫn nước lợ, và ở vùng biển ven bờ. Cá con có thể tụ thành đàn rất đông.</p>",
+    "diet:scotcat": "<p>Loài này ăn giáp xác, thân mềm và cá.</p>",
+    "reproduction:scotcat": "<p>Nghe nói mùa đẻ của loài này kéo dài. Chúng chắc là đẻ trong nước lợ, vì tinh trùng sống tốt nhất ở độ mặn 0,9%. Mỗi lứa trứng tương đối ít nhưng hạt to, đúng kiểu loài có chăm con. Có thể cá đực làm tổ và canh giữ cá bột.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên: tên loài canius là chữ Kani viết theo kiểu Latin. Chữ này lấy từ Kani magur, tên người Bengal ở Ấn Độ gọi loài cá da trơn này. Danh sách Đỏ IUCN: Ít quan tâm (IUCN 2024).</p>"
   },
   "quality": {
-    "score": 0.88,
-    "indexable": false,
+    "score": 0.85,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.88
-    },
-    "reason": "thin"
+      "planetcatfish": 0.88,
+      "scotcat": 0.85
+    }
   }
 }

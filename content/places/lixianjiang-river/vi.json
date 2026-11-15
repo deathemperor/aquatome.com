@@ -1,6 +1,6 @@
 {
   "slug": "lixianjiang-river",
-  "name": "sông Lixianjiang",
+  "name": "sông Đà",
   "altNames": [
     "Lixianjiang River"
   ],
@@ -8,5 +8,6 @@
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

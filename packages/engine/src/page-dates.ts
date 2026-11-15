@@ -1,13 +1,14 @@
 import { createHash } from 'node:crypto'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
+import { PageDatesSchema } from '@aq/schema'
 
 /**
  * Fields a reader never sees: scores, stamps, and notes to the engine itself. The engine rewrites them on runs that
  * change nothing on the page (a merge moves `updatedAt`, a re-score moves `quality`), so they can't date a page.
  * A change to this list changes every file's hash, and the next sweep then dates every page that day.
  */
-const BOOKKEEPING = new Set(['updatedAt', 'quality', 'held', 'nameFixed', 'bodyFixed', 'redirectFrom', 'generatedAt', 'builtAt', 'seen', 'speciesUpdatedAt', 'fetched', 'at'])
+const BOOKKEEPING = new Set(['updatedAt', 'quality', 'held', 'nameFixed', 'bodyFixed', 'redirectFrom', 'generatedAt', 'builtAt', 'seen', 'speciesUpdatedAt', 'writtenFrom', 'fetched', 'at'])
 
 const canonical = (v: unknown): unknown => {
   if (Array.isArray(v)) return v.map(canonical) // the order of a list is content: the first photo is the page's head
@@ -40,4 +41,12 @@ export async function updatePageDates(contentRoot: string, day = new Date().toIS
   changed += Object.keys(old).filter(rel => !(rel in dates)).length
   if (changed) await writeFile(file, `${JSON.stringify(dates, null, 2)}\n`)
   return { files: Object.keys(dates).length, changed }
+}
+
+/**
+ * The pages' dates in the format the site's loader reads (load.ts, PageDatesSchema), and the file there: the loader takes a
+ * missing one as no dates, which a sweep never leaves. The number of files dated, or it throws (checkContent).
+ */
+export async function checkPageDates(contentRoot: string) {
+  return Object.keys(PageDatesSchema.parse(JSON.parse(await readFile(join(contentRoot, 'page-dates.json'), 'utf8')))).length
 }

@@ -1,0 +1,77 @@
+{
+  "id": "synodontis-contractus",
+  "native": {
+    "input": "a925993283889250",
+    "at": "2026-11-15T05:39:34.625Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found only in the Democratic Republic of Congo and the Republic of Congo.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      },
+      {
+        "code": "CG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found only in the Democratic Republic of Congo and the Republic of Congo.",
+        "words": "Republic of Congo",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Synodontis contractus",
+    "status": "ACCEPTED",
+    "taxonKey": 2344333,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        88
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        9
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        8
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        7
+      ],
+      [
+        "cca0058d-d593-4c7e-844c-dcc0b8feae86",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ]
+    ],
+    "native": [
+      "CD",
+      "CG"
+    ],
+    "requests": 12,
+    "at": "2026-11-15T05:39:34.625Z"
+  }
+}

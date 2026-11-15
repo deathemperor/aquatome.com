@@ -2,6 +2,20 @@
   "id": "satanoperca-lilith",
   "photos": [
     {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/444944904/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/444944904/medium.jpg",
+      "width": 1024,
+      "height": 600,
+      "licence": "CC0",
+      "author": "Whaldener Endo",
+      "sourceUrl": "https://www.inaturalist.org/photos/444944904",
+      "caption": "Cá hải hồ lilith bơi trên nền đáy cát sỏi trong tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/52df042636343bda.webp",
       "thumb": "https://media.aquatome.com/commons/52df042636343bda-480.webp",
       "width": 1200,
@@ -14,7 +28,7 @@
       "kind": "group"
     }
   ],
-  "seen": 1,
-  "updatedAt": "2026-11-09",
-  "builtAt": "2026-11-09"
+  "seen": 4,
+  "updatedAt": "2026-11-14",
+  "builtAt": "2026-11-14"
 }

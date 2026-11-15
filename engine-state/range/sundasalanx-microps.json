@@ -1,0 +1,98 @@
+{
+  "id": "sundasalanx-microps",
+  "native": {
+    "input": "17ba50dc125abd2a",
+    "at": "2026-11-15T05:39:34.625Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Sundasalanx microps is a miniature clupeiform from Borneo, in Indonesia and Malaysia, described from the Kapuas River.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Sundasalanx microps is a miniature clupeiform from Borneo, in Indonesia and Malaysia, described from the Kapuas River.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs in Indonesia and Malaysia on Borneo, including the Kapuas, Kinabatangan and Rajang basins.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs in Indonesia and Malaysia on Borneo, including the Kapuas, Kinabatangan and Rajang basins.",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Occurs in Indonesia and Malaysia on Borneo, including the Kapuas, Kinabatangan and Rajang basins.",
+        "ok": true
+      },
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "Occurs in Indonesia and Malaysia on Borneo, including the Kapuas, Kinabatangan and Rajang basins.",
+        "ok": true
+      },
+      {
+        "name": "Kinabatangan",
+        "source": "seriouslyfish",
+        "quote": "Occurs in Indonesia and Malaysia on Borneo, including the Kapuas, Kinabatangan and Rajang basins.",
+        "ok": true
+      },
+      {
+        "name": "Rajang",
+        "source": "seriouslyfish",
+        "quote": "Occurs in Indonesia and Malaysia on Borneo, including the Kapuas, Kinabatangan and Rajang basins.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Sundasalanx microps",
+    "status": "ACCEPTED",
+    "taxonKey": 2413683,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "ID",
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-15T05:39:34.625Z"
+  }
+}

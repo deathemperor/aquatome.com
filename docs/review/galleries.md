@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-14). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 612 | 30 | 9 | 21 | 630 |
-| rest | 20 | 1728 | 74 | 0 | 59 | 1743 |
+| covered | 30 | 623 | 30 | 9 | 21 | 641 |
+| rest | 20 | 1727 | 74 | 0 | 66 | 1735 |
 
-## Short of target: every source read (348)
+## Short of target: every source read (365)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -236,7 +236,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/macropodus-opercularis | popular | 20 | 40 |
 | species/pelvicachromis-pulcher | popular | 9 | 40 |
 | species/thorichthys-meeki | popular | 14 | 40 |
-| species/heros-severus | popular | 14 | 40 |
+| species/heros-severus | popular | 12 | 40 |
 | species/rocio-octofasciata | popular | 37 | 40 |
 | species/channa-barca | popular | 0 | 40 |
 | species/channa-bleheri | popular | 1 | 40 |
@@ -277,8 +277,10 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/corydoras-septentrionalis | covered | 0 | 30 |
 | species/corydoras-splendens | covered | 1 | 30 |
 | species/denticetopsis-seducta | covered | 0 | 30 |
+| species/farlowella-platorynchus | covered | 0 | 30 |
 | species/hypancistrus-inspector | covered | 0 | 30 |
 | species/hypancistrus-zebra | covered | 0 | 30 |
+| species/hyphessobrycon-vilmae | covered | 2 | 30 |
 | species/hypostomus-luteus | covered | 0 | 30 |
 | species/kryptopterus-geminus | covered | 0 | 30 |
 | species/lepthoplosternum-pectorale | covered | 0 | 30 |
@@ -363,4 +365,19 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/betta-burdigala | covered | 0 | 30 |
 | species/betta-channoides | covered | 0 | 30 |
 | species/betta-dennisyongi | covered | 0 | 30 |
+| species/betta-dimidiata | covered | 0 | 30 |
+| species/betta-edithae | covered | 11 | 30 |
+| species/betta-falx | covered | 0 | 30 |
+| species/betta-foerschi | covered | 0 | 30 |
+| species/betta-hendra | covered | 0 | 30 |
+| species/betta-hipposideros | covered | 2 | 30 |
+| species/betta-ideii | covered | 0 | 30 |
+| species/betta-kuehnei | covered | 0 | 30 |
+| species/betta-livida | covered | 0 | 30 |
 | species/betta-macrostoma | covered | 0 | 30 |
+| species/betta-mahachaiensis | covered | 7 | 30 |
+| species/betta-mandor | covered | 0 | 30 |
+| species/betta-miniopinna | covered | 1 | 30 |
+| species/betta-ocellata | covered | 0 | 30 |
+| species/betta-pallifina | covered | 0 | 30 |
+| species/betta-patoti | covered | 0 | 30 |

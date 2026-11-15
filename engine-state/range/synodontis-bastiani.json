@@ -1,0 +1,115 @@
+{
+  "id": "synodontis-bastiani",
+  "native": {
+    "input": "c1d6a0dc432de7f9",
+    "at": "2026-11-15T05:39:34.625Z",
+    "claims": [
+      {
+        "code": "CI",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Bouaffé, Ivory Coast.",
+        "words": "Ivory Coast",
+        "ok": true
+      },
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Nigeria.",
+        "words": "Nigeria",
+        "ok": false,
+        "why": "no sentence"
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sassandra",
+        "source": "planetcatfish",
+        "quote": "Africa: Sassandra, Bandama and Bia basins (Côte d'Ivoire), also from the Comoe and Agnébi Rivers.",
+        "country": "CI",
+        "ok": true
+      },
+      {
+        "name": "Bandama",
+        "source": "planetcatfish",
+        "quote": "Africa: Sassandra, Bandama and Bia basins (Côte d'Ivoire), also from the Comoe and Agnébi Rivers.",
+        "country": "CI",
+        "ok": true
+      },
+      {
+        "name": "Bia",
+        "source": "planetcatfish",
+        "quote": "Africa: Sassandra, Bandama and Bia basins (Côte d'Ivoire), also from the Comoe and Agnébi Rivers.",
+        "country": "CI",
+        "ok": true
+      },
+      {
+        "name": "Comoe",
+        "source": "planetcatfish",
+        "quote": "Africa: Sassandra, Bandama and Bia basins (Côte d'Ivoire), also from the Comoe and Agnébi Rivers.",
+        "country": "CI",
+        "ok": true
+      },
+      {
+        "name": "Agnébi",
+        "source": "planetcatfish",
+        "quote": "Africa: Sassandra, Bandama and Bia basins (Côte d'Ivoire), also from the Comoe and Agnébi Rivers.",
+        "country": "CI",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "NG"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Synodontis bastiani",
+    "status": "ACCEPTED",
+    "taxonKey": 2344320,
+    "datasets": [
+      [
+        "1c6b8a9f-5bd9-4358-9915-b7643779b03e",
+        15
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        15
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "40a262b4-6627-4011-afbe-159c00ec97e7",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "CI"
+    ],
+    "requests": 12,
+    "at": "2026-11-15T05:39:34.625Z"
+  }
+}

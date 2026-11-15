@@ -13,7 +13,8 @@
     "huallaga",
     "brazil",
     "madeira",
-    "bolivia"
+    "bolivia",
+    "colombia"
   ],
   "range": {
     "native": {
@@ -185,10 +186,6 @@
   "dataCard": {
     "sizeCm": [
       {
-        "source": "glaser",
-        "value": 5
-      },
-      {
         "source": "seriouslyfish",
         "value": 6.5
       }
@@ -230,21 +227,21 @@
   "sections": [
     {
       "key": "quickFacts",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_armatus_venezuela_en/",
-      "html": "<p>Corydoras armatus attains a maximum length of about 5 cm.</p>"
-    },
-    {
-      "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-armatum",
       "html": "<p>Hoplisoma armatum, long known as Corydoras armatus, is an armoured catfish from the Río Huallaga watershed in Peru, to which it may be endemic. Fish from the upper rio Madeira in Brazil and Bolivia have been traded as C. sp. 'dorsalis' and C. sp. 'ogawae' and are officially considered conspecific, although the two areas lie almost 2500 km apart. It can also be confused with H. loretoense but has a deeper body and a longer, slightly curved dorsal-fin spine.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_armatus_spotted__en/",
+      "html": "<p>These fish were described by Günther more than 125 years ago and have hardly ever been imported since.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_armatus_venezuela_en/",
-      "html": "<p>The type specimens originated from Peru (Rio Huallaga). The species is now also imported from Venezuela, where the specimens look exactly like their Peruvian cousins. A similar form originates from Brazil (Rio Abuna, near the border to Bolivia), and a second similar form comes from Peru (Rio Nanay).</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_armatus_spotted__en/",
+      "html": "<p>April 2005: These fish were imported from Colombia. The literature, however, gives Peru and Brazil as their place of origin. Similar animals have been imported from Brazil, but without such a marked pattern as these fish from Colombia.</p>"
     },
     {
       "key": "distribution",
@@ -285,8 +282,8 @@
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_armatus_venezuela_en/",
-      "html": "<p>Corydoras armatus belongs to the Corydoras species known to scientists for a very long time. It is the sixth described species of the genus, and the original description appeared in 1868. It appeared comparatively late in the hobby, in the 1990s, and is still a real rarity in the trade.</p><p>The specific name \"armatus\" means \"weaponed, armed\" and refers to the enormous dorsal spine. This spine makes the species almost unique, as only two other similar Corydoras are known.</p><p>One originates from Brazil (Rio Abuna, near the border to Bolivia). It was sometimes called \"Corydoras dorsalis\" and \"Corydoras ogawae\"; both names have no scientific relevance. This form has been given the number CW86. It can hardly be distinguished from the \"real\" C. armatus by coloration or any other feature, except the 2,500 km distance between the Rio Huallaga and the Rio Abuna and the larger spots on the body of CW86.</p><p>The second sibling species comes from Peru (Rio Nanay) and has the C-number C96. It can be easily recognized by a black stripe over the shoulder, right below the dorsal fin.</p><p>The fish from Venezuela were freshly imported as healthy, large specimens.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_armatus_spotted__en/",
+      "html": "<p>The characteristic feature of this catfish is the extremely long dorsal fin, whose first ray is coloured darkly. Except for the ventral side, the whole body is marked with dark spots arranged in a vertical line pattern. The head has no spots at all. The body is high compared with the very similar-looking C. loretoensis.</p>"
     },
     {
       "key": "notes",
@@ -357,5 +354,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-14"
 }

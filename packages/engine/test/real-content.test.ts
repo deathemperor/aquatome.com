@@ -3,8 +3,8 @@ import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
-import { GALLERY_POST, loadAll, mayPublish, RETIRED_GUIDES, resolveDataCard, type Translation } from '@aq/schema'
-import { checkPages, RATCHETED, ratcheted, RULES } from '../src/content-rules'
+import { GALLERY_POST, LANGS, loadAll, mayPublish, RETIRED_GUIDES, resolveDataCard, tankKeywordFits, WRITTEN_LANGS, type Translation } from '@aq/schema'
+import { checkPages, photoCaptions, RATCHETED, ratcheted, refCredits, RULES, SWEPT_KINDS, thanksLines } from '../src/content-rules'
 import { englishOf } from '../src/english'
 import { tilapiaUnnamed } from '../src/kind-words'
 import { droppedName, FISH_NAMES, KIND_PASSAGES, oldNames } from '../src/names'
@@ -19,6 +19,7 @@ import { mendPart } from '../src/source-figures'
 import { fishThaiLai, wordingSlips } from '../src/sanitize'
 import { cardOf, cardProblems, readSummaries } from '../src/summaries'
 import { cardSchool, readTraits } from '../src/traits'
+import { sweepTranslation } from '../src/sweep'
 import { slow } from '@aq/schema/test-time'
 
 // The real content/, not the test store, as a public build shows it. Each class of defect here has a fix the engine
@@ -35,6 +36,28 @@ test('no page has a defect the sweep fixes', async () => {
   const left = Object.fromEntries(Object.keys(RATCHETED).map(id => [id, held.filter(f => f.rule === id).map(f => `${f.page.path}: ${f.detail}`)]))
   expect(left, 'run pnpm engine sweep').toEqual(Object.fromEntries(Object.keys(RATCHETED).map(id => [id, []])))
 }, slow(300_000)) // every page of the real content, in three languages: about 100 s on 2,599 pages
+
+// Page Recovery, 2026-11-12: a source's photo captions and credits left in a guide's text (121 lines in 21 Vietnamese
+// guides), its thanks to the people who helped it (17 pages), and the compiler's name after "©" in about 130 fish pages'
+// references. The sweep cuts them each cycle, before the build; this holds what it leaves, on every stored page as the
+// sweep would leave it. In memory: the content here is the last cycle's, and its next sweep writes the cut. What fails
+// names the page, the part and how many, never the words: they carry people's names, and this log is public.
+test('after the sweep, no page keeps a stray photo caption, a source\'s thanks or a name after "©" in its references', async () => {
+  const content = fileURLToPath(new URL('../../../content', import.meta.url))
+  const left: string[] = []
+  for (const kind of SWEPT_KINDS) for (const id of await readdir(join(content, kind)).catch(() => [] as string[])) for (const lang of WRITTEN_LANGS) {
+    const raw = await readFile(join(content, kind, id, `${lang}.json`), 'utf8').catch(() => null)
+    if (!raw) continue
+    const t = sweepTranslation(JSON.parse(raw) as Translation & { body?: string; definition?: string }, kind).t
+    const fields = [...Object.entries(t.sections ?? {}).map(([k, html]) => [`sections.${k}`, html] as const), ...(t.body !== undefined ? [['body', t.body] as const] : []), ...(t.definition !== undefined ? [['definition', t.definition] as const] : [])]
+    for (const [field, html] of fields) {
+      const refs = field.startsWith('sections.references')
+      const n = { captions: kind === 'guides' && field === 'body' ? photoCaptions(html).length : 0, thanks: refs ? 0 : thanksLines(html).length, '©': refs ? refCredits(html).length : 0 }
+      for (const [what, k] of Object.entries(n)) if (k) left.push(`${lang}/${kind}/${id} ${field}: ${what} ×${k}`)
+    }
+  }
+  expect(left, 'fix the sweep (content-rules.ts dropPhotoCaptions, dropThanks, dropRefCredits)').toEqual([])
+}, slow(300_000)) // every stored page in four languages, swept in memory: about 40 s
 
 // The owner's names of 2026-11-07. The sweep writes each when the sentence says which fish it is (renameSwapped), so what
 // fails here is a sentence it left, the fish unclear: a page that keeps one is written again.
@@ -55,6 +78,26 @@ test('no page, fish summary or caption calls a fish "thài lài"', async () => {
   const left = (await Promise.all(files.map(async f => fishThaiLai(await readFile(join(content, f), 'utf8')).map(q => `${f}: ${q}`)))).flat()
   expect([...findings.map(f => `${f.page.path}: ${f.detail}`), ...left]).toEqual([])
 }, slow(300_000))
+
+// The owner, 2026-11-15, on a fiddler crab's page headed "Cá Austruca annulipes": an animal that isn't a fish is never
+// named as one. Not a fish: a shrimp or a snail, or an order that isn't a fish's (kind-words.ts isFish; the app's rule
+// too, agreed with the iOS Content Lead). A new page takes its kind's word (kind-words.ts plainName, since 14 Nov); a
+// page's name is kept once written, so one named before that keeps "Cá" until a person renames it (names.ts FISH_NAMES).
+// Indonesian and Malay "Ikan", Thai "ปลา", but for Thai's own names of a starfish (ปลาดาว) and a squid (ปลาหมึก).
+const FISH_WORD: Partial<Record<string, RegExp>> = { vi: /^cá(?![\p{L}\p{M}])/iu, id: /^ikan(?!\p{L})/iu, ms: /^ikan(?!\p{L})/iu, th: /^ปลา(?!ดาว|หมึก)/u }
+test('no page for an animal that isn\'t a fish names it a fish, in any language', () => {
+  const species = fileURLToPath(new URL('../../../content/species', import.meta.url))
+  const named = readdirSync(species).flatMap(id => {
+    const e = JSON.parse(readFileSync(join(species, id, 'entity.json'), 'utf8')) as { order?: string; group?: string }
+    if (!['shrimp', 'snails'].includes(e.group ?? '') && !(e.order && !/iformes$/.test(e.order))) return []
+    return Object.entries(FISH_WORD).flatMap(([lang, word]) => {
+      const file = join(species, id, `${lang}.json`)
+      const name = existsSync(file) ? (JSON.parse(readFileSync(file, 'utf8')) as Translation).name : undefined
+      return name && word!.test(name.normalize('NFC').trim()) ? [`${id} (${e.order ?? e.group}) ${lang}: ${name}`] : []
+    })
+  })
+  expect(named).toEqual([])
+})
 
 // The owner's names of 2026-11-11, each guarded (nameFixed) so a later source read keeps it: the eartheaters the trade
 // calls Hải Hồ (Geophagus, Satanoperca, Acarichthys heckelii; not Biotodoma or Gymnogeophagus, which no source calls so),
@@ -163,6 +206,62 @@ const SOURCE_FIGURES = [
   ['vi', 'cichla-monoculus', 'aquariumSize:seriouslyfish', ['305 x 91 x 122 cm']],
   ['id', 'cichla-monoculus', 'quickFacts:seriouslyfish', ['305 x 91 x 122 cm']],
 ] as const
+// The chief of staff's rulings of 15 Nov on the pages the source-figure pass left: a figure the source itself gives in
+// metric stays as the source has it (the glass tetra's 60 × 38 cm, 68 litres, which add up, as 60 × 40 × 30 doesn't);
+// litres we converted from US gallons are rounded, with "about" (the black ghost's 200, 300, 450 and 700); and the
+// decorator crab's breeding line keeps the source's words, our labelled note beside it, and the page is out. Each part
+// fixed, so no read of the source, translation or mender changes it, and the English says the same, as a language not yet
+// written is translated from it. Whether the crab stays out is the gate's: its hold isn't held here.
+test("the chief of staff's rulings on the source figures stay, each part fixed", () => {
+  const root = fileURLToPath(new URL('../../../content/species', import.meta.url))
+  const read = (id: string, file: string) => JSON.parse(readFileSync(join(root, id, file), 'utf8'))
+  const parts = (id: string) => read(id, 'entity.json').sections as { key: string; source: string; html: string; fixed?: boolean }[]
+  const fixed = (id: string, key: string, source: string) => parts(id).find(s => s.key === key && s.source === source)?.fixed
+  const english = (id: string, key: string, source: string) => parts(id).find(s => s.key === key && s.source === source)!.html
+  const tetra = read('moenkhausia-oligolepis', 'vi.json').sections['aquariumSize:seriouslyfish']
+  expect(tetra).toContain('Đáy bể 60 × 38 cm. Thể tích khoảng 68 lít.')
+  expect(tetra).toContain('Một bể 60 × 38 × 30 cm, tức khoảng 68 lít')
+  expect(tetra).not.toMatch(/60 × 40/)
+  expect(fixed('moenkhausia-oligolepis', 'aquariumSize', 'seriouslyfish')).toBe(true)
+  const about = { vi: 'khoảng', id: 'sekitar', th: 'ประมาณ' } as const
+  for (const [lang, word] of Object.entries(about)) {
+    const ghost = read('apteronotus-albifrons', `${lang}.json`).sections['aquariumSize:aquariumcoop'] as string
+    for (const n of ['200', '300', '450']) expect(ghost, `${lang} ${n}`).toMatch(new RegExp(`${word}\\s*${n}`))
+    expect(ghost, lang).toMatch(/700/)
+    expect(ghost, lang).not.toMatch(/208|284|454|681/)
+  }
+  expect(fixed('apteronotus-albifrons', 'aquariumSize', 'aquariumcoop')).toBe(true)
+  expect(english('apteronotus-albifrons', 'aquariumSize', 'aquariumcoop')).toMatch(/about 200 litres.*about 300 litres.*about 450 or 700 litres/)
+  expect(english('apteronotus-albifrons', 'aquariumSize', 'aquariumcoop')).not.toMatch(/208|284|454|681|gallon/)
+  const note = {
+    vi: '<p><strong>Ghi chú của AquaTome:</strong> Chỉ tắt sục khí trong lúc gom ấu trùng, rồi bật lại ngay.</p>',
+    id: '<p><strong>Catatan AquaTome:</strong> Hentikan aerasi hanya selama mengumpulkan larva, lalu segera nyalakan kembali.</p>',
+    th: '<p><strong>หมายเหตุจาก AquaTome:</strong> หยุดให้อากาศเฉพาะระหว่างรวบรวมลูกปูวัยอ่อนเท่านั้น แล้วกลับมาให้อากาศทันที</p>',
+  } as const
+  for (const [lang, said] of Object.entries(note)) {
+    const t = read('camposcia-retusa', `${lang}.json`) as Translation
+    expect(t.sections!['reproduction:aquatome'], lang).toBe(said)
+    expect(t.sections!['reproduction:aquariumbreeder'], lang).toMatch(/26[.,]7–28[.,]9/)
+  }
+  expect(english('camposcia-retusa', 'reproduction', 'aquatome')).toBe("<p><strong>AquaTome's note:</strong> Turn the aeration off only while gathering the larvae, then back on straight away.</p>")
+  const breeding = parts('camposcia-retusa').map(s => `${s.key}:${s.source}`)
+  expect(breeding.indexOf('reproduction:aquatome')).toBe(breeding.indexOf('reproduction:aquariumbreeder') + 1)
+  expect(fixed('camposcia-retusa', 'reproduction', 'aquatome')).toBe(true)
+  expect(fixed('camposcia-retusa', 'reproduction', 'aquariumbreeder')).toBe(true)
+  // The engine's figure steps find nothing to change in any of them: the mender (which doesn't read `fixed`) and the rounding.
+  const ruled = [['moenkhausia-oligolepis', 'aquariumSize:seriouslyfish', ['vi']], ['apteronotus-albifrons', 'aquariumSize:aquariumcoop', ['vi', 'id', 'th']],
+    ['camposcia-retusa', 'reproduction:aquariumbreeder', ['vi', 'id', 'th']]] as const
+  for (const [id, part, langs] of ruled) {
+    const en = englishOf(read(id, 'entity.json').sections)
+    for (const lang of langs) {
+      const text = (read(id, `${lang}.json`) as Translation).sections![part]!
+      const m = mendPart(text, en.sections[part]!, lang)
+      expect(m && 'text' in m ? m.text : text, `${lang} ${id} mender`).toBe(text)
+      expect(roundPage({ sections: { [part]: text } }, lang, en).sections![part], `${lang} ${id} rounding`).toBe(text)
+    }
+  }
+})
+
 test.each(SOURCE_FIGURES)("the source's own figures: %s %s keeps the English's tank", async (lang, id, part, want) => {
   const dir = fileURLToPath(new URL(`../../../content/species/${id}/`, import.meta.url))
   const en = englishOf(JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8')).sections)
@@ -301,11 +400,45 @@ test('the Altum page speaks with one voice about water, its own figures first', 
 
 test('a heading whose sources could not both be true speaks with one voice', async () => {
   const root = fileURLToPath(new URL('../../../content', import.meta.url))
-  const voices = JSON.parse(readFileSync(join(root, 'one-voice.json'), 'utf8')) as Record<string, Record<string, string>>
+  const voices = JSON.parse(readFileSync(join(root, 'one-voice.json'), 'utf8')) as Record<string, Record<string, string | false>>
   expect(Object.keys(voices)).toContain('pterophyllum-altum')
   const { species } = await loadAll({ root, lang: 'vi', publicBuild: true })
   const heard = (id: string, key: string) => species.find(s => s.id === id)?.sections.filter(x => x.key === key).map(x => x.source)
-  for (const [id, keep] of Object.entries(voices)) for (const [key, source] of Object.entries(keep)) expect(heard(id, key), `${id} ${key}`).toEqual([source])
+  for (const [id, keep] of Object.entries(voices)) for (const [key, source] of Object.entries(keep)) expect(heard(id, key), `${id} ${key}`).toEqual(source === false ? [] : [source])
+}, slow(120_000))
+
+// The chief of staff, 15 Nov 2026: Seriously Fish gives the African snakehead, a 40 cm predator, a 38 × 38 cm base and 55
+// litres. Neither that figure nor the page's rounding of it is fit to read, so no source speaks under its tank heading
+// (one-voice.json), and its quick facts lose their tank line, fixed so no read or translation brings it back. It stays so
+// until a second source we may use gives a size that fits the fish. Its buy list's tank search, written with the page,
+// said 55 litres too: it goes, and the sweep writes a tank search only from a tank the card shows. Held as the rule, so a
+// fitting tank from a second source (the card shows it, the sweep writes its search) passes, and a too-small one doesn't.
+test('the African snakehead shows no tank size, in any language, and the engine keeps it so', async () => {
+  const root = fileURLToPath(new URL('../../../content', import.meta.url))
+  const dir = join(root, 'species/parachanna-obscura')
+  const facts = (JSON.parse(readFileSync(join(dir, 'entity.json'), 'utf8')) as { sections: { key: string; html: string; fixed?: boolean }[] }).sections.find(s => s.key === 'quickFacts')!
+  expect(facts.fixed).toBe(true)
+  const tank = /38\s*[×x]\s*38|40\s*[×x]\s*40|55\s*(?:lít|liter|litre|ลิตร)|aquarium size|kích thước bể|ukuran akuarium|ขนาดตู้|saiz akuarium/iu
+  expect(facts.html).not.toMatch(tank)
+  for (const lang of LANGS) {
+    if (!existsSync(join(dir, `${lang}.json`))) continue
+    const fish = (await loadAll({ root, lang, publicBuild: true })).species.find(s => s.id === 'parachanna-obscura')!
+    expect(fish.sections.filter(s => s.key === 'aquariumSize'), lang).toEqual([])
+    // Nor its text, which the gate's checks and the summary's writer read.
+    expect(Object.keys(fish.t.sections).filter(k => k.startsWith('aquariumSize:')), lang).toEqual([])
+    expect(Object.values(fish.t.sections).join(' '), lang).not.toMatch(tank)
+    const shown = resolveDataCard(fish.dataCard.tankCm ?? [], 'tankCm')?.value
+    const size = resolveDataCard(fish.dataCard.sizeCm ?? [], 'sizeCm')?.value
+    if (typeof shown === 'number') expect(shown, `${lang}: a tank the card shows is at least twice the fish`).toBeGreaterThanOrEqual(2 * Number(size))
+    if (lang !== 'vi') continue
+    // The buy list is Vietnamese only.
+    const slots = (JSON.parse(readFileSync(join(dir, 'entity.json'), 'utf8')) as { productSlots: { category: string; keywords: string[] }[] }).productSlots
+    const tanks = slots.find(x => x.category === 'be-ca')?.keywords ?? []
+    if (typeof shown === 'number') for (const k of tanks) expect(tankKeywordFits(k, shown), k).toBe(true)
+    else expect(tanks).toEqual(['bể cá lớn nuôi cá săn mồi'])
+  }
+  const summary = JSON.parse(readFileSync(join(root, 'summaries/parachanna-obscura.json'), 'utf8')) as { summary: string; mistakes: string[] }
+  expect([summary.summary, ...summary.mistakes].join(' ')).not.toMatch(/lít|\d\s*[×x]\s*\d/u)
 }, slow(120_000))
 
 // The neon tetra's blue stripe: The Spruce Pets said it starts at the tip of the nose, photos start it at the eye, and no
@@ -381,13 +514,50 @@ test('no guide calls a cichlid a tilapia in its title', () => {
 // The chief of staff, 14 Nov 2026: the gallery posts of other people's tanks (66 on 14 Nov) and the 13 Nov sheet's
 // seller-site notices go off for good, every address forwarding (@aq/schema retired.ts). Each named one is a guide the
 // content has, and each forwards to a page it has: a typo would leave a guide up, or forward to nothing.
+// The seller-site notices (the chief of staff, 14 Nov 2026): the lasting fact in each goes to its fish's page under the
+// dealer's name and the notice's address, in the notice's own sentences, cut and never added to (the Writing Lead's rule
+// for a part fixed by hand), and fixed, so no read of the source or rewrite takes it again. The notice then goes off.
+// [fish, part, the notice's address, its stored English in sources/glaser/]
+const FOLDS: [string, string, string, string][] = [
+  ['corydoras-adolfoi', 'notes', 'https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_eques_c_sp_aff_armatus_and_corydoras_duplicareus_en/', 'en-10-catfishes-10a-catfishes-corydoras-co-corydoras-eques-c-sp-aff-armatus-and-corydoras-duplicareus-en.md'],
+  ['corydoras-duplicareus', 'notes', 'https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_eques_c_sp_aff_armatus_and_corydoras_duplicareus_en/', 'en-10-catfishes-10a-catfishes-corydoras-co-corydoras-eques-c-sp-aff-armatus-and-corydoras-duplicareus-en.md'],
+  ['scleropages-leichardti', 'reproduction', 'https://www.aquariumglaser.de/en/03-bony-tongues/scleropages_jardinii_and_s_leichardti_en/', 'en-03-bony-tongues-scleropages-jardinii-and-s-leichardti-en.md'],
+  ['scleropages-leichardti', 'behaviour', 'https://www.aquariumglaser.de/en/03-bony-tongues/scleropages_jardinii_and_s_leichardti_en/', 'en-03-bony-tongues-scleropages-jardinii-and-s-leichardti-en.md'],
+  ['gasteropelecus-maculatus', 'notes', 'https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/thoracocharax-stellatus-gasteropelecus-maculatus-jumbo-carnegiella-myersi-carnegiella-strigata-2/', 'en-09-characoids-tetra-relationship-thoracocharax-stellatus-gasteropelecus-maculatus-jumbo-carnegiella-myersi-carnegiella-strigata-2.md'],
+  ['limia-perugiae', 'behaviour', 'https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/limia_special_en/', 'en-18-toothcarps-killis-and-livebearers-limia-special-en.md'],
+  ['limia-melanogaster', 'behaviour', 'https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/limia_special_en/', 'en-18-toothcarps-killis-and-livebearers-limia-special-en.md'],
+  ['limia-nigrofasciata', 'behaviour', 'https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/limia_special_en/', 'en-18-toothcarps-killis-and-livebearers-limia-special-en.md'],
+  ['limia-nigrofasciata', 'notes', 'https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/limia_special_en/', 'en-18-toothcarps-killis-and-livebearers-limia-special-en.md'],
+  ['hyphessobrycon-pyrrhonotus', 'notes', 'https://www.aquariumglaser.de/en/fisharchive/hyphessobrycon-pyrrhonotus-juvenile/', 'en-fisharchive-hyphessobrycon-pyrrhonotus-juvenile.md'],
+  ['cichla-ocellaris', 'notes', 'https://www.aquariumglaser.de/en/general/cichla-ocellaris-x-melaniae-hybrid-2/', 'en-general-cichla-ocellaris-x-melaniae-hybrid-2.md'],
+  ['protopterus-dolloi', 'behaviour', 'https://www.aquariumglaser.de/en/29-lungfishes/lungfishes-from-the-congo/', 'en-29-lungfishes-lungfishes-from-the-congo.md'],
+  ['distichodus-sexfasciatus', 'notes', 'https://www.aquariumglaser.de/en/32-all-the-rest/congo_importation_arrived__en/', 'en-32-all-the-rest-congo-importation-arrived-en.md'],
+  ['pelvicachromis-rubrolabiatus', 'dimorphism', 'https://www.aquariumglaser.de/en/32-all-the-rest/finally_an_import_from_guinea__en/', 'en-32-all-the-rest-finally-an-import-from-guinea-en.md'],
+]
+test('each seller notice\'s lasting fact is on its fish\'s page as the build shows it, cited to the notice, in its own sentences, and fixed', async () => {
+  const root = fileURLToPath(new URL('../../../content', import.meta.url))
+  const { species } = await loadAll({ root, lang: 'vi', publicBuild: true })
+  const words = (x: string) => x.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().toLowerCase()
+  for (const [fish, key, url, file] of FOLDS) {
+    const page = species.find(s => s.id === fish)
+    expect(page, fish).toBeDefined()
+    const part = page!.sections.find(s => s.key === key && s.source === 'glaser' && s.sourceUrl === url)
+    expect(part, `${fish} ${key}`).toBeDefined()
+    expect(part!.fixed, fish).toBe(true)
+    expect(page!.t.sections[`${key}:glaser`], fish).toMatch(/^<p>.+<\/p>$/)
+    // Every English sentence is the notice's own, word for word.
+    const said = words(readFileSync(join(root, '../sources/glaser', file), 'utf8'))
+    for (const sentence of words(part!.html).split(/(?<=[.!?])\s+/)) expect(said, `${fish}: "${sentence}"`).toContain(sentence.replace(/[.!?]$/, ''))
+  }
+}, slow(300_000)) // the real content loaded once, as the build does
+
 test('every guide taken off for good is one the content has, and forwards to a page it has', () => {
   const content = fileURLToPath(new URL('../../../content', import.meta.url))
   for (const [id, to] of Object.entries(RETIRED_GUIDES)) {
     expect(existsSync(join(content, 'guides', id, 'vi.json')), id).toBe(true)
     if (to !== 'guides') expect(existsSync(join(content, to.kind, to.id, 'vi.json')), `${id} → ${to.kind}/${to.id}`).toBe(true)
   }
-  expect(Object.keys(RETIRED_GUIDES)).toHaveLength(19)
+  expect(Object.keys(RETIRED_GUIDES)).toHaveLength(24)
   expect(readdirSync(join(content, 'guides')).filter(id => GALLERY_POST.test(id)).length).toBeGreaterThanOrEqual(66)
 })
 
@@ -405,6 +575,63 @@ test('a source\'s part fixed by hand says only what the source says: the porthol
   expect(sf.html).toBe('<p>Very scant information exists regarding the spawning of this fish in captivity.</p>')
   const vi = read<{ sections: Record<string, string> }>('species/dianema-longibarbis/vi.json').sections
   expect(vi['reproduction:seriouslyfish']).toBe('<p>Hiện có rất ít thông tin về chuyện loài này sinh sản trong bể nuôi.</p>')
+})
+
+// The chief of staff, 15 Nov 2026: the rewrite of 14 Nov took two care facts whole for a half its read flagged ("but these
+// fish are quite peaceful so far", the source's own batch; "in a hot country", written for a reader in a cold one). Each
+// is back with its general half only, fixed by hand so no rewrite, read of its source or translation takes it again. The
+// source's "tropical pond" is about the water, and the north of Vietnam has cold winters: the pond keeps its warmth, said of
+// the water, naming no country (the chief of staff, 15 Nov 2026: a climate condition is kept as warmth, never dropped).
+test('two care facts a rewrite took whole are back with their general half, fixed: Leporinus fight their own kind, Osphronemus breed in a huge tank or a pond warm all year', () => {
+  const root = fileURLToPath(new URL('../../../content', import.meta.url))
+  const read = <T>(path: string) => JSON.parse(readFileSync(join(root, path), 'utf8')) as T
+  const part = (id: string, key: string, source: string) => {
+    const s = read<{ sections: { key: string; source: string; html: string; fixed?: boolean }[] }>(`species/${id}/entity.json`).sections.find(x => x.key === key && x.source === source)
+    return { en: s, vi: read<{ sections: Record<string, string> }>(`species/${id}/vi.json`).sections[`${key}:${source}`] }
+  }
+  const leporinus = part('leporinus-fasciatus-tigrinus', 'behaviour', 'glaser')
+  expect(leporinus.en?.fixed).toBe(true)
+  expect(leporinus.en?.html).toBe('<p>Leporinus are known to be sometimes quarrelsome against their own kind.</p>')
+  expect(leporinus.vi).toBe('<p>Cá Leporinus đôi khi hay gây gổ với cá cùng loài.</p>')
+  const osphronemus = part('osphronemus-exodon', 'reproduction', 'seriouslyfish')
+  expect(osphronemus.en?.fixed).toBe(true)
+  expect(osphronemus.en?.html).toMatch(/Obviously an enormous aquarium, or perhaps a tropical pond, would be required for any serious breeding attempt\.<\/p>$/)
+  expect(osphronemus.vi).toMatch(/Muốn cho đẻ nghiêm túc thì dĩ nhiên phải có bể cực lớn, hoặc có lẽ là một cái ao nước ấm quanh năm\.<\/p>$/)
+  expect(osphronemus.vi).not.toMatch(/xứ nóng/)
+})
+
+test('the care facts a product\'s sentence carried are back without the product, each in a part a person fixed', () => {
+  // 15 Nov 2026: the products-first cut took these sentences whole for naming a product; their care fact goes back in
+  // general words the same day (the chief of staff), fixed so the writer and the translator leave it.
+  const root = fileURLToPath(new URL('../../../content', import.meta.url))
+  const read = <T>(path: string) => JSON.parse(readFileSync(join(root, path), 'utf8')) as T
+  const part = (id: string, key: string, source: string) => {
+    const s = read<{ sections: { key: string; source: string; fixed?: boolean }[] }>(`species/${id}/entity.json`).sections.find(x => x.key === key && x.source === source)
+    return { fixed: s?.fixed, vi: read<{ sections: Record<string, string> }>(`species/${id}/vi.json`).sections[`${key}:${source}`] ?? '' }
+  }
+  const species: [string, string, RegExp][] = [
+    ['neocaridina-davidi', 'waterConditions', /San hô vụn giúp tăng KH\. Còn muốn tăng GH thì dùng khoáng bổ sung\./],
+    ['melanotaenia-praecox', 'waterConditions', /Muốn tăng GH thì dùng thêm khoáng bổ sung\./],
+    ['colomesus-asellus', 'beforeYouBuy', /rồi chờ hai tuần\. Sau đó, cho cá dùng một đợt thuốc tẩy giun theo hướng dẫn trên hộp, rồi chờ một tháng\. Cuối cùng/],
+  ]
+  for (const [id, key, said] of species) {
+    const x = part(id, key, 'aquariumcoop')
+    expect(x.fixed, id).toBe(true)
+    expect(x.vi, id).toMatch(said)
+  }
+  const guides: [string, RegExp][] = [
+    ['aquariumbreeder-how-to-remove-brown-algae-diatoms-in-freshwater-tanks', /Bạn có hai cách chính để tăng CO2:<\/p><ul><li>Châm CO2 bằng bình khí nén\.<\/li><li>Dùng cacbon nước\.<\/li><\/ul>/],
+    ['aquariumcoop-blogs-aquarium-55-gallon-fish', /Nếu GH thấp, hãy bổ sung khoáng để cá và cây luôn khỏe\./],
+    ['aquariumcoop-blogs-aquarium-algae-removal', /<li>Nếu nitrat dưới 20 ppm, bạn châm phân nước tổng hợp \(all-in-one\) cho đến khi nitrat trong nước lên 20 ppm\.<\/li>/],
+  ]
+  for (const [id, said] of guides) {
+    const t = read<{ body: string; bodyFixed?: boolean }>(`guides/${id}/vi.json`)
+    expect(t.bodyFixed, id).toBe(true)
+    expect(t.body, id).toMatch(said)
+  }
+  // None names the products the cut took them off for.
+  const all = [...species.map(([id, key]) => part(id, key, 'aquariumcoop').vi), ...guides.map(([id]) => read<{ body: string }>(`guides/${id}/vi.json`).body)].join(' ')
+  expect(all).not.toMatch(/Wonder Shell|Equilibrium|ParaCleanse|Flourish Excel|Easy Carbo|Easy Green/)
 })
 
 test('the tap-water fixes hold: Seachem Prime named at its dose, our note on water for lucky bamboo beside its source\'s, our chloramine note, artemia salt in grams', () => {
@@ -484,6 +711,31 @@ test('the tap-water fixes hold: Seachem Prime named at its dose, our note on wat
   }
 })
 
+// The site lead, 15 Nov 2026, at the chief of staff's word: the rewrites of 14 and 15 Nov cut flagged sentences, and a
+// rule then took any part left with one line or none, so ten fish lost a part whole. A care fact the source supports goes
+// back, fixed by hand; a remark, a source's own notes, habitat and distribution stay off. Two come back here (Leporinus's
+// came back on its own change): Geophagus harreri's spawning without its fry counts, the author's own, and Compsaraia
+// samueli's food without "in the fishhouse". The darter's garden pond and Beaufortia's unheated tank stay off: each was
+// written for a reader in a cold country.
+test('two care facts a rewrite took whole are back, fixed: Geophagus harreri spawns in the open on roots or stones, Compsaraia samueli eats Tubifex and small feeder fish', () => {
+  const root = fileURLToPath(new URL('../../../content', import.meta.url))
+  const read = <T>(path: string) => JSON.parse(readFileSync(join(root, path), 'utf8')) as T
+  const part = (id: string, key: string, source: string, lang: string) => ({
+    en: read<{ sections: { key: string; source: string; html: string; fixed?: boolean }[] }>(`species/${id}/entity.json`).sections.find(x => x.key === key && x.source === source),
+    t: read<{ sections: Record<string, string> }>(`species/${id}/${lang}.json`).sections[`${key}:${source}`],
+  })
+  const geophagus = part('geophagus-harreri', 'reproduction', 'glaser', 'vi')
+  expect(geophagus.en?.fixed).toBe(true)
+  expect(geophagus.en?.html).toBe('<p>The species belongs to the open brooders and uses roots or stones for spawning.</p>')
+  expect(geophagus.t).toBe('<p>Loài này đẻ trứng lộ thiên, đẻ lên rễ cây hoặc đá.</p>')
+  const compsaraia = part('compsaraia-samueli', 'diet', 'glaser', 'vi')
+  expect(compsaraia.en?.fixed).toBe(true)
+  expect(compsaraia.en?.html).toBe('<p>The fish are fed with Tubifex and small feeder fish (Tanichthys).</p>')
+  expect(compsaraia.t).toBe('<p>Cá được cho ăn trùng chỉ và cá mồi nhỏ (cá kim tơ, Tanichthys).</p>')
+  expect(part('compsaraia-samueli', 'diet', 'glaser', 'id').t).toBe('<p>Ikan ini diberi pakan cacing sutra dan ikan kecil sebagai pakan hidup (Tanichthys).</p>')
+  expect(part('compsaraia-samueli', 'diet', 'glaser', 'th').t).toBe('<p>ปลาชนิดนี้ได้รับอาหารเป็นไส้เดือนน้ำ (Tubifex) และปลาเล็กที่ใช้เป็นอาหาร (Tanichthys)</p>')
+})
+
 // GBIF's fuzzy matches made a catfish page a tube worm's (Brochis arcuata → Ditrupa arietina, Sabellida), and its exact
 // Mollienisia, a moth's genus, gave a molly page a moth's family (Noctuidae). The engine now takes a match only of an animal
 // the page's group can be (gbif.ts pageTaxon). This holds each fish or shrimp page's order to its group; "other" and
@@ -549,4 +801,22 @@ test('the fire-bellied toad guide is held by hand in every language it has', () 
   const langs = readdirSync(dir).filter(f => f !== 'entity.json' && f.endsWith('.json'))
   expect(langs).toContain('vi.json')
   for (const f of langs) expect((JSON.parse(readFileSync(join(dir, f), 'utf8')) as Translation).held, f).toEqual(hold)
+})
+
+// The Writing Lead's answer of 15 Nov 2026 on 60 findings in 17 held video guides (the source talking, units, prices),
+// fixed by hand: each guide is bodyFixed, and the pond guide's FAQ faqFixed, so no run takes a fix back. Each line is in
+// test/fixtures/held-video-fixes.json: what went, and what stands in its place.
+test('the hand fixes to the 17 held video guides hold: each cut line is gone, each rewrite or care fact put back is there', () => {
+  const root = fileURLToPath(new URL('../../../content/guides', import.meta.url))
+  const fixes = JSON.parse(readFileSync(fileURLToPath(new URL('./fixtures/held-video-fixes.json', import.meta.url)), 'utf8')) as Record<string, { in: 'body' | 'summary' | 'faq'; gone?: string; now?: string }[]>
+  for (const [id, edits] of Object.entries(fixes)) {
+    const t = JSON.parse(readFileSync(join(root, `youtube-${id}`, 'vi.json'), 'utf8')) as { body: string; bodyFixed?: boolean; summary?: string[]; faq?: { q: string; a: string }[]; faqFixed?: boolean }
+    expect(t.bodyFixed, id).toBe(true)
+    const text = { body: t.body, summary: (t.summary ?? []).join('\n'), faq: (t.faq ?? []).map(q => q.a).join('\n') }
+    for (const e of edits) {
+      if (e.in === 'faq') expect(t.faqFixed, id).toBe(true)
+      if (e.gone) expect(text[e.in], `${id}: ${e.gone}`).not.toContain(e.gone)
+      if (e.now) expect(text[e.in], `${id}: ${e.now}`).toContain(e.now)
+    }
+  }
 })

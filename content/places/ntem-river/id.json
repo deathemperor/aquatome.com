@@ -1,8 +1,13 @@
 {
   "slug": "ntem-river",
-  "name": "Ntem",
+  "name": "Sungai Ntem",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-15T05:32:38.984Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

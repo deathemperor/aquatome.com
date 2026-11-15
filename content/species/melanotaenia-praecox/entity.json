@@ -184,7 +184,8 @@
       "key": "waterConditions",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-neon-rainbowfish",
-      "html": "<p>Temperature: 23–27°C.</p><p>They can handle a wide range of pH and GH, but prefer harder, alkaline water. Where tap water is relatively soft, crushed coral can be used to buffer the pH, and mineral supplements (e.g., Wonder Shell and Seachem Equilibrium) can be used to increase the GH.</p>"
+      "html": "<p>Temperature: 23–27°C.</p><p>They can handle a wide range of pH and GH, but prefer harder, alkaline water. Where tap water is relatively soft, crushed coral can be used to buffer the pH, and mineral supplements (e.g., Wonder Shell and Seachem Equilibrium) can be used to increase the GH.</p>",
+      "fixed": true
     },
     {
       "key": "diet",

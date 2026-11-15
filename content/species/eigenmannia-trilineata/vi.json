@@ -1,0 +1,25 @@
+{
+  "slug": "ca-dao-kinh-khoi",
+  "name": "Cá dao kính khói",
+  "altNames": [
+    "Cá dao Eigenmannia ba sọc",
+    "Smokey Glass Knifefish"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Eigenmannia là loài cá cảnh tuyệt vời, dáng bơi thanh thoát không con nào sánh được. Trên nền thân màu khói có ba sọc đen chạy dọc.</p>",
+    "distribution:glaser": "<p>Cá nhập về là cá từ Guyana. Còn E. trilineata thì đến nay mới chỉ thấy ở hệ sông Paraguay-Paraná (Argentina, Brazil, Paraguay, Uruguay).</p>",
+    "maintenance:glaser": "<p>Cá dao cần bể bày nhiều lớp, có nhiều chỗ trốn.</p>",
+    "diet:glaser": "<p>Cho ăn khá dễ, vì đồ tươi sống hay đông lạnh loại nào chúng cũng ăn ngay. Nhiều con còn chịu ăn cả cám viên.</p>",
+    "dimorphism:glaser": "<p>Con đực có thể dài tới khoảng 40 cm, gấp đôi con cái. Mõm con cái cũng ngắn hơn hẳn.</p>",
+    "reproduction:glaser": "<p>Eigenmannia cho đẻ được nếu tạo lại mùa mưa trong bể. Khi đã vào độ, cá sẽ đẻ trứng trong đám rễ cây nổi.</p>",
+    "notes:glaser": "<p>Eigenmannia: tên đặt để vinh danh Carl H. Eigenmann (1863-1927). trilineata: tiếng Latin, nghĩa là \"có ba sọc\".</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  }
+}

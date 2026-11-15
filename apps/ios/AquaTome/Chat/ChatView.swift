@@ -181,7 +181,7 @@ private struct ChatThread: View {
     let s = model.route.subject
     VStack(alignment: .leading, spacing: 8) {
       Group {
-        if s.fromPhoto { Text(s.plant ? "Hỏi gì về cây này?" : "Hỏi gì về con cá này?") } else { Text("Hỏi gì về \(subjectName)?") }
+        if s.fromPhoto { Text(s.plant ? "Hỏi gì về cây này?" : s.fish ? "Hỏi gì về con cá này?" : "Hỏi gì về loài này?") } else { Text("Hỏi gì về \(subjectName)?") }
       }
       .font(.title2.weight(.bold))
       .accessibilityAddTraits(.isHeader)

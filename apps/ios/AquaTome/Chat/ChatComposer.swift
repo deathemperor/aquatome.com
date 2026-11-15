@@ -86,7 +86,7 @@ struct ChatComposer: View {
   private var placeholder: String {
     let s = model.route.subject
     if size.isAccessibilitySize || s.fromPhoto {
-      return s.plant ? String(localized: "Hỏi về cây này…") : String(localized: "Hỏi về cá này…")
+      return s.plant ? String(localized: "Hỏi về cây này…") : s.fish ? String(localized: "Hỏi về cá này…") : String(localized: "Hỏi về loài này…")
     }
     return String(localized: "Hỏi về \(ChatNames.inSentence(s.name))…")
   }

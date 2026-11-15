@@ -1,8 +1,13 @@
 {
   "slug": "mae-klong-river",
-  "name": "แม่กลอง",
+  "name": "Sungai Mae Klong",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-15T05:30:30.646Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

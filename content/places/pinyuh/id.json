@@ -3,6 +3,12 @@
   "name": "Pinyuh",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-15T05:33:43.500Z",
+    "why": "The source places Pinyuh in Kalimantan Barat, Indonesia, not Malaysia, and the drainage is a river system, so an Indonesian atlas would likely write \"Sungai Pinyuh\" or \"DAS Pinyuh\" rather than the bare name; the bare \"Pinyuh\" is also ambiguous with the town of Pinyuh in Mempawah."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false
