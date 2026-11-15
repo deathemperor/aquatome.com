@@ -115,7 +115,10 @@ function tankWords(t: PostTank): string {
 const plainQuestion = (p: Post, f: Form) => (f === 'post' || args.notank ? asked(p, f) : `${asked(p, f)}\n\nThông tin bể của mình: ${tankWords(p.tank)}.`)
 
 async function readTurns(arm: string): Promise<Map<string, Turn>> {
-  try { return new Map((JSON.parse(await readFile(join(args.dir!, arm, 'turns.json'), 'utf8')) as Turn[]).map(t => [t.id, t])) } catch { return new Map() }
+  // Only a missing file is no answers yet: a damaged one (a run killed mid-write) stops the step, never asked again over.
+  let text: string
+  try { text = await readFile(join(args.dir!, arm, 'turns.json'), 'utf8') } catch (e) { if ((e as NodeJS.ErrnoException).code === 'ENOENT') return new Map(); throw e }
+  return new Map((JSON.parse(text) as Turn[]).map(t => [t.id, t]))
 }
 async function writeTurns(arm: string, turns: Map<string, Turn>) {
   await mkdir(join(args.dir!, arm), { recursive: true })

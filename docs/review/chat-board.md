@@ -3,9 +3,9 @@
 `packages/engine/scripts/chat-board.ts`. It holds our chat against plain Claude on 75 readers' public forum posts about a
 tank in trouble: 15 each on fish dying, sick fish, algae, cycling and stocking. Each post is asked three ways: whole with
 no saved tank, whole with the reader's tank saved, and as a short question with the tank saved (the owner's own kind).
-The judge reads both answers in both orders, and a side wins a pair only when both orders pick it. A fixed third of the
-posts may be tuned on; the other 44 are held out, and a change merges on those. The posts stay out of the repository,
-so this page gives counts only.
+The judge reads both answers in both orders, and a side wins a pair only when both orders pick it. 31 of the posts,
+chosen by a hash of their id, may be tuned on; the other 44 are held out, and a change merges on those. The posts
+stay out of the repository, so this page gives counts only.
 
 ## Board 1: today's chat against plain Opus (15 Nov 2026)
 
