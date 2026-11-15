@@ -3,7 +3,7 @@ import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
-import { GALLERY_POST, LANGS, loadAll, mayPublish, RETIRED_GUIDES, resolveDataCard, slugify, WRITTEN_LANGS, type Translation } from '@aq/schema'
+import { GALLERY_POST, LANGS, loadAll, mayPublish, RETIRED_GUIDES, resolveDataCard, slugify, tankKeywordFits, WRITTEN_LANGS, type Translation } from '@aq/schema'
 import { checkPages, photoCaptions, RATCHETED, ratcheted, refCredits, RULES, SWEPT_KINDS, thanksLines } from '../src/content-rules'
 import { englishOf } from '../src/english'
 import { tilapiaUnnamed } from '../src/kind-words'
@@ -410,7 +410,9 @@ test('a heading whose sources could not both be true speaks with one voice', asy
 // The chief of staff, 15 Nov 2026: Seriously Fish gives the African snakehead, a 40 cm predator, a 38 × 38 cm base and 55
 // litres. Neither that figure nor the page's rounding of it is fit to read, so no source speaks under its tank heading
 // (one-voice.json), and its quick facts lose their tank line, fixed so no read or translation brings it back. It stays so
-// until a second source we may use gives a size that fits the fish.
+// until a second source we may use gives a size that fits the fish. Its buy list's tank search, written with the page,
+// said 55 litres too: it goes, and the sweep writes a tank search only from a tank the card shows. Held as the rule, so a
+// fitting tank from a second source (the card shows it, the sweep writes its search) passes, and a too-small one doesn't.
 test('the African snakehead shows no tank size, in any language, and the engine keeps it so', async () => {
   const root = fileURLToPath(new URL('../../../content', import.meta.url))
   const dir = join(root, 'species/parachanna-obscura')
@@ -425,6 +427,15 @@ test('the African snakehead shows no tank size, in any language, and the engine 
     // Nor its text, which the gate's checks and the summary's writer read.
     expect(Object.keys(fish.t.sections).filter(k => k.startsWith('aquariumSize:')), lang).toEqual([])
     expect(Object.values(fish.t.sections).join(' '), lang).not.toMatch(tank)
+    const shown = resolveDataCard(fish.dataCard.tankCm ?? [], 'tankCm')?.value
+    const size = resolveDataCard(fish.dataCard.sizeCm ?? [], 'sizeCm')?.value
+    if (typeof shown === 'number') expect(shown, `${lang}: a tank the card shows is at least twice the fish`).toBeGreaterThanOrEqual(2 * Number(size))
+    if (lang !== 'vi') continue
+    // The buy list is Vietnamese only.
+    const slots = (JSON.parse(readFileSync(join(dir, 'entity.json'), 'utf8')) as { productSlots: { category: string; keywords: string[] }[] }).productSlots
+    const tanks = slots.find(x => x.category === 'be-ca')?.keywords ?? []
+    if (typeof shown === 'number') for (const k of tanks) expect(tankKeywordFits(k, shown), k).toBe(true)
+    else expect(tanks).toEqual(['bể cá lớn nuôi cá săn mồi'])
   }
   const summary = JSON.parse(readFileSync(join(root, 'summaries/parachanna-obscura.json'), 'utf8')) as { summary: string; mistakes: string[] }
   expect([summary.summary, ...summary.mistakes].join(' ')).not.toMatch(/lít|\d\s*[×x]\s*\d/u)
@@ -833,4 +844,22 @@ test('the fire-bellied toad guide is held by hand in every language it has', () 
   const langs = readdirSync(dir).filter(f => f !== 'entity.json' && f.endsWith('.json'))
   expect(langs).toContain('vi.json')
   for (const f of langs) expect((JSON.parse(readFileSync(join(dir, f), 'utf8')) as Translation).held, f).toEqual(hold)
+})
+
+// The Writing Lead's answer of 15 Nov 2026 on 60 findings in 17 held video guides (the source talking, units, prices),
+// fixed by hand: each guide is bodyFixed, and the pond guide's FAQ faqFixed, so no run takes a fix back. Each line is in
+// test/fixtures/held-video-fixes.json: what went, and what stands in its place.
+test('the hand fixes to the 17 held video guides hold: each cut line is gone, each rewrite or care fact put back is there', () => {
+  const root = fileURLToPath(new URL('../../../content/guides', import.meta.url))
+  const fixes = JSON.parse(readFileSync(fileURLToPath(new URL('./fixtures/held-video-fixes.json', import.meta.url)), 'utf8')) as Record<string, { in: 'body' | 'summary' | 'faq'; gone?: string; now?: string }[]>
+  for (const [id, edits] of Object.entries(fixes)) {
+    const t = JSON.parse(readFileSync(join(root, `youtube-${id}`, 'vi.json'), 'utf8')) as { body: string; bodyFixed?: boolean; summary?: string[]; faq?: { q: string; a: string }[]; faqFixed?: boolean }
+    expect(t.bodyFixed, id).toBe(true)
+    const text = { body: t.body, summary: (t.summary ?? []).join('\n'), faq: (t.faq ?? []).map(q => q.a).join('\n') }
+    for (const e of edits) {
+      if (e.in === 'faq') expect(t.faqFixed, id).toBe(true)
+      if (e.gone) expect(text[e.in], `${id}: ${e.gone}`).not.toContain(e.gone)
+      if (e.now) expect(text[e.in], `${id}: ${e.now}`).toContain(e.now)
+    }
+  }
 })
