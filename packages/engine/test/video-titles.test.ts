@@ -178,3 +178,8 @@ test("tidyTitle drops a bracket repeating words the title gave anywhere before i
   expect(tidyTitle('Ikan Discus (Symphysodon discus)', 'ms', 'Symphysodon aequifasciatus')).toBe('Ikan Discus (Symphysodon discus)')
   expect(tidyTitle('Cá Vittina waigiensisx', 'vi', 'Vittina waigiensis')).toBe('Cá Vittina waigiensisx')
 })
+
+test('tidyTitle writes "gallon" where a Vietnamese title says "galông", and the litres beside it are set as for any gallon (the editors, round 9)', () => {
+  expect(tidyTitle('Cá hỏa tiễn cỡ lớn trong bể 700 galông (2650 lít)', 'vi')).toBe('Cá hỏa tiễn cỡ lớn trong bể 700 gallon (khoảng 2.650 lít)')
+  expect(tidyTitle('Bể 42 galon (sekitar 159 liter)', 'id')).toBe('Bể 42 galon (sekitar 159 liter)')
+})

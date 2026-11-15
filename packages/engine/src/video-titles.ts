@@ -13,7 +13,7 @@ const BATCH = 40
 const THAI = /[฀-๿]/
 /** A dot that ends an abbreviation, kept when a title's full stop comes off: Thai's cm and mm, a scientific name's spp. or cf. */
 const ABBREVIATION = /(?:\b(?:spp?|ssp|var|cf|aff|dll|dsb|dst|dkk|v\.v|Jr|jr)|\d\s?(?:ซม|มม|กก|มล|ม|ล))\.$/
-const VI = { lang: 'Vietnamese', country: 'Vietnam', style: 'Style: plain written Vietnamese, as aquarium hobbyists in Vietnam write it: "bể", "cá", "thay nước", "cây thủy sinh". No phrasing that reads as translated from English. Say it as a keeper would, not as a book or the news. Numbers: 1.136 lít, 1,5 cm, a space before a unit. A fish\'s young take one "cá": "Cá con hồng ngọc hai chấm", "Cá L354 con". Keepers\' words: "cá nuôi chung" (tank mates), "đẻ" (spawn), "mình" (my, I).' }
+const VI = { lang: 'Vietnamese', country: 'Vietnam', style: 'Style: plain written Vietnamese, as aquarium hobbyists in Vietnam write it: "bể", "cá", "thay nước", "cây thủy sinh". No phrasing that reads as translated from English. Say it as a keeper would, not as a book or the news. Numbers: 1.136 lít, 1,5 cm, a space before a unit. A fish\'s young take one "cá": "Cá con hồng ngọc hai chấm", "Cá L354 con". Keepers\' words: "cá nuôi chung" (tank mates), "đẻ" (spawn), "mình" (my, I), "mình học được" (what I learned, never "rút ra").' }
 
 /** Per language: the word for "about", the litres word, the thousands mark, the word for "part", and a page name's leading "fish" words. */
 const TIDY: Record<Lang, { about: string; litres: string; thousands: string; part: string; fish: string[] }> = {
@@ -39,6 +39,8 @@ export function tidyTitle(title: string, lang?: Lang, scientificName?: string): 
   if (scientificName) t = t.replace(new RegExp(`(?<!\\p{L})${escaped(scientificName)}(?!\\p{L})`, 'giu'), scientificName)
   const w = lang && TIDY[lang]
   if (w) {
+    // Vietnamese keepers write "gallon"; the news spelling "galông" the model sometimes gives is set right first (the editors, round 9).
+    if (lang === 'vi') t = t.replace(/(?<!\p{L})galông(?!\p{L})/gu, 'gallon')
     t = t.replace(new RegExp(`(gallons?|galon|gelen|แกลลอน) \\((\\S+ )?(\\d[\\d.,]*) ${w.litres}\\)`, 'g'), (m, unit: string, before: string | undefined, n: string) => {
       // Only a bare figure gets the thousands mark: one already written with a separator may be a decimal (Malay 3.785).
       const num = /^\d{4,}$/.test(n) ? n.replace(/\B(?=(\d{3})+$)/g, w.thousands) : n
