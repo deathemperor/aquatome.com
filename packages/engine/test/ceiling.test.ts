@@ -303,6 +303,8 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
     expect(cap(when, 'mac', 'video-titles-redo')).toBe(p.titles ?? p.small)
     expect(cap(when, 'mac', 'video-titles-check')).toBe(p.titlesCheck ?? p.small)
     expect(cap(when, 'mac', 'video-titles')).toBe(p.small)
+    // The $37 rise is the Mac's: GitHub's backstop is as before.
+    if (p.titles) expect([t.mac.backstop, t.github.backstop]).toEqual([320, 180])
     // The ideas step: on 12 Nov its $1 line stopped it part way through its first guide, which costs about $1.30 (9
     // calls), and it wrote nothing. Now a guide starts only when its line covers one (pieces.ts), and the line is $3, two
     // guides, in the cloud, where the step runs; the Mac's is $0 (the chief of staff, 12 Nov 2026). A guide came to $1.51 on
