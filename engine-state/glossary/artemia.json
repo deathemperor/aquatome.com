@@ -1,0 +1,440 @@
+{
+  "found": true,
+  "species": [
+    "Artemia",
+    "Betta"
+  ],
+  "sources": [
+    {
+      "url": "https://rainbowfish.angfa.org.au/foods_and_feeding/hatching_brine_shrimp.html",
+      "title": "Hatching Brine Shrimp",
+      "kind": "society"
+    },
+    {
+      "url": "https://www.aquariumcoop.com/blogs/faqs/brine-shrimp-hatching-recipe",
+      "title": "What recipe do you use to hatch baby brine shrimp?",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.tfhmagazine.com/articles/freshwater/a-scientific-economic-and-commonsense-approach-to-brine-shrimp-hatching",
+      "title": "A Scientific, Economic, and Common-Sense Approach to Brine Shrimp Hatching",
+      "kind": "magazine"
+    },
+    {
+      "url": "https://www.petmart.vn/cach-nuoi-au-trung-artemia-lam-thuc-an-cho-ca-bot",
+      "title": "Cách Nuôi Ấu Trùng Artemia Làm Thức ăn Cho Cá Bột | Pet Mart Cửa Hàng Thú Cưng",
+      "kind": "shop"
+    },
+    {
+      "url": "https://cabaymau.vn/cach-cho-ca-bot-an-artemia/",
+      "title": "Cách cho Cá Bột Ăn Artemia: Hướng Dẫn Từ A-Z",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thegioicacanh.com.vn/artemia-tach-vo-say-kho-50g-cho-an-ngay-khong-can-ap-no-cho-ca-moi-no-p39104231.html",
+      "title": "Artemia tách vỏ sấy khô 50g - Cho ăn ngay không cần ấp nở | Cho Cá mới nở",
+      "kind": "shop"
+    },
+    {
+      "url": "https://viethaitrading.com/product/trung-artemia-say-kho-tach-vo-an-lien-decapsulated-artemia-cysts-danh-cho-ca-canh-trung-artemia-say-kho-tach-vo-an-lien-trung-artemia-say-kho-tach-vo-an-lien-decapsulated-artemia-cysts-danh-cho/",
+      "title": "Trứng Artemia sấy khô tách vỏ ăn liền (Decapsulated Artemia Cysts) - Viethai Trading",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinh4u.com/thuc-an-artemia-say-kho",
+      "title": "Thức ăn Artemia sấy khô giàu dinh dưỡng cho cá cảnh",
+      "kind": "shop"
+    },
+    {
+      "url": "https://rainbowfish.angfa.org.au/foods_and_feeding/decapsulated_brine_shrimp_eggs.html",
+      "title": "Decapsulated Brine Shrimp Eggs",
+      "kind": "society"
+    },
+    {
+      "url": "https://cacanhmini.com/cach-ap-artemia-lam-thuc-an-cho-ca-bot/",
+      "title": "Cách ấp Artemia làm thức ăn cho cá bột ⋆ Cá cảnh mini",
+      "kind": "keeper"
+    }
+  ],
+  "facts": [
+    {
+      "section": "other",
+      "fact": "Vietnamese name: \"Artemia\"; one source says it is also called \"tôm vụn\".",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "Vietnamese name for the eggs: \"trứng Artemia\".",
+      "source": 3,
+      "also": [
+        9
+      ]
+    },
+    {
+      "section": "other",
+      "fact": "Vietnamese name for the newly hatched larvae: \"ấu trùng Artemia\".",
+      "source": 3,
+      "also": [
+        9,
+        4
+      ]
+    },
+    {
+      "section": "other",
+      "fact": "Vietnamese name for the dried form: \"Artemia sấy khô\".",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "Vietnamese product name: \"Artemia Tách Vỏ Sấy Khô\".",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "Vietnamese product name: \"Trứng Artemia sấy khô tách vỏ ăn liền\", and its English name on the same page: \"Decapsulated Artemia Cysts\".",
+      "source": 6
+    },
+    {
+      "section": "other",
+      "fact": "English name used for the shell-free eggs: \"Decapsulated Brine Shrimp Eggs\".",
+      "source": 8
+    },
+    {
+      "section": "what",
+      "fact": "Newly hatched Artemia nauplii are a live food fed to fry and small fish.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Artemia larvae are used to feed baby and young ornamental fish and dwarf shrimp.",
+      "source": 9
+    },
+    {
+      "section": "what",
+      "fact": "Artemia nauplii are most nutritious in about the first 12 hours after hatching, and they cannot feed until their mouths develop.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Unfed nauplii can lose up to a fifth of their body weight and over a quarter of their nutritional value by 24 hours.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Second-instar nauplii have used 25–30% of their food reserves within 24 hours, are harder for fry to catch and contain fewer free amino acids.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "The larvae use up their yolk sac after about 24 hours.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Artemia larvae live only a few hours in fresh water, so feed them as soon as they are harvested.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "After hatching and with the air off, empty shells and unhatched cysts rise to the surface and the orange nauplii gather near the bottom.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Another source says the shells float and both the larvae and unhatched eggs sink.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Nauplii are drawn to light, so a flashlight can be used to gather them for siphoning.",
+      "source": 3,
+      "also": [
+        9,
+        4
+      ]
+    },
+    {
+      "section": "steps",
+      "fact": "trứng Artemia: with seawater, use about 1 g of eggs per 1 L; without seawater, dissolve about 30 g of non-iodized salt in 1 L of dechlorinated water.",
+      "source": 3,
+      "also": [
+        9
+      ]
+    },
+    {
+      "section": "steps",
+      "fact": "trứng Artemia: dissolve 60 g of non-iodized coarse salt in 2 litres of fresh water, then aerate for about 1 hour before adding about 1/4 teaspoon (0.5–1 g) of eggs.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "ANGFA recipe: 10–20 g (2–4 level teaspoons) of cooking salt in a 2-litre jar of tap water, plus a pinch (¼ teaspoon) of sodium bicarbonate.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Aquarium Co-Op recipe: about 2 liters of water, 2 tablespoons of aquarium salt (marine salt for soft water) and up to 1 tablespoon of eggs, plus 1-2 drops of dechlorinator only if the tap water contains chloramine.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "TFH recipe: 1.4 L of 80–82°F tap water, 2 tbsp of salt and 1 tsp of Epsom salt (specific gravity about 1.019), and about ½ tbsp (4.2 g) of eggs.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Use no more than 5 g of eggs per litre.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Keep the hatching pH between 7.5 and 8.5; below 6.5, hatching drops sharply.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "The best hatching temperature is 27–30°C; incubate for 24–48 hours (24 h in summer, 48 h in winter).",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Hatch at 74-82°F (23-28°C) and wait 24 hours; cooler water takes longer.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Most eggs hatch within 18–24 hours at 80–84°F.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Keep the hatching water at 25–30°C; the eggs usually hatch after 16–24 hours.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "Use steady, moderate aeration from an airline without an airstone, placed near the bottom of the jar.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Aerate strongly at first to keep the eggs moving, then reduce the air once the eggs have taken up water so they are not thrown out.",
+      "source": 3,
+      "also": [
+        4
+      ]
+    },
+    {
+      "section": "steps",
+      "fact": "Keep the hatching tank lit for the first 24 hours.",
+      "source": 3,
+      "also": [
+        4
+      ]
+    },
+    {
+      "section": "steps",
+      "fact": "Harvest: turn off the air, wait 5–10 minutes, then siphon the nauplii into a fine net (<120 µm).",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Harvest quickly: once the air is off, oxygen drops after about 10 minutes and the nauplii start to die.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Rinse the nauplii in a gentle stream of fresh water to remove waste and salt.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Rinse the larvae in dechlorinated fresh water before feeding.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "The shrimp can be fed with their salt water if the tank needs minerals for live plants or hard-water fish.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Feed fry 0–3 days old 3–4 small meals a day, fry 4–10 days old 4–5 meals a day, and fry over 10 days old 2–3 meals a day.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "Stop feeding when the fry's bellies look slightly orange; remove leftovers after 15–20 minutes.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "Storing nauplii below 10°C with light aeration slows their development and keeps them usable for more than 24 hours.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "For short storage: dilute brine of 5–10 ppt, light aeration, a fridge at 4°C, for at most 24 hours; nutrition still drops.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Store the eggs airtight in a freezer or fridge with a desiccant, avoid repeated warming and freezing, and buy eggs with at least an 80% hatch rate.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "In soft water, check that the pH is 8 or higher after hatching; if not, add about ¼ tsp of baking soda per liter.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Feeding unhatched cysts or shells: small fry cannot digest them, and they can kill fry.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Too little aeration lowers oxygen; too much sticks cysts to the jar above the waterline.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Resting eggs will not hatch, so the eggs must be kept moving.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Reusing the salt water: make fresh water for each hatch, and use two jars to harvest daily.",
+      "source": 0,
+      "also": [
+        2
+      ]
+    },
+    {
+      "section": "mistakes",
+      "fact": "Above about 86°F the nauplii suffocate; below 78°F hatching can take up to 36 hours.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Using iodized salt for hatching.",
+      "source": 3,
+      "also": [
+        4
+      ]
+    },
+    {
+      "section": "mistakes",
+      "fact": "Common errors: overfeeding and leaving leftovers that foul the water, using dead or expired eggs, hatching water below 22°C, wrong salinity, too little oxygen or light, undechlorinated water, hatching large batches to store, and not cleaning the hatcher.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Too much salt or eggs, or too little, lowers the hatch rate; extra eggs give diminishing returns.",
+      "source": 2
+    },
+    {
+      "section": "myths",
+      "fact": "TFH authors Gary Lange and Mike Hellweg found that copper in tap water did not reduce hatching even at 10 to 100 times the level cited earlier, and that a dechlorinator had no effect; they call copper concerns largely unfounded.",
+      "source": 2
+    },
+    {
+      "section": "myths",
+      "fact": "The same TFH authors could not confirm the common advice that a nearby light helps hatching.",
+      "source": 2
+    },
+    {
+      "section": "myths",
+      "fact": "TFH: when hatching fails, check simple causes first (low pH in soft water, salt measurement, temperature); hatching that takes up to 70 hours points to a method problem, not copper.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Decapsulated Brine Shrimp Eggs: with the shell removed, all of the eggs, hatched or not, can be fed, and empty casings do not end up in fry tanks, which lowers the risk of gut blockage.",
+      "source": 8
+    },
+    {
+      "section": "what",
+      "fact": "Decapsulated Brine Shrimp Eggs: dried cysts are about 200–250 µm, smaller than nauplii at 470–550 µm, so they suit smaller fish.",
+      "source": 8
+    },
+    {
+      "section": "what",
+      "fact": "Decapsulated Brine Shrimp Eggs: claimed to carry about 30% more nutrients than newly hatched nauplii and to last longer in fresh water than nauplii.",
+      "source": 8
+    },
+    {
+      "section": "mistakes",
+      "fact": "Decapsulated Brine Shrimp Eggs: freshly decapsulated cysts may sink too fast for larvae that do not feed off the bottom; dried cysts float better and sink more slowly.",
+      "source": 8
+    },
+    {
+      "section": "steps",
+      "fact": "Decapsulated Brine Shrimp Eggs: dried, properly treated cysts can be stored for years and fed without hatching; cysts dehydrated in brine keep a long time in the fridge.",
+      "source": 8
+    },
+    {
+      "section": "steps",
+      "fact": "Artemia Tách Vỏ Sấy Khô: fed directly without hatching, scattered on the surface twice a day, morning and evening, only as much as the fish eat.",
+      "source": 5
+    },
+    {
+      "section": "signs",
+      "fact": "Artemia Tách Vỏ Sấy Khô: the shop describes it as a floating powder.",
+      "source": 5
+    },
+    {
+      "section": "mistakes",
+      "fact": "Artemia Tách Vỏ Sấy Khô: overfeeding clouds the water.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Trứng Artemia sấy khô tách vỏ ăn liền: feed 2–3 times a day in very small amounts, sprinkled slowly so fish catch the eggs while they drift down.",
+      "source": 6
+    },
+    {
+      "section": "mistakes",
+      "fact": "Trứng Artemia sấy khô tách vỏ ăn liền: uneaten eggs settle on the bottom and quickly cloud and foul the water.",
+      "source": 6
+    },
+    {
+      "section": "prevention",
+      "fact": "Trứng Artemia sấy khô tách vỏ ăn liền: seal the lid after use and keep in a dry, cool, ventilated place, or in the fridge for long-term storage.",
+      "source": 6
+    },
+    {
+      "section": "what",
+      "fact": "Thức Ăn Cá Cảnh Artemia Sấy Khô: the egg shells are removed so fish do not bloat from eating hard shells; it can be fed directly to young and small fish.",
+      "source": 7
+    },
+    {
+      "section": "mistakes",
+      "fact": "Thức Ăn Cá Cảnh Artemia Sấy Khô: eggs that sink to the bottom are wasted and pollute the tank water.",
+      "source": 7
+    },
+    {
+      "section": "vietnam",
+      "fact": "For Betta fry, the Vietnamese shop recommends live Vĩnh Châu Artemia biomass (\"sinh khối vĩnh châu\") over its dried decapsulated product.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese guides use non-iodized coarse salt (\"muối hột không có iot\") instead of seawater, with tap water that has been dechlorinated.",
+      "source": 9,
+      "also": [
+        3
+      ]
+    },
+    {
+      "section": "vietnam",
+      "fact": "Artemia hatching kits for ornamental fish sold in Vietnam use cone-shaped vessels; a 2 L mineral-water bottle with an air hose at the bottom can serve as a hatcher.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "Some Vietnamese hobbyists load medicine into Artemia larvae to feed sick fish.",
+      "source": 9
+    }
+  ]
+}

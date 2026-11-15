@@ -122,5 +122,160 @@
       "attempt": "rewrite",
       "kept": false
     }
+  ],
+  "vi/glossary/thuc-an-kho": [
+    {
+      "at": "2026-11-15T02:56:38Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Loose, reworded: \"Thức ăn khô là thức ăn chế biến sẵn cho cá, có dạng mảnh, viên, hạt, tấm, que, bột hay đông khô, dễ cất, để được lâu và cho ăn nhanh.\" → \"Thức ăn khô là thức ăn chế biến sẵn cho cá, có dạng mảnh, hạt hoặc viên, dễ cất và để được lâu.\" (supported)",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Muốn cá khỏe thì phải chọn đúng dạng, cho ăn vừa đủ và cất chỗ khô để thức ăn không ôi, không mất vitamin.\" (not \"Nên chọn thức ăn nổi cho cá ăn trên mặt và loại chìm nhanh cho cá tầng đáy, chỉ cho lượng cá ăn hết trong 2-3 phút, và cất nơi khô mát vì nóng ẩm làm thức ăn hỏng, mốc và ôi.\": Rules 4 and 12:…",
+        "Loose, reworded: \"Cá vàng (Carassius) bị rối loạn bơi lội cần viên chìm.\" → \"Cá vàng (Carassius) bị rối loạn nổi chìm cần viên chìm.\" (supported)",
+        "Loose, reworded: \"Thức ăn thừa làm bẩn nước, và cá có thể béo phì, rối loạn bóng hơi, táo bón.\" → \"Cho ăn quá nhiều cùng thức ăn thừa làm bẩn nước, và cho ăn quá nhiều có thể khiến cá béo phì, rối loạn bóng hơi, táo bón.\" (supported)",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Rắc mảnh rồi để lâu trong nước.\" (not \"Mảnh mỏng và mềm nên có thể rã nhanh trong nước.\": Rule 4: The flake description is given twice. The flake item has \"mảnh mỏng và mềm\" and the mistakes list repeats \"Mảnh mỏng và mềm nên có thể rã nhanh trong nước\". / Rule 7: Two key facts about flakes sit under \"Sai…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-15T02:56:38Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Rules 4 and 12: \"Các nguồn ghi khác nhau về số bữa và lượng ăn. Có nguồn ghi ngày hai đến ba lần, cá ăn hết trong hai phút hoặc ít hơn. Bác sĩ thú y và các tiệm ghi ngày một đến hai lần, mỗi lần lượng cá ăn hết trong 2–3 phút hoặc 2–5 phút.\": THIS TERM says feeding is given once, the way most of the facts give it (once or twice a day, what the fish finish in 2–3 minutes, scraps taken out right aw…",
+        "Rule 6: \"Carassius\" in \"Carassius bị rối loạn bơi lội cần viên chìm.\": goldfish has a page, so it must be called \"cá vàng\" by its page name, not by the Latin name alone.",
+        "Rule 12: \"Carassius bị rối loạn bơi lội cần viên chìm.\": THIS TERM says goldfish is \"cá vàng\" and the Latin name only goes beside it, as \"cá vàng (Carassius)\", never on its own."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-15T02:02:53Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "The entry is 498 words: hold it to about 400, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "draft": "3f7dc11a7e1626fa705768c19a3e23c5c45f207980527b1da69461215583fb72"
+    },
+    {
+      "at": "2026-11-15T02:02:53Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Rule 4: The remark that sources disagree appears twice. It is in \"Các nguồn ghi khác nhau về số bữa và lượng ăn\" (feeding) and again in \"Các nguồn ghi khác nhau về thời gian dùng hết hộp đã mở\" (storage). It should be said once, in one place.",
+        "The entry is 704 words: hold it to about 400, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-15T02:02:53Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 0.97,
+      "notes": [
+        "\"Tiệm ghi là viên nổi, viên chìm.\": the facts don't carry it (unsupported, unsupported, unsupported): terms come from an article, not a shop / source is an article, not a shop",
+        "\"Để thức ăn trên nóc bể, trên bậu cửa sổ, trong tủ nhà tắm, hay để nguyên trong túi giấy bạc sau khi mở.\": the facts don't carry it (unsupported, loose, unsupported): drops 'in humid climates' qualifier / drops humid-climate qualifier",
+        "Rule 6: \"cá betta (cá xiêm)\" in \"Có tiệm cho rằng nó hợp với cá ăn ở tầng mặt và tầng giữa, như cá betta (cá xiêm) hay cá neon xanh.\": the FACTS write the genus \"betta (Betta)\", not the species Betta splendens. A genus has no line in PAGES, so it should be called by its scientific name, \"Betta\".",
+        "Rule 6: \"cá betta\" in \"Cá betta ăn 2–4 viên mỗi lần, ngày 1–2 lần.\": the FACTS mean the genus Betta, so it should be called \"Betta\". The same applies in \"...có thể nở ra trong bụng cá betta và gây sình bụng\", \"Bụng cá betta chỉ to cỡ con mắt của nó.\" and \"Cá betta cứ đớp vào rồi nhả ra...\".",
+        "Rule 6: \"betta\" in \"Đồ đông khô cũng cần ngâm cho ngấm nước trước khi cho betta ăn.\": the FACTS mean the genus Betta, so it should be called \"Betta\". The same applies in \"Cho betta ăn theo hướng dẫn trên hộp...\".",
+        "Rule 6: \"Cá vàng\" in \"Cá vàng bị rối loạn bơi lội cần viên chìm.\": the FACTS write the genus \"Goldfish (Carassius)\", not the species on the Cá vàng page (Carassius auratus). A genus has no line in PAGES, so it should be called \"Carassius\".",
+        "Rule 1: \"mỗi lần chỉ lượng cá ăn hết trong 2–5 phút\" is given as the general rule, but the entry then says \"Cho betta ăn theo hướng dẫn trên hộp, tức là ăn bao nhiêu trong 5 phút, sẽ thành thừa\". The two lines clash for fish of the genus Betta.",
+        "Rule 4: crushing flakes is said twice: \"Bóp vụn ra là cho cá bột và cá nano ăn được\" in the flake item and \"Cá miệng nhỏ thì bóp vụn mảnh ra\" under \"Nên làm gì\". It should be said once.",
+        "Rule 4: matching floating or sinking food to the fish's level is said twice: \"Viên nổi dành cho cá tầng mặt, ... viên chìm cho cá đáy\" (and \"Que nổi dành cho cá tầng mặt, que chìm cho cá đáy\") in the items, and again in \"Cá tầng mặt ăn loại nổi, cá đáy ăn loại chìm nhanh\" under \"Nên làm gì\". It should be said once.",
+        "Rule 4: the FACTS disagree on how long fish should take to eat a meal (two minutes or less, 2–3 minutes, 2–5 minutes) and how often to feed (two to three times a day, or once or twice). \"Cho ăn một đến hai lần mỗi ngày, mỗi lần chỉ lượng cá ăn hết trong 2–5 phút\" takes one side without saying the sources disagree. The FACTS also disagree on how soon to use up an opened container (2 months, 2–3 mo…"
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/glossary/artemia": [
+    {
+      "at": "2026-11-15T03:01:37Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (not placeable): \"Trứng Artemia: trứng khô còn vỏ, phải ấp trong nước muối mới có ấu trùng Artemia tươi sống.\"",
+        "Loose, reworded: \"Bộ ấp bán ở Việt Nam thường dùng bình hình phễu.\" → \"Bộ ấp bán ở Việt Nam dùng bình hình phễu.\" (supported)",
+        "Loose, reworded: \"Không còn vỏ nên cá con ăn được hết, và bớt nguy cơ sình bụng hay tắc ruột vì vỏ.\" → \"Không còn vỏ nên cá con ăn được hết, và bớt nguy cơ tắc ruột vì vỏ.\" (supported)",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Ở nhiệt độ này trứng thường nở sau 18–24 giờ, nước lạnh thì lâu hơn, có khi tới 48 giờ.\" (not \"Ở nhiệt độ này cần ấp 24–48 giờ: mùa hè khoảng 24 giờ, mùa đông tới 48 giờ.\": it drops the figure 18)",
+        "Rule 4: The aeration advice appears twice. Step 3 (\"sục đều vừa phải để trứng luôn lăn trong nước\") already says to aerate moderately. The mistakes list then repeats it as \"Sục quá yếu thì nước thiếu oxy. Sục quá mạnh thì trứng bắn lên dính thành bình, nằm trên mặt nước.\" It should be said once, in one place."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-15T03:01:37Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Rules 12 and 5: The definition opens with the English name, \"Artemia có tên tiếng Anh là brine shrimp.\" THIS TERM says the definition must open with what Artemia is to a keeper: eggs hatched in salt water into nauplii, a live food for fry, small fish and shrimp. The English name should come after that sentence, never as the first one.",
+        "Rule 8: \"Decapsulated Artemia Cysts\" in \"Artemia tách vỏ sấy khô (Decapsulated Brine Shrimp Eggs, Decapsulated Artemia Cysts)\" is a product name. FACTS source 6 gives it only as the English name on one shop's product page. The kind's name \"Decapsulated Brine Shrimp Eggs\" is enough, so the product name should be dropped."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-15T02:16:51Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (not placeable): \"Trứng Artemia: trứng khô còn vỏ, phải ấp trong nước muối mới có ấu trùng Artemia tươi sống.\"",
+        "Loose, reworded: \"Artemia là loài tôm li ti.\" → \"Artemia có tên tiếng Anh là brine shrimp.\" (supported)",
+        "Loose, reworded: \"Tới mốc 24 giờ, ấu trùng có thể sụt tới một phần năm trọng lượng và mất hơn một phần tư chất dinh dưỡng.\" → \"Nếu không được cho ăn, tới mốc 24 giờ ấu trùng có thể sụt tới một phần năm trọng lượng và mất hơn một phần tư chất dinh dưỡng.\" (supported)",
+        "Loose, reworded: \"Tới lúc đó cá bột cũng khó bắt chúng hơn.\" → \"Ấu trùng đã sang giai đoạn thứ hai cũng khó cho cá bột bắt hơn.\" (supported)",
+        "Loose, reworded and still loose: \"Không còn vỏ nên cá con ăn được hết, không bị sình bụng hay tắc ruột vì vỏ.\" → \"Không còn vỏ nên cá con ăn được hết, và bớt nguy cơ sình bụng hay tắc ruột vì vỏ.\" (loose, loose, loose)",
+        "Loose, reworded: \"Pha nước muối bằng muối hột không iot và nước máy, hoặc dùng nước biển.\" → \"Pha nước muối bằng muối hột không iot và nước máy đã khử clo, hoặc dùng nước biển.\" (supported)",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Ở nhiệt độ này trứng thường nở sau 18–24 giờ, nước lạnh thì lâu hơn, có khi tới 48 giờ.\" (not \"Ở nhiệt độ này nên ấp khoảng 24 giờ vào mùa hè, còn mùa đông thì tới 48 giờ.\": it drops the figure 18)",
+        "Loose, reworded: \"Rọi đèn pin vào đáy để gom ấu trùng lại.\" → \"Ấu trùng bị ánh sáng hút tới, nên có thể rọi đèn pin để gom chúng lại rồi hút ra.\" (supported)",
+        "The entry is 455 words: hold it to about 400, and leave what is left out to the pages that use the term.",
+        "The entry is 480 words: hold it to about 400, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "draft": "467cb6c95fa84826fbf5442512e050047ab41b98951707836f9f2e816dab01d6"
+    },
+    {
+      "at": "2026-11-15T02:16:51Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "The entry is 605 words: hold it to about 400, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-15T02:16:51Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 0.95,
+      "notes": [
+        "\"Ấu trùng mới nở là thức ăn tươi sống quen thuộc nhất để ương cá bột và cho cá nhỏ ăn, nên ai muốn nuôi cá con lớn đều cần biết cách ấp.\": the facts don't carry it (unsupported, unsupported, unsupported): 'most familiar' and 'everyone needs to know' not in facts / 'most familiar' and 'everyone needs' not in facts",
+        "\"Chúng bơi lơ lửng nên cá bột dễ đớp, và đây là thức ăn đầu đời của nhiều loại cá con.\": the facts don't carry it (unsupported, unsupported, unsupported): swimming in mid-water and being many fry's first food not in facts / swimming suspended, first food of many fry not in facts / swimming suspended, easy to catch, first food not in facts",
+        "\"Chúng cũng lớn hơn, cá bột khó bắt hơn.\": the facts don't carry it (loose, unsupported, loose, unsupported, unsupported, unsupported): 'bigger' not stated; facts only say second-instar are harder to catch / 'grow bigger' not stated / 'bigger' implied by second instar, not stated / The facts say second-instar nauplii are harder for fry to catch. They never say the nauplii get larger, so the size …",
+        "Rule 10: \"thức ăn tươi sống quen thuộc nhất\" in the definition says Artemia is the most familiar live food. The FACTS make no such comparison with other live foods.",
+        "Rule 8: \"trứng Artemia sấy khô tách vỏ ăn liền\" in \"Còn bán dưới tên Artemia sấy khô, trứng Artemia sấy khô tách vỏ ăn liền\" is one shop's product name (source 6). The kind's name \"Artemia sấy khô\" is enough.",
+        "Rule 4: the entry says the salt water is made with \"nước máy đã khử clo\" (step 1) and tells the keeper to rinse in \"nước ngọt đã khử clo\" (step 6). The last paragraph then says the sources disagree on this (\"Chuyện đèn và nước máy thì các nguồn không thống nhất… thuốc khử clo đều không ảnh hưởng tới tỉ lệ nở\"). So the steps take a side on a point the entry calls disputed, and dechlorination is me…",
+        "Rule 4: the warning against iodized salt appears twice: \"muối hột không iot\" in step 1 and again as \"Dùng muối có iot\" under \"Sai lầm hay gặp\". It should be said once.",
+        "Rule 4: checking pH in soft water appears twice: step 4 (\"Nếu nhà dùng nước mềm, sau khi nở thử pH xem có đạt 8 không…\") and the last paragraph (\"pH trong nước mềm\"). It should be said once.",
+        "Rule 4: \"Liều và cách dùng: xem bài hướng dẫn chữa bệnh.\" sends the keeper elsewhere for doses and methods for medicated Artemia. The FACTS give no such advice, so the entry should only state the practice and leave it.",
+        "The entry is 1022 words: hold it to about 400, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
   ]
 }
