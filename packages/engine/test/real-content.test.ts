@@ -907,3 +907,31 @@ test('no video guide\'s label names a person or the channel', () => {
   })
   expect(named).toEqual([])
 })
+
+// The chief of staff, 15 Nov 2026: care facts the lane's whole-sentence cuts would take go on hand-fixed text first, so
+// the fact never leaves the page. Two climate lines and two places stay as they were, their parts fixed; in four guides
+// the fact stays in plain words, only the comparison, the product or the shop goes, and the body is fixed.
+test('the care facts the lane would cut whole are on hand-fixed text: a temperature, no heater, places, a size, a quarantine step, minerals, fertiliser', () => {
+  const read = <T>(path: string) => JSON.parse(readFileSync(fileURLToPath(new URL(`../../../content/${path}`, import.meta.url)), 'utf8')) as T
+  const part = (fish: string, key: string) => read<{ sections: { key: string; source: string; html: string; fixed?: boolean }[] }>(`species/${fish}/entity.json`).sections.find(s => s.key === key && s.source === 'glaser')!
+  for (const [fish, key, vi] of [
+    ['rachoviscus-crassiceps', 'waterConditions', 'từ 16 đến 24°C'],
+    ['paramesotriton-labiatus', 'maintenance', 'Không cần sưởi.'],
+    ['serrasalmus-eigenmanni', 'quickFacts', 'Peru'],
+    ['ophichthus-apicalis', 'distribution', 'Việt Nam'],
+  ] as const) {
+    expect(part(fish, key).fixed, fish).toBe(true)
+    expect(read<Translation>(`species/${fish}/vi.json`).sections![`${key}:glaser`], fish).toContain(vi)
+  }
+  for (const [guide, kept, gone] of [
+    ['aquariumcoop-blogs-aquarium-clown-loach', ['Thân cá mập, cao 13–15 cm.', 'trùn vi sinh', 'thuốc trị đốm trắng hoặc muối'], ['bóng bầu dục', 'đúc kết từ hơn 10 năm', 'Ich-X', 'Repashy', 'giun micro']],
+    ['aquariumcoop-blogs-aquarium-hatchetfish', ['điều trị phòng ngừa luôn trong thời gian cách ly', 'thuốc trị đốm trắng', 'thuốc tẩy giun'], ['bộ ba thuốc', 'Ich-X', 'ParaCleanse']],
+    ['aquariumcoop-blogs-aquarium-hard-water-fish', ['miễn là châm thêm khoáng cho bể.', 'trùng huyết và artemia'], ['Wonder Shell', 'Equilibrium', 'Vibra Bites']],
+    ['aquariumcoop-blogs-aquarium-aquarium-plants-for-profit', ['bán cây sống qua các trang thương mại điện tử.', 'châm phân nước tổng hợp vào bể.', 'phí vận chuyển'], ['AquaBid', 'Easy Green']],
+  ] as const) {
+    const t = read<Translation & { bodyFixed?: boolean }>(`guides/${guide}/vi.json`)
+    expect(t.bodyFixed, guide).toBe(true)
+    for (const s of kept) expect(t.body, `${guide}: ${s}`).toContain(s)
+    for (const s of gone) expect(t.body, `${guide}: ${s}`).not.toContain(s)
+  }
+})
