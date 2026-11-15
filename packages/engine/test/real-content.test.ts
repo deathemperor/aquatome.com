@@ -1101,20 +1101,35 @@ test('the leak-repair guide warns about super glue and acetone, and cites the sa
   expect(t.refs?.map(r => r.url)).toEqual(['https://files.canon-europe.com/files/webcontent/safety-data-sheets/EU_Service-Materials/lo0045405_-_loctite_454_superglue_5g_pdf.pdf', 'https://www.cdc.gov/niosh/npg/npgd0004.html'])
 })
 
-// The chief of staff, 16 Nov 2026: the algae guide, held in Vietnamese since 11 Nov for a liquid carbon's dose and its
-// makers' products, was live in Thai with the same doses word for word (and in Indonesian, which says "the label's dose").
-// The gate reads no dose or product outside Vietnamese, so the page is held by hand in every language, which a hand hold
-// does. This test goes with the hold: when the Thai text no longer carries the dose, the hold's line is lifted with it.
-test('the algae guide is held by hand in every language while its Thai text carries the Vietnamese one\'s product doses', () => {
+// The chief of staff, 16 Nov 2026: the algae guide was held in Vietnamese since 11 Nov for a liquid carbon's dose and its
+// makers' products, and by hand in every language once its Thai page was found carrying the same doses. Vietnamese and
+// Thai take the Indonesian's way, in the Writing Lead's words: the liquid carbon by kind, at the dose on the label of the
+// product bought, every caution kept. All three bodies are fixed, so no rewrite brings a product's dose back where the
+// gate can't see one (it reads no dose or product outside Vietnamese), and the hand hold is lifted.
+test('the algae guide gives the label\'s dose for liquid carbon in every language, names no product, and keeps its cautions', () => {
   const root = fileURLToPath(new URL('../../../', import.meta.url))
   const id = 'aquatome-reu-hai-trong-be-thuy-sinh-nguyen-nhan-va-cach-loai-bo'
-  const byHand = JSON.parse(readFileSync(join(root, 'engine-state/held-by-hand.json'), 'utf8')) as Record<string, { checks: string[]; at: string }>
-  const hold = byHand[`guides/${id}`]
-  expect(hold?.checks).toEqual(['dose', 'product'])
-  for (const lang of ['vi', 'id', 'th']) {
-    const t = JSON.parse(readFileSync(join(root, `content/guides/${id}/${lang}.json`), 'utf8')) as Translation & { held?: unknown }
-    expect(t.held, lang).toEqual({ checks: hold!.checks, at: hold!.at })
+  const byHand = JSON.parse(readFileSync(join(root, 'engine-state/held-by-hand.json'), 'utf8')) as Record<string, unknown>
+  expect(byHand[`guides/${id}`]).toBeUndefined()
+  const page = (lang: string) => JSON.parse(readFileSync(join(root, `content/guides/${id}/${lang}.json`), 'utf8')) as Translation & { bodyFixed?: boolean; held?: unknown }
+  const want: Record<string, { label: string; kept: string[]; gone: string[] }> = {
+    vi: {
+      label: 'Theo liều ghi trên nhãn sản phẩm bạn mua',
+      kept: ['Nồng độ cao làm hao oxy, phải sục khí mạnh.', 'tuyệt đối không trộn chung', 'đeo kính và găng tay', 'Liều lớn có thể làm rữa lá Vallisneria', 'Anacharis chịu sản phẩm này đặc biệt kém', '5 ml cho mỗi 30 L'],
+      gone: ['1 ml cho mỗi 50 L', '5 mL cho 40 L', '5 mL cho 200 L'],
+    },
+    th: {
+      label: 'ตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อมา',
+      kept: ['ความเข้มข้นสูงจะดึงออกซิเจนในน้ำ', 'ห้ามผสมกันเด็ดขาด', 'ใส่แว่นตาและถุงมือ', 'ใบวาลิสเนอเรียละลาย', 'อนาคาริสไวต่อผลิตภัณฑ์นี้เป็นพิเศษ', 'ผงขจัดคราบสูตรออกซิเจน', '5 มล. ต่อปริมาตรตู้ 30 ลิตร'],
+      gone: ['1 มล. ต่อ 50 ลิตร', '5 มล. ต่อ 40 ลิตร', '5 มล. ต่อ 200 ลิตร'],
+    },
+    id: { label: 'Gunakan dosis sesuai label produk yang Anda beli', kept: ['jangan pernah dicampur'], gone: [] },
   }
-  const th = JSON.parse(readFileSync(join(root, `content/guides/${id}/th.json`), 'utf8')) as Translation
-  for (const dose of ['Easy Carbo', '1 มล. ต่อ 50 ลิตร', 'Flourish Excel', '5 มล. ต่อ 40 ลิตร']) expect(th.body, dose).toContain(dose)
+  for (const [lang, w] of Object.entries(want)) {
+    const t = page(lang)
+    expect(t.held, lang).toBeUndefined()
+    expect(t.bodyFixed, lang).toBe(true)
+    for (const name of ['Easy Carbo', 'Flourish Excel', 'Excel', 'OxiClean', ...w.gone]) expect(t.body, `${lang}: ${name}`).not.toContain(name)
+    for (const s of [w.label, ...w.kept]) expect(t.body, `${lang}: ${s}`).toContain(s)
+  }
 })
