@@ -62681,19 +62681,11 @@
     "products": []
   },
   "vi/guides/youtube-1weSZQGGs2k": {
-    "at": "2026-11-09",
-    "hash": "a0a798d289d798af",
+    "at": "2026-11-15",
+    "hash": "36668cd8500c852c",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Chiếc bát sau khi vá chứa được tới 13 lít.",
-        "why": "It describes the source's own bowl as if the reader knew that particular bowl.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/guides/youtube-1yMOosECTRo": {
@@ -63368,16 +63360,16 @@
     ]
   },
   "vi/guides/youtube-3jqe5KGD9lI": {
-    "at": "2026-11-10",
-    "hash": "f193d54a3cfaad9b",
+    "at": "2026-11-15",
+    "hash": "abe014fbae4c8bbe",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Điểm trừ duy nhất là đèn hơi nhấp nháy khi quay phim.",
-        "why": "Speaks from the original video maker's concern about filming, not the reader's.",
+        "quote": "nhưng với kệ kiểu này và bể có viền thì không thật sự cần",
+        "why": "Refers to the source creator's own shelf as if the reader could see it.",
         "by": "model"
       }
     ],
@@ -69987,19 +69979,11 @@
     ]
   },
   "vi/guides/youtube-DkuoQLxF7u8": {
-    "at": "2026-11-09",
-    "hash": "32a82a46d83807f5",
+    "at": "2026-11-15",
+    "hash": "ce5a3ef352e2cbad",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "price",
-        "part": "P1",
-        "quote": "Giá hơi cao, khoảng 5–10 USD một con, bù lại chúng sống lâu.",
-        "why": "Price given in US dollars, a foreign currency.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/guides/youtube-DLJtTl_IJSk": {
@@ -72163,23 +72147,16 @@
     "products": []
   },
   "vi/guides/youtube-G7GKeDki7a0": {
-    "at": "2026-11-09",
-    "hash": "8ea08afa67f68474",
+    "at": "2026-11-15",
+    "hash": "ed77f9a929a1dff8",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
-        "part": "title",
-        "quote": "5 loài cá nhỏ hợp nuôi trong bể nano 19 lít",
-        "why": "19 litres is a converted 5-gallon tank; the body itself says 20 lít.",
-        "by": "model"
-      },
-      {
-        "check": "price",
-        "part": "P1",
-        "quote": "Giá rẻ, khoảng 3 đô một con.",
-        "why": "Price given in US dollars, meaningless to a buyer in Vietnam.",
+        "part": "TITLE",
+        "quote": "bể nano 19 lít",
+        "why": "19 litres is a converted 5-gallon tank size that nobody in Vietnam would use; the page body itself says 20 lít.",
         "by": "model"
       }
     ],
@@ -73978,25 +73955,17 @@
     ]
   },
   "vi/guides/youtube-hTqxIrD_Vho": {
-    "at": "2026-11-10",
-    "hash": "c753ca40c2536b71",
+    "at": "2026-11-15",
+    "hash": "7b3e31873b6c8235",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Khung gỗ cháy sém hợp với tổng thể sa mạc hơn cả dự tính ban đầu.",
-        "why": "This is the original builder's own story of how their tank turned out, which the reader doesn't know.",
+        "quote": "vùng nước của bể này có lẽ hơi nhỏ cho chúng",
+        "why": "Bare \"bể này\" refers to the source video's own tank as if the reader knew it.",
         "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P1",
-        "quote": "tấm lót tự cân bằng (self-leveling mat)",
-        "why": "Literal calque of the English product term, not what keepers in Vietnam call it.",
-        "by": "model",
-        "fix": "tấm xốp lót đáy bể"
       }
     ],
     "products": []
@@ -74651,44 +74620,23 @@
     ]
   },
   "vi/guides/youtube-Iinv7wWjhzA": {
-    "at": "2026-11-09",
-    "hash": "2ecc8f83c4f4ea22",
+    "at": "2026-11-15",
+    "hash": "57e72fbaa2b21ce6",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
         "part": "P1",
-        "quote": "bể 38, 75 hay 100 lít",
-        "why": "38 litres is a converted 10-gallon tank size nobody in Vietnam would say.",
+        "quote": "bể 38, 75 hay 100 lít đang nuôi toàn cá nhỏ",
+        "why": "38 litres is a converted 10-gallon tank size, not one a Vietnamese keeper would name.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P1",
-        "quote": "từ khoảng 110 lít trở xuống",
-        "why": "110 litres is a converted 29-gallon tank size.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P1",
-        "quote": "Bể 100–110 lít",
-        "why": "The 110-litre upper bound comes from a converted 29-gallon tank.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "L2",
-        "quote": "bể khoảng 100–110 lít",
-        "why": "The 110-litre figure comes from a converted 29-gallon tank.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "như ở tiệm thì toàn bộ betta đều sống trong bể nuôi chung",
-        "why": "This describes the source shop's own practice as if the reader knew that shop; shops in Vietnam usually keep betta in separate jars.",
+        "quote": "cho bể nuôi chung từ khoảng 110 lít trở xuống",
+        "why": "110 litres is a converted 30-gallon figure.",
         "by": "model"
       }
     ],
@@ -76318,19 +76266,11 @@
     "sourceRead": true
   },
   "vi/guides/youtube-K9d5oaWnvJY": {
-    "at": "2026-11-10",
-    "hash": "3d0c15f748e2868e",
+    "at": "2026-11-15",
+    "hash": "4539dc8692f5decc",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Một đám rêu chỉ đã dọn theo cách này hai hôm sau vẫn chưa thấy mọc lại",
-        "why": "This is the source writer's own tank result, given as evidence from a tank the reader doesn't know.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/guides/youtube-kAel-iw_N0c": {
@@ -81181,8 +81121,8 @@
     "products": []
   },
   "vi/guides/youtube-OrW6PZgqKSM": {
-    "at": "2026-11-11",
-    "hash": "5882a65bf5a10749",
+    "at": "2026-11-15",
+    "hash": "8e54e50762bf34b8",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -81190,22 +81130,16 @@
         "check": "units",
         "part": "P1",
         "quote": "Thể tích của nó chỉ khoảng 91 lít",
-        "why": "91 litres is a converted 24-gallon tank volume, not a size anyone in Vietnam would quote.",
+        "why": "91 litres is a converted 24-gallon tank volume, not a figure a Vietnamese keeper would use.",
         "by": "model"
       },
       {
-        "check": "units",
-        "part": "L2",
-        "quote": "khoảng 91 lít",
-        "why": "Repeats the gallon-converted 91-litre tank volume.",
-        "by": "model"
-      },
-      {
-        "check": "source",
+        "check": "words",
         "part": "P1",
-        "quote": "Cá từng nuôi trong chính chiếc bể này đã nhảy ra ngoài.",
-        "why": "Refers to the source writer's own tank and past fish as if the reader knew them.",
-        "by": "model"
+        "quote": "Một con đực lớn ăn hết trọn một viên giun đỏ (bloodworm).",
+        "why": "\"giun đỏ\" for bloodworm is a dictionary translation; Vietnamese keepers say trùn huyết.",
+        "by": "model",
+        "fix": "một viên trùn huyết đông lạnh"
       }
     ],
     "products": []
@@ -82036,23 +81970,16 @@
     "products": []
   },
   "vi/guides/youtube-pLRJzD035Co": {
-    "at": "2026-11-11",
-    "hash": "8d7e03b19434fb77",
+    "at": "2026-11-15",
+    "hash": "24887c214b504677",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "source",
-        "part": "P1",
-        "quote": "Phần so sánh bể là kinh nghiệm và ý thích của một người chơi theo hướng bố cục.",
-        "why": "Refers to the original writer's personal experience as an unnamed person the reader is meant to know.",
-        "by": "model"
-      },
-      {
         "check": "units",
         "part": "P1",
         "quote": "sau một tuần mực nước có thể tụt gần 2,5 cm",
-        "why": "2.5 cm is a converted 1 inch, not a figure a Vietnamese keeper would give.",
+        "why": "2.5 cm is a straight conversion of 1 inch, not a figure a keeper in Vietnam would give.",
         "by": "model"
       }
     ],

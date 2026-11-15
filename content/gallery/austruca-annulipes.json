@@ -12,36 +12,7 @@
       "caption": "Cua đực vẫy càng cam trắng trên bãi bùn",
       "best": true,
       "kind": "male",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/60123963.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/60123963-480.webp",
-      "width": 1024,
-      "height": 682,
-      "licence": "CC BY",
-      "author": "Franz Anthony",
-      "sourceUrl": "https://www.inaturalist.org/photos/60123963",
-      "caption": "Cua đực càng đỏ cam, mai hoa văn trắng đen",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/59677672.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/59677672-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Daniel Krsek",
-      "sourceUrl": "https://www.inaturalist.org/photos/59677672",
-      "caption": "Cua đực mai vằn đốm trắng, càng cam trên bùn",
-      "best": true,
-      "kind": "male",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/140351889.webp",
@@ -54,22 +25,20 @@
       "caption": "Cua đực càng cam trên bãi cát ven bờ",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/60123748.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/60123748-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/59677672.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/59677672-480.webp",
       "width": 1024,
-      "height": 682,
+      "height": 683,
       "licence": "CC BY",
-      "author": "Franz Anthony",
-      "sourceUrl": "https://www.inaturalist.org/photos/60123748",
-      "caption": "Cua đực càng hồng lớn cạnh hang, cận cảnh",
+      "author": "Daniel Krsek",
+      "sourceUrl": "https://www.inaturalist.org/photos/59677672",
+      "caption": "Cua đực mai vằn đốm trắng, càng cam trên bùn",
       "best": true,
       "kind": "male",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/167211665.webp",
@@ -336,6 +305,32 @@
       "kind": "male",
       "setup": true,
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/60123748.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/60123748-480.webp",
+      "width": 1024,
+      "height": 682,
+      "licence": "CC BY",
+      "author": "Franz Anthony",
+      "sourceUrl": "https://www.inaturalist.org/photos/60123748",
+      "caption": "Cua đực càng hồng lớn cạnh hang, cận cảnh",
+      "best": true,
+      "kind": "male",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/60123963.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/60123963-480.webp",
+      "width": 1024,
+      "height": 682,
+      "licence": "CC BY",
+      "author": "Franz Anthony",
+      "sourceUrl": "https://www.inaturalist.org/photos/60123963",
+      "caption": "Cua đực càng đỏ cam, mai hoa văn trắng đen",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 60,

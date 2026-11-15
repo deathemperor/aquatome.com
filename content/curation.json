@@ -377,8 +377,8 @@
      "img": "https://media.aquatome.com/commons/b3c484e83af5b774-large.webp"
     },
     {
-     "page": "species/boraras-brigittae",
-     "img": "https://media.aquatome.com/commons/bb991a4fdd2edcd5-large.webp"
+     "page": "species/pterophyllum-scalare",
+     "img": "https://media.aquatome.com/commons/45fccde9d99b3154-large.webp"
     },
     {
      "page": "species/hyphessobrycon-eques",
@@ -793,8 +793,8 @@
    "guides": [],
    "hero": [
     {
-     "page": "species/boraras-brigittae",
-     "img": "https://media.aquatome.com/commons/bb991a4fdd2edcd5-large.webp"
+     "page": "species/boraras-maculatus",
+     "img": "https://media.aquatome.com/bwaquatics/34c8854d928bd864.webp"
     },
     {
      "page": "species/axelrodia-riesei",
@@ -1188,8 +1188,8 @@
    "fish": "species/danio-tinwini",
    "img": "https://media.aquatome.com/commons/647ba5aba1755f2b-large.webp",
    "guide": "guides/aquariumbreeder-dwarf-shrimp-and-breeding-facts",
-   "why": "Fish: Cá danio vòng vàng, a small schooling fish for a small tank. Guide: dwarf shrimp and how they breed, which opens on its own photo, in place of the guide on settling new fish, which has none of its own (the chief of staff, 15 Nov).",
-   "guideImg": "https://media.aquatome.com/aquariumbreeder/d47023398a57c2af.webp"
+   "guideImg": "https://media.aquatome.com/aquariumbreeder/d47023398a57c2af.webp",
+   "why": "Fish: Cá danio vòng vàng, a small schooling fish for a small tank. Guide: dwarf shrimp and how they breed, which opens on its own photo, in place of the guide on settling new fish, which has none of its own (the chief of staff, 15 Nov)."
   },
   {
    "date": "2026-11-18",
@@ -1216,17 +1216,17 @@
    "fish": "species/paracheirodon-axelrodi",
    "img": "https://media.aquatome.com/commons/9bd71e9d262fdea2-large.webp",
    "guide": "guides/aquariumcoop-blogs-aquarium-neon-tetras-and-cardinal-tetras",
-   "why": "Guide: Hướng dẫn nuôi cá neon và cá neon vua: những loài cá đàn dễ nuôi cho người mới, on this week's list.",
-   "card": "cards/product-chihiros-clock-power-cut"
+   "card": "cards/product-chihiros-clock-power-cut",
+   "why": "Guide: Hướng dẫn nuôi cá neon và cá neon vua: những loài cá đàn dễ nuôi cho người mới, on this week's list."
   },
   {
    "date": "2026-11-20",
-   "fish": "species/boraras-brigittae",
-   "img": "https://media.aquatome.com/commons/bb991a4fdd2edcd5-large.webp",
+   "fish": "species/parosphromenus-phoenicurus",
+   "img": "https://media.aquatome.com/commons/f5d52a229f802c63-large.webp",
    "guide": "guides/aquariumbreeder-importance-of-surface-agitation-in-aquariums",
+   "guideImg": "https://media.aquatome.com/aquariumbreeder/27386ca84ff2d38d.webp",
    "card": "cards/trivia-glass-catfish-name",
-   "why": "Fish: Cá rasbora muỗi, a small schooling fish for a small tank. Guide: surface agitation, which opens on its own photo, in place of the dropsy guide, which has none of its own (the chief of staff, 15 Nov).",
-   "guideImg": "https://media.aquatome.com/aquariumbreeder/27386ca84ff2d38d.webp"
+   "why": "Fish: Cá liquorice gourami phoenicurus, a small schooling fish for a small tank."
   },
   {
    "date": "2026-11-21",
@@ -1327,8 +1327,8 @@
    "img": "https://media.aquatome.com/commons/0bde0aea3f9c15e8-large.webp",
    "guide": "guides/aquariumbreeder-7-signs-your-crayfish-is-suffering-from-stress",
    "guideImg": "https://media.aquatome.com/aquariumbreeder/c0e25bd3e9c353d3.webp",
-   "why": "Fish: Cá zebra đỏ, on this week's list. Guide: 7 dấu hiệu cho thấy tôm càng (crayfish) của bạn đang bị căng thẳng, the best left with a big enough photo.",
-   "card": "cards/event-malaysia-aquatic-expo-2026"
+   "card": "cards/event-malaysia-aquatic-expo-2026",
+   "why": "Fish: Cá zebra đỏ, on this week's list. Guide: 7 dấu hiệu cho thấy tôm càng (crayfish) của bạn đang bị căng thẳng, the best left with a big enough photo."
   },
   {
    "date": "2026-12-03",
@@ -1659,6 +1659,7 @@
  "off": {
   "breeds/ranchu-goldfish": "reader fit: source, units",
   "species/betta-splendens": "reader fit: elsewhere",
+  "species/boraras-brigittae": "reader fit: units",
   "species/boraras-merah": "reader fit: source, elsewhere",
   "species/channa-asiatica": "reader fit: source",
   "species/channa-gachua": "reader fit: source",

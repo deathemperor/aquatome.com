@@ -84,8 +84,9 @@
             "url": "https://media.aquatome.com/video/Rd47SBQzZxE/at490-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cát phủ gần kín phân nền, chỉ còn một chỗ nhỏ hở.",
-            "sharpness": 1537.4
+            "caption": "Lớp phân nền mỏng được dồn về phía sau bể.",
+            "sharpness": 1365.4,
+            "person": false
           }
         ]
       },
@@ -99,14 +100,6 @@
             "height": 675,
             "caption": "Chọn từng hòn đá dáng nhọn, dựng đứng trên sàn trước khi đặt.",
             "sharpness": 138.9
-          },
-          {
-            "t": 730,
-            "url": "https://media.aquatome.com/video/Rd47SBQzZxE/at730-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dựng đá nhọn cao thấp khác nhau trong bể, như mấy ngọn núi.",
-            "sharpness": 2182.7
           }
         ],
         "photo": {
@@ -136,8 +129,9 @@
             "url": "https://media.aquatome.com/video/Rd47SBQzZxE/at1550-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể nhỏ đã trồng cây, có cây đỏ giữa hai hòn đá cao.",
-            "sharpness": 1812.3
+            "caption": "Bể nhỏ đã trồng cây lá nhỏ xanh và đỏ quanh các hòn đá.",
+            "sharpness": 1812.3,
+            "person": false
           }
         ],
         "photo": {
@@ -159,16 +153,18 @@
             "url": "https://media.aquatome.com/video/Rd47SBQzZxE/at1210-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh mới trồng cây, đang châm nước bằng ống.",
-            "sharpness": 911.8
+            "caption": "Đang châm nước chậm vào bể thủy sinh mới trồng cây, đá và cát.",
+            "sharpness": 911.8,
+            "person": false
           },
           {
             "t": 1230,
             "url": "https://media.aquatome.com/video/Rd47SBQzZxE/at1230-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Tay kẹp ống dẫn nước vào thành bể để châm nước chậm.",
-            "sharpness": 112.2
+            "caption": "Ống nước kẹp ở thành bể, nước châm vào hơi đục.",
+            "sharpness": 340.8,
+            "person": false
           }
         ]
       },
@@ -190,6 +186,15 @@
             "height": 675,
             "caption": "Tép đỏ vừa bắt được trong cốc nhựa, kèm cái vợt nhỏ.",
             "sharpness": 70.8
+          },
+          {
+            "t": 1860,
+            "url": "https://media.aquatome.com/video/Rd47SBQzZxE/at1860-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tép đỏ bò trên nền đất của bể mới trồng cây.",
+            "sharpness": 1018.1,
+            "person": false
           }
         ],
         "photo": {
@@ -205,7 +210,26 @@
       },
       {
         "heading": "Nước và đá cho tép Neocaridina",
-        "moments": [],
+        "moments": [
+          {
+            "t": 1680,
+            "url": "https://media.aquatome.com/video/Rd47SBQzZxE/at1680-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh cây rậm, có đá và tép bò giữa rêu cỏ.",
+            "sharpness": 648.7,
+            "person": false
+          },
+          {
+            "t": 1740,
+            "url": "https://media.aquatome.com/video/Rd47SBQzZxE/at1740-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Vợt tép đặt trên thảm cỏ trong bể tép.",
+            "sharpness": 332,
+            "person": false
+          }
+        ],
         "photo": {
           "url": "https://media.aquatome.com/video/Rd47SBQzZxE/p5-LWxlbm5hcnQuanBn.webp",
           "thumb": "https://media.aquatome.com/video/Rd47SBQzZxE/p5-LWxlbm5hcnQuanBn-480.webp",
@@ -225,16 +249,18 @@
             "url": "https://media.aquatome.com/video/Rd47SBQzZxE/at1860-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Tép đỏ bò trên nền đất giữa các bụi cây trong bể mới set.",
-            "sharpness": 1018.1
+            "caption": "Bể mới set với đá và cây thủy sinh xanh đỏ, chưa thả tép.",
+            "sharpness": 765.3,
+            "person": false
           },
           {
             "t": 1990,
             "url": "https://media.aquatome.com/video/Rd47SBQzZxE/at1990-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Toàn cảnh bể mới set với đá và cây lấy từ bể khác sang.",
-            "sharpness": 1043.6
+            "caption": "Bể có cây rậm, đá và sỏi, nơi tép gặm màng vi sinh.",
+            "sharpness": 647,
+            "person": false
           }
         ],
         "photo": {

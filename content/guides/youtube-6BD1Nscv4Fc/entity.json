@@ -133,29 +133,15 @@
     ],
     "figures": [
       {
-        "heading": "Vì sao nên sơn nền sau màu đen",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/p0-NlbGxhdHVzLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/6BD1Nscv4Fc/p0-NlbGxhdHVzLmpwZw-480.webp",
-          "width": 960,
-          "height": 640,
-          "licence": "CC BY-SA 3.0",
-          "author": "Jón Helgi Jónsson (Amything)",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Astronotus_ocellatus.jpg",
-          "caption": "Cá tai tượng nổi bật trên nền đen, màu sắc hiện rõ hẳn lên."
-        }
-      },
-      {
         "heading": "Túi dinh dưỡng chỉ đặt chỗ sẽ trồng cây",
         "moments": [
           {
-            "t": 690,
-            "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at690-hd.webp",
+            "t": 660,
+            "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at660-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Một mảng nền nhỏ đặt giữa lũa, chỉ ở chỗ sẽ trồng cây.",
-            "sharpness": 1832,
+            "caption": "Một túi nền nhỏ đặt giữa các thanh lũa trên đáy bể trống.",
+            "sharpness": 676.3,
             "person": false
           }
         ]
@@ -164,20 +150,11 @@
         "heading": "Rải cát và sỏi cho lớp mặt",
         "moments": [
           {
-            "t": 770,
-            "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at770-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lớp cát lót màu vàng được rải quanh lũa và đá ở đáy bể.",
-            "sharpness": 1644.4,
-            "person": false
-          },
-          {
             "t": 810,
             "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at810-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cát sáng màu phủ phía trước, làm nổi bật khối lũa và đá.",
+            "caption": "Lớp cát mặt đã rải xong, phủ đều quanh lũa và đá.",
             "sharpness": 1245.2,
             "person": false
           }
@@ -201,8 +178,8 @@
             "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at1480-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể toàn cảnh nước mới ngả vàng nâu nhẹ, có lũa và lá khô.",
-            "sharpness": 2031.7,
+            "caption": "Bể vừa đổ nước trà, màu nâu đỏ bắt đầu tản ra.",
+            "sharpness": 1748.9,
             "person": false
           },
           {
@@ -210,8 +187,8 @@
             "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at1560-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Nước bể đã ngả màu nâu đỏ đậm của trà, nhìn rõ lũa và lá.",
-            "sharpness": 310.2,
+            "caption": "Bể nước đã nhuộm nâu đỏ đậm, lũa và đá hiện rõ.",
+            "sharpness": 1147.5,
             "person": false
           }
         ],
@@ -228,17 +205,7 @@
       },
       {
         "heading": "Chọn và trồng cây cho bể nước đen",
-        "moments": [
-          {
-            "t": 1410,
-            "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at1410-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể nước đen với lũa, lá khô và vài cây trồng thưa.",
-            "sharpness": 2333.1,
-            "person": false
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/p6-ydS1JbmRpYS5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/6BD1Nscv4Fc/p6-ydS1JbmRpYS5qcGc-480.webp",
@@ -254,11 +221,20 @@
         "heading": "Thả cá vào bể mới",
         "moments": [
           {
+            "t": 2370,
+            "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at2370-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá ông tiên bơi quanh các khúc lũa trong bể.",
+            "sharpness": 272.1,
+            "person": false
+          },
+          {
             "t": 2380,
             "url": "https://media.aquatome.com/video/6BD1Nscv4Fc/at2380-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cá ông tiên bơi giữa lũa và cây trong bể mới.",
+            "caption": "Cá ông tiên bơi giữa lũa trong bể nước trà.",
             "sharpness": 269.7,
             "person": false
           }

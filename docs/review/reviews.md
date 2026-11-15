@@ -32,10 +32,10 @@ under `<lang>/<path>`.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 563 | 1479 |
-| States as certain what the source hedges, or what garbled captions only hint at | 552 | 1678 |
-| Says what the source doesn't (invented, added) | 484 | 1191 |
-| Wording: unnatural, literal, stiff or chatty | 263 | 366 |
+| Other | 563 | 1480 |
+| States as certain what the source hedges, or what garbled captions only hint at | 552 | 1677 |
+| Says what the source doesn't (invented, added) | 484 | 1190 |
+| Wording: unnatural, literal, stiff or chatty | 263 | 365 |
 | A number, unit, dose or price | 220 | 325 |
 | Repeats itself (intro, summary, steps and FAQ) | 126 | 148 |
 | Meaning changed or wrong | 111 | 126 |

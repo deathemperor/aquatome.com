@@ -3,8 +3,32 @@
  "judged": [
   "File:Peixes da planície de inundação do alto rio Paraná (3678425).png",
   "File:Peixes da planície de inundação do alto rio Paraná (3678425) (cropped).png",
-  "File:Peixes da planície de inundação do alto rio Paraná (3678425) (Colossoma macropomum).png"
+  "File:Peixes da planície de inundação do alto rio Paraná (3678425) (Colossoma macropomum).png",
+  "inat:1127081",
+  "inat:12597873",
+  "inat:44518030",
+  "inat:113220288",
+  "inat:160520360",
+  "inat:362103437",
+  "inat:362103477",
+  "inat:462971990",
+  "inat:467226184",
+  "inat:467466174",
+  "inat:470056582",
+  "inat:470056601",
+  "inat:470056617",
+  "inat:560474688"
  ],
- "hashes": {},
- "commons": "2026-11-09"
+ "hashes": {
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/467466174/large.jpeg": "10440d1f0f0d0464"
+ },
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 620768,
+  "pass": "done",
+  "after": {
+   "research": 310540016,
+   "agree": 330163329
+  }
+ }
 }

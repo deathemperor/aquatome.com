@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-15). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 649 | 30 | 9 | 22 | 666 |
-| rest | 20 | 1720 | 74 | 0 | 67 | 1727 |
+| covered | 30 | 654 | 30 | 9 | 22 | 671 |
+| rest | 20 | 1715 | 74 | 0 | 69 | 1720 |
 
-## Short of target: every source read (384)
+## Short of target: every source read (402)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -301,6 +301,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/tetraodon-mbu | covered | 21 | 30 |
 | species/trichogaster-chuna | covered | 10 | 30 |
 | species/xyliphius-lepturus | covered | 0 | 30 |
+| species/acanthicus-adonis | covered | 1 | 30 |
 | species/acentronichthys-leptos | covered | 0 | 30 |
 | species/acestridium-dichromum | covered | 0 | 30 |
 | species/acestrorhynchus-altus | covered | 0 | 30 |
@@ -400,3 +401,20 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/boraras-naevus | covered | 2 | 30 |
 | species/botia-histrionica | covered | 1 | 30 |
 | species/boulengerella-maculata | covered | 4 | 30 |
+| species/brachygobius-aggregatus | covered | 0 | 30 |
+| species/brachyplatystoma-juruense | covered | 0 | 30 |
+| species/brachyplatystoma-tigrinum | covered | 0 | 30 |
+| species/brachyrhamdia-heteropleura | covered | 0 | 30 |
+| species/brachyrhamdia-imitator | covered | 0 | 30 |
+| species/brachyrhamdia-rambarrani | covered | 0 | 30 |
+| species/brotia-pagodula | covered | 0 | 30 |
+| species/bunocephalus-colombianus | covered | 0 | 30 |
+| species/callochromis-macrops | covered | 0 | 30 |
+| species/cambarellus-diminutus | covered | 1 | 30 |
+| species/camposcia-retusa | covered | 19 | 30 |
+| species/carinotetraodon-borneensis | covered | 0 | 30 |
+| species/carnegiella-myersi | covered | 3 | 30 |
+| species/centrochir-crocodili | covered | 0 | 30 |
+| species/centromochlus-heckelii | covered | 0 | 30 |
+| species/cetopsis-coecutiens | covered | 0 | 30 |
+| species/chaca-bankanensis | covered | 1 | 30 |

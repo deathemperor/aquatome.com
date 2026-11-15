@@ -136,22 +136,53 @@
             "url": "https://media.aquatome.com/video/RgZyJiCQSNM/at1100-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thấp trồng nhiều cây thủy sinh trên lớp nền sỏi cũ.",
-            "sharpness": 2214.7
-          },
-          {
-            "t": 1230,
-            "url": "https://media.aquatome.com/video/RgZyJiCQSNM/at1230-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Góc nhìn gần phần nền sỏi và đảo lũa phủ cây xanh.",
-            "sharpness": 1956.1
+            "caption": "Bể thấp trống đặt trên tủ, chuẩn bị dỡ nền cũ.",
+            "sharpness": 1502.4,
+            "person": false
           }
         ]
       },
       {
         "heading": "Dựng bờ kè giữ đất bằng lũa và đá",
-        "moments": [],
+        "moments": [
+          {
+            "t": 200,
+            "url": "https://media.aquatome.com/video/RgZyJiCQSNM/at200-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lũa xoắn và đá tròn lớn xếp thành dáng tường chắn trong bể.",
+            "sharpness": 910.2,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Buộc rêu và cố định bằng keo",
+        "moments": [
+          {
+            "t": 340,
+            "url": "https://media.aquatome.com/video/RgZyJiCQSNM/at340-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nhánh lũa phủ rêu xù kín thân, đặt trên khối đá.",
+            "sharpness": 639.5,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Trải cát và đá trang trí cho phần trước",
+        "moments": [
+          {
+            "t": 570,
+            "url": "https://media.aquatome.com/video/RgZyJiCQSNM/at570-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lớp cát mỏng trải phía trước hồ, quanh lũa phủ rêu.",
+            "sharpness": 615.1,
+            "person": false
+          }
+        ],
         "photo": {
           "url": "https://media.aquatome.com/video/RgZyJiCQSNM/p1-YXJkc2NhcGUuanBn.webp",
           "thumb": "https://media.aquatome.com/video/RgZyJiCQSNM/p1-YXJkc2NhcGUuanBn-480.webp",
@@ -164,22 +195,98 @@
         }
       },
       {
+        "heading": "Xử lý nước đục sau khi đổ",
+        "moments": [
+          {
+            "t": 780,
+            "url": "https://media.aquatome.com/video/RgZyJiCQSNM/at780-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lọc nhỏ gắn trong hồ, nước hơi mờ do bụi mịn.",
+            "sharpness": 315.7,
+            "person": false
+          }
+        ]
+      },
+      {
         "heading": "Trồng cây dưới nước",
-        "moments": [],
+        "moments": [
+          {
+            "t": 870,
+            "url": "https://media.aquatome.com/video/RgZyJiCQSNM/at870-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh bể thủy sinh cây rậm rạp, nhiều kiểu lá xanh phủ lũa.",
+            "sharpness": 1599.8,
+            "person": false
+          }
+        ],
         "photo": {
           "url": "https://media.aquatome.com/video/RgZyJiCQSNM/p6-X2V4X3NpdHUuanBn.webp",
           "thumb": "https://media.aquatome.com/video/RgZyJiCQSNM/p6-X2V4X3NpdHUuanBn-480.webp",
           "width": 960,
-          "height": 587,
-          "licence": "CC BY-SA 4.0",
-          "author": "Manuel Werner / CC-BY-SA-3.0 Werner, Deutschland",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bucephalandra_Shine_Blue_and_Bucephalandra_pygmaea_ex_situ.jpg",
-          "caption": "Bể thủy sinh trồng nhiều loại cây lá khác nhau trên nền đá và lũa."
+          "height": 1280,
+          "licence": "CC BY 4.0",
+          "author": "Yercaud-elango",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rotala_rotundifolia_pink-2-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Cụm cây thân đứng lá đỏ hồng mọc um tùm trong bể thủy sinh."
+        }
+      },
+      {
+        "heading": "Trồng cây vượt mặt nước trên đảo",
+        "moments": [
+          {
+            "t": 930,
+            "url": "https://media.aquatome.com/video/RgZyJiCQSNM/at930-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bụi Echinodorus lá to mọc xanh tốt vượt trên cạn.",
+            "sharpness": 854.6,
+            "person": false
+          },
+          {
+            "t": 990,
+            "url": "https://media.aquatome.com/video/RgZyJiCQSNM/at990-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cây mọc vượt khỏi mặt nước trên đảo lũa trong bể.",
+            "sharpness": 2400.5,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/RgZyJiCQSNM/p7-bG93ZXJfMi53ZWJw.webp",
+          "thumb": "https://media.aquatome.com/video/RgZyJiCQSNM/p7-bG93ZXJfMi53ZWJw-480.webp",
+          "width": 960,
+          "height": 1280,
+          "licence": "CC0",
+          "author": "Thadguidry",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amazon_sword_flower_2.webp",
+          "caption": "Cây Echinodorus mọc vượt khỏi nước, đã ra cọng hoa trắng trên cạn."
         }
       },
       {
         "heading": "Vì sao bể không cần lọc",
-        "moments": [],
+        "moments": [
+          {
+            "t": 1000,
+            "url": "https://media.aquatome.com/video/RgZyJiCQSNM/at1000-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể không lọc với nền sỏi dày, nhiều cây và lũa xanh tốt.",
+            "sharpness": 1991.6,
+            "person": false
+          },
+          {
+            "t": 1010,
+            "url": "https://media.aquatome.com/video/RgZyJiCQSNM/at1010-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể trồng cây dày, tự cân bằng không cần lọc.",
+            "sharpness": 2375.7,
+            "person": false
+          }
+        ],
         "photo": {
           "url": "https://media.aquatome.com/video/RgZyJiCQSNM/p8-Nvc3lzdGVtLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/RgZyJiCQSNM/p8-Nvc3lzdGVtLmpwZw-480.webp",
@@ -193,7 +300,17 @@
       },
       {
         "heading": "Thả cá và theo dõi mấy ngày đầu",
-        "moments": [],
+        "moments": [
+          {
+            "t": 1100,
+            "url": "https://media.aquatome.com/video/RgZyJiCQSNM/at1100-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh cây um tùm, nền sỏi, sẵn sàng thả cá.",
+            "sharpness": 2214.7,
+            "person": false
+          }
+        ],
         "photo": {
           "url": "https://media.aquatome.com/video/RgZyJiCQSNM/p9-dXN0ZXJpbmcuanBn.webp",
           "thumb": "https://media.aquatome.com/video/RgZyJiCQSNM/p9-dXN0ZXJpbmcuanBn-480.webp",
