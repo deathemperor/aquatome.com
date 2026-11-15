@@ -72,12 +72,15 @@ private func vectors(_ name: String) throws -> [String: Any] {
   #expect(PhotoFrame.clear(aspect: 2, box: fish, width: 400, height: 400) == .whole)
 }
 
-@Test func aFishThePhotoCutsOnASideTheFrameDoesntKeepsTheListsFrame() {
-  // The same fish, reaching the photo's top: the photo cuts it already, so showing it whole would only put that cut in a
-  // mat. It keeps the lists' frame, though the frame cuts across.
-  let fish = PhotoBox(x: 0.2, y: 0, w: 0.49, h: 0.6)
-  #expect(PhotoFrame.clear(aspect: 2, box: fish, width: 400, height: 400) == PhotoFrame.of(aspect: 2, box: fish, ratio: 1))
-  #expect(PhotoFrame.clear(aspect: 2, box: fish, width: 400, height: 400) != .whole)
+@Test func aFishThePhotoCutsWithNoClearingWindowKeepsTheListsFrame() {
+  // Reaching the photo's top, too long to clear the edges a square adds: the lists' frame, which here cuts nothing.
+  let top = PhotoBox(x: 0.2, y: 0, w: 0.49, h: 0.6)
+  #expect(PhotoFrame.clear(aspect: 2, box: top, width: 400, height: 400) == PhotoFrame.of(aspect: 2, box: top, ratio: 1))
+  #expect(PhotoFrame.clear(aspect: 2, box: top, width: 400, height: 400) != .whole)
+  // From the photo's left edge to 0.6: no window cuts 5% or less, so whole, as the lists show it: what was shot.
+  let left = PhotoBox(x: 0, y: 0.3, w: 0.6, h: 0.4)
+  #expect(PhotoFrame.of(aspect: 2, box: left, ratio: 1) == .whole)
+  #expect(PhotoFrame.clear(aspect: 2, box: left, width: 400, height: 400) == .whole)
 }
 
 @Test func aSmallFrameKeepsFourPointsNotTwoPercent() {
@@ -88,10 +91,10 @@ private func vectors(_ name: String) throws -> [String: Any] {
   #expect(PhotoFrame.clear(aspect: 2, box: near, width: 100, height: 100) == .whole)
 }
 
-@Test func aFishThePhotoItselfCutsKeepsTheListsFrame() {
-  // Its tail at the photo's own left edge: a mat would only frame that cut, so the card frames it as a list does.
+@Test func aFishThePhotoItselfCutsTakesTheClearingMoveToThatEdge() {
+  // Its tail at the photo's own left edge: the window moved to that edge clears the one edge the frame adds.
   let fish = PhotoBox(x: 0.004, y: 0.3, w: 0.45, h: 0.4)
-  #expect(PhotoFrame.clear(aspect: 2, box: fish, width: 400, height: 400) == PhotoFrame.of(aspect: 2, box: fish, ratio: 1))
+  #expect(PhotoFrame.clear(aspect: 2, box: fish, width: 400, height: 400) == .cover(x: 0, y: 0.5))
 }
 
 @Test func aTallPhotosCardClearsTheTopAndBottomItAdds() {

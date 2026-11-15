@@ -1264,9 +1264,6 @@ final class V2FlowTests: XCTestCase {
     XCTAssertLessThan(colour.distance(to: foot), 40, "white under the tab bar: \(colour) above, \(foot) under it")
   }
 
-  /// What's on the bar reads, on the page's colour and after it, and the name, once it has left the page, stays in the bar's
-  /// middle as the colour goes. On the colour the back and the ⋯ are in iOS's glass alike; after it iOS can keep the dark
-  /// scheme, white on the white band.
   /// A fish's page whose head shows its photo whole, at rest: the ⋯ in iOS's glass beside the back in its own, on the
   /// head's colour (Design's parity, 14 Nov). Before, it was bare dots there: not over the photo, so no dark circle, and in
   /// glass only once scrolled. The stand-in photo is 8:3, which goes whole (`-wide-pictures`, as WholePhotoFlowTests).
@@ -1278,15 +1275,22 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 10), "no fish page")
     let back = app.pageBack, more = app.buttons["page-more"]
     XCTAssertTrue(back.waitForExistence(timeout: 5) && more.exists, "no back or ⋯ in the bar")
-    // The whole head under the bar: its photo's red end at the screen's left, below the bar's foot.
+    // The whole head under the bar: the stand-in's red end and its blue end both on the line just under the bar's foot.
+    // A banner would cut both away, and the check below would no longer be about a whole head.
     Thread.sleep(forTimeInterval: 2)
-    let seen = Pixels(XCUIScreen.main.screenshot())
+    let seen = Pixels(XCUIScreen.main.screenshot()), line = app.navigationBars.firstMatch.frame.maxY + 12
+    let along = stride(from: CGFloat(0), to: app.frame.width, by: 1).map { seen.at($0, line) }
+    XCTAssertTrue(along.contains { $0.r > 170 && $0.g < 90 && $0.b < 90 } && along.contains { $0.b > 170 && $0.r < 90 && $0.g < 120 },
+                  "the head isn't the whole photo: no red or no blue end under the bar")
     func glass(_ b: XCUIElement, edge: CGFloat) -> Double { seen.at(b.frame.midX, b.frame.midY + 15).distance(to: seen.at(edge, b.frame.midY + 15)) }
     let backGlass = glass(back, edge: 2), moreGlass = glass(more, edge: app.frame.width - 2)
     XCTAssertGreaterThan(backGlass, 4, "iOS's glass behind the back doesn't show on the head's colour")
     XCTAssertGreaterThan(moreGlass, backGlass / 2, "the ⋯ bare on a whole head's colour at rest, the back in its glass: \(moreGlass) against \(backGlass)")
   }
 
+  /// What's on the bar reads, on the page's colour and after it, and the name, once it has left the page, stays in the bar's
+  /// middle as the colour goes. On the colour the back and the ⋯ are in iOS's glass alike; after it iOS can keep the dark
+  /// scheme, white on the white band.
   func testAFishsPageBarReadsOnItsColourAndAfterIt() {
     let app = launch("-v2", "YES")
     app.launchForFlow()

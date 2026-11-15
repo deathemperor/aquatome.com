@@ -272,7 +272,8 @@ struct BrowseHome: View {
           ForEach(items) { item in
             NavigationLink(value: item) {
               VStack(alignment: .leading, spacing: 8) {
-                V2Photo(src: item.img, box: item.imgBox)
+                // A card: the fish clear of its edges where the picture has a fish's box; none (a tank, kit), centred.
+                V2Photo(src: item.img, box: item.imgBox, clear: true)
                   .aspectRatio(1.8, contentMode: .fit)
                   .overlay { if item.img == nil { Image(systemName: item.kind.symbol).font(.title2).foregroundStyle(.secondary).accessibilityHidden(true) } }
                   .clipShape(.rect(cornerRadius: 16, style: .continuous))

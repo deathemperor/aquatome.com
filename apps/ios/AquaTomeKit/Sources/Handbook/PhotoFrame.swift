@@ -33,15 +33,17 @@ public enum PhotoFrame: Equatable, Sendable {
   /// The room a card or a head keeps between its fish and each edge it adds: 2% of that side, never under 4 points
   /// (Design's frames.md, 14 Nov, confirmed by the chief of staff).
   public static let clearShare = 0.02, clearPoints = 4.0
-  /// A fish's box this near any of the photo's own edges is cut by the photo already: it is never shown whole, which would
-  /// only put that cut inside a mat. Any side: a fish cut at the photo's top shows that cut in a mat as much as one cut at
-  /// its end (frames.md, the Design Lead, 15 Nov 09:27).
+  /// A fish's box this near one of the photo's own edges, on any side, is cut by the photo already (frames.md, the Design
+  /// Lead, 15 Nov).
   public static let ownEdge = 0.01
 
   /// A card's or a head's frame, `width` × `height` points: no cut at all, and the fish clear of each edge the frame adds
   /// by `clearShare` of that side or `clearPoints`, whichever is more. Centred if that holds, else moved onto the fish,
-  /// else the photo whole; but a fish the photo cuts (`ownEdge`) keeps the lists' frame (`of`) there instead of going
-  /// whole. Rows and list tiles keep `of`, where a fin tip at the edge doesn't read as cut.
+  /// else the photo whole. Rows and list tiles keep `of`, where a fin tip at the edge doesn't read as cut.
+  ///
+  /// A fish the photo cuts (`ownEdge`) takes the clearing centre or move as any fish does; where neither clears it, it keeps
+  /// the lists' frame (`of`), whole included, rather than go whole by this rule. Shown whole it is what the photographer
+  /// shot; a window of ours cutting it further would be our own cut (frames.md, 15 Nov 10:5x).
   public static func clear(aspect: Double, box: PhotoBox?, width: Double, height: Double) -> PhotoFrame {
     guard let box, box.w > 0, box.h > 0, aspect > 0, width > 0, height > 0 else { return .cover(x: 0.5, y: 0.5) }
     let ratio = width / height, across = aspect > ratio
