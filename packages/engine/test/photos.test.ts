@@ -47,6 +47,17 @@ test("videos: an email address an uploader wrote into a title is never stored, n
   expect(videoTitle('Petrochromis fishroom@example.com zum 2. Mal,  34 WF.AVI')).toBe('Petrochromis zum 2. Mal, 34 WF.AVI')
   expect(videoTitle("LET'S PRESERVE WILD BETTA UBERIS. (a.keeper+tanks@mail.example.org)")).toBe("LET'S PRESERVE WILD BETTA UBERIS.")
   expect(videoTitle('Cardinal tetra care  @ home [part 1]')).toBe('Cardinal tetra care  @ home [part 1]')
+  // What an address leaves: a doubled or end separator, a space before a stop, any empty bracket; and an accented one.
+  expect(videoTitle('Wild bettas | fishroom@example.com | part 2')).toBe('Wild bettas | part 2')
+  expect(videoTitle('Contact: fishroom@example.com')).toBe('Contact')
+  expect(videoTitle('Betta uberis fishroom@example.com.')).toBe('Betta uberis.')
+  expect(videoTitle('{fishroom@example.com} Bettas <fishroom@example.com>')).toBe('Bettas')
+  expect(videoTitle('Apistogramma jürgen.müller@example.de')).toBe('Apistogramma')
+  // Thai and Chinese run their words together: the words beside an address stay.
+  expect(videoTitle('ปลากัดป่าfishroom@example.com')).toBe('ปลากัดป่า')
+  expect(videoTitle('野生斗鱼fishroom@example.com')).toBe('野生斗鱼')
+  expect(videoTitle(undefined as unknown as string)).toBeUndefined()
+  expect(videoTitle('')).toBe('')
   const http = async (u: string) => u.includes('/search')
     ? { items: [{ id: { videoId: 'aaaaaaaaaaa' } }] }
     : { items: [{ id: 'aaaaaaaaaaa', snippet: { title: 'Wild bettas (fishroom@example.com)', description: 'x', defaultAudioLanguage: 'en' }, contentDetails: { duration: 'PT1M' } }] }

@@ -284,11 +284,10 @@ const grabOnce = (s: Stream, sec: number) => new Promise<Uint8Array>((resolve, r
     else resolve(new Uint8Array(out))
   }))
 
-const flat = async (url: string, end = 30) => {
-  const d = JSON.parse(await run(['--flat-playlist', '--playlist-end', String(end), '-J', url]))
-  return ((d.entries ?? []) as { id?: string; title?: string; channel?: string; uploader?: string }[])
-    .flatMap(e => (e.id ? [{ id: e.id, title: e.title ?? '', channel: e.channel ?? e.uploader ?? d.channel ?? '' }] : []))
-}
+/** yt-dlp's flat list (`--flat-playlist -J`) as found videos or playlists, each title with no email address. */
+export const flatEntries = (d: { channel?: string; entries?: { id?: string; title?: string; channel?: string; uploader?: string }[] }) =>
+  (d.entries ?? []).flatMap(e => (e.id ? [{ id: e.id, title: videoTitle(e.title ?? ''), channel: e.channel ?? e.uploader ?? d.channel ?? '' }] : []))
+const flat = async (url: string, end = 30) => flatEntries(JSON.parse(await run(['--flat-playlist', '--playlist-end', String(end), '-J', url])))
 
 /** Playlist search (YouTube's playlist filter) and a channel's playlists, via yt-dlp: no API key. */
 export const ytFinder: Finder & { searchReviews(query: string): Promise<{ id: string; title: string; channel: string }[]> } = {

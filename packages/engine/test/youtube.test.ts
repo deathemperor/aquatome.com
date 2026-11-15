@@ -10,7 +10,7 @@ import { LlmError } from '../src/claude'
 import { fitRules } from '../src/fit'
 import type { Page } from '../src/pages'
 import { logReviews, readReviews } from '../src/review-log'
-import { chaptersFrom, crowdLines, editDraft, lowVideoGuides, parseTranscript, recheckedGuides, retry403, reviewDraft, storyboardInterval, videoGuides, ytApi, type VideoMeta, type YouTube } from '../src/youtube'
+import { chaptersFrom, crowdLines, editDraft, flatEntries, lowVideoGuides, parseTranscript, recheckedGuides, retry403, reviewDraft, storyboardInterval, videoGuides, ytApi, type VideoMeta, type YouTube } from '../src/youtube'
 
 const ev = (s: number, text: string) => ({ tStartMs: s * 1000, segs: [{ utf8: text }] })
 
@@ -577,6 +577,11 @@ test("ytApi: an email address in a playlist's or a video's title is taken out be
   const yt = ytApi('K', get)
   expect(await yt.playlist('PL1')).toMatchObject({ title: 'Bettas', videos: [{ id: 'a1', title: 'Part 1' }] })
   expect((await yt.video('a1')).title).toBe('Part 1')
+})
+
+test("yt-dlp's searches and a channel's playlists: an email address in a found title is taken out before anything stores it (the chief of staff, 16 Nov)", () => {
+  expect(flatEntries({ channel: 'C', entries: [{ id: 'a1', title: 'Wild bettas | fishroom@example.com' }, { id: 'a2', title: 'Discus care' }, { title: 'no id' }] }))
+    .toEqual([{ id: 'a1', title: 'Wild bettas', channel: 'C' }, { id: 'a2', title: 'Discus care', channel: 'C' }])
 })
 
 test('chapters: only when the description lists at least three, from 0:00, in order', () => {

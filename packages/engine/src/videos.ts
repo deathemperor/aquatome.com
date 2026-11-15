@@ -18,16 +18,26 @@ const KEEP = { type: 'object', properties: { keep: { type: 'array', items: { typ
 export const readVideoRejected = async (root: string) =>
   JSON.parse(await readFile(join(root, 'engine-state/_video-rejected.json'), 'utf8').catch(() => '{}')) as Record<string, string>
 
-const EMAIL = /[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}/g
+// Latin letters with their accents (an uploader's own name), and digits. Not every script's letters: Thai and Chinese
+// titles run their words together, and a wider class would take the words beside an address with it.
+const EMAIL = /[\p{Script=Latin}\p{Nd}._%+-]+@[\p{Script=Latin}\p{Nd}-]+(?:\.[\p{Script=Latin}\p{Nd}-]+)*\.\p{Script=Latin}{2,}/gu
+const SEPS = '|/·•:;,–—-'
+const DOUBLED = new RegExp(`([${SEPS}])(?:\\s*[${SEPS}])+`, 'g')
+const ENDS = new RegExp(`^[\\s${SEPS}]+|[\\s${SEPS}]+$`, 'g')
 
 /**
- * A video's title as the engine stores it: an email address its uploader wrote into it is taken out, with a bracket it
- * leaves empty and the spaces it leaves, so no run writes a personal address into the repository (the chief of staff,
- * 16 Nov). A title with none is kept as it is.
+ * A video's title as the engine stores it: an email address its uploader wrote into it is taken out, with what it
+ * leaves (an empty bracket, a separator doubled or left at either end, a space before a stop), so no run writes a
+ * personal address into the repository (the chief of staff, 16 Nov). A title with none, or no title, is kept as it is.
  */
 export function videoTitle(raw: string): string {
-  if (!raw.match(EMAIL)) return raw
-  return raw.replace(EMAIL, '').replace(/\(\s*\)|\[\s*\]/g, '').replace(/\s{2,}/g, ' ').trim()
+  if (!raw?.match(EMAIL)) return raw
+  return raw.replace(EMAIL, ' ')
+    .replace(/\(\s*\)|\[\s*\]|\{\s*\}|<\s*>/g, ' ')
+    .replace(DOUBLED, '$1')
+    .replace(ENDS, '')
+    .replace(/\s+([.,;:!?])/g, '$1')
+    .replace(/\s{2,}/g, ' ').trim()
 }
 
 /** 2–4 relevant YouTube videos, none of `skip` (the rejected ones); [] when no YOUTUBE_API_KEY is configured. */
