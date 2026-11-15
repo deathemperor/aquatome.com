@@ -12,7 +12,7 @@ const SCHEMA = { type: 'object', required: ['titles'], properties: { titles: { t
 const BATCH = 40
 const THAI = /[฀-๿]/
 /** A dot that ends an abbreviation, kept when a title's full stop comes off: Thai's cm and mm, a scientific name's spp. or cf. */
-const ABBREVIATION = /(?:\b(?:spp?|ssp|var|cf|aff)|ซม|มม)\.$/
+const ABBREVIATION = /(?:\b(?:spp?|ssp|var|cf|aff|dll|dsb|dst|dkk|v\.v)|ซม|มม|กก|ม)\.$/
 const VI = { lang: 'Vietnamese', country: 'Vietnam', style: 'Style: plain written Vietnamese, as aquarium hobbyists in Vietnam write it: "bể", "cá", "thay nước", "cây thủy sinh". No phrasing that reads as translated from English. Say it as a keeper would, not as a book or the news. Numbers: 1.136 lít, 1,5 cm, a space before a unit. A fish\'s young take one "cá": "Cá con hồng ngọc hai chấm", "Cá L354 con". Keepers\' words: "cá nuôi chung" (tank mates), "đẻ" (spawn), "mình" (my, I).' }
 
 /** Per language: the word for "about", the litres word, the thousands mark, the word for "part", and a page name's leading "fish" words. */
@@ -22,23 +22,22 @@ const TIDY: Record<Lang, { about: string; litres: string; thousands: string; par
   th: { about: 'ประมาณ', litres: 'ลิตร', thousands: ',', part: 'ตอนที่', fish: [] },
   ms: { about: 'kira-kira', litres: 'liter', thousands: ',', part: 'bahagian', fish: ['Ikan', 'Udang', 'Siput', 'Ketam'] },
 }
-const ABOUT = /^(khoảng|sekitar|kira-kira|ประมาณ)$/
 
 /**
  * A title as kept, the same every run whatever the model wrote (the editors, 15 Nov): no full stop at the end (an
  * abbreviation keeps its dot); no bracket that only repeats the name before it, which "the page's name, then the scientific
  * name in brackets" writes when the page is named by its scientific name. With the page's language: a gallon size's litres
- * say "about" and carry the language's thousands mark, a part number takes no comma before it, and a page name's "fish"
+ * say "about" where no word stands before the number ("more than" stays), and carry the language's thousands mark, a part number takes no comma before it, and a page name's "fish"
  * word ("Ikan", "Cá") is lower case after the title's first word.
  */
 export function tidyTitle(title: string, lang?: Lang): string {
-  let t = title.trim().replace(/\s*\(([^()]+)\)/g, (m, inner: string, at: number, all: string) => all.slice(0, at).trim().toLowerCase().endsWith(inner.trim().toLowerCase()) ? '' : m)
+  let t = title.trim().replace(/\s*\(([^()]+)\)/g, (m, inner: string, at: number, all: string) => /\p{L}.*\p{L}.*\p{L}/u.test(inner) && all.slice(0, at).trim().toLowerCase().endsWith(inner.trim().toLowerCase()) ? '' : m)
   const w = lang && TIDY[lang]
   if (w) {
     t = t.replace(new RegExp(`(gallons?|galon|gelen|แกลลอน) \\((\\S+ )?(\\d[\\d.,]*) ${w.litres}\\)`, 'g'), (m, unit: string, before: string | undefined, n: string) => {
       const digits = n.replace(/[.,]/g, '')
       const num = /^\d{4,}$/.test(digits) && !/[.,]\d{1,2}$/.test(n) ? digits.replace(/\B(?=(\d{3})+$)/g, w.thousands) : n
-      return `${unit} (${before && ABOUT.test(before.trim()) ? before : `${w.about} `}${num} ${w.litres})`
+      return `${unit} (${before ?? `${w.about} `}${num} ${w.litres})`
     })
     t = t.replace(new RegExp(`,\\s*(${w.part}) (\\d+)$`), ' $1 $2')
     // English-style capitals throughout: most words after the first, outside brackets and other than the fish word, capitalised.
@@ -46,7 +45,7 @@ export function tidyTitle(title: string, lang?: Lang): string {
     const titleCase = words.length >= 2 && words.filter(x => /^\p{Lu}/u.test(x)).length / words.length >= 0.5
     if (w.fish.length && !titleCase) t = t.replace(new RegExp(`(?<=[^\\s.!?|:] )(${w.fish.join('|')})(?= )`, 'g'), s => s.toLowerCase())
   }
-  return (ABBREVIATION.test(t) ? t : t.replace(/\.$/, '')).slice(0, 140)
+  return (ABBREVIATION.test(t) ? t : t.replace(/(?<!\.)\.$/, '')).slice(0, 140)
 }
 
 type Video = { youtubeId: string; title: string; lang: string }

@@ -137,3 +137,13 @@ test("a title the editors passed and kept (content/video-titles/kept.json) is ne
   expect(after['en-a']).toBe(before['en-a'])
   expect(after['en-d']).toBe('lại: Lamp D after 6 months')
 })
+
+test("tidyTitle changes no meaning: a word before the litres stays ('more than' is not 'about'), an abbreviation or an ellipsis keeps its dots, and a short bracket isn't taken for a repeated name (the reviewer, 15 Nov)", () => {
+  expect(tidyTitle('Bể 300 gallon (hơn 1000 lít)', 'vi')).toBe('Bể 300 gallon (hơn 1.000 lít)')
+  expect(tidyTitle('ตู้ 300 แกลลอน (กว่า 1136 ลิตร)', 'th')).toBe('ตู้ 300 แกลลอน (กว่า 1,136 ลิตร)')
+  expect(tidyTitle('Pakan, filter, dll.', 'id')).toBe('Pakan, filter, dll.')
+  expect(tidyTitle('ปลาไหลยาว 2 ม.', 'th')).toBe('ปลาไหลยาว 2 ม.')
+  expect(tidyTitle('Cá Betta...', 'vi')).toBe('Cá Betta...')
+  expect(tidyTitle('Phần 1 (1)', 'vi')).toBe('Phần 1 (1)')
+  expect(tidyTitle('Cá Champsochromis spilorhynchus (Champsochromis spilorhynchus)', 'vi')).toBe('Cá Champsochromis spilorhynchus')
+})
