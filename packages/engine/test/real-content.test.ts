@@ -1127,11 +1127,13 @@ test('the algae guide is held by hand in every language while its Thai text carr
 test('the guide on where to learn aquascaping names no private person in passing, and is fixed by hand', () => {
   const t = JSON.parse(readFileSync(fileURLToPath(new URL('../../../content/guides/youtube-qzPVpr89Ugo/vi.json', import.meta.url)), 'utf8')) as Translation & Record<string, unknown>
   const all = [t.name, t.body, ...(t.summary ?? []), ...(t.faq ?? []).flatMap(f => [f.q, f.a])].join('\n')
-  expect(/(?<!\p{L})(?:[Aa]nh|[Cc]hị|[Ee]m)[ \t]+\p{Lu}/u.test(all), 'a form of address before a name').toBe(false)
+  // A form of address before a capitalised name, a space, a no-break space or an inline tag between; not "anh em" nor
+  // "tiếng Anh", and never across a block's tags ("Ghi chú</th>").
+  expect(/(?<!\p{L})(?:(?<!tiếng\s)[Aa]nh|[Cc]hị|(?<![Aa]nh\s)[Ee]m|[Bb]ác|[Cc]hú|[Cc]ô)(?:[ \t\u00a0]|&nbsp;|<(?:strong|b|em|i|a)\b[^>]*>)+\p{Lu}/u.test(all), 'a form of address before a name').toBe(false)
   for (const said of [
     'Admin nhóm đã đăng nhiều bài hữu ích trong mục thông báo.',
     'Trang này tìm trên Google là dễ gặp.',
-    'Kho bài còn có một topic dài khoảng 40 trang về bể nổi tiếng của một người chơi từng dự thi và đạt nhiều giải quốc tế',
+    'Kho bài còn có một topic dài 40 trang về bể nổi tiếng của một người chơi từng dự thi và đạt nhiều giải quốc tế.',
     'Thủy Sinh AZ',
   ]) expect(t.body.includes(said), said).toBe(true)
   for (const mark of ['bodyFixed', 'faqFixed', 'nameFixed']) expect(t[mark], mark).toBe(true)
@@ -1144,7 +1146,7 @@ test('the guide on where to learn aquascaping names no private person in passing
 test('the Botia markings guide prints no email address, still credits its author, and is fixed by hand', () => {
   const t = JSON.parse(readFileSync(fileURLToPath(new URL('../../../content/guides/loachesonline-articles-botia-rostrata-development-of-markings-during-growth/vi.json', import.meta.url)), 'utf8')) as Translation & Record<string, unknown>
   const all = [t.name, t.body, ...(t.summary ?? []), ...(t.faq ?? []).flatMap(f => [f.q, f.a])].join('\n')
-  expect(/[\w.%+-]+@[\w-]+(?:\.[\w-]+)*\.\p{L}{2,}(?![\p{L}\p{N}])/u.test(all), 'an email address').toBe(false)
-  expect(t.body.match(/<strong>Từ:<\/strong> \p{Lu}/gu)?.length, 'letters whose header names their sender').toBe(2)
+  expect(all.includes('@'), 'an "@", an address or any of it').toBe(false)
+  expect(t.body.match(/<strong>Từ:<\/strong> \p{Lu}\p{L}+ (?:\p{Lu}\. )?\p{Lu}\p{L}+/gu)?.length, 'letters whose header names their sender').toBe(2)
   expect(t.bodyFixed).toBe(true)
 })
