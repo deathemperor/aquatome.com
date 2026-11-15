@@ -4,6 +4,8 @@ import SwiftUI
 /// the App Store's is. In the bar's text colour, filled once signed in; a red dot for a fault, seen from any tab (a sync
 /// that failed, a session that ended and isn't seen yet), none for no network: the changes wait on the phone.
 struct ProfileButton: View {
+  /// In a tab's header (`TabHeader`), not a bar: its own 36-point circle, in a 44-point tap.
+  var inPage = false
   @Environment(AccountModel.self) private var account
   @Environment(\.openScreen) private var openScreen
 
@@ -11,8 +13,9 @@ struct ProfileButton: View {
     let fault = account.fault
     Button { openScreen(.account) } label: {
       // The account's fish once one's chosen (ProfilePictures).
-      AccountPictureMark {
+      AccountPictureMark(size: inPage ? 36 : 32) {
         Image(systemName: account.user == nil ? "person.crop.circle" : "person.crop.circle.fill")
+          .font(inPage ? .system(size: 36, weight: .light) : nil)
           .foregroundStyle(.primary)
       }
         .overlay(alignment: .topTrailing) {
@@ -22,6 +25,8 @@ struct ProfileButton: View {
               .offset(x: 4, y: -4)
           }
         }
+        .frame(minWidth: inPage ? 44 : nil, minHeight: inPage ? 44 : nil)
+        .contentShape(.rect)
     }
     .accessibilityLabel(Text("Tài khoản"))
     .accessibilityValue(fault

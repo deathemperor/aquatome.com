@@ -1359,30 +1359,79 @@ final class V2FlowTests: XCTestCase {
     reads("after the colour")
   }
 
-  /// Hôm nay's bar keeps its own words, the clock's too, while a dark card passes under its band: iOS picked white for them
-  /// from the card, white on the white band.
-  func testHomNaysBarReadsWhileACardPassesUnderIt() {
+  /// Hôm nay has no bar (spec-titles.md): once a card passes under the clock, a band of the page's ground stands behind it
+  /// and the clock reads on it. A dark card under it once turned the clock white on the white band.
+  func testHomNaysClockReadsOnItsBandWhileACardPassesUnderIt() {
     let app = launch("-v2", "YES")
     app.launchForFlow()
     let fish = app.buttons["v2-fish-of-the-day"]
     XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
-    let bar = app.navigationBars["Hôm nay"]
     func step() {
       app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.7))
         .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.62)), withVelocity: .slow, thenHoldForDuration: 0.3)
     }
-    repeatUntil(fish.frame.minY < bar.frame.maxY - 30, times: 10) { step() }
-    XCTAssertLessThan(fish.frame.minY, bar.frame.maxY - 30, "the card never went under the bar")
-    XCTAssertGreaterThan(fish.frame.maxY, bar.frame.maxY + 40, "the card went past the bar")
-    let title = bar.staticTexts["Hôm nay"]
-    XCTAssertTrue(title.waitForExistence(timeout: 2), "no title in the bar once the large one has gone")
-    let shot = Pixels(XCUIScreen.main.screenshot()), ground = shot.at(4, title.frame.midY)
-    func strongest(_ f: CGRect) -> Double {
-      stride(from: f.minX, to: f.maxX, by: 1).flatMap { x in stride(from: f.minY, to: f.maxY, by: 1).map { shot.at(x, $0).distance(to: ground) } }.max()!
+    // The card's top under the clock's line, the card still under the rest of it.
+    repeatUntil(fish.frame.minY < 10, times: 12) { step() }
+    XCTAssertLessThan(fish.frame.minY, 10, "the card never went under the clock")
+    XCTAssertGreaterThan(fish.frame.maxY, 120, "the card went past the clock")
+    XCTAssertFalse(app.navigationBars.firstMatch.exists, "Hôm nay has a bar")
+    let shot = Pixels(XCUIScreen.main.screenshot())
+    // Over the card, above and under the clock's figures: the page's ground, not the card.
+    let page = XCUIDevice.shared.appearance == .dark ? Pixels.RGB(r: 0, g: 0, b: 0) : Pixels.RGB(r: 255, g: 255, b: 255)
+    for y in [CGFloat(4), 44] {
+      XCTAssertLessThan(shot.at(60, y).distance(to: page), 8, "no band of the page's ground behind the clock at \(y): \(shot.at(60, y))")
     }
-    XCTAssertGreaterThan(strongest(title.frame), 120, "the bar's title doesn't read on its band")
-    // The clock, left of the island.
-    XCTAssertGreaterThan(strongest(CGRect(x: 20, y: 8, width: 90, height: 34)), 120, "the clock doesn't read on the band")
+    let ground = shot.at(60, 4), clock = CGRect(x: 20, y: 8, width: 90, height: 34)
+    let strongest = stride(from: clock.minX, to: clock.maxX, by: 1).flatMap { x in stride(from: clock.minY, to: clock.maxY, by: 1).map { shot.at(x, $0).distance(to: ground) } }.max()!
+    XCTAssertGreaterThan(strongest, 120, "the clock doesn't read on the band")
+  }
+
+  /// Hôm nay's and Khám phá's headers are the page's own (spec-titles.md; the owner, 12 and 13 Nov): the name big at the
+  /// left with the account button on its line, and no bar. Scrolled 600 points, both gone and no name in a bar: nothing at
+  /// the top but the clock.
+  func testHomNaysAndKhamPhasHeadersScrollAwayWithThePage() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    for tab in ["Hôm nay", "Khám phá"] {
+      app.openTab(tab)
+      let heading = app.scrollViews.staticTexts[tab].firstMatch, account = app.buttons["profile"].firstMatch
+      XCTAssertTrue(heading.waitForExistence(timeout: 5), "no heading on \(tab)")
+      XCTAssertLessThanOrEqual(heading.frame.minX, 20.5, "\(tab)'s heading isn't at the left")
+      XCTAssertTrue(account.isHittable, "no account button on \(tab)")
+      XCTAssertEqual(account.frame.midY, heading.frame.midY, accuracy: 8, "\(tab)'s heading and account button aren't on one line")
+      XCTAssertFalse(app.navigationBars.firstMatch.exists, "\(tab) has a bar")
+      for _ in 0..<3 {
+        app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.8))
+          .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.57)), withVelocity: .slow, thenHoldForDuration: 0.3)
+      }
+      XCTAssertFalse(heading.exists && heading.isHittable, "\(tab)'s heading stayed")
+      XCTAssertFalse(account.exists && account.isHittable, "\(tab)'s account button stayed")
+      XCTAssertFalse(app.navigationBars.firstMatch.exists, "\(tab) has a bar once scrolled")
+    }
+  }
+
+  /// A page pushed from Khám phá has iOS's bar, its back button named "Khám phá"; back by the edge swipe, Khám phá has no
+  /// bar and is where it was (spec-titles.md: no bar flashing on the way back).
+  func testBackFromAPageKhamPhaHasNoBarAndIsWhereItWas() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    app.openTab("Khám phá")
+    let heading = app.scrollViews.staticTexts["Khám phá"].firstMatch
+    XCTAssertTrue(heading.waitForExistence(timeout: 5), "no heading on Khám phá")
+    app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.7))
+      .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.6)), withVelocity: .slow, thenHoldForDuration: 0.3)
+    let at = heading.frame.minY
+    let neon = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon")).firstMatch
+    XCTAssertTrue(neon.waitForExistence(timeout: 5), "no Cá neon on Khám phá")
+    neon.tap()
+    let shown = app.descendants(matching: .any)["v2-species"]
+    XCTAssertTrue(shown.waitForExistence(timeout: 5), "the fish's page didn't open")
+    XCTAssertEqual(app.pageBack.label, "Khám phá", "the back button isn't Khám phá's")
+    edgeSwipe(app, fast: false, at: offRows(app, 0.5))
+    XCTAssertTrue(shown.waitForNonExistence(timeout: 5), "the edge swipe didn't go back")
+    XCTAssertFalse(app.navigationBars.firstMatch.waitForExistence(timeout: 1), "Khám phá has a bar after the way back")
+    XCTAssertEqual(heading.frame.minY, at, accuracy: 1, "Khám phá isn't where it was")
   }
 
   /// A page's end stops above the fade over the tab bar: the last of Khám phá isn't dimmed for good.

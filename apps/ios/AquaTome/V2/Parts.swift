@@ -475,6 +475,47 @@ struct ClearUnderLargeTitle: ViewModifier {
   }
 }
 
+/// A browsing tab's header, the first rows of its page (Hôm nay, Khám phá: spec-titles.md, 12 and 13 Nov): its name big at
+/// the left, as iOS's large title and where that sat, the account button on its first line at the right, and what goes
+/// under the name. It scrolls away with the page; the tab has no bar (`.toolbar(.hidden, for: .navigationBar)`).
+struct TabHeader<Under: View>: View {
+  let title: LocalizedStringKey
+  @ViewBuilder var under: Under
+  /// The large title's first line, so the button is centred on it at every text size.
+  @ScaledMetric(relativeTo: .largeTitle) private var line: CGFloat = 41
+
+  var body: some View {
+    VStack(alignment: .leading, spacing: 4) {
+      HStack(alignment: .top, spacing: 12) {
+        Text(title).font(.largeTitle.bold())
+          .accessibilityAddTraits(.isHeader)
+          .frame(maxWidth: .infinity, alignment: .leading)
+        ProfileButton(inPage: true).frame(height: max(line, 44))
+      }
+      under
+    }
+    // Where iOS's large title sat, under the bar's row, which now holds nothing.
+    .padding(.top, 44)
+    .padding(.horizontal, 20)
+  }
+}
+
+/// `ClearUnderTopBar` for a tab with no bar: the band behind the clock once anything of the page has gone under it, gone
+/// again at the top, so a card's photo or words never pass under the clock bare (spec-titles.md).
+struct ClearUnderClock: ViewModifier {
+  @State private var under = false
+
+  func body(content: Content) -> some View {
+    if #available(iOS 18, *) {
+      content
+        .onScrollGeometryChange(for: Bool.self) { $0.contentOffset.y + $0.contentInsets.top > 0.5 } action: { _, u in under = u }
+        .modifier(ClearUnderTopBar(shown: under))
+    } else {
+      content
+    }
+  }
+}
+
 extension ShapeStyle where Self == Color {
   /// A line under a page's name: the text's colour at 60%. The system's secondary measures 3.5:1 on white, under 4.5:1.
   static var v2Faint: Color { .primary.opacity(0.6) }

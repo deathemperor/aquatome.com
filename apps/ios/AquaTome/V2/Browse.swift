@@ -39,6 +39,10 @@ struct BrowseHome: View {
     NavigationStack(path: $path) {
       ScrollView {
         VStack(alignment: .leading, spacing: 34) {
+          // At Hôm nay's height, over the page's 12 at the top; the first shelf 12 under it, as under iOS's title.
+          TabHeader(title: "Khám phá") { EmptyView() }
+            .padding(.top, -12)
+            .padding(.bottom, -22)
           // The kept copy in use, or none at all, as v1's Tìm says.
           if handbook.status == .offline || handbook.status == .failed {
             StatusText().font(.footnote).padding(.horizontal, 20)
@@ -92,13 +96,14 @@ struct BrowseHome: View {
         .padding(.vertical, 12)
       }
       .v2ClearOfTheFade()
-      .modifier(ClearUnderLargeTitle())
+      .modifier(ClearUnderClock())
       .accessibilityIdentifier("v2-browse")
       .v2ClearsFootGoingBack(path.count)
+      // As Hôm nay's: its name for what's pushed from it, its header in the page (`TabHeader`), no bar.
       .navigationTitle("Khám phá")
+      .toolbar(.hidden, for: .navigationBar)
       // Its own, not one iOS picks from what passes under the bar, as Hôm nay's.
       .toolbarColorScheme(scheme, for: .navigationBar)
-      .profileButton()
       .v2Destinations(zoom: zoom)
       .overlay { if handbook.status == .loading { ProgressView() } }
       .task { await handbook.appear() }
