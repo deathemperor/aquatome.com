@@ -11,6 +11,108 @@
     "rio-tocantins",
     "tocantins"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Tocantins",
+        "Rio Araguaia"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Serrasalmus geryi is a rare piranha restricted to the basin of the Rio Tocantins in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Tocantins"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Occurs in the Rio Araguaia and Rio Tocantins drainages, Brazil.",
+          "countries": [],
+          "regions": [
+            "Rio Araguaia"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354150,
+      "total": 29,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "BR",
+          29
+        ]
+      ],
+      "cells": [
+        [
+          -54.84375,
+          -26.71875,
+          3,
+          3
+        ],
+        [
+          -54.84375,
+          -25.3125,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -23.90625,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          -21.09375,
+          3,
+          3
+        ],
+        [
+          -52.03125,
+          -19.6875,
+          4,
+          4
+        ],
+        [
+          -52.03125,
+          -12.65625,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -19.6875,
+          10,
+          10
+        ],
+        [
+          -50.625,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -7.03125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -10,6 +10,107 @@
     "brazil",
     "tapajos"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Tapajós",
+        "Amazon"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Poça de Pedra, Rio Tapajós, eastern Pará, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Tapajós"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Amazon, Lower Amazon, Tapajós.",
+          "countries": [],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339282,
+      "total": 17,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "BR",
+          17
+        ]
+      ],
+      "cells": [
+        [
+          -57.65625,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -5.625,
+          5,
+          5
+        ],
+        [
+          -56.25,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          -49.21875,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -45,
+          -7.03125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

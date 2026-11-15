@@ -10,6 +10,77 @@
     "china",
     "yangtze"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Yangtze River",
+        "Mekong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the foot of Mount Emei (aka Omei Shan) in Sichuan province, western China and since recorded from Guizhou province which borders Sichuan to the south.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "All known localities lie within the middle section of the Yangtze River (aka Chiang Jiang) drainage.",
+          "countries": [],
+          "regions": [
+            "Yangtze River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Kottelat and Chu (1987)[2] identified specimens collected from the upper Mekong basin in Weixi County, Yunnan province as S. superciliaris though we've been unable to locate any additional records from the Mekong, and thus the full extent of its range remains unclear.",
+          "countries": [],
+          "regions": [
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2367821,
+      "total": 3,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "CN",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          37.96875,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          28.125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

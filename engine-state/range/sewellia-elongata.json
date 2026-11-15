@@ -1,0 +1,81 @@
+{
+  "id": "sewellia-elongata",
+  "native": {
+    "input": "650077b77491f20f",
+    "at": "2026-11-15T00:17:46.244Z",
+    "claims": [
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "S. elongata is native to the upper Xe Nam Noi and Xe Pian rivers on the Bolovens plateau, southern Laos.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Both these flow off the plateau into the Se Kong river and it's also been recorded from the upper part of that drainage in Thua Thien-Hue province, central Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Xe Nam Noi",
+        "source": "seriouslyfish",
+        "quote": "S. elongata is native to the upper Xe Nam Noi and Xe Pian rivers on the Bolovens plateau, southern Laos.",
+        "country": "LA",
+        "ok": true
+      },
+      {
+        "name": "Xe Pian",
+        "source": "seriouslyfish",
+        "quote": "S. elongata is native to the upper Xe Nam Noi and Xe Pian rivers on the Bolovens plateau, southern Laos.",
+        "country": "LA",
+        "ok": true
+      },
+      {
+        "name": "Se Kong",
+        "source": "seriouslyfish",
+        "quote": "Both these flow off the plateau into the Se Kong river and it's also been recorded from the upper part of that drainage in Thua Thien-Hue province, central Vietnam.",
+        "ok": true
+      },
+      {
+        "name": "Bolovens plateau",
+        "source": "seriouslyfish",
+        "quote": "S. elongata is native to the upper Xe Nam Noi and Xe Pian rivers on the Bolovens plateau, southern Laos.",
+        "country": "LA",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Sewellia elongata",
+    "status": "ACCEPTED",
+    "taxonKey": 5205386,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ]
+    ],
+    "native": [
+      "LA",
+      "VN"
+    ],
+    "requests": 11,
+    "at": "2026-11-15T00:17:46.244Z"
+  }
+}

@@ -303,6 +303,21 @@
       "kept": true
     }
   ],
+  "vi/guides/youtube-2OLhjT-24lU#body": [
+    {
+      "at": "2026-11-15T00:32:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [
+        "\"xe được sưởi bằng nhiệt độ phòng đặt bể\" became \"trong xe để ấm ngang phòng đặt bể\": slight nuance shift, essentially same meaning",
+        "\"Cá từ bể nhà mang sang nên ít bị sốc hơn\" gained \"Vì là\": causal framing is the same"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/youtube-2Wjd1L52uWE#body": [
     {
       "at": "2026-11-11T09:48:21Z",
@@ -580,6 +595,20 @@
       "kept": true
     }
   ],
+  "vi/guides/youtube-b0pr4vEjJ_k#body": [
+    {
+      "at": "2026-11-15T00:36:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "Added \"(cỏ ngọc trai)\" for Glossostigma, replacing the original name \"Ngưu mao chiên\"; a new name not in BEFORE, and possibly a different plant."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/youtube-hO_nLV0YpX8#body": [
     {
       "at": "2026-11-11T03:46:24Z",
@@ -690,6 +719,22 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/guides/youtube-zJcimXCpXtY#body": [
+    {
+      "at": "2026-11-15T00:32:51Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.68,
+      "notes": [
+        "Name changed: \"Cá ngân long vàng (gold harlequin)\" became \"Cá tam giác vàng (gold harlequin)\". This swaps the fish's Vietnamese name, which is a name change in a strict reading.",
+        "\"Cuối cùng chọn cá tetra xanh\" adds a sense of a final decision after comparison. BEFORE only says the fish \"nên được chọn\" (should be chosen), a recommendation.",
+        "\"đứng yên nhiều\" became \"hay đứng yên\". The frequency is kept, with a slight nuance shift."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ]
 }

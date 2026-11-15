@@ -1,0 +1,69 @@
+{
+  "id": "sinibotia-pulchra",
+  "native": {
+    "input": "7d46ffeb6ac5f71a",
+    "at": "2026-11-15T00:17:46.244Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Li Kiang, southern China', which presumably refers to the place of the same name near Nanning city, Guangxi Autonomous Region.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Zhu Jiang",
+        "source": "seriouslyfish",
+        "quote": "S. pulchra has been recorded from several other tributary drainages of the Zhu Jiang system including the Liu Jiang and Gui Jiang.",
+        "ok": true
+      },
+      {
+        "name": "Liu Jiang",
+        "source": "seriouslyfish",
+        "quote": "S. pulchra has been recorded from several other tributary drainages of the Zhu Jiang system including the Liu Jiang and Gui Jiang.",
+        "ok": true
+      },
+      {
+        "name": "Gui Jiang",
+        "source": "seriouslyfish",
+        "quote": "S. pulchra has been recorded from several other tributary drainages of the Zhu Jiang system including the Liu Jiang and Gui Jiang.",
+        "ok": true
+      },
+      {
+        "name": "Jiulang Jiang",
+        "source": "seriouslyfish",
+        "quote": "There also exist records of this species from the unconnected Jiulang Jiang drainage in Fujian province which borders Guangdong to the east.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Sinibotia pulchra",
+    "status": "ACCEPTED",
+    "taxonKey": 2367830,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-15T00:17:46.244Z"
+  }
+}

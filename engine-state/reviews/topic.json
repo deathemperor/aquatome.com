@@ -568,6 +568,42 @@
   ],
   "id/guides/aquatome-cham-soc-ca-canh-mua-he-va-mua-dong-mua-mua": [
     {
+      "at": "2026-11-14T23:46:20Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-14T23:46:20Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.82,
+      "notes": [
+        "\"Karena itu, air tambahan harus sudah dihilangkan klorinnya.\" - this is an instruction not in the facts; the facts only say chlorine harms fish and that warm water added should be dechlorinated.",
+        "\"terutama saat air kepanasan\" - the facts say whisk-stirring helps when a tank is overheating with no power, but the guide frames it as a fallback \"Kalau tidak ada\" (if no battery pump), which is not in the facts.",
+        "\"Penurunan sekitar 3 °C dari suhu biasanya\" - the facts say 3 °C below summer temperature; \"biasanya\" generalises this.",
+        "\"Menurut universitas, ... ikan tropis dan subtropis\" - the facts say tropical and temperate fish; this is a small rewording only.",
+        "\"dan bakteri baiknya bisa mati\" - this is a restatement of the facts (media kept in tank water so bacteria survive), so it is supported.",
+        "\"Pancing (prime) filter dengan air bersih\" - the facts say \"fresh water\", so this is fine.",
+        "\"Mendinginkan dengan ... Ketiganya\" - fine.",
+        "\"Tutup akuarium membantu menahan panas dari lampu di dalam air\" - supported.",
+        "\"Mati listrik menghentikan filter, aerator, dan pemanas sekaligus, jadi suhu bisa berubah drastis\" - an unsupported general statement; the facts only list power failure as a cause of temperature swings.",
+        "\"Jumlah ikan yang tidak terlalu padat\" - the facts say fewer fish, so this is acceptable."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.82,
+        0.82,
+        0.82
+      ]
+    },
+    {
       "at": "2026-11-14T05:14:10Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -699,6 +735,35 @@
     }
   ],
   "id/guides/aquatome-giu-be-ca-mat-trong-mua-nong": [
+    {
+      "at": "2026-11-14T23:48:42Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-14T23:48:42Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "\"Kalau melihat tanda ini, jangan ditunda.\" is a general urging that the facts don't state.",
+        "\"saat listrik padam\" is an inference. The facts only say a battery-backup air pump keeps aeration running, not that this is for power outages.",
+        "\"Suhu tinggi yang berlangsung berminggu-minggu, bukan hanya beberapa hari\" is listed as a warning sign. This is a reworking of JBL's claim that heat is dangerous only after several weeks, so it is not a stated warning criterion."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.92,
+        0.95,
+        0.92
+      ]
+    },
     {
       "at": "2026-11-14T05:16:39Z",
       "model": "sonnet",
@@ -1151,6 +1216,48 @@
     }
   ],
   "ms/guides/aquatome-be-ca-khi-mat-dien-giu-ca-song-the-nao": [
+    {
+      "at": "2026-11-15T00:11:53Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "\"tumbuhan akuatik\" is a minor embellishment; the facts only say \"plants\".",
+        "\"Pembuat peralatan: keringkan penapis\" is fine, but \"Sumber memberi beberapa cara yang sedikit berbeza\" is an unsupported framing of the sources.",
+        "\"Ikan kolam ... biasanya baik-baik sahaja\" is supported, but \"Bila perlu risau\" adds a prompt to \"minta bantuan kedai ikan hiasan\" and \"tukar air seperti di atas\", which are loose restatements rather than new facts.",
+        "\"jika anda tiada di rumah (contohnya balik kampung)\" is acceptable as the reader's own name for time away from home.",
+        "\"Pembuat peralatan menasihatkan jangan\" about heaters on a UPS is supported (maker), so it is fine.",
+        "\"Sebuah universiti menyatakan ... Satu panduan akuarium pula menyebut\" are correctly attributed.",
+        "\"Memindahkan ikan ke tempat yang lebih hangat\" is supported, but \"Jika elektrik terputus beberapa jam, panaskan air atas dapur gas\" is attributed to no source, which is fine."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.85,
+        0.82,
+        0.85
+      ]
+    },
+    {
+      "at": "2026-11-15T00:11:53Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [
+        "\"Generator atau kord sambungan dari tempat yang masih ada elektrik\": the facts only say a generator or extension cord can power the heater and filter. The source of the power is not mentioned.",
+        "\"Jika suhu air turun (contohnya di dalam bilik yang sejuk)\": the \"cold room\" example is a small addition. The facts only say \"in cold conditions\".",
+        "\"Gunakan UPS untuk penapis\": this is a mild extrapolation. The facts say a UPS can run the filter, but they do not instruct using it for the filter in this way."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.93,
+        0.92,
+        0.93
+      ]
+    },
     {
       "at": "2026-11-14T17:07:45Z",
       "model": "sonnet",
@@ -2890,6 +2997,41 @@
   ],
   "th/guides/aquatome-cham-soc-ca-canh-mua-he-va-mua-dong-mua-mua": [
     {
+      "at": "2026-11-14T23:53:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "\"ให้รีบเพิ่มออกซิเจนทันที\" is a general instruction that the facts do not state directly. The facts give the signs of low oxygen and the aeration methods separately.",
+        "\"วัดคุณภาพน้ำซ้ำจนกลับมาปกติ\" after any temperature swing is a small generalisation. The facts only say to test after an outage."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.9,
+        0.9,
+        0.88
+      ]
+    },
+    {
+      "at": "2026-11-14T23:53:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [
+        "\"ไม้น้ำจะเริ่มทรุด\" (plants will start to decline) is a slight embellishment of 'strains plant health'."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.92,
+        0.95,
+        0.93
+      ]
+    },
+    {
       "at": "2026-11-13T23:46:41Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -3044,6 +3186,48 @@
     }
   ],
   "th/guides/aquatome-giu-be-ca-mat-trong-mua-nong": [
+    {
+      "at": "2026-11-14T23:56:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "In the fan FAQ, \"ส่วนนิตยสารปลาสวยงามบอกว่าช่วยได้เพียงเล็กน้อย ไม่ควรใช้พัดลมคอมพิวเตอร์\" reads as if the magazine said not to use PC fans. In the facts the PC-fan warning comes from the maker. Only the mains-fan warning comes from a magazine.",
+        "\"ให้ใช้ทั้งสองเป็นเพดาน\" (use both as ceilings) is the guide's own advice. The facts don't say to apply both limits together.",
+        "\"ไม่ควรเทน้ำเย็นลงตู้ตรง ๆ\" sits in a sentence that credits the fishkeeping guide. In the facts it comes from a Vietnamese plant site, which is an 'other' source."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.88,
+        0.86,
+        0.9
+      ]
+    },
+    {
+      "at": "2026-11-14T23:56:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.72,
+      "notes": [
+        "\"ควรใช้พัดลมที่ออกแบบมาสำหรับตู้ปลา\" - the facts only mention cross-flow fans from the maker and USB fans; a recommendation for aquarium-specific fans is not given as such",
+        "\"ปลาเขตร้อนโดยทั่วไปต้องการออกซิเจน...\" - facts say warm-water fish; roughly ok, but \"ตู้ทะเล กุ้ง ... จึงควรระวังเป็นพิเศษ\" adds an unsupported inference",
+        "\"ชิลเลอร์ ... ควรพิจารณาเมื่อตู้ร้อนเกินซ้ำบ่อย ๆ แม้จะลองวิธีอื่นแล้ว เช่น บังแดด เปิดฝา ปิดไฟ\" - the 'even after trying other methods' framing is not in the facts",
+        "\"ถ้ายังเป็นอยู่ ให้เติมอากาศและทำให้ผิวน้ำกระเพื่อมมากขึ้น\" and \"ดูปลาช่วงเช้ามืด\" / \"คอยดูว่ามีจุดขาว\" - the follow-up checklist is invented advice beyond the facts",
+        "\"ฮีตเตอร์ค้างเปิด...เสียหายได้เร็วมาก\" ok, but \"แบคทีเรียในวงจรไนโตรเจน\" is a rewording of nitrifying bacteria with no stated relevance",
+        "\"ผู้ผลิตอุปกรณ์ตู้ปลารายหนึ่งระบุ...\" and the \"ผู้ผลิต\" attribution of ice advice: the facts credit the maker with the ice cubes warning, but \"ทั้งผู้ผลิต คู่มือเลี้ยงปลา และนิตยสารปลาสวยงาม\" is partly from the myths fact naming Aquarium Co-Op, JBL and Practical Fishkeeping, which is a reasonable but loose mapping",
+        "\"ข้อมูลจากมหาวิทยาลัยระบุว่า\" for gulping air is supported; the claim that the 5°C-per-24h rule comes from a magazine is supported, but the Vietnamese 3–4°C in 4 hours advice is omitted, so the guide gives only the looser rule"
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.72,
+        0.72,
+        0.72
+      ]
+    },
     {
       "at": "2026-11-13T23:50:21Z",
       "model": "sonnet",

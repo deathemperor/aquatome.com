@@ -10,7 +10,7 @@
     "quickFacts:glaser": "<p>Cá thái dương đốm xanh (Enneacanthus gloriosus) là cá nước lạnh, một loài \"lão làng\" trong số cá cảnh. Loài này dài tới 7,5 cm. Ngày trước người chơi gọi nó là \"cá đĩa của dân lao động\", vì màu rực rỡ và tính tình dễ thương. Nhưng giá của nó thì chưa bao giờ đắt như cá đĩa.</p>",
     "distribution:glaser": "<p>Ngoài tự nhiên, cá thái dương đốm xanh sống dọc vùng ven biển đông nam nước Mỹ.</p>",
     "habitat:glaser": "<p>Ở đó chúng sống trong ao và sông chảy chậm, nước trong và cây thủy sinh mọc dày.</p>",
-    "waterConditions:glaser": "<p>Nuôi trong bể thì loài này không dễ tính. Chúng cần nước sạch, trong, tốt nhất là nước mềm và hơi chua.</p><p>Chữ \"cá nước lạnh\" hay bị hiểu sai. Ở đây nó không có nghĩa là bể đặt trong phòng khách phải làm lạnh. Nước lên tới 26°C trong một thời gian thì chúng vẫn chịu được. Tuy nhiên, mùa đông chúng cần một đợt nước mát 4–10°C, không có đợt này thì chúng không đẻ. Ở Trung Âu, gặp mùa đông khắc nghiệt thì loài này không sống nổi ngoài ao vườn. Từ tháng 12 đến tháng 3 nên đưa chúng vào một phòng hầm mát.</p>",
+    "waterConditions:glaser": "<p>Nuôi trong bể thì loài này không dễ tính. Chúng cần nước sạch, trong, tốt nhất là nước mềm và hơi chua.</p><p>Chữ \"cá nước lạnh\" hay bị hiểu sai. Ở đây nó không có nghĩa là bể đặt trong phòng khách phải làm lạnh. Nước lên tới 26°C trong một thời gian thì chúng vẫn chịu được. Tuy nhiên, mùa đông chúng cần một đợt nước mát 4–10°C, không có đợt này thì chúng không đẻ. Ở Trung Âu, gặp mùa đông khắc nghiệt thì loài này không sống nổi ngoài ao vườn.</p>",
     "diet:glaser": "<p>Cũng như mọi loài cá thái dương, chúng thường chê thức ăn dạng vảy. Cho ăn đồ đông lạnh và đồ tươi sống thì hơn.</p>",
     "behaviour:glaser": "<p>Nghe nói loài này rất nhát, bị sốc là có thể chết.</p>",
     "reproduction:glaser": "<p>Mùa đông phải cho chúng qua một đợt nước mát 4–10°C, không thì chúng sẽ không đẻ.</p>",
@@ -22,11 +22,5 @@
     "bySource": {
       "glaser": 0.85
     }
-  },
-  "held": {
-    "checks": [
-      "elsewhere"
-    ],
-    "at": "2026-11-11"
   }
 }

@@ -276,6 +276,20 @@
       "kept": true
     }
   ],
+  "id/places/amazons": [
+    {
+      "at": "2026-11-14T23:44:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "\"Amazons → Amazonas\" is fine in Indonesian, but the source is wrong: the Indonesian atlas form is Amazonas, which is acceptable"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/ambohitra-massif": [
     {
       "at": "2026-11-11T04:59:56Z",
@@ -1930,6 +1944,18 @@
       "kept": true
     }
   ],
+  "id/places/capivari": [
+    {
+      "at": "2026-11-14T23:44:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/cardamom-hills": [
     {
       "at": "2026-11-10T17:42:33Z",
@@ -1949,6 +1975,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/cardamon-mountain-range": [
+    {
+      "at": "2026-11-14T23:44:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "\"dãy Cardamom → Pegunungan Kardamom\" is acceptable (Indonesian usually Pegunungan Kardamunggu/Cardamom), minor"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -3807,6 +3847,18 @@
       "kept": true
     }
   ],
+  "id/places/guapi": [
+    {
+      "at": "2026-11-14T23:44:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/guapore-river": [
     {
       "at": "2026-11-08T05:20:19Z",
@@ -4243,6 +4295,18 @@
     {
       "at": "2026-11-08T05:20:19Z",
       "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/inbomirim": [
+    {
+      "at": "2026-11-14T23:44:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
       "score": 0.3,
       "notes": [],
       "attempt": "first",
@@ -5497,6 +5561,20 @@
       "kept": true
     }
   ],
+  "id/places/koh-chang": [
+    {
+      "at": "2026-11-14T23:44:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "\"đảo Koh Chang → Koh Chang\" should be Pulau Koh Chang (Indonesian uses Pulau)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/koh-yao-yai": [
     {
       "at": "2026-11-08T05:20:20Z",
@@ -5724,6 +5802,20 @@
       "score": 0.3,
       "notes": [
         "Kyeintali (should be Sungai Kyeintali)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/kyeinthali-chaung": [
+    {
+      "at": "2026-11-14T23:44:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "\"sông Kyeinthali → Kyeinthali\" should be Sungai Kyeinthali (Chaung = river)"
       ],
       "attempt": "first",
       "kept": true
@@ -7166,6 +7258,18 @@
       "kept": true
     }
   ],
+  "id/places/mae-taeng": [
+    {
+      "at": "2026-11-14T23:44:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/mae-wong-river": [
     {
       "at": "2026-11-09T07:33:46Z",
@@ -7974,6 +8078,20 @@
       "kept": true
     }
   ],
+  "id/places/mengla-river": [
+    {
+      "at": "2026-11-14T23:44:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "\"sông Mengla → Mengla\" should be Sungai Mengla"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/mengyejiang-river": [
     {
       "at": "2026-11-14T16:53:34Z",
@@ -8354,6 +8472,18 @@
       "kept": true
     }
   ],
+  "id/places/mozhehe": [
+    {
+      "at": "2026-11-14T23:44:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/mpassa": [
     {
       "at": "2026-11-08T05:20:55Z",
@@ -8553,6 +8683,32 @@
       "kept": true
     }
   ],
+  "id/places/nam-beng": [
+    {
+      "at": "2026-11-14T23:44:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/nam-khong": [
+    {
+      "at": "2026-11-14T23:44:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "\"sông Mê Kông → Mekong\" should be Sungai Mekong"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/nam-khwe-river": [
     {
       "at": "2026-11-08T05:20:55Z",
@@ -8571,6 +8727,18 @@
       "notes": [
         "Nam Kou: acceptable."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/nam-lang": [
+    {
+      "at": "2026-11-14T23:44:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -8709,11 +8877,35 @@
       "kept": true
     }
   ],
+  "id/places/nam-tha": [
+    {
+      "at": "2026-11-14T23:44:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/nam-youan": [
     {
       "at": "2026-11-08T05:20:55Z",
       "model": "sonnet",
       "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/nam-yuoan": [
+    {
+      "at": "2026-11-14T23:44:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -8760,6 +8952,18 @@
       "ran": "claude-sonnet-5-5",
       "cli": "2.1.322",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/nanlahae": [
+    {
+      "at": "2026-11-14T23:44:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -9350,6 +9554,18 @@
       "kept": true
     }
   ],
+  "id/places/pachitea": [
+    {
+      "at": "2026-11-14T23:44:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/padas": [
     {
       "at": "2026-11-08T08:48:28Z",
@@ -9445,6 +9661,18 @@
       "at": "2026-11-08T05:20:56Z",
       "model": "sonnet",
       "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/pang-mapha": [
+    {
+      "at": "2026-11-14T23:44:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -9810,11 +10038,37 @@
       "kept": true
     }
   ],
+  "id/places/ping-river": [
+    {
+      "at": "2026-11-14T23:44:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "\"sông Ping → Ping\" should be Sungai Ping"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/pinyuh": [
     {
       "at": "2026-11-08T05:21:29Z",
       "model": "sonnet",
       "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/pisqui": [
+    {
+      "at": "2026-11-14T23:44:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -12922,6 +13176,20 @@
       "kept": true
     }
   ],
+  "id/places/sekong-river": [
+    {
+      "at": "2026-11-14T23:44:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "\"sông Sê Kông → Sekong\" should be Sungai Sekong"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/seling-river": [
     {
       "at": "2026-11-08T12:08:48Z",
@@ -15024,6 +15292,18 @@
       ]
     }
   ],
+  "id/places/xe-don": [
+    {
+      "at": "2026-11-14T23:44:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/xe-kaman": [
     {
       "at": "2026-11-08T05:22:00Z",
@@ -15752,6 +16032,20 @@
       "model": "sonnet",
       "score": 0.55,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/amazons": [
+    {
+      "at": "2026-11-15T00:09:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "Amazons → Amazon: Malay is usually 'Amazonas' for the region (Ecuador/Peru) and 'Amazon' for the river, so this is doubtful"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -18054,6 +18348,18 @@
       "kept": true
     }
   ],
+  "ms/places/capivari": [
+    {
+      "at": "2026-11-15T00:09:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/cardamom-hills": [
     {
       "at": "2026-11-12T13:20:23Z",
@@ -18072,6 +18378,20 @@
       "model": "sonnet",
       "score": 0.55,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/cardamon-mountain-range": [
+    {
+      "at": "2026-11-15T00:09:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "dãy Cardamom → Banjaran Cardamom: the source is Vietnamese, but the Malay output is fine"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -19784,6 +20104,18 @@
       "kept": true
     }
   ],
+  "ms/places/guapi": [
+    {
+      "at": "2026-11-15T00:09:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/guapore": [
     {
       "at": "2026-11-08T03:36:56Z",
@@ -20452,6 +20784,18 @@
       "at": "2026-11-08T12:44:36Z",
       "model": "sonnet",
       "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/inbomirim": [
+    {
+      "at": "2026-11-15T00:09:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -22115,6 +22459,20 @@
       "kept": true
     }
   ],
+  "ms/places/koh-chang": [
+    {
+      "at": "2026-11-15T00:09:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "đảo Koh Chang → Pulau Chang: should be 'Pulau Koh Chang' or 'Ko Chang'; 'Pulau Chang' is wrong"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/koh-yao-yai": [
     {
       "at": "2026-11-08T12:44:36Z",
@@ -22321,6 +22679,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/kyeinthali-chaung": [
+    {
+      "at": "2026-11-15T00:09:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "sông Kyeinthali → Sungai Kyeinthali: the Malay output is fine, but the name is a 'chaung' (stream), so 'Sungai Kyeinthali' is acceptable"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -23601,6 +23973,18 @@
       "kept": true
     }
   ],
+  "ms/places/mae-taeng": [
+    {
+      "at": "2026-11-15T00:09:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/mae-wong-river": [
     {
       "at": "2026-11-10T10:08:05Z",
@@ -24309,6 +24693,18 @@
       "kept": true
     }
   ],
+  "ms/places/mengla-river": [
+    {
+      "at": "2026-11-15T00:09:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/mengyejiang-river": [
     {
       "at": "2026-11-14T17:06:26Z",
@@ -24635,6 +25031,20 @@
       "kept": true
     }
   ],
+  "ms/places/mozhehe": [
+    {
+      "at": "2026-11-15T00:09:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "Several entries are unchanged local names (Nam Beng, Nam Lang, Nam Tha, Nam Yuoan, Xe Don, Mozhehe, Nanlahae): these are acceptable as transliterated local names"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/mpassa": [
     {
       "at": "2026-11-08T12:45:11Z",
@@ -24835,6 +25245,34 @@
       "kept": true
     }
   ],
+  "ms/places/nam-beng": [
+    {
+      "at": "2026-11-15T00:09:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "Several entries are unchanged local names (Nam Beng, Nam Lang, Nam Tha, Nam Yuoan, Xe Don, Mozhehe, Nanlahae): these are acceptable as transliterated local names"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/nam-khong": [
+    {
+      "at": "2026-11-15T00:09:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "sông Mê Kông → Sungai Mekong: should be 'Sungai Mekong'; this is correct, but the source key 'nam-khong' is in Thailand, so this is acceptable"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/nam-khwe-river": [
     {
       "at": "2026-11-08T12:45:11Z",
@@ -24853,6 +25291,20 @@
       "cli": "2.1.322",
       "score": 0.5,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/nam-lang": [
+    {
+      "at": "2026-11-15T00:09:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "Several entries are unchanged local names (Nam Beng, Nam Lang, Nam Tha, Nam Yuoan, Xe Don, Mozhehe, Nanlahae): these are acceptable as transliterated local names"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -24989,6 +25441,20 @@
       "kept": true
     }
   ],
+  "ms/places/nam-tha": [
+    {
+      "at": "2026-11-15T00:09:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "Several entries are unchanged local names (Nam Beng, Nam Lang, Nam Tha, Nam Yuoan, Xe Don, Mozhehe, Nanlahae): these are acceptable as transliterated local names"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/nam-youan": [
     {
       "at": "2026-11-08T12:45:45Z",
@@ -24996,6 +25462,20 @@
       "score": 0.3,
       "notes": [
         "Nam Youan: laos river should be Sungai Youan (Malay uses Sungai for rivers) – inconsistent"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/nam-yuoan": [
+    {
+      "at": "2026-11-15T00:09:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "Several entries are unchanged local names (Nam Beng, Nam Lang, Nam Tha, Nam Yuoan, Xe Don, Mozhehe, Nanlahae): these are acceptable as transliterated local names"
       ],
       "attempt": "first",
       "kept": true
@@ -25045,6 +25525,20 @@
       "cli": "2.1.322",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/nanlahae": [
+    {
+      "at": "2026-11-15T00:09:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "Several entries are unchanged local names (Nam Beng, Nam Lang, Nam Tha, Nam Yuoan, Xe Don, Mozhehe, Nanlahae): these are acceptable as transliterated local names"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -25610,6 +26104,18 @@
       "kept": true
     }
   ],
+  "ms/places/pachitea": [
+    {
+      "at": "2026-11-15T00:09:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/padas": [
     {
       "at": "2026-11-08T12:45:46Z",
@@ -25684,6 +26190,18 @@
     {
       "at": "2026-11-08T12:45:46Z",
       "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/pang-mapha": [
+    {
+      "at": "2026-11-15T00:09:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
       "score": 0.3,
       "notes": [],
       "attempt": "first",
@@ -26162,6 +26680,18 @@
       "kept": true
     }
   ],
+  "ms/places/ping-river": [
+    {
+      "at": "2026-11-15T00:09:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/pinyuh": [
     {
       "at": "2026-11-08T12:45:46Z",
@@ -26179,6 +26709,18 @@
       "score": 0.93,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "ms/places/pisqui": [
+    {
+      "at": "2026-11-15T00:09:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -29782,6 +30324,18 @@
       "kept": true
     }
   ],
+  "ms/places/sekong-river": [
+    {
+      "at": "2026-11-15T00:09:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/seling-river": [
     {
       "at": "2026-11-08T12:46:23Z",
@@ -32106,6 +32660,20 @@
       "kept": true
     }
   ],
+  "ms/places/xe-don": [
+    {
+      "at": "2026-11-15T00:09:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "Several entries are unchanged local names (Nam Beng, Nam Lang, Nam Tha, Nam Yuoan, Xe Don, Mozhehe, Nanlahae): these are acceptable as transliterated local names"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/xe-kaman": [
     {
       "at": "2026-11-08T12:46:46Z",
@@ -32810,6 +33378,21 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/amazons": [
+    {
+      "at": "2026-11-14T23:49:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Amazons → แอมะซอน (Thai atlas usually อเมซอนัส/อเมซอน; questionable)",
+        "Mengla → เมิ่งล่า (acceptable)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -34540,6 +35123,21 @@
       "kept": true
     }
   ],
+  "th/places/capivari": [
+    {
+      "at": "2026-11-14T23:49:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Capivari → กาปีวารี (acceptable)",
+        "Mengla → เมิ่งล่า (acceptable)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/cardamom-hills": [
     {
       "at": "2026-11-10T17:43:56Z",
@@ -34556,6 +35154,20 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/cardamon-mountain-range": [
+    {
+      "at": "2026-11-14T23:49:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Mengla → เมิ่งล่า (acceptable)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -36520,6 +37132,21 @@
       "kept": true
     }
   ],
+  "th/places/guapi": [
+    {
+      "at": "2026-11-14T23:49:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Guapi → กวาปี (acceptable)",
+        "Mengla → เมิ่งล่า (acceptable)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/guapore-river": [
     {
       "at": "2026-11-08T05:27:55Z",
@@ -36986,6 +37613,20 @@
       "model": "sonnet",
       "score": 0.72,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/inbomirim": [
+    {
+      "at": "2026-11-14T23:49:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Mengla → เมิ่งล่า (acceptable)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -38272,6 +38913,20 @@
       "kept": true
     }
   ],
+  "th/places/koh-chang": [
+    {
+      "at": "2026-11-14T23:49:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Mengla → เมิ่งล่า (acceptable)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/koh-yao-yai": [
     {
       "at": "2026-11-08T05:27:56Z",
@@ -38547,6 +39202,21 @@
       "model": "sonnet",
       "score": 0.74,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/kyeinthali-chaung": [
+    {
+      "at": "2026-11-14T23:49:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Kyeinthali → เจียนตาลี (doubtful transliteration; chaung should be included, e.g. ห้วยเจียนตาลี/ฉ่องเจ่งตาลี)",
+        "Mengla → เมิ่งล่า (acceptable)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -40019,6 +40689,20 @@
       "kept": true
     }
   ],
+  "th/places/mae-taeng": [
+    {
+      "at": "2026-11-14T23:49:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Mengla → เมิ่งล่า (acceptable)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/mae-wong-river": [
     {
       "at": "2026-11-09T07:46:38Z",
@@ -40854,6 +41538,20 @@
       "kept": true
     }
   ],
+  "th/places/mengla-river": [
+    {
+      "at": "2026-11-14T23:49:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Mengla → เมิ่งล่า (acceptable)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/mengyejiang-river": [
     {
       "at": "2026-11-14T16:55:44Z",
@@ -41245,6 +41943,20 @@
       "kept": true
     }
   ],
+  "th/places/mozhehe": [
+    {
+      "at": "2026-11-14T23:49:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Mengla → เมิ่งล่า (acceptable)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/mpassa": [
     {
       "at": "2026-11-08T05:28:40Z",
@@ -41468,6 +42180,35 @@
       "kept": true
     }
   ],
+  "th/places/nam-beng": [
+    {
+      "at": "2026-11-14T23:49:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Nam Beng → น้ำแบ่ง (doubtful; Nam Beng is น้ำเบ็ง)",
+        "Mengla → เมิ่งล่า (acceptable)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/nam-khong": [
+    {
+      "at": "2026-11-14T23:49:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Mengla → เมิ่งล่า (acceptable)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/nam-khwe-river": [
     {
       "at": "2026-11-08T05:28:40Z",
@@ -41487,6 +42228,20 @@
       "score": 0.7,
       "notes": [
         "sông Kou → กก (กก is the Kok River; Nam Kou in Laos is a different river)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/nam-lang": [
+    {
+      "at": "2026-11-14T23:49:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Mengla → เมิ่งล่า (acceptable)"
       ],
       "attempt": "first",
       "kept": true
@@ -41630,6 +42385,20 @@
       "kept": true
     }
   ],
+  "th/places/nam-tha": [
+    {
+      "at": "2026-11-14T23:49:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Mengla → เมิ่งล่า (acceptable)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/nam-youan": [
     {
       "at": "2026-11-08T05:28:40Z",
@@ -41637,6 +42406,21 @@
       "score": 0.6,
       "notes": [
         "ยวน (Youan): doubtful"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/nam-yuoan": [
+    {
+      "at": "2026-11-14T23:49:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Nam Yuoan → น้ำยวน (acceptable)",
+        "Mengla → เมิ่งล่า (acceptable)"
       ],
       "attempt": "first",
       "kept": true
@@ -41684,6 +42468,20 @@
       "cli": "2.1.322",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/nanlahae": [
+    {
+      "at": "2026-11-14T23:49:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Mengla → เมิ่งล่า (acceptable)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -42340,6 +43138,21 @@
       "kept": true
     }
   ],
+  "th/places/pachitea": [
+    {
+      "at": "2026-11-14T23:49:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Pachitea → ปาชีเตอา (likely should be ปาชิเตอา; doubtful)",
+        "Mengla → เมิ่งล่า (acceptable)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/padas": [
     {
       "at": "2026-11-08T08:57:32Z",
@@ -42426,6 +43239,20 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/pang-mapha": [
+    {
+      "at": "2026-11-14T23:49:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Mengla → เมิ่งล่า (acceptable)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -42810,12 +43637,40 @@
       "kept": true
     }
   ],
+  "th/places/ping-river": [
+    {
+      "at": "2026-11-14T23:49:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Mengla → เมิ่งล่า (acceptable)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/pinyuh": [
     {
       "at": "2026-11-08T05:29:23Z",
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/pisqui": [
+    {
+      "at": "2026-11-14T23:49:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Mengla → เมิ่งล่า (acceptable)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -46056,6 +46911,20 @@
       "kept": true
     }
   ],
+  "th/places/sekong-river": [
+    {
+      "at": "2026-11-14T23:49:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Mengla → เมิ่งล่า (acceptable)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/seling-river": [
     {
       "at": "2026-11-08T12:10:05Z",
@@ -48251,6 +49120,20 @@
       "kept": true
     }
   ],
+  "th/places/xe-don": [
+    {
+      "at": "2026-11-14T23:49:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Mengla → เมิ่งล่า (acceptable)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/xe-kaman": [
     {
       "at": "2026-11-08T05:30:03Z",
@@ -48971,6 +49854,17 @@
       "notes": [
         "No entry points to the wrong place. Every name is either a form Vietnamese readers use or the source spelling with its generic word in Vietnamese."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/amazons": [
+    {
+      "at": "2026-11-14T23:43:41Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -51219,6 +52113,17 @@
       "kept": true
     }
   ],
+  "vi/places/capivari": [
+    {
+      "at": "2026-11-14T23:43:41Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/caqueta": [
     {
       "at": "2026-11-07T20:33:13Z",
@@ -51247,6 +52152,19 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/cardamon-mountain-range": [
+    {
+      "at": "2026-11-14T23:43:41Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "'dãy Cardamom', 'đảo Koh Chang', 'sông Kyeinthali' and 'sông Sê Kông' are names Vietnamese readers use, or the source name with its generic word put into Vietnamese."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -53556,6 +54474,17 @@
       "kept": true
     }
   ],
+  "vi/places/guapi": [
+    {
+      "at": "2026-11-14T23:43:41Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/guapore": [
     {
       "at": "2026-11-07T20:34:11Z",
@@ -54144,6 +55073,17 @@
       "at": "2026-11-07T20:34:11Z",
       "model": "sonnet",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/inbomirim": [
+    {
+      "at": "2026-11-14T23:43:41Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -55800,6 +56740,19 @@
       "kept": true
     }
   ],
+  "vi/places/koh-chang": [
+    {
+      "at": "2026-11-14T23:43:41Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "'dãy Cardamom', 'đảo Koh Chang', 'sông Kyeinthali' and 'sông Sê Kông' are names Vietnamese readers use, or the source name with its generic word put into Vietnamese."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/koh-yao-yai": [
     {
       "at": "2026-11-07T20:35:06Z",
@@ -56151,6 +57104,19 @@
       "model": "sonnet",
       "score": 0.96,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/kyeinthali-chaung": [
+    {
+      "at": "2026-11-14T23:43:41Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "'dãy Cardamom', 'đảo Koh Chang', 'sông Kyeinthali' and 'sông Sê Kông' are names Vietnamese readers use, or the source name with its generic word put into Vietnamese."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -58033,6 +58999,17 @@
       "kept": true
     }
   ],
+  "vi/places/mae-taeng": [
+    {
+      "at": "2026-11-14T23:43:41Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/mae-wong-river": [
     {
       "at": "2026-11-09T07:28:43Z",
@@ -59053,6 +60030,17 @@
       "kept": true
     }
   ],
+  "vi/places/mengla-river": [
+    {
+      "at": "2026-11-14T23:43:41Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/mengnai": [
     {
       "at": "2026-11-07T20:36:53Z",
@@ -59523,6 +60511,17 @@
       "kept": true
     }
   ],
+  "vi/places/mozhehe": [
+    {
+      "at": "2026-11-14T23:43:41Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/mpassa": [
     {
       "at": "2026-11-07T20:36:54Z",
@@ -59810,6 +60809,30 @@
       "kept": true
     }
   ],
+  "vi/places/nam-beng": [
+    {
+      "at": "2026-11-14T23:43:41Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/nam-khong": [
+    {
+      "at": "2026-11-14T23:43:41Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "No wrong places found. 'sông Mê Kông' for Nam Khong is right: Nam Khong is the Thai name for the Mekong."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/nam-khwe-river": [
     {
       "at": "2026-11-07T20:36:54Z",
@@ -59829,6 +60852,17 @@
         "Where a generic word appears, it is rendered in Vietnamese ('sông', 'đảo', 'khiên', 'dãy'). For 'Nam Kou', 'sông Kou' is correct because 'Nam' is Lao for 'river'.",
         "The other names keep the source's spelling, which is acceptable."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/nam-lang": [
+    {
+      "at": "2026-11-14T23:43:41Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -59967,6 +61001,19 @@
       "kept": true
     }
   ],
+  "vi/places/nam-tha": [
+    {
+      "at": "2026-11-14T23:43:41Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "The other names keep the source spelling, for example 'Nam Tha' and 'Xe Don'. That is allowed, though Vietnamese forms such as 'Nậm Tha' and 'Sê Đôn' also exist."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/nam-xam": [
     {
       "at": "2026-11-07T20:36:54Z",
@@ -59982,6 +61029,17 @@
       "at": "2026-11-08T05:15:07Z",
       "model": "sonnet",
       "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/nam-yuoan": [
+    {
+      "at": "2026-11-14T23:43:41Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -60048,6 +61106,17 @@
       "model": "sonnet",
       "cli": "2.1.322",
       "score": 0.85,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/nanlahae": [
+    {
+      "at": "2026-11-14T23:43:41Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -60917,6 +61986,17 @@
       "kept": true
     }
   ],
+  "vi/places/pachitea": [
+    {
+      "at": "2026-11-14T23:43:41Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/pacific-slope": [
     {
       "at": "2026-11-07T20:37:55Z",
@@ -61047,6 +62127,17 @@
     {
       "at": "2026-11-07T20:37:55Z",
       "model": "sonnet",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/pang-mapha": [
+    {
+      "at": "2026-11-14T23:43:41Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
       "score": 0.95,
       "notes": [],
       "attempt": "first",
@@ -61575,6 +62666,17 @@
       "kept": true
     }
   ],
+  "vi/places/ping-river": [
+    {
+      "at": "2026-11-14T23:43:41Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/pinyuh": [
     {
       "at": "2026-11-07T20:37:55Z",
@@ -61589,6 +62691,17 @@
     {
       "at": "2026-11-07T20:37:55Z",
       "model": "sonnet",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/pisqui": [
+    {
+      "at": "2026-11-14T23:43:41Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
       "score": 0.95,
       "notes": [],
       "attempt": "first",
@@ -62019,6 +63132,19 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/red": [
+    {
+      "at": "2026-11-14T23:43:41Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "'sông Hồng' for 'Red' (TW, JP, VN) is most likely the Red River and is the standard Vietnamese name. The record is a bit unclear, so this one is less certain."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -65534,6 +66660,19 @@
       "kept": true
     }
   ],
+  "vi/places/sekong-river": [
+    {
+      "at": "2026-11-14T23:43:41Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "'dãy Cardamom', 'đảo Koh Chang', 'sông Kyeinthali' and 'sông Sê Kông' are names Vietnamese readers use, or the source name with its generic word put into Vietnamese."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/selangor": [
     {
       "at": "2026-11-07T20:40:24Z",
@@ -68230,6 +69369,19 @@
       "notes": [
         "All 11 names point to the right place, and none is flagged as wrong.",
         "'sông Xê Băng Hiêng' is the usual Vietnamese spelling of this river in Laos. The entry is tagged as a region, but the name it refers to is the river, so the 'sông' label fits."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/xe-don": [
+    {
+      "at": "2026-11-14T23:43:41Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "The other names keep the source spelling, for example 'Nam Tha' and 'Xe Don'. That is allowed, though Vietnamese forms such as 'Nậm Tha' and 'Sê Đôn' also exist."
       ],
       "attempt": "first",
       "kept": true

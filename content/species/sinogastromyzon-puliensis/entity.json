@@ -10,6 +10,76 @@
     "taiwan",
     "choshui"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TW"
+      ],
+      "regions": [
+        "Kaoping",
+        "Tsengwen",
+        "Choshui",
+        "Tatu",
+        "Tachia"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to western river drainages of central and southern Taiwan including the Kaoping, Tsengwen, Choshui, Tatu and Tachia systems with type locality 'Pu-lo, (Tatuchi, Puli), Taiwan'.",
+          "countries": [
+            "TW"
+          ],
+          "regions": [
+            "Kaoping",
+            "Tsengwen",
+            "Choshui",
+            "Tatu",
+            "Tachia"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358678,
+      "total": 1650,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "TW",
+          1650
+        ]
+      ],
+      "cells": [
+        [
+          119.53125,
+          22.5,
+          348,
+          348
+        ],
+        [
+          119.53125,
+          23.90625,
+          1032,
+          1032
+        ],
+        [
+          120.9375,
+          22.5,
+          5,
+          5
+        ],
+        [
+          120.9375,
+          23.90625,
+          265,
+          265
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

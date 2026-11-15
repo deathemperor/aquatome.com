@@ -1,0 +1,50 @@
+{
+  "id": "stiphodon-birdsong",
+  "native": {
+    "input": "af94688992a3b0e8",
+    "at": "2026-11-15T00:17:46.244Z",
+    "claims": [
+      {
+        "code": "PG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Its current known range extends eastwards from Halmahera Island around the northern coastline of Papua New Guinea as far as Fergusson Island, off the latter's eastern tip.",
+        "words": "Papua New Guinea",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Halmahera",
+        "source": "seriouslyfish",
+        "quote": "Its current known range extends eastwards from Halmahera Island around the northern coastline of Papua New Guinea as far as Fergusson Island, off the latter's eastern tip.",
+        "ok": true
+      },
+      {
+        "name": "Fergusson Island",
+        "source": "seriouslyfish",
+        "quote": "Its current known range extends eastwards from Halmahera Island around the northern coastline of Papua New Guinea as far as Fergusson Island, off the latter's eastern tip.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Stiphodon birdsong",
+    "status": "ACCEPTED",
+    "taxonKey": 2376125,
+    "datasets": [],
+    "native": [
+      "PG"
+    ],
+    "requests": 2,
+    "at": "2026-11-15T00:17:46.244Z"
+  }
+}

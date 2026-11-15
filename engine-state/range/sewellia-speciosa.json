@@ -1,0 +1,93 @@
+{
+  "id": "sewellia-speciosa",
+  "native": {
+    "input": "c1f83c5c2734cc42",
+    "at": "2026-11-15T00:17:46.244Z",
+    "claims": [
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species is restricted to the Kong river influence in Laos and Vietnam.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species is restricted to the Kong river influence in Laos and Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "S. speciosa appears endemic to the Xe Kong river drainage which rises in central Vietnam, flows across southern Laos and eventually enters eastern Cambodia where it joins the Mekong River near the city of Stung Treng.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The majority of known localities are in Laos and include the Houai Sai river, Xe Kaman river, lower reaches of the Xe Nam Noi river and middle Xe Pian river, all tributaries of the Xe Kong.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "It's also been recorded in the upper Xe Kong in Vietnam but not the lower, Cambodian, part of the drainage.",
+        "words": "Cambodian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Xe Kong",
+        "source": "seriouslyfish",
+        "quote": "S. speciosa appears endemic to the Xe Kong river drainage which rises in central Vietnam, flows across southern Laos and eventually enters eastern Cambodia where it joins the Mekong River near the city of Stung Treng.",
+        "ok": true
+      },
+      {
+        "name": "Xe Nam Noi",
+        "source": "seriouslyfish",
+        "quote": "The majority of known localities are in Laos and include the Houai Sai river, Xe Kaman river, lower reaches of the Xe Nam Noi river and middle Xe Pian river, all tributaries of the Xe Kong.",
+        "country": "LA",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "KH"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Sewellia speciosa",
+    "status": "ACCEPTED",
+    "taxonKey": 5205387,
+    "datasets": [
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        6
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ]
+    ],
+    "native": [
+      "LA",
+      "VN"
+    ],
+    "requests": 11,
+    "at": "2026-11-15T00:17:46.244Z"
+  }
+}

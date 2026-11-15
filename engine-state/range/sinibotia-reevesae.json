@@ -1,0 +1,43 @@
+{
+  "id": "sinibotia-reevesae",
+  "native": {
+    "input": "be8c5a13012c0826",
+    "at": "2026-11-15T00:17:46.244Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species was described from the middle Yangtze Jiang (Yangtze River) in Luxian County, Sichuan Province, southwestern China, and to date is still known only from that area.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Yangtze",
+        "source": "seriouslyfish",
+        "quote": "This species was described from the middle Yangtze Jiang (Yangtze River) in Luxian County, Sichuan Province, southwestern China, and to date is still known only from that area.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Sinibotia reevesae",
+    "status": "ACCEPTED",
+    "taxonKey": 2367823,
+    "datasets": [],
+    "native": [
+      "CN"
+    ],
+    "requests": 2,
+    "at": "2026-11-15T00:17:46.244Z"
+  }
+}

@@ -1086,5 +1086,71 @@
       "maintenance:tropica": "33aab62b1f1c",
       "notes:tropica": "aa72032ec879"
     }
+  },
+  "egeria-densa": {
+    "at": "2026-11-15",
+    "from": "2026-10-30",
+    "name": "Elodea",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "\"anchor\" was translated as \"pemberat\" (weight). The English says the stems are gathered in an anchor, a lead or metal strip that holds the bunch. \"pemberat\" is acceptable, but \"diikat dengan pemberat\" is a little loose. Say \"diikat pada jalur pemberat plumbum\" or similar.",
+      "\"the tendrils grow thin\" was rendered as \"batangnya tumbuh halus\". The English says tendrils, but the translation says stems. Use \"batang\" only if tendrils means the stems here, and keep it consistent.",
+      "\"nutrition available\" became \"nutrien yang ada\". The meaning is fine, but \"nutrien\" is used for both \"nutrients\" and \"nutrition\". This is minor.",
+      "\"tangki\" in item 1 is understandable, but Malaysian hobbyists usually say \"akuarium\" or \"tangki akuarium\". The translation uses \"akuarium\" in item 3, so it is inconsistent.",
+      "\"Tumbuhan batang\" for \"Stem\" is acceptable. \"Tumbuhan berbatang\" is more natural.",
+      "The \"(2\")\" imperial figure was correctly dropped, but check that \"5 cm\" is a sensible conversion. 2 in is about 5 cm, so this is fine."
+    ],
+    "parts": {
+      "quickFacts:tropica": "e3d355c3ab2c",
+      "maintenance:tropica": "c35c7022e1a1",
+      "notes:tropica": "6a1436394a76"
+    }
+  },
+  "eleocharis-acicularis": {
+    "at": "2026-11-15",
+    "from": "2026-10-30",
+    "name": "Hairgrass",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "\"tangki\" is acceptable, but \"akuarium\" is used in item 2; use one term consistently.",
+      "\"Walau bagaimanapun, kawasan terbuka ... lebih baik\" is slightly awkward; consider \"masih lebih baik jika ditanam di kawasan terbuka tanpa teduhan tumbuhan lain\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "3f889c91d3f8",
+      "maintenance:tropica": "9ed1d23bc27f"
+    }
+  },
+  "eleocharis-montevidensis": {
+    "at": "2026-11-15",
+    "from": "2026-10-30",
+    "name": "Eleocharis montevidensis",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "Item 2: \"basic and low maintenance\" rendered as \"ringkas dan mudah dijaga\" — \"ringkas\" is a weak/odd rendering of \"basic\"; use e.g. \"mudah/asas dan tidak memerlukan banyak penjagaan\".",
+      "Item 2: \"in transparent wads\" translated as \"dalam rumpun yang lapang dan lut sinar\" — \"yang lapang\" (spacious/open) is added and not in the source; use \"dalam rumpun lut sinar\" only.",
+      "Item 2: \"Each straw\" rendered \"batangnya\" (stem); acceptable but \"helai/batang\" fine — keep consistent.",
+      "Item 1: \"Light demand\"/\"CO2 demand\" as \"Keperluan\" is fine, but \"20–30+ cm\" kept; no issue."
+    ],
+    "parts": {
+      "quickFacts:tropica": "6f1f30561bfc",
+      "maintenance:tropica": "1fb807d9dc05",
+      "notes:tropica": "6645bf6bcfab"
+    }
+  },
+  "eleocharis-parvula": {
+    "at": "2026-11-15",
+    "from": "2026-11-06",
+    "name": "Dwarf Hairgrass",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "40194f896663",
+      "maintenance:aquatome": "9cf71fa25614",
+      "notes:tropica": "6e99fb634de7"
+    }
   }
 }

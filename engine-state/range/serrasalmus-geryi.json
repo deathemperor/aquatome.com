@@ -1,0 +1,82 @@
+{
+  "id": "serrasalmus-geryi",
+  "native": {
+    "input": "d22fcc8e10765f5a",
+    "at": "2026-11-15T00:17:46.244Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Serrasalmus geryi is a rare piranha restricted to the basin of the Rio Tocantins in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs in the Rio Araguaia and Rio Tocantins drainages, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Tocantins",
+        "source": "glaser",
+        "quote": "Serrasalmus geryi is a rare piranha restricted to the basin of the Rio Tocantins in Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Tocantins",
+        "source": "seriouslyfish",
+        "quote": "Occurs in the Rio Araguaia and Rio Tocantins drainages, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Araguaia",
+        "source": "seriouslyfish",
+        "quote": "Occurs in the Rio Araguaia and Rio Tocantins drainages, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Serrasalmus geryi",
+    "status": "ACCEPTED",
+    "taxonKey": 2354150,
+    "datasets": [
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        12
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        9
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        6
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-15T00:17:46.244Z"
+  }
+}

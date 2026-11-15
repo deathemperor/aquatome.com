@@ -1,0 +1,67 @@
+{
+  "id": "sinogastromyzon-tonkinensis",
+  "native": {
+    "input": "b3b02ca738eef035",
+    "at": "2026-11-15T00:17:46.244Z",
+    "claims": [
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Lai Chau, Tonkin, northern Vietnam', in the lower Red River system, and this species appears endemic to that drainage in Yunnan province, southern China and northern Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Lai Chau, Tonkin, northern Vietnam', in the lower Red River system, and this species appears endemic to that drainage in Yunnan province, southern China and northern Vietnam.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Red River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Lai Chau, Tonkin, northern Vietnam', in the lower Red River system, and this species appears endemic to that drainage in Yunnan province, southern China and northern Vietnam.",
+        "ok": true
+      },
+      {
+        "name": "Lixianjiang River",
+        "source": "seriouslyfish",
+        "quote": "In 2009 at a locality in the Menyejiang River, a tributary of the Lixianjiang River within the Red River basin, Puer County, Yunnan province, China, it was collected alongside the congener Sinogastromyzon macrostoma plus Vanmanenia sp., Beaufortia sp., Garra sp. and Pseudecheneis paviei.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Sinogastromyzon tonkinensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2358685,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        8
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ]
+    ],
+    "native": [
+      "VN",
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-15T00:17:46.244Z"
+  }
+}

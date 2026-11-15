@@ -1,0 +1,136 @@
+{
+  "id": "sphaerichthys-osphromenoides",
+  "native": {
+    "input": "06f810b620227e46",
+    "at": "2026-11-15T00:17:46.244Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Native to the peat swamps and blackwater streams of Malaysia, Sumatra, and Borneo.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The chocolate gourami, Sphaerichthys osphromenoides, is a small gourami from Peninsular Malaysia, Sumatra and Borneo.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "In the latter, records exist from throughout the Malaysian state of Sarawak and Indonesian province of West Kalimantan (Kalimantan Barat).",
+        "words": "Malaysian",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "In the latter, records exist from throughout the Malaysian state of Sarawak and Indonesian province of West Kalimantan (Kalimantan Barat).",
+        "words": "Indonesian",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's also known from Singapore though this population may now have been extirpated.",
+        "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "bwaquatics",
+        "quote": "Native to the peat swamps and blackwater streams of Malaysia, Sumatra, and Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "bwaquatics",
+        "quote": "Native to the peat swamps and blackwater streams of Malaysia, Sumatra, and Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Malay Peninsula",
+        "source": "glaser",
+        "quote": "The species is found on the Malay Peninsula.",
+        "ok": true
+      },
+      {
+        "name": "Kalimantan",
+        "source": "seriouslyfish",
+        "quote": "In the latter, records exist from throughout the Malaysian state of Sarawak and Indonesian province of West Kalimantan (Kalimantan Barat).",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Sphaerichthys osphromenoides",
+    "status": "ACCEPTED",
+    "taxonKey": 2394132,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        3
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "ID",
+      "SG"
+    ],
+    "requests": 12,
+    "at": "2026-11-15T00:17:46.244Z"
+  }
+}

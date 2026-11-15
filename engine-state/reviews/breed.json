@@ -906,6 +906,44 @@
       ]
     }
   ],
+  "ms/breeds/ryukin-goldfish": [
+    {
+      "at": "2026-11-15T00:14:03Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-15T00:14:03Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"150–200 liter lebih baik\": the facts say 40–50 gal (151–189 L) is better; by the stated convention 40-50 gallons is 150–200 litres, so this is probably fine, but 35 gal → 132 L is given exactly.",
+        "\"Dua sumber menganggapnya mudah dijaga, manakala satu sumber meletakkannya lebih sukar\": facts give difficulty 2, 2 and 4 with no label of 'easy', so the interpretation is an unsupported generalisation.",
+        "\"kebanyakannya menganggapnya mudah\": the difficulty scale is not stated in the facts, so 'easy' is an unsupported interpretation.",
+        "\"kebanyakan sumber meletakkannya dalam julat yang agak sejuk\": the facts do not say this; two of three sources give cooler ranges, but 'most sources' and the conclusion are an unsupported addition. The FAQ also never actually answers whether a heater is needed, and the facts give no recommendation.",
+        "\"ekor panjang berkembang\" in the intro: 'berkembang' (flowing) is not in the facts.",
+        "\"Bonggol tinggi yang kita lihat hari ini\": fine, but \"air yang dalam dikatakan menyebabkan badannya menjadi lebih panjang\" is supported.",
+        "\"Ikan kolam di negara bermusim\": 'seasonal countries' is not in the facts, which only mention pond fish and winter.",
+        "\"kerana ikan-ikan itu akan mendahuluinya ketika berebut makanan\": 'outcompete' is supported, but the feeding detail is a mild elaboration.",
+        "\"Pilih tangki yang panjang... sebelum membeli, sediakan tangki\" and \"jadi hanya sebahagian anak sahaja yang mewarisi ciri induknya\": generalisations beyond the facts, which say only that not all offspring breed true.",
+        "\"Sumber berbeza... masalah pundi renang agak biasa\": the facts say 'common', not 'rather common', which is a minor softening."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.62,
+        0.6,
+        0.6
+      ]
+    }
+  ],
   "ms/breeds/super-red-arowana": [
     {
       "at": "2026-11-14T11:02:38Z",
