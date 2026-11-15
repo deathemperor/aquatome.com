@@ -14,14 +14,18 @@ async function pageOf(request: APIRequestContext, kind: string): Promise<string 
   return loc && new URL(loc).pathname
 }
 
-/** A paragraph in the page's text column, beside its first mark (or its first paragraph): a word, a mark, a few words, and a mark that ends the line. */
+/**
+ * A paragraph in the page's text column, beside its first mark (or its first paragraph): a word, a mark, a few words, and a
+ * mark that ends the line. Set to the right, so only words stand between the marks, as on the driftwood pages: an element
+ * between them would keep `.cite + .cite` from matching at all.
+ */
 const worstCase = (page: Page) => page.evaluate(() => {
   const near = document.querySelector('main a.cite')?.closest('p, li') ?? document.querySelector('main p')!
   const p = document.createElement('p')
-  p.innerHTML = 'Lũa <a class="cite" href="#">1</a> ngâm kỹ<span class="pad" style="display:inline-block"></span><a class="cite" href="#">2</a>'
+  p.innerHTML = 'Lũa <a class="cite" href="#">1</a> ngâm kỹ <a class="cite" href="#">2</a>'
+  p.style.textAlign = 'right'
   near.after(p)
-  const pad = p.querySelector<HTMLElement>('.pad')!, [first, last] = [...p.querySelectorAll('.cite')]
-  pad.style.width = `${Math.floor(p.getBoundingClientRect().right - last!.getBoundingClientRect().right) - 1}px`
+  const [first, last] = [...p.querySelectorAll('.cite')]
   const box = last!.getBoundingClientRect()
   return { gap: p.getBoundingClientRect().right - box.right, sameLine: Math.abs(first!.getBoundingClientRect().top - box.top) < 2 }
 })
