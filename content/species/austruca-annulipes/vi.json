@@ -1,6 +1,6 @@
 {
-  "slug": "ca-austruca-annulipes",
-  "name": "Cá Austruca annulipes",
+  "slug": "cua-vi-cam-annulipes",
+  "name": "Cua vĩ cầm annulipes",
   "altNames": [
     "Cua vĩ cầm",
     "Cua càng vĩ cầm",
@@ -22,5 +22,12 @@
       "glaser": 0.9
     },
     "reason": "thin"
-  }
+  },
+  "redirectFrom": [
+    {
+      "slug": "ca-austruca-annulipes",
+      "name": ""
+    }
+  ],
+  "nameFixed": true
 }
