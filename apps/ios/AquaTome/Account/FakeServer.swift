@@ -93,9 +93,10 @@ final class FakeServer {
     if slowPost, r.httpMethod == "POST", ["/_c", "/_p"].contains(r.url?.path) { try? await Task.sleep(for: .seconds(6)) }
     // A request whose task is cancelled meanwhile fails as cancelled, as URLSession's does.
     if slowSession, r.url?.path == "/api/v1/session" { try await Task.sleep(for: .seconds(15)) }
-    if let status = chat.status(r) {
+    if let answer = chat.status(r) ?? chat.answer(r) {
       if fake.offline { throw URLError(.notConnectedToInternet) }
-      return status
+      if r.url?.path == "/api/chat/cancel", ProcessInfo.processInfo.arguments.contains("-chat-cancel-late") { try await Task.sleep(for: .seconds(3)) }
+      return answer
     }
     if sessionFails, r.url?.path == "/api/v1/session" {
       return (Data(#"{"error":"internal"}"#.utf8), HTTPURLResponse(url: r.url!, statusCode: 500, httpVersion: nil, headerFields: ["Content-Type": "application/json"])!)

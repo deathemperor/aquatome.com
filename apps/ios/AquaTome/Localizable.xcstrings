@@ -529,6 +529,28 @@
         }
       }
     },
+    "%lld câu": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld pertanyaan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld soalan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld คำถาม"
+          }
+        }
+      }
+    },
     "%lld loài": {
       "localizations": {
         "id": {
@@ -1097,6 +1119,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "6–8 ชั่วโมงกำลังพอดีสำหรับตู้ไม้น้ำ"
+          }
+        }
+      }
+    },
+    "7 ngày qua": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "7 hari terakhir"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "7 hari lalu"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "7 วันที่ผ่านมา"
           }
         }
       }
@@ -2289,50 +2333,6 @@
         }
       }
     },
-    "Bắt đầu cuộc mới": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mulai percakapan baru"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mulakan perbualan baharu"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "เริ่มบทสนทนาใหม่"
-          }
-        }
-      }
-    },
-    "Bắt đầu cuộc mới?": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mulai percakapan baru?"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mulakan perbualan baharu?"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "เริ่มบทสนทนาใหม่ไหม"
-          }
-        }
-      }
-    },
     "Bắt đầu từ đây": {
       "localizations": {
         "id": {
@@ -3103,6 +3103,28 @@
         }
       }
     },
+    "Chưa có cuộc trò chuyện nào.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum ada percakapan."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum ada perbualan."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังไม่มีบทสนทนา"
+          }
+        }
+      }
+    },
     "Chưa có khóa Tuya: thiết lập ở mục “Ổ cắm thông minh” trong Bể của tôi.": {
       "localizations": {
         "id": {
@@ -3455,6 +3477,28 @@
         }
       }
     },
+    "Chưa mở được cuộc này. Thử lại sau nhé.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Percakapan ini belum bisa dibuka. Coba lagi nanti."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perbualan ini tidak dapat dibuka. Cuba lagi nanti."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิดบทสนทนานี้ไม่ได้ ลองอีกครั้งภายหลัง"
+          }
+        }
+      }
+    },
     "Chưa nhìn rõ để nhận diện. Thử chụp ngang thân, gần hơn, qua kính sạch và không bật flash.": {
       "localizations": {
         "id": {
@@ -3539,6 +3583,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ยังตอบคำถามนี้ไม่ได้"
+          }
+        }
+      }
+    },
+    "Chưa tải được danh sách.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Daftar belum bisa dimuat."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Senarai tidak dapat dimuatkan."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โหลดรายการไม่ได้"
           }
         }
       }
@@ -3697,6 +3763,28 @@
         }
       }
     },
+    "Chưa ẩn được cuộc này. Thử lại sau nhé.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Percakapan ini belum bisa disembunyikan. Coba lagi nanti."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perbualan ini tidak dapat disembunyikan. Cuba lagi nanti."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ซ่อนบทสนทนานี้ไม่ได้ ลองอีกครั้งภายหลัง"
+          }
+        }
+      }
+    },
     "Chặn": {
       "localizations": {
         "id": {
@@ -3847,6 +3935,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "รองรับเฉพาะภาพ JPEG, PNG หรือ WebP"
+          }
+        }
+      }
+    },
+    "Chỉ ẩn khỏi danh sách của bạn, không bị xóa. Xóa tài khoản sẽ xóa toàn bộ.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hanya disembunyikan dari daftar Anda, tidak dihapus. Menghapus akun akan menghapus semuanya."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hanya disembunyikan daripada senarai anda, tidak dipadam. Memadam akaun akan memadam semuanya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ซ่อนจากรายการของคุณเท่านั้น ไม่ได้ลบ การลบบัญชีจะลบทั้งหมด"
           }
         }
       }
@@ -4423,24 +4533,24 @@
         }
       }
     },
-    "Cuộc này sẽ không mở lại được.": {
+    "Cuộc trò chuyện": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Percakapan ini tidak bisa dibuka lagi."
+            "value": "Percakapan"
           }
         },
         "ms": {
           "stringUnit": {
             "state": "translated",
-            "value": "Perbualan ini tidak boleh dibuka semula."
+            "value": "Perbualan"
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "จะเปิดบทสนทนานี้อีกไม่ได้"
+            "value": "บทสนทนา"
           }
         }
       }
@@ -4463,6 +4573,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "บทสนทนาใหม่"
+          }
+        }
+      }
+    },
+    "Cuộc trước về %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Percakapan sebelumnya tentang %@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perbualan sebelum ini tentang %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "บทสนทนาก่อนหน้าเกี่ยวกับ %@"
           }
         }
       }
@@ -7719,6 +7851,72 @@
           "stringUnit": {
             "state": "translated",
             "value": "วันนี้เครื่องมือใช้ครบโควตาของทุกคนแล้ว กลับมาใหม่พรุ่งนี้นะ"
+          }
+        }
+      }
+    },
+    "Hôm nay, %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hari ini, %@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hari ini, %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "วันนี้ %@"
+          }
+        }
+      }
+    },
+    "Hôm qua": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kemarin"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Semalam"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เมื่อวาน"
+          }
+        }
+      }
+    },
+    "Hôm qua, %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kemarin, %@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Semalam, %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เมื่อวาน %@"
           }
         }
       }
@@ -13399,6 +13597,28 @@
         }
       }
     },
+    "Trước đó": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sebelumnya"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lebih awal"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ก่อนหน้านี้"
+          }
+        }
+      }
+    },
     "Trả lời dựa trên cẩm nang AquaTome": {
       "localizations": {
         "id": {
@@ -15137,6 +15357,28 @@
         }
       }
     },
+    "Vừa rồi": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Baru saja"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sebentar tadi"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เมื่อสักครู่"
+          }
+        }
+      }
+    },
     "Xanh dương": {
       "localizations": {
         "id": {
@@ -16831,6 +17073,28 @@
         }
       }
     },
+    "Đang dừng…": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menghentikan…"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menghentikan…"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กำลังหยุด…"
+          }
+        }
+      }
+    },
     "Đang ghi…": {
       "localizations": {
         "id": {
@@ -17465,6 +17729,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ตั้งเวลาโคมไฟแล้ว: %@"
+          }
+        }
+      }
+    },
+    "Đã dừng. Câu này không bị tính.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dihentikan. Pertanyaan ini tidak dihitung."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dihentikan. Soalan ini tidak dikira."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หยุดแล้ว คำถามนี้ไม่นับ"
           }
         }
       }
@@ -20175,6 +20461,50 @@
         }
       }
     },
+    "Ảnh của bạn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto Anda"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto anda"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รูปของคุณ"
+          }
+        }
+      }
+    },
+    "Ảnh của bạn: %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto Anda: %@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto anda: %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รูปของคุณ: %@"
+          }
+        }
+      }
+    },
     "Ảnh do tôi chụp. Tôi đồng ý để AquaTome đăng ảnh này kèm tên tôi.": {
       "localizations": {
         "id": {
@@ -20413,6 +20743,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "อินเดีย (India)"
+          }
+        }
+      }
+    },
+    "Ẩn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sembunyikan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sembunyikan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ซ่อน"
+          }
+        }
+      }
+    },
+    "Ẩn cuộc trò chuyện này?": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sembunyikan percakapan ini?"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sembunyikan perbualan ini?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ซ่อนบทสนทนานี้ไหม"
           }
         }
       }

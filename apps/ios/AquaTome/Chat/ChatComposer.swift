@@ -17,6 +17,7 @@ struct ChatComposer: View {
   let toEnd: () -> Void
   @Environment(\.openScreen) private var openScreen
   @Environment(\.dynamicTypeSize) private var size
+  @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
   /// As the reader sees characters, after trimming: as the Worker counts them.
   private var length: Int { model.draft.trimmingCharacters(in: .whitespacesAndNewlines).count }
@@ -48,12 +49,24 @@ struct ChatComposer: View {
             .accessibilityLabel(Text(verbatim: "\(length.formatted(.number.locale(.app)))/\(model.maxChars.formatted(.number.locale(.app)))"))
             .accessibilityIdentifier("chat-length")
           }
-          Button(action: send) {
-            Image(systemName: "arrow.up.circle.fill").font(.title).symbolRenderingMode(.hierarchical)
+          // The same place, size and colour: until the text begins, the question being answered can be stopped.
+          if model.stoppable {
+            Button(action: model.stopAsking) {
+              Image(systemName: "stop.circle.fill").font(.title).symbolRenderingMode(.hierarchical)
+            }
+            .disabled(model.stopping)
+            .accessibilityLabel(Text("Dừng"))
+            .accessibilityIdentifier("chat-stop")
+            .transition(.scale(scale: 0.8).combined(with: .opacity))
+          } else {
+            Button(action: send) {
+              Image(systemName: "arrow.up.circle.fill").font(.title).symbolRenderingMode(.hierarchical)
+            }
+            .disabled(!canSend)
+            .accessibilityLabel(Text("Gửi"))
+            .accessibilityIdentifier("chat-send")
+            .transition(.scale(scale: 0.8).combined(with: .opacity))
           }
-          .disabled(!canSend)
-          .accessibilityLabel(Text("Gửi"))
-          .accessibilityIdentifier("chat-send")
         }
       }
       .padding(.leading, 16)
@@ -62,6 +75,7 @@ struct ChatComposer: View {
       .frame(minHeight: 48)
       .background(.regularMaterial, in: .rect(cornerRadius: 24))
       .overlay { RoundedRectangle(cornerRadius: 24).strokeBorder(Color.chatHairline, lineWidth: 0.5) }
+      .animation(reduceMotion ? nil : .smooth(duration: 0.2), value: model.stoppable)
       under
     }
     .padding(.horizontal, 12)
@@ -121,6 +135,8 @@ struct ChatComposer: View {
       if over {
         Text("Câu hỏi đã quá \(model.maxChars.formatted(.number.locale(.app))) ký tự. Rút gọn rồi gửi nhé.")
           .foregroundStyle(.red)
+      } else if model.stopped != nil {
+        Text("Đã dừng. Câu này không bị tính.").accessibilityIdentifier("chat-stopped-note")
       } else if model.answering, model.thread.last?.reply.writing == false {
         Text("Thường mất chưa tới nửa phút.")
       } else if model.thread.isEmpty {
