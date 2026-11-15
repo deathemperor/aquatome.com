@@ -1370,10 +1370,10 @@ final class V2FlowTests: XCTestCase {
       app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.7))
         .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.62)), withVelocity: .slow, thenHoldForDuration: 0.3)
     }
-    // The card's top under the clock's line, the card still under the rest of it.
-    repeatUntil(fish.frame.minY < 10, times: 12) { step() }
-    XCTAssertLessThan(fish.frame.minY, 10, "the card never went under the clock")
-    XCTAssertGreaterThan(fish.frame.maxY, 120, "the card went past the clock")
+    // The card under the whole of the clock's line, from above its figures to below them.
+    repeatUntil(fish.frame.minY < 8, times: 12) { step() }
+    XCTAssertLessThan(fish.frame.minY, 8, "the card never went under the clock")
+    XCTAssertGreaterThan(fish.frame.maxY, 50, "the card went past the clock")
     XCTAssertFalse(app.navigationBars.firstMatch.exists, "Hôm nay has a bar")
     let shot = Pixels(XCUIScreen.main.screenshot())
     // Over the card, above and under the clock's figures: the page's ground, not the card.
@@ -1525,7 +1525,8 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.navigationBars["Tetra"].exists, "the chip's page isn't under its name")
     XCTAssertTrue(app.pageBack.exists, "no back button on the chip's page")
     XCTAssertTrue(app.staticTexts["1 trang · 1 bài viết"].exists, "the chip's page doesn't say what it holds")
-    XCTAssertFalse(app.descendants(matching: .any)["shelf-pages"].exists, "a group of one page in the grid")
+    // The grid has the list's filter; wide cards have none.
+    XCTAssertFalse(app.buttons["filter"].exists, "a group of one page in the grid")
     XCTAssertTrue(app.staticTexts["Bài viết"].exists && app.staticTexts["Video"].exists, "no guides or video guides under the group")
     app.leavePage()
     // Along the row, at its own height, till the last chip is whole.
@@ -1535,7 +1536,7 @@ final class V2FlowTests: XCTestCase {
         .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.3, dy: y)), withVelocity: .slow, thenHoldForDuration: 0.2)
     }
     many.tap()
-    XCTAssertTrue(app.descendants(matching: .any)["shelf-pages"].waitForExistence(timeout: 5), "a group of eight pages not in the grid")
+    XCTAssertTrue(app.buttons["filter"].waitForExistence(timeout: 5), "a group of eight pages not in the grid")
   }
 
 

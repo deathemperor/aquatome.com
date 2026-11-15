@@ -16,14 +16,14 @@ final class WholePhotoFlowTests: XCTestCase {
     return app
   }
 
-  /// Khám phá, a list of fish ("Loài quen thuộc"'s whole list: the group tiles went for the chips): the card's photo (4:3,
-  /// across the card's top).
+  /// A group's list, from Tìm's group chip (Khám phá's group tiles went for its chips): the card's photo (4:3, across the
+  /// card's top).
   func testAGroupListsCardShowsTheWholeFish() {
     let app = launch()
-    app.openTab("Khám phá")
-    let all = app.buttons["Xem tất cả"].firstMatch
-    XCTAssertTrue(app.scrolledDown(to: all).waitForExistence(timeout: 10), "no whole list on Khám phá")
-    all.tap()
+    app.openTab("Tìm kiếm")
+    let tile = app.descendants(matching: .any).matching(identifier: "shelf").matching(NSPredicate(format: "label BEGINSWITH %@", "Cá tetra")).firstMatch
+    XCTAssertTrue(app.scrolledDown(to: tile).waitForExistence(timeout: 10), "no Cá tetra on Tìm")
+    tile.tap()
     // The list's card, not Khám phá's own Cá neon, still there to the left of the screen under the list. Its frame runs
     // wider than the card where the photo's blur does, so its photo is looked for row by row down the card, across the
     // screen.
