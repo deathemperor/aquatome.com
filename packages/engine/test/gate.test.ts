@@ -6,7 +6,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError, type Llm } from '../src/claude'
 import { fitKey, fitText, type FitFinding, type FitState } from '../src/fit'
-import { changedFiles, fitPct, fitSummary, gate, gateCall, gateChecks, HELD_BY_HAND, putBackFile, wrongChecks } from '../src/gate'
+import { changedFiles, fitPct, fitSummary, gate, gateCall, gateChecks, HELD_BY_HAND, heldMendsOf, MEND_AGAIN_DAYS, putBackFile, wrongChecks } from '../src/gate'
 import { localizeSpecies, partHash } from '../src/localize'
 import { loadPages, type Page } from '../src/pages'
 import { plantsWithoutPlanting } from '../src/planting'
@@ -989,6 +989,64 @@ test('the gate on GitHub\'s runners has no video mender: a held guide is sent no
   const mac = await gate(root, { llm: reader(), now, mend: gateMend(root, { llm: reader(), yt }, 'mac'), heldMends: 1 })
   expect(asked).toEqual(['r53ZQW0m8VM'])
   expect(mac.report.failed).toEqual([expect.stringContaining('mend: yt-dlp: command not found')])
+})
+
+// The chief of staff, 15 Nov 2026: two rounds' 83 held mends went to 27 guides; 11 were refused every time and took the
+// slots again each run, ahead of the rest.
+test('a held guide its mend didn\'t let out waits on that text, and the run\'s held mend goes to the next; after MEND_AGAIN_DAYS it is sent again', async () => {
+  const root = await repo()
+  const second = 'content/guides/youtube-held-second'
+  await cp(join(root, 'content/guides/youtube-r53ZQW0m8VM'), join(root, second), { recursive: true })
+  await edit(root, `${second}/entity.json`, e => { e.id = 'youtube-held-second' })
+  for (const f of [GUIDE, `${second}/vi.json`]) await edit(root, f, t => { t.body = `${t.body as string}<p>Mua ở Petco.</p>`; t.held = { checks: ['shop'], at: '2026-11-08' } })
+  await edit(root, `${second}/vi.json`, t => { t.slug = 'held-second' })
+  save(root, 'held')
+  const sent: string[] = []
+  const refuse = async (p: Page) => { sent.push(p.id); return { refused: 'a sentence no finding names was changed' } }
+  const run = (day = now) => gate(root, { llm: reader(), now: day, mend: refuse, heldMends: 1 })
+  const first = await run()
+  expect(sent).toHaveLength(1)
+  expect(first.report.refused).toHaveLength(1)
+  expect((await readJson(root, 'engine-state/_fit.json'))[`vi/guides/${sent[0]}`].mendTried).toBe('2026-11-09')
+  // The next run's one held mend is the other guide's; the one after has none to send.
+  await run()
+  expect(new Set(sent)).toEqual(new Set(['youtube-r53ZQW0m8VM', 'youtube-held-second']))
+  await run()
+  expect(sent).toHaveLength(2)
+  // Both still held, their text as it was.
+  for (const f of [GUIDE, `${second}/vi.json`]) expect((await readJson(root, f)).held).toEqual({ checks: ['shop'], at: '2026-11-08' })
+  // MEND_AGAIN_DAYS on, each is sent again.
+  await run(() => new Date(now().getTime() + MEND_AGAIN_DAYS * 86_400_000))
+  expect(sent).toHaveLength(3)
+})
+
+test('a held guide whose mend leaves it held waits too; a page with no editor for it, and a mend the accounts stopped, don\'t', async () => {
+  const root = await repo()
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Mua ở Petco.</p><p>Mua thêm ở Petco.</p>`; t.held = { checks: ['shop'], at: '2026-11-08' } })
+  save(root, 'held')
+  const mark = async () => (await readJson(root, 'engine-state/_fit.json'))['vi/guides/youtube-r53ZQW0m8VM']?.mendTried
+  // No editor called (no transcript): no mark, sent again next run.
+  let calls = 0
+  await gate(root, { llm: reader(), now, mend: async () => { calls++; return undefined }, heldMends: 1 })
+  await gate(root, { llm: reader(), now, mend: async () => { calls++; return undefined }, heldMends: 1 })
+  expect(calls).toBe(2)
+  expect(await mark()).toBeUndefined()
+  // The accounts out: no mark.
+  await gate(root, { llm: reader(), now, mend: async () => { throw new LlmError('usage limit reached') }, heldMends: 1 })
+  expect(await mark()).toBeUndefined()
+  // Mended but one shop left: still held, its new text kept and marked, and not sent again on it.
+  const sent: string[] = []
+  const once = async (p: Page, fs: FitFinding[]) => {
+    sent.push(p.id)
+    await edit(root, GUIDE, t => { t.body = (t.body as string).replace('<p>Mua ở Petco.</p>', '') })
+    return true
+  }
+  const r = await gate(root, { llm: reader(), now, mend: once, heldMends: 1 })
+  expect(r.report.mended).toHaveLength(1)
+  expect((await readJson(root, GUIDE)).held?.checks).toContain('shop')
+  expect(await mark()).toBe('2026-11-09')
+  await gate(root, { llm: reader(), now, mend: once, heldMends: 1 })
+  expect(sent).toHaveLength(1)
 })
 
 // Astra's read of 14 Nov 2026: a guide held for harm, read now with a shop only, went to its editor and out.
