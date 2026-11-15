@@ -81,8 +81,10 @@ const RULES_SCHEMA = { type: 'object', required: ['notes'], properties: { notes:
 export const ruleNumbers = (note: string) => [...(/^Rules?\s+(\d+(?:\s*(?:,|and|&)\s*\d+)*)\s*:/i.exec(note)?.[1] ?? '').matchAll(/\d+/g)].map(m => Number(m[0]))
 const isLength = (note: string) => /^(The entry is|An item is) \d+ words/.test(note)
 
-/** A draft the step kept, unsaved: its fact score, its notes (the fact check's first, then the rules', then length's), how many of them stop a save. */
-/** `unread`: kept past its stop, so never read (its score is no score). */
+/**
+ * A draft the step kept, unsaved: its fact score, its notes (the fact check's first, then the rules', then length's), how
+ * many of them stop a save. `unread`: kept past its stop, so never read (its score is no score).
+ */
 export type Draft = { score: number; broken: number; notes: string[]; entry: Entry; unread?: true }
 
 /**
@@ -360,7 +362,9 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   // outranks a length under its stop (the chief of staff, 15 Nov 2026: chu trình nitơ's rewrite put its seeding sentence
   // back, ran 476 words of 450, tied with the saved text that hadn't, and lost the tie).
   const unmet = (r: Checked) => r.notes.filter(n => ruleNumbers(n).length && !stops(n)).length
-  const rank = (r: Checked) => [passes(r) ? 0 : 1, stopping(r), r.score >= QUALITY_THRESHOLD ? 0 : 1, unmet(r), r.broken - stopping(r)]
+  // An unread draft, past its stop, ranks below any read one: nothing in it is known but its length (the Sonnet reviewer,
+  // 15 Nov 2026: one read and in its length, with two sentences stopped, lost to it and was never kept).
+  const rank = (r: Checked) => [passes(r) ? 0 : 1, r.unread ? 1 : 0, stopping(r), r.score >= QUALITY_THRESHOLD ? 0 : 1, unmet(r), r.broken - stopping(r)]
   const better = (r: Checked, b: Checked) => {
     const [x, y] = [rank(r), rank(b)]
     const i = x.findIndex((v, j) => v !== y[j])
@@ -378,7 +382,8 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   } else {
     // A kept draft is read again first: its notes were read against the term's notes as they were then (Lũa's seventh: three
     // of its four came from the notes file's wording, since fixed).
-    // A saved entry being revised is read as it stands: the drop check holds the rewrites to it.
+    // A saved entry being revised isn't trimmed first: the drop check holds the rewrites to it. Past its stop, it isn't read
+    // either, and its length notes lead the first rewrite.
     w = draft ? draft.entry : await write()
     if (!o.revise) w = await fit(w)
     review = await check(w)

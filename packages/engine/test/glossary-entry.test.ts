@@ -671,17 +671,17 @@ test('a sentence the whole entry\'s final read stops after the rewording keeps i
 // The chief of staff, 15 Nov 2026: dry food and Artemia each paid about $3 of reads to stop on a word count.
 test('the length is counted before any paid read: an entry past its stop is trimmed first, and one still past it is never read', async () => {
   const long = `<p>Tanin làm nước vàng. ${'nước '.repeat(470)}</p>`, short = `<p>Tanin làm nước vàng. ${'nước '.repeat(300)}</p>`
-  const run = async (bodies: string[]) => {
-    const root = await site()
+  const run = async (bodies: string[], at?: string, o: { fromDraft?: boolean } = {}) => {
+    const root = at ?? await site()
     const calls: ('write' | 'read')[] = [], asked: string[] = []
     const llm: Llm = async ({ prompt }) => {
       if (prompt.startsWith('GLOSSARY RULES')) { calls.push('read'); return { notes: [] } as never }
-      if (isCheck(prompt)) { calls.push('read'); return verdicts(prompt) as never }
+      if (isCheck(prompt)) { calls.push('read'); return verdicts(prompt, t => (t.includes('chết') ? 'unsupported: made up' : undefined)) as never }
       calls.push('write')
       asked.push(prompt)
       return { ...written, body: bodies.length > 1 ? bodies.shift() : bodies[0] } as never
     }
-    return { r: await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'tanin', { kind: 'setup' }), calls, asked, root }
+    return { r: await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'tanin', { kind: 'setup', ...o }), calls, asked, root }
   }
   // Trimmed once before it is read, then read and saved.
   const one = await run([long, short])
@@ -693,6 +693,17 @@ test('the length is counted before any paid read: an entry past its stop is trim
   expect(never.calls).not.toContain('read')
   expect(never.r).toMatchObject({ id: 'tanin', skipped: 'stopped by 1 note', notes: ['The entry is 474 words: hold it to about 400, and leave what is left out to the pages that use the term.'] })
   expect(JSON.parse(await readFile(join(never.root, 'engine-state/glossary/tanin.draft.json'), 'utf8'))).toMatchObject({ unread: true })
+  // Run from that kept draft: trimmed before it is read too (frozen food, 15 Nov 2026: 731 words of 500, read first).
+  const kept = await run([short], never.root, { fromDraft: true })
+  expect(kept.calls.slice(0, 2)).toEqual(['write', 'read'])
+  expect(kept.r).toMatchObject({ id: 'tanin', score: 1 })
+  // A read draft in its length outranks an unread one, though two of its sentences are stopped: it is the one kept.
+  const stopped = `<p>Tanin làm nước vàng. Tanin làm cá chết. Tanin làm cây chết. ${'nước '.repeat(300)}</p>`
+  const both = await run([long, long, stopped])
+  expect(both.r).toMatchObject({ id: 'tanin', skipped: 'stopped by 2 notes' })
+  const d = JSON.parse(await readFile(join(both.root, 'engine-state/glossary/tanin.draft.json'), 'utf8'))
+  expect(d.unread).toBeUndefined()
+  expect(d.entry.body).toContain('Tanin làm cá chết.')
 })
 
 // Codex, 14 Nov 2026: the count after rewording held pH to 400 words, not its own 600, and stopped a right entry.
