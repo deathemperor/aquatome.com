@@ -224,6 +224,23 @@ final class ChatFlowTests: XCTestCase {
   }
 
   /// Off on the server: no way into the chat from a fish's page.
+  /// A crab among the fish pages (the owner's report of 15 Nov: the fiddler crab's page said "Hỏi về cá này"): nothing the
+  /// app writes on its page or in its chat says "cá này", and at the largest text the chat's box asks about "loài này".
+  func testACrabsPageAndItsChatSayLoaiNotCaNay() {
+    let app = launch("-crab", "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
+    open(app, "Cua dong ho")
+    XCTAssertTrue(element(app, "v2-species").waitForExistence(timeout: 10), "no page")
+    let entry = element(app, "chat-entry")
+    reveal(app, entry)
+    let saying = { app.descendants(matching: .any).matching(NSPredicate(format: "label CONTAINS[c] %@ OR value CONTAINS[c] %@", "cá này", "cá này")) }
+    XCTAssertEqual(saying().count, 0, "the crab's page says: \(saying().allElementsBoundByIndex.map(\.label))")
+    entry.tap()
+    let box = element(app, "chat-box")
+    XCTAssertTrue(box.waitForExistence(timeout: 5), "no chat")
+    XCTAssertEqual(box.placeholderValue, "Hỏi về loài này…")
+    XCTAssertEqual(saying().count, 0, "the crab's chat says: \(saying().allElementsBoundByIndex.map(\.label))")
+  }
+
   func testWhileChatIsOffNoEntryShows() {
     let app = launch("-chat-off")
     open(app, "Ca neon")

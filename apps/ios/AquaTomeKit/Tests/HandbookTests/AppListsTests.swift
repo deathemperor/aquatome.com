@@ -60,6 +60,15 @@ private func found(_ pattern: String, in code: [(file: String, lines: [Substring
           "a new PageImage: a list's photo is drawn by V2Photo with its box")
 }
 
+@Test func theAppsOwnCaNayIsOnlyForAFish() throws {
+  // The owner's report of 15 Nov: the fiddler crab's page said "Hỏi về cá này". About 90 fish pages are crabs, shrimps,
+  // snails, frogs, newts or corals (`Item.isFish`): each of the app's own words for "this fish" has its "loài này" beside
+  // it, for those.
+  let lines = try found(#""[^"]*cá này[^"]*""#, in: try appCode())
+  #expect(lines.count >= 4, "fewer than the four places that say it: the check reads nothing")
+  #expect(lines.filter { !$0.contains("loài này") } == [])
+}
+
 @Test func noListPrintsAScientificNameItsNameHolds() throws {
   // A page's scientific name printed as it comes (`x.sub`), not through `subUnderName` or `HandbookIndex.Item.line(under:)`:
   // under a name like "Cá bám đá Schistura spilota" it says it twice. The owner's dashboard's `sub` is another thing.
