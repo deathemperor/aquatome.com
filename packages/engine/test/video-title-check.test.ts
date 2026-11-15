@@ -229,12 +229,39 @@ test('the command reads the stored titles but the kept ones; with --write it cou
   expect(JSON.parse(await readFile(join(dir, 'vi.refused.json'), 'utf8'))).toEqual({ 'en-b': 'dropped: x' })
   const again = await runTitleCheck(root, llm, 'vi', { write: true })
   expect([again.given, again.prior, sent.length]).toEqual([0, { checked: 1, refused: 1 }, 2])
+  // Without --write, the verdicts on file aren't counted and nothing is recorded: the title is read again, the file as it was.
+  const before = await readFile(join(dir, 'vi.refused.json'), 'utf8')
+  const read = await runTitleCheck(root, llm, 'vi')
+  expect([read.given, read.prior, sent.length, await readFile(join(dir, 'vi.refused.json'), 'utf8')]).toEqual([1, { checked: 0, refused: 0 }, 3, before])
+})
+
+test('a stop at the line is recorded, and the language reads nothing more with --write until it is taken out by hand: the batch that passed the mark may leave the verdicts on file under the line (the reviewers of the check, 16 Nov)', async () => {
+  const { root, ids, titles } = await many(600)
+  const dir = join(root, 'content/video-titles')
+  await writeFile(join(dir, 'vi.json'), JSON.stringify(titles))
+  const read = ids.filter(id => id !== 'v050'), bad = new Set(read.slice(0, 23))
+  let calls = 0
+  const llm: Llm = async <T>({ prompt }: { prompt: string }) => {
+    calls++
+    const rows = rowsOf(prompt).map(l => /Aus (v\d+)/.exec(l)![1]!)
+    return { checks: rows.flatMap((id, j) => (id === 'v050' ? [] : [bad.has(id) ? { n: j + 1, ok: false, kind: 'dropped', why: 'x' } : { n: j + 1, ok: true }])) } as T
+  }
+  const first = await runTitleCheck(root, llm, 'vi', { write: true })
+  expect([Object.keys(first.checks).length, first.stopped]).toEqual([239, 'over one in ten refused at 200 titles: 23 of 200'])
+  expect(JSON.parse(await readFile(join(dir, 'stopped.json'), 'utf8'))).toEqual({ vi: 'over one in ten refused at 200 titles: 23 of 200' })
+  calls = 0
+  const again = await runTitleCheck(root, llm, 'vi', { write: true })
+  expect([calls, again.stopped]).toEqual([0, 'stopped before (over one in ten refused at 200 titles: 23 of 200): the chief of staff decides'])
+  // The verdicts on file alone, 23 of 239, are under the line: without the record the next run would go on.
+  await writeFile(join(dir, 'stopped.json'), '{}\n')
+  const on = await runTitleCheck(root, llm, 'vi', { write: true })
+  expect([on.prior, calls > 0]).toEqual([{ checked: 239, refused: 23 }, true])
 })
 
 test("the run's end: unread titles, or more than one in ten refused over all read in these words, even under the first mark of 200, end it with an error (the chief of staff, 16 Nov; the reviewers of the check)", () => {
   const run = (checked: number, refused: number, o: { given?: number; prior?: { checked: number; refused: number }; stopped?: string } = {}) => ({
     checks: Object.fromEntries(Array.from({ length: checked }, (_, i) => [`v${i}`, i < refused ? { ok: false as const, kind: 'dropped' as const, why: 'x' } : { ok: true as const }])),
-    failed: [], stopped: o.stopped ?? '', given: o.given ?? checked, shared: [], unanswered: [], prior: o.prior ?? { checked: 0, refused: 0 },
+    failed: [], stopped: o.stopped ?? '', line: '', given: o.given ?? checked, shared: [], unanswered: [], prior: o.prior ?? { checked: 0, refused: 0 },
   })
   expect(checkOutcome('ms', run(146, 15)).exitCode).toBe(1)
   expect(checkOutcome('ms', run(146, 15)).lines.at(-1)).toBe('  over one in ten refused (15 of 146): stop, and tell the chief of staff before ms is turned on')

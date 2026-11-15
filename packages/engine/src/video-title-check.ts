@@ -25,7 +25,7 @@ export type TitleCheck = { ok: boolean; kind?: (typeof KINDS)[number]; why?: str
  * `verdicts`, the ones on file (--write): a title refused, or passed in its present words, isn't read again, and counts
  * toward the stop line (`prior`), whatever `only` picks, so a run after a stop stops again before it reads anything.
  */
-export async function checkVideoTitles(root: string, llm: Llm, lang: Lang, titles: Record<string, string>, o: { only?: string[]; model?: string; record?: (checks: Record<string, TitleCheck>) => Promise<void>; verdicts?: { refused: Record<string, string>; passed: Record<string, string> } } = {}) {
+export async function checkVideoTitles(root: string, llm: Llm, lang: Lang, titles: Record<string, string>, o: { only?: string[]; model?: string; record?: (checks: Record<string, TitleCheck>) => Promise<void>; verdicts?: { refused: Record<string, string>; passed: Record<string, string> }; stopped?: string } = {}) {
   type Row = { youtubeId: string; title: string; written: string; about: string }
   const rows = new Map<string, Row>()
   const about = new Map<string, Set<string>>()
@@ -54,7 +54,7 @@ export async function checkVideoTitles(root: string, llm: Llm, lang: Lang, title
   }
   // `only` picks what this run reads, after the titles read before are counted: it never takes a language past its stop.
   const list = [...rows.values()].filter(r => !o.only || o.only.includes(r.youtubeId))
-  const report = { checks: {} as Record<string, TitleCheck>, failed: [] as string[], stopped: '', given: list.length, shared, unanswered: [] as string[], prior }
+  const report = { checks: {} as Record<string, TitleCheck>, failed: [] as string[], stopped: '', line: '', given: list.length, shared, unanswered: [] as string[], prior }
   const target = lang === 'vi' ? { lang: 'Vietnamese', country: 'Vietnam' } : TARGETS[lang as TargetLang]
   // At the first MARK titles checked and every MARK after: over one in ten refused among the first `mark` stops the
   // language, what was checked kept as checked, and the chief of staff is told before it is turned on. A batch may run
@@ -66,7 +66,7 @@ export async function checkVideoTitles(root: string, llm: Llm, lang: Lang, title
     if (marked === 0 && prior.checked >= MARK) {
       marked = Math.floor(prior.checked / MARK) * MARK
       if (prior.refused * 10 > prior.checked) {
-        report.stopped = `over one in ten refused at ${marked} titles: ${prior.refused} of ${prior.checked}`
+        report.stopped = report.line = `over one in ten refused at ${marked} titles: ${prior.refused} of ${prior.checked}`
         return
       }
     }
@@ -74,12 +74,13 @@ export async function checkVideoTitles(root: string, llm: Llm, lang: Lang, title
       marked = mark
       const refused = prior.refused + seq.slice(0, mark - prior.checked).filter(ok => !ok).length
       if (refused * 10 > mark) {
-        report.stopped = `over one in ten refused at ${mark} titles: ${refused} of ${mark}`
+        report.stopped = report.line = `over one in ten refused at ${mark} titles: ${refused} of ${mark}`
         return
       }
     }
   }
-  stopLine()
+  if (o.stopped) report.stopped = `stopped before (${o.stopped}): the chief of staff decides`
+  else stopLine()
   for (let i = 0; i < list.length && !report.stopped; i += BATCH) {
     const batch = list.slice(i, i + BATCH)
     const prompt = `${PROMPT.replaceAll('{{LANG}}', target.lang).replaceAll('{{COUNTRY}}', target.country)}\n\n${batch.map((r, j) => `${j + 1}. [${r.about}] ${r.title}\n   ${target.lang}: ${r.written}`).join('\n')}`
@@ -106,14 +107,19 @@ export async function checkVideoTitles(root: string, llm: Llm, lang: Lang, title
 
 /**
  * The command (`video-titles-check`): the titles from `titlesFile`, or the language's stored ones, the kept ones left out
- * (the editors passed them). With `write`, the verdicts on file count toward the stop line and each batch's are recorded.
+ * (the editors passed them). With `write`, the verdicts on file count toward the stop line and each batch's are recorded,
+ * and a stop at the line is recorded too (content/video-titles/stopped.json, language → why): the last batch may have
+ * read past the mark, so its verdicts alone could read under the line, and the next run would go on. A stopped
+ * language reads nothing more until that line is taken out by hand, on the chief of staff's word.
  */
 export async function runTitleCheck(root: string, llm: Llm, lang: Lang, o: { titlesFile?: string; write?: boolean; only?: string[] } = {}) {
-  const dir = join(root, 'content/video-titles')
-  const kept = await readMap(join(dir, 'kept.json'))
+  const dir = join(root, 'content/video-titles'), stopsFile = join(dir, 'stopped.json')
+  const kept = await readMap(join(dir, 'kept.json')), stops = await readMap(stopsFile)
   const titles = Object.fromEntries(Object.entries(JSON.parse(await readFile(o.titlesFile ?? join(dir, `${lang}.json`), 'utf8')) as Record<string, string>).filter(([id]) => !(id in kept)))
   const verdicts = o.write ? { refused: await readMap(join(dir, `${lang}.refused.json`)), passed: await readMap(join(dir, `${lang}.passed.json`)) } : undefined
-  return checkVideoTitles(root, llm, lang, titles, { only: o.only, verdicts, record: o.write ? checks => recordVerdicts(root, lang, checks, titles) : undefined })
+  const r = await checkVideoTitles(root, llm, lang, titles, { only: o.only, verdicts, stopped: o.write ? stops[lang] : undefined, record: o.write ? checks => recordVerdicts(root, lang, checks, titles) : undefined })
+  if (o.write && r.line) await saveMap(stopsFile, stops, { ...stops, [lang]: r.line })
+  return r
 }
 
 /** The command's usage: --out, or --write; --write reads and records the stored titles only, so never with --titles. */
