@@ -383,6 +383,9 @@ const captionSays = (text: string) => {
 const saysSomething = (text: string) => {
   if ((text.match(CREDIT_LABELS) ?? []).length >= 2) return false
   const said = captionSays(text), n = letterWords(said)
+  // Starting in lowercase once its label goes, it is the photo's list, not a sentence ("Ảnh: hai cá đực (…), một cá cái
+  // (…)"; a stand-in read of 15 Nov 2026).
+  if (/^[^\p{L}]*\p{Ll}/u.test(said)) return false
   return n > 8 || CAPTION_YEAR.test(said) || (n >= 4 && /[.!?…]["'”’)]*$/u.test(said))
 }
 /** The block's own words without the caption's label and credit: only words change, never a tag. */

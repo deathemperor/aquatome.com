@@ -419,7 +419,6 @@ test('a source\'s photo caption or credit left as a block of its own: cut, in ea
     ['Lá mục cũng là thức ăn cho cá bột của một số loài © Jane Example', 'Lá mục cũng là thức ăn cho cá bột của một số loài'],
     [`${'Hội thảo có người nuôi cá từ nhiều nơi trong vùng. '.repeat(8)}© Example Group`, 'Hội thảo có người nuôi cá từ nhiều nơi trong vùng. '.repeat(8).trim()],
     ['Hình 1. Phức hợp này chia thành ba nhóm. © Jane Example', 'Phức hợp này chia thành ba nhóm.'],
-    ['Gambar: ikan jantan di sebelah kiri.', 'ikan jantan di sebelah kiri.'],
     ['P. partipentazona khá dễ nhận ra. © Jane Example © J. Example', 'P. partipentazona khá dễ nhận ra.'],
     ['Jane Example mô tả loài này năm 1989 © J. Example', 'Jane Example mô tả loài này năm 1989'],
     ['Hồ Malawi có hơn 400 loài cichlid đã được mô tả. Ảnh © Jane Example', 'Hồ Malawi có hơn 400 loài cichlid đã được mô tả.'],
@@ -430,7 +429,9 @@ test('a source\'s photo caption or credit left as a block of its own: cut, in ea
     expect(dropPhotoCaptions(`${care}<p>${caption}</p>${care}`), caption).toBe(`${care}<p>${kept}</p>${care}`)
   }
   expect(dropPhotoCaptions('<p>Hình: <em>Cyrtocara moorii</em> là một trong hơn 400 loài cichlid được mô tả từ hồ Malawi. © Jane Example</p>')).toBe('<p><em>Cyrtocara moorii</em> là một trong hơn 400 loài cichlid được mô tả từ hồ Malawi.</p>')
-  for (const bare of ['Dạng vây đỏ của Y. modesta © Jane Example', 'Cá trong ảnh © Jane Example', 'Rêu java. © Jane Example'])
+  // A list of what the photo shows, in lowercase once its label goes, isn't a sentence: it goes whole too.
+  for (const bare of ['Dạng vây đỏ của Y. modesta © Jane Example', 'Cá trong ảnh © Jane Example', 'Rêu java. © Jane Example', 'Gambar: ikan jantan di sebelah kiri.',
+    'Ảnh: hai cá đực (để ý màu đỏ quanh miệng), một cá đực khác, một cá cái (để ý phần bụng tròn), một cá cái chưa trưởng thành.'])
     expect(dropPhotoCaptions(`${care}<p>${bare}</p>`), bare).toBe(care)
   // In a list item, a div, or set in italics.
   expect(dropPhotoCaptions(`${care}<ul><li>Ảnh: Nguyễn Văn A</li></ul><div>© Jane Example</div><p><em>Ảnh: Trần Thị B</em></p>`)).toBe(care)
