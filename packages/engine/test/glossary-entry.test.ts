@@ -270,6 +270,12 @@ test('an entry\'s length: 900 and 60 a named kind, or 400; one trim note past it
   expect(lengthNotes(`<p>${'nước '.repeat(1300)}</p>${kinds(16, 58)}`, 16)).toEqual({ notes: ['The entry is 2263 words: hold it to about 1860, about 60 a kind, and leave what is left out to the pages that use the term.'], stop: true })
   // A list inside an item counts as its own items (Codex, 14 Nov 2026).
   expect(lengthNotes(`<ul><li>Hai loại ${'gỗ '.repeat(50)}<ul><li>${'đá '.repeat(50)}</li><li>${'cát '.repeat(95)}</li></ul></li></ul>`, 3).notes).toEqual([expect.stringMatching(/^An item is 95 words, at most about 60: "cát cát/)])
+  // A term with kinds and its own length in the notes file is held to its own (the owner, 15 Nov 2026: "what does each
+  // look like?"; a kind's picture carries its look, so its item needs a line or two): 600 words of 500 is a note, past
+  // 575 a stop, where the kinds' rule would let 1,860 pass.
+  expect(lengthNotes(`<p>${'nước '.repeat(600)}</p>`, 16, 500)).toEqual({ notes: ['The entry is 600 words: hold it to about 500, and leave what is left out to the pages that use the term.'], stop: true })
+  expect(lengthNotes(`<p>${'nước '.repeat(520)}</p>`, 16, 500)).toEqual({ notes: ['The entry is 520 words: hold it to about 500, and leave what is left out to the pages that use the term.'], stop: false })
+  expect(lengthNotes(`<p>${'nước '.repeat(600)}</p>`, 16)).toEqual({ notes: [], stop: false })
   // A term whose notes file names no kinds holds to about 400, however its lists look: pH's four bold labels are not kinds
   // (its draft ran to 916 words; this one, 917).
   const ph = `<ul>${['Làm pH lên:', 'Làm pH xuống:', 'Lá bàng và lũa:', 'Không đáng lo:'].map(k => `<li><strong>${k}</strong> ${'đá '.repeat(226)}</li>`).join('')}</ul>`
