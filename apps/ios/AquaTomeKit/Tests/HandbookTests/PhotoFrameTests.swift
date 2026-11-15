@@ -94,3 +94,28 @@ private func vectors(_ name: String) throws -> [String: Any] {
   }
   #expect(x == 0.5 && abs(y - 0.44) < 1e-9)
 }
+
+@Test func eachCardAndHeadFramesAsTheSharedCasesSay() throws {
+  let file = try vectors("photo-crop-vectors.json")
+  let tolerance = try #require(file["tolerance"] as? Double)
+  let section = try #require(file["clear"] as? [String: Any])
+  #expect(section["share"] as? Double == PhotoFrame.clearShare && section["points"] as? Double == PhotoFrame.clearPoints)
+  #expect(section["ownEdge"] as? Double == PhotoFrame.ownEdge)
+  let cases = try #require(section["cases"] as? [[String: Any]])
+  #expect(!cases.isEmpty)
+  for c in cases {
+    let note = c["note"] as? String ?? "?"
+    let w = try #require(c["w"] as? Double), h = try #require(c["h"] as? Double)
+    let width = try #require(c["width"] as? Double), height = try #require(c["height"] as? Double)
+    let box = (c["box"] as? [String: Double]).map { PhotoBox(x: $0["x"] ?? 0, y: $0["y"] ?? 0, w: $0["w"] ?? 0, h: $0["h"] ?? 0) }
+    let frame = try #require(c["frame"] as? [String: Any])
+    let got = PhotoFrame.clear(aspect: w / h, box: box, width: width, height: height)
+    if frame["fit"] as? String == "whole" {
+      #expect(got == .whole, "\(note): \(got)")
+    } else {
+      let x = try #require(frame["x"] as? Double), y = try #require(frame["y"] as? Double)
+      guard case let .cover(gx, gy) = got else { Issue.record("\(note): whole, not cover at \(x), \(y)"); continue }
+      #expect(abs(gx - x) <= tolerance && abs(gy - y) <= tolerance, "\(note): \(gx), \(gy), not \(x), \(y)")
+    }
+  }
+}

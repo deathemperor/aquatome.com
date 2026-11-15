@@ -38,7 +38,6 @@ struct SpeciesPage: View {
   @Environment(\.scenePhase) private var phase
   @Environment(\.colorScheme) private var scheme
   @Environment(\.accessibilityReduceMotion) private var reduceMotion
-  @Environment(\.accessibilityReduceTransparency) private var opaque
   @Environment(\.v2FootGround) private var footGround
   @Environment(AccountModel.self) private var account
   @Environment(ChatStore.self) private var chat
@@ -150,7 +149,7 @@ struct SpeciesPage: View {
           .accessibilityLabel(Text("Đóng"))
           .accessibilityIdentifier("v2-close-post")
       }
-      .v2Glass(inGlass)
+      .v2Glass(true)
     }
     // Over the photo and its colour, the bar and status bar in white. The page's own after them, never nil: iOS can keep the
     // dark one after nil, white words on the white band.
@@ -190,7 +189,7 @@ struct SpeciesPage: View {
           .accessibilityLabel(Text("Thêm"))
           .accessibilityIdentifier("page-more")
       }
-      .v2Glass(inGlass)
+      .v2Glass(true)
     }
     // The bookmark isn't in the bar to fill: a save from the ⋯ is felt.
     .sensoryFeedback(.success, trigger: savedFromMore)
@@ -480,15 +479,11 @@ struct SpeciesPage: View {
   }
 
 
-  /// Whether the bar's buttons stand over the photo: there on dark circles of our own; once the band comes, on the page's
-  /// colour and past it, in iOS's glass, as iOS's back button is (Design's parity, 13 Nov: on the colour the ⋯ was bare
-  /// dots beside the back in its tinted glass).
+  /// Whether the bar stands over the photo, at rest on a page with a banner: the navigator's title takes a dark capsule there.
   private var overPhoto: Bool { hero != nil && !scrolled && wholeHead == nil }
-  /// Whether the bar's buttons are in iOS's glass: once the band comes, and on a page with no photo. Not over a photo, nor
-  /// on the colour above a whole head, where they're white with no circle and no glass (Design's mock of 11 Nov).
-  private var inGlass: Bool { hero == nil || scrolled }
-
-  /// White on a dark circle over the photo, in a 44-point tap area; once the band comes, in iOS's glass (`v2Glass`).
+  /// The bar's own buttons, in iOS's glass at rest too, over the photo and on the colour, as iOS's back button is beside
+  /// them (Design's parity of 14 Nov: the ⋯ was a dark circle of ours, or bare on a whole head's colour, beside the back's
+  /// glass). In a 44-point tap area.
   private func round(_ symbol: String) -> some View {
     Image(systemName: symbol)
       .font(.body.weight(.semibold))
@@ -496,10 +491,6 @@ struct SpeciesPage: View {
       .dynamicTypeSize(...DynamicTypeSize.xLarge)
       .foregroundStyle(colourAt.top ? Color.white : Color.primary)
       .frame(width: 44, height: 44)
-      .background {
-        Circle().fill(.black.opacity(overPhoto ? PageTop.ground(reduceTransparency: opaque) : 0))
-          .frame(width: PageTop.disc, height: PageTop.disc)
-      }
       .contentShape(Circle())
   }
 
