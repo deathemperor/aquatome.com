@@ -84,11 +84,11 @@ jobs:
         run: scripts/install-browser.sh chromium
       - name: Browser checks on the fixture build, as a phone and a computer
         run: pnpm --filter site e2e
-      # What the owner's report draws, in the browser the owner's iPhone has, and a fish page's photo column in a
-      # computer's Safari. Chromium has none of their faults.
+      # What the owner's report draws and a material page's edge, in the browser the owner's iPhone has, and a fish
+      # page's photo column in a computer's Safari. Chromium has none of their faults.
       - name: Install WebKit for Playwright
         run: scripts/install-browser.sh webkit
-      - name: The owner's picture as an iPhone, and the photo column as a Mac
+      - name: The owner's picture and a material page as an iPhone, and the photo column as a Mac
         run: pnpm --filter site e2e --project=iphone --project=safari
         env:
           E2E_WEBKIT: '1'
