@@ -125,6 +125,34 @@
   ],
   "vi/glossary/ph": [
     {
+      "at": "2026-11-16T00:55:17Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Lá bàng hạ pH chậm, có thể tới khoảng 1–2 đơn vị.\" (not \"Lá bàng hạ pH nhẹ và chậm.\": Rule 12: \"Lá bàng hạ pH nhẹ và chậm.\" uses \"nhẹ\" and leaves out the range. It must state the range as a ceiling, without \"nhẹ\": \"Lá bàng hạ pH chậm, có thể tới khoảng 1–2 đơn vị.\" / it drops the figure 1, the figure 2, t…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Trước khi set bể, đo pH nước máy hoặc nước giếng xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\" (not \"Trước khi set bể, đo pH nước máy xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\": Rule 12: \"đo pH nước máy xem có h…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,2 đơn vị, rồi đo lại.\" (not \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,5 đơn vị.\": Rule 12: \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,5 đơn vị\" uses the faster pace from source 1. It must use the slower pace from so…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Khi cá ngộ độc amoniac, thay 50% nước.\" (not \"Khi cá ngộ độc amoniac, thay 25–50% nước, và nếu cá chịu được thì hạ pH xuống khoảng 6,0–6,5.\": Rules 4 and 12: \"Khi cá ngộ độc amoniac, thay 25–50% nước\" gives 25–50%. This entry and the nitrogen-cycle entry must share one figure, 50%. It should read \"Khi cá …",
+        "Rules 4 and 12: Indian almond leaves are said to lower pH in two places: \"Lá bàng và lũa: tanin trong chúng làm pH xuống.\" and \"Lá bàng hạ pH chậm, có thể tới khoảng 1–2 đơn vị.\" THIS TERM asks for Indian almond leaves in one sentence. The first line should cover only driftwood (lũa), and the leaves should appear only in \"Lá bàng hạ pH chậm, có thể tới khoảng 1–2 đơn vị.\""
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-16T00:55:17Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Rules 6 and 12: \"cichlid Rift Lake\" in \"Cá neon vua ở Rio Negro sống trong nước dưới pH 5,5, còn cichlid Rift Lake ưa pH 8,0–9,0.\": THIS TERM requires \"cichlid hồ châu Phi\", as it was written before, and never \"cichlid Rift Lake\".",
+        "Rule 12: \"Nếu dùng CO2 để hạ pH, ghi lại pH trước khi bật CO2, đo 30 phút một lần trong lúc chạy và dừng khi pH thấp hơn mức ban đầu khoảng 1 đơn vị.\": THIS TERM forbids \"Nếu dùng CO2 để hạ pH…\". The CO2 limit must be given as a cap on how far pH may fall while the CO2 runs, not as a way to lower the tank's pH, and it must say \"tắt CO2\", for example \"Khi châm CO2, pH tụt trong lúc CO2 chạy: ghi p…",
+        "Rules 1 and 12: \"Lá bàng hạ pH nhẹ và chậm, khoảng 1–2 đơn vị.\": THIS TERM forbids \"nhẹ\" next to the figure, because two units isn't light. It also wants the range given as a ceiling, as in \"Lá bàng hạ pH chậm, có thể tới khoảng 1–2 đơn vị.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-15T04:11:25Z",
       "model": "sonnet",
       "cli": "2.1.323",
@@ -181,30 +209,6 @@
       "notes": [
         "\"Cá neon vua sống ở nước dưới pH 5,5, còn cichlid hồ châu Phi ưa pH 8,0–9,0.\": the facts don't carry it (unsupported, supported, supported, unsupported, unsupported, unsupported): drops 'from the Rio Negro' qualifier on cardinal tetras / Drops the 'from the Rio Negro' qualifier, so a claim about wild cardinals in their native water reads as true of all cardinal tetras. / Drops 'from the Rio Negro…",
         "Rule 12: The log-scale line \"Thang pH là thang logarit, mỗi nấc cách nhau 10 lần.\" is missing the worked example that THIS TERM requires. It should read \"Mỗi nấc cách nhau 10 lần, tức là pH 4,0 chua gấp 10 lần pH 5,0 và gấp 100 lần pH 6,0.\" A trim for length must never take this example out."
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-14T22:29:58Z",
-      "model": "sonnet",
-      "cli": "2.1.323",
-      "score": 1,
-      "notes": [
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Trước khi set bể, đo pH nước máy hoặc nước giếng xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\" (not \"Khi set bể, trước hết đo pH nước máy xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\": Rule 12: \"Khi set bể, trước h…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,5 đơn vị, rồi đo lại.\" (not \"Dùng thứ nào thì cũng nâng pH từ từ, tránh thay đổi đột ngột.\": Rules 4 and 12: \"Dùng thứ nào thì cũng nâng pH từ từ, tránh thay đổi đột ngột.\" The phrase \"tránh thay đổi đột ngột\" repeats the warning about sudden chang…"
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-14T22:29:58Z",
-      "model": "sonnet",
-      "cli": "2.1.323",
-      "score": 1,
-      "notes": [
-        "Rule 12: The mistakes list has \"Chỉnh pH quá nhanh. Muốn đổi pH thì đổi chậm để cá và cây không bị sốc, và luôn giữ pH trong khoảng loài đó chịu được.\" but leaves out the fish-care page's caution \"pH đổi đột ngột có thể làm cá chết.\" THIS TERM says that line must stay with \"Chỉnh pH quá nhanh.\"",
-        "The entry is 606 words: hold it to about 600, and leave what is left out to the pages that use the term."
       ],
       "attempt": "rewrite",
       "kept": false
