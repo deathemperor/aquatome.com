@@ -2107,10 +2107,12 @@
     "reason": "no page, and GBIF has no species of that name"
   },
   "H1Jb3F0lyMg": {
-    "at": "2026-11-07",
+    "at": "2026-11-16",
     "title": "Endler's Livebearer (JAPAN BLUE, K Class)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "H3-QKNY1xXM": {
     "at": "2026-11-07",

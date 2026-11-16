@@ -64595,7 +64595,8 @@
   ],
   "products": [
    "Dennerle"
-  ]
+  ],
+  "mendTried": "2026-11-16"
  },
  "vi/guides/youtube-0kgXMVQ7o0A": {
   "at": "2026-11-16",
@@ -65355,7 +65356,8 @@
     "by": "model"
    }
   ],
-  "products": []
+  "products": [],
+  "mendTried": "2026-11-16"
  },
  "vi/guides/youtube-1TkcARfJKCQ": {
   "at": "2026-11-15",
@@ -67254,41 +67256,42 @@
   ]
  },
  "vi/guides/youtube-609KjgRjavo": {
-  "at": "2026-11-13",
-  "hash": "2469a59322b4d3e2",
+  "at": "2026-11-16",
+  "hash": "f23929ad1484b083",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "price",
+    "check": "source",
     "part": "P1",
-    "quote": "bộ CO2 men đường (bio CO2) giá khoảng 20 bảng Anh",
-    "why": "Price given in British pounds, meaningful only abroad.",
+    "quote": "Loại lọc dùng ở đây ghi lưu lượng khoảng 240–250 lít/giờ",
+    "why": "Refers to the source author's own filter with a bare 'ở đây'.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P1",
-    "quote": "Cây ở đây được lấy từ một bể đang có sẵn",
-    "why": "Refers to the original writer's own other tank as if the reader knew it.",
+    "quote": "Bể chưa có tép ốc dọn dẹp, chỉ có một hai con ốc theo cây vào",
+    "why": "Narrates the source's own tank as if the reader knew it.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P1",
-    "quote": "theo cảm nhận riêng thì khi cây đã phủ xanh quanh đá",
-    "why": "The original writer's personal voice.",
+    "quote": "Ở đây hai bể bằng nhau nên thả thẳng.",
+    "why": "First-person account of the source's own tanks via bare 'ở đây'.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P1",
-    "quote": "Con cá này đã quen bể sáng nên không sao",
-    "why": "Refers to the source's own betta as if the reader knew it.",
+    "quote": "Bể này hợp với một con betta xanh",
+    "why": "Bare 'bể này' refers to the source's demo tank.",
     "by": "model"
    }
   ],
-  "products": []
+  "products": [],
+  "mendTried": "2026-11-16"
  },
  "vi/guides/youtube-60GLR9gl-X0": {
   "at": "2026-11-08",
@@ -68745,85 +68748,51 @@
   "products": []
  },
  "vi/guides/youtube-8qCMy4BnnDI": {
-  "at": "2026-11-11",
-  "hash": "cd966be8e5f6152e",
+  "at": "2026-11-16",
+  "hash": "a90f9ccd67cb66ae",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "price",
+    "check": "elsewhere",
     "part": "P1",
-    "quote": "Hai đèn thủy sinh mua sẵn đang dùng giá khoảng 200 bảng",
-    "why": "Price given in British pounds.",
-    "by": "model"
-   },
-   {
-    "check": "price",
-    "part": "P1",
-    "quote": "còn bộ tự ráp chưa tới một phần ba số đó, khoảng 60–70 bảng",
-    "why": "Price given in British pounds.",
-    "by": "model"
-   },
-   {
-    "check": "price",
-    "part": "P1",
-    "quote": "Máy đo PAR khá đắt, khoảng 160 bảng",
-    "why": "Price given in British pounds.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Theo ảnh chụp thì đáy sông phủ lá mục, que củi và bùn hữu cơ (mulm)",
-    "why": "Refers to photos that are not on the page.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Ảnh sông Tapajós không có nhiều lũa to",
-    "why": "Refers to a photo the page does not have.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Hai đèn thủy sinh mua sẵn đang dùng",
-    "why": "Talks about the original writer's own lights as if the reader knew them.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Phần đi dây điện ở đây không hướng dẫn",
-    "why": "Points at what the original source chose not to show.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Chưa thử làm không có sỏi nên không chắc nó bắt buộc",
-    "why": "The original writer speaks about their own experience in the first person.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Lần này không để nguyên lá vì muốn chúng tạo thành một lớp thảm",
-    "why": "Refers to the writer's earlier setups as if the reader knew them.",
+    "quote": "Lá khô nhặt dưới gốc cây (ở đây là lá phỉ) có thể dùng được.",
+    "why": "Hazel is a European tree; keepers in Vietnam don't gather its leaves.",
     "by": "model"
    },
    {
     "check": "elsewhere",
     "part": "P1",
-    "quote": "dùng cầu chì 3 A, hộp nối và phích cắm chống nước cho an toàn",
-    "why": "A 3 A plug fuse belongs to British wiring, not to plugs in Vietnam.",
+    "quote": "đất ao thủy sinh (aquatic pond soil hay aquatic compost)",
+    "why": "Aquatic compost is a British garden-centre product, not what keepers in Vietnam buy for a planted tank.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P1",
+    "quote": "ngâm cùng viên clo dùng cho bồn tắm nóng cho trắng lại",
+    "why": "Hot tub chlorine tablets are a household product from abroad, not something most readers in Vietnam have.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Đo bằng máy đo PAR (đo ngoài nước, khi bể chưa có nước) thì sát đáy được khoảng 50",
+    "why": "Gives the source's own measurements of its own tank as if the reader knew that tank.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Ở bể này cá thả vừa phải, vì thả đông dễ làm mất vẻ thoáng của bể.",
+    "why": "A bare 'bể này' points to the source's own tank.",
     "by": "model"
    }
   ],
   "products": [
    "Purigen"
-  ]
+  ],
+  "mendTried": "2026-11-16"
  },
  "vi/guides/youtube-8SCxf-L1Nww": {
   "at": "2026-11-08",
@@ -69424,7 +69393,8 @@
     "by": "model"
    }
   ],
-  "products": []
+  "products": [],
+  "mendTried": "2026-11-16"
  },
  "vi/guides/youtube-9zhkRJllCNg": {
   "at": "2026-11-08",
@@ -70288,7 +70258,8 @@
     "quote": "Có thể cài châm 10 ml phân nước Tropica Specialised mỗi ngày."
    }
   ],
-  "sourceRead": true
+  "sourceRead": true,
+  "mendTried": "2026-11-16"
  },
  "vi/guides/youtube-awbC9AkUd6A": {
   "at": "2026-11-08",
@@ -71519,7 +71490,8 @@
     "by": "model"
    }
   ],
-  "products": []
+  "products": [],
+  "mendTried": "2026-11-16"
  },
  "vi/guides/youtube-CdDl8zqe1j8": {
   "at": "2026-11-08",
@@ -71651,22 +71623,15 @@
     "fix": "amphipod (giáp xác nhỏ)"
    }
   ],
-  "products": []
+  "products": [],
+  "mendTried": "2026-11-16"
  },
  "vi/guides/youtube-CfcC7FQV-vM": {
-  "at": "2026-11-10",
-  "hash": "a8a4d6e6c9dac9e2",
+  "at": "2026-11-16",
+  "hash": "cbee81e663c365ae",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "source",
-    "part": "P5",
-    "quote": "hướng dẫn 26 trang cho người mới của Vin Kutty, một người chơi ở Mỹ",
-    "why": "Sends the reader to a guide by a US hobbyist they don't know and the page doesn't include.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": [
    "TwinStar 600 S",
    "Osmocote"
@@ -71782,7 +71747,8 @@
    "Fluval Stratum",
    "Seachem Flourite Dark",
    "Seachem Onyx Sand"
-  ]
+  ],
+  "mendTried": "2026-11-16"
  },
  "vi/guides/youtube-cGTFcYJ_BQs": {
   "at": "2026-11-08",
@@ -75747,7 +75713,8 @@
   "products": [
    "Dennerle",
    "Accu-Clear"
-  ]
+  ],
+  "mendTried": "2026-11-16"
  },
  "vi/guides/youtube-GtRKlzO4MNE": {
   "at": "2026-11-08",
@@ -76273,7 +76240,8 @@
     "fix": "decal mờ"
    }
   ],
-  "products": []
+  "products": [],
+  "mendTried": "2026-11-16"
  },
  "vi/guides/youtube-HgM7_AzVv2w": {
   "at": "2026-11-15",
@@ -77242,7 +77210,8 @@
   ],
   "products": [
    "Matala"
-  ]
+  ],
+  "mendTried": "2026-11-16"
  },
  "vi/guides/youtube-hY1gr0_Xr-A": {
   "at": "2026-11-10",
@@ -78873,32 +78842,18 @@
   ]
  },
  "vi/guides/youtube-jPF9kXcR3ZA": {
-  "at": "2026-11-14",
-  "hash": "36ddcbb3222719fd",
+  "at": "2026-11-16",
+  "hash": "193357187d860a46",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "units",
-    "part": "P1",
-    "quote": "tổng cộng dưới 2,5 cm",
-    "why": "2.5 cm is a converted 'under an inch', not a figure a Vietnamese keeper would use.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Theo kinh nghiệm riêng thì loại nền đất này có vẻ giữ được pH thấp",
-    "why": "The original writer's personal voice and experience, unknown to the reader.",
-    "by": "model"
-   },
-   {
     "check": "words",
     "part": "P1",
     "quote": "Stress quá mức có thể khiến cá lên cơn đau tim.",
-    "why": "Calque of the English 'heart attack'; keepers talk about fish going into shock.",
+    "why": "\"Lên cơn đau tim\" is a calque of the English \"heart attack\"; keepers in Vietnam talk about a fish going into shock.",
     "by": "model",
-    "fix": "cá bị sốc rồi chết"
+    "fix": "Stress quá mức có thể khiến cá bị sốc mà chết."
    }
   ],
   "products": []
@@ -79510,7 +79465,8 @@
    "Twinstar 300E",
    "Tropica Specialised Nutrition",
    "1-2-Grow"
-  ]
+  ],
+  "mendTried": "2026-11-16"
  },
  "vi/guides/youtube-kbXHTTdSWQg": {
   "at": "2026-11-15",
@@ -80289,7 +80245,8 @@
   ],
   "products": [
    "Fluval FX6"
-  ]
+  ],
+  "mendTried": "2026-11-16"
  },
  "vi/guides/youtube-L0mqUXWHFKY": {
   "at": "2026-11-16",
@@ -80881,7 +80838,8 @@
     "quote": "Với bể 240 cm đã chạy sẵn, châm khoảng bốn nắp."
    }
   ],
-  "sourceRead": false
+  "sourceRead": false,
+  "mendTried": "2026-11-16"
  },
  "vi/guides/youtube-LiCZUjqLck8": {
   "at": "2026-11-09",
@@ -81123,7 +81081,8 @@
   "products": [
    "Tropica",
    "1-2-Grow"
-  ]
+  ],
+  "mendTried": "2026-11-16"
  },
  "vi/guides/youtube-LmUGilbUlzY": {
   "at": "2026-11-13",
@@ -81555,7 +81514,8 @@
     "by": "model"
    }
   ],
-  "products": []
+  "products": [],
+  "mendTried": "2026-11-16"
  },
  "vi/guides/youtube-LTq4EuuY_iA": {
   "at": "2026-11-13",
@@ -82578,7 +82538,8 @@
   ],
   "products": [
    "ADA Nature Aquarium Sand"
-  ]
+  ],
+  "mendTried": "2026-11-16"
  },
  "vi/guides/youtube-mSA2Qe9dv44": {
   "at": "2026-11-15",
@@ -85058,7 +85019,8 @@
     "fix": "cây kiếm"
    }
   ],
-  "products": []
+  "products": [],
+  "mendTried": "2026-11-16"
  },
  "vi/guides/youtube-P3d7DeNmiko": {
   "at": "2026-11-09",
@@ -85273,7 +85235,8 @@
   "products": [
    "Fluval FX6",
    "keo 502"
-  ]
+  ],
+  "mendTried": "2026-11-16"
  },
  "vi/guides/youtube-PflID7JtZ3U": {
   "at": "2026-11-10",
@@ -88562,34 +88525,21 @@
   ]
  },
  "vi/guides/youtube-swLD-a1SkRQ": {
-  "at": "2026-11-11",
-  "hash": "d2dba526f277bf42",
+  "at": "2026-11-16",
+  "hash": "75eccab03a35634d",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "price",
-    "part": "P1",
-    "quote": "Lọ dùng ở đây giá khoảng 4 bảng Anh, chừng 6 USD.",
-    "why": "The price is in British pounds and US dollars, not Vietnamese đồng.",
-    "by": "model"
-   },
-   {
-    "check": "price",
-    "part": "L1",
-    "quote": "giá khoảng 4 bảng Anh (chừng 6 USD)",
-    "why": "The summary repeats the price in foreign currencies.",
-    "by": "model"
-   },
-   {
     "check": "source",
     "part": "P1",
-    "quote": "nền chiếm khoảng một phần ba lọ là hơi nhiều. Lần sau nên bớt lại.",
-    "why": "This is the original creator's account of their own jar build, written as if the reader had seen it.",
+    "quote": "Bể này không có lọc, không châm CO2, không có sưởi.",
+    "why": "A bare \"bể này\" points at the writer's own tank as if the reader knew it.",
     "by": "model"
    }
   ],
-  "products": []
+  "products": [],
+  "mendTried": "2026-11-16"
  },
  "vi/guides/youtube-sWWz9DVKGXE": {
   "at": "2026-11-11",
@@ -91425,7 +91375,8 @@
    "Krylon Fusion",
    "Oase",
    "AquaMax Eco Premium 3000"
-  ]
+  ],
+  "mendTried": "2026-11-16"
  },
  "vi/guides/youtube-wHma4dxeecU": {
   "at": "2026-11-08",
