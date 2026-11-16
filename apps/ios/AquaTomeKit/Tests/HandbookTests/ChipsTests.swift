@@ -43,6 +43,19 @@ private func index(_ chips: String?) throws -> HandbookIndex {
   #expect(try index(#"[{"id":"koi","name":"Koi","order":1,"count":1,"members":["koi"]}]"#).home?.chips.first.map { $0.guides + $0.videos } == [])
 }
 
+@Test func aChipNamesTheFishWhosePhotoItShows() throws {
+  // The site adds `imgOf` (16 Nov): the member whose photo the chip shows, so its page can name and link that fish.
+  let named = dia.replacingOccurrences(of: #""imgBox":"#, with: #""imgOf":"symphysodon-aequifasciatus","imgBox":"#)
+  let ix = try index("[\(named),\(laHan)]")
+  let chips = try #require(ix.home?.chips)
+  #expect(chips[0].imgOf == "symphysodon-aequifasciatus")
+  // A site before it, or a chip with no photo: none.
+  #expect(chips[1].imgOf == nil)
+  // Kept on the phone with the rest of the index.
+  let again = try JSONDecoder().decode(HandbookIndex.self, from: JSONEncoder().encode(ix))
+  #expect(again.home?.chips.first?.imgOf == "symphysodon-aequifasciatus")
+}
+
 @Test func theChipsAreInTheirOrderWhateverTheListsOrder() throws {
   #expect(try index("[\(laHan),\(dia)]").home?.chips.map(\.id) == ["dia", "la-han"])
 }
