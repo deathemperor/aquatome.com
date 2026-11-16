@@ -1,82 +1,82 @@
 {
   "vi/glossary/artemia": [
     {
-      "at": "2026-11-15T03:01:37Z",
+      "at": "2026-11-16T03:04:16Z",
       "model": "sonnet",
-      "cli": "2.1.323",
+      "cli": "2.1.325",
       "score": 1,
       "notes": [
-        "Loose, left as written (not placeable): \"Trứng Artemia: trứng khô còn vỏ, phải ấp trong nước muối mới có ấu trùng Artemia tươi sống.\"",
-        "Loose, reworded: \"Bộ ấp bán ở Việt Nam thường dùng bình hình phễu.\" → \"Bộ ấp bán ở Việt Nam dùng bình hình phễu.\" (supported)",
-        "Loose, reworded: \"Không còn vỏ nên cá con ăn được hết, và bớt nguy cơ sình bụng hay tắc ruột vì vỏ.\" → \"Không còn vỏ nên cá con ăn được hết, và bớt nguy cơ tắc ruột vì vỏ.\" (supported)",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Ở nhiệt độ này trứng thường nở sau 18–24 giờ, nước lạnh thì lâu hơn, có khi tới 48 giờ.\" (not \"Ở nhiệt độ này cần ấp 24–48 giờ: mùa hè khoảng 24 giờ, mùa đông tới 48 giờ.\": it drops the figure 18)",
-        "Rule 4: The aeration advice appears twice. Step 3 (\"sục đều vừa phải để trứng luôn lăn trong nước\") already says to aerate moderately. The mistakes list then repeats it as \"Sục quá yếu thì nước thiếu oxy. Sục quá mạnh thì trứng bắn lên dính thành bình, nằm trên mặt nước.\" It should be said once, in one place."
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở, nên vớt ra và cho cá ăn trong khoảng thời gian này.\" (not \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở.\": Rule 12: \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở.\" gives the 12-hour reason without the advice that goes with it. THIS TERM sa…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Ở nhiệt độ này trứng thường nở sau 18–24 giờ, nước lạnh thì lâu hơn, có khi tới 48 giờ.\" (not \"Ở nhiệt độ này ủ trứng 24–48 giờ: mùa hè khoảng 24 giờ, mùa đông có khi tới 48 giờ.\": it drops the figure 18, the advice \"nước lạnh thì lâu hơn\")",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Tắt sục và chờ khoảng 5 phút.\" (not \"Tắt sục và chờ khoảng 5–10 phút.\": Rules 4 and 12: \"Tắt sục và chờ khoảng 5–10 phút.\" sits beside \"hút ra trước mốc 10 phút\", so the 10 minutes is said twice. THIS TERM asks for one statement: turn the air off, wait about 5 minutes, and siphon before 10. It forbids \"ch…"
       ],
       "attempt": "rewrite",
       "kept": true
     },
     {
-      "at": "2026-11-15T03:01:37Z",
+      "at": "2026-11-16T03:04:16Z",
       "model": "sonnet",
-      "cli": "2.1.323",
+      "cli": "2.1.325",
       "score": 1,
       "notes": [
-        "Rules 12 and 5: The definition opens with the English name, \"Artemia có tên tiếng Anh là brine shrimp.\" THIS TERM says the definition must open with what Artemia is to a keeper: eggs hatched in salt water into nauplii, a live food for fry, small fish and shrimp. The English name should come after that sentence, never as the first one.",
-        "Rule 8: \"Decapsulated Artemia Cysts\" in \"Artemia tách vỏ sấy khô (Decapsulated Brine Shrimp Eggs, Decapsulated Artemia Cysts)\" is a product name. FACTS source 6 gives it only as the English name on one shop's product page. The kind's name \"Decapsulated Brine Shrimp Eggs\" is enough, so the product name should be dropped."
+        "Rule 12: The entry leaves out the other name \"tôm vụn\". THIS TERM says the other names are \"tôm vụn\" (one source) and \"brine shrimp\". The definition gives only \"Tên tiếng Anh của nó là brine shrimp.\" and altNames is empty.",
+        "Rule 12: The required sentence \"Ấu trùng đã sang giai đoạn thứ hai cũng khó cho cá bột bắt hơn.\" is missing. THIS TERM says it must be written back, word for word, beside the 12-hour sentence \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở, nên vớt ra và cho cá ăn trong khoảng thời gian này.\""
       ],
       "attempt": "rewrite",
       "kept": false
     },
     {
-      "at": "2026-11-15T02:16:51Z",
+      "at": "2026-11-16T02:02:29Z",
       "model": "sonnet",
       "cli": "2.1.323",
       "score": 1,
       "notes": [
-        "Loose, left as written (not placeable): \"Trứng Artemia: trứng khô còn vỏ, phải ấp trong nước muối mới có ấu trùng Artemia tươi sống.\"",
-        "Loose, reworded: \"Artemia là loài tôm li ti.\" → \"Artemia có tên tiếng Anh là brine shrimp.\" (supported)",
-        "Loose, reworded: \"Tới mốc 24 giờ, ấu trùng có thể sụt tới một phần năm trọng lượng và mất hơn một phần tư chất dinh dưỡng.\" → \"Nếu không được cho ăn, tới mốc 24 giờ ấu trùng có thể sụt tới một phần năm trọng lượng và mất hơn một phần tư chất dinh dưỡng.\" (supported)",
-        "Loose, reworded: \"Tới lúc đó cá bột cũng khó bắt chúng hơn.\" → \"Ấu trùng đã sang giai đoạn thứ hai cũng khó cho cá bột bắt hơn.\" (supported)",
-        "Loose, reworded and still loose: \"Không còn vỏ nên cá con ăn được hết, không bị sình bụng hay tắc ruột vì vỏ.\" → \"Không còn vỏ nên cá con ăn được hết, và bớt nguy cơ sình bụng hay tắc ruột vì vỏ.\" (loose, loose, loose)",
-        "Loose, reworded: \"Pha nước muối bằng muối hột không iot và nước máy, hoặc dùng nước biển.\" → \"Pha nước muối bằng muối hột không iot và nước máy đã khử clo, hoặc dùng nước biển.\" (supported)",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Ở nhiệt độ này trứng thường nở sau 18–24 giờ, nước lạnh thì lâu hơn, có khi tới 48 giờ.\" (not \"Ở nhiệt độ này nên ấp khoảng 24 giờ vào mùa hè, còn mùa đông thì tới 48 giờ.\": it drops the figure 18)",
-        "Loose, reworded: \"Rọi đèn pin vào đáy để gom ấu trùng lại.\" → \"Ấu trùng bị ánh sáng hút tới, nên có thể rọi đèn pin để gom chúng lại rồi hút ra.\" (supported)",
-        "The entry is 455 words: hold it to about 400, and leave what is left out to the pages that use the term.",
-        "The entry is 480 words: hold it to about 400, and leave what is left out to the pages that use the term."
-      ],
-      "attempt": "rewrite",
-      "kept": false,
-      "draft": "467cb6c95fa84826fbf5442512e050047ab41b98951707836f9f2e816dab01d6"
-    },
-    {
-      "at": "2026-11-15T02:16:51Z",
-      "model": "sonnet",
-      "cli": "2.1.323",
-      "score": 1,
-      "notes": [
-        "The entry is 605 words: hold it to about 400, and leave what is left out to the pages that use the term."
+        "The rewrite dropped from \"Bộ ấp bán ở Việt Nam dùng bình hình phễu.\" the advice \"Bộ ấp bán ở Việt Nam dùng bình hình phễu\" under Trứng Artemia, and nothing lets that sentence go: write it as it was, word for word.",
+        "The entry is 506 words: hold it to about 500, and leave what is left out to the pages that use the term."
       ],
       "attempt": "rewrite",
       "kept": false
     },
     {
-      "at": "2026-11-15T02:16:51Z",
+      "at": "2026-11-16T02:02:29Z",
       "model": "sonnet",
       "cli": "2.1.323",
-      "score": 0.95,
+      "score": 1,
       "notes": [
-        "\"Ấu trùng mới nở là thức ăn tươi sống quen thuộc nhất để ương cá bột và cho cá nhỏ ăn, nên ai muốn nuôi cá con lớn đều cần biết cách ấp.\": the facts don't carry it (unsupported, unsupported, unsupported): 'most familiar' and 'everyone needs to know' not in facts / 'most familiar' and 'everyone needs' not in facts",
-        "\"Chúng bơi lơ lửng nên cá bột dễ đớp, và đây là thức ăn đầu đời của nhiều loại cá con.\": the facts don't carry it (unsupported, unsupported, unsupported): swimming in mid-water and being many fry's first food not in facts / swimming suspended, first food of many fry not in facts / swimming suspended, easy to catch, first food not in facts",
-        "\"Chúng cũng lớn hơn, cá bột khó bắt hơn.\": the facts don't carry it (loose, unsupported, loose, unsupported, unsupported, unsupported): 'bigger' not stated; facts only say second-instar are harder to catch / 'grow bigger' not stated / 'bigger' implied by second instar, not stated / The facts say second-instar nauplii are harder for fry to catch. They never say the nauplii get larger, so the size …",
-        "Rule 10: \"thức ăn tươi sống quen thuộc nhất\" in the definition says Artemia is the most familiar live food. The FACTS make no such comparison with other live foods.",
-        "Rule 8: \"trứng Artemia sấy khô tách vỏ ăn liền\" in \"Còn bán dưới tên Artemia sấy khô, trứng Artemia sấy khô tách vỏ ăn liền\" is one shop's product name (source 6). The kind's name \"Artemia sấy khô\" is enough.",
-        "Rule 4: the entry says the salt water is made with \"nước máy đã khử clo\" (step 1) and tells the keeper to rinse in \"nước ngọt đã khử clo\" (step 6). The last paragraph then says the sources disagree on this (\"Chuyện đèn và nước máy thì các nguồn không thống nhất… thuốc khử clo đều không ảnh hưởng tới tỉ lệ nở\"). So the steps take a side on a point the entry calls disputed, and dechlorination is me…",
-        "Rule 4: the warning against iodized salt appears twice: \"muối hột không iot\" in step 1 and again as \"Dùng muối có iot\" under \"Sai lầm hay gặp\". It should be said once.",
-        "Rule 4: checking pH in soft water appears twice: step 4 (\"Nếu nhà dùng nước mềm, sau khi nở thử pH xem có đạt 8 không…\") and the last paragraph (\"pH trong nước mềm\"). It should be said once.",
-        "Rule 4: \"Liều và cách dùng: xem bài hướng dẫn chữa bệnh.\" sends the keeper elsewhere for doses and methods for medicated Artemia. The FACTS give no such advice, so the entry should only state the practice and leave it.",
-        "The entry is 1022 words: hold it to about 400, and leave what is left out to the pages that use the term."
+        "The rewrite dropped from \"Dùng nước dưới 22 °C hoặc trứng hết hạn.\" the figure 22, the advice \"Dùng nước dưới 22 °C\", the advice \"trứng hết hạn\", and nothing lets that sentence go: write it as it was, word for word.",
+        "The entry is 507 words: hold it to about 500, and leave what is left out to the pages that use the term."
       ],
-      "attempt": "first",
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-16T02:02:29Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở, nên vớt ra và cho cá ăn trong khoảng thời gian này.\" (not \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở.\": Rule 12: \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở.\" gives the reason without its advice. THIS TERM says the larvae are harveste…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Pha khoảng 30 g muối hột không iot mỗi lít nước, dù các công thức dao động từ khoảng 5 g mỗi lít tới mức này.\" (not \"Pha khoảng 30 g muối không iot mỗi lít nước.\": Rule 12: \"Pha khoảng 30 g muối không iot mỗi lít nước.\" gives only the working figure. THIS TERM wants the range in the same sentence: recipes…",
+        "Loose, reworded: \"Thả dây oxy xuống sát đáy bình, không gắn đá sủi, sục đều vừa phải để trứng luôn lăn trong nước.\" → \"Thả dây oxy xuống sát đáy bình, không gắn đá sủi, sục đều và vừa phải.\" (supported)",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Ở nhiệt độ này trứng thường nở sau 18–24 giờ, nước lạnh thì lâu hơn, có khi tới 48 giờ.\" (not \"Ở nhiệt độ này ủ trứng khoảng 24–48 giờ: mùa hè chừng 24 giờ, mùa đông có khi tới 48 giờ.\": it drops the figure 18, the advice \"nước lạnh thì lâu hơn\")",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Tắt sục và chờ khoảng 5 phút.\" (not \"Tắt sục và chờ 5–10 phút.\": Rules 4 and 12: \"Tắt sục và chờ 5–10 phút.\" sits beside \"hút ra trước mốc 10 phút\", so the 10 minutes is said twice. THIS TERM forbids \"chờ 5–10 phút\" next to the 10 minutes and wants one statement: wait about 5 minutes and siphon before 10.)",
+        "Rule 12: The line \"Ấu trùng đã sang giai đoạn thứ hai cũng khó cho cá bột bắt hơn.\" is missing. THIS TERM says it must be written back word for word, next to the 12-hour sentence \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở, nên vớt ra và cho cá ăn trong khoảng thời gian này.\"",
+        "Rule 12: The other name \"tôm vụn\" (source 4) appears nowhere: altNames is empty and the text doesn't mention it. THIS TERM says the term's other names are \"tôm vụn\" and \"brine shrimp\", so only \"brine shrimp\" is given (\"Tên tiếng Anh của nó là brine shrimp.\").",
+        "The entry is 501 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-16T01:41:06Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 0.97,
+      "notes": [
+        "\"Trứng Artemia nuôi ở Việt Nam lấy từ ruộng muối Vĩnh Châu, nơi Artemia được đưa về từ đầu thập niên 1980 vì nước ta vốn không có Artemia.\": the facts don't carry it (contradicts, contradicts, contradicts): farming spread beyond Vĩnh Châu; domestic market >99% imported eggs / imported eggs were over 99% of the domestic market; Vĩnh Châu eggs rarely used / imported eggs were over 99% of the domest…",
+        "The entry is 505 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
       "kept": false
     }
   ],
