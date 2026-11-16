@@ -3,6 +3,12 @@
   "name": "Caroní",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.4,
+    "at": "2026-11-16T17:17:56.439Z",
+    "why": "\"Caroní\" is the bare name without the Indonesian kind word \"Sungai\", and an Indonesian atlas would write \"Sungai Karoni\" or \"Sungai Caroní\", so the bare name is incomplete."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

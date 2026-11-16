@@ -3,6 +3,12 @@
   "name": "Cuanza",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-16T05:41:16.287Z",
+    "why": "Cuanza is the modern spelling of the Angolan river, but the source lists it among rivers and a Malay atlas would add the kind word \"Sungai\", so the bare name is incomplete."
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

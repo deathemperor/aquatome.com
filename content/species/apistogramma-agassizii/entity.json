@@ -19,9 +19,10 @@
         "BR"
       ],
       "regions": [
-        "Amazon/Solimões basin",
+        "Amazon",
         "Río Ucayali",
-        "Capim River"
+        "Capim River",
+        "Lake Manacapurú"
       ],
       "sources": [
         "seriouslyfish"
@@ -35,9 +36,17 @@
             "BR"
           ],
           "regions": [
-            "Amazon/Solimões basin",
+            "Amazon",
             "Río Ucayali",
             "Capim River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The lectotype originates from Lake Manacapurú in Amazonas state, northwestern Brazil, just upstream from the city of Manaus and fed by the main Amazon river channel.",
+          "countries": [],
+          "regions": [
+            "Lake Manacapurú"
           ]
         }
       ]

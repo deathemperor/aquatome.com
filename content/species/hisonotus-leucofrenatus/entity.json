@@ -10,6 +10,146 @@
     "brazil",
     "ribeira-de-iguape"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Ribeira de Iguape"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Common name: Niger Oto. Type locality: Rio das Pedras of Rio Ribeira, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Ribeira de Iguape River basin, rivers of São Paulo State, Brazil.",
+          "countries": [],
+          "regions": [
+            "Ribeira de Iguape"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339240,
+      "total": 354,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "BR",
+          354
+        ]
+      ],
+      "cells": [
+        [
+          -52.03125,
+          -30.9375,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -30.9375,
+          56,
+          56
+        ],
+        [
+          -50.625,
+          -29.53125,
+          23,
+          23
+        ],
+        [
+          -50.625,
+          -28.125,
+          6,
+          6
+        ],
+        [
+          -50.625,
+          -26.71875,
+          3,
+          3
+        ],
+        [
+          -50.625,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -29.53125,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -28.125,
+          17,
+          17
+        ],
+        [
+          -49.21875,
+          -26.71875,
+          100,
+          100
+        ],
+        [
+          -49.21875,
+          -25.3125,
+          59,
+          59
+        ],
+        [
+          -49.21875,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -25.3125,
+          80,
+          80
+        ],
+        [
+          -43.59375,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -42.1875,
+          -21.09375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -92,7 +232,30 @@
       "html": "<p>Kosmos, Rio de Janeiro [Rev. Art. Sci. Litt.] v. 5 (no. 2) (for 1907), pp [2].</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/084026ab0e010dbe.webp",
+      "thumb": "https://media.aquatome.com/scotcat/084026ab0e010dbe-480.webp",
+      "width": 500,
+      "height": 320,
+      "licence": "dùng với sự cho phép",
+      "author": "Charles Gibbons / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hisonotus_leucofrenatus.htm",
+      "caption": "Hisonotus leucofrenatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/abee51c781465ee6.webp",
+      "thumb": "https://media.aquatome.com/scotcat/abee51c781465ee6-480.webp",
+      "width": 500,
+      "height": 311,
+      "licence": "dùng với sự cho phép",
+      "author": "Charles Gibbons / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hisonotus_leucofrenatus.htm",
+      "caption": "Hisonotus leucofrenatus",
+      "source": "scotcat"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "Dd_L8lvhNTU",

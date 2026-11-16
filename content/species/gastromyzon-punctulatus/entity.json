@@ -8,21 +8,40 @@
   "places": [
     "asia",
     "indonesia",
-    "borneo"
+    "borneo",
+    "malaysia",
+    "sabah",
+    "kalimantan",
+    "brunei",
+    "temburong"
   ],
   "range": {
     "native": {
-      "countries": [],
+      "countries": [
+        "MY",
+        "ID",
+        "BN"
+      ],
       "regions": [
         "Borneo"
       ],
       "sources": [
-        "glaser"
+        "aquariumbreeder"
       ],
       "quotes": [
         {
-          "source": "glaser",
-          "quote": "In 2006 the next revision of these fishes from Borneo appeared.",
+          "source": "aquariumbreeder",
+          "quote": "They are native to the Borneo region of Southeast Asia (Malaysia: Sabah and Sarawak; Indonesia: Kalimantan Barat and Kalimantan Timur; Brunei Darussalam: Temburong district).",
+          "countries": [
+            "MY",
+            "ID",
+            "BN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "aquariumbreeder",
+          "quote": "Borneo suckers refer to a group of gastromyzontid loaches endemic to Borneo.",
           "countries": [],
           "regions": [
             "Borneo"
@@ -33,7 +52,7 @@
     "records": {
       "taxonKey": 2358893,
       "total": 18,
-      "fetched": "2026-11-08",
+      "fetched": "2026-11-16",
       "countries": [
         [
           "MY",
@@ -44,16 +63,19 @@
         [
           112.5,
           1.40625,
+          7,
           7
         ],
         [
           113.90625,
           2.8125,
+          10,
           10
         ],
         [
           115.3125,
           2.8125,
+          1,
           1
         ]
       ]
@@ -67,15 +89,109 @@
           "min": 22,
           "max": 28
         }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 18,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquariumbreeder",
+        "value": 4
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 5
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 3,
+          "max": 4
+        }
       }
     ]
   },
   "sections": [
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/borneo-sucker-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Name: Borneo sucker</li><li>Other names: dwarf hillstream loaches, hillstream loaches, butterfly loaches, sucker loaches</li><li>Scientific name: Gastromyzon punctulatus (Gastromyzon sp.)</li><li>Minimum tank size: 40 litres</li><li>Breeding: very difficult</li><li>Dwellers: bottom</li><li>Nitrate: less than 20</li><li>Diet: omnivore</li><li>Temperament: peaceful</li><li>Colour form: brown, grey with white to yellow dots</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/borneo-sucker-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Borneo sucker fish are readily available in local fish stores. Most specimens on display are labelled as G. borneensis, though this is unlikely to be true since the species is a rarity.</p><p>They are often imported in a stressed and emaciated state. Once you purchase the fish, provide a well-oxygenated and algae-rich environment to hasten its recovery or else it won't survive.</p><p>Keeping them is more complicated without some fishkeeping experience, so they are not recommended for beginners. They are known to die very easily when first introduced to a new environment, so add them only to a well-established tank of sufficient size and water volume.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/borneo-sucker-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Borneo suckers refer to a group of gastromyzontid loaches endemic to Borneo. The group is classified under the genus Gastromyzon and comprises 36 species. The name Gastromyzon stems from the Greek words 'gaster' (stomach) and 'myzo' (to suckle).</p><p>Gastromyzon belongs to Gastromyzontidae, a family of loaches found in China and Southeast Asia, usually in water bodies with fast currents.</p><p>They are native to the Borneo region of Southeast Asia (Malaysia: Sabah and Sarawak; Indonesia: Kalimantan Barat and Kalimantan Timur; Brunei Darussalam: Temburong district).</p><p>They are arranged in several species groups. The cryptic species in each group share similarities in morphology, though reproductively isolated. Each group dwells in adjacent river basins but may occur sympatrically:</p><ul><li>The Gastromyzon borneensis group: G. borneensis, G. monticola, G. ornaticauda, G. cranbrooki, G. cornusaccus, G. extrorsus, G. introrsus, G. bario</li><li>The G. punctulatus group: G. punctulatus, G. aeriodes, G. katibasensis</li><li>The G. fasciatus group: G. fasciatus, G. praestans</li><li>The G. contractus group: G. contractus, G. megalepsis, G. umbrus</li><li>The G. lepidogaster group: G. lepidogaster, G. psiloetron</li><li>The G. ridens group: G. ridens, G. crenastus, G. stellatus, G. zebrinus</li><li>The G. danumensis group: G. danumensis, G. aequabilis, G. ingeri</li><li>The G. pariclavis group: G. pariclavis, G. emalohensis, G. venustus, G. spectabilis, G. russulus, G. viriosus</li><li>The G. ocellatus group: G. ocellatus, G. farragus</li><li>The G. auronigrus group: G. auronigrus</li></ul>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/borneo-sucker-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>They inhabit shallow, swift streams and rivers containing clear, cool, oxygen-rich water.</p><p>The habitat is characterized by abundant sandy substrates, rocks, gravels and huge boulders, which are usually slimy from algal growth that serves as their main food source.</p><p>The temperature in this area is fairly cool due to the presence of tall trees, while submerged vegetation is scarce.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/borneo-sucker-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The minimum recommended tank size for a single Borneo sucker is 40 litres; for about 4 specimens you will need an 80-litre tank or more.</p><p>Cover the top with a tight-fitting lid because the fish can climb the tank glass.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/borneo-sucker-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Borneo suckers benefit hugely from well-oxygenated water and stable conditions. Keep the water temperature in the right range, as warmer temperatures significantly deplete dissolved oxygen, making the fish uncomfortable and unable to function optimally.</p><p>Keep the tank clean at all times, as the fish may not tolerate large amounts of nitrogenous waste. During routine maintenance, clean and inspect the filter and other aeration devices.</p><p>Maintain good water quality with partial water changes, replacing about 25% of the water weekly to prevent excess nitrate build-up.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/gastromyzon-punctulatus-2/",
       "html": "<p>They want very clean, if possible strongly flowing water in a temperature range of 22-28°C, whereby middle values are to be preferred. In nature the water is very soft and often also acidic, in the aquarium they do not necessarily need this. However, during acclimation it may be useful to approximate natural water values.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/borneo-sucker-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Temperature: 18–25 °C. The fish can tolerate warmer temperatures, but this decreases dissolved oxygen. Colour fading is a sign that the water is too warm.</p><p>pH: keep between 6.5 and 8.0 for optimal growth and good health.</p><p>Hardness: 2–15 dGH; they do not enjoy hard water.</p><p>Flow: in nature, Borneo suckers inhabit rivers and streams where the current is so fast that potential competitors would be washed away, which is why they evolved adaptations to stick to the bottom. Fast water currents are therefore recommended.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/borneo-sucker-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Lighting: light is not important for the fish itself. However, bright lighting is needed if you want to encourage the growth of plants and algae on rocks and other decor.</p><p>Substrate: sand, smooth gravel or a mixture of both. Add rocks, preferably water-worn, and cobbles of varying sizes. A mixture of substrates gives a more natural look. Avoid sharp or rough substrates that can damage their bodies.</p><p>Aeration: a powerful filtration system is needed to aerate the water and guarantee high oxygenation. External canister filters with spray bars (for surface agitation) may serve this purpose; otherwise additional powerheads can be installed to provide adequate flow and oxygenation. Aim for a total turnover of 10–15 times per hour. Air stones can also be added for more oxygenation. Low oxygen in aquarium water can cause many problems for the fish.</p><p>Plants and decorations: although aquatic plants are scarce in their natural habitat, Java fern (Microsorum pteropus) and Anubias spp. can thrive in tanks with extreme flow, so they may be added. Anubias is beneficial because its broad leaves provide cover and a surface where algae can attach for the fish to eat. Driftwood, caves and hollow logs are also useful, providing feeding ground and hiding spots that make the fish more comfortable.</p>"
     },
     {
       "key": "diet",
@@ -84,10 +200,22 @@
       "html": "<p>Gastromyzon have a horny lip, with which they can scrape growth from stones and roots. However, they are less concerned with algae than with micro life. They are very easy to feed with all kinds of food; small frozen foods are best for them.</p>"
     },
     {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/borneo-sucker-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Borneo suckers are active algae grazers. They constantly look for benthic algae and biofilm on rocks and other solid surfaces, which make up a huge percentage of their natural diet. According to experiments, they rapidly abandon rocks with reduced algal cover.</p><p>In captivity, meaty foods can be given occasionally to supplement the diet:</p><ul><li>live or frozen bloodworms,</li><li>daphnia,</li><li>vitamin-enriched brine shrimp,</li><li>vegetables such as blanched spinach, cucumber, and spirulina.</li></ul><p>Make sure the diet does not contain high amounts of protein, to prevent health problems. A mature aquarium rich in biofilm and algae will spare you from sourcing other food.</p><p>Avoid wiping algae off the tank walls, except on the front glass. Increase light intensity and dose the water with fertiliser regularly to promote algae growth on surfaces; alternatively, set up a separate container in a sunlit spot to grow algae on rocks, which can later be introduced to the tank.</p><p>Diet type: omnivore. Food preference: algae and biofilm. Feeding frequency: daily.</p><p>Some aquarists report that the fish have a hard time finding food, and it can take them some time to recognise algae wafers or blanched vegetables as food. A way to help is to grow algae in a separate container:</p><ul><li>Use a transparent container (large soda bottle, spare tank, etc.).</li><li>Fill it with water from water changes.</li><li>Add many clean, aquarium-safe small rocks such as marble chips and ceramic filter media.</li><li>Place it next to strong light, ideally 24/7.</li><li>To boost growth, use any plant fertiliser.</li><li>An airstone will also increase algae growth.</li><li>Once the rocks turn green, place a few in the tank for the fish to feed on.</li><li>Return the rocks to the container when they are clean.</li></ul><p>At the same time, keep offering algae wafers and vegetables and give the fish time to learn that these are food. There are reports that Borneo suckers really like Repashy Soilent Green.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/gastromyzon-punctulatus-2/",
       "html": "<p>Among themselves these fish are compatible, fights are always harmless. They are not interested in other species.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/borneo-sucker-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Borneo suckers are generally peaceful and interactive. They are mostly seen clinging tightly to large rocks in the tank, either resting or eating the algae growing on them. At other times they may be found lying around or climbing the tank glass.</p><p>Males may engage in tussles, but actual harm rarely occurs.</p><p>In the wild they live in clusters, so try to replicate this by keeping at least 4 specimens; groups of 4–6 will show social behaviour. They are more interesting to watch when interacting with one another. They are also very shy and may hide behind filter media, decorations, plants, etc.</p><p>Features: social, active, peaceful.</p>"
     },
     {
       "key": "dimorphism",
@@ -96,19 +224,48 @@
       "html": "<p>Males differ from the (larger) females by a large glandular scale at the base of the ventral fin.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/borneo-sucker-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Adult females are slightly larger and stouter than males.</li><li>In some species, e.g. Gastromyzon ctenocephalus, mature males have ctenoid tubercles on their heads, which are absent in females.</li></ul>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/gastromyzon-punctulatus-2/",
       "html": "<p>Spawning takes place – as far as known – over coarse gravel, the spawn develops in the gap system between the pebbles. Gastromyzon species do not engage in brood care.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/borneo-sucker-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>There is little knowledge about captive breeding of Borneo suckers, so it is safe to assume that Gastromyzon spp. have not been bred in aquaria.</p><p>The only information found is that a high-protein diet and a slight increase in temperature over 8 weeks is used. This temperature should be maintained for 2–3 weeks and then dropped back to normal. Water flow should also be significantly reduced. These changes serve as an incentive for reproduction.</p><p>Each female can have up to several hundred eggs, depending mainly on her size. The eggs are less than 1 mm. The incubation period lasts about 3 days.</p><p>Borneo suckers have no parental instincts; once they lay the eggs, they leave them. The fry are extremely sensitive to water quality: even minor pollution will affect them negatively and can lead to the death of the entire brood.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/gastromyzon-punctulatus-2/",
       "html": "<p>In 1961, a review paper on the hillstream loaches of the genus Gastromyzon of Borneo was published. In it five species were distinguished: G. pauciradiatus, G. nieuwenhuisii, G. fasciatus, G. punctulatus and G. borneensis. In 2006 the next revision of these fishes from Borneo appeared. This was accompanied by a true species explosion; in Gastromyzon alone, 36 species are now known from Borneo! Of the original five species, two are now in Neogastromyzon (nieuwenhuisii and pauciradiatus), so that no less than 33 species, which were assigned to 3 species in earlier imports, must now be redetermined! However, this is not so easy as one can imagine, because many species characteristics are only recognizable on specially prepared specimens and even then it requires great experience not to go astray.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/borneo-sucker-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Appearance: the physical attributes of Gastromyzon vary by species, and it is common for two species to look alike with few distinctions. Gastromyzon ctenocephalus and Gastromyzon scitulus resemble each other, but G. ctenocephalus has blue markings in the dorsal fin that G. scitulus lacks. G. ctenocephalus also has smaller spots on the sides and top of the body, as opposed to the larger spots of G. scitulus. In the G. ocellatus group, G. ocellatus has a single thick dark vertical bar across the caudal fin, whereas G. farragus has two or more bars.</p><p>Body colour varies: dark brown in G. ocellatus, G. farragus and G. ctenocephalus; pale grey in G. zebrinus and G. ridens. Caudal fin colour differs too: yellow in G. viriosus, reddish purple in G. ocellatus, blue in G. ctenocephalus. Under stress, the colour fades and the spots become almost indistinguishable.</p><p>These species are often 3–4 cm long at maturity, while some may grow up to 7 cm. They have numerous cream/yellow blotches and spots or irregular patterns on the top and flanks. The eyes are on top of the head, the snout is broadly round when viewed from above, and there are numerous soft rays. Some species have a post-oral pouch near the snout.</p><p>Gastromyzon spp. show morphological adaptations to bottom-dwelling in torrential streams: a depressed head and body, fused pelvic fins and horizontally oriented paired fins. These form a powerful suction cup that lets them cling to rocks and boulders and avoid being swept away, and to crawl along and feed on the algae on the rocks. Under optimal conditions they can live 3–4 years.</p><p>Tankmates: keep them with relatively small, quiet, peaceful tankmates that share the same water parameters. They are good candidates for community tanks without large fish or other large animals.</p><p>Fish: non-aggressive fish such as surface-dwelling barbs and rasboras, white cloud mountain minnows, gobies, swordtails, pygmy corydoras, Otocinclus catfish and panda garra.</p><p>Dwarf shrimp: there is a chance they may eat shrimplets, even accidentally, since baby shrimp are so tiny; if you are serious about breeding dwarf shrimp, do not take the risk. Vampire shrimp and bamboo shrimp are recommended: these are filter feeders that also need high water flow, and they are among the best companions.</p><p>Freshwater snails: the source states that Endlers can share the tank with any freshwater snails (for example Japanese trapdoor snails, ramshorn snails, nerite snails, Malaysian trumpet snails, black devil snails, Asolene spixi, rabbit snails).</p><p>Avoid: most types of crayfish and freshwater crabs. Even small African dwarf frogs can and will try to catch them whenever possible.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/033c39de34dbf2c5.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/033c39de34dbf2c5-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/borneo-sucker-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "3-hQCBOrLfg",
@@ -158,5 +315,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-16"
 }

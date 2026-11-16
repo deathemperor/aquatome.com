@@ -21010,6 +21010,1150 @@
           }
         }
       }
+    },
+    "%@ bật": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ menyala"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ hidup"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ เปิด"
+          }
+        }
+      }
+    },
+    "%@ tắt": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ mati"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ mati"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ ปิด"
+          }
+        }
+      }
+    },
+    "%lld giây": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld detik"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld saat"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld วินาที"
+          }
+        }
+      }
+    },
+    "%lld giờ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld jam"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld jam"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld ชั่วโมง"
+          }
+        }
+      }
+    },
+    "AquaTome không tự bật lại CO2. Cần thì bật ổ CO2 trong Bể của tôi.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome tidak menyalakan CO2 lagi dengan sendirinya. Jika perlu, nyalakan stopkontak CO2 di Akuarium saya."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome tidak menghidupkan semula CO2 dengan sendiri. Jika perlu, hidupkan soket CO2 dalam Tangki saya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome ไม่เปิด CO2 กลับเอง หากต้องการ ให้เปิดปลั๊ก CO2 ใน ตู้ของฉัน"
+          }
+        }
+      }
+    },
+    "Bật với màu": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nyalakan dengan warna"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hidupkan dengan warna"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิดพร้อมสี"
+          }
+        }
+      }
+    },
+    "Bắt đầu": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mulai"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mula"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เริ่ม"
+          }
+        }
+      }
+    },
+    "Chưa có khóa Tuya trên máy này: thêm trong Bể của tôi.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum ada kunci Tuya di ponsel ini: tambahkan di Akuarium saya."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum ada kunci Tuya pada telefon ini: tambah dalam Tangki saya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังไม่มีคีย์ Tuya ในเครื่องนี้: เพิ่มได้ใน ตู้ของฉัน"
+          }
+        }
+      }
+    },
+    "Khi bấm": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saat ditekan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apabila ditekan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เมื่อกด"
+          }
+        }
+      }
+    },
+    "Khi kết thúc, AquaTome trả đèn và ổ cắm về như cũ nếu ứng dụng đang mở. Đèn cần điện thoại ở gần. Hết giờ lúc ứng dụng đóng thì mở lại cạnh bể rồi bấm Trả lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saat selesai, AquaTome mengembalikan lampu dan stopkontak seperti semula jika aplikasi sedang terbuka. Lampu perlu ponsel di dekatnya. Jika waktu habis saat aplikasi tertutup, buka lagi di dekat akuarium lalu tekan Kembalikan."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apabila tamat, AquaTome mengembalikan lampu dan soket seperti asal jika aplikasi sedang dibuka. Lampu perlu telefon berada dekat. Jika masa tamat semasa aplikasi ditutup, buka semula berhampiran tangki kemudian tekan Kembalikan."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เมื่อสิ้นสุด AquaTome จะคืนค่าไฟและปลั๊กไฟให้เหมือนเดิมหากแอปเปิดอยู่ ไฟต้องมีโทรศัพท์อยู่ใกล้ หากหมดเวลาขณะแอปปิดอยู่ ให้เปิดแอปอีกครั้งใกล้ตู้แล้วกด คืนค่า"
+          }
+        }
+      }
+    },
+    "Khi tôi bấm Kết thúc": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saat saya menekan Selesai"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apabila saya menekan Tamat"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เมื่อฉันกด สิ้นสุด"
+          }
+        }
+      }
+    },
+    "Không rõ ổ %@ đã đổi chưa: xem trong Bể của tôi.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum jelas apakah stopkontak %@ sudah berubah: lihat di Akuarium saya."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak pasti sama ada soket %@ sudah berubah: lihat dalam Tangki saya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่แน่ใจว่าปลั๊ก %@ เปลี่ยนแล้วหรือยัง: ดูได้ใน ตู้ของฉัน"
+          }
+        }
+      }
+    },
+    "Không thấy ổ %@ trong dự án Tuya.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stopkontak %@ tidak ditemukan di proyek Tuya."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soket %@ tidak ditemui dalam projek Tuya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่พบปลั๊ก %@ ในโปรเจกต์ Tuya"
+          }
+        }
+      }
+    },
+    "Không tới được ổ %@: %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak dapat menjangkau stopkontak %1$@: %2$@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak dapat mencapai soket %1$@: %2$@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ติดต่อปลั๊ก %1$@ ไม่ได้: %2$@"
+          }
+        }
+      }
+    },
+    "Không tới được ổ %@: kiểm tra mạng rồi thử lại": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak dapat menjangkau stopkontak %@: periksa jaringan lalu coba lagi"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak dapat mencapai soket %@: semak rangkaian kemudian cuba lagi"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ติดต่อปลั๊ก %@ ไม่ได้: ตรวจสอบเครือข่ายแล้วลองใหม่"
+          }
+        }
+      }
+    },
+    "Kết thúc": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selesai"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tamat"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "สิ้นสุด"
+          }
+        }
+      }
+    },
+    "Lọc ngừng lâu, nước thiếu khí và vi sinh trong lọc yếu đi. Nút sẽ bật lại lọc khi kết thúc.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jika filter lama berhenti, air kekurangan oksigen dan bakteri di filter melemah. Tombol akan menyalakan filter lagi saat selesai."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jika penapis lama berhenti, air kekurangan oksigen dan bakteria dalam penapis menjadi lemah. Butang akan menghidupkan semula penapis apabila tamat."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ถ้ากรองหยุดนาน น้ำจะขาดออกซิเจนและจุลินทรีย์ในกรองจะอ่อนแอลง ปุ่มจะเปิดกรองอีกครั้งเมื่อสิ้นสุด"
+          }
+        }
+      }
+    },
+    "Một chạm bật đèn, tắt quạt và CO2… cùng lúc, rồi trả lại như cũ khi hết giờ. Bạn chọn nút làm gì.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sekali sentuh menyalakan lampu, mematikan kipas dan CO2… sekaligus, lalu mengembalikannya seperti semula saat waktunya habis. Anda yang memilih apa yang dilakukan tombol ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Satu sentuhan menghidupkan lampu, mematikan kipas dan CO2… serentak, kemudian mengembalikannya seperti asal apabila masa tamat. Anda pilih apa yang dilakukan butang ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แตะครั้งเดียวเปิดไฟ ปิดพัดลมและ CO2… พร้อมกัน แล้วคืนค่าให้เหมือนเดิมเมื่อหมดเวลา คุณเลือกได้ว่าปุ่มนี้ทำอะไร"
+          }
+        }
+      }
+    },
+    "Ngắm bể": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menikmati akuarium"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menikmati tangki"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ชมตู้ปลา"
+          }
+        }
+      }
+    },
+    "Nút chỉ tắt được CO2, chưa bật được: lỡ điện thoại khóa lúc hết giờ thì CO2 sẽ chạy cả đêm.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tombol hanya bisa mematikan CO2, belum bisa menyalakannya: jika ponsel terkunci saat waktunya habis, CO2 akan menyala sepanjang malam."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Butang hanya boleh mematikan CO2, belum boleh menghidupkannya: jika telefon terkunci semasa masa tamat, CO2 akan berjalan sepanjang malam."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปุ่มปิด CO2 ได้อย่างเดียว ยังเปิดไม่ได้: ถ้าโทรศัพท์ล็อกอยู่ตอนหมดเวลา CO2 จะทำงานทั้งคืน"
+          }
+        }
+      }
+    },
+    "Nút không bật tắt ổ %@ được trong bản này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tombol tidak bisa menyalakan atau mematikan stopkontak %@ di versi ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Butang tidak boleh menghidupkan atau mematikan soket %@ dalam versi ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปุ่มยังเปิดหรือปิดปลั๊ก %@ ไม่ได้ในเวอร์ชันนี้"
+          }
+        }
+      }
+    },
+    "Nút tổng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tombol utama"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Butang utama"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปุ่มรวม"
+          }
+        }
+      }
+    },
+    "Nước có thể thiếu khí, nhất là ban đêm. Nút sẽ bật lại sủi khí khi kết thúc.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Air bisa kekurangan oksigen, terutama malam hari. Tombol akan menyalakan aerator lagi saat selesai."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Air mungkin kekurangan oksigen, terutamanya pada waktu malam. Butang akan menghidupkan semula pam udara apabila tamat."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "น้ำอาจขาดออกซิเจน โดยเฉพาะตอนกลางคืน ปุ่มจะเปิดปั๊มออกซิเจนอีกครั้งเมื่อสิ้นสุด"
+          }
+        }
+      }
+    },
+    "Sau %lld giờ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Setelah %lld jam"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selepas %lld jam"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หลังจาก %lld ชั่วโมง"
+          }
+        }
+      }
+    },
+    "Thêm thiết bị": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambah perangkat"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambah peranti"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่มอุปกรณ์"
+          }
+        }
+      }
+    },
+    "Thêm ổ cắm Tuya vào bể trong Bể của tôi để chọn ở đây.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambahkan stopkontak Tuya ke akuarium di Akuarium saya untuk memilihnya di sini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambah soket Tuya pada tangki dalam Tangki saya untuk memilihnya di sini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่มปลั๊ก Tuya ให้ตู้ใน ตู้ของฉัน เพื่อเลือกที่นี่"
+          }
+        }
+      }
+    },
+    "Trả lại": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kembalikan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kembalikan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "คืนค่า"
+          }
+        }
+      }
+    },
+    "Tạo nút tổng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buat tombol utama"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cipta butang utama"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "สร้างปุ่มรวม"
+          }
+        }
+      }
+    },
+    "Tắt lọc trong lúc chạy nút?": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Matikan filter selama tombol berjalan?"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Matikan penapis semasa butang berjalan?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปิดกรองระหว่างที่ปุ่มทำงานไหม"
+          }
+        }
+      }
+    },
+    "Tắt sủi khí trong lúc chạy nút?": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Matikan aerator selama tombol berjalan?"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Matikan pam udara semasa butang berjalan?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปิดปั๊มออกซิเจนระหว่างที่ปุ่มทำงานไหม"
+          }
+        }
+      }
+    },
+    "Vẫn tắt lọc": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tetap matikan filter"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tetap matikan penapis"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปิดกรองต่อไป"
+          }
+        }
+      }
+    },
+    "Vẫn tắt sủi khí": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tetap matikan aerator"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tetap matikan pam udara"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปิดปั๊มออกซิเจนต่อไป"
+          }
+        }
+      }
+    },
+    "Xóa nút": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hapus tombol"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Padam butang"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ลบปุ่ม"
+          }
+        }
+      }
+    },
+    "Xóa nút “%@”?": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hapus tombol “%@”?"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Padam butang “%@”?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ลบปุ่ม “%@” ไหม"
+          }
+        }
+      }
+    },
+    "còn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "sisa"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "baki"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เหลือ"
+          }
+        }
+      }
+    },
+    "còn %lld giây": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "sisa %lld detik"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "baki %lld saat"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เหลือ %lld วินาที"
+          }
+        }
+      }
+    },
+    "còn %lld giờ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "sisa %lld jam"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "baki %lld jam"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เหลือ %lld ชั่วโมง"
+          }
+        }
+      }
+    },
+    "còn %lld giờ %lld phút": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "sisa %lld jam %lld menit"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "baki %lld jam %lld minit"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เหลือ %lld ชั่วโมง %lld นาที"
+          }
+        }
+      }
+    },
+    "còn %lld phút": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "sisa %lld menit"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "baki %lld minit"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เหลือ %lld นาที"
+          }
+        }
+      }
+    },
+    "kết thúc lúc %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "selesai pukul %@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "tamat pada %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "สิ้นสุดเวลา %@"
+          }
+        }
+      }
+    },
+    "từ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "sejak"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "sejak"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ตั้งแต่"
+          }
+        }
+      }
+    },
+    "Đang chạy": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Berjalan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sedang berjalan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กำลังทำงาน"
+          }
+        }
+      }
+    },
+    "Đã hết giờ. Mở AquaTome cạnh bể để trả đèn và ổ cắm về như cũ.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Waktu sudah habis. Buka AquaTome di dekat akuarium untuk mengembalikan lampu dan stopkontak seperti semula."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masa sudah tamat. Buka AquaTome berhampiran tangki untuk mengembalikan lampu dan soket seperti asal."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หมดเวลาแล้ว เปิด AquaTome ใกล้ตู้เพื่อคืนค่าไฟและปลั๊กไฟให้เหมือนเดิม"
+          }
+        }
+      }
+    },
+    "Đèn chưa về như cũ: đứng gần đèn rồi bấm Trả lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu belum kembali seperti semula: berdirilah di dekat lampu lalu tekan Kembalikan."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu belum kembali seperti asal: berdiri dekat lampu kemudian tekan Kembalikan."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไฟยังไม่กลับเป็นเหมือนเดิม: ยืนใกล้ไฟแล้วกด คืนค่า"
+          }
+        }
+      }
+    },
+    "Đèn này không còn trên bể nào.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu ini sudah tidak ada di akuarium mana pun."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu ini sudah tiada pada mana-mana tangki."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไฟนี้ไม่อยู่ในตู้ใดแล้ว"
+          }
+        }
+      }
+    },
+    "Đèn sáng": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu menyala"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu hidup"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไฟเปิด"
+          }
+        }
+      }
+    },
+    "đến khi bạn bấm Kết thúc": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "sampai Anda menekan Selesai"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "sehingga anda menekan Tamat"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "จนกว่าคุณจะกด สิ้นสุด"
+          }
+        }
+      }
+    },
+    "Ổ %@ chưa báo đã đổi.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stopkontak %@ belum melaporkan perubahan."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soket %@ belum melaporkan perubahan."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลั๊ก %@ ยังไม่รายงานว่าเปลี่ยนแล้ว"
+          }
+        }
+      }
+    },
+    "Ổ %@ đang mất kết nối.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stopkontak %@ sedang terputus."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soket %@ sedang terputus."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลั๊ก %@ ขาดการเชื่อมต่ออยู่"
+          }
+        }
+      }
+    },
+    "Ổ %@ đang được bật tắt: thử lại sau.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stopkontak %@ sedang dinyalakan atau dimatikan: coba lagi nanti."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soket %@ sedang dihidupkan atau dimatikan: cuba lagi nanti."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลั๊ก %@ กำลังถูกเปิดหรือปิดอยู่: ลองใหม่ภายหลัง"
+          }
+        }
+      }
+    },
+    "Ổ %@ đã đổi trong lúc chạy nên AquaTome để nguyên.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stopkontak %@ berubah selama tombol berjalan, jadi AquaTome membiarkannya."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soket %@ berubah semasa butang berjalan, jadi AquaTome membiarkannya."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลั๊ก %@ ถูกเปลี่ยนระหว่างที่ปุ่มทำงาน AquaTome จึงปล่อยไว้ตามนั้น"
+          }
+        }
+      }
+    },
+    "Ổ cắm này không còn trên bể nào.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stopkontak ini sudah tidak ada di akuarium mana pun."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soket ini sudah tiada pada mana-mana tangki."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลั๊กไฟนี้ไม่อยู่ในตู้ใดแล้ว"
+          }
+        }
+      }
     }
   },
   "version": "1.0"

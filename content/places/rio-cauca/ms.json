@@ -1,8 +1,13 @@
 {
   "slug": "rio-cauca",
-  "name": "Cauca",
+  "name": "Sungai Cauca",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.96,
+    "at": "2026-11-16T00:10:22.688Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

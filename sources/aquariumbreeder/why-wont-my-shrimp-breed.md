@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/why-wont-my-shrimp-breed/
 title: Why Won’t My Shrimp Breed? - Shrimp and Snail Breeder
 fetchedAt: 2026-11-03T08:39:03.691Z
-hash: 9a6352ee446313b77e60b3cb19de03c90c923ed73658f2a745fcb471d867c873
+hash: d27df27b12d0cffa7efbcfb1a8ecdbae609b2c2ca7d5306b504ce4ad48c186e5
 ---
 
 Shrimp keeping hobby is a rewarding experience, for both young and old. Because breeding and caring for most dwarf shrimp species is relatively simple, their popularity as pets has been increasing all the time. Nonetheless, sometimes things don’t always turn out the way we want them to – our shrimp do not or stop breeding at all. Why?
@@ -117,6 +117,3 @@ If you shrimp do not breed or stop breeding – do not despair! Our hobby is not
 It is important to check and double-check everything in your aquarium. I would recommend starting with your water parameters and feeding. In my experience, these are by far the main causes of why shrimp do not breed in the tanks.
 Related article:
 - How to increase shrimplets survival rate?
-## 2 thoughts on “Why Won’t My Shrimp Breed?”
-- Hello, why shrimp stop breeding in the winter period?? Tnx ReplyHi Zveky, Are there any changes in your water parameters? Do you know that even photoperiod affects their breeding? Best regards, Michael Reply
-### Leave a Reply Cancel reply

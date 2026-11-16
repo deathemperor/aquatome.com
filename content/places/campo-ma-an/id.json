@@ -3,6 +3,12 @@
   "name": "Campo-Ma'an",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-16T11:21:22.755Z",
+    "why": "Nama proper \"Campo-Ma'an\" sudah benar, tetapi tempat ini adalah taman nasional di Kamerun, dan atlas Indonesia biasanya menulis \"Taman Nasional Campo-Ma'an\" dengan kata jenisnya, jadi nama polos ini kurang lengkap."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

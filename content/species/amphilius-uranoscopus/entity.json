@@ -1,0 +1,732 @@
+{
+  "id": "amphilius-uranoscopus",
+  "scientificName": "Amphilius uranoscopus",
+  "order": "Siluriformes",
+  "family": "Amphiliidae",
+  "genus": "Amphilius",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "tanzania",
+    "south-africa",
+    "natal",
+    "zambia",
+    "zambezi",
+    "angola",
+    "okavango"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "TZ"
+      ],
+      "regions": [
+        "Okavango",
+        "Zambezi",
+        "Lake Rukwa"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "The species shown in the first thumbnail image was captured by the image contributor in the Wami drainage: CAS 80494, Tanzania, Nguru Mountains, Nguru South Forest Reserve, 6°7'S, 37°32'E (2: 49.1-101.4); BMNH 1969.1.15.1, Tanzania, stream at Arusha in the foothills of Mount Meru, 3°21'57\"S, 36°40'28\"E (1: 84.7).",
+          "countries": [
+            "TZ"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Africa (eastern): Okavango and Zambezi basins, eastern coastal rivers south to the Mkuze basin, Natal, and throughout east and central Africa (Skelton, 1993); Lake Rukwa basin (Seegers, 1996).",
+          "countries": [],
+          "regions": [
+            "Okavango",
+            "Zambezi",
+            "Lake Rukwa"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340744,
+      "total": 1490,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "ZA",
+          1030
+        ],
+        [
+          "SZ",
+          139
+        ],
+        [
+          "ZM",
+          90
+        ],
+        [
+          "MW",
+          48
+        ],
+        [
+          "TZ",
+          33
+        ],
+        [
+          "AO",
+          32
+        ],
+        [
+          "ZW",
+          32
+        ],
+        [
+          "CD",
+          23
+        ],
+        [
+          "BI",
+          21
+        ],
+        [
+          "NA",
+          20
+        ],
+        [
+          "MZ",
+          12
+        ],
+        [
+          "KE",
+          7
+        ],
+        [
+          "RW",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          15.46875,
+          -15.46875,
+          3,
+          0
+        ],
+        [
+          15.46875,
+          -14.0625,
+          8,
+          0
+        ],
+        [
+          15.46875,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          16.875,
+          -15.46875,
+          5,
+          0
+        ],
+        [
+          16.875,
+          -14.0625,
+          3,
+          0
+        ],
+        [
+          18.28125,
+          -18.28125,
+          1,
+          0
+        ],
+        [
+          18.28125,
+          -14.0625,
+          6,
+          0
+        ],
+        [
+          18.28125,
+          -12.65625,
+          5,
+          0
+        ],
+        [
+          19.6875,
+          -18.28125,
+          3,
+          0
+        ],
+        [
+          21.09375,
+          -18.28125,
+          13,
+          0
+        ],
+        [
+          22.5,
+          -18.28125,
+          2,
+          0
+        ],
+        [
+          22.5,
+          -16.875,
+          8,
+          0
+        ],
+        [
+          22.5,
+          -14.0625,
+          2,
+          0
+        ],
+        [
+          23.90625,
+          -18.28125,
+          3,
+          0
+        ],
+        [
+          23.90625,
+          -14.0625,
+          5,
+          0
+        ],
+        [
+          23.90625,
+          -12.65625,
+          22,
+          0
+        ],
+        [
+          23.90625,
+          -11.25,
+          7,
+          0
+        ],
+        [
+          25.3125,
+          -26.71875,
+          36,
+          0
+        ],
+        [
+          25.3125,
+          -18.28125,
+          5,
+          0
+        ],
+        [
+          25.3125,
+          -12.65625,
+          16,
+          0
+        ],
+        [
+          25.3125,
+          -11.25,
+          2,
+          0
+        ],
+        [
+          25.3125,
+          -9.84375,
+          3,
+          0
+        ],
+        [
+          26.71875,
+          -26.71875,
+          15,
+          0
+        ],
+        [
+          26.71875,
+          -25.3125,
+          34,
+          0
+        ],
+        [
+          26.71875,
+          -14.0625,
+          1,
+          0
+        ],
+        [
+          26.71875,
+          -9.84375,
+          9,
+          0
+        ],
+        [
+          28.125,
+          -26.71875,
+          30,
+          0
+        ],
+        [
+          28.125,
+          -25.3125,
+          7,
+          0
+        ],
+        [
+          28.125,
+          -23.90625,
+          4,
+          0
+        ],
+        [
+          28.125,
+          -15.46875,
+          1,
+          0
+        ],
+        [
+          28.125,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          28.125,
+          -11.25,
+          3,
+          0
+        ],
+        [
+          28.125,
+          -4.21875,
+          11,
+          0
+        ],
+        [
+          28.125,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          29.53125,
+          -30.9375,
+          1,
+          0
+        ],
+        [
+          29.53125,
+          -28.125,
+          56,
+          0
+        ],
+        [
+          29.53125,
+          -26.71875,
+          285,
+          0
+        ],
+        [
+          29.53125,
+          -25.3125,
+          133,
+          0
+        ],
+        [
+          29.53125,
+          -23.90625,
+          220,
+          0
+        ],
+        [
+          29.53125,
+          -18.28125,
+          1,
+          0
+        ],
+        [
+          29.53125,
+          -14.0625,
+          2,
+          0
+        ],
+        [
+          29.53125,
+          -9.84375,
+          2,
+          0
+        ],
+        [
+          29.53125,
+          -7.03125,
+          2,
+          0
+        ],
+        [
+          29.53125,
+          -5.625,
+          14,
+          14
+        ],
+        [
+          29.53125,
+          -4.21875,
+          16,
+          0
+        ],
+        [
+          29.53125,
+          -2.8125,
+          3,
+          0
+        ],
+        [
+          30.9375,
+          -29.53125,
+          10,
+          0
+        ],
+        [
+          30.9375,
+          -28.125,
+          94,
+          0
+        ],
+        [
+          30.9375,
+          -26.71875,
+          173,
+          0
+        ],
+        [
+          30.9375,
+          -25.3125,
+          63,
+          0
+        ],
+        [
+          30.9375,
+          -23.90625,
+          5,
+          0
+        ],
+        [
+          30.9375,
+          -22.5,
+          4,
+          0
+        ],
+        [
+          30.9375,
+          -11.25,
+          1,
+          0
+        ],
+        [
+          30.9375,
+          -9.84375,
+          17,
+          0
+        ],
+        [
+          32.34375,
+          -21.09375,
+          1,
+          0
+        ],
+        [
+          32.34375,
+          -19.6875,
+          26,
+          0
+        ],
+        [
+          32.34375,
+          -18.28125,
+          5,
+          0
+        ],
+        [
+          32.34375,
+          -12.65625,
+          5,
+          0
+        ],
+        [
+          32.34375,
+          -11.25,
+          5,
+          0
+        ],
+        [
+          33.75,
+          -16.875,
+          5,
+          0
+        ],
+        [
+          33.75,
+          -15.46875,
+          1,
+          0
+        ],
+        [
+          33.75,
+          -14.0625,
+          3,
+          0
+        ],
+        [
+          33.75,
+          -12.65625,
+          2,
+          0
+        ],
+        [
+          33.75,
+          -11.25,
+          11,
+          0
+        ],
+        [
+          33.75,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          35.15625,
+          -16.875,
+          20,
+          0
+        ],
+        [
+          35.15625,
+          -14.0625,
+          1,
+          0
+        ],
+        [
+          35.15625,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          35.15625,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          35.15625,
+          0,
+          1,
+          0
+        ],
+        [
+          36.5625,
+          -16.875,
+          1,
+          0
+        ],
+        [
+          36.5625,
+          -8.4375,
+          4,
+          4
+        ],
+        [
+          36.5625,
+          -7.03125,
+          8,
+          8
+        ],
+        [
+          36.5625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          36.5625,
+          -1.40625,
+          6,
+          0
+        ],
+        [
+          37.96875,
+          -5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 18
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_uranoscopus.htm",
+      "html": "<ul><li>Common name: Stargazer mountain catfish</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_uranoscopus.htm",
+      "html": "<p>Africa (eastern): Okavango and Zambezi basins, eastern coastal rivers south to the Mkuze basin, Natal, and throughout east and central Africa (Skelton, 1993); Lake Rukwa basin (Seegers, 1996). Type locality: Bad bei Ushonda (Ungúu), ... Bäche bei Mhonda.</p><p>IUCN Red List: Amphilius uranoscopus is widely distributed. It occurs in central, southern and east Africa. Local threats affect certain subpopulations, but no major, widespread threats have been identified. It is therefore listed as Least Concern at a global level (IUCN 2018).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_uranoscopus.htm",
+      "html": "<p>Amphilius uranoscopus is a demersal species that colonises lakes but prefers fast flowing streams, with pebbles and boulders, where the water is rich in oxygen (Seegers 1996). It survives in fast flowing rapids by paired fins adapted to form suckers, which allow the fish to flatten themselves against the rocks.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_uranoscopus.htm",
+      "html": "<p>Can be kept in aquaria with a small grained gravel or sand substrate, and well planted with a slight current to facilitate their natural habitat. Provide rockwork and caves. This genus prefers cooler temperatures in the aquarium.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_uranoscopus.htm",
+      "html": "<p>It feeds on stream insects and other small organisms off rock surfaces (Skelton 1993). In the aquarium feed mosquito larvae, Tubifex, Cyclops, Daphnia, grindal worms, vegetable food, tablet and flake.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_uranoscopus.htm",
+      "html": "<p>This species breeds in summer, laying eggs underneath stones. The juveniles are easily mistaken for tadpoles. It is preyed on by trout and probably eels (Skelton 1993).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_uranoscopus.htm",
+      "html": "<p>Etymology: The specific name is from the Greek 'ouranos' (sky) and 'skopos' (literally watchman, 'skopeoo' means to look at), referring to the supero-lateral position of the eyes.</p><p>Remarks: The species shown in the first thumbnail image was captured by the image contributor in the Wami drainage: CAS 80494, Tanzania, Nguru Mountains, Nguru South Forest Reserve, 6°7'S, 37°32'E (2: 49.1-101.4); BMNH 1969.1.15.1, Tanzania, stream at Arusha in the foothills of Mount Meru, 3°21'57\"S, 36°40'28\"E (1: 84.7). It is not known whether the spotted species from the north Malagarasi drainage is A. uranoscopus or another species such as A. kivuensis.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_uranoscopus.htm",
+      "html": "<p>Bills, R., Cambray, J., Hanssens, M. &amp; Marshall, B. 2010. Amphilius uranoscopus. The IUCN Red List of Threatened Species 2010.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2015. FishBase. www.fishbase.org, (10/2015).</p><p>Seegers, L., 2008. The catfishes of Africa: A handbook for identification and maintenance. Aqualog Verlag A.C.S. GmbH, Germany. 604 p.</p><p>Skelton, P.H., 1993. A complete guide to the freshwater fishes of southern Africa. Southern Book Publishers. 388 p.</p><p>Tweddle, D., FishBase team RMCA &amp; Geelhand, D. 2018. Amphilius uranoscopus. The IUCN Red List of Threatened Species 2018.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/20d91d4151f18236.webp",
+      "thumb": "https://media.aquatome.com/scotcat/20d91d4151f18236-480.webp",
+      "width": 500,
+      "height": 244,
+      "licence": "dùng với sự cho phép",
+      "author": "Christian Fry / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_uranoscopus.htm",
+      "caption": "Amphilius uranoscopus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/4d571e014087d3b9.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4d571e014087d3b9-480.webp",
+      "width": 500,
+      "height": 291,
+      "licence": "dùng với sự cho phép",
+      "author": "Joe Cutler / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_uranoscopus.htm",
+      "caption": "Amphilius uranoscopus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/1355a3c71b87943c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/1355a3c71b87943c-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Andrew Deacon / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_uranoscopus.htm",
+      "caption": "Amphilius uranoscopus",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "bWiG0Yq1lhE",
+      "title": "Amphilius uranoscopus",
+      "durationSec": 13,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "G64S2CQ6DnE",
+      "title": "Giant Hillstream Catfish Amphilius uranoscopus",
+      "durationSec": 152,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "IGyw4s0j87E",
+      "title": "Amphilius cf. uranoscopous - Stargazer Mountain Catfish",
+      "durationSec": 75,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "NLCKbRwdXEY",
+      "title": "Amphilius uranoscopus",
+      "durationSec": 88,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá da trơn",
+        "trùng chỉ đông lạnh",
+        "bo bo đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nuôi cá",
+        "sỏi hạt nhỏ thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy tạo dòng chảy",
+        "bơm sục khí"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-16"
+}

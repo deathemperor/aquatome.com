@@ -1,8 +1,13 @@
 {
   "slug": "guayas-river",
-  "name": "Guayas",
+  "name": "Sungai Guayas",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-16T11:25:12.278Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

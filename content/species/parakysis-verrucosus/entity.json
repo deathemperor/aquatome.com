@@ -16,7 +16,8 @@
     "native": {
       "countries": [
         "ID",
-        "MY"
+        "MY",
+        "SG"
       ],
       "regions": [
         "Malay Peninsula",
@@ -27,7 +28,8 @@
         "Riau Archipelago"
       ],
       "sources": [
-        "scotcat"
+        "scotcat",
+        "glaser"
       ],
       "quotes": [
         {
@@ -51,6 +53,14 @@
           "regions": []
         },
         {
+          "source": "glaser",
+          "quote": "Malaysia; Singapore is also given as origin.",
+          "countries": [
+            "SG"
+          ],
+          "regions": []
+        },
+        {
           "source": "scotcat",
           "quote": "This species is known from blackwater habitats from the Terengganu River drainage southwards to the Sedili River drainage in Peninsular Malaysia, and Pulau Batam and Pulau Lingga in the Riau Archipelago.",
           "countries": [],
@@ -65,7 +75,7 @@
     "records": {
       "taxonKey": 2340929,
       "total": 7,
-      "fetched": "2026-11-11",
+      "fetched": "2026-11-16",
       "countries": [
         [
           "MY",

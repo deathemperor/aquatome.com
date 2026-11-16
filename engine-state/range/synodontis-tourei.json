@@ -1,0 +1,67 @@
+{
+  "id": "synodontis-tourei",
+  "native": {
+    "input": "62944e6f684f1d71",
+    "at": "2026-11-16T05:47:36.414Z",
+    "claims": [
+      {
+        "code": "GN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Bafing at Ballay, Guinea.",
+        "words": "Guinea",
+        "ok": true
+      },
+      {
+        "code": "GN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Africa: Bafing River (Senegal basin), Guinea.",
+        "words": "Guinea",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Bafing River",
+        "source": "planetcatfish",
+        "quote": "Africa: Bafing River (Senegal basin), Guinea.",
+        "country": "GN",
+        "ok": true
+      },
+      {
+        "name": "Senegal",
+        "source": "planetcatfish",
+        "quote": "Africa: Bafing River (Senegal basin), Guinea.",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Synodontis tourei",
+    "status": "ACCEPTED",
+    "taxonKey": 2344428,
+    "datasets": [
+      [
+        "d2724ca9-8ccd-416e-9837-7aee75f67422",
+        6
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        2
+      ]
+    ],
+    "native": [
+      "GN"
+    ],
+    "requests": 12,
+    "at": "2026-11-16T05:47:36.414Z"
+  }
+}

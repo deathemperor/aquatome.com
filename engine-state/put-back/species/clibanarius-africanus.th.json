@@ -1,0 +1,36 @@
+{
+ "at": "2026-11-16T18:14:05Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "แต่ล็อตนี้เกือบทุกตัวอยู่ในเปลือกหอยสีขาวที่สวยมากของหอยชนิด Pachymelania aurita",
+   "why": "\"This batch\" is the source shop's own imported stock, which the reader has never seen."
+  }
+ ],
+ "text": {
+  "slug": "clibanarius-africanus",
+  "name": "ปูเสฉวนน้ำจืด",
+  "altNames": [
+   "ปูเสฉวนแอฟริกา",
+   "ปูเสฉวนน้ำกร่อย",
+   "African Freshwater Hermit Crab",
+   "Freshwater Hermit Crab"
+  ],
+  "sections": {
+   "quickFacts:glaser": "<p>ปูเสฉวนแสนน่ารัก Clibanarius africanus กลายเป็นสัตว์ตู้ปลาที่ได้รับความนิยมมาก เป็นชนิดที่ทนความเค็มได้กว้าง (euryhaline) หมายความว่าสามารถอยู่รอดได้ทั้งในน้ำจืดล้วนและน้ำทะเลล้วน</p>",
+   "waterConditions:glaser": "<p>อย่างไรก็ตาม ดูเหมือนว่าจะอยู่ในน้ำจืดล้วนได้เพียงไม่กี่เดือน ดังนั้นการเลี้ยงในน้ำกร่อยจึงดีกว่ามาก</p>",
+   "diet:glaser": "<p>ปูในสกุล Clibanarius กินซากอินทรีย์ (detritus) เป็นอาหาร ซึ่งประกอบด้วยซากพืชและซากสัตว์ต่าง ๆ ที่ตายแล้ว ในตู้ปลา Clibanarius กินอาหารปลาทั่วไปได้ทุกชนิดอย่างง่ายดาย</p>",
+   "notes:glaser": "<p>โดยปกติ C. africanus ที่นำเข้ามาจะอาศัยอยู่ในเปลือกหอยสีน้ำตาลของหอยชนิด Tympanotonus fuscatus แต่ล็อตนี้เกือบทุกตัวอยู่ในเปลือกหอยสีขาวที่สวยมากของหอยชนิด Pachymelania aurita</p><p>ความหมายของชื่อ: Clibanarius คือคำเรียกทหารม้าที่สวมเกราะหนัก ส่วน africanus หมายถึง \"มาจากแอฟริกา\"</p>"
+  },
+  "quality": {
+   "score": 0.8,
+   "indexable": true,
+   "bySource": {
+    "glaser": 0.8
+   }
+  }
+ }
+}

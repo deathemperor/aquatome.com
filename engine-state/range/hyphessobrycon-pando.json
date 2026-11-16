@@ -1,0 +1,59 @@
+{
+  "id": "hyphessobrycon-pando",
+  "native": {
+    "input": "02050518f777553b",
+    "at": "2026-11-16T17:28:41.839Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This unique feature is very reminiscent of Hyphessobrycon pando, a species quite recently described from Bolivia.",
+        "words": "Bolivia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": [
+        "BO"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon pando",
+    "status": "ACCEPTED",
+    "taxonKey": 2354606,
+    "datasets": [
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        8
+      ],
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "PE",
+      "BO"
+    ],
+    "requests": 11,
+    "at": "2026-11-16T17:28:41.839Z"
+  }
+}

@@ -3,8 +3,8 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import {
-  blocks, cardSlips, checkPages, gluedSyllables, claimsControl, countEvidence, countMismatch, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, emptySections, englishSentences, fixStored, fixTranslation, furniture,
-  imperialUnits, isPermissionNote, isPhotoCaption, isThanks, labelSlips, leftoverMarkup, longFurniture, namesSource, numberSlips, otherFish, photoCaptions, plainEntities, ratcheted, refCredits, renumberLabels, RULES, rulesReport, sfScoreFixed, sourcePagePhrases, stripCount,
+  blocks, cardSlips, checkPages, gluedSyllables, claimsControl, countEvidence, countMismatch, cutFurniture, dropEmails, dropEmailsDeep, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, emptySections, englishSentences, fixStored, fixTranslation, furniture,
+  hasEmail, mayHoldEmail, imperialUnits, isPermissionNote, isPhotoCaption, isThanks, labelSlips, leftoverMarkup, longFurniture, namesSource, numberSlips, otherFish, photoCaptions, plainEntities, ratcheted, refCredits, renumberLabels, RULES, rulesReport, sfScoreFixed, sourcePagePhrases, stripCount,
   renameStored, renameFishNames, renameSwapped, swappedNames, thanksLines, titleCount, unwellOff, vietnameseLeft, wrongFish, captionFlaw, type Ctx,
 } from '../src/content-rules'
 import { pagePath, pageUrl, type Page } from '../src/pages'
@@ -537,6 +537,77 @@ test('a source\'s thanks to a named person or shop, as a block of its own: cut, 
   }
 })
 
+// The chief of staff, 16 Nov 2026: a translated article printed its author's email address in each letter's header. The
+// repository is public. Addresses here are the reserved example domains.
+test('an email address goes from a page\'s text with its brackets, a link to one keeps its words, a file name stays', () => {
+  expect(dropEmails('<p>Từ: Tác Giả (someone@example.org) Ngày: 5 tháng 8 năm 2002</p>')).toBe('<p>Từ: Tác Giả Ngày: 5 tháng 8 năm 2002</p>')
+  expect(dropEmails('<p>Viết cho tôi: <a href="mailto:someone@example.com">gửi thư</a>.</p>')).toBe('<p>Viết cho tôi: gửi thư.</p>')
+  expect(dropEmails('<p>Hỏi tại &lt;first.last+tag@mail.example.co.uk&gt; hoặc [x_y@example.net].</p>')).toBe('<p>Hỏi tại hoặc.</p>')
+  expect(dropEmails('<p>Liên hệ someone@example.org</p>')).toBe('<p>Liên hệ</p>')
+  expect(dropEmails("Bettas <O'Keeper@Example.ORG>")).toBe('Bettas')
+  // Thai runs its words together: the address goes, the words beside it stay whole.
+  expect(dropEmails('ติดต่อsomeone@example.orgได้เลย')).toBe('ติดต่อได้เลย')
+  // Not addresses: a photo's or a video's file name in a tag or in text, any case; a social handle; an "@" in prose; a
+  // link's user; a version.
+  for (const keep of [
+    '<p><img src="/img/ca@2x.png" alt="cá"> ảnh@2x.JPG</p>', 'Bettas 1080p@60fps.mov', 'Clip@60fps.ts', 'logo@2x.min.js', 'icon@3x.HEIC',
+    '<p>Tweet tới @seriouslyfish!</p>', '<p>Giá 50k @ tiệm</p>', 'https://user@example.net/x', 'https://medium.com/@keeper', 'react@18.3.1',
+  ]) {
+    expect(dropEmails(keep), keep).toBe(keep)
+    expect(hasEmail(keep), keep).toBe(false)
+  }
+  // What it finds, it cuts: nothing is left for the real-content test that the sweep can't mend.
+  for (const text of ['someone@example.org', 'A (someone@example.org) và [x@example.net]', 'mailto:a.b+c@mail.example.co.uk', 'Ông Tác Giả, tác.giả@example.org.', 'Gửi someone@example.org.5 con', 'Viết cho someone@example.org.Ở đây']) {
+    expect(hasEmail(text), text).toBe(true)
+    expect(hasEmail(dropEmails(text)), text).toBe(false)
+  }
+  // No string makes it slow: the sweep reads every file each cycle. Each of these took seconds before its parts were
+  // bounded (the second reader of #1476): a long word, separators in a row, a long run of spaces beside an address.
+  for (const slow of ['a'.repeat(1_000_000), `${'a='.repeat(80_000)}@`, `${'a'.repeat(100_000)}@example.org`, `x${' '.repeat(100_000)}y someone@example.org`, `${'a.'.repeat(50_000)}@b`]) {
+    const t0 = performance.now()
+    dropEmails(slow)
+    expect(performance.now() - t0, `${slow.slice(0, 6)}… (${slow.length})`).toBeLessThan(500)
+  }
+  // A link's user and password, and a "@" after an address's own limit, are no address.
+  for (const keep of ['https://u:p@example.com/x', `${'a'.repeat(65)}@example.org`]) expect(hasEmail(keep), keep.slice(0, 30)).toBe(false)
+  for (const keep of ['pic@2x.heif', 'clip@1x.M4V', 'cam@2x.jfif', 'x@96k.flac', 'subs@en.srt', '1080p@60fps.movไทย']) expect(dropEmails(keep), keep).toBe(keep)
+})
+
+// The chief of staff, 16 Nov 2026: an address written out so a program won't read it is the check's to catch too.
+test('an address written out in words or marks is found and cut; "at" in a sentence is not one', () => {
+  for (const [text, cut] of [
+    ['Liên hệ someone [at] example [dot] org', 'Liên hệ'],
+    ['Wild bettas (someone (at) example.org)', 'Wild bettas'],
+    ['Email: someone at mail dot example dot com', 'Email:'],
+    ['liên hệ người bán ở thư: a.keeper at example dot vn nhé', 'liên hệ người bán ở thư: nhé'],
+    ['Hỏi someone＠example.org nhé', 'Hỏi nhé'],
+    ['<p>Thư: someone&#64;example.net</p>', '<p>Thư:</p>'],
+    ['Gửi a.keeper {at} example {dot} co {dot} uk.', 'Gửi.'],
+  ] as [string, string][]) {
+    expect(hasEmail(text), text).toBe(true)
+    expect(dropEmails(text), text).toBe(cut)
+  }
+  for (const keep of [
+    'Available at example.com and at the shop.', 'Sold at aquatome.com', 'Feed at night, a dot of food', 'Polka dot plants grow at home',
+    'Meet (at) home (dot) X', 'Cá nhỏ, giá 50k at shop dot', 'look at this dot com bubble',
+    // No word saying an address follows: a site said aloud. A mark apart from the word before it: a handle.
+    'Find us at example dot com', 'Visit us at example dot com!', 'Line ＠example.com', 'Follow &#64;example.org for more',
+  ]) expect(hasEmail(keep), keep).toBe(false)
+  // Each address with its own word goes in one pass, however many.
+  const list = Array.from({ length: 200 }, (_, i) => `email: k${i} at example dot org`).join(' ')
+  expect(hasEmail(dropEmails(list))).toBe(false)
+  expect(mayHoldEmail('Liên hệ someone [at] example [dot] org')).toBe(true)
+  expect(mayHoldEmail('Cá chuột sống theo đàn.')).toBe(false)
+})
+
+test('every string of a stored file loses its addresses, its keys too; its shape stays', () => {
+  const data = { title: 'Wild bettas (someone@example.org)', photos: [{ caption: 'Ảnh của someone@example.org', w: 2 }], keyed: { 'x@example.com': 'Foto' }, n: 3, ok: true, none: null }
+  expect(dropEmailsDeep(data)).toEqual({ title: 'Wild bettas', photos: [{ caption: 'Ảnh của', w: 2 }], keyed: { '': 'Foto' }, n: 3, ok: true, none: null })
+  // A string that is one link stays whole: cut, it would no longer lead anywhere.
+  const clean = { a: ['b', { c: 'd@2x.png' }], link: 'https://example.net/?mail=someone@example.org' }
+  expect(dropEmailsDeep(clean)).toEqual(clean)
+})
+
 // Page Recovery, 2026-11-12: about 130 fish pages' references named a database's compiler after "©". The name is invented.
 test('"© <name>" after a work\'s title in the references: the name goes, the title and its link stay', () => {
   const work = 'The ETYFish Project Fish Name Etymology Database'
@@ -794,18 +865,20 @@ test('the sweep leaves what the rule never lists, and text it has no name to cha
   const decomposed = 'Cá vàng đẹp.'.normalize('NFD')
   expect(renameSwapped(decomposed)).toBe(decomposed)
 })
-test('a stored page: its name, text, summary, FAQ and reviews are renamed; its other names, references and a name a person fixed stay', () => {
+test('a stored page: its name, text, summary, FAQ, chapters and reviews are renamed; its other names, references and a name a person fixed stay', () => {
   const page = {
     slug: 'ca-but-chi-nannostomus-eques', name: 'Cá bút chì Nannostomus eques', altNames: ['Cá bút chì Nannostomus eques'],
     sections: { 'quickFacts:glaser': '<p>Cá bút chì (Nannostomus eques).</p>', 'references:glaser': '<p>Cá bút chì (Nannostomus eques).</p>' },
     summary: ['Cá bút chì (pencilfish) hiền.'], faq: [{ q: 'Cá bút chì (pencilfish) ăn gì?', a: 'Cá cờ (Laetacara) ăn gì cũng được.' }],
     reviews: { agree: [{ text: 'Hợp cá bút chì (pencilfish).' }] }, tested: [{ text: 'Thử với cá cờ (Mesonauta).' }],
+    chapters: ['Cá bút chì (pencilfish)', 'Cá vàng'],
   }
   expect(renameStored(page)).toEqual({
     slug: 'ca-but-chi-nannostomus-eques', name: 'Cá chì Nannostomus eques', altNames: ['Cá bút chì Nannostomus eques'],
     sections: { 'quickFacts:glaser': '<p>Cá chì (Nannostomus eques).</p>', 'references:glaser': '<p>Cá bút chì (Nannostomus eques).</p>' },
     summary: ['Cá chì (pencilfish) hiền.'], faq: [{ q: 'Cá chì (pencilfish) ăn gì?', a: 'Cá Laetacara (Laetacara) ăn gì cũng được.' }],
     reviews: { agree: [{ text: 'Hợp cá chì (pencilfish).' }] }, tested: [{ text: 'Thử với cá Mesonauta (Mesonauta).' }],
+    chapters: ['Cá chì (pencilfish)', 'Cá vàng'],
   })
   expect(renameStored({ ...page, nameFixed: true }).name).toBe(page.name)
   const unchanged = { name: 'Cá vàng', sections: { 'quickFacts:glaser': '<p>Đẹp.</p>' } }
@@ -855,6 +928,21 @@ test.each([
   ['Cá cầu vồng đỏ (G. incisus) sống ở hồ Sentani.', 'Cá táo đỏ (G. incisus) sống ở hồ Sentani.'],
   // A longer name the row lists stays as written beside it (the sweep's "cá táo đỏ cá hồi", 13 Nov).
   ['Cá cầu vồng đỏ, còn gọi là cá cầu vồng đỏ cá hồi hay cá cầu vồng New Guinea.', 'Cá táo đỏ, còn gọi là cá cầu vồng đỏ cá hồi hay cá cầu vồng New Guinea.'],
+  // An old name with brackets in it is matched as written (16 Nov), a tag inside its brackets too.
+  ['Cá cuvieri (Boulengerella cuvieri) săn cá nhỏ ở tầng mặt.', 'Cá Boulengerella cuvieri săn cá nhỏ ở tầng mặt.'],
+  ['Cá killi đuôi đàn lia Gabon (Gabon lyretail), Aphyosemion gabunense, sống ở Gabon.', 'Cá killi đuôi đàn lia Gabon, Aphyosemion gabunense, sống ở Gabon.'],
+  ['<p>Cá killi đuôi đàn lia Gabon (<em>Gabon lyretail</em>) đẻ trứng trên rêu.</p>', '<p>Cá killi đuôi đàn lia Gabon đẻ trứng trên rêu.</p>'],
+  // The fish under its new genus, its genus misspelt, and an English name ending in a genus (a fresh read, 16 Nov).
+  ['Cá chuột panda (Hoplisoma panda), từ lâu quen gọi là Corydoras panda.', 'Cá chuột gấu trúc (Hoplisoma panda), từ lâu quen gọi là Corydoras panda.'],
+  ['Cá platy (Xiphorphorus maculatus): 3 đến 5 năm', 'Cá mún (Xiphorphorus maculatus): 3 đến 5 năm'],
+  ['<h3>8. Cá chuột panda (Panda corydoras)</h3>', '<h3>8. Cá chuột gấu trúc (Panda corydoras)</h3>'],
+  // A new name that holds the scientific name takes the same one in brackets after it along, tags and all.
+  ['Trai nước ngọt Corbicula (Corbicula fluminea) lọc nước.', 'Hến Corbicula fluminea lọc nước.'],
+  ['<p>Trai nước ngọt Corbicula (<em>Corbicula fluminea</em>) lọc nước.</p>', '<p>Hến Corbicula fluminea lọc nước.</p>'],
+  // Only in its own block: the next paragraph's bracket stays.
+  ['<h2>Trai nước ngọt Corbicula</h2><p>(Corbicula fluminea) là loài hến nhỏ.</p>', '<h2>Hến Corbicula fluminea</h2><p>(Corbicula fluminea) là loài hến nhỏ.</p>'],
+  // Keepers' "cá mún" is any platy; another species' name that begins with the old one stays whole.
+  ['Nuôi chung với cá platy đỏ, cá platy variatus hay cá kiếm.', 'Nuôi chung với cá mún đỏ, cá platy variatus hay cá kiếm.'],
 ])('a named fish or plant takes its name wherever written: %s', (before, after) => {
   expect(swappedNames(before)).not.toEqual([])
   expect(renameSwapped(before)).toBe(after)
@@ -876,6 +964,8 @@ test.each([
   'Người ta còn gọi nó là cá cầu vồng  đỏ cá hồi hay cá cầu vồng New Guinea.',
   // A name the row takes off its page because it is another animal's: in the text it is that one's (Curation, 13 Nov).
   'Cho cá bột ăn bo bo (rận nước) mỗi ngày.',
+  // A heading's last word and the next paragraph's first are no name (the platy guide's "Chọn mua cá", 16 Nov).
+  '<h3>Chọn mua cá</h3><p>Platy khá rẻ, giá cả tùy từng dạng.</p>',
 ])('a page\'s old name beside another species, or words that only begin it, stay: %s', text => {
   expect(swappedNames(text)).toEqual([])
   expect(renameSwapped(text)).toBe(text)

@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/brazilian-micro-sword-care-guide-planting-growing-and-propagation/
 title: Brazilian Micro Sword Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-11-15T09:17:55.939Z
-hash: 881591e70928f9b3e0125a078c7e244c6f50cc9bcfa349f20eacfecb10bf2b10
+hash: 6304ddb7bfb56be104d94e8a87969d51fe0479e961e42dab23a2a8f3d44a6401
 ---
 
 Today, we will be talking about the famous Brazilian micro sword (Lilaeopsis brasiliensis) or Micro sword grass which is one of the smallest and top carpet plants in the hobby.
@@ -105,4 +105,3 @@ How to Remove Snails from a Shrimp Tank. How to Quarantine and Disinfect Aquariu
 It would really be a great idea to have an adaptable and prolific carpet plant in the foreground of your freshwater planted tank, and that’s why you should consider obtaining and planting the Brazilian micro sword.
 The plant will help to create an illusion of greater tank size with its delicate, cushion forming, and small leaves features. It is generally slow-growing in an aquarium as it requires plenty of lighting, large nutrient levels, fine substrate material, and optimal CO2 levels.
 This carpet plant is a good substitute for Dwarf Hairgrass and Dwarf Sagittaria since they are all small, easy to grow, and capable of adorning the aquarium beautifully with a compact, vivid green carpet when fully grown.
-### Leave a Reply Cancel reply

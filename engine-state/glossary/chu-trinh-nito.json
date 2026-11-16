@@ -1,0 +1,459 @@
+{
+  "found": true,
+  "species": [],
+  "sources": [
+    {
+      "url": "https://merckvetmanual.com/exotic-and-laboratory-animals/aquatic-systems/environmental-diseases-in-aquatic-systems",
+      "title": "Environmental Diseases of Aquatic Animals in Aquatic Systems",
+      "kind": "vet"
+    },
+    {
+      "url": "https://www.merckvetmanual.com/multimedia/table/common-environmental-hazards-for-fish",
+      "title": "Common Environmental Hazards for Fish",
+      "kind": "vet"
+    },
+    {
+      "url": "https://thuysinh4u.com/chu-trinh-nito",
+      "title": "Chu trình nitơ hoạt động như thế nào (Nitrogen Cycle)",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquariumcare.vn/tin-tuc/1319/nhung-kinh-nghiem-cycle-ho-thuy-sinh.html",
+      "title": "Những Kinh Nghiệm Cycle Hồ Thủy Sinh - Vi Sinh Cá Cảnh Aquarium Care",
+      "kind": "shop"
+    },
+    {
+      "url": "https://blog.bouaqua.com/tim-hieu-ve-chu-trinh-nito-nitrogen-cycle/",
+      "title": "Tìm hiểu về chu trình Ni-tơ",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinh4u.com/chia-se-kinh-nghiem-cycle",
+      "title": "Chia sẻ kinh nghiệm CYCLE nước hồ thủy sinh, cá cảnh",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thegioicacanh.com.vn/cach-tao-vi-sinh-tot-cho-ho-thuy-sinh-hieu-qua-va-don-gian-n133245.html",
+      "title": "Cách Tạo Vi Sinh Tốt Cho Hồ Thủy Sinh Hiệu Quả Và Đơn Giản",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.seachem.com/stability.php",
+      "title": "Stability®",
+      "kind": "maker"
+    }
+  ],
+  "facts": [
+    {
+      "section": "other",
+      "fact": "Vietnamese name for the term: \"Chu trình nitơ\".",
+      "source": 2,
+      "also": [
+        5,
+        6
+      ]
+    },
+    {
+      "section": "other",
+      "fact": "English name for the term: \"Nitrogen Cycle\".",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "Variant Vietnamese spelling for the term: \"Chu trình Nito\".",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "Vietnamese keepers' slang for the process: \"Cycle nước\".",
+      "source": 5,
+      "also": [
+        2
+      ]
+    },
+    {
+      "section": "other",
+      "fact": "Alternative Vietnamese name for the term: \"chu kỳ Nitơ\".",
+      "source": 3
+    },
+    {
+      "section": "other",
+      "fact": "Short name for the process used by a Vietnamese shop: \"Cycle\".",
+      "source": 3
+    },
+    {
+      "section": "other",
+      "fact": "Vietnamese spelling for the term: \"chu trình Ni-tơ\".",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "Alternative Vietnamese name for the term: \"vòng tuần hoàn nitơ\".",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "Fish excrete ammonia across their gills into the water. Biofilter bacteria convert it to nitrite and then to nitrate through aerobic processes.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Nitrosomonas bacteria (aerobic) convert ammonia/ammonium to nitrite, and Nitrobacter bacteria (aerobic) convert nitrite to nitrate.",
+      "source": 2,
+      "also": [
+        3
+      ]
+    },
+    {
+      "section": "what",
+      "fact": "One Vietnamese shop names Nitrospira, not Nitrobacter, as the bacteria that convert nitrite to nitrate.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "Anaerobic denitrifying bacteria turn nitrate into nitrogen gas. They form in live rock and in substrate deeper than about 5 cm.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Waste, leftover food and decaying organic matter release ammonia (NH3) and ammonium (NH4+).",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Most test kits measure total ammonia nitrogen (TAN), which includes both toxic un-ionized ammonia (NH3) and less toxic ammonium (NH4+).",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Freshwater fish usually tolerate TAN below 1 mg/L. Un-ionized ammonia below 0.05 mg/L is not considered harmful, though tolerance varies by species.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "The share of TAN present as toxic NH3 rises as pH and temperature rise. pH has more influence than temperature.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Above pH 7 more of the ammonia stays as toxic NH3, and below pH 7 more of it is NH4+.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Nitrite toxicity is listed at NO2 above 0.1 mg/L, with tremendous species-specific variation.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Most kits report nitrite as nitrite-nitrogen. Multiply the reading by 3.3 to get NO2.",
+      "source": 0,
+      "also": [
+        1
+      ]
+    },
+    {
+      "section": "what",
+      "fact": "Nitrate is less toxic than ammonia or nitrite. The recommended level for freshwater is below 20 mg/L.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Most kits report nitrate as nitrate-nitrogen. Multiply the reading by 4.4 to get NO3. Nitrate toxicity is listed at NO3-N of 70 mg/L or more.",
+      "source": 0,
+      "also": [
+        1
+      ]
+    },
+    {
+      "section": "what",
+      "fact": "One Vietnamese shop gives targets of ammonia near 0 ppm, nitrite 0 ppm and nitrate 15–50 ppm. It says nitrate below 15 ppm is poor for planted freshwater tanks.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "One Vietnamese shop says nitrate becomes toxic above 20 ppm.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Plants can use nitrate as a nutrient. Nitrate is also removed by water changes and anaerobic bacteria.",
+      "source": 0,
+      "also": [
+        3
+      ]
+    },
+    {
+      "section": "what",
+      "fact": "Nitrosomonas and Nitrobacter both work best at 25–30°C.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Nitrosomonas works from pH 6.0 to 9.0, best at about 7.8–8.0. Nitrobacter works best at pH 7.3–7.5.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Dissolved oxygen should be above 6 mg/L. The cycle stops if oxygen falls below 2 mg/L.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "New tank syndrome: ammonia and/or nitrite rise during the first 2–3 weeks because the biofilter bacteria have not developed yet.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Signs of ammonia toxicity (new tank syndrome) are lethargy, anorexia, spinning, convulsive swimming and darkened colour.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Signs of nitrite toxicity are piping at the surface, and gills and blood turning dark brown, though the colour can be hard to see.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Nitrite can cause brown blood disease. Affected fish gather near the surface or pipe for oxygen.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Chronic nitrate exposure can cause lethargy and swelling around the throat (thyroid hyperplasia, 'goiter').",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "The biofilter has matured when TAN and nitrite peak and fall, followed by a rise in nitrate.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "The cycle is complete when NH3/NH4 and NO2 readings on API or JBL test kits drop to or near 0.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Timeline of a cycle: the ammonia stage lasts 7 to 10 days, and Nitrosomonas appears around day 10. Nitrite peaks around 15 ppm and falls below 2–3 ppm by about day 30. Nitrobacter takes over around day 20.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Overfeeding and failure of the biofilter are common causes of high ammonia.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Low chloride in freshwater is a risk factor for nitrite toxicity. pH above 8 is listed alongside the ammonia toxicity threshold.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Dechlorinating chloramine with sodium thiosulfate releases ammonia. Repeated water changes can then build up toxic ammonia, especially in new or damaged biofilters.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "Do a water change of at least 50% as soon as high ammonia is detected.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "Reduce or stop feeding until the ammonia problem is corrected.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "If TAN is above 5 mg/L and pH is below 7, move the fish to a clean, tempered system. Otherwise the ammonia shifts quickly to toxic NH3 as the pH rises.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "Check whether the source water contains ammonia or chloramine, since water changes can add ammonia.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "When ammonia or nitrite is high, change 30–50% of the water daily until levels drop to about 2 ppm or 0 ppm.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Chloride competitively blocks nitrite uptake at the gills. Many aquaria and ponds keep a residual salinity of 1–3 ppt, which makes nitrite toxicity less likely.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Salt may be used to halt deaths during a sudden nitrite spike in many freshwater fish, together with a water change and filter maintenance. The Merck manual gives no exact emergency dose.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Prime or Amquel can help during an ammonia spike, but they convert ammonia to a less toxic form rather than remove it.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Use a dechlorinator designed for chloramines that also binds the released ammonia.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "A new biofilter usually takes about 6 weeks to become fully established.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "A full cycle takes 2 to 24 weeks depending on conditions. With good bacterial supplements added regularly, it can be cut to about 2 weeks.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Monitor TAN and nitrite daily and do frequent water changes until the biofilter has cycled.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "\"Feed\" the biofilter with fish food or ammonium chloride before adding fish, and use commercial nitrifying bacteria from a reputable source.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Steps: set up the tank and run the filter. Aerate, because the bacteria use a lot of oxygen. Optionally add Seachem Stability or media, water or filter floss from an established tank. Then wait before adding livestock.",
+      "source": 5,
+      "also": [
+        3
+      ]
+    },
+    {
+      "section": "steps",
+      "fact": "After adding Seachem Stability, wait about 4 to 5 days before adding fish and 2 to 3 weeks before adding shrimp.",
+      "source": 5,
+      "also": [
+        3
+      ]
+    },
+    {
+      "section": "steps",
+      "fact": "Seachem Stability dose for a new tank: on day 1, add 1 capful (5 mL) for each 40 L (10 US gallons) with UV/ozone turned off. On days 2–7, add 1 capful (5 mL) for every 80 L (20 US gallons) daily.",
+      "source": 7
+    },
+    {
+      "section": "steps",
+      "fact": "Seachem says fish can be added at any time if Stability dosing continues for the full 7 days, and that it is harmless to all aquatic organisms and plants.",
+      "source": 7
+    },
+    {
+      "section": "steps",
+      "fact": "Used water or filter media from another tank can shorten the cycle to about 3 to 7 days, sometimes as little as 2 days. Cycling with a few fish often takes several weeks.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "Freshwater upkeep: change about 30% of the water weekly. Around day 27, when nitrate starts rising, change about 40%.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Keep the filter running so it stays a home for the beneficial bacteria, and add filter media only from an established tank whose fish are all healthy.",
+      "source": 6
+    },
+    {
+      "section": "prevention",
+      "fact": "Add fish slowly to a new system. Avoid overfeeding, overstocking, and antimicrobials or chemicals that damage the biofilter.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Run the filter 24/7, and replace only part of the water at a time.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Replace filter media gradually: put new media in the tank 7–10 days before removing the old.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "In freshwater tanks, add aquatic plants to absorb nitrate.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Rinsing filter media under tap water kills the beneficial bacteria, because tap water can contain chlorine.",
+      "source": 4,
+      "also": [
+        6
+      ]
+    },
+    {
+      "section": "mistakes",
+      "fact": "Switching the filter on and off often, or replacing all the water at once, disrupts the bacteria.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Adding fish or plants before the cycle is stable can lead to root rot and fish deaths.",
+      "source": 3,
+      "also": [
+        5,
+        4
+      ]
+    },
+    {
+      "section": "mistakes",
+      "fact": "Adding fish during the ammonia stage is a mistake, because they are very prone to disease then.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Skipping aeration during the cycle is a mistake, because the cycle uses a lot of oxygen.",
+      "source": 3,
+      "also": [
+        2
+      ]
+    },
+    {
+      "section": "mistakes",
+      "fact": "Seachem Stability does not remove chlorine from tap water, so tap water still needs dechlorinating.",
+      "source": 5,
+      "also": [
+        3
+      ]
+    },
+    {
+      "section": "mistakes",
+      "fact": "Ignoring nitrite is a mistake: it is toxic even at low levels.",
+      "source": 2
+    },
+    {
+      "section": "vietnam",
+      "fact": "Chlorine in household tap water (\"nước máy sinh hoạt\") can harm plants, fish, shrimp and other tank life.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "Ways to dechlorinate tap water: store it in a container for 3 to 4 days, aerate it in a container for 24 hours, or add Seachem Prime.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "One Vietnamese shop sells Extra Bio bacteria (\"Men Vi Sinh Extra Bio Cao Cấp\") for starting the cycle. It gives no dose.",
+      "source": 6
+    },
+    {
+      "section": "vietnam",
+      "fact": "During the cycle, keep the tank out of direct sunlight, and turn the lights off only for the cycle, not permanently.",
+      "source": 6
+    },
+    {
+      "section": "myths",
+      "fact": "A Vietnamese shop says the cycle usually finishes 1 to 2 weeks after setup. The Merck manual instead says a new biofilter usually takes about 6 weeks to become fully established.",
+      "source": 3,
+      "also": [
+        0
+      ]
+    }
+  ]
+}

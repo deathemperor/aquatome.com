@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/lysimachia-nummularia-care-guide-planting-growing-and-propagation/
 title: Lysimachia Nummularia Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-10-29T07:27:38.205Z
-hash: 573a34866cd127bca8ff0d184d8e99e0ac75315579b0e330b941bff0d3ff4929
+hash: b9ed4bc29a203fc0e5559ebe44b961b99266588ea4ee9d4793485812781dda5b
 ---
 
 Lysimachia nummularia has lots of different names, but the most common one is Creeping Jenny. Initially, this plant was widely used as a landscape plant in nurseries and gardening centers.
@@ -140,4 +140,3 @@ However, due to its rapid reproduction and robust growth, this plant often requi
 - Cao, L, and L. Berent, 2024, Lysimachia nummularia: U.S. Geological Survey, Nonindigenous Aquatic Species Database, Gainesville, FL, and NOAA Great Lakes Aquatic Nonindigenous Species Information System, Ann Arbor, MI,
 - Kodela, Phillip, and Richard W. Jobson. “Lysimachia nummularia (Primulaceae) Naturalised in New South Wales, Australia.” Telopea19 (2016): 153-157.
 - Karataş, Mehmet, and Muhammad Aasim. “In vitro plantlet regeneration from nodal segments of creeping jenny (Lysimachia nummularia L.)-A medicinal aquatic plant.” Fresenius Environmental Bulletin24, no. 4 (2015): 1263-1268.
-### Leave a Reply Cancel reply

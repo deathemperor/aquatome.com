@@ -18,8 +18,8 @@
   "range": {
     "native": {
       "countries": [
-        "VE",
         "GY",
+        "VE",
         "SR",
         "GF"
       ],
@@ -27,20 +27,26 @@
         "Orinoco",
         "Essequibo",
         "Courantyne",
-        "Amazon",
-        "Takutu",
-        "rio Branco"
+        "Amazon"
       ],
       "sources": [
+        "glaser",
         "seriouslyfish"
       ],
       "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Guyana.",
+          "countries": [
+            "GY"
+          ],
+          "regions": []
+        },
         {
           "source": "seriouslyfish",
           "quote": "Type locality is 'Tukeit, Guyana', and this species is known from various river drainages of Venezuela, Guyana, Suriname and French Guiana including the Orinoco, Essequibo, and upper Courantyne (aka Corantijn) basins.",
           "countries": [
             "VE",
-            "GY",
             "SR",
             "GF"
           ],
@@ -55,9 +61,7 @@
           "quote": "Additional records exist from the upper Amazon basin in Guyana, these presumably corresponding to the Takutu river basin, itself part of the upper rio Branco.",
           "countries": [],
           "regions": [
-            "Amazon",
-            "Takutu",
-            "rio Branco"
+            "Amazon"
           ]
         }
       ]

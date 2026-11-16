@@ -7,7 +7,7 @@ import { cleanPhoto, leadGuides, listOrder } from './home'
 import { licenceLabel, type Lang, type T } from './i18n'
 import { smallSrc, tileFrame, tilePhoto } from './img'
 import { guideImages } from './mentions'
-import { listPictures, pagePictures, photosOf, takeEach, tilePhotos } from './pictures'
+import { listPictures, pagePictures, photosOf, takeEach, takeRow, tilePhotos } from './pictures'
 import { PAGE } from '../scripts/filter-list'
 import type { MateItem } from '../scripts/tankmates'
 import { toIndexItem } from './species-index'
@@ -140,13 +140,12 @@ export const guideItems = (t: T, c: Content, guides: Localized<GuideEntity>[], p
 })
 
 /**
- * The guide list (/vi/huong-dan/): the guides a beginner starts with above it with their covers, then every guide in the
- * list's order with the cover its card shows, none the page already shows (a guide with no photo of its own borrows one
- * it names: guideImages).
+ * The guide list (/vi/huong-dan/): the four guides a beginner starts with above it with their pictures, at most one with
+ * none (takeRow), then every guide in the list's order with the picture its card shows, none the page already shows (a
+ * guide with no photo of its own borrows one its title names: guideImages).
  */
 export function guideListPhotos(c: Content) {
-  const start = leadGuides(c).slice(0, 4)
-  const startCovers = takeEach(pagePictures(c), start, g => guideImages(c, g))
+  const { items: start, photos: startCovers } = takeRow(pagePictures(c), leadGuides(c), g => guideImages(c, g))
   return { start, startCovers, covers: listPictures(c, 'huong-dan', listedGuides(c), g => guideImages(c, g), startCovers) }
 }
 

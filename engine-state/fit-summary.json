@@ -1,5 +1,5 @@
 {
- "day": "2026-11-15",
+ "day": "2026-11-17",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -11,32 +11,32 @@
  },
  "langs": {
   "vi": {
-   "pages": 4312,
-   "read": 3687,
-   "wrong": 1567,
-   "pct": 42,
-   "held": 514
+   "pages": 4390,
+   "read": 3685,
+   "wrong": 1495,
+   "pct": 41,
+   "held": 491
   },
   "id": {
-   "pages": 1440,
-   "read": 1266,
-   "wrong": 360,
+   "pages": 1486,
+   "read": 1310,
+   "wrong": 371,
    "pct": 28,
-   "held": 106
+   "held": 121
   },
   "th": {
-   "pages": 1424,
-   "read": 1230,
-   "wrong": 337,
+   "pages": 1475,
+   "read": 1279,
+   "wrong": 342,
    "pct": 27,
-   "held": 97
+   "held": 107
   },
   "ms": {
-   "pages": 320,
-   "read": 274,
-   "wrong": 83,
-   "pct": 31,
-   "held": 43
+   "pages": 364,
+   "read": 321,
+   "wrong": 90,
+   "pct": 28,
+   "held": 50
   }
  },
  "labels": {
@@ -58,50 +58,24 @@
  },
  "sample": [
   {
-   "lang": "vi",
-   "path": "/vi/ca/ca-hemibagrus-microphthalmus/",
-   "url": "https://aquatome.com/ca/ca-hemibagrus-microphthalmus/",
-   "title": "Cá Hemibagrus microphthalmus",
-   "wrong": [
-    {
-     "check": "words",
-     "quote": "Nhiều khả năng"
-    },
-    {
-     "check": "words",
-     "quote": "giữ lãnh thổ"
-    },
-    {
-     "check": "words",
-     "quote": "ghi nhận"
-    }
-   ]
-  },
-  {
-   "lang": "vi",
-   "path": "/vi/ca/ca-mystacoleucus-greenwayi/",
-   "url": "https://aquatome.com/ca/ca-mystacoleucus-greenwayi/",
-   "title": "Cá Mystacoleucus greenwayi",
-   "wrong": [
-    {
-     "check": "words",
-     "quote": "bạn cần"
-    },
-    {
-     "check": "words",
-     "quote": "Dù vậy"
-    },
-    {
-     "check": "words",
-     "quote": "Nhiều khả năng"
-    }
-   ]
+   "lang": "th",
+   "path": "/th/fish/esomus-metallicus/",
+   "url": "https://aquatome.com/th/fish/esomus-metallicus/",
+   "title": "ปลาซิวหนวดยาว",
+   "wrong": []
   },
   {
    "lang": "id",
-   "path": "/id/ikan/cory-habrosus/",
-   "url": "https://aquatome.com/id/ikan/cory-habrosus/",
-   "title": "Cory habrosus",
+   "path": "/id/ikan/bulldog-pleco/",
+   "url": "https://aquatome.com/id/ikan/bulldog-pleco/",
+   "title": "Bulldog Pleco",
+   "wrong": []
+  },
+  {
+   "lang": "id",
+   "path": "/id/ikan/nemacheilus-saravacensis/",
+   "url": "https://aquatome.com/id/ikan/nemacheilus-saravacensis/",
+   "title": "Nemacheilus saravacensis",
    "wrong": []
   }
  ]

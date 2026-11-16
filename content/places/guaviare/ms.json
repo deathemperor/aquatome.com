@@ -3,6 +3,12 @@
   "name": "Guaviare",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-16T17:26:40.232Z",
+    "why": "Guaviare is the right name for the Colombian department, but a Malay atlas would write \"Jabatan Guaviare\" (or \"Wilayah Guaviare\"), so the bare name leaves out the kind word."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

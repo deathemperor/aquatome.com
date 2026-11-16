@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/bumble-bee-shrimp-detailed-guide-care-diet-and-breeding/
 title: Bumble Bee Shrimp – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-11-13T05:19:44.507Z
-hash: b07e4b8124c53aa8e8d06bb85fed311cb66dcc59f27713cdad624f0efbd6b573
+hash: 9c7c7dc83e4578c66de4c9bea3ed717d2ac69247c563e9c364f75da6721f8e49
 ---
 
 If you are looking for something unique to add to your small reef aquarium other than fishes, and snails then the Bumble Bee Shrimp (Gnathophyllum americanum and Gnathophyllum elegans) can be an interesting choice for you.
@@ -86,6 +86,3 @@ Stocking and Compatibility Calculator
 The global aquarium industry is growing every year and the demand for some kind of unusual and interesting animal species is increasing as well.
 Nonetheless, you should only acquire Bumble bee shrimp if you are willing to give it special care and attention since it cannot thrive on other food items neither can it survive in a tank full of aggressive tankmates.
 Ignoring these caveats means you are bound to lose these little guys earlier than expected, and the death of a dear pet is something everyone dreads.
-## 2 thoughts on “Bumble Bee Shrimp – Detailed Guide: Care, Diet, and Breeding”
-- Are pods adequate food for the bumblebee shrimp? ReplyHi Robert, I highly doubt so. Although, it is possible create a salt water pond, I struggle to see how you can maintain proper water parameters. Best regards, Michael Reply
-### Leave a Reply Cancel reply

@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/dwarf-gourami-detailed-guide-care-diet-and-breeding/
 title: Dwarf Gourami – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-10-31T01:24:20.145Z
-hash: 8a07a46821c12b3542cef3a9f83b9efd1ca4d8186923c6dafeece3427d68f665
+hash: d370fc91d2f8c535ba283f3fd02265491a13ed08141c9741c7d14aeeac9c92c8
 ---
 
 Trichogaster lalius (Dwarf Gourami), once a popular aquarium fish known for its sparkling color and resistance to poor water quality, has unfortunately lost its hardiness over the past decade due to extensive selective breeding, Asian disease, and poor maintenance in mass production.
@@ -256,6 +256,3 @@ Nonetheless, before buying these fish, it is important to weigh all the pros and
 - Galib, Shams Muhammad. “Captive Breeding of Trichogaster lalius (Hamilton, 1822) and Trichogaster fasciata Bloch and Schneider, 1801.” PhD diss., University of Rajshahi, 2015.
 - Khadka, Niraj. “Viability of Bredding Colisa Ialia (F. Hamilton, 1822) and Larval Rearing on Different Feeding Regimes.” PhD diss., Department of Zoology, 2019.
 - ZUANON, Jener Alexandre Sampaio, Pollyanna de Moraes França FERREIRA, Diogo Magalhães da Veiga MOREIRA, Luiz Thiago Versiani MIRANDA, Ana Lúcia SALARO, Sendy Moreira REIS, and Larissa Ferreira de ARRUDA. “Tolerância subcrônica de juvenis de colisas (Trichogaster labiosa e Trichogaster lalius) à salinidade da água.” Revista Brasileira de Engenharia de Pesca8, no. 1 (2015): 26-33.
-## 2 thoughts on “Dwarf Gourami – Detailed Guide: Care, Diet, and Breeding”
-- Thank you very much for your valuable information,most interesting and really informative. Iе’s nice to read science-based articles in our hobby. Keep it up. ReplyHi Dawn, Glad you found it useful. I spent a lot of time researching dwarf gouramis because they get a bad reputation for being delicate. They are actually pretty hardy if you get them from a good breeder. They do best when you leave them alone and don’t overcrowd the tank. Best regards, Michael Reply
-### Leave a Reply Cancel reply

@@ -8,7 +8,8 @@
   "places": [
     "africa",
     "democratic-republic-of-the-congo",
-    "lake-kivu"
+    "lake-kivu",
+    "ruzizi-river"
   ],
   "range": {
     "native": {
@@ -26,7 +27,7 @@
       "quotes": [
         {
           "source": "scotcat",
-          "quote": "Etymology: The specific name kivuensis: –ensis, suffix denoting place: region of Kivu (west of Lake Kivu), Democratic Republic of the Congo, type locality.",
+          "quote": "Etymology: the specific name kivuensis: –ensis, suffix denoting place: region of Kivu (west of Lake Kivu), Democratic Republic of the Congo, type locality.",
           "countries": [
             "CD"
           ],
@@ -34,7 +35,7 @@
         },
         {
           "source": "scotcat",
-          "quote": "Africa: Rivers to west of Lake Kivu; Ruzizi River and rivers entering Lake Tanganyika.",
+          "quote": "Africa: rivers to the west of Lake Kivu; Ruzizi River and rivers entering Lake Tanganyika.",
           "countries": [],
           "regions": [
             "Lake Kivu",
@@ -159,13 +160,13 @@
       "key": "quickFacts",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_kivuensis.htm",
-      "html": "<ul><li>IUCN Red List: Not Evaluated</li></ul>"
+      "html": "<ul><li>Colouration: yellow-brown, darker on the dorsum, with small round black dots.</li></ul>"
     },
     {
       "key": "distribution",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_kivuensis.htm",
-      "html": "<p>Africa: Rivers to west of Lake Kivu; Ruzizi River and rivers entering Lake Tanganyika. Type locality: Boulira, Kitembo (ouest du Kivu), ... Kilembo (ouest du Kivu, altitude 2000 mètres).</p>"
+      "html": "<p>Africa: rivers to the west of Lake Kivu; Ruzizi River and rivers entering Lake Tanganyika. Type locality: Boulira, Kitembo (ouest du Kivu), ... Kilembo (ouest du Kivu, altitude 2000 metres).</p>"
     },
     {
       "key": "habitat",
@@ -174,10 +175,10 @@
       "html": "<p>Amphilius kivuensis occurs in streams and small rivers with rocky bottoms.</p>"
     },
     {
-      "key": "equipment",
+      "key": "maintenance",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_kivuensis.htm",
-      "html": "<p>Can be kept in aquaria with a small grained gravel or sand substrate, and well planted with a slight current to facilitate their natural habitat. Provide rockwork and caves. This genera prefer cooler temperatures in the aquarium.</p>"
+      "html": "<p>Can be kept in aquaria with a small grained gravel or sand substrate, and well planted with a slight current to facilitate their natural habitat. Provide rockwork and caves. This genus prefers cooler temperatures in the aquarium.</p>"
     },
     {
       "key": "diet",
@@ -189,7 +190,13 @@
       "key": "notes",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_kivuensis.htm",
-      "html": "<p>Colouration: Yellow brown, darker on the dorsum, with small round black dots.</p><p>Etymology: The specific name kivuensis: –ensis, suffix denoting place: region of Kivu (west of Lake Kivu), Democratic Republic of the Congo, type locality.</p>"
+      "html": "<p>Etymology: the specific name kivuensis: –ensis, suffix denoting place: region of Kivu (west of Lake Kivu), Democratic Republic of the Congo, type locality. IUCN Red List: Not Evaluated.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_kivuensis.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2019. FishBase. www.fishbase.org. Seegers, Lothar; The Catfishes of Africa. A handbook for identification and maintenance. Tetra Verlag GmbH. 604p. Skelton, P.H. and G.G. Teugels, 1986. Amphiliidae. p. 54-65. In J. Daget, J.-P. Gosse and D.F.E. Thys van den Audenaerde (eds.) Check-list of the freshwater fishes of Africa (CLOFFA). ISNB, Brussels; MRAC, Tervuren; and ORSTOM, Paris. Vol. 2. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -257,5 +264,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13"
+  "updatedAt": "2026-11-16"
 }

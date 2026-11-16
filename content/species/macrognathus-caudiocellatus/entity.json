@@ -10,6 +10,62 @@
     "myanmar",
     "lake-inle"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Lake Inle"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species is endemic to the Lake Inle region in Burma.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Lake Inle"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5204056,
+      "total": 19,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "MM",
+          19
+        ]
+      ],
+      "cells": [
+        [
+          95.625,
+          19.6875,
+          4,
+          4
+        ],
+        [
+          97.03125,
+          19.6875,
+          14,
+          14
+        ],
+        [
+          99.84375,
+          19.6875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -76,16 +132,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/glaser/71a7a39df4a01c2f.webp",
-      "thumb": "https://media.aquatome.com/glaser/71a7a39df4a01c2f-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/22-spiny-eels/mastacembelus_caudiocellatus_en/",
-      "source": "glaser"
-    },
-    {
       "url": "https://media.aquatome.com/glaser/4e14c63076267731.webp",
       "thumb": "https://media.aquatome.com/glaser/4e14c63076267731-480.webp",
       "width": 850,
@@ -98,6 +144,16 @@
     {
       "url": "https://media.aquatome.com/glaser/942aface6bebd018.webp",
       "thumb": "https://media.aquatome.com/glaser/942aface6bebd018-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/22-spiny-eels/mastacembelus_caudiocellatus_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/71a7a39df4a01c2f.webp",
+      "thumb": "https://media.aquatome.com/glaser/71a7a39df4a01c2f-480.webp",
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",

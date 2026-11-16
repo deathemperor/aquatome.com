@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/acrylic-vs-glass-tanks-pros-and-cons/
 title: Acrylic vs Glass Tanks: Pros and Cons - Shrimp and Snail Breeder
 fetchedAt: 2026-11-08T18:21:08.258Z
-hash: 43057685eec8659ecefcdaa672662685125a44e6c0c2b6c3287600ceddaa375f
+hash: ee03c467e673de5e22237e74bf07a15bacdc833f2f794dbdcf6da60ef4b37568
 ---
 
 An aquarium is a special enclosure or well-designed structure used to confine and display aquatic organisms, i.e. live plants and animals such as fish, invertebrates, amphibians, and reptiles.
@@ -36,7 +36,3 @@ Putting the pros and cons of both aquariums into perspective, acrylic looks like
 Regardless, making a choice between an acrylic or glass aquarium ultimately depends on the construction style or design in mind, purpose, and wherewithal.
 While many will be comfortable with picking glass aquariums due to their sturdiness and cost implications, others may lean towards acrylic because of its lightweight, transparency, or other desired features that come with the latter.
 So whichever aquarium you choose, make sure it is from a reputable manufacturer, and don’t forget to conduct a leak test before use.
-## 4 thoughts on “Acrylic vs Glass Tanks: Pros and Cons”
-- Thanks for another informative article, Michael! What are your favorite tank manufacturers? ReplyHi Andrew, I’ve tried a bunch of brands over the years, but honestly, I don’t have a single favorite. When I wrote that acrylic vs glass article, I went through a lot of tanks. For my shrimp setups, I just grab standard Aqueon tanks from the pet store. They’re cheap and they work. Nothing fancy. When I want something rimless for a display tank, I’ve used UNS and Waterbox. Good quality, clean look. But I don’t think brand matters as much as people make it out to be. Most tanks come from the same few factories anyway. What really counts is getting the right size and material for what you’re keeping.Best regards, Michael Reply
-- Thanks much for info sharing. ReplyHi Naing Oo Lwin, Glad it helped. I spent a lot of time comparing both when I set up my shrimp room. Best regards, Michael Reply
-### Leave a Reply Cancel reply

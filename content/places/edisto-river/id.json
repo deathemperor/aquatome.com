@@ -1,8 +1,13 @@
 {
   "slug": "edisto-river",
-  "name": "Edisto",
+  "name": "Sungai Edisto",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-16T00:13:08.185Z"
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

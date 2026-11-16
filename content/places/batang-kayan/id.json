@@ -3,6 +3,12 @@
   "name": "Kayan",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-16T00:12:52.062Z",
+    "why": "The place is the Batang Kayan river in Sarawak, and Indonesian atlases would write \"Batang Kayan\" (or \"Sungai Kayan\"), but bare \"Kayan\" drops the kind word and part of the proper name, so it is cut short and could also mean the Kayan River in Kalimantan Utara."
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

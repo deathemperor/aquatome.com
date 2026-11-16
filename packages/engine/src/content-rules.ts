@@ -512,6 +512,67 @@ export const thanksLines = (html: string) => (/cảm ơn|cám ơn|terima kasih|p
 export const dropThanks = (html: string) => (/cảm ơn|cám ơn|terima kasih|penghargaan|ขอบคุณ|thank/iu.test(html) ? cutBlocks(html, isThanks) : html)
 
 /**
+ * An email address. The repository is public and an address belongs to a person, so no page prints one (the chief of
+ * staff, 16 Nov 2026): a source's letters had printed their author's in each header ("Từ: <name> (<address>)"). A file
+ * name with a scale mark or a frame rate ("ảnh@2x.PNG", "1080p@60fps.mov") isn't one: a picture, video, sound or code
+ * file's extension, any case, is no address's end. Before the "@", Latin letters with their accents, digits and "._%+-",
+ * as videos.ts reads a video's title: Thai and Chinese run their words together, and a wider class would take the words
+ * beside an address with it. An address ends where no Latin letter or digit follows, nor a file's extension
+ * ("logo@2x.min.js" is a file; "1080p@60fps.movไทย" too), and a link's user ("https://user@host", "https://user:pass@host") is no person's address. Each part is held to an
+ * address's own limits (64 letters before the "@", 63 a part), and a match starts only where an address can, so no
+ * string, however long, makes it slow: the sweep reads every file each cycle.
+ */
+const LETTER = String.raw`\p{Script=Latin}\p{Nd}\u0300-\u036f`
+const FILE = '3gp|aac|asf|ass|avi|avif|bmp|css|dng|flac|flv|gif|hdr|heic|heif|ico|jfif|jpe?g|js|m2ts|m4a|m4v|mkv|mov|mp3|mp4|mpe?g|mts|mxf|ogg|ogv|opus|pdf|png|raw|rmvb|srt|svg|tiff?|ts|vob|vtt|wav|webm|webp|wmv|zip'
+const EMAIL = String.raw`(?<![${LETTER}._%+-])(?<!\/\/[^\s/@]{0,64})(?:mailto:)?[${LETTER}._%+-]{1,64}(?:['’&=][${LETTER}._%+-]{1,64}){0,3}@[${LETTER}-]{1,63}(?:\.[${LETTER}-]{1,63}){0,8}\.(?!(?:${FILE})(?![\p{Script=Latin}\p{N}\p{M}]))\p{Script=Latin}{2,24}(?![\p{Script=Latin}\p{N}\p{M}]|\.(?:${FILE})(?![\p{Script=Latin}\p{N}\p{M}]))`
+/**
+ * An address written out so a program won't read it, which video titles and letters do ("someone [at] example [dot] org",
+ * "Email: someone at example dot com", a full-width "＠", "&#64;"): its to catch too (the chief of staff, 16 Nov). A mark
+ * touches both words ("Line ＠example.com" is a handle). The word "at" counts only after a word that says an address
+ * follows and with the dots written out too, so "available at example.com" and "Find us at example dot com" are sentences;
+ * the last part is a known ending, so "(at) home (dot) X" isn't one.
+ */
+const AT_MARK = String.raw`(?:\s*[\[({<]\s*at\s*[\])}>]\s*|＠|&#0*64;|&#x0*40;)`
+const DOT_MARK = String.raw`\s*[\[({<]\s*dot\s*[\])}>]\s*`
+const ENDING = 'com|org|net|edu|gov|mil|info|biz|io|co|me|vn|uk|de|fr|nl|be|ch|at|it|es|pt|pl|cz|ru|ua|se|no|dk|fi|ie|jp|kr|cn|tw|hk|sg|my|id|th|ph|in|au|nz|ca|us|mx|br|ar|za'
+const PART = String.raw`[${LETTER}-]{1,63}`
+const SPELLED_END = String.raw`(?![\p{Script=Latin}\p{N}\p{M}]|${DOT_MARK}${PART}|\s+dot\s+${PART}|\.[${LETTER}])`
+// The plain word "at" only after a word that says an address follows ("Email:", "liên hệ", "surel"), so "Find us at
+// example dot com" stays a sentence; each address with its own word, so a cut takes every one in a pass.
+const CUE = String.raw`(?:e-?mail|mail|thư|liên\s hệ|contact|surel|emel|อีเมล)(?:\s{0,3}[:：]\s{0,3}|\s{1,3})`
+const SPELLED = String.raw`(?:(?<![${LETTER}._%+-])[${LETTER}._%+-]{1,64}${AT_MARK}${PART}(?:(?:${DOT_MARK}|\s+dot\s+|\.)${PART}){0,4}(?:${DOT_MARK}|\s+dot\s+|\.)(?:${ENDING})${SPELLED_END}|(?<=${CUE})(?<![${LETTER}._%+-])[${LETTER}._%+-]{1,64}\s+at\s+${PART}(?:(?:${DOT_MARK}|\s+dot\s+)${PART}){0,4}(?:${DOT_MARK}|\s+dot\s+)(?:${ENDING})${SPELLED_END})`
+/** Something in a text that may be an address, either way: the check and the cut read a file only when it has one. */
+export const mayHoldEmail = (text: string) => /@|＠|&#0*64;|&#x0*40;|[\[({<]\s*at\s*[\])}>]|\sdot\s|[\[({<]\s*dot\s*[\])}>]/iu.test(text)
+const ANY_EMAIL = new RegExp(EMAIL, 'iu')
+const ANY_SPELLED = new RegExp(SPELLED, 'iu')
+const BRACKETED_EMAIL = new RegExp(String.raw`(?<!\s)\s*(?:\(|\[|&lt;|<)\s*(?:${EMAIL}|${SPELLED})\s*(?:\)|\]|&gt;|>)`, 'giu')
+const BARE_EMAIL = new RegExp(String.raw`(?<!\s)\s*(?:${EMAIL}|${SPELLED})`, 'giu')
+const MAILTO_LINK = /<a\b[^>]*\bhref\s*=\s*["']mailto:[^"']*["'][^>]*>([\s\S]*?)<\/a>/giu
+export const hasEmail = (text: string) => (text.includes('@') && ANY_EMAIL.test(text)) || (mayHoldEmail(text) && ANY_SPELLED.test(text))
+/**
+ * The text without its email addresses: a link to one keeps its words, and an address goes with the brackets round it and
+ * the space before it. What hasEmail finds, this cuts, so the sweep mends every hit the real-content test can have.
+ */
+export const dropEmails = (html: string) => {
+  let out = html
+  for (let i = 0; i < 3 && hasEmail(out); i++) out = out.replace(MAILTO_LINK, '$1').replace(BRACKETED_EMAIL, '').replace(BARE_EMAIL, '')
+  return out
+}
+/** A string that is one link and nothing else ("https://example.net/?mail=…"): the check and the cut leave it whole. */
+export const isLink = (s: string) => /^(?:https?|ftp):\/\/\S+$/iu.test(s)
+/** A picture or a video, which the check and the cut don't read. */
+export const isMediaFile = (f: string) => /\.(?:png|jpe?g|gif|webp|avif|ico|mp4|webm|mov)$/iu.test(f)
+/**
+ * A stored file's data with the email addresses cut from every string, its keys too (dropEmails): the captions' translations
+ * are keyed by the Vietnamese caption, which then reads as its photo's does. A string that is one link stays whole
+ * (isLink). Its shape stays.
+ */
+export const dropEmailsDeep = <T>(v: T): T => (typeof v === 'string' ? (isLink(v) ? v : dropEmails(v))
+  : Array.isArray(v) ? v.map(dropEmailsDeep)
+  : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).map(([k, x]) => [dropEmails(k), dropEmailsDeep(x)]))
+  : v) as T
+
+/**
  * "© <name>" in a fish page's references, after a work's title ("The ETYFish Project Fish Name Etymology Database ©
  * <name>."): its compiler's name, which a page doesn't print. The "©" and the name go; the work's title, its link and the
  * stop after stay. Only one name ending its citation (a stop, a comma, the end): a "©" with a year, two names, or more of
@@ -1124,12 +1185,17 @@ const swapsIn = (sentence: string) => SWAPS.filter(r => placesIn(r, sentence).le
 // another scientific name stands in brackets beside it ("Cá madtom đốm (Noturus nocturnus)"). A row that keeps its name
 // renames nothing.
 // A longer name it begins ("cá cầu vồng đỏ cá hồi", Salmon red rainbowfish translated) is another name, left as written.
+// An old name may hold brackets ("Cá cuvieri (Boulengerella cuvieri)"): its words are matched as written, a tag inside
+// its brackets read as a space ("(<em>Gabon lyretail</em>)"). Its words never run across a block's edge (visibleText's
+// line break): "Chọn mua cá</h3><p>Platy…" is no "cá platy".
+const literal = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/ /g, '[^\\S\\n]+')
+  .replace(/\\\(/g, '\\([^\\S\\n]*').replace(/\\\)/g, '[^\\S\\n]*\\)')
 const RENAMES = FISH_NAMES.flatMap(r => oldNames(r).map(was => {
-  const rests = (r.longer ?? []).filter(n => n.toLowerCase().startsWith(`${was.toLowerCase()} `)).map(n => n.slice(was.length).trim().replace(/ /g, '\\s+'))
-  return { ...r, was, old: new RegExp(word(was.replace(/ /g, '\\s+')), 'giu'), longer: rests.length ? new RegExp(`^\\s+(?:${rests.join('|')})(?!\\p{L})`, 'iu') : undefined }
+  const rests = (r.longer ?? []).filter(n => n.toLowerCase().startsWith(`${was.toLowerCase()} `)).map(n => literal(n.slice(was.length).trim()))
+  return { ...r, was, old: new RegExp(word(literal(was)), 'giu'), longer: rests.length ? new RegExp(`^\\s+(?:${rests.join('|')})(?!\\p{L})`, 'iu') : undefined }
 }))
 /** An English name's last word, which no scientific name ends in: "Red rainbowfish", "Congo tetra". */
-const ENGLISH = /(?:fish|tetra|barb|danio|rasbora|molly|platy|guppy|cory|pleco|loach|gourami|cichlid|eyes?|killi|goby|shrimp|snail|crab|rainbow)$/
+const ENGLISH = /(?:fish|tetra|barb|danio|rasbora|molly|platy|guppy|cory|corydoras|pleco|loach|gourami|cichlid|eyes?|killi|goby|shrimp|snail|crab|rainbow)$/
 /**
  * The scientific names in a stretch of text: a capitalised word, or its first letter and a full stop ("G. incisus"), and a
  * lowercase one, not an English name.
@@ -1141,6 +1207,8 @@ const sameSpecies = (a: string, sci: string) => {
   const [g = '', e = ''] = a.split(' '), [G = '', E = ''] = sci.split(' ')
   return (g === G || (g.endsWith('.') && G.startsWith(g.slice(0, -1)))) && stem(e) === stem(E)
 }
+/** Its second word under any genus: the fish moved ("Hoplisoma panda" for Corydoras panda) or its genus misspelt ("Xiphorphorus"). */
+const itsEpithet = (a: string, sci: string) => stem(a.split(' ')[1] ?? '') === stem(sci.split(' ')[1] ?? '')
 /** In brackets right after the old name, or right before it with a bracket or a dash between. */
 const BRACKET_AFTER = /^\s*\(([^()]{0,80})\)/
 const BINOMIAL_BEFORE = /((?:[A-Z][a-z]+\s+|[A-Z]\.\s*)[a-z]+)\s*[(),:–-]\s*\(?\s*$/
@@ -1148,12 +1216,29 @@ const renamesIn = (r: (typeof RENAMES)[number], text: string) => [...text.matchA
   const end = m.index! + m[0].length
   if (r.longer?.test(text.slice(end))) return false
   const named = [...binomials(BRACKET_AFTER.exec(text.slice(end, end + 90))?.[1] ?? ''), ...binomials(BINOMIAL_BEFORE.exec(text.slice(Math.max(0, m.index! - 60), m.index!))?.[1] ?? '')]
-  return !named.length || named.some(n => sameSpecies(n, r.sci))
+  return !named.length || named.some(n => itsEpithet(n, r.sci))
 })
+/**
+ * A new name that holds the scientific name takes that name in brackets right after it along: "Hến Corbicula fluminea",
+ * never "Hến Corbicula fluminea (Corbicula fluminea)". The bracket's length, or 0.
+ */
+const ownBracket = (r: (typeof RENAMES)[number], after: string) => {
+  if (!r.name.toLowerCase().includes(r.sci.toLowerCase())) return 0
+  // In the same block: "<h2>Trai nước ngọt Corbicula</h2><p>(Corbicula fluminea) là…" keeps the paragraph's.
+  const b = /^[^\S\n]*\(([^()\n]{0,80})\)/.exec(after)
+  const inside = b?.[1]?.replace(/\s+/g, ' ').trim() ?? ''
+  const named = binomials(inside)
+  return b && named.length === 1 && named[0] === inside && sameSpecies(inside, r.sci) ? b[0].length : 0
+}
+/** Each fish page's old name (FISH_NAMES) written as its name. */
+const renameAll = (was: string) => RENAMES.reduce((s, r) => {
+  const seen = visibleText(s)
+  return splice(s, renamesIn(r, seen).map(m => ({ index: m.index!, length: m[0].length + ownBracket(r, seen.slice(m.index! + m[0].length)), to: asWritten(m[0], r.name) })))
+}, was)
 /** Text with each fish page's old name (FISH_NAMES) written as its name, as renameSwapped does first: a photo's caption. */
 export const renameFishNames = (text: string) => {
   const was = text.normalize('NFC')
-  const out = RENAMES.reduce((s, r) => splice(s, renamesIn(r, visibleText(s)).map(m => ({ index: m.index!, length: m[0].length, to: asWritten(m[0], r.name) }))), was)
+  const out = renameAll(was)
   return out === was ? text : out
 }
 const asWritten = (m: string, name: string) => (m[0] === m[0]!.toLowerCase() ? name[0]!.toLowerCase() + name.slice(1) : name)
@@ -1189,7 +1274,7 @@ const splice = (raw: string, at: { index: number; length: number; to: string }[]
  */
 export function renameSwapped(text: string) {
   const was = text.normalize('NFC')
-  const renamed = RENAMES.reduce((s, r) => splice(s, renamesIn(r, visibleText(s)).map(m => ({ index: m.index!, length: m[0].length, to: asWritten(m[0], r.name) }))), was)
+  const renamed = renameAll(was)
   const seenText = visibleText(renamed)
   const at: { index: number; length: number; to: string }[] = []
   let from = 0
@@ -1213,7 +1298,7 @@ export const renameSwappedIn = <V>(v: V): V => (typeof v === 'string' ? renameSw
 
 /**
  * A stored Vietnamese page with old names renamed in what its reader reads and the rule checks: its name (one a person
- * fixed stays), text, summary, FAQ, and a product's reviews and tests. Its other names (searches find it by them) and the
+ * fixed stays), text, summary, FAQ, a video's chapters, and a product's reviews and tests. Its other names (searches find it by them) and the
  * sources' references stay. The same object when nothing changes.
  */
 export function renameStored<T extends { name?: string; nameFixed?: boolean; sections?: Record<string, string> }>(t: T): T {
@@ -1221,7 +1306,7 @@ export function renameStored<T extends { name?: string; nameFixed?: boolean; sec
     ...t,
     ...(t.name !== undefined && !t.nameFixed ? { name: renameSwapped(t.name) } : {}),
     ...(t.sections ? { sections: Object.fromEntries(Object.entries(t.sections).map(([k, v]) => [k, k.startsWith('references') ? v : renameSwapped(v)])) } : {}),
-    ...Object.fromEntries(['body', 'definition', 'summary', 'faq', 'reviews', 'tested'].flatMap(k => (k in t ? [[k, renameSwappedIn((t as Record<string, unknown>)[k])]] : []))),
+    ...Object.fromEntries(['body', 'definition', 'summary', 'faq', 'chapters', 'reviews', 'tested'].flatMap(k => (k in t ? [[k, renameSwappedIn((t as Record<string, unknown>)[k])]] : []))),
   }
   return JSON.stringify(next) === JSON.stringify(t) ? t : next
 }

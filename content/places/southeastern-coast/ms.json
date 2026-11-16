@@ -3,6 +3,12 @@
   "name": "Pantai Tenggara",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.4,
+    "at": "2026-11-16T00:11:37.237Z",
+    "why": "\"Pantai Tenggara\" is a generic word-for-word rendering of \"southeastern coast\"; a Malaysian atlas would write the US region as \"Pantai Tenggara Amerika Syarikat\" or \"Pantai Tenggara AS\" to specify the place, and the bare name could refer to any southeastern coast."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

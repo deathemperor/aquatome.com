@@ -1,0 +1,255 @@
+{
+  "id": "tatia-dunni",
+  "scientificName": "Tatia dunni",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Tatia",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru",
+    "pucallpa",
+    "brazil",
+    "ecuador",
+    "colombia"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "BR",
+        "EC",
+        "PE"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Tatia dunni was described in 1945 from Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "T. dunni is widely distributed: there are records of the species from Brazil, Ecuador, Colombia and Peru.",
+          "countries": [
+            "BR",
+            "EC",
+            "PE"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344651,
+      "total": 17,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "BR",
+          7
+        ],
+        [
+          "PE",
+          5
+        ],
+        [
+          "EC",
+          3
+        ],
+        [
+          "CO",
+          1
+        ],
+        [
+          "GY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -11.25,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -8.4375,
+          4,
+          4
+        ],
+        [
+          -60.46875,
+          4.21875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 12
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/tatia_dunni_en/",
+      "html": "<p>The identification of Tatia species is not easy. Although a very recent revision of the genus is available, the species concept used there reflects only a few aspects of coloration, so fish of very different coloration are currently lumped under the same species name. The first attempt to identify these fish went wrong, and they were initially listed erroneously as Tatia cf. gyrina.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/tatia_dunni_en/",
+      "html": "<p>Tatia dunni was described in 1945 from Colombia. From 1973 to 2008 it was regarded as synonymous with T. intermedia. T. dunni is widely distributed: there are records of the species from Brazil, Ecuador, Colombia and Peru. However, the fish look quite different in distinct populations. The Peruvian fish, collected near Pucallpa and named \"padre abad\" by the exporter, differ individually in pattern, but all have in common a golden stripe over the back and a bright golden bar before the dorsal fin.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/tatia_dunni_en/",
+      "html": "<p>Tatia dunni belongs to the larger species of the genus and may grow longer than 12 cm. However, sexual maturity starts at a much smaller size. In museum material, males were found to have the anal fin modified into a copulatory organ from about 7 cm standard length (that is, without the caudal fin). This modification of the male's anal fin is typical of all driftwood catfishes.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/tatia_dunni_en/",
+      "html": "<p>Lexicon: Tatia: dedicated to Charles Tate Regan, ichthyologist at the British Museum. dunni: dedication name. gyrina: from the ancient Greek word for \"tadpole\". intermedia: Latin, meaning \"in between\"; the characteristics of the species are intermediate between those of two other species.</p>"
+    },
+    {
+      "key": "references",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/tatia_dunni_en/",
+      "html": "<p>Sarmento-Soares, L. M. &amp; R. F. Martins-Pinheiro (2008): A systematic revision of Tatia (Siluriformes: Auchenipteridae: Centromochlinae). Neotropical Ichthyology 6 (3): 495-542</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/81967056acff3112.webp",
+      "thumb": "https://media.aquatome.com/glaser/81967056acff3112-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/tatia_dunni_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/3855921cd1fae032.webp",
+      "thumb": "https://media.aquatome.com/glaser/3855921cd1fae032-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/tatia_dunni_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/9c35c058e72970c6.webp",
+      "thumb": "https://media.aquatome.com/glaser/9c35c058e72970c6-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/tatia_dunni_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "fsB5rXE2f4M",
+      "title": "Tatia dunni",
+      "durationSec": 13,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "md_sotAw1rY",
+      "title": "Catfish, Tatia Dunni // Eggs // Aquarium // Netztrugdornwels",
+      "durationSec": 131,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "DCz865-SLX4",
+      "title": "TATIA DUNNI WHITE FEEDING TIME , MEGA RARE",
+      "durationSec": 272,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "RF0hZFKrCjM",
+      "title": "Tatia dunni eggs 4 days old, catfish, Netztrugdornwels",
+      "durationSec": 21,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá 100cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm sục khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá da trơn",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-16"
+}

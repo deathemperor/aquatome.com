@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/grindal-worms-culture-guide/
 title: Grindal Worms Culture Guide - Shrimp and Snail Breeder
 fetchedAt: 2026-11-10T15:05:32.036Z
-hash: aac7aac2729ca018bb6b7904f11a949eb00bfda724fa1356b5b4b879583bf557
+hash: 1b17838280c479ac6f0aae9e9bb936b534e61d0e36aa6bf96cee8e810bd13930
 ---
 
 So today, I will discuss how to culture Grindal worms (Enchytraeus buchholzi) as live food for aquarium fish, freshwater crabs, and crayfish. It will be an easy, fast and simple setup.
@@ -96,8 +96,3 @@ Final thoughts: Avoid pest-contaminated foods, cover the culture container with 
 Grindal worms are relatively easy to culture, they require little attention, and the cost of setup is quite inexpensive.
 Compared to most aquarium live food options, it takes minimal effort and resources to establish and maintain a Grindal worm culture. And this species doesn’t need a large enclosure or special requirements like salinity, lighting, supplemental aeration, and heating to thrive.
 Grindal worms is an excellent food source for many species of fish, crabs, and crayfish irrespective of their size. You can serve these little worms to fry, juvenile, and adult fish, as well as amphibians e.g. newts, salamanders, and inverts such as crayfish, shrimp, lobsters, and crabs.
-## 6 thoughts on “Grindal Worms Culture Guide”
-- Do you sell grindal worm cultures? ReplyHi Debbie Schneider, I culture them from time to time but I don’t sell them. Best regards, Michael Reply
-- Where do you get the coconut fiber? ReplyHi Ann, This is one of the most popular gardening products. You can buy is stores or online. It should not be a problem at all. Best regards, Michael Reply
-- You can remove the smell easily by adding charcoal like for fish tanks, I had kitty litter charcoal, it just discovers in the soil, and was absolutely amazing at removing the smell without harming any worms. My husband was getting annoyed when I opened it, it worked amazingly! ReplyHi Amy Hook, Thanks for the tip! Best regards, Michael Reply
-### Leave a Reply Cancel reply

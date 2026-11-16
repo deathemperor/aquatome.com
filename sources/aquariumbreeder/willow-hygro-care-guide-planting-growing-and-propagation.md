@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/willow-hygro-care-guide-planting-growing-and-propagation/
 title: Willow Hygro Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-10-31T19:46:14.123Z
-hash: dbe9a9bd5746cfa11a40f440dc0ef4a871af75a76c1a282328e77d14c19444c6
+hash: e40cac83e96a9d81d446f004e7f8b2cbc830bc27b8def047d27ed0c7d88f1851
 ---
 
 Willow hygro (Hygrophila angustifolia) is one of the easiest aquarium plants to keep. With its attractive foliage and ease of growth, Hygrophila angustifolia has become a staple aquarium plant for hobbyists worldwide.
@@ -140,6 +140,3 @@ At the same time, it should be noted that many of these advantages can, over tim
 - Cowie, Short, Osterkamp Madsen (2000) “Floodplain Flora, a flora of the floodplain of the Northern Territory, Australia”.
 - Hu Jiaqi, Deng Yunfei, Daniel T. F. Acanthaceae // Flora of China / Editors: Wu, Z. Y., P. H. Raven & D. Y. Hong. — St. Louis: Science Press, Beijing, and Missouri Botanical Garden Press, 2011. — Vol. 19 (Cucurbitaceae through Valerianaceae, with Annonaceae and Berberidaceae). — С. 468–469.
 - http://www.theplantlist.org/tpl/record/kew-2856689
-## 2 thoughts on “Willow Hygro Care Guide – Planting, Growing, and Propagation”
-- Can it grow emerged and benefit my tank what are the disadvantage of letting the plant grow out of the water ReplyHi Hyvis Thatcher,In that case, I’d say the care process for this plant will become much simpler, as it will have constant access to CO2. Its growth will accelerate, and it will absorb more nitrates, which is another advantage. As for the downsides, the increased growth may require you to trim it regularly to prevent it from overtaking your aquarium.Best regards, Michael Reply
-### Leave a Reply Cancel reply

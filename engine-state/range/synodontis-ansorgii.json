@@ -1,0 +1,113 @@
+{
+  "id": "synodontis-ansorgii",
+  "native": {
+    "input": "89e41e41a2930aff",
+    "at": "2026-11-16T05:47:36.414Z",
+    "claims": [
+      {
+        "code": "GW",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Bafata, Geba River [Giba], Guinea-Bissau",
+        "words": "Guinea-Bissau",
+        "ok": true
+      },
+      {
+        "code": "GW",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Africa: Guinea-Bissau (Geba basin), Sierra Leone (Jong River), and Guinea (Kolenté and Koumba rivers).",
+        "words": "Guinea-Bissau",
+        "ok": true
+      },
+      {
+        "code": "SL",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Africa: Guinea-Bissau (Geba basin), Sierra Leone (Jong River), and Guinea (Kolenté and Koumba rivers).",
+        "words": "Sierra Leone",
+        "ok": true
+      },
+      {
+        "code": "GN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Africa: Guinea-Bissau (Geba basin), Sierra Leone (Jong River), and Guinea (Kolenté and Koumba rivers).",
+        "words": "Guinea",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Geba",
+        "source": "planetcatfish",
+        "quote": "Africa: Guinea-Bissau (Geba basin), Sierra Leone (Jong River), and Guinea (Kolenté and Koumba rivers).",
+        "country": "GW",
+        "ok": true
+      },
+      {
+        "name": "Jong River",
+        "source": "planetcatfish",
+        "quote": "Africa: Guinea-Bissau (Geba basin), Sierra Leone (Jong River), and Guinea (Kolenté and Koumba rivers).",
+        "country": "SL",
+        "ok": true
+      },
+      {
+        "name": "Kolenté",
+        "source": "planetcatfish",
+        "quote": "Africa: Guinea-Bissau (Geba basin), Sierra Leone (Jong River), and Guinea (Kolenté and Koumba rivers).",
+        "country": "GN",
+        "ok": true
+      },
+      {
+        "name": "Koumba",
+        "source": "planetcatfish",
+        "quote": "Africa: Guinea-Bissau (Geba basin), Sierra Leone (Jong River), and Guinea (Kolenté and Koumba rivers).",
+        "country": "GN",
+        "ok": true
+      },
+      {
+        "name": "Taja",
+        "source": "planetcatfish",
+        "quote": "Also reported from the Taja basin, Rokel and Sewa rivers in Sierra Leone.",
+        "country": "SL",
+        "ok": true
+      },
+      {
+        "name": "Rokel",
+        "source": "planetcatfish",
+        "quote": "Also reported from the Taja basin, Rokel and Sewa rivers in Sierra Leone.",
+        "country": "SL",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Synodontis ansorgii",
+    "status": "ACCEPTED",
+    "taxonKey": 2344373,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        4
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "GW",
+      "SL",
+      "GN"
+    ],
+    "requests": 11,
+    "at": "2026-11-16T05:47:36.414Z"
+  }
+}

@@ -3,6 +3,12 @@
   "name": "เจมบารัมบักกัม",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-16T17:21:55.761Z",
+    "why": "The Thai name only transliterates \"Chembarambakkam\" and omits the Thai word for lake (ทะเลสาบ/อ่าง), which an atlas would add for a lake. The transliteration itself is plausible."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

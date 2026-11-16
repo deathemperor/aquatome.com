@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/asian-leeches-in-shrimp-tank-stay-or-go/
 title: Asian Leeches in Shrimp Tank: Stay or Go? - Shrimp and Snail Breeder
 fetchedAt: 2026-10-29T07:22:36.458Z
-hash: 92f1fd4dd91c55731f92c227daa360eccc2986e1430b6f1c159825b3d6d08c51
+hash: 3919c48cd4edee8a8c6a938fecab63fc1c5d1ea073711b48613e7ecf0e200f40
 ---
 
 The topic of leeches in shrimp tanks is quite controversial because opinions vary on whether they pose a threat to shrimp. In my opinion, there is a simple explanation for that – the main issue is that aquarists often can’t identify the leech species in their tanks.
@@ -147,4 +147,3 @@ That’s why the primary method of combating them is through preventive measures
 - Chandra, Mahesh (1991). The Leeches of India: A Handbook. Zoological Survey of India. p. 69.
 - Mason, Julia. “Studies on the freshwater and terrestrial leeches of New Zealand. 2. Orders Gnathobdelliformes and Pharyngobdelliformes.” Journal of the Royal Society of New Zealand6, no. 3 (1976): 255-276.
 - Iwama, Rafael Eiji, and Eliane Pintor Arruda. “Leeches of the genus Helobdella (Clitellata: Hirudinida) from São Paulo, Brazil with descriptions of two new species using micro-computed tomography and a new record of Barbronia weberi (Blanchard 1897).” Zootaxa 4144, no. 3 (2016): 411-429.
-### Leave a Reply Cancel reply

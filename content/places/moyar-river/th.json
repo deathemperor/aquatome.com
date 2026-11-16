@@ -1,8 +1,13 @@
 {
   "slug": "moyar-river",
-  "name": "โมยาร์",
+  "name": "แม่น้ำโมยาร์",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-16T17:22:25.358Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

@@ -1,8 +1,13 @@
 {
   "slug": "songkhram-river",
-  "name": "Songkhram",
+  "name": "Sungai Songkhram",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-16T05:42:56.275Z"
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

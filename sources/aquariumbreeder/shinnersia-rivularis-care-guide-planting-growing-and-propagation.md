@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/shinnersia-rivularis-care-guide-planting-growing-and-propagation/
 title: Shinnersia Rivularis Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-10-30T19:27:51.967Z
-hash: 485e95b148c1b0d76b2a357fb829e84a472cacd526677b3ae81e378d20f32006
+hash: e4c13642ea721d3926f1b093df32e01962f4c0f7b75f1e7a7aeb9a547355012a
 ---
 
 Shinnersia rivularis, commonly known as the Mexican oak leaf, is a beautiful and versatile plant. Although this plant has been well-known in the aquatics community for a long time, it hasn’t gained widespread popularity. There are several reasons for this.
@@ -123,4 +123,3 @@ However, due to its rapid reproduction and robust growth, this plant often requi
 - Eliáš, Pavol, Michal Hájek, and Petra Hájková. “A European warm waters neophyte Shinnersiarivularis—new alien species to the Slovak flora.” Biologia64, no. 4 (2009): 684-686.
 - LEMKE, DAVID E., and MONIQUE DUBRULE REED. “A NOTABLE RANGE EXTENSION FOR SHINNERSIA RIVULARIS (ASTERACEAE, EUPATORIEAE) IN TEXAS.
 - Romanowski, Nick. Wetland weeds: causes, cures and compromises. CSIRO PUBLISHING, 2011.
-### Leave a Reply Cancel reply

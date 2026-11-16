@@ -98,6 +98,9 @@ test("a chip's picture is a member's head where one qualifies, wider first, else
   expect(tien!.img).toBe(cardSrc(narrowHead))
   // The wider chip, with the others' photos taken: a head first (the cockatoo cichlid's), before the angelfish's other photo.
   expect(am!.img).toBe(cardSrc(wideHead))
+  // Each names the member whose photo it is, a head or not (the Lab, 16 Nov: Cá chuột's was a photo from a page's text, no
+  // head matched it, and the app couldn't credit the fish).
+  expect([dia!.imgOf, tien!.imgOf, am!.imgOf]).toEqual(['symphysodon-aequifasciatus', 'pterophyllum-scalare', 'apistogramma-cacatuoides'])
 })
 
 // The chips as the curation file holds them, in every language's index on the fixture: whole and consistent.
@@ -111,7 +114,10 @@ test("every language's index carries the file's chips whole: its fish are its it
   for (const lang of LANGS) {
     const c = await getContent(lang), ix = appIndex(lang, c, new Map(), vi.species, { calendar, today: '2026-11-14' })
     const ids = new Set(ix.items.map(i => i.id)), row = ix.home.chips ?? []
+    const photosOf = new Map([...c.species, ...c.breeds].map(x => [x.id, x.photos]))
     expect(row.map(ch => ch.order)).toEqual(row.map((_, i) => i + 1))
+    // The app draws the row keyed by id (the v2 Lab, 16 Nov): no id twice in a language's row.
+    expect(new Set(row.map(ch => ch.id)).size, lang).toBe(row.length)
     // In the file's order.
     const at = new Map(file.chips.map((ch, i) => [ch.id, i]))
     expect(row.map(ch => at.get(ch.id)!)).toEqual([...row.map(ch => at.get(ch.id)!)].sort((a, b) => a - b))
@@ -121,6 +127,9 @@ test("every language's index carries the file's chips whole: its fish are its it
       for (const m of ch.members) expect(ids.has(m), `${lang} ${ch.id}: ${m}`).toBe(true)
       expect(ch.name, `${lang} ${ch.id}`).toBe(file.chips.find(x => x.id === ch.id)!.names[lang])
       if (ch.img) expect(ch.imgBox, `${lang} ${ch.id}`).toBeDefined()
+      // Its photo is its `imgOf` member's own, so the chip credits the right fish.
+      if (ch.img) expect(photosOf.get(ch.imgOf!)?.some(p => cardSrc(p) === ch.img), `${lang} ${ch.id}: ${ch.imgOf}`).toBe(true)
+      if (ch.img) expect(ch.members, `${lang} ${ch.id}`).toContain(ch.imgOf)
     }
     const imgs = row.flatMap(ch => ch.img ?? [])
     expect(new Set(imgs).size).toBe(imgs.length)

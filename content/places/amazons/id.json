@@ -3,6 +3,12 @@
   "name": "Amazonas",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-16T05:44:01.578Z",
+    "why": "The source means the Amazon region (basin) of Peru and Ecuador, which Indonesian writes \"Amazon\", while \"Amazonas\" is the Spanish/Portuguese name of specific departments and states such as Amazonas in Peru or Brazil."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

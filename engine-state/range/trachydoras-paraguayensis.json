@@ -1,0 +1,161 @@
+{
+  "id": "trachydoras-paraguayensis",
+  "native": {
+    "input": "2ed24bc990b294c7",
+    "at": "2026-11-16T17:28:41.839Z",
+    "claims": [
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This charming species of thorny catfish comes from Paraguay.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Paraná River basin Paraguay, Brazil, Argentina, Bolivia.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Paraná River basin Paraguay, Brazil, Argentina, Bolivia.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Paraná River basin Paraguay, Brazil, Argentina, Bolivia.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Paraná River basin Paraguay, Brazil, Argentina, Bolivia.",
+        "words": "Bolivia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Paraná River",
+        "source": "scotcat",
+        "quote": "South America: Paraná River basin Paraguay, Brazil, Argentina, Bolivia.",
+        "ok": true
+      },
+      {
+        "name": "Paraguay River",
+        "source": "scotcat",
+        "quote": "From the Paraguay River at Corumba, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Trachydoras paraguayensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2344041,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        59
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        32
+      ],
+      [
+        "58414378-4fb2-47e0-8dd5-8b55d5c77117",
+        24
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        20
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        11
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        9
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        6
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ],
+      [
+        "ada824f0-5741-4f99-8452-9bcf46472a84",
+        4
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "527885fc-bae8-48fd-8e13-349bb6dae9b8",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "f8ba5386-8b91-4976-95bd-692e5d105eae",
+        1
+      ]
+    ],
+    "native": [
+      "PY",
+      "BR",
+      "AR",
+      "BO"
+    ],
+    "requests": 11,
+    "at": "2026-11-16T17:28:41.839Z"
+  }
+}

@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/optimize-your-biofilter-a-guide-to-ideal-biological-filtration/
 title: Optimize Your Biofilter: A Guide to Ideal Biological Filtration - Shrimp and Snail Breeder
 fetchedAt: 2026-10-31T04:24:10.584Z
-hash: 65851ab632b19bf749833dbc91280f8211c7819938db0cf2efcf3ee9385726ca
+hash: 3f4f96a91f1a8a5ca8bec69e9baa895879687649bd28e31514696daeb5c9d8b0
 ---
 
 Biological, mechanical, and chemical filtration – the terminology can be confusing for aquarists just starting in the hobby. The different types of filtration all play important roles in maintaining proper water quality and a healthy environment for aquatic animals and plants.
@@ -122,4 +122,3 @@ However, in most cases, biological filtration alone is not sufficient – regula
 - Diana L. Walstad, “Ecology of the Planted Aquarium: A Practical Manual and Scientific Treatise for the Home Aquarist”, 1999, p.63.
 ## Related article:
 - How to Clean an Aquarium Filter
-### Leave a Reply Cancel reply

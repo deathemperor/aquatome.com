@@ -3,6 +3,12 @@
   "name": "Pru Toe-Daeng",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-16T05:41:04.603Z",
+    "why": "The name is the source's English spelling, and a Malaysian atlas would add the kind word \"Paya Gambut\" (peat swamp) or write \"Hutan Paya Gambut Pru Toe-Daeng\"; the bare name lacks it."
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

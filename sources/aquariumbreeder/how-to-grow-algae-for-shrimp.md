@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/how-to-grow-algae-for-shrimp/
 title: How to Grow Algae for Shrimp - Shrimp and Snail Breeder
 fetchedAt: 2026-11-06T19:36:27.634Z
-hash: c8dca7e5b01cf348c727a3c482a8b1f6152eadc041f606dd1352c6d5a477bd45
+hash: 1462f66ae48566823b93af2cb2da5fcd65134c637c3483e066e4e969eea60dc4
 ---
 
 Let’s skip the introduction and get right to the point – how to grow algae for shrimp.
@@ -116,7 +116,3 @@ Nonetheless, even shrimp keepers should be very careful if they decide to grow a
 As a result, the growth mechanism of algae becomes pretty complicated in shrimp tanks that require stability.
 Many studies have shown that stagnant water combined with lots of light, warm temperatures and nitrogen, and phosphate concentrations (water quality in general), encourage the proliferation of algae.
 I need to make one thing very clear – if your shrimp tank does not have enough algae but your shrimp are breeding, DO NOT change anything to improve algae growth. It does not worth it! Just give them some commercial foods.Personally, the safest practice is to grow algae outside of the tanks.
-## 6 thoughts on “How to Grow Algae for Shrimp”
-- Are adding fertilizer to algae tank not to risky? Since it could bring some copper to the shrimp if we put the algae on shrimp tank ReplyHi Fadillah, As I mentioned in the article, you need to be be careful with copper in fertilizers; dwarf shrimp are very sensitive to it. Fortunately, nowadays there are fertilizers available in the market that contain copper in very small concentrations or are completely copper-free. I have also mentioned this in my blog and provided a link to this article. Therefore, when choosing fertilizer for aquarium plants (algae), it is essential to consider its composition. It would be even better if you could search for information on the manufacturer’s website regarding the compatibility of the fertilizer with invertebrates. Best regards, Michael ReplyOh I forgot to mention I’m trying grow algae on separated tank only for algae, is that still has same risk if we put fertilizer contain copper in separated tank? ReplyHi Fadillah, It is a well-known fact that copper has been used for many years to control algae. Thus, it depends on the concentration. For example, >0.3ppm will kill most algae. Do you really have such fertilizers on your hands? Best regards, Michael Reply
-- can we use algae as feed stock for shrimp ReplyHi Aparna, It seems like I don’t fully understand the question, could you please clarify? Algae is a natural food source for shrimp, but if you’re considering feeding your shrimp only algae, it might not be the best idea. Shrimp also consume virtually any decaying organic matter (plant-based or animal-based) which provides them with all necessary nutrients. In an aquarium, we can’t achieve this variety naturally, so we need to supplement shrimp feeding. Best regards, Michael Reply
-### Leave a Reply Cancel reply

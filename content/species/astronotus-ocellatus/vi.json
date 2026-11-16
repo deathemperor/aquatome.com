@@ -47,8 +47,9 @@
     "behaviour:aquariumcoop": "<p>Oscar có cái miệng rất to. Con cá hay động vật không xương sống nào đủ nhỏ để lọt miệng đều có thể bị chúng đớp mất. Vì thế, không nên thả oscar chung với các loài nano. Dù to con, oscar không quá hung dữ, trừ lúc sinh sản. Chúng thậm chí có thể bị các loài cá lớn khác bắt nạt, nên bạn cần chọn bạn cùng bể thật cẩn thận. Oscar từng sống tốt cùng những loài cá lớn hơn mà hiền như cá hồng cát (silver dollar), một số loài cá lau kiếng (pleco) và các loài cichlid Nam Mỹ cỡ trung khác.</p>",
     "dimorphism:aquariumcoop": "<p>Phân biệt đực cái ở oscar rất khó vì hai giới trông gần như y hệt nhau. Khi cá được khoảng 1–1,5 tuổi, bạn có thể thử xem giới tính bằng cách soi lỗ sinh dục (venting). Bạn lật ngửa cá lên rồi quan sát vùng sinh dục. Con đực có hai lỗ nhỏ bằng nhau. Con cái thì có một lỗ nhỏ hơn và một lỗ lớn hơn. Lỗ lớn đó là ống đẻ trứng (ovipositor), bộ phận cá cái dùng để đẻ trứng.</p>",
     "reproduction:aquariumcoop": "<p>Phần lớn người nuôi không chủ động cho oscar đẻ. Một con cái có thể đẻ từ hàng trăm đến hàng nghìn trứng, và tìm chỗ cho từng ấy con cá lớn là chuyện rất khó. Kể cả khi đã xác định được con đực và con cái, chúng vẫn có thể kén chọn và không chịu kết đôi. Vì vậy, có người mua một nhóm sáu con nhỏ, chờ cá đủ lớn để tự ghép cặp, rồi tách cặp mình chọn ra một bể riêng không có cá nào khác.</p><p>Cá cái đẻ trứng lên một phiến đá phẳng hoặc một khoảng đáy bể đã dọn trống. Sau khi cá đực thụ tinh, cả bố lẫn mẹ đều canh giữ ổ trứng rất hung hăng, không cho kẻ săn mồi lại gần. Khi cá bột đã nở, bạn nên chuyển chúng sang một bể ương nhỏ hơn và cho ăn thức ăn thật nhỏ như artemia mới nở còn sống. Nếu để chung bể, cá bố mẹ có thể ăn luôn đàn con khi cá bột bắt đầu bơi tự do.</p>",
-    "distribution:glaser": "<p>Hiện trên thị trường có cá oscar hoang dã cỡ lớn, bắt từ Colombia về.</p>",
-    "beforeYouBuy:glaser": "<p>Cá oscar trại thì lúc nào cũng có bán, còn cá oscar hoang dã thì hiếm thật sự.</p>"
+    "quickFacts:glaser": "<p>Cá Oscar (Astronotus ocellatus) là một trong những loài cichlid cỡ lớn được nhiều người nuôi nhất. Loài này sang châu Âu lần đầu vào năm 1929. Từ đó đến nay, ở châu Á người ta đã lai tạo ra nhiều dạng đột biến khác nhau.</p>",
+    "distribution:glaser": "<p>Xuất xứ: Colombia.</p>",
+    "notes:glaser": "<p>Nhưng tổ tiên hoang dã của cá Oscar thì vẫn còn khá bí ẩn, người ta biết về chúng còn ít. Cho tới gần đây, chi Astronotus chỉ có một hoặc hai loài được công nhận. Người chơi thì lại phân biệt nhiều quần thể khác nhau. Các nhà khoa học vẫn khá dè dặt ở điểm này. Vì thế cá Oscar từ Colombia trong bảo tàng và tài liệu khoa học vẫn mang tên Astronotus ocellatus, còn người chơi đôi khi gọi chúng là Astronotus sp. “Orinoco”. So với cá Oscar hoang dã “thường”, cá Colombia không có các đốm viền đỏ ở lưng. Khác biệt này lúc nào cũng có, nhưng màu sắc của chúng vẫn rất khác nhau giữa các con, giống mọi dòng Oscar hoang dã. Cá con có hoa văn tương phản, nhìn rất đẹp.</p>"
   },
   "nameFixed": true,
   "redirectFrom": [
@@ -58,13 +59,14 @@
     }
   ],
   "quality": {
-    "score": 0.8,
-    "indexable": true,
+    "score": 0.7,
+    "indexable": false,
     "bySource": {
       "seriouslyfish": 0.8,
       "sprucepets": 0.8,
       "aquariumcoop": 0.85,
-      "glaser": 0.85
-    }
+      "glaser": 0.7
+    },
+    "reason": "score"
   }
 }

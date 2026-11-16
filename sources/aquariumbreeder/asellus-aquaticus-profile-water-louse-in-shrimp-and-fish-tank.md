@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/asellus-aquaticus-profile-water-louse-in-shrimp-and-fish-tank/
 title: Asellus Aquaticus Profile: Water Louse in Shrimp and Fish Tank - Shrimp and Snail Breeder
 fetchedAt: 2026-10-31T12:36:49.701Z
-hash: eb52fd6f3bd9b3e5c49b711ee4118083d3a9064df0034fa5ced1f0f5bacebab7
+hash: e40cb3241b117d9d3d6db2d2abc02fe0c243a62e5def9baf0b030f6a5f806c08
 ---
 
 Asellus aquaticus, also known as the Water louse, Water shrimp, Water slate, or Aquatic sowbug is a species of small, freshwater crustacean in the family Asellidae. They look like something in between woodlice and cockroaches, which they are actually related to.
@@ -129,4 +129,3 @@ They are not a foe to aquarium setups. Through their daily activities, these tin
 - Lagerspetz, Kari YH. “Thermal acclimation without heat shock, and motor responses to a sudden temperature change in Asellus aquaticus.” Journal of thermal biology28, no. 5 (2003): 421-427.
 - Lascio, A. di, Loreto Rossi, and Maria Letizia Costantini. “Different temperature tolerance of northern and southern European populations of a freshwater Isopod Crustacean species (Asellus aquaticus L.).” Fundamental and Applied Limnology179, no. 3 (2011): 193-201.
 - Simčič, Tatjana, and Anton Brancelj. “Effects of pH on electron transport system (ETS) activity and oxygen consumption in Gammarus fossarum, Asellus aquaticus and Niphargus sphagnicolus.” Freshwater Biology51, no. 4 (2006): 686-694.
-### Leave a Reply Cancel reply

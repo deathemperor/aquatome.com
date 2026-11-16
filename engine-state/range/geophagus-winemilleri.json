@@ -1,8 +1,8 @@
 {
   "id": "geophagus-winemilleri",
   "native": {
-    "input": "accf69246dc04279",
-    "at": "2026-11-08T18:57:48.756Z",
+    "input": "0181cbc9d5ca82ac",
+    "at": "2026-11-16T17:28:41.839Z",
     "claims": [
       {
         "code": "VE",
@@ -14,10 +14,18 @@
       },
       {
         "code": "BR",
-        "status": "doubtful",
+        "status": "native",
         "source": "seriouslyfish",
         "quote": "Southern Venezuela and probably northern Brazil with type locality given as 'Laguna Yocuta, 2.1347°N, 66.3742°W, Río Siapa, Amazonas, Venezuela'.",
         "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The main distribution of Geophagus winemilleri is the southern part of Venezuela.",
+        "words": "Venezuela",
         "ok": true
       }
     ],
@@ -31,7 +39,8 @@
       {
         "name": "Río Siapa",
         "source": "seriouslyfish",
-        "quote": "Official collections have been from the upper Río Negro and Río Siapa plus the Casiquiare system of waterways which allows transfer of water between the Negro and Orinoco basins, though the species' presence in the latter drainage remains unconfirmed.",
+        "quote": "Southern Venezuela and probably northern Brazil with type locality given as 'Laguna Yocuta, 2.1347°N, 66.3742°W, Río Siapa, Amazonas, Venezuela'.",
+        "country": "VE",
         "ok": true
       },
       {
@@ -39,14 +48,19 @@
         "source": "seriouslyfish",
         "quote": "Official collections have been from the upper Río Negro and Río Siapa plus the Casiquiare system of waterways which allows transfer of water between the Negro and Orinoco basins, though the species' presence in the latter drainage remains unconfirmed.",
         "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "glaser",
+        "quote": "Nevertheless most imports come from Brazil, because the species also occurs in the Rio Negro.",
+        "country": "BR",
+        "ok": true
       }
     ],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [
-        "BR"
-      ],
+      "pagesOnly": [],
       "sourcesOnly": []
     }
   },
@@ -57,7 +71,7 @@
     "datasets": [
       [
         "fef834cd-98f0-4095-af8a-a8c66c1eff24",
-        15
+        16
       ],
       [
         "f113b6a8-e363-44fc-90fd-0711bc4c9315",
@@ -81,9 +95,10 @@
       ]
     ],
     "native": [
-      "VE"
+      "VE",
+      "BR"
     ],
     "requests": 12,
-    "at": "2026-11-08T18:57:48.756Z"
+    "at": "2026-11-16T17:28:41.839Z"
   }
 }

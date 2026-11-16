@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/how-to-set-up-a-brackish-water-aquarium/
 title: How to Set Up a Brackish Water Aquarium - Shrimp and Snail Breeder
 fetchedAt: 2026-11-09T00:07:45.844Z
-hash: c6c9796cefc331a1820d456cdbe5de3b482e53904a5155aa2a978c53ce17b4bf
+hash: e41d1d33e197dc4d5ab0d35ed41bb0899c424c1352811259724a17a1945a0ea3
 ---
 
 “What is brackish water?” you may ask. Brackish water aquarium is a unique and special type of aquarium as it is neither regular freshwater nor saltwater. Simply put, this is a mix of saltwater and freshwater ecosystems in an enclosure.
@@ -221,6 +221,3 @@ However, if salinity is more than 1.015 SG (or 20 ppt) then the salinity test ki
 ## In Conclusion
 If you have a freshwater aquarium and fancy a new challenge — consider keeping a brackish water aquarium. This aquarium setup offers a unique environment suitable for animal and plant species with a reasonable degree of salt tolerance.
 I hope this guide provides you with all the vital information required to successfully set up and maintain a brackish water aquarium in your home or office.
-## 2 thoughts on “How to Set Up a Brackish Water Aquarium”
-- The emphasis on never adding salt directly to the tank and always mixing externally is the kind of practical detail that saves beginners a lot of trouble. Getting the ratio right for a target like 1.005 to 1.010 SG takes a little arithmetic each water change, and a reef salt mix calculator can make that step painless. ReplyHi Afzar, Yes, mixing saltwater separately and checking salinity before adding it to the tank is very important. Even small mistakes can cause problems for brackish water animals.I prefer using a refractometer to check the actual salinity rather than relying only on calculations. Stability is more important than hitting an exact number every time. Best regards, Michael Reply
-### Leave a Reply Cancel reply

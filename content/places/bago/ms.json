@@ -3,6 +3,12 @@
   "name": "Bago",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-16T05:38:14.432Z",
+    "why": "The spelling \"Bago\" is right, but the place is a region and Malay usually writes \"Wilayah Bago\" with the kind word, so the bare name leaves it out."
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

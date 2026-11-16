@@ -2,6 +2,7 @@ import { writePhotoState } from './photo-state'
 import { createHash } from 'node:crypto'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
+import { IMAGE_SWITCHES, isInatNonCommercial, isNonCommercial, type ImageSwitches } from '@aq/schema'
 import type { Media } from './source-photos'
 
 type Photo = { url: string; thumb?: string; width: number; height: number; licence: string; author: string; sourceUrl: string }
@@ -60,9 +61,13 @@ const URL_KEYED = ['_album-ask.json', '_photo-check.json', '_photo-faces.json', 
  * Commons, iNaturalist, Flickr and GBIF photos are served from our media bucket instead of hot-linked: their hosts set third-party
  * cookies (Lighthouse Best Practices), send JPEGs with a short cache life, and each is one more connection before the
  * page's main picture. Each photo becomes a ≤1200 px WebP plus a 480 px thumb; credit, licence and the link to the
- * photo's own page are kept. `limit`: uploads this run. Idempotent: a photo already on our host is left alone.
+ * photo's own page are kept. `limit`: uploads this run. Idempotent: a photo already on our host is left alone. A
+ * non-commercial photo is copied only where the site shows it: an iNaturalist album photo under CC BY-NC or CC BY-NC-SA,
+ * its switch on (`switches`, IMAGE_SWITCHES.inatNonCommercial).
  */
-export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: number; dryRun?: boolean } = {}) {
+export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: number; dryRun?: boolean; switches?: Readonly<ImageSwitches> } = {}) {
+  const nc = (o.switches ?? IMAGE_SWITCHES).inatNonCommercial
+  const albums = join(root, 'content', 'gallery')
   const report = { mirrored: 0, files: 0, pending: 0, failed: [] as string[] }
   const done = new Map<string, Stored>()
   const moved: [string, string][] = []
@@ -74,6 +79,7 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
     for (const p of photosIn(data)) {
       const plan = mirrorPlan(p.url)
       if (!plan) continue
+      if (isNonCommercial(p.licence) && !(nc && file.startsWith(albums) && isInatNonCommercial(p))) continue
       let stored = done.get(plan.key)
       if (!stored) {
         if (o.dryRun || (o.limit !== undefined && done.size >= o.limit)) { report.pending++; continue }

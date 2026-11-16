@@ -1,8 +1,13 @@
 {
   "slug": "sipaliwini-river",
-  "name": "Sipaliwini",
+  "name": "Sungai Sipaliwini",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-16T00:11:29.282Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

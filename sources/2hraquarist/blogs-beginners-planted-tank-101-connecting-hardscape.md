@@ -1,7 +1,7 @@
 ---
 url: https://www.2hraquarist.com/blogs/beginners-planted-tank-101/connecting-hardscape
 title: Methods of connecting hardscape - The 2Hr Aquarist
-fetchedAt: 2026-11-14T20:42:44.245Z
+fetchedAt: 2026-11-15T17:12:33.376Z
 capturedAt: 2022-12-05T05:37:01.000Z
 hash: dd0fd16ece5922932d8df30e4ea8e215a2e04cceceb5aaaf6c6ee8a521844212
 ---

@@ -25,6 +25,14 @@
       "on": "2026-11-14"
     }
   },
+  "https://media.aquatome.com/commons/4a8b2c179b3e1d6f.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/mystus-singaringan"
+    ],
+    "at": "2026-11-16"
+  },
   "https://media.aquatome.com/commons/4f31ab1374db473e.webp": {
     "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
     "step": "the photo check",
@@ -64,6 +72,14 @@
       "on": "2026-11-14"
     }
   },
+  "https://media.aquatome.com/commons/f994a48481d1a32f.webp": {
+    "why": "rejected: withheld [sha256:17bc5f0b69024e8ae89651e10c3a0d2bff14d3c4acc949fd875b5349c871310a]",
+    "step": "the photo check",
+    "pages": [
+      "species/xenomystus-nigri"
+    ],
+    "at": "2026-11-15"
+  },
   "https://media.aquatome.com/commons/fe3314ff68569901.webp": {
     "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
     "step": "the photo check",
@@ -77,6 +93,38 @@
       "on": "2026-11-14"
     }
   },
+  "https://media.aquatome.com/glaser/0051c3d6b54ab92e.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/macrobrachium-dienbienphuense"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/00c361a3661b2fbb.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/zenarchopterus-dunckeri"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/00cd16bb291c238e.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/hyphessobrycon-pando"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/0234aa5947b2927c.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/tetragonopterus-argenteus"
+    ],
+    "at": "2026-11-15"
+  },
   "https://media.aquatome.com/glaser/035bf36b0c9615d2.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -89,6 +137,22 @@
       "by": "the photo sourcing lead",
       "on": "2026-11-15"
     }
+  },
+  "https://media.aquatome.com/glaser/037f07956e600a91.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/xiphophorus-evelynae"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/041668ff34615f06.webp": {
+    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
+    "step": "the photo check",
+    "pages": [
+      "species/rhinogobius-maculafasciatus"
+    ],
+    "at": "2026-11-15"
   },
   "https://media.aquatome.com/glaser/0434e79b071ef635.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -106,6 +170,14 @@
     ],
     "at": "2026-11-14"
   },
+  "https://media.aquatome.com/glaser/06071983774d707c.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/potamotyphlus-kaupii"
+    ],
+    "at": "2026-11-15"
+  },
   "https://media.aquatome.com/glaser/06a16409dbc20444.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -118,6 +190,30 @@
       "by": "the photo sourcing lead",
       "on": "2026-11-15"
     }
+  },
+  "https://media.aquatome.com/glaser/06fc5fe0492034d3.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/xenotoca-variata"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/072b2e569cf9e7c4.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/taia-naticoides"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/0737181d0edaed98.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/skiffia-francesae"
+    ],
+    "at": "2026-11-15"
   },
   "https://media.aquatome.com/glaser/073e42e77e7199b6.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -140,6 +236,22 @@
     ],
     "at": "2026-11-14"
   },
+  "https://media.aquatome.com/glaser/09088ba4dc2022af.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/crenicichla-regani"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/0969eb8c6c6d17ed.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/chapalichthys-pardalis"
+    ],
+    "at": "2026-11-16"
+  },
   "https://media.aquatome.com/glaser/09f4d07c5774d008.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -147,6 +259,38 @@
       "species/mylossoma-aureum"
     ],
     "at": "2026-11-14"
+  },
+  "https://media.aquatome.com/glaser/0a9f7c118e8e3c24.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/nothobranchius-cardinalis"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/0b3529c3e1421588.webp": {
+    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
+    "step": "the photo check",
+    "pages": [
+      "species/sewellia-breviventralis"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/0bcafff2a91f3c97.webp": {
+    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
+    "step": "the photo check",
+    "pages": [
+      "species/rhinogobius-duospilus"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/0c4a89a64bf9d5c4.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/selenotoca-multifasciata"
+    ],
+    "at": "2026-11-15"
   },
   "https://media.aquatome.com/glaser/0cbef48c64ad8fbb.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -193,6 +337,14 @@
       "on": "2026-11-15"
     }
   },
+  "https://media.aquatome.com/glaser/0edf78fc4e54fc21.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/xenotoca-variata"
+    ],
+    "at": "2026-11-16"
+  },
   "https://media.aquatome.com/glaser/10400312184ac209.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -208,6 +360,14 @@
       "species/puntius-puntio"
     ],
     "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/1060616ca45ee5d3.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/macrobrachium-dienbienphuense"
+    ],
+    "at": "2026-11-16"
   },
   "https://media.aquatome.com/glaser/10da7f29e55494a9.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -233,6 +393,14 @@
     ],
     "at": "2026-11-15"
   },
+  "https://media.aquatome.com/glaser/147e97aae740f174.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/gymnorhamphichthys-hypostomus"
+    ],
+    "at": "2026-11-16"
+  },
   "https://media.aquatome.com/glaser/16cedb61ae2e25ef.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -248,6 +416,22 @@
       "species/pangio-alternans"
     ],
     "at": "2026-11-14"
+  },
+  "https://media.aquatome.com/glaser/17e5e623ae3415c1.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/schismatogobius-roxasi"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/1867fafca2728fe3.webp": {
+    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
+    "step": "the photo check",
+    "pages": [
+      "species/trichopodus-pectoralis"
+    ],
+    "at": "2026-11-15"
   },
   "https://media.aquatome.com/glaser/192c1894e17f22cf.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -291,6 +475,54 @@
       "on": "2026-11-15"
     }
   },
+  "https://media.aquatome.com/glaser/1b8e7e3af7b2293d.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/parapteronotus-hasemani"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/1b9c130cdabf1a9b.webp": {
+    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
+    "step": "the photo check",
+    "pages": [
+      "species/xenomystus-nigri"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/1c377dd1cb5e2594.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/rhadinocentrus-ornatus"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/1c8b0f8df2b8ee01.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/galeocharax-gulo"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/1ea4fd28086e5fc2.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/ptychochromis-oligacanthus"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/1ff793a3d83e228b.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/ichthyborus-ornatus"
+    ],
+    "at": "2026-11-16"
+  },
   "https://media.aquatome.com/glaser/20dd65fc8e5036d3.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -303,6 +535,30 @@
       "by": "the photo sourcing lead",
       "on": "2026-11-15"
     }
+  },
+  "https://media.aquatome.com/glaser/2120f9dd945c97cd.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/gambusia-vittata"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/21fb2cf13b7c0a5f.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/schismatogobius-roxasi"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/22b4e1cfa1ca2ad3.webp": {
+    "why": "watermark: withheld [sha256:90061b212d5f349f3d8b1713894167fa92948908b8976c67da7ab04b19cad63b]",
+    "step": "the photo check",
+    "pages": [
+      "species/sewellia-breviventralis"
+    ],
+    "at": "2026-11-15"
   },
   "https://media.aquatome.com/glaser/23198cdeb38755d7.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -320,6 +576,30 @@
     ],
     "at": "2026-11-14"
   },
+  "https://media.aquatome.com/glaser/234ad1d5dab0ba84.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/otocinclus-vestitus"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/23e672b90891060f.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/pseudocrenilabrus-multicolor-victoriae"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/247b68a8de005586.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/scolichthys-iota"
+    ],
+    "at": "2026-11-15"
+  },
   "https://media.aquatome.com/glaser/262b8c240585fdb6.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -332,6 +612,22 @@
       "by": "the photo sourcing lead",
       "on": "2026-11-15"
     }
+  },
+  "https://media.aquatome.com/glaser/2955408f878508da.webp": {
+    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
+    "step": "the photo check",
+    "pages": [
+      "species/xenomystus-nigri"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/29a9967bfa103811.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/sillaginopsis-panijus"
+    ],
+    "at": "2026-11-15"
   },
   "https://media.aquatome.com/glaser/29b5db4f65cc5fb3.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -348,6 +644,14 @@
       "species/pelvicachromis-humilis"
     ],
     "at": "2026-11-14"
+  },
+  "https://media.aquatome.com/glaser/2a7b54d790cafe88.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/lamprologus-signatus"
+    ],
+    "at": "2026-11-15"
   },
   "https://media.aquatome.com/glaser/2b4a86e27b995132.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -386,6 +690,30 @@
     ],
     "at": "2026-11-15"
   },
+  "https://media.aquatome.com/glaser/3096cb1b91630493.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/geophagus-megasema"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/309cbafef45ac0fe.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/xiphophorus-continens"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/30ebb7e4e76d70a5.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/tetragonopterus-argenteus"
+    ],
+    "at": "2026-11-15"
+  },
   "https://media.aquatome.com/glaser/3160a7b19b16ba87.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -407,6 +735,14 @@
     ],
     "at": "2026-11-14"
   },
+  "https://media.aquatome.com/glaser/3271b784dcf72bcb.webp": {
+    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
+    "step": "the photo check",
+    "pages": [
+      "species/synodontis-flavitaeniatus"
+    ],
+    "at": "2026-11-15"
+  },
   "https://media.aquatome.com/glaser/328b49005159a848.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -414,6 +750,14 @@
       "species/pseudogastromyzon-cheni"
     ],
     "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/32e941acc56ea514.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/cynotilapia-axelrodi"
+    ],
+    "at": "2026-11-16"
   },
   "https://media.aquatome.com/glaser/32eac6bb2b3e39c7.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -431,6 +775,14 @@
     ],
     "at": "2026-11-14"
   },
+  "https://media.aquatome.com/glaser/3719112cd9d5fa7d.webp": {
+    "why": "watermark: withheld [sha256:90061b212d5f349f3d8b1713894167fa92948908b8976c67da7ab04b19cad63b]",
+    "step": "the photo check",
+    "pages": [
+      "species/synodontis-flavitaeniatus"
+    ],
+    "at": "2026-11-15"
+  },
   "https://media.aquatome.com/glaser/37a7f88fff87c00a.webp": {
     "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
     "step": "the photo check",
@@ -439,11 +791,43 @@
     ],
     "at": "2026-11-15"
   },
+  "https://media.aquatome.com/glaser/37b1e6e51520c81a.webp": {
+    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
+    "step": "the photo check",
+    "pages": [
+      "species/corydoras-robustus"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/37f1fbf704b53629.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/poeciliopsis-prolifica"
+    ],
+    "at": "2026-11-16"
+  },
   "https://media.aquatome.com/glaser/38377af78ffd394a.webp": {
     "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
     "step": "the photo check",
     "pages": [
       "species/pseudolithoxus-nicoi"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/3855921cd1fae032.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/tatia-dunni"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/3b009888e504c2ad.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/caquetaia-myersi"
     ],
     "at": "2026-11-15"
   },
@@ -459,6 +843,38 @@
       "by": "the photo sourcing lead",
       "on": "2026-11-15"
     }
+  },
+  "https://media.aquatome.com/glaser/3c62f6d5baf4942d.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/parotocinclus-jumbo"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/3d0d996b341698a1.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/gymnorhamphichthys-hypostomus"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/3d6362c4a48a1ea9.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/hyphessobrycon-pando"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/3d7e7edba75b340f.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/cynotilapia-axelrodi"
+    ],
+    "at": "2026-11-16"
   },
   "https://media.aquatome.com/glaser/3dd34f37d9bed41c.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -476,11 +892,83 @@
     ],
     "at": "2026-11-14"
   },
+  "https://media.aquatome.com/glaser/3e2bb5aa7824e882.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/pyrrhulina-spilota"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/3e2cdd751f8bf2c1.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/telmatherina-bonti"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/3ead54502e8abf26.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/poeciliopsis-prolifica"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/3f8a53d8400c3c40.webp": {
+    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
+    "step": "the photo check",
+    "pages": [
+      "species/synodontis-flavitaeniatus"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/3fd80420527a71e5.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/lepomis-megalotis"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/40741bb3d6d43f26.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/telmatochromis-temporalis"
+    ],
+    "at": "2026-11-16"
+  },
   "https://media.aquatome.com/glaser/4087f16167c5cfad.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
     "pages": [
       "species/hemirhamphodon-tengah"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/41dea3f4f3f7783c.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/zenarchopterus-dunckeri"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/426ad1eae419778b.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/trachycorystes-trachycorystes"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/42788cfb5ad74f7d.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/trichodactylus-kensleyi"
     ],
     "at": "2026-11-15"
   },
@@ -496,6 +984,14 @@
       "by": "the photo sourcing lead",
       "on": "2026-11-15"
     }
+  },
+  "https://media.aquatome.com/glaser/43d2d3dd6d32be06.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/telmatherina-bonti"
+    ],
+    "at": "2026-11-15"
   },
   "https://media.aquatome.com/glaser/4480adf9657fcd2c.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -526,6 +1022,54 @@
     ],
     "at": "2026-11-15"
   },
+  "https://media.aquatome.com/glaser/45121b7f62e42b1b.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/trichodactylus-kensleyi"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/453cbd1c7a090a23.webp": {
+    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
+    "step": "the photo check",
+    "pages": [
+      "species/trichopodus-pectoralis"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/47ae267bebd39710.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/taia-naticoides"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/482063927e625df8.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/pygopristis-denticulata"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/48b64b5da4d3042e.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/copeina-osgoodi"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/48d66d2793d3b7b7.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/macrobrachium-brasiliense"
+    ],
+    "at": "2026-11-16"
+  },
   "https://media.aquatome.com/glaser/4a3bbc6bd2a9ed6e.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -539,11 +1083,59 @@
       "on": "2026-11-15"
     }
   },
+  "https://media.aquatome.com/glaser/4c3ae413c2caaa19.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/pygopristis-denticulata"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/4ccfabbdb5ec42e3.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/caquetaia-myersi"
+    ],
+    "at": "2026-11-15"
+  },
   "https://media.aquatome.com/glaser/4e14c63076267731.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
     "pages": [
       "species/macrognathus-caudiocellatus"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/4f0cb47c7a2d2076.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/parotocinclus-jumbo"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/503cb9eb3ad7f5a0.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/lepomis-megalotis"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/508479f3afd70e90.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/parapteronotus-hasemani"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/51494a7783d1b11b.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/pygopristis-denticulata"
     ],
     "at": "2026-11-15"
   },
@@ -563,6 +1155,38 @@
     ],
     "at": "2026-11-15"
   },
+  "https://media.aquatome.com/glaser/538ab0d8bd7e7f88.webp": {
+    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
+    "step": "the photo check",
+    "pages": [
+      "species/rhinogobius-maculafasciatus"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/53991b5e5de2880b.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/corydoras-diphyes"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/53e46c73af765920.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/pyrrhulina-spilota"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/54d586792ecee3de.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/girardinus-falcatus"
+    ],
+    "at": "2026-11-16"
+  },
   "https://media.aquatome.com/glaser/552d74d57d7a0a27.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -571,6 +1195,14 @@
     ],
     "at": "2026-11-14"
   },
+  "https://media.aquatome.com/glaser/55ddb24ff07def35.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/serrasalmus-spilopleura"
+    ],
+    "at": "2026-11-15"
+  },
   "https://media.aquatome.com/glaser/570307a80c35dcae.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -578,6 +1210,14 @@
       "species/pangio-alternans"
     ],
     "at": "2026-11-14"
+  },
+  "https://media.aquatome.com/glaser/5a133b7691a19f50.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/schismatogobius-roxasi"
+    ],
+    "at": "2026-11-15"
   },
   "https://media.aquatome.com/glaser/5a2f99728cae1f6c.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -594,6 +1234,22 @@
       "species/pseudanos-trimaculatus"
     ],
     "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/5b3ff080eab206b2.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/macrobrachium-dienbienphuense"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/5b44e3cb2bc60e7c.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/girardinus-falcatus"
+    ],
+    "at": "2026-11-16"
   },
   "https://media.aquatome.com/glaser/5c32f06ac0cfe70a.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -640,6 +1296,38 @@
       "on": "2026-11-15"
     }
   },
+  "https://media.aquatome.com/glaser/5e7328bd3bfba86a.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/selenotoca-multifasciata"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/5e943c39281ab91c.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/xenophallus-umbratilis"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/5ef84cce6eec60fa.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/copeina-osgoodi"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/5f6c76d0b1ad64cc.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/xenophallus-umbratilis"
+    ],
+    "at": "2026-11-15"
+  },
   "https://media.aquatome.com/glaser/5f707f930ba593ce.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -677,6 +1365,22 @@
     ],
     "at": "2026-11-14"
   },
+  "https://media.aquatome.com/glaser/63f8a450c6ae9c70.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/caquetaia-kraussii"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/645981c6bb141c07.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/telmatochromis-temporalis"
+    ],
+    "at": "2026-11-16"
+  },
   "https://media.aquatome.com/glaser/649bcc268e9be37d.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -701,6 +1405,22 @@
     ],
     "at": "2026-11-14"
   },
+  "https://media.aquatome.com/glaser/67652baa1387f20a.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/lamprologus-signatus"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/680b74cb16862cb9.webp": {
+    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
+    "step": "the photo check",
+    "pages": [
+      "species/rhinogobius-maculafasciatus"
+    ],
+    "at": "2026-11-15"
+  },
   "https://media.aquatome.com/glaser/69ffa7916a025479.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -709,6 +1429,14 @@
     ],
     "at": "2026-11-14"
   },
+  "https://media.aquatome.com/glaser/6bcf8da57dc51d6a.webp": {
+    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
+    "step": "the photo check",
+    "pages": [
+      "species/synodontis-flavitaeniatus"
+    ],
+    "at": "2026-11-15"
+  },
   "https://media.aquatome.com/glaser/6d01ebddcfd83530.webp": {
     "why": "watermark: withheld [sha256:19ec490da7c9b39f357cad6cc56d86f22e3e1c9183ea605cc70b6682425754b9]",
     "step": "the watermark screen",
@@ -716,6 +1444,14 @@
       "species/nanochromis-parilus"
     ],
     "at": "2026-11-14"
+  },
+  "https://media.aquatome.com/glaser/6d976800d868df8f.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/otocinclus-vestitus"
+    ],
+    "at": "2026-11-15"
   },
   "https://media.aquatome.com/glaser/6e75a56ada4d5f65.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -733,6 +1469,14 @@
     ],
     "at": "2026-11-14"
   },
+  "https://media.aquatome.com/glaser/6ef0edc07202315a.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/caquetaia-kraussii"
+    ],
+    "at": "2026-11-15"
+  },
   "https://media.aquatome.com/glaser/70d77630c6a2deb2.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -740,6 +1484,14 @@
       "species/melanotaenia-picta"
     ],
     "at": "2026-11-14"
+  },
+  "https://media.aquatome.com/glaser/70f10f3a1f805703.webp": {
+    "why": "watermark: withheld [sha256:90061b212d5f349f3d8b1713894167fa92948908b8976c67da7ab04b19cad63b]",
+    "step": "the photo check",
+    "pages": [
+      "species/rhinogobius-duospilus"
+    ],
+    "at": "2026-11-15"
   },
   "https://media.aquatome.com/glaser/71261ab177cd61d3.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -763,13 +1515,26 @@
     "pages": [
       "species/nanochromis-parilus"
     ],
-    "at": "2026-11-14"
+    "at": "2026-11-14",
+    "look": {
+      "said": "clear",
+      "by": "the chief of staff",
+      "on": "2026-11-16"
+    }
   },
   "https://media.aquatome.com/glaser/71a7a39df4a01c2f.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
     "pages": [
       "species/macrognathus-caudiocellatus"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/72177aac9d5f1d29.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/schizolecis-guntheri"
     ],
     "at": "2026-11-15"
   },
@@ -781,6 +1546,38 @@
     ],
     "at": "2026-11-14"
   },
+  "https://media.aquatome.com/glaser/736f26a2ccb318f8.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/pyrrhulina-spilota"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/7449e394df287090.webp": {
+    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
+    "step": "the photo check",
+    "pages": [
+      "species/corydoras-robustus"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/760f2b4903fca57c.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/steatogenys-elegans"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/767e7cd83668d0af.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/bujurquina-oenolaemus"
+    ],
+    "at": "2026-11-16"
+  },
   "https://media.aquatome.com/glaser/76aec6e9ce7161c2.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -788,6 +1585,14 @@
       "species/poecilia-mexicana"
     ],
     "at": "2026-11-14"
+  },
+  "https://media.aquatome.com/glaser/775680b4b534df6d.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/toxotes-blythii"
+    ],
+    "at": "2026-11-15"
   },
   "https://media.aquatome.com/glaser/779f60a49818d1e9.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -813,11 +1618,43 @@
     ],
     "at": "2026-11-15"
   },
+  "https://media.aquatome.com/glaser/794a5c53ae17ec67.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/moema-ortegai"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/7b43b228e2883728.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/moema-ortegai"
+    ],
+    "at": "2026-11-15"
+  },
   "https://media.aquatome.com/glaser/7c33ceaf9442c98d.webp": {
     "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
     "step": "the photo check",
     "pages": [
       "species/polycentropsis-abbreviata"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/7eec32ee4c9f7741.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/skiffia-francesae"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/7f5cd0139d4003cc.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/tetragonopterus-argenteus"
     ],
     "at": "2026-11-15"
   },
@@ -828,6 +1665,14 @@
       "species/pipa-parva"
     ],
     "at": "2026-11-14"
+  },
+  "https://media.aquatome.com/glaser/807a7c0f46e514f3.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/gymnorhamphichthys-hypostomus"
+    ],
+    "at": "2026-11-16"
   },
   "https://media.aquatome.com/glaser/8089b7391bcfdd76.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -858,6 +1703,14 @@
     ],
     "at": "2026-11-15"
   },
+  "https://media.aquatome.com/glaser/81967056acff3112.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/tatia-dunni"
+    ],
+    "at": "2026-11-16"
+  },
   "https://media.aquatome.com/glaser/82b13f49d7c34e79.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -882,6 +1735,54 @@
     ],
     "at": "2026-11-15"
   },
+  "https://media.aquatome.com/glaser/84cf403271dc8145.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/plagioscion-squamosissimus"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/85e81f138db99a6f.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/selenotoca-multifasciata"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/868540adbbdd6629.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/scolichthys-iota"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/86a5012be848ff12.webp": {
+    "why": "watermark: withheld [sha256:90061b212d5f349f3d8b1713894167fa92948908b8976c67da7ab04b19cad63b]",
+    "step": "the photo check",
+    "pages": [
+      "species/rhinogobius-duospilus"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/86f58108aaffc778.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/laimosemion-rectocaudatus"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/889b5d1666f4aa77.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/clibanarius-africanus"
+    ],
+    "at": "2026-11-16"
+  },
   "https://media.aquatome.com/glaser/8acd1e62f20976ce.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -890,6 +1791,14 @@
     ],
     "at": "2026-11-14"
   },
+  "https://media.aquatome.com/glaser/8ad7a6b01b40e778.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/triportheus-albus"
+    ],
+    "at": "2026-11-15"
+  },
   "https://media.aquatome.com/glaser/8b301c647b25bde4.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -897,6 +1806,38 @@
       "species/phractolaemus-ansorgii"
     ],
     "at": "2026-11-14"
+  },
+  "https://media.aquatome.com/glaser/8b5f7722db6bb536.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/moema-ortegai"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/8c93b33a276635d8.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/cichlasoma-istlanum"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/8ca34ed44c44a661.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/ptychochromis-oligacanthus"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/8cdcc085638fb07f.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/schizolecis-guntheri"
+    ],
+    "at": "2026-11-15"
   },
   "https://media.aquatome.com/glaser/8d06f93cab1ca8b7.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -958,6 +1899,14 @@
       "on": "2026-11-15"
     }
   },
+  "https://media.aquatome.com/glaser/8ee6309ffae1c850.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/zenarchopterus-dunckeri"
+    ],
+    "at": "2026-11-15"
+  },
   "https://media.aquatome.com/glaser/9048aaefca2ea198.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -971,6 +1920,14 @@
     "step": "the watermark screen",
     "pages": [
       "species/rachoviscus-crassiceps"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/91e9f981f7acfa92.webp": {
+    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
+    "step": "the photo check",
+    "pages": [
+      "species/synodontis-notatus"
     ],
     "at": "2026-11-15"
   },
@@ -1011,6 +1968,14 @@
     ],
     "at": "2026-11-15"
   },
+  "https://media.aquatome.com/glaser/93db133bc9047918.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/semaprochilodus-laticeps"
+    ],
+    "at": "2026-11-15"
+  },
   "https://media.aquatome.com/glaser/942aface6bebd018.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -1031,6 +1996,22 @@
       "by": "the photo sourcing lead",
       "on": "2026-11-15"
     }
+  },
+  "https://media.aquatome.com/glaser/951462be66cd65d2.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/trachycorystes-trachycorystes"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/974fc405b1e3b3ff.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/serrasalmus-spilopleura"
+    ],
+    "at": "2026-11-15"
   },
   "https://media.aquatome.com/glaser/9797ecd626028915.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -1058,11 +2039,35 @@
       "on": "2026-11-15"
     }
   },
+  "https://media.aquatome.com/glaser/983576fc6c281490.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/ptychochromis-oligacanthus"
+    ],
+    "at": "2026-11-15"
+  },
   "https://media.aquatome.com/glaser/98c32c5884c11b47.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
     "pages": [
       "species/pseudancistrus-sidereus"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/98d46ecc5c78d244.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/chapalichthys-pardalis"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/9944748ec1dbee2d.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/pyrrhulina-spilota"
     ],
     "at": "2026-11-15"
   },
@@ -1078,6 +2083,30 @@
       "by": "the photo sourcing lead",
       "on": "2026-11-15"
     }
+  },
+  "https://media.aquatome.com/glaser/9bf2836f88c63fee.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/xiphophorus-cortezi"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/9c35c058e72970c6.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/tatia-dunni"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/9c71fbd728549d56.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/tetragonopterus-argenteus"
+    ],
+    "at": "2026-11-15"
   },
   "https://media.aquatome.com/glaser/9cba427642c52694.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -1095,6 +2124,22 @@
     ],
     "at": "2026-11-15"
   },
+  "https://media.aquatome.com/glaser/9d9602f5a15b119c.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/copeina-osgoodi"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/9dde0b16854f4d84.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/rineloricaria-beni"
+    ],
+    "at": "2026-11-16"
+  },
   "https://media.aquatome.com/glaser/9ea3677e62bf4056.webp": {
     "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
     "step": "the photo check",
@@ -1103,6 +2148,14 @@
     ],
     "at": "2026-11-15"
   },
+  "https://media.aquatome.com/glaser/9f2b2e32b88ba2a8.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/pseudocrenilabrus-multicolor-victoriae"
+    ],
+    "at": "2026-11-16"
+  },
   "https://media.aquatome.com/glaser/a079afb2892924dd.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -1110,6 +2163,14 @@
       "species/melanotaenia-goldiei"
     ],
     "at": "2026-11-14"
+  },
+  "https://media.aquatome.com/glaser/a1364017dbc77ed7.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/roeboides-araguaito"
+    ],
+    "at": "2026-11-15"
   },
   "https://media.aquatome.com/glaser/a153898fe77b8ed1.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -1148,6 +2209,22 @@
     ],
     "at": "2026-11-14"
   },
+  "https://media.aquatome.com/glaser/a31b057109c01620.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/parapteronotus-hasemani"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/a3ba3689911e5b0a.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/caquetaia-myersi"
+    ],
+    "at": "2026-11-15"
+  },
   "https://media.aquatome.com/glaser/a3d156727fc525a4.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -1160,6 +2237,14 @@
       "by": "the photo sourcing lead",
       "on": "2026-11-15"
     }
+  },
+  "https://media.aquatome.com/glaser/a3e6f84d15abf8ce.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/pygopristis-denticulata"
+    ],
+    "at": "2026-11-15"
   },
   "https://media.aquatome.com/glaser/a45ea1aa2e2eccb2.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -1177,6 +2262,14 @@
     ],
     "at": "2026-11-14"
   },
+  "https://media.aquatome.com/glaser/a4f9eba27d4e1902.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/sillaginopsis-panijus"
+    ],
+    "at": "2026-11-15"
+  },
   "https://media.aquatome.com/glaser/a55eaadaf3ea1269.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -1190,6 +2283,22 @@
     "step": "the watermark screen",
     "pages": [
       "species/corydoras-bicolor"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/a59c57e889116c28.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/synodontis-clarias"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/a6821835bb9c23f6.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/roeboides-descalvadensis"
     ],
     "at": "2026-11-15"
   },
@@ -1208,6 +2317,38 @@
       "species/melanotaenia-picta"
     ],
     "at": "2026-11-14"
+  },
+  "https://media.aquatome.com/glaser/a6f6a67fbc848119.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/schizolecis-guntheri"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/a70f7407d2331762.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/serrasalmus-compressus"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/a71270fb578e3426.webp": {
+    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
+    "step": "the photo check",
+    "pages": [
+      "species/xenomystus-nigri"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/a8a5e2704d76cd06.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/serrasalmus-spilopleura"
+    ],
+    "at": "2026-11-15"
   },
   "https://media.aquatome.com/glaser/a91e0bcf706a641b.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -1242,6 +2383,14 @@
       "species/nanochromis-parilus"
     ],
     "at": "2026-11-14"
+  },
+  "https://media.aquatome.com/glaser/a98788637169f55c.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/xenopus-muelleri"
+    ],
+    "at": "2026-11-16"
   },
   "https://media.aquatome.com/glaser/a9ceeabaa7edb57b.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -1280,6 +2429,30 @@
     ],
     "at": "2026-11-14"
   },
+  "https://media.aquatome.com/glaser/aa8a4661e2e2502d.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/toxotes-blythii"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/abdc15acb9587170.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/nothobranchius-cardinalis"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/ad590ea22c7d2239.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/parotocinclus-jumbo"
+    ],
+    "at": "2026-11-16"
+  },
   "https://media.aquatome.com/glaser/adfe8231874da583.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -1287,6 +2460,54 @@
       "species/pelvicachromis-kribensis"
     ],
     "at": "2026-11-14"
+  },
+  "https://media.aquatome.com/glaser/aee25c928d1d4fe8.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/tridensimilis-brevis"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/af2a38d79b192763.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/steatogenys-elegans"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/b05935e6212650fb.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/selenotoca-multifasciata"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/b1a13cb8a8a2221f.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/plagioscion-squamosissimus"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/b208f6f46642ea47.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/cichlasoma-istlanum"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/b215c98339b01236.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/serrasalmus-neveriensis"
+    ],
+    "at": "2026-11-15"
   },
   "https://media.aquatome.com/glaser/b26f61e1a36cd7d6.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -1301,6 +2522,30 @@
       "on": "2026-11-15"
     }
   },
+  "https://media.aquatome.com/glaser/b270a40e613ea643.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/xiphophorus-kallmani"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/b29d1ddc8623c8df.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/macrobrachium-brasiliense"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/b2b3e5faa09b0355.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/macrobrachium-brasiliense"
+    ],
+    "at": "2026-11-16"
+  },
   "https://media.aquatome.com/glaser/b41895919f3d6bda.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -1308,6 +2553,70 @@
       "species/mylossoma-aureum"
     ],
     "at": "2026-11-14"
+  },
+  "https://media.aquatome.com/glaser/b4be28cdfdf6e55f.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/rhadinocentrus-ornatus"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/b4d2a2e949a1f8ec.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/trachycorystes-trachycorystes"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/b5a7d7f7bd441445.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/schizolecis-guntheri"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/b7f1132768f4b20a.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/gymnorhamphichthys-hypostomus"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/b7f15b82e9a15eea.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/zenarchopterus-dunckeri"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/ba2b3b7b41506895.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/scolichthys-iota"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/bb432829dffe2b2b.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/teleocichla-proselytus"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/bc233e8090f187d8.webp": {
+    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
+    "step": "the photo check",
+    "pages": [
+      "species/sewellia-breviventralis"
+    ],
+    "at": "2026-11-15"
   },
   "https://media.aquatome.com/glaser/bc79dd5255b0c8cb.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -1325,6 +2634,38 @@
     ],
     "at": "2026-11-14"
   },
+  "https://media.aquatome.com/glaser/bcf96a45a430ec5e.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/ichthyborus-ornatus"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/bd0a93fcaaeaf10c.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/cichlasoma-istlanum"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/bd162d41a5cb0acb.webp": {
+    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
+    "step": "the photo check",
+    "pages": [
+      "species/corydoras-robustus"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/bd6376012d6a3259.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/telmatherina-bonti"
+    ],
+    "at": "2026-11-15"
+  },
   "https://media.aquatome.com/glaser/bda0e3ae06c4a31a.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -1332,6 +2673,22 @@
       "species/poecilia-parae"
     ],
     "at": "2026-11-14"
+  },
+  "https://media.aquatome.com/glaser/beabe6dfa8eff2d5.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/steatogenys-elegans"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/bf2bd5c8d1091656.webp": {
+    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
+    "step": "the photo check",
+    "pages": [
+      "species/trichopodus-pectoralis"
+    ],
+    "at": "2026-11-15"
   },
   "https://media.aquatome.com/glaser/c19a010604593eb2.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -1349,11 +2706,27 @@
     ],
     "at": "2026-11-14"
   },
+  "https://media.aquatome.com/glaser/c298cef3ea4cd852.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/toxotes-blythii"
+    ],
+    "at": "2026-11-15"
+  },
   "https://media.aquatome.com/glaser/c2a76e86320eecfc.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
     "pages": [
       "species/pimephales-promelas"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/c32a7ad9a232c945.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/centropomus-unionensis"
     ],
     "at": "2026-11-15"
   },
@@ -1415,6 +2788,14 @@
     ],
     "at": "2026-11-14"
   },
+  "https://media.aquatome.com/glaser/c5d441166cbf962e.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/taia-naticoides"
+    ],
+    "at": "2026-11-15"
+  },
   "https://media.aquatome.com/glaser/c5fa3909aa573292.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -1441,6 +2822,14 @@
       "on": "2026-11-15"
     }
   },
+  "https://media.aquatome.com/glaser/c878cc0bd56533c8.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/xenophallus-umbratilis"
+    ],
+    "at": "2026-11-15"
+  },
   "https://media.aquatome.com/glaser/c8fd0a65637bd0e8.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -1449,11 +2838,51 @@
     ],
     "at": "2026-11-15"
   },
+  "https://media.aquatome.com/glaser/c9826fc59340b066.webp": {
+    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
+    "step": "the photo check",
+    "pages": [
+      "species/rhadinoloricaria-macromystax"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/c9c3a6f9b81766de.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/ichthyborus-ornatus"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/c9d1a5a0823e414e.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/aphyolebias-peruensis"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/c9dc8ed2ecd18cc4.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/laimosemion-rectocaudatus"
+    ],
+    "at": "2026-11-15"
+  },
   "https://media.aquatome.com/glaser/cb8ab19f25eecb1e.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
     "pages": [
       "species/pseudogastromyzon-cheni"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/cbe8cf57f1b5e871.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/parapteronotus-hasemani"
     ],
     "at": "2026-11-15"
   },
@@ -1497,11 +2926,43 @@
     ],
     "at": "2026-11-15"
   },
+  "https://media.aquatome.com/glaser/d027af90c5ffb79f.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/steatogenys-elegans"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/d0b38ecb2558b2ce.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/corydoras-diphyes"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/d166b03709a5454f.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/macrobrachium-dienbienphuense"
+    ],
+    "at": "2026-11-16"
+  },
   "https://media.aquatome.com/glaser/d1da50e1ea4d148e.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
     "pages": [
       "species/procatopus-aberrans"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/d2f9b183b0b97aff.webp": {
+    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
+    "step": "the photo check",
+    "pages": [
+      "species/synodontis-notatus"
     ],
     "at": "2026-11-15"
   },
@@ -1512,6 +2973,14 @@
       "species/pelvicachromis-kribensis"
     ],
     "at": "2026-11-14"
+  },
+  "https://media.aquatome.com/glaser/d3edd274a8e41763.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/taia-naticoides"
+    ],
+    "at": "2026-11-15"
   },
   "https://media.aquatome.com/glaser/d54372f965ec72c4.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -1560,6 +3029,22 @@
       "on": "2026-11-15"
     }
   },
+  "https://media.aquatome.com/glaser/d70ad0e9d3146b1f.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/rhadinocentrus-ornatus"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/d7583249f16d5777.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/geophagus-megasema"
+    ],
+    "at": "2026-11-16"
+  },
   "https://media.aquatome.com/glaser/d7cd4bb056d7eda6.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -1572,6 +3057,14 @@
       "by": "the photo sourcing lead",
       "on": "2026-11-15"
     }
+  },
+  "https://media.aquatome.com/glaser/d7d27c2e9b1f3c0a.webp": {
+    "why": "watermark: withheld [sha256:90061b212d5f349f3d8b1713894167fa92948908b8976c67da7ab04b19cad63b]",
+    "step": "the photo check",
+    "pages": [
+      "species/sewellia-breviventralis"
+    ],
+    "at": "2026-11-15"
   },
   "https://media.aquatome.com/glaser/d877f974032720ea.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -1602,6 +3095,14 @@
     ],
     "at": "2026-11-14"
   },
+  "https://media.aquatome.com/glaser/da8fa1c1913745f5.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/ichthyborus-ornatus"
+    ],
+    "at": "2026-11-16"
+  },
   "https://media.aquatome.com/glaser/da9e2e2668cc2cf3.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -1615,11 +3116,91 @@
       "on": "2026-11-15"
     }
   },
+  "https://media.aquatome.com/glaser/dac2557e3b0daf5b.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/potamotyphlus-kaupii"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/db2db59a7a64b7b0.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/aphyolebias-peruensis"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/db99e97c2092717b.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/galeocharax-gulo"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/dc30fbe19dff9b59.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/skiffia-francesae"
+    ],
+    "at": "2026-11-15"
+  },
   "https://media.aquatome.com/glaser/dd2423e87c036a08.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
     "pages": [
       "species/eigenmannia-trilineata"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/dd29d828607e5c12.webp": {
+    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
+    "step": "the photo check",
+    "pages": [
+      "species/rhinogobius-maculafasciatus"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/df5a24470da58b9f.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/cynotilapia-axelrodi"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/df5ffa505a243f03.webp": {
+    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
+    "step": "the photo check",
+    "pages": [
+      "species/synodontis-notatus"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/dfe341dcae0f5343.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/rhadinocentrus-ornatus"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/e0434be375ec15d2.webp": {
+    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
+    "step": "the photo check",
+    "pages": [
+      "species/sphaerichthys-acrostoma"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/e103f5b331cf4607.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/crenicichla-regani"
     ],
     "at": "2026-11-15"
   },
@@ -1636,11 +3217,35 @@
       "on": "2026-11-15"
     }
   },
+  "https://media.aquatome.com/glaser/e1c29a46a8510198.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/gambusia-vittata"
+    ],
+    "at": "2026-11-15"
+  },
   "https://media.aquatome.com/glaser/e38592919813587e.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
     "pages": [
       "species/pseudapocryptes-elongatus"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/e3e25de64457b170.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/poeciliopsis-prolifica"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/e5925e3b130bef80.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/skiffia-francesae"
     ],
     "at": "2026-11-15"
   },
@@ -1681,6 +3286,14 @@
     ],
     "at": "2026-11-15"
   },
+  "https://media.aquatome.com/glaser/e91046ba529a96e9.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/trachycorystes-trachycorystes"
+    ],
+    "at": "2026-11-16"
+  },
   "https://media.aquatome.com/glaser/eada63185529ef70.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -1709,6 +3322,14 @@
       "species/mimagoniates-barberi"
     ],
     "at": "2026-11-14"
+  },
+  "https://media.aquatome.com/glaser/ed59b94c51639c72.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/caquetaia-kraussii"
+    ],
+    "at": "2026-11-15"
   },
   "https://media.aquatome.com/glaser/edc5466801f7e80a.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -1744,6 +3365,14 @@
       "on": "2026-11-15"
     }
   },
+  "https://media.aquatome.com/glaser/efba0cafdde300a5.webp": {
+    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
+    "step": "the photo check",
+    "pages": [
+      "species/xenomystus-nigri"
+    ],
+    "at": "2026-11-15"
+  },
   "https://media.aquatome.com/glaser/efd2abd1cdaf3629.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -1769,6 +3398,14 @@
       "by": "the photo sourcing lead",
       "on": "2026-11-15"
     }
+  },
+  "https://media.aquatome.com/glaser/f14abe724d4dfde2.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/cynotilapia-axelrodi"
+    ],
+    "at": "2026-11-16"
   },
   "https://media.aquatome.com/glaser/f1a93dd62c2843ca.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -1812,6 +3449,30 @@
     ],
     "at": "2026-11-14"
   },
+  "https://media.aquatome.com/glaser/f3a866bf7f7ab65a.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/toxotes-blythii"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/f3ee08878bcec147.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/hyphessobrycon-pando"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/f402f4ceee6a484b.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/hyphessobrycon-pando"
+    ],
+    "at": "2026-11-16"
+  },
   "https://media.aquatome.com/glaser/f51613aad050f399.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -1830,6 +3491,22 @@
     "step": "the watermark screen",
     "pages": [
       "species/leporinus-steyermarki"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/f61dfb169bde0434.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/xenophallus-umbratilis"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/f643b44c570ce1b5.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/xiphophorus-continens"
     ],
     "at": "2026-11-15"
   },
@@ -1870,6 +3547,14 @@
     ],
     "at": "2026-11-15"
   },
+  "https://media.aquatome.com/glaser/f803e08fe3458363.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/renova-oscari"
+    ],
+    "at": "2026-11-15"
+  },
   "https://media.aquatome.com/glaser/f903d556368d335c.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -1877,6 +3562,14 @@
       "species/pipa-parva"
     ],
     "at": "2026-11-14"
+  },
+  "https://media.aquatome.com/glaser/f94babe3f193d0ba.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/geophagus-megasema"
+    ],
+    "at": "2026-11-16"
   },
   "https://media.aquatome.com/glaser/f974d677d1cba341.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -1894,6 +3587,38 @@
     ],
     "at": "2026-11-14"
   },
+  "https://media.aquatome.com/glaser/fb89fee062693733.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/xenopus-muelleri"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/fca6fa6ff1308347.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/centropomus-unionensis"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/glaser/fce621e0404a3c4b.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/geophagus-megasema"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/glaser/fd0dc31efefd46da.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/lucania-goodei"
+    ],
+    "at": "2026-11-15"
+  },
   "https://media.aquatome.com/glaser/ff2f56d75159e739.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -1907,11 +3632,83 @@
       "on": "2026-11-15"
     }
   },
+  "https://media.aquatome.com/glaser/ffffdd204f1bb4bc.webp": {
+    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/caquetaia-myersi"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/inaturalist/467466174.webp": {
+    "why": "watermark: withheld [sha256:101f998699d85f20480374ff82c73ccd896458fda9d7d9f6c1da91da544ff832]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/serrasalmus-marginatus"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/panitvong/inat-576966116.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/poecilia-velifera"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/panitvong/inat-715400164.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/cyclocheilos-enoplos"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/panitvong/inat-724021567.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/pangasius-conchophilus"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/panitvong/inat-724047339.webp": {
+    "why": "dead: withheld [sha256:b0fd04bac5cb9103d42d098910d2f2ba12dd7581599cc374b0a1e379fd512b42]",
+    "step": "the photo check",
+    "pages": [
+      "species/pangasius-macronema"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/scotcat/025f2dc9746a1f2a.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/mystus-singaringan"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/scotcat/066f46e1bd7c664b.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/amphilius-natalensis"
+    ],
+    "at": "2026-11-16"
+  },
   "https://media.aquatome.com/scotcat/076008c9deb2d414.webp": {
     "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
     "step": "the photo check",
     "pages": [
       "species/paravandellia-oxyptera"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/scotcat/1741f1c1de20ee95.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/amphilius-kivuensis"
     ],
     "at": "2026-11-15"
   },
@@ -1930,6 +3727,30 @@
       "species/hypostomus-hemicochliodon"
     ],
     "at": "2026-11-14"
+  },
+  "https://media.aquatome.com/scotcat/1d9a1ad1d9f4daef.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/pangasius-conchophilus"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/scotcat/237c081fa55e44d2.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/ageneiosus-inermis"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/scotcat/261ce2a86725c3f6.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/eutropiichthys-vacha"
+    ],
+    "at": "2026-11-16"
   },
   "https://media.aquatome.com/scotcat/272a4581e87c4430.webp": {
     "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
@@ -1963,6 +3784,54 @@
     ],
     "at": "2026-11-15"
   },
+  "https://media.aquatome.com/scotcat/3598d3881dbaabf5.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/amphilius-lujani"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/scotcat/389099a460238042.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/hemibagrus-microphthalmus"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/scotcat/3fb08e1b175c0638.webp": {
+    "why": "rejected: withheld [sha256:c3dc27d251d8cfec7d8cecc9f33cc82853ef37a2445d0f027636c7980c9dd093]",
+    "step": "the photo check",
+    "pages": [
+      "species/euchilichthys-guentheri"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/scotcat/411ab228a2685ff2.webp": {
+    "why": "rejected: withheld [sha256:0a7c0806b6889d5d62757a41f2d405cb2218f411339ac15cb70fec1dda9c81d0]",
+    "step": "the photo check",
+    "pages": [
+      "species/corydoras-sarareensis"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/scotcat/45f0d972e94cc138.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/pseudobagarius-filifer"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/scotcat/4a0a241a454286ea.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/amphilius-lujani"
+    ],
+    "at": "2026-11-16"
+  },
   "https://media.aquatome.com/scotcat/51749f2c311d34c2.webp": {
     "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
     "step": "the photo check",
@@ -1971,773 +3840,29 @@
     ],
     "at": "2026-11-14"
   },
-  "https://media.aquatome.com/scotcat/65b786df580a474e.webp": {
+  "https://media.aquatome.com/scotcat/5177676e42fc608d.webp": {
     "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
     "step": "the photo check",
     "pages": [
-      "species/mochokus-niloticus"
+      "species/mystus-singaringan"
     ],
-    "at": "2026-11-14"
+    "at": "2026-11-16"
   },
-  "https://media.aquatome.com/scotcat/77d3abce046040da.webp": {
-    "why": "people: withheld [sha256:4f12f9acb847b645b745ee86b02166ee0066da481d5b493001a5368656d58da6]",
-    "step": "the photo check",
-    "pages": [
-      "species/noturus-leptacanthus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/scotcat/89cb77f3d5a09cd7.webp": {
-    "why": "rejected: withheld [sha256:765ad04769e886d63ac42ab715a4a5d4f6e041bb0c3e848413e12d1e3366350d]",
-    "step": "the photo check",
-    "pages": [
-      "species/mochokus-niloticus"
-    ],
-    "at": "2026-11-14"
-  },
-  "https://media.aquatome.com/scotcat/99d274f48bd8f37e.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
-    "step": "the photo check",
-    "pages": [
-      "species/cryptarius-truncatus"
-    ],
-    "at": "2026-11-14"
-  },
-  "https://media.aquatome.com/scotcat/9e23396db61f3522.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
-    "step": "the photo check",
-    "pages": [
-      "species/neoplecostomus-microps"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/scotcat/a66cb31a3bc36c68.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
-    "step": "the photo check",
-    "pages": [
-      "species/hypostomus-pyrineusi"
-    ],
-    "at": "2026-11-14"
-  },
-  "https://media.aquatome.com/scotcat/bfa7aa48ee8eb07a.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
-    "step": "the photo check",
-    "pages": [
-      "species/cryptarius-truncatus"
-    ],
-    "at": "2026-11-14"
-  },
-  "https://media.aquatome.com/scotcat/c34ca5b5b606fcf5.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
-    "step": "the photo check",
-    "pages": [
-      "species/cryptarius-truncatus"
-    ],
-    "at": "2026-11-14"
-  },
-  "https://media.aquatome.com/scotcat/d11bf0016bc1df90.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
-    "step": "the photo check",
-    "pages": [
-      "species/hemiancistrus-landoni"
-    ],
-    "at": "2026-11-14"
-  },
-  "https://media.aquatome.com/scotcat/d4151e7f05c82981.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
-    "step": "the photo check",
-    "pages": [
-      "species/hypostomus-pyrineusi"
-    ],
-    "at": "2026-11-14"
-  },
-  "https://media.aquatome.com/scotcat/e4e6e9c757d53479.webp": {
-    "why": "people: withheld [sha256:fe1951430f27bd2ee89ef49e03dd4fd34717759e2b9f2ccdafc7fb62a9adca63]",
-    "step": "the photo check",
-    "pages": [
-      "species/noturus-leptacanthus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/scotcat/ea31b95318964fee.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
-    "step": "the photo check",
-    "pages": [
-      "species/pachypterus-atherinoides"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/scotcat/edf1351cef989137.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
-    "step": "the photo check",
-    "pages": [
-      "species/neoplecostomus-microps"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/scotcat/f1da689b56238f69.webp": {
+  "https://media.aquatome.com/scotcat/57c909afc423f6af.webp": {
     "why": "dead: withheld [sha256:b0fd04bac5cb9103d42d098910d2f2ba12dd7581599cc374b0a1e379fd512b42]",
     "step": "the photo check",
     "pages": [
-      "species/cryptarius-truncatus"
+      "species/pseudacanthicus-major"
     ],
-    "at": "2026-11-14"
+    "at": "2026-11-16"
   },
-  "https://media.aquatome.com/seriouslyfish/3888deb3488dc181.webp": {
-    "why": "dead: withheld [sha256:b0fd04bac5cb9103d42d098910d2f2ba12dd7581599cc374b0a1e379fd512b42]",
-    "step": "the photo check",
-    "pages": [
-      "species/labiobarbus-leptocheilus"
-    ],
-    "at": "2026-11-14"
-  },
-  "https://media.aquatome.com/seriouslyfish/79acf742aae52555.webp": {
-    "why": "dead: withheld [sha256:b0fd04bac5cb9103d42d098910d2f2ba12dd7581599cc374b0a1e379fd512b42]",
-    "step": "the photo check",
-    "pages": [
-      "species/labiobarbus-leptocheilus"
-    ],
-    "at": "2026-11-14"
-  },
-  "https://media.aquatome.com/seriouslyfish/d32605e9ce4a8e8d.webp": {
-    "why": "dead: withheld [sha256:b0fd04bac5cb9103d42d098910d2f2ba12dd7581599cc374b0a1e379fd512b42]",
-    "step": "the photo check",
-    "pages": [
-      "species/labiobarbus-leptocheilus"
-    ],
-    "at": "2026-11-14"
-  },
-  "https://media.aquatome.com/seriouslyfish/ea2718cf636f7548.webp": {
+  "https://media.aquatome.com/scotcat/5a9a4d98d95df791.webp": {
     "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
     "step": "the photo check",
     "pages": [
-      "species/leporinus-brunneus"
+      "species/pangasius-conchophilus"
     ],
-    "at": "2026-11-14"
-  },
-  "https://media.aquatome.com/seriouslyfish/f834a535438a174c.webp": {
-    "why": "dead: withheld [sha256:b0fd04bac5cb9103d42d098910d2f2ba12dd7581599cc374b0a1e379fd512b42]",
-    "step": "the photo check",
-    "pages": [
-      "species/labiobarbus-leptocheilus"
-    ],
-    "at": "2026-11-14"
-  },
-  "https://media.aquatome.com/glaser/09088ba4dc2022af.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/crenicichla-regani"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/234ad1d5dab0ba84.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/otocinclus-vestitus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/29a9967bfa103811.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/sillaginopsis-panijus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/6d976800d868df8f.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/otocinclus-vestitus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/a4f9eba27d4e1902.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/sillaginopsis-panijus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/e103f5b331cf4607.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/crenicichla-regani"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/041668ff34615f06.webp": {
-    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
-    "step": "the photo check",
-    "pages": [
-      "species/rhinogobius-maculafasciatus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/0737181d0edaed98.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/skiffia-francesae"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/0b3529c3e1421588.webp": {
-    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
-    "step": "the photo check",
-    "pages": [
-      "species/sewellia-breviventralis"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/0bcafff2a91f3c97.webp": {
-    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
-    "step": "the photo check",
-    "pages": [
-      "species/rhinogobius-duospilus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/0c4a89a64bf9d5c4.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/selenotoca-multifasciata"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/17e5e623ae3415c1.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/schismatogobius-roxasi"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/1c377dd1cb5e2594.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/rhadinocentrus-ornatus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/1ea4fd28086e5fc2.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/ptychochromis-oligacanthus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/21fb2cf13b7c0a5f.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/schismatogobius-roxasi"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/22b4e1cfa1ca2ad3.webp": {
-    "why": "watermark: withheld [sha256:90061b212d5f349f3d8b1713894167fa92948908b8976c67da7ab04b19cad63b]",
-    "step": "the photo check",
-    "pages": [
-      "species/sewellia-breviventralis"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/247b68a8de005586.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/scolichthys-iota"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/3271b784dcf72bcb.webp": {
-    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
-    "step": "the photo check",
-    "pages": [
-      "species/synodontis-flavitaeniatus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/3719112cd9d5fa7d.webp": {
-    "why": "watermark: withheld [sha256:90061b212d5f349f3d8b1713894167fa92948908b8976c67da7ab04b19cad63b]",
-    "step": "the photo check",
-    "pages": [
-      "species/synodontis-flavitaeniatus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/37b1e6e51520c81a.webp": {
-    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
-    "step": "the photo check",
-    "pages": [
-      "species/corydoras-robustus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/3e2bb5aa7824e882.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/pyrrhulina-spilota"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/3f8a53d8400c3c40.webp": {
-    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
-    "step": "the photo check",
-    "pages": [
-      "species/synodontis-flavitaeniatus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/482063927e625df8.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/pygopristis-denticulata"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/4c3ae413c2caaa19.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/pygopristis-denticulata"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/51494a7783d1b11b.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/pygopristis-denticulata"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/538ab0d8bd7e7f88.webp": {
-    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
-    "step": "the photo check",
-    "pages": [
-      "species/rhinogobius-maculafasciatus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/53e46c73af765920.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/pyrrhulina-spilota"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/5a133b7691a19f50.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/schismatogobius-roxasi"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/5e7328bd3bfba86a.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/selenotoca-multifasciata"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/680b74cb16862cb9.webp": {
-    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
-    "step": "the photo check",
-    "pages": [
-      "species/rhinogobius-maculafasciatus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/6bcf8da57dc51d6a.webp": {
-    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
-    "step": "the photo check",
-    "pages": [
-      "species/synodontis-flavitaeniatus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/70f10f3a1f805703.webp": {
-    "why": "watermark: withheld [sha256:90061b212d5f349f3d8b1713894167fa92948908b8976c67da7ab04b19cad63b]",
-    "step": "the photo check",
-    "pages": [
-      "species/rhinogobius-duospilus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/736f26a2ccb318f8.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/pyrrhulina-spilota"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/7449e394df287090.webp": {
-    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
-    "step": "the photo check",
-    "pages": [
-      "species/corydoras-robustus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/760f2b4903fca57c.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/steatogenys-elegans"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/7eec32ee4c9f7741.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/skiffia-francesae"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/85e81f138db99a6f.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/selenotoca-multifasciata"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/868540adbbdd6629.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/scolichthys-iota"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/86a5012be848ff12.webp": {
-    "why": "watermark: withheld [sha256:90061b212d5f349f3d8b1713894167fa92948908b8976c67da7ab04b19cad63b]",
-    "step": "the photo check",
-    "pages": [
-      "species/rhinogobius-duospilus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/8ca34ed44c44a661.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/ptychochromis-oligacanthus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/91e9f981f7acfa92.webp": {
-    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
-    "step": "the photo check",
-    "pages": [
-      "species/synodontis-notatus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/93db133bc9047918.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/semaprochilodus-laticeps"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/983576fc6c281490.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/ptychochromis-oligacanthus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/9944748ec1dbee2d.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/pyrrhulina-spilota"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/a1364017dbc77ed7.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/roeboides-araguaito"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/a3e6f84d15abf8ce.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/pygopristis-denticulata"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/a59c57e889116c28.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/synodontis-clarias"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/a6821835bb9c23f6.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/roeboides-descalvadensis"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/a70f7407d2331762.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/serrasalmus-compressus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/af2a38d79b192763.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/steatogenys-elegans"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/b05935e6212650fb.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/selenotoca-multifasciata"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/b215c98339b01236.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/serrasalmus-neveriensis"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/b4be28cdfdf6e55f.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/rhadinocentrus-ornatus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/ba2b3b7b41506895.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/scolichthys-iota"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/bc233e8090f187d8.webp": {
-    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
-    "step": "the photo check",
-    "pages": [
-      "species/sewellia-breviventralis"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/bd162d41a5cb0acb.webp": {
-    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
-    "step": "the photo check",
-    "pages": [
-      "species/corydoras-robustus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/beabe6dfa8eff2d5.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/steatogenys-elegans"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/c9826fc59340b066.webp": {
-    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
-    "step": "the photo check",
-    "pages": [
-      "species/rhadinoloricaria-macromystax"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/d027af90c5ffb79f.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/steatogenys-elegans"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/d2f9b183b0b97aff.webp": {
-    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
-    "step": "the photo check",
-    "pages": [
-      "species/synodontis-notatus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/d70ad0e9d3146b1f.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/rhadinocentrus-ornatus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/d7d27c2e9b1f3c0a.webp": {
-    "why": "watermark: withheld [sha256:90061b212d5f349f3d8b1713894167fa92948908b8976c67da7ab04b19cad63b]",
-    "step": "the photo check",
-    "pages": [
-      "species/sewellia-breviventralis"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/dc30fbe19dff9b59.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/skiffia-francesae"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/dd29d828607e5c12.webp": {
-    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
-    "step": "the photo check",
-    "pages": [
-      "species/rhinogobius-maculafasciatus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/df5ffa505a243f03.webp": {
-    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
-    "step": "the photo check",
-    "pages": [
-      "species/synodontis-notatus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/dfe341dcae0f5343.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/rhadinocentrus-ornatus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/e0434be375ec15d2.webp": {
-    "why": "watermark: withheld [sha256:ee1d4f3f67fb49c8ee7edf80fc6e2bb9abc030a2589160194bc0e96ae5e541a1]",
-    "step": "the photo check",
-    "pages": [
-      "species/sphaerichthys-acrostoma"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/e5925e3b130bef80.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/skiffia-francesae"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/glaser/f803e08fe3458363.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/renova-oscari"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/inaturalist/19792536.webp": {
-    "why": "dead: withheld [sha256:b0fd04bac5cb9103d42d098910d2f2ba12dd7581599cc374b0a1e379fd512b42]",
-    "step": "the photo check",
-    "pages": [
-      "species/bagre-marinus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/inaturalist/467466174.webp": {
-    "why": "watermark: withheld [sha256:101f998699d85f20480374ff82c73ccd896458fda9d7d9f6c1da91da544ff832]",
-    "step": "the watermark screen",
-    "pages": [
-      "species/serrasalmus-marginatus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/inaturalist/74011571.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
-    "step": "the photo check",
-    "pages": [
-      "species/bagre-marinus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/inaturalist/92372567.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
-    "step": "the photo check",
-    "pages": [
-      "species/bagre-marinus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/scotcat/1741f1c1de20ee95.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
-    "step": "the photo check",
-    "pages": [
-      "species/amphilius-kivuensis"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/scotcat/237c081fa55e44d2.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
-    "step": "the photo check",
-    "pages": [
-      "species/ageneiosus-inermis"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/scotcat/2fa8a931287ab76b.webp": {
-    "why": "dead: withheld [sha256:b0fd04bac5cb9103d42d098910d2f2ba12dd7581599cc374b0a1e379fd512b42]",
-    "step": "the photo check",
-    "pages": [
-      "species/bagre-marinus"
-    ],
-    "at": "2026-11-15"
-  },
-  "https://media.aquatome.com/scotcat/558c9b451e57db0b.webp": {
-    "why": "rejected: withheld [sha256:e434f6dabfe3b91a835d3a50022305c9eaca3069e9b85851e478286ef2b8d594]",
-    "step": "the photo check",
-    "pages": [
-      "species/bagre-marinus"
-    ],
-    "at": "2026-11-15"
+    "at": "2026-11-16"
   },
   "https://media.aquatome.com/scotcat/5c1c2c44e80b7d1a.webp": {
     "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
@@ -2755,6 +3880,46 @@
     ],
     "at": "2026-11-15"
   },
+  "https://media.aquatome.com/scotcat/6083d46d382b48c0.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/amphilius-natalensis"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/scotcat/65b786df580a474e.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/mochokus-niloticus"
+    ],
+    "at": "2026-11-14"
+  },
+  "https://media.aquatome.com/scotcat/6651ce934cbb9b52.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/hemibagrus-microphthalmus"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/scotcat/6b3ba0f73bdb1ab6.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/amphilius-natalensis"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/scotcat/6b9c86dfe43ef007.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/pangasius-macronema"
+    ],
+    "at": "2026-11-16"
+  },
   "https://media.aquatome.com/scotcat/74d87d5b18b18b97.webp": {
     "why": "watermark: withheld [sha256:403d47e9a93e47f363d02d31aad3a0d276f44b9c5da270d8c9bc5101ea4fd65a]",
     "step": "the watermark screen",
@@ -2771,11 +3936,51 @@
     ],
     "at": "2026-11-15"
   },
-  "https://media.aquatome.com/scotcat/85fc933bbe2e9146.webp": {
+  "https://media.aquatome.com/scotcat/88f6a116c119a170.webp": {
     "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
     "step": "the photo check",
     "pages": [
-      "species/ameiurus-platycephalus"
+      "species/hemibagrus-spilopterus"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/scotcat/891a47ce27d30bde.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/liobagrus-chengduensis"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/scotcat/8e1d1b03fd9a8cc0.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/pangasius-conchophilus"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/scotcat/99d274f48bd8f37e.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/cryptarius-truncatus"
+    ],
+    "at": "2026-11-14"
+  },
+  "https://media.aquatome.com/scotcat/9aa467801ef4d24c.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/pangasius-macronema"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/scotcat/9e23396db61f3522.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/neoplecostomus-microps"
     ],
     "at": "2026-11-15"
   },
@@ -2787,6 +3992,22 @@
     ],
     "at": "2026-11-15"
   },
+  "https://media.aquatome.com/scotcat/a5135b5e791a9ede.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/hemibagrus-microphthalmus"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/scotcat/a66cb31a3bc36c68.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/hypostomus-pyrineusi"
+    ],
+    "at": "2026-11-14"
+  },
   "https://media.aquatome.com/scotcat/b1ba43629c19d991.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -2794,6 +4015,38 @@
       "species/tachysurus-argentivittatus"
     ],
     "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/scotcat/b3e3d9f3992d96a5.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/amphilius-lujani"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/scotcat/b50491da242c6567.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/mystus-singaringan"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/scotcat/bfa7aa48ee8eb07a.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/cryptarius-truncatus"
+    ],
+    "at": "2026-11-14"
+  },
+  "https://media.aquatome.com/scotcat/c34ca5b5b606fcf5.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/cryptarius-truncatus"
+    ],
+    "at": "2026-11-14"
   },
   "https://media.aquatome.com/scotcat/c7aed417e6d5f153.webp": {
     "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
@@ -2803,13 +4056,93 @@
     ],
     "at": "2026-11-15"
   },
-  "https://media.aquatome.com/scotcat/daba7b536ced4597.webp": {
+  "https://media.aquatome.com/scotcat/cb3acb3aa9733cba.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/pseudacanthicus-major"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/scotcat/d11bf0016bc1df90.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/hemiancistrus-landoni"
+    ],
+    "at": "2026-11-14"
+  },
+  "https://media.aquatome.com/scotcat/d4151e7f05c82981.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/hypostomus-pyrineusi"
+    ],
+    "at": "2026-11-14"
+  },
+  "https://media.aquatome.com/scotcat/d7c7b88a8db356b9.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/liobagrus-chengduensis"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/scotcat/d8c997d04d5c499e.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/pangasius-macronema"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/scotcat/deb5e195b1fb48ce.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/mystus-singaringan"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/scotcat/e2ee49655357291d.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/hemibagrus-microphthalmus"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/scotcat/ea31b95318964fee.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/pachypterus-atherinoides"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/scotcat/edf1351cef989137.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/neoplecostomus-microps"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/scotcat/f04700e400d1bb02.webp": {
+    "why": "rejected: withheld [sha256:a90c845d6e5bf7a5ddf0e46f5684634cf5b34cdcaf2227b93ccbac8840930fc2]",
+    "step": "the photo check",
+    "pages": [
+      "species/amphilius-natalensis"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/scotcat/f1da689b56238f69.webp": {
     "why": "dead: withheld [sha256:b0fd04bac5cb9103d42d098910d2f2ba12dd7581599cc374b0a1e379fd512b42]",
     "step": "the photo check",
     "pages": [
-      "species/ameiurus-platycephalus"
+      "species/cryptarius-truncatus"
     ],
-    "at": "2026-11-15"
+    "at": "2026-11-14"
   },
   "https://media.aquatome.com/scotcat/f4f72c3c3df65cc0.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -2819,6 +4152,14 @@
     ],
     "at": "2026-11-15"
   },
+  "https://media.aquatome.com/scotcat/f7be80717d0bd741.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/hemibagrus-spilopterus"
+    ],
+    "at": "2026-11-16"
+  },
   "https://media.aquatome.com/scotcat/fcdf4c082d15299e.webp": {
     "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
     "step": "the photo check",
@@ -2827,13 +4168,13 @@
     ],
     "at": "2026-11-15"
   },
-  "https://media.aquatome.com/seriouslyfish/4d43deba9a8e4c39.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+  "https://media.aquatome.com/seriouslyfish/0c26e84c5f268531.webp": {
+    "why": "dead: withheld [sha256:531bebed563b5535edd913ef3bb8c69b4fd70a03bb9748a1a1fa0841c28b995d]",
     "step": "the photo check",
     "pages": [
-      "species/barbodes-dunckeri"
+      "species/lepidocephalichthys-zeppelini"
     ],
-    "at": "2026-11-15"
+    "at": "2026-11-16"
   },
   "https://media.aquatome.com/seriouslyfish/0c824d6e385e47d6.webp": {
     "why": "watermark: withheld [sha256:101f998699d85f20480374ff82c73ccd896458fda9d7d9f6c1da91da544ff832]",
@@ -2843,6 +4184,102 @@
     ],
     "at": "2026-11-14"
   },
+  "https://media.aquatome.com/seriouslyfish/1ca0762b451de5a9.webp": {
+    "why": "dead: withheld [sha256:b0fd04bac5cb9103d42d098910d2f2ba12dd7581599cc374b0a1e379fd512b42]",
+    "step": "the photo check",
+    "pages": [
+      "species/labiobarbus-fasciatus"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/seriouslyfish/285c7e5bfa6a4bad.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/garra-nambulica"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/seriouslyfish/4400febe16743798.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/puntigrus-navjotsodhii"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/seriouslyfish/4d43deba9a8e4c39.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/barbodes-dunckeri"
+    ],
+    "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/seriouslyfish/5d7aa9f82baf1327.webp": {
+    "why": "dead: withheld [sha256:b0fd04bac5cb9103d42d098910d2f2ba12dd7581599cc374b0a1e379fd512b42]",
+    "step": "the photo check",
+    "pages": [
+      "species/labiobarbus-fasciatus"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/seriouslyfish/637fa1f0ac87238c.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/pethia-ticto"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/seriouslyfish/64e390f2549559c9.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/henicorhynchus-siamensis"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/seriouslyfish/6db687b0655ae163.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/corydoras-lacrimostigmata"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/seriouslyfish/731153e85d0b3b5d.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/pethia-ticto"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/seriouslyfish/7ba4048a75c17760.webp": {
+    "why": "rejected: withheld [sha256:915d72407dd700bd3a3ba438b15e15717aa92752c6efe524519143a4a4da7031]",
+    "step": "the photo check",
+    "pages": [
+      "species/homalopteroides-stephensoni"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/seriouslyfish/865e4e4808a8e49a.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/pethia-ticto"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/seriouslyfish/8966a8028c8a7349.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/colomesus-tocantinensis"
+    ],
+    "at": "2026-11-16"
+  },
   "https://media.aquatome.com/seriouslyfish/94dbb26cd88f1255.webp": {
     "why": "watermark: withheld [sha256:101f998699d85f20480374ff82c73ccd896458fda9d7d9f6c1da91da544ff832]",
     "step": "the watermark screen",
@@ -2850,5 +4287,173 @@
       "species/macrochirichthys-macrochirus"
     ],
     "at": "2026-11-14"
+  },
+  "https://media.aquatome.com/seriouslyfish/95ae93fb4db9680b.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/garra-nambulica"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/seriouslyfish/9a5ab36e823b09fa.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/esomus-danrica"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/seriouslyfish/9dee6de2e5ab6ded.webp": {
+    "why": "rejected: withheld [sha256:c82016005f84453bf0355d463676dcb238b8ff4dcd3b7952053f5c14c18dbd89]",
+    "step": "the photo check",
+    "pages": [
+      "species/hyphessobrycon-brumado"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/seriouslyfish/aa1b069b454fa5d1.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/peckoltia-bachi"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/seriouslyfish/ad7e0c3d2c01ffcc.webp": {
+    "why": "watermark: withheld [sha256:4a94b6b426947b88a0210683e051e55d1ec1ff0465dc9597f9d5374ba6d214a7]",
+    "step": "the photo check",
+    "pages": [
+      "species/gastromyzon-introrsus"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/seriouslyfish/b2fcf37f46406e47.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/henicorhynchus-siamensis"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/seriouslyfish/ba3d3c03007e7ae4.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/hyphessobrycon-brumado"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/seriouslyfish/bf47a6d45c25861a.webp": {
+    "why": "dead: withheld [sha256:b0fd04bac5cb9103d42d098910d2f2ba12dd7581599cc374b0a1e379fd512b42]",
+    "step": "the photo check",
+    "pages": [
+      "species/gastromyzon-aeroides"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/seriouslyfish/c5cb75d23224b285.webp": {
+    "why": "dead: withheld [sha256:b0fd04bac5cb9103d42d098910d2f2ba12dd7581599cc374b0a1e379fd512b42]",
+    "step": "the photo check",
+    "pages": [
+      "species/peckoltia-bachi"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/seriouslyfish/c5ddf5e739fdddf2.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/eirmotus-insignis"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/seriouslyfish/c9c6b0360aeedb33.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/hyphessobrycon-compressus"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/seriouslyfish/cf97d9825f52f0e3.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/corydoras-lacrimostigmata"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/seriouslyfish/d768237585d27c50.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/corydoras-lacrimostigmata"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/seriouslyfish/e0c6c082f649315d.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/henicorhynchus-siamensis"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/seriouslyfish/e4fb38012e43d068.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/hyphessobrycon-brumado"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/seriouslyfish/e70755342831aaff.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/hyphessobrycon-acaciae"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/seriouslyfish/e9e9c454627993d5.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/danio-flagrans"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/seriouslyfish/ea2718cf636f7548.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/leporinus-brunneus"
+    ],
+    "at": "2026-11-14"
+  },
+  "https://media.aquatome.com/seriouslyfish/ecf09b59be5bc896.webp": {
+    "why": "watermark: withheld [sha256:90061b212d5f349f3d8b1713894167fa92948908b8976c67da7ab04b19cad63b]",
+    "step": "the photo check",
+    "pages": [
+      "species/laetacara-flamannellus"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/seriouslyfish/f6bbe7ed56cfd00a.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/garra-nambulica"
+    ],
+    "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/seriouslyfish/fdb2a73d0a0f98ae.webp": {
+    "why": "dead: withheld [sha256:b0fd04bac5cb9103d42d098910d2f2ba12dd7581599cc374b0a1e379fd512b42]",
+    "step": "the photo check",
+    "pages": [
+      "species/labiobarbus-fasciatus"
+    ],
+    "at": "2026-11-16"
   }
 }
