@@ -1,5 +1,5 @@
 {
- "day": "2026-11-16",
+ "day": "2026-11-17",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -59,37 +59,24 @@
  "sample": [
   {
    "lang": "th",
-   "path": "/th/plants/helanthium-bolivianum/",
-   "url": "https://aquatome.com/th/plants/helanthium-bolivianum/",
-   "title": "Echinodorus Quadricostatus",
+   "path": "/th/fish/esomus-metallicus/",
+   "url": "https://aquatome.com/th/fish/esomus-metallicus/",
+   "title": "ปลาซิวหนวดยาว",
    "wrong": []
   },
   {
-   "lang": "ms",
-   "path": "/ms/tumbuhan/echinodorus-tropica/",
-   "url": "https://aquatome.com/ms/tumbuhan/echinodorus-tropica/",
-   "title": "Echinodorus Tropica",
+   "lang": "id",
+   "path": "/id/ikan/bulldog-pleco/",
+   "url": "https://aquatome.com/id/ikan/bulldog-pleco/",
+   "title": "Bulldog Pleco",
    "wrong": []
   },
   {
-   "lang": "vi",
-   "path": "/vi/ca/ca-brichardi-soc/",
-   "url": "https://aquatome.com/ca/ca-brichardi-soc/",
-   "title": "Cá brichardi sọc",
-   "wrong": [
-    {
-     "check": "words",
-     "quote": "giữ lãnh thổ"
-    },
-    {
-     "check": "words",
-     "quote": "phần lớn"
-    },
-    {
-     "check": "words",
-     "quote": "Thức ăn sống"
-    }
-   ]
+   "lang": "id",
+   "path": "/id/ikan/nemacheilus-saravacensis/",
+   "url": "https://aquatome.com/id/ikan/nemacheilus-saravacensis/",
+   "title": "Nemacheilus saravacensis",
+   "wrong": []
   }
  ]
 }
