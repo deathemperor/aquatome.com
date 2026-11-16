@@ -54,11 +54,10 @@
   },
   "held": {
     "checks": [
-      "elsewhere",
       "price",
       "shop",
       "units"
     ],
-    "at": "2026-11-09"
+    "at": "2026-11-16"
   }
 }

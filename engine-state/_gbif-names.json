@@ -1197,6 +1197,7 @@
   "Amoniac chuy": null,
   "Amoniac kho": null,
   "Amoniac nguy": null,
+  "Amoniac trong": null,
   "Amphidromy isn": null,
   "Amphilius atesuensis": {
     "canonicalName": "Amphilius atesuensis",
@@ -2977,6 +2978,14 @@
     "order": "Siluriformes",
     "family": "Claroteidae",
     "genus": "Auchenoglanis",
+    "matchType": "EXACT"
+  },
+  "Auchenoglanis punctatus": {
+    "canonicalName": "Parauchenoglanis punctatus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Claroteidae",
+    "genus": "Parauchenoglanis",
     "matchType": "EXACT"
   },
   "Auchenoglanis wittei": {
@@ -5663,6 +5672,14 @@
     "order": "Tetraodontiformes",
     "family": "Tetraodontidae",
     "genus": "Carinotetraodon",
+    "matchType": "EXACT"
+  },
+  "Carlarius latiscutatus": {
+    "canonicalName": "Arius latiscutatus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Ariidae",
+    "genus": "Arius",
     "matchType": "EXACT"
   },
   "Carlhubbsia kidderi": {
@@ -10100,6 +10117,15 @@
     "genus": "Aquarius",
     "matchType": "FUZZY"
   },
+  "Echinodorus bolivianus": {
+    "canonicalName": "Echinodorus bolivianus",
+    "phylum": "Tracheophyta",
+    "class": "Liliopsida",
+    "order": "Alismatales",
+    "family": "Alismataceae",
+    "genus": "Echinodorus",
+    "matchType": "EXACT"
+  },
   "Echinodorus fluitans": {
     "canonicalName": "Aquarius cordifolius",
     "order": "Alismatales",
@@ -10769,6 +10795,15 @@
     "order": "Pleuronectiformes",
     "family": "Soleidae",
     "genus": "Brachirus",
+    "matchType": "EXACT"
+  },
+  "Eusteralis stellata": {
+    "canonicalName": "Pogostemon stellatus",
+    "phylum": "Tracheophyta",
+    "class": "Magnoliopsida",
+    "order": "Lamiales",
+    "family": "Lamiaceae",
+    "genus": "Pogostemon",
     "matchType": "EXACT"
   },
   "Eutropiellus buffei": {
@@ -11838,6 +11873,7 @@
     "matchType": "EXACT"
   },
   "Glossostigma elatostematoides": null,
+  "Glossostigma sau": null,
   "Glutaraldehyde pha": null,
   "Glutaraldehyde trong": null,
   "Glutaraldehyde xuy": null,
@@ -12454,6 +12490,15 @@
   "Hazar toothcarp": null,
   "Heaterstat inline": null,
   "Heckel hoang": null,
+  "Hedera helix": {
+    "canonicalName": "Hedera helix",
+    "phylum": "Tracheophyta",
+    "class": "Magnoliopsida",
+    "order": "Apiales",
+    "family": "Araliaceae",
+    "genus": "Hedera",
+    "matchType": "EXACT"
+  },
   "Helanthium bolivianum": {
     "canonicalName": "Helanthium bolivianum",
     "order": "Alismatales",
@@ -13322,6 +13367,15 @@
     "genus": "Hisonotus",
     "matchType": "EXACT"
   },
+  "Hisonotus notatus": {
+    "canonicalName": "Hisonotus notatus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Hisonotus",
+    "matchType": "EXACT"
+  },
+  "Hisonotus ornatus": null,
   "Histoire naturelle": null,
   "Hmoain located": null,
   "Hobbit khi": null,
@@ -13332,6 +13386,15 @@
     "order": "Characiformes",
     "family": "Characidae",
     "genus": "Odontostilbe",
+    "matchType": "EXACT"
+  },
+  "Holtodrilus truncatus": {
+    "canonicalName": "Holtodrilus truncatus",
+    "phylum": "Annelida",
+    "class": "Clitellata",
+    "order": "Branchiobdellida",
+    "family": "Branchiobdellidae",
+    "genus": "Holtodrilus",
     "matchType": "EXACT"
   },
   "Homaloptera bilineata": {
@@ -13574,6 +13637,22 @@
   "Hunan provinces": null,
   "Hyalobagrus flavus": {
     "canonicalName": "Hyalobagrus flavus",
+    "order": "Siluriformes",
+    "family": "Bagridae",
+    "genus": "Hyalobagrus",
+    "matchType": "EXACT"
+  },
+  "Hyalobagrus leiacanthus": {
+    "canonicalName": "Hyalobagrus leiacanthus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Bagridae",
+    "genus": "Hyalobagrus",
+    "matchType": "EXACT"
+  },
+  "Hyalobagrus ornatus": {
+    "canonicalName": "Hyalobagrus ornatus",
+    "phylum": "Chordata",
     "order": "Siluriformes",
     "family": "Bagridae",
     "genus": "Hyalobagrus",
@@ -14952,6 +15031,7 @@
   "Khi chuy": null,
   "Khi cua": null,
   "Khi dinh": null,
+  "Khi epoxy": null,
   "Khi gai": null,
   "Khi giao": null,
   "Khi giun": null,
@@ -16361,6 +16441,15 @@
     "genus": "Limnophila",
     "matchType": "EXACT"
   },
+  "Limnophila heterophylla": {
+    "canonicalName": "Limnophila heterophylla",
+    "phylum": "Tracheophyta",
+    "class": "Magnoliopsida",
+    "order": "Lamiales",
+    "family": "Plantaginaceae",
+    "genus": "Limnophila",
+    "matchType": "EXACT"
+  },
   "Limnophila hippuridoides": {
     "canonicalName": "Limnophila hippuridoides",
     "order": "Lamiales",
@@ -16748,6 +16837,15 @@
     "family": "Onagraceae",
     "genus": "Ludwigia",
     "matchType": "EXACT"
+  },
+  "Ludwigia granulosa": {
+    "canonicalName": "Ludwigia glandulosa",
+    "phylum": "Tracheophyta",
+    "class": "Magnoliopsida",
+    "order": "Myrtales",
+    "family": "Onagraceae",
+    "genus": "Ludwigia",
+    "matchType": "FUZZY"
   },
   "Ludwigia inclinata": {
     "canonicalName": "Ludwigia inclinata",
@@ -18313,6 +18411,15 @@
     "genus": "Monstera",
     "matchType": "EXACT"
   },
+  "Monstera deliciosa": {
+    "canonicalName": "Monstera deliciosa",
+    "phylum": "Tracheophyta",
+    "class": "Liliopsida",
+    "order": "Alismatales",
+    "family": "Araceae",
+    "genus": "Monstera",
+    "matchType": "EXACT"
+  },
   "Mua bao": null,
   "Mua canxi": null,
   "Mua chung": null,
@@ -19643,7 +19750,9 @@
   "Nisbah kelamin": null,
   "Nitrat bao": null,
   "Nitrat cao": null,
+  "Nitrat kho": null,
   "Nitrat trong": null,
+  "Nitrit sau": null,
   "Nitrospira moscoviensis": {
     "canonicalName": "Nitrospira moscoviensis",
     "order": "Nitrospirales",
@@ -22625,6 +22734,7 @@
   },
   "Phraya drainages": null,
   "Phun keo": null,
+  "Phun quanh": null,
   "Phyllanthus fluitans": {
     "canonicalName": "Phyllanthus fluitans",
     "order": "Malpighiales",
@@ -22882,6 +22992,7 @@
     "genus": "Platydoras",
     "matchType": "EXACT"
   },
+  "Platydoras armulatus": null,
   "Platydoras brachylecis": {
     "canonicalName": "Platydoras brachylecis",
     "order": "Siluriformes",
@@ -22982,6 +23093,14 @@
     "matchType": "EXACT"
   },
   "Plecostomus microps": null,
+  "Plecostomus wertheimeri": {
+    "canonicalName": "Pogonopoma wertheimeri",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Pogonopoma",
+    "matchType": "EXACT"
+  },
   "Plectrochilus erythrurus": {
     "canonicalName": "Vandellia cirrhosa",
     "phylum": "Chordata",
@@ -23119,6 +23238,14 @@
     "order": "Characiformes",
     "family": "Crenuchidae",
     "genus": "Poecilocharax",
+    "matchType": "EXACT"
+  },
+  "Pogonopoma obscurum": {
+    "canonicalName": "Pogonopoma obscurum",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Pogonopoma",
     "matchType": "EXACT"
   },
   "Pogonopoma parahybae": {
@@ -23791,12 +23918,28 @@
     "genus": "Pseudecheneis",
     "matchType": "EXACT"
   },
+  "Pseudecheneis sulcatoides": {
+    "canonicalName": "Pseudecheneis sulcatoides",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Sisoridae",
+    "genus": "Pseudecheneis",
+    "matchType": "EXACT"
+  },
   "Pseudecheneis sulcatus": {
     "canonicalName": "Pseudecheneis sulcata",
     "order": "Siluriformes",
     "family": "Sisoridae",
     "genus": "Pseudecheneis",
     "matchType": "FUZZY"
+  },
+  "Pseudecheneis sympelvica": {
+    "canonicalName": "Pseudecheneis sympelvica",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Sisoridae",
+    "genus": "Pseudecheneis",
+    "matchType": "EXACT"
   },
   "Pseudepiplatys annulatus": {
     "canonicalName": "Epiplatys annulatus",
@@ -25952,6 +26095,14 @@
     "genus": "Rineloricaria",
     "matchType": "EXACT"
   },
+  "Rineloricaria castroi": {
+    "canonicalName": "Rineloricaria castroi",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Rineloricaria",
+    "matchType": "EXACT"
+  },
   "Rineloricaria daraha": {
     "canonicalName": "Rineloricaria daraha",
     "order": "Siluriformes",
@@ -26854,6 +27005,7 @@
   "Seachem khuy": null,
   "Seachem sau": null,
   "Seawater incubated": null,
+  "Seiryu trong": null,
   "Selangor states": null,
   "Selatan provinces": null,
   "Selenotoca multifasciata": {
@@ -27209,6 +27361,14 @@
     "matchType": "EXACT"
   },
   "Silicat trong": null,
+  "Sillaginopsis panijus": {
+    "canonicalName": "Sillaginopsis panijus",
+    "phylum": "Chordata",
+    "order": "Perciformes",
+    "family": "Sillaginidae",
+    "genus": "Sillaginopsis",
+    "matchType": "EXACT"
+  },
   "Silonia silondia": {
     "canonicalName": "Silonia silondia",
     "order": "Siluriformes",
@@ -27966,6 +28126,14 @@
     "genus": "Synodontis",
     "matchType": "EXACT"
   },
+  "Synodontis ansorgii": {
+    "canonicalName": "Synodontis ansorgii",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Mochokidae",
+    "genus": "Synodontis",
+    "matchType": "EXACT"
+  },
   "Synodontis arnoulti": {
     "canonicalName": "Synodontis arnoulti",
     "order": "Siluriformes",
@@ -28088,6 +28256,14 @@
   },
   "Synodontis lucipinnis": {
     "canonicalName": "Synodontis lucipinnis",
+    "order": "Siluriformes",
+    "family": "Mochokidae",
+    "genus": "Synodontis",
+    "matchType": "EXACT"
+  },
+  "Synodontis melanopterus": {
+    "canonicalName": "Synodontis melanopterus",
+    "phylum": "Chordata",
     "order": "Siluriformes",
     "family": "Mochokidae",
     "genus": "Synodontis",
@@ -28223,6 +28399,14 @@
     "genus": "Synodontis",
     "matchType": "EXACT"
   },
+  "Synodontis tourei": {
+    "canonicalName": "Synodontis tourei",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Mochokidae",
+    "genus": "Synodontis",
+    "matchType": "EXACT"
+  },
   "Synodontis waterloti": {
     "canonicalName": "Synodontis waterloti",
     "order": "Siluriformes",
@@ -28293,6 +28477,14 @@
     "order": "Siluriformes",
     "family": "Bagridae",
     "genus": "Tachysurus",
+    "matchType": "EXACT"
+  },
+  "Tachysurus lagoensis": {
+    "canonicalName": "Arius latiscutatus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Ariidae",
+    "genus": "Arius",
     "matchType": "EXACT"
   },
   "Tachysurus melanochir": {
@@ -28444,6 +28636,7 @@
     "genus": "Tatia",
     "matchType": "EXACT"
   },
+  "Tatia has": null,
   "Tatia intermedia": {
     "canonicalName": "Tatia intermedia",
     "order": "Siluriformes",
@@ -28680,6 +28873,7 @@
   "Thay bao": null,
   "Thay hai": null,
   "Thay kho": null,
+  "Thay ngay": null,
   "Thay nhanh": null,
   "Thay nhi": null,
   "Thay xong": null,
@@ -28712,6 +28906,24 @@
     "order": "Polypodiales",
     "family": "Thelypteridaceae",
     "genus": "Christella",
+    "matchType": "EXACT"
+  },
+  "Theodoxus danubialis": {
+    "canonicalName": "Theodoxus danubialis",
+    "phylum": "Mollusca",
+    "class": "Gastropoda",
+    "order": "Cycloneritida",
+    "family": "Neritidae",
+    "genus": "Theodoxus",
+    "matchType": "EXACT"
+  },
+  "Theodoxus fluviatilis": {
+    "canonicalName": "Theodoxus fluviatilis",
+    "phylum": "Mollusca",
+    "class": "Gastropoda",
+    "order": "Cycloneritida",
+    "family": "Neritidae",
+    "genus": "Theodoxus",
     "matchType": "EXACT"
   },
   "Ther midas": null,
@@ -29998,6 +30210,7 @@
     "matchType": "EXACT"
   },
   "Xoay ngang": null,
+  "Xoay que": null,
   "Xong chu": null,
   "Xung quanh": null,
   "Xyliphius derives": null,

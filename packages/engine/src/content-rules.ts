@@ -512,6 +512,67 @@ export const thanksLines = (html: string) => (/cảm ơn|cám ơn|terima kasih|p
 export const dropThanks = (html: string) => (/cảm ơn|cám ơn|terima kasih|penghargaan|ขอบคุณ|thank/iu.test(html) ? cutBlocks(html, isThanks) : html)
 
 /**
+ * An email address. The repository is public and an address belongs to a person, so no page prints one (the chief of
+ * staff, 16 Nov 2026): a source's letters had printed their author's in each header ("Từ: <name> (<address>)"). A file
+ * name with a scale mark or a frame rate ("ảnh@2x.PNG", "1080p@60fps.mov") isn't one: a picture, video, sound or code
+ * file's extension, any case, is no address's end. Before the "@", Latin letters with their accents, digits and "._%+-",
+ * as videos.ts reads a video's title: Thai and Chinese run their words together, and a wider class would take the words
+ * beside an address with it. An address ends where no Latin letter or digit follows, nor a file's extension
+ * ("logo@2x.min.js" is a file; "1080p@60fps.movไทย" too), and a link's user ("https://user@host", "https://user:pass@host") is no person's address. Each part is held to an
+ * address's own limits (64 letters before the "@", 63 a part), and a match starts only where an address can, so no
+ * string, however long, makes it slow: the sweep reads every file each cycle.
+ */
+const LETTER = String.raw`\p{Script=Latin}\p{Nd}\u0300-\u036f`
+const FILE = '3gp|aac|asf|ass|avi|avif|bmp|css|dng|flac|flv|gif|hdr|heic|heif|ico|jfif|jpe?g|js|m2ts|m4a|m4v|mkv|mov|mp3|mp4|mpe?g|mts|mxf|ogg|ogv|opus|pdf|png|raw|rmvb|srt|svg|tiff?|ts|vob|vtt|wav|webm|webp|wmv|zip'
+const EMAIL = String.raw`(?<![${LETTER}._%+-])(?<!\/\/[^\s/@]{0,64})(?:mailto:)?[${LETTER}._%+-]{1,64}(?:['’&=][${LETTER}._%+-]{1,64}){0,3}@[${LETTER}-]{1,63}(?:\.[${LETTER}-]{1,63}){0,8}\.(?!(?:${FILE})(?![\p{Script=Latin}\p{N}\p{M}]))\p{Script=Latin}{2,24}(?![\p{Script=Latin}\p{N}\p{M}]|\.(?:${FILE})(?![\p{Script=Latin}\p{N}\p{M}]))`
+/**
+ * An address written out so a program won't read it, which video titles and letters do ("someone [at] example [dot] org",
+ * "Email: someone at example dot com", a full-width "＠", "&#64;"): its to catch too (the chief of staff, 16 Nov). A mark
+ * touches both words ("Line ＠example.com" is a handle). The word "at" counts only after a word that says an address
+ * follows and with the dots written out too, so "available at example.com" and "Find us at example dot com" are sentences;
+ * the last part is a known ending, so "(at) home (dot) X" isn't one.
+ */
+const AT_MARK = String.raw`(?:\s*[\[({<]\s*at\s*[\])}>]\s*|＠|&#0*64;|&#x0*40;)`
+const DOT_MARK = String.raw`\s*[\[({<]\s*dot\s*[\])}>]\s*`
+const ENDING = 'com|org|net|edu|gov|mil|info|biz|io|co|me|vn|uk|de|fr|nl|be|ch|at|it|es|pt|pl|cz|ru|ua|se|no|dk|fi|ie|jp|kr|cn|tw|hk|sg|my|id|th|ph|in|au|nz|ca|us|mx|br|ar|za'
+const PART = String.raw`[${LETTER}-]{1,63}`
+const SPELLED_END = String.raw`(?![\p{Script=Latin}\p{N}\p{M}]|${DOT_MARK}${PART}|\s+dot\s+${PART}|\.[${LETTER}])`
+// The plain word "at" only after a word that says an address follows ("Email:", "liên hệ", "surel"), so "Find us at
+// example dot com" stays a sentence; each address with its own word, so a cut takes every one in a pass.
+const CUE = String.raw`(?:e-?mail|mail|thư|liên\s hệ|contact|surel|emel|อีเมล)(?:\s{0,3}[:：]\s{0,3}|\s{1,3})`
+const SPELLED = String.raw`(?:(?<![${LETTER}._%+-])[${LETTER}._%+-]{1,64}${AT_MARK}${PART}(?:(?:${DOT_MARK}|\s+dot\s+|\.)${PART}){0,4}(?:${DOT_MARK}|\s+dot\s+|\.)(?:${ENDING})${SPELLED_END}|(?<=${CUE})(?<![${LETTER}._%+-])[${LETTER}._%+-]{1,64}\s+at\s+${PART}(?:(?:${DOT_MARK}|\s+dot\s+)${PART}){0,4}(?:${DOT_MARK}|\s+dot\s+)(?:${ENDING})${SPELLED_END})`
+/** Something in a text that may be an address, either way: the check and the cut read a file only when it has one. */
+export const mayHoldEmail = (text: string) => /@|＠|&#0*64;|&#x0*40;|[\[({<]\s*at\s*[\])}>]|\sdot\s|[\[({<]\s*dot\s*[\])}>]/iu.test(text)
+const ANY_EMAIL = new RegExp(EMAIL, 'iu')
+const ANY_SPELLED = new RegExp(SPELLED, 'iu')
+const BRACKETED_EMAIL = new RegExp(String.raw`(?<!\s)\s*(?:\(|\[|&lt;|<)\s*(?:${EMAIL}|${SPELLED})\s*(?:\)|\]|&gt;|>)`, 'giu')
+const BARE_EMAIL = new RegExp(String.raw`(?<!\s)\s*(?:${EMAIL}|${SPELLED})`, 'giu')
+const MAILTO_LINK = /<a\b[^>]*\bhref\s*=\s*["']mailto:[^"']*["'][^>]*>([\s\S]*?)<\/a>/giu
+export const hasEmail = (text: string) => (text.includes('@') && ANY_EMAIL.test(text)) || (mayHoldEmail(text) && ANY_SPELLED.test(text))
+/**
+ * The text without its email addresses: a link to one keeps its words, and an address goes with the brackets round it and
+ * the space before it. What hasEmail finds, this cuts, so the sweep mends every hit the real-content test can have.
+ */
+export const dropEmails = (html: string) => {
+  let out = html
+  for (let i = 0; i < 3 && hasEmail(out); i++) out = out.replace(MAILTO_LINK, '$1').replace(BRACKETED_EMAIL, '').replace(BARE_EMAIL, '')
+  return out
+}
+/** A string that is one link and nothing else ("https://example.net/?mail=…"): the check and the cut leave it whole. */
+export const isLink = (s: string) => /^(?:https?|ftp):\/\/\S+$/iu.test(s)
+/** A picture or a video, which the check and the cut don't read. */
+export const isMediaFile = (f: string) => /\.(?:png|jpe?g|gif|webp|avif|ico|mp4|webm|mov)$/iu.test(f)
+/**
+ * A stored file's data with the email addresses cut from every string, its keys too (dropEmails): the captions' translations
+ * are keyed by the Vietnamese caption, which then reads as its photo's does. A string that is one link stays whole
+ * (isLink). Its shape stays.
+ */
+export const dropEmailsDeep = <T>(v: T): T => (typeof v === 'string' ? (isLink(v) ? v : dropEmails(v))
+  : Array.isArray(v) ? v.map(dropEmailsDeep)
+  : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).map(([k, x]) => [dropEmails(k), dropEmailsDeep(x)]))
+  : v) as T
+
+/**
  * "© <name>" in a fish page's references, after a work's title ("The ETYFish Project Fish Name Etymology Database ©
  * <name>."): its compiler's name, which a page doesn't print. The "©" and the name go; the work's title, its link and the
  * stop after stay. Only one name ending its citation (a stop, a comma, the end): a "©" with a year, two names, or more of
