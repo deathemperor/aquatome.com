@@ -298,6 +298,11 @@ test("a held head the lead step put behind a \"cf.\" photo stays behind it: the 
   const open = await root([page])
   await checkPagePhotos(open, model({ 'rc-cf': { typical: true }, 'rc-held': { typical: true } }), { limit: 10 })
   expect(await urls(open, 'content/species/rineloricaria-castroi/entity.json')).toEqual(['rc-held', 'rc-cf'])
+  // The engine's own entries list a photo refused on some page's cards: no hold, for the lead step either (handAvoid).
+  const engine = await root([page])
+  await writeFile(join(engine, 'content/curation.json'), JSON.stringify({ avoid: { [held.url]: 'engine: a test' } }))
+  await checkPagePhotos(engine, model({ 'rc-cf': { typical: true }, 'rc-held': { typical: true } }), { limit: 10 })
+  expect(await urls(engine, 'content/species/rineloricaria-castroi/entity.json')).toEqual(['rc-held', 'rc-cf'])
 })
 
 test("a lead's sheet takes the page's own photos before its gallery's, so a photo that takes a removed lead's place was judged beside it", async () => {

@@ -275,13 +275,14 @@ export async function readCalendar(root: string): Promise<Curation> {
 /** The calendar's hold alone (`avoid`: photo → why), read as the sweep reads the rest of the calendar, without the
  * schema's checks: the sweep and the photo check clean pages as they are, and a part of the calendar the schema refuses,
  * or an empty file, mustn't stop them (the reader of #1515, 16 Nov). No file is no hold; a file that can't be read stops
- * the step, as the lead step's read does, rather than putting held heads back in front. */
+ * the step, as the lead step's read does, rather than putting held heads back in front. A person's entries only, as the
+ * lead step reads them (handAvoid): the engine's list a photo refused on some page's cards, by address, not a hold. */
 export async function readAvoid(root: string): Promise<Record<string, string>> {
   const raw = await readFile(join(root, 'content/curation.json'), 'utf8').catch((err: NodeJS.ErrnoException) => {
     if (err.code === 'ENOENT') return ''
     throw err
   })
-  return raw.trim() ? ((JSON.parse(raw) as { avoid?: Record<string, string> } | null)?.avoid ?? {}) : {}
+  return handAvoid(raw.trim() ? ((JSON.parse(raw) as { avoid?: Record<string, string> } | null)?.avoid ?? {}) : {})
 }
 
 export async function writeCalendar(root: string, cur: Curation) {

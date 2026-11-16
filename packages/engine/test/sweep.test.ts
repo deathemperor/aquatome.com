@@ -1384,4 +1384,9 @@ test("a head the calendar holds off cards stays behind the photo the lead step p
   await writeFile(join(c, 'curation.json'), '')
   await sweep(root)
   expect((await json(root, 'content/species/rineloricaria-castroi/entity.json')).photos.map((p: { url: string }) => p.url)).toEqual([held.url, cf.url])
+  // The engine's own entries list a photo refused on some page's cards: no hold, as for the lead step (handAvoid).
+  await put('species/rineloricaria-castroi/entity.json', species('rineloricaria-castroi', 'Rineloricaria castroi', { photos: [cf, held] }))
+  await put('curation.json', { avoid: { [held.url]: 'engine: a test' } })
+  await sweep(root)
+  expect((await json(root, 'content/species/rineloricaria-castroi/entity.json')).photos.map((p: { url: string }) => p.url)).toEqual([held.url, cf.url])
 })
