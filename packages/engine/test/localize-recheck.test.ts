@@ -189,15 +189,17 @@ test('the translator\'s pages of the last day go first; the limit counts pages r
   expect(await recheckLocalized(root, one.llm, 'th', ids, { now, limit: 1 })).toMatchObject({ back: ['fresh: 0.6, Sonnet 0.9, Opus 0.85: back at 0.85'], skipped: [] })
 })
 
-test('a page whose score carries a reason another step gave it is left as it is, and says so: the step never erases one', async () => {
-  for (const reason of ['thin', 'score'] as const) {
-    const { root, file } = await site({ a: { reason } })
-    const before = await file()
-    const { llm, calls } = fake({ sonnet: PASS, opus: OPUS })
-    expect(await recheckLocalized(root, llm, 'th', ['a'], { now })).toMatchObject({ back: [], skipped: [`a: its score carries a reason ("${reason}"), left as it is`] })
-    expect(calls).toEqual([])
-    expect(await file()).toBe(before)
-  }
+test('a page whose score carries a reason other than its score is left as it is, and says so: the step never erases one; a reason "score" is its own, read as usual and gone when the page comes back', async () => {
+  const thin = await site({ a: { reason: 'thin' } })
+  const before = await thin.file()
+  const skip = fake({ sonnet: PASS, opus: OPUS })
+  expect(await recheckLocalized(thin.root, skip.llm, 'th', ['a'], { now })).toMatchObject({ back: [], skipped: ['a: its score carries a reason ("thin"), left as it is'] })
+  expect(skip.calls).toEqual([])
+  expect(await thin.file()).toBe(before)
+  // "score": as the Vietnamese and Malay pages carry it.
+  const score = await site({ a: { reason: 'score' } })
+  expect((await recheckLocalized(score.root, fake({ sonnet: PASS, opus: OPUS }).llm, 'th', ['a'], { now })).back).toEqual(['a: 0.6, Sonnet 0.9, Opus 0.85: back at 0.85'])
+  expect(JSON.parse(await score.file()).quality).toEqual({ score: 0.85, indexable: true, bySource: { seriouslyfish: 0.85 } })
   // One given while the models read it: not written over.
   const { root, file } = await site()
   const page = JSON.parse(await file())

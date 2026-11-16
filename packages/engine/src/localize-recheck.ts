@@ -27,7 +27,10 @@ import { logReviews, readReviews, type Review, type Trace } from './review-log'
  *   only on notes cleared since comes back on the reads it had, with no new read.
  * - Pages the translator wrote in the last day go first, then the most-read. Left alone: a page held, at or over the
  *   bar, lacking a part of the English (the reviewer reads it as left out: the translator's to add), or whose score
- *   carries a reason another step gave it (`quality.reason`): this step can't weigh it, so it never erases one.
+ *   carries a reason other than its score (`quality.reason` "thin", or any other a step gives it): this step can't weigh
+ *   it, so it never erases one. A reason "score" is what this step is for: the page is read as usual, and it goes when the
+ *   page comes back (the chief of staff, 16 Nov 2026: Vietnamese and Malay pages carry it, and a translator that wrote it
+ *   here too would otherwise have every page this step exists for skipped).
  * - Every source takes the one new score, as the translator's whole-page read gives them (localize.ts). For these pages
  *   that is read by the build (@aq/schema `cleanQuality`, the lowest source this build may show), the dashboard's list of
  *   pages out of search (content-stats.ts, the same lowest), the second reads (review-backfill.ts, which reads again a
@@ -79,7 +82,7 @@ export async function recheckLocalized(root: string, llm: Llm, lang: TargetLang,
   // still the text read: one changed while it was read (a hand run beside the cycle) is left as it is, for the next try.
   async function putBack(id: string, file: string, hash: string, score: number, parts: { id: string; en: string }[]): Promise<boolean> {
     const page = JSON.parse(await readFile(file, 'utf8')) as Page
-    if (page.held || page.quality?.reason || sourceTextHash(parts.map(p => ({ id: p.id, en: p.en, vi: page.sections[p.id] ?? '' }))) !== hash) return false
+    if (page.held || (page.quality?.reason && page.quality.reason !== 'score') || sourceTextHash(parts.map(p => ({ id: p.id, en: p.en, vi: page.sections[p.id] ?? '' }))) !== hash) return false
     const { reason: _, ...quality } = page.quality!
     const sources = [...new Set(parts.map(p => p.id.split(':')[1]!))]
     await writeFile(file, `${JSON.stringify({ ...page, quality: { ...quality, score, indexable: true, bySource: Object.fromEntries(sources.map(s => [s, score])) } }, null, 2)}\n`)
@@ -107,7 +110,7 @@ export async function recheckLocalized(root: string, llm: Llm, lang: TargetLang,
       const page = JSON.parse(raw) as Page
       const was = page.quality?.score
       if (page.held || was === undefined || was >= QUALITY_THRESHOLD) continue
-      if (page.quality?.reason) { report.skipped.push(`${id}: its score carries a reason ("${page.quality.reason}"), left as it is`); continue }
+      if (page.quality?.reason && page.quality.reason !== 'score') { report.skipped.push(`${id}: its score carries a reason ("${page.quality.reason}"), left as it is`); continue }
       const e = JSON.parse(await readFile(join(dir, id, 'entity.json'), 'utf8')) as { sections: Section[] }
       // The reviewer's numbering: every translatable part with text, in the page's order (localize.ts `review`).
       const parts = e.sections.filter(s => s.html.trim() && translatable(s.source)).map(s => ({ id: `${s.key}:${s.source}`, en: s.html }))
