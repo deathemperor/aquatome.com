@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url'
 import { beforeAll, expect, test } from 'vitest'
 import { fitsCard, loadAll, stillShown, thumbOf, type Content, type Photo } from '@aq/schema'
 import { slow } from '@aq/schema/test-time'
-import { guideImage, guideImages, titleNames, withVietnameseHeads } from '../src/lib/mentions'
+import { guideImage, guideImages, titleNames, withOffCards, withVietnameseHeads } from '../src/lib/mentions'
 import awaiting from '../src/lib/guide-heads-awaiting.json' with { type: 'json' }
 import picks from '../src/lib/guide-heads-picks.json' with { type: 'json' }
 import frames from '../src/lib/guide-frames.json' with { type: 'json' }
@@ -17,10 +17,19 @@ beforeAll(async () => {
   for (const lang of LANGS) all[lang] = await loadAll({ root: CONTENT, lang, publicBuild: false })
   // As the site loads them (content.ts): each language's heads are chosen by the Vietnamese titles.
   for (const lang of LANGS) withVietnameseHeads(all[lang], all.vi)
+  // And each card skips a photo the calendar keeps off cards.
+  for (const lang of LANGS) withOffCards(all[lang], avoid)
 }, slow(900_000))
 
-const own = (g: Content['guides'][number]): Photo[] =>
-  [...g.photos, ...(g.video?.figures ?? []).flatMap(f => f.photo ?? []).filter(fitsCard)].filter(p => !p.generated)
+const avoid = (JSON.parse(readFileSync(new URL('../../../content/curation.json', import.meta.url), 'utf8')) as { avoid?: Record<string, string> }).avoid ?? {}
+/** A guide's own pictures, as its card reads them: its own photos and its video's stills that pass the stills' bar. */
+const own = (g: Content['guides'][number]): string[] => [
+  ...g.photos.filter(p => !p.generated).map(p => p.url),
+  ...(g.video?.figures ?? []).flatMap(f => f.moments).filter(stillShown).map(m => m.url),
+]
+/** The stock photos the picture step found for a video guide's parts, which its card never shows. */
+const parts = (g: Content['guides'][number]): string[] =>
+  (g.video?.figures ?? []).flatMap(f => f.photo ?? []).filter(fitsCard).filter(p => !p.generated).map(p => p.url)
 /** What the Vietnamese title names, as this language's pages (a guide the Vietnamese doesn't have: its own title's). */
 const named = (c: Content, g: Content['guides'][number]): Photo[] => {
   const vg = all.vi.guides.find(x => x.id === g.id)
@@ -36,7 +45,7 @@ test("every guide's head is its own photo, its video's, what its title names or 
   for (const lang of LANGS) for (const g of all[lang].guides) {
     const head = guideImage(all[lang], g)
     // A guide picked by hand is the next test's.
-    if (!head || own(g).includes(head) || named(all[lang], g).includes(head) || g.id in picks || g.id in frames) continue
+    if (!head || own(g).includes(head.url) || named(all[lang], g).includes(head) || g.id in picks || g.id in frames) continue
     if (!awaiting.includes(g.id)) left.push(`${lang} ${g.id}`)
   }
   expect(left).toEqual([])
@@ -48,7 +57,7 @@ test('a guide picked by hand shows only its own photos and its pick, the same in
     const g = all[lang].guides.find(x => x.id === id)
     if (!g) continue
     const head = guideImage(all[lang], g)
-    if (own(g).length) { expect(head, `${lang} ${id}`).toBe(own(g)[0]); continue }
+    if (own(g).length) { expect(head?.url, `${lang} ${id}`).toBe(own(g)[0]); continue }
     if (pick === null) { expect(head, `${lang} ${id}`).toBeUndefined(); continue }
     const [kind, page] = pick.split('/')
     const x = (kind === 'species' ? all[lang].species : kind === 'plant' ? all[lang].plants : all[lang].breeds).find(p => p.id === page)
@@ -75,6 +84,30 @@ test("a video guide picked by hand opens on its own video's still at that second
       expect((g.video?.figures ?? []).flatMap(f => f.photo ? [f.photo.url] : []).filter(u => u in refused), `${lang} ${id}: a refused photo on a part`).toEqual([])
     }
   }
+})
+
+// The owner's report, 16 Nov 2026 (above), and the chief of staff's rule that day: a video guide's card is its first still
+// that passes the stills' bar, else the fish or plant its title names, and never the stock photo the picture step found for
+// one of its parts (that day's count: most show no fish and no plant). One with neither takes a card's own look.
+test("a video guide's card is its first still, else what its title names, and never a part's stock photo", () => {
+  for (const lang of LANGS) for (const g of all[lang].guides) {
+    if (!g.video || g.id in frames) continue
+    const pics = guideImages(all[lang], g).map(p => p.url), stills = own(g)
+    if (stills.length) expect(pics[0], `${lang} ${g.id}`).toBe(stills[0])
+    expect(pics.filter(u => parts(g).includes(u) && !stills.includes(u)), `${lang} ${g.id}`).toEqual([])
+  }
+})
+
+// The chief of staff, 16 Nov 2026: a face that stands for more than one fish never takes a head the calendar keeps off
+// cards (content/curation.json `avoid`), and a guide's card stands for more than one. The photo stays on its own page.
+test('a guide card never shows a photo the calendar keeps off cards, and a borrowed head held off cards gives way', () => {
+  for (const lang of LANGS) for (const g of all[lang].guides)
+    expect(guideImages(all[lang], g).map(p => p.url).filter(u => Object.hasOwn(avoid, u)), `${lang} ${g.id}`).toEqual([])
+  const g = all.vi.guides.find(x => !x.video && !own(x).length && guideImage(all.vi, x))!
+  const head = guideImage(all.vi, g)!.url
+  const held = withOffCards({ ...all.vi }, { [head]: 'a test' })
+  expect(guideImages(held, g).map(p => p.url)).not.toContain(head)
+  expect(guideImages(all.vi, g).map(p => p.url)).toContain(head)
 })
 
 // The chief of staff, 15 Nov 2026: a guide's head is chosen once and shows in every language, so the languages can't
