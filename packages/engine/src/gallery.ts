@@ -532,6 +532,8 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
     let seenCount = g?.seen ?? 0
     let page: Page | undefined
     const save = async () => {
+      // That pass not read after all (iNaturalist's requests ran out): still dry from the same day, the pass to come.
+      if (drySince && !st.inatNc) st.exhausted = drySince
       // Hashes of photos still shown only (a photo moved to our bucket has a new address).
       const shown = new Set([...page?.photos ?? [], ...gallery].map(p => p.url))
       st.hashes = Object.fromEntries(Object.entries(st.hashes).filter(([u]) => shown.has(u)))

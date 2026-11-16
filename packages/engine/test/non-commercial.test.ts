@@ -102,6 +102,11 @@ test('switch off: no non-commercial photo is asked for or taken; on: iNaturalist
   expect(st.inatNc).toBeUndefined()
   expect(st.exhausted).toBe('2026-11-16') // every source read: dry
 
+  // The switch on, but iNaturalist's requests for the run spent: the page stays dry from the same day, the pass to come.
+  await galleries(r, deps([], '2026-11-17T00:00:00Z'), { sheets: 5, switches: ON, budget: { inat: 0 } })
+  const spent = await read(r, `engine-state/gallery/${ID}.json`)
+  expect(spent.exhausted).toBe('2026-11-16')
+  expect(spent.inatNc).toBeUndefined()
   // On the next day: a page dry before the switch went on has never read the non-commercial pass, so it is read now.
   calls.length = 0
   const report = await galleries(r, deps(calls, '2026-11-17T00:00:00Z'), { sheets: 5, switches: ON })
