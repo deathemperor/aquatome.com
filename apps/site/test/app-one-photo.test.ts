@@ -2,7 +2,7 @@ import { expect, test } from 'vitest'
 import { CurationSchema, fitsCard, LANGS, type Content, type Photo } from '@aq/schema'
 import { PageDoc } from '@aq/schema/app-page'
 import { APP_GUIDE_COVERS, APP_WHOLE_PHOTOS, appGuideImage, appIndex, cardSrc, photoBox, refusedByCards } from '../src/lib/app-index'
-import { appPages, fishDoc, guideDoc, videoDoc } from '../src/lib/app-page'
+import { appPages, fishDoc, guideDoc, listedPaths, videoDoc } from '../src/lib/app-page'
 import { getContent } from '../src/lib/content'
 import { guideParts } from '../src/lib/guide-page'
 import { resizeOf, smallSrc } from '../src/lib/img'
@@ -262,6 +262,30 @@ test("a guide with no card picture keeps the one it had in the app's index and p
   const off = coversOff as Record<string, string>
   off[g.id] = 'a test'
   try { expect(app(false)).toEqual([undefined, undefined]) } finally { delete off[g.id] }
+}, 240_000)
+
+// Main's guide cover (#1384) keeps the app's guides to read next to guides with a picture until the app draws covers. The
+// app's picture is appGuideImage, so a series' next part with only the picture it had still reads next there while the
+// switch is off, as it keeps that picture on its own card, and not with the switch on.
+test("a series' next part with only the picture it had reads next in the app while the switch is off; not with it on", async () => {
+  const vi = await getContent('vi')
+  const one = vi.guides.find(g => g.video?.series?.id === 'PLtest')!
+  const stock = vi.guides.flatMap(g => g.video?.figures ?? []).find(f => f.photo && fitsCard(f.photo))!.photo!
+  const two = { ...one, id: 'youtube-part-two', photos: [], t: { ...one.t, slug: 'phan-hai', name: 'Phần hai' }, video: { ...one.video!, youtubeId: 'part-two', series: { id: 'PLtest', position: 1 }, figures: [{ heading: 'x', moments: [], photo: stock }] } }
+  const c = { ...vi, guides: [...vi.guides, two] } as Content
+  expect(guideImage(c, two)).toBeUndefined()
+  expect(appGuideImage(c, two)?.url).toBe(stock.url)
+  const next = (on: boolean) => {
+    const prev = APP_GUIDE_COVERS.on
+    APP_GUIDE_COVERS.on = on
+    try {
+      const b = guideDoc('vi', c, one, listedPaths('vi', c)).blocks.find(b => b.t === 'pages' && ['Phần tiếp theo', 'Bài tiếp theo'].includes(b.title))
+      return { appNext: guideParts('vi', c, one).appNext.map(x => x.id), title: b?.t === 'pages' ? b.title : undefined, two: b?.t === 'pages' && b.paths.some(p => p.includes('/phan-hai/')) }
+    } finally { APP_GUIDE_COVERS.on = prev }
+  }
+  expect(next(false)).toMatchObject({ appNext: expect.arrayContaining([two.id]), title: 'Phần tiếp theo', two: true })
+  expect(next(true).appNext).not.toContain(two.id)
+  expect(next(true).two).toBe(false)
 }, 240_000)
 
 // A series' card is its first part that has a picture, in the app too (the chief of staff, 16 Nov); while the app has no
