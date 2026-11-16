@@ -139,17 +139,7 @@
       },
       {
         "heading": "Dán đá và lũa thành một khối thế nào",
-        "moments": [
-          {
-            "t": 280,
-            "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/at280-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bố cục đá và lũa đen dán liền thành một khối trong bể.",
-            "sharpness": 612.8,
-            "person": false
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/p1-LF9OZXZhZGEuSlBH.webp",
           "thumb": "https://media.aquatome.com/video/5ajPkl9rhKQ/p1-LF9OZXZhZGEuSlBH-480.webp",
@@ -162,7 +152,35 @@
         }
       },
       {
-        "heading": "Lót nền ra sao",
+        "heading": "Cây hậu cảnh: cách trồng từng loại",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/p5-NTk0Mjg4OSkuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/5ajPkl9rhKQ/p5-NTk0Mjg4OSkuanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY 2.0",
+          "author": "Harry Rose from South West Rocks, Australia",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Myriophyllum_aquaticum_habit6_(15105942889).jpg",
+          "caption": "Myriophyllum mọc cạn (emersed) thành thảm xanh dày, thân đứng đều nhau."
+        }
+      },
+      {
+        "heading": "Vì sao nên dán đá và lũa thành một khối",
+        "moments": [
+          {
+            "t": 280,
+            "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/at280-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bố cục đá và lũa đen dán liền thành một khối trong bể.",
+            "sharpness": 612.8,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Lót nền hai lớp thế nào",
         "moments": [
           {
             "t": 460,
@@ -176,7 +194,7 @@
         ]
       },
       {
-        "heading": "Trải thảm phía trước",
+        "heading": "Trồng thảm phía trước",
         "moments": [
           {
             "t": 750,
@@ -200,7 +218,7 @@
         }
       },
       {
-        "heading": "Trồng cây điểm xuyết và cây bám đá lũa",
+        "heading": "Cây điểm: crypt nhỏ, Bucephalandra và rêu gan",
         "moments": [
           {
             "t": 940,
@@ -221,20 +239,6 @@
           "author": "Manuel Werner / CC-BY-SA-3.0 Werner, Deutschland",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bucephalandra_Shine_Blue_and_Bucephalandra_pygmaea_ex_situ.jpg",
           "caption": "Bể thủy sinh với cây Bucephalandra và Cryptocoryne cài giữa lũa và đá nham thạch."
-        }
-      },
-      {
-        "heading": "Cây hậu cảnh: cách trồng từng loại",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/p5-NTk0Mjg4OSkuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/5ajPkl9rhKQ/p5-NTk0Mjg4OSkuanBn-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY 2.0",
-          "author": "Harry Rose from South West Rocks, Australia",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Myriophyllum_aquaticum_habit6_(15105942889).jpg",
-          "caption": "Myriophyllum mọc cạn (emersed) thành thảm xanh dày, thân đứng đều nhau."
         }
       }
     ]
