@@ -578,7 +578,8 @@ test('an address written out in words or marks is found and cut; "at" in a sente
   for (const [text, cut] of [
     ['Liên hệ someone [at] example [dot] org', 'Liên hệ'],
     ['Wild bettas (someone (at) example.org)', 'Wild bettas'],
-    ['Write to someone at mail dot example dot com', 'Write to'],
+    ['Email: someone at mail dot example dot com', 'Email:'],
+    ['liên hệ người bán ở thư: a.keeper at example dot vn nhé', 'liên hệ người bán ở thư: nhé'],
     ['Hỏi someone＠example.org nhé', 'Hỏi nhé'],
     ['<p>Thư: someone&#64;example.net</p>', '<p>Thư:</p>'],
     ['Gửi a.keeper {at} example {dot} co {dot} uk.', 'Gửi.'],
@@ -589,7 +590,12 @@ test('an address written out in words or marks is found and cut; "at" in a sente
   for (const keep of [
     'Available at example.com and at the shop.', 'Sold at aquatome.com', 'Feed at night, a dot of food', 'Polka dot plants grow at home',
     'Meet (at) home (dot) X', 'Cá nhỏ, giá 50k at shop dot', 'look at this dot com bubble',
+    // No word saying an address follows: a site said aloud. A mark apart from the word before it: a handle.
+    'Find us at example dot com', 'Visit us at example dot com!', 'Line ＠example.com', 'Follow &#64;example.org for more',
   ]) expect(hasEmail(keep), keep).toBe(false)
+  // Each address with its own word goes in one pass, however many.
+  const list = Array.from({ length: 200 }, (_, i) => `email: k${i} at example dot org`).join(' ')
+  expect(hasEmail(dropEmails(list))).toBe(false)
   expect(mayHoldEmail('Liên hệ someone [at] example [dot] org')).toBe(true)
   expect(mayHoldEmail('Cá chuột sống theo đàn.')).toBe(false)
 })

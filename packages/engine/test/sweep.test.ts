@@ -1320,10 +1320,12 @@ test("an email address goes from a page's text, and from every field of every fi
   await mkdir(join(c, 'notes'), { recursive: true })
   await writeFile(join(c, 'notes/a.md'), 'Hỏi tại (someone@example.org).\n')
   await writeFile(join(c, 'notes/broken.json'), '{ "a": "someone@example.org" ')
+  // An address written out, with no "@" in its file: the sweep reads it as the check does.
+  await put('species/b-fish/entity.json', { id: 'b-fish', videos: [{ youtubeId: 'z', title: 'Bettas (someone [at] example [dot] org)' }] })
   const untouched = await readFile(join(c, 'places/a/vi.json'), 'utf8')
   // A field the cut leaves empty, and two keys it makes one, are listed for a person, an address's key by its place.
   expect(await dropEmailsEverywhere(c)).toEqual({
-    files: ['captions/id.json', 'notes/a.md', 'species/a-fish/entity.json'],
+    files: ['captions/id.json', 'notes/a.md', 'species/a-fish/entity.json', 'species/b-fish/entity.json'],
     emptied: ['captions/id.json (top) (two keys made one)', 'species/a-fish/entity.json photos[1].author'],
   })
   const raw = await readFile(join(c, 'species/a-fish/entity.json'), 'utf8')
@@ -1335,6 +1337,7 @@ test("an email address goes from a page's text, and from every field of every fi
   expect(JSON.parse(await readFile(join(c, 'captions/id.json'), 'utf8'))).toEqual({ 'Ảnh của': 'Foto 2' })
   expect(await readFile(join(c, 'places/a/vi.json'), 'utf8')).toBe(untouched)
   expect(await readFile(join(c, 'notes/a.md'), 'utf8')).toBe('Hỏi tại.\n')
+  expect((await json(root, 'content/species/b-fish/entity.json')).videos[0].title).toBe('Bettas')
   expect(await dropEmailsEverywhere(c)).toEqual({ files: [], emptied: [] })
 })
 
