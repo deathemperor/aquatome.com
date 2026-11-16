@@ -143,7 +143,9 @@ async function screenMarks(root: string, url: string, copy: Buffer, file: string
   const kept = marks[url] ? compactScreen(marks[url]).retainedOwnMark : undefined
   if (kept) entry = { ...entry, retainedOwnMark: kept }
   marks[url] = entry
-  await writePhotoState(path, Object.fromEntries(Object.entries(marks).sort()))
+  // In the file's own order: a new photo's record goes last and every other stays where it is, as the cycle's screen
+  // writes it (a sorted write turned five records into a 3,800-line change on 16 Nov).
+  await writePhotoState(path, marks)
   return entry
 }
 

@@ -235,3 +235,12 @@ test("Openverse: no page is asked past the day's last ten requests", async () =>
   expect(calls.openverse).toHaveLength(1)
   expect(await has(r, GLOSSARY_PHOTOS)).toBe(false)
 })
+
+test("the mark screen's file keeps its own order: our photo's record goes last, every other stays where it was", async () => {
+  const r = await root()
+  const first = 'https://media.aquatome.com/scotcat/ffffffffffffffff.webp'
+  const marks = { [first]: { ocr: [] }, [OTHER]: { ocr: [], watermark: false, kind: 'none' } }
+  await writeFile(join(r, 'engine-state/_photo-watermarks.json'), `${JSON.stringify(marks, null, 2)}\n`)
+  await glossaryPhoto(r, { term: 'lua', kind: 'lua-bonsai', file: FILE }, deps().d)
+  expect(Object.keys(await load(r, 'engine-state/_photo-watermarks.json'))).toEqual([first, OTHER, OURS])
+})
