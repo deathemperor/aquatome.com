@@ -32,6 +32,42 @@
       "kept": true
     }
   ],
+  "vi/plants/cryptocoryne-wendtii#Fa7qaXaqYeI": [
+    {
+      "at": "2026-11-16T09:00:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.7,
+      "notes": [
+        "\"thấy chúng lớn nhanh\" contradicts the page, which says growth is slow (\"lớn khá chậm\", rarely more than 2.5 cm in two weeks, and the card says slow). NEW doesn't say it differs from the page. It should state the contrast plainly, e.g. that this keeper's plants grew faster than the page describes.",
+        "\"tách được 32 cây từ hai cây ban đầu\" is one keeper's result. It is not framed against the page's slow-propagation claim (\"Kiểu nhân giống này chậm\"), so it reads as unexplained and conflicting.",
+        "\"cắt tới 50% rễ vẫn không sao\" is the video's own claim of safety, but NEW attributes it to \"một người nuôi\". That is acceptable, but it's phrased as a general fact next to a personal habit. It could be clearer that it's the keeper's own view.",
+        "\"Lúc tách cây con ra trồng, có thể tỉa bớt rễ\" is stated as a general instruction. The video presents it as the keeper's own step, and the page's planting section doesn't cover root trimming at separation."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-16T09:00:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.55,
+      "notes": [
+        "beforeYouBuy: \"Cây có giá rẻ và dễ kiếm ở tiệm\" - the video says affordable and popular, but this repeats the page's ease and hardiness theme; \"dễ kiếm ở tiệm\" (easy to find in shops) is not said in the video.",
+        "reproduction: \"Cây con mọc từ rễ cây mẹ tách ra rất dễ\" - the page already says the plant propagates by runners/offsets and can be split into clumps; this adds nothing new.",
+        "reproduction: \"Tách ra thì mỗi cây có thêm chỗ và ánh sáng\" and the clump-division bullet repeat the page's 'tách bụi lớn thành nhiều cụm nhỏ' (already covered).",
+        "reproduction: \"Một người nuôi thấy cây lớn nhanh hơn mình tưởng\" - the video says the plant grew quickly, but 'hơn mình tưởng' (faster than expected) is not said.",
+        "reproduction: \"một người nuôi lâu năm chỉ cắt tối đa 20–30%\" - the video does not say the keeper is long-time; this invents 'lâu năm'.",
+        "reproduction: \"Cắt tới 50% rễ vẫn an toàn\" - stated as a general rule; it is only the video keeper's claim.",
+        "reproduction: \"Cắt bỏ lá bệnh hay lá dập ... cây sẽ ra chồi mới\" - overlaps with the page's advice to cut old leaves.",
+        "reproduction: \"mỗi cây con mất vài tháng là thành bụi lớn\" - the video says this about runners, which the page already covers via growth/propagation; the wording 'Nhổ cây ra khỏi bể' also reads a bit stiff."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/plants/najas-guadalupensis#EY13FDXeW3Q": [
     {
       "at": "2026-11-15T23:29:56Z",
@@ -673,6 +709,46 @@
         "[behaviour] \"lao qua lại khắp bể\" and \"hay đuổi nhau như chơi đùa\" are a loose paraphrase of \"zipping around... games of tag\"; the wording is translation-like.",
         "[maintenance] \"Một người nuôi loài này thấy chúng rất khỏe\" turns the video channel's experience into a keeper's note, which is acceptable, but it is placed under maintenance and is vague. \"Người nuôi đó\" in [diet] relies on the previous section and does not stand alone.",
         "[notes] \"chỉ đứng thứ hai về độ nhỏ\" is fine, but the video says \"close second\" (gần nhất sau), and the \"cute\" point is missing. The tone is acceptable."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/nannostomus-mortenthaleri#eZZR2z2rHxU": [
+    {
+      "at": "2026-11-16T08:59:19Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.3,
+      "notes": [
+        "[notes] \"Một người nuôi loài này lâu năm cho biết nó mới được mô tả chính xác vào năm 2001\": the description year is a fact from the video, not a keeper's experience; wrongly framed as one keeper's claim.",
+        "[notes] \"chứ không phải 2003\": the page says Weitzman and Weitzman (2003) raised it to a species. The video says 2001, but the sentence doesn't plainly state the video differs from the page. It is clumsy and could confuse.",
+        "[reproduction] \"Một người nuôi loài này lâu năm thấy cho chúng đẻ không dễ với người mới chơi\": the video states this as general fact (challenging for lesser experienced hobbyists), not as one keeper's experience. Misattributed framing.",
+        "[reproduction] \"rải bi, sỏi hoặc đá nhỏ dưới đáy\", \"pH thấp\", \"lọc mút sủi nhẹ\": the video says gentle air-driven filtration, not a sponge filter. The page already covers the sponge filter and the breeding setup. Also omits the video's mature water and fine-leaf plants or java moss.",
+        "[reproduction] \"cặp cá bơi sát cạnh nhau và con đực húc vào bụng con cái\": the video's claim that this is how the male fertilises the eggs is dropped. The page already describes spawning among fine-leaved plants, and the 36–72 hour hatch and fry foods are partly overlap with the page's fry-food advice.",
+        "[behaviour] \"Ngoài tetra nhỏ, có thể nuôi chung với rasbora tí hon và cá cạnh lùn\": the page already says to keep them with small non-aggressive characids. The video's tank-mate list is mostly new, but the English names left untranslated (\"eight-banded false barb\", \"peacock gudgeon\") read like a translation.",
+        "[beforeYouBuy] \"dạng đỏ đậm hơn\": the video says 'super red' but not that the colour is a deeper red. Fine overall, but the video's wording is a bit stronger than the phrase implies.",
+        "The text leaves out the video's own different details (e.g. 2001 vs the page's 2003 description) without saying plainly where it differs from the page."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-16T08:59:19Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.5,
+      "notes": [
+        "Latin names added to the tank mates (\"Eirmotus octozona\", \"Tateurndina ocellicauda\", \"Pseudomugil gertrudae\") are not said in the video, which gives only common names.",
+        "\"cá Copella cầu vồng (rainbow copella)\" is a shaky rendering of \"rainbow cappella tetras\", and the Copella genus is never named in the video.",
+        "\"cá chuột và các loài cá lau kiếng hiền\" repeats what the page already says (callichthyid and loricariid catfish).",
+        "The [diet] section repeats the page: the page already says the fish eat all common foods, and already lists live and frozen food (Artemia, Moina and similar).",
+        "\"hai tháng để dài tới 1 cm... lên màu\" repeats the page's \"Sau khoảng 8 tuần... lên hoa văn như cá trưởng thành\". Likewise \"nước cũ\" and the point that the fish scatter eggs onto plants are already on the page.",
+        "The page says the fish \"chắc chắn sẽ đẻ\" in a planted tank and that breeding is rare. NEW says breeding is hard for beginners and never says plainly that the video differs from the page.",
+        "The video says the species was described in 2001. The page says a 2000 discovery and Weitzman 2003 raising it to species. NEW states 2001 and does not note the difference from the page.",
+        "The video says the Super Red form has been \"observed making its way into the hobby\". NEW's \"bắt đầu xuất hiện trên thị trường\" is a slight shift."
       ],
       "attempt": "first",
       "kept": false

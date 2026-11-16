@@ -1,7 +1,7 @@
 # Photos that don't show their page's subject
 
 Written by `pnpm engine check-photos` (2026-11-16), most-read pages first. Rules: docs/governance.md, "Photos".
-9104 verdicts. Shows it: 5822; its habitat (asked again): 3; something else: 387; not a photo of it: 316; dead or as food: 485; a person in it: 140; a logo on it: 70; can't tell: 1662.
+9107 verdicts. Shows it: 5822; its habitat (asked again): 3; something else: 390; not a photo of it: 316; dead or as food: 485; a person in it: 140; a logo on it: 70; can't tell: 1662.
 
 ## Left with no photo (106)
 
@@ -1779,9 +1779,9 @@ Written by `pnpm engine check-photos` (2026-11-16), most-read pages first. Rules
 | plants/vallisneria-spiralis | [photo](https://media.aquatome.com/tropica/0ff2734906d4fd89.webp) | subject unsure |
 | plants/vallisneria-spiralis | [photo](https://media.aquatome.com/tropica/32a5549cfa5b0c5e.webp) | subject unsure |
 
-## Removed (1376)
+## Removed (1379)
 
-"Something else" records a different subject; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
+"Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
@@ -3146,6 +3146,9 @@ Written by `pnpm engine check-photos` (2026-11-16), most-read pages first. Rules
 | plants/caloglossa-beccarii | [photo](https://media.aquatome.com/commons/4b41fb03e44d7a69.webp) | subject dead |
 | plants/caloglossa-beccarii | [photo](https://media.aquatome.com/commons/9036d5aa070f15cd.webp) | subject dead |
 | plants/echinodorus-grisebachii-tropica | [photo](https://media.aquatome.com/tropica/a0ad3ce9e6b6b4d5.webp) | subject none |
+| plants/echinodorus-tenellus | [photo](https://media.aquatome.com/commons/002f6889c8ba4634.webp) | subject other |
+| plants/echinodorus-tenellus | [photo](https://media.aquatome.com/commons/853f5a2524c40929.webp) | subject other |
+| plants/echinodorus-tenellus | [photo](https://media.aquatome.com/commons/f85fb66fdea848ab.webp) | subject other |
 | plants/hottonia-palustris | [photo](https://media.aquatome.com/commons/cbe8c963864e69b1.webp) | subject yes; person |
 | plants/hygrophila-costata | [photo](https://media.aquatome.com/commons/b9fccf7cf81b8c19.webp) | subject unsure; logo |
 | plants/hygrophila-serpyllum | [photo](https://media.aquatome.com/commons/c3e7c473cc533053.webp) | subject none |

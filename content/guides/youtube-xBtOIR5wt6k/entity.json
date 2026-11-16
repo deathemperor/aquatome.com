@@ -44,16 +44,7 @@
     "figures": [
       {
         "heading": "Ý tưởng tổng thể của vách sống",
-        "moments": [
-          {
-            "t": 1500,
-            "url": "https://media.aquatome.com/video/xBtOIR5wt6k/at1500-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bình foam xịt màu xanh dùng để đắp mặt vách nền.",
-            "sharpness": 267.6
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/xBtOIR5wt6k/p0-NldHVwMTMuLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/xBtOIR5wt6k/p0-NldHVwMTMuLmpwZw-480.webp",
@@ -74,15 +65,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tấm xốp dựng cạnh bể để so với kích thước lòng bể.",
-            "sharpness": 905.7
-          },
-          {
-            "t": 1240,
-            "url": "https://media.aquatome.com/video/xBtOIR5wt6k/at1240-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đánh dấu và đo trên bề mặt tấm xốp trước khi cắt.",
-            "sharpness": 351.1
+            "sharpness": 905.7,
+            "person": false
           }
         ],
         "photo": {
@@ -98,24 +82,7 @@
       },
       {
         "heading": "Gắn lũa và phun foam",
-        "moments": [
-          {
-            "t": 1400,
-            "url": "https://media.aquatome.com/video/xBtOIR5wt6k/at1400-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt khúc lũa nghiêng trên tấm xốp, chuẩn bị gắn cố định.",
-            "sharpness": 640.6
-          },
-          {
-            "t": 1410,
-            "url": "https://media.aquatome.com/video/xBtOIR5wt6k/at1410-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Xếp các khúc lũa cong lên tấm xốp phẳng để bố trí.",
-            "sharpness": 508
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/xBtOIR5wt6k/p4-YXJkc2NhcGUuanBn.webp",
           "thumb": "https://media.aquatome.com/video/xBtOIR5wt6k/p4-YXJkc2NhcGUuanBn-480.webp",
@@ -136,7 +103,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tấm vách đá giả đã hoàn thiện, bề mặt sần như đá thật.",
-            "sharpness": 246.9
+            "sharpness": 246.9,
+            "person": false
           },
           {
             "t": 1750,
@@ -144,7 +112,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Vách đá giả phủ xi măng, gắn thêm rễ lũa nhô ra ngoài.",
-            "sharpness": 447.7
+            "sharpness": 447.7,
+            "person": false
           }
         ]
       },
@@ -158,14 +127,6 @@
             "height": 675,
             "caption": "Những chậu phong lan nhiều màu, một lựa chọn cho vách ẩm.",
             "sharpness": 63.4
-          },
-          {
-            "t": 530,
-            "url": "https://media.aquatome.com/video/xBtOIR5wt6k/at530-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chậu trầu bà đang được cầm xem ở cửa hàng cây.",
-            "sharpness": 600.6
           }
         ],
         "photo": {

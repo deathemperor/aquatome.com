@@ -10251,6 +10251,20 @@
   ],
   "vi/guides/youtube-FqNP9rxudYs": [
     {
+      "at": "2026-11-16T09:33:59Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.75,
+      "notes": [
+        "\"Bể có sủi hay hút váng làm mặt nước gợn mạnh\": the video mentions only surface agitation, with a skimmer in the tank. It never mentions an air-stone (\"sủi\"), so remove \"sủi\" and keep \"hút váng\" or just the surface agitation.",
+        "\"nước đục ngả vàng do lũa mới\" (intro paragraph): the video says the murkiness turns brown, not yellow. Change it to \"đục rồi ngả nâu\" to match the rest of the guide.",
+        "\"cắm sâu xuống nước để châm\": the video says only that one tube goes in the water to top up. Remove \"sâu\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
       "at": "2026-11-16T00:18:33Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -10603,6 +10617,21 @@
     }
   ],
   "vi/guides/youtube-GAac09m7CVA": [
+    {
+      "at": "2026-11-16T09:40:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.75,
+      "notes": [
+        "\"Dương xỉ chân thỏ (rabbit's foot fern) thêm chất cho bố cục\": \"thêm chất\" is a literal rendering of \"add texture\" and reads awkwardly. Rewrite it as \"thêm kết cấu cho bố cục\".",
+        "\"Cryptanthus được đặt vào một hốc trên đá\": the video only says it was put \"in this spot\". Drop the \"hốc trên đá\" detail and say it was planted in a spot in the layout.",
+        "\"có thêm thác nước nhỏ và làn sương phủ trên mặt đá\": the video doesn't say the mist covers the stone surface. Remove \"phủ trên mặt đá\" and say only that the build has a waterfall and mist.",
+        "\"Hemigraphis\" and \"Hemigraphis alternata (purple waffle plant)\" are listed as two separate plants. Merge them or label them clearly as two different plants (panda hemigraphis and purple waffle), because the list reads as a duplicate."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
     {
       "at": "2026-11-10T02:44:01Z",
       "model": "sonnet",
@@ -14903,6 +14932,21 @@
   ],
   "vi/guides/youtube-N8N1xQCE7ok": [
     {
+      "at": "2026-11-16T09:35:23Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.55,
+      "notes": [
+        "\"Có thể dùng sỏi to hơn kê cao phía sau\": the video only says the final gravel adds detail and height so the plants at the top come out of the water, and it never says the gravel is larger. Remove \"to hơn\" or the whole sentence.",
+        "\"châm khử clo cho nước máy mới\": the video only says to bring the level back up with chlorinated tap water and gives no advice to add a dechlorinator. Remove this advice.",
+        "\"nhưng đã để khô lâu\": the video says only that the reused substrate has not been in a tank for a long time, not that it was left dry. Change to \"đã lâu không ở trong bể\" or remove.",
+        "\"Phần lọc vi sinh ở bể này trông vào lớp nền dày và cây\": \"bể này\" is a bare reference. Rewrite it, for example \"ở bể sinh thái\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-16T00:20:58Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -19057,6 +19101,22 @@
   ],
   "vi/guides/youtube-TgDrYzWTU5s": [
     {
+      "at": "2026-11-16T09:34:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.7,
+      "notes": [
+        "\"Ví dụ, một bể dài khoảng 240 cm chỉ còn rất ít nước dưới đáy mà con cá tỳ bà bristlenose trốn dưới đá vẫn sống, ốc bám trên đá và lũa cũng vậy\": this retells one day of the build. Remove the anecdote, or reduce it to a general line that leftover water can keep hidden animals alive.",
+        "\"sẽ bốc mùi\" and \"Trước khi chạy lại phải tháo lọc ra, đổ hết nước\": the video says the stink happens \"for the most part\", and that draining and reassembling was what the creator did. Hedge it (\"thường sẽ bốc mùi\", \"nên tháo lọc ra, đổ hết nước\"), and do not present it as a mistake to avoid or a must-do rule.",
+        "\"Sang hôm sau nước hơi đục do tannin từ lũa\": the video only says the water might have become cloudy from tannins left in the wood. State it as a possibility (\"có thể hơi đục\"), not as a fact.",
+        "\"244 cm\" in the title against \"khoảng 240 cm\" in the body and the later steps: the figures disagree. Use one consistent size.",
+        "\"Một chi tiết theo cảnh dưới nước sông Amazon: ở đó ít gặp cây bám lũa\": this states the creator's own research impressions as a firm fact about the river. Hedge it as what the creator saw in underwater footage (\"có thể\", \"theo những cảnh quay thấy được\")."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-16T00:18:59Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -22474,6 +22534,22 @@
   ],
   "vi/guides/youtube-Z3jAT8oNNAo": [
     {
+      "at": "2026-11-16T09:35:33Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.6,
+      "notes": [
+        "\"bể khoảng 470 lít\" is wrong. The video's tank is 125 gallons, which the size table names as 450 litres. Change it to 450 litres.",
+        "\"bể khoảng 115–190 lít\" is wrong. The video gives 30 or 50 gallons, which the table names as 120 and 200 litres. Change it to \"120–200 lít\".",
+        "\"Đi tiệm cá, người ta hay chọn những loài quen mặt như neon, cá phượng hoàng xanh hay các loài sặc nổi tiếng\" presents one person's view as what people generally do. Remove it or hedge it as \"có thể\". The video only says that people pass over some fish, such as the pearl gourami.",
+        "\"Lý do thường là lúc bày ở tiệm chúng còn nhỏ và chưa lên màu\" stretches one reason to all 10 fish. The video says this only about the Bolivian ram, the Congo tetra and the Colombian blue tetra's size. Limit it to those fish, or remove the sentence.",
+        "\"Cá lớn dễ cho ăn\" in the Kribensis FAQ is a muddled sentence. The video says the Kribensis is easy to feed. Rewrite it as \"Loài này dễ cho ăn\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
       "at": "2026-11-08T22:04:02Z",
       "model": "sonnet",
       "score": 0.6,
@@ -25048,6 +25124,22 @@
   ],
   "vi/guides/youtube-d7vJR8st364": [
     {
+      "at": "2026-11-16T09:37:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.75,
+      "notes": [
+        "\"trong vài tháng số tép sẽ tăng gấp đôi\" (summary list, the section on how fast the colony grows, and the FAQ): the video says \"a couple of months\". Change \"vài tháng\" to \"khoảng hai tháng\" for the doubling.",
+        "\"Tép con mới nở chỉ khoảng 2 mm\": the video only measures one baby shrimp at about 2 mm. Drop \"mới nở\" and say \"một con tép con khoảng 2 mm\".",
+        "\"Trong bể đó, tép con chiếm đa số\": \"bể đó\" is a bare reference that reads as awkward. Merge it into the previous bullet, for example \"Trong bể ấy phần lớn là tép con\", or reword it to avoid the demonstrative.",
+        "\"một màu nâu khá đơn điệu\": this states the creator's opinion (\"boring brown\") as a plain fact. Hedge it (\"có thể thấy khá đơn điệu\") or drop it.",
+        "\"lá, đá, lũa\": the video only says the shrimp graze surfaces. Remove the list of specific items, or say \"các bề mặt trong bể\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
       "at": "2026-11-11T03:59:08Z",
       "model": "sonnet",
       "score": 0.7,
@@ -27303,6 +27395,19 @@
     }
   ],
   "vi/guides/youtube-h94Jp82Dk_U": [
+    {
+      "at": "2026-11-16T09:36:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.6,
+      "notes": [
+        "\"từ bể 75 lít trở lên\" (in the summary and in the section \"Bể cỡ nào nuôi được cả năm loài\"), and \"bể nên từ khoảng 75 lít trở lên\" in the first FAQ: the video says 20 gallons or larger, which by the table is 80 litres. Change every 75 lít to 80 lít.",
+        "\"Bể càng lớn thì tăng số lượng theo tỷ lệ. Chẳng hạn bể 400 lít mà chỗ nào khuyên 1 con thì có thể tính 3 con\": this is stated as a firm rule, but the video only says \"extrapolate\" and \"maybe I should get three\". Hedge it, for example \"bể lớn hơn thì có thể tăng thêm, ví dụ bể 400 lít có thể cân nhắc 3 con thay vì 1\". Also drop the awkward \"chỗ nào khuyên\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
     {
       "at": "2026-11-08T21:42:09Z",
       "model": "sonnet",
@@ -37614,6 +37719,21 @@
     }
   ],
   "vi/guides/youtube-z_AdgDUSZkw": [
+    {
+      "at": "2026-11-16T09:36:08Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.6,
+      "notes": [
+        "\"bể 40–75 lít\" (in the bullet summary, the panda section and the FAQ) is wrong. The video gives 10 and 20 gallons for panda, which by the table is 40–80 lít. Change \"40–75 lít\" to \"40–80 lít\" everywhere.",
+        "\"Trong bể khoảng 110 lít\": the video says a 29 gallon tank, which the table names 120 lít. Change it to \"khoảng 120 lít\".",
+        "\"một lứa có thể hơn 300 trứng\": the video says they have 300+ babies at a time. Change \"trứng\" to \"cá con\".",
+        "In the summary bullet \"Người mới nên bắt đầu với loài rẻ như cá chuột albino (C. aeneus) hoặc C. paleatus\", the video only says people often start with albino because it is sold everywhere. It recommends the salt and pepper as the beginner fish. Remove albino from the beginner advice, or say it is only a common starting fish."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
     {
       "at": "2026-11-08T21:23:26Z",
       "model": "sonnet",

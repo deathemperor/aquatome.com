@@ -1763,10 +1763,15 @@
     "score": 0.82
   },
   "eZZR2z2rHxU": {
-    "at": "2026-11-07",
+    "at": "2026-11-16",
     "title": "Coral Red Pencilfish - Nannostomus Mortenthaleri - Rare Freshwater Nano Aquarium Fish Profile",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Nannostomus mortenthaleri",
+    "page": "species/nannostomus-mortenthaleri",
+    "done": "low",
+    "score": 0.5,
+    "reason": "Latin names added to the tank mates (\"Eirmotus octozona\", \"Tateurndina ocellicauda\", \"Pseudomugil gertrudae\") are not said in the video, which gives only common names.; \"cá Copella cầu vồng (rainbow copella)\" is a shaky rendering of \"rainbow cappella tetras\", and the Copella genus is never named in the video."
   },
   "F8HABfA0iyQ": {
     "at": "2026-11-07",
@@ -1785,10 +1790,15 @@
     "reason": "several fish"
   },
   "Fa7qaXaqYeI": {
-    "at": "2026-11-07",
+    "at": "2026-11-16",
     "title": "Cryptocoryne Wendtii Green (Plant Propagation)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Cryptocoryne wendtii",
+    "page": "plants/cryptocoryne-wendtii",
+    "done": "low",
+    "score": 0.7,
+    "reason": "\"thấy chúng lớn nhanh\" contradicts the page, which says growth is slow (\"lớn khá chậm\", rarely more than 2.5 cm in two weeks, and the card says slow). NEW doesn't say it differs from the page. It should state the contrast plainly, e.g. that this keeper's plants grew faster than the page describes.; \"tách được 32 cây từ hai cây ban đầu\" is one keeper's result. It is not framed against the page's slow-propagation claim (\"Kiểu nhân giống này chậm\"), so it reads as unexplained and conflicting."
   },
   "fbfFKUh3apo": {
     "at": "2026-11-07",
@@ -1839,10 +1849,12 @@
     "reason": "5 species"
   },
   "fg6m6pk3Vfc": {
-    "at": "2026-11-07",
+    "at": "2026-11-16",
     "title": "Quick Dip into The Panda Loach - Yaoshania pachychilus",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "failed",
+    "reason": "whisper: ValueError: Unsupported language: zxx"
   },
   "fgJUfUzhF9Y": {
     "at": "2026-11-07",

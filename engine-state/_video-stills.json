@@ -481,24 +481,27 @@
     "timed": true
   },
   "youtube-NJ0a2eaOg5E": {
-    "at": "2026-11-13",
-    "failed": "photo operation unavailable [sha256:3aa1c761d74cee236cd37c201ade29e2037070802a3ad829bea290ec7ed1b3bd]"
+    "at": "2026-11-16",
+    "timed": true
   },
   "youtube-NNbR0grp8iE": {
-    "at": "2026-11-13",
-    "failed": "photo operation unavailable [sha256:8c7a4e410b29b3c2e0587922443e04a08d8776a693df69cb65df411562fbce91]"
+    "at": "2026-11-16",
+    "timed": true
   },
   "youtube-NOEpK-M6av4": {
-    "at": "2026-11-13",
-    "failed": "photo operation unavailable [sha256:312088cb974e1e055b0cfb17fdfa73763851e07185654415d16863f71f7417c5]"
+    "at": "2026-11-16",
+    "timed": true
   },
   "youtube-Nbl2XlDFhY4": {
-    "at": "2026-11-13",
-    "failed": "photo operation unavailable [sha256:51e7b2e08f632fa448018e864ac7b9fa457a56ce3bd6ada9e91a01e0d1a0d075]"
+    "at": "2026-11-16",
+    "timed": true
   },
   "youtube-NjcLCelMEBQ": {
-    "at": "2026-11-13",
-    "failed": "photo operation unavailable [sha256:e5f2bffbe81f4c497ad837bd01ca1656fd31cda70fca455b8c36081b84c5903d]"
+    "at": "2026-11-16",
+    "timed": true,
+    "kept": {
+      "200": "photo operation unavailable [sha256:5f31205804fa486c653d66400ebe0d04ee9d86357f11c447b9f4c5f4fc9dd226]"
+    }
   },
   "youtube-NsTJkrUrc_U": {
     "at": "2026-11-13",
@@ -1051,5 +1054,33 @@
     "kept": {
       "500": "photo operation unavailable [sha256:35261db7a341391d8c7b32e18186a6a01a22889edf38c84a17c005eb6fc54189]"
     }
+  },
+  "youtube-x7AVyEs1J48": {
+    "at": "2026-11-16",
+    "timed": true
+  },
+  "youtube-xrNSdB-C2_0": {
+    "at": "2026-11-16",
+    "timed": true
+  },
+  "youtube-yE1pF9xx0Fc": {
+    "at": "2026-11-16",
+    "timed": true
+  },
+  "youtube-ysH2T_HOG0E": {
+    "at": "2026-11-16",
+    "timed": true
+  },
+  "youtube-z1Adj14jlRE": {
+    "at": "2026-11-16",
+    "timed": true
+  },
+  "youtube-zAhycbnL1Mk": {
+    "at": "2026-11-16",
+    "timed": true
+  },
+  "youtube-z_AdgDUSZkw": {
+    "at": "2026-11-16",
+    "timed": true
   }
 }
