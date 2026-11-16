@@ -126597,5 +126597,235 @@
         "people": false
       }
     }
+  },
+  "https://media.aquatome.com/commons/01cd9df0c0276179.webp": {
+    "gymnogeophagus-meridionalis": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "d6e72586ffa61803db1ce426c1f4e0c2489de31d906eed2192e94df0ceece9e5",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/f8b01e3f1ab99e2a.webp": {
+    "gymnogeophagus-meridionalis": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "c57f061482a8dd41e0a205296fda5e5f93410c48692860ac4c4bf9327d8d5add",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/23198cdeb38755d7.webp": {
+    "eigenmannia-trilineata": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "29d3062b3871abb1972dc4639e1e8973124b95c4ba326a1ca8c2acf19d2d7ff5",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/4087f16167c5cfad.webp": {
+    "hemirhamphodon-tengah": {
+      "ok": "unsure",
+      "typical": true,
+      "person": false,
+      "logo": true,
+      "note": "subject unsure; logo",
+      "noteHash": "7ad0c253fd45736ce23183ccce788acf0a5ca2b9ce1244c448501cc87e7614c2",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/92006ebc76a2e4f9.webp": {
+    "gymnogeophagus-meridionalis": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "c500398d5be2616d7231fab21c99a58fd486581752a95393afa4ef7301a48b3f",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/a55eaadaf3ea1269.webp": {
+    "gymnogeophagus-meridionalis": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "a05eb2a4ed5e8a7a507fd344ab357c0fcea6edbe19c619da029583f338b83571",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/dd2423e87c036a08.webp": {
+    "eigenmannia-trilineata": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "5a5dbb12d1c91e6200f2394320ddeb3fd8e7071d6d3ac80d396d2e2608c6330a",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/36472761.webp": {
+    "gymnogeophagus-meridionalis": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "b1a5a6d54dcc269232789a27ae57b0aef75b25104766b216e4a727317aeaa75f",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/579993403.webp": {
+    "gymnogeophagus-meridionalis": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "86e8b8a6b42e6511d878339b0da67a822ccceb9aca40f92861fb5d1789b1e1ea",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/01bd6528f53b0636.webp": {
+    "hisonotus-leucofrenatus": {
+      "ok": "other",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject other",
+      "noteHash": "f5fb671c7995e3e8925607dc1544ac6416a5a228c3b38d79b7cc1f319a911a90",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/084026ab0e010dbe.webp": {
+    "hisonotus-leucofrenatus": {
+      "ok": "unsure",
+      "typical": true,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "74c71cf3566985de3607444c95a0a9662552cae86d1f60a416c9eda9aaed31c9",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/261ce2a86725c3f6.webp": {
+    "eutropiichthys-vacha": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "2d650140e1792f516dd5c8a4459d6361e647fbd558d33e023c654a0f3e6a0cc8",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/abee51c781465ee6.webp": {
+    "hisonotus-leucofrenatus": {
+      "ok": "unsure",
+      "typical": true,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "fcd5f52394c0c3693209266ecf84d1da68639b260750aeeeb0e30a6911b35877",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/2252df8477d52e67.webp": {
+    "devario-acuticephala": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "71c1e021f815e38f3529fa5d2f1e637b53b249051589c396099d04c962ce1767",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/3708cef515191672.webp": {
+    "garra-borneensis": {
+      "ok": "unsure",
+      "typical": true,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "d3f0475eb67544dbedf8c65d6028d5144eee6de322dd2e79e95717f4b7ff4172",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/87dd027c3f3efbf7.webp": {
+    "garra-rakhinica": {
+      "ok": "unsure",
+      "typical": true,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "cf3098a2661da883da308f911a0e7e971fb92bf3ba92c0beee72917da63915c1",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
   }
 }

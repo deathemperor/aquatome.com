@@ -1,5 +1,6 @@
-import { cleanPhoto, FIRST_PLANTS, glossaryKinds, linkTerms, photoFitsCard, plainText, POPULAR, slugify, STAPLE_SPECIES, type Content, type GlossaryEntity, type GuideEntity, type Localized, type Photo } from '@aq/schema'
+import { capitalFirst, cleanPhoto, FIRST_PLANTS, kindLine, kindsSection, linkTerms, photoFitsCard, plainText, POPULAR, slugify, STAPLE_SPECIES, type Content, type GlossaryEntity, type GuideEntity, type Localized, type Photo } from '@aq/schema'
 import { BREED_KIND } from './breeds'
+import { partsHtml, photoCredit, unsplashLine } from './cite'
 import { LANG, translator, type Lang } from './i18n'
 import { tilePhoto } from './img'
 import { materialPath } from './materials'
@@ -8,6 +9,7 @@ import { pagePictures, takeEach, tilePhotos } from './pictures'
 import { sciBeside } from './sci'
 import { sectionParts } from './section-parts'
 import { foldNearEmpty } from './sections'
+import { isUnsplash } from './unsplash'
 
 /** How many of each kind of page that uses a term its page lists; the heading gives the whole count. */
 export const USED_IN_SHOWN = { guides: 8, fish: 12, plants: 6 } as const
@@ -131,8 +133,11 @@ export function glossaryParts(lang: Lang, c: Content, g: Localized<GlossaryEntit
   const targets = mentionIndex(c).targets
   const seen = new Set([key])
   const definition = g.t.definition ? linkTerms(escapeText(g.t.definition), targets, 'ml', seen, own).html : ''
+  // The page links its own text in its own order (the kinds, below); the app's copy keeps its body whole.
+  const pageSeen = new Set(seen)
+  const h2 = (html: string) => html.replace(/<(\/?)h3>/g, '<$1h2>')
   // The entry's sections are the page's first headings, under its title.
-  const body = g.t.body ? linkTerms(g.t.body.replace(/<(\/?)h3>/g, '<$1h2>'), targets, 'ml', seen, own).html : ''
+  const body = g.t.body ? linkTerms(h2(g.t.body), targets, 'ml', seen, own).html : ''
   const terms = new Map(c.glossary.map(x => [x.id, x]))
   const related = (g.related ?? []).flatMap(id => terms.get(id) ?? [])
   const uses = termUses(lang, c).get(g.id) ?? { guides: [], fish: [], plants: [] }
@@ -152,31 +157,47 @@ export function glossaryParts(lang: Lang, c: Content, g: Localized<GlossaryEntit
     ? { href: `/vi/huong-dan/${lead.t.slug}/`, text: translator(lang)('Trị thế nào: đọc hướng dẫn trị {name} →', { name: g.t.name.toLocaleLowerCase(LANG[lang].locale) }) }
     : undefined
   // What the thing looks like (the owner, 15 Nov 2026: "what does each look like?"), none twice (pictures.ts): each kind's
-  // photo, where the entry names its kind, claims first; the term's own photo is its first that no kind holds, under its
-  // title; its other photos follow in a row, and until the kinds row (the Design Lead's board) the kinds' photos sit in
-  // that row too, each captioned with its kind's name (the chief of staff, 15 Nov 2026: Lũa's bonsai and cholla shown,
-  // named, on Monday). The page drew only the first photo, and lá bàng showed one of its two.
+  // photo, where the entry names its kind, claims first, in the entry's order; the term's own photo is its first that no
+  // kind holds, and its other photos follow it.
+  // The kinds are cards (the Design Lead's board, 16 Nov 2026), first in the page's body: those with a photo first, each
+  // its photo, name, bracketed name and its text's first sentence (what it looks like); then those without, in words. A
+  // kind whose photo another kind holds already is in words. Each opens large on the page with its whole text.
   const pics = pagePictures(c)
-  const kindName = new Map(glossaryKinds(g.t.body ?? '').map(k => [k.id, k.name]))
-  const kinds = (g.kinds ?? []).flatMap(k => {
-    const name = kindName.get(k.id), photo = name ? pics.take([k.photo]) : undefined
-    return name && photo ? [{ photo, name }] : []
+  const section = kindsSection(g.t.body ?? '')
+  const filed = new Map((g.kinds ?? []).map(k => [k.id, k.photo]))
+  // Each term linked once, where a reader sees it first: the text over the cards and the rest of the body, then the kinds'
+  // whole texts, which show only when a card opens.
+  const intro = section?.intro ? linkTerms(h2(section.intro), targets, 'ml', pageSeen, own).html : ''
+  const restHtml = section ? section.rest : g.t.body ?? ''
+  const pageBody = restHtml.trim() ? linkTerms(h2(restHtml), targets, 'ml', pageSeen, own).html : ''
+  const items = (section?.items ?? []).map(k => {
+    const photo = filed.has(k.id) ? pics.take([filed.get(k.id)!]) : undefined
+    return { id: k.id, name: k.label, ...(k.aka ? { aka: k.aka } : {}), line: kindLine(k.html), html: linkTerms(k.html, targets, 'ml', pageSeen, own).html, ...(photo ? { photo } : {}) }
   })
+  const kinds = section ? { title: section.heading, intro, items: [...items.filter(k => k.photo), ...items.filter(k => !k.photo)] } : undefined
   const photos = (g.photos ?? []).flatMap(p => pics.take([p]) ?? [])
-  const album: { photo: Photo; name?: string }[] = [...photos.slice(1).map(photo => ({ photo })), ...kinds]
-  return { otherNames, definition, material, photo: photos[0], album, body, related, refs: g.refs ?? [], guides, fish, plants, total: usedCount(uses), more, treat }
+  return { otherNames, definition, material, photo: photos[0], others: photos.slice(1), kinds, pageBody, body, related, refs: g.refs ?? [], guides, fish, plants, total: usedCount(uses), more, treat }
 }
 
 /**
- * A photo's caption in a term's photo row, for the page and the app's copy alike: a kind's name, then the rest of its own
- * caption where that opens with the name (in any case), else all of it; a term's photo, its caption.
+ * A kind's photo's caption in its large view: without the kind's name it opens with ("Lũa bonsai: …"), which the view's
+ * heading says, from a capital. Lũa cholla's says it is the desert cactus, not wood in a tank, so it shows whole.
  */
-export function albumCaption(lang: Lang, a: { photo: Photo; name?: string }): { name?: string; rest?: string } {
-  const caption = a.photo.caption
-  if (!a.name) return caption ? { rest: caption } : {}
+export function kindCaption(lang: Lang, name: string, caption?: string): string {
+  if (!caption) return ''
   const locale = LANG[lang].locale
-  const rest = caption?.toLocaleLowerCase(locale).startsWith(a.name.toLocaleLowerCase(locale)) ? caption.slice(a.name.length).replace(/^[\s:–-]+/, '') : caption
-  return rest ? { name: a.name, rest } : { name: a.name }
+  const rest = caption.toLocaleLowerCase(locale).startsWith(name.toLocaleLowerCase(locale)) ? caption.slice(name.length).replace(/^[\s:–-]+/, '') : caption
+  return capitalFirst(rest, locale)
+}
+
+/** A kind's photo's credit in its large view, as the site writes a photo's credit (lib/cite.ts): the words, and the photo's own page. */
+export function kindCredit(lang: Lang, p: Photo): { html: string } {
+  const t = translator(lang)
+  const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;')
+  const more = `<a href="${esc(p.sourceUrl)}" rel="noopener" target="_blank">${esc(t('Xem ảnh gốc ↗'))}</a>`
+  if (isUnsplash(p.licence)) return { html: `${partsHtml(unsplashLine(lang, p, p.sourceUrl))} · ${more}` }
+  const { text, licence } = photoCredit(lang, p)
+  return { html: `${esc(text)}${licence ? `, ${esc(licence)}` : ''}. ${more}` }
 }
 
 /** The rows a term's page shows of the pages that use it, each kind's, and whether a search finds the rest (USED_IN_ROWS). */

@@ -4,13 +4,60 @@
   "File:Tetragonopterus argenteus.jpg",
   "File:Tetragonopterus argenteus 44515775.jpg",
   "File:Tetragonopterus argenteus 9246600.jpg",
-  "File:Tetragonopterus argenteus 9246548.jpg"
+  "File:Tetragonopterus argenteus 9246548.jpg",
+  "inat:9246546",
+  "inat:9246547",
+  "inat:9246548",
+  "inat:9246596",
+  "inat:9246600",
+  "inat:9246597",
+  "inat:44515775",
+  "inat:118574823",
+  "inat:130773276",
+  "inat:135905393",
+  "inat:135905403",
+  "inat:205426595",
+  "inat:285782933",
+  "inat:285782915",
+  "inat:329070092",
+  "inat:339269922",
+  "inat:339269962",
+  "inat:339270015",
+  "inat:345583701",
+  "inat:352319097",
+  "inat:352319335",
+  "inat:362767952",
+  "inat:370002800",
+  "inat:375366891",
+  "inat:467466786",
+  "inat:610529523",
+  "inat:624808120",
+  "inat:624808150",
+  "inat:624809351",
+  "inat:624809373",
+  "inat:624809392",
+  "inat:625221777",
+  "inat:727958706",
+  "inat:749524047"
  ],
  "hashes": {
   "https://media.aquatome.com/glaser/7f5cd0139d4003cc.webp": "c7edcd9f1f36be9d",
   "https://media.aquatome.com/glaser/0234aa5947b2927c.webp": "a7cd873f9e1a5460",
   "https://media.aquatome.com/glaser/30ebb7e4e76d70a5.webp": "6d8d1d3f5f6c1c98",
-  "https://media.aquatome.com/glaser/9c71fbd728549d56.webp": "5f079d1f3f1f9e58"
+  "https://media.aquatome.com/glaser/9c71fbd728549d56.webp": "5f079d1f3f1f9e58",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/9246600/large.jpeg": "7f7ff39d99733f3f",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/9246597/large.jpeg": "7f4ff7b139333f1f",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/44515775/large.jpg": "783a9e961d8cd2d5",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/624808120/large.jpg": "86921a0e0e208482",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/624809373/large.jpg": "60383031397978c1"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 560132,
+  "pass": "done",
+  "after": {
+   "research": 407822980,
+   "agree": 414987951
+  }
+ }
 }
