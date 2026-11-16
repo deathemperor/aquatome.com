@@ -159,7 +159,7 @@ export function readAnswer(m: Anthropic.Message): Answer | undefined {
     const a = JSON.parse(text) as Answer
     if (a.offTopic === true) return { offTopic: true, text: '', covered: true, blocks: [], suggestions: [], clashes: [] }
     // send_answer's input isn't held to the schema as a text answer is (not strict): a suggestion that isn't words, or a
-    // clash that isn't two places, is left out, and a pick that isn't one is the filler's to drop (`isChoice`).
+    // clash that isn't two places, is left out, and a pick that isn't one is the filler's to drop (`choiceOf`).
     return typeof a.text === 'string' && a.text.trim().length >= MIN_TEXT && typeof a.covered === 'boolean' && Array.isArray(a.blocks) && Array.isArray(a.suggestions)
       ? { ...a, offTopic: false, suggestions: a.suggestions.filter(x => typeof x === 'string'), clashes: Array.isArray(a.clashes) ? a.clashes.filter(isClash) : [] }
       : undefined
@@ -174,11 +174,18 @@ const num = (v: unknown) => typeof v === 'number' && Number.isFinite(v)
 const obj = (v: unknown): v is Record<string, unknown> => !!v && typeof v === 'object' && !Array.isArray(v)
 const isPlace = (v: unknown) => obj(v) && str(v.path) && str(v.passage)
 const isClash = (v: unknown): v is Clash => obj(v) && isPlace(v.a) && isPlace(v.b)
-/** A pick as the schema has it (send_answer's input, unlike a text answer's, isn't held to it). */
-export const isChoice = (v: unknown): v is Choice => obj(v) && (BLOCKS as readonly unknown[]).includes(v.t) && Array.isArray(v.ids) && v.ids.every(str)
-  && strOrNull(v.path) && strOrNull(v.heading) && (v.tool === null || (TOOLS as readonly unknown[]).includes(v.tool))
-  && Array.isArray(v.fish) && v.fish.every(f => obj(f) && str(f.id) && num(f.count))
-  && (v.tank === null || (obj(v.tank) && num(v.tank.l) && num(v.tank.w) && num(v.tank.h))) && strOrNull(v.tankId)
+/**
+ * A pick as the filler reads it, or undefined for one it can't: send_answer's input, unlike a text answer's, isn't held to
+ * the schema. A field left out is its empty value (no ids, no fish, null); one of the wrong kind drops the pick.
+ */
+export function choiceOf(v: unknown): Choice | undefined {
+  if (!obj(v) || !(BLOCKS as readonly unknown[]).includes(v.t)) return undefined
+  const c = { ids: [], path: null, heading: null, tool: null, fish: [], tank: null, tankId: null, ...v } as Record<string, unknown>
+  const ok = Array.isArray(c.ids) && c.ids.every(str) && strOrNull(c.path) && strOrNull(c.heading) && (c.tool === null || (TOOLS as readonly unknown[]).includes(c.tool))
+    && Array.isArray(c.fish) && c.fish.every(f => obj(f) && str(f.id) && num(f.count))
+    && (c.tank === null || (obj(c.tank) && num(c.tank.l) && num(c.tank.w) && num(c.tank.h))) && strOrNull(c.tankId)
+  return ok ? (c as Choice) : undefined
+}
 
 const SPACE = new Set([' ', '\t', '\n', '\r'])
 /**
@@ -435,9 +442,10 @@ export function filler(hb: Handbook, checks: readonly MatesCheck[] = [], shownBe
   const seen = new Set([...shownBefore.flatMap(repeatKey), ...(startedOn ? [`species: ${startedOn}`] : [])])
   let picks = 0
   return {
-    add: async (p: Choice): Promise<ChatBlock | undefined> => {
+    add: async (pick: Choice): Promise<ChatBlock | undefined> => {
       if (picks++ >= MAX_BLOCKS) return undefined
-      if (!isChoice(p)) { dropped.push(`not a pick: ${JSON.stringify(p).slice(0, 120)}`); return undefined }
+      const p = choiceOf(pick)
+      if (!p) { dropped.push(`not a pick: ${JSON.stringify(pick).slice(0, 120)}`); return undefined }
       const b = await one(p)
       const again = typeof b === 'string' ? [] : repeatKey(b).filter(k => seen.has(k))
       if (typeof b === 'string') dropped.push(b)

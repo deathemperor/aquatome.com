@@ -79,9 +79,9 @@ export type AgentInput<Step> = {
    */
   pace?: { answer: number; quick: number; first: number }
   /**
-   * With `until`, while the reader is there (`until` still as far ahead as when the run began, within `THERE_MS`: the
-   * chat moves it with each write to them that lands), the pace is when the answer's call begins: at most this long
-   * after the run's first call, in place of `pace`. While they stay, `until` moves on as the run goes, and `pace` against it kept a turn of 26 s: Opus
+   * With `until`, while the reader is there (`until` moved since the call before, and is still as far ahead as when the
+   * run began, within `THERE_MS`: the chat moves it with each write to them that lands), the pace is when the answer's
+   * call begins: at most this long after the run's first call, in place of `pace`. While they stay, `until` moves on as the run goes, and `pace` against it kept a turn of 26 s: Opus
    * answered after two calls, 14 of 16 answers on the time rule (the board, 16 Nov). An answer that streams (`askWord`)
    * shows its first words seconds into its call. Once they've gone, `pace` holds again.
    */
@@ -144,8 +144,8 @@ const NOT_RUN: Partial<Record<Stopped, string>> = {
 }
 /**
  * How far `until` may fall behind the lead it had when the run began while the reader still counts as there (`answerBy`):
- * the chat's writes reach them every 2 s (chat/api.ts `PRESENT_MS`), so a reader gone is seen within about 3 s, not a
- * whole call later.
+ * the chat's writes reach them every 2 s (chat/api.ts `PRESENT_MS`). With `until` moved since the call before, a reader
+ * who left before that call is seen at once, and one who left during it within about 3 s, not a whole call later.
  */
 export const THERE_MS = 3_000
 /** The history with `word` after the last message's content, for one call; the history itself is left as it is. */
@@ -178,12 +178,16 @@ export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step
   let trying = false
   /** How far ahead `until` was when the run began: the reader is there while it stays about that far ahead (`answerBy`). */
   const lead = (a.until?.() ?? start) - start
+  /** `until` as the call before began. */
+  let until = a.until?.()
   /** Why the next call must answer: the call asked to (`askWord`) read instead. */
   let must: Stopped | undefined
   for (;;) {
     const left = end() - clock()
     const each = run.calls ? took / run.calls : 0
-    const there = a.answerBy !== undefined && a.until !== undefined && a.until() - clock() >= lead - THERE_MS
+    const now = a.until?.()
+    const there = a.answerBy !== undefined && now !== undefined && until !== undefined && now > until && now - clock() >= lead - THERE_MS
+    until = now
     const late = left < lim.lastCallMs || (there ? clock() - start + each > a.answerBy!
       : a.pace !== undefined && left - each < (run.calls === 1 ? a.pace.first : a.pace.quick) * each)
     const forced: Stopped | undefined = trying ? 'time' : must ?? (run.calls + 1 >= lim.calls ? 'calls' : run.tools >= lim.tools ? 'tools' : late ? 'time'

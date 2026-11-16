@@ -5,7 +5,7 @@ import type { PageDoc } from '@aq/schema/app-page'
 import { LANGS } from '@aq/schema/langs'
 import { expect, test, vi } from 'vitest'
 import { answerQuestion, ANSWER_LINE, ASK_WORD, CHAT_LIMITS, NO_THINKING, firstMessage, openedTank, HANDBOOK, HANDOVER_MS, LAST_TRY, LAST_WORD, MAX_TOKENS, OPENING_SYSTEM, SYSTEM, unaccented, type ChatOptions, type Start } from '../chat/agent'
-import { answered, answerFeed, ANSWER_SCHEMA, fill, isChoice, MAX_BLOCKS, MIN_TEXT, OFF_TOPIC, picksReader, readAnswer, textReader, type Answer, type Choice } from '../chat/answer'
+import { answered, answerFeed, ANSWER_SCHEMA, choiceOf, fill, MAX_BLOCKS, MIN_TEXT, OFF_TOPIC, picksReader, readAnswer, textReader, type Answer, type Choice } from '../chat/answer'
 import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
 import { fold, search, searchTopics } from '../chat/search'
 import { heldOf, topicsOf, type Topics } from '../chat/topics'
@@ -1170,10 +1170,12 @@ test('send_answer\'s input streams as a text answer does, from the first block t
 
 test('send_answer\'s input isn\'t held to the schema: a pick that isn\'t one is dropped by the filler, a suggestion or clash that isn\'t one left out, and the text still goes', async () => {
   const good = pick({ t: 'species', ids: ['paracheirodon-innesi'] })
-  expect(isChoice(good)).toBe(true)
-  const bad = [{ t: 'tool', tool: 'tank-mates' }, { ...good, t: 'card' }, { ...good, fish: [{ id: 'x' }] }, { ...good, tank: { l: 60 } }, { ...good, ids: 'x' }, null, 'species']
-  expect(bad.map(isChoice)).toEqual(bad.map(() => false))
-  const m = message([{ type: 'text', text: JSON.stringify({ offTopic: false, text: 'Cá neon xanh sống theo đàn.', covered: true, blocks: [bad[0], good], suggestions: ['Cá neon ăn gì?', 1, null], clashes: [{ a: { path: '/vi/ca/ca-neon-xanh/', passage: 'x' } }] }) }])
+  expect(choiceOf(good)).toEqual(good)
+  // A field left out is its empty value: a tank-mates pick with no fish is the filler's to judge, not a crash.
+  expect(choiceOf({ t: 'tool', tool: 'tank-mates' })).toEqual(pick({ t: 'tool', tool: 'tank-mates' }))
+  const bad = [{ ...good, t: 'card' }, { ...good, fish: [{ id: 'x' }] }, { ...good, tank: { l: 60 } }, { ...good, ids: 'x' }, { ...good, tool: 'heater' }, null, 'species']
+  expect(bad.map(choiceOf)).toEqual(bad.map(() => undefined))
+  const m = message([{ type: 'text', text: JSON.stringify({ offTopic: false, text: 'Cá neon xanh sống theo đàn.', covered: true, blocks: [bad[1], good], suggestions: ['Cá neon ăn gì?', 1, null], clashes: [{ a: { path: '/vi/ca/ca-neon-xanh/', passage: 'x' } }] }) }])
   const a = readAnswer(m)!
   expect([a.text, a.suggestions, a.clashes]).toEqual(['Cá neon xanh sống theo đàn.', ['Cá neon ăn gì?'], []])
   const { blocks, dropped } = await fill(a, await hb())
@@ -1227,7 +1229,7 @@ test('with the reader there, on the stream, the answer comes through send_answer
   })
   expect(said.join('')).toBe(text)
   expect(out).toMatchObject({ stopped: 'answer', calls: 2, answer: { text, covered: true } })
-  const tool = bodies[0]!.tools!.find(t => t.name === 'send_answer') as Anthropic.Tool
+  const tool = bodies[0]!.tools!.find(t => (t as Anthropic.Tool).name === 'send_answer') as Anthropic.Tool
   expect(tool).toMatchObject({ eager_input_streaming: true, input_schema: ANSWER_SCHEMA })
   expect(tool.strict).toBeUndefined()
   expect(bodies.map(b => b.system)).toEqual([`${SYSTEM}\n\n${ANSWER_LINE}`, `${SYSTEM}\n\n${ANSWER_LINE}`])
@@ -1235,7 +1237,7 @@ test('with the reader there, on the stream, the answer comes through send_answer
   for (const o of [{ onText: () => {} }, { until: () => Date.now() + 26_000 }]) {
     const seen: Anthropic.MessageCreateParamsNonStreaming[] = []
     await answerQuestion({ ...ask, ...o, send: async b => { seen.push(b); return message([{ type: 'text', text: raw }]) } })
-    expect(seen[0]!.tools!.map(t => t.name)).not.toContain('send_answer')
+    expect(seen[0]!.tools!.map(t => (t as Anthropic.Tool).name)).not.toContain('send_answer')
     expect(seen[0]!.system).toBe(SYSTEM)
   }
 })

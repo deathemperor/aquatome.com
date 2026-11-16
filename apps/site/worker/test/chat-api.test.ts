@@ -891,7 +891,8 @@ test('a streamed call is bounded end to end: one that stalls after its first byt
 describe('a call that has begun writing', () => {
   const event = (type: string, data: object) => `event: ${type}\ndata: ${JSON.stringify({ type, ...data })}\n\n`
   const start = event('message_start', { message: { id: 'm', type: 'message', role: 'assistant', model: 'claude-opus-5-5', content: [], stop_reason: null, stop_sequence: null, usage } })
-  const writes = event('content_block_start', { index: 0, content_block: { type: 'text', text: '' } }) + event('content_block_delta', { index: 0, delta: { type: 'text_delta', text: 'Nước' } })
+  // The chat's answer is its JSON (answer.ts `answerFeed`): words that aren't, before a tool call, aren't writing it.
+  const writes = event('content_block_start', { index: 0, content_block: { type: 'text', text: '' } }) + event('content_block_delta', { index: 0, delta: { type: 'text_delta', text: '{"offTopic":false,"text":"Nước' } })
   const ends = event('content_block_stop', { index: 0 }) + event('message_delta', { delta: { stop_reason: 'end_turn', stop_sequence: null }, usage: { output_tokens: 1 } }) + event('message_stop', {})
   const body = { model: 'claude-opus-5-5', max_tokens: 10, messages: [{ role: 'user' as const, content: 'hi' }] }
   /** A stream that sends `first` at once and, `ms` later, `then` (and ends), or nothing more with no `then`. */
@@ -905,7 +906,7 @@ describe('a call that has begun writing', () => {
   test('runs past its limit to the time left, so an answer on its way isn\'t lost', async () => {
     const said: string[] = []
     const m = await callClaude(await streams(start + writes, ends, 250), body, 100, d => said.push(d), undefined, 2000)
-    expect(said).toEqual(['Nước'])
+    expect(said).toEqual(['{"offTopic":false,"text":"Nước'])
     expect(m.stop_reason).toBe('end_turn')
   })
 
