@@ -264,6 +264,7 @@ if (cmd === 'photo-privacy') {
     if (report.needsHuman.length) console.log(`needs-human: ${report.needsHuman.join(', ')} — pass the browser check in the engine Chrome profile, then: pnpm engine run --sources <id> --retry-blocked`)
     if (report.movedToArchive.length) console.log(`moved to the Internet Archive: ${report.movedToArchive.join(', ')} (browser checks on ${ARCHIVE_AFTER_BLOCKS} runs within a week)`)
     for (const e of report.errors) console.log(`error: ${e}`)
+    for (const x of report.shopText) console.log(`shop text off: ${x}`)
     console.log(`changed: ${report.changed.length}`)
     if (cmd === 'card-fill') {
       const after = new Map((await cardGaps(join(ROOT, 'content'), order)).map(g => [g.id, g.missing]))
