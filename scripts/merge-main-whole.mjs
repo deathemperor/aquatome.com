@@ -83,7 +83,9 @@ function mergeList(base, ours, theirs, gone) {
     else return // the run took it off: off
     at.push(k)
   })
-  // What the run put in: after the item it follows in the run's list, or first.
+  // What the run put in: after the item it follows in the run's list (or first), and after what main put in there, so a
+  // place main's records point to (a breed's care figure to its source) stays where it was.
+  const mains = new Set(ko.filter(k => !inBase.has(k) && !t.has(k)))
   theirs.forEach((x, i) => {
     const k = kt[i]
     if (b.has(k) || o.has(k)) return // there already, or main took it off
@@ -92,20 +94,23 @@ function mergeList(base, ours, theirs, gone) {
       const before = at.indexOf(kt[j])
       if (before >= 0) { pos = before + 1; break }
     }
+    while (pos < at.length && mains.has(at[pos])) pos++
     out.splice(pos, 0, x)
     at.splice(pos, 0, k)
   })
   return out.every(x => isPicture(x) && typeof x.t === 'number') ? out.sort((p, q) => p.t - q.t) : out
 }
 
-/** An object, key by key. A picture under a key that either side took off is off; any other value that side left as it was. */
+/** An object, key by key. A key one side took off is off, unless the other side put a new value there: another picture
+ * (a swapped photo), or any other value changed. */
 function mergeObject(base, ours, theirs, gone) {
   const out = {}
+  const kept = (b, x) => (isPicture(b) ? isPicture(x) && x.url !== b.url : !eq(b, x))
   for (const k of new Set([...Object.keys(ours), ...Object.keys(theirs)])) {
     const inO = k in ours, inT = k in theirs, inB = k in base
     if (inO && inT) out[k] = merge3(inB ? base[k] : undefined, ours[k], theirs[k], gone)
-    else if (inO) { if (!inB || (!isPicture(base[k]) && !eq(base[k], ours[k]))) out[k] = ours[k] }
-    else if (!inB || (!isPicture(base[k]) && !eq(base[k], theirs[k]))) out[k] = theirs[k]
+    else if (inO) { if (!inB || kept(base[k], ours[k])) out[k] = ours[k] }
+    else if (!inB || kept(base[k], theirs[k])) out[k] = theirs[k]
   }
   return out
 }

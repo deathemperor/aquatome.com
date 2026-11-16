@@ -253,6 +253,12 @@ test("what either side took off the file stays off, however the other side chang
   // main moved the photo into a figure while the run took it off for a face
   expect(mergeMainWhole({ photos: [FACE], figures: [{ heading: 'A', moments: [s(1)] }] }, { photos: [], figures: [{ heading: 'A', photo: FACE, moments: [s(1)] }] },
     { photos: [], figures: [{ heading: 'A', moments: [s(1)] }] })).toEqual({ photos: [], figures: [{ heading: 'A', moments: [s(1)] }] })
+  // a figure's photo main swapped for another while the run took the old one off: main's new one
+  expect(mergeMainWhole({ figures: [{ heading: 'A', photo: FACE, moments: [s(1)] }] }, { figures: [{ heading: 'A', photo: { url: 'u/new' }, moments: [s(1)] }] },
+    { figures: [{ heading: 'A', moments: [s(1)] }] })).toEqual({ figures: [{ heading: 'A', photo: { url: 'u/new' }, moments: [s(1)] }] })
+  // both put a source in a breed's list: main's first, so main's care figure still points to its own
+  expect(mergeMainWhole({ sources: [{ url: 'u/s1' }] }, { sources: [{ url: 'u/s1' }, { url: 'u/main' }] }, { sources: [{ url: 'u/s1' }, { url: 'u/run' }] }))
+    .toEqual({ sources: [{ url: 'u/s1' }, { url: 'u/main' }, { url: 'u/run' }] })
   // a hero the run replaced (its photo was taken off), main having read the old one's credit again: the run's
   expect(mergeMainWhole({ hero: { url: 'u/h', author: '0' }, types: [{ photo: { url: 'u/n' } }] }, { hero: { url: 'u/h', author: 'main' }, types: [{ photo: { url: 'u/n' } }] },
     { hero: { url: 'u/n' }, types: [{ photo: { url: 'u/n' } }] })).toEqual({ hero: { url: 'u/n' }, types: [{ photo: { url: 'u/n' } }] })
