@@ -62,7 +62,8 @@ export function linkTargets(c: Content): LinkTarget[] {
   const size = (x: { t: { sections: Record<string, string> } }) => Object.values(x.t.sections).join('').length
   for (const s of [...c.species].sort((a, b) => size(b) - size(a))) out.push({ key: `species:${s.id}`, href: `/vi/ca/${s.t.slug}/`, names: [s.scientificName, s.t.name, ...s.t.altNames].filter(n => multiWord(n) && ok(n)) })
   // A plant's former scientific names are its own: "Rêu java (Vesicularia dubyana)" is the Java moss page.
-  for (const p of c.plants) out.push({ key: `plant:${p.id}`, href: `/vi/cay/${p.t.slug}/`, names: [p.scientificName, ...(p.synonyms ?? []), p.t.name, ...p.t.altNames].filter(n => multiWord(n) && ok(n)) })
+  // Its scientific name names its genus to the linker: a plant in brackets without a page here unlinks the name before it.
+  for (const p of c.plants) out.push({ key: `plant:${p.id}`, href: `/vi/cay/${p.t.slug}/`, names: [p.scientificName, ...(p.synonyms ?? []), p.t.name, ...p.t.altNames].filter(n => multiWord(n) && ok(n)), sci: p.scientificName })
   const taxa = new Map<string, LinkTarget>()
   for (const s of c.species) {
     const genus = taxonHref(s, 3), family = taxonHref(s, 2)
