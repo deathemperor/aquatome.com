@@ -5,12 +5,12 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 4339 | 3691 | 1547 | 57 | 46 | 203 | 39 | 1069 | 344 | 2608 | 479 | 8 | 9 | 0 | 2 | 4 | 3 | 0 |
-| Indonesian | 1449 | 1274 | 358 | 21 | 8 | 4 | 5 | 173 | 32 | 60 | 177 | 0 | 1 | 0 | 2 | 2 | 0 | 0 |
-| Thai | 1433 | 1238 | 337 | 18 | 4 | 5 | 4 | 154 | 38 | 83 | 163 | 0 | 0 | 0 | 1 | 2 | 0 | 0 |
-| Malay | 329 | 282 | 83 | 6 | 2 | 0 | 0 | 38 | 16 | 17 | 34 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Vietnamese | 4339 | 3689 | 1541 | 56 | 46 | 203 | 37 | 1062 | 344 | 2606 | 479 | 9 | 9 | 0 | 2 | 2 | 3 | 0 |
+| Indonesian | 1449 | 1275 | 357 | 22 | 8 | 4 | 5 | 172 | 32 | 63 | 175 | 0 | 1 | 0 | 2 | 2 | 0 | 0 |
+| Thai | 1436 | 1241 | 335 | 17 | 4 | 5 | 3 | 155 | 38 | 83 | 161 | 0 | 0 | 0 | 1 | 0 | 0 | 0 |
+| Malay | 335 | 294 | 84 | 6 | 2 | 0 | 0 | 39 | 16 | 18 | 34 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
-Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 10 of 140, Indonesian 2 of 54, Thai 2 of 53, Malay 1 of 17.
+Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 10 of 137, Indonesian 2 of 54, Thai 2 of 52, Malay 1 of 17.
 
 ## Doses on more than one page
 
@@ -47,7 +47,6 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - ampicillin: bacteria, wholeTank: 0.026 tablet/l, 0.025 tablet/l (2 pages)
 - bionoc 2: ich, wholeTank: 0.1 drop/l, 0.05 drop/l (1 pages)
 - bleach: disinfecting, dip: 47.368 ml/l (1 pages); algae, other: 0.125 litre/l (1 pages)
-- easy iron: plants, wholeTank: 0.025 ml/l, 0.526 drop/l (1 pages)
 - fritzzyme 7: other, wholeTank: 3.132 ml/l, 1.579 ml/l (1 pages)
 - fritzzyme 7 freshwater: other, wholeTank: 3.132 ml/l, 1.579 ml/l (1 pages)
 - metronidazole and praziquantel: quarantine, wholeTank: 0.027 packet/l (1 pages); parasites, wholeTank: 0.03 packet/l (1 pages)
@@ -88,10 +87,10 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - seachem fluorite: 13
 - easy fry and small fish food: 12
 - eheim: 12
-- fluval fx6: 12
 - hikari vibra bites: 12
 - apt fix: 11
 - aquario neo soil: 11
+- fluval fx6: 11
 - carib sea eco-complete: 10
 - ge silicone 1: 10
 - twinstar: 10
