@@ -85,10 +85,15 @@ struct OwnerOverview: View {
 
   private func figure(_ value: String) -> Text { Text(verbatim: value).font(.title.bold()).monospacedDigit() }
 
-  /// A change, in its tone (plain or muted: secondary).
+  /// A change: its figure ("+12%", the words' first) in its tone (plain or muted: secondary), the rest secondary.
   private func change(_ c: Owner.Chip) -> Text {
-    Text(verbatim: c.text).foregroundStyle(c.tone == .plain || c.tone == .muted ? Color.secondary : c.tone.color)
+    let figure = c.text.prefix { $0 != " " }, rest = c.text.dropFirst(figure.count)
+    return Text(verbatim: String(figure)).foregroundStyle(c.tone == .plain || c.tone == .muted ? Color.secondary : c.tone.color)
+      + Text(verbatim: String(rest)).foregroundStyle(.secondary)
   }
+
+  /// What the Readers card's figure counts, as the contract's `answers.figures` do.
+  static let thisWeek = "this week"
 
   /// What needs the owner, most pressing first, each a dot in its tone over its line; the rest counted. Nothing: the
   /// all-clear line, and the owner's last action under it. Opens every one of them on a page of its own.
@@ -102,8 +107,10 @@ struct OwnerOverview: View {
     name = name + Text(verbatim: label)
     if !d.needs.isEmpty { name = name + Text(verbatim: " · \(d.needs.count)").foregroundStyle(.secondary) }
     let shown = d.needs.prefix(Self.needsShown), more = d.needs.count - shown.count
-    let said = OwnerDraw.said(label, d.needs.isEmpty ? d.needsEmpty : String(d.needs.count), tone.said)
-      + shown.map { ", " + OwnerDraw.said($0.text, $0.sub, $0.tone.said) }.joined() + (more > 0 ? ", \(more) more" : "")
+    let head: String = OwnerDraw.said(label, d.needs.isEmpty ? d.needsEmpty : String(d.needs.count), tone.said)
+    let lines: [String] = shown.map { OwnerDraw.said($0.text, $0.sub, $0.tone.said) }
+    let rest: String? = more > 0 ? "\(more) more" : nil
+    let said = ([head] + lines + [rest].compactMap { $0 }).joined(separator: ", ")
     return card(name, "owner-card-needs", said: said, to: nil, needs: true) {
       if d.needs.isEmpty {
         Text(verbatim: d.needsEmpty).font(.subheadline)
@@ -135,8 +142,9 @@ struct OwnerOverview: View {
     let todays = p.kinds.compactMap(Self.today)
     let today: Int? = todays.isEmpty ? nil : todays.reduce(0, +)
     let window = p.kinds.compactMap(\.bars).first.map(Self.week)
-    let said = OwnerDraw.said(p.title, total.map { "\(Self.written($0)) pages" }, today.map { "\(Self.signed($0)) today" })
-      + p.kinds.map { k in ", " + OwnerDraw.said(k.label, k.total, Self.today(k).map { "\(Self.signed($0)) today" }) }.joined()
+    let head: String = OwnerDraw.said(p.title, total.map { Self.written($0) + " pages" }, today.map { Self.signed($0) + " today" })
+    let lines: [String] = p.kinds.map { k in OwnerDraw.said(k.label, k.total, Self.today(k).map { Self.signed($0) + " today" }) }
+    let said = ([head] + lines).joined(separator: ", ")
     return card(Text(verbatim: p.title), "owner-card-pages", said: said, to: section("noi-dung", d)) {
       HStack(alignment: .firstTextBaseline) {
         if let total { figure(Self.written(total)) + Text(verbatim: " pages").font(.subheadline.weight(.semibold)).foregroundStyle(.secondary) }
@@ -152,7 +160,10 @@ struct OwnerOverview: View {
               kindBars(k)
             }
           }
-          if let window { days(window) }
+          if let window {
+            days(window)
+            Text(verbatim: Self.written).font(.caption2).foregroundStyle(.secondary).accessibilityHidden(true)
+          }
         }
         .padding(.top, 4)
       } else {
@@ -168,7 +179,7 @@ struct OwnerOverview: View {
           }
           if let window {
             GridRow {
-              Color.clear.gridCellUnsizedAxes([.horizontal, .vertical])
+              Text(verbatim: Self.written).font(.caption2).foregroundStyle(.secondary).lineLimit(1).accessibilityHidden(true)
               days(window)
             }
           }
@@ -217,12 +228,16 @@ struct OwnerOverview: View {
   private func readersCard(_ d: Owner.Dashboard) -> AnyView {
     let f = d.answers?.figures.first { $0.label == "Readers" }, tile = d.tiles.first { $0.key == "answers" }
     let name = f?.label ?? "Readers", value = f?.value ?? tile?.value ?? "—"
-    let said = OwnerDraw.said(name, value, f?.delta?.text ?? (f == nil ? tile?.sub : nil), f?.delta?.tone.said ?? tile?.tone.said)
+    // Without the figure, the tile's line says why (the readers' beacon didn't load).
+    let line: String? = f == nil ? tile?.sub : f?.delta?.text
+    let tone: String? = f == nil ? tile?.tone.said : f?.delta?.tone.said
+    let said = OwnerDraw.said(name, value, f == nil ? nil : Self.thisWeek, line, tone)
     return card(Text(verbatim: name), "owner-card-readers", said: said, to: section("doc-gia", d)) {
       figure(value)
       Group {
         if let f {
-          if let delta = f.delta { change(delta) }
+          // The contract's readers are this week's so far; the change's figure in its tone, its words grey (the board).
+          Text(verbatim: Self.thisWeek + (f.delta == nil ? "" : " · ")).foregroundStyle(.secondary) + (f.delta.map(change) ?? Text(verbatim: ""))
           if let s = f.sub { Text(verbatim: s).foregroundStyle(.secondary) }
         } else if let tile, let s = tile.sub {
           Text(verbatim: s).foregroundStyle(tile.tone == .plain || tile.tone == .muted ? Color.secondary : tile.tone.color)
@@ -284,6 +299,9 @@ struct OwnerOverview: View {
   }
 
   // MARK: Figures
+
+  /// What a day's bar counts (the board's words): that night's count less the night before, held pages too.
+  static let written = "written a day"
 
   /// The last seven days of a kind's bars, up to today (or the last).
   static func week(_ b: Owner.Bars) -> Range<Int> {

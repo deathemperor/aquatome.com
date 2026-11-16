@@ -23,7 +23,7 @@ final class OwnerFlowTests: XCTestCase {
     // New pages: the kinds' totals added up and what today added so far, then a line a kind.
     XCTAssertEqual(card(app, "pages").label, "New pages, 1,132 pages, 0 today, Species pages, 730, 0 today, Guides, 310, 0 today, "
                    + "Video guides, 0, 0 today, Plant pages, 92, 0 today")
-    XCTAssertEqual(card(app, "readers").label, "Readers, 21, −12% vs the same point last week, needs fixing")
+    XCTAssertEqual(card(app, "readers").label, "Readers, 21, this week, −12% vs the same point last week, needs fixing")
     XCTAssertEqual(card(app, "shipped").label, "Shipped in 24 hours, 3, 1 site · 1 app · 1 engine, Comments held for review now show on the owner's dashboard.")
     XCTAssertEqual(card(app, "cost").label, "Fish ID cost, this week, $0.63, 58 Claude calls")
 
