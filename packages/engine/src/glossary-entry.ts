@@ -47,6 +47,12 @@ type Asks = {
    * 15 Nov 2026).
    */
   free?: string[]
+  /**
+   * Other names the entry no longer lists, as the saved entry writes them: other names are otherwise only added, so a
+   * wrong one stayed (the chief of staff, 16 Nov 2026: "dGH" under GH is its unit; "thức ăn viên" under dry food names
+   * one form, pellets).
+   */
+  notNames?: string[]
 }
 const ASKS = JSON.parse(readFileSync(new URL('./glossary-asks.json', import.meta.url), 'utf8')) as Record<string, Asks>
 const ENTRY_SCHEMA = {
@@ -484,7 +490,7 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     return facts.some(f => re.test(f.fact))
   }
   const linkable = (n: string) => (/\s/.test(n) || /[A-Z].*[A-Z0-9]|\d/.test(n)) && !taken.has(n.toLowerCase()) && quoted(n)
-  const own = new Set([vi.name.toLowerCase()])
+  const own = new Set([vi.name, ...(asks.notNames ?? [])].map(n => n.toLowerCase()))
   const altNames = [...vi.altNames, ...w.altNames.map(n => unescapePlain(n).trim()).filter(linkable)].filter(n => n && !own.has(n.toLowerCase()) && own.add(n.toLowerCase()))
   const ids = new Set(others.map(x => x.id))
   const next: GlossaryEntity = GlossarySchema.parse({ ...entity, refs, related: [...new Set(w.related)].filter(r => ids.has(r)).slice(0, 6) })

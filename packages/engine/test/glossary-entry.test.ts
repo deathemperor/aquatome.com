@@ -917,3 +917,25 @@ test('a kind word the table allows before a scientific name doesn\'t stop a save
   expect(wrong.r).toMatchObject({ id: 'lua', skipped: 'stopped by 1 note' })
   expect((wrong.r as { notes: string[] }).notes).toContain('Rule 6: "cá trê Aulonocara": "trê" is the word for other animals, not for Cichlidae (the table of kind words).')
 })
+
+// The chief of staff, 16 Nov 2026: other names were only ever added, so a wrong one stayed: "dGH" under GH is its unit,
+// and "thức ăn viên" under dry food names one form. A term's notes take a name off, saved or newly written.
+test('a name the term\'s notes take off leaves its other names, saved or newly written', async () => {
+  const asks = JSON.parse(await readFile(new URL('../src/glossary-asks.json', import.meta.url), 'utf8')) as Record<string, { notNames?: string[] }>
+  expect(asks.gh!.notNames).toEqual(['dGH'])
+  expect(asks['thuc-an-kho']!.notNames).toEqual(['thức ăn viên'])
+  const root = await site()
+  await mkdir(join(root, 'content/glossary/gh'), { recursive: true })
+  await writeFile(join(root, 'content/glossary/gh/entity.json'), JSON.stringify({ id: 'gh', en: 'General hardness' }))
+  await writeFile(join(root, 'content/glossary/gh/vi.json'), JSON.stringify({ slug: 'gh', name: 'GH', altNames: ['dGH', 'độ cứng tổng'], sections: {}, definition: 'Độ cứng tổng của nước.', quality: { score: 0.9, indexable: true } }))
+  const named: TopicFacts = { ...facts, facts: [...facts.facts, { section: 'other', fact: 'Keepers here write "độ cứng chung" for GH and measure it in dGH', source: 1 }] }
+  const llm: Llm = async ({ prompt }) => {
+    if (prompt.startsWith('GLOSSARY RULES')) return { notes: [] } as never
+    if (isCheck(prompt)) return verdicts(prompt) as never
+    return { definition: 'GH là độ cứng tổng của nước.', altNames: ['dGH', 'độ cứng chung'], body: '<h3>Trong bể của bạn</h3><p>GH đo canxi và magie trong nước.</p>', related: [] } as never
+  }
+  const r = await makeGlossaryEntry(root, { research: async () => named as never, llm }, 'gh', { kind: 'care' })
+  expect(r).toMatchObject({ id: 'gh', score: 1 })
+  const vi = JSON.parse(await readFile(join(root, 'content/glossary/gh/vi.json'), 'utf8'))
+  expect(vi.altNames).toEqual(['độ cứng tổng', 'độ cứng chung'])
+})
