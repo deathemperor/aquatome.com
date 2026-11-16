@@ -1,0 +1,81 @@
+{
+  "id": "hyalobagrus-ornatus",
+  "native": {
+    "input": "dd1422233b2a0c4f",
+    "at": "2026-11-16T00:17:52.050Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Muar River at Tubing Tinggi, Malaysia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Muar drainage in southern Malay Peninsula, Malaysia and Kapuas basin in western Borneo, Indonesia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Muar drainage in southern Malay Peninsula, Malaysia and Kapuas basin in western Borneo, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Muar",
+        "source": "planetcatfish",
+        "quote": "Asia: Muar drainage in southern Malay Peninsula, Malaysia and Kapuas basin in western Borneo, Indonesia.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Kapuas",
+        "source": "planetcatfish",
+        "quote": "Asia: Muar drainage in southern Malay Peninsula, Malaysia and Kapuas basin in western Borneo, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Malay Peninsula",
+        "source": "planetcatfish",
+        "quote": "Asia: Muar drainage in southern Malay Peninsula, Malaysia and Kapuas basin in western Borneo, Indonesia.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "planetcatfish",
+        "quote": "Asia: Muar drainage in southern Malay Peninsula, Malaysia and Kapuas basin in western Borneo, Indonesia.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyalobagrus ornatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2338092,
+    "datasets": [],
+    "native": [
+      "MY",
+      "ID"
+    ],
+    "requests": 2,
+    "at": "2026-11-16T00:17:52.050Z"
+  }
+}

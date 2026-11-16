@@ -1224,5 +1224,76 @@
       "quickFacts:tropica": "a3dcf5a5253e",
       "notes:tropica": "040700e237ad"
     }
+  },
+  "glossostigma-elatinoides": {
+    "at": "2026-11-15",
+    "from": "2026-11-14",
+    "name": "Glosso",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "\"tangki bertumbuhan\" is awkward for \"planted tanks\"; use \"tangki bertanaman\" or \"planted tank\".",
+      "\"famili Phrymaceae\": the English gloss \"lopseed family\" is dropped; optionally add \"famili lopseed\".",
+      "\"Tanam dengan penyepit, tanam anak pokok hingga...\" repeats \"tanam\"; rephrase as \"Tanam dengan penyepit dan tanam anak pokok sehingga hanya daun kelihatan\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "df2d730f4a3c",
+      "quickFacts:aquariumbreeder": "5fdf59697245",
+      "distribution:aquariumbreeder": "ff51df00aaf4",
+      "habitat:aquariumbreeder": "47f628bc0309",
+      "maintenance:tropica": "a05a85abd59f",
+      "maintenance:aquariumbreeder": "d7d6768a820d",
+      "notes:tropica": "1561001f69cd",
+      "notes:aquariumbreeder": "89c3e687f6b8"
+    }
+  },
+  "gratiola-viscidula": {
+    "at": "2026-11-16",
+    "from": "2026-10-30",
+    "name": "Gratiola viscidula",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"tumbuhan batang\" is acceptable, but \"tumbuhan berbatang\" is more natural (optional)",
+      "\"tumbuhan karpet\" could be \"tumbuhan permaidani\" or \"karpet\" for carpeting; \"almost carpeting\" is slightly altered to \"like a carpet plant\" (minor)"
+    ],
+    "parts": {
+      "quickFacts:tropica": "3f73edfeb797",
+      "notes:tropica": "83a460f672ea"
+    }
+  },
+  "helanthium-bolivianum": {
+    "at": "2026-11-16",
+    "from": "2026-10-30",
+    "name": "Echinodorus Quadricostatus",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"Sebelum ini dikenali sebagai Echinodorus 'Quadricostatus'\" repeats the name given at the start of the text (a source quirk); it is faithful, but check that it reads clearly.",
+      "\"dasar tangki\" is fine, but \"substrat\" or \"dasar akuarium\" is more usual in the hobby.",
+      "\"Asal: Amerika Selatan\" would read more naturally as \"Asal usul\" or \"Asalan\".",
+      "\"Roset\" for Rosulate is acceptable, but \"berroset\" is more natural.",
+      "\"nutrien mikro\" is better written as \"mikronutrien\" or \"nutrien surih\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "247c05791b7f",
+      "notes:tropica": "95fdf5e8ad81"
+    }
+  },
+  "helanthium-tenellum": {
+    "at": "2026-11-16",
+    "from": "2026-10-30",
+    "name": "Helanthium tenellum 'Green'",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 1: \"tangki\" is acceptable, but \"akuarium\" is more natural for the hobby context (\"dalam akuarium\").",
+      "Item 2: \"lapisan dasar\" could be the more hobby-standard \"substrat\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "76457b006b81",
+      "maintenance:tropica": "0ab12626cdd7",
+      "notes:tropica": "81835eaf6307"
+    }
   }
 }

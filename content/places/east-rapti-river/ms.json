@@ -3,6 +3,12 @@
   "name": "Rapti Timur",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.35,
+    "at": "2026-11-16T00:07:08.730Z",
+    "why": "\"Rapti Timur\" translates \"East\" word by word and omits the Malay kind word \"Sungai\"; an atlas would write \"Sungai East Rapti\" (or \"Sungai Rapti Timur\" at best)."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

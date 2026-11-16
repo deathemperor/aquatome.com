@@ -972,12 +972,27 @@
     ]
   },
   "glossostigma-elatinoides": {
-    "at": "2026-10-31",
-    "from": "2026-10-30",
+    "at": "2026-11-15",
+    "from": "2026-11-14",
     "name": "กลอสโซ่",
     "confidence": "high",
-    "score": 0.97,
-    "notes": []
+    "score": 0.8,
+    "notes": [
+      "Item 8: \"ปลาแคระ (otocinclus)\" is too vague. Use the hobby name \"ปลาอ็อตโต\" (ออโตซินคลัส).",
+      "Item 8: \"ปลาเตตร้าเลือด\" for bleeding heart tetra is not a standard hobby name. Use \"ปลาเตตร้าหัวใจเลือดออก\" or similar.",
+      "Item 8: \"หอยเขาแกะ\" and \"หอยแบล็คเดวิล\" are inconsistent with the other snail names. Check them against terms Thai hobbyists actually use (for example ramshorn is often \"หอยแรมฮอร์น\").",
+      "Item 8: \"ปลาหมูอินโด\" for clown loach is not the commonest term. \"ปลาหมูอารีย์\" is more recognisable to Thai hobbyists."
+    ],
+    "parts": {
+      "quickFacts:tropica": "df2d730f4a3c",
+      "quickFacts:aquariumbreeder": "5fdf59697245",
+      "distribution:aquariumbreeder": "ff51df00aaf4",
+      "habitat:aquariumbreeder": "47f628bc0309",
+      "maintenance:tropica": "a05a85abd59f",
+      "maintenance:aquariumbreeder": "d7d6768a820d",
+      "notes:tropica": "1561001f69cd",
+      "notes:aquariumbreeder": "89c3e687f6b8"
+    }
   },
   "gratiola-viscidula": {
     "at": "2026-11-01",
@@ -1271,18 +1286,31 @@
     ]
   },
   "lilaeopsis-brasiliensis": {
-    "at": "2026-11-03",
-    "from": "2026-10-30",
+    "at": "2026-11-15",
+    "from": "2026-11-15",
     "name": "ไมโครซอร์ด",
     "confidence": "medium",
     "score": 0.85,
-    "notes": [
-      "Item 1: \"Type: Stolon\" rendered as \"ไม้น้ำที่แตกต้นใหม่ด้วยไหล\" is a wordy paraphrase; shorter \"แตกไหล\" or \"ไหล (Stolon)\" would read better in a spec list.",
-      "Item 2: \"high light intensity\" as \"แสงจ้ามาก\" is slightly loose; \"แสงสูง/ความเข้มแสงสูง\" is the usual hobby wording.",
-      "Item 2: \"พรมสนามหญ้า\" for \"lawn effect\" is awkward; use \"เป็นพรมหญ้า\" or \"carpet/lawn\".",
-      "Item 2: \"ห่างกันสักไม่กี่เซนติเมตร\" is clumsy; use \"ห่างกันไม่กี่เซนติเมตร\".",
-      "Item 3: \"บ่อในสวน\" is slightly awkward; \"บ่อน้ำในสวน\" is more natural."
-    ]
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "5793d8c669df",
+      "maintenance:tropica": "8a0fbdb97f63",
+      "notes:tropica": "e54125693440"
+    },
+    "failed": {
+      "at": "2026-11-15T23:42:43.885Z",
+      "parts": {
+        "quickFacts:aquariumbreeder": "b9e110bbf4a1",
+        "distribution:aquariumbreeder": "98f051d07e09",
+        "habitat:aquariumbreeder": "781360c1bfda",
+        "aquariumSize:aquariumbreeder": "e08e9223d8ef",
+        "maintenance:aquariumbreeder": "24a0518b4f04",
+        "waterConditions:aquariumbreeder": "42fe85c14ff0",
+        "equipment:aquariumbreeder": "67cdda69b89f",
+        "behaviour:aquariumbreeder": "c8fc08f55194",
+        "notes:aquariumbreeder": "0f46d53c3935"
+      }
+    }
   },
   "limnobium-laevigatum": {
     "at": "2026-11-09",

@@ -3,6 +3,12 @@
   "name": "Arenillas",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.45,
+    "at": "2026-11-16T00:12:37.887Z",
+    "why": "The source uses Arenillas as a river (one of the Guayas, Arenillas, Puyango and Zaracay rivers), so the bare name \"Arenillas\" drops the word \"Sungai\" that Indonesian uses for a river."
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

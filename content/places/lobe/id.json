@@ -3,6 +3,12 @@
   "name": "Lobé",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-16T00:13:53.955Z",
+    "why": "\"Lobé\" is a French-style spelling of a place name in Cameroon; the place is described as a region, so Indonesian atlases would likely write it with a kind word, such as \"Sungai Lobé\" if it is a river, or just \"Lobe\", so the bare name is uncertain."
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

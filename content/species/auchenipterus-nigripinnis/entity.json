@@ -23,8 +23,8 @@
       ],
       "regions": [
         "La Plata",
-        "Rio Paraná",
-        "Rio Paraguay"
+        "Rio de La Plata",
+        "Rio Paraná"
       ],
       "sources": [
         "glaser",
@@ -53,11 +53,18 @@
         },
         {
           "source": "scotcat",
+          "quote": "Known only from the Rio de La Plata drainage.",
+          "countries": [],
+          "regions": [
+            "Rio de La Plata"
+          ]
+        },
+        {
+          "source": "scotcat",
           "quote": "In the Rio Paraná, the species has been recorded above the junction of the Rio Paraguay.",
           "countries": [],
           "regions": [
-            "Rio Paraná",
-            "Rio Paraguay"
+            "Rio Paraná"
           ]
         }
       ]
