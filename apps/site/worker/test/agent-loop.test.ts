@@ -249,6 +249,9 @@ test('answerBy: while the reader is there (until moving), the run reads until an
   expect(await choices(now => now + 26_000, 20_000)).toEqual([['auto', 'auto', 'auto', 'auto', 'none'], 'time'])
   // Last seen at 0: until stays at 26 s, and pace holds against it: after a 5 s call, 21 s left, under 5 + 4 × 5 s.
   expect(await choices(() => 26_000, 20_000)).toEqual([['auto', 'none'], 'time'])
+  // Last seen at 6 s: by the check at 10 s until is 4 s behind its lead, past THERE_MS, so pace answers at the third
+  // call with 22 s left; told by until moving during the call before, the run would read on to a fourth.
+  expect(await choices(now => Math.min(now, 6_000) + 26_000, 20_000)).toEqual([['auto', 'auto', 'none'], 'time'])
 })
 
 describe('askWord', () => {
@@ -279,6 +282,19 @@ describe('askWord', () => {
     expect(ran).toEqual([{ q: 'x' }])
     expect(toolResults(c.calls[2]!.body).filter(t => t.type === 'tool_result').map(t => [t.content, t.is_error])).toEqual([['Not run: the time for tools is up. Answer with what you have.', true]])
     expect(r).toMatchObject({ stopped: 'time', asked: 'read', calls: 3, tools: 1 })
+    // On the tool limit, the refusal says so.
+    const d = script([() => asks([{ name: 'echo', input: { q: 'x' } }]), () => asks([{ name: 'echo', input: { q: 'y' } }]), () => answers()])
+    await runAgent(input(d.send, { limits: { tools: 1 }, ...words }))
+    expect(toolResults(d.calls[2]!.body).filter(t => t.type === 'tool_result').map(t => t.content)).toEqual(['Not run: no more tool calls. Answer with what you have.'])
+  })
+
+  test('an asked call cut short or refused is no answer to the ask: the run ends on it, with nothing recorded as obeyed', async () => {
+    for (const stop of ['max_tokens', 'refusal']) {
+      const clock = { now: 0, per: [5_000, 5_000] }
+      const c = script([() => asks([{ name: 'echo', input: { q: 'x' } }]), () => answers('{"text":"Nuôi', stop)], clock)
+      const r = await runAgent(input(c.send, { clock: () => clock.now, pace, ...words }))
+      expect([r.stopped, r.asked, r.message?.stop_reason], stop).toEqual(['time', undefined, stop])
+    }
   })
 
   test('never on the last call nor on the input trigger, where one more call would pass what the hold counts: those are forced as before', async () => {

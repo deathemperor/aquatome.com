@@ -90,17 +90,21 @@ export const answerTool = {
 }
 
 /**
- * Which block of a message is its answer: the first that answers, a text block with words in it or a send_answer call.
- * The stream shows that block (`answerFeed`) and the run reads it (`answered`), so the reader reads what is kept.
+ * Which block of a message is its answer: the first that answers, a text block of the answer's JSON or a send_answer call.
+ * Words before a tool call ("Now I'll send the answer.") aren't one. The stream shows that block (`answerFeed`) and the
+ * run reads it (`answered`), so the reader reads what is kept.
  */
-const answers = (b: Anthropic.ContentBlock) => (b.type === 'text' && b.text.trim() !== '') || (b.type === 'tool_use' && b.name === SEND_ANSWER)
+const json = (text: string) => text.trimStart().startsWith('{')
+const answers = (b: Anthropic.ContentBlock) => (b.type === 'text' && json(b.text)) || (b.type === 'tool_use' && b.name === SEND_ANSWER)
 
 /**
- * A message that answered through send_answer, as one that answered in text: its input as the JSON text, and reading
- * tools asked for beside it dropped. One cut short keeps its stop reason, and `readAnswer` then reads no answer from it.
+ * A message as one answer: one that answered through send_answer, as one that answered in text, its input as the JSON
+ * text, and the words and reading tools beside it dropped; one that answered in text, with other words beside it dropped.
+ * One cut short keeps its stop reason, and `readAnswer` then reads no answer from it.
  */
 export function answered(m: Anthropic.Message): Anthropic.Message {
   const first = m.content.find(answers)
+  if (first?.type === 'text') return m.content.some(b => b.type === 'text' && b !== first) ? { ...m, content: m.content.filter(b => b.type !== 'text' || b === first) } : m
   if (first?.type !== 'tool_use') return m
   return { ...m, content: [{ type: 'text', text: JSON.stringify(first.input), citations: null }], stop_reason: m.stop_reason === 'tool_use' ? 'end_turn' : m.stop_reason }
 }
@@ -111,14 +115,22 @@ export function answered(m: Anthropic.Message): Anthropic.Message {
  */
 export function answerFeed(): (e: Anthropic.MessageStreamEvent) => string | undefined {
   const calls = new Set<number>()
+  /** A text block's words so far, until its first character says whether it is the answer's JSON. */
+  const held = new Map<number, string>()
+  const words = new Set<number>()
   let fed: number | undefined
   return e => {
     if (e.type === 'content_block_start' && e.content_block.type === 'tool_use' && e.content_block.name === SEND_ANSWER) calls.add(e.index)
     if (e.type !== 'content_block_delta') return undefined
-    const piece = e.delta.type === 'text_delta' ? e.delta.text : e.delta.type === 'input_json_delta' && calls.has(e.index) ? e.delta.partial_json : undefined
-    if (!piece || (fed === undefined ? piece.trim() === '' : fed !== e.index)) return undefined
+    if (fed !== undefined) return fed === e.index ? (e.delta.type === 'text_delta' ? e.delta.text : e.delta.type === 'input_json_delta' ? e.delta.partial_json : undefined) || undefined : undefined
+    if (e.delta.type === 'input_json_delta' && calls.has(e.index) && e.delta.partial_json.trim() !== '') { fed = e.index; return e.delta.partial_json }
+    if (e.delta.type !== 'text_delta' || words.has(e.index)) return undefined
+    const text = (held.get(e.index) ?? '') + e.delta.text
+    if (text.trim() === '') { held.set(e.index, text); return undefined }
+    held.delete(e.index)
+    if (!json(text)) { words.add(e.index); return undefined }
     fed = e.index
-    return piece
+    return text
   }
 }
 
@@ -146,11 +158,27 @@ export function readAnswer(m: Anthropic.Message): Answer | undefined {
   try {
     const a = JSON.parse(text) as Answer
     if (a.offTopic === true) return { offTopic: true, text: '', covered: true, blocks: [], suggestions: [], clashes: [] }
-    return typeof a.text === 'string' && a.text.trim().length >= MIN_TEXT && typeof a.covered === 'boolean' && Array.isArray(a.blocks) && Array.isArray(a.suggestions) ? { ...a, offTopic: false, clashes: Array.isArray(a.clashes) ? a.clashes : [] } : undefined
+    // send_answer's input isn't held to the schema as a text answer is (not strict): a suggestion that isn't words, or a
+    // clash that isn't two places, is left out, and a pick that isn't one is the filler's to drop (`isChoice`).
+    return typeof a.text === 'string' && a.text.trim().length >= MIN_TEXT && typeof a.covered === 'boolean' && Array.isArray(a.blocks) && Array.isArray(a.suggestions)
+      ? { ...a, offTopic: false, suggestions: a.suggestions.filter(x => typeof x === 'string'), clashes: Array.isArray(a.clashes) ? a.clashes.filter(isClash) : [] }
+      : undefined
   } catch {
     return undefined
   }
 }
+
+const str = (v: unknown): v is string => typeof v === 'string'
+const strOrNull = (v: unknown) => v === null || typeof v === 'string'
+const num = (v: unknown) => typeof v === 'number' && Number.isFinite(v)
+const obj = (v: unknown): v is Record<string, unknown> => !!v && typeof v === 'object' && !Array.isArray(v)
+const isPlace = (v: unknown) => obj(v) && str(v.path) && str(v.passage)
+const isClash = (v: unknown): v is Clash => obj(v) && isPlace(v.a) && isPlace(v.b)
+/** A pick as the schema has it (send_answer's input, unlike a text answer's, isn't held to it). */
+export const isChoice = (v: unknown): v is Choice => obj(v) && (BLOCKS as readonly unknown[]).includes(v.t) && Array.isArray(v.ids) && v.ids.every(str)
+  && strOrNull(v.path) && strOrNull(v.heading) && (v.tool === null || (TOOLS as readonly unknown[]).includes(v.tool))
+  && Array.isArray(v.fish) && v.fish.every(f => obj(f) && str(f.id) && num(f.count))
+  && (v.tank === null || (obj(v.tank) && num(v.tank.l) && num(v.tank.w) && num(v.tank.h))) && strOrNull(v.tankId)
 
 const SPACE = new Set([' ', '\t', '\n', '\r'])
 /**
@@ -409,6 +437,7 @@ export function filler(hb: Handbook, checks: readonly MatesCheck[] = [], shownBe
   return {
     add: async (p: Choice): Promise<ChatBlock | undefined> => {
       if (picks++ >= MAX_BLOCKS) return undefined
+      if (!isChoice(p)) { dropped.push(`not a pick: ${JSON.stringify(p).slice(0, 120)}`); return undefined }
       const b = await one(p)
       const again = typeof b === 'string' ? [] : repeatKey(b).filter(k => seen.has(k))
       if (typeof b === 'string') dropped.push(b)

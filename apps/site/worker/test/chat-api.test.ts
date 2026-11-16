@@ -648,14 +648,15 @@ test('the stream: a reader still there gets the longer turn\'s calls; one who le
     return { fetch, bodies }
   }
   const recordOf = (conversation: string) => [...store.m.keys()].filter(k => k.startsWith('chat-run/')).map(k => store.read<ChatRunRecord>(k)!).find(r => r.conversation === conversation)!
-  // There all along: every step it is sent lands, so the turn's 10 calls are what end it, not the time.
+  // There all along: every step it is sent lands, so it reads on to 20 s (ANSWER_BY), 8 calls of 2.5 s; the 9th is asked to
+  // answer through send_answer and reads instead, and the 10th must answer. The transcript says the ask was read past.
   const there = slow()
   const thereWaits: Promise<unknown>[] = []
   const thereReq = ask(bearer(me.token), {}, { accept: 'text/event-stream' })
   const read = (await chat(thereReq, new URL(thereReq.url), e, new Date(), deps(there.fetch, { clock }), p => { thereWaits.push(p) })).text()
   await Promise.all(thereWaits)
   await read
-  expect(recordOf(CONV).agent).toMatchObject({ calls: 10, stopped: 'calls' })
+  expect(recordOf(CONV).agent).toEqual({ calls: 10, tools: 8, stopped: 'time', asked: 'read' })
   expect(recordOf(CONV).timing!.seen).toBeGreaterThanOrEqual(recordOf(CONV).timing!.answered!)
   // Gone at once: 26 s from then (the platform's 30 less the save's 4), the pace's rule forces the answer at the 4th call;
   // the turn is kept for their return.

@@ -4,8 +4,8 @@ import type Anthropic from '@anthropic-ai/sdk'
 import type { PageDoc } from '@aq/schema/app-page'
 import { LANGS } from '@aq/schema/langs'
 import { expect, test, vi } from 'vitest'
-import { answerQuestion, ANSWER_LINE, CHAT_LIMITS, NO_THINKING, firstMessage, openedTank, HANDBOOK, HANDOVER_MS, LAST_TRY, LAST_WORD, MAX_TOKENS, OPENING_SYSTEM, SYSTEM, unaccented, type ChatOptions, type Start } from '../chat/agent'
-import { answered, answerFeed, ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, OFF_TOPIC, picksReader, readAnswer, textReader, type Answer, type Choice } from '../chat/answer'
+import { answerQuestion, ANSWER_LINE, ASK_WORD, CHAT_LIMITS, NO_THINKING, firstMessage, openedTank, HANDBOOK, HANDOVER_MS, LAST_TRY, LAST_WORD, MAX_TOKENS, OPENING_SYSTEM, SYSTEM, unaccented, type ChatOptions, type Start } from '../chat/agent'
+import { answered, answerFeed, ANSWER_SCHEMA, fill, isChoice, MAX_BLOCKS, MIN_TEXT, OFF_TOPIC, picksReader, readAnswer, textReader, type Answer, type Choice } from '../chat/answer'
 import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
 import { fold, search, searchTopics } from '../chat/search'
 import { heldOf, topicsOf, type Topics } from '../chat/topics'
@@ -1150,13 +1150,64 @@ test('send_answer\'s input streams as a text answer does, from the first block t
   const text = '{"offTopic":false,"text":"Nuôi theo đàn từ 6 con.","covered":true,"blocks":[],"suggestions":[]}'
   const other = answerFeed()
   expect([begins(0, { type: 'text', text: '' }), writes(0, { type: 'text_delta', text: '\n' }), writes(0, { type: 'text_delta', text }), begins(1, use('t1', 'send_answer', {})), writes(1, { type: 'input_json_delta', partial_json: raw[0]! })]
-    .map(other).filter(p => p !== undefined)).toEqual([text])
+    .map(other).filter(p => p !== undefined)).toEqual([`\n${text}`])
   const both = message([{ type: 'text', text: `\n${text}` }, use('t1', 'send_answer', JSON.parse(raw.join('')))], 'tool_use')
   expect(answered(both)).toBe(both)
+  // Words before the call ("Now I'll send the answer."): not the answer. The call's input is shown and read, and the words
+  // dropped; so too words before a text answer.
+  const said = answerFeed()
+  expect([begins(0, { type: 'text', text: '' }), writes(0, { type: 'text_delta', text: ' Giờ mình' }), writes(0, { type: 'text_delta', text: ' gửi câu trả lời.' }),
+    begins(1, use('t1', 'send_answer', {})), ...raw.map(r => writes(1, { type: 'input_json_delta', partial_json: r }))].map(said).filter(p => p !== undefined)).toEqual(raw)
+  const after = answered(message([{ type: 'text', text: 'Giờ mình gửi câu trả lời.' }, use('t1', 'send_answer', JSON.parse(raw.join('')))], 'tool_use'))
+  expect([after.stop_reason, readAnswer(after)?.text]).toEqual(['end_turn', 'Nuôi theo đàn.'])
+  const worded = answered(message([{ type: 'text', text: 'Giờ mình trả lời.' }, { type: 'text', text }]))
+  expect([worded.content.length, readAnswer(worded)?.text]).toEqual([1, 'Nuôi theo đàn từ 6 con.'])
   // Cut short, it is no answer, whatever it wrote; a reading call is no answer either.
   expect(readAnswer(answered(message([use('t1', 'send_answer', { offTopic: false, text: 'Nuôi theo đàn' })], 'max_tokens')))).toBeUndefined()
   const reads = message([readPage], 'tool_use')
   expect(answered(reads)).toBe(reads)
+})
+
+test('send_answer\'s input isn\'t held to the schema: a pick that isn\'t one is dropped by the filler, a suggestion or clash that isn\'t one left out, and the text still goes', async () => {
+  const good = pick({ t: 'species', ids: ['paracheirodon-innesi'] })
+  expect(isChoice(good)).toBe(true)
+  const bad = [{ t: 'tool', tool: 'tank-mates' }, { ...good, t: 'card' }, { ...good, fish: [{ id: 'x' }] }, { ...good, tank: { l: 60 } }, { ...good, ids: 'x' }, null, 'species']
+  expect(bad.map(isChoice)).toEqual(bad.map(() => false))
+  const m = message([{ type: 'text', text: JSON.stringify({ offTopic: false, text: 'Cá neon xanh sống theo đàn.', covered: true, blocks: [bad[0], good], suggestions: ['Cá neon ăn gì?', 1, null], clashes: [{ a: { path: '/vi/ca/ca-neon-xanh/', passage: 'x' } }] }) }])
+  const a = readAnswer(m)!
+  expect([a.text, a.suggestions, a.clashes]).toEqual(['Cá neon xanh sống theo đàn.', ['Cá neon ăn gì?'], []])
+  const { blocks, dropped } = await fill(a, await hb())
+  expect([blocks.map(b => b.t), dropped.length]).toEqual([['species'], 1])
+  expect(dropped[0]).toMatch(/^not a pick: /)
+})
+
+test('asked by a limit, the answer through send_answer streams: the call keeps its tools, told to answer, and its answer ends the run as an obeyed ask', async () => {
+  // Calls of 6 s with the reader there: three read, and a fourth would end past 20 s, so it is asked to answer.
+  let now = 0
+  const text = 'Cá neon xanh sống theo đàn từ 6 con, nước 20–26 °C.'
+  const raw = `{"offTopic": false, "text": ${JSON.stringify(text)}, "covered": true, "blocks": [], "suggestions": [], "clashes": []}`
+  const bodies: Anthropic.MessageCreateParamsNonStreaming[] = []
+  const said: string[] = []
+  const lastWords = (b: Anthropic.MessageCreateParamsNonStreaming) => (b.messages.at(-1)!.content as Anthropic.ContentBlockParam[]).flatMap(x => (x.type === 'text' ? [x.text] : [])).at(-1)
+  const out = await answerQuestion({
+    model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: await hb(), tanks: async () => [],
+    clock: () => now, until: () => now + 26_000, onText: p => said.push(p),
+    send: async (b, o) => {
+      bodies.push(structuredClone(b))
+      now += 6_000
+      if (lastWords(b) !== ASK_WORD) return message([{ ...readPage, id: `t${bodies.length}` }], 'tool_use')
+      // As the stream feeds it: words before the call are no part of it.
+      const feed = answerFeed()
+      const events = [{ type: 'content_block_start', index: 0, content_block: { type: 'text', text: '' } }, { type: 'content_block_delta', index: 0, delta: { type: 'text_delta', text: 'Giờ mình gửi.' } },
+        { type: 'content_block_start', index: 1, content_block: { type: 'tool_use', id: 'ta', name: 'send_answer', input: {} } },
+        ...raw.match(/.{1,9}/gs)!.map(partial_json => ({ type: 'content_block_delta', index: 1, delta: { type: 'input_json_delta', partial_json } }))] as Anthropic.MessageStreamEvent[]
+      for (const e of events) { const piece = feed(e); if (piece !== undefined) o.onText?.(piece) }
+      return message([{ type: 'text', text: 'Giờ mình gửi.' }, { type: 'tool_use', id: 'ta', name: 'send_answer', input: JSON.parse(raw) }], 'tool_use')
+    },
+  })
+  expect(bodies.map(b => [b.tool_choice?.type, lastWords(b) === ASK_WORD])).toEqual([['auto', false], ['auto', false], ['auto', false], ['auto', true]])
+  expect(said.join('')).toBe(text)
+  expect(out).toMatchObject({ stopped: 'time', asked: 'answered', calls: 4, answer: { text } })
 })
 
 test('with the reader there, on the stream, the answer comes through send_answer: offered with its input streamed, not strict, and named in the instructions; what it writes reaches the reader as written, and is the answer', async () => {
