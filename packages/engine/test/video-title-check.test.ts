@@ -1,5 +1,5 @@
 import { existsSync } from 'node:fs'
-import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
+import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
@@ -199,6 +199,19 @@ test('two languages checked side by side keep both their stops: each language\'s
   const [vi, th] = await Promise.all([runTitleCheck(root, llm, 'vi', { write: true }), runTitleCheck(root, llm, 'th', { write: true })])
   expect([vi.stopped, th.stopped]).toEqual([line, line])
   for (const lang of ['vi', 'th']) expect(JSON.parse(await readFile(join(dir, `${lang}.stopped.json`), 'utf8')), lang).toEqual({ why: line })
+})
+
+// The second reader of #1463, 16 Nov: one language run twice at once leaves a whole stop file, and no file of either run's
+// own beside it.
+test('one language checked twice at once leaves one whole stop file and nothing else beside the titles', async () => {
+  const { root, ids, titles } = await many(300)
+  const dir = join(root, 'content/video-titles')
+  await writeFile(join(dir, 'vi.json'), JSON.stringify(titles))
+  const bad = new Set(ids.slice(0, 23))
+  const llm: Llm = async <T>({ prompt }: { prompt: string }) => ({ checks: rowsOf(prompt).map((l, j) => (bad.has(/Aus (v\d+)/.exec(l)![1]!) ? { n: j + 1, ok: false, kind: 'dropped', why: 'x' } : { n: j + 1, ok: true })) }) as T
+  await Promise.all([runTitleCheck(root, llm, 'vi', { write: true }), runTitleCheck(root, llm, 'vi', { write: true })])
+  expect(JSON.parse(await readFile(join(dir, 'vi.stopped.json'), 'utf8'))).toEqual({ why: 'over one in ten refused at 200 titles: 23 of 200' })
+  expect((await readdir(dir)).filter(f => f.endsWith('.tmp'))).toEqual([])
 })
 
 test('--only never takes a language past its stop: the titles read before are counted whatever it picks (the reviewers of the check, 16 Nov)', async () => {

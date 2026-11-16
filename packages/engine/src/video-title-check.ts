@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs'
-import { mkdir, readdir, readFile, rename, writeFile } from 'node:fs/promises'
+import { randomUUID } from 'node:crypto'
+import { mkdir, readdir, readFile, rename, rm, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { pageFish, speaksPageLang, type Lang } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
@@ -122,11 +123,7 @@ export async function runTitleCheck(root: string, llm: Llm, lang: Lang, o: { tit
   const titles = Object.fromEntries(Object.entries(JSON.parse(await readFile(o.titlesFile ?? join(dir, `${lang}.json`), 'utf8')) as Record<string, string>).filter(([id]) => !(id in kept)))
   const verdicts = o.write ? { refused: await readMap(join(dir, `${lang}.refused.json`)), passed: await readMap(join(dir, `${lang}.passed.json`)) } : undefined
   const r = await checkVideoTitles(root, llm, lang, titles, { only: o.only, verdicts, stopped: o.write ? stop : undefined, record: o.write ? checks => recordVerdicts(root, lang, checks, titles) : undefined })
-  // Written whole, then put in place: a run reading it never meets half a file (the reader of #1463, 16 Nov).
-  if (o.write && r.line && r.line !== stop) {
-    await writeFile(`${stopFile}.tmp`, `${JSON.stringify({ why: r.line }, null, 2)}\n`)
-    await rename(`${stopFile}.tmp`, stopFile)
-  }
+  if (o.write && r.line && r.line !== stop) await writeWhole(stopFile, `${JSON.stringify({ why: r.line }, null, 2)}\n`)
   return r
 }
 
@@ -155,11 +152,18 @@ export function checkOutcome(lang: Lang, r: Awaited<ReturnType<typeof checkVideo
   return { lines, exitCode }
 }
 
+/** A file written whole under a name of this run's own, then put in place: a run reading it never meets half a file, and
+ * two runs never write the same temporary file (the readers of #1463, 16 Nov). */
+async function writeWhole(file: string, text: string) {
+  const tmp = `${file}.${process.pid}-${randomUUID()}.tmp`
+  await writeFile(tmp, text)
+  await rename(tmp, file).catch(async err => { await rm(tmp, { force: true }); throw err })
+}
 const readMap = async (file: string) => JSON.parse(await readFile(file, 'utf8').catch(() => '{}')) as Record<string, string>
 /** A map written sorted, as the title files are; untouched where nothing changed, so a run that changes nothing leaves no file behind. */
 const saveMap = async (file: string, before: Record<string, string>, after: Record<string, string>) => {
   const sorted = Object.fromEntries(Object.entries(after).sort(([a], [b]) => a.localeCompare(b)))
-  if (JSON.stringify(sorted) !== JSON.stringify(Object.fromEntries(Object.entries(before).sort(([a], [b]) => a.localeCompare(b))))) await writeFile(file, `${JSON.stringify(sorted, null, 2)}\n`)
+  if (JSON.stringify(sorted) !== JSON.stringify(Object.fromEntries(Object.entries(before).sort(([a], [b]) => a.localeCompare(b))))) await writeWhole(file, `${JSON.stringify(sorted, null, 2)}\n`)
 }
 
 /**
