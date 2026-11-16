@@ -56,7 +56,8 @@ function mergeSections(prev: Section[], prevVi: Record<string, string>, page: Pr
   if (isShop(ctx.source)) {
     for (const [k, p] of parts) {
       const { en, tr } = withoutShopTalk(p.en, { vi: p.vi })
-      if (en !== p.en) dropped.push(`${k}:${ctx.source} (${en ? 'blocks' : 'the section'})`)
+      // A part a person fixed keeps its text whatever the source says (below): it isn't listed as cut.
+      if (en !== p.en && !fixed.has(k)) dropped.push(`${k}:${ctx.source} (${en ? 'blocks' : 'the section'})`)
       if (en) parts.set(k, { ...p, en, vi: tr.vi })
       else parts.delete(k)
     }

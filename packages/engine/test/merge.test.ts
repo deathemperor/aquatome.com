@@ -54,6 +54,11 @@ test('a shop\'s own talk stays off the page; another source\'s "we" is its own',
   expect(shop.vi.sections).toEqual({ 'beforeYouBuy:bwaquatics': '<p>Bắt tự nhiên ở Kalimantan.</p>' })
   // Each cut is listed, as the sweep lists its own: none is silent.
   expect(shop.dropped).toEqual(['beforeYouBuy:bwaquatics (blocks)', 'diet:bwaquatics (the section)'])
+  // A part a person fixed stays on the page whatever the shop's page says: it isn't listed as cut.
+  const fixedDiet = { ...shop.entity.sections[0]!, key: 'diet' as const, html: '<p>Fixed.</p>', fixed: true as const }
+  const again = mergeSpecies({ entity: { ...shop.entity, sections: [...shop.entity.sections, fixedDiet] }, vi: shop.vi }, page({ sections }), { ...ctx('glaser'), source: 'bwaquatics' as const })
+  expect(again.entity.sections.find(s => s.key === 'diet')?.html).toBe('<p>Fixed.</p>')
+  expect(again.dropped).toEqual(['beforeYouBuy:bwaquatics (blocks)'])
   const plain = mergeSpecies({}, page({ sections }), ctx('seriouslyfish'))
   expect(plain.entity.sections).toHaveLength(2)
   expect(plain.dropped).toBeUndefined()
