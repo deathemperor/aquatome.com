@@ -231,7 +231,7 @@ export function titleNames(c: Content, g: Localized<GuideEntity>): Named[] {
  * doesn't show yet (lib/pictures.ts).
  *
  * A video guide: its still picked by hand (framePicked), else its own video's stills that pass the stills' bar
- * (stillShown: no one in them, sharp, large enough), in the video's order, before what its title names. Never the stock
+ * (stillShown: no one in them, sharp, large enough), in its parts' order as its text runs, before what its title names. Never the stock
  * photo the picture step found for one of its parts, which its section keeps (the owner, 16 Nov: an office ceiling light
  * on a coffee-table tank's series; that day's count found most such photos show no fish and no plant). One with neither
  * takes a guide card's own look, as one that borrows no fish does (the chief of staff, 16 Nov).
@@ -270,7 +270,7 @@ const borrowed = (c: Content, g: Localized<GuideEntity>, held: (p: Photo) => boo
 /**
  * A video guide's picture picked by hand from its own video (guide-frames.json: the guide's id → the second of one of its
  * sections' stills, so in every language), and its only one: its card, the app's poster, and its series' card where it
- * comes first. A page that already shows it gives the guide's card no picture rather than a stock photo (lib/pictures.ts).
+ * is the first part with a picture. A page that already shows it gives the guide's card no picture rather than a stock photo (lib/pictures.ts).
  * For a guide whose first still that passes isn't the one to show; the sections keep their photos. Only a still the
  * stills' own bar shows (stillShown), so a pick never puts a person on a card. None where the guide has no such still at
  * that second, and then the usual pictures.
@@ -367,5 +367,5 @@ function refOf(c: Content, x: Named): string {
   return m.get(x)!
 }
 
-/** A guide's picture: its own photo, else one from its video's sections, else the first fish, plant or breed its title names. */
+/** A guide's card picture (guideImages): its own photo or a still of its own video, else the first fish, plant or breed its title names. */
 export const guideImage = (c: Content, g: Localized<GuideEntity>): Photo | undefined => guideImages(c, g)[0]

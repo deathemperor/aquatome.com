@@ -2,7 +2,7 @@ import { expect, test } from 'vitest'
 import { CurationSchema, fitsCard, LANGS, type Content, type Photo } from '@aq/schema'
 import { PageDoc } from '@aq/schema/app-page'
 import { APP_GUIDE_COVERS, APP_WHOLE_PHOTOS, appGuideImage, appIndex, cardSrc, photoBox, refusedByCards } from '../src/lib/app-index'
-import { appPages, fishDoc, guideDoc } from '../src/lib/app-page'
+import { appPages, fishDoc, guideDoc, videoDoc } from '../src/lib/app-page'
 import { getContent } from '../src/lib/content'
 import { guideParts } from '../src/lib/guide-page'
 import { resizeOf, smallSrc } from '../src/lib/img'
@@ -262,4 +262,38 @@ test("a guide with no card picture keeps the one it had in the app's index and p
   const off = coversOff as Record<string, string>
   off[g.id] = 'a test'
   try { expect(app(false)).toEqual([undefined, undefined]) } finally { delete off[g.id] }
+}, 240_000)
+
+// A series' card is its first part that has a picture, in the app too (the chief of staff, 16 Nov); while the app has no
+// designed cover, a part with none under the site's rule keeps the one it had, in the series' list as on its own card.
+test("a series' card in the app is its first part that has a picture; a part with none keeps the one it had while the switch is off", async () => {
+  const vi = await getContent('vi')
+  const s = vi.series.find(x => x.id === 'PLtest')!
+  const was = vi.guides.find(g => g.id === 'youtube-vl1Lx9iWDYU')!
+  const still = guideImage(vi, was)!
+  expect(still.source).toBe('youtube')
+  // Its first part has no still and a title that names nothing, so no card picture, but a section's photo it had.
+  const first = {
+    ...was, id: 'youtube-testfirst', t: { ...was.t, name: 'Không nhắc loài nào', slug: 'phan-mot-khong-anh' }, photos: [],
+    video: { ...was.video!, youtubeId: 'testfirst', series: { id: s.id, position: 0 }, figures: was.video!.figures!.map(f => ({ ...f, moments: [] })) },
+  }
+  const second = { ...was, video: { ...was.video!, series: { id: s.id, position: 1 } } }
+  const c = { ...vi, guides: [...vi.guides.filter(g => g.id !== was.id), first, second] }
+  expect(guideImage(c, first)).toBeUndefined()
+  const before = guideImageBefore(c, first)!
+  expect(before).toBeDefined()
+  const app = (on: boolean) => {
+    const prev = APP_GUIDE_COVERS.on
+    APP_GUIDE_COVERS.on = on
+    try {
+      const doc = videoDoc('vi', c, s), list = doc.blocks.find(b => b.t === 'cards')
+      return {
+        card: appIndex('vi', c).items.find(i => i.kind === 'video' && i.id === s.id)?.img,
+        lead: doc.lead?.src,
+        parts: list && list.t === 'cards' ? list.items.map(i => i.img?.src) : [],
+      }
+    } finally { APP_GUIDE_COVERS.on = prev }
+  }
+  expect(app(false)).toEqual({ card: cardSrc(still), lead: still.url, parts: [smallSrc(before), smallSrc(still)] })
+  expect(app(true)).toEqual({ card: cardSrc(still), lead: still.url, parts: [undefined, smallSrc(still)] })
 }, 240_000)

@@ -263,12 +263,14 @@ export const APP_WHOLE_PHOTOS = { on: true }
  */
 export const APP_GUIDE_COVERS = { on: false }
 const OFF = coversOff as Record<string, string>
-/** A guide's picture in the app's data: its card's (guideImage), else, while APP_GUIDE_COVERS is off, the one it had. */
+/** A guide's picture in the app's data: its card's (guideImage), else, while APP_GUIDE_COVERS is off, the one it had, but
+ * for a guide whose old picture shows what it isn't about (guide-covers-off.json). */
 export const appGuideImage = (c: Content, g: Localized<GuideEntity>): Photo | undefined =>
   guideImage(c, g) ?? (APP_GUIDE_COVERS.on || Object.hasOwn(OFF, g.id) ? undefined : guideImageBefore(c, g))
-/** A series' card in the app: its first part that has a picture (seriesImage), else its first part's, as a guide's. */
+/** A series' card in the app: its first part that has a card picture (seriesImage), else its first part with a picture in
+ * the app's data (appGuideImage). */
 export const appSeriesImage = (c: Content, guides: Localized<GuideEntity>[]): Photo | undefined =>
-  seriesImage(c, guides) ?? (guides[0] && appGuideImage(c, guides[0]))
+  seriesImage(c, guides) ?? guides.map(g => appGuideImage(c, g)).find(p => !!p)
 const realPhoto = (photos: Photo[]) => photos.find(p => !p.generated)
 /**
  * The one photo a page's card and its head both show, for a fish, a breed or a plant: the page's first photo that isn't
