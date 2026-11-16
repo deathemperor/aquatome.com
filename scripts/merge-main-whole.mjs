@@ -5,97 +5,108 @@
 // main's side, %B the run's.
 // Until 16 Nov these merged line by line, and the push fallback (`git pull --rebase -X theirs`) took the run's lines where
 // both changed and main's elsewhere: a part photo kept its address with another photo's credit, a still main's new frame
-// with the run's caption and "no one in it" mark (8, 9, 15 and 16 Nov 2026). So no record is ever built from two versions:
-// - the file is main's, every record whole as main has it;
-// - a picture the run took off (an address in the base and not in the run's) comes off main's too: a face, a person held
-//   for a second look, a mark. Nothing else puts those back off (the sweep re-applies only the never-again list);
-// - a picture the run put in that main doesn't have goes in whole, where the run put it: in the same list, a video's
-//   figure found by its heading. One whose place main no longer has stays out;
-// - the run's edits to a record main has too are dropped (a still it judged gets its verdict again from its address).
-// A summary card: main's whole file, unless the run took main's approved card back to pending (its own check found a
-// problem); then the run's whole file. An approval never goes onto text it didn't read.
+// with the run's caption and "no one in it" mark (8, 9, 15 and 16 Nov 2026). So a picture (an object with a `url`) is
+// never built from two versions. The file merges three ways, value by value:
+// - a value one side changed is that side's; one both changed is main's, a date the later;
+// - a list of pictures, or of a video's figures (found by heading), merges item by item: a picture is whole from one
+//   side, main's if both changed it. One either side took off is off, whatever the other did to it: a face, a person held
+//   for a second look, a mark (nothing else puts those back off; the sweep re-applies only the never-again list). One
+//   either side put in goes in whole, after the item it follows on that side; stills stay in order of their second;
+// - any other list both changed is main's, whole.
+// A summary card is one text with its review: main's whole file, unless main's card is the approved one the run started
+// from and the run took it back to pending; then the run's whole file. An approval never goes onto text it didn't read.
 // Anything that isn't JSON (the review page, rewritten whole each run): main's.
 // git config merge.main-whole.driver 'node scripts/merge-main-whole.mjs %O %A %B %P'
 import { readFileSync, writeFileSync } from 'node:fs'
 import { pathToFileURL } from 'node:url'
 
 const isObj = v => v !== null && typeof v === 'object' && !Array.isArray(v)
-const isRecord = v => isObj(v) && typeof v.url === 'string'
+const isPicture = v => isObj(v) && typeof v.url === 'string'
+const eq = (a, b) => JSON.stringify(a) === JSON.stringify(b)
+const DATE = /^\d{4}-\d{2}-\d{2}/
+/** What finds an item of a list on the other sides: a picture by its address, a figure by its heading. */
+const keyOf = x => (isPicture(x) ? `url:${x.url}` : isObj(x) && typeof x.heading === 'string' ? `heading:${x.heading}` : undefined)
+const keyed = (...lists) => lists.every(l => l.every(x => keyOf(x) !== undefined))
 
-/** Every address a record has anywhere in `v`. Records aren't looked into. */
+/** Three-way merge of a value: `base` undefined when both sides added it. */
+export function merge3(base, ours, theirs) {
+  if (eq(ours, theirs)) return ours
+  if (base !== undefined && eq(base, theirs)) return ours
+  if (base !== undefined && eq(base, ours)) return theirs
+  if (isPicture(ours) || isPicture(theirs)) return ours
+  if (Array.isArray(ours) && Array.isArray(theirs)) {
+    const b = Array.isArray(base) ? base : []
+    return keyed(b, ours, theirs) ? mergeList(b, ours, theirs) : ours
+  }
+  if (isObj(ours) && isObj(theirs)) return mergeObject(isObj(base) ? base : {}, ours, theirs)
+  if (typeof ours === 'string' && typeof theirs === 'string' && DATE.test(ours) && DATE.test(theirs)) return ours > theirs ? ours : theirs
+  return ours
+}
+
+/** A list of pictures or figures, item by item. */
+function mergeList(base, ours, theirs) {
+  const map = list => { const m = new Map(); for (const x of list) if (!m.has(keyOf(x))) m.set(keyOf(x), x); return m }
+  const [b, o, t] = [map(base), map(ours), map(theirs)]
+  const out = []
+  for (const x of ours) {
+    const k = keyOf(x)
+    if (t.has(k)) out.push(merge3(b.get(k), x, t.get(k)))
+    else if (!b.has(k)) out.push(x) // main put it in
+    else if (!isPicture(x) && !eq(b.get(k), x)) out.push(x) // a figure the run took off and main changed: main's
+    // else the run took it off: off
+  }
+  // What the run put in: after the item it follows in the run's list, or first.
+  theirs.forEach((x, i) => {
+    const k = keyOf(x)
+    if (b.has(k) || o.has(k) || out.some(y => keyOf(y) === k)) return // there already, or main took it off
+    let at = 0
+    for (let j = i - 1; j >= 0; j--) {
+      const before = out.findIndex(y => keyOf(y) === keyOf(theirs[j]))
+      if (before >= 0) { at = before + 1; break }
+    }
+    out.splice(at, 0, x)
+  })
+  return out.every(x => isPicture(x) && typeof x.t === 'number') ? out.sort((p, q) => p.t - q.t) : out
+}
+
+/** An object, key by key. A picture under a key that either side took off is off; any other value that side left as it was. */
+function mergeObject(base, ours, theirs) {
+  const out = {}
+  for (const k of new Set([...Object.keys(ours), ...Object.keys(theirs)])) {
+    const inO = k in ours, inT = k in theirs, inB = k in base
+    if (inO && inT) out[k] = merge3(inB ? base[k] : undefined, ours[k], theirs[k])
+    else if (inO) { if (!inB || (!isPicture(base[k]) && !eq(base[k], ours[k]))) out[k] = ours[k] }
+    else if (!inB || (!isPicture(base[k]) && !eq(base[k], theirs[k]))) out[k] = theirs[k]
+  }
+  return out
+}
+
+/** A summary card, whole: the run's only when it took the approved card main still has back to pending. */
+export const mergeSummary = (base, ours, theirs) =>
+  (base?.review === 'approved' && ours.review === 'approved' && theirs.review !== 'approved' ? theirs : ours)
+const isSummary = v => isObj(v) && typeof v.review === 'string' && typeof v.summary === 'string'
+
+/** Every address a picture has anywhere in `v`. Pictures aren't looked into. */
 function addresses(v, out = new Set()) {
-  if (isRecord(v)) out.add(v.url)
+  if (isPicture(v)) out.add(v.url)
   else if (Array.isArray(v)) v.forEach(x => addresses(x, out))
   else if (isObj(v)) Object.values(v).forEach(x => addresses(x, out))
   return out
 }
 
-/** `v` without the records whose address is in `gone`: out of their lists, or the key that holds one. */
-function without(v, gone) {
-  if (Array.isArray(v)) return v.filter(x => !(isRecord(x) && gone.has(x.url))).map(x => without(x, gone))
-  if (isRecord(v)) return v
-  if (isObj(v)) return Object.fromEntries(Object.entries(v).filter(([, x]) => !(isRecord(x) && gone.has(x.url))).map(([k, x]) => [k, without(x, gone)]))
-  return v
-}
-
-/** Each record of `v` with its place: the keys down to it, a list item that isn't a record found by its `heading`. */
-function placed(v, path = [], out = []) {
-  if (Array.isArray(v)) {
-    for (const x of v) {
-      if (isRecord(x)) out.push({ record: x, path, inList: true })
-      else if (isObj(x) && typeof x.heading === 'string') placed(x, [...path, { heading: x.heading }], out)
-    }
-  } else if (isObj(v) && !isRecord(v)) {
-    for (const [k, x] of Object.entries(v)) {
-      if (isRecord(x)) out.push({ record: x, path: [...path, { key: k }], inList: false })
-      else placed(x, [...path, { key: k }], out)
-    }
-  }
-  return out
-}
-
-/** The value at `path` in `v`, or undefined. */
-function at(v, path) {
-  for (const step of path) {
-    if ('key' in step) v = isObj(v) ? v[step.key] : undefined
-    else v = Array.isArray(v) ? v.find(x => isObj(x) && x.heading === step.heading) : undefined
-    if (v === undefined) return undefined
-  }
-  return v
-}
-
-/** The merge of a picture file: main's, less what the run took off, with what the run put in. Counts in `said`. */
-export function mergePictures(base, ours, theirs, said = { off: 0, in: 0 }) {
-  const before = addresses(base), run = addresses(theirs)
-  const gone = new Set([...before].filter(u => !run.has(u)))
-  const out = without(structuredClone(ours), gone)
-  said.off = [...addresses(ours)].filter(u => gone.has(u)).length
-  const has = addresses(out)
-  for (const { record, path, inList } of placed(theirs)) {
-    if (before.has(record.url) || has.has(record.url)) continue
-    if (inList) {
-      const list = at(out, path)
-      if (!Array.isArray(list)) continue
-      list.push(structuredClone(record))
-    } else {
-      const parent = at(out, path.slice(0, -1)), key = path[path.length - 1].key
-      if (!isObj(parent) || key in parent) continue
-      parent[key] = structuredClone(record)
-    }
-    has.add(record.url)
-    said.in++
-  }
-  return out
-}
-
-/** A summary card: main's whole, unless the run took main's approved card back to pending. */
-export const mergeSummary = (ours, theirs) => (ours.review === 'approved' && theirs.review !== 'approved' ? theirs : ours)
-
-/** The merged file, or `ours` itself when main's whole file stands. */
-export function mergeMainWhole(base, ours, theirs, said = { off: 0, in: 0 }) {
+/** The merged file. `said`: pictures of main's it took off, pictures it put in, and whether it is the run's card. */
+export function mergeMainWhole(base, ours, theirs, said = {}) {
   if (!isObj(ours) || !isObj(theirs)) return ours
-  if (typeof ours.review === 'string' && typeof theirs.review === 'string' && 'summary' in ours) return mergeSummary(ours, theirs)
-  return mergePictures(isObj(base) ? base : {}, ours, theirs, said)
+  if (isSummary(ours) && isSummary(theirs)) {
+    const out = mergeSummary(isObj(base) ? base : undefined, ours, theirs)
+    said.card = out === theirs && out !== ours
+    return out
+  }
+  const out = merge3(isObj(base) ? base : undefined, ours, theirs)
+  const before = addresses(ours), after = addresses(out)
+  said.off = [...before].filter(u => !after.has(u)).length
+  said.in = [...after].filter(u => !before.has(u)).length
+  return out
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
@@ -109,9 +120,9 @@ if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
     console.error(`merge-main-whole: ${path}: ${e.message}`)
     process.exit(1) // JSON that doesn't read: left to git, and the run keeps its work back
   }
-  const said = { off: 0, in: 0 }
+  const said = {}
   const out = mergeMainWhole(parsed[0], parsed[1], parsed[2], said)
-  const runs = out === parsed[2] && out !== parsed[1]
-  if (runs || said.off || said.in) writeFileSync(ours, `${JSON.stringify(out, null, 2)}\n`)
-  console.error(`merge-main-whole: ${path}: ${runs ? "the run's card, back to pending" : `main's file${said.off ? `, less ${said.off} the run took off` : ''}${said.in ? `, with ${said.in} the run put in` : ''}`}`)
+  if (!eq(out, parsed[1])) writeFileSync(ours, `${JSON.stringify(out, null, 2)}\n`)
+  console.error(`merge-main-whole: ${path}: ${said.card ? "the run's card, back to pending"
+    : eq(out, parsed[1]) ? "main's file" : `merged${said.off ? `, ${said.off} of main's pictures off` : ''}${said.in ? `, ${said.in} of the run's in` : ''}`}`)
 }

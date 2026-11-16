@@ -171,7 +171,7 @@ test('what the run took off stays off, what it put in goes in whole, and a card 
   // the card the run's check took back to pending: the run's, whole
   expect(r.pushed('content/summaries/ca-x.json')).toEqual(card('pending', 'Cá dễ nuôi.'))
   expect(r.err).toContain("merge-main-whole: content/summaries/ca-x.json: the run's card, back to pending")
-  expect(r.err).toContain('merge-main-whole: content/gallery/ca-x.json: main\'s file, less 1 the run took off')
+  expect(r.err).toContain("merge-main-whole: content/gallery/ca-x.json: merged, 1 of main's pictures off")
 })
 
 test("a summary card: an approval never goes onto text it didn't read, and a run's approval of old text gives way", () => {
@@ -181,6 +181,8 @@ test("a summary card: an approval never goes onto text it didn't read, and a run
   expect(mergeMainWhole(card('pending', 'Cũ'), card('approved', 'Mới'), card('approved', 'Cũ khác'))).toEqual(card('approved', 'Mới'))
   // main approved, the run's check took it back to pending: the run's
   expect(mergeMainWhole(card('approved', 'Cũ'), card('approved', 'Cũ', 'x'), card('pending', 'Cũ'))).toEqual(card('pending', 'Cũ'))
+  // a person approved it on main while the run, from a pending card, wrote it again pending: main's approval stands
+  expect(mergeMainWhole(card('pending', 'Cũ'), card('approved', 'Cũ'), card('pending', 'Mới'))).toEqual(card('approved', 'Cũ'))
 })
 
 test("a picture the run put in goes nowhere main no longer has, and a record main changed stays main's", () => {
@@ -195,6 +197,46 @@ test("a picture the run put in goes nowhere main no longer has, and a record mai
   // a record both kept, edited on both: main's, whole
   const p = (author: string) => ({ url: 'u/p', author, licence: author })
   expect(mergeMainWhole({ photos: [p('0')] }, { photos: [p('main')] }, { photos: [p('run')] })).toEqual({ photos: [p('main')] })
+})
+
+test("the run's moves, new figures, playlist and plain values go in; stills keep their order; a picture is never mixed", () => {
+  const P = { url: 'u/p', author: 'a' }, Q = { url: 'u/q', author: 'q' }
+  const s = (t: number, caption = `c${t}`) => ({ url: `u/at${t}`, t, caption })
+  // the run moved a part photo into its figure; main put another photo in
+  expect(mergeMainWhole({ photos: [P], video: { figures: [{ heading: 'A', moments: [] }] } },
+    { photos: [P, Q], video: { figures: [{ heading: 'A', moments: [] }] } },
+    { photos: [], video: { figures: [{ heading: 'A', moments: [], photo: P }] } }))
+    .toEqual({ photos: [Q], video: { figures: [{ heading: 'A', moments: [], photo: P }] } })
+  // a new figure the run wrote goes in after the one it follows, while main changed the first
+  expect(mergeMainWhole({ video: { figures: [{ heading: 'A', moments: [s(10)] }] } },
+    { video: { figures: [{ heading: 'A', moments: [s(12)] }] } },
+    { video: { figures: [{ heading: 'A', moments: [s(10)] }, { heading: 'B', moments: [s(40)] }] } }))
+    .toEqual({ video: { figures: [{ heading: 'A', moments: [s(12)] }, { heading: 'B', moments: [s(40)] }] } })
+  // a still the run put in before main's goes in by its second
+  expect(mergeMainWhole({ m: [s(1900)] }, { m: [s(1910), s(2500)] }, { m: [s(1900), s(1950)] })).toEqual({ m: [s(1910), s(1950), s(2500)] })
+  // a playlist: the run's new video and main's new title both stay
+  expect(mergeMainWhole({ title: 'x', videoIds: ['1', '2'] }, { title: 'y', videoIds: ['1', '2'] }, { title: 'x', videoIds: ['1', '2', '3'] }))
+    .toEqual({ title: 'y', videoIds: ['1', '2', '3'] })
+  // plain values: the side that changed one; both, a date the later, anything else main's
+  expect(mergeMainWhole({ updatedAt: '2026-11-15', title: 'a', seen: 1, taxa: ['x'] }, { updatedAt: '2026-11-16', title: 'a', seen: 2, taxa: ['x', 'y'] },
+    { updatedAt: '2026-11-17', title: 'b', seen: 3, taxa: ['x', 'z'] })).toEqual({ updatedAt: '2026-11-17', title: 'b', seen: 2, taxa: ['x', 'y'] })
+  // a picture main changed and the run took off: off. One the run changed and main took off: off
+  expect(mergeMainWhole({ photos: [P, Q] }, { photos: [{ ...P, author: 'main' }] }, { photos: [{ ...Q, author: 'run' }] })).toEqual({ photos: [] })
+})
+
+test("only the engine's clones and GitHub's engine run set the driver", () => {
+  const dir = mkdtempSync(join(tmpdir(), 'aq-main-whole-guard-'))
+  const set = (cwd: string, env = '') => spawnSync('bash', ['-c', `
+    set -e; unset GITHUB_ACTIONS GITHUB_WORKFLOW_REF; ${env}
+    export HOME="${dir}" GIT_CONFIG_GLOBAL=/dev/null
+    mkdir -p "${cwd}" && cd "${cwd}" && git init -q .
+    source "${join(ROOT, 'scripts/cycle-checks.sh')}"
+    ${GUARDED}
+    git config merge.main-whole.driver || echo unset`], { encoding: 'utf8' }).stdout.trim()
+  expect(set(`${dir}/.local/share/aquatome/engine-photos`)).toBe('node scripts/merge-main-whole.mjs %O %A %B %P')
+  expect(set(`${dir}/lead-checkout`)).toBe('unset')
+  expect(set(`${dir}/runner`, 'export GITHUB_ACTIONS=true GITHUB_WORKFLOW_REF=o/r/.github/workflows/engine.yml@refs/heads/main')).toBe('node scripts/merge-main-whole.mjs %O %A %B %P')
+  expect(set(`${dir}/ci`, 'export GITHUB_ACTIONS=true GITHUB_WORKFLOW_REF=o/r/.github/workflows/ci.yml@refs/heads/main')).toBe('unset')
 })
 
 test("the six kinds take the driver, and the pages' language files keep merging as text, for their holds", () => {

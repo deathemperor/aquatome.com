@@ -43,9 +43,9 @@ engine-state/fit-summary.json merge=regenerated
 # Files two engine jobs both write that no driver above merges: a guide's or a breed's pictures, an album, a playlist, a
 # page's summary card, the photo review page. Until 16 Nov they merged line by line, and the push fallback (`git pull
 # --rebase -X theirs`) gave a part photo another photo's credit, and a still another still's caption and "no one in it"
-# mark (8, 9, 15 and 16 Nov 2026). Now no record is built from two versions: main's file, with what the run took off
-# taken off and what it put in put in, each record whole; a summary card main's whole, unless the run took main's
-# approved card back to pending (scripts/merge-main-whole.mjs). Only the engine's clones set this driver (the job
+# mark (8, 9, 15 and 16 Nov 2026). Now no picture is built from two versions: the file merges value by value, each
+# picture whole from one side, main's where both changed it; a picture either side took off stays off; a summary card is
+# taken whole (scripts/merge-main-whole.mjs). Only the engine's clones set this driver (the job
 # scripts); elsewhere (leads' checkouts, GitHub's merges) these merge as text, as before. Not the pages' language files:
 # main's file there would drop a hold the run added, and their holds follow main_holds (scripts/cycle-checks.sh).
 content/guides/*/entity.json merge=main-whole
