@@ -12,6 +12,7 @@ import { droppedName, FISH_NAMES, KIND_PASSAGES, ownWords, type FishName, type K
 import { withLNumber } from './l-numbers'
 import { pickStands, readPersonYes } from './person-yes'
 import { EMPTY_CAP, refusedOn, type PhotoVerdict } from './photo-check'
+import { CAPTIONED } from './captions'
 import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmails, dropEmailsDeep, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, fixTranslation, hasEmail, isAdPoster, isMediaFile, mayHoldEmail, notAlive, isMap, unwellOff, NAMED_KINDS, renameFishNames, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields, type PageKind } from './pages'
 import { foldPages } from './page-folds'
@@ -330,17 +331,20 @@ export async function nameFish(content: string, rows: readonly FishName[] = FISH
 
 /**
  * A renamed fish's old name (names.ts FISH_NAMES) in the photos' captions, written as its name, and each caption's
- * translations kept under its new words (content/captions/<lang>.json is keyed by the Vietnamese). A row's own photos, in
- * its gallery and on its page, say what its own page calls it (names.ts ownWords). The files changed.
+ * translations kept under its new words (content/captions/<lang>.json is keyed by the Vietnamese). The photos are the
+ * galleries' and the pages' (CAPTIONED, as captions.ts reads them). A row's own photos, in its gallery and on its page, say
+ * what its own page calls it (names.ts ownWords). The files changed.
  */
 export async function renameCaptions(content: string, rows: readonly FishName[] = FISH_NAMES): Promise<string[]> {
   const changed: string[] = []
   const rekey = new Map<string, string>()
   const own = rows.filter(r => r.own).flatMap(r => [[`gallery/${r.id}.json`, r], [`${r.kind ?? 'species'}/${r.id}/entity.json`, r]] as const)
-  const files = [...(await readdir(join(content, 'gallery')).catch(() => [] as string[])).filter(x => x.endsWith('.json')).map(f => `gallery/${f}`), ...own.map(([f]) => f).filter(f => !f.startsWith('gallery/'))]
+  const list = async (dir: string) => (await readdir(join(content, dir)).catch(() => [] as string[])).sort()
+  const pages = (await Promise.all(CAPTIONED.map(async k => (await list(k)).map(id => `${k}/${id}/entity.json`)))).flat()
+  const files = [...new Set([...(await list('gallery')).filter(x => x.endsWith('.json')).map(f => `gallery/${f}`), ...pages, ...own.map(([f]) => f)])]
   for (const f of files) {
     const raw = await readFile(join(content, f), 'utf8').catch(() => null)
-    if (!raw) continue
+    if (!raw?.includes('"caption"')) continue
     const g = JSON.parse(raw) as { photos?: { caption?: string }[] }
     const r = own.find(([o]) => o === f)?.[1]
     let any = false
@@ -355,14 +359,16 @@ export async function renameCaptions(content: string, rows: readonly FishName[] 
     await write(join(content, f), raw, { ...g, photos })
     changed.push(f)
   }
-  if (!rekey.size) return changed
+  // A key no photo holds now (its photo gone from the gallery) takes the new name from its own words, so no old name
+  // waits in a file for the photo to come back. A key whose new words are already one keeps the translation there.
+  const to = (k: string) => rekey.get(k) ?? renameFishNames(k)
   for (const f of (await readdir(join(content, 'captions')).catch(() => [] as string[])).filter(x => x.endsWith('.json'))) {
     const file = join(content, 'captions', f)
     const raw = await readFile(file, 'utf8')
     const map = JSON.parse(raw) as Record<string, string>
-    if (![...rekey.keys()].some(k => k in map)) continue
+    if (!Object.keys(map).some(k => to(k) !== k)) continue
     // In place, so the file's order stays and a diff shows only the keys.
-    await write(file, raw, Object.fromEntries(Object.entries(map).map(([k, v]) => [rekey.get(k) ?? k, v])))
+    await write(file, raw, Object.fromEntries(Object.entries(map).flatMap(([k, v]) => (to(k) !== k && to(k) in map ? [] : [[to(k), v]]))))
     changed.push(`captions/${f}`)
   }
   return changed
@@ -959,30 +965,49 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     changed(`guides/${id}/entity.json`)
   }
   // A guide's photo goes under the heading its label names (the site matches the two), so a label follows its heading when
-  // the heading is rewritten: the words the sweep writes another way ("Trùn chỉ đỏ" → "Trùng huyết"), else the one heading
-  // with the label's own number ("2.", "#1", "Bước 2"; schema headings.ts, so a count title, "3 nguyên nhân chính", has
-  // none). One it can't place is listed and kept; the site shows it at the guide's end.
+  // the heading is rewritten: the words the sweep writes another way ("Trùn chỉ đỏ" → "Trùng huyết") or a renamed fish
+  // ("Thả cá platy" → "Thả cá mún"), else the one heading with the label's own number ("2.", "#1", "Bước 2"; schema
+  // headings.ts, so a count title, "3 nguyên nhân chính", has none). One it can't place is listed and kept; the site shows
+  // it at the guide's end. A video's pictures (video.figures, under an h2 or h3 by its exact words) follow a heading the
+  // sweep rewrote, and nothing else, and their captions take a renamed fish's name as the text does.
   const near = (h: string) => h.replace(/\s+/g, ' ').trim().toLowerCase()
+  type Figure = { heading: string; photo?: Photo; moments: { caption?: string }[] }
   for (const id of (await readdir(join(content, 'guides')).catch(() => [] as string[])).sort()) {
     const file = join(content, 'guides', id, 'entity.json')
     const raw = await readFile(file, 'utf8').catch(() => null)
-    const e = raw ? JSON.parse(raw) as { photos?: (Photo & { section?: Record<string, string> })[] } : null
-    if (!e?.photos?.some(p => p.section?.vi)) continue
+    const e = raw ? JSON.parse(raw) as { photos?: (Photo & { section?: Record<string, string> })[]; video?: { figures?: Figure[] } } : null
+    if (!e?.photos?.some(p => p.section?.vi) && !e?.video?.figures?.length) continue
     const t = JSON.parse(await readFile(join(content, 'guides', id, 'vi.json'), 'utf8').catch(() => 'null')) as Stored | null
-    const headings = parse(t?.body ?? '').querySelectorAll('h3').map(h => h.textContent.replace(/\s+/g, ' ').trim()).filter(Boolean)
+    const body = parse(t?.body ?? '')
+    const text = (h: { textContent: string }) => h.textContent.replace(/\s+/g, ' ').trim()
+    const headings = body.querySelectorAll('h3').map(text).filter(Boolean)
     const named = (label: string) => headings.find(h => near(h) === near(label))
     let moved = false
-    const photos = e.photos.map(p => {
-      const label = p.section?.vi
-      if (!label || named(label)) return p
+    const follow = (label: string) => {
+      if (named(label)) return label
       const numbered = ownNumber(label) === undefined ? [] : headings.filter(h => ownNumber(h) === ownNumber(label))
-      const to = named(viWording(label)) ?? (numbered.length === 1 ? numbered[0] : undefined)
-      if (!to) { report.unplaced.push(`guides/${id}: "${label}"`); return p }
+      const to = named(viWording(label)) ?? named(renameSwapped(viWording(label))) ?? (numbered.length === 1 ? numbered[0] : undefined)
+      if (!to) { report.unplaced.push(`guides/${id}: "${label}"`); return label }
       moved = true
-      return { ...p, section: { ...p.section, vi: to } }
-    })
+      return to
+    }
+    const exact = new Set(body.querySelectorAll('h2, h3').map(text))
+    const rewritten = (heading: string) => {
+      const to = renameSwapped(viWording(heading))
+      if (exact.has(heading) || to === heading || !exact.has(to)) return heading
+      moved = true
+      return to
+    }
+    const photos = e.photos?.map(p => (p.section?.vi ? { ...p, section: { ...p.section, vi: follow(p.section.vi) } } : p))
+    const caption = <P extends { caption?: string }>(p: P): P => {
+      const to = p.caption && renameFishNames(p.caption)
+      if (!to || to === p.caption) return p
+      moved = true
+      return { ...p, caption: to }
+    }
+    const figures = e.video?.figures?.map(f => ({ ...f, heading: rewritten(f.heading), ...(f.photo ? { photo: caption(f.photo) } : {}), moments: f.moments.map(caption) }))
     if (!moved) continue
-    await write(file, raw!, { ...e, photos })
+    await write(file, raw!, { ...e, ...(photos ? { photos } : {}), ...(figures ? { video: { ...e.video, figures } } : {}) })
     changed(`guides/${id}/entity.json`)
     ;(report.text['photo-heading'] ??= []).push(`guides/${id}`)
   }
