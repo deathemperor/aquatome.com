@@ -46,20 +46,25 @@ test('a body splits at its kinds: the heading, the words over the list, each kin
   const body = '<h3>Trong bể của bạn</h3><p>Lớp đáy.</p><h3>Các loại nền</h3><p>Tiệm bán nhiều loại.</p>'
     + '<ul><li><strong>Phân nền</strong> (aqua soil): hạt tròn 2–4 mm, màu đen. Nó nhả dinh dưỡng.</li>'
     + '<li>Nham thạch trắng: viên đá trắng cỡ 1–3 cm. Nó còn có tên là đá lông vũ.<ul><li>Cỡ nhỏ: x</li></ul></li>'
-    + '<li><strong>Lũa hải sơn tùng, lũa ngọc linh sam</strong>: một tiệm ghi.</li></ul><h3>Nên làm gì</h3><p>Rửa sạch.</p>'
+    + '<li><strong>Lũa hải sơn tùng, lũa ngọc linh sam</strong>: một tiệm ghi.</li>'
+    + '<li><strong>Lũa nguyệt quế</strong>, <strong>lũa dã quỳ</strong>, <strong>lũa nhẹ Hải Ninh</strong>: có tiệm bán dưới các tên này.</li>'
+    + '<li><strong>Cát pH thấp</strong>: pH 6,5 hoặc thấp hơn.</li></ul><h3>Nên làm gì</h3><p>Rửa sạch.</p>'
   const s = kindsSection(body)!
   expect(s.heading).toBe('Các loại nền')
   expect(s.intro).toBe('<p>Tiệm bán nhiều loại.</p>')
   expect(s.rest).toBe('<h3>Trong bể của bạn</h3><p>Lớp đáy.</p><h3>Nên làm gì</h3><p>Rửa sạch.</p>')
   expect(s.items).toEqual([
-    { id: 'phan-nen', name: 'Phân nền', label: 'Phân nền', aka: 'aqua soil', html: 'hạt tròn 2–4 mm, màu đen. Nó nhả dinh dưỡng.' },
-    { id: 'nham-thach-trang', name: 'Nham thạch trắng', label: 'Nham thạch trắng', html: 'viên đá trắng cỡ 1–3 cm. Nó còn có tên là đá lông vũ.<ul><li>Cỡ nhỏ: x</li></ul>' },
-    { id: 'lua-hai-son-tung', name: 'Lũa hải sơn tùng', label: 'Lũa hải sơn tùng, lũa ngọc linh sam', html: 'một tiệm ghi.' },
+    { id: 'phan-nen', name: 'Phân nền', label: 'Phân nền', aka: 'aqua soil', html: 'Hạt tròn 2–4 mm, màu đen. Nó nhả dinh dưỡng.' },
+    { id: 'nham-thach-trang', name: 'Nham thạch trắng', label: 'Nham thạch trắng', html: 'Viên đá trắng cỡ 1–3 cm. Nó còn có tên là đá lông vũ.<ul><li>Cỡ nhỏ: x</li></ul>' },
+    { id: 'lua-hai-son-tung', name: 'Lũa hải sơn tùng', label: 'Lũa hải sơn tùng, lũa ngọc linh sam', html: 'Một tiệm ghi.' },
+    // More names in bold after the first are other names, never the start of the kind's text.
+    { id: 'lua-nguyet-que', name: 'Lũa nguyệt quế', label: 'Lũa nguyệt quế', aka: 'lũa dã quỳ, lũa nhẹ Hải Ninh', html: 'Có tiệm bán dưới các tên này.' },
+    { id: 'cat-ph-thap', name: 'Cát pH thấp', label: 'Cát pH thấp', html: 'pH 6,5 hoặc thấp hơn.' },
   ])
   // The same kinds as glossaryKinds reads, by the same ids.
   expect(glossaryKinds(body)).toEqual(s.items.map(({ id, name }) => ({ id, name })))
   expect(kindsSection('<h3>Nên làm gì</h3><p>Rửa sạch.</p>')).toBeNull()
   // The card's line: the first sentence, from a capital, never a list inside the item; a decimal comma stays.
-  expect(s.items.map(k => kindLine(k.html))).toEqual(['Hạt tròn 2–4 mm, màu đen.', 'Viên đá trắng cỡ 1–3 cm.', 'Một tiệm ghi.'])
+  expect(s.items.map(k => kindLine(k.html))).toEqual(['Hạt tròn 2–4 mm, màu đen.', 'Viên đá trắng cỡ 1–3 cm.', 'Một tiệm ghi.', 'Có tiệm bán dưới các tên này.', 'pH 6,5 hoặc thấp hơn.'])
   expect(kindLine('pH 6,5 hoặc thấp hơn. Khác.')).toBe('pH 6,5 hoặc thấp hơn.')
 })

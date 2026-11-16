@@ -202,7 +202,7 @@ test('a term\'s built page shows its kinds as cards, then in words, each with it
   expect(views.map(v => v.querySelector('.kv-n')?.textContent.trim())).toEqual(['1 / 2', '2 / 2'])
   expect(views.map(v => v.querySelectorAll('.kv-step a').map(a => a.textContent.trim()))).toEqual([['‹ Cá trân châu', 'Cá trân châu ›'], ['‹ Cá neon', 'Cá neon ›']])
   expect(views[0]!.querySelector('.kv-by a[href]')?.textContent.trim()).toBe('Xem ảnh gốc ↗')
-  expect(views[0]!.querySelector('.kv-text')?.textContent.trim()).toBe('bơi thành đàn chặt khi có cá lạ.')
+  expect(views[0]!.querySelector('.kv-text')?.textContent.trim()).toBe('Bơi thành đàn chặt khi có cá lạ.')
   expect(views[0]!.querySelector('.kv-x')?.getAttribute('aria-label')).toBe('Đóng')
   // Each card opens its own view; no view draws a photo before it opens.
   expect(kinds!.querySelectorAll('a.k-card').map(a => a.getAttribute('href'))).toEqual(['#loai-ca-neon', '#loai-ca-tran-chau'])

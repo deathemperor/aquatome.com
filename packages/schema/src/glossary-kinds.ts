@@ -50,13 +50,22 @@ export function kindsSection(body: string): { heading: string; intro: string; it
 
 const plain = (html: string) => parse(html).text.replace(/\s+/g, ' ').trim()
 
-/** "<strong>Lũa đỗ quyên</strong> (spider wood): …" or "Trứng Artemia: …": the label, the bracketed name and the text after the colon. */
+/**
+ * "<strong>Lũa đỗ quyên</strong> (spider wood): …" or "Trứng Artemia: …": the label, the bracketed name and the text after
+ * the colon, from a capital. More names in bold after the first ("<strong>Lũa nguyệt quế</strong>, <strong>lũa dã
+ * quỳ</strong>: …") are other names, never the start of its text (the parity shots, 16 Nov 2026: a card read ", lũa dã quỳ").
+ */
 function itemParts(inner: string, name: string): { label: string; aka?: string; html: string } {
-  const m = /^\s*<strong>([\s\S]*?)<\/strong>\s*(?:\(([^()]*)\))?\s*:?\s*/.exec(inner) ?? /^\s*([^<:(]+?)\s*(?:\(([^()]*)\))?\s*:\s*/.exec(inner)
-  if (!m) return { label: name, html: inner.trim() }
-  const label = plain(m[1]!).replace(/:$/, '').trim() || name, aka = m[2] ? plain(m[2]) : ''
-  return { label, ...(aka ? { aka } : {}), html: inner.slice(m[0].length).trim() }
+  const m = /^\s*<strong>([\s\S]*?)<\/strong>((?:\s*,\s*<strong>[\s\S]*?<\/strong>)*)\s*(?:\(([^()]*)\))?\s*:?\s*/.exec(inner)
+    ?? /^\s*([^<:(]+?)()\s*(?:\(([^()]*)\))?\s*:\s*/.exec(inner)
+  if (!m) return { label: name, html: upFirst(inner.trim()) }
+  const label = plain(m[1]!).replace(/:$/, '').trim() || name
+  const aka = [...[...m[2]!.matchAll(/<strong>([\s\S]*?)<\/strong>/g)].map(b => plain(b[1]!)), ...(m[3] ? [plain(m[3])] : [])].filter(Boolean).join(', ')
+  return { label, ...(aka ? { aka } : {}), html: upFirst(inner.slice(m[0].length).trim()) }
 }
+
+/** A kind's text from a capital, its first word's, past any tag it opens with ("pH" stays). */
+const upFirst = (html: string) => html.replace(/^((?:\s|<[^>]+>)*)([^\s<]+)/, (_, tags: string, word: string) => tags + capitalFirst(word))
 
 /** A sentence from a capital, unless its first word is written with one inside already ("pH", "dGH"). */
 export const capitalFirst = (s: string, locale = 'vi') => {

@@ -199,6 +199,12 @@ test('a kind\'s card opens it large; the next kind opens in its place; Esc and â
   await expect(open.locator('.kv-n')).toHaveText(`1 / ${n}`)
   // Its photo is drawn as it opens, where the card has one.
   if (await first.locator('img').count()) await expect(open.locator('.kv-pic img')).toBeVisible()
+  // On a computer it's a panel as tall as what it holds, no empty band under the text (the parity shots, 16 Nov 2026: a
+  // modal's height set to auto stretched it to the whole screen). A phone's is the whole screen by design.
+  if (page.viewportSize()!.width >= 960) {
+    const gap = await open.evaluate(d => d.querySelector('.kv-body')!.getBoundingClientRect().bottom - d.querySelector('.kv-text')!.getBoundingClientRect().bottom)
+    expect(gap).toBeLessThan(2)
+  }
   const next = (await cards.nth(1).locator('.k-name').textContent())!.trim()
   await open.locator('.kv-step a[rel="next"]').click()
   await expect(open).toHaveCount(1)
