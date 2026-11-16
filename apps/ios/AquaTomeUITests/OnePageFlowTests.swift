@@ -17,7 +17,9 @@ final class OnePageFlowTests: XCTestCase {
     opensOnePage(app, any.matching(identifier: "shelf").firstMatch, "a shelf's chip")
     opensOnePage(app, any.matching(identifier: "item").firstMatch, "a shelf's first pick")
     opensOnePage(app, any.matching(identifier: "series").firstMatch, "a video series' card")
-    let kit = any.matching(identifier: "kit")
+    // Buttons, as HandbookFlowTests reads them: `.any` could count a tile and an element inside it, and put index 4 on
+    // the wrong tile.
+    let kit = app.buttons.matching(identifier: "kit")
     opensOnePage(app, kit.element(boundBy: 0), "Thiết bị's first tile", named: "Bể cá")
     opensOnePage(app, kit.element(boundBy: 4), "Thiết bị's middle tile", named: "Nền và lá")
     opensOnePage(app, kit.element(boundBy: 8), "Thiết bị's last tile", named: "Thức ăn")
@@ -47,7 +49,7 @@ final class OnePageFlowTests: XCTestCase {
   /// `e`, scrolled to and tapped, opens one page (`named`, where the page says its name), and one Back comes back to it.
   private func opensOnePage(_ app: XCUIApplication, _ e: XCUIElement, _ what: String, named: String? = nil,
                             file: StaticString = #filePath, line: UInt = #line) {
-    app.scrolledDown(to: e)
+    reach(app, e)
     guard e.exists, e.isHittable else { return XCTFail("\(what): not on the screen", file: file, line: line) }
     e.tap()
     guard app.pageBack.waitForExistence(timeout: 5) else { return XCTFail("\(what): opened no page", file: file, line: line) }
@@ -60,10 +62,22 @@ final class OnePageFlowTests: XCTestCase {
                     "\(what): opened \(app.navigationBars.firstMatch.identifier), not \(named)", file: file, line: line)
     }
     app.pageBack.tap()
-    XCTAssertTrue(e.waitForExistence(timeout: 5) && e.isHittable, "\(what): one Back didn't come back to it", file: file, line: line)
+    XCTAssertTrue(e.waitForExistence(timeout: 5), "\(what): one Back didn't come back to it", file: file, line: line)
+    reach(app, e)
+    XCTAssertTrue(e.isHittable, "\(what): one Back didn't come back to it", file: file, line: line)
     // A second page under the first leaves a Back button after one Back.
     XCTAssertFalse(app.pageBack.waitForExistence(timeout: 1), "\(what): opened more than one page", file: file, line: line)
     // Back to where it was, whatever it opened, for the next.
     for _ in 0..<12 where app.pageBack.exists { app.pageBack.tap() }
+  }
+
+  /// `e` on screen: half a screen at a time, as `scrolledDown(to:)`, but as far as Tìm's and Khám phá's last shelf (Thiết
+  /// bị), which is more than its ten drags reach.
+  private func reach(_ app: XCUIApplication, _ e: XCUIElement) {
+    let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.7))
+    repeatUntil(e.exists && e.isHittable, times: 30) {
+      from.press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.4)), withVelocity: .slow,
+                 thenHoldForDuration: 0.1)
+    }
   }
 }
