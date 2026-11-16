@@ -817,7 +817,7 @@ borrow one from a species or plant they mention on the site.
 - guides/2hraquarist-blogs-aquascaping-ideas-xue-hai — Bể thủy sinh Diorama với lũa lớn và cây thân màu, rêu marimo gắn trên hardscape – Xue Hai
 - guides/aquariumbreeder-10-questions-to-ask-when-buying-aquarium-crustaceans — 10 câu hỏi nên hỏi khi mua giáp xác nuôi trong bể thủy sinh
 - guides/aquariumbreeder-10-slow-growing-plants-in-the-tank — 10 loại cây thủy sinh lớn chậm cho bể
-- guides/aquariumbreeder-50-underwater-red-plants-for-your-tank — Các loại cây thủy sinh đỏ cho bể cá của bạn
+- guides/aquariumbreeder-50-underwater-red-plants-for-your-tank — Hơn 50 loại cây thủy sinh đỏ cho bể cá
 - guides/aquariumbreeder-8-signs-your-shrimp-is-suffering-from-stress — 8 dấu hiệu cho thấy tép đang bị stress
 - guides/aquariumbreeder-acrylic-vs-glass-tanks-pros-and-cons — Bể acrylic và bể kính: ưu và nhược điểm
 - guides/aquariumbreeder-all-about-power-outage-in-shrimp-and-fish-tanks — Mất điện với bể tép và bể cá: cách xử lý
@@ -828,7 +828,7 @@ borrow one from a species or plant they mention on the site.
 - guides/aquariumbreeder-are-shrimps-good-pets — Tép cảnh có phải là thú cưng tốt không?
 - guides/aquariumbreeder-best-corals-for-a-nano-reef-tank — 10 loại san hô tốt nhất cho bể reef nano
 - guides/aquariumbreeder-bio-balls-in-aquariums — Bi lọc sinh học (bio ball) trong bể cá
-- guides/aquariumbreeder-brackish-water-plants — 15 loại cây thủy sinh chịu được nước lợ
+- guides/aquariumbreeder-brackish-water-plants — Hơn 30 loại cây thủy sinh chịu được nước lợ
 - guides/aquariumbreeder-breeding-and-life-cycle-of-amano-shrimp — Sinh sản và vòng đời của tép Amano
 - guides/aquariumbreeder-breeding-and-life-cycle-of-crayfish — Sinh sản và vòng đời của tôm hùm đất
 - guides/aquariumbreeder-can-i-put-snails-in-an-uncycled-tank — Có thể thả ốc vào bể chưa cycle không?
@@ -1092,7 +1092,7 @@ borrow one from a species or plant they mention on the site.
 - guides/youtube-0EqLihKj8os — Set bể kiểu bờ sông rễ cây cho cá acara, tetra và cá chuột
 - guides/youtube-0FT3LNIYFh0 — 10 loài cá, tép nuôi bể không sưởi (không tính cá vàng)
 - guides/youtube-0KkgA9W52kQ — Nuôi đàn cá oscar: thay nước, cho ăn và nuôi chung cá nóc Fahaka
-- guides/youtube-0MzfLrSqfXY — Loài cá hợp nuôi trong bể 40 lít
+- guides/youtube-0MzfLrSqfXY — 10 loài cá hợp nuôi trong bể 40 lít
 - guides/youtube-0PC86KyBZmQ — Đóng khung bể gỗ ép dài 4,9 m: dựng từ đáy lên, chống phình, chống rò
 - guides/youtube-0PZCQT-99qg — Chăm bể cá Malawi: thay nước, vệ sinh đá, chỉnh đèn và lọc
 - guides/youtube-0QMRhOJlmy0 — Cách lắp, chỉnh gió và vệ sinh lọc mút cho hiệu quả
@@ -1156,7 +1156,7 @@ borrow one from a species or plant they mention on the site.
 - guides/youtube-4lG_4wSx_bQ — Tự làm hồ thủy canh trong nhà từ thùng nhựa để nuôi cá ăn muỗi
 - guides/youtube-4o4QdaCguWQ — Cách chuyển cá rồng và cá đuối lớn sang hệ bể mới
 - guides/youtube-4rLFh3Q_FEA — Tự ráp đèn LED công suất cao cho bể cá, không cần hàn
-- guides/youtube-4tfp4V1usjA — Loài cá dễ nuôi, ít bệnh nên chọn khi mua ở chuỗi tiệm thú cưng lớn
+- guides/youtube-4tfp4V1usjA — 10 loài cá dễ nuôi, ít bệnh nên chọn khi mua ở chuỗi tiệm thú cưng lớn
 - guides/youtube-4y9vcjJmCi4 — Set lại bể low-tech 113 lít để đẹp lâu và dễ chăm
 - guides/youtube-50JGkDV2v2A — Set bể thủy sinh 400 lít với sưởi nền và dark start 3 tháng
 - guides/youtube-526gTi2z3WQ — Set bể biotope sông châu Phi cho cá Kribensis, Lampeye và tetra
@@ -1399,7 +1399,7 @@ borrow one from a species or plant they mention on the site.
 - guides/youtube-LEFJcwQdUvU — 5 loại cá đẻ con đẹp: endler, bảy màu và cá kiếm đuôi đàn
 - guides/youtube-LFIB7o9BnFA — Cách làm nước bể thủy sinh trong nhanh sau khi set bể
 - guides/youtube-LKejVv01BDM — Set bể thủy sinh cho người mới: từ bố cục đến tuần đầu chăm bể
-- guides/youtube-LRTzeSTeN-8 — Loài cá heo, cá chạch dễ nuôi cho bể cá cảnh
+- guides/youtube-LRTzeSTeN-8 — 10 loài cá heo, cá chạch dễ nuôi cho bể cá cảnh
 - guides/youtube-LTq4EuuY_iA — Giữ bể ít phải chăm: kinh nghiệm từ một phòng nuôi nhiều bể
 - guides/youtube-LU_y6OK2qK0 — Tự chế đèn LED cho bể thủy sinh từ đèn pha giá rẻ
 - guides/youtube-LWCAnbfgtcE — Set bể nano 45P trồng cây dày kiểu rừng rậm cho cá nóc mini
@@ -1446,7 +1446,7 @@ borrow one from a species or plant they mention on the site.
 - guides/youtube-OCqPnXpxHTU — Tự làm bộ điều khiển sưởi bể cá bằng STC-1000
 - guides/youtube-OF1q4cex-fI — Tự làm lọc tràn từ thùng nhựa lớn cho bể cá cỡ lớn
 - guides/youtube-OJ0X5fuRvAA — Set bể thủy sinh nhàn cho người ít thời gian chăm sóc
-- guides/youtube-OSR9EPaO78Q — Các loại rêu hại hay gặp trong bể thủy sinh và cách xử lý
+- guides/youtube-OSR9EPaO78Q — 6 loại rêu hại hay gặp trong bể thủy sinh và cách xử lý
 - guides/youtube-OZv7556vO-E — Set bể paludarium rừng rậm nước đen cho đàn cá tetra
 - guides/youtube-Ogb1LmuLN8c — Tự làm thác nước không hồ bằng két nhựa cho bướm và côn trùng uống nước
 - guides/youtube-Ojpc5djfQ9U — Set bể nano 30 lít kiểu rừng Myanmar cho cá nhỏ
@@ -1607,7 +1607,7 @@ borrow one from a species or plant they mention on the site.
 - guides/youtube-Z2Cd9uCSRv0 — Set bể thủy sinh high-tech không thay nước: cách làm và kết quả
 - guides/youtube-Z2Wv0RxD67g — Chăm bể thủy sinh nature 1,2 m giai đoạn cây lên mạnh
 - guides/youtube-Z2zNU9D9OWE — Set bể thủy sinh kiểu ao trong nhà chỉ dùng ánh nắng, không đèn
-- guides/youtube-Z3jAT8oNNAo — Loài cá nuôi chung đẹp, dễ nuôi mà ít người để ý
+- guides/youtube-Z3jAT8oNNAo — 10 loài cá nuôi chung đẹp, dễ nuôi mà ít người để ý
 - guides/youtube-Z3xZC2Z6o4A — Bể thủy sinh giá rẻ và bể đắt tiền: cây mọc khác nhau ra sao
 - guides/youtube-Z5YNg3LzZpk — Cách trồng bể Dutch nano 35 lít
 - guides/youtube-ZYwZzYODC4Y — Cách tính số lượng cá cho bể thủy sinh không lọc, không sủi
@@ -1636,7 +1636,7 @@ borrow one from a species or plant they mention on the site.
 - guides/youtube-aGrKKWNFl2k — Dựng hang đá dragonstone cho bể nano nuôi cá medaka và tép
 - guides/youtube-aH4S9WEj8T0 — Cắt tỉa bể thủy sinh rậm quá mức: cây cắt cắm và rêu Fissidens
 - guides/youtube-aLvkYA8AqBY — Tự đóng bể cá lớn: lắp kính, cố định vách và giằng kiểu euro
-- guides/youtube-aN80dX_RktA — Loài cá nhỏ hợp bể nano nước ngọt và cách nuôi từng loài
+- guides/youtube-aN80dX_RktA — 10 loài cá nhỏ hợp bể nano nước ngọt và cách nuôi từng loài
 - guides/youtube-aUeQBE8f--E — Chọn đèn, phân nền, lọc và châm phân cho bể thủy sinh 120 cm
 - guides/youtube-aXWDAuISGKs — Set bể đá và bóng rêu Marimo 12 lít cho cua Thái tí hon
 - guides/youtube-ahKKqSGy0Mw — Set bể 150 lít có bãi phơi và lá khô cho rùa xạ đầu to
@@ -1751,7 +1751,7 @@ borrow one from a species or plant they mention on the site.
 - guides/youtube-iMdL-mkSSJY — 5 loài cá lạ đáng nuôi: cá bướm, cá chạch, cá nóc Amazon...
 - guides/youtube-iS01ihUInXE — Set bể 150 lít nuôi chung đàn betta khổng lồ
 - guides/youtube-iS8fJvjUa1Q — Thay sump cho dàn bể cá: chuyển vật liệu lọc, giữ vi sinh
-- guides/youtube-iVpF5Ya3lIw — Loài cá tầng mặt cho bể thủy sinh và cách nuôi từng loài
+- guides/youtube-iVpF5Ya3lIw — 10 loài cá tầng mặt cho bể thủy sinh và cách nuôi từng loài
 - guides/youtube-iY8NEK9GGzo — Set bể thủy sinh bonsai dáng tam đa cổ thụ bằng rêu và ráy
 - guides/youtube-i_juW-Tmwcs — 5 loài cá tetra đáng nuôi: từ black neon tetra đến silver tip
 - guides/youtube-igpCCJlHwb8 — Set bể thủy sinh 60 lít không CO2 với chi phí thấp
@@ -1801,14 +1801,14 @@ borrow one from a species or plant they mention on the site.
 - guides/youtube-laTDG4Bc19U — Lọc ướt khô (tháp nhỏ giọt) tự chế: cấu tạo và cách hoạt động
 - guides/youtube-laoEUOhsnMw — Set bể nano cây đỏ nuôi cá betta: nền, bố cục và trồng cây
 - guides/youtube-ld9WkDIP_o4 — Tự làm hồ mini trong nhà từ chậu nhựa, có thác nước và cây
-- guides/youtube-ldbE9N7RUTQ — Cá vàng nuôi chung với cá gì: loài hợp và cách chọn
+- guides/youtube-ldbE9N7RUTQ — Cá vàng nuôi chung với cá gì: 10 loài hợp và cách chọn
 - guides/youtube-lmUE5qbWfwg — Trồng crypt làm trung cảnh cho bể thủy sinh
 - guides/youtube-lnOoJm-b5vs — Cách dỡ bể cichlid Tanganyika và chuyển cá, lọc sang bể mới
 - guides/youtube-lnOzt5QoSzY — Tự chế đèn LED WRGB 1,2 m cho bể thủy sinh
 - guides/youtube-ly_mlJfzS-8 — Tự làm ống bọc sưởi bể cá có bơm tản nhiệt bằng ống PVC
 - guides/youtube-m-uLNI5xx2Y — Nuôi cá CPD (Danio margaritatus) cho người mới: bể, đàn, nước, thức ăn
 - guides/youtube-mB3je2t-Bo8 — Bể thủy sinh low-tech không lọc, không CO2: cách set và giữ bể
-- guides/youtube-mGmIvhtIM9k — Loài cá dễ nuôi cho người mới chơi bể cá nước ngọt
+- guides/youtube-mGmIvhtIM9k — 10 loài cá dễ nuôi cho người mới chơi bể cá nước ngọt
 - guides/youtube-mSA2Qe9dv44 — Thả đợt cá đầu tiên vào bể Nam Mỹ 2500 lít sau một tuần chạy
 - guides/youtube-mY_9yWKaAFc — Set bể thủy sinh 60cm với ngân sách 8–10 triệu
 - guides/youtube-mdW19245Utg — Tự làm kệ gạch block và lọc Hamburg Matten cho bể cách ly
@@ -1932,7 +1932,7 @@ borrow one from a species or plant they mention on the site.
 - guides/youtube-vg0xJoA0Vj4 — Lắp thiết bị cho bể thủy sinh: phông nền, đèn, lọc, sưởi và CO2
 - guides/youtube-viG-wVICUZo — Những thức ăn không nên cho cá cảnh ăn và lý do
 - guides/youtube-viyR7oU9kBs — Set bể thủy sinh kiểu cũ có nắp 60 cm: nền, bố cục, cây dễ trồng
-- guides/youtube-vl1Lx9iWDYU — Mẹo phòng và giảm rêu hại cho bể thủy sinh
+- guides/youtube-vl1Lx9iWDYU — 28 mẹo phòng và giảm rêu hại cho bể thủy sinh
 - guides/youtube-vlm_GLWSpMo — Chuyển bể thủy sinh 120 cm từ Nature sang Iwagumi
 - guides/youtube-vuxSFbYgmtg — Cách lắp lọc thùng inox 2 đầu In, 1 đầu Out kèm lọc phụ
 - guides/youtube-vyNU5afRdkU — Chơi thủy sinh cho người mới: chọn bể, lọc, đèn và nuôi vi sinh
@@ -1976,7 +1976,7 @@ borrow one from a species or plant they mention on the site.
 - guides/youtube-zJcimXCpXtY — Set bể tối giản: nền cát sỏi trơn, châm phân nước, phông trắng
 - guides/youtube-zSKCf5T45IM — Cách tháo, đổi và lắp lại bình CO2 cho bể thủy sinh
 - guides/youtube-zYfpvGHYlxQ — Tự chế hồ koi mini từ bốn thùng nhựa có ngăn lọc
-- guides/youtube-z_AdgDUSZkw — Loài cá chuột (Corydoras) đáng nuôi và cách chọn
+- guides/youtube-z_AdgDUSZkw — 10 loài cá chuột (Corydoras) đáng nuôi và cách chọn
 - guides/youtube-z_pKaOlsKyg — Set bể biển nuôi cá (fish-only) đơn giản như bể nước ngọt
 - guides/youtube-zdJPct8nY0g — Dựng dãy chậu nuôi cá ngoài trời: đi khí, thay nước tự động, giữ nhiệt
 - guides/youtube-zfTnqG22oS8 — Cách tỉa và nhân giống cây cắt cắm, cây trải thảm và cây bám
@@ -1987,7 +1987,7 @@ borrow one from a species or plant they mention on the site.
 
 - none
 
-## Only one photo (no pictures inside the text) (896)
+## Only one photo (no pictures inside the text) (908)
 
 - species/aborichthys-elongatus — Cá chạch sóc đuôi đỏ
 - species/acantopsis-dialuzona — Cá chạch mặt ngựa
@@ -2023,6 +2023,7 @@ borrow one from a species or plant they mention on the site.
 - species/amblypharyngodon-chulabhornae — Cá carplet công chúa
 - species/amblyrhynchichthys-micracanthus — Cá mè lúi Amblyrhynchichthys micracanthus
 - species/ameiurus-brunneus — Cá nheo Mỹ ốc
+- species/ameiurus-platycephalus — Cá nheo Mỹ đầu dẹt
 - species/amia-calva — Cá bowfin
 - species/amphilophus-labiatus — Cá red devil
 - species/anablepsoides-ornatus — Cá rivulus ornatus
@@ -2081,6 +2082,7 @@ borrow one from a species or plant they mention on the site.
 - species/badis-corycaeus — Cá Badis corycaeus
 - species/badis-kyar — Cá badis kyar
 - species/badis-ruber — Cá badis Myanmar
+- species/bagre-marinus — Cá da trơn gafftopsail
 - species/bagrichthys-majusculus — Cá lancer râu trắng
 - species/bagrichthys-obscurus — Cá lancer Bagrichthys obscurus
 - species/bagrus-bajad — Cá trê Bagrus bajad
@@ -2158,7 +2160,6 @@ borrow one from a species or plant they mention on the site.
 - species/chalceus-macrolepidotus — Cá chalceus đuôi hồng
 - species/chalinochromis-brichardi — Cá Chalinochromis brichardi
 - species/champsochromis-caeruleus — Cá trê Malawi
-- species/channa-argus — Cá lóc Amur
 - species/channa-asiatica — Cá quả Trung Quốc
 - species/channa-aurantimaculata — Cá lóc cam đốm
 - species/channa-barca — Cá lóc Channa barca
@@ -2237,13 +2238,18 @@ borrow one from a species or plant they mention on the site.
 - species/dawkinsia-assimilis — Cá barb mascara
 - species/dawkinsia-rohani — Cá barb Dawkinsia rohani
 - species/dermogenys-pusilla — Cá lìm kìm đấu
+- species/desmopuntius-foerschi — Cá barb boomerang
 - species/desmopuntius-johorensis — Cá barb sọc
 - species/desmopuntius-pentazona — Cá barb năm vạch
+- species/devario-acrostomus — Cá devario acrostomus
 - species/devario-acuticephala — Cá devario đầu nhọn
 - species/devario-aequipinnatus — Cá devario sọc Ấn Độ
 - species/devario-auropurpureus — Cá Inlecypris auropurpurea
+- species/devario-devario — Cá danio Bengal
 - species/devario-maetaengensis — Cá danio Inlecypris maetaengensis
+- species/devario-neilgherriensis — Cá danio bán đảo
 - species/devario-regina — Cá danio hoàng hậu
+- species/devario-shanensis — Cá danio Shan
 - species/devario-sondhii — Cá devario fireline
 - species/devario-xyrops — Cá devario xyrops
 - species/dimidiochromis-compressiceps — Cá rô phi Malawi ăn mắt
@@ -2288,7 +2294,10 @@ borrow one from a species or plant they mention on the site.
 - species/gasteropelecus-maculatus — Cá hatchet đốm
 - species/gasteropelecus-sternicla — Cá rìu thường
 - species/gastromyzon-aeroides — Cá tỳ bà bướm Gastromyzon aeroides
+- species/gastromyzon-farragus — Cá tỳ bà bướm Gastromyzon farragus
 - species/gastromyzon-introrsus — Cá tỳ bà bướm Gastromyzon introrsus
+- species/gastromyzon-scitulus — Cá tỳ bà bướm Gastromyzon scitulus
+- species/gastromyzon-zebrinus — Cá tỳ bà bướm Gastromyzon zebrinus
 - species/geophagus-abalios — Cá hải hồ abalios
 - species/geophagus-altifrons — Cá hải hồ altifrons
 - species/geophagus-brasiliensis — Cá hải hồ brasiliensis
@@ -2375,6 +2384,7 @@ borrow one from a species or plant they mention on the site.
 - species/julidochromis-transcriptus — Cá julie mặt nạ
 - species/knodus-borki — Cá tetra xanh
 - species/labeo-boga — Cá mè đuôi tím Labeo boga
+- species/labiobarbus-leptocheilus — Cá Labiobarbus leptocheilus
 - species/labiobarbus-siamensis — Cá Labiobarbus siamensis
 - species/ladigesia-roloffi — Cá tetra jelly bean
 - species/laetacara-araguaiae — Cá Laetacara araguaiae
@@ -2437,6 +2447,7 @@ borrow one from a species or plant they mention on the site.
 - species/micropercops-swinhonis — Cá bống Swinhonis
 - species/mikrogeophagus-altispinosus — Cá phượng hoàng Bolivia
 - species/mimagoniates-barberi — Cá tetra xanh Paraguay
+- species/mochokus-niloticus — Cá mochokus sông Nile
 - species/moema-hellneri — Cá killi Moema hellneri
 - species/moenkhausia-agnesae — Cá tetra Moenkhausia agnesae
 - species/moenkhausia-ceros — Cá tetra ceros
@@ -2478,6 +2489,7 @@ borrow one from a species or plant they mention on the site.
 - species/notropis-chrosomus — Cá rainbow shiner
 - species/noturus-gilberti — Cá madtom vây cam
 - species/noturus-hildebrandi — Cá madtom nhỏ
+- species/noturus-leptacanthus — Cá Noturus leptacanthus
 - species/noturus-nocturnus — Cá trê madtom đốm
 - species/odontamblyopus-rubicundus — Cá bống Odontamblyopus rubicundus
 - species/oliotius-oligolepis — Cá ô vuông
@@ -2896,39 +2908,32 @@ Each reader counted once a day. Queued names go before every other wanted page o
 
 - none
 
-## Named on our pages, no page yet: queued on a source (16)
+## Named on our pages, no page yet: queued on a source (8)
 
-- Cryptocoryne walkeri — named on 54 pages (guides/aquariumcoop-blogs-aquarium-cookie-cutter-for-10-gallon-aquarium, guides/aquariumcoop-blogs-aquarium-easy-aquarium-plants, guides/aquariumcoop-blogs-aquarium-foreground-plants, guides/aquariumcoop-blogs-aquarium-our-favorite-easy-low-light-plants-cryptocoryne-lutea-and-vallisneria, guides/youtube-0xEdMSmpNHo, …) — queued first: https://www.aquariumcoop.com/blogs/aquarium/our-favorite-easy-low-light-plants-cryptocoryne-lutea-and-vallisneria
-- Panaque nigrolineatus — named on 15 pages (guides/sprucepets-lifespans-of-aquarium-fish-1378340, guides/youtube-0PC86KyBZmQ, species/acestrorhynchus-falcirostris, species/baryancistrus-beggini, species/baryancistrus-demantoides, …) — queued first: https://www.scotcat.com/loricariidae/panaque_nigrolineatus_laurafabianae.htm
-- Corydoras tukano — named on 6 pages (species/corydoras-adolfoi, species/corydoras-burgessi, species/corydoras-imitator, species/corydoras-incolicana, species/corydoras-melini, …) — queued first: https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_tukano_en/
-- Aphyocharax alburnus — named on 4 pages (species/acestrorhynchus-falcatus, species/geophagus-altifrons, species/geophagus-megasema, species/mikrogeophagus-altispinosus) — queued first: https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/aphyocharax_alburnus_en/
-- Boehlkea fredcochui — named on 3 pages (guides/youtube-QRffuIKYrNg, guides/youtube-iKAv9xxkYoY, species/knodus-borki) — queued first: https://www.aquariumglaser.de/en/fisharchive/knodus-borki-previously-incorrectly-identified-as-boehlkea-fredcochui/
-- Caridina pareparensis — named on 3 pages (guides/aquariumbreeder-crossbreeding-can-you-mix-different-color-shrimp, guides/aquariumbreeder-why-wont-my-shrimp-breed, species/caridina-pareparensis-parvidentata) — queued first: https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/caridina-pareparensis-parvidentata-2/
-- Corydoras punctatus — named on 3 pages (species/cleithracara-maronii, species/corydoras-boesemani, species/corydoras-bondi) — queued first: https://www.aquariumglaser.de/en/10-catfishes/corydoras-punctatus-nanay-2/
-- Labeo parvus — named on 2 pages (guides/glaser-en-08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc-labeo-parvus-and-l-barbatus-en, species/labeo-coubie) — queued first: https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labeo_parvus_and_l_barbatus_en/
-- Tyttocharax tambopatensis — named on 2 pages (species/geophagus-megasema, species/mikrogeophagus-altispinosus) — queued first: https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/tyttocharax_tambopatensis_en/
-- Barbus fasciatus — named on 1 page (species/haludaria-fasciata) — queued first: https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/haludaria-fasciata-the-melon-barb-formerly-barbus-fasciatus/
-- Distichodus rostratus — named on 1 page (guides/glaser-en-09-characoids-tetra-relationship-distichodus-rostratus-d-engycephalus-and-d-brevipinnis-from-nigeria-en) — queued first: https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/distichodus_rostratus_d_engycephalus_and_d_brevipinnis_from_nigeria_en/
-- Hara hara — named on 1 page (species/erethistes-pusillus) — queued first: https://www.aquariumglaser.de/en/10-catfishes/hara-hara-erethistes-pusillus-2/
-- Moenkhausia dichroura — named on 1 page (species/hyphessobrycon-herbertaxelrodi) — queued first: https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia_dichroura_en/
-- Mylossoma duriventre — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555) — queued first: https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/mylossoma_duriventre_en/
-- Odontostilbe pequira — named on 1 page (species/hyphessobrycon-herbertaxelrodi) — queued first: https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/holoshestes_pequira_en/
-- Otocinclus vestitus — named on 1 page (species/rineloricaria-castroi) — queued first: https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/otocinclus_vestitus_paraguay_en/
+- Acanthocobitis pictilis — named on 16 pages (species/acanthocobitis-botia, species/acanthocobitis-pavonacea, species/acanthocobitis-zonalternans, species/akysis-vespa, species/barilius-infrafasciatus, …) — queued first: https://www.seriouslyfish.com/species/acanthocobitis-pictilis
+- Aphanius anatoliae — named on 2 pages (species/anatolichthys-sureyanus, species/anatolichthys-transgrediens) — queued first: https://www.seriouslyfish.com/species/aphanius-anatoliae
+- Aphanius baeticus — named on 2 pages (guides/seriouslyfish-articles-european-killifishes-part-1-the-genus-aphanius-in-spain, species/apricaphanius-baeticus) — queued first: https://www.seriouslyfish.com/species/aphanius-baeticus
+- Aphanius iberus — named on 2 pages (guides/seriouslyfish-articles-european-killifishes-part-1-the-genus-aphanius-in-spain, species/apricaphanius-iberus) — queued first: https://www.seriouslyfish.com/species/aphanius-iberus
+- Aphanius mento — named on 2 pages (guides/seriouslyfish-articles-whaddaya-mean-too-hot, species/paraphanius-mento) — queued first: https://www.seriouslyfish.com/species/aphanius-mento
+- Aphanius villwocki — named on 1 page (species/anatolichthys-villwocki) — queued first: https://www.seriouslyfish.com/species/aphanius-villwocki
+- Barbodes snyderi — named on 1 page (species/barbodes-semifasciolatus) — queued first: https://www.seriouslyfish.com/species/puntius-snyderi
+- Nemachilichthys shimogensis — named on 1 page (species/garra-bicornuta) — queued first: https://www.seriouslyfish.com/species/nemachilichthys-shimogensis
 
-## Named on our pages, no page yet: no source has it (1005)
+## Named on our pages, no page yet: no source has it (1021)
 
+- Cryptocoryne walkeri — named on 54 pages (guides/aquariumcoop-blogs-aquarium-cookie-cutter-for-10-gallon-aquarium, guides/aquariumcoop-blogs-aquarium-easy-aquarium-plants, guides/aquariumcoop-blogs-aquarium-foreground-plants, guides/aquariumcoop-blogs-aquarium-our-favorite-easy-low-light-plants-cryptocoryne-lutea-and-vallisneria, guides/youtube-0xEdMSmpNHo, …)
+- Epipremnum aureum — named on 34 pages (guides/aquariumbreeder-paludarium-plants, guides/aquariumcoop-blogs-aquarium-plants-for-african-cichlids, guides/aquariumcoop-blogs-aquarium-pothos, guides/youtube-0i9qSwTrXIc, guides/youtube-6MVlcgTchtE, …)
 - Eleocharis vivipara — named on 29 pages (guides/youtube-526gTi2z3WQ, guides/youtube-5tzwDaGhtGs, guides/youtube-9S0ed5N8yoo, guides/youtube-AzntHqOzRXg, guides/youtube-CSLWc2X7VFE, …)
-- Epipremnum aureum — named on 28 pages (guides/aquariumbreeder-paludarium-plants, guides/aquariumcoop-blogs-aquarium-plants-for-african-cichlids, guides/aquariumcoop-blogs-aquarium-pothos, guides/youtube-0i9qSwTrXIc, guides/youtube-6MVlcgTchtE, …)
+- Lemna minor — named on 26 pages (guides/youtube-34R1VF2bzmg, guides/youtube-4a87l1r7_Yg, guides/youtube-CuZeMDsjK70, guides/youtube-HgM7_AzVv2w, guides/youtube-JQiui3Wmurs, …)
 - Pangio kuhlii — named on 26 pages (guides/aquariumcoop-blogs-aquarium-10-best-aquarium-fish-for-beginners, guides/aquariumcoop-blogs-aquarium-10-gallon-oddball-fish, guides/aquariumcoop-blogs-aquarium-care-guide-for-kuhli-loaches, guides/aquariumcoop-blogs-aquarium-cheap-aquarium-fish, guides/aquariumcoop-blogs-aquarium-loaches, …)
 - Crossocheilus oblongus — named on 25 pages (guides/aquariumcoop-blogs-aquarium-algae-eaters, guides/aquariumcoop-blogs-aquarium-siamese-algae-eater, guides/aquariumcoop-blogs-aquarium-top-10-easy-beginner-fish, guides/glaser-en-32-all-the-rest-new-names-well-known-fishes-much-confusion-en, guides/youtube-O5kuU_-xMzo, …)
-- Lemna minor — named on 25 pages (guides/youtube-34R1VF2bzmg, guides/youtube-4a87l1r7_Yg, guides/youtube-CuZeMDsjK70, guides/youtube-JQiui3Wmurs, guides/youtube-MrmmzZYYBTU, …)
 - Barbodes xouthos — named on 22 pages (guides/seriouslyfish-articles-its-often-said-that-a-tiger-never-loses-its-stripes-but-what-about-its-name, species/dawkinsia-assimilis, species/dawkinsia-exclamatio, species/dawkinsia-filamentosa, species/dawkinsia-rohani, …)
 - Mystacoleucus marginatus — named on 22 pages (species/akysis-maculipinnis, species/akysis-varius, species/ambastaia-nigrolineata, species/balitoropsis-zollingeri, species/barbucca-diabolica, …)
 - Ficus pumila — named on 17 pages (guides/youtube-8_tZngg8rMA, guides/youtube-CuZeMDsjK70, guides/youtube-DRlTmK7l0uo, guides/youtube-GAac09m7CVA, guides/youtube-HUa1u8usS5w, …)
 - Physella acuta — named on 17 pages (guides/youtube-0EqLihKj8os, guides/youtube-34R1VF2bzmg, guides/youtube-LorZ64vB4ss, guides/youtube-NnedKiWs71U, guides/youtube-P7GTfHdl5E8, …)
 - Rasbora semilineata — named on 17 pages (species/kottelatia-brittani, species/rasbora-borapetensis, species/rasbora-dandia, species/rasbora-dorsinotata, species/rasbora-einthovenii, …)
-- Acanthocobitis pictilis — named on 16 pages (species/acanthocobitis-botia, species/acanthocobitis-pavonacea, species/acanthocobitis-zonalternans, species/akysis-vespa, species/barilius-infrafasciatus, …)
-- Pistia stratiotes — named on 15 pages (guides/youtube-0EqLihKj8os, guides/youtube-34R1VF2bzmg, guides/youtube-8qCMy4BnnDI, guides/youtube-GIeCugnkfCQ, guides/youtube-KmxHHPPTIgk, …)
+- Pistia stratiotes — named on 16 pages (guides/youtube-0EqLihKj8os, guides/youtube-34R1VF2bzmg, guides/youtube-8qCMy4BnnDI, guides/youtube-GIeCugnkfCQ, guides/youtube-KmxHHPPTIgk, …)
+- Panaque nigrolineatus — named on 15 pages (guides/sprucepets-lifespans-of-aquarium-fish-1378340, guides/youtube-0PC86KyBZmQ, species/acestrorhynchus-falcirostris, species/baryancistrus-beggini, species/baryancistrus-demantoides, …)
 - Platydoras costatus — named on 15 pages (guides/sprucepets-lifespans-of-aquarium-fish-1378340, species/acestrorhynchus-falcirostris, species/biotodoma-wavrini, species/corydoras-habrosus, species/geophagus-abalios, …)
 - Cryptocoryne willisii — named on 13 pages (guides/aquariumcoop-blogs-aquarium-3-types-of-planted-aquariums, guides/aquariumcoop-blogs-aquarium-cookie-cutter-for-10-gallon-aquarium, guides/aquariumcoop-blogs-aquarium-midground-plants, guides/youtube--YXB8au4nnU, guides/youtube-CSLWc2X7VFE, …)
 - Gastromyzon embalohensis — named on 13 pages (species/gastromyzon-aeroides, species/gastromyzon-cornusaccus, species/gastromyzon-ctenocephalus, species/gastromyzon-extrorsus, species/gastromyzon-farragus, …)
@@ -2968,9 +2973,11 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Bombina orientalis — named on 6 pages (guides/aquariumbreeder-paludarium-animals, guides/youtube-9YC0BTdRFbs, guides/youtube-PVRlXXhdD7U, guides/youtube-UkkP80wMn_s, guides/youtube-l_lPQ-xBC1Q, …)
 - Cambarellus texanus — named on 6 pages (guides/aquariumbreeder-are-crayfish-good-pets-for-beginners-pros-and-cons, guides/aquariumbreeder-crayfish-and-suitable-tank-mates, guides/aquariumbreeder-how-long-do-crayfish-live, guides/aquariumbreeder-most-popular-aquarium-crayfish-species, guides/aquariumbreeder-most-popular-questions-about-crayfish, …)
 - Cirrhinus microlepis — named on 6 pages (species/bangana-ariza, species/bangana-behri, species/labeo-angra, species/labeo-calbasu, species/labeo-chrysophekadion, …)
+- Corydoras tukano — named on 6 pages (species/corydoras-adolfoi, species/corydoras-burgessi, species/corydoras-imitator, species/corydoras-incolicana, species/corydoras-melini, …)
 - Glyptothorax annandalei — named on 6 pages (species/dawkinsia-arulius, species/dawkinsia-assimilis, species/dawkinsia-filamentosa, species/dawkinsia-rubrotinctus, species/pethia-setnai, …)
 - Homalopteroides wassinkii — named on 6 pages (species/homaloptera-bilineata, species/homaloptera-confuzona, species/homaloptera-ogilviei, species/homaloptera-orthogoniata, species/homaloptera-parclitella, …)
 - Marsilea crenata — named on 6 pages (guides/youtube-2AKSK5DHDUw, guides/youtube-GDaWgKk-hDo, guides/youtube-MoI3OuGSMaQ, guides/youtube-eMnYeFx08_I, guides/youtube-gMyhZZKGrNQ, …)
+- Nephrolepis exaltata — named on 6 pages (guides/youtube-EReEvfJgglY, guides/youtube-UkkP80wMn_s, guides/youtube-Xb3Trilltik, guides/youtube-iFtbrCxfsi8, guides/youtube-mB3je2t-Bo8, …)
 - Osteochilus spilurus — named on 6 pages (species/belontia-hasselti, species/betta-midas, species/betta-raja, species/brevibora-cheeya, species/desmopuntius-johorensis, …)
 - Parambassis thomassi — named on 6 pages (species/dawkinsia-arulius, species/dawkinsia-assimilis, species/dawkinsia-filamentosa, species/dawkinsia-rubrotinctus, species/pethia-setnai, …)
 - Pogostemon erectus — named on 6 pages (guides/youtube-MJ3fqxhMmxE, guides/youtube-TfHU7I5OGbY, guides/youtube-Z5YNg3LzZpk, guides/youtube-f7ePYAbDke4, guides/youtube-ne5Z4ZvwxuU, …)
@@ -3002,6 +3009,7 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Vanmanenia pingchowensis — named on 5 pages (species/beaufortia-kweichowensis, species/erromyzon-sinensis, species/liniparhomaloptera-disparis, species/sinogastromyzon-wui, species/yaoshania-pachychilus)
 - Acrossocheilus spinifer — named on 4 pages (species/acrossocheilus-beijiangensis, species/acrossocheilus-monticola, species/acrossocheilus-paradoxus, species/acrossocheilus-parallens)
 - Ancistrus hoplogenys — named on 4 pages (guides/sprucepets-common-fish-names-beginning-with-s-1378555, species/acanthodoras-cataphractus, species/acanthodoras-spinosissimus, species/ancistrus-dolichopterus)
+- Aphyocharax alburnus — named on 4 pages (species/acestrorhynchus-falcatus, species/geophagus-altifrons, species/geophagus-megasema, species/mikrogeophagus-altispinosus)
 - Balitora mysorensis — named on 4 pages (species/barilius-canarensis, species/botia-striata, species/garra-bicornuta, species/puntius-chola)
 - Bangana dero — named on 4 pages (species/labeo-angra, species/labeo-calbasu, species/labeo-chrysophekadion, species/labeo-pierrei)
 - Barilius lairokensis — named on 4 pages (species/barilius-dogarsinghi, species/barilius-shacra, species/barilius-vagra, species/opsarius-barna)
@@ -3024,10 +3032,10 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Moenkhausia collettii — named on 4 pages (species/acanthodoras-cataphractus, species/acanthodoras-spinosissimus, species/cleithracara-maronii, species/geophagus-argyrostictus)
 - Mystus castaneus — named on 4 pages (species/nemacheilus-spiniferus, species/syncrossus-hymenophysa, species/trigonopoma-gracile, species/trigonopoma-pauciperforatum)
 - Nemacheilus menoni — named on 4 pages (species/mesonoemacheilus-herrei, species/nemacheilus-guentheri, species/nemacheilus-petrubanarescui, species/nemacheilus-triangularis)
-- Nephrolepis exaltata — named on 4 pages (guides/youtube-UkkP80wMn_s, guides/youtube-Xb3Trilltik, guides/youtube-iFtbrCxfsi8, guides/youtube-mB3je2t-Bo8)
 - Pangio pangia — named on 4 pages (species/acanthocobitis-zonalternans, species/botia-dario, species/homaloptera-bilineata, species/oreichthys-cosuatis)
 - Parachela maculicauda — named on 4 pages (species/akysis-maculipinnis, species/belontia-hasselti, species/brevibora-cheeya, species/desmopuntius-johorensis)
 - Peckoltia vittata — named on 4 pages (species/baryancistrus-beggini, species/baryancistrus-chrysolomus, species/baryancistrus-demantoides, species/spectracanthicus-zuanoni)
+- Pseudecheneis paviei — named on 4 pages (species/pseudecheneis-sulcata, species/schistura-callichromus, species/schistura-caudofurca, species/sinogastromyzon-tonkinensis)
 - Rhabdalestes aeratis — named on 4 pages (species/alestopetersius-brichardi, species/alestopetersius-caudalis, species/alestopetersius-nigropterus, species/alestopetersius-smykalai)
 - Rhodeus sinensis — named on 4 pages (species/dario-dayingensis, species/devario-apogon, species/garra-bispinosa, species/garra-rotundinasus)
 - Schismatorhynchos nukta — named on 4 pages (species/labeo-angra, species/labeo-calbasu, species/labeo-chrysophekadion, species/labeo-pierrei)
@@ -3041,9 +3049,12 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Balitora brucei — named on 3 pages (species/botia-dario, species/crossocheilus-latius, species/danio-dangila)
 - Barilius barila — named on 3 pages (species/barilius-shacra, species/barilius-vagra, species/devario-acuticephala)
 - Batasio tengana — named on 3 pages (species/badis-pyema, species/batasio-fasciolatus, species/pethia-tiantian)
+- Boehlkea fredcochui — named on 3 pages (guides/youtube-QRffuIKYrNg, guides/youtube-iKAv9xxkYoY, species/knodus-borki)
 - Caridina gracilirostris — named on 3 pages (guides/aquariumbreeder-crossbreeding-can-you-mix-different-color-shrimp, guides/aquariumbreeder-importance-of-surface-agitation-in-aquariums, guides/aquariumbreeder-why-wont-my-shrimp-breed)
+- Caridina pareparensis — named on 3 pages (guides/aquariumbreeder-crossbreeding-can-you-mix-different-color-shrimp, guides/aquariumbreeder-why-wont-my-shrimp-breed, species/caridina-pareparensis-parvidentata)
 - Caridina serrata — named on 3 pages (guides/aquariumbreeder-importance-of-surface-agitation-in-aquariums, guides/aquariumcoop-blogs-aquarium-freshwater-dwarf-shrimp, guides/seriouslyfish-articles-new-shrimp-from-hong-kong-and-southern-china)
 - Chlorophytum comosum — named on 3 pages (guides/aquariumbreeder-paludarium-plants, guides/youtube-NBR8ZLYW0dQ, guides/youtube-cVKsHc6swsY)
+- Corydoras punctatus — named on 3 pages (species/cleithracara-maronii, species/corydoras-boesemani, species/corydoras-bondi)
 - Cryptocoryne cordata — named on 3 pages (guides/youtube-lmUE5qbWfwg, species/betta-kuehnei, species/betta-simplex)
 - Cryptocoryne nevillii — named on 3 pages (guides/youtube-5GfRTHTv5ZM, guides/youtube-Pug-xKyFd0k, guides/youtube-kAel-iw_N0c)
 - Cryptocoryne pygmaea — named on 3 pages (guides/aquatome-cach-lam-be-thuy-sinh-mini-be-don-gian, guides/youtube-2AKSK5DHDUw, guides/youtube-xf_ylcdUQsQ)
@@ -3081,7 +3092,6 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Poropuntius smedleyi — named on 3 pages (species/betta-stigmosa, species/homaloptera-parclitella, species/homalopteroides-nebulosus)
 - Pristolepis fasciata — named on 3 pages (species/epalzeorhynchos-bicolor, species/rasbora-paviana, species/syncrossus-helodes)
 - Pseudancistrus pectegenitor — named on 3 pages (species/baryancistrus-beggini, species/baryancistrus-demantoides, species/pseudacanthicus-pitanga)
-- Pseudecheneis paviei — named on 3 pages (species/schistura-callichromus, species/schistura-caudofurca, species/sinogastromyzon-tonkinensis)
 - Pseudomugil paskai — named on 3 pages (guides/youtube-Q8-gktwcXqQ, guides/youtube-g6Rqis9uO1Y, species/pseudomugil-luminatus)
 - Pseudoxiphophorus bimaculatus — named on 3 pages (species/pseudoxiphophorus-anzuetoi, species/zoogoneticus-tequila, guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - Psilorhynchus balitora — named on 3 pages (species/botia-dario, species/devario-acuticephala, species/devario-devario)
@@ -3111,14 +3121,12 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Amblyceps variegatum — named on 2 pages (species/devario-regina, species/schistura-aurantiaca)
 - Ambystoma mexicanum — named on 2 pages (guides/youtube-A2xRRZ06T7I, guides/youtube-jOktp87MxK0)
 - Amphiprion percula — named on 2 pages (guides/youtube-J4e7xzevT5E, species/catalaphyllia-jardinei)
-- Aphanius anatoliae — named on 2 pages (species/anatolichthys-sureyanus, species/anatolichthys-transgrediens)
-- Aphanius baeticus — named on 2 pages (guides/seriouslyfish-articles-european-killifishes-part-1-the-genus-aphanius-in-spain, species/apricaphanius-baeticus)
-- Aphanius iberus — named on 2 pages (guides/seriouslyfish-articles-european-killifishes-part-1-the-genus-aphanius-in-spain, species/apricaphanius-iberus)
-- Aphanius mento — named on 2 pages (guides/seriouslyfish-articles-whaddaya-mean-too-hot, species/paraphanius-mento)
 - Aphyocypris arcus — named on 2 pages (guides/youtube-LRTzeSTeN-8, guides/youtube-TfHU7I5OGbY)
 - Apistogramma linkei — named on 2 pages (species/geophagus-megasema, species/mikrogeophagus-altispinosus)
 - Apistogramma ortmanni — named on 2 pages (species/geophagus-brachybranchus, species/iguanodectes-geisleri)
+- Aquarius grandiflorus — named on 2 pages (guides/youtube-Z2zNU9D9OWE, guides/youtube-tjBIz6NjbwI)
 - Aquarius uruguayensis — named on 2 pages (guides/youtube-AzntHqOzRXg, guides/youtube-eE9BEyCXouM)
+- Asplenium nidus — named on 2 pages (guides/youtube-NBR8ZLYW0dQ, guides/youtube-tcrd-3oG394)
 - Awaous grammepomus — named on 2 pages (species/belontia-signata, species/devario-pathirana)
 - Awaous personatus — named on 2 pages (species/garra-flavatra, species/opsarius-barna)
 - Azolla caroliniana — named on 2 pages (guides/youtube-DRlTmK7l0uo, guides/youtube-ld9WkDIP_o4)
@@ -3158,6 +3166,7 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Guianacara geayi — named on 2 pages (species/geophagus-camopiensis, species/satanoperca-rhynchitis)
 - Guyanancistrus brevispinis — named on 2 pages (species/geophagus-camopiensis, species/satanoperca-rhynchitis)
 - Gymnochanda limi — named on 2 pages (species/gymnochanda-filamentosa, species/gymnochanda-verae)
+- Hedera helix — named on 2 pages (guides/youtube-tcrd-3oG394, guides/youtube-xBtOIR5wt6k)
 - Hemibagrus caveatus — named on 2 pages (species/hemibagrus-peguensis, species/hemibagrus-wyckii)
 - Hemigrammus lunatus — named on 2 pages (species/geophagus-megasema, species/mikrogeophagus-altispinosus)
 - Hemimyzon sheni — named on 2 pages (species/hemimyzon-formosanus, species/hemimyzon-nanensis)
@@ -3168,6 +3177,7 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Hypostomus surinamensis — named on 2 pages (species/geophagus-brokopondo, species/hypostomus-gymnorhynchus)
 - incertae sedis — named on 2 pages (species/axelrodia-riesei, species/inpaichthys-kerri)
 - Kichulchoia brevifasciata — named on 2 pages (species/niwaella-delicata, species/niwaella-multifasciata)
+- Labeo parvus — named on 2 pages (guides/glaser-en-08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc-labeo-parvus-and-l-barbatus-en, species/labeo-coubie)
 - Lasiancistrus schomburgkii — named on 2 pages (species/baryancistrus-beggini, species/baryancistrus-demantoides)
 - Lebiasina chocoensis — named on 2 pages (species/geophagus-pellegrini, species/nematobrycon-palmeri)
 - Lentipes armatus — named on 2 pages (species/sicyopus-cebuensis, species/sicyopus-zosterophorus)
@@ -3183,6 +3193,7 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Micranthemum micranthemoides — named on 2 pages (guides/youtube--YXB8au4nnU, guides/youtube-6iE1bp5Zi_g)
 - Misgurnus fossilis — named on 2 pages (species/misgurnus-anguillicaudatus, species/paramisgurnus-dabryanus)
 - Mochokiella paynei — named on 2 pages (species/epiplatys-annulatus, species/ladigesia-roloffi)
+- Monstera deliciosa — named on 2 pages (guides/youtube-HgM7_AzVv2w, guides/youtube-tcrd-3oG394)
 - Myersglanis blythii — named on 2 pages (species/barilius-bendelisis, species/opsarius-barna)
 - Myriophyllum pinnatum — named on 2 pages (guides/youtube-_0xNpxtU9J0, guides/youtube-mfn_msd06Fo)
 - Mystus keletius — named on 2 pages (species/barilius-canarensis, species/garra-bicornuta)
@@ -3264,6 +3275,7 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Trachemys scripta — named on 2 pages (guides/aquariumbreeder-paludarium-animals, guides/youtube-LTq4EuuY_iA)
 - Trichomycterus zonatus — named on 2 pages (guides/seriouslyfish-articles-phallusy-or-foe-the-myth-of-the-candiru, species/trichomycterus-alternatus)
 - Turbatrix aceti — named on 2 pages (guides/aquariumbreeder-vinegar-eels-profile-and-culture-guide-3-methods, species/parosphromenus-linkei)
+- Tyttocharax tambopatensis — named on 2 pages (species/geophagus-megasema, species/mikrogeophagus-altispinosus)
 - Zebrasoma flavescens — named on 2 pages (guides/loachesonline-articles-is-this-the-best-loach-shop-in-the-world, species/elacatinus-oceanops)
 - Acanthobunocephalus nicoi — named on 1 page (guides/sprucepets-lifespans-of-aquarium-fish-1378340)
 - Acanthocobitis urophthalmus — named on 1 page (species/rasbora-dandia)
@@ -3301,7 +3313,6 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Anubias heterophylla — named on 1 page (guides/aquariumcoop-blogs-aquarium-goldfish-plants)
 - Aperioptus pictorius — named on 1 page (species/acantopsis-dialuzona)
 - Aphanius sophiae — named on 1 page (species/esmaeilius-persicus)
-- Aphanius villwocki — named on 1 page (species/anatolichthys-villwocki)
 - Aphyocharax dentatus — named on 1 page (guides/sprucepets-what-fish-species-are-coldwater-1380965)
 - Aphyocypris kikuchii — named on 1 page (species/rhinogobius-gigas)
 - Aphyosemion ahli — named on 1 page (species/aphyosemion-campomaanense)
@@ -3309,7 +3320,6 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Apistogramma piauiensis — named on 1 page (species/geophagus-parnaibae)
 - Aponogeton crispus — named on 1 page (guides/youtube-AAjZ3Ldk4go)
 - Aquarius cordifolius — named on 1 page (guides/youtube-0mh3XMpsMvk)
-- Aquarius grandiflorus — named on 1 page (guides/youtube-Z2zNU9D9OWE)
 - Aquarius grisebachii — named on 1 page (guides/youtube-2htJPBhx7Cs)
 - Aquarius major — named on 1 page (guides/youtube-TkKqmLMj0Kg)
 - Arapaima gigas — named on 1 page (guides/youtube-HRHGNurFb8Y)
@@ -3319,7 +3329,6 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Asclepias incarnata — named on 1 page (guides/youtube-EtPpRSVUsTE)
 - Aspidoras psammatides — named on 1 page (species/ammoglanis-multidentatus)
 - Aspidoras velites — named on 1 page (species/aspidoras-pauciradiatus)
-- Asplenium nidus — named on 1 page (guides/youtube-NBR8ZLYW0dQ)
 - Astacopsis franklinii — named on 1 page (species/astacopsis-gouldi)
 - Astacopsis tricornis — named on 1 page (species/astacopsis-gouldi)
 - Astatotilapia burtoni — named on 1 page (guides/youtube-wOFTF6CYtFc)
@@ -3351,10 +3360,10 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Barbatula barbatula — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - Barbichthys laevis — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - Barbodes rhombeus — named on 1 page (species/annamia-normani)
-- Barbodes snyderi — named on 1 page (species/barbodes-semifasciolatus)
 - Barboides britzi — named on 1 page (species/barboides-gracilis)
 - Barbonymus balleroides — named on 1 page (species/hampala-bimaculata)
 - Barbonymus collingwoodii — named on 1 page (species/betta-taeniata)
+- Barbus fasciatus — named on 1 page (species/haludaria-fasciata)
 - Barclaya longifolia — named on 1 page (guides/aquariumbreeder-50-underwater-red-plants-for-your-tank)
 - Baryancistrus niveatus — named on 1 page (species/spectracanthicus-zuanoni)
 - Bathyaethiops caudomaculatus — named on 1 page (species/alestopetersius-caudalis)
@@ -3467,10 +3476,12 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Dionda episcopa — named on 1 page (guides/seriouslyfish-articles-the-desert-fish-habitat-partnership)
 - Diplocheilichthys pleurotaenia — named on 1 page (species/hampala-bimaculata)
 - Distichodus decemmaculatus — named on 1 page (species/ctenopoma-acutirostre)
+- Distichodus rostratus — named on 1 page (guides/glaser-en-09-characoids-tetra-relationship-distichodus-rostratus-d-engycephalus-and-d-brevipinnis-from-nigeria-en)
 - Dolichancistrus pediculatus — named on 1 page (species/dolichancistrus-cobrensis)
 - Dormitator maculatus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - Dracaena thalioides — named on 1 page (guides/youtube-fV5MucIp1M8)
 - Dryophytes versicolor — named on 1 page (guides/youtube-EtPpRSVUsTE)
+- Echinodorus bolivianus — named on 1 page (guides/youtube-0_6qeLVaKf4)
 - Echinometra lucunter — named on 1 page (species/gnathophyllum-americanum)
 - Edwardsiella ictaluri — named on 1 page (guides/aquatome-ca-chet-hang-loat-trong-be-lam-gi-ngay-va-tim-nguyen-nhan-the-nao)
 - Ehirava fluviatilis — named on 1 page (species/pethia-sharmai)
@@ -3525,6 +3536,7 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Gymnocoronis spilanthoides — named on 1 page (guides/youtube-8qCMy4BnnDI)
 - Gymnogeophagus australis — named on 1 page (species/geophagus-brasiliensis)
 - Gymnogeophagus gymnogenys — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
+- Hara hara — named on 1 page (species/erethistes-pusillus)
 - Harttia leiopleura — named on 1 page (species/lamontichthys-filamentosus)
 - Hasemania crenuchoides — named on 1 page (species/hyphessobrycon-balbus)
 - Hemibagrus amemiyai — named on 1 page (species/hemibagrus-macropterus)
@@ -3539,8 +3551,8 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Hemitaeniochromis brachyrhynchus — named on 1 page (guides/seriouslyfish-articles-a-passion-for-cichlids)
 - Heteranthera dubia — named on 1 page (guides/youtube-swLD-a1SkRQ)
 - Hisonotus hungy — named on 1 page (species/corydoras-carlae)
+- Holtodrilus truncatus — named on 1 page (guides/aquariumbreeder-holtodrilus-truncates-parasites-in-shrimp-keeping-hobby)
 - Hopliancistrus tricornis — named on 1 page (species/spectracanthicus-zuanoni)
-- Hyalobagrus ornatus — named on 1 page (species/hyalobagrus-flavus)
 - Hydrocynus forskahlii — named on 1 page (species/hepsetus-odoe)
 - Hymenocera picta — named on 1 page (species/gnathophyllum-americanum)
 - Hymenochirus curtipes — named on 1 page (guides/aquariumbreeder-are-african-frogs-and-shrimp-compatible)
@@ -3602,6 +3614,7 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Lilaeopsis mauritiana — named on 1 page (guides/youtube-ohUzvlrSQDs)
 - Limnodrilus hoffmeisteri — named on 1 page (guides/aquatome-cac-loai-thuc-an-cho-ca-thuc-an-song-trun-chi-trung-huyet-artemia-bobo)
 - Limnoperna fortunei — named on 1 page (species/paraloricaria-vetula)
+- Limnophila heterophylla — named on 1 page (guides/youtube-tjBIz6NjbwI)
 - Limnophila siamensis — named on 1 page (guides/youtube-L8tiOsI7dyk)
 - Liniparhomaloptera qiongzhongensis — named on 1 page (species/liniparhomaloptera-disparis)
 - Lithobates clamitans — named on 1 page (guides/youtube-EtPpRSVUsTE)
@@ -3639,6 +3652,7 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Mimagoniates rheocharis — named on 1 page (species/scleromystax-salmacis)
 - Moapa coriacea — named on 1 page (guides/seriouslyfish-articles-the-desert-fish-habitat-partnership)
 - Moema ortegai — named on 1 page (species/moema-hellneri)
+- Moenkhausia dichroura — named on 1 page (species/hyphessobrycon-herbertaxelrodi)
 - Moenkhausia grandisquamis — named on 1 page (species/geophagus-brokopondo)
 - Moenkhausia hasemani — named on 1 page (guides/youtube-SlmXdV5n3Hw)
 - Moenkhausia intermedia — named on 1 page (species/corydoras-hastatus)
@@ -3649,6 +3663,7 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Mylopharyngodon piceus — named on 1 page (species/ctenopharyngodon-idella)
 - Myloplus lobatus — named on 1 page (guides/glaser-en-09-characoids-tetra-relationship-myleus-sp-second-take-en)
 - Myloplus ternetzi — named on 1 page (species/geophagus-camopiensis)
+- Mylossoma duriventre — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - Mystus cavasius — named on 1 page (species/etroplus-maculatus)
 - Mystus malabaricus — named on 1 page (species/lepidocephalichthys-thermalis)
 - Mystus punctifer — named on 1 page (species/betta-dennisyongi)
@@ -3663,7 +3678,6 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Nemacheilus stigmofasciatus — named on 1 page (species/nemacheilus-anguilla)
 - Nemacheilus tebo — named on 1 page (species/nemacheilus-spiniferus)
 - Nemacheilus tuberigum — named on 1 page (species/betta-dennisyongi)
-- Nemachilichthys shimogensis — named on 1 page (species/garra-bicornuta)
 - Nemateleotris magnifica — named on 1 page (species/elacatinus-oceanops)
 - Nematogenys cuivi — named on 1 page (species/nematogenys-inermis)
 - Neoclytus scutellaris — named on 1 page (guides/seriouslyfish-articles-a-passion-for-cichlids)
@@ -3686,6 +3700,7 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Nymphaea rubra — named on 1 page (guides/youtube-mfn_msd06Fo)
 - Nymphaea tetragona — named on 1 page (guides/youtube-VtUOcuH3tNg)
 - Nypa fruticans — named on 1 page (species/betta-mahachaiensis)
+- Odontostilbe pequira — named on 1 page (species/hyphessobrycon-herbertaxelrodi)
 - Oligosarcus planaltinae — named on 1 page (species/hyphessobrycon-balbus)
 - Omobranchus fasciolatoceps — named on 1 page (guides/aquariumcoop-blogs-aquarium-20-gallon-oddball-fish)
 - Ompok brevirictus — named on 1 page (species/betta-dennisyongi)
@@ -3753,6 +3768,7 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Plotosus lineatus — named on 1 page (species/plotosus-canius)
 - Poecilia latipunctata — named on 1 page (species/cualac-tessellatus)
 - Poecilia petenensis — named on 1 page (species/thorichthys-meeki)
+- Pogonopoma obscurum — named on 1 page (species/pogonopoma-wertheimeri)
 - Polycentrus schomburgkii — named on 1 page (species/polycentropsis-abbreviata)
 - Polystichum acrostichoides — named on 1 page (guides/youtube--e-b2H4-mu8)
 - Porcellio scaber — named on 1 page (guides/youtube-_079wgd6Nrc)
@@ -3771,6 +3787,8 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Pseudacanthicus spinosus — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - Pseudancistrus corantijniensis — named on 1 page (species/geophagus-brachybranchus)
 - Pseudauchenipterus nodosus — named on 1 page (species/anableps-anableps)
+- Pseudecheneis sulcatoides — named on 1 page (species/pseudecheneis-sulcata)
+- Pseudecheneis sympelvica — named on 1 page (species/pseudecheneis-sulcata)
 - Pseudobagrus nubilosus — named on 1 page (species/tachysurus-nitidus)
 - Pseudobagrus vachellii — named on 1 page (species/sinibotia-superciliaris)
 - Pseudogastromyzon fangi — named on 1 page (species/sinogastromyzon-wui)
@@ -3880,6 +3898,8 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Taxus baccata — named on 1 page (guides/youtube-9zhkRJllCNg)
 - Teramulus waterloti — named on 1 page (species/pachypanchax-omalonotus)
 - Thalassophryne nattereri — named on 1 page (species/thalassophryne-amazonica)
+- Theodoxus danubialis — named on 1 page (guides/aquariumbreeder-how-to-remove-green-spot-algae-in-aquariums)
+- Theodoxus fluviatilis — named on 1 page (guides/aquariumbreeder-how-to-remove-green-spot-algae-in-aquariums)
 - Theriodes sandakanensis — named on 1 page (species/betta-ocellata)
 - Thiara cancellata — named on 1 page (guides/aquariumbreeder-importance-of-surface-agitation-in-aquariums)
 - Thorichthys socolofi — named on 1 page (species/thorichthys-meeki)

@@ -1,10 +1,28 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "inat:223945486",
+  "inat:276069318",
+  "inat:276069464",
+  "inat:276069457",
+  "inat:276069585",
+  "inat:276069592",
+  "inat:276069686",
+  "inat:276075010",
+  "inat:276075153"
+ ],
  "hashes": {
   "https://media.aquatome.com/commons/80e14a0ade587565.webp": "eb66266723331e4d",
   "https://media.aquatome.com/commons/7991352cd0f5a566.webp": "a674f95b8a21ecca",
   "https://media.aquatome.com/commons/e33d89f9946f98e9.webp": "c543cbd32d757a33"
  },
- "commons": "2026-11-10"
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": 605453,
+  "pass": "done",
+  "after": {
+   "research": 159779007,
+   "agree": 0
+  }
+ }
 }
