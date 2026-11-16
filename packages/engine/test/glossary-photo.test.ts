@@ -244,3 +244,12 @@ test("the mark screen's file keeps its own order: our photo's record goes last, 
   await glossaryPhoto(r, { term: 'lua', kind: 'lua-bonsai', file: FILE }, deps().d)
   expect(Object.keys(await load(r, 'engine-state/_photo-watermarks.json'))).toEqual([first, OTHER, OURS])
 })
+
+test("a photo already in the mark screen's file is screened again where it stands", async () => {
+  const r = await root()
+  const first = 'https://media.aquatome.com/scotcat/ffffffffffffffff.webp'
+  const marks = { [first]: { ocr: [] }, [OURS]: { ocr: [], watermark: false, kind: 'none' }, [OTHER]: { ocr: [], watermark: false, kind: 'none' } }
+  await writeFile(join(r, 'engine-state/_photo-watermarks.json'), `${JSON.stringify(marks, null, 2)}\n`)
+  await glossaryPhoto(r, { term: 'lua', kind: 'lua-bonsai', file: FILE }, deps({ stored: [OURS] }).d)
+  expect(Object.keys(await load(r, 'engine-state/_photo-watermarks.json'))).toEqual([first, OURS, OTHER])
+})
