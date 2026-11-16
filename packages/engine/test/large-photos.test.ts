@@ -116,10 +116,13 @@ test("--heads: the engine's avoid entries, listed for a photo refused on some pa
   const root = await store()
   const [head] = await photosOf(root, 'content/species/betta-splendens/entity.json')
   const avoid = async (why: string) => writeFile(join(root, 'content/curation.json'), JSON.stringify({ version: 1, weeks: [], days: [], avoid: { [head!.url]: why } }))
-  await avoid('engine: another fish')
-  expect(await headsUnderBar(root)).toEqual(['betta-splendens'])
   await avoid('a ruler in the picture')
   expect(await headsUnderBar(root)).toEqual([])
+  await avoid('engine: another fish')
+  expect(await headsUnderBar(root)).toEqual(['betta-splendens'])
+  // And the copy itself is made: largePhotos reads the list on its own.
+  const { d } = deps()
+  expect((await largePhotos(root, ['betta-splendens'], d, { headsOnly: true })).added).toBe(1)
 })
 
 test('a head whose source holds nothing larger is remembered and not fetched again each cycle', async () => {

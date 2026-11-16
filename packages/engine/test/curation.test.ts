@@ -25,6 +25,14 @@ test('a photo fills a card by its pixels across once cropped to the card\'s shap
   expect(across({ width: 1200, height: 1280 }, 'square')).toBe(1200)
 })
 
+test("a story naming a fish page takes its head photo, but not one the second look holds or a check refused", () => {
+  const ok = fish('sss', { px: 2000 })
+  const cur = CurationSchema.parse({ version: 1, weeks: [], days: [{ date: '2026-11-09', story: { page: 'species/sss' } }] })
+  expect(plan(cur, [ok, fish('a'), fish('b')], '2026-11-09', 1).calendar.days[0]!.story).toEqual({ page: 'species/sss', img: ok.head!.url })
+  const held = { ...ok, headFails: 'held for a second look' }
+  expect(plan(cur, [held, fish('a'), fish('b')], '2026-11-09', 1).calendar.days[0]!.story).toEqual({ page: 'species/sss' })
+})
+
 test('a guide or story card takes a 16:9 photo: a video still fills it that a fish card would crop to half', async () => {
   const still = { width: 1280, height: 720 }
   expect(across(still, 'guide')).toBe(1280)

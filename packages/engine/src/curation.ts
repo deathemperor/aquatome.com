@@ -500,11 +500,11 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
       ]
       why.push(`${slot === 'fish' ? 'Fish' : 'Guide'}: ${best.name}, ${reasons.join(', ') || 'the best left with a big enough photo'}`)
     }
-    // A story's photo is its page's head photo when that is big enough for the card, else none.
+    // A story's photo is its page's head photo when that is big enough for the card and not refused or held, else none.
     const sc = d.story ? byRef.get(d.story.page) : undefined
     if (d.story && sc?.fit) {
       const { img: _, ...story } = d.story
-      d.story = (sc.head?.px.guide ?? 0) >= LARGE_PX ? { ...story, img: sc.head!.url } : story
+      d.story = (sc.head?.px.guide ?? 0) >= LARGE_PX && !sc.headFails ? { ...story, img: sc.head!.url } : story
     }
     // One plain sentence for the owner's daily report.
     if (why.length) d.why = `${why.join('. ')}.`.slice(0, 300)
@@ -514,7 +514,8 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
   // Khám phá's top cards, week by week from the one that holds `from`. A card whose page fails reader fit would be hidden,
   // so a fish that passes takes its place, and a week short of five takes more: one with a page in every language first
   // (a card shows only where its page is), then its own list, then its tags, never a fish another week's top cards had or
-  // have within four weeks (the chief of staff, 2026-11-11). A hand-picked card stays. A fish's card shows
+  // have within four weeks (the chief of staff, 2026-11-11). A hand-picked card stays while its page passes reader fit and its
+  // head isn't refused or held (the chief of staff, 16 Nov). A fish's card shows
   // its page's head photo, even one too small for the wide card, which the check reports until the head is fixed (the
   // owner, 2026-11-11). A guide's card keeps its photo.
   const everywhere = (c: Candidate) => LANGS.every(l => c.langs.includes(l))
