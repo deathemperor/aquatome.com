@@ -50,6 +50,18 @@
       "kind": "detail"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/32449587.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/32449587-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "desertnaturalist",
+      "sourceUrl": "https://www.inaturalist.org/photos/32449587",
+      "caption": "Hải quỳ đầu bong bóng màu vàng nâu, xúc tu phồng rõ nét",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/46064417.webp",
       "thumb": "https://media.aquatome.com/inaturalist/46064417-480.webp",
       "width": 1024,
@@ -360,18 +372,6 @@
       "best": false,
       "kind": "habitat",
       "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/32449587.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/32449587-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "desertnaturalist",
-      "sourceUrl": "https://www.inaturalist.org/photos/32449587",
-      "caption": "Hải quỳ đầu bong bóng màu vàng nâu, xúc tu phồng rõ nét",
-      "best": true,
-      "kind": "habitat"
     }
   ],
   "seen": 80,
