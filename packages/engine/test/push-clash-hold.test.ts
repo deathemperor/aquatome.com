@@ -20,7 +20,7 @@ type Side = { held?: Held; body?: string; fit?: { at: string; hash: string; chec
 
 const KINDS = { guides: { dir: 'content/guides/youtube-x', key: 'vi/guides/youtube-x' }, species: { dir: 'content/species/ca-x', key: 'vi/species/ca-x' } }
 
-function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Side }, o: { mainOther?: boolean; kept?: boolean } = {}) {
+function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Side }, o: { mainOther?: boolean; kept?: boolean; catchUp?: boolean } = {}) {
   const { dir: pageDir, key } = KINDS[kind]
   const file = `${pageDir}/vi.json`
   const dir = mkdtempSync(join(tmpdir(), 'aq-push-hold-'))
@@ -63,7 +63,7 @@ function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Si
     sleep() { :; }
     ended_row() { :; }
     ${pushFn}
-    ${o.kept ? 'git branch kept/photos/20261116T000000 && push_kept kept/photos/20261116T000000' : 'push'}
+    ${o.kept ? 'git branch kept/photos/20261116T000000 && push_kept kept/photos/20261116T000000' : o.catchUp ? 'catch_up' : 'push'}
     echo "CODE $?"
     git log --format='COMMIT %s' -3`
   const r = spawnSync('bash', ['-c', script], { encoding: 'utf8' })
@@ -124,6 +124,20 @@ test("a species page merged by field keeps main's release too, though nothing cl
   expect(r.out).toContain('VERIFY')
 })
 
+// A reader of #1505: the run's pull before its checks (catch_up) is clean for a species page, and push()'s base is then the
+// main it brought in, which no longer differs in that record. So catch_up brings main's holds too.
+test("a species page main let out before the run's pull ahead of its checks keeps main's release from that pull on", () => {
+  const r = push('species', {
+    base: { held: hold('elsewhere'), fit: { at: '2026-11-14', hash: 'old', checks: ['elsewhere'] } },
+    main: { fit: clean },
+    run: { held: hold('source'), fit: heldFor('source') },
+  }, { catchUp: true })
+  expect(r.out).toContain('CODE 0')
+  expect(r.record.findings).toEqual([])
+  expect(r.page.held).toBeUndefined()
+  expect(r.out).toContain("COMMIT content: main's holds on 1 pages main read during this run")
+})
+
 test("a page whose text isn't main's keeps the merge's hold: main's record read another text", () => {
   // Main let the old text out; the run wrote a new one, and its own read held it. Main's record is the one that stands, but
   // it read the old text: its release would let out what no read passed. Counted in the log, left as merged.
@@ -158,8 +172,8 @@ test("kept work published later takes main's holds the same way, and they're in 
   }, { kept: true })
   expect(r.out).toContain('CODE 0')
   expect(r.pushed.held).toBeUndefined()
-  expect(r.out).toContain('VERIFY')
-  // A later try's check (check= once it has passed) is forced by any commit this step makes: it sits before HEAD is compared.
+  // A kept branch is checked on its first try anyway (check=1). What holds a later try's check (check= once it has passed)
+  // is the order: main_holds commits before HEAD is compared.
   expect(readFileSync(join(ROOT, 'scripts/cycle-checks.sh'), 'utf8')).toMatch(/head=\$\(git rev-parse HEAD\)\n\s*\[ -z "\$BRANCH" \] \|\| main_pages "\$BRANCH"\n\s*main_holds "\$run" origin\/main \|\| true\n\s*\[ "\$\(git rev-parse HEAD\)" = "\$head" \] \|\| check=1/)
 })
 

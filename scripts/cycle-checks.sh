@@ -841,8 +841,12 @@ replan_merged() {
   git add content/curation.json
   git diff --cached --quiet || git commit -q -m "content: the calendar planned again on main's"
 }
+# A clean pull here brings main's holds as push() does (main_holds): a species or plant page merges by field and never
+# clashes, so a release on main before this pull would otherwise stay under the run's hold, and push(), whose base is then
+# this main, wouldn't see it (a reader of #1505, 16 Nov 2026). The sweep and the checks come after it (engine-cycle.sh).
 catch_up() {
-  net git pull -q --rebase && return 0
+  local run; run=$(git rev-parse HEAD)
+  if net git pull -q --rebase; then main_holds "$run" || true; return 0; fi
   git rebase --abort 2>/dev/null || true
   log "main changed this cycle's files meanwhile: checking as it started, push() settles the clash"
 }

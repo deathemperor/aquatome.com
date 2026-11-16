@@ -13,6 +13,8 @@ const script = (name: string) => readFileSync(join(ROOT, 'scripts', name), 'utf8
 test('a cycle sweeps again after each merge with main, before the tests', () => {
   const cycle = script('engine-cycle.sh')
   expect(cycle).toMatch(/\ncatch_up\nsweep_merged\nif ! verify_cycle/)
+  // catch_up's clean pull brings main's holds first (main_holds), as push() does, before that sweep and those checks.
+  expect(script('cycle-checks.sh')).toMatch(/if net git pull -q --rebase; then main_holds "\$run" \|\| true; return 0; fi/)
   expect(cycle).toMatch(/rebase -X theirs; then\n\s*replan_merged "\$clash"\n\s*main_holds "\$run" \|\| true\n\s*sweep_merged\n\s*verify_cycle/)
   expect(script('video-cycle.sh')).toMatch(/rebase -X theirs; then\n\s*main_holds "\$run" \|\| true\n\s*sweep_merged\n\s*verify_cycle/)
   expect(script('video-recheck.sh')).toMatch(/rebase -X theirs; then\n\s*main_holds "\$run" \|\| true\n\s*sweep_merged\n\s*verify_cycle/)
