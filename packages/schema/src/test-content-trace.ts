@@ -3,7 +3,7 @@ import fs, { appendFileSync } from 'node:fs'
 import { syncBuiltinESMExports } from 'node:module'
 import { promisify } from 'node:util'
 import { fileURLToPath } from 'node:url'
-import { expect } from 'vitest'
+import { beforeAll, expect } from 'vitest'
 
 /**
  * Which test files read the repository's real content: a setup file in each package's vitest config, idle unless
@@ -12,8 +12,9 @@ import { expect } from 'vitest'
  * in scripts/content-tests.json as reading none of it. ci.yml runs every test with this on and fails if a listed file read
  * any, so the list can only cost time, never skip a content check.
  *
- * A line per read: the test file, then `read` and the path, or `spawn` and the command for a child process started inside
- * the repository (it may read the content where this can't see), both from the repository's root.
+ * A line per test file and what it read: the test file, then `read` and the folder (content/species), `spawn` and the
+ * command for a child process started inside the repository (it may read the content where this can't see), or `ran`,
+ * from the repository's root.
  */
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url)).replace(/\/$/, '')
 const WATCHED = ['content', 'engine-state', 'sources', 'docs/review'].map(d => `${ROOT}/${d}`)
@@ -27,10 +28,17 @@ const pathOf = (p: unknown): string | undefined => {
   if (Buffer.isBuffer(p)) return pathOf(p.toString())
   return undefined
 }
-const write = (kind: string, what: string) => { appendFileSync(out!, `${testFile()}\t${kind}\t${what}\n`) }
+// Each line once a test file: a read by its folder (content/species), a command on one line.
+const written = new Set<string>()
+const write = (kind: string, what: string) => {
+  const line = `${testFile()}\t${kind}\t${what.replace(/\s+/g, ' ')}\n`
+  if (written.has(line)) return
+  written.add(line)
+  appendFileSync(out!, line)
+}
 const read = (p: unknown) => {
   const s = pathOf(p)
-  if (s && WATCHED.some(w => s === w || s.startsWith(`${w}/`))) write('read', rel(s))
+  if (s && WATCHED.some(w => s === w || s.startsWith(`${w}/`))) write('read', rel(s).split('/').slice(0, s.startsWith(`${ROOT}/docs/`) ? 3 : 2).join('/'))
 }
 const wrap = (o: Record<string, unknown>, names: string[], seen: (args: unknown[]) => void) => {
   for (const name of names) {
@@ -52,6 +60,8 @@ const wrap = (o: Record<string, unknown>, names: string[], seen: (args: unknown[
 }
 
 if (out) {
+  // That the file ran at all: a file the trace never saw run (skipped on this machine) is never left out.
+  beforeAll(() => write('ran', '-'))
   const opens = ['readFile', 'readdir', 'stat', 'lstat', 'access', 'open', 'opendir', 'exists', 'createReadStream', 'readlink', 'realpath']
   wrap(fs as unknown as Record<string, unknown>, [...opens, ...opens.map(n => `${n}Sync`)], a => read(a[0]))
   wrap(fs.promises as unknown as Record<string, unknown>, opens, a => read(a[0]))

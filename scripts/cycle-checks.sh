@@ -632,14 +632,15 @@ push_kept() {
 # been up 4.5 to 6.5 hours waiting on a test turn. A content run changes content, not code, and GitHub's unit tests run on
 # every code commit to main (ci.yml). So when the code this run is about to publish on is exactly a main commit's code,
 # and that commit's unit-test job finished green on GitHub, the run checks what it changed: the content, with the loader
-# (check-content) and every test file that reads it (CONTENT_STEP; the files left out are in scripts/content-tests.json,
-# and ci.yml fails if one of them reads the content). Anything that can't be shown takes the whole suite, as before: code
+# (check-content) and every test file that reads it, without the site's fixture builds, which read none (CONTENT_STEP,
+# each package's test:content; the files left out are in scripts/content-tests.json, and ci.yml fails if one of them
+# reads the content). Anything that can't be shown takes the whole suite, as before: code
 # in this run's own commits, a commit GitHub hasn't finished (waited on up to UNIT_WAIT_SECONDS), one it cancelled or
 # failed, GitHub not answering, an origin that isn't GitHub (the cycle tests' repositories), the cloud's runner (its
 # token can't read checks). On the Mac the whole suite still runs once a day at a quiet hour (full_due), for the Mac
 # itself drifting: an update, a tool's version. Each run's log says which path it took and why.
 FULL_STEP='pnpm test'
-CONTENT_STEP='pnpm engine check-content && AQ_CONTENT_ONLY=1 pnpm test'
+CONTENT_STEP='pnpm engine check-content && pnpm test:content'
 # What a content run writes and main's CI doesn't test (ci.yml's paths-ignore): the content, docs/review counted as it.
 CONTENT_PATHS=(content engine-state sources docs/review)
 UNIT_JOB='Unit tests, typecheck and browser checks'
@@ -660,7 +661,7 @@ full_due() {
   engine_clone || return 1
   [ -n "$(find "$FULL_STAMP" -mmin -1200 2>/dev/null)" ] && return 1
   [ -n "$(find "$FULL_STAMP" -mmin -1800 2>/dev/null)" ] || return 0
-  local hour; hour=$(date +%H); hour=${hour#0}
+  local hour; hour=${AQ_HOUR:-$(date +%H)}; hour=${hour#0}
   [ "$hour" -ge 1 ] && [ "$hour" -le 6 ]
 }
 # CHECKS_STEP, the step this commit takes, and CHECKS_WHY, why.

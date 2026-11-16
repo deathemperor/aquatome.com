@@ -14,8 +14,8 @@ test('a cycle sweeps again after each merge with main, before the tests', () => 
   const cycle = script('engine-cycle.sh')
   expect(cycle).toMatch(/\ncatch_up\nsweep_merged\nif ! verify_cycle/)
   expect(cycle).toMatch(/rebase -X theirs; then\n\s*replan_merged "\$clash"\n\s*sweep_merged\n\s*verify_cycle/)
-  expect(script('video-cycle.sh')).toMatch(/rebase -X theirs; then\n\s*sweep_merged\n\s*verify 'pnpm test'/)
-  expect(script('video-recheck.sh')).toMatch(/rebase -X theirs; then\n\s*sweep_merged\n\s*verify 'pnpm test'/)
+  expect(script('video-cycle.sh')).toMatch(/rebase -X theirs; then\n\s*sweep_merged\n\s*verify_cycle/)
+  expect(script('video-recheck.sh')).toMatch(/rebase -X theirs; then\n\s*sweep_merged\n\s*verify_cycle/)
 })
 
 test('what the sweep changes after a merge is committed, and no change leaves no commit', () => {
@@ -39,7 +39,7 @@ test('what the sweep changes after a merge is committed, and no change leaves no
 // through a pull at the push that doesn't clash (merge-entity.mjs keeps an item one side changed).
 test("a clean pull that brings main's commits in is swept before the push, and the tests run again only when the sweep changed something", () => {
   expect(script('engine-cycle.sh')).toMatch(/elif ! swept_pull "\$main"; then\n\s*verify_cycle \|\|/)
-  for (const f of ['video-cycle.sh', 'video-recheck.sh']) expect(script(f)).toMatch(/elif ! swept_pull "\$main"; then\n\s*verify 'pnpm test' \|\|/)
+  for (const f of ['video-cycle.sh', 'video-recheck.sh']) expect(script(f)).toMatch(/elif ! swept_pull "\$main"; then\n\s*verify_cycle \|\|/)
   // Kept work: after a pull that brought main's commits in, checked in full until it has passed; then swept, and checked
   // again only if the sweep changed more than the pages' dates or the migration failed, as a run's own push does, on that
   // one sweep.
@@ -125,7 +125,7 @@ test("after a clash in the calendar it is main's calendar, planned again, never 
 test("a video run's work is committed before its tests, so a run that fails them can still be published", () => {
   const cycle = script('video-cycle.sh')
   expect(cycle.indexOf('git commit -q -m "content: videos')).toBeGreaterThan(0)
-  expect(cycle.indexOf('git commit -q -m "content: videos')).toBeLessThan(cycle.indexOf("verify 'pnpm test'"))
+  expect(cycle.indexOf('git commit -q -m "content: videos')).toBeLessThan(cycle.indexOf('verify_cycle'))
 })
 
 // The re-check of 2026-11-08: its tests failed on a defect the sweep fixes, and its work, tested before it was committed,
@@ -136,5 +136,5 @@ test("a video re-check sweeps its work and commits it before its tests, as the v
   const commit = s.indexOf('git commit -q -m "content: video guides checked again')
   expect(sweep).toBeGreaterThan(s.indexOf('pnpm engine videos --redo'))
   expect(commit).toBeGreaterThan(sweep)
-  expect(commit).toBeLessThan(s.indexOf("verify 'pnpm test'"))
+  expect(commit).toBeLessThan(s.indexOf('verify_cycle'))
 })
