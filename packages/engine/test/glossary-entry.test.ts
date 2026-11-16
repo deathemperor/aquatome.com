@@ -705,7 +705,7 @@ test('a saved entry revised: a rewrite that drops what no note asks for is not s
 // The chief of staff, 16 Nov 2026: a run from a kept draft saved what a stopped revise had cut, with nothing to let it go
 // (Artemia's second-stage larvae, dry food's crumbled flakes and its two months): the draft, and every rewrite of it, are
 // held to the saved entry as a revise's are, and an accepted one is refused.
-test('a kept draft run or accepted is held to the saved entry: what no stop or free line lets go stops the save', async () => {
+test('a kept draft run or accepted is held to the saved entry: what no stop lets go stops the save, a stopped sentence may go', async () => {
   const before = `${soak}<p>Thang pH là thang logarit. ${logLine}</p>`
   const cut = `${soakFixed}<p>Thang pH là thang logarit.</p>`
   const whole = `${soakFixed}<p>Thang pH là thang logarit. ${logLine}</p>`
@@ -731,11 +731,41 @@ test('a kept draft run or accepted is held to the saved entry: what no stop or f
   const back = await keptCut()
   expect(await fromDraft(back, revising([], [whole], [], 'nothing'))).toMatchObject({ id: 'lua', score: 1 })
   expect(await bodyOf(back)).toBe(whole)
-  // Accepted as it stands: refused, with what it drops, and nothing changed.
+  // Accepted as it stands: refused, with what it drops, and nothing changed. Its one read is of the saved entry's facts.
   const acc = await keptCut()
-  const refused = await makeGlossaryEntry(acc, { research: none, llm: none }, 'lua', { kind: 'aquascaping', accept: 'the chief of staff' })
+  const refused = await makeGlossaryEntry(acc, { research: none, llm: revising([], [cut], [], 'nothing') }, 'lua', { kind: 'aquascaping', accept: 'the chief of staff' })
   expect(refused).toMatchObject({ id: 'lua', refused: [expect.stringContaining(`The rewrite dropped from "${logLine}"`)] })
   expect(await bodyOf(acc)).toBe(before)
+  // A sentence of the saved entry the fact check stops may go, run or accepted, as in a revision (Fable's read, 16 Nov 2026).
+  const unborne = (writes: string[], bodies: string[]): Llm => async ({ prompt }) => {
+    if (prompt.startsWith('GLOSSARY RULES')) return { notes: [] } as never
+    if (isCheck(prompt)) return verdicts(prompt, t => (t === logLine ? 'unsupported: not in the facts' : undefined)) as never
+    writes.push(prompt)
+    return { ...written, body: bodies.length > 1 ? bodies.shift() : bodies[0] } as never
+  }
+  const stoppedRun = await keptCut()
+  expect(await fromDraft(stoppedRun, unborne([], [cut]))).toMatchObject({ id: 'lua', score: 1 })
+  expect(await bodyOf(stoppedRun)).toBe(cut)
+  const stoppedAccept = await keptCut()
+  expect(await makeGlossaryEntry(stoppedAccept, { research: none, llm: unborne([], [cut]) }, 'lua', { kind: 'aquascaping', accept: 'the chief of staff' })).toMatchObject({ id: 'lua', acceptedBy: 'the chief of staff' })
+  expect(await bodyOf(stoppedAccept)).toBe(cut)
+  // A draft that drops nothing, whose rewrite does, is held too: told what went, the writer puts it back.
+  const clean = await savedWith(before)
+  const text = `${JSON.stringify({ score: 1, broken: 1, notes: ['x'], entry: { ...written, altNames: [], body: before } }, null, 2)}\n`
+  await writeFile(draftPath(clean), text)
+  const review = { score: 1, notes: ['x'] }
+  await logReviews(clean, 'glossary', { id: 'glossary/lua', lang: 'vi' }, [review], undefined, { draft: { of: review, sha: createHash('sha256').update(text).digest('hex') } })
+  const told: string[] = []
+  const soakStopped: Llm = async ({ prompt }) => {
+    if (prompt.startsWith('GLOSSARY RULES')) return { notes: [] } as never
+    if (isCheck(prompt)) return verdicts(prompt, t => (t === 'Ngâm lũa mới 1–2 tuần.' ? 'unsupported: the writer\'s own advice' : undefined)) as never
+    told.push(prompt)
+    return { ...written, body: told.length > 1 ? whole : cut } as never
+  }
+  expect(await fromDraft(clean, soakStopped)).toMatchObject({ id: 'lua', score: 1 })
+  expect(told).toHaveLength(2)
+  expect(told[1]).toContain(`- The rewrite dropped from "${logLine}"`)
+  expect(await bodyOf(clean)).toBe(whole)
 })
 
 // The Sonnet reviewer's read, 15 Nov 2026: a revision held to a kept draft in place of the saved entry would let the drop

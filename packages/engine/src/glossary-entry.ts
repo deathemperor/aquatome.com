@@ -403,8 +403,17 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   // a stopped revise had cut). A term with no written entry yet has nothing to hold it to.
   const saving: Entry | null = (o.fromDraft || o.accept) && vi.body ? { definition: vi.definition ?? '', altNames: [], body: vi.body, related: entity.related ?? [] } : null
   const dropsFrom = (base: Entry, e: Entry, freed: NonNullable<Checked['stopped']>) => droppedInRewrite(base, e, forWriter, freed, [...pages.flatMap(l => l.split(' | ').slice(0, 2)), ...kindNames(base, taxa).fit.map(k => k.name)], asks.free)
+  // A sentence of the saved entry the fact check stops may go, as in a revision, whose first read is of that entry. A kept
+  // draft's path reads the saved entry only when the draft drops something from it, and once (Fable's read, 16 Nov 2026).
+  let savedStops: NonNullable<Checked['stopped']> | undefined
+  const heldTo = async (base: Entry, e: Entry, freed: NonNullable<Checked['stopped']>) => {
+    const lost = dropsFrom(base, e, freed)
+    if (o.revise || !lost.length) return lost
+    savedStops ??= (await checkSentences(d.llm, forWriter, base)).stops
+    return dropsFrom(base, e, [...freed, ...savedStops])
+  }
   if (o.accept) {
-    const lost = saving ? dropsFrom(saving, draft!.entry, []) : []
+    const lost = saving ? await heldTo(saving, draft!.entry, []) : []
     if (lost.length) return { id, refused: lost }
     w = draft!.entry
     review = { score: draft!.score, notes: draft!.notes, broken: draft!.broken }
@@ -428,14 +437,14 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     // the rewrites started from. A fresh draft, which no one has read, is trimmed as it must be.
     const start = o.revise ? w : saving
     const freed: NonNullable<Checked['stopped']> = []
-    let dropped: string[] = start && !o.revise ? dropsFrom(start, w, []) : []
+    let dropped: string[] = start && !o.revise ? await heldTo(start, w, []) : []
     if (dropped.length) { review.notes = [...dropped, ...review.notes]; review.stops = stopping(review) + dropped.length; review.broken += dropped.length }
     for (let i = 0; i < 2 && (!passes(review) || (i === 0 && (!draft || o.revise || review.notes.some(isLength)) && review.notes.length) || dropped.length); i++) {
       const notes = [...new Set([...review.notes, ...dropped])]
       // A sentence the fact check stopped may go from where it stood.
       freed.push(...(review.stopped ?? []))
       const again = await fit(await write(notes, w))
-      dropped = start ? dropsFrom(start, again, freed) : []
+      dropped = start ? await heldTo(start, again, freed) : []
       const r = await check(again)
       if (dropped.length) { r.notes = [...dropped, ...r.notes]; r.stops = stopping(r) + dropped.length; r.broken += dropped.length }
       tries.push(r)
