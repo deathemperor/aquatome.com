@@ -8,7 +8,6 @@ import { NEAR_BAR, steadyRead } from './quality'
 import { sourceTextHash } from './recheck-score'
 import { logReviews, readReviews, type Store } from './review-log'
 import { sanitizeHtml } from './sanitize'
-import { sentences } from './sentences'
 
 /**
  * The way back for a translated page under the bar. Until now there was none: a page in Indonesian, Thai or Malay that
@@ -30,8 +29,8 @@ import { sentences } from './sentences'
  *
  * Left alone: a page with a note about a dose, a medicine or harm (a dose is never reworded without its source: that
  * page waits for the dose and harm check), a page whose notes name no part, a part fixed by hand (localize.ts keeps it
- * too), a part with a dose in it, a part whose "fix" rewrote it, changed a figure or its unit, or cut a sentence or a
- * clause (keepsWhatItSays), and a page that lacks a part of the English (the reviewer reads it as left out and scores
+ * too), a part with a dose in it, a part whose "fix" rewrote it, changed a figure or its unit, or changed anything its
+ * notes don't quote (keepsWhatItSays), and a page that lacks a part of the English (the reviewer reads it as left out and scores
  * the page down: that is the translator's to add, not a fix in place).
  */
 const FIX = readFileSync(new URL('./prompts/localize-fix.md', import.meta.url), 'utf8')
@@ -45,12 +44,20 @@ const SCHEMA = { type: 'object', required: ['parts'], properties: { parts: { typ
 const DOSE = /\b(dos(e|es|ed|age|ages|ing)|overdos\w*|medic\w*|treat(s|ed|ing|ment|ments)?|quarantin\w*|mg\s?\/\s?l|g\s?\/\s?l|ml|ppm|\d+\s*drops?|tablespoons?|teaspoons?|salts?|copper|formalin|malachite|methylene|bleach\w*|peroxide|permanganate|praziquantel|metronidazole|levamisole|fenbendazole|flubendazole|antibiotics?|chlorine|chloramine|ammonia|nitrites?|nitrates?|toxi\w*|poison\w*|venom\w*|lethal|fatal|deadly|deaths?|mortalit\w*|die[sd]?|dying|kill(s|ed|ing)?|harm\w*|danger\w*|unsafe)\b/i
 export const doseOrHarm = (note: string): boolean => DOSE.test(note)
 
-/** The parts a note names: "Item 4", "Items 6 and 13", "item 3, 5". Part numbers are the reviewer's, from 1. */
+/** The parts a note names: "Item 4", "Items 6 and 13", "item 3, 5", "Items 2, 3, and 4", "Items 3–5". Part numbers are the reviewer's, from 1. */
 export function partsNamed(note: string): number[] {
   const out = new Set<number>()
-  for (const m of note.matchAll(/\bitems?\s+(\d+(?:\s*(?:,|and|&|\/)\s*\d+)*)/gi)) for (const n of m[1]!.match(/\d+/g) ?? []) out.add(Number(n))
+  for (const m of note.matchAll(/\bitems?\s+(\d+(?:\s*(?:,\s*and|,|and|&|\/|[-–]|to)\s*\d+)*)/gi))
+    for (const r of m[1]!.matchAll(/(\d+)(?:\s*(?:[-–]|to)\s*(\d+))?/g)) {
+      const [a, b] = [Number(r[1]), Number(r[2] ?? r[1])]
+      for (let i = a; i <= Math.min(b, a + 50); i++) out.add(i)
+    }
   return [...out]
 }
+
+/** The phrases a note quotes ("…", “…”, '…'): the reviewer is asked to quote each problem phrase, so this is where its fault is. */
+export const quotesIn = (note: string): string[] =>
+  [...note.matchAll(/["“]([^"“”]{2,}?)["”]|'([^']{2,}?)'/g)].map(m => flat(m[1] ?? m[2]!)).filter(q => q.length >= 2)
 
 /** Whether `next` is `old` with passages changed, not another text: most of the old text is still in it, at about its length. */
 export function sameTextMended(old: string, next: string): boolean {
@@ -63,36 +70,69 @@ export function sameTextMended(old: string, next: string): boolean {
 
 const plain = (html: string) => html.replace(/<[^>]*>/g, ' ').replace(/&nbsp;/g, ' ')
 /** A part with a dose in it (2 ml, 5 mg/l, 3 drops, 2 กรัม): its figures are its source's, and the editor is never sent it. */
-const DOSE_FIGURE = /\d\s*(?:mg|ml|g|grams?|millilit(?:er|re)s?|mililiter|drops?|tetes|titis|ppm|tsp|tbsp|teaspoons?|tablespoons?|sendok|sdt|sdm|sudu)(?![a-z])|(?:mg|g)\s?\/\s?l(?![a-z])|\d\s*(?:มล|มก|กรัม|หยด|ช้อน)/i
+const DOSE_FIGURE = /\d\s*(?:mg|ml|g|grams?|millilit(?:er|re)s?|mililiter|drops?|tetes|titis|ppm|tsp|tbsp|teaspoons?|tablespoons?|sendok|sdt|sdm|sudu)(?![a-z])|(?:mg|g)\s?\/\s?l(?![a-z])|\d\s*(?:มล|มก|กรัม|หยด|ช้อน|ซีซี|มิลลิกรัม|มิลลิลิตร)|\d\s*cc(?![a-z])/i
 export const hasDose = (html: string): boolean => DOSE_FIGURE.test(plain(html))
-/** The units a figure can carry, in the four languages' words: a fix that changes one (°C to °F, cm to mm) changes the figure. */
-const UNIT = '°\\s?[cf]|°|%|cm|mm|km|ml|mg|kg|m|g|l|lit(?:er|re)s?|lít|galon|gallons?|gal|inci|inch(?:es)?|kaki|feet|ft|ppm|ppt|dgh|dkh|ซม|มม|ลิตร|แกลลอน|นิ้ว|องศา|ฟุต'
-const FIGURE = new RegExp(`(\\d+(?:[.,]\\d+)?)(?:\\s*(${UNIT})(?![\\p{L}]))?`, 'giu')
-/** The figures in a text in order, each with its unit (24 °C, 5 cm; 6,5 read as 6.5). */
-const figures = (text: string) => [...text.matchAll(FIGURE)].map(m => `${m[1]!.replace(',', '.')}${(m[2] ?? '').replace(/\s/g, '').toLowerCase()}`).join(' ')
-/** A part's paragraphs, list items and cells, as text. */
-const blocksOf = (html: string) => html.split(/<\/?(?:p|li|ul|ol|h[1-6]|br|tr|td|th|table|div|blockquote)\b[^>]*>/i).map(b => plain(b).replace(/\s+/g, ' ').trim()).filter(Boolean)
-/** A block's sentences. Thai has no full stops: a Thai block is one. */
-const unitsOf = (lang: TargetLang, block: string) => (lang === 'th' ? [block] : sentences(block).filter(p => p.sentence).map(p => p.html))
-/** How much shorter a sentence (a Thai block) of a fix may be than the old one: a cut clause is more than this. */
-const SHORTER = { th: 0.9, other: 0.85 }
-/**
- * Whether a fix of a part says all the old text said: the same figures with the same units, in the same order; the
- * same paragraphs and list items; in each, the same number of sentences; and no sentence (in Thai, no paragraph) much
- * shorter than it was. A fix that changed a figure, its unit, or cut a caution, a sentence or a clause is not taken,
- * whatever the reviewer then reads.
- */
-export function keepsWhatItSays(lang: TargetLang, old: string, next: string): boolean {
-  const [a, b] = [blocksOf(old), blocksOf(next)]
-  if (figures(a.join(' ')) !== figures(b.join(' ')) || a.length !== b.length) return false
-  const floor = lang === 'th' ? SHORTER.th : SHORTER.other
-  return a.every((block, i) => {
-    const [x, y] = [unitsOf(lang, block), unitsOf(lang, b[i]!)]
-    return x.length === y.length && x.every((u, j) => y[j]!.length >= u.length * floor)
-  })
+/** A part's text, as compared: no tags, one space between words, one kind of dash. */
+const flat = (html: string) => plain(html).replace(/[–—]/g, '-').replace(/\s+/g, ' ').trim()
+const blocks = (html: string) => (html.match(/<(?:p|li|br|h[1-6]|tr)\b/gi) ?? []).length
+/** Number words: a fix that turns "six" into "five" changes a figure as surely as one that turns 6 into 5. */
+const NUMBER_WORDS: Record<TargetLang, RegExp> = {
+  id: /\b(?:satu|dua|tiga|empat|lima|enam|tujuh|delapan|sembilan|sepuluh|sebelas|belas|puluh|ratus|ribu|setengah|separuh)\b/gi,
+  ms: /\b(?:satu|dua|tiga|empat|lima|enam|tujuh|lapan|sembilan|sepuluh|sebelas|belas|puluh|ratus|ribu|setengah|separuh)\b/gi,
+  // Not สาม, ร้อย or พัน: they are inside common words (สามารถ, ร้อยละ, พันธุ์).
+  th: /หนึ่ง|สอง|สี่|ห้า|หก|เจ็ด|แปด|เก้า|สิบ|ครึ่ง/g,
 }
-/** A note that something is left out: after a fix, one on a part it changed means the fix may have cut it. */
-const LEFT_OUT = /\b(omit\w*|left out|leaves out|missing|drops?|dropped|removed|lost|lacks?)\b/i
+/**
+ * The figures in a text in order, each with what follows it (in Thai, which writes a unit onto the next word, its next six
+ * characters), then its number words: "24 °C" and "24 °F", "2 meter" and "2 sentimeter", "20 ลิตร" and "20 มิลลิลิตร",
+ * "หก" and "ห้า" all differ.
+ */
+const figures = (lang: TargetLang, text: string) =>
+  `${[...text.matchAll(/(\d+(?:[.,]\d+)?)\s*([^\s\d]{0,10})/gu)].map(m => `${m[1]!.replace(',', '.')}${lang === 'th' ? m[2]!.slice(0, 6) : (/^[°%\p{L}]+/u.exec(m[2]!)?.[0] ?? '').toLowerCase()}`).join(' ')} | ${(text.match(NUMBER_WORDS[lang]) ?? []).map(w => w.toLowerCase()).join(' ')}`
+/**
+ * Where a fix may change a part: each phrase its notes quote, wherever it stands, widened to whole words (in Thai, by
+ * three characters each side, as Thai sets no space between words).
+ */
+function editable(lang: TargetLang, text: string, quotes: string[]): [number, number][] {
+  const out: [number, number][] = []
+  for (const q of quotes) for (let i = text.indexOf(q); i >= 0; i = text.indexOf(q, i + 1)) {
+    let [a, b] = [i, i + q.length]
+    if (lang === 'th') [a, b] = [Math.max(0, a - 3), Math.min(text.length, b + 3)]
+    else { while (a > 0 && text[a - 1] !== ' ') a--; while (b < text.length && text[b] !== ' ') b++ }
+    out.push([a, b])
+  }
+  return out.sort((x, y) => x[0] - y[0])
+}
+/**
+ * Whether a fix of a part says all the old text said. Everything outside the phrases its notes quote is still there,
+ * word for word and in order (text may be added between); a quoted phrase is reworded, not dropped (what stands in its
+ * place is at least a third of its length); the figures, with what follows each, and the number words are the same; the
+ * paragraphs and list items are the same. A fix that cut a caution, a sentence or a clause no note quotes, or changed a
+ * figure or its unit, is not taken, whatever the reviewer then reads.
+ */
+export function keepsWhatItSays(lang: TargetLang, old: string, next: string, quotes: string[]): boolean {
+  const [a, b] = [flat(old), flat(next)]
+  if (blocks(old) !== blocks(next) || figures(lang, a) !== figures(lang, b)) return false
+  // The quoted spans, joined where only a space parts them; the old text between them is what no note quotes.
+  const spans: [number, number][] = []
+  for (const [x, y] of editable(lang, a, quotes)) {
+    const last = spans.at(-1)
+    if (last && x <= last[1] + 1) last[1] = Math.max(last[1], y)
+    else spans.push([x, y])
+  }
+  // Each unquoted piece found in the fix in order; what lies between two of them stands in for the span they part.
+  let at = 0
+  for (let j = 0; j <= spans.length; j++) {
+    const piece = a.slice(j ? spans[j - 1]![1] : 0, j < spans.length ? spans[j]![0] : a.length).trim()
+    const i = piece ? b.indexOf(piece, at) : j ? b.length : 0
+    if (i < 0) return false
+    if (j && b.slice(at, i).trim().length * 3 < a.slice(...spans[j - 1]!).trim().length) return false
+    at = i + piece.length
+  }
+  return true
+}
+/** A note that something is left out. After a fix, one that doesn't name only parts the fix left alone means it may have cut it. */
+const LEFT_OUT = /\b(?:omit\w*|omission|left out|leaves? out|leaving out|missing|miss(?:es|ed)|drops?|dropped|removed?|lost|lacks?|no longer|cut|deleted|absent)\b/i
 
 /** One fix tried, kept or not: what each part sent was and came back as. */
 export type MendTry = { id: string; was: number; read: number; score: number; kept: boolean; parts: { id: string; notes: string[]; before: string; after: string }[] }
@@ -181,7 +221,8 @@ export async function mendLocalized(root: string, llm: Llm, lang: TargetLang, id
       const sections = { ...page.sections }
       const changed: string[] = []
       for (const k of Object.keys(offered)) {
-        if (!metric[k] || metric[k] === page.sections[k] || !keepsWhatItSays(lang, page.sections[k]!, metric[k]!)) continue
+        const quotes = notesOf.get(parts.findIndex(p => p.id === k) + 1)!.flatMap(quotesIn)
+        if (!metric[k] || metric[k] === page.sections[k] || !keepsWhatItSays(lang, page.sections[k]!, metric[k]!, quotes)) continue
         sections[k] = metric[k]!
         changed.push(k)
       }
@@ -198,7 +239,7 @@ export async function mendLocalized(root: string, llm: Llm, lang: TargetLang, id
       // otherwise or cut it, so it isn't kept.
       const harm = r.notes.some(doseOrHarm)
       const touched = new Set(changed.map(k => parts.findIndex(p => p.id === k) + 1))
-      const lost = r.notes.some(n => LEFT_OUT.test(n) && partsNamed(n).some(i => touched.has(i)))
+      const lost = r.notes.some(n => LEFT_OUT.test(n) && (!partsNamed(n).length || partsNamed(n).some(i => touched.has(i))))
       const kept = r.score > bar && !harm && !lost
       await o.onTry?.({ id, was, read: read.score, score: r.score, kept, parts: changed.map(k => ({ id: k, notes: notesOf.get(parts.findIndex(p => p.id === k) + 1)!, before: page.sections[k]!, after: next.sections[k]! })) })
       if (!kept) {

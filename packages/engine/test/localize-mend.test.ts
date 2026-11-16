@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { doseOrHarm, hasDose, keepsWhatItSays, mendLocalized, pageTextHash, partsNamed, sameTextMended, type MendTry } from '../src/localize-mend'
+import { doseOrHarm, hasDose, keepsWhatItSays, mendLocalized, pageTextHash, partsNamed, quotesIn, sameTextMended, type MendTry } from '../src/localize-mend'
 import { logReviews, readReviews } from '../src/review-log'
 
 const LONG = 'ปลาชนิดนี้อยู่รวมกันเป็นฝูงและควรเลี้ยงอย่างน้อยหกตัวในตู้ที่ปลูกไม้น้ำหนาแน่นและมีที่ว่างให้ว่ายน้ำตรงกลางตู้'
@@ -214,6 +214,9 @@ test('a fix whose read after notes something left out of a part it changed is no
   const after = { score: 0.85, notes: ['Item 2: the line on feeding twice a day is missing.'] }
   expect((await mendLocalized(root, fake(small, undefined, after).llm, 'th', ['a'], { now })).notBetter).toEqual(['a: 1 of 3 parts, 1 notes: 0.6 then 0.85, a note on something left out of a part it changed, left as it was'])
   expect(await file()).toBe(before)
+  // A note on something left out that names no part may be on the part the fix changed.
+  const unnamed = await site([NOTE], { read: 0.6 })
+  expect((await mendLocalized(unnamed.root, fake(small, undefined, { score: 0.85, notes: ['The Thai lacks the advice to feed twice a day.'] }).llm, 'th', ['a'], { now })).notBetter).toHaveLength(1)
   // A note on another part's omission is that part's: the fix is kept.
   const other = await site([NOTE], { read: 0.6 })
   expect((await mendLocalized(other.root, fake(small, undefined, { score: 0.85, notes: ['Item 3: "keep six or more" is missing.'] }).llm, 'th', ['a'], { now })).kept).toHaveLength(1)
@@ -255,29 +258,46 @@ test('the parts a note names, and what counts as the same text mended', () => {
   expect(partsNamed('Item 4: x')).toEqual([4])
   expect(partsNamed('Items 6 and 13: x; see also item 2, 3')).toEqual([6, 13, 2, 3])
   expect(partsNamed('The name is fine.')).toEqual([])
+  expect(partsNamed('Items 3–5: x')).toEqual([3, 4, 5])
+  expect(partsNamed('Items 2, 3, and 4: x')).toEqual([2, 3, 4])
+  expect(partsNamed('item 7 to 9: x')).toEqual([7, 8, 9])
+  expect(quotesIn('Item 2: "แมลงขนาดใหญ่" says large; \'keep six\' and “ikan  kecil” too.')).toEqual(['แมลงขนาดใหญ่', 'keep six', 'ikan kecil'])
   expect(sameTextMended(`<p>${LONG} ขนาดใหญ่</p>`, `<p>${LONG} ขนาดเล็ก</p>`)).toBe(true)
   expect(sameTextMended(`<p>${LONG}</p>`, '<p>อื่น</p>')).toBe(false)
   expect(sameTextMended(`<p>${LONG}</p>`, `<p>${LONG}${LONG}</p>`)).toBe(false)
 })
 
 test('what a fix must keep, and what is a dose', () => {
-  expect(keepsWhatItSays('id', '<p>Suhu 24-28 °C. Jangan campur dengan ikan besar.</p>', '<p>Suhu 24–28 °C. Jangan dicampur dengan ikan besar.</p>')).toBe(true)
-  expect(keepsWhatItSays('id', '<p>Suhu 24-28 °C.</p>', '<p>Suhu 26-28 °C.</p>')).toBe(false)
-  expect(keepsWhatItSays('id', '<p>pH 6,5.</p>', '<p>pH 6.5.</p>')).toBe(true)
-  expect(keepsWhatItSays('ms', '<p>Ia makan serangga. Jangan simpan dengan ikan besar.</p>', '<p>Ia makan serangga kecil.</p>')).toBe(false)
-  expect(keepsWhatItSays('th', '<p>กินแมลง ห้ามเลี้ยงกับปลาใหญ่</p>', '<p>กินแมลงเล็ก</p>')).toBe(false)
-  expect(keepsWhatItSays('th', '<p>กินแมลง</p><p>ห้ามเลี้ยงกับปลาใหญ่</p>', '<p>กินแมลง ห้ามเลี้ยงกับปลาใหญ่</p>')).toBe(false)
-  // A caution cut from inside a sentence, a sentence dropped and another split to keep the count, a unit or a range's order changed.
-  expect(keepsWhatItSays('id', '<p>Ikan ini damai, tetapi jangan dicampur dengan udang kecil.</p>', '<p>Ikan ini damai.</p>')).toBe(false)
-  expect(keepsWhatItSays('id', '<p>Ikan ini damai. Jangan dicampur dengan udang kecil. Makan cacing darah.</p>', '<p>Ikan ini damai. Ikan ini makan. Makan cacing darah.</p>')).toBe(false)
-  expect(keepsWhatItSays('id', '<p>Suhu 24 °C.</p>', '<p>Suhu 24 °F.</p>')).toBe(false)
-  expect(keepsWhatItSays('id', '<p>Panjang 5 cm.</p>', '<p>Panjang 5 mm.</p>')).toBe(false)
-  expect(keepsWhatItSays('id', '<p>Akuarium 10 liter.</p>', '<p>Akuarium 10 galon.</p>')).toBe(false)
-  expect(keepsWhatItSays('id', '<p>Suhu 24-28 °C.</p>', '<p>Suhu 28-24 °C.</p>')).toBe(false)
-  expect(keepsWhatItSays('th', `<p>กินแมลงขนาดใหญ่ ให้อาหารวันละสองครั้ง ${LONG}</p>`, `<p>กินแมลงขนาดเล็ก ${LONG}</p>`)).toBe(false)
-  // English left in the Thai, put into Thai: the figures and the paragraph's length stay.
-  expect(keepsWhatItSays('th', '<p>ปลา shoaling fish ชอบอยู่เป็นฝูง 6 ตัว</p>', '<p>ปลาที่อยู่รวมเป็นฝูง ชอบอยู่เป็นฝูง 6 ตัว</p>')).toBe(true)
-  expect(keepsWhatItSays('ms', '<p>Simpan 6 fish bersama.</p>', '<p>Simpan 6 ekor bersama.</p>')).toBe(true)
+  const keeps = (lang: 'id' | 'ms' | 'th', old: string, next: string, quotes: string[] = []) => keepsWhatItSays(lang, `<p>${old}</p>`, `<p>${next}</p>`, quotes)
+  // A quoted phrase mended, the rest word for word; a quoted figure written another way, at the same value.
+  expect(keeps('id', 'Suhu 24-28 °C. Jangan campur dengan ikan besar.', 'Suhu 24–28 °C. Jangan dicampur dengan ikan besar.', ['Jangan campur'])).toBe(true)
+  expect(keeps('id', 'pH 6,5.', 'pH 6.5.', ['6,5'])).toBe(true)
+  // A word outside the quotes changed, however small; a quoted phrase dropped rather than reworded.
+  expect(keeps('id', 'Suhu 24-28 °C. Jangan campur dengan ikan besar.', 'Suhu 24-28 °C. Jangan dicampur dengan ikan besar.')).toBe(false)
+  expect(keeps('id', 'Ikan ini damai. Jangan dicampur dengan udang kecil.', 'Ikan ini damai.', ['Jangan dicampur dengan udang kecil'])).toBe(false)
+  expect(keeps('id', 'Ikan ini damai. Jangan dicampur dengan udang kecil.', 'Ikan ini damai. Jangan dicampurkan dengan udang kecil.', ['Jangan dicampur dengan udang kecil'])).toBe(true)
+  // A caution, a clause or a sentence no note quotes, cut or reworded, in every language.
+  expect(keeps('ms', 'Ia makan serangga. Jangan simpan dengan ikan besar.', 'Ia makan serangga kecil.', ['serangga'])).toBe(false)
+  expect(keeps('th', 'กินแมลง ห้ามเลี้ยงกับปลาใหญ่', 'กินแมลงเล็ก', ['กินแมลง'])).toBe(false)
+  expect(keeps('id', 'Ikan ini damai, tetapi jangan dicampur dengan udang kecil.', 'Ikan ini damai.', ['damai'])).toBe(false)
+  expect(keeps('id', 'Ikan ini damai. Jangan dicampur dengan udang kecil. Makan cacing darah.', 'Ikan ini damai. Ikan ini makan. Makan cacing darah.', ['damai'])).toBe(false)
+  expect(keeps('id', 'Ikan ini damai, tetapi jangan dicampur dengan udang kecil.', 'Ikan ini damai, tetapi jangan dengan udang kecil.', ['damai'])).toBe(false)
+  expect(keeps('th', `กินแมลงขนาดใหญ่ ให้อาหารวันละสองครั้ง ${LONG}`, `กินแมลงขนาดเล็ก ${LONG}`, ['แมลงขนาดใหญ่'])).toBe(false)
+  expect(keepsWhatItSays('th', '<p>กินแมลง</p><p>ห้ามเลี้ยงกับปลาใหญ่</p>', '<p>กินแมลง ห้ามเลี้ยงกับปลาใหญ่</p>', ['กินแมลง'])).toBe(false)
+  // A figure, its unit or the word after it, or a range's order changed, quoted or not.
+  expect(keeps('id', 'Suhu 24-28 °C.', 'Suhu 26-28 °C.', ['Suhu 24-28 °C'])).toBe(false)
+  expect(keeps('id', 'Suhu 24 °C.', 'Suhu 24 °F.', ['Suhu 24 °C'])).toBe(false)
+  expect(keeps('id', 'Panjang 5 cm.', 'Panjang 5 mm.')).toBe(false)
+  expect(keeps('id', 'Akuarium 10 liter.', 'Akuarium 10 galon.')).toBe(false)
+  expect(keeps('id', 'Suhu 24-28 °C.', 'Suhu 28-24 °C.')).toBe(false)
+  expect(keeps('ms', 'Simpan 6 fish bersama.', 'Simpan 6 ekor bersama.', ['6 fish'])).toBe(false)
+  expect(keeps('th', 'อุณหภูมิ 24 องศาเซลเซียส', 'อุณหภูมิ 24 องศาฟาเรนไฮต์', ['24 องศาเซลเซียส'])).toBe(false)
+  expect(keeps('th', 'ตู้ 20 ลิตรขึ้นไป', 'ตู้ 20 มิลลิลิตรขึ้นไป', ['20 ลิตรขึ้นไป'])).toBe(false)
+  // A number written as a word.
+  expect(keeps('th', 'เลี้ยงอย่างน้อยหกตัว', 'เลี้ยงอย่างน้อยห้าตัว', ['อย่างน้อยหกตัว'])).toBe(false)
+  expect(keeps('id', 'Pelihara setidaknya enam ekor.', 'Pelihara setidaknya lima ekor.', ['setidaknya enam ekor'])).toBe(false)
+  // English left in the Thai, quoted and put into Thai: the figures and the rest stay.
+  expect(keeps('th', 'ปลา shoaling fish ชอบอยู่เป็นฝูง 6 ตัว', 'ปลาที่อยู่รวมเป็นฝูง ชอบอยู่เป็นฝูง 6 ตัว', ['shoaling fish'])).toBe(true)
   for (const d of ['2 ml', '5mg/l', '1 g/l', '3 drops', '2 tetes', '1 teaspoon', '0.5 ppm', '5 grams', '10 millilitres', '2 sendok', '3 หยด', '1 กรัม', '1 sdt', '2 sudu', '3 titis']) expect(hasDose(`<p>Add ${d} a day.</p>`), d).toBe(true)
   for (const d of ['20 gallons', '6 fish', '24 °C', 'pH 6.5', '10 cm']) expect(hasDose(`<p>${d}.</p>`), d).toBe(false)
 })
