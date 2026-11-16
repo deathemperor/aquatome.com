@@ -123,14 +123,14 @@ test('the video job checks as the engine cycle does: it waits for a calmer Mac, 
   // 2026-11-07: its own checks, without either, failed twice at a load of 667 on 16 cores and held back the videos.
   const cycle = readFileSync(join(ROOT, 'scripts/video-cycle.sh'), 'utf8')
   expect(cycle).toContain('source scripts/cycle-checks.sh')
-  expect(cycle.match(/\bverify '/g)).toHaveLength(3) // its work, after a merge on push, after a sweep on a clean pull
+  expect(cycle.match(/\bverify_cycle\b/g)).toHaveLength(3) // its work, after a merge on push, after a sweep on a clean pull
   expect(cycle).not.toMatch(/\bchecks '|^checks\(\)/m)
 })
 
 test('video guides are checked again by their own job alone, recheck then redo, with the video job\'s checks', () => {
   const recheck = readFileSync(join(ROOT, 'scripts/video-recheck.sh'), 'utf8')
   expect(recheck).toContain('source scripts/cycle-checks.sh')
-  expect(recheck.match(/\bverify '/g)).toHaveLength(3) // as the video job
+  expect(recheck.match(/\bverify_cycle\b/g)).toHaveLength(3) // as the video job
   expect(recheck).toMatch(/^pnpm engine review-backfill --kind video-guide --reviewed-before .*\n(#.*\n)*pnpm engine videos --redo --rechecked-since /m)
   // The low guides in search get their two more reads first, under their own command's ceiling (2026-11-11).
   expect(recheck).toMatch(/^pnpm engine review-backfill-97 .*\n(#.*\n)*pnpm engine review-backfill --kind video-guide /m)
