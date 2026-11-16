@@ -84,32 +84,102 @@ struct HandbookView: View {
 /// touched. And back from a page pushed over it, a screen left at its top comes back there with its title big, as it was
 /// left: iOS brought a group's page back 55 points up, its title folded into the bar (Design, 17 Nov).
 struct OpensAtTop: UIViewControllerRepresentable {
+  /// SwiftUI's own appearances of the screen, for the test switch's second way (`-back-way appear`).
+  var shown = 0
+  var gone = 0
+
   func makeUIViewController(context: Context) -> Holder { Holder() }
-  func updateUIViewController(_ holder: Holder, context: Context) {}
+  func updateUIViewController(_ holder: Holder, context: Context) {
+    guard Holder.way == "appear" else { return }
+    if gone != holder.gone { holder.gone = gone; holder.leave() }
+    if shown != holder.shown {
+      holder.shown = shown
+      // Once the way back has ended.
+      DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) { [weak holder] in holder?.back() }
+    }
+  }
 
   final class Holder: UIViewController {
+    /// TEST SWITCH, out before the push: which way puts the title back, UIKit's appearances ("did", the default) or
+    /// SwiftUI's ("appear"); set, the holder reads out what it saw.
+    static let way: String = {
+      #if DEBUG
+        return UserDefaults.standard.string(forKey: "back-way") ?? "did"
+      #else
+        return "did"
+      #endif
+    }()
+    static let readout: Bool = {
+      #if DEBUG
+        return UserDefaults.standard.string(forKey: "back-way") != nil
+      #else
+        return false
+      #endif
+    }()
+    var shown = 0
+    var gone = 0
     private var first = true
-    private var leftAtTop = false
+    /// The list's top inset when it was left at its top: the bar's height with its title big.
+    private var leftAt: CGFloat?
+    private var seen: [String] = []
+
+    override func viewDidLoad() {
+      super.viewDidLoad()
+      if Self.readout { view.isAccessibilityElement = true; view.accessibilityIdentifier = "opens-at-top"; note("load") }
+    }
 
     override func viewWillDisappear(_ animated: Bool) {
       super.viewWillDisappear(animated)
-      if let list = list() { leftAtTop = list.contentOffset.y <= -list.adjustedContentInset.top + 1 }
+      note("will-go")
+      if Self.way == "did" { leave() }
     }
 
     override func viewDidAppear(_ animated: Bool) {
       super.viewDidAppear(animated)
-      guard first || leftAtTop else { return }
-      first = false
-      leftAtTop = false
-      top()
-      // Again once iOS has laid the bar out after its own appearance.
-      DispatchQueue.main.async { [weak self] in self?.top() }
+      note("did-show")
+      if first {
+        first = false
+        top()
+        // Again once iOS has laid the bar out after its own appearance.
+        DispatchQueue.main.async { [weak self] in self?.top() }
+      } else if Self.way == "did" {
+        back()
+      }
+    }
+
+    func leave() {
+      guard let list = list() else { return note("leave, no list") }
+      leftAt = list.contentOffset.y <= -list.adjustedContentInset.top + 1 ? list.adjustedContentInset.top : nil
+      note("left at \(leftAt.map { "\(Int($0))" } ?? "no top")")
+    }
+
+    func back() {
+      guard let inset = leftAt else { return note("back, not left at top") }
+      leftAt = nil
+      put(inset)
+      DispatchQueue.main.async { [weak self] in self?.put(inset) }
+    }
+
+    /// Back at the top it was left at, past the folded bar's: iOS grows the bar's title as the list is pulled down there,
+    /// then the bar measures itself again.
+    private func put(_ inset: CGFloat) {
+      guard let bar = navigationController?.navigationBar, let list = list() else { return note("put, no bar or list") }
+      let was = list.adjustedContentInset.top
+      if list.contentOffset.y > -inset + 1 { list.setContentOffset(CGPoint(x: list.contentOffset.x, y: -inset), animated: false) }
+      bar.sizeToFit()
+      note("put \(Int(inset)) from inset \(Int(was)), now inset \(Int(list.adjustedContentInset.top)) offset \(Int(list.contentOffset.y))")
     }
 
     private func top() {
       guard let bar = navigationController?.navigationBar, let list = list() else { return }
       list.setContentOffset(CGPoint(x: list.contentOffset.x, y: -list.adjustedContentInset.top), animated: false)
       bar.sizeToFit()
+    }
+
+    private func note(_ what: String) {
+      guard Self.readout else { return }
+      seen.append(what)
+      view.accessibilityLabel = "\(Self.way): " + seen.suffix(8).joined(separator: "; ")
     }
 
     /// The screen's own list: from the screen this sits in, not the stack's top, which is the page pushed over it by the

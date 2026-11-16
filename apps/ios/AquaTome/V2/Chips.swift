@@ -71,6 +71,8 @@ struct ChipRoute: Hashable {
 @available(iOS 18, *)
 struct ChipPage: View {
   let shelf: HandbookShelves.ChipShelf
+  @State private var shown = 0
+  @State private var gone = 0
   /// From this many pages, the grid.
   static let grid = 6
 
@@ -93,7 +95,9 @@ struct ChipPage: View {
     }
     .modifier(ClearUnderLargeTitle())
     // Back from a fish's page at its top, as it was left (Design, 17 Nov).
-    .background(OpensAtTop())
+    .background(OpensAtTop(shown: shown, gone: gone))
+    .onAppear { shown += 1 }
+    .onDisappear { gone += 1 }
     .navigationTitle(shelf.chip.name)
     .accessibilityIdentifier("v2-chip-page")
   }
