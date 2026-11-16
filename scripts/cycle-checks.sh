@@ -136,6 +136,11 @@ checks() { if [ -n "${GITHUB_ACTIONS:-}" ]; then bash -c "$1"; else turn bash -c
 # core with every core at work, at their own limits, and ran out of time.
 HOT_TIME_SCALE=6
 SECOND_TRY_WORKERS=2
+# The first try on the Mac starts FIRST_TRY_WORKERS at a time and tests one package at a time, at night too: pnpm ran up to
+# four packages side by side, each with a vitest worker for every core but one, and an engine run's checks could take
+# every core of a Mac the leads, the simulators and the owner share ("you are killing the machine", the owner, 16 Nov
+# 2026; the chief of staff's cap, that day). GitHub's runner is a machine of its own and keeps vitest's own number.
+FIRST_TRY_WORKERS=4
 # The 5-minute load and the cores, "load cores"; nothing where there's no reading (not a Mac).
 load5() { local l c; l=$(sysctl -n vm.loadavg 2>/dev/null) && c=$(sysctl -n hw.ncpu 2>/dev/null) || return 0; echo "$(awk '{print int($3)}' <<<"$l") $c"; }
 # Why a check's tests get more than their own time, or nothing: heat has taken cores, or (on the Mac, not on GitHub's
@@ -160,7 +165,11 @@ verify() {
     why=$(slow_mac)
     AQ_TEST_TIME_SCALE=1
     [ -z "$why" ] || { AQ_TEST_TIME_SCALE=$HOT_TIME_SCALE; log "$why: tests get $AQ_TEST_TIME_SCALE times their time"; }
-    checks "$step" >>"$TEST_LOG" 2>&1 && continue
+    if [ -n "${GITHUB_ACTIONS:-}" ]; then
+      checks "$step" >>"$TEST_LOG" 2>&1 && continue
+    else
+      VITEST_MAX_WORKERS=$FIRST_TRY_WORKERS checks "export pnpm_config_workspace_concurrency=1; $step" >>"$TEST_LOG" 2>&1 && continue
+    fi
     first=$from
     if ran_out "$first"; then log "tests ran out of time on a busy Mac: checking again once it is calmer"; else log "a check failed: running it once more once the Mac is calmer"; fi
     settled
@@ -662,7 +671,9 @@ unit_job() {
   fi
   case "$word" in success | failure | cancelled | skipped | timed_out | action_required | neutral | stale | startup_failure | pending) echo "$word" ;; esac
 }
-# The whole suite's daily run on the Mac: none passed in 20 hours and it's a quiet hour (1 to 6), or none in 30. Only the
+# The whole suite's daily run on the Mac: none passed in 20 hours and it's a quiet hour (1 to 6), or the last pass is
+# 30 hours old. A Mac with no pass stamped at all waits for the quiet hours too: on 16 Nov the first run after #1484
+# merged (photos, 11:10) found none and took the whole suite in the owner's working day (the chief of staff). Only the
 # daily run's own pass is stamped ($FULL_STAMP): a whole suite taken for another reason at 13:00 would put the next
 # quiet window inside the 20 hours, and the run then went at a busy hour of the next day (a reader of #1484, 16 Nov).
 # Unless another run took it in the last 12 hours ($FULL_STAMP.taken) and may still be at it: a pass is stamped only at
@@ -672,7 +683,7 @@ full_due() {
   engine_clone || return 1
   [ -n "$(find "$FULL_STAMP" -mmin -1200 2>/dev/null)" ] && return 1
   [ -n "$(find "$FULL_STAMP.taken" -mmin -720 2>/dev/null)" ] && return 1
-  [ -n "$(find "$FULL_STAMP" -mmin -1800 2>/dev/null)" ] || return 0
+  if [ -e "$FULL_STAMP" ] && [ -z "$(find "$FULL_STAMP" -mmin -1800 2>/dev/null)" ]; then return 0; fi
   local hour; hour=${AQ_HOUR:-$(date +%H)}; hour=${hour#0}
   [ "$hour" -ge 1 ] && [ "$hour" -le 6 ]
 }

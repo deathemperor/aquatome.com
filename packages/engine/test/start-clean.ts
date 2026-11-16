@@ -8,8 +8,8 @@ export const LIVE_RUN_SETTINGS = [
   'AQ_ASLEEP0', // engine-cycle.sh: how long the Mac had slept when the run began
   'AQ_SCRIPT_HEAD', // from_main: the commit the run's script started from
   'CLAUDE_CODE_OAUTH_TOKENS', // engine-cycle.sh: the engine's Claude accounts
-  'VITEST_MAX_WORKERS', // verify's second try on the Mac
-  'pnpm_config_workspace_concurrency', // verify's second try
+  'VITEST_MAX_WORKERS', // verify on the Mac: FIRST_TRY_WORKERS, then SECOND_TRY_WORKERS
+  'pnpm_config_workspace_concurrency', // verify on the Mac, both tries
   'ENGINE_PROFILE', // the Mac's engine schedule (install-engine-schedule.sh)
   'ENGINE_MAX_MINUTES',
   'SKIP_VIDEOS',
