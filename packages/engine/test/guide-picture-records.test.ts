@@ -1,9 +1,10 @@
 import { readdirSync, readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
 
-// The records of a video guide's pictures, over the real content, so an engine run whose push crosses them keeps its
-// work unpublished (the content step reads this file). Engine runs that rewrote one guide's file at once mixed lines of
-// the two versions on 8, 9 and 15 Nov and on 16 Nov: the file parsed, and pictures took other pictures' records.
+// The records of a video guide's pictures, over the real content. The content step an engine run takes by day runs the
+// engine's tests on the real content (the site's run on the fixture there), so a run whose push crosses a record keeps
+// its work unpublished. Engine runs that rewrote one guide's file at once mixed lines of the two versions on 8, 9 and
+// 15 Nov and on 16 Nov: the file parsed, and pictures took other pictures' records.
 const GUIDES = new URL('../../../content/guides/', import.meta.url)
 type Figure = { photo?: { url: string; sourceUrl: string }; moments?: { url: string; person?: boolean }[] }
 const figures = (): [string, Figure][] =>
