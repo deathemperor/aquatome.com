@@ -1082,8 +1082,20 @@ test('a fish and a plant named by the names in use: new address, old one forward
   await mkdir(join(c, 'plants/limnobium-laevigatum'), { recursive: true })
   await writeFile(join(c, 'plants/limnobium-laevigatum/entity.json'), JSON.stringify({ id: 'limnobium-laevigatum', scientificName: 'Limnobium laevigatum', difficulty: 1, light: 'medium', co2: 'none', growth: 'fast', placement: ['floating'], sections: [{ key: 'notes', source: 'tropica', sourceUrl: 'https://tropica.com/limnobium', html: '<p>Floats.</p>' }], photos: [], productSlots: [], updatedAt: '2026-10-01' }, null, 2))
   await writeFile(join(c, 'plants/limnobium-laevigatum/vi.json'), JSON.stringify({ slug: 'beo-tay-nam-my-limnobium-laevigatum', name: 'Bèo tây Nam Mỹ (Limnobium laevigatum)', altNames: ['Bèo nhím Nam Mỹ', 'Amazon frogbit'], sections: { 'notes:tropica': '<p>Bèo tây Nam Mỹ nổi trên mặt nước, khác bèo tây (Eichhornia crassipes).</p>' }, quality: { score: 0.9, indexable: true } }, null, 1))
+  // A video guide: its pictures sit under a heading by its exact words (a fresh read, 16 Nov: "Thả cá platy" had lost its
+  // photo), and their captions name the fish as the text does. A heading nothing rewrote keeps its pictures as they are.
+  const still = { t: 10, url: 'https://media.aquatome.com/video/v/10.webp', width: 1280, height: 720, caption: 'Cá cầu vồng đỏ bơi giữa cây' }
+  await put('guides/v/entity.json', { id: 'v', kind: 'care', source: 'youtube', sourceUrl: 'https://x/v', html: '', photos: [], mentions: [], updatedAt: '2026-10-01', video: { youtubeId: 'v', title: 'v', channel: 'c', channelUrl: 'https://x/c', durationSec: 300, chapters: [], figures: [
+    { heading: 'Thả cá cầu vồng đỏ', moments: [still], photo: photo('https://media.aquatome.com/video/v/p1.webp', 'Cá cầu vồng đỏ trong bể') },
+    { heading: 'Lọc và đèn', moments: [] },
+  ] } })
+  await put('guides/v/vi.json', vi('Bể cho cá', {}, { body: '<h3>Thả cá cầu vồng đỏ</h3><p>Thả từ từ.</p><h2>Lọc và đèn</h2><p>Đèn vừa.</p>' }))
 
   const r = await sweep(root)
+  expect((await json(root, 'content/guides/v/vi.json')).body).toBe('<h3>Thả cá táo đỏ</h3><p>Thả từ từ.</p><h2>Lọc và đèn</h2><p>Đèn vừa.</p>')
+  const figures = (await json(root, 'content/guides/v/entity.json')).video.figures
+  expect(figures.map((f: { heading: string }) => f.heading)).toEqual(['Thả cá táo đỏ', 'Lọc và đèn'])
+  expect([figures[0].photo.caption, figures[0].moments[0].caption]).toEqual(['Cá táo đỏ trong bể', 'Cá táo đỏ bơi giữa cây'])
   const fish = await json(root, 'content/species/glossolepis-incisus/vi.json')
   expect([fish.name, fish.slug, fish.nameFixed]).toEqual(['Cá táo đỏ', 'ca-tao-do', true])
   expect(fish.altNames).toEqual(['Red rainbowfish', 'Cá cầu vồng đỏ', 'Cá cầu vồng táo đỏ'])
