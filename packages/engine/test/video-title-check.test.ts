@@ -1,5 +1,5 @@
 import { existsSync } from 'node:fs'
-import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
@@ -184,10 +184,10 @@ test('a language that ended under the line is not stopped when passed videos lea
   const llm: Llm = async <T>({ prompt }: { prompt: string }) => { calls++; return { checks: rowsOf(prompt).map((_, j) => ({ n: j + 1, ok: true })) } as T }
   const r = await runTitleCheck(root, llm, 'vi', { write: true })
   expect([r.prior, r.stopped, calls]).toEqual([{ checked: 400, refused: 40 }, '', 3])
-  expect(existsSync(join(dir, 'stopped.json'))).toBe(false)
+  expect(existsSync(join(dir, 'vi.stopped.json'))).toBe(false)
 })
 
-test('two languages checked side by side keep both their stops: each reads the record again just before saving its own (the reviewers of the check, 16 Nov)', async () => {
+test('two languages checked side by side keep both their stops: each language\'s stop is a file of its own (the reviewers of the check and the Site lead, 16 Nov)', async () => {
   const { root, ids, titles } = await many(300)
   const dir = join(root, 'content/video-titles')
   await writeFile(join(root, 'content/species/a/th.json'), JSON.stringify({ name: 'ปลา A' }))
@@ -198,7 +198,7 @@ test('two languages checked side by side keep both their stops: each reads the r
   const line = 'over one in ten refused at 200 titles: 23 of 200'
   const [vi, th] = await Promise.all([runTitleCheck(root, llm, 'vi', { write: true }), runTitleCheck(root, llm, 'th', { write: true })])
   expect([vi.stopped, th.stopped]).toEqual([line, line])
-  expect(JSON.parse(await readFile(join(dir, 'stopped.json'), 'utf8'))).toEqual({ th: line, vi: line })
+  for (const lang of ['vi', 'th']) expect(JSON.parse(await readFile(join(dir, `${lang}.stopped.json`), 'utf8')), lang).toEqual({ why: line })
 })
 
 test('--only never takes a language past its stop: the titles read before are counted whatever it picks (the reviewers of the check, 16 Nov)', async () => {
@@ -279,12 +279,12 @@ test('a stop at the line is recorded, and the language reads nothing more with -
   }
   const first = await runTitleCheck(root, llm, 'vi', { write: true })
   expect([Object.keys(first.checks).length, first.stopped]).toEqual([239, 'over one in ten refused at 200 titles: 23 of 200'])
-  expect(JSON.parse(await readFile(join(dir, 'stopped.json'), 'utf8'))).toEqual({ vi: 'over one in ten refused at 200 titles: 23 of 200' })
+  expect(JSON.parse(await readFile(join(dir, 'vi.stopped.json'), 'utf8'))).toEqual({ why: 'over one in ten refused at 200 titles: 23 of 200' })
   calls = 0
   const again = await runTitleCheck(root, llm, 'vi', { write: true })
   expect([calls, again.stopped]).toEqual([0, 'stopped before (over one in ten refused at 200 titles: 23 of 200): the chief of staff decides'])
   // The verdicts on file alone, 23 of 239, are under the line: without the record the next run would go on.
-  await writeFile(join(dir, 'stopped.json'), '{}\n')
+  await rm(join(dir, 'vi.stopped.json'))
   const on = await runTitleCheck(root, llm, 'vi', { write: true })
   expect([on.prior, calls > 0]).toEqual([{ checked: 239, refused: 23 }, true])
 })

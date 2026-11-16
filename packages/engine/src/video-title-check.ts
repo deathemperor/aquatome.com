@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs'
-import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, readdir, readFile, rename, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { pageFish, speaksPageLang, type Lang } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
@@ -111,18 +111,22 @@ export async function checkVideoTitles(root: string, llm: Llm, lang: Lang, title
 /**
  * The command (`video-titles-check`): the titles from `titlesFile`, or the language's stored ones, the kept ones left out
  * (the editors passed them). With `write`, the verdicts on file count toward the stop line and each batch's are recorded,
- * and a stop at the line is recorded too (content/video-titles/stopped.json, language → why): the last batch may have
+ * and a stop at the line is recorded too (content/video-titles/<lang>.stopped.json, its `why`): the last batch may have
  * read past the mark, so its verdicts alone could read under the line, and the next run would go on. A stopped
- * language reads nothing more until that line is taken out by hand, on the chief of staff's word.
+ * language reads nothing more until that file is taken out by hand, on the chief of staff's word. One file a language, so
+ * two languages checked side by side, by two commands too, never write over each other's stop (the Site lead, 16 Nov).
  */
 export async function runTitleCheck(root: string, llm: Llm, lang: Lang, o: { titlesFile?: string; write?: boolean; only?: string[] } = {}) {
-  const dir = join(root, 'content/video-titles'), stopsFile = join(dir, 'stopped.json')
-  const kept = await readMap(join(dir, 'kept.json')), stops = await readMap(stopsFile)
+  const dir = join(root, 'content/video-titles'), stopFile = join(dir, `${lang}.stopped.json`)
+  const kept = await readMap(join(dir, 'kept.json')), stop = (await readMap(stopFile)).why
   const titles = Object.fromEntries(Object.entries(JSON.parse(await readFile(o.titlesFile ?? join(dir, `${lang}.json`), 'utf8')) as Record<string, string>).filter(([id]) => !(id in kept)))
   const verdicts = o.write ? { refused: await readMap(join(dir, `${lang}.refused.json`)), passed: await readMap(join(dir, `${lang}.passed.json`)) } : undefined
-  const r = await checkVideoTitles(root, llm, lang, titles, { only: o.only, verdicts, stopped: o.write ? stops[lang] : undefined, record: o.write ? checks => recordVerdicts(root, lang, checks, titles) : undefined })
-  // Read again just before saving: another language checked meanwhile may have recorded its own stop.
-  if (o.write && r.line) { const now = await readMap(stopsFile); await saveMap(stopsFile, now, { ...now, [lang]: r.line }) }
+  const r = await checkVideoTitles(root, llm, lang, titles, { only: o.only, verdicts, stopped: o.write ? stop : undefined, record: o.write ? checks => recordVerdicts(root, lang, checks, titles) : undefined })
+  // Written whole, then put in place: a run reading it never meets half a file (the reader of #1463, 16 Nov).
+  if (o.write && r.line && r.line !== stop) {
+    await writeFile(`${stopFile}.tmp`, `${JSON.stringify({ why: r.line }, null, 2)}\n`)
+    await rename(`${stopFile}.tmp`, stopFile)
+  }
   return r
 }
 
