@@ -52,7 +52,12 @@ test('a shop\'s own talk stays off the page; another source\'s "we" is its own',
   const shop = mergeSpecies({}, page({ sections }), { ...ctx('glaser'), source: 'bwaquatics' as const })
   expect(shop.entity.sections.map(s => [s.key, s.html])).toEqual([['beforeYouBuy', '<p>Wild-caught in Kalimantan.</p>']])
   expect(shop.vi.sections).toEqual({ 'beforeYouBuy:bwaquatics': '<p>Bắt tự nhiên ở Kalimantan.</p>' })
-  expect(mergeSpecies({}, page({ sections }), ctx('seriouslyfish')).entity.sections).toHaveLength(2)
+  // Each cut is listed, as the sweep lists its own: none is silent.
+  expect(shop.dropped).toEqual(['beforeYouBuy:bwaquatics (blocks)', 'diet:bwaquatics (the section)'])
+  const plain = mergeSpecies({}, page({ sections }), ctx('seriouslyfish'))
+  expect(plain.entity.sections).toHaveLength(2)
+  expect(plain.dropped).toBeUndefined()
+  expect(mergeSpecies({}, page(), { ...ctx('glaser'), source: 'bwaquatics' as const }).dropped).toBeUndefined()
 })
 
 test('a translated guide that fixes a problem is written with the fix first', () => {
