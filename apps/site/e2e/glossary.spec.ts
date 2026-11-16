@@ -229,5 +229,15 @@ test('a kind\'s card opens it large; the next kind opens in its place; Esc and â
   expect(page.url()).not.toContain('#loai-')
   expect(await page.evaluate(() => scrollY)).toBe(y)
   await expect(first).toBeFocused()
+  // The next kind takes the view's place in the same entry, by the keyboard too: Back then closes it, the page's own
+  // address again (the fresh reader, 16 Nov 2026: the closed kind's close event used to step back a second time).
+  await first.click()
+  await open.locator('.kv-step a[rel="next"]').press('Enter')
+  await expect(open).toHaveCount(1)
+  await expect(open.locator('h3')).toHaveText(next)
+  await page.goBack()
+  await expect(open).toHaveCount(0)
+  expect(new URL(page.url()).pathname).toBe(KINDS)
+  expect(page.url()).not.toContain('#loai-')
   expect(errors).toEqual([])
 })

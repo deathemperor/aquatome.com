@@ -170,7 +170,9 @@ const REFS_SHOWN = 5
   if (section) {
     section.classList.add('live')
     let from: HTMLElement | undefined
-    let quiet = false // a close that isn't the reader's: the next kind replacing this one, or Back
+    // A close that isn't the reader's (the next kind taking this one's place, or Back) is marked on the dialog itself: its
+    // close event comes a moment after close(), so a flag set around the call is gone by then (the fresh reader, 16 Nov).
+    const shut = (o: HTMLDialogElement) => { o.dataset.quiet = '1'; o.close() }
     // Our own step back under way (a view the reader closed leaves its entry), and a card opened before it lands: its
     // entry is added once the step back is done, so a quick tap after Esc isn't closed by it.
     let leaving = false
@@ -190,9 +192,7 @@ const REFS_SHOWN = 5
     const open = (id: string, entry: 'push' | 'replace' | 'none', opener?: HTMLElement) => {
       const d = document.getElementById(id)
       if (!(d instanceof HTMLDialogElement)) return false
-      quiet = true
-      for (const o of section.querySelectorAll<HTMLDialogElement>('dialog[open]')) if (o !== d) o.close()
-      quiet = false
+      for (const o of section.querySelectorAll<HTMLDialogElement>('dialog[open]')) if (o !== d) shut(o)
       if (opener) from = opener
       draw(d)
       if (!d.open) d.showModal()
@@ -211,13 +211,17 @@ const REFS_SHOWN = 5
     })
     for (const d of section.querySelectorAll('dialog')) {
       d.addEventListener('close', () => {
+        const quiet = d.dataset.quiet === '1'
+        delete d.dataset.quiet
         // Closed by the reader (✕, Esc, a tap outside): its history entry goes too, so Back then leaves nothing open.
         if (!quiet && !leaving && history.state?.kind) { leaving = true; history.back() }
         else if (!quiet && location.hash === `#${d.id}`) history.replaceState(history.state, '', page())
         if (!section.querySelector('dialog[open]')) from?.focus()
       })
-      // A tap outside the panel closes it, as the menu sheet.
+      // A tap outside the panel closes it, as the menu sheet: one on the backdrop, whose target is the dialog itself. A link
+      // inside it worked by the keyboard gives a click at 0, 0, which is no tap outside.
       d.addEventListener('click', e => {
+        if (e.target !== d) return
         const r = d.getBoundingClientRect()
         if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) d.close()
       })
@@ -231,9 +235,7 @@ const REFS_SHOWN = 5
       }
       const id = (e.state as { kind?: string } | null)?.kind
       if (id) { open(id, 'none'); return }
-      quiet = true
-      for (const o of section.querySelectorAll<HTMLDialogElement>('dialog[open]')) o.close()
-      quiet = false
+      for (const o of section.querySelectorAll<HTMLDialogElement>('dialog[open]')) shut(o)
     })
     // An address that names a kind (a link someone shared) opens it, over the page's own entry, so Back closes it too.
     const hash = decodeURIComponent(location.hash.slice(1))
