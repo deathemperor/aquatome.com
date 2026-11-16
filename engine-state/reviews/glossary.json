@@ -1,6 +1,33 @@
 {
   "vi/glossary/gh": [
     {
+      "at": "2026-11-16T17:17:29Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Nếu tính theo thang của người nuôi tép, nước mềm có GH dưới 6 dGH, từ 6 đến 12 dGH là vừa, còn từ 12 dGH trở lên là nước cứng.\" (not \"Nếu tính theo thang của người nuôi tép, nước mềm có GH dưới 6 dGH, từ 6 đến 12 dGH là vừa, còn trên 12 dGH là nước rất cứng.\": Rule 12: \"còn trên 12 dGH là nước rất cứng\" i…",
+        "Loose, reworded: \"Với bộ test nhỏ giọt, tráng ống bằng nước bể, đổ nước bể tới vạch của bộ test rồi nhỏ thuốc từng giọt, mỗi giọt lắc một lần, và đếm số giọt cho tới khi nước đổi màu.\" → \"Với bộ test GH nhỏ giọt của API, tráng ống bằng nước bể, đổ nước bể tới vạch rồi nhỏ thuốc từng giọt, mỗi giọt lắc một lần, và đếm số giọt cho tới khi nước đổi màu.\" (supported)"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-16T17:17:29Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 1,
+      "notes": [
+        "Rule 12: altNames is empty (\"altNames\":[]). THIS TERM requires the Vietnamese names the facts give for GH, \"độ cứng chung\" and \"độ cứng tổng\".",
+        "Rule 12: \"với 1 dGH bằng 17,9 ppm (mg/L)\" gives 17,9 ppm bare. THIS TERM requires \"1 dGH bằng 17,9 ppm (mg/L) tính theo CaCO3\" (facts 2 and 56).",
+        "Rule 12: \"nhưng các nhà nghiên cứu vẫn thấy một khoảng rộng là ổn, thường 20–300 ppm\" leaves out \"với chúng\". The range must be tied to eggs, larvae and fry, as in \"…, nhưng với chúng, các nhà nghiên cứu vẫn thấy một khoảng rộng là ổn, thường 20–300 ppm\". It comes right after the cá đĩa line, so it can read as the discus' range.",
+        "Rule 12: \"GH thấp làm tép lột xác khó vì vỏ mới mềm, còn vỏ ốc thì mỏng, bong hoặc rỗ.\" says \"làm … khó\" without \"có thể\" and uses \"vỏ mới mềm\", which goes beyond its facts. THIS TERM requires \"GH quá thấp có thể làm vỏ tép mềm, tép khó thoát ra khi lột, còn vỏ ốc thì mỏng, bong hoặc rỗ.\"",
+        "Rule 12: \"hoặc dùng hạt trao đổi cation\" adds the form \"hạt\", which fact 38 doesn't give. THIS TERM requires \"chất trao đổi cation\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-16T03:04:04Z",
       "model": "sonnet",
       "cli": "2.1.325",
@@ -56,32 +83,6 @@
         "Rule 12: \"Với bộ test GH của API, tráng ống bằng nước bể, ... cho tới khi nước đổi từ cam sang xanh lá. Số giọt là số dGH.\" gives one kit's steps and colours as the rule. THIS TERM wants the drop test described in general (count the drops until the colour changes), followed by the API kit named only as an example: \"Ví dụ, với bộ test GH của API, nước đổi từ cam sang xanh lá, và số giọt là số dGH.\"",
         "Rule 12: \"Muốn giảm GH thì pha thêm nước RO hoặc nước mưa, hoặc dùng hạt trao đổi cation.\" leaves out the pace that THIS TERM says belongs in this line: lower GH gradually, mixing in RO water with small water changes so the tank softens over time.",
         "Rule 12: \"Với tép, sự ổn định được đặt lên trên gần như mọi thứ khác.\" is the word-for-word English that THIS TERM forbids. It should read \"Với tép, giữ nước ổn định quan trọng hơn gần như mọi thứ khác.\""
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-15T01:16:02Z",
-      "model": "sonnet",
-      "cli": "2.1.323",
-      "score": 1,
-      "notes": [
-        "Loose, reworded: \"Với loại test nhỏ giọt, lấy 5 mL nước bể rồi nhỏ thuốc từng giọt, mỗi giọt lắc một lần cho tới khi nước đổi từ cam sang xanh lá.\" → \"Với bộ test GH của API, tráng ống bằng nước bể, đổ nước bể tới vạch 5 mL rồi nhỏ thuốc từng giọt, mỗi giọt lắc một lần cho tới khi nước đổi từ cam sang xanh lá.\" (supported)",
-        "Loose, reworded: \"Muốn tăng GH thì dùng san hô vụn, khoảng 450 g cho bể 40 lít, trộn vào nền hoặc bỏ túi lưới đặt trong lọc, cứ 6–12 tháng thay một lần.\" → \"Muốn tăng GH thì dùng san hô vụn, khoảng 450 g cho bể 40 lít, trộn vào nền hoặc cho vào túi lưới, cứ 6–12 tháng thay một lần.\" (supported)",
-        "Loose, reworded: \"Bể tép thì ổn định là quan trọng nhất.\" → \"Với tép, sự ổn định được đặt lên trên gần như mọi thứ khác.\" (supported)",
-        "Rule 4: The entry says what GH measures twice. The definition says \"GH là độ cứng chung của nước, tức lượng canxi và magie hòa tan trong đó\", and the body opens with \"GH đếm các ion canxi và magie trong nước\". This should be said once, in one place."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-15T01:16:02Z",
-      "model": "sonnet",
-      "cli": "2.1.323",
-      "score": 1,
-      "notes": [
-        "Rule 4: The tip about topping off evaporated water appears twice. The causes paragraph says \"khi châm bù nước bay hơi bằng nước máy\", and the to-do list says it again as \"Châm bù nước bay hơi bằng nước RO hoặc nước cất để GH khỏi tăng dần\". It should be said once, in one place.",
-        "The entry is 515 words: hold it to about 400, and leave what is left out to the pages that use the term."
       ],
       "attempt": "rewrite",
       "kept": false
