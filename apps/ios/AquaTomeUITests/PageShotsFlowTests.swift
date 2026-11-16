@@ -598,7 +598,7 @@ final class PageShotsFlowTests: XCTestCase {
     func opened(_ what: String) {
       let page = app.descendants(matching: .any)["v2-species"]
       _ = page.waitForExistence(timeout: 5)
-      let texts = page.staticTexts.allElementsBoundByIndex.prefix(4).map(\.label)
+      let texts = page.staticTexts.allElementsBoundByIndex.prefix(4).map { $0.label }
       say("\(what) opened: species page \(page.exists), its first words \(texts)")
     }
     app.openTab("Khám phá")
@@ -650,6 +650,83 @@ final class PageShotsFlowTests: XCTestCase {
     app.buttons["v2-fish-of-the-day"].tap()
     let failed = app.staticTexts["Không tải được trang. Kiểm tra kết nối mạng."].firstMatch
     say("a live fish page from the file index: can't load shown \(failed.waitForExistence(timeout: 5))")
+  }
+
+  /// Local, on the site itself (no file index: pages load), for Design (17 Nov): Dĩa's photo line opens the breed's own
+  /// page, scrolled down to its photo's credit (its licence's line), then back on Dĩa's page as it was left.
+  func testDiasPhotoLineOnTheSite() {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults"]
+    app.launchForFlow(.v2)
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 20), "no Hôm nay")
+    var n = 0
+    func shot(_ what: String) {
+      n += 1
+      settle()
+      let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+      a.name = String(format: "shot-site-%02d-%@", n, what)
+      a.lifetime = .keepAlways
+      add(a)
+    }
+    app.openTab("Khám phá")
+    guard let dia = chipInView(app, "Dĩa") else { return XCTFail("no Dĩa chip") }
+    dia.tap()
+    let page = app.descendants(matching: .any)["v2-chip-page"]
+    XCTAssertTrue(page.waitForExistence(timeout: 5), "Dĩa's page didn't open")
+    shot("dia")
+    let line = app.descendants(matching: .any)["v2-chip-photo-of"]
+    let named = line.label.replacingOccurrences(of: "Ảnh đại diện nhóm: ", with: "")
+    line.coordinate(withNormalizedOffset: CGVector(dx: 0.2, dy: 0.5)).tap()
+    let fish = app.descendants(matching: .any)["v2-species"]
+    XCTAssertTrue(fish.waitForExistence(timeout: 10), "the line opened no page")
+    XCTAssertTrue(fish.staticTexts[named].firstMatch.waitForExistence(timeout: 10), "the line names \(named) and opened another page")
+    shot("line-opened")
+    let credit = app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", "CC BY")).firstMatch
+    repeatUntil(credit.exists && credit.frame.maxY < app.frame.height * 0.8 && credit.frame.minY > 100, times: 20) { app.swipeUp() }
+    XCTAssertTrue(credit.exists, "no photo credit on \(named)'s page")
+    shot("credit")
+    app.leavePage()
+    XCTAssertTrue(page.waitForExistence(timeout: 5), "not back on Dĩa's page")
+    shot("dia-after-back")
+    app.largeTitleIsOnScreen("Dĩa")
+  }
+
+  /// Local, on the site's own index (`SHOT_INDEX`), for Design (17 Nov): every chip's photo line opens the page it names,
+  /// its title the line's name (a breed's own page for a breed), and the page is back as it was left.
+  func testEveryChipsPhotoLineOpensThePageItNames() {
+    guard let vi = ProcessInfo.processInfo.environment["SHOT_INDEX"] else { return XCTFail("no SHOT_INDEX") }
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-index-file", vi]
+    app.launchForFlow(.v2)
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no Hôm nay")
+    app.openTab("Khám phá")
+    let chips = app.buttons.matching(identifier: "v2-chip")
+    XCTAssertTrue(chips.firstMatch.waitForExistence(timeout: 5), "no chips")
+    let names = chips.allElementsBoundByIndex.map { String($0.label.split(separator: ",").first ?? "") }
+    var checked = 0
+    for name in names {
+      guard let chip = chipInView(app, name) else { XCTFail("no \(name) chip"); continue }
+      chip.tap()
+      let page = app.descendants(matching: .any)["v2-chip-page"], line = app.descendants(matching: .any)["v2-chip-photo-of"]
+      // A group of one page opens that page; one with no nameable photo has no line.
+      guard page.waitForExistence(timeout: 5), line.exists else { app.leavePage(); continue }
+      let named = line.label.replacingOccurrences(of: "Ảnh đại diện nhóm: ", with: "")
+      let count = app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", " trang")).firstMatch.frame.minY
+      line.coordinate(withNormalizedOffset: CGVector(dx: 0.2, dy: 0.5)).tap()
+      let fish = app.descendants(matching: .any)["v2-species"]
+      XCTAssertTrue(fish.waitForExistence(timeout: 5), "\(name): its line opened no fish")
+      XCTAssertTrue(fish.staticTexts[named].firstMatch.exists, "\(name): its line names \(named) and opened another page")
+      app.leavePage()
+      XCTAssertTrue(page.waitForExistence(timeout: 5), "\(name): not back on its page")
+      settle()
+      XCTAssertTrue(app.navigationBars.staticTexts[name].firstMatch.exists && app.ink(app.navigationBars.staticTexts[name].firstMatch) > 200,
+                    "\(name): its big title isn't back and drawn")
+      XCTAssertEqual(app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", " trang")).firstMatch.frame.minY, count, accuracy: 1,
+                     "\(name): its page isn't where it was")
+      checked += 1
+      app.leavePage()
+    }
+    XCTContext.runActivity(named: "photo lines checked: \(checked) of \(names.count) chips") { _ in }
   }
 
   /// Tìm's first screen: its tools, fish ID's card leading them, then their tiles (at the largest text, the next screen

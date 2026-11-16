@@ -74,9 +74,51 @@ extension XCUIApplication {
     return (px, w, h)
   }
 
-  /// How much of `e` is drawn: its frame's pixel pairs 60 or more grey levels apart (a title's letters), 0 where something
-  /// stands over it. For probes, which print it rather than fail on it.
-  func ink(_ e: XCUIElement) -> Int { edges(in: e.frame, apart: 60) ?? 0 }
+  /// How much of `e` is drawn: its frame's pixel pairs `apart` or more grey levels apart (a title's letters), 0 where
+  /// something stands over it.
+  func ink(_ e: XCUIElement, apart: Int = 60) -> Int { ink(in: e.frame, apart: apart) }
+  func ink(in rect: CGRect, apart: Int = 60) -> Int { edges(in: rect, apart: apart) ?? 0 }
+
+  /// Whether `e` is drawn, not only there (Design, 17 Nov: a check passed on Tìm's big title while a band stood over it).
+  /// Flat ground reads 0; a faint line reads its edges at a smaller `apart`.
+  func inked(_ e: XCUIElement, _ what: String, apart: Int = 60, atLeast: Int = 100, file: StaticString = #filePath, line: UInt = #line) {
+    XCTAssertTrue(e.waitForExistence(timeout: 5), "no \(what)", file: file, line: line)
+    let seen = ink(e, apart: apart)
+    XCTContext.runActivity(named: "drawn, \(what): \(seen)") { _ in }
+    XCTAssertGreaterThan(seen, atLeast, "\(what) isn't drawn: \(seen) edges in \(e.frame)", file: file, line: line)
+  }
+
+  /// The darkest to the lightest grey in `rect` (points): a photo's spread, where a flat fill has a few levels.
+  func spread(in rect: CGRect) -> Int {
+    guard let (px, _, _) = grey(in: rect), let lo = px.min(), let hi = px.max() else { return 0 }
+    return Int(hi) - Int(lo)
+  }
+
+  /// The grey at `p` (points), from 0 to 255.
+  func greyAt(_ p: CGPoint) -> Int {
+    guard let (px, _, _) = grey(in: CGRect(x: p.x - 1, y: p.y - 1, width: 2, height: 2)), !px.isEmpty else { return -1 }
+    return px.reduce(0) { $0 + Int($1) } / px.count
+  }
+
+  /// How many pixels in `rect` (points) are the tint's green, well over their red and over their blue, where the page's
+  /// greys, black and white have all three alike.
+  func tinted(in rect: CGRect) -> Int {
+    guard let shot = XCUIScreen.main.screenshot().image.cgImage else { return 0 }
+    let scale = CGFloat(shot.width) / frame.width
+    guard let box = shot.cropping(to: CGRect(x: rect.minX * scale, y: rect.minY * scale, width: rect.width * scale,
+                                             height: rect.height * scale).integral) else { return 0 }
+    let w = box.width, h = box.height
+    var px = [UInt8](repeating: 0, count: w * h * 4)
+    guard let ctx = CGContext(data: &px, width: w, height: h, bitsPerComponent: 8, bytesPerRow: w * 4,
+                              space: CGColorSpaceCreateDeviceRGB(), bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else { return 0 }
+    ctx.draw(box, in: CGRect(x: 0, y: 0, width: w, height: h))
+    var n = 0
+    for i in stride(from: 0, to: px.count, by: 4) {
+      let r = Int(px[i]), g = Int(px[i + 1]), b = Int(px[i + 2])
+      if g > r + 25 && g > b { n += 1 }
+    }
+    return n
+  }
 
   /// How many side-by-side or stacked pixel pairs in `rect` (in points) are `apart` or more grey levels apart.
   private func edges(in rect: CGRect, apart: Int) -> Int? {

@@ -429,6 +429,11 @@ final class HandbookModel {
       var home = f.home
       // `-no-chips`: an index from before the site's chips, as a phone's kept one can be (Khám phá with no row).
       if args.contains("-no-chips") { home?.chips = [] }
+      // `-breeds`: Dĩa's photo is the pigeon blood's, a breed with its own page, as the site's Dĩa has it (Design, 17 Nov).
+      if args.contains("-breeds"), let i = home?.chips.firstIndex(where: { $0.id == "dia" }) {
+        home?.chips[i] = .init(id: "dia", name: "Dĩa", order: 1, count: 2, members: ["symphysodon-aequifasciatus", "pigeon-blood-discus"],
+                               img: "https://media.aquatome.com/a/dia-large.webp", imgOf: "pigeon-blood-discus")
+      }
       // `-wide-pictures`: each fish and plant has a photo (a wide stand-in, `-fixed-pictures`) with its fish's box across
       // nearly all of it, and each group one: a photo the frame rule shows whole wherever it goes (WholePhotoFlowTests).
       if args.contains("-wide-pictures") {
@@ -442,6 +447,17 @@ final class HandbookModel {
         }
         if let groups = home?.groups {
           home?.groups = groups.map { .init(id: $0.id, img: "https://aquatome.com/img/wide-\($0.id)-480.webp", imgBox: box) }
+        }
+      }
+      // `-square-pictures`: each fish but the Cá thử has a photo, square (a stand-in, `-fixed-pictures`) and with no box, which
+      // a 3:2 card covers with some of it laid out above and below the card (Design, 17 Nov: the first card's took the taps
+      // of the photo line above it).
+      if args.contains("-square-pictures") {
+        items = items.map { i in
+          guard i.kind == .fish, i.img == nil, !(i.contentId ?? "").hasPrefix("ca-thu"),
+                var o = (try? JSONSerialization.jsonObject(with: JSONEncoder().encode(i))) as? [String: Any] else { return i }
+          o["img"] = "https://aquatome.com/img/square-\(i.contentId ?? i.name)-480.webp"
+          return (try? JSONSerialization.data(withJSONObject: o)).flatMap { try? JSONDecoder().decode(HandbookIndex.Item.self, from: $0) } ?? i
         }
       }
       // `-familiar N`: Khám phá's fish shelf runs long, N fish after the fixture's own, as the hobbyists' list does.
@@ -531,7 +547,8 @@ extension HandbookIndex {
           imgOf: "symphysodon-aequifasciatus"),
     .init(id: "tetra", name: "Tetra", order: 2, count: 1, members: ["paracheirodon-innesi"], img: "https://media.aquatome.com/a/neon-large.webp", imgOf: "paracheirodon-innesi",
           guides: ["/vi/huong-dan/nuoi-ca-neon/"], videos: ["/vi/huong-dan/cach-han-che-reu-hai/"]),
-    .init(id: "nho", name: "Cá nhỏ", order: 3, count: 2, members: ["paracheirodon-innesi", "danio-rerio"], img: "https://media.aquatome.com/a/danio-large.webp",
+    // Cá thử 1 has no photo: its wide card is its row alone (Design, 17 Nov).
+    .init(id: "nho", name: "Cá nhỏ", order: 3, count: 3, members: ["paracheirodon-innesi", "danio-rerio", "ca-thu-1"], img: "https://media.aquatome.com/a/danio-large.webp",
           imgOf: "danio-rerio"),
     .init(id: "ca-thu", name: "Cá thử", order: 4, count: 8, members: (1...8).map { "ca-thu-\($0)" }),
   ]

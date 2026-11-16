@@ -771,7 +771,8 @@ final class V2FlowTests: XCTestCase {
     app.tabBars.buttons["Khám phá"].tap()
     Thread.sleep(forTimeInterval: 1)
     let off = moved()
-    print("GLASS TRIAL moved: \(on) on, \(off) off")
+    // Seen on a pass too, in the result's activities: the figures its comment gives.
+    XCTContext.runActivity(named: "GLASS TRIAL moved: \(on) on, \(off) off") { _ in }
     XCTAssertGreaterThan(on, 0.01, "nothing of the page under the tab bar: \(on) of the bar's place moved, \(off) with the trial off")
     XCTAssertLessThan(off, 0.002, "the page still under the tab bar with the trial off: \(off) of the bar's place moved, \(on) with it on")
   }
@@ -1425,22 +1426,44 @@ final class V2FlowTests: XCTestCase {
   /// Every tab's title big at the left at rest (spec-titles.md), its left edge within 20 points of the screen's: Tìm first,
   /// opened after a launch with animations on, where iOS drew it small and centred (10 Nov), its field shown at rest too.
   func testEveryTabsTitleIsBigAtTheLeftAtRest() {
-    let app = launch("-v2", "YES")
+    // Tanks enough for Bể của tôi to scroll.
+    let app = launch("-v2", "YES", "-seed-tanks", "many")
     app.launch()
+    // The open tab's account button: each tab has its own, and the others' stay in the tree.
+    func account() -> XCUIElement {
+      app.buttons.matching(identifier: "profile").allElementsBoundByIndex.first { $0.isHittable } ?? app.buttons["profile"].firstMatch
+    }
     XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
     app.openTab("Tìm kiếm")
     let tim = app.navigationBars.staticTexts["Tìm"].firstMatch
     XCTAssertTrue(tim.waitForExistence(timeout: 5), "no title on Tìm")
     XCTAssertLessThanOrEqual(tim.frame.minX, 20.5, "Tìm's title isn't big at the left: \(tim.frame)")
-    // Drawn, not only there: Tìm's band, shown at rest, stood over it (Design, 17 Nov).
+    // Drawn, not only there: Tìm's band, shown at rest, stood over it (Design, 17 Nov). So every title, and what else
+    // a check could find there while nothing of it shows: the account button, Hôm nay's date, Tìm's field.
     app.largeTitleIsOnScreen("Tìm")
     XCTAssertTrue(app.searchFields.firstMatch.isHittable, "no search field on Tìm at rest")
+    app.inked(app.searchFields.firstMatch, "Tìm's field at rest")
+    app.inked(account(), "Tìm's account button")
     for tab in ["Hôm nay", "Khám phá", "Bể của tôi", "Đèn"] {
       app.openTab(tab)
       // Hôm nay's and Khám phá's in the page; the others iOS's, in the bar.
       let title = tab == "Hôm nay" || tab == "Khám phá" ? app.scrollViews.staticTexts[tab].firstMatch : app.navigationBars.staticTexts[tab].firstMatch
       XCTAssertTrue(title.waitForExistence(timeout: 5), "no title on \(tab)")
       XCTAssertLessThanOrEqual(title.frame.minX, 20.5, "\(tab)'s title isn't at the left: \(title.frame)")
+      app.inked(title, "\(tab)'s title at rest", atLeast: 200)
+      app.inked(account(), "\(tab)'s account button")
+      if tab == "Hôm nay" {
+        // The faintest words on the screen: read at a smaller step.
+        let date = app.scrollViews.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", " tháng ")).firstMatch
+        app.inked(date, "Hôm nay's date", apart: 30)
+      }
+    }
+    // Scrolled: the small title in the bar, and Tìm's field under it, drawn.
+    for (tab, title) in [("Tìm kiếm", "Tìm"), ("Bể của tôi", "Bể của tôi"), ("Đèn", "Đèn")] {
+      app.openTab(tab)
+      app.swipeUp()
+      app.inked(app.navigationBars.staticTexts[title].firstMatch, "\(title)'s title once scrolled")
+      if title == "Tìm" { app.inked(app.searchFields.firstMatch, "Tìm's field once scrolled") }
     }
   }
 
@@ -1495,12 +1518,20 @@ final class V2FlowTests: XCTestCase {
     app.launchForFlow()
     let card = app.buttons["v2-fish-of-the-day"]
     XCTAssertTrue(card.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
-    card.tap()
+    let heading = app.scrollViews.staticTexts["Hôm nay"].firstMatch
+    app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.7))
+      .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.6)), withVelocity: .slow, thenHoldForDuration: 0.3)
+    let at = heading.frame.minY
     let shown = app.descendants(matching: .any)["v2-species"]
-    XCTAssertTrue(shown.waitForExistence(timeout: 8), "the fish of the day didn't open")
-    app.leavePage()
-    XCTAssertTrue(shown.waitForNonExistence(timeout: 5), "the post didn't close")
-    XCTAssertFalse(app.navigationBars.firstMatch.waitForExistence(timeout: 1), "Hôm nay has a bar after the way back")
+    // Closed by its ✕, then by the swipe from the left edge (spec-titles.md: either way, no bar, Hôm nay where it was).
+    for way in ["its ✕", "the edge swipe"] {
+      card.tap()
+      XCTAssertTrue(shown.waitForExistence(timeout: 8), "the fish of the day didn't open (\(way))")
+      if way == "its ✕" { app.buttons["v2-close-post"].firstMatch.tap() } else { edgeSwipe(app, .slow, at: 0.5) }
+      XCTAssertTrue(shown.waitForNonExistence(timeout: 5), "the post didn't close by \(way)")
+      XCTAssertFalse(app.navigationBars.firstMatch.waitForExistence(timeout: 1), "Hôm nay has a bar after \(way)")
+      XCTAssertEqual(heading.frame.minY, at, accuracy: 1, "Hôm nay isn't where it was after \(way)")
+    }
   }
 
   /// A page's end stops above the fade over the tab bar: the last of Khám phá isn't dimmed for good.
@@ -1534,7 +1565,8 @@ final class V2FlowTests: XCTestCase {
   func testKhamPhasChipsAreUnderItsTitleAndScrollAwayWithIt() {
     for size in [[], ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]] {
       let app = XCUIApplication()
-      app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults", "-v2", "YES"] + size
+      app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-fixed-pictures", "-reset-defaults",
+                             "-v2", "YES"] + size
       app.launchForFlow()
       app.openTab("Khám phá")
       let title = app.scrollViews.staticTexts["Khám phá"].firstMatch, chips = app.buttons.matching(identifier: "v2-chip")
@@ -1542,9 +1574,34 @@ final class V2FlowTests: XCTestCase {
       let first = chips.firstMatch.frame
       XCTAssertGreaterThan(first.minY, title.frame.maxY, "the chips aren't under the title \(size)")
       XCTAssertEqual(first.minX, title.frame.minX, accuracy: 2, "the chips don't start at the title's left edge \(size)")
+      // Each drawn (Design, 17 Nov), not only there: its pictures loaded.
+      Thread.sleep(forTimeInterval: 1)
       if size.isEmpty {
         let whole = chips.allElementsBoundByIndex.filter { $0.frame.minX >= 0 && $0.frame.maxX <= app.frame.width }
         XCTAssertGreaterThanOrEqual(whole.count, 2, "fewer than two whole chips on the screen")
+        // Tapped over 44 points, drawn at 38 (spec-chips.md).
+        XCTAssertGreaterThanOrEqual(chips.firstMatch.frame.height, 43.5, "a chip's tap is under 44 points: \(chips.firstMatch.frame)")
+        for c in whole {
+          // At L: the picture 33 × 22, 8 in from the chip's left, the name 8 after it and 14 short of the right; Cá thử has
+          // no photo, its name 14 in.
+          let f = c.frame, pictured = !c.label.hasPrefix("Cá thử"), lead: CGFloat = pictured ? 8 + 33 + 8 : 14
+          XCTAssertGreaterThan(app.ink(in: CGRect(x: f.minX + lead, y: f.midY - 9, width: f.width - lead - 14, height: 18)), 50,
+                               "\(c.label): its name isn't drawn")
+          if pictured {
+            XCTAssertGreaterThan(app.spread(in: CGRect(x: f.minX + 10, y: f.midY - 9, width: 29, height: 18)), 40,
+                                 "\(c.label): its picture is the chip's flat fill, not a photo")
+          }
+        }
+      } else {
+        // The chip the screen's edge cuts: its fill runs on to the edge, with no fade or dimming over it. Read just under
+        // its top edge, above its picture and its name's marks.
+        let w = app.frame.width
+        if let cut = chips.allElementsBoundByIndex.first(where: { $0.frame.minX < w - 80 && $0.frame.maxX > w }) {
+          let y = cut.frame.minY + 3, inside = app.greyAt(CGPoint(x: w - 60, y: y)), edge = app.greyAt(CGPoint(x: w - 2, y: y))
+          XCTAssertLessThanOrEqual(abs(edge - inside), 4, "the chip the edge cuts fades or dims there: \(inside) inside, \(edge) at the edge")
+        } else {
+          XCTFail("no chip cut by the screen's edge at the largest text")
+        }
       }
       XCTAssertFalse(app.buttons.matching(NSPredicate(format: "label MATCHES %@", ".*[0-9]+ loài")).firstMatch.exists, "a group's tile is still on Khám phá \(size)")
       for _ in 0..<3 {
@@ -1581,7 +1638,9 @@ final class V2FlowTests: XCTestCase {
   /// the chip's name with iOS's back button, whose photo the chip shows, a wide card (not the grid), then its guides and
   /// video guides; from six pages, the grid.
   func testAChipOpensItsGroupAsItsSizeSays() {
-    let app = launch("-v2", "YES", "-equipment")
+    // Square photos, as many are: a 3:2 card covers with one, some of it laid out above and below the card (Design, 17
+    // Nov: the first card's photo took the taps of the photo line above it, which opened that card's fish).
+    let app = launch("-v2", "YES", "-equipment", "-fixed-pictures", "-square-pictures")
     app.launchForFlow()
     app.openTab("Khám phá")
     func chip(_ name: String) -> XCUIElement { app.buttons.matching(identifier: "v2-chip").matching(NSPredicate(format: "label BEGINSWITH %@", name)).firstMatch }
@@ -1598,7 +1657,11 @@ final class V2FlowTests: XCTestCase {
     // Whose photo the chip shows, named, and opening that fish's page (the chief, 15 Nov).
     let photoOf = app.links["v2-chip-photo-of"]
     XCTAssertEqual(photoOf.label, "Ảnh đại diện nhóm: Cá neon", "the chip's page doesn't name whose photo it shows")
-    photoOf.tap()
+    // Drawn: its big title, and the fish's name in the tint, not only a link that's there (Design, 17 Nov).
+    app.largeTitleIsOnScreen("Tetra")
+    XCTAssertGreaterThan(app.tinted(in: photoOf.frame), 30, "the photo line's fish isn't in the tint")
+    // Tapped 10 points above its words, in the reach of its 44-point tap (its frame holds the reach: 12 each side).
+    photoOf.coordinate(withNormalizedOffset: CGVector(dx: 0.3, dy: 0)).withOffset(CGVector(dx: 0, dy: 2)).tap()
     XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the photo's fish didn't open")
     app.leavePage()
     XCTAssertTrue(page.waitForExistence(timeout: 5), "not back on the chip's page")
@@ -1610,12 +1673,32 @@ final class V2FlowTests: XCTestCase {
     chip("Cá nhỏ").tap()
     XCTAssertTrue(page.waitForExistence(timeout: 5), "Cá nhỏ's page didn't open")
     XCTAssertEqual(photoOf.label, "Ảnh đại diện nhóm: Cá ngựa vằn", "Cá nhỏ's page names another fish than its photo's")
+    // A small group's wide card: one stop for VoiceOver, the row under its photo, and its photo drawn above that row.
+    let neon = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon"))
+    XCTAssertEqual(neon.count, 1, "a wide card is \(neon.count) stops for VoiceOver, not one")
+    let row = neon.firstMatch.frame, side = app.frame.width - 40
+    XCTAssertGreaterThan(app.spread(in: CGRect(x: 36, y: row.minY - 10 - side * 2 / 3 + 16, width: side - 32, height: side * 2 / 3 - 32)), 40,
+                         "the wide card's photo isn't drawn")
+    // A member with no photo: its row alone, with no grey box over it (Design, 17 Nov): its row under the last one's, not a
+    // photo's height further down.
+    let bare = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá thử 1")).firstMatch
+    let above = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá ngựa vằn")).firstMatch
+    XCTAssertTrue(bare.exists && above.exists, "no Cá thử 1 or Cá ngựa vằn on Cá nhỏ's page")
+    XCTAssertLessThan(bare.frame.minY - above.frame.maxY, 60, "a member with no photo has a photo's box: \(above.frame) then \(bare.frame)")
+    let count = app.staticTexts["3 trang"].firstMatch.frame
     photoOf.tap()
     let fish = app.descendants(matching: .any)["v2-species"]
     XCTAssertTrue(fish.waitForExistence(timeout: 5), "the photo's fish didn't open")
     XCTAssertTrue(fish.staticTexts["Cá ngựa vằn"].firstMatch.exists, "the photo's line opened another fish than Cá ngựa vằn")
     app.leavePage()
     XCTAssertTrue(page.waitForExistence(timeout: 5), "not back on Cá nhỏ's page")
+    // As it was left: its big title back and drawn, its lines where they were (Design, 17 Nov: Dĩa's came back 60 points
+    // up, its title folded into the bar).
+    app.largeTitleIsOnScreen("Cá nhỏ")
+    XCTAssertEqual(app.staticTexts["3 trang"].firstMatch.frame.minY, count.minY, accuracy: 1, "Cá nhỏ's page isn't where it was after back")
+    // Scrolled: its title small in the bar, drawn.
+    app.swipeUp()
+    app.inked(app.navigationBars.staticTexts["Cá nhỏ"].firstMatch, "Cá nhỏ's title once scrolled")
     app.leavePage()
     // Along the row, at its own height, till the last chip is whole.
     let many = chip("Cá thử"), y = many.frame.midY / app.frame.height
@@ -1628,6 +1711,47 @@ final class V2FlowTests: XCTestCase {
     XCTAssertFalse(app.links["v2-chip-photo-of"].exists, "a chip with no photo names one")
   }
 
+
+  /// A chip whose photo is a breed's (the site's Dĩa: the pigeon blood's): its line names the breed and opens the breed's
+  /// own page, not its species' (Design, 17 Nov). Square photos: the species' card under the line overflows its box, as
+  /// Dĩa's did on the site.
+  func testABreedsPhotoLineOpensTheBreedsPage() {
+    let app = launch("-v2", "YES", "-breeds", "-fixed-pictures", "-square-pictures")
+    app.launchForFlow()
+    app.openTab("Khám phá")
+    let dia = app.buttons.matching(identifier: "v2-chip").matching(NSPredicate(format: "label BEGINSWITH %@", "Dĩa,")).firstMatch
+    XCTAssertTrue(dia.waitForExistence(timeout: 5), "no Dĩa chip")
+    dia.tap()
+    let line = app.links["v2-chip-photo-of"]
+    XCTAssertTrue(line.waitForExistence(timeout: 5), "Dĩa's page names no photo")
+    XCTAssertEqual(line.label, "Ảnh đại diện nhóm: Cá đĩa Pigeon Blood", "Dĩa's line doesn't name the breed")
+    line.tap()
+    let fish = app.descendants(matching: .any)["v2-species"]
+    XCTAssertTrue(fish.waitForExistence(timeout: 5), "the line opened no page")
+    XCTAssertTrue(fish.staticTexts["Cá đĩa Pigeon Blood"].firstMatch.exists, "Dĩa's line opened another page than the breed's")
+  }
+
+  /// A group's page is back as it was left, from a fish's page opened by its row (Design, 17 Nov: Dĩa's came back 55
+  /// points up, its big title folded into the bar): its title big and drawn, its lines where they were.
+  func testAGroupsPageIsBackAsItWasLeft() {
+    let app = launch("-v2", "YES", "-fixed-pictures", "-square-pictures")
+    app.launchForFlow()
+    app.openTab("Khám phá")
+    let chip = app.buttons.matching(identifier: "v2-chip").matching(NSPredicate(format: "label BEGINSWITH %@", "Cá nhỏ")).firstMatch
+    XCTAssertTrue(chip.waitForExistence(timeout: 5), "no Cá nhỏ chip")
+    chip.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-chip-page"].waitForExistence(timeout: 5), "Cá nhỏ's page didn't open")
+    let count = app.staticTexts["3 trang"].firstMatch
+    XCTAssertTrue(count.waitForExistence(timeout: 5), "Cá nhỏ's page doesn't say what it holds")
+    let at = count.frame.minY
+    app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon")).firstMatch.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
+    app.leavePage()
+    XCTAssertTrue(count.waitForExistence(timeout: 5), "not back on Cá nhỏ's page")
+    Thread.sleep(forTimeInterval: 0.5)
+    app.largeTitleIsOnScreen("Cá nhỏ")
+    XCTAssertEqual(count.frame.minY, at, accuracy: 1, "Cá nhỏ's page isn't where it was left")
+  }
 
   func testAPageReadIsOnOneShelfOfKhamPha() {
     let app = launch("-v2", "YES")
