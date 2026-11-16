@@ -315,9 +315,14 @@ export async function recheckCandidates(root: string): Promise<Map<string, strin
 type Shown = { file: string; url: string; page?: string; guide?: boolean; caption?: string; galleryOnly?: boolean; author?: string; authorUrl?: string; source?: string; origin?: string; waits?: boolean; bare?: boolean; sourced?: boolean; lead?: boolean }
 
 const site = (u: string | undefined) => { try { return u ? new URL(u).hostname.replace(/^www\./, '') : undefined } catch { return undefined } }
+/**
+ * What a reader writes for a photo with no author (photos.ts and gallery.ts "Wikimedia Commons", gbif.ts "GBIF", inat.ts
+ * "iNaturalist", openverse.ts "Flickr"), and a source's own "unknown": no person, so two such photos are no one uploader.
+ */
+const NO_AUTHOR = /^(wikimedia commons|gbif|inaturalist|flickr|unknown( author| photographer)?|anonymous)$/i
 /** One uploader: the same origin and the same author, by the author's page where both have one, else by name. */
 const sameUploader = (a: Shown, b: Shown) =>
-  !!a.origin && a.origin === b.origin && (a.authorUrl && b.authorUrl ? a.authorUrl === b.authorUrl : !!a.author && a.author === b.author)
+  !!a.origin && a.origin === b.origin && (a.authorUrl && b.authorUrl ? a.authorUrl === b.authorUrl : !!a.author && !NO_AUTHOR.test(a.author.trim()) && a.author === b.author)
 
 /**
  * Whose turn a photo not judged yet has (the chief of staff, 2026-11-10: of 2,611 gallery photos judged, 272 had been

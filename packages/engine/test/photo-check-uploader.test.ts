@@ -127,6 +127,31 @@ test.each(['dead', 'none', 'unsure', 'yes'] as const)('"%s" for an album photo s
   expect(await judged(r, 'bbb-fish')).not.toContain('bbb-sib')
 })
 
+test("what a reader writes for a missing author ('Wikimedia Commons', 'Unknown author') is no uploader: two such photos are no one person's", async () => {
+  const r = await root([
+    {
+      id: 'aaa-fish',
+      album: [
+        photo('trig', { author: 'Wikimedia Commons', site: 'commons' }), ...five('aaa-fish'),
+        photo('no-author', { author: 'Wikimedia Commons', site: 'commons', waits: true }),
+      ],
+    },
+    {
+      id: 'bbb-fish',
+      album: [
+        photo('trig-unknown', { author: 'Unknown author', site: 'commons' }), ...five('bbb-fish'),
+        photo('also-unknown', { author: 'Unknown author', site: 'commons', waits: true }),
+      ],
+    },
+  ])
+  const d = model({ trig: { ok: 'other' }, 'trig-unknown': { ok: 'other' } })
+  const out = await checkPagePhotos(r, d, { limit: 2 })
+  expect(d.seen).toHaveLength(2)
+  expect(out.uploaderPhotos ?? 0).toBe(0)
+  expect(await judged(r, 'aaa-fish')).not.toContain('no-author')
+  expect(await judged(r, 'bbb-fish')).not.toContain('also-unknown')
+})
+
 test('a verdict recorded before the run starts nothing: an old "no", or "another fish" from an earlier run', async () => {
   const six = (id: string) => [...five(id), photo(`${id}-f6`)]
   const r = await root([
