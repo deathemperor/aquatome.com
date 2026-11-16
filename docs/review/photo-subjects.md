@@ -1216,6 +1216,9 @@ Written by `pnpm engine check-photos` (2026-11-16), most-read pages first. Rules
 | species/characidium-fasciatum | [photo](https://media.aquatome.com/inaturalist/250270540.webp) | subject unsure |
 | species/cherax-boesemani | [photo](https://media.aquatome.com/commons/b6b20a8fb3d5550f.webp) | subject other |
 | species/cherax-boesemani | [photo](https://media.aquatome.com/commons/c973b386e5737c11.webp) | subject unsure |
+| species/chitala-chitala | [photo](https://media.aquatome.com/commons/84cbc3b6378ca118.webp) | subject other |
+| species/chitala-chitala | [photo](https://media.aquatome.com/seriouslyfish/66be7c0556572082.webp) | subject unsure |
+| species/chitala-chitala | [photo](https://media.aquatome.com/seriouslyfish/89c9f7f7c4a0150a.webp) | subject unsure |
 | species/chlamydogobius-eremius | [photo](https://media.aquatome.com/inaturalist/727792138.webp) | subject unsure |
 | species/cichla-monoculus | [photo](https://media.aquatome.com/commons/6a8cf2b3ed699011.webp) | subject unsure |
 | species/cirrhinus-molitorella | [photo](https://media.aquatome.com/inaturalist/141394219.webp) | subject unsure |
