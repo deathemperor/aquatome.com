@@ -1,0 +1,90 @@
+{
+  "id": "tachysurus-nitidus",
+  "native": {
+    "input": "424de5a0384f0b68",
+    "at": "2026-11-16T05:47:36.414Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Chang Jiang [Yangtze River], China.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "KR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Reported from South Korea.",
+        "words": "South Korea",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: China, from Heilongjiang (Amur River) to Minjiang (Yangtze River tributary).",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Yangtze River",
+        "source": "planetcatfish",
+        "quote": "Type locality: Chang Jiang [Yangtze River], China.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Amur River",
+        "source": "scotcat",
+        "quote": "Asia: China, from Heilongjiang (Amur River) to Minjiang (Yangtze River tributary).",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Korean Peninsula",
+        "source": "scotcat",
+        "quote": "IUCN Red List: Tachysurus nitidus is a freshwater catfish species that is broadly distributed throughout China and the Korean Peninsula, occurring in artificial reservoirs, lakes, small hill streams, and rivers.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Tachysurus nitidus",
+    "status": "ACCEPTED",
+    "taxonKey": 5961267,
+    "datasets": [
+      [
+        "c35d9a99-9a4b-44e7-8c92-7b5fe302318b",
+        10
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "11ddb63e-cdd8-4ba4-b0f8-953166ddc075",
+        1
+      ]
+    ],
+    "native": [
+      "CN",
+      "KR"
+    ],
+    "requests": 11,
+    "at": "2026-11-16T05:47:36.414Z"
+  }
+}

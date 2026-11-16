@@ -1763,10 +1763,15 @@
     "score": 0.82
   },
   "eZZR2z2rHxU": {
-    "at": "2026-11-07",
+    "at": "2026-11-16",
     "title": "Coral Red Pencilfish - Nannostomus Mortenthaleri - Rare Freshwater Nano Aquarium Fish Profile",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Nannostomus mortenthaleri",
+    "page": "species/nannostomus-mortenthaleri",
+    "done": "low",
+    "score": 0.5,
+    "reason": "Latin names added to the tank mates (\"Eirmotus octozona\", \"Tateurndina ocellicauda\", \"Pseudomugil gertrudae\") are not said in the video, which gives only common names.; \"cá Copella cầu vồng (rainbow copella)\" is a shaky rendering of \"rainbow cappella tetras\", and the Copella genus is never named in the video."
   },
   "F8HABfA0iyQ": {
     "at": "2026-11-07",
@@ -1785,10 +1790,15 @@
     "reason": "several fish"
   },
   "Fa7qaXaqYeI": {
-    "at": "2026-11-07",
+    "at": "2026-11-16",
     "title": "Cryptocoryne Wendtii Green (Plant Propagation)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Cryptocoryne wendtii",
+    "page": "plants/cryptocoryne-wendtii",
+    "done": "low",
+    "score": 0.7,
+    "reason": "\"thấy chúng lớn nhanh\" contradicts the page, which says growth is slow (\"lớn khá chậm\", rarely more than 2.5 cm in two weeks, and the card says slow). NEW doesn't say it differs from the page. It should state the contrast plainly, e.g. that this keeper's plants grew faster than the page describes.; \"tách được 32 cây từ hai cây ban đầu\" is one keeper's result. It is not framed against the page's slow-propagation claim (\"Kiểu nhân giống này chậm\"), so it reads as unexplained and conflicting."
   },
   "fbfFKUh3apo": {
     "at": "2026-11-07",
@@ -1839,10 +1849,12 @@
     "reason": "5 species"
   },
   "fg6m6pk3Vfc": {
-    "at": "2026-11-07",
+    "at": "2026-11-16",
     "title": "Quick Dip into The Panda Loach - Yaoshania pachychilus",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "failed",
+    "reason": "whisper: ValueError: Unsupported language: zxx"
   },
   "fgJUfUzhF9Y": {
     "at": "2026-11-07",
@@ -1861,16 +1873,26 @@
     "reason": "several fish"
   },
   "fJmubCLthGg": {
-    "at": "2026-11-07",
+    "at": "2026-11-16",
     "title": "NEW SHRIMP! Neocardina davidi Green Rili",
     "channel": "CHRIS LUKHAUP",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Neocaridina davidi",
+    "page": "species/neocaridina-davidi",
+    "done": "low",
+    "score": 0.6,
+    "reason": "[behaviour] \"Ngoài ốc, có thể nuôi chung với tôm hùm đất\": the video says crayfish, snails and other peaceful invertebrates; \"Ngoài ốc\" is odd, and \"tôm hùm đất\" is an unnatural rendering of crayfish (tôm càng/crayfish). The crayfish claim is risky next to the page's advice.; [behaviour] \"Chúng không làm hại cá\" is stated flatly; the video says harmless to fish, fine, but the page already covers tankmates and fish eating shrimp, so the point is thin/possibly contradictory."
   },
   "fK5blxaKV3Y": {
-    "at": "2026-11-07",
+    "at": "2026-11-16",
     "title": "Meet the Curious Beckford's Pencilfish - Nannostomus beckfordi - Also Known as The Golden Pencilfish",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Nannostomus beckfordi",
+    "page": "species/nannostomus-beckfordi",
+    "done": "low",
+    "score": 0.66,
+    "reason": "[waterConditions] 24–28 °C differs from the page's 21–27 °C and 'best 24–26 °C', but the text never says it differs from the page.; [waterConditions] 'Một người nuôi loài này thấy...' turns the video's general statement into one keeper's experience, which is an odd framing. 'Soft, slightly acidic' overlaps the page's note that wild fish do best at low pH/GH."
   },
   "FMCICI_Rd_A": {
     "at": "2026-11-07",
@@ -2076,16 +2098,21 @@
     "reason": "unboxing several fish"
   },
   "GzgJfjq84nE": {
-    "at": "2026-11-07",
+    "at": "2026-11-16",
     "title": "Discover the Cenepa Red Pencilfish - Nannostomus sp - Rare Expensive Aquarium Fish Bright Red!!",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Nannostomus sp.",
+    "done": "skipped",
+    "reason": "no page, and GBIF has no species of that name"
   },
   "H1Jb3F0lyMg": {
-    "at": "2026-11-07",
+    "at": "2026-11-16",
     "title": "Endler's Livebearer (JAPAN BLUE, K Class)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "H3-QKNY1xXM": {
     "at": "2026-11-07",

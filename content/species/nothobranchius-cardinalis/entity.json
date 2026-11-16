@@ -10,6 +10,50 @@
     "tanzania",
     "mbwemkuru"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TZ"
+      ],
+      "regions": [
+        "Mbwemkuru"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species originates from Tanzania, where it inhabits periodically dry tributaries of the Mbwemkuru river.",
+          "countries": [
+            "TZ"
+          ],
+          "regions": [
+            "Mbwemkuru"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348708,
+      "total": 4,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "TZ",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          37.96875,
+          -11.25,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

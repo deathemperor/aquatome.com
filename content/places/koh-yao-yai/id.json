@@ -3,6 +3,12 @@
   "name": "เกาะยาวใหญ่",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.03,
+    "at": "2026-11-16T11:28:02.396Z",
+    "why": "Nama ini ditulis dengan aksara Thai, bukan Latin Bahasa Indonesia; atlas Indonesia menulis \"Pulau Yao Yai\" atau \"Ko Yao Yai\"."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

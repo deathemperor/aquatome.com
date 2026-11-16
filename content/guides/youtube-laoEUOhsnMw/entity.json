@@ -139,49 +139,21 @@
     "figures": [
       {
         "heading": "Cây đỏ cần gì để lên màu",
-        "moments": [
-          {
-            "t": 320,
-            "url": "https://media.aquatome.com/video/laoEUOhsnMw/at320-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cạo lớp sơn acrylic đen ở nền bể cũ bằng lưỡi dao.",
-            "sharpness": 612.7
-          }
-        ]
-      },
-      {
-        "heading": "Làm lớp nền dinh dưỡng",
-        "moments": [
-          {
-            "t": 440,
-            "url": "https://media.aquatome.com/video/laoEUOhsnMw/at440-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Sỏi và phân nền chuẩn bị sẵn trong hai thùng để trộn.",
-            "sharpness": 1366.4
-          },
-          {
-            "t": 540,
-            "url": "https://media.aquatome.com/video/laoEUOhsnMw/at540-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hỗn hợp phân nền được trải đều dưới đáy bể.",
-            "sharpness": 2017.8
-          }
-        ]
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/laoEUOhsnMw/p0-ydS1JbmRpYS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/laoEUOhsnMw/p0-ydS1JbmRpYS5qcGc-480.webp",
+          "width": 960,
+          "height": 1106,
+          "licence": "CC BY 4.0",
+          "author": "Yercaud-elango",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rotala_Hi_Red-1-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Cây thân đứng lên màu đỏ cam rực rỡ trong bể nano dưới đèn mạnh."
+        }
       },
       {
         "heading": "Thêm phân nhét cho bể trồng dày",
         "moments": [
-          {
-            "t": 600,
-            "url": "https://media.aquatome.com/video/laoEUOhsnMw/at600-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rải phân nhét vụn lên lớp nền dinh dưỡng trước khi phủ cát.",
-            "sharpness": 1486.7
-          },
           {
             "t": 670,
             "url": "https://media.aquatome.com/video/laoEUOhsnMw/at670-hd.webp",
@@ -196,20 +168,13 @@
         "heading": "Dựng bố cục đá và lũa",
         "moments": [
           {
-            "t": 950,
-            "url": "https://media.aquatome.com/video/laoEUOhsnMw/at950-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Những viên đá nhỏ đặt cạnh mẩu lũa cao tạo thành bố cục đảo.",
-            "sharpness": 402.4
-          },
-          {
             "t": 970,
             "url": "https://media.aquatome.com/video/laoEUOhsnMw/at970-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể nano với vài viên đá nhỏ và lũa dựng đứng trên nền cát.",
-            "sharpness": 732.6
+            "caption": "Bể nano đã đặt xong vài viên đá nhỏ và lũa dựng đứng.",
+            "sharpness": 732.6,
+            "person": false
           }
         ]
       },
@@ -217,20 +182,13 @@
         "heading": "Trải cát trang trí và sỏi điểm",
         "moments": [
           {
-            "t": 1100,
-            "url": "https://media.aquatome.com/video/laoEUOhsnMw/at1100-hd.webp",
+            "t": 1050,
+            "url": "https://media.aquatome.com/video/laoEUOhsnMw/at1050-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Rải sỏi tối màu rời rạc trên lớp cát sáng quanh lũa.",
-            "sharpness": 914.3
-          },
-          {
-            "t": 1120,
-            "url": "https://media.aquatome.com/video/laoEUOhsnMw/at1120-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lớp cát sáng đắp dốc dần ra sau, vài viên sỏi tối điểm xuyết.",
-            "sharpness": 235.2
+            "caption": "Lớp cát sáng màu trải trong hồ, có một viên đá nhỏ.",
+            "sharpness": 256.2,
+            "person": false
           }
         ],
         "photo": {
@@ -252,16 +210,9 @@
             "url": "https://media.aquatome.com/video/laoEUOhsnMw/at1150-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh có cụm cây thân đỏ mọc dày, thảm cỏ xanh phía trước.",
-            "sharpness": 1551.5
-          },
-          {
-            "t": 1250,
-            "url": "https://media.aquatome.com/video/laoEUOhsnMw/at1250-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây thân đỏ đã cắt được cho vào xô để mang sang bể mới.",
-            "sharpness": 92.3
+            "caption": "Bể thủy sinh đang lên tốt với nhiều ngọn cây đỏ rực.",
+            "sharpness": 1551.5,
+            "person": false
           }
         ],
         "photo": {
@@ -277,24 +228,7 @@
       },
       {
         "heading": "Xử lý nước, làm trong nước và châm phân",
-        "moments": [
-          {
-            "t": 1440,
-            "url": "https://media.aquatome.com/video/laoEUOhsnMw/at1440-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể nhỏ đang được đổ nước và xả cát bằng ống hút.",
-            "sharpness": 1316.4
-          },
-          {
-            "t": 1450,
-            "url": "https://media.aquatome.com/video/laoEUOhsnMw/at1450-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay cầm chai thuốc xử lý nước bên cạnh thùng chứa nước.",
-            "sharpness": 1079.5
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/laoEUOhsnMw/p6-UwMzc0MjApLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/laoEUOhsnMw/p6-UwMzc0MjApLmpwZw-480.webp",
@@ -315,15 +249,26 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể không bật đèn nền, cây đỏ nổi bật và nhìn tươi hơn.",
-            "sharpness": 1733.3
+            "sharpness": 1733.3,
+            "person": false
           },
           {
             "t": 1770,
             "url": "https://media.aquatome.com/video/laoEUOhsnMw/at1770-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Nền đèn chỉnh sang đỏ làm bể nhìn giả, như ly nước ép.",
-            "sharpness": 1458.4
+            "caption": "Nền đèn chỉnh sang đỏ, bể nhìn giả như ly nước ép.",
+            "sharpness": 1458.4,
+            "person": false
+          },
+          {
+            "t": 1820,
+            "url": "https://media.aquatome.com/video/laoEUOhsnMw/at1820-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bỏ tấm đèn nền, bể nhìn sâu và cây đỏ nổi hơn.",
+            "sharpness": 1568.2,
+            "person": false
           }
         ]
       },
@@ -336,15 +281,26 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá betta xanh trắng bơi trong bể trồng nhiều cây.",
-            "sharpness": 234.1
+            "sharpness": 234.1,
+            "person": false
           },
           {
             "t": 2000,
             "url": "https://media.aquatome.com/video/laoEUOhsnMw/at2000-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh mới với cây đỏ, lũa và cá betta bơi bên trong.",
-            "sharpness": 1813.9
+            "caption": "Bể mới có nền cát sáng, lũa và cây thân đỏ, đã thả cá.",
+            "sharpness": 1813.9,
+            "person": false
+          },
+          {
+            "t": 2070,
+            "url": "https://media.aquatome.com/video/laoEUOhsnMw/at2070-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá betta bơi giữa bụi cây đỏ trong bể mới.",
+            "sharpness": 281.4,
+            "person": false
           }
         ],
         "photo": {

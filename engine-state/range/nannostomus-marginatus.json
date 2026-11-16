@@ -1,8 +1,8 @@
 {
   "id": "nannostomus-marginatus",
   "native": {
-    "input": "be9b8a4a91f192bf",
-    "at": "2026-11-10T15:58:17.469Z",
+    "input": "e445d85192f30fa8",
+    "at": "2026-11-16T05:47:36.414Z",
     "claims": [
       {
         "code": "BR",
@@ -16,7 +16,7 @@
         "code": "GY",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The dwarf pencilfish, Nannostomus marginatus, is a lebiasinid of Guyana, Suriname and the middle-to-lower Amazon in Peru, Colombia and Brazil.",
+        "quote": "Type locality is 'Maduni Creek, Guyana', and this species is widely-distributed throughout Guyana and Suriname, plus the middle-to-lower Amazon basin east of the Andes mountains in Peru, Colombia, and Brazil.",
         "words": "Guyana",
         "ok": true
       },
@@ -24,7 +24,7 @@
         "code": "SR",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The dwarf pencilfish, Nannostomus marginatus, is a lebiasinid of Guyana, Suriname and the middle-to-lower Amazon in Peru, Colombia and Brazil.",
+        "quote": "Type locality is 'Maduni Creek, Guyana', and this species is widely-distributed throughout Guyana and Suriname, plus the middle-to-lower Amazon basin east of the Andes mountains in Peru, Colombia, and Brazil.",
         "words": "Suriname",
         "ok": true
       },
@@ -32,7 +32,7 @@
         "code": "PE",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The dwarf pencilfish, Nannostomus marginatus, is a lebiasinid of Guyana, Suriname and the middle-to-lower Amazon in Peru, Colombia and Brazil.",
+        "quote": "Type locality is 'Maduni Creek, Guyana', and this species is widely-distributed throughout Guyana and Suriname, plus the middle-to-lower Amazon basin east of the Andes mountains in Peru, Colombia, and Brazil.",
         "words": "Peru",
         "ok": true
       },
@@ -40,7 +40,7 @@
         "code": "CO",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The dwarf pencilfish, Nannostomus marginatus, is a lebiasinid of Guyana, Suriname and the middle-to-lower Amazon in Peru, Colombia and Brazil.",
+        "quote": "Type locality is 'Maduni Creek, Guyana', and this species is widely-distributed throughout Guyana and Suriname, plus the middle-to-lower Amazon basin east of the Andes mountains in Peru, Colombia, and Brazil.",
         "words": "Colombia",
         "ok": true
       },
@@ -48,7 +48,7 @@
         "code": "BR",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The dwarf pencilfish, Nannostomus marginatus, is a lebiasinid of Guyana, Suriname and the middle-to-lower Amazon in Peru, Colombia and Brazil.",
+        "quote": "Type locality is 'Maduni Creek, Guyana', and this species is widely-distributed throughout Guyana and Suriname, plus the middle-to-lower Amazon basin east of the Andes mountains in Peru, Colombia, and Brazil.",
         "words": "Brazil",
         "ok": true
       },
@@ -98,15 +98,16 @@
         "ok": true
       },
       {
-        "name": "Napo",
+        "name": "Negro",
         "source": "seriouslyfish",
         "quote": "Records thus exist from various major river systems including the Rupununi, Takutu, Essequibo and Demerara in Guyana, the Nickerie and Courantyne/Corantijn in Suriname, Inírida and Caquetá in Colombia, the Ucayali, Javari, Ampiyacu, and Putumayo in Peru, the Napo in Ecuador and Peru, Juruá in Brazil, and throughout most major left-bank tributaries of the Amazon in Brazil, including the Japurá, Negro, Branco, and Trombetas.",
+        "country": "BR",
         "ok": true
       },
       {
-        "name": "Rio Negro",
+        "name": "Napo",
         "source": "seriouslyfish",
-        "quote": "Rio Negro forms have a similar red stripe but overlapping the central dark stripe and extending along most of the flank, while a form from Colombia has an elongate red stripe which is broken in two beneath the dorsal-fin.",
+        "quote": "Records thus exist from various major river systems including the Rupununi, Takutu, Essequibo and Demerara in Guyana, the Nickerie and Courantyne/Corantijn in Suriname, Inírida and Caquetá in Colombia, the Ucayali, Javari, Ampiyacu, and Putumayo in Peru, the Napo in Ecuador and Peru, Juruá in Brazil, and throughout most major left-bank tributaries of the Amazon in Brazil, including the Japurá, Negro, Branco, and Trombetas.",
         "ok": true
       }
     ],

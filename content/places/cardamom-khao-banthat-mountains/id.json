@@ -3,6 +3,12 @@
   "name": "Pegunungan Kardamom (Khao Banthat)",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-16T11:21:42.510Z",
+    "why": "Indonesian atlases usually write \"Pegunungan Cardamom\" (or \"Pegunungan Kardamom\"), but this name mixes a localized \"Kardamom\" with the Thai name in parentheses, and the Khao Banthat range in Thailand is a different range from the Cardamom Mountains in Cambodia, so the match is uncertain."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

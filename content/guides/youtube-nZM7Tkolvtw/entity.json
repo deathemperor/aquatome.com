@@ -93,7 +93,25 @@
     "figures": [
       {
         "heading": "Cho tép mới mua quen nước thế nào",
-        "moments": [],
+        "moments": [
+          {
+            "t": 410,
+            "url": "https://media.aquatome.com/video/nZM7Tkolvtw/at410-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tép trong cốc nước đang được cho quen nước trước khi thả vào bể.",
+            "sharpness": 77.2
+          },
+          {
+            "t": 450,
+            "url": "https://media.aquatome.com/video/nZM7Tkolvtw/at450-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tép đỏ đã thả vào bể, bò trên nền sỏi.",
+            "sharpness": 530.7,
+            "person": false
+          }
+        ],
         "photo": {
           "url": "https://media.aquatome.com/video/nZM7Tkolvtw/p0-yLXNha3VyYS5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/nZM7Tkolvtw/p0-yLXNha3VyYS5qcGc-480.webp",
@@ -107,7 +125,17 @@
       },
       {
         "heading": "Vì sao nên dùng đá Seiryu trong bể tép",
-        "moments": [],
+        "moments": [
+          {
+            "t": 1310,
+            "url": "https://media.aquatome.com/video/nZM7Tkolvtw/at1310-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đá Seiryu xếp trên nền đất trong bể mới setup.",
+            "sharpness": 2878.1,
+            "person": false
+          }
+        ],
         "photo": {
           "url": "https://media.aquatome.com/video/nZM7Tkolvtw/p2-LWxlbm5hcnQuanBn.webp",
           "thumb": "https://media.aquatome.com/video/nZM7Tkolvtw/p2-LWxlbm5hcnQuanBn-480.webp",
@@ -135,17 +163,26 @@
       },
       {
         "heading": "Châm nước và chờ bể chín",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/nZM7Tkolvtw/p5-BcXVhcml1bS5KUEc.webp",
-          "thumb": "https://media.aquatome.com/video/nZM7Tkolvtw/p5-BcXVhcml1bS5KUEc-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC0",
-          "author": "Tdwittt",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Planted_Nano_Aquarium.JPG",
-          "caption": "Bể mới setup với khúc lũa đặt trên nền đen, vài cây anubias lá to."
-        }
+        "moments": [
+          {
+            "t": 2360,
+            "url": "https://media.aquatome.com/video/nZM7Tkolvtw/at2360-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tép đỏ bơi trong đám cỏ xanh sát kính, nền đã ổn định.",
+            "sharpness": 264.8,
+            "person": false
+          },
+          {
+            "t": 2370,
+            "url": "https://media.aquatome.com/video/nZM7Tkolvtw/at2370-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Khúc lũa phủ đầy vi sinh đặt trong bể, tép đỏ bò trên đó.",
+            "sharpness": 803.1,
+            "person": false
+          }
+        ]
       },
       {
         "heading": "Thả tép vào bể mới",

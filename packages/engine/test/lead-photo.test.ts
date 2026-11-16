@@ -34,6 +34,20 @@ test("a photo with its source's own mark leads only where nothing else passes, a
   expect(leadChoice([photo('head', 500, 400)], [big('marked-1')], passes, {}, isMarked)).toBeUndefined()
 })
 
+// The chief of staff, 16 Nov: Rineloricaria castroi's head is a shop's lettered photo kept off cards, and two of its own
+// photos pass. A fish's own thumbnail is its head, so the head gives way to the first that passes, as a marked one does,
+// whatever its size; with nothing else passing it stays.
+test('a head kept off cards gives way to the first photo that passes, and stays where none does', () => {
+  const isHeld = (p: Photo) => name(p.url).startsWith('held')
+  const passes = (p: Photo) => !isHeld(p)
+  const held = big('held-head'), small = photo('scotcat', 500, 375)
+  expect(leadChoice([held, small], [], passes, {}, undefined, undefined, undefined, undefined, isHeld)).toEqual({ lead: small })
+  expect(leadChoice([held], [small], passes, {}, undefined, undefined, undefined, undefined, isHeld)).toEqual({ lead: small })
+  expect(leadChoice([held, big('held-2')], [], passes, {}, undefined, undefined, undefined, undefined, isHeld)).toBeUndefined()
+  // Without the hold read, the large lettered head stays (the gap the owner's thumbnails showed).
+  expect(leadChoice([held, small], [], passes, {})).toBeUndefined()
+})
+
 test('a large copy counts for the head and for what could replace it', () => {
   const withLarge = { ...photo('head', 960, 640), large: { url: url('head-large'), width: 1800, height: 1200 } }
   expect(leadChoice([withLarge], [big('other')], yes, {})).toBeUndefined()
@@ -256,6 +270,16 @@ test("a photo on the calendar's avoid list doesn't lead; --calendar touches only
   expect(seen).toEqual([['z-head', 'z-gal']])
   expect((await entity(root, 'zzz')).photos.map(p => name(p.url))).toEqual(['z-gal', 'z-head'])
   expect((await entity(root, 'aaa')).photos.map(p => name(p.url))).toEqual(['a-head'])
+})
+
+test("the step reads the calendar's hold for the head: a held head that fills the card gives way to a smaller photo that passes, with no model call (Rineloricaria castroi, 16 Nov)", async () => {
+  const root = await store({ r: { photos: [big('r-held'), photo('r-other', 500, 375)] } })
+  const cal = JSON.parse(await readFile(join(root, 'content/curation.json'), 'utf8'))
+  await writeFile(join(root, 'content/curation.json'), JSON.stringify({ ...cal, avoid: { [url('r-held')]: "a shop's lettered photo" } }))
+  const { d, seen } = model(yes)
+  await screenLeads(root, d, { limit: 5 })
+  expect(seen).toEqual([])
+  expect((await entity(root, 'r')).photos.map(p => name(p.url))).toEqual(['r-other', 'r-held'])
 })
 
 test("the engine's avoid entries don't stop a photo leading its own page: they list a photo refused on some page's cards, by address", async () => {

@@ -1,0 +1,28 @@
+{
+  "slug": "ca-trachycorystes",
+  "name": "Cá trachycorystes",
+  "altNames": [],
+  "sections": {
+    "quickFacts:glaser": "<p>Loài kỳ lạ này được mô tả khoa học từ năm 1840. Cá có thể đạt tổng chiều dài khoảng 45 cm.</p>",
+    "beforeYouBuy:glaser": "<p>Gần đây đã nhập được sáu cá thể từ Peru. Chúng dài 15–20 cm nên mới chỉ là cá non.</p>",
+    "distribution:glaser": "<p>Phân bố rộng khắp lưu vực sông Amazon.</p>",
+    "diet:glaser": "<p>Những loài cá da trơn này ăn ngay bất cứ thức ăn nguồn gốc động vật nào vừa miệng.</p>",
+    "behaviour:glaser": "<p>T. trachycorystes được biết là khá hung dữ với bạn cùng bể, dù là đồng loại hay loài khác. Tuy vậy, cả sáu cá thể vẫn chen chúc cùng nhau trong một ống PVC. Nhu cầu ẩn nấp của chúng lớn hơn nhiều so với sự ghét bỏ lẫn nhau.</p><p>Nếu định nuôi loài cá da trơn này trong bể cộng đồng, cần lưu ý để các bạn cùng bể không trở thành thức ăn của chúng.</p>",
+    "maintenance:glaser": "<p>Những loài cá da trơn này khá dễ nuôi.</p>",
+    "notes:glaser": "<p>Từ nguyên: Trachycorystes bắt nguồn từ tiếng Hy Lạp cổ, trachys nghĩa là \"thô ráp\" và korystes nghĩa là \"người mang mũ trụ\".</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.8
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-16"
+  }
+}

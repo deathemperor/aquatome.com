@@ -1,5 +1,6 @@
 import { resolveDataCard, type Content, type GlossaryEntity, type GuideEntity, type Localized, type Photo, type PlantEntity, type Range, type Series, type SourceId, type SourceInfo, type SpeciesEntity } from '@aq/schema'
 import { PAGE_VERSION, pageShard, shardCount, type Block, type Image, type Inline, type PageDoc, type PageShard } from '@aq/schema/app-page'
+import { videoAbout } from './video-about'
 import { appBreeds, appEquipment, appGlossary, appGuides, appIndex, appPlants, appSeries, appSpecies, headPhoto, photoBox, type AppIndex } from './app-index'
 import { breedParts } from './breed-page'
 import { BREED_KIND, type Breed } from './breeds'
@@ -224,7 +225,7 @@ export async function fishDoc(lang: Lang, c: Content, s: Localized<SpeciesEntity
   }] : []
   const videos: Block[] = p.videos.length ? [{
     t: 'videos', title: 'Video',
-    items: p.videos.map(v => ({ youtubeId: v.youtubeId, title: v.title, durationSec: Math.max(0, Math.round(v.durationSec)), lang: (v.lang ?? 'en') === 'vi' ? t('tiếng Việt') : (v.lang ?? 'en').toUpperCase() })),
+    items: p.videos.map(v => ({ youtubeId: v.youtubeId, title: v.title, durationSec: Math.max(0, Math.round(v.durationSec)), lang: videoAbout(v, lang, t) })),
   }] : []
   return {
     v: PAGE_VERSION,
@@ -502,7 +503,8 @@ export function guideDoc(lang: Lang, c: Content, g: Localized<GuideEntity>, list
     ...(lead ? { lead } : {}),
     ...(v ? {
       video: {
-        youtubeId: v.youtubeId, title: v.title, channel: v.channel, durationSec: v.durationSec,
+        // The guide's name in its language; "Video gốc" in its sources keeps the real title, as a credit.
+        youtubeId: v.youtubeId, title: g.t.name, channel: v.channel, durationSec: v.durationSec,
         ...(v.transcribed ? {} : { subtitles: t('Phụ đề tiếng Việt') }),
         ...(guideChapters(v, g.t.chapters).length > 1 ? { chapters: guideChapters(v, g.t.chapters).map(ch => ({ at: ch.start, title: ch.title })) } : {}),
         ...(poster ? { poster } : {}),
@@ -518,7 +520,9 @@ export function guideDoc(lang: Lang, c: Content, g: Localized<GuideEntity>, list
         ...(v ? [{ title: `${t('Video gốc:')} ${v.title}${t(', kênh')} ${v.channel} · ${clock(v.durationSec)}`, url: watchUrl(v.youtubeId) }] : []),
         ...(p.refs ?? []).map(r => ({ title: lang !== 'vi' && isVietnamese(r.title) ? `${r.title} (${t('tiếng Việt')})` : r.title, url: r.url })),
       ] }] : []),
-      ...pages(p.series && p.pos + 1 < p.inSeries.length ? t('Phần tiếp theo') : t('Bài tiếp theo'), p.next.map(x => `/vi/huong-dan/${x.t.slug}/`)),
+      // "Phần tiếp theo" over a series' next parts, as the page has it; the app's list keeps to guides with a picture
+      // (guideParts), so where it drops the next parts, the guides it has instead are "Bài tiếp theo" (Fable's read).
+      ...pages(p.appNext.some(x => p.inSeries.slice(p.pos + 1).some(y => y.id === x.id)) ? t('Phần tiếp theo') : t('Bài tiếp theo'), p.appNext.map(x => `/vi/huong-dan/${x.t.slug}/`)),
       ...pages(t('Loài và cây trong bài'), [...p.species.map(s => `/vi/ca/${s.t.slug}/`), ...p.plants.map(x => `/vi/cay/${x.t.slug}/`)]),
     ],
   }

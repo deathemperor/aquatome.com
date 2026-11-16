@@ -57,14 +57,6 @@
         "heading": "Lên kế hoạch khoan lỗ trên ống",
         "moments": [
           {
-            "t": 430,
-            "url": "https://media.aquatome.com/video/xU-Lb0cpV9U/at430-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng máy khoan cầm tay khoan lỗ trên ống đồng.",
-            "sharpness": 536.3
-          },
-          {
             "t": 440,
             "url": "https://media.aquatome.com/video/xU-Lb0cpV9U/at440-hd.webp",
             "width": 1200,
@@ -86,24 +78,7 @@
       },
       {
         "heading": "Cắt và khoan ống đồng",
-        "moments": [
-          {
-            "t": 480,
-            "url": "https://media.aquatome.com/video/xU-Lb0cpV9U/at480-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng máy khoan mài đĩa cắt ống đồng ngoài trời, ống kê trên miếng gỗ.",
-            "sharpness": 196.4
-          },
-          {
-            "t": 560,
-            "url": "https://media.aquatome.com/video/xU-Lb0cpV9U/at560-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khoan lỗ trên ống đồng ngoài trời, ống được kê sát miếng gỗ.",
-            "sharpness": 167.4
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/xU-Lb0cpV9U/p2-lOlNEU201NS5KUEc.webp",
           "thumb": "https://media.aquatome.com/video/xU-Lb0cpV9U/p2-lOlNEU201NS5KUEc-480.webp",
@@ -117,24 +92,7 @@
       },
       {
         "heading": "Lấy tâm bể và đánh dấu trên trần",
-        "moments": [
-          {
-            "t": 570,
-            "url": "https://media.aquatome.com/video/xU-Lb0cpV9U/at570-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây ống đồng thẳng và dụng cụ đặt trên nền sỏi.",
-            "sharpness": 886.4
-          },
-          {
-            "t": 620,
-            "url": "https://media.aquatome.com/video/xU-Lb0cpV9U/at620-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tia laser xanh chiếu lên trần để xác định điểm giữa bể.",
-            "sharpness": 509.4
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/xU-Lb0cpV9U/p3-KSxfbGFzZXIuanBn.webp",
           "thumb": "https://media.aquatome.com/video/xU-Lb0cpV9U/p3-KSxfbGFzZXIuanBn-480.webp",
@@ -149,14 +107,6 @@
       {
         "heading": "Gắn đèn và luồn dây điện qua ống",
         "moments": [
-          {
-            "t": 940,
-            "url": "https://media.aquatome.com/video/xU-Lb0cpV9U/at940-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đèn COB đen cùng bộ dây treo và dây điện đặt trên sàn.",
-            "sharpness": 535.2
-          },
           {
             "t": 1030,
             "url": "https://media.aquatome.com/video/xU-Lb0cpV9U/at1030-hd.webp",
@@ -178,19 +128,6 @@
         }
       },
       {
-        "heading": "Chỉnh độ cao và độ sáng",
-        "moments": [
-          {
-            "t": 1140,
-            "url": "https://media.aquatome.com/video/xU-Lb0cpV9U/at1140-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cắm điện thử đèn qua ổ cuộn dây trước khi chốt mọi thứ.",
-            "sharpness": 292.1
-          }
-        ]
-      },
-      {
         "heading": "Giấu nốt dây phía sau",
         "moments": [
           {
@@ -199,7 +136,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ống treo chạy từ trần xuống phía trên bể, dây nguồn còn lòng thòng.",
-            "sharpness": 326
+            "sharpness": 326,
+            "person": false
           }
         ],
         "photo": {

@@ -9,6 +9,47 @@
     "oceania",
     "papua-new-guinea"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PG"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This goby originates from Papua New Guinea.",
+          "countries": [
+            "PG"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2386263,
+      "total": 1,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "PG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          147.65625,
+          -9.84375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

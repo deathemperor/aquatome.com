@@ -1,8 +1,13 @@
 {
   "slug": "rupununi-river",
-  "name": "Rupununi",
+  "name": "Sungai Rupununi",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.96,
+    "at": "2026-11-16T05:42:19.711Z"
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

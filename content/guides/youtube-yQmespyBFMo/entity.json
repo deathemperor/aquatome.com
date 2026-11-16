@@ -63,7 +63,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nền được dồn về một đầu bể, nước còn lại là một lớp thấp.",
-            "sharpness": 252.2
+            "sharpness": 252.2,
+            "person": false
           },
           {
             "t": 140,
@@ -94,7 +95,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Máy hút bụi khô ướt màu đỏ dùng để hút nước còn lại trong bể.",
-            "sharpness": 278.5
+            "sharpness": 278.5,
+            "person": false
           },
           {
             "t": 300,
@@ -125,28 +127,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cụm cây bám rễ được đặt trong chậu, bên cạnh khăn và đồ dùng.",
-            "sharpness": 649.1
-          },
-          {
-            "t": 370,
-            "url": "https://media.aquatome.com/video/yQmespyBFMo/at370-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhúng bộ rễ của cụm cây vào thùng nước để xả sạch.",
-            "sharpness": 1150.3
-          }
-        ]
-      },
-      {
-        "heading": "Lót phân nền trong túi",
-        "moments": [
-          {
-            "t": 570,
-            "url": "https://media.aquatome.com/video/yQmespyBFMo/at570-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Túi phân nền và các túi khóa kéo đã đổ phân bên trong.",
-            "sharpness": 677.6
+            "sharpness": 649.1,
+            "person": false
           }
         ]
       },
@@ -182,15 +164,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cát còn lẫn nhiều bụi mịn và phân nền vón thành cục.",
-            "sharpness": 1064.2
-          },
-          {
-            "t": 1510,
-            "url": "https://media.aquatome.com/video/yQmespyBFMo/at1510-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Người chơi dùng tay trải lớp cát sáng màu trong bể.",
-            "sharpness": 576.6
+            "sharpness": 1064.2,
+            "person": false
           }
         ],
         "photo": {
@@ -206,16 +181,7 @@
       },
       {
         "heading": "Xếp đá và lũa thành đảo giữa bể",
-        "moments": [
-          {
-            "t": 1860,
-            "url": "https://media.aquatome.com/video/yQmespyBFMo/at1860-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lũa được đặt xen giữa các viên đá trên nền cát để tạo đảo.",
-            "sharpness": 633.1
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/yQmespyBFMo/p6-YXJkc2NhcGUuanBn.webp",
           "thumb": "https://media.aquatome.com/video/yQmespyBFMo/p6-YXJkc2NhcGUuanBn-480.webp",
@@ -229,16 +195,7 @@
       },
       {
         "heading": "Bố trí cụm cây lớn và giảm đèn",
-        "moments": [
-          {
-            "t": 1910,
-            "url": "https://media.aquatome.com/video/yQmespyBFMo/at1910-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cụm cây bám xanh tốt đặt cạnh lũa và đá trong bể.",
-            "sharpness": 878.5
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/yQmespyBFMo/p7-wdGVyb3B1cy5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/yQmespyBFMo/p7-wdGVyb3B1cy5qcGc-480.webp",

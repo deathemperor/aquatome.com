@@ -39,14 +39,24 @@ test('the units mender, the held video guides\' cut and the source figures run i
   for (const part of ['photos', 'pages', 'rewrite']) expect(stepsRun(part, part === 'rewrite')).toEqual(expect.arrayContaining(['metric', 'sweep']))
 })
 
-test('the held video guides go to their editor in the Mac\'s videos part alone, 24 a run: five parts sent the same ones', () => {
-  // The chief of staff, 15 Nov 2026: two rounds' 83 held mends from five parts went to 27 guides.
+test("the held video guides go to their editor in the Mac's videos part alone, at most 4 held and 2 new or live a run", () => {
+  // The chief of staff, 15 Nov 2026: two rounds' 83 held mends from five parts went to 27 guides. 16 Nov 2026: 4 held and 2
+  // new a run, in place of 24 and 20, as the editor's rewrites under the gate's name ended the Mac's day at 21:50.
   const read = (f: string) => readFileSync(new URL(`../../../scripts/${f}`, import.meta.url), 'utf8')
   const videos = read('video-cycle.sh')
-  const at = videos.indexOf('export GATE_HELD_MENDS="${GATE_HELD_MENDS:-24}"')
-  expect(at).toBeGreaterThan(-1)
-  expect(at).toBeLessThan(videos.indexOf('gate_or_keep "content: videos"'))
+  const gate = videos.indexOf('gate_or_keep "content: videos"')
+  for (const line of ['export GATE_HELD_MENDS="${GATE_HELD_MENDS:-4}"', 'export GATE_MENDS="${GATE_MENDS:-2}"']) {
+    const at = videos.indexOf(line)
+    expect(at, line).toBeGreaterThan(-1)
+    expect(at, line).toBeLessThan(gate)
+  }
   for (const f of ['engine-cycle.sh', 'video-recheck.sh', 'cycle-checks.sh']) expect(read(f), f).not.toMatch(/GATE_HELD_MENDS/)
   expect(heldMendsOf({})).toBe(0)
-  expect(heldMendsOf({ GATE_HELD_MENDS: '24' })).toBe(24)
+  expect(heldMendsOf({ GATE_HELD_MENDS: '4' })).toBe(4)
+  // The figures the gate runs with in the videos part, as its shell sets them, and a job's own setting over them.
+  const run = (env: Record<string, string>) => spawnSync('bash', ['-c', `${videos.split('\n').filter(l => /^export GATE_(HELD_)?MENDS=/.test(l)).join('\n')}\necho "$GATE_HELD_MENDS $GATE_MENDS"`], { encoding: 'utf8', env: { PATH: process.env.PATH, ...env } }).stdout.trim()
+  expect(run({})).toBe('4 2')
+  expect(run({ GATE_HELD_MENDS: '0', GATE_MENDS: '0' })).toBe('0 0')
+  // The gate takes its new and live mends from GATE_MENDS (cli.ts), so the setting reaches it.
+  expect(readFileSync(new URL('../src/cli.ts', import.meta.url), 'utf8')).toContain('process.env.GATE_MENDS')
 })

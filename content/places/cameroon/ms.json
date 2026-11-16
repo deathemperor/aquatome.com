@@ -1,8 +1,13 @@
 {
   "slug": "cameroon",
-  "name": "Cameroon",
+  "name": "Kamerun",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.97,
+    "at": "2026-11-16T05:39:37.368Z"
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

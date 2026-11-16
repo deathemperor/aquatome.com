@@ -2,7 +2,17 @@
  "queue": [],
  "judged": [
   "File:Echinodorus quadricostatus.jpg",
-  "File:Helanthium bolivianum kz01.jpg"
+  "File:Helanthium bolivianum kz01.jpg",
+  "inat:42867145",
+  "inat:42867193",
+  "inat:42867225",
+  "inat:110689548",
+  "inat:110689722",
+  "inat:173313816",
+  "inat:173313901",
+  "inat:582310752",
+  "inat:582310801",
+  "inat:582310839"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/6ade29daf3578031.webp": "cf17161f1b0b1b25",
@@ -14,7 +24,19 @@
   "https://media.aquatome.com/tropica/d7fda2889ce417a1.webp": "e8e0f4f4f4f0cc70",
   "https://media.aquatome.com/tropica/f5ac9e94076fb761.webp": "09070b0b1b1d3ca6",
   "https://media.aquatome.com/tropica/6e4dbf752b780964.webp": "38f0c4b0f4f0f0e0",
-  "https://media.aquatome.com/tropica/f1b5a41482cc687c.webp": "1078f1f0f8f07030"
+  "https://media.aquatome.com/tropica/f1b5a41482cc687c.webp": "1078f1f0f8f07030",
+  "https://media.aquatome.com/inaturalist/173313816.webp": "968a2a32c68ad3a3",
+  "https://media.aquatome.com/inaturalist/582310752.webp": "e62e2d321393e315",
+  "https://media.aquatome.com/inaturalist/582310839.webp": "90544b4ed45ae6cd",
+  "https://media.aquatome.com/inaturalist/582310801.webp": "ea713614a23735c1"
  },
- "commons": "2026-11-10"
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": 206259,
+  "pass": "done",
+  "after": {
+   "research": 321944724,
+   "agree": 302516317
+  }
+ }
 }

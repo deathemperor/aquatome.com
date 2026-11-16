@@ -1,0 +1,29 @@
+{
+  "slug": "ca-goodeid-cham-bi",
+  "name": "Cá goodeid chấm bi",
+  "altNames": [
+    "Polkadot Goodeid"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Cá goodeid chấm bi (Chapalichthys pardalis) dài tối đa 6,5 cm ở con đực và 7 cm ở con cái. Đây là loài cá đẻ con.</p>",
+    "distribution:glaser": "<p>Ngoài tự nhiên, loài này sống ở các vùng nước thuộc sườn Thái Bình Dương của Mexico, tại quận Tocumbo, tỉnh Michoacán. Nhiều loài goodeid khác đang bị đe dọa, nhưng loài cá đẻ con xinh xắn này thì có vẻ vẫn an toàn ngoài tự nhiên.</p>",
+    "beforeYouBuy:glaser": "<p>Còn trong bể nuôi thì đây lại là loài cực hiếm. Tiếc là cá lớn khá chậm, nên giá nhỉnh hơn một chút. Bù lại, cá càng lớn càng đẹp.</p>",
+    "maintenance:glaser": "<p>Nuôi và cho loài này đẻ không khó. Tốt nhất là để nhiệt độ dao động nhẹ, và nếu bể đặt trong phòng ở thì không cần sưởi, vì ngoài tự nhiên nước hầu như không bao giờ ấm quá 20 °C. Cá trông đẹp nhất khi thả trong bể thủy sinh có cây mọc rậm.</p>",
+    "behaviour:glaser": "<p>Nghe nói ít nhất dòng cá người chơi đang nuôi hiện nay rất hiền với cá nuôi chung.</p>",
+    "notes:glaser": "<p>Từ nguyên: Chapalichthys nghĩa là \"cá từ hồ Chapala\". Hồ Chapala ở Mexico là nơi sống của một loài Chapalichthys. Chữ pardalis là tiếng Latin, nghĩa là \"có hoa văn như báo\".</p>"
+  },
+  "quality": {
+    "score": 0.92,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.92
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "elsewhere"
+    ],
+    "at": "2026-11-16"
+  }
+}

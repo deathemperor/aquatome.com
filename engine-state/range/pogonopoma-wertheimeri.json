@@ -1,22 +1,22 @@
 {
   "id": "pogonopoma-wertheimeri",
   "native": {
-    "input": "abf61c069454c3e9",
-    "at": "2026-11-14T05:39:06.336Z",
+    "input": "b580270f61db2a85",
+    "at": "2026-11-16T05:47:36.414Z",
     "claims": [
       {
         "code": "BR",
         "status": "native",
         "source": "planetcatfish",
-        "quote": "Type locality: Rio Mucuri District, Santa Clara, Bahia State, Brazil.",
+        "quote": "Currently known from three coastal river drainages in southeastern Brazil: the Mucuri River in Bahia State and the São Mateus River in Espirito Santo State.",
         "words": "Brazil",
         "ok": true
       },
       {
         "code": "BR",
         "status": "native",
-        "source": "planetcatfish",
-        "quote": "Currently known from three coastal river drainages in southeastern Brazil: the Mucuri River in Bahia State and the São Mateus River in Espirito Santo State.",
+        "source": "scotcat",
+        "quote": "South America: Mucuri and São Mateus River basins, Brazil.",
         "words": "Brazil",
         "ok": true
       }
@@ -33,6 +33,20 @@
         "name": "São Mateus River",
         "source": "planetcatfish",
         "quote": "Currently known from three coastal river drainages in southeastern Brazil: the Mucuri River in Bahia State and the São Mateus River in Espirito Santo State.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Mucuri",
+        "source": "scotcat",
+        "quote": "South America: Mucuri and São Mateus River basins, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "São Mateus",
+        "source": "scotcat",
+        "quote": "South America: Mucuri and São Mateus River basins, Brazil.",
         "country": "BR",
         "ok": true
       }

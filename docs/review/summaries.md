@@ -1,4 +1,4 @@
-# Tóm tắt chờ duyệt (150)
+# Tóm tắt chờ duyệt (152)
 
 Bản qua kiểm tra tự động (số khớp thẻ dữ liệu, mọi ý có trong hồ sơ) đã được duyệt. Dưới đây là bản chưa qua, kèm lỗi kiểm tra tìm thấy.
 
@@ -992,6 +992,15 @@ Neolamprologus kungweensis hợp với người đã nuôi cichlid Tanganyika, m
 Kiểm tra:
 - "hợp với người đã nuôi cichlid Tanganyika": the page never says the species needs or suits experienced Tanganyika keepers. The card difficulty is medium (4/8), so this suitability claim is unsupported.
 
+## Cá signatus (Lamprologus signatus)
+id: `lamprologus-signatus`
+
+Cá signatus (Lamprologus signatus) nhỏ, chỉ 5,5 cm, độ khó 2/8 nên người mới có bể riêng cho cichlid Tanganyika vẫn nuôi được. Bể tối thiểu 45 cm (45 cm x 30 cm x 30 cm, 40 lít) đủ cho một cặp hoặc nhóm ba con. Nước phải cứng và kiềm: 23–27 °C, pH 7,5–9, 10–25 dGH. Điểm khó nhất là con đực rất hung dữ với đồng loại và giữ lãnh thổ quanh vỏ ốc rất quyết liệt.
+
+- Thả nhiều đực vào bể nhỏ thì chúng đánh nhau; trừ khi bể rộng, chỉ nuôi một đực, hoặc một đực với vài cái.
+- Cho ít vỏ ốc thì cá tranh chỗ và cái không có nơi đẻ; rải số vỏ nhiều hơn số cá, mỗi con cái cần 4-5 vỏ.
+- Trải nền mỏng thì cá không đào bới được; chừa nhiều khoảng cát trống và trải lớp nền dày.
+
 ## Cá cichlid ốc meeli (Lepidiolamprologus meeli)
 id: `lepidiolamprologus-meeli`
 
@@ -1566,6 +1575,12 @@ Cá trê lũa (Sorubimichthys planiceps) hợp với người nuôi có kinh ngh
 
 Kiểm tra:
 - "chỉ nuôi cùng cá da trơn cỡ lớn như họ Pimelodidae hoặc Doradidae": the page says the fish can live with any species that has similar water needs and is big enough not to be swallowed. It only offers these catfish families as suggestions ("gợi ý"). "Chỉ" turns a suggestion into an exclusive rule.
+
+## Cá lau kiếng Spectracanthicus murinus (Spectracanthicus murinus)
+id: `spectracanthicus-murinus`
+
+Cá lau kiếng Spectracanthicus murinus là loài nhỏ, dài tới 6,4 cm, sống ở sông Tapajós thuộc lưu vực Amazon. Cá cần nước ấm 26–30 °C, pH 5,5–7,5. Khó nhất là hồ sơ thiếu thông tin: không có số liệu về bể tối thiểu, thức ăn hay độ khó, và sinh sản mới có đúng một báo cáo.
+
 
 ## Cá Sternarchorhynchus goeldii (Sternarchorhynchus goeldii)
 id: `sternarchorhynchus-goeldii`
