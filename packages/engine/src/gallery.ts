@@ -2,12 +2,12 @@ import { piece } from './pieces'
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { GallerySchema, hashDistance, isAllowedLicence, isGenerated, SAME_PICTURE, thumbOf, type Photo } from '@aq/schema'
+import { GallerySchema, hashDistance, IMAGE_SWITCHES, isAllowedLicence, isGenerated, isInatNonCommercial, isNonCommercial, SAME_PICTURE, thumbOf, type ImageSwitches, type Photo } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { galleryPlan, TARGETS, TIER_ORDER, type PlanItem } from './gallery-plan'
 import { gbifMediaPage, gbifUsageKey } from './gbif'
-import { inatPage, inatTaxon, newInatCursor, type InatCursor } from './inat'
+import { inatNcPage, inatPage, inatTaxon, newInatCursor, type InatCursor, type InatNcCursor } from './inat'
 import { openversePage } from './openverse'
 import { cantTellOn, OFF, type PhotoVerdict } from './photo-check'
 import { namedOn, namedOrder, SPECIES, type Named } from './photo-named'
@@ -304,9 +304,16 @@ function byKind(photos: GalleryPhoto[], at: ScreenedAt): GalleryPhoto[] {
  * album so each cycle (orderAlbums), with the same `looks` as the album step, so the two agree. A photo its source names
  * only with "cf.", to its genus or as another fish (`named`, photo-named.ts) goes behind those it names better, among
  * the photos the check is sure of and among those it can't tell alike, so the photo check's moving the latter last keeps
- * the order (the chief of staff, 2026-11-14).
+ * the order (the chief of staff, 2026-11-14). A non-commercial photo (isNonCommercial: iNaturalist's CC BY-NC and CC
+ * BY-NC-SA, behind their switch) comes after every open one, before the AI pictures, those ordered the same way among
+ * themselves (the owner's yes, 10 Nov).
  */
 export function rankGallery(photos: GalleryPhoto[], cantTell: (url: string) => boolean = () => false, at: ScreenedAt = () => undefined, looks: Looks = () => ({}), named: (p: GalleryPhoto) => Named = () => SPECIES, kept: (url: string) => boolean = () => false): GalleryPhoto[] {
+  const nc = photos.filter(p => !isGenerated(p) && isNonCommercial(p.licence))
+  if (nc.length && nc.length < photos.length) {
+    const rest = rankGallery(photos.filter(p => !nc.includes(p)), cantTell, at, looks, named, kept)
+    return [...rest.filter(p => !isGenerated(p)), ...rankGallery(nc, cantTell, at, looks, named, kept), ...rest.filter(isGenerated)]
+  }
   const marked = photos.filter(p => !isGenerated(p) && kept(p.url))
   if (marked.length) {
     const rest = rankGallery(photos.filter(p => !marked.includes(p)), cantTell, at, looks, named)
@@ -354,10 +361,12 @@ export type AlbumAnswer = { setup?: boolean; whole?: boolean; small?: boolean; t
  * where the last stopped: iNaturalist's cursor, when Commons was read, GBIF's and Openverse's next page; candidates found
  * but not screened yet (`queue`); every candidate screened, kept or not (`judged`), never screened again; the image hash
  * of every photo shown, against near-copies; `exhausted`: the day every source ran dry below target (tried again later);
- * `seeded`: the keys of queued candidates a person found by hand (gallery-seed.ts), until they are screened.
+ * `seeded`: the keys of queued candidates a person found by hand (gallery-seed.ts), until they are screened; `inatNc`:
+ * iNaturalist's non-commercial pass, read only while its switch is on.
  */
 export type GalleryState = {
   inat?: InatCursor
+  inatNc?: InatNcCursor
   commons?: string
   gbif?: { key: number | null; next: number | null }
   openverse?: { next: number | null }
@@ -445,9 +454,11 @@ async function otherBreeds(root: string, id: string): Promise<{ urls: Set<string
  * photos the owner rejected or the page already shows are left out; the rest go through the shared screening
  * (`screenTagged`), and only the photos it keeps are added. A page whose sources run dry below target is reported as
  * short and tried again after 30 days. Photos the owner rejected leave every gallery. Stops on a model failure (usage
- * limit). content/gallery/<id>.json; engine-state/gallery/<id>.json; docs/review/galleries.md.
+ * limit). With IMAGE_SWITCHES.inatNonCommercial on (`switches`), iNaturalist's research-grade CC BY-NC and CC BY-NC-SA
+ * photos are a last source, read once every open one has run dry. content/gallery/<id>.json;
+ * engine-state/gallery/<id>.json; docs/review/galleries.md.
  */
-export async function galleries(root: string, d: GalleryDeps, o: { sheets: number; only?: string; budget?: Partial<SourceBudget>; shard?: [number, number] }) {
+export async function galleries(root: string, d: GalleryDeps, o: { sheets: number; only?: string; budget?: Partial<SourceBudget>; shard?: [number, number]; switches?: Readonly<ImageSwitches> }) {
   const content = join(root, 'content')
   const report = { done: [] as string[], failed: [] as string[], stopped: '', sheets: 0, added: {} as Record<string, number>, short: [] as string[] }
   const rejected = JSON.parse(await readFile(join(root, 'engine-state/_photo-rejected.json'), 'utf8').catch(() => '{}')) as Record<string, string>
@@ -464,6 +475,7 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
   const on = await namedOn(content)
   const markKept = await keptMarks(root)
   const left: SourceBudget & { sheets: number } = { inat: 150, gbif: 60, openverse: 20, ...o.budget, sheets: o.sheets }
+  const nc = (o.switches ?? IMAGE_SWITCHES).inatNonCommercial
   // Openverse is slow (20 s or more a query) and sometimes stalls: after 3 failures it rests until the next run.
   let openverseFailures = 0
   const today = d.now().toISOString().slice(0, 10)
@@ -498,15 +510,21 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
     // Full to its last seeded space: the seeds left wait in the queue for a photo the check takes off.
     if (gallery.length >= limit) continue
     const st: GalleryState = saved ?? { queue: [], judged: [], hashes: {} }
-    if (st.exhausted && !o.only && days(st.exhausted) < RETRY_DAYS) continue
-    if (st.exhausted) {
+    // A page dry before the non-commercial switch went on has never read that pass: it is read now, not in a month.
+    const ncUnread = nc && t.kind !== 'breeds' && !st.inatNc
+    const due = !st.exhausted || !!o.only || days(st.exhausted) >= RETRY_DAYS
+    if (!due && !ncUnread) continue
+    // Read for that pass alone: the open sources stay dry from the day they ran dry, so their month isn't put back.
+    const drySince = due ? undefined : st.exhausted
+    if (st.exhausted && due) {
       // A month on: new observations are past iNaturalist's cursor; the other sources are read again (what was judged stays judged).
-      delete st.exhausted
       if (st.inat?.taxon) st.inat.pass = 'research'
       delete st.commons
       if (st.gbif?.key) st.gbif.next = 0
       delete st.openverse
+      if (nc && st.inatNc) delete st.inatNc.done
     }
+    delete st.exhausted
     // A gallery the old step built screened every Commons candidate it found then: those count as judged. Not a breed's:
     // the breed step searched one name, and the photos it kept stay out by address and image hash.
     const legacy = !saved && t.kind !== 'breeds' && gallery.some(p => !p.source && p.licence !== UNSPLASH)
@@ -541,6 +559,8 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
       const judged = new Set(st.judged)
       const offHere = isRejected(offBy.get(t.id) ?? {})
       st.queue = st.queue.filter(c => !offHere(c.url))
+      // Its switch off, a non-commercial candidate queued while it was on is never screened.
+      if (!nc) st.queue = st.queue.filter(c => !isNonCommercial(c.licence))
       const isNew = (c: Candidate) => !rejectedPhoto(c.url) && !offHere(c.url) && !seen.has(c.url) && !seen.has(c.sourceUrl) && !judged.has(c.key) && !st.queue.some(q => q.key === c.key)
       for (const p of [...e.photos, ...gallery]) {
         if (!st.hashes[p.url]) st.hashes[p.url] = await d.get(p.thumb ?? p.url).then(dhash).catch(() => '')
@@ -597,9 +617,19 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
           })
           if (r) return r
         }
+        // iNaturalist's CC BY-NC and CC BY-NC-SA photos, its switch on: last, so they fill only what no open photo can.
+        if (nc && !breed && !skip.has('inat') && !st.inatNc?.done) {
+          const r = await attempt('inat', async () => {
+            st.inat ??= newInatCursor(await inatTaxon(names, inat))
+            const p = await inatNcPage(st.inat.taxon, st.inatNc ?? { after: 0 }, inat)
+            st.inatNc = p.cursor
+            return p.cands
+          })
+          if (r) return r
+        }
         return null
       }
-      const dry = () => (breed || (st.inat?.pass === 'done' && !!st.gbif && (!st.gbif.key || st.gbif.next === null))) && !!st.commons && (!d.openverse || st.openverse?.next === null)
+      const dry = () => (breed || (st.inat?.pass === 'done' && !!st.gbif && (!st.gbif.key || st.gbif.next === null) && (!nc || !!st.inatNc?.done))) && !!st.commons && (!d.openverse || st.openverse?.next === null)
 
       while (gallery.length < limit && left.sheets > 0) {
         const want = Math.max(SHEET, (t.target - gallery.length) * 2)
@@ -633,7 +663,7 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
         }
         await save()
       }
-      if (gallery.length < t.target && !st.queue.length && dry()) st.exhausted = today
+      if (gallery.length < t.target && !st.queue.length && dry()) st.exhausted = drySince ?? today
       await save()
       report.done.push(`${t.id}: ${gallery.length}/${t.target} (+${gallery.length - before})`)
     } catch (err) {
@@ -682,6 +712,32 @@ async function dropRejected(content: string, isRejected: (url: string) => boolea
     const keep = g.photos.filter(p => !isRejected(p.url))
     if (keep.length < g.photos.length) await writeFile(file, `${JSON.stringify({ ...g, photos: keep }, null, 2)}\n`)
   }
+}
+
+/**
+ * Every non-commercial photo (its licence's NC, isNonCommercial) taken off every album and every page, in one step: the
+ * sweep's, each cycle. With IMAGE_SWITCHES.inatNonCommercial on, iNaturalist's CC BY-NC and CC BY-NC-SA album photos
+ * stay (isInatNonCommercial); off, none does. A source's photo shows by its permission and is left alone. The files
+ * changed, and `file: url` for each photo taken off.
+ */
+export async function dropNonCommercial(content: string, switches: Readonly<ImageSwitches> = IMAGE_SWITCHES): Promise<{ files: string[]; photos: string[] }> {
+  const out = { files: [] as string[], photos: [] as string[] }
+  const files: string[] = []
+  for (const f of (await readdir(join(content, 'gallery')).catch(() => [] as string[])).filter(f => f.endsWith('.json'))) files.push(`gallery/${f}`)
+  for (const kind of ['species', 'plants', 'breeds', 'guides']) for (const id of await readdir(join(content, kind)).catch(() => [] as string[])) files.push(`${kind}/${id}/entity.json`)
+  for (const f of files.sort()) {
+    const raw = await readFile(join(content, f), 'utf8').catch(() => null)
+    if (!raw) continue
+    const data = JSON.parse(raw) as { photos?: Photo[] }
+    if (!Array.isArray(data.photos)) continue
+    const album = f.startsWith('gallery/')
+    const off = data.photos.filter(p => !p.source && isNonCommercial(p.licence) && !(album && switches.inatNonCommercial && isInatNonCommercial(p)))
+    if (!off.length) continue
+    await writeFile(join(content, f), `${JSON.stringify({ ...data, photos: data.photos.filter(p => !off.includes(p)) }, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
+    out.files.push(f)
+    out.photos.push(...off.map(p => `${f}: ${p.url}`))
+  }
+  return out
 }
 
 /**
