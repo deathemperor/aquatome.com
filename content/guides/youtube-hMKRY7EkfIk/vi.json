@@ -39,8 +39,9 @@
   },
   "held": {
     "checks": [
-      "product"
+      "product",
+      "source"
     ],
-    "at": "2026-11-16"
+    "at": "2026-11-10"
   }
 }
