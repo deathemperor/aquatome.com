@@ -3,6 +3,7 @@ import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 import sharp from 'sharp'
 import { expect, test } from 'vitest'
+import { nameStep } from '../src/ceiling'
 import { LlmError } from '../src/claude'
 import { FLAGS_SCHEMA, frameFolder, frameSheet, type FrameFlags, type FrameSheetDeps } from '../src/frame-sheet'
 
@@ -163,4 +164,24 @@ test('frame sheet: only a video id and a species id name a file, `per` is 1 to 8
   await symlink(repo, link)
   await expect(at(V1, 'vieja-sample', 2, join(link, 'frames'))).rejects.toThrow(/git checkout/)
   expect(s.calls.frames).toEqual([])
+})
+
+test("frame sheet: a video is a piece: none starts once what's left of the step's day line is less than one costs", async () => {
+  const s = await setup()
+  // The step's last piece on record cost more than any day's line has.
+  const log = join(s.out, 'aquatome-cost-test.jsonl')
+  await writeFile(log, `${JSON.stringify({ at: new Date().toISOString(), step: 'frame-sheet', piece: 'last', pieceUsd: 10000, finished: true })}\n`)
+  const was = process.env.ENGINE_COST_LOG
+  process.env.ENGINE_COST_LOG = log
+  nameStep('frame-sheet')
+  try {
+    const r = await run([V1, V2], s)
+    expect(r.stopped).toBe(`${V1}: the step's day line`)
+    expect(s.calls.frames).toEqual([])
+    expect(s.calls.looks).toEqual([])
+  } finally {
+    if (was === undefined) delete process.env.ENGINE_COST_LOG
+    else process.env.ENGINE_COST_LOG = was
+    nameStep(undefined)
+  }
 })
