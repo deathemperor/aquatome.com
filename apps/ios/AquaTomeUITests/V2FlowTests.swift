@@ -770,6 +770,7 @@ final class V2FlowTests: XCTestCase {
     app.tabBars.buttons["Khám phá"].tap()
     Thread.sleep(forTimeInterval: 1)
     let off = moved()
+    print("GLASS TRIAL moved: \(on) on, \(off) off")
     XCTAssertGreaterThan(on, 0.01, "nothing of the page under the tab bar: \(on) of the bar's place moved, \(off) with the trial off")
     XCTAssertLessThan(off, 0.002, "the page still under the tab bar with the trial off: \(off) of the bar's place moved, \(on) with it on")
   }
