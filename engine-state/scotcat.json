@@ -687,6 +687,26 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/amphiliidae/amphilius_zairensis.htm": {
+    "entityIds": [
+      "species/amphilius-zairensis"
+    ],
+    "updatedAt": "2026-11-16T17:57:17.007Z",
+    "hash": "e6b77901ab94585be56d60af75ffb91fdf1b9ea8bb44ea2d3bb4c48ff4a95bbb",
+    "processedHash": "e6b77901ab94585be56d60af75ffb91fdf1b9ea8bb44ea2d3bb4c48ff4a95bbb",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amphiliidae/belonoglanis_brieni.htm": {
+    "entityIds": [
+      "species/belonoglanis-brieni"
+    ],
+    "updatedAt": "2026-11-16T17:59:16.371Z",
+    "hash": "198fa121fdb3e0b22f46d3d9f8b5d1d9708f0c9ef8bdf16c4248160b2ee10e07",
+    "processedHash": "198fa121fdb3e0b22f46d3d9f8b5d1d9708f0c9ef8bdf16c4248160b2ee10e07",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/anchariidae/ancharius_fuscus.htm": {
     "entityIds": [
       "species/ancharius-fuscus"
@@ -807,6 +827,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/auchenipteridae/tatia_dunni.htm": {
+    "entityIds": [
+      "species/tatia-dunni"
+    ],
+    "updatedAt": "2026-11-16T17:48:56.532Z",
+    "hash": "da2acb5499254a909eead1226615f56b1d3805fcf38aa46689fc919966c05023",
+    "processedHash": "da2acb5499254a909eead1226615f56b1d3805fcf38aa46689fc919966c05023",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/auchenipteridae/tatia_gyrina.htm": {
     "entityIds": [
       "species/tatia-gyrina"
@@ -864,6 +894,16 @@
     "updatedAt": "2026-11-10T15:00:04.378Z",
     "hash": "8b7970214e8ba885d61dfb588d7a35ada8ad0bb6be36ed2b55517bd66669b069",
     "processedHash": "8b7970214e8ba885d61dfb588d7a35ada8ad0bb6be36ed2b55517bd66669b069",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenipteridae/trachycorystes_trachycorystes.htm": {
+    "entityIds": [
+      "species/trachycorystes-trachycorystes"
+    ],
+    "updatedAt": "2026-11-16T17:54:38.111Z",
+    "hash": "4a5d9f7e31b1cda91b15e5e1f9d6e3f0b9de38f0c55766795ca6d012e3a827c0",
+    "processedHash": "4a5d9f7e31b1cda91b15e5e1f9d6e3f0b9de38f0c55766795ca6d012e3a827c0",
     "status": "processed",
     "attempts": 0
   },
@@ -1965,6 +2005,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/parotocinclus_jumbo.htm": {
+    "entityIds": [
+      "species/parotocinclus-jumbo"
+    ],
+    "updatedAt": "2026-11-16T17:44:22.847Z",
+    "hash": "2cbd6cefa54fdeccf741128db0989b60a38536810fda6a16a299dca0dbd7e0c6",
+    "processedHash": "2cbd6cefa54fdeccf741128db0989b60a38536810fda6a16a299dca0dbd7e0c6",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/peckoltia_braueri.htm": {
     "entityIds": [
       "species/peckoltia-braueri"
@@ -2082,6 +2132,16 @@
     "updatedAt": "2026-11-09T20:49:41.185Z",
     "hash": "1f134da10d61d1d08fb66a7fe7b220e838ae3ce6b84d1d3e19b9300f13061686",
     "processedHash": "1f134da10d61d1d08fb66a7fe7b220e838ae3ce6b84d1d3e19b9300f13061686",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/rineloricaria_beni.htm": {
+    "entityIds": [
+      "species/rineloricaria-beni"
+    ],
+    "updatedAt": "2026-11-16T17:47:05.781Z",
+    "hash": "9cbae93841f6e11a77811eee4465f0782861b04cdb29a215ba2c9d0beca0548a",
+    "processedHash": "9cbae93841f6e11a77811eee4465f0782861b04cdb29a215ba2c9d0beca0548a",
     "status": "processed",
     "attempts": 0
   },

@@ -1,0 +1,128 @@
+{
+  "id": "pangasius-bocourti",
+  "scientificName": "Pangasius bocourti",
+  "order": "Siluriformes",
+  "family": "Pangasiidae",
+  "genus": "Pangasius",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "thailand"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 120
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/_en-22/",
+      "html": "<p>Shark catfishes have received their common name according to their swimming behaviour, which is very similar to the way several species of shark swim. Similar to sharks is also that the fishes swim permanently and only seldom take a rest.</p><p>Nowadays they are also well known by their scientific genus name, e.g. Pangasius, because these fishes are the subject of intense aquaculture in Southeast Asia. So their very tasty and boneless fillets can be found in almost any food store, even in Europe.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/_en-22/",
+      "html": "<p>Origin: Thailand.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/_en-22/",
+      "html": "<p>All species of Pangasius are large to very large growing fishes. Thus they fit in the long term only for show aquaria. Here they can live several decades.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/_en-22/",
+      "html": "<p>P. bocourti belongs to the medium-sized species; its maximum reported length is approx. 120 cm. The very attractive fish can be distinguished from its congeners in the trade quite easily by the white-bordered caudal fin.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/39157b7e660536fb.webp",
+      "thumb": "https://media.aquatome.com/glaser/39157b7e660536fb-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/_en-22/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/2a03c869899b0f16.webp",
+      "thumb": "https://media.aquatome.com/glaser/2a03c869899b0f16-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/_en-22/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/a78def71e7bb8780.webp",
+      "thumb": "https://media.aquatome.com/glaser/a78def71e7bb8780-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/_en-22/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "-Z3oOELwy7w",
+      "title": "How to breed shark fishes at home breedig pangasius fish in Aquarium easily",
+      "durationSec": 380,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "z5mCyjtq3QY",
+      "title": "Wao, top pangasius bocourti, basa fish in intensive pond #farm #pangasiusfish #aquaculture #cá #",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "o_-R0_o_ELQ",
+      "title": "Como é o AQUÁRIO IDEAL para o peixe PANGASIUS ?",
+      "durationSec": 282,
+      "lang": "pt-BR"
+    },
+    {
+      "youtubeId": "rhSfNRJg1Sc",
+      "title": "(Pangasius Bocourti) Basa Fish - Vietnamese Pangasius",
+      "durationSec": 152,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể kính trưng bày cỡ lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá da trơn",
+        "thức ăn viên cho cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-16"
+}

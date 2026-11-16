@@ -96205,27 +96205,18 @@
     "products": []
   },
   "vi/plants/egeria-densa": {
-    "at": "2026-11-08",
+    "at": "2026-11-16",
     "hash": "3c5a64c8abf34a46",
     "model": "opus",
-    "checklist": 2,
-    "findings": [
-      {
-        "check": "words",
-        "part": "P2",
-        "quote": "cây non gom lại trong một miếng neo",
-        "why": "\"Miếng neo\" is a literal rendering of the plant weight/anchor; local keepers call the lead strip around a bunch \"chì\".",
-        "by": "model",
-        "fix": "cuốn chì / lá chì"
-      }
-    ],
+    "checklist": 3,
+    "findings": [],
     "products": []
   },
   "vi/plants/eleocharis-acicularis": {
-    "at": "2026-11-07",
-    "hash": "b8e2de8fa6e3e1ba",
+    "at": "2026-11-16",
+    "hash": "7bf39e32ec084680",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -103337,18 +103328,24 @@
     "products": []
   },
   "vi/species/betta-brownorum": {
-    "at": "2026-11-14",
-    "hash": "4c4c4b04b21fb4e0",
+    "at": "2026-11-16",
+    "hash": "2b6e83b633b0d329",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "words",
-        "part": "P18",
-        "quote": "giun vi tế (microworm)",
-        "why": "Dictionary-style rendering of 'microworm'; Vietnamese keepers use a different name.",
-        "by": "model",
-        "fix": "trùn vi sinh"
+        "check": "source",
+        "part": "P3",
+        "quote": "Nhóm cá này lấy từ vài quần thể ít ỏi bên kia biên giới, thuộc Tây Kalimantan, Indonesia.",
+        "why": "It describes the source shop's own batch of fish as if the reader knew about it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P12",
+        "quote": "Đã cho ăn trùn chỉ đen (blackworm) sống, trùng huyết đông lạnh và cám viên.",
+        "why": "It reports what the source shop fed its own stock, in the shop's voice.",
+        "by": "model"
       }
     ],
     "products": []
@@ -108415,10 +108412,10 @@
     "products": []
   },
   "vi/species/corydoras-longipinnis": {
-    "at": "2026-11-08",
-    "hash": "d9841d69827a1175",
+    "at": "2026-11-16",
+    "hash": "1a355bdf8ff733eb",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -109719,8 +109716,8 @@
     "products": []
   },
   "vi/species/ctenopoma-acutirostre": {
-    "at": "2026-11-15",
-    "hash": "b888e4c41b3a718e",
+    "at": "2026-11-16",
+    "hash": "e4b0c3eae4ef3911",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -111989,18 +111986,18 @@
     "products": []
   },
   "vi/species/eretmodus-cyanostictus": {
-    "at": "2026-11-14",
+    "at": "2026-11-16",
     "hash": "618862753487542d",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "words",
-        "part": "P1",
-        "quote": "Bóng bơi của chúng gần như không còn tác dụng",
-        "why": "Literal calque of 'swim bladder'; Vietnamese keepers say 'bóng hơi' (as P4 does).",
+        "part": "P10",
+        "quote": "cám lá Spirulina loại tốt",
+        "why": "\"Cám lá\" is a literal rendering of \"flake food\"; keepers call it cám vảy (as P11 does).",
         "by": "model",
-        "fix": "bóng hơi"
+        "fix": "cám vảy spirulina"
       }
     ],
     "products": []
@@ -112176,20 +112173,11 @@
     "products": []
   },
   "vi/species/etroplus-canarensis": {
-    "at": "2026-11-14",
-    "hash": "376c6ff585556008",
+    "at": "2026-11-16",
+    "hash": "5f38bc52145ca4df",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "words",
-        "part": "P7",
-        "quote": "bạn có thể cho cá ăn thức ăn chế biến loại tốt",
-        "why": "Calque of English 'prepared foods'; Vietnamese keepers speak of pellets/flakes.",
-        "by": "model",
-        "fix": "thức ăn viên/cám chất lượng tốt"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/species/etroplus-maculatus": {
@@ -116211,10 +116199,10 @@
     "products": []
   },
   "vi/species/hypostomus-isbrueckeri": {
-    "at": "2026-11-07",
+    "at": "2026-11-16",
     "hash": "f821afd22f7b66fe",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -123602,7 +123590,7 @@
   },
   "vi/species/parotocinclus-jumbo": {
     "at": "2026-11-16",
-    "hash": "9e434df9aca1011c",
+    "hash": "fd17ad1527e07b7a",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -126217,7 +126205,7 @@
     "products": []
   },
   "vi/species/ptychochromis-oligacanthus": {
-    "at": "2026-11-09",
+    "at": "2026-11-16",
     "hash": "fa1bc2dfe17382d5",
     "model": "opus",
     "checklist": 3,
@@ -126893,16 +126881,16 @@
     "products": []
   },
   "vi/species/retroculus-acherontos": {
-    "at": "2026-11-08",
-    "hash": "39a6a068b1ed75db",
+    "at": "2026-11-16",
+    "hash": "110aa4d5bed3fb2f",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "units",
-        "part": "P2",
+        "part": "P3",
         "quote": "14˚37′130 cmS, 49˚1′144 cmW",
-        "why": "Seconds of arc in the coordinates were read as inches and converted to centimetres, a conversion artefact no Vietnamese writer would produce.",
+        "why": "The arcseconds in the coordinates (″) were read as inches and turned into centimetres, so the coordinates make no sense.",
         "by": "model"
       }
     ],
@@ -127053,7 +127041,7 @@
     "products": []
   },
   "vi/species/rhinogobius-formosanus": {
-    "at": "2026-11-10",
+    "at": "2026-11-16",
     "hash": "7f61d7a3af9e7cfc",
     "model": "opus",
     "checklist": 3,
@@ -127258,7 +127246,7 @@
   },
   "vi/species/rineloricaria-beni": {
     "at": "2026-11-16",
-    "hash": "1f36f9729304436d",
+    "hash": "64e2eb143d290d01",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -129569,8 +129557,8 @@
     "products": []
   },
   "vi/species/synodontis-granulosus": {
-    "at": "2026-11-10",
-    "hash": "2ca2b4a96891f510",
+    "at": "2026-11-16",
+    "hash": "376f6f789182e781",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -129976,7 +129964,7 @@
   },
   "vi/species/tatia-dunni": {
     "at": "2026-11-16",
-    "hash": "16e4e2f3e3727a84",
+    "hash": "e4e69ab21a350a03",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -130494,22 +130482,15 @@
   },
   "vi/species/trachycorystes-trachycorystes": {
     "at": "2026-11-16",
-    "hash": "5b38df8f6a5797f8",
+    "hash": "aceb39c7b7ad27f8",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P2",
+        "part": "P3",
         "quote": "Gần đây đã nhập được sáu cá thể từ Peru.",
-        "why": "This is the original shop's stock news, and the reader doesn't know that shop.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P6",
-        "quote": "cả sáu cá thể vẫn chen chúc cùng nhau trong một ống PVC",
-        "why": "It talks about the source's own six fish as if the reader already knew about them.",
+        "why": "This is the source shop's stock news about fish it imported, which the reader knows nothing about.",
         "by": "model"
       }
     ],
@@ -130600,19 +130581,11 @@
     "products": []
   },
   "vi/species/trichogaster-fasciata": {
-    "at": "2026-11-08",
-    "hash": "5e7c7139a12ae6f7",
+    "at": "2026-11-16",
+    "hash": "3c8cdafe1a6125f3",
     "model": "opus",
-    "checklist": 2,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P11",
-        "quote": "Từng có một lô Colisa fasciata về từ Singapore, con nào cũng đẹp khác thường.",
-        "why": "This is the source importer talking about its own stock, which the reader knows nothing about.",
-        "by": "model"
-      }
-    ],
+    "checklist": 3,
+    "findings": [],
     "products": []
   },
   "vi/species/trichogaster-labiosa": {
@@ -130663,8 +130636,8 @@
     "products": []
   },
   "vi/species/trichomycterus-alternatus": {
-    "at": "2026-11-10",
-    "hash": "81f11de6a8c61fe8",
+    "at": "2026-11-16",
+    "hash": "c6ffd3f55f8aa7ff",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -130806,18 +130779,18 @@
     "products": []
   },
   "vi/species/trichopsis-schalleri": {
-    "at": "2026-11-08",
-    "hash": "d24928ce15b3473a",
+    "at": "2026-11-16",
+    "hash": "75384aa7c58ac8d4",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "words",
         "part": "P2",
         "quote": "Trichopsis schalleri là một loài gourami kêu",
-        "why": "'Gourami kêu' is a calque of 'croaking gourami'; Vietnamese keepers call Trichopsis 'cá bãi trầu', as P1 of this page does.",
+        "why": "Calque of the English 'croaking gourami'; Vietnamese keepers call Trichopsis 'cá bã trầu'.",
         "by": "model",
-        "fix": "cá bãi trầu"
+        "fix": "cá bã trầu"
       }
     ],
     "products": []
@@ -131833,5 +131806,421 @@
     "checklist": 3,
     "findings": [],
     "products": []
+  },
+  "vi/guides/aquariumbreeder-aquarium-crabs-and-tankmates-possible-or-not": {
+    "at": "2026-11-16",
+    "hash": "dd5e9f83ea6a33b5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/aquariumbreeder-everything-about-nitrates-in-planted-tanks": {
+    "at": "2026-11-16",
+    "hash": "9377dab2c7ae96a4",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "API Master Kit",
+      "Seachem de*nitrate™",
+      "Matrix",
+      "Tetra NitrateMinus",
+      "Seachem Prime"
+    ]
+  },
+  "vi/guides/glaser-en-09-characoids-tetra-relationship-bilious-green-silver-dollars-en": {
+    "at": "2026-11-16",
+    "hash": "fa8e1ee631a82acf",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Hôm qua có một loài cá về trại, nhìn mà cứ phải dụi mắt mãi.",
+        "why": "The source shop's own stock news about fish arriving at its farm, in its own first-person voice.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Tuần sau, khi cá đã quen chỗ hơn một chút, sẽ có ảnh đẹp hơn.",
+        "why": "Promises photos from the original source that this page does not have.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-hypancistrus-l236xx-en": {
+    "at": "2026-11-16",
+    "hash": "0558e246a4bfc45c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "chính là con trong ảnh",
+        "why": "It points to a photo that this page doesn't have.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Lứa cá trại gần đây nhất có một con rất đặc biệt",
+        "why": "It reads as the source shop's news about its own latest batch of stock, which the reader doesn't know.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-import-season-for-orinoco-plecos-has-startet-en": {
+    "at": "2026-11-16",
+    "hash": "833501443acbb349",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Mùa nhập cá lau kiếng từ lưu vực sông Orinoco giờ đã bắt đầu, và đã có khá nhiều loài khác nhau",
+        "why": "Announces the source shop's import season and new stock as if the reader shopped there.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Trong mấy lô nhập gần đây có Hypancistrus contradens (L201).",
+        "why": "Refers to the source shop's recent shipments.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Đợt này có L243, màu rất đẹp.",
+        "why": "Refers to the source shop's current stock.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Cuối cùng là chi Guyanancistrus, đợt nhập này có L106.",
+        "why": "Refers to the source shop's current import batch.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-we-can-big-too-l191-en": {
+    "at": "2026-11-16",
+    "hash": "fe037c08ffc0ebf2",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Con Panaque sp. “L191” to khủng này mới về kho cá tuần trước, sau chuyến vận chuyển từ Colombia.",
+        "why": "This is the source shop's stock news about a fish it just got in, not something the reader can see or use.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/glaser-en-10-catfishes-10c-catfishes-remaining-catfish-from-south-america-three-rare-catfish-species-from-paraguay-en": {
+    "at": "2026-11-16",
+    "hash": "f41c7e0c50f3e07e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Từ Paraguay vừa về ba loài cá da trơn rất hiếm và lạ",
+        "why": "This is the source shop announcing new stock, as if the reader knew that shop.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/glaser-en-25-perchlike-fishes-25d-perchlike-fishes-4-south-american-dwarf-cichlids-en-33": {
+    "at": "2026-11-16",
+    "hash": "f3303de7a152d658",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/glaser-en-31-crayfishes-shrimps-crabs-snails-mussels-bamboo-shrimps-actually-spawned-en": {
+    "at": "2026-11-16",
+    "hash": "34cdc7a7a8a9df59",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Tuần trước có giới thiệu loài tép tre (bamboo shrimp) mới, lần đầu tiên nhập về từ Đài Loan.",
+        "why": "This is a shop's news about its own new stock, and the reader doesn't know the shop.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Vì vậy chúng không ở khu nuôi cá mà được đem lên nuôi trong phòng trưng bày.",
+        "why": "It mentions the source shop's fish room and showroom as if the reader knew them.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Hôm qua, một nhà khoa học đang nghiên cứu nhóm tép này hỏi xem mấy con tép thật ra to cỡ nào.",
+        "why": "It is the source writer's own first-person story about their shrimp.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/glaser-en-31-crayfishes-shrimps-crabs-snails-mussels-sensation-bamboo-shrimp-from-taiwan-en": {
+    "at": "2026-11-16",
+    "hash": "1a9bd94dcb24585b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Hôm qua, mấy cặp đầu tiên của một loài tôm mới từ Đài Loan đã về tới.",
+        "why": "This is the source shop's stock news: it says the first pairs of a new shrimp arrived yesterday, as if the reader knew that shop.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/glaser-en-32-all-the-rest-our-new-employee-friedolin-en": {
+    "at": "2026-11-16",
+    "hash": "ca7b7136d33ba7c8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Trại cá vừa có thêm một nhân viên mới tên Friedolin.",
+        "why": "Shares news about the source farm's own staff as if the reader knew the farm.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bạn đọc thân mến,",
+        "why": "Opens with the original writer's own letter-style greeting to their readers.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ảnh số 2 trông như anh sắp câu được cá",
+        "why": "Points to a photo that is not on the page.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Mới đây Friedolin vừa trải qua chuyến phiêu lưu đầu tiên ở trại",
+        "why": "Tells the source farm's own story as if the reader knew it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/glaser-en-32-all-the-rest-semifinal-brazil-vs-germany-en": {
+    "at": "2026-11-16",
+    "hash": "cfb4ab62040790c5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Vậy nên trận bán kết tối nay ai thắng cũng được",
+        "why": "Refers to the source's own fish contest semifinal as if the reader were following it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/amphilius-zairensis": {
+    "at": "2026-11-16",
+    "hash": "fbe646e59074c29b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P3",
+        "quote": "Con cá trong ảnh do người góp ảnh bắt ở thác Wagenia",
+        "why": "Refers to a photo and the original site's photo contributor, neither of which this page has.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/belonoglanis-brieni": {
+    "at": "2026-11-16",
+    "hash": "e43d2da3b8d25af2",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/glanidium-melanopterum": {
+    "at": "2026-11-16",
+    "hash": "fed557bf35a9c6a4",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/lampiella-gibbosa": {
+    "at": "2026-11-16",
+    "hash": "4bc4a6a6606911b0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/lepomis-gibbosus": {
+    "at": "2026-11-16",
+    "hash": "2db7c83532b5b59d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/loricaria-lentiginosa": {
+    "at": "2026-11-16",
+    "hash": "9e92addf9f99a3d3",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "đây là lần đầu tiên loài này được nhập về. Lứa cá này dài khoảng 40 cm",
+        "why": "Announces the source shop's own import and stock as news the reader would know.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/ompok-fumidus": {
+    "at": "2026-11-16",
+    "hash": "fd52578099cad8ed",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P2",
+        "quote": "Những con này không rõ bắt từ đâu về.",
+        "why": "Points at the source shop's own fish in stock, which the reader has never seen.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/opsodoras-stuebelii": {
+    "at": "2026-11-16",
+    "hash": "aeec9e3fef2125bd",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P5",
+        "quote": "Những con nói đến ở đây có nguồn gốc từ Paraguay và được định loài theo sách thủy sinh thông dụng.",
+        "why": "It talks about particular fish from the original source, a shop's stock or the writer's own fish, as if the reader already knew them.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/oreoglanis-siamensis": {
+    "at": "2026-11-16",
+    "hash": "3e866649db658f93",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Cá về chỉ có rất ít con",
+        "why": "This is the source shop's stock news about a shipment that has arrived, not something written for the reader.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/orthospinus-franciscensis": {
+    "at": "2026-11-16",
+    "hash": "0d4ad217213a5459",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P4",
+        "quote": "Loài này mới được nhập về lần đầu.",
+        "why": "This is the source exporter's stock news. It doesn't tell a hobbyist in Vietnam that the fish has arrived anywhere near them.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/pangasius-bocourti": {
+    "at": "2026-11-16",
+    "hash": "ad903117d484eb60",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/papuligobius-uniporus": {
+    "at": "2026-11-16",
+    "hash": "8c8794f2e6187374",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/rhinomugil-corsula": {
+    "at": "2026-11-16",
+    "hash": "83f0ba70267e9c31",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/trachelyopterus-galeatus": {
+    "at": "2026-11-16",
+    "hash": "cb3aeeade591d1c8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/xenopus-laevis": {
+    "at": "2026-11-16",
+    "hash": "7299c5c684ee0a4f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Seachem Prime",
+      "Maracyn Plus",
+      "Mardel Maroxy"
+    ]
   }
 }

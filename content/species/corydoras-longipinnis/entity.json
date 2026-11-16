@@ -159,6 +159,15 @@
         "source": "planetcatfish",
         "value": 6.1
       }
+    ],
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 6,
+          "max": 8.5
+        }
+      }
     ]
   },
   "sections": [
@@ -169,10 +178,52 @@
       "html": "<ul><li>Scientific name: Corydoras(ln6) longipinnis Knaack, 2007</li><li>Common names: CW003, Long-finned Cory, Langfinnet Pansermalle (Denmark)</li><li>Size: 61 mm (2.4 in) SL</li><li>Etymology: the specific epithet refers to its long fins (pinnis = fin).</li><li>IUCN Red List: Not Evaluated</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/_en-30/",
+      "html": "<p>Corydoras longipinnis was scientifically described in 2007 by Joachim Knaack. It is a close relative of the well-known Corydoras paleatus and somewhat resembles the longfin sport of that species. In C. longipinnis only the males develop long, extended pectoral fins, whereas in the longfin sport of C. paleatus the females also show this feature.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1008",
       "html": "<p>South America: Río Dulce in Argentina. Type locality: Río Dulce, some 20 kilometers downstream from Termas de Río Hondo, Santiago del Estero Province, Argentina, about 27°29'29''S, 64°41'58''W.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/_en-30/",
+      "html": "<p>Argentina; the species was described from the río Dulce.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/_en-30/",
+      "html": "<p>Corydoras longipinnis is a subtropical species and should therefore be kept at room temperature. The water parameters are of no great relevance. The pH should not be lower than 6 and not higher than 8.5.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/_en-30/",
+      "html": "<p>For those who have the opportunity, it can be kept in garden ponds during summertime.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/_en-30/",
+      "html": "<p>The fish take readily any usual fish food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/_en-30/",
+      "html": "<p>Corydoras longipinnis should be kept in groups of at least 7 specimens. It is completely peaceful towards congeners and all other tankmates. Plants are not destroyed.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/_en-30/",
+      "html": "<p>Only males develop long, extended pectoral fins.</p>"
     },
     {
       "key": "reproduction",
@@ -181,14 +232,80 @@
       "html": "<p>Breeding: Unreported. There is no breeding report.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/_en-30/",
+      "html": "<p>Breeding C. longipinnis is easy and is the same as in C. paleatus. The fish must be fed heavily until the females show a swollen belly, then a large amount of water is changed repeatedly and topped up with cool water (3–5°C cooler than the old water). This triggers mating and spawning.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1008",
       "html": "<p>Vertebrate Zoology v. 57 (no. 1), pp 36, Figs. 1-28, 31-39.</p>"
+    },
+    {
+      "key": "references",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/_en-30/",
+      "html": "<p>Knaack, J. (2007): Beiträge zur Kenntnis der Callichthyidae (Teleostei: Siluruformes). III. Corydoras longipinnis sp. n. – ein neuer Panzerwels aus dem río Dulce in Argentinien (Teleostei: Siluriformes: Callichthyidae). Vertebrate Zoology 57 (1): 35-55</p>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/dffa4d4c610edefb.webp",
+      "thumb": "https://media.aquatome.com/glaser/dffa4d4c610edefb-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/_en-30/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/fe244bd2f9cb6841.webp",
+      "thumb": "https://media.aquatome.com/glaser/fe244bd2f9cb6841-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/_en-30/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/767f1a897b04ec00.webp",
+      "thumb": "https://media.aquatome.com/glaser/767f1a897b04ec00-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/_en-30/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/cc790b101d286392.webp",
+      "thumb": "https://media.aquatome.com/glaser/cc790b101d286392-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/_en-30/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "vCllesOju_A",
+      "title": "Ficha técnica de  Corydoras longipinnis.",
+      "durationSec": 862,
+      "lang": "es-419"
+    },
+    {
+      "youtubeId": "pRSoTKHARGU",
+      "title": "Corydoras longipinnis 8 Tage alt",
+      "durationSec": 12,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -212,5 +329,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-16"
 }

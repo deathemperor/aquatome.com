@@ -7,7 +7,12 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "amazon"
+    "amazon",
+    "brazil",
+    "guyana",
+    "essequibo",
+    "venezuela",
+    "orinoco"
   ],
   "range": {
     "native": {
@@ -263,6 +268,28 @@
       {
         "source": "glaser",
         "value": 45
+      },
+      {
+        "source": "scotcat",
+        "value": 35
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7
+        }
       }
     ]
   },
@@ -272,6 +299,12 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/trachycorystes_trachycorystes_en/",
       "html": "<p>This bizarre species was scientifically described in 1840. It can attain a total length of about 45 cm.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachycorystes_trachycorystes.htm",
+      "html": "<ul><li>IUCN Red List: Least Concern, due to its wide range and no direct threats (IUCN 2023).</li></ul>"
     },
     {
       "key": "beforeYouBuy",
@@ -286,6 +319,12 @@
       "html": "<p>It is widely distributed in the whole Amazon basin.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachycorystes_trachycorystes.htm",
+      "html": "<p>South America: Amazon River basin, Essequibo River basin, Guyana, and Orinoco River basin, Venezuela. Type locality: Brazil.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/trachycorystes_trachycorystes_en/",
@@ -298,16 +337,46 @@
       "html": "<p>These catfish feed readily on anything of animal origin that fits in their mouth.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachycorystes_trachycorystes.htm",
+      "html": "<p>A predator, but will accept worm foods, frozen shrimp and bloodworm, chunks of frozen fish, tablet and pellet foods.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/trachycorystes_trachycorystes_en/",
       "html": "<p>T. trachycorystes is known to be pretty aggressive against tankmates, be they of their own kind or other species. Nevertheless, all six specimens huddled together in the same PVC tube. Their desire to hide is by far greater than their dislike of each other.</p><p>If it is planned to keep this catfish in a community tank, one must take care that tankmates do not end up as catfish food.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachycorystes_trachycorystes.htm",
+      "html": "<p>This is one of the most aggressive catfish around in the hobby and definitely not suited to the average community tank, although it is certainly very striking in its all-black livery. There is another type with a more brown body colouration that may turn out to be a separate species. Not to be trusted when growing into adulthood, as it will quickly kill any smaller inhabitants of the tank. It may be able to be kept with large cichlids, but is basically a fish to keep on its own.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachycorystes_trachycorystes.htm",
+      "html": "<p>Adult males possess a thickening of their anal fins akin to the anal fins of the males of the Goodeidae livebearers. The female's genital pore is enlarged and recessed into her abdomen.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/trachycorystes_trachycorystes_en/",
       "html": "<p>Lexicon: Trachycorystes comes from ancient Greek, trachys meaning \"rough\" and korystes meaning \"one armed with a helmet\".</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachycorystes_trachycorystes.htm",
+      "html": "<p>Etymology: The genus name Trachycorystes is tautonymous with Auchenipterus trachycorystes; trachys, rough; corystes, helmeted, referring to the rugose cranial shield. The specific name trachycorystes: trachys, rough; corystes, helmeted, referring to the rugose cranial shield.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachycorystes_trachycorystes.htm",
+      "html": "<p>Burgess, W.E. 1989 An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p. Ferraris, Dr. C.J. Jr., Catfish in the Aquarium. Tetra Press Publication. 199 p. Frederico, R.G. 2023. Trachycorystes trachycorystes. The IUCN Red List of Threatened Species 2023. ScotCat Factsheet no. 156. June 2009. Watkins, Graham; Saul Bill; Holm, Erling; Watson, Cynthia; Arjoon, Deokie; Bicknell Jake and the North Rupununi District Development Board. The Fish Fauna of the Iwokrama Forest. 32 p.</p>"
     }
   ],
   "photos": [
@@ -350,6 +419,50 @@
       "author": "Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/trachycorystes_trachycorystes_en/",
       "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/5dfd731bd13eac03.webp",
+      "thumb": "https://media.aquatome.com/scotcat/5dfd731bd13eac03-480.webp",
+      "width": 500,
+      "height": 277,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachycorystes_trachycorystes.htm",
+      "caption": "Trachycorystes trachycorystes",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/23fcb713f207196e.webp",
+      "thumb": "https://media.aquatome.com/scotcat/23fcb713f207196e-480.webp",
+      "width": 500,
+      "height": 291,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachycorystes_trachycorystes.htm",
+      "caption": "Trachycorystes trachycorystes",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/a1163af2daf10b25.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a1163af2daf10b25-480.webp",
+      "width": 500,
+      "height": 323,
+      "licence": "dùng với sự cho phép",
+      "author": "Ben Lee / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachycorystes_trachycorystes.htm",
+      "caption": "Trachycorystes trachycorystes",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/e3341fe3c096b880.webp",
+      "thumb": "https://media.aquatome.com/scotcat/e3341fe3c096b880-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachycorystes_trachycorystes.htm",
+      "caption": "Trachycorystes trachycorystes",
+      "source": "scotcat"
     }
   ],
   "videos": [
