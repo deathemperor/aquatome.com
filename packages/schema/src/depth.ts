@@ -54,6 +54,12 @@ export function speciesDepth(sections: Part[]): Depth {
   return { deep, chars, topics, ...(profile ? { profile } : {}) }
 }
 
+/**
+ * A bare fish page: no care topic in its text and nothing on its facts card (the card as the page shows it). It tells a
+ * reader nothing about keeping the fish, so the site builds no page for it and forwards its address (apps/site bare.ts).
+ */
+export const bareSpecies = (s: { sections: Part[]; dataCard?: object }) => speciesDepth(s.sections).topics.length === 0 && Object.keys(s.dataCard ?? {}).length === 0
+
 /** A species page goes in search only with a passing score and a deep page; `reason` says why it doesn't. */
 export function judgeQuality(q: Translation['quality'], scoreOk: boolean, deep: boolean): Translation['quality'] {
   const { reason: _old, ...rest } = q
