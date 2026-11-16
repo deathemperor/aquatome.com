@@ -1543,7 +1543,7 @@ final class V2FlowTests: XCTestCase {
 
   /// Back from a Hôm nay post, Hôm nay has no bar (spec-titles.md: no bar flashing on the way back).
   func testBackFromAHomNayPostHomNayHasNoBar() {
-    // With animations on: iOS's swipe doesn't close a zoomed post without them (EdgeSwipe.swift).
+    // With animations on, as a reader closes it.
     let app = launch("-v2", "YES")
     app.launch()
     let card = app.buttons["v2-fish-of-the-day"]
@@ -1557,7 +1557,7 @@ final class V2FlowTests: XCTestCase {
     for way in ["its ✕", "the edge swipe"] {
       card.tap()
       XCTAssertTrue(shown.waitForExistence(timeout: 8), "the fish of the day didn't open (\(way))")
-      if way == "its ✕" { app.buttons["v2-close-post"].firstMatch.tap() } else { edgeSwipe(app, .slow, at: offRows(app, 0.5)) }
+      if way == "its ✕" { app.navigationBars.buttons["BackButton"].tap() } else { edgeSwipe(app, .slow, at: offRows(app, 0.5)) }
       XCTAssertTrue(shown.waitForNonExistence(timeout: 5), "the post didn't close by \(way)")
       XCTAssertFalse(app.navigationBars.firstMatch.waitForExistence(timeout: 1), "Hôm nay has a bar after \(way)")
       XCTAssertEqual(heading.frame.minY, at, accuracy: 1, "Hôm nay isn't where it was after \(way)")
