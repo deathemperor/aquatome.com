@@ -1,7 +1,8 @@
 import { PLACE_ALIASES } from '@aq/schema'
 import { resolve } from 'node:path'
 import type { APIRoute } from 'astro'
-import { getContent } from '../lib/content'
+import { bareForwards } from '../lib/bare'
+import { getBare, getContent } from '../lib/content'
 import { LANGS, localizePath, served } from '../lib/i18n'
 import { renamedPages } from '../lib/renamed'
 import { retiredForwards } from '../lib/retired'
@@ -20,5 +21,7 @@ export const GET: APIRoute = async () => {
   }
   // The guides off the site for good, each address to its fish's page or the guides list (lib/retired.ts).
   Object.assign(out, await retiredForwards(process.env.CONTENT_ROOT ?? resolve(process.cwd(), '../../content'), getContent))
+  // The bare fish pages, each address to its genus page or the fish list, and a taxon page left with none (lib/bare.ts).
+  Object.assign(out, await bareForwards(getContent, getBare))
   return Response.json(out)
 }

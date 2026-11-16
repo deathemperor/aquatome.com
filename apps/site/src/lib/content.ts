@@ -1,16 +1,17 @@
 import { resolve } from 'node:path'
-import { loadAll, retiredTo, type Content } from '@aq/schema'
+import { bareSpecies, loadAll, retiredTo, type Content, type Localized, type SpeciesEntity } from '@aq/schema'
 import { dropHidden, readHidden } from './hidden'
 import { withVietnameseHeads } from './mentions'
 import type { Lang } from './i18n'
 
 const cache = new Map<Lang, Promise<Content>>()
+const bareCache = new Map<Lang, Promise<Localized<SpeciesEntity>[]>>()
 
 /** Everything with a page in this language (an entity without <lang>.json has none, nor one the reader-fit gate holds back). */
 export function getContent(lang: Lang): Promise<Content> {
   let c = cache.get(lang)
   if (!c) {
-    c = loadAll({
+    const all = loadAll({
       root: process.env.CONTENT_ROOT ?? resolve(process.cwd(), '../../content'),
       lang,
       publicBuild: process.env.PUBLIC_BUILD === '1',
@@ -20,9 +21,19 @@ export function getContent(lang: Lang): Promise<Content> {
     }).then(c => dropHidden(c, readHidden(), lang))
       // A guide off the site for good (@aq/schema retired.ts) is no page, held or not yet: its addresses forward (redirects.json).
       .then(c => ({ ...c, guides: c.guides.filter(g => !retiredTo(g.id)) }))
+    // A bare fish page (@aq/schema bareSpecies) is no page either, so no list, sitemap or app index has it: its addresses
+    // forward (lib/bare.ts, redirects.json).
+    bareCache.set(lang, all.then(c => c.species.filter(bareSpecies)))
+    c = all.then(c => ({ ...c, species: c.species.filter(s => !bareSpecies(s)) }))
     // A guide's head is the page its Vietnamese title names, in every language (mentions.ts guideImages).
     if (lang !== 'vi') c = Promise.all([c, getContent('vi')]).then(([c, vi]) => withVietnameseHeads(c, vi))
     cache.set(lang, c)
   }
   return c
+}
+
+/** The bare fish pages getContent leaves out in this language (lib/bare.ts forwards them). */
+export async function getBare(lang: Lang): Promise<Localized<SpeciesEntity>[]> {
+  await getContent(lang)
+  return bareCache.get(lang)!
 }

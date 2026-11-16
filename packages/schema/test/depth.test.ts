@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { judgeQuality, nearEmptyKeys, speciesDepth, type SectionKey, type SourceId } from '../src/index'
+import { bareSpecies, judgeQuality, nearEmptyKeys, speciesDepth, type SectionKey, type SourceId } from '../src/index'
 
 const s = (key: SectionKey, source: SourceId, text: string) => ({ key, source, html: `<p>${text}</p>` })
 const words = (n: number) => Array.from({ length: n }, (_, i) => `word${i}`).join(' ')
@@ -62,4 +62,16 @@ test('the indexable decision: score and depth, and the reason when out', () => {
   expect(judgeQuality(q, false, true)).toEqual({ ...q, indexable: false, reason: 'score' })
   expect(judgeQuality(q, false, false)).toMatchObject({ indexable: false, reason: 'thin' })
   expect(judgeQuality({ ...q, indexable: false, reason: 'thin' }, true, true)).toEqual(q)
+})
+
+// Corydoras ellisae on aquatome.com (2026-11-16): a dealer's two lines and its country, no care topic, nothing on its card.
+const bare = [s('quickFacts', 'glaser', 'A beautiful, but sadly only rarely available cory from Paraguay. The long-snouted counterpart of the Peppered Corydoras.'), s('distribution', 'glaser', 'Paraguay.')]
+
+test('a bare fish page: no care topic and an empty facts card; one figure on the card or one care topic keeps the page', () => {
+  expect(bareSpecies({ sections: bare, dataCard: {} })).toBe(true)
+  expect(bareSpecies({ sections: bare })).toBe(true)
+  expect(bareSpecies({ sections: bare, dataCard: { sizeCm: [{ source: 'glaser', value: 6 }] } })).toBe(false)
+  expect(bareSpecies({ sections: [...bare, s('diet', 'glaser', words(6))], dataCard: {} })).toBe(false)
+  // A near-empty care heading ("Mouthbrooder.") covers no topic, so it doesn't keep the page.
+  expect(bareSpecies({ sections: [...bare, s('reproduction', 'glaser', 'Mouthbrooder.')], dataCard: {} })).toBe(true)
 })

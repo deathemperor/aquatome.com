@@ -17,7 +17,7 @@ export { NANO_CM, READY_TANKS, tankKeywordFits, tankLengthFor, tankSearch } from
 export { isAllowedLicence, filterPhotos, isInatNonCommercial, isNonCommercial } from './licence'
 export { cToF, cmToIn, imperialLeft, metricPage, toMetric, type UnitLang } from './units'
 export { SECTION_LABELS } from './labels'
-export { CARE_TOPICS, DEPTH_CHARS, DEPTH_TOPICS, NEAR_EMPTY_WORDS, PROFILE_IF_FULL, PROFILE_SOURCES, judgeQuality, nearEmptyKeys, plainText, speciesDepth, wordCount, type CareTopic, type Depth } from './depth'
+export { CARE_TOPICS, DEPTH_CHARS, DEPTH_TOPICS, NEAR_EMPTY_WORDS, PROFILE_IF_FULL, PROFILE_SOURCES, bareSpecies, judgeQuality, nearEmptyKeys, plainText, speciesDepth, wordCount, type CareTopic, type Depth } from './depth'
 export { CARD_TYPES, cardShownIn, CardSchema, CardTextSchema, type Card, type CardEntity, type CardText } from './cards'
 export { addDays, ChipSchema, CurationSchema, vnDate, type Chip, type Curation, type CurationCopy, type CurationDay, type CurationWeek, type Loop } from './curation'
 export { baseLang, languageWord, pageFish, speaksPageLang, videosForPage, videosOnTwoFish } from './videos'
