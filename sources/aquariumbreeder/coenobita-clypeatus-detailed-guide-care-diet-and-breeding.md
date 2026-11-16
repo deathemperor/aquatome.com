@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/coenobita-clypeatus-detailed-guide-care-diet-and-breeding/
 title: Coenobita clypeatus – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-11-07T01:58:06.435Z
-hash: 85783e405d5543b7daf4d4b2e47a40e1f0874726420fce1f7d2d19f5b7d69b74
+hash: 58821c7b462769827690a8b07e200c7d483f901e90266d2c4204a17570c3d903
 ---
 
 Coenobita clypeatus (also known as the Purple pincher or the Caribbean soldier crab) is a terrestrial hermit crab and a popular pet in the United States.
@@ -217,7 +217,3 @@ Lastly, instead of supporting the pet industry (they are all wild-caught), you c
 - Hunt, Harley. “Terrestrial Soldier Crab (Coenobita clypeatus, Fabricius 1787) and Cerion spp.(Röding 1798) shell relationship on San Salvador Island, Bahamas.” (2021).
 - Flesner, Tricia. “Food Preference in the Purple Pincher Hermit Crab (Coenobita clypeatus) Food Preference in the Purple Pincher Hermit Crab (Coenobita clypeatus).”
 - Alander, Kerstin, Emily Bach, Emily Crews, Megan Smith, Tom Lacher, and Jim Woolley. “Distribution of Hermit Crab Sizes on the Island of Dominica.”
-## 2 thoughts on “Coenobita clypeatus – Detailed Guide: Care, Diet, and Breeding”
-- Hi Michael, Me again after a couple years! last time I asked about Coenobita rugosus, and eventually got three of them to live inside a 130L tank. I’ve recently acquired a tank of ~ 270 litres (120*40*60cm) and I was also looking to possibly put them in there, or to get some clypeatus for the new one.my question is, does clypeatus strictly need 120 litre per crab, or could three crabs ethically share 270 litres. I was also thinking of possibly putting one or two clypeatus with the three rugosus in the large tank, but only if that won’t cause stress. Reply
-- Hi Michael,I currently have two ruggies inside of a 270L tank (60cm tall, 30 of which is filled with soil) and was wondering how many Coenobita clypeatus I could safely add to it. your guide says 120L for one clypeatus, does every subsequent crab also need 120?cheers, David. Reply
-### Leave a Reply Cancel reply

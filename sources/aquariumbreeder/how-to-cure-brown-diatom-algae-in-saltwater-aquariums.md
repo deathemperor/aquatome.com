@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/how-to-cure-brown-diatom-algae-in-saltwater-aquariums/
 title: How to Cure Brown Diatom Algae in Saltwater Aquariums - Shrimp and Snail Breeder
 fetchedAt: 2026-11-15T18:30:26.450Z
-hash: a4afed24b1b5b9992eaa59fab6f30f9ba790bd3e2daf521201b5f97b18089053
+hash: a5e3b899d1729dccc0c73c087224610532e6ef7ba181c9a9cfbf944f3bd96695
 ---
 
 Have you ever spotted nasty-looking brown patches on diverse surfaces in your reef tank and wondered what they were?
@@ -100,4 +100,3 @@ Moreover, to prevent future occurrence of this unwanted visitor, you are require
 - run a protein skimmer,
 - use RO/DI unit and replace the cartridges when necessary.
 The presence of diatoms in your reef tank is only temporary. It will go away eventually, so you don’t have to lose sleep over it.
-### Leave a Reply Cancel reply

@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/pygmy-chain-sword-care-guide-planting-growing-and-propagation/
 title: Pygmy Chain Sword Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-11-15T18:06:14.853Z
-hash: 8786d2da9a2ecd9995dcfab11d187024f0649978d7359e0ee37c858ea7c65022
+hash: 1598a45efa3904011edef8d4cb82ce4e8db1a7b7ba69d9679cd71fa97f76cbf5
 ---
 
 Pygmy chain sword (Echinodorus tenellus) is a popular aquarium plant and one of my favorite carpeting plants.
@@ -112,4 +112,3 @@ How to Remove Snails from a Shrimp Tank. How to Quarantine and Disinfect Aquariu
 Pygmy chain sword is much desired by beginner and experienced hobbyists who wish to create nice, green carpets in their planted tanks. The plant forms a dense carpet on the bottom of your tank, and this serves as a refuge/hiding spots for dwarf shrimp and fish fry.
 For improved aesthetics, you can cultivate the Pygmy chain sword alongside its relative— the Amazon sword to add more depth and perspective to your aquascape. In addition, you can add plants like Red tiger lotus and Rotala rotundifolia to introduce red accents that will complement the greens.
 Overall, the Pygmy chain sword is a great plant and we are certain that you will appreciate the look of the luxuriant carpet formed by it.
-### Leave a Reply Cancel reply

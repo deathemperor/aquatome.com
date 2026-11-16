@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/butterfly-hillstream-loach-care/
 title: Butterfly Hillstream Loach – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-11-15T18:08:55.239Z
-hash: 5b3990c37cfe621933e7dc474af2314637c98a75d69ab7f59dd53f1b976e4cea
+hash: 6df2bb27ba74fd5c0fc68b450dbedd79324d7a6e60d74ba11f73ae4fa2851789
 ---
 
 Chinese butterfly hillstream loach or Beaufortia kweichowensis / Beaufortia Leveretti is a great intermediate fish for freshwater aquariums.
@@ -180,8 +180,3 @@ Stocking and Compatibility Calculator
 The Chinese hillstream butterfly loach is popularly known as a peaceful, interesting, and hardy aquarium fish. This species is among the several species sold as “hillstream loaches” in local fish stores, it is affordable and makes an excellent addition to mature freshwater aquariums with ample water flow.
 Be sure to keep at least a group of 3 specimens and/or up to a maximum of 6 in larger aquariums, this enables them to exhibit active social behavior which the viewers will find highly entertaining.
 Since the fish doesn’t tolerate poor water quality so well, try as much as possible to keep the tank water clean and well-oxygenated at all times. Lastly, maintain optimal water conditions and ensure that there is an abundant supply of biofilm, and your fish will live for many years.
-## 6 thoughts on “Butterfly Hillstream Loach – Detailed Guide: Care, Diet, and Breeding”
-- Michael, researching many species and aquarium related topics I have found your website to be the best resource for any topic I have had to look into. Greatly appreciate your work and research you have put behind them. ReplyHi Mikko, Thank you for the kind words I do my best and hope that it will be useful someday for somebody. Best regards, Michael Reply
-- I have been overcome with these fish breeding and I don’t know what to do with them if you could suggest what to do with them please let me know. I must have thirty or more in my tank they are a beautiful fish but they just breed non stop. ReplyHey Patti Stutz, Honestly, most people can’t get these to breed at all, so you’re doing something right! I’d love to know your setup (tank size, parameters, flow, feeding) – it could really help others. For the extra fish: – Sell or give away to local stores, FB groups, etc. – Add a small predator (dwarf gourami, apisto, etc). – Feed a bit less to slow breeding. Thanks for sharing – and congrats on the “problem”! )) Best regards, Michael ReplyI just took my “extra” mystery snails to PetCo. They sell them at a discounted price and then donate the money to an animal welfare group. It’s a win-win! Reply
-- KeepingFishSimple on Youtube has bred these and has a video detailing the process on his channel. Reply
-### Leave a Reply Cancel reply

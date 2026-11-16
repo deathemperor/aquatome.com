@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/how-do-i-know-if-my-shrimp-are-happy/
 title: How Do I Know If My Shrimp are Happy? - Shrimp and Snail Breeder
 fetchedAt: 2026-11-10T21:14:06.898Z
-hash: 6779b4dfb931ece14073109825cf37a918414c5ff6d0b85cbae513fbc9b21799
+hash: 2e386f5a32e3860390337728e28d978d387ea522c7e406b6ea405ab0880f7cec
 ---
 
 How to know if your shrimp are happy? Obviously, as shrimp keepers, we want to make sure that your pets have everything. But how can we really know if they are happy or not?
@@ -105,7 +105,3 @@ Keeping them happy is also an important step in increasing their lifespan. They 
 - Guide: How to Breed Shrimp
 - How to Set Up a Caridina Shrimp Tank
 - Basic Shrimp Tank Setup for Neocaridina
-## 3 thoughts on “How Do I Know If My Shrimp are Happy?”
-- Dear Michael!I have a new 30 liters aquarium. It is heavily planted and I have cycled it for 3 weeks. Nitrite and nitrate levels are low, ph is consistent. Every day I add liquid CO2 and aquarium plant fertilizer. There is biofilm, algae, copepods and snails in it. Yesterday I added 3 neocaridina shrimps. Today 2 of them are eating, wandering around, but one of them seems lethargic, not moving from one spot and it is not eating either. I do not see any abnormality on it. Is it normal after the stress of moving or should I worry about this? Thank you in advance. ReplyHi Petra A, I would start by saying that in most cases, 3 weeks is an insufficient amount of time for an aquarium to complete its cycling process! This is also evident by the fact that you have nitrites present, ideally they should not register on the test. Nevertheless, what’s done is done and we can only hope that it won’t have a significant impact on the shrimp. You also mentioned that it has only been one day since introducing them into the tank – this is an extremely short period of time to judge. Furthermore, I must tell you that even if your aquarium has perfect parameters for shrimp, the first month is always considered the “red zone” as the shrimp adapt to their new environment. Yes, you heard that right – the first month is the most difficult. Best regards, Michael Reply
-- I recommend getting a lot more shrimp…and I do mean a lot of them. I got 24 cherry shrimp for /free shipping. They arrived alive. I lost a few during 1st week, but they are stable now. I have a lot of berried females, and the future looks great. Larger numbers equal less stress, better survival and breeding odds. Plus, if you lose 3 out of 24, that’s not so bad. 1 of 3 hurts. Reply
-### Leave a Reply Cancel reply
