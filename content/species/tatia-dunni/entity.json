@@ -13,6 +13,123 @@
     "ecuador",
     "colombia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "BR",
+        "EC",
+        "PE"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Tatia dunni was described in 1945 from Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "T. dunni is widely distributed: there are records of the species from Brazil, Ecuador, Colombia and Peru.",
+          "countries": [
+            "BR",
+            "EC",
+            "PE"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344651,
+      "total": 17,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "BR",
+          7
+        ],
+        [
+          "PE",
+          5
+        ],
+        [
+          "EC",
+          3
+        ],
+        [
+          "CO",
+          1
+        ],
+        [
+          "GY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -11.25,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -8.4375,
+          4,
+          4
+        ],
+        [
+          -60.46875,
+          4.21875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

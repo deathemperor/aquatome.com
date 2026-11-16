@@ -1,0 +1,31 @@
+{
+  "slug": "mountain-barbel",
+  "name": "Mountain barbel",
+  "altNames": [
+    "Mountain catfish"
+  ],
+  "sections": {
+    "quickFacts:scotcat": "<ul><li>Nama biasa: Mountain barbel</li></ul>",
+    "beforeYouBuy:scotcat": "<p>Spesies ini, dan mungkin kebanyakan spesies dalam genus ini, mudah tersilap dikenal pasti. Gambar kecil yang ditunjukkan mungkin spesies ini atau spesies yang berkait rapat dengannya seperti A. atesuensis atau A. uranoscopus. Semuanya lebih kurang sama apabila dipelihara dalam akuarium. Ikan ini jarang diimport, tetapi boleh menjadi tambahan yang baik untuk akuarium jika dipelihara dalam keadaan yang optimum.</p>",
+    "distribution:scotcat": "<p>Afrika: Sierra Leone, Guinea, Côte d’Ivoire. Lokaliti jenis: Sierra Leone.</p>",
+    "habitat:scotcat": "<p>Di habitat semula jadinya, genus ini menghuni perairan yang mengalir.</p>",
+    "waterConditions:scotcat": "<p>Air perlu dikekalkan agak sejuk untuk genus ini kerana di habitat semula jadinya mereka menghuni perairan yang mengalir. Dalam akuarium, genus ini lebih suka suhu yang lebih sejuk. Suhu: 23–26 °C. pH: 6.5–7.5.</p>",
+    "equipment:scotcat": "<p>Boleh dipelihara dalam akuarium dengan substrat batu kelikir halus atau pasir, banyak tumbuhan akuatik, dan arus perlahan untuk meniru habitat semula jadinya. Sediakan susunan batu dan gua.</p>",
+    "diet:scotcat": "<p>Jentik-jentik (larva nyamuk), cacing tubifex, Cyclops, kutu air (Daphnia), cacing grindal, makanan berasaskan sayuran, makanan tablet dan flake.</p>",
+    "notes:scotcat": "<p>Etimologi: Nama spesifik platychir berasal daripada platy, iaitu rata atau lebar, dan cheiros, iaitu tangan, merujuk kepada jejari sirip dada yang lebar seperti kipas.</p><p>Senarai Merah IUCN: spesies ini tersebar luas tanpa ancaman utama yang diketahui dan dikelaskan sebagai Kurang Membimbangkan (Least Concern). Memandangkan kajian menunjukkan wujudnya spesies kriptik yang belum dihuraikan dalam kompleks A. platychir, kajian lanjut tentang taksonomi dan taburan spesies ini diperlukan (IUCN 2020).</p>",
+    "references:scotcat": "<p>Diouf, K. &amp; Entsua-Mensah, M. 2020. Amphilius platychir. The IUCN Red List of Threatened Species 2020.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Seegers, Lothar; The Catfishes of Africa. A handbook for identification and maintenance. Tetra Verlag GmbH. 604p.</p>"
+  },
+  "quality": {
+    "score": 0.75,
+    "indexable": true,
+    "bySource": {
+      "scotcat": 0.75
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-17"
+  }
+}

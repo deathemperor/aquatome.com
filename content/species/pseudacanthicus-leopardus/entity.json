@@ -20,31 +20,43 @@
         "GY"
       ],
       "regions": [
-        "rio Negro",
-        "Rupununi River"
+        "Rio Negro",
+        "Rupununi River",
+        "Takutu",
+        "Rio Branco"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Mostly collected in the rio Negro basin, Amazonas state, Brazil, and in particular the rio Demini, a northern tributary flowing into the central Negro in the municipality of Barcelos.",
+          "quote": "L114, Pseudacanthicus cf. leopardus, is a loricariid collected mostly in the rio Negro basin in Brazil, particularly the rio Demini.",
           "countries": [
             "BR"
           ],
           "regions": [
-            "rio Negro"
+            "Rio Negro"
           ]
         },
         {
           "source": "seriouslyfish",
-          "quote": "P. leopardus was described from the Rupununi River in Guyana and the identity of this fish thus remains unconfirmed.",
+          "quote": "P. leopardus was described from the Rupununi River in Guyana, so the identity of this fish remains unconfirmed.",
           "countries": [
             "GY"
           ],
           "regions": [
             "Rupununi River"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The fish were collected in the Takutu river that belongs to the system of the upper Rio Branco.",
+          "countries": [],
+          "regions": [
+            "Takutu",
+            "Rio Branco"
           ]
         }
       ]

@@ -1,8 +1,8 @@
 {
   "id": "tachysurus-argentivittatus",
   "native": {
-    "input": "19f0a0af59a82372",
-    "at": "2026-11-16T05:47:36.414Z",
+    "input": "db616670343f34c3",
+    "at": "2026-11-16T17:28:41.839Z",
     "claims": [
       {
         "code": "CN",
@@ -13,19 +13,19 @@
         "ok": true
       },
       {
-        "code": "CN",
-        "status": "native",
-        "source": "planetcatfish",
-        "quote": "Asia: China.",
-        "words": "China",
-        "ok": true
-      },
-      {
         "code": "RU",
         "status": "native",
         "source": "planetcatfish",
         "quote": "Also reported from Russian waters: Amur and Ussuri.",
         "words": "Russian",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: China from Heilongjiang [Amur River] to Zhujiang [= Pearl River].",
+        "words": "China",
         "ok": true
       }
     ],
@@ -42,6 +42,20 @@
         "source": "planetcatfish",
         "quote": "Also reported from Russian waters: Amur and Ussuri.",
         "country": "RU",
+        "ok": true
+      },
+      {
+        "name": "Amur River",
+        "source": "scotcat",
+        "quote": "Asia: China from Heilongjiang [Amur River] to Zhujiang [= Pearl River].",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Pearl River",
+        "source": "scotcat",
+        "quote": "Asia: China from Heilongjiang [Amur River] to Zhujiang [= Pearl River].",
+        "country": "CN",
         "ok": true
       }
     ],

@@ -2351,6 +2351,43 @@
   ],
   "ms/guides/aquatome-cach-tao-vi-sinh-va-dung-men-vi-sinh-cho-ho-ca": [
     {
+      "at": "2026-11-16T17:09:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "\"bina semula bakteria secara perlahan dan uji air dengan kerap\" is a small general recommendation. The facts don't state it for a crash.",
+        "\"dapatkan nasihat doktor haiwan\" if fish stay lethargic after water readings recover is a small extrapolation. The facts only say secondary infections may need a vet."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.9,
+        0.95,
+        0.92
+      ]
+    },
+    {
+      "at": "2026-11-16T17:09:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.72,
+      "notes": [
+        "\"Kedua-duanya bersetuju bahawa ikan tidak patut dimasukkan sebelum kitaran selesai\" is not supported. Only the shop guide says not to add fish before the tank has cycled. The Seachem maker says fish can be added at any time during the 7-day dosing, so the two sources do not agree.",
+        "\"tambah ammonium klorida sebanyak dos hari pertama\" changes the fact. The recipe says to add another 4 drops per gallon on days 3 and 6. It does not tie that amount to the day-1 dose, which is given as enough to reach 2.0 ppm.",
+        "\"Kitaran yang sama boleh rosak dalam tangki lama juga\" is a small generality. The facts do not say this in that form."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.72,
+        0.68,
+        0.8
+      ]
+    },
+    {
       "at": "2026-11-10T10:14:41Z",
       "model": "sonnet",
       "score": 0.88,
@@ -2384,6 +2421,43 @@
     }
   ],
   "ms/guides/aquatome-cham-soc-ca-canh-mua-he-va-mua-dong-mua-mua": [
+    {
+      "at": "2026-11-16T17:12:03Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.86,
+      "notes": [
+        "\"uji ammonia sebaik sahaja keadaan kembali normal\" is not in the facts. They only say to test ammonia after an outage.",
+        "\"Teruskan menguji ammonia, nitrit dan pH sehingga bacaannya stabil\" is an unsupported extra instruction. The facts give no such ongoing testing routine.",
+        "\"kekalkan suhu dengan perlahan-lahan\" is a generality. The facts only warn against sudden swings and give the 10% change every one to two hours.",
+        "\"Jika tiada, kacau air dengan pemukul telur\" presents the whisk as a fallback for any outage. The facts tie it to an overheating tank with no power."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.86,
+        0.86,
+        0.9
+      ]
+    },
+    {
+      "at": "2026-11-16T17:12:03Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [
+        "The line \"Sumber tidak sama pendapat tentang had panas\" (sources disagree) is an unsupported framing. The facts only give two figures for different conditions: about 30 °C for days, and about 31–33 °C for a day or more."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.93,
+        0.93,
+        0.96
+      ]
+    },
     {
       "at": "2026-11-12T13:25:25Z",
       "model": "sonnet",
@@ -5305,6 +5379,100 @@
         0.78,
         0.8,
         0.9
+      ]
+    }
+  ],
+  "vi/guides/aquatome-cho-ca-an-so-lan-luong-loai-thuc-an": [
+    {
+      "at": "2026-11-16T18:03:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "\"Cho ăn dư cũng không tốt, vì thức ăn thừa nằm lại trong bể sẽ làm bẩn nước\" is a generality, not stated in this form in the facts.",
+        "\"Cám công nghiệp cất trong ngăn đông\" and \"cám công nghiệp\" in the vet's advice to mix live food: the facts say \"commercial feeds\" and \"commercial feeds in the freezer\". The Vietnamese term comes from a different source, so this is minor.",
+        "\"Cá ăn thiếu chất có thể chậm lớn, bị dị hình...\": the facts say poor nutrition, not undernourishment. The text ties it to underfeeding, which is a slight shift.",
+        "\"Cá lớn thường nhịn được khoảng một tuần\" and \"Cám cất ngăn đông giữ được 6 tháng\" are loosely turned: the facts say discard after 6 months or 1 year, and \"keeps\" is a rephrasing.",
+        "\"Người nuôi cá xiêm hay nhắc tới các món\" is a slight generalization: the facts give only a list of Vietnamese names for betta foods.",
+        "\"Một bài khác trên diễn đàn\" and \"Một hướng dẫn nuôi cá\" are labeled by kind and are acceptable. \"Cá cảnh thường... Cá bột và cá nano ăn nhiều bữa hơn\" is supported."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.82,
+        0.8,
+        0.8
+      ]
+    },
+    {
+      "at": "2026-11-16T18:03:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.82,
+      "notes": [
+        "\"Cá thường gặp... Cá nano, cá bột: Nhiều bữa hơn cá thường\" is fine, but the claim \"Cá ăn thiếu chất sẽ chậm lớn và dễ bị dị hình\" is supported; no issue there.",
+        "\"ấu trùng muỗi trong\" as a frozen food item: the facts list glassworms, not \"ấu trùng muỗi trong\" specifically (a loose translation, minor).",
+        "\"Thức ăn hỏng hay ôi cũng làm cá bệnh\": a generalisation; the facts only link rancid feed to fatty liver.",
+        "\"Cá bột thì không chịu được lâu như vậy\": the facts only say fry need an auto feeder or a sitter; they don't say fry cannot tolerate it.",
+        "\"Thêm sục khí, thêm cây hoặc che nắng sẽ đỡ hơn\" is attributed to no source in the guide but is supported by the maker, so it is not wrong.",
+        "\"Cá cảnh thường sống khỏe... cám công nghiệp\" in the opening: \"cho ăn quá tay là nguyên nhân làm bẩn nước, rêu bùng lên và ốc sinh sôi\" turns \"can signal overfeeding\" into a definite cause.",
+        "\"Một hướng dẫn nuôi cá cũng nói gần như vậy\" and \"Một hướng dẫn nuôi cá cho biết cá lớn thường nhịn được khoảng một tuần\": the facts say \"can often go about one week\", and \"Bác sĩ thú y\" is used for the vet source correctly."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.93,
+        0.82,
+        0.8
+      ]
+    }
+  ],
+  "vi/guides/aquatome-may-sui-oxy-suc-khi-cho-be-ca-cong-dung-va-cach-chon": [
+    {
+      "at": "2026-11-16T18:08:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "\"Ở đây các nguồn nói khác nhau\" presents the surface-area facts as a disagreement between sources. The facts don't say they conflict.",
+        "\"Mặt nước gợn rõ, bọt lên dày là ổn\" is a success check that the facts don't give.",
+        "\"nên cần đo nước và xem mang cá\" is advice that goes slightly beyond the facts. They only say that nitrite or gill disease can also cause piping."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.9,
+        0.88,
+        0.9
+      ]
+    },
+    {
+      "at": "2026-11-16T18:08:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.62,
+      "notes": [
+        "\"Ban đêm cây và tảo ngừng quang hợp nhưng cá, cây và vi sinh vẫn thở\" adds fish/microbes respiration detail not in facts.",
+        "\"Một hướng dẫn nuôi cá thì đưa ra mức khoảng 7–8 ppm\" is fine, but \"bể 150 lít dáng thấp ... có nhiều oxy hơn bể 200 lít\" is wrong: the facts say a 40-gallon breeder (named as 150 litres) beat a 55-gallon tank (200 litres), which matches. The 'dáng thấp' is an inference.",
+        "\"quy tắc khoảng 30 cm² mặt nước cho mỗi cm thân cá\" is a converted figure that isn't a rounded equivalent of 12 sq in per inch; the number is unsupported.",
+        "\"Dùng máy sủi quá yếu. Bọt lơ thơ vài hạt thì mặt nước gần như không gợn, oxy vào được rất ít.\" is invented detail.",
+        "\"Nên chừa một khoảng trống cho mặt nước thoáng\" is an unsupported recommendation.",
+        "\"Lúc đó một người chơi chọn cách tạo dòng khuấy mặt nước thay cho đá sủi\" paraphrases 'choppy surface flow is preferred' and attributes it to the keeper, which overstates the fact.",
+        "\"Bể có cá lớn thì nên chọn máy mạnh hơn mức mình nghĩ\" is an unsupported recommendation.",
+        "\"Nước bão hòa hoàn toàn ở khoảng 25,5 °C\" and \"Ở bể thủy sinh có bình CO2, máy sủi sẽ làm phí lượng CO2 bạn châm vào\" go beyond the facts a little.",
+        "\"Sục khí quá mức cũng có thể gây chuyện\" turns the gas bubble disease cause (supersaturation from a mechanical fault) into over-aeration, which reverses the fact.",
+        "\"Bể đã có lọc rồi ... Nếu lọc làm mặt nước gợn rõ thì bể đã có khí\" is not supported, and \"Tiệm có bán màng bơm thay\" is a generalisation."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.62,
+        0.6,
+        0.72
       ]
     }
   ]
