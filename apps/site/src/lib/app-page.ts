@@ -519,7 +519,9 @@ export function guideDoc(lang: Lang, c: Content, g: Localized<GuideEntity>, list
         ...(v ? [{ title: `${t('Video gốc:')} ${v.title}${t(', kênh')} ${v.channel} · ${clock(v.durationSec)}`, url: watchUrl(v.youtubeId) }] : []),
         ...(p.refs ?? []).map(r => ({ title: lang !== 'vi' && isVietnamese(r.title) ? `${r.title} (${t('tiếng Việt')})` : r.title, url: r.url })),
       ] }] : []),
-      ...pages(p.series && p.pos + 1 < p.inSeries.length ? t('Phần tiếp theo') : t('Bài tiếp theo'), p.next.map(x => `/vi/huong-dan/${x.t.slug}/`)),
+      // "Phần tiếp theo" over a series' next parts, as the page has it; the app's list keeps to guides with a picture
+      // (guideParts), so where it drops the next parts, the guides it has instead are "Bài tiếp theo" (Fable's read).
+      ...pages(p.appNext.some(x => p.inSeries.slice(p.pos + 1).some(y => y.id === x.id)) ? t('Phần tiếp theo') : t('Bài tiếp theo'), p.appNext.map(x => `/vi/huong-dan/${x.t.slug}/`)),
       ...pages(t('Loài và cây trong bài'), [...p.species.map(s => `/vi/ca/${s.t.slug}/`), ...p.plants.map(x => `/vi/cay/${x.t.slug}/`)]),
     ],
   }

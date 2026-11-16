@@ -437,12 +437,15 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
       // Its card's picture on the site (guideImage), or while the app has no designed cover, the one it had (appGuideImage).
       const ph = appGuideImage(c, g)
       const path = at(`/vi/huong-dan/${g.t.slug}/`)
-      guideAt.set(g.id, path)
+      // Khám phá's guide shelf, Curation's list first: only a guide with a picture until the app draws covers, as home.guides.
+      if (ph) guideAt.set(g.id, path)
       // The picture its page opens on (guide-page.ts, app-page.ts), by its large copy as a day's card loads a head.
       if (ph) guideLead.set(`guides/${g.id}`, (ph.large ?? ph).url)
       items.push(clean({ kind: 'guide', id: g.id, name: g.t.name, aka: aka(g.t.altNames), path, img: ph && cardSrc(ph), imgBox: boxOf(ph), section: g.kind, about: about.length ? about : undefined, video: g.video?.durationSec }))
     }
-    home.guides = leadGuides(c).map(g => at(`/vi/huong-dan/${g.t.slug}/`))
+    // The app draws no cover yet (the Design Lead's app half, 15 Nov 2026): its shelves keep to guides with a picture in its
+    // data (appGuideImage), as Khám phá's guide shelf does.
+    home.guides = leadGuides(c).filter(g => appGuideImage(c, g)).map(g => at(`/vi/huong-dan/${g.t.slug}/`))
   }
   if (served(lang, '/vi/thuat-ngu/x/')) {
     // A term's English name is among its other names: the chat's search and the app's read them from here.

@@ -6,10 +6,12 @@ import { guideImage } from '../lib/mentions'
 import { guideWords } from '../lib/list-data'
 import { clock } from '../lib/video'
 import { i18n } from '../lib/i18n'
+import { coverStyle } from '../lib/cover-style'
 /**
  * `row`: on a phone, a compact row (a small picture beside the text) rather than a full-width card.
  * `template`: with a picture slot and stand-in words (a video's length too), for a list's script to fill in
- * (scripts/guide-card.ts). `photo`: the picture its page chose (a page never shows one twice, lib/pictures.ts); null: none.
+ * (scripts/guide-card.ts). `photo`: the picture its page chose (a page never shows one twice, lib/pictures.ts); null: none,
+ * and the card draws a cover in the picture's slot: its kind's cloth and mark, rings from its address (lib/cover-style.ts).
  * `credit`: false leaves out the line on where it comes from (the home page: its guide page says it).
  */
 interface Props { g: Localized<GuideEntity>; row?: boolean; template?: boolean; photo?: Photo | null; credit?: boolean }
@@ -18,9 +20,10 @@ const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
 const ph = photo !== undefined ? photo : guideImage(c, g)
 const { label, src } = guideWords(t, c, g)
+const cover = !template && !ph
 ---
 <a class:list={["gc", { row }]} href={`/vi/huong-dan/${g.t.slug}/`} data-kind={g.kind}>
-  <div class:list={['img', { video: g.video }]}>{template ? <img src="" width="0" height="0" alt="" loading="lazy" /> : ph && <img src={smallSrc(ph)} width={ph.width} height={ph.height} alt="" loading="lazy" />}{g.video && <span class="dur">▶ {clock(g.video.durationSec)}</span>}</div>
+  <div class:list={['img', { video: g.video, cover }]} style={cover ? coverStyle(g.t.slug) : template ? '' : undefined}>{template ? <img src="" width="0" height="0" alt="" loading="lazy" /> : ph && <img src={smallSrc(ph)} width={ph.width} height={ph.height} alt="" loading="lazy" />}{g.video && <span class="dur">▶ {clock(g.video.durationSec)}</span>}</div>
   <p class="kind">{label}</p>
   <h3>{g.t.name}</h3>
   {credit && <p class="src">{src}</p>}
@@ -28,9 +31,46 @@ const { label, src } = guideWords(t, c, g)
 <style>
   .gc { display: block; text-decoration: none; color: inherit; }
   .img { position: relative; }
-  /* A guide with no picture keeps the picture's slot at every width, so the titles of a row of cards stay in line. */
-  .img:not(:has(img)) { aspect-ratio: 16 / 10; background: var(--c-plate); border-radius: var(--radius-media); }
-  .img.video:not(:has(img)) { aspect-ratio: 16 / 9; }
+  /*
+   * A guide with no picture gets a cover in the picture's slot, never a grey box, so the titles of a row of cards stay in
+   * line: its kind's cloth (a small shift in tone and hue), its kind's mark on a seal, and rings on water from two points
+   * its address picks (coverStyle), so no two in a list are alike. Decoration only: the kind label and title below carry
+   * the card. The Design Lead's board, 15 Nov 2026.
+   */
+  .img.cover {
+    aspect-ratio: 16 / 10; overflow: hidden; border-radius: var(--radius-media);
+    background-color: var(--cloth);
+    background-image:
+      repeating-radial-gradient(circle at var(--x1) var(--y1), transparent 0 calc(var(--s1) - 1px), var(--ring) calc(var(--s1) - 1px) var(--s1)),
+      repeating-radial-gradient(circle at var(--x2) var(--y2), transparent 0 calc(var(--s2) - 1px), var(--ring) calc(var(--s2) - 1px) var(--s2));
+  }
+  /* A video card's slot is 16:9, as its poster's; the length chip stays above the cover. */
+  .img.video.cover { aspect-ratio: 16 / 9; }
+  .img.cover .dur { z-index: 1; }
+  /* The seal: a disc of the cover's cloth that clears the rings behind the mark. */
+  .img.cover::before {
+    content: ''; position: absolute; left: 50%; top: 50%; height: clamp(44px, 52%, 92px); aspect-ratio: 1; translate: -50% -50%;
+    border-radius: 50%; background-color: var(--cloth); box-shadow: 0 0 0 1px var(--seal);
+  }
+  /*
+   * The tone shift, where the browser has relative colour. Inside @supports: a line with var() in it is never dropped
+   * when the page is read, so a plain-cloth line before it would never take over, and the cover would be transparent.
+   */
+  @supports (color: oklch(from red l c h)) {
+    .img.cover, .img.cover::before { background-color: oklch(from var(--cloth) calc(l + var(--dl)) c calc(h + var(--dh))); }
+  }
+  /* The mark: the kind's icon, in --mark. */
+  .img.cover::after {
+    content: ''; position: absolute; inset: 0; background: var(--mark);
+    -webkit-mask: var(--icon) center / auto clamp(24px, 34%, 46px) no-repeat; mask: var(--icon) center / auto clamp(24px, 34%, 46px) no-repeat;
+  }
+  [data-kind='setup'] .img.cover { --cloth: var(--cloth-setup); --icon: url(/icons/kind-setup.svg); }
+  [data-kind='care'] .img.cover { --cloth: var(--cloth-care); --icon: url(/icons/kind-care.svg); }
+  [data-kind='breeding'] .img.cover { --cloth: var(--cloth-breeding); --icon: url(/icons/kind-breeding.svg); }
+  [data-kind='disease'] .img.cover { --cloth: var(--cloth-disease); --icon: url(/icons/kind-disease.svg); }
+  [data-kind='aquascaping'] .img.cover { --cloth: var(--cloth-aquascaping); --icon: url(/icons/kind-aquascaping.svg); }
+  [data-kind='plantCare'] .img.cover { --cloth: var(--cloth-plantCare); --icon: url(/icons/kind-plantCare.svg); }
+  [data-kind='discovery'] .img.cover { --cloth: var(--cloth-discovery); --icon: url(/icons/kind-discovery.svg); }
   .img.video img { aspect-ratio: 16 / 9; }
   .dur { position: absolute; right: var(--space-2); bottom: var(--space-2); background: rgb(0 0 0 / 0.78); color: #fff; font-size: 0.75rem; font-weight: 600; padding: 2px 6px; font-variant-numeric: tabular-nums; }
   .img img { aspect-ratio: 16 / 10; object-fit: cover; width: 100%; border-radius: var(--radius-media); }
@@ -38,10 +78,9 @@ const { label, src } = guideWords(t, c, g)
   h3 { font-size: var(--step-1); }
   .gc:hover h3 { color: var(--c-moss); }
   .src { font-size: 0.8rem; color: var(--c-ink-faint); margin: var(--space-1) 0 0; }
-  /* The picture keeps its slot (plate colour) when a guide has none, so the rows stay aligned. */
   @media (max-width: 520px) {
     .row { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); grid-template-rows: auto auto 1fr; column-gap: var(--space-3); align-items: start; }
-    .row .img { grid-row: 1 / -1; aspect-ratio: 16 / 10; background: var(--c-plate); }
+    .row .img { grid-row: 1 / -1; aspect-ratio: 16 / 10; }
     .row .kind { margin: 0; }
     .row h3 { font-size: 1.05rem; line-height: 1.3; }
   }
