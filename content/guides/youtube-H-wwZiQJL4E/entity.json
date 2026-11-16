@@ -1,0 +1,52 @@
+{
+  "id": "youtube-H-wwZiQJL4E",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=H-wwZiQJL4E",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "symphysodon-aequifasciatus"
+  ],
+  "updatedAt": "2026-11-16",
+  "video": {
+    "youtubeId": "H-wwZiQJL4E",
+    "title": "ADDING THE DISCUS!! Planted Discus Aquarium Build (EP4) | MD Fish Tanks",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 664,
+    "publishedAt": "2021-05-21",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWsfX7KZdqFJxc4wNwNLqsEc",
+      "position": 3
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/H-wwZiQJL4E/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Symphysodon aequifasciatus",
+      "Corydoras sp.",
+      "Crossocheilus oblongus"
+    ],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "thung",
+        "t": 0
+      },
+      {
+        "category": "loc",
+        "type": "tao-dong",
+        "t": 210
+      },
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 433
+      }
+    ]
+  }
+}

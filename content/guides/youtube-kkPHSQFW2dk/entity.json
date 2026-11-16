@@ -1,0 +1,50 @@
+{
+  "id": "youtube-kkPHSQFW2dk",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=kkPHSQFW2dk",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-16",
+  "video": {
+    "youtubeId": "kkPHSQFW2dk",
+    "title": "How To: Ecosystem Aquarium NO WATER CHANGES (EP1) | MD Fish Tanks",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 933,
+    "publishedAt": "2021-04-08",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWsTIXwYahxRdCicakdpEVBI",
+      "position": 0
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/kkPHSQFW2dk/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Monstera deliciosa",
+      "Hedera helix",
+      "Epipremnum aureum"
+    ],
+    "gear": [
+      {
+        "category": "den",
+        "type": "diu",
+        "t": 300
+      },
+      {
+        "category": "loc",
+        "type": "bot-bien",
+        "t": 524
+      },
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 200
+      }
+    ]
+  }
+}

@@ -1,4 +1,44 @@
 {
+  "vi/plants/bacopa-monnieri#hfCkBxPITQc": [
+    {
+      "at": "2026-11-16T20:55:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.6,
+      "notes": [
+        "[notes] \"Dạng compact không phải lúc nào cũng bò sát nền\" is framed as a keeper's experience, but the video never says some keepers grow it differently. It only says it grows vertically. It also contradicts the page without saying plainly that the video differs.",
+        "[notes] \"làm nền sau, đứng sau các cây thấp ở phía trước\" repeats the idea of use in the background/middle. \"làm nền sau\" is also awkward Vietnamese (should be \"hậu cảnh\"). The page already covers midground placement.",
+        "[notes] \"Có người trồng thấy\" attributes to some unnamed keeper something the video states as a fact about the plant, so it isn't one keeper's experience.",
+        "[distribution] \"miền đông Ấn Độ\" is fine, but \"Bacopa monnieri, loài gốc của dạng compact\" duplicates the page's cultivar origin. It is a small overlap.",
+        "[maintenance] \"Trồng trên phân nền thì nó lên rất đẹp\" is vague. The video says it does amazing in a blended tank substrate, and \"phân nền\" may mislead.",
+        "[maintenance] \"Một người trồng cây này thấy chỉ cần bể có cá…\" is correctly framed as one keeper's experience. It is fine.",
+        "[reproduction] \"Khoảng một tuần sau, cây tự mọc một chồi mới\" and \"sau khoảng một tuần đã ra rễ khỏe\" say the same thing twice. The video's one-week timing is one keeper's observation, but it is written as a rule.",
+        "[waterConditions] \"không kén thông số\" is accurate but thin. The light and CO2 statements are missing, though they are already on the page."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-16T20:55:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.5,
+      "notes": [
+        "[notes] 'mọc thẳng đứng chứ không bò' repeats the page's [notes] (compact form), and the page says it nearly creeps along the substrate when well lit, so the video's vertical growth contradicts the page. NEW does not say that it differs.",
+        "[notes] 'Một người nuôi loài này lâu năm thấy nó mọc thẳng đứng' presents a video fact (growth habit) as one keeper's experience; the video states it as fact, not experience.",
+        "[notes] 'hợp để trồng ở giữa bể' is already on the page ('làm bụi ở giữa hay phía trước bể'), so it is a duplicate.",
+        "[distribution] 'Dạng compact là giống lai tạo' repeats the page's quickFacts and notes (cultivar).",
+        "[maintenance] 'Đèn yếu, vừa hay mạnh' duplicates the page's light data, and the page implies low light, so this is not clearly new information.",
+        "[maintenance] 'có phân nền thì cây lên đẹp nhất' overstates the video, which says it does 'amazing' in blended tank substrate. 'Lên đẹp nhất' is a stronger claim.",
+        "[maintenance] 'Một người nuôi lâu năm thấy chỉ cần trong bể có cá...' fits the video ('from my experiences'), but 'lâu năm' (long-time) is invented.",
+        "[reproduction] 'sau khoảng một tuần là thấy' for the new shoot is stated correctly, but the bullet about roots after a week adds 'cắm vào cát' (planting into sand), which is only partly supported: the video says the new plants are growing in blended sand."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/plants/ceratophyllum-demersum#5K1_KCFudYM": [
     {
       "at": "2026-11-09T11:43:35Z",
@@ -514,6 +554,46 @@
         "\"Fritz Rohde, một chuyên gia về Elassoma\" is supported as 'expert Fritz Rohde' but the Elassoma specialization is a small inference.",
         "\"Muốn giữ vài con đực lên màu... để chúng không nhìn thấy nhau\" is supported.",
         "\"bo bo\" for daphnia and \"bể không sưởi... 20–27 °C\" are supported."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/garra-flavatra#h7exZ48gp1o": [
+    {
+      "at": "2026-11-16T20:38:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.72,
+      "notes": [
+        "[behaviour] \"gần giống cá ali\" – \"cá ali\" is not a natural hobbyist term for cichlids, so it reads as a translation and may confuse readers.",
+        "[behaviour] \"Về số lượng, người này có ý khác\" – this is vague. The page advises 3–4 or more, while the video says never keep two or three. NEW should say plainly that it differs from the page and how.",
+        "[behaviour] The page says the fish are \"hoàn toàn hiền hòa với nhau\". NEW does not say that the video contradicts this (social order, stress, scuffles).",
+        "[habitat] \"vũng trũng ven sông… nước gần như không chảy\" – the page already says the fish were found in slow or still pools, so this partly repeats it. Only the dry-season detail is new.",
+        "[habitat] The story of the fish hiding in rocks is attributed to \"Sven Kullander kể\". In the video it comes from an article he gave an interview for, so it is a second-hand retelling.",
+        "[diet] \"Chắc là chúng cũng ăn viên tảo chìm\" – the video only says the speaker sees no reason they would not take algae wafers. The hedge is fine, but it is a thin basis for a statement.",
+        "[diet] \"Cá đánh hơi rất giỏi\" is stated flatly as a fact, but in the video it is one keeper's own observation.",
+        "[maintenance] \"thiếu oxy là thứ loài này không chịu được\" – the page already stresses oxygen-rich water. Only the CO2-off-at-night point is new."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-16T20:38:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.68,
+      "notes": [
+        "[behaviour] \"đừng nuôi hai hay ba con\" contradicts the page, which says to keep 3–4 or more and that they are \"hoàn toàn hiền hòa với nhau\". The NEW text doesn't say it differs from the page, as the instructions require.",
+        "[behaviour] The page says they are fully peaceful with each other. NEW says they establish a hierarchy and one of a pair gets stressed. It doesn't flag this as a difference from the page.",
+        "[diet] \"Dán một miếng trùn chỉ sấy khô lên cao trên mặt kính... chưa tới 30 giây đã có con tìm tới\" is the keeper's own test, but it is written as a general fact about the species. It needs a one-keeper framing.",
+        "[diet] \"Chúng cũng gặm rêu bám trên lũa rất nhiều\" is true only of the keeper's tank, and it is stated as a general fact.",
+        "[behaviour] \"Đây là điểm hay vì cá ăn rêu ban ngày không nhiều\" is not in the video. The video only says it's nice to have an algae eater that is out when the lights are on.",
+        "[habitat] The slow, nearly still pools are already described on the page, which covers the pools, slow flow and a gravel/cobble/stone bottom. The seasonal-pool passage partly repeats this. It also gives Kullander's collecting story with no attribution.",
+        "[maintenance] The need for high oxygen and an air stone repeats the page's \"sạch và nhiều oxy\" and \"sủi khí\". Only the CO2-off-at-night point is new.",
+        "[notes] \"Tiến sĩ Sven Kullander và Tiến sĩ Ralf Britz thu được loài này\" says they collected this species in 1998. The video says only that they brought back seven Garra species, of which two made an impact in the hobby."
       ],
       "attempt": "first",
       "kept": false

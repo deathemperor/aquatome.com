@@ -1,0 +1,61 @@
+{
+  "id": "youtube-ijXxpcyjZwE",
+  "kind": "care",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=ijXxpcyjZwE",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "carassius-auratus",
+    "corydoras-sterbai",
+    "corydoras-aeneus"
+  ],
+  "updatedAt": "2026-11-16",
+  "video": {
+    "youtubeId": "ijXxpcyjZwE",
+    "title": "THE DISCUS TANK | 4ft Planted XL Discus Aquarium (EP1) | MD Fish Tanks",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 1097,
+    "publishedAt": "2021-05-15",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWsfX7KZdqFJxc4wNwNLqsEc",
+      "position": 0
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/ijXxpcyjZwE/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Symphysodon sp.",
+      "Carassius auratus",
+      "Corydoras sterbai",
+      "Corydoras aeneus",
+      "Crossocheilus oblongus"
+    ],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "thung",
+        "t": 240
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "t": 570
+      },
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 180
+      },
+      {
+        "category": "be-ca",
+        "type": "chuan",
+        "t": 180
+      }
+    ]
+  }
+}

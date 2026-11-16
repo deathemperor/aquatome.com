@@ -1,0 +1,59 @@
+{
+  "id": "youtube-GKB2uxcmJ2g",
+  "kind": "aquascaping",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=GKB2uxcmJ2g",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "paracheirodon-innesi"
+  ],
+  "updatedAt": "2026-11-16",
+  "video": {
+    "youtubeId": "GKB2uxcmJ2g",
+    "title": "BUILDING THE AMAZON: Rio Negro (EP3) Murky Problem!!",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 910,
+    "publishedAt": "2021-08-11",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWvS5PtA1eUO_1TTdlzCvgXd",
+      "position": 2
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/GKB2uxcmJ2g/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Sagittaria sp.",
+      "Echinodorus sp.",
+      "Spathiphyllum sp.",
+      "Monstera sp.",
+      "Paracheirodon innesi"
+    ],
+    "gear": [
+      {
+        "category": "phan-nen",
+        "type": "la",
+        "t": 0
+      },
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 90
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 420
+      },
+      {
+        "category": "loc",
+        "type": "bot-bien",
+        "t": 752
+      }
+    ]
+  }
+}

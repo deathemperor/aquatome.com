@@ -1,0 +1,71 @@
+{
+  "id": "youtube-P6iATC1m448",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=P6iATC1m448",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "vallisneria",
+    "heros-severus",
+    "pterophyllum-scalare",
+    "gymnarchus-niloticus",
+    "paracheirodon-innesi"
+  ],
+  "updatedAt": "2026-11-16",
+  "video": {
+    "youtubeId": "P6iATC1m448",
+    "title": "Building An 8ft - 1000L African River Tank (Day 1)",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 1205,
+    "publishedAt": "2022-06-08",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWt8A9Um7uAEU0nqjMAAyMdA",
+      "position": 1
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/P6iATC1m448/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Vallisneria sp.",
+      "Anubias sp.",
+      "Pterygoplichthys sp.",
+      "Heros severus",
+      "Pterophyllum scalare",
+      "Anostomus sp.",
+      "Gymnarchus niloticus",
+      "Paracheirodon innesi",
+      "Micralestes acutidens"
+    ],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 60
+      },
+      {
+        "category": "loc",
+        "type": "thung",
+        "t": 1050
+      },
+      {
+        "category": "loc",
+        "type": "sump",
+        "t": 120
+      },
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 810
+      },
+      {
+        "category": "den",
+        "t": 480
+      }
+    ]
+  }
+}

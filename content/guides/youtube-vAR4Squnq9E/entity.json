@@ -1,0 +1,72 @@
+{
+  "id": "youtube-vAR4Squnq9E",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=vAR4Squnq9E",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "phenacogrammus-interruptus",
+    "erpetoichthys-calabaricus",
+    "glossostigma-elatinoides",
+    "vallisneria",
+    "neocaridina-davidi",
+    "pelvicachromis-pulcher"
+  ],
+  "updatedAt": "2026-11-16",
+  "video": {
+    "youtubeId": "vAR4Squnq9E",
+    "title": "Building An 8ft - 1000L African River Tank: ADDING MY FISH! (Day 50)",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 1688,
+    "publishedAt": "2022-08-10",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWt8A9Um7uAEU0nqjMAAyMdA",
+      "position": 6
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/vAR4Squnq9E/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Pollimyrus sp.",
+      "Phenacogrammus interruptus",
+      "Lamprologus sp.",
+      "Anubias sp.",
+      "Erpetoichthys calabaricus",
+      "Ancistrus sp.",
+      "Paracheirodon simulus",
+      "Glossostigma elatinoides",
+      "Vallisneria sp.",
+      "Neocaridina davidi",
+      "Pelvicachromis pulcher"
+    ],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "thung",
+        "brand": "Fluval",
+        "model": "FX",
+        "t": 1050
+      },
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 1620
+      },
+      {
+        "category": "thuc-an",
+        "type": "dong-lanh",
+        "t": 1000
+      },
+      {
+        "category": "thuc-an",
+        "type": "kho",
+        "t": 1000
+      }
+    ]
+  }
+}

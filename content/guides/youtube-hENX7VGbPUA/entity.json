@@ -1,0 +1,81 @@
+{
+  "id": "youtube-hENX7VGbPUA",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=hENX7VGbPUA",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "vallisneria",
+    "sagittaria-subulata",
+    "paracheirodon-simulans",
+    "hemigrammus-rhodostomus",
+    "petitella-georgiae"
+  ],
+  "updatedAt": "2026-11-16",
+  "video": {
+    "youtubeId": "hENX7VGbPUA",
+    "title": "Building An 8ft - 1000L African River Tank (Day 2 HARDSCAPE)",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 2005,
+    "publishedAt": "2022-06-18",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWt8A9Um7uAEU0nqjMAAyMdA",
+      "position": 2
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/hENX7VGbPUA/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Anubias sp.",
+      "Vallisneria sp.",
+      "Sagittaria subulata",
+      "Echinodorus sp.",
+      "Ludwigia sp.",
+      "Paracheirodon simulans",
+      "Hemigrammus rhodostomus",
+      "Petitella georgiae",
+      "Petitella bleheri",
+      "Danio sp."
+    ],
+    "gear": [
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "Fluval",
+        "model": "Stratum",
+        "t": 187
+      },
+      {
+        "category": "khac",
+        "brand": "Seachem",
+        "model": "Flourish Tabs",
+        "t": 251
+      },
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 251
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 427
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "t": 1500
+      },
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 0
+      }
+    ]
+  }
+}

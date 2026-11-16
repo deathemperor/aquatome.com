@@ -1,0 +1,49 @@
+{
+  "id": "youtube-mccSmIuItEY",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=mccSmIuItEY",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-16",
+  "video": {
+    "youtubeId": "mccSmIuItEY",
+    "title": "Building THE AMAZON Tank (part 1) | MD Fish Tanks",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 1029,
+    "publishedAt": "2020-12-04",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWvYQz79ssY7hvUuZkaFK4xj",
+      "position": 1
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/mccSmIuItEY/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 32
+      },
+      {
+        "category": "den",
+        "t": 540
+      },
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 900
+      },
+      {
+        "category": "loc",
+        "t": 0
+      }
+    ]
+  }
+}

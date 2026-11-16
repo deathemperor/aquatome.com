@@ -1,0 +1,75 @@
+{
+  "id": "youtube-dyyqg0yaEUU",
+  "kind": "aquascaping",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=dyyqg0yaEUU",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "echinodorus-tenellus"
+  ],
+  "updatedAt": "2026-11-16",
+  "video": {
+    "youtubeId": "dyyqg0yaEUU",
+    "title": "BUILDING THE AMAZON: Rio Negro (EP1)",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 991,
+    "publishedAt": "2021-08-07",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWvS5PtA1eUO_1TTdlzCvgXd",
+      "position": 0
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/dyyqg0yaEUU/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Ancistrus sp.",
+      "Hyphessobrycon sp.",
+      "Echinodorus sp.",
+      "Spathiphyllum sp.",
+      "Monstera sp.",
+      "Echinodorus tenellus",
+      "Echinodorus amazonicus"
+    ],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "thung",
+        "t": 2
+      },
+      {
+        "category": "den",
+        "t": 0
+      },
+      {
+        "category": "loc",
+        "type": "treo",
+        "t": 0
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 600
+      },
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 630
+      },
+      {
+        "category": "loc",
+        "type": "suc-khi",
+        "t": 0
+      },
+      {
+        "category": "loc",
+        "type": "bot-bien",
+        "t": 0
+      }
+    ]
+  }
+}
