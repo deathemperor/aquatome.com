@@ -1203,7 +1203,7 @@ Written by `pnpm engine check-photos` (2026-11-16), most-read pages first. Rules
 | species/caridina-rubropunctata | [photo](https://media.aquatome.com/aquariumbreeder/c5dc737d664ad52b.webp) | subject unsure |
 | species/carinotetraodon-irrubesco | [photo](https://media.aquatome.com/seriouslyfish/785e2f0a9d7d6943.webp) | subject unsure |
 | species/chalceus-macrolepidotus | [photo](https://media.aquatome.com/inaturalist/589718941.webp) | subject unsure |
-| species/channa-argus | [photo](https://media.aquatome.com/seriouslyfish/59ccd85dfff88aec.webp) | subject unsure |
+| species/channa-argus | [photo](https://media.aquatome.com/seriouslyfish/59ccd85dfff88aec.webp) | subject other |
 | species/channa-bankanensis | [photo](https://media.aquatome.com/inaturalist/448133892.webp) | subject unsure |
 | species/channa-bankanensis | [photo](https://media.aquatome.com/inaturalist/448133917.webp) | subject unsure |
 | species/channa-bankanensis | [photo](https://media.aquatome.com/inaturalist/453639191.webp) | subject unsure |
@@ -1211,10 +1211,10 @@ Written by `pnpm engine check-photos` (2026-11-16), most-read pages first. Rules
 | species/channa-baramensis | [photo](https://media.aquatome.com/inaturalist/312481967.webp) | subject unsure |
 | species/channa-baramensis | [photo](https://media.aquatome.com/inaturalist/342586710.webp) | subject unsure |
 | species/channa-lucius | [photo](https://media.aquatome.com/commons/bf602a3968e8ab9d.webp) | subject unsure |
-| species/channa-lucius | [photo](https://media.aquatome.com/inaturalist/3216473.webp) | subject unsure |
+| species/channa-lucius | [photo](https://media.aquatome.com/inaturalist/3216473.webp) | subject yes |
 | species/channa-melasoma | [photo](https://media.aquatome.com/seriouslyfish/ce476ece616866fa.webp) | subject unsure |
 | species/characidium-fasciatum | [photo](https://media.aquatome.com/inaturalist/250270540.webp) | subject unsure |
-| species/cherax-boesemani | [photo](https://media.aquatome.com/commons/b6b20a8fb3d5550f.webp) | subject unsure |
+| species/cherax-boesemani | [photo](https://media.aquatome.com/commons/b6b20a8fb3d5550f.webp) | subject other |
 | species/cherax-boesemani | [photo](https://media.aquatome.com/commons/c973b386e5737c11.webp) | subject unsure |
 | species/chlamydogobius-eremius | [photo](https://media.aquatome.com/inaturalist/727792138.webp) | subject unsure |
 | species/cichla-monoculus | [photo](https://media.aquatome.com/commons/6a8cf2b3ed699011.webp) | subject unsure |
@@ -1507,7 +1507,7 @@ Written by `pnpm engine check-photos` (2026-11-16), most-read pages first. Rules
 
 ## Removed (1243)
 
-"Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
+"Something else" records a different subject; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
@@ -2464,13 +2464,13 @@ Written by `pnpm engine check-photos` (2026-11-16), most-read pages first. Rules
 | species/cherax-pulcher | [photo](https://media.aquatome.com/commons/a2b70e5b45858a40.webp) | subject unsure; logo |
 | species/cherax-snowden | [photo](https://media.aquatome.com/commons/5c85239179eaf74a.webp) | subject yes; logo |
 | species/chitala-chitala | [photo](https://media.aquatome.com/commons/032817c6d469a438.webp) | subject other |
-| species/chitala-chitala | [photo](https://media.aquatome.com/commons/84cbc3b6378ca118.webp) | subject other |
+| species/chitala-chitala | [photo](https://media.aquatome.com/commons/84cbc3b6378ca118.webp) | subject unsure |
 | species/chitala-chitala | [photo](https://media.aquatome.com/commons/d822a1dee1f55d71.webp) | subject other |
 | species/chitala-chitala | [photo](https://media.aquatome.com/seriouslyfish/e08833894d4df39d.webp) | subject dead |
 | species/chromidotilapia-guntheri | [photo](https://media.aquatome.com/commons/57eb86803b937c46.webp) | subject yes; logo |
 | species/clarias-camerunensis | [photo](https://media.aquatome.com/commons/3196fa411310211f.webp) | subject none |
 | species/clarias-leiacanthus | [photo](https://media.aquatome.com/commons/49fb502779b8e691.webp) | subject dead |
-| species/clavularia-viridis | [photo](https://media.aquatome.com/commons/2ecc297cfa1a2db2.webp) | subject yes; logo |
+| species/clavularia-viridis | [photo](https://media.aquatome.com/commons/2ecc297cfa1a2db2.webp) | subject other; logo |
 | species/clupisoma-garua | [photo](https://media.aquatome.com/scotcat/04eafdede8315440.webp) | subject dead |
 | species/clupisoma-garua | [photo](https://media.aquatome.com/scotcat/90593384f9b617a2.webp) | subject dead |
 | species/clupisoma-garua | [photo](https://media.aquatome.com/scotcat/9e86195ae37d9960.webp) | subject dead |
