@@ -1,9 +1,9 @@
-import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { chmod, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError, type Llm } from '../src/claude'
-import { tidyTitle, titleFits, translateVideoTitles } from '../src/video-titles'
+import { tidyTitle, titleFits, titlesRunOptions, translateVideoTitles } from '../src/video-titles'
 
 const video = (youtubeId: string, title: string, lang = 'en') => ({ youtubeId, title, durationSec: 300, lang })
 
@@ -13,7 +13,8 @@ async function store() {
   await put('content/species/a/entity.json', { scientificName: 'Aus bus', videos: [video('en-a', 'Keeping Aus'), video('vi-a', 'Nuôi cá A', 'vi'), video('us-a', 'Aus tank tour', 'en-US')] })
   await put('content/species/a/vi.json', { name: 'Cá A' })
   await put('content/species/a/th.json', { name: 'ปลาเอ' })
-  await put('content/species/b/entity.json', { scientificName: 'Bus', videos: [video('en-a', 'Keeping Aus'), video('th-b', 'เลี้ยงปลา', 'th')] })
+  // b is a second page of the same fish, so the video on both is asked about once.
+  await put('content/species/b/entity.json', { scientificName: 'Aus bus', videos: [video('en-a', 'Keeping Aus'), video('th-b', 'เลี้ยงปลา', 'th')] })
   await put('content/species/b/vi.json', { name: 'Cá B' })
   await put('content/products/d/entity.json', { name: 'Đèn D', reviews: { videos: [video('en-d', 'Lamp D after 6 months')] } })
   await put('content/products/d/vi.json', { name: 'Đèn D' })
@@ -168,4 +169,81 @@ test("tidyTitle, the second reviewer's cases: a figure already written with a se
   expect(tidyTitle('ตู้ 20 ล.', 'th')).toBe('ตู้ 20 ล.')
   expect(tidyTitle('Ikan Paracheirodon (Cheirodon) axelrodi', 'id')).toBe('Ikan Paracheirodon (Cheirodon) axelrodi')
   expect(tidyTitle('Lọc thùng Eheim 2217 Jr.', 'vi')).toBe('Lọc thùng Eheim 2217 Jr.')
+})
+
+test("tidyTitle drops a bracket repeating words the title gave anywhere before it, and writes the page's scientific name in the page's capitals (the editors, round 8)", () => {
+  expect(tidyTitle('Cá da trơn Amblyceps foratum bạch tạng (Amblyceps foratum) hiếm', 'vi')).toBe('Cá da trơn Amblyceps foratum bạch tạng hiếm')
+  expect(tidyTitle('Ikan Paracheirodon (Cheirodon) axelrodi', 'id')).toBe('Ikan Paracheirodon (Cheirodon) axelrodi')
+  expect(tidyTitle('Cá Betta và cá Corydoras (Corydoras paleatus)', 'vi')).toBe('Cá Betta và cá Corydoras (Corydoras paleatus)')
+  expect(tidyTitle('Siput Nerite Waigiensis red racer (Vittina Waigiensis)', 'id', 'Vittina waigiensis')).toBe('Siput Nerite Waigiensis red racer (Vittina waigiensis)')
+  expect(tidyTitle('Ikan Discus (Symphysodon discus)', 'ms', 'Symphysodon aequifasciatus')).toBe('Ikan Discus (Symphysodon discus)')
+  expect(tidyTitle('Cá Vittina waigiensisx', 'vi', 'Vittina waigiensis')).toBe('Cá Vittina waigiensisx')
+})
+
+test('tidyTitle writes "gallon" where a Vietnamese title says "galông", and the litres beside it are set as for any gallon (the editors, round 9)', () => {
+  expect(tidyTitle('Cá hỏa tiễn cỡ lớn trong bể 700 galông (2650 lít)', 'vi')).toBe('Cá hỏa tiễn cỡ lớn trong bể 700 gallon (khoảng 2.650 lít)')
+  expect(tidyTitle('Bể 42 galon (sekitar 159 liter)', 'id')).toBe('Bể 42 galon (sekitar 159 liter)')
+})
+
+test("a video on the pages of two fish gets no title: it keeps its own, recorded with the reason, and every other video is written as before (the editors, round 10)", async () => {
+  const root = await store()
+  const put = async (path: string, data: unknown) => { await mkdir(join(root, path, '..'), { recursive: true }); await writeFile(join(root, path), JSON.stringify(data)) }
+  for (const [id, sci, name] of [['c', 'Kryptopterus bicirrhis', 'Cá nheo kính'], ['e', 'Kryptopterus vitreolus', 'Cá thủy tinh']]) {
+    await put(`content/species/${id}/entity.json`, { scientificName: sci, videos: [video('glass', 'Glass Catfish Care')] })
+    await put(`content/species/${id}/vi.json`, { name })
+  }
+  const seen: string[] = []
+  expect(await translateVideoTitles(root, model({ seen }), 'vi')).toMatchObject({ titles: 4, left: 0 })
+  expect(seen.some(s => s.endsWith('|Glass Catfish Care'))).toBe(false)
+  expect(await titles(root, 'vi')).not.toHaveProperty('glass')
+  expect(JSON.parse(await readFile(join(root, 'content/video-titles/vi.refused.json'), 'utf8'))).toEqual({ glass: "wrong fish: on the pages of 2 fish (Kryptopterus bicirrhis, Kryptopterus vitreolus): one title would name one page's fish on the other" })
+  // Not by --only or --redo either.
+  expect(await translateVideoTitles(root, model(), 'vi', { only: ['glass'] })).toMatchObject({ titles: 0 })
+  expect(await translateVideoTitles(root, model(), 'vi', { redo: true })).toMatchObject({ titles: 4 })
+  expect(await titles(root, 'vi')).not.toHaveProperty('glass')
+})
+
+test("a title stored for such a video before is taken out, so the meaning check, which reads the stored titles, can't pass it and clear its refusal", async () => {
+  const root = await store()
+  const put = async (path: string, data: unknown) => { await mkdir(join(root, path, '..'), { recursive: true }); await writeFile(join(root, path), JSON.stringify(data)) }
+  for (const [id, sci] of [['c', 'Kryptopterus bicirrhis'], ['e', 'Kryptopterus vitreolus']]) {
+    await put(`content/species/${id}/entity.json`, { scientificName: sci, videos: [video('glass', 'Glass Catfish Care')] })
+    await put(`content/species/${id}/vi.json`, { name: id })
+  }
+  await translateVideoTitles(root, model(), 'vi')
+  // A run with nothing else to write takes it out too.
+  await put('content/video-titles/vi.json', { ...(await titles(root, 'vi')), glass: 'Nuôi cá nheo kính' })
+  expect(await translateVideoTitles(root, model(), 'vi')).toMatchObject({ titles: 0 })
+  expect(await titles(root, 'vi')).not.toHaveProperty('glass')
+})
+
+test("a title given new words loses the meaning check's verdicts on the old ones, so the site shows the video's own title until the check reads the new; the same words keep theirs (the reviewers of the check, 16 Nov)", async () => {
+  const root = await store()
+  await translateVideoTitles(root, model(), 'vi')
+  const dir = join(root, 'content/video-titles')
+  await writeFile(join(dir, 'vi.passed.json'), JSON.stringify({ 'en-a': 'bản dịch: Keeping Aus', 'en-d': 'bản dịch: Lamp D after 6 months' }))
+  await writeFile(join(dir, 'vi.refused.json'), JSON.stringify({ 'us-a': 'dropped: x' }))
+  // en-a and us-a get new words; en-d is written again in the same words.
+  await translateVideoTitles(root, model({ answer: t => (t === 'Lamp D after 6 months' ? `bản dịch: ${t}` : `mới: ${t}`) }), 'vi', { redo: true, parallel: 2 })
+  expect(JSON.parse(await readFile(join(dir, 'vi.passed.json'), 'utf8'))).toEqual({ 'en-d': 'bản dịch: Lamp D after 6 months' })
+  expect(JSON.parse(await readFile(join(dir, 'vi.refused.json'), 'utf8'))).toEqual({})
+})
+
+test("the old words' verdicts come off before the new words are stored: where taking them off fails, the old words stay, so no verdict stands on words it wasn't given (the reviewers of the check, 16 Nov)", async () => {
+  const root = await store()
+  await translateVideoTitles(root, model(), 'vi')
+  const dir = join(root, 'content/video-titles')
+  await writeFile(join(dir, 'vi.refused.json'), JSON.stringify({ 'en-a': 'dropped: x' }))
+  // A verdict file is written whole beside itself and put in place, so the folder is what refuses the write here; the titles
+  // file, written in place, still takes the titles whose verdicts had nothing to take off.
+  await chmod(dir, 0o555)
+  const r = await translateVideoTitles(root, model({ answer: t => `mới: ${t}` }), 'vi', { redo: true }).finally(() => chmod(dir, 0o755))
+  expect(r.failed).toHaveLength(1)
+  expect((await titles(root, 'vi'))['en-a']).toBe('bản dịch: Keeping Aus')
+})
+
+test('video-titles-redo is --redo under its own name, on Opus; the cycle\'s video-titles and a plain --redo keep the default model', () => {
+  expect(titlesRunOptions('video-titles-redo', {})).toEqual({ limit: undefined, parallel: 1, only: undefined, redo: true, model: 'opus' })
+  expect(titlesRunOptions('video-titles', { redo: true, limit: '3', parallel: '2', only: 'a,b' })).toEqual({ limit: 3, parallel: 2, only: ['a', 'b'], redo: true, model: undefined })
+  expect(titlesRunOptions('video-titles', {})).toMatchObject({ redo: false, model: undefined })
 })

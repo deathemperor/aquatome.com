@@ -242,9 +242,15 @@ describe("a species page's videos in the reader's language (the owner's report, 
   const title = (i: number) => rows[i]!.childNodes[0]!.text
   const under = (i: number) => rows[i]!.querySelector('small')!.text
   test("its title translated, the real one kept beside it; those spoken in the page's language first", () => {
-    expect(rows.map((_, i) => title(i))).toEqual(['Nuôi cá phượng hoàng xanh', 'Cách nuôi cá phượng hoàng xanh', 'Đàn phượng hoàng xanh trong bể thủy sinh'])
+    expect(rows.map((_, i) => title(i))).toEqual(['Nuôi cá phượng hoàng xanh', 'Cách nuôi cá phượng hoàng xanh', 'Blue rams in a planted tank'])
     expect(rows[1]!.getAttribute('data-title-from')).toBe('German blue ram care guide')
     expect(rows[0]!.getAttribute('data-title-from')).toBeUndefined()
+  })
+  // The refused row also has a pass in its stored words (vi.passed.json), as two runs' files merged could leave: the refusal wins.
+  test('a title the meaning check refused (video-titles/vi.refused.json) shows the video\'s own title, marked, with Vietnamese on, a pass beside it notwithstanding (the chief of staff, 16 Nov)', () => {
+    expect(rows[2]!.hasAttribute('data-own-title')).toBe(true)
+    expect(html).not.toContain('Đàn phượng hoàng xanh trong bể thủy sinh')
+    expect(rows[1]!.hasAttribute('data-own-title')).toBe(false)
   })
   test('its language is a word, never a code; a generated one carries no mark (the owner\'s call); one with no speech says that', () => {
     expect(under(0)).toBe('2:05, tiếng Việt')
