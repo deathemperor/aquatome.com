@@ -546,5 +546,100 @@
       "attempt": "rewrite",
       "kept": false
     }
+  ],
+  "vi/glossary/thuc-an-dong-lanh": [
+    {
+      "at": "2026-11-16T18:14:27Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (not placeable): \"Trùng huyết đông lạnh, trùn huyết đông lạnh (Bloodworms): ấu trùng muỗi lắc, màu đỏ tươi hoặc đỏ nâu do hemoglobin.\"",
+        "Loose, left as written (not placeable): \"Baby brine shrimp, Daphnia, Cyclops, Mysis shrimp: các tên hay gặp trên trang bán hàng nước ngoài.\"",
+        "Loose, rewording would take the entry past its length, old wording kept for the reader: \"Một tiệm hướng dẫn cho cá bột ăn bobo từ 7 ngày tuổi.\" (not \"Cũng tiệm này hướng dẫn cho cá bột ăn bobo từ 7 ngày tuổi, nhưng không ghi là bobo đông lạnh.\")",
+        "Loose, rewording would take the entry past its length, old wording kept for the reader: \"Cách thứ hai là rã riêng trong cốc nhỏ nước bể vài phút, đổ bỏ nước rã đông vì nó chứa phosphat và chất hữu cơ, có thể làm amoniac tăng vọt, rồi tráng mồi và cho ăn.\" (not \"Cách thứ hai là rã một phần trong cốc nhỏ nước bể hoặc nước đã khử clo, đổ bỏ nước rã đông vì nó chứa phosphat và chất hữu cơ có thể làm …",
+        "The entry is 571 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-16T18:14:27Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 0,
+      "notes": [
+        "The entry is 665 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-15T03:30:05Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Rule 7: \"Lăng quăng đông lạnh: có tiệm ở Việt Nam bán.\" This local kind's item never says what it is. The FACTS give it as frozen mosquito larvae, while the foreign-names line gets sizes and uses.",
+        "Rule 7: \"Tim bò đông lạnh: có tiệm ở Việt Nam bán.\" This local kind's item never says what it is. The FACTS give it as frozen beef heart, while the foreign-names line gets sizes and uses.",
+        "Rule 7: \"Trùn chỉ đông lạnh ... Mồi này có thể kích Corydoras và vài loài cá khác đẻ\" and the bloodworm item \"Loại này hợp với cá ăn thịt như Betta\" leave out a use the FACTS give. A Vietnamese shop suggests frozen trùn chỉ and trùn huyết for predatory fish such as hồng két and tai tượng, to bring out their hunting instinct.",
+        "Rule 7: \"Artemia đông lạnh (Brine shrimp): con artemia lớn, dài khoảng 1 cm...\" leaves out a use the FACTS give: a Vietnamese shop sells it as food for ornamental shrimp and fish.",
+        "Rules 4 and 12: \"Mỗi bữa cho lượng cá ăn trong khoảng 3–5 phút.\" This feeding amount sits in the bloodworm item, but THIS TERM says the feeding step alone gives the amount (step 3, \"Bể nuôi chung 60–90 lít thì mỗi bữa khoảng nửa viên là thường...\"). It also breaks the item order, coming between the uses and the other name \"sâu đỏ\".",
+        "The entry is 683 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-15T03:30:05Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Rule 4: The step on thawing says twice that the thaw water is thrown away: \"đổ bỏ nước rã đông\" and again \"Nước rã đông phải đổ đi vì nó chứa phosphat và chất hữu cơ, có thể làm amoniac tăng vọt\". Say it once, with its reason.",
+        "Rules 4 and 7: The note that shops give different feeding times, \"Các tiệm ghi con số khác nhau: một tiệm ghi 2–3 phút, tiệm khác ghi khoảng 3–5 phút với trùng huyết\", sits in the general feeding step. The 3–5 minute figure is about bloodworms (trùng huyết) alone, so it belongs once in the trùng huyết item and nowhere else. The general step should give only the amount.",
+        "The entry is 731 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "draft": "7e5a2b96984a966dfd8de32c84eeab5d61cfcffe3e9b375e9b986a1c068169be"
+    },
+    {
+      "at": "2026-11-15T03:30:05Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 0.93,
+      "notes": [
+        "\"Chưa thấy tiệm ở Việt Nam bán dạng đông lạnh.\": the facts don't carry it (loose, unsupported, unsupported): inferred from no Vietnamese listing appearing in the facts / facts don't say whether VN shops sell it / facts don't say no Vietnamese shop sells it",
+        "\"Chưa thấy tiệm ở Việt Nam ghi tên này.\": the facts don't carry it (loose, unsupported, unsupported): inferred from no Vietnamese listing appearing in the facts / facts don't say VN shops lack this name / absence in Vietnamese shops not stated in facts",
+        "\"Chưa thấy tiệm ở Việt Nam bán.\": the facts don't carry it (loose, unsupported, unsupported): inferred from no Vietnamese listing appearing in the facts / facts don't say whether VN shops sell it / absence in Vietnamese shops not stated in facts",
+        "\"Chưa thấy tiệm ở Việt Nam bán.\": the facts don't carry it (loose, unsupported, unsupported): inferred from no Vietnamese listing appearing in the facts / facts don't say whether VN shops sell it / absence in Vietnamese shops not stated in facts",
+        "Rules 6 and 12: \"cá betta (cá xiêm)\" in \"Loại này hợp với cá ăn thịt như cá betta (cá xiêm), và có cỡ thường, jumbo, mini.\": the facts write \"betta (Betta)\" here, which means the genus. It should be written \"Betta\", not with the page name for Betta splendens.",
+        "Rule 12: \"Nếu rã đông thì không dùng nước nóng.\" says this of all frozen food. The facts give it only for trùng huyết, from one shop, so it should be said of trùng huyết only.",
+        "Rules 4 and 12: the freezer-door warning appears twice: \"để sâu bên trong, xa cửa tủ cho nhiệt ổn định\" in the storage step and \"hoặc cất ở sát cửa tủ đông\" in the mistakes list. It belongs in the storage step only.",
+        "Rule 12: the foreign-listing names are given as four separate items (\"Baby brine shrimp\", \"Daphnia\", \"Cyclops\", \"Mysis shrimp\"). They should be together in one line, each with its use.",
+        "Rule 4: \"Chưa thấy tiệm ở Việt Nam bán\" (and \"Chưa thấy tiệm ở Việt Nam ghi tên này\") is repeated in each foreign item. It should be said once.",
+        "Rules 4 and 12: the paragraph \"Các tiệm ghi khác nhau chuyện thả thẳng viên đông lạnh vào bể. Một tiệm coi đó là cách bình thường... Tiệm kia coi đó là lỗi... Tiệm này khuyên rã đông riêng...\" is a passage on which shop says which, and it takes one shop's side. THIS TERM asks for the two ways (straight into the tank or thawed apart) to be given plainly in one place, with no account of which shop …"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-15T01:32:10Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 0.93,
+      "notes": [
+        "\"Chưa thấy tiệm ở Việt Nam bán dạng đông lạnh.\": the facts don't carry it (supported, supported, unsupported, unsupported, unsupported, unsupported): absence in Vietnam not stated in facts / The facts never say whether Vietnamese shops sell frozen baby brine shrimp, so this claim that none do comes from nowhere. Shops are only shown selling frozen artemia in general. / The facts never say whether…",
+        "\"Chưa thấy tiệm ở Việt Nam bán.\": the facts don't carry it (supported, supported, unsupported, unsupported, unsupported, unsupported): absence in Vietnam not stated in facts / The facts never say whether Vietnamese shops sell cyclops. Leaving it off the product lists isn't evidence it goes unsold. / No fact says cyclops isn't sold in Vietnam. The claim rests only on cyclops being missing from the…",
+        "\"Chưa thấy tiệm ở Việt Nam bán.\": the facts don't carry it (supported, supported, unsupported, unsupported, unsupported, unsupported): absence in Vietnam not stated in facts / No fact says Vietnamese shops don't sell Mysis shrimp. Mysis simply doesn't appear in the gathered Vietnamese sources, and that gap isn't a claim the facts make. / The facts don't say whether Vietnamese shops sell Mysis. It…",
+        "Rules 3 and 5: \"Bobo đông lạnh\" and \"Daphnia\" are listed as two separate kinds. The TERMS define bo bo as Daphnia and Moina, so \"Daphnia: … Chưa thấy tiệm ở Việt Nam ghi tên này\" goes against that definition. The bobo item also lacks the English name the FACTS give, \"Daphnia\". The two items should be one.",
+        "Rule 4: the warning that bacteria grow at warm temperatures appears twice: \"Vi khuẩn sinh sôi nhanh khi nhiệt độ trên 25 °C\" in the Vietnam paragraph, and \"Lúc rã ngoài nhiệt độ phòng, vi khuẩn có thể đã sinh sôi trong mồi\" under mistakes. It should be said once, in one place.",
+        "Rule 7: in the bloodworm item, how it looks (\"có cỡ thường, jumbo, mini\") comes after what it is used for (\"hợp với cá ăn thịt như Betta\"). Looks should come before use.",
+        "The entry is 658 words: hold it to about 400, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    }
   ]
 }
