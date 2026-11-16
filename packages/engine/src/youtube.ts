@@ -262,6 +262,7 @@ export async function ytFrames(id: string): Promise<VideoFrames> {
   return {
     storyboard: sb ? { fps: sb.fps, interval: storyboardInterval(sb.fps, Number(d.duration)), rows: sb.rows, columns: sb.columns, width: sb.width, height: sb.height, fragments: sb.fragments.map(f => ({ url: f.url })) } : null,
     stream: v ? { url: v.url!, ...(ua ? { userAgent: ua } : {}) } : null,
+    ...(Number(d.duration) > 0 ? { duration: Number(d.duration) } : {}),
   }
 }
 

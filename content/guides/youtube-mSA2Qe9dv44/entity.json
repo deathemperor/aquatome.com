@@ -92,10 +92,44 @@
             "url": "https://media.aquatome.com/video/mSA2Qe9dv44/at120-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể lớn đã setup lũa, đá và cây thủy sinh, nước trong.",
-            "sharpness": 1091.6
+            "caption": "Bể lớn đã lên layout với lũa, đá và cây, nước khá trong.",
+            "sharpness": 1091.6,
+            "person": false
+          },
+          {
+            "t": 160,
+            "url": "https://media.aquatome.com/video/mSA2Qe9dv44/at160-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh khúc lũa và đá cuội trên nền cát trong bể mới.",
+            "sharpness": 330.8,
+            "person": false
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/mSA2Qe9dv44/p0-JfRmlsdGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/mSA2Qe9dv44/p0-JfRmlsdGVyLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Fish Tank Society",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
+          "caption": "Lọc thùng dưới tủ bể, xả nước qua ống vào xô để rửa ngược."
+        }
+      },
+      {
+        "heading": "Vật liệu lọc cũ có còn vi sinh không",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/mSA2Qe9dv44/p1-sXzA2MDIyNy5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/mSA2Qe9dv44/p1-sXzA2MDIyNy5qcGc-480.webp",
+          "width": 960,
+          "height": 614,
+          "licence": "CC BY-SA 3.0",
+          "author": "Wikimedia Commons",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Filtermaterial_060227.jpg",
+          "caption": "Các loại vật liệu lọc như bông lọc, sứ lọc, bio ball và đá nung."
+        }
       },
       {
         "heading": "Đọc tình trạng cây sau tuần đầu",
@@ -105,16 +139,16 @@
             "url": "https://media.aquatome.com/video/mSA2Qe9dv44/at180-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cây thủy sinh lên lá non quanh lũa và đá trong hồ.",
-            "sharpness": 405.2
+            "caption": "Hồ thủy sinh có lũa lớn phủ cây non xanh mướt.",
+            "sharpness": 428.5
           },
           {
             "t": 200,
             "url": "https://media.aquatome.com/video/mSA2Qe9dv44/at200-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cây mọc trên lũa sát mặt nước, lá non xanh tươi.",
-            "sharpness": 789.5
+            "caption": "Cây thủy sinh mọc trên nền, lũa và lá non xanh ở phía trước.",
+            "sharpness": 203.4
           }
         ],
         "photo": {
@@ -146,14 +180,6 @@
         "heading": "Bắt và thả cả đàn cá một lần",
         "moments": [
           {
-            "t": 470,
-            "url": "https://media.aquatome.com/video/mSA2Qe9dv44/at470-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng vợt lùa cá trong bể để bắt cả đàn.",
-            "sharpness": 1209.7
-          },
-          {
             "t": 480,
             "url": "https://media.aquatome.com/video/mSA2Qe9dv44/at480-hd.webp",
             "width": 1200,
@@ -177,16 +203,8 @@
         "heading": "Cá nhỏ, cá non: những gì sẽ thay đổi",
         "moments": [
           {
-            "t": 530,
-            "url": "https://media.aquatome.com/video/mSA2Qe9dv44/at530-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cá lau kiếng màu vàng bơi cạnh vợt trong bể lớn.",
-            "sharpness": 146.9
-          },
-          {
-            "t": 900,
-            "url": "https://media.aquatome.com/video/mSA2Qe9dv44/at900-hd.webp",
+            "t": 820,
+            "url": "https://media.aquatome.com/video/mSA2Qe9dv44/at820-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể rộng bài trí lũa và đá, chỗ nuôi đàn cá.",

@@ -54,7 +54,7 @@ export type Deps = {
   readersWanted?: () => Promise<ReaderWant[]>
 }
 type Counts = { discovered: number; fetched: number; processed: number; skipped: number; blocked: number; errors: number }
-export type RunReport = { perSource: Partial<Record<SourceId, Counts>>; needsHuman: SourceId[]; movedToArchive: SourceId[]; changed: ChangelogEntry[]; errors: string[]; depth?: DepthReport; stopped?: string }
+export type RunReport = { perSource: Partial<Record<SourceId, Counts>>; needsHuman: SourceId[]; movedToArchive: SourceId[]; changed: ChangelogEntry[]; errors: string[]; /** Each part a shop's own talk was cut from as it merged, `kind/id: key:source (blocks|the section)` (merge.ts). */ shopText: string[]; depth?: DepthReport; stopped?: string }
 
 type Kind = 'species' | 'plants' | 'guides' | 'places' | 'glossary' | 'breeds'
 const readJson = async <T>(path: string): Promise<T | undefined> => readFile(path, 'utf8').then(s => JSON.parse(s) as T, () => undefined)
@@ -260,7 +260,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   const blocked = (await readJson<Record<string, string>>(join(root, 'engine-state/_photo-rejected.json'))) ?? {}
   const screen = await readJson<Record<string, PhotoScreenEntry>>(join(root, 'engine-state', PHOTO_SCREEN_FILE))
   const deadline = opts.maxMinutes ? deps.now().getTime() + opts.maxMinutes * 60_000 : Infinity
-  const report: RunReport = { perSource: {}, needsHuman: [], movedToArchive: [], changed: [], errors: [] }
+  const report: RunReport = { perSource: {}, needsHuman: [], movedToArchive: [], changed: [], errors: [], shopText: [] }
   const today = () => deps.now().toISOString().slice(0, 10)
   // What a re-read keeps of a page's photos (mergeRead): the owner's approved crops; never a never-again photo, or one whose source no longer lets us show photos.
   const keeps = (page: string, scientificName: string): ReadKeeps => readKeeps(page, scientificName, blocked, sourceNames, screen)
@@ -379,6 +379,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       const known = new Set(await s.ids('places'))
       for (const p of ensurePlaces(page.places, known)) await s.write('places', PlaceSchema, p)
       await s.write('species', SpeciesSchema, item)
+      report.shopText.push(...(item.dropped ?? []).map(d => `species/${item.entity.id}: ${d}`))
       // A source's name that names another kind of animal: the page took its plain scientific form, listed for the Writing Lead.
       if (item.fellBack) await recordKindFallback(root, `species/${item.entity.id}`, { ...item.fellBack, took: item.vi.name, at: now })
       await appendChangelog(contentRoot, [log('species', item.entity.id, !!existing.entity)])
@@ -395,6 +396,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       await holdLast(held, `plants/${item.entity.id}`)
       if (!item.entity.photos.length) item.entity.photos = await soft('commons photos', () => findPhotos(item.entity.scientificName, http, 4, blocked), [])
       await s.write('plants', PlantSchema, item)
+      report.shopText.push(...(item.dropped ?? []).map(d => `plants/${item.entity.id}: ${d}`))
       await appendChangelog(contentRoot, [log('plant', item.entity.id, !!existing.entity)])
       return [`plants/${item.entity.id}`]
     }

@@ -1,6 +1,6 @@
 # Photo galleries
 
-Written by `pnpm engine gallery` (2026-11-15). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
+Written by `pnpm engine gallery` (2026-11-16). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
 
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -8,15 +8,30 @@ Written by `pnpm engine gallery` (2026-11-15). Targets: packages/engine/src/gall
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
 | covered | 30 | 664 | 30 | 9 | 23 | 680 |
-| rest | 20 | 1718 | 74 | 0 | 69 | 1723 |
+| rest | 20 | 1718 | 74 | 0 | 74 | 1718 |
 
-## Short of target: every source read (418)
+## Short of target: every source read (438)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
 | Page | Tier | Photos | Target |
 | --- | --- | --- | --- |
 | species/betta-mahachaiensis | covered | 7 | 30 |
+| species/ageneiosus-inermis | rest | 0 | 20 |
+| species/amphilius-frieli | rest | 0 | 20 |
+| species/amphilius-kivuensis | rest | 0 | 20 |
+| species/barbodes-dunckeri | rest | 0 | 20 |
+| species/cryptarius-truncatus | covered | 0 | 30 |
+| species/hemiancistrus-landoni | covered | 0 | 30 |
+| species/hypostomus-hemicochliodon | covered | 0 | 30 |
+| species/hypostomus-pyrineusi | covered | 0 | 30 |
+| species/hypostomus-uruguayensis | covered | 0 | 30 |
+| species/leporinus-brunneus | covered | 0 | 30 |
+| species/neoplecostomus-microps | covered | 0 | 30 |
+| species/pachypterus-atherinoides | covered | 0 | 30 |
+| species/parailia-occidentalis | covered | 0 | 30 |
+| species/paravandellia-oxyptera | covered | 1 | 30 |
+| species/wallago-attu | covered | 0 | 30 |
 | species/paracheirodon-innesi | staple | 21 | 100 |
 | species/paracheirodon-axelrodi | staple | 29 | 100 |
 | species/trigonostigma-heteromorpha | staple | 17 | 100 |
@@ -434,3 +449,8 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/chrysichthys-auratus | covered | 0 | 30 |
 | species/cichla-orinocensis | covered | 1 | 30 |
 | species/clarias-meladerma | covered | 0 | 30 |
+| species/clarias-pachynema | covered | 0 | 30 |
+| species/cleithracara-maronii | covered | 5 | 30 |
+| species/clypeobarbus-congicus | covered | 0 | 30 |
+| species/copadichromis-borleyi | covered | 2 | 30 |
+| species/corydoras-amandajanea | covered | 0 | 30 |

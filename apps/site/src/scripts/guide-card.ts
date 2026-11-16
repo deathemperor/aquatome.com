@@ -1,11 +1,12 @@
 import type { GuideListItem } from '../lib/list-data'
+import { coverStyle } from '../lib/cover-style'
 import { cpath } from './ct'
 import { creditPhoto } from './photo-credits'
 
 /**
  * A guide card made in the browser, as GuideCard.astro renders it: a copy of the list's template card (GuideCard
  * `template`), filled in from the guide's item in the list's data file (lib/list-data.ts), its photo credited in the
- * footer; a video's length too. e2e/guide-list.spec.ts and guide-pages.spec.ts check the two come out the same.
+ * footer, or the cover its address draws when it has none; a video's length too. e2e/guide-list.spec.ts and guide-pages.spec.ts check the two come out the same.
  */
 export function buildGuideCard(template: HTMLTemplateElement, i: GuideListItem): HTMLElement {
   const card = template.content.firstElementChild!.cloneNode(true) as HTMLElement
@@ -15,7 +16,13 @@ export function buildGuideCard(template: HTMLTemplateElement, i: GuideListItem):
   if (i.photo) {
     for (const [k, v] of [['src', i.photo.src], ['width', String(i.photo.w)], ['height', String(i.photo.h)]] as const) $('img').setAttribute(k, v)
     creditPhoto(i.photo)
-  } else $('img').remove()
+    $('.img').removeAttribute('style')
+  } else {
+    $('img').remove()
+    $('.img').classList.add('cover')
+    // As the attribute GuideCard writes: the template's empty one keeps its place among the attributes.
+    $('.img').setAttribute('style', coverStyle(i.slug))
+  }
   if (i.video) {
     $('.dur').textContent = `▶ ${i.video.dur}`
   }
