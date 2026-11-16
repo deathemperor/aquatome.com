@@ -1,5 +1,6 @@
 import { expectControlledRejections } from './photo-privacy-assertions'
 import { chmod, copyFile, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { readAvoid } from '../src/curation'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
@@ -1389,8 +1390,10 @@ test("a head the calendar holds off cards stays behind the photo the lead step p
   await put('curation.json', { avoid: { [held.url]: 'engine: a test' } })
   await sweep(root)
   expect((await json(root, 'content/species/rineloricaria-castroi/entity.json')).photos.map((p: { url: string }) => p.url)).toEqual([held.url, cf.url])
-  // A calendar that is there but can't be read stops the sweep, rather than reading as no hold (readAvoid).
+  // The hold's reader, which the sweep and the photo check read through, stops on a calendar that is there but can't be
+  // read, rather than reading it as no hold; no calendar at all is no hold.
   await chmod(join(c, 'curation.json'), 0o000)
-  await expect(sweep(root)).rejects.toThrow()
+  await expect(readAvoid(root)).rejects.toThrow()
   await chmod(join(c, 'curation.json'), 0o644)
+  expect(await readAvoid(await mkdtemp(join(tmpdir(), 'sweep-')))).toEqual({})
 })
