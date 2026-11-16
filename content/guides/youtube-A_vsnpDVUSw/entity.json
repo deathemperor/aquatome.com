@@ -50,26 +50,7 @@
     "figures": [
       {
         "heading": "Bể ví dụ",
-        "moments": [
-          {
-            "t": 26,
-            "url": "https://media.aquatome.com/video/A_vsnpDVUSw/at26-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ngọn cây hậu cảnh mọc cao sát mặt nước, dưới đèn T5.",
-            "sharpness": 555.6,
-            "person": false
-          },
-          {
-            "t": 30,
-            "url": "https://media.aquatome.com/video/A_vsnpDVUSw/at30-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Toàn cảnh bể với cây hậu cảnh Alternanthera reineckii mọc cao phía sau.",
-            "sharpness": 1258.7,
-            "person": false
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/A_vsnpDVUSw/p0-FzY2FwaW5nLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/A_vsnpDVUSw/p0-FzY2FwaW5nLmpwZw-480.webp",
@@ -126,17 +107,7 @@
             "sharpness": 48.7,
             "person": false
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/A_vsnpDVUSw/p3-BcXVhcml1bS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/A_vsnpDVUSw/p3-BcXVhcml1bS5qcGc-480.webp",
-          "width": 960,
-          "height": 638,
-          "licence": "CC BY 4.0",
-          "author": "Abhik.Mazumdar.73",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:An_Aquascapist_Planting_Aquatic_Plant_Anubias_Petite_with_Tweezers_in_an_Aquarium.jpg",
-          "caption": "Dùng nhíp cắm ngọn cây thủy sinh đã cắt vào khoảng trống trong bể."
-        }
+        ]
       },
       {
         "heading": "Không muốn tỉa thường xuyên thì làm gì",
@@ -150,7 +121,48 @@
             "sharpness": 434.5,
             "person": false
           }
-        ],
+        ]
+      },
+      {
+        "heading": "Khi nào thì tỉa",
+        "moments": [
+          {
+            "t": 26,
+            "url": "https://media.aquatome.com/video/A_vsnpDVUSw/at26-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ngọn cây hậu cảnh mọc cao sát mặt nước, dưới đèn T5.",
+            "sharpness": 555.6,
+            "person": false
+          },
+          {
+            "t": 30,
+            "url": "https://media.aquatome.com/video/A_vsnpDVUSw/at30-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể với cây hậu cảnh Alternanthera reineckii mọc cao phía sau.",
+            "sharpness": 1258.7,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Cắm ngọn để nhân cây",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/A_vsnpDVUSw/p3-BcXVhcml1bS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/A_vsnpDVUSw/p3-BcXVhcml1bS5qcGc-480.webp",
+          "width": 960,
+          "height": 638,
+          "licence": "CC BY 4.0",
+          "author": "Abhik.Mazumdar.73",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:An_Aquascapist_Planting_Aquatic_Plant_Anubias_Petite_with_Tweezers_in_an_Aquarium.jpg",
+          "caption": "Dùng nhíp cắm ngọn cây thủy sinh đã cắt vào khoảng trống trong bể."
+        }
+      },
+      {
+        "heading": "Nếu không muốn tỉa hoài",
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/A_vsnpDVUSw/p4-ydS1JbmRpYS5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/A_vsnpDVUSw/p4-ydS1JbmRpYS5qcGc-480.webp",

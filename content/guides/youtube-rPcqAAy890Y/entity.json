@@ -57,15 +57,6 @@
             "caption": "Bộ lọc rêu sáng đèn LED tím trong hệ thống bể.",
             "sharpness": 111.8,
             "person": false
-          },
-          {
-            "t": 45,
-            "url": "https://media.aquatome.com/video/rPcqAAy890Y/at45-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khung lưới của bộ lọc rêu đặt trên bàn, nhìn chính diện.",
-            "sharpness": 1397.4,
-            "person": false
           }
         ]
       },
@@ -103,7 +94,35 @@
         ]
       },
       {
-        "heading": "Làm phần thân và ống khí",
+        "heading": "Lắp đặt và chạy",
+        "moments": [
+          {
+            "t": 540,
+            "url": "https://media.aquatome.com/video/rPcqAAy890Y/at540-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hộp lưới gắn ngoài thành bể, nhìn gần từ bên cạnh.",
+            "sharpness": 113.3,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Bộ lọc rêu hoạt động thế nào",
+        "moments": [
+          {
+            "t": 45,
+            "url": "https://media.aquatome.com/video/rPcqAAy890Y/at45-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Khung lưới của bộ lọc rêu đặt trên bàn, nhìn chính diện.",
+            "sharpness": 1397.4,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Cần chuẩn bị những gì",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/rPcqAAy890Y/p3-9hX3N0YWNrLmpwZw.webp",
@@ -117,7 +136,7 @@
         }
       },
       {
-        "heading": "Lắp đặt và chạy",
+        "heading": "Lắp đặt và chạy máy",
         "moments": [
           {
             "t": 525,
@@ -126,15 +145,6 @@
             "height": 675,
             "caption": "Hộp đèn tím gắn ở mặt ngoài kính bể.",
             "sharpness": 492.5,
-            "person": false
-          },
-          {
-            "t": 540,
-            "url": "https://media.aquatome.com/video/rPcqAAy890Y/at540-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hộp lưới gắn ngoài thành bể, nhìn gần từ bên cạnh.",
-            "sharpness": 113.3,
             "person": false
           }
         ]
