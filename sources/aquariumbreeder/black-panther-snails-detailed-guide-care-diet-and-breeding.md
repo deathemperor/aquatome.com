@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/black-panther-snails-detailed-guide-care-diet-and-breeding/
 title: Black Panther Snails – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-10-29T07:08:40.985Z
-hash: 8e2fb8a6682f9f97bbb140eb88af47be9ec22f4f3533682cf32f17e54d611b5f
+hash: 8f247ff8e12e5d3f8bce83cbe99344445337e364c233e3d43a0ef4856b06f222
 ---
 
 Sulcospira testudinaria, commonly known as the Black Panther Snails, is one of the rarest snail species in our hobby. If you by chance see or buy one you will be surprised to find out how little is known about them.
@@ -150,4 +150,3 @@ Sulcospira testudinaria can be a great addition to an aquarium. However, there a
 - Adharini, Ratih Ida, and Putri Latifa Arumsari. “Structure and Distribution of Macrobenthos Community in Code River, Yogyakarta, Indonesia.” Indonesian Journal of Limnology2, no. 2 (2021): 21-27.
 - Susilo, V. E., V. Doviyana, and N. Mujiono. “The diversity of gastropoda in meru betiri national park.” In Journal of Physics: Conference Series, vol. 1465, no. 1, p. 012011. IOP Publishing, 2020.
 - Lailiyah S, Arfiati D, Hertika AMS, Arum NDK, Noviya CB. 2021. The effectiveness of Filopaludina javanica and Sulcospira testudinaria in reducing organic matter in catfish (Clarias sp.) aquaculture wastewater. Jurnal Ilmiah Perikanan Kelautan 13 (1): 106-113. DOI: 10.20473/jipk.v13i1.23085.
-### Leave a Reply Cancel reply

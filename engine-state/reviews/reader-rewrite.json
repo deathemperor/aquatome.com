@@ -389,6 +389,22 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-CSsZOq0SyyU#body": [
+    {
+      "at": "2026-11-16T05:59:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"bèo Amazon frogbit\" became \"bèo Nhật\": a different plant name, so the named species is changed.",
+        "\"giúp giữ nước tốt\" became \"giữ nước sạch\": the meaning shifts slightly.",
+        "\"dễ vớt khi nhiều\" became \"khi lên dày cũng dễ vớt bớt\": small nuance change, acceptable."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-HUa1u8usS5w#body": [
     {
       "at": "2026-11-10T05:24:45Z",
@@ -609,6 +625,23 @@
       "kept": true
     }
   ],
+  "vi/guides/youtube-bqwUw5DDboU#body": [
+    {
+      "at": "2026-11-16T05:58:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.62,
+      "notes": [
+        "Said more surely than before: \"Cây trồng cạn (trầu bà, trầu bà lá xẻ Monstera, hồng môn) cũng cắm rễ xuống bể được, phần thân lá thì vươn lên khỏi mặt nước.\" (was: \"Cây trồng nổi (trầu bà, trầu bà lá xẻ Monstera, hồng môn) có thể cắm rễ vào bể cho mọc vươn lên khỏi mặt nước.\")",
+        "\"2 giọt mỗi giây\" became \"2 bọt mỗi giây\": the dosing unit changed from drops to bubbles.",
+        "\"Cây trồng nổi\" became \"Cây trồng cạn\": the plant category was changed.",
+        "\"phần thân lá thì vươn lên khỏi mặt nước\" is a slight restructuring that adds the detail of stems and leaves."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-hO_nLV0YpX8#body": [
     {
       "at": "2026-11-11T03:46:24Z",
@@ -747,6 +780,21 @@
       "score": 0.85,
       "notes": [
         "Common name changed: \"Cá ngân long Colombia\" -> \"Cá tetra Colombia\"; this is a plain hobby-term swap, and the scientific/English name in parentheses and the colour description are kept."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-tjBIz6NjbwI#body": [
+    {
+      "at": "2026-11-16T06:00:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "\"ráy (Alocasia)\" became \"môn Alocasia\": common name changed (ráy vs môn), minor nuance shift",
+        "Tank volume 2500 litres kept; no hedges present"
       ],
       "attempt": "first",
       "kept": true

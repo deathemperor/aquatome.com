@@ -3,6 +3,12 @@
   "name": "Araguaia",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-16T05:37:47.473Z",
+    "why": "The place is the Araguaia region/river basin, and Malay atlases usually write \"Sungai Araguaia\" (or \"Lembangan Araguaia\") for the river, so the bare \"Araguaia\" omits the kind word \"Sungai\" that Malay uses with river names."
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

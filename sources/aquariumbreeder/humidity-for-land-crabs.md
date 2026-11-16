@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/humidity-for-land-crabs/
 title: Humidity for Land crabs and Hermit crabs. How to Control (Increase or Lower) - Shrimp and Snail Breeder
 fetchedAt: 2026-11-09T06:16:30.103Z
-hash: 31c8cfded7d99b3801f7b400a82edd22a21fbff39539f0bc2a4f44b85fe28fea
+hash: 858c86af00bf6b6f3e33885fee05a65c9c7f28bcef70a9e498f6066e67838501
 ---
 
 Humidity refers to the moisture content (water vapor) in the air. Humidity is a vital feature/requirement of land crab tanks (paludarium) and we need to know how to control it.
@@ -77,4 +77,3 @@ Lastly, the temperature of the crab tank can be slightly increased. When this is
 In cases where the humidity level is much lower than the set point on the hygrometer, the crabs may start feeling uneasy. And in the long run, they may suffer gill infection or irreversible gill damage.
 During prolonged periods of increased humidity, the hermit or land crabs will find it difficult to breathe through their organs due to the thickness of the air in the enclosure.
 Sometimes, it’s common to notice very high or low levels of humidity through a sign: shell evacuation. Hermit or land crab leaving its shell often points to unacceptable living conditions and may not necessarily be the usual molting.
-### Leave a Reply Cancel reply

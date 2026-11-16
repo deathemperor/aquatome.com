@@ -37,7 +37,8 @@ import { videoCut, VIDEO_CUT_LIMIT } from './video-cut'
 import { recordSourceFigures, sourceFigures } from './source-figures'
 import fitFront from './fit-front.json'
 import { firstRun, frontEarly, frontHeld, frontPlan, offLane, orderFront, type FirstRun, type HeldMark } from './fit-front'
-import { candidates, cardsOf, checkCalendar, demandByPath, plan, readCalendar, readVerdicts, writeCalendar } from './curation'
+import { candidates, cardsOf, checkCalendar, demandByPath, handAvoid, headAvoid, heldBy, pagePhotos, plan, readCalendar, readVerdicts, withEngineAvoid, writeCalendar } from './curation'
+import { readSecondLook } from './last-photo'
 import { phraseMatch } from './phrases'
 import { readerReport, readPages } from './reader'
 import { checkContent } from './content-check'
@@ -809,7 +810,9 @@ if (cmd === 'photo-privacy') {
   const today = values.from ?? vnDate(new Date())
   const cur = await readCalendar(ROOT)
   const demand = values.gsc ? demandByPath(JSON.parse(await readFile(values.gsc, 'utf8')).rows ?? []) : undefined
-  const cands = await candidates(ROOT, { demand, avoid: cur.avoid })
+  // The engine's own avoid entries are rebuilt below; the picks read a person's alone, as each page's own verdicts do the rest.
+  const hand = handAvoid(cur.avoid)
+  const cands = await candidates(ROOT, { demand, avoid: hand })
   const cards = await cardsOf(ROOT)
   if (values.check) {
     const wrong = checkCalendar(cur, cands, today, days, cards)
@@ -817,8 +820,14 @@ if (cmd === 'photo-privacy') {
     console.log(`curate: ${wrong.length ? `${wrong.length} problems` : `the next ${days} days pass`}`)
     if (wrong.length) process.exitCode = 1
   } else {
-    const { calendar, report: r } = plan(cur, cands, today, days)
+    // Every page's held or refused photos, up to its first that passes, into the avoid list the site's faces for more than
+    // one fish skip (curation.ts headAvoid); last run's engine entries go, a person's stay.
+    const secondLook = await readSecondLook(ROOT)
+    const engine = headAvoid(await pagePhotos(ROOT), await readVerdicts(ROOT), hand, heldBy(secondLook))
+    const was = Object.keys(cur.avoid).filter(u => !(u in hand))
+    const { calendar, report: r } = plan({ ...cur, avoid: withEngineAvoid(cur.avoid, engine) }, cands, today, days)
     await writeCalendar(ROOT, calendar)
+    console.log(`  avoid: ${Object.keys(engine).length} held or refused photos (${Object.keys(engine).filter(u => !was.includes(u)).length} new, ${was.filter(u => !(u in engine)).length} gone), ${Object.keys(hand).length} a person's`)
     for (const x of r.replaced) console.log(`  replaced ${x.date} ${x.slot} ${x.was}: ${x.why}`)
     for (const x of r.filled) console.log(`  filled ${x}`)
     for (const x of r.empty) console.log(`  empty ${x}`)

@@ -3669,6 +3669,20 @@
       "kept": true
     }
   ],
+  "id/places/fernando-poo-island": [
+    {
+      "at": "2026-11-16T05:18:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.45,
+      "notes": [
+        "Fernando Póo"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/fitzroy-river": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -10216,6 +10230,18 @@
       "kept": true
     }
   ],
+  "id/places/paraguay-parana-system": [
+    {
+      "at": "2026-11-16T05:18:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.45,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/paraiba-do-sul": [
     {
       "at": "2026-11-06T12:35:53Z",
@@ -11160,6 +11186,20 @@
       "notes": [
         "sông Aruka → Aruka (Vietnamese 'sông'; should be Sungai Aruka)",
         "Aruka (river) lacks 'Sungai' prefix"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-atabapo": [
+    {
+      "at": "2026-11-16T05:18:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.45,
+      "notes": [
+        "Atabapo"
       ],
       "attempt": "first",
       "kept": true
@@ -20582,6 +20622,25 @@
       "kept": true
     }
   ],
+  "ms/places/fernando-poo-island": [
+    {
+      "at": "2026-11-16T05:35:05Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Pulau Fernando Póo: acceptable, though the current name is Pulau Bioko (Bioko), so this is a historical name"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.6,
+        0.6
+      ]
+    }
+  ],
   "ms/places/florida-peninsula": [
     {
       "at": "2026-11-09T00:52:34Z",
@@ -27420,6 +27479,23 @@
       "kept": true
     }
   ],
+  "ms/places/paraguay-parana-system": [
+    {
+      "at": "2026-11-16T05:35:05Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.6,
+        0.6
+      ]
+    }
+  ],
   "ms/places/paraguay-river": [
     {
       "at": "2026-11-08T03:37:06Z",
@@ -28666,6 +28742,25 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "ms/places/rio-atabapo": [
+    {
+      "at": "2026-11-16T05:35:05Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Atabapo: a river name should be \"Sungai Atabapo\" in Malay atlas style, but \"Atabapo\" has no \"Sungai\""
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.6,
+        0.6
+      ]
     }
   ],
   "ms/places/rio-atrato": [
@@ -38384,6 +38479,25 @@
       ]
     }
   ],
+  "th/places/fernando-poo-island": [
+    {
+      "at": "2026-11-16T05:19:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "เฟร์นันโดโป: no เกาะ prefix; an atlas would usually write เกาะเฟอร์นันโดโป (now เกาะบิโอโก). Spelling is acceptable."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.8,
+        0.8
+      ]
+    }
+  ],
   "th/places/fianarantsoa": [
     {
       "at": "2026-11-06T12:36:17Z",
@@ -45273,6 +45387,25 @@
       "kept": true
     }
   ],
+  "th/places/paraguay-parana-system": [
+    {
+      "at": "2026-11-16T05:19:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "ปารากวัย-ปารานา: no ระบบแม่น้ำ prefix, but the name itself is correct."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.8,
+        0.8
+      ]
+    }
+  ],
   "th/places/paraguay-river": [
     {
       "at": "2026-11-06T12:36:07Z",
@@ -46282,6 +46415,23 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/places/rio-atabapo": [
+    {
+      "at": "2026-11-16T05:19:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.8,
+        0.8
+      ]
     }
   ],
   "th/places/rio-aye": [
@@ -56356,6 +56506,17 @@
       "kept": true
     }
   ],
+  "vi/places/fernando-poo-island": [
+    {
+      "at": "2026-11-16T05:17:56Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/fianarantsoa": [
     {
       "at": "2026-11-07T20:34:11Z",
@@ -64879,6 +65040,17 @@
       "kept": true
     }
   ],
+  "vi/places/paraguay-parana-system": [
+    {
+      "at": "2026-11-16T05:17:56Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/paraguay-river": [
     {
       "at": "2026-11-07T20:37:55Z",
@@ -66120,6 +66292,17 @@
         "'sông Johor', 'sông Tapi', 'sông Aruka' and 'hồ Monroe' are the source's names with the generic word put into Vietnamese.",
         "All the other names keep the source's spelling, which is how Vietnamese writes foreign place names."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-atabapo": [
+    {
+      "at": "2026-11-16T05:17:56Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }

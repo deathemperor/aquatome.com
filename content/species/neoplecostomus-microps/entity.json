@@ -18,10 +18,12 @@
       ],
       "regions": [
         "Paraíba do Sul",
-        "Macaé"
+        "Macaé",
+        "Macaé River"
       ],
       "sources": [
-        "planetcatfish"
+        "planetcatfish",
+        "scotcat"
       ],
       "quotes": [
         {
@@ -46,6 +48,14 @@
           "countries": [],
           "regions": [
             "Macaé"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Neoplecostomus microps occurred only in fast-flowing stretches with stones and boulders, typical of the upper and middle stretches of the Macaé River.",
+          "countries": [],
+          "regions": [
+            "Macaé River"
           ]
         }
       ]

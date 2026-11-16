@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/pogostemon-octopus-care-guide-planting-growing-and-propagation/
 title: Pogostemon Octopus Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-11-09T00:19:54.422Z
-hash: 04cc5f2ade6570cdf4326e68e9d69f1846adade112789233a4d3df49b463b879
+hash: 6d362987e0b8d5e334ffba5f6dd6046c9fc32900ec58c7969c245f45e40b7ec6
 ---
 
 Pogostemon quadrifolius / stellatus ‘octopus’ is a beautiful stem plant originating from Southeast Asia and Australia. Hobbyists and aquarium enthusiasts often employ this plant to beautify and create interesting focal points in the midground and background of their freshwater tanks.
@@ -114,8 +114,3 @@ Pogostemon octopus is an excellent aquatic stem plant with stunning bright green
 When mixed with other plants, it creates an eye-catching backdrop and forms an appealing array in a freshwater aquarium.
 Since Pogostemon octopus is a hardy and beginner-friendly species, amateur aquarists are welcome to try out this plant in their aquarium setups.
 One of its main pros is the ability to thrive in a variety of aquarium conditions. Whether low-tech or high-tech, Pogostemon octopus will thrive and adorn the tank with lush, vibrant green vegetation provided that optimal conditions are present.
-## 6 thoughts on “Pogostemon Octopus Care Guide – Planting, Growing, and Propagation”
-- Hi Michael, great article and really impressed with style of writing upbeat and inspiring. Being from Australia (myself) I want some due to all the positives you provided in your article. In your research did you come across any links, suppliers, farms, providers etc as I am trult struggling to find anyone business or personal that has it. please do have any advice. ReplyHi Jayson Smith, Thank you! Unfortunately, I do not have any contact in Australia and can’t help you here. If anyone here knows good providers, please share with me and I will send all information to you. Best regard, Michael Reply
-- Hi Jayson Smith if you are after some i have plenty available can cut small or larger depending on the depth of your tank hit me up on my instagram @Neptunes_Oasis and i can hook you up ReplyHi Neptunes Oasis, Thank you! I will leave your contact here. If anybody needs this plant. Best regards, Michael Reply
-- Thank you both. I had almost forgotten about the request. I am currently battling a large BBA outbreak. but I will contact you when I am on top of it again (sooner than later, fingers crossed ) ReplyHi Jayson Smith, You are welcome! Check out “How to Remove Black Beard Algae in Aquariums“, and choose the best way that suits your tank setup. Best regard, Michael Reply
-### Leave a Reply Cancel reply

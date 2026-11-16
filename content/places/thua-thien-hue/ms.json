@@ -3,6 +3,12 @@
   "name": "Thua Thien Hue",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-16T05:43:26.616Z",
+    "why": "Malay atlases normally write the province with the kind word \"Wilayah\" or \"Provinsi\" (e.g. \"Wilayah Thua Thien Hue\"), and \"Thua Thien Hue\" alone lacks it, although the name itself is a correctly kept Vietnamese spelling without diacritics."
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

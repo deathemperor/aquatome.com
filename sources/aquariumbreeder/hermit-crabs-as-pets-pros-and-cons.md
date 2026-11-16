@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/hermit-crabs-as-pets-pros-and-cons/
 title: Hermit Crabs as Pets: Pros and Cons - Shrimp and Snail Breeder
 fetchedAt: 2026-10-31T12:38:21.974Z
-hash: 62b72152c8f1e9637ffdade2ddd59c8e772f6507363daf0589202dbe985f84e0
+hash: 5ddd2decacfe6ee69e128969eb57a214b78e086b844f19ec88b879fb27b7e9f4
 ---
 
 The hobby of keeping hermit crabs as pets date back to at least the middle of the 20th century. In recent years, hermit crab keeping has become increasingly popular. If you are new to this hobby and are simply interested in learning about these creatures in general, including whether or not it’s worth having them as pets, this article is for you.
@@ -182,9 +182,3 @@ On the positive side, these crustaceans can be extraordinary companions for many
 Having them as pets will not be overwhelming, especially, if your schedule is already hectic.
 The downside though is that hermit crabs come with specific care demands, offer limited owner interaction, necessitate careful handling due to their potential messiness, etc.
 So, do not get them on impulse. Do your research. Weigh the pros and cons beforehand.
-## 8 thoughts on “Hermit Crabs as Pets: Pros and Cons”
-- I wish they could just be tamed… ReplyHi Thor, Well… that is a common wish! Unfortunately, tey don’t bond in the same way mammals do. However, providing a species-appropriate habitat with proper care will lead to a happy, thriving crab that shows less fear and more natural behaviors – which can be very rewarding in its own way. Thanks for reading the article! Best regards, Michael Reply
-- Ever since my divorce I’ve been looking for a companion. I was initially entranced by the appearance of these creatures and had decided to welcome one into my home. However, after reading this article I’ve come to the conclusion that this particular breed of crab is not suited to my needs. Any recommendations on a better fit? ReplyHi Sara, Are you thinking something that’s interactive, low-maintenance, or something in between? Knowing a bit more about your needs would help me give a more tailored suggestion! You can contact me. Best regards, Michael Reply
-- noooo hermits crabs are for everyone ReplyHi Bun, Sorry, but this is not funny. Best regards, Michael Reply
-- What is your favorite kind of hermit crab? ReplyHi Lincoln, Blueberry hermit crabs – I love them Best regards, Michael Reply
-### Leave a Reply Cancel reply

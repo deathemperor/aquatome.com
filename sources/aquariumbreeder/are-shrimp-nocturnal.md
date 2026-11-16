@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/are-shrimp-nocturnal/
 title: Are Shrimp Nocturnal? - Shrimp and Snail Breeder
 fetchedAt: 2026-11-10T21:06:35.221Z
-hash: 44c54f40e6dda1201046a4a9497705796bb17b99b31573cc83c511cf8c4ebb44
+hash: 1401b2b83ba7144a15367dc10051fb19c198fc6d15a4ef7c89888110ae666730
 ---
 
 Recently I have come across a few blog posts which are supposedly answering this simple question – “Are shrimp nocturnal?” Unfortunately, the information in some of those articles was either fluff or completely wrong. Therefore, I feel obliged to add my voice and correct some of these falsehoods.
@@ -73,8 +73,3 @@ Any dwarf shrimp species (including Amano shrimp, Ghost shrimp, etc.) are noctur
 - Shrimp have compound eyes which allow them to see in the dark.
 - In shrimp, light causes stress and reduces the survival rate.
 Therefore, the mere fact that they can be seen during the daytime does not prove anything. Scientific studies and even simple experiments show us that shrimp are nocturnal animals and have nocturnal habits. So, it would be wrong to claim otherwise.
-## 6 thoughts on “Are Shrimp Nocturnal?”
-- Excellent article, backed up by factual evidence and scientific research. Thank you, Lance W. ReplyHi Lance W., Thank you for the kind words, I did my best)) Best regards, Michael Reply
-- Really awesome article! As a PhD in a biomedical science I love the research article references. Surprisingly, I have the same name as the last person who commented. ReplyHi Lance M. Thanks! I try to back up everything with solid science. And that’s a fun coincidence about the names! Best regards, Michael Reply
-- i like shrimps. this is useful info ReplyHi Cameron, You are welcome! Everybody here likes them :)) Best reagrds, Michael Reply
-### Leave a Reply Cancel reply

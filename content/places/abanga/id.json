@@ -1,8 +1,13 @@
 {
   "slug": "abanga",
-  "name": "Abanga",
+  "name": "Sungai Abanga",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.8,
+    "at": "2026-11-16T05:43:29.726Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

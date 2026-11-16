@@ -15,9 +15,12 @@
       "countries": [
         "PE"
       ],
-      "regions": [],
+      "regions": [
+        "Amazon"
+      ],
       "sources": [
-        "glaser"
+        "glaser",
+        "scotcat"
       ],
       "quotes": [
         {
@@ -27,6 +30,14 @@
             "PE"
           ],
           "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "This monotypic genus is known only from the upper Amazon River basin.",
+          "countries": [],
+          "regions": [
+            "Amazon"
+          ]
         }
       ]
     },

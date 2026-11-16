@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/juncus-repens-care-guide-planting-growing-and-propagation/
 title: Juncus repens Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-10-30T11:48:47.203Z
-hash: 0edcff89312257ca8e928ddf7ff82817e7eba3e79197b49bdf3486164e6717fe
+hash: 971688311f54b72d057ace9e4512a35914db0197b91f7a47fbf37219c6d84c88
 ---
 
 Creeping rush (Juncus repens) is a versatile and hardy plant noted for its use in creating carpets in aquariums. It is characterized by needle-like green leaves, medium to fast growth, and durability.
@@ -145,4 +145,3 @@ Under optimal conditions, it will take off very fast and fills up every availabl
 - Michaux, A. Flora Boreali-Americana: sistens caracteres plantarum quas in America septentrionali collegit et detexit Andreas Michaux. Vol. 1. Parisiis et Argentorati: fratres Levrault. BHL Reference page.: 1: 191.
 - https://plants.usda.gov/home/plantProfile?symbol=JURE2
 - https://herbarium.bio.fsu.edu/
-### Leave a Reply Cancel reply

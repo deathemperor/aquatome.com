@@ -14403,5 +14403,239 @@
         0.6
       ]
     }
+  ],
+  "vi/species/moenkhausia-sanctaefilomenae#glaser": [
+    {
+      "at": "2026-11-16T04:05:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "Item 1 is fine.",
+        "Item 2: 'Nguồn gốc tên gọi' is acceptable, but 'Từ nguyên' or 'Nguồn gốc tên khoa học' is more standard for etymology.",
+        "Item 2: 'tên đặt để tưởng nhớ' adds 'in memory of'. The English only says 'dedication name' (named in honour of), so use 'đặt tên để vinh danh' or 'tặng'. 'Tưởng nhớ' implies he was dead.",
+        "Item 2: 'tức một cái đầm gần St. Filomena ở vùng Parnahyba' is an added gloss. Keeping the quoted English is fine, but 'vùng' is an addition and 'cái đầm' is colloquial. Use 'đầm/hồ nước gần St. Filomena bên sông Parnahyba'.",
+        "Item 2: 'nơi thu mẫu chuẩn' is acceptable, but 'nơi thu thập mẫu định danh (type)' is more standard."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.8,
+        0.85
+      ]
+    }
+  ],
+  "vi/species/moenkhausia-sanctaefilomenae#seriouslyfish": [
+    {
+      "at": "2026-11-16T04:05:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "Item 8: 'Doradid' and 'dither' are left in English. Consider adding a Vietnamese gloss, e.g. 'cá dither (cá làm dịu đàn)'.",
+        "Item 10: 'microworm' is left in English. Consider 'giun microworm'.",
+        "Item 5: 'dẻ gai' for beech and 'sồi' for oak are acceptable. Otherwise the items are faithful, with numbers, units and Latin names correct."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.95,
+        0.95,
+        0.95
+      ]
+    }
+  ],
+  "vi/species/mystus-bocourti#glaser": [
+    {
+      "at": "2026-11-16T04:07:29Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "#1: \"Cũng vì cái vây đó mà suốt một thời gian dài nó được đặt vào một chi riêng\" – OK, but \"Cá nhỏ sẽ bị chúng ăn thịt\" is fine; \"neither congeners...\" is conveyed. Minor: \"cái vây đó\" is colloquial; use \"vây lưng đó\".",
+        "#1: \"thú vị\" for \"fascinating\" is weak; consider \"hấp dẫn\".",
+        "#3: Added fact \"Cá dễ nuôi về khoản ăn uống\" is not in the English; remove it or merge into the next sentence (\"Cá ăn ngay...\").",
+        "#3: \"any ... food\" is narrowed to \"quen thuộc\"; the original says any usual frozen or live food, so render as \"bất kỳ loại thức ăn đông lạnh hoặc sống thông thường nào\". Also \"tươi sống\" for \"live\" is acceptable.",
+        "#4: Added \"(tiếng Anh)\" and the explanation \"vì Bagrus là một chi cá da trơn khác\" turns the original's separate statement into a causal link; use \"Bagrus là một chi cá da trơn khác\" instead.",
+        "#4: \"Lexicon\" rendered as \"Giải nghĩa tên khoa học\" is acceptable; \"thu các mẫu chuẩn\" better as \"thu thập các mẫu vật chuẩn (type)\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    {
+      "at": "2026-11-16T04:07:29Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.72,
+      "notes": [
+        "Item 1: \"cá cùng chi\" is wrong; English says \"congeners\", which here means conspecifics and other congeneric fish. Use \"đồng loại\" or \"cá cùng loài\", not \"cùng chi\".",
+        "Item 1: \"Cá cỡ nhỏ thì sẽ bị nó ăn\" is awkward. Rephrase as \"cá nhỏ sẽ bị chúng ăn thịt\".",
+        "Item 1: \"được đặt vào một chi riêng suốt thời gian dài\" would be more natural than \"từng bị tách riêng thành một chi\". \"Bị\" adds a negative tone that the English lacks.",
+        "Item 3: \"tươi sống\" for \"live fish food\" is fine, but \"usually frozen or live\" was changed to \"thông thường\". Make it clear that it means the usual frozen or live foods.",
+        "Item 4: \"cá da trơn vua vây cao\" is an invented Vietnamese rendering of the suggested common name. It would be better to give the English name only or a plain translation, and not call it an established name.",
+        "Item 4: \"Nguồn gốc tên\" is acceptable for \"Lexicon\", but \"Giải nghĩa tên khoa học\" would be more precise."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.72,
+        0.7,
+        0.8
+      ]
+    }
+  ],
+  "vi/species/mystus-bocourti#scotcat": [
+    {
+      "at": "2026-11-16T04:07:29Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "Item 1: \"Sắp nguy cấp (Vulnerable)\" is fine, but \"Sắp nguy cấp\" usually means Near Threatened; the standard term for Vulnerable is \"Sẽ nguy cấp\"/\"Nguy cấp (VU)\". Check the term.",
+        "Item 4: \"plants to the background\" is rendered as \"trồng cây ở phía sau\". This is acceptable. \"dùng lọc tốt\" is slightly clipped; prefer \"lắp hệ thống lọc tốt\".",
+        "Item 5: \"benthic invertebrates\" became \"động vật đáy nhỏ\". \"nhỏ\" and the dropped \"không xương sống\" are not in the source; use \"động vật không xương sống đáy\".",
+        "Item 5: \"tablet\" became \"viên chìm\". \"Chìm\" (sinking) is added; use \"viên nén\".",
+        "Item 4: \"the same or larger species\" is rendered as \"cùng cỡ hoặc lớn hơn\". Fine. Note the original is vague about \"species\", so keep it as \"loài\" rather than size.",
+        "Item 2: \"Nơi thu mẫu chuẩn\" is acceptable; \"Nơi mô tả loài (type locality)\" is more standard."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    {
+      "at": "2026-11-16T04:07:29Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "Item 5: 'benthic invertebrates' translated as 'các con nhỏ sống dưới đáy' (small ones living on the bottom) – wrong, should be 'động vật không xương sống đáy'.",
+        "Item 5: 'Ngoài tự nhiên' added; the English does not say 'in the wild' (though implied by 'Adults feed'). Also 'đồ tươi sống' is awkward; use 'thức ăn sống và đông lạnh'.",
+        "Item 7: 'Điểm khác hẳn mọi loài Mystus khác' drops the 'indeed, from all other Asian Bagridae except Bagrichthys hypselopterus' nuance and is restructured: should say it is distinguished from all other Asian Bagridae except B. hypselopterus.",
+        "Item 7: 'ba hoặc bốn tia mềm đầu tiên cũng dài ra như thế' is vague; say 'gai vây lưng không có răng cưa và ba hoặc bốn tia mềm đầu tiên đều rất dài', linking to the high dorsal fin.",
+        "Item 4: sentence order changed and 'Can only be kept with…' is okay, but 'con cá này' is clumsy; 'dùng lọc tốt' acceptable.",
+        "Item 6: 'có lẽ chúng cũng bắt cặp rõ ràng' is awkward; use 'có thể bắt cặp riêng biệt như các loài khác trong họ'.",
+        "Item 1: 'Sắp nguy cấp' for Vulnerable is acceptable (standard is 'Sắp nguy cấp'); fine.",
+        "Item 2: 'Siam' as type locality could be 'Xiêm (Siam)'; minor."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.7,
+        0.6,
+        0.7
+      ]
+    }
+  ],
+  "vi/species/nannostomus-eques#seriouslyfish": [
+    {
+      "at": "2026-11-16T04:09:29Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [
+        "Item 7: \"loài săn mồi cỡ siêu nhỏ\" is ambiguous (it reads as if the predator is tiny). \"Micropredator\" means a predator of tiny prey. Suggest \"loài săn các con mồi tí hon\".",
+        "Item 3: \"Chúng đặc biệt hay ở những chỗ\" is awkward. Use \"đặc biệt hay gặp ở những chỗ\" or \"thường tập trung ở\".",
+        "Item 10: \"nước cũ đã để lâu\" is redundant. Use \"nước đã để lâu / nước đã ổn định\".",
+        "Item 10: \"cho ăn tăng cường để cá sẵn sàng sinh sản\" is fine, but \"conditioned\" could be stated more simply as \"nuôi vỗ\", the standard hobby term.",
+        "Item 10: the memorial line \"Phần này xin tưởng nhớ…\" is acceptable, but it could be tightened to \"Tưởng nhớ Alan P. Vaissiere…\"."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.9,
+        0.93,
+        0.95
+      ]
+    }
+  ],
+  "vi/species/nannostomus-trifasciatus#glaser": [
+    {
+      "at": "2026-11-16T04:14:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "Item 1: \"cá cảnh lâu đời\" for \"traditional aquarium fish\" is acceptable but slightly stiff; consider \"loài cá cảnh truyền thống\".",
+        "Item 1: Added \"Tên chi\" and \"Tên loài\" are fine clarifications, no change needed.",
+        "Item 2: \"xuất đi qua ngả Manaus\" is awkward; use \"xuất khẩu qua Manaus\"."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.9,
+        0.9,
+        0.9
+      ]
+    }
+  ],
+  "vi/species/nannostomus-trifasciatus#seriouslyfish": [
+    {
+      "at": "2026-11-16T04:14:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.82,
+      "notes": [
+        "#7: \"tiny invertebrates\" is rendered as \"tép, bọ li ti\". \"Tép\" (shrimp) is an added, inaccurate example. Use \"động vật không xương sống nhỏ bé\" or similar.",
+        "#7: \"micropredator\" as \"cá săn mồi cỡ nhỏ\" is ambiguous. Say \"loài săn mồi vi mô\" or \"săn những con mồi rất nhỏ\".",
+        "#6: \"Cá hoang dã cũng như với pH, có thể khỏe nhất ở khoảng giữa đến đầu thấp của dải\" is clumsy. Write \"Với cá hoang dã, lưu ý tương tự như pH.\"",
+        "#6 and #1: \"khoảng giữa đến đầu thấp\" is awkward. Use \"khoảng giữa và nửa thấp của dải\".",
+        "#8: \"Cá dither là cá bơi lộ ra ngoài để cá chính yên tâm, bớt trốn\" is an added explanation not in the source. Keep it short, or mark it as a gloss.",
+        "#8: \"(cá sặc, cá xiêm…)\" adds examples that the English does not give. Remove them, or keep just \"anabantoid\".",
+        "#10: \"set thêm một bể\" is informal jargon. Use \"chuẩn bị/lập thêm một bể\".",
+        "#10: \"bậc thầy ép đẻ cá\" is awkward. Use \"bậc thầy nhân giống cá\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.82,
+        0.6,
+        0.82
+      ]
+    },
+    {
+      "at": "2026-11-16T04:14:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "Item 4: '~68 litres' / 'khoảng 68 lít' – the 75×30 cm tank volume is kept as in the source, so this is fine; no change needed.",
+        "Item 11: 'nocturnal oblique bars present and exceptionally broad' is rendered 'Ban đêm cá hiện các vạch xiên' – OK, but 'phần đầu gốc vây lưng' is unclear; use 'phần gốc trước của vây lưng' and 'phần gốc sau của vây hậu môn'.",
+        "Item 11: 'laterosensory canal system absent or reduced to 7 scales or less' is rendered 'chỉ còn trên 7 vảy trở xuống' – contradictory; use 'chỉ còn trên tối đa 7 vảy' or 'không quá 7 vảy'.",
+        "Item 11: 'in the majority of members males have...' is rendered 'Con đực của các loài trong họ thường có' – loses 'majority'; use 'ở phần lớn các loài'.",
+        "Item 11: 'The frontal/parietal fontanelle is always absent' is rendered 'Các loài trong họ đều không có thóp trán/đỉnh' – OK, but the 'Hepsetidae' wording is fine.",
+        "Item 11: 'It's sometimes referred to as...' and 'Don't worry if your fish...' are fine. 'Calcagnotto et al.' is fine.",
+        "Item 11: 'vây mỡ có thể có, chỉ còn dạng thoái hóa' – 'rudimentary' is better as 'sơ khai/tiêu giảm'.",
+        "Item 1: 'cùng giống' is the standard 'congeners' wording, but 'một dạng' for 'one population' is fine. 'Cá trại' is acceptable.",
+        "Item 7: 'micropredator feeding on tiny invertebrates and other zooplankton' is rendered 'các con vật nhỏ xíu trong nước và những loại động vật phù du khác' – 'invertebrates' is lost; use 'động vật không xương sống nhỏ'.",
+        "Item 7: 'dried foods of a suitable size' is rendered 'cỡ vừa miệng' – fine."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.7,
+        0.62,
+        0.7
+      ]
+    }
   ]
 }

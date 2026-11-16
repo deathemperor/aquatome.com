@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/fairy-moss-care-guide-planting-growing-and-propagation/
 title: Fairy Moss Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-11-09T09:09:05.994Z
-hash: 96dda068313d8b742602b2819267b9a189a09f983f6a8f5efb44394d4bb81ff6
+hash: 9b8bfcb9dcf46bfe2224b1f8a7abe7bd28956c0321f5da62251a01225f3d8f20
 ---
 
 Azolla (also called Fairy moss or Mosquito fern) is a stunning, prolific, and hardy aquatic fern often employed by hobbyists in decorating their freshwater aquaria, paludaria, and ponds.
@@ -123,6 +123,3 @@ How to Remove Snails from a Shrimp Tank. How to Quarantine and Disinfect Aquariu
 ## In Conclusion
 Fairy moss is a common, heterosporous, free-floating fern suitable for adorning freshwater tanks and ponds.
 The plant features tiny, attractive fronds that are brightly green/reddish colored and they contain the blue-green alga Anabaena azollae which is capable of fixing atmospheric nitrogen, thus enriching the water. Also, the thick canopy formed by fairy moss beautifies the surface of aquariums and ponds and provides ample shade/cover for aquatic critters.
-## 2 thoughts on “Fairy Moss Care Guide – Planting, Growing, and Propagation”
-- how do I rid my small pond of this? I manually remove it, but if even a leaf remains, it comes back, overtaking my pond ReplyHi MarHump, Removing Fairy moss from an open pond seems quite challenging. Using specialized pesticides might help, or if your pond is small, you could try covering it to create a blackout for a while. Unfortunately, both methods could have negative effects on other plants and animals in the pond. Best regards, Michael Reply
-### Leave a Reply Cancel reply

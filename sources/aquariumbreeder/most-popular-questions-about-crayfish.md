@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/most-popular-questions-about-crayfish/
 title: 55 Most Popular Questions about Crayfish - Shrimp and Snail Breeder
 fetchedAt: 2026-11-08T00:14:36.772Z
-hash: fc3626c1daf0675792796c3076c218d0b8460cd77da219cc1ed9a8c2830312da
+hash: 1288795a1b7de3a459ec402ce966e1e899d1e5fb5c341da616f3e11bbf43bd13
 ---
 
 Whether you own a pet crayfish or not, there are probably a few things you have always wondered about them.
@@ -262,6 +262,3 @@ They will later eat their molt to regain energy lost during the molting process 
 ## In Conclusion
 In this article, you can find the most commonly asked questions about crayfish in our community.
 If you did not find the question you were looking for, feel free to contact me and I’ll do my best to help you.
-## 2 thoughts on “55 Most Popular Questions about Crayfish”
-- Hello Michael! Thanks so much for the wealth of information on blue crayfish. I teach 2nd grade and we have added a blue crayfish to our classroom! We have had her 5 days now. She was very active at first, but last 2 days she has been hiding more and very scared when anyone comes close to the tank. I understand they are nocturnal too, so this may be part of her behavior. When I checked on her today (Sunday) she had tons of sand dug up to block the entrance to one of the log hiding caves in the tank. She has been digging like crazy. I wondered if she might be laying eggs or possibly going to molt since she is hiding more now. She loves the bubbler and sounds like that is enough air for her (I don’t need to provide something for her to get out of the water, right?). I wondered if I should leave the lights off in her 20 gallon tank. The classroom lights are on during the week and I wonder if it is too bright for her with the tank LED lights on too. I want to be the best “Lobster Mama” (as the kiddos call me) that I can be. Thanks so much, appreciate your wisdom and help! Ellie ReplyHi Ellie Trygstad, As I understand, you have Procambarus alleni species. It seems like there are not many places that suite your crayfish. As a result, she decided to make her own. This is normal. Also, too much light may stress her. So, I would turn it off whenever it is possible. Best regards, Michael Reply
-### Leave a Reply Cancel reply

@@ -52,9 +52,12 @@ test("a check's second try on the Mac gives its tests 6 times their limits, cool
 })
 
 // That photos run's second try (16:25) ran no test at all: vitest gives a worker 60 s to start, a limit no setting raises,
-// and 25 of the schema's 28 files had none in time. The second try starts two at a time; the first, as many as vitest likes.
-test("a check's second try starts two vitest workers at a time, and the first its usual number", () => {
-  expect(scales(0, ['Error: [vitest-pool-runner]: Timeout waiting for worker to respond', 'ok']).workers).toEqual(['workers=unset', 'workers=2'])
+// and 25 of the schema's 28 files had none in time. The second try starts two at a time. The first starts four, at night
+// too (the owner, 16 Nov 2026: "you are killing the machine"; the chief of staff's cap); GitHub's runner, its own number.
+test("a check's first try on the Mac starts four vitest workers at a time, its second two; GitHub's its usual number", () => {
+  expect(scales(0, ['Error: [vitest-pool-runner]: Timeout waiting for worker to respond', 'ok']).workers).toEqual(['workers=4', 'workers=2'])
+  expect(scales(0, ['ok']).workers).toEqual(['workers=4'])
+  expect(scales(0, ['ok'], true).workers).toEqual(['workers=unset'])
 })
 
 // Out of time twice keeps the run's work for the next run to publish (TIMED_OUT, keep_unpublished); a check that fails

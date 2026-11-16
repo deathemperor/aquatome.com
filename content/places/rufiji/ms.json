@@ -1,8 +1,13 @@
 {
   "slug": "rufiji",
-  "name": "Rufiji",
+  "name": "Sungai Rufiji",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.8,
+    "at": "2026-11-16T05:42:17.697Z"
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/how-to-cycle-a-tank-the-dark-start-method/
 title: How to Cycle a Tank: the Dark Start Method - Shrimp and Snail Breeder
 fetchedAt: 2026-11-04T22:33:09.803Z
-hash: 4a5efd8cc1f166f254cb8cb432196929ce0b5c5b96089c18599905e98e8e892a
+hash: 3ef8e0a8f7141fae6d27652544f343b71bf12c523aced23403dec02eb1954df9
 ---
 
 If you have been in this hobby for a bit you will probably know that there are many ways to cycle our tanks. It can be the Dry Start Method, the Fish-In Cycle, the Fishless cycle, and the Cycle with plants. Nonetheless, the Dark start method is the new guy in the town and it is rapidly gaining popularity.
@@ -141,9 +141,3 @@ Pros:
 - Maintenance: No algae or melting plants. If you have driftwood, it will water-log and lose/leach lots of tannin during the cycling.
 - Safe: It will not harm your animals.
 - Stable: Although the dark start method needs more time, it also means that, in the long run, beneficial bacteria will create an excellent balance in the tank.
-## 8 thoughts on “How to Cycle a Tank: the Dark Start Method”
-- If using RO/distilled water, how much should we remineralise? The ideal TDS should be at? ReplyHi Jo, The answer to your question will depend on what kind of aquatic pets you have in your aquarium (shrimp, crayfish, crabs, etc.), as the specific water parameters required for these pets will vary depending on the species. Best regards, Michael Reply
-- hi, should the heater operate during the cycle? ReplyHi Tony Cornish, If your room temperature is around 68-72°F (20-22°C), it will be sufficient. However, it is worth noting that the growth and reproduction of beneficial bacteria are temperature-dependent. According to studies, at a temperature of 65°F (18°C), the growth rate is reduced by 50%. Best regards, Michael Reply
-- Thank you for researching and writing this article. Also, thank you for posting it without giant advertisements embedded in the middle of the paragraphs. After several years of trying and being frustrated by other methods of cycling a tank, I think this sounds like solid science. Slàinte Mhath ReplyHi Gregory R, Thanks for the kind words Best reagrds, Michael Reply
-- Hi Michael,I hope everything is well on your end. This thorough guide for doing a dark start is really informative and technical. I had fun reading it and I find it really helpful. I’m a beginner in the hobby and I’m planning to start my first sunken garden soon. This is a very stupid question but I’m just wondering if I can Dark start my aquarium to decrease ammonia spike and algae growth then completely drain the aquarium and proceed to do a semi dry start so my carpeting plants would spread more evenly. Would that be possible or is it counter intuitive?Kind regards, Marlo ReplyHi Marlo, Actually, this is not a stupid question at all. But honestly, I wouldn’t mix them like that. Here’s why: 1. Dark Start method builds a strong colony of beneficial bacteria in a fully submerged dark tank. If you then completely drain the tank, most of those bacteria will die. 2. Dry Start method keeps the tank humid but not flooded. That’s totally fine for plants, but not for the type of bacteria you just spent weeks growing. You’ll basically lose the progress from the Dark Start. Personally, I’d stick to one of them. Let me know which route you take. Good luck! Best regards, Michael Reply
-### Leave a Reply Cancel reply

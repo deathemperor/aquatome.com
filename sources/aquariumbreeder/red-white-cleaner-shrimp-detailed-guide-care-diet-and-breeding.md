@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/red-white-cleaner-shrimp-detailed-guide-care-diet-and-breeding/
 title: Red-white Cleaner Shrimp – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-11-03T08:41:31.783Z
-hash: 26d28832a269e2dcc5754b9c68c220721d4a3b5c52f14ece6f3301adeeaf4986
+hash: f206316b96affa2d628a5d3f9e67b01751e856a233f3018186b7316f009363d1
 ---
 
 Urocaridella Antonbruunii, generally known as the Red-white cleaner shrimp are fascinating small shrimp and a great albeit somewhat uncommon addition to a marine aquarium.
@@ -144,6 +144,3 @@ Unfortunately, this species is relatively hard to find on the pet market.
 - Bruce, Alexander J. “Crustacea Decapoda: palaemonoid shrimps from the Indo-West Pacific region mainly from New Caledonia.” Résultatsdescampagnes MUSORSTOM 15 (1996): 197-267.
 - Fransen, C. H. J. M. “Marine palaemonoid shrimps of the Netherlands Seychelles Expedition 1992-1993.” Zoologische Verhandelingen 297, no. 4 (1994): 85-152.
 - Bruce, A.J., 1967b. Notes on some Indo-Pacific Pontoniinae III-IX. Descriptions of some new genera and species from the western Indian Ocean and the South China Sea.— Zoologische Verhandelingen 87: 1-73.
-## 2 thoughts on “Red-white Cleaner Shrimp – Detailed Guide: Care, Diet, and Breeding”
-- Hello, I am an activist following your website from Turkey. First of all, thank you for sharing this information. I have a planted shrimp aquarium. I keep gambusia affinis in another aquarium. Does Gambusia affinis harm shrimps? Can they live together? ReplyHi Kadir, Thank you for your kind words; I appreciate it. Regarding your question, I wouldn’t recommend keeping dwarf shrimp and Gambusia affinis together if you plan on breeding shrimp. Research indicates that these fish consume small Halocaridina rubra shrimp, and overall, the shrimp have shifted to entirely nocturnal behavior. So, I would be very cautious. Best regards, Michael Reply
-### Leave a Reply Cancel reply

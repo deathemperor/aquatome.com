@@ -1,0 +1,79 @@
+{
+  "id": "serrapinnus-sterbai",
+  "native": {
+    "input": "dad699d9f5caedcd",
+    "at": "2026-11-16T05:47:36.414Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Brazil",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This species obviously originates from the Araguaia/Tocantins basin in Central Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Araguaia",
+        "source": "glaser",
+        "quote": "This species obviously originates from the Araguaia/Tocantins basin in Central Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Tocantins",
+        "source": "glaser",
+        "quote": "This species obviously originates from the Araguaia/Tocantins basin in Central Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Serrapinnus sterbai",
+    "status": "ACCEPTED",
+    "taxonKey": 7193767,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        16
+      ],
+      [
+        "17adfe62-71be-4ddf-bbe2-9137253a2007",
+        15
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        3
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        2
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-16T05:47:36.414Z"
+  }
+}

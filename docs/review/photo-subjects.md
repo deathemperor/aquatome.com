@@ -1,9 +1,9 @@
 # Photos that don't show their page's subject
 
-Written by `pnpm engine check-photos` (2026-11-15), most-read pages first. Rules: docs/governance.md, "Photos".
-8155 verdicts. Shows it: 5297; its habitat (asked again): 3; something else: 366; not a photo of it: 293; dead or as food: 447; a person in it: 129; a logo on it: 65; can't tell: 1391.
+Written by `pnpm engine check-photos` (2026-11-16), most-read pages first. Rules: docs/governance.md, "Photos".
+7975 verdicts. Shows it: 5208; its habitat (asked again): 3; something else: 356; not a photo of it: 284; dead or as food: 434; a person in it: 127; a logo on it: 61; can't tell: 1348.
 
-## Left with no photo (106)
+## Left with no photo (108)
 
 - species/channa-stewartii
 - species/symphysodon-discus
@@ -112,7 +112,7 @@ Written by `pnpm engine check-photos` (2026-11-15), most-read pages first. Rules
 - species/xenotilapia-sima
 - species/xiurenbagrus-gigas
 
-## Can't tell: still shown (1391)
+## Can't tell: still shown (1348)
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
@@ -1203,6 +1203,7 @@ Written by `pnpm engine check-photos` (2026-11-15), most-read pages first. Rules
 | species/caridina-rubropunctata | [photo](https://media.aquatome.com/aquariumbreeder/c5dc737d664ad52b.webp) | subject unsure |
 | species/carinotetraodon-irrubesco | [photo](https://media.aquatome.com/seriouslyfish/785e2f0a9d7d6943.webp) | subject unsure |
 | species/chalceus-macrolepidotus | [photo](https://media.aquatome.com/inaturalist/589718941.webp) | subject unsure |
+| species/channa-argus | [photo](https://media.aquatome.com/seriouslyfish/59ccd85dfff88aec.webp) | subject other |
 | species/channa-bankanensis | [photo](https://media.aquatome.com/inaturalist/448133892.webp) | subject unsure |
 | species/channa-bankanensis | [photo](https://media.aquatome.com/inaturalist/448133917.webp) | subject unsure |
 | species/channa-bankanensis | [photo](https://media.aquatome.com/inaturalist/453639191.webp) | subject unsure |
@@ -1210,16 +1211,15 @@ Written by `pnpm engine check-photos` (2026-11-15), most-read pages first. Rules
 | species/channa-baramensis | [photo](https://media.aquatome.com/inaturalist/312481967.webp) | subject unsure |
 | species/channa-baramensis | [photo](https://media.aquatome.com/inaturalist/342586710.webp) | subject unsure |
 | species/channa-lucius | [photo](https://media.aquatome.com/commons/bf602a3968e8ab9d.webp) | subject unsure |
-| species/channa-lucius | [photo](https://media.aquatome.com/seriouslyfish/4e44ce770be2977c.webp) | subject unsure |
+| species/channa-lucius | [photo](https://media.aquatome.com/inaturalist/3216473.webp) | subject yes |
 | species/channa-melasoma | [photo](https://media.aquatome.com/seriouslyfish/ce476ece616866fa.webp) | subject unsure |
 | species/characidium-fasciatum | [photo](https://media.aquatome.com/inaturalist/250270540.webp) | subject unsure |
+| species/cherax-boesemani | [photo](https://media.aquatome.com/commons/b6b20a8fb3d5550f.webp) | subject other |
 | species/cherax-boesemani | [photo](https://media.aquatome.com/commons/c973b386e5737c11.webp) | subject unsure |
-| species/chitala-chitala | [photo](https://media.aquatome.com/commons/84cbc3b6378ca118.webp) | subject unsure |
+| species/chitala-chitala | [photo](https://media.aquatome.com/commons/84cbc3b6378ca118.webp) | subject other |
 | species/chitala-chitala | [photo](https://media.aquatome.com/seriouslyfish/66be7c0556572082.webp) | subject unsure |
 | species/chitala-chitala | [photo](https://media.aquatome.com/seriouslyfish/89c9f7f7c4a0150a.webp) | subject unsure |
 | species/chlamydogobius-eremius | [photo](https://media.aquatome.com/inaturalist/727792138.webp) | subject unsure |
-| species/chlamydogobius-eremius | [photo](https://media.aquatome.com/inaturalist/727818047.webp) | subject unsure |
-| species/chlamydogobius-eremius | [photo](https://media.aquatome.com/inaturalist/727818061.webp) | subject unsure |
 | species/cichla-monoculus | [photo](https://media.aquatome.com/commons/6a8cf2b3ed699011.webp) | subject unsure |
 | species/cirrhinus-molitorella | [photo](https://media.aquatome.com/inaturalist/141394219.webp) | subject unsure |
 | species/cirrhinus-molitorella | [photo](https://media.aquatome.com/inaturalist/141394230.webp) | subject unsure |
@@ -1508,7 +1508,7 @@ Written by `pnpm engine check-photos` (2026-11-15), most-read pages first. Rules
 | plants/vallisneria-spiralis | [photo](https://media.aquatome.com/tropica/0ff2734906d4fd89.webp) | subject unsure |
 | plants/vallisneria-spiralis | [photo](https://media.aquatome.com/tropica/32a5549cfa5b0c5e.webp) | subject unsure |
 
-## Removed (1280)
+## Removed (1243)
 
 "Something else" records a different subject; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
@@ -2319,7 +2319,6 @@ Written by `pnpm engine check-photos` (2026-11-15), most-read pages first. Rules
 | species/vandellia-cirrhosa | [photo](https://media.aquatome.com/commons/677a9b005d471470.webp) | subject none |
 | species/vandellia-cirrhosa | [photo](https://media.aquatome.com/commons/6ebcd2ed06a45315.webp) | subject dead |
 | species/wallago-attu (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/48f09c0951615426.webp) | subject other |
-| species/xenomystus-nigri | [photo](https://media.aquatome.com/commons/f994a48481d1a32f.webp) | subject other |
 | species/xiphophorus-variatus | [photo](https://media.aquatome.com/commons/d2b5899a8a870087.webp) | subject dead |
 | species/yunnanilus-brevis | [photo](https://media.aquatome.com/seriouslyfish/65599e4303a8f14d.webp) | subject none; person |
 | species/yunnanilus-cruciatus | [photo](https://media.aquatome.com/commons/7d934571843366bd.webp) | subject unsure; logo |
@@ -2452,7 +2451,6 @@ Written by `pnpm engine check-photos` (2026-11-15), most-read pages first. Rules
 | species/chalceus-macrolepidotus | [photo](https://media.aquatome.com/commons/f8e2d24fc093ee5c.webp) | subject dead |
 | species/champsochromis-caeruleus | [photo](https://media.aquatome.com/commons/923375d0c0e161e3.webp) | subject yes; logo |
 | species/channa-argus | [photo](https://media.aquatome.com/seriouslyfish/43beba2a3000ebf8.webp) | subject dead; person |
-| species/channa-argus | [photo](https://media.aquatome.com/seriouslyfish/59ccd85dfff88aec.webp) | subject other |
 | species/channa-argus | [photo](https://media.aquatome.com/seriouslyfish/acf56876b84286ba.webp) | subject dead; person |
 | species/channa-baramensis | [photo](https://media.aquatome.com/commons/3657ec5c87f20a04.webp) | subject other |
 | species/channa-diplogramma | [photo](https://media.aquatome.com/seriouslyfish/a64c7eaf3657f515.webp) | subject dead |
@@ -2468,16 +2466,14 @@ Written by `pnpm engine check-photos` (2026-11-15), most-read pages first. Rules
 | species/cherax-pulcher | [photo](https://media.aquatome.com/commons/92e522c04c006643.webp) | subject yes; logo |
 | species/cherax-pulcher | [photo](https://media.aquatome.com/commons/a2b70e5b45858a40.webp) | subject unsure; logo |
 | species/cherax-snowden | [photo](https://media.aquatome.com/commons/5c85239179eaf74a.webp) | subject yes; logo |
-| species/chilodus-punctatus | [photo](https://media.aquatome.com/seriouslyfish/a36d7e4fbb4d984b.webp) | subject dead |
 | species/chitala-chitala | [photo](https://media.aquatome.com/commons/032817c6d469a438.webp) | subject other |
+| species/chitala-chitala | [photo](https://media.aquatome.com/commons/84cbc3b6378ca118.webp) | subject other |
 | species/chitala-chitala | [photo](https://media.aquatome.com/commons/d822a1dee1f55d71.webp) | subject other |
 | species/chitala-chitala | [photo](https://media.aquatome.com/seriouslyfish/e08833894d4df39d.webp) | subject dead |
 | species/chromidotilapia-guntheri | [photo](https://media.aquatome.com/commons/57eb86803b937c46.webp) | subject yes; logo |
 | species/clarias-camerunensis | [photo](https://media.aquatome.com/commons/3196fa411310211f.webp) | subject none |
 | species/clarias-leiacanthus | [photo](https://media.aquatome.com/commons/49fb502779b8e691.webp) | subject dead |
 | species/clavularia-viridis | [photo](https://media.aquatome.com/commons/2ecc297cfa1a2db2.webp) | subject other; logo |
-| species/clavularia-viridis | [photo](https://media.aquatome.com/commons/5a607e00d8c80014.webp) | subject other |
-| species/clavularia-viridis | [photo](https://media.aquatome.com/commons/b31a6f2741d93d10.webp) | subject other |
 | species/clupisoma-garua | [photo](https://media.aquatome.com/scotcat/04eafdede8315440.webp) | subject dead |
 | species/clupisoma-garua | [photo](https://media.aquatome.com/scotcat/90593384f9b617a2.webp) | subject dead |
 | species/clupisoma-garua | [photo](https://media.aquatome.com/scotcat/9e86195ae37d9960.webp) | subject dead |
@@ -2514,7 +2510,7 @@ Written by `pnpm engine check-photos` (2026-11-15), most-read pages first. Rules
 | species/cyphotilapia-gibberosa | [photo](https://media.aquatome.com/commons/34c6ff662dfec5d1.webp) | subject yes; person |
 | species/cyprinodon-brontotheroides | [photo](https://media.aquatome.com/seriouslyfish/0a716468aa2ca26f.webp) | subject none |
 | species/cyprinodon-desquamator | [photo](https://media.aquatome.com/seriouslyfish/0a716468aa2ca26f.webp) | subject none |
-| species/cyprinodon-julimes | [photo](https://media.aquatome.com/seriouslyfish/71354dc56679e5fb.webp) | subject unsure; person |
+| species/cyprinodon-julimes | [photo](https://media.aquatome.com/seriouslyfish/71354dc56679e5fb.webp) | subject dead; person |
 | species/cyprinodon-pachycephalus | [photo](https://media.aquatome.com/seriouslyfish/921d8c1bdf673118.webp) | subject none |
 | species/cyprinodon-variegatus | [photo](https://media.aquatome.com/seriouslyfish/0a716468aa2ca26f.webp) | subject none |
 | species/danio-flagrans | [photo](https://media.aquatome.com/seriouslyfish/e9e9c454627993d5.webp) | subject dead |

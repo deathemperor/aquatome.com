@@ -11,6 +11,49 @@
     "russia",
     "amur"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "RU"
+      ],
+      "regions": [
+        "Amur",
+        "Ussuri"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Canton, Cungkun, China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Also reported from Russian waters: Amur and Ussuri.",
+          "countries": [
+            "RU"
+          ],
+          "regions": [
+            "Amur",
+            "Ussuri"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961270,
+      "total": 0,
+      "fetched": "2026-11-16",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/hibernation-and-land-snails/
 title: Hibernation and Land Snails - Shrimp and Snail Breeder
 fetchedAt: 2026-10-29T07:18:27.865Z
-hash: 5571f9b851a46d061f93efa7b5dcfdd2f67715413969e81fc807442d22141cf4
+hash: c9f268276d50f120301627fee703ede0fecac3465a3f55468876b0a92ea3607a
 ---
 
 Throughout evolution, many species of snails have developed a survival mechanism known as hibernation.
@@ -82,4 +82,3 @@ Helping your pet return to its normal routine is crucial. Luckily, resolving the
 - Koštál, Vladimír, Jan Rozsypal, Pavel Pech, Helena Zahradníčková, and Petr Šimek. “Physiological and biochemical responses to cold and drought in the rock-dwelling pulmonate snail, Chondrina avenacea.” Journal of Comparative Physiology B183 (2013): 749-761.
 - Herreid II, Clyde F. “Metabolism of land snails (Otala lactea) during dormancy, arousal, and activity.” Comparative Biochemistry and Physiology Part A: Physiology56, no. 2 (1977): 211-215.
 - Nikolic, Ljiljana, Danijela Bataveljic, Pavle R. Andjus, Ivana Moldovan, Miodrag Nedeljkovic, and Branka Petkovic. “Modification of glial response in hibernation: A patch-clamp study on glial cells acutely isolated from hibernating land snail.” Journal of Biological Rhythms29, no. 6 (2014): 442-455.
-### Leave a Reply Cancel reply

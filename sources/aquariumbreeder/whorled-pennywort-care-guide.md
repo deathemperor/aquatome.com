@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/whorled-pennywort-care-guide/
 title: Whorled Pennywort Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-11-08T12:16:52.946Z
-hash: 70d83c0274089b08f8ee3d32b91dc6325114da1e811210d3eadd367ac9913f84
+hash: 3a06efbdcbb0799059baa39114b8bff74cb017aefba1c56c02a076586dcacdc3
 ---
 
 Hydrocotyle verticillata, also known as Whorled pennywort, is a nice plant prized for its incredible vine-like growth, growth rate, versatility, and ease of care.
@@ -115,6 +115,3 @@ Overall, Whorled pennywort is a good plant for beginners (if grown emersed) and 
 The species is ideal for decorating fry and shrimp tanks and accentuating driftwood in the foreground ground of freshwater aquaria.
 What’s more? Whorled pennywort be employed in adorning paludariums and terrariums; it’s suitable for various setups and aquascaping styles.
 This plant can be housed in a low, medium, and high light and its size can vary depending on the light. Hydrocotyle verticillata is relatively hardy, undemanding, and adaptable to a wide range of water conditions, meaning that you don’t have to stress much to grow the species successfully in your aquarium setup.
-## 2 thoughts on “Whorled Pennywort Care Guide – Planting, Growing, and Propagation”
-- Oh no. I bought this to cover the bottom of a 5.5 gallon tank. But this is huge. I did not know it must be in a 10 gallon. It is tall and scraggly, but it looks like it is in good health. It does not look like ground cover. I don’t know what to do with this. I do not have a green thumb. My other plants are doing okay (moss balls, annubias, floating water sprite). I have a tank with a betta and one snail. I’m putting in java moss today. My tank is lighted and heated. It’s only around 10″ high. (16″ long) Will this die if I put it into my tank? My fish and snail are well, healthy and active. ReplyHi Nancy, It won’t die in your 5.5 gallon, but it’s not going to behave like ground cover. It grows tall and vine-like, especially in small tanks.Either trim it hard every couple of weeks to keep it manageable, or swap it for something smaller like Hydrocotyle vulgaris. Your betta and snail won’t care either way. Best regards, Michael Reply
-### Leave a Reply Cancel reply

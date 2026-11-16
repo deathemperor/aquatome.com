@@ -17,10 +17,12 @@
         "GY"
       ],
       "regions": [
-        "Mazaruni"
+        "Mazaruni River",
+        "Kurupung"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -29,14 +31,16 @@
           "countries": [
             "GY"
           ],
-          "regions": []
+          "regions": [
+            "Mazaruni River"
+          ]
         },
         {
           "source": "seriouslyfish",
           "quote": "The original description contained no type locality but this species is currently considered endemic to the Mazaruni River system in Guyana, including many of its tributaries such as the Kurupung (where the species was first discovered in 1953), Eping, and Tabuba.",
           "countries": [],
           "regions": [
-            "Mazaruni"
+            "Kurupung"
           ]
         }
       ]

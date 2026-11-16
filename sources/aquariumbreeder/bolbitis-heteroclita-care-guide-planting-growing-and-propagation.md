@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/bolbitis-heteroclita-care-guide-planting-growing-and-propagation/
 title: Bolbitis Heteroclita Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-10-31T15:20:56.063Z
-hash: 634ea2ac00182a589fd7337dff3f7a7a3a2e664cabdab61d201a58a8012ee4b4
+hash: 05316972b9c81d4a2f5597033643a696ec6b9db0a6c22b23ed7a4ec6f44ac35e
 ---
 
 Despite being described almost 100 years ago, Bolbitis heteroclita has only recently become known in the aquarium hobby and is still relatively uncommon.
@@ -128,4 +128,3 @@ However, with patience, an initially unimpressive cluster of this plant can tran
 - Yatabe, Yoko, Kaoru Yamamoto, Chie Tsutsumi, Wataru Shinohara, Noriaki Murakami, and Masahiro Kato. “Fertility and precocity of Osmunda× intermedia offspring in culture.” Journal of plant research124 (2011): 265-268.
 - Amaludin, N. A., NN Mohd Zulkafli, SA Ahmad Zu, N. A. Z. Zamri, N. A. Ab Majid, S. Daliman, AN Muhamad Nor, and R. Zakaria. “Analysis of riparian vegetation of a recreation site in Jeli, Kelantan.” In IOP Conference Series: Earth and Environmental Science, vol. 1053, no. 1, p. 012007. IOP Publishing, 2022.
 - Rajbhandary, Sangeeta. “Fern and fern allies of Nepal.” Frontiers of Botany(2016): 124-150.
-### Leave a Reply Cancel reply

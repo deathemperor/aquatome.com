@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/strawberry-hermit-crab-detailed-guide-care/
 title: Strawberry Hermit Crab – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-11-08T00:14:28.534Z
-hash: b5eb831647362f3f246fa77855e7062b1dd38437d3ab2e55e6946b5b6c280641
+hash: 9869d638cf53c818f6766b62f009e819f59703ba5dd7f230702c4aea2a1e74a9
 ---
 
 Strawberry hermit crab (Coenobita perlatus) is a popular species of terrestrial hermit crab that is commonly kept as a pet. This crab is quite attractive and interesting owing to its characteristic reddish-orange color and the mollusk shell it possesses.
@@ -207,4 +207,3 @@ These crabs have very specific conditions to be met for their diet and habitat a
 - WULANDARI, ELISABET IDA, et al. “BACTERIAL DIVERSITY ANALYSIS IN HINDGUT OF LAND HERMIT CRABS Coenobita spp.” Journal of Biology and Nature (2015): 111-118.
 - IRWANSYAH, ROMZI MAULANA, et al. “Crab diversity and crab potential as support ecotourism in Teleng Ria, Grindulu and Siwil Beach, Pacitan, East Java, Indonesia.” International Journal of Bonorowo Wetlands2 (2021).
 - Coenobita spp. Related forums such as: http://crabstreetjournal.org/, http://www.hermitcrabassociation.com, http://www.hermitcrabparadise.com.
-### Leave a Reply Cancel reply

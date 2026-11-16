@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/batman-snail-detailed-guide-care-diet-and-breeding/
 title: Batman Snail – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-11-01T00:47:02.401Z
-hash: 07a991104e1e4423a7c61f1d70486eaed57b86aee87dc4c56f597f61f74ee96c
+hash: c222567fff77dde09b577d8f20cd2dc4d43f1a13dd5f6e595e87f47504f1384b
 ---
 
 Neritina auriculata, commonly known as Batman Nerite snail, will definitely capture the attention of many aquarium enthusiasts due to its unique appearance. However, it is important to note that this species is a rarity in the US and European pet markets.
@@ -148,4 +148,3 @@ As for keeping them in the tank, this is a simple species to care for. Even begi
 - DUGAN, JESSICA A. “DIADROMOUS NERITID GASTROPODS: EXAMINING HOW WATER VELOCITY, DISTANCE FROM OCEAN, AND LOCATION ON SUBSTRATE SHAPE STREAM COMMUNITIES.”
 - Capdevielle, Jillian. “Neritid Gastropods Adapted to Different pH Environments: Spatial, temporal, and abiotic factors affecting life history traits of marine and freshwater snails.” (2013).
 - Starmuhlner, F. “Results of the Austrian-Ceylonese hydrobiological mission 1970 of the 1st Zoological Institute University of Vienna (Austria) and the Department of Zoology of the University of Ceylon, Vidyalankara Campus, Kelaniya (Sri Lanka). Pt 17. The freshwater gastropods of Ceylon.” (1974).
-### Leave a Reply Cancel reply

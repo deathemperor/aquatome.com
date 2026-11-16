@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/coenobita-violascens-detailed-guide-care-diet-and-breeding/
 title: Coenobita Violascens – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-10-31T01:21:11.118Z
-hash: 2bb741f99bda0f45f603dd4daa799b494caf44b885c3d84f28f15e358dcd51bf
+hash: 01cb90b8f00678bdbce67237aef0eb01ecd10bd8c70ad56199fc1fb01a542048
 ---
 
 Coenobita violascens (also known as Viola)is a beautiful but rather uncommon hermit crab in the hobby Coenobita violascens.
@@ -238,4 +238,3 @@ These little hermit crabs are cute, unique, and simply amazing! They are very in
 - https://tonycoenobita.com/
 - https://hermitcrabassociation.com/
 - Photo credit to Ria Tan
-### Leave a Reply Cancel reply

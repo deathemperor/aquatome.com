@@ -1204,6 +1204,34 @@ test('a fish bag is a third water and two thirds oxygen, and shop wood is smelle
   expect(sources[13]?.url).toBe('https://aquariumscience.org/14-10-wood/')
 })
 
+// The chief of staff, 16 Nov 2026: the same guide watched new fish in quarantine for 1–2 weeks in a 20–40 L tank, from the
+// refused shop alone, where a keeper's page says always at least four weeks and gives no tank size. Mended by hand in the
+// three languages it has, each named as a keeper (topic.md), each body fixed so a redo keeps it, the page in each
+// language's references (Indonesian and Thai keep their own list), and the research's fact now says the keeper's page.
+test('new fish are quarantined at least four weeks, in every language of the guide, fixed by hand', () => {
+  const root = fileURLToPath(new URL('../../../', import.meta.url))
+  const guide = join(root, 'content/guides/aquatome-tha-ca-moi-mua-vao-be-cach-thuan-nuoc-dung')
+  const quarantine = 'https://aquariumscience.org/index.php/12-3-quarantine-tanks'
+  const lines = {
+    vi: 'Một người chơi khuyên nên luôn giữ cá mới trong bể cách ly ít nhất 4 tuần.',
+    id: 'Seorang penghobi menyarankan ikan baru selalu dikarantina minimal 4 minggu.',
+    th: 'ผู้เลี้ยงรายหนึ่งแนะนำให้กักโรคปลาใหม่ทุกครั้ง อย่างน้อย 4 สัปดาห์',
+  }
+  for (const [lang, line] of Object.entries(lines)) {
+    const t = JSON.parse(readFileSync(join(guide, `${lang}.json`), 'utf8')) as Translation & { bodyFixed?: boolean; refs?: { url: string }[] }
+    expect(t.body, lang).toContain(line)
+    expect(t.body, lang).not.toMatch(/20–40 (?:L|ลิตร)/)
+    expect(t.bodyFixed, lang).toBe(true)
+    if (lang !== 'vi') expect(t.refs?.map(r => r.url), lang).toContain(quarantine)
+  }
+  const refs = (JSON.parse(readFileSync(join(guide, 'entity.json'), 'utf8')) as { refs: { url: string }[] }).refs.map(r => r.url)
+  expect(refs).toContain(quarantine)
+  const research = JSON.parse(readFileSync(join(root, 'engine-state/topics/aquatome-tha-ca-moi-mua-vao-be-cach-thuan-nuoc-dung.json'), 'utf8')) as { sources: { url: string }[]; facts: { fact: string; source: number }[] }
+  const fact = research.facts.find(f => f.fact.includes('at least four weeks'))
+  expect(research.sources[fact?.source ?? -1]?.url).toBe(quarantine)
+  expect(research.facts.some(f => f.fact.includes('20–40 L'))).toBe(false)
+})
+
 // The chief of staff, 16 Nov 2026: no email address in any file under content/, in any field, a page's text or a video's
 // title or a photo's credit. The repository is public, and an address belongs to a person. No list of allowed addresses: a
 // list would print them here. A failure names the file and the field, never the address (a key with one is named by its
