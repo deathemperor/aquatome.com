@@ -5,7 +5,7 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 4382 | 3730 | 1535 | 52 | 46 | 201 | 38 | 1057 | 344 | 2617 | 477 | 9 | 10 | 0 | 2 | 2 | 3 | 0 |
+| Vietnamese | 4382 | 3730 | 1532 | 52 | 45 | 200 | 38 | 1055 | 344 | 2617 | 477 | 9 | 10 | 0 | 2 | 2 | 3 | 0 |
 | Indonesian | 1483 | 1309 | 367 | 22 | 8 | 4 | 5 | 177 | 33 | 63 | 179 | 0 | 1 | 0 | 2 | 2 | 0 | 0 |
 | Thai | 1472 | 1277 | 339 | 16 | 4 | 5 | 3 | 157 | 38 | 86 | 164 | 0 | 1 | 0 | 1 | 0 | 0 | 0 |
 | Malay | 362 | 321 | 88 | 7 | 2 | 0 | 0 | 42 | 16 | 20 | 35 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
@@ -76,7 +76,7 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - repashy: 48
 - keo 502: 36
 - panacur: 34
-- ada: 24
+- ada: 25
 - ada amazonia aqua soil: 18
 - tropica: 18
 - ada amazonia: 17
