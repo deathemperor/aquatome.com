@@ -206,95 +206,74 @@
   ],
   "vi/glossary/thuc-an-kho": [
     {
-      "at": "2026-11-16T01:29:33Z",
+      "at": "2026-11-16T02:39:31Z",
       "model": "sonnet",
       "cli": "2.1.323",
       "score": 1,
       "notes": [
-        "Loose, reworded: \"Ở Việt Nam, tiệm hay gọi nó là cám.\" → \"Ở Việt Nam, một tiệm cá cảnh gọi nó là cám.\" (supported)",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Muốn cá khỏe thì phải chọn đúng dạng, cho ăn vừa đủ và cất chỗ khô để thức ăn chậm ôi, chậm mất vitamin.\" (not \"Thức ăn khô nhiều đạm và dầu, nên cất ở chỗ khô, mát để khỏi nhanh hư, mốc và ôi.\": Rules 4 and 12: \"nên cất ở chỗ khô, mát để khỏi nhanh hư, mốc và ôi\" in the meaning gives the same storage ste…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Còn mảnh thì không để lâu trong nước, vì mảnh có thể mất tới 90% vitamin chỉ trong 30 giây.\" (not \"Còn mảnh thì có thể mất tới 90% vitamin chỉ trong 30 giây ở trong nước, trong khi viên giữ vitamin lâu hơn.\": Rules 9 and 12: \"Còn mảnh thì có thể mất tới 90% vitamin chỉ trong 30 giây ở trong nước, trong kh…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Đựng trong lọ kín nắp vặn, côn trùng không chui vào được.\" (not \"Đựng trong hộp đậy kín, như lọ thủy tinh hay hộp nắp vặn.\": it drops the advice \"côn trùng không chui vào được\")",
-        "The entry is 511 words: hold it to about 500, and leave what is left out to the pages that use the term."
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cần chọn đúng dạng, cho ăn vừa đủ và cất chỗ khô để thức ăn chậm ôi, chậm mất vitamin.\" (not \"Nên chọn thức ăn nổi hay chìm và cỡ hạt hợp với miệng cá, chỉ cho lượng cá ăn hết trong vài phút, và cất trong hộp kín ở chỗ khô mát để thức ăn chậm ôi, chậm mất vitamin.\": Rule 4: The feeding amount appears twic…"
       ],
       "attempt": "rewrite",
       "kept": true
     },
     {
-      "at": "2026-11-16T01:29:33Z",
+      "at": "2026-11-16T02:39:31Z",
       "model": "sonnet",
       "cli": "2.1.323",
       "score": 0.97,
       "notes": [
-        "\"Loại này không đủ dinh dưỡng, chỉ nên cho ăn thêm một hai lần mỗi tuần.\": the facts don't carry it (unsupported, unsupported, unsupported): drops the qualifier that treats are only for water at 65 F or warmer / drops the qualifier that these treats are only for water of at least 65 F / leaves out the condition that water must be at least 65 F",
-        "Rule 12: \"Loại này không đủ dinh dưỡng, chỉ nên cho ăn thêm một hai lần mỗi tuần.\" leaves out the water temperature. THIS TERM says freeze-dried food is a treat once or twice a week only when the water is at least 18 °C (source 9: 65 °F). The checker already stopped a draft that dropped this condition.",
-        "The entry is 535 words: hold it to about 500, and leave what is left out to the pages that use the term."
+        "\"Kể cả loại ghi là đầy đủ dinh dưỡng, cá ăn vậy lâu ngày có thể thiếu enzyme tự nhiên và vi chất.\": the facts don't carry it (loose, unsupported, unsupported): source doesn't single out complete-labelled foods / Facts don't say the deficiency risk applies to foods labelled complete / facts never apply the deficiency warning to foods labelled complete",
+        "Rules 10 and 12: \"Chỉ cho ăn thức ăn khô thời gian dài, không có đồ tươi. Kể cả loại ghi là đầy đủ dinh dưỡng, cá ăn vậy lâu ngày có thể thiếu enzyme tự nhiên và vi chất.\": THIS TERM forbids \"kể cả loại ghi là đầy đủ dinh dưỡng\" because no fact says this of complete foods. It also asks for one sentence, as the fact gives it: \"Chỉ cho ăn thức ăn khô thời gian dài, không có đồ tươi, cá có thể thiếu…"
       ],
       "attempt": "rewrite",
       "kept": false
     },
     {
-      "at": "2026-11-16T01:20:39Z",
+      "at": "2026-11-16T02:09:01Z",
       "model": "sonnet",
       "cli": "2.1.323",
       "score": 1,
       "notes": [
-        "The rewrite dropped from \"Đông khô hút ẩm trong không khí nên mốc nhanh, và độc tố nấm có thể đã sinh ra trước khi thấy mốc.\" the caution \"độc\", the advice \"độc tố nấm có thể đã sinh ra trước khi thấy mốc\" under Thức ăn đông khô, and nothing lets that sentence go: write it as it was, word for word.",
-        "The rewrite dropped from \"Hộp đã mở để ở nhiệt độ phòng thì bỏ sau 2 tháng.\" the advice \"Hộp đã mở để ở nhiệt độ phòng thì bỏ sau 2 tháng\", and nothing lets that sentence go: write it as it was, word for word.",
-        "Rule 12: \"Thức ăn khô ghi là đầy đủ dinh dưỡng thì có đủ đạm, chất béo, vitamin và khoáng.\" only lists the nutrients. THIS TERM asks for what \"đầy đủ dinh dưỡng\" means to a keeper: a dry food marked complete can be the fish's daily food (source 0).",
-        "The entry is 507 words: hold it to about 500, and leave what is left out to the pages that use the term."
+        "Rules 1 and 12: \"Chỉ cho ăn thức ăn khô thời gian dài, không có đồ tươi. Cá ăn vậy lâu ngày có thể thiếu enzyme tự nhiên và vi chất.\" is not tied to the complete-food sentence (\"Thức ăn khô ghi là đầy đủ dinh dưỡng ... nên dùng làm thức ăn hằng ngày cho cá được\"). As written, the two lines read as a contradiction. THIS TERM asks for it to say that even a food marked complete, fed alone for a long…"
       ],
       "attempt": "rewrite",
       "kept": false
     },
     {
-      "at": "2026-11-16T01:20:39Z",
+      "at": "2026-11-16T02:09:01Z",
       "model": "sonnet",
       "cli": "2.1.323",
-      "score": 0.94,
+      "score": 1,
       "notes": [
-        "\"Thức ăn khô ghi là đầy đủ dinh dưỡng thì có đủ đạm, chất béo, vitamin và khoáng, nên dùng làm thức ăn hằng ngày cho cá được.\": the facts don't carry it (unsupported, unsupported, unsupported): use as daily staple not stated / advice to use as daily staple not in facts / 'usable as daily staple' not in facts",
-        "\"Loại này không đủ dinh dưỡng, chỉ nên cho ăn thêm một hai lần mỗi tuần.\": the facts don't carry it (unsupported, unsupported, unsupported): drops the only-when-water-at-least-65F qualifier / drops qualifier: only when water at least 65 F / drops 'only when water at least 65 F' qualifier",
-        "The entry is 535 words: hold it to about 500, and leave what is left out to the pages that use the term."
+        "Rules 1 and 12: \"Chỉ cho ăn thức ăn khô thời gian dài, không có đồ tươi. Cá ăn vậy lâu ngày có thể thiếu enzyme tự nhiên và vi chất.\" is not joined to the complete-food idea, as THIS TERM asks (\"even a food marked complete, given alone for a long time with nothing fresh, may leave fish short of natural enzymes and micronutrients\"). As written, it reads as contradicting \"Thức ăn khô ghi là đầy đủ …"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-16T02:09:01Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 0.97,
+      "notes": [
+        "\"Kể cả loại ghi là đầy đủ dinh dưỡng, cá ăn vậy lâu ngày có thể thiếu enzyme tự nhiên và vi chất.\": the facts don't carry it (unsupported, unsupported, loose): facts don't extend enzyme/micronutrient shortfall to foods labelled complete / Facts never say this holds even for foods labelled complete / source doesn't single out complete foods"
       ],
       "attempt": "rewrite",
       "kept": false,
-      "draft": "ad2150aca232a8f886cfe248259fc8edcb3531fb955fc20f8b690bc3ee9a0c1c"
+      "draft": "4bc12eb0441ebcacc3d1d48e959cb16ac03458183630e9a0975571239dd6c294"
     },
     {
-      "at": "2026-11-16T01:20:39Z",
+      "at": "2026-11-16T01:48:33Z",
       "model": "sonnet",
       "cli": "2.1.323",
       "score": 1,
       "notes": [
-        "Rule 12: The definition's first sentence, \"Thức ăn khô là thức ăn chế biến sẵn cho cá, có dạng mảnh, hạt hoặc viên, dễ cất và để được lâu\", names only three forms. It should name all seven forms the body describes and the quick feeding, as in \"có dạng mảnh, viên, hạt, tấm, que, bột hay đông khô, dễ cất, để được lâu và cho ăn nhanh\".",
-        "Rule 12: The storage clause \"cất chỗ khô để thức ăn không ôi, không mất vitamin\" claims too much. Vitamins start to go once a pack is opened (source 1). Keeping food dry only slows that loss, and \"không mất vitamin\" is never to be said.",
-        "Rule 12: \"Cám\" is missing everywhere. altNames is empty and the meaning never uses the word. \"Cám\" should be among the other names and appear once in the meaning, as what keepers and shops here call dry food (source 6).",
-        "Rule 12: \"Loại đầy đủ dinh dưỡng có đủ đạm, chất béo, vitamin và khoáng\" is the bare list of nutrients. It should say what this means to a keeper: a dry food marked complete can be the fish's daily food, while freeze-dried food is not complete and is a treat once or twice a week (source 9).",
-        "Rule 12: \"viên lên màu bạc màu đi\" reads as if every pellet fades. Say it plainly: colour-enhancing pellets that look dull or faded (source 7).",
-        "Rule 12: The item is \"Dạng viên\" with a separate \"Dạng hạt\". It should be one item named \"Dạng viên, hạt\", with its floating and sinking kinds.",
-        "Rule 12: \"Dạng hạt: có tiệm bán dạng hạt, loại nổi và loại chìm\" is the line the house rules forbid, and it tells a keeper nothing. Granules fold into the \"Dạng viên, hạt\" item.",
-        "Rule 12: The freeze-dried item never says the food is not complete and should be fed as a treat once or twice a week (source 9). That caution is missing from the entry.",
-        "Rule 12: \"Cá vàng (Carassius) bị rối loạn nổi chìm cần viên chìm\" uses \"rối loạn nổi chìm\". The site's one name for swim bladder trouble is \"rối loạn bóng hơi\", which the mistakes list already uses.",
-        "Rule 12: \"mỗi lần chỉ lượng cá ăn hết trong 2–3 phút\" gives the shop's figure. The feeding range should be 2–5 minutes, as most of the facts give it (sources 6 and 9)."
+        "The rewrite dropped from \"Muốn cá khỏe thì phải chọn đúng dạng, cho ăn vừa đủ và cất chỗ khô để thức ăn chậm ôi, chậm mất vitamin.\" the caution \"phải\", the advice \"Muốn cá khỏe thì phải chọn đúng dạng\", and nothing lets that sentence go: write it as it was, word for word.",
+        "The entry is 546 words: hold it to about 500, and leave what is left out to the pages that use the term."
       ],
       "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-15T02:56:38Z",
-      "model": "sonnet",
-      "cli": "2.1.323",
-      "score": 1,
-      "notes": [
-        "Loose, reworded: \"Thức ăn khô là thức ăn chế biến sẵn cho cá, có dạng mảnh, viên, hạt, tấm, que, bột hay đông khô, dễ cất, để được lâu và cho ăn nhanh.\" → \"Thức ăn khô là thức ăn chế biến sẵn cho cá, có dạng mảnh, hạt hoặc viên, dễ cất và để được lâu.\" (supported)",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Muốn cá khỏe thì phải chọn đúng dạng, cho ăn vừa đủ và cất chỗ khô để thức ăn không ôi, không mất vitamin.\" (not \"Nên chọn thức ăn nổi cho cá ăn trên mặt và loại chìm nhanh cho cá tầng đáy, chỉ cho lượng cá ăn hết trong 2-3 phút, và cất nơi khô mát vì nóng ẩm làm thức ăn hỏng, mốc và ôi.\": Rules 4 and 12:…",
-        "Loose, reworded: \"Cá vàng (Carassius) bị rối loạn bơi lội cần viên chìm.\" → \"Cá vàng (Carassius) bị rối loạn nổi chìm cần viên chìm.\" (supported)",
-        "Loose, reworded: \"Thức ăn thừa làm bẩn nước, và cá có thể béo phì, rối loạn bóng hơi, táo bón.\" → \"Cho ăn quá nhiều cùng thức ăn thừa làm bẩn nước, và cho ăn quá nhiều có thể khiến cá béo phì, rối loạn bóng hơi, táo bón.\" (supported)",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Rắc mảnh rồi để lâu trong nước.\" (not \"Mảnh mỏng và mềm nên có thể rã nhanh trong nước.\": Rule 4: The flake description is given twice. The flake item has \"mảnh mỏng và mềm\" and the mistakes list repeats \"Mảnh mỏng và mềm nên có thể rã nhanh trong nước\". / Rule 7: Two key facts about flakes sit under \"Sai…"
-      ],
-      "attempt": "rewrite",
-      "kept": true
+      "kept": false,
+      "draft": "4bc12eb0441ebcacc3d1d48e959cb16ac03458183630e9a0975571239dd6c294"
     }
   ]
 }
