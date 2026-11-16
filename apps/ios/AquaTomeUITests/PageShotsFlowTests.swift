@@ -11,7 +11,7 @@ import XCTest
 /// icon picker; the lights tab's card for the fake light, its clock lost, warning of its outlet's timer on the stand-in
 /// Tuya cloud; Tìm's tools, light, dark and at the largest text; what's new, its row on the home then its list, and kit's
 /// section on the home then a long list's whole list, light and dark; a gallery's photo grid, light, dark and at the largest text; Bể của tôi, empty and with a tank; and the owner's dashboard on the stand-in server, its
-/// overview (light, dark, at the largest text, and with nothing to do), its bell's sheet, a section with charts and tables
+/// overview (light and dark, at the default and the largest text, and with nothing to do), its Needs card's page, its bell's sheet, a section with charts and tables
 /// and Comments (each light, dark and at the largest text), and the daily report's settings; the tab bar over what scrolls
 /// under it, a fish's long text and Tìm's photos, light and dark, on the site's own pages; and v2's Hôm nay, its fish of the
 /// day's page and Khám phá, light, dark and at the largest text, and in Malay. The lights tab top to
@@ -74,9 +74,13 @@ final class PageShotsFlowTests: XCTestCase {
   func testTheOwnersDashboard() { shootOwner("owner-light", section: nil) }
   func testTheOwnersDashboardInTheDark() { shootOwner("owner-dark", section: nil, dark: true) }
   func testTheOwnersDashboardInTheLargestText() { shootOwner("owner-largest", section: nil, size: largest) }
+  func testTheOwnersDashboardInTheDarkInTheLargestText() { shootOwner("owner-dark-largest", section: nil, dark: true, size: largest) }
   /// The needs rows at the largest text, from the Needs you tile, which scrolls to them.
-  func testTheOwnersNeedsInTheLargestText() { shootOwner("owner-needs-largest", section: nil, size: largest, tile: "needs", screens: 3) }
+  func testTheOwnersNeedsInTheLargestText() { shootOwner("owner-needs-largest", section: nil, size: largest, needs: true, screens: 3) }
   func testTheOwnersDashboardWithNothingToDo() { shootOwner("owner-all-clear", section: nil, more: ["-owner-overview", "dashboard: nothing needs you"]) }
+  func testTheOwnersDashboardWithNothingToDoInTheDark() {
+    shootOwner("owner-all-clear-dark", section: nil, dark: true, more: ["-owner-overview", "dashboard: nothing needs you"])
+  }
   func testTheDailyReportsDelivery() { shootOwner("owner-bell-light", section: nil, bell: true) }
   func testAnOwnersSection() { shootOwner("owner-section-light", section: "Calls and keys") }
   func testAnOwnersSectionInTheDark() { shootOwner("owner-section-dark", section: "Calls and keys", dark: true) }
@@ -553,17 +557,20 @@ final class PageShotsFlowTests: XCTestCase {
   /// The owner's dashboard, signed in as its owner on the stand-in server: the overview, or one of its sections.
   /// `shows`: what the section has once it's loaded.
   private func shootOwner(_ name: String, section: String?, shows: String = "owner-chart", dark: Bool = false, size: String? = nil,
-                          more: [String] = [], bell: Bool = false, tile: String? = nil, screens: Int? = nil) {
+                          more: [String] = [], bell: Bool = false, needs: Bool = false, screens: Int? = nil) {
     let app = launch(dark: dark, size: size, XCUIApplication.standInOwner + more)
     app.openAccount()
     app.signInWithStandInApple()
     app.scrollToAndTap("owner-dashboard")
-    XCTAssertTrue(app.buttons["owner-tile-needs"].firstMatch.waitForExistence(timeout: 10), "the overview didn't load")
+    XCTAssertTrue(app.buttons["owner-card-needs"].firstMatch.waitForExistence(timeout: 10), "the overview didn't load")
     if let section {
       app.openOwnersSection(section)
       XCTAssertTrue(app.descendants(matching: .any)[shows].firstMatch.waitForExistence(timeout: 10), "\(section) didn't load")
     }
-    if let tile { app.buttons["owner-tile-" + tile].tap() }
+    if needs {
+      app.buttons["owner-card-needs"].tap()
+      XCTAssertTrue(app.buttons["owner-need"].firstMatch.waitForExistence(timeout: 10), "the Needs card's page didn't open")
+    }
     if bell {
       app.buttons["owner-bell"].tap()
       XCTAssertTrue(app.switches["owner-email"].waitForExistence(timeout: 10), "the bell's sheet didn't open")

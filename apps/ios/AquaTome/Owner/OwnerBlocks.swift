@@ -189,9 +189,10 @@ struct OwnerFigures: View {
 }
 
 extension View {
-  /// On a card of the grouped background, as an inset list's rows are.
+  /// On a card of the grouped background, as an inset list's rows are: 12 pt in at the top and bottom, 14 at the sides
+  /// (Design, 15 Nov: so the first screen's five cards end above the home indicator at size L; every card takes it).
   func ownerCard(padded: Bool = true) -> some View {
-    padding(padded ? 16 : 0)
+    padding(.vertical, padded ? 12 : 0).padding(.horizontal, padded ? 14 : 0)
       .frame(maxWidth: .infinity, alignment: .leading)
       .background(Color(uiColor: .secondarySystemGroupedBackground), in: .rect(cornerRadius: 14))
   }

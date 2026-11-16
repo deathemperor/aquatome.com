@@ -62,6 +62,8 @@ public enum Owner {
     public let pages: [(name: String, pages: [Link])]
     /// Every section, as links to them, with the names the old overview gave them.
     public let sections: [Link]
+    /// New pages by kind and day; nil when the server sends none (it can't read the figures yet).
+    public let publishing: Publishing?
 
     /// A section's name: as "Every page" lists it, else as the dashboard lists it.
     public func name(of key: String) -> String? {
@@ -97,11 +99,48 @@ public enum Owner {
     public let readouts: [Readout]
     /// Today's bar, drawn lighter; the days after it are still to come.
     public let today: Int?
+    /// Each bar's day, "2026-11-08", as the server counts it; empty when it doesn't send one for every bar.
+    public let days: [String]
 
-    init(values: [Double?], readouts: [Readout], today: Int?) {
+    init(values: [Double?], readouts: [Readout], today: Int?, days: [String]) {
       self.values = values
       self.readouts = readouts
       self.today = today
+      self.days = days
+    }
+  }
+
+  /// New pages by kind and day: the four kinds in the server's order, `missing` saying why a day has no bar when one
+  /// hasn't, and `quiet` the one line when every kind has stopped.
+  public final class Publishing: Sendable {
+    public let title: String
+    public let kinds: [PublishingKind]
+    public let missing: String?
+    public let quiet: String?
+
+    init(title: String, kinds: [PublishingKind], missing: String?, quiet: String?) {
+      self.title = title
+      self.kinds = kinds
+      self.missing = missing
+      self.quiet = quiet
+    }
+  }
+
+  /// One kind's pages (`key`: fish, guide, videoGuide, plant): its total now, written ("2,503"), what each night added
+  /// (nil: a night not saved; `today` the last, so far), and the line when it stopped with work waiting.
+  public final class PublishingKind: Sendable {
+    public let key: String
+    public let label: String
+    public let total: String
+    public let bars: Bars?
+    public let stalled: String?
+
+    init(key: String, label: String, total: String, bars: Bars?, stalled: String?) {
+      self.key = key
+      self.label = label
+      self.total = total
+      self.bars = bars
+      self.stalled = stalled
     }
   }
 
@@ -544,9 +583,7 @@ extension Owner.Dashboard {
     asOf = date(o, "asOf")
     tiles = list(o, "tiles").compactMap { t in
       guard let key = str(t, "key"), let label = str(t, "label"), let value = str(t, "value") else { return nil }
-      let bars = (obj(t, "bars")).map { b in Owner.Bars(values: values(b["values"]), readouts: readouts(b), today: int(b, "today")) }
-      return Owner.Tile(key: key, label: label, value: value, sub: str(t, "sub"), tone: tone(t), delta: chip(t["delta"]),
-                        bars: bars.flatMap { $0.values.isEmpty || $0.readouts.count != $0.values.count ? nil : $0 })
+      return Owner.Tile(key: key, label: label, value: value, sub: str(t, "sub"), tone: tone(t), delta: chip(t["delta"]), bars: bars(t))
     }
     needs = list(o, "needs").compactMap { n in
       guard let kind = str(n, "kind"), let text = str(n, "text") else { return nil }
@@ -599,7 +636,23 @@ extension Owner.Dashboard {
       guard let key = str(s, "key"), Owner.isKey(key), let name = str(s, "name") else { return nil }
       return Owner.Link(title: name, to: .section(key, anchor: nil))
     }
+    publishing = (obj(o, "publishing")).flatMap { p in
+      let kinds = list(p, "kinds").compactMap { k -> Owner.PublishingKind? in
+        guard let key = str(k, "key"), let label = str(k, "label"), let total = str(k, "total") else { return nil }
+        return Owner.PublishingKind(key: key, label: label, total: total, bars: bars(k), stalled: (obj(k, "stalled")).flatMap { str($0, "text") })
+      }
+      guard let title = str(p, "title"), !kinds.isEmpty else { return nil }
+      return Owner.Publishing(title: title, kinds: kinds, missing: str(p, "missing"), quiet: (obj(p, "quiet")).flatMap { str($0, "text") })
+    }
   }
+}
+
+/// A part's small bars: left out without a readout for each day (a bar with nothing to say is never drawn).
+private func bars(_ o: Dict) -> Owner.Bars? {
+  guard let b = obj(o, "bars") else { return nil }
+  let v = values(b["values"]), r = readouts(b), days = strs(b, "days")
+  guard !v.isEmpty, r.count == v.count else { return nil }
+  return Owner.Bars(values: v, readouts: r, today: int(b, "today").flatMap { $0 < v.count ? $0 : nil }, days: days.count == v.count ? days : [])
 }
 
 extension Owner.Section {

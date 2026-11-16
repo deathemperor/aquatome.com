@@ -2,9 +2,9 @@ import AccountSync
 import Handbook
 import SwiftUI
 
-/// The overview ("") or a section. The overview is drawn as its parts (OwnerOverview.swift), with a bell in the bar for
-/// the daily report's delivery; a section block by block (OwnerBlocks.swift), with its period menu in the bar when it
-/// has periods, and opens at the heading `anchor` names. A button sends its own request, asking first when it deletes
+/// The overview ("") or a section. The overview is drawn as its cards (OwnerOverview.swift), with a bell in the bar for
+/// the daily report's delivery, and its Needs card's page from the same reply (anchor "needs"); a section block by block
+/// (OwnerBlocks.swift), with its period menu in the bar when it has periods, and opens at the heading `anchor` names. A button sends its own request, asking first when it deletes
 /// something, then the section is read again; a switch or a comments filter reads it from its own address. Only the
 /// owner's account signed in now sees what was read: another account, a sign-out or a 401 drops it. The dashboard's own
 /// words are English.
@@ -41,7 +41,7 @@ struct OwnerScreen: View {
             if let again { Button { Task { await again() } } label: { Text(verbatim: "Try again") }.buttonStyle(.bordered).accessibilityIdentifier("owner-again") }
           }
           if shown, key.isEmpty, let d = owner.dashboard {
-            OwnerOverview(dashboard: d, draw: draw) { part in withAnimation { proxy.scrollTo(part, anchor: .top) } }
+            if needs { OwnerNeeds(dashboard: d, draw: draw) } else { OwnerOverview(dashboard: d, draw: draw) }
           } else if shown, !key.isEmpty, let s = section {
             ForEach(s.blocks.indices, id: \.self) { draw.block(s.blocks[$0]) }
           } else if shown && problem == nil {
@@ -57,10 +57,11 @@ struct OwnerScreen: View {
       .onChange(of: section == nil) { if let anchor { proxy.scrollTo(anchor, anchor: .top) } }
     }
     .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
-    .navigationTitle(Text(verbatim: key.isEmpty ? "Dashboard" : section?.title ?? owner.dashboard?.name(of: key) ?? ""))
+    .navigationTitle(Text(verbatim: needs ? owner.dashboard?.tiles.first { $0.key == "needs" }?.label ?? "Needs you"
+                          : key.isEmpty ? "Dashboard" : section?.title ?? owner.dashboard?.name(of: key) ?? ""))
     .navigationBarTitleDisplayMode(.large)
     .toolbar {
-      if key.isEmpty && shown {
+      if key.isEmpty && !needs && shown {
         ToolbarItem(placement: .topBarTrailing) {
           Button { bell = true } label: { Image(systemName: "bell.badge") }
             .accessibilityLabel(Text(verbatim: "Daily report"))
@@ -95,8 +96,11 @@ struct OwnerScreen: View {
                         titleVisibility: .visible, presenting: asking) { a in
       Button(role: .destructive) { Task { _ = await send(a) } } label: { Text(verbatim: a.label) }
     }
-    .ownerScreen("dashboard \(key.isEmpty ? "home" : key)")
+    .ownerScreen("dashboard \(needs ? "needs" : key.isEmpty ? "home" : key)")
   }
+
+  /// The Needs card's page: the overview's needs, read with it.
+  private var needs: Bool { key.isEmpty && anchor == OwnerNeeds.anchor }
 
   private func load() async {
     reading?.cancel()

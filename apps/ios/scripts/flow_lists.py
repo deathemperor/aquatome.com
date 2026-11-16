@@ -67,7 +67,8 @@ SHOTS = {
     'account': ['testSigningIn', 'testSigningInInTheDark', 'testSigningInInTheLargestText', 'testTheAccountSignedIn',
                 'testTheAccountSignedInInTheDark', 'testTheAccountSignedInInTheLargestText'],
     'owner': ['testTheOwnersDashboard', 'testTheOwnersDashboardInTheDark', 'testTheOwnersDashboardInTheLargestText',
-              'testTheOwnersNeedsInTheLargestText', 'testTheOwnersDashboardWithNothingToDo', 'testTheDailyReportsDelivery', 'testAnOwnersSection',
+              'testTheOwnersDashboardInTheDarkInTheLargestText', 'testTheOwnersNeedsInTheLargestText',
+              'testTheOwnersDashboardWithNothingToDo', 'testTheOwnersDashboardWithNothingToDoInTheDark', 'testTheDailyReportsDelivery', 'testAnOwnersSection',
               'testAnOwnersSectionInTheDark', 'testAnOwnersSectionInTheLargestText', 'testTheOwnersComments',
               'testTheOwnersCommentsInTheDark', 'testTheOwnersCommentsInTheLargestText', 'testTheDailyReportsSettings'],
     # v2's Hôm nay, its fish of the day's page and Khám phá; and its glass bar over a page's text, a page from each tab.
