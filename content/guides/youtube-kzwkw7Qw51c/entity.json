@@ -88,7 +88,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh trồng nhiều cây với lũa, nước hơi ngả vàng.",
-            "sharpness": 1243.3
+            "sharpness": 1243.3,
+            "person": false
           }
         ]
       },
@@ -109,22 +110,14 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh nước trong vắt, cây xanh tốt và cá bơi bên trong.",
-            "sharpness": 846.2
+            "sharpness": 846.2,
+            "person": false
           }
         ]
       },
       {
         "heading": "TDS tăng dần có đáng lo không",
-        "moments": [
-          {
-            "t": 380,
-            "url": "https://media.aquatome.com/video/kzwkw7Qw51c/at380-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh có cây trầu bà thò rễ trên mặt bể hút bớt khoáng.",
-            "sharpness": 1732.9
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/kzwkw7Qw51c/p2-kcy1tZXRlci5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/kzwkw7Qw51c/p2-kcy1tZXRlci5qcGc-480.webp",
@@ -145,7 +138,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể thủy sinh sạch, kính trong và nền ít rêu hại.",
-            "sharpness": 988.7
+            "sharpness": 988.7,
+            "person": false
           },
           {
             "t": 360,
@@ -153,7 +147,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nền bể và đá phủ cây xanh, gần như không có rêu hại.",
-            "sharpness": 910.6
+            "sharpness": 910.6,
+            "person": false
           }
         ],
         "photo": {
@@ -176,7 +171,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Helanthium tenellum bò lan phủ kín tiền cảnh như thảm cỏ.",
-            "sharpness": 265.3
+            "sharpness": 265.3,
+            "person": false
           },
           {
             "t": 870,
@@ -184,7 +180,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ludwigia palustris lên màu đỏ gần đèn, mọc gọn giữa bể.",
-            "sharpness": 557
+            "sharpness": 557,
+            "person": false
           }
         ],
         "photo": {
@@ -207,7 +204,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn bể thủy sinh với thảm cây tiền cảnh xanh phủ sát đáy.",
-            "sharpness": 946.5
+            "sharpness": 946.5,
+            "person": false
           },
           {
             "t": 630,
@@ -215,7 +213,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh thảm cây tiền cảnh mọc sát nền, chỗ trốn cho cá con.",
-            "sharpness": 246.7
+            "sharpness": 246.7,
+            "person": false
           }
         ]
       },
@@ -223,20 +222,13 @@
         "heading": "Thả thêm cá đàn",
         "moments": [
           {
-            "t": 750,
-            "url": "https://media.aquatome.com/video/kzwkw7Qw51c/at750-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bèo phủ kín mặt bể, cần vớt bèo trước khi bắt cá.",
-            "sharpness": 813.7
-          },
-          {
             "t": 820,
             "url": "https://media.aquatome.com/video/kzwkw7Qw51c/at820-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Cá neon đã bắt được trong cốc, chuẩn bị thả sang bể mới.",
-            "sharpness": 197.5
+            "sharpness": 197.5,
+            "person": false
           }
         ],
         "photo": {
@@ -259,15 +251,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Máy cho ăn tự động có ống chứa đầy thức ăn và màn hình chỉnh giờ.",
-            "sharpness": 170.9
-          },
-          {
-            "t": 1020,
-            "url": "https://media.aquatome.com/video/kzwkw7Qw51c/at1020-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Máy cho ăn tự động gắn trên thành bể thủy sinh nhiều cây.",
-            "sharpness": 278
+            "sharpness": 170.9,
+            "person": false
           }
         ]
       }

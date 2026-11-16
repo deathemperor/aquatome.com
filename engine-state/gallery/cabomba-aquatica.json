@@ -14,7 +14,15 @@
   "File:Cabomba aquatica.jpg",
   "File:黃菊花草 Cabomba aquatica -檳城植物園 Penang Botanic Garden- (9213351473).jpg",
   "File:Cabomba aquatica (2) (17364222338).jpg",
-  "File:Cabomba aquatica (1) (17364229128).jpg"
+  "File:Cabomba aquatica (1) (17364229128).jpg",
+  "inat:111050701",
+  "inat:111050759",
+  "inat:175320477",
+  "inat:384189992",
+  "inat:509279976",
+  "inat:509279974",
+  "inat:694591979",
+  "inat:694592045"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/14e1080ebab14ea5.webp": "634e96030301d133",
@@ -28,7 +36,20 @@
   "https://media.aquatome.com/tropica/74b1baf077a94a2e.webp": "3030303030303030",
   "https://media.aquatome.com/tropica/005978eb3c527016.webp": "0f137333b1434161",
   "https://media.aquatome.com/commons/8912d2e597891cca.webp": "463a250e992e3735",
-  "https://media.aquatome.com/commons/cb8f3fd43812b356.webp": "05191e8e0698b99e"
+  "https://media.aquatome.com/commons/cb8f3fd43812b356.webp": "05191e8e0698b99e",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/175320477/large.png": "f4f9b3076da19d37",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/509279976/large.jpg": "6b1d463686476880",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/509279974/large.jpg": "8cac86978c8e1686",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/694591979/large.jpg": "612cb826660632e1",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/694592045/large.jpg": "0631f88251c84002"
  },
- "commons": "2026-11-10"
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": 332533,
+  "pass": "agree",
+  "after": {
+   "research": 379708029,
+   "agree": 0
+  }
+ }
 }

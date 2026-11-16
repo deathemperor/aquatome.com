@@ -238,14 +238,6 @@
         "heading": "Thứ tự trồng: cây bám trước, cây cắt cắm sau",
         "moments": [
           {
-            "t": 520,
-            "url": "https://media.aquatome.com/video/uxEgm6qa0Ow/at520-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dương xỉ Java đã gắn vào khúc lũa, xung quanh là đá và sỏi.",
-            "sharpness": 1828.8
-          },
-          {
             "t": 640,
             "url": "https://media.aquatome.com/video/uxEgm6qa0Ow/at640-hd.webp",
             "width": 1200,
@@ -284,20 +276,13 @@
         "heading": "Châm nước mà không xáo nền",
         "moments": [
           {
-            "t": 800,
-            "url": "https://media.aquatome.com/video/uxEgm6qa0Ow/at800-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Pha thuốc khử clo vào thùng chứa nước máy.",
-            "sharpness": 1159.3
-          },
-          {
             "t": 890,
             "url": "https://media.aquatome.com/video/uxEgm6qa0Ow/at890-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Ống dẫn nước châm vào bể thủy sinh, nền và cây vẫn nguyên.",
-            "sharpness": 2932.1
+            "sharpness": 2932.1,
+            "person": false
           }
         ]
       },
@@ -310,7 +295,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nước còn đục bụi mịn li ti sau khi bật lọc.",
-            "sharpness": 160.8
+            "sharpness": 160.8,
+            "person": false
           },
           {
             "t": 1180,
@@ -318,7 +304,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể thủy sinh đã đầy nước, cây và lũa lên xanh.",
-            "sharpness": 2632
+            "sharpness": 2632,
+            "person": false
           }
         ],
         "photo": {
@@ -341,7 +328,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh cây đỏ rậm rạp với thảm cỏ xanh phía trước.",
-            "sharpness": 2940.7
+            "sharpness": 2940.7,
+            "person": false
           },
           {
             "t": 1350,
