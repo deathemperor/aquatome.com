@@ -1,6 +1,36 @@
 {
   "vi/glossary/gh": [
     {
+      "at": "2026-11-16T03:04:04Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Nếu tính theo thang của người nuôi tép, nước mềm có GH dưới 6 dGH, từ 6 đến 12 dGH là vừa, còn từ 12 dGH trở lên là nước cứng.\" (not \"Nếu tính theo thang của người nuôi tép, nước mềm có GH dưới 6 dGH, từ 6 đến 12 dGH là vừa, còn trên 12 dGH là nước rất cứng.\": Rules 3 and 12: \"nước mềm có GH dưới 6 dGH, t…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"GH thấp làm tép lột xác khó vì vỏ mới mềm, còn vỏ ốc thì mỏng, bong hoặc rỗ.\" (not \"GH thấp làm tép lột xác khó vì vỏ mềm, tép khó thoát ra, còn vỏ ốc thì mỏng, bong hoặc rỗ.\": Rule 12: \"GH thấp làm tép lột xác khó vì vỏ mềm, tép khó thoát ra, còn vỏ ốc thì mỏng, bong hoặc rỗ\" does not follow the required…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Với bộ test nhỏ giọt, tráng ống bằng nước bể, đổ nước bể tới vạch của bộ test rồi nhỏ thuốc từng giọt, mỗi giọt lắc một lần, và đếm số giọt cho tới khi nước đổi màu.\" (not \"Với bộ test GH của API, tráng ống bằng nước bể, đổ nước bể tới vạch 5 mL rồi nhỏ thuốc từng giọt, mỗi giọt lắc một lần, và đếm số giọ…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-16T03:04:04Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 0.96,
+      "notes": [
+        "\"Với bộ test nhỏ giọt, tráng ống bằng nước bể, đổ nước bể tới vạch 5 mL rồi nhỏ thuốc từng giọt, mỗi giọt lắc một lần, và đếm số giọt cho tới khi nước đổi màu.\": the facts don't carry it (loose, loose, unsupported, unsupported, unsupported, unsupported): API steps applied to drip tests in general / API kit steps generalised to all drop test kits / API-specific procedure (5 mL) generalised to all …",
+        "Rule 12: \"đổ nước bể tới vạch 5 mL\" is in the general drop test. The general steps should say only what every kit shares (\"fill it to the kit's mark\"). The 5 mL belongs to API's kit and should appear only in its example.",
+        "Rules 4 and 12: \"Nên hạ từ từ, mỗi lần thay ít nước và pha thêm nước RO để bể mềm dần theo thời gian\" mentions RO water a second time. It was already given in \"Muốn giảm GH thì pha thêm nước RO hoặc nước mưa\". RO water should appear only in that first sentence on lowering GH, and the pace sentence should keep only the pace: lower it slowly, with small water changes, so the tank softens over time.",
+        "Rule 12: \"Cá nước mềm như cá đĩa cần GH hạ xuống 3 dGH (50 ppm) trở xuống\" should read \"cần nước có GH từ 3 dGH (50 ppm) trở xuống\", not \"cần GH hạ xuống … trở xuống\".",
+        "Rule 12: \"Trứng, cá bột và cá con nhạy với GH hơn cá trưởng thành.\" gives only the first half of fact 11. It must also say that researchers still find a broad range fine, typically 20–300 ppm.",
+        "Rule 12: \"GH thấp làm tép lột xác khó vì vỏ mới mềm, và vỏ ốc mỏng, bong hoặc rỗ.\" does not give snails their own clause. It should read \"…, còn vỏ ốc thì mỏng, bong hoặc rỗ.\"",
+        "Rule 12: altNames is empty (\"altNames\":[]). The other names Vietnamese keepers use for GH, as the facts write them, are \"độ cứng chung\" and \"độ cứng tổng\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-16T01:44:27Z",
       "model": "sonnet",
       "cli": "2.1.323",
@@ -54,22 +84,6 @@
         "The entry is 515 words: hold it to about 400, and leave what is left out to the pages that use the term."
       ],
       "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-15T01:16:02Z",
-      "model": "sonnet",
-      "cli": "2.1.323",
-      "score": 0.98,
-      "notes": [
-        "\"Magie trên khoảng 10 mg/l có thể cản tép, ốc hấp thu canxi, nên muốn chắc thì đo riêng canxi bằng bộ test canxi nước ngọt.\": the facts don't carry it (unsupported, unsupported, loose): the facts don't say whose calcium uptake magnesium hinders; shrimp and snails added / facts don't say shrimp/snails' calcium uptake / calcium uptake narrowed to shrimp/snails; joins two sources",
-        "Rule 11: \"có thể dễ bùng rêu, nhất là rêu tóc\" uses \"rêu\" (moss) for algae. Per the TERMS it should be \"tảo\", e.g. \"dễ bùng tảo, nhất là tảo tóc\".",
-        "Rule 4: the number 17.9 appears twice: \"1 dGH bằng 17,9 ppm (mg/L)\" in the first paragraph and again in \"nhân với 17,9 thì ra mg/L\" in the testing step. It should be given once, in one place.",
-        "Rule 4: the advice to change water slowly is repeated in \"Nên giảm từ từ bằng những lần thay ít nước\", in \"Mỗi lần chỉ đổi một cách làm, đổi chậm, chẳng hạn thay 10% nước mỗi lần\" and in the mistake \"Đổi GH nhiều và nhanh trong bể tép\". It should be said once.",
-        "Rule 4: the advice to test GH is repeated in the definition (\"nên nuôi tép, ốc thì phải đo GH\"), in \"nên đo GH rồi hãy kết luận\" and in \"Đo GH định kỳ, đừng đoán là nó vẫn ổn\". It should be said once, in one place.",
-        "The entry is 771 words: hold it to about 400, and leave what is left out to the pages that use the term."
-      ],
-      "attempt": "first",
       "kept": false
     }
   ],
