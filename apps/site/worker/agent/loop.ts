@@ -90,7 +90,8 @@ export type AgentInput<Step> = {
    * Said instead of `lastWord` on the call a limit of time or tools makes the last, when a tool answers (tools.ts
    * `answers`): the tools stay on (tool_choice auto), so the answer comes through that tool and streams, where a forced
    * one (tool_choice none) is held back until it's whole. Reads it asks for instead are refused, and the next call is
-   * forced. Never on the input trigger or the last call: the forced call after one that read would be past the run's
+   * forced. Only while the reader is there (`answerBy`'s sign): once they've gone, nothing streams to them, and a call
+   * that read past the ask would cost the time they left the run. Never on the input trigger or the last call: the forced call after one that read would be past the run's
    * input or calls, which the chat's hold at admission counts on (chat/api.ts `chatWorstCost`).
    */
   askWord?: string
@@ -192,7 +193,7 @@ export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step
       : a.pace !== undefined && left - each < (run.calls === 1 ? a.pace.first : a.pace.quick) * each)
     const forced: Stopped | undefined = trying ? 'time' : must ?? (run.calls + 1 >= lim.calls ? 'calls' : run.tools >= lim.tools ? 'tools' : late ? 'time'
       : inputOf(run.spent) + next > lim.inputTokens ? 'tokens' : undefined)
-    const asking = a.askWord !== undefined && !trying && !must && (forced === 'time' || forced === 'tools') && inputOf(run.spent) + next <= lim.inputTokens
+    const asking = a.askWord !== undefined && there && !trying && !must && (forced === 'time' || forced === 'tools') && inputOf(run.spent) + next <= lim.inputTokens
     if (left < 1000) return held ? { ...run, message: held, stopped: 'answer' } : { ...run, stopped: 'error', error: new Error('out of time') }
     run.calls++
     const effort = a.lastEffort && (trying || (forced && !(a.pace && left >= a.pace.answer * each))) ? a.lastEffort : a.effort
