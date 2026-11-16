@@ -647,23 +647,31 @@ CONTENT_PATHS=(content engine-state sources docs/review)
 UNIT_JOB='Unit tests, typecheck and browser checks'
 UNIT_WAIT_SECONDS=${UNIT_WAIT_SECONDS:-1200}
 FULL_STAMP="${FULL_STAMP:-$HOME/.cache/aquatome/full-suite-passed}"
+DAILY_WHY="the whole suite: its daily run on this Mac"
 # The newest commit on HEAD's line that changed anything but the content: HEAD's code is that commit's.
 code_commit() { git log -1 --format=%H HEAD -- . "${CONTENT_PATHS[@]/#/:(exclude)}"; }
 # GitHub's word on the unit-test job of commit $1: success, failure, cancelled…, pending while it runs, or nothing. A
 # stand-in (AQ_UNIT_JOB, a command given the commit) for the tests; otherwise only for a GitHub origin, under net's limit.
+# Only one of GitHub's own words: an error's body, or net's line when it gives up (log writes to stdout), is no answer.
 unit_job() {
-  if [ -n "${AQ_UNIT_JOB:-}" ]; then "$AQ_UNIT_JOB" "$1"; return; fi
-  case "$(git remote get-url origin 2>/dev/null)" in *github.com[:/]deathemperor/aquatome.com*) ;; *) return 0 ;; esac
-  GIT_NET_SECONDS=60 net gh api "repos/deathemperor/aquatome.com/commits/$1/check-runs?per_page=100" \
-    --jq "[.check_runs[] | select(.name == \"$UNIT_JOB\") | if .status == \"completed\" then .conclusion else \"pending\" end] | if any(. == \"success\") then \"success\" elif any(. == \"pending\") then \"pending\" else (.[0] // \"\") end" 2>/dev/null
+  local word
+  if [ -n "${AQ_UNIT_JOB:-}" ]; then word=$("$AQ_UNIT_JOB" "$1"); else
+    case "$(git remote get-url origin 2>/dev/null)" in *github.com[:/]deathemperor/aquatome.com*) ;; *) return 0 ;; esac
+    word=$(GIT_NET_SECONDS=60 net gh api "repos/deathemperor/aquatome.com/commits/$1/check-runs?per_page=100" \
+      --jq "[.check_runs[] | select(.name == \"$UNIT_JOB\") | if .status == \"completed\" then .conclusion else \"pending\" end] | if any(. == \"success\") then \"success\" elif any(. == \"pending\") then \"pending\" else (.[0] // \"\") end" 2>/dev/null)
+  fi
+  case "$word" in success | failure | cancelled | skipped | timed_out | action_required | neutral | stale | startup_failure | pending) echo "$word" ;; esac
 }
-# The whole suite's daily run on the Mac: none passed in 20 hours and it's a quiet hour (1 to 6), or none in 30. Unless
-# another run took it in the last 4 hours ($FULL_STAMP.taken) and may still be at it: a pass is stamped only at its end,
-# an hour or more after the choice, and the runs reach their checks an hour apart.
+# The whole suite's daily run on the Mac: none passed in 20 hours and it's a quiet hour (1 to 6), or none in 30. Only the
+# daily run's own pass is stamped ($FULL_STAMP): a whole suite taken for another reason at 13:00 would put the next
+# quiet window inside the 20 hours, and the run then went at a busy hour of the next day (a reader of #1484, 16 Nov).
+# Unless another run took it in the last 12 hours ($FULL_STAMP.taken) and may still be at it: a pass is stamped only at
+# its end, after a wait for the queue that has run past 4 hours, and the runs reach their checks an hour apart. A daily
+# run whose checks fail gives it back for the next run to take.
 full_due() {
   engine_clone || return 1
   [ -n "$(find "$FULL_STAMP" -mmin -1200 2>/dev/null)" ] && return 1
-  [ -n "$(find "$FULL_STAMP.taken" -mmin -240 2>/dev/null)" ] && return 1
+  [ -n "$(find "$FULL_STAMP.taken" -mmin -720 2>/dev/null)" ] && return 1
   [ -n "$(find "$FULL_STAMP" -mmin -1800 2>/dev/null)" ] || return 0
   local hour; hour=${AQ_HOUR:-$(date +%H)}; hour=${hour#0}
   [ "$hour" -ge 1 ] && [ "$hour" -le 6 ]
@@ -675,7 +683,7 @@ checks_for() {
   if engine_cloud; then CHECKS_WHY="the whole suite: the cloud's runner doesn't read GitHub's checks"; return; fi
   if full_due; then
     mkdir -p "$(dirname "$FULL_STAMP")" && touch "$FULL_STAMP.taken"
-    CHECKS_WHY="the whole suite: its daily run on this Mac"; return
+    CHECKS_WHY=$DAILY_WHY; return
   fi
   code=$(code_commit)
   if [ -z "$code" ] || ! git merge-base --is-ancestor "$code" origin/main 2>/dev/null; then
@@ -708,10 +716,15 @@ checks_for() {
 # and in the history read on 2026-11-07 it never failed where the tests passed. deploy.yml builds the real site before
 # anything goes live and fails before the upload, so readers keep the live site and a "Deploy failed" issue opens.
 verify_cycle() {
+  local daily=
   checks_for
   log "tests: $CHECKS_WHY"
-  verify "$CHECKS_STEP" || return 1
-  if [ "$CHECKS_STEP" = "$FULL_STEP" ] && engine_clone; then mkdir -p "$(dirname "$FULL_STAMP")" && touch "$FULL_STAMP"; fi
+  [ "$CHECKS_WHY" != "$DAILY_WHY" ] || daily=1
+  if ! verify "$CHECKS_STEP"; then
+    [ -z "$daily" ] || rm -f "$FULL_STAMP.taken"
+    return 1
+  fi
+  [ -z "$daily" ] || touch "$FULL_STAMP"
   return 0
 }
 

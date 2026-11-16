@@ -16,7 +16,7 @@ const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
  * call: AQ_UNIT_JOB stands in for gh. `stamp`: the age in hours of the Mac's last whole-suite pass, or none. Returns what
  * the cycle logged, the step verify was given, and whether the stamp is fresh after.
  */
-function decide(o: { mine?: string[]; merge?: 'main' | 'mine'; unit?: string[]; stamp?: number; taken?: number; hour?: number; env?: Record<string, string> } = {}) {
+function decide(o: { mine?: string[]; merge?: 'main' | 'mine'; unit?: string[]; stamp?: number; taken?: number; hour?: number; fails?: boolean; env?: Record<string, string> } = {}) {
   const home = mkdtempSync(join(tmpdir(), 'aq-checks-for-'))
   const clone = join(home, '.local/share/aquatome/engine-pages')
   const answers = (o.unit ?? ['success']).join('\n')
@@ -58,9 +58,8 @@ STUB
     ${Object.entries(o.env ?? {}).map(([k, v]) => `export ${k}='${v}'`).join('\n')}
     log() { echo "LOG $*"; }
     source "${join(ROOT, 'scripts/cycle-checks.sh')}"
-    verify() { echo "VERIFY $1"; }
-    verify_cycle
-    echo "CODE $?"
+    verify() { echo "VERIFY $1"; ${o.fails ? 'return 1' : 'return 0'}; }
+    if verify_cycle; then echo "CODE 0"; else echo "CODE 1"; fi
     echo "CODESHA $(cat ../../../../code-sha)"
     [ -n "$(find "${home}/.cache/aquatome/full-suite-passed" -mmin -5 2>/dev/null)" ] && echo "STAMP fresh" || echo "STAMP old"
     [ -n "$(find "${home}/.cache/aquatome/full-suite-passed.taken" -mmin -5 2>/dev/null)" ] && echo "TAKEN fresh" || echo "TAKEN old"
@@ -113,6 +112,10 @@ test('anything that can\'t be shown takes the whole suite: code in the run, a fa
   // The cloud's cycle (engine.yml): its token can't read checks, so it takes the whole suite without asking.
   const cloud = decide({ stamp: 2, env: { GITHUB_ACTIONS: 'true', GITHUB_WORKFLOW_REF: 'deathemperor/aquatome.com/.github/workflows/engine.yml@refs/heads/main' } })
   expect([cloud.step, cloud.why, cloud.asked]).toEqual([FULL, 'the whole suite: the cloud\'s runner doesn\'t read GitHub\'s checks', []])
+  // Only GitHub's own words count: an error's body, or a line of the cycle's own, is no answer.
+  for (const said of ['{"message":"No commit found for SHA"}', '2026-11-16T03:00:00Z gh api: no answer in 60 s']) {
+    expect(decide({ unit: [said], stamp: 2 }).why, said).toMatch(/, gave no answer$/)
+  }
   // With no stand-in, an origin that isn't GitHub (these tests' own repositories) gets no answer, and no call goes out.
   expect(decide({ stamp: 2, env: { AQ_UNIT_JOB: '' } }).why).toMatch(/gave no answer$/)
 }, slow(120_000))
@@ -141,16 +144,22 @@ test('the whole suite runs on this Mac once a day, at a quiet hour, and its pass
   expect(day.asked).toEqual([])
   expect(day.stamp).toBe(true)
   expect(day.taken).toBe(true)
-  // Taken by another run in the last 4 hours, still at it: this one checks its content. Taken longer ago: this one runs it.
+  // Taken by another run in the last 12 hours, still at it (a queue wait has run past 4): this one checks its content.
+  // Taken longer ago: this one runs it.
   expect(decide({ unit: ['success'], stamp: 21, taken: 1, hour: 3 }).step).toBe(CONTENT)
-  expect(decide({ unit: ['success'], stamp: 31, taken: 1, hour: 14 }).step).toBe(CONTENT)
-  expect(decide({ unit: ['success'], stamp: 21, taken: 5, hour: 3 }).why).toBe('the whole suite: its daily run on this Mac')
+  expect(decide({ unit: ['success'], stamp: 31, taken: 5, hour: 14 }).step).toBe(CONTENT)
+  expect(decide({ unit: ['success'], stamp: 21, taken: 13, hour: 3 }).why).toBe('the whole suite: its daily run on this Mac')
+  // A daily run whose checks fail gives it back, and isn't stamped.
+  const failed = decide({ unit: ['success'], stamp: 21, hour: 3, fails: true })
+  expect([failed.why, failed.out.includes('CODE 1'), failed.stamp, failed.taken]).toEqual(['the whole suite: its daily run on this Mac', true, false, false])
   // The same at a busy hour waits for a quiet one, up to 30 hours; none ever passed counts as past 30.
   expect(decide({ unit: ['success'], stamp: 21, hour: 14 }).step).toBe(CONTENT)
   expect(decide({ unit: ['success'], stamp: 31, hour: 14 }).why).toBe('the whole suite: its daily run on this Mac')
   expect(decide({ unit: ['success'], hour: 14 }).why).toBe('the whole suite: its daily run on this Mac')
-  // A whole suite taken for another reason is stamped too.
-  expect(decide({ unit: ['failure'], stamp: 2 }).stamp).toBe(true)
+  // A whole suite taken for another reason isn't the daily run: its pass at 13:00 would put the next quiet window inside
+  // the 20 hours, and the daily run would go at a busy hour of the next day (a reader of #1484, 16 Nov).
+  const forced = decide({ unit: ['failure'], stamp: 2 })
+  expect([forced.step, forced.stamp]).toEqual([FULL, false])
 }, slow(120_000))
 
 // A rename on either side would only cost the short path (no job by that name: the whole suite), but silently.

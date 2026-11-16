@@ -52,10 +52,10 @@ function traced(file) {
 }
 
 const list = () => JSON.parse(readFileSync(LIST, 'utf8'))
-export const leftOut = () => list().leaveOut
+const leftOut = () => list().leaveOut
 
 const [cmd, trace] = process.argv.slice(2)
-if (import.meta.url === `file://${process.argv[1]}`) {
+{
   if (!trace || !['check', 'write'].includes(cmd)) {
     console.error('usage: node scripts/content-tests.mjs check|write <trace>')
     process.exit(2)
