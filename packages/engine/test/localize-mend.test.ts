@@ -219,7 +219,7 @@ test('a fix whose read after notes something left out of a part it changed is no
   expect((await mendLocalized(other.root, fake(small, undefined, { score: 0.85, notes: ['Item 3: "keep six or more" is missing.'] }).llm, 'th', ['a'], { now })).kept).toHaveLength(1)
 })
 
-test('only the parts the fix changed are new: a part it didn't touch stays as it is on the page, units and all', async () => {
+test("only the parts the fix changed are new: a part it didn't touch stays as it is on the page, units and all", async () => {
   const habitat = `<p>อยู่ในลำธารน้ำไหลเอื่อย อุณหภูมิ 75 °F ${LONG}</p>`
   const { root } = await site([NOTE], { read: 0.6, habitat })
   expect((await mendLocalized(root, fake(small, undefined, AFTER).llm, 'th', ['a'], { now })).kept).toHaveLength(1)
