@@ -208,8 +208,21 @@ test('a page whose score carries a reason other than its score is left as it is,
     if (a.model === 'opus') await writeFile(join(root, 'content/species/a/th.json'), JSON.stringify({ ...page, quality: { ...page.quality, reason: 'thin' } }))
     return base.llm(a as never)
   }) as unknown as Llm
-  expect((await recheckLocalized(root, meanwhile, 'th', ['a'], { now })).back).toEqual([])
+  expect(await recheckLocalized(root, meanwhile, 'th', ['a'], { now })).toMatchObject({ back: [], skipped: ['a: 0.6, Sonnet 0.9, Opus 0.85: its score was given a reason ("thin") while it was read'] })
   expect(JSON.parse(await file()).quality).toMatchObject({ score: 0.6, reason: 'thin' })
+  // Not counted as a try: once the reason is gone, the page is read again.
+  await writeFile(join(root, 'content/species/a/th.json'), JSON.stringify(page))
+  expect((await recheckLocalized(root, fake({ sonnet: PASS, opus: OPUS }).llm, 'th', ['a'], { now })).back).toHaveLength(1)
+})
+
+test('a page whose file can\'t be read is skipped and said so; the pages after it are read', async () => {
+  const { root, file } = await site({ a: {}, b: {} })
+  await writeFile(join(root, 'content/species/a/th.json'), '{ "sections": ')
+  const r = await recheckLocalized(root, fake({ sonnet: PASS, opus: OPUS }).llm, 'th', ['a', 'b'], { now })
+  expect(r.skipped).toHaveLength(1)
+  expect(r.skipped[0]).toMatch(/^a: /)
+  expect(r.back).toEqual(['b: 0.6, Sonnet 0.9, Opus 0.85: back at 0.85'])
+  expect(JSON.parse(await file('b')).quality.score).toBe(0.85)
 })
 
 test('only Indonesian and Thai pages, the kinds the rule was measured on', async () => {

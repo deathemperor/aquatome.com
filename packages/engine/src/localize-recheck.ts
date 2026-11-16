@@ -29,7 +29,7 @@ import { logReviews, readReviews, type Review, type Trace } from './review-log'
  *   bar, lacking a part of the English (the reviewer reads it as left out: the translator's to add), or whose score
  *   carries a reason other than its score (`quality.reason` "thin", or any other a step gives it): this step can't weigh
  *   it, so it never erases one. A reason "score" is what this step is for: the page is read as usual, and it goes when the
- *   page comes back (the chief of staff, 16 Nov 2026: Vietnamese and Malay pages carry it, and a translator that wrote it
+ *   page comes back (the chief of staff, 16 Nov 2026: Vietnamese fish pages carry it, and a translator that wrote it
  *   here too would otherwise have every page this step exists for skipped).
  * - Every source takes the one new score, as the translator's whole-page read gives them (localize.ts). For these pages
  *   that is read by the build (@aq/schema `cleanQuality`, the lowest source this build may show), the dashboard's list of
@@ -79,18 +79,24 @@ export async function recheckLocalized(root: string, llm: Llm, lang: TargetLang,
   const since = new Date(now().getTime() - 86_400_000).toISOString().slice(0, 10)
   const order = [...ids.filter(id => (state[id]?.at ?? '') >= since), ...ids.filter(id => (state[id]?.at ?? '') < since)]
   // The page at the lower of its two scores, in search; the translator's record of it says the same. Only if its text is
-  // still the text read: one changed while it was read (a hand run beside the cycle) is left as it is, for the next try.
-  async function putBack(id: string, file: string, hash: string, score: number, parts: { id: string; en: string }[]): Promise<boolean> {
+  // still the text read, and it wasn't held or given another reason while it was read (a hand run beside the cycle): else
+  // it is left as it is, and why is returned.
+  async function putBack(id: string, file: string, hash: string, score: number, parts: { id: string; en: string }[]): Promise<string | undefined> {
     const page = JSON.parse(await readFile(file, 'utf8')) as Page
-    if (page.held || (page.quality?.reason && page.quality.reason !== 'score') || sourceTextHash(parts.map(p => ({ id: p.id, en: p.en, vi: page.sections[p.id] ?? '' }))) !== hash) return false
+    if (sourceTextHash(parts.map(p => ({ id: p.id, en: p.en, vi: page.sections[p.id] ?? '' }))) !== hash) return 'its text changed while it was read'
+    if (page.held) return 'it was held while it was read'
+    if (page.quality?.reason && page.quality.reason !== 'score') return `its score was given a reason ("${page.quality.reason}") while it was read`
     const { reason: _, ...quality } = page.quality!
     const sources = [...new Set(parts.map(p => p.id.split(':')[1]!))]
     await writeFile(file, `${JSON.stringify({ ...page, quality: { ...quality, score, indexable: true, bySource: Object.fromEntries(sources.map(s => [s, score])) } }, null, 2)}\n`)
-    if (state[id]) {
-      state[id] = { ...state[id], score }
-      await writeFile(stateFile, `${JSON.stringify(Object.fromEntries(Object.entries(state).sort()), null, 2)}\n`)
+    // The translator's record as it is now, not as it was when the run began.
+    const latest = JSON.parse(await readFile(stateFile, 'utf8').catch(() => '{}')) as typeof state
+    if (latest[id]) {
+      latest[id] = { ...latest[id], score }
+      state[id] = latest[id]
+      await writeFile(stateFile, `${JSON.stringify(Object.fromEntries(Object.entries(latest).sort()), null, 2)}\n`)
     }
-    return true
+    return undefined
   }
   // The notes on a dose or harm on this text, read before (the logged reads of it, by its hash, or kept since the
   // translator last wrote the page, and the translator's own), from `after` on only when given; uncleared ones.
@@ -124,7 +130,8 @@ export async function recheckLocalized(root: string, llm: Llm, lang: TargetLang,
         const since = [...new Set(harmOn(id, hash, before.at))]
         if (since.length) { report.held.push(`${id}: ${was}, its notes cleared, but a note on a dose or harm since: ${since.map(n => JSON.stringify(n)).join('; ')}`); continue }
         if (o.dry) { report.skipped.push(`${id}: its notes cleared, would come back (dry run)`); continue }
-        if (!await putBack(id, file, hash, Math.min(before.sonnet, before.opus!), parts)) { report.skipped.push(`${id}: its text changed while it was read`); continue }
+        const refused = await putBack(id, file, hash, Math.min(before.sonnet, before.opus!), parts)
+        if (refused) { report.skipped.push(`${id}: ${refused}`); continue }
         tried[id] = { ...before, back: true }
         await writeFile(triedFile, `${JSON.stringify(Object.fromEntries(Object.entries(tried).sort()), null, 2)}\n`)
         report.back.push(`${id}: ${was}, Sonnet ${before.sonnet}, Opus ${before.opus}: back at ${Math.min(before.sonnet, before.opus!)}, its notes on a dose or harm cleared`)
@@ -150,10 +157,12 @@ export async function recheckLocalized(root: string, llm: Llm, lang: TargetLang,
       if (!second || second.score < QUALITY_THRESHOLD) { report.failed.push(line); continue }
       if (harm.length) { report.held.push(`${line}: a note on a dose or harm: ${harm.map(n => JSON.stringify(n)).join('; ')}`); continue }
       const score = Math.min(sonnet.score, second.score)
-      if (!await putBack(id, file, hash, score, parts)) {
-        tried[id] = { ...tried[id]!, back: false }
+      const refused = await putBack(id, file, hash, score, parts)
+      if (refused) {
+        // Not a try of this page as it now stands: read afresh once it is a page this step reads again.
+        delete tried[id]
         await writeFile(triedFile, `${JSON.stringify(Object.fromEntries(Object.entries(tried).sort()), null, 2)}\n`)
-        report.skipped.push(`${line}: its text changed while it was read`)
+        report.skipped.push(`${line}: ${refused}`)
         continue
       }
       report.back.push(`${line}: back at ${score}`)
