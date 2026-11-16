@@ -33,6 +33,8 @@ type Moment = NonNullable<NonNullable<GuideEntity['video']>['figures']>[number][
 const BY_FPS = /\/t(\d+)(?:-hd)?\.webp$/
 /** A tile stored since 2026-11-07, `at<t>.webp`: step 0 leaves its `t` alone, since it reads as the second it shows. */
 const AT_SECOND = /\/at\d+\.webp$/
+/** Seconds either side of a frame with someone in it, in the order they're tried: the same moment may be clear of them. */
+const NEIGHBOURS = [3, -3, 6, -6]
 const sortedJson = (o: Record<string, unknown>) => `${JSON.stringify(Object.fromEntries(Object.entries(o).sort(([a], [b]) => (a < b ? -1 : 1))), null, 2)}\n`
 
 /**
@@ -49,6 +51,9 @@ const sortedJson = (o: Record<string, unknown>) => `${JSON.stringify(Object.from
  * - a person, hands included, or a mark added on it (guide-photos.ts's question, which a tile's smudge hid): the still
  *   leaves the page and goes onto `_photo-rejected.json`. A frame that passes carries its verdict (`person: false`, which
  *   a still needs to show) and is in `_photo-guides.json`, so guide-photos doesn't judge it again.
+ * A frame with someone in it (a face or the model's person) isn't given up at once: the frames a few seconds either side that
+ * still show the tile's moment are screened the same way, and the first clear one takes its place, its `t` moved there. Only
+ * when none is clear does the still leave the page.
  * A frame that doesn't show the tile's moment leaves the tile for good (`_video-stills.json`); a grab or a read that
  * fails leaves it for the next run. YouTube throttling, a model failure or three grabs failing in a row stop the run, and
  * the guide in hand is left as it was. `limit`: guides this run.
@@ -118,7 +123,7 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
       }
 
       // 1. The frame at each tile's second, when it shows the tile's moment.
-      const grabbed: { m: Moment; t: number; hd: Uint8Array; png: string }[] = []
+      const grabbed: { m: Moment; t: number; hd: Uint8Array; png: string; tile: Uint8Array }[] = []
       let left = 0
       for (const m of figures.flatMap(f => f.moments)) {
         if (stillDone(m, kept)) continue
@@ -135,7 +140,7 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
           if (!hd) { kept[String(m.t)] = `the frame at ${m.t} s isn't the tile's moment`; report.kept.push(`${id} t${m.t}`); continue }
           const png = join(dir, `${id}-${m.t}.png`)
           await writeFile(png, hd)
-          grabbed.push({ m, t, hd, png })
+          grabbed.push({ m, t, hd, png, tile })
         } catch (err) {
           if (throttled(err)) { report.stopped = (err as Error).message; break }
           left++
@@ -150,9 +155,10 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
       const texts = grabbed.length ? await d.read(grabbed.map(g => g.png)) : []
       const drop = new Set<Moment>()
       const entries = new Map<Moment, WatermarkEntry>()
+      const someone = new Map<Moment, { g: (typeof grabbed)[number]; why: string; blocklist: boolean }>()
       const ask: { g: (typeof grabbed)[number]; entry: WatermarkEntry }[] = []
       grabbed.forEach((g, i) => {
-        if (faces[i]! > 0) { drop.add(g.m); report.dropped.push(`${id} t${g.m.t}: a face in the frame`); return }
+        if (faces[i]! > 0) { someone.set(g.m, { g, why: 'a face in the frame', blocklist: false }); return }
         const lines = texts[i]
         if (faces[i]! < 0 || !lines) { left++; return } // Vision couldn't read it: next run
         const entry: WatermarkEntry = { ocr: ocrOf(lines) }
@@ -194,21 +200,76 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
       for (const [m, v] of judged) {
         const why = guidePhotoOff(v, true)
         if (!why) continue
-        drop.add(m)
         entries.delete(m)
+        if (v.person) { someone.set(m, { g: grabbed.find(g => g.m === m)!, why, blocklist: true }); continue }
+        drop.add(m)
         rejected[m.url] ??= why
+        report.dropped.push(`${id} t${m.t}: ${why}`)
+      }
+
+      // Someone in the frame: the seconds around it, in rounds, until one is clear of them.
+      const clear = new Map<Moment, { t: number; hd: Uint8Array; entry: WatermarkEntry; verdict: GuidePhotoVerdict }>()
+      const taken = new Set(figures.flatMap(f => f.moments.map(m => m.t)))
+      for (const dt of NEIGHBOURS) {
+        const round: { m: Moment; t: number; hd: Uint8Array; png: string }[] = []
+        for (const [m, { g }] of someone) {
+          const t = g.t + dt
+          if (clear.has(m) || t < 0 || t > v.durationSec || taken.has(t)) continue
+          try {
+            const hd = await sharpFrame(d.grab, frames.stream, t, g.tile)
+            if (!hd) continue
+            const png = join(dir, `${id}-${t}.png`)
+            await writeFile(png, hd)
+            round.push({ m, t, hd, png })
+          } catch (err) {
+            if (throttled(err)) { report.stopped = (err as Error).message; break }
+          }
+        }
+        if (report.stopped) break
+        if (!round.length) continue
+        const roundFaces = await d.faces(round.map(r => r.png))
+        const roundTexts = await d.read(round.map(r => r.png))
+        const candidates = round.flatMap((r, i) => {
+          const lines = roundTexts[i]
+          if (roundFaces[i] !== 0 || !lines) return []
+          const entry: WatermarkEntry = { ocr: ocrOf(lines) }
+          return ocrHit(entry.ocr) ? [] : [{ ...r, entry }] // text on it would need the watermark model: the next second may have none
+        })
+        try {
+          for (let i = 0; i < candidates.length; i += PER_SHEET) {
+            const batch = candidates.slice(i, i + PER_SHEET)
+            const answers = await judgeGuidePhotos(batch.map(c => Buffer.from(c.hd)), join(dir, `${id}-near-${dt}-${i}.jpg`), d.judge)
+            batch.forEach((c, j) => {
+              const verdict = answers[j]
+              if (!verdict || guidePhotoOff(verdict, true)) return
+              clear.set(c.m, { t: c.t, hd: c.hd, entry: c.entry, verdict })
+              taken.add(c.t)
+            })
+          }
+        } catch (err) {
+          if (err instanceof LlmError) { report.stopped = err.message; break }
+          throw err
+        }
+      }
+      if (report.stopped) break
+      for (const [m, { why, blocklist }] of someone) {
+        if (clear.has(m)) continue
+        drop.add(m)
+        if (blocklist) rejected[m.url] ??= why
         report.dropped.push(`${id} t${m.t}: ${why}`)
       }
 
       // 3. Upload what passed, then the guide with its stills swapped and any dropped.
       const swap = new Map<Moment, Moment>()
-      for (const { m, t, hd } of grabbed) {
-        const entry = entries.get(m)
-        if (!entry) continue
+      const passed = [
+        ...grabbed.flatMap(({ m, t, hd }) => { const entry = entries.get(m); return entry ? [{ m, t, hd, entry, verdict: judged.get(m)! }] : [] }),
+        ...[...clear].map(([m, c]) => ({ m, ...c })),
+      ]
+      for (const { m, t, hd, entry, verdict } of passed) {
         const s = await d.media.put(`video/${v.youtubeId}/at${t}-hd.webp`, hd)
         marks[s.url] = entry
         hashes[s.url] = await dhash(hd)
-        verdicts[s.url] = judged.get(m)!
+        verdicts[s.url] = verdict
         swap.set(m, { ...m, t, url: s.url, width: s.width, height: s.height, sharpness: await frameSharpness(hd), person: false })
       }
       if (swap.size || drop.size || retimed) await save(figures.map(f => ({ ...f, moments: f.moments.filter(m => !drop.has(m)).map(m => swap.get(m) ?? m) })).filter(f => f.moments.length || f.photo))

@@ -64,7 +64,7 @@ test("video-stills: each still's t becomes the second its tile shows, and each t
   const r = await videoStills(s.root, s.d)
   expect(s.calls.grabs).toEqual([20, 30, 40, 50, 60, 70]) // not t72: the owner rejected it
   expect(r.done).toEqual(['youtube-b1: 7 retimed, 2 sharp, 2 dropped, 2 kept as tiles, 1 for next run'])
-  expect(r.dropped).toEqual(['youtube-b1 t60: a face in the frame', 'youtube-b1 t40: watermark (© Tank Channel, bottom)'])
+  expect(r.dropped).toEqual(['youtube-b1 t40: watermark (© Tank Channel, bottom)', 'youtube-b1 t60: a face in the frame'])
   expect(r.kept).toEqual(['youtube-b1 t50'])
   expect(r.failed).toEqual(['youtube-b1 t70: ffmpeg: Server returned 403 Forbidden (access denied)'])
   const figs = (await s.read('content/guides/youtube-b1/entity.json')).video.figures
@@ -206,6 +206,53 @@ test('video-stills: a frame with hands or an added mark is dropped before upload
   expect(silent.calls.puts).toEqual(['video/b1/at30-hd.webp'])
   expect(q.done[0]).toContain('2 for next run')
   expect((await silent.read('content/guides/youtube-b1/entity.json')).video.figures[0].moments.map((m: { url: string }) => m.url)).toContain(old(18))
+})
+
+test('video-stills: a frame with hands gives way to the first clear frame a few seconds off that still shows the moment: its t moves, its caption stays, nothing is blocklisted', async () => {
+  const passes = { person: false, mark: false, brand: false, note: 'a tank' }
+  let call = 0
+  const s = await site({ judge: async () => (++call === 1 ? { photos: [{ n: 1, ...passes, person: true, note: 'hands planting' }, { n: 2, ...passes }] } : { photos: [{ n: 1, ...passes }] }) })
+  const r = await videoStills(s.root, s.d)
+  expect(r.dropped).not.toContain('youtube-b1 t20: people: hands planting')
+  expect(s.calls.grabs).toContain(23)
+  expect(s.calls.puts).toEqual(['video/b1/at30-hd.webp', 'video/b1/at23-hd.webp'])
+  expect((await s.read('engine-state/_photo-rejected.json'))[old(18)]).toBeUndefined()
+  const first = (await s.read('content/guides/youtube-b1/entity.json')).video.figures[0].moments[0]
+  expect(first).toMatchObject({ t: 23, url: 'https://m/video/b1/at23-hd.webp', caption: 'Một', person: false })
+  expect((await s.read('engine-state/_photo-guides.json'))['https://m/video/b1/at23-hd.webp']).toEqual(passes)
+})
+
+test('video-stills: a face in the frame tries the seconds around it too; with no clear frame the still goes, as before', async () => {
+  const faceAt60 = (f: string) => (f.endsWith('-60.png') ? 1 : 0)
+  const near = await site({ faces: async files => files.map(faceAt60) })
+  await videoStills(near.root, near.d)
+  expect(near.calls.puts).toContain('video/b1/at63-hd.webp')
+  expect((await near.read('content/guides/youtube-b1/entity.json')).video.figures[1].moments.map((m: { t: number }) => m.t)).toContain(63)
+
+  const always = await site({ faces: async files => files.map(f => (/-(5[4-9]|6[0-9])\.png$/.test(f) ? 1 : 0)) })
+  const r = await videoStills(always.root, always.d)
+  expect(r.dropped).toContain('youtube-b1 t60: a face in the frame')
+  expect(always.calls.puts.some(k => /at6\d-hd/.test(k))).toBe(false)
+  expect((await always.read('engine-state/_photo-rejected.json'))[old(54)]).toBeUndefined() // a face is the frame's, not the tile's
+})
+
+test('video-stills: every neighbour with hands too, or not the same moment, and the still leaves for good; a usage limit in the search leaves the guide as it was', async () => {
+  const passes = { person: false, mark: false, brand: false, note: 'a tank' }
+  const hands = async () => ({ photos: [1, 2, 3, 4, 5, 6].map(n => ({ n, ...passes, person: n === 1, note: 'hands' })) })
+  let round = 0
+  const s = await site({ judge: async () => (++round === 1 ? { photos: [{ n: 1, ...passes, person: true, note: 'hands planting' }, { n: 2, ...passes }] } : hands()) })
+  const r = await videoStills(s.root, s.d)
+  expect(r.dropped).toContain('youtube-b1 t20: people: hands planting')
+  expect(s.calls.grabs.filter(t => t !== 20 && Math.abs(t - 20) <= 6).sort((a, b) => a - b)).toEqual([14, 17, 23, 26])
+  expect((await s.read('engine-state/_photo-rejected.json'))[old(18)]).toBe('people: hands planting')
+  expect(s.calls.puts).toEqual(['video/b1/at30-hd.webp'])
+
+  let calls = 0
+  const stopped = await site({ judge: async () => { if (++calls === 2) throw new LlmError('usage limit'); return { photos: [{ n: 1, ...passes, person: true, note: 'hands' }, { n: 2, ...passes }] } }, grab: async (_s: unknown, sec: number) => grey(20 + 2 * Math.round(sec / 10 / 0.11), 1280, 720).png().toBuffer() })
+  const before = await stopped.raw()
+  expect((await videoStills(stopped.root, stopped.d)).stopped).toBe('usage limit')
+  expect(stopped.calls.puts).toEqual([])
+  expect(await stopped.raw()).toEqual(before)
 })
 
 test('video-stills: three grabs failing in a row stop the run', async () => {

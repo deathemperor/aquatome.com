@@ -202,6 +202,7 @@ A guide's "Trong video" stills, on the site and in the app, show only when they 
 - **No one in it**: `person` is false, the model's verdict that nobody is in the frame, hands included. A still not yet judged
   isn't shown. Video frames need this: of 30 sampled on 2026-11-09, 14 showed hands or a person, which the tiles had hidden.
   `video-stills` judges each frame before upload, and `guide-photos` judges the rest, stills ahead of the guides' other photos.
+  A person in a frame doesn't lose the moment at once: `video-stills` tries the frames up to 6 seconds either side that still show it.
   A person or a mark added on the frame takes it off for good. A question to the model about soft frames was tried on the
   same 58 stills and stopped 1 of the 4 blurry ones the pixel bar misses, so it isn't asked: some soft frames still show.
 
