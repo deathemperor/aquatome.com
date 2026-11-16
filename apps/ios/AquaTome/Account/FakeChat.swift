@@ -171,7 +171,8 @@ final class FakeChat {
   /// The answer to a report, or nil for a request that isn't one.
   func answer(_ r: URLRequest) async -> (Data, HTTPURLResponse)? {
     guard let path = r.url?.path, path.hasPrefix("/api/chat/conversations/"), path.hasSuffix("/report") else { return nil }
-    if args.contains("-chat-report-slow") { try? await Task.sleep(for: .seconds(3)) }
+    // Long enough for a shot of "Đang gửi…" on a loaded Mac (PageShotsFlowTests), as `slowPost`'s.
+    if args.contains("-chat-report-slow") { try? await Task.sleep(for: .seconds(6)) }
     func json(_ status: Int, _ o: Any) -> (Data, HTTPURLResponse) {
       ((try? JSONSerialization.data(withJSONObject: o)) ?? Data(), Self.response(r, status, type: "application/json"))
     }

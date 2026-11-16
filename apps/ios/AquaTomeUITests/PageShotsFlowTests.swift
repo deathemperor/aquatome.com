@@ -568,21 +568,35 @@ final class PageShotsFlowTests: XCTestCase {
                thenHoldForDuration: 0.1)
     }
     XCTAssertTrue(clear(), "Báo sai behind the box")
-    capture(app, name + "-under", dark: dark, large: true, screens: 1)
+    still(name + "-under", dark: dark)
     report.tap()
     let reason = app.descendants(matching: .any)["chat-report-reason"].firstMatch
     XCTAssertTrue(reason.waitForExistence(timeout: 5), "no sheet")
-    capture(app, name + "-sheet", dark: dark, large: true, screens: 1)
+    still(name + "-sheet", dark: dark)
     reason.tap()
     reason.typeText("Bể 60 cm là 54 lít, không phải 60 lít")
-    capture(app, name + "-typed", dark: dark, large: true, screens: 1)
+    still(name + "-typed", dark: dark)
     let send = app.buttons["chat-report-send"]
     send.tap()
     let sending = XCTNSPredicateExpectation(predicate: NSPredicate(format: "label == %@", "Đang gửi…"), object: send)
     XCTAssertEqual(XCTWaiter().wait(for: [sending], timeout: 2), .completed, "no Đang gửi…: \(send.label)")
-    capture(app, name + "-sending", dark: dark, large: true, screens: 1)
+    still(name + "-sending", dark: dark)
+    // Still sending once shot: a late shot of "Đã báo" would pass as this one.
+    XCTAssertEqual(send.label, "Đang gửi…", "the sending shot came too late")
     XCTAssertTrue(app.descendants(matching: .any)["chat-reported"].firstMatch.waitForExistence(timeout: 8), "not reported")
-    capture(app, name + "-sent", dark: dark, large: true, screens: 1)
+    still(name + "-sent", dark: dark)
+  }
+
+  /// One screen as it is, not scrolled after (`capture` drags after each shot, which would move the sheet, type on the
+  /// keyboard or scroll the answer before the next tap), in the appearance asked for.
+  private func still(_ name: String, dark: Bool) {
+    settle()
+    let shot = XCUIScreen.main.screenshot()
+    XCTAssertEqual(lightness(shot.image) < 0.5, dark, "\(name) isn't \(dark ? "dark" : "light"): \(lightness(shot.image))")
+    let a = XCTAttachment(screenshot: shot)
+    a.name = "shot-\(name)-01"
+    a.lifetime = .keepAlways
+    add(a)
   }
 
   /// The handbook's row for `row`, found by `query`, opened.

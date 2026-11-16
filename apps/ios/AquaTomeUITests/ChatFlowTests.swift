@@ -136,7 +136,8 @@ final class ChatFlowTests: XCTestCase {
     send.tap()
     XCTAssertTrue(soon(send.label == "Đang gửi…"), "the button didn't say it's sending: \(send.label)")
     XCTAssertFalse(send.isEnabled, "it can be sent twice")
-    XCTAssertTrue(element(app, "chat-reported").waitForExistence(timeout: 8), "not sent")
+    // Longer than the stand-in's 6 s hold.
+    XCTAssertTrue(element(app, "chat-reported").waitForExistence(timeout: 12), "not sent")
   }
 
   /// At the largest text the field keeps a short placeholder, and "optional" moves to the line under it.

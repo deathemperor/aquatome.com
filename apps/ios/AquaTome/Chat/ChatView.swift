@@ -826,6 +826,8 @@ private struct ReportSheet: View {
     .presentationDetents([.height(height)])
     .presentationDragIndicator(.visible)
     .presentationBackground(Color(uiColor: .systemGroupedBackground))
+    // Not closed while it sends: a failure then would land on a sheet that's gone, and the reader would never hear of it.
+    .interactiveDismissDisabled(sending)
   }
 
   private var content: some View {
@@ -840,6 +842,7 @@ private struct ReportSheet: View {
               .frame(width: 44, height: 44).contentShape(.rect)
           }
           .accessibilityLabel(Text("Đóng"))
+          .disabled(sending)
         }
       }
       TextField(size.isAccessibilitySize ? String(localized: "Sai ở đâu?") : String(localized: "Sai ở đâu? (không bắt buộc)"), text: $reason)
@@ -847,7 +850,13 @@ private struct ReportSheet: View {
         .onSubmit(go)
         .padding(12)
         .background(Color(uiColor: .secondarySystemGroupedBackground), in: .rect(cornerRadius: 14))
-        .onChange(of: reason) { _, t in if t.count > Chat.reasonLimit { reason = String(t.prefix(Chat.reasonLimit)) } }
+        // One line, as the Worker takes it (a line break is a 400, which "Gửi lần nữa" would never get past), and no longer
+        // than its limit.
+        .onChange(of: reason) { _, t in
+          let one = t.replacingOccurrences(of: "\r\n", with: " ").replacingOccurrences(of: "\n", with: " ").replacingOccurrences(of: "\r", with: " ")
+          let fits = one.count > Chat.reasonLimit ? String(one.prefix(Chat.reasonLimit)) : one
+          if fits != t { reason = fits }
+        }
         .accessibilityIdentifier("chat-report-reason")
       Group {
         if size.isAccessibilitySize { Text("Không bắt buộc. AquaTome sẽ xem lại câu trả lời này.") } else { Text("AquaTome sẽ xem lại câu trả lời này.") }
@@ -881,7 +890,13 @@ private struct ReportSheet: View {
     Task {
       let result = await send(reason)
       sending = false
-      if result == .failed { failed = true } else { dismiss() }
+      if result == .failed {
+        failed = true
+        // Under "Gửi", out of VoiceOver's way: said too.
+        AccessibilityNotification.Announcement(String(localized: "Chưa gửi được. Bấm Gửi lần nữa.")).post()
+      } else {
+        dismiss()
+      }
     }
   }
 }
