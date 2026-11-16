@@ -120,9 +120,8 @@ enum V2Switch {
 
 @available(iOS 18, *)
 extension View {
-  /// The pages, shelves and tools a v2 stack opens; a page from a card or shelf zooms out of it (`zoom`, the card's
-  /// `matchedTransitionSource`). A fish opens v2's page, the others v1's.
-  func v2Destinations(zoom: Namespace.ID) -> some View { modifier(Destinations(zoom: zoom)) }
+  /// The pages, shelves and tools a v2 stack opens. A fish opens v2's page, the others v1's.
+  func v2Destinations() -> some View { modifier(Destinations()) }
 
   /// Links in the pages of a v2 stack (a page's link to another, a group, a tool) push on that stack, not on Khám phá's;
   /// the app's own tabs (tanks, lights, the account) open as everywhere.
@@ -249,10 +248,6 @@ extension EnvironmentValues {
   @Entry var v2FootGround: Binding<FootGround?>?
   /// Hôm nay's posts (`Post`), on Hôm nay's stack; nil on the others.
   @Entry var v2Posts: Posts?
-  /// A post's ✕, for a page that puts it at its bar's end itself (a fish's, a guide's).
-  @Entry var v2PostClose: (() -> Void)?
-  /// The page is a post itself, with no back button.
-  @Entry var v2IsPost = false
   /// How many times the screen has been asked again ("Thử lại", a pull to refresh): a photo that didn't come tries again.
   @Entry var v2PhotoTries = 0
 }
@@ -265,22 +260,20 @@ struct FootGround: Equatable {
 }
 
 /// A page a Hôm nay card opens: a post, as the App Store's Today stories (the owner, 12 Nov: "for today posts they only
-/// support left edge swipe and close button"). It zooms out of its card, with no back button and a ✕ that closes it, and
-/// iOS's swipe from the left edge takes it back. A page opened from inside it pushes with iOS's own back button, and has
-/// the ✕ too, which closes the whole post.
+/// support left edge swipe and close button"). It's pushed full screen, with iOS's back drawn as ✕ (`PostBack`), so iOS's
+/// swipe from the left edge takes it back at any speed. A page opened from inside it has iOS's own back button, and no
+/// tab bar either (spec-post-push.md, 13 Nov).
 struct Post: Hashable {
   let item: HandbookIndex.Item
 }
 
-/// Hôm nay's posts: whether one is open, and closing it (back to Hôm nay's top).
+/// Hôm nay's posts: whether one is open.
 struct Posts {
   var open: Binding<Bool>
-  var close: () -> Void
 }
 
 @available(iOS 18, *)
 private struct Destinations: ViewModifier {
-  let zoom: Namespace.ID
   @Environment(HandbookModel.self) private var handbook
   /// Hôm nay's stack only.
   @Environment(\.v2Posts) private var posts
@@ -288,17 +281,17 @@ private struct Destinations: ViewModifier {
   func body(content: Content) -> some View {
     content
       // Pushed with iOS's own push and back button: its swipe from the left edge follows the finger, as in Settings.
-      .navigationDestination(for: HandbookIndex.Item.self) { page($0).modifier(ClosesPost(posts: posts, always: false, own: true)) }
+      .navigationDestination(for: HandbookIndex.Item.self) { page($0).modifier(ClosesPost(posts: posts, always: false)) }
       // A post is pushed as any page (spec-post-push.md, 13 Nov): iOS's push and pop, which go back at any speed, where the
       // zoom's swipe ignored a quick one. Its way out is iOS's own back button, drawn as ✕ (`PostBack`).
       .navigationDestination(for: Post.self) { post in
         page(post.item)
           .background(PostBack())
-          .modifier(ClosesPost(posts: posts, always: true, own: true))
+          .modifier(ClosesPost(posts: posts, always: true))
           .onAppear { posts?.open.wrappedValue = true }
       }
       .navigationDestination(for: FullPage.self) {
-        PageView(item: $0.item, url: handbook.url($0.item), at: $0.at).v2ClearOfTheFade().modifier(ClosesPost(posts: posts, always: false, own: true))
+        PageView(item: $0.item, url: handbook.url($0.item), at: $0.at).v2ClearOfTheFade().modifier(ClosesPost(posts: posts, always: false))
       }
       .navigationDestination(for: Browse.self) { BrowseView(browse: $0).v2ClearOfTheFade().modifier(ClosesPost(posts: posts, always: false)) }
       .navigationDestination(for: ChipRoute.self) { ChipPage(shelf: $0.shelf).v2ClearOfTheFade().modifier(ClosesPost(posts: posts, always: false)) }
@@ -320,32 +313,9 @@ private struct Destinations: ViewModifier {
   }
 }
 
-/// A post's ✕, at the bar's end: on the post itself, and on each screen opened inside it while it's open. A fish's or a
-/// guide's page puts it after its own buttons (`own`); on another screen it's the bar's.
-extension View {
-  /// A Hôm nay post's ✕, its own glass circle at the bar's right end, after the page's buttons (Design's parity, 12 Nov: it
-  /// sat first in their capsule). As the profile button: the space is what parts them.
-  @ViewBuilder func v2PostCloseButton(_ close: (() -> Void)?) -> some View {
-    if let close {
-      let button = Button(action: close) { Label("Đóng", systemImage: "xmark") }.accessibilityIdentifier("v2-close-post")
-      if #available(iOS 26, *) {
-        toolbar {
-          ToolbarSpacer(.fixed, placement: .primaryAction)
-          ToolbarItem(placement: .primaryAction) { button }
-        }
-      } else {
-        toolbar { ToolbarItem(placement: .primaryAction) { button } }
-      }
-    } else {
-      self
-    }
-  }
-}
-
 private struct ClosesPost: ViewModifier {
   let posts: Posts?
   let always: Bool
-  var own = false
 
   func body(content: Content) -> some View {
     // Full screen: no tab bar on a post, nor on a page pushed inside it (spec-post-push.md).

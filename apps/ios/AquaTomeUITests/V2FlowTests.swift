@@ -160,8 +160,6 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.tabBars.buttons["Hôm nay"].isSelected, "the home link opened another tab")
   }
 
-  /// The editors' day (`-plan`): their fish, their guide and their story in their words, not Hôm nay's own picks (Cá neon,
-  /// and the neon guide under its own title), and the story opens its page.
   /// A Hôm nay post is pushed full screen (spec-post-push.md, 13 Nov): iOS's back button at the top left drawn as ✕ and read
   /// "Đóng", the only way out, with no ✕ at the right and no tab bar; still so once scrolled; and back on Hôm nay, the tab
   /// bar again. The guide's story and the fish of the day, with animations on, as a reader has them.
@@ -175,10 +173,11 @@ final class V2FlowTests: XCTestCase {
       add(a)
     }
     func closes(_ post: String) {
-      let back = app.navigationBars.buttons["Đóng"]
-      XCTAssertTrue(back.waitForExistence(timeout: 5), "\(post): no ✕ (iOS's back, \"Đóng\")")
+      // iOS's back, found by its own identifier: what it reads is checked apart (15 Nov: "Quay lại", not "Đóng").
+      let back = app.navigationBars.buttons["BackButton"]
+      XCTAssertTrue(back.waitForExistence(timeout: 5), "\(post): no ✕ (iOS's back)")
+      XCTAssertEqual(back.label, "Đóng", "\(post): the ✕ doesn't read \"Đóng\"")
       XCTAssertLessThan(back.frame.midX, app.frame.width / 2, "\(post): the ✕ isn't at the left")
-      XCTAssertFalse(app.buttons["v2-close-post"].exists, "\(post): a second ✕ at the right")
       XCTAssertFalse(app.tabBars.buttons["Hôm nay"].isHittable, "\(post): the tab bar shows on the post")
     }
     let story = openForSwipe(.homNayPost, app)
@@ -188,7 +187,7 @@ final class V2FlowTests: XCTestCase {
     app.swipeUp()
     closes("the story, scrolled")
     shot("post-story-scrolled")
-    app.navigationBars.buttons["Đóng"].tap()
+    app.navigationBars.buttons["BackButton"].tap()
     XCTAssertTrue(story.waitForNonExistence(timeout: 5), "the ✕ didn't close the story")
     let tab = app.tabBars.buttons["Hôm nay"]
     let shown = XCTNSPredicateExpectation(predicate: NSPredicate(format: "isHittable == true"), object: tab)
@@ -205,6 +204,8 @@ final class V2FlowTests: XCTestCase {
     shot("post-fish-scrolled")
   }
 
+  /// The editors' day (`-plan`): their fish, their guide and their story in their words, not Hôm nay's own picks (Cá neon,
+  /// and the neon guide under its own title), and the story opens its page.
   func testHomNayShowsTheEditorsDay() {
     let app = launch("-v2", "YES", "-plan", "-today", "2026-11-13")
     app.launchForFlow()
@@ -1073,55 +1074,40 @@ final class V2FlowTests: XCTestCase {
     XCTAssertEqual(wrong, [])
   }
 
-  /// A page a Hôm nay card opens is a post: no back button, a ✕ at the bar's end. A page opened from inside it pushes with
-  /// iOS's back button and keeps the ✕, which closes the whole post, back to Hôm nay's top. A page pushed elsewhere has
-  /// iOS's back button and no ✕.
-  func testAHomNayPostHasItsCloseAndAPageInsideItHasBothButtons() {
+  /// Inside a Hôm nay post (spec-post-push.md, 13 Nov): a page pushed from the post has iOS's back as iOS draws it, not the
+  /// post's ✕, and no tab bar. Back one page at a time ends on the post, then on Hôm nay. A page pushed elsewhere has the
+  /// tab bar and iOS's back.
+  func testAPageInsideAHomNayPostHasIOSsBackAndNoTabBar() {
     let app = launch("-v2", "YES", "-plan", "-today", "2026-11-13")
     app.launchForFlow()
-    let close = app.buttons["v2-close-post"].firstMatch
-    for (card, fish) in [(app.buttons["v2-fish-of-the-day"], true),
-                         (app.buttons.matching(NSPredicate(format: "label CONTAINS %@", "Đàn neon đầu tiên")).firstMatch, false)] {
-      XCTAssertTrue(card.waitForExistence(timeout: 10), "no card")
-      repeatUntil(card.isHittable, times: 6) { app.swipeUp() }
-      card.tap()
-      XCTAssertTrue(close.waitForExistence(timeout: 8), "no ✕ on the post")
-      XCTAssertFalse(app.pageBack.exists, "a back button on the post")
-      // The bar's last item, right of every other, whatever they are (Design, 14 Nov: a fish's ⋯ now, a guide's soon; its
-      // parity of 12 Nov had it before the bookmark).
-      let others = app.navigationBars.containing(.button, identifier: "v2-close-post").firstMatch.buttons.allElementsBoundByIndex
-        .filter { $0.identifier != "v2-close-post" }
-      XCTAssertFalse(others.isEmpty, "the ✕ alone on the bar")
-      XCTAssertGreaterThan(close.frame.minX, others.map { $0.frame.maxX }.max() ?? .infinity,
-                           "the ✕ isn't the bar's last item: \(close.frame) \(others.map { $0.frame })")
-      XCTAssertGreaterThan(close.frame.maxX, app.frame.width - 40, "the ✕ isn't at the bar's end: \(close.frame)")
-      if fish { close.tap(); XCTAssertTrue(close.waitForNonExistence(timeout: 5), "the ✕ didn't close the post"); continue }
-      // Inside the story's page, its link to the neon.
-      let neon = app.descendants(matching: .any)["native-page"].links["neon"].firstMatch
-      repeatUntil(neon.exists && neon.isHittable, times: 12) { app.swipeUp() }
-      neon.tap()
-      XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the link didn't open the fish inside the post")
-      XCTAssertTrue(app.pageBack.waitForExistence(timeout: 5), "no back button on a page inside the post")
-      XCTAssertTrue(close.exists, "no ✕ on a page inside the post")
-      // Past its colour, as the bar turns to glass, the ✕ keeps a circle of its own after the bar's other items (Design's
-      // parity, 13 Nov: iOS drew the bookmark, share and ✕ in one capsule there). Just before the ✕: the other items' edge,
-      // the page and the circle's edge, not one glass all through. One glass all through: 253 at all 21 points on 27.2 (before the
-      // fix, 13 Nov), a spread of 0. On 26.5 in light the glass reads 247 to 248, a spread of 1, on the page's 255, so the
-      // gap is a step of 8 there (GitHub's run on a21577eac, 13 Nov). More than 4 tells them apart on both.
-      for _ in 0..<4 { app.swipeUp() }
-      Thread.sleep(forTimeInterval: 1.5)
-      let shot = Pixels(XCUIScreen.main.screenshot()), y = close.frame.midY
-      let before = stride(from: close.frame.minX - 24, through: close.frame.minX - 4, by: 1).map { shot.at($0, y) }
-      let tones = before.map { ($0.r + $0.g + $0.b) / 3 }
-      XCTAssertGreaterThan(tones.max()! - tones.min()!, 4, "the ✕ in one glass with the bookmark and share: \(before)")
-      close.tap()
-      XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 5), "the ✕ didn't close the whole post")
-      XCTAssertFalse(app.descendants(matching: .any)["native-page"].exists, "the post still open under Hôm nay")
-    }
-    // Elsewhere: iOS's back button, no ✕.
+    let tab = app.tabBars.buttons["Hôm nay"]
+    let story = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", "Đàn neon đầu tiên")).firstMatch
+    XCTAssertTrue(story.waitForExistence(timeout: 10), "no story card")
+    repeatUntil(story.isHittable, times: 6) { app.swipeUp() }
+    story.tap()
+    let post = app.descendants(matching: .any)["native-page"].firstMatch
+    XCTAssertTrue(post.waitForExistence(timeout: 8), "the story didn't open")
+    // Inside the story's page, its link to the neon.
+    let neon = post.links["neon"].firstMatch
+    repeatUntil(neon.exists && neon.isHittable, times: 12) { app.swipeUp() }
+    neon.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the link didn't open the fish inside the post")
+    XCTAssertTrue(app.pageBack.waitForExistence(timeout: 5), "no back button on a page inside the post")
+    XCTAssertNotEqual(app.pageBack.label, "Đóng", "the post's ✕ on a page inside it")
+    XCTAssertFalse(tab.isHittable, "the tab bar on a page inside the post")
+    app.pageBack.tap()
+    XCTAssertTrue(app.pageBack.waitForExistence(timeout: 5), "back from the fish isn't the post")
+    XCTAssertTrue(post.exists, "back from the fish isn't the story")
+    XCTAssertFalse(tab.isHittable, "the tab bar on the post")
+    app.pageBack.tap()
+    XCTAssertTrue(post.waitForNonExistence(timeout: 5), "back from the post isn't Hôm nay")
+    let shown = XCTNSPredicateExpectation(predicate: NSPredicate(format: "isHittable == true"), object: tab)
+    XCTAssertEqual(XCTWaiter.wait(for: [shown], timeout: 5), .completed, "no tab bar back on Hôm nay")
+    // Elsewhere: iOS's back and the tab bar.
     _ = openForSwipe(.fishFromKhamPha, app)
     XCTAssertTrue(app.pageBack.waitForExistence(timeout: 5), "no back button on a page from Khám phá")
-    XCTAssertFalse(close.exists, "a ✕ on a page from Khám phá")
+    XCTAssertNotEqual(app.pageBack.label, "Đóng", "a ✕ on a page from Khám phá")
+    XCTAssertTrue(app.tabBars.buttons["Khám phá"].isHittable, "no tab bar on a page from Khám phá")
   }
 
   /// From the left edge over a row that scrolls sideways (the photos, the chips), iOS's swipe still goes back, at each pace.

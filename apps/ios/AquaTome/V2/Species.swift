@@ -30,10 +30,6 @@ struct SpeciesPage: View {
   @Environment(\.openScreen) private var openScreen
   @Environment(\.openURL) private var openURL
   @Environment(\.v2OpenFull) private var openFull
-  /// A Hôm nay post's ✕ (`Post`), on the post and on a page opened inside it.
-  @Environment(\.v2PostClose) private var closePost
-  /// A post itself has no back button: the bar's room starts at the screen's edge.
-  @Environment(\.v2IsPost) private var isPost
   @Environment(TelemetryModel.self) private var telemetry
   @Environment(\.scenePhase) private var phase
   @Environment(\.colorScheme) private var scheme
@@ -143,17 +139,6 @@ struct SpeciesPage: View {
 
   var body: some View {
     framed
-    // A Hôm nay post's ✕, at the bar's end after the bookmark and share: a toolbar of its own, inside theirs. iOS put the
-    // items of a toolbar applied after theirs first, and one among them first too (27.2, 12 Nov).
-    .toolbar(when: closePost != nil) {
-      ToolbarItem(placement: .topBarTrailing) {
-        Button { closePost?() } label: { round("xmark") }
-          .buttonStyle(.plain)
-          .accessibilityLabel(Text("Đóng"))
-          .accessibilityIdentifier("v2-close-post")
-      }
-      .v2Glass(true)
-    }
     // Over the photo and its colour, the bar and status bar in white. The page's own after them, never nil: iOS can keep the
     // dark one after nil, white words on the white band.
     .toolbarColorScheme(colourAt.top ? .dark : scheme, for: .navigationBar)
@@ -476,7 +461,7 @@ struct SpeciesPage: View {
   /// The room between the bar's buttons, 16 points clear of them, their glass too: its edges, and how wide a name centred
   /// on the screen may be in it.
   private var barRoom: (lead: CGFloat, trail: CGFloat, even: CGFloat)? {
-    let lead = isPost ? 16 : Self.backEnd, trail = trailStart - origin.x
+    let lead = Self.backEnd, trail = trailStart - origin.x
     guard trailStart > 0, trail - lead > 92 else { return nil }
     return (lead, trail, 2 * (min(width / 2 - lead, trail - width / 2) - 16))
   }
@@ -1182,21 +1167,6 @@ private struct MatesCredits: View {
         }
       }
       .foregroundStyle(.v2Faint).tint(Color.v2Faint)
-    }
-  }
-}
-
-private extension View {
-  /// A toolbar's items only when `on`: after the view's other toolbars' items. On iOS 26, a fixed space first, so once the
-  /// bar turns to glass iOS doesn't draw them in one capsule with the others (Design's parity, 13 Nov: the post's ✕ joined
-  /// the bookmark and share past the colour; the guide post's stands apart).
-  @ViewBuilder func toolbar<C: ToolbarContent>(when on: Bool, @ToolbarContentBuilder _ content: () -> C) -> some View {
-    if !on {
-      self
-    } else if #available(iOS 26, *) {
-      toolbar { ToolbarSpacer(.fixed, placement: .topBarTrailing); content() }
-    } else {
-      toolbar(content: content)
     }
   }
 }

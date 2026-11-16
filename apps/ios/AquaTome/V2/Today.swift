@@ -5,14 +5,13 @@ import Tanks
 /// "Hôm nay": a day's cards, as the App Store's Today tab: a fish of the day, a guide, a story, a topic of the season,
 /// the reader's own tank, a video series and what's new on the site, each from the handbook. The fish, guide and story
 /// are the editors' for the day (docs/curation.md); on a date they haven't planned, the app's own (its home picks, turned
-/// by the day). A card zooms into its page.
+/// by the day). A card opens its page as a post (`Post`).
 @available(iOS 18, *)
 struct TodayView: View {
   @Binding var path: NavigationPath
   @Environment(HandbookModel.self) private var handbook
   @Environment(TanksModel.self) private var tanks
   @Environment(\.colorScheme) private var scheme
-  @Namespace private var zoom
   @State private var refreshes = 0
   /// The day the feed is for: read at midnight, or on coming back after it, not left at yesterday's.
   @State private var today = TodayView.now
@@ -38,14 +37,14 @@ struct TodayView: View {
           }
           ForEach(cards) { card in
             switch card {
-            case .fish(let item, let img, let box): FishOfTheDay(item: item, img: img, box: box, zoom: zoom)
-            case .guide(let item, let img, let box): GuideCard(item: item, img: img, box: box, zoom: zoom)
-            case .story(let item, let words): GuideCard(item: item, img: words.img, box: words.imgBox, words: words, zoom: zoom)
-            case .season(let items): SeasonCard(items: items, zoom: zoom)
+            case .fish(let item, let img, let box): FishOfTheDay(item: item, img: img, box: box)
+            case .guide(let item, let img, let box): GuideCard(item: item, img: img, box: box)
+            case .story(let item, let words): GuideCard(item: item, img: words.img, box: words.imgBox, words: words)
+            case .season(let items): SeasonCard(items: items)
             case .tank(let tank): TankCard(tank: tank)
             case .firstTank: FirstTankCard()
-            case .series(let item): SeriesCard(item: item, zoom: zoom)
-            case .latest(let rows): LatestCard(rows: rows, zoom: zoom)
+            case .series(let item): SeriesCard(item: item)
+            case .latest(let rows): LatestCard(rows: rows)
             }
           }
           if handbook.status == .loading { ProgressView().frame(maxWidth: .infinity).padding(.top, 80) }
@@ -62,8 +61,8 @@ struct TodayView: View {
       .toolbarColorScheme(scheme, for: .navigationBar)
       .onAppear { if heldBeginner == nil { heldBeginner = beginner } }
       .v2ClearsFootGoingBack(path.count)
-      .v2Destinations(zoom: zoom)
-      .environment(\.v2Posts, Posts(open: $postOpen) { path = NavigationPath() })
+      .v2Destinations()
+      .environment(\.v2Posts, Posts(open: $postOpen))
       .onChange(of: path.count) { if path.isEmpty { postOpen = false } }
       .task { await handbook.appear() }
       .refreshable {
@@ -133,7 +132,7 @@ struct TodayView: View {
   }
 
   /// Today's cards: the editors' for the day, or the handbook's picks, a different one each day; then what the reader has.
-  /// A page shows on one card only (its card is where it zooms from).
+  /// A page shows on one card only.
   private var cards: [Card] {
     let s = handbook.shelves
     let day = Calendar.current.ordinality(of: .day, in: .era, for: today) ?? 0
@@ -229,13 +228,11 @@ private struct FishOfTheDay: View {
   /// The card's photo: the editors' for the day, or the fish's own; and where its fish is.
   let img: String?
   let box: PhotoBox?
-  let zoom: Namespace.ID
 
-  init(item: HandbookIndex.Item, img: String?, box: PhotoBox?, zoom: Namespace.ID) {
+  init(item: HandbookIndex.Item, img: String?, box: PhotoBox?) {
     self.item = item
     self.img = img
     self.box = box
-    self.zoom = zoom
     _colour = State(initialValue: PhotoColour.cached(img) ?? PhotoColour.fallback)
   }
 
@@ -275,7 +272,6 @@ private struct FishOfTheDay: View {
     }
     .animation(.easeInOut(duration: 0.4), value: colour)
     .v2Card()
-    .matchedTransitionSource(id: item.path, in: zoom)
     .padding(.horizontal, 20)
   }
 
@@ -300,14 +296,12 @@ private struct GuideCard: View {
   let img: String?
   let box: PhotoBox?
   var words: HandbookIndex.Home.Day.Story?
-  let zoom: Namespace.ID
 
-  init(item: HandbookIndex.Item, img: String?, box: PhotoBox?, words: HandbookIndex.Home.Day.Story? = nil, zoom: Namespace.ID) {
+  init(item: HandbookIndex.Item, img: String?, box: PhotoBox?, words: HandbookIndex.Home.Day.Story? = nil) {
     self.item = item
     self.img = img
     self.box = box
     self.words = words
-    self.zoom = zoom
     // Until its photo comes, or when it doesn't, its own ground: not the tank card's green, one card twice.
     _colour = State(initialValue: PhotoColour.cached(img) ?? (words == nil ? Self.rust : Self.plum)[0])
   }
@@ -353,7 +347,6 @@ private struct GuideCard: View {
       .v2Card()
     }
     .buttonStyle(CardPress())
-    .matchedTransitionSource(id: item.path, in: zoom)
     .padding(.horizontal, 20)
   }
 
@@ -382,7 +375,6 @@ private struct GuideCard: View {
 @available(iOS 18, *)
 private struct SeasonCard: View {
   let items: [HandbookIndex.Item]
-  let zoom: Namespace.ID
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.dynamicTypeSize) private var size
 
@@ -396,7 +388,6 @@ private struct SeasonCard: View {
           Lockup(item: item, line: item.facts.tempC.map { HandbookIndex.Facts.degrees($0, Locale(identifier: handbook.lang)) },
                  post: true, thumb: 52)
             .padding(.vertical, 6)
-            .matchedTransitionSource(id: item.path, in: zoom)
           if item.path != items.last?.path { Divider().padding(.leading, size.isAccessibilitySize ? 0 : 64) }
         }
       }
@@ -525,7 +516,6 @@ private struct TankSketch: View {
 @available(iOS 18, *)
 private struct SeriesCard: View {
   let item: HandbookIndex.Item
-  let zoom: Namespace.ID
   @Environment(\.dynamicTypeSize) private var size
 
   var body: some View {
@@ -545,7 +535,6 @@ private struct SeriesCard: View {
       .v2Card()
     }
     .buttonStyle(CardPress())
-    .matchedTransitionSource(id: item.path, in: zoom)
     .padding(.horizontal, 20)
   }
 }
@@ -554,7 +543,6 @@ private struct SeriesCard: View {
 @available(iOS 18, *)
 private struct LatestCard: View {
   let rows: [Latest.Row]
-  let zoom: Namespace.ID
   @Environment(\.dynamicTypeSize) private var size
 
   var body: some View {
@@ -567,7 +555,6 @@ private struct LatestCard: View {
       VStack(spacing: 0) {
         ForEach(rows) { row in
           Lockup(item: row.item, post: true, thumb: 52).padding(.vertical, 6)
-            .matchedTransitionSource(id: row.item.path, in: zoom)
           if row.id != rows.last?.id { Divider().padding(.leading, size.isAccessibilitySize ? 0 : 64) }
         }
       }

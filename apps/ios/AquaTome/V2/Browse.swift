@@ -103,7 +103,7 @@ struct BrowseHome: View {
       .toolbar(.hidden, for: .navigationBar)
       // Its own, not one iOS picks from what passes under the bar, as Hôm nay's.
       .toolbarColorScheme(scheme, for: .navigationBar)
-      .v2Destinations(zoom: zoom)
+      .v2Destinations()
       .overlay { if handbook.status == .loading { ProgressView() } }
       .task { await handbook.appear() }
       .refreshable {
