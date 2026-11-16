@@ -548,14 +548,19 @@ private func answer(_ name: String) throws -> (Data, Int) {
   }
 }
 
-@Test func aReasonIsOneLineOfAtMost140CharactersAsTheReaderSeesThem() {
-  #expect(Chat.reasonFits(String(repeating: "a", count: 140)))
-  #expect(!Chat.reasonFits(String(repeating: "a", count: 141)))
+@Test func aReasonIsOneLineOfAtMost140CharactersAsTheReaderSeesThem() throws {
+  // What the report field keeps (ChatView's ReportSheet): every kind of line break a space, as typed or pasted.
+  #expect(Chat.oneLine("dòng một\ndòng hai") == "dòng một dòng hai")
+  #expect(Chat.oneLine("một\r\nhai\rba\u{2028}bốn") == "một hai ba bốn")
+  #expect(Chat.oneLine(String(repeating: "a", count: 140)) == String(repeating: "a", count: 140))
+  #expect(Chat.oneLine(String(repeating: "a", count: 141)) == String(repeating: "a", count: 140))
   // A family emoji is one character to the reader, however many code points it takes.
-  #expect(Chat.reasonFits(String(repeating: "👨‍👩‍👧", count: 140)))
-  #expect(Chat.reasonFits("  " + String(repeating: "á", count: 140) + "  "))
-  #expect(!Chat.reasonFits("dòng một\ndòng hai"))
-  #expect(Chat.reasonFits(""))
+  let family = String(repeating: "👨‍👩‍👧", count: 141)
+  #expect(Chat.oneLine(family) == String(repeating: "👨‍👩‍👧", count: 140))
+  #expect(Chat.oneLine("") == "")
+  // Whatever's pasted, what's sent is one line the Worker keeps.
+  let sent = try #require(Chat.reason(Chat.oneLine("  sai\n" + String(repeating: "á", count: 200))))
+  #expect(sent.count <= Chat.reasonLimit && !sent.contains(where: \.isNewline))
 }
 
 @Test func aReportsAnswerSaysWhetherItWasKeptNowOrBefore() throws {

@@ -846,6 +846,7 @@ private struct ReportSheet: View {
               .frame(width: 44, height: 44).contentShape(.rect)
           }
           .accessibilityLabel(Text("Đóng"))
+          .accessibilityIdentifier("chat-report-close")
           .disabled(sending)
         }
       }
@@ -857,8 +858,7 @@ private struct ReportSheet: View {
         // One line, as the Worker takes it (a line break is a 400, which "Gửi lần nữa" would never get past), and no longer
         // than its limit.
         .onChange(of: reason) { _, t in
-          let one = t.replacingOccurrences(of: "\r\n", with: " ").replacingOccurrences(of: "\n", with: " ").replacingOccurrences(of: "\r", with: " ")
-          let fits = one.count > Chat.reasonLimit ? String(one.prefix(Chat.reasonLimit)) : one
+          let fits = Chat.oneLine(t)
           if fits != t { reason = fits }
         }
         .accessibilityIdentifier("chat-report-reason")

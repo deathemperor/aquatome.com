@@ -301,10 +301,11 @@ public enum Chat {
     return t.isEmpty ? nil : t
   }
 
-  /// Whether the Worker will take it: one line of at most `reasonLimit` characters. Nothing typed is fine.
-  public static func reasonFits(_ typed: String) -> Bool {
-    guard let r = reason(typed) else { return true }
-    return r.count <= reasonLimit && !r.contains(where: \.isNewline)
+  /// What the field keeps of what's typed or pasted: one line (a line break is a space) of at most `reasonLimit`
+  /// characters, as the Worker takes it. A line break was a 400 that "Gửi lần nữa" never got past.
+  public static func oneLine(_ typed: String) -> String {
+    let one = String(typed.map { $0.isNewline ? " " : $0 })
+    return one.count > reasonLimit ? String(one.prefix(reasonLimit)) : one
   }
 
   /// POST …/conversations/{id}/report: this turn's answer was wrong.

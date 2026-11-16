@@ -545,7 +545,7 @@ final class PageShotsFlowTests: XCTestCase {
   }
 
   private func shootReport(_ name: String, dark: Bool = false, size: String? = nil) {
-    // `-chat-report-slow`: the fake server holds a report 3 s, so "Đang gửi…" can be shot.
+    // `-chat-report-slow`: the fake server holds a report 6 s, so "Đang gửi…" can be shot.
     let app = launch(dark: dark, size: size, ["-fake-accounts", "on", "-reset-fake-server", "-chat-blocks", "-chat-report-slow"])
     open(app, "ca neon", "Cá neon")
     let entry = app.descendants(matching: .any)["chat-entry"].firstMatch

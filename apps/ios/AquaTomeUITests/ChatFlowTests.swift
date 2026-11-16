@@ -136,6 +136,11 @@ final class ChatFlowTests: XCTestCase {
     send.tap()
     XCTAssertTrue(soon(send.label == "Đang gửi…"), "the button didn't say it's sending: \(send.label)")
     XCTAssertFalse(send.isEnabled, "it can be sent twice")
+    // While it sends, a swipe down doesn't take the sheet away, and its close is off.
+    let close = app.buttons["chat-report-close"]
+    XCTAssertFalse(close.isEnabled, "the sheet can be closed while it sends")
+    app.staticTexts["Báo câu trả lời sai"].swipeDown(velocity: .fast)
+    XCTAssertTrue(send.exists && send.label == "Đang gửi…", "a swipe took the sheet away while it sends")
     // Longer than the stand-in's 6 s hold.
     XCTAssertTrue(element(app, "chat-reported").waitForExistence(timeout: 12), "not sent")
   }
