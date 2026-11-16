@@ -1,8 +1,13 @@
 {
   "slug": "rio-doce",
-  "name": "Doce",
+  "name": "Sungai Doce",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-16T05:41:41.859Z"
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

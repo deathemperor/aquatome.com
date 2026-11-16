@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/lysmata-debelius-shrimp-detailed-guide-care-diet-and-breeding/
 title: Lysmata Debelius Shrimp – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-11-04T14:01:04.314Z
-hash: 606e7202457ba4df3cee42a539462f1fb309de9915cb1d4d5ab88855af4e4fae
+hash: c02df7d0328100565b47103206ce6d1c42b07bdc521375f15fd8c353ef6c5f29
 ---
 
 The Lysmata debelius shrimp, also called Red Fire shrimp, Fire shrimp, Scarlet cleaner shrimp, or Blood shrimp, is indigenous to the Indo-Pacific area and is often used in aquariums where its bright-red color is certain to attract onlookers.
@@ -91,4 +91,3 @@ Besides their dazzling colorations and delicate appearance, a growing number of 
 If you love beautiful aquarium animals that are easy to take care of, the Red fire cleaner shrimp is a great choice. Just keep larger fish and expensive coral away from them and your life with these shrimp should be quite pleasant.
 ## References:
 1. Lysmata debelius new species, a new hippolytid shrimp from the Philippines by A.J. BRUCE. 1983 2. Feeding early larval stages of fire shrimp Lysmata debelius (Caridea, Hippolytidae). Aquaculture International 10: 349–360, 2002. 3. Captive breeding of fire shrimp (Lysmata debelius) under Sri Lankan conditions. Tropical Agricultural Research Vol. 28 (1): 88 – 99 (2016) 4. Captive rearing of Fire shrimp (Lysmata debelius). By Mattew R., Palmtag and G.J.Holt 5. Broodstock and Larval Nutrition of Marine Ornamental Shrimp. By Junda Lin, Dong Zhang, Andrew L Rhyne. Published 2002 6. Importance of light and larval morphology in starvation resistance and feeding ability of newly hatched marine ornamental shrimps Lysmata spp. (Decapoda: Hippolytidae). Aquaculture 283 (2008) 56–63. 7. Tziouveli, Vasiliki (2011) Broodstock conditioning and larval rearing of the marine ornamental white-striped cleaner shrimp, Lysmata amboinensis (de Man, 1888). PhD thesis, James Cook University.
-### Leave a Reply Cancel reply

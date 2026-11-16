@@ -11,8 +11,7 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Duncanopsammia.jpg",
       "caption": "Tập đoàn san hô Duncan màu kem hồng trong bể nước mặn",
       "best": true,
-      "kind": "group",
-      "unchecked": true
+      "kind": "group"
     },
     {
       "url": "https://media.aquatome.com/commons/dfaec8541ebf9018.webp",
@@ -24,21 +23,7 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:CAS-Aquarium-Whiskers_Coral.JPG",
       "caption": "Tập đoàn san hô Duncan xanh vàng nhạt, xúc tu xòe rộng",
       "best": true,
-      "kind": "group",
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/commons/f434ce4a013700c7.webp",
-      "thumb": "https://media.aquatome.com/commons/f434ce4a013700c7-480.webp",
-      "width": 1000,
-      "height": 656,
-      "licence": "CC BY-SA 4.0",
-      "author": "Julia Sumangil",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Whiskers_coral.jpg",
-      "caption": "Tập đoàn san hô Duncan màu kem với nhiều polyp nở",
-      "best": true,
-      "kind": "group",
-      "unchecked": true
+      "kind": "group"
     },
     {
       "url": "https://media.aquatome.com/commons/abb9390b7103bb0e.webp",
@@ -50,8 +35,19 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Duncanopsammia_axifuga_(whisker_coral).jpg",
       "caption": "Cụm san hô Duncan nhiều polyp hồng tím trong bể",
       "best": false,
-      "kind": "group",
-      "unchecked": true
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/f434ce4a013700c7.webp",
+      "thumb": "https://media.aquatome.com/commons/f434ce4a013700c7-480.webp",
+      "width": 1000,
+      "height": 656,
+      "licence": "CC BY-SA 4.0",
+      "author": "Julia Sumangil",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Whiskers_coral.jpg",
+      "caption": "Tập đoàn san hô Duncan màu kem với nhiều polyp nở",
+      "best": true,
+      "kind": "group"
     }
   ],
   "seen": 7,

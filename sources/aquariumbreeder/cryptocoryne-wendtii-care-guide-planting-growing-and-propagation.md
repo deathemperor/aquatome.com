@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/cryptocoryne-wendtii-care-guide-planting-growing-and-propagation/
 title: Cryptocoryne Wendtii Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-11-03T05:22:03.695Z
-hash: cbcc1de51d13073352556ead03ea3ec6b58002d760fa380f17f13176b2f115e4
+hash: eb05f0bee476cf37689d6235b915e0731a6ef8b2ac6723f6e80f115ff339c6f4
 ---
 
 Cryptocoryne wendtii, commonly known as “Water trumpet” has been a very popular ornamental aquatic plant among aquarium enthusiasts for many years. Depending on its variety, this plant has fleshy foliage that may possess green, brown, red, or even purple coloration.
@@ -196,4 +196,3 @@ Cryptocoryne wendtii – check out the price on Flipaquatics
 - (2012). The National Red List of Sri Lanka. In Conservation status of the Fauna and Flora (p. 186).
 - Rataj, K. 1975. Revision of the genus Cryptocoryne Fischer Studie CSAV, c.3.Praha.
 - Wit, H.C.D.de 1958. Cryptocoryne wendtii sp.nov. Meded.Bot.tuinen en het Belmonte arboretum WAG Vol.II-4 : 97-101.
-### Leave a Reply Cancel reply

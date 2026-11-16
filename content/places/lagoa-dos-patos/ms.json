@@ -3,6 +3,12 @@
   "name": "Lagoa dos Patos",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.45,
+    "at": "2026-11-16T00:10:01.014Z",
+    "why": "The name is the Portuguese original with \"Lagoa\" (lagoon) kept as a foreign kind word, whereas Malay would use \"Lagun\" for the feature."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

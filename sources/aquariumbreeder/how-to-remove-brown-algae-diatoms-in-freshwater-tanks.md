@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/how-to-remove-brown-algae-diatoms-in-freshwater-tanks/
 title: How to Remove Brown Algae (Diatoms) in Freshwater Tanks - Shrimp and Snail Breeder
 fetchedAt: 2026-11-04T22:36:16.636Z
-hash: b284023cb8c4e9ceca7a5faf808739ef421d9df1447a6190dc3137d0108d1197
+hash: aabc604de77cde743e7cb00500b835cb1f17207cc2e9ee723db46cb4bb53a987
 ---
 
 The brown algae (also called Diatoms) are one of the most common problems that many aquarists experience in their new tanks and/or, in some cases, even in already established freshwater tanks.
@@ -154,4 +154,3 @@ Brown algae are easily preventable but if these algae are already blooming in yo
 - Green Water Algae Profile and How to Remove
 - How to Remove Red Algae in Aquariums
 - How to Remove Green Dust Algae in Aquariums
-### Leave a Reply Cancel reply

@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/least-killifish-detailed-guide-care-diet-and-breeding/
 title: Least Killifish – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-11-02T22:07:33.001Z
-hash: 94145b1403be8f4093542a67626a44135e40fca63a1f40a85fc9c89fd04b38d5
+hash: 20fac2798d5c55f08ed78231979db2df375e5e3bdb7b3b7848fc2d9b3782cd85
 ---
 
 The Least Killifish (Heterandia formosa) is prolific, live-bearing, and one of the smallest fish in North America.
@@ -205,4 +205,3 @@ Unfortunately, because of its relatively dull coloration, it is not particularly
 - Girard, C. F. (1859). Ichthyological notices. Proceedings of the Academy of Natural Sciences of Philadelphia. 11: 56-68. ;v. 11:91.
 - Ala-Honkola, Outi, Laura Tuominen, and Kai Lindström. “Inbreeding Avoidance in a Poeciliid Fish (Heterandria Formosa).” Behavioral Ecology and Sociobiology64, no. 9 (2010).
 - Aspbury, A.S., Basolo, A.L. Repeatable female preferences, mating order and mating success in the poeciliid fish, Heterandria formosa. Behav Ecol Sociobiol51, 238–244 (2002).
-### Leave a Reply Cancel reply

@@ -13,6 +13,25 @@
     "orinoco"
   ],
   "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Amazonia"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species Crenicichla regani has a very wide distribution in Amazonia.",
+          "countries": [],
+          "regions": [
+            "Amazonia"
+          ]
+        }
+      ]
+    },
     "records": {
       "taxonKey": 2370965,
       "total": 184,

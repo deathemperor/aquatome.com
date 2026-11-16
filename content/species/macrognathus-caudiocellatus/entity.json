@@ -10,6 +10,62 @@
     "myanmar",
     "lake-inle"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Lake Inle"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species is endemic to the Lake Inle region in Burma.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Lake Inle"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5204056,
+      "total": 19,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "MM",
+          19
+        ]
+      ],
+      "cells": [
+        [
+          95.625,
+          19.6875,
+          4,
+          4
+        ],
+        [
+          97.03125,
+          19.6875,
+          14,
+          14
+        ],
+        [
+          99.84375,
+          19.6875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

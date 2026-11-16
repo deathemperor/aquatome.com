@@ -1,8 +1,13 @@
 {
   "slug": "kwai-noi",
-  "name": "แควน้อย",
+  "name": "Sungai Kwai Noi",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-16T11:28:31.464Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

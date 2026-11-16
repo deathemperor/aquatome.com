@@ -1,7 +1,6 @@
 import { expect, test } from 'vitest'
 import { getContent } from '../src/lib/content'
 import { guideImage, mentionIndex, titleFaults, titleNames, withVietnameseHeads } from '../src/lib/mentions'
-import awaiting from '../src/lib/guide-heads-awaiting.json' with { type: 'json' }
 import picks from '../src/lib/guide-heads-picks.json' with { type: 'json' }
 
 // 13 Nov, the Design Lead: the day's guide, on breeding guppies, opened in the app on a water louse. It has no photo of its
@@ -16,14 +15,10 @@ test('a guide with no photo of its own borrows the fish its title names, not the
   const c = { ...vi, guides: vi.guides.map(x => (x.id === g.id ? g : x)) }
   expect(mentionIndex(c).guides.get(g.id)!.species.map(s => s.id)).toEqual([passing.id, subject.id])
   expect(guideImage(c, g)?.url).toBe(subject.photos[0]!.url)
-  // A title naming none of them borrows none (the chief of staff, 15 Nov 2026), unless the guide is one that borrowed before
-  // that day and waits on Curation's keep or drop: it keeps the text's order until then.
+  // A title naming none of them borrows none (the chief of staff, 15 Nov 2026).
   const plain = { ...g, t: { ...g.t, name: 'Thay nước cho bể' } }
   const c2 = { ...vi, guides: vi.guides.map(x => (x.id === g.id ? plain : x)) }
   expect(guideImage(c2, plain)).toBeUndefined()
-  const waits = { ...plain, id: awaiting[0]! }
-  const c3 = { ...vi, guides: [...vi.guides, waits] }
-  expect(guideImage(c3, waits)?.url).toBe(passing.photos[0]!.url)
 }, 120_000)
 
 // Grok's read of #1224, 13 Nov: titles list fish without their class word ("cupang, guppy, molly"), in the order the
@@ -136,10 +131,8 @@ test('a guide borrows, in every language, the page its Vietnamese title names, w
   expect(titleFaults(withVietnameseHeads({ ...id, guides: id.guides.map(x => (x.id === g.id ? { ...idG, t: { ...idG.t, name: `${subject.t.name} sắp đẻ` } } : x)) }, viBoth))).toEqual([])
   // The page the Vietnamese names has none in this language: nothing, not the page its own title names.
   expect(guideImage(withVietnameseHeads({ ...id, species: id.species.filter(s => s.id !== subject.id) }, viC), idG)).toBeUndefined()
-  // A guide the Vietnamese doesn't have (held there): its own title's. So is one on the waiting list, until the drops apply.
+  // A guide the Vietnamese doesn't have (held there): its own title's.
   expect(guideImage(withVietnameseHeads({ ...id }, { ...viC, guides: viC.guides.filter(x => x.id !== g.id) }), idG)?.url).toBe(passing.photos[0]!.url)
-  const waits = (x: typeof g) => ({ ...x, id: awaiting[0]! })
-  expect(guideImage(withVietnameseHeads({ ...id, guides: [...id.guides, waits(idG)] }, { ...viC, guides: [...viC.guides, waits(g)] }), waits(idG))?.url).toBe(passing.photos[0]!.url)
 }, 120_000)
 
 test('an Indonesian or Malay title names a page by its name with the word for fish before it ("Ikan Discus")', async () => {

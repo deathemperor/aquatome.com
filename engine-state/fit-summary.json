@@ -1,5 +1,5 @@
 {
- "day": "2026-11-15",
+ "day": "2026-11-16",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -11,32 +11,32 @@
  },
  "langs": {
   "vi": {
-   "pages": 4312,
-   "read": 3687,
-   "wrong": 1567,
-   "pct": 42,
-   "held": 514
+   "pages": 4388,
+   "read": 3753,
+   "wrong": 1535,
+   "pct": 41,
+   "held": 501
   },
   "id": {
-   "pages": 1440,
-   "read": 1266,
-   "wrong": 360,
+   "pages": 1474,
+   "read": 1300,
+   "wrong": 367,
    "pct": 28,
-   "held": 106
+   "held": 116
   },
   "th": {
-   "pages": 1424,
-   "read": 1230,
-   "wrong": 337,
+   "pages": 1463,
+   "read": 1268,
+   "wrong": 339,
    "pct": 27,
-   "held": 97
+   "held": 102
   },
   "ms": {
-   "pages": 320,
-   "read": 274,
-   "wrong": 83,
-   "pct": 31,
-   "held": 43
+   "pages": 353,
+   "read": 312,
+   "wrong": 88,
+   "pct": 28,
+   "held": 48
   }
  },
  "labels": {
@@ -58,51 +58,38 @@
  },
  "sample": [
   {
+   "lang": "th",
+   "path": "/th/plants/helanthium-bolivianum/",
+   "url": "https://aquatome.com/th/plants/helanthium-bolivianum/",
+   "title": "Echinodorus Quadricostatus",
+   "wrong": []
+  },
+  {
+   "lang": "ms",
+   "path": "/ms/tumbuhan/echinodorus-tropica/",
+   "url": "https://aquatome.com/ms/tumbuhan/echinodorus-tropica/",
+   "title": "Echinodorus Tropica",
+   "wrong": []
+  },
+  {
    "lang": "vi",
-   "path": "/vi/ca/ca-hemibagrus-microphthalmus/",
-   "url": "https://aquatome.com/ca/ca-hemibagrus-microphthalmus/",
-   "title": "Cá Hemibagrus microphthalmus",
+   "path": "/vi/ca/ca-brichardi-soc/",
+   "url": "https://aquatome.com/ca/ca-brichardi-soc/",
+   "title": "Cá brichardi sọc",
    "wrong": [
-    {
-     "check": "words",
-     "quote": "Nhiều khả năng"
-    },
     {
      "check": "words",
      "quote": "giữ lãnh thổ"
     },
     {
      "check": "words",
-     "quote": "ghi nhận"
-    }
-   ]
-  },
-  {
-   "lang": "vi",
-   "path": "/vi/ca/ca-mystacoleucus-greenwayi/",
-   "url": "https://aquatome.com/ca/ca-mystacoleucus-greenwayi/",
-   "title": "Cá Mystacoleucus greenwayi",
-   "wrong": [
-    {
-     "check": "words",
-     "quote": "bạn cần"
+     "quote": "phần lớn"
     },
     {
      "check": "words",
-     "quote": "Dù vậy"
-    },
-    {
-     "check": "words",
-     "quote": "Nhiều khả năng"
+     "quote": "Thức ăn sống"
     }
    ]
-  },
-  {
-   "lang": "id",
-   "path": "/id/ikan/cory-habrosus/",
-   "url": "https://aquatome.com/id/ikan/cory-habrosus/",
-   "title": "Cory habrosus",
-   "wrong": []
   }
  ]
 }

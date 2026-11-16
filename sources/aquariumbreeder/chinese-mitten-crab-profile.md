@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/chinese-mitten-crab-profile/
 title: The Chinese Mitten Crab Profile – Detailed Guide - Shrimp and Snail Breeder
 fetchedAt: 2026-11-06T11:52:06.361Z
-hash: ee397bc5d6b658e799033b493035e865bdea67fb9d117acf73d228cd61c05d07
+hash: 0dad749350b0dcbb3539edb9670d861944aaee8a04e3dd64a63c9331e7cb7110
 ---
 
 The Chinese mitten crabs (Eriocheir sinensis) are aggressive, burrowing crustaceans. Although these crabs can be interesting augmentations to certain freshwater aquariums, generally, they have been exploited extensively as a food resource since the 1990s.
@@ -192,4 +192,3 @@ In addition, if you decide to keep one, you should also remember that this is an
 - Herborg, L-M., S. P. Rushton, A. S. Clare, and M. G. Bentley. “Spread of the Chinese mitten crab (Eriocheir sinensis H. Milne Edwards) in Continental Europe: analysis of a historical data set.” In Migrations and dispersal of marine organisms, pp. 21-28. Springer, Dordrecht, 2003.
 - Sui, Liying, Mathieu Wille, Yongxu Cheng, Xugan Wu, and Patrick Sorgeloos. “Larviculture techniques of Chinese mitten crab Eriocheir sinensis.” Aquaculture 315, no. 1-2 (2011): 16-19.
 - Rudnick, Deborah A., Kathleen M. Halat, and Vincent H. Resh. “Distribution, ecology and potential impacts of the Chinese mitten crab (Eriocheir sinensis) in San Francisco Bay.” (2000).
-### Leave a Reply Cancel reply

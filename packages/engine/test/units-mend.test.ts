@@ -249,6 +249,31 @@ test('a guide\'s title a person fixed stays; a tank per something is a tank\'s l
   }
 })
 
+// The chief of staff, 16 Nov 2026: the units mend turned a hand-fixed guide's 340 litres into 350. A part a person
+// fixed is theirs, as it is to every other writer: a body (bodyFixed), an FAQ (faqFixed), a section marked fixed.
+test('a body or an FAQ a person fixed keeps its figures, and the page stays held for the gate', async () => {
+  for (const mark of ['bodyFixed', 'faqFixed'] as const) {
+    const root = await held('<p>Bể 115 lít là vừa.</p>', ['Bể 115 lít là vừa'])
+    const f = join(root, GUIDE)
+    const t = JSON.parse(await readFile(f, 'utf8'))
+    if (mark === 'faqFixed') {
+      // The tank only in an FAQ answer, with a saved read of that text that quotes it there.
+      await writeFile(f, JSON.stringify({ ...t, body: '<p>Cá cho bể nhỏ.</p>', faq: [{ q: 'Bể bao nhiêu lít?', a: 'Bể 115 lít là vừa.' }] }, null, 2))
+      const p = (await loadPages(join(root, 'content'), ['vi'])).find(x => x.id === 'youtube-r53ZQW0m8VM')!
+      const part = fitText(p).parts.find(x => x.field === 'faq.0.a')!.id
+      const state: FitState = { [fitKey(p)]: { at: '2026-11-09', hash: fitText(p).hash, model: 'm', products: [], findings: [{ check: 'units', part, quote: 'Bể 115 lít là vừa', why: 'converted', by: 'model' }], checklist: 3 } }
+      await writeFile(join(root, 'engine-state/_fit.json'), `${JSON.stringify(state)}\n`)
+      // Without the mark it mends there, so the mark is what keeps it.
+      expect((await unitsMend(root, { now: after, dryRun: true })).mended.map(m => m.figures), mark).toEqual([['115 lít -> 120 lít']])
+    }
+    await writeFile(f, JSON.stringify({ ...JSON.parse(await readFile(f, 'utf8')), [mark]: true }, null, 2))
+    const before = await readFile(f, 'utf8')
+    const r = await unitsMend(root, { now: after })
+    expect(r.mended, mark).toEqual([])
+    expect(await readFile(f, 'utf8'), mark).toBe(before)
+  }
+})
+
 test('the guide writer\'s figure check lets the water a dose goes into keep its exact conversion, and only that', () => {
   expect(amountsOutside('Pha 5 ml vào 38 lít nước.', 'Add 5 ml per 10 gallons of water.')).toEqual([])
   expect(amountsOutside('Pha 5 ml vào 114 lít nước.', 'Add 5 ml to 30 gallons of water.')).toEqual([])

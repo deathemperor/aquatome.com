@@ -10,13 +10,20 @@
     "quickFacts:tropica": "<p>Najas guadalupensis có nguồn gốc từ Hoa Kỳ và Nam Mỹ. Đây là loài cây thủy sinh cực kỳ dễ trồng, gần như điều kiện nào cũng sống khỏe. Cây lên nhanh và nhân giống chẳng tốn công gì, nên hợp với cả người mới chơi lẫn người chơi lâu năm.</p>",
     "maintenance:tropica": "<p>Người ta thường thả cây trôi nổi tự do trong bể. Dù vậy, cây cũng có thể tự bám xuống nền bằng những sợi rễ dài và mảnh.</p>",
     "notes:tropica": "<p>Thân lá mảnh, xốp của cây là chỗ trú ẩn rất tốt cho cá bột và tép. Cây còn hút bớt dinh dưỡng dư thừa trong nước và tạo ra oxy. Najas guadalupensis trồng được cả trong bể lẫn hồ ngoài trời. Cây giúp môi trường nước khỏe và cân bằng, đồng thời cho các loài trong bể một chỗ ẩn nấp tự nhiên.</p>",
-    "maintenance:aquatome": "<p>Cách hay làm nhất với rong đuôi chồn Najas là thả nổi tự do trong bể. Muốn để nó ở hậu cảnh cũng được, vì cây tự bám xuống nền bằng những sợi rễ dài và mảnh. Nếu bể có cá bột hay tép, đám thân lá mảnh và xốp của nó là chỗ trốn tốt cho chúng.</p>"
+    "maintenance:aquatome": "<p>Cách hay làm nhất với rong đuôi chồn Najas là thả nổi tự do trong bể. Muốn để nó ở hậu cảnh cũng được, vì cây tự bám xuống nền bằng những sợi rễ dài và mảnh. Nếu bể có cá bột hay tép, đám thân lá mảnh và xốp của nó là chỗ trốn tốt cho chúng.</p>\n<p>Cây mọc thành đám xum xuê nổi trong nước, nên có lẽ không hợp với bể có dòng chảy mạnh. Thấy rậm quá thì thỉnh thoảng ngắt bớt một ít. Có cắt mạnh, bỏ đi cả mảng lớn thì cây vẫn không sao.</p><p>Cây không cần đèn đắt tiền hay lịch châm phân rắc rối. Nước bể quá mềm thì có thể châm thêm chút phân nước.</p>",
+    "notes:aquatome": "<p>Ngoài phần dinh dưỡng dư, cây còn hút nitrat, amoni và cả kim loại nặng trong nước. Nó giành dinh dưỡng với rêu hại, nên rêu khó bùng lên hơn. Một người nuôi thấy đây là loại cây hợp nhất cho bể nhỏ, vì cây lên nhanh và lọc bớt chất dư trong nước, lỡ bể có trục trặc thì cũng yên tâm hơn.</p>",
+    "beforeYouBuy:aquatome": "<p>Loài này lan rất nhanh và ở một số nơi trên thế giới đã thành cây xâm hại. Cây cắt bỏ thì đem cho, chuyển sang bể khác, hoặc vứt sao cho chim, thú không tha được nó ra ao hồ, sông suối.</p>",
+    "aquariumSize:aquatome": "<p>Muốn có một đám cây rậm phủ kín tầng dưới trong bể nhỏ hoặc vừa thì loài này làm rất dễ. Chỉ cần mua một túi nhỏ, chẳng bao lâu nó sẽ phủ kín bể.</p>",
+    "waterConditions:aquatome": "<p>Cây hợp với pH 6–7 nhưng chịu được pH cao hơn. Nhiệt độ ở các bể cá thông thường đều ổn với nó.</p>",
+    "behaviour:aquatome": "<p>Cá con của cá đẻ con trốn trong đám cây còn kiếm được vi sinh vật và trùng cỏ để ăn. Cá nhỏ và tép thích loài cây này vì có chỗ ẩn, có mồi để rỉa và có bóng râm che bớt ánh đèn mạnh từ trên chiếu xuống. Một người nuôi thấy đám cây lên nhanh làm cảnh trong bể luôn thay đổi, cá tò mò hơn và có chỗ nghỉ thoải mái.</p>",
+    "reproduction:aquatome": "<p>Nhân giống chỉ cần ngắt một phần đám cây đem sang bể khác. Cây mọc nhanh nên lúc nào cũng có phần dư để chia cho bạn bè.</p>"
   },
   "quality": {
-    "score": 0.85,
+    "score": 0.8,
     "indexable": true,
     "bySource": {
-      "tropica": 0.85
+      "tropica": 0.85,
+      "aquatome": 0.8
     }
   }
 }

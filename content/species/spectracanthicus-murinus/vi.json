@@ -8,14 +8,21 @@
     "waterConditions:planetcatfish": "<ul><li>pH: 5,5 - 7,5</li><li>Nhiệt độ: 26,0-30,0°C</li></ul>",
     "reproduction:planetcatfish": "<p>Đến nay mới có đúng một báo cáo về chuyện loài này sinh sản.</p>",
     "notes:planetcatfish": "<p>Ở Spectracanthicus, màng vây lưng kéo dài chạm tới gai vây mỡ. Trong các loài cá lau kiếng, chỉ một số loài Baryancistrus, Parancistrus và một loài Hemiancistrus chưa được mô tả cũng có đặc điểm này. Muốn tách Spectracanthicus khỏi Baryancistrus và loài Hemiancistrus đó thì đếm răng: chi này có dưới 25 răng, hai nhóm kia có trên 25. Còn so với Parancistrus, Spectracanthicus có khe mang hẹp.</p><p>Nguồn gốc tên gọi. Tên chi: ghép từ tiếng Latin spectrum (hình dáng, bóng ma) và tiếng Hy Lạp akantha (gai).</p>",
-    "references:planetcatfish": "<p>Revue française d'Aquariologie Herpétologie v. 13 (no. 4) [for 1986], pp 94, Figs. 1-3.</p>"
+    "references:planetcatfish": "<p>Revue française d'Aquariologie Herpétologie v. 13 (no. 4) [for 1986], pp 94, Figs. 1-3.</p>",
+    "quickFacts:scotcat": "<p>Đây là loài nhỏ, đầu nhọn. Nhờ cái đầu này mà dễ phân biệt nó với S. punctatissimus, loài có đầu tròn và 12-14 đốt sống, trong khi S. murinus chỉ có 8-11 đốt. Trông nó giống các loài trong chi Leporacanthicus nhưng không có râu ở môi. Vây lưng có một lớp màng ở phía sau.</p><p>Họ: Loricariidae. Kích thước: 12 cm.</p><p>Nguồn gốc tên: tên loài murinus nghĩa là màu xám chuột, đặt theo màu của cá.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: Brazil, lưu vực sông Tapajós. Nơi thu mẫu chuẩn: Brazil, bang Pará, hệ thống Rio Tapajós: Poça de Pedra no Rio Tapajós, São Luis.</p><p>Spectracanthicus murinus là loài đặc hữu của Brazil, phân bố rộng ở lưu vực sông Tapajós và có thể có cả ở hạ lưu sông Xingu, bang Pará. Ngoài tự nhiên loài này vốn ít gặp và số lượng không nhiều. Người ta có bắt nó làm cá cảnh, nhưng chuyện này không làm suy giảm các quần thể. Do chưa thấy mối đe dọa đáng kể nào khác, IUCN xếp nó vào mức Ít quan tâm (LC) (IUCN 2022).</p>",
+    "maintenance:scotcat": "<p>Loài này hiền, nhưng cần nước nhiều oxy hơn bình thường. Nó thích bể có dòng chảy, chạy lọc mạnh.</p>",
+    "diet:scotcat": "<p>Đây là cá ăn thịt, ngoài tự nhiên chúng ăn ốc. Trong bể, cho ăn đồ tươi sống và đông lạnh như Artemia, mysis, thịt trai và thịt cá. Chúng cũng ăn được thức ăn viên nén.</p>",
+    "dimorphism:scotcat": "<p>Con đực có đầu dài và rộng hơn, các gai nhỏ trên thân (odontode) cũng mọc dày hơn.</p>",
+    "waterConditions:scotcat": "<p>Nhiệt độ: 26-30°C. pH: 6,0-7,0.</p>",
+    "references:scotcat": "<p>Chamon, C.C. and L.H. Rapp Py-Daniel, 2014. Taxonomic revision of Spectracanthicus Nijssen &amp; Isbrücker (Loricariidae: Hypostominae: Ancistrini), with description of three new species. Neotrop. Ichthyol. 12(1):1-25. Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Spectracanthicus murinus. The IUCN Red List of Threatened Species 2022. Froese, R. and D. Pauly. Editors. 2014. FishBase. Konn-Vetterlein, Daniel, New Loricariids described. Amazonas magazine. Jan/Feb 2015. Seidel, Ingo; Back to Nature guide to L-catfishes 208p.</p>"
   },
   "quality": {
     "score": 0.8,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.8
-    },
-    "reason": "thin"
+      "planetcatfish": 0.8,
+      "scotcat": 0.85
+    }
   }
 }

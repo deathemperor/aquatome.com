@@ -3,6 +3,12 @@
   "name": "Lancang",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.35,
+    "at": "2026-11-16T11:29:30.757Z",
+    "why": "\"Lancang\" alone drops the kind word and the \"Jiang\" part; Indonesian atlases write \"Sungai Lancang\" (or \"Sungai Mekong\" for the lower course), so the bare name is cut short."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

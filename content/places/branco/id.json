@@ -1,8 +1,13 @@
 {
   "slug": "branco",
-  "name": "Branco",
+  "name": "Sungai Branco",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-16T11:21:00.616Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

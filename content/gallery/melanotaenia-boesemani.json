@@ -49,21 +49,6 @@
       }
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/614498762.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/614498762-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Jackson Withey",
-      "sourceUrl": "https://www.inaturalist.org/photos/614498762",
-      "caption": "Cá cầu vồng Boeseman đực thân xanh đuôi cam trong bể trồng cây",
-      "large": {
-        "url": "https://media.aquatome.com/inaturalist/614498762-large.webp",
-        "width": 1200,
-        "height": 1600
-      }
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/90530432.webp",
       "thumb": "https://media.aquatome.com/inaturalist/90530432-480.webp",
       "width": 1024,
@@ -189,16 +174,6 @@
       "caption": "Cá cầu vồng Boeseman đực màu cam đỏ trong bể thủy sinh có lũa"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/726137605.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/726137605-480.webp",
-      "width": 1024,
-      "height": 697,
-      "licence": "CC BY",
-      "author": "Bailey Duncan",
-      "sourceUrl": "https://www.inaturalist.org/photos/726137605",
-      "caption": "Cá cầu vồng Boeseman bơi trên nền cát trong bể"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/359139993.webp",
       "thumb": "https://media.aquatome.com/inaturalist/359139993-480.webp",
       "width": 1024,
@@ -241,6 +216,31 @@
       "caption": "Vài con cá cầu vồng Boeseman cam xanh trong bể thủy sinh",
       "best": true,
       "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/614498762.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/614498762-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Jackson Withey",
+      "sourceUrl": "https://www.inaturalist.org/photos/614498762",
+      "caption": "Cá cầu vồng Boeseman đực thân xanh đuôi cam trong bể trồng cây",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/614498762-large.webp",
+        "width": 1200,
+        "height": 1600
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/726137605.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/726137605-480.webp",
+      "width": 1024,
+      "height": 697,
+      "licence": "CC BY",
+      "author": "Bailey Duncan",
+      "sourceUrl": "https://www.inaturalist.org/photos/726137605",
+      "caption": "Cá cầu vồng Boeseman bơi trên nền cát trong bể"
     }
   ],
   "seen": 67,

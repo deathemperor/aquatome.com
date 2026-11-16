@@ -26,6 +26,48 @@
       "kind": "scape"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/509279974.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/509279974-480.webp",
+      "width": 989,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "agujaceratops",
+      "sourceUrl": "https://www.inaturalist.org/photos/509279974",
+      "caption": "Hoa vàng và lá nổi của Cabomba nước ngoài tự nhiên",
+      "best": true,
+      "kind": "flower",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/694591979.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/694591979-480.webp",
+      "width": 461,
+      "height": 1024,
+      "licence": "CC BY-SA",
+      "author": "Brenda O'Grady",
+      "sourceUrl": "https://www.inaturalist.org/photos/694591979",
+      "caption": "Bụi Cabomba nước có lá chìm xanh và hoa vàng",
+      "best": true,
+      "kind": "flower",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/694592045.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/694592045-480.webp",
+      "width": 461,
+      "height": 1024,
+      "licence": "CC BY-SA",
+      "author": "Brenda O'Grady",
+      "sourceUrl": "https://www.inaturalist.org/photos/694592045",
+      "caption": "Hoa vàng, lá nổi và lá chìm hình quạt của Cabomba nước",
+      "best": true,
+      "kind": "flower",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/4ab6e866a6e3fed4.webp",
       "thumb": "https://media.aquatome.com/commons/4ab6e866a6e3fed4-480.webp",
       "width": 1200,
@@ -89,6 +131,34 @@
       "kind": "flower"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/175320477.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/175320477-480.webp",
+      "width": 1024,
+      "height": 680,
+      "licence": "CC BY",
+      "author": "Guillaume Delaitre",
+      "sourceUrl": "https://www.inaturalist.org/photos/175320477",
+      "caption": "Hoa vàng và lá nổi của Cabomba nước trên mặt nước",
+      "best": false,
+      "kind": "flower",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/509279976.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/509279976-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "agujaceratops",
+      "sourceUrl": "https://www.inaturalist.org/photos/509279976",
+      "caption": "Cabomba nước nở hoa vàng với lá nổi trên mặt nước",
+      "best": false,
+      "kind": "flower",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/0aac794b9073a34e.webp",
       "thumb": "https://media.aquatome.com/commons/0aac794b9073a34e-480.webp",
       "width": 1200,
@@ -101,7 +171,7 @@
       "kind": "submersed"
     }
   ],
-  "seen": 14,
-  "updatedAt": "2026-11-10",
-  "builtAt": "2026-11-10"
+  "seen": 22,
+  "updatedAt": "2026-11-16",
+  "builtAt": "2026-11-16"
 }

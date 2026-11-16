@@ -1,14 +1,14 @@
 {
   "id": "apteronotus-leptorhynchus",
   "native": {
-    "input": "b5851f0c16b7f3a1",
-    "at": "2026-11-05T16:38:28.515Z",
+    "input": "966ae46d23697a5a",
+    "at": "2026-11-16T00:17:52.050Z",
     "claims": [
       {
         "code": "CO",
         "status": "native",
         "source": "glaser",
-        "quote": "The species is widespread and common in Colombia.",
+        "quote": "Origin: Colombia",
         "words": "Colombia",
         "ok": true
       },
@@ -16,7 +16,7 @@
         "code": "CO",
         "status": "native",
         "source": "glaser",
-        "quote": "Origin: Colombia",
+        "quote": "The species is widespread and common in Colombia.",
         "words": "Colombia",
         "ok": true
       }

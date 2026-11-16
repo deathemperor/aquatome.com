@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/crystalwort-care-guide-planting-growing-and-propagation/
 title: Crystalwort Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-11-13T17:57:18.876Z
-hash: 8fe8aab6dfc3fd55ee4245e4c41ae5467d8649f9f1ad1d089d45ff698c500037
+hash: 9d9eb6c89790d67b2aeb759110c74d5117e78ad23860a99471890181d8478846
 ---
 
 Riccia fluitans or floating Crystalwort is a member species of the liverwort genus Riccia which is famous for its use in aquascaping Nature and Iwagumi aquaria. This plant packs moss-like characteristics, thus it can serve as an alternative to the popular and versatile aquarium plant “Java moss”.
@@ -121,4 +121,3 @@ How to Remove Snails from a Shrimp Tank. How to Quarantine and Disinfect Aquariu
 Riccia fluitans is an excellent choice if you want to attain lush green cushions on the foreground and midground of your freshwater aquarium at minimal costs.
 Depending on how you cultivate this liverwort species, it can form thick mats on the water surface, water column, or aquarium floor. These dense mats are beneficial to shrimp and juvenile fish, they also absorb nitrates in the aquarium water, and serve as breeding spots for fish species.
 Riccia fluitans is one of the easiest plants for high-tech setup (lots of light, CO2, etc.), however, I would not recommend it if you’re going for low maintenance.
-### Leave a Reply Cancel reply

@@ -1,8 +1,13 @@
 {
   "slug": "kampar-river",
-  "name": "Kampar",
+  "name": "Sungai Kampar",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.97,
+    "at": "2026-11-16T11:27:23.384Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

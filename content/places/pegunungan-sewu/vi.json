@@ -1,10 +1,13 @@
 {
   "slug": "pegunungan-sewu",
-  "name": "Pegunungan Sewu",
-  "altNames": [],
+  "name": "dãy Sewu",
+  "altNames": [
+    "Pegunungan Sewu"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

@@ -1,17 +1,13 @@
 {
   "id": "neoplecostomus-microps",
-  "summary": "Cá lau kiếng Neoplecostomus microps LDA34 hợp với người muốn nuôi loài nhỏ, trưởng thành 10,2 cm, và giữ được nước mát 20–25 °C, pH 6–7,2. Ngoài tự nhiên cá sống ở đoạn sông nước xiết nhiều đá, nên bể nên có đá và khe giữa các hòn đá. Điểm khó nhất là hồ sơ không nêu bể tối thiểu hay cách nuôi trong bể, và chưa có báo cáo nào về việc cho đẻ trong bể.",
+  "summary": "Cá lau kiếng Neoplecostomus microps LDA34 hợp với người đã quen nuôi cá nước mát, chảy mạnh, vì cá lớn tối đa 10,2 cm và cần nước 20–25 °C, pH 6–7,2. Ngoài tự nhiên cá sống ở đoạn sông xiết nhiều đá và tảng đá, nên bể cần nhiều đá có khe để trú. Khó nhất là tái tạo nước mát, giàu oxy và dòng chảy; hồ sơ cũng chưa có báo cáo nào về việc cho đẻ trong bể.",
   "mistakes": [
-    "Đừng để nước ấm lên quá mức; ngoài tự nhiên cá sống ở nước mát, nên giữ nhiệt độ 20–25 °C.",
-    "Đừng để bể trống đá; cá lớn ở trong khe giữa các tảng đá và hòn đá, nên xếp đá để có khe cho cá núp.",
-    "Đừng nuôi trong nước tĩnh hoàn toàn; cá lớn sống ở đoạn nước xiết chảy qua đá, nên tạo dòng chảy trong bể."
+    "Để nước ấm quá mức: ngoài tự nhiên cá sống ở nước mát, nên giữ bể trong khoảng 20–25 °C.",
+    "Bày bể trống hoặc nền phẳng: cá lớn ở trong khe giữa các tảng đá và hòn đá, nên xếp đá to tạo hốc, khe cho cá trú.",
+    "Nuôi nước tù, ít oxy: cá sống ở đoạn nước xiết, nên tạo dòng chảy và giữ nước giàu oxy."
   ],
   "speciesUpdatedAt": "2026-11-14",
-  "generatedAt": "2026-11-14T23:34:18.981Z",
-  "review": "pending",
-  "problems": [
-    "\"nên tạo dòng chảy trong bể\" and \"Đừng nuôi trong nước tĩnh hoàn toàn\": the page only says adults live in fast water in the wild. It gives no aquarium advice about water flow, and this is not clearly implied.",
-    "\"nên xếp đá để có khe cho cá núp\" and \"bể nên có đá và khe giữa các hòn đá\": the page describes the wild habitat only and gives no tank-setup advice. This also contradicts the summary's own statement that the page says nothing about keeping the fish in a tank.",
-    "\"Đừng để nước ấm lên quá mức\": the page never lists warm water as a mistake. The card gives only the 20–25 °C range, so presenting this as a common mistake with a fix is an unsupported addition."
-  ]
+  "writtenFrom": "df1d655ed0983a81",
+  "generatedAt": "2026-11-15T20:22:58.224Z",
+  "review": "approved"
 }

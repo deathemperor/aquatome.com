@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/large-clawed-scorpion-detailed-guide-care-diet-and-breeding/
 title: Large Clawed Scorpion – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-10-31T15:26:28.742Z
-hash: 4e2b514591e92ad708314183f7990bc51cf23f6ceaa2532b09a6e22400d9d660
+hash: 00340a096fa53ef3ee21e602dd7fbc2e9341d632e51f57d56cedea527ca870c6
 ---
 
 Scorpio maurus, also known as Large Clawed Scorpion, is a small species and interesting species.
@@ -185,4 +185,3 @@ These scorpions can be extraordinary companions for many years! So, you should a
 - Desouky, Mahmoud MA, and Ahmed M. Alshammari. “Scorpions of the Ha’il Region, northern Saudi Arabia, and molecular phylogenetics of two common species, Androctonus crassicauda and Scorpio maurus kruglovi.” Arachnology15, no. 6 (2010): 193-200.
 - Çolak, Mehmet, and Ayşegül Karataş. “Shape of burrows built by Scorpio maurus L., 1758 (Scorpiones: Scorpionidae) from Turkey, with description of capture methods.” Euscorpius2013, no. 171 (2013): 1-7.
 - WR Lourenco, Reproduction in scorpions, with special reference to parthenogenesis, in Toft S., Scharff N. (eds), Eds. European Arachnology 2000 , Aarhus: Aarhus University Press, 2002, pp. 71-85.
-### Leave a Reply Cancel reply

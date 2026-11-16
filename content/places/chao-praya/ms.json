@@ -3,6 +3,12 @@
   "name": "Chao Phraya",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.45,
+    "at": "2026-11-16T00:06:16.386Z",
+    "why": "Chao Phraya is a river, and a Malaysian atlas writes it with the kind word, as \"Sungai Chao Phraya\". The bare \"Chao Phraya\" drops that word."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

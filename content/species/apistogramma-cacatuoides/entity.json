@@ -22,9 +22,9 @@
         "BR"
       ],
       "regions": [
-        "Amazon",
         "Ucayali",
         "Solimões",
+        "Amazon",
         "Rio Ucayali"
       ],
       "sources": [
@@ -40,9 +40,9 @@
             "BR"
           ],
           "regions": [
-            "Amazon",
             "Ucayali",
-            "Solimões"
+            "Solimões",
+            "Amazon"
           ]
         },
         {
@@ -249,10 +249,6 @@
       {
         "source": "seriouslyfish",
         "value": 7.5
-      },
-      {
-        "source": "glaser",
-        "value": 5
       }
     ],
     "tankCm": [
@@ -276,16 +272,10 @@
       "html": "<p>The cockatoo cichlid, Apistogramma cacatuoides, is a small cichlid from the upper Amazon basin, from the Ucayali in Peru to the Solimões in Brazil. It lives in slow tributaries, backwaters and creeks where leaf litter collects. Numerous line-bred forms such as 'double red' and 'orange flash' are traded, and captive-raised fish suit a community aquarium, while wild fish are best kept alone or with small dither fishes.</p><ul><li>Max size: ♂ 75 mm SL (3.0 in), ♀ 50 mm SL (2.0 in)</li><li>Aquarium size: 60 × 30 cm (24 × 12 in)</li><li>Temperature: 22–29°C (72–84°F)</li><li>pH: 5.0–6.0</li><li>Hardness: 0–15 dGH</li><li>Difficulty: 4 of 8 (moderate)</li></ul>"
     },
     {
-      "key": "quickFacts",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_cacatuoides_wild_en/",
-      "html": "<ul><li>Origin: Peru</li></ul>"
-    },
-    {
       "key": "beforeYouBuy",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_cacatuoides_wild_en/",
-      "html": "<p>The Cockatoo Dwarf Cichlid is one of the most popular members of the genus Apistogramma and is found in petshops all over the world. Almost exclusively bred specimens of very colourful sports are traded. These do not appear in the wild.</p><p>However, \"the\" wild form of A. cacatuoides does not exist at all. Like so many other Apistogramma, this one is polychromatic in males. This means that even within one population males can look very different. The biological sense of the phenomenon is not understood at all. But the polychromatism is without any doubt the reason why in so many cases Apistogramma sports can be developed after only a few generations of breeding the fish.</p><p>Maybe the phenomenon is comparable to the situation found in guppys. Here the females always select the most colourful male for mating. On the other hand, the most colourful males will always be the first victims of predators. This is the reason why males in guppy populations with a low predatory pressure are very colourful even in the wild. In the aquarium no predators exist. This, in combination with the selection by the breeder, quickly forms very colourful sports – it takes only a few generations.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_cactuoides_wild_en/",
+      "html": "<p>Many popular aquarium fish are kept only as sports or breeding forms that do not exist in the wild, and most aquarists are unaware of how the wild form looks. Apistogramma cacatuoides is one of these species. The wild fish imported from Peru look rather drab compared with their selectively bred cousins with mainly red finnage, but they impress with a stout body and a gorgeous dorsal fin.</p><p>The black clusters of pigment are not inherited and are found only in wild-collected specimens. It is said that they result from diseases the fish recovered from in the wild. Whatever the cause, the black clusters are completely harmless.</p>"
     },
     {
       "key": "distribution",
@@ -296,8 +286,8 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_cacatuoides_wild_en/",
-      "html": "<p>Currently wild-collected Apistogramma cacatuoides are available, which most probably originate from the surroundings of Pucallpa, at least for sure from the Rio Ucayali basin, Peru.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_cactuoides_wild_en/",
+      "html": "<p>The species occurs in the Amazon basin of Brazil, Colombia and Peru between 69°W and 71°W and is imported only occasionally.</p>"
     },
     {
       "key": "habitat",
@@ -354,6 +344,12 @@
       "html": "<p>Numerous ornamental forms of this species have been selectively line-bred for the aquarium trade, vernacular names for which include \"sunset\", \"sunburst\", \"double red\", \"triple red\", \"gold\", \"white gold\", \"orange flash\" and \"albino\". It has also been assigned the 'A' number A200 under the DATZ system with possibly conspecific, related forms similarly numbered A201, A202 and A203 depending on locality.</p><p>The genus Apistogramma is among the most speciose of South American cichlid genera with around 70 species valid at present but many more awaiting description. In addition many species exist in two or more geographical colour forms which may or may not turn out to be distinct in the future. Hobbyists tend to label these with collection data if available in order to avoid mixing them and the potential of hybridisation.</p><p>Member species have also been organised into a series of species lineages, complexes and groups by authors in order to better separate them. Such lists have been augmented by fish that have appeared in the aquarium trade and are in a state of near-constant flux. The A. cacatuoides group, for example, is contained within the A. trifasciata sublineage of the larger A. trifasciata lineage alongside A. arua plus the A. brevis, A. nijsseni, A. atahualpa and A. trifasciata groups.</p><p>Kullander (1998) conducted a morphology-based phylogenetic study in which the neotropical family Cichlidae was divided into six subfamilies of which the putative subfamily Geophaginae contained 16 genera divided among three 'tribes':</p><ul><li>Acarichthyini - Acarichthys and Guianacara.</li><li>Crenicaratini - Biotoecus, Crenicara, Dicrossus and Mazarunia.</li><li>Geophagini - Geophagus, Mikrogeophagus, 'Geophagus' brasiliensis group, 'Geophagus' steindachneri group, Gymnogeophagus, Satanoperca, Biotodoma, Apistogramma, Apistogrammoides and Taeniacara.</li></ul><p>Later molecular studies by Farias et al. (1999, 2000, 2001) resulted in the additions of Crenicichla and Teleocichla to the Geophaginae, a result supported by López-Fernández et al. (2005) who conducted the most detailed molecular analysis of the grouping to date including 16 of the 18 genera and 30 species. However their conclusions regarding interrelationships between genera did vary somewhat from previous hypotheses and can be summarised by the following loosely-defined groups:</p><ul><li>a weakly-supported sister group relationship between Acarichthys and Guianacara.</li><li>a well-supported \"Satanoperca clade\" comprising Satanoperca, Apistogramma, Apistogrammoides and Taeniacara.</li><li>a \"big clade\" with Geophagus, Mikrogeophagus, 'Geophagus' brasiliensis group, 'Geophagus' steindachneri group, Gymnogeophagus, Biotodoma, Crenicara and Dicrossus.</li><li>a \"crenicarine clade\" with Biotoecus and Crenicichla.</li></ul><p>No representatives of Teleocichla or Mazarunia were included in the study but the former is well-established as sister to Crenicichla while the latter has grouped closely with Dicrossus and Crenicara in earlier works. The other main conclusions of the paper are confirmation that Geophaginae is a monophyletic group exhibiting strong signs of having undergone rapid adaptive radiation (diversification of a species or single ancestral type into several forms that are each adaptively specialised to a specific environmental niche).</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_cactuoides_wild_en/",
+      "html": "<p>Apistogramma: Ancient Greek, meaning \"with unreliable line\". It is not known whether the lateral line organ or the pattern is meant. cacatuoides: means \"looks like a cockatoo\". The dorsal fin of the males reminded the author of the species of the crest of a cockatoo.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-cacatuoides",
@@ -395,7 +391,32 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "USEnxsfcGjo",
+      "title": "Apistogramma Care Guide - Apistogramma Cacatuoides (Cockatoo Dwarf Cichlid)",
+      "durationSec": 410,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "WdzMscyfrc0",
+      "title": "Apistogramma cacatuoides ✔",
+      "durationSec": 210,
+      "lang": "fr"
+    },
+    {
+      "youtubeId": "Xs459VItkfw",
+      "title": "How I Bred Apistogramma Cacatuoides at Home",
+      "durationSec": 981,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "uJuS57jRiYc",
+      "title": "Some Beautiful Apistogramma cacatuoides (Cockatoo dwarf cichlid)",
+      "durationSec": 13,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -427,5 +448,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-16"
 }

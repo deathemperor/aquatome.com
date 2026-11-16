@@ -7,7 +7,16 @@
  ],
  "hashes": {
   "https://media.aquatome.com/commons/56a852e90d487875.webp": "71164fcc1d1d8fa7",
-  "https://media.aquatome.com/commons/747453e33e15e061.webp": "db9ba76ea6737dce"
+  "https://media.aquatome.com/commons/747453e33e15e061.webp": "db9ba76ea6737dce",
+  "https://media.aquatome.com/glaser/9bf2836f88c63fee.webp": "6767369f7b4f1f7c"
  },
- "commons": "2026-11-10"
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": 317462,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ }
 }

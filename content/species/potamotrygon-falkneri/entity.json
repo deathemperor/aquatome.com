@@ -24,7 +24,8 @@
       ],
       "regions": [
         "Rio Paraná",
-        "Rio Paraguay"
+        "Rio Paraguay",
+        "Rio Paraná-Paraguay"
       ],
       "sources": [
         "seriouslyfish",
@@ -42,6 +43,14 @@
           "regions": [
             "Rio Paraná",
             "Rio Paraguay"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Origin: Brazil, Rio Paraná-Paraguay",
+          "countries": [],
+          "regions": [
+            "Rio Paraná-Paraguay"
           ]
         }
       ]
@@ -391,12 +400,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/potamotrygon-falkneri",
       "html": "<p>Native to the Rio Paraná and Rio Paraguay basins in Brazil, Paraguay and Argentina.</p>"
-    },
-    {
-      "key": "distribution",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/01-rays/potamotrygon-menchacai-en/",
-      "html": "<p>Origin: Brazil, Rio Paraná-Paraguay. The page also states that the tiger rays offered come from Peru.</p>"
     },
     {
       "key": "habitat",

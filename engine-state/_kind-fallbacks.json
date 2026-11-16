@@ -1,9 +1,27 @@
 {
+  "species/amphilius-platychir": {
+    "name": "Cá trê núi",
+    "word": "trê",
+    "took": "Cá Amphilius platychir",
+    "at": "2026-11-16"
+  },
   "species/arius-latiscutatus": {
     "name": "Cá trê biển Gambia",
     "word": "trê",
     "took": "Cá Arius latiscutatus",
     "at": "2026-11-15"
+  },
+  "species/galeocharax-gulo": {
+    "name": "Cá chó nước barracuda",
+    "word": "chó",
+    "took": "Cá Galeocharax gulo",
+    "at": "2026-11-15"
+  },
+  "species/geophagus-megasema": {
+    "name": "Cá rô đất megasema",
+    "word": "rô",
+    "took": "Cá hải hồ megasema",
+    "at": "2026-11-16"
   },
   "species/orinocodoras-eigenmanni": {
     "name": "Cá chuột Raphael mũi dài",
@@ -12,15 +30,33 @@
     "at": "2026-11-15"
   },
   "species/parauchenoglanis-punctatus": {
-    "name": "Cá trê hươu cao cổ đốm",
+    "name": "Cá trê Parauchenoglanis punctatus",
     "word": "trê",
     "took": "Cá Parauchenoglanis punctatus",
-    "at": "2026-11-15"
+    "at": "2026-11-16"
   },
   "species/pseudecheneis-sulcata": {
     "name": "Cá trê họng hút",
     "word": "trê",
     "took": "Cá bám đá Brahmaputra",
     "at": "2026-11-15"
+  },
+  "species/pseudocrenilabrus-multicolor-victoriae": {
+    "name": "Cá rô phi lùn Ai Cập Victoria",
+    "word": "rô phi",
+    "took": "Cá Pseudocrenilabrus multicolor victoriae",
+    "at": "2026-11-16"
+  },
+  "species/pseudomystus-siamensis": {
+    "name": "Cá trê ong nghệ châu Á",
+    "word": "trê",
+    "took": "Cá trê ong nghệ châu Á",
+    "at": "2026-11-16"
+  },
+  "species/tatia-dunni": {
+    "name": "Cá mèo lũa Tatia dunni",
+    "word": "mèo",
+    "took": "Cá Tatia dunni",
+    "at": "2026-11-16"
   }
 }

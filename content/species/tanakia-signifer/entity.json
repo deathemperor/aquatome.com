@@ -11,6 +11,61 @@
     "south-korea",
     "han"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "KP",
+        "KR"
+      ],
+      "regions": [
+        "Korean peninsula",
+        "Han"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the Korean peninsula where it occurs in southern North Korea and northern South Korea.",
+          "countries": [
+            "KP",
+            "KR"
+          ],
+          "regions": [
+            "Korean peninsula"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It is considered endangered in the latter, where it occurs only in the Han river system, and many populations have already been extirpated.",
+          "countries": [],
+          "regions": [
+            "Han"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2359397,
+      "total": 1,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "KR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          126.5625,
+          37.96875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -3,6 +3,12 @@
   "name": "Comoé",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-16T11:23:03.285Z",
+    "why": "Ejaan \"Comoé\" sudah sesuai, tetapi sumbernya menyebut Sungai Comoe di Pantai Gading, jadi nama tanpa kata \"Sungai\" terpotong, dan untuk wilayah Burkina Faso biasanya ditulis \"Region Comoé\"."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

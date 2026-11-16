@@ -108,3 +108,11 @@ for(const lang of ['vi','ms'] as const)test(`${lang}: a loaded whole-photo head 
  expect((await fishDoc(lang,c,s,listedPaths(lang,c))).lead?.src).toBe(photo.url)
  expect(appIndex(lang,c).items.find(i=>i.id===s.id)?.img).toBeTruthy()
 })
+
+test('an album with a non-commercial photo is not called open-licence; one without still is', () => {
+  const t = translator('vi'), nc: Photo = { ...real, licence: 'CC BY-NC', sourceUrl: 'https://www.inaturalist.org/photos/2' }
+  expect(galleryNote(t, [real], {})).toContain('giấy phép mở')
+  expect(galleryLine(t, [real], {})).toContain('giấy phép mở')
+  expect(galleryNote(t, [real, nc], {})).not.toContain('giấy phép mở')
+  expect(galleryLine(t, [real, nc], {})).not.toContain('giấy phép mở')
+})

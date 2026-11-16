@@ -33,8 +33,8 @@
         "Essequibo",
         "Courantyne",
         "Ucayali",
-        "Napo",
-        "Rio Negro"
+        "Negro",
+        "Napo"
       ],
       "sources": [
         "glaser",
@@ -51,14 +51,16 @@
         },
         {
           "source": "seriouslyfish",
-          "quote": "The dwarf pencilfish, Nannostomus marginatus, is a lebiasinid of Guyana, Suriname and the middle-to-lower Amazon in Peru, Colombia and Brazil.",
+          "quote": "Type locality is 'Maduni Creek, Guyana', and this species is widely-distributed throughout Guyana and Suriname, plus the middle-to-lower Amazon basin east of the Andes mountains in Peru, Colombia, and Brazil.",
           "countries": [
             "GY",
             "SR",
             "PE",
             "CO"
           ],
-          "regions": []
+          "regions": [
+            "Amazon"
+          ]
         },
         {
           "source": "seriouslyfish",
@@ -70,23 +72,8 @@
             "Essequibo",
             "Courantyne",
             "Ucayali",
+            "Negro",
             "Napo"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Type locality is 'Maduni Creek, Guyana', and this species is widely-distributed throughout Guyana and Suriname, plus the middle-to-lower Amazon basin east of the Andes mountains in Peru, Colombia, and Brazil.",
-          "countries": [],
-          "regions": [
-            "Amazon"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Rio Negro forms have a similar red stripe but overlapping the central dark stripe and extending along most of the flank, while a form from Colombia has an elongate red stripe which is broken in two beneath the dorsal-fin.",
-          "countries": [],
-          "regions": [
-            "Rio Negro"
           ]
         }
       ]

@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/profile-gorilla-crabs-in-reef-tanks/
 title: Profile: Gorilla Crabs in Reef Tanks - Shrimp and Snail Breeder
 fetchedAt: 2026-10-30T22:36:52.969Z
-hash: ede79ec09db4daa41b53717e4d2952c8c8e728b761ebc87bc5bd0d84dd5bf877
+hash: 2d3cad7afea33dcc9c97f67635624f273362a3dde9729ab6939925e5eb6eba78
 ---
 
 Gorilla crabs (also known as Mud crabs, Pebble crabs, or Rubble crabs) are arguably the most well-known example of invasive and destructive pests in reef tanks. The aquarium trade is the main reason for the spread of these crabs.
@@ -105,4 +105,3 @@ If you still decide to keep them, these crabs can be kept only in sumps.
 - Martin, Joel W. “Notes and bibliography on the larvae of xanthid crabs, with a key to the known xanthid zoeas of the western Atlantic and Gulf of Mexico.” Bulletin of Marine Science34, no. 2 (1984): 220-239.
 - Knudsen, Jens W. “Reproduction, life history, and larval ecology of the California Xanthidae, the pebble crabs.” (1960).
 - Mendoza, Jose CE, Kin Onn Chan, Joelle CY Lai, Brent P. Thoma, Paul F. Clark, Danièle Guinot, Darryl L. Felder, and Peter KL Ng. “A comprehensive molecular phylogeny of the brachyuran crab superfamily Xanthoidea provides novel insights into its systematics and evolutionary history.” Molecular Phylogenetics and Evolution177 (2022): 107627.
-### Leave a Reply Cancel reply
