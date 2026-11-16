@@ -74,6 +74,10 @@ extension XCUIApplication {
     return (px, w, h)
   }
 
+  /// How much of `e` is drawn: its frame's pixel pairs 60 or more grey levels apart (a title's letters), 0 where something
+  /// stands over it. For probes, which print it rather than fail on it.
+  func ink(_ e: XCUIElement) -> Int { edges(in: e.frame, apart: 60) ?? 0 }
+
   /// How many side-by-side or stacked pixel pairs in `rect` (in points) are `apart` or more grey levels apart.
   private func edges(in rect: CGRect, apart: Int) -> Int? {
     guard let (px, w, h) = grey(in: rect) else { return nil }

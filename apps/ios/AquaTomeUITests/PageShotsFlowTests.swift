@@ -433,13 +433,7 @@ final class PageShotsFlowTests: XCTestCase {
     XCTAssertTrue(chips.firstMatch.waitForExistence(timeout: 10), "no chips on Khám phá")
     atRestAndScrolled()
     for group in live == nil ? ["Tetra", "Cá nhỏ"] : ["Ali", "Cá chuột"] {
-      let chip = chips.matching(NSPredicate(format: "label BEGINSWITH %@", group + ",")).firstMatch
-      let y = chips.firstMatch.frame.midY / app.frame.height
-      repeatUntil(chip.exists && chip.isHittable && chip.frame.maxX <= app.frame.width, times: 8) {
-        app.coordinate(withNormalizedOffset: CGVector(dx: 0.8, dy: y))
-          .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.3, dy: y)), withVelocity: .slow, thenHoldForDuration: 0.2)
-      }
-      guard chip.isHittable else { XCTFail("no \(group) chip"); continue }
+      guard let chip = chipInView(app, group) else { XCTFail("no \(group) chip"); continue }
       chip.tap()
       XCTAssertTrue(app.descendants(matching: .any)["v2-chip-page"].waitForExistence(timeout: 5), "\(group)'s page didn't open")
       atRestAndScrolled()
@@ -449,6 +443,213 @@ final class PageShotsFlowTests: XCTestCase {
       app.openTab(tab)
       atRestAndScrolled()
     }
+  }
+
+  /// Khám phá's chip for `group`, its row dragged until the chip is whole on screen, by as much as it lies past the edge
+  /// (at the largest text the live row is about 6,000 points long, and Cá chuột its 16th). Whole before it's asked
+  /// whether it can be tapped: asked of a chip off the screen, XCUITest fails the test.
+  private func chipInView(_ app: XCUIApplication, _ group: String) -> XCUIElement? {
+    let chips = app.buttons.matching(identifier: "v2-chip")
+    let chip = chips.matching(NSPredicate(format: "label BEGINSWITH %@", group + ",")).firstMatch
+    guard chip.waitForExistence(timeout: 5) else { return nil }
+    let w = app.frame.width, y = chips.firstMatch.frame.midY, o = app.coordinate(withNormalizedOffset: .zero)
+    for _ in 0..<30 {
+      let f = chip.frame
+      if f.minX >= 0 && f.maxX <= w { return chip.isHittable ? chip : nil }
+      let dx = f.maxX > w ? -min(f.maxX - w + 24, w * 0.7) : min(24 - f.minX, w * 0.7)
+      let x = dx < 0 ? w * 0.85 : w * 0.15
+      o.withOffset(CGVector(dx: x, dy: y))
+        .press(forDuration: 0.05, thenDragTo: o.withOffset(CGVector(dx: x + dx, dy: y)), withVelocity: .slow, thenHoldForDuration: 0.2)
+    }
+    return nil
+  }
+
+  /// Design's parity beyond the titles' tests (17 Nov), on the site's own indexes beside `SHOT_INDEX` (its vi-, th- and
+  /// ms- files): back with no bar from a Hôm nay post (✕) and a Khám phá fish (edge swipe), and Cá chuột's page, at the
+  /// largest text in the dark; a chip opened and back with the row where it was, and its page's photo line tapped and
+  /// back, at L; the Thai and the Malay rows, a Thai group's page and a Malay group of one page, in the dark at L.
+  func testTheTitlesParityExtras() {
+    guard let vi = ProcessInfo.processInfo.environment["SHOT_INDEX"] else { return XCTFail("no SHOT_INDEX") }
+    var n = 0
+    func shot(_ what: String) {
+      n += 1
+      settle()
+      let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+      a.name = String(format: "shot-extras-%02d-%@", n, what)
+      a.lifetime = .keepAlways
+      add(a)
+    }
+    func open(_ lang: String, _ locale: String, dark: Bool, size: String? = nil) -> XCUIApplication {
+      let app = XCUIApplication()
+      app.launchArguments = ["-AppleLanguages", "(\(lang))", "-AppleLocale", locale, "-reset-defaults",
+                             "-index-file", vi.replacingOccurrences(of: "vi-live", with: "\(lang)-live")]
+        + (dark ? ["-dark"] : []) + (size.map { ["-UIPreferredContentSizeCategoryName", $0] } ?? [])
+      app.launchForFlow(.v2)
+      XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no Hôm nay in \(lang)")
+      return app
+    }
+    func nudge(_ app: XCUIApplication) {
+      app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.7))
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.6)), withVelocity: .slow, thenHoldForDuration: 0.3)
+    }
+    func page(_ app: XCUIApplication, _ id: String) -> XCUIElement { app.descendants(matching: .any)[id] }
+
+    // Largest, dark: back with no bar, each where it was.
+    var app = open("vi", "vi_VN", dark: true, size: largest)
+    nudge(app)
+    shot("homnay-before-largest-dark")
+    app.buttons["v2-fish-of-the-day"].tap()
+    XCTAssertTrue(page(app, "v2-species").waitForExistence(timeout: 8), "the post didn't open")
+    shot("homnay-post-largest-dark")
+    app.leavePage()
+    XCTAssertTrue(page(app, "v2-species").waitForNonExistence(timeout: 5), "the post didn't close")
+    shot("homnay-after-x-largest-dark")
+    app.openTab("Khám phá")
+    let fish = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá tam giác")).firstMatch
+    repeatUntil(fish.exists && fish.frame.minY > 0 && fish.frame.maxY < app.frame.height * 0.8, times: 12) {
+      app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.7))
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.4)), withVelocity: .slow, thenHoldForDuration: 0.3)
+    }
+    shot("khampha-before-largest-dark")
+    fish.tap()
+    XCTAssertTrue(page(app, "v2-species").waitForExistence(timeout: 5), "the fish's page didn't open")
+    shot("khampha-fish-largest-dark")
+    edgeSwipe(app, fast: false, at: offRows(app, 0.5))
+    XCTAssertTrue(page(app, "v2-species").waitForNonExistence(timeout: 5), "the edge swipe didn't go back")
+    shot("khampha-after-swipe-largest-dark")
+    for _ in 0..<4 { app.swipeDown(velocity: .fast) }
+    if let chip = chipInView(app, "Cá chuột") {
+      chip.tap()
+      XCTAssertTrue(page(app, "v2-chip-page").waitForExistence(timeout: 5), "Cá chuột's page didn't open")
+      shot("cachuot-largest-dark")
+      app.swipeUp()
+      shot("cachuot-largest-dark-scrolled")
+    } else { XCTFail("no Cá chuột chip") }
+    app.terminate()
+
+    // L, light: the row swiped, a chip opened, its photo line tapped and back, then the row as it was.
+    app = open("vi", "vi_VN", dark: false)
+    app.openTab("Khám phá")
+    guard let dia = chipInView(app, "Dĩa") else { return XCTFail("no Dĩa chip") }
+    let at = dia.frame.minX
+    shot("row-swiped-light")
+    dia.tap()
+    XCTAssertTrue(page(app, "v2-chip-page").waitForExistence(timeout: 5), "Dĩa's page didn't open")
+    shot("dia-light")
+    page(app, "v2-chip-photo-of").tap()
+    XCTAssertTrue(page(app, "v2-species").waitForExistence(timeout: 5), "the photo line opened nothing")
+    shot("photo-line-fish-light")
+    app.leavePage()
+    XCTAssertTrue(page(app, "v2-chip-page").waitForExistence(timeout: 5), "not back on Dĩa's page")
+    shot("photo-line-back-light")
+    app.leavePage()
+    XCTAssertTrue(dia.waitForExistence(timeout: 5), "not back on Khám phá")
+    shot("row-after-back-light")
+    XCTAssertEqual(dia.frame.minX, at, accuracy: 1, "the row moved")
+    app.terminate()
+
+    // Thai, dark, L: the row with its longest name, and that group's page with its photo line.
+    app = open("th", "th_TH", dark: true)
+    app.openTab("สำรวจ")
+    guard let th = chipInView(app, "ปลาหมอสีแอฟริกา") else { return XCTFail("no Thai chip") }
+    shot("th-row-dark")
+    th.tap()
+    XCTAssertTrue(page(app, "v2-chip-page").waitForExistence(timeout: 5), "the Thai group's page didn't open")
+    shot("th-group-dark")
+    app.terminate()
+
+    // Malay, dark, L: the row up to Udang hiasan, then Louhan, a group of one page, which opens that page.
+    app = open("ms", "ms_MY", dark: true)
+    app.openTab("Teroka")
+    guard chipInView(app, "Udang hiasan") != nil else { return XCTFail("no Udang hiasan chip") }
+    shot("ms-row-dark")
+    guard let louhan = chipInView(app, "Louhan") else { return XCTFail("no Louhan chip") }
+    louhan.tap()
+    XCTAssertTrue(page(app, "v2-species").waitForExistence(timeout: 5), "Louhan didn't open its one page")
+    shot("ms-louhan-dark")
+  }
+
+  /// A probe, not a check (17 Nov, for Design's two faults on Dĩa's page and the chief's question on the lists): on the
+  /// site's own index (`SHOT_INDEX`), what Dĩa's photo line and its breed's wide card open, where Dĩa's page is after
+  /// back, and how much of each list's title is drawn. It prints "PROBE …" lines and shoots; it fails on nothing found.
+  func testTheChipPageProbe() {
+    guard let vi = ProcessInfo.processInfo.environment["SHOT_INDEX"] else { return XCTFail("no SHOT_INDEX") }
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-index-file", vi]
+    app.launchForFlow(.v2)
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no Hôm nay")
+    var n = 0
+    func shot(_ what: String) {
+      n += 1
+      settle()
+      let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+      a.name = String(format: "shot-probe-%02d-%@", n, what)
+      a.lifetime = .keepAlways
+      add(a)
+    }
+    func say(_ s: String) { print("PROBE \(s)"); XCTContext.runActivity(named: "PROBE \(s)") { _ in } }
+    func where_(_ what: String) {
+      let bar = app.navigationBars.firstMatch
+      let title = app.navigationBars.staticTexts["Dĩa"].firstMatch
+      let count = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", "4 trang")).firstMatch
+      let line = app.descendants(matching: .any)["v2-chip-photo-of"]
+      say("\(what): bar \(bar.frame), title \(title.exists ? "\(title.frame)" : "none"), ink \(title.exists ? app.ink(title) : -1), count \(count.exists ? "\(count.frame)" : "none"), line \(line.exists ? "\(line.frame)" : "none")")
+    }
+    func opened(_ what: String) {
+      let page = app.descendants(matching: .any)["v2-species"]
+      _ = page.waitForExistence(timeout: 5)
+      let texts = page.staticTexts.allElementsBoundByIndex.prefix(4).map(\.label)
+      say("\(what) opened: species page \(page.exists), its first words \(texts)")
+    }
+    app.openTab("Khám phá")
+    guard let dia = chipInView(app, "Dĩa") else { return XCTFail("no Dĩa chip") }
+    dia.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-chip-page"].waitForExistence(timeout: 5), "Dĩa's page didn't open")
+    settle()
+    where_("Dĩa at rest")
+    let line = app.descendants(matching: .any)["v2-chip-photo-of"]
+    say("the line: \(line.label), its frame \(line.frame); the buttons under it: \(app.buttons.allElementsBoundByIndex.filter { $0.frame.minY > line.frame.minY && $0.frame.minY < line.frame.maxY + 400 }.map { "\($0.label) \($0.frame)" })")
+    shot("dia-at-rest")
+    // The line by its own text, a fifth of the way in: on its words, not near the card under it.
+    line.coordinate(withNormalizedOffset: CGVector(dx: 0.2, dy: 0.5)).tap()
+    opened("the line's words")
+    shot("line-opened")
+    app.leavePage()
+    _ = app.descendants(matching: .any)["v2-chip-page"].waitForExistence(timeout: 5)
+    settle()
+    where_("Dĩa after back from the line's page")
+    shot("dia-after-back")
+    // The breed's own wide card.
+    let breed = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá dĩa bồ câu")).firstMatch
+    repeatUntil(breed.exists && breed.frame.maxY < app.frame.height * 0.8, times: 6) { app.swipeUp() }
+    say("the breed's card: \(breed.exists ? "\(breed.label) \(breed.frame)" : "none")")
+    if breed.exists {
+      breed.tap()
+      opened("the breed's card")
+      shot("breed-card-opened")
+      app.leavePage()
+      settle()
+    }
+    app.leavePage()
+    // The lists: how much of each title is drawn.
+    for (row, title) in [("Loài quen thuộc", "Tất cả loài"), ("Cây thủy sinh", "Cây thủy sinh")] {
+      for _ in 0..<4 { app.swipeDown(velocity: .fast) }
+      let heading = app.staticTexts[row].firstMatch
+      repeatUntil(heading.exists && heading.frame.minY > 100 && heading.frame.maxY < app.frame.height * 0.7, times: 8) { app.swipeUp() }
+      let more = app.buttons.allElementsBoundByIndex.first { $0.label.hasPrefix("Xem tất cả") && abs($0.frame.midY - heading.frame.midY) < 30 }
+      guard let more else { say("\(row): no Xem tất cả beside it"); continue }
+      more.tap()
+      settle()
+      let t = app.navigationBars.staticTexts[title].firstMatch
+      say("the list \(title): title \(t.exists ? "\(t.frame)" : "none"), ink \(t.exists ? app.ink(t) : -1)")
+      shot("list-\(row)")
+      app.leavePage()
+    }
+    // A fish page from this index: whether it loads (the file index serves no page text).
+    app.openTab("Hôm nay")
+    app.buttons["v2-fish-of-the-day"].tap()
+    let failed = app.staticTexts["Không tải được trang. Kiểm tra kết nối mạng."].firstMatch
+    say("a live fish page from the file index: can't load shown \(failed.waitForExistence(timeout: 5))")
   }
 
   /// Tìm's first screen: its tools, fish ID's card leading them, then their tiles (at the largest text, the next screen

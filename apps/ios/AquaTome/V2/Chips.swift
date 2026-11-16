@@ -157,16 +157,18 @@ private struct WideCard: View {
 
   var body: some View {
     VStack(alignment: .leading, spacing: 10) {
-      NavigationLink(value: item) {
-        Color.clear.aspectRatio(3 / 2, contentMode: .fit)
-          .overlay { V2Photo(src: item.img, box: item.imgBox) }
-          .overlay { if item.img == nil { Image(systemName: item.kind.symbol).font(.title).foregroundStyle(.secondary) } }
-          .background(.fill.quaternary)
-          .clipShape(.rect(cornerRadius: 16, style: .continuous))
+      // A member with no photo has its row alone: a grey box would read as a photo that failed to load (Design, 17 Nov).
+      if item.img != nil {
+        NavigationLink(value: item) {
+          Color.clear.aspectRatio(3 / 2, contentMode: .fit)
+            .overlay { V2Photo(src: item.img, box: item.imgBox) }
+            .background(.fill.quaternary)
+            .clipShape(.rect(cornerRadius: 16, style: .continuous))
+        }
+        .buttonStyle(CardPress())
+        // One stop for VoiceOver: the row under it, which opens the same page and reads its name and line.
+        .accessibilityHidden(true)
       }
-      .buttonStyle(CardPress())
-      // One stop for VoiceOver: the row under it, which opens the same page and reads its name and line.
-      .accessibilityHidden(true)
       Lockup(item: item, line: factsLine(item, handbook.lang), icon: false)
     }
   }

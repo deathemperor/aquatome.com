@@ -42,7 +42,9 @@ struct HandbookView: View {
       .contentMargins(.top, handbook.query.isEmpty ? nil : 4, for: .scrollContent)
       // Placed, not left to iOS: iOS 27 keeps a search tab's field out of sight until the page is pulled down.
       .searchable(text: $handbook.query, placement: .navigationBarDrawer(displayMode: .always), prompt: Text("Tìm loài cá, cây, hướng dẫn"))
-      .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
+      // The band once the big title has gone up, as Bể của tôi's and Đèn's: shown at rest it stood over the title, which
+      // was there and not drawn (Design, 17 Nov).
+      .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
       .background(OpensAtTop())
       .navigationTitle("Tìm")
       .profileButton()

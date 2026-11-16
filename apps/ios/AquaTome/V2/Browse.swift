@@ -43,7 +43,8 @@ struct BrowseHome: View {
         VStack(alignment: .leading, spacing: 34) {
           // At Hôm nay's height, over the page's 12 at the top; the first shelf 12 under it, as under iOS's title.
           TabHeader(title: "Khám phá") {
-            if !s.chips.isEmpty { ChipsRow(chips: s.chips).padding(.top, 8) }
+            // 20 under the account circle (spec-chips.md): its 44-pt tap ends 4 under it, then the header's 4 and these 12.
+            if !s.chips.isEmpty { ChipsRow(chips: s.chips).padding(.top, 12) }
           }
             .padding(.top, -12)
             .padding(.bottom, -22)

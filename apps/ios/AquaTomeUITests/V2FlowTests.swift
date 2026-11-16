@@ -1429,6 +1429,8 @@ final class V2FlowTests: XCTestCase {
     let tim = app.navigationBars.staticTexts["Tìm"].firstMatch
     XCTAssertTrue(tim.waitForExistence(timeout: 5), "no title on Tìm")
     XCTAssertLessThanOrEqual(tim.frame.minX, 20.5, "Tìm's title isn't big at the left: \(tim.frame)")
+    // Drawn, not only there: Tìm's band, shown at rest, stood over it (Design, 17 Nov).
+    app.largeTitleIsOnScreen("Tìm")
     XCTAssertTrue(app.searchFields.firstMatch.isHittable, "no search field on Tìm at rest")
     for tab in ["Hôm nay", "Khám phá", "Bể của tôi", "Đèn"] {
       app.openTab(tab)
@@ -1437,6 +1439,18 @@ final class V2FlowTests: XCTestCase {
       XCTAssertTrue(title.waitForExistence(timeout: 5), "no title on \(tab)")
       XCTAssertLessThanOrEqual(title.frame.minX, 20.5, "\(tab)'s title isn't at the left: \(title.frame)")
     }
+  }
+
+  /// A list's title is drawn, not only there (a band shown at rest stood over Tìm's big title, 17 Nov): "Tất cả loài", from
+  /// Khám phá's "Xem tất cả".
+  func testAListsTitleIsDrawn() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    app.openTab("Khám phá")
+    let more = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Xem tất cả")).firstMatch
+    XCTAssertTrue(more.waitForExistence(timeout: 5), "no Xem tất cả on Khám phá")
+    more.tap()
+    app.largeTitleIsOnScreen("Tất cả loài")
   }
 
   /// A page pushed from Khám phá has iOS's bar, its back button named "Khám phá"; back by the edge swipe, from a fish's page
@@ -1555,9 +1569,9 @@ final class V2FlowTests: XCTestCase {
       gaps.append(shelf.frame.minY - title.frame.maxY)
       app.terminate()
     }
-    // The row as drawn at size L (38), the 8 over it and the header's 4 between its title and what's under it: the whole
-    // difference, with no strip or gap left (27.2, 17 Nov: 69.8 against 19.8).
-    XCTAssertEqual(gaps[0] - gaps[1], 38 + 8 + 4, accuracy: 2, "Khám phá with no chips keeps room under its title: \(gaps)")
+    // The row as drawn at size L (38), the 12 over it and the header's 4 between its title and what's under it: the whole
+    // difference, with no strip or gap left (27.2, 17 Nov: 69.8 against 19.8 with 8 over it).
+    XCTAssertEqual(gaps[0] - gaps[1], 38 + 12 + 4, accuracy: 2, "Khám phá with no chips keeps room under its title: \(gaps)")
   }
 
   /// What a chip opens (spec-chips.md): a group of one page and no guide, that page; one with a guide, a pushed page under
