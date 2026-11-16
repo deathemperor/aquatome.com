@@ -5,11 +5,6 @@
   ],
   "sources": [
     {
-      "url": "https://pondexpert.co.uk/building-concrete-pond/",
-      "title": "Building a Concrete Pond - Pond Expert",
-      "kind": "keeper"
-    },
-    {
       "url": "https://www.chewy.com/education/fish/fish-pond/concrete-pond",
       "title": "Concrete Pond | Chewy",
       "kind": "shop"
@@ -38,123 +33,98 @@
   "facts": [
     {
       "section": "what",
-      "fact": "A newly cemented pond releases free lime into the water, and this can harm fish and plants.",
-      "source": 0
-    },
-    {
-      "section": "what",
       "fact": "Concrete is basic by nature and has to be treated, or it will change the pond water's pH.",
-      "source": 5
+      "source": 4
     },
     {
       "section": "what",
       "fact": "The pH of a concrete pond may need adjusting from time to time for some time after it is built.",
-      "source": 5
-    },
-    {
-      "section": "what",
-      "fact": "The main job of a sealant painted inside a concrete pond is to stop lime in the cement leaching into the water.",
-      "source": 0
+      "source": 4
     },
     {
       "section": "signs",
       "fact": "One keeper reported that water put into a new cement tank went above pH 10.",
-      "source": 2
+      "source": 1
     },
     {
       "section": "steps",
       "fact": "Commercial fish-safe sealers, painted on before the pond is filled, can shorten the curing process.",
-      "source": 1
+      "source": 0
     },
     {
       "section": "steps",
       "fact": "Chewy would not risk poisoning the fish by using ordinary swimming-pool sealing paints.",
-      "source": 1
+      "source": 0
     },
     {
       "section": "steps",
       "fact": "Another keeper on the same forum sealed a tank with Pond Armor and reported that the water then tested the same as tap water.",
-      "source": 2
+      "source": 1
     },
     {
       "section": "steps",
       "fact": "Cá Cảnh Kim Giang, a fish shop in Hà Nội: soak each fill for 24-48 hours, drain completely, and repeat at least 3 to 5 times. These schedules are soaking schedules only; stocking goes by the pH reading, never by a number of days.",
-      "source": 4
-    },
-    {
-      "section": "steps",
-      "fact": "Chewy's own break-in schedule: fill the new pond for a week, then drain and refill. Repeat after two weeks, after three weeks, and after one more week: four fills over 7 weeks.",
-      "source": 1
-    },
-    {
-      "section": "steps",
-      "fact": "After draining, scrub all surfaces with a stiff brush, especially the corners and floor, then rinse well so no residue is left.",
-      "source": 4
-    },
-    {
-      "section": "steps",
-      "fact": "Ponds waterproofed with PU, bitumen-based or black paint coatings must soak 2-4 weeks, because these coatings are quite toxic to fish and fish die if the pond is not soaked well. A pH reading does not show whether such a coating is still toxic.",
-      "source": 4
-    },
-    {
-      "section": "steps",
-      "fact": "To take away the cement smell, soak cut banana stems, 2-3 kg of bundled rice straw, or 2-3 chopped pineapples in the pond for 5-7 days. Then remove them and rinse the pond several times.",
-      "source": 4
-    },
-    {
-      "section": "steps",
-      "fact": "When soaking banana stems, keep the water at or above the level the pond will hold once fish are in.",
-      "source": 4
-    },
-    {
-      "section": "steps",
-      "fact": "Test pH before adding fish and aim for about neutral (pH 7); readings much higher mean the water is still too alkaline. If the tap water itself reads higher, compare with tap water left out overnight, as Chewy does.",
-      "source": 0
-    },
-    {
-      "section": "steps",
-      "fact": "Cá Cảnh Kim Giang gives pH 7-7.5 as the target before stocking a new cement koi pond.",
-      "source": 4
-    },
-    {
-      "section": "steps",
-      "fact": "Measure pH in both the transport water and the receiving pond when stocking, with a pH pen. Channel catfish fry carried in transport water at about pH 7.4 can die when stocked into ponds above pH 8.0.",
       "source": 3
     },
     {
       "section": "steps",
-      "fact": "If pH is still high, a failed seal is not the only possible cause: wait a few more days and test again.",
+      "fact": "Chewy's own break-in schedule: fill the new pond for a week, then drain and refill. Repeat after two weeks, after three weeks, and after one more week: four fills over 7 weeks.",
       "source": 0
     },
     {
       "section": "steps",
-      "fact": "Chewy: one week after the last refill, test the pond's pH against tap water left out overnight. Chewy's pH step is passed when the two match within 0.2 units.",
-      "source": 1
+      "fact": "After draining, scrub all surfaces with a stiff brush, especially the corners and floor, then rinse well so no residue is left.",
+      "source": 3
     },
     {
-      "section": "treatment",
-      "fact": "Pond Expert's vinegar method: 1 gallon of household vinegar per 200 gallons of pond water, left for three days, then empty the pond and rinse it thoroughly. The three sources disagree on vinegar, so the guide gives no vinegar dose as its own advice and names each source's view.",
+      "section": "steps",
+      "fact": "Ponds waterproofed with PU, bitumen-based or black paint coatings must soak 2-4 weeks, because these coatings are quite toxic to fish and fish die if the pond is not soaked well. A pH reading does not show whether such a coating is still toxic.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "To take away the cement smell, soak cut banana stems, 2-3 kg of bundled rice straw, or 2-3 chopped pineapples in the pond for 5-7 days. Then remove them and rinse the pond several times.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "When soaking banana stems, keep the water at or above the level the pond will hold once fish are in.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Cá Cảnh Kim Giang gives pH 7-7.5 as the target before stocking a new cement koi pond.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Measure pH in both the transport water and the receiving pond when stocking, with a pH pen. Channel catfish fry carried in transport water at about pH 7.4 can die when stocked into ponds above pH 8.0.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Chewy: one week after the last refill, test the pond's pH against tap water left out overnight. Chewy's pH step is passed when the two match within 0.2 units.",
       "source": 0
     },
     {
       "section": "treatment",
-      "fact": "The keeper whose new tank went above pH 10 added vinegar: pH dropped to 4.5 but was back at 10 after 6 hours. With new water and vinegar again, pH dropped to 4.5 and was around 6.5 after 18 hours.",
-      "source": 2
+      "fact": "The keeper whose new tank went above pH 10 added vinegar: pH dropped to 4.5 but was back at 10 after 6 hours. With new water and vinegar again, pH dropped to 4.5 and was around 6.5 after 18 hours. The two sources disagree on vinegar, so the guide gives no vinegar dose as its own advice and names each source's view.",
+      "source": 1
     },
     {
       "section": "treatment",
       "fact": "Cá Cảnh Kim Giang may add a little diluted white vinegar to the water when scrubbing, then rinses the pond with clean water so no chemical is left in it.",
-      "source": 4
+      "source": 3
     },
     {
       "section": "mistakes",
       "fact": "The same keeper had waterproofed the concrete, then put a thin layer of fresh cement on the tank's bottom. He suspected that layer caused the pH swings, and planned to recoat the bottom with pond sealer.",
-      "source": 2
+      "source": 1
     },
     {
       "section": "vietnam",
       "fact": "Cá Cảnh Kim Giang suggests soaking 2-3 dried Indian almond (bàng) leaves in a new pond to soften the water and steady its pH.",
-      "source": 4
+      "source": 3
     }
   ]
 }
