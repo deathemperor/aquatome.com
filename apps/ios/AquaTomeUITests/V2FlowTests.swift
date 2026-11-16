@@ -737,13 +737,15 @@ final class V2FlowTests: XCTestCase {
     app.closeAccount()
     app.tabBars.buttons["Khám phá"].tap()
     XCTAssertTrue(app.descendants(matching: .any)["v2-browse"].waitForExistence(timeout: 5), "no Khám phá")
-    // The page dragged up a little, from its top, so it has more to show under the bar: the share of the bar's place,
-    // glass and all, that changed. The bar's own words stay where they are; only the page under it moves.
+    // The page dragged up, from its top, so it has more to show under the bar: the share of the bar's place, glass and
+    // all, that changed. The bar's own words stay where they are; only the page under it moves. 200 points, past the
+    // height of one shelf's card: with the chips under the title, 60 left the one grey card of "Bắt đầu từ đây" under
+    // the bar before and after, and 0.14% of its place changed (27.2, 17 Nov).
     func moved() -> Double {
       let bar = app.tabBars.firstMatch.frame
       let before = Pixels(XCUIScreen.main.screenshot())
       let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.6))
-      from.press(forDuration: 0.05, thenDragTo: from.withOffset(CGVector(dx: 0, dy: -60)), withVelocity: .slow, thenHoldForDuration: 0.5)
+      from.press(forDuration: 0.05, thenDragTo: from.withOffset(CGVector(dx: 0, dy: -200)), withVelocity: .slow, thenHoldForDuration: 0.5)
       Thread.sleep(forTimeInterval: 0.5)
       let after = Pixels(XCUIScreen.main.screenshot())
       let spots = stride(from: 6.0, to: app.frame.width - 6, by: 6).flatMap { x in
@@ -1532,8 +1534,8 @@ final class V2FlowTests: XCTestCase {
   }
 
   /// With no chips in the index (a phone's kept one from before them, offline), Khám phá opens as if the row never existed:
-  /// no row, no empty strip and no gap under the title (Design, 16 Nov). The first shelf moves up by the row and the 8 points
-  /// over it, nothing less.
+  /// no row, no empty strip and no gap under the title (Design, 16 Nov). The first shelf moves up by the row and the room
+  /// around it, nothing less.
   func testKhamPhaWithNoChipsHasNoRowAndNoGap() {
     var gaps: [CGFloat] = []
     for more in [[], ["-no-chips"]] {
@@ -1547,8 +1549,9 @@ final class V2FlowTests: XCTestCase {
       gaps.append(shelf.frame.minY - title.frame.maxY)
       app.terminate()
     }
-    // The row as drawn at size L (38) and the 8 over it: the whole difference, with no strip or gap left.
-    XCTAssertEqual(gaps[0] - gaps[1], 38 + 8, accuracy: 2, "Khám phá with no chips keeps room under its title: \(gaps)")
+    // The row as drawn at size L (38), the 8 over it and the header's 4 between its title and what's under it: the whole
+    // difference, with no strip or gap left (27.2, 17 Nov: 69.8 against 19.8).
+    XCTAssertEqual(gaps[0] - gaps[1], 38 + 8 + 4, accuracy: 2, "Khám phá with no chips keeps room under its title: \(gaps)")
   }
 
   /// What a chip opens (spec-chips.md): a group of one page and no guide, that page; one with a guide, a pushed page under
