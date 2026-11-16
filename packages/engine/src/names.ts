@@ -144,4 +144,7 @@ export const KIND_PASSAGES: readonly KindPassage[] = [
   { page: 'guides/aquariumcoop-blogs-aquarium-7-colorful-fish-for-10-gallon-aquarium', was: 'Cá cầu vồng lùn sống khá ngắn', now: 'Cá mắt xanh sống khá ngắn' },
   // Astra's second read: its "cầu vồng neon đỏ" sits in a sentence of three blue-eyes, so no rule can tell it from another.
   { page: 'guides/aquariumcoop-blogs-aquarium-5-best-fish-tank-ideas-for-a-20-gallon-aquarium', was: 'cầu vồng neon đỏ (P. luminatus)', now: 'mắt xanh neon đỏ (P. luminatus)' },
+  // A fresh read of 16 Nov: the video calls the penguin tetra (Thayeria, "Cá tetra cánh cụt") "cánh buồm", the black
+  // tetra's name once Gymnocorymbus ternetzi took it, two tetras before it in the same list.
+  { page: 'guides/youtube-nuSEvQyWyXA', was: 'cánh buồm (penguin)', now: 'tetra cánh cụt (penguin)' },
 ]

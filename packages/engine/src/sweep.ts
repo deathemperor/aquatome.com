@@ -12,6 +12,7 @@ import { droppedName, FISH_NAMES, KIND_PASSAGES, ownWords, type FishName, type K
 import { withLNumber } from './l-numbers'
 import { pickStands, readPersonYes } from './person-yes'
 import { EMPTY_CAP, refusedOn, type PhotoVerdict } from './photo-check'
+import { CAPTIONED } from './captions'
 import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmails, dropEmailsDeep, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, fixTranslation, hasEmail, isAdPoster, isMediaFile, mayHoldEmail, notAlive, isMap, unwellOff, NAMED_KINDS, renameFishNames, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields, type PageKind } from './pages'
 import { foldPages } from './page-folds'
@@ -330,17 +331,20 @@ export async function nameFish(content: string, rows: readonly FishName[] = FISH
 
 /**
  * A renamed fish's old name (names.ts FISH_NAMES) in the photos' captions, written as its name, and each caption's
- * translations kept under its new words (content/captions/<lang>.json is keyed by the Vietnamese). A row's own photos, in
- * its gallery and on its page, say what its own page calls it (names.ts ownWords). The files changed.
+ * translations kept under its new words (content/captions/<lang>.json is keyed by the Vietnamese). The photos are the
+ * galleries' and the pages' (CAPTIONED, as captions.ts reads them). A row's own photos, in its gallery and on its page, say
+ * what its own page calls it (names.ts ownWords). The files changed.
  */
 export async function renameCaptions(content: string, rows: readonly FishName[] = FISH_NAMES): Promise<string[]> {
   const changed: string[] = []
   const rekey = new Map<string, string>()
   const own = rows.filter(r => r.own).flatMap(r => [[`gallery/${r.id}.json`, r], [`${r.kind ?? 'species'}/${r.id}/entity.json`, r]] as const)
-  const files = [...(await readdir(join(content, 'gallery')).catch(() => [] as string[])).filter(x => x.endsWith('.json')).map(f => `gallery/${f}`), ...own.map(([f]) => f).filter(f => !f.startsWith('gallery/'))]
+  const list = async (dir: string) => (await readdir(join(content, dir)).catch(() => [] as string[])).sort()
+  const pages = (await Promise.all(CAPTIONED.map(async k => (await list(k)).map(id => `${k}/${id}/entity.json`)))).flat()
+  const files = [...new Set([...(await list('gallery')).filter(x => x.endsWith('.json')).map(f => `gallery/${f}`), ...pages, ...own.map(([f]) => f)])]
   for (const f of files) {
     const raw = await readFile(join(content, f), 'utf8').catch(() => null)
-    if (!raw) continue
+    if (!raw?.includes('"caption"')) continue
     const g = JSON.parse(raw) as { photos?: { caption?: string }[] }
     const r = own.find(([o]) => o === f)?.[1]
     let any = false
@@ -356,7 +360,7 @@ export async function renameCaptions(content: string, rows: readonly FishName[] 
     changed.push(f)
   }
   // A key no photo holds now (its photo gone from the gallery) takes the new name from its own words, so no old name
-  // waits in a file for the photo to come back.
+  // waits in a file for the photo to come back. A key whose new words are already one keeps the translation there.
   const to = (k: string) => rekey.get(k) ?? renameFishNames(k)
   for (const f of (await readdir(join(content, 'captions')).catch(() => [] as string[])).filter(x => x.endsWith('.json'))) {
     const file = join(content, 'captions', f)
@@ -364,7 +368,7 @@ export async function renameCaptions(content: string, rows: readonly FishName[] 
     const map = JSON.parse(raw) as Record<string, string>
     if (!Object.keys(map).some(k => to(k) !== k)) continue
     // In place, so the file's order stays and a diff shows only the keys.
-    await write(file, raw, Object.fromEntries(Object.entries(map).map(([k, v]) => [to(k), v])))
+    await write(file, raw, Object.fromEntries(Object.entries(map).flatMap(([k, v]) => (to(k) !== k && to(k) in map ? [] : [[to(k), v]]))))
     changed.push(`captions/${f}`)
   }
   return changed

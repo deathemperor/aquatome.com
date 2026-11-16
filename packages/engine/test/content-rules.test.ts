@@ -865,18 +865,20 @@ test('the sweep leaves what the rule never lists, and text it has no name to cha
   const decomposed = 'Cá vàng đẹp.'.normalize('NFD')
   expect(renameSwapped(decomposed)).toBe(decomposed)
 })
-test('a stored page: its name, text, summary, FAQ and reviews are renamed; its other names, references and a name a person fixed stay', () => {
+test('a stored page: its name, text, summary, FAQ, chapters and reviews are renamed; its other names, references and a name a person fixed stay', () => {
   const page = {
     slug: 'ca-but-chi-nannostomus-eques', name: 'Cá bút chì Nannostomus eques', altNames: ['Cá bút chì Nannostomus eques'],
     sections: { 'quickFacts:glaser': '<p>Cá bút chì (Nannostomus eques).</p>', 'references:glaser': '<p>Cá bút chì (Nannostomus eques).</p>' },
     summary: ['Cá bút chì (pencilfish) hiền.'], faq: [{ q: 'Cá bút chì (pencilfish) ăn gì?', a: 'Cá cờ (Laetacara) ăn gì cũng được.' }],
     reviews: { agree: [{ text: 'Hợp cá bút chì (pencilfish).' }] }, tested: [{ text: 'Thử với cá cờ (Mesonauta).' }],
+    chapters: ['Cá bút chì (pencilfish)', 'Cá vàng'],
   }
   expect(renameStored(page)).toEqual({
     slug: 'ca-but-chi-nannostomus-eques', name: 'Cá chì Nannostomus eques', altNames: ['Cá bút chì Nannostomus eques'],
     sections: { 'quickFacts:glaser': '<p>Cá chì (Nannostomus eques).</p>', 'references:glaser': '<p>Cá bút chì (Nannostomus eques).</p>' },
     summary: ['Cá chì (pencilfish) hiền.'], faq: [{ q: 'Cá chì (pencilfish) ăn gì?', a: 'Cá Laetacara (Laetacara) ăn gì cũng được.' }],
     reviews: { agree: [{ text: 'Hợp cá chì (pencilfish).' }] }, tested: [{ text: 'Thử với cá Mesonauta (Mesonauta).' }],
+    chapters: ['Cá chì (pencilfish)', 'Cá vàng'],
   })
   expect(renameStored({ ...page, nameFixed: true }).name).toBe(page.name)
   const unchanged = { name: 'Cá vàng', sections: { 'quickFacts:glaser': '<p>Đẹp.</p>' } }
@@ -926,11 +928,19 @@ test.each([
   ['Cá cầu vồng đỏ (G. incisus) sống ở hồ Sentani.', 'Cá táo đỏ (G. incisus) sống ở hồ Sentani.'],
   // A longer name the row lists stays as written beside it (the sweep's "cá táo đỏ cá hồi", 13 Nov).
   ['Cá cầu vồng đỏ, còn gọi là cá cầu vồng đỏ cá hồi hay cá cầu vồng New Guinea.', 'Cá táo đỏ, còn gọi là cá cầu vồng đỏ cá hồi hay cá cầu vồng New Guinea.'],
-  // An old name with brackets in it is matched as written (16 Nov).
+  // An old name with brackets in it is matched as written (16 Nov), a tag inside its brackets too.
   ['Cá cuvieri (Boulengerella cuvieri) săn cá nhỏ ở tầng mặt.', 'Cá Boulengerella cuvieri săn cá nhỏ ở tầng mặt.'],
+  ['Cá killi đuôi đàn lia Gabon (Gabon lyretail), Aphyosemion gabunense, sống ở Gabon.', 'Cá killi đuôi đàn lia Gabon, Aphyosemion gabunense, sống ở Gabon.'],
+  ['<p>Cá killi đuôi đàn lia Gabon (<em>Gabon lyretail</em>) đẻ trứng trên rêu.</p>', '<p>Cá killi đuôi đàn lia Gabon đẻ trứng trên rêu.</p>'],
+  // The fish under its new genus, its genus misspelt, and an English name ending in a genus (a fresh read, 16 Nov).
+  ['Cá chuột panda (Hoplisoma panda), từ lâu quen gọi là Corydoras panda.', 'Cá chuột gấu trúc (Hoplisoma panda), từ lâu quen gọi là Corydoras panda.'],
+  ['Cá platy (Xiphorphorus maculatus): 3 đến 5 năm', 'Cá mún (Xiphorphorus maculatus): 3 đến 5 năm'],
+  ['<h3>8. Cá chuột panda (Panda corydoras)</h3>', '<h3>8. Cá chuột gấu trúc (Panda corydoras)</h3>'],
   // A new name that holds the scientific name takes the same one in brackets after it along, tags and all.
   ['Trai nước ngọt Corbicula (Corbicula fluminea) lọc nước.', 'Hến Corbicula fluminea lọc nước.'],
   ['<p>Trai nước ngọt Corbicula (<em>Corbicula fluminea</em>) lọc nước.</p>', '<p>Hến Corbicula fluminea lọc nước.</p>'],
+  // Only in its own block: the next paragraph's bracket stays.
+  ['<h2>Trai nước ngọt Corbicula</h2><p>(Corbicula fluminea) là loài hến nhỏ.</p>', '<h2>Hến Corbicula fluminea</h2><p>(Corbicula fluminea) là loài hến nhỏ.</p>'],
   // Keepers' "cá mún" is any platy; another species' name that begins with the old one stays whole.
   ['Nuôi chung với cá platy đỏ, cá platy variatus hay cá kiếm.', 'Nuôi chung với cá mún đỏ, cá platy variatus hay cá kiếm.'],
 ])('a named fish or plant takes its name wherever written: %s', (before, after) => {
