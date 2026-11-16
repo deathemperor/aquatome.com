@@ -16,21 +16,26 @@ const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 // The rule: a page's hold follows the record that won, so a release on main during a run stands (Page Recovery's test,
 // widened to a hold on main, a clean pull, a species page and a text that isn't main's).
 type Held = { checks: string[]; at: string }
-type Side = { held?: Held; body?: string; fit?: { at: string; hash: string; checks: string[] } }
+type Side = { held?: Held; body?: string; fit?: { at: string; hash: string; checks: string[] }; th?: Side }
 
 const KINDS = { guides: { dir: 'content/guides/youtube-x', key: 'vi/guides/youtube-x' }, species: { dir: 'content/species/ca-x', key: 'vi/species/ca-x' } }
 
-function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Side }, o: { mainOther?: boolean; kept?: boolean; catchUp?: boolean } = {}) {
+// lostPush: the run's first push loses, as main gets this side meanwhile.
+function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Side }, o: { mainOther?: boolean; kept?: boolean; catchUp?: boolean; lostPush?: Side } = {}) {
   const { dir: pageDir, key } = KINDS[kind]
   const file = `${pageDir}/vi.json`
   const dir = mkdtempSync(join(tmpdir(), 'aq-push-hold-'))
   const page = (s: Side) =>
     `${JSON.stringify({ slug: 'ho-ca', name: 'Hồ cá', body: s.body ?? '<p>Cá con quen người.</p>', ...(s.held ? { held: s.held } : {}) }, null, 2)}\n`
+  const record = (f: NonNullable<Side['fit']>) =>
+    ({ at: f.at, hash: f.hash, model: 'opus', checklist: 3, findings: f.checks.map(check => ({ check, part: 'P2', quote: 'Cá con quen người.', why: 'w', by: 'model' })), products: [] })
+  // The page's Thai file and record, where a side has them.
+  const thKey = key.replace(/^vi\//, 'th/'), thFile = file.replace(/vi\.json$/, 'th.json')
   const fit = (s: Side) =>
-    `${JSON.stringify(s.fit ? { [key]: { at: s.fit.at, hash: s.fit.hash, model: 'opus', checklist: 3, findings: s.fit.checks.map(check => ({ check, part: 'P2', quote: 'Cá con quen người.', why: 'w', by: 'model' })), products: [] } } : {}, null, 2)}\n`
+    `${JSON.stringify({ ...(s.fit ? { [key]: record(s.fit) } : {}), ...(s.th?.fit ? { [thKey]: record(s.th.fit) } : {}) }, null, 2)}\n`
   const write = (files: Record<string, string>) =>
     Object.entries(files).map(([f, t]) => `mkdir -p "$(dirname ${f})" && printf '%s' '${t.replace(/'/g, `'\\''`)}' > ${f} && git add ${f}`).join(' && ')
-  const both = (s: Side) => write({ [file]: page(s), 'engine-state/_fit.json': fit(s) })
+  const both = (s: Side) => write({ [file]: page(s), ...(s.th ? { [thFile]: page(s.th) } : {}), 'engine-state/_fit.json': fit(s) })
   const pushFn = readFileSync(join(ROOT, 'scripts/engine-cycle.sh'), 'utf8').match(/^push\(\) \{[\s\S]*?^\}$/m)![0]
   const script = `
     set -e
@@ -54,7 +59,10 @@ function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Si
     PART=photos
     log() { echo "LOG $*"; }
     source "${join(ROOT, 'scripts/cycle-checks.sh')}"
-    net() { "$@"; }
+    net() {
+      ${o.lostPush ? `if [ "$1 $2" = "git push" ] && [ ! -e ../lost ]; then touch ../lost; (cd ../other && ${both(o.lostPush)} && git commit -qm 'content: main again, meanwhile' && git push -q origin main); fi` : ':'}
+      "$@"
+    }
     replan_merged() { :; }
     sweep_merged() { :; }
     verify_cycle() { echo VERIFY; }
@@ -70,7 +78,7 @@ function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Si
   expect(r.stderr).not.toMatch(/fatal/i)
   const read = (f: string) => JSON.parse(readFileSync(join(dir, 'cycle', f), 'utf8'))
   const pushed = (f: string) => JSON.parse(spawnSync('git', ['-C', join(dir, 'origin.git'), 'show', `main:${f}`], { encoding: 'utf8' }).stdout)
-  return { out: r.stdout, page: read(file), record: read('engine-state/_fit.json')[key], pushed: pushed(file) }
+  return { out: r.stdout, page: read(file), record: read('engine-state/_fit.json')[key], pushed: pushed(file), pushedRecord: pushed('engine-state/_fit.json')[key] }
 }
 
 const clean = { at: '2026-11-15', hash: 'e025', checks: [] }
@@ -136,6 +144,37 @@ test("a species page main let out before the run's pull ahead of its checks keep
   expect(r.record.findings).toEqual([])
   expect(r.page.held).toBeUndefined()
   expect(r.out).toContain("COMMIT content: main's holds on 1 pages main read during this run")
+})
+
+// A reader of #1505: the first try takes main's release and its push loses; main holds the page again meanwhile. The second
+// try's rebase replays the first try's "main's holds" commit, which takes out main's new hold, and against the merge-base
+// that file has no change. The candidates are the files the merge differs from main in, so main's hold stands.
+test("a later try of a lost push keeps a hold main put back meanwhile, though an earlier try took main's release", () => {
+  const r = push('guides', {
+    base: { held: hold('elsewhere'), fit: { at: '2026-11-14', hash: 'old', checks: ['elsewhere', 'source'] } },
+    main: { fit: clean },
+    run: { held: hold('source'), fit: heldFor('source') },
+  }, { lostPush: { held: hold('harm'), fit: heldFor('harm') } })
+  expect(r.out).toContain('CODE 0')
+  expect(r.pushedRecord.findings.map((f: { check: string }) => f.check)).toEqual(['harm'])
+  expect(r.pushed.held).toEqual(hold('harm'))
+})
+
+// A reader of #1505: harm in one language holds every language (gate.ts). The run held the Vietnamese for its new Thai
+// text's harm; main read the Vietnamese again meanwhile, its file the same. Main's release would leave the Thai held for
+// harm beside a live Vietnamese, so the Vietnamese stays held, for the next gate to decide.
+test("a page main let out stays held while another of its languages is held for harm", () => {
+  const read = { at: '2026-11-14', hash: 'e025', checks: [] }
+  const r = push('guides', {
+    base: { fit: read },
+    main: { fit: clean },
+    run: { held: hold('harm'), fit: read, th: { held: hold('harm'), fit: heldFor('harm') } },
+  })
+  expect(r.out).toContain('CODE 0')
+  expect(r.record.findings).toEqual([])
+  expect(r.pushed.held).toEqual(hold('harm'))
+  expect(r.out).toContain('LOG 1 pages main read during this run stay held: another of their languages is held for harm')
+  expect(r.out).not.toContain("main's holds on")
 })
 
 test("a page whose text isn't main's keeps the merge's hold: main's record read another text", () => {

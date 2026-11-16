@@ -573,16 +573,17 @@ ever_added() { git log --format= --name-only --no-renames --diff-filter=A "$1..$
 # when it put main's holds back, a tree no check has seen, so the caller checks again, as a clash does.
 CYCLE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 main_holds() {
-  local up=${2:-} base out holds texts
+  local up=${2:-} base out holds texts harms
   [ -n "$up" ] || up='@{u}'
   up=$(git rev-parse "$up") && base=$(git merge-base "$1" "$up") || return 0
   [ "$base" != "$up" ] || return 0
-  if ! out=$(node "$CYCLE_DIR/main-holds.mjs" "$base" "$1" "$up"); then
+  if ! out=$(node "$CYCLE_DIR/main-holds.mjs" "$base" "$up"); then
     log "main's holds: the pages main read during this run couldn't be compared, so their holds stay as merged"
     return 0
   fi
-  holds=$(sed -n 's/^hold //p' <<<"$out") texts=$(sed -n 's/^text //p' <<<"$out")
+  holds=$(sed -n 's/^hold //p' <<<"$out") texts=$(sed -n 's/^text //p' <<<"$out") harms=$(sed -n 's/^harm //p' <<<"$out")
   [ -z "$texts" ] || log "$(grep -c . <<<"$texts") pages main read during this run have main's record and this run's text, left as merged: $(head -5 <<<"$texts" | tr '\n' ' ')"
+  [ -z "$harms" ] || log "$(grep -c . <<<"$harms") pages main read during this run stay held: another of their languages is held for harm: $(head -5 <<<"$harms" | tr '\n' ' ')"
   [ -n "$holds" ] || return 0
   # shellcheck disable=SC2086 # content paths have no spaces
   git checkout "$up" -- $holds
