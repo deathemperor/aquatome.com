@@ -324,6 +324,12 @@ if part rewrite; then
     ahead pnpm engine localize-equipment --lang "$lang" --limit "${LOCALIZE_EQUIPMENT_AHEAD_LIMIT:-2}"
     ahead pnpm engine localize-cards --lang "$lang"
   done
+  # A translated fish page under the bar, fixed where its review's notes name it and kept only if it then reads higher
+  # (localize-mend.ts): the way back the other languages had none of. On 16 Nov the pages out of search for their score
+  # (1,491) grew in Indonesian, Thai and Malay alone, by new translations that failed their first review and stayed so.
+  # LOCALIZE_MEND_LIMIT pages a language a cycle, most-read first, on the default line in ceilings.json (it has none of
+  # its own). Up to seven model calls a page, so it is gated as the steps above: a cycle that has run long gives it first.
+  for lang in id th ms; do ahead pnpm engine localize-mend --lang "$lang" --limit "${LOCALIZE_MEND_LIMIT:-2}"; done
   # Indonesian, Thai and Malay place names, each judged alone against its source's sentence (place-judge.ts), after every
   # translation, Malay's too (the rewrites and translations spend first, cycle-languages.test.ts): the
   # unjudged first, the lowest batch score first, JUDGE_PLACES_LIMIT a cycle (the chief of staff, 15 Nov 2026: at most

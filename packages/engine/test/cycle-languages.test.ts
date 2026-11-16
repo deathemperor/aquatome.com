@@ -28,6 +28,21 @@ test("Malay's steps: 10 species a cycle right after Indonesian and Thai, never g
   for (const line of block.split('\n').filter(l => l.includes('pnpm'))) expect(line.trim(), line).toMatch(/^ahead pnpm /)
 })
 
+test('a failed translation is fixed in place in every served language but Vietnamese, after the other translations and gated as they are', () => {
+  // The pages out of search for their score grew in Indonesian, Thai and Malay alone (16 Nov 2026): a page that failed
+  // its first review had no way back until its English changed. Up to seven model calls a page: a long cycle gives it first.
+  const from = script.indexOf('for lang in ms; do')
+  const malay = script.indexOf('\n  done\n', from)
+  const mend = script.indexOf('do ahead pnpm engine localize-mend --lang "$lang" --limit "${LOCALIZE_MEND_LIMIT:-2}"')
+  expect(from).toBeGreaterThan(-1)
+  expect(mend).toBeGreaterThan(malay)
+  expect(mend).toBeLessThan(script.indexOf('pnpm engine judge-places'))
+  // Nothing but comments between Malay's steps and it, and every language the site serves but Vietnamese.
+  const line = script.lastIndexOf('\n', mend)
+  expect(script.slice(malay + '\n  done\n'.length, line).split('\n').filter(l => l.trim() && !l.trim().startsWith('#'))).toEqual([])
+  expect(script.slice(line + 1, mend).trim()).toBe(`for lang in ${OTHER_LANGS.join(' ')};`)
+})
+
 test('the rewrite part spends on the Vietnamese rewrite and every translation first, Malay inside them, then the rest; a gated step started at the gate ends inside the job', () => {
   const at = (s: string) => { const i = script.indexOf(s); expect(i, s).toBeGreaterThan(-1); return i }
   // The chief of staff, 2026-11-11: the rewrites and translations go before any other step spends, so a sign-in that runs
