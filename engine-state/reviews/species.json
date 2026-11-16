@@ -32,6 +32,39 @@
       "kept": true
     }
   ],
+  "vi/plants/najas-guadalupensis#EY13FDXeW3Q": [
+    {
+      "at": "2026-11-15T23:29:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.8,
+      "notes": [
+        "[reproduction] \"Nhân giống chỉ cần ngắt một phần đám cây đem sang bể khác\" is a slight inference. The video only says cuttings can be moved to other tanks or given away. It never describes this as propagating the plant.",
+        "[behaviour] \"cá tò mò hơn\" bends the video. It says the fish are curious and intelligent, and the changing scenery adds interest. It does not say the plant makes them more curious.",
+        "[notes] \"hợp nhất cho bể nhỏ\" overstates \"favorite option for small aquariums\". The speaker said it was their favorite, not that it suits small tanks best.",
+        "[notes] \"Nó giành dinh dưỡng với rêu hại\" adds a mechanism the video doesn't state. The video only says the plant displaces algae and limits its growth.",
+        "[behaviour] Fry and shrimp hiding in the plant is already on the page (maintenance and notes). Only the food and shade details are new."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-15T23:29:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.7,
+      "notes": [
+        "\"Một người nuôi loài này lâu năm\": the video never says how long the speaker has kept it, only that it is in several tanks. \"lâu năm\" is invented.",
+        "[behaviour] \"Cá con của cá đẻ con trốn vào đám cây\" repeats the page, which already says the plant is a good hiding place for fry and shrimp. Only the grazing on microorganisms and ciliates is new.",
+        "[notes] \"Ngoài dinh dưỡng dư\" restates the page's existing claim that the plant absorbs excess nutrients. Only nitrate, ammonia and heavy metals are new.",
+        "[reproduction] \"Đám cây rậm rất hợp làm chỗ cho cá đẻ\" overlaps with the page's refuge and hiding-place statements and adds little."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/plants/pogostemon-stellatus#-b8xzLDI9zE": [
     {
       "at": "2026-11-08T03:05:11Z",
@@ -885,6 +918,42 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/species/poecilia-reticulata#eZ9yKYiueNA": [
+    {
+      "at": "2026-11-15T23:32:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.82,
+      "notes": [
+        "[maintenance] \"Muốn giữ cá đẹp thì tách cá đực khỏi cá cái\" is stated as a general rule. In the video this is the speaker's own practice. The page's maintenance section already advises separating the sexes.",
+        "[dimorphism] \"Cỡ nhỏ là một trong những điểm khiến cá dễ bị chấm thấp khi đi thi\" goes slightly beyond the video. The speaker only calls small males a shortcoming and says it tends to get his fish marked down.",
+        "[reproduction] \"Người cho đẻ thường loại những con này\" generalises the video's \"major breeders\" a little, and the page's keeper-attribution style is not carried through here.",
+        "[notes] \"Trong các dòng grass, blue grass là màu được ưa nhất\" is fine, but the wording is stiff. The line mixes the speaker's claims with general statements without marking whose they are."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-15T23:32:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.6,
+      "notes": [
+        "\"Khoảng 40% cá đực ra blue grass\" / \"Lúc nhỏ chúng có chút vàng\": the video says yellow shows at the end of the body and tail but fades as the guppy grows older; \"Lúc nhỏ\" is a mild reinterpretation.",
+        "\"Khoảng 10–20% cả lứa ra màu xanh xám xỉn\": the video says a dual greyish blue colour (Asian blue grass), and \"xỉn\" (dull) is not in the video; it is also a 'drops' share, not clearly 'cả lứa' vs males.",
+        "\"Một người nuôi và cho đẻ dòng này lâu năm thấy khi cả bố lẫn mẹ đều xanh\": the video gives the 40% figure for blue parents only, and applies the 40% red grass and 10–20% figures without that condition; the condition is extended to all three figures.",
+        "\"thường đạt điểm khá\": the video says they tend to do very well on shows; 'khá' understates it, minor.",
+        "\"Cá cái đôi khi cũng khá dữ với cá đực... \" in [behaviour] repeats a point already in [maintenance], so it is duplicated within NEW.",
+        "\"Trong các dòng grass (đuôi vân như cỏ)\": 'đuôi vân như cỏ' is an invented gloss; the video does not say what grass means.",
+        "\"bị trừ điểm khi thi\" in [dimorphism]: the video says the small males tend to get the fish down-pointed, so this is roughly supported, but it is presented as a deduction rule and as the only cause.",
+        "\"Không nên cho dòng này đẻ thả đàn\": the video says colony breeding is not recommended, which matches, but 'đẻ thả đàn' reads a bit like a translation."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/species/poecilia-wingei#-OXAqK-7E74": [

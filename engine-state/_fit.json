@@ -62967,7 +62967,8 @@
         "fix": "cây bán cạn"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-0_6qeLVaKf4": {
     "at": "2026-11-16",
@@ -64761,7 +64762,8 @@
         "by": "model"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-34R1VF2bzmg": {
     "at": "2026-11-11",
@@ -64985,7 +64987,8 @@
     ],
     "products": [
       "Pond Foam"
-    ]
+    ],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-43bSNzlX9Fo": {
     "at": "2026-11-09",
@@ -67275,7 +67278,8 @@
     ],
     "products": [
       "Twinstar"
-    ]
+    ],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-85iF2nhleGM": {
     "at": "2026-11-09",
@@ -70102,8 +70106,8 @@
     ]
   },
   "vi/guides/youtube-C4oUkABhXDA": {
-    "at": "2026-11-15",
-    "hash": "2b814719c533f15f",
+    "at": "2026-11-16",
+    "hash": "c65f387a86f7cffc",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -70111,21 +70115,7 @@
         "check": "units",
         "part": "P1",
         "quote": "bể nano khoảng 9,5 lít",
-        "why": "9.5 litres is a converted 2.5-gallon tank size, not one used in Vietnam.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P7",
-        "quote": "Bộ đèn này đã trồng rêu tốt trong nhiều năm.",
-        "why": "The original writer's personal experience with their own light, given in their voice.",
-        "by": "model"
-      },
-      {
-        "check": "elsewhere",
-        "part": "P4",
-        "quote": "giữ thêm vài cành lũa manzanita để dùng khi đổi ý",
-        "why": "Manzanita is an American wood that keepers in Vietnam don't usually buy or gather.",
+        "why": "9.5 litres is a converted 2.5-gallon tank size; nobody in Vietnam sizes a tank like that.",
         "by": "model"
       }
     ],
@@ -70133,7 +70123,8 @@
       "GE Silicone 1",
       "Seachem Flourite Dark",
       "Exo Terra"
-    ]
+    ],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-C4W86NMP3CU": {
     "at": "2026-11-10",
@@ -72090,7 +72081,8 @@
         "fix": "để thêm kiểu lá khác"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-eaGHpCVz-zI": {
     "at": "2026-11-09",
@@ -72947,7 +72939,8 @@
     "products": [
       "Fluorite",
       "loc-line"
-    ]
+    ],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-EXF0vtu0bqI": {
     "at": "2026-11-08",
@@ -74435,7 +74428,8 @@
     ],
     "products": [
       "Seachem Flourish Excel"
-    ]
+    ],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-GpybvkGpvuQ": {
     "at": "2026-11-10",
@@ -74694,7 +74688,8 @@
         "by": "model"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-h_UXlf0XPTM": {
     "at": "2026-11-09",
@@ -75562,7 +75557,8 @@
     ],
     "products": [
       "Dennerle"
-    ]
+    ],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-HRHGNurFb8Y": {
     "at": "2026-11-09",
@@ -79069,7 +79065,8 @@
         "by": "model"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-laoEUOhsnMw": {
     "at": "2026-11-15",
@@ -79681,7 +79678,8 @@
     ],
     "products": [
       "Krylon Fusion"
-    ]
+    ],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-lmUE5qbWfwg": {
     "at": "2026-11-10",
@@ -79867,7 +79865,8 @@
     ],
     "products": [
       "Dremel"
-    ]
+    ],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-LrRhfOYfXns": {
     "at": "2026-11-08",
@@ -83783,7 +83782,8 @@
       "Seachem Flourite Dark",
       "AquaClear 30",
       "Nicrew"
-    ]
+    ],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-PGgJNhjbXNg": {
     "at": "2026-11-09",
@@ -83837,56 +83837,43 @@
     "products": []
   },
   "vi/guides/youtube-PhyjQmfD3cg": {
-    "at": "2026-11-09",
-    "hash": "4cb0bb6be7dd6c67",
+    "at": "2026-11-16",
+    "hash": "d186a3006425fbb2",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "price",
-        "part": "P1",
-        "quote": "Giá không đắt, khoảng 2–3 USD một con.",
-        "why": "Price given in US dollars, a foreign currency.",
-        "by": "model"
-      },
-      {
-        "check": "price",
-        "part": "P1",
-        "quote": "Giá khá rẻ, khoảng 3–4 USD một con.",
-        "why": "Price given in US dollars, a foreign currency.",
-        "by": "model"
-      },
-      {
         "check": "units",
         "part": "P1",
         "quote": "Bể dài khoảng 75 lít (20 long) có thể thả 30–40 con",
-        "why": "Converted from the American 20-gallon long tank model.",
+        "why": "A US 20-gallon long tank converted to litres, with the US tank name kept.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P1",
         "quote": "bể dài khoảng 125 lít (33 long)",
-        "why": "Converted from the American 33-gallon long tank model.",
+        "why": "A US 33-gallon long tank converted to litres, with the US tank name kept.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P1",
         "quote": "mỗi con ít nhất khoảng 11 lít nước",
-        "why": "11 litres is a conversion of the 3-gallon-per-puffer rule.",
+        "why": "The 3-gallon-per-puffer rule converted to litres; nobody in Vietnam would say 11 litres.",
         "by": "model"
       },
       {
         "check": "words",
         "part": "P1",
-        "quote": "Trùn chỉ đông lạnh (bloodworm) làm món chính.",
-        "why": "Bloodworm is not trùn chỉ (tubifex); keepers in Vietnam call bloodworms trùn huyết.",
+        "quote": "Trùn chỉ đông lạnh (bloodworm) làm món chính",
+        "why": "Trùn chỉ is tubifex; keepers in Vietnam call bloodworm trùn huyết.",
         "by": "model",
         "fix": "trùn huyết đông lạnh"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-pIfVV_CAMmQ": {
     "at": "2026-11-11",
@@ -84089,7 +84076,8 @@
     ],
     "products": [
       "TwinStar 600 SA Type 4"
-    ]
+    ],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-pRIhyV1gwaw": {
     "at": "2026-11-08",
@@ -84452,7 +84440,8 @@
         "by": "model"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-qaow2ai3eZM": {
     "at": "2026-11-09",
@@ -85019,7 +85008,8 @@
         "by": "model"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-qwsuTjLSDkU": {
     "at": "2026-11-08",
@@ -86055,22 +86045,37 @@
     ]
   },
   "vi/guides/youtube-SdInuxeH8a8": {
-    "at": "2026-11-10",
-    "hash": "1f058b44825833e0",
+    "at": "2026-11-16",
+    "hash": "d13eb732f60605ab",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "vừa trồng đã có lá tàn. Hy vọng là sau đó cây thích nghi được với dạng dưới nước.",
-        "why": "The writer's own tank and planting story is told as if the reader knew it.",
+        "quote": "nhưng ở đây thứ cần là dòng chảy",
+        "why": "A bare \"ở đây\" points to the source video's own tank, which the reader has never seen.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này không nhất thiết phải có cá.",
+        "why": "A bare \"bể này\" refers to the source's own build as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Sau đó mới biết cây có thích nghi được với dạng dưới nước hay không.",
+        "why": "This is the source creator's own story about a plant in their build, which is not part of the planting plan.",
         "by": "model"
       }
     ],
     "products": [
       "BioMaster 600"
-    ]
+    ],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-sdYW9rupCa8": {
     "at": "2026-11-08",
@@ -87777,7 +87782,8 @@
     ],
     "products": [
       "keo 502"
-    ]
+    ],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-TMSoZv8XrL8": {
     "at": "2026-11-11",
@@ -91104,43 +91110,51 @@
     "products": []
   },
   "vi/guides/youtube-XwkkskyP-R0": {
-    "at": "2026-11-14",
-    "hash": "ff1bb83d27a703af",
+    "at": "2026-11-16",
+    "hash": "f4b430dd954ba591",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Trong thời gian bể trống, lọc ở đây vẫn chạy trên bể đối diện",
-        "why": "Refers to the source writer's own other tank as if the reader knew it.",
+        "quote": "Ở đây chọn một loại đá đen có những mảng màu gỉ sét",
+        "why": "Bare \"ở đây\" refers to the source video's own tank build.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Cuối cùng ở đây dùng hết 11 viên.",
-        "why": "Reports the writer's own tank build as a first-person story.",
+        "quote": "Ở đây đầu ra của lọc cũng được chỉnh nghiêng lại.",
+        "why": "Describes the video's own tank as if the reader knew it.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Ở bể này, lúc đổi chỗ xả nước sang góc sau",
-        "why": "Narrates an incident in the source's own tank.",
+        "quote": "Bể nhỏ tối thiểu 3 con, bể này thả 9 con.",
+        "why": "Bare \"bể này\" refers to the source's own tank.",
         "by": "model"
       },
       {
         "check": "source",
-        "part": "L12",
-        "quote": "Ở đây thay nước lúc rêu bùng sau khoảng hai tuần.",
-        "why": "Answers with the source writer's own tank story.",
+        "part": "P1",
+        "quote": "Ở đây, lúc thả thì tắt đèn và cân nhiệt khoảng 30 phút",
+        "why": "Recounts what the source did in its own tank.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "L6",
+        "quote": "Ở bể này, thảm phải hơn một tháng mới gần kín",
+        "why": "Refers to the source video's tank as if known to the reader.",
         "by": "model"
       }
     ],
     "products": [
       "Dennerle"
-    ]
+    ],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-XX61L_oweGg": {
     "at": "2026-11-10",
@@ -93218,7 +93232,8 @@
       "1-2-Grow",
       "Tropica",
       "Dennerle"
-    ]
+    ],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-ZofJWyG7G_c": {
     "at": "2026-11-08",
@@ -95069,8 +95084,8 @@
     "products": []
   },
   "vi/plants/najas-guadalupensis": {
-    "at": "2026-11-09",
-    "hash": "73eac9fe1a505165",
+    "at": "2026-11-16",
+    "hash": "d83b88f3f0f77cdf",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -122461,30 +122476,30 @@
     "products": []
   },
   "vi/species/poecilia-reticulata": {
-    "at": "2026-11-13",
-    "hash": "d4fafb8903edd90a",
+    "at": "2026-11-16",
+    "hash": "5c0989b48d6f6324",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
-        "part": "P11",
+        "part": "P12",
         "quote": "còn bể 110 lít có thể nuôi khoảng 15 con",
         "why": "110 litres is a converted 30-gallon tank size nobody in Vietnam would use.",
         "by": "model"
       },
       {
         "check": "elsewhere",
-        "part": "P17",
+        "part": "P18",
         "quote": "rất ít nhà đủ ấm để giữ được mức đó nếu bể không có sưởi nhúng",
-        "why": "Assumes a cold-climate home; most homes in Vietnam stay at 21–26 °C much of the year.",
+        "why": "Assumes homes too cold for 21–26 °C, which is untrue for most of Vietnam most of the year.",
         "by": "model"
       },
       {
         "check": "elsewhere",
-        "part": "P28",
+        "part": "P30",
         "quote": "tại các buổi đấu giá của hội chơi cá",
-        "why": "Fish-club auctions are a foreign hobby custom, not a usual source for this reader.",
+        "why": "Fish club auctions are a foreign buying habit, not the reader's own.",
         "by": "model"
       }
     ],
@@ -130096,5 +130111,589 @@
     "checklist": 3,
     "findings": [],
     "products": []
+  },
+  "vi/guides/youtube-2moaGFoOSio": {
+    "at": "2026-11-16",
+    "hash": "bf0afb52eba0c12a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "API"
+    ]
+  },
+  "vi/guides/youtube-8ZiMtySXASw": {
+    "at": "2026-11-16",
+    "hash": "c0b22a0dd8ce3177",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-fMoj-xijVPU": {
+    "at": "2026-11-16",
+    "hash": "6732d46593140e11",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Hay có lời khuyên phủ khoảng 2,5 cm đất rồi 2,5 cm cát.",
+        "why": "2.5 cm is a converted one-inch figure from an imperial source.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Nutribase",
+      "Chihiros WRGB2",
+      "Asta 120"
+    ]
+  },
+  "vi/guides/youtube-FqNP9rxudYs": {
+    "at": "2026-11-16",
+    "hash": "0c3e691516386149",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bộ này có lẽ làm cho bể nhỏ. Với một chai, đoán là dùng được ít nhất khoảng một tuần",
+        "why": "The source writer's own guesses about the kit they unboxed, not tested advice for the reader.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "loại ống dùng cho hồ ngoài trời",
+        "why": "A literal translation of 'pond hose', which keepers in Vietnam don't say.",
+        "by": "model",
+        "fix": "ống nhựa mềm cỡ lớn (ống xả bể)"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-hFTGGj1ChRQ": {
+    "at": "2026-11-16",
+    "hash": "cf69984d97aecc02",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Nhiệt độ nước bể cũ và bể mới bằng nhau (cả phòng có sưởi) thì có thể thả thẳng cá vào.",
+        "why": "Assumes a centrally heated room, a home setup from a colder country rather than Vietnam.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Fluval FX6"
+    ]
+  },
+  "vi/guides/youtube-IHeT0y1_PDo": {
+    "at": "2026-11-16",
+    "hash": "266adb5c0c59c24d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể tự cân bằng này (không lọc, không thay nước, không lau kính) đã qua hai tuần đầu mà chưa gặp rắc rối gì.",
+        "why": "Talks about the source video's own tank as if the reader already knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ở bể này, chỉ sau vài ngày đến một tuần là hai chỉ số đã ổn.",
+        "why": "A bare 'bể này' pointing at the source's tank.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Chỉ qua một đêm, chúng đã dọn được phần lớn lớp tảo nâu, thảm nền trông sạch hẳn.",
+        "why": "Retells what happened in the source's tank as a story.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ở bể nuôi chung với cá kiếm, cá con molly hiếm khi thấy, có lẽ bị cá kiếm ăn hết.",
+        "why": "Refers to the writer's own other tank, which the reader doesn't know.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể lớn như bể này thì có lẽ chỉ cần 2 con là cùng, 1 con cũng được.",
+        "why": "A bare 'bể này' pointing at the source's tank, which the page never sizes.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "API CO2 Booster"
+    ]
+  },
+  "vi/guides/youtube-kzwkw7Qw51c": {
+    "at": "2026-11-16",
+    "hash": "393fed1d8924aeea",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P3",
+        "quote": "Ở các bể tự cân bằng khác chỉ châm nước máy, TDS cũng đã dừng như vậy.",
+        "why": "Refers to the source creator's other tanks as if the reader knew them.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P8",
+        "quote": "Đến ngày 55 bể vẫn chưa phải cho ăn, molly vẫn to khỏe.",
+        "why": "A bare reference to the video's own tank and its day count.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Crystal Clear"
+    ]
+  },
+  "vi/guides/youtube-lH2GnVdN-4s": {
+    "at": "2026-11-16",
+    "hash": "1b9270e3df1dc883",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "có thể là loài nhát nhất trong số cichlid từng nuôi",
+        "why": "The original writer's own keeping experience, given in their voice as if the reader knew them.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Có lần nhìn bể vẫn bình thường, nhưng test lại ra amoniac hoặc nitrit khá cao.",
+        "why": "A personal story from the source writer, not something the reader has seen.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "gắn máy hút váng mặt nước (surface skimmer)",
+        "why": "A literal translation of 'surface skimmer'; keepers in Vietnam call it a lọc váng.",
+        "by": "model",
+        "fix": "lọc váng (máy lọc váng mặt)"
+      }
+    ],
+    "products": [],
+    "doses": [
+      {
+        "treatment": "root tabs",
+        "strength": "",
+        "amount": 1,
+        "amountMax": 0,
+        "unit": "packet",
+        "per": 120,
+        "perUnit": "cm tank length",
+        "use": "plants",
+        "method": "other",
+        "quote": "khoảng một gói cho mỗi 120 cm chiều dài bể, tức là bể 240 cm dùng hai gói"
+      },
+      {
+        "treatment": "beneficial bacteria",
+        "strength": "",
+        "amount": 4,
+        "amountMax": 0,
+        "unit": "cap",
+        "per": 240,
+        "perUnit": "cm tank",
+        "use": "water",
+        "method": "wholeTank",
+        "quote": "Với bể 240 cm đã chạy sẵn, châm khoảng bốn nắp."
+      }
+    ],
+    "sourceRead": true
+  },
+  "vi/guides/youtube-N8N1xQCE7ok": {
+    "at": "2026-11-16",
+    "hash": "70dbe147ba05e2dc",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P6",
+        "quote": "Có thể thả thêm bèo như rau diếp nước mini.",
+        "why": "\"Rau diếp nước\" is a literal translation of water lettuce. Keepers in Vietnam call this plant bèo cái.",
+        "by": "model",
+        "fix": "bèo cái mini"
+      },
+      {
+        "check": "source",
+        "part": "P6",
+        "quote": "Cá chuột skunk to hơn nhiều nên không hợp bể này.",
+        "why": "A bare \"bể này\" points at the source video's own tank, which the reader has never seen.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-nFkLGegDN38": {
+    "at": "2026-11-16",
+    "hash": "b2a1f46bd80124fd",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Nutribase",
+      "ASA 120"
+    ]
+  },
+  "vi/guides/youtube-NhxiF9H6fjQ": {
+    "at": "2026-11-16",
+    "hash": "539f568238cc40a9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Lần thử đầu, bộ này bù xong nước trong khoảng năm phút.",
+        "why": "A bare \"bộ này\" points at the source's own unit, which the reader has never seen.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bộ châm nước kiểu chai nhựa dùng trước đó không hợp với thể tích bể này.",
+        "why": "This is the writer's own story about their earlier kit and \"bể này\", told as if the reader already knew them.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Một lần thay nước, mà lần này cũng không cần thiết, chỉ để nước bớt vàng cho dễ nhìn.",
+        "why": "\"Lần này\" reports what the source did with its own tank, not general advice.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "có thể châm một cốc đầy phân, chắc là đủ cho lần đầu",
+        "why": "This is a calque of \"a capful\". As written it says a whole cup of fertiliser, which nobody here would say.",
+        "by": "model",
+        "fix": "châm một nắp phân"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-on7YLOyBx5s": {
+    "at": "2026-11-16",
+    "hash": "e3e65a83fa5cbec6",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "dose",
+        "part": "P1",
+        "quote": "phân Leaf Zone thường châm khoảng 10 ml (một nắp) mỗi lần châm thêm nước",
+        "why": "Gives a dose of a named commercial fertiliser without saying what tank size it is for.",
+        "by": "model",
+        "product": "Leaf Zone"
+      }
+    ],
+    "products": [
+      "Leaf Zone"
+    ],
+    "doses": [
+      {
+        "treatment": "leaf zone",
+        "strength": "",
+        "amount": 10,
+        "amountMax": 0,
+        "unit": "ml",
+        "per": 0,
+        "perUnit": "",
+        "use": "plants",
+        "method": "wholeTank",
+        "quote": "phân Leaf Zone thường châm khoảng 10 ml (một nắp) mỗi lần châm thêm nước, chừng một tuần một lần"
+      },
+      {
+        "treatment": "leaf zone",
+        "strength": "",
+        "amount": 2,
+        "amountMax": 0,
+        "unit": "ml",
+        "per": 0,
+        "perUnit": "",
+        "use": "plants",
+        "method": "wholeTank",
+        "quote": "đặt 2 ml mỗi 24 giờ thì một tuần ra khoảng 14 ml"
+      },
+      {
+        "treatment": "leaf zone",
+        "strength": "",
+        "amount": 1,
+        "amountMax": 0,
+        "unit": "ml",
+        "per": 0,
+        "perUnit": "",
+        "use": "plants",
+        "method": "wholeTank",
+        "quote": "Cũng có thể chia ra 1 ml mỗi 12 giờ."
+      }
+    ],
+    "sourceRead": true
+  },
+  "vi/guides/youtube-P33hkCbg2hc": {
+    "at": "2026-11-16",
+    "hash": "1a32d9156aa7930b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P2",
+        "quote": "Ở bể này, thứ làm xấu bể là bụi cây không trồng mà tự mọc",
+        "why": "Bare \"bể này\" refers to the source's own tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "L2",
+        "quote": "Lúc dọn bể này, nhổ hết cây lạ đang lấn bể",
+        "why": "Bare \"bể này\" in the summary refers to the source's tank.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P8",
+        "quote": "So ảnh lúc mới set với ảnh sau 42 ngày mới thấy khác biệt lớn",
+        "why": "Points to before-and-after photos from the source video that the page does not have.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P4",
+        "quote": "cỏ ngọc trai (pearl weed)",
+        "why": "Literal translation of the English name; keepers in Vietnam call this plant trân châu.",
+        "by": "model",
+        "fix": "trân châu"
+      },
+      {
+        "check": "words",
+        "part": "P6",
+        "quote": "Cây vảy ốc (Ludwigia) đỏ",
+        "why": "In Vietnam, vảy ốc means Rotala; red Ludwigia is called rau mương đỏ.",
+        "by": "model",
+        "fix": "rau mương đỏ"
+      },
+      {
+        "check": "words",
+        "part": "P3",
+        "quote": "cỏ hairgrass đã bò ra tiền cảnh",
+        "why": "Keepers in Vietnam call Eleocharis cỏ tóc.",
+        "by": "model",
+        "fix": "cỏ tóc"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-Q0v-rbhLEp8": {
+    "at": "2026-11-16",
+    "hash": "7ee864c3a7494ace",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Lần test nước lúc đó không ra chút amoniac hay nitrat nào.",
+        "why": "Reports the source video's own water test as if the reader had seen it.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Bèo rau diếp mini (mini water lettuce)",
+        "why": "Calque of 'water lettuce'; Vietnamese keepers call Pistia bèo tai tượng or bèo cái.",
+        "by": "model",
+        "fix": "bèo tai tượng mini"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-TgDrYzWTU5s": {
+    "at": "2026-11-16",
+    "hash": "5a2116939ed5539d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "TITLE",
+        "quote": "Trồng cây cho bể Amazon 244 cm",
+        "why": "244 cm is an 8-foot tank converted from imperial; nobody in Vietnam sizes a tank that way.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ở bể 240 cm, một con cá tỳ bà bristlenose trốn dưới đá, cùng đàn ốc bám trên đá và lũa, vẫn sống",
+        "why": "Retells the source video's own tank story as if the reader knew that tank.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-TgJnVAxtoO0": {
+    "at": "2026-11-16",
+    "hash": "b371db37b0ac08af",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Chỗ nào định trồng ráy Amazon (Amazon sword) thì nhét thêm viên phân súng vào.",
+        "why": "Echinodorus is not called 'ráy' by Vietnamese keepers; 'ráy' means Anubias/Cryptocoryne.",
+        "by": "model",
+        "fix": "kiếm Amazon (cỏ kiếm)"
+      }
+    ],
+    "products": [
+      "Flourite"
+    ]
+  },
+  "vi/guides/youtube-wBmmyQRjsE0": {
+    "at": "2026-11-16",
+    "hash": "016da116db88090c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "như bể 240 cm kể trên đã chạy mấy tháng cuối không có CO2",
+        "why": "Refers to the source writer's own tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Có lần cây được giữ vậy cả mấy tháng, Echinodorus còn mọc lên khỏi miệng chậu.",
+        "why": "A first-person story from the source writer.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Bọc kín miệng giỏ bằng màng bám thực phẩm để giữ ẩm.",
+        "why": "Calque of 'cling film'; the usual Vietnamese term is different.",
+        "by": "model",
+        "fix": "màng bọc thực phẩm"
+      },
+      {
+        "check": "harm",
+        "part": "P1",
+        "quote": "Một cách là đặt lũa lên sàn, bật đèn soi rồi để yên một lúc.",
+        "why": "Leaves hidden catfish and shrimp out of water on purpose until they crawl out, which can kill them.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-XO4LoTbEfpc": {
+    "at": "2026-11-16",
+    "hash": "b6a5c9070f2a380f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Trong cát cũ lẫn vụn vỏ sò do cá cũ ăn rồi nghiền nát, trông khá tự nhiên.",
+        "why": "Tells the source tank's own history, as if the reader knew that tank and its earlier fish.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Evolution Aqua K+"
+    ]
+  },
+  "vi/guides/youtube-YGL-xy2IjrA": {
+    "at": "2026-11-16",
+    "hash": "e894650bb35e7ee6",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P3",
+        "quote": "Muốn bể trong thì phải xem lại những con đang làm đục nước.",
+        "why": "Refers to the source owner's old cloudy tank and its fish as if the reader knew them.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P4",
+        "quote": "Hai đèn Kessil cỡ nhỏ (dòng 160) chỉ rọi sáng phần giữa bể, hai đầu vẫn tối.",
+        "why": "Describes the source owner's current lighting as if it were the reader's tank.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P5",
+        "quote": "Khúc lũa màu cam bên phải thì màu khá lạ, ngâm lâu mà vẫn không đổi màu, lại mềm.",
+        "why": "Points at a specific piece of wood in the source's tank the reader cannot see.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P5",
+        "quote": "Bể cũng sẽ có một món trang trí lớn là xác tàu đắm.",
+        "why": "States the source owner's own plan for their tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P6",
+        "quote": "Bể nối chung một hệ thống với nhiều bể khác (hệ thống chung khoảng 5.500 lít)",
+        "why": "Describes the source's own multi-tank facility as the reader's setup.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P6",
+        "quote": "Tận dụng bể đã khoan lỗ sẵn: đặt bơm và lọc bên ngoài, dưới gầm tủ.",
+        "why": "Assumes the source's pre-drilled tank.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P7",
+        "quote": "Loài hastifolia từng mọc vươn lên khỏi bể cá đuối cao chừng 120–150 cm.",
+        "why": "Refers to the source owner's own stingray tank as if known to the reader.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P8",
+        "quote": "Bể 240 cm đã từng xả cạn và vệ sinh, nên biết trước đây là việc dài",
+        "why": "The source owner's own past experience with their tank.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Kessil",
+      "Kessil 320"
+    ]
   }
 }
