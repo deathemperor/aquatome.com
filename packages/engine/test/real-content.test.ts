@@ -1182,6 +1182,28 @@ test('the Botia markings guide prints no email address, still credits its author
   expect(t.bodyFixed).toBe(true)
 })
 
+// The chief of staff, 16 Nov 2026: the acclimation guide filled a fish bag a third oxygen, the wrong way round (Tetra and
+// the trade association's transport code: a third water, two thirds oxygen), and the Lũa material said shop wood comes
+// with no chemicals, where a keepers' page tells of oiled wood that killed every fish in a few tanks. Both rested on a
+// refused shop alone, and both are mended by hand: the guide's body is fixed, and the material was already.
+test('a fish bag is a third water and two thirds oxygen, and shop wood is smelled before use, both fixed by hand', () => {
+  const root = fileURLToPath(new URL('../../../', import.meta.url))
+  const guide = join(root, 'content/guides/aquatome-tha-ca-moi-mua-vao-be-cach-thuan-nuoc-dung')
+  const t = JSON.parse(readFileSync(join(guide, 'vi.json'), 'utf8')) as Translation & { bodyFixed?: boolean }
+  expect(t.body).toContain('Túi đựng cá nên có khoảng 1/3 là nước và 2/3 là oxy.')
+  expect(t.body).not.toMatch(/1\/3 là oxy/)
+  expect(t.bodyFixed).toBe(true)
+  const refs = (JSON.parse(readFileSync(join(guide, 'entity.json'), 'utf8')) as { refs: { url: string }[] }).refs.map(r => r.url)
+  expect(refs).toEqual(expect.arrayContaining(['https://blog.tetra.net/en-en/fish-transport-and-acclimatisation/', 'https://ornamentalfish.org/wp-content/uploads/OATA-Transport-Code-Oct-2022.pdf']))
+  const lua = JSON.parse(readFileSync(join(root, 'content/materials/lua/vi.json'), 'utf8')) as { sections: { about: string }; bodyFixed?: boolean }
+  expect(lua.sections.about).not.toContain('không tẩm hóa chất')
+  expect(lua.sections.about).toContain('Gỗ có mùi hóa chất thì đừng cho vào bể.')
+  expect(lua.sections.about).toContain('đã làm chết hết cá trong vài bể [14]')
+  expect(lua.bodyFixed).toBe(true)
+  const sources = (JSON.parse(readFileSync(join(root, 'content/materials/lua/entity.json'), 'utf8')) as { sources: { url: string }[] }).sources
+  expect(sources[13]?.url).toBe('https://aquariumscience.org/14-10-wood/')
+})
+
 // The chief of staff, 16 Nov 2026: no email address in any file under content/, in any field, a page's text or a video's
 // title or a photo's credit. The repository is public, and an address belongs to a person. No list of allowed addresses: a
 // list would print them here. A failure names the file and the field, never the address (a key with one is named by its
