@@ -1,5 +1,6 @@
 import Handbook
 import SwiftUI
+import UIKit
 
 /// The app's v2 (the App Store's approach: editorial cards that open into their pages, artwork-led shelves, colour drawn
 /// from the photos): the app's look, unless the reader turns the old one on in the Tài khoản sheet (V2Switch).
@@ -288,13 +289,13 @@ private struct Destinations: ViewModifier {
     content
       // Pushed with iOS's own push and back button: its swipe from the left edge follows the finger, as in Settings.
       .navigationDestination(for: HandbookIndex.Item.self) { page($0).modifier(ClosesPost(posts: posts, always: false, own: true)) }
+      // A post is pushed as any page (spec-post-push.md, 13 Nov): iOS's push and pop, which go back at any speed, where the
+      // zoom's swipe ignored a quick one. Its way out is iOS's own back button, drawn as ✕ (`PostBack`).
       .navigationDestination(for: Post.self) { post in
         page(post.item)
-          .navigationBarBackButtonHidden(true)
-          .environment(\.v2IsPost, true)
+          .background(PostBack())
           .modifier(ClosesPost(posts: posts, always: true, own: true))
           .onAppear { posts?.open.wrappedValue = true }
-          .navigationTransition(.zoom(sourceID: post.item.path, in: zoom))
       }
       .navigationDestination(for: FullPage.self) {
         PageView(item: $0.item, url: handbook.url($0.item), at: $0.at).v2ClearOfTheFade().modifier(ClosesPost(posts: posts, always: false, own: true))
@@ -347,13 +348,73 @@ private struct ClosesPost: ViewModifier {
   var own = false
 
   func body(content: Content) -> some View {
-    if let posts, always || posts.open.wrappedValue, own {
-      content.environment(\.v2PostClose, posts.close)
-    } else if let posts, always || posts.open.wrappedValue {
-      content.v2PostCloseButton(posts.close)
+    // Full screen: no tab bar on a post, nor on a page pushed inside it (spec-post-push.md).
+    if let posts, always || posts.open.wrappedValue {
+      content.toolbar(.hidden, for: .tabBar)
     } else {
       content
     }
+  }
+}
+
+/// A post's way out (spec-post-push.md, 13 Nov): iOS's own back button, its glass circle, its place and its swipe, with ✕
+/// for its symbol and read "Đóng". Set on the post's own item, so a page pushed inside the post keeps iOS's chevron; the
+/// title the back reads is Hôm nay's, so Hôm nay's back title is "Đóng", shown as the symbol alone.
+private struct PostBack: UIViewControllerRepresentable {
+  func makeUIViewController(context: Context) -> Holder { Holder() }
+  func updateUIViewController(_ holder: Holder, context: Context) { holder.apply() }
+
+  final class Holder: UIViewController {
+    override func viewWillAppear(_ animated: Bool) {
+      super.viewWillAppear(animated)
+      apply()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+      super.viewDidAppear(animated)
+      apply()
+    }
+
+    func apply() {
+      // The screen the post is on: the controller this sits in that the navigation stack holds.
+      var screen: UIViewController? = self
+      while let s = screen, !(s.parent is UINavigationController) { screen = s.parent }
+      guard let post = screen, let nav = post.navigationController, let at = nav.viewControllers.firstIndex(of: post), at > 0 else { return }
+      let below = nav.viewControllers[at - 1].navigationItem
+      let close = String(localized: "Đóng")
+      #if DEBUG
+      // PROBE, not for merge (15 Nov): iOS's minimal back reads "Quay lại", not the title. `-post-back item|view`.
+      let way = UserDefaults.standard.string(forKey: "post-back") ?? "item"
+      #else
+      let way = "item"
+      #endif
+      if way == "item" {
+        // The back's own item, so VoiceOver reads it as the ✕ it's drawn as; the title isn't shown (minimal).
+        if below.backBarButtonItem?.accessibilityLabel != close {
+          let item = UIBarButtonItem(title: close, style: .plain, target: nil, action: nil)
+          item.accessibilityLabel = close
+          below.backBarButtonItem = item
+        }
+      } else {
+        below.backButtonTitle = close
+        DispatchQueue.main.async {
+          Self.views(in: nav.navigationBar).first { $0.accessibilityIdentifier == "BackButton" }?.accessibilityLabel = close
+        }
+      }
+      below.backButtonDisplayMode = .minimal
+      let x = UIImage(systemName: "xmark", withConfiguration: UIImage.SymbolConfiguration(weight: .semibold))
+      func closing(_ a: UINavigationBarAppearance?) -> UINavigationBarAppearance {
+        let b = (a ?? nav.navigationBar.standardAppearance).copy()
+        b.setBackIndicatorImage(x, transitionMaskImage: x)
+        return b
+      }
+      let item = post.navigationItem
+      item.standardAppearance = closing(item.standardAppearance)
+      item.scrollEdgeAppearance = closing(item.scrollEdgeAppearance ?? item.standardAppearance)
+      item.compactAppearance = closing(item.compactAppearance ?? item.standardAppearance)
+    }
+
+    private static func views(in v: UIView) -> [UIView] { [v] + v.subviews.flatMap { views(in: $0) } }
   }
 }
 

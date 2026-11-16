@@ -162,6 +162,49 @@ final class V2FlowTests: XCTestCase {
 
   /// The editors' day (`-plan`): their fish, their guide and their story in their words, not Hôm nay's own picks (Cá neon,
   /// and the neon guide under its own title), and the story opens its page.
+  /// A Hôm nay post is pushed full screen (spec-post-push.md, 13 Nov): iOS's back button at the top left drawn as ✕ and read
+  /// "Đóng", the only way out, with no ✕ at the right and no tab bar; still so once scrolled; and back on Hôm nay, the tab
+  /// bar again. The guide's story and the fish of the day, with animations on, as a reader has them.
+  func testAHomNayPostIsPushedFullScreenWithIOSsBackAsItsClose() {
+    let app = launch("-v2", "YES", "-plan", "-today", "2026-11-13", "-long-part")
+    app.launch()
+    func shot(_ name: String) {
+      let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+      a.name = name
+      a.lifetime = .keepAlways
+      add(a)
+    }
+    func closes(_ post: String) {
+      let back = app.navigationBars.buttons["Đóng"]
+      XCTAssertTrue(back.waitForExistence(timeout: 5), "\(post): no ✕ (iOS's back, \"Đóng\")")
+      XCTAssertLessThan(back.frame.midX, app.frame.width / 2, "\(post): the ✕ isn't at the left")
+      XCTAssertFalse(app.buttons["v2-close-post"].exists, "\(post): a second ✕ at the right")
+      XCTAssertFalse(app.tabBars.buttons["Hôm nay"].isHittable, "\(post): the tab bar shows on the post")
+    }
+    let story = openForSwipe(.homNayPost, app)
+    closes("the story")
+    shot("post-story-top")
+    app.swipeUp()
+    app.swipeUp()
+    closes("the story, scrolled")
+    shot("post-story-scrolled")
+    app.navigationBars.buttons["Đóng"].tap()
+    XCTAssertTrue(story.waitForNonExistence(timeout: 5), "the ✕ didn't close the story")
+    let tab = app.tabBars.buttons["Hôm nay"]
+    let shown = XCTNSPredicateExpectation(predicate: NSPredicate(format: "isHittable == true"), object: tab)
+    XCTAssertEqual(XCTWaiter.wait(for: [shown], timeout: 5), .completed, "no tab bar back on Hôm nay")
+    let fish = app.buttons["v2-fish-of-the-day"]
+    repeatUntil(fish.isHittable, times: 6) { app.swipeDown() }
+    fish.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 8), "the fish of the day didn't open")
+    closes("the fish of the day")
+    shot("post-fish-top")
+    app.swipeUp()
+    app.swipeUp()
+    closes("the fish of the day, scrolled")
+    shot("post-fish-scrolled")
+  }
+
   func testHomNayShowsTheEditorsDay() {
     let app = launch("-v2", "YES", "-plan", "-today", "2026-11-13")
     app.launchForFlow()
