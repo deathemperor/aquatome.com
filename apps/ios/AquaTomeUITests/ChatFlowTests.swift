@@ -139,7 +139,10 @@ final class ChatFlowTests: XCTestCase {
     // While it sends, a swipe down doesn't take the sheet away, and its close is off.
     let close = app.buttons["chat-report-close"]
     XCTAssertFalse(close.isEnabled, "the sheet can be closed while it sends")
-    app.staticTexts["Báo câu trả lời sai"].swipeDown(velocity: .fast)
+    // A long, fast drag from the title, which dismisses the sheet when nothing holds it (an element's own swipe travels
+    // only within the title's few points, and left an unheld sheet in place).
+    let title = app.staticTexts["Báo câu trả lời sai"].coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
+    title.press(forDuration: 0.05, thenDragTo: title.withOffset(CGVector(dx: 0, dy: 600)), withVelocity: .fast, thenHoldForDuration: 0)
     XCTAssertTrue(send.exists && send.label == "Đang gửi…", "a swipe took the sheet away while it sends")
     // Longer than the stand-in's 6 s hold.
     XCTAssertTrue(element(app, "chat-reported").waitForExistence(timeout: 12), "not sent")
