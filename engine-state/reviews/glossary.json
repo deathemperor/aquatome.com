@@ -284,6 +284,39 @@
       "kept": false
     }
   ],
+  "vi/glossary/mang-sinh-hoc": [
+    {
+      "at": "2026-11-16T17:16:51Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (the definition's first sentence): \"Lớp nhầy trong, mỏng tới mức thường không thấy, phủ trên kính, lũa, đá và cây trong bể, sờ vào thấy hơi nhớt.\"",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Lũa mới thả hay nổi một lớp lông trắng hoặc xám, nhầy, có khi thành sợi, sau vài ngày tới một tuần.\" (not \"Lũa mới thả có thể nổi một lớp màng nhầy màu trắng sau vài ngày tới một tuần.\": it drops the advice \"xám\", the advice \"có khi thành sợi\")",
+        "Loose, reworded: \"Nước đục cả bể là do vi khuẩn nở rộ trong nước, còn màng sinh học chỉ bám trên bề mặt.\" → \"Vi khuẩn nở rộ làm đục chính nước trong bể, còn màng sinh học chỉ bám trên bề mặt.\" (supported)",
+        "Loose, reworded: \"Nó sinh ra từ thức ăn thừa, mặt nước đứng yên hoặc lọc yếu.\" → \"Nó sinh ra từ thức ăn thừa, nước đứng yên, mặt nước ít xao động hoặc bông lọc bị nghẹt.\" (supported)",
+        "Loose, reworded: \"Váng dày cản trao đổi khí và làm oxy hòa tan giảm.\" → \"Váng dày làm chậm trao đổi khí và có thể làm giảm oxy hòa tan.\" (supported)",
+        "Loose, reworded: \"Gặp màng trên lũa thì để yên.\" → \"Gặp màng trên lũa thì phần lớn trường hợp cứ để yên.\" (supported)",
+        "Rule 12: The look of the film is split between two places. The meaning gives only the thin, unseen film (\"Lớp nhầy trong, mỏng tới mức thường không thấy\"), while the look the facts give for a thick layer sits in the body (\"Khi dày lên, nó trông như thạch trong hoặc đục\"). THIS TERM says the meaning describes the film's look first, from its facts. Also, the second sentence (\"Nó gồm vi khuẩn, vi tả…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-16T17:16:51Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 0.97,
+      "notes": [
+        "\"Tép, cá bột và Otocinclus gặm lớp màng này suốt ngày.\": the facts don't carry it (loose, unsupported, loose, unsupported, unsupported, unsupported): 'all day' is said of shrimp only, not of fry or otos / 'all day' grazing is said only of shrimp, not fry or Otocinclus / 'all day' was said only of shrimp / The facts say shrimp, fish fry and Otocinclus all graze biofilm, but only shrimp are said to…",
+        "Rule 4: The definition already says the film is too thin to see and feels slimy on the glass (\"mỏng tới mức thường không thấy\", \"sờ vào thấy hơi nhớt\"). The body says it again in \"Bình thường lớp màng mỏng tới mức mắt không thấy. Lau mặt trong kính thì chỉ thấy hơi nhớt tay.\" This should be said once.",
+        "Rule 4: Where the film grows is listed twice. The definition has \"phủ trên kính, lũa, đá và cây trong bể\", and the body has \"Nó mọc trên kính, lũa, đá nham thạch, lũa cholla, rêu, lá cây và nền\" plus \"nó phủ gần như mọi bề mặt ngập nước\". This should be said once, in one place.",
+        "Rules 4 and 12: The definition ends with \"và là thức ăn chính của tép con\". The body repeats this in \"Tép con mới nở sống gần như chỉ nhờ nó trong mấy tuần đầu.\" Also, THIS TERM limits the meaning to the film's look and what it is (what lives in it, what holds it together, where it grows), so food for shrimp doesn't belong in the definition."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/glossary/ph": [
     {
       "at": "2026-11-16T00:55:17Z",
