@@ -53,6 +53,16 @@
       "url": "https://ctujsvn.ctu.edu.vn/index.php/ctujsvn/article/view/4999",
       "title": "Lê Thế Lương * , Đinh Thế Nhân Diệp Nhựt Thái",
       "kind": "paper"
+    },
+    {
+      "url": "https://www.seriouslyfish.com/species/corydoras-sterbai/",
+      "title": "Corydoras sterbai – Seriously Fish",
+      "kind": "reference"
+    },
+    {
+      "url": "https://www.seriouslyfish.com/species/corydoras-aeneus/",
+      "title": "Corydoras aeneus – Seriously Fish",
+      "kind": "reference"
     }
   ],
   "facts": [
@@ -183,7 +193,7 @@
     },
     {
       "section": "mistakes",
-      "fact": "Male and female bettas should not be kept together outside breeding; they fight and females often kill males.",
+      "fact": "Do not keep a male and female betta together as a permanent pair: they may attack each other before or after spawning.",
       "source": 2
     },
     {
@@ -285,6 +295,14 @@
       "section": "signs",
       "fact": "Female Corydoras grow longer than males (standard length); in some species by as much as 40%.",
       "source": 6
+    },
+    {
+      "section": "signs",
+      "fact": "Seen from above, mature female Corydoras are noticeably rounder and broader-bodied than males, especially when full of eggs.",
+      "source": 9,
+      "also": [
+        10
+      ]
     }
   ]
 }
