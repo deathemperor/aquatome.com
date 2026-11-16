@@ -200,7 +200,8 @@ test('a term\'s built page shows its kinds as cards, then in words, each with it
   const views = kinds!.querySelectorAll('dialog.k-view')
   expect(views.map(v => v.getAttribute('id'))).toEqual(['loai-ca-neon', 'loai-ca-tran-chau'])
   expect(views.map(v => v.querySelector('.kv-n')?.textContent.trim())).toEqual(['1 / 2', '2 / 2'])
-  expect(views.map(v => v.querySelectorAll('.kv-step a').map(a => a.textContent.trim()))).toEqual([['‹ Cá trân châu', 'Cá trân châu ›'], ['‹ Cá neon', 'Cá neon ›']])
+  // Of two kinds, each names the other once, on its side; the kinds wrap round only from three (the Design Lead, 16 Nov).
+  expect(views.map(v => v.querySelectorAll('.kv-step a').map(a => `${a.getAttribute('rel')} ${a.textContent.trim()}`))).toEqual([['next Cá trân châu ›'], ['prev ‹ Cá neon']])
   expect(views[0]!.querySelector('.kv-by a[href]')?.textContent.trim()).toBe('Xem ảnh gốc ↗')
   expect(views[0]!.querySelector('.kv-text')?.textContent.trim()).toBe('Bơi thành đàn chặt khi có cá lạ.')
   expect(views[0]!.querySelector('.kv-x')?.getAttribute('aria-label')).toBe('Đóng')
@@ -209,6 +210,9 @@ test('a term\'s built page shows its kinds as cards, then in words, each with it
   expect(kinds!.querySelectorAll('dialog img')).toHaveLength(0)
   const srcs = dom.querySelectorAll('main img').map(i => i.getAttribute('src'))
   expect(new Set(srcs).size).toBe(srcs.length)
+  // One other photo under the term's own sits with its caption beside it (the Design Lead, 16 Nov 2026).
+  expect(dom.querySelectorAll('.others figure')).toHaveLength(1)
+  expect(dom.querySelector('.others')?.classList.contains('one')).toBe(true)
 })
 
 // The chief of staff, 15 Nov 2026: "a photo that's stored and unseen is the same complaint again" (the owner's: the page

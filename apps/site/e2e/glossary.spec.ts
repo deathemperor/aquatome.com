@@ -216,5 +216,18 @@ test('a kind\'s card opens it large; the next kind opens in its place; Esc and â
   await first.click()
   await open.locator('.kv-x').click()
   await expect(open).toHaveCount(0)
+  // âœ• drops the view's history entry: the address is the page's own again.
+  await expect.poll(() => page.url()).not.toContain('#loai-')
+  // Back closes it and the page stays where it was (the Design Lead, 16 Nov 2026: on a phone it reads as a page).
+  await first.scrollIntoViewIfNeeded()
+  const y = await page.evaluate(() => scrollY)
+  await first.click()
+  await expect(open).toHaveCount(1)
+  await page.goBack()
+  await expect(open).toHaveCount(0)
+  expect(new URL(page.url()).pathname).toBe(KINDS)
+  expect(page.url()).not.toContain('#loai-')
+  expect(await page.evaluate(() => scrollY)).toBe(y)
+  await expect(first).toBeFocused()
   expect(errors).toEqual([])
 })

@@ -61,7 +61,7 @@ const REFS_SHOWN = 5
   <p class="en">{t('Tiếng Anh:')} <span lang="en">{g.en}</span>{g.latin && sciBeside(g.en ?? '', g.latin) && <>, <span class="sci">{g.latin}</span></>}</p>
   {/* The picture before the explanation (the Design Lead's board, 16 Nov 2026): the term's photo under its names, its other photos two across under it. */}
   {p.photo && <Fragment set:html={figureHtml(lang, { photo: p.photo, label: p.photo.caption })} />}
-  {p.others.length > 0 && <div class="others">{p.others.map(o => <Fragment set:html={figureHtml(lang, { photo: o, label: o.caption }, true)} />)}</div>}
+  {p.others.length > 0 && <div class:list={['others', { one: p.others.length === 1 }]}>{p.others.map(o => <Fragment set:html={figureHtml(lang, { photo: o, label: o.caption }, true)} />)}</div>}
   {p.definition && <p class="def" set:html={p.definition} />}
   {p.material && <p class="material-link"><a href={p.material.href}>{p.material.text}</a></p>}
   {p.treat && <p class="treat"><a href={p.treat.href}>{p.treat.text}</a></p>}
@@ -91,7 +91,9 @@ const REFS_SHOWN = 5
               once), its caption and credit, its whole text, and the kinds either side by name. Without a script a card's
               link shows its view in place (:target), with its credit and text. */}
           {kinds.items.map((k, i) => {
-            const prev = kinds.items[(i - 1 + n) % n]!, next = kinds.items[(i + 1) % n]!
+            // The kinds either side, wrapping from three kinds on; of two, each names the other once, on its side (the
+            // Design Lead's parity, 16 Nov 2026).
+            const prev = n > 2 || i > 0 ? kinds.items[(i - 1 + n) % n] : undefined, next = n > 2 || i < n - 1 ? kinds.items[(i + 1) % n] : undefined
             const caption = k.photo ? kindCaption(lang, k.name, k.photo.caption) : ''
             return (
               <dialog class="k-view" id={viewId(k.id)} aria-labelledby={`${viewId(k.id)}-h`} data-full={k.photo?.url} data-w={k.photo?.width} data-h={k.photo?.height} data-alt={k.photo ? k.photo.caption ?? k.name : undefined}>
@@ -105,8 +107,8 @@ const REFS_SHOWN = 5
                 </div>
                 {n > 1 && (
                   <nav class="kv-step" aria-label={kinds.title}>
-                    <a href={`#${viewId(prev.id)}`} data-view={viewId(prev.id)} rel="prev">‹ {prev.name}</a>
-                    <a href={`#${viewId(next.id)}`} data-view={viewId(next.id)} rel="next">{next.name} ›</a>
+                    {prev && <a href={`#${viewId(prev.id)}`} data-view={viewId(prev.id)} rel="prev">‹ {prev.name}</a>}
+                    {next && <a href={`#${viewId(next.id)}`} data-view={viewId(next.id)} rel="next">{next.name} ›</a>}
                   </nav>
                 )}
               </dialog>
@@ -161,9 +163,18 @@ const REFS_SHOWN = 5
   // A kind's card opens its view as a modal dialog: the page behind it inert, Esc or ✕ closes it, focus goes back to the
   // card; the kinds either side open in its place. Its photo is drawn when it opens, so the page holds each picture once
   // (the site's rule). Without this script a card's link shows its view in place (:target).
+  // On a phone the view fills the screen and reads as a page, so it has a history entry of its own: Back closes it and the
+  // page stays where it was; ✕, Esc or a tap outside close it and drop that entry; the kinds either side take its place in
+  // it (the Design Lead, 16 Nov 2026).
   const section = document.querySelector<HTMLElement>('[data-kinds]')
   if (section) {
+    section.classList.add('live')
     let from: HTMLElement | undefined
+    let quiet = false // a close that isn't the reader's: the next kind replacing this one, or Back
+    // Our own step back under way (a view the reader closed leaves its entry), and a card opened before it lands: its
+    // entry is added once the step back is done, so a quick tap after Esc isn't closed by it.
+    let leaving = false
+    let waiting: string | undefined
     const draw = (d: HTMLDialogElement) => {
       const box = d.querySelector<HTMLElement>('.kv-pic')
       if (!box || box.firstChild || !d.dataset.full) return
@@ -175,27 +186,34 @@ const REFS_SHOWN = 5
       img.decoding = 'async'
       box.append(img)
     }
-    const open = (id: string, opener?: HTMLElement) => {
+    const page = () => location.pathname + location.search
+    const open = (id: string, entry: 'push' | 'replace' | 'none', opener?: HTMLElement) => {
       const d = document.getElementById(id)
       if (!(d instanceof HTMLDialogElement)) return false
+      quiet = true
       for (const o of section.querySelectorAll<HTMLDialogElement>('dialog[open]')) if (o !== d) o.close()
+      quiet = false
       if (opener) from = opener
       draw(d)
       if (!d.open) d.showModal()
+      if (entry === 'push') { if (leaving) waiting = id; else history.pushState({ kind: id }, '', `${page()}#${id}`) }
+      else if (entry === 'replace') { if (leaving) waiting = id; else history.replaceState({ kind: id }, '', `${page()}#${id}`) }
       d.querySelector<HTMLElement>('.kv-x')?.focus()
       return true
     }
     section.addEventListener('click', e => {
       const a = (e.target as Element).closest<HTMLAnchorElement>('a')
       if (!a || e.metaKey || e.ctrlKey || e.shiftKey) return
-      if (a.dataset.view) { if (open(a.dataset.view, a.classList.contains('k-card') ? a : undefined)) e.preventDefault() }
-      else if (a.classList.contains('kv-x')) { e.preventDefault(); a.closest('dialog')?.close() }
+      if (a.dataset.view) {
+        const card = a.classList.contains('k-card')
+        if (open(a.dataset.view, card ? 'push' : 'replace', card ? a : undefined)) e.preventDefault()
+      } else if (a.classList.contains('kv-x')) { e.preventDefault(); a.closest('dialog')?.close() }
     })
     for (const d of section.querySelectorAll('dialog')) {
-      // Focus back on the card once no kind is open (stepping to the next one closes this one first).
-      // An address that named it would show it again in place (:target): the page's own address again.
       d.addEventListener('close', () => {
-        if (location.hash === `#${d.id}`) history.replaceState(history.state, '', location.pathname + location.search)
+        // Closed by the reader (✕, Esc, a tap outside): its history entry goes too, so Back then leaves nothing open.
+        if (!quiet && !leaving && history.state?.kind) { leaving = true; history.back() }
+        else if (!quiet && location.hash === `#${d.id}`) history.replaceState(history.state, '', page())
         if (!section.querySelector('dialog[open]')) from?.focus()
       })
       // A tap outside the panel closes it, as the menu sheet.
@@ -204,9 +222,25 @@ const REFS_SHOWN = 5
         if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) d.close()
       })
     }
-    // An address that names a kind (a link someone shared) opens it.
+    // Back (or Forward) to an entry: the kind it names open, or none.
+    addEventListener('popstate', e => {
+      if (leaving) {
+        leaving = false
+        if (waiting) { history.pushState({ kind: waiting }, '', `${page()}#${waiting}`); waiting = undefined }
+        return
+      }
+      const id = (e.state as { kind?: string } | null)?.kind
+      if (id) { open(id, 'none'); return }
+      quiet = true
+      for (const o of section.querySelectorAll<HTMLDialogElement>('dialog[open]')) o.close()
+      quiet = false
+    })
+    // An address that names a kind (a link someone shared) opens it, over the page's own entry, so Back closes it too.
     const hash = decodeURIComponent(location.hash.slice(1))
-    if (hash.startsWith('loai-')) open(hash, section.querySelector<HTMLElement>(`.k-card[data-view="${CSS.escape(hash)}"]`) ?? undefined)
+    if (hash.startsWith('loai-') && document.getElementById(hash) instanceof HTMLDialogElement) {
+      history.replaceState(null, '', page())
+      open(hash, 'push', section.querySelector<HTMLElement>(`.k-card[data-view="${CSS.escape(hash)}"]`) ?? undefined)
+    }
   }
 </script>
 <style>
@@ -228,6 +262,10 @@ const REFS_SHOWN = 5
   .others { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); max-width: var(--measure); margin-top: var(--space-3); }
   .others :global(figure) { margin: 0; }
   .others :global(img) { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+  /* One other photo: its caption in the half beside it, not a narrow column under it (the Design Lead, 16 Nov 2026). */
+  .others.one { grid-template-columns: 1fr; }
+  .others.one :global(figure) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-3); align-items: start; }
+  .others.one :global(figcaption) { margin-top: 0; }
   /* The kinds as cards (the Design Lead's board, 16 Nov 2026): two across on a phone, three on a computer; a photo at 4:3,
      the name, the bracketed name, the one line. Those without a photo after, in words between hairlines. */
   .kinds { margin-top: var(--space-5); }
@@ -251,13 +289,15 @@ const REFS_SHOWN = 5
   .k-line { font: 400 0.875rem/1.45 var(--f-body); color: var(--c-ink-soft); margin-top: 2px; }
   /* A kind large: full screen on a phone, a panel on a computer; its count and ✕ on top, the kinds either side at its foot. */
   .k-view { padding: 0; border: 0; margin: 0; width: 100%; height: 100%; max-width: none; max-height: none; background: var(--c-paper); color: var(--c-ink); }
-  .k-view[open], .k-view:target { display: flex; flex-direction: column; }
-  .k-view:target:not([open]) { position: fixed; inset: 0; z-index: 60; }
+  /* Without the script, a card's link shows its view in place (:target). With it, the address's kind opens as a dialog and
+     a closed one never shows: the page's address can still name it (:target doesn't follow history's entries). */
+  .k-view[open], .kinds:not(.live) .k-view:target { display: flex; flex-direction: column; }
+  .kinds:not(.live) .k-view:target:not([open]) { position: fixed; inset: 0; z-index: 60; }
   .k-view::backdrop { background: rgb(0 0 0 / 0.6); }
   @media (min-width: 60rem) {
     /* fit-content, as a modal's own: `auto` between its top and bottom stretches it to the whole height. */
     .k-view { width: min(760px, 100vw - 2 * var(--space-4)); height: fit-content; max-height: calc(100vh - 64px); margin: auto; box-shadow: 0 20px 60px rgb(0 0 0 / 0.35); }
-    .k-view:target:not([open]) { inset: 32px 0 auto; margin: 0 auto; box-shadow: 0 0 0 100vmax rgb(0 0 0 / 0.6); }
+    .kinds:not(.live) .k-view:target:not([open]) { inset: 32px 0 auto; margin: 0 auto; box-shadow: 0 0 0 100vmax rgb(0 0 0 / 0.6); }
     .kv-pic { max-height: 56vh; }
   }
   .kv-bar { flex: none; display: flex; align-items: center; justify-content: space-between; height: 52px; padding: 0 var(--space-2) 0 var(--space-4); }
@@ -273,6 +313,7 @@ const REFS_SHOWN = 5
   .kv-text { margin-top: var(--space-3); padding: 0 var(--space-4) var(--space-5); font: 400 1rem/1.6 var(--f-body); }
   .kv-text > :global(:first-child) { margin-top: 0; }
   .kv-step { flex: none; display: flex; justify-content: space-between; gap: var(--space-3); border-top: 1px solid var(--c-rule); padding: var(--space-3) var(--space-4) calc(var(--space-3) + env(safe-area-inset-bottom)); }
+  .kv-step a[rel="next"] { margin-left: auto; }
   .kv-step a { display: inline-flex; align-items: center; min-height: 44px; font: 500 0.9375rem/1.3 var(--f-body); color: var(--c-moss); text-decoration: none; }
   .used { margin-top: var(--space-6); max-width: var(--measure); }
   .used h2 { font-size: var(--step-1); }
