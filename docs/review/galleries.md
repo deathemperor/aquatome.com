@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-16). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 680 | 30 | 9 | 23 | 696 |
-| rest | 20 | 1746 | 76 | 0 | 90 | 1732 |
+| covered | 30 | 680 | 31 | 9 | 23 | 697 |
+| rest | 20 | 1746 | 75 | 0 | 91 | 1730 |
 
-## Short of target: every source read (511)
+## Short of target: every source read (532)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -527,3 +527,24 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/dianema-urostriatum | covered | 0 | 30 |
 | species/dichotomyctere-fluviatilis | covered | 2 | 30 |
 | species/dichotomyctere-ocellatus | covered | 0 | 30 |
+| species/dicrossus-filamentosus | covered | 0 | 30 |
+| species/dicrossus-maculatus | covered | 0 | 30 |
+| species/diplomystes-nahuelbutaensis | covered | 0 | 30 |
+| species/distichodus-affinis | covered | 0 | 30 |
+| species/distichodus-sexfasciatus | covered | 1 | 30 |
+| species/duopalatinus-peruanus | covered | 0 | 30 |
+| species/elopichthys-bambusa | covered | 0 | 30 |
+| species/enteromius-fasciolatus | covered | 1 | 30 |
+| species/enteromius-hulstaerti | covered | 0 | 30 |
+| species/enteromius-jae | covered | 1 | 30 |
+| species/entomocorus-benjamini | covered | 0 | 30 |
+| species/epiplatys-dageti | covered | 0 | 30 |
+| species/erethistes-pusillus | covered | 1 | 30 |
+| species/eretmodus-cyanostictus | covered | 0 | 30 |
+| species/etroplus-canarensis | covered | 0 | 30 |
+| species/etroplus-maculatus | covered | 24 | 30 |
+| species/exodon-paradoxus | covered | 3 | 30 |
+| species/exostoma-labiatum | covered | 0 | 30 |
+| species/farlowella-amazonum | covered | 0 | 30 |
+| species/farlowella-oxyrryncha | covered | 0 | 30 |
+| species/farlowella-vittata | covered | 3 | 30 |
