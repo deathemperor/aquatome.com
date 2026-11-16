@@ -4,6 +4,7 @@ import { join } from 'node:path'
 import { QUALITY_THRESHOLD, type Section } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
 import { review, translatableIn, type TargetLang } from './localize'
+import { piece } from './pieces'
 import { steadyRead } from './quality'
 import { sourceTextHash } from './recheck-score'
 import { logReviews, readReviews, type Review, type Trace } from './review-log'
@@ -139,13 +140,18 @@ export async function recheckLocalized(root: string, llm: Llm, lang: TargetLang,
       }
       if (o.dry) { report.skipped.push(`${id}: ${was}, would be read (dry run)`); sent++; continue }
       sent++
-      const sonnet = await steadyRead(() => review(sonnetLlm, lang, parts, new Map(Object.entries(page.sections))))
-      await logReviews(root, 'localize', ref, [sonnet], sonnet, { now: now(), recheck: true, textHash: hash, model: FIRST_MODEL })
-      let second: Review | undefined
-      if (sonnet.score >= QUALITY_THRESHOLD) {
-        second = await steadyRead(() => review(opus, lang, parts, new Map(Object.entries(page.sections))))
-        await logReviews(root, 'localize', ref, [second], second, { now: now(), recheck: true, textHash: hash, model: SECOND_MODEL })
-      }
+      // A page's reads are one piece: started only when what's left of the day's line covers a page and the last one, else
+      // the step stops before it, as at its ceiling (pieces.ts).
+      const { sonnet, second } = await piece(`${lang}/${id}`, async () => {
+        const sonnet = await steadyRead(() => review(sonnetLlm, lang, parts, new Map(Object.entries(page.sections))))
+        await logReviews(root, 'localize', ref, [sonnet], sonnet, { now: now(), recheck: true, textHash: hash, model: FIRST_MODEL })
+        let second: Review | undefined
+        if (sonnet.score >= QUALITY_THRESHOLD) {
+          second = await steadyRead(() => review(opus, lang, parts, new Map(Object.entries(page.sections))))
+          await logReviews(root, 'localize', ref, [second], second, { now: now(), recheck: true, textHash: hash, model: SECOND_MODEL })
+        }
+        return { sonnet, second }
+      })
       const line = `${id}: ${was}, Sonnet ${sonnet.score}${second ? `, Opus ${second.score}` : ''}`
       // Every read of this text: the two fresh ones, the logged ones by its hash or kept since the translator last wrote
       // it (every kept one, for a page with no record of the translator's), and the translator's own. A read of a text

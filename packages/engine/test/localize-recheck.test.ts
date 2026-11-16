@@ -2,6 +2,7 @@ import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
+import { nameStep } from '../src/ceiling'
 import { LlmError, type Llm } from '../src/claude'
 import { doseOrHarm, recheckLocalized, type Cleared } from '../src/localize-recheck'
 import { sourceTextHash } from '../src/recheck-score'
@@ -262,6 +263,27 @@ test('a page whose file can\'t be read is skipped and said so; the pages after i
   expect(r.skipped[0]).toMatch(/^a: /)
   expect(r.back).toEqual(['b: 0.6, Sonnet 0.9, Opus 0.85: back at 0.85'])
   expect(JSON.parse(await file('b')).quality.score).toBe(0.85)
+})
+
+test("a page is read only when what's left of the day's line covers a page: else the step stops before it, nothing read or written", async () => {
+  const { root, file } = await site({ a: {}, b: {} })
+  const before = [await file('a'), await file('b')]
+  const log = join(root, 'cost.jsonl')
+  await writeFile(log, JSON.stringify({ at: new Date().toISOString(), step: 'recheck', piece: 'last', pieceUsd: 10000, finished: true }) + '\n')
+  process.env.ENGINE_COST_LOG = log
+  nameStep('recheck')
+  try {
+    const { llm, calls } = fake({ sonnet: PASS, opus: OPUS })
+    const r = await recheckLocalized(root, llm, 'th', ['a', 'b'], { now })
+    expect(r.stopped).toMatch(/^a: .*th\/a not started/)
+    expect(r.back).toEqual([])
+    expect(calls).toEqual([])
+    expect([await file('a'), await file('b')]).toEqual(before)
+    expect(await readFile(join(root, 'engine-state/recheck-th.json'), 'utf8').catch(() => 'none')).toBe('none')
+  } finally {
+    process.env.ENGINE_COST_LOG = 'off'
+    nameStep(undefined)
+  }
 })
 
 test('only Indonesian and Thai pages, the kinds the rule was measured on', async () => {
