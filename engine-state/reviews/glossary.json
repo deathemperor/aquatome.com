@@ -202,74 +202,78 @@
   ],
   "vi/glossary/thuc-an-kho": [
     {
-      "at": "2026-11-16T02:39:31Z",
+      "at": "2026-11-16T18:09:33Z",
       "model": "sonnet",
-      "cli": "2.1.323",
+      "cli": "2.1.325",
       "score": 1,
-      "notes": [
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cần chọn đúng dạng, cho ăn vừa đủ và cất chỗ khô để thức ăn chậm ôi, chậm mất vitamin.\" (not \"Nên chọn thức ăn nổi hay chìm và cỡ hạt hợp với miệng cá, chỉ cho lượng cá ăn hết trong vài phút, và cất trong hộp kín ở chỗ khô mát để thức ăn chậm ôi, chậm mất vitamin.\": Rule 4: The feeding amount appears twic…"
-      ],
+      "notes": [],
       "attempt": "rewrite",
       "kept": true
     },
     {
-      "at": "2026-11-16T02:39:31Z",
+      "at": "2026-11-16T18:09:33Z",
       "model": "sonnet",
-      "cli": "2.1.323",
-      "score": 0.97,
-      "notes": [
-        "\"Kể cả loại ghi là đầy đủ dinh dưỡng, cá ăn vậy lâu ngày có thể thiếu enzyme tự nhiên và vi chất.\": the facts don't carry it (loose, unsupported, unsupported): source doesn't single out complete-labelled foods / Facts don't say the deficiency risk applies to foods labelled complete / facts never apply the deficiency warning to foods labelled complete",
-        "Rules 10 and 12: \"Chỉ cho ăn thức ăn khô thời gian dài, không có đồ tươi. Kể cả loại ghi là đầy đủ dinh dưỡng, cá ăn vậy lâu ngày có thể thiếu enzyme tự nhiên và vi chất.\": THIS TERM forbids \"kể cả loại ghi là đầy đủ dinh dưỡng\" because no fact says this of complete foods. It also asks for one sentence, as the fact gives it: \"Chỉ cho ăn thức ăn khô thời gian dài, không có đồ tươi, cá có thể thiếu…"
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-16T02:09:01Z",
-      "model": "sonnet",
-      "cli": "2.1.323",
+      "cli": "2.1.325",
       "score": 1,
       "notes": [
-        "Rules 1 and 12: \"Chỉ cho ăn thức ăn khô thời gian dài, không có đồ tươi. Cá ăn vậy lâu ngày có thể thiếu enzyme tự nhiên và vi chất.\" is not tied to the complete-food sentence (\"Thức ăn khô ghi là đầy đủ dinh dưỡng ... nên dùng làm thức ăn hằng ngày cho cá được\"). As written, the two lines read as a contradiction. THIS TERM asks for it to say that even a food marked complete, fed alone for a long…"
+        "The rewrite dropped from \"Cá vàng (Carassius) bị rối loạn bóng hơi cần viên chìm.\" the name Cá vàng, the advice \"Cá vàng (Carassius) bị rối loạn bóng hơi cần viên chìm\", and nothing lets that sentence go: write it as it was, word for word.",
+        "Rule 12: The required sentence \"Cá vàng (Carassius) bị rối loạn bóng hơi cần viên chìm.\" is missing. It should appear word for word next to the step on choosing floating or sinking food (\"Xem thức ăn nổi hay chìm trước khi mua, và chọn cỡ hạt vừa miệng cá.\").",
+        "Rules 4 and 12: The storage list says twice that damp heat makes vitamins go faster. It says it first in \"Vitamin bắt đầu mất từ lúc mở gói và mất nhanh hơn khi trời nóng ẩm\" and then with figures in \"Ở khí hậu nóng ẩm như Việt Nam, hộp đã mở mất khoảng một nửa vitamin C sau 8–12 tuần, còn ở nước mát và khô thì giữ được chừng sáu tháng.\" Say it once, in the sentence with the figures. The line on …"
       ],
       "attempt": "rewrite",
       "kept": false
     },
     {
-      "at": "2026-11-16T02:09:01Z",
+      "at": "2026-11-16T17:40:21Z",
       "model": "sonnet",
-      "cli": "2.1.323",
+      "cli": "2.1.325",
       "score": 1,
       "notes": [
-        "Rules 1 and 12: \"Chỉ cho ăn thức ăn khô thời gian dài, không có đồ tươi. Cá ăn vậy lâu ngày có thể thiếu enzyme tự nhiên và vi chất.\" is not joined to the complete-food idea, as THIS TERM asks (\"even a food marked complete, given alone for a long time with nothing fresh, may leave fish short of natural enzymes and micronutrients\"). As written, it reads as contradicting \"Thức ăn khô ghi là đầy đủ …"
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-16T02:09:01Z",
-      "model": "sonnet",
-      "cli": "2.1.323",
-      "score": 0.97,
-      "notes": [
-        "\"Kể cả loại ghi là đầy đủ dinh dưỡng, cá ăn vậy lâu ngày có thể thiếu enzyme tự nhiên và vi chất.\": the facts don't carry it (unsupported, unsupported, loose): facts don't extend enzyme/micronutrient shortfall to foods labelled complete / Facts never say this holds even for foods labelled complete / source doesn't single out complete foods"
+        "The rewrite dropped from \"Cá vàng (Carassius) bị rối loạn bóng hơi cần viên chìm.\" the name Cá vàng, the advice \"Cá vàng (Carassius) bị rối loạn bóng hơi cần viên chìm\", and nothing lets that sentence go: write it as it was, word for word.",
+        "The entry is 583 words: hold it to about 550, and leave what is left out to the pages that use the term."
       ],
       "attempt": "rewrite",
       "kept": false,
-      "draft": "4bc12eb0441ebcacc3d1d48e959cb16ac03458183630e9a0975571239dd6c294"
+      "draft": "034cade836965696a950dd136ae58501b47eefafaf89e21cb7ff956660f35bac"
     },
     {
-      "at": "2026-11-16T01:48:33Z",
+      "at": "2026-11-16T17:40:21Z",
       "model": "sonnet",
-      "cli": "2.1.323",
+      "cli": "2.1.325",
       "score": 1,
       "notes": [
-        "The rewrite dropped from \"Muốn cá khỏe thì phải chọn đúng dạng, cho ăn vừa đủ và cất chỗ khô để thức ăn chậm ôi, chậm mất vitamin.\" the caution \"phải\", the advice \"Muốn cá khỏe thì phải chọn đúng dạng\", and nothing lets that sentence go: write it as it was, word for word.",
-        "The entry is 546 words: hold it to about 500, and leave what is left out to the pages that use the term."
+        "The rewrite dropped from \"Đông khô hút ẩm trong không khí nên mốc nhanh, và độc tố nấm có thể đã sinh ra trước khi thấy mốc.\" the caution \"độc\", the advice \"Đông khô hút ẩm trong không khí nên mốc nhanh\" under Thức ăn đông khô, the advice \"độc tố nấm có thể đã sinh ra trước khi thấy mốc\" under Thức ăn đông khô, and nothing lets that sentence go: write it as it was, word for word.",
+        "Rules 4 and 12: \"ngày 1–2 lần\" in \"Riêng cá betta thì đếm viên: 2–4 viên mỗi lần, ngày 1–2 lần.\" repeats how often to feed, which \"Cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong 2–5 phút.\" already says for all fish. THIS TERM says how often is said once for all fish and never again in the betta line. One caveat: its note in brackets, \"'ngày 1–2 lần' is free there\", can be read as …",
+        "The entry is 582 words: hold it to about 550, and leave what is left out to the pages that use the term."
       ],
       "attempt": "rewrite",
-      "kept": false,
-      "draft": "4bc12eb0441ebcacc3d1d48e959cb16ac03458183630e9a0975571239dd6c294"
+      "kept": false
+    },
+    {
+      "at": "2026-11-16T17:40:21Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 0.97,
+      "notes": [
+        "\"Thức ăn phải để khô vì vitamin bắt đầu mất ngay từ lúc mở gói.\": the facts don't carry it (unsupported, unsupported, unsupported): invented causal link between dryness and vitamin loss on opening / invented causal link between keeping dry and vitamin loss on opening",
+        "Rule 12: \"Thức ăn khô phải để khô vì vitamin bắt đầu mất ngay từ lúc mở gói\" gives the start of vitamin loss after opening (fact 36) as the reason to keep the food dry. THIS TERM says that fact must be its own clause and never the reason for keeping it dry. The reason should be the one the facts give: damp heat makes an open pack lose its vitamins faster (fact 40), and heat and damp break the foo…",
+        "The entry is 585 words: hold it to about 550, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-16T17:29:54Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Đông khô hút ẩm trong không khí nên mốc nhanh, và độc tố nấm có thể đã sinh ra trước khi thấy mốc.\" the caution \"độc\", the advice \"Đông khô hút ẩm trong không khí nên mốc nhanh\" under Thức ăn đông khô, the advice \"độc tố nấm có thể đã sinh ra trước khi thấy mốc\" under Thức ăn đông khô, and nothing lets that sentence go: write it as it was, word for word.",
+        "Rules 4 and 12: \"ngày 1–2 lần\" in \"Riêng cá betta thì đếm viên: 2–4 viên mỗi lần, ngày 1–2 lần.\" repeats how often to feed, which \"Cho ăn ngày một đến hai lần\" already says for all fish. THIS TERM says the betta line keeps only its own count (2–4 pellets each time) and never gives the frequency again.",
+        "The entry is 567 words: hold it to about 550, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
     }
   ]
 }
