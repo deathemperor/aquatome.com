@@ -142,13 +142,13 @@ test('species-videos: while Wikimedia rests, a new page waits: the run stops and
 // scientific name, as before.
 test('species-videos: a FishLoft profile makes a new page only under a Vietnamese name that passes the naming rule', async () => {
   expect(PROFILE_CHANNELS).toContain('fishloft')
-  const run = async (viNames: string[], channel = 'FishLoft') => {
+  const run = async (viNames: string[], channel = 'FishLoft', channelUrl = '') => {
     const r = await root()
     const d = deps([])
     // Each name as research gives it: from a Vietnamese page among its sources.
     const vn = { url: 'https://cacanh.vn/sac-ngoc', title: 'Cá sặc ngọc', kind: 'article' as const }
     const found = { ...research, sources: [...research.sources, vn], viNames: viNames.map(name => ({ name, source: research.sources.length })) }
-    const fl = { ...d, research: (async () => found) as Llm, yt: { ...d.yt, video: async (id: string) => ({ ...(await d.yt.video(id)), channel }) } }
+    const fl = { ...d, research: (async () => found) as Llm, yt: { ...d.yt, video: async (id: string) => ({ ...(await d.yt.video(id)), channel, channelUrl }) } }
     await speciesVideos(r, fl, { only: ['G'] })
     const s = JSON.parse(await readFile(join(r, 'engine-state/_species-videos.json'), 'utf8')) as Record<string, SpeciesVideo>
     const vi = await readFile(join(r, 'content/species/nanosphronemus-gemma/vi.json'), 'utf8').then(x => JSON.parse(x) as { name: string }, () => null)
@@ -159,6 +159,12 @@ test('species-videos: a FishLoft profile makes a new page only under a Vietnames
   // A shrimp's word for a gourami fails the rule.
   expect(await run(['Tép ngọc'])).toMatchObject({ g: waits, vi: null })
   expect(await run(['Cá sặc ngọc'])).toMatchObject({ g: { done: 'new page', page: 'species/nanosphronemus-gemma' }, vi: { name: 'Cá sặc ngọc' } })
+  // The first name fails and a later one passes: the page opens under the one that passes.
+  expect(await run(['Tép ngọc', 'Cá sặc ngọc'])).toMatchObject({ g: { done: 'new page' }, vi: { name: 'Cá sặc ngọc' } })
+  // The channel by its address as either reader gives it, whatever its name now.
+  expect((await run([], 'Fish Loft Aquatics', 'https://www.youtube.com/channel/UC2pjf0shuwySmKTDsALixBw')).g).toMatchObject(waits)
+  expect((await run([], 'Fish Loft Aquatics', 'https://www.youtube.com/@FishLoft')).g).toMatchObject(waits)
+  expect((await run([], 'fishloft ')).g).toMatchObject(waits)
   expect((await run([], 'CHRIS LUKHAUP')).g).toMatchObject({ done: 'new page' })
 })
 
