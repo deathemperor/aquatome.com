@@ -16,25 +16,36 @@
   "range": {
     "native": {
       "countries": [
-        "CG",
         "CD",
+        "CG",
         "CF"
       ],
       "regions": [
         "Congo River",
         "Kasai",
-        "Ubangi"
+        "Ubangi",
+        "Lomami",
+        "Tshuapa",
+        "Lefini"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Common name: Leopard bushfish. Origin: D.R. Congo. Name meaning: Ctenopoma is ancient Greek for \"comb cover\", referring to the spines along the operculum; acutirostre is Latin for \"with a pointed snout\".",
+          "countries": [
+            "CD"
+          ],
+          "regions": []
+        },
         {
           "source": "seriouslyfish",
           "quote": "Widely distributed throughout the middle Congo River basin in Republic of the Congo, Democratic Republic of the Congo, and Central African Republic, from Malebo (Stanley) Pool upstream to Boyoma (Stanley) Falls.",
           "countries": [
             "CG",
-            "CD",
             "CF"
           ],
           "regions": [
@@ -47,7 +58,10 @@
           "countries": [],
           "regions": [
             "Kasai",
-            "Ubangi"
+            "Ubangi",
+            "Lomami",
+            "Tshuapa",
+            "Lefini"
           ]
         }
       ]

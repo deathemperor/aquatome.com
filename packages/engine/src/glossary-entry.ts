@@ -47,6 +47,12 @@ type Asks = {
    * 15 Nov 2026).
    */
   free?: string[]
+  /**
+   * Other names the entry no longer lists, as the saved entry writes them: other names are otherwise only added, so a
+   * wrong one stayed (the chief of staff, 16 Nov 2026: "dGH" under GH is its unit; "thức ăn viên" under dry food names
+   * one form, pellets).
+   */
+  notNames?: string[]
 }
 const ASKS = JSON.parse(readFileSync(new URL('./glossary-asks.json', import.meta.url), 'utf8')) as Record<string, Asks>
 const ENTRY_SCHEMA = {
@@ -398,7 +404,23 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   let w: Entry
   let review: Checked
   const tries: Checked[] = []
+  // A kept draft, run or accepted, is held to the term's saved entry as a revision is: what it took out that no stop or
+  // free line lets go stops it (the chief of staff, 16 Nov 2026: Artemia's and dry food's runs from their drafts saved what
+  // a stopped revise had cut). A term with no written entry yet has nothing to hold it to.
+  const saving: Entry | null = (o.fromDraft || o.accept) && vi.body ? { definition: vi.definition ?? '', altNames: [], body: vi.body, related: entity.related ?? [] } : null
+  const dropsFrom = (base: Entry, e: Entry, freed: NonNullable<Checked['stopped']>) => droppedInRewrite(base, e, forWriter, freed, [...pages.flatMap(l => l.split(' | ').slice(0, 2)), ...kindNames(base, taxa).fit.map(k => k.name)], asks.free)
+  // A sentence of the saved entry the fact check stops may go, as in a revision, whose first read is of that entry. A kept
+  // draft's path reads the saved entry only when the draft drops something from it, and once (Fable's read, 16 Nov 2026).
+  let savedStops: NonNullable<Checked['stopped']> | undefined
+  const heldTo = async (base: Entry, e: Entry, freed: NonNullable<Checked['stopped']>) => {
+    const lost = dropsFrom(base, e, freed)
+    if (o.revise || !lost.length) return lost
+    savedStops ??= (await checkSentences(d.llm, forWriter, base)).stops
+    return dropsFrom(base, e, [...freed, ...savedStops])
+  }
   if (o.accept) {
+    const lost = saving ? await heldTo(saving, draft!.entry, []) : []
+    if (lost.length) return { id, refused: lost }
     w = draft!.entry
     review = { score: draft!.score, notes: draft!.notes, broken: draft!.broken }
     await logReviews(root, 'glossary', page, [review], review, { ...(now ? { now } : {}), rewrite: true, acceptedBy: o.accept })
@@ -419,15 +441,16 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     // 15 Nov 2026: each of pH's and chu trình nitơ's revisions fixed what was asked and dropped something already read). What
     // it took out of any other sentence stops it from being saved, and goes back to the writer once more, against the text
     // the rewrites started from. A fresh draft, which no one has read, is trimmed as it must be.
-    const start = w
+    const start = o.revise ? w : saving
     const freed: NonNullable<Checked['stopped']> = []
-    let dropped: string[] = []
+    let dropped: string[] = start && !o.revise ? await heldTo(start, w, []) : []
+    if (dropped.length) { review.notes = [...dropped, ...review.notes]; review.stops = stopping(review) + dropped.length; review.broken += dropped.length }
     for (let i = 0; i < 2 && (!passes(review) || (i === 0 && (!draft || o.revise || review.notes.some(isLength)) && review.notes.length) || dropped.length); i++) {
-      const notes = [...review.notes, ...dropped]
+      const notes = [...new Set([...review.notes, ...dropped])]
       // A sentence the fact check stopped may go from where it stood.
       freed.push(...(review.stopped ?? []))
       const again = await fit(await write(notes, w))
-      dropped = o.revise ? droppedInRewrite(start, again, forWriter, freed, [...pages.flatMap(l => l.split(' | ').slice(0, 2)), ...kindNames(start, taxa).fit.map(k => k.name)], asks.free) : []
+      dropped = start ? await heldTo(start, again, freed) : []
       const r = await check(again)
       if (dropped.length) { r.notes = [...dropped, ...r.notes]; r.stops = stopping(r) + dropped.length; r.broken += dropped.length }
       tries.push(r)
@@ -467,7 +490,7 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     return facts.some(f => re.test(f.fact))
   }
   const linkable = (n: string) => (/\s/.test(n) || /[A-Z].*[A-Z0-9]|\d/.test(n)) && !taken.has(n.toLowerCase()) && quoted(n)
-  const own = new Set([vi.name.toLowerCase()])
+  const own = new Set([vi.name, ...(asks.notNames ?? [])].map(n => n.toLowerCase()))
   const altNames = [...vi.altNames, ...w.altNames.map(n => unescapePlain(n).trim()).filter(linkable)].filter(n => n && !own.has(n.toLowerCase()) && own.add(n.toLowerCase()))
   const ids = new Set(others.map(x => x.id))
   const next: GlossaryEntity = GlossarySchema.parse({ ...entity, refs, related: [...new Set(w.related)].filter(r => ids.has(r)).slice(0, 6) })

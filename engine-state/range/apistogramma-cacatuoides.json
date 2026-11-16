@@ -1,8 +1,8 @@
 {
   "id": "apistogramma-cacatuoides",
   "native": {
-    "input": "16d67f98a9f1b66e",
-    "at": "2026-11-10T04:57:39.069Z",
+    "input": "6269e2e59d747448",
+    "at": "2026-11-16T00:17:52.050Z",
     "claims": [
       {
         "code": "PE",
@@ -39,12 +39,6 @@
     ],
     "regions": [
       {
-        "name": "Amazon",
-        "source": "seriouslyfish",
-        "quote": "The cockatoo cichlid, Apistogramma cacatuoides, is a small cichlid from the upper Amazon basin, from the Ucayali in Peru to the Solimões in Brazil.",
-        "ok": true
-      },
-      {
         "name": "Ucayali",
         "source": "seriouslyfish",
         "quote": "The cockatoo cichlid, Apistogramma cacatuoides, is a small cichlid from the upper Amazon basin, from the Ucayali in Peru to the Solimões in Brazil.",
@@ -56,6 +50,12 @@
         "source": "seriouslyfish",
         "quote": "The cockatoo cichlid, Apistogramma cacatuoides, is a small cichlid from the upper Amazon basin, from the Ucayali in Peru to the Solimões in Brazil.",
         "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "The cockatoo cichlid, Apistogramma cacatuoides, is a small cichlid from the upper Amazon basin, from the Ucayali in Peru to the Solimões in Brazil.",
         "ok": true
       },
       {

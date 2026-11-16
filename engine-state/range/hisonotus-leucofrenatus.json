@@ -1,0 +1,124 @@
+{
+  "id": "hisonotus-leucofrenatus",
+  "native": {
+    "input": "f182453eb6412d36",
+    "at": "2026-11-16T00:17:52.050Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Common name: Niger Oto. Type locality: Rio das Pedras of Rio Ribeira, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Ribeira de Iguape River basin, rivers of São Paulo State, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ribeira de Iguape",
+        "source": "planetcatfish",
+        "quote": "South America: Ribeira de Iguape River basin, rivers of São Paulo State, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hisonotus leucofrenatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2339240,
+    "datasets": [
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        112
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        108
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        99
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        8
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        5
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        4
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "360d2362-4ab5-4440-986d-7e6676db6c75",
+        1
+      ],
+      [
+        "395b8d4a-7f39-4bfc-9db2-fd3e211b4e9b",
+        1
+      ],
+      [
+        "55985e77-9fca-4d51-aa4d-5840e544652a",
+        1
+      ],
+      [
+        "5c06e950-55f3-415c-af6c-19c55e851bf4",
+        1
+      ],
+      [
+        "973cf830-0c98-4bd5-8717-7a2efe182d5b",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "a386b330-40ce-4ae9-be09-4479ad3cf071",
+        1
+      ],
+      [
+        "be891e04-afc5-4385-b1a9-f9bdd8a02f5d",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-16T00:17:52.050Z"
+  }
+}
