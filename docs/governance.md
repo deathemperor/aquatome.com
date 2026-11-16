@@ -572,6 +572,8 @@ The layers above still check the result.
   fine), no dead fish or fish as food (markets, plates, catches landed or held,
   preserved, mounted or museum specimens), each photo must show its species (a landscape where it can't be picked out
   doesn't), open licences or permission only.
+  A listed publisher's permission (Aquarium Co-op, 2Hr Aquarist, Seriously Fish, ScotCat, Aquarium Breeder) covers its
+  photos on any AquaTome page, by the owner's word of 16 Nov 2026.
   Pages show photos from our own media host: a Commons or iNaturalist photo waits for `pnpm engine mirror-photos` (every
   cycle), and a public build leaves it out until then (`setsCookies`), since those hosts set third-party cookies.
   Every request the engine sends to Wikimedia (Commons' API, its pictures, their thumbnails) asks under the engine's own
