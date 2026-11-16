@@ -202,11 +202,12 @@ if (process.argv[1] && real(process.argv[1]) === real(fileURLToPath(import.meta.
     console.error(`merge-main-whole: ${path}: ${e.message}`)
     process.exit(1) // JSON that doesn't read: left to git, and the run keeps its work back
   }
-  // Lines both changed: noted with the commit the pull replays onto (rebase-merge/onto), for swept_clean.
-  if (spawnSync('git', ['merge-file', '-p', '-q', ours, base, theirs], { stdio: 'ignore' }).status !== 0) {
-    const gitPath = p => spawnSync('git', ['rev-parse', '--git-path', p], { encoding: 'utf8' }).stdout.trim()
+  // Lines both changed: noted with the commit the pull replays onto (rebase-merge/onto), for swept_clean. Not in a
+  // repository (a test calling the script on its own), nothing to note in.
+  const gitPath = p => spawnSync('git', ['rev-parse', '--git-path', p], { encoding: 'utf8' }).stdout?.trim() ?? ''
+  const notes = gitPath('main-whole-clashes')
+  if (notes && spawnSync('git', ['merge-file', '-p', '-q', ours, base, theirs], { stdio: 'ignore' }).status !== 0) {
     const onto = ['rebase-merge/onto', 'rebase-apply/onto'].map(p => text(gitPath(p)).trim()).find(Boolean) || 'unknown'
-    const notes = gitPath('main-whole-clashes')
     const kept = text(notes).split('\n').filter(l => l.startsWith(`${onto} `))
     writeFileSync(notes, [...kept, `${onto} ${path}`, ''].join('\n'))
   }
