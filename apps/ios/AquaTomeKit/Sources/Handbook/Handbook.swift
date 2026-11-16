@@ -325,7 +325,8 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
       /// A member's photo whose fish a 3:2 frame keeps, and where the fish is in it.
       public let img: String?
       public let imgBox: PhotoBox?
-      /// The member whose photo `img` is, by content id: the chip's page names and links that fish (the chief, 15 Nov).
+      /// The member whose photo `img` is, by content id: the chip's page names and links that fish, whose page credits the
+      /// photo. Nil from a site before it, or with no photo.
       public let imgOf: String?
       /// The guides about the group, written and on video, by index path in the index's order: empty where it has none.
       public let guides: [String]
