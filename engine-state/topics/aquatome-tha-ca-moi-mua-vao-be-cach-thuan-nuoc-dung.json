@@ -43,6 +43,11 @@
       "url": "https://ornamentalfish.org/wp-content/uploads/OATA-Transport-Code-Oct-2022.pdf",
       "title": "Transporting Aquatic Livestock Code – OATA, the ornamental fish trade association (October 2022)",
       "kind": "other"
+    },
+    {
+      "url": "https://aquariumscience.org/index.php/12-3-quarantine-tanks",
+      "title": "12.3. Quarantine Tanks – Aquarium Science",
+      "kind": "keeper"
     }
   ],
   "facts": [
@@ -163,7 +168,12 @@
     },
     {
       "section": "prevention",
-      "fact": "Vietnamese guide: only add fish once ammonia and nitrite are 0 ppm. Add 2–3 fish at a time, 1–2 weeks apart. A 20–40 L quarantine tank can be used to watch new fish for 1–2 weeks.",
+      "fact": "Always keep a new fish in a quarantine tank for at least four weeks.",
+      "source": 8
+    },
+    {
+      "section": "prevention",
+      "fact": "Vietnamese guide: only add fish once ammonia and nitrite are 0 ppm. Add 2–3 fish at a time, 1–2 weeks apart.",
       "source": 3
     },
     {
