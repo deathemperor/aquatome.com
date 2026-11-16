@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { isAllowedLicence } from '@aq/schema'
+import { GallerySchema, isAllowedLicence } from '@aq/schema'
 import { openverseLicence, openversePage } from '../src/openverse'
 
 test('Openverse licences: CC0, CC BY, CC BY-SA and the public domain mark, with their version; nothing else', () => {
@@ -24,8 +24,13 @@ test('a page: Flickr only, by the exact name, open licences, ≥ 800 px, not mat
   expect(Object.fromEntries(q)).toEqual({ q: '"Paracheirodon innesi"', license: 'by,by-sa,cc0,pdm', mature: 'false', page_size: '20', page: '1' })
   expect(p.cands).toEqual([{
     key: 'flickr:860070941', url: 'https://live.staticflickr.com/8518/860070941_7a79b898cf_b.jpg', thumb: 'https://live.staticflickr.com/8518/860070941_7a79b898cf_z.jpg',
-    width: 1024, height: 683, licence: 'CC BY 2.0', author: 'hydril', sourceUrl: 'https://www.flickr.com/photos/27126711@N00/860070941',
+    width: 1024, height: 683, licence: 'CC BY 2.0', author: 'hydril', sourceUrl: 'https://www.flickr.com/photos/27126711@N00/860070941', openverse: 'a',
   }])
   expect(p).toMatchObject({ next: 2, remaining: 150 })
   expect((await openversePage('x', 3, api)).next).toBeNull()
+})
+
+test("Openverse's record id stays in the engine: an album file written from such a candidate drops it", () => {
+  const photo = { url: 'https://media.aquatome.com/flickr/1.webp', width: 1200, height: 800, licence: 'CC BY 2.0', author: 'x', sourceUrl: 'https://www.flickr.com/photos/x/1', openverse: 'a' }
+  expect(GallerySchema.parse({ id: 'g', photos: [photo], seen: 1, updatedAt: '2026-11-16' }).photos[0]).not.toHaveProperty('openverse')
 })
