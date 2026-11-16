@@ -8,7 +8,7 @@ under `<lang>/<path>`.
 
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
-| video-guide | 933 | 670 (vi 670) | 670 |
+| video-guide | 933 | 668 (vi 668) | 668 |
 | translation | 1692 | 260 (vi 260) | 260 |
 | vi-rewrite | 351 | 24 (vi 24) | 24 |
 | reader-rewrite | 34 | 0 | 0 |
@@ -28,21 +28,21 @@ under `<lang>/<path>`.
 
 ## video-guide: Vietnamese guides written from YouTube videos, against the transcript
 
-670 of 933 pages under the bar.
+668 of 933 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 588 | 1536 |
-| States as certain what the source hedges, or what garbled captions only hint at | 583 | 1763 |
-| Says what the source doesn't (invented, added) | 505 | 1224 |
-| Wording: unnatural, literal, stiff or chatty | 279 | 392 |
-| A number, unit, dose or price | 227 | 333 |
-| Repeats itself (intro, summary, steps and FAQ) | 132 | 155 |
-| Meaning changed or wrong | 116 | 132 |
+| Other | 586 | 1531 |
+| States as certain what the source hedges, or what garbled captions only hint at | 582 | 1757 |
+| Says what the source doesn't (invented, added) | 504 | 1222 |
+| Wording: unnatural, literal, stiff or chatty | 277 | 389 |
+| A number, unit, dose or price | 228 | 335 |
+| Repeats itself (intro, summary, steps and FAQ) | 131 | 154 |
+| Meaning changed or wrong | 116 | 133 |
 | Leaves out what the source says | 48 | 50 |
-| Hobby terms and names | 45 | 46 |
+| Hobby terms and names | 44 | 45 |
 | Names or points to the video, channel, creator or source | 35 | 39 |
-| Off the title's topic | 26 | 26 |
+| Off the title's topic | 25 | 25 |
 | Copied from the transcript or source | 22 | 24 |
 | Text left in another language | 6 | 6 |
 

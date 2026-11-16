@@ -80,6 +80,48 @@
       "unchecked": true
     },
     {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/152475411/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/152475411/medium.jpeg",
+      "width": 769,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Марина Давлетшина",
+      "sourceUrl": "https://www.inaturalist.org/photos/152475411",
+      "caption": "Lá Vallisneria (cỏ lươn) xanh tươi mọc quanh cành cây và đá",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/152655840/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/152655840/medium.jpg",
+      "width": 1024,
+      "height": 476,
+      "licence": "CC BY",
+      "author": "Георгий Виноградов (Georgy Vinogradov)",
+      "sourceUrl": "https://www.inaturalist.org/photos/152655840",
+      "caption": "Vallisneria (cỏ lươn) lá dài trôi theo dòng nước",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/152984220/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/152984220/medium.jpg",
+      "width": 930,
+      "height": 616,
+      "licence": "CC BY",
+      "author": "Георгий Виноградов (Georgy Vinogradov)",
+      "sourceUrl": "https://www.inaturalist.org/photos/152984220",
+      "caption": "Thảm Vallisneria (cỏ lươn) mọc dày dưới nước",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/894c076db98f8a3f.webp",
       "thumb": "https://media.aquatome.com/commons/894c076db98f8a3f-480.webp",
       "width": 1200,
@@ -158,6 +200,20 @@
       "unchecked": true
     },
     {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/152475505/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/152475505/medium.jpeg",
+      "width": 769,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Марина Давлетшина",
+      "sourceUrl": "https://www.inaturalist.org/photos/152475505",
+      "caption": "Cận cảnh lá Vallisneria (cỏ lươn) bản rộng bên đá",
+      "best": false,
+      "kind": "detail",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/20333c2aa95823e1.webp",
       "thumb": "https://media.aquatome.com/commons/20333c2aa95823e1-480.webp",
       "width": 1200,
@@ -195,9 +251,37 @@
       "best": false,
       "kind": "habitat",
       "unchecked": true
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/106550967/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/106550967/medium.jpeg",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC0",
+      "author": "Sushant More",
+      "sourceUrl": "https://www.inaturalist.org/photos/106550967",
+      "caption": "Cây Vallisneria (cỏ lươn) mọc trên nền bùn đất ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/150790004/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/150790004/medium.jpg",
+      "width": 1024,
+      "height": 511,
+      "licence": "CC BY",
+      "author": "Георгий Виноградов (Georgy Vinogradov)",
+      "sourceUrl": "https://www.inaturalist.org/photos/150790004",
+      "caption": "Đám Vallisneria (cỏ lươn) mọc dưới nước ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
     }
   ],
-  "seen": 38,
-  "updatedAt": "2026-11-10",
-  "builtAt": "2026-11-10"
+  "seen": 58,
+  "updatedAt": "2026-11-16",
+  "builtAt": "2026-11-16"
 }

@@ -8,9 +8,9 @@ Written by `pnpm engine gallery` (2026-11-16). Targets: packages/engine/src/gall
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
 | covered | 30 | 671 | 30 | 9 | 23 | 687 |
-| rest | 20 | 1729 | 75 | 0 | 78 | 1726 |
+| rest | 20 | 1729 | 75 | 0 | 91 | 1713 |
 
-## Short of target: every source read (458)
+## Short of target: every source read (478)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -474,3 +474,23 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/corydoras-kanei | covered | 3 | 30 |
 | species/corydoras-loxozonus | covered | 0 | 30 |
 | species/corydoras-melini | covered | 0 | 30 |
+| species/corydoras-napoensis | covered | 0 | 30 |
+| species/corydoras-nijsseni | covered | 0 | 30 |
+| species/corydoras-oiapoquensis | covered | 0 | 30 |
+| species/corydoras-pantanalensis | covered | 0 | 30 |
+| species/corydoras-polystictus | covered | 0 | 30 |
+| species/corydoras-reticulatus | covered | 0 | 30 |
+| species/corydoras-robustus | covered | 0 | 30 |
+| species/corydoras-schwartzi | covered | 0 | 30 |
+| species/corydoras-serratus | covered | 0 | 30 |
+| species/corydoras-sodalis | covered | 0 | 30 |
+| species/corydoras-spectabilis | covered | 0 | 30 |
+| species/corydoras-trilineatus | covered | 7 | 30 |
+| species/corydoras-vittatus | covered | 0 | 30 |
+| species/cranoglanis-henrici | covered | 0 | 30 |
+| species/crenicichla-compressiceps | covered | 0 | 30 |
+| species/crenicichla-johanna | covered | 0 | 30 |
+| species/crenicichla-lugubris | covered | 0 | 30 |
+| species/crenuchus-spilurus | covered | 1 | 30 |
+| species/crossoloricaria-cephalaspis | covered | 0 | 30 |
+| species/ctenochromis-polli | covered | 0 | 30 |
