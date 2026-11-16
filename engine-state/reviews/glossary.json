@@ -1,6 +1,63 @@
 {
   "vi/glossary/chu-trinh-nito": [
     {
+      "at": "2026-11-16T01:08:49Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Một số bộ test lại đọc nitrit theo nitơ-nitrit, nên trên loại bộ test này ngưỡng đó vào khoảng 0,03, vì số đọc nhân 3,3 mới ra NO2.\" (not \"Phần lớn bộ test đọc nitrit theo nitơ-nitrit, nên phải nhân số đọc với 3,3 mới ra NO2.\": Rule 12: \"Phần lớn bộ test đọc nitrit theo nitơ-nitrit\" must say \"Một số bộ te…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Lọc chín khi TAN và nitrit lên đỉnh rồi giảm về 0 hoặc gần 0, sau đó nitrat tăng lên.\" (not \"Lọc chín khi TAN và nitrit lên đỉnh rồi giảm xuống, sau đó nitrat tăng lên.\": Rule 12: \"Lọc chín khi TAN và nitrit lên đỉnh rồi giảm xuống, sau đó nitrat tăng lên.\" doesn't say the readings fall to \"0 hoặc gần 0\".…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Lọc mới thường mất khoảng 6 tuần mới ổn định hẳn, nhanh hơn nếu có vi sinh hay vật liệu lọc từ bể cũ.\" (not \"Lọc mới thường mất khoảng 6 tuần mới ổn định hẳn.\": Rule 12: \"Lọc mới thường mất khoảng 6 tuần mới ổn định hẳn.\" leaves out that the cycle is shorter with bacteria or filter media from an establish…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Khử clo cho nước máy bằng một trong ba cách: trữ 3–4 ngày, sục khí 24 giờ, hoặc dùng thuốc khử clo loại khử được cả chloramine và khóa luôn lượng amoniac sinh ra.\" (not \"Khử clo cho nước máy bằng một trong ba cách: trữ 3–4 ngày, sục khí 24 giờ, hoặc dùng Seachem Prime.\": Rules 8 and 12: \"Khử clo cho nước …",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cá thả vào giai đoạn amoniac rất dễ mắc bệnh và có thể chết.\" (not \"Cá thả vào giai đoạn amoniac rất dễ mắc bệnh.\": Rule 12: \"Thả cá khi chu trình chưa ổn định. Cá thả vào giai đoạn amoniac rất dễ mắc bệnh.\" leaves out that the fish can die. Say it once, here in the mistakes list. / it drops the caution \"…",
+        "The entry is 485 words: hold it to about 480, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-16T01:08:49Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Đa số bộ test lại đọc nitrit theo nitơ-nitrit\" — the THIS TERM line requires \"Một số bộ test\", never \"đa số\", because the drop kits sold in Vietnam read NO2.",
+        "Rules 4 and 12: \"Có tiệm nói chu trình xong sau 1–2 tuần, nhưng tài liệu thú y ghi rằng lọc mới thường mất khoảng 6 tuần mới ổn định hẳn\" — this sets a shop against the vet source. The cycle time must be one statement: about 6 weeks for a new filter, shorter with added bacteria or with water and media from an established tank (for example \"Lọc mới thường mất khoảng 6 tuần mới ổn định hẳn, nhanh h…",
+        "The entry is 488 words: hold it to about 480, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-16T01:01:07Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 0.97,
+      "notes": [
+        "\"Lọc mới thường mất khoảng 6 tuần mới ổn định hẳn, 1–2 tuần thì còn quá sớm để tin là xong.\": the facts don't carry it (unsupported, unsupported, unsupported): facts don't say 1–2 weeks is too early; supplements or used media can shorten the cycle / No source says 1–2 weeks is too early, and other facts allow a shorter cycle. / seeding/supplements can finish in about 2 weeks or less",
+        "The entry is 482 words: hold it to about 480, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-16T01:01:07Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Lọc chín khi TAN và nitrit lên đỉnh rồi giảm về 0 hoặc gần 0, sau đó nitrat tăng lên.\" (not \"Lọc chín khi TAN và nitrit lên đỉnh rồi giảm xuống, sau đó nitrat tăng lên.\": Rule 12: \"Lọc chín khi TAN và nitrit lên đỉnh rồi giảm xuống, sau đó nitrat tăng lên.\" doesn't say that the readings fall to \"0 hoặc gầ…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Khử clo cho nước máy bằng một trong ba cách: trữ 3–4 ngày, sục khí 24 giờ, hoặc dùng thuốc khử clo loại khử được cả chloramine và khóa luôn lượng amoniac sinh ra.\" (not \"Khử clo cho nước máy bằng một trong ba cách: trữ 3–4 ngày, sục khí 24 giờ, hoặc dùng Seachem Prime.\": Rules 8 and 12: \"hoặc dùng Seachem…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cá thả vào giai đoạn amoniac rất dễ mắc bệnh và có thể chết.\" (not \"Cá thả vào giai đoạn amoniac rất dễ mắc bệnh.\": Rule 12: \"Thả cá khi chu trình chưa ổn định. Cá thả vào giai đoạn amoniac rất dễ mắc bệnh.\" leaves out that the fish can die. This item in the mistakes list must say that fish added during t…",
+        "Rule 12: \"Đa số bộ test lại đọc nitrit theo nitơ-nitrit\": the nitrite line has to say \"Một số bộ test\", never \"đa số\". The drop kits sold here read NO2.",
+        "Rules 4 and 12: \"Có tiệm nói chu trình xong sau 1–2 tuần, nhưng tài liệu thú y ghi rằng lọc mới thường mất khoảng 6 tuần mới ổn định hẳn\": this sets a shop against the vet source. How long the cycle takes must be one statement, for example \"Lọc mới thường mất khoảng 6 tuần mới ổn định hẳn, nên đừng tin rằng 1–2 tuần là xong.\"",
+        "The entry is 488 words: hold it to about 480, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
       "at": "2026-11-15T03:15:29Z",
       "model": "sonnet",
       "cli": "2.1.323",
@@ -21,62 +78,6 @@
       "score": 1,
       "notes": [
         "Rule 12: \"Châm thêm men vi sinh nitrat hóa của hãng uy tín.\" leaves only the bottled bacteria. THIS TERM says to keep the seeding sentence word for word: \"Châm thêm men vi sinh của hãng uy tín, hoặc lấy nước, bông lọc từ một bể đã ổn định; riêng vật liệu lọc thì chỉ lấy từ bể đã ổn định mà cá trong đó đều khỏe.\" The water, floss and media from an established tank are missing, and \"nitrat hóa\" was…"
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-14T22:33:19Z",
-      "model": "sonnet",
-      "cli": "2.1.323",
-      "score": 1,
-      "notes": [
-        "The entry is 476 words: hold it to about 450, and leave what is left out to the pages that use the term."
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-14T22:33:19Z",
-      "model": "sonnet",
-      "cli": "2.1.323",
-      "score": 1,
-      "notes": [
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Lọc chín khi TAN và nitrit lên đỉnh rồi giảm về 0 hoặc gần 0, sau đó nitrat tăng lên.\" (not \"Lọc chín khi TAN và nitrit lên đỉnh rồi giảm xuống, sau đó nitrat tăng lên.\": Rule 12: \"Lọc chín khi TAN và nitrit lên đỉnh rồi giảm xuống, sau đó nitrat tăng lên.\" leaves out that TAN and nitrite fall to 0 or nea…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Khử clo cho nước máy bằng một trong ba cách: trữ 3–4 ngày, sục khí 24 giờ, hoặc dùng thuốc khử clo loại khử được cả chloramine và khóa luôn lượng amoniac sinh ra.\" (not \"Khử clo cho nước máy bằng một trong ba cách: trữ 3–4 ngày, sục khí 24 giờ, hoặc dùng Seachem Prime.\": Rules 8 and 12: \"hoặc dùng Seachem…",
-        "Loose, reworded: \"Clo trong nước sẽ giết vi khuẩn có lợi.\" → \"Nước máy có thể chứa clo, sẽ giết vi khuẩn có lợi.\" (supported)",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cá thả vào giai đoạn amoniac rất dễ mắc bệnh và có thể chết.\" (not \"Cá thả vào giai đoạn amoniac rất dễ mắc bệnh.\": Rule 12: \"Thả cá khi chu trình chưa ổn định. Cá thả vào giai đoạn amoniac rất dễ mắc bệnh.\" leaves out that the fish can die. This term asks for that to be said once, here in the mistakes li…",
-        "Rule 12: The THIS TERM line says the seeding sentence must stay word for word as \"Châm thêm men vi sinh của hãng uy tín, hoặc lấy nước, bông lọc từ một bể đã ổn định; riêng vật liệu lọc thì chỉ lấy từ bể đã ổn định mà cá trong đó đều khỏe.\" and must never offer the bottled bacteria alone. The entry instead has \"Châm thêm men vi sinh nitrat hóa của hãng uy tín.\" This adds \"nitrat hóa\", offers only…"
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-14T22:24:07Z",
-      "model": "sonnet",
-      "cli": "2.1.323",
-      "score": 1,
-      "notes": [
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Lọc chín khi TAN và nitrit lên đỉnh rồi giảm về 0 hoặc gần 0, sau đó nitrat tăng lên.\" (not \"Lọc chín khi TAN và nitrit lên đỉnh rồi giảm xuống, sau đó nitrat tăng lên.\": Rule 12: \"Lọc chín khi TAN và nitrit lên đỉnh rồi giảm xuống, sau đó nitrat tăng lên.\" says the readings fall but not how far. THIS TER…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Set bể, chạy lọc 24/24 và sục khí.\" (not \"Set bể, chạy lọc và sục khí.\": it drops the figure 24, the figure 24)",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Khử clo cho nước máy bằng một trong ba cách: trữ 3–4 ngày, sục khí 24 giờ, hoặc dùng thuốc khử clo loại khử được cả chloramine và khóa luôn lượng amoniac sinh ra.\" (not \"Khử clo cho nước máy bằng một trong ba cách: trữ 3–4 ngày, sục khí 24 giờ, hoặc dùng Seachem Prime.\": Rules 8 and 12: \"hoặc dùng Seachem…",
-        "Loose, reworded: \"Châm thêm men vi sinh của hãng uy tín, hoặc lấy nước, bông lọc từ một bể đã ổn định; riêng vật liệu lọc thì chỉ lấy từ bể đã ổn định mà cá trong đó đều khỏe.\" → \"Châm thêm men vi sinh nitrat hóa của hãng uy tín.\" (supported)",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cá thả vào giai đoạn amoniac rất dễ mắc bệnh và có thể chết.\" (not \"Cá thả vào giai đoạn amoniac rất dễ mắc bệnh.\": Rule 12: in the mistakes list, \"Thả cá khi chu trình chưa ổn định. Cá thả vào giai đoạn amoniac rất dễ mắc bệnh.\" doesn't say the fish can die. THIS TERM asks for it here, once: fish added d…",
-        "The entry is 476 words: hold it to about 450, and leave what is left out to the pages that use the term."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-14T22:24:07Z",
-      "model": "sonnet",
-      "cli": "2.1.323",
-      "score": 1,
-      "notes": [
-        "Rule 12: The emergency change \"Khi thấy amoniac cao, thay ngay ít nhất 50% nước, và giảm hoặc ngừng cho ăn cho tới khi số đo về lại bình thường.\" leaves out the vet source's exception, which belongs in the same place. When TAN is above 5 mg/L and pH is below 7, the keeper should move the fish to clean water at the same temperature. Otherwise, as the pH rises, that ammonia turns quickly to toxic N…",
-        "Rule 12: Next to the emergency change \"Khi thấy amoniac cao, thay ngay ít nhất 50% nước…\", the entry never says to check whether the tap water carries ammonia or chloramine, since water changes can bring ammonia in (the vet source). Add this once, in that place, without telling the keeper to check first.",
-        "Rule 12: The nitrite line \"Nitrit độc từ khoảng 0,1 mg/L NO2, và mức này chênh nhiều giữa các loài.\" doesn't say which test reading its 0,1 refers to. It should add that most test kits read nitrite as nitrite-nitrogen, so on such a kit the limit is about 0,03, because the kit's reading times 3,3 gives NO2 (the vet source).",
-        "Rule 12: The dechlorinator clause \"thuốc khử clo loại xử lý được cả chloramine và giữ lại amoniac mà nó nhả ra\" is still a word-for-word copy of 'binds the released ammonia'. Its \"nó\" also reads as if the product itself releases the ammonia. It can be said naturally, for example \"…loại khử được cả chloramine và khóa luôn lượng amoniac sinh ra\", with nothing else in the sentence changed."
       ],
       "attempt": "rewrite",
       "kept": false
