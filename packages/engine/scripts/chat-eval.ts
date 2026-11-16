@@ -47,6 +47,10 @@ import { clientFor, costOf, DEFAULT_MODEL } from '../../../apps/site/worker/fish
 import { healthyKeys, loadKeys, memoryHealth, rotate, type HealthStore, type KeyEntry } from '../../../apps/site/worker/fishid/keys'
 import { faqFound, matesChecks, numbersIn, pointsAt, readPages, sentText } from './chat-eval-grade'
 import { pool } from './eval-lib'
+import { unbilled } from '../src/billed'
+
+// Its calls on the chat's keys aren't held to the billed line yet (billed.ts).
+unbilled('chat-eval.ts')
 
 const ROOT = join(import.meta.dirname, '../../..')
 /** The SDK's request and message, as the agent's `send` takes and gives them (the engine has no SDK of its own). */

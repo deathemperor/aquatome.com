@@ -58,17 +58,12 @@
       "author": "自己拍攝",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Benkeigani02.jpg",
       "caption": "自己拍攝",
-      "thumb": "https://media.aquatome.com/commons/1677bd46cfedf28b-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/64cecf8d2eba928b.webp",
-      "width": 960,
-      "height": 960,
-      "licence": "CC BY 4.0",
-      "author": "ノボホショコロトソ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Orisarma_intermedium_in_Kochi,_Kochi_01.jpg",
-      "caption": "高知県にてベンケイガニ",
-      "thumb": "https://media.aquatome.com/commons/64cecf8d2eba928b-480.webp"
+      "thumb": "https://media.aquatome.com/commons/1677bd46cfedf28b-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/1677bd46cfedf28b-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/539aa55ccb900047.webp",
@@ -89,6 +84,16 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:SesarmopsIntermedium_JUL2015_FHD.jpg",
       "caption": "Sesarmops intermedium",
       "thumb": "https://media.aquatome.com/commons/2b5d7a3b7f5d8a7d-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/64cecf8d2eba928b.webp",
+      "width": 960,
+      "height": 960,
+      "licence": "CC BY 4.0",
+      "author": "ノボホショコロトソ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Orisarma_intermedium_in_Kochi,_Kochi_01.jpg",
+      "caption": "高知県にてベンケイガニ",
+      "thumb": "https://media.aquatome.com/commons/64cecf8d2eba928b-480.webp"
     }
   ],
   "videos": [

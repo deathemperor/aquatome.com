@@ -103,6 +103,28 @@
       {
         "source": "planetcatfish",
         "value": 22.3
+      },
+      {
+        "source": "scotcat",
+        "value": 22
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ]
   },
@@ -114,16 +136,34 @@
       "html": "<p>Scientific name: Pogonopoma wertheimeri (Steindachner, 1867).</p><p>Type locality: Rio Mucuri District, Santa Clara, Bahia State, Brazil.</p><p>Maximum size: 223 mm SL.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pogonopoma_wertheimeri.htm",
+      "html": "<ul><li>Common name: none</li><li>Synonym: Plecostomus wertheimeri</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1341",
       "html": "<p>South America: Mucuri and São Mateus River basins. Currently known from three coastal river drainages in southeastern Brazil: the Mucuri River in Bahia State and the São Mateus River in Espirito Santo State.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pogonopoma_wertheimeri.htm",
+      "html": "<p>South America: Mucuri and São Mateus River basins, Brazil. Type locality: the Mucuri River in the district of the same name, near Santa Clara, Brazil.</p>"
+    },
+    {
       "key": "habitat",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1341",
       "html": "<p>Usually found in stretches of river with mid to strong water current and rocky or sandy bottom, although some specimens were collected from a lentic habitat.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pogonopoma_wertheimeri.htm",
+      "html": "<p>Currently known from three coastal river drainages in southeastern Brazil. Usually found in stretches of river with mid to strong water current and rocky or sandy bottom, although some specimens were collected from a lentic habitat.</p>"
     },
     {
       "key": "reproduction",
@@ -138,14 +178,69 @@
       "html": "<p>Etymology: (Greek) Pogon = beard + (Greek) op = eye + (Greek) poma = lid, operculum. Pronunciation: pog ON oh poma.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pogonopoma_wertheimeri.htm",
+      "html": "<p>Etymology: the specific name wertheimeri is a patronym that has not been identified, in honour of either Louis Wertheimer of the Thayer Expedition to Brazil (1865–1866), or Achilles Wertheimer, who died on the expedition due to a snakebite.</p><p>IUCN Red List: Pogonopoma wertheimeri occurs in the Mucuri and São Mateus river basins, having been translocated to the Doce and Barra Seca river basins. The species is widely distributed, frequent, and abundant. Despite the threats associated with the Santa Clara hydroelectric dam and river siltation, these were not considered significant for the population. Therefore, Pogonopoma wertheimeri was categorised as Least Concern (LC) (IUCN 2022).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1341",
       "html": "<p>Anzeiger der Kaiserlichen Akademie der Wissenschaften, Wien, Mathematisch-Naturwissenschaftliche Classe v. 4 (no. 14) (for 16 May 1867), pp 119.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pogonopoma_wertheimeri.htm",
+      "html": "<p>Armbruster, J.W., 1998. Phylogenetic relationships of the suckermouth armored catfishes of the Rhinelepis group (Loricariidae: Hypostominae). Copeia 1998(3):620-636.</p><p>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Pogonopoma wertheimeri. The IUCN Red List of Threatened Species 2022.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2011. FishBase. World Wide Web electronic publication. www.fishbase.org, version.</p><p>Quevedo, R. and R.E. Reis, 2002. Pogonopoma obscurum: a new species of loricariid catfish (Siluriformes: Loricarridae) from southern Brazil, with comments on the genus Pogonopoma. Copeia 2002(2):402-410.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/2a6775281413c3e6.webp",
+      "thumb": "https://media.aquatome.com/scotcat/2a6775281413c3e6-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pogonopoma_wertheimeri.htm",
+      "caption": "Pogonopoma wertheimeri",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/6756f6e1f138ba95.webp",
+      "thumb": "https://media.aquatome.com/scotcat/6756f6e1f138ba95-480.webp",
+      "width": 500,
+      "height": 294,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pogonopoma_wertheimeri.htm",
+      "caption": "Pogonopoma wertheimeri",
+      "source": "scotcat"
+    }
+  ],
   "videos": [],
-  "productSlots": [],
-  "updatedAt": "2026-11-13"
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc thùng cho bể cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "test pH nước bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-15"
 }

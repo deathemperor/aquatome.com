@@ -1,4 +1,4 @@
-import { cleanPhoto, FIRST_PLANTS, linkTerms, photoFitsCard, plainText, POPULAR, slugify, STAPLE_SPECIES, type Content, type GlossaryEntity, type GuideEntity, type Localized, type Photo } from '@aq/schema'
+import { cleanPhoto, FIRST_PLANTS, glossaryKinds, linkTerms, photoFitsCard, plainText, POPULAR, slugify, STAPLE_SPECIES, type Content, type GlossaryEntity, type GuideEntity, type Localized, type Photo } from '@aq/schema'
 import { BREED_KIND } from './breeds'
 import { LANG, translator, type Lang } from './i18n'
 import { tilePhoto } from './img'
@@ -151,7 +151,32 @@ export function glossaryParts(lang: Lang, c: Content, g: Localized<GlossaryEntit
   const treat = lead && lead.kind === 'disease' && rank.get(lead.id)![0]
     ? { href: `/vi/huong-dan/${lead.t.slug}/`, text: translator(lang)('Trị thế nào: đọc hướng dẫn trị {name} →', { name: g.t.name.toLocaleLowerCase(LANG[lang].locale) }) }
     : undefined
-  return { otherNames, definition, material, photo: g.photos?.[0], body, related, refs: g.refs ?? [], guides, fish, plants, total: usedCount(uses), more, treat }
+  // What the thing looks like (the owner, 15 Nov 2026: "what does each look like?"), none twice (pictures.ts): each kind's
+  // photo, where the entry names its kind, claims first; the term's own photo is its first that no kind holds, under its
+  // title; its other photos follow in a row, and until the kinds row (the Design Lead's board) the kinds' photos sit in
+  // that row too, each captioned with its kind's name (the chief of staff, 15 Nov 2026: Lũa's bonsai and cholla shown,
+  // named, on Monday). The page drew only the first photo, and lá bàng showed one of its two.
+  const pics = pagePictures(c)
+  const kindName = new Map(glossaryKinds(g.t.body ?? '').map(k => [k.id, k.name]))
+  const kinds = (g.kinds ?? []).flatMap(k => {
+    const name = kindName.get(k.id), photo = name ? pics.take([k.photo]) : undefined
+    return name && photo ? [{ photo, name }] : []
+  })
+  const photos = (g.photos ?? []).flatMap(p => pics.take([p]) ?? [])
+  const album: { photo: Photo; name?: string }[] = [...photos.slice(1).map(photo => ({ photo })), ...kinds]
+  return { otherNames, definition, material, photo: photos[0], album, body, related, refs: g.refs ?? [], guides, fish, plants, total: usedCount(uses), more, treat }
+}
+
+/**
+ * A photo's caption in a term's photo row, for the page and the app's copy alike: a kind's name, then the rest of its own
+ * caption where that opens with the name (in any case), else all of it; a term's photo, its caption.
+ */
+export function albumCaption(lang: Lang, a: { photo: Photo; name?: string }): { name?: string; rest?: string } {
+  const caption = a.photo.caption
+  if (!a.name) return caption ? { rest: caption } : {}
+  const locale = LANG[lang].locale
+  const rest = caption?.toLocaleLowerCase(locale).startsWith(a.name.toLocaleLowerCase(locale)) ? caption.slice(a.name.length).replace(/^[\s:–-]+/, '') : caption
+  return rest ? { name: a.name, rest } : { name: a.name }
 }
 
 /** The rows a term's page shows of the pages that use it, each kind's, and whether a search finds the rest (USED_IN_ROWS). */

@@ -1,0 +1,145 @@
+{
+  "id": "hisonotus-leucofrenatus",
+  "scientificName": "Hisonotus leucofrenatus",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hisonotus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "ribeira-de-iguape"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.4,
+          "max": 7.4
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1386",
+      "html": "<p>Common name: Niger Oto. Type locality: Rio das Pedras of Rio Ribeira, Brazil. Size: 6 cm SL.</p><p>A non-descript species with an attractive if low key horizontally striped and mottled patterning. Lives sympatrically with Parotocinclus maculicauda.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1386",
+      "html": "<p>South America: Ribeira de Iguape River basin, rivers of São Paulo State, Brazil.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1386",
+      "html": "<p>pH 6.4–7.4. Temperature 20–24°C. Prefers slightly cooler water.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1386",
+      "html": "<p>Really does best in a planted aquarium, other cover is not necessary although the fish has at least a passing affinity with rounded pebbles.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1386",
+      "html": "<p>These fish appear to be predominantly herbivorous and will readily feed from a wide array of aquarium fare. Algae discs can make up a good portion of their diet, supplemented with any number of additional prepared flake or pellet foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1386",
+      "html": "<p>Peaceful. Suggested tankmates: most small community fishes that prefer a little current and temperatures on the lower side.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1386",
+      "html": "<p>Females are larger, broader across the pectoral to dorsal area and slightly duller in colouration.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1386",
+      "html": "<p>These fish are egg scatterers, breeding in a fashion much like a member of the callichthyid genus Corydoras.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1386",
+      "html": "<p>Kosmos, Rio de Janeiro [Rev. Art. Sci. Litt.] v. 5 (no. 2) (for 1907), pp [2].</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "Dd_L8lvhNTU",
+      "title": "コリタブに餌付いたオトシンネグロ Hisonotus leucofrenatus (niger otocinclus) feeding.",
+      "durationSec": 319,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "7L3PhfpmyNA",
+      "title": "Juvenile fish of “Hisonotus leucofrenatus” about six weeks after hatching",
+      "durationSec": 26,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "AQgEAtf0-So",
+      "title": "Feeding behavior of juvenile fish of “Hisonotus leucofrenatus” about one week after hatching",
+      "durationSec": 60,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Z4xy7T0Eenw",
+      "title": "Reproductive behavior of “Hisonotus leucofrenatus” (1)",
+      "durationSec": 22,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "viên tảo cho cá lau kiếng",
+        "thức ăn cá oto"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh cho bể cá nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ bể thủy sinh",
+        "máy tạo dòng nhẹ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-15"
+}

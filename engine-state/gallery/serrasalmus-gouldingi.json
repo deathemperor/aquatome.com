@@ -1,11 +1,22 @@
 {
  "queue": [],
  "judged": [
-  "File:Data graph of Serrasalmus gouldingi.jpg"
+  "File:Data graph of Serrasalmus gouldingi.jpg",
+  "inat:410833769",
+  "inat:410833744"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/d386398aed8619c3.webp": "cc8c06070306868d",
-  "https://media.aquatome.com/seriouslyfish/584e90e0cae7b241.webp": "72c84fc646662c99"
+  "https://media.aquatome.com/seriouslyfish/584e90e0cae7b241.webp": "72c84fc646662c99",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/410833769/large.jpeg": "ec6c756424363ebe"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 620762,
+  "pass": "done",
+  "after": {
+   "research": 231322819,
+   "agree": 0
+  }
+ }
 }

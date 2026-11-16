@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import {
-  blocks, cardSlips, checkPages, gluedSyllables, claimsControl, countMismatch, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, emptySections, englishSentences, fixStored, fixTranslation, furniture,
+  blocks, cardSlips, checkPages, gluedSyllables, claimsControl, countEvidence, countMismatch, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, emptySections, englishSentences, fixStored, fixTranslation, furniture,
   imperialUnits, isPermissionNote, isPhotoCaption, isThanks, labelSlips, leftoverMarkup, longFurniture, namesSource, numberSlips, otherFish, photoCaptions, plainEntities, ratcheted, refCredits, renumberLabels, RULES, rulesReport, sfScoreFixed, sourcePagePhrases, stripCount,
   renameStored, renameFishNames, renameSwapped, swappedNames, thanksLines, titleCount, unwellOff, vietnameseLeft, wrongFish, captionFlaw, type Ctx,
 } from '../src/content-rules'
@@ -45,6 +45,44 @@ test('a title promising a count: a numbered run, a list or enough headings hold 
   expect(countMismatch('5 bước', '<h3>A</h3><ol><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ol>')).toBeUndefined()
   // A video's "10 mistakes" written as 7 sections.
   expect(countMismatch('10 sai lầm hay gặp khiến bể bị rêu', `${'<h3>X</h3><p>y</p>'.repeat(7)}<ul><li>a</li><li>b</li></ul>`)).toBe('title promises 10; 7 headings, none numbered, lists of 2')
+})
+
+// The chief of staff, 16 Nov 2026: the rule stripped true counts from 15 guides, whose texts say the number ("10 loài",
+// "cả mười loài") or set the fish out in a table of exactly that many, under fewer headings; and it let "8 lý do" stand
+// over a text that gives ten.
+test('a title count stands on what the text says of it, its table and its chapters, and falls to a larger count the text has', () => {
+  const seven = '<h3>A</h3><p>x</p>'.repeat(7)
+  // The text says it, in digits or in words, with the title's own noun.
+  expect(countMismatch('10 loài cá dễ nuôi cho người mới', `<p>Dưới đây là 10 loài dễ nuôi.</p>${seven}`)).toBeUndefined()
+  expect(countMismatch('10 loài cá chuột (Corydoras) đáng nuôi', `<p>Cả mười loài bên dưới đều hiền.</p>${seven}`)).toBeUndefined()
+  expect(countMismatch('6 loại rêu hại hay gặp', `<p>Có sáu loại rêu hại hay gặp.</p>${'<h3>A</h3><p>x</p>'.repeat(4)}`)).toBeUndefined()
+  expect(countMismatch('28 mẹo phòng rêu hại', '<p>Bài này gom hai mươi tám mẹo.</p><h3>A</h3><p>x</p>')).toBeUndefined()
+  // A table of exactly that many, or that many chapters besides the opening one.
+  const table = (n: number) => `<table><tr><th>Loài</th><th>Nhiệt độ</th></tr>${'<tr><td>Cá</td><td>24 °C</td></tr>'.repeat(n)}</table>`
+  expect(countMismatch('10 loài cá hợp nuôi trong bể 40 lít', `${seven}${table(10)}`)).toBeUndefined()
+  expect(countMismatch('10 lý do bể vẫn còn rêu hại', seven, ['Mục lục', ...Array.from({ length: 10 }, (_, i) => `Lý do ${i}`)])).toBeUndefined()
+  // Without them, the old answer: seven headings and a table of 9 aren't ten.
+  expect(countMismatch('10 loài cá hợp nuôi trong bể 40 lít', `${seven}${table(9)}`)).toBe('title promises 10; 7 headings, none numbered, tables of 9')
+  // "8 lý do" over a text that says ten and has ten chapters: eight headings don't save it.
+  const eight = '<h3>A</h3><p>x</p>'.repeat(8)
+  expect(countMismatch('8 lý do bể vẫn còn rêu hại', `<p>Bài này đi qua 10 lý do.</p>${eight}`, ['Mục lục', ...Array.from({ length: 10 }, (_, i) => `Lý do ${i}`)])).toBe('title promises 8; the text says 10 lý do and has that many')
+  // A larger number the text only mentions doesn't count against the title: five catfish, and the 20 species of a genus.
+  expect(countMismatch('5 loài cá da trơn phổ biến', `<p>Chi này có khoảng 20 loài.</p>${'<h3>A</h3><p>x</p>'.repeat(5)}`)).toBeUndefined()
+  // "Hơn 50 loại" wants more than 50: a table of 51, or the text saying so.
+  expect(countMismatch('Hơn 50 loại cây thủy sinh đỏ', `<h3>A</h3>${table(51)}`)).toBeUndefined()
+  expect(countMismatch('Hơn 30 loại cây chịu được nước lợ', `<p>Hơn 30 loại cây sống được.</p><h3>A</h3><p>x</p>`)).toBeUndefined()
+  expect(countMismatch('Hơn 50 loại cây thủy sinh đỏ', `<h3>A</h3>${table(40)}`)).toBe('title promises more than 50; 1 headings, none numbered, tables of 40')
+  expect(stripCount('Hơn 50 loại cây thủy sinh đỏ cho bể cá')).toBe('Loại cây thủy sinh đỏ cho bể cá')
+  // "Hơn"/"trên" counts only right before the count's own number and noun: a tank over 100 litres isn't "more than 5".
+  expect(countMismatch('Bể trên 100 lít: 5 loài cá nên nuôi', '<h3>A</h3><ul><li>a</li><li>b</li><li>c</li><li>d</li><li>e</li></ul>')).toBeUndefined()
+  expect(stripCount('5 loài cá cho bể hơn 60 lít')).toBe('Loài cá cho bể hơn 60 lít')
+  // Closing chapters ("Kết", "Kết thúc", "Lời cuối") and Thai frames aren't items; a chapter that only starts like one is.
+  const tenAnd = (open: string, close: string) => [open, ...Array.from({ length: 10 }, (_, i) => `Loài ${i}`), close]
+  expect(countMismatch('11 loài cá heo dễ nuôi', seven, tenAnd('Mở đầu', 'Kết'))).toBe('title promises 11; 7 headings, none numbered, 10 chapters')
+  expect(countMismatch('11 loài cá heo dễ nuôi', seven, tenAnd('บทนำ', 'สรุป'))).toBe('title promises 11; 7 headings, none numbered, 10 chapters')
+  expect(countMismatch('11 cách nuôi cá', seven, [...tenAnd('Giới thiệu', 'Lời cuối').slice(0, -1), 'Kết hợp cá với tép'])).toBeUndefined()
+  // What a model writing the title again is shown.
+  expect(countEvidence('8 lý do bể vẫn còn rêu hại', `<p>Bài này đi qua 10 lý do.</p>${table(10)}`, ['Mục lục', 'Cây yếu', 'Thiếu cây'])).toBe('The text says: 10 lý do\nIts tables have 10 rows\nIts chapters (2): Cây yếu; Thiếu cây')
 })
 
 /** Furniture the rule finds, whether or not the sweep may cut it (more than half a text). */

@@ -13,7 +13,10 @@
     "Royal Blue Nhamunda discus",
     "Cá đĩa Red Inferno",
     "Cá đĩa hoang dã Rio Moju",
-    "Red Inferno discus"
+    "Red Inferno discus",
+    "Cá đĩa hoang dã Lago Inanum",
+    "Semi Royal Blue",
+    "Wild Lago Inanum discus"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<p>Cá đĩa (Symphysodon aequifasciatus) là một loài cichlid (họ Cichlidae) sống ở vùng Amazon thuộc Colombia, Peru và Brazil. Chúng phân bố dọc sông Rio Solimões và dòng chính sông Amazon, từ sông Rio Putumayo xuống tới lưu vực sông Tocantins. Cá đĩa thường ở các nhánh sông nước chảy chậm và các vũng nước trong rừng. Ở đó chúng bơi thành đàn ở chỗ nước sâu, kín đáo, quanh rễ cây và đá. Cá hoang dã lớn tới khoảng 14 cm. Cá đĩa rất nhát và dễ hoảng, nên trong bể cần có nhiều chỗ cho chúng trốn.</p>",
@@ -23,8 +26,8 @@
     "maintenance:seriouslyfish": "<p>Nhiều người mê cá đĩa chọn set bể trồng dày cây. Kiểu bể này rất hợp với Symphysodon aequifasciatus vì cây cối tạo ra nhiều chỗ ẩn nấp. Cá đĩa rất nhát và dễ hoảng. Bể càng nhiều chỗ trốn thì chúng càng thấy yên tâm.</p>",
     "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 26–30°C</li><li>pH: 5,0–7,0</li><li>Độ cứng: 0–5 dGH</li></ul>",
     "diet:seriouslyfish": "<p>Ngoài tự nhiên, cá đĩa ăn chủ yếu động vật phù du, côn trùng và các loài không xương sống nhỏ khác.</p>",
-    "distribution:glaser": "<p>Nguồn gốc: Brazil, sông Moju (Rio Moju).</p>",
-    "notes:glaser": "<p>Dòng \"Red Inferno\" từ sông Moju hiện về với chất lượng đặc biệt tốt. Vây và hai bên thân cá có nền đỏ cam đậm. Trên nền đó, các vân sóng xanh lục ngả lam nổi lên rất đẹp. Đôi mắt đỏ anh đào của chúng để ý rất kỹ từng cử động trong và ngoài bể.</p><p>Đứng trước một bể nuôi đàn cá đẹp thế này và ngắm chúng vận động trong đàn thì rất cuốn. Nhìn chúng là hiểu ngay vì sao từ xưa người ta đã gọi cá đĩa là \"vua của các loài cá cảnh\". Dáng cá hoàn hảo, màu phối lại đẹp, nên người mê cá đĩa hoang dã thích đã đành. Những người ép đẻ muốn làm dòng nghiêm túc cũng tìm được ở đây nguồn gen mới và khỏe cho những phẩm chất này.</p>"
+    "distribution:glaser": "<p>Xuất xứ: Brazil.</p>",
+    "notes:glaser": "<p>Con cá đĩa rất đẹp này còn có tên bán là \"Semi Royal Blue\". Cá đĩa hoang dã nhìn là thấy đẹp. Điều đáng nói là đến giờ người ta vẫn còn tìm ra và nhập về những dạng hoang dã mới.</p><p>Cá đĩa hoang dã không được nuôi đúng điều kiện tốt nhất thì sẽ không khỏe. Chúng không hợp bể là lộ ra rất nhanh: màu xấu đi, cá nhát và hay trốn. Một con cá đĩa hoang dã trông nhợt nhạt thì chắc chắn bể đang có vấn đề. Nhưng cá chưa lên màu đẹp nhất thì cũng đừng vội lo. Màu cá đậm dần theo thời gian, có khi vài tháng sau khi mua từ tiệm mới lên hết, miễn là được chăm đúng cách. Tuần sau cá sẽ đẹp hơn tuần trước.</p><p>Vì thế, lúc chọn cá thì đừng nhìn màu là chính. Quan trọng nhất là dáng thân, cỡ mắt, hình dạng vây và cách cá bơi lội, cư xử có tự nhiên hay không.</p>"
   },
   "nameFixed": true,
   "redirectFrom": [
@@ -34,10 +37,10 @@
     }
   ],
   "quality": {
-    "score": 0.75,
+    "score": 0.8,
     "indexable": true,
     "bySource": {
-      "glaser": 0.75,
+      "glaser": 0.82,
       "seriouslyfish": 0.8
     }
   }

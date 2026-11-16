@@ -4,7 +4,8 @@ import XCTest
 /// kept with the run (`shot-…`), and put in the `ios-page-shots` artifact by apps/ios/scripts/shots.py. A fish, a plant,
 /// a guide, a video series and a kind of kit, in light, the fish and the kit in dark too, the fish's top at a large text
 /// size, and a guide's video playing in its page (the stand-in player); the fish-ID screen with its guesses, light and
-/// dark; photos as stand-ins (`-fixed-pictures`). Also the Tài khoản sheet with the ways to sign in, in light and in
+/// dark; the chat, empty, waiting and answered with one of each kind of block, light, dark and at the largest text; photos
+/// as stand-ins (`-fixed-pictures`). Also the Tài khoản sheet with the ways to sign in, in light and in
 /// dark, on a new phone. And a search's results under the kinds it finds, light and dark, at the default and the
 /// largest text size, with more found than listed, and with a kind picked that it finds none of, at both sizes; the app's
 /// icon picker; the lights tab's card for the fake light, its clock lost, warning of its outlet's timer on the stand-in
@@ -16,7 +17,7 @@ import XCTest
 /// day's page and Khám phá, light, dark and at the largest text, and in Malay. The lights tab top to
 /// bottom (its Week Aqua row on the first screen) and the Week Aqua screen with the simulator's group connected
 /// (`-fake-weekaqua`), in v2, light and dark.
-/// Each checks only that its screen opened:
+/// Each checks only that its screen opened (the chat's parity shot also measures "Thu gọn", as its section flow does):
 /// what it shows, the other flows check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
@@ -90,6 +91,69 @@ final class PageShotsFlowTests: XCTestCase {
   func testTheAccountSignedIn() { shootAccount("account-light") }
   func testTheAccountSignedInInTheDark() { shootAccount("account-dark", dark: true) }
   func testTheAccountSignedInInTheLargestText() { shootAccount("account-largest-light", size: largest) }
+  func testTheChat() { shootChat("chat-light") }
+  func testTheChatInTheDark() { shootChat("chat-dark", dark: true) }
+  func testTheChatInTheLargestText() { shootChat("chat-largest-light", size: largest) }
+  /// For Design's parity (15 Nov): a species card's page and iOS's back to the chat, where it was left; then a long section
+  /// opened, its "Thu gọn" in view and measured. v2, light.
+  func testTheChatsOpenSectionAndBackFromACardsPage() {
+    let app = launch(dark: false, size: nil, ["-fake-accounts", "on", "-reset-fake-server", "-chat-blocks"], look: .v2)
+    let tabs = app.tabBars.buttons
+    XCTAssertTrue(tabs.firstMatch.waitForExistence(timeout: 10), "no tabs")
+    tabs.element(boundBy: tabs.count - 1).tap()
+    open(app, "ca neon", "Cá neon")
+    let entry = app.scrolledDown(to: app.descendants(matching: .any)["chat-entry"].firstMatch)
+    entry.tap()
+    let sign = app.descendants(matching: .any)["apple-sign-in"].firstMatch
+    XCTAssertTrue(sign.waitForExistence(timeout: 5), "no sign-in")
+    sign.tap()
+    let chip = app.buttons.matching(identifier: "chat-chip").firstMatch
+    XCTAssertTrue(chip.waitForExistence(timeout: 10), "no starters")
+    chip.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["chat-answer"].firstMatch.waitForExistence(timeout: 60), "no whole answer")
+    func shot(_ what: String) {
+      settle()
+      let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+      a.name = "shot-chat-parity-\(what)"
+      a.lifetime = .keepAlways
+      add(a)
+    }
+    // As ChatFlowTests' `reveal`: fast drags until it's on screen and clear of the box. A slow scroll stopped short of the
+    // section, which sits under the species cards and the comparison (15 Nov 12:32).
+    let box = app.descendants(matching: .any)["chat-box"].firstMatch
+    func reveal(_ e: XCUIElement) {
+      func clear() -> Bool { e.exists && e.isHittable && (!box.exists || e.frame.midY < box.frame.minY - 16) }
+      repeatUntil(clear(), times: 12) {
+        app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.7))
+          .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.4)), withVelocity: .fast,
+                 thenHoldForDuration: 0.1)
+      }
+      XCTAssertTrue(clear(), "\(e) not found, or behind the box")
+    }
+    // The species card comes first in the answer: its page, and back to the chat.
+    let page = app.buttons.matching(identifier: "chat-card-open").firstMatch
+    reveal(page)
+    shot("01-before-the-page")
+    page.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 10), "the card's page didn't open")
+    app.leavePage()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForNonExistence(timeout: 5), "the card's page stayed")
+    XCTAssertTrue(page.waitForExistence(timeout: 5), "not back in the chat")
+    shot("02-back-in-the-chat")
+    // Then the long section, below the comparison: opened, with its "Thu gọn" in view and measured.
+    let section = app.descendants(matching: .any)["chat-section"].firstMatch
+    reveal(section)
+    section.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+    let close = app.buttons["Thu gọn"]
+    XCTAssertTrue(close.waitForExistence(timeout: 5), "the section didn't open")
+    reveal(close)
+    shot("03-section-open")
+    let size = XCTAttachment(string: "Thu gọn: \(close.frame.width) × \(close.frame.height) pt at \(close.frame.minX), \(close.frame.minY)")
+    size.name = "chat-parity-thu-gon-frame"
+    size.lifetime = .keepAlways
+    add(size)
+    XCTAssertGreaterThanOrEqual(close.frame.height, 44, "Thu gọn under 44 pt")
+  }
   func testFishId() { shootFishId("fish-id-light") }
   func testFishIdInTheDark() { shootFishId("fish-id-dark", dark: true) }
   func testAKindOfKit() { shoot("kit-light", "loc", "Lọc", more: ["-equipment"]) }
@@ -448,6 +512,31 @@ final class PageShotsFlowTests: XCTestCase {
     // From the top: the screen scrolls to the guesses when they come.
     for _ in 0..<4 { app.swipeDown() }
     capture(app, name, dark: dark, large: false, screens: 8)
+  }
+
+  /// The neon's chat: empty with its starters, the wait with its steps, then a whole answer with one of each kind of block,
+  /// from its top.
+  private func shootChat(_ name: String, dark: Bool = false, size: String? = nil) {
+    let app = launch(dark: dark, size: size, ["-fake-accounts", "on", "-reset-fake-server", "-chat-slow", "-chat-blocks"])
+    open(app, "ca neon", "Cá neon")
+    let entry = app.descendants(matching: .any)["chat-entry"].firstMatch
+    repeatUntil(entry.exists && entry.isHittable, times: 12) { app.swipeUp() }
+    entry.tap()
+    let sign = app.descendants(matching: .any)["apple-sign-in"].firstMatch
+    XCTAssertTrue(sign.waitForExistence(timeout: 5), "no sign-in")
+    sign.tap()
+    let chip = app.buttons.matching(identifier: "chat-chip").firstMatch
+    XCTAssertTrue(chip.waitForExistence(timeout: 10), "no starters")
+    capture(app, name + "-empty", dark: dark, large: true, screens: 1)
+    chip.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["chat-step"].firstMatch.waitForExistence(timeout: 10), "no wait")
+    capture(app, name + "-wait", dark: dark, large: true, screens: 1)
+    XCTAssertTrue(app.descendants(matching: .any)["chat-answer"].firstMatch.waitForExistence(timeout: 60), "no whole answer")
+    // Its blocks too: they come after the text.
+    let tool = app.buttons.matching(identifier: "chat-tool").element(boundBy: 1)
+    XCTAssertTrue(tool.waitForExistence(timeout: 30), "no blocks")
+    for _ in 0..<4 { app.swipeDown() }
+    capture(app, name + "-answer", dark: dark, large: size != nil, screens: size == nil ? 16 : 20)
   }
 
   /// The handbook's row for `row`, found by `query`, opened.

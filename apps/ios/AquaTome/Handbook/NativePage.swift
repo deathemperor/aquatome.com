@@ -22,6 +22,8 @@ struct NativePage: View {
   var nameInView: (Bool) -> Void = { _ in }
   /// The page's path on the site, for the app's anonymous telemetry (PageReading).
   var path: String?
+  /// The heading it opens at (a chat section's "Đọc tiếp"), a folded one open.
+  var heading: String?
   /// A part to open the page at (its heading's id): v2's page offers this one where it holds a part it can't draw.
   var at: String?
   /// A smaller copy of its photo, already on the screen, shown until the photo itself has come (`NativePage.head`).
@@ -53,6 +55,8 @@ struct NativePage: View {
   @State private var player = PagePlayer()
   /// VoiceOver's place: moved with a `#id` link, as the scroll is.
   @AccessibilityFocusState private var focus: String?
+  /// The folds the reader has opened or closed; until then, closed, unless the page opens at one.
+  @State private var folds: [Int: Bool] = [:]
   @Environment(\.dynamicTypeSize) private var size
   @Environment(\.accessibilityReduceMotion) private var reduceMotion
   /// The bar's foot on the screen, and the room the page scrolls in: under the bar, a part comes to rest below it.
@@ -142,6 +146,13 @@ struct NativePage: View {
       }
       // A chapter or a still tapped: its video in view.
       .onChange(of: player.asked) { withAnimation { proxy.scrollTo(PagePlayer.anchor(player.id), anchor: .center) } }
+      // Opened at a heading: there once it's drawn, as a `#id` link goes.
+      .task(id: heading) {
+        guard let heading else { return }
+        try? await Task.sleep(for: .milliseconds(100))
+        proxy.scrollTo(heading, anchor: top)
+        focus = heading
+      }
       // A part chosen from the navigator's list: its heading just under the bar.
       .onChange(of: navigator?.asked) { _, asked in
         guard let asked else { return }
@@ -268,13 +279,13 @@ struct NativePage: View {
         Text(title).font(.headline)
       }
       .accessibilityIdentifier("page-more")
-    case let .fold(heading, anchor, text):
-      DisclosureGroup {
+    case let .fold(title, anchor, text):
+      DisclosureGroup(isExpanded: Binding(get: { folds[i] ?? (anchor != nil && anchor == heading) }, set: { folds[i] = $0 })) {
         Text(text).lineSpacing(3).frame(maxWidth: .infinity, alignment: .leading).padding(.top, 12)
       } label: {
         // In the text's colour, as the page's other headings: only the chevron in the tint, which the links in the
         // text keep too.
-        Text(heading).foregroundStyle(Color.primary).accessibilityAddTraits(.isHeader)
+        Text(title).foregroundStyle(Color.primary).accessibilityAddTraits(.isHeader)
       }
       .accessibilityFocused($focus, equals: anchor ?? "piece-\(i)")
       .id(anchor ?? "piece-\(i)")

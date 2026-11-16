@@ -5,7 +5,11 @@
   "family": "Cambaridae",
   "genus": "Cambarellus",
   "group": "other",
-  "places": [],
+  "places": [
+    "north-america",
+    "mexico",
+    "lake-patzcuaro"
+  ],
   "range": {
     "records": {
       "taxonKey": 2227438,
@@ -55,53 +59,35 @@
       ]
     }
   },
-  "dataCard": {},
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 4
+      }
+    ]
+  },
   "sections": [
     {
       "key": "quickFacts",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/cambarellus-patzcuarensis-orange",
-      "html": "<p>Cambarellus patzcuarensis 'Orange' (CPO), also known as the dwarf orange crayfish or orange Mexican dwarf crayfish, is a small crustacean. It is a selectively bred variety with a vibrant orange colour.</p>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cambarellus_patzcuarensis_en/",
+      "html": "<p>The orange dwarf lobster, Cambarellus patzcuarensis, grows only up to 3–4 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cambarellus_patzcuarensis_en/",
+      "html": "<p>Origin: Lake Pátzcuaro in Mexico.</p>"
     },
     {
       "key": "behaviour",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/cambarellus-patzcuarensis-orange",
-      "html": "<p>Keepers value them for their peaceful nature. They are suited to shrimp and invertebrate setups or even community tanks, and are compatible with other tank inhabitants.</p>"
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cambarellus_patzcuarensis_en/",
+      "html": "<p>These dwarf lobsters are slightly aggressive among each other.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/bwaquatics/79c1b4462040b500.webp",
-      "thumb": "https://media.aquatome.com/bwaquatics/79c1b4462040b500-480.webp",
-      "width": 1200,
-      "height": 676,
-      "licence": "dùng với sự cho phép",
-      "author": "BW Aquatics",
-      "sourceUrl": "https://bwaquatics.com/products/cambarellus-patzcuarensis-orange",
-      "source": "bwaquatics"
-    },
-    {
-      "url": "https://media.aquatome.com/bwaquatics/6bf8cc0f3cafba63.webp",
-      "thumb": "https://media.aquatome.com/bwaquatics/6bf8cc0f3cafba63-480.webp",
-      "width": 1200,
-      "height": 676,
-      "licence": "dùng với sự cho phép",
-      "author": "BW Aquatics",
-      "sourceUrl": "https://bwaquatics.com/products/cambarellus-patzcuarensis-orange",
-      "source": "bwaquatics"
-    },
-    {
-      "url": "https://media.aquatome.com/bwaquatics/020fa5214ae5460b.webp",
-      "thumb": "https://media.aquatome.com/bwaquatics/020fa5214ae5460b-480.webp",
-      "width": 1200,
-      "height": 676,
-      "licence": "dùng với sự cho phép",
-      "author": "BW Aquatics",
-      "sourceUrl": "https://bwaquatics.com/products/cambarellus-patzcuarensis-orange",
-      "source": "bwaquatics"
-    }
-  ],
+  "photos": [],
   "videos": [
     {
       "youtubeId": "D7HMVQL1uBU",
@@ -149,5 +135,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-15"
 }

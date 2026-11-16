@@ -1,12 +1,16 @@
 {
   "id": "chromobotia-macracanthus",
-  "summary": "Cá heo hề (Chromobotia macracanthus) hợp với người đã có bể lớn chạy ổn định và muốn nuôi cả đàn. Cá dài tới 40 cm, sống 10–25 năm, cần bể dài tối thiểu 180 cm, nước 24–30 °C, pH 5–7, độ cứng 1–12 dGH. Độ khó 4/8 (vừa), khó nhất là có đủ chỗ cho cả đàn và giữ nước thật sạch, giàu oxy.",
+  "summary": "Hợp với người có chỗ đặt bể dài ít nhất 180 cm và nuôi được đàn ít nhất 5 hoặc 6 con, tốt nhất là từ 10 con trở lên. Cá dài tới 40 cm và sống 10–25 năm nên phải tính chuyện lâu dài. Nước cần 24–30 °C, pH 5–7, độ cứng 1–12 dGH, sạch và giàu oxy. Độ khó 4/8, khó nhất là bể lớn, đàn đông và giữ nước thật sạch.",
   "mistakes": [
-    "Nuôi lẻ hoặc chỉ hai, ba con thì con đầu đàn có thể chèn ép cho tới khi các con khác bỏ ăn, nên nuôi ít nhất 5 hoặc 6 con, tốt nhất từ 10 con trở lên.",
-    "Thả cá vào bể mới set chưa có hệ vi sinh, trong khi cá không chịu được chất thải tích tụ, nên chờ bể chạy ổn định rồi mới thả và thay 30–50% nước mỗi tuần.",
-    "Để bể hở vì tưởng cá hiền, trong khi loài này thỉnh thoảng nhảy, nên luôn đậy nắp thật khít."
+    "Mua một vài con thả bể nhỏ thì nên nuôi đàn ít nhất 5 hoặc 6 con trong bể dài ít nhất 180 cm, vì nuôi lẻ thì cá nhút nhát hoặc hung hăng, còn mua hai hoặc ba con thì con đầu đàn có thể chèn ép những con còn lại đến mức bỏ ăn.",
+    "Thả cá vào bể mới set chưa có hệ vi sinh thì nên chờ bể chạy ổn định rồi mới thả, sau đó thay 30–50% nước mỗi tuần vì cá không chịu được chất thải hữu cơ tích tụ.",
+    "Để bể hở hoặc có vật cạnh sắc thì nên đậy nắp thật khít vì cá hay nhảy, và bỏ vật sắc cạnh vì cá thích lách vào khe hẹp."
   ],
   "speciesUpdatedAt": "2026-11-10",
-  "generatedAt": "2026-11-10T22:50:16.859Z",
-  "review": "approved"
+  "writtenFrom": "7ebb93dcb7780652",
+  "generatedAt": "2026-11-15T11:07:14.276Z",
+  "review": "pending",
+  "problems": [
+    "Mistake 1: \"nuôi lẻ thì cá nhút nhát hoặc hung hăng\" drops the page's hedge. The page says a single fish \"có thể trở nên nhút nhát, lầm lì hoặc hung hăng\", so this turns a possibility into a certainty."
+  ]
 }

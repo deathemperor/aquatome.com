@@ -4338,6 +4338,7 @@
   "Bentosi bentosi": null,
   "Beobachtungen und": null,
   "Beschreibung einer": null,
+  "Beschreibung eines": null,
   "Beschreibung von": null,
   "Betadevario ramachandrani": {
     "canonicalName": "Betadevario ramachandrani",
@@ -8913,6 +8914,7 @@
     "matchType": "EXACT"
   },
   "Cua mini": null,
+  "Cua mua": null,
   "Cua xanh": null,
   "Cualac tessellatus": {
     "canonicalName": "Cualac tessellatus",
@@ -9827,6 +9829,15 @@
     "order": "Myrtales",
     "family": "Lythraceae",
     "genus": "Didiplis",
+    "matchType": "EXACT"
+  },
+  "Dikerogammarus villosus": {
+    "canonicalName": "Dikerogammarus villosus",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Amphipoda",
+    "family": "Gammaridae",
+    "genus": "Dikerogammarus",
     "matchType": "EXACT"
   },
   "Dimidiochromis compressiceps": {
@@ -12956,6 +12967,14 @@
     "genus": "Strobilanthes",
     "matchType": "EXACT"
   },
+  "Hemiloricaria castroi": {
+    "canonicalName": "Rineloricaria castroi",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Rineloricaria",
+    "matchType": "EXACT"
+  },
   "Hemiloricaria fallax": {
     "canonicalName": "Rineloricaria fallax",
     "order": "Siluriformes",
@@ -14892,14 +14911,17 @@
     "genus": "Juncus",
     "matchType": "EXACT"
   },
+  "Juveniles occurred": null,
   "Juxtastiphodon has": null,
   "Kalaymyo lies": null,
   "Kalimantan provinces": null,
+  "Kalimantan tengah": null,
   "Kallada drainages": null,
   "Kampffisch von": null,
   "Kampffische von": null,
   "Kamphol ghi": null,
   "Kanchanaburi provinces": null,
+  "Kani magur": null,
   "Kaoping drainages": null,
   "Kapuas mainstream": null,
   "Kapuas tributaries": null,
@@ -16103,6 +16125,14 @@
   "Leporinus originates": null,
   "Leporinus reticulatus": {
     "canonicalName": "Leporinus reticulatus",
+    "order": "Characiformes",
+    "family": "Anostomidae",
+    "genus": "Leporinus",
+    "matchType": "EXACT"
+  },
+  "Leporinus steyermarki": {
+    "canonicalName": "Leporinus steyermarki",
+    "phylum": "Chordata",
     "order": "Characiformes",
     "family": "Anostomidae",
     "genus": "Leporinus",
@@ -20373,6 +20403,14 @@
   "Orinoco lies": null,
   "Orinoco mainstream": null,
   "Orinoco tributaries": null,
+  "Orinocodoras eigenmanni": {
+    "canonicalName": "Orinocodoras eigenmanni",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Doradidae",
+    "genus": "Orinocodoras",
+    "matchType": "EXACT"
+  },
   "Orissa states": null,
   "Orthochromis stormsi": {
     "canonicalName": "Orthochromis stormsi",
@@ -20631,6 +20669,14 @@
     "genus": "Macrotocinclus",
     "matchType": "EXACT"
   },
+  "Otocinclus arnoldi": {
+    "canonicalName": "Otocinclus arnoldi",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Otocinclus",
+    "matchType": "EXACT"
+  },
   "Otocinclus batmani": {
     "canonicalName": "Otocinclus batmani",
     "order": "Siluriformes",
@@ -20690,6 +20736,14 @@
     "matchType": "EXACT"
   },
   "Otocinclus mua": null,
+  "Otocinclus vestitus": {
+    "canonicalName": "Otocinclus vestitus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Otocinclus",
+    "matchType": "EXACT"
+  },
   "Otocinclus vittatus": {
     "canonicalName": "Otocinclus vittatus",
     "order": "Siluriformes",
@@ -22732,6 +22786,14 @@
     "genus": "Silonia",
     "matchType": "EXACT"
   },
+  "Pimephales promelas": {
+    "canonicalName": "Pimephales promelas",
+    "phylum": "Chordata",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Pimephales",
+    "matchType": "EXACT"
+  },
   "Pinoh arowana": null,
   "Pipa parva": {
     "canonicalName": "Pipa parva",
@@ -22920,6 +22982,14 @@
     "matchType": "EXACT"
   },
   "Plecostomus microps": null,
+  "Plectrochilus erythrurus": {
+    "canonicalName": "Vandellia cirrhosa",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Trichomycteridae",
+    "genus": "Vandellia",
+    "matchType": "EXACT"
+  },
   "Pleistophora hyphessobryconis": {
     "canonicalName": "Pleistophora hyphessobryconis",
     "order": "Glugeida",
@@ -26860,6 +26930,14 @@
     "genus": "Serrapinnus",
     "matchType": "EXACT"
   },
+  "Serrapinnus sterbai": {
+    "canonicalName": "Serrapinnus sterbai",
+    "phylum": "Chordata",
+    "order": "Characiformes",
+    "family": "Characidae",
+    "genus": "Serrapinnus",
+    "matchType": "EXACT"
+  },
   "Serrasalmus altuvei": {
     "canonicalName": "Serrasalmus altuvei",
     "order": "Characiformes",
@@ -26876,6 +26954,14 @@
   },
   "Serrasalmus compressus": {
     "canonicalName": "Serrasalmus compressus",
+    "order": "Characiformes",
+    "family": "Serrasalmidae",
+    "genus": "Serrasalmus",
+    "matchType": "EXACT"
+  },
+  "Serrasalmus eigenmanni": {
+    "canonicalName": "Serrasalmus eigenmanni",
+    "phylum": "Chordata",
     "order": "Characiformes",
     "family": "Serrasalmidae",
     "genus": "Serrasalmus",

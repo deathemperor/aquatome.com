@@ -232,13 +232,18 @@ const slugOf = (path: string) => path.split('/').filter(Boolean).at(-1) ?? ''
 
 /**
  * The fish of a tank-mates tool, as its link names them and its check (mates.ts) reads them: each fish as the species
- * it is a form of, once, at most six, how many of it from 1 to 200.
+ * it is a form of, once, at most six, how many of it from 1 to 200, its breeds' counts added up (16 Nov: 1 ranchu and
+ * 1 pearlscale were checked as one goldfish).
  */
 export function matesOf(fish: readonly { id: string; count: number }[], hb: Handbook): { item: Item; count: number }[] {
   const out = new Map<string, { item: Item; count: number }>()
   for (const f of fish) {
     const s = speciesOf(f.id, hb)
-    if (s && out.size < MAX_FISH && !out.has(slugOf(s.path))) out.set(slugOf(s.path), { item: s, count: Math.min(200, Math.max(1, Math.round(f.count))) })
+    if (!s) continue
+    const n = Math.max(1, Math.round(f.count))
+    const was = out.get(slugOf(s.path))
+    if (was) was.count = Math.min(200, was.count + n)
+    else if (out.size < MAX_FISH) out.set(slugOf(s.path), { item: s, count: Math.min(200, n) })
   }
   return [...out.values()]
 }

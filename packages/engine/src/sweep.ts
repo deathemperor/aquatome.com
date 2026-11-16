@@ -189,7 +189,7 @@ export type SweepReport = {
   stopped: string
 }
 
-type Stored = { name?: string; altNames?: string[]; nameFixed?: boolean; sections?: Record<string, string>; body?: string; definition?: string; summary?: string[]; faq?: { q: string; a: string }[] }
+type Stored = { name?: string; altNames?: string[]; nameFixed?: boolean; sections?: Record<string, string>; body?: string; chapters?: string[]; definition?: string; summary?: string[]; faq?: { q: string; a: string }[] }
 
 /** A file's own indentation, so a change is the lines it changes. */
 const indentOf = (raw: string) => raw.match(/^\{\n( +)/)?.[1]?.length ?? 2
@@ -518,7 +518,8 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
           for (const f of fixed) (report.text[f] ??= []).push(`${kind}/${id}/${lang}`)
           if (kind === 'guides' && before.body !== undefined) guides.push({ key: lang === 'vi' ? id : `${id}:${lang}`, before: before.body, after: t.body! })
         }
-        if (kind === 'guides' && t.name && t.body && countMismatch(t.name, t.body)) counted.push({ file, raw, t, kind, lang, id })
+        // A title a person fixed (nameFixed) is theirs: its count stays, whatever this rule makes of the text.
+        if (kind === 'guides' && t.name && t.body && !t.nameFixed && countMismatch(t.name, t.body, t.chapters)) counted.push({ file, raw, t, kind, lang, id })
         if (kind === 'guides' && t.name) titled.push({ file, raw, t, lang, id, title: t.name })
       }
     }
@@ -657,7 +658,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     if (budget > 0 && !report.stopped) {
       budget--
       try {
-        const r = await rewriteTitle(o.llm!, old, c.t.body!, c.lang, o.model)
+        const r = await rewriteTitle(o.llm!, old, c.t.body!, c.lang, o.model, c.t.chapters)
         if (r.score >= QUALITY_THRESHOLD) { title = r.title; how = `rewritten (${r.score.toFixed(2)})` }
         else how = `number dropped; rewrite "${r.title}" not kept (${r.score.toFixed(2)}${r.notes.length ? `: ${r.notes.slice(0, 2).join('; ')}` : ''})`
         await logReviews(root, 'title', { id: `${c.kind}/${c.id}`, lang: c.lang }, [r], title === r.title ? r : undefined, { model: o.model })
@@ -671,7 +672,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
         else how = `number dropped; rewrite failed: ${(e as Error).message.slice(0, 120)}`
       }
     }
-    if (title === old || countMismatch(title, c.t.body!)) continue
+    if (title === old || countMismatch(title, c.t.body!, c.t.chapters)) continue
     await write(c.file, c.raw, { ...c.t, name: title })
     changed(`${c.kind}/${c.id}/${c.lang}.json`)
     report.titles.push(`${c.lang}/${c.kind}/${c.id}: "${old}" → "${title}" (${how})`)

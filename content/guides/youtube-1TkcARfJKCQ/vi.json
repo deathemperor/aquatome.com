@@ -30,7 +30,7 @@
       "a": "Bể cầu vồng thả dày có thể khó giữ dương xỉ, dù có người vẫn giữ được. Một bể như vậy đã chuyển sang ráy và lưỡi mèo, và một gợi ý là giảm khoảng 50% số cá nếu muốn giữ dương xỉ."
     }
   ],
-  "cover": "Bể cầu vồng của Tùng cá",
+  "cover": "Bể cầu vồng cỡ lớn",
   "quality": {
     "score": 0.6,
     "indexable": false,
@@ -39,10 +39,12 @@
     },
     "chat": false
   },
-  "held": {
-    "checks": [],
-    "at": "2026-11-08"
-  },
   "bodyFixed": true,
-  "faqFixed": true
+  "faqFixed": true,
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-15"
+  }
 }

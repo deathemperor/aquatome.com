@@ -151,7 +151,7 @@ test('a box set by hand holds whatever the box step records for its photo: anoth
   const file = join(store, 'species', 'alpha', 'entity.json')
   const e = JSON.parse(await readFile(file, 'utf8'))
   const urls = Object.keys(HAND_BOXES)
-  expect(urls).toHaveLength(4)
+  expect(urls).toHaveLength(8)
   e.photos = [...e.photos, ...urls.map((url, i) => ({ url, width: 1000, height: 750, licence: 'CC BY 4.0', author: 'A', sourceUrl: `https://x/hand-${i}` }))]
   await writeFile(file, JSON.stringify(e))
   await mkdir(join(site, 'engine-state'))

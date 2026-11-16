@@ -1,12 +1,16 @@
 {
   "id": "brachygobius-aggregatus",
-  "summary": "Cá bống ong đàn (Brachygobius aggregatus) hợp với người mới nuôi, độ khó 1/8, cá trưởng thành chỉ 4,4 cm. Bể tối thiểu dài 45 cm (45 × 30 cm, khoảng 41 lít), nước 22–28 °C. Điểm cần lưu ý nhất là loài này khó hợp bể cộng đồng, nên nuôi riêng; thức ăn sống cỡ nhỏ như Artemia, Daphnia có lẽ là thiết yếu.",
+  "summary": "Cá bống ong đàn (Brachygobius aggregatus) hợp với người mới, độ khó 1/8, trưởng thành chỉ 4,4 cm. Bể đáy tối thiểu 45 cm (45 × 30 cm, khoảng 41 lít), nhiệt độ 22–28 °C, tốt nhất nuôi riêng loài này. Khó nhất là cho ăn: cá cần thức ăn sống nhỏ như Artemia, còn thức ăn khô thường bị bỏ qua.",
   "mistakes": [
-    "Cho ăn toàn thức ăn khô thì cá thường bỏ qua; nên cho Artemia, Daphnia sống, một số con sẽ học ăn đồ đông lạnh.",
-    "Thả chung vào bể cộng đồng thì khó hợp; nên nuôi riêng một bể chỉ có loài này.",
-    "Tin tên trong danh sách bán là chắc chắn thì dễ nhầm, vì tên này hay bị gán nhầm cho loài khác; nên đối chiếu đặc điểm như không có vảy trước vây lưng và 6 tia vây hậu môn phân nhánh."
+    "Cho ăn thức ăn khô rồi thấy cá không ăn: nên cho Artemia mới nở còn sống, vì dễ tự ấp và là lựa chọn tốt nhất.",
+    "Thả chung vào bể cộng đồng: loài này khó hợp bể cộng đồng, nên nuôi trong bể riêng cho đúng loài.",
+    "Tin hoàn toàn vào tên khi mua: tên này hay bị gán nhầm cho loài khác, nên đối chiếu đặc điểm như không có vảy trước vây lưng, và hiểu rằng việc nhận diện mới chỉ là tạm thời."
   ],
   "speciesUpdatedAt": "2026-11-10",
-  "generatedAt": "2026-11-10T16:55:01.627Z",
-  "review": "approved"
+  "writtenFrom": "e106d2ac99e79755",
+  "generatedAt": "2026-11-15T11:20:03.296Z",
+  "review": "pending",
+  "problems": [
+    "\"cá cần thức ăn sống nhỏ như Artemia\" turns a hedge into a certainty. The page says live food is only \"có lẽ là thiết yếu\" (probably essential). It also says some fish learn to eat frozen food and that they eat frozen food readily."
+  ]
 }

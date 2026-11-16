@@ -22,7 +22,8 @@ import VideoGuideGrid from '../../components/VideoGuideGrid.astro'
 import GalleryStrip from '../../components/GalleryStrip.astro'
 import BreedList from '../../components/BreedList.astro'
 import { getContent } from '../../lib/content'
-import { creditsFor } from '../../lib/credits'
+import { creditsFor, VIDEO_CARDS } from '../../lib/credits'
+import { matePhoto } from '../../lib/companions'
 import { searchAliases } from '../../lib/search'
 import { speciesDescription, speciesTitle } from '../../lib/meta'
 import { nameAndSci, sciBeside } from '../../lib/sci'
@@ -52,7 +53,7 @@ const { country, firstSource, researched, card, sources, summary, gallery, galle
 const tank = resolveDataCard(s.dataCard.tankCm ?? [], 'tankCm')?.value
 const alternates = await alternatesOf('species', s.id)
 ---
-<Base title={speciesTitle(lang, s.t.name, s.scientificName)} description={speciesDescription(lang, s.t.name, s.scientificName, s.dataCard)} image={s.photos[0]?.url} noindex={!s.t.quality.indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor([...figures, ...strip, ...more, ...breedPhotos].map(p => p ?? undefined))}>
+<Base title={speciesTitle(lang, s.t.name, s.scientificName)} description={speciesDescription(lang, s.t.name, s.scientificName, s.dataCard)} image={s.photos[0]?.url} noindex={!s.t.quality.indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor([...figures, ...strip, ...more, ...breedPhotos, ...(showMates ? [...mates.good, ...mates.avoid].map(m => matePhoto(m.s)) : []), ...videoPhotos.slice(0, VIDEO_CARDS)].map(p => p ?? undefined))}>
   <Nav slot="header" />
   <nav class="wrap crumb" aria-label={t('Đường dẫn')}>
     <a href="/vi/ca/">{t('Loài cá')}</a> / <a href={taxonHref(s, 2)}>{s.family}</a> / <a href={taxonHref(s, 3)} class="sci">{s.genus}</a>
