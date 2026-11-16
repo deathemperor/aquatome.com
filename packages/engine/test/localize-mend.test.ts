@@ -122,36 +122,17 @@ test('a fix that reads no higher than the page or than its unfixed text leaves b
   }
 })
 
-// The chief of staff's question (a), 16 Nov 2026: main put a passing second read on a Vietnamese page alone, so a page in
-// another language that read over the bar as it is stayed out of search.
-test('a page that passes its new read, or has a passing steady read of its text on file, has that score put on it; --reads stops after the read', async () => {
-  const { root, page, file } = await site([])
+test('a page that passes its new read is left for the recheck rule, and --reads stops after the read', async () => {
+  const { root, file } = await site([])
+  const before = await file()
   const { llm, calls } = fake(small, { score: 0.8, notes: [] })
-  expect(await mendLocalized(root, llm, 'th', ['a'], { now })).toMatchObject({ read: ['a: 0.6 then 0.8, 0 notes, passes as it is, open'], kept: [], skipped: [] })
+  expect(await mendLocalized(root, llm, 'th', ['a'], { now })).toMatchObject({ read: ['a: 0.6 then 0.8, 0 notes, passes as it is'], kept: [], skipped: [] })
   expect(calls.map(c => c.review)).toEqual([true, true, true])
-  // The text as it was; the score on every source the page was made from, and in the translator's record.
-  expect(JSON.parse(await file())).toEqual({ ...page, quality: { score: 0.8, indexable: true, bySource: { seriouslyfish: 0.8, glaser: 0.8 } } })
-  expect((await read(root, 'engine-state/localize-th.json')).a).toMatchObject({ score: 0.8, notes: [] })
+  expect(await file()).toBe(before)
   expect((await readReviews(root, 'localize'))['th/species/a']![0]).toMatchObject({ attempt: 'recheck', kept: true, score: 0.8, reads: [0.8, 0.8, 0.8], textHash: HASH })
-  // Open, it isn't read again.
   const again = fake(small, AFTER)
-  expect(await mendLocalized(root, again.llm, 'th', ['a'], { now })).toMatchObject({ read: [], kept: [], skipped: [] })
+  expect((await mendLocalized(root, again.llm, 'th', ['a'], { now })).skipped).toEqual(['a: its read passes, and the recheck rule opens it'])
   expect(again.calls).toEqual([])
-
-  // A steady read of this text on file that passes: put on the page with no model call.
-  const onFile = await site([], { read: 0.8 })
-  const none = fake(small)
-  expect(await mendLocalized(onFile.root, none.llm, 'th', ['a'], { now })).toMatchObject({ read: ['a: 0.6 then 0.8 on file, passes as it is, open'] })
-  expect(none.calls).toEqual([])
-  expect(JSON.parse(await onFile.file()).quality).toEqual({ score: 0.8, indexable: true, bySource: { seriouslyfish: 0.8, glaser: 0.8 } })
-  // One of another text, or one read near the bar, is not that read: the page is read again.
-  for (const r of ['stale', 'once'] as const) {
-    const s = await site([], { read: r })
-    const before = await s.file()
-    const f = fake(small, { score: 0.6, notes: [] })
-    expect((await mendLocalized(s.root, f.llm, 'th', ['a'], { now, readsOnly: true })).read, r).toEqual(['a: 0.6 then 0.6, 0 notes'])
-    expect(await s.file(), r).toBe(before)
-  }
 
   const other = await site([])
   const reads = fake(small, { score: 0.6, notes: [NOTE] })

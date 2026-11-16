@@ -20,7 +20,7 @@ import { sanitizeHtml } from './sanitize'
  * head pages read three times on 2026-11-11 gave the other verdict on one read in 20 within minutes and one in 4
  * across the afternoon, and 8 of them read 0.15 to 0.35 over their score on file, so a score on file is not that read.
  * Where none is on file the reviewer reads the page first (logged as a recheck, with the hash), and a page that passes
- * needs no fix: that read goes on the page, as a kept fix's does. Otherwise the notes name parts by number ("Item 4: …"). Only those parts go
+ * needs no fix: the recheck rule opens it. Otherwise the notes name parts by number ("Item 4: …"). Only those parts go
  * to the editor, each with its English and its notes, and it corrects what a note rightly names and leaves every other
  * sentence as it is (prompts/localize-fix.md). The same reviewer then reads the whole page the same steady way, and the
  * fixed page is kept only if it scores higher than both the page's score and the read of the unfixed text. One go a
@@ -98,39 +98,17 @@ export async function mendLocalized(root: string, llm: Llm, lang: TargetLang, id
       const parts: Part[] = e.sections.filter(s => s.html.trim() && translatable(s.source)).map(s => ({ id: `${s.key}:${s.source}`, en: s.html }))
       if (parts.some(p => !page.sections[p.id]?.trim())) { report.skipped.push(`${id}: a part of the English is not on the page`); continue }
       const hash = pageTextHash(parts, page.sections)
-      // A page's text and its read onto the page: the read's score on every source it was made from, and in the
-      // translator's record, so the page is in search when that score clears the bar.
-      const put = async (next: Page, r: { score: number; notes: string[] }) => {
-        const sources = [...new Set(e.sections.filter(s => translatable(s.source)).map(s => s.source))]
-        const { reason: _, ...quality } = page.quality!
-        next.quality = { ...quality, score: r.score, indexable: r.score >= QUALITY_THRESHOLD, bySource: Object.fromEntries(sources.map(s => [s, r.score])) }
-        await writeFile(file, `${JSON.stringify(next, null, 2)}\n`)
-        const state = JSON.parse(await readFile(stateFile, 'utf8').catch(() => '{}')) as Record<string, { score: number; notes?: string[] }>
-        if (state[id]) {
-          state[id] = { ...state[id], score: r.score, notes: r.notes }
-          await writeFile(stateFile, `${JSON.stringify(Object.fromEntries(Object.entries(state).sort()), null, 2)}\n`)
-        }
-      }
       const traces = store[`${lang}/${kind}/${id}`] ?? []
       if (traces.some(t => !t.kept && t.attempt === 'rewrite' && t.textHash === hash)) { report.skipped.push(`${id}: a fix of this text was tried`); continue }
       let read: { score: number; notes: string[]; reads?: number[] } | undefined = traces.find(t => t.kept && t.textHash === hash && (t.reads || Math.abs(t.score - QUALITY_THRESHOLD) >= NEAR_BAR))
-      // A steady read of the text the page has that passes is the page's score: nothing to fix (the chief of staff, 16 Nov
-      // 2026, on the second reads that went on no other language's page).
-      if (read && read.score >= QUALITY_THRESHOLD) {
-        if (o.dry || o.readsOnly) { report.skipped.push(`${id}: its read passes${o.dry ? ' (dry run)' : ''}`); continue }
-        await put({ ...page }, read)
-        report.read.push(`${id}: ${was} then ${read.score} on file, passes as it is, open`)
-        continue
-      }
+      if (read && read.score >= QUALITY_THRESHOLD) { report.skipped.push(`${id}: its read passes, and the recheck rule opens it`); continue }
       if (!read) {
         if (o.dry) { report.skipped.push(`${id}: needs a new read first (dry run)`); sent++; continue }
         sent++
         read = await steadyRead(() => review(llm, lang, parts, new Map(Object.entries(page.sections))))
         await logReviews(root, 'localize', ref, [read], read, { now: now(), recheck: true, textHash: hash })
-        const passes = read.score >= QUALITY_THRESHOLD
-        if (passes && !o.readsOnly) await put({ ...page }, read)
-        report.read.push(`${id}: ${was} then ${read.score}, ${read.notes.length} notes${passes ? `, passes as it is${o.readsOnly ? '' : ', open'}` : ''}`)
-        if (passes) continue
+        report.read.push(`${id}: ${was} then ${read.score}, ${read.notes.length} notes${read.score >= QUALITY_THRESHOLD ? ', passes as it is' : ''}`)
+        if (read.score >= QUALITY_THRESHOLD) continue
       } else if (!o.readsOnly && !o.dry) sent++
       if (o.readsOnly) continue
       const notes = read.notes
@@ -170,9 +148,17 @@ export async function mendLocalized(root: string, llm: Llm, lang: TargetLang, id
         report.notBetter.push(`${line}: ${bar} then ${r.score}, left as it was`)
         continue
       }
-      // The translator's record of the page says what the page says. `from` stays: the English hasn't changed.
-      await put(next, r)
+      const sources = [...new Set(e.sections.filter(s => translatable(s.source)).map(s => s.source))]
+      const { reason: _, ...quality } = page.quality!
+      next.quality = { ...quality, score: r.score, indexable: r.score >= QUALITY_THRESHOLD, bySource: Object.fromEntries(sources.map(s => [s, r.score])) }
+      await writeFile(file, `${JSON.stringify(next, null, 2)}\n`)
       await logReviews(root, 'localize', ref, [r], r, { now: now(), rewrite: true, textHash: pageTextHash(parts, next.sections) })
+      // The translator's record of the page says what the page says. `from` stays: the English hasn't changed.
+      const state = JSON.parse(await readFile(stateFile, 'utf8').catch(() => '{}')) as Record<string, { score: number; notes?: string[] }>
+      if (state[id]) {
+        state[id] = { ...state[id], score: r.score, notes: r.notes }
+        await writeFile(stateFile, `${JSON.stringify(Object.fromEntries(Object.entries(state).sort()), null, 2)}\n`)
+      }
       report.kept.push(`${line}: ${bar} to ${r.score}${r.score >= QUALITY_THRESHOLD ? ', open' : ''}, ${changed.length} parts changed`)
     } catch (err) {
       if (err instanceof LlmError) { report.stopped = `${id}: ${err.message.slice(0, 200)}`; break }
