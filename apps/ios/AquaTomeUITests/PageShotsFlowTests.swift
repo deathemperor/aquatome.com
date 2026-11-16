@@ -688,7 +688,6 @@ final class PageShotsFlowTests: XCTestCase {
     app.leavePage()
     XCTAssertTrue(page.waitForExistence(timeout: 5), "not back on Dĩa's page")
     shot("dia-after-back")
-    app.backReadout("Dĩa, back")
     app.largeTitleIsOnScreen("Dĩa")
     XCTAssertEqual(line.frame.minY, at, accuracy: 1, "Dĩa's page isn't where it was left")
   }
@@ -705,7 +704,7 @@ final class PageShotsFlowTests: XCTestCase {
     let chips = app.buttons.matching(identifier: "v2-chip")
     XCTAssertTrue(chips.firstMatch.waitForExistence(timeout: 5), "no chips")
     let names = chips.allElementsBoundByIndex.map { String($0.label.split(separator: ",").first ?? "") }
-    var checked = 0
+    var checked = 0, off: [String] = []
     for name in names {
       guard let chip = chipInView(app, name) else { XCTFail("no \(name) chip"); continue }
       chip.tap()
@@ -721,14 +720,17 @@ final class PageShotsFlowTests: XCTestCase {
       app.leavePage()
       XCTAssertTrue(page.waitForExistence(timeout: 5), "\(name): not back on its page")
       settle()
-      XCTAssertTrue(app.navigationBars.staticTexts[name].firstMatch.exists && app.ink(app.navigationBars.staticTexts[name].firstMatch) > 200,
-                    "\(name): its big title isn't back and drawn")
-      XCTAssertEqual(app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", " trang")).firstMatch.frame.minY, count, accuracy: 1,
-                     "\(name): its page isn't where it was")
+      // Every group, each miss listed (the chief, 17 Nov: Ali came back right and the next group didn't).
+      let title = app.navigationBars.staticTexts[name].firstMatch, bar = app.navigationBars.firstMatch.frame
+      let now = app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", " trang")).firstMatch.frame.minY
+      let big = title.exists && title.frame.height > 30 && bar.height > 90 && app.ink(title) > 200
+      if !big || abs(now - count) > 1 { off.append("\(name): title \(big ? "big" : "folded \(title.frame.height)"), bar \(bar.height), count at \(now) of \(count)") }
       checked += 1
       app.leavePage()
     }
-    XCTContext.runActivity(named: "photo lines checked: \(checked) of \(names.count) chips") { _ in }
+    XCTContext.runActivity(named: "back as left: \(checked - off.count) of \(checked) groups with a photo line, of \(names.count) chips") { _ in }
+    print("BACK as left: \(checked - off.count) of \(checked) groups with a photo line, of \(names.count) chips; off: \(off)")
+    XCTAssertEqual(off, [], "groups not back as they were left")
   }
 
   /// Tìm's first screen: its tools, fish ID's card leading them, then their tiles (at the largest text, the next screen

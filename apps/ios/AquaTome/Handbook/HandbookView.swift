@@ -84,90 +84,48 @@ struct HandbookView: View {
 /// touched. And back from a page pushed over it, a screen left at its top comes back there with its title big, as it was
 /// left: iOS brought a group's page back 55 points up, its title folded into the bar (Design, 17 Nov).
 struct OpensAtTop: UIViewControllerRepresentable {
-  /// SwiftUI's own appearances of the screen, for the test switch's second way (`-back-way appear`).
-  var shown = 0
-  var gone = 0
-
   func makeUIViewController(context: Context) -> Holder { Holder() }
-  func updateUIViewController(_ holder: Holder, context: Context) {
-    guard Holder.way == "appear" else { return }
-    if gone != holder.gone { holder.gone = gone; holder.leave() }
-    if shown != holder.shown {
-      holder.shown = shown
-      // Once the way back has ended.
-      DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) { [weak holder] in holder?.back() }
-    }
-  }
+  func updateUIViewController(_ holder: Holder, context: Context) {}
 
   final class Holder: UIViewController {
-    /// TEST SWITCH, out before the push: which way puts the title back, UIKit's appearances ("did", the default) or
-    /// SwiftUI's ("appear"); set, the holder reads out what it saw.
-    static let way: String = {
-      #if DEBUG
-        return UserDefaults.standard.string(forKey: "back-way") ?? "did"
-      #else
-        return "did"
-      #endif
-    }()
-    static let readout: Bool = {
-      #if DEBUG
-        return UserDefaults.standard.string(forKey: "back-way") != nil
-      #else
-        return false
-      #endif
-    }()
-    var shown = 0
-    var gone = 0
     private var first = true
     /// The list's top inset when it was left at its top: the bar's height with its title big.
     private var leftAt: CGFloat?
-    private var seen: [String] = []
-
-    override func viewDidLoad() {
-      super.viewDidLoad()
-      if Self.readout { view.isAccessibilityElement = true; view.accessibilityIdentifier = "opens-at-top"; note("load") }
-    }
 
     override func viewWillDisappear(_ animated: Bool) {
       super.viewWillDisappear(animated)
-      note("will-go")
-      if Self.way == "did" { leave() }
+      guard let list = list() else { return }
+      leftAt = list.contentOffset.y <= -list.adjustedContentInset.top + 1 ? list.adjustedContentInset.top : nil
     }
 
     override func viewDidAppear(_ animated: Bool) {
       super.viewDidAppear(animated)
-      note("did-show")
       if first {
         first = false
         top()
         // Again once iOS has laid the bar out after its own appearance.
         DispatchQueue.main.async { [weak self] in self?.top() }
-      } else if Self.way == "did" {
-        back()
+      } else if let inset = leftAt {
+        leftAt = nil
+        back(to: inset)
+        // Again once iOS has laid the bar out, and once its title has grown.
+        DispatchQueue.main.async { [weak self] in self?.back(to: inset) }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in self?.back(to: inset) }
       }
     }
 
-    func leave() {
-      guard let list = list() else { return note("leave, no list") }
-      leftAt = list.contentOffset.y <= -list.adjustedContentInset.top + 1 ? list.adjustedContentInset.top : nil
-      note("left at \(leftAt.map { "\(Int($0))" } ?? "no top")")
-    }
-
-    func back() {
-      guard let inset = leftAt else { return note("back, not left at top") }
-      leftAt = nil
-      put(inset)
-      DispatchQueue.main.async { [weak self] in self?.put(inset) }
-    }
-
-    /// Back at the top it was left at, past the folded bar's: iOS grows the bar's title as the list is pulled down there,
-    /// then the bar measures itself again.
-    private func put(_ inset: CGFloat) {
-      guard let bar = navigationController?.navigationBar, let list = list() else { return note("put, no bar or list") }
-      let was = list.adjustedContentInset.top
-      if list.contentOffset.y > -inset + 1 { list.setContentOffset(CGPoint(x: list.contentOffset.x, y: -inset), animated: false) }
-      bar.sizeToFit()
-      note("put \(Int(inset)) from inset \(Int(was)), now inset \(Int(list.adjustedContentInset.top)) offset \(Int(list.contentOffset.y))")
+    /// Back at the top it was left at. Folded, the list is pulled down past the folded bar's top by what the big title
+    /// takes, where iOS grows the title, and the bar measures itself again; grown, the list has moved down with the bar
+    /// (55 points), so it's set at the grown bar's top.
+    private func back(to inset: CGFloat) {
+      guard let bar = navigationController?.navigationBar, let list = list(), !list.isTracking else { return }
+      if list.adjustedContentInset.top < inset - 1 {
+        list.setContentOffset(CGPoint(x: list.contentOffset.x, y: -inset), animated: false)
+        bar.sizeToFit()
+      }
+      if list.adjustedContentInset.top >= inset - 1, list.contentOffset.y < -list.adjustedContentInset.top - 1 {
+        list.setContentOffset(CGPoint(x: list.contentOffset.x, y: -list.adjustedContentInset.top), animated: false)
+      }
     }
 
     private func top() {
@@ -176,24 +134,19 @@ struct OpensAtTop: UIViewControllerRepresentable {
       bar.sizeToFit()
     }
 
-    private func note(_ what: String) {
-      guard Self.readout else { return }
-      seen.append(what)
-      view.accessibilityLabel = "\(Self.way): " + seen.suffix(8).joined(separator: "; ")
-    }
-
-    /// The screen's own list: from the screen this sits in, not the stack's top, which is the page pushed over it by the
-    /// time this one goes.
+    /// The screen's own list, the tallest of its scroll views (a group's grid has a sideways row of filters in it): from
+    /// the screen this sits in, not the stack's top, which is the page pushed over it by the time this one goes.
     private func list() -> UIScrollView? {
       var screen: UIViewController = self
       while let up = screen.parent, !(up is UINavigationController) { screen = up }
-      return Self.firstScroll(in: screen.view)
+      return Self.scrolls(in: screen.view).max { $0.bounds.height < $1.bounds.height }
     }
 
-    private static func firstScroll(in v: UIView) -> UIScrollView? {
-      if let s = v as? UIScrollView, s.alwaysBounceVertical || s.contentSize.height > s.bounds.height { return s }
-      for sub in v.subviews { if let s = firstScroll(in: sub) { return s } }
-      return nil
+    private static func scrolls(in v: UIView) -> [UIScrollView] {
+      var found = [UIScrollView]()
+      if let s = v as? UIScrollView { found.append(s) }
+      for sub in v.subviews { found += scrolls(in: sub) }
+      return found
     }
   }
 }

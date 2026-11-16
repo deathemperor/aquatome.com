@@ -1703,7 +1703,6 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(fish.staticTexts["Cá ngựa vằn"].firstMatch.exists, "the photo's line opened another fish than Cá ngựa vằn")
     app.leavePage()
     XCTAssertTrue(page.waitForExistence(timeout: 5), "not back on Cá nhỏ's page")
-    app.backReadout("Cá nhỏ, back from the photo line's fish")
     // As it was left: its big title back and drawn, its lines where they were (Design, 17 Nov: Dĩa's came back 60 points
     // up, its title folded into the bar).
     app.largeTitleIsOnScreen("Cá nhỏ")
@@ -1762,7 +1761,6 @@ final class V2FlowTests: XCTestCase {
     app.leavePage()
     XCTAssertTrue(count.waitForExistence(timeout: 5), "not back on Cá nhỏ's page")
     Thread.sleep(forTimeInterval: 0.5)
-    app.backReadout("Cá nhỏ, back")
     app.largeTitleIsOnScreen("Cá nhỏ")
     XCTAssertEqual(count.frame.minY, at, accuracy: 1, "Cá nhỏ's page isn't where it was left")
   }

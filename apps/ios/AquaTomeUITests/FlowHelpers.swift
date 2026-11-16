@@ -14,17 +14,7 @@ extension XCUIApplication {
   func launchForFlow(_ look: Look? = .v2) {
     if let look, !launchArguments.contains("-v2") { launchArguments += ["-v2", look.rawValue] }
     if !launchArguments.contains("-no-animations") { launchArguments.append("-no-animations") }
-    // TEST SWITCH, out before the push: the way a group's page is put back (OpensAtTop), from the runner's `BACK_WAY`.
-    if let way = ProcessInfo.processInfo.environment["BACK_WAY"] { launchArguments += ["-back-way", way] }
     launch()
-  }
-
-  /// TEST SWITCH, out before the push: what the page's holder saw on the way back.
-  func backReadout(_ what: String) {
-    let r = descendants(matching: .any)["opens-at-top"].firstMatch
-    let seen = r.exists ? r.label : "no readout"
-    print("READOUT \(what): \(seen)")
-    XCTContext.runActivity(named: "READOUT \(what): \(seen)") { _ in }
   }
 
   /// The photo viewer's words (its caption, who took it, its place and the strip), shown by a tap on the photo: it opens on
