@@ -702,6 +702,42 @@ test('a saved entry revised: a rewrite that drops what no note asks for is not s
   expect(await bodyOf(fourth)).toBe(cutBody)
 })
 
+// The chief of staff, 16 Nov 2026: a run from a kept draft saved what a stopped revise had cut, with nothing to let it go
+// (Artemia's second-stage larvae, dry food's crumbled flakes and its two months): the draft, and every rewrite of it, are
+// held to the saved entry as a revise's are, and an accepted one is refused.
+test('a kept draft run or accepted is held to the saved entry: what no stop or free line lets go stops the save', async () => {
+  const before = `${soak}<p>Thang pH là thang logarit. ${logLine}</p>`
+  const cut = `${soakFixed}<p>Thang pH là thang logarit.</p>`
+  const whole = `${soakFixed}<p>Thang pH là thang logarit. ${logLine}</p>`
+  // A saved entry, and a draft kept from a revise of it that cut the worked example.
+  const keptCut = async () => {
+    const root = await savedWith(before)
+    const text = `${JSON.stringify({ score: 1, broken: 1, notes: ['Rule 4: x'], entry: { ...written, altNames: [], body: cut } }, null, 2)}\n`
+    await writeFile(draftPath(root), text)
+    const review = { score: 1, notes: ['Rule 4: x'] }
+    await logReviews(root, 'glossary', { id: 'glossary/lua', lang: 'vi' }, [review], undefined, { draft: { of: review, sha: createHash('sha256').update(text).digest('hex') } })
+    return root
+  }
+  const fromDraft = (root: string, llm: Llm) => makeGlossaryEntry(root, { research: async () => { throw new Error('no research') }, llm }, 'lua', { kind: 'aquascaping', fromDraft: true })
+  // A writer that cuts it again: nothing saved, and the writer was told what went.
+  const root = await keptCut()
+  const writes: string[] = []
+  const r = await fromDraft(root, revising(writes, [cut], [], 'nothing'))
+  expect(r).toMatchObject({ id: 'lua', skipped: expect.stringMatching(/^stopped by/) })
+  expect(writes.length).toBeGreaterThan(0)
+  expect(writes[0]).toContain(`- The rewrite dropped from "${logLine}"`)
+  expect(await bodyOf(root)).toBe(before)
+  // A writer that writes it back: saved.
+  const back = await keptCut()
+  expect(await fromDraft(back, revising([], [whole], [], 'nothing'))).toMatchObject({ id: 'lua', score: 1 })
+  expect(await bodyOf(back)).toBe(whole)
+  // Accepted as it stands: refused, with what it drops, and nothing changed.
+  const acc = await keptCut()
+  const refused = await makeGlossaryEntry(acc, { research: none, llm: none }, 'lua', { kind: 'aquascaping', accept: 'the chief of staff' })
+  expect(refused).toMatchObject({ id: 'lua', refused: [expect.stringContaining(`The rewrite dropped from "${logLine}"`)] })
+  expect(await bodyOf(acc)).toBe(before)
+})
+
 // The Sonnet reviewer's read, 15 Nov 2026: a revision held to a kept draft in place of the saved entry would let the drop
 // check pass what the saved entry lost.
 test('a revision starts from the saved entry, never with a kept draft', async () => {
