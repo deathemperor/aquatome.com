@@ -1,9 +1,9 @@
-import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { cp, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { doseOrHarm, mendLocalized, pageTextHash, partsNamed, sameTextMended, type MendTry } from '../src/localize-mend'
+import { doseOrHarm, hasDose, keepsWhatItSays, mendLocalized, pageTextHash, partsNamed, sameTextMended, type MendTry } from '../src/localize-mend'
 import { logReviews, readReviews } from '../src/review-log'
 
 const LONG = 'ปลาชนิดนี้อยู่รวมกันเป็นฝูงและควรเลี้ยงอย่างน้อยหกตัวในตู้ที่ปลูกไม้น้ำหนาแน่นและมีที่ว่างให้ว่ายน้ำตรงกลางตู้'
@@ -21,9 +21,11 @@ const HASH = pageTextHash(PARTS, SECTIONS)
 /**
  * One Thai fish page under the bar: three parts from two sources, and the translator's review of it in the log, which
  * stored no hash. `read`: a later read is on file too, with these notes: the middle of three, of the text the page has
- * ('stale': of another text; 'once': of this text, but one read near the bar). `lacks`: the page lacks a part.
+ * ('stale': of another text; 'once': of this text, but one read near the bar). `lacks`: the page lacks a part. `diet`:
+ * the second part's English otherwise, or fixed by hand.
  */
-async function site(notes: string[], o: { score?: number; read?: number | 'stale' | 'once'; lacks?: boolean } = {}) {
+async function site(notes: string[], o: { score?: number; read?: number | 'stale' | 'once'; lacks?: boolean; diet?: { en?: string; fixed?: true } } = {}) {
+  const parts = PARTS.map(p => (p.id === 'diet:seriouslyfish' ? { ...p, en: o.diet?.en ?? p.en } : p))
   const root = await mkdtemp(join(tmpdir(), 'mend-'))
   const dir = join(root, 'content/species/a')
   const score = o.score ?? 0.6
@@ -32,7 +34,7 @@ async function site(notes: string[], o: { score?: number; read?: number | 'stale
   await writeFile(join(root, 'content/sources.json'), JSON.stringify({ seriouslyfish: { permission: { scope: ['text', 'translation'] } }, glaser: { permission: { scope: ['text', 'translation'] } }, planetcatfish: { permission: { scope: ['text'] } } }))
   await writeFile(join(dir, 'entity.json'), JSON.stringify({ id: 'a', scientificName: 'Aus bus', updatedAt: '2026-11-01', sections: [
     { key: 'notes', source: 'planetcatfish', html: '<p>Not ours to translate.</p>' },
-    ...PARTS.map(p => ({ key: p.id.split(':')[0], source: p.id.split(':')[1], html: p.en })),
+    ...parts.map(p => ({ key: p.id.split(':')[0], source: p.id.split(':')[1], html: p.en, ...(p.id === 'diet:seriouslyfish' && o.diet?.fixed ? { fixed: true } : {}) })),
   ] }))
   const { 'behaviour:glaser': _, ...short } = SECTIONS
   const page = { slug: 'aus-bus', name: 'ปลาทดสอบ', altNames: [], sections: o.lacks ? short : SECTIONS, quality: { score, indexable: score >= 0.75, bySource: { seriouslyfish: score, glaser: score } } }
@@ -43,7 +45,7 @@ async function site(notes: string[], o: { score?: number; read?: number | 'stale
   if (o.read !== undefined) {
     const score = typeof o.read === 'number' ? o.read : o.read === 'stale' ? 0.9 : 0.6
     const r = { score, notes, ...(o.read === 'once' ? {} : { reads: [score, score, score] }) }
-    await logReviews(root, 'localize', { id: 'species/a', lang: 'th' }, [r], r, { now: new Date('2026-11-05T00:00:00Z'), recheck: true, textHash: o.read === 'stale' ? 'of-a-text-since-changed' : HASH })
+    await logReviews(root, 'localize', { id: 'species/a', lang: 'th' }, [r], r, { now: new Date('2026-11-05T00:00:00Z'), recheck: true, textHash: o.read === 'stale' ? 'of-a-text-since-changed' : pageTextHash(parts, SECTIONS) })
   }
   return { root, page, file: () => readFile(join(dir, 'th.json'), 'utf8') }
 }
@@ -122,7 +124,7 @@ test('a fix that reads no higher than the page or than its unfixed text leaves b
   }
 })
 
-test('a page that passes its new read is left for the recheck rule, and --reads stops after the read', async () => {
+test('a page that passes its new read is left as it is, and --reads stops after the read', async () => {
   const { root, file } = await site([])
   const before = await file()
   const { llm, calls } = fake(small, { score: 0.8, notes: [] })
@@ -131,7 +133,7 @@ test('a page that passes its new read is left for the recheck rule, and --reads 
   expect(await file()).toBe(before)
   expect((await readReviews(root, 'localize'))['th/species/a']![0]).toMatchObject({ attempt: 'recheck', kept: true, score: 0.8, reads: [0.8, 0.8, 0.8], textHash: HASH })
   const again = fake(small, AFTER)
-  expect((await mendLocalized(root, again.llm, 'th', ['a'], { now })).skipped).toEqual(['a: its read passes, and the recheck rule opens it'])
+  expect((await mendLocalized(root, again.llm, 'th', ['a'], { now })).skipped).toEqual(['a: its read passes, left as it is'])
   expect(again.calls).toEqual([])
 
   const other = await site([])
@@ -162,15 +164,56 @@ test('a page with a note on a dose or harm is left for that check, and so are on
   expect(calls).toEqual([])
 })
 
-test('a part the editor rewrote, emptied or returned as it was is not taken; nothing changed means no second read', async () => {
-  for (const fix of [() => `<p>${'ข้อความใหม่ทั้งหมดที่ไม่เหมือนของเดิมเลยแม้แต่น้อย'.repeat(4)}</p>`, () => '', (_: string, old: string) => old]) {
+test('a part the editor rewrote, emptied, returned as it was, or whose figures, paragraphs or sentences it changed is not taken; nothing changed means no second read, and that text is not sent again', async () => {
+  for (const fix of [
+    () => `<p>${'ข้อความใหม่ทั้งหมดที่ไม่เหมือนของเดิมเลยแม้แต่น้อย'.repeat(4)}</p>`,
+    () => '',
+    (_: string, old: string) => old,
+    // A figure the old text didn't have.
+    (_: string, old: string) => old.replace('ขนาดใหญ่', 'ขนาดเล็ก 2 ตัว'),
+    // "Feed it twice a day" dropped with the fix: a Thai sentence is what lies between spaces.
+    (_: string, old: string) => old.replace('ขนาดใหญ่', 'ขนาดเล็ก').replace(' ให้อาหารวันละสองครั้ง', ''),
+    // A paragraph more.
+    (_: string, old: string) => old.replace('ขนาดใหญ่', 'ขนาดเล็ก').replace('</p>', '</p><p>ย่อหน้าใหม่</p>'),
+  ]) {
     const { root, file } = await site([NOTE], { read: 0.6 })
     const before = await file()
     const { llm, calls } = fake(fix)
     expect((await mendLocalized(root, llm, 'th', ['a'], { now })).skipped).toEqual(['a: 1 of 3 parts, 1 notes: the fix changed nothing'])
     expect(calls.filter(c => c.review)).toEqual([])
     expect(await file()).toBe(before)
+    const again = fake(small, AFTER, AFTER)
+    expect((await mendLocalized(root, again.llm, 'th', ['a'], { now })).skipped).toEqual(['a: a fix of this text was tried'])
+    expect(again.calls).toEqual([])
   }
+})
+
+test('a part fixed by hand or with a dose in it is never sent to the editor', async () => {
+  for (const diet of [{ fixed: true as const }, { en: '<p>It eats small insects. Add 2 ml of vitamins a week.</p>' }]) {
+    const { root, file } = await site([NOTE], { read: 0.6, diet })
+    const before = await file()
+    const { llm, calls } = fake(small, AFTER, AFTER)
+    expect((await mendLocalized(root, llm, 'th', ['a'], { now })).skipped).toEqual(['a: its notes name only parts fixed by hand or with a dose'])
+    expect(calls).toEqual([])
+    expect(await file()).toBe(before)
+  }
+})
+
+test('a fix whose read after has a note on a dose or harm is not kept, however high it reads', async () => {
+  const { root, file } = await site([NOTE], { read: 0.6 })
+  const before = await file()
+  const after = { score: 0.85, notes: ['Item 2: the line that large fish kill it is gone.'] }
+  expect((await mendLocalized(root, fake(small, undefined, after).llm, 'th', ['a'], { now })).notBetter).toEqual(['a: 1 of 3 parts, 1 notes: 0.6 then 0.85, a note on a dose or harm, left as it was'])
+  expect(await file()).toBe(before)
+})
+
+test('the limit counts pages a model is called for: a page left alone takes no place', async () => {
+  const { root } = await site(['Item 2: the salt dose is wrong.'], { read: 0.6 })
+  await cp(join(root, 'content/species/a'), join(root, 'content/species/b'), { recursive: true })
+  const r = { score: 0.6, notes: [NOTE], reads: [0.6, 0.6, 0.6] }
+  await logReviews(root, 'localize', { id: 'species/b', lang: 'th' }, [r], r, { now: new Date('2026-11-05T00:00:00Z'), recheck: true, textHash: HASH })
+  const out = await mendLocalized(root, fake(small, undefined, AFTER).llm, 'th', ['a', 'b'], { now, limit: 1 })
+  expect(out).toMatchObject({ skipped: ['a: a note on a dose, a medicine or harm'], kept: ['b: 1 of 3 parts, 1 notes: 0.6 to 0.85, open, 1 parts changed'] })
 })
 
 test('a page at the bar and a dry run call no model', async () => {
@@ -194,4 +237,15 @@ test('the parts a note names, and what counts as the same text mended', () => {
   expect(sameTextMended(`<p>${LONG} ขนาดใหญ่</p>`, `<p>${LONG} ขนาดเล็ก</p>`)).toBe(true)
   expect(sameTextMended(`<p>${LONG}</p>`, '<p>อื่น</p>')).toBe(false)
   expect(sameTextMended(`<p>${LONG}</p>`, `<p>${LONG}${LONG}</p>`)).toBe(false)
+})
+
+test('what a fix must keep, and what is a dose', () => {
+  expect(keepsWhatItSays('id', '<p>Suhu 24-28 °C. Jangan campur dengan ikan besar.</p>', '<p>Suhu 24–28 °C. Jangan dicampur dengan ikan besar.</p>')).toBe(true)
+  expect(keepsWhatItSays('id', '<p>Suhu 24-28 °C.</p>', '<p>Suhu 26-28 °C.</p>')).toBe(false)
+  expect(keepsWhatItSays('id', '<p>pH 6,5.</p>', '<p>pH 6.5.</p>')).toBe(true)
+  expect(keepsWhatItSays('ms', '<p>Ia makan serangga. Jangan simpan dengan ikan besar.</p>', '<p>Ia makan serangga kecil.</p>')).toBe(false)
+  expect(keepsWhatItSays('th', '<p>กินแมลง ห้ามเลี้ยงกับปลาใหญ่</p>', '<p>กินแมลงเล็ก</p>')).toBe(false)
+  expect(keepsWhatItSays('th', '<p>กินแมลง</p><p>ห้ามเลี้ยงกับปลาใหญ่</p>', '<p>กินแมลง ห้ามเลี้ยงกับปลาใหญ่</p>')).toBe(false)
+  for (const d of ['2 ml', '5mg/l', '1 g/l', '3 drops', '2 tetes', '1 teaspoon', '0.5 ppm', '5 grams', '10 millilitres', '2 sendok', '3 หยด', '1 กรัม']) expect(hasDose(`<p>Add ${d} a day.</p>`), d).toBe(true)
+  for (const d of ['20 gallons', '6 fish', '24 °C', 'pH 6.5', '10 cm']) expect(hasDose(`<p>${d}.</p>`), d).toBe(false)
 })
