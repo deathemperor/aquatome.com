@@ -4,8 +4,9 @@ import { escapeHtml, escapeRe, textNodes } from './glossary-link'
 /**
  * Something a page can link to: any of `names` in the text links to `href`. `exact`: match case too (Latin genus/family names). `cls` overrides the link class.
  * `tip`: a short explanation the page shows when the link is hovered or tapped (glossary terms), as data-term / data-tip.
+ * `sci`: a plant's scientific name, whose genus is then one the site has (generaOf): a fish's genus comes from its genus page.
  */
-export type LinkTarget = { key: string; href: string; names: string[]; exact?: boolean; cls?: string; tip?: { term: string; text: string } }
+export type LinkTarget = { key: string; href: string; names: string[]; exact?: boolean; cls?: string; tip?: { term: string; text: string }; sci?: string }
 
 /**
  * Links the first occurrence of each target in the text (outside links, headings and code), longest name first at any
@@ -32,7 +33,11 @@ function matcher(targets: LinkTarget[]) {
 }
 
 const genera = new WeakMap<LinkTarget[], Set<string>>()
-const generaOf = (targets: LinkTarget[]) => genera.get(targets) ?? genera.set(targets, new Set(targets.filter(t => t.key.startsWith('genus:')).flatMap(t => t.names))).get(targets)!
+// A fish's genus by its genus page; a plant's, which has none, by its scientific name. Until 16 Nov 2026 only the first:
+// "water sprite (Ceratopteris siliquosa)" in the green-water guide linked C. thalictroides's page, which has the English
+// name too, though the site has no page for C. siliquosa (the live site's page check, every deploy since that morning).
+const generaOf = (targets: LinkTarget[]) =>
+  genera.get(targets) ?? genera.set(targets, new Set(targets.flatMap(t => (t.key.startsWith('genus:') ? t.names : t.sci ? [t.sci.split(' ')[0]!] : [])))).get(targets)!
 
 /** Pages about one living thing: a species, a plant, a man-made fish. */
 const SUBJECT = /^(species|plant|breed):/

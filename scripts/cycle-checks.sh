@@ -93,8 +93,8 @@ cool() {
 }
 # Before a check's second try: the first try's own load gone. calm alone didn't wait for it: at 02:28 on 2026-11-12 the
 # photos part's second try began the moment its first ended, at a 5-minute load far under calm's 4 a core, and ran two
-# to four times slower than the first, its site tests out of time. The first try's workers (two packages' side by side)
-# leave the 1-minute load as they end: the second try waits a minute, then until that load is under one a core, up to
+# to four times slower than the first, its site tests out of time. The first try's workers (then two packages' side by
+# side) leave the 1-minute load as they end: the second try waits a minute, then until that load is under one a core, up to
 # 10 more minutes, then goes ahead. GitHub's runners run one part each, so there it doesn't wait.
 settled() {
   [ -z "${GITHUB_ACTIONS:-}" ] || return 0
@@ -120,8 +120,8 @@ checks() { if [ -n "${GITHUB_ACTIONS:-}" ]; then bash -c "$1"; else turn bash -c
 # the root `pnpm test` gives up at a package's first failure, so the others may not have finished, and a package can fail
 # with no test named. A step that passes the second time goes on, and its failed tests are logged as "flaky:" to be
 # fixed. The second try starts once the first's own load has gone (settled), and runs the packages one at a time
-# (pnpm's workspace-concurrency, set for the whole step): the same tests and the same limits, on half the load of
-# its own. If it fails again: TIMED_OUT when tests ran out of time on that run, and the run's work is kept
+# (pnpm's workspace-concurrency, set for the whole step; on the Mac the first try too, since 16 Nov): the same tests and
+# the same limits, on half the load of its own. If it fails again: TIMED_OUT when tests ran out of time on that run, and the run's work is kept
 # (keep_unpublished).
 # Each test's time limits, times AQ_TEST_TIME_SCALE (the vitest configs and @aq/schema/test-time read it): 1 on a Mac at
 # full strength, HOT_TIME_SCALE while heat has taken cores away and on a check's second try on the Mac. Waiting for cool
@@ -136,6 +136,11 @@ checks() { if [ -n "${GITHUB_ACTIONS:-}" ]; then bash -c "$1"; else turn bash -c
 # core with every core at work, at their own limits, and ran out of time.
 HOT_TIME_SCALE=6
 SECOND_TRY_WORKERS=2
+# The first try on the Mac starts FIRST_TRY_WORKERS at a time and tests one package at a time, at night too: pnpm ran up to
+# four packages side by side, each with a vitest worker for every core but one, and an engine run's checks could take
+# every core of a Mac the leads, the simulators and the owner share ("you are killing the machine", the owner, 16 Nov
+# 2026; the chief of staff's cap, that day). GitHub's runner is a machine of its own and keeps vitest's own number.
+FIRST_TRY_WORKERS=4
 # The 5-minute load and the cores, "load cores"; nothing where there's no reading (not a Mac).
 load5() { local l c; l=$(sysctl -n vm.loadavg 2>/dev/null) && c=$(sysctl -n hw.ncpu 2>/dev/null) || return 0; echo "$(awk '{print int($3)}' <<<"$l") $c"; }
 # Why a check's tests get more than their own time, or nothing: heat has taken cores, or (on the Mac, not on GitHub's
@@ -160,7 +165,11 @@ verify() {
     why=$(slow_mac)
     AQ_TEST_TIME_SCALE=1
     [ -z "$why" ] || { AQ_TEST_TIME_SCALE=$HOT_TIME_SCALE; log "$why: tests get $AQ_TEST_TIME_SCALE times their time"; }
-    checks "$step" >>"$TEST_LOG" 2>&1 && continue
+    if [ -n "${GITHUB_ACTIONS:-}" ]; then
+      checks "$step" >>"$TEST_LOG" 2>&1 && continue
+    else
+      VITEST_MAX_WORKERS=$FIRST_TRY_WORKERS checks "export pnpm_config_workspace_concurrency=1; $step" >>"$TEST_LOG" 2>&1 && continue
+    fi
     first=$from
     if ran_out "$first"; then log "tests ran out of time on a busy Mac: checking again once it is calmer"; else log "a check failed: running it once more once the Mac is calmer"; fi
     settled
@@ -662,7 +671,11 @@ unit_job() {
   fi
   case "$word" in success | failure | cancelled | skipped | timed_out | action_required | neutral | stale | startup_failure | pending) echo "$word" ;; esac
 }
-# The whole suite's daily run on the Mac: none passed in 20 hours and it's a quiet hour (1 to 6), or none in 30. Only the
+# The whole suite's daily run on the Mac: none passed in 20 hours and it's a quiet hour (1 to 6), or the last pass is
+# 30 hours old and it's outside the owner's working day (8 to 21). Never in that day: on 16 Nov the first run after #1484
+# merged (photos, 11:10) found no pass stamped, counted that as past 30 hours and took the whole suite at 11:13 (the chief
+# of staff); and a night's daily run that fails would have had every run of the next morning take it again, once its
+# last pass was 30 hours old (a reader of #1516). A Mac with no pass stamped waits for the quiet hours. Only the
 # daily run's own pass is stamped ($FULL_STAMP): a whole suite taken for another reason at 13:00 would put the next
 # quiet window inside the 20 hours, and the run then went at a busy hour of the next day (a reader of #1484, 16 Nov).
 # Unless another run took it in the last 12 hours ($FULL_STAMP.taken) and may still be at it: a pass is stamped only at
@@ -672,9 +685,10 @@ full_due() {
   engine_clone || return 1
   [ -n "$(find "$FULL_STAMP" -mmin -1200 2>/dev/null)" ] && return 1
   [ -n "$(find "$FULL_STAMP.taken" -mmin -720 2>/dev/null)" ] && return 1
-  [ -n "$(find "$FULL_STAMP" -mmin -1800 2>/dev/null)" ] || return 0
   local hour; hour=${AQ_HOUR:-$(date +%H)}; hour=${hour#0}
-  [ "$hour" -ge 1 ] && [ "$hour" -le 6 ]
+  [ "$hour" -ge 1 ] && [ "$hour" -le 6 ] && return 0
+  [ "$hour" -lt 8 ] || [ "$hour" -ge 22 ] || return 1
+  [ -e "$FULL_STAMP" ] && [ -z "$(find "$FULL_STAMP" -mmin -1800 2>/dev/null)" ]
 }
 # CHECKS_STEP, the step this commit takes, and CHECKS_WHY, why.
 checks_for() {

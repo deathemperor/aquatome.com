@@ -1,7 +1,7 @@
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { photoFitsHead, type Photo } from '@aq/schema'
+import { isNonCommercial, photoFitsHead, type Photo } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { across, cardWorthy, LARGE_PX, ownMarkOnly, readCalendar, readVerdicts, SLOT_RATIO } from './curation'
@@ -63,7 +63,8 @@ export const cardCrop = (bytes: Uint8Array) => sharp(bytes).rotate().resize(640,
  * photo the photo check calls young, false for one it calls grown that may lead in a young one's place (young-heads.ts).
  */
 export function leadChoice(own: Photo[], gallery: GalleryPhoto[], passes: (p: Photo) => boolean, compared: Compared, marked: (p: Photo) => boolean = () => false, named: (p: Photo) => number = () => 0, kept: (p: Photo) => boolean = () => false, age: (p: Photo) => boolean | undefined = () => undefined): { lead: Photo } | { ask: { head: Photo; photo: Photo } } | undefined {
-  own=own.filter(photoFitsHead);gallery=gallery.filter(photoFitsHead)
+  // A non-commercial album photo stays in its album: it never leads a page (the owner's yes was for albums, 10 Nov).
+  own=own.filter(photoFitsHead);gallery=gallery.filter(p=>photoFitsHead(p)&&!isNonCommercial(p.licence))
   // A photo its source names only with "cf.", to its genus or as another fish (`named`, photo-named.ts) doesn't lead while
   // one it names better passes: the lowest class that passes is the bar (the chief of staff, 2026-11-14).
   const bar = Math.min(...[...own, ...gallery].filter(p => !p.generated && passes(p)).map(named))

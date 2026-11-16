@@ -7,7 +7,8 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "colombia"
+    "colombia",
+    "magdalena"
   ],
   "range": {
     "native": {
@@ -96,6 +97,28 @@
       {
         "source": "glaser",
         "value": 20
+      },
+      {
+        "source": "scotcat",
+        "value": 11
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ]
   },
@@ -107,16 +130,52 @@
       "html": "<p>The 5 species of the genus Crossoloricaria all look very similar to the flounder-like loricariid genus Pseudohemiodon. These fish also have a flattened body and small eyes set far apart on a triangular head. The difference between the two genera is that Crossoloricaria lacks the ventral bony plates; only along the medial line of the underside is there a small row of tiny bony plates. C. cephalaspis does not grow larger than 20 cm.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/crossoloricaria_cephalaspis.htm",
+      "html": "<p>Crossoloricaria cephalaspis Isbrücker, 1979. Family: Loricariidae. Size: 11 cm. Temperature: 24–28°C. pH: 6.0–7.0.</p><p>This genus looks similar to Pseudohemiodon, but the latter has bony plates on the underside, whereas Crossoloricaria is nearly naked apart from a line of small platelets along the medial ventral line.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/crossoloricaria_cf_cephalaspis_en/",
       "html": "<p>This species originates from the north of Colombia.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/crossoloricaria_cephalaspis.htm",
+      "html": "<p>South America: Magdalena River basin, Colombia. Type locality: Colombia, Río Magdalena.</p><p>IUCN Red List: there are no studies on the species' bio-ecology or its population dynamics, and there are information gaps on the true range of distribution in Colombia. However, this species has a wide distribution in the lowlands throughout the Magdalena, Cauca and Atrato river basins. Therefore, Crossoloricaria cephalaspis is assessed as Least Concern (LC) (IUCN 2023).</p>"
+    },
+    {
       "key": "maintenance",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/crossoloricaria_cf_cephalaspis_en/",
       "html": "<p>They absolutely need a sandy substrate in which they can bury themselves as deep as possible. This means they are often difficult to spot at all. When newly introduced to the aquarium they only come out of the sand at night, but after a period of acclimatisation they appear at feeding time.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/crossoloricaria_cephalaspis.htm",
+      "html": "<p>Provide hiding places and a sandy substrate where this species likes to bury itself.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/crossoloricaria_cephalaspis.htm",
+      "html": "<p>Insect larvae.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/crossoloricaria_cephalaspis.htm",
+      "html": "<p>Etymology: the specific name cephalaspis is after Cephalaspis Agassiz 1835, a fossil ostracoderm, which it \"bears a striking resemblance\" to.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/crossoloricaria_cephalaspis.htm",
+      "html": "<p>Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
