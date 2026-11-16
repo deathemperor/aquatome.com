@@ -2,7 +2,7 @@ import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import type { Llm } from '../src/claude'
+import { LlmError, type Llm } from '../src/claude'
 import { doseOrHarm, recheckLocalized, type Cleared } from '../src/localize-recheck'
 import { sourceTextHash } from '../src/recheck-score'
 import { logReviews, readReviews } from '../src/review-log'
@@ -127,6 +127,54 @@ test('a note on a dose or harm in any read of the text keeps the page out; one o
   expect((await recheckLocalized(own.root, none.llm, 'th', ['a'], { now, cleared: [{ ...near, page: 'th/species/a' }] })).back).toEqual(['a: 0.6, Sonnet 0.9, Opus 0.85: back at 0.85, its notes on a dose or harm cleared'])
   expect(none.calls).toEqual([])
   expect(JSON.parse(await own.file()).quality).toEqual({ score: 0.85, indexable: true, bySource: { seriouslyfish: 0.85 } })
+})
+
+test("a note on a dose or harm logged on the text, or on a kept read of a page with no translator's record, keeps it out; a held page Opus failed doesn't come back when its note is cleared; one with a new note since stays out", async () => {
+  const HARM = 'Item 1: the line that it is toxic to shrimp is kept.'
+  const NEW = 'Item 2: a deadly mistake is left in.'
+  const read = { score: 0.9, notes: [HARM] }
+  // Logged on this text, by its hash.
+  const hashed = await site()
+  await logReviews(hashed.root, 'localize', { id: 'species/a', lang: 'th' }, [read], read, { now: new Date('2026-11-10T00:00:00Z'), recheck: true, textHash: hashOf(TH) })
+  expect((await recheckLocalized(hashed.root, fake({ sonnet: PASS, opus: OPUS }).llm, 'th', ['a'], { now })).held).toHaveLength(1)
+  // A page with no record of the translator's: every kept read counts.
+  const orphan = await site()
+  await writeFile(join(orphan.root, 'engine-state/localize-th.json'), '{}')
+  await logReviews(orphan.root, 'localize', { id: 'species/a', lang: 'th' }, [read], read, { now: new Date('2026-11-01T00:00:00Z') })
+  expect((await recheckLocalized(orphan.root, fake({ sonnet: PASS, opus: OPUS }).llm, 'th', ['a'], { now })).held).toHaveLength(1)
+  // Opus failed it, with a note held: cleared since, it still doesn't come back.
+  const failed = await site({ a: { notes: [HARM] } })
+  expect((await recheckLocalized(failed.root, fake({ sonnet: PASS, opus: { score: 0.6, notes: [] } }).llm, 'th', ['a'], { now })).failed).toHaveLength(1)
+  const clear: Cleared[] = [{ page: 'th/species/a', note: HARM, by: 'the chief of staff', at: '2026-11-16', why: 'test' }]
+  expect(await recheckLocalized(failed.root, fake({ sonnet: PASS, opus: OPUS }).llm, 'th', ['a'], { now, cleared: clear })).toMatchObject({ back: [], failed: [] })
+  // Held, then a new note on the same text logged since: clearing the first leaves it out on the second.
+  const later = await site({ a: { notes: [HARM] } })
+  expect((await recheckLocalized(later.root, fake({ sonnet: PASS, opus: OPUS }).llm, 'th', ['a'], { now })).held).toHaveLength(1)
+  const next = { score: 0.9, notes: [NEW] }
+  await logReviews(later.root, 'localize', { id: 'species/a', lang: 'th' }, [next], next, { now: new Date('2026-11-19T00:00:00Z'), recheck: true, textHash: hashOf(TH) })
+  const none = fake({ sonnet: PASS, opus: OPUS })
+  expect((await recheckLocalized(later.root, none.llm, 'th', ['a'], { now: () => new Date('2026-11-20T00:00:00Z'), cleared: clear })).held).toEqual([`a: 0.6, its notes cleared, but a note on a dose or harm since: ${JSON.stringify(NEW)}`])
+  expect(none.calls).toEqual([])
+  expect(JSON.parse(await later.file()).quality.indexable).toBe(false)
+})
+
+test("a page whose text changes while it is read is not written; a model's error stops the step and leaves the page", async () => {
+  const { root, file } = await site()
+  const changed = { ...TH, 'behaviour:seriouslyfish': '<p>ปลาที่อยู่เป็นฝูง ควรเลี้ยงหกตัวขึ้นไป</p>' }
+  const page = JSON.parse(await file())
+  const base = fake({ sonnet: PASS, opus: OPUS })
+  // A hand run writes the page while Opus reads it.
+  const racing = (async (a: { prompt: string; model?: string }) => {
+    if (a.model === 'opus') await writeFile(join(root, 'content/species/a/th.json'), `${JSON.stringify({ ...page, sections: changed }, null, 2)}\n`)
+    return base.llm(a as never)
+  }) as unknown as Llm
+  expect((await recheckLocalized(root, racing, 'th', ['a'], { now })).skipped).toEqual(['a: 0.6, Sonnet 0.9, Opus 0.85: its text changed while it was read'])
+  expect(JSON.parse(await file()).quality.score).toBe(0.6)
+  const broken = await site({ a: {}, b: {} })
+  const was = await broken.file('b')
+  const failing = (async () => { throw new LlmError('the sign-in is out of its week') }) as unknown as Llm
+  expect(await recheckLocalized(broken.root, failing, 'th', ['a', 'b'], { now })).toMatchObject({ back: [], stopped: 'a: the sign-in is out of its week' })
+  expect(await broken.file('b')).toBe(was)
 })
 
 test('the translator\'s pages of the last day go first; the limit counts pages read; held, passing and part-less pages are left alone; a dry run and the time stop read none', async () => {

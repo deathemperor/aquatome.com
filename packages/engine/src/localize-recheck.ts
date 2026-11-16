@@ -68,8 +68,11 @@ export async function recheckLocalized(root: string, llm: Llm, lang: TargetLang,
   // The translator's pages of the last day first, in the order given (most-read first).
   const since = new Date(now().getTime() - 86_400_000).toISOString().slice(0, 10)
   const order = [...ids.filter(id => (state[id]?.at ?? '') >= since), ...ids.filter(id => (state[id]?.at ?? '') < since)]
-  // The page at the lower of its two scores, in search; the translator's record of it says the same.
-  async function putBack(id: string, file: string, page: Page, score: number, parts: { id: string }[]) {
+  // The page at the lower of its two scores, in search; the translator's record of it says the same. Only if its text is
+  // still the text read: one changed while it was read (a hand run beside the cycle) is left as it is, for the next try.
+  async function putBack(id: string, file: string, hash: string, score: number, parts: { id: string; en: string }[]): Promise<boolean> {
+    const page = JSON.parse(await readFile(file, 'utf8')) as Page
+    if (page.held || sourceTextHash(parts.map(p => ({ id: p.id, en: p.en, vi: page.sections[p.id] ?? '' }))) !== hash) return false
     const { reason: _, ...quality } = page.quality!
     const sources = [...new Set(parts.map(p => p.id.split(':')[1]!))]
     await writeFile(file, `${JSON.stringify({ ...page, quality: { ...quality, score, indexable: true, bySource: Object.fromEntries(sources.map(s => [s, score])) } }, null, 2)}\n`)
@@ -77,7 +80,13 @@ export async function recheckLocalized(root: string, llm: Llm, lang: TargetLang,
       state[id] = { ...state[id], score }
       await writeFile(stateFile, `${JSON.stringify(Object.fromEntries(Object.entries(state).sort()), null, 2)}\n`)
     }
+    return true
   }
+  // The notes on a dose or harm on this text, read before (the logged reads of it, by its hash, or kept since the
+  // translator last wrote the page, and the translator's own), from `after` on only when given; uncleared ones.
+  const harmOn = (id: string, hash: string, after?: string) =>
+    [...(store[`${lang}/species/${id}`] ?? []).filter(t => (t.textHash === hash && (!after || Date.parse(t.at) > Date.parse(after))) || (!t.textHash && t.kept && t.at.slice(0, 10) >= (state[id]?.at ?? ''))).flatMap(t => t.notes), ...(state[id]?.notes ?? [])]
+      .filter(n => doseOrHarm(n) && !isCleared(id, n))
   let sent = 0
   const started = Date.now()
   for (const id of order) {
@@ -86,11 +95,11 @@ export async function recheckLocalized(root: string, llm: Llm, lang: TargetLang,
     const file = join(dir, id, `${lang}.json`)
     const raw = await readFile(file, 'utf8').catch(() => null)
     if (!raw) continue
-    const page = JSON.parse(raw) as Page
-    const was = page.quality?.score
-    if (page.held || was === undefined || was >= QUALITY_THRESHOLD) continue
     const ref = { id: `species/${id}`, lang }
     try {
+      const page = JSON.parse(raw) as Page
+      const was = page.quality?.score
+      if (page.held || was === undefined || was >= QUALITY_THRESHOLD) continue
       const e = JSON.parse(await readFile(join(dir, id, 'entity.json'), 'utf8')) as { sections: Section[] }
       // The reviewer's numbering: every translatable part with text, in the page's order (localize.ts `review`).
       const parts = e.sections.filter(s => s.html.trim() && translatable(s.source)).map(s => ({ id: `${s.key}:${s.source}`, en: s.html }))
@@ -100,10 +109,13 @@ export async function recheckLocalized(root: string, llm: Llm, lang: TargetLang,
       // Tried: left alone, unless both reads passed and every note that held it has been cleared since.
       if (before && (before.back || !(before.held?.length && before.held.every(n => isCleared(id, n)) && (before.opus ?? 0) >= QUALITY_THRESHOLD && before.sonnet >= QUALITY_THRESHOLD))) continue
       if (before) {
+        // A note on a dose or harm logged on this text since the try, and not cleared, still holds it.
+        const since = [...new Set(harmOn(id, hash, before.at))]
+        if (since.length) { report.held.push(`${id}: ${was}, its notes cleared, but a note on a dose or harm since: ${since.map(n => JSON.stringify(n)).join('; ')}`); continue }
         if (o.dry) { report.skipped.push(`${id}: its notes cleared, would come back (dry run)`); continue }
+        if (!await putBack(id, file, hash, Math.min(before.sonnet, before.opus!), parts)) { report.skipped.push(`${id}: its text changed while it was read`); continue }
         tried[id] = { ...before, back: true }
         await writeFile(triedFile, `${JSON.stringify(Object.fromEntries(Object.entries(tried).sort()), null, 2)}\n`)
-        await putBack(id, file, page, Math.min(before.sonnet, before.opus!), parts)
         report.back.push(`${id}: ${was}, Sonnet ${before.sonnet}, Opus ${before.opus}: back at ${Math.min(before.sonnet, before.opus!)}, its notes on a dose or harm cleared`)
         continue
       }
@@ -118,17 +130,21 @@ export async function recheckLocalized(root: string, llm: Llm, lang: TargetLang,
       }
       const line = `${id}: ${was}, Sonnet ${sonnet.score}${second ? `, Opus ${second.score}` : ''}`
       // Every read of this text: the two fresh ones, the logged ones by its hash or kept since the translator last wrote
-      // it, and the translator's own. A read of a text never kept, or of one since changed, isn't this text's.
-      const traces = (store[`${lang}/species/${id}`] ?? []).filter(t => t.textHash === hash || (!t.textHash && t.kept && t.at.slice(0, 10) >= (state[id]?.at ?? '9')))
-      const notes = [...sonnet.notes, ...(second?.notes ?? []), ...traces.flatMap(t => t.notes), ...(state[id]?.notes ?? [])]
-      const harm = [...new Set(notes.filter(n => doseOrHarm(n) && !isCleared(id, n)))]
+      // it (every kept one, for a page with no record of the translator's), and the translator's own. A read of a text
+      // never kept, or of one since changed, isn't this text's.
+      const harm = [...new Set([...[...sonnet.notes, ...(second?.notes ?? [])].filter(n => doseOrHarm(n) && !isCleared(id, n)), ...harmOn(id, hash)])]
       const back = !!second && second.score >= QUALITY_THRESHOLD && !harm.length
       tried[id] = { hash, at: now().toISOString(), sonnet: sonnet.score, ...(second ? { opus: second.score } : {}), back, ...(harm.length ? { held: harm } : {}) }
       await writeFile(triedFile, `${JSON.stringify(Object.fromEntries(Object.entries(tried).sort()), null, 2)}\n`)
       if (!second || second.score < QUALITY_THRESHOLD) { report.failed.push(line); continue }
       if (harm.length) { report.held.push(`${line}: a note on a dose or harm: ${harm.map(n => JSON.stringify(n)).join('; ')}`); continue }
       const score = Math.min(sonnet.score, second.score)
-      await putBack(id, file, page, score, parts)
+      if (!await putBack(id, file, hash, score, parts)) {
+        tried[id] = { ...tried[id]!, back: false }
+        await writeFile(triedFile, `${JSON.stringify(Object.fromEntries(Object.entries(tried).sort()), null, 2)}\n`)
+        report.skipped.push(`${line}: its text changed while it was read`)
+        continue
+      }
       report.back.push(`${line}: back at ${score}`)
     } catch (err) {
       if (err instanceof LlmError) { report.stopped = `${id}: ${err.message.slice(0, 200)}`; break }
