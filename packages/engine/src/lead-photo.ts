@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { photoFitsHead, type Photo } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
-import { across, cardWorthy, LARGE_PX, ownMarkOnly, readCalendar, readVerdicts, SLOT_RATIO } from './curation'
+import { across, cardWorthy, handAvoid, LARGE_PX, ownMarkOnly, readCalendar, readVerdicts, SLOT_RATIO } from './curation'
 import { pickStands, readPersonYes } from './person-yes'
 import { namedOn } from './photo-named'
 import { ageOf, grownHead } from './young-heads'
@@ -112,6 +112,9 @@ export async function screenLeads(root: string, d: LeadDeps, o: { limit: number;
   const compared: Compared = JSON.parse(await readFile(file, 'utf8').catch(() => '{}'))
   const verdicts = await readVerdicts(root)
   const cur = await readCalendar(root)
+  // A person's entries alone: the engine's (headAvoid) list a photo refused for one page, by address, and here a photo is
+  // judged for its own page, where it may pass.
+  const avoid = handAvoid(cur.avoid)
   const report = { sheets: 0, compared: 0, changed: [] as string[], gained: [] as string[], failed: [] as string[], waiting: 0, stopped: '' }
   const today = new Date().toISOString().slice(0, 10)
   const coming = new Set(cur.days.filter(x => x.date >= today && x.fish).map(x => x.fish!))
@@ -147,9 +150,9 @@ export async function screenLeads(root: string, d: LeadDeps, o: { limit: number;
   const grown = grownHead(verdicts)
   const age = (f: Fish) => (p: Photo) => {
     if (picks[f.ref] && pickStands(f.ref, picks[f.ref]!, verdicts.subjects, yes)) return undefined
-    return ageOf(verdicts.subjects[p.url]?.[f.id]) === true ? true : grown(asked(f, p), f.id) && !(p.url in cur.avoid) ? false : undefined
+    return ageOf(verdicts.subjects[p.url]?.[f.id]) === true ? true : grown(asked(f, p), f.id) && !(p.url in avoid) ? false : undefined
   }
-  const choose = (f: Fish) => leadChoice(f.entity.photos ?? [], f.gallery, p => cardWorthy(asked(f, p), f.id, verdicts, cur.avoid), compared, p => ownMarkOnly(asked(f, p), f.id, verdicts, cur.avoid), named(f.id), p => !!verdicts.kept?.(p.url), age(f))
+  const choose = (f: Fish) => leadChoice(f.entity.photos ?? [], f.gallery, p => cardWorthy(asked(f, p), f.id, verdicts, avoid), compared, p => ownMarkOnly(asked(f, p), f.id, verdicts, avoid), named(f.id), p => !!verdicts.kept?.(p.url), age(f))
 
   // Asked in rounds, since a pair answered no sends its fish on to the next photo.
   const dir = await mkdtemp(join(tmpdir(), 'lead-photos-'))

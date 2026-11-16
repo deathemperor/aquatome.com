@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { CurationSchema, LANGS, type Curation } from '@aq/schema'
-import { across, candidates, cardsOf, cardWorthy, checkCalendar, fishProblem as problemOf, HERO_COUNT, LARGE_PX, plan, problem, readVerdicts, TAGS, type Candidate } from '../src/curation'
+import { across, candidates, cardsOf, cardWorthy, checkCalendar, fishProblem as problemOf, heldBy, HERO_COUNT, LARGE_PX, plan, problem, readVerdicts, TAGS, type Candidate } from '../src/curation'
 import { countedYes, pickStands, readPersonYes, YES_PER_WEEK } from '../src/person-yes'
 
 const big = (n: number) => `https://media.aquatome.com/commons/${n.toString(16).padStart(16, '0')}.webp`
@@ -663,10 +663,28 @@ test("a week's top card whose page's head a check refused or the second look hol
   const cands = ['a', 'b', 'c', 'd', 'e', 'f'].map(id => fish(id))
   // Its head no longer passes: no head, and why. Before, the card kept its old picture.
   const failed = fish('failed', { head: undefined, headFails: "the check can't tell" })
+  // Its head passes the card rule but the second look holds it: first in line by its address, and never taken, neither
+  // in a refused card's place nor to make five, nor as a day's fish.
+  const held = fish('aa-held', { headFails: 'held for a second look' })
+  expect(held.head).toBeDefined()
+  expect(problemOf(held)).toBe('head photo: held for a second look')
   const cur = heroWeek([{ page: 'species/failed', img: old }, { page: 'species/a' }])
-  const { calendar, report } = plan(cur, [failed, ...cands], '2026-11-09', 0)
+  const { calendar, report } = plan(cur, [failed, held, ...cands], '2026-11-09', 0)
   const hero = calendar.weeks[0]!.hero
   expect(hero.map(h => h.page)).not.toContain('species/failed')
+  expect(hero.map(h => h.page)).not.toContain('species/aa-held')
   expect(hero.some(h => h.img === old)).toBe(false)
   expect(report.heroes).toContain("2026-11-09 species/failed out (head photo: the check can't tell), species/b in")
+})
+
+test('held for a second look: a photo waiting for an answer, or agreed and not yet on the never-again list; one a person cleared is not', () => {
+  const u = (n: number) => `https://media.aquatome.com/commons/${n.toString(16).padStart(16, '0')}.webp`
+  const at = '2026-11-16'
+  const entry = { why: 'its page would be left with nothing', step: 'the photo check', pages: ['sample-fish'], at }
+  const held = heldBy({
+    [u(1)]: entry,
+    [u(2)]: { ...entry, look: { said: 'agree', by: 'Sample Keeper', on: at } },
+    [u(3)]: { ...entry, look: { said: 'clear', by: 'Sample Keeper', on: at } },
+  })
+  expect([u(1), u(2), u(3), u(4)].map(held)).toEqual([true, true, false, false])
 })

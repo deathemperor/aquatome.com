@@ -8,7 +8,7 @@ import { fitKey, type FitState } from './fit'
 import { gateChecks } from './gate'
 import { loadPages, type Page } from './pages'
 import { readPersonYes, type PersonYes } from './person-yes'
-import { readSecondLook } from './last-photo'
+import { looks, readSecondLook, type SecondLooks } from './last-photo'
 import type { PhotoVerdict } from './photo-check'
 
 /**
@@ -162,6 +162,12 @@ export const ENGINE_AVOID = 'engine: '
 export const handAvoid = (avoid: Record<string, string>): Record<string, string> => Object.fromEntries(Object.entries(avoid).filter(([, why]) => !why.startsWith(ENGINE_AVOID)))
 
 /**
+ * Held for a second look: waiting for a person's answer, or agreed and not yet on the never-again list (the sweep moves
+ * it). A photo a person cleared isn't held: it stays on its page, and the card rule judges it as any other (last-photo.ts).
+ */
+export const heldBy = (sl: SecondLooks): ((url: string) => boolean) => { const l = looks(sl); return url => l.waiting(url) || l.agreed(url) }
+
+/**
  * Why the card rule refuses a page's own photo, once the second look holds it or a check has judged it; nothing for one
  * that passes, or that no check has judged yet (the site's faces don't fall back onto an unjudged photo either). `hand`:
  * the avoid list's entries a person wrote; a photo there that passes otherwise keeps the person's reason, not one of these.
@@ -216,16 +222,14 @@ export function withEngineAvoid(avoid: Record<string, string>, engine: Record<st
   return { ...handAvoid(avoid), ...Object.fromEntries(Object.entries(engine).sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))) }
 }
 
-/** Species and breed pages' own photos, as their entity files hold them, for headAvoid. */
+/**
+ * Species and breed pages' own photos for headAvoid, as the site shows them: the loader's, after the photos it hides
+ * (waiting for the watermark screen, a host that sets cookies, a revoked change) and in its order, as candidates() reads
+ * them. The raw entity file's first photo can be one the site doesn't show.
+ */
 export async function pagePhotos(root: string): Promise<{ id: string; photos: Photo[] }[]> {
-  const out: { id: string; photos: Photo[] }[] = []
-  for (const kind of ['species', 'breeds']) {
-    for (const id of (await readdir(join(root, 'content', kind)).catch(() => [] as string[])).sort()) {
-      const e = await json<{ photos?: Photo[] } | null>(join(root, 'content', kind, id, 'entity.json'), null)
-      if (e?.photos?.length) out.push({ id, photos: e.photos })
-    }
-  }
-  return out
+  const c: Content = await loadAll({ root: join(root, 'content'), lang: 'vi', publicBuild: true, subjectFrames: true, wholeBoxes: false })
+  return [...c.species, ...c.breeds].filter(p => p.photos.length).map(p => ({ id: p.id, photos: p.photos }))
 }
 
 /**
@@ -297,7 +301,7 @@ export async function candidates(root: string, o: { demand?: Map<string, number>
   const secondLook = await readSecondLook(root)
   const failsAs = (own: Photo[], page: string) => {
     const lead = own[0]
-    const why = lead && !lead.generated ? refusedWhy(lead, page, v, avoid, url => Object.hasOwn(secondLook, url)) : undefined
+    const why = lead && !lead.generated ? refusedWhy(lead, page, v, avoid, heldBy(secondLook)) : undefined
     return why ? { headFails: why } : {}
   }
   const fitState = await json<FitState>(join(state, '_fit.json'), {})
@@ -388,6 +392,7 @@ export function problem(c: Candidate | undefined, slot: Slot, img?: string, o: {
 export function fishProblem(c: Candidate | undefined, todayCut: Record<string, string> = {}, chosen = false): string | undefined {
   if (!c) return 'no such page'
   if (!c.fit) return `reader fit: ${c.fitWhy}`
+  if (c.headFails) return `head photo: ${c.headFails}`
   if (!c.head) return 'no checked head photo'
   if (c.head.px.square < LARGE_PX) return `head photo ${c.head.px.square} px across, under ${LARGE_PX}`
   if (todayCut[c.head.url]) return `Hôm nay's card cuts its head photo: ${todayCut[c.head.url]}`
@@ -399,6 +404,7 @@ export function fishProblem(c: Candidate | undefined, todayCut: Record<string, s
 function fishHeroProblem(c: Candidate | undefined): string | undefined {
   if (!c) return 'no such page'
   if (!c.fit) return `reader fit: ${c.fitWhy}`
+  if (c.headFails) return `head photo: ${c.headFails}`
   if (!c.head) return 'no checked head photo'
   if (c.head.px.wide < LARGE_PX) return `head photo ${c.head.px.wide} px across, under ${LARGE_PX}`
   return undefined

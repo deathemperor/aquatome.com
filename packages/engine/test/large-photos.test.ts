@@ -112,6 +112,16 @@ test("--heads: a large copy of a fish's head photo alone, the same picture large
   expect(await headsUnderBar(root)).toEqual([])
 })
 
+test("--heads: the engine's avoid entries, listed for a photo refused on some page's cards, don't stop a head that passes on its own page; a person's entry does", async () => {
+  const root = await store()
+  const [head] = await photosOf(root, 'content/species/betta-splendens/entity.json')
+  const avoid = async (why: string) => writeFile(join(root, 'content/curation.json'), JSON.stringify({ version: 1, weeks: [], days: [], avoid: { [head!.url]: why } }))
+  await avoid('engine: another fish')
+  expect(await headsUnderBar(root)).toEqual(['betta-splendens'])
+  await avoid('a ruler in the picture')
+  expect(await headsUnderBar(root)).toEqual([])
+})
+
 test('a head whose source holds nothing larger is remembered and not fetched again each cycle', async () => {
   const root = await store()
   const file = join(root, 'content/species/betta-splendens/entity.json')
