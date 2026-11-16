@@ -50,7 +50,7 @@ test("a clean pull that brings main's commits in is swept before the push, and t
   mkdirSync(join(dir, 'bin'))
   // The sweep alone: the photo records' migration before it (sweep_merged) has nothing to do here.
   // The content's load passes unless BAD is set.
-  writeFileSync(join(dir, 'bin/pnpm'), '#!/bin/sh\n[ "$2" = check-content ] && { echo dates >> ../dates.log; [ -z "$BAD" ]; exit; }\n[ "$2" = sweep ] || exit 0\necho swept >> ../swept.log\n[ -z "$FIXES" ] || echo "$FIXES" > content/b.json\n[ -z "$DATES" ] || echo "$DATES" > content/page-dates.json\n')
+  writeFileSync(join(dir, 'bin/pnpm'), '#!/bin/sh\n[ "$2" = check-content ] && { echo dates >> ../dates.log; [ -z "$BAD" ]; exit; }\n[ "$2" = sweep ] || exit 0\necho swept >> ../swept.log\n[ -z "$FIXES" ] || echo "$FIXES" > content/b.json\n[ -z "$DATES" ] || echo "$DATES" > content/page-dates.json\n[ -z "$REPORT" ] || echo "$REPORT" > docs/review/photo-subjects.md\n[ -z "$NOANIMAL" ] || echo "$NOANIMAL" > engine-state/_photo-no-animal-heads.json\n[ -z "$LOOKALIKE" ] || echo "$LOOKALIKE" > docs/review/photo-subjects.md.bak\n')
   chmodSync(join(dir, 'bin/pnpm'), 0o755)
   const sh = (command: string, cwd = dir, env = {}) => execSync(command, { cwd, shell: '/bin/bash', encoding: 'utf8', env: { ...process.env, ...env, PATH: `${dir}/bin:${process.env.PATH}` } })
   const repo = join(dir, 'repo'), other = join(dir, 'other')
@@ -98,6 +98,29 @@ test("a clean pull that brings main's commits in is swept before the push, and t
   expect(pull({ DATES: 'd5' })).toBe('test') // both sides' calendar: no load, the tests
   expect([swept(), dated()]).toEqual([8, 3])
   expect(sh('cat content/curation.json', repo).trim().split('\n')).toEqual(['run', '2', '3', '4', 'main'])
+  // The Site lead, 15 Nov: so it is when the sweep changes nothing.
+  sh("sed -i.bak 3s/3/lead/ content/curation.json && rm content/curation.json.bak && git commit -qam 'lead calendar 2' && git push -q 2>/dev/null", other)
+  expect(pull()).toBe('test')
+  expect([swept(), dated()]).toEqual([9, 3])
+  // Main not moved: the calendar test reads false, though the run changed it, and nothing is swept.
+  const still = `log() { :; }; source '${join(ROOT, 'scripts/cycle-checks.sh')}'; m=$(git rev-parse '@{u}'); h=$(git rev-parse HEAD); swept_clean "$h" "$m" "$m" && echo push || echo test`
+  expect(sh(still, repo).trim()).toBe('push')
+  // The sweep's two reports go with the dates, or alone, the content loaded.
+  onMain('m7.json')
+  expect(pull({ REPORT: 'r1' })).toBe('push')
+  expect([swept(), dated()]).toEqual([10, 4])
+  onMain('m8.json')
+  expect(pull({ DATES: 'd6', REPORT: 'r2' })).toBe('push')
+  expect([swept(), dated()]).toEqual([11, 5])
+  onMain('m9.json')
+  expect(pull({ NOANIMAL: 'n1' })).toBe('push')
+  expect([swept(), dated()]).toEqual([12, 6])
+  // A report and anything else, or a file whose name only starts like a report's, is checked in full.
+  onMain('m10.json')
+  expect(pull({ REPORT: 'r3', FIXES: '3' })).toBe('test')
+  onMain('m11.json')
+  expect(pull({ LOOKALIKE: 'l1' })).toBe('test')
+  expect([swept(), dated()]).toEqual([14, 6])
 }, slow(120_000))
 
 // The photos part of 2026-11-08: its calendar clashed with an editor's re-plan, and the line-by-line merge named one guide
