@@ -17,6 +17,13 @@ const COPY_HOSTS = [
   'r.jina.ai',
 ]
 
+/**
+ * Sites refused as a source for anything new, whatever the page (the chief of staff, 16 Nov 2026): cabaymau.vn gave a guide
+ * clinics no page named, a fish bag filled the wrong way round (a third oxygen), and a driftwood page that copies another
+ * shop's and turns two of its meanings over. A shop's page on a buying list is another thing, and stays.
+ */
+const REFUSED_SITES = ['cabaymau.vn']
+
 /** Every host a source's pages stand on: its discovery addresses' and those its address pattern names, bare. */
 function hostsOf(s: SourceConfig): string[] {
   const d = s.discover
@@ -47,12 +54,13 @@ async function sourceRecord(root: string): Promise<Record<string, Entry>> {
  * reads only through the Internet Archive, by their config or moved there by the engine itself, and those with a browser
  * check's block on record (`blockedAt`, cleared by the next good run, so a source the owner has cleared comes back), all
  * from the engine's own list, so a new one is covered; and the sites read for ideas whose listing refused us (ideas.ts),
- * and the magazine read for ideas, always (idea-sources.ts NEVER_RESEARCHED). Each host is given bare and as "*.host" (its
+ * and the magazine read for ideas, always (idea-sources.ts NEVER_RESEARCHED), and the sites refused as a source
+ * (REFUSED_SITES). Each host is given bare and as "*.host" (its
  * "www.", its forum and any other host under it), plus the hosts that hold other copies of any page.
  */
 export async function cycleOnlyHosts(root: string): Promise<string[]> {
   const record = await sourceRecord(root)
-  const out = new Set<string>([...COPY_HOSTS, ...NEVER_RESEARCHED])
+  const out = new Set<string>([...COPY_HOSTS, ...NEVER_RESEARCHED, ...REFUSED_SITES.flatMap(h => [h, `*.${h}`])])
   for (const s of SOURCES) {
     if (s.via !== 'archive' && !record[s.id]?.archive && !record[s.id]?.blockedAt) continue
     for (const h of hostsOf(s)) { out.add(h); out.add(`*.${h}`) }
