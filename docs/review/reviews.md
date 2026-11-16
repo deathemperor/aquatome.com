@@ -11,16 +11,16 @@ under `<lang>/<path>`.
 | video-guide | 933 | 668 (vi 668) | 668 |
 | translation | 1692 | 260 (vi 260) | 260 |
 | vi-rewrite | 351 | 24 (vi 24) | 24 |
-| reader-rewrite | 34 | 0 | 0 |
+| reader-rewrite | 35 | 0 | 0 |
 | title | 25 | 0 | 0 |
 | breed | 27 | 3 (ms 3) | 3 |
 | topic | 91 | 4 (ms 1, th 3) | 4 |
 | product | 16 | 1 (vi 1) | 1 |
 | product-reviews | 16 | 0 | 0 |
 | summary | 2227 | 117 (vi 117) | 117 |
-| localize | 2162 | 854 (id 386, ms 52, th 416) | 854 |
+| localize | 2208 | 870 (id 393, ms 52, th 425) | 870 |
 | glossary | 4 | 0 | 0 |
-| places | 6638 | 4034 (id 1377, ms 1374, th 1184, vi 99) | 1038 |
+| places | 6710 | 4088 (id 1395, ms 1392, th 1202, vi 99) | 1076 |
 | equipment | 5 | 0 | 0 |
 | planting | 31 | 0 | 0 |
 | species | 13 | 0 | 0 |
@@ -32,16 +32,16 @@ under `<lang>/<path>`.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 586 | 1531 |
-| States as certain what the source hedges, or what garbled captions only hint at | 582 | 1757 |
-| Says what the source doesn't (invented, added) | 504 | 1222 |
-| Wording: unnatural, literal, stiff or chatty | 277 | 389 |
-| A number, unit, dose or price | 228 | 335 |
-| Repeats itself (intro, summary, steps and FAQ) | 131 | 154 |
+| Other | 587 | 1532 |
+| States as certain what the source hedges, or what garbled captions only hint at | 582 | 1751 |
+| Says what the source doesn't (invented, added) | 504 | 1223 |
+| Wording: unnatural, literal, stiff or chatty | 276 | 387 |
+| A number, unit, dose or price | 227 | 334 |
+| Repeats itself (intro, summary, steps and FAQ) | 130 | 153 |
 | Meaning changed or wrong | 116 | 133 |
 | Leaves out what the source says | 48 | 50 |
 | Hobby terms and names | 44 | 45 |
-| Names or points to the video, channel, creator or source | 35 | 39 |
+| Names or points to the video, channel, creator or source | 34 | 38 |
 | Off the title's topic | 25 | 25 |
 | Copied from the transcript or source | 22 | 24 |
 | Text left in another language | 6 | 6 |
@@ -104,7 +104,7 @@ under `<lang>/<path>`.
 
 - The section "Những sai lầm hay gặp ở ba bước đầu" and "Đặt lũa theo cảm tính, không có điểm nhấn rõ ràng", plus "ngâm ngay", "tập xếp lũa trong bể khô" – the mistakes list and the 'Bắt đầu từ đâu' steps add advice the video doesn't give; r… — vi/guides/youtube-ysH2T_HOG0E, 0.45
 - "Người làm hướng dẫn đang chạy kiểu lọc này cho bể cá rồng châu Á khoảng 1.400 lít của mình": this refers to the creator. Remove the sentence, or rewrite it without a person, for example "kiểu lọc này chạy được cho cả bể cá rồng lớn cỡ 1.4… — vi/guides/youtube-2WBo3u9arUo, 0.50
-- "Bài này gộp hai kiểu đó" / "Ở đây cá thả ngay hôm sau": refers to the video itself. Rewrite as a plain guide statement without mentioning the source (e.g. "Cách làm này gộp..."). — vi/guides/youtube-34R1VF2bzmg, 0.50
+- "Bản gốc dùng bộ LED…", "Chi phí trong bản gốc" and "Bản gốc tốn khoảng 25 USD": these refer to the video. Rewrite without "bản gốc", for example "Một cách làm tốn khoảng…". — vi/guides/youtube-9QSxJymRBak, 0.50
 
 ### Off the title's topic
 
@@ -299,7 +299,7 @@ under `<lang>/<path>`.
 
 ## reader-rewrite: parts the reader step rewrote with its findings
 
-0 of 34 pages under the bar.
+0 of 35 pages under the bar.
 
 ## title: titles rewritten to promise only what the text has
 
@@ -457,20 +457,20 @@ under `<lang>/<path>`.
 
 ## localize: species and plant pages in Indonesian and Thai, against the English
 
-854 of 2162 pages under the bar.
+870 of 2208 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 796 | 2280 |
-| Wording: unnatural, literal, stiff or chatty | 737 | 1557 |
-| Says what the source doesn't (invented, added) | 508 | 736 |
-| Meaning changed or wrong | 471 | 724 |
-| Hobby terms and names | 468 | 615 |
-| A number, unit, dose or price | 451 | 566 |
-| Text left in another language | 309 | 398 |
-| Leaves out what the source says | 263 | 305 |
-| Repeats itself (intro, summary, steps and FAQ) | 242 | 272 |
-| States as certain what the source hedges, or what garbled captions only hint at | 188 | 208 |
+| Other | 809 | 2316 |
+| Wording: unnatural, literal, stiff or chatty | 752 | 1586 |
+| Says what the source doesn't (invented, added) | 519 | 752 |
+| Meaning changed or wrong | 482 | 737 |
+| Hobby terms and names | 477 | 627 |
+| A number, unit, dose or price | 459 | 574 |
+| Text left in another language | 313 | 403 |
+| Leaves out what the source says | 267 | 309 |
+| Repeats itself (intro, summary, steps and FAQ) | 249 | 280 |
+| States as certain what the source hedges, or what garbled captions only hint at | 192 | 212 |
 | Copied from the transcript or source | 27 | 27 |
 | Off the title's topic | 1 | 1 |
 
@@ -550,14 +550,14 @@ under `<lang>/<path>`.
 
 ## places: place names in Indonesian and Thai (reviewed in batches)
 
-4034 of 6638 pages under the bar.
+4088 of 6710 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 922 | 1004 |
+| Other | 959 | 1041 |
 | Meaning changed or wrong | 66 | 66 |
 | Leaves out what the source says | 44 | 44 |
-| Wording: unnatural, literal, stiff or chatty | 24 | 24 |
+| Wording: unnatural, literal, stiff or chatty | 25 | 25 |
 | States as certain what the source hedges, or what garbled captions only hint at | 9 | 9 |
 | Hobby terms and names | 9 | 9 |
 | Text left in another language | 7 | 7 |

@@ -10,7 +10,7 @@ Written by `pnpm engine gallery` (2026-11-16). Targets: packages/engine/src/gall
 | covered | 30 | 671 | 30 | 9 | 23 | 687 |
 | rest | 20 | 1729 | 75 | 0 | 91 | 1713 |
 
-## Short of target: every source read (478)
+## Short of target: every source read (498)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -494,3 +494,23 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/crenuchus-spilurus | covered | 1 | 30 |
 | species/crossoloricaria-cephalaspis | covered | 0 | 30 |
 | species/ctenochromis-polli | covered | 0 | 30 |
+| species/ctenopoma-acutirostre | covered | 1 | 30 |
+| species/ctenopoma-kingsleyae | covered | 1 | 30 |
+| species/ctenops-nobilis | covered | 0 | 30 |
+| species/cyclocheilichthys-janthochir | covered | 0 | 30 |
+| species/cyprichromis-leptosoma | covered | 5 | 30 |
+| species/danio-aesculapii | covered | 0 | 30 |
+| species/danio-albolineatus | covered | 3 | 30 |
+| species/danio-dangila | covered | 0 | 30 |
+| species/danio-erythromicron | covered | 2 | 30 |
+| species/danio-roseus | covered | 1 | 30 |
+| species/danionella-dracula | covered | 1 | 30 |
+| species/danionella-translucida | covered | 0 | 30 |
+| species/dario-hysginon | covered | 0 | 30 |
+| species/dawkinsia-assimilis | covered | 1 | 30 |
+| species/dawkinsia-exclamatio | covered | 1 | 30 |
+| species/dawkinsia-rohani | covered | 0 | 30 |
+| species/dekeyseria-scaphirhyncha | covered | 0 | 30 |
+| species/denticetopsis-macilenta | covered | 0 | 30 |
+| species/denticetopsis-praecox | covered | 0 | 30 |
+| species/desmopuntius-hexazona | covered | 1 | 30 |
