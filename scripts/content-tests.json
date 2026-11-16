@@ -424,6 +424,7 @@
     "packages/engine/test/sim-run.test.ts": "sim-run.py and its hook on a temp home's queues (on a Mac)",
     "packages/engine/test/start-clean.test.ts": "vitest on two cycle test files",
     "packages/engine/test/test-scratch.test.ts": "printf of the temp folder's name",
-    "packages/engine/test/test-time-scale.test.ts": "the cycle's checks on stand-in steps in the temp folder"
+    "packages/engine/test/test-time-scale.test.ts": "the cycle's checks on stand-in steps in the temp folder",
+    "packages/schema/test/content-trace.test.ts": "vitest on its own probe, which opens two content files and a folder only to see the trace record them, into a trace file of its own"
   }
 }

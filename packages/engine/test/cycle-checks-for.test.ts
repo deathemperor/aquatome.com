@@ -1,5 +1,5 @@
 import { spawnSync } from 'node:child_process'
-import { mkdirSync, mkdtempSync, utimesSync, writeFileSync } from 'node:fs'
+import { mkdirSync, mkdtempSync, readFileSync, utimesSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -152,3 +152,10 @@ test('the whole suite runs on this Mac once a day, at a quiet hour, and its pass
   // A whole suite taken for another reason is stamped too.
   expect(decide({ unit: ['failure'], stamp: 2 }).stamp).toBe(true)
 }, slow(120_000))
+
+// A rename on either side would only cost the short path (no job by that name: the whole suite), but silently.
+test('the job the cycle asks GitHub about is ci.yml\'s unit-test job, by its name', () => {
+  const name = /^UNIT_JOB='([^']+)'$/m.exec(readFileSync(join(ROOT, 'scripts/cycle-checks.sh'), 'utf8'))?.[1]
+  const jobs = [...readFileSync(join(ROOT, '.github/workflows/ci.yml'), 'utf8').matchAll(/^ {4}name: (.+)$/gm)].map(m => m[1])
+  expect(jobs).toContain(name)
+})

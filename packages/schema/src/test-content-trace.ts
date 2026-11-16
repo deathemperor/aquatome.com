@@ -1,6 +1,7 @@
 import childProcess from 'node:child_process'
 import fs, { appendFileSync } from 'node:fs'
 import { syncBuiltinESMExports } from 'node:module'
+import { resolve } from 'node:path'
 import { promisify } from 'node:util'
 import { fileURLToPath } from 'node:url'
 import { beforeAll, expect } from 'vitest'
@@ -22,9 +23,10 @@ const out = process.env.AQ_CONTENT_TRACE
 
 const rel = (p: string) => p.slice(ROOT.length + 1)
 const testFile = () => { const t = expect.getState().testPath; return t ? rel(t) : 'unknown' }
+// Absolute and normalised (`..`, `.`), a relative one from this process's working folder.
 const pathOf = (p: unknown): string | undefined => {
-  if (p instanceof URL) return p.protocol === 'file:' ? fileURLToPath(p) : undefined
-  if (typeof p === 'string') return p.startsWith('/') ? p : `${process.cwd()}/${p}`
+  if (p instanceof URL) return p.protocol === 'file:' ? resolve(fileURLToPath(p)) : undefined
+  if (typeof p === 'string') return resolve(p)
   if (Buffer.isBuffer(p)) return pathOf(p.toString())
   return undefined
 }
@@ -66,15 +68,17 @@ if (out) {
   const opens = ['readFile', 'readdir', 'stat', 'lstat', 'access', 'open', 'opendir', 'exists', 'createReadStream', 'readlink', 'realpath', 'copyFile', 'cp', 'glob', 'openAsBlob']
   wrap(fs as unknown as Record<string, unknown>, [...opens, ...opens.map(n => `${n}Sync`)], a => read(a[0]))
   wrap(fs.promises as unknown as Record<string, unknown>, opens, a => read(a[0]))
-  // A child process inside the repository: its cwd, or this process's when it names none.
+  // A child process inside the repository (its cwd, or this process's when it names none), or one whose command names a
+  // watched folder by its full path from anywhere (`cat <repo>/content/x` from the temp folder).
   const inRepo = (o: unknown) => {
     const cwd = (o && typeof o === 'object' && 'cwd' in o ? pathOf((o as { cwd: unknown }).cwd) : undefined) ?? process.cwd()
     return cwd === ROOT || cwd.startsWith(`${ROOT}/`)
   }
   const started = (args: unknown[]) => {
     const [cmd, second, third] = args
+    const words = [cmd, ...(Array.isArray(second) ? second : [])].map(String)
     const opts = Array.isArray(second) ? third : second
-    if (inRepo(opts)) write('spawn', [cmd, ...(Array.isArray(second) ? second : [])].map(String).join(' ').slice(0, 200))
+    if (inRepo(opts) || words.some(w => WATCHED.some(d => w.includes(d)))) write('spawn', words.join(' ').slice(0, 200))
   }
   wrap(childProcess as unknown as Record<string, unknown>, ['spawn', 'spawnSync', 'exec', 'execSync', 'execFile', 'execFileSync', 'fork'], started)
   syncBuiltinESMExports()

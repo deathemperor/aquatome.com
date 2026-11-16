@@ -65,7 +65,11 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const read = new Set(Object.keys(readByHand).filter(f => !f.startsWith('$')))
   // Left out: seen to run and read nothing, and either started no process or a person read it.
   const out = f => !reads.has(f) && (read.has(f) || (ran.has(f) && !spawns.has(f)))
-  if (reads.has('unknown')) console.error(`reads no test file was named for: ${reads.get('unknown').join('; ')}`)
+  // A read the trace couldn't put to a test file could be any file's, a listed one's too: neither command goes on.
+  if (reads.has('unknown') || spawns.has('unknown')) {
+    console.error(`reads or processes no test file was named for: ${[...(reads.get('unknown') ?? []), ...(spawns.get('unknown') ?? [])].join('; ')}`)
+    process.exit(1)
+  }
   if (cmd === 'write') {
     const all = testFiles()
     const leaveOut = all.filter(out)

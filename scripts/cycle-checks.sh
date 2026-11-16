@@ -670,7 +670,7 @@ full_due() {
 }
 # CHECKS_STEP, the step this commit takes, and CHECKS_WHY, why.
 checks_for() {
-  local code word waited=0
+  local code word waited=0 asked=$SECONDS said_waiting=
   CHECKS_STEP=$FULL_STEP
   if engine_cloud; then CHECKS_WHY="the whole suite: the cloud's runner doesn't read GitHub's checks"; return; fi
   if full_due; then
@@ -683,9 +683,12 @@ checks_for() {
   fi
   for (( ; ; )); do
     word=$(unit_job "$code")
+    # By the clock, GitHub's answers' own time too.
+    waited=$((SECONDS - asked))
     [ "$word" = pending ] && [ "$waited" -lt "$UNIT_WAIT_SECONDS" ] || break
-    [ "$waited" -gt 0 ] || log "GitHub's unit tests on ${code:0:9}, the code this run publishes on, are still running: waiting up to $((UNIT_WAIT_SECONDS / 60)) min"
-    sleep "${UNIT_POLL_SECONDS:-60}"; waited=$((waited + ${UNIT_POLL_SECONDS:-60}))
+    [ -n "${said_waiting:-}" ] || log "GitHub's unit tests on ${code:0:9}, the code this run publishes on, are still running: waiting up to $((UNIT_WAIT_SECONDS / 60)) min"
+    said_waiting=1
+    sleep "${UNIT_POLL_SECONDS:-60}"
   done
   if [ "$word" = success ]; then
     CHECKS_STEP=$CONTENT_STEP
