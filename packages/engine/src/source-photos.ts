@@ -16,6 +16,8 @@ const EXTRA_DOWNLOADS = 4
 const THUMBNAIL = /\/(?:icons?|thumbs?|thumbnails?)\//i
 
 const JUNK = /logo|icon|sprite|avatar|banner|badge|placeholder|gravatar|payment|flag|button|spinner|loader|emoji|pixel|tracking/i
+/** A commenter's picture by its address: a Gravatar file is a bare hash, so the file name alone never shows it (16 Nov). */
+const AVATAR = /^https?:\/\/([a-z0-9-]+\.)*gravatar\.com\/|\/avatars?\//i
 /** QR codes for the page's own address (PlanetCatfish: quickchart.io/qr?…, /cache/qr/…). */
 const QR = /\/qr(\/|\?|$)/i
 const SCENERY = /habitat|biotope|locality|\bmap\b/i
@@ -59,7 +61,7 @@ export function pickSourcePhotos(images: PageImage[], pageUrl: string, names: st
   for (const img of [...images.filter(i => !newlyEligible(i)), ...images.filter(newlyEligible)]) {
     let src: string
     try { src = new URL(img.src, pageUrl).href } catch { continue }
-    if (!/^https?:/.test(src) || /\.(svg|gif)(\?|$)/i.test(src) || JUNK.test(`${file(src)} ${img.alt}`) || QR.test(src)) continue
+    if (!/^https?:/.test(src) || /\.(svg|gif)(\?|$)/i.test(src) || JUNK.test(`${file(src)} ${img.alt}`) || AVATAR.test(src) || QR.test(src)) continue
     if (img.link && linksElsewhere(img.link, pageUrl)) continue
     const thumbnailWidth = Number(file(src).match(/-(\d+)x\d+\.[a-z0-9]+$/i)?.[1])
     if ((newlyEligible(img) && THUMBNAIL.test(src)) || (thumbnailWidth && thumbnailWidth < minWidth)) continue

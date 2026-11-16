@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/should-i-remove-dead-shrimp-from-my-tank/
 title: Should I Remove Dead Shrimp from My Tank? - Shrimp and Snail Breeder
 fetchedAt: 2026-11-11T02:59:24.752Z
-hash: d04730fb664983dfd7424b533ad9b90045b61e98c92b0551adc8dd5b7a90bada
+hash: 9febc961fb24de88121f40aa62bc3e67f136f57b1bcc58c95337cb5bf233262a
 ---
 
 Whenever people find dead shrimp in their tanks, they wonder … “Should I remove dead shrimp from the tank or should I leave it in there?” Actually, this is a frequent question in the aquatic hobby and sooner or later you will have to deal with that.
@@ -65,4 +65,3 @@ You can also read my article “Hints for Survival and How Do Not Kill Your Shri
 ## In Conclusion
 Having a dead shrimp in the tank can potentially spread infectious diseases and parasites to other shrimp. This is why, to avoid such incidents, they often should be removed from the tank immediately.
 At the same time, the level of risk also mainly depends on your tank set up and how the shrimp died. If it happened from natural causes in a big tank, dead shrimp will be consumed before the process of decomposition takes place.
-### Leave a Reply Cancel reply

@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/cambarellus-puer-care/
 title: Cambarellus Puer – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-11-04T13:46:07.954Z
-hash: bf9670ca828c0adf5edaf28b93714d82aee4de497698e49379980ebffc637413
+hash: b320dc12dd73c23ab61a592886a063e73ec2ba4ad6718a381c855ea572ea17b7
 ---
 
 Cambarellus puer is one of the dwarf crayfish species which gain popularity in recent times. These small crustaceans can be great pets as they have a lot of personalities and are a load of fun to watch.
@@ -197,4 +197,3 @@ Let me know if you have any questions that I did not cover in this guide. I’ll
 - Black, J.B. (1963) Comparison of the male reproductive cycles in the Dwarf crayfishes Cambarellus-shufeldti and Cambarellus-puer American Zoologist, 3, 524–524.
 - Black, J.B. (1966) Cyclic male reproductive activities in the dwarf crawfishes Cambarellus shufeldtii (Faxon) and Cambarellus puer (Hobbs). American Microscopial Society Transactions, 85, 214–232.
 - Crayfish Growth and Reproduction. Biology and Ecology of Crayfish (pp.62-116).
-### Leave a Reply Cancel reply

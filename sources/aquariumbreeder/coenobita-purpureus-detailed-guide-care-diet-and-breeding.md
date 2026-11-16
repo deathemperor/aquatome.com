@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/coenobita-purpureus-detailed-guide-care-diet-and-breeding/
 title: Coenobita Purpureus – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-11-03T05:04:13.571Z
-hash: 2d4882e817037fb7c8b3e4ca140968d5bbc2b1bac5b04cc81c487105fe07b7af
+hash: 6bea29f76433500a7f41f444a0e3e9de822d57b702179ba9ceb48960d1690fd6
 ---
 
 Coenobita purpureus, commonly known as Blueberry hermit crabs, is one the rarest pet hermit crab species in the hobby nowadays. This species has been listed as “near threatened” on the Red List by the Ministry of the Environment of Japan.
@@ -254,4 +254,3 @@ Coenobita purpureus can be extraordinary companions for many years! However, it 
 - https://tonycoenobita.com/coenobita_rugosus_eng.htm
 - http://decapoda.free.fr/illustration.php?n=6&sp=187
 - https://hermitcrabassociation.com/
-### Leave a Reply Cancel reply

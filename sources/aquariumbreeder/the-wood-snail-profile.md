@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/the-wood-snail-profile/
 title: The Wood Snail Profile - Shrimp and Snail Breeder
 fetchedAt: 2026-10-28T16:09:35.806Z
-hash: d9b195b4f8de29cd27e82dc4d22e8e0896ec66dc7b813e5a0142fe0dab238044
+hash: 0733505198d58ab30261e84fd0d94192687d87485dd7324dab80a5e2410269a6
 ---
 
 Cepaea nemoralis, also known as the Wood snail or European snail, is a terrestrial snail that is admired for its attractive shell coloration. Moreover, this is one of the few snails that people have intentionally introduced into their gardens.
@@ -134,21 +134,3 @@ Some facts about these snails:
 Thanks to its beauty, Wood snails can be an interesting addition not only to your garden but also as a pet in a paludarium.
 The snail is quite hardy and adaptable. However, the main challenge in keeping it in captivity is ensuring proper nutrition. Therefore, if you are not prepared to provide a varied diet, it’s best to consider other options, such as large African snails or even common garden snails, instead.
 Main foto credit: hedera.baltica
-## Related articles:
-- Archachatina Marginata – Detailed Guide: Care, Diet and Breeding
-- Giant African Land Snails – Detailed Guide: Care, Diet and Breeding
-- Garden Snail Profile and Care Guide
-## References:
-- Lamotte, Maxime. “Polymorphism of natural populations of Cepaea nemoralis.” In Cold spring harbor symposia on quantitative biology, vol. 24, pp. 65-86. Cold Spring Harbor Laboratory Press, 1959.
-- Cain, A. J., J. M. B. King, and P. M. Sheppard. “New data on the genetics of polymorphism in the snail Cepaea nemoralis L.” Genetics45, no. 4 (1960): 393.
-- Cook, L. M. “Variation with habitat in Cepaea nemoralis: the Cain & Sheppard diagram.” Journal of Molluscan Studies74, no. 3 (2008): 239-243.
-- Williamson, P., and R. A. D. Cameron. “Natural diet of the landsnail Cepaea nemoralis.” Oikos(1976): 493-500.
-- Oosterhoff, Lucette Martha. “Variation in growth rate as an ecological factor in the landsnail Cepaea nemoralis (L.).” (1977).
-- Whitson, Maggie. “Cepaea nemoralis (Gastropoda, Helicidae): the invited invader.” Journal of the Kentucky Academy of Science66, no. 2 (2005): 82-88.
-- Ozgo, M., and Aleksandra Kubea. “Humidity and the effect of shell colour on activity of Cepaea nemoralis (Linnaeus, 1758).” Folia Malacologica13, no. 3 (2005).
-- Murray, James. “Multiple mating and effective population size in Cepaea nemoralis.” Evolution(1964): 283-291.
-## 6 thoughts on “The Wood Snail Profile”
-- Hi, Nice article! Cepaeas are one of my favorite snail species to keep and also to find in nature. I love their variable colors. But there are some points that I would do otherwise in their care. 1. Cucumber and salad holds almost no nutritious value and can make them also addicted to it. So it should be considerd more as a treat. 2. I think for wood snails a enclosure size of 30x20x20 cm is better to begin with because they like to explore and climb the space that they have. 3. I always recommend to don‘t put hard objects as rocks or ceramic in snail enclosures. Sometimes snails can lose their grip when they sleep and can then crack their shell when they land on a hard surface. But as said nice article! Keep up the good work. ReplyHi Curryto, I really appreciate you taking the time to share your thoughts on my Cepaea article. I agree that cucumber and salad are low in nutrients and could create addiction, so a ‘treat’ designation is a good idea. The point about a larger enclosure (30x20x20cm) and the potential dangers of hard objects is also great; thanks for bringing that up. Best regards, Michael Reply
-- We definitely have these in British Columbia, Canada! ReplyHi Barncat, With the growth of trade, more and more species are becoming invasive, and it seems like there’s nothing we can do to stop it. Best regards, Michael Reply
-- A friend of mine recently found this snail (that’s what I’m assuming from matching pictures ) outside his hotel room, inside ! I’m trying to post a pic of it here but there is no option to? He set up a 5 1/2 G. tank, terrarium, for ” Gary ” ( his name lol ). And now I am taking care of it until he moves. Is it rare or odd that it was found in Connecticut U.S.A? ReplyHi Aly, It is not possible to attach files here. Check out your email please. Best regards, Michael Reply
-### Leave a Reply Cancel reply

@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/how-to-anchor-aquarium-plants-pros-and-cons-of-different-methods/
 title: How to Anchor Aquarium Plants? Pros and Cons of Different Methods - Shrimp and Snail Breeder
 fetchedAt: 2026-11-09T06:06:48.512Z
-hash: c0f21b965c4d135d6840ff96dfc81f65d177d0aa87685a70dd10deee32efc921
+hash: 5b73c6cd1bc77d9335a7949d7c2ef144fb6daf1699f217f2c5fd6ab96701dc76
 ---
 
 Some aquarium plants need to be anchored so that they don’t float around your aquarium. In other cases, they may need to be anchored to make sure they properly root so that your aquarium can have a healthy, thriving ecosystem.
@@ -100,7 +100,3 @@ As for the freshwater crabs and crayfish, you will have to do your research. The
 Note: On my blog, you can find detailed articles on these and many other species.
 ## In Conclusion
 Generally, if planting them more thoroughly does not work, you’ll always want to anchor your aquarium plants so that they grow properly, and so they don’t float around your tank willy-nilly.
-## 4 thoughts on “How to Anchor Aquarium Plants? Pros and Cons of Different Methods”
-- I have been keeping fish for over 40 years and used various methods.I personally prefer aqua glue ( the white will vanish in about 6-8 weeks.).I stay miles away from mesh because plants grow and move and can leave gaps and small fish can get stuck in there and injure themselves.I had two young fish who got stuck in the mesh in about 20 years time. While I managed to cut them safely free they had pre injuries when trying to free themselves which resulted in their death shortly after. Some might say that two in over 40 years is not bad for which my response is that they should be banned from keeping fish because they do not value life (Now they might say ‘its was a cheap fish’.But what about a horse given for a present who dies? The horse was even cheaper than a few £ or $ for a fish..) Keeping animals is a huge responsibility but many are not fit for that as sanctuaries, animal shelters and countless statements per year show. ReplyHi KK, Thank you for sharing your experience. I have been lucky enough not to have such incidents and I can’t even remember a case where this happened to my friends. Nevertheless, it is important to keep in mind that this may really happen. Thank you again. Best regards, Michael Reply
-- This was a great help. Thank you for sharing your experience with us. ReplyHi Denise Sabol, You are welcome Best regards, Michael Reply
-### Leave a Reply Cancel reply

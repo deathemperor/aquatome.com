@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/madagascar-lace-care-guide-planting-growing-and-propagation/
 title: Madagascar Lace Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-11-07T01:59:06.560Z
-hash: 25f64db3f599fca9cf4d2d2fa7d1136cc28f9565e9cf0254cd2206be89f0f06f
+hash: 0e8e2d5c3a240ac46c13beb9c89ac0ec3a97f34ec518e30238ce808361087d58
 ---
 
 Madagascar lace (Aponogeton madagascariensis) is unarguably one of the most beautiful aquatic plants in the aquarium hobby. Madagascar lace has attractive and charming fenestrated leaves which adds a whole new aesthetics to an aquarium.
@@ -123,4 +123,3 @@ However, behind its beauty lies a need for proper maintenance and care. Therefor
 - van Bruggen, H. W. E. “Revision of the genus Aponogeton (Aponogetonaceae).” Blumea: Biodiversity, Evolution and Biogeography of Plants 16, no. 1 (1968): 243-265.
 - Denbigh, Georgia. “Investigating anthocyanin profile, localization, and transport in Aponogeton madagascariensis.” (2020).
 - Dauphinee AN, Wright H, Rantong G, Gunawardena AHLAN. 2012. The involvement of ethylene in programmed cell death and climacteric-like behaviour during the remodeling of lace plant (Aponogeton madagascariensis) leaves. Botany. 90(12):1237–1244. doi:10.1139/b2012-093
-### Leave a Reply Cancel reply

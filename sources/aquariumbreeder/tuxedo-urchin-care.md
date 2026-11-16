@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/tuxedo-urchin-care/
 title: Tuxedo Urchin Urchin – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-11-09T06:04:22.591Z
-hash: a9764a0ef717b71ec6fca5e755d7943e963c67d2add707629f2ef53bc6829164
+hash: 34aee88227f68fef516ccc950f21125197b6d44fc51c35a64eac11c6993aa13f
 ---
 
 Tuxedo urchin (Mespilia globulus) is a renowned beautiful and reef safe species of sea urchins. This species is a far better alternative to the long spine and pencil urchins because of its peaceful disposition.
@@ -119,8 +119,3 @@ Tuxedo urchins are lovely additions to established reef aquaria.
 They do love decorating themselves. So, they will try to wear anything they can pick up that is not held down. This includes small stones, pieces of frags, shells, and even live snails!
 This species does not harm corals. They need a constant supply of algae to survive.
 Tuxedo urchins are very interesting creatures, they are will sure bring a lot of character and diversity to your reef aquarium but they are not ideal for everybody.
-## 5 thoughts on “Tuxedo Urchin Urchin – Detailed Guide: Care, Diet, and Breeding”
-- Great information. Thank you! We can’t wait to start our journey with our new Tuxedo friend. ReplyHi Karen Fernino, I am glad you liked it Best regards, Michael Reply
-- We just picked up a tuxedo Urchin to eradicate chaeto in the display tank ReplyHi Lonnie, Good choice! Let me not how it goes! Best regards, Michael Reply
-- I adore these guys, they’re so entertaining to watch. Reply
-### Leave a Reply Cancel reply

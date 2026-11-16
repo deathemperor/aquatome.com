@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/tank-decoration-simple-ideas/
 title: Do We Need Tank Decoration? Simple Ideas - Shrimp and Snail Breeder
 fetchedAt: 2026-11-09T06:14:41.199Z
-hash: d423abceae4870af45d9d19485d5ef9d95ecc7a8dcac9cf7af1bc67e12c75bfc
+hash: 190c2f22b3e6da4b8d94e4937997de64c54105ebae7f8629a09036dc74f787a0
 ---
 
 In aquariums, decorations are used not only to beautify the environment and create amazing aquascapes. In reality, they have other important roles like hiding places, spawning places, foraging places, etc.
@@ -98,6 +98,3 @@ Before placing any decoration in your aquarium, you need to prepare it properly.
 ## In Conclusion
 So, do we need tank decoration? Well, definitely yes!
 You do not really have to spend a lot of money to make your tank looks interesting and beautiful. Even if you are broke, you can still use some basic decoration that can look perfect in your aquarium.
-## 2 thoughts on “Do We Need Tank Decoration? Simple Ideas”
-- Can old sea shells be used in Nano tank? I am talking about shell that have been collected years ago. I friend gave me a bunch a number of years ago and I am trying to find uses for them. ReplyHi Virginia, I would be careful! Bacteria and parasites can survive for a very long time. Therefore, clean them anyway. You can use bleach, peroxide, or boil them. Best regards, Michael Reply
-### Leave a Reply Cancel reply
