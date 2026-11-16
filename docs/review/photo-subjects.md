@@ -2464,7 +2464,7 @@ Written by `pnpm engine check-photos` (2026-11-16), most-read pages first. Rules
 | species/cherax-pulcher | [photo](https://media.aquatome.com/commons/a2b70e5b45858a40.webp) | subject unsure; logo |
 | species/cherax-snowden | [photo](https://media.aquatome.com/commons/5c85239179eaf74a.webp) | subject yes; logo |
 | species/chitala-chitala | [photo](https://media.aquatome.com/commons/032817c6d469a438.webp) | subject other |
-| species/chitala-chitala | [photo](https://media.aquatome.com/commons/84cbc3b6378ca118.webp) | subject unsure |
+| species/chitala-chitala | [photo](https://media.aquatome.com/commons/84cbc3b6378ca118.webp) | subject other |
 | species/chitala-chitala | [photo](https://media.aquatome.com/commons/d822a1dee1f55d71.webp) | subject other |
 | species/chitala-chitala | [photo](https://media.aquatome.com/seriouslyfish/e08833894d4df39d.webp) | subject dead |
 | species/chromidotilapia-guntheri | [photo](https://media.aquatome.com/commons/57eb86803b937c46.webp) | subject yes; logo |
@@ -2507,7 +2507,7 @@ Written by `pnpm engine check-photos` (2026-11-16), most-read pages first. Rules
 | species/cyphotilapia-gibberosa | [photo](https://media.aquatome.com/commons/34c6ff662dfec5d1.webp) | subject yes; person |
 | species/cyprinodon-brontotheroides | [photo](https://media.aquatome.com/seriouslyfish/0a716468aa2ca26f.webp) | subject none |
 | species/cyprinodon-desquamator | [photo](https://media.aquatome.com/seriouslyfish/0a716468aa2ca26f.webp) | subject none |
-| species/cyprinodon-julimes | [photo](https://media.aquatome.com/seriouslyfish/71354dc56679e5fb.webp) | subject unsure; person |
+| species/cyprinodon-julimes | [photo](https://media.aquatome.com/seriouslyfish/71354dc56679e5fb.webp) | subject dead; person |
 | species/cyprinodon-pachycephalus | [photo](https://media.aquatome.com/seriouslyfish/921d8c1bdf673118.webp) | subject none |
 | species/cyprinodon-variegatus | [photo](https://media.aquatome.com/seriouslyfish/0a716468aa2ca26f.webp) | subject none |
 | species/danio-flagrans | [photo](https://media.aquatome.com/seriouslyfish/e9e9c454627993d5.webp) | subject dead |
