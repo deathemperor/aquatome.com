@@ -20,7 +20,7 @@ const hashOf = (sections: Record<string, string>) => sourceTextHash(PARTS.map(p 
  * Thai fish pages out of search for their score: two translatable parts and a part not ours to translate, the page's
  * score and its translator's record (`at`: when it last wrote the page; `notes`: its read's notes).
  */
-async function site(pages: Record<string, { score?: number; held?: true; sections?: Record<string, string>; at?: string; notes?: string[] }> = { a: {} }) {
+async function site(pages: Record<string, { score?: number; held?: true; reason?: 'thin' | 'score'; sections?: Record<string, string>; at?: string; notes?: string[] }> = { a: {} }) {
   const root = await mkdtemp(join(tmpdir(), 'recheck-'))
   await mkdir(join(root, 'engine-state'), { recursive: true })
   await mkdir(join(root, 'content'), { recursive: true })
@@ -34,7 +34,7 @@ async function site(pages: Record<string, { score?: number; held?: true; section
       ...PARTS.map(p => ({ key: p.id.split(':')[0], source: 'seriouslyfish', html: p.en })),
     ] }))
     const score = o.score ?? 0.6
-    await writeFile(join(dir, 'th.json'), `${JSON.stringify({ slug: id, name: 'ปลาทดสอบ', altNames: [], sections: o.sections ?? TH, quality: { score, indexable: score >= 0.75, bySource: { seriouslyfish: score }, ...(score < 0.75 ? { reason: 'score' } : {}) }, ...(o.held ? { held: true } : {}) }, null, 2)}\n`)
+    await writeFile(join(dir, 'th.json'), `${JSON.stringify({ slug: id, name: 'ปลาทดสอบ', altNames: [], sections: o.sections ?? TH, quality: { score, indexable: score >= 0.75, bySource: { seriouslyfish: score }, ...(o.reason ? { reason: o.reason } : {}) }, ...(o.held ? { held: true } : {}) }, null, 2)}\n`)
     state[id] = { at: o.at ?? '2026-11-08', from: '2026-11-01', name: 'ปลาทดสอบ', confidence: 'high', score, notes: o.notes ?? ['Item 2: "ปลาฝูง" is stiff.'] }
   }
   await writeFile(join(root, 'engine-state/localize-th.json'), `${JSON.stringify(state, null, 2)}\n`)
@@ -187,6 +187,27 @@ test('the translator\'s pages of the last day go first; the limit counts pages r
   expect(dry.calls).toEqual([])
   const one = fake({ sonnet: PASS, opus: OPUS })
   expect(await recheckLocalized(root, one.llm, 'th', ids, { now, limit: 1 })).toMatchObject({ back: ['fresh: 0.6, Sonnet 0.9, Opus 0.85: back at 0.85'], skipped: [] })
+})
+
+test('a page whose score carries a reason another step gave it is left as it is, and says so: the step never erases one', async () => {
+  for (const reason of ['thin', 'score'] as const) {
+    const { root, file } = await site({ a: { reason } })
+    const before = await file()
+    const { llm, calls } = fake({ sonnet: PASS, opus: OPUS })
+    expect(await recheckLocalized(root, llm, 'th', ['a'], { now })).toMatchObject({ back: [], skipped: [`a: its score carries a reason ("${reason}"), left as it is`] })
+    expect(calls).toEqual([])
+    expect(await file()).toBe(before)
+  }
+  // One given while the models read it: not written over.
+  const { root, file } = await site()
+  const page = JSON.parse(await file())
+  const base = fake({ sonnet: PASS, opus: OPUS })
+  const meanwhile = (async (a: { prompt: string; model?: string }) => {
+    if (a.model === 'opus') await writeFile(join(root, 'content/species/a/th.json'), JSON.stringify({ ...page, quality: { ...page.quality, reason: 'thin' } }))
+    return base.llm(a as never)
+  }) as unknown as Llm
+  expect((await recheckLocalized(root, meanwhile, 'th', ['a'], { now })).back).toEqual([])
+  expect(JSON.parse(await file()).quality).toMatchObject({ score: 0.6, reason: 'thin' })
 })
 
 test('only Indonesian and Thai pages, the kinds the rule was measured on', async () => {
