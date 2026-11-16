@@ -206,6 +206,13 @@ test('a description naming another species the site has a page for beside this o
   expect(namedAs({ sourceUrl: 'https://www.seriouslyfish.com/species/x', caption: 'Corydoras adolfoi, adult' }, { sci: 'Hoplisoma adolfoi', latin: ['Corydoras adolfoi'], known })).toBe(SPECIES)
   expect(at('Corydoras adolfoi', 'Corydoras adolfoi, Corydoras imitator')).toBe(SPECIES)
   expect(at('Botia histrionica', 'Botia histrionica, often sold as Botia kubotai')).toBe(SPECIES)
+  // A name the sentence only brings in, not joined to the picture (the reviewer of #1515), and any name on a genus's own page.
+  const barbs = knownNames(['Pethia conchonius', 'Pethia ticto', 'Apistogramma cacatuoides', 'Apistogramma agassizii', 'Echinodorus bleheri'].map(scientificName => ({ scientificName })))
+  const on = (sci: string, caption: string) => namedAs({ sourceUrl: 'https://www.seriouslyfish.com/species/x', caption }, { sci, known: barbs })
+  expect(on('Pethia conchonius', 'Male Pethia conchonius in breeding colour; the similar Pethia ticto has a second spot.')).not.toBe(GENUS)
+  expect(on('Apistogramma agassizii', 'Male Apistogramma agassizii, which differs from A. cacatuoides in its tail.')).not.toBe(GENUS)
+  expect(on('Pethia conchonius', 'Pethia conchonius with Pethia ticto')).toBe(GENUS)
+  expect(on('Echinodorus', 'Echinodorus bleheri and Echinodorus bleheri')).not.toBe(GENUS)
 })
 
 test("the source's own description, kept beside our caption from the album step's intake, is read before our caption (the chief of staff, 2026-11-14)", () => {

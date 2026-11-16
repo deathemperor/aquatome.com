@@ -272,6 +272,16 @@ test("a photo on the calendar's avoid list doesn't lead; --calendar touches only
   expect((await entity(root, 'aaa')).photos.map(p => name(p.url))).toEqual(['a-head'])
 })
 
+test("the step reads the calendar's hold for the head: a held head that fills the card gives way to a smaller photo that passes, with no model call (Rineloricaria castroi, 16 Nov)", async () => {
+  const root = await store({ r: { photos: [big('r-held'), photo('r-other', 500, 375)] } })
+  const cal = JSON.parse(await readFile(join(root, 'content/curation.json'), 'utf8'))
+  await writeFile(join(root, 'content/curation.json'), JSON.stringify({ ...cal, avoid: { [url('r-held')]: "a shop's lettered photo" } }))
+  const { d, seen } = model(yes)
+  await screenLeads(root, d, { limit: 5 })
+  expect(seen).toEqual([])
+  expect((await entity(root, 'r')).photos.map(p => name(p.url))).toEqual(['r-other', 'r-held'])
+})
+
 test("--calendar fills an empty page with no model call; a plant is given a first photo and otherwise left alone", async () => {
   const root = await store({
     aaa: { photos: [photo('a-head')], gallery: [big('a-gal')] }, empty: { photos: [], gallery: [photo('e-gal', 500, 400)] },

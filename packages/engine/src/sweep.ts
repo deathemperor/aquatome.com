@@ -27,7 +27,7 @@ import { SOURCES } from './sources'
 import { errorKind } from './state'
 import { isShop, readVarietyPages, withoutShopTalk } from './species-sources'
 import { cardOf, cardProblems } from './summaries'
-import { readVerdicts } from './curation'
+import { readCalendar, readVerdicts } from './curation'
 import { carryTopicChecks } from './topic-check'
 import { breedsNamed } from './topics'
 import { schoolFromSeriouslyFish } from './traits'
@@ -782,7 +782,9 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // has the last word, so no step between them leaves such a head. A standing pick still leads (the loop below).
   {
     const verdicts = await readVerdicts(root)
-    const asHead = passesHead(verdicts), grown = grownHead(verdicts), kept = (u: string) => !!verdicts.kept?.(u)
+    // The calendar's hold, as the lead step reads it: a held head the lead step moved stays moved (lead-photo.ts `held`).
+    const { avoid } = await readCalendar(root)
+    const asHead = passesHead(verdicts, avoid), grown = grownHead(verdicts, avoid), kept = (u: string) => !!verdicts.kept?.(u)
     const on = await namedOn(content)
     type Named = { kind: string; id: string; file: string; raw: string; e: { scientificName?: string; synonyms?: string[]; photos?: Photo[] } }
     const read = async (kind: string) => Promise.all((await readdir(join(content, kind)).catch(() => [] as string[])).sort().map(async (id): Promise<Named | null> => {

@@ -7,7 +7,8 @@
  * "cf." one.
  *
  * - `GENUS` (2), named only to the genus, as an undescribed form ("sp. 'Upper Brahmaputra'", "sp. CW010") or as another
- *   fish ("Piaractus sp." on the Colossoma's page, a file named for another species the site has a page for, "aff."):
+ *   fish ("Piaractus sp." on the Colossoma's page, a file named for another species the site has a page for, "aff."), or
+ *   with another fish the site has a page for in the picture beside it (a comparison figure, a tank-mate; 16 Nov):
  *   never leads while a photo named to the species or "cf." passes as a head; it may stay on the page and in
  *   its album, behind them, and leads only by a person's pick (engine-state/_photo-head-picks.json). Where it is all a
  *   page has that passes, it stays, and the photo check lists it for the chief of staff.
@@ -235,23 +236,33 @@ function plainlyThis(caption: string, page: NamedPage): boolean {
   return mine >= 0 && mine <= 5
 }
 
+/** Words that put another fish in the picture beside this one: "vs.", "and", "with", "beside", "plus", "&". */
+const BESIDE = /^(?:vs|versus|and|with|beside|alongside|plus|&)$/i
+/** Where a figure places one of the fish it shows: "(left)", "(right)", "(top)", "(front)". */
+const PLACED = /^\((?:left|right|top|bottom|above|below|front|back|behind|foreground|background)\)[.,;:]*$/i
+
 /**
- * Whether the source's description names another species the site has a page for, in full or by an initial only other
- * fish share with that epithet, beside this one: a comparison figure ("Corydoras duplicareus (left) vs. C. adolfoi
- * (right)"), a tank-mate ("Pictured with … B. kubotai"). A trade name doesn't count ("sold as …").
+ * Whether the source's description puts another species the site has a page for in the picture beside this one, named in
+ * full or by an initial only other fish share with that epithet: a comparison figure ("Corydoras duplicareus (left) vs.
+ * C. adolfoi (right)"), a tank-mate ("Pictured with a younger conspecific (right) and B. kubotai (left)"). The other name
+ * comes straight after a word that joins it to the picture (BESIDE) or is placed in the figure (PLACED); a name the
+ * sentence only brings in ("the similar Pethia ticto has a second spot", "differs from A. cacatuoides") doesn't count,
+ * nor a trade name ("sold as …"), nor any name on a genus's own page.
  */
 function namesOtherFish(caption: string, page: NamedPage): boolean {
-  if (!page.known || !caption) return false
+  const mine = flat(page.sci).toLowerCase().split(' ')
+  if (!page.known || !caption || mine.length < 2 || !/^[a-z]+$/.test(mine[1]!)) return false
   const own = [page.sci, ...(page.latin ?? [])].map(n => flat(n).toLowerCase().split(' ').slice(0, 2).join(' '))
   const { initials } = shapesOf(page.known)
-  const words = flat(caption.replace(TRADE, ' ')).split(' ').map(w => (/^\(?[A-Z]\.$/.test(w) ? w.replace(/^\(/, '') : w.replace(/^['"(]+|[)'",;:.]+$/g, '')))
+  const raw = flat(caption.replace(TRADE, ' ')).split(' ')
+  const words = raw.map(w => (/^\(?[A-Z]\.$/.test(w) ? w.replace(/^\(/, '') : w.replace(/^['"(]+|[)'",;:.]+$/g, '')))
   for (let i = 0; i + 1 < words.length; i++) {
     const a = words[i]!, b = words[i + 1]!.toLowerCase()
     if (!/^[a-z]+$/.test(b)) continue
-    if (/^[A-Z]\.$/.test(a)) {
-      const all = [...(initials.get(`${a[0]!.toLowerCase()}. ${b}`) ?? [])]
-      if (all.length && !all.some(n => own.includes(n))) return true
-    } else if (/^[A-Z][a-z]+$/.test(a) && page.known.has(`${a.toLowerCase()} ${b}`) && !own.includes(`${a.toLowerCase()} ${b}`)) return true
+    const other = /^[A-Z]\.$/.test(a)
+      ? (n => n.length > 0 && !n.some(x => own.includes(x)))([...(initials.get(`${a[0]!.toLowerCase()}. ${b}`) ?? [])])
+      : /^[A-Z][a-z]+$/.test(a) && page.known.has(`${a.toLowerCase()} ${b}`) && !own.includes(`${a.toLowerCase()} ${b}`)
+    if (other && (BESIDE.test(words[i - 1] ?? '') || PLACED.test(raw[i + 2] ?? ''))) return true
   }
   return false
 }
@@ -301,10 +312,12 @@ export const knownNames = (pages: { scientificName?: string; synonyms?: string[]
 
 /**
  * Whether a photo passes as this page's head: the lead step's test (curation.ts cardWorthy) in the head's frame. Any photo
- * read from a page has its size; photo-check.ts types its photos narrower.
+ * read from a page has its size; photo-check.ts types its photos narrower. `avoid`: the calendar's hold
+ * (content/curation.json), which the lead step reads too, so the sweep and the photo check never put back a held head
+ * the lead step moved (the reviewer of #1515, 16 Nov).
  */
-export const passesHead = (v: Verdicts) => (p: { url: string; caption?: string; generated?: unknown }, page: string): boolean =>
-  !p.generated && photoFitsHead(p as unknown as Photo) && cardWorthy(p, page, v, {})
+export const passesHead = (v: Verdicts, avoid: Record<string, string> = {}) => (p: { url: string; caption?: string; generated?: unknown }, page: string): boolean =>
+  !p.generated && photoFitsHead(p as unknown as Photo) && cardWorthy(p, page, v, avoid)
 
 type Names = { scientificName?: string; synonyms?: string[]; lNumber?: string }
 /**
