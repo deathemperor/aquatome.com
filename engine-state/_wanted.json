@@ -961,11 +961,10 @@
     "name": "Ichthyophthirius multifiliis",
     "mentionedIn": [
       "guides/aquariumcoop-blogs-aquarium-how-to-treat-ich-on-freshwater-fish",
-      "guides/aquatome-ca-bi-loi-mat-popeye-nguyen-nhan-cach-chua-va-phong",
       "guides/loachesonline-articles-oxygen-in-the-aquarium",
       "guides/sprucepets-methylene-blue-1379926"
     ],
-    "mentions": 4
+    "mentions": 3
   },
   "ancistrus-hoplogenys": {
     "name": "Ancistrus hoplogenys",
@@ -1979,10 +1978,9 @@
   "cichlasoma-paranaense": {
     "name": "Cichlasoma paranaense",
     "mentionedIn": [
-      "guides/aquatome-ca-nuoi-chung-va-cach-tranh-ca-danh-nhau",
       "species/hyphessobrycon-balbus"
     ],
-    "mentions": 2
+    "mentions": 1
   },
   "labeo-parvus": {
     "name": "Labeo parvus",
@@ -8042,5 +8040,12 @@
     "name": "Sturisomatichthys panamense",
     "mentionedIn": [],
     "mentions": 0
+  },
+  "telostylinus-lineolatus": {
+    "name": "Telostylinus lineolatus",
+    "mentionedIn": [
+      "guides/aquatome-cho-ca-an-so-lan-luong-loai-thuc-an"
+    ],
+    "mentions": 1
   }
 }
