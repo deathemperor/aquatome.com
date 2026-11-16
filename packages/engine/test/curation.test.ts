@@ -610,3 +610,63 @@ test("no engine step writes the person's-yes record: a pull request changes it",
   expect(naming).toEqual(['person-yes.ts'])
   expect(readFileSync(new URL('person-yes.ts', dir), 'utf8')).not.toMatch(/writeFile\(|appendFile\(|rename\(/)
 })
+
+test("the avoid list's engine entries: each page's held or refused photos up to its first that passes; a person's entries stay; last run's are rebuilt", async () => {
+  const { ENGINE_AVOID, headAvoid, withEngineAvoid } = await import('../src/curation')
+  const u = (n: number) => `https://media.aquatome.com/commons/${n.toString(16).padStart(16, '0')}.webp`
+  const ph = (n: number, o: { large?: number } = {}) => ({
+    url: u(n), width: 1600, height: 1200, licence: 'CC BY 4.0', author: 'Sample Shooter', sourceUrl: 'https://example.org/a',
+    ...(o.large ? { large: { url: u(o.large), width: 2400, height: 1800 } } : {}),
+  })
+  const yes = { ok: 'yes', typical: true, note: '' } as const
+  const v = {
+    subjects: {
+      [u(1)]: { a: { ok: 'unsure', typical: false, note: '' } },
+      [u(2)]: { a: { ...yes, logo: true } },
+      [u(3)]: { a: yes },
+      [u(4)]: { a: { ok: 'other', typical: false, note: '' } },
+      [u(5)]: { b: { ok: 'dead', typical: false, note: '' } },
+      [u(7)]: { b: yes },
+      [u(8)]: { c: yes },
+      [u(10)]: { c: { ...yes, typical: false } },
+      [u(11)]: { c: yes },
+    },
+    legacy: {}, rejected: {}, faces: {},
+  } as Awaited<ReturnType<typeof readVerdicts>>
+  const pages = [
+    // can't tell, then a mark a person listed, then one that passes: the walk stops there, so the "other" after it isn't listed.
+    { id: 'a', photos: [ph(1), ph(2), ph(3), ph(4)] },
+    // one no check has judged yet is passed over, not listed; a dead fish is listed with its large copy.
+    { id: 'b', photos: [ph(6), ph(5, { large: 9 }), ph(7)] },
+    // the second look holds one whatever its verdict; then one that isn't typical; then one that passes.
+    { id: 'c', photos: [ph(8), ph(10), ph(11)] },
+  ]
+  const hand = { [u(2)]: 'a wholesaler banner, listed by a person' }
+  const engine = headAvoid(pages, v, hand, url => url === u(8))
+  expect(engine).toEqual({
+    [u(1)]: `${ENGINE_AVOID}the check can't tell`,
+    [u(5)]: `${ENGINE_AVOID}a dead fish`,
+    [u(9)]: `${ENGINE_AVOID}a dead fish`,
+    [u(8)]: `${ENGINE_AVOID}held for a second look`,
+    [u(10)]: `${ENGINE_AVOID}not typical`,
+  })
+  // Rebuilt: last run's engine entry for a photo that passes now goes; a person's entries stay, first and as they were.
+  const avoid = { [u(99)]: `${ENGINE_AVOID}another fish`, [u(2)]: hand[u(2)]!, [u(98)]: 'a ruler in the picture' }
+  const next = withEngineAvoid(avoid, engine)
+  expect(Object.keys(next)).toEqual([u(2), u(98), ...Object.keys(engine).sort()])
+  expect(next[u(2)]).toBe(hand[u(2)])
+  expect(u(99) in next).toBe(false)
+})
+
+test("a week's top card whose page's head a check refused or the second look holds goes out, and a fish that passes takes its place", () => {
+  const old = 'https://media.aquatome.com/commons/5555555555555555.webp'
+  const cands = ['a', 'b', 'c', 'd', 'e', 'f'].map(id => fish(id))
+  // Its head no longer passes: no head, and why. Before, the card kept its old picture.
+  const failed = fish('failed', { head: undefined, headFails: "the check can't tell" })
+  const cur = heroWeek([{ page: 'species/failed', img: old }, { page: 'species/a' }])
+  const { calendar, report } = plan(cur, [failed, ...cands], '2026-11-09', 0)
+  const hero = calendar.weeks[0]!.hero
+  expect(hero.map(h => h.page)).not.toContain('species/failed')
+  expect(hero.some(h => h.img === old)).toBe(false)
+  expect(report.heroes).toContain("2026-11-09 species/failed out (head photo: the check can't tell), species/b in")
+})
