@@ -820,8 +820,12 @@ swept_pull() {
 # merges line by line and which this run and a lead's PR both write, so their merge is a calendar neither tested (no page
 # twice in four weeks, every fish day's photo, the hand lists' guides; the photos part of 8 Nov; readers' catch and the
 # Site lead, 15 Nov). When main didn't move in the pull, main's side changed nothing, and the test reads false.
+# The same for the picture files merge-main-whole.mjs merges (.gitattributes) when both sides changed the same lines: those
+# clashed and were checked in full until the driver merged them by record (a reader's catch, 16 Nov); the driver notes
+# them against the commit the pull replayed onto.
 # `swept_clean <HEAD before the sweep> <main before the pull> <main after it>` is true when the migration didn't fail, the
-# calendar changed on one side at most, and the sweep committed nothing, or only those files, on content that loads.
+# calendar changed on one side at most, no picture file's lines clashed, and the sweep committed nothing, or only those
+# files, on content that loads.
 SWEPT_REPORTS='content/page-dates\.json|docs/review/photo-subjects\.md|engine-state/_photo-no-animal-heads\.json'
 swept_clean() {
   [ -z "${MIGRATE_FAILED:-}" ] || return 1
@@ -829,6 +833,8 @@ swept_clean() {
     log "the calendar changed on main and in this run: checked again"
     return 1
   fi
+  local clashed; clashed=$(grep -s "^$3 " "$(git rev-parse --git-path main-whole-clashes)" | cut -d' ' -f2- | tr '\n' ' ')
+  if [ -n "$clashed" ]; then log "picture files with lines changed on both sides, merged by record: checked again ($clashed)"; return 1; fi
   [ "$(git rev-parse HEAD)" != "$1" ] || return 0
   local files; files=$(git diff --no-renames --name-only "$1" HEAD) || return 1
   [ -z "$(grep -vxE "$SWEPT_REPORTS" <<<"$files" || true)" ] || return 1

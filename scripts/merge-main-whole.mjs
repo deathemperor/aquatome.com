@@ -17,11 +17,17 @@
 // - a picture's address either side took off the whole file is off everywhere in it, whatever the other side did to it,
 //   and a figure that leaves with no still and no photo goes, as stripPhotos (watermarks.ts) drops it: a face, a person
 //   held for a second look, a mark. Nothing else puts those back off (the sweep re-applies only the never-again list).
+//   A photo the mirror copied to our media on one side (mirror-photos.ts) is the same photo at its new address;
+// - a breed's sources and its care figures, which point into them by place, are one value: both changed, main's.
+// Lines both sides changed, which until now clashed and were checked again in full, are noted for swept_clean
+// (cycle-checks.sh), which has them checked again in full the same way.
 // A summary card (content/summaries/) is one text with its review: main's whole file, unless main's card is the
 // approved one the run started from, the same text, and the run took it back to pending; then the run's whole file. An
 // approval never goes onto text it didn't read.
 // Anything that isn't JSON (the review page, rewritten whole each run): main's.
 // git config merge.main-whole.driver 'node scripts/merge-main-whole.mjs %O %A %B %P'
+import { spawnSync } from 'node:child_process'
+import { createHash } from 'node:crypto'
 import { readFileSync, realpathSync, writeFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 
@@ -29,6 +35,23 @@ const isObj = v => v !== null && typeof v === 'object' && !Array.isArray(v)
 const isPicture = v => isObj(v) && typeof v.url === 'string'
 const eq = (a, b) => JSON.stringify(a) === JSON.stringify(b)
 const DATE = /^\d{4}-\d{2}-\d{2}/
+const sha16 = s => createHash('sha256').update(s).digest('hex').slice(0, 16)
+/** The address the photo mirror gives a copy of `url` on our media (mirrorPlan, packages/engine/src/mirror-photos.ts). */
+export function mirrored(url) {
+  let u
+  try { u = new URL(url) } catch { return undefined }
+  const at = key => `https://media.aquatome.com/${key}`
+  let m
+  if (u.host === 'upload.wikimedia.org' || u.host === 'thumb.wikimedia.org')
+    return (m = u.pathname.match(/^\/wikipedia\/commons\/(?:thumb\/)?[0-9a-f]\/[0-9a-f]{2}\/([^/]+)/)) ? at(`commons/${sha16(decodeURIComponent(m[1]))}.webp`) : undefined
+  if (u.host === 'inaturalist-open-data.s3.amazonaws.com' || u.host === 'static.inaturalist.org')
+    return (m = u.pathname.match(/^\/photos\/(\d+)\/(square|small|medium|large|original)\.\w*$/)) ? at(`inaturalist/${m[1]}.webp`) : undefined
+  if (/^(live|farm\d+)\.staticflickr\.com$/.test(u.host))
+    return (m = u.pathname.match(/^\/\d+\/(\d+)_[0-9a-f]+(?:_[a-z0-9])?\.jpg$/)) ? at(`flickr/${m[1]}.webp`) : undefined
+  if (u.host === 'api.gbif.org')
+    return (m = u.pathname.match(/^\/v1\/image\/cache\/(?:fit-in\/)?[\dx]+\/occurrence\/(\d+)\/media\/([0-9a-f]{32})$/)) ? at(`gbif/${m[1]}-${m[2].slice(0, 16)}.webp`) : undefined
+  return undefined
+}
 /** A still the page doesn't show: none of its own verdict yet, or a person in it. */
 const offPage = p => typeof p.t === 'number' && p.person !== false
 /** What finds an item of a list on the other sides: a picture by its address, a figure by its heading. */
@@ -149,8 +172,16 @@ export function mergeMainWhole(base, ours, theirs, said = {}, path = '') {
     said.card = out === theirs && out !== ours
     return out
   }
+  if (path.startsWith('content/breeds/') && isObj(base)) {
+    const unit = v => ({ sources: v.sources, care: v.care })
+    if (!eq(unit(base), unit(ours)) && !eq(unit(base), unit(theirs)) && !eq(unit(ours), unit(theirs))) {
+      theirs = { ...theirs }
+      for (const k of ['sources', 'care']) if (k in ours) theirs[k] = ours[k]; else delete theirs[k]
+    }
+  }
   const before = addresses(ours), run = addresses(theirs)
-  const gone = new Set([...addresses(base)].filter(u => !before.has(u) || !run.has(u)))
+  const kept = (on, u) => on.has(u) || on.has(mirrored(u))
+  const gone = new Set([...addresses(base)].filter(u => !kept(before, u) || !kept(run, u)).flatMap(u => [u, mirrored(u)]).filter(Boolean))
   const out = strip(merge3(isObj(base) ? base : undefined, ours, theirs, gone), gone)
   const after = addresses(out)
   said.off = [...before].filter(u => !after.has(u)).length
@@ -170,6 +201,14 @@ if (process.argv[1] && real(process.argv[1]) === real(fileURLToPath(import.meta.
     if (!path.endsWith('.json')) process.exit(0) // the review page: main's whole, as it stands in %A
     console.error(`merge-main-whole: ${path}: ${e.message}`)
     process.exit(1) // JSON that doesn't read: left to git, and the run keeps its work back
+  }
+  // Lines both changed: noted with the commit the pull replays onto (rebase-merge/onto), for swept_clean.
+  if (spawnSync('git', ['merge-file', '-p', '-q', ours, base, theirs], { stdio: 'ignore' }).status !== 0) {
+    const gitPath = p => spawnSync('git', ['rev-parse', '--git-path', p], { encoding: 'utf8' }).stdout.trim()
+    const onto = ['rebase-merge/onto', 'rebase-apply/onto'].map(p => text(gitPath(p)).trim()).find(Boolean) || 'unknown'
+    const notes = gitPath('main-whole-clashes')
+    const kept = text(notes).split('\n').filter(l => l.startsWith(`${onto} `))
+    writeFileSync(notes, [...kept, `${onto} ${path}`, ''].join('\n'))
   }
   const said = {}
   const out = mergeMainWhole(parsed[0], parsed[1], parsed[2], said, path)

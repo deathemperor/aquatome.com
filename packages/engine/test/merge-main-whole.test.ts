@@ -5,7 +5,8 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 // @ts-expect-error plain .mjs git merge driver
-import { mergeMainWhole } from '../../../scripts/merge-main-whole.mjs'
+import { mergeMainWhole, mirrored } from '../../../scripts/merge-main-whole.mjs'
+import { mirrorPlan } from '../src/mirror-photos'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 const SCRIPTS = ['engine-cycle.sh', 'video-cycle.sh', 'video-recheck.sh']
@@ -61,9 +62,10 @@ const PROTECT: { base: Side; main: Side; run: Side } = {
   },
 }
 
-// The run's real push (engine-cycle.sh), with the repository's .gitattributes and, `withDriver`, the job's own line for
-// the driver (its script made absolute: the test's repositories have no scripts/); without it, the files merge as text,
-// as they did until this change.
+// The run's real push (engine-cycle.sh) and the checks' choice after a clean pull (swept_pull, swept_clean; the sweep
+// stubbed, the tests a VERIFY line), with the repository's .gitattributes and, `withDriver`, the job's own line for the
+// driver (its script made absolute: the test's repositories have no scripts/); without it, the files merge as text, as
+// they did until this change.
 function push(sides: { base: Side; main: Side; run: Side }, withDriver: boolean) {
   const dir = mkdtempSync(join(tmpdir(), 'aq-main-whole-'))
   const json = (v: unknown) => `${JSON.stringify(v, null, 2)}\n`
@@ -96,8 +98,7 @@ function push(sides: { base: Side; main: Side; run: Side }, withDriver: boolean)
     replan_merged() { :; }
     main_holds() { :; }
     sweep_merged() { :; }
-    swept_pull() { :; }
-    verify_cycle() { :; }
+    verify_cycle() { echo VERIFY; }
     keep_unpublished() { echo KEPT; }
     sleep() { :; }
     ${pushFn}
@@ -154,6 +155,19 @@ test("a run whose guide main also changed pushes main's records whole: none buil
   expect(r.pushed(G).video.figures[0].moments[0].person).toBeUndefined()
   // the run's other work goes out
   expect(r.verdicts).toEqual({ [still(1900, '', 0).url]: { person: false } })
+  // lines both sides changed, which used to clash and be tested again, are tested again
+  expect(r.out).toContain(`LOG picture files with lines changed on both sides, merged by record: checked again (${G} )`)
+  expect(r.out).toContain('VERIFY')
+})
+
+test('a guide both sides changed on different lines merges as before, with no test run again', () => {
+  const base = guide([photo('aaaa', '1')], [still(1900, 'Tay trải nền', 0.4)])
+  const r = push({ base: { [G]: base }, main: { [G]: { ...base, html: '<p>Bài mới</p>' } },
+    run: { [G]: guide([photo('aaaa', '1')], [still(1900, 'Tay trải nền', 0.4, false)]) } }, true)
+  expect(r.out).toContain('CODE 0')
+  expect(r.pushed(G)).toEqual({ ...guide([photo('aaaa', '1')], [still(1900, 'Tay trải nền', 0.4, false)]), html: '<p>Bài mới</p>' })
+  expect(r.out).not.toContain('checked again')
+  expect(r.out).not.toContain('VERIFY')
 })
 
 test('what the run took off stays off, what it put in goes in whole, and a card it took back to pending stays pending', () => {
@@ -283,6 +297,43 @@ test('the script runs as the driver through a symlinked folder too', () => {
   expect(r.status).toBe(0)
   expect(JSON.parse(readFileSync(join(dir, 'A'), 'utf8'))).toEqual({ photos: [{ url: 'u/a' }, { url: 'u/b' }] })
   expect(r.stderr).toContain("merge-main-whole: content/gallery/ca-x.json: merged, 1 of main's pictures off")
+})
+
+test("a photo the mirror copied on one side while the other took it off stays off; one copied and kept is there once", () => {
+  const P = { url: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Betta_splendens.jpg', sourceUrl: 'https://commons.wikimedia.org/wiki/File:Betta_splendens.jpg', author: 'a' }
+  const Q = { url: 'https://media.aquatome.com/commons/q.webp', author: 'q' }
+  const copied = { ...P, url: mirrored(P.url)! }
+  // main copied it to our media; the run took it off (a face)
+  expect(mergeMainWhole({ photos: [Q, P] }, { photos: [Q, copied] }, { photos: [Q] })).toEqual({ photos: [Q] })
+  expect(mergeMainWhole({ figures: [{ heading: 'A', photo: P, moments: [] }, { heading: 'B', photo: Q }] }, { figures: [{ heading: 'A', photo: copied, moments: [] }, { heading: 'B', photo: Q }] },
+    { figures: [{ heading: 'B', photo: Q }] })).toEqual({ figures: [{ heading: 'B', photo: Q }] })
+  // the run copied it; main took it off
+  expect(mergeMainWhole({ photos: [Q, P] }, { photos: [Q] }, { photos: [Q, copied] })).toEqual({ photos: [Q] })
+  // main copied it, the run kept it as it was: main's copy, once
+  expect(mergeMainWhole({ photos: [Q, P] }, { photos: [Q, copied] }, { photos: [Q, P], seen: 1 })).toEqual({ photos: [Q, copied], seen: 1 })
+})
+
+test("the driver's copy of the mirror's addresses is the mirror's", () => {
+  for (const url of ['https://upload.wikimedia.org/wikipedia/commons/a/ab/Betta_splendens.jpg', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Betta%20x.jpg/640px-Betta%20x.jpg',
+    'https://inaturalist-open-data.s3.amazonaws.com/photos/12345/medium.jpg', 'https://static.inaturalist.org/photos/9/original.jpeg', 'https://live.staticflickr.com/65535/5123456789_abcdef1234_b.jpg',
+    'https://api.gbif.org/v1/image/cache/fit-in/500x/occurrence/123/media/0123456789abcdef0123456789abcdef', 'https://example.com/x.jpg']) {
+    const plan = mirrorPlan(url)
+    expect(mirrored(url), url).toBe(plan ? `https://media.aquatome.com/${plan.key}` : undefined)
+  }
+})
+
+test("a breed's sources and the care figures that point into them merge as one: both changed, main's", () => {
+  const B = 'content/breeds/x/entity.json', S = (n: string) => ({ url: `https://src/${n}`, title: n })
+  const base = { id: 'x', sources: [S('a')], care: { tempC: { source: 0 } } }
+  // both put a source in and a figure on it
+  const ours = { id: 'x', sources: [S('a'), S('main')], care: { tempC: { source: 0 }, ph: { source: 1 } } }
+  expect(mergeMainWhole(base, ours, { id: 'x', sources: [S('a'), S('run')], care: { tempC: { source: 1 } } }, {}, B)).toEqual(ours)
+  // the run took a source off while main put a figure on it
+  const main2 = { id: 'x', sources: [S('a')], care: { tempC: { source: 0 }, ph: { source: 0 } } }
+  expect(mergeMainWhole(base, main2, { id: 'x', sources: [], care: {} }, {}, B)).toEqual(main2)
+  // only the run changed them: the run's
+  const run3 = { id: 'x', sources: [S('a'), S('run')], care: { tempC: { source: 1 } } }
+  expect(mergeMainWhole(base, { ...base, seen: 1 }, run3, {}, B)).toEqual({ ...run3, seen: 1 })
 })
 
 test("only the engine's clones and GitHub's engine run set the driver", () => {
