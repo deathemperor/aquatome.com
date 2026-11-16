@@ -990,21 +990,20 @@ if (cmd === 'photo-privacy') {
 } else if (cmd === 'frame-sheet') {
   // A private sheet of frames from videos named by hand, for a person to look at first (frame-sheet.ts): files in --out
   // only, never the media host, a page or engine-state. pnpm engine frame-sheet --out <folder> --only <videoId>:<species id>,… [--per N]
-  const usage = 'frame-sheet: --out <folder outside the repository> --only <videoId>:<species id>,… [--per N]'
+  const usage = 'frame-sheet: --out <absolute folder outside any git checkout> --only <videoId>:<species id>,… [--per N, 1 to 8]'
   if (!values.out || !values.only) throw new Error(usage)
-  if (resolve(values.out).startsWith(resolve(ROOT))) throw new Error(`${usage}: the folder is inside the repository`)
   const videos = await Promise.all(values.only.split(',').map(x => x.trim()).filter(Boolean).map(async x => {
     const [id, species] = x.split(':')
-    if (!id || !species) throw new Error(usage)
+    if (!id || !species || !/^[a-z0-9-]+$/.test(species)) throw new Error(usage)
     const e = JSON.parse(await readFile(join(ROOT, 'content', 'species', species, 'entity.json'), 'utf8')) as { scientificName: string }
     return { id, species, name: e.scientificName }
   }))
   const get = async (u: string) => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) }
   const r = await frameSheet(videos, {
-    frames: ytFrames, grab: ytGrab, get, faces: visionFaces, text: async files => (await visionText(files)).map(l => !!l?.length),
+    frames: ytFrames, grab: ytGrab, get, faces: visionFaces, text: async files => (await visionText(files)).map(l => (l === null ? null : l.length > 0)),
     look: (file, prompt, schema) => claudeVision({ system: 'You judge stills from an aquarium video. Reply only with JSON.', prompt, schema, file }),
     sleep: ms => new Promise(res => setTimeout(res, ms)),
-  }, { out: resolve(values.out), per: Number(values.per ?? 4), apart: 15, gapMs: VIDEO_GAP_MS })
+  }, { out: values.out, per: Number(values.per ?? 4), apart: 15, gapMs: VIDEO_GAP_MS, grabGapMs: 5_000 })
   for (const x of [...r.skipped.map(x => `skipped: ${x}`), ...r.failed.map(x => `failed: ${x}`)]) console.log(x)
   console.log(`frame-sheet: ${r.frames.length} frames from ${new Set(r.frames.map(f => f.video)).size} of ${videos.length} videos, ${r.skipped.length} skipped, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
 } else if (cmd === 'video-items') {

@@ -24,8 +24,8 @@ export const stillDone = (m: { t: number; url: string }, kept: Record<string, st
 export type Storyboard = { fps: number; interval: number; rows: number; columns: number; width: number; height: number; fragments: { url: string }[] }
 /** A direct video-only stream (at most 1280 px wide) to take frames from, with the user agent its address was issued to. */
 export type Stream = { url: string; userAgent?: string }
-/** What one yt-dlp call tells about a video's pictures. */
-export type VideoFrames = { storyboard: Storyboard | null; stream: Stream | null }
+/** What one yt-dlp call tells about a video's pictures, and its length in seconds where yt-dlp gives it. */
+export type VideoFrames = { storyboard: Storyboard | null; stream: Stream | null; duration?: number }
 export type ImageDeps = {
   llm: Llm
   /** Claude looking at one image file (a numbered contact sheet). */
