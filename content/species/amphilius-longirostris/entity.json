@@ -8,7 +8,8 @@
   "places": [
     "africa",
     "cameroon",
-    "equatorial-guinea"
+    "equatorial-guinea",
+    "ngoko"
   ],
   "range": {
     "native": {
@@ -166,6 +167,12 @@
   },
   "sections": [
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_longirostris.htm",
+      "html": "<p>Family: Amphiliidae. Described by Boulenger, 1901. Maximum size 14 cm TL. Temperature 18–22°C. pH 6.5–7.5.</p>"
+    },
+    {
       "key": "distribution",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_longirostris.htm",
@@ -175,13 +182,13 @@
       "key": "maintenance",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_longirostris.htm",
-      "html": "<p>The genus Amphilius are all more or less the same when keeping them in aquaria. Water would need to be kept on the cool side for this genus as they inhabit flowing waters in their natural habitat. Species of this genus are not imported very often but would make good aquarium additions if kept in optimum conditions.</p>"
+      "html": "<p>The Amphilius genus are all more or less the same when keeping them in aquaria. Water needs to be kept on the cool side for this genus as they inhabit flowing waters in their natural habitat. Not imported very often but they would make good aquarium additions if kept in optimum conditions.</p>"
     },
     {
       "key": "equipment",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_longirostris.htm",
-      "html": "<p>Provide a small-grained gravel or sand substrate, and plant the tank well, with a slight current to mimic their natural habitat. Provide rockwork and caves.</p>"
+      "html": "<p>Provide a small-grained gravel or sand substrate, and a well planted tank with a slight current to mimic their natural habitat. Provide rockwork and caves.</p>"
     },
     {
       "key": "diet",
@@ -193,21 +200,10 @@
       "key": "notes",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_longirostris.htm",
-      "html": "<p>Etymology: the specific name longirostris comes from longus, long, and rostris, snout, which projects a little beyond the lower jaw.</p><p>Diagnosis: caudal fin with 7+8 principal rays; caudal peduncle 1.6–2 times longer than deep; snout longer than post-orbit length; eyes placed distinctly nearer to the hind margin of the head than to the tip of the snout.</p><p>IUCN: widespread or without major threats throughout the Central Africa assessment region and assessed as Least Concern (IUCN 2010, needs updating).</p>"
+      "html": "<p>Etymology: the specific name longirostris comes from longus, long, and rostris, snout, which projects a little beyond the lower jaw. Diagnosis: caudal fin with 7+8 principal rays; caudal peduncle 1.6–2 times longer than deep; snout longer than post-orbit length; eyes placed distinctly nearer to the hind margin of the head than to the tip of the snout. Dorsal spines 0, dorsal soft rays 7, anal spines 0. The species is widespread and without major threats throughout the Central Africa assessment region and is assessed as Least Concern (IUCN 2009, needs updating).</p>"
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/5e8f8d31849263cb.webp",
-      "thumb": "https://media.aquatome.com/scotcat/5e8f8d31849263cb-480.webp",
-      "width": 500,
-      "height": 204,
-      "licence": "dùng với sự cho phép",
-      "author": "Russell Brian Tate / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_longirostris.htm",
-      "caption": "Amphilius longirostris: Nyong-et-Kéllé, Cameroon",
-      "source": "scotcat"
-    },
     {
       "url": "https://media.aquatome.com/scotcat/b6d626a802debb95.webp",
       "thumb": "https://media.aquatome.com/scotcat/b6d626a802debb95-480.webp",
@@ -217,6 +213,17 @@
       "author": "Rob Palmer / ScotCat",
       "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_longirostris.htm",
       "caption": "Amphilius longirostris: Dja et Lobo, CM-SU, Cameroon",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/5e8f8d31849263cb.webp",
+      "thumb": "https://media.aquatome.com/scotcat/5e8f8d31849263cb-480.webp",
+      "width": 500,
+      "height": 204,
+      "licence": "dùng với sự cho phép",
+      "author": "Russell Brian Tate / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_longirostris.htm",
+      "caption": "Amphilius longirostris: Nyong-et-Kéllé, Cameroon",
       "source": "scotcat"
     }
   ],
@@ -252,5 +259,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13"
+  "updatedAt": "2026-11-16"
 }

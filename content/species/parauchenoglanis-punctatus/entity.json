@@ -413,6 +413,10 @@
       {
         "source": "scotcat",
         "value": 40
+      },
+      {
+        "source": "glaser",
+        "value": 40
       }
     ],
     "ph": [
@@ -439,6 +443,12 @@
       "html": "<ul><li>Synonym: Auchenoglanis punctatus</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/parauchenoglanis_punctatus_en/",
+      "html": "<p>Among the imports from central Africa this beautiful catfish is a real rarity. From that region only few fish are imported regularly.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1389",
@@ -451,10 +461,22 @@
       "html": "<p>Africa: lower and central Congo River system; San Benito and Ogowe River basins. Type locality: Lindi River, which flows into the Congo at the Stanley Falls.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/parauchenoglanis_punctatus_en/",
+      "html": "<p>It is known so far only from the central Congo basin. Origin: D.R. Congo.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/claroteidae/parauchenoglanis_punctatus.htm",
       "html": "<p>Grows quite large but is not a predator as such, so should be safe to house with smaller species. Best suited to the larger aquarium.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/parauchenoglanis_punctatus_en/",
+      "html": "<p>The species attains a length of approximately 40 cm. Thus it is a perfect tankmate for show aquaria with larger species of cichlid, barb or tetra.</p>"
     },
     {
       "key": "diet",
@@ -469,10 +491,28 @@
       "html": "<p>Will eat a variety of foods: tablet and pellet foods with a good quality flake and frozen bloodworms. Also relishes live worms such as the common garden worm, making sure that there has been no weedkiller on the premises, and white worm.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/parauchenoglanis_punctatus_en/",
+      "html": "<p>Interestingly the gut of specimens in the field contained only parts of plant material, insect larvae and shrimp, but no fish.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/claroteidae/parauchenoglanis_punctatus.htm",
       "html": "<p>Peaceful large catfish which will do well in company of larger characins from Africa and large barbs.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/parauchenoglanis_punctatus_en/",
+      "html": "<p>Nevertheless it seems not wise to keep too small fish along with them.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/parauchenoglanis_punctatus_en/",
+      "html": "<p>It is very interesting that imported specimens (6-8 cm long) already show a sexual dimorphism (body proportions, larger fins in males).</p>"
     },
     {
       "key": "reproduction",
@@ -593,5 +633,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-15"
+  "updatedAt": "2026-11-16"
 }

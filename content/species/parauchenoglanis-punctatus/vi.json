@@ -17,14 +17,21 @@
     "behaviour:scotcat": "<p>Đây là một loài cá da trơn cỡ lớn mà hiền. Nó sống tốt khi nuôi chung với cá characin châu Phi cỡ lớn và cá barb lớn.</p>",
     "diet:scotcat": "<p>Loài này ăn được nhiều loại thức ăn: thức ăn viên, thức ăn dạng tablet, cám vảy loại tốt và trùng huyết đông lạnh. Nó cũng rất mê giun sống như giun đất ngoài vườn và giun trắng. Nếu đào giun đất cho ăn thì phải chắc là chỗ đó không xịt thuốc diệt cỏ.</p>",
     "notes:scotcat": "<p>Giống này còn 8 loài khác và khá khó phân biệt. Cá con có thể mang hoa văn và màu khác hẳn cá lớn. Đặc điểm nhận dạng như sau. Cuống đuôi ngắn và cao, chiều cao gấp đôi khoảng cách ngang từ gốc vây mỡ tới gốc vây đuôi, có con còn cao hơn thế. Mép trước gai vây ngực có răng cưa suốt chiều dài, răng cưa ở đây nhỏ hơn nhưng nhiều hơn răng cưa ở mép sau. Râu rất dài, chẳng hạn râu hàm dưới phía ngoài dài quá chóp gai vây ngực, còn râu hàm trên dài ít nhất tới gốc gai vây ngực. Vây mỡ lúc nào cũng cao và chắc. Vây lưng có tổng cộng 2 gai. Về màu, kiểu thường gặp là 6–10 (11) hàng chấm đen chạy dọc từ trên xuống.</p>",
-    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2021. FishBase. www.fishbase.org (02/2021). Geerinckx, T., D. Adriaens, G.G. Teugels and W. Verraes, 2004. A systematic revision of the African catfish genus Parauchenoglanis (Siluriformes: Claroteidae). J. Nat. Hist. 38:775-803.</p>"
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2021. FishBase. www.fishbase.org (02/2021). Geerinckx, T., D. Adriaens, G.G. Teugels and W. Verraes, 2004. A systematic revision of the African catfish genus Parauchenoglanis (Siluriformes: Claroteidae). J. Nat. Hist. 38:775-803.</p>",
+    "quickFacts:glaser": "<p>Loài cá da trơn đẹp này rất hiếm gặp trong số cá nhập từ Trung Phi. Từ vùng đó, chỉ có vài loài cá được nhập về đều đặn.</p>",
+    "distribution:glaser": "<p>Đến nay, loài này mới chỉ được biết đến ở vùng giữa lưu vực sông Congo. Xuất xứ: CHDC Congo.</p>",
+    "aquariumSize:glaser": "<p>Cá dài được khoảng 40 cm. Vì vậy, nó rất hợp với bể trưng bày nuôi chung các loài cichlid, cá barb hay cá tetra cỡ lớn.</p>",
+    "diet:glaser": "<p>Có một điều thú vị là trong ruột những con bắt ngoài tự nhiên chỉ có mẩu thực vật, ấu trùng côn trùng và tôm. Trong đó không hề có cá.</p>",
+    "behaviour:glaser": "<p>Nhưng thả chung với cá quá nhỏ thì có lẽ không ổn.</p>",
+    "dimorphism:glaser": "<p>Điều rất thú vị là những con nhập về, mới dài 6-8 cm, đã phân biệt được đực cái. Hai giới khác nhau ở dáng người, và con đực có vây to hơn.</p>"
   },
   "quality": {
-    "score": 0.8,
+    "score": 0.75,
     "indexable": true,
     "bySource": {
       "planetcatfish": 0.8,
-      "scotcat": 0.85
+      "scotcat": 0.85,
+      "glaser": 0.75
     }
   }
 }

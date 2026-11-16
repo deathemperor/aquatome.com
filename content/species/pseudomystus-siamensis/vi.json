@@ -3,7 +3,8 @@
   "name": "Cá trê ong nghệ châu Á",
   "altNames": [
     "Cá da trơn ong châu Á",
-    "Asian Bumblebee Catfish"
+    "Asian Bumblebee Catfish",
+    "Asian Bumblebee Cat"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<p>Cá trê ong nghệ châu Á (Pseudomystus siamensis) là một loài thuộc họ Bagridae, sống ở hạ lưu sông Mekong và sông Chao Phraya ở Thái Lan. Trước đây loài này thuộc chi Leiocassis, và nhiều tài liệu vẫn còn dùng tên này. Một số loài cùng chi có hoa văn na ná nhau cũng có thể bị bán dưới tên của nó. Đây là loài nhút nhát, sống về đêm. Ban ngày nó trốn giữa đám rễ cây ngập nước. Cá nào trong bể đủ nhỏ để nuốt thì nó sẽ ăn. Với các loài sống ở đáy khác, nó khá giữ lãnh thổ.</p>",
@@ -16,13 +17,20 @@
     "behaviour:seriouslyfish": "<p>Cá nào trong bể nhỏ đến mức nó coi là mồi thì nó sẽ ăn. Tuy vậy, bạn có thể yên tâm nuôi nó chung với các loài lớn hơn sống ở tầng nước khác. Hợp nhất là các loài cyprinid và characin cỡ vừa đến lớn, cùng các loài cichlid hiền. Với các loài sống ở đáy khác thì nó lại khá giữ lãnh thổ, nhất là với cá cùng loài. Bạn chỉ nên nuôi chung với những loài đó khi bể đủ rộng, có nhiều chỗ trốn và nhiều vật che chắn tầm nhìn.</p>",
     "dimorphism:seriouslyfish": "<p>Con cái thường có thân hình mập chắc hơn con đực. Con đực có gai sinh dục dài, nhìn thấy rõ. Các vệt màu sáng trên thân con đực cũng thường đậm hơn con cái.</p>",
     "reproduction:seriouslyfish": "<p>Chưa thấy ai trong giới chơi cá báo cáo cho loài này sinh sản trong bể. Ngoài tự nhiên, cá đẻ vào đầu mùa mưa.</p>",
-    "notes:seriouslyfish": "<p>Loài này trước đây thuộc chi Leiocassis, và rất nhiều tài liệu hiện có vẫn gọi nó bằng tên cũ. Chi Pseudomystus hiện nay có nhiều loài mang hoa văn tương tự. Một số loài trong đó có thể đang được nhập về và bán dưới tên P. siamensis. Loài cùng chi hay gặp nhất là P. stenomus, nhưng loài này dễ nhận ra vì không có hoa văn kiểu \"ong nghệ\". Cá trê ong nghệ châu Á cũng dễ phân biệt với các loài cá da trơn \"ong nghệ\" Nam Mỹ thuộc họ Pimelodidae. Bạn chỉ cần nhìn cặp râu mũi nằm ngay trước mắt của nó.</p>"
+    "notes:seriouslyfish": "<p>Loài này trước đây thuộc chi Leiocassis, và rất nhiều tài liệu hiện có vẫn gọi nó bằng tên cũ. Chi Pseudomystus hiện nay có nhiều loài mang hoa văn tương tự. Một số loài trong đó có thể đang được nhập về và bán dưới tên P. siamensis. Loài cùng chi hay gặp nhất là P. stenomus, nhưng loài này dễ nhận ra vì không có hoa văn kiểu \"ong nghệ\". Cá trê ong nghệ châu Á cũng dễ phân biệt với các loài cá da trơn \"ong nghệ\" Nam Mỹ thuộc họ Pimelodidae. Bạn chỉ cần nhìn cặp râu mũi nằm ngay trước mắt của nó.</p>",
+    "quickFacts:glaser": "<p>Pseudomystus siamensis là một loài cá da trơn cỡ nhỏ. Tài liệu ghi nó dài tối đa 15 cm, nhưng cá nuôi hầu như không bao giờ lớn tới cỡ đó.</p>",
+    "distribution:glaser": "<p>Pseudomystus siamensis sống ở Thái Lan, Campuchia và Lào.</p>",
+    "diet:glaser": "<p>Loài cá này có gì ăn nấy, từ thức ăn khô, thức ăn đông lạnh đến đồ tươi sống.</p>",
+    "behaviour:glaser": "<p>Cá trê ong nghệ châu Á khá hiền với cá cùng chi và các loài cá khác, miễn là những con đó đủ lớn. Cá nhỏ hơn thì chúng sẽ coi là mồi. Loài này hoạt động mạnh nhất lúc trời hửng sáng. Nhưng chúng khá khôn, nên chẳng mấy chốc đã biết rời chỗ trốn ra ăn mỗi khi được cho ăn, bất kể giờ nào trong ngày.</p>",
+    "waterConditions:glaser": "<p>Loài cá này không kén chọn gì về thông số nước. Nên giữ nhiệt độ nước trong khoảng 22–26 °C.</p>",
+    "notes:glaser": "<p>Loài cá này để yên cho cây, không đụng tới.</p>"
   },
   "quality": {
     "score": 0.82,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.82
+      "seriouslyfish": 0.82,
+      "glaser": 0.85
     }
   }
 }

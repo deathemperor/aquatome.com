@@ -1,7 +1,7 @@
 ---
 url: https://www.scotcat.com/amphiliidae/amphilius_longirostris.htm
 title: Amphilius longirostris (Boulenger, 1901)
-fetchedAt: 2026-11-13T17:32:52.099Z
+fetchedAt: 2026-11-16T11:51:28.277Z
 hash: 6888851243506d44fe14ba4c821d1a45b1031e736b929f3f82afb8f36bfe9b79
 ---
 
