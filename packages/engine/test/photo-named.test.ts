@@ -191,6 +191,23 @@ test("the second and third reads' captions that don't plainly say the photo show
   expect(at('Clarias batrachus', '小丑武士_CIarias_sp._-_panoramio', '')).toBe(GENUS)
 })
 
+// The chief of staff, 16 Nov: Adolfo's cory and Corydoras duplicareus both opened on one comparison figure of the two, and
+// Botia histrionica on one with B. kubotai beside it. A description naming another fish the site has a page for, in full or
+// by an initial only it shares, ranks the photo as another fish's, so it goes behind one named to the species.
+test('a description naming another species the site has a page for beside this one ranks the photo as another fish', () => {
+  const known = knownNames(['Corydoras adolfoi', 'Corydoras duplicareus', 'Botia histrionica', 'Botia kubotai', 'Botia almorhae'].map(scientificName => ({ scientificName })))
+  const at = (sci: string, caption: string, sourceUrl = 'https://www.seriouslyfish.com/species/x') => namedAs({ sourceUrl, caption }, { sci, known })
+  const figure = 'Typical colour pattern of Corydoras duplicareus (left) vs. C. adolfoi (right), although the differences are not always as pronounced.'
+  expect(at('Corydoras adolfoi', figure)).toBe(GENUS)
+  expect(at('Corydoras duplicareus', figure)).toBe(GENUS)
+  expect(at('Botia histrionica', 'In this subadult the vertical body bars have started to anastomose/break up. Pictured with a younger conspecific (right) and B. kubotai (left).')).toBe(GENUS)
+  // This fish alone, by its own name or a synonym, beside a fish the site has no page for, or another fish as a trade name: as before.
+  expect(at('Corydoras adolfoi', 'A single Corydoras adolfoi.')).toBe(SPECIES)
+  expect(namedAs({ sourceUrl: 'https://www.seriouslyfish.com/species/x', caption: 'Corydoras adolfoi, adult' }, { sci: 'Hoplisoma adolfoi', latin: ['Corydoras adolfoi'], known })).toBe(SPECIES)
+  expect(at('Corydoras adolfoi', 'Corydoras adolfoi, Corydoras imitator')).toBe(SPECIES)
+  expect(at('Botia histrionica', 'Botia histrionica, often sold as Botia kubotai')).toBe(SPECIES)
+})
+
 test("the source's own description, kept beside our caption from the album step's intake, is read before our caption (the chief of staff, 2026-11-14)", () => {
   const known = knownNames(['Pseudoplatystoma fasciatum', 'Pseudoplatystoma tigrinum'].map(scientificName => ({ scientificName })))
   const photo = { sourceUrl: 'https://commons.wikimedia.org/wiki/File:Pseudoplatystoma_tigrinum1.jpg', caption: 'Cá da trơn mũi xẻng sọc bơi trong nước, râu dài' }

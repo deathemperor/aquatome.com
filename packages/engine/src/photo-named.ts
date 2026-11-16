@@ -236,15 +236,40 @@ function plainlyThis(caption: string, page: NamedPage): boolean {
 }
 
 /**
+ * Whether the source's description names another species the site has a page for, in full or by an initial only other
+ * fish share with that epithet, beside this one: a comparison figure ("Corydoras duplicareus (left) vs. C. adolfoi
+ * (right)"), a tank-mate ("Pictured with … B. kubotai"). A trade name doesn't count ("sold as …").
+ */
+function namesOtherFish(caption: string, page: NamedPage): boolean {
+  if (!page.known || !caption) return false
+  const own = [page.sci, ...(page.latin ?? [])].map(n => flat(n).toLowerCase().split(' ').slice(0, 2).join(' '))
+  const { initials } = shapesOf(page.known)
+  const words = flat(caption.replace(TRADE, ' ')).split(' ').map(w => (/^\(?[A-Z]\.$/.test(w) ? w.replace(/^\(/, '') : w.replace(/^['"(]+|[)'",;:.]+$/g, '')))
+  for (let i = 0; i + 1 < words.length; i++) {
+    const a = words[i]!, b = words[i + 1]!.toLowerCase()
+    if (!/^[a-z]+$/.test(b)) continue
+    if (/^[A-Z]\.$/.test(a)) {
+      const all = [...(initials.get(`${a[0]!.toLowerCase()}. ${b}`) ?? [])]
+      if (all.length && !all.some(n => own.includes(n))) return true
+    } else if (/^[A-Z][a-z]+$/.test(a) && page.known.has(`${a.toLowerCase()} ${b}`) && !own.includes(`${a.toLowerCase()} ${b}`)) return true
+  }
+  return false
+}
+
+/**
  * What the photo's source calls its subject, for this page. The source's description outranks the file's name: one that
  * names this species as the subject, with no "sp.", "cf." or doubt beside it, makes the photo named to the species
  * whatever the file's name says (the chief of staff, 2026-11-14: the Colossoma's new head is described as "Schwarzer Pacu
- * (Colossoma macropomum), Tierpark Hellabrunn", in a file whose name says Piaractus).
+ * (Colossoma macropomum), Tierpark Hellabrunn", in a file whose name says Piaractus). One whose description names another
+ * species the site has a page for beside this one shows more than this fish, and ranks as another fish (`GENUS`): it
+ * stays on the page and in its album, and leads only where nothing named better passes (the chief of staff, 16 Nov:
+ * Adolfo's cory and Corydoras duplicareus both opened on one comparison figure, Botia histrionica on one with B. kubotai).
  */
 export function namedAs(p: NamedPhoto, page: NamedPage, stored?: string): Named {
   // The source's own description where we keep it beside our caption (`sourceCaption`, from the album step's intake), else
   // the caption unless it's ours.
   const caption = p.sourceCaption ?? (OURS.test(p.caption ?? '') ? '' : (p.caption ?? ''))
+  if (namesOtherFish(caption, page)) return GENUS
   const said = classOf(caption, page, true)
   if (said === SPECIES && plainlyThis(caption, page)) return SPECIES
   // The source page's own title stands for its address where it says which fish it is: this one, another the site has a
