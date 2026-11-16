@@ -128,14 +128,16 @@ test('a rewrite keeps each kind\'s photo, and names one whose kind the new text 
 
 // A shop's listing on a marketplace, or a post on a social network, found by research through search: never a source, and
 // nothing it alone says reaches the writer (the owner's rule; the Site Lead, 13 Nov 2026).
-test('a marketplace\'s or a social network\'s page is never a source, nor are the facts that cite it', async () => {
-  expect(['https://shopee.vn/lua-sa-tung-i.1.2', 'https://www.lazada.vn/x', 'https://m.facebook.com/groups/x', 'https://www.tiktok.com/@x/video/1', 'https://youtube.com/shorts/x'].map(offLimits)).toEqual([true, true, true, true, true])
-  expect(['https://zenaquarius.com/lua-kim-sa-tung', 'https://www.youtube.com/watch?v=x', sfGlossaryUrl('bogwood')].map(offLimits)).toEqual([false, false, false])
+// A site refused as a source (cycle-only.ts REFUSED_SITES; the chief of staff, 16 Nov 2026) is one too, its own hosts and
+// none else: research kept before the ruling still cites it, and what it alone says never reaches the writer again.
+test('a marketplace\'s, a social network\'s or a refused site\'s page is never a source, nor are the facts that cite it', async () => {
+  expect(['https://shopee.vn/lua-sa-tung-i.1.2', 'https://www.lazada.vn/x', 'https://m.facebook.com/groups/x', 'https://www.tiktok.com/@x/video/1', 'https://youtube.com/shorts/x', 'https://cabaymau.vn/go-lua-be-ca/', 'https://www.cabaymau.vn/x'].map(offLimits)).toEqual([true, true, true, true, true, true, true])
+  expect(['https://zenaquarius.com/lua-kim-sa-tung', 'https://www.youtube.com/watch?v=x', sfGlossaryUrl('bogwood'), 'https://cabaymau.net/x'].map(offLimits)).toEqual([false, false, false, false])
   const root = await site()
   const shops: TopicFacts = {
     ...facts,
-    facts: [...facts.facts, { section: 'other', fact: 'Shops sell "lũa kim sa tùng" by the kilogram', source: 3 }, { section: 'other', fact: 'Keepers call it "lũa sa tùng rừng"', source: 4 }],
-    sources: [...facts.sources, { url: 'https://shopee.vn/lua-sa-tung-i.1.2', title: 'Lũa sa tùng', kind: 'shop' }, { url: 'https://www.facebook.com/groups/thuysinh/posts/1', title: 'Hội thủy sinh', kind: 'forum' }],
+    facts: [...facts.facts, { section: 'other', fact: 'Shops sell "lũa kim sa tùng" by the kilogram', source: 3 }, { section: 'other', fact: 'Keepers call it "lũa sa tùng rừng"', source: 4 }, { section: 'steps', fact: 'Soak the wood in 10% brine for a week', source: 5 }],
+    sources: [...facts.sources, { url: 'https://shopee.vn/lua-sa-tung-i.1.2', title: 'Lũa sa tùng', kind: 'shop' }, { url: 'https://www.facebook.com/groups/thuysinh/posts/1', title: 'Hội thủy sinh', kind: 'forum' }, { url: 'https://cabaymau.vn/go-lua-be-ca/', title: 'Gỗ lũa bể cá', kind: 'shop' }],
   }
   let wrote = ''
   const llm: Llm = async ({ prompt }) => {
@@ -148,8 +150,23 @@ test('a marketplace\'s or a social network\'s page is never a source, nor are th
   expect(r).toMatchObject({ refs: 3 })
   expect(wrote).not.toContain('kilogram')
   expect(wrote).not.toContain('sa tùng rừng')
+  expect(wrote).not.toContain('brine')
   const e = JSON.parse(await readFile(join(root, 'content/glossary/lua/entity.json'), 'utf8'))
   expect(e.refs.map((x: { url: string }) => x.url)).toEqual(facts.sources.map(x => x.url))
+})
+
+// A body cut by hand, what rested on a refused site alone taken off the live page (bodyFixed; the chief of staff, 16 Nov
+// 2026), holds the cycle's reader rewrites off until the step writes the term again: then the text is the step's, written
+// without the refused site, and the mark goes with the save, so no cut stays marked after it.
+test('a body marked fixed by hand is the step\'s again once it saves: the mark goes', async () => {
+  const root = await site()
+  const file = join(root, 'content/glossary/lua/vi.json')
+  await writeFile(file, JSON.stringify({ ...JSON.parse(await readFile(file, 'utf8')), body: '<p>Cắt tay.</p>', bodyFixed: true }))
+  const llm: Llm = async ({ prompt }) => (prompt.startsWith('GLOSSARY RULES') ? { notes: [] } : isCheck(prompt) ? verdicts(prompt) : written) as never
+  expect(await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'lua', { kind: 'aquascaping' })).toMatchObject({ refs: 3 })
+  const vi = JSON.parse(await readFile(file, 'utf8'))
+  expect(vi.body).toContain('Ngâm lũa mới 1–2 tuần.')
+  expect(vi).not.toHaveProperty('bodyFixed')
 })
 
 // The first Lũa (14 Nov 2026) missed the kinds the owner named, and broke house rules the fact check doesn't read. The

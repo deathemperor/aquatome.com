@@ -5,6 +5,7 @@ import { join } from 'node:path'
 import { glossaryKinds, GlossarySchema, metricPage, QUALITY_THRESHOLD, TranslationSchema, type GlossaryEntity, type GuideEntity, type Translation } from '@aq/schema'
 import type { Llm } from './claude'
 import { VI_STYLE as STYLE } from './phrases'
+import { refusedSite } from './cycle-only'
 import { isMarketplace } from './marketplaces'
 import { logReviews, readReviews } from './review-log'
 import { withTanks } from './round'
@@ -207,15 +208,16 @@ export const sfGlossaryUrl = (slug: string) => `https://www.seriouslyfish.com/gl
 
 const SOCIAL = ['facebook.com', 'fb.com', 'fb.me', 'instagram.com', 'tiktok.com']
 /**
- * A page that is never a source: a marketplace's (reached only through its affiliate API) or a social network's. Research
- * can cite one it found through search without fetching it (the Site Lead, 13 Nov 2026), likeliest for the kinds shops
- * sell.
+ * A page that is never a source: a marketplace's (reached only through its affiliate API), a social network's, or one on a
+ * site refused as a source (cycle-only.ts REFUSED_SITES; the chief of staff, 16 Nov 2026). Research can cite one it found
+ * through search without fetching it (the Site Lead, 13 Nov 2026), likeliest for the kinds shops sell; and research kept
+ * before a site was refused still cites it.
  */
 export function offLimits(url: string): boolean {
   if (isMarketplace(url)) return true
   const u = new URL(url)
   const h = u.hostname.toLowerCase()
-  return SOCIAL.some(d => h === d || h.endsWith(`.${d}`)) || (/(^|\.)youtube\.com$/.test(h) && u.pathname.startsWith('/shorts'))
+  return refusedSite(url) || SOCIAL.some(d => h === d || h.endsWith(`.${d}`)) || (/(^|\.)youtube\.com$/.test(h) && u.pathname.startsWith('/shorts'))
 }
 
 /**
@@ -494,8 +496,12 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   const altNames = [...vi.altNames, ...w.altNames.map(n => unescapePlain(n).trim()).filter(linkable)].filter(n => n && !own.has(n.toLowerCase()) && own.add(n.toLowerCase()))
   const ids = new Set(others.map(x => x.id))
   const next: GlossaryEntity = GlossarySchema.parse({ ...entity, refs, related: [...new Set(w.related)].filter(r => ids.has(r)).slice(0, 6) })
+  // A body cut by hand (bodyFixed: what rested on a refused site alone, the chief of staff, 16 Nov 2026) is the step's
+  // again once it writes the entry: the writer sees no refused site's facts (offLimits), and the text is read before it goes
+  // live. So the mark goes with the save and doesn't outlive the cut.
+  const { bodyFixed: _cut, ...prev } = vi
   const t = TranslationSchema.parse(metricPage({
-    ...vi, altNames, definition: unescapePlain(w.definition).replace(/<[^>]+>/g, '').trim(), body: sanitizeHtml(w.body),
+    ...prev, altNames, definition: unescapePlain(w.definition).replace(/<[^>]+>/g, '').trim(), body: sanitizeHtml(w.body),
     quality: { score: review.score, indexable: true },
   }, 'vi'))
   // Each kind's photo stays with the term (the spread above keeps it). One whose kind the new text no longer lists is named,
