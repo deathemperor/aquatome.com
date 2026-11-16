@@ -93,8 +93,8 @@ cool() {
 }
 # Before a check's second try: the first try's own load gone. calm alone didn't wait for it: at 02:28 on 2026-11-12 the
 # photos part's second try began the moment its first ended, at a 5-minute load far under calm's 4 a core, and ran two
-# to four times slower than the first, its site tests out of time. The first try's workers (two packages' side by side)
-# leave the 1-minute load as they end: the second try waits a minute, then until that load is under one a core, up to
+# to four times slower than the first, its site tests out of time. The first try's workers (then two packages' side by
+# side) leave the 1-minute load as they end: the second try waits a minute, then until that load is under one a core, up to
 # 10 more minutes, then goes ahead. GitHub's runners run one part each, so there it doesn't wait.
 settled() {
   [ -z "${GITHUB_ACTIONS:-}" ] || return 0
@@ -120,8 +120,8 @@ checks() { if [ -n "${GITHUB_ACTIONS:-}" ]; then bash -c "$1"; else turn bash -c
 # the root `pnpm test` gives up at a package's first failure, so the others may not have finished, and a package can fail
 # with no test named. A step that passes the second time goes on, and its failed tests are logged as "flaky:" to be
 # fixed. The second try starts once the first's own load has gone (settled), and runs the packages one at a time
-# (pnpm's workspace-concurrency, set for the whole step): the same tests and the same limits, on half the load of
-# its own. If it fails again: TIMED_OUT when tests ran out of time on that run, and the run's work is kept
+# (pnpm's workspace-concurrency, set for the whole step; on the Mac the first try too, since 16 Nov): the same tests and
+# the same limits, on half the load of its own. If it fails again: TIMED_OUT when tests ran out of time on that run, and the run's work is kept
 # (keep_unpublished).
 # Each test's time limits, times AQ_TEST_TIME_SCALE (the vitest configs and @aq/schema/test-time read it): 1 on a Mac at
 # full strength, HOT_TIME_SCALE while heat has taken cores away and on a check's second try on the Mac. Waiting for cool
