@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-16). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 680 | 31 | 9 | 23 | 697 |
-| rest | 20 | 1746 | 75 | 0 | 91 | 1730 |
+| covered | 30 | 687 | 31 | 9 | 23 | 704 |
+| rest | 20 | 1754 | 75 | 0 | 93 | 1736 |
 
-## Short of target: every source read (532)
+## Short of target: every source read (549)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -299,6 +299,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/hypancistrus-inspector | covered | 0 | 30 |
 | species/hypancistrus-zebra | covered | 0 | 30 |
 | species/hyphessobrycon-vilmae | covered | 2 | 30 |
+| species/hypostomus-isbrueckeri | covered | 0 | 30 |
 | species/hypostomus-luteus | covered | 0 | 30 |
 | species/kryptopterus-geminus | covered | 0 | 30 |
 | species/lepthoplosternum-pectorale | covered | 0 | 30 |
@@ -475,6 +476,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/corydoras-haraldschultzi | covered | 0 | 30 |
 | species/corydoras-imitator | covered | 8 | 30 |
 | species/corydoras-kanei | covered | 3 | 30 |
+| species/corydoras-longipinnis | covered | 0 | 30 |
 | species/corydoras-loxozonus | covered | 0 | 30 |
 | species/corydoras-melini | covered | 0 | 30 |
 | species/corydoras-napoensis | covered | 0 | 30 |
@@ -547,4 +549,19 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/exostoma-labiatum | covered | 0 | 30 |
 | species/farlowella-amazonum | covered | 0 | 30 |
 | species/farlowella-oxyrryncha | covered | 0 | 30 |
-| species/farlowella-vittata | covered | 3 | 30 |
+| species/farlowella-vittata | covered | 2 | 30 |
+| species/gagata-cenia | covered | 0 | 30 |
+| species/garra-qiaojiensis | covered | 0 | 30 |
+| species/gastromyzon-punctulatus | covered | 0 | 30 |
+| species/geophagus-altifrons | covered | 4 | 30 |
+| species/geophagus-crassilabris | covered | 1 | 30 |
+| species/geophagus-iporangensis | covered | 3 | 30 |
+| species/geophagus-megasema | covered | 0 | 30 |
+| species/geophagus-pellegrini | covered | 0 | 30 |
+| species/geophagus-winemilleri | covered | 0 | 30 |
+| species/gnathochromis-permaxillaris | covered | 1 | 30 |
+| species/gobioides-broussonnetii | covered | 6 | 30 |
+| species/gymnocorymbus-bondi | covered | 0 | 30 |
+| species/haludaria-fasciata | covered | 11 | 30 |
+| species/hampala-macrolepidota | covered | 4 | 30 |
+| species/hara-jerdoni | covered | 0 | 30 |

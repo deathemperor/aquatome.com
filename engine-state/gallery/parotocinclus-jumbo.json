@@ -8,8 +8,23 @@
   "https://media.aquatome.com/glaser/3c62f6d5baf4942d.webp": "a3b6e63b3f330615",
   "https://media.aquatome.com/glaser/ad590ea22c7d2239.webp": "654f0e0319573aa1",
   "https://media.aquatome.com/glaser/4f0cb47c7a2d2076.webp": "0937b32e83f8e20e",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Parotocinclus_jumbo_3.jpg/1280px-Parotocinclus_jumbo_3.jpg": "9d3bcdc7d2c242c8",
-  "https://upload.wikimedia.org/wikipedia/commons/b/b1/Parotocinclus_jumbo_2.jpg": "0801141b73391c36"
+  "https://media.aquatome.com/scotcat/b33e83f2c88e7a79.webp": "3931305173d97506",
+  "https://media.aquatome.com/scotcat/41045e2dd2231793.webp": "4a3c158c92940908",
+  "https://media.aquatome.com/scotcat/071cb38ba505c773.webp": "57cdc4b503892b99",
+  "https://media.aquatome.com/commons/aee5798dcbd18b0d.webp": "0801101373391c32",
+  "https://media.aquatome.com/commons/f7915cfb7171796c.webp": "9d3b9dc3d2c242c8"
  },
- "commons": "2026-11-16"
+ "commons": "2026-11-16",
+ "inat": {
+  "taxon": 616744,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 2340264,
+  "next": null
+ }
 }

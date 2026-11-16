@@ -5,7 +5,7 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 4418 | 3702 | 1502 | 48 | 42 | 196 | 38 | 1039 | 335 | 2558 | 465 | 9 | 10 | 0 | 2 | 2 | 3 | 0 |
+| Vietnamese | 4475 | 3759 | 1538 | 49 | 42 | 196 | 38 | 1073 | 337 | 2579 | 469 | 9 | 10 | 0 | 2 | 2 | 3 | 0 |
 | Indonesian | 1495 | 1320 | 372 | 21 | 8 | 4 | 5 | 180 | 33 | 64 | 180 | 0 | 1 | 0 | 2 | 2 | 0 | 0 |
 | Thai | 1484 | 1289 | 343 | 16 | 4 | 5 | 3 | 159 | 38 | 87 | 165 | 0 | 1 | 0 | 1 | 0 | 0 | 0 |
 | Malay | 373 | 331 | 90 | 7 | 2 | 0 | 1 | 45 | 16 | 21 | 34 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
@@ -23,7 +23,7 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - metronidazole: other, wholeTank: 13 mg/l, 13.158 mg/l, 13.21 mg/l (4 pages); bacteria, wholeTank: 12.5 mg/l (3 pages); parasites, wholeTank: 12.5 mg/l, 0.013 g/l (8 pages); parasites, bath: 6.25 mg/l, 0.05 tablet/l (4 pages); bacteria, unsaid: 12.5 mg/l (1 pages)
 - malachite green: ich, wholeTank: 0.132 ml/l (1 pages); fungus, bath: 0.1 mg/l (4 pages); fungus, spot: 100 mg/l (4 pages)
 - seachem stability: other, wholeTank: 0.125 ml/l, 0.063 ml/l, 0.013 nắp/l, 0.013 cap/l (3 pages)
-- epsom salt: water, other: 2.5 ml/l (1 pages); other, wholeTank: 0.25–0.75 ml/l (1 pages); bacteria, unsaid: 0.263 ml/l (1 pages); other, unsaid: 0.263 ml/l, 0.25 ml/l (3 pages); other, bath: 0.263 spoon/l (1 pages)
+- epsom salt: water, other: 2.5 ml/l (1 pages); other, wholeTank: 0.25–0.75 ml/l (1 pages); bacteria, unsaid: 0.263 ml/l (1 pages); other, unsaid: 0.263 ml/l, 0.25 ml/l (3 pages); other, bath: 0.263 ช้อน/l (1 pages)
 - fenbendazole: parasites, bath: 25 mg/l (1 pages); parasites, wholeTank: 0.001 g/l, 0.003 g/l (3 pages)
 - sodium bicarbonate: water, other: 1 g/l, 2 g/l (4 pages); water, wholeTank: 0.05 g/l, 0.05 ml/l (2 pages)
 - alum: snails, dip: 3.947 ml/l, 3.947–11.842 ml/l, 10–15 ml/l (4 pages); disinfecting, dip: 15 ml/l (1 pages)
@@ -72,20 +72,20 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 ## Products the market table has no row for, Vietnamese pages
 
 - repashy: 48
-- keo 502: 36
+- keo 502: 38
 - panacur: 34
 - ada: 25
+- tropica: 19
 - ada amazonia aqua soil: 18
-- tropica: 18
+- fluval stratum: 18
 - ada amazonia: 17
-- fluval stratum: 17
 - dennerle: 15
 - hikari first bites: 14
 - seachem fluorite: 14
+- fluval fx6: 13
 - hikari shrimp cuisine: 13
 - easy fry and small fish food: 12
 - eheim: 12
-- fluval fx6: 12
 - hikari vibra bites: 12
 - apt fix: 11
 - aquario neo soil: 11
