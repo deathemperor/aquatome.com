@@ -234,9 +234,10 @@ test("the old words' verdicts come off before the new words are stored: where ta
   await translateVideoTitles(root, model(), 'vi')
   const dir = join(root, 'content/video-titles')
   await writeFile(join(dir, 'vi.refused.json'), JSON.stringify({ 'en-a': 'dropped: x' }))
-  await chmod(join(dir, 'vi.refused.json'), 0o444)
-  const r = await translateVideoTitles(root, model({ answer: t => `mới: ${t}` }), 'vi', { redo: true })
-  await chmod(join(dir, 'vi.refused.json'), 0o644)
+  // A verdict file is written whole beside itself and put in place, so the folder is what refuses the write here; the titles
+  // file, written in place, still takes the titles whose verdicts had nothing to take off.
+  await chmod(dir, 0o555)
+  const r = await translateVideoTitles(root, model({ answer: t => `mới: ${t}` }), 'vi', { redo: true }).finally(() => chmod(dir, 0o755))
   expect(r.failed).toHaveLength(1)
   expect((await titles(root, 'vi'))['en-a']).toBe('bản dịch: Keeping Aus')
 })
