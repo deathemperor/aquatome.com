@@ -55,13 +55,13 @@ const pages = (n: number, at?: number) => Array.from({ length: n }, (_, i) => ({
 const LETTERING = ['GLOSSARY', 'TEST', 'ONLY', 'CREDIT'].join('_')
 const photo = (width = 1600, height = 1200) => sharp({ create: { width, height, channels: 3, background: '#6b4f2a' } }).jpeg().toBuffer()
 
-function deps(o: { info?: unknown; pages?: unknown[]; faces?: number; text?: string[]; read?: 'unreadable'; mark?: boolean; verdict?: false; stored?: string[] } = {}) {
+function deps(o: { info?: unknown; pages?: unknown[]; remaining?: number; faces?: number; text?: string[]; read?: 'unreadable'; mark?: boolean; verdict?: false; stored?: string[] } = {}) {
   const calls = { http: [] as string[], openverse: [] as string[], bytes: [] as string[], put: [] as string[], faces: 0, read: 0, looks: 0 }
   const d: GlossaryPhotoDeps = {
     http: async u => { calls.http.push(u); return o.info ?? info() },
     openverse: async u => {
       calls.openverse.push(u)
-      return { json: o.pages?.[Number(new URL(u).searchParams.get('page')) - 1] ?? { page_count: 10, results: [] }, remaining: 100 }
+      return { json: o.pages?.[Number(new URL(u).searchParams.get('page')) - 1] ?? { page_count: 10, results: [] }, remaining: o.remaining ?? 100 }
     },
     bytes: async u => { calls.bytes.push(u); return new Uint8Array(await photo()) },
     exists: async u => (o.stored ?? []).includes(u),
@@ -175,7 +175,7 @@ test('a mark on our copy makes the photo "off: mark", with its screen record und
 })
 
 test('a screen that cannot finish leaves no record: a copy face detection or Vision cannot read, a look with no verdict', async () => {
-  const cases: [Parameters<typeof deps>[0], RegExp][] = [[{ faces: -1 }, /face detection could not read/], [{ read: 'unreadable' }, /Vision could not read/], [{ text: [LETTERING], verdict: false }, /gave no verdict/]]
+  const cases: [Parameters<typeof deps>[0], RegExp][] = [[{ faces: -1 }, /face detection could not read/], [{ faces: Number.NaN }, /face detection could not read/], [{ read: 'unreadable' }, /Vision could not read/], [{ text: [LETTERING], verdict: false }, /gave no verdict/]]
   for (const [o, why] of cases) {
     const r = await root()
     await expect(glossaryPhoto(r, { term: 'lua', kind: 'lua-bonsai', file: FILE }, deps(o).d)).rejects.toThrow(why)
@@ -200,4 +200,38 @@ test('content/ is unchanged; a second run of the same photo replaces its record,
   expect(Object.keys(all)).toEqual(['lua/lua-bonsai', 'lua/lua-cholla'])
   expect(all['lua/lua-bonsai']).toEqual([rec])
   expect(raw).toBe(`${JSON.stringify(all, null, 2)}\n`)
+})
+
+test("a screen record already under our address is not the verdict: the mirror may have copied the source file's there; our copy is read, and a kept-mark record stays", async () => {
+  const r = await root()
+  const kept = { source: 'glaser', sourceUrl: 'https://example.org/a-page', owner: 'source' }
+  const marks = await load(r, 'engine-state/_photo-watermarks.json')
+  await writeFile(join(r, 'engine-state/_photo-watermarks.json'), `${JSON.stringify({ ...marks, [OURS]: { ocr: [], watermark: false, kind: 'none', retainedOwnMark: kept } }, null, 2)}\n`)
+  const { d, calls } = deps({ text: [LETTERING], mark: true, stored: [OURS] })
+  const rec = await glossaryPhoto(r, { term: 'lua', kind: 'lua-bonsai', file: FILE }, d)
+  expect(calls).toMatchObject({ read: 1, looks: 1 })
+  expect(rec.off).toBe('mark')
+  expect((await load(r, 'engine-state/_photo-watermarks.json'))[OURS]).toMatchObject({ watermark: true, kind: 'credit', retainedOwnMark: kept })
+})
+
+test('a run the privacy guard stops leaves the candidate file as it was', async () => {
+  const r = await root()
+  await glossaryPhoto(r, { term: 'lua', kind: 'lua-cholla', openverse: 'cholla wood', flickr: '5550001' }, deps({ pages: pages(1, 1) }).d)
+  const before = await readFile(join(r, GLOSSARY_PHOTOS), 'utf8')
+  // Another engine-state file with a free observation, which the guard refuses.
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), `${JSON.stringify({ [OTHER]: { 'species/a': { ok: 'yes', typical: true, note: 'a sentence a model wrote about the photo' } } }, null, 2)}\n`)
+  await expect(glossaryPhoto(r, { term: 'lua', kind: 'lua-bonsai', file: FILE }, deps().d)).rejects.toThrow(/photo privacy/)
+  expect(await readFile(join(r, GLOSSARY_PHOTOS), 'utf8')).toBe(before)
+  const fresh = await root()
+  await writeFile(join(fresh, 'engine-state/_photo-subjects.json'), `${JSON.stringify({ [OTHER]: { 'species/a': { ok: 'yes', typical: true, note: 'a sentence a model wrote about the photo' } } }, null, 2)}\n`)
+  await expect(glossaryPhoto(fresh, { term: 'lua', kind: 'lua-bonsai', file: FILE }, deps().d)).rejects.toThrow(/photo privacy/)
+  expect(await has(fresh, GLOSSARY_PHOTOS)).toBe(false)
+})
+
+test("Openverse: no page is asked past the day's last ten requests", async () => {
+  const r = await root()
+  const { d, calls } = deps({ pages: pages(10), remaining: 9 })
+  await expect(glossaryPhoto(r, { term: 'lua', kind: 'lua-cholla', openverse: 'cholla wood', flickr: '5550001' }, d)).rejects.toThrow(/requests for today are used up/)
+  expect(calls.openverse).toHaveLength(1)
+  expect(await has(r, GLOSSARY_PHOTOS)).toBe(false)
 })

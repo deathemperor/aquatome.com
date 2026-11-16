@@ -1,4 +1,4 @@
-import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
+import { mkdtemp, readFile, rm, unlink, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
@@ -91,6 +91,8 @@ export async function openverseCandidate(query: string, flickr: string, api: Ope
     const c = p.cands.find(x => x.key === key)
     if (c) return { key, url: c.url, licence: c.licence, author: c.author, sourceUrl: c.sourceUrl, ...(c.openverse ? { openverse: c.openverse } : {}) }
     page = p.next
+    // Openverse's requests left today: the day's last ten are left alone, as the album step leaves them (gallery.ts).
+    if (page !== null && p.remaining < 10) throw refuse(`Openverse's requests for today are used up, at page ${n + 1} of "${query}"`)
   }
   throw refuse(`${key} is not among Openverse's open-licence Flickr photos of 800 px or more for "${query}" (first ${OPENVERSE_PAGES} pages)`)
 }
@@ -123,23 +125,23 @@ async function store(found: Found, d: GlossaryPhotoDeps) {
 
 /**
  * The watermark screen on our copy, as the cycle's runs it (watermarks.ts): macOS Vision's text read, then, for text the
- * intake rule picks (or a logo source), the model's look. Its record goes into the screen's own file under our address,
- * so the cycle's screen doesn't read the photo again. A record already there is kept, and only a look it still owes is made.
+ * intake rule picks (or a logo source), the model's look. Our copy is always read: a record already under our address may
+ * be the source file's, which the mirror copies there (mirror-photos.ts). Its record goes into the screen's own file under
+ * our address, so the cycle's screen doesn't read the photo again; a person's kept-mark record there stays.
  */
 async function screenMarks(root: string, url: string, copy: Buffer, file: string, dir: string, d: GlossaryPhotoDeps): Promise<WatermarkEntry> {
   const path = join(root, WATERMARKS)
   const marks = await readMap<unknown>(path)
-  let entry: WatermarkEntry | undefined = marks[url] ? compactScreen(marks[url]) : undefined
-  if (!entry) {
-    const [lines] = await d.read([file])
-    if (!lines) throw refuse(`${url}: macOS Vision could not read our copy`)
-    entry = { ocr: ocrOf(lines) }
-  }
+  const [lines] = await d.read([file])
+  if (!lines) throw refuse(`${url}: macOS Vision could not read our copy`)
+  let entry: WatermarkEntry = { ocr: ocrOf(lines) }
   if (awaitsScreen(url, entry)) {
     const [verdict] = await judgeSheet([{ b: copy, ocr: entry.ocr }], join(dir, 'sheet.jpg'), d.look)
     if (!verdict) throw refuse(`${url}: the watermark screen gave no verdict`)
     entry = { ...entry, ...verdict }
   }
+  const kept = marks[url] ? compactScreen(marks[url]).retainedOwnMark : undefined
+  if (kept) entry = { ...entry, retainedOwnMark: kept }
   marks[url] = entry
   await writePhotoState(path, Object.fromEntries(Object.entries(marks).sort()))
   return entry
@@ -153,7 +155,7 @@ async function screened(root: string, found: Found, d: GlossaryPhotoDeps): Promi
     const file = join(dir, 'copy.webp')
     await writeFile(file, copy)
     const [faces] = await d.faces([file])
-    if (faces === undefined || faces < 0) throw refuse(`${stored.url}: face detection could not read our copy`)
+    if (typeof faces !== 'number' || !Number.isInteger(faces) || faces < 0) throw refuse(`${stored.url}: face detection could not read our copy`)
     const mark = await screenMarks(root, stored.url, copy, file, dir, d)
     const off = faces > 0 ? 'people' : mark.watermark === true ? 'mark' : undefined
     return {
@@ -190,7 +192,9 @@ export async function glossaryPhoto(root: string, o: { term: string; kind: strin
   if (i >= 0) list[i] = record
   else list.push(record)
   all[at] = list
+  const before = await readFile(path, 'utf8').catch((e: NodeJS.ErrnoException) => { if (e.code === 'ENOENT') return undefined; throw e })
   await writeFile(path, `${JSON.stringify(Object.fromEntries(Object.entries(all).sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))), null, 2)}\n`)
-  await assertPhotoPrivacy(root)
+  // A run the privacy guard stops leaves no record that reads as ready: the file goes back as it was.
+  await assertPhotoPrivacy(root).catch(async e => { await (before === undefined ? unlink(path) : writeFile(path, before)); throw e })
   return record
 }
