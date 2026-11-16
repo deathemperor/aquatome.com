@@ -1,6 +1,36 @@
 {
   "vi/glossary/gh": [
     {
+      "at": "2026-11-16T01:44:27Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Nếu tính theo thang của người nuôi tép, nước mềm có GH dưới 6 dGH, từ 6 đến 12 dGH là vừa, còn từ 12 dGH trở lên là nước cứng.\" (not \"Nếu tính theo thang của người nuôi tép, nước mềm có GH dưới 6 dGH, từ 6 đến 12 dGH là vừa, còn trên 12 dGH là nước rất cứng.\": Rules 3 and 12: \"từ 6 đến 12 dGH là vừa, còn …",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Với bộ test nhỏ giọt, tráng ống bằng nước bể, đổ nước bể tới vạch 5 mL rồi nhỏ thuốc từng giọt, mỗi giọt lắc một lần, và đếm số giọt cho tới khi nước đổi màu.\" (not \"Với bộ test GH của API, tráng ống bằng nước bể, đổ nước bể tới vạch 5 mL rồi nhỏ thuốc từng giọt, mỗi giọt lắc một lần, và đếm số giọt cho t…",
+        "Rule 4: In the bullet on lowering GH, \"pha thêm nước RO hoặc nước mưa\" is followed by \"Nên hạ từ từ, mỗi lần thay ít nước và pha thêm nước RO để bể mềm dần theo thời gian\", so mixing in RO water is said twice. Say it once and keep only the pace (gradually, with small water changes) in the second sentence."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-16T01:44:27Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Rules 4 and 12: \"GH đếm các ion canxi và magie trong nước.\" says again what GH measures, which the definition already says (\"tức lượng canxi và magie hòa tan trong đó\"). THIS TERM says the first section must open with the unit and the scales, not with this sentence.",
+        "Rule 12: \"altNames\":[] is empty. THIS TERM asks for the names Vietnamese keepers use for GH as the facts write them: \"độ cứng chung\" and \"độ cứng tổng\".",
+        "Rules 3 and 12: \"còn trên 12 dGH là rất cứng\" uses the word \"rất cứng\", which THIS TERM forbids. The scale must call water from 12 dGH \"nước cứng\", as the Nước cứng entry defines it (\"từ khoảng 12 dGH trở lên\"). Also, the sentence never writes the words \"nước cứng\", which the site needs so it can link that entry.",
+        "Rule 12: \"Cá lớn chịu được GH dao động rộng, từ 1 dGH (20 ppm) đến 17 dGH (300 ppm) đều ổn.\" uses the one source's 1–17 dGH \"fine for all adult fish\" and the word \"cá lớn\", which THIS TERM forbids. It should instead say which fish want which water: soft-water fish such as cá đĩa want GH at 3 dGH or below, while cá đẻ con, cá vàng and cichlid hồ châu Phi want it higher; eggs, larvae and fry feel G…",
+        "Rule 12: \"Với bộ test GH của API, tráng ống bằng nước bể, ... cho tới khi nước đổi từ cam sang xanh lá. Số giọt là số dGH.\" gives one kit's steps and colours as the rule. THIS TERM wants the drop test described in general (count the drops until the colour changes), followed by the API kit named only as an example: \"Ví dụ, với bộ test GH của API, nước đổi từ cam sang xanh lá, và số giọt là số dGH.\"",
+        "Rule 12: \"Muốn giảm GH thì pha thêm nước RO hoặc nước mưa, hoặc dùng hạt trao đổi cation.\" leaves out the pace that THIS TERM says belongs in this line: lower GH gradually, mixing in RO water with small water changes so the tank softens over time.",
+        "Rule 12: \"Với tép, sự ổn định được đặt lên trên gần như mọi thứ khác.\" is the word-for-word English that THIS TERM forbids. It should read \"Với tép, giữ nước ổn định quan trọng hơn gần như mọi thứ khác.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-15T01:16:02Z",
       "model": "sonnet",
       "cli": "2.1.323",
