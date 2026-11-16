@@ -1,0 +1,147 @@
+{
+  "id": "hyalobagrus-ornatus",
+  "scientificName": "Hyalobagrus ornatus",
+  "order": "Siluriformes",
+  "family": "Bagridae",
+  "genus": "Hyalobagrus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "malaysia",
+    "muar",
+    "indonesia",
+    "kapuas"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 5,
+          "max": 6.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1383",
+      "html": "<p>Hyalobagrus ornatus (Duncker, 1904), the Ornate Shadow Catfish. Type locality: Muar River at Tubing Tinggi, Malaysia. Size: 3 cm SL.</p><p>IUCN Red List category: Critically Endangered (last assessed 2018).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1383",
+      "html": "<p>Asia: Muar drainage in southern Malay Peninsula, Malaysia and Kapuas basin in western Borneo, Indonesia.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1383",
+      "html": "<ul><li>pH: 5.0–6.2</li><li>Temperature: 22–27°C</li><li>Little or no current preferred.</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1383",
+      "html": "<p>They do best with plenty of shade (in the form of vegetation), so a heavily planted tank is the ideal setup for these fish.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1383",
+      "html": "<p>Readily feeds on live/frozen foods and smaller-sized prepared foods such as micropellets, but shows a preference for the former.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1383",
+      "html": "<p>A peaceful, diurnal shoaling species that should be kept in groups of four or more individuals.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1383",
+      "html": "<p>Males have an elongate genital papilla.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1383",
+      "html": "<p>Not reported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1383",
+      "html": "<p>Mitteilungen aus dem Naturhistorischen (Zoologischen) Museum in Hamburg v. 21, pp 173, Pl. 2 (figs. 13, 13a-c).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "NjYLpBYCtUs",
+      "title": "アジアクリスタルキャット　Shadow Catfish　Hyalobagrus ornatus",
+      "durationSec": 29,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "S0ffu0iR2b0",
+      "title": "Hyalobagrus ornatus",
+      "durationSec": 136,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "OthGm81C33c",
+      "title": "アジアクリスタルキャット　Shadow Catfish　Hyalobagrus ornatus",
+      "durationSec": 35,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Fy04TxhHlEM",
+      "title": "Parosphromenus sp, Pseudomugil luminatus and Pelteobagrus ornatus",
+      "durationSec": 141,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh rậm rạp",
+        "rêu java"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn micropellet",
+        "trùng chỉ đông lạnh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-15"
+}

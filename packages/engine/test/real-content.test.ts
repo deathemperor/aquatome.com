@@ -1,10 +1,10 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { readdir, readFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { join, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { GALLERY_POST, LANGS, loadAll, mayPublish, RETIRED_GUIDES, resolveDataCard, slugify, tankKeywordFits, WRITTEN_LANGS, type Translation } from '@aq/schema'
-import { checkPages, photoCaptions, RATCHETED, ratcheted, refCredits, RULES, SWEPT_KINDS, thanksLines } from '../src/content-rules'
+import { checkPages, countMismatch, hasEmail, isLink, isMediaFile, mayHoldEmail, photoCaptions, RATCHETED, ratcheted, refCredits, RULES, SWEPT_KINDS, thanksLines } from '../src/content-rules'
 import { englishOf } from '../src/english'
 import { tilapiaUnnamed } from '../src/kind-words'
 import { droppedName, FISH_NAMES, KIND_PASSAGES, oldNames } from '../src/names'
@@ -20,6 +20,7 @@ import { fishThaiLai, wordingSlips } from '../src/sanitize'
 import { cardOf, cardProblems, readSummaries } from '../src/summaries'
 import { cardSchool, readTraits } from '../src/traits'
 import { sweepTranslation } from '../src/sweep'
+import { namesSomeone } from '../src/video-covers'
 import { slow } from '@aq/schema/test-time'
 
 // The real content/, not the test store, as a public build shows it. Each class of defect here has a fix the engine
@@ -532,6 +533,7 @@ const FOLDS: [string, string, string, string][] = [
   ['cichla-ocellaris', 'notes', 'https://www.aquariumglaser.de/en/general/cichla-ocellaris-x-melaniae-hybrid-2/', 'en-general-cichla-ocellaris-x-melaniae-hybrid-2.md'],
   ['protopterus-dolloi', 'behaviour', 'https://www.aquariumglaser.de/en/29-lungfishes/lungfishes-from-the-congo/', 'en-29-lungfishes-lungfishes-from-the-congo.md'],
   ['protopterus-annectens', 'behaviour', 'https://www.aquariumglaser.de/en/29-lungfishes/lungfishes-from-the-congo/', 'en-29-lungfishes-lungfishes-from-the-congo.md'],
+  ['corydoras-robustus', 'dimorphism', 'https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/show_corydoras_arrived__en/', 'en-10-catfishes-10a-catfishes-corydoras-co-show-corydoras-arrived-en.md'],
   ['distichodus-sexfasciatus', 'notes', 'https://www.aquariumglaser.de/en/32-all-the-rest/congo_importation_arrived__en/', 'en-32-all-the-rest-congo-importation-arrived-en.md'],
   ['pelvicachromis-rubrolabiatus', 'dimorphism', 'https://www.aquariumglaser.de/en/32-all-the-rest/finally_an_import_from_guinea__en/', 'en-32-all-the-rest-finally-an-import-from-guinea-en.md'],
   ['thoracocharax-stellatus', 'notes', 'https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/thoracocharax-stellatus-gasteropelecus-maculatus-jumbo-carnegiella-myersi-carnegiella-strigata-2/', 'en-09-characoids-tetra-relationship-thoracocharax-stellatus-gasteropelecus-maculatus-jumbo-carnegiella-myersi-carnegiella-strigata-2.md'],
@@ -576,7 +578,37 @@ test('C. ocellaris\'s dealer notes say the genus grew from five species to 15, a
 // page, hedged as the notice is ("often", "it seems").
 test('P. annectens\'s dealer part says its bites often seem a mistake for food, hedged as the notice is', () => {
   const vi = (JSON.parse(readFileSync(fileURLToPath(new URL('../../../content/species/protopterus-annectens/vi.json', import.meta.url)), 'utf8')) as Translation).sections!['behaviour:glaser']
-  expect(vi).toBe('<p>Ở P. aethiopicus và P. annectens, nhiều khi cá cắn nhau có vẻ chỉ là đớp nhầm vì tưởng mồi.</p>')
+  expect(vi).toBe('<p>Cá cắn nhau nhiều khi có vẻ là đớp nhầm vì tưởng là mồi.</p>')
+})
+
+// C. robustus's sexing part (the Writing Lead, 15 Nov 2026): the narcissus notice's two lines under its address, so the
+// ventral fins link to a page that says them; "females a little bigger" stays in the quick facts, under the bred article.
+// Indonesian and Thai lose their old text, so the translator makes the new part.
+test('C. robustus\'s dealer sexing part is the notice\'s ventral-fins line, and its quick facts keep the females\' size', () => {
+  const dir = fileURLToPath(new URL('../../../content/species/corydoras-robustus', import.meta.url))
+  const read = <T>(f: string) => JSON.parse(readFileSync(join(dir, f), 'utf8')) as T
+  const parts = read<{ sections: { key: string; source: string; html: string }[] }>('entity.json').sections.filter(s => s.source === 'glaser')
+  expect(parts.find(s => s.key === 'dimorphism')!.html).toContain('The sexes can be told best apart by the shape of the ventral fins.')
+  expect(parts.find(s => s.key === 'quickFacts')!.html).toContain('Females become somewhat bigger than males.')
+  expect(read<Translation>('vi.json').sections!['dimorphism:glaser']).toBe('<p>Ở C. robustus, cả cá đực lẫn cá cái đều có vây lưng dài. Cách phân biệt đực cái tốt nhất là nhìn hình dạng vây bụng.</p>')
+  for (const l of ['id', 'th']) expect(read<Translation>(`${l}.json`).sections!['dimorphism:glaser'], l).toBeUndefined()
+  // The notice itself forwards to C. narcissus, the fish it's mostly about; nothing of narcissus moves (ruling b).
+  expect(RETIRED_GUIDES['glaser-en-10-catfishes-10a-catfishes-corydoras-co-show-corydoras-arrived-en']).toEqual({ kind: 'species', id: 'corydoras-narcissus' })
+})
+
+// Two more lasting lines (the Writing Lead, 15 Nov 2026), each under its notice's address so its link goes to a page that
+// says it: the lungfish notice's "predators, for experienced keepers only" on P. dolloi, with its other lines, about the
+// group ("Các loài … đều"), since "Cá phổi châu Phi" is P. annectens's page name; and the eques notice's look-alike line
+// on C. duplicareus, after the name's meaning in the part already under that address (the Writing Lead, 16:24).
+// Indonesian and Thai have no such part, so the translator makes it.
+test('P. dolloi\'s dealer part says African lungfishes are predators for experienced keepers, and C. duplicareus\'s that it is hard to tell from C. adolfoi', () => {
+  const read = <T>(fish: string, f: string) => JSON.parse(readFileSync(fileURLToPath(new URL(`../../../content/species/${fish}/${f}`, import.meta.url)), 'utf8')) as T
+  const en = (fish: string, key: string) => read<{ sections: { key: string; source: string; html: string }[] }>(fish, 'entity.json').sections.find(s => s.key === key && s.source === 'glaser')!.html
+  expect(en('protopterus-dolloi', 'behaviour')).toMatch(/^<p>African lungfishes are predatory fish and suited only for specialists\. The pugnacity/)
+  expect(read<Translation>('protopterus-dolloi', 'vi.json').sections!['behaviour:glaser']).toMatch(/^<p>Các loài cá phổi châu Phi đều là cá săn mồi, chỉ hợp với người chơi đã có kinh nghiệm\. Có vẻ/)
+  expect(en('corydoras-duplicareus', 'notes')).toBe('<p>duplicareus: Latin for doubled; refers to the extreme similarity to C. adolfoi.</p><p>The only problem with this Corydoras gem is to distinguish it from its close relative C. adolfoi. Otherwise the fish is undemanding.</p>')
+  expect(read<Translation>('corydoras-duplicareus', 'vi.json').sections!['notes:glaser']).toBe('<p>duplicareus: tiếng Latinh nghĩa là "nhân đôi", ý chỉ loài này cực kỳ giống C. adolfoi.</p><p>Cái khó duy nhất với loài cá chuột này là phân biệt nó với cá chuột Adolfo (C. adolfoi), một loài rất gần. Ngoài chuyện đó thì cá dễ nuôi.</p>')
+  for (const l of ['id', 'th']) expect(read<Translation>('corydoras-duplicareus', `${l}.json`).sections!['notes:glaser'], l).toBeUndefined()
 })
 
 test('the seller notices kept as guides say nothing of the dealer\'s stock, and the two renamed forward', () => {
@@ -600,7 +632,7 @@ test('every guide taken off for good is one the content has, and forwards to a p
     expect(existsSync(join(content, 'guides', id, 'vi.json')), id).toBe(true)
     if (to !== 'guides') expect(existsSync(join(content, to.kind, to.id, 'vi.json')), `${id} → ${to.kind}/${to.id}`).toBe(true)
   }
-  expect(Object.keys(RETIRED_GUIDES)).toHaveLength(30)
+  expect(Object.keys(RETIRED_GUIDES)).toHaveLength(31)
   expect(readdirSync(join(content, 'guides')).filter(id => GALLERY_POST.test(id)).length).toBeGreaterThanOrEqual(66)
 })
 
@@ -863,3 +895,312 @@ test('the hand fixes to the 17 held video guides hold: each cut line is gone, ea
     }
   }
 })
+
+// The Writing Lead, 15 Nov 2026, on the rainbowfish guide's label ("Bể cầu vồng của …"): no video guide's label, the
+// words over its thumbnail, names the person in the video or the channel.
+test('no video guide\'s label names a person or the channel', () => {
+  const dir = fileURLToPath(new URL('../../../content/guides', import.meta.url))
+  const named = readdirSync(dir).filter(id => id.startsWith('youtube-') && existsSync(join(dir, id, 'vi.json'))).flatMap(id => {
+    const { cover } = JSON.parse(readFileSync(join(dir, id, 'vi.json'), 'utf8')) as Translation
+    const { video } = JSON.parse(readFileSync(join(dir, id, 'entity.json'), 'utf8')) as { video?: { channel?: string } }
+    return cover && namesSomeone(cover, video?.channel) ? [id] : []
+  })
+  expect(named).toEqual([])
+})
+
+// The chief of staff, 15 Nov 2026: care facts the lane's whole-sentence cuts would take go on hand-fixed text first, so
+// the fact never leaves the page. Two climate lines and two places stay as they were, their parts fixed; in four guides
+// the fact stays in plain words, only the comparison, the product or the shop goes, and the body is fixed.
+test('the care facts the lane would cut whole are on hand-fixed text: a temperature, no heater, places, a size, a quarantine step, minerals, fertiliser', () => {
+  const read = <T>(path: string) => JSON.parse(readFileSync(fileURLToPath(new URL(`../../../content/${path}`, import.meta.url)), 'utf8')) as T
+  const part = (fish: string, key: string) => read<{ sections: { key: string; source: string; html: string; fixed?: boolean }[] }>(`species/${fish}/entity.json`).sections.find(s => s.key === key && s.source === 'glaser')!
+  for (const [fish, key, vi] of [
+    ['rachoviscus-crassiceps', 'waterConditions', 'từ 16 đến 24°C'],
+    ['paramesotriton-labiatus', 'maintenance', 'Không cần sưởi.'],
+    ['serrasalmus-eigenmanni', 'quickFacts', 'Peru'],
+    ['ophichthus-apicalis', 'distribution', 'Việt Nam'],
+  ] as const) {
+    expect(part(fish, key).fixed, fish).toBe(true)
+    expect(read<Translation>(`species/${fish}/vi.json`).sections![`${key}:glaser`], fish).toContain(vi)
+  }
+  for (const [guide, kept, gone] of [
+    ['aquariumcoop-blogs-aquarium-clown-loach', ['Thân cá mập, cao 13–15 cm.', 'giun vi sinh', 'thuốc trị đốm trắng hoặc muối'], ['bóng bầu dục', 'đúc kết từ hơn 10 năm', 'Ich-X', 'Repashy', 'giun micro', 'trùn vi sinh']],
+    ['aquariumcoop-blogs-aquarium-hatchetfish', ['điều trị phòng ngừa luôn trong thời gian cách ly', 'thuốc trị đốm trắng', 'thuốc tẩy giun'], ['bộ ba thuốc', 'Ich-X', 'ParaCleanse']],
+    ['aquariumcoop-blogs-aquarium-hard-water-fish', ['miễn là châm thêm khoáng cho bể.', 'trùng huyết và artemia', 'các dòng cá biến đổi gen phát huỳnh quang'], ['Wonder Shell', 'Equilibrium', 'Vibra Bites', 'GloFish']],
+    ['aquariumcoop-blogs-aquarium-aquarium-plants-for-profit', ['bán cây sống qua các trang thương mại điện tử.', 'châm phân nước tổng hợp vào bể.', 'phí vận chuyển'], ['AquaBid', 'Easy Green']],
+  ] as const) {
+    const t = read<Translation & { bodyFixed?: boolean }>(`guides/${guide}/vi.json`)
+    expect(t.bodyFixed, guide).toBe(true)
+    for (const s of kept) expect(t.body, `${guide}: ${s}`).toContain(s)
+    for (const s of gone) expect(t.body, `${guide}: ${s}`).not.toContain(s)
+  }
+})
+
+// Page Recovery, 16 Nov 2026 (the chief of staff): the leak-repair guide sent a keeper here to seven American silicones and
+// super glues by name, none in the market table, so no check of the gate saw them; it was held by hand. The Writing
+// Lead's plain words replace the three lists (what to look for on the tube, a small tube, thin super glue), the body is
+// fixed by hand, and the hold is let go.
+test('the leak-repair guide says what to buy in plain words, no brands, and is out', () => {
+  const root = fileURLToPath(new URL('../../../', import.meta.url))
+  const id = 'aquariumbreeder-how-to-fix-a-leaking-aquarium-with-and-without-draining'
+  const byHand = JSON.parse(readFileSync(join(root, 'engine-state/held-by-hand.json'), 'utf8')) as Record<string, unknown>
+  const t = JSON.parse(readFileSync(join(root, `content/guides/${id}/vi.json`), 'utf8')) as Translation & { bodyFixed?: boolean; held?: unknown }
+  for (const gone of ['GE Silicone', 'ASI Aquarium', 'Aqueon', 'Tub Clear', 'Ultra Gel', 'Insta-Cure', '57 g']) expect(t.body, gone).not.toContain(gone)
+  for (const kept of ['Khi mua keo silicone, chọn tuýp:', 'ghi rõ dùng được cho bể cá, hoặc là silicone 100%', 'không có chất chống nấm mốc', 'một tuýp nhỏ loại như trên là đủ', 'Keo 502 loại thật loãng, chảy gần như nước.']) expect(t.body, kept).toContain(kept)
+  expect(t.bodyFixed).toBe(true)
+  expect(t.held).toBeUndefined()
+  expect(byHand[`guides/${id}`]).toBeUndefined()
+})
+
+// The chief of staff, 16 Nov 2026: two titles say their true count again, fixed by hand so the sweep's count rule, which
+// counts headings and not a summary table's rows or the text's own "ten", doesn't take it off again. The algae guide's
+// read "8 lý do" while its text gave ten; the hard-water one had lost its 10 when it was written.
+test('two guide titles say the count their own text gives, and are fixed by hand so the count rule leaves them', () => {
+  for (const [id, name, said] of [
+    ['youtube-DkuoQLxF7u8', '10 loài cá cảnh nuôi chung hợp với nước cứng', '10 loài'],
+    ['youtube-Ejng2T-a2Gk', '10 lý do bể thủy sinh vẫn còn rêu hại và cách khắc phục', 'Lý do cuối cùng'],
+  ] as const) {
+    const t = JSON.parse(readFileSync(fileURLToPath(new URL(`../../../content/guides/${id}/vi.json`, import.meta.url)), 'utf8')) as Translation & { nameFixed?: boolean }
+    expect(t.name, id).toBe(name)
+    expect(t.nameFixed, id).toBe(true)
+    expect(t.body, id).toContain(said)
+    // The rule now reads the text's own count, its table and its chapters, and keeps both counts too.
+    expect(countMismatch(t.name, t.body!, t.chapters), id).toBeUndefined()
+  }
+})
+
+// The chief of staff's ask, 16 Nov 2026, in the Writing Lead's words: five held video guides get their one sentence by
+// hand (the video maker's own fish, rack or tank; a tank converted from gallons), each body fixed so no mend undoes it.
+// The gate's next read held the shrimp-tank move for one more sentence on the maker's own tank ("Bể vốn đã khá sạch"),
+// and named "nhựa sóng", roofing sheet here: both in the Writing Lead's words too (16 Nov, 06:35).
+test('five held video guides say their one sentence plainly, in the Writing Lead\'s words, and are fixed by hand', () => {
+  for (const [id, kept, gone, flags] of [
+    ['youtube-gJuWCudImSc', ['Đám cá con này quen người từ nhỏ. Còn cá lớn từng nuôi trong bể trong nhà', 'khi chuyển ra hồ có thể trở nên nhát như cá hoang', 'Cây không chịu lạnh thì đợi trời ấm hẳn, hết rét rồi mới đem ra hồ trồng.'], ['còn cá lớn từng nuôi trong nhà, chuyển ra hồ', 'Cá con sinh ra ngay trong hồ thường quen người'], ['bodyFixed']],
+    ['youtube-3jqe5KGD9lI', ['nhưng nếu kệ đủ chắc và bể có viền thì không thật sự cần', 'Nếu kệ đủ chắc và bể có viền thì không thật sự cần.', 'Nước bể còn sạch thì giữ phần này lại để đổ vào bể sau khi chuyển.', 'hai tấm nhựa PP rỗng ruột'], ['kệ kiểu này', 'Bể vốn đã khá sạch', 'nhựa sóng', 'coroplast'], ['bodyFixed', 'faqFixed']],
+    ['youtube-hTqxIrD_Vho', ['phần nước hơi nhỏ, kể cả với cá tí hon như Phoenix rasbora', 'Phần nước của một bể ốc đảo mini như vậy hơi nhỏ'], ['của bể này', 'mini này'], ['bodyFixed', 'faqFixed']],
+    ['youtube-Iinv7wWjhzA', ['40–120 lít', 'bể 40, 80 hay 100 lít', 'từ khoảng 120 lít trở xuống', 'Trong bể 100–120 lít', 'từ 80 lít trở lên'], ['38', '75 lít', '110 lít'], ['nameFixed', 'bodyFixed', 'faqFixed']],
+    ['youtube-OrW6PZgqKSM', ['khoảng 90 lít'], ['91 lít'], ['bodyFixed']],
+  ] as const) {
+    const t = JSON.parse(readFileSync(fileURLToPath(new URL(`../../../content/guides/${id}/vi.json`, import.meta.url)), 'utf8')) as Translation & Record<string, unknown>
+    const all = [t.name, t.body, ...(t.summary ?? []), ...(t.faq ?? []).flatMap(f => [f.q, f.a])].join('\n')
+    for (const s of kept) expect(all, `${id}: ${s}`).toContain(s)
+    for (const s of gone) expect(all, `${id}: ${s}`).not.toContain(s)
+    for (const f of flags) expect(t[f], `${id}: ${f}`).toBe(true)
+  }
+})
+
+// The chief of staff, 16 Nov 2026: the chat answers sick-fish questions from the ich and parasite guides, and both sent a
+// keeper here to US medicines by name (Ich-X and four more), at each maker's dose turned into litres, with the makers'
+// "safe for every fish, shrimp and snail". In the Writing Lead's words: each medicine by its active ingredients, the
+// label's dose, cautions from the University of Florida's ich circular and the labels in place of the safety claims, and
+// the circular's salt figure with its conditions. Both bodies are fixed by hand; the two US medicine boxes in the parasite
+// guide's photos leave it and every page, on the never-again list. The two sources the new lines rest on are listed on both.
+test('the ich and parasite guides name no US medicine, give the label\'s dose, and show no medicine box', () => {
+  const root = fileURLToPath(new URL('../../../', import.meta.url))
+  const read = (id: string) => JSON.parse(readFileSync(join(root, `content/guides/${id}/vi.json`), 'utf8')) as Translation & { bodyFixed?: boolean }
+  const ich = read('aquariumcoop-blogs-aquarium-how-to-treat-ich-on-freshwater-fish'), parasites = read('aquariumcoop-blogs-aquarium-fish-parasites')
+  for (const t of [ich, parasites]) {
+    expect(t.bodyFixed, t.slug).toBe(true)
+    for (const gone of ['Ich-X', 'Ich X', 'Hikari', 'Aquarium Solutions', 'Pond Solutions', 'Fritz', 'ParaCleanse', 'PraziPro', 'CyroPro', 'Expel-P', 'Maracyn', 'Repashy', 'Purigen', 'Aquarium Co-Op', 'muỗng cà phê', 'cho mỗi 38 lít', 'an toàn với', 'Vorticella'])
+      expect(t.body, `${t.slug}: ${gone}`).not.toContain(gone)
+    expect(t.body, t.slug).toContain('đủ liều ghi trên nhãn')
+    expect(t.body, t.slug).toContain('4–5 g muối mỗi lít trong 7–10 ngày')
+  }
+  for (const kept of ['malachite green và formalin', 'soi mẫu da hoặc mang dưới kính hiển vi', 'ít nhất 3–5 lần', 'thay ngay nước sạch, nhiều oxy']) expect(ich.body, kept).toContain(kept)
+  // The fresh read's hold: never "stop after the minimum treatments" beside "don't stop while fish die"; the old 5 days
+  // stays for the "maybe not ich" stop, and a label's own schedule wins over the page's.
+  expect(ich.body).toContain('Đó là số lần tối thiểu: cá còn chết vì ich thì chưa ngừng thuốc. Trong nước ấm, trị 5 ngày mà đốm vẫn không giảm')
+  expect(ich.body).not.toContain('Trị đủ số lần như vậy')
+  expect(ich.body).toContain('Nhãn ghi lịch châm khác thì theo nhãn.')
+  expect(parasites.body?.match(/nhãn ghi (?:lịch châm )?khác thì theo nhãn/g)?.length).toBe(4)
+  expect(parasites.body).toContain('Cá da trơn và cá chạch có thể nhạy hơn với thay đổi độ mặn')
+  for (const kept of ['Thuốc có praziquantel và metronidazole', 'Scutariella japonica', 'Thuốc có cyromazine', 'Thuốc có levamisole']) expect(parasites.body, kept).toContain(kept)
+  for (const t of [ich, parasites]) expect((t as Translation & { refs?: { url: string }[] }).refs?.map(r => r.url), t.slug).toEqual(['https://ask.ifas.ufl.edu/publication/FA006/pdf', 'https://rainbowfish.angfa.org.au/disease_prevention_and_control/chemical_treatments.html'])
+  const boxes = ['b300caaf93b370a4', '623edd3a383cea26'].map(h => `https://media.aquatome.com/aquariumcoop/${h}.webp`)
+  const rejected = JSON.parse(readFileSync(join(root, 'engine-state/_photo-rejected.json'), 'utf8')) as Record<string, string>
+  for (const u of boxes) expect(rejected[u], u).toMatch(/^subject: withheld/)
+  const e = JSON.parse(readFileSync(join(root, 'content/guides/aquariumcoop-blogs-aquarium-fish-parasites/entity.json'), 'utf8')) as { photos: { url: string; section?: { vi: string } }[] }
+  expect(e.photos.map(p => p.url).filter(u => boxes.includes(u))).toEqual([])
+  // Each photo still sits under a heading the text has.
+  for (const p of e.photos) if (p.section) expect(parasites.body, p.url).toContain(`>${p.section.vi}</h3>`)
+})
+
+// The chief of staff, 16 Nov 2026: "a live title whose number disagrees with its own text fails." Every guide on the site,
+// in every language, a title fixed by hand too (the sweep leaves those, so only this sees them): its number stands on what
+// the text says, a run, a list, a table, its chapters, its bold leads or its headings, and no larger count the text has.
+// What fails names the page and the reason, which the title and its numbers make.
+test('no live guide title promises a number its own text disagrees with', async () => {
+  const dir = fileURLToPath(new URL('../../../content/guides', import.meta.url))
+  const wrong: string[] = []
+  for (const id of (await readdir(dir)).sort()) for (const f of (await readdir(join(dir, id))).filter(f => f !== 'entity.json' && f.endsWith('.json'))) {
+    const t = JSON.parse(await readFile(join(dir, id, f), 'utf8')) as Translation & { held?: unknown }
+    if (t.held || !t.name || !t.body) continue
+    const why = countMismatch(t.name, t.body, t.chapters)
+    if (why) wrong.push(`${f.replace('.json', '')}/guides/${id}: "${t.name}": ${why}`)
+  }
+  expect(wrong).toEqual([])
+})
+
+// The chief of staff, 16 Nov 2026: 13 guides whose text gives a count got it back in their title, by hand, with Writing
+// reading each wording, and the brackish plants guide says "Hơn 30 loại" over its table of 31, as its address does. Each
+// title is fixed, so the sweep leaves it; what each text says of the count, or its table, is held too.
+test('fourteen guide titles say the count their own text gives, fixed by hand', () => {
+  const rows = (html: string) => (html.match(/<tr[\s>][\s\S]*?<\/tr>/g) ?? []).filter(r => r.includes('<td')).length
+  for (const [id, name, said] of [
+    ['youtube-0MzfLrSqfXY', '10 loài cá hợp nuôi trong bể 40 lít', '10 loài'],
+    ['youtube-mGmIvhtIM9k', '10 loài cá dễ nuôi cho người mới chơi bể cá nước ngọt', '10 loài'],
+    ['youtube-vl1Lx9iWDYU', '28 mẹo phòng và giảm rêu hại cho bể thủy sinh', '28 mẹo'],
+    ['aquariumcoop-blogs-aquarium-plants-for-african-cichlids', '10 loại cây dễ nuôi trong bể cá cichlid châu Phi', '10 loại cây'],
+    ['youtube-OSR9EPaO78Q', '6 loại rêu hại hay gặp trong bể thủy sinh và cách xử lý', 'sáu loại'],
+    ['aquariumbreeder-50-underwater-red-plants-for-your-tank', 'Hơn 50 loại cây thủy sinh đỏ cho bể cá', 'Hơn 50 loại'],
+    ['aquariumbreeder-brackish-water-plants', 'Hơn 30 loại cây thủy sinh chịu được nước lợ', 31],
+    ['youtube-4tfp4V1usjA', '10 loài cá dễ nuôi, ít bệnh nên chọn khi mua ở chuỗi tiệm thú cưng lớn', '10 loài'],
+    ['youtube-LRTzeSTeN-8', '10 loài cá heo, cá chạch dễ nuôi cho bể cá cảnh', '10 loài'],
+    ['youtube-Z3jAT8oNNAo', '10 loài cá nuôi chung đẹp, dễ nuôi mà ít người để ý', '10 loài'],
+    ['youtube-aN80dX_RktA', '10 loài cá nhỏ hợp bể nano nước ngọt và cách nuôi từng loài', '10 loài'],
+    ['youtube-iVpF5Ya3lIw', '10 loài cá tầng mặt cho bể thủy sinh và cách nuôi từng loài', '10 loài'],
+    ['youtube-z_AdgDUSZkw', '10 loài cá chuột (Corydoras) đáng nuôi và cách chọn', 'mười loài'],
+    ['youtube-ldbE9N7RUTQ', 'Cá vàng nuôi chung với cá gì: 10 loài hợp và cách chọn', '10 loài'],
+  ] as const) {
+    const t = JSON.parse(readFileSync(fileURLToPath(new URL(`../../../content/guides/${id}/vi.json`, import.meta.url)), 'utf8')) as Translation & { nameFixed?: boolean }
+    expect(t.name, id).toBe(name)
+    expect(t.nameFixed, id).toBe(true)
+    if (typeof said === 'number') expect(rows(t.body!), id).toBe(said)
+    else expect(t.body!.replace(/<[^>]+>/g, ' '), id).toContain(said)
+  }
+})
+
+// The chief of staff, 16 Nov 2026: the popeye guide said fish clinics exist in Hà Nội, TP.HCM and Đà Nẵng, and to get help
+// after 3–5 days of home treatment. Its one source for both, a shop's page, names no clinic and reads as machine-written.
+// The clinic sentences and the day count go by hand, every language's body is fixed so the topic writers keep it, and the
+// page still says whom to ask and when.
+test('the popeye guide names no clinic in a place and no day count, still says whom to ask, and is fixed by hand', () => {
+  const read = (lang: string) => JSON.parse(readFileSync(fileURLToPath(new URL(`../../../content/guides/aquatome-ca-bi-loi-mat-popeye-nguyen-nhan-cach-chua-va-phong/${lang}.json`, import.meta.url)), 'utf8')) as Translation & Record<string, unknown>
+  for (const lang of ['vi', 'id', 'th', 'ms']) {
+    const t = read(lang)
+    const all = [t.name, t.body, ...(t.summary ?? []), ...(t.faq ?? []).flatMap(f => [f.q, f.a])].join('\n')
+    for (const s of ['phòng khám', 'Hà Nội', 'TP.HCM', 'Đà Nẵng', 'kính hiển vi']) expect(all, `${lang}: ${s}`).not.toContain(s)
+    expect(all, `${lang}: a day count`).not.toMatch(/3\s*(?:[–-]|đến|sampai|hingga|ถึง)\s*5\s*(?:ngày|hari|วัน)/u)
+    expect(t.bodyFixed, `${lang}: bodyFixed`).toBe(true)
+  }
+  const vi = read('vi').body ?? ''
+  expect(vi).toContain('Bạn nên nhờ bác sĩ thú y có chữa cá, hoặc tiệm cá cảnh có người rành bệnh cá, xem giúp nếu gặp một trong các trường hợp sau:')
+  expect(vi).toContain('<li>Chữa ở nhà mà cá không đỡ.</li>')
+  // The saved facts lose both too, so a redo of the summary, the FAQ or another language can't bring them back.
+  const facts = readFileSync(fileURLToPath(new URL('../../../engine-state/topics/aquatome-ca-bi-loi-mat-popeye-nguyen-nhan-cach-chua-va-phong.json', import.meta.url)), 'utf8')
+  for (const s of ['3–5 days', 'Hà Nội', 'TP.HCM', 'Đà Nẵng', 'clinics']) expect(facts, `facts: ${s}`).not.toContain(s)
+})
+
+// The Writing Lead, 16 Nov 2026, after the leak-repair guide's fresh read: the super glue step gets its caution (it bonds
+// skin and eyes in seconds and heats as it sets; gloves, air, soak a stuck finger), acetone its fire and fumes line, the
+// no-drain steps their "Cách làm:" lead-in, and coral leaves a freshwater guide. The two safety sheets are its sources.
+test('the leak-repair guide warns about super glue and acetone, and cites the safety sheets it does so from', () => {
+  const root = fileURLToPath(new URL('../../../', import.meta.url))
+  const t = JSON.parse(readFileSync(join(root, 'content/guides/aquariumbreeder-how-to-fix-a-leaking-aquarium-with-and-without-draining/vi.json'), 'utf8')) as Translation & { bodyFixed?: boolean; refs?: { url: string }[] }
+  for (const kept of ['Keo 502 dính da và mắt chỉ trong vài giây, và tỏa nhiệt khi đông cứng.', 'ngâm tay vào nước xà phòng ấm rồi gỡ từ từ.', '<p>Cách làm:</p><ul><li>Rắc baking soda lên chỗ rò.', 'Acetone rất dễ cháy', 'chuyển cá, tép sang bể tạm']) expect(t.body, kept).toContain(kept)
+  expect(t.body).not.toContain('san hô')
+  expect(t.bodyFixed).toBe(true)
+  expect(t.refs?.map(r => r.url)).toEqual(['https://files.canon-europe.com/files/webcontent/safety-data-sheets/EU_Service-Materials/lo0045405_-_loctite_454_superglue_5g_pdf.pdf', 'https://www.cdc.gov/niosh/npg/npgd0004.html'])
+})
+
+// The chief of staff, 16 Nov 2026: the algae guide was held in Vietnamese since 11 Nov for a liquid carbon's dose and its
+// makers' products, and by hand in every language once its Thai page was found carrying the same doses. Vietnamese and
+// Thai take the Indonesian's way, in the Writing Lead's words: the liquid carbon by kind, at the dose on the label of the
+// product bought, every caution kept. All three bodies are fixed, so a redo keeps them: the gate reads no dose or product
+// outside Vietnamese. A redo still writes the summary and FAQ fresh, from facts that name the products, so those are
+// checked here too. The hand hold is lifted.
+test('the algae guide gives the label\'s dose for liquid carbon in every language, names no product, and keeps its cautions', () => {
+  const root = fileURLToPath(new URL('../../../', import.meta.url))
+  const id = 'aquatome-reu-hai-trong-be-thuy-sinh-nguyen-nhan-va-cach-loai-bo'
+  const byHand = JSON.parse(readFileSync(join(root, 'engine-state/held-by-hand.json'), 'utf8')) as Record<string, unknown>
+  expect(byHand[`guides/${id}`]).toBeUndefined()
+  const page = (lang: string) => JSON.parse(readFileSync(join(root, `content/guides/${id}/${lang}.json`), 'utf8')) as Translation & { bodyFixed?: boolean; held?: unknown }
+  const want: Record<string, { label: string; kept: string[]; gone: string[] }> = {
+    vi: {
+      label: 'Theo liều ghi trên nhãn sản phẩm bạn mua',
+      kept: ['Nồng độ cao làm hao oxy, phải sục khí mạnh.', 'tuyệt đối không trộn chung', 'rêu san hô (Riccardia) và Riccia fluitans, nên giữ thuốc tránh xa chúng', 'đeo kính và găng tay', 'không bán sản phẩm của mình như một thuốc diệt rêu', 'châm quá liều hoặc bơm thẳng lên cây có thể làm hại cây', 'Liều lớn có thể làm rữa lá Vallisneria', 'Anacharis chịu sản phẩm này đặc biệt kém', '5 ml cho mỗi 30 L'],
+      gone: ['1 ml cho mỗi 50 L', '5 mL cho 40 L', '5 mL cho 200 L'],
+    },
+    th: {
+      label: 'ตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อมา',
+      kept: ['ความเข้มข้นสูงจะดึงออกซิเจนในน้ำ', 'ห้ามผสมกันเด็ดขาด', 'Riccardia (มอสปะการัง) และ Riccia fluitans อย่าให้น้ำยาโดน', 'ใส่แว่นตาและถุงมือ', 'ไม่ได้ขายผลิตภัณฑ์ของตนเป็นยากำจัดตะไคร่', 'การใส่เกินขนาดหรือหยอดลงบนต้นไม้โดยตรง', 'ใบวาลิสเนอเรียละลาย', 'อนาคาริสไวต่อผลิตภัณฑ์นี้เป็นพิเศษ', '5 มล. ต่อปริมาตรตู้ 30 ลิตร'],
+      gone: ['1 มล. ต่อ 50 ลิตร', '5 มล. ต่อ 40 ลิตร', '5 มล. ต่อ 200 ลิตร'],
+    },
+    id: {
+      label: 'Gunakan dosis sesuai label produk yang Anda beli',
+      kept: ['Konsentrasi tinggi menghabiskan oksigen', 'jangan pernah dicampur', 'Riccardia (coral moss) dan Riccia fluitans', 'kacamata pelindung dan sarung tangan', 'tidak dipasarkan sebagai pembasmi alga', 'overdosis atau penyemprotan langsung ke tanaman', 'daun Vallisneria meleleh', 'Anacharis termasuk sangat sensitif'],
+      gone: [],
+    },
+  }
+  for (const [lang, w] of Object.entries(want)) {
+    const t = page(lang)
+    expect(t.held, lang).toBeUndefined()
+    expect(t.bodyFixed, lang).toBe(true)
+    const seen = [t.name, t.body, ...(t.summary ?? []), ...(t.faq ?? []).flatMap(f => [f.q, f.a])].join('\n')
+    for (const name of ['Easy Carbo', 'Flourish', 'Excel', 'OxiClean', 'Seachem', ...w.gone]) expect(seen, `${lang}: ${name}`).not.toContain(name)
+    for (const s of [w.label, ...w.kept]) expect(t.body, `${lang}: ${s}`).toContain(s)
+  }
+})
+
+// The chief of staff, 16 Nov 2026: the video guide on where to learn aquascaping named three private hobbyists in passing
+// (a group's admin, a website's owner, the keeper of a well-known tank). The names go by hand, each said by role; the group
+// and the site stay named. The body, the questions and the title are fixed, since a redo writes from the video's
+// transcript, which still says them. The check reads a peer's form of address before a capitalised name, so the test
+// needn't repeat the names, and every check is a yes or no, so a failure prints no page text.
+test('the guide on where to learn aquascaping names no private person in passing, and is fixed by hand', () => {
+  const t = JSON.parse(readFileSync(fileURLToPath(new URL('../../../content/guides/youtube-qzPVpr89Ugo/vi.json', import.meta.url)), 'utf8')) as Translation & Record<string, unknown>
+  const all = [t.name, t.body, ...(t.summary ?? []), ...(t.faq ?? []).flatMap(f => [f.q, f.a])].join('\n')
+  // A form of address before a capitalised name, a space, a no-break space or an inline tag between; not "anh em" nor
+  // "tiếng Anh", and never across a block's tags ("Ghi chú</th>").
+  expect(/(?<!\p{L})(?:(?<!tiếng\s)[Aa]nh|[Cc]hị|(?<![Aa]nh\s)[Ee]m|[Bb]ác|[Cc]hú|[Cc]ô)(?:[ \t\u00a0]|&nbsp;|<(?:strong|b|em|i|a)\b[^>]*>)+\p{Lu}/u.test(all), 'a form of address before a name').toBe(false)
+  for (const said of [
+    'Admin nhóm đã đăng nhiều bài hữu ích trong mục thông báo.',
+    'Trang này tìm trên Google là dễ gặp.',
+    'Kho bài còn có một topic dài 40 trang về bể nổi tiếng của một người chơi từng dự thi và đạt nhiều giải quốc tế.',
+    'Thủy Sinh AZ',
+  ]) expect((t.body ?? '').includes(said), said).toBe(true)
+  for (const mark of ['bodyFixed', 'faqFixed', 'nameFixed']) expect(t[mark], mark).toBe(true)
+})
+
+// The chief of staff, 16 Nov 2026: a Loaches Online article on how a Botia's markings change as it grows printed its
+// author's email in each letter's header. The addresses go by hand and the author stays credited. The body is fixed,
+// since a redo translates the source page again, which still has them. Every check is a yes or no, so a failure prints
+// no page text, and the author is checked by the letters' headers, so the test needn't write the name.
+test('the Botia markings guide prints no email address, still credits its author, and is fixed by hand', () => {
+  const t = JSON.parse(readFileSync(fileURLToPath(new URL('../../../content/guides/loachesonline-articles-botia-rostrata-development-of-markings-during-growth/vi.json', import.meta.url)), 'utf8')) as Translation & Record<string, unknown>
+  const all = [t.name, t.body, ...(t.summary ?? []), ...(t.faq ?? []).flatMap(f => [f.q, f.a])].join('\n')
+  expect(all.includes('@'), 'an "@", an address or any of it').toBe(false)
+  expect((t.body ?? '').match(/<strong>Từ:<\/strong> \p{Lu}\p{L}+ (?:\p{Lu}\. )?\p{Lu}\p{L}+/gu)?.length, 'letters whose header names their sender').toBe(2)
+  expect(t.bodyFixed).toBe(true)
+})
+
+// The chief of staff, 16 Nov 2026: no email address in any file under content/, in any field, a page's text or a video's
+// title or a photo's credit. The repository is public, and an address belongs to a person. No list of allowed addresses: a
+// list would print them here. A failure names the file and the field, never the address (a key with one is named by its
+// place, not its words, and so is a key on the way to one). The sweep cuts one from every field of every file each cycle
+// (sweep.ts dropEmailsEverywhere), reading them as this does, so a hit here is one it missed: both read a file's strings,
+// never its raw text, leave a string that is one link whole (isLink), and read every file but a picture or a video.
+// sources/ and engine-state/ join this once their copies are cleaned.
+test('no email address in any file under content/', async () => {
+  const root = fileURLToPath(new URL('../../../content/', import.meta.url))
+  const found: string[] = []
+  const walk = (x: unknown, at: string, file: string): void => {
+    if (typeof x === 'string') { if (!isLink(x) && hasEmail(x)) found.push(`${file} ${at || '(text)'}`); return }
+    if (Array.isArray(x)) { x.forEach((v, i) => walk(v, `${at}[${i}]`, file)); return }
+    if (!x || typeof x !== 'object') return
+    Object.entries(x).forEach(([k, v], i) => {
+      const name = hasEmail(k) ? `(key ${i + 1})` : k
+      if (name !== k) found.push(`${file} ${at ? `${at}.` : ''}${name}`)
+      walk(v, at ? `${at}.${name}` : name, file)
+    })
+  }
+  for (const f of (await readdir(root, { recursive: true, withFileTypes: true })).filter(d => d.isFile() && !isMediaFile(d.name)).map(d => relative(root, join(d.parentPath, d.name))).sort()) {
+    const raw = await readFile(join(root, f), 'utf8')
+    if (!mayHoldEmail(raw)) continue
+    if (!f.endsWith('.json')) { if (hasEmail(raw)) found.push(`${f} (text)`); continue }
+    let data: unknown
+    try { data = JSON.parse(raw) } catch { found.push(`${f} (not JSON)`); continue }
+    walk(data, '', f)
+  }
+  expect(found).toEqual([])
+}, slow(120_000))

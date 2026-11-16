@@ -44,6 +44,18 @@ test("a group's tile takes a photo at least 640 px wide before a smaller one, ev
   expect(groupTiles('vi', soft)[0]!.photo?.url).toBe('https://x/a-0.jpg')
 })
 
+test("a photo the calendar keeps off cards leads no featured fish and no group tile; its page keeps it", () => {
+  const avoid = { 'https://x/betta-splendens.jpg': 'a drawing (the chief of staff, 15 Nov)', 'https://x/a-0.jpg': 'a figure plate' }
+  const c = { species: [sp('betta-splendens'), sp('rasbora-x'), sp('rasbora-y')] } as unknown as Content
+  expect(featuredSpecies('th', c, 2).map(s => s.id)).toEqual(['betta-splendens', 'rasbora-x'])
+  expect(featuredSpecies('th', c, 2, avoid).map(s => s.id)).toEqual(['rasbora-x', 'rasbora-y'])
+  expect(c.species[0]!.photos[0]!.url).toBe('https://x/betta-splendens.jpg')
+  const cat = (id: string, photos: number) => ({ ...fish(id), group: 'catfish', photos: Array.from({ length: photos }, (_, i) => ({ url: `https://x/${id}-${i}.jpg`, width: 1000, height: 667, source: 'commons' })) })
+  const g = { species: [cat('a', 3), cat('b', 1)] } as unknown as Content
+  expect(groupTiles('vi', g)[0]!.photo?.url).toBe('https://x/a-0.jpg')
+  expect(groupTiles('vi', g, undefined, avoid)[0]!.photo?.url).toBe('https://x/b-0.jpg')
+})
+
 test("a video guide's card picture: a photo from its sections, not a strip a card would crop to a sliver; the home page's videos all have one", async () => {
   const { getContent } = await import('../src/lib/content')
   const { guideImages } = await import('../src/lib/mentions')

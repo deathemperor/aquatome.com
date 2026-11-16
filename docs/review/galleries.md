@@ -1,21 +1,22 @@
 # Photo galleries
 
-Written by `pnpm engine gallery` (2026-11-14). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
+Written by `pnpm engine gallery` (2026-11-15). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
 
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 623 | 30 | 9 | 21 | 641 |
-| rest | 20 | 1727 | 74 | 0 | 66 | 1735 |
+| covered | 30 | 654 | 30 | 9 | 22 | 671 |
+| rest | 20 | 1715 | 74 | 0 | 69 | 1720 |
 
-## Short of target: every source read (365)
+## Short of target: every source read (402)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
 | Page | Tier | Photos | Target |
 | --- | --- | --- | --- |
+| species/betta-mahachaiensis | covered | 7 | 30 |
 | species/paracheirodon-innesi | staple | 21 | 100 |
 | species/paracheirodon-axelrodi | staple | 29 | 100 |
 | species/trigonostigma-heteromorpha | staple | 17 | 100 |
@@ -290,6 +291,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/moenkhausia-oligolepis | covered | 2 | 30 |
 | species/myloplus-schomburgkii | covered | 2 | 30 |
 | species/nothobranchius-rachovii | covered | 4 | 30 |
+| species/pterobunocephalus-depressus | covered | 0 | 30 |
 | species/pterophyllum-altum | covered | 13 | 30 |
 | species/sphaerichthys-osphromenoides | covered | 1 | 30 |
 | species/sphaerichthys-selatanensis | covered | 0 | 30 |
@@ -299,6 +301,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/tetraodon-mbu | covered | 21 | 30 |
 | species/trichogaster-chuna | covered | 10 | 30 |
 | species/xyliphius-lepturus | covered | 0 | 30 |
+| species/acanthicus-adonis | covered | 1 | 30 |
 | species/acentronichthys-leptos | covered | 0 | 30 |
 | species/acestridium-dichromum | covered | 0 | 30 |
 | species/acestrorhynchus-altus | covered | 0 | 30 |
@@ -315,6 +318,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/akysis-portellus | covered | 0 | 30 |
 | species/akysis-prashadi | covered | 0 | 30 |
 | species/akysis-varius | covered | 0 | 30 |
+| species/altolamprologus-compressiceps | covered | 1 | 30 |
 | species/amaralia-hypsiura | covered | 0 | 30 |
 | species/ambastaia-nigrolineata | covered | 1 | 30 |
 | species/anabas-testudineus | covered | 8 | 30 |
@@ -372,12 +376,45 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/betta-hendra | covered | 0 | 30 |
 | species/betta-hipposideros | covered | 2 | 30 |
 | species/betta-ideii | covered | 0 | 30 |
+| species/betta-imbellis | covered | 3 | 30 |
 | species/betta-kuehnei | covered | 0 | 30 |
 | species/betta-livida | covered | 0 | 30 |
 | species/betta-macrostoma | covered | 0 | 30 |
-| species/betta-mahachaiensis | covered | 7 | 30 |
 | species/betta-mandor | covered | 0 | 30 |
 | species/betta-miniopinna | covered | 1 | 30 |
 | species/betta-ocellata | covered | 0 | 30 |
 | species/betta-pallifina | covered | 0 | 30 |
 | species/betta-patoti | covered | 0 | 30 |
+| species/betta-persephone | covered | 1 | 30 |
+| species/betta-pi | covered | 0 | 30 |
+| species/betta-prima | covered | 0 | 30 |
+| species/betta-raja | covered | 0 | 30 |
+| species/betta-rubra | covered | 2 | 30 |
+| species/betta-rutilans | covered | 1 | 30 |
+| species/betta-simorum | covered | 0 | 30 |
+| species/betta-smaragdina | covered | 0 | 30 |
+| species/betta-uberis | covered | 0 | 30 |
+| species/biotodoma-cupido | covered | 1 | 30 |
+| species/biotodoma-wavrini | covered | 0 | 30 |
+| species/biotoecus-opercularis | covered | 0 | 30 |
+| species/boraras-maculatus | covered | 1 | 30 |
+| species/boraras-naevus | covered | 2 | 30 |
+| species/botia-histrionica | covered | 1 | 30 |
+| species/boulengerella-maculata | covered | 4 | 30 |
+| species/brachygobius-aggregatus | covered | 0 | 30 |
+| species/brachyplatystoma-juruense | covered | 0 | 30 |
+| species/brachyplatystoma-tigrinum | covered | 0 | 30 |
+| species/brachyrhamdia-heteropleura | covered | 0 | 30 |
+| species/brachyrhamdia-imitator | covered | 0 | 30 |
+| species/brachyrhamdia-rambarrani | covered | 0 | 30 |
+| species/brotia-pagodula | covered | 0 | 30 |
+| species/bunocephalus-colombianus | covered | 0 | 30 |
+| species/callochromis-macrops | covered | 0 | 30 |
+| species/cambarellus-diminutus | covered | 1 | 30 |
+| species/camposcia-retusa | covered | 19 | 30 |
+| species/carinotetraodon-borneensis | covered | 0 | 30 |
+| species/carnegiella-myersi | covered | 3 | 30 |
+| species/centrochir-crocodili | covered | 0 | 30 |
+| species/centromochlus-heckelii | covered | 0 | 30 |
+| species/cetopsis-coecutiens | covered | 0 | 30 |
+| species/chaca-bankanensis | covered | 1 | 30 |

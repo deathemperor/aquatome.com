@@ -81,6 +81,10 @@ export const LoopSchema = z.object({
   source: z.string().url(),
   /** The original's title, which the credit shows: CC BY 3.0, YouTube's Creative Commons licence, asks for it. */
   title: z.string().min(1).optional(),
+  /** How a card shows it (Design, 16 Nov): `fill`, cut to fill the card, for a loop whose fish swim across the frame;
+   * `whole`, the square kept whole, for one a cut would lose its fish from. Unmarked is whole, so a loop nobody marked
+   * never cuts a fish. The media lead marks each one. */
+  frame: z.enum(['fill', 'whole']).optional(),
   /** The record of what was taken, kept for the licence and not sent to the app: where in the original the loop was cut
    * (seconds, all the footage used, its crossfade's second too), the day the licence was read on the original's page, and
    * a dated copy of that page (Internet Archive). */

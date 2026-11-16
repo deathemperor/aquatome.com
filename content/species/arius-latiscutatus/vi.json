@@ -1,0 +1,24 @@
+{
+  "slug": "ca-arius-latiscutatus",
+  "name": "Cá Arius latiscutatus",
+  "altNames": [
+    "Gambian Sea Catfish",
+    "Rough-head Sea Catfish"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li><strong>Tên khoa học:</strong> Carlarius latiscutatus (Günther, 1864)</li><li><strong>Tên thường gọi:</strong> Gambian Sea Catfish (cá trê biển Gambia), Rough-head Sea Catfish (cá trê biển đầu nhám), Ruhovedet Havmalle (Đan Mạch)</li><li><strong>Nơi thu mẫu chuẩn:</strong> đảo Fernando Póo [đảo Bioco], Guinea Xích Đạo, vịnh Guinea.</li><li><strong>Tên đồng nghĩa:</strong> Arius lagoensis, Arius latiscutatus, Tachysurus lagoensis</li></ul>",
+    "distribution:planetcatfish": "<p>Loài này sống ở Đông Đại Tây Dương, từ Dakar (Senegal) xuống tới Angola. Ở Fernando Poo mới thấy nó một lần. Ngoài ra còn có báo cáo về loài này ở Gambia và vùng hạ lưu sông Niger.</p><p>Danh lục đỏ IUCN xếp loài này vào mức Ít quan tâm. Lần đánh giá gần nhất là năm 2019.</p>",
+    "habitat:planetcatfish": "<p>Loài này chủ yếu sống ở biển nhưng hay gặp ở các cửa sông nước lợ, đôi khi còn vào cả nước ngọt.</p>",
+    "diet:planetcatfish": "<p>Loài này ăn cá, các loài động vật nhỏ sống ở đáy, động vật phù du và mùn bã hữu cơ.</p>",
+    "reproduction:planetcatfish": "<p>Chưa có báo cáo nào về chuyện sinh sản của loài này.</p>",
+    "references:planetcatfish": "<p>Catalogue of the fishes in the British Museum v. 5, pp 151, Fig.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.85
+    },
+    "reason": "thin"
+  }
+}

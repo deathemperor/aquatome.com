@@ -1,7 +1,7 @@
 import { compactRejection } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { join, relative } from 'node:path'
 import { parse } from 'node-html-parser'
 import { loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type Summary, type WrittenLang } from '@aq/schema'
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
@@ -12,7 +12,7 @@ import { droppedName, FISH_NAMES, KIND_PASSAGES, ownWords, type FishName, type K
 import { withLNumber } from './l-numbers'
 import { pickStands, readPersonYes } from './person-yes'
 import { EMPTY_CAP, refusedOn, type PhotoVerdict } from './photo-check'
-import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, fixTranslation, isAdPoster, notAlive, isMap, unwellOff, NAMED_KINDS, renameFishNames, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
+import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmails, dropEmailsDeep, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, fixTranslation, hasEmail, isAdPoster, isMediaFile, mayHoldEmail, notAlive, isMap, unwellOff, NAMED_KINDS, renameFishNames, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields, type PageKind } from './pages'
 import { foldPages } from './page-folds'
 import { sweepPlaceNames } from './place-names'
@@ -52,6 +52,9 @@ import { namedOn, namedOrder, passesHead } from './photo-named'
  *   "… © <name>"), and a source's thanks to the people or shops who helped it ("Cảm ơn <name>.", "Terima kasih kepada
  *   <name>."): the block cut (dropPhotoCaptions, dropThanks); a caption that says something more than what its photo
  *   shows keeps its words, its label and credits cut (dropPhotoCaptions)
+ * - an email address, in any part of a page, its references too: cut with the brackets round it, a link to one keeping its
+ *   words (dropEmails); then, last, in every field of every file under content/ (dropEmailsEverywhere). The repository is
+ *   public; the real-content test fails on one in any file under content/, so the sweep mends every hit it can have
  * - "© <name>" after a work's title in a fish page's references: the "©" and the name cut, the title and link kept (dropRefCredits)
  * - a photo whose caption names another fish the site has, or is a map, or a Wikimedia Commons photo whose own words say
  *   it is a paper's plate, a microscope picture, a drawing or a dish: off that page (its file and its gallery). A map or
@@ -189,7 +192,7 @@ export type SweepReport = {
   stopped: string
 }
 
-type Stored = { name?: string; altNames?: string[]; nameFixed?: boolean; sections?: Record<string, string>; body?: string; definition?: string; summary?: string[]; faq?: { q: string; a: string }[] }
+type Stored = { name?: string; altNames?: string[]; nameFixed?: boolean; sections?: Record<string, string>; body?: string; chapters?: string[]; definition?: string; summary?: string[]; faq?: { q: string; a: string }[] }
 
 /** A file's own indentation, so a change is the lines it changes. */
 const indentOf = (raw: string) => raw.match(/^\{\n( +)/)?.[1]?.length ?? 2
@@ -228,6 +231,12 @@ export function sweepTranslation<T extends Stored>(t: T, kind?: PageKind): { t: 
       return { ...f, html }
     })
     out = step('thanks', out, dropThanks)
+    // Every part, the references too: no page prints an address.
+    out = out.map(f => {
+      const html = dropEmails(f.html)
+      if (html !== f.html) mark('emails')
+      return { ...f, html }
+    })
     // The sources' references: only the "© <name>" after a work's title.
     out = out.map(f => {
       if (prose(f.field)) return f
@@ -352,6 +361,55 @@ export async function renameCaptions(content: string, rows: readonly FishName[] 
     changed.push(`captions/${f}`)
   }
   return changed
+}
+
+/**
+ * An email address anywhere under content/, in any file and field the steps above don't write (a fish page's source text, a
+ * photo's caption or credit, a video's title, a place, a name or a question): cut (dropEmailsDeep), so every hit the
+ * real-content test can have is one the cycle mends. A file with no sign of one (mayHoldEmail) is not parsed. The files changed, and where a cut
+ * left a field empty or made two keys one (`file field`, an address's key by its place), for a person to read.
+ */
+export async function dropEmailsEverywhere(content: string): Promise<{ files: string[]; emptied: string[] }> {
+  const changed: string[] = [], emptied: string[] = []
+  const lost = (a: unknown, b: unknown, at: string, file: string): void => {
+    if (typeof a === 'string') { if (a.trim() && typeof b === 'string' && !b.trim()) emptied.push(`${file} ${at || '(text)'}`); return }
+    if (Array.isArray(a) && Array.isArray(b)) { a.forEach((v, i) => lost(v, b[i], `${at}[${i}]`, file)); return }
+    if (!a || typeof a !== 'object' || !b || typeof b !== 'object') return
+    const keys = Object.keys(a)
+    if (Object.keys(b).length < keys.length) emptied.push(`${file} ${at || '(top)'} (two keys made one)`)
+    keys.forEach((k, i) => {
+      const name = hasEmail(k) ? `(key ${i + 1})` : k
+      lost((a as Record<string, unknown>)[k], (b as Record<string, unknown>)[dropEmails(k)], at ? `${at}.${name}` : name, file)
+    })
+  }
+  // The files the real-content test reads: every one but a picture or a video.
+  const files = (await readdir(content, { recursive: true, withFileTypes: true }))
+    .filter(d => d.isFile() && !isMediaFile(d.name)).map(d => relative(content, join(d.parentPath, d.name))).sort()
+  // About 29,000 files: read 64 at a time, as a file read one after another costs a minute on a busy machine. A file is
+  // judged by its strings, never its raw text: an escape's letter before an "@" ("\n@…") is no address. A file is read
+  // further only when it may hold one, an "@" or an address written out (mayHoldEmail).
+  const hits: { f: string; raw: string }[] = []
+  for (let i = 0; i < files.length; i += 64) {
+    for (const h of await Promise.all(files.slice(i, i + 64).map(async f => {
+      const raw = await readFile(join(content, f), 'utf8')
+      return mayHoldEmail(raw) ? { f, raw } : null
+    }))) if (h) hits.push(h)
+  }
+  for (const { f, raw } of hits) {
+    if (!f.endsWith('.json')) {
+      const text = dropEmails(raw)
+      if (text !== raw) { await writeFile(join(content, f), text); changed.push(f) }
+      continue
+    }
+    let data: unknown
+    try { data = JSON.parse(raw) } catch { continue } // the real-content test names it
+    const out = dropEmailsDeep(data)
+    if (JSON.stringify(out) === JSON.stringify(data)) continue
+    lost(data, out, '', f)
+    await write(join(content, f), raw, out)
+    changed.push(f)
+  }
+  return { files: changed, emptied }
 }
 
 /** A page's Vietnamese text a reader reads, each string through `fn`, never its names, address or sources: whether it changed. */
@@ -518,7 +576,8 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
           for (const f of fixed) (report.text[f] ??= []).push(`${kind}/${id}/${lang}`)
           if (kind === 'guides' && before.body !== undefined) guides.push({ key: lang === 'vi' ? id : `${id}:${lang}`, before: before.body, after: t.body! })
         }
-        if (kind === 'guides' && t.name && t.body && countMismatch(t.name, t.body)) counted.push({ file, raw, t, kind, lang, id })
+        // A title a person fixed (nameFixed) is theirs: its count stays, whatever this rule makes of the text.
+        if (kind === 'guides' && t.name && t.body && !t.nameFixed && countMismatch(t.name, t.body, t.chapters)) counted.push({ file, raw, t, kind, lang, id })
         if (kind === 'guides' && t.name) titled.push({ file, raw, t, lang, id, title: t.name })
       }
     }
@@ -657,7 +716,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     if (budget > 0 && !report.stopped) {
       budget--
       try {
-        const r = await rewriteTitle(o.llm!, old, c.t.body!, c.lang, o.model)
+        const r = await rewriteTitle(o.llm!, old, c.t.body!, c.lang, o.model, c.t.chapters)
         if (r.score >= QUALITY_THRESHOLD) { title = r.title; how = `rewritten (${r.score.toFixed(2)})` }
         else how = `number dropped; rewrite "${r.title}" not kept (${r.score.toFixed(2)}${r.notes.length ? `: ${r.notes.slice(0, 2).join('; ')}` : ''})`
         await logReviews(root, 'title', { id: `${c.kind}/${c.id}`, lang: c.lang }, [r], title === r.title ? r : undefined, { model: o.model })
@@ -671,7 +730,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
         else how = `number dropped; rewrite failed: ${(e as Error).message.slice(0, 120)}`
       }
     }
-    if (title === old || countMismatch(title, c.t.body!)) continue
+    if (title === old || countMismatch(title, c.t.body!, c.t.chapters)) continue
     await write(c.file, c.raw, { ...c.t, name: title })
     changed(`${c.kind}/${c.id}/${c.lang}.json`)
     report.titles.push(`${c.lang}/${c.kind}/${c.id}: "${old}" → "${title}" (${how})`)
@@ -1245,6 +1304,13 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   albums.files.forEach(changed)
   report.albums = albums.leads
   report.noAnimal = await noAnimalHeads(root, o.today ?? vnDate(new Date()))
+  // Last, after every step that writes a file: an email address left in any of them.
+  const emails = await dropEmailsEverywhere(content)
+  for (const f of emails.files) {
+    changed(f)
+    ;(report.text['emails'] ??= []).push(f.replace(/\.json$/, ''))
+  }
+  if (emails.emptied.length) report.text['emails-emptied'] = emails.emptied
   return report
 }
 

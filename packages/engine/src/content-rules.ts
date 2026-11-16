@@ -95,6 +95,8 @@ export function numberSlips(hs: string[]): string[] {
 const COUNT_NOUN = 'loại|loài|cách|mẹo|bước|lý do|sai lầm|dấu hiệu|cây|cá|điều|thứ|ý tưởng|câu hỏi|nguyên nhân|lưu ý|bí quyết|jenis|cara|tips?|langkah|alasan|kesalahan|tanda|ikan|tanaman|hal|sebab|punca|kesilapan|petua|tumbuhan|perkara|ชนิด|วิธี|ข้อ|เคล็ดลับ|สัญญาณ|สายพันธุ์|ขั้นตอน|ways|types|species|signs|reasons|mistakes|steps'
 const COUNT = new RegExp(`(?<![\\d.,])(\\d{1,2})\\s*(?=(?:${COUNT_NOUN})(?![\\p{L}]))`, 'iu')
 const TOP = /\btop\s?(\d{1,2})\b/i
+/** "Hơn 50 loại…", "lebih dari 30 jenis": a title promising more than its count, the word right before the count's own number and noun ("Bể trên 100 lít: 5 loài…" isn't one). */
+const MORE_THAN = new RegExp(`(?:hơn|trên|over|more than|lebih dari(?:pada)?)\\s+(?=\\d{1,2}\\s*(?:${COUNT_NOUN})(?![\\p{L}]))`, 'iu')
 /** "10 loại cây…", "Top 7…", "7 Jenis…", "ไม้น้ำ 10 ชนิด": the number of things a title promises, if it promises one. */
 export function titleCount(title: string): number | undefined {
   const m = title.match(COUNT) ?? title.match(TOP)
@@ -110,6 +112,7 @@ export function titleCount(title: string): number | undefined {
 export function stripCount(title: string): string {
   let t = title
   for (let i = 0; i < 3 && titleCount(t); i++) {
+    t = t.replace(MORE_THAN, '')
     const atStart = /^\s*(?:top\s?)?\d/i.test(t)
     t = t.replace(/\s*\d{1,2}\s*(?:ชนิด|สายพันธุ์|ข้อ)(?=\s|$)/u, '').replace(TOP, '').replace(COUNT, '').replace(/\s*:\s*:/, ':').replace(/^\s*:\s*/, '').replace(/\s{2,}/g, ' ').trim()
     if (atStart) t = t.charAt(0).toLocaleUpperCase() + t.slice(1)
@@ -164,22 +167,72 @@ export function renumberLabels(html: string): string {
   return root.toString()
 }
 
-/** A title promises N things; does the text have N, as a run of numbered headings or labels, a list, N bold leads, or enough headings? */
-export function countMismatch(title: string, html: string): string | undefined {
+/** Vietnamese numbers in words, two to ninety-nine: "sáu", "mười", "mười hai", "hai mươi tám", "ba mươi mốt". */
+const VI_DIGIT: Record<string, number> = { một: 1, mốt: 1, hai: 2, ba: 3, bốn: 4, tư: 4, năm: 5, lăm: 5, sáu: 6, bảy: 7, tám: 8, chín: 9 }
+const VI_NUMBER = '(?:(?:hai|ba|bốn|năm|sáu|bảy|tám|chín)\\s+mươi(?:\\s+(?:mốt|một|hai|ba|bốn|tư|lăm|năm|sáu|bảy|tám|chín))?|mười(?:\\s+(?:một|hai|ba|bốn|lăm|năm|sáu|bảy|tám|chín))?|hai|ba|bốn|năm|sáu|bảy|tám|chín)'
+function viNumber(words: string): number {
+  const w = words.toLowerCase().split(/\s+/)
+  if (w[0] === 'mười') return 10 + (w[1] ? VI_DIGIT[w[1]]! : 0)
+  if (w[1] === 'mươi') return VI_DIGIT[w[0]!]! * 10 + (w[2] ? VI_DIGIT[w[2]]! : 0)
+  return VI_DIGIT[w[0]!]!
+}
+/** The noun a title counts ("10 loài cá…" → "loài"), if it names one. */
+const titleNoun = (title: string) => title.match(new RegExp(`(?<![\\d.,])\\d{1,2}\\s*(${COUNT_NOUN})(?![\\p{L}])`, 'iu'))?.[1]?.toLowerCase()
+/** The numbers a text gives with a noun, in digits or Vietnamese words: "10 loài", "mười loài", "hơn 50 loại", "sáu loại". */
+function statedCounts(text: string, noun: string): number[] {
+  const re = new RegExp(`(?<![\\p{L}\\d.,])(?:(\\d{1,2})|(${VI_NUMBER}))\\s+${noun.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{L}])`, 'giu')
+  return [...text.matchAll(re)].map(m => (m[1] ? Number(m[1]) : viNumber(m[2]!)))
+}
+/** A video guide's opening and closing chapters, as a whole chapter's title ("Mục lục", "Mở đầu", "Kết", "Lời cuối"): not items. */
+const CHAPTER_FRAME = /^(?:mục lục|mở đầu|mở bài|lời mở đầu|giới thiệu|tổng quan|kết|kết luận|kết thúc|kết bài|lời kết|lời cuối|lời cảm ơn|tổng kết|nhận xét cuối|intro(?:duction)?|outro|pendahuluan|pengenalan|kesimpulan|penutup|บทนำ|สรุป)\s*[.:]?$/iu
+/** Each table's rows of data (a row with a cell that isn't a heading). */
+const tableRows = (root: HTMLElement) => root.querySelectorAll('table').map(t => t.querySelectorAll('tr').filter(r => r.querySelector('td')).length)
+
+/**
+ * A title promises N things; does the text have N? It does when the text says so with the title's own noun ("10 loài",
+ * "mười loài"), or has a run of numbered headings or labels, a list, a table or a chapters list of N, N bold leads, or
+ * enough headings. It doesn't when the text says a larger number of the same thing, has that many, and never says N ("8
+ * lý do" over a text that says "10 lý do" and has ten chapters: the chief of staff, 16 Nov 2026). "Hơn 50 loại…" wants
+ * more than 50 of any of them.
+ */
+export function countMismatch(title: string, html: string, chapters: readonly string[] = []): string | undefined {
   const want = titleCount(title)
   if (!want) return undefined
+  const more = MORE_THAN.test(title)
+  const root = parse(html)
+  const noun = titleNoun(title)
+  const said = noun ? statedCounts(root.text.replace(/\s+/g, ' '), noun) : []
+  if (said.includes(want)) return undefined
   const hs = headings(html).map(h => h.text.trim())
   const runs = numberedRuns(hs)
-  const root = parse(html)
   const lists = root.querySelectorAll('ul, ol').map(l => l.childNodes.filter(n => n instanceof HTMLElement && n.rawTagName === 'li').length)
-  if (runs.includes(want) || lists.includes(want)) return undefined
-  // "Mẹo 1: …" to "Mẹo 13: …" as bold leads ("13 mẹo…"); or exactly as many bold leads as the title promises.
-  if (labelRuns(labelsOf(root)).some(r => Math.max(...r.map(l => l.n)) === want)) return undefined
+  const labels = labelRuns(labelsOf(root)).map(r => Math.max(...r.map(l => l.n)))
   const leads = root.querySelectorAll('p, li').filter(el => { const f = el.childNodes.find(n => n.text.trim()); return f instanceof HTMLElement && f.rawTagName === 'strong' }).length
-  if (leads === want) return undefined
+  const tables = tableRows(root)
+  const marks = chapters.filter(c => !CHAPTER_FRAME.test(c.trim())).length
+  const counts = [...runs, ...lists, ...labels, leads, ...tables, ...(chapters.length ? [marks] : [])]
+  // A larger number of the same thing the text both says and has: the title undersells it ("8 lý do" over ten). One it
+  // only mentions ("20 loài" Otocinclus in a guide to 5 catfish) doesn't count against the title.
+  const larger = Math.max(0, ...said.filter(n => n > want && counts.includes(n)))
+  if (larger && !more) return `title promises ${want}; the text says ${larger} ${noun} and has that many`
+  if (more ? counts.some(n => n > want) || said.some(n => n > want) : counts.includes(want)) return undefined
   if (!runs.length && hs.length >= want) return undefined // unnumbered headings, enough of them to hold the items
   const sizes = [...new Set(lists)].sort((a, b) => a - b)
-  return `title promises ${want}; ${runs.length ? `numbered headings run to ${runs.join(' and ')}` : `${hs.length} headings, none numbered`}${sizes.length ? `, lists of ${sizes.join(', ')}` : ''}`
+  return `title promises ${more ? 'more than ' : ''}${want}; ${runs.length ? `numbered headings run to ${runs.join(' and ')}` : `${hs.length} headings, none numbered`}${sizes.length ? `, lists of ${sizes.join(', ')}` : ''}${tables.length ? `, tables of ${tables.join(', ')}` : ''}${chapters.length ? `, ${marks} chapters` : ''}`
+}
+
+/** What the text says of its count, for a model writing the title again: the rule's own evidence (countMismatch). */
+export function countEvidence(title: string, html: string, chapters: readonly string[] = []): string {
+  const root = parse(html)
+  const noun = titleNoun(title)
+  const said = noun ? [...new Set(statedCounts(root.text.replace(/\s+/g, ' '), noun))] : []
+  const tables = tableRows(root)
+  const marks = chapters.filter(c => !CHAPTER_FRAME.test(c.trim()))
+  return [
+    ...(said.length ? [`The text says: ${said.map(n => `${n} ${noun}`).join(', ')}`] : []),
+    ...(tables.length ? [`Its tables have ${tables.join(', ')} rows`] : []),
+    ...(marks.length ? [`Its chapters (${marks.length}): ${marks.join('; ')}`] : []),
+  ].join('\n')
 }
 
 /**
@@ -457,6 +510,67 @@ export const isThanks = (text: string) => {
 export const thanksLines = (html: string) => (/cảm ơn|cám ơn|terima kasih|penghargaan|ขอบคุณ|thank/iu.test(html) ? foundBlocks(html, isThanks) : [])
 /** The text without them. */
 export const dropThanks = (html: string) => (/cảm ơn|cám ơn|terima kasih|penghargaan|ขอบคุณ|thank/iu.test(html) ? cutBlocks(html, isThanks) : html)
+
+/**
+ * An email address. The repository is public and an address belongs to a person, so no page prints one (the chief of
+ * staff, 16 Nov 2026): a source's letters had printed their author's in each header ("Từ: <name> (<address>)"). A file
+ * name with a scale mark or a frame rate ("ảnh@2x.PNG", "1080p@60fps.mov") isn't one: a picture, video, sound or code
+ * file's extension, any case, is no address's end. Before the "@", Latin letters with their accents, digits and "._%+-",
+ * as videos.ts reads a video's title: Thai and Chinese run their words together, and a wider class would take the words
+ * beside an address with it. An address ends where no Latin letter or digit follows, nor a file's extension
+ * ("logo@2x.min.js" is a file; "1080p@60fps.movไทย" too), and a link's user ("https://user@host", "https://user:pass@host") is no person's address. Each part is held to an
+ * address's own limits (64 letters before the "@", 63 a part), and a match starts only where an address can, so no
+ * string, however long, makes it slow: the sweep reads every file each cycle.
+ */
+const LETTER = String.raw`\p{Script=Latin}\p{Nd}\u0300-\u036f`
+const FILE = '3gp|aac|asf|ass|avi|avif|bmp|css|dng|flac|flv|gif|hdr|heic|heif|ico|jfif|jpe?g|js|m2ts|m4a|m4v|mkv|mov|mp3|mp4|mpe?g|mts|mxf|ogg|ogv|opus|pdf|png|raw|rmvb|srt|svg|tiff?|ts|vob|vtt|wav|webm|webp|wmv|zip'
+const EMAIL = String.raw`(?<![${LETTER}._%+-])(?<!\/\/[^\s/@]{0,64})(?:mailto:)?[${LETTER}._%+-]{1,64}(?:['’&=][${LETTER}._%+-]{1,64}){0,3}@[${LETTER}-]{1,63}(?:\.[${LETTER}-]{1,63}){0,8}\.(?!(?:${FILE})(?![\p{Script=Latin}\p{N}\p{M}]))\p{Script=Latin}{2,24}(?![\p{Script=Latin}\p{N}\p{M}]|\.(?:${FILE})(?![\p{Script=Latin}\p{N}\p{M}]))`
+/**
+ * An address written out so a program won't read it, which video titles and letters do ("someone [at] example [dot] org",
+ * "Email: someone at example dot com", a full-width "＠", "&#64;"): its to catch too (the chief of staff, 16 Nov). A mark
+ * touches both words ("Line ＠example.com" is a handle). The word "at" counts only after a word that says an address
+ * follows and with the dots written out too, so "available at example.com" and "Find us at example dot com" are sentences;
+ * the last part is a known ending, so "(at) home (dot) X" isn't one.
+ */
+const AT_MARK = String.raw`(?:\s*[\[({<]\s*at\s*[\])}>]\s*|＠|&#0*64;|&#x0*40;)`
+const DOT_MARK = String.raw`\s*[\[({<]\s*dot\s*[\])}>]\s*`
+const ENDING = 'com|org|net|edu|gov|mil|info|biz|io|co|me|vn|uk|de|fr|nl|be|ch|at|it|es|pt|pl|cz|ru|ua|se|no|dk|fi|ie|jp|kr|cn|tw|hk|sg|my|id|th|ph|in|au|nz|ca|us|mx|br|ar|za'
+const PART = String.raw`[${LETTER}-]{1,63}`
+const SPELLED_END = String.raw`(?![\p{Script=Latin}\p{N}\p{M}]|${DOT_MARK}${PART}|\s+dot\s+${PART}|\.[${LETTER}])`
+// The plain word "at" only after a word that says an address follows ("Email:", "liên hệ", "surel"), so "Find us at
+// example dot com" stays a sentence; each address with its own word, so a cut takes every one in a pass.
+const CUE = String.raw`(?:e-?mail|mail|thư|liên\s hệ|contact|surel|emel|อีเมล)(?:\s{0,3}[:：]\s{0,3}|\s{1,3})`
+const SPELLED = String.raw`(?:(?<![${LETTER}._%+-])[${LETTER}._%+-]{1,64}${AT_MARK}${PART}(?:(?:${DOT_MARK}|\s+dot\s+|\.)${PART}){0,4}(?:${DOT_MARK}|\s+dot\s+|\.)(?:${ENDING})${SPELLED_END}|(?<=${CUE})(?<![${LETTER}._%+-])[${LETTER}._%+-]{1,64}\s+at\s+${PART}(?:(?:${DOT_MARK}|\s+dot\s+)${PART}){0,4}(?:${DOT_MARK}|\s+dot\s+)(?:${ENDING})${SPELLED_END})`
+/** Something in a text that may be an address, either way: the check and the cut read a file only when it has one. */
+export const mayHoldEmail = (text: string) => /@|＠|&#0*64;|&#x0*40;|[\[({<]\s*at\s*[\])}>]|\sdot\s|[\[({<]\s*dot\s*[\])}>]/iu.test(text)
+const ANY_EMAIL = new RegExp(EMAIL, 'iu')
+const ANY_SPELLED = new RegExp(SPELLED, 'iu')
+const BRACKETED_EMAIL = new RegExp(String.raw`(?<!\s)\s*(?:\(|\[|&lt;|<)\s*(?:${EMAIL}|${SPELLED})\s*(?:\)|\]|&gt;|>)`, 'giu')
+const BARE_EMAIL = new RegExp(String.raw`(?<!\s)\s*(?:${EMAIL}|${SPELLED})`, 'giu')
+const MAILTO_LINK = /<a\b[^>]*\bhref\s*=\s*["']mailto:[^"']*["'][^>]*>([\s\S]*?)<\/a>/giu
+export const hasEmail = (text: string) => (text.includes('@') && ANY_EMAIL.test(text)) || (mayHoldEmail(text) && ANY_SPELLED.test(text))
+/**
+ * The text without its email addresses: a link to one keeps its words, and an address goes with the brackets round it and
+ * the space before it. What hasEmail finds, this cuts, so the sweep mends every hit the real-content test can have.
+ */
+export const dropEmails = (html: string) => {
+  let out = html
+  for (let i = 0; i < 3 && hasEmail(out); i++) out = out.replace(MAILTO_LINK, '$1').replace(BRACKETED_EMAIL, '').replace(BARE_EMAIL, '')
+  return out
+}
+/** A string that is one link and nothing else ("https://example.net/?mail=…"): the check and the cut leave it whole. */
+export const isLink = (s: string) => /^(?:https?|ftp):\/\/\S+$/iu.test(s)
+/** A picture or a video, which the check and the cut don't read. */
+export const isMediaFile = (f: string) => /\.(?:png|jpe?g|gif|webp|avif|ico|mp4|webm|mov)$/iu.test(f)
+/**
+ * A stored file's data with the email addresses cut from every string, its keys too (dropEmails): the captions' translations
+ * are keyed by the Vietnamese caption, which then reads as its photo's does. A string that is one link stays whole
+ * (isLink). Its shape stays.
+ */
+export const dropEmailsDeep = <T>(v: T): T => (typeof v === 'string' ? (isLink(v) ? v : dropEmails(v))
+  : Array.isArray(v) ? v.map(dropEmailsDeep)
+  : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).map(([k, x]) => [dropEmails(k), dropEmailsDeep(x)]))
+  : v) as T
 
 /**
  * "© <name>" in a fish page's references, after a work's title ("The ETYFish Project Fish Name Etymology Database ©
@@ -796,8 +910,8 @@ export const RULES: Rule[] = [
   },
   {
     id: 'title-count', title: 'Title promises a count the text doesn\'t have',
-    about: 'A title with a number ("10 loại cây…", "Top 5…") whose text has no run of numbered headings or labels, no list or bold leads of that many, and not enough headings for that many items. The sweep has the title rewritten (reviewer-gated), else drops the number from it; the address stays.',
-    check: p => p.fields.filter(f => f.field === 'body').flatMap(f => countMismatch(p.title, f.html) ?? []),
+    about: 'A title with a number ("10 loại cây…", "Top 5…") whose text doesn\'t say that number with the title\'s noun and has no run of numbered headings or labels, no list, table, chapters list or bold leads of that many, and not enough headings for that many items; or a smaller number than the text both says and has ("8 lý do" over ten). The sweep has the title rewritten (reviewer-gated), else drops the number from it; the address stays. A title a person fixed is left.',
+    check: p => p.nameFixed ? [] : p.fields.filter(f => f.field === 'body').flatMap(f => countMismatch(p.title, f.html, p.chapters) ?? []),
   },
   {
     id: 'guide-title', title: 'Two guides with one title, or a title that is only a name',

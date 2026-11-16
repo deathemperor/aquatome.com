@@ -121,6 +121,34 @@ test('chat\'s questions count against chat\'s own day, not the identifications\'
   expect(await fresh.admit({ ...base, reader: 'chat:acct:z', perDay: 100, reserve: 2, kind: 'chat' })).toEqual({ ok: false, error: 'busy' })
 })
 
+test('chat\'s day by who asked: each role\'s questions as admitted and its calls\' cost as each lands; a run stored without a role still settles', async () => {
+  const { ledger, storage } = slow()
+  const chat = { ...base, perDay: 100, kind: 'chat' as const }
+  const a = await ledger.admit({ ...chat, reader: 'chat:acct:o', role: 'owner' })
+  const b = await ledger.admit({ ...chat, reader: 'chat:acct:t', role: 'tester' })
+  const c = await ledger.admit({ ...chat, reader: 'chat:acct:t', role: 'tester' })
+  if (!a.ok || !b.ok || !c.ok) throw new Error('not admitted')
+  await Promise.all([ledger.spend(DAY, a.run, 0.02), ledger.spend(DAY, b.run, 0.03), ledger.spend(DAY, c.run, 0.7), ledger.spend(DAY, b.run, 0.01)])
+  // A refund gives the reader's count back, not the role's: it was asked.
+  await ledger.settle({ day: DAY, run: c.run, refund: true, keys: {} })
+  // Spent past its run's end: in the day's dollars, not a role's.
+  await ledger.spend(DAY, c.run, 0.5)
+  const view = await ledger.read(DAY)
+  expect(view.chat).toBe(3)
+  expect(view.chatBy).toEqual({ owner: { asked: 1, usd: 0.02 }, tester: { asked: 2, usd: expect.closeTo(0.74, 9) } })
+  expect(view.usd).toBeCloseTo(0.5 + 0.5 + 0.7 + 0.5, 9)
+  // A day and a run kept before roles were: nothing breaks, and the run's dollars go to no role.
+  const old = new Ledger(storage, () => 'run-old')
+  const d = saved(storage) as unknown as Record<string, unknown> & { runs: Record<string, unknown> }
+  storage.m.set(`day:${DAY}`, { ...d, chatBy: undefined, runs: { ...d.runs, legacy: { reader: 'chat:acct:x', reserved: 0.5, spent: 0, at: Date.now() } } })
+  await old.spend(DAY, 'legacy', 0.1)
+  await old.settle({ day: DAY, run: 'legacy', refund: false, keys: {} })
+  expect((await old.read(DAY)).chatBy).toEqual({})
+  const r = await old.admit({ ...chat, reader: 'chat:acct:r', role: 'reader' })
+  expect(r.ok).toBe(true)
+  expect((await old.read(DAY)).chatBy).toEqual({ reader: { asked: 1, usd: 0 } })
+})
+
 test('a stop that comes before its question holds, its question dated either side of midnight', async () => {
   for (const [stop, asked] of [['2026-03-02', '2026-03-01'], ['2026-03-01', '2026-03-02']] as const) {
     const ledger = new Ledger(memoryStorage(), () => 'run')

@@ -19,6 +19,10 @@ import { checkedClashes } from '../../../apps/site/worker/chat/clashes'
 import type { Handbook, Item } from '../../../apps/site/worker/chat/handbook'
 import { clientFor } from '../../../apps/site/worker/fishid/claude'
 import { healthyKeys, loadKeys, memoryHealth, rotate } from '../../../apps/site/worker/fishid/keys'
+import { unbilled } from '../src/billed'
+
+// Its calls on the chat's keys aren't held to the billed line yet (billed.ts).
+unbilled('chat-answer-check.ts')
 
 const { values: args } = parseArgs({ options: { runs: { type: 'string', default: '3' } } })
 const MODEL = 'claude-haiku-5-5'

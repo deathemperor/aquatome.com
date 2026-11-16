@@ -40,8 +40,10 @@
   "bodyFixed": true,
   "held": {
     "checks": [
-      "dose"
+      "dose",
+      "elsewhere",
+      "source"
     ],
-    "at": "2026-11-14"
+    "at": "2026-11-16"
   }
 }

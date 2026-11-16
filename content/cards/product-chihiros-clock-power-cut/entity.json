@@ -1,0 +1,23 @@
+{
+  "id": "product-chihiros-clock-power-cut",
+  "type": "product",
+  "about": [
+    "products/chihiros-wrgb-ii-slim"
+  ],
+  "product": "products/chihiros-wrgb-ii-slim",
+  "sources": [
+    {
+      "url": "https://github.com/deathemperor/aquatome.com/blob/main/docs/research/aquarium-device-control.md#hands-on-results-2026-10-31",
+      "title": "Aquarium device control: hands-on results",
+      "publisher": "AquaTome",
+      "date": "2026-10-31",
+      "accessed": "2026-11-15"
+    }
+  ],
+  "show": {
+    "from": "2026-11-17",
+    "until": "2027-05-16"
+  },
+  "rotate": 90,
+  "updatedAt": "2026-11-15"
+}

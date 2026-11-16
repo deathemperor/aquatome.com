@@ -40,7 +40,10 @@
   },
   "bodyFixed": true,
   "held": {
-    "checks": [],
-    "at": "2026-11-14"
+    "checks": [
+      "source",
+      "units"
+    ],
+    "at": "2026-11-15"
   }
 }

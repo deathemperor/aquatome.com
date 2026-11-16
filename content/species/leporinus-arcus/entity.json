@@ -147,12 +147,12 @@
   "dataCard": {
     "sizeCm": [
       {
-        "source": "glaser",
-        "value": 40
-      },
-      {
         "source": "seriouslyfish",
         "value": 30
+      },
+      {
+        "source": "glaser",
+        "value": 40
       }
     ],
     "tempC": [
@@ -199,14 +199,14 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/unusual_ornamental_fish_bred_in_indonesia_1_leporinus_arcus_en/",
-      "html": "<p>There are many very successful breeders of ornamental fish in Indonesia. These people are able to breed even species that have proven to be unbreedable in hobbyists' tanks for decades already. However, not all the species that are used as ornamental fish are only ornamental. Many species, for example Colossoma macropomum (Giant Pacu), the species belonging to Lepisosteus and Atractosteus (gars and Alligator fish), or Semaprochilodus (Flagtail characin) can be rather seen as multiple-use fish. Juveniles are colourful, odd and beautiful; these are kept and sold for aquaria. Adults are tasty and so become much sought-after food fish.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus_arcus_en/",
+      "html": "<ul><li>Maximum length reported is around 40 cm; in the wild most grow no bigger than 15-20 cm.</li><li>Origin: Guyana.</li></ul>"
     },
     {
       "key": "beforeYouBuy",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/unusual_ornamental_fish_bred_in_indonesia_1_leporinus_arcus_en/",
-      "html": "<p>Leporinus arcus is also such a species. The beautiful fish originates in the Guianas and Venezuela. However, there are currently no importations from the areas where the species occurs, so there is definitely a demand in the market for the species. The ones that cannot be sold as ornamental fish are grown on for food. The fish attains a length of about 40 cm and is a perfect one-person-portion fish.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus_arcus_en/",
+      "html": "<p>The genus Leporinus contains almost 100 species and is thus pretty big. Nevertheless only very few species could establish themselves as aquarium inhabitants. Most of them become quite large, are quarrelsome and eat any plant they can find. Most species are simply too dull in coloration to keep them despite this nasty behaviour.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -247,8 +247,8 @@
     {
       "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/unusual_ornamental_fish_bred_in_indonesia_1_leporinus_arcus_en/",
-      "html": "<p>Like most other species of Leporinus, this one is a perfect community fish for larger cichlids, catfish etc. Plants will be eaten radically, so it is usually impossible to keep the fish in planted aquaria. Towards conspecifics these fish can be quite quarrelsome. So it is best to keep them either singly or in larger groups. In the latter case the tank should have a lot of hiding places.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus_arcus_en/",
+      "html": "<p>Leporinus arcus also becomes quite large. Maximum length reported is around 40 cm. However, in the wild most of them will never grow bigger than 15-20 cm and besides this they are very pretty. Leporinus arcus are ideal tankmates for larger South American Cichlids or to bring some colours in a tank with predatory fish. Likewise other Leporinus they develop a social hierarchy. So it is much better to buy animals of different size, because equally sized animals will fight much harder with each other. Once the hierarchy is established the fish live in relative harmony together.</p>"
     },
     {
       "key": "reproduction",
@@ -261,6 +261,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hypomasticus-arcus",
       "html": "<p>Leporinus is among the more diverse genera in the order Characiformes with around 90 valid species, and a phylogentic study by Sidlauskas and Vari (2008) demonstrated it to represent a polyphyletic lineage.</p><p>Four species (H. despaxi, H. megalepis, H. mormyrops and H. pachycheilus) were thus placed into the revalidated genus Hypomasticus which had originally been proposed by Borodin (1929).</p><p>The remaining species of Leporinus, except for L. gomesi, formed a clade alongside Abramites, and this grouping was itself placed in a large polytomy alongside the genera Anostomoides, Anostomus, Gnathodolus, Laemolyta, Petulanos, Pseudanos, Rhytiodus, Sartor, Schizodon and Synaptolaemus.</p><p>In particular there was an overall lack of a resolution of relationships within Leporinus, and the authors suggested that molecular analysis is likely to be needed to fully resolve the relationships between them.</p><p>The family Anostomidae is distributed throughout much of tropical and subtropical South America from northwestern Colombia to central Argentina.</p><p>The majority of species are moderately-elongate and somewhat rounded in shape although there are some exceptions, e.g., the relatively deep-bodied Abramites.</p><p>Greater diversity is apparent in the range of oral morphology, however, and members exhibit a wide range of adaptations in dentition and jaw structure.</p><p>A number of anostomids tend to swim at an oblique 'head-down' angle which has given rise to them being referred to by the generalised vernacular term 'headstanders'.</p><p>The species was moved from Leporinus arcus to Hypomasticus arcus in 2025.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus_arcus_en/",
+      "html": "<p>Lexicon: Leporinus: Latin, means “hare-nose”. arcus: Latin, means “bow” and “rainbow”; it is not explained what Eigenmann meant by giving this name in the original description, but most probably the name applies on the lower longitudinal stripe: (“… another (band) curving from the eye downward and back to the lower edge of the caudal”).</p><p>Suggestion of a common name: Lipstick Leporinus.</p>"
     },
     {
       "key": "references",
@@ -282,7 +288,32 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "G7H3xKVyAKI",
+      "title": "Leporinus arcus and some tank mates (www.forociclidos.com)",
+      "durationSec": 193,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "4kc1Ku0XdIY",
+      "title": "Leporinus arcus.mp4",
+      "durationSec": 28,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "mTM-C0GvV88",
+      "title": "Leporinus arcus (www.forociclidos.com)",
+      "durationSec": 75,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "CfPjPt-3jQg",
+      "title": "Leporinus arcus eating (www.forociclidos.com)",
+      "durationSec": 95,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -305,5 +336,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-15"
 }

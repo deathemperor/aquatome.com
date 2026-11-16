@@ -38,9 +38,12 @@
       "youtube": 0.7
     }
   },
+  "bodyFixed": true,
   "held": {
-    "checks": [],
-    "at": "2026-11-11"
-  },
-  "bodyFixed": true
+    "checks": [
+      "elsewhere",
+      "source"
+    ],
+    "at": "2026-11-15"
+  }
 }

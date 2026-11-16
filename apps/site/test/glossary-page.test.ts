@@ -1,8 +1,9 @@
 import { existsSync, readdirSync } from 'node:fs'
 import { expect, test } from 'vitest'
-import type { GlossaryEntity, Localized, Photo } from '@aq/schema'
+import { glossaryKinds, PictureSet, type GlossaryEntity, type Localized, type Photo } from '@aq/schema'
 import { getContent } from '../src/lib/content'
 import { bodySections, glossaryParts, linkedTermPaths, nameCount, termTitle, tipLine, usedPictures, usedRows } from '../src/lib/glossary-page'
+import { smallSrc } from '../src/lib/img'
 import { DIST, page } from './dist'
 
 // A term's page (pages/thuat-ngu/[slug].astro): its other names, its definition's links, and every page that uses it.
@@ -153,4 +154,50 @@ test('a term\'s rows show no picture twice: a row whose picture the page shows a
   expect(r.guides).toEqual([a, b, null])
   expect(r.fish).toEqual([null, null]) // the term's own photo is above them; b went to the second guide
   expect(r.plants).toEqual([plant])
+})
+
+// The chief of staff, 15 Nov 2026, on the live pages at 18:12: lá bàng held two photos and its page drew the first only,
+// and Lũa's bonsai and cholla, each a kind's photo, showed nowhere. A term's page shows every photo it holds, none twice:
+// each kind's photo (its kind named in the entry) claims first, captioned with its name, in the term's photo row until
+// the kinds row; the term's own photo is its first no kind holds; its other photos follow in the row.
+test('a term\'s page shows every photo it holds: its first under the title, the rest and its kinds\' photos, named, in a row, none twice', async () => {
+  const c = await getContent('vi')
+  const g = c.glossary.find(x => x.id === 'ca-dan')!
+  const [danio, boraras] = g.photos ?? []
+  const neon = g.kinds?.find(k => k.id === 'ca-neon')?.photo
+  expect(danio && boraras && neon).toBeTruthy()
+  const p = glossaryParts('vi', c, g)
+  expect(p.photo).toEqual(danio)
+  expect(p.album).toEqual([{ photo: boraras }, { photo: neon, name: 'Cá neon' }])
+  // A kind's photo that is also the term's: shown once, as the kind's; the term opens on its next photo.
+  const shared = glossaryParts('vi', c, { ...g, kinds: [{ id: 'ca-tran-chau', photo: danio! }] })
+  expect(shared.photo).toEqual(boraras)
+  expect(shared.album).toEqual([{ photo: danio, name: 'Cá trân châu' }])
+  // A kind the entry doesn't name has no name to show beside its photo: left out, as the engine reports it.
+  expect(glossaryParts('vi', c, { ...g, kinds: [{ id: 'ca-khong-co', photo: neon! }] }).album).toEqual([{ photo: boraras }])
+})
+
+// The chief of staff, 15 Nov 2026: "a photo that's stored and unseen is the same complaint again" (the owner's: the page
+// doesn't show the thing). Every photo the build kept for a term (after the screen, as getContent loads it like the build)
+// and every kind's photo whose kind its entry names is drawn on the term's built page, in every language. Failed on the
+// page of 15 Nov: lá bàng's second photo and Lũa's bonsai and cholla.
+test('every photo a term holds, and every named kind\'s photo, is drawn on its built page', async () => {
+  let held = 0
+  for (const lang of ['vi', 'id', 'th', 'ms'] as const) {
+    const c = await getContent(lang).catch(() => null)
+    if (!c) continue
+    for (const g of c.glossary) {
+      const named = new Set(glossaryKinds(g.t.body ?? '').map(k => k.id))
+      const photos = [...(g.photos ?? []), ...(g.kinds ?? []).filter(k => named.has(k.id)).map(k => k.photo)]
+      if (!photos.length) continue
+      const path = `${lang === 'vi' ? '' : `/${lang}`}/thuat-ngu/${g.t.slug}/`
+      if (lang !== 'vi' && !existsSync(`${DIST}${path}index.html`)) continue
+      const drawn = new PictureSet(c.pictureHashes)
+      for (const img of page(path).dom.querySelectorAll('main img')) drawn.add(img.getAttribute('src') ?? undefined)
+      // As the page draws it: the photo, its thumb, or the small copy a row draws (a Wikimedia photo's 500px size).
+      for (const p of photos) expect(drawn.has(p.url) || drawn.has(p.thumb) || drawn.has(smallSrc(p)), `${path} draws ${p.url}`).toBe(true)
+      held += photos.length
+    }
+  }
+  expect(held).toBeGreaterThan(0)
 })

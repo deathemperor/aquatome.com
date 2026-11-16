@@ -20,7 +20,9 @@
  * the sections the Worker's search would hand over before the first call (handover.ts `handsOver`: a saved tank and a
  * question under 150 characters). A plain answer through the CLI (claude-opus-5-5) is on the owner's subscription;
  * through the API (claude-haiku-5-5, the chat's own model, as chat-vs-plain.ts asked on 8 Nov) it is billed. The judge
- * is Opus through the CLI, with chat-vs-plain's rubric.
+ * is Opus through the CLI, with chat-vs-plain's rubric. Every billed call is held to the board's billed line before it
+ * goes and logged after (src/billed.ts, ceilings.json `api`), apart from the Mac's quota; a run stopped at the line says
+ * so and exits 2, and what it didn't ask is asked on the next run.
  *
  * `cli` is a copy of our chat, not the Worker: the checkout's own system prompt, first message, handover, answer schema
  * and four tools (served by chat-mcp.ts) on the owner's subscription, so any model can write it with no billed money. What
@@ -46,6 +48,9 @@ import { homedir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { parseArgs } from 'node:util'
+import { costOf as mainCost, priceOf as mainPrice } from '../../../apps/site/worker/fishid/claude'
+import type { KeyEntry } from '../../../apps/site/worker/fishid/keys'
+import { Billed, BilledLimit, worstOf, type Tokens } from '../src/billed'
 import { ceilingsAsMain, costLog, leftYielding, nameStep, stepName } from '../src/ceiling'
 import { claudeCli, claudeTools } from '../src/claude'
 import { pool, retry } from './eval-lib'
@@ -79,6 +84,14 @@ const { positionals, values: args } = parseArgs({
     step: { type: 'string' },
   },
 })
+
+/**
+ * The run's billed calls, on the chat's keys (`answer`, and `plain` with Haiku): each held to the board's billed line
+ * before it goes and logged after (billed.ts), apart from the Mac's quota. Prices are main's (fishid/claude.ts).
+ */
+const billed = new Billed()
+/** A reply's usage as tokens; none when the API sent none, and the call then counts at its worst (billed.ts). */
+const tokensOf = (u: any): Tokens | undefined => (u ? { input: u.input_tokens ?? 0, output: u.output_tokens ?? 0, cacheRead: u.cache_read_input_tokens ?? 0, cacheWrite: u.cache_creation_input_tokens ?? 0 } : undefined)
 if (args.step) nameStep(args.step)
 
 type Post = { id: string; topic: string; post: string; short: string; tank: PostTank }
@@ -139,8 +152,9 @@ async function answer() {
   const { handbookOf } = await import(`${W}/apps/site/worker/chat/handbook.ts`)
   // A checkout from before the handover (8 Nov) had none, as its Worker didn't: its questions go without.
   const handoverFor = existsSync(`${W}/apps/site/worker/chat/handover.ts`) ? (await import(`${W}/apps/site/worker/chat/handover.ts`)).handoverFor : undefined
-  const { clientFor, costOf } = await import(`${W}/apps/site/worker/fishid/claude.ts`)
-  const { healthyKeys, loadKeys, memoryHealth, rotate } = await import(`${W}/apps/site/worker/fishid/keys.ts`)
+  // The keys and their client are main's, whatever checkout's chat is asked: a call is one request, held and logged once.
+  const { clientFor } = await import('../../../apps/site/worker/fishid/claude')
+  const { healthyKeys, loadKeys, memoryHealth, rotate } = await import('../../../apps/site/worker/fishid/keys')
   const get = async (path: string) => { const r = await fetch(new URL(path, args.site)); return r.ok ? r.json() : null }
   const hb = await handbookOf({ index: (l: string) => get(`/app/${l}.json`), shard: (l: string, k: string, n: number) => get(`/app/pages/${l}/${k}-${n}.json`), topics: (l: string) => get(`/app/chat/${l}.json`) }, 'vi')
   const given = new Map<string, { path: string; heading: string | null }[]>()
@@ -150,7 +164,7 @@ async function answer() {
   const store = memoryHealth()
   // As the Worker sends: every call goes through the keys in turn, a key that fails rotated past.
   // Each call's start, length and output, so the time rule can be set from the calls' own times.
-  const sender = (healthy: unknown[], log: { call: number; at: number; ms: number; out?: number; tools?: number; failed?: boolean }[] = [], t0 = Date.now()) => {
+  const sender = (healthy: KeyEntry[], log: { call: number; at: number; ms: number; out?: number; tools?: number; failed?: boolean }[] = [], t0 = Date.now()) => {
     const once = async (c: any, b: any, timeoutMs: number, o: any) => {
       const stop = new AbortController(), t0 = Date.now()
       let timer = setTimeout(() => stop.abort(), timeoutMs), began = false
@@ -170,11 +184,18 @@ async function answer() {
       } finally { clearTimeout(timer) }
     }
     return async (b: any, o: any) => {
+      if (billed.stopped) throw new BilledLimit(billed.stopped)
       const at = Date.now()
+      // Each try on a key is a billed call, held to the line and logged (billed.ts).
       const r = await rotate(healthy, store, async (k: any, left: number) => {
         const c = await clientFor(k)
-        return once(c, b, Math.min(left, o.timeoutMs), o)
+        return billed.call({ model: b.model, worst: worstOf(b, mainPrice(b.model)), key: k.hash }, async () => {
+          const m = await once(c, b, Math.min(left, o.timeoutMs), o)
+          const tokens = tokensOf(m.usage)
+          return { value: m, usd: tokens ? mainCost(b.model, tokens) : NaN, tokens }
+        })
       }, { budgetMs: o.timeoutMs })
+      if (!r.ok && billed.stopped) throw new BilledLimit(billed.stopped)
       if (!r.ok) { log.push({ call: o.call, at: at - t0, ms: Date.now() - at, failed: true }); throw new Error(`no key answered: ${r.reason}`) }
       log.push({ call: o.call, at: at - t0, ms: Date.now() - at, out: r.value.usage?.output_tokens, tools: r.value.content.filter((x: any) => x.type === 'tool_use').length })
       return r.value
@@ -184,6 +205,8 @@ async function answer() {
   console.log(`${args.arm}: ${jobs.length} to answer, ${done.size} kept`)
   let n = 0
   await pool(jobs.map(({ p, f, id }) => async () => {
+    // Stopped at the billed line: what's left is asked on the next run.
+    if (billed.stopped) return
     const began = Date.now()
     const timing: any[] = []
     const tanks = f === 'post' ? [] : [savedTank(p.tank)]
@@ -195,15 +218,20 @@ async function answer() {
         ...(tanks.length && handoverFor ? { handover: () => handoverFor({ question: asked(p, f), start: {}, tanks, hb, lang: 'vi', search: async () => found ?? [] }) } : {}),
         onText: () => undefined,
       })
+      // Stopped at the billed line (the agent's loop hands back what its send threw): asked again on the next run, and
+      // an answer that came is kept, since it was paid for.
+      if (!run.answer?.text && (run.error instanceof BilledLimit || billed.stopped)) return
       const toolUses = run.history.flatMap((m: any) => (Array.isArray(m.content) ? m.content : []).filter((b: any) => b.type === 'tool_use').map((b: any) => `${b.name} ${JSON.stringify(b.input)}`))
-      done.set(id, { id, post: p.id, topic: p.topic, form: f, text: run.answer?.text, blocks: run.blocks, suggestions: run.answer?.suggestions, stopped: run.stopped, calls: run.calls, asked: toolUses, timing, ms: Date.now() - began, usd: costOf(args.model, run.spent), ...(run.answer ? {} : { failed: String(run.error?.message ?? run.stopped).slice(0, 160) }) })
+      done.set(id, { id, post: p.id, topic: p.topic, form: f, text: run.answer?.text, blocks: run.blocks, suggestions: run.answer?.suggestions, stopped: run.stopped, calls: run.calls, asked: toolUses, timing, ms: Date.now() - began, usd: mainCost(args.model, run.spent), ...(run.answer ? {} : { failed: String(run.error?.message ?? run.stopped).slice(0, 160) }) })
     } catch (e: any) {
+      if (billed.stopped) return
       done.set(id, { id, post: p.id, topic: p.topic, form: f, ms: Date.now() - began, usd: 0, failed: String(e?.message ?? e).slice(0, 160) })
     }
     if (++n % 10 === 0) await writeTurns(args.arm!, done)
   }), Number(args.concurrency))
   await writeTurns(args.arm, done)
   summary(args.arm, done)
+  stoppedAtLine()
 }
 
 /**
@@ -294,20 +322,25 @@ async function plain() {
   let send: ((q: string) => Promise<{ text: string; usd: number }>) | undefined
   if (!cli) {
     // The chat's own model with no system prompt, no tools and no handbook, as chat-vs-plain.ts asked it on 8 Nov.
-    const { clientFor, costOf } = await import('../../../apps/site/worker/fishid/claude')
+    const { clientFor } = await import('../../../apps/site/worker/fishid/claude')
     const { loadKeys } = await import('../../../apps/site/worker/fishid/keys')
     const { keys } = await loadKeys(await readFile(args.keys!, 'utf8'))
     const client = await clientFor(keys[0]!)
     send = async q => {
-      const m: any = await client.messages.create({ model: args.model!, max_tokens: 8192, messages: [{ role: 'user', content: q }], output_config: { effort: 'medium' } } as any, { timeout: 120_000 })
-      const u = m.usage
+      const body = { model: args.model!, max_tokens: 8192, messages: [{ role: 'user', content: q }], output_config: { effort: 'medium' } }
+      const m: any = await billed.call({ model: body.model, worst: worstOf(body, mainPrice(body.model)), key: keys[0]!.hash }, async () => {
+        const r: any = await client.messages.create(body as any, { timeout: 120_000 })
+        const tokens = tokensOf(r.usage)
+        return { value: r, usd: tokens ? mainCost(body.model, tokens) : NaN, tokens }
+      })
       // A cut-off answer is a failure, asked again on the next run, never judged as whole.
       if (m.stop_reason !== 'end_turn') throw new Error(`stopped: ${m.stop_reason}`)
-      return { text: m.content.filter((b: any) => b.type === 'text').map((b: any) => b.text).join(''), usd: costOf(args.model!, { input: u.input_tokens, output: u.output_tokens, cacheRead: 0, cacheWrite: 0 }) }
+      return { text: m.content.filter((b: any) => b.type === 'text').map((b: any) => b.text).join(''), usd: mainCost(args.model!, tokensOf(m.usage) ?? { input: 0, output: 0 }) }
     }
   }
   let n = 0
   await pool(jobs.map(({ p, f, id }) => async () => {
+    if (billed.stopped) return
     const began = Date.now()
     const q = plainQuestion(p, f)
     try {
@@ -318,12 +351,21 @@ async function plain() {
         : await send!(q)
       done.set(id, { id, post: p.id, topic: p.topic, form: f, text: r.text, ms: Date.now() - began, usd: r.usd })
     } catch (e: any) {
+      if (billed.stopped) return
       done.set(id, { id, post: p.id, topic: p.topic, form: f, ms: Date.now() - began, usd: 0, failed: String(e?.message ?? e).slice(0, 160) })
     }
     if (++n % 10 === 0) await writeTurns(args.arm!, done)
   }), Number(args.concurrency))
   await writeTurns(args.arm, done)
   summary(args.arm, done)
+  stoppedAtLine()
+}
+
+/** A run stopped at the billed line says so, and fails: the chief of staff raises the day's line when a board needs it. */
+function stoppedAtLine() {
+  if (!billed.stopped) return
+  console.error(billed.stopped)
+  process.exitCode = 2
 }
 
 function summary(arm: string, turns: Map<string, Turn>) {

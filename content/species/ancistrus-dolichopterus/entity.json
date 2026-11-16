@@ -218,6 +218,15 @@
       "html": "<p>Reports are inconsistent. Some state it to be endemic to the middle and lower rio Negro, Amazonas state, Brazil while others claim it can also be found in Guyana or has a wider distribution within the Amazon basin.</p><p>The former appears most likely and a large degree of this confusion can be attributed to it being misidentified for several decades (see 'Notes').</p><p>Type locality is given simply as 'Manaus, Brazil'.</p>"
     },
     {
+      "key": "distribution",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này còn được ghi là có ở nhiều hệ sông trong lưu vực Amazon, chẳng hạn hạ lưu sông Trombetas và sông Madeira ở Brazil. Nếu đúng vậy thì vùng phân bố của nó rộng hơn, không chỉ gói trong sông Negro.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-dolichopterus",
@@ -248,16 +257,43 @@
       "html": "<p>Wild specimens are probably omnivorous foragers but with a preference for aquatic invertebrates and suchlike.</p><p>In the aquarium it does best when offered a varied diet comprising sinking dried foods, frozen Daphnia, mosquito larvae, chironomid larvae (bloodworm), and prawn/shrimp, for, example, plus some fresh fruit, parboiled potato, etc.</p><p>Home-made foods using a mixture of natural ingredients bound with gelatin are very useful since they can be tailored to contain fresh vegetables, Spirulina and meatier ingredients.</p>"
     },
     {
+      "key": "diet",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Có nguồn lại xếp loài này vào nhóm chủ yếu ăn thực vật và mùn bã chứ không thiên về ăn động vật nhỏ. Theo đó, thức ăn chính của nó là rêu, lớp màng vi sinh bám trên bề mặt và xác cây mục. Giống cá lau kiếng thường, nó ăn rêu giỏi và giữ kính bể khá sạch.</p><p>Cây khỏe thì chúng thường để yên. Lúc gặm rêu, chúng có thể lỡ cắn vào cây lá mềm, nhưng cây cứng cáp và cá no thì chuyện này không đáng lo. Khi đói, chúng có thể quay sang ăn cây. Muốn giữ cây thì cho ăn thêm viên tảo và viên cho cá da trơn.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-dolichopterus",
       "html": "<p>Relatively peaceful but territorial with conspecifics and similarly-shaped species.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này sống về đêm. Chúng chủ yếu ra ngoài lúc tối nên ít khi thấy được.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ancistrus-dolichopterus",
       "html": "<p>Adult males possess well-developed odontodes on the pectoral fins and opercle and tentacles on the head while females do not.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Con cái cũng có thể có vài xúc tu nhỏ, nhưng ít hơn và khó thấy hơn hẳn so với con đực. Con đực lớn thì có xúc tu rõ trên mõm và đầu, nên nhìn vào đó là phân biệt đực cái khá dễ.</p>",
+      "refs": [
+        0
+      ]
     },
     {
       "key": "reproduction",
@@ -276,6 +312,15 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/ancistrus_white_seam_en/",
       "html": "<p>The scientific names in Ancistrus are a total mess. The genus contains a large number of species: currently 66 scientifically described species are accepted. However, many species were formerly described under Ancistrus that are now placed in entirely different genera, such as Lithoxus, Pterygoblichthys, Hemiancistrus and Dekeyseria. Reviewing these genera will probably recover additional species and make name changes necessary.</p><p>The \"Common Bushmouth\" became established in aquariums in the 1950s. At that time nobody guessed how many species exist, so the fish was identified as Ancistrus dolichopterus. It was then usual practice to cross wild-collected specimens into established aquarium populations to \"refresh the blood\". The Common Bushmouth is therefore almost certainly a multiple hybrid; no wild population is known that has exactly its features. Different Ancistrus species cross comparatively easily, as platies and swordtails do, and this is no criterion for species discrimination. As a hybrid, it cannot bear a scientific species name under the rules of nomenclature and should be named by the genus only, Ancistrus.</p><p>Besides the 66 described species, about 90 more are known, some with and some without an L- or LDA-number. All are occasionally imported or bred, and the systematics of these fish are far from understood. One thing is certain: Ancistrus dolichopterus is one of the so-called White Seam Ancistrus and has been given the number L183. L183 = Ancistrus dolichopterus.</p><p>More than one Ancistrus species has a white seam in the dorsal and caudal fins. A. dolichopterus can usually be recognised by its 9 soft rays in the dorsal fin, while all other similar Ancistrus have 7-8. Only very occasionally do individuals of A. dolichopterus have fewer than 9 soft rays. Coloration is not a good identification feature, because juveniles look different from adults and Ancistrus can also change colour quickly depending on mood.</p><p>Before L183 was found to be Ancistrus dolichopterus, it was wrongly identified as Ancistrus hoplogenys. Today Ancistrus hoplogenys is known to be identical with L59, which has orange seams on the dorsal fin.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Thân cá phủ hàng trăm chấm trắng li ti, nhìn như bầu trời đêm đầy sao. Cái tên \"sao\" là từ bộ chấm này mà ra.</p>",
+      "refs": [
+        0
+      ]
     },
     {
       "key": "references",
@@ -297,7 +342,14 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "EU7xKjw8VZI",
+      "title": "Discover the Starlight Bristlenose Pleco - Ancistrus dolichopterus - L183",
+      "durationSec": 190,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -327,5 +379,11 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-15",
+  "refs": [
+    {
+      "url": "https://www.youtube.com/watch?v=EU7xKjw8VZI",
+      "title": "Discover the Starlight Bristlenose Pleco - Ancistrus dolichopterus - L183"
+    }
+  ]
 }

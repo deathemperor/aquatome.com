@@ -58,10 +58,12 @@
         "moments": [
           {
             "t": 20,
-            "url": "https://media.aquatome.com/video/naWrFEnwALY/t20.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đồng hồ đo lưu lượng (flow meter) điện tử giá khoảng 41 USD."
+            "url": "https://media.aquatome.com/video/naWrFEnwALY/at20-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đồng hồ đo lưu lượng (flow meter) điện tử giá khoảng 41 USD.",
+            "sharpness": 8918.4,
+            "person": false
           }
         ],
         "photo": {
@@ -107,11 +109,13 @@
         "heading": "Lưu lượng ghi trên hộp và thực tế",
         "moments": [
           {
-            "t": 760,
-            "url": "https://media.aquatome.com/video/naWrFEnwALY/t760.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Hộp lọc thùng Fluval FX4 ghi lưu lượng 2.650 lít/giờ."
+            "t": 770,
+            "url": "https://media.aquatome.com/video/naWrFEnwALY/at770-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hộp lọc thùng Fluval FX4 ghi lưu lượng 2.650 lít/giờ.",
+            "sharpness": 3005.2,
+            "person": false
           }
         ]
       }

@@ -1007,6 +1007,14 @@ The layers above still check the result.
       Like the cuts above, it cleans a part a person fixed too, since it adds no word. No audit rule lists them (their
       words are people's names, and the report is public): a real-content test sweeps every stored page in memory and
       holds them at zero
+    - an email address, in any field of any file under content/ (the chief of staff, 2026-11-16: a translated article
+      printed its author's in each letter's header, and two video titles their uploader's), or one written out so a
+      program won't read it ("someone [at] example [dot] org", "someone at example dot com", a full-width "＠"): cut with
+      the brackets round it, a link to one keeping its words, first in a page's text with the fixes above, then last in every file, keys
+      too (`dropEmails`, `dropEmailsEverywhere`). A file's name with a scale mark or a frame rate ("ảnh@2x.png",
+      "1080p@60fps.mov"), a handle ("@seriouslyfish") and a link's user stay. A real-content test fails on one anywhere
+      under content/, naming the file and the field, never the address, and has no list of allowed ones; sources/ and
+      engine-state/ join it once their copies are cleaned
     - a photo whose caption names another species the site has a page for, with nothing saying the fish is still the
       page's ("in a batch of", "here with", "known as"), or that is a map, or a Wikimedia Commons photo whose file name
       or description says it is no photo of the living fish (a paper's plate, a microscope picture, a drawing, a dish:

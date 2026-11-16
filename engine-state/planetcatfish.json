@@ -3852,5 +3852,103 @@
     "processedHash": "3c0b6c1d1e25e88de2cab5e47a8f81f9a8e82f00836caa557b2f2d3a48f2e427",
     "status": "processed",
     "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1382": {
+    "entityIds": [
+      "species/synodontis-melanopterus"
+    ],
+    "updatedAt": "2026-11-15T09:31:03.156Z",
+    "hash": "6a7f607d485c71a9f9983e4d49e96aad0a73c0e7401506c4e1078969606e7a45",
+    "processedHash": "6a7f607d485c71a9f9983e4d49e96aad0a73c0e7401506c4e1078969606e7a45",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1383": {
+    "entityIds": [
+      "species/hyalobagrus-ornatus"
+    ],
+    "updatedAt": "2026-11-15T09:33:45.618Z",
+    "hash": "66c1b9482fb82864a306c0cc0f64512eaaa1614d2c0271e3c3ad2767d8e0f048",
+    "processedHash": "66c1b9482fb82864a306c0cc0f64512eaaa1614d2c0271e3c3ad2767d8e0f048",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1384": {
+    "entityIds": [
+      "species/hyalobagrus-leiacanthus"
+    ],
+    "updatedAt": "2026-11-15T09:39:17.202Z",
+    "hash": "563763dda604a64fcd193c64a3e6d722ccb474eba9b62b839c4f73af85f97343",
+    "processedHash": "563763dda604a64fcd193c64a3e6d722ccb474eba9b62b839c4f73af85f97343",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1386": {
+    "entityIds": [
+      "species/hisonotus-leucofrenatus"
+    ],
+    "updatedAt": "2026-11-15T09:42:28.349Z",
+    "hash": "4139bdd03cc458e8cb39853d0c9bd6d244122152dcbde30ac26218bc4385b3cf",
+    "processedHash": "4139bdd03cc458e8cb39853d0c9bd6d244122152dcbde30ac26218bc4385b3cf",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1387": {
+    "entityIds": [
+      "species/synodontis-tourei"
+    ],
+    "updatedAt": "2026-11-15T09:44:55.657Z",
+    "hash": "ed78de9e0eb8629c7379245f69fe82062586462f00f4ca8f40e6bbd4fc70db27",
+    "processedHash": "ed78de9e0eb8629c7379245f69fe82062586462f00f4ca8f40e6bbd4fc70db27",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1388": {
+    "entityIds": [
+      "species/synodontis-ansorgii"
+    ],
+    "updatedAt": "2026-11-15T09:48:08.939Z",
+    "hash": "0fe922badcd67ba4a34e3b23a23c15cbc5891d364c28bcafd0c6d88684e6aa92",
+    "processedHash": "0fe922badcd67ba4a34e3b23a23c15cbc5891d364c28bcafd0c6d88684e6aa92",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1389": {
+    "entityIds": [
+      "species/parauchenoglanis-punctatus"
+    ],
+    "updatedAt": "2026-11-15T09:51:16.414Z",
+    "hash": "4832f760e2dd48fa6b2873d26b6d323f64b5c066c2c3f30d9e754b0af3bb31f5",
+    "processedHash": "4832f760e2dd48fa6b2873d26b6d323f64b5c066c2c3f30d9e754b0af3bb31f5",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=139": {
+    "entityIds": [
+      "species/arius-latiscutatus"
+    ],
+    "updatedAt": "2026-11-15T09:56:37.584Z",
+    "hash": "401269790fb91423a935685548c3e450658885827de9abd97f6c68d4c52ff571",
+    "processedHash": "401269790fb91423a935685548c3e450658885827de9abd97f6c68d4c52ff571",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1390": {
+    "entityIds": [
+      "species/hisonotus-notatus"
+    ],
+    "updatedAt": "2026-11-15T10:02:24.020Z",
+    "hash": "abae86c38b6b878c350525de76240855ec9b851c9e052951b8e41db33ce64d4f",
+    "processedHash": "abae86c38b6b878c350525de76240855ec9b851c9e052951b8e41db33ce64d4f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1391": {
+    "entityIds": [],
+    "updatedAt": "2026-11-15T10:04:42.044Z",
+    "hash": "baf4ab06e3ecff2c0b9553eb2c2735a71bbcd79529d88426dba932262493d500",
+    "processedHash": "baf4ab06e3ecff2c0b9553eb2c2735a71bbcd79529d88426dba932262493d500",
+    "status": "skipped",
+    "attempts": 0
   }
 }

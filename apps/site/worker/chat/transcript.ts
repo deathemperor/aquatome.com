@@ -1,4 +1,5 @@
 import type { Turn } from '../fishid/transcript'
+import type { Role } from './api'
 import type { Found } from './handover'
 
 /**
@@ -9,7 +10,7 @@ import type { Found } from './handover'
  *
  * Text only, as fish ID's (fishid/transcript.ts): the question, what Claude thought (its summarised thinking), wrote and
  * asked of the tools, what the tools answered (cut short; the reader's tanks too, when it read them), and the answer
- * the reader got. Never an account id, the IP, a cookie or a key.
+ * the reader got, and who asked as a role (owner, tester or reader). Never an account id, the IP, a cookie or a key.
  */
 export const transcriptKey = (account: string, conversation: string, n: number, run: string) =>
   `chat-run/${account}/${conversation}/${String(n).padStart(3, '0')}-${run}.json`
@@ -20,6 +21,8 @@ export type ChatRunRecord = {
   /** The question's number in its conversation (a run that failed has the number the next question takes too). */
   n: number
   at: string
+  /** Who asked: an owner's account, the test account or a reader (api.ts `roleOf`). Missing on records kept before it was. */
+  role?: Role
   lang: string
   model: string
   question: string

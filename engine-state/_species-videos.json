@@ -1598,16 +1598,23 @@
     "reason": "\"lúc nào cũng phải có sẵn bể dự phòng\": the video says \"always have a backup plan\", not a backup tank. It is also written as a flat rule rather than one keeper's experience.; \"Có lẽ vì màu đuôi giống màu cám hạt đỏ cá vẫn được ăn\": the speaker only notes the red tail and the red food. NEW presents the link as an explanation."
   },
   "e7HfD_6ofzc": {
-    "at": "2026-11-07",
+    "at": "2026-11-14",
     "title": "Endler´s Livebearer (EL TIGRE - Class N)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Poecilia wingei",
+    "page": "species/poecilia-wingei",
+    "done": "low",
+    "score": 0.72,
+    "reason": "The page says El Tigre was first sent out by a hatchery in Thailand, but the video says it was collected in its own stream, El Tigre, in the Campoma region. NEW states the video's version without saying it differs from the page.; \"vùng Cumana quanh Laguna de Patos\": the video only says \"lagoon deatos\" (garbled speech) for Cumana. Naming Laguna de Patos is an inference, and the page already has that lagoon."
   },
   "E9gcX483jPA": {
-    "at": "2026-11-07",
+    "at": "2026-11-14",
     "title": "Red Whiptail Catfish L010A-Rineloricaria - Rare Freshwater Aquarium Catfish",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "Ebye2-_XHl8": {
     "at": "2026-11-07",
@@ -1626,10 +1633,12 @@
     "reason": "habitat exploration"
   },
   "efwb2_9xW8c": {
-    "at": "2026-11-07",
+    "at": "2026-11-14",
     "title": "BeeShrimp in the wild",
     "channel": "CHRIS LUKHAUP",
-    "kind": "profile"
+    "kind": "other",
+    "done": "skipped",
+    "reason": "expedition: Trip to Hong Kong type locality to see bee shrimp in the wild"
   },
   "eHKoa7GitA4": {
     "at": "2026-11-07",
@@ -1664,10 +1673,12 @@
     "reason": "general topic"
   },
   "eOEM2zoSlBs": {
-    "at": "2026-11-07",
+    "at": "2026-11-15",
     "title": "Quick Dip into The Long fin Serpae Tetra - Hyphessobrycon eques",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "failed",
+    "reason": "whisper: ValueError: Unsupported language: zxx"
   },
   "ERczrRBecRg": {
     "at": "2026-11-07",
@@ -1678,10 +1689,15 @@
     "reason": "fossil news"
   },
   "ETOaNDemwVM": {
-    "at": "2026-11-07",
+    "at": "2026-11-15",
     "title": "New Platy Variation - Blue Butterfly Mickey Mouse",
     "channel": "CHRIS LUKHAUP",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Xiphophorus maculatus",
+    "page": "species/xiphophorus-maculatus",
+    "done": "low",
+    "score": 0.74,
+    "reason": "reproduction: \"cá cái của mình cứ 3–4 tuần lại đẻ… khoảng 30 con\" – the video states this as a general fact about platies. It does not say these are the speaker's own females.; reproduction: \"hai lứa cũng gần nhau hơn mức thường gặp\" – the video doesn't compare against the page's 17–65 day range. 3–4 weeks falls inside that range, so the comparison is an unsupported stretch."
   },
   "EtZdxvC5mrE": {
     "at": "2026-11-07",
@@ -1692,10 +1708,14 @@
     "reason": "Product review"
   },
   "EU7xKjw8VZI": {
-    "at": "2026-11-07",
+    "at": "2026-11-15",
     "title": "Discover the Starlight Bristlenose Pleco - Ancistrus dolichopterus - L183",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Ancistrus dolichopterus",
+    "page": "species/ancistrus-dolichopterus",
+    "done": "added",
+    "score": 0.8
   },
   "ew0jLEh0vgg": {
     "at": "2026-11-07",

@@ -134,7 +134,12 @@
       "author": "Udo Schröter",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tilapia_guinasana.jpg",
       "caption": "Tilapia guinasana, a species of fish in the cichlid family (Cichlidae.). These specimens are photographed at the Berlin Zoological Garden in Germany.",
-      "thumb": "https://media.aquatome.com/commons/b02ee6149ce47d79-480.webp"
+      "thumb": "https://media.aquatome.com/commons/b02ee6149ce47d79-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/b02ee6149ce47d79-large.webp",
+        "width": 1709,
+        "height": 1200
+      }
     }
   ],
   "videos": [],
