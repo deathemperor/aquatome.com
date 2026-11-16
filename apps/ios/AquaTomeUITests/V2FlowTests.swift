@@ -740,7 +740,8 @@ final class V2FlowTests: XCTestCase {
     // The page dragged up, from its top, so it has more to show under the bar: the share of the bar's place, glass and
     // all, that changed. The bar's own words stay where they are; only the page under it moves. 200 points, past the
     // height of one shelf's card: with the chips under the title, 60 left the one grey card of "Bắt đầu từ đây" under
-    // the bar before and after, and 0.14% of its place changed (27.2, 17 Nov).
+    // the bar before and after, and 0.14% of its place changed (27.2, 17 Nov). At 200: 6% with the switch on, 0 with it
+    // off (27.2, 17 Nov).
     func moved() -> Double {
       let bar = app.tabBars.firstMatch.frame
       // A shelf's heading, to know the drag scrolled the page: with the switch off, "nothing changed" means something only
