@@ -153,11 +153,17 @@ export function checkOutcome(lang: Lang, r: Awaited<ReturnType<typeof checkVideo
 }
 
 /** A file written whole under a name of this run's own, then put in place: a run reading it never meets half a file, and
- * two runs never write the same temporary file (the readers of #1463, 16 Nov). */
+ * two runs never write the same temporary file (the readers of #1463, 16 Nov). One that fails is removed; one a killed run
+ * leaves is never committed (.gitignore). */
 async function writeWhole(file: string, text: string) {
   const tmp = `${file}.${process.pid}-${randomUUID()}.tmp`
-  await writeFile(tmp, text)
-  await rename(tmp, file).catch(async err => { await rm(tmp, { force: true }); throw err })
+  try {
+    await writeFile(tmp, text)
+    await rename(tmp, file)
+  } catch (err) {
+    await rm(tmp, { force: true })
+    throw err
+  }
 }
 const readMap = async (file: string) => JSON.parse(await readFile(file, 'utf8').catch(() => '{}')) as Record<string, string>
 /** A map written sorted, as the title files are; untouched where nothing changed, so a run that changes nothing leaves no file behind. */

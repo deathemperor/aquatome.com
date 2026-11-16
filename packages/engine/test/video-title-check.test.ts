@@ -214,6 +214,18 @@ test('one language checked twice at once leaves one whole stop file and nothing 
   expect((await readdir(dir)).filter(f => f.endsWith('.tmp'))).toEqual([])
 })
 
+// The third reader of #1463, 16 Nov: a write that fails leaves no file of its own behind.
+test("a stop that can't be put in place fails the run and leaves no file of its own beside the titles", async () => {
+  const { root, ids, titles } = await many(300)
+  const dir = join(root, 'content/video-titles')
+  await writeFile(join(dir, 'vi.json'), JSON.stringify(titles))
+  await mkdir(join(dir, 'vi.stopped.json'))
+  const bad = new Set(ids.slice(0, 23))
+  const llm: Llm = async <T>({ prompt }: { prompt: string }) => ({ checks: rowsOf(prompt).map((l, j) => (bad.has(/Aus (v\d+)/.exec(l)![1]!) ? { n: j + 1, ok: false, kind: 'dropped', why: 'x' } : { n: j + 1, ok: true })) }) as T
+  await expect(runTitleCheck(root, llm, 'vi', { write: true })).rejects.toThrow()
+  expect((await readdir(dir)).filter(f => f.endsWith('.tmp'))).toEqual([])
+})
+
 test('--only never takes a language past its stop: the titles read before are counted whatever it picks (the reviewers of the check, 16 Nov)', async () => {
   const { root, ids, titles } = await many(400)
   const refused = Object.fromEntries(ids.slice(0, 30).map(id => [id, 'dropped: x']))
