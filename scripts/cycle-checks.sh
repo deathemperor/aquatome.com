@@ -608,7 +608,7 @@ push_kept() {
     fi
     if [ -n "$check" ]; then
       [ -n "$swept" ] || sweep_merged
-      if ! verify 'pnpm test'; then
+      if ! verify_cycle; then
         if [ -n "$TIMED_OUT" ]; then KEPT_WHY="tests out of time again"
         elif [ -n "${MIGRATE_FAILED:-}" ]; then KEPT_WHY="its photo records couldn't be migrated"
         else KEPT_FAILED=1; fi
@@ -627,12 +627,78 @@ push_kept() {
   KEPT_WHY="the push didn't land"
   return 1
 }
-# verify, as a cycle's commit needs it: the tests, which build the site from their own fixture content. The real site
+# Which checks, the whole suite or the content's (the chief of staff, 16 Nov): four content runs every three hours each
+# proved main's code again, an hour and a half through one queue, and at 06:40 that day the pages, sf and photos runs had
+# been up 4.5 to 6.5 hours waiting on a test turn. A content run changes content, not code, and GitHub's unit tests run on
+# every code commit to main (ci.yml). So when the code this run is about to publish on is exactly a main commit's code,
+# and that commit's unit-test job finished green on GitHub, the run checks what it changed: the content, with the loader
+# (check-content) and every test file that reads it (CONTENT_STEP; the files left out are in scripts/content-tests.json,
+# and ci.yml fails if one of them reads the content). Anything that can't be shown takes the whole suite, as before: code
+# in this run's own commits, a commit GitHub hasn't finished (waited on up to UNIT_WAIT_SECONDS), one it cancelled or
+# failed, GitHub not answering, an origin that isn't GitHub (the cycle tests' repositories), the cloud's runner (its
+# token can't read checks). On the Mac the whole suite still runs once a day at a quiet hour (full_due), for the Mac
+# itself drifting: an update, a tool's version. Each run's log says which path it took and why.
+FULL_STEP='pnpm test'
+CONTENT_STEP='pnpm engine check-content && AQ_CONTENT_ONLY=1 pnpm test'
+# What a content run writes and main's CI doesn't test (ci.yml's paths-ignore): the content, docs/review counted as it.
+CONTENT_PATHS=(content engine-state sources docs/review)
+UNIT_JOB='Unit tests, typecheck and browser checks'
+UNIT_WAIT_SECONDS=${UNIT_WAIT_SECONDS:-1200}
+FULL_STAMP="${FULL_STAMP:-$HOME/.cache/aquatome/full-suite-passed}"
+# The newest commit on HEAD's line that changed anything but the content: HEAD's code is that commit's.
+code_commit() { git log -1 --format=%H HEAD -- . "${CONTENT_PATHS[@]/#/:(exclude)}"; }
+# GitHub's word on the unit-test job of commit $1: success, failure, cancelled…, pending while it runs, or nothing. A
+# stand-in (AQ_UNIT_JOB, a command given the commit) for the tests; otherwise only for a GitHub origin, under net's limit.
+unit_job() {
+  if [ -n "${AQ_UNIT_JOB:-}" ]; then "$AQ_UNIT_JOB" "$1"; return; fi
+  case "$(git remote get-url origin 2>/dev/null)" in *github.com[:/]deathemperor/aquatome.com*) ;; *) return 0 ;; esac
+  GIT_NET_SECONDS=60 net gh api "repos/deathemperor/aquatome.com/commits/$1/check-runs?per_page=100" \
+    --jq "[.check_runs[] | select(.name == \"$UNIT_JOB\") | if .status == \"completed\" then .conclusion else \"pending\" end] | if any(. == \"success\") then \"success\" elif any(. == \"pending\") then \"pending\" else (.[0] // \"\") end" 2>/dev/null
+}
+# The whole suite's daily run on the Mac: none passed in 20 hours and it's a quiet hour (1 to 6), or none in 30.
+full_due() {
+  engine_clone || return 1
+  [ -n "$(find "$FULL_STAMP" -mmin -1200 2>/dev/null)" ] && return 1
+  [ -n "$(find "$FULL_STAMP" -mmin -1800 2>/dev/null)" ] || return 0
+  local hour; hour=$(date +%H); hour=${hour#0}
+  [ "$hour" -ge 1 ] && [ "$hour" -le 6 ]
+}
+# CHECKS_STEP, the step this commit takes, and CHECKS_WHY, why.
+checks_for() {
+  local code word waited=0
+  CHECKS_STEP=$FULL_STEP
+  if engine_cloud; then CHECKS_WHY="the whole suite: the cloud's runner doesn't read GitHub's checks"; return; fi
+  if full_due; then CHECKS_WHY="the whole suite: its daily run on this Mac"; return; fi
+  code=$(code_commit)
+  if [ -z "$code" ] || ! git merge-base --is-ancestor "$code" origin/main 2>/dev/null; then
+    CHECKS_WHY="the whole suite: this run's own commits change code"; return
+  fi
+  for (( ; ; )); do
+    word=$(unit_job "$code")
+    [ "$word" = pending ] && [ "$waited" -lt "$UNIT_WAIT_SECONDS" ] || break
+    [ "$waited" -gt 0 ] || log "GitHub's unit tests on ${code:0:9}, the code this run publishes on, are still running: waiting up to $((UNIT_WAIT_SECONDS / 60)) min"
+    sleep "${UNIT_POLL_SECONDS:-60}"; waited=$((waited + ${UNIT_POLL_SECONDS:-60}))
+  done
+  if [ "$word" = success ]; then
+    CHECKS_STEP=$CONTENT_STEP
+    CHECKS_WHY="the content's checks: its code is main's ${code:0:9}, whose unit tests passed on GitHub"
+  else
+    CHECKS_WHY="the whole suite: GitHub's unit tests on ${code:0:9}, the code this run publishes on, ${word:-gave no answer}"
+  fi
+}
+# verify, as a content run's commit needs it: the checks checks_for picks. The tests build the site from their own
+# fixture content. The real site
 # (about 7,600 pages) isn't built here: that build was about 14 of the checks' 16 minutes on a GitHub runner and 1 to 3
 # hours on this Mac at a load of 300 to 600 (2026-11-07), holding the lock while other jobs waited; no test reads it;
 # and in the history read on 2026-11-07 it never failed where the tests passed. deploy.yml builds the real site before
 # anything goes live and fails before the upload, so readers keep the live site and a "Deploy failed" issue opens.
-verify_cycle() { verify 'pnpm test'; }
+verify_cycle() {
+  checks_for
+  log "tests: $CHECKS_WHY"
+  verify "$CHECKS_STEP" || return 1
+  if [ "$CHECKS_STEP" = "$FULL_STEP" ] && engine_clone; then mkdir -p "$(dirname "$FULL_STAMP")" && touch "$FULL_STAMP"; fi
+  return 0
+}
 
 # Before the checks: the cycle's commit on top of main as it is now. A cycle runs for hours from the main it started on,
 # and a test that main failed then and has fixed since would hold back all of the cycle's pages: the pages part of

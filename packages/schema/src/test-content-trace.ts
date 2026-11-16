@@ -1,6 +1,7 @@
 import childProcess from 'node:child_process'
 import fs, { appendFileSync } from 'node:fs'
 import { syncBuiltinESMExports } from 'node:module'
+import { promisify } from 'node:util'
 import { fileURLToPath } from 'node:url'
 import { expect } from 'vitest'
 
@@ -35,7 +36,18 @@ const wrap = (o: Record<string, unknown>, names: string[], seen: (args: unknown[
   for (const name of names) {
     const orig = o[name]
     if (typeof orig !== 'function') continue
-    o[name] = function (this: unknown, ...args: unknown[]) { seen(args); return orig.apply(this, args) }
+    const wrapped = function (this: unknown, ...args: unknown[]) { seen(args); return orig.apply(this, args) }
+    // Its own properties too: execFile's and exists's promise forms (util.promisify.custom) live on the function.
+    for (const key of Reflect.ownKeys(orig)) {
+      if (key === 'length' || key === 'name' || key === 'prototype' || key === promisify.custom) continue
+      Object.defineProperty(wrapped, key, Object.getOwnPropertyDescriptor(orig, key)!)
+    }
+    // The promise form calls the original underneath, so it is watched as well.
+    const custom = (orig as unknown as Record<symbol, unknown>)[promisify.custom]
+    if (typeof custom === 'function') {
+      Object.defineProperty(wrapped, promisify.custom, { value(this: unknown, ...args: unknown[]) { seen(args); return custom.apply(this, args) } })
+    }
+    o[name] = wrapped
   }
 }
 
