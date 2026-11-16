@@ -837,7 +837,11 @@ private struct ReportSheet: View {
         HStack {
           Spacer()
           Button { dismiss() } label: {
-            Image(systemName: "xmark").font(.footnote.weight(.semibold)).foregroundStyle(.secondary)
+            // The label's dark grey, as the mock has it (the tint's pale green was 2.2:1 on its circle); while it sends, the
+            // plain grey of a control that's off. Its circle doesn't grow, so the cross stops growing where it still fits.
+            Image(systemName: "xmark").font(.footnote.weight(.semibold))
+              .foregroundStyle(sending ? AnyShapeStyle(.secondary) : AnyShapeStyle(Color.primary.opacity(0.75)))
+              .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
               .frame(width: 34, height: 34).background(Color(uiColor: .secondarySystemGroupedBackground), in: .circle)
               .frame(width: 44, height: 44).contentShape(.rect)
           }
