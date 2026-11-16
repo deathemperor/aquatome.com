@@ -1,0 +1,75 @@
+{
+  "id": "synodontis-melanopterus",
+  "native": {
+    "input": "746f027490f6d35b",
+    "at": "2026-11-16T05:47:36.414Z",
+    "claims": [
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Synodontis melanopterus Boulenger, 1903. Type locality: Oguta, Niger Delta, southern Nigeria. Size: 144 mm (5.7 inches) SL. IUCN Red List status: Near Threatened.",
+        "words": "Nigeria",
+        "ok": true
+      },
+      {
+        "code": "BJ",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Africa: Porto Novo (Benin), Ouémé, Niger and Ogun Rivers basins.",
+        "words": "Benin",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Niger",
+        "source": "planetcatfish",
+        "quote": "Africa: Porto Novo (Benin), Ouémé, Niger and Ogun Rivers basins.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Ouémé",
+        "source": "planetcatfish",
+        "quote": "Africa: Porto Novo (Benin), Ouémé, Niger and Ogun Rivers basins.",
+        "ok": true
+      },
+      {
+        "name": "Ogun",
+        "source": "planetcatfish",
+        "quote": "Africa: Porto Novo (Benin), Ouémé, Niger and Ogun Rivers basins.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "NE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Synodontis melanopterus",
+    "status": "ACCEPTED",
+    "taxonKey": 2344480,
+    "datasets": [
+      [
+        "5e1d2d54-f5db-43ac-87c5-55a9f79ac718",
+        13
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        9
+      ]
+    ],
+    "native": [
+      "NG",
+      "BJ"
+    ],
+    "requests": 11,
+    "at": "2026-11-16T05:47:36.414Z"
+  }
+}

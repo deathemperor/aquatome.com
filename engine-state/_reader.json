@@ -6038,6 +6038,49 @@
     ],
     "ruled": "84573ff55404c169"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-in-the-aquarium-hobby-it-s-a-small-world-after-all": {
+    "at": "2026-11-16",
+    "hash": "d4e72e0e2cbc0a6a",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cá rasbora neon xanh (Sundadanio axelrodi) Không còn nghi ngờ gì nữa",
+        "problem": "A photo caption from the source page is left in the middle of the body text as a stray fragment.",
+        "fix": "Không còn nghi ngờ gì nữa",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Tép Neocaridina davidi màu ocean blue Cho ăn trong bể nhỏ",
+        "problem": "A photo caption from the source page is left in the body text and runs straight into the next sentence.",
+        "fix": "Cho ăn trong bể nhỏ",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cá bảy màu ăn cám viên mịn lơ lửng Một người chơi có phòng cá riêng",
+        "problem": "A photo caption from the source page is left in the body text with no punctuation, so it reads as a broken sentence.",
+        "fix": "Một người chơi có phòng cá riêng",
+        "field": "body"
+      },
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "In the Aquarium Hobby, It’s a Small World After All - Aquarium Co-Op",
+        "problem": "The caption is just the source article's title and site name, so it says nothing about what the photo shows.",
+        "rule": "A caption that matches the source article's title plus the site name.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "d4e72e0e2cbc0a6a"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-indian-almond-leaves": {
     "at": "2026-11-06",
     "hash": "5e2b7b8aaaaa6821",
@@ -8072,6 +8115,50 @@
       }
     ],
     "ruled": "caba6204a1b68ffc"
+  },
+  "vi/guides/aquatome-cac-loai-thuc-an-cho-ca-thuc-an-song-trun-chi-trung-huyet-artemia-bobo": {
+    "at": "2026-11-16",
+    "hash": "72b9b1577caa4e00",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "L11",
+        "quote": "Bo bo Moina non cũng là món đầu tiên mà cá bột của hầu hết loài cá nước ngọt ăn được.",
+        "problem": "The sentence doesn't follow from the answer: 'cũng' links Moina to artemia as if artemia were also a complete first food, right after the answer says it is not.",
+        "fix": "Với cá bột nước ngọt, bo bo Moina non là món đầu tiên mà hầu hết các loài ăn được.",
+        "field": "faq.3.a"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Trứng thường còn một cái dở nữa.",
+        "problem": "'Trứng thường' reads as 'eggs usually' rather than 'non-decapsulated eggs', so the sentence is ambiguous.",
+        "fix": "Trứng chưa tách vỏ còn một cái dở nữa.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Vậy nên đừng nghĩ artemia mới nở là món đủ chất cho mọi loại cá con.",
+        "problem": "This copies the English 'so don't…' pattern, which the house style forbids.",
+        "fix": "Artemia mới nở không phải món đủ chất cho mọi loại cá con.",
+        "rule": "A sentence starting with 'Vậy nên đừng' or 'vì vậy đừng'.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "có con mỏ dài, đầu to bè như cái muỗng",
+        "problem": "'mỏ dài' (long beak) is an odd, literal-sounding way to describe a fish's deformed snout.",
+        "fix": "có con mõm dài, đầu to bè như cái muỗng",
+        "field": "body"
+      }
+    ],
+    "ruled": "72b9b1577caa4e00"
   },
   "vi/guides/aquatome-cach-chon-va-lap-may-loc-cho-be-ca-loc-thung-loc-treo-loc-tran-loc-day": {
     "at": "2026-11-14",
@@ -13462,6 +13549,21 @@
     ],
     "ruled": "0de266b2de3c2814"
   },
+  "vi/guides/youtube--JB4hMuqzwE": {
+    "at": "2026-11-16",
+    "hash": "28b442df410bcfc0",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "xay thành bột mịn. Bột cà phê espresso cũng dùng được.",
+        "problem": "This is probably a mistranslation of 'grind to espresso fineness'. As written, it tells readers they can use espresso coffee powder in the tank instead of soil powder.",
+        "fix": "xay thành bột mịn như bột cà phê espresso.",
+        "field": "body"
+      }
+    ]
+  },
   "vi/guides/youtube--LWDlOsd634": {
     "at": "2026-11-10",
     "hash": "c16fdd4fe12b0ef7",
@@ -13572,6 +13674,49 @@
       }
     ],
     "ruled": "f31e9a6d8335d4d8"
+  },
+  "vi/guides/youtube-0_6qeLVaKf4": {
+    "at": "2026-11-16",
+    "hash": "89f924926295c664",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "cách đổ nước không làm xáo nền và cách chạy lại lọc thùng",
+        "problem": "The intro promises a section on restarting the canister filter, but the page never covers it.",
+        "fix": "Bài đi qua lần lượt: tính lượng cây, sửa nền trước khi trồng, sơ chế cây, thứ tự trồng từng nhóm và cách đổ nước không làm xáo nền.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L3",
+        "quote": "Trồng lần lượt cây bám lũa, rồi cây trung cảnh, tiền cảnh, cuối cùng là cây cắt cắm hậu cảnh.",
+        "problem": "The summary says the background stem plants go in last, but the body says the tissue-culture foreground is planted after the background.",
+        "fix": "Trồng lần lượt cây bám lũa, rồi cây trung cảnh, cây cắt cắm hậu cảnh, cuối cùng là cây cấy mô tiền cảnh. Cây cùng loại trồng thành từng cụm.",
+        "field": "summary.2"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Phía sau bể, lớp phân nền chỉ được phủ sát mặt, mà cá có thể đào lên ở phía sau.",
+        "problem": "This sentence is garbled. It is meant to say that at the back only a thin layer covers the soil, so fish can dig it up, but it reads as if the soil itself is barely spread.",
+        "fix": "Phía sau bể, lớp phân nền nằm sát mặt, chỉ phủ một lớp cát mỏng, nên cá dễ đào nó lên.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## Hậu cảnh: trồng cây cắt cắm theo từng cụm",
+        "problem": "The table under this stem-plant heading also lists plants that are not stem plants: Cryptocoryne crispatula, lotus and Echinodorus.",
+        "fix": "## Hậu cảnh: trồng cây theo từng cụm",
+        "field": "body"
+      }
+    ],
+    "ruled": "89f924926295c664"
   },
   "vi/guides/youtube-025oy0MtL-s": {
     "at": "2026-11-07",
@@ -14825,6 +14970,22 @@
     "findings": [],
     "ruled": "ebee5333836cdf1b"
   },
+  "vi/guides/youtube-6iE1bp5Zi_g": {
+    "at": "2026-11-16",
+    "hash": "dc5d2e5edfe19846",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "L16",
+        "quote": "Nâng đèn, dùng nền dinh dưỡng và châm phân thì lá sẽ xanh tươi hơn.",
+        "problem": "\"Nâng đèn\" is ambiguous. It can be read as raising the light higher above the tank, which would make the light even weaker at the bottom.",
+        "fix": "Thay đèn mạnh hơn, dùng nền dinh dưỡng và châm phân thì lá sẽ xanh tươi hơn.",
+        "field": "faq.4.a"
+      }
+    ],
+    "ruled": "dc5d2e5edfe19846"
+  },
   "vi/guides/youtube-6mYLnYSWKWE": {
     "at": "2026-11-10",
     "hash": "d3ad9e8dcf25da9f",
@@ -15358,6 +15519,41 @@
     "hash": "48da11a9057f61ea",
     "findings": [],
     "ruled": "48da11a9057f61ea"
+  },
+  "vi/guides/youtube-9w1aF7SgDsk": {
+    "at": "2026-11-16",
+    "hash": "09762b4173e4b966",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "hãy nhét vài viên phân nền (root tabs) xuống dưới khu vực trồng",
+        "problem": "Root tabs are called 'phân nhét'. 'Phân nền' means the nutrient substrate layer, so a reader could confuse the two, especially in a section about substrate.",
+        "fix": "thì nhét vài viên phân nhét xuống dưới khu vực trồng",
+        "rule": "the phrase 'viên phân nền' appears anywhere on a page",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "L15",
+        "quote": "nhét thêm viên phân nền dưới khu vực trồng",
+        "problem": "Uses 'phân nền' (substrate) for root tabs, when the right word is 'phân nhét'.",
+        "fix": "nhét thêm phân nhét dưới khu vực trồng",
+        "rule": "the phrase 'viên phân nền' appears anywhere on a page",
+        "field": "faq.4.a"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "vì ánh sáng không phải đi qua cột nước sâu",
+        "problem": "'Cột nước' is a literal translation of 'water column'. Hobbyists would just say the water is shallow.",
+        "fix": "vì bể nông, ánh sáng xuống tới nền dễ hơn",
+        "field": "body"
+      }
+    ]
   },
   "vi/guides/youtube-9WaC5d14Ij0": {
     "at": "2026-11-05",
@@ -16055,6 +16251,54 @@
     ],
     "ruled": "0707be08e7d04126"
   },
+  "vi/guides/youtube-bqwUw5DDboU": {
+    "at": "2026-11-16",
+    "hash": "7239c7f012d820dd",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Cây trồng nổi (trầu bà, trầu bà lá xẻ Monstera, hồng môn)",
+        "problem": "Pothos, Monstera and anthurium are terrestrial houseplants grown with roots in the water, not floating plants.",
+        "fix": "Cây trồng cạn (trầu bà, trầu bà lá xẻ Monstera, hồng môn)",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Bể 360 lít có thể chỉnh khoảng 2 giọt mỗi giây.",
+        "problem": "CO2 rate is counted in bubbles, not drops; 'giọt' is the wrong hobby term.",
+        "fix": "Bể 360 lít có thể chỉnh khoảng 2 bọt mỗi giây.",
+        "rule": "The word 'giọt' used next to 'mỗi giây' in a CO2 context.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Nước hơi trung tính thì có thể nuôi chung",
+        "problem": "'Hơi trung tính' (slightly neutral) is an odd phrase; water is neutral or slightly acidic/alkaline.",
+        "fix": "Nước gần trung tính thì có thể nuôi chung",
+        "rule": "The phrase 'hơi trung tính'.",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-16",
+        "field": "body",
+        "score": 0.62,
+        "kept": false,
+        "problems": [
+          "Pothos, Monstera and anthurium are terrestrial houseplants grown with roots in the water, not floating plants.",
+          "CO2 rate is counted in bubbles, not drops; 'giọt' is the wrong hobby term."
+        ]
+      }
+    ],
+    "ruled": "7239c7f012d820dd"
+  },
   "vi/guides/youtube-BTGMS7pm6zo": {
     "at": "2026-11-08",
     "hash": "754c7b87c4e0b7e5",
@@ -16611,6 +16855,53 @@
       }
     ],
     "ruled": "9cad6049bd0cabd1"
+  },
+  "vi/guides/youtube-CSsZOq0SyyU": {
+    "at": "2026-11-16",
+    "hash": "4aae42a52f236cbd",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Ví dụ có thể thả vài nhánh bèo Amazon frogbit.",
+        "problem": "The site's settled name for Amazon frogbit (Limnobium laevigatum) is \"Bèo Nhật\", but the page uses a half-English name instead.",
+        "fix": "Ví dụ có thể thả vài nhánh bèo Nhật.",
+        "rule": "The phrase \"Amazon frogbit\" appears where the site's settled name \"bèo Nhật\" should be used.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Lên rất nhanh, giúp giữ nước tốt, cao lớn, mới trồng đã đẹp.",
+        "problem": "\"giữ nước tốt\" means the plant holds or retains water, which makes no sense here. The intended meaning is that it keeps the water clean.",
+        "fix": "Lên rất nhanh, giữ nước sạch, cao lớn, mới trồng đã đẹp.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Có hai hướng xử lý: đặt thêm lũa nối tiếp theo cùng một hướng",
+        "problem": "The paragraph says \"two ways to handle it\" without saying what is being handled. It follows the point about leaving room for the scraper, so the reader can't tell what problem these two options solve.",
+        "fix": "Muốn bố cục lũa đầy đặn hơn thì có hai cách: đặt thêm lũa nối tiếp theo cùng một hướng",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-16",
+        "field": "body",
+        "score": 0.6,
+        "kept": false,
+        "problems": [
+          "The site's settled name for Amazon frogbit (Limnobium laevigatum) is \"Bèo Nhật\", but the page uses a half-English name instead.",
+          "\"giữ nước tốt\" means the plant holds or retains water, which makes no sense here. The intended meaning is that it keeps the water clean."
+        ]
+      }
+    ],
+    "ruled": "4aae42a52f236cbd"
   },
   "vi/guides/youtube-Ct6YVxp_mFc": {
     "at": "2026-11-13",
@@ -17339,6 +17630,12 @@
     "findings": [],
     "ruled": "5c26942cb25a0e92"
   },
+  "vi/guides/youtube-F-yywhyv3ho": {
+    "at": "2026-11-16",
+    "hash": "cee3df96a5bde5d3",
+    "findings": [],
+    "ruled": "cee3df96a5bde5d3"
+  },
   "vi/guides/youtube-f7ePYAbDke4": {
     "at": "2026-11-06",
     "hash": "fce10a181c922c9f",
@@ -17385,6 +17682,22 @@
     "hash": "8644fd3c453e5b88",
     "findings": [],
     "ruled": "8644fd3c453e5b88"
+  },
+  "vi/guides/youtube-FBPzPrh-i_A": {
+    "at": "2026-11-16",
+    "hash": "f9c5cd5efbef1d08",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L2",
+        "quote": "Cây được xếp ở mức trung bình đến khó, tùy vào nền và đèn của bể.",
+        "problem": "The summary rates the plant medium to hard, but a heading, the body text and the FAQ all rate it medium.",
+        "fix": "Cây ở mức trung bình. Độ khó tùy vào nền và đèn của bể.",
+        "field": "summary.1"
+      }
+    ],
+    "ruled": "f9c5cd5efbef1d08"
   },
   "vi/guides/youtube-FbX_XvXFmW0": {
     "at": "2026-11-06",
@@ -17491,6 +17804,22 @@
       }
     ],
     "ruled": "4b11cd857b1ff590"
+  },
+  "vi/guides/youtube-Fu2brnj_kuk": {
+    "at": "2026-11-16",
+    "hash": "e59278104a75c420",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "sau khoảng hai tuần Nymphoides 'Taiwan' đã mọc mạnh chỉ sau vài ngày",
+        "problem": "The sentence gives two timeframes for the same growth: 'after about two weeks' and 'after only a few days'.",
+        "fix": "Ví dụ với bể 240 cm, Nymphoides 'Taiwan' đã mọc mạnh chỉ sau vài ngày.",
+        "field": "body"
+      }
+    ],
+    "ruled": "e59278104a75c420"
   },
   "vi/guides/youtube-fV5MucIp1M8": {
     "at": "2026-11-10",
@@ -20110,6 +20439,31 @@
     ],
     "ruled": "fe00b12b6419c2b1"
   },
+  "vi/guides/youtube-lmUE5qbWfwg": {
+    "at": "2026-11-16",
+    "hash": "58418d81b9076770",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Cryptocoryne wendtii brown: trồng ngay sau bụi Cryptocoryne nurii có sẵn, thêm một ít vào khe nhỏ.",
+        "problem": "The page refers to a Cryptocoryne nurii clump that only exists in the source writer's own tank, and this list item gives a planting spot instead of a height like the other two items.",
+        "fix": "Cryptocoryne wendtii brown: cao vừa, nằm giữa hai loài kia, hợp để lấp các khe nhỏ giữa bụi cây.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Wendtii brown có thể đặt ngay sau bụi Cryptocoryne nurii có sẵn và lấp vào một khe nhỏ.",
+        "problem": "This again refers to a clump in the source writer's own tank that the reader doesn't have.",
+        "fix": "Wendtii brown cao vừa, có thể đặt sau các bụi cây thấp hơn hoặc lấp vào khe nhỏ.",
+        "field": "body"
+      }
+    ],
+    "ruled": "58418d81b9076770"
+  },
   "vi/guides/youtube-LmUGilbUlzY": {
     "at": "2026-11-14",
     "hash": "43299aefb1d508a7",
@@ -20732,6 +21086,23 @@
       }
     ],
     "ruled": "88692a0f9bf2e08a"
+  },
+  "vi/guides/youtube-mSA2Qe9dv44": {
+    "at": "2026-11-16",
+    "hash": "83c3e3722f51ee53",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "một bể khoảng 2500 lít, kích thước 240 x 150 x 60 cm",
+        "problem": "240 x 150 x 60 cm comes to about 2160 litres, not about 2500 litres, so the dimensions and the stated volume don't match.",
+        "fix": "một bể khoảng 2200 lít, kích thước 240 x 150 x 60 cm",
+        "rule": "When a page gives tank dimensions in cm next to a volume in litres, flag it if the volume differs from length x width x height / 1000 by more than 10%.",
+        "field": "body"
+      }
+    ],
+    "ruled": "83c3e3722f51ee53"
   },
   "vi/guides/youtube-MxPCBXJtPTM": {
     "at": "2026-11-08",
@@ -22331,6 +22702,12 @@
     "findings": [],
     "ruled": "9c0ae8d45c216181"
   },
+  "vi/guides/youtube-RcDoh0NcXLU": {
+    "at": "2026-11-16",
+    "hash": "449150d15528709c",
+    "findings": [],
+    "ruled": "449150d15528709c"
+  },
   "vi/guides/youtube-Rd47SBQzZxE": {
     "at": "2026-11-14",
     "hash": "cfaa1e3b709aa460",
@@ -22481,6 +22858,21 @@
     "hash": "b235788fe99ffd8b",
     "findings": [],
     "ruled": "b235788fe99ffd8b"
+  },
+  "vi/guides/youtube-rl1RME5uMTQ": {
+    "at": "2026-11-16",
+    "hash": "8c475efae60024bf",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Hydrocotyle tripartita: cắm rải vài bụi nhỏ ở tiền cảnh.",
+        "problem": "This foreground-planting step sits under the 'Trồng trung cảnh và hậu cảnh' heading, even though the page puts foreground planting in its own earlier section.",
+        "field": "body"
+      }
+    ],
+    "ruled": "8c475efae60024bf"
   },
   "vi/guides/youtube-RMPl2_1u8bU": {
     "at": "2026-11-04",
@@ -23349,6 +23741,12 @@
     ],
     "ruled": "1e77515debb60261"
   },
+  "vi/guides/youtube-TifXGwMgZAc": {
+    "at": "2026-11-16",
+    "hash": "16ccc1f9a34f2456",
+    "findings": [],
+    "ruled": "16ccc1f9a34f2456"
+  },
   "vi/guides/youtube-TIxrovnAx00": {
     "at": "2026-11-10",
     "hash": "ca280b96bf37e814",
@@ -23371,6 +23769,42 @@
       }
     ],
     "ruled": "ca280b96bf37e814"
+  },
+  "vi/guides/youtube-tjBIz6NjbwI": {
+    "at": "2026-11-16",
+    "hash": "ea6a66d096b52ea5",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## Trồng cây dưới nước: rải đều cả hai bên",
+        "problem": "The heading promises even planting on both sides, but the section advises the opposite: plant a lot of a species on one side and only a little on the other.",
+        "fix": "## Trồng cây dưới nước: xen loài giữa hai bên",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Lô cá giao về sau sẽ được để trên hệ thống khoảng một tuần",
+        "problem": "'Để trên hệ thống' is unclear in Vietnamese. It means keeping the fish in separate quarantine tanks.",
+        "fix": "Lô cá giao về sau sẽ được cách ly ở bể riêng khoảng một tuần",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-16",
+        "field": "body",
+        "score": 0.88,
+        "kept": true,
+        "problems": [
+          "The page uses 'ráy' for Alocasia here but later uses 'ráy' for Anubias ('buộc ráy (Anubias)'), so one Vietnamese name stands for two different plants."
+        ]
+      }
+    ],
+    "ruled": "ea6a66d096b52ea5"
   },
   "vi/guides/youtube-TkKqmLMj0Kg": {
     "at": "2026-11-10",
@@ -24094,6 +24528,22 @@
     ],
     "ruled": "673e4b05756b51d8"
   },
+  "vi/guides/youtube-wFN9yVkRCoc": {
+    "at": "2026-11-16",
+    "hash": "43f0200fdbd88cb0",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "lại còn bị nhiều lần mà không rõ vì sao",
+        "problem": "The clause is awkward and has no clear subject, so a native reader stumbles over it.",
+        "fix": "Củ nổi lên: có củ bật khỏi nền rồi trôi theo lá chết, và chuyện này có thể lặp lại nhiều lần mà không rõ vì sao. Gặp thì vùi nó lại đúng chỗ cũ.",
+        "field": "body"
+      }
+    ],
+    "ruled": "43f0200fdbd88cb0"
+  },
   "vi/guides/youtube-WGrLKaTbst4": {
     "at": "2026-11-10",
     "hash": "bae99cd917dc000a",
@@ -24180,6 +24630,22 @@
       }
     ],
     "ruled": "0eccd89951635e94"
+  },
+  "vi/guides/youtube-WTIWljtUFxc": {
+    "at": "2026-11-16",
+    "hash": "dbba855cbe476bae",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Nếu để tự do, cây cao chừng 10–13 cm, đây chỉ là ước chừng.",
+        "problem": "The sentence hedges twice ('chừng' and then 'đây chỉ là ước chừng'). The tacked-on clause reads like a translation, and it is repeated in L5 and L14.",
+        "fix": "Nếu để tự do, cây cao chừng 10–13 cm.",
+        "field": "body"
+      }
+    ],
+    "ruled": "dbba855cbe476bae"
   },
   "vi/guides/youtube-wtRniN_Ef9k": {
     "at": "2026-11-13",
@@ -24544,6 +25010,30 @@
       }
     ],
     "ruled": "7fa6400e5b84a496"
+  },
+  "vi/guides/youtube-xU-Lb0cpV9U": {
+    "at": "2026-11-16",
+    "hash": "4d5b844bccfa9fb9",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Với một bể chẳng hạn, lỗ dây treo cách mép bể 350 mm.",
+        "problem": "The example gives no tank size, so the 350 mm figure has nothing to measure against and the sentence reads as cut off.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bộ dây treo mua thêm ở đây tốt hơn dây đi kèm một chút nên được đổi sang.",
+        "problem": "\"ở đây\" refers to a shop or link from the source that the page doesn't have, and the passive \"được đổi sang\" reads as a translation.",
+        "fix": "Bộ dây treo mua riêng thường tốt hơn dây đi kèm một chút, có thể đổi sang loại đó.",
+        "field": "body"
+      }
+    ],
+    "ruled": "4d5b844bccfa9fb9"
   },
   "vi/guides/youtube-xuc03DuJ9o4": {
     "at": "2026-11-02",

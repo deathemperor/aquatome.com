@@ -1,8 +1,13 @@
 {
   "slug": "amur-river",
-  "name": "Amur",
+  "name": "Sungai Amur",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.96,
+    "at": "2026-11-16T05:44:10.611Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

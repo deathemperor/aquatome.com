@@ -9,6 +9,64 @@
     "south-america",
     "brazil"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "In nature, R. crassiceps inhabits brooks with soft and acidic water in the south of Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2352762,
+      "total": 33,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "BR",
+          33
+        ]
+      ],
+      "cells": [
+        [
+          -49.21875,
+          -26.71875,
+          22,
+          22
+        ],
+        [
+          -47.8125,
+          -25.3125,
+          9,
+          9
+        ],
+        [
+          -47.8125,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -23.90625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

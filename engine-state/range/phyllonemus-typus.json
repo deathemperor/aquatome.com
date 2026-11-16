@@ -1,14 +1,20 @@
 {
   "id": "phyllonemus-typus",
   "native": {
-    "input": "c028c6aa075af6cf",
-    "at": "2026-11-14T05:39:06.336Z",
+    "input": "53996746defcb573",
+    "at": "2026-11-16T05:47:36.414Z",
     "claims": [],
     "regions": [
       {
         "name": "Lake Tanganyika",
         "source": "glaser",
         "quote": "The Spatula-barbeled Catfish, endemic to Lake Tanganyika, has a very special way of reproducing for a catfish: it is a biparental mouthbrooder.",
+        "ok": true
+      },
+      {
+        "name": "Lake Tanganyika",
+        "source": "scotcat",
+        "quote": "Africa: Lake Tanganyika.",
         "ok": true
       }
     ],

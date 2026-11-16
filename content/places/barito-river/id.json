@@ -1,8 +1,13 @@
 {
   "slug": "barito-river",
-  "name": "Barito",
+  "name": "Sungai Barito",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.97,
+    "at": "2026-11-16T05:45:16.297Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

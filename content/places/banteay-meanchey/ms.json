@@ -3,6 +3,12 @@
   "name": "Banteay Meanchey",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-16T05:38:27.691Z",
+    "why": "Malay atlases would write the province with the kind word \"Wilayah\" (or \"Provinsi\") as in \"Wilayah Banteay Meanchey\", and the bare name omits the kind word; the name is a proper-noun spelling kept from the source though."
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

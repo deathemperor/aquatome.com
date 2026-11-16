@@ -11,6 +11,130 @@
     "orinoco",
     "venezuela"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "VE"
+      ],
+      "regions": [
+        "Orinoco"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Orinoco River basin, Venezuela.",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2343866,
+      "total": 45,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "VE",
+          41
+        ],
+        [
+          "CO",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -71.71875,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          7.03125,
+          11,
+          11
+        ],
+        [
+          -70.3125,
+          8.4375,
+          6,
+          6
+        ],
+        [
+          -68.90625,
+          5.625,
+          3,
+          3
+        ],
+        [
+          -68.90625,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -68.90625,
+          8.4375,
+          3,
+          3
+        ],
+        [
+          -67.5,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          5.625,
+          3,
+          3
+        ],
+        [
+          -67.5,
+          7.03125,
+          9,
+          9
+        ],
+        [
+          -67.5,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          8.4375,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

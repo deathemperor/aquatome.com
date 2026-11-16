@@ -1,0 +1,78 @@
+{
+  "id": "systomus-endecanalis",
+  "native": {
+    "input": "980b9ef7c4c847b0",
+    "at": "2026-11-16T05:47:36.414Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Records are not extensive but D. endecanalis is apparently endemic to the Kapuas River basin in the Indonesian province of Kalimantan Barat (West Kalimantan), Borneo, including the Danau Sentarum lake system.",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "Records are not extensive but D. endecanalis is apparently endemic to the Kapuas River basin in the Indonesian province of Kalimantan Barat (West Kalimantan), Borneo, including the Danau Sentarum lake system.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Danau Sentarum",
+        "source": "seriouslyfish",
+        "quote": "Records are not extensive but D. endecanalis is apparently endemic to the Kapuas River basin in the Indonesian province of Kalimantan Barat (West Kalimantan), Borneo, including the Danau Sentarum lake system.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Records are not extensive but D. endecanalis is apparently endemic to the Kapuas River basin in the Indonesian province of Kalimantan Barat (West Kalimantan), Borneo, including the Danau Sentarum lake system.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Systomus endecanalis",
+    "status": "ACCEPTED",
+    "taxonKey": 7566064,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-16T05:47:36.414Z"
+  }
+}
