@@ -672,8 +672,10 @@ unit_job() {
   case "$word" in success | failure | cancelled | skipped | timed_out | action_required | neutral | stale | startup_failure | pending) echo "$word" ;; esac
 }
 # The whole suite's daily run on the Mac: none passed in 20 hours and it's a quiet hour (1 to 6), or the last pass is
-# 30 hours old. A Mac with no pass stamped at all waits for the quiet hours too: on 16 Nov the first run after #1484
-# merged (photos, 11:10) found none and took the whole suite in the owner's working day (the chief of staff). Only the
+# 30 hours old and it's outside the owner's working day (8 to 21). Never in that day: on 16 Nov the first run after #1484
+# merged (photos, 11:10) found no pass stamped, counted that as past 30 hours and took the whole suite at 11:13 (the chief
+# of staff); and a night's daily run that fails would have had every run of the next morning take it again, once its
+# last pass was 30 hours old (a reader of #1516). A Mac with no pass stamped waits for the quiet hours. Only the
 # daily run's own pass is stamped ($FULL_STAMP): a whole suite taken for another reason at 13:00 would put the next
 # quiet window inside the 20 hours, and the run then went at a busy hour of the next day (a reader of #1484, 16 Nov).
 # Unless another run took it in the last 12 hours ($FULL_STAMP.taken) and may still be at it: a pass is stamped only at
@@ -683,9 +685,10 @@ full_due() {
   engine_clone || return 1
   [ -n "$(find "$FULL_STAMP" -mmin -1200 2>/dev/null)" ] && return 1
   [ -n "$(find "$FULL_STAMP.taken" -mmin -720 2>/dev/null)" ] && return 1
-  if [ -e "$FULL_STAMP" ] && [ -z "$(find "$FULL_STAMP" -mmin -1800 2>/dev/null)" ]; then return 0; fi
   local hour; hour=${AQ_HOUR:-$(date +%H)}; hour=${hour#0}
-  [ "$hour" -ge 1 ] && [ "$hour" -le 6 ]
+  [ "$hour" -ge 1 ] && [ "$hour" -le 6 ] && return 0
+  [ "$hour" -lt 8 ] || [ "$hour" -ge 22 ] || return 1
+  [ -e "$FULL_STAMP" ] && [ -z "$(find "$FULL_STAMP" -mmin -1800 2>/dev/null)" ]
 }
 # CHECKS_STEP, the step this commit takes, and CHECKS_WHY, why.
 checks_for() {

@@ -152,9 +152,14 @@ test('the whole suite runs on this Mac once a day, at a quiet hour, and its pass
   // A daily run whose checks fail gives it back, and isn't stamped.
   const failed = decide({ unit: ['success'], stamp: 21, hour: 3, fails: true })
   expect([failed.why, failed.out.includes('CODE 1'), failed.stamp, failed.taken]).toEqual(['the whole suite: its daily run on this Mac', true, false, false])
-  // The same at a busy hour waits for a quiet one, up to 30 hours.
+  // The same at a busy hour waits for a quiet one. Past 30 hours it goes outside the owner's working day (8 to 21), never in
+  // it: a night's daily run that failed would have had every run of the next morning take it again (a reader of #1516).
   expect(decide({ unit: ['success'], stamp: 21, hour: 14 }).step).toBe(CONTENT)
-  expect(decide({ unit: ['success'], stamp: 31, hour: 14 }).why).toBe('the whole suite: its daily run on this Mac')
+  expect(decide({ unit: ['success'], stamp: 31, hour: 14 }).step).toBe(CONTENT)
+  expect(decide({ unit: ['success'], stamp: 31, hour: 8 }).step).toBe(CONTENT)
+  expect(decide({ unit: ['success'], stamp: 31, hour: 23 }).why).toBe('the whole suite: its daily run on this Mac')
+  expect(decide({ unit: ['success'], stamp: 31, hour: 7 }).why).toBe('the whole suite: its daily run on this Mac')
+  expect(decide({ unit: ['success'], stamp: 21, hour: 23 }).step).toBe(CONTENT)
   // None ever passed waits for the quiet hours too: on 16 Nov the first run after the change, at 11:10, found no stamp and
   // took the whole suite in the owner's working day (the chief of staff).
   expect(decide({ unit: ['success'], hour: 14 }).step).toBe(CONTENT)
