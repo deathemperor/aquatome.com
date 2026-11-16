@@ -1,6 +1,6 @@
-import { mkdir, mkdtemp, readdir, readFile, stat } from 'node:fs/promises'
+import { mkdir, mkdtemp, readdir, readFile, stat, symlink, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
-import { join } from 'node:path'
+import { dirname, join } from 'node:path'
 import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import { LlmError } from '../src/claude'
@@ -112,7 +112,19 @@ test("frame sheet: a failed grab, or one showing another moment, leaves that sti
   const m = await run([V1, V2], model)
   expect(m.stopped).toBe(`${V1}: the model stopped`)
   expect(model.calls.frames).toEqual([V1])
-  expect(await exists(model.calls.looks[0]!.file)).toBe(false)
+  // The temporary folder, contact sheet and all, is gone after a throw too.
+  expect(await exists(dirname(model.calls.looks[0]!.file))).toBe(false)
+})
+
+test('frame sheet: a refused storyboard sheet stops the run too', async () => {
+  for (const words of ['HTTP 429', 'HTTP 403']) {
+    const s = await setup()
+    s.d.get = async () => { throw new Error(words) }
+    const r = await run([V1, V2], s)
+    expect(r.stopped).toBe(`${V1}: YouTube refused`)
+    expect(r.failed).toEqual([])
+    expect(s.calls.frames).toEqual([V1])
+  }
 })
 
 test("frame sheet: the tiles spread over the video's length, not past it into a sheet's empty end", async () => {
@@ -142,5 +154,13 @@ test('frame sheet: only a video id and a species id name a file, `per` is 1 to 8
   const repo = await mkdtemp(join(tmpdir(), 'frame-sheet-repo-'))
   await mkdir(join(repo, '.git'))
   await expect(at(V1, 'vieja-sample', 2, join(repo, 'a', 'b'))).rejects.toThrow(/git checkout/)
+  expect(await exists(join(repo, 'a'))).toBe(false)
+  // A worktree's `.git` is a file; a link from outside into a checkout is followed.
+  const worktree = await mkdtemp(join(tmpdir(), 'frame-sheet-worktree-'))
+  await writeFile(join(worktree, '.git'), 'gitdir: /elsewhere\n')
+  await expect(at(V1, 'vieja-sample', 2, join(worktree, 'frames'))).rejects.toThrow(/git checkout/)
+  const link = join(await mkdtemp(join(tmpdir(), 'frame-sheet-link-')), 'into-repo')
+  await symlink(repo, link)
+  await expect(at(V1, 'vieja-sample', 2, join(link, 'frames'))).rejects.toThrow(/git checkout/)
   expect(s.calls.frames).toEqual([])
 })

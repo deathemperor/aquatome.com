@@ -39,8 +39,13 @@ export const FLAGS_SCHEMA = {
 /** A YouTube video id, and a species page id: nothing else may name a file. */
 const VIDEO_ID = /^[A-Za-z0-9_-]{11}$/
 const SPECIES_ID = /^[a-z0-9]+(-[a-z0-9]+)*$/
-/** YouTube refusing, or asking us to wait: the run stops (a 403 only once `ytGrab`'s own retry has given up). */
-export const refused = (e: unknown) => throttled(e) || /\bHTTP Error 403\b|\b403 Forbidden\b|try again later|sign in to confirm/i.test((e as Error)?.message ?? '')
+/**
+ * YouTube refusing, or asking us to wait: the run stops. yt-dlp's words ("HTTP Error 429", "try again later", a sign-in
+ * ask), ffmpeg's ("403 Forbidden", once `ytGrab`'s own retry for a new stream address has given up), and the storyboard
+ * fetch's ("HTTP 429", "HTTP 403"). It also stops on a 403 or a sign-in ask that is about one video (private, region,
+ * age): the run gives up early rather than ask again.
+ */
+export const refused = (e: unknown) => throttled(e) || /\bHTTP (Error )?(403|429)\b|\b403 Forbidden\b|try again later|sign in to confirm/i.test((e as Error)?.message ?? '')
 
 const prompt = (name: string, n: number) => `These are ${n} numbered stills from one aquarium video about ${name}.
 For every still, answer with true or false only:
@@ -63,12 +68,15 @@ const passes = (f: FrameFlags) => f.fish && f.whole && f.sideOn && f.adult && f.
  */
 export async function frameFolder(out: string): Promise<string> {
   if (!isAbsolute(out)) throw new Error('frame-sheet: --out must be an absolute path')
-  await mkdir(out, { recursive: true })
-  const real = await realpath(out)
-  for (let dir = real; ; dir = dirname(dir)) {
+  // Checked from the nearest folder that exists, before any is made, so a refused path leaves nothing behind.
+  let base = out
+  while (!existsSync(base)) base = dirname(base)
+  for (let dir = await realpath(base); ; dir = dirname(dir)) {
     if (existsSync(join(dir, '.git'))) throw new Error('frame-sheet: --out is inside a git checkout')
-    if (dirname(dir) === dir) return real
+    if (dirname(dir) === dir) break
   }
+  await mkdir(out, { recursive: true })
+  return realpath(out)
 }
 
 export async function frameSheet(videos: SheetVideo[], d: FrameSheetDeps, o: { out: string; per: number; apart: number; gapMs: number; grabGapMs: number }): Promise<FrameSheetResult> {
