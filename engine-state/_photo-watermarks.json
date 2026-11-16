@@ -220055,7 +220055,9 @@
     }
   },
   "https://media.aquatome.com/scotcat/74198e94001129fb.webp": {
-    "ocr": []
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
   },
   "https://media.aquatome.com/scotcat/743da36e0d205733.webp": {
     "ocr": [],
@@ -224248,7 +224250,9 @@
     }
   },
   "https://media.aquatome.com/scotcat/b35715ea02b0233b.webp": {
-    "ocr": []
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
   },
   "https://media.aquatome.com/scotcat/b35aa71dea599ceb.webp": {
     "ocr": [],
@@ -224322,7 +224326,9 @@
     }
   },
   "https://media.aquatome.com/scotcat/b668d8272ab543d8.webp": {
-    "ocr": []
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
   },
   "https://media.aquatome.com/scotcat/b66bc11ff0556bf8.webp": {
     "ocr": [],
@@ -226929,6 +226935,8 @@
         "hash": "05393162ef810f43646461ad109ae356be27c053795fc6e7f2858049c4ce2d64"
       }
     ],
+    "watermark": true,
+    "kind": "credit",
     "locations": [
       "bottom centre",
       "bottom right"
