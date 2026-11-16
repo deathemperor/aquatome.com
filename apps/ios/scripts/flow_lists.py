@@ -74,7 +74,8 @@ SHOTS = {
     'v2': ['testV2', 'testV2InTheDark', 'testV2InTheLargestText', 'testV2InMalayInTheDarkAtTheLargestText',
            'testTheBarOverAPagesTextFromEachTab', 'testTheBarOverAPagesTextFromEachTabInTheDark'],
     # The chat screen: an answer with its cards, from the stand-in's recordings.
-    'chat': ['testTheChat', 'testTheChatInTheDark', 'testTheChatInTheLargestText', 'testTheChatsOpenSectionAndBackFromACardsPage'],
+    'chat': ['testTheChat', 'testTheChatInTheDark', 'testTheChatInTheLargestText', 'testTheChatsOpenSectionAndBackFromACardsPage',
+             'testTheReport', 'testTheReportInTheDark', 'testTheReportInTheLargestText'],
 }
 
 
