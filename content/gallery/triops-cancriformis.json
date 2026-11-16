@@ -56,18 +56,6 @@
       "unchecked": true
     },
     {
-      "url": "https://media.aquatome.com/commons/4f023d34d2734c17.webp",
-      "thumb": "https://media.aquatome.com/commons/4f023d34d2734c17-480.webp",
-      "width": 1200,
-      "height": 659,
-      "licence": "CC BY-SA 3.0",
-      "author": "John Alan Elson",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Beni-KabutoEbiAlbinoclose.jpg",
-      "caption": "Tôm nòng nọc Triops màu hồng trong suốt, thấy rõ hai mắt",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/205759967.webp",
       "thumb": "https://media.aquatome.com/inaturalist/205759967-480.webp",
       "width": 1024,
@@ -298,6 +286,18 @@
       "kind": "other",
       "setup": true,
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/commons/4f023d34d2734c17.webp",
+      "thumb": "https://media.aquatome.com/commons/4f023d34d2734c17-480.webp",
+      "width": 1200,
+      "height": 659,
+      "licence": "CC BY-SA 3.0",
+      "author": "John Alan Elson",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Beni-KabutoEbiAlbinoclose.jpg",
+      "caption": "Tôm nòng nọc Triops màu hồng trong suốt, thấy rõ hai mắt",
+      "best": true,
+      "kind": "other"
     }
   ],
   "seen": 65,

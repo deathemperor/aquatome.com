@@ -12,8 +12,7 @@
       "caption": "Một cây Blyxa aubertii nhỏ trong nước trong",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/f4f1c8f6c96f83ee.webp",
@@ -28,20 +27,6 @@
       "kind": "submersed"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/500215021.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/500215021-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Scott W. Gavins",
-      "sourceUrl": "https://www.inaturalist.org/photos/500215021",
-      "caption": "Các bụi Blyxa aubertii mọc dưới nước nông ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/18393356.webp",
       "thumb": "https://media.aquatome.com/inaturalist/18393356-480.webp",
       "width": 1024,
@@ -52,8 +37,7 @@
       "caption": "Bụi Blyxa aubertii mọc dưới nước, lá nâu xanh",
       "best": true,
       "kind": "submersed",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/500215658.webp",
@@ -66,8 +50,7 @@
       "caption": "Bụi Blyxa aubertii xanh tươi mọc trong vùng nước nông tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/204652750.webp",
@@ -194,6 +177,19 @@
       "kind": "habitat",
       "setup": false,
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/500215021.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/500215021-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Scott W. Gavins",
+      "sourceUrl": "https://www.inaturalist.org/photos/500215021",
+      "caption": "Các bụi Blyxa aubertii mọc dưới nước nông ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 24,

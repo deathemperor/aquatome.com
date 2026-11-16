@@ -28,18 +28,6 @@
       "unchecked": true
     },
     {
-      "url": "https://media.aquatome.com/commons/8b04fd6c3166025f.webp",
-      "thumb": "https://media.aquatome.com/commons/8b04fd6c3166025f-480.webp",
-      "width": 1073,
-      "height": 644,
-      "licence": "CC BY-SA 4.0",
-      "author": "Longdongdiver (Vincent C. Chen)",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Saron_marmoratus_by_Vincent_C_Chen.jpg",
-      "caption": "Tôm Saron marmoratus nhìn từ phía trước bên hốc san hô",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/180445632.webp",
       "thumb": "https://media.aquatome.com/inaturalist/180445632-480.webp",
       "width": 1024,
@@ -120,18 +108,6 @@
       "kind": "habitat",
       "setup": false,
       "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/commons/f28560ce75eafa55.webp",
-      "thumb": "https://media.aquatome.com/commons/f28560ce75eafa55-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY 2.0",
-      "author": "kevin bourdon",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Saron_marmoratus.jpg",
-      "caption": "Tôm Saron marmoratus màu đỏ trên rạn san hô",
-      "best": false,
-      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/commons/f71a062a4e00058e.webp",
@@ -264,6 +240,18 @@
       "kind": "habitat",
       "setup": false,
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/commons/8b04fd6c3166025f.webp",
+      "thumb": "https://media.aquatome.com/commons/8b04fd6c3166025f-480.webp",
+      "width": 1073,
+      "height": 644,
+      "licence": "CC BY-SA 4.0",
+      "author": "Longdongdiver (Vincent C. Chen)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Saron_marmoratus_by_Vincent_C_Chen.jpg",
+      "caption": "Tôm Saron marmoratus nhìn từ phía trước bên hốc san hô",
+      "best": true,
+      "kind": "habitat"
     }
   ],
   "seen": 54,
