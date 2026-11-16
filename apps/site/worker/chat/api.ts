@@ -15,7 +15,7 @@ import { fileClashes } from './clash-store'
 import { handoverFor } from './handover'
 import { sectionSearch } from './section-search'
 import { answerQuestion, CHAT_LIMITS, CHAT_PRESENT, MAX_TOKENS, noThinking, OPENING_TOKENS, type ChatRun, type Earlier, type Start } from './agent'
-import type { ChatBlock } from './answer'
+import { answerFeed, type ChatBlock } from './answer'
 import { handbookOf, type Handbook, type Lang, type Source } from './handbook'
 import { chatAccount, conversationKey, retryKey, secs, stopKey } from './store'
 import type { Step, Tank, TankLight } from './tools'
@@ -117,17 +117,19 @@ export const json = (data: unknown, status = 200) => Response.json(data, { statu
 const sse = (event: string, data: unknown) => `event: ${event}\ndata: ${JSON.stringify(data)}\n\n`
 const streamHeaders = { 'content-type': 'text/event-stream; charset=utf-8', 'cache-control': 'no-store' }
 /**
- * One call to Claude. With `onDelta`, it streams, and each delta of its text (never its thinking) goes to `onDelta` as it
- * comes; the whole message comes back either way. The SDK's timeout ends once a stream begins, so a timer bounds the
- * whole streamed call, as the timeout bounds one that isn't: the stream is stopped, nothing more of it goes to `onDelta`,
- * and the call fails as a timeout does, with no status (keys.ts `classify`: the network, not the key). Once its text has
- * begun the timer runs to `writingMs` instead, if that's longer (loop.ts: an answer on its way isn't stopped). A timer, not an
- * abort signal: a stream stalled mid-body doesn't end on its signal in every runtime. A stream cut once it has begun
- * (the connection lost, the body ended early) fails in the SDK's own error with no status at all, where a call that
- * doesn't stream would have failed in its connection error: it is given one, so it too is the network's.
+ * One call to Claude. With `onDelta`, it streams, and each delta of its answer (its text, or send_answer's input:
+ * answer.ts `answerFeed`; never its thinking) goes to `onDelta` as it comes; the whole message comes back either way.
+ * Without it, the answer tool's `eager_input_streaming` is left off: a call that doesn't stream has no use for it. The
+ * SDK's timeout ends once a stream begins, so a timer bounds the whole streamed call, as the timeout bounds one that
+ * isn't: the stream is stopped, nothing more of it goes to `onDelta`, and the call fails as a timeout does, with no status
+ * (keys.ts `classify`: the network, not the key). Once its answer has begun the timer runs to `writingMs` instead, if
+ * that's longer (loop.ts: an answer on its way isn't stopped). A timer, not an abort signal: a stream stalled mid-body
+ * doesn't end on its signal in every runtime. A stream cut once it has begun (the connection lost, the body ended early)
+ * fails in the SDK's own error with no status at all, where a call that doesn't stream would have failed in its
+ * connection error: it is given one, so it too is the network's.
  */
 export function callClaude(c: Anthropic, b: Anthropic.MessageCreateParamsNonStreaming, timeoutMs: number, onDelta?: (delta: string) => void, signal?: AbortSignal, writingMs = 0): Promise<Anthropic.Message> {
-  if (!onDelta) return c.messages.create(b, { timeout: timeoutMs, signal })
+  if (!onDelta) return c.messages.create(b.tools ? { ...b, tools: b.tools.map(t => ('eager_input_streaming' in t ? { ...t, eager_input_streaming: undefined } : t)) } : b, { timeout: timeoutMs, signal })
   const s = c.messages.stream(b, { timeout: timeoutMs, signal })
   let over = false
   const began = Date.now()
@@ -138,8 +140,10 @@ export function callClaude(c: Anthropic, b: Anthropic.MessageCreateParamsNonStre
     expire = () => { over = true; s.abort(); reject(Object.assign(new Error('Request timed out.'), { status: undefined })) }
     timer = setTimeout(expire, timeoutMs)
   })
-  s.on('text', delta => {
-    if (over) return
+  const feed = answerFeed()
+  s.on('streamEvent', e => {
+    const delta = feed(e)
+    if (over || delta === undefined) return
     if (!writing && writingMs > timeoutMs) { clearTimeout(timer); timer = setTimeout(expire, writingMs - (Date.now() - began)) }
     writing = true
     onDelta(delta)
@@ -563,7 +567,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
       // text's first piece and its last, the run's end, and `done` (the turn saved).
       timing: { before: began - now.getTime(), words: since(wordsAt), last: since(lastAt), answered: since(answeredAt), done: since(doneAt), ...(seen === undefined ? {} : { seen: since(seen) }) },
       cost: costOf(model, s), tokens: { input: s.input + s.cacheRead + s.cacheWrite, output: s.output },
-      agent: { calls: t.calls, tools: t.tools, stopped: t.stopped },
+      agent: { calls: t.calls, tools: t.tools, stopped: t.stopped, ...(t.asked ? { asked: t.asked } : {}) },
       ...(t.answer ? { answer: { text: t.answer.text, covered: t.answer.covered, ...(t.answer.offTopic ? { offTopic: true } : {}), blocks: t.blocks.length, dropped: t.dropped } } : {}),
       ...(t.opening ? { opening: t.opening } : {}),
       ...(t.handed ? { handed: t.handed } : {}),

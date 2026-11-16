@@ -916,6 +916,34 @@ describe('a call that has begun writing', () => {
     expect(isApiError(e) && e.status === undefined).toBe(true)
   })
 
+  test('send_answer\'s input is the answer being written: it goes to onDelta as written, and the call runs past its limit to the time left', async () => {
+    const tool = event('content_block_start', { index: 0, content_block: { type: 'tool_use', id: 'toolu_1', name: 'send_answer', input: {} } })
+      + event('content_block_delta', { index: 0, delta: { type: 'input_json_delta', partial_json: '{"offTopic": false, "text": "Nư' } })
+    const rest = event('content_block_delta', { index: 0, delta: { type: 'input_json_delta', partial_json: 'ớc"}' } }) + event('content_block_stop', { index: 0 })
+      + event('message_delta', { delta: { stop_reason: 'tool_use', stop_sequence: null }, usage: { output_tokens: 1 } }) + event('message_stop', {})
+    const said: string[] = []
+    const m = await callClaude(await streams(start + tool, rest, 250), body, 100, d => said.push(d), undefined, 2000)
+    expect(said).toEqual(['{"offTopic": false, "text": "Nư', 'ớc"}'])
+    expect(m.content).toMatchObject([{ type: 'tool_use', name: 'send_answer', input: { offTopic: false, text: 'Nước' } }])
+    // Another tool's input is no answer: nothing to onDelta, and a call still silent at its limit is stopped.
+    const read = event('content_block_start', { index: 0, content_block: { type: 'tool_use', id: 'toolu_2', name: 'read_page', input: {} } })
+      + event('content_block_delta', { index: 0, delta: { type: 'input_json_delta', partial_json: '{"path":"/vi/' } })
+    const none: string[] = []
+    const e = await callClaude(await streams(start + read), body, 100, d => none.push(d), undefined, 2000).catch(x => x)
+    expect([none, isApiError(e) && e.status === undefined]).toEqual([[], true])
+  })
+
+  test('a call that doesn\'t stream leaves the answer tool\'s eager_input_streaming off', async () => {
+    let sent: Record<string, unknown> | undefined
+    const c = await clientFor({ key: 'sk-ant-test', hash: 'h' } as KeyEntry, (async (input: RequestInfo | URL, init?: RequestInit) => {
+      sent = await new Request(input, init).json() as Record<string, unknown>
+      return Response.json({ id: 'm', type: 'message', role: 'assistant', model: 'claude-opus-5-5', content: [{ type: 'text', text: 'x' }], stop_reason: 'end_turn', stop_sequence: null, usage })
+    }) as typeof globalThis.fetch)
+    const tools = [{ name: 'read_page', description: 'd', input_schema: { type: 'object' as const }, strict: true }, { name: 'send_answer', description: 'd', input_schema: { type: 'object' as const }, eager_input_streaming: true }]
+    await callClaude(c, { ...body, tools }, 1000)
+    expect(sent!.tools).toEqual([tools[0], { name: 'send_answer', description: 'd', input_schema: { type: 'object' } }])
+  })
+
   test('a call still silent at its limit gets no more time', async () => {
     const t = Date.now()
     const e = await callClaude(await streams(start), body, 100, () => {}, undefined, 2000).catch(x => x)

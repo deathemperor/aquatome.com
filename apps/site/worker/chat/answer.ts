@@ -73,6 +73,55 @@ export const ANSWER_SCHEMA = {
   },
 } as const
 
+/**
+ * The answer as a tool's input (16 Nov). After a round of tools, Opus and Sonnet hold a text answer back until it's
+ * whole: 7.5 s of nothing, then all of it within 10 ms, with the format or without it (probes 3, 5 and 6, 15 Nov). They
+ * stream a tool's input as it's written, the format on (probe 8, 16 Nov: Opus's first words 5.4 s into the call,
+ * Sonnet's 1.1 s). Its input is the schema's, read by the same readers as text, keys in the schema's order (offTopic,
+ * then text, in every probe). Haiku answers in text, which it streams, and that stays an answer too.
+ */
+export const SEND_ANSWER = 'send_answer'
+export const answerTool = {
+  name: SEND_ANSWER,
+  description: 'Send the reader your answer. Call it once, when you have read what you need: what you pass is your answer, in the answer\'s form, and the reader sees its text as you write it.',
+  input_schema: ANSWER_SCHEMA as unknown as Anthropic.Tool.InputSchema,
+  answers: true as const,
+  run: async (): Promise<string> => { throw new Error('send_answer is the answer: nothing runs it') },
+}
+
+/**
+ * Which block of a message is its answer: the first that answers, a text block with words in it or a send_answer call.
+ * The stream shows that block (`answerFeed`) and the run reads it (`answered`), so the reader reads what is kept.
+ */
+const answers = (b: Anthropic.ContentBlock) => (b.type === 'text' && b.text.trim() !== '') || (b.type === 'tool_use' && b.name === SEND_ANSWER)
+
+/**
+ * A message that answered through send_answer, as one that answered in text: its input as the JSON text, and reading
+ * tools asked for beside it dropped. One cut short keeps its stop reason, and `readAnswer` then reads no answer from it.
+ */
+export function answered(m: Anthropic.Message): Anthropic.Message {
+  const first = m.content.find(answers)
+  if (first?.type !== 'tool_use') return m
+  return { ...m, content: [{ type: 'text', text: JSON.stringify(first.input), citations: null }], stop_reason: m.stop_reason === 'tool_use' ? 'end_turn' : m.stop_reason }
+}
+
+/**
+ * What of a streamed call goes to the reader, event by event: the pieces of its answer as they're written, a text
+ * block's or send_answer's input, from the first block that answers (as `answered` reads it); undefined for the rest.
+ */
+export function answerFeed(): (e: Anthropic.MessageStreamEvent) => string | undefined {
+  const calls = new Set<number>()
+  let fed: number | undefined
+  return e => {
+    if (e.type === 'content_block_start' && e.content_block.type === 'tool_use' && e.content_block.name === SEND_ANSWER) calls.add(e.index)
+    if (e.type !== 'content_block_delta') return undefined
+    const piece = e.delta.type === 'text_delta' ? e.delta.text : e.delta.type === 'input_json_delta' && calls.has(e.index) ? e.delta.partial_json : undefined
+    if (!piece || (fed === undefined ? piece.trim() === '' : fed !== e.index)) return undefined
+    fed = e.index
+    return piece
+  }
+}
+
 export type Choice = { t: (typeof BLOCKS)[number]; ids: string[]; path: string | null; heading: string | null; tool: ToolName | null; fish: { id: string; count: number }[]; tank: { l: number; w: number; h: number } | null; tankId: string | null }
 export type Answer = { offTopic: boolean; text: string; covered: boolean; blocks: Choice[]; suggestions: string[]; clashes: Clash[] }
 

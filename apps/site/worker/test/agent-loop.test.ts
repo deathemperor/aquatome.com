@@ -232,6 +232,74 @@ test('pace: a run at normal speed reads on to its limits, and its forced answer 
   expect(d.calls.map(x => [x.body.tool_choice!.type, x.body.output_config!.effort, x.timeoutMs])).toEqual([['auto', 'medium', 20_000], ['auto', 'medium', 20_000], ['none', 'medium', 20_000]])
 })
 
+test('answerBy: while the reader is there (until moving), the run reads until another call would end past it; pace against until answered after two calls; once they have gone, pace holds', async () => {
+  // Calls of 5 s, as Opus's on the board (16 Nov), within the longer turn a reader there has.
+  const pace = { answer: 7, quick: 6.5, first: 4 }
+  const limits = { ms: 45_000, calls: 10, tools: 16, writingGraceMs: 3_000 }
+  const reads = () => [...[1, 2, 3, 4].map(i => () => asks([{ name: 'echo', input: { q: `${i}` } }])), () => answers()]
+  const choices = async (until: (now: number) => number, answerBy?: number) => {
+    const clock = { now: 0, per: [5_000, 5_000, 5_000, 5_000, 5_000] }
+    const c = script(reads(), clock)
+    const r = await runAgent(input(c.send, { clock: () => clock.now, limits, pace, until: () => until(clock.now), ...(answerBy ? { answerBy } : {}) }))
+    return [c.calls.map(x => x.body.tool_choice!.type), r.stopped]
+  }
+  // The reader there, seen at every call: pace against an end 26 s ahead answers at the third call, 10 s in.
+  expect(await choices(now => now + 26_000)).toEqual([['auto', 'auto', 'none'], 'time'])
+  // By 20 s: four calls read, and the answer's call begins at 20 s.
+  expect(await choices(now => now + 26_000, 20_000)).toEqual([['auto', 'auto', 'auto', 'auto', 'none'], 'time'])
+  // Last seen at 0: until stays at 26 s, and pace holds against it: after a 5 s call, 21 s left, under 5 + 4 × 5 s.
+  expect(await choices(() => 26_000, 20_000)).toEqual([['auto', 'none'], 'time'])
+})
+
+describe('askWord', () => {
+  const pace = { answer: 7, quick: 6.5, first: 4 }
+  const words = { lastWord: 'Answer now.', askWord: 'Answer now, through the tool.' }
+  const said = (b: Body) => (b.messages.at(-1)!.content as Anthropic.ContentBlockParam[]).flatMap(x => (x.type === 'text' ? [x.text] : [])).at(-1)
+
+  test('the call a limit of time or tools makes the last keeps its tools, told to answer through the tool that answers; its answer ends the run', async () => {
+    // After a 5 s call, 22 s left, under 5 + 4 × 5 s: the second call must answer.
+    const clock = { now: 0, per: [5_000, 5_000] }
+    const c = script([() => asks([{ name: 'echo', input: { q: 'x' } }]), () => answers()], clock)
+    const r = await runAgent(input(c.send, { clock: () => clock.now, pace, ...words }))
+    expect(c.calls.map(x => [x.body.tool_choice!.type, said(x.body)])).toEqual([['auto', 'Which fish is this?'], ['auto', words.askWord]])
+    expect(r).toMatchObject({ stopped: 'time', asked: 'answered', calls: 2 })
+    // The tools used up.
+    const d = script([() => asks([{ name: 'echo', input: { q: 'x' } }]), () => answers()])
+    const s = await runAgent(input(d.send, { limits: { tools: 1 }, ...words }))
+    expect(d.calls.map(x => [x.body.tool_choice!.type, said(x.body)])).toEqual([['auto', 'Which fish is this?'], ['auto', words.askWord]])
+    expect(s).toMatchObject({ stopped: 'tools', asked: 'answered' })
+  })
+
+  test('one that reads instead has its reads refused, not run, and the next call is forced, with the last word', async () => {
+    ran.length = 0
+    const clock = { now: 0, per: [5_000, 5_000, 5_000] }
+    const c = script([() => asks([{ name: 'echo', input: { q: 'x' } }]), () => asks([{ name: 'echo', input: { q: 'y' } }]), () => answers()], clock)
+    const r = await runAgent(input(c.send, { clock: () => clock.now, pace, ...words }))
+    expect(c.calls.map(x => [x.body.tool_choice!.type, said(x.body)])).toEqual([['auto', 'Which fish is this?'], ['auto', words.askWord], ['none', words.lastWord]])
+    expect(ran).toEqual([{ q: 'x' }])
+    expect(toolResults(c.calls[2]!.body).filter(t => t.type === 'tool_result').map(t => [t.content, t.is_error])).toEqual([['Not run: the time for tools is up. Answer with what you have.', true]])
+    expect(r).toMatchObject({ stopped: 'time', asked: 'read', calls: 3, tools: 1 })
+  })
+
+  test('never on the last call nor on the input trigger, where one more call would pass what the hold counts: those are forced as before', async () => {
+    const reads = () => [() => asks([{ name: 'echo', input: { q: 'x' } }]), () => answers()]
+    // The last call.
+    const c = script(reads())
+    await runAgent(input(c.send, { limits: { calls: 2 }, ...words }))
+    expect(c.calls.map(x => x.body.tool_choice!.type)).toEqual(['auto', 'none'])
+    // The input trigger: 1,000 read and 1,102 more would pass 1,500.
+    const d = script(reads())
+    await runAgent(input(d.send, { limits: { inputTokens: 1_500 }, ...words }))
+    expect(d.calls.map(x => x.body.tool_choice!.type)).toEqual(['auto', 'none'])
+    // Time, with the next call past the trigger too.
+    const clock = { now: 0, per: [5_000, 5_000] }
+    const e = script(reads(), clock)
+    const r = await runAgent(input(e.send, { clock: () => clock.now, pace, limits: { inputTokens: 1_500 }, ...words }))
+    expect(e.calls.map(x => [x.body.tool_choice!.type, said(x.body)])).toEqual([['auto', 'Which fish is this?'], ['none', words.lastWord]])
+    expect(r.asked).toBeUndefined()
+  })
+})
+
 test('a call is bounded at callMs until it begins writing, and may then take all the time left', async () => {
   const clock = { now: 0, per: [1_000, 3_000] }
   const c = script([() => asks([{ name: 'echo', input: { q: 'x' } }]), () => answers()], clock)

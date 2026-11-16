@@ -19,7 +19,14 @@ export type Tool<Step = unknown> = {
   step?: (input: Record<string, unknown>) => Step | undefined
   /** The result Claude reads. A throw becomes an `is_error` result with its message. */
   run: (input: Record<string, unknown>, ctx: ToolContext) => Promise<ToolOutput>
+  /**
+   * The tool that answers (the chat's send_answer, chat/answer.ts): its input is the answer, streamed as it's written
+   * (`eager_input_streaming`), and it never runs. Not strict: the caller checks an eagerly streamed input once it's whole.
+   */
+  answers?: true
 }
 
 /** The tool as the API takes it. */
-export const definition = (t: Tool): Anthropic.Tool => ({ name: t.name, description: t.description, input_schema: t.input_schema, strict: true })
+export const definition = (t: Tool): Anthropic.Tool => (t.answers
+  ? { name: t.name, description: t.description, input_schema: t.input_schema, eager_input_streaming: true }
+  : { name: t.name, description: t.description, input_schema: t.input_schema, strict: true })

@@ -1,6 +1,6 @@
 import type Anthropic from '@anthropic-ai/sdk'
 import { runAgent, type AgentRun, type Limits } from '../agent/loop'
-import { ANSWER_SCHEMA, filler, OFF_TOPIC, picksReader, readAnswer, textReader, type Answer, type ChatBlock, type Choice } from './answer'
+import { answered, ANSWER_SCHEMA, answerTool, filler, OFF_TOPIC, picksReader, readAnswer, textReader, type Answer, type ChatBlock, type Choice } from './answer'
 import type { Handbook, Lang } from './handbook'
 import type { Found, Handover } from './handover'
 import type { MatesCheck } from './mates'
@@ -116,6 +116,16 @@ export const CHAT_PACE = { answer: 7, quick: 6.5, first: 4 }
  * given-up call wrote in its time stay inside one call's room, so `chatWorstCost` holds with a sixth call.
  */
 export const LAST_TRY = { ms: 4_000, maxTokens: 2_048, word: `${LAST_WORD} Time is nearly up: keep it short, only the few things that matter most.` }
+/**
+ * While the reader is there (a run with `until`, on the stream), the answer comes through a tool, send_answer (answer.ts
+ * `answerTool`), whose input streams as it's written: after a round of tools, Opus and Sonnet hold a text answer back until
+ * it's whole. The instructions say so (`ANSWER_LINE`), a limit asks for it (`ASK_WORD`, loop.ts `askWord`), and the
+ * answer's call begins by `ANSWER_BY` into the run (loop.ts `answerBy`). On Monday's board (16 Nov), Opus began its answer
+ * 7.8 s in at the median, after two calls, and wrote it in 16.2 s (23.9 s at most), none of it shown until the end.
+ */
+export const ANSWER_BY = 20_000
+export const ANSWER_LINE = 'When you have read what you need, give your answer by calling send_answer: its input is your answer, as above, and the reader sees its text as you write it. Call it on its own, never beside another tool. When you can\'t call a tool, write the same answer as your reply.'
+export const ASK_WORD = `${LAST_WORD} Send it now with send_answer.`
 /**
  * A chat turn reads more than an identification: more calls and tool calls, and no photos. It ends within fish ID's
  * time, for the same reason: the platform keeps a run going 30 s after the reader's connection drops (they left the
@@ -253,8 +263,9 @@ export type ChatOptions = {
 
 /**
  * `send`, with each call's text read as it comes (`textReader`) and given to `onText`, then, once the text has shown, its
- * picks as each is written (`picksReader`) to `onPick`. A call that has given the reader any text is the answer: its tool
- * calls are dropped and the run ends on it, since what the reader has read can't be taken back.
+ * picks as each is written (`picksReader`) to `onPick`. An answer through send_answer reads as one in text (`answered`). A
+ * call that has given the reader any text is the answer: its tool calls are dropped and the run ends on it, since what
+ * the reader has read can't be taken back.
  */
 function streaming(send: ChatOptions['send'], onText: (piece: string) => void, onPick?: (pick: Choice) => void): ChatOptions['send'] {
   return async (body, opts) => {
@@ -262,7 +273,7 @@ function streaming(send: ChatOptions['send'], onText: (piece: string) => void, o
     const picks = picksReader()
     let shown = false
     let stuck = false
-    const m = await send(body, {
+    const m = answered(await send(body, {
       ...opts,
       onText: delta => {
         const piece = read(delta)
@@ -272,7 +283,7 @@ function streaming(send: ChatOptions['send'], onText: (piece: string) => void, o
         try { picked = onPick && !stuck ? picks(delta) : [] } catch (e) { stuck = true; console.error('chat picks:', e) }
         if (shown) picked.forEach(p => onPick!(p))
       },
-    })
+    }))
     if (!shown) return m
     return { ...m, content: m.content.filter(b => b.type !== 'tool_use'), stop_reason: m.stop_reason === 'tool_use' ? 'end_turn' : m.stop_reason }
   }
@@ -321,6 +332,8 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
   const onStep = (step: Step) => { begun = true; o.onStep?.(step) }
   const onText = o.onText && ((piece: string) => { begun = wrote = true; o.onText!(piece) })
   const send = onText ? streaming(o.send, onText, onPick) : o.send
+  // A reader there, on the stream: the answer comes through send_answer, which streams (ANSWER_BY).
+  const asks = onText !== undefined && o.until !== undefined
   const first = firstMessage(o.lang, o.question, o.earlier, o.start, o.handbook)
   const off = noThinking(o.model)
   const line = o.opening
@@ -341,8 +354,8 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
   const run = await runAgent<Step>({
     send,
     model: o.model,
-    system: SYSTEM,
-    tools: chatTools({ handbook: o.handbook, tanks: o.tanks, checks }),
+    system: asks ? `${SYSTEM}\n\n${ANSWER_LINE}` : SYSTEM,
+    tools: [...chatTools({ handbook: o.handbook, tanks: o.tanks, checks }), ...(asks ? [answerTool] : [])],
     first: { role: 'user', content: [...content, ...(handed ? [{ type: 'text' as const, text: handed.text }] : [])] },
     schema: ANSWER_SCHEMA as unknown as Record<string, unknown>,
     effort: o.effort ?? 'medium',
@@ -354,6 +367,7 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
     lastWord: LAST_WORD,
     lastTry: { ...LAST_TRY, maxTokens: LAST_TRY.maxTokens + off.room, ...(off.thinking ? { thinking: off.thinking } : {}), begun: () => wrote },
     ...(o.until ? { until: o.until } : {}),
+    ...(asks ? { answerBy: ANSWER_BY - (clock() - asked), askWord: ASK_WORD } : {}),
     onStep,
     clock: o.clock,
   })

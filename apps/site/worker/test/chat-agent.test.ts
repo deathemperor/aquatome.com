@@ -4,8 +4,8 @@ import type Anthropic from '@anthropic-ai/sdk'
 import type { PageDoc } from '@aq/schema/app-page'
 import { LANGS } from '@aq/schema/langs'
 import { expect, test, vi } from 'vitest'
-import { answerQuestion, CHAT_LIMITS, NO_THINKING, firstMessage, openedTank, HANDBOOK, HANDOVER_MS, LAST_TRY, LAST_WORD, MAX_TOKENS, OPENING_SYSTEM, SYSTEM, unaccented, type ChatOptions, type Start } from '../chat/agent'
-import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, OFF_TOPIC, picksReader, readAnswer, textReader, type Answer, type Choice } from '../chat/answer'
+import { answerQuestion, ANSWER_LINE, CHAT_LIMITS, NO_THINKING, firstMessage, openedTank, HANDBOOK, HANDOVER_MS, LAST_TRY, LAST_WORD, MAX_TOKENS, OPENING_SYSTEM, SYSTEM, unaccented, type ChatOptions, type Start } from '../chat/agent'
+import { answered, answerFeed, ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, OFF_TOPIC, picksReader, readAnswer, textReader, type Answer, type Choice } from '../chat/answer'
 import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
 import { fold, search, searchTopics } from '../chat/search'
 import { heldOf, topicsOf, type Topics } from '../chat/topics'
@@ -1126,6 +1126,67 @@ test('the first line and the short last answer turn thinking off as each model a
   // A model with no row of its own is sent what no model refuses: Opus's way.
   expect(await sent('claude-next-6')).toEqual(await sent('claude-opus-5-5'))
   expect(Object.keys(NO_THINKING)).toEqual(['claude-haiku-5-5', 'claude-sonnet-5-5', 'claude-opus-5-5'])
+})
+
+test('send_answer\'s input streams as a text answer does, from the first block that answers: that block is the one shown and the one read', () => {
+  const begins = (index: number, block: object) => ({ type: 'content_block_start', index, content_block: block }) as Anthropic.MessageStreamEvent
+  const writes = (index: number, delta: object) => ({ type: 'content_block_delta', index, delta }) as Anthropic.MessageStreamEvent
+  const use = (id: string, name: string, input: unknown) => ({ type: 'tool_use', id, name, input })
+  // As Opus wrote it (probe 8, 16 Nov): JSON's spaces after the colons, the schema's keys in order.
+  const raw = ['{"offTopic": false, "te', 'xt": "Nuôi', ' theo đàn.", "covered": true, "blocks": [], "suggestions": [], "clashes": []}']
+  const read = textReader()
+  const feed = answerFeed()
+  const events = [
+    begins(0, { type: 'thinking', thinking: '' }), writes(0, { type: 'thinking_delta', thinking: 'Đọc xong.' }),
+    begins(1, use('t1', 'send_answer', {})), writes(1, { type: 'input_json_delta', partial_json: '' }), ...raw.map(r => writes(1, { type: 'input_json_delta', partial_json: r })),
+    begins(2, use('t2', 'read_page', {})), writes(2, { type: 'input_json_delta', partial_json: '{"path":"/vi/ca/ca-neon-xanh/","heading":null}' }),
+  ]
+  expect(events.map(feed).filter(p => p !== undefined).map(read).join('')).toBe('Nuôi theo đàn.')
+  // The answer as text, the read asked for beside it dropped.
+  const m = answered(message([{ type: 'thinking', thinking: 'Đọc xong.', signature: 's' }, use('t1', 'send_answer', JSON.parse(raw.join(''))), readPage], 'tool_use'))
+  expect([m.stop_reason, m.content.map(b => b.type)]).toEqual(['end_turn', ['text']])
+  expect(readAnswer(m)).toMatchObject({ text: 'Nuôi theo đàn.', covered: true })
+  // A text answer first: it is the one shown and read, and the call after it isn't.
+  const text = '{"offTopic":false,"text":"Nuôi theo đàn từ 6 con.","covered":true,"blocks":[],"suggestions":[]}'
+  const other = answerFeed()
+  expect([begins(0, { type: 'text', text: '' }), writes(0, { type: 'text_delta', text: '\n' }), writes(0, { type: 'text_delta', text }), begins(1, use('t1', 'send_answer', {})), writes(1, { type: 'input_json_delta', partial_json: raw[0]! })]
+    .map(other).filter(p => p !== undefined)).toEqual([text])
+  const both = message([{ type: 'text', text: `\n${text}` }, use('t1', 'send_answer', JSON.parse(raw.join('')))], 'tool_use')
+  expect(answered(both)).toBe(both)
+  // Cut short, it is no answer, whatever it wrote; a reading call is no answer either.
+  expect(readAnswer(answered(message([use('t1', 'send_answer', { offTopic: false, text: 'Nuôi theo đàn' })], 'max_tokens')))).toBeUndefined()
+  const reads = message([readPage], 'tool_use')
+  expect(answered(reads)).toBe(reads)
+})
+
+test('with the reader there, on the stream, the answer comes through send_answer: offered with its input streamed, not strict, and named in the instructions; what it writes reaches the reader as written, and is the answer', async () => {
+  const text = 'Cá neon xanh sống theo đàn từ 6 con, nước 20–26 °C.'
+  const raw = `{"offTopic": false, "text": ${JSON.stringify(text)}, "covered": true, "blocks": [], "suggestions": [], "clashes": []}`
+  const bodies: Anthropic.MessageCreateParamsNonStreaming[] = []
+  const said: string[] = []
+  const ask = { model: 'claude-opus-5-5', lang: 'vi' as const, question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: await hb(), tanks: async () => [] }
+  const out = await answerQuestion({
+    ...ask, onText: p => said.push(p), until: () => Date.now() + 26_000,
+    send: async (b, o) => {
+      bodies.push(structuredClone(b))
+      if (bodies.length === 1) return message([readPage], 'tool_use')
+      for (let i = 0; i < raw.length; i += 7) o.onText?.(raw.slice(i, i + 7))
+      return message([{ type: 'tool_use', id: 't2', name: 'send_answer', input: JSON.parse(raw) }], 'tool_use')
+    },
+  })
+  expect(said.join('')).toBe(text)
+  expect(out).toMatchObject({ stopped: 'answer', calls: 2, answer: { text, covered: true } })
+  const tool = bodies[0]!.tools!.find(t => t.name === 'send_answer') as Anthropic.Tool
+  expect(tool).toMatchObject({ eager_input_streaming: true, input_schema: ANSWER_SCHEMA })
+  expect(tool.strict).toBeUndefined()
+  expect(bodies.map(b => b.system)).toEqual([`${SYSTEM}\n\n${ANSWER_LINE}`, `${SYSTEM}\n\n${ANSWER_LINE}`])
+  // Not there, or not on the stream: no send_answer, and the instructions as before.
+  for (const o of [{ onText: () => {} }, { until: () => Date.now() + 26_000 }]) {
+    const seen: Anthropic.MessageCreateParamsNonStreaming[] = []
+    await answerQuestion({ ...ask, ...o, send: async b => { seen.push(b); return message([{ type: 'text', text: raw }]) } })
+    expect(seen[0]!.tools!.map(t => t.name)).not.toContain('send_answer')
+    expect(seen[0]!.system).toBe(SYSTEM)
+  }
 })
 
 test('without onText a run is as before: no call is asked to stream, and a tool call after an answer\'s text still runs', async () => {

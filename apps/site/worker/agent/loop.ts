@@ -20,7 +20,9 @@ import { definition, type Tool } from './tools'
  *   writing its text it may take all the time left (`writingMs`): stopping an answer on its way loses it, and a call
  *   that answers first thing (handed sections, handover.ts) is the only one that can be writing at `callMs`.
  * - With `pace`, the time kept for the last call follows the run's own speed, so a slow hour reads less and still
- *   answers: see `pace`.
+ *   answers: see `pace`. While a reader is there (`until` moving), the answer's call begins by `answerBy` instead.
+ * - With `askWord`, the call a limit of time or tools makes the last keeps its tools, told to answer through the tool
+ *   that answers, so its answer streams; one that reads instead is refused its reads, and the next call is forced.
  * - `recheck` may send an answer Claude chose back once, with more to read. That answer is held: if a later call fails,
  *   time runs out, or the run ends on anything but an answer (cut short, a refusal, a tool request on the forced call),
  *   the held answer is the run's.
@@ -53,6 +55,8 @@ export type AgentRun<Step> = {
   steps: Step[]
   /** The answer was sent back with more to read (`recheck`). */
   rechecked?: boolean
+  /** The call asked to answer through the tool that answers (`askWord`) did, or read instead and the next was forced. */
+  asked?: 'answered' | 'read'
   /** Every message sent, the first one included (the last answer isn't in it: it is `message`). */
   history: Anthropic.MessageParam[]
 }
@@ -74,6 +78,22 @@ export type AgentInput<Step> = {
    * key first counts that time too. The chat's figures, and what they did: `CHAT_PACE` (chat/agent.ts).
    */
   pace?: { answer: number; quick: number; first: number }
+  /**
+   * With `until`, while the reader is there (`until` moved since the call before: the chat moves it with each write to
+   * them that lands), the pace is when the answer's call begins: at most this long after the run's first call, in place
+   * of `pace`. While they stay, `until` moves on as the run goes, and `pace` against it kept a turn of 26 s: Opus
+   * answered after two calls, 14 of 16 answers on the time rule (the board, 16 Nov). An answer that streams (`askWord`)
+   * shows its first words seconds into its call. Once they've gone, `pace` holds again.
+   */
+  answerBy?: number
+  /**
+   * Said instead of `lastWord` on the call a limit of time or tools makes the last, when a tool answers (tools.ts
+   * `answers`): the tools stay on (tool_choice auto), so the answer comes through that tool and streams, where a forced
+   * one (tool_choice none) is held back until it's whole. Reads it asks for instead are refused, and the next call is
+   * forced. Never on the input trigger or the last call: the forced call after one that read would be past the run's
+   * input or calls, which the chat's hold at admission counts on (chat/api.ts `chatWorstCost`).
+   */
+  askWord?: string
   /** Sent as is on every call (adaptive thinking with its summary shown, say); none: the model's default. */
   thinking?: Anthropic.ThinkingConfigParam
   maxTokens: number
@@ -118,6 +138,7 @@ export const tokensOf = (results: Anthropic.ToolResultBlockParam[]) => results.r
   : (r.content ?? []).reduce((m, b) => m + (b.type === 'text' ? Math.ceil(b.text.length / 4) : b.type === 'image' ? 400 : 0), 0)), 0)
 const marksIn = (m: Anthropic.MessageParam) => (typeof m.content === 'string' ? 0 : m.content.filter(b => 'cache_control' in b && b.cache_control).length)
 const LIMIT_REACHED = 'Limit reached: no more tool calls in this identification. Answer with what you have.'
+const NOT_RUN = 'Not run: the time for tools is up. Answer with what you have.'
 /** The history with `word` after the last message's content, for one call; the history itself is left as it is. */
 const withWord = (history: Anthropic.MessageParam[], word: string): Anthropic.MessageParam[] => {
   const last = history.at(-1)!
@@ -130,7 +151,8 @@ const withWord = (history: Anthropic.MessageParam[], word: string): Anthropic.Me
 export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step>> {
   const lim = { ...LIMITS, ...a.limits }
   const clock = a.clock ?? Date.now
-  const deadline = clock() + lim.ms
+  const start = clock()
+  const deadline = start + lim.ms
   const end = () => Math.min(deadline, a.until?.() ?? Infinity)
   const byName = new Map(a.tools.map(t => [t.name, t]))
   const tools = a.tools.map(definition)
@@ -145,12 +167,21 @@ export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step
   let took = 0
   /** The next call is `lastTry`'s. */
   let trying = false
+  /** `until` as the call before began, to see that the reader is there (`answerBy`). */
+  let until = a.until?.()
+  /** Why the next call must answer: the call asked to (`askWord`) read instead. */
+  let must: Stopped | undefined
   for (;;) {
     const left = end() - clock()
     const each = run.calls ? took / run.calls : 0
-    const late = left < lim.lastCallMs || (a.pace !== undefined && left - each < (run.calls === 1 ? a.pace.first : a.pace.quick) * each)
-    const forced: Stopped | undefined = trying ? 'time' : run.calls + 1 >= lim.calls ? 'calls' : run.tools >= lim.tools ? 'tools' : late ? 'time'
-      : inputOf(run.spent) + next > lim.inputTokens ? 'tokens' : undefined
+    const now = a.until?.()
+    const there = a.answerBy !== undefined && now !== undefined && until !== undefined && now > until
+    until = now
+    const late = left < lim.lastCallMs || (there ? clock() - start + each > a.answerBy!
+      : a.pace !== undefined && left - each < (run.calls === 1 ? a.pace.first : a.pace.quick) * each)
+    const forced: Stopped | undefined = trying ? 'time' : must ?? (run.calls + 1 >= lim.calls ? 'calls' : run.tools >= lim.tools ? 'tools' : late ? 'time'
+      : inputOf(run.spent) + next > lim.inputTokens ? 'tokens' : undefined)
+    const asking = a.askWord !== undefined && !trying && !must && (forced === 'time' || forced === 'tools') && inputOf(run.spent) + next <= lim.inputTokens
     if (left < 1000) return held ? { ...run, message: held, stopped: 'answer' } : { ...run, stopped: 'error', error: new Error('out of time') }
     run.calls++
     const effort = a.lastEffort && (trying || (forced && !(a.pace && left >= a.pace.answer * each))) ? a.lastEffort : a.effort
@@ -169,10 +200,10 @@ export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step
         max_tokens: trying ? a.lastTry!.maxTokens : a.maxTokens,
         system: a.system,
         tools,
-        tool_choice: forced ? { type: 'none' } : { type: 'auto' },
+        tool_choice: forced && !asking ? { type: 'none' } : { type: 'auto' },
         ...(trying ? (a.lastTry!.thinking ? { thinking: a.lastTry!.thinking } : {}) : a.thinking ? { thinking: a.thinking } : {}),
         output_config: { effort, format: { type: 'json_schema', schema: a.schema } },
-        messages: trying ? withWord(history, a.lastTry!.word) : forced && a.lastWord ? withWord(history, a.lastWord) : [...history],
+        messages: trying ? withWord(history, a.lastTry!.word) : asking ? withWord(history, a.askWord!) : forced && a.lastWord ? withWord(history, a.lastWord) : [...history],
       }, { timeoutMs: wait, writingMs: room, call: run.calls })
     } catch (e) {
       if (!held && !trying && a.lastTry && !a.lastTry.begun() && clock() - began > wait - 1000) { trying = true; continue }
@@ -184,8 +215,9 @@ export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step
     run.spent.cacheWrite += r.usage.cache_creation_input_tokens ?? 0
     run.spent.output += r.usage.output_tokens
     // An answer, a refusal, or anything that isn't a request for tools ends the run; so does the forced call, whatever it
-    // says. An answer Claude chose, with time left for a last call, may first be sent back once with more to read.
-    if (r.stop_reason !== 'tool_use' || forced || !r.content.some(b => b.type === 'tool_use')) {
+    // says, unless it was only asked to answer (`askWord`). An answer Claude chose, with time left for a last call, may first be sent back once with more to read.
+    if (r.stop_reason !== 'tool_use' || (forced && !asking) || !r.content.some(b => b.type === 'tool_use')) {
+      if (asking) run.asked = 'answered'
       if (held && r.stop_reason !== 'end_turn') return { ...run, message: held, stopped: forced ?? 'answer' }
       const more = !forced && !run.rechecked && r.stop_reason === 'end_turn' && end() - clock() >= lim.lastCallMs ? a.recheck?.(r) : undefined
       if (!more?.length) return { ...run, message: r, stopped: forced ?? 'answer' }
@@ -196,9 +228,11 @@ export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step
       continue
     }
 
+    if (asking) { run.asked = 'read'; must = forced }
     const results: Anthropic.ToolResultBlockParam[] = []
     for (const use of r.content) {
       if (use.type !== 'tool_use') continue
+      if (asking) { results.push({ type: 'tool_result', tool_use_id: use.id, content: NOT_RUN, is_error: true }); continue }
       if (run.tools >= lim.tools) { results.push({ type: 'tool_result', tool_use_id: use.id, content: LIMIT_REACHED, is_error: true }); continue }
       run.tools++
       const tool = byName.get(use.name)
