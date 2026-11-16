@@ -111,8 +111,9 @@ final class LanguageFlowTests: XCTestCase {
     repeatUntil(again.exists, times: 12) { app.swipeUp() }
     XCTAssertTrue(again.label.contains("Bể mới trồng"), "the preset's name isn't in Vietnamese: \(again.label)")
     app.openTab("Bể của tôi")
-    XCTAssertTrue(app.buttons["add-first"].waitForExistence(timeout: 5), "not a new phone")
-    app.buttons["add-first"].tap()
+    // The light connected above made a tank (named in Thai, as the app was then), so the add is the list's row.
+    XCTAssertTrue(app.buttons["add-row"].waitForExistence(timeout: 5), "no add row")
+    app.buttons["add-row"].tap()
     let name = app.textFields["name"]
     XCTAssertTrue(name.waitForExistence(timeout: 5), "no tank form")
     XCTAssertEqual(name.placeholderValue, "Ví dụ: Bể 60 phòng khách", "the name field's hint isn't in Vietnamese")
