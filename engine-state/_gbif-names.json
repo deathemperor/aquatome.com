@@ -1646,6 +1646,24 @@
     "matchType": "EXACT"
   },
   "Anubias etc": null,
+  "Anubias hastifolia": {
+    "canonicalName": "Anubias hastifolia",
+    "phylum": "Tracheophyta",
+    "class": "Liliopsida",
+    "order": "Alismatales",
+    "family": "Araceae",
+    "genus": "Anubias",
+    "matchType": "EXACT"
+  },
+  "Anubias heterophylla": {
+    "canonicalName": "Anubias heterophylla",
+    "phylum": "Tracheophyta",
+    "class": "Liliopsida",
+    "order": "Alismatales",
+    "family": "Araceae",
+    "genus": "Anubias",
+    "matchType": "EXACT"
+  },
   "Anubias lancifolia": null,
   "Anubias mini": null,
   "Anubias minima": {
@@ -10180,6 +10198,15 @@
     "genus": "Aquarius",
     "matchType": "EXACT"
   },
+  "Echinodorus martii": {
+    "canonicalName": "Aquarius subulatus",
+    "phylum": "Tracheophyta",
+    "class": "Liliopsida",
+    "order": "Alismatales",
+    "family": "Alismataceae",
+    "genus": "Aquarius",
+    "matchType": "EXACT"
+  },
   "Echinodorus quadricostatus": {
     "canonicalName": "Helanthium bolivianum",
     "order": "Alismatales",
@@ -16422,6 +16449,15 @@
     "genus": "Lilaeopsis",
     "matchType": "EXACT"
   },
+  "Lilaeopsis novae-zelandiae": {
+    "canonicalName": "Lilaeopsis novae-zelandiae",
+    "phylum": "Tracheophyta",
+    "class": "Magnoliopsida",
+    "order": "Apiales",
+    "family": "Apiaceae",
+    "genus": "Lilaeopsis",
+    "matchType": "EXACT"
+  },
   "Lilaeopsis novaezelandiae": {
     "canonicalName": "Lilaeopsis novae-zelandiae",
     "order": "Apiales",
@@ -16913,6 +16949,7 @@
     "genus": "Ludwigia",
     "matchType": "EXACT"
   },
+  "Ludwigia mini": null,
   "Ludwigia natans": {
     "canonicalName": "Ludwigia repens",
     "order": "Myrtales",
@@ -29268,6 +29305,15 @@
     "order": "Perciformes",
     "family": "Cichlidae",
     "genus": "Tramitichromis",
+    "matchType": "EXACT"
+  },
+  "Trapa natans": {
+    "canonicalName": "Trapa natans",
+    "phylum": "Tracheophyta",
+    "class": "Magnoliopsida",
+    "order": "Myrtales",
+    "family": "Lythraceae",
+    "genus": "Trapa",
     "matchType": "EXACT"
   },
   "Trat provinces": null,
