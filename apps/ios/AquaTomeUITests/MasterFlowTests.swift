@@ -160,8 +160,9 @@ final class MasterFlowTests: XCTestCase {
     tap(app, "master-choice-Tắt")
     XCTAssertTrue(app.staticTexts["Tắt lọc trong lúc chạy nút?"].waitForExistence(timeout: 5), "no second ask")
     shoot("second-ask")
-    // iOS 27 shows it by the row, closed by a tap outside it ("Hủy" where iOS shows one).
-    if app.buttons["Hủy"].firstMatch.exists { app.buttons["Hủy"].firstMatch.tap() } else { app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.12)).tap() }
+    // A popover, closed by a tap outside it ("Hủy" where iOS shows one). Low on the screen: iOS 27 draws it mid-screen,
+    // iOS 26 near the top, where the tap this used to make landed on it and closed nothing (CI, 16 Nov).
+    if app.buttons["Hủy"].firstMatch.exists { app.buttons["Hủy"].firstMatch.tap() } else { app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.85)).tap() }
     XCTAssertTrue(app.staticTexts["Tắt lọc trong lúc chạy nút?"].waitForNonExistence(timeout: 5), "the second ask stayed")
     expect(app, "master-choice-Bật", contains: "Bật")
     XCTAssertTrue(element(app, "master-choice-Bật").isSelected, "Lọc turned off without a yes")
