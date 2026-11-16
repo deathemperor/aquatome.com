@@ -14,7 +14,8 @@
 //   either side put in goes in whole, after the item it follows on that side; stills stay in order of their second;
 // - any other list both changed is main's, whole.
 // A summary card is one text with its review: main's whole file, unless main's card is the approved one the run started
-// from and the run took it back to pending; then the run's whole file. An approval never goes onto text it didn't read.
+// from, the same text, and the run took it back to pending; then the run's whole file. An approval never goes onto text
+// it didn't read.
 // Anything that isn't JSON (the review page, rewritten whole each run): main's.
 // git config merge.main-whole.driver 'node scripts/merge-main-whole.mjs %O %A %B %P'
 import { readFileSync, writeFileSync } from 'node:fs'
@@ -27,6 +28,8 @@ const DATE = /^\d{4}-\d{2}-\d{2}/
 /** What finds an item of a list on the other sides: a picture by its address, a figure by its heading. */
 const keyOf = x => (isPicture(x) ? `url:${x.url}` : isObj(x) && typeof x.heading === 'string' ? `heading:${x.heading}` : undefined)
 const keyed = (...lists) => lists.every(l => l.every(x => keyOf(x) !== undefined))
+/** Each item's key in its list, with its count among items of the same key (a guide can repeat a heading). */
+const keysOf = list => { const n = new Map(); return list.map(x => { const k = keyOf(x), i = n.get(k) ?? 0; n.set(k, i + 1); return `${k}#${i}` }) }
 
 /** Three-way merge of a value: `base` undefined when both sides added it. */
 export function merge3(base, ours, theirs) {
@@ -45,26 +48,28 @@ export function merge3(base, ours, theirs) {
 
 /** A list of pictures or figures, item by item. */
 function mergeList(base, ours, theirs) {
-  const map = list => { const m = new Map(); for (const x of list) if (!m.has(keyOf(x))) m.set(keyOf(x), x); return m }
-  const [b, o, t] = [map(base), map(ours), map(theirs)]
-  const out = []
-  for (const x of ours) {
-    const k = keyOf(x)
+  const [kb, ko, kt] = [keysOf(base), keysOf(ours), keysOf(theirs)]
+  const b = new Map(base.map((x, i) => [kb[i], x])), t = new Map(theirs.map((x, i) => [kt[i], x])), o = new Set(ko)
+  const out = [], at = []
+  ours.forEach((x, i) => {
+    const k = ko[i]
     if (t.has(k)) out.push(merge3(b.get(k), x, t.get(k)))
     else if (!b.has(k)) out.push(x) // main put it in
     else if (!isPicture(x) && !eq(b.get(k), x)) out.push(x) // a figure the run took off and main changed: main's
-    // else the run took it off: off
-  }
+    else return // the run took it off: off
+    at.push(k)
+  })
   // What the run put in: after the item it follows in the run's list, or first.
   theirs.forEach((x, i) => {
-    const k = keyOf(x)
-    if (b.has(k) || o.has(k) || out.some(y => keyOf(y) === k)) return // there already, or main took it off
-    let at = 0
+    const k = kt[i]
+    if (b.has(k) || o.has(k)) return // there already, or main took it off
+    let pos = 0
     for (let j = i - 1; j >= 0; j--) {
-      const before = out.findIndex(y => keyOf(y) === keyOf(theirs[j]))
-      if (before >= 0) { at = before + 1; break }
+      const before = at.indexOf(kt[j])
+      if (before >= 0) { pos = before + 1; break }
     }
-    out.splice(at, 0, x)
+    out.splice(pos, 0, x)
+    at.splice(pos, 0, k)
   })
   return out.every(x => isPicture(x) && typeof x.t === 'number') ? out.sort((p, q) => p.t - q.t) : out
 }
@@ -81,9 +86,9 @@ function mergeObject(base, ours, theirs) {
   return out
 }
 
-/** A summary card, whole: the run's only when it took the approved card main still has back to pending. */
+/** A summary card, whole: the run's only when it took the approved card main still has, the same text, back to pending. */
 export const mergeSummary = (base, ours, theirs) =>
-  (base?.review === 'approved' && ours.review === 'approved' && theirs.review !== 'approved' ? theirs : ours)
+  (base?.review === 'approved' && ours.review === 'approved' && ours.summary === base.summary && theirs.review !== 'approved' ? theirs : ours)
 const isSummary = v => isObj(v) && typeof v.review === 'string' && typeof v.summary === 'string'
 
 /** Every address a picture has anywhere in `v`. Pictures aren't looked into. */

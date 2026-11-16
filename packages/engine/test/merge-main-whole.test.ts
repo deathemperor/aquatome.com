@@ -183,6 +183,8 @@ test("a summary card: an approval never goes onto text it didn't read, and a run
   expect(mergeMainWhole(card('approved', 'Cũ'), card('approved', 'Cũ', 'x'), card('pending', 'Cũ'))).toEqual(card('pending', 'Cũ'))
   // a person approved it on main while the run, from a pending card, wrote it again pending: main's approval stands
   expect(mergeMainWhole(card('pending', 'Cũ'), card('approved', 'Cũ'), card('pending', 'Mới'))).toEqual(card('approved', 'Cũ'))
+  // main wrote a new text and approved it while the run took the old one back to pending: main's new text
+  expect(mergeMainWhole(card('approved', 'Cũ'), card('approved', 'Mới'), card('pending', 'Cũ'))).toEqual(card('approved', 'Mới'))
 })
 
 test("a picture the run put in goes nowhere main no longer has, and a record main changed stays main's", () => {
@@ -222,6 +224,10 @@ test("the run's moves, new figures, playlist and plain values go in; stills keep
     { updatedAt: '2026-11-17', title: 'b', seen: 3, taxa: ['x', 'z'] })).toEqual({ updatedAt: '2026-11-17', title: 'b', seen: 2, taxa: ['x', 'y'] })
   // a picture main changed and the run took off: off. One the run changed and main took off: off
   expect(mergeMainWhole({ photos: [P, Q] }, { photos: [{ ...P, author: 'main' }] }, { photos: [{ ...Q, author: 'run' }] })).toEqual({ photos: [] })
+  // a heading a guide repeats: each figure by its place among those of that heading, the run's still in the second
+  const fig = (moments: unknown[]) => ({ heading: 'A', moments })
+  expect(mergeMainWhole({ figures: [fig([s(10)]), fig([s(50)])] }, { figures: [fig([s(12)]), fig([s(50)])] }, { figures: [fig([s(10)]), fig([s(50), s(60)])] }))
+    .toEqual({ figures: [fig([s(12)]), fig([s(50), s(60)])] })
 })
 
 test("only the engine's clones and GitHub's engine run set the driver", () => {
