@@ -260,7 +260,7 @@ export function addResearch(a: TopicFacts, b: TopicFacts): TopicFacts {
  * translated (the Writing Lead, 13 Nov 2026, after the owner found a fern under a translated name). And only when the
  * site can link them safely, as the translations' (localize.ts): several words or an abbreviation, and no other term's.
  */
-export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: Llm }, id: string, o: { kind: GuideEntity['kind']; sf?: string; reuse?: boolean; fresh?: boolean; fromDraft?: boolean; revise?: boolean; accept?: string; topUp?: boolean; researchModel?: string; writeModel?: string; now?: () => Date }) {
+export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: Llm; log?: (line: string) => void }, id: string, o: { kind: GuideEntity['kind']; sf?: string; reuse?: boolean; fresh?: boolean; fromDraft?: boolean; revise?: boolean; accept?: string; topUp?: boolean; researchModel?: string; writeModel?: string; now?: () => Date }) {
   const dir = join(root, 'content/glossary')
   const read = async <T>(f: string) => JSON.parse(await readFile(f, 'utf8')) as T
   const entity = GlossarySchema.parse(await read(join(dir, id, 'entity.json')))
@@ -331,6 +331,12 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   const researched = !kept && saved && !o.fresh ? addResearch(saved, found) : found
   if (!kept) { await mkdir(join(root, 'engine-state/glossary'), { recursive: true }); await writeFile(factsFile, `${JSON.stringify(researched, null, 2)}\n`) }
   if (!researched.found) return { id, skipped: 'nothing reliable found' }
+  // A refused site's page, cited by research kept before it was refused, is named in the run's log as it goes, with the
+  // facts that cite it (the Writing Lead, 16 Nov 2026, on the chief of staff's Thursday ruling for refused sources).
+  for (const url of new Set(researched.sources.filter(x => refusedSite(x.url)).map(x => x.url))) {
+    const n = researched.facts.filter(f => researched.sources[f.source]?.url === url).length
+    ;(d.log ?? console.error)(`${id}: ${url} is refused as a source: its link and the ${n} fact${n === 1 ? '' : 's'} citing it don't reach the writer`)
+  }
   // Such a page goes, with the facts that cite it, before the writer sees them: no address, no source (viFacts).
   const { facts, refs, sources } = viFacts({ ...researched, sources: researched.sources.map(x => (offLimits(x.url) ? { ...x, url: '' } : x)) })
   if (!facts.length) return { id, skipped: 'no cited facts' }
@@ -498,10 +504,11 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   const next: GlossaryEntity = GlossarySchema.parse({ ...entity, refs, related: [...new Set(w.related)].filter(r => ids.has(r)).slice(0, 6) })
   // A body cut by hand (bodyFixed: what rested on a refused site alone, the chief of staff, 16 Nov 2026) is the step's
   // again once it writes the entry: the writer sees no refused site's facts (offLimits), and the text is read before it goes
-  // live. So the mark goes with the save and doesn't outlive the cut.
-  const { bodyFixed: _cut, ...prev } = vi
+  // live. So the mark goes with the save and doesn't outlive the cut. Not with an accepted draft: it is saved as it was
+  // kept, perhaps written while the writer still saw a refused site's facts, and nothing has read it against them since.
+  const { bodyFixed: _cut, ...unmarked } = vi
   const t = TranslationSchema.parse(metricPage({
-    ...prev, altNames, definition: unescapePlain(w.definition).replace(/<[^>]+>/g, '').trim(), body: sanitizeHtml(w.body),
+    ...(o.accept ? vi : unmarked), altNames, definition: unescapePlain(w.definition).replace(/<[^>]+>/g, '').trim(), body: sanitizeHtml(w.body),
     quality: { score: review.score, indexable: true },
   }, 'vi'))
   // Each kind's photo stays with the term (the spread above keeps it). One whose kind the new text no longer lists is named,

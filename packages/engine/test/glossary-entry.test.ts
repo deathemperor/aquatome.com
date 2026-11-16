@@ -146,8 +146,11 @@ test('a marketplace\'s, a social network\'s or a refused site\'s page is never a
     wrote = prompt
     return written as never
   }
-  const r = await makeGlossaryEntry(root, { research: async () => shops as never, llm }, 'lua', { kind: 'aquascaping' })
+  const logged: string[] = []
+  const r = await makeGlossaryEntry(root, { research: async () => shops as never, llm, log: line => logged.push(line) }, 'lua', { kind: 'aquascaping' })
   expect(r).toMatchObject({ refs: 3 })
+  // The refused page is named in the run's log, with its fact; a marketplace's isn't a refused site.
+  expect(logged).toEqual(['lua: https://cabaymau.vn/go-lua-be-ca/ is refused as a source: its link and the 1 fact citing it don\'t reach the writer'])
   expect(wrote).not.toContain('kilogram')
   expect(wrote).not.toContain('sa tùng rừng')
   expect(wrote).not.toContain('brine')
@@ -506,12 +509,14 @@ test('an accepted draft is saved as the step kept it, logged with who accepted i
   // A later draft kept, the earlier one put back byte for byte is still one the step kept.
   await keptDraft(root, { ...long6, body: long6.body.replace('Lũa khô nổi', 'Bản sau: lũa khô nổi') }, sixth.notes.slice(1, 4))
   expect(await readFile(draftPath(root), 'utf8')).not.toBe(kept)
-  // Accepted as kept: saved, with no model call, the draft gone.
+  // Accepted as kept: saved, with no model call, the draft gone. A body cut by hand keeps its mark: the draft was kept
+  // before, perhaps from facts a refused site gave, and nothing read it against the filtered ones.
   await writeFile(draftPath(root), kept)
+  await writeFile(join(root, 'content/glossary/lua/vi.json'), JSON.stringify({ ...JSON.parse(before), bodyFixed: true }))
   const r = await accept({ now: () => new Date('2026-11-14T00:00:00Z') })
   expect(r).toMatchObject({ id: 'lua', score: 1, acceptedBy: 'the chief of staff', refs: 3 })
   const vi = JSON.parse(await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8'))
-  expect(vi).toMatchObject({ definition: sixth.entry.definition, body: long6.body, altNames: ['lũa gỗ', 'gỗ lũa'], quality: { score: 1, indexable: true } })
+  expect(vi).toMatchObject({ definition: sixth.entry.definition, body: long6.body, altNames: ['lũa gỗ', 'gỗ lũa'], quality: { score: 1, indexable: true }, bodyFixed: true })
   const log = JSON.parse(await readFile(join(root, 'engine-state/reviews/glossary.json'), 'utf8'))['vi/glossary/lua']
   expect(log[0]).toMatchObject({ at: '2026-11-14T00:00:00Z', score: 1, notes: JSON.parse(kept).notes, kept: true, acceptedBy: 'the chief of staff' })
   // Three rules notes, the entry's length and its three long items.
