@@ -38,7 +38,7 @@ final class HandbookModel {
   /// search again for them.
   private var search = HandbookSearch([])
   /// Fish and plant pages by their content id: what a tank's `species[].id` and `plants[].id` hold.
-  private var pages: [String: HandbookIndex.Item] = [:]
+  private var pages = ItemsByKey([]) { _ in nil }
   /// The page a tank's entry without a page is shown as, by its scientific name.
   private var matcher = PageMatcher([])
   /// Every page by its path, and what the reader keeps on this phone by path (the pages saved to read later and read
@@ -371,7 +371,7 @@ final class HandbookModel {
   private func use(_ ix: HandbookIndex, _ s: Status) {
     search = HandbookSearch(ix.items)
     searching.search = search
-    pages = Dictionary(ix.items.compactMap { i in i.contentId.map { ($0, i) } }, uniquingKeysWith: { a, _ in a })
+    pages = ItemsByKey(ix.items) { $0.contentId }
     matcher = PageMatcher(index: ix.items)
     paths.use(ix)
     shardCounts = ix.pages
