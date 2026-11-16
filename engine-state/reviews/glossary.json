@@ -1,6 +1,32 @@
 {
   "vi/glossary/artemia": [
     {
+      "at": "2026-11-16T03:31:06Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở, nên vớt ra và cho cá ăn trong khoảng thời gian này.\" (not \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở.\": Rule 12: \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở.\" gives the reason but drops its advice. THIS TERM asks for each feeding reas…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Ở nhiệt độ này trứng thường nở sau 18–24 giờ, nước lạnh thì lâu hơn, có khi tới 48 giờ.\" (not \"Ở nhiệt độ này trứng thường nở sau khoảng 24 giờ vào mùa hè, mùa đông có khi tới 48 giờ.\": it drops the figure 18, the advice \"nước lạnh thì lâu hơn\")",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Tắt sục và chờ khoảng 5 phút.\" (not \"Tắt sục và chờ 5–10 phút.\": Rules 4 and 12: \"Tắt sục và chờ 5–10 phút.\" puts a 5–10 minute wait right before \"hút ra trước mốc 10 phút\", so the 10 minutes is said twice and the two lines don't match. THIS TERM wants harvest timing as one statement: turn the air off, wa…",
+        "The entry is 516 words: hold it to about 515, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-16T03:31:06Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 1,
+      "notes": [
+        "Rules 4 and 12: \"Hạt trứng khô nhỏ hơn ấu trùng.\" and, two sentences later, \"hợp với cá miệng nhỏ hơn\" split one fact across two places. The size comparison and what it suits must be one sentence, as fact 54 gives it: \"Hạt trứng khô nhỏ hơn ấu trùng nên hợp với cá nhỏ hơn.\" \"cá miệng nhỏ hơn\" also changes the fact's \"smaller fish\".",
+        "Rule 12: \"Không còn vỏ nên cá con ăn được hết\" reads as though any fry can eat it. Fact 53 says that with the shell gone, every egg, hatched or not, can be fed. The text must say \"mọi hạt trứng, nở hay không, đều cho ăn được\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-16T03:04:16Z",
       "model": "sonnet",
       "cli": "2.1.325",
@@ -45,36 +71,6 @@
       "notes": [
         "The rewrite dropped from \"Dùng nước dưới 22 °C hoặc trứng hết hạn.\" the figure 22, the advice \"Dùng nước dưới 22 °C\", the advice \"trứng hết hạn\", and nothing lets that sentence go: write it as it was, word for word.",
         "The entry is 507 words: hold it to about 500, and leave what is left out to the pages that use the term."
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-16T02:02:29Z",
-      "model": "sonnet",
-      "cli": "2.1.323",
-      "score": 1,
-      "notes": [
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở, nên vớt ra và cho cá ăn trong khoảng thời gian này.\" (not \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở.\": Rule 12: \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở.\" gives the reason without its advice. THIS TERM says the larvae are harveste…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Pha khoảng 30 g muối hột không iot mỗi lít nước, dù các công thức dao động từ khoảng 5 g mỗi lít tới mức này.\" (not \"Pha khoảng 30 g muối không iot mỗi lít nước.\": Rule 12: \"Pha khoảng 30 g muối không iot mỗi lít nước.\" gives only the working figure. THIS TERM wants the range in the same sentence: recipes…",
-        "Loose, reworded: \"Thả dây oxy xuống sát đáy bình, không gắn đá sủi, sục đều vừa phải để trứng luôn lăn trong nước.\" → \"Thả dây oxy xuống sát đáy bình, không gắn đá sủi, sục đều và vừa phải.\" (supported)",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Ở nhiệt độ này trứng thường nở sau 18–24 giờ, nước lạnh thì lâu hơn, có khi tới 48 giờ.\" (not \"Ở nhiệt độ này ủ trứng khoảng 24–48 giờ: mùa hè chừng 24 giờ, mùa đông có khi tới 48 giờ.\": it drops the figure 18, the advice \"nước lạnh thì lâu hơn\")",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Tắt sục và chờ khoảng 5 phút.\" (not \"Tắt sục và chờ 5–10 phút.\": Rules 4 and 12: \"Tắt sục và chờ 5–10 phút.\" sits beside \"hút ra trước mốc 10 phút\", so the 10 minutes is said twice. THIS TERM forbids \"chờ 5–10 phút\" next to the 10 minutes and wants one statement: wait about 5 minutes and siphon before 10.)",
-        "Rule 12: The line \"Ấu trùng đã sang giai đoạn thứ hai cũng khó cho cá bột bắt hơn.\" is missing. THIS TERM says it must be written back word for word, next to the 12-hour sentence \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở, nên vớt ra và cho cá ăn trong khoảng thời gian này.\"",
-        "Rule 12: The other name \"tôm vụn\" (source 4) appears nowhere: altNames is empty and the text doesn't mention it. THIS TERM says the term's other names are \"tôm vụn\" and \"brine shrimp\", so only \"brine shrimp\" is given (\"Tên tiếng Anh của nó là brine shrimp.\").",
-        "The entry is 501 words: hold it to about 500, and leave what is left out to the pages that use the term."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-16T01:41:06Z",
-      "model": "sonnet",
-      "cli": "2.1.323",
-      "score": 0.97,
-      "notes": [
-        "\"Trứng Artemia nuôi ở Việt Nam lấy từ ruộng muối Vĩnh Châu, nơi Artemia được đưa về từ đầu thập niên 1980 vì nước ta vốn không có Artemia.\": the facts don't carry it (contradicts, contradicts, contradicts): farming spread beyond Vĩnh Châu; domestic market >99% imported eggs / imported eggs were over 99% of the domestic market; Vĩnh Châu eggs rarely used / imported eggs were over 99% of the domest…",
-        "The entry is 505 words: hold it to about 500, and leave what is left out to the pages that use the term."
       ],
       "attempt": "rewrite",
       "kept": false
