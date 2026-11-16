@@ -286,6 +286,80 @@
   ],
   "vi/glossary/mang-sinh-hoc": [
     {
+      "at": "2026-11-16T18:01:32Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (the definition's first sentence): \"Lớp màng mỏng tới mức thường không thấy, phủ trên kính, lũa, đá và cây trong bể, sờ vào mặt trong kính thấy hơi nhớt.\"",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Lũa mới thả thường nổi một lớp lông trắng hoặc xám, nhầy, có khi thành sợi, sau vài ngày tới một tuần.\" (not \"Lũa mới thả có thể nổi một lớp màng trắng, nhầy sau vài ngày tới một tuần.\": Rule 12: \"Lũa mới thả có thể nổi một lớp màng trắng, nhầy sau vài ngày tới một tuần\" uses \"có thể nổi\" (can appear). Th…",
+        "Loose, reworded: \"Đó là màng vi khuẩn sống nhờ chất hữu cơ còn trong gỗ.\" → \"Lớp màng này xuất hiện do chất hữu cơ còn sót trong gỗ lên men.\" (supported)"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-16T18:01:32Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"sờ vào thấy hơi nhớt\" in \"Lớp nhầy trong, mỏng tới mức thường không thấy, phủ trên kính, lũa, đá và cây trong bể, sờ vào thấy hơi nhớt\" applies the slightly slimy feel to every surface listed. Per fact 8, that feel belongs only to the inside of the glass (\"sờ vào mặt trong kính thấy hơi nhớt\").",
+        "Rule 12: \"Lớp nhầy trong\" uses \"nhầy\" for the thin, normal-level film in the meaning. Under THIS TERM, \"nhầy\" belongs only to the white or grey fuzz on new wood (facts 10 and 11).",
+        "Rule 12: \"Trên mút của lọc mút cũng có lớp màng này, còn chuyện vi khuẩn lọc xử lý chất thải thế nào thì xem chu trình nitơ\" goes past the one short sentence on sponge filter media (fact 12). It adds how the filter's bacteria handle waste, which no fact gives. It should read only \"Lớp màng này cũng mọc trên mút lọc.\"",
+        "Rule 12: \"Otocinclus\" in \"Tép, cá bột và Otocinclus đều gặm lớp màng này\" has no kind word before the genus name. It should be \"cá Otocinclus\".",
+        "Rule 12: \"hay nổi\" in \"Lũa mới thả hay nổi một lớp lông trắng hoặc xám, nhầy, có khi thành sợi, sau vài ngày tới một tuần\" can be read as \"or\". It should be \"thường nổi\".",
+        "Rule 12: \"bông lọc\" in \"mặt nước ít xao động hoặc bông lọc bị nghẹt\" means filter floss. Fact 45 speaks of clogged filter sponges, so it should be \"mút lọc\".",
+        "Rule 12: \"Planaria\" in \"Làm vậy sẽ đẩy amoniac, nitrit, nitrat lên và có thể kéo theo Planaria\" has no kind word before the genus name. It should be \"sán dẹp Planaria\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-16T17:34:10Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Lớp nhầy trong, mỏng tới mức thường không thấy, phủ trên kính, lũa, đá và cây trong bể, sờ vào thấy hơi nhớt.\" the advice \"phủ trên kính\", the advice \"đá\", the advice \"cây trong bể\", and nothing lets that sentence go: write it as it was, word for word.",
+        "The rewrite dropped from \"Trên mút của lọc mút cũng có lớp màng này, còn chuyện vi khuẩn lọc xử lý chất thải thế nào thì xem chu trình nitơ.\" the advice \"còn chuyện vi khuẩn lọc xử lý chất thải thế nào thì xem chu trình nitơ\", and nothing lets that sentence go: write it as it was, word for word."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-16T17:34:10Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Trên mút của lọc mút cũng có lớp màng này, còn chuyện vi khuẩn lọc xử lý chất thải thế nào thì xem chu trình nitơ.\" the advice \"còn chuyện vi khuẩn lọc xử lý chất thải thế nào thì xem chu trình nitơ\", and nothing lets that sentence go: write it as it was, word for word.",
+        "Rule 12: \"Lũa mới thả thường nổi một lớp lông trắng hoặc xám, nhầy, có khi thành sợi\" gives the film on new wood a slimy feel (\"nhầy\"). THIS TERM puts the slight slimy feel only on the inside of the glass and says the wood never gets a feel, since the facts give it other looks (white or grey, fuzzy, cloudy, stringy).",
+        "Rule 12: In the meaning, \"Nó phủ kính, lũa, đá và cây trong bể, gồm vi khuẩn, vi tảo, nấm và động vật nguyên sinh dính với nhau bằng chất nhầy do chúng tự tiết ra\" puts where the film grows before what lives in it and what holds it together. THIS TERM asks for what lives in it and what holds it together first, then where in a tank it grows."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-16T17:34:10Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (the definition's first sentence): \"Lớp nhầy trong, mỏng tới mức thường không thấy, phủ trên kính, lũa, đá và cây trong bể, sờ vào thấy hơi nhớt.\"",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Lũa mới thả hay nổi một lớp lông trắng hoặc xám, nhầy, có khi thành sợi, sau vài ngày tới một tuần.\" (not \"Lũa mới thả có thể nổi một lớp nhầy màu trắng sau vài ngày tới một tuần.\": Rule 12: \"Lũa mới thả có thể nổi một lớp nhầy màu trắng sau vài ngày tới một tuần.\" The line asks for \"thường nổi\" here (fac…",
+        "Loose, reworded: \"Chỉnh đầu ra của lọc cho mặt nước gợn nhẹ, không cần bắn tung tóe.\" → \"Chỉnh đầu ra của lọc cho mặt nước gợn nhẹ, tránh bắn tung tóe mạnh.\" (supported)",
+        "Rule 12: \"phủ trên kính, lũa, đá và cây trong bể, sờ vào thấy hơi nhớt\" gives the slimy feel to wood, rock and plants as well as glass. The facts (fact 8) give the slight slimy feel only to the inside of the glass, as in \"sờ vào mặt trong kính thấy hơi nhớt\". Wood, rock and plants must not be given a feel.",
+        "Rule 12: \"Trên mút của lọc mút cũng có lớp màng này, còn chuyện vi khuẩn lọc xử lý chất thải thế nào thì xem chu trình nitơ\" talks about how the filter's bacteria handle waste, which no fact gives. The filter should be one short sentence only, as in \"Lớp màng này cũng mọc trên mút lọc.\"",
+        "Rule 12: \"Tép, cá bột và Otocinclus đều gặm lớp màng này\" uses the genus name without a kind word. It should be \"cá Otocinclus\".",
+        "Rule 12: \"Lũa mới thả hay nổi một lớp lông trắng hoặc xám\" uses \"hay nổi\", which a reader can take as \"or\". It should be \"thường nổi\".",
+        "Rule 12: \"hoặc bông lọc bị nghẹt\": \"bông lọc\" means filter floss. The fact is about clogged filter sponges, which must be \"mút lọc\".",
+        "Rule 12: \"có thể kéo theo Planaria\" uses the genus name without a kind word. It should be \"sán dẹp Planaria\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
       "at": "2026-11-16T17:16:51Z",
       "model": "sonnet",
       "cli": "2.1.325",
@@ -301,20 +375,6 @@
       ],
       "attempt": "rewrite",
       "kept": true
-    },
-    {
-      "at": "2026-11-16T17:16:51Z",
-      "model": "sonnet",
-      "cli": "2.1.325",
-      "score": 0.97,
-      "notes": [
-        "\"Tép, cá bột và Otocinclus gặm lớp màng này suốt ngày.\": the facts don't carry it (loose, unsupported, loose, unsupported, unsupported, unsupported): 'all day' is said of shrimp only, not of fry or otos / 'all day' grazing is said only of shrimp, not fry or Otocinclus / 'all day' was said only of shrimp / The facts say shrimp, fish fry and Otocinclus all graze biofilm, but only shrimp are said to…",
-        "Rule 4: The definition already says the film is too thin to see and feels slimy on the glass (\"mỏng tới mức thường không thấy\", \"sờ vào thấy hơi nhớt\"). The body says it again in \"Bình thường lớp màng mỏng tới mức mắt không thấy. Lau mặt trong kính thì chỉ thấy hơi nhớt tay.\" This should be said once.",
-        "Rule 4: Where the film grows is listed twice. The definition has \"phủ trên kính, lũa, đá và cây trong bể\", and the body has \"Nó mọc trên kính, lũa, đá nham thạch, lũa cholla, rêu, lá cây và nền\" plus \"nó phủ gần như mọi bề mặt ngập nước\". This should be said once, in one place.",
-        "Rules 4 and 12: The definition ends with \"và là thức ăn chính của tép con\". The body repeats this in \"Tép con mới nở sống gần như chỉ nhờ nó trong mấy tuần đầu.\" Also, THIS TERM limits the meaning to the film's look and what it is (what lives in it, what holds it together, where it grows), so food for shrimp doesn't belong in the definition."
-      ],
-      "attempt": "first",
-      "kept": false
     }
   ],
   "vi/glossary/ph": [
