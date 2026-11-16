@@ -353,6 +353,28 @@ test("a breed's sources and the care figures that point into them merge as one: 
   expect(mergeMainWhole(base, { ...base, seen: 1 }, run3, {}, B)).toEqual({ ...run3, seen: 1 })
 })
 
+test('a picture both sides changed is one side\'s whole, never one with fields of both', () => {
+  const p = (author: string, caption: string) => ({ url: 'u/p', author, caption })
+  // main read its credit again, the run wrote its caption again: main's, with the old caption
+  expect(mergeMainWhole({ photos: [p('0', '0')] }, { photos: [p('main', '0')] }, { photos: [p('0', 'run')] })).toEqual({ photos: [p('main', '0')] })
+  expect(mergeMainWhole({ figures: [{ heading: 'A', photo: p('0', '0') }] }, { figures: [{ heading: 'A', photo: p('main', '0') }] }, { figures: [{ heading: 'A', photo: p('0', 'run') }] }))
+    .toEqual({ figures: [{ heading: 'A', photo: p('main', '0') }] })
+  // a list with an item that has neither an address nor a heading, both changed: main's whole
+  expect(mergeMainWhole({ refs: [{ url: 'u/a' }, { title: 't' }] }, { refs: [{ url: 'u/a' }, { title: 't' }, { title: 'm' }] }, { refs: [{ url: 'u/a' }, { title: 't' }, { url: 'u/r' }] }))
+    .toEqual({ refs: [{ url: 'u/a' }, { title: 't' }, { title: 'm' }] })
+})
+
+test("the review page stays main's, and JSON that doesn't read is left to git", () => {
+  const dir = mkdtempSync(join(tmpdir(), 'aq-main-whole-exits-'))
+  const run = (path: string, a: string) => {
+    writeFileSync(join(dir, 'O'), 'base\n'); writeFileSync(join(dir, 'A'), a); writeFileSync(join(dir, 'B'), 'run\n')
+    const r = spawnSync('node', [join(ROOT, 'scripts/merge-main-whole.mjs'), 'O', 'A', 'B', path], { cwd: dir, encoding: 'utf8' })
+    return { status: r.status, a: readFileSync(join(dir, 'A'), 'utf8') }
+  }
+  expect(run('docs/review/photo-subjects.md', 'main\n')).toEqual({ status: 0, a: 'main\n' })
+  expect(run('content/gallery/ca-x.json', '{ not json')).toEqual({ status: 1, a: '{ not json' })
+})
+
 test("only the engine's clones and GitHub's engine run set the driver", () => {
   const dir = mkdtempSync(join(tmpdir(), 'aq-main-whole-guard-'))
   const set = (cwd: string, env = '') => spawnSync('bash', ['-c', `
