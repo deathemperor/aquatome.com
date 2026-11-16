@@ -70,9 +70,11 @@ SHOTS = {
               'testTheOwnersNeedsInTheLargestText', 'testTheOwnersDashboardWithNothingToDo', 'testTheDailyReportsDelivery', 'testAnOwnersSection',
               'testAnOwnersSectionInTheDark', 'testAnOwnersSectionInTheLargestText', 'testTheOwnersComments',
               'testTheOwnersCommentsInTheDark', 'testTheOwnersCommentsInTheLargestText', 'testTheDailyReportsSettings'],
-    # v2's Hôm nay, its fish of the day's page and Khám phá; and its glass bar over a page's text, a page from each tab.
+    # v2's Hôm nay, its fish of the day's page and Khám phá; its glass bar over a page's text, a page from each tab; and
+    # its big titles, headers and chips, each tab at rest and scrolled with two groups' pages.
     'v2': ['testV2', 'testV2InTheDark', 'testV2InTheLargestText', 'testV2InMalayInTheDarkAtTheLargestText',
-           'testTheBarOverAPagesTextFromEachTab', 'testTheBarOverAPagesTextFromEachTabInTheDark'],
+           'testTheBarOverAPagesTextFromEachTab', 'testTheBarOverAPagesTextFromEachTabInTheDark',
+           'testTheTitles', 'testTheTitlesInTheDark', 'testTheTitlesInTheLargestText', 'testTheTitlesInTheLargestTextInTheDark'],
     # The chat screen: an answer with its cards, from the stand-in's recordings.
     'chat': ['testTheChat', 'testTheChatInTheDark', 'testTheChatInTheLargestText', 'testTheChatsOpenSectionAndBackFromACardsPage'],
 }
