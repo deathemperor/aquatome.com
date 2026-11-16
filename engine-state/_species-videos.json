@@ -1734,22 +1734,33 @@
     "reason": "Vague title, no species named; not clearly a single-species profile"
   },
   "EY13FDXeW3Q": {
-    "at": "2026-11-07",
+    "at": "2026-11-15",
     "title": "GUPPY GRASS SPECIES PROFILE",
     "channel": "Daniel Keeping Fish",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Najas guadalupensis",
+    "page": "plants/najas-guadalupensis",
+    "done": "added",
+    "score": 0.8
   },
   "eygTHQ8ISLo": {
-    "at": "2026-11-07",
+    "at": "2026-11-15",
     "title": "Pink tail Chalceus erythrurus",
     "channel": "Team Detritus",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Chalceus erythrurus",
+    "page": "species/chalceus-erythrurus",
+    "done": "nothing new"
   },
   "eZ9yKYiueNA": {
-    "at": "2026-11-07",
+    "at": "2026-11-15",
     "title": "Fancy Guppy Strains (Blue Grass)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Poecilia reticulata",
+    "page": "species/poecilia-reticulata",
+    "done": "added",
+    "score": 0.82
   },
   "eZZR2z2rHxU": {
     "at": "2026-11-07",

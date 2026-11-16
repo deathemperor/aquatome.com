@@ -1,10 +1,10 @@
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { photoFitsHead, type Photo } from '@aq/schema'
+import { isNonCommercial, photoFitsHead, type Photo } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
-import { across, cardWorthy, LARGE_PX, ownMarkOnly, readCalendar, readVerdicts, SLOT_RATIO } from './curation'
+import { across, cardWorthy, handAvoid, LARGE_PX, ownMarkOnly, readCalendar, readVerdicts, SLOT_RATIO } from './curation'
 import { pickStands, readPersonYes } from './person-yes'
 import { namedOn } from './photo-named'
 import { ageOf, grownHead } from './young-heads'
@@ -64,7 +64,8 @@ export const cardCrop = (bytes: Uint8Array) => sharp(bytes).rotate().resize(640,
  * `held`: a photo the calendar keeps off cards (content/curation.json `avoid`, a shop's lettered photo among them).
  */
 export function leadChoice(own: Photo[], gallery: GalleryPhoto[], passes: (p: Photo) => boolean, compared: Compared, marked: (p: Photo) => boolean = () => false, named: (p: Photo) => number = () => 0, kept: (p: Photo) => boolean = () => false, age: (p: Photo) => boolean | undefined = () => undefined, held: (p: Photo) => boolean = () => false): { lead: Photo } | { ask: { head: Photo; photo: Photo } } | undefined {
-  own=own.filter(photoFitsHead);gallery=gallery.filter(photoFitsHead)
+  // A non-commercial album photo stays in its album: it never leads a page (the owner's yes was for albums, 10 Nov).
+  own=own.filter(photoFitsHead);gallery=gallery.filter(p=>photoFitsHead(p)&&!isNonCommercial(p.licence))
   // A photo its source names only with "cf.", to its genus or as another fish (`named`, photo-named.ts) doesn't lead while
   // one it names better passes: the lowest class that passes is the bar (the chief of staff, 2026-11-14).
   const bar = Math.min(...[...own, ...gallery].filter(p => !p.generated && passes(p)).map(named))
@@ -115,6 +116,9 @@ export async function screenLeads(root: string, d: LeadDeps, o: { limit: number;
   const compared: Compared = JSON.parse(await readFile(file, 'utf8').catch(() => '{}'))
   const verdicts = await readVerdicts(root)
   const cur = await readCalendar(root)
+  // A person's entries alone: the engine's (headAvoid) list a photo refused for one page, by address, and here a photo is
+  // judged for its own page, where it may pass.
+  const avoid = handAvoid(cur.avoid)
   const report = { sheets: 0, compared: 0, changed: [] as string[], gained: [] as string[], failed: [] as string[], waiting: 0, stopped: '' }
   const today = new Date().toISOString().slice(0, 10)
   const coming = new Set(cur.days.filter(x => x.date >= today && x.fish).map(x => x.fish!))
@@ -150,9 +154,9 @@ export async function screenLeads(root: string, d: LeadDeps, o: { limit: number;
   const grown = grownHead(verdicts)
   const age = (f: Fish) => (p: Photo) => {
     if (picks[f.ref] && pickStands(f.ref, picks[f.ref]!, verdicts.subjects, yes)) return undefined
-    return ageOf(verdicts.subjects[p.url]?.[f.id]) === true ? true : grown(asked(f, p), f.id) && !(p.url in cur.avoid) ? false : undefined
+    return ageOf(verdicts.subjects[p.url]?.[f.id]) === true ? true : grown(asked(f, p), f.id) && !(p.url in avoid) ? false : undefined
   }
-  const choose = (f: Fish) => leadChoice(f.entity.photos ?? [], f.gallery, p => cardWorthy(asked(f, p), f.id, verdicts, cur.avoid), compared, p => ownMarkOnly(asked(f, p), f.id, verdicts, cur.avoid), named(f.id), p => !!verdicts.kept?.(p.url), age(f), p => p.url in cur.avoid)
+  const choose = (f: Fish) => leadChoice(f.entity.photos ?? [], f.gallery, p => cardWorthy(asked(f, p), f.id, verdicts, avoid), compared, p => ownMarkOnly(asked(f, p), f.id, verdicts, avoid), named(f.id), p => !!verdicts.kept?.(p.url), age(f), p => p.url in avoid)
 
   // Asked in rounds, since a pair answered no sends its fish on to the next photo.
   const dir = await mkdtemp(join(tmpdir(), 'lead-photos-'))

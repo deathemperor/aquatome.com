@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/clown-killifish-detailed-guide-care-diet-and-breeding/
 title: Clown Killifish – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-11-08T00:20:50.527Z
-hash: 962ac8408d4109660511f73490a3938ce6555ae0f207506352d45a70e01d99d8
+hash: 22033463df0b2f32eb7613d6a4359abc05af86ca20ac598bd3114918ad9fad63
 ---
 
 Clown Killifish (also known as Epiplatys annulatus) is one of the most beautiful miniature freshwater fish species in the aquarium hobby. Therefore, if you are thinking about small fish for nano tanks, they should be an option for you to consider.
@@ -199,6 +199,3 @@ Stocking and Compatibility Calculator
 ## In Conclusion
 Clown Killifish are beautiful small and peaceful fish that breed really easily in a well-planted tank. They are one of the best fish species for small tanks.
 They are also relatively easy to breed and care for once you understand their requirements.
-## 2 thoughts on “Clown Killifish – Detailed Guide: Care, Diet, and Breeding”
-- Hello! Can I keep a trio (2:1F:M) or 2:2 with 2 male guppies? Will the male guppies harass or bully the female killi if there are no female guppy in the tank? Thanks ReplyHi Bridgett, Questions regarding the compatibility of different fish, shrimps, crabs, and so on, are perhaps some of the most ambiguous. The thing is, a lot depends on the personalities of the animals. I can only talk about risks and how likely they are. In my opinion, there is a risk, although it is not very high. Therefore, if you decide to conduct such an experiment, it is necessary to carefully observe the development of events, especially in the first few days, so that you can intervene immediately if something goes wrong. Personally, I am also curious. Please, let me posted how it goes. Best regards, Michael Reply
-### Leave a Reply Cancel reply

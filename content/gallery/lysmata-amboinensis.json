@@ -2,18 +2,6 @@
   "id": "lysmata-amboinensis",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/0b905b4a26cea179.webp",
-      "thumb": "https://media.aquatome.com/commons/0b905b4a26cea179-480.webp",
-      "width": 1200,
-      "height": 1470,
-      "licence": "CC BY 4.0",
-      "author": "desertnaturalist",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lysmata_amboinensis_43213446.jpg",
-      "caption": "Tép dọn vệ sinh trên nền cát ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/commons/ec0e56c047813647.webp",
       "thumb": "https://media.aquatome.com/commons/ec0e56c047813647-480.webp",
       "width": 1024,
@@ -252,6 +240,18 @@
       "caption": "Tép dọn vệ sinh trong bể san hô",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/0b905b4a26cea179.webp",
+      "thumb": "https://media.aquatome.com/commons/0b905b4a26cea179-480.webp",
+      "width": 1200,
+      "height": 1470,
+      "licence": "CC BY 4.0",
+      "author": "desertnaturalist",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lysmata_amboinensis_43213446.jpg",
+      "caption": "Tép dọn vệ sinh trên nền cát ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
     }
   ],
   "seen": 76,

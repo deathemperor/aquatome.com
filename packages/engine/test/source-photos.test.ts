@@ -50,6 +50,16 @@ test('logos, icons, svgs, QR codes, tiny and banner images are never picked', ()
   expect(picked.map(p => p.src)).toEqual(['https://shop.example/cardinal.jpg'])
 })
 
+test("a commenter's picture is never picked, though its file name is a bare hash and its caption the fish's name", () => {
+  const picked = pickSourcePhotos([
+    { src: 'https://secure.gravatar.com/avatar/0123456789abcdef0123456789abcdef?s=800&d=mm&r=g', alt: '', width: 800, height: 800 },
+    { src: 'https://0.gravatar.com/avatar/fedcba9876543210fedcba9876543210?s=900', alt: 'Cherry shrimp', width: 900, height: 900 },
+    { src: '/wp-content/uploads/avatars/12/cherry.jpg', alt: 'Cherry shrimp', width: 800, height: 800 },
+    { src: '/cherry-shrimp.jpg', alt: 'Cherry shrimp', width: 1000, height: 700 },
+  ], 'https://shop.example/p', ['Cherry shrimp'])
+  expect(picked.map(p => p.src)).toEqual(['https://shop.example/cherry-shrimp.jpg'])
+})
+
 test("a drawing, plate or stamp a source shows is no photo of the species: ScotCat's line drawings and stamps, Seriously Fish's Bleeker plate", () => {
   const picked = pickSourcePhotos([
     { src: '/silurichthys_hasseltii.jpg', alt: 'Silurichthys hasseltii: line drawing', width: 1000, height: 500 },

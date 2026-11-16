@@ -3,7 +3,7 @@ import { writePhotoState } from './photo-state'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
 import { parse } from 'node-html-parser'
-import { loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type Summary, type WrittenLang } from '@aq/schema'
+import { IMAGE_SWITCHES, loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type Summary, type WrittenLang, type ImageSwitches } from '@aq/schema'
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
@@ -33,7 +33,7 @@ import { breedsNamed } from './topics'
 import { schoolFromSeriouslyFish } from './traits'
 import { pageGroup } from './gbif'
 import { readVideoRejected } from './videos'
-import { orderAlbums } from './gallery'
+import { dropNonCommercial, orderAlbums } from './gallery'
 import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
 import { holdForSecondLook, listAgreed, looks, readSecondLook } from './last-photo'
 import { keptLast } from './own-mark'
@@ -157,6 +157,11 @@ export type SweepReport = {
   refusedHeld: string[]
   /** Albums put in the album order (gallery.ts orderAlbums) whose lead photo changed, `id: old -> new`. */
   albums: string[]
+  /**
+   * Non-commercial photos taken off an album or a page (gallery.ts dropNonCommercial), `file: url`: every one with
+   * IMAGE_SWITCHES.inatNonCommercial off, all but iNaturalist's album photos with it on.
+   */
+  nonCommercial: string[]
   /** Heads a person picked that a page's check calls "none": out of the rule, listed each cycle, `kind/id: url`. */
   refusedPicked: string[]
   /** Rejected videos (engine-state/_video-rejected.json) taken off a page, `kind/id: youtubeId (why)`. */
@@ -514,13 +519,13 @@ async function regroupPages(content: string): Promise<string[]> {
   }
   return moved
 }
-export async function sweep(root: string, o: { llm?: Llm; titles?: number; retitles?: number; model?: string; photoCap?: number; today?: string } = {}): Promise<SweepReport> {
+export async function sweep(root: string, o: { llm?: Llm; titles?: number; retitles?: number; model?: string; photoCap?: number; today?: string; switches?: Readonly<ImageSwitches> } = {}): Promise<SweepReport> {
   // Before anything is written. Not a whole number ("1O" for 10 reads as none), every comparison with it is false and
   // the cap would be off (the independent reader, 2026-11-11).
   const cap = o.photoCap ?? PHOTO_CAP
   if (!Number.isInteger(cap) || cap < 0) throw new Error(`sweep: the photo cap is a whole number, 0 or more, not ${cap}`)
   const content = join(root, 'content')
-  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], secondLook: [], agreed: [], unwell: [], heads: [], named: [], noAnimal: [], refused: [], refusedHeld: [], refusedPicked: [], albums: [], videos: [], card: [], summaries: [], tanks: [], shop: [], dealer: [], dealerOnly: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], folds: [], stopped: '' }
+  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], secondLook: [], agreed: [], unwell: [], heads: [], named: [], noAnimal: [], refused: [], refusedHeld: [], refusedPicked: [], albums: [], nonCommercial: [], videos: [], card: [], summaries: [], tanks: [], shop: [], dealer: [], dealerOnly: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], folds: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
   const counted: { file: string; raw: string; t: Stored; kind: string; lang: WrittenLang; id: string }[] = [] // raw: for its indentation
@@ -1299,6 +1304,11 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     await write(file, raw, e)
     changed(`species/${id}/entity.json`)
   }
+  // Non-commercial photos off every album and page in one step: all of them with their switch off, all but iNaturalist's
+  // album photos with it on (gallery.ts dropNonCommercial). Before the albums are ordered.
+  const nonCommercial = await dropNonCommercial(content, o.switches ?? IMAGE_SWITCHES)
+  nonCommercial.files.forEach(changed)
+  report.nonCommercial = nonCommercial.photos
   // Every album in the album order, after every photo above has left: the check's screening order, photo-tank and ruler
   // photos after the others (gallery.ts orderAlbums). Before the heads with no animal are read, as a page's head may be
   // its album's first.

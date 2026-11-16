@@ -1,9 +1,10 @@
-import { fitsCard, linkTerms, type Content, type LinkTarget, type Localized, type GuideEntity, type Photo, type PlantEntity, type SpeciesEntity, type BreedEntity } from '@aq/schema'
+import { fitsCard, linkTerms, stillShown, THUMB_WIDTH, thumbOf, type Content, type LinkTarget, type Localized, type GuideEntity, type Photo, type PlantEntity, type SpeciesEntity, type BreedEntity } from '@aq/schema'
 import { categoriesIn } from './equipment'
 import { GROUP_LABELS } from './format'
 import { taxonHref } from './taxa-places'
 import awaiting from './guide-heads-awaiting.json' with { type: 'json' }
 import picks from './guide-heads-picks.json' with { type: 'json' }
+import frames from './guide-frames.json' with { type: 'json' }
 
 /** Words in guide text that mean an equipment category (only categories that have a page are linked). */
 const EQUIPMENT_TERMS: Record<string, string[]> = {
@@ -62,7 +63,8 @@ export function linkTargets(c: Content): LinkTarget[] {
   const size = (x: { t: { sections: Record<string, string> } }) => Object.values(x.t.sections).join('').length
   for (const s of [...c.species].sort((a, b) => size(b) - size(a))) out.push({ key: `species:${s.id}`, href: `/vi/ca/${s.t.slug}/`, names: [s.scientificName, s.t.name, ...s.t.altNames].filter(n => multiWord(n) && ok(n)) })
   // A plant's former scientific names are its own: "Rêu java (Vesicularia dubyana)" is the Java moss page.
-  for (const p of c.plants) out.push({ key: `plant:${p.id}`, href: `/vi/cay/${p.t.slug}/`, names: [p.scientificName, ...(p.synonyms ?? []), p.t.name, ...p.t.altNames].filter(n => multiWord(n) && ok(n)) })
+  // Its scientific name names its genus to the linker: a plant in brackets without a page here unlinks the name before it.
+  for (const p of c.plants) out.push({ key: `plant:${p.id}`, href: `/vi/cay/${p.t.slug}/`, names: [p.scientificName, ...(p.synonyms ?? []), p.t.name, ...p.t.altNames].filter(n => multiWord(n) && ok(n)), sci: p.scientificName })
   const taxa = new Map<string, LinkTarget>()
   for (const s of c.species) {
     const genus = taxonHref(s, 3), family = taxonHref(s, 2)
@@ -232,7 +234,27 @@ export function titleNames(c: Content, g: Localized<GuideEntity>): Named[] {
 export function guideImages(c: Content, g: Localized<GuideEntity>): Photo[] {
   // A section's photo can be a strip (a lamp, a tank's length) that a card's 16:9 would crop to a sliver.
   const sections = (g.video?.figures ?? []).flatMap(f => f.photo ?? []).filter(fitsCard)
+  const frame = framePicked(g)
+  if (frame.length) return frame
   return [...g.photos, ...sections, ...heads(c, g).flatMap(x => x.photos[0] ?? [])].filter(p => !p.generated)
+}
+/**
+ * A video guide's picture picked by hand from its own video (guide-frames.json: the guide's id → the second of one of its
+ * sections' stills, so in every language), and its only one: its card, the app's poster, and its series' card where it
+ * comes first. A page that already shows it gives the guide's card no picture rather than a stock photo (lib/pictures.ts).
+ * For a guide whose stock photos show something that isn't the video's own (the owner, 16 Nov: an office ceiling light on
+ * a coffee-table tank's series); the sections keep theirs. Credited to the channel, as the video's thumbnail is
+ * (videoPhoto). Only a still the stills' own bar shows (stillShown: no one in it, sharp, large enough), so a pick never puts a
+ * person on a card. None where the guide has no such still at that second, and then the usual pictures. Cards load its
+ * 480 px copy, as the stills' grid does (lib/video.ts).
+ */
+const FRAMES = new Map<string, number>(Object.entries(frames as Record<string, number>))
+function framePicked(g: Localized<GuideEntity>): Photo[] {
+  const t = FRAMES.get(g.id), v = g.video
+  const m = t === undefined || !v ? undefined : (v.figures ?? []).flatMap(f => f.moments).find(x => x.t === t)
+  if (!v || !m || !stillShown(m)) return []
+  const thumb = m.width > THUMB_WIDTH ? thumbOf(m.url) : undefined
+  return [{ url: m.url, ...(thumb ? { thumb } : {}), width: m.width, height: m.height, licence: 'YouTube', author: v.channel, sourceUrl: `https://www.youtube.com/watch?v=${v.youtubeId}&t=${t}s`, source: 'youtube', caption: m.caption }]
 }
 /**
  * The pages a guide borrows its head from, chosen once for every language (the chief of staff, 15 Nov 2026): Curation's

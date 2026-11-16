@@ -1,0 +1,30 @@
+{
+  "slug": "ca-dao-vit-mo",
+  "name": "Cá dao vịt mỏ",
+  "altNames": [
+    "Cá dao mỏ vịt",
+    "Duckbill knifefish"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Parapteronotus bonapartii có thể dài tới 40-50 cm. Tên thường gọi được đề xuất cho loài này là cá dao mỏ vịt.</p>",
+    "distribution:glaser": "<p>Cá nhập về từ Peru.</p>",
+    "behaviour:glaser": "<p>Các loài Apteronotus đôi khi khá dữ với nhau, nên hai con cá này phải nuôi tách riêng. Răng của chúng lộ ra rất rõ. Đến nay vẫn chưa ai biết bộ răng đó để làm gì. Loài cá dao này không ăn cá nhỏ.</p><p>Cá dao Nam Mỹ thường chỉ phát điện yếu. Chúng dùng xung điện để định hướng và để giao tiếp với nhau.</p>",
+    "diet:glaser": "<p>Thức ăn chính là trùn chỉ sống, loại này chúng ăn rất sẵn.</p>",
+    "dimorphism:glaser": "<p>Khi con đực đủ lớn để đẻ, mõm của nó cứ dài ra mãi. Con đực từng bị mô tả nhầm thành một loài riêng, Apteronotus anas, với chiếc mõm to khác thường, trông rất kỳ dị.</p>",
+    "reproduction:glaser": "<p>Chưa ai biết Parapteronotus bonapartii sinh sản ra sao. Tuy nhiên, loài họ hàng gần với nó là Apteronotus leptorhynchus đã được cho đẻ trong bể (Kirschbaum &amp; Schugardt, 2002). Loài Apteronotus leptorhynchus hoàn toàn không chăm trứng hay chăm con.</p>",
+    "notes:glaser": "<p>Tên khoa học của loài này có một lịch sử dài và rắc rối. Năm 1942, Eigenmann và Allen mô tả một loài cá dao có chiếc mõm khổng lồ và đặt tên là Apteronotus anas. Đến năm 2002, người ta phát hiện A. anas thật ra chỉ là con đực đã đủ lớn để sinh sản của Apteronotus hasemani, loài được mô tả từ năm 1913. Vì thế tên Apteronotus anas trở thành tên đồng nghĩa (tên không hợp lệ). Trước đó một năm, Albert (2001) đã lập chi Parapteronotus cho A. hasemani. Năm 2007, Triques chứng minh A. hasemani chính là loài mà Castelnau đã mô tả năm 1855 với tên Sternarchus bonapartii. Do đó, tên hợp lệ hiện nay là Parapteronotus bonapartii.</p><p>Nghĩa của tên gọi: Apteronotus: tiếng Hy Lạp cổ, \"không có vây trên lưng\". Parapteronotus: tiếng Hy Lạp cổ, \"gần với Apteronotus\". leptorhynchus: tiếng Hy Lạp cổ, \"mõm nhỏ\". hasemani: đặt theo tên J. D. Haseman. Sternarchus: tiếng Hy Lạp cổ, \"xương ức – hậu môn\". bonapartii: đặt theo tên hoàng tử Charles Bonaparte, \"hoàng tử của khoa học\". anas: tiếng Latin, \"con vịt\".</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.85
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-16"
+  }
+}

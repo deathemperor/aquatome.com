@@ -8,7 +8,8 @@
   "places": [
     "asia",
     "indonesia",
-    "sulawesi"
+    "sulawesi",
+    "muna-island"
   ],
   "range": {
     "native": {
@@ -81,6 +82,13 @@
           "min": 23,
           "max": 27
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 30
+        }
       }
     ],
     "ph": [
@@ -107,6 +115,10 @@
       {
         "source": "seriouslyfish",
         "value": 3
+      },
+      {
+        "source": "glaser",
+        "value": 4
       }
     ],
     "difficulty": [
@@ -116,6 +128,10 @@
       },
       {
         "source": "seriouslyfish",
+        "value": 2
+      },
+      {
+        "source": "glaser",
         "value": 2
       }
     ],
@@ -158,6 +174,18 @@
       "html": "<p>Daisy's ricefish, Oryzias woworae, is known only from a single stream on the island of Muna, Southeast Sulawesi, Indonesia. At 25-30 mm it is the most diminutive Oryzias known from Sulawesi. It caused something of a sensation when it first appeared in the trade shortly after description, and was collected schooling in a still pool of a karstic forest stream.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias_cf_woworae_en/",
+      "html": "<p>Oryzias woworae was described only in 2010. It grows to hardly 4 cm in the aquarium; the largest specimen in the type series was 28 mm long (without tail fin). Common name: Daisy's ricefish.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias_cf_woworae_en/",
+      "html": "<p>Two populations of this fish are known in the hobby. The first came from Sulawesi. A little later a second population was imported from the island of Muna, the type locality. To prevent unwanted crossing, the Sulawesi population is named Oryzias cf. woworae in the hobby, and only the Muna population is named O. woworae without the \"cf.\".</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-woworae",
@@ -194,6 +222,12 @@
       "html": "<ul><li>Temperature: 23–27°C</li><li>pH: 6.0–7.5</li><li>Hardness: 5–15 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias_cf_woworae_en/",
+      "html": "<p>These ricefishes can be kept in moderately hard water, so it is usually not necessary to mix a special water for them. The water temperature for keeping, breeding and rearing may lie between 22 and 30°C.</p>"
+    },
+    {
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/oryzias-woworae-daisy-ricefish",
@@ -204,6 +238,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-woworae",
       "html": "<p>Unfussy but must be provided with foods of a suitable size.</p><p>A combination of crushed or small-grade, high quality dried foods plus live microworm, Artemia nauplii or similar appears to be ideal and adults have also been observed grazing from solid surfaces, so the natural diet may also contain an algal component.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias_cf_woworae_en/",
+      "html": "<p>They feed readily on any usual fish food of a size that fits the mouth.</p>"
     },
     {
       "key": "behaviour",
@@ -236,10 +276,22 @@
       "html": "<p>Quite easy to breed and fairly prolific, with females capable of producing batches of 10-20 eggs every few days or even on a daily basis when in good condition.</p><p>Spawning normally occurs in the early morning, with males darkening in colouration and defending small, temporary territories against one another while attempting to entice females.</p><p>The adhesive eggs are typically expelled as a single mass and fertilised simultaneously, after which they continue to hang from the genital pore of the female for a period before eventually being deposited singly or in small clumps among vegetation or other suitable media.</p><p>Fine-leaved plants such as Cabomba, Ceratophyllum or Taxiphyllum spp. are ideal, but synthetic spawning mops or other artificial alternatives also work.</p><p>The incubation period is temperature dependent to an extent but typically 1-3 weeks, and while the adults tend to ignore the eggs they do predate free-swimming fry, though if the tank is densely-planted some will usually survive.</p><p>Alternatively the eggs or fry can be removed to a separate rearing container filled with water from the adults' tank. Once free-swimming the fry are able to accept microworm, Artemia nauplii, etc.</p><p>Caution is recommended when housing juveniles of different ages together as the older will predate on the younger if there is a large enough discrepancy in size.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias_cf_woworae_en/",
+      "html": "<p>Keeping and breeding this fish is very easy and even beginners will be successful. In all Oryzias species, the female carries the eggs along with her for some time after spawning and then strips them onto fine water plants. Hatching depends on the water temperature but usually takes 2 to 3 weeks. The adults show no interest in the eggs, which can be left in the breeding tank. The newly hatched offspring swim immediately under the water surface. Although very tiny, they are easily recognised by their shining eyes that look like sparks. They should now be separated using a spoon and reared in a separate tank.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-woworae",
       "html": "<p>This species first appeared in the aquarium trade shortly after being described to science and caused something of a sensation with initial prices very high.</p><p>Its caudal fin is truncate in shape, rather than lunate or emarginate, which immediately distinguishes it from the congeners O. bonneorum, O. nebulosus, O. nigrimas, O. orthognathus, and O. sarasinorum, and in this respect it appears to be a member of a large, unnamed clade or 'species group' containing all other members of the genus.</p><p>However, it also possesses an hour-glass shaped, as opposed to rounded, ossified portion of the mesethmoid with no cartilage on its midlateral margins, a feature not observed in the other species of that clade and instead shared with some of the larger, pelagic species from Sulawesi such as O. bonneorum.</p><p>Its phylogenetic position is thus somewhat ambiguous based on current knowledge although since 2013 it's been included in the O. woworae species group (Parenti et al., 2013) within the genus, of which members possess orange to deep red pigmentation on the caudal-fin margins, ventral margin of the caudal peduncle and at least the posterior portion of the base of the anal fin, plus a bluish sheen on the body that is most pronounced in live adult males.</p><p>The group also contains O. asinua and O. wolasi which both differ from O. woworae by possessing elongate medial dorsal-fin rays in males extending to the posterior extent of the first principal caudal-fin ray plus an orange-coloured olfactory epithelium on each nasal organ in at least females in life.</p><p>O. woworae can be further identified by its intermediate body depth reaching 30% SL, versus 25% in O. asinua and 32% in O. wolasi, and slender caudal peduncle with depth reaching 8–11%, mean 9.2%, versus 9–11%, mean 10% in O. asinua and 11–12% SL, mean 11.2% in O. wolasi.</p><p>In addition nuptial males of O. wolasi display a darker, more purplish colour pattern than O. woworae and these two can actually be told apart from a size of just 10 mm SL since in O. woworae orange pigment is visible along the base of the anal fin and into the caudal fin while in O. wolasi the same areas are colourless (P. Liptrot, pers. comm.).</p><p>It's unclear if they're conspecific or not but given that Muna lies in the Flores Sea off the southeast coast of Sulawesi and is further separated from the collection localities of O. sp. 'Kendari' by a sizeable peninsula they should probably be regarded as different for the time being and therefore not maintained together nor allowed to hybridise in aquaria.</p><p>Members of the family Adrianichthyidae are often referred to collectively as 'ricefishes' and were traditionally considered to be members of the order Cyprinodontiformes and thus closely-related to toothcarps.</p><p>This misconception is sometimes still upheld despite the fact that Rosen and Parenti reclassified them within the cyprinodontiform sister group Beloniformes as long ago as 1981.</p><p>The best-known member of the family is the medaka or Japanese ricefish, Oryzias latipes, which has been widely used as a model organism in genomic and experimental biology for well over a century and was the first vertebrate animal to mate in space during the mid-1990s.</p><p>There are currently just two genera included in the family, Oryzias and Adrianichthys, with the historically-recognised groupings Xenopoecilus and Horaichthys having been synonymised with Oryzias by Parenti (2008).</p><p>Of the three species previously included in the paraphyletic Xenopoecilus, X. oophorus and X. poptae were moved into Adrianichthys with the third, X. sarasinorum currently recognised as Oryzias sarasinorum.</p><p>In addition the formerly monotypic Indian species Horaichthys setnai is currently classified as O. setnai.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias_cf_woworae_en/",
+      "html": "<p>Oryzias: derived from the scientific name of rice (Oryza), meaning \"belonging to the rice\". woworae: a dedication name for Daisy Wowor, a carcinologist at the Museum Zoologicum Bogoriense, who first collected the species.</p>"
     },
     {
       "key": "references",
@@ -249,6 +301,17 @@
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f6b7de38644de63d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f6b7de38644de63d-480.webp",
+      "width": 881,
+      "height": 630,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-woworae",
+      "caption": "Wild-collected male.",
+      "source": "seriouslyfish"
+    },
     {
       "url": "https://media.aquatome.com/bwaquatics/7eaabf041aabed41.webp",
       "thumb": "https://media.aquatome.com/bwaquatics/7eaabf041aabed41-480.webp",
@@ -268,20 +331,34 @@
       "author": "BW Aquatics",
       "sourceUrl": "https://bwaquatics.com/products/oryzias-woworae-daisy-ricefish",
       "source": "bwaquatics"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/f6b7de38644de63d.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/f6b7de38644de63d-480.webp",
-      "width": 881,
-      "height": 630,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-woworae",
-      "caption": "Wild-collected male.",
-      "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "NsTW1drrWh4",
+      "title": "DAISY'S RICEFISH - The Wet Spot-light - Oryzias woworae",
+      "durationSec": 491,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "NRbPwX6moKE",
+      "title": "Steckbrief Oryzias woworae",
+      "durationSec": 334,
+      "lang": "de-DE"
+    },
+    {
+      "youtubeId": "YcyhRBaaY-o",
+      "title": "My Sulawesi Ricefish, Oryzias woworae",
+      "durationSec": 187,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Wx-pDk2CiDg",
+      "title": "Der Neon-Reisfisch - Oryzias woworae | ADVENTdicted! Adventskalender | Türchen 14",
+      "durationSec": 386,
+      "lang": "de"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -304,5 +381,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-15"
 }

@@ -282,6 +282,17 @@ test("the step reads the calendar's hold for the head: a held head that fills th
   expect((await entity(root, 'r')).photos.map(p => name(p.url))).toEqual(['r-other', 'r-held'])
 })
 
+test("the engine's avoid entries don't stop a photo leading its own page: they list a photo refused on some page's cards, by address", async () => {
+  const days = [{ date: '2099-01-01', fish: 'species/zzz' }]
+  const fish = { zzz: { photos: [photo('z-head')], gallery: [big('z-avoided'), big('z-gal')] } }
+  const root = await store(fish, days)
+  const cal = JSON.parse(await readFile(join(root, 'content/curation.json'), 'utf8'))
+  await writeFile(join(root, 'content/curation.json'), JSON.stringify({ ...cal, avoid: { [url('z-avoided')]: 'engine: another fish' } }))
+  const { d, seen } = model(yes)
+  await screenLeads(root, d, { limit: 1, calendar: true })
+  expect(seen.flat()).toContain('z-avoided')
+})
+
 test("--calendar fills an empty page with no model call; a plant is given a first photo and otherwise left alone", async () => {
   const root = await store({
     aaa: { photos: [photo('a-head')], gallery: [big('a-gal')] }, empty: { photos: [], gallery: [photo('e-gal', 500, 400)] },

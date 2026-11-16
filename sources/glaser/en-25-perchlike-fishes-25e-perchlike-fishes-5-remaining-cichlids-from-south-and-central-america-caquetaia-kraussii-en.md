@@ -1,0 +1,10 @@
+---
+url: https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/caquetaia_kraussii_en/
+title: Caquetaia kraussii - Aquarium Glaser GmbH
+fetchedAt: 2026-11-15T19:14:27.945Z
+hash: 6d70980f1d033c342797f8463e1fece5c3f53c36e5eac32d86d27e660f3a2c72
+---
+
+In the wild, Caquataia kraussii is something like a million fish. There is literally no waterbody, may it be pond, lake, or river in the Llanos of Venezuela without this cichlid. So the cichlid enthusiast is a bit left alone with the question why it takes so long if one searches for this fish in the local pet shops. It is kept even seldom by specialized cichlid keepers. Much of this results for sure from the bad reputation this fish has. However, they are not that bad. At least much worse species are known. But there is no doubt that C. kraussii can become quite unpleasant if kept in small tanks and with the wrong company. And they have a quite large mouth. Up to 10 cm long fish can be swallowed by the up to 30 cm long predator. Nevertheless it is unfair to blame this on the fish. It is the keeper who has to take care for the correct tank, equipment and tankmates. When it comes to breeding – and up to 2.000 young fish are no rarity in one spawn – the fish show quickly why only very robust tankmates are suitable. The always hungry youngsters are led by their parents throughout the tank and delicate tankmates are doomed from that moment on. Oscars (Astronotus), Hoplarchus, or large Crenicichla are the correct company for C. kraussii; they will hardly be hurt and the Caquetaia and, on the other hand, Caquetaia do not display mouthfighting like the other cichlids. If their sensitve mouth would become hurt by such an occasion the Caquetaia would be doomed to die by starving. For our customers: Please note that we exclusively supply the wholesale trade. C. kraussii has code 634581 on our stocklist.
+Texte & photos: Thomas Weidner.
+Angaben zum Tier Herkunft Nachzucht / bred Verfügbare Größe in cm 5-7

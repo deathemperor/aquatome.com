@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/harlequin-rasboras-detailed-guide-care/
 title: Harlequin Rasboras – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-11-08T12:19:00.377Z
-hash: 003f21d4785e41760daf8a78b45831ebdb82231184d44cd9837a333a26ced1d4
+hash: bd5774c2d990a4141d098ef97cd54d4d60438d5580d3a1fe19aa55b69c31a5ba
 ---
 
 Harlequin Rasbora is a highly sought-after species of freshwater fish owing to its vibrant colorations and splendid interactive behaviors.
@@ -178,4 +178,3 @@ Stocking and Compatibility Calculator
 ## In Conclusion
 Harlequin Rasbora is a popular fish species that cost less than per specimen. In addition, it is a small, peaceful species ideal for hobbyists that fancy an undemanding, attractive shoaling fish.
 If you are careful and capable enough to provide them with a suitable, healthy environment, then they will make a perfect shoal for your viewing pleasure.
-### Leave a Reply Cancel reply

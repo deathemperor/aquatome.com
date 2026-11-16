@@ -128,14 +128,16 @@ test('a rewrite keeps each kind\'s photo, and names one whose kind the new text 
 
 // A shop's listing on a marketplace, or a post on a social network, found by research through search: never a source, and
 // nothing it alone says reaches the writer (the owner's rule; the Site Lead, 13 Nov 2026).
-test('a marketplace\'s or a social network\'s page is never a source, nor are the facts that cite it', async () => {
-  expect(['https://shopee.vn/lua-sa-tung-i.1.2', 'https://www.lazada.vn/x', 'https://m.facebook.com/groups/x', 'https://www.tiktok.com/@x/video/1', 'https://youtube.com/shorts/x'].map(offLimits)).toEqual([true, true, true, true, true])
-  expect(['https://zenaquarius.com/lua-kim-sa-tung', 'https://www.youtube.com/watch?v=x', sfGlossaryUrl('bogwood')].map(offLimits)).toEqual([false, false, false])
+// A site refused as a source (cycle-only.ts REFUSED_SITES; the chief of staff, 16 Nov 2026) is one too, its own hosts and
+// none else: research kept before the ruling still cites it, and what it alone says never reaches the writer again.
+test('a marketplace\'s, a social network\'s or a refused site\'s page is never a source, nor are the facts that cite it', async () => {
+  expect(['https://shopee.vn/lua-sa-tung-i.1.2', 'https://www.lazada.vn/x', 'https://m.facebook.com/groups/x', 'https://www.tiktok.com/@x/video/1', 'https://youtube.com/shorts/x', 'https://cabaymau.vn/go-lua-be-ca/', 'https://www.cabaymau.vn/x'].map(offLimits)).toEqual([true, true, true, true, true, true, true])
+  expect(['https://zenaquarius.com/lua-kim-sa-tung', 'https://www.youtube.com/watch?v=x', sfGlossaryUrl('bogwood'), 'https://cabaymau.net/x'].map(offLimits)).toEqual([false, false, false, false])
   const root = await site()
   const shops: TopicFacts = {
     ...facts,
-    facts: [...facts.facts, { section: 'other', fact: 'Shops sell "lũa kim sa tùng" by the kilogram', source: 3 }, { section: 'other', fact: 'Keepers call it "lũa sa tùng rừng"', source: 4 }],
-    sources: [...facts.sources, { url: 'https://shopee.vn/lua-sa-tung-i.1.2', title: 'Lũa sa tùng', kind: 'shop' }, { url: 'https://www.facebook.com/groups/thuysinh/posts/1', title: 'Hội thủy sinh', kind: 'forum' }],
+    facts: [...facts.facts, { section: 'other', fact: 'Shops sell "lũa kim sa tùng" by the kilogram', source: 3 }, { section: 'other', fact: 'Keepers call it "lũa sa tùng rừng"', source: 4 }, { section: 'steps', fact: 'Soak the wood in 10% brine for a week', source: 5 }],
+    sources: [...facts.sources, { url: 'https://shopee.vn/lua-sa-tung-i.1.2', title: 'Lũa sa tùng', kind: 'shop' }, { url: 'https://www.facebook.com/groups/thuysinh/posts/1', title: 'Hội thủy sinh', kind: 'forum' }, { url: 'https://cabaymau.vn/go-lua-be-ca/', title: 'Gỗ lũa bể cá', kind: 'shop' }],
   }
   let wrote = ''
   const llm: Llm = async ({ prompt }) => {
@@ -144,12 +146,30 @@ test('a marketplace\'s or a social network\'s page is never a source, nor are th
     wrote = prompt
     return written as never
   }
-  const r = await makeGlossaryEntry(root, { research: async () => shops as never, llm }, 'lua', { kind: 'aquascaping' })
+  const logged: string[] = []
+  const r = await makeGlossaryEntry(root, { research: async () => shops as never, llm, log: line => logged.push(line) }, 'lua', { kind: 'aquascaping' })
   expect(r).toMatchObject({ refs: 3 })
+  // The refused page is named in the run's log, with its fact; a marketplace's isn't a refused site.
+  expect(logged).toEqual(['lua: https://cabaymau.vn/go-lua-be-ca/ is refused as a source: its link and the 1 fact citing it don\'t reach the writer'])
   expect(wrote).not.toContain('kilogram')
   expect(wrote).not.toContain('sa tùng rừng')
+  expect(wrote).not.toContain('brine')
   const e = JSON.parse(await readFile(join(root, 'content/glossary/lua/entity.json'), 'utf8'))
   expect(e.refs.map((x: { url: string }) => x.url)).toEqual(facts.sources.map(x => x.url))
+})
+
+// A body cut by hand, what rested on a refused site alone taken off the live page (bodyFixed; the chief of staff, 16 Nov
+// 2026), holds the cycle's reader rewrites off until the step writes the term again: then the text is the step's, written
+// without the refused site, and the mark goes with the save, so no cut stays marked after it.
+test('a body marked fixed by hand is the step\'s again once it saves: the mark goes', async () => {
+  const root = await site()
+  const file = join(root, 'content/glossary/lua/vi.json')
+  await writeFile(file, JSON.stringify({ ...JSON.parse(await readFile(file, 'utf8')), body: '<p>Cắt tay.</p>', bodyFixed: true }))
+  const llm: Llm = async ({ prompt }) => (prompt.startsWith('GLOSSARY RULES') ? { notes: [] } : isCheck(prompt) ? verdicts(prompt) : written) as never
+  expect(await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'lua', { kind: 'aquascaping' })).toMatchObject({ refs: 3 })
+  const vi = JSON.parse(await readFile(file, 'utf8'))
+  expect(vi.body).toContain('Ngâm lũa mới 1–2 tuần.')
+  expect(vi).not.toHaveProperty('bodyFixed')
 })
 
 // The first Lũa (14 Nov 2026) missed the kinds the owner named, and broke house rules the fact check doesn't read. The
@@ -489,12 +509,14 @@ test('an accepted draft is saved as the step kept it, logged with who accepted i
   // A later draft kept, the earlier one put back byte for byte is still one the step kept.
   await keptDraft(root, { ...long6, body: long6.body.replace('Lũa khô nổi', 'Bản sau: lũa khô nổi') }, sixth.notes.slice(1, 4))
   expect(await readFile(draftPath(root), 'utf8')).not.toBe(kept)
-  // Accepted as kept: saved, with no model call, the draft gone.
+  // Accepted as kept: saved, with no model call, the draft gone. A body cut by hand keeps its mark: the draft was kept
+  // before, perhaps from facts a refused site gave, and nothing read it against the filtered ones.
   await writeFile(draftPath(root), kept)
+  await writeFile(join(root, 'content/glossary/lua/vi.json'), JSON.stringify({ ...JSON.parse(before), bodyFixed: true }))
   const r = await accept({ now: () => new Date('2026-11-14T00:00:00Z') })
   expect(r).toMatchObject({ id: 'lua', score: 1, acceptedBy: 'the chief of staff', refs: 3 })
   const vi = JSON.parse(await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8'))
-  expect(vi).toMatchObject({ definition: sixth.entry.definition, body: long6.body, altNames: ['lũa gỗ', 'gỗ lũa'], quality: { score: 1, indexable: true } })
+  expect(vi).toMatchObject({ definition: sixth.entry.definition, body: long6.body, altNames: ['lũa gỗ', 'gỗ lũa'], quality: { score: 1, indexable: true }, bodyFixed: true })
   const log = JSON.parse(await readFile(join(root, 'engine-state/reviews/glossary.json'), 'utf8'))['vi/glossary/lua']
   expect(log[0]).toMatchObject({ at: '2026-11-14T00:00:00Z', score: 1, notes: JSON.parse(kept).notes, kept: true, acceptedBy: 'the chief of staff' })
   // Three rules notes, the entry's length and its three long items.
