@@ -52,7 +52,8 @@ function clone() {
   mkdirSync(join(repo, '..'), { recursive: true })
   writeFileSync(join(home, 'bin/pnpm'), '#!/bin/sh\nexit 0\n')
   chmodSync(join(home, 'bin/pnpm'), 0o755)
-  const env = { ...process.env, HOME: home, PATH: `${home}/bin:${process.env.PATH}`, GITHUB_ACTIONS: '' }
+  // The hour pinned: with no daily mark, full_due goes by the clock (a reader of #1516).
+  const env = { ...process.env, HOME: home, PATH: `${home}/bin:${process.env.PATH}`, GITHUB_ACTIONS: '', AQ_HOUR: '12' }
   const sh = (command: string, extra: Record<string, string> = {}, cwd = repo) =>
     execSync(command, { cwd, shell: '/bin/bash', encoding: 'utf8', env: { ...env, ...extra } }).trim()
   sh(`git init -q --bare -b main origin.git && git clone -q origin.git ${repo} 2>/dev/null`, {}, home)
