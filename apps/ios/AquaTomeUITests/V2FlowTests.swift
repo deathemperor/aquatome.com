@@ -743,10 +743,14 @@ final class V2FlowTests: XCTestCase {
     // the bar before and after, and 0.14% of its place changed (27.2, 17 Nov).
     func moved() -> Double {
       let bar = app.tabBars.firstMatch.frame
+      // A shelf's heading, to know the drag scrolled the page: with the switch off, "nothing changed" means something only
+      // if the page moved (a fresh read, 17 Nov).
+      let shelf = app.scrollViews.staticTexts["Loài quen thuộc"].firstMatch, top = shelf.frame.minY
       let before = Pixels(XCUIScreen.main.screenshot())
       let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.6))
       from.press(forDuration: 0.05, thenDragTo: from.withOffset(CGVector(dx: 0, dy: -200)), withVelocity: .slow, thenHoldForDuration: 0.5)
       Thread.sleep(forTimeInterval: 0.5)
+      XCTAssertLessThan(shelf.frame.minY, top - 100, "the drag didn't scroll Khám phá: \(top) then \(shelf.frame.minY)")
       let after = Pixels(XCUIScreen.main.screenshot())
       let spots = stride(from: 6.0, to: app.frame.width - 6, by: 6).flatMap { x in
         // From just inside the bar's top: the fade, with the trial off, ends there.
