@@ -180,7 +180,8 @@ verify() {
   done
 }
 # The tests that failed in $TEST_LOG since byte $1, one a line: vitest's FAIL lines, with pnpm's prefix and the colours off.
-failed_tests() { tail -c +"$(($1 + 1))" "$TEST_LOG" | sed -E "s/$(printf '\033')\[[0-9;]*m//g" | sed -nE 's/^([^[:space:]]+ test:)?[[:space:]]*FAIL[[:space:]]+//p' | sort -u; }
+# The prefix is "<package> test: ", or "<package> test:content: " from a content run's short step (CONTENT_STEP).
+failed_tests() { tail -c +"$(($1 + 1))" "$TEST_LOG" | sed -E "s/$(printf '\033')\[[0-9;]*m//g" | sed -nE 's/^([^[:space:]]+ test(:content)?:)?[[:space:]]*FAIL[[:space:]]+//p' | sort -u; }
 # Whether the tests' output since byte $1 of $TEST_LOG has one that ran out of time: vitest's own line for a test, a hook
 # (beforeAll and the like) or a worker that didn't start in time, "Error: Test timed out in 30000ms.", at the start of a
 # line after pnpm's prefix, colours off. Only those: a failing test that quotes one, in its assertion, a diff, its title,
@@ -189,7 +190,7 @@ failed_tests() { tail -c +"$(($1 + 1))" "$TEST_LOG" | sed -E "s/$(printf '\033')
 # console.log, a later line of a many-line message) still reads as out of time, which keeps the work and loses nothing;
 # a stricter pattern risks the other way, a real time-out held, its retries lost (the chief of staff, 14 Nov). grep reads
 # it all (-c, not -q): under pipefail, tail cut off by grep's early exit would make a match read as none.
-ran_out() { tail -c +"$(($1 + 1))" "$TEST_LOG" | sed -E "s/$(printf '\033')\[[0-9;]*m//g" | grep -cE '^([^[:space:]]+ test: )?Error: ((Test|Hook) timed out in [0-9]+ms\.|\[vitest-pool[^]]*\]: Timeout (waiting for worker to respond|starting [a-z]+ runner))' >/dev/null; }
+ran_out() { tail -c +"$(($1 + 1))" "$TEST_LOG" | sed -E "s/$(printf '\033')\[[0-9;]*m//g" | grep -cE '^([^[:space:]]+ test(:content)?: )?Error: ((Test|Hook) timed out in [0-9]+ms\.|\[vitest-pool[^]]*\]: Timeout (waiting for worker to respond|starting [a-z]+ runner))' >/dev/null; }
 
 # A run whose tests ran out of time even on their second try (TIMED_OUT) ran on a Mac too busy for them, not on broken
 # work: its commit goes on a branch of its own, kept/<job>/<when>, which the next run's start from main (from_main)
@@ -656,10 +657,13 @@ unit_job() {
   GIT_NET_SECONDS=60 net gh api "repos/deathemperor/aquatome.com/commits/$1/check-runs?per_page=100" \
     --jq "[.check_runs[] | select(.name == \"$UNIT_JOB\") | if .status == \"completed\" then .conclusion else \"pending\" end] | if any(. == \"success\") then \"success\" elif any(. == \"pending\") then \"pending\" else (.[0] // \"\") end" 2>/dev/null
 }
-# The whole suite's daily run on the Mac: none passed in 20 hours and it's a quiet hour (1 to 6), or none in 30.
+# The whole suite's daily run on the Mac: none passed in 20 hours and it's a quiet hour (1 to 6), or none in 30. Unless
+# another run took it in the last 4 hours ($FULL_STAMP.taken) and may still be at it: a pass is stamped only at its end,
+# an hour or more after the choice, and the runs reach their checks an hour apart.
 full_due() {
   engine_clone || return 1
   [ -n "$(find "$FULL_STAMP" -mmin -1200 2>/dev/null)" ] && return 1
+  [ -n "$(find "$FULL_STAMP.taken" -mmin -240 2>/dev/null)" ] && return 1
   [ -n "$(find "$FULL_STAMP" -mmin -1800 2>/dev/null)" ] || return 0
   local hour; hour=${AQ_HOUR:-$(date +%H)}; hour=${hour#0}
   [ "$hour" -ge 1 ] && [ "$hour" -le 6 ]
@@ -669,7 +673,10 @@ checks_for() {
   local code word waited=0
   CHECKS_STEP=$FULL_STEP
   if engine_cloud; then CHECKS_WHY="the whole suite: the cloud's runner doesn't read GitHub's checks"; return; fi
-  if full_due; then CHECKS_WHY="the whole suite: its daily run on this Mac"; return; fi
+  if full_due; then
+    mkdir -p "$(dirname "$FULL_STAMP")" && touch "$FULL_STAMP.taken"
+    CHECKS_WHY="the whole suite: its daily run on this Mac"; return
+  fi
   code=$(code_commit)
   if [ -z "$code" ] || ! git merge-base --is-ancestor "$code" origin/main 2>/dev/null; then
     CHECKS_WHY="the whole suite: this run's own commits change code"; return
@@ -684,12 +691,16 @@ checks_for() {
     CHECKS_STEP=$CONTENT_STEP
     CHECKS_WHY="the content's checks: its code is main's ${code:0:9}, whose unit tests passed on GitHub"
   else
-    CHECKS_WHY="the whole suite: GitHub's unit tests on ${code:0:9}, the code this run publishes on, ${word:-gave no answer}"
+    case "$word" in
+      pending) word="still running after $((waited / 60)) min" ;;
+      '') word="gave no answer" ;;
+      *) word="ended $word" ;;
+    esac
+    CHECKS_WHY="the whole suite: GitHub's unit tests on ${code:0:9}, the code this run publishes on, $word"
   fi
 }
-# verify, as a content run's commit needs it: the checks checks_for picks. The tests build the site from their own
-# fixture content. The real site
-# (about 7,600 pages) isn't built here: that build was about 14 of the checks' 16 minutes on a GitHub runner and 1 to 3
+# verify, as a content run's commit needs it: the checks checks_for picks, which build the site, if at all, from the
+# tests' own fixture content. The real site (about 7,600 pages) isn't built here: that build was about 14 of the checks' 16 minutes on a GitHub runner and 1 to 3
 # hours on this Mac at a load of 300 to 600 (2026-11-07), holding the lock while other jobs waited; no test reads it;
 # and in the history read on 2026-11-07 it never failed where the tests passed. deploy.yml builds the real site before
 # anything goes live and fails before the upload, so readers keep the live site and a "Deploy failed" issue opens.

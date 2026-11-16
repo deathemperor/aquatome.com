@@ -62,7 +62,8 @@ const wrap = (o: Record<string, unknown>, names: string[], seen: (args: unknown[
 if (out) {
   // That the file ran at all: a file the trace never saw run (skipped on this machine) is never left out.
   beforeAll(() => write('ran', '-'))
-  const opens = ['readFile', 'readdir', 'stat', 'lstat', 'access', 'open', 'opendir', 'exists', 'createReadStream', 'readlink', 'realpath']
+  // Each with the path it reads first; a copy's is its source (alt-names.test.ts copies the real content/sources.json).
+  const opens = ['readFile', 'readdir', 'stat', 'lstat', 'access', 'open', 'opendir', 'exists', 'createReadStream', 'readlink', 'realpath', 'copyFile', 'cp', 'glob', 'openAsBlob']
   wrap(fs as unknown as Record<string, unknown>, [...opens, ...opens.map(n => `${n}Sync`)], a => read(a[0]))
   wrap(fs.promises as unknown as Record<string, unknown>, opens, a => read(a[0]))
   // A child process inside the repository: its cwd, or this process's when it names none.

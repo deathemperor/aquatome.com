@@ -16,15 +16,16 @@ const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
  * call: AQ_UNIT_JOB stands in for gh. `stamp`: the age in hours of the Mac's last whole-suite pass, or none. Returns what
  * the cycle logged, the step verify was given, and whether the stamp is fresh after.
  */
-function decide(o: { mine?: string[]; merge?: 'main' | 'mine'; unit?: string[]; stamp?: number; hour?: number; env?: Record<string, string> } = {}) {
+function decide(o: { mine?: string[]; merge?: 'main' | 'mine'; unit?: string[]; stamp?: number; taken?: number; hour?: number; env?: Record<string, string> } = {}) {
   const home = mkdtempSync(join(tmpdir(), 'aq-checks-for-'))
   const clone = join(home, '.local/share/aquatome/engine-pages')
   const answers = (o.unit ?? ['success']).join('\n')
-  if (o.stamp !== undefined) {
-    const stamp = join(home, '.cache/aquatome/full-suite-passed')
+  for (const [file, hours] of [['full-suite-passed', o.stamp], ['full-suite-passed.taken', o.taken]] as const) {
+    if (hours === undefined) continue
+    const stamp = join(home, '.cache/aquatome', file)
     mkdirSync(dirname(stamp), { recursive: true })
     writeFileSync(stamp, '')
-    const at = Date.now() / 1000 - o.stamp * 3600
+    const at = Date.now() / 1000 - hours * 3600
     utimesSync(stamp, at, at)
   }
   const script = `
@@ -51,6 +52,8 @@ lines=$(wc -l < "$(dirname "$0")/answers"); i=$((n + 1)); [ "$i" -le "$lines" ] 
 sed -n "\${i}p" "$(dirname "$0")/answers"
 STUB
     chmod +x "${home}/unit"
+    # As on the Mac, wherever the tests run (GitHub's runner sets these); the env option sets them for the cloud's cycle.
+    unset GITHUB_ACTIONS GITHUB_WORKFLOW_REF
     export HOME="${home}" AQ_UNIT_JOB="${home}/unit" UNIT_POLL_SECONDS=0 UNIT_WAIT_SECONDS=3 AQ_HOUR=${o.hour ?? 12}
     ${Object.entries(o.env ?? {}).map(([k, v]) => `export ${k}='${v}'`).join('\n')}
     log() { echo "LOG $*"; }
@@ -60,6 +63,7 @@ STUB
     echo "CODE $?"
     echo "CODESHA $(cat ../../../../code-sha)"
     [ -n "$(find "${home}/.cache/aquatome/full-suite-passed" -mmin -5 2>/dev/null)" ] && echo "STAMP fresh" || echo "STAMP old"
+    [ -n "$(find "${home}/.cache/aquatome/full-suite-passed.taken" -mmin -5 2>/dev/null)" ] && echo "TAKEN fresh" || echo "TAKEN old"
     echo "ASKED $(sort -u "${home}/asked" 2>/dev/null | tr '\\n' ' ')"`
   const r = spawnSync('bash', ['-c', script], { encoding: 'utf8' })
   expect(r.stderr).not.toMatch(/fatal|syntax error|unbound/i)
@@ -71,6 +75,7 @@ STUB
     code,
     asked: r.stdout.match(/^ASKED (.*)$/m)?.[1]?.trim().split(' ').filter(Boolean) ?? [],
     stamp: r.stdout.includes('STAMP fresh'),
+    taken: r.stdout.includes('TAKEN fresh'),
   }
 }
 // Each case builds its own repositories and runs the cycle's script: the four tests took 53 s together at a load of 200
@@ -101,10 +106,13 @@ test('anything that can\'t be shown takes the whole suite: code in the run, a fa
   expect(decide({ mine: ['docs/governance.md'], stamp: 2 }).step).toBe(FULL)
   for (const word of ['failure', 'cancelled', 'skipped']) {
     const r = decide({ unit: [word], stamp: 2 })
-    expect([r.step, r.why], word).toEqual([FULL, `the whole suite: GitHub's unit tests on ${r.code.slice(0, 9)}, the code this run publishes on, ${word}`])
+    expect([r.step, r.why], word).toEqual([FULL, `the whole suite: GitHub's unit tests on ${r.code.slice(0, 9)}, the code this run publishes on, ended ${word}`])
   }
   const silent = decide({ unit: [''], stamp: 2 })
   expect([silent.step, silent.why]).toEqual([FULL, `the whole suite: GitHub's unit tests on ${silent.code.slice(0, 9)}, the code this run publishes on, gave no answer`])
+  // The cloud's cycle (engine.yml): its token can't read checks, so it takes the whole suite without asking.
+  const cloud = decide({ stamp: 2, env: { GITHUB_ACTIONS: 'true', GITHUB_WORKFLOW_REF: 'deathemperor/aquatome.com/.github/workflows/engine.yml@refs/heads/main' } })
+  expect([cloud.step, cloud.why, cloud.asked]).toEqual([FULL, 'the whole suite: the cloud\'s runner doesn\'t read GitHub\'s checks', []])
   // With no stand-in, an origin that isn't GitHub (these tests' own repositories) gets no answer, and no call goes out.
   expect(decide({ stamp: 2, env: { AQ_UNIT_JOB: '' } }).why).toMatch(/gave no answer$/)
 }, slow(120_000))
@@ -123,7 +131,7 @@ test('a unit job still running is waited on, up to its limit: green in time is t
   expect(late.out).toMatch(/LOG GitHub's unit tests on \w{9}, the code this run publishes on, are still running: waiting up to 0 min/)
   const never = decide({ unit: ['pending'], stamp: 2, env: { UNIT_POLL_SECONDS: '1', UNIT_WAIT_SECONDS: '2' } })
   expect(never.step).toBe(FULL)
-  expect(never.why).toMatch(/, pending$/)
+  expect(never.why).toMatch(/, still running after 0 min$/)
 }, slow(120_000))
 
 test('the whole suite runs on this Mac once a day, at a quiet hour, and its pass is remembered', () => {
@@ -132,6 +140,11 @@ test('the whole suite runs on this Mac once a day, at a quiet hour, and its pass
   expect([day.step, day.why]).toEqual([FULL, 'the whole suite: its daily run on this Mac'])
   expect(day.asked).toEqual([])
   expect(day.stamp).toBe(true)
+  expect(day.taken).toBe(true)
+  // Taken by another run in the last 4 hours, still at it: this one checks its content. Taken longer ago: this one runs it.
+  expect(decide({ unit: ['success'], stamp: 21, taken: 1, hour: 3 }).step).toBe(CONTENT)
+  expect(decide({ unit: ['success'], stamp: 31, taken: 1, hour: 14 }).step).toBe(CONTENT)
+  expect(decide({ unit: ['success'], stamp: 21, taken: 5, hour: 3 }).why).toBe('the whole suite: its daily run on this Mac')
   // The same at a busy hour waits for a quiet one, up to 30 hours; none ever passed counts as past 30.
   expect(decide({ unit: ['success'], stamp: 21, hour: 14 }).step).toBe(CONTENT)
   expect(decide({ unit: ['success'], stamp: 31, hour: 14 }).why).toBe('the whole suite: its daily run on this Mac')
