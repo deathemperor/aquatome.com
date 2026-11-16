@@ -1454,7 +1454,7 @@ final class V2FlowTests: XCTestCase {
       app.inked(account(), "\(tab)'s account button")
       if tab == "Hôm nay" {
         // The faintest words on the screen: read at a smaller step.
-        let date = app.scrollViews.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", " tháng ")).firstMatch
+        let date = app.scrollViews.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", "tháng")).firstMatch
         app.inked(date, "Hôm nay's date", apart: 30)
       }
     }
@@ -1476,7 +1476,7 @@ final class V2FlowTests: XCTestCase {
     let more = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Xem tất cả")).firstMatch
     XCTAssertTrue(more.waitForExistence(timeout: 5), "no Xem tất cả on Khám phá")
     more.tap()
-    app.largeTitleIsOnScreen("Tất cả loài")
+    app.largeTitleIsOnScreen("Tất cả loài", big: false)
   }
 
   /// A page pushed from Khám phá has iOS's bar, its back button named "Khám phá"; back by the edge swipe, from a fish's page
@@ -1514,8 +1514,9 @@ final class V2FlowTests: XCTestCase {
 
   /// Back from a Hôm nay post, Hôm nay has no bar (spec-titles.md: no bar flashing on the way back).
   func testBackFromAHomNayPostHomNayHasNoBar() {
+    // With animations on: iOS's swipe doesn't close a zoomed post without them (EdgeSwipe.swift).
     let app = launch("-v2", "YES")
-    app.launchForFlow()
+    app.launch()
     let card = app.buttons["v2-fish-of-the-day"]
     XCTAssertTrue(card.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
     let heading = app.scrollViews.staticTexts["Hôm nay"].firstMatch
@@ -1527,7 +1528,7 @@ final class V2FlowTests: XCTestCase {
     for way in ["its ✕", "the edge swipe"] {
       card.tap()
       XCTAssertTrue(shown.waitForExistence(timeout: 8), "the fish of the day didn't open (\(way))")
-      if way == "its ✕" { app.buttons["v2-close-post"].firstMatch.tap() } else { edgeSwipe(app, .slow, at: 0.5) }
+      if way == "its ✕" { app.buttons["v2-close-post"].firstMatch.tap() } else { edgeSwipe(app, .slow, at: offRows(app, 0.5)) }
       XCTAssertTrue(shown.waitForNonExistence(timeout: 5), "the post didn't close by \(way)")
       XCTAssertFalse(app.navigationBars.firstMatch.waitForExistence(timeout: 1), "Hôm nay has a bar after \(way)")
       XCTAssertEqual(heading.frame.minY, at, accuracy: 1, "Hôm nay isn't where it was after \(way)")
@@ -1596,6 +1597,16 @@ final class V2FlowTests: XCTestCase {
         // The chip the screen's edge cuts: its fill runs on to the edge, with no fade or dimming over it. Read just under
         // its top edge, above its picture and its name's marks.
         let w = app.frame.width
+        // Read 60 points in from the edge, so on a chip that covers at least the last 80: where the edge cuts one nearer its
+        // start (at the largest text, the third starts 40 from it), the row is drawn along till one does.
+        let row = chips.firstMatch.frame.midY / app.frame.height
+        if let near = chips.allElementsBoundByIndex.first(where: { $0.frame.minX >= w - 80 && $0.frame.minX < w }) {
+          let by = near.frame.minX - (w - 140)
+          app.coordinate(withNormalizedOffset: CGVector(dx: 0.7, dy: row))
+            .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.7, dy: row)).withOffset(CGVector(dx: -by, dy: 0)),
+                   withVelocity: .slow, thenHoldForDuration: 0.5)
+          Thread.sleep(forTimeInterval: 0.5)
+        }
         if let cut = chips.allElementsBoundByIndex.first(where: { $0.frame.minX < w - 80 && $0.frame.maxX > w }) {
           let y = cut.frame.minY + 3, inside = app.greyAt(CGPoint(x: w - 60, y: y)), edge = app.greyAt(CGPoint(x: w - 2, y: y))
           XCTAssertLessThanOrEqual(abs(edge - inside), 4, "the chip the edge cuts fades or dims there: \(inside) inside, \(edge) at the edge")
@@ -1692,6 +1703,7 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(fish.staticTexts["Cá ngựa vằn"].firstMatch.exists, "the photo's line opened another fish than Cá ngựa vằn")
     app.leavePage()
     XCTAssertTrue(page.waitForExistence(timeout: 5), "not back on Cá nhỏ's page")
+    app.backReadout("Cá nhỏ, back from the photo line's fish")
     // As it was left: its big title back and drawn, its lines where they were (Design, 17 Nov: Dĩa's came back 60 points
     // up, its title folded into the bar).
     app.largeTitleIsOnScreen("Cá nhỏ")
@@ -1734,7 +1746,8 @@ final class V2FlowTests: XCTestCase {
   /// A group's page is back as it was left, from a fish's page opened by its row (Design, 17 Nov: Dĩa's came back 55
   /// points up, its big title folded into the bar): its title big and drawn, its lines where they were.
   func testAGroupsPageIsBackAsItWasLeft() {
-    let app = launch("-v2", "YES", "-fixed-pictures", "-square-pictures")
+    // `-equipment`: Cá nhỏ's third page, Cá thử 1, is one of the kit's fish.
+    let app = launch("-v2", "YES", "-equipment", "-fixed-pictures", "-square-pictures")
     app.launchForFlow()
     app.openTab("Khám phá")
     let chip = app.buttons.matching(identifier: "v2-chip").matching(NSPredicate(format: "label BEGINSWITH %@", "Cá nhỏ")).firstMatch
@@ -1749,6 +1762,7 @@ final class V2FlowTests: XCTestCase {
     app.leavePage()
     XCTAssertTrue(count.waitForExistence(timeout: 5), "not back on Cá nhỏ's page")
     Thread.sleep(forTimeInterval: 0.5)
+    app.backReadout("Cá nhỏ, back")
     app.largeTitleIsOnScreen("Cá nhỏ")
     XCTAssertEqual(count.frame.minY, at, accuracy: 1, "Cá nhỏ's page isn't where it was left")
   }

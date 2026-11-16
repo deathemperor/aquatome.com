@@ -44,12 +44,19 @@ extension XCUIApplication {
 
   /// Whether a screen's large title can be seen, at rest. It stays in the accessibility tree under anything drawn over it, so
   /// this reads the pixels where it is: a band standing over the title's space left them flat (10 Nov).
-  func largeTitleIsOnScreen(_ title: String, file: StaticString = #filePath, line: UInt = #line) {
+  /// `big`: at rest, the title big under the bar's row, not folded into it, as iOS brought a group's page back (17 Nov): a
+  /// folded title is drawn too, so its ink alone doesn't tell them apart. The lists' titles are small (`big: false`).
+  func largeTitleIsOnScreen(_ title: String, big: Bool = true, file: StaticString = #filePath, line: UInt = #line) {
     let text = navigationBars.staticTexts[title].firstMatch
     XCTAssertTrue(text.waitForExistence(timeout: 5), "no title \(title)", file: file, line: line)
     let seen = edges(in: text.frame, apart: 60) ?? 0
     print("the title's edges, \(title): \(seen)")
     XCTAssertGreaterThan(seen, 200, "\(title): its large title can't be seen", file: file, line: line)
+    guard big else { return }
+    // Big: 46 points tall at size L, the bar 110 (a folded title is 23, its bar 54).
+    XCTAssertGreaterThan(text.frame.height, 30, "\(title): its title is folded into the bar: \(text.frame)", file: file, line: line)
+    let bar = navigationBars.containing(NSPredicate(format: "elementType == %d AND label == %@", XCUIElement.ElementType.staticText.rawValue, title)).firstMatch
+    XCTAssertGreaterThan(bar.frame.height, 90, "\(title): its bar is folded: \(bar.frame)", file: file, line: line)
   }
 
   /// Whether the clear strip behind the bar is a dark page's own black. iOS 27's frosted band read 8 of 255 there on the owner's

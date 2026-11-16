@@ -675,7 +675,7 @@ final class PageShotsFlowTests: XCTestCase {
     XCTAssertTrue(page.waitForExistence(timeout: 5), "Dĩa's page didn't open")
     shot("dia")
     let line = app.descendants(matching: .any)["v2-chip-photo-of"]
-    let named = line.label.replacingOccurrences(of: "Ảnh đại diện nhóm: ", with: "")
+    let named = line.label.replacingOccurrences(of: "Ảnh đại diện nhóm: ", with: ""), at = line.frame.minY
     line.coordinate(withNormalizedOffset: CGVector(dx: 0.2, dy: 0.5)).tap()
     let fish = app.descendants(matching: .any)["v2-species"]
     XCTAssertTrue(fish.waitForExistence(timeout: 10), "the line opened no page")
@@ -688,7 +688,9 @@ final class PageShotsFlowTests: XCTestCase {
     app.leavePage()
     XCTAssertTrue(page.waitForExistence(timeout: 5), "not back on Dĩa's page")
     shot("dia-after-back")
+    app.backReadout("Dĩa, back")
     app.largeTitleIsOnScreen("Dĩa")
+    XCTAssertEqual(line.frame.minY, at, accuracy: 1, "Dĩa's page isn't where it was left")
   }
 
   /// Local, on the site's own index (`SHOT_INDEX`), for Design (17 Nov): every chip's photo line opens the page it names,
