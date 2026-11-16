@@ -34,6 +34,20 @@ test("a photo with its source's own mark leads only where nothing else passes, a
   expect(leadChoice([photo('head', 500, 400)], [big('marked-1')], passes, {}, isMarked)).toBeUndefined()
 })
 
+// The chief of staff, 16 Nov: Rineloricaria castroi's head is a shop's lettered photo kept off cards, and two of its own
+// photos pass. A fish's own thumbnail is its head, so the head gives way to the first that passes, as a marked one does,
+// whatever its size; with nothing else passing it stays.
+test('a head kept off cards gives way to the first photo that passes, and stays where none does', () => {
+  const isHeld = (p: Photo) => name(p.url).startsWith('held')
+  const passes = (p: Photo) => !isHeld(p)
+  const held = big('held-head'), small = photo('scotcat', 500, 375)
+  expect(leadChoice([held, small], [], passes, {}, undefined, undefined, undefined, undefined, isHeld)).toEqual({ lead: small })
+  expect(leadChoice([held], [small], passes, {}, undefined, undefined, undefined, undefined, isHeld)).toEqual({ lead: small })
+  expect(leadChoice([held, big('held-2')], [], passes, {}, undefined, undefined, undefined, undefined, isHeld)).toBeUndefined()
+  // Without the hold read, the large lettered head stays (the gap the owner's thumbnails showed).
+  expect(leadChoice([held, small], [], passes, {})).toBeUndefined()
+})
+
 test('a large copy counts for the head and for what could replace it', () => {
   const withLarge = { ...photo('head', 960, 640), large: { url: url('head-large'), width: 1800, height: 1200 } }
   expect(leadChoice([withLarge], [big('other')], yes, {})).toBeUndefined()
