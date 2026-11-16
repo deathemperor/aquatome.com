@@ -575,17 +575,42 @@ main_pages() {
 added() { git diff --name-only --no-renames --diff-filter=A "$1" "$2" -- content | sort; }
 # The content files any commit after $1 up to $2 added, renames not followed, sorted: one a later commit deleted too.
 ever_added() { git log --format= --name-only --no-renames --diff-filter=A "$1..$2" -- content | sed '/^$/d' | sort -u; }
+# After a pull that brought main's commits in, clean or not: a page's hold follows the record that won, so a release on
+# main during a run stands, and so does a hold (main-holds.mjs says which pages and why; Page Recovery and the chief of
+# staff, 16 Nov 2026). Only the hold moves, and only on a page whose text is main's: one whose text isn't stays as merged,
+# and is counted in the log. In a commit of its own. `main_holds <this run's HEAD before the pull> [<main>, @{u}]` is false
+# when it put main's holds back, a tree no check has seen, so the caller checks again, as a clash does.
+CYCLE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+main_holds() {
+  local up=${2:-} base out holds texts harms
+  [ -n "$up" ] || up='@{u}'
+  up=$(git rev-parse "$up") && base=$(git merge-base "$1" "$up") || return 0
+  [ "$base" != "$up" ] || return 0
+  if ! out=$(node "$CYCLE_DIR/main-holds.mjs" "$base" "$up"); then
+    log "main's holds: the pages main read during this run couldn't be compared, so their holds stay as merged"
+    return 0
+  fi
+  holds=$(sed -n 's/^hold //p' <<<"$out") texts=$(sed -n 's/^text //p' <<<"$out") harms=$(sed -n 's/^harm //p' <<<"$out")
+  [ -z "$texts" ] || log "$(grep -c . <<<"$texts") pages main read during this run have main's record and this run's text, left as merged: $(head -5 <<<"$texts" | tr '\n' ' ')"
+  [ -z "$harms" ] || log "$(grep -c . <<<"$harms") pages main read during this run stay held: another of their languages is held for harm: $(head -5 <<<"$harms" | tr '\n' ' ')"
+  [ -n "$holds" ] || return 0
+  # shellcheck disable=SC2086 # content paths have no spaces
+  git checkout "$up" -- $holds
+  git commit -q -m "content: main's holds on $(grep -c . <<<"$holds") pages main read during this run"
+  log "$(grep -c . <<<"$holds") pages main read during this run take main's hold, as its record has it: $(head -5 <<<"$holds" | tr '\n' ' ')"
+  return 1
+}
 # The checked-out kept work on top of main, swept and checked, pushed. As push() does, lines both changed give way to the
 # kept work's, a clash in the calendar plans it again, and after any merge it's swept and checked again. KEPT_FAILED
 # when its tests failed for real; KEPT_WHY says why it isn't published; BRANCH, the branch's name now (a check that
 # passed ends its row, ended_row). `push_kept [<branch>]`: in the cloud, GitHub's branch of that exact name is deleted in
 # the same push as main's, both or neither, so work published is never published again from a branch left behind.
 push_kept() {
-  local check=1 clash main head swept
+  local check=1 clash main head swept run
   # Each branch's own: an earlier branch's failed migration says nothing of this one (Astra's read, 13 Nov).
   KEPT_FAILED= KEPT_WHY= MIGRATE_FAILED= PASS_UNRECORDED= BRANCH=${1:-}
   for _ in 1 2 3; do
-    main=$(git rev-parse origin/main 2>/dev/null || true) swept=
+    main=$(git rev-parse origin/main 2>/dev/null || true) run=$(git rev-parse HEAD) swept=
     if ! net git pull -q --rebase origin main; then
       clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
       git rebase --abort 2>/dev/null || true
@@ -594,9 +619,11 @@ push_kept() {
       check=1
     fi
     # Main's pages put back is a tree the checks haven't seen: on a try after a lost push, back over what the sweep made of
-    # them (Grok's read of 19652e876, 14 Nov). main_pages commits only when it changed something.
+    # them (Grok's read of 19652e876, 14 Nov). main_pages commits only when it changed something, and so do main's holds
+    # (main_holds), after it: a page it put back whole is main's already.
     head=$(git rev-parse HEAD)
     [ -z "$BRANCH" ] || main_pages "$BRANCH"
+    main_holds "$run" origin/main || true
     [ "$(git rev-parse HEAD)" = "$head" ] || check=1
     # A clean pull that brought main's commits in is swept, as swept_pull says why. Before the work has passed on a newer
     # main, it's checked in full; once it has, its lost push goes again as a run's own push does (push(), swept_pull):
@@ -829,8 +856,12 @@ replan_merged() {
   git add content/curation.json
   git diff --cached --quiet || git commit -q -m "content: the calendar planned again on main's"
 }
+# A clean pull here brings main's holds as push() does (main_holds): a species or plant page merges by field and never
+# clashes, so a release on main before this pull would otherwise stay under the run's hold, and push(), whose base is then
+# this main, wouldn't see it (a reader of #1505, 16 Nov 2026). The sweep and the checks come after it (engine-cycle.sh).
 catch_up() {
-  net git pull -q --rebase && return 0
+  local run; run=$(git rev-parse HEAD)
+  if net git pull -q --rebase; then main_holds "$run" || true; return 0; fi
   git rebase --abort 2>/dev/null || true
   log "main changed this cycle's files meanwhile: checking as it started, push() settles the clash"
 }
