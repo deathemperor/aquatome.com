@@ -289,12 +289,16 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
             // every language, as the sweep takes a dealer's notice off (sweep.ts). One reduced to one line goes with its heading
             // when it's the heading's only text, listed for the chief; a shop's list with more left stays when it is.
             // A shop's quick facts cut only for the shop's shelf, with two lines or more left, stay too: every finding but
-            // a word's quotes a sentence fit.ts dealerShelf names, whoever found it. The rule "was written to stop a stub",
-            // not to take a part's true lines with one sentence about the shelf (the chief of staff, 16 Nov 2026; fifty-five
-            // lines on sixteen pages in the dry run).
+            // a word's quotes a sentence fit.ts dealerShelf names, whoever found it, and no other sentence of the part (a
+            // short quote, "5 cm", could be either). The rule "was written to stop a stub", not to take a part's true lines
+            // with one sentence about the shelf (the chief of staff, 16 Nov 2026; fifty-five lines on sixteen pages in the
+            // dry run).
             const thin = lines(next) <= 1 && lines(before) > 1
-            const shelfSays = dealerShelf(start.map(b => b.replace(/\s+/g, ' ')).join('\n')).named.map(norm)
-            const shelf = fs.every(f => f.check === 'words' || (f.check === 'source' && !!f.quote && shelfSays.some(s => s.includes(norm(f.quote!)))))
+            const shelfText = start.map(b => b.replace(/\s+/g, ' ')).join('\n')
+            const shelfSays = new Set(dealerShelf(shelfText).named.map(norm))
+            const all = shelfText.split('\n').flatMap(l => sentences(l).filter(x => x.sentence).map(x => norm(x.html)))
+            const onShelf = (q: string) => all.some(s => s.includes(q)) && all.every(s => !s.includes(q) || shelfSays.has(s))
+            const shelf = fs.every(f => f.check === 'words' || (f.check === 'source' && !!f.quote && onShelf(norm(f.quote))))
             if (sk && ss && (thin || emptied || (isShop(ss) && sk === 'quickFacts' && !shelf))) {
               const dir = join(root, 'content', p.kind, p.id)
               const entityFile = join(dir, 'entity.json')

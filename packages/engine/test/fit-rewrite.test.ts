@@ -881,6 +881,11 @@ test('a shop\'s quick facts cut only for the shop\'s shelf keep the rest when tw
   expect(ra2.rewritten).toEqual(['vi/species/danio-margaritatus sections.quickFacts:glaser (0.90)'])
   expect(await kept(a2.dir)).toBe('<p>Cá dài tối đa 2 cm. Xuất xứ: Myanmar.</p>')
 
+  // A quote another sentence holds too ("2 cm" is in the maximum as well): not told for the shelf's, off as before.
+  const a3 = await glaser('<p>Cá dài tối đa 2 cm. Xuất xứ: Myanmar. Cá sống theo đàn. Cỡ cá thường bán: 1,5–2 cm.</p>')
+  const ra3 = await fitRewrite(a3.root, [a3.p], reading(a3.p, [{ ...stock(a3.p, 'the source shop\'s stock'), quote: '2 cm' }]), { llm: fakeLlm(vi => (vi.includes('2 cm') ? '' : vi), 0.9).llm, now: () => new Date() }, { limit: 5 })
+  expect(ra3.rewritten).toEqual(['vi/species/danio-margaritatus sections.quickFacts:glaser off the page (a shop\'s list)'])
+
   // Another sentence found beside it: a shop's list it had to mend, off as before (14 Nov 2026).
   const b = await glaser('<p>Cá dài tối đa 2 cm. Xuất xứ: Myanmar. Cá về đợt này rất khỏe. Cỡ cá thường bán: 1,5–2 cm.</p>')
   const batch = { check: 'source' as const, part: part(b.p, 'sections.quickFacts:glaser'), quote: 'Cá về đợt này rất khỏe.', why: 'the source shop\'s batch' }
@@ -894,7 +899,7 @@ test('a shop\'s quick facts cut only for the shop\'s shelf keep the rest when tw
   expect(rc.rewritten).toEqual(['vi/species/danio-margaritatus sections.quickFacts:glaser off the page (one line left)'])
   expect(await kept(c.dir)).toBeUndefined()
   expect(JSON.parse(await readFile(join(c.dir, 'id.json'), 'utf8')).sections).toEqual({})
-  for (const r of [a, a2, b, c]) await rm(r.root, { recursive: true, force: true })
+  for (const r of [a, a2, a3, b, c]) await rm(r.root, { recursive: true, force: true })
 })
 
 // The chief of staff, 15 Nov 2026: a one-line part went whole for its batch half ("Leporinus sometimes fight their own

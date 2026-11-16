@@ -654,20 +654,21 @@ test('a dealer\'s shelf in its own part is named, a sentence that also gives a p
     'Cỡ cá thường bán: 6–8 cm.', 'Kích thước hiện có: 6-8 cm.', 'Kích thước cá thường có bán: 8–10 cm.', 'Cỡ cá về tiệm: 10–12 cm.',
     'Cá bán ra thường có cỡ 4-5 cm.', 'Cá bán ngoài tiệm thường dài 5-7 cm.', 'Lứa cá hiện có dài khoảng 7-9 cm.', 'những con cá hiện có dài 5-7 cm.',
     'Hiện trên thị trường có cả cá bắt ngoài tự nhiên lẫn cá trại.', 'Hiện đã có cá bắt ngoài tự nhiên bán trên thị trường.',
-    'Ngoài thị trường có cả cá bắt từ tự nhiên lẫn cá nhân giống.', 'Trên thị trường có cá do người Đức nhân giống.',
     'Những con đang bán trên thị trường là cá nhân giống ở Đức.', 'Tuy vậy, cá đang có trên thị trường hiện nay là cá nhân giống ở Đức.',
     'Những con đang bán đều là cá sinh sản trong bể, do người nuôi ở châu Âu nhân giống.', 'Hiện có một ít cá do trại ở Đức cho đẻ.',
   ]
   const left = [
     // A place, but the dealer's own country: without its stock words it would say where every such fish is from.
     'Hiện có cá lau kính dẹt nhập từ Peru, dài 10-13 cm.', 'Hiện đã có cá nhân giống ở Đức, thuộc quần thể từ sông Oyapoc.',
-    'Trên thị trường có cả cá bắt tự nhiên từ Guinea lẫn cá nhân giống từ Indonesia.',
     // A look, a maximum, how rare.
     'Cá đang bán hiện nay dài 10-12 cm và màu khá xỉn.', 'Hiện có cá Desmopuntius hexazona đánh bắt ngoài tự nhiên, rất đẹp, đã đạt kích thước tối đa (5-6 cm).',
     'Loài này rất hiếm khi về hàng, và lần nhập vừa rồi cũng chỉ có được vài con.',
     // A figure besides the size on offer, or more after it; a sentence the mend reads whole, past a semicolon or an initial.
     'Cỡ cá hiện có: 4-5 cm, trưởng thành dài tới 30 cm.', 'Cá bán ra thường dài 3-5 cm, lớn nhanh.',
     'Cỡ cá thường bán: 4-5 cm; cá trưởng thành dài 12 cm.', 'Hiện trên thị trường đang có cá A. atahualpa đánh bắt tự nhiên từ Peru.',
+    // The line's history, a caution, advice (the fresh read of #1488).
+    'Cá bán ra là cá trại ở Đức, còn đàn bố mẹ ban đầu do một người chơi tự nhập về.',
+    'Trong đợt nhập vừa rồi, nhiều con chết vì sốc nước, nên bạn cần thả cá thật chậm.', 'Cá bán ra thường dài 3 cm và cần ăn thức ăn sống cỡ nhỏ.',
   ]
   const stays = [
     'Gần như toàn bộ cá bán ra là cá nhân giống.', 'Cá hô con đang bán hiện nay đều xuất phát từ trại nuôi thủy sản.', 'Tiếc là loài này rất hiếm khi có bán.',
@@ -676,12 +677,21 @@ test('a dealer\'s shelf in its own part is named, a sentence that also gives a p
     'Trên thị trường có rất nhiều loài trai khác nhau, trong đó có cả loài ngoại lai.', 'Cá dài tối đa 2 cm.', 'Xuất xứ: Thái Lan.',
     // The species' forms, which the next lines describe.
     'Trên thị trường hiện có hai dạng của loài này.',
+    // The trade's, with no now; fish in keepers' tanks, not on sale; a caution (the fresh read of #1488).
+    'Ngoài thị trường có cả cá bắt từ tự nhiên lẫn cá nhân giống.', 'Trên thị trường có cá do người Đức nhân giống.',
+    'Loài này hiện có mặt trong bể của nhiều người nuôi ở châu Âu.', 'Trên thị trường có cá bị tiêm thuốc nhuộm, bạn đừng mua.',
+    'Trên thị trường có cả cá bắt tự nhiên từ Guinea lẫn cá nhân giống từ Indonesia.',
   ]
   for (const s of named) expect(dealerShelf(s), s).toEqual({ named: [s], left: [] })
   for (const s of left) expect(dealerShelf(s), s).toEqual({ named: [], left: [s] })
   for (const s of stays) expect(dealerShelf(s), s).toEqual({ named: [], left: [] })
   // In a part, each sentence by itself.
   expect(dealerShelf('Cá dài tối đa 2 cm. Xuất xứ: Thái Lan. Cỡ cá thường bán: 1,5–2 cm.')).toEqual({ named: ['Cỡ cá thường bán: 1,5–2 cm.'], left: [] })
+  // One the next sentence leans on stays: cut, it would leave "Chúng sống với nhau khá hòa thuận" said of every such fish,
+  // a predator's, when it was said of one batch of young (Hoplias malabaricus on the site, the fresh read of #1488).
+  expect(dealerShelf('Hiện đã có cá con do người nuôi ở Đức cho sinh sản. Lứa này đang dài 6-8 cm. Chúng sống với nhau khá hòa thuận, miễn là được ăn đủ.'))
+    .toEqual({ named: [], left: ['Hiện đã có cá con do người nuôi ở Đức cho sinh sản.'] })
+  expect(dealerShelf('Cỡ cá thường bán: 6–8 cm. Chúng cần bể lớn.')).toEqual({ named: [], left: ['Cỡ cá thường bán: 6–8 cm.'] })
 
   // Named as a source finding, its sentence whole, only in a shop's own part and in Vietnamese.
   const shelf = (field: string, o: Partial<Page> = {}) => fitRules(page('', { kind: 'species', path: '/vi/ca/g/', fields: [{ field, html: '<p>Cá dài tối đa 2 cm. Cỡ cá thường bán: 1,5–2 cm.</p>' }], ...o })).filter(f => f.why === SHELF_WHY)

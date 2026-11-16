@@ -264,34 +264,43 @@ const SHELF_VI = [
   `^(?:cỡ|kích (?:cỡ|thước))(?: cá)?(?: thường)?(?: (?:có|được))? (?:bán(?: ra)?|về tiệm|hiện có|đang có|đang bán)(?: (?:ngoài|trên) (?:thị trường|tiệm))?(?: (?:là|thường))?\\s*[:(]?\\s*(?:khoảng |chừng |từ )?\\(?\\d`,
   `^${FISH_VI} ${OFFER_VI}(?: (?:hiện nay|trên thị trường|ngoài (?:thị trường|tiệm)))*(?: (?:thường|chỉ|đều))? (?:có )?(?:cỡ|kích (?:cỡ|thước)|dài|ở cỡ)\\s*(?:khoảng |chừng |từ )?\\d`,
   // On offer now: "Hiện trên thị trường đang có cá A. atahualpa đánh bắt tự nhiên"; not "Chi này hiện có mười loài".
-  `^${NOW_VI} (?:(?:trên|ngoài) (?:thị trường|tiệm) )?(?:(?:cũng|lại|đang|đã) )*có (?:bán )?(?:cả |những |vài |một số |thêm |một )?(?:cá|con|lứa|lô|đợt)(?![\\p{L}])`,
+  `^${NOW_VI} (?:(?:trên|ngoài) (?:thị trường|tiệm) )?(?:(?:cũng|lại|đang|đã) )*có (?:bán )?(?:cả |những |vài |một số |một ít |thêm |một )?(?:cá|con|lứa|lô|đợt)(?![\\p{L}])`,
   // Fish, never what else is sold: "Trên thị trường có rất nhiều loài trai khác nhau" is the bitterling's caution not to
-  // let mussels go.
-  `^(?:trên|ngoài) (?:thị trường|tiệm)(?: ${NOW_VI})?(?: (?:cũng|lại|đang|đã))* có (?:bán )?(?:cả |những |vài |một số |thêm |một )?(?:cá|con|lứa|lô|đợt)(?![\\p{L}])`,
+  // let mussels go. And now: without it ("Ngoài thị trường có cả cá bắt từ tự nhiên lẫn cá nhân giống") it reads as the
+  // trade's, true anywhere.
+  `^(?:trên|ngoài) (?:thị trường|tiệm) ${NOW_VI}(?: (?:cũng|lại|đang|đã))* có (?:bán )?(?:cả |những |vài |một số |một ít |thêm |một )?(?:cá|con|lứa|lô|đợt)(?![\\p{L}])`,
   // Fish on offer bred in the dealer's own country: "Những con đang bán trên thị trường là cá nhân giống ở Đức".
-  `^(?=.*${OFFER_VI}|.*thị trường).*(?:trại|nhân giống|sinh sản|cho đẻ|người nuôi)[^.]*(?:ở|tại) (?:Đức|châu Âu)(?![\\p{L}])`,
+  `^(?=.*(?:bán|thị trường|tiệm|đang có)).*(?:trại|nhân giống|sinh sản|cho đẻ|người nuôi)[^.]*(?:ở|tại) (?:Đức|châu Âu)(?![\\p{L}])`,
   // Its last import: "lần nhập vừa rồi cũng chỉ có được vài con".
   `(?:lần|đợt) nhập (?:vừa rồi|gần nhất|mới nhất|hiện nay)`,
 ].map(s => new RegExp(s, 'iu'))
 /**
  * What makes a shelf sentence a fact too: a place but the dealer's own country, a look or a form ("Trên thị trường hiện có
- * hai dạng của loài này", which the next lines describe), a maximum, how rare, the line's history.
+ * hai dạng của loài này", which the next lines describe), a maximum, how rare, the line's history ("đàn bố mẹ ban đầu"), a
+ * caution or advice ("…, nên bạn cần thả cá thật chậm").
  */
 const SHELF_PLACE = /(?<![\p{L}])(?:(?:từ|ở|tại|thuộc) (?!Đức(?![\p{L}])|Châu Âu)(?:sông |bang |vùng |hồ |tỉnh )?|(?:sông|lưu vực|bang|vùng) )\p{Lu}/u
-const SHELF_FACT = new RegExp(`${WORD('màu|sọc|chấm|vây|hoa văn|mặt nạ|đực|cái|vảy|xỉn|tối đa|nhất|dạng|con cháu|dòng nuôi|thế hệ đầu|hiếm|ít khi|thỉnh thoảng|lúc nào cũng|quanh năm')}|(?<!\\d)(?:1[89]|20)\\d\\d(?!\\d)`, 'iu')
+const SHELF_FACT = new RegExp(`${WORD('màu|sọc|chấm|vây|hoa văn|mặt nạ|đực|cái|vảy|xỉn|tối đa|nhất|dạng|con cháu|dòng nuôi|thế hệ đầu|bố mẹ|ban đầu|hiếm|ít khi|thỉnh thoảng|lúc nào cũng|quanh năm|nên|đừng|cần|tránh')}|(?<!\\d)(?:1[89]|20)\\d\\d(?!\\d)`, 'iu')
 /** A sentence's only figure is the size on offer, at its end: "Cỡ cá hiện có: 4-5 cm, trưởng thành dài tới 30 cm." gives a maximum too. */
 const SIZE_ALONE = /^[^\d]*\d+(?:[.,]\d+)?(?:\s*(?:[-–]|đến|tới)\s*\d+(?:[.,]\d+)?)?\s*cm\)?\s*[.!]?$/u
 /**
- * A Vietnamese text's shelf sentences: those wholly a dealer's shelf (named) and those that are a fact too (left, listed).
- * Cut into sentences as the mend cuts them (sentences.ts), which takes a named sentence whole: one cut finer, at a
- * semicolon or an initial ("cá A. atahualpa … từ Peru"), would name a piece and lose the rest with it.
+ * A next sentence that speaks of the shelf's fish ("Lứa này đang dài 6-8 cm. Chúng sống với nhau khá hòa thuận"): with the
+ * shelf line cut it would say of every such fish what was said of one batch, so the shelf line stays for a person.
+ */
+const LEANS = /^(?:(?:lứa|lô|đợt|đàn|nhóm|số cá|những con|các con|mấy con|cá)(?: cá)? (?:này|đó|ấy)|chúng)(?![\p{L}])/iu
+/**
+ * A Vietnamese text's shelf sentences: those wholly a dealer's shelf (named) and those that are a fact too, or that the
+ * next sentence leans on (left, listed). Cut into sentences as the mend cuts them (sentences.ts), which takes a named
+ * sentence whole: one cut finer, at a semicolon or an initial ("cá A. atahualpa … từ Peru"), would name a piece and lose
+ * the rest with it.
  */
 export function dealerShelf(text: string): { named: string[]; left: string[] } {
   const named: string[] = [], left: string[] = []
-  for (const raw of text.split('\n').flatMap(l => sentences(l).filter(x => x.sentence).map(x => x.html.trim()))) {
+  const all = text.split('\n').flatMap(l => sentences(l).filter(x => x.sentence).map(x => x.html.trim()))
+  for (const [i, raw] of all.entries()) {
     const s = raw.replace(/^(?:(?:tuy|vì|do) (?:vậy|thế)|tuy nhiên|ngoài ra),\s*/iu, '')
     if (!s || !SHELF_VI.some(r => r.test(s))) continue
-    ;(SHELF_PLACE.test(s) || SHELF_FACT.test(s) || (/\d/.test(s) && !SIZE_ALONE.test(s)) ? left : named).push(raw)
+    ;(SHELF_PLACE.test(s) || SHELF_FACT.test(s) || (/\d/.test(s) && !SIZE_ALONE.test(s)) || LEANS.test(all[i + 1] ?? '') ? left : named).push(raw)
   }
   return { named, left }
 }
