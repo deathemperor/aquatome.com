@@ -78,7 +78,7 @@ function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Si
   expect(r.stderr).not.toMatch(/fatal/i)
   const read = (f: string) => JSON.parse(readFileSync(join(dir, 'cycle', f), 'utf8'))
   const pushed = (f: string) => JSON.parse(spawnSync('git', ['-C', join(dir, 'origin.git'), 'show', `main:${f}`], { encoding: 'utf8' }).stdout)
-  return { out: r.stdout, page: read(file), record: read('engine-state/_fit.json')[key], pushed: pushed(file), pushedRecord: pushed('engine-state/_fit.json')[key] }
+  return { out: r.stdout, page: read(file), record: read('engine-state/_fit.json')[key], pushed: pushed(file), pushedRecord: pushed('engine-state/_fit.json')[key], pushedTh: () => pushed(thFile) }
 }
 
 const clean = { at: '2026-11-15', hash: 'e025', checks: [] }
@@ -175,6 +175,22 @@ test("a page main let out stays held while another of its languages is held for 
   expect(r.pushed.held).toEqual(hold('harm'))
   expect(r.out).toContain('LOG 1 pages main read during this run stay held: another of their languages is held for harm')
   expect(r.out).not.toContain("main's holds on")
+})
+
+// The re-check of #1505: the run held both languages for the Thai text's harm, and main read both clean and let them out.
+// Neither stays held for the other: both take main's release.
+test("a page main let out in every language goes out in each, though the run held them all for one's harm", () => {
+  const read = { at: '2026-11-14', hash: 'e025', checks: [] }
+  const r = push('guides', {
+    base: { fit: read, th: { fit: read } },
+    main: { fit: clean, th: { fit: clean } },
+    run: { held: hold('harm'), fit: read, th: { held: hold('harm'), fit: heldFor('harm') } },
+  })
+  expect(r.out).toContain('CODE 0')
+  expect(r.pushed.held).toBeUndefined()
+  expect(r.pushedTh().held).toBeUndefined()
+  expect(r.out).toContain("LOG 2 pages main read during this run take main's hold")
+  expect(r.out).not.toContain('held for harm')
 })
 
 test("a page whose text isn't main's keeps the merge's hold: main's record read another text", () => {

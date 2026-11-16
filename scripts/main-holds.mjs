@@ -14,8 +14,9 @@
 // back to main's whole. The files are those the tree differs from main in, not those the run changed since <base>: a
 // later try of a lost push replays an earlier try's "main's holds" commit, which then takes out a hold main has put back
 // meanwhile, and nets to no change against <base> (a reader of #1505).
-// Nor does a file take main's release while another language of its page is held for harm, which holds every language
-// (gate.ts): it stays as merged, and the next gate decides it ("harm <file>").
+// Nor does a file take main's release while another language of its page stays held for harm, which holds every language
+// (gate.ts): it stays as merged, and the next gate decides it ("harm <file>"). A language main lets out here too doesn't
+// stay held: when the run held every language for one's harm and main let them all out, they all go (a reader of #1505).
 //
 //   node scripts/main-holds.mjs <base> <main>
 // prints "hold <file>" for each file to take from <main>, "text <file>" for each whose record is main's and text isn't,
@@ -50,13 +51,15 @@ if (!base || !main) {
   process.exit(2)
 }
 const changed = git('diff', '--name-only', '--no-renames', main, 'HEAD', '--', 'content').split('\n').filter(f => FILE.test(f))
-// Another language of the page held for harm, in the merge.
-const harmBeside = (kind, id, lang) =>
-  git('ls-tree', '--name-only', 'HEAD', `content/${kind}/${id}/`)
+// The page's other language files held for harm, in the merge.
+const harmBeside = f => {
+  const [, kind, id, lang] = FILE.exec(f)
+  return git('ls-tree', '--name-only', 'HEAD', `content/${kind}/${id}/`)
     .split('\n')
-    .filter(f => FILE.test(f) && FILE.exec(f)[3] !== lang)
-    .some(f => at('HEAD', f)?.held?.checks?.includes('harm'))
+    .filter(s => FILE.test(s) && FILE.exec(s)[3] !== lang && at('HEAD', s)?.held?.checks?.includes('harm'))
+}
 if (changed.length) {
+  const out = []
   const fit = { base: at(base, FIT) ?? {}, main: at(main, FIT) ?? {}, head: at('HEAD', FIT) ?? {} }
   for (const f of changed) {
     const [, kind, id, lang] = FILE.exec(f)
@@ -66,8 +69,13 @@ if (changed.length) {
     const ours = at('HEAD', f)
     const theirs = at(main, f)
     if (!ours || !theirs || same(ours, theirs)) continue
-    if (!same(text(ours), text(theirs))) console.log(`text ${f}`)
-    else if (ours.held && !theirs.held && harmBeside(kind, id, lang)) console.log(`harm ${f}`)
-    else console.log(`hold ${f}`)
+    out.push([!same(text(ours), text(theirs)) ? 'text' : ours.held && !theirs.held ? 'release' : 'hold', f])
   }
+  // A release waits while a language beside it stays held for harm: one not let out here too, until none is left.
+  const releases = new Set(out.filter(([what]) => what === 'release').map(([, f]) => f))
+  for (let again = true; again; ) {
+    again = false
+    for (const f of releases) if (harmBeside(f).some(s => !releases.has(s))) again = releases.delete(f)
+  }
+  for (const [what, f] of out) console.log(`${what === 'release' ? (releases.has(f) ? 'hold' : 'harm') : what} ${f}`)
 }
