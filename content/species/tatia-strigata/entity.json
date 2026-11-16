@@ -12,6 +12,119 @@
     "venezuela",
     "orinoco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "VE"
+      ],
+      "regions": [
+        "Amazon",
+        "Orinoco",
+        "Negro",
+        "Casiquiare Channel"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Amazon River basin and upper reaches of the Orinoco, in Brazil and Venezuela.",
+          "countries": [
+            "BR",
+            "VE"
+          ],
+          "regions": [
+            "Amazon",
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Tatia strigata is recorded from the central Amazon basin, Negro river and Casiquiare Channel and is sympatric with T. dunni in the Casiquiare Channel and Negro river.",
+          "countries": [],
+          "regions": [
+            "Negro",
+            "Casiquiare Channel"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344635,
+      "total": 31,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "BR",
+          30
+        ],
+        [
+          "VE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -67.5,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          5,
+          5
+        ],
+        [
+          -61.875,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          11,
+          11
+        ],
+        [
+          -56.25,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

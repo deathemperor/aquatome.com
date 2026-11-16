@@ -1,8 +1,13 @@
 {
   "slug": "lake-yandja",
-  "name": "Yandja",
+  "name": "Danau Yandja",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-16T11:29:23.148Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

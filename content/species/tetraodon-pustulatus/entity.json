@@ -11,6 +11,63 @@
     "cross-river",
     "cameroon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "NG",
+        "CM"
+      ],
+      "regions": [
+        "Cross River"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Cross River pufferfish, Tetraodon pustulatus, is a puffer endemic to the Cross River basin of Nigeria and Cameroon.",
+          "countries": [
+            "NG",
+            "CM"
+          ],
+          "regions": [
+            "Cross River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5213547,
+      "total": 8,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "CM",
+          7
+        ],
+        [
+          "BJ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          0,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          8.4375,
+          5.625,
+          7,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,8 +1,8 @@
 {
   "id": "crossoloricaria-cephalaspis",
   "native": {
-    "input": "7cb14b527565ac9a",
-    "at": "2026-11-16T00:17:52.050Z",
+    "input": "1a74084c1dc82f34",
+    "at": "2026-11-16T11:31:54.968Z",
     "claims": [
       {
         "code": "CO",
@@ -11,9 +11,37 @@
         "quote": "This species originates from the north of Colombia.",
         "words": "Colombia",
         "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Magdalena River basin, Colombia.",
+        "words": "Colombia",
+        "ok": true
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Magdalena",
+        "source": "scotcat",
+        "quote": "South America: Magdalena River basin, Colombia.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Cauca",
+        "source": "scotcat",
+        "quote": "However, this species has a wide distribution in the lowlands throughout the Magdalena, Cauca and Atrato river basins.",
+        "ok": true
+      },
+      {
+        "name": "Atrato",
+        "source": "scotcat",
+        "quote": "However, this species has a wide distribution in the lowlands throughout the Magdalena, Cauca and Atrato river basins.",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {

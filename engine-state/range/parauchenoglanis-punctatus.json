@@ -1,8 +1,8 @@
 {
   "id": "parauchenoglanis-punctatus",
   "native": {
-    "input": "8a115228ac1e6bec",
-    "at": "2026-11-16T05:47:36.414Z",
+    "input": "0a8b3f3cfb728dcd",
+    "at": "2026-11-16T11:31:54.968Z",
     "claims": [
       {
         "code": "CD",
@@ -26,12 +26,32 @@
         "quote": "Type locality: Lindi River, Democratic Republic of Congo",
         "country": "CD",
         "ok": true
+      },
+      {
+        "name": "Congo River",
+        "source": "scotcat",
+        "quote": "Africa: lower and central Congo River system; San Benito and Ogowe River basins.",
+        "ok": true
+      },
+      {
+        "name": "Ogowe River",
+        "source": "scotcat",
+        "quote": "Africa: lower and central Congo River system; San Benito and Ogowe River basins.",
+        "ok": true
+      },
+      {
+        "name": "San Benito",
+        "source": "scotcat",
+        "quote": "Africa: lower and central Congo River system; San Benito and Ogowe River basins.",
+        "ok": true
       }
     ],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "GA"
+      ],
       "sourcesOnly": []
     }
   },

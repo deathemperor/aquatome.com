@@ -1,8 +1,13 @@
 {
   "slug": "brantas-river",
-  "name": "Brantas",
+  "name": "Sungai Brantas",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.97,
+    "at": "2026-11-16T11:21:06.927Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

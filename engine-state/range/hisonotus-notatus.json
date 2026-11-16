@@ -1,8 +1,8 @@
 {
   "id": "hisonotus-notatus",
   "native": {
-    "input": "338f889e94c21450",
-    "at": "2026-11-16T00:17:52.050Z",
+    "input": "0404e13991246e6f",
+    "at": "2026-11-16T11:31:54.968Z",
     "claims": [
       {
         "code": "BR",
@@ -19,9 +19,25 @@
         "quote": "Origin: southeast Brazil.",
         "words": "Brazil",
         "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Hisonotus notatus is endemic to Brazil and is distributed in the São João River basin and in the tributaries of Guanabara and Sepetiba Bays, in the state of Rio de Janeiro.",
+        "words": "Brazil",
+        "ok": true
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "São João River",
+        "source": "scotcat",
+        "quote": "Hisonotus notatus is endemic to Brazil and is distributed in the São João River basin and in the tributaries of Guanabara and Sepetiba Bays, in the state of Rio de Janeiro.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {

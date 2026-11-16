@@ -1,10 +1,13 @@
 {
   "slug": "southeastern-brazil",
-  "name": "Southeastern Brazil",
-  "altNames": [],
+  "name": "Đông Nam Brasil",
+  "altNames": [
+    "Southeastern Brazil"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

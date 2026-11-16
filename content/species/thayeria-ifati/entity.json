@@ -10,6 +10,83 @@
     "french-guiana",
     "maroni"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GF",
+        "SR"
+      ],
+      "regions": [
+        "Maroni",
+        "Approuague"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Appears to be endemic to the rivers Maroni and Approuague in French Guiana.",
+          "countries": [
+            "GF"
+          ],
+          "regions": [
+            "Maroni",
+            "Approuague"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The holotype was collected from the upper Rio Maroni, close to the settlement of Gaa Kabaon on the French Guiana/Suriname border by the famous ichthyologist Jacques Géry in 1957.",
+          "countries": [
+            "SR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5204173,
+      "total": 31,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "GF",
+          30
+        ],
+        [
+          "SR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -54.84375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          2.8125,
+          18,
+          18
+        ],
+        [
+          -54.84375,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          -53.4375,
+          2.8125,
+          8,
+          8
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

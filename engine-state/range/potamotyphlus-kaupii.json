@@ -1,0 +1,108 @@
+{
+  "id": "potamotyphlus-kaupii",
+  "native": {
+    "input": "9e97e62ebc1b915d",
+    "at": "2026-11-16T11:31:54.968Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The specimens originate from Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Potamotyphlus kaupii",
+    "status": "ACCEPTED",
+    "taxonKey": 10301230,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        9
+      ],
+      [
+        "912e4246-9db3-4c5a-be79-31a721ae5ae1",
+        7
+      ],
+      [
+        "ecfe949a-8443-4f14-8c32-d36074ff21e7",
+        4
+      ],
+      [
+        "3cc72eb1-0f9e-496d-96e9-3cf6f7d94b0a",
+        3
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "09c4287e-e6d5-4552-a07f-bff8a00833d8",
+        1
+      ],
+      [
+        "186605f8-4f62-4e3a-be58-c6b3b0bc47be",
+        1
+      ],
+      [
+        "263bbfe7-f643-43bb-b448-f0705d1c0e18",
+        1
+      ],
+      [
+        "64be02e0-0c64-11dd-84d1-b8a03c50a862",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "76dd8f0d-2daa-4a69-9fcd-55e04230334a",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "b25cc2e7-36aa-41ff-aa2a-441b12c6d423",
+        1
+      ],
+      [
+        "c287bcb5-ee4a-456f-86b6-dae0e6fe7958",
+        1
+      ],
+      [
+        "cece4fc2-1fec-4bb5-a335-7252548e3f0b",
+        1
+      ],
+      [
+        "dce00a1f-f6b4-4e11-9771-92c62c40ad80",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 12,
+    "at": "2026-11-16T11:31:54.968Z"
+  }
+}

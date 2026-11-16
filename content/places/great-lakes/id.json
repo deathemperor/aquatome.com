@@ -3,6 +3,12 @@
   "name": "Danau-Danau Besar",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-16T11:24:50.630Z",
+    "why": "The Indonesian name for the Great Lakes is \"Danau-Danau Besar\" in some usage, but atlases and Wikipedia write it as \"Danau Besar\" or \"Great Lakes\", and the hyphenated plural is a word-by-word translation of a proper name."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

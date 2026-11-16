@@ -9,6 +9,56 @@
     "south-america",
     "peru"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7193342,
+      "total": 12,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "PE",
+          11
+        ],
+        [
+          "VE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -4.21875,
+          11,
+          11
+        ],
+        [
+          -68.90625,
+          4.21875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

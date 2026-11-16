@@ -1,0 +1,127 @@
+{
+  "id": "tatia-neivai",
+  "native": {
+    "input": "f1220cfe6ce393aa",
+    "at": "2026-11-16T11:31:54.968Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio Piracicaba, Piracicaba, São Paulo State, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Piracicaba River, São Paulo, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Piracicaba River",
+        "source": "planetcatfish",
+        "quote": "South America: Piracicaba River, São Paulo, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "La Plata",
+        "source": "planetcatfish",
+        "quote": "Also found in the La Plata basin: Paraná, Upper Paraná, Grande (Paraná), Uberaba, Tietê, Piracicaba (São Paulo), and Paraguay, Upper Paraguay, Cuiabá and Claro.",
+        "ok": true
+      },
+      {
+        "name": "Paraná",
+        "source": "planetcatfish",
+        "quote": "Also found in the La Plata basin: Paraná, Upper Paraná, Grande (Paraná), Uberaba, Tietê, Piracicaba (São Paulo), and Paraguay, Upper Paraguay, Cuiabá and Claro.",
+        "ok": true
+      },
+      {
+        "name": "Paraguay",
+        "source": "planetcatfish",
+        "quote": "Also found in the La Plata basin: Paraná, Upper Paraná, Grande (Paraná), Uberaba, Tietê, Piracicaba (São Paulo), and Paraguay, Upper Paraguay, Cuiabá and Claro.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Tietê",
+        "source": "planetcatfish",
+        "quote": "Also found in the La Plata basin: Paraná, Upper Paraná, Grande (Paraná), Uberaba, Tietê, Piracicaba (São Paulo), and Paraguay, Upper Paraguay, Cuiabá and Claro.",
+        "ok": true
+      },
+      {
+        "name": "Piracicaba River",
+        "source": "scotcat",
+        "quote": "South America: Piracicaba River basin in São Paulo State.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Tatia neivai",
+    "status": "ACCEPTED",
+    "taxonKey": 2344657,
+    "datasets": [
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        52
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        49
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        35
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        15
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        9
+      ],
+      [
+        "e6b0fd8d-83be-4c83-b560-bdc99f1d2e07",
+        8
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-16T11:31:54.968Z"
+  }
+}

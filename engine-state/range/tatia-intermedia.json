@@ -1,0 +1,184 @@
+{
+  "id": "tatia-intermedia",
+  "native": {
+    "input": "313b9d77a3b47d84",
+    "at": "2026-11-16T11:31:54.968Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Tatia intermedia is described for Brazil, occurring in the lower third of the Amazon basin (states of Amazonas, Pará, and Tocantins), in the Tocantins-Araguaia system, and coastal rivers of Pará and Amapá.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "It also occurs in rivers of Guyana, Suriname, and French Guiana.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "It also occurs in rivers of Guyana, Suriname, and French Guiana.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "It also occurs in rivers of Guyana, Suriname, and French Guiana.",
+        "words": "French Guiana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "Tatia intermedia is described for Brazil, occurring in the lower third of the Amazon basin (states of Amazonas, Pará, and Tocantins), in the Tocantins-Araguaia system, and coastal rivers of Pará and Amapá.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Tocantins-Araguaia",
+        "source": "scotcat",
+        "quote": "Tatia intermedia is described for Brazil, occurring in the lower third of the Amazon basin (states of Amazonas, Pará, and Tocantins), in the Tocantins-Araguaia system, and coastal rivers of Pará and Amapá.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Tatia intermedia",
+    "status": "ACCEPTED",
+    "taxonKey": 2344637,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        41
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        29
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        17
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        16
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        16
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        15
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        11
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        8
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        7
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        7
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        6
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        6
+      ],
+      [
+        "ada824f0-5741-4f99-8452-9bcf46472a84",
+        4
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        3
+      ],
+      [
+        "278b1d5c-d7a9-4f7a-9651-69cddbb5b94e",
+        3
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "58414378-4fb2-47e0-8dd5-8b55d5c77117",
+        2
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        1
+      ],
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "GY",
+      "SR",
+      "GF"
+    ],
+    "requests": 12,
+    "at": "2026-11-16T11:31:54.968Z"
+  }
+}

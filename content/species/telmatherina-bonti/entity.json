@@ -10,6 +10,52 @@
     "indonesia",
     "lake-towuti"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Malili Lake System",
+        "Sulawesi"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The Malili Lake System on Sulawesi (formerly Celebes) consists of five lakes, three large and two small: Matano, Towuti, Mahalona, Lontoa and Masapi.",
+          "countries": [],
+          "regions": [
+            "Malili Lake System",
+            "Sulawesi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2412061,
+      "total": 72,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "ID",
+          72
+        ]
+      ],
+      "cells": [
+        [
+          120.9375,
+          -2.8125,
+          27
+        ],
+        [
+          120.9375,
+          1.40625,
+          45
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

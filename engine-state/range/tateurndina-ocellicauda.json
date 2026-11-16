@@ -1,0 +1,48 @@
+{
+  "id": "tateurndina-ocellicauda",
+  "native": {
+    "input": "f8024332324a7d38",
+    "at": "2026-11-16T11:31:54.968Z",
+    "claims": [
+      {
+        "code": "PG",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This goby originates from Papua New Guinea.",
+        "words": "Papua New Guinea",
+        "ok": true
+      },
+      {
+        "code": "PG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The peacock goby, Tateurndina ocellicauda, is a small sleeper from Papua New Guinea, found in lowland rainforest streams, ponds and rivers.",
+        "words": "Papua New Guinea",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Tateurndina ocellicauda",
+    "status": "ACCEPTED",
+    "taxonKey": 2386263,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "PG"
+    ],
+    "requests": 11,
+    "at": "2026-11-16T11:31:54.968Z"
+  }
+}
