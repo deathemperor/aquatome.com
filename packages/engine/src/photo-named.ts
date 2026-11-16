@@ -245,7 +245,9 @@ const PLACED = /^\((?:left|right|top|bottom|above|below|front|back|behind|foregr
  * Whether the source's description puts another species the site has a page for in the picture beside this one, named in
  * full or by an initial only other fish share with that epithet: a comparison figure ("Corydoras duplicareus (left) vs.
  * C. adolfoi (right)"), a tank-mate ("Pictured with a younger conspecific (right) and B. kubotai (left)"). The other name
- * comes straight after a word that joins it to the picture (BESIDE) or is placed in the figure (PLACED); a name the
+ * comes straight after a word that joins it to the picture (BESIDE), is placed in the figure (PLACED), or is joined by
+ * such a word to this fish's name after it ("Pethia conchonius with Pethia ticto" on the ticto's page; the reader of
+ * #1515, 16 Nov); a name the
  * sentence only brings in ("the similar Pethia ticto has a second spot", "differs from A. cacatuoides") doesn't count,
  * nor a trade name ("sold as …"), nor any name on a genus's own page.
  */
@@ -256,13 +258,15 @@ function namesOtherFish(caption: string, page: NamedPage): boolean {
   const { initials } = shapesOf(page.known)
   const raw = flat(caption.replace(TRADE, ' ')).split(' ')
   const words = raw.map(w => (/^\(?[A-Z]\.$/.test(w) ? w.replace(/^\(/, '') : w.replace(/^['"(]+|[)'",;:.]+$/g, '')))
+  // This fish's name at word i, in full or by its genus's initial ("C. adolfoi").
+  const ownAt = (i: number) => { const a = words[i] ?? '', b = (words[i + 1] ?? '').toLowerCase(); return own.some(o => { const [g, e] = o.split(' '); return e === b && (a.toLowerCase() === g || (/^[A-Z]\.$/.test(a) && a[0]!.toLowerCase() === g![0])) }) }
   for (let i = 0; i + 1 < words.length; i++) {
     const a = words[i]!, b = words[i + 1]!.toLowerCase()
     if (!/^[a-z]+$/.test(b)) continue
     const other = /^[A-Z]\.$/.test(a)
       ? (n => n.length > 0 && !n.some(x => own.includes(x)))([...(initials.get(`${a[0]!.toLowerCase()}. ${b}`) ?? [])])
       : /^[A-Z][a-z]+$/.test(a) && page.known.has(`${a.toLowerCase()} ${b}`) && !own.includes(`${a.toLowerCase()} ${b}`)
-    if (other && (BESIDE.test(words[i - 1] ?? '') || PLACED.test(raw[i + 2] ?? ''))) return true
+    if (other && (BESIDE.test(words[i - 1] ?? '') || PLACED.test(raw[i + 2] ?? '') || (BESIDE.test(words[i + 2] ?? '') && ownAt(i + 3)))) return true
   }
   return false
 }

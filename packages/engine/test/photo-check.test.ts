@@ -284,6 +284,15 @@ test("the lead a page shows stays where the check passes it as typical, and give
   expect(await urls(r, 'content/species/eee-fish/entity.json')).toEqual(['eee-lead', 'eee-typical'])
 })
 
+// The reader of #1515, 16 Nov 2026: the photo check orders heads as the lead step and the sweep do, so it reads the
+// calendar's hold too, and a held lead it found typical doesn't stay first over another typical photo.
+test("a lead the calendar holds off cards gives way to a typical photo, as the lead step and the sweep read the hold", async () => {
+  const r = await root([{ id: 'hhh-fish', sci: 'hhh fish', photos: ['hhh-lead', 'hhh-typical'] }])
+  await writeFile(join(r, 'content/curation.json'), JSON.stringify({ avoid: { [url('hhh-lead')]: 'a test' } }))
+  await checkPagePhotos(r, model({ 'hhh-lead': { typical: true }, 'hhh-typical': { typical: true } }), { limit: 10 })
+  expect(await urls(r, 'content/species/hhh-fish/entity.json')).toEqual(['hhh-typical', 'hhh-lead'])
+})
+
 test("a lead's sheet takes the page's own photos before its gallery's, so a photo that takes a removed lead's place was judged beside it", async () => {
   const r = await root([{ id: 'aaa-fish', sci: 'Aaa fish', photos: ['lead', 'second'] }])
   // Commons' photos have the first turn, the page's own (another source's) the second: by turn alone they would fill the sheet.

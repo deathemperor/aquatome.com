@@ -212,6 +212,12 @@ test('a description naming another species the site has a page for beside this o
   expect(on('Pethia conchonius', 'Male Pethia conchonius in breeding colour; the similar Pethia ticto has a second spot.')).not.toBe(GENUS)
   expect(on('Apistogramma agassizii', 'Male Apistogramma agassizii, which differs from A. cacatuoides in its tail.')).not.toBe(GENUS)
   expect(on('Pethia conchonius', 'Pethia conchonius with Pethia ticto')).toBe(GENUS)
+  // Either way round, and in a list: the fish named first, joined to this one's name after it, is in the picture too (the
+  // reader of #1515).
+  expect(on('Pethia ticto', 'Pethia conchonius with Pethia ticto')).toBe(GENUS)
+  expect(at('Corydoras adolfoi', 'Corydoras duplicareus and C. adolfoi')).toBe(GENUS)
+  expect(at('Botia almorhae', 'Botia histrionica, B. kubotai and B. almorhae')).toBe(GENUS)
+  expect(at('Botia histrionica', 'Botia histrionica, B. kubotai and B. almorhae')).toBe(GENUS)
   expect(on('Echinodorus', 'Echinodorus bleheri and Echinodorus bleheri')).not.toBe(GENUS)
 })
 

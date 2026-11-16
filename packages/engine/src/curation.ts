@@ -194,9 +194,11 @@ export async function readCalendar(root: string): Promise<Curation> {
   return CurationSchema.parse(raw)
 }
 /** The calendar's hold alone (`avoid`: photo → why), read as the sweep reads the rest of the calendar, without the
- * schema's checks: the sweep cleans the calendar as it is, and one part of it the schema refuses mustn't stop it. */
+ * schema's checks: the sweep and the photo check clean pages as they are, and a part of the calendar the schema refuses,
+ * or an empty file, mustn't stop them (the reader of #1515, 16 Nov). */
 export async function readAvoid(root: string): Promise<Record<string, string>> {
-  return (await json<{ avoid?: Record<string, string> } | null>(join(root, 'content/curation.json'), null))?.avoid ?? {}
+  const raw = await readFile(join(root, 'content/curation.json'), 'utf8').catch(() => '')
+  return raw.trim() ? ((JSON.parse(raw) as { avoid?: Record<string, string> } | null)?.avoid ?? {}) : {}
 }
 
 export async function writeCalendar(root: string, cur: Curation) {
