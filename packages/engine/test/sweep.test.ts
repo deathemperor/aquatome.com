@@ -786,7 +786,8 @@ test('a fish the chief of staff named takes its name, guarded, the old one among
   expect((await json(root, `content/${at}/id.json`)).name).toBe('Ikan Pelangi Neon Merah')
   expect((await json(root, 'content/summaries/pseudomugil-luminatus.json')).summary).toBe('Cá mắt xanh neon đỏ hợp bể nhỏ.')
   expect((await json(root, 'content/guides/g/vi.json')).body).toContain('<p>Thử cá mắt xanh neon đỏ.</p>')
-  expect(r.text['fish-name']).toEqual(['species/pseudomugil-luminatus/vi'])
+  // The store's black tetra takes its own fixed name ("Cá cánh buồm") in the same run.
+  expect(r.text['fish-name']).toEqual(['species/pseudomugil-luminatus/vi', 'species/gymnocorymbus-ternetzi/vi'])
   expect(r.files).toEqual(expect.arrayContaining([`${at}/vi.json`, 'summaries/pseudomugil-luminatus.json', 'guides/g/vi.json']))
   expect((await sweep(root)).files).toEqual([])
 
@@ -1072,7 +1073,8 @@ test('a fish and a plant named by the names in use: new address, old one forward
   await put('species/glossolepis-incisus/entity.json', species('glossolepis-incisus', 'Glossolepis incisus'))
   await put('species/glossolepis-incisus/vi.json', { ...vi('Cá cầu vồng đỏ', { 'distribution:seriouslyfish': '<p>Cá cầu vồng đỏ chỉ sống ở hồ Sentani.</p>' }), slug: 'ca-cau-vong-do', altNames: ['Red rainbowfish', 'Cá táo đỏ'] })
   await put('gallery/glossolepis-incisus.json', { id: 'glossolepis-incisus', photos: [{ ...photo('https://media.aquatome.com/inat/1.webp', 'Cá cầu vồng đỏ đực trong bể trồng cây'), best: true }], seen: 1, updatedAt: '2026-10-01' })
-  await put('captions/id.json', { 'Cá cầu vồng đỏ đực trong bể trồng cây': 'Rainbow merah jantan di akuarium tanaman', 'Cá khác': 'Ikan lain' })
+  // The last key's photo has left the gallery: its words still take the new name.
+  await put('captions/id.json', { 'Cá cầu vồng đỏ đực trong bể trồng cây': 'Rainbow merah jantan di akuarium tanaman', 'Cá khác': 'Ikan lain', 'Cá cầu vồng đỏ cái': 'Rainbow merah betina' })
   await mkdir(join(c, 'plants/limnobium-laevigatum'), { recursive: true })
   await writeFile(join(c, 'plants/limnobium-laevigatum/entity.json'), JSON.stringify({ id: 'limnobium-laevigatum', scientificName: 'Limnobium laevigatum', difficulty: 1, light: 'medium', co2: 'none', growth: 'fast', placement: ['floating'], sections: [{ key: 'notes', source: 'tropica', sourceUrl: 'https://tropica.com/limnobium', html: '<p>Floats.</p>' }], photos: [], productSlots: [], updatedAt: '2026-10-01' }, null, 2))
   await writeFile(join(c, 'plants/limnobium-laevigatum/vi.json'), JSON.stringify({ slug: 'beo-tay-nam-my-limnobium-laevigatum', name: 'Bèo tây Nam Mỹ (Limnobium laevigatum)', altNames: ['Bèo nhím Nam Mỹ', 'Amazon frogbit'], sections: { 'notes:tropica': '<p>Bèo tây Nam Mỹ nổi trên mặt nước, khác bèo tây (Eichhornia crassipes).</p>' }, quality: { score: 0.9, indexable: true } }, null, 1))
@@ -1084,7 +1086,7 @@ test('a fish and a plant named by the names in use: new address, old one forward
   expect(fish.redirectFrom).toEqual([{ slug: 'ca-cau-vong-do', name: 'Cá cầu vồng đỏ' }])
   expect(fish.sections['distribution:seriouslyfish']).toBe('<p>Cá táo đỏ chỉ sống ở hồ Sentani.</p>')
   expect((await json(root, 'content/gallery/glossolepis-incisus.json')).photos[0].caption).toBe('Cá táo đỏ đực trong bể trồng cây')
-  expect(await json(root, 'content/captions/id.json')).toEqual({ 'Cá táo đỏ đực trong bể trồng cây': 'Rainbow merah jantan di akuarium tanaman', 'Cá khác': 'Ikan lain' })
+  expect(await json(root, 'content/captions/id.json')).toEqual({ 'Cá táo đỏ đực trong bể trồng cây': 'Rainbow merah jantan di akuarium tanaman', 'Cá khác': 'Ikan lain', 'Cá táo đỏ cái': 'Rainbow merah betina' })
   const plant = await json(root, 'content/plants/limnobium-laevigatum/vi.json')
   expect([plant.name, plant.slug, plant.nameFixed]).toEqual(['Bèo Nhật', 'beo-nhat', true])
   expect(plant.altNames).toEqual(['Amazon frogbit'])

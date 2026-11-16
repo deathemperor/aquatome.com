@@ -355,14 +355,16 @@ export async function renameCaptions(content: string, rows: readonly FishName[] 
     await write(join(content, f), raw, { ...g, photos })
     changed.push(f)
   }
-  if (!rekey.size) return changed
+  // A key no photo holds now (its photo gone from the gallery) takes the new name from its own words, so no old name
+  // waits in a file for the photo to come back.
+  const to = (k: string) => rekey.get(k) ?? renameFishNames(k)
   for (const f of (await readdir(join(content, 'captions')).catch(() => [] as string[])).filter(x => x.endsWith('.json'))) {
     const file = join(content, 'captions', f)
     const raw = await readFile(file, 'utf8')
     const map = JSON.parse(raw) as Record<string, string>
-    if (![...rekey.keys()].some(k => k in map)) continue
+    if (!Object.keys(map).some(k => to(k) !== k)) continue
     // In place, so the file's order stays and a diff shows only the keys.
-    await write(file, raw, Object.fromEntries(Object.entries(map).map(([k, v]) => [rekey.get(k) ?? k, v])))
+    await write(file, raw, Object.fromEntries(Object.entries(map).map(([k, v]) => [to(k), v])))
     changed.push(`captions/${f}`)
   }
   return changed

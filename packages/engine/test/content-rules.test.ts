@@ -926,6 +926,13 @@ test.each([
   ['Cá cầu vồng đỏ (G. incisus) sống ở hồ Sentani.', 'Cá táo đỏ (G. incisus) sống ở hồ Sentani.'],
   // A longer name the row lists stays as written beside it (the sweep's "cá táo đỏ cá hồi", 13 Nov).
   ['Cá cầu vồng đỏ, còn gọi là cá cầu vồng đỏ cá hồi hay cá cầu vồng New Guinea.', 'Cá táo đỏ, còn gọi là cá cầu vồng đỏ cá hồi hay cá cầu vồng New Guinea.'],
+  // An old name with brackets in it is matched as written (16 Nov).
+  ['Cá cuvieri (Boulengerella cuvieri) săn cá nhỏ ở tầng mặt.', 'Cá Boulengerella cuvieri săn cá nhỏ ở tầng mặt.'],
+  // A new name that holds the scientific name takes the same one in brackets after it along, tags and all.
+  ['Trai nước ngọt Corbicula (Corbicula fluminea) lọc nước.', 'Hến Corbicula fluminea lọc nước.'],
+  ['<p>Trai nước ngọt Corbicula (<em>Corbicula fluminea</em>) lọc nước.</p>', '<p>Hến Corbicula fluminea lọc nước.</p>'],
+  // Keepers' "cá mún" is any platy; another species' name that begins with the old one stays whole.
+  ['Nuôi chung với cá platy đỏ, cá platy variatus hay cá kiếm.', 'Nuôi chung với cá mún đỏ, cá platy variatus hay cá kiếm.'],
 ])('a named fish or plant takes its name wherever written: %s', (before, after) => {
   expect(swappedNames(before)).not.toEqual([])
   expect(renameSwapped(before)).toBe(after)
@@ -947,6 +954,8 @@ test.each([
   'Người ta còn gọi nó là cá cầu vồng  đỏ cá hồi hay cá cầu vồng New Guinea.',
   // A name the row takes off its page because it is another animal's: in the text it is that one's (Curation, 13 Nov).
   'Cho cá bột ăn bo bo (rận nước) mỗi ngày.',
+  // A heading's last word and the next paragraph's first are no name (the platy guide's "Chọn mua cá", 16 Nov).
+  '<h3>Chọn mua cá</h3><p>Platy khá rẻ, giá cả tùy từng dạng.</p>',
 ])('a page\'s old name beside another species, or words that only begin it, stay: %s', text => {
   expect(swappedNames(text)).toEqual([])
   expect(renameSwapped(text)).toBe(text)
