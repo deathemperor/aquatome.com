@@ -23,7 +23,8 @@
       ],
       "regions": [
         "Mekong",
-        "Khorat Plateau"
+        "Khorat Plateau",
+        "Mun"
       ],
       "sources": [
         "bwaquatics",
@@ -32,9 +33,18 @@
       "quotes": [
         {
           "source": "bwaquatics",
+          "quote": "It is a hardy species from the Khorat Plateau of northeastern Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Khorat Plateau"
+          ]
+        },
+        {
+          "source": "bwaquatics",
           "quote": "Native to northeastern Thailand, Laos and parts of Cambodia in the Mekong Basin.",
           "countries": [
-            "TH",
             "LA",
             "KH"
           ],
@@ -43,11 +53,11 @@
           ]
         },
         {
-          "source": "bwaquatics",
-          "quote": "The fish originate from the Khorat Plateau in Thailand.",
+          "source": "seriouslyfish",
+          "quote": "The plateau is drained by the Mun, Chi, Songkhram, and Loei rivers, all of which belong to the Mekong watershed, and B. smaragdina has also been recorded from Mekong tributaries in central Laos.",
           "countries": [],
           "regions": [
-            "Khorat Plateau"
+            "Mun"
           ]
         }
       ]
@@ -208,7 +218,7 @@
       },
       {
         "source": "bwaquatics",
-        "value": 7
+        "value": 6
       }
     ],
     "difficulty": [
@@ -238,7 +248,7 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/smaragdina-reg",
-      "html": "<p>Betta smaragdina belongs to the Betta splendens complex. IUCN Red List: Data Deficient. This is the natural wild-type colour form: metallic green with blue iridescence. It can be identified by the snakescale-like pattern on the face.</p><ul><li>Body: slender and elongated, slightly compressed. Reaches a maximum standard length of about 7 cm.</li><li>Tail: rounded or slightly crescent-shaped caudal fin, shorter and less ornate than Betta splendens, often with a red distal band with faint black edging or transverse bars, varying by population.</li><li>Colour: dark brown to black body with iridescent green or blue scales giving a metallic \"emerald\" sheen, especially in males.</li></ul>"
+      "html": "<p>Betta smaragdina belongs to the Betta splendens complex. IUCN Red List: Data Deficient. It is a hardy species from the Khorat Plateau of northeastern Thailand. It reaches about 6 cm and is known for the snake-like scaling on the face and body; the wild type shows the original metallic green with blue iridescence. It comes from a harsher environment than most splendens and can handle lower temperatures.</p>"
     },
     {
       "key": "quickFacts",
@@ -250,7 +260,7 @@
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/smaragdina-reg",
-      "html": "<p>Native to northeastern Thailand, Laos and parts of Cambodia in the Mekong Basin. The fish originate from the Khorat Plateau in Thailand.</p>"
+      "html": "<p>Native to northeastern Thailand, Laos and parts of Cambodia in the Mekong Basin.</p>"
     },
     {
       "key": "distribution",
@@ -262,7 +272,7 @@
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/smaragdina-reg",
-      "html": "<p>Inhabits slow-moving, shallow waters such as rice paddies, swamps, ponds and streams with dense vegetation and leaf litter. The Khorat Plateau is a harsher environment than that of other splendens-complex bettas, so these fish are very hardy and can tolerate low temperatures. They live in warm, slightly acidic to neutral water with low oxygen, relying on the labyrinth organ for air-breathing.</p>"
+      "html": "<p>Lives in slow-moving, shallow water such as rice paddies, ponds, marshes and streams with dense vegetation. It prefers warm (24 to 30°C), slightly acidic to neutral (pH 5.5 to 7.5) water and uses its labyrinth organ to breathe air.</p>"
     },
     {
       "key": "habitat",
@@ -286,7 +296,7 @@
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/smaragdina-reg",
-      "html": "<ul><li>Temperature: 24–29°C; coloration is much better at a warmer temperature above 26°C. Can tolerate a low of 16°C for a short period.</li><li>pH: 5.0–7.0 (in the wild 5.5–7.5).</li><li>TDS: 60–200. They are kept in soft water with low TDS to match other wild bettas, but are more tolerant of water conditions.</li></ul>"
+      "html": "<ul><li>TDS: 60 to 200 (kept in soft, low-TDS water, but they tolerate a wider range)</li><li>pH: 5.0 to 7.0</li><li>Temperature: 24 to 29°C (much better coloration above 26°C). Known to withstand temperatures as low as 16°C.</li></ul>"
     },
     {
       "key": "waterConditions",
@@ -298,7 +308,7 @@
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/smaragdina-reg",
-      "html": "<p>Carnivorous. Fed live blackworms, frozen bloodworms and pellets.</p>"
+      "html": "<p>Carnivorous. Accepts live blackworms, frozen bloodworms and pellets.</p>"
     },
     {
       "key": "diet",
@@ -310,7 +320,7 @@
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/smaragdina-reg",
-      "html": "<p>Males are very aggressive and should be kept alone or in tanks with non-male bettas. Can be kept in a planted community tank of multiple females if there is adequate space.</p>"
+      "html": "<p>Males are very aggressive and should be kept alone or with non-male betta tankmates. Multiple females can be kept together in a planted community tank if there is enough space.</p>"
     },
     {
       "key": "behaviour",
@@ -322,7 +332,7 @@
       "key": "dimorphism",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/smaragdina-reg",
-      "html": "<p>Males show vivid red accents on the caudal, anal and pelvic fins during courtship or aggression, and iridescent green or blue scales on the operculum with two parallel red or silvery vertical bars, more vibrant when flaring. Females are duller, brownish with muted green or red hints, reduced iridescence and simpler, less distinct opercular markings.</p>"
+      "html": "<p>Body is slender and elongated, slightly compressed. Tail is usually a spadetail, sometimes a roundtail; the caudal fin has transverse bars and lacks the red crescent-shaped band seen in some other bettas. Each body scale is outlined with a metallic green center, forming a snakeskin pattern from the gill plate to the tail base. Coloration is a dark brown to black base with metallic green scales and blue iridescence. Males show red accents in the fins and two parallel red or silvery vertical bars on the operculum, brightest when flaring. Females are duller and brownish, with simpler, fainter markings.</p>"
     },
     {
       "key": "dimorphism",
@@ -334,7 +344,7 @@
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/smaragdina-reg",
-      "html": "<p>Bubble nester.</p>"
+      "html": "<p>Bubblenester. The male builds a bubble nest under a floating leaf or plants and places the eggs in it after spawning. Remove the female once spawning is done. Eggs hatch in 24 to 48 hours, and the fry are free-swimming about 3 days later. Start them on infusoria, then move to baby brine shrimp. Keep the surface calm so the nest stays intact.</p>"
     },
     {
       "key": "reproduction",
@@ -476,5 +486,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13"
+  "updatedAt": "2026-11-14"
 }

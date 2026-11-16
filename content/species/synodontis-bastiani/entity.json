@@ -11,6 +11,144 @@
     "bandama",
     "nigeria"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CI"
+      ],
+      "regions": [
+        "Sassandra",
+        "Bandama",
+        "Bia",
+        "Comoe",
+        "Agnébi"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Bouaffé, Ivory Coast.",
+          "countries": [
+            "CI"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Africa: Sassandra, Bandama and Bia basins (Côte d'Ivoire), also from the Comoe and Agnébi Rivers.",
+          "countries": [],
+          "regions": [
+            "Sassandra",
+            "Bandama",
+            "Bia",
+            "Comoe",
+            "Agnébi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344320,
+      "total": 37,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "CI",
+          34
+        ],
+        [
+          "GH",
+          2
+        ],
+        [
+          "GW",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -15.46875,
+          11.25,
+          1,
+          0
+        ],
+        [
+          -8.4375,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -8.4375,
+          7.03125,
+          4,
+          4
+        ],
+        [
+          -7.03125,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -7.03125,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          -5.625,
+          5.625,
+          5,
+          5
+        ],
+        [
+          -5.625,
+          7.03125,
+          8,
+          8
+        ],
+        [
+          -5.625,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -5.625,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          -4.21875,
+          4.21875,
+          8,
+          8
+        ],
+        [
+          -4.21875,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -2.8125,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          0,
+          5.625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -49,6 +49,18 @@ test('rewrites guides, species (per source, references untouched) and glossary o
   expect(again.done).toEqual([])
 })
 
+// A stand-in read, 15 Nov 2026: 42 guides off the site for good were still due here, each a write and a review.
+test('a guide off the site for good is never rewritten, by the queue or by a match', async () => {
+  const root = await setup()
+  for (const id of ['2hraquarist-blogs-aquascaping-ideas-x', 'glaser-en-32-all-the-rest-drought-in-singapore-and-malaysia']) {
+    await put(root, `guides/${id}/entity.json`, { id, source: id.split('-')[0], html: '' })
+    await put(root, `guides/${id}/vi.json`, { slug: id, name: 'X', body: '<p>cũ</p>' })
+  }
+  const ids = async (o: { match?: RegExp }) => (await rewriteExisting(root, join(root, 's.json'), { llm: fake({ en: 0.9, vi: 0.9 }), opts: { mode: 'fix' }, now }, { limit: 10, dry: true, ...o })).done.map(x => x.split(' ')[0])
+  expect(await ids({})).toEqual(['guides/g', 'species/x', 'glossary/t'])
+  expect(await ids({ match: /cũ/ })).toEqual(['guides/g', 'species/x', 'glossary/t'])
+})
+
 test('a rewrite the reviewer fails is not kept, unless it beats a low old score', async () => {
   const root = await setup(0.8)
   await rewriteExisting(root, join(root, 's.json'), { llm: fake({ en: 0.7, vi: 0.6 }), opts: { mode: 'fix' }, now }, { limit: 10 })

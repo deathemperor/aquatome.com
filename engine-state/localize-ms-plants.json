@@ -1086,5 +1086,298 @@
       "maintenance:tropica": "33aab62b1f1c",
       "notes:tropica": "aa72032ec879"
     }
+  },
+  "egeria-densa": {
+    "at": "2026-11-15",
+    "from": "2026-10-30",
+    "name": "Elodea",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "\"anchor\" was translated as \"pemberat\" (weight). The English says the stems are gathered in an anchor, a lead or metal strip that holds the bunch. \"pemberat\" is acceptable, but \"diikat dengan pemberat\" is a little loose. Say \"diikat pada jalur pemberat plumbum\" or similar.",
+      "\"the tendrils grow thin\" was rendered as \"batangnya tumbuh halus\". The English says tendrils, but the translation says stems. Use \"batang\" only if tendrils means the stems here, and keep it consistent.",
+      "\"nutrition available\" became \"nutrien yang ada\". The meaning is fine, but \"nutrien\" is used for both \"nutrients\" and \"nutrition\". This is minor.",
+      "\"tangki\" in item 1 is understandable, but Malaysian hobbyists usually say \"akuarium\" or \"tangki akuarium\". The translation uses \"akuarium\" in item 3, so it is inconsistent.",
+      "\"Tumbuhan batang\" for \"Stem\" is acceptable. \"Tumbuhan berbatang\" is more natural.",
+      "The \"(2\")\" imperial figure was correctly dropped, but check that \"5 cm\" is a sensible conversion. 2 in is about 5 cm, so this is fine."
+    ],
+    "parts": {
+      "quickFacts:tropica": "e3d355c3ab2c",
+      "maintenance:tropica": "c35c7022e1a1",
+      "notes:tropica": "6a1436394a76"
+    }
+  },
+  "eleocharis-acicularis": {
+    "at": "2026-11-15",
+    "from": "2026-10-30",
+    "name": "Hairgrass",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "\"tangki\" is acceptable, but \"akuarium\" is used in item 2; use one term consistently.",
+      "\"Walau bagaimanapun, kawasan terbuka ... lebih baik\" is slightly awkward; consider \"masih lebih baik jika ditanam di kawasan terbuka tanpa teduhan tumbuhan lain\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "3f889c91d3f8",
+      "maintenance:tropica": "9ed1d23bc27f"
+    }
+  },
+  "eleocharis-montevidensis": {
+    "at": "2026-11-15",
+    "from": "2026-10-30",
+    "name": "Eleocharis montevidensis",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "Item 2: \"basic and low maintenance\" rendered as \"ringkas dan mudah dijaga\" — \"ringkas\" is a weak/odd rendering of \"basic\"; use e.g. \"mudah/asas dan tidak memerlukan banyak penjagaan\".",
+      "Item 2: \"in transparent wads\" translated as \"dalam rumpun yang lapang dan lut sinar\" — \"yang lapang\" (spacious/open) is added and not in the source; use \"dalam rumpun lut sinar\" only.",
+      "Item 2: \"Each straw\" rendered \"batangnya\" (stem); acceptable but \"helai/batang\" fine — keep consistent.",
+      "Item 1: \"Light demand\"/\"CO2 demand\" as \"Keperluan\" is fine, but \"20–30+ cm\" kept; no issue."
+    ],
+    "parts": {
+      "quickFacts:tropica": "6f1f30561bfc",
+      "maintenance:tropica": "1fb807d9dc05",
+      "notes:tropica": "6645bf6bcfab"
+    }
+  },
+  "eleocharis-parvula": {
+    "at": "2026-11-15",
+    "from": "2026-11-06",
+    "name": "Dwarf Hairgrass",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "40194f896663",
+      "maintenance:aquatome": "9cf71fa25614",
+      "notes:tropica": "6e99fb634de7"
+    }
+  },
+  "eleocharis-pusilla": {
+    "at": "2026-11-15",
+    "from": "2026-11-08",
+    "name": "Eleocharis pusilla 'Mini'",
+    "confidence": "medium",
+    "score": 0.3,
+    "notes": [
+      "Item 2: the English source is actually Vietnamese, not English, so the source text is unusual; the Malay translation is faithful to it but cannot be checked against a true English original.",
+      "Item 4: 'was given to Tropica by Thomas Barr' is changed to 'diperoleh daripada Thomas Barr'. The Tropica link is dropped, so a fact is omitted. Say it was given to Tropica by Thomas Barr from the USA.",
+      "Item 4: 'has even lower growth' is rendered 'tumbuh lebih rendah lagi'. This is acceptable, but 'closed cup' becoming 'cawan tertutup' is fine; ensure Tropica is retained.",
+      "Item 2: 'tangki' is used for the tank. Prefer 'akuarium' in a Malaysian hobby handbook, although 'tangki' is understood.",
+      "Item 3: the 'Needs light ... however' sentence is slightly awkward. Consider 'Memerlukan cahaya yang baik untuk prestasi optimum, namun ...'."
+    ],
+    "parts": {
+      "quickFacts:tropica": "dc58dbef200d",
+      "maintenance:aquatome": "14bc99023e9e",
+      "maintenance:tropica": "cff1c847d775",
+      "notes:tropica": "692a973dc1cc"
+    }
+  },
+  "eriocaulon-cinereum": {
+    "at": "2026-11-15",
+    "from": "2026-10-31",
+    "name": "Eriocaulon cinereum",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": [
+      "Item 10: \"mendebunga\" is non-standard; use \"mendebungakan\" or \"proses pendebungaan\".",
+      "Item 3: \"dua keturunan\" for \"lineages\" could be clearer as \"dua salasilah (lineage)\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "b9a30bec6bdd",
+      "quickFacts:aquariumbreeder": "8f5584b8b753",
+      "distribution:aquariumbreeder": "347964996b05",
+      "habitat:aquariumbreeder": "97e4099fcb6c",
+      "aquariumSize:aquariumbreeder": "c4a383b72ea4",
+      "maintenance:aquariumbreeder": "64802b81c8da",
+      "waterConditions:aquariumbreeder": "e40dc0c05b60",
+      "equipment:aquariumbreeder": "e1869d76b871",
+      "notes:tropica": "e5cf31a4b37b",
+      "notes:aquariumbreeder": "bdf6e6782fe7",
+      "references:aquariumbreeder": "60954cf124f2"
+    }
+  },
+  "eriocaulon-sp-vietnam": {
+    "at": "2026-11-15",
+    "from": "2026-10-30",
+    "name": "Eriocaulon Vietnam",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "f28ce378e1c2",
+      "maintenance:tropica": "f1378f544681"
+    }
+  },
+  "fissidens-fontanus": {
+    "at": "2026-11-15",
+    "from": "2026-10-30",
+    "name": "Phoenix Moss",
+    "confidence": "high",
+    "score": 0.75,
+    "notes": [
+      "\"daun halus\" for \"down\": \"tight deep green down\" means fine feathery/downy growth; \"daun halus\" is acceptable but \"tersusun rapat\" adds a leaf-arrangement claim. Consider \"bulu halus hijau tua yang padat\".",
+      "\"berbentuk seperti bulu pelepah\" is awkward; use \"berbentuk seperti bulu burung\" or \"bak bulu pelepah\" for \"featherlike\".",
+      "\"diikat pada kayu\": \"attaching\" is fine, but \"kayu\" should be \"kayu apung/driftwood\" if wood pieces are meant; \"Keperluan cahaya\" is acceptable."
+    ],
+    "parts": {
+      "quickFacts:tropica": "a3dcf5a5253e",
+      "notes:tropica": "040700e237ad"
+    }
+  },
+  "glossostigma-elatinoides": {
+    "at": "2026-11-15",
+    "from": "2026-11-14",
+    "name": "Glosso",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "\"tangki bertumbuhan\" is awkward for \"planted tanks\"; use \"tangki bertanaman\" or \"planted tank\".",
+      "\"famili Phrymaceae\": the English gloss \"lopseed family\" is dropped; optionally add \"famili lopseed\".",
+      "\"Tanam dengan penyepit, tanam anak pokok hingga...\" repeats \"tanam\"; rephrase as \"Tanam dengan penyepit dan tanam anak pokok sehingga hanya daun kelihatan\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "df2d730f4a3c",
+      "quickFacts:aquariumbreeder": "5fdf59697245",
+      "distribution:aquariumbreeder": "ff51df00aaf4",
+      "habitat:aquariumbreeder": "47f628bc0309",
+      "maintenance:tropica": "a05a85abd59f",
+      "maintenance:aquariumbreeder": "d7d6768a820d",
+      "notes:tropica": "1561001f69cd",
+      "notes:aquariumbreeder": "89c3e687f6b8"
+    }
+  },
+  "gratiola-viscidula": {
+    "at": "2026-11-16",
+    "from": "2026-10-30",
+    "name": "Gratiola viscidula",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"tumbuhan batang\" is acceptable, but \"tumbuhan berbatang\" is more natural (optional)",
+      "\"tumbuhan karpet\" could be \"tumbuhan permaidani\" or \"karpet\" for carpeting; \"almost carpeting\" is slightly altered to \"like a carpet plant\" (minor)"
+    ],
+    "parts": {
+      "quickFacts:tropica": "3f73edfeb797",
+      "notes:tropica": "83a460f672ea"
+    }
+  },
+  "helanthium-bolivianum": {
+    "at": "2026-11-16",
+    "from": "2026-10-30",
+    "name": "Echinodorus Quadricostatus",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"Sebelum ini dikenali sebagai Echinodorus 'Quadricostatus'\" repeats the name given at the start of the text (a source quirk); it is faithful, but check that it reads clearly.",
+      "\"dasar tangki\" is fine, but \"substrat\" or \"dasar akuarium\" is more usual in the hobby.",
+      "\"Asal: Amerika Selatan\" would read more naturally as \"Asal usul\" or \"Asalan\".",
+      "\"Roset\" for Rosulate is acceptable, but \"berroset\" is more natural.",
+      "\"nutrien mikro\" is better written as \"mikronutrien\" or \"nutrien surih\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "247c05791b7f",
+      "notes:tropica": "95fdf5e8ad81"
+    }
+  },
+  "helanthium-tenellum": {
+    "at": "2026-11-16",
+    "from": "2026-10-30",
+    "name": "Helanthium tenellum 'Green'",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 1: \"tangki\" is acceptable, but \"akuarium\" is more natural for the hobby context (\"dalam akuarium\").",
+      "Item 2: \"lapisan dasar\" could be the more hobby-standard \"substrat\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "76457b006b81",
+      "maintenance:tropica": "0ab12626cdd7",
+      "notes:tropica": "81835eaf6307"
+    }
+  },
+  "hemianthus-micranthemoides": {
+    "at": "2026-11-16",
+    "from": "2026-11-10",
+    "name": "Pearl Grass",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:aquariumbreeder": "c24e8c53ecc9",
+      "beforeYouBuy:aquariumbreeder": "fd46c6e5e8c7",
+      "distribution:aquariumbreeder": "63dc145ff37d",
+      "habitat:aquariumbreeder": "7d6f7383c2d1",
+      "aquariumSize:aquariumbreeder": "4b9e3362859d",
+      "maintenance:aquariumbreeder": "2a1868c7a62a",
+      "waterConditions:aquariumbreeder": "f8059509f2ca",
+      "equipment:aquariumbreeder": "1bd964915bbb",
+      "behaviour:aquariumbreeder": "dca1f7edeeb3",
+      "reproduction:aquariumbreeder": "46b17b96111a",
+      "notes:aquariumbreeder": "3d738ac342e2"
+    }
+  },
+  "heteranthera-zosterifolia": {
+    "at": "2026-11-16",
+    "from": "2026-11-03",
+    "name": "Stargrass",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 7: \"Bahagian bawah kurus dan tidak berdaun\" is awkward for \"Leggy bottom leaves\"; use e.g. \"Daun bawah gugur / batang bawah gondol\".",
+      "Item 7: \"terlindung daripada cahaya\" for \"shading\" is slightly awkward; \"teduhan berlebihan\" is more natural.",
+      "Item 7: \"Jangan lekatkan dengan gam pada kayu hanyut\" is wordy; \"Jangan lekatkan pada kayu hanyut\" would be more natural.",
+      "Item 5/9: \"liter\" is the standard spelling in Malaysia (\"liter\"), but you could also write \"L\" for consistency with the other unit symbols.",
+      "Item 9: \"ruang air\" for \"water column\" is non-standard; use \"turus air\" or \"air akuarium\".",
+      "Item 9: \"akarnya tidak dalam\" is awkward; use \"akarnya tidak menembusi dalam\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "6af5aab04b3c",
+      "quickFacts:aquariumbreeder": "dc25562e413f",
+      "distribution:aquariumbreeder": "56b7d799a1ce",
+      "habitat:aquariumbreeder": "524f8edc69fc",
+      "aquariumSize:aquariumbreeder": "b830e5fde52b",
+      "maintenance:tropica": "9ad83c28dd79",
+      "maintenance:aquariumbreeder": "956b1ad0d9b9",
+      "waterConditions:aquariumbreeder": "f9714de9852b",
+      "equipment:aquariumbreeder": "cd3f2a77426d",
+      "behaviour:aquariumbreeder": "75ed7ba0a244",
+      "notes:tropica": "e9438af6c86c",
+      "notes:aquariumbreeder": "496e6efa35bc",
+      "references:aquariumbreeder": "2bb3f6285146"
+    }
+  },
+  "hottonia-palustris": {
+    "at": "2026-11-16",
+    "from": "2026-10-30",
+    "name": "Hottonia palustris",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "31486f2bfb6f",
+      "maintenance:tropica": "866a77156c98",
+      "notes:tropica": "e7fb9405c2b5"
+    }
+  },
+  "hydrocotyle-leucocephala": {
+    "at": "2026-11-16",
+    "from": "2026-11-10",
+    "name": "Brazilian Pennywort",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 2: \"menjalar seperti tumbuhan menjalar\" is repetitive. Rephrase, e.g. \"menjalar seperti pokok pemanjat\"."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "96d91195a9fd",
+      "distribution:aquariumbreeder": "80de1424b7b7",
+      "habitat:aquariumbreeder": "6655a0482d78",
+      "aquariumSize:aquariumbreeder": "af88e51a868e",
+      "maintenance:aquariumbreeder": "e97afb75c677",
+      "waterConditions:aquariumbreeder": "fab44938b8bc",
+      "equipment:aquariumbreeder": "8283ed8aa22b",
+      "notes:aquariumbreeder": "7c5c9ffc9162"
+    }
   }
 }

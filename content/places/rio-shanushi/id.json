@@ -1,8 +1,13 @@
 {
   "slug": "rio-shanushi",
-  "name": "Shanushi",
+  "name": "Sungai Shanushi",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-15T05:35:54.723Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

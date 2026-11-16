@@ -3,6 +3,12 @@
   "name": "Lembah Amazon",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-16T05:43:50.954Z",
+    "why": "Indonesian atlases usually write \"Lembah Amazon\" less often than \"Basin Sungai Amazon\" or \"Daerah Aliran Sungai Amazon\"; \"Lembah\" (valley) is not the standard term for a drainage basin, though it is sometimes used."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

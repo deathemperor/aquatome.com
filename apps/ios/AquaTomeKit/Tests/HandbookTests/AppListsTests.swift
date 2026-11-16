@@ -46,9 +46,8 @@ private func found(_ pattern: String, in code: [(file: String, lines: [Substring
 @Test func everyListsPhotoIsDrawnByTheFrameRule() throws {
   let code = try appCode()
   #expect(code.count > 50, "the app's code wasn't found")
-  // AsyncImage draws a photo cut to its frame, wherever the fish is: none, but the chat's about card ("Về: …"), which
-  // the iOS Content Lead moves to V2Photo with the chat cards (#766, 17 Nov).
-  #expect(try found(#"AsyncImage\("#, in: code, except: ["Chat/ChatView.swift"]) == [])
+  // AsyncImage draws a photo cut to its frame, wherever the fish is: none.
+  #expect(try found(#"AsyncImage\("#, in: code) == [])
   // V2Photo without its box crops centred: none, but the guide navigator's marks (three 26-pt squares of a part's
   // pictures, overlapping, not a page's photo).
   #expect(try found(#"V2Photo\(src:(?!.*box:)"#, in: code, except: ["Handbook/PageNavigator.swift"]) == [])
@@ -58,6 +57,17 @@ private func found(_ pattern: String, in code: [(file: String, lines: [Substring
   #expect(pictures.sorted() == ["Handbook/NativePage.swift", "Handbook/NativePage.swift", "Handbook/PagePlayer.swift",
                                 "Handbook/PhotoGrid.swift", "Handbook/PhotoViewer.swift", "V2/WholePage.swift"],
           "a new PageImage: a list's photo is drawn by V2Photo with its box")
+}
+
+@Test func theAppsOwnCaNayIsOnlyForAFish() throws {
+  // The owner's report of 15 Nov: the fiddler crab's page said "Hỏi về cá này". About 90 fish pages are crabs, shrimps,
+  // snails, frogs, newts or corals (`Item.isFish`): each of the app's own words for "this fish" has its "loài này" beside
+  // it, for those.
+  let lines = try found(#""[^"]*cá này[^"]*""#, in: try appCode())
+  #expect(lines.count >= 4, "fewer than the four places that say it: the check reads nothing")
+  #expect(lines.filter { !$0.contains("loài này") } == [])
+  // Nor "Loài cá" under a crab's name, where a line under a name says what it is: by the item's `kindTitle`.
+  #expect(try found(#"item\.kind\.title"#, in: try appCode()) == [])
 }
 
 @Test func noListPrintsAScientificNameItsNameHolds() throws {

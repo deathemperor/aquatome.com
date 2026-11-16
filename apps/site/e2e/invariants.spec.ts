@@ -44,6 +44,16 @@ for (const path of pages) {
     // Nothing wider than the screen: a sideways scroll on a phone means something broke out of the layout.
     expect(await sideways(page), 'sideways scroll').toBeNull()
 
+    // Source marks side by side are one group (lib/cite.ts citeGroup), whose tap areas reach away from each other
+    // (global.css). Outside a group each centres its 44 px, so the second's lies over the first and a tap on one opens the
+    // other: a fish's range line until 15 Nov 2026 (Fable's read). Words between two marks keep them apart.
+    const loose = await page.$$eval('a.cite', as => as.filter(a => {
+      let n = a.previousSibling
+      while (n?.nodeType === Node.TEXT_NODE && !n.textContent!.trim()) n = n.previousSibling
+      return n instanceof Element && n.matches('a.cite') && !a.parentElement!.matches('.marks')
+    }).map(a => a.parentElement!.outerHTML.slice(0, 160)))
+    expect(loose, 'source marks side by side outside a group').toEqual([])
+
     // Pictures keep their space while loading (width and height), and carry alt text (empty when decorative). An empty
     // <img> a script fills later (the gallery's viewer) is not a picture yet.
     const badImgs = await page.$$eval('img[src]', imgs => imgs.filter(i => !i.getAttribute('width') || !i.getAttribute('height') || !i.hasAttribute('alt')).map(i => i.outerHTML.slice(0, 120)))

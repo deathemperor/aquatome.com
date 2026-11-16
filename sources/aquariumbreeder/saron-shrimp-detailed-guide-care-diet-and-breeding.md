@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/saron-shrimp-detailed-guide-care-diet-and-breeding/
 title: Saron Shrimp – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-11-09T09:11:53.756Z
-hash: a3838c19c9e0a8a4bbce5b046ee79999aab68d5806b08152b59c0eb3c11ef7a8
+hash: 48c3e51e44613c7ad41ee7d250d5cb91d06022b6c1977d4f35c0099a77bfca16
 ---
 
 Saron Shrimp (Saron marmoratus) is one of the most colorful and weird-looking shrimp species in the marine aquarium trade. These shrimp are also commonly known as Marbled shrimp, Long Arms Marbled Shrimp, Monkey Shrimp, Eyespot Shrimp, Carid Shrimp, and Buffalo Shrimp.
@@ -125,4 +125,3 @@ Just keep in mind that they are not completely reef safe as some aquarists claim
 - Larval stages of the Hippolytid Shrimp Saron marmoratus reared under Laboratory Conditions. Sci.Rep.Mus.Univ. 4. 2002.
 - Occurrence of Marbled Shrimp Saron marmoratus (Olivier, 1811) (Decapoda: Caridea: Hippolytidae) in Lakshadweep Archipelago, India. Proc Zool Soc. 2014.
 - First Record Marbled Shrimp Saron marmoratus (Olivier, 1811) from Turkish Marine Waters. Natural and Engineering Sciences. 2018.
-### Leave a Reply Cancel reply

@@ -353,6 +353,7 @@ export function glossaryDoc(lang: Lang, c: Content, g: Localized<GlossaryEntity>
       ...(p.definition ? proseBlocks(lang, `<p>${p.definition}</p>`).blocks : []),
       ...(p.material ? [{ t: 'p' as const, c: [{ text: p.material.text, href: appPath(lang, p.material.href) }] }] : []),
       ...(p.photo && image(lang, p.photo, p.photo.caption) ? [{ t: 'figure' as const, img: image(lang, p.photo, p.photo.caption)!, ...(p.photo.caption ? { caption: [p.photo.caption] } : {}) }] : []),
+      ...(p.treat ? [{ t: 'p' as const, c: [{ text: p.treat.text, href: appPath(lang, p.treat.href) }] }] : []),
       ...(p.body ? proseBlocks(lang, p.body).blocks : []),
       ...pagesBlock(lang, listed, t('Xem thêm'), p.related.map(r => `/vi/thuat-ngu/${r.t.slug}/`), p.related.length),
       ...(used.length ? [{ t: 'h' as const, text: t('Dùng trong {n} trang', { n: num(p.total) }) }, ...used] : []),

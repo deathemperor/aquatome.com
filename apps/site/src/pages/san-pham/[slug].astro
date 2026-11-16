@@ -13,6 +13,7 @@ import { dmy, priceRange, productMark, vnd, videosUsing, type Product } from '..
 import { i18n, langOf } from '../../lib/i18n'
 import { guideImages } from '../../lib/mentions'
 import { pagePictures, takeEach } from '../../lib/pictures'
+import { creditsFor, VIDEO_CARDS } from '../../lib/credits'
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const c = await getContent(langOf(routePattern))
   return c.products.map(p => ({ params: { slug: p.t.slug }, props: { p } }))
@@ -43,7 +44,7 @@ const jsonld = [
   ...(p.t.faq?.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: p.t.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),
 ]
 ---
-<Browse title={t('{name}: nên mua không, chọn cỡ nào', { name: p.t.name })} heading={p.t.name} description={p.t.summary?.join(' ')} crumbs={[['/vi/thiet-bi/', t('Thiết bị')], ...(eq && hasCategoryPage(lang, c, p.category) ? [[`/vi/thiet-bi/${p.category}/`, eq.name] as [string, string]] : [])]} noindex={!p.t.quality.indexable} jsonld={jsonld}>
+<Browse title={t('{name}: nên mua không, chọn cỡ nào', { name: p.t.name })} heading={p.t.name} description={p.t.summary?.join(' ')} crumbs={[['/vi/thiet-bi/', t('Thiết bị')], ...(eq && hasCategoryPage(lang, c, p.category) ? [[`/vi/thiet-bi/${p.category}/`, eq.name] as [string, string]] : [])]} noindex={!p.t.quality.indexable} jsonld={jsonld} credits={creditsFor(vidPhotos.slice(0, VIDEO_CARDS).map(x => x ?? undefined))}>
   <p class="kind">{typeName ?? t(categoryLabel(p.category))} · {p.brand}</p>
   {p.t.summary?.length ? <div class="verdict"><h2>{t('Nhận xét nhanh')}</h2>{p.t.summary.map(s => <p>{s}</p>)}</div> : null}
 

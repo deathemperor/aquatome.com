@@ -16,25 +16,36 @@
   "range": {
     "native": {
       "countries": [
-        "CG",
         "CD",
+        "CG",
         "CF"
       ],
       "regions": [
         "Congo River",
         "Kasai",
-        "Ubangi"
+        "Ubangi",
+        "Lomami",
+        "Tshuapa",
+        "Lefini"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Common name: Leopard bushfish. Origin: D.R. Congo. Name meaning: Ctenopoma is ancient Greek for \"comb cover\", referring to the spines along the operculum; acutirostre is Latin for \"with a pointed snout\".",
+          "countries": [
+            "CD"
+          ],
+          "regions": []
+        },
         {
           "source": "seriouslyfish",
           "quote": "Widely distributed throughout the middle Congo River basin in Republic of the Congo, Democratic Republic of the Congo, and Central African Republic, from Malebo (Stanley) Pool upstream to Boyoma (Stanley) Falls.",
           "countries": [
             "CG",
-            "CD",
             "CF"
           ],
           "regions": [
@@ -47,7 +58,10 @@
           "countries": [],
           "regions": [
             "Kasai",
-            "Ubangi"
+            "Ubangi",
+            "Lomami",
+            "Tshuapa",
+            "Lefini"
           ]
         }
       ]
@@ -279,10 +293,22 @@
       "html": "<p>Max size: 150 mm SL</p><p>The leopard bushfish, Ctenopoma acutirostre, is an anabantoid from the middle Congo River basin, from Malebo Pool upstream to Boyoma Falls. Often sold as 'spotted climbing perch', it mimics leaves and other debris to stalk its prey, much like the unrelated South American leaf fish. Exceptionally hardy and long-lived, it can survive for over 15 years and makes an ideal species for the newcomer to 'oddballs'.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/ctenopoma_acutirostre_wild_en/",
+      "html": "<p>Common name: Leopard bushfish. Origin: D.R. Congo. Name meaning: Ctenopoma is ancient Greek for \"comb cover\", referring to the spines along the operculum; acutirostre is Latin for \"with a pointed snout\".</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ctenopoma-acutirostre",
       "html": "<p>Widely distributed throughout the middle Congo River basin in Republic of the Congo, Democratic Republic of the Congo, and Central African Republic, from Malebo (Stanley) Pool upstream to Boyoma (Stanley) Falls. It occurs in several major tributary systems, including the Kasai, Lefini, Ubangi, Tshuapa, and Lomami.</p><p>Type locality is 'Diélé, Congo'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/ctenopoma_acutirostre_wild_en/",
+      "html": "<p>D.R. Congo.</p>"
     },
     {
       "key": "habitat",
@@ -335,8 +361,8 @@
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/ctenopoma_acutirostre_wild_en-2/",
-      "html": "<p>The current import from the D. R. Congo also contained some wild-collected leopard bushfish. This species has been available as bred fish from Indonesia in recent years, but wild-collected ones are very rare in the trade. The animals show an extremely variable pattern, and each individual has a different coloration. One of the fish even has regular stripes on the sides – this has never been seen in C. acutirostre before.</p><p>Available in limited numbers only.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/ctenopoma_acutirostre_wild_en/",
+      "html": "<p>It has been quite a long time since the last importation of this bushfish from the D.R. Congo. Immediately after their arrival the animals had an unbelievably strong coloration. Sadly it bleached out a bit over time, but the fish still look great.</p>"
     },
     {
       "key": "references",
@@ -372,7 +398,32 @@
       "caption": "Ctenopoma acutirostre. Photo taken in Prague (Czech Republic)."
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "UOGdzCYAnrE",
+      "title": "DO NOT Keep This Fish (unless you did your research) | Bush Fish Tank Setup Explained",
+      "durationSec": 906,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "uBfFOZ6pe3I",
+      "title": "low tech biotope aquarium, Congo river aquarium,  leopard bush fish (Ctenopoma acutirostre)",
+      "durationSec": 367,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "3PBUXfLxEws",
+      "title": "African Bush Fish(Ctenopoma acutirostre) - ambush prey",
+      "durationSec": 30,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "0sblEvRV8uo",
+      "title": "African Spotted Leaf Fish (Ctenopoma acutirostre)",
+      "durationSec": 580,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -403,5 +454,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-11"
+  "updatedAt": "2026-11-15"
 }

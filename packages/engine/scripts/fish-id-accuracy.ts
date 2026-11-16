@@ -52,6 +52,10 @@ import { LANGS } from '@aq/schema/langs'
 import { JPEG_QUALITY, MAX_SIDE } from '../../../apps/site/worker/fishid/photo'
 import { popularityOrder } from '../src/depth'
 import { popularFirst } from '../src/shops'
+import { unbilled } from '../src/billed'
+
+// Its calls on the chat's keys aren't held to the billed line yet (billed.ts).
+unbilled('fish-id-accuracy.ts')
 
 const ROOT = join(import.meta.dirname, '../../..')
 const { values: args } = parseArgs({

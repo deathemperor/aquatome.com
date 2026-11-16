@@ -11,6 +11,49 @@
     "russia",
     "amur"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "RU"
+      ],
+      "regions": [
+        "Amur",
+        "Ussuri"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Canton, Cungkun, China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Also reported from Russian waters: Amur and Ussuri.",
+          "countries": [
+            "RU"
+          ],
+          "regions": [
+            "Amur",
+            "Ussuri"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961270,
+      "total": 0,
+      "fetched": "2026-11-16",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -84,7 +127,41 @@
       "html": "<p>Revue Suisse de Zoologie v. 13, pp 390, Pl. 5 (fig. 2).</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/74d87d5b18b18b97.webp",
+      "thumb": "https://media.aquatome.com/scotcat/74d87d5b18b18b97-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Zhou Hang / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/tachysurus_argentivittatus.htm",
+      "caption": "Tachysurus argentivittatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/f4f72c3c3df65cc0.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f4f72c3c3df65cc0-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/tachysurus_argentivittatus.htm",
+      "caption": "Tachysurus argentivittatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/b1ba43629c19d991.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b1ba43629c19d991-480.webp",
+      "width": 500,
+      "height": 311,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/tachysurus_argentivittatus.htm",
+      "caption": "Tachysurus argentivittatus: head view",
+      "source": "scotcat"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

@@ -3,6 +3,12 @@
   "name": "Peria",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-15T05:33:38.066Z",
+    "why": "The name \"Peria\" drops the feature type; Indonesian atlases would write \"Sungai Peria\" (or \"Kali Peria\") for a creek, so the bare name is cut short and looks like a different place."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

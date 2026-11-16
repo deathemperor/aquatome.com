@@ -26,8 +26,9 @@ INFO = {"-list", "-version", "-showsdks", "-showBuildSettings", "-showdestinatio
         "-resolvePackageDependencies", "-exportArchive"}
 PACKAGE_MANAGERS = {"pnpm", "npm", "yarn"}
 PM_VALUE = {"--filter", "-F", "-C", "--dir", "--prefix", "--workspace", "--reporter", "--workspace-concurrency"}
-# The root's test runs every package's; the site's test and build are Astro builds.
-HEAVY_SCRIPTS = {"build", "test", "e2e"}
+# The root's test runs every package's; the site's test and build are Astro builds. test:content is a content run's short
+# step (scripts/cycle-checks.sh): every test file that reads the real content, real-content.test.ts among them.
+HEAVY_SCRIPTS = {"build", "test", "test:content", "e2e"}
 SIM = "One simulator test run at a time on this Mac: start it as apps/ios/scripts/sim-run.py xcodebuild test ..."
 HEADLESS = ("Simulators run headless on this Mac (AGENTS.md, This Mac): xcrun simctl boot, or let xcodebuild boot one; "
             "watch one in the Device panel only while you need to, and close it.")

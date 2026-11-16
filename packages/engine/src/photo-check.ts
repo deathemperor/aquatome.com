@@ -15,10 +15,11 @@ import { holdForSecondLook, looks, readSecondLook } from './last-photo'
 import { contactSheet } from './video-images'
 import { keptOwnMark, LOGO_FOLDERS, retainedOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
 import { keptLast } from './own-mark'
+import { ageOf, ageUnasked, grownFirst, grownHead, headAsksAge, youngUnasked } from './young-heads'
 import { CF, namedOn, namedOrder, passesHead, SPECIES } from './photo-named'
 import { priorityFish } from './priority-fish'
 
-type Photo = { url: string; caption?: string; author?: string; sourceUrl?: string; generated?: unknown }
+type Photo = { url: string; caption?: string; author?: string; authorUrl?: string; sourceUrl?: string; generated?: unknown }
 /**
  * Does the photo show its page's subject: yes (in the wild too, where it is clearly seen); another species, breed or
  * variety (`note` says which); not a photo of the subject at all (a map, chart, hands, a tank, a packshot, a landscape or
@@ -32,7 +33,7 @@ type Photo = { url: string; caption?: string; author?: string; sourceUrl?: strin
  * own stricter look. `file`: "other" from the photo's Commons file name, which names another species with a page
  * (fileNamesOther), with no model call.
  */
-export type PhotoVerdict = { ok: 'yes' | 'other' | 'none' | 'habitat' | 'unsure' | 'dead' | 'no'; typical: boolean; note: string; noteHash?: string; hints?: PhotoHints; logo?: boolean; person?: boolean; guide?: boolean; file?: true }
+export type PhotoVerdict = { ok: 'yes' | 'other' | 'none' | 'habitat' | 'unsure' | 'dead' | 'no'; typical: boolean; note: string; noteHash?: string; hints?: PhotoHints; logo?: boolean; person?: boolean; young?: boolean; guide?: boolean; file?: true }
 export type PhotoCheckDeps = {
   get: (url: string) => Promise<Uint8Array>
   look: (sheet: string, prompt: string) => Promise<{ photos: ({ n: number } & PhotoVerdict)[] }>
@@ -40,7 +41,7 @@ export type PhotoCheckDeps = {
 const VERDICTS = ['yes', 'other', 'none', 'unsure', 'dead'] as const
 export const PHOTO_CHECK_SCHEMA = {
   type: 'object', required: ['photos'],
-  properties: { photos: { type: 'array', items: { type: 'object', required: ['n', 'ok', 'typical', 'note', 'logo', 'person'], properties: { n: { type: 'number' }, ok: { type: 'string', enum: VERDICTS }, typical: { type: 'boolean' }, note: { type: 'string' }, logo: { type: 'boolean' }, person: { type: 'boolean' } } } } },
+  properties: { photos: { type: 'array', items: { type: 'object', required: ['n', 'ok', 'typical', 'young', 'note', 'logo', 'person'], properties: { n: { type: 'number' }, ok: { type: 'string', enum: VERDICTS }, typical: { type: 'boolean' }, young: { type: 'boolean' }, note: { type: 'string' }, logo: { type: 'boolean' }, person: { type: 'boolean' } } } } },
 }
 /** Verdicts that take a photo off its page. */
 export const OFF = new Set<PhotoVerdict['ok']>(['other', 'none', 'dead', 'no'])
@@ -140,6 +141,7 @@ For each photo n:
   "none" if it is not a photo of the subject at all: a map, chart, diagram or drawing, hands or people, a landscape or wild place (a river, stream, lake, swamp or shore) where it can't be picked out, a tank or aquascape where it can't be picked out, equipment, a product packshot.
   "unsure" if you cannot tell (a species you do not know well, a poor or distant view, a look-alike you cannot rule out).
 - typical: true if it shows the ordinary look of the subject (adult, clear view; for a species, the wild type); false otherwise, and for "dead".
+- young: true if the main subject is young: fry, a juvenile, or one still in its young colours or shape, not yet grown; false if grown, if you cannot tell its age, and for a plant.
 - person: true if a person or any part of one is in the photo: a hand or fingers (holding it, planting it, in the shot), an arm, a foot, a face, a diver, even small, cut off at the edge, blurred or behind the glass; false if not.
 - logo: true if a logo, stamp, watermark, signature or text was added on top of the photo after it was taken, even small or faint, round, in a corner, in any script, with or without readable letters; false if not. Text in the scene (a label on a tank, a specimen tag) is not added.
 - note: a few words on what it shows (for "other": what it is instead, e.g. "neon tetra: red stripe runs only half the body"; for "dead": what makes it so, e.g. "dead fish on ice at a market"; with a person, what of them, e.g. "fish held in a hand"; with a logo, what and where, e.g. "round logo bottom left").${captions.some(Boolean) ? `
@@ -264,7 +266,9 @@ export { deadNote, peopleNote }
  * says it may show a dead fish or fish as food (`deadNote`) or a person or hand (`peopleNote`), or the verdict was the old
  * "habitat" (the wild place, with or without it). Each is judged once: a re-run finds none. Found by the owner
  * (2026-11-05): dead peacock bass at a market leading their page, judged "yes" with a note that said so; and a design
- * review (2026-11-07): a lake with no fish leading the firemouth's page. URL → that note.
+ * review (2026-11-07): a lake with no fish leading the firemouth's page. And a page's head the check passed but not as
+ * typical, asked before it asked whether the fish is young (`youngUnasked`), with the page's other own photos it passed
+ * and hasn't asked that of, so the young rule (young-heads.ts) can act: about 34 heads on 15 Nov. URL → that note.
  */
 export async function recheckCandidates(root: string): Promise<Map<string, string>> {
   const state = async <T>(f: string) => (await readJson<Record<string, T>>(join(root, 'engine-state', f))) ?? {}
@@ -274,9 +278,12 @@ export async function recheckCandidates(root: string): Promise<Map<string, strin
   const rejected = await state<string>('_photo-rejected.json')
   const content = join(root, 'content')
   const notes = new Map<string, (string | undefined)[]>()
+  const own: [string, string[]][] = []
   for (const s of await subjects(content)) {
     for (const file of [join(content, s.kind, s.id, 'entity.json'), join(content, 'gallery', `${s.id}.json`)]) {
-      for (const p of (await readJson<{ photos?: Photo[] }>(file))?.photos ?? []) {
+      const photos = (await readJson<{ photos?: Photo[] }>(file))?.photos ?? []
+      if (file.endsWith('entity.json')) own.push([s.id, photos.filter(p => !p.generated).map(p => p.url)])
+      for (const p of photos) {
         notes.set(p.url, [...(notes.get(p.url) ?? []), ...(file.includes('/gallery/') ? [p.caption] : [])])
       }
     }
@@ -291,6 +298,10 @@ export async function recheckCandidates(root: string): Promise<Map<string, strin
     if(dead||people)out.set(url,[dead?'possible dead subject':undefined,people?'possible person':undefined].filter(Boolean).join('; '))
     else if([legacy[url],...by].some(v=>v?.ok==='habitat'))out.set(url,'habitat needs recheck')
   }
+  for (const [page, [head, ...rest]] of own) {
+    if (!head || !headAsksAge(cache[head]?.[page])) continue
+    for (const url of [head, ...rest]) if (!(url in rejected) && !out.has(url) && (url === head ? youngUnasked : ageUnasked)(cache[url]?.[page])) out.set(url, 'young not asked')
+  }
   return out
 }
 
@@ -298,9 +309,20 @@ export async function recheckCandidates(root: string): Promise<Map<string, strin
 /**
  * `waits`: a gallery photo no page shows until this check has judged it (`unchecked`); `bare`: a gallery photo of a page
  * with no photo of its own; `sourced`: a permitted source's own photo of what its page is about (Tropica's of its plant);
- * `lead`: the page's first photo of its own.
+ * `lead`: the page's first photo of its own. `source` is the photo's `sourceUrl`; `origin` where it came from: its source's
+ * id, else the site of `sourceUrl` (most photos have no source id: Commons, iNaturalist, Flickr).
  */
-type Shown = { file: string; url: string; page?: string; guide?: boolean; caption?: string; galleryOnly?: boolean; author?: string; source?: string; waits?: boolean; bare?: boolean; sourced?: boolean; lead?: boolean }
+type Shown = { file: string; url: string; page?: string; guide?: boolean; caption?: string; galleryOnly?: boolean; author?: string; authorUrl?: string; source?: string; origin?: string; waits?: boolean; bare?: boolean; sourced?: boolean; lead?: boolean }
+
+const site = (u: string | undefined) => { try { return u ? new URL(u).hostname.replace(/^www\./, '') : undefined } catch { return undefined } }
+/**
+ * What a reader writes for a photo with no author (photos.ts and gallery.ts "Wikimedia Commons", gbif.ts "GBIF", inat.ts
+ * "iNaturalist", openverse.ts "Flickr"), and a source's own "unknown": no person, so two such photos are no one uploader.
+ */
+const NO_AUTHOR = /^(wikimedia commons|gbif|inaturalist|flickr|unknown( author| photographer)?|anonymous)$/i
+/** One uploader: the same origin and the same author, by the author's page where both have one, else by name. */
+const sameUploader = (a: Shown, b: Shown) =>
+  !!a.origin && a.origin === b.origin && (a.authorUrl && b.authorUrl ? a.authorUrl === b.authorUrl : !!a.author && !NO_AUTHOR.test(a.author.trim()) && a.author === b.author)
 
 /**
  * Whose turn a photo not judged yet has (the chief of staff, 2026-11-10: of 2,611 gallery photos judged, 272 had been
@@ -336,6 +358,9 @@ export const turn = (x: Pick<Shown, 'waits' | 'bare' | 'source'>): 0 | 1 | 2 | 3
  *   landscape or stream where the subject can't be picked out is "none". A photo every page that shows it rejects joins
  *   `_photo-rejected.json` (added to, never rewritten), which the photo steps respect, so a source re-read or a gallery
  *   rebuild doesn't bring it back. One some page keeps leaves only the others.
+ * - "other" for a photo in a page's album, from the run's own sheets (not from the file name, not a guide's caption): that
+ *   album's photos from the same uploader that have no verdict for the page are judged in the same run, past `limit`.
+ *   What that round finds starts nothing more.
  * - "dead" (a dead fish or fish as food), a person or part of one, and a logo are the photo's, not the page's: one such
  *   verdict takes it off every page, guide and gallery and onto `_photo-rejected.json` ("dead: …", "people: …",
  *   "watermark: …"). A logo found, the same photographer's photos judged before the check asked about people are judged
@@ -354,7 +379,8 @@ export const turn = (x: Pick<Shown, 'waits' | 'bare' | 'source'>): 0 | 1 | 2 | 3
  * lead is judged in the first sheet a run gives the page, so no photo of the page is judged before it. A page's last
  * sheet is filled from its photos of a later turn (a lead's sheet from the page's own photos first), so no sheet goes
  * out part empty.
- * `limit`: model calls this run; stops on a model failure (usage limit), and the rest wait. `fill`: how many of them go
+ * `limit`: model calls this run, but for an uploader's album photos (above); stops on a model failure (usage limit, the
+ * step's daily line), and the rest wait. `fill`: how many of them go
  * first to a source's photos that fill a page with none (`turn`).
  * `recheck`: with it, only these photos are judged, where their verdict is from before the check asked about people
  * (`recheckCandidates`).
@@ -381,6 +407,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const yes = await readPersonYes(root)
   const report = {
     photos: 0, sheets: 0, judged: 0, removed: [] as string[], rejected: 0, blocked: [] as string[], unsure: 0, failed: [] as string[], stopped: '',
+    /** Of `judged`, album photos judged because their uploader's photo was judged another fish this run (below). */
+    uploaderPhotos: 0,
     /** A page's head that changed, `kind/id: old -> new`; a page left with no photo of its own, `kind/id: old`; one held by EMPTY_CAP. */
     heads: { moved: [] as string[], emptied: [] as string[], held: [] as string[], named: [] as string[] },
     /** A head a person picked that the check calls "none": it stays, listed for a person each run. */
@@ -394,7 +422,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   // What each photo's source calls its subject on each page (photo-named.ts), and the head's test.
   const namedHere = await namedOn(content)
   const faces = (await readJson<Record<string, number>>(join(root, 'engine-state/_photo-faces.json'))) ?? {}
-  const asHead = passesHead({ subjects: cache, legacy, rejected, faces, personYes: yes.counted, kept })
+  const heads = { subjects: cache, legacy, rejected, faces, personYes: yes.counted, kept }
+  const asHead = passesHead(heads), grown = grownHead(heads)
   const shown: Shown[] = []
   for (const s of all) {
     let bare = false
@@ -403,7 +432,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       if (file.endsWith('entity.json')) bare = !photos.length
       let place = 0
       for (const [i, p] of photos.entries()) {
-        shown.push({ file, url: p.url, page: s.id, ...(p.author ? { author: p.author } : {}), ...(p.sourceUrl ? { source: p.sourceUrl } : {}), ...(file.includes('/gallery/') && place >= STRIP ? { galleryOnly: true } : {}), ...(p.unchecked ? { waits: true } : {}), ...(i === 0 && file.endsWith('entity.json') ? { lead: true } : {}), ...(bare && file.includes('/gallery/') ? { bare: true, ...(p.source ? { sourced: true } : {}) } : {}) })
+        const origin = p.source ?? site(p.sourceUrl)
+        shown.push({ file, url: p.url, page: s.id, ...(p.author ? { author: p.author } : {}), ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), ...(p.sourceUrl ? { source: p.sourceUrl } : {}), ...(origin ? { origin } : {}), ...(file.includes('/gallery/') && place >= STRIP ? { galleryOnly: true } : {}), ...(p.unchecked ? { waits: true } : {}), ...(i === 0 && file.endsWith('entity.json') ? { lead: true } : {}), ...(bare && file.includes('/gallery/') ? { bare: true, ...(p.source ? { sourced: true } : {}) } : {}) })
         // A photo that waits is on no page, so it takes no place in the strip.
         if (p.unchecked !== true) place++
       }
@@ -443,7 +473,11 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   // named there), most-read pages first: what each page shows itself (its photos, its gallery strip, guide photos naming
   // it), then the rest of each gallery.
   const stale = (x: Shown) => { const v = verdict(x.url, x.page!, !x.guide); return v?.person === undefined && !v?.file }
-  const due = (x: Shown) => (!o.recheck || o.recheck.has(x.url)) && stale(x)
+  // With `recheck`, also a page's own photos the check passed before it asked whether the fish is young, on a page whose
+  // head it may call young or has (young-heads.ts; recheckCandidates names them): asked again, once.
+  const asksAge = new Set(shown.filter(x => x.lead && headAsksAge(cache[x.url]?.[x.page!])).map(x => x.page!))
+  const ageDue = (x: Shown) => !x.guide && x.file.endsWith('entity.json') && asksAge.has(x.page!) && (x.lead ? youngUnasked : ageUnasked)(cache[x.url]?.[x.page!])
+  const due = (x: Shown) => (o.recheck ? o.recheck.has(x.url) && (stale(x) || ageDue(x)) : stale(x))
   /** Neither check has a verdict on it for its page (a verdict from before the check asked about people is one). */
   const unseen = (x: Shown) => !verdict(x.url, x.page!, !x.guide)
   const picked = (page: string, url: string) => { const s = byId.get(page); return !!s && headPicks[`${s.kind}/${page}`] === url && pickStands(`${s.kind}/${page}`, url, cache, yes) }
@@ -495,8 +529,9 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     return sheets.slice(from).map((x, i) => ({ ...x, i: from + i }))
   }
   const logos = new Set<string>() // photos this run found a logo on
+  const others = new Set<string>() // `page\nurl` the model answered "another fish" for, this run, on the page itself
   const dir = await mkdtemp(join(tmpdir(), 'photo-check-'))
-  const judge = (batch: { s: Subject; urls: string[]; i: number }[]) =>
+  const judge = (batch: { s: Subject; urls: string[]; i: number | string }[]) =>
     pool(batch, o.parallel ?? 1, async ({ s, urls, i }) => {
       if (report.stopped) return
       const ok: { url: string; b: Buffer }[] = []
@@ -519,8 +554,9 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
         for (const p of v.photos ?? []) {
           const x = ok[p.n - 1]
           if (!x || !(VERDICTS as readonly string[]).includes(p.ok)) continue
-          cache[x.url] = { ...cache[x.url], [s.id]: compactVerdict({ ok: p.ok, typical: !!p.typical && p.ok !== 'dead', note: String(p.note ?? '').slice(0, 120), logo: !!p.logo, person: !!p.person, ...(captions[p.n - 1] ? { guide: true } : {}) }) }
+          cache[x.url] = { ...cache[x.url], [s.id]: compactVerdict({ ok: p.ok, typical: !!p.typical && p.ok !== 'dead', note: String(p.note ?? '').slice(0, 120), logo: !!p.logo, person: !!p.person, ...(p.ok === 'yes' && !captions[p.n - 1] ? { young: !!p.young } : {}), ...(captions[p.n - 1] ? { guide: true } : {}) }) }
           if (p.logo) logos.add(x.url)
+          if (p.ok === 'other' && !captions[p.n - 1]) others.add(`${s.id}\n${x.url}`)
           report.judged++
         }
       } catch (err) {
@@ -530,10 +566,28 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     })
   try {
     await judge(queue(due, o.recheck ? 0 : o.fill ?? 0))
+    const otherInAlbum = shown.filter(t => t.page && !t.guide && t.file === join(content, 'gallery', `${t.page}.json`) && others.has(`${t.page}\n${t.url}`))
     // A photographer who stamps one photo may stamp others (a round logo in a corner, which the watermark step's text
     // reader missed: 2026-11-05). Not the sources whose every photo the watermark step's model has looked at.
     const stamped = new Set(shown.filter(x => logos.has(x.url) && x.author).map(x => x.author!))
     if (stamped.size && !report.stopped) await judge(queue(x => !!x.author && stamped.has(x.author) && stale(x) && !LOGO_FOLDERS.some(f => x.url.includes(`/${f}/`))))
+    // An album photo the first round answered "another fish": that album's other photos from the same uploader with no
+    // verdict for the page yet go through in this run (the chief of staff, 2026-11-16: on 15 Nov a second photo in an album,
+    // by the uploader of one judged another fish, was the same wrong fish, and waited for a person). Only the first
+    // round's answers start it, so it goes one step; past `limit`, which the first round fills, and within the step's day
+    // like every sheet (`piece`).
+    const kin = new Set<string>()
+    for (const t of otherInAlbum) for (const x of onPage.get(t.page!) ?? []) {
+      if (x.file === t.file && x.url !== t.url && !(x.url in rejected) && unseen(x) && sameUploader(t, x)) kin.add(`${x.page}\n${x.url}`)
+    }
+    const again: { s: Subject; urls: string[]; i: string }[] = []
+    for (const s of all) {
+      const urls = [...new Set((onPage.get(s.id) ?? []).filter(x => kin.has(`${s.id}\n${x.url}`)).map(x => x.url))]
+      for (let k = 0; k < urls.length; k += PER_SHEET) again.push({ s, urls: urls.slice(k, k + PER_SHEET), i: `uploader-${again.length}` })
+    }
+    const judgedBefore = report.judged
+    if (again.length && !report.stopped) await judge(again)
+    report.uploaderPhotos = report.judged - judgedBefore
   } finally {
     await rm(dir, { recursive: true, force: true })
   }
@@ -676,8 +730,14 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       // A photo with a cleared shop's own mark kept goes after every unmarked one, on a breed's page too (own-mark.ts).
       data.photos = keptLast(data.photos, kept)
       const ref = `${s.kind}/${s.id}`, pick = headPicks[ref]
-      const at = data.photos.findIndex(x => x.url === pick)
-      if (at > 0 && pickStands(ref, pick!, cache, yes)) data.photos.unshift(...data.photos.splice(at, 1))
+      const at = data.photos.findIndex(x => x.url === pick), stands = at >= 0 && pickStands(ref, pick!, cache, yes)
+      // A photo the check calls young doesn't lead while one of the page's own it calls grown passes as the head, named no
+      // worse; a head a person picked stays, young or not (young-heads.ts; the chief of staff, 15 Nov).
+      if (!stands) {
+        const lead = data.photos.find(x => !x.generated)
+        data.photos = grownFirst(data.photos, x => ageOf(cache[x.url]?.[s.id]) === true, x => grown(x, s.id) && !!lead && cls(x) <= cls(lead))
+      }
+      if (at > 0 && stands) data.photos.unshift(...data.photos.splice(at, 1))
       // One still leads where nothing better passes, or a person picked it: listed for the chief of staff each run.
       const first = data.photos.find(x => !x.generated)
       const c = first ? cls(first) : SPECIES

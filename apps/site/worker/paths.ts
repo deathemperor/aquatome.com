@@ -31,6 +31,13 @@ export const galleryParent = (path: string) => {
 }
 
 /**
+ * A list's numbered page the build didn't make (/huong-dan/trang/17/, /id/panduan/halaman/17/), whose list has grown
+ * shorter since: guides taken off for good or held (a stand-in read, 15 Nov 2026). Its list, which the Worker sends it to
+ * for now, as the page can come back.
+ */
+export const listParent = (path: string) => /^((?:\/(?:id|th|ms))?\/.+\/)(?:trang|halaman|page)\/\d+\/?$/.exec(path)?.[1]
+
+/**
  * Apple's return address for the web's sign-in, in each language: the tanks page, as its Services ID (com.aquatome.web)
  * lists it. Apple refuses an address it doesn't list.
  */

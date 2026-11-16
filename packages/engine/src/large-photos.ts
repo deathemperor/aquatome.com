@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import type { Photo } from '@aq/schema'
-import { across, cardWorthy, LARGE_PX, readCalendar, readVerdicts } from './curation'
+import { across, cardWorthy, handAvoid, LARGE_PX, readCalendar, readVerdicts } from './curation'
 
 type Large = NonNullable<Photo['large']>
 export type LargeDeps = {
@@ -64,7 +64,8 @@ function photosIn(x: unknown, out: Photo[] = []): Photo[] {
  */
 export async function headsUnderBar(root: string) {
   const v = await readVerdicts(root)
-  const { avoid } = await readCalendar(root)
+  // A person's entries alone: the engine's list a photo refused for one page, and here it's judged for its own page.
+  const avoid = handAvoid((await readCalendar(root)).avoid)
   const out: string[] = []
   for (const kind of ['species', 'breeds']) {
     for (const id of (await readdir(join(root, 'content', kind)).catch(() => [] as string[])).sort()) {
@@ -88,7 +89,8 @@ export async function headsUnderBar(root: string) {
 export async function largePhotos(root: string, ids: string[], d: LargeDeps, o: { limit?: number; headsOnly?: boolean } = {}) {
   const report = { added: 0, smaller: 0, skipped: 0, failed: [] as string[] }
   const v = await readVerdicts(root)
-  const { avoid } = await readCalendar(root)
+  // A person's entries alone: the engine's list a photo refused for one page, and here it's judged for its own page.
+  const avoid = handAvoid((await readCalendar(root)).avoid)
   const noneFile = join(root, 'engine-state', '_large-none.json')
   const none = JSON.parse(await readFile(noneFile, 'utf8').catch(() => '{}')) as Record<string, true>
   const noneAtStart = Object.keys(none).length

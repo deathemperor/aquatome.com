@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/do-we-need-water-conditioners-which-one-to-choose/
 title: Do We Need Water Conditioners? Which One to Choose - Shrimp and Snail Breeder
 fetchedAt: 2026-11-09T09:04:13.608Z
-hash: 9db11f1fbaad47495da40a84dc94704205aa08fc879e58d73d0851e95821b5af
+hash: b17707a7e3e06253be4c9b2a60f9eb79de70227e2cb5d8c415cef8621e798656
 ---
 
 Tap water, which is a common source of water used in aquariums, contains disinfectants (chlorine/chloramine), heavy metals, and other impurities. These substances tend to pollute the water, making it unsafe for fish and other aquarium critters.
@@ -101,6 +101,3 @@ This product is a super-concentrated formulation and it contains a variety of es
 Moreover, Seachem Prime is quite affordable and it offers outstanding value per gallon of water than most competing products in the market.
 Prime ® will quickly neutralize chlorine, chloramine, and detoxify nitrogenous compounds and heavy metals without affecting the pH of your aquarium water. Apart from that, it will promote the natural regeneration of your fish’s slime coat, and reduce fish stress and susceptibility to microbial infections.
 Lastly, water conditioners are must have for any fish or shrimp keeper, however, they are not meant to be considered a complete substitute for maintaining adequate filtration equipment or general maintenance.
-## 1 thought on “Do We Need Water Conditioners? Which One to Choose”
-- Sooo interesting read. You’re so knowledgable and experienced, but most importantly happy to share your knowledge with the lucky ones who will come across your articles. Big thank you. Regards Margaret Reply
-### Leave a Reply Cancel reply

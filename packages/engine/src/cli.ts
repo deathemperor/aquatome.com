@@ -6,7 +6,7 @@ import { homedir } from 'node:os'
 import { join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { parseArgs } from 'node:util'
-import { loadAll, PHOTO_BOXES_FILE, SOURCE_IDS, vnDate, type SourceId } from '@aq/schema'
+import { loadAll, PHOTO_BOXES_FILE, retiredTo, SOURCE_IDS, vnDate, type SourceId } from '@aq/schema'
 import { WRITTEN_LANGS, WRITTEN_OTHER_LANGS } from '@aq/schema/langs'
 import { nameStep } from './ceiling'
 import { LlmError, claudeCli, claudeResearch, claudeVision } from './claude'
@@ -18,7 +18,7 @@ import { guideRank } from './video-order'
 import { HOLD_CLASSES, holdGuides, type HoldClass } from './video-hold'
 import { ungarble } from './ungarble'
 import { redoUnread } from './unread-redo'
-import { videoMend } from './video-mend'
+import { gateMend } from './video-mend'
 import { BACKFILL_KINDS, lowVideoGuides, reviewBackfill, type BackfillKind } from './review-backfill'
 import { NEAR_BAR } from './quality'
 import { allTraces } from './review-log'
@@ -28,17 +28,20 @@ import { metricPages } from './metric'
 import { checkPages, fixStored, rulesReport } from './content-rules'
 import { loadPages } from './pages'
 import { copiesToRedo, redoCopies, type Redone } from './seasons'
-import { FIT_KINDS, fitDue, fitKey, fitReport, runFit, type FitState } from './fit'
-import { gate, writeFitSummary } from './gate'
+import { FIT_KINDS, fitDue, fitFindings, fitKey, fitReport, runFit, type FitState } from './fit'
+import { gate, heldMendsOf, writeFitSummary } from './gate'
 import { restingFetch } from './wikimedia-rest'
 import { fitRewrite } from './fit-rewrite'
 import { unitsMend } from './units-mend'
+import { videoCut, VIDEO_CUT_LIMIT } from './video-cut'
 import { recordSourceFigures, sourceFigures } from './source-figures'
 import fitFront from './fit-front.json'
 import { firstRun, frontEarly, frontHeld, frontPlan, offLane, orderFront, type FirstRun, type HeldMark } from './fit-front'
-import { candidates, cardsOf, checkCalendar, demandByPath, plan, readCalendar, readVerdicts, writeCalendar } from './curation'
+import { candidates, cardsOf, checkCalendar, demandByPath, handAvoid, headAvoid, heldBy, pagePhotos, plan, readCalendar, readVerdicts, withEngineAvoid, writeCalendar } from './curation'
+import { readSecondLook } from './last-photo'
 import { phraseMatch } from './phrases'
 import { readerReport, readPages } from './reader'
+import { checkContent } from './content-check'
 import { updatePageDates } from './page-dates'
 import { sweep } from './sweep'
 import { dropFacePhotos, visionFaces } from './faces'
@@ -49,6 +52,7 @@ import { r2Media } from './media'
 import { headsUnderBar, largePhotos } from './large-photos'
 import { LEAD_SCHEMA, screenLeads } from './lead-photo'
 import { mirrorPhotos } from './mirror-photos'
+import { glossaryPhoto } from './glossary-photo'
 import sharp from 'sharp'
 import { seedGalleries } from './gallery-seed'
 import { fishbasePhotos, inatPhotos } from './fishbase-photos'
@@ -164,7 +168,7 @@ const readersWanted = (() => {
 /** No people or marks: the model guide-photos and video-stills ask. */
 const guidePhotoLook: GuidePhotoDeps['look'] = (file, prompt) => claudeVision({ system: 'You look at pictures for an aquarium handbook. Reply only with JSON.', prompt, schema: GUIDE_PHOTO_SCHEMA, file, model: process.env.GUIDE_PHOTOS_MODEL ?? 'opus' })
 
-const { positionals, values } = parseArgs({ allowPositionals: true, options: { write: { type: 'boolean' }, 'empty-cap': { type: 'string' }, manifest: { type: 'string' }, heads: { type: 'boolean' }, 'back-check': { type: 'boolean' }, sources: { type: 'string' }, phrases: { type: 'boolean' }, calendar: { type: 'boolean' }, except: { type: 'string' }, limit: { type: 'string' }, fill: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, fresh: { type: 'boolean' }, 'from-draft': { type: 'boolean' }, revise: { type: 'boolean' }, accept: { type: 'string' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, sf: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' }, pages: { type: 'string' }, fix: { type: 'boolean' }, rewrites: { type: 'string' }, popular: { type: 'boolean' }, titles: { type: 'string' }, 'photo-cap': { type: 'string' }, records: { type: 'string' }, 'no-new-pages': { type: 'boolean' }, video: { type: 'string' }, 'reviewed-before': { type: 'string' }, 'rechecked-since': { type: 'string' }, class: { type: 'string' }, clear: { type: 'boolean' }, days: { type: 'string' }, check: { type: 'boolean' }, gsc: { type: 'string' }, from: { type: 'string' }, mends: { type: 'string' }, first: { type: 'string' }, front: { type: 'boolean' }, record: { type: 'boolean' } } })
+const { positionals, values } = parseArgs({ allowPositionals: true, options: { write: { type: 'boolean' }, 'empty-cap': { type: 'string' }, manifest: { type: 'string' }, heads: { type: 'boolean' }, 'back-check': { type: 'boolean' }, sources: { type: 'string' }, phrases: { type: 'boolean' }, calendar: { type: 'boolean' }, except: { type: 'string' }, limit: { type: 'string' }, fill: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, fresh: { type: 'boolean' }, 'from-draft': { type: 'boolean' }, revise: { type: 'boolean' }, 'top-up': { type: 'boolean' }, accept: { type: 'string' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, sf: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' }, pages: { type: 'string' }, fix: { type: 'boolean' }, rewrites: { type: 'string' }, popular: { type: 'boolean' }, titles: { type: 'string' }, 'photo-cap': { type: 'string' }, records: { type: 'string' }, 'no-new-pages': { type: 'boolean' }, video: { type: 'string' }, 'reviewed-before': { type: 'string' }, 'rechecked-since': { type: 'string' }, class: { type: 'string' }, clear: { type: 'boolean' }, days: { type: 'string' }, check: { type: 'boolean' }, gsc: { type: 'string' }, from: { type: 'string' }, mends: { type: 'string' }, first: { type: 'string' }, front: { type: 'boolean' }, record: { type: 'boolean' }, term: { type: 'string' }, file: { type: 'string' }, openverse: { type: 'string' }, flickr: { type: 'string' } } })
 
 /**
  * Openverse's API (anonymous: 20 requests a minute, 200 a day). A registered Openverse app raises that: its client id and
@@ -260,6 +264,7 @@ if (cmd === 'photo-privacy') {
     if (report.needsHuman.length) console.log(`needs-human: ${report.needsHuman.join(', ')} — pass the browser check in the engine Chrome profile, then: pnpm engine run --sources <id> --retry-blocked`)
     if (report.movedToArchive.length) console.log(`moved to the Internet Archive: ${report.movedToArchive.join(', ')} (browser checks on ${ARCHIVE_AFTER_BLOCKS} runs within a week)`)
     for (const e of report.errors) console.log(`error: ${e}`)
+    for (const x of report.shopText) console.log(`shop text off: ${x}`)
     console.log(`changed: ${report.changed.length}`)
     if (cmd === 'card-fill') {
       const after = new Map((await cardGaps(join(ROOT, 'content'), order)).map(g => [g.id, g.missing]))
@@ -299,7 +304,7 @@ if (cmd === 'photo-privacy') {
     console.log(`approved: ${done.length}${done.length ? ` (${done.join(', ')})` : ''}`)
   } else {
     const r = await draftSummaries(contentRoot, claudeCli, { top: Number(values.top ?? 30), jobs: Number(values.jobs ?? 1), only: values.only?.split(',').map(x => x.trim()).filter(Boolean), now: () => new Date() })
-    console.log(`summaries: ${r.approved.length} approved, ${r.pending.length} left pending, ${r.failed.length} failed${r.stopped ? `, stopped (${r.stopped})` : ''}`)
+    console.log(`summaries: ${r.approved.length} approved, ${r.pending.length} left pending, ${r.failed.length} failed${r.left ? `, ${r.left} more to write` : ''}${r.stopped ? `, stopped (${r.stopped})` : ''}`)
     for (const p of r.pending) console.log(`pending: ${p.id}: ${p.problems.join(' | ')}`)
     if (r.failed.length) console.log(`failed: ${r.failed.join(', ')}`)
   }
@@ -398,7 +403,7 @@ if (cmd === 'photo-privacy') {
     look: (file, prompt) => claudeVision({ system: 'You identify aquarium fish and plants in photos. Reply only with JSON.', prompt, schema: PHOTO_CHECK_SCHEMA, file, model: process.env.PHOTO_CHECK_MODEL ?? 'opus' }),
   }, { limit: values.limit ? Number(values.limit) : 40, ...(Number(values.fill) > 0 ? { fill: Number(values.fill) } : {}), parallel: values.parallel ? Number(values.parallel) : 1, ...(values.only ? { only: values.only } : {}), ...(recheck ? { recheck: new Set(recheck.keys()) } : {}), ...(values['empty-cap'] ? { emptyCap: Number(values['empty-cap']) } : {}) })
   if (r) {
-    console.log(`${cmd}: ${r.sheets} sheets, ${r.judged} photos judged (${r.photos} verdicts in all), ${r.removed.length} removed, ${r.rejected} newly rejected, ${r.unsure} can't tell, ${r.failed.length} failed; heads: ${r.heads.moved.length} moved, ${r.heads.emptied.length} removed (page left with no photo)${r.heads.held.length ? `, ${r.heads.held.length} held` : ''}${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+    console.log(`${cmd}: ${r.sheets} sheets, ${r.judged} photos judged (${r.photos} verdicts in all${r.uploaderPhotos ? `; ${r.uploaderPhotos} of them album photos by the uploader of one judged another fish` : ''}), ${r.removed.length} removed, ${r.rejected} newly rejected, ${r.unsure} can't tell, ${r.failed.length} failed; heads: ${r.heads.moved.length} moved, ${r.heads.emptied.length} removed (page left with no photo)${r.heads.held.length ? `, ${r.heads.held.length} held` : ''}${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
     if (r.heads.held.length) console.log(`${cmd}: ${r.heads.held.length} pages would be left with no photo, ${EMPTY_CAP ? `more than a run may with nobody looking (${EMPTY_CAP})` : 'which no run may with nobody looking'}: none taken off. Their photos wait for a second look (engine-state/_photo-second-look.json, last-photo.ts): a pull request writes each one's answer.`)
     for (const x of r.heads.held) console.log(`held: ${x}`)
     for (const x of r.heads.emptied) console.log(`head removed: ${x}`)
@@ -477,6 +482,20 @@ if (cmd === 'photo-privacy') {
   const r = await mirrorPhotos(ROOT, { bytes, media: media(), sleep: ms => new Promise(res => setTimeout(res, ms)) }, { limit: values.limit ? Number(values.limit) : undefined, dryRun: values['dry-run'] })
   console.log(`mirror-photos: ${r.mirrored} stored, ${r.files} files updated, ${r.pending} photos waiting, ${r.failed.length} failed`)
   for (const f of r.failed.slice(0, 20)) console.log(`failed: ${f}`)
+} else if (cmd === 'glossary-photo') {
+  // A candidate photo for one kind of a glossary term, stored and screened, for Curation to pick by hand (glossary-photo.ts);
+  // no page shows it. pnpm engine glossary-photo --term <id> --kind <kind id> (--file "File:<Commons file>" | --openverse "<query>" --flickr <Flickr photo id>)
+  const usage = 'glossary-photo: --term <id> --kind <kind id> (--file "File:<Commons file>" | --openverse "<query>" --flickr <Flickr photo id>)'
+  if (!values.term || !values.kind) throw new Error(usage)
+  const source = values.file && !values.openverse && !values.flickr ? { file: values.file } : !values.file && values.openverse && values.flickr ? { openverse: values.openverse, flickr: values.flickr } : undefined
+  if (!source) throw new Error(usage)
+  const bytes = async (u: string) => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) }
+  const r = await glossaryPhoto(ROOT, { term: values.term, kind: values.kind, ...source }, {
+    http, ...('openverse' in source ? { openverse: await openverseApi() } : {}), bytes, exists: async u => (await fetch(u, { method: 'HEAD' })).ok, media: media(),
+    faces: visionFaces, read: files => visionText(files), now: () => new Date(),
+    look: (file, prompt) => claudeVision({ system: 'You spot watermarks on photos. Reply only with JSON.', prompt, schema: WATERMARK_SCHEMA, file, model: process.env.WATERMARK_MODEL ?? 'opus' }),
+  })
+  console.log(`${r.url}  ${r.licence}  ${r.author}  ${r.off ? `off: ${r.off}` : 'ready for Curation'}`)
 } else if (cmd === 'lead-photos') {
   // A fish's head photo, which its cards show too (lead-photo.ts): a head under the card's 1,140 px gives way to one that
   // passes, shows the fish as well and keeps its head inside the card's crop, the model comparing the two. --limit model calls a run (default 10), 3 pairs each,
@@ -587,6 +606,10 @@ if (cmd === 'photo-privacy') {
   // After the sweep's own fixes, so a fix a reader sees dates its page (page-dates.ts).
   const dated = await updatePageDates(join(ROOT, 'content'))
   console.log(`page dates: ${dated.files} files, ${dated.changed} changed`)
+} else if (cmd === 'check-content') {
+  // The content loads in every language, its pages' dates in their format, or a failure: a push takes a sweep that
+  // changed only the dates without the tests once it loads (content-check.ts, swept_clean in cycle-checks.sh).
+  console.log(`content: loads in every language; page dates: ${await checkContent(join(ROOT, 'content'))} files`)
 } else if (cmd === 'audit') {
   // Pictures per page → docs/review/content-audit.md; every published page against the content rules, in each language →
   // docs/review/content-rules.md (reports only; nothing is hidden). --fix: first the rules' safe fixes on the stored text,
@@ -681,7 +704,8 @@ if (cmd === 'photo-privacy') {
   } else if (held && !fitFront.lane) {
     // Held, and the lane shut: nothing to do.
   } else {
-    const pages = (await loadPages(join(ROOT, 'content'), ['vi'])).filter(p => ['guides', 'species', 'plants', 'breeds'].includes(p.kind) && (!values.kind || values.kind.split(',').includes(p.kind)))
+    // A guide off the site for good (@aq/schema retired.ts) is never rewritten.
+    const pages = (await loadPages(join(ROOT, 'content'), ['vi'])).filter(p => ['guides', 'species', 'plants', 'breeds'].includes(p.kind) && !(p.kind === 'guides' && retiredTo(p.id)) && (!values.kind || values.kind.split(',').includes(p.kind)))
     const state = JSON.parse(await readFile(join(ROOT, 'engine-state/_fit.json'), 'utf8')) as FitState
     const popular = popularityOrder(await popularFirst(ROOT))
     const rank = (p: (typeof pages)[number]) => { const i = popular.indexOf(p.id); return p.kind === 'guides' ? 2 * popular.length : i >= 0 && p.kind !== 'breeds' ? i : popular.length }
@@ -695,15 +719,30 @@ if (cmd === 'photo-privacy') {
         if (h) marks.set(fitKey(p), h)
       }
     }
-    const plan = values.front && !only ? frontPlan(fitFront, last, ranked, marks) : { held: false, order: ranked, lane: new Set<string>() }
-    if (values.front && !only) console.log(`fit-rewrite: lane ${plan.lane.size} page${plan.lane.size === 1 ? '' : 's'} first${plan.held ? ', front list held' : ''}`)
-    const r = await fitRewrite(ROOT, plan.order, state, { llm: claudeCli, now: () => new Date() }, { limit: Number(values.limit ?? 10), retry: !!only, mend: plan.lane })
+    // A page with a foreign product or medicine on it, as its saved read found (the owner's complaint): first, with the lane.
+    const product = (p: (typeof ranked)[number]) => fitFindings(p, state[fitKey(p)]).some(f => f.check === 'product')
+    const plan = values.front && !only ? frontPlan(fitFront, last, ranked, marks, product) : { held: false, order: ranked, lane: new Set<string>(), mend: new Set<string>() }
+    if (values.front && !only) console.log(`fit-rewrite: lane ${plan.lane.size} page${plan.lane.size === 1 ? '' : 's'}${plan.mend.size > plan.lane.size ? ` and ${plan.mend.size - plan.lane.size} with a foreign product` : ''} first${plan.held ? ', front list held' : ''}`)
+    const r = await fitRewrite(ROOT, plan.order, state, { llm: claudeCli, now: () => new Date() }, { limit: Number(values.limit ?? 10), retry: !!only, mend: plan.mend })
     for (const x of [...r.rewritten.map(x => `rewritten: ${x}`), ...r.gone.map(x => `gone: ${x}`), ...r.notKept.map(x => `not kept: ${x}`), ...r.skipped.map(x => `skipped: ${x}`), ...r.failed.map(x => `failed: ${x}`)]) console.log(x)
     console.log(`fit-rewrite: ${r.rewritten.length} rewritten, ${r.notKept.length} not kept, ${r.skipped.length} skipped, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
     // The run on file: the front list's and live pages' outcomes, never the lane's alone (fit-front.ts offLane).
     const ran = values.front && !only && !plan.held ? firstRun(offLane(r, plan.lane), new Date().toISOString()) : undefined
     if (ran) await writeFile(lastFile, `${JSON.stringify(ran, null, 1)}\n`)
   }
+} else if (cmd === 'video-cut') {
+  // A held video guide's sentences its read names as the source talking, a shop, a price or a product cut whole (advice
+  // for elsewhere waits for the mend), and its words findings' fixes put in (video-cut.ts): code, no model; each cut sentence kept in
+  // engine-state/_video-cut.json for the mend to write back; the gate reads the guide after.
+  // pnpm engine video-cut [--limit N: guides, 12] [--first vi/guides/<id>,…] [--dry-run: what it would change, old beside new]
+  const r = await videoCut(ROOT, { limit: Number(values.limit ?? VIDEO_CUT_LIMIT), ...(values.first ? { first: values.first.split(',') } : {}), dryRun: !!values['dry-run'] })
+  for (const c of r.cut) {
+    console.log(`${values['dry-run'] ? 'would cut' : 'cut'}: ${c.key} ${c.cuts.length} sentences, ${c.swaps.length} words`)
+    for (const x of c.cuts) console.log(`  gone (${x.check}) ${x.field}: "${x.html.replace(/<[^>]+>/g, '')}"`)
+    for (const x of c.swaps) console.log(`  words ${x.field}: "${x.quote}" → "${x.fix}"`)
+  }
+  for (const x of r.left) console.log(`left held: ${x}`)
+  console.log(`video-cut: ${r.cut.length} cut, ${r.left.length} left held`)
 } else if (cmd === 'units-mend') {
   // A page held for units alone gets a tank converted from US gallons as the size a keeper here names ("115 lít" → "120
   // lít", units-mend.ts): code, no model, so no ceiling line; the gate reads it after. From 13 Nov 2026 08:00, but a dry run.
@@ -751,12 +790,13 @@ if (cmd === 'photo-privacy') {
   // fails is held back, a live page that got worse gets its committed text back, a page no rewording fixes is held.
   // A video guide worse only for a sentence (a shop or a price abroad, talk about the video) has it fixed by the video's
   // editor and is read again instead (video-mend.ts), --mends pages a run; what does go back is kept (engine-state/put-back/).
-  // A new video guide held only for such sentences goes to the editor first too, and so do GATE_HELD_MENDS (12) of the held
-  // ones a run (the chief of staff, 14 Nov 2026).
+  // A new video guide held only for such sentences goes to the editor first too, and so do GATE_HELD_MENDS of the held
+  // ones a run, in the Mac's videos part alone (the chief of staff, 14 and 15 Nov 2026; heldMendsOf). On the Mac only: the
+  // cloud has no yt-dlp for the transcript (gateMend).
   // pnpm engine gate [--limit N: model reads at most] [--jobs N] [--mends N: new and live pages sent to the mender's editor at most, 20; 0: none]
   const { report: r, state, pages, held } = await gate(ROOT, {
     llm: claudeCli, model: process.env.FIT_MODEL ?? 'opus', jobs: Number(values.jobs ?? 3), limit: Number(values.limit ?? 150),
-    mend: videoMend(ROOT, { llm: claudeCli, yt: youtube(), write: { style: true, model: process.env.VIDEO_MODEL ?? 'opus' } }), mends: Number(values.mends ?? process.env.GATE_MENDS ?? 20), heldMends: Number(process.env.GATE_HELD_MENDS ?? 12),
+    mend: gateMend(ROOT, { llm: claudeCli, yt: youtube(), write: { style: true, model: process.env.VIDEO_MODEL ?? 'opus' } }), mends: Number(values.mends ?? process.env.GATE_MENDS ?? 20), heldMends: heldMendsOf(),
   })
   await writeFile(join(ROOT, 'docs/review/fit.md'), fitReport(pages, state))
   await writeFitSummary(ROOT, pages, state, { held })
@@ -771,7 +811,9 @@ if (cmd === 'photo-privacy') {
   const today = values.from ?? vnDate(new Date())
   const cur = await readCalendar(ROOT)
   const demand = values.gsc ? demandByPath(JSON.parse(await readFile(values.gsc, 'utf8')).rows ?? []) : undefined
-  const cands = await candidates(ROOT, { demand, avoid: cur.avoid })
+  // The engine's own avoid entries are rebuilt below; the picks read a person's alone, as each page's own verdicts do the rest.
+  const hand = handAvoid(cur.avoid)
+  const cands = await candidates(ROOT, { demand, avoid: hand })
   const cards = await cardsOf(ROOT)
   if (values.check) {
     const wrong = checkCalendar(cur, cands, today, days, cards)
@@ -779,8 +821,14 @@ if (cmd === 'photo-privacy') {
     console.log(`curate: ${wrong.length ? `${wrong.length} problems` : `the next ${days} days pass`}`)
     if (wrong.length) process.exitCode = 1
   } else {
-    const { calendar, report: r } = plan(cur, cands, today, days)
+    // Every page's held or refused photos, up to its first that passes, into the avoid list the site's faces for more than
+    // one fish skip (curation.ts headAvoid); last run's engine entries go, a person's stay.
+    const secondLook = await readSecondLook(ROOT)
+    const engine = headAvoid(await pagePhotos(ROOT), await readVerdicts(ROOT), hand, heldBy(secondLook))
+    const was = Object.keys(cur.avoid).filter(u => !(u in hand))
+    const { calendar, report: r } = plan({ ...cur, avoid: withEngineAvoid(cur.avoid, engine) }, cands, today, days)
     await writeCalendar(ROOT, calendar)
+    console.log(`  avoid: ${Object.keys(engine).length} held or refused photos (${Object.keys(engine).filter(u => !was.includes(u)).length} new, ${was.filter(u => !(u in engine)).length} gone), ${Object.keys(hand).length} a person's`)
     for (const x of r.replaced) console.log(`  replaced ${x.date} ${x.slot} ${x.was}: ${x.why}`)
     for (const x of r.filled) console.log(`  filled ${x}`)
     for (const x of r.empty) console.log(`  empty ${x}`)
@@ -1110,13 +1158,14 @@ if (cmd === 'photo-privacy') {
   // --from-draft: revise the draft kept below the bar, sentence by sentence, from its research. --accept "<who>": save that
   // draft as it is, on that reader's word, if its notes are only repetition, order or length (refusals). --revise: the same
   // for the saved entry, with one rewrite on its notes.
+  // --top-up: research only what the term's notes ask (also, read), added to the kept research; nothing is written.
   const id = positionals[1]
   const kinds = ['setup', 'care', 'breeding', 'disease', 'aquascaping', 'plantCare', 'discovery'] as const
   const kind = values.kind as (typeof kinds)[number] | undefined
-  if (!id || !kind || !kinds.includes(kind)) throw new Error(`usage: pnpm engine glossary-entry <term id> --kind ${kinds.join('|')} [--sf <slug>] [--redo | --fresh | --from-draft | --revise | --accept "<who>"]`)
+  if (!id || !kind || !kinds.includes(kind)) throw new Error(`usage: pnpm engine glossary-entry <term id> --kind ${kinds.join('|')} [--sf <slug>] [--redo | --fresh | --from-draft | --revise | --accept "<who>" | --top-up]`)
   if (values.accept !== undefined && !values.accept.trim()) throw new Error('--accept needs who accepts the draft')
   // Research never reads a source the engine reads only at its own pace (cycle-only.ts).
-  const r = await makeGlossaryEntry(ROOT, { research: claudeResearch, llm: claudeCli }, id, { kind, sf: values.sf, reuse: values.redo, fresh: values.fresh, fromDraft: values['from-draft'], revise: values.revise, ...(values.accept ? { accept: values.accept.trim() } : {}), researchModel: process.env.RESEARCH_MODEL ?? 'opus' })
+  const r = await makeGlossaryEntry(ROOT, { research: claudeResearch, llm: claudeCli }, id, { kind, sf: values.sf, reuse: values.redo, fresh: values.fresh, fromDraft: values['from-draft'], revise: values.revise, topUp: values['top-up'], ...(values.accept ? { accept: values.accept.trim() } : {}), researchModel: process.env.RESEARCH_MODEL ?? 'opus' })
   console.log(JSON.stringify(r, null, 1))
 } else if (cmd === 'covers') {
   // Vietnamese thumbnail labels: pnpm engine covers [--redo] [--limit N] (--redo rewrites the ones already there).

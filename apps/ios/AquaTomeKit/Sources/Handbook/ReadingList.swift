@@ -3,8 +3,9 @@
 public struct ReadingList: Codable, Equatable, Sendable {
   public private(set) var saved: [String] = []
   public private(set) var recent: [String] = []
-  /// The pages read last that are kept.
-  public static let recentMax = 20
+  /// The pages read last that are kept: far more than Khám phá shows (the owner, 15 Nov: "Recording of recently viewed
+  /// need to be big too"). Paths only, about 30 KB at most per language.
+  public static let recentMax = 500
 
   public init() {}
 

@@ -3,6 +3,12 @@
   "name": "Santik",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-15T05:36:50.414Z",
+    "why": "The place is the Santik River watershed (a river, in West Kalimantan), and an Indonesian atlas would write \"Sungai Santik\" with the kind word, so bare \"Santik\" leaves out the river type."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

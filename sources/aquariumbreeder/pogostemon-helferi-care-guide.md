@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/pogostemon-helferi-care-guide/
 title: Pogostemon Helferi Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-10-30T11:55:31.723Z
-hash: 2baf53d2ad1eb507a83e5d9ceebae41c989b12e80913c3fa32422d51bba9fb01
+hash: b6599634246f1c709ae10c54c2c61ccfc4197a0082081205ee517d30869dc6ca
 ---
 
 Pogostemon helferi, commonly known as “Dao-noi” (means Little star in the Thai dialect) is a small, beautiful stem plant that may drastically complement the aesthetics and outlay of freshwater aquaria. I am saying “may” because this plant is also very finicky and demanding. Thus I lot of people struggle with it.
@@ -133,7 +133,3 @@ Pogostemon helferi will struggle in a low-tech tank due to its strong need for i
 ## References:
 - Wangwibulkit, Maneerat, and Srunya Vajrodaya. “Ex-situ propagation of Pogostemon helferi (Hook. f.) Press using tissue culture and a hydroponics system.” Agriculture and natural resources 50, no. 1 (2016): 20-25.
 - Christensen C, Andersen T, Pedersen O. (2008a) Hunting for Pogostemon helferi. The Aquatic Gardener 21: 31-41.
-## 4 thoughts on “Pogostemon Helferi Care Guide – Planting, Growing, and Propagation”
-- You should include angelfish. They uproot it like crazy and love to nibble at it ReplyHi Emile Vermeulen,Thanks for poining this out. You are right. Angelfish can also be a pain sometimes.Best regards, Michael Reply
-- Excellent article! It is indeed a very difficult plant. It was a pride when I managed to make it thrive in my tank.I would add two notes:– Mystery snails seem to munch on them. I had a lot of damage on the leaves that eventually stopped when I removed the snails. – It is totally possible to grow them out of the substrate. I place mine in small crevices in my hardscape. They grow long roots but maintain a very bushy appearance after a couple years. ReplyHi June, Thank you so much for your kind words, and for sharing these excellent, practical insights from your experience! It’s really valuable to hear what works long-term. Best regards, Michael Reply
-### Leave a Reply Cancel reply

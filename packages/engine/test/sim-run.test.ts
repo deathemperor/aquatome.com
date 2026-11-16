@@ -365,6 +365,8 @@ test('a session runs heavy work only in the checks queue', () => {
   for (const c of [
     'pnpm test',
     'pnpm -r --no-bail --if-present test',
+    'pnpm test:content',
+    'pnpm --filter @aq/engine test:content',
     'cd apps/site && pnpm build',
     'pnpm --filter site build',
     'pnpm -C apps/site test',

@@ -1,0 +1,423 @@
+{
+  "id": "otocinclus-vestitus",
+  "scientificName": "Otocinclus vestitus",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Otocinclus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru",
+    "bolivia",
+    "paraguay",
+    "madeira",
+    "ampyiacu",
+    "parana"
+  ],
+  "dataCard": {
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 2
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 25,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 3.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/otocinclus_vestitus_paraguay_en/",
+      "html": "<p>Otocinclus vestitus can be easily identified by the typical pattern in the caudal fin. The species name <em>vestitus</em> is Latin and means \"dressed\".</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/otocinclus_vestitus.htm",
+      "html": "<p>Family: Loricariidae. Size: 3.5 cm. Temperature: 25–30°C. pH: 6.0–7.5.</p><p>IUCN Red List: despite the little information available on this species, it has a wide distribution and no apparent threats. Therefore, it is rated as Least Concern (IUCN 2023).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/otocinclus_vestitus_paraguay_en/",
+      "html": "<p>Otocinclus vestitus has a very large distribution. It is found in Peru, Bolivia, and Paraguay.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/otocinclus_vestitus.htm",
+      "html": "<p>South America: Bolivia, Dept. Beni, Madeira basin. Peru, Rio Ampyiacu. Paraguay, Paraná basin.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/otocinclus_vestitus_paraguay_en/",
+      "html": "<p>Keeping O. vestitus is very easy; it is a typical beginner's species. Lovers of well planted aquaria enjoy it very much, as it is a perfect algae eater that feeds on the algae from the top of the leaves without hurting them at all.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/otocinclus_vestitus.htm",
+      "html": "<p>This is a small group of Loricariids which do well in aquaria and will keep the algae down without harming the plants in the tank. Best kept in a group with more males for breeding purposes.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/otocinclus_vestitus_paraguay_en/",
+      "html": "<p>It feeds on algae from the top of leaves.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/otocinclus_vestitus.htm",
+      "html": "<p>Omnivore: algae, tablet foods, flake and small frozen foods.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/otocinclus_vestitus_paraguay_en/",
+      "html": "<p>Breeding is very easy. For breeding a species-specific tank should be used. Technically speaking, breeding is very much like that of Corydoras species.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/otocinclus_vestitus.htm",
+      "html": "<p>The females lay eggs on the plants and tank glass after the females have been chased around the tank by the male. Like Corydoras they present a t-position breeding mode.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/otocinclus_vestitus_paraguay_en/",
+      "html": "<p>Among the O. vestitus received from Paraguay was one very unusual xanthoristic specimen. Xanthorism is a mutation in which the cells with yellow pigment increase. It is a very rare occasion that such a conspicuous animal survives in the wild and grows to adult size. Old trade name: O. arnoldi.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/otocinclus_vestitus.htm",
+      "html": "<p>They can be told apart from other Otocinclus spp. by the design on the caudal fin. There is a small spot on the caudal peduncle which is bordered by a light zone. There are also two bands in the caudal fin.</p><p>Etymology: the specific name vestitus is Latin for clothing, dress or attire; the allusion is not explained, perhaps referring to the several series of plates covering the body.</p><p>Otocinclus vestitus is the type species of the genus and as of 2021 there are 20 described species. More information can be found in the Catfish Atlas Volume 1.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/otocinclus_vestitus.htm",
+      "html": "<p>Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944. Salvador, G.N. 2023. Otocinclus vestitus. The IUCN Red List of Threatened Species 2023. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/234ad1d5dab0ba84.webp",
+      "thumb": "https://media.aquatome.com/glaser/234ad1d5dab0ba84-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/otocinclus_vestitus_paraguay_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/6d976800d868df8f.webp",
+      "thumb": "https://media.aquatome.com/glaser/6d976800d868df8f-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/otocinclus_vestitus_paraguay_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/b2b182f02dc57488.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b2b182f02dc57488-480.webp",
+      "width": 500,
+      "height": 334,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/otocinclus_vestitus.htm",
+      "caption": "Otocinclus vestitus",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "5Bu9vzVyjkg",
+      "title": "Full Otocinclus catfish care guide! Why Otos die? What Otos eat?",
+      "durationSec": 473,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "qT9X7JzOnDc",
+      "title": "Otocinclus Catfish: A Complicated Little Fish.",
+      "durationSec": 708,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Qve_NKvjk3Q",
+      "title": "Otocinclus Catfish – Best Algae-Eating Nano Fish?",
+      "durationSec": 500,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "xZYIpq-RUn8",
+      "title": "Otto Cat carefully removing algae",
+      "durationSec": 134,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh lá to",
+        "bộ cây thủy sinh cho người mới"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "viên rau củ cho cá dọn tảo"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-15",
+  "range": {
+    "native": {
+      "countries": [
+        "PE",
+        "BO",
+        "PY"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It is found in Peru, Bolivia, and Paraguay.",
+          "countries": [
+            "PE",
+            "BO",
+            "PY"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340473,
+      "total": 46,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "PY",
+          16
+        ],
+        [
+          "VE",
+          9
+        ],
+        [
+          "BR",
+          8
+        ],
+        [
+          "BO",
+          5
+        ],
+        [
+          "PE",
+          5
+        ],
+        [
+          "CO",
+          2
+        ],
+        [
+          "AR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          7.03125,
+          5,
+          0
+        ],
+        [
+          -70.3125,
+          8.4375,
+          4,
+          0
+        ],
+        [
+          -67.5,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -11.25,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          2,
+          0
+        ],
+        [
+          -61.875,
+          -33.75,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          -14.0625,
+          2,
+          0
+        ],
+        [
+          -60.46875,
+          -14.0625,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -22.5,
+          4,
+          4
+        ],
+        [
+          -59.0625,
+          -21.09375,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -28.125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -26.71875,
+          4,
+          4
+        ],
+        [
+          -57.65625,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -22.5,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -47.8125,
+          -2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  }
+}

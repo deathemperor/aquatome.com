@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/red-claw-shrimp-profile-detailed-guide/
 title: Red Claw Shrimp Profile – Detailed Guide - Shrimp and Snail Breeder
 fetchedAt: 2026-11-03T05:11:34.804Z
-hash: 8992b9f6945398ca12b56e60710965c7fcde2c2ca4e0f0b0242f2db46a8b6183
+hash: 3d6777adec5ded82162ad821c59861827a9bc07fd88c968f72b49466b001f440
 ---
 
 Red Claw Shrimp or Red Claw Prawn (Macrobrachium dayanum and Macrobrachium assamense) are one the rarest shrimp (prawn) species in the aquarium hobby. If you by chance see them in pet stores, you will be surprised to find out how little is known about them.
@@ -192,8 +192,3 @@ The biggest concern is their aggression, as they may attack other fish, snails, 
 - Bakhtiyar, Yahya. (2009). Studies on the morphometry of Macrobrachium dayanum (Decapoda, Palaemonidae).. Biosciences Biotechnology Research Asia. 6. 131-138.
 - Sharma, Apurva & Langer, Seema. (2022). Description of appendages characterizing sex differentiation in Himalayan prawn, Macrobrachium dayanum international journal of recent description of appendages characterizing sex differentiation Macrobrachium dayanum.
 - Bhuiyan, Abdus Salam, Gulsan Arzu, and Sharmin Siddique Bhuiyan. “The Correlation between Fecundity with Length and Weight of Macrobrachium dayanum (Hall) from the River Padma, Rajshahi, Bangladesh.” Journal of Bio-Science15 (2007): 173-174.
-## 5 thoughts on “Red Claw Shrimp Profile – Detailed Guide”
-- Estoy por recibir los Macrobrachium Red de kalimatan, Borneo, y habitan con Macrostomas. Mi curiosidad es como puede ser que ésta especie pueda vivir en aguas de esa región tan ácidas y casi nulas el calcio. Por ejemplo pH incluso en 3.8 y durezas imperceptibles. Sabes si obtienen el calcio necesario a través de la alimentación? Será suficiente? Porque de alguna manera que desconozco, éstos Macrobrachium de Borneo tienen que obtener su fuente de calcio… Qué podrías comentar respecto a esto? ReplyHi Diego Morales, Para ser honesto, me resulta difícil hacer comentarios al respecto ya que primero debemos estar seguros de que se trata exactamente de este tipo de gambas y no de otro. Si hablamos en términos generales, personalmente tengo sospechas de que esta información no es del todo precisa, ya que un pH tan bajo indicaría que el agua es muy suave, lo que a su vez tiene un impacto extremadamente negativo en la formación del exoesqueleto de los crustáceos. Es cierto que los camarones obtienen parte del calcio de los alimentos, pero la presencia de calcio en el agua es una condición obligatoria para que su proceso de muda sea exitoso. Perdóneme si cometí errores en mi español. Best regards, Michael Reply
-- Where can I buy these shrimp in the USA? Reply
-- Prawns are under the suborder Dendrobranchiata. Machrobrachium do not fall under that. Machrobrachium are true shrimp. ReplyHi Rachel, You are correct. Macrobrachium belongs to the infraorder Caridea, under the suborder Pleocyemata, not Dendrobranchiata.The confusion comes from common names. In the aquarium hobby, we often call larger Macrobrachium species freshwater prawns, even though they are classified as true shrimp.I should have made this distinction clearer in my articles. Best regards, Michael Reply
-### Leave a Reply Cancel reply

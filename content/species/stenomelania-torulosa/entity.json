@@ -15,6 +15,114 @@
     "oceania",
     "solomon-islands"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "LK",
+        "TW",
+        "PH",
+        "SB"
+      ],
+      "regions": [
+        "Andaman Islands",
+        "Malay Archipelago"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "Stenomelania torulosa can be found in India, Ceylon, the Andaman Islands, the Malay Archipelago, Taiwan, the Philippines, the Solomon Islands and Tamil Nadu: Porto Novo.",
+          "countries": [
+            "IN",
+            "LK",
+            "TW",
+            "PH",
+            "SB"
+          ],
+          "regions": [
+            "Andaman Islands",
+            "Malay Archipelago"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 10636414,
+      "total": 26,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "TW",
+          19
+        ],
+        [
+          "ID",
+          4
+        ],
+        [
+          "IN",
+          2
+        ],
+        [
+          "JP",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          84.375,
+          19.6875,
+          2,
+          2
+        ],
+        [
+          119.53125,
+          22.5,
+          1,
+          1
+        ],
+        [
+          119.53125,
+          23.90625,
+          16,
+          16
+        ],
+        [
+          120.9375,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          120.9375,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          127.96875,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          133.59375,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          136.40625,
+          33.75,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

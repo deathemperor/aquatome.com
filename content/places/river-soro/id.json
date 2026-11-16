@@ -1,8 +1,13 @@
 {
   "slug": "river-soro",
-  "name": "Soro",
+  "name": "Sungai Soro",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.96,
+    "at": "2026-11-15T05:36:17.926Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

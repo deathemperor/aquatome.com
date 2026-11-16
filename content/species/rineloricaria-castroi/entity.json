@@ -1,0 +1,378 @@
+{
+  "id": "rineloricaria-castroi",
+  "scientificName": "Rineloricaria castroi",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Rineloricaria",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-trombetas",
+    "peru",
+    "trombetas"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "PE"
+      ],
+      "regions": [
+        "Rio Trombetas",
+        "Trombetas River"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It was described scientifically from the Rio Trombetas in Brazil, but it also obviously appears in Peru.",
+          "countries": [
+            "BR",
+            "PE"
+          ],
+          "regions": [
+            "Rio Trombetas"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Trombetas River basin, Brazil.",
+          "countries": [],
+          "regions": [
+            "Trombetas River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339063,
+      "total": 45,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "BR",
+          32
+        ],
+        [
+          "PE",
+          11
+        ],
+        [
+          "BO",
+          1
+        ],
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -73.125,
+          -4.21875,
+          8,
+          8
+        ],
+        [
+          -67.5,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -14.0625,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          6,
+          6
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -11.25,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          0,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -7.03125,
+          3,
+          3
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 18
+      },
+      {
+        "source": "scotcat",
+        "value": 18
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 26,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hemiloricaria_castroi_en/",
+      "html": "<p>Hemiloricaria castroi can reach a length of about 18 cm and is one of the bigger members of the genus. Origin: Peru. Available size: 10–12 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hemiloricaria_castroi_en/",
+      "html": "<p>It was described scientifically from the Rio Trombetas in Brazil, but it also obviously appears in Peru.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_castroi.htm",
+      "html": "<p>South America: Trombetas River basin, Brazil. Type locality: Brazil, Est. Pará, Trapiche da Reserva Biológica de Trombetas, Rio Trombetas.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_castroi.htm",
+      "html": "<p>Not an easy species to keep with excessive demands on good water quality. Prefers water movement in the aquarium.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_castroi.htm",
+      "html": "<p>Omnivore. Vegetable food such as cucumber and other various foods such as tablet, flake and frozen.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_castroi.htm",
+      "html": "<p>The Rineloricaria species are usually cave spawners, where the female will place their eggs after the male has cleaned inside. The male will then guard and fan the eggs until hatching. The eggs will hatch in 4-5 days whereas the male can now be removed.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hemiloricaria_castroi_en/",
+      "html": "<p>It now seems that the phenomenon of golden wild-collected loricariids that return to a normal colour phase under aquarium conditions is relatively widespread within the family. It is already known for Parancistrus aurantiacus, but also, for example, for Otocinclus vestitus. However, the reason for this drastic change of colour is still unknown.</p><p>Lexicon: Hemiloricaria: hemi is ancient Greek and means \"half\", loricaria is another genus of whiptail catfish. castroi: dedication name.</p><p>Suggestion of a common name: Finband whiptail cat.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_castroi.htm",
+      "html": "<p>Rineloricaria castroi is similar looking to R. phoxocephala, which has its pectoral and ventral fins hyaline, whereas R. castroi has black bands on these fins.</p><p>Etymology: the specific name castroi is in honour of ichthyologist Ricardo Macedo Corrêa e Castro, Universidade de São Paulo, who collected the type.</p><p>IUCN Red List: despite the little information available on this species, it has a wide range and no apparent threats. Therefore, it is assessed as Least Concern (LC) (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_castroi.htm",
+      "html": "<p>Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2019. FishBase. www.fishbase.org, (02/2019). Salvador, G.N. 2023. Rineloricaria castroi. The IUCN Red List of Threatened Species 2023. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/817931b012cad6fb.webp",
+      "thumb": "https://media.aquatome.com/glaser/817931b012cad6fb-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hemiloricaria_castroi_en/",
+      "caption": "Hemiloricaria castroi",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/b1de77a0a89850c0.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b1de77a0a89850c0-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Mitsuhiro Iwamoto / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_castroi.htm",
+      "caption": "Rineloricaria castroi",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/ade1832a84491201.webp",
+      "thumb": "https://media.aquatome.com/scotcat/ade1832a84491201-480.webp",
+      "width": 500,
+      "height": 318,
+      "licence": "dùng với sự cho phép",
+      "author": "Mitsuhiro Iwamoto / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_castroi.htm",
+      "caption": "Rineloricaria castroi",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/2745cf5f96dfdbec.webp",
+      "thumb": "https://media.aquatome.com/scotcat/2745cf5f96dfdbec-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Mitsuhiro Iwamoto / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_castroi.htm",
+      "caption": "Rineloricaria castroi",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/cc534afe4144fd2e.webp",
+      "thumb": "https://media.aquatome.com/scotcat/cc534afe4144fd2e-480.webp",
+      "width": 500,
+      "height": 306,
+      "licence": "dùng với sự cho phép",
+      "author": "Mitsuhiro Iwamoto / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_castroi.htm",
+      "caption": "Rineloricaria castroi",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "HwS4vsYpfgo",
+      "title": "Rineloricaria castroi colombia",
+      "durationSec": 35,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "máy bơm sục khí"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "cát sông cho cá lau kiếng"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-15"
+}

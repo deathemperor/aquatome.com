@@ -52,9 +52,12 @@ test("a check's second try on the Mac gives its tests 6 times their limits, cool
 })
 
 // That photos run's second try (16:25) ran no test at all: vitest gives a worker 60 s to start, a limit no setting raises,
-// and 25 of the schema's 28 files had none in time. The second try starts two at a time; the first, as many as vitest likes.
-test("a check's second try starts two vitest workers at a time, and the first its usual number", () => {
-  expect(scales(0, ['Error: [vitest-pool-runner]: Timeout waiting for worker to respond', 'ok']).workers).toEqual(['workers=unset', 'workers=2'])
+// and 25 of the schema's 28 files had none in time. The second try starts two at a time. The first starts four, at night
+// too (the owner, 16 Nov 2026: "you are killing the machine"; the chief of staff's cap); GitHub's runner, its own number.
+test("a check's first try on the Mac starts four vitest workers at a time, its second two; GitHub's its usual number", () => {
+  expect(scales(0, ['Error: [vitest-pool-runner]: Timeout waiting for worker to respond', 'ok']).workers).toEqual(['workers=4', 'workers=2'])
+  expect(scales(0, ['ok']).workers).toEqual(['workers=4'])
+  expect(scales(0, ['ok'], true).workers).toEqual(['workers=unset'])
 })
 
 // Out of time twice keeps the run's work for the next run to publish (TIMED_OUT, keep_unpublished); a check that fails
@@ -73,6 +76,23 @@ function ranOut(output: string) {
   writeFileSync(join(dir, 'test.log'), output)
   return spawnSync('bash', ['-c', `set -euo pipefail; log() { :; }; TEST_LOG="${dir}/test.log"; source "${CHECKS}"; ran_out 0`]).status === 0
 }
+
+// The tests verify names as failed: failed_tests over a check's output.
+function failedTests(output: string) {
+  const dir = mkdtempSync(join(tmpdir(), 'aq-failed-'))
+  writeFileSync(join(dir, 'test.log'), output)
+  return spawnSync('bash', ['-c', `set -euo pipefail; log() { :; }; TEST_LOG="${dir}/test.log"; source "${CHECKS}"; failed_tests 0`], { encoding: 'utf8' }).stdout.trim()
+}
+
+// A content run's short step (CONTENT_STEP, cycle-checks.sh) runs each package's test:content script, and pnpm prefixes its
+// lines "<package> test:content: ": read as the whole suite's, or a time-out there would hold the work instead of keeping it.
+test('the short step\'s output reads as the whole suite\'s: its time-outs are time-outs, its failed tests named', () => {
+  for (const prefix of ['packages/engine test: ', 'packages/engine test:content: ']) {
+    expect(ranOut(`${prefix}Error: Test timed out in 30000ms.`), prefix).toBe(true)
+    expect(ranOut(`${prefix}AssertionError: expected 'Error: Test timed out in 30000ms.' to equal 'ok'`), prefix).toBe(false)
+    expect(failedTests(`${prefix} FAIL  test/a.test.ts > keeps its order`), prefix).toBe('test/a.test.ts > keeps its order')
+  }
+})
 
 // 13 November, 22:36 and 23:35: a test that failed on its own quoted "Test timed out in" in its source, which vitest
 // prints under the failure, and the run's work was kept for ever as out of time instead of held. Only vitest's own line

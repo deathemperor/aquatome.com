@@ -1,15 +1,15 @@
 {
   "id": "leporinus-arcus",
   "native": {
-    "input": "9403aa55fcd5f4e3",
-    "at": "2026-11-09T16:24:16.651Z",
+    "input": "8abb4feb93404955",
+    "at": "2026-11-16T05:47:36.414Z",
     "claims": [
       {
-        "code": "VE",
+        "code": "GY",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Type locality is 'Tukeit, Guyana', and this species is known from various river drainages of Venezuela, Guyana, Suriname and French Guiana including the Orinoco, Essequibo, and upper Courantyne (aka Corantijn) basins.",
-        "words": "Venezuela",
+        "source": "glaser",
+        "quote": "Origin: Guyana.",
+        "words": "Guyana",
         "ok": true
       },
       {
@@ -18,6 +18,14 @@
         "source": "seriouslyfish",
         "quote": "Type locality is 'Tukeit, Guyana', and this species is known from various river drainages of Venezuela, Guyana, Suriname and French Guiana including the Orinoco, Essequibo, and upper Courantyne (aka Corantijn) basins.",
         "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Tukeit, Guyana', and this species is known from various river drainages of Venezuela, Guyana, Suriname and French Guiana including the Orinoco, Essequibo, and upper Courantyne (aka Corantijn) basins.",
+        "words": "Venezuela",
         "ok": true
       },
       {
@@ -61,18 +69,6 @@
         "source": "seriouslyfish",
         "quote": "Additional records exist from the upper Amazon basin in Guyana, these presumably corresponding to the Takutu river basin, itself part of the upper rio Branco.",
         "country": "GY",
-        "ok": true
-      },
-      {
-        "name": "Takutu",
-        "source": "seriouslyfish",
-        "quote": "Additional records exist from the upper Amazon basin in Guyana, these presumably corresponding to the Takutu river basin, itself part of the upper rio Branco.",
-        "ok": true
-      },
-      {
-        "name": "rio Branco",
-        "source": "seriouslyfish",
-        "quote": "Additional records exist from the upper Amazon basin in Guyana, these presumably corresponding to the Takutu river basin, itself part of the upper rio Branco.",
         "ok": true
       }
     ],

@@ -8,7 +8,8 @@
   "places": [
     "south-america",
     "brazil",
-    "rio-amapari"
+    "rio-amapari",
+    "belem"
   ],
   "range": {
     "native": {
@@ -19,12 +20,13 @@
         "Rio Amapari"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The saddle cory, Brochis ephippifera, long known as Corydoras ephippifer, is an armoured catfish native to Amapá state in northeastern Brazil.",
+          "quote": "Native to the state of Amapá, northeastern Brazil, although detailed observations are scarce to non-existent.",
           "countries": [
             "BR"
           ],
@@ -104,6 +106,10 @@
       {
         "source": "seriouslyfish",
         "value": 6
+      },
+      {
+        "source": "glaser",
+        "value": 6
       }
     ],
     "difficulty": [
@@ -121,16 +127,34 @@
       "html": "<p>The saddle cory, Brochis ephippifera, long known as Corydoras ephippifer, is an armoured catfish native to Amapá state in northeastern Brazil. It resembles several congeners, including B. agassizii, Hoplisoma brevirostre, B. delphax and H. melanistium, but seems unique among them in having all fins except the dorsal transparent and unmarked. Detailed observations from the wild are scarce.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_ephippifer_en/",
+      "html": "<p>True mailed catfish imported from Belém (Brazil). Maximum length 6 cm. Should be kept in a group.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brochis-ephippifera",
       "html": "<p>Native to the state of Amapá, northeastern Brazil, although detailed observations are scarce to non-existent.</p><p>Type locality is 'Cachoera Creek at right bank of Rio Amapari, 4 kilometers downstream of Casa do 7, Amapa State, Brazil'.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_ephippifer_en/",
+      "html": "<p>Origin: Brazil. Imported from Belém.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brochis-ephippifera",
       "html": "<p>Ideally use a substrate of fine sand, although rounded gravel is an acceptable alternative provided it's kept scrupulously clean.</p><p>Other décor is largely down to personal choice, but some cover should be provided to give the fish security.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_ephippifer_en/",
+      "html": "<p>These wild imports should be offered a clean tank to avoid infections, particularly of the sensitive barbels.</p>"
     },
     {
       "key": "waterConditions",
@@ -145,10 +169,22 @@
       "html": "<p>Corydoras spp. are foraging omnivores and will accept most sinking dried foods, as well as small live and frozen varieties such as bloodworm, Tubifex, etc.</p><p>Feeding a varied diet will ensure the fish are in optimum condition.</p><p>Under no circumstances should they be expected to survive on 'left-overs' from other inhabitants of the aquarium or relied on to 'clean' the aquarium.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_ephippifer_en/",
+      "html": "<p>As with all Corydoras species these fish are not picky and will eat all types of commercially available fish food.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brochis-ephippifera",
       "html": "<p>Peaceful and gregarious. Should be maintained in a group of at least 4-6 individuals.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_ephippifer_en/",
+      "html": "<p>They are social animals and are almost the whole time looking for food.</p>"
     },
     {
       "key": "dimorphism",
@@ -157,10 +193,22 @@
       "html": "<p>Females tend to grow larger, and sexually mature individuals are noticeably rounder and higher-bodied than males.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_ephippifer_en/",
+      "html": "<p>About successful breeding nothing has been reported up to now.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brochis-ephippifera",
       "html": "<p>This species appears superficially similar to a number of congeners including Brochis ambiacus, B. agassizii, Hoplisoma brevirostre, B. delphax, and H. melanistium. Among these B. ephippifera seems to be unique in that all fins except the dorsal are transparent and lack markings.</p><p>More precise diagnostic characters cannot currently be provided, as the type description could not be obtained and little seems to have been written about this species since it was published.</p><p>The genus Corydoras is included in the family Callichthyidae, of which members are often referred to collectively as 'armoured' or 'mailed' catfishes due to the presence of bony plates in place of scales on the body.</p><p>Their taxonomy can be confusing, and numerous undescribed species are also thought to exist. Fish of unconfirmed identification entering the aquarium hobby are therefore typically assigned a 'C' or 'CW' number for purposes of reference and organisation.</p><p>They are facultative air breathers and possess a modified, highly vascularised intestine which has evolved to facilitate uptake of atmospheric oxygen and aid survival in oxygen-deprived environments. In the aquarium they are occasionally seen rising to the surface to take in gulps of air.</p><p>The stiffened pectoral-fin spines are capable of piercing human skin and a 'sting' can be very painful indeed, so care should be exercised when handling them.</p><p>It is thought that secretions from the axillary glands at the base of each spine may even be mildly toxic or venomous.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_ephippifer_en/",
+      "html": "<p>The Latin name \"ephippifer\" combines \"ephippium\" (Latin = saddle) and \"ferre\" (Latin = bearing), referring to the black spot at the base of the dorsal fin.</p>"
     },
     {
       "key": "references",
@@ -206,5 +254,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-14"
 }

@@ -1,0 +1,95 @@
+{
+  "id": "serrasalmus-altuvei",
+  "native": {
+    "input": "6c9f98a247161d8c",
+    "at": "2026-11-15T00:17:46.244Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Venezuelan section of the Rio Orinoco basin.",
+        "words": "Venezuelan",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Native to the Venezuelan section of the Rio Orinoco basin.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Llanos",
+        "source": "seriouslyfish",
+        "quote": "This species' natural waters are to be found in the tropical grasslands of the Llanos in Venezuela.",
+        "country": "VE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Serrasalmus altuvei",
+    "status": "ACCEPTED",
+    "taxonKey": 2354167,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        18
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        7
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        5
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        2
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ],
+      [
+        "3b8f8089-0261-4ec1-829c-1f17828fbd96",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "VE"
+    ],
+    "requests": 12,
+    "at": "2026-11-15T00:17:46.244Z"
+  }
+}

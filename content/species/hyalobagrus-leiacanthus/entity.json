@@ -1,0 +1,174 @@
+{
+  "id": "hyalobagrus-leiacanthus",
+  "scientificName": "Hyalobagrus leiacanthus",
+  "order": "Siluriformes",
+  "family": "Bagridae",
+  "genus": "Hyalobagrus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "indonesia",
+    "barito"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Kapuas",
+        "Barito",
+        "Borneo"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: currently known only from the Kapuas and the Barito basins in central Borneo, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Kapuas",
+            "Barito",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338090,
+      "total": 3,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "ID",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          113.90625,
+          -1.40625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 5,
+          "max": 6.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 3.7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1384",
+      "html": "<p><strong>Scientific name:</strong> Hyalobagrus leiacanthus Ng &amp; Kottelat, 1998</p><p><strong>Common name:</strong> Shadow Catfish</p><p><strong>Size:</strong> 3.7 cm SL.</p><p><strong>IUCN Red List:</strong> Data Deficient (last assessed 2019).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1384",
+      "html": "<p>Asia: currently known only from the Kapuas and the Barito basins in central Borneo, Indonesia.</p><p>Type locality: Sungai Barito at Muara Laung, Kalimantan Tengah, Borneo, Indonesia.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1384",
+      "html": "<p>pH: 5.0–6.2.</p><p>Temperature: 22–27°C.</p><p>Little or no current preferred.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1384",
+      "html": "<p>They do best with plenty of shade (in the form of vegetation), so a heavily planted tank is the ideal setup for these fish.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1384",
+      "html": "<p>Readily feeds on live/frozen foods and smaller-sized prepared foods such as micropellets, but shows a preference for the former.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1384",
+      "html": "<p>A peaceful, diurnal shoaling species that should be kept in groups of four or more individuals.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1384",
+      "html": "<p>Males have an elongate genital papilla.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1384",
+      "html": "<p>Not reported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1384",
+      "html": "<p>Identification: distinguished from all its congeners by a relatively shorter adipose-fin base (6.5–10.2% SL vs. 10.6–15.7), a larger eye (eye diameter 35.0–38.9% HL vs. 19.7–34.9), a smooth (vs. partially serrated) anterior edge of the pectoral spine, and the absence (vs. presence) of both a dark spot on the anterior base of the adipose fin and a dark midlateral band running longitudinally along the sides of the body.</p><p>Etymology: from the Greek hyalos, meaning transparent, and bagrus, the name of a catfish genus frequently used to form generic names. The specific epithet comes from the Greek leios, meaning smooth, and akanthos, meaning thorn, in reference to the smooth anterior edge of the pectoral spine.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1384",
+      "html": "<p>Ichthyological Exploration of Freshwaters v. 9 (no. 4), pp 341, Fig. 9.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh bể nhỏ",
+        "rêu thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn micropellet",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá thủy sinh mini"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-15"
+}

@@ -6,14 +6,15 @@
     "South American Leaffish",
     "Amazon Leaffish",
     "Cá lá",
-    "South American Leaf Fish"
+    "South American Leaf Fish",
+    "Leaffish"
   ],
   "sections": {
-    "quickFacts:sprucepets": "<ul><li>Họ: Polycentridae</li><li>Nguồn gốc: lưu vực Amazon và Rio Negro</li><li>Kích thước trưởng thành: khoảng 8-10 cm</li><li>Tuổi thọ: 5 đến 8 năm</li><li>Tính cách: hung dữ</li><li>Tầng bơi: mọi tầng</li><li>Bể tối thiểu: khoảng 75-100 lít</li><li>Thức ăn: ăn thịt</li><li>Sinh sản: đẻ trứng</li><li>Độ khó: trung bình đến khó</li><li>pH: 6,0 đến 6,5</li><li>Độ cứng: 2 đến 5 dH</li><li>Nhiệt độ: 25 đến 28 °C</li></ul>",
+    "quickFacts:sprucepets": "<ul><li>Họ: Polycentridae</li><li>Nguồn gốc: lưu vực Amazon và Rio Negro</li><li>Kích thước trưởng thành: khoảng 8-10 cm</li><li>Tuổi thọ: 5 đến 8 năm</li><li>Tính cách: hung dữ</li><li>Tầng bơi: mọi tầng</li><li>Bể tối thiểu: khoảng 75-95 lít</li><li>Thức ăn: ăn thịt</li><li>Sinh sản: đẻ trứng</li><li>Độ khó: trung bình đến khó</li><li>pH: 6,0 đến 6,5</li><li>Độ cứng: 2 đến 5 dH</li><li>Nhiệt độ: 25 đến 28 °C</li></ul>",
     "beforeYouBuy:sprucepets": "<p>Cá lá Nam Mỹ có cái tên này vì nhìn nó giống y một chiếc lá khô rụng. Đây là loài cá nước ngọt khó nuôi, giá cũng có thể khá cao. Nó là loài săn mồi kiểu phục kích, ít gặp trên thị trường, và cần cách chăm sóc riêng.</p>",
     "distribution:sprucepets": "<p>Cá lá Nam Mỹ sống ở lưu vực sông Amazon, trải qua các nước Peru, Brazil, Bolivia, Colombia và Venezuela.</p>",
     "habitat:sprucepets": "<p>Ngoài tự nhiên, cá sống ở vùng nước nông. Nó nấp giữa đám cây dưới lòng sông, đầu chúc xuống. Cảnh vật xung quanh, thân hình ngụy trang và bộ vây trong suốt che nó khỏi mắt con mồi. Gần như không con nào phát hiện ra nó cho đến lúc nó lao vào đớp.</p>",
-    "aquariumSize:sprucepets": "<p>Bể tối thiểu khoảng 75-100 lít.</p>",
+    "aquariumSize:sprucepets": "<p>Bể tối thiểu khoảng 75-95 lít.</p>",
     "maintenance:sprucepets": "<p>Muốn cá lá Nam Mỹ khỏe, bạn cần cho nó nước mềm và ánh sáng dịu. Thả cây nổi sẽ gần với môi trường tự nhiên của cá hơn, lại chặn bớt ánh sáng gắt rọi xuống. Cá săn mồi bằng cách rình phục kích và rất dễ giật mình. Vì thế bể cần nhiều cây lá to và lũa để cá có chỗ nấp. Lọc phải đủ mạnh để giữ nước sạch, nhưng dòng chảy thì nên để càng êm càng tốt.</p>",
     "waterConditions:sprucepets": "<ul><li>Nhiệt độ: 25 đến 28 °C</li><li>pH: 6,0 đến 6,5</li><li>Độ cứng: 2 đến 5 dH</li></ul>",
     "diet:sprucepets": "<p>Cá lá sống tốt trong bể với điều kiện thức ăn chính là cá sống. Mỗi ngày, mỗi con phải ăn ít nhất tương đương ba con cá bảy màu trưởng thành. Cho ăn ít hơn thì cá sẽ yếu đi rất nhanh rồi chết. Cá lá ăn cá bảy màu rất hăng, có điều nuôi bằng mồi sống cỡ lớn có thể tốn khá nhiều tiền. Ở một số vùng có sẵn nhiều cá nhỏ bản địa, bạn có thể bắt về cho cá lá ăn.</p><p>Cá lá thường bơi hoặc treo mình lơ lửng trong nước với tư thế chúc đầu xuống. Kiểu ngụy trang này giúp nó tránh được cá săn mồi lớn hơn, nhưng công dụng chính là để bắt cá nhỏ. Cá lá có thể trôi theo dòng nước, chờ đến khi một con cá nhỏ vô tư bơi lại gần. Cũng có lúc nó từ từ nhích sát lại con mồi cho đến khi miệng gần chạm vào. Rồi nó há thật nhanh cái miệng to khủng khiếp, tạo lực hút kéo tuột con mồi vào trong.</p>",
@@ -31,14 +32,22 @@
     "behaviour:seriouslyfish": "<p>Tốt nhất là nuôi riêng một bể chỉ có loài này. Dù vậy, M. polyacanthus vẫn có thể ở chung với cá lau kính, cá tỳ bà (họ Loricariidae) cỡ vừa và cá da trơn bọc giáp mà không gặp nhiều rắc rối.</p>",
     "dimorphism:seriouslyfish": "<p>Phân biệt đực cái khá khó. Con cái trông tròn bụng hơn khi mang đầy trứng.</p>",
     "reproduction:seriouslyfish": "<p>Loài này có thể sinh sản trong bể nuôi. Bể đẻ nên trồng dày cây lá bản rộng, nước mềm và có tính axit (pH 6,0–6,5, 1–5 dGH). Nước cần ấm (trên 25 °C) và ánh sáng tối dịu. Chỉ nên dùng một cặp, cho ăn thật nhiều mồi sống để vỗ béo trước khi đẻ.</p><p>Lúc đẻ, con đực lên màu đậm hơn, còn con cái lộ ống đẻ trứng. Hai con trôi lướt ngang qua nhau ở sát mặt nước. Màn này có thể kéo dài tới một giờ. Sau đó con đực lùi ra để con cái đẻ trứng, có khi con cái đẻ trong tư thế lộn ngược. Rồi con đực quay lại thụ tinh. Sau khi đẻ xong, nên vớt con cái ra vì con đực có thể quay sang đánh nó.</p><p>Cá có thể đẻ tới 300 trứng ở mặt dưới một chiếc lá to hoặc dưới một tảng đá chìa ra. Con đực ở lại giữ trứng và dùng vây quạt nước cho trứng. Trứng nở sau 3–4 ngày, đến lúc này có thể vớt luôn con đực ra.</p><p>Cá bột tiêu hết túi noãn hoàng là bắt đầu ăn được ấu trùng Artemia. Thức ăn phải là loại còn bơi trong nước, vì cá con không ăn mồi nằm dưới đáy. Khi cá lớn hơn thì chuyển sang cho ăn cá bột của loài khác. Cá con ăn khỏe đến khó tin so với kích thước của chúng. Ngay khi thấy các con lớn không đều, bạn phải tách chúng ra, nếu không chúng sẽ ăn thịt anh em trong đàn. Nước phải luôn được giữ thật sạch, nếu không cá sẽ chết nhiều.</p>",
-    "notes:seriouslyfish": "<p>Đây là loài thích nghi đến mức đáng kinh ngạc. Cả dáng người lẫn hoa văn của nó đều giống một chiếc lá khô. Cá có thể đổi màu cho hợp với xung quanh, và môi dưới có một cái gai nhô ra trông như cuống lá. Khi săn, cá chúc đầu xuống rình mồi và tiến lại gần như chiếc lá khô trôi theo dòng nước. Thật ra nó đang bơi bằng những cử động rất nhỏ của mấy chiếc vây trong suốt.</p><p>Lúc đớp mồi, cả cái miệng phóng ra phía trước thành một ống lớn và hút con mồi vào, thường là đầu vào trước. Cú đớp nhanh đến mức nhiều khi khó mà nhìn kịp. Bằng cách này, cá nuốt được con mồi to gần bằng chính nó.</p><p>Loài này khó nuôi trong bể và không dành cho người mới chơi. M. polyacanthus vừa là kẻ săn mồi phàm ăn, vừa nhát và dễ hoảng, lại rất nhạy với nước xuống cấp.</p>"
+    "notes:seriouslyfish": "<p>Đây là loài thích nghi đến mức đáng kinh ngạc. Cả dáng người lẫn hoa văn của nó đều giống một chiếc lá khô. Cá có thể đổi màu cho hợp với xung quanh, và môi dưới có một cái gai nhô ra trông như cuống lá. Khi săn, cá chúc đầu xuống rình mồi và tiến lại gần như chiếc lá khô trôi theo dòng nước. Thật ra nó đang bơi bằng những cử động rất nhỏ của mấy chiếc vây trong suốt.</p><p>Lúc đớp mồi, cả cái miệng phóng ra phía trước thành một ống lớn và hút con mồi vào, thường là đầu vào trước. Cú đớp nhanh đến mức nhiều khi khó mà nhìn kịp. Bằng cách này, cá nuốt được con mồi to gần bằng chính nó.</p><p>Loài này khó nuôi trong bể và không dành cho người mới chơi. M. polyacanthus vừa là kẻ săn mồi phàm ăn, vừa nhát và dễ hoảng, lại rất nhạy với nước xuống cấp.</p>",
+    "distribution:glaser": "<p>Chi Monocirrhus chỉ có một loài duy nhất. Loài này sống khắp lưu vực Amazon, có ở Bolivia, Brazil, Colombia, Peru và Venezuela. Cá nhập về thường lấy từ Peru.</p><p>Cá lá thuộc họ Nandidae, nằm trong bộ cá vược. Họ này có khá ít chi và loài, sống ở vùng nhiệt đới châu Á, châu Phi và Nam Mỹ. Kiểu phân bố đó cho thấy Nandidae là một họ cổ, đã có từ hồi ba châu lục này còn dính liền thành một khối đất.</p>",
+    "quickFacts:glaser": "<p>Cá lá thường có màu nâu, vân cẩm thạch. Cả màu lẫn dáng của nó đều giống một chiếc lá chết trôi trong nước. Cá dài tới 12 cm. Thỉnh thoảng có con màu đỏ gạch, và cũng có cá lá màu vàng tươi. Hiện chưa rõ các dạng màu này chỉ có ở một số nơi sống riêng, hay cùng một lứa có thể nở ra đủ các màu. Màu khác nhau không phải để phân biệt đực cái.</p>",
+    "diet:glaser": "<p>Cá lá lại gần con mồi bằng cách giả làm một chiếc lá trôi. Nó gần như chỉ ăn cá nhỏ còn sống. Khi đã đủ gần, nó đớp bằng cái miệng như cái túi, xếp nếp như đàn accordion, rồi nuốt chửng con mồi. Chỉ nên nuôi loài săn mồi này nếu chắc chắn có nguồn cá mồi nhỏ còn sống lâu dài.</p>",
+    "waterConditions:glaser": "<p>Muốn cá lá sống khỏe trong bể thì nước phải thật sạch, mềm và có tính axit.</p>",
+    "dimorphism:glaser": "<p>Monocirrhus đực và cái không có điểm khác nhau rõ ràng.</p>",
+    "reproduction:glaser": "<p>Cá lá đẻ trứng lên giá thể. Cá đực trông trứng cho đến khi trứng nở.</p>",
+    "notes:glaser": "<p>Monocirrhus: tiếng Latin, nghĩa là \"có một sợi\", chỉ sợi râu thịt ở cằm. polyacanthus: tiếng Hy Lạp cổ, nghĩa là \"có nhiều gai\".</p>"
   },
   "quality": {
     "score": 0.82,
     "indexable": true,
     "bySource": {
       "sprucepets": 0.82,
-      "seriouslyfish": 0.85
+      "seriouslyfish": 0.85,
+      "glaser": 0.85
     }
   }
 }

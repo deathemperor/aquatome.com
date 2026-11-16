@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/are-african-frogs-and-shrimp-compatible/
 title: Are African Frogs and Shrimp Compatible? - Shrimp and Snail Breeder
 fetchedAt: 2026-11-03T08:50:00.553Z
-hash: 5530b780af64b0b6f671523c1d8badfeea0265b35e93970bd2a94523f95ded2f
+hash: 117efe05b9b6b37adf338109ab31745e9fb6d51d4e7e80f748be40d3e1c86798
 ---
 
 Like dwarf shrimp, African frogs (African dwarf frogs and African clawed frogs) have increased in popularity in recent years. As a result, many aquarists have a reasonable question – “Are African frogs and shrimp compatible or how can they keep African frogs in a shrimp tank?”
@@ -56,4 +56,3 @@ On the Internet, you can also find some articles and stories about how some aqua
 If it works for them it does not mean that it will work for you!
 Be very careful with that. With a few exceptions, keeping shrimp even with African dwarf frogs can really be a game of chance. That is why it is not recommended unless you are prepared to potentially lose some shrimp.
 As for the African clawed frogs, these frogs are way too big and aggressive to keep them with any shrimp species. You will simply give them very expensive frog food.
-### Leave a Reply Cancel reply

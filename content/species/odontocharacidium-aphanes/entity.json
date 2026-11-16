@@ -1,0 +1,327 @@
+{
+  "id": "odontocharacidium-aphanes",
+  "scientificName": "Odontocharacidium aphanes",
+  "order": "Characiformes",
+  "family": "Crenuchidae",
+  "genus": "Odontocharacidium",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "peru",
+    "rio-shishita"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Negro",
+        "Rio Shishita"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "So far only one species of the genus Odontocharacidium is known to science, namely O. aphanes from the Rio Negro in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Negro"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The water parameters at a collecting site of this fish in the Rio Shishita drainage were: pH 5.32, conductivity 21 µS/cm, temperature 24°C.",
+          "countries": [],
+          "regions": [
+            "Rio Shishita"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2352326,
+      "total": 56,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "BR",
+          51
+        ],
+        [
+          "PE",
+          3
+        ],
+        [
+          "VE",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -7.03125,
+          2,
+          0
+        ],
+        [
+          -73.125,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -68.90625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          8,
+          8
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -8.4375,
+          6,
+          6
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          10,
+          10
+        ],
+        [
+          -61.875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          0,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -7.03125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/odontocharacidium_cf_aphanes_en/",
+      "html": "<p>A cute dwarf tetra imported from Peru. Maximum length is around 2 cm total length.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/odontocharacidium_cf_aphanes_en/",
+      "html": "<p>The water parameters at a collecting site of this fish in the Rio Shishita drainage were: pH 5.32, conductivity 21 µS/cm, temperature 24°C.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/odontocharacidium_cf_aphanes_en/",
+      "html": "<p>Despite their small size the males can be very aggressive against each other. If one can keep a lot of them together they are peaceful (the same phenomenon can be found in many cichlid species), but in a normal sized tank one should keep only one male along with one or more females.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/odontocharacidium_cf_aphanes_en/",
+      "html": "<p>The sexes can be distinguished easily by coloration. Only the males become bright red. Depending on mood, mating males can also develop a deep black humeral spot.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/odontocharacidium_cf_aphanes_en/",
+      "html": "<p>So far only one species of the genus Odontocharacidium is known to science, namely O. aphanes from the Rio Negro in Brazil. However, this species has a rather dull coloration. It is not known whether the Peruvian fish represents a new species or a variety of O. aphanes. Keeping these very nice fish has proved unproblematic so far.</p><p>Odontocharacidium means roughly \"Characidium with teeth\"; Characidium is another genus of ground tetra. aphanes: ancient Greek, meaning \"inconspicuous\".</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/c3351d8c57d29ad8.webp",
+      "thumb": "https://media.aquatome.com/glaser/c3351d8c57d29ad8-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/odontocharacidium_cf_aphanes_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/32eac6bb2b3e39c7.webp",
+      "thumb": "https://media.aquatome.com/glaser/32eac6bb2b3e39c7-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/odontocharacidium_cf_aphanes_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0434e79b071ef635.webp",
+      "thumb": "https://media.aquatome.com/glaser/0434e79b071ef635-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/odontocharacidium_cf_aphanes_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "apNfGHNKaTg",
+      "title": "Green Dwarf Tetra (Odontocharacidium aphanes)",
+      "durationSec": 116,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "MlYyidMdMsQ",
+      "title": "Green Dwarf Tetra (Odontocharacidium aphanes) Underwater HD",
+      "durationSec": 57,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "bQLZIvCpRc8",
+      "title": "Dwarf Red Hummingbird Tetra - Odontocharacidium cf. aphanes",
+      "durationSec": 138,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "s9p6MKSD9Zo",
+      "title": "Odontocharacidium aphanes -Zorn-Zwergpfeilsalmler",
+      "durationSec": 325,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể thủy sinh mini",
+        "bể cá 40cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "artemia"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-14"
+}

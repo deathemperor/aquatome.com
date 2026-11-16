@@ -1,0 +1,55 @@
+{
+  "id": "synodontis-robertsi",
+  "native": {
+    "input": "75309cd7f852f85c",
+    "at": "2026-11-15T05:39:34.625Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "glaser",
+        "quote": "As far as is known, it lives exclusively in the river Lukenie, a tributary of the central Congo river, in D. R. Congo.",
+        "words": "D. R. Congo",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lukenie",
+        "source": "glaser",
+        "quote": "As far as is known, it lives exclusively in the river Lukenie, a tributary of the central Congo river, in D. R. Congo.",
+        "country": "CD",
+        "ok": true
+      },
+      {
+        "name": "Congo",
+        "source": "glaser",
+        "quote": "As far as is known, it lives exclusively in the river Lukenie, a tributary of the central Congo river, in D. R. Congo.",
+        "country": "CD",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Synodontis robertsi",
+    "status": "ACCEPTED",
+    "taxonKey": 2344319,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        1
+      ]
+    ],
+    "native": [
+      "CD"
+    ],
+    "requests": 11,
+    "at": "2026-11-15T05:39:34.625Z"
+  }
+}

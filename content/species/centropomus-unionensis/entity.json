@@ -1,0 +1,106 @@
+{
+  "id": "centropomus-unionensis",
+  "scientificName": "Centropomus unionensis",
+  "order": "Perciformes",
+  "family": "Centropomidae",
+  "genus": "Centropomus",
+  "group": "other",
+  "places": [
+    "south-america",
+    "colombia",
+    "pacific-slope"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 40
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/centropomus_unionensis_en/",
+      "html": "<p>Centropomus unionensis grows to around 40 cm. It is a snook from the Pacific slope of Colombia. Suggested common name: Union snook.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/centropomus_unionensis_en/",
+      "html": "<p>The snooks (Centropomus) are distributed in the New World; currently 12 species are recognized. Centropomus unionensis was imported for the first time from Colombia (Pacific slope). The species name refers to the type locality, Bay of Union, El Salvador.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/centropomus_unionensis_en/",
+      "html": "<p>Snooks are rather marine fish, but many species enter brackish water regularly and some even pure fresh water. Among the latter is Centropomus unionensis.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/centropomus_unionensis_en/",
+      "html": "<p>It is not certain whether this species can be kept long-term in pure fresh water, so adding some salt to the water is recommended.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/centropomus_unionensis_en/",
+      "html": "<p>Specimens 5–8 cm long are very peaceful towards conspecifics and can even be characterized as schooling fish. Friends of unusual predatory fish will like this one.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/centropomus_unionensis_en/",
+      "html": "<p>Before the recent past, snooks and giant perches (Lates) were united in a single family, Centropomidae. The largest known snook species reaches 120 cm, the smallest only 20 cm total length. Centropomus: ancient Greek, means “thorn-cover”, probably referring to the spiny operculum.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/fca6fa6ff1308347.webp",
+      "thumb": "https://media.aquatome.com/glaser/fca6fa6ff1308347-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/centropomus_unionensis_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c32a7ad9a232c945.webp",
+      "thumb": "https://media.aquatome.com/glaser/c32a7ad9a232c945-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/centropomus_unionensis_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 400 lít",
+        "bể cá 200cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy bơm tạo dòng"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá săn mồi",
+        "cá sống cho cá săn mồi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-15"
+}

@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs'
 import { readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { metricPage, QUALITY_THRESHOLD, TranslationSchema, type GuideEntity, type Translation } from '@aq/schema'
+import { machine, type Machine } from './ceiling'
 import type { Llm } from './claude'
 import { FIT_TITLE, givesDose, type FitFinding } from './fit'
 import type { Mend } from './gate'
@@ -233,3 +234,11 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   await logReviews(root, 'video-guide', page, [review], review, { now, rewrite: true })
   return true
 }
+
+/**
+ * The gate's mender where this runs: the Mac's alone (the chief of staff, 15 Nov 2026). Its transcript comes through
+ * yt-dlp, which GitHub's runners don't have, so each mend the cloud's gate sent failed before any model call and spent one
+ * of the run's mends and a log line: 12 held video guides each cloud cycle. There the gate has no mender; the Mac's mend.
+ */
+export const gateMend = (root: string, d: Parameters<typeof videoMend>[1], where: Machine = machine()): Mend | undefined =>
+  where === 'mac' ? videoMend(root, d) : undefined

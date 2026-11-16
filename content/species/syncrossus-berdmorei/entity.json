@@ -14,6 +14,115 @@
     "thailand",
     "ataran"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM",
+        "IN",
+        "TH"
+      ],
+      "regions": [
+        "Irrawaddy",
+        "Sittaung",
+        "Salween"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "In the original description Blyth gave somewhat vague type locality details of 'Tennasserim provinces' but according to current knowledge this species occurs throughout the Irrawaddy, Sittaung, and Salween river systems in Myanmar.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Irrawaddy",
+            "Sittaung",
+            "Salween"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "To the north of this range it's been recorded in the border state of Manipur, northeastern India and to the south may occur in a small part of western Thailand since the Ataran, a tributary of the Salween known as the 'Kasat' in Thai, has headwaters there.",
+          "countries": [
+            "IN",
+            "TH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368159,
+      "total": 17,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "IN",
+          8
+        ],
+        [
+          "MM",
+          8
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          80.15625,
+          22.5,
+          1,
+          1
+        ],
+        [
+          92.8125,
+          23.90625,
+          6,
+          6
+        ],
+        [
+          94.21875,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          95.625,
+          16.875,
+          1,
+          1
+        ],
+        [
+          95.625,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          95.625,
+          21.09375,
+          5,
+          5
+        ],
+        [
+          95.625,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

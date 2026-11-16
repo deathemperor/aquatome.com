@@ -303,6 +303,21 @@
       "kept": true
     }
   ],
+  "vi/guides/youtube-2OLhjT-24lU#body": [
+    {
+      "at": "2026-11-15T00:32:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [
+        "\"xe được sưởi bằng nhiệt độ phòng đặt bể\" became \"trong xe để ấm ngang phòng đặt bể\": slight nuance shift, essentially same meaning",
+        "\"Cá từ bể nhà mang sang nên ít bị sốc hơn\" gained \"Vì là\": causal framing is the same"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/youtube-2Wjd1L52uWE#body": [
     {
       "at": "2026-11-11T09:48:21Z",
@@ -369,6 +384,22 @@
         "Added: \"rồi đặt quanh lũa đá\" – BEFORE gives no placement instruction for the moss ball pieces.",
         "Changed: BEFORE says to use a few small pieces and then split the moss ball apart into moss pads; AFTER only says to split it into a few small pieces, so the procedure is slightly altered.",
         "\"Chỉ cần một ít là đủ\" is a slight strengthening of \"Chỉ cần ít thôi\", but it is acceptable."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-CSsZOq0SyyU#body": [
+    {
+      "at": "2026-11-16T05:59:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"bèo Amazon frogbit\" became \"bèo Nhật\": a different plant name, so the named species is changed.",
+        "\"giúp giữ nước tốt\" became \"giữ nước sạch\": the meaning shifts slightly.",
+        "\"dễ vớt khi nhiều\" became \"khi lên dày cũng dễ vớt bớt\": small nuance change, acceptable."
       ],
       "attempt": "first",
       "kept": false
@@ -580,6 +611,37 @@
       "kept": true
     }
   ],
+  "vi/guides/youtube-b0pr4vEjJ_k#body": [
+    {
+      "at": "2026-11-15T00:36:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "Added \"(cỏ ngọc trai)\" for Glossostigma, replacing the original name \"Ngưu mao chiên\"; a new name not in BEFORE, and possibly a different plant."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-bqwUw5DDboU#body": [
+    {
+      "at": "2026-11-16T05:58:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.62,
+      "notes": [
+        "Said more surely than before: \"Cây trồng cạn (trầu bà, trầu bà lá xẻ Monstera, hồng môn) cũng cắm rễ xuống bể được, phần thân lá thì vươn lên khỏi mặt nước.\" (was: \"Cây trồng nổi (trầu bà, trầu bà lá xẻ Monstera, hồng môn) có thể cắm rễ vào bể cho mọc vươn lên khỏi mặt nước.\")",
+        "\"2 giọt mỗi giây\" became \"2 bọt mỗi giây\": the dosing unit changed from drops to bubbles.",
+        "\"Cây trồng nổi\" became \"Cây trồng cạn\": the plant category was changed.",
+        "\"phần thân lá thì vươn lên khỏi mặt nước\" is a slight restructuring that adds the detail of stems and leaves."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-hO_nLV0YpX8#body": [
     {
       "at": "2026-11-11T03:46:24Z",
@@ -593,6 +655,22 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/guides/youtube-hQZSvYIFBvk#body": [
+    {
+      "at": "2026-11-16T00:29:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Added: \"nhưng không ăn thua\" — BEFORE only says the clarifier was tried, not that it failed (though implied by contrast).",
+        "Changed: \"nên mất đèn thì nó sẽ chết\" — BEFORE says green water needs light so it dies; AFTER wording \"mất đèn\" is slightly shifted, and \"mới sống được\" adds emphasis.",
+        "\"không chiếu xuống nước được\" vs \"không xuyên xuống được\" is fine."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/guides/youtube-iS8fJvjUa1Q#body": [
@@ -652,6 +730,21 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-l-PVtRWJwNw#body": [
+    {
+      "at": "2026-11-16T00:30:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [
+        "\"cá ali xanh\" -> \"cá acara xanh\": name changed, but the English term is retained; likely an acceptable term variant",
+        "\"gần như đứng yên\" -> \"hầu như không chảy\": slight wording change, same meaning"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/youtube-nXDe9QF-Gu8#body": [
     {
       "at": "2026-11-09T10:47:51Z",
@@ -690,6 +783,52 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/guides/youtube-tjBIz6NjbwI#body": [
+    {
+      "at": "2026-11-16T06:00:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "\"ráy (Alocasia)\" became \"môn Alocasia\": common name changed (ráy vs môn), minor nuance shift",
+        "Tank volume 2500 litres kept; no hedges present"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-xBtOIR5wt6k#body": [
+    {
+      "at": "2026-11-16T00:32:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "\"còn phần dưới nước thì sau này xếp thêm lũa, đá\": BEFORE gives a reason (\"vì ... vẫn bố trí lũa, đá\"). AFTER turns it into a contrast and adds \"sau này\" (later), a slight shift in nuance.",
+        "\"nối lên vách\": \"vách\" is added in step 1. BEFORE only says \"nối lên\". It is a small addition but consistent with the context."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-zJcimXCpXtY#body": [
+    {
+      "at": "2026-11-15T00:32:51Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.68,
+      "notes": [
+        "Name changed: \"Cá ngân long vàng (gold harlequin)\" became \"Cá tam giác vàng (gold harlequin)\". This swaps the fish's Vietnamese name, which is a name change in a strict reading.",
+        "\"Cuối cùng chọn cá tetra xanh\" adds a sense of a final decision after comparison. BEFORE only says the fish \"nên được chọn\" (should be chosen), a recommendation.",
+        "\"đứng yên nhiều\" became \"hay đứng yên\". The frequency is kept, with a slight nuance shift."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ]
 }

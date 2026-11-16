@@ -3,7 +3,10 @@ import { fileURLToPath } from 'node:url'
 import { exportJWK, generateKeyPair, SignJWT, type JWK } from 'jose'
 import { afterEach, beforeAll, beforeEach, expect, test, vi } from 'vitest'
 import { LANG, LANGS } from '@aq/schema/langs'
+import { emailHash } from '../accounts/email'
 import { createSession } from '../accounts/session'
+import { TESTER_ADDRESS } from '../accounts/tester'
+import { signInWith } from '../accounts/users'
 import { CHANGELOG_PATH, hostPath, innerPath, REPORT_PATH, SCOREBOARD_PATH, WEB_PAGES } from '../admin/shell'
 import { RUNS_PATH, runPath, runsJsonPath } from '../admin/runs'
 import { APP_PAGES } from '../app-switch'
@@ -360,6 +363,24 @@ test('configured: what isn\'t a browser asking for a page stays on the site, unc
   // The old token form's address, and a reader's own session on a page: as a browser, moved.
   expect((await site('/_ab/login', e, browser, { method: 'POST' })).headers.get('location')).toBe('/_ab/')
   expect((await site('/_ab/', e, { ...browser, cookie: reader })).status).toBe(301)
+})
+
+test('the chat\'s test account is a reader to the dashboard: its sessions open no page, no owner action and no owner API', async () => {
+  const { db, reader, app: ownerApp } = await accounts()
+  const hash = await emailHash('k', TESTER_ADDRESS!)
+  const tester = await signInWith(db, { kind: 'email', subject: hash, emailHash: hash }, new Date())
+  const web = `__Host-aq_session=${await createSession(db, tester, 'web', new Date())}`
+  const app = await createSession(db, tester, 'app', new Date())
+  await db.prepare('INSERT INTO users (id, created_at) VALUES (?, ?)').bind('reader-2', '2026-11-01T00:00:00Z').run()
+  const readerApp = await createSession(db, 'reader-2', 'app', new Date())
+  const { e } = env({ DB: db, ACCOUNT_HMAC_KEY: 'k' } as Partial<Env>)
+  const form = (cookie: string) => site('/_ab/hidden', e, { ...browser, cookie, 'content-type': 'application/x-www-form-urlencoded' }, { method: 'POST', body: new URLSearchParams({ url: '/ca/x/', action: 'hide' }) })
+  expect((await site('/_ab/', e, { ...browser, cookie: web })).status).toBe((await site('/_ab/', e, { ...browser, cookie: reader })).status)
+  expect((await form(web)).status).toBe(404)
+  const ownerApi = async (token: string) => (await site('/api/owner/dashboard', e, { authorization: `Bearer ${token}` })).status
+  expect(await ownerApi(ownerApp)).toBe(200)
+  expect(await ownerApi(app)).toBe(await ownerApi(readerApp))
+  expect(await ownerApi(app)).not.toBe(200)
 })
 
 test('the machine endpoints are not on the host: without a token 403, and with one nothing answers them', async () => {

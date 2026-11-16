@@ -10,6 +10,67 @@
     "china",
     "xi-jiang"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Xi Jiang",
+        "Zhu Jiang",
+        "Liu Jiang"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from parts of the Xi Jiang (West River) watershed, the major affluent of the extensive Zhu Jiang (Pearl River), in Guangxi Autonomous Region and Guangdong Province, southern China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Xi Jiang",
+            "Zhu Jiang"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Some records are from the Nan Pan river, a tributary system in the upper part of the drainage although the type locality appears to be within the Liu Jiang basin further east.",
+          "countries": [],
+          "regions": [
+            "Liu Jiang"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358681,
+      "total": 3,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "CN",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          105.46875,
+          22.5,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

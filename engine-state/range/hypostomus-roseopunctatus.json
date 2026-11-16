@@ -1,8 +1,8 @@
 {
   "id": "hypostomus-roseopunctatus",
   "native": {
-    "input": "6663ab7b89cff866",
-    "at": "2026-11-14T05:39:06.336Z",
+    "input": "43d07d32dcb93207",
+    "at": "2026-11-15T00:17:46.244Z",
     "claims": [
       {
         "code": "BR",
@@ -36,16 +36,9 @@
         "ok": true
       },
       {
-        "name": "Rio Pelotas",
-        "source": "planetcatfish",
-        "quote": "Type locality: Rio Pelotas at road from Esmeralda to Anita Garibaldi, Rio Grande do Sul, Brazil.",
-        "country": "BR",
-        "ok": true
-      },
-      {
         "name": "La Plata",
         "source": "planetcatfish",
-        "quote": "South America: La Plata system: Uruguay basin.",
+        "quote": "South America: La Plata system: Uruguay basin. Recorded from the Uruguay, Miriñay and Upper Uruguay (Pelotas) areas.",
         "ok": true
       }
     ],

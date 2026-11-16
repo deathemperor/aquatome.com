@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/alternanthera-bettzickiana-care-guide-planting-growing-and-propagation/
 title: Alternanthera Bettzickiana Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-10-31T15:19:23.523Z
-hash: a319a3510f1fbd249104a2a0da4f47359cc23820a1be251db99c0c69414327dc
+hash: 07341c73ddaab2430cd91254702cb5a0394ea611bf1852f041ec160939d684d0
 ---
 
 Alternanthera bettzickiana is a ground-covering plant with colorful foliage that can have shades of green, yellowish, and red. An interesting feature of this plant is that its leaves can be bicolor or combine multiple colors on the same plant.
@@ -110,6 +110,3 @@ With its diverse array of colorful foliage, this plant has gained popularity as 
 - Pamila, Arul, S. Karpagam, and P. Jayaraman. “Morphological and anatomical features of Alternanthera bettzickiana (Regel) G. Nicholson.” International Journal of Botany and Research8 (2018): 5-18.
 - Ramzan, Musarrat, Aasia Perveen, Anis Ali Shah, and Iqtidar Hussain. “Study of morphological and physiological aspects of Alternanthera bettzickiana under salt (NaCl) stress.”
 - Acevedo-Rodríguez P, Strong MT, 2012. Catalogue of the Seed Plants of the West Indies. Smithsonian Contributions to Botany, 98:1192 pp. Washington DC, USA: Smithsonian Institution.
-## 2 thoughts on “Alternanthera Bettzickiana Care Guide – Planting, Growing, and Propagation”
-- Massively helpful article! ReplyHi Clare, Thank you! I did my best Best regards, Michael Reply
-### Leave a Reply Cancel reply

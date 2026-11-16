@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/panda-crab-detailed-guide-care-diet-and-breeding/
 title: Panda Crab – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-11-02T12:32:05.508Z
-hash: 10a3c7dda693c409f66ec34553f916baacca42b715091e615cf2b3c2abf5ec7f
+hash: ecce8f85687499b2a580193515c1421259992b26f177bc5d823d12a0c380be58
 ---
 
 The Panda Crabs (Lepidothelphusa padawan) may be small in size, but it is widely regarded as one of the most visually stunning crabs. These crabs are semi-terrestrial, thus they can be a good choice for a paludarium setup.
@@ -208,6 +208,3 @@ Stocking and Compatibility Calculator
 # In Conclusion
 Panda crabs are tiny, semi-terrestrial crab species that are perfectly suited for small paludariums. They are excellent scavengers and require minimal care.
 With their striking coloration, they will definitely be an attractive addition to any paludarium setup.
-## 2 thoughts on “Panda Crab – Detailed Guide: Care, Diet, and Breeding”
-- WATER BOWL is not suitable for panda crabs. They need a water area of 70% and land 30%. They are not same as geosesarma. The young of the panda crabs stay in water for 6 months and adults also like to stay in the waters edge most of the time. ReplyHi Ace, Actually, I didn’t mention anywhere in the article that they can be kept in water balls. The section where I referred to ‘water balls’ is specifically about the need for a similar container with freshwater within their habitat. Similarly, in the article, I emphasize the importance of the water-to-land ratio for these crabs. Best regards, Michael Reply
-### Leave a Reply Cancel reply

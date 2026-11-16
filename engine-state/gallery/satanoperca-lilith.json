@@ -1,10 +1,22 @@
 {
  "queue": [],
  "judged": [
-  "File:Satanoperca lilith, lago robertinho imported from iNaturalist photo 431334604.jpg"
+  "File:Satanoperca lilith, lago robertinho imported from iNaturalist photo 431334604.jpg",
+  "inat:203977260",
+  "inat:431334604",
+  "inat:444944904"
  ],
  "hashes": {
-  "https://media.aquatome.com/commons/52df042636343bda.webp": "0c4eeee2c91d1d1a"
+  "https://media.aquatome.com/commons/52df042636343bda.webp": "0c4eeee2c91d1d1a",
+  "https://media.aquatome.com/inaturalist/444944904.webp": "322270b066c6c8a0"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 604943,
+  "pass": "done",
+  "after": {
+   "research": 248959557,
+   "agree": 0
+  }
+ }
 }

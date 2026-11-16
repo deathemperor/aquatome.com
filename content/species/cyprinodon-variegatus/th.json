@@ -1,0 +1,24 @@
+{
+  "slug": "cyprinodon-variegatus",
+  "name": "ปลาชีพส์เฮดมินโนว์",
+  "altNames": [
+    "Sheepshead minnow",
+    "ชีพส์เฮดพัพฟิช",
+    "Sheepshead pupfish",
+    "ปลาพัพฟิช"
+  ],
+  "sections": {
+    "distribution:seriouslyfish": "<p>ถิ่นที่พบตัวอย่างต้นแบบ (type locality) ระบุไว้ว่าเป็น 'Carolinas, U.S.A.' แต่ปลาชนิดนี้มีเขตการกระจายพันธุ์กว้างมาก ตั้งแต่รัฐแมสซาชูเซตส์ทางตะวันออกเฉียงเหนือของสหรัฐอเมริกา ลงไปทางใต้ตามชายฝั่งมหาสมุทรแอตแลนติกจนถึงตะวันออกเฉียงเหนือของเม็กซิโก รวมถึงหมู่เกาะบาฮามาสและหมู่เกาะแอนทิลลีส และยังมีบันทึกการพบอยู่บ้างเล็กน้อยทางตะวันออกเฉียงเหนือของทวีปอเมริกาใต้ (เวเนซุเอลา)</p>",
+    "habitat:seriouslyfish": "<p>มักพบได้มากที่สุดในแหล่งน้ำกร่อยจนถึงแหล่งน้ำที่เค็มจัดกว่าน้ำทะเล เช่น บึงน้ำเค็มชายฝั่ง ลากูน และปากแม่น้ำ</p><p>บนเกาะซานซัลวาดอร์ ประเทศบาฮามาส ดูเหมือนว่าปลาชนิดนี้จะเป็นต้นสายของกลุ่มสปีชีส์ที่อาศัยอยู่ร่วมพื้นที่เดียวกัน (sympatry) ซึ่งแต่ละชนิดใช้แหล่งอาหารที่หลากหลายแต่เฉพาะเจาะจง และมีการปรับตัวทางรูปร่างที่โดดเด่นมาก</p>",
+    "aquariumSize:seriouslyfish": "<p>ตู้ปลาที่มีขนาดฐาน 60 × 30 ซม. หรือเทียบเท่า (ประมาณ 54 ลิตร) พอใช้ได้สำหรับเลี้ยงหนึ่งคู่ แต่เช่นเดียวกับปลาส่วนใหญ่ในวงศ์ Cyprinodontidae ปลาชนิดนี้จะอยู่ได้ดีที่สุดเมื่อเลี้ยงเป็นฝูงในตู้หรือภาชนะที่ใหญ่กว่านั้น</p>",
+    "maintenance:seriouslyfish": "<p>การจัดตู้ไม่จำเป็นต้องซับซ้อนมาก ขอเพียงมีสิ่งบังสายตาแบ่งพื้นที่ไว้มากพอ</p><p>ควรมีที่หลบซ่อนให้มาก เช่น ไม้น้ำ ไหมพรมวางไข่ (wool mop) เป็นต้น และหากใช้ระบบกรอง กรองฟองน้ำที่ใช้ปั๊มลมเหมาะที่สุด เพราะจะไม่ทำอันตรายต่อไข่หรือลูกปลา</p><p>แสงไฟไม่ใช่เรื่องสำคัญ แต่จะใช้ก็ได้ตามต้องการ และหากเป็นไปได้ควรส่งเสริมให้มีตะไคร่เส้นขึ้นในตู้</p>",
+    "references:seriouslyfish": "<ul><li>Martin, C. H. and P. C. Wainwright (2013). Remarkable Species Flock of Cyprinodon Pupfishes Endemic to San Salvador Island, Bahamas. Bulletin of the Peabody Museum of Natural History 54(2), 231-240</li><li>Martin, C. H. and P. C. Wainwright (2013). Multiple Fitness Peaks on the Adaptive Landscape Drive Adaptive Radiation in the Wild. Science 339(6116), 208-211</li><li>Martin, C. H. and P. C. Wainwright (2011). Trophic novelty is linked to extremes rates of morphological diversification in two adaptive radiations of Cyprinodon pupfishes. Evolution 65(8), 2197-2212</li></ul>"
+  },
+  "quality": {
+    "score": 0.97,
+    "indexable": true,
+    "bySource": {
+      "seriouslyfish": 0.97
+    }
+  }
+}

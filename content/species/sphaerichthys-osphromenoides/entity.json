@@ -16,6 +16,134 @@
     "singapore",
     "malay-peninsula"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "ID",
+        "SG"
+      ],
+      "regions": [
+        "Sumatra",
+        "Borneo",
+        "Malay Peninsula",
+        "Kalimantan"
+      ],
+      "sources": [
+        "bwaquatics",
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "bwaquatics",
+          "quote": "Native to the peat swamps and blackwater streams of Malaysia, Sumatra, and Borneo.",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Sumatra",
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In the latter, records exist from throughout the Malaysian state of Sarawak and Indonesian province of West Kalimantan (Kalimantan Barat).",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Kalimantan"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's also known from Singapore though this population may now have been extirpated.",
+          "countries": [
+            "SG"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "The species is found on the Malay Peninsula.",
+          "countries": [],
+          "regions": [
+            "Malay Peninsula"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394132,
+      "total": 17,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "MY",
+          10
+        ],
+        [
+          "ID",
+          6
+        ],
+        [
+          "SG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          102.65625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          0,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          1.40625,
+          5,
+          5
+        ],
+        [
+          102.65625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          108.28125,
+          0,
+          3,
+          3
+        ],
+        [
+          111.09375,
+          -2.8125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

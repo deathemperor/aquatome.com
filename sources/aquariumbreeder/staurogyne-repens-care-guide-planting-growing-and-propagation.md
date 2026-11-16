@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/staurogyne-repens-care-guide-planting-growing-and-propagation/
 title: Staurogyne Repens Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-10-30T17:04:16.640Z
-hash: cba5d617edc87fd4700831097a90fb847d476a71457c92d6dcdfc3a88a2bd0e2
+hash: 3a24a53ac0eed3202d6a6f1a832e4600ce542ea9b1484f09f47d1fde5277d440
 ---
 
 There is a variety of plants used in the aquascaping, each with its own distinct features and perks, anyway, today’s subject matter is the popular species Staurogyne repens.
@@ -103,4 +103,3 @@ How to Quarantine and Disinfect Aquarium Plants. How to Remove Snails from a Shr
 ## In Conclusion
 If you are looking for a hardy plant that can form a beautiful and thick lawn on the bottom of your aquarium, the Staurogyne repens is a perfect fit.
 This plant is slow-growing, thrives with or without CO2 and takes up to 2-3 months after planting to densely cover the foreground of your tank, therefore eliminating the need for frequent trimming of the shoots.
-### Leave a Reply Cancel reply

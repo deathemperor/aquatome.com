@@ -1,6 +1,7 @@
 content/changelog.json merge=changelog
 engine-state/_photo-*.json merge=jsonmap
 engine-state/_wanted.json merge=jsonmap
+engine-state/_video-cut.json merge=jsonmap
 engine-state/_credit-reads.json merge=jsonmap
 engine-state/_credit-holds.json merge=jsonmap
 engine-state/_gbif-names.json merge=jsonmap
@@ -12,6 +13,7 @@ engine-state/_breed-links.json merge=jsonmap
 engine-state/_sources.json merge=jsonmap
 engine-state/_unsplash.json merge=jsonmap
 engine-state/_breed-photos.json merge=jsonmap
+engine-state/_glossary-photos.json merge=jsonmap
 engine-state/_variety-pages.json merge=jsonmap
 engine-state/_planting.json merge=jsonmap
 engine-state/_species-videos.json merge=jsonmap

@@ -251,10 +251,10 @@ private struct FishOfTheDay: View {
         if size.isAccessibilitySize || img == nil {
           VStack(spacing: 0) {
             name.frame(maxWidth: .infinity, alignment: .leading).background(colour)
-            if img != nil { V2Photo(src: img, box: box, ground: colour) { colour = $0 }.frame(height: 260) }
+            if img != nil { V2Photo(src: img, box: box, ground: colour, clear: true) { colour = $0 }.frame(height: 260) }
           }
         } else {
-          V2Photo(src: img, box: box, ground: colour) { colour = $0 }
+          V2Photo(src: img, box: box, ground: colour, clear: true) { colour = $0 }
             .modifier(WordsOnPhoto(colour: colour, edge: .top, height: height) { name })
             .overlay(alignment: .bottom) {
               // Long, as `WordsOnPhoto`'s: on a photo with a black ground a short one ends in a hard stripe.
@@ -265,9 +265,9 @@ private struct FishOfTheDay: View {
       .buttonStyle(CardPress())
       .accessibilityIdentifier("v2-fish-of-the-day")
       // The band under it opens the same page: read here, one stop for VoiceOver (Lockup's `title`).
-      .accessibilityValue(Text(verbatim: [item.subUnderName ?? item.kind.title, factsLine(item, handbook.lang)].compactMap { $0 }.joined(separator: ", ")))
+      .accessibilityValue(Text(verbatim: [item.subUnderName ?? item.kindTitle, factsLine(item, handbook.lang)].compactMap { $0 }.joined(separator: ", ")))
       // The name is the card's title: under it, the fish's other name and figures, not the name and photo again.
-      Lockup(item: item, title: item.subUnderName ?? item.kind.title, line: factsLine(item, handbook.lang), onDark: true, icon: false, post: true)
+      Lockup(item: item, title: item.subUnderName ?? item.kindTitle, line: factsLine(item, handbook.lang), onDark: true, icon: false, post: true)
         .padding(.horizontal, 16).padding(.vertical, 10)
         .background(colour)
     }
@@ -323,7 +323,7 @@ private struct GuideCard: View {
       Group {
         if img != nil {
           VStack(spacing: 0) {
-            V2Photo(src: img, box: box, ground: colour) { colour = $0 }
+            V2Photo(src: img, box: box, ground: colour, clear: true) { colour = $0 }
               .aspectRatio(16 / 9, contentMode: .fit)
               .overlay(alignment: .bottom) {
                 LinearGradient(colors: [colour.opacity(0), colour], startPoint: .top, endPoint: .bottom).frame(height: 40)
@@ -362,7 +362,7 @@ private struct GuideCard: View {
       } else if item.kind == .guide {
         Eyebrow(text: "Hướng dẫn")
       } else {
-        Text(verbatim: item.kind.title).font(.footnote.weight(.bold)).textCase(.uppercase).opacity(0.8)
+        Text(verbatim: item.kindTitle).font(.footnote.weight(.bold)).textCase(.uppercase).opacity(0.8)
       }
       Text(verbatim: words?.title ?? item.name).font(.system(.title, weight: .heavy)).lineLimit(size.isAccessibilitySize ? 8 : 4)
         .multilineTextAlignment(.leading)

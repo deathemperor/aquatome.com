@@ -271,16 +271,11 @@
       "html": "<p>Ophichthus apicalis belongs to the snake-eel family (Ophichthidae). It grows up to 45 cm long and is usually found in the sea, but it is very often found also in brackish environments. The genus Ophichthus currently contains 75 accepted species.</p>"
     },
     {
-      "key": "beforeYouBuy",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/05-eels-en/ophichthus-apicalis-en/",
-      "html": "<p>Available size: 35-45 cm.</p>"
-    },
-    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/05-eels-en/ophichthus-apicalis-en/",
-      "html": "<p>The species has a gigantic natural distribution in the Indo-Pacific. The specimens imported came from Vietnam.</p>"
+      "html": "<p>The species has a gigantic natural distribution in the Indo-Pacific. The specimens imported came from Vietnam.</p>",
+      "fixed": true
     }
   ],
   "photos": [],

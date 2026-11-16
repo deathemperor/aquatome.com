@@ -53,8 +53,11 @@ test('each sentence with what it names and its source\'s mark; only from a sourc
   expect(p.said?.title).toBe('Nguồn ghi gì')
   expect(plain(p.said?.html)).toBe('Peru, Amazon · Seriously Fish1: “Native to the upper Amazon basin in Peru.”Brazil · The Spruce Pets2: “Found in western Brazil.”')
   expect(p.said?.html).toContain('<span lang="en">')
-  // The countries' line ends with both sources' marks, the regions' with the one its sentence is from.
-  expect(plain(p.words)).toBe('Sống tự nhiên ở: Peru, Brazil12Sông, hồ, vùng: Amazon1')
+  // The countries' line ends with both sources' marks, the regions' with the one its sentence is from. Two marks side by
+  // side are one group (lib/cite.ts citeGroup), so each one's 44 px reaches away from the other (global.css): ungrouped,
+  // each was centred and the second's lay over the first, so a tap on 1 opened 2 (Fable's read, 15 Nov 2026).
+  expect(plain(p.words)).toBe('Sống tự nhiên ở: Peru, Brazil1 2Sông, hồ, vùng: Amazon1')
+  expect(p.words).toContain('<span class="marks"><a class="cite" href="https://example.org/seriouslyfish">1</a> <a class="cite" href="https://example.org/sprucepets">2</a></span>')
   // A source the page has no text of: its sentence and its mark are left out, not its country.
   const only = parts(r, ['seriouslyfish'])!
   expect(plain(only.said?.html)).toBe('Peru, Amazon · Seriously Fish1: “Native to the upper Amazon basin in Peru.”')

@@ -30,6 +30,7 @@
       "a": "Phủ cát sạch trước, rồi mới rải sỏi và cuội lên. Làm ngược lại thì cát đổ sau sẽ lấp mất chúng."
     }
   ],
+  "cover": "Đập đi set lại bể 1000 lít",
   "quality": {
     "score": 0.75,
     "indexable": true,
@@ -39,9 +40,8 @@
   },
   "held": {
     "checks": [
-      "source",
-      "units"
+      "source"
     ],
-    "at": "2026-11-14"
+    "at": "2026-11-16"
   }
 }

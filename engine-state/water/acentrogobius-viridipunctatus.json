@@ -1,6 +1,13 @@
 {
   "id": "acentrogobius-viridipunctatus",
-  "input": "55a3961fb9cb82b3",
-  "at": "2026-11-14T17:27:56.184Z",
-  "claims": []
+  "input": "9fc9511da23920f0",
+  "at": "2026-11-15T05:50:58.864Z",
+  "claims": [
+    {
+      "kind": "brackish",
+      "source": "glaser",
+      "quote": "In nature, this fish lives in the lower parts of rivers and therefore likes some salt addition.",
+      "ok": true
+    }
+  ]
 }

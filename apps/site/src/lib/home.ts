@@ -37,9 +37,20 @@ const complete = (s: Localized<SpeciesEntity>) => CORE.every(f => resolveDataCar
 /** Species with all core figures first, in their order; one missing a figure only fills a spot nothing complete can. */
 export const completeFirst = (list: Localized<SpeciesEntity>[]) => [...list.filter(complete), ...list.filter(s => !complete(s))]
 
-/** The home page's species: well-known ones and the richest profiles, but never a half-empty card while a full one is left. */
-export function featuredSpecies(lang: Lang, c: Content, n = 8): Localized<SpeciesEntity>[] {
-  return completeFirst(knownFirst(lang, c)).slice(0, n)
+/**
+ * Photos the calendar keeps off cards (content/curation.json `avoid`): each stays on its page, but no card, featured fish
+ * or group tile shows it, as no Hôm nay day does (the chief of staff, 15 Nov: a drawing, a figure plate and a water
+ * surface wait there for another head).
+ */
+export type OffCards = Readonly<Record<string, string>>
+
+/**
+ * The home page's species: well-known ones and the richest profiles, but never a half-empty card while a full one is
+ * left, nor one whose head is kept off cards (`avoid`).
+ */
+export function featuredSpecies(lang: Lang, c: Content, n = 8, avoid: OffCards = {}): Localized<SpeciesEntity>[] {
+  const head = (s: Localized<SpeciesEntity>) => s.photos.find(p => !p.generated)
+  return completeFirst(knownFirst(lang, c)).filter(s => !Object.hasOwn(avoid, head(s)?.url ?? '')).slice(0, n)
 }
 
 /** The reader's own country for each language: its native fish get a place on the home page. */
@@ -89,15 +100,16 @@ export function listOrder(lang: Lang, c: Content): Localized<SpeciesEntity>[] {
 /**
  * Each species group with a page: its size and a picture of its best-documented member, a sharp one first. `pics`: the pictures its page
  * already shows (the home page's fish cards just above): a group whose best member is shown takes its next member's.
+ * A photo kept off cards (`avoid`) is passed over.
  */
-export function groupTiles(lang: Lang, c: Content, pics?: PictureSet): { group: string; label: string; count: number; photo?: Photo }[] {
+export function groupTiles(lang: Lang, c: Content, pics?: PictureSet, avoid: OffCards = {}): { group: string; label: string; count: number; photo?: Photo }[] {
   return Object.entries(GROUP_LABELS)
     .map(([group, label]) => {
       const members = c.species.filter(s => s.group === group)
       const first = GROUP_COVERS[group] ?? []
       const cover = (x: Localized<SpeciesEntity>) => (first.includes(x.id) ? first.indexOf(x.id) : first.length)
       const ranked = [...members].sort((a, b) => cover(a) - cover(b) || richest(lang)(a, b))
-      const all = [...ranked.filter(clean), ...ranked.filter(s => !clean(s))].flatMap(s => cleanPhoto(s.photos) ?? [])
+      const all = [...ranked.filter(clean), ...ranked.filter(s => !clean(s))].flatMap(s => cleanPhoto(s.photos) ?? []).filter(p => !Object.hasOwn(avoid, p.url))
       // A photo under 640 px wide is often an old, soft scan: it waits for every larger one.
       const photos = [...all.filter(p => p.width >= 640), ...all.filter(p => p.width < 640)]
       return { group, label, count: members.length, photos }

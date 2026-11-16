@@ -1,0 +1,39 @@
+{
+ "at": "2026-11-15T11:38:26Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "Những con trong ảnh đã đủ lớn để đẻ",
+   "why": "Refers to a photo from the original source that the page does not have."
+  }
+ ],
+ "text": {
+  "slug": "ca-cichlid-pike-regan",
+  "name": "Cá cichlid pike Regan",
+  "altNames": [
+   "Cá cichlid mõm nhọn Regan",
+   "Pike cichlid",
+   "Firespot dwarf pike cichlid"
+  ],
+  "sections": {
+   "quickFacts:glaser": "<p>Cá pike cichlid (Crenicichla) là một trong những giống cichlid nhiều loài nhất thế giới. Hiện có 85 loài được công nhận. Nhiều loài lớn quá 20 cm, nhưng cũng có những loài lùn. Crenicichla regani thân thon dài, thuộc nhóm lùn này. Tài liệu ghi con đực tối đa 15 cm, con cái 8 cm.</p>",
+   "distribution:glaser": "<p>Crenicichla regani phân bố rất rộng ở vùng Amazon. Cũng giống Tropheus ở hồ Tanganyika bên châu Phi, loài này có rất nhiều biến thể theo từng vùng. Thường thì không thể biết chắc một biến thể vẫn là C. regani hay đã là một loài mới chưa ai mô tả.</p><p>Những con cá nói đến ở đây nhập từ Venezuela. Điểm nhận ra loài hay quần thể này là con cái có đốm mắt trên vây lưng, viền quanh màu đỏ anh đào. Con đực thì không có đốm mắt nào trên vây lưng.</p>",
+   "habitat:glaser": "<p>Ngoài tự nhiên, cá sống trong nước mềm và có tính axit, nhưng nuôi trong bể thì không cần như vậy.</p>",
+   "aquariumSize:glaser": "<p>Cá nhỏ con nhưng không nên nuôi trong bể nhỏ, vì bể chật thì chúng trở nên khá dữ.</p>",
+   "waterConditions:glaser": "<p>Với loài này, nhiệt độ quan trọng hơn thông số nước nhiều. Nước nên khá ấm, khoảng 27–32 °C.</p>",
+   "diet:glaser": "<p>Chúng ăn ngay mọi loại thức ăn đông lạnh và đồ tươi sống.</p>",
+   "reproduction:glaser": "<p>Đến nay, loài Crenicichla nào cũng cho thấy là cá đẻ trong hang, bố mẹ có chăm con.</p>",
+   "notes:glaser": "<p>Loài này không khó nuôi chút nào. Cá bắt ngoài tự nhiên không bao giờ lớn tới cỡ tài liệu ghi. Những con trong ảnh đã đủ lớn để đẻ, nhưng tính cả vây đuôi thì con đực chỉ dài 7 cm, con cái 5 cm.</p><p>Crenicichla: tiếng Hy Lạp cổ, nghĩa là \"Cichla có chiếc lược\". Cichla là một giống cichlid khác. regani: tên đặt để tôn vinh Charles Tate Regan (1878–1943), nhà ngư học nổi tiếng của Bảo tàng Anh ở London.</p>"
+  },
+  "quality": {
+   "score": 0.9,
+   "indexable": true,
+   "bySource": {
+    "glaser": 0.9
+   }
+  }
+ }
+}

@@ -8,9 +8,10 @@ import { setsCookies, THUMB_WIDTH } from './thumb'
 import { awaitsScreen, type PhotoScreenEntry } from './photo-screen'
 import { ownerCropApproved, ownerCropCanonical } from './owner-crops'
 import { generatedApproved, isOwnerCrop, IMAGE_SWITCHES, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, realPhotosFirst, validImageJudgmentHashes, type ImageSwitches } from './image-policy'
+import { HAND_BOXES } from './hand-boxes'
 import { markOutsideCrop, photoFitsCard, photoFitsHead, photoFitsWholeHead, SUBJECT_FRAMES, subjectPixels, validCropGeometry, type SubjectFractions } from './image-geometry'
 import { judgeQuality, speciesDepth } from './depth'
-import { isAllowedLicence } from './licence'
+import { isAllowedLicence, isInatNonCommercial, isNonCommercial } from './licence'
 import { isVietnamese, markVietnameseNames } from './text'
 import { BreedSchema, CaptionsSchema, OneVoiceSchema, PageDatesSchema, PictureHashesSchema, ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MATERIAL_SECTION_ORDER, MaterialSchema, MarketSchema, mayPublish, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
 import type { PictureHashes } from './pictures'
@@ -107,11 +108,17 @@ const marked = (lang: Lang, t: Translation): Translation => lang === 'vi' ? t : 
 /** A guide's note for this language's readers goes first in its text, wherever the text is read (schemas.ts localNote). */
 export const withLocalNote = (t: Translation): Translation => t.localNote ? { ...t, body: `${t.localNote.html}${t.body ?? ''}` } : t
 
-/** A heading whose sources can't both be true shows only the source content/one-voice.json names, once this language has its text. */
+/**
+ * A heading whose sources can't both be true shows only the source content/one-voice.json names, once this language has
+ * its text; one it names no source for (`false`) isn't shown at all, and its text is left out too, so nothing that reads
+ * the page's text (the gate's checks, the summary's writer) reads what readers don't see.
+ */
 export function oneVoice<S extends { sections: Section[]; t: Translation }>(x: S, keep: z.infer<typeof OneVoiceSchema>[string] | undefined): S {
   if (!keep) return x
   const written = (key: Section['key'], source: SourceId) => x.sections.some(s => s.key === key && s.source === source) && !!x.t.sections[`${key}:${source}`]
-  return { ...x, sections: x.sections.filter(s => { const k = keep[s.key]; return !k || s.source === k || !written(s.key, k) }) }
+  const off = (key: string) => keep[key as Section['key']] === false
+  const t = { ...x.t, sections: Object.fromEntries(Object.entries(x.t.sections).filter(([k]) => !off(k.split(':')[0]!))) }
+  return { ...x, t, sections: x.sections.filter(s => { const k = keep[s.key]; return k === undefined || (k !== false && (s.source === k || !written(s.key, k))) }) }
 }
 
 /**
@@ -243,12 +250,12 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const captions = lang !== 'vi' && (await exists(captionsFile)) ? await readJson(captionsFile, CaptionsSchema) : {}
   // Where the fish is in each photo, from the engine's record and behind its switch (SUBJECT_FRAMES): with it off no photo
   // has a box. Here a photo the record doesn't know, or where it found no animal, has none; a page's and an album's take
-  // their whole area below (`wholeBoxes`).
+  // their whole area below (`wholeBoxes`). A box set by hand (HAND_BOXES) wins over the record's.
   const framed = opts.subjectFrames ?? SUBJECT_FRAMES
   const boxes = framed ? await stateRecord<Record<string, SubjectFractions | null>>(root, PHOTO_BOXES_FILE) : undefined
   const boxed = <P extends Photo>(p: P): P => {
     const { subject: _own, ...rest } = p
-    const f = boxes?.[p.url], subject = f && subjectPixels(f, p.width, p.height)
+    const f = framed ? HAND_BOXES[p.url] ?? boxes?.[p.url] : undefined, subject = f && subjectPixels(f, p.width, p.height)
     return subject ? { ...rest, subject } as P : _own ? rest as P : p
   }
   const caption = <P extends Photo>(p: P): P => {
@@ -256,10 +263,13 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     const { caption: vi, ...rest } = p
     return (captions[vi] ? { ...rest, caption: captions[vi] } : rest) as P
   }
-  /** Photos copied from a source follow that source's publish gate; others need an open licence. */
+  /**
+   * Photos copied from a source follow that source's publish gate; others need an open licence. An album's (`album`) may
+   * also be an iNaturalist photo under CC BY-NC or CC BY-NC-SA, while its switch is on (IMAGE_SWITCHES.inatNonCommercial).
+   */
   // A public build shows no photo from a host that sets third-party cookies: it waits for `pnpm engine mirror-photos`
   // (2026-10-31: 487 Commons photos put on pages straight from Wikimedia failed best practices on every live page).
-  const cleanPhotos = <P extends Photo>(xs: P[], page = '', scientificName = ''): P[] => realPhotosFirst(xs.flatMap(p => {
+  const cleanPhotos = <P extends Photo>(xs: P[], page = '', scientificName = '', album = false): P[] => realPhotosFirst(xs.flatMap(p => {
     if (isOwnerCrop(p)) {
       const valid=ownerCropApproved(p,page,scientificName,createHash('sha256').update(ownerCropCanonical(p,page,scientificName)).digest('hex'))
       const veto=p.source && sources[p.source]?.permission?.markRemoval?.allowed===false
@@ -293,7 +303,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
         }
       }
     }
-    return p.source ? photoAllowed(p.source) : isAllowedLicence(p.licence)
+    return p.source ? photoAllowed(p.source) : isAllowedLicence(p.licence) || (album && images.inatNonCommercial && isInatNonCommercial(p))
   }).map(p => caption(boxed(p))))
   /** The card's values from sources this build may show, without a tank length that is that source's tank volume (card-facts). */
   const cleanCard = (card: SpeciesEntity['dataCard'], sections: Section[]): SpeciesEntity['dataCard'] => shownCard(card, sections, s => allowed(s as SourceId))
@@ -359,7 +369,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     const g = await readJson(join(root, 'gallery', f), GallerySchema)
     // A photo the photo check has not judged yet (`unchecked`) waits: no page shows it, and it counts towards no album.
     const speciesPage=species.find(p=>p.id===g.id)
-    const photos = cleanPhotos(g.photos.filter(p => !p.unchecked), speciesPage ? `species/${g.id}` : '', speciesPage?.scientificName ?? '')
+    const photos = cleanPhotos(g.photos.filter(p => !p.unchecked), speciesPage ? `species/${g.id}` : '', speciesPage?.scientificName ?? '', true)
     if (photos.length) galleries[g.id] = photos
   }
 
@@ -371,7 +381,8 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // Preserve explicitly fitted heads; add a fitted fallback only after ordinary publication admission.
   const fitsHead = (p: Photo) => p.headFit === 'contain' || photoFitsHead(p)
   for (const page of [...species, ...plants, ...breeds]) if (page.photos.some(p=>p.headFit==='contain'||!photoFitsHead(p)) || page.photos[0]?.generated || (!page.photos.length && (generatedPages.has(page.id) || (galleries[page.id]??[]).some(p=>!p.generated&&photoFitsWholeHead(p))))) {
-    const all=realPhotosFirst([...new Map([...page.photos,...(galleries[page.id]??[])].map(p=>[p.url,p])).values()])
+    // A non-commercial album photo stays in its album: it never leads a page (the owner's yes was for albums, 10 Nov).
+    const all=realPhotosFirst([...new Map([...page.photos,...(galleries[page.id]??[]).filter(p=>!isNonCommercial(p.licence))].map(p=>[p.url,p])).values()])
     const albumOnly=page.photos.filter(p=>!fitsHead(p))
     if(albumOnly.length)galleries[page.id]=realPhotosFirst([...new Map([...(galleries[page.id]??[]),...albumOnly].map(p=>[p.url,p])).values()])
     page.photos=page.photos.filter(fitsHead)
@@ -446,7 +457,12 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     lang, species, plants, guides, changelog, equipment, series, galleries, products, breeds, materials, cards,
     ...(screen ? { photoWaits } : {}),
     // A term's photos follow the same rules as a page's (publish gates, the watermark screen).
-    glossary: (await loadKind(root, 'glossary', GlossarySchema, lang)).map(g => (g.photos ? { ...g, photos: cleanPhotos(g.photos, g.id) } : g)),
+    // A kind's photo passes the same screen as the term's; a kind whose photo doesn't is shown without one.
+    glossary: (await loadKind(root, 'glossary', GlossarySchema, lang)).map(g => ({
+      ...g,
+      ...(g.photos ? { photos: cleanPhotos(g.photos, g.id) } : {}),
+      ...(g.kinds ? { kinds: g.kinds.flatMap(k => cleanPhotos([k.photo], g.id).map(photo => ({ ...k, photo }))) } : {}),
+    })),
     // Another language's species pages are still being made: it has the places one of its fish comes from, so no origin
     // page is empty and no link points at one it lacks. Vietnamese has every place.
     places: allPlaces.filter(p => lang === 'vi' || species.some(s => s.places.includes(p.id))),

@@ -3,6 +3,12 @@
   "name": "Sadang",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-16T05:42:29.436Z",
+    "why": "The source names the Salo Sadang drainage, so bare \"Sadang\" cuts the name short and drops the kind word \"Sungai\" that a Malaysian atlas would use."
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

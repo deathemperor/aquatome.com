@@ -10,6 +10,40 @@
     "philippines",
     "naga-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PH"
+      ],
+      "regions": [
+        "Naga River",
+        "Cebu"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "This species appears to be rare in nature with the type series, which consisted of just a single adult pair, originating from the Uling brook within the upper Naga River basin on the island of Cebu, Cebu province, the Philippines.",
+          "countries": [
+            "PH"
+          ],
+          "regions": [
+            "Naga River",
+            "Cebu"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208959,
+      "total": 0,
+      "fetched": "2026-11-15",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

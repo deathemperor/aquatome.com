@@ -1,12 +1,16 @@
 {
   "id": "leptobarbus-rubripinna",
-  "summary": "Cá cigar vây đỏ (Leptobarbus rubripinna) không hợp với đa số bể nhà, chỉ hợp người có bể cực lớn hoặc thủy cung. Cá lớn tới 100 cm nên cần bể dài tối thiểu 200 cm, nước 20–26 °C, pH 6–8, độ cứng 5–15 dGH, dòng chảy mạnh và nhiều oxy. Độ khó 6/8: khó nhất là có đủ chỗ cho cá bơi và giữ nước luôn thật sạch.",
+  "summary": "Cá cigar vây đỏ (Leptobarbus rubripinna) chỉ hợp với người có bể cực lớn hoặc thủy cung, không hợp bể nhà thông thường. Cá lớn tới 100 cm, cần bể dài tối thiểu 200 cm, nước 20–26 °C, pH 6–8, độ cứng 5–15 dGH, dòng chảy mạnh, nhiều oxy và nước luôn thật sạch. Khó nhất (độ khó 6/8) là cá mua ngoài tiệm còn nhỏ nhưng lớn rất to, lại hay nhảy và hay giật mình.",
   "mistakes": [
-    "Mua cá nhỏ ngoài tiệm mà không tính cỡ trưởng thành: chỉ mua khi đã có bể dài ít nhất 200 cm, vì cá lớn tới 100 cm.",
-    "Để bể hở hoặc nắp lỏng: dùng nắp nặng, đậy thật khít, vì cá hay nhảy và nhảy rất mạnh.",
-    "Để dòng yếu, chất thải hữu cơ tích tụ: dùng lọc ngoài hoặc máy tạo dòng, cho lọc luân chuyển nước 8–12 lần mỗi giờ và giữ nước thật sạch."
+    "Mua cá con ngoài tiệm vì dễ mua mà không tính chuyện lớn; hãy lo trước bể dài tối thiểu 200 cm cho cá trưởng thành, không có bể đó thì đừng mua.",
+    "Đậy nắp lỏng; cá nhảy rất mạnh và dễ giật mình, nên dùng nắp nặng, đậy thật khít.",
+    "Để nước tù, chất thải tích tụ; cá cần nước thật sạch, nhiều oxy và dòng chảy khá mạnh, nên dùng lọc ngoài hoặc máy tạo dòng."
   ],
   "speciesUpdatedAt": "2026-11-04",
-  "generatedAt": "2026-11-08T02:23:57.429Z",
-  "review": "approved"
+  "writtenFrom": "146a6c22f4f36fbd",
+  "generatedAt": "2026-11-15T11:24:46.179Z",
+  "review": "pending",
+  "problems": [
+    "\"hay giật mình\" / \"dễ giật mình\": the page only says large cyprinids \"đôi khi khá dễ giật mình\" (sometimes fairly skittish), a general remark about the group. The summary turns this hedge into a firm trait of this species."
+  ]
 }

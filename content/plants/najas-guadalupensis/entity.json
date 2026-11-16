@@ -1,6 +1,9 @@
 {
   "id": "najas-guadalupensis",
   "scientificName": "Najas guadalupensis",
+  "synonyms": [
+    "Najas microdon"
+  ],
   "difficulty": 1,
   "light": "low",
   "co2": "none",
@@ -17,10 +20,31 @@
       "html": "<p>Originating from the USA and South America, Najas guadalupensis is an exceptionally easy aquatic plant that thrives under almost any conditions. It grows quickly and propagates effortlessly, making it ideal for beginners as well as experienced aquarists.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này lan rất nhanh và ở một số nơi trên thế giới đã thành cây xâm hại. Cây cắt bỏ thì đem cho, chuyển sang bể khác, hoặc vứt sao cho chim, thú không tha được nó ra ao hồ, sông suối.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Muốn có một đám cây rậm phủ kín tầng dưới trong bể nhỏ hoặc vừa thì loài này làm rất dễ. Chỉ cần mua một túi nhỏ, chẳng bao lâu nó sẽ phủ kín bể.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "maintenance",
       "source": "aquatome",
       "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
-      "html": "<p>Cách hay làm nhất với rong đuôi chồn Najas là thả nổi tự do trong bể. Muốn để nó ở hậu cảnh cũng được, vì cây tự bám xuống nền bằng những sợi rễ dài và mảnh. Nếu bể có cá bột hay tép, đám thân lá mảnh và xốp của nó là chỗ trốn tốt cho chúng.</p>"
+      "html": "<p>Cách hay làm nhất với rong đuôi chồn Najas là thả nổi tự do trong bể. Muốn để nó ở hậu cảnh cũng được, vì cây tự bám xuống nền bằng những sợi rễ dài và mảnh. Nếu bể có cá bột hay tép, đám thân lá mảnh và xốp của nó là chỗ trốn tốt cho chúng.</p>\n<p>Cây mọc thành đám xum xuê nổi trong nước, nên có lẽ không hợp với bể có dòng chảy mạnh. Thấy rậm quá thì thỉnh thoảng ngắt bớt một ít. Có cắt mạnh, bỏ đi cả mảng lớn thì cây vẫn không sao.</p><p>Cây không cần đèn đắt tiền hay lịch châm phân rắc rối. Nước bể quá mềm thì có thể châm thêm chút phân nước.</p>",
+      "refs": [
+        0
+      ]
     },
     {
       "key": "maintenance",
@@ -29,32 +53,68 @@
       "html": "<p>Although usually kept as a free-floating plant, it may anchor itself in the substrate with long, delicate roots.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Cây hợp với pH 6–7 nhưng chịu được pH cao hơn. Nhiệt độ ở các bể cá thông thường đều ổn với nó.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
+      "key": "behaviour",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Cá con của cá đẻ con trốn trong đám cây còn kiếm được vi sinh vật và trùng cỏ để ăn. Cá nhỏ và tép thích loài cây này vì có chỗ ẩn, có mồi để rỉa và có bóng râm che bớt ánh đèn mạnh từ trên chiếu xuống. Một người nuôi thấy đám cây lên nhanh làm cảnh trong bể luôn thay đổi, cá tò mò hơn và có chỗ nghỉ thoải mái.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
+      "key": "reproduction",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Nhân giống chỉ cần ngắt một phần đám cây đem sang bể khác. Cây mọc nhanh nên lúc nào cũng có phần dư để chia cho bạn bè.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "notes",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Najasguadalupensis'GuppyGrass'(146TC)(1)/30786",
       "html": "<p>The fine, porous structure provides excellent shelter for fish fry and shrimp, while also helping to absorb excess nutrients and produce oxygen. Perfect for both aquariums and ponds, Najas guadalupensis supports a healthy, balanced environment and offers a natural hiding place for aquatic life.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Ngoài phần dinh dưỡng dư, cây còn hút nitrat, amoni và cả kim loại nặng trong nước. Nó giành dinh dưỡng với rêu hại, nên rêu khó bùng lên hơn. Một người nuôi thấy đây là loại cây hợp nhất cho bể nhỏ, vì cây lên nhanh và lọc bớt chất dư trong nước, lỡ bể có trục trặc thì cũng yên tâm hơn.</p>",
+      "refs": [
+        0
+      ]
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/518cc43374044cff.webp",
+      "thumb": "https://media.aquatome.com/commons/518cc43374044cff-480.webp",
       "width": 960,
       "height": 960,
       "licence": "CC BY 4.0",
       "author": "Timothy McNitt https://www.inaturalist.org/people/frondsinhighplaces",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Najas_guadalupensis_-_Timothy_McNitt.jpg",
-      "caption": "Najas guadalupensis from Fidalgo Island, Washington, US",
-      "thumb": "https://media.aquatome.com/commons/518cc43374044cff-480.webp"
+      "caption": "Najas guadalupensis from Fidalgo Island, Washington, US"
     },
     {
       "url": "https://media.aquatome.com/commons/115ac9e2b4327121.webp",
+      "thumb": "https://media.aquatome.com/commons/115ac9e2b4327121-480.webp",
       "width": 960,
       "height": 720,
       "licence": "Public domain",
       "author": "Robert H. Mohlenbrock. USDA NRCS. 1992. Western wetland flora: Field office guide to plant species. West Region, Sacramento. Courtesy of USDA NRCS Wetland Science Institute.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Najas_guadalupensis_NRCS-4x3.jpg",
-      "caption": "Najas guadalupensis (Spreng.) Magnus - southern waternymph",
-      "thumb": "https://media.aquatome.com/commons/115ac9e2b4327121-480.webp"
+      "caption": "Najas guadalupensis (Spreng.) Magnus - southern waternymph"
     }
   ],
   "productSlots": [
@@ -72,5 +132,11 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-15",
+  "refs": [
+    {
+      "url": "https://www.youtube.com/watch?v=EY13FDXeW3Q",
+      "title": "GUPPY GRASS SPECIES PROFILE"
+    }
+  ]
 }

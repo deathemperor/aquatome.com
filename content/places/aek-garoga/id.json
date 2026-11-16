@@ -3,6 +3,12 @@
   "name": "Aek Garoga",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-16T00:12:20.780Z",
+    "why": "\"Aek\" is the Batak word for river, so the name keeps a kind word in another language and lacks Indonesian \"Sungai\"; an atlas would likely write \"Sungai Garoga\"."
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

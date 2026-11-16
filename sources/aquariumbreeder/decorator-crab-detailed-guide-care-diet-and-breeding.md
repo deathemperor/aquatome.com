@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/decorator-crab-detailed-guide-care-diet-and-breeding/
 title: Decorator Crab – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-10-29T07:35:50.886Z
-hash: 29e89548870f367a6bd2d3ba06b412bd615198f70c1bc9bc83f6608e2e517020
+hash: 10946feb05fda7d9a7de8157e3d71ab5d02128df3d0b40beb8960d8643190cba
 ---
 
 Camposcia retusa, commonly known as the Decorator crab, is a colorful and highly sought-after crab in the marine aquarium hobby owing to its dazzling appearance, and ease of care.
@@ -168,4 +168,3 @@ However, if you’re looking for a crab that will actively crawl both day and ni
 - Xu, Tian, and Chaoshu Zeng. “Establishing larval feeding regimens for the decorator crab Camposcia retusa: Effects of live prey types and density on larval survival and development.” Aquaculture Research53, no. 7 (2022): 2772-2784.
 - Beleem, Imtiyaz, Paresh Poriya, and Bharatsinh Gohil. “First record of spider decorator crab Cmposcia retusa (Latreille, 1829) from west coast of India.” Journal of Marine Biological Association of India59, no. 2 (2017): 122-124.
 - Ostroski, Audrey. “DECORATING BEHAVIOR OF MAJOID CRAB, CAMPOSCIA RETUSA, DOES NOT FACILITATE THE VISUALLY CRYPTIC CAMOUFLAGE STRATEGY OF BACKGROUND COLOR MATCHING.” PhD diss., University of Delaware, 2020.
-### Leave a Reply Cancel reply

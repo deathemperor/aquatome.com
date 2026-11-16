@@ -1,0 +1,56 @@
+{
+  "id": "crossoloricaria-cephalaspis",
+  "native": {
+    "input": "7cb14b527565ac9a",
+    "at": "2026-11-16T00:17:52.050Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This species originates from the north of Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Crossoloricaria cephalaspis",
+    "status": "ACCEPTED",
+    "taxonKey": 2340243,
+    "datasets": [
+      [
+        "372ac467-9b19-4373-8a0f-85fb3a91b6ca",
+        103
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        7
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        1
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-16T00:17:52.050Z"
+  }
+}

@@ -2,7 +2,7 @@ import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { videoCovers } from '../src/video-covers'
+import { namesSomeone, videoCovers } from '../src/video-covers'
 import { denied } from './piece-admission'
 
 const vi = (extra = {}) => ({ slug: 's', name: 'Hạn chế rêu hại', altNames: [], sections: {}, quality: { score: 0.9, indexable: true }, ...extra })
@@ -46,6 +46,25 @@ test('labels stay unless --redo; the pick falls back to the first usable candida
   expect(JSON.parse(await readFile(join(root, 'guides/youtube-a/vi.json'), 'utf8')).cover).toBe('Vì sao bể bạn dính BBA')
   expect(prompts[0]).toContain('Đừng dịch chữ trên thumbnail')
   expect(prompts[0]).not.toContain('Lỗi này gây rêu hại"') // no translation pairs to copy
+})
+
+// The Writing Lead, 15 Nov 2026: a label never names the person or the channel; the pick falls to the next candidate.
+test('a label that names someone or the channel is passed over for the next candidate', async () => {
+  const root = await setup()
+  const look = async (_f: string, p: string) => {
+    expect(p).toContain('Không nêu tên người, tên kênh hay tên cửa hàng')
+    return { candidates: ['Mẹo trị BBA của MJ', 'Bể của An hết BBA', 'BBA từ đâu ra'], cover: 'Bể cầu vồng của An' }
+  }
+  const r = await videoCovers(root, { get, look }, { redo: true })
+  expect(r.done).toEqual(['youtube-a: BBA từ đâu ra'])
+})
+
+test('a label names someone by "của" before a capital or by the channel\'s name, not by a capital alone', () => {
+  expect(namesSomeone('Bể cầu vồng của An')).toBe(true)
+  expect(namesSomeone('Mẹo hay từ Cá Cảnh Nhà Làm', 'Cá cảnh nhà làm')).toBe(true)
+  expect(namesSomeone('Giấu sưởi khỏi bể chỉ với PVC', 'Some Channel')).toBe(false)
+  expect(namesSomeone('Bể của bạn có bị BBA không')).toBe(false)
+  expect(namesSomeone('Bể bonsai mini', 'MJ')).toBe(false)
 })
 
 // Astra's read of c69e30048: a cover the day's line can't cover isn't started, and the run stops, nothing failed.

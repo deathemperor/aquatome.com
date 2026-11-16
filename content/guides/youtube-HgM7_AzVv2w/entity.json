@@ -1,0 +1,114 @@
+{
+  "id": "youtube-HgM7_AzVv2w",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=HgM7_AzVv2w",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "juncus-repens",
+    "hydrocotyle-verticillata",
+    "alternanthera-reineckii"
+  ],
+  "updatedAt": "2026-11-14",
+  "video": {
+    "youtubeId": "HgM7_AzVv2w",
+    "title": "Building A Home Community Aquarium (EP5)",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 2331,
+    "publishedAt": "2025-01-26",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWvhWGRGu9XDVvpIsi5UZzEz",
+      "position": 4
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/HgM7_AzVv2w/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Epipremnum aureum",
+      "Monstera deliciosa",
+      "Echinodorus sp.",
+      "Juncus repens",
+      "Hydrocotyle verticillata",
+      "Hemianthus callitrichoides",
+      "Lemna minor",
+      "Alternanthera reineckii"
+    ],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "thung",
+        "brand": "Eheim",
+        "model": "Professionel",
+        "t": 95
+      },
+      {
+        "category": "loc",
+        "type": "treo",
+        "brand": "Eheim",
+        "model": "surface skimmer",
+        "t": 95
+      },
+      {
+        "category": "khac",
+        "brand": "API",
+        "model": "Activated carbon",
+        "t": 1580
+      },
+      {
+        "category": "co2",
+        "type": "mini",
+        "t": 1420
+      },
+      {
+        "category": "co2",
+        "type": "binh",
+        "t": 1450
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "t": 0
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 670
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Lắp lọc thùng và đi ống thế nào cho gọn",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/HgM7_AzVv2w/p0-JfRmlsdGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/HgM7_AzVv2w/p0-JfRmlsdGVyLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Fish Tank Society",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
+          "caption": "Lọc thùng đặt trong tủ bể, ống nối gọn dọc vách tủ."
+        }
+      },
+      {
+        "heading": "Thêm cây từ bể cũ cho bể mới trông lâu năm",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/HgM7_AzVv2w/p6-ydS1JbmRpYS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/HgM7_AzVv2w/p6-ydS1JbmRpYS5qcGc-480.webp",
+          "width": 960,
+          "height": 1528,
+          "licence": "CC BY 4.0",
+          "author": "Yercaud-elango",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Helanthium_tenellum-3-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Lá Helanthium sọc đỏ xanh cùng nhánh Hydrocotyle nhỏ mọc trong bể thủy sinh."
+        }
+      }
+    ]
+  }
+}

@@ -1,30 +1,22 @@
 {
   "id": "otocinclus-flexilis",
   "native": {
-    "input": "dc0acf4581cad6cd",
-    "at": "2026-11-14T00:09:29.977Z",
+    "input": "4f8c9ae8472c6ce4",
+    "at": "2026-11-16T05:47:36.414Z",
     "claims": [
-      {
-        "code": "UY",
-        "status": "native",
-        "source": "planetcatfish",
-        "quote": "South America: La Plata basin, including Uruguay, Paraná (Middle and Lower Paraná) and Paraguay.",
-        "words": "Uruguay",
-        "ok": true
-      },
-      {
-        "code": "PY",
-        "status": "native",
-        "source": "planetcatfish",
-        "quote": "South America: La Plata basin, including Uruguay, Paraná (Middle and Lower Paraná) and Paraguay.",
-        "words": "Paraguay",
-        "ok": true
-      },
       {
         "code": "BR",
         "status": "native",
         "source": "planetcatfish",
         "quote": "Type locality: Rio Jacuhy [Jacuí], Rio Grande do Sul, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Otocinclus flexilis is endemic to the Patos Lagoon basin, Rio Grande do Sul, Brazil.",
         "words": "Brazil",
         "ok": true
       }
@@ -37,23 +29,35 @@
         "ok": true
       },
       {
-        "name": "Paraná",
-        "source": "planetcatfish",
-        "quote": "South America: La Plata basin, including Uruguay, Paraná (Middle and Lower Paraná) and Paraguay.",
-        "ok": true
-      },
-      {
-        "name": "Rio Jacuhy",
+        "name": "Rio Jacuí",
         "source": "planetcatfish",
         "quote": "Type locality: Rio Jacuhy [Jacuí], Rio Grande do Sul, Brazil.",
         "country": "BR",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Patos Lagoon",
+        "source": "scotcat",
+        "quote": "Otocinclus flexilis is endemic to the Patos Lagoon basin, Rio Grande do Sul, Brazil.",
+        "country": "BR",
         "ok": true
+      },
+      {
+        "name": "Rio Jacuí",
+        "source": "scotcat",
+        "quote": "Type locality: Rio Jacuhy [Jacuí], Rio Grande do Sul, Brazil.",
+        "country": "BR",
+        "ok": false,
+        "why": "its name is not in the quote"
       }
     ],
     "disputed": [],
     "outranked": [],
     "origin": {
       "pagesOnly": [
+        "UY",
+        "PY",
         "AR"
       ],
       "sourcesOnly": []
@@ -114,11 +118,9 @@
       ]
     ],
     "native": [
-      "UY",
-      "PY",
       "BR"
     ],
     "requests": 11,
-    "at": "2026-11-14T00:09:29.977Z"
+    "at": "2026-11-16T05:47:36.414Z"
   }
 }
