@@ -17,7 +17,7 @@ language's app index (`/app/<lang>.json`, `apps/site/src/lib/curation.ts`):
 | `weeks[].hero` | `home.hero` | Khám phá's top cards, in order |
 | `weeks[].shelves` | `home.shelves` | collections after the fixed shelves |
 | `loops.<id>` | `items[].loop` | a fish's short silent loop, wherever its card is |
-| `avoid` | none | photos that never lead a card, with the reason |
+| `avoid` | none | photos that never lead a card, with the reason. A person's entries come first. `curate` writes the rest each run: every held or refused fish and breed head, and the page's photos before its first that passes, each reason beginning `engine: ` (a person's reason never begins so). The site's cards read every entry; the engine's own picks (the planner, the lead photo, the large copies) read a person's alone, since the engine's list a photo refused for one page, by address |
 | `todayCut` | none | head photos (the `-large` address a card loads) whose fish Hôm nay's card cuts, with the reason: they still lead their page and Khám phá's wide card, but their fish isn't a day's fish |
 | `off` | none: the build leaves these pages out | the pages the top cards, shelves and stories name that don't pass reader fit now, with why; the planner writes it afresh each run, so a page comes back once it passes |
 

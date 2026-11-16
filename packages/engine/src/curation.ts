@@ -8,6 +8,7 @@ import { fitKey, type FitState } from './fit'
 import { gateChecks } from './gate'
 import { loadPages, type Page } from './pages'
 import { readPersonYes, type PersonYes } from './person-yes'
+import { looks, readSecondLook, type SecondLooks } from './last-photo'
 import type { PhotoVerdict } from './photo-check'
 
 /**
@@ -79,6 +80,8 @@ export type Candidate = {
    * shape. `cut`: Hôm nay's card, centred as the app draws it, would cut the fish by more than the rule allows (its box).
    */
   head?: { url: string; px: Record<Slot, number>; cut?: true }
+  /** Why the page's own first photo can't be its card's face, when a check refused it or the second look holds it (refusedWhy). */
+  headFails?: string
   /** Passes the reader-fit gate in Vietnamese. */
   fit: boolean
   /** Why not, when it doesn't. */
@@ -153,6 +156,82 @@ export function ownMarkOnly(p: Pick<Photo, 'url' | 'sourceUrl' | 'caption'>, pag
   return !!own && !own.guide && own.ok === 'yes' && !!own.typical && !own.person && !!own.logo
 }
 
+/** The avoid list's entries the engine keeps (headAvoid): rebuilt on each `curate`; a person's own entries never begin so. */
+export const ENGINE_AVOID = 'engine: '
+/** The avoid list's entries a person wrote, in their order. */
+export const handAvoid = (avoid: Record<string, string>): Record<string, string> => Object.fromEntries(Object.entries(avoid).filter(([, why]) => !why.startsWith(ENGINE_AVOID)))
+
+/**
+ * Held for a second look: waiting for a person's answer, or agreed and not yet on the never-again list (the sweep moves
+ * it). A photo a person cleared isn't held: it stays on its page, and the card rule judges it as any other (last-photo.ts).
+ */
+export const heldBy = (sl: SecondLooks): ((url: string) => boolean) => { const l = looks(sl); return url => l.waiting(url) || l.agreed(url) }
+
+/**
+ * Why the card rule refuses a page's own photo, once the second look holds it or a check has judged it; nothing for one
+ * that passes, or that no check has judged yet (the site's faces don't fall back onto an unjudged photo either). `hand`:
+ * the avoid list's entries a person wrote; a photo there that passes otherwise keeps the person's reason, not one of these.
+ */
+export function refusedWhy(photo: Pick<Photo, 'url' | 'caption'>, page: string, v: Verdicts, hand: Record<string, string>, held: (url: string) => boolean): string | undefined {
+  const url = photo.url
+  if (held(url)) return 'held for a second look'
+  if (url in v.rejected) return 'on the never-again list'
+  if (v.kept?.(url)) return "a shop's kept mark"
+  if ((v.faces[url] ?? 0) > 0) return 'a face'
+  if (cardWorthy(photo, page, v, hand)) return undefined
+  const own = v.subjects[url]?.[page]
+  const verdict = own && !own.guide ? own : v.legacy[url]?.ok !== 'unsure' ? v.legacy[url] : undefined
+  if (!verdict) return undefined
+  if (verdict.ok === 'other') return 'another fish'
+  if (verdict.ok === 'dead') return 'a dead fish'
+  if (verdict.ok === 'none' || verdict.ok === 'no') return 'no fish'
+  if (verdict.ok === 'habitat') return 'a habitat, not the fish'
+  if (verdict.ok === 'unsure' && !v.personYes?.[url]?.[page]) return "the check can't tell"
+  if (verdict.person) return 'a person'
+  if (verdict.logo) return 'a mark'
+  if (!verdict.typical) return 'not typical'
+  if (captionFlaw(photo.caption)) return 'its caption calls the fish unwell'
+  return undefined
+}
+
+/**
+ * The avoid list's engine entries: every species and breed page's own photos that the card rule refuses, held or judged,
+ * up to the page's first photo that passes, each with why. The site's faces for more than one fish (the day's card,
+ * featured cards, group tiles, Khám phá's group chips, the app's top cards) skip `avoid`, so none falls back onto one of
+ * these (the chief of staff, 16 Nov: never a failed, held or marked head). A photo's large copy, the address a card loads,
+ * is listed with it. The list is by address, so a photo refused for one page is off every card.
+ */
+export function headAvoid(pages: { id: string; photos: Photo[] }[], v: Verdicts, hand: Record<string, string>, held: (url: string) => boolean): Record<string, string> {
+  const out: Record<string, string> = {}
+  for (const page of pages) {
+    for (const p of page.photos) {
+      if (p.generated) continue
+      const why = refusedWhy(p, page.id, v, hand, held)
+      if (!why) {
+        if (cardWorthy(p, page.id, v, hand)) break
+        continue
+      }
+      for (const url of [p.url, p.large?.url]) if (url && !(url in hand)) out[url] = `${ENGINE_AVOID}${why}`
+    }
+  }
+  return out
+}
+
+/** The avoid list with the engine's entries rebuilt from `engine`: a person's entries first, as they were, then the engine's by address. */
+export function withEngineAvoid(avoid: Record<string, string>, engine: Record<string, string>): Record<string, string> {
+  return { ...handAvoid(avoid), ...Object.fromEntries(Object.entries(engine).sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))) }
+}
+
+/**
+ * Species and breed pages' own photos for headAvoid, as the site shows them: the loader's, after the photos it hides
+ * (waiting for the watermark screen, a host that sets cookies, a revoked change) and in its order, as candidates() reads
+ * them. The raw entity file's first photo can be one the site doesn't show.
+ */
+export async function pagePhotos(root: string): Promise<{ id: string; photos: Photo[] }[]> {
+  const c: Content = await loadAll({ root: join(root, 'content'), lang: 'vi', publicBuild: true, subjectFrames: true, wholeBoxes: false })
+  return [...c.species, ...c.breeds].filter(p => p.photos.length).map(p => ({ id: p.id, photos: p.photos }))
+}
+
 /**
  * A page's checked photos: the best for each card shape, and every one with its size across each. A photo with a large
  * copy (large-photos.ts) leads by that copy, the address the app loads; its page copy stays one a calendar may name.
@@ -219,6 +298,12 @@ export async function candidates(root: string, o: { demand?: Map<string, number>
   const c: Content = await loadAll({ root: content, lang: 'vi', publicBuild: true, subjectFrames: true, wholeBoxes: false })
   const state = join(root, 'engine-state')
   const v = await readVerdicts(root)
+  const secondLook = await readSecondLook(root)
+  const failsAs = (own: Photo[], page: string) => {
+    const lead = own[0]
+    const why = lead && !lead.generated ? refusedWhy(lead, page, v, avoid, heldBy(secondLook)) : undefined
+    return why ? { headFails: why } : {}
+  }
   const fitState = await json<FitState>(join(state, '_fit.json'), {})
   const pages = new Map((await loadPages(content, ['vi'])).map(p => [`${p.kind}/${p.id}`, p]))
   const avoid = o.avoid ?? {}
@@ -253,7 +338,7 @@ export async function candidates(root: string, o: { demand?: Map<string, number>
     // The group size the page asks for, as read from its text for the tank-mates checker (traits.ts).
     const school = (await json<{ schoolMin?: number | null }>(join(content, 'traits', `${s.id}.json`), {})).schoolMin ?? undefined
     out.push({
-      kind: 'species', id: s.id, ref: `species/${s.id}`, path: `/vi/ca/${s.t.slug}/`, name: s.t.name, ...photosFor(all, ok), head: headOf(s.photos, ok),
+      kind: 'species', id: s.id, ref: `species/${s.id}`, path: `/vi/ca/${s.t.slug}/`, name: s.t.name, ...photosFor(all, ok), head: headOf(s.photos, ok), ...failsAs(s.photos, s.id),
       ...(await fitOf('species', s.id)), langs: await langsOf('species', s.id), indexable: s.t.quality.indexable, group: s.group, updatedAt: s.updatedAt,
       facts: {
         tempMin: typeof t === 'number' ? t : t?.min, sizeMax: typeof size === 'number' ? size : size?.max,
@@ -268,7 +353,7 @@ export async function candidates(root: string, o: { demand?: Map<string, number>
     const ok = (p: Photo) => cardWorthy(p, b.id, v, avoid)
     const t = b.care.tempC?.[0]?.value
     out.push({
-      kind: 'breeds', id: b.id, ref: `breeds/${b.id}`, path: `/vi/ca/${b.t.slug}/`, name: b.t.name, ...photosFor(photosOf(b.id, b.photos), ok), head: headOf(b.photos, ok),
+      kind: 'breeds', id: b.id, ref: `breeds/${b.id}`, path: `/vi/ca/${b.t.slug}/`, name: b.t.name, ...photosFor(photosOf(b.id, b.photos), ok), head: headOf(b.photos, ok), ...failsAs(b.photos, b.id),
       ...(await fitOf('breeds', b.id)), langs: await langsOf('breeds', b.id), indexable: b.t.quality?.indexable ?? true, updatedAt: b.updatedAt,
       facts: { tempMin: typeof t === 'number' ? t : t?.min, places: [], coldwater: COLDWATER_OF.includes(b.basedOn ?? '') || /goldfish|koi/.test(b.id) },
       known: known.includes(b.id) ? known.indexOf(b.id) : undefined, demand: demandOf('breeds', b.id),
@@ -308,6 +393,7 @@ export function problem(c: Candidate | undefined, slot: Slot, img?: string, o: {
 export function fishProblem(c: Candidate | undefined, todayCut: Record<string, string> = {}, chosen = false): string | undefined {
   if (!c) return 'no such page'
   if (!c.fit) return `reader fit: ${c.fitWhy}`
+  if (c.headFails) return `head photo: ${c.headFails}`
   if (!c.head) return 'no checked head photo'
   if (c.head.px.square < LARGE_PX) return `head photo ${c.head.px.square} px across, under ${LARGE_PX}`
   if (todayCut[c.head.url]) return `Hôm nay's card cuts its head photo: ${todayCut[c.head.url]}`
@@ -319,6 +405,7 @@ export function fishProblem(c: Candidate | undefined, todayCut: Record<string, s
 function fishHeroProblem(c: Candidate | undefined): string | undefined {
   if (!c) return 'no such page'
   if (!c.fit) return `reader fit: ${c.fitWhy}`
+  if (c.headFails) return `head photo: ${c.headFails}`
   if (!c.head) return 'no checked head photo'
   if (c.head.px.wide < LARGE_PX) return `head photo ${c.head.px.wide} px across, under ${LARGE_PX}`
   return undefined
@@ -414,11 +501,11 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
       ]
       why.push(`${slot === 'fish' ? 'Fish' : 'Guide'}: ${best.name}, ${reasons.join(', ') || 'the best left with a big enough photo'}`)
     }
-    // A story's photo is its page's head photo when that is big enough for the card, else none.
+    // A story's photo is its page's head photo when that is big enough for the card and not refused or held, else none.
     const sc = d.story ? byRef.get(d.story.page) : undefined
     if (d.story && sc?.fit) {
       const { img: _, ...story } = d.story
-      d.story = (sc.head?.px.guide ?? 0) >= LARGE_PX ? { ...story, img: sc.head!.url } : story
+      d.story = (sc.head?.px.guide ?? 0) >= LARGE_PX && !sc.headFails ? { ...story, img: sc.head!.url } : story
     }
     // One plain sentence for the owner's daily report.
     if (why.length) d.why = `${why.join('. ')}.`.slice(0, 300)
@@ -428,7 +515,8 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
   // Khám phá's top cards, week by week from the one that holds `from`. A card whose page fails reader fit would be hidden,
   // so a fish that passes takes its place, and a week short of five takes more: one with a page in every language first
   // (a card shows only where its page is), then its own list, then its tags, never a fish another week's top cards had or
-  // have within four weeks (the chief of staff, 2026-11-11). A hand-picked card stays. A fish's card shows
+  // have within four weeks (the chief of staff, 2026-11-11). A hand-picked card stays while its page passes reader fit and its
+  // head isn't refused or held (the chief of staff, 16 Nov). A fish's card shows
   // its page's head photo, even one too small for the wide card, which the check reports until the head is fixed (the
   // owner, 2026-11-11). A guide's card keeps its photo.
   const everywhere = (c: Candidate) => LANGS.every(l => c.langs.includes(l))
@@ -445,9 +533,11 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
       .map(({ x }) => x)
     const hero = w.hero.flatMap(h => {
       const c = byRef.get(h.page)
-      if (c?.fit) return [h]
+      // A page whose head a check refused or the second look holds goes out too: its card would keep a picture that no
+      // longer passes (`shown` keeps a card's old photo where the page has no passing head).
+      if (c?.fit && !c.headFails) return [h]
       const x = pool.shift()
-      report.heroes.push(`${w.from} ${h.page} out (${c ? `reader fit: ${c.fitWhy}` : 'no such page'}), ${x ? `${x.ref} in` : 'no fish left to take its place'}`)
+      report.heroes.push(`${w.from} ${h.page} out (${!c ? 'no such page' : !c.fit ? `reader fit: ${c.fitWhy}` : `head photo: ${c.headFails}`}), ${x ? `${x.ref} in` : 'no fish left to take its place'}`)
       return x ? [{ page: x.ref, img: x.head!.url }] : []
     })
     while (hero.length < HERO_COUNT && pool.length) {
