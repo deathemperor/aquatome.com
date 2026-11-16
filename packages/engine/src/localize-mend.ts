@@ -25,14 +25,14 @@ import { sentences } from './sentences'
  * …"). Only those parts go to the editor, each with its English and its notes, and it corrects what a note rightly
  * names and leaves every other sentence as it is (prompts/localize-fix.md). The same reviewer then reads the whole page
  * the same steady way, and the fixed page is kept only if it scores higher than both the page's score and the read of
- * the unfixed text, and that read has no note on a dose or harm. One go a text: a fix that changed nothing or didn't
- * score higher is logged with the hash of the text it was a fix of.
+ * the unfixed text, and that read has no note on a dose or harm, nor on something left out of a part it changed. One
+ * go a text: a fix that changed nothing or wasn't kept is logged with the hash of the text it was a fix of.
  *
  * Left alone: a page with a note about a dose, a medicine or harm (a dose is never reworded without its source: that
  * page waits for the dose and harm check), a page whose notes name no part, a part fixed by hand (localize.ts keeps it
- * too), a part with a dose in it, a part whose "fix" rewrote it or changed a figure or dropped a sentence
- * (keepsWhatItSays), and a page that lacks a part of the English (the reviewer reads it as left out and scores the page
- * down: that is the translator's to add, not a fix in place).
+ * too), a part with a dose in it, a part whose "fix" rewrote it, changed a figure or its unit, or cut a sentence or a
+ * clause (keepsWhatItSays), and a page that lacks a part of the English (the reviewer reads it as left out and scores
+ * the page down: that is the translator's to add, not a fix in place).
  */
 const FIX = readFileSync(new URL('./prompts/localize-fix.md', import.meta.url), 'utf8')
 const SCHEMA = { type: 'object', required: ['parts'], properties: { parts: { type: 'array', items: { type: 'object', required: ['id', 'text'], properties: { id: { type: 'string' }, text: { type: 'string' } } } } } }
@@ -63,19 +63,36 @@ export function sameTextMended(old: string, next: string): boolean {
 
 const plain = (html: string) => html.replace(/<[^>]*>/g, ' ').replace(/&nbsp;/g, ' ')
 /** A part with a dose in it (2 ml, 5 mg/l, 3 drops, 2 กรัม): its figures are its source's, and the editor is never sent it. */
-const DOSE_FIGURE = /\d\s*(?:mg|ml|g|grams?|millilit(?:er|re)s?|mililiter|drops?|tetes|ppm|tsp|tbsp|teaspoons?|tablespoons?|sendok)(?![a-z])|(?:mg|g)\s?\/\s?l(?![a-z])|\d\s*(?:มล|มก|กรัม|หยด|ช้อน)/i
+const DOSE_FIGURE = /\d\s*(?:mg|ml|g|grams?|millilit(?:er|re)s?|mililiter|drops?|tetes|titis|ppm|tsp|tbsp|teaspoons?|tablespoons?|sendok|sdt|sdm|sudu)(?![a-z])|(?:mg|g)\s?\/\s?l(?![a-z])|\d\s*(?:มล|มก|กรัม|หยด|ช้อน)/i
 export const hasDose = (html: string): boolean => DOSE_FIGURE.test(plain(html))
-/** The figures in a text, a decimal comma read as a point. */
-const figures = (html: string) => (plain(html).match(/\d+(?:[.,]\d+)?/g) ?? []).map(n => n.replace(',', '.')).sort().join(' ')
-const blocks = (html: string) => (html.match(/<(?:p|li|br|h[1-6]|tr)\b/gi) ?? []).length
-/** Sentences: Thai has no full stops, and a space ends its sentences and clauses. */
-const sentencesIn = (lang: TargetLang, html: string) => (lang === 'th' ? plain(html).trim().split(/\s+/).filter(Boolean).length : sentences(html).filter(p => p.sentence).length)
+/** The units a figure can carry, in the four languages' words: a fix that changes one (°C to °F, cm to mm) changes the figure. */
+const UNIT = '°\\s?[cf]|°|%|cm|mm|km|ml|mg|kg|m|g|l|lit(?:er|re)s?|lít|galon|gallons?|gal|inci|inch(?:es)?|kaki|feet|ft|ppm|ppt|dgh|dkh|ซม|มม|ลิตร|แกลลอน|นิ้ว|องศา|ฟุต'
+const FIGURE = new RegExp(`(\\d+(?:[.,]\\d+)?)(?:\\s*(${UNIT})(?![\\p{L}]))?`, 'giu')
+/** The figures in a text in order, each with its unit (24 °C, 5 cm; 6,5 read as 6.5). */
+const figures = (text: string) => [...text.matchAll(FIGURE)].map(m => `${m[1]!.replace(',', '.')}${(m[2] ?? '').replace(/\s/g, '').toLowerCase()}`).join(' ')
+/** A part's paragraphs, list items and cells, as text. */
+const blocksOf = (html: string) => html.split(/<\/?(?:p|li|ul|ol|h[1-6]|br|tr|td|th|table|div|blockquote)\b[^>]*>/i).map(b => plain(b).replace(/\s+/g, ' ').trim()).filter(Boolean)
+/** A block's sentences. Thai has no full stops: a Thai block is one. */
+const unitsOf = (lang: TargetLang, block: string) => (lang === 'th' ? [block] : sentences(block).filter(p => p.sentence).map(p => p.html))
+/** How much shorter a sentence (a Thai block) of a fix may be than the old one: a cut clause is more than this. */
+const SHORTER = { th: 0.9, other: 0.85 }
 /**
- * Whether a fix of a part says all the old text said: the same figures, the same paragraphs and list items, and no
- * fewer sentences. A fix that changed a figure or dropped a caution is not taken, whatever the reviewer then reads.
+ * Whether a fix of a part says all the old text said: the same figures with the same units, in the same order; the
+ * same paragraphs and list items; in each, the same number of sentences; and no sentence (in Thai, no paragraph) much
+ * shorter than it was. A fix that changed a figure, its unit, or cut a caution, a sentence or a clause is not taken,
+ * whatever the reviewer then reads.
  */
-export const keepsWhatItSays = (lang: TargetLang, old: string, next: string): boolean =>
-  figures(next) === figures(old) && blocks(next) === blocks(old) && sentencesIn(lang, next) >= sentencesIn(lang, old)
+export function keepsWhatItSays(lang: TargetLang, old: string, next: string): boolean {
+  const [a, b] = [blocksOf(old), blocksOf(next)]
+  if (figures(a.join(' ')) !== figures(b.join(' ')) || a.length !== b.length) return false
+  const floor = lang === 'th' ? SHORTER.th : SHORTER.other
+  return a.every((block, i) => {
+    const [x, y] = [unitsOf(lang, block), unitsOf(lang, b[i]!)]
+    return x.length === y.length && x.every((u, j) => y[j]!.length >= u.length * floor)
+  })
+}
+/** A note that something is left out: after a fix, one on a part it changed means the fix may have cut it. */
+const LEFT_OUT = /\b(omit\w*|left out|leaves out|missing|drops?|dropped|removed|lost|lacks?)\b/i
 
 /** One fix tried, kept or not: what each part sent was and came back as. */
 export type MendTry = { id: string; was: number; read: number; score: number; kept: boolean; parts: { id: string; notes: string[]; before: string; after: string }[] }
@@ -150,16 +167,23 @@ export async function mendLocalized(root: string, llm: Llm, lang: TargetLang, id
         `--- PARTS ---\n${named.map(i => { const p = parts[i - 1]!; return `### ${p.id}\nEN:\n${p.en}\n${lang.toUpperCase()}:\n${page.sections[p.id]}\nNOTES:\n${notesOf.get(i)!.map(n => `- ${n}`).join('\n')}` }).join('\n\n')}`,
       ].join('\n\n')
       const fixed = await llm<{ parts: { id: string; text: string }[] }>({ system: `You correct ${TARGETS[lang].lang} translations of aquarium-handbook pages. Reply only with JSON.`, prompt, schema: SCHEMA, model: o.model })
-      const sections = { ...page.sections }
-      const changed: string[] = []
+      const offered: Record<string, string> = {}
       for (const i of named) {
         const p = parts[i - 1]!
         const old = page.sections[p.id]!
         const got = fixed.parts.find(x => x.id === p.id)?.text.trim() ?? ''
         const text = /<[a-z]/i.test(p.en) ? sanitizeHtml(got) : got.replace(/<[^>]+>/g, '').trim()
-        if (text === old || !sameTextMended(old, text) || !keepsWhatItSays(lang, old, text)) continue
-        sections[p.id] = text
-        changed.push(p.id)
+        if (text !== old && sameTextMended(old, text)) offered[p.id] = text
+      }
+      // Each part as it would be written (metric units: a figure the editor gave in °F or gallons is converted here), then
+      // checked against the old. Only the parts taken change: every other part stays as it is on the page.
+      const metric = (TranslationSchema.parse(metricPage({ ...page, sections: { ...page.sections, ...offered } }, lang)) as unknown as Page).sections
+      const sections = { ...page.sections }
+      const changed: string[] = []
+      for (const k of Object.keys(offered)) {
+        if (!metric[k] || metric[k] === page.sections[k] || !keepsWhatItSays(lang, page.sections[k]!, metric[k]!)) continue
+        sections[k] = metric[k]!
+        changed.push(k)
       }
       if (!changed.length) {
         // Logged with the hash of the text it was a fix of, so that text isn't sent again.
@@ -167,17 +191,20 @@ export async function mendLocalized(root: string, llm: Llm, lang: TargetLang, id
         report.skipped.push(`${line}: the fix changed nothing`)
         continue
       }
-      const next = TranslationSchema.parse(metricPage({ ...page, sections }, lang)) as unknown as Page
+      const next: Page = { ...page, sections }
       const r = await steadyRead(() => review(llm, lang, parts, new Map(Object.entries(next.sections))))
       const bar = Math.max(was, read.score)
-      // A note on a dose or harm after the fix: the fix may have said one otherwise, so it isn't kept.
+      // A note on a dose or harm after the fix, or on something left out of a part it changed: the fix may have said one
+      // otherwise or cut it, so it isn't kept.
       const harm = r.notes.some(doseOrHarm)
-      const kept = r.score > bar && !harm
+      const touched = new Set(changed.map(k => parts.findIndex(p => p.id === k) + 1))
+      const lost = r.notes.some(n => LEFT_OUT.test(n) && partsNamed(n).some(i => touched.has(i)))
+      const kept = r.score > bar && !harm && !lost
       await o.onTry?.({ id, was, read: read.score, score: r.score, kept, parts: changed.map(k => ({ id: k, notes: notesOf.get(parts.findIndex(p => p.id === k) + 1)!, before: page.sections[k]!, after: next.sections[k]! })) })
       if (!kept) {
         // Logged with the hash of the text it was a fix of, so that text isn't sent again.
         await logReviews(root, 'localize', ref, [r], undefined, { now: now(), rewrite: true, textHash: hash })
-        report.notBetter.push(`${line}: ${bar} then ${r.score}${harm ? ', a note on a dose or harm' : ''}, left as it was`)
+        report.notBetter.push(`${line}: ${bar} then ${r.score}${harm ? ', a note on a dose or harm' : ''}${lost ? ', a note on something left out of a part it changed' : ''}, left as it was`)
         continue
       }
       const sources = [...new Set(e.sections.filter(s => translatable(s.source)).map(s => s.source))]

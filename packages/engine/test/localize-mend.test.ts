@@ -22,10 +22,11 @@ const HASH = pageTextHash(PARTS, SECTIONS)
  * One Thai fish page under the bar: three parts from two sources, and the translator's review of it in the log, which
  * stored no hash. `read`: a later read is on file too, with these notes: the middle of three, of the text the page has
  * ('stale': of another text; 'once': of this text, but one read near the bar). `lacks`: the page lacks a part. `diet`:
- * the second part's English otherwise, or fixed by hand.
+ * the second part's English otherwise, or fixed by hand. `habitat`: the first part's Thai otherwise.
  */
-async function site(notes: string[], o: { score?: number; read?: number | 'stale' | 'once'; lacks?: boolean; diet?: { en?: string; fixed?: true } } = {}) {
+async function site(notes: string[], o: { score?: number; read?: number | 'stale' | 'once'; lacks?: boolean; diet?: { en?: string; fixed?: true }; habitat?: string } = {}) {
   const parts = PARTS.map(p => (p.id === 'diet:seriouslyfish' ? { ...p, en: o.diet?.en ?? p.en } : p))
+  const sections = { ...SECTIONS, ...(o.habitat ? { 'habitat:seriouslyfish': o.habitat } : {}) }
   const root = await mkdtemp(join(tmpdir(), 'mend-'))
   const dir = join(root, 'content/species/a')
   const score = o.score ?? 0.6
@@ -36,8 +37,8 @@ async function site(notes: string[], o: { score?: number; read?: number | 'stale
     { key: 'notes', source: 'planetcatfish', html: '<p>Not ours to translate.</p>' },
     ...parts.map(p => ({ key: p.id.split(':')[0], source: p.id.split(':')[1], html: p.en, ...(p.id === 'diet:seriouslyfish' && o.diet?.fixed ? { fixed: true } : {}) })),
   ] }))
-  const { 'behaviour:glaser': _, ...short } = SECTIONS
-  const page = { slug: 'aus-bus', name: 'ปลาทดสอบ', altNames: [], sections: o.lacks ? short : SECTIONS, quality: { score, indexable: score >= 0.75, bySource: { seriouslyfish: score, glaser: score } } }
+  const { 'behaviour:glaser': _, ...short } = sections
+  const page = { slug: 'aus-bus', name: 'ปลาทดสอบ', altNames: [], sections: o.lacks ? short : sections, quality: { score, indexable: score >= 0.75, bySource: { seriouslyfish: score, glaser: score } } }
   await writeFile(join(dir, 'th.json'), `${JSON.stringify(page, null, 2)}\n`)
   await writeFile(join(root, 'engine-state/localize-th.json'), `${JSON.stringify({ a: { at: '2026-11-02', from: '2026-11-01', name: 'ปลาทดสอบ', confidence: 'high', score, notes: ['The translator\'s old note on item 1.'] } }, null, 2)}\n`)
   const first = { score, notes: ['The translator\'s old note on item 1.'] }
@@ -45,7 +46,7 @@ async function site(notes: string[], o: { score?: number; read?: number | 'stale
   if (o.read !== undefined) {
     const score = typeof o.read === 'number' ? o.read : o.read === 'stale' ? 0.9 : 0.6
     const r = { score, notes, ...(o.read === 'once' ? {} : { reads: [score, score, score] }) }
-    await logReviews(root, 'localize', { id: 'species/a', lang: 'th' }, [r], r, { now: new Date('2026-11-05T00:00:00Z'), recheck: true, textHash: o.read === 'stale' ? 'of-a-text-since-changed' : pageTextHash(parts, SECTIONS) })
+    await logReviews(root, 'localize', { id: 'species/a', lang: 'th' }, [r], r, { now: new Date('2026-11-05T00:00:00Z'), recheck: true, textHash: o.read === 'stale' ? 'of-a-text-since-changed' : pageTextHash(parts, sections) })
   }
   return { root, page, file: () => readFile(join(dir, 'th.json'), 'utf8') }
 }
@@ -207,6 +208,26 @@ test('a fix whose read after has a note on a dose or harm is not kept, however h
   expect(await file()).toBe(before)
 })
 
+test('a fix whose read after notes something left out of a part it changed is not kept', async () => {
+  const { root, file } = await site([NOTE], { read: 0.6 })
+  const before = await file()
+  const after = { score: 0.85, notes: ['Item 2: the line on feeding twice a day is missing.'] }
+  expect((await mendLocalized(root, fake(small, undefined, after).llm, 'th', ['a'], { now })).notBetter).toEqual(['a: 1 of 3 parts, 1 notes: 0.6 then 0.85, a note on something left out of a part it changed, left as it was'])
+  expect(await file()).toBe(before)
+  // A note on another part's omission is that part's: the fix is kept.
+  const other = await site([NOTE], { read: 0.6 })
+  expect((await mendLocalized(other.root, fake(small, undefined, { score: 0.85, notes: ['Item 3: "keep six or more" is missing.'] }).llm, 'th', ['a'], { now })).kept).toHaveLength(1)
+})
+
+test('only the parts the fix changed are new: a part it didn't touch stays as it is on the page, units and all', async () => {
+  const habitat = `<p>อยู่ในลำธารน้ำไหลเอื่อย อุณหภูมิ 75 °F ${LONG}</p>`
+  const { root } = await site([NOTE], { read: 0.6, habitat })
+  expect((await mendLocalized(root, fake(small, undefined, AFTER).llm, 'th', ['a'], { now })).kept).toHaveLength(1)
+  const t = await read(root, 'content/species/a/th.json')
+  expect(t.sections['habitat:seriouslyfish']).toBe(habitat)
+  expect(t.sections['diet:seriouslyfish']).toBe(FIXED['diet:seriouslyfish'])
+})
+
 test('the limit counts pages a model is called for: a page left alone takes no place', async () => {
   const { root } = await site(['Item 2: the salt dose is wrong.'], { read: 0.6 })
   await cp(join(root, 'content/species/a'), join(root, 'content/species/b'), { recursive: true })
@@ -246,6 +267,17 @@ test('what a fix must keep, and what is a dose', () => {
   expect(keepsWhatItSays('ms', '<p>Ia makan serangga. Jangan simpan dengan ikan besar.</p>', '<p>Ia makan serangga kecil.</p>')).toBe(false)
   expect(keepsWhatItSays('th', '<p>กินแมลง ห้ามเลี้ยงกับปลาใหญ่</p>', '<p>กินแมลงเล็ก</p>')).toBe(false)
   expect(keepsWhatItSays('th', '<p>กินแมลง</p><p>ห้ามเลี้ยงกับปลาใหญ่</p>', '<p>กินแมลง ห้ามเลี้ยงกับปลาใหญ่</p>')).toBe(false)
-  for (const d of ['2 ml', '5mg/l', '1 g/l', '3 drops', '2 tetes', '1 teaspoon', '0.5 ppm', '5 grams', '10 millilitres', '2 sendok', '3 หยด', '1 กรัม']) expect(hasDose(`<p>Add ${d} a day.</p>`), d).toBe(true)
+  // A caution cut from inside a sentence, a sentence dropped and another split to keep the count, a unit or a range's order changed.
+  expect(keepsWhatItSays('id', '<p>Ikan ini damai, tetapi jangan dicampur dengan udang kecil.</p>', '<p>Ikan ini damai.</p>')).toBe(false)
+  expect(keepsWhatItSays('id', '<p>Ikan ini damai. Jangan dicampur dengan udang kecil. Makan cacing darah.</p>', '<p>Ikan ini damai. Ikan ini makan. Makan cacing darah.</p>')).toBe(false)
+  expect(keepsWhatItSays('id', '<p>Suhu 24 °C.</p>', '<p>Suhu 24 °F.</p>')).toBe(false)
+  expect(keepsWhatItSays('id', '<p>Panjang 5 cm.</p>', '<p>Panjang 5 mm.</p>')).toBe(false)
+  expect(keepsWhatItSays('id', '<p>Akuarium 10 liter.</p>', '<p>Akuarium 10 galon.</p>')).toBe(false)
+  expect(keepsWhatItSays('id', '<p>Suhu 24-28 °C.</p>', '<p>Suhu 28-24 °C.</p>')).toBe(false)
+  expect(keepsWhatItSays('th', `<p>กินแมลงขนาดใหญ่ ให้อาหารวันละสองครั้ง ${LONG}</p>`, `<p>กินแมลงขนาดเล็ก ${LONG}</p>`)).toBe(false)
+  // English left in the Thai, put into Thai: the figures and the paragraph's length stay.
+  expect(keepsWhatItSays('th', '<p>ปลา shoaling fish ชอบอยู่เป็นฝูง 6 ตัว</p>', '<p>ปลาที่อยู่รวมเป็นฝูง ชอบอยู่เป็นฝูง 6 ตัว</p>')).toBe(true)
+  expect(keepsWhatItSays('ms', '<p>Simpan 6 fish bersama.</p>', '<p>Simpan 6 ekor bersama.</p>')).toBe(true)
+  for (const d of ['2 ml', '5mg/l', '1 g/l', '3 drops', '2 tetes', '1 teaspoon', '0.5 ppm', '5 grams', '10 millilitres', '2 sendok', '3 หยด', '1 กรัม', '1 sdt', '2 sudu', '3 titis']) expect(hasDose(`<p>Add ${d} a day.</p>`), d).toBe(true)
   for (const d of ['20 gallons', '6 fish', '24 °C', 'pH 6.5', '10 cm']) expect(hasDose(`<p>${d}.</p>`), d).toBe(false)
 })
