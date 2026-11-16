@@ -2,20 +2,6 @@
   "id": "rhinogobius-flumineus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/394786255.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/394786255-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "WATANABE Hitoshi 渡辺仁",
-      "sourceUrl": "https://www.inaturalist.org/photos/394786255",
-      "caption": "Cá bống suối đực thân sẫm trong hộp ảnh trong suốt",
-      "best": true,
-      "kind": "male",
-      "setup": true,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/625225970.webp",
       "thumb": "https://media.aquatome.com/inaturalist/625225970-480.webp",
       "width": 1024,
@@ -28,18 +14,6 @@
       "kind": "juvenile",
       "setup": true,
       "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/commons/fd02191615651694.webp",
-      "thumb": "https://media.aquatome.com/commons/fd02191615651694-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY 4.0",
-      "author": "Joseph Aubert",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rhinogobius_flumineus_605507937.jpg",
-      "caption": "Cá bống suối Nhật Bản nằm trên nền sỏi trong môi trường tự nhiên",
-      "best": true,
-      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/252911387.webp",
@@ -348,6 +322,31 @@
       "kind": "other",
       "setup": true,
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/394786255.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/394786255-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "WATANABE Hitoshi 渡辺仁",
+      "sourceUrl": "https://www.inaturalist.org/photos/394786255",
+      "caption": "Cá bống suối đực thân sẫm trong hộp ảnh trong suốt",
+      "best": true,
+      "kind": "male",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/commons/fd02191615651694.webp",
+      "thumb": "https://media.aquatome.com/commons/fd02191615651694-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY 4.0",
+      "author": "Joseph Aubert",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rhinogobius_flumineus_605507937.jpg",
+      "caption": "Cá bống suối Nhật Bản nằm trên nền sỏi trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat"
     }
   ],
   "seen": 62,

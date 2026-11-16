@@ -26,18 +26,6 @@
       "kind": "pair"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/4662031.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/4662031-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC0",
-      "author": "Gary John Peresta",
-      "sourceUrl": "https://www.inaturalist.org/photos/4662031",
-      "caption": "Đàn cá pupfish sheepshead bơi trong vùng nước nông tự nhiên",
-      "best": true,
-      "kind": "group"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/35402466.webp",
       "thumb": "https://media.aquatome.com/inaturalist/35402466-480.webp",
       "width": 1200,
@@ -288,6 +276,18 @@
       "caption": "Cá pupfish đực màu xanh ánh kim bơi trong nước nông",
       "best": true,
       "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/4662031.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/4662031-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Gary John Peresta",
+      "sourceUrl": "https://www.inaturalist.org/photos/4662031",
+      "caption": "Đàn cá pupfish sheepshead bơi trong vùng nước nông tự nhiên",
+      "best": true,
+      "kind": "group"
     }
   ],
   "seen": 155,

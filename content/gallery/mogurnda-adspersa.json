@@ -14,19 +14,6 @@
       "kind": "male"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/489466347.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/489466347-480.webp",
-      "width": 471,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "James H",
-      "sourceUrl": "https://www.inaturalist.org/photos/489466347",
-      "caption": "Hai con cá bống tím đốm bơi trên nền suối",
-      "best": true,
-      "kind": "pair",
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/185177552.webp",
       "thumb": "https://media.aquatome.com/inaturalist/185177552-480.webp",
       "width": 768,
@@ -38,18 +25,6 @@
       "best": true,
       "kind": "group",
       "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/commons/c3e90ef1669405c1.webp",
-      "thumb": "https://media.aquatome.com/commons/c3e90ef1669405c1-480.webp",
-      "width": 1200,
-      "height": 675,
-      "licence": "CC BY-SA 4.0",
-      "author": "MurkySeb",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Purple_Spotted_Gudgeon.png",
-      "caption": "Cá bống tím đốm bơi giữa rễ cây trong môi trường tự nhiên",
-      "best": true,
-      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/commons/35c93aa60231662a.webp",
@@ -269,6 +244,18 @@
       "best": false,
       "kind": "habitat",
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/commons/c3e90ef1669405c1.webp",
+      "thumb": "https://media.aquatome.com/commons/c3e90ef1669405c1-480.webp",
+      "width": 1200,
+      "height": 675,
+      "licence": "CC BY-SA 4.0",
+      "author": "MurkySeb",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Purple_Spotted_Gudgeon.png",
+      "caption": "Cá bống tím đốm bơi giữa rễ cây trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat"
     }
   ],
   "seen": 65,

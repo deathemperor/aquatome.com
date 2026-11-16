@@ -2,18 +2,6 @@
   "id": "pacifastacus-leniusculus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/c70c62c507e32951.webp",
-      "thumb": "https://media.aquatome.com/commons/c70c62c507e32951-480.webp",
-      "width": 1200,
-      "height": 1600,
-      "licence": "CC BY 4.0",
-      "author": "LuckyLuke62",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blue_Signal_crayfish.jpg",
-      "caption": "Tôm càng tín hiệu màu xanh lam trên đá sỏi ngoài tự nhiên",
-      "best": true,
-      "kind": "form"
-    },
-    {
       "url": "https://media.aquatome.com/commons/58cbb2ca3671de9b.webp",
       "thumb": "https://media.aquatome.com/commons/58cbb2ca3671de9b-480.webp",
       "width": 1200,
@@ -24,18 +12,6 @@
       "caption": "Tôm càng tín hiệu càng lớn dưới nước tự nhiên",
       "best": true,
       "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/25a29f7536d8ef9b.webp",
-      "thumb": "https://media.aquatome.com/commons/25a29f7536d8ef9b-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY-SA 3.0",
-      "author": "MdE",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pacifastacus_leniusculus_2.jpg",
-      "caption": "Tôm càng tín hiệu giơ càng đỏ trong bể",
-      "best": true,
-      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/7baf4da5133793fd.webp",
@@ -249,6 +225,30 @@
       "best": false,
       "kind": "habitat",
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/commons/c70c62c507e32951.webp",
+      "thumb": "https://media.aquatome.com/commons/c70c62c507e32951-480.webp",
+      "width": 1200,
+      "height": 1600,
+      "licence": "CC BY 4.0",
+      "author": "LuckyLuke62",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blue_Signal_crayfish.jpg",
+      "caption": "Tôm càng tín hiệu màu xanh lam trên đá sỏi ngoài tự nhiên",
+      "best": true,
+      "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/25a29f7536d8ef9b.webp",
+      "thumb": "https://media.aquatome.com/commons/25a29f7536d8ef9b-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 3.0",
+      "author": "MdE",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pacifastacus_leniusculus_2.jpg",
+      "caption": "Tôm càng tín hiệu giơ càng đỏ trong bể",
+      "best": true,
+      "kind": "other"
     }
   ],
   "seen": 101,
