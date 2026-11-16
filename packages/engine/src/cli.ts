@@ -37,7 +37,7 @@ import { videoCut, VIDEO_CUT_LIMIT } from './video-cut'
 import { recordSourceFigures, sourceFigures } from './source-figures'
 import fitFront from './fit-front.json'
 import { firstRun, frontEarly, frontHeld, frontPlan, offLane, orderFront, type FirstRun, type HeldMark } from './fit-front'
-import { candidates, cardsOf, checkCalendar, demandByPath, handAvoid, headAvoid, ownPhotos, plan, readCalendar, readVerdicts, withEngineAvoid, writeCalendar } from './curation'
+import { candidates, cardsOf, checkCalendar, demandByPath, handAvoid, headAvoid, pagePhotos, plan, readCalendar, readVerdicts, withEngineAvoid, writeCalendar } from './curation'
 import { readSecondLook } from './last-photo'
 import { phraseMatch } from './phrases'
 import { readerReport, readPages } from './reader'
@@ -823,7 +823,7 @@ if (cmd === 'photo-privacy') {
     // Every page's held or refused photos, up to its first that passes, into the avoid list the site's faces for more than
     // one fish skip (curation.ts headAvoid); last run's engine entries go, a person's stay.
     const secondLook = await readSecondLook(ROOT)
-    const engine = headAvoid(await ownPhotos(ROOT), await readVerdicts(ROOT), hand, url => Object.hasOwn(secondLook, url))
+    const engine = headAvoid(await pagePhotos(ROOT), await readVerdicts(ROOT), hand, url => Object.hasOwn(secondLook, url))
     const was = Object.keys(cur.avoid).filter(u => !(u in hand))
     const { calendar, report: r } = plan({ ...cur, avoid: withEngineAvoid(cur.avoid, engine) }, cands, today, days)
     await writeCalendar(ROOT, calendar)

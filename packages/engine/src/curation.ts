@@ -217,7 +217,7 @@ export function withEngineAvoid(avoid: Record<string, string>, engine: Record<st
 }
 
 /** Species and breed pages' own photos, as their entity files hold them, for headAvoid. */
-export async function ownPhotos(root: string): Promise<{ id: string; photos: Photo[] }[]> {
+export async function pagePhotos(root: string): Promise<{ id: string; photos: Photo[] }[]> {
   const out: { id: string; photos: Photo[] }[] = []
   for (const kind of ['species', 'breeds']) {
     for (const id of (await readdir(join(root, 'content', kind)).catch(() => [] as string[])).sort()) {
