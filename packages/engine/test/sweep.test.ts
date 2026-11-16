@@ -1353,3 +1353,29 @@ test('the sweep itself cuts an address from a file no other step writes, lists i
   expect((await json(root, 'content/species/corydoras-sterbai/entity.json')).videos[0].title).toBe('Corys at home')
   expect((await sweep(root)).text['emails']).toBeUndefined()
 })
+
+// The reader of #1515, 16 Nov 2026: the sweep orders every page's photos each cycle, after the lead step. Where the lead
+// step moved a head the calendar keeps off cards (content/curation.json `avoid`) behind a photo named less surely ("cf."),
+// the sweep's bar is set by what passes as a head: with the hold unread, the held photo set it and went first again.
+test("a head the calendar holds off cards stays behind the photo the lead step put first: the sweep reads the hold too", async () => {
+  const root = await mkdtemp(join(tmpdir(), 'sweep-'))
+  const c = join(root, 'content')
+  const put = async (path: string, data: unknown) => { await mkdir(join(c, path, '..'), { recursive: true }); await writeFile(join(c, path), `${JSON.stringify(data, null, 2)}\n`) }
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await mkdir(c, { recursive: true })
+  await copyFile(new URL('../../../content/sources.json', import.meta.url), join(c, 'sources.json'))
+  const cf = photo('https://media.aquatome.com/commons/cf.webp', 'Rineloricaria cf. castroi')
+  const held = photo('https://media.aquatome.com/commons/held.webp', 'Rineloricaria castroi')
+  await put('species/rineloricaria-castroi/entity.json', species('rineloricaria-castroi', 'Rineloricaria castroi', { photos: [cf, held] }))
+  await put('species/rineloricaria-castroi/vi.json', vi('Cá chuột đuôi roi', { 'distribution:seriouslyfish': '<p>Brazil.</p>' }))
+  const yes = { 'rineloricaria-castroi': { ok: 'yes', typical: true, person: false, logo: false } }
+  await writeFile(join(root, 'engine-state/_photo-subjects.json'), `${JSON.stringify({ [cf.url]: yes, [held.url]: yes }, null, 2)}\n`)
+  // Only the hold: the sweep reads it without the rest of the calendar's checks.
+  await put('curation.json', { avoid: { [held.url]: "a shop's lettered photo (a test)" } })
+  await sweep(root)
+  expect((await json(root, 'content/species/rineloricaria-castroi/entity.json')).photos.map((p: { url: string }) => p.url)).toEqual([cf.url, held.url])
+  // Without the hold, the same page puts the photo named to the species first: the case above is the hold's doing.
+  await put('curation.json', { avoid: {} })
+  await sweep(root)
+  expect((await json(root, 'content/species/rineloricaria-castroi/entity.json')).photos.map((p: { url: string }) => p.url)).toEqual([held.url, cf.url])
+})

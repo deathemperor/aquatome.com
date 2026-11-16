@@ -27,7 +27,7 @@ import { SOURCES } from './sources'
 import { errorKind } from './state'
 import { isShop, readVarietyPages, withoutShopTalk } from './species-sources'
 import { cardOf, cardProblems } from './summaries'
-import { readCalendar, readVerdicts } from './curation'
+import { readAvoid, readVerdicts } from './curation'
 import { carryTopicChecks } from './topic-check'
 import { breedsNamed } from './topics'
 import { schoolFromSeriouslyFish } from './traits'
@@ -783,7 +783,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   {
     const verdicts = await readVerdicts(root)
     // The calendar's hold, as the lead step reads it: a held head the lead step moved stays moved (lead-photo.ts `held`).
-    const { avoid } = await readCalendar(root)
+    const avoid = await readAvoid(root)
     const asHead = passesHead(verdicts, avoid), grown = grownHead(verdicts, avoid), kept = (u: string) => !!verdicts.kept?.(u)
     const on = await namedOn(content)
     type Named = { kind: string; id: string; file: string; raw: string; e: { scientificName?: string; synonyms?: string[]; photos?: Photo[] } }

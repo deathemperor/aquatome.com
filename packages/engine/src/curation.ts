@@ -193,6 +193,11 @@ export async function readCalendar(root: string): Promise<Curation> {
   const raw = await json<unknown>(join(root, 'content/curation.json'), { version: 1, weeks: [], days: [] })
   return CurationSchema.parse(raw)
 }
+/** The calendar's hold alone (`avoid`: photo → why), read as the sweep reads the rest of the calendar, without the
+ * schema's checks: the sweep cleans the calendar as it is, and one part of it the schema refuses mustn't stop it. */
+export async function readAvoid(root: string): Promise<Record<string, string>> {
+  return (await json<{ avoid?: Record<string, string> } | null>(join(root, 'content/curation.json'), null))?.avoid ?? {}
+}
 
 export async function writeCalendar(root: string, cur: Curation) {
   const days = [...cur.days].sort((a, b) => a.date.localeCompare(b.date))
