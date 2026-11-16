@@ -1,7 +1,7 @@
 import { isOwnerCrop } from '@aq/schema/image-policy'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { addDays, boxFractions, cardShownIn, CardSchema, CurationSchema, frameOf, isAllowedLicence, LANGS, loadAll, resolveDataCard, STAPLE_SPECIES, POPULAR, POPULAR_BREEDS, type CardEntity, type Content, type Curation, type CurationDay, type CurationWeek, type Lang, type Photo, photoFitsCard } from '@aq/schema'
+import { addDays, boxFractions, cardShownIn, CardSchema, CurationSchema, frameOf, isAllowedLicence, isNonCommercial, LANGS, loadAll, resolveDataCard, STAPLE_SPECIES, POPULAR, POPULAR_BREEDS, type CardEntity, type Content, type Curation, type CurationDay, type CurationWeek, type Lang, type Photo, photoFitsCard } from '@aq/schema'
 import { captionFlaw } from './content-rules'
 import { keptMarks, OWN_MARK_SHOPS } from './own-mark'
 import { fitKey, type FitState } from './fit'
@@ -241,7 +241,8 @@ export async function candidates(root: string, o: { demand?: Map<string, number>
   }
   const known = [...STAPLE_SPECIES, ...POPULAR.filter(id => !STAPLE_SPECIES.includes(id)), ...POPULAR_BREEDS]
   const out: Candidate[] = []
-  const photosOf = (id: string, own: Photo[]) => [...own, ...(c.galleries[id] ?? [])]
+  // A non-commercial album photo stays in its album: no card shows it (the owner's yes was for albums, 10 Nov).
+  const photosOf = (id: string, own: Photo[]) => [...own, ...(c.galleries[id] ?? []).filter(p => !isNonCommercial(p.licence))]
   for (const s of c.species) {
     const ok = (p: Photo) => cardWorthy(p, s.id, v, avoid)
     const all = photosOf(s.id, s.photos)
