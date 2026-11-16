@@ -1873,16 +1873,26 @@
     "reason": "several fish"
   },
   "fJmubCLthGg": {
-    "at": "2026-11-07",
+    "at": "2026-11-16",
     "title": "NEW SHRIMP! Neocardina davidi Green Rili",
     "channel": "CHRIS LUKHAUP",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Neocaridina davidi",
+    "page": "species/neocaridina-davidi",
+    "done": "low",
+    "score": 0.6,
+    "reason": "[behaviour] \"Ngoài ốc, có thể nuôi chung với tôm hùm đất\": the video says crayfish, snails and other peaceful invertebrates; \"Ngoài ốc\" is odd, and \"tôm hùm đất\" is an unnatural rendering of crayfish (tôm càng/crayfish). The crayfish claim is risky next to the page's advice.; [behaviour] \"Chúng không làm hại cá\" is stated flatly; the video says harmless to fish, fine, but the page already covers tankmates and fish eating shrimp, so the point is thin/possibly contradictory."
   },
   "fK5blxaKV3Y": {
-    "at": "2026-11-07",
+    "at": "2026-11-16",
     "title": "Meet the Curious Beckford's Pencilfish - Nannostomus beckfordi - Also Known as The Golden Pencilfish",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Nannostomus beckfordi",
+    "page": "species/nannostomus-beckfordi",
+    "done": "low",
+    "score": 0.66,
+    "reason": "[waterConditions] 24–28 °C differs from the page's 21–27 °C and 'best 24–26 °C', but the text never says it differs from the page.; [waterConditions] 'Một người nuôi loài này thấy...' turns the video's general statement into one keeper's experience, which is an odd framing. 'Soft, slightly acidic' overlaps the page's note that wild fish do best at low pH/GH."
   },
   "FMCICI_Rd_A": {
     "at": "2026-11-07",
@@ -2088,10 +2098,13 @@
     "reason": "unboxing several fish"
   },
   "GzgJfjq84nE": {
-    "at": "2026-11-07",
+    "at": "2026-11-16",
     "title": "Discover the Cenepa Red Pencilfish - Nannostomus sp - Rare Expensive Aquarium Fish Bright Red!!",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Nannostomus sp.",
+    "done": "skipped",
+    "reason": "no page, and GBIF has no species of that name"
   },
   "H1Jb3F0lyMg": {
     "at": "2026-11-07",

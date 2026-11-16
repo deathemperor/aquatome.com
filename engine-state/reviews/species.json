@@ -680,6 +680,46 @@
       "kept": false
     }
   ],
+  "vi/species/nannostomus-beckfordi#fK5blxaKV3Y": [
+    {
+      "at": "2026-11-16T11:43:50Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.5,
+      "notes": [
+        "[waterConditions] \"Những người nuôi loài này lâu trong phòng cá của mình thấy cá vẫn sống khỏe ở 24–28 °C\": the video only gives 24–28 °C as the typical range. It does not describe keepers observing the fish thriving. This is invented experience, and \"phòng cá của mình\" points at the channel.",
+        "[waterConditions] \"chịu được nước ấm hơn một chút so với mức tối đa thường nêu\": the video never says this. The real difference from the page (24–28 °C vs the card's 21–27 °C) is not stated plainly.",
+        "[waterConditions] The video's \"soft acidic water\" is left out. That would have been the useful new fact, since the page gives pH 5–8.",
+        "[behaviour] \"Trong bể của một nhóm người nuôi lâu năm, cá chủ yếu lượn ở tầng giữa và tầng dưới\": the video says generally that the fish use the middle and lower layers. It does not describe one group's tank. The page says middle and upper, and NEW never states that the video differs.",
+        "[beforeYouBuy] \"Trại cho đẻ loài này dễ nên giá phải chăng\": the page already says many fish in shops are commercially bred and that the species is common and easy. This largely repeats the page.",
+        "[beforeYouBuy] \"đây có lẽ là loài dễ gặp nhất ngoài tiệm\": the page already says the species is quite common in the trade. The video's hedge (\"arguably the most common\") is only weakly kept.",
+        "[notes] \"thân cá mảnh và thẳng\": the video only says the fish resemble stationary pencils, and adds \"or perhaps for reasons unknown\". The page already says the body is slender, so the explanation is overstated and partly repeated.",
+        "[behaviour] \"như đang chờ cho ăn\" and \"nhóm người nuôi lâu năm\": the first turns the video's joke into a fact. The second makes the channel's own tank into an anonymous group in an awkward way."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-16T11:43:50Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.66,
+      "notes": [
+        "[waterConditions] 24–28 °C differs from the page's 21–27 °C and 'best 24–26 °C', but the text never says it differs from the page.",
+        "[waterConditions] 'Một người nuôi loài này thấy...' turns the video's general statement into one keeper's experience, which is an odd framing. 'Soft, slightly acidic' overlaps the page's note that wild fish do best at low pH/GH.",
+        "[behaviour] 'chủ yếu bơi ở tầng giữa và tầng dưới' contradicts the page's 'tầng giữa và tầng trên'. The sentence is framed as one keeper's tank but never says it differs from the page.",
+        "[beforeYouBuy] 'nuôi hàng loạt/cho đẻ hàng loạt' largely repeats the page's 'khá phổ biến' and 'cá nuôi thương mại'. 'giá rẻ' is only loosely 'economical'.",
+        "[beforeYouBuy] 'cho đẻ hàng loạt không khó' stretches 'commercially bred easily'. The video says nothing about mass spawning.",
+        "[notes] 'Màu không rực nhưng sang' is the writer's gloss. The video also says 'vibrant presence', so 'không rực' is not stated.",
+        "[notes] 'Cá lên màu đẹp thì...' adds a condition the video does not state. The video only says 'rich copper-like hues'.",
+        "[habitat] 'khá nhát' overlaps the page's maintenance note about fish being less shy. It is fine on its own but thin."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/nannostomus-marginatus#4mcmcGUXioo": [
     {
       "at": "2026-11-09T05:51:40Z",
@@ -859,6 +899,46 @@
         "[notes] \"do Skyfish, một người lai tạo có tiếng ở đó, cho ra\": it names a breeder. This is said in the video, but \"cho ra\" states it more firmly than the speaker's \"ich weiß\".",
         "[beforeYouBuy] \"Ở Đức, tép Sunburst chỉ có một nơi phân phối\": the video says exclusive in Germany, and the speaker believes worldwide. This is fine, but the claim is stated without the hedge about whether it is exclusive worldwide.",
         "[notes] \"Màu của nó chắc là chọn lọc từ tép cam\": the video says \"wahrscheinlich\", so the hedge is kept. The wording \"chắc là\" and \"cho ra\" reads a bit like a translation."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/neocaridina-davidi#fJmubCLthGg": [
+    {
+      "at": "2026-11-16T11:42:27Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.55,
+      "notes": [
+        "[beforeYouBuy] \"Nhưng đó vẫn là lời của người làm ra dòng tép\" is the writer's own editorializing; the video only says 'according to a breeder... we'll see how they develop in my aquarium'.",
+        "[beforeYouBuy] \"phải nuôi thêm vài tuần đến một hai tháng mới biết\" turns the video author's own plan to update in weeks or a month or two into a general rule for buyers.",
+        "[notes] \"có con mang hoa văn khác hẳn\" and \"không nhất thiết theo đúng kiểu đó\": the video says variety exists and the pattern 'doesn't have to be just the middle', but 'khác hẳn' overstates it.",
+        "[notes] \"độ đậm của màu cũng mỗi con một khác\" is fine, but \"có lẽ người đó mất vài năm\" and \"Nó chắc là được chọn lọc\" are hedged correctly; the 'dòng tép đã bán nhiều năm nay' is okay. The repeated 'màu' wording reads clunky.",
+        "[dimorphism] \"Dòng green rili nhỏ hơn mức chung của loài\" is not said in the video. It is the writer's own comparison. The size figures differ from the page (4 cm females, 2.5–3 cm males), so the difference should be stated plainly, and 2.5 cm is the female size, not 'lớn hơn đực một chút'.",
+        "[dimorphism] \"con cái thường chỉ lớn hơn con đực một chút\" is the video's 'slightly larger' but 'chỉ' adds a spin; sizes are only loosely stated as 'up to'.",
+        "[behaviour] \"10–20 con trở lên\" is OK with the video, but the page already says to buy at least 10; the added 'sống theo đàn' is fine. The video's claims about harmlessness to fish and keeping with crayfish and snails are omitted, which is fine, but the line partly duplicates the page.",
+        "[notes] The video's maker is not named in NEW, which is good, but 'Đài Loan' breeder claims are presented as fact in [notes] while the 'chắc là' hedging is not carried consistently."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-16T11:42:27Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.6,
+      "notes": [
+        "[behaviour] \"Ngoài ốc, có thể nuôi chung với tôm hùm đất\": the video says crayfish, snails and other peaceful invertebrates; \"Ngoài ốc\" is odd, and \"tôm hùm đất\" is an unnatural rendering of crayfish (tôm càng/crayfish). The crayfish claim is risky next to the page's advice.",
+        "[behaviour] \"Chúng không làm hại cá\" is stated flatly; the video says harmless to fish, fine, but the page already covers tankmates and fish eating shrimp, so the point is thin/possibly contradictory.",
+        "[behaviour] \"nên nuôi ít nhất 10–20 con\" duplicates the page's existing \"ít nhất 10 con\" advice; only the 20 is new, and it is given as a rule.",
+        "[dimorphism] \"một người nuôi thấy con cái... tới khoảng 2,5 cm, còn con đực khoảng 2 cm\" contradicts the page's 4 cm / 2.5–3 cm but does not say plainly that it differs from the page or that it is for this variant only; also framed as a keeper's observation though the video presents it as general fact.",
+        "[notes] \"do một trại ở Đài Loan làm ra\": the video says a breeder (một người nuôi/breeder) in Taiwan, not a farm (trại); \"Người làm dòng này\" is awkward.",
+        "[notes] \"chắc là họ chọn lọc từ tép green jade\": the page already lists green jade and rili, but the origin hypothesis is from the video; fine. Yet \"dòng đã bán nhiều năm nay\" okay.",
+        "[beforeYouBuy] \"Chuyện này còn phải chờ người nuôi ở nơi khác kiểm chứng\" is not what the video says: the video's maker said he'd see how they develop in his own aquarium and give an update; the claim is changed.",
+        "[notes] The \"notes\" heading content duplicates rili pattern, and \"Màu đi từ xanh nhạt ngả vàng\" is fine, but \"phần trong suốt không nhất thiết chỉ nằm ở khúc giữa\" is slightly stretched from the video's \"It doesn't have to be just the middle\"."
       ],
       "attempt": "first",
       "kept": false

@@ -504,35 +504,43 @@
     }
   },
   "youtube-NsTJkrUrc_U": {
-    "at": "2026-11-13",
-    "failed": "photo operation unavailable [sha256:b0446b48c7101e9b1c19356d9d3df261e8ea05b708b35892a956903386020667]"
+    "at": "2026-11-16",
+    "timed": true,
+    "kept": {
+      "345": "photo operation unavailable [sha256:fe3c4d245a4be4958681beba932eb6012c97abd564bb3b107353cfeb508ca1ef]",
+      "650": "photo operation unavailable [sha256:f65adb9774ac878ee504947fc159c6ed913b7ae40fc30fe9415025c70e204a53]"
+    }
   },
   "youtube-NwZwN9LvxLc": {
-    "at": "2026-11-13",
-    "failed": "photo operation unavailable [sha256:2a6011e7b913fefaae9851d46bbc2a20c4705d9650ff6460315d6c0d0ec369ab]"
+    "at": "2026-11-16",
+    "timed": true
   },
   "youtube-O5kuU_-xMzo": {
-    "at": "2026-11-13",
-    "failed": "photo operation unavailable [sha256:f4492bfca85228eb5ca1cdf0f0e546bdb1e8d3addb6cedee04b528a003b4b5cb]"
+    "at": "2026-11-16",
+    "timed": true
   },
   "youtube-Ojpc5djfQ9U": {
-    "at": "2026-11-13",
-    "failed": "photo operation unavailable [sha256:45da5a160fd1f6e957cb79b1f6967bf6ff264bbad1162ac134a2dd1ccf2a1a68]"
+    "at": "2026-11-16",
+    "timed": true,
+    "kept": {
+      "590": "photo operation unavailable [sha256:41a5db3805addaf94e2348e364976b0f866a52eac760119ed985be0e3ddc4e47]",
+      "1140": "photo operation unavailable [sha256:86eed53c96adf1f3846662dd78b2fc745c16641cb001dd3879bd7fb756889cf9]"
+    }
   },
   "youtube-P7GTfHdl5E8": {
     "at": "2026-11-06"
   },
   "youtube-P8xilUdFS08": {
-    "at": "2026-11-13",
-    "failed": "photo operation unavailable [sha256:50544a8ba5c0c4ba5b4ee89fe28b34d947865f8a6ebaeeaf1874d6b13a7413b0]"
+    "at": "2026-11-16",
+    "timed": true
   },
   "youtube-PF2i10T5JGM": {
-    "at": "2026-11-13",
-    "failed": "photo operation unavailable [sha256:1d9d2287e0148069f7bb20f29dbf60ce78ea8b0e4a0deec3eaa43c7fa263f6ba]"
+    "at": "2026-11-16",
+    "timed": true
   },
   "youtube-PVRlXXhdD7U": {
-    "at": "2026-11-13",
-    "failed": "photo operation unavailable [sha256:cccbc95c3d2d3f6df5e3978b753348e6c3b1cec9a5b869804cd63ffcb50a3407]"
+    "at": "2026-11-16",
+    "timed": true
   },
   "youtube-SjnaZ9ciCJk": {
     "at": "2026-11-07",

@@ -63583,7 +63583,8 @@
         "by": "model"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube--MG8jX9LOvI": {
     "at": "2026-11-08",
@@ -63991,32 +63992,17 @@
     ]
   },
   "vi/guides/youtube-0kgXMVQ7o0A": {
-    "at": "2026-11-11",
-    "hash": "cb2b85d45d839876",
+    "at": "2026-11-16",
+    "hash": "3bd13bc2503d31a7",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "shop",
-        "part": "P1",
-        "quote": "có thể tìm đồ cũ trên các chợ mạng như eBay",
-        "why": "eBay is a foreign marketplace, not where Vietnamese hobbyists buy used gear.",
-        "by": "model"
-      },
-      {
-        "check": "price",
-        "part": "P1",
-        "quote": "tiết kiệm được cả trăm đô",
-        "why": "Saving given in US dollars, a foreign currency.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": [
-      "Tropica",
       "Tetra Complete Substrate",
       "Aquaforest",
       "Tropica Plant Substrate",
       "Osmocote",
+      "Tropica",
       "ADA Aqua Soil",
       "Amazonia",
       "Malaya",
@@ -64027,7 +64013,8 @@
       "Colombo",
       "Fluval Stratum",
       "Prodibio",
-      "Tropica Soil"
+      "Tropica Soil",
+      "ADA"
     ]
   },
   "vi/guides/youtube-0KkgA9W52kQ": {
@@ -64086,7 +64073,8 @@
       "Twinstar 600EC",
       "Superfish",
       "ADA"
-    ]
+    ],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-0MzfLrSqfXY": {
     "at": "2026-11-13",
@@ -65479,41 +65467,11 @@
     "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-34R1VF2bzmg": {
-    "at": "2026-11-11",
-    "hash": "0f32c1b24ed540f2",
+    "at": "2026-11-16",
+    "hash": "f32eae584a2b7446",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Ở đây cá thả ngay hôm sau vì lọc chuyển từ bể cũ sang đã có vi sinh",
-        "why": "Describes the source writer's own tank and story as if the reader knew it.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P1",
-        "quote": "Lớp phủ khoảng 2,5 cm",
-        "why": "2.5 cm is a converted one-inch figure, not how a Vietnamese keeper would put it.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "L10",
-        "quote": "Khoảng 2,5 cm là đủ",
-        "why": "2.5 cm is a converted one-inch figure.",
-        "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P1",
-        "quote": "Cây cắt cắm có thể để lúc bể có nước mới trồng",
-        "why": "'Cây cắt cắm' is a translated term for stem plants, not the hobby's word.",
-        "by": "model",
-        "fix": "cây thân đứng"
-      }
-    ],
+    "findings": [],
     "products": [
       "keo 502"
     ]
@@ -65780,7 +65738,8 @@
     ],
     "products": [
       "Pond Shield"
-    ]
+    ],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-4EkqRWcCjk0": {
     "at": "2026-11-13",
@@ -67182,20 +67141,21 @@
     ]
   },
   "vi/guides/youtube-6MVlcgTchtE": {
-    "at": "2026-11-09",
-    "hash": "a167043a336d966e",
+    "at": "2026-11-16",
+    "hash": "938d058b4ed3eeb2",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Có thể thêm cây thủy sinh nổi, nhất là ở khu ao nông bên trái.",
-        "why": "Refers to the source creator's own tank layout as if the reader could see it.",
+        "quote": "Cây cạn ở trên còn có ánh sáng tự nhiên hắt vào từ cửa",
+        "why": "Refers to the source's own tank placement next to a door as if the reader knew it.",
         "by": "model"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-6mYLnYSWKWE": {
     "at": "2026-11-10",
@@ -71415,7 +71375,8 @@
       "Oase BioStyle",
       "Aquael",
       "BioMaster"
-    ]
+    ],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-cPBLU4VMwWU": {
     "at": "2026-11-14",
@@ -72329,7 +72290,8 @@
         "fix": "tấm nhựa Danpla (tấm PP rỗng ruột)"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-dS6AJL3CAt0": {
     "at": "2026-11-09",
@@ -73721,7 +73683,8 @@
         "by": "model"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-F-yywhyv3ho": {
     "at": "2026-11-15",
@@ -74189,7 +74152,8 @@
       "GE Silicone 1",
       "Seachem Flourite",
       "Zoo Med Turtle Clean 511"
-    ]
+    ],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-FwandSa_Hrg": {
     "at": "2026-11-08",
@@ -74624,7 +74588,8 @@
         "fix": "máy tạo sóng"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-gBhJ6AWEbXY": {
     "at": "2026-11-09",
@@ -81023,7 +80988,8 @@
         "by": "model"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-LU_y6OK2qK0": {
     "at": "2026-11-09",
@@ -81674,7 +81640,8 @@
         "fix": "lưới nhựa"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-mGmIvhtIM9k": {
     "at": "2026-11-16",
@@ -82903,7 +82870,8 @@
         "quote": "Tropica Specialised, châm tự động bằng máy D-D P1, 15 ml mỗi ngày"
       }
     ],
-    "sourceRead": true
+    "sourceRead": true,
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-nljikQSpjL4": {
     "at": "2026-11-08",
@@ -82953,7 +82921,8 @@
         "by": "model"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-NNbR0grp8iE": {
     "at": "2026-11-08",
@@ -83073,7 +83042,8 @@
     ],
     "products": [
       "CT1"
-    ]
+    ],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-no6VJHlHHgc": {
     "at": "2026-11-12",
@@ -85206,19 +85176,11 @@
     "products": []
   },
   "vi/guides/youtube-Pug-xKyFd0k": {
-    "at": "2026-11-11",
-    "hash": "202953680b675da9",
+    "at": "2026-11-16",
+    "hash": "4665f81fc74a4a09",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Bể này dài khoảng 150 cm, đóng theo kích thước riêng",
-        "why": "Describes the source creator's own custom tank as if the reader knew it.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": [
       "JBL Plant Start",
       "Tropica Plant Growth Substrate"
@@ -86144,7 +86106,8 @@
         "by": "model"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-R9PxopftjaY": {
     "at": "2026-11-08",
@@ -88780,7 +88743,8 @@
     ],
     "products": [
       "A360X Tuna Sun"
-    ]
+    ],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-TkKqmLMj0Kg": {
     "at": "2026-11-10",
@@ -89887,7 +89851,8 @@
         "quote": "| 1000 lít\n| 5 nắp"
       }
     ],
-    "sourceRead": true
+    "sourceRead": true,
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-uzhJRcM1tx4": {
     "at": "2026-11-09",
@@ -90805,7 +90770,8 @@
         "by": "model"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-Wh4n7nbLbi8": {
     "at": "2026-11-09",
@@ -91284,7 +91250,8 @@
         "by": "model"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-X-55vLo-F6M": {
     "at": "2026-11-08",
@@ -92283,7 +92250,8 @@
         "by": "model"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-XwkkskyP-R0": {
     "at": "2026-11-16",
@@ -94235,7 +94203,8 @@
       "Aquascaper 1200",
       "Twinstar 1200",
       "Oase BioMaster Thermo 600"
-    ]
+    ],
+    "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-zJcimXCpXtY": {
     "at": "2026-11-14",

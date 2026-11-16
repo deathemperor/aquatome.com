@@ -245,6 +245,20 @@
   ],
   "vi/guides/youtube--LWDlOsd634": [
     {
+      "at": "2026-11-16T12:04:08Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.7,
+      "notes": [
+        "Table row for Hygrophila lancea 'Araguaia', \"Đèn mạnh thì hy vọng là cây mọc gọn\": the video never says strong light makes it compact. It only hopes the plant stays compact and red under the lighting. Remove \"đèn mạnh\" and keep it as a hope, e.g. \"hy vọng cây mọc gọn và giữ màu đỏ\".",
+        "Main teaching point missing: the CO2 inline diffuser is only mentioned as \"Lắp lọc và CO2\". Add a short explanation of what the video says. The diffuser sits outside the tank and its micro-bubbles travel through the hose with the water flow. It uses a ceramic tube, and the bubbles do not fully dissolve but hit the plant tissue. A reactor dissolves the CO2 fully.",
+        "\"Bulbitis\" (table and elsewhere) is a caption mis-hearing. Correct it to the plant's real name, Bolbitis."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-10T12:10:25Z",
       "model": "sonnet",
       "score": 0.75,
@@ -1169,6 +1183,16 @@
     }
   ],
   "vi/guides/youtube-0kgXMVQ7o0A": [
+    {
+      "at": "2026-11-16T12:00:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
     {
       "at": "2026-11-11T09:42:11Z",
       "model": "sonnet",
@@ -2698,6 +2722,21 @@
   ],
   "vi/guides/youtube-34R1VF2bzmg": [
     {
+      "at": "2026-11-16T12:05:50Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.7,
+      "notes": [
+        "\"phải chăm nhiều: thay nước hàng tuần, cắt tỉa liên tục\": the video says only that ADA-style nature tanks need quite a bit of maintenance, with regular water changes. Remove \"cắt tỉa liên tục\", which the video doesn't give.",
+        "\"Cây mới về hay rụng hết lá, rồi lá mới mọc lại rất đẹp, nhưng phải chờ lâu\": this is the creator's own experience with Java fern; he says he doesn't know why and that most people think it is bulletproof. Hedge it as one person's experience (\"có người thấy…\") or remove it. Don't state it as what usually happens.",
+        "\"Cách đặt này còn tốt hơn vùi gốc\": this is the creator's own opinion (\"I find it's actually better\") stated as a firm fact. Hedge it (\"có thể tốt hơn\", \"nếu thích thì…\") or soften it.",
+        "\"dùng lại cho bể này hay bể khác\": \"bể này\" is a bare reference to the video's tank. Rephrase to \"dùng lại cho bể đang làm hay bể khác\" or just \"dùng lại ở các bể khác\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
       "at": "2026-11-11T12:35:43Z",
       "model": "sonnet",
       "score": 0.5,
@@ -3261,6 +3300,21 @@
     }
   ],
   "vi/guides/youtube-4a87l1r7_Yg": [
+    {
+      "at": "2026-11-16T12:02:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.6,
+      "notes": [
+        "\"Bể khối khoảng 5,7 lít\" (also in the summary, the intro, the materials list and the stocking paragraph): 1.5 gallons is not in the size table, so convert and round to whole litres, which gives about 6 lít. Change every \"5,7 lít\" to \"6 lít\".",
+        "\"Có thể bắt ít ốc từ các bể khác sang trước\": the video adds the snails last, after the plants. Say the snails go in last, after planting.",
+        "\"Rải lá khô lên nền, chi tiết này làm bể trông tự nhiên hơn hẳn\": the video only says leaf litter will elevate the look further. Drop \"hơn hẳn\" and say it makes the tank look a bit more natural.",
+        "\"(ở đây dùng Pond Shield)\": \"ở đây\" is a bare reference and reads awkwardly. Rewrite it as \"ví dụ Pond Shield\" or \"như Pond Shield\". Also replace the bare \"Bể này\" / \"bể này\" / \"Bể nano nước đen này\" (intro, the planting heading and the FAQ) with a neutral phrase such as \"bể nano nước đen\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
     {
       "at": "2026-11-09T15:42:18Z",
       "model": "sonnet",
@@ -4432,6 +4486,19 @@
     }
   ],
   "vi/guides/youtube-6MVlcgTchtE": [
+    {
+      "at": "2026-11-16T12:02:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.75,
+      "notes": [
+        "The intro says \"đến cách trồng cây ... đóng chân bể\", but the guide has no section on building the stand. Remove \"đóng chân bể\" from the intro sentence so it only promises what the guide covers.",
+        "In \"Chọn cây gì cho phần nước\", the line \"phần nước có thể trồng những cây không đòi nhiều dinh dưỡng, ít phải chăm và sống được với hầu như loại đèn nào\" narrows the plant choice to the water part. The video picked undemanding, low-upkeep plants for the whole setup, including the terrestrial ones on top. Reword it to cover the plants in general, and don't present it as a rule for the underwater …"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
     {
       "at": "2026-11-09T08:58:41Z",
       "model": "sonnet",
@@ -13748,6 +13815,24 @@
   ],
   "vi/guides/youtube-LTq4EuuY_iA": [
     {
+      "at": "2026-11-16T12:06:58Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.6,
+      "notes": [
+        "\"Bể cá đĩa 400 lít (360 lít bể cộng 20 lít trong lọc)\": the video gives 360 L plus 20 L from the filter, so 380 L. Change 400 to 380; the gallon table does not apply to litres.",
+        "\"Vì vậy nên nuôi chung với cá chuột để dọn phần rơi xuống đáy\": this is one person's habit, written as a firm recommendation. Hedge it, e.g. \"có thể nuôi chung với cá chuột\".",
+        "\"Cách làm ở đây là nền tốt…\" and \"Cách xử lý ở đây là để bể đi qua giai đoạn đó\": the bare \"ở đây\" reads like a translation. Reword it, e.g. \"Một cách là…\".",
+        "\"các mảnh vụn bị đánh vỡ rơi xuống\": the video only says smaller pieces fall down as the big fish fight over the pile. Remove \"bị đánh vỡ\".",
+        "\"nhưng cũng không cần nhiều tác động hơn\": the video does not say this. Remove the clause.",
+        "\"Một bể giống hệt bên cạnh\": the video only says the same position, the same tiny filter, bio CO2 and a cheaper light. Replace \"giống hệt\" with \"cũng dùng lọc tí hon, CO2 tự chế và đèn rẻ\".",
+        "\"cây mọc thưa hơn\" (in the first bullet, and in the FAQ \"cây mọc thưa hơn\"): the video says plants grow differently and are not quite as compact, not that they are sparser. Change it to \"không gọn sát bằng\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-13T18:46:28Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -16683,6 +16768,24 @@
     }
   ],
   "vi/guides/youtube-Pug-xKyFd0k": [
+    {
+      "at": "2026-11-16T12:05:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.62,
+      "notes": [
+        "\"một bể dài khoảng 150 cm có thể chỉ dùng lũa, vài hòn đá cùng vài loại cây\": the video's build uses wood and one stone (to prop the wood), so change \"vài hòn đá\" to \"một hòn đá\" or drop the stone count.",
+        "\"Dương xỉ Trident buộc lên lũa\" (in the summary and in the section \"Gắn cây lên lũa\"): the video only says the fern is attached to the wood and never says it is tied, so change \"buộc\" to \"gắn\" or \"bám\" and drop \"chỗ buộc\".",
+        "\"Hygrophila pinnatifida thì không cần buộc\": the video only says it is wedged into the nooks of the wood, so remove the claim that it needs no tying.",
+        "FAQ \"Hygrophila pinnatifida có cần trồng xuống nền không? Không cần.\": the video doesn't answer this question and only says the plant is wedged into the wood's crevices, so remove this FAQ item.",
+        "\"Đặt khúc lũa đầu tiên vào bể trống để định hình bố cục\": \"bể trống\" and \"để định hình bố cục\" are not in the video, which only says the first piece of wood goes in first, so remove the added purpose.",
+        "\"Làm sao để lũa không nổi và dựng dốc hơn?\" and \"Hòn đá này còn đè cho lũa khỏi nổi, nên có thể để luôn trong bể\": the video says only that the rock is there to weigh the wood down and \"probably stayed there\", so hedge it (\"có lẽ cứ để nguyên\") and don't state the stone as a fix for wood floating.",
+        "The line \"Bố cục đơn giản vẫn đẹp nếu vật liệu tốt\" appears in the summary and again as \"Bố cục kiểu này dễ làm, nhưng muốn bể lên đẹp thì vật liệu phải tốt\": the video's claim is only that a simple layout is effective and easy when the materials are good, so remove the duplicate, and the \"muốn bể lên đẹp thì vật liệu phải tốt\" wording is stronger than the video's."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
     {
       "at": "2026-11-11T04:01:16Z",
       "model": "sonnet",
@@ -35370,6 +35473,22 @@
     }
   ],
   "vi/guides/youtube-uxEgm6qa0Ow": [
+    {
+      "at": "2026-11-16T12:04:06Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.6,
+      "notes": [
+        "Table row \"1000 lít | 5 nắp\" and \"(bể này khoảng 1 giờ)\": 5 capfuls for 1000 L is the dose for the video's own tank. Replace it with \"liều theo hướng dẫn trên bao bì\". Also drop the bare \"bể này\" and keep only the general \"vài giờ\".",
+        "\"liều cần đủ cho tổng lượng nước của cả bể, ở đây là hơn một nắp\": this is the dose for the video's own tank. Drop \"hơn một nắp\" and the bare \"ở đây\", and say \"liều theo hướng dẫn trên bao bì\".",
+        "\"Với bể cỡ này, gần như dùng hết cả chai\" (liquid fertiliser): this is the dose for the video's own tank. Replace it with \"liều theo hướng dẫn trên bao bì\".",
+        "\"Loại phân nhét được dùng ở đây chứa đạm...\" and \"ở đây chủ yếu là crypt\": the bare \"ở đây\" reads like a pointer to the video. Rephrase directly, e.g. \"Loại phân nhét này chứa...\" and \"cây trung cảnh có thể là crypt như...\".",
+        "\"Bể chạy không CO2 lúc đầu vì nền đã giàu dinh dưỡng\": the creator was only thinking about it and wasn't sure. Hedge it, e.g. \"có thể thử chạy không CO2 lúc đầu vì nền giàu dinh dưỡng\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
     {
       "at": "2026-11-14T02:50:03Z",
       "model": "sonnet",
