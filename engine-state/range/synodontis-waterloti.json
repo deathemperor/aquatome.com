@@ -1,0 +1,97 @@
+{
+  "id": "synodontis-waterloti",
+  "native": {
+    "input": "7cca83ca09c45366",
+    "at": "2026-11-15T05:39:34.625Z",
+    "claims": [
+      {
+        "code": "GN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Guinea, Liberia, Ivory Coast, Guinea-Bissau, Sierra Leone, Ghana.",
+        "words": "Guinea",
+        "ok": true
+      },
+      {
+        "code": "LR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Guinea, Liberia, Ivory Coast, Guinea-Bissau, Sierra Leone, Ghana.",
+        "words": "Liberia",
+        "ok": true
+      },
+      {
+        "code": "CI",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Guinea, Liberia, Ivory Coast, Guinea-Bissau, Sierra Leone, Ghana.",
+        "words": "Ivory Coast",
+        "ok": true
+      },
+      {
+        "code": "GW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Guinea, Liberia, Ivory Coast, Guinea-Bissau, Sierra Leone, Ghana.",
+        "words": "Guinea-Bissau",
+        "ok": true
+      },
+      {
+        "code": "SL",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Guinea, Liberia, Ivory Coast, Guinea-Bissau, Sierra Leone, Ghana.",
+        "words": "Sierra Leone",
+        "ok": true
+      },
+      {
+        "code": "GH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Guinea, Liberia, Ivory Coast, Guinea-Bissau, Sierra Leone, Ghana.",
+        "words": "Ghana",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Synodontis waterloti",
+    "status": "ACCEPTED",
+    "taxonKey": 2344436,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        20
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "40a262b4-6627-4011-afbe-159c00ec97e7",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "GN",
+      "LR",
+      "CI",
+      "GW",
+      "SL",
+      "GH"
+    ],
+    "requests": 11,
+    "at": "2026-11-15T05:39:34.625Z"
+  }
+}

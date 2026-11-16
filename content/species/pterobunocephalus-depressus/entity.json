@@ -15,7 +15,8 @@
     "venezuela",
     "orinoco",
     "paraguay",
-    "paraguay-river"
+    "paraguay-river",
+    "peru"
   ],
   "range": {
     "native": {
@@ -221,6 +222,10 @@
       {
         "source": "scotcat",
         "value": 9
+      },
+      {
+        "source": "glaser",
+        "value": 9
       }
     ],
     "tempC": [
@@ -256,6 +261,12 @@
       "html": "<p>Family: Aspredinidae. Size: 9.0 cm. Temperature: 25-28°C. pH: 6.0-8.0.</p><p>IUCN Red List: despite the limited information available on this species, it is assessed as Least Concern due to its wide range (IUCN 2021).</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/pterobunocephalus_depressus_en/",
+      "html": "<p>This is by far the most attractive species of all banjo cats – and the rarest. It is also one of the most variably coloured species of banjo cat. Most specimens have a sharp black-and-white contrasting pattern, being white anterior and black posterior. But there are also variations, some specimens are almost completely black, others brownish.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1068",
@@ -268,16 +279,40 @@
       "html": "<p>South America: Amazon, Orinoco and Paraguay River basins. Type locality: Todos Santos, Bolivia.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/pterobunocephalus_depressus_en/",
+      "html": "<p>Maximum length of Pterobunocephalus depressus is around 9 cm.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/aspredinidae/pterobunocephalus_depressus.htm",
       "html": "<p>Small species that can probably be kept as per other members of this family with a quiet tank with sand and plants.</p>"
     },
     {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/pterobunocephalus_depressus_en/",
+      "html": "<p>Fine sand that allows the fish to burrow themselves is recommended, but not absolutely necessary.</p>"
+    },
+    {
       "key": "diet",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/aspredinidae/pterobunocephalus_depressus.htm",
       "html": "<p>Tablet foods and small live foods.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/pterobunocephalus_depressus_en/",
+      "html": "<p>One must feed – at least during acclimatisation – the fish after the light has been switched off. The fish feed readily on any usual type of live, frozen or dried food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/pterobunocephalus_depressus_en/",
+      "html": "<p>Like all banjo cats the species is absolutely peaceful against any tankmate. Banjo cats are strictly night active fish.</p>"
     },
     {
       "key": "reproduction",
@@ -298,6 +333,12 @@
       "html": "<p>Pterobunocephalus is a genus of small to medium sized aspredinid species. Members of this genus are distinguished from all other aspredinids by the following characters: an extremely depressed (flattened) head and body, highly reduced or absent head ornamentation, often a distinct notch in the upper jaw, and 10–20 anal fin rays.</p><p>Etymology: the genus name Pterobunocephalus: pterus, referring to the large anal fin of Bunocephalus (subgenus Pterobunocephalus) albifasciatus (= P. depressus). The specific name depressus: referring to its “greatly depressed” body.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/pterobunocephalus_depressus_en/",
+      "html": "<p>Lexicon: Pterobunocephalus: from ancient Greek, means “Bunocephalus with a fin”, referring to the comparatively long anal fin; Bunocephalus is another genus of banjo cat. depressus: Latin, means “flattened”.</p><p>Suggestion of a common name: Domino banjo cat</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1068",
@@ -312,28 +353,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/scotcat/5fca4c12b5070147.webp",
-      "thumb": "https://media.aquatome.com/scotcat/5fca4c12b5070147-480.webp",
-      "width": 500,
-      "height": 286,
-      "licence": "dùng với sự cho phép",
-      "author": "Nathan Lujan / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/aspredinidae/pterobunocephalus_depressus.htm",
-      "caption": "Pterobunocephalus depressus: dorsal view",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/21d13052669482ed.webp",
-      "thumb": "https://media.aquatome.com/scotcat/21d13052669482ed-480.webp",
-      "width": 500,
-      "height": 270,
-      "licence": "dùng với sự cho phép",
-      "author": "Nathan Lujan / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/aspredinidae/pterobunocephalus_depressus.htm",
-      "caption": "Pterobunocephalus depressus: ventral view",
-      "source": "scotcat"
-    },
-    {
       "url": "https://media.aquatome.com/scotcat/a9c73ce821b57614.webp",
       "thumb": "https://media.aquatome.com/scotcat/a9c73ce821b57614-480.webp",
       "width": 500,
@@ -345,7 +364,32 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "-Q76J_t7hPI",
+      "title": "長尾白頭斑鳩貓 Pterobunocephalus depressus",
+      "durationSec": 18,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Yrv3QiP4z0Q",
+      "title": "Charqueada (Characidium rachovii, Pterobunocephalus sp y alevin de tarucha).",
+      "durationSec": 144,
+      "lang": "es-419"
+    },
+    {
+      "youtubeId": "uF5CLRL2VG0",
+      "title": "南美斑鳩貓10CM",
+      "durationSec": 13,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "wL93Zi2ErdU",
+      "title": "Pez Banjo caminando, Microglanis cottoides y más autóctonos.",
+      "durationSec": 369,
+      "lang": "es-419"
+    }
+  ],
   "productSlots": [
     {
       "category": "phan-nen",
@@ -368,5 +412,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-14"
 }

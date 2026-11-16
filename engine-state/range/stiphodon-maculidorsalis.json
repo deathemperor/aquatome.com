@@ -1,0 +1,48 @@
+{
+  "id": "stiphodon-maculidorsalis",
+  "native": {
+    "input": "0ef4cd8d5e5edd3d",
+    "at": "2026-11-15T00:17:46.244Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from western Sumatra, Indonesia, where it's been collected from Bengkulu, West Sumatra, and Aceh Provinces.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Known only from western Sumatra, Indonesia, where it's been collected from Bengkulu, West Sumatra, and Aceh Provinces.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Stiphodon maculidorsalis",
+    "status": "ACCEPTED",
+    "taxonKey": 7500175,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        12
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-15T00:17:46.244Z"
+  }
+}

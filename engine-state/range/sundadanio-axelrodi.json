@@ -1,0 +1,102 @@
+{
+  "id": "sundadanio-axelrodi",
+  "native": {
+    "input": "6d7d2d957d8fdb4b",
+    "at": "2026-11-15T05:39:34.625Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Numerous records also exist from the Indonesian provinces of West Kalimantan (Kalimantan Barat), Central Kalimantan (Kalimantan Tengah) and South Kalimantan (Kalimantan Selatan), but the species appears not to occur in the north of the island.",
+        "words": "Indonesian",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It exists in several colour forms depending on locality; fish from the south and east of Sarawak state in Malaysian Borneo are green/blue in colour while those found in the west are red/orange, for example.",
+        "words": "Malaysian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Supposedly native to the Greater Sunda Islands of Borneo and Sumatra as well as the Riau Archipelago and Bangka Island off the east coast of Sumatra, but the only collection/locality details available refer to Bornean populations.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Supposedly native to the Greater Sunda Islands of Borneo and Sumatra as well as the Riau Archipelago and Bangka Island off the east coast of Sumatra, but the only collection/locality details available refer to Bornean populations.",
+        "ok": true
+      },
+      {
+        "name": "Riau Archipelago",
+        "source": "seriouslyfish",
+        "quote": "Supposedly native to the Greater Sunda Islands of Borneo and Sumatra as well as the Riau Archipelago and Bangka Island off the east coast of Sumatra, but the only collection/locality details available refer to Bornean populations.",
+        "ok": true
+      },
+      {
+        "name": "Bangka Island",
+        "source": "seriouslyfish",
+        "quote": "Supposedly native to the Greater Sunda Islands of Borneo and Sumatra as well as the Riau Archipelago and Bangka Island off the east coast of Sumatra, but the only collection/locality details available refer to Bornean populations.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "bwaquatics",
+        "quote": "They are native to the blackwater peat swamps of Borneo and Sumatra in Southeast Asia.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "bwaquatics",
+        "quote": "They are native to the blackwater peat swamps of Borneo and Sumatra in Southeast Asia.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Sundadanio axelrodi",
+    "status": "ACCEPTED",
+    "taxonKey": 2360276,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "ID",
+      "MY"
+    ],
+    "requests": 12,
+    "at": "2026-11-15T05:39:34.625Z"
+  }
+}

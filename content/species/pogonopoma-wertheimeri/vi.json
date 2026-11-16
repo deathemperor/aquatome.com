@@ -8,14 +8,19 @@
     "habitat:planetcatfish": "<p>Loài này thường sống ở những khúc sông có dòng chảy vừa đến mạnh, đáy đá hoặc cát, nhưng cũng có vài mẫu được bắt ở chỗ nước đứng.</p>",
     "reproduction:planetcatfish": "<p>Chưa có tài liệu nào ghi lại. Cũng chưa có ai báo cho đẻ được loài này.</p>",
     "notes:planetcatfish": "<p>Nguồn gốc tên: Pogon (tiếng Hy Lạp) là râu, op (tiếng Hy Lạp) là mắt, poma (tiếng Hy Lạp) là nắp, nắp mang. Cách đọc: pog ON oh poma.</p>",
-    "references:planetcatfish": "<p>Anzeiger der Kaiserlichen Akademie der Wissenschaften, Wien, Mathematisch-Naturwissenschaftliche Classe v. 4 (no. 14) (for 16 May 1867), pp 119.</p>"
+    "references:planetcatfish": "<p>Anzeiger der Kaiserlichen Akademie der Wissenschaften, Wien, Mathematisch-Naturwissenschaftliche Classe v. 4 (no. 14) (for 16 May 1867), pp 119.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: không có</li><li>Tên đồng nghĩa: Plecostomus wertheimeri</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông Mucuri và São Mateus ở Brazil. Mẫu chuẩn thu ở sông Mucuri, đoạn chảy qua huyện cùng tên, gần Santa Clara, Brazil.</p>",
+    "habitat:scotcat": "<p>Hiện mới biết loài này ở ba hệ thống sông ven biển vùng đông nam Brazil. Chúng thường sống ở những đoạn sông nước chảy vừa đến mạnh, đáy đá hoặc cát, nhưng cũng có vài con bắt được ở vùng nước tĩnh.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên gọi: tên loài wertheimeri đặt để vinh danh một người mà đến nay vẫn chưa rõ là ai. Đó có thể là Louis Wertheimer trong Đoàn thám hiểm Thayer đến Brazil (1865–1866), hoặc Achilles Wertheimer, người đã chết vì rắn cắn trong chuyến thám hiểm này.</p><p>Danh lục đỏ IUCN: Pogonopoma wertheimeri sống ở lưu vực sông Mucuri và São Mateus, và đã bị đưa sang lưu vực sông Doce và Barra Seca. Loài này phân bố rộng, dễ gặp và có số lượng nhiều. Đập thủy điện Santa Clara và tình trạng sông bị bồi lắng là những mối đe dọa, nhưng chúng không bị đánh giá là ảnh hưởng đáng kể tới quần thể. Vì thế, Pogonopoma wertheimeri được xếp vào nhóm Ít quan tâm (LC) (IUCN 2022).</p>",
+    "references:scotcat": "<p>Armbruster, J.W., 1998. Phylogenetic relationships of the suckermouth armored catfishes of the Rhinelepis group (Loricariidae: Hypostominae). Copeia 1998(3):620-636.</p><p>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Pogonopoma wertheimeri. The IUCN Red List of Threatened Species 2022.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2011. FishBase. World Wide Web electronic publication. www.fishbase.org, version.</p><p>Quevedo, R. and R.E. Reis, 2002. Pogonopoma obscurum: a new species of loricariid catfish (Siluriformes: Loricarridae) from southern Brazil, with comments on the genus Pogonopoma. Copeia 2002(2):402-410.</p>"
   },
   "quality": {
     "score": 0.9,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.9
-    },
-    "reason": "thin"
+      "planetcatfish": 0.9,
+      "scotcat": 0.9
+    }
   }
 }

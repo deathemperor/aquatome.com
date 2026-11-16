@@ -3,7 +3,10 @@
   "name": "Cá tra một đốm",
   "altNames": [
     "One Spot Pangasius",
-    "Plettet Hajmalle"
+    "Plettet Hajmalle",
+    "Cá hú tai đen",
+    "Black Eared Pangasius",
+    "Black Ear Catfish"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Pangasius larnaudii Bocourt, 1866</li><li>Tên thường gọi: cá tra một đốm (One Spot Pangasius), Plettet Hajmalle (Đan Mạch)</li><li>Nơi thu mẫu chuẩn: miền bắc Thái Lan.</li><li>Tên đồng nghĩa: Pangasius burgini, Pangasius taeniura, Pangasius taeniurus</li><li>Sách Đỏ IUCN: Ít quan tâm (đánh giá lần cuối năm 2011)</li></ul>",
@@ -12,14 +15,22 @@
     "dimorphism:planetcatfish": "<p>Con cái thân tròn đầy hơn con đực.</p>",
     "reproduction:planetcatfish": "<p>Chưa thấy ai cho loài này đẻ.</p>",
     "notes:planetcatfish": "<p>Loài này có một đốm sẫm ngay trên vây ngực. Ở những con lớn, đốm này có thể nhạt dần.</p>",
-    "references:planetcatfish": "<p>Nouvelles Archives du Muséum d'Histoire Naturelle, Paris v. 2, pp 15, Pl. 1 (figs. 2, 2a).</p>"
+    "references:planetcatfish": "<p>Nouvelles Archives du Muséum d'Histoire Naturelle, Paris v. 2, pp 15, Pl. 1 (figs. 2, 2a).</p>",
+    "beforeYouBuy:scotcat": "<p>Loài cá da trơn này không hợp với bể nuôi trong nhà. Nó lớn quá cỡ bể, lại có những đòi hỏi riêng mà người nuôi cá cảnh không bao giờ đáp ứng nổi. Tiệm cá bán dưới tên này hay dưới tên Pangasius sp. thì đừng mua.</p>",
+    "quickFacts:scotcat": "<p>Họ: Pangasiidae. Tia mềm vây hậu môn: 28–32. Phía trên gốc vây ngực có một đốm đen lớn, và mỗi thùy vây đuôi có một sọc đen chạy dọc. Vây lưng và vây ngực có gai cứng, các tia vây dài và mảnh như sợi. Cung mang thứ nhất có 13–17 lược mang. Kích thước: 130 cm. Nhiệt độ: 22–26 °C. pH: 7,0–8,5.</p>",
+    "distribution:scotcat": "<p>Châu Á: lưu vực sông Mekong và sông Chao Phraya.</p><p>Đây là loài phổ biến, có ở sông Chao Phraya và lưu vực sông Mekong.</p>",
+    "habitat:scotcat": "<p>Loài này sống ở sông cỡ vừa đến lớn và thường ở các vũng sâu trong lòng sông. Người ta cũng gặp chúng ở những đoạn thác ghềnh và đoạn nước cạn chảy xiết. Mùa nước lên, chúng vào cả rừng ngập nước.</p>",
+    "diet:scotcat": "<p>Loài này ăn tôm, cá nhỏ, ốc và cây cỏ.</p>",
+    "reproduction:scotcat": "<p>Đầu mùa lũ, cá di cư vào các vùng đồng bằng ngập nước để đẻ. Cá bột cho đẻ nhân tạo dài 3,5 mm lúc 12 giờ tuổi, 8,4 mm lúc 4 ngày, 8,8 mm lúc 8 ngày và 23 mm lúc 18 ngày. Ngay từ lúc 12 giờ và 4 ngày tuổi, cá bột đã có răng.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên: Tên loài larnaudii đặt để vinh danh R. P. Larnaudie (mất năm 1899), linh mục truyền giáo dòng Tên. Ông đã chăm lo và tiếp đón Bocourt trong bảy tháng Bocourt ở Thái Lan.</p><p>Danh sách Đỏ IUCN: Đây là loài cỡ lớn, bị khai thác nhiều và chịu ảnh hưởng do mất môi trường sống, nhưng hiện vẫn xếp ở mức Ít quan ngại. Lý do xếp vậy là chưa có bằng chứng nào cho thấy số lượng giảm đáng kể trên khắp vùng phân bố. Loài này dễ bị tổn hại hơn một chút so với vài loài tương tự. Cần theo dõi tác động của những con đập có thể xây trên dòng chính sau này, và đánh giá này cũng cần cập nhật lại (IUCN 2012).</p>",
+    "references:scotcat": "<p>Baird, I. 2012. Pangasius larnaudii. The IUCN Red List of Threatened Species 2012.</p><p>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (04/2009).</p><p>Roberts, T.R. and C. Vidthayanon 1991 Systematic revision of the Asian catfish family Pangasiidae, with biological observations and descriptions of three new species. Proc. Acad. Nat. Sci. Philad. 143:97-144.</p>"
   },
   "quality": {
-    "score": 0.88,
-    "indexable": false,
+    "score": 0.85,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.88
-    },
-    "reason": "thin"
+      "planetcatfish": 0.88,
+      "scotcat": 0.85
+    }
   }
 }

@@ -1,7 +1,7 @@
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { nameKey } from '@aq/schema'
-import { FISH_NAMES, type FishName } from './names'
+import { droppedName, FISH_NAMES, type FishName } from './names'
 
 /**
  * A species' other names ("Tên khác", search aliases, the names its page is linked by in other pages' text): what
@@ -155,8 +155,8 @@ export function cleanAltNames(page: { name: string; sci: string; altNames: strin
   }
   const kept: string[] = []
   // A name the chief of staff kept for a fish they renamed (names.ts FISH_NAMES) stays whatever it reads as: "Cá Noturus
-  // gladiator" is its old name, not a copy of its scientific name.
-  const must = new Set(fishNames.filter(r => r.sci === page.sci).flatMap(r => [r.was, ...(r.alts ?? [])]).map(altKey).filter(k => k && k !== altKey(page.name)))
+  // gladiator" is its old name, not a copy of its scientific name. A name the row drops is no name it kept.
+  const must = new Set(fishNames.filter(r => r.sci === page.sci).flatMap(r => [r.was, ...(r.alts ?? [])].filter(n => !droppedName(r, n))).map(altKey).filter(k => k && k !== altKey(page.name)))
   const required: string[] = []
   for (const raw of page.altNames) {
     const name = raw.replace(/\s+/g, ' ').trim()

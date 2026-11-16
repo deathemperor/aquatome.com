@@ -242,15 +242,16 @@
     },
     {
       "from": "2026-11-15T00:00:00+07:00",
-      "note": "As on 14 Nov, and the troubleshooting board has $60 on the Mac: the two fix versions and the noise run judged against plain Opus (the chief of staff, 13 Nov 2026). It yields as on 14 Nov. The glossary's fuller entries have $40 a day on the Mac from 14 Nov 08:00, about 7 terms a day, in place of the $10 and $20 set earlier (the chief of staff, 13 Nov 2026, after the owner found the glossary pages still bare). The materials writer has $5 a day on the Mac from 15 Nov: the two driftwood pages in turn, the second the same day only if what's left covers a page (the chief of staff, 14 Nov 2026). The album ask waits for 16 Nov: this day has no room under the backstop for it (the chief of staff, 14 Nov 2026). AquaTome's own guides (write-ideas) have $4 on GitHub from 15 Nov, two a day: a guide came to $1.51 on 13 and 14 Nov, so $3 left $1.49 after the first and the second never started (the chief of staff, 14 Nov 2026).",
+      "note": "As on 14 Nov, and the troubleshooting board has $60 on the Mac: the two fix versions and the noise run judged against plain Opus (the chief of staff, 13 Nov 2026). It yields as on 14 Nov. The glossary's fuller entries have $40 a day on the Mac from 14 Nov 08:00, about 7 terms a day, in place of the $10 and $20 set earlier (the chief of staff, 13 Nov 2026, after the owner found the glossary pages still bare). The materials writer (stone, wood and substrate pages) has $8 a day on the Mac from 15 Nov, in place of the $5 set on 14 Nov, with the backstop $3 higher so no other line loses room: the two driftwood pages in turn, the second the same day only if what's left covers a page (the chief of staff, 14 and 15 Nov 2026). The album ask waits for 16 Nov: this day has no room under the backstop for it (the chief of staff, 14 Nov 2026). AquaTome's own guides (write-ideas) have $4 on GitHub from 15 Nov, two a day: a guide came to $1.51 on 13 and 14 Nov, so $3 left $1.49 after the first and the second never started (the chief of staff, 14 Nov 2026). The board spent $33.87 after midnight from a checkout 178 commits behind main, so its line is what it spent (nothing more of it runs today), the AI lead's end-to-end test of its quota road has $1 as quota-road-test, and the backstop is $314 (now $317 with the materials writer's $3): the engine's $270 and the $34 the board took, and room for the test, which yields like the board, to have its whole $1 over the $10 spare it keeps ($37.67 spent at 01:33 and $264.87 then held by the other lines left $1.46 under $314; the materials writer's $3 more raises the hold to $267.87 and the backstop to $317, which leaves the same $1.46; the chief of staff, 15 Nov 2026).",
       "mac": {
         "default": 4,
-        "backstop": 270,
+        "backstop": 317,
         "steps": {
           "gate": null,
           "moderate": null,
           "run": 105,
-          "chat-board": 60,
+          "chat-board": 34,
+          "quota-road-test": 1,
           "videos": 30,
           "summaries": 24,
           "review-backfill": 14,
@@ -263,7 +264,55 @@
           "album-ask": 0,
           "card-crops": 1,
           "glossary-entry": 40,
-          "material": 5,
+          "material": 8,
+          "write-ideas": 0
+        }
+      },
+      "github": {
+        "default": 4,
+        "backstop": 180,
+        "steps": {
+          "gate": null,
+          "moderate": null,
+          "localize": 75,
+          "fit-rewrite": 15,
+          "reader": 15,
+          "rewrite-vi": 12,
+          "review-backfill": 7,
+          "range": 6,
+          "localize-guides": 4,
+          "page-review": 12,
+          "autofix": 12,
+          "nightly-review": 4,
+          "write-ideas": 4
+        }
+      }
+    },
+    {
+      "from": "2026-11-15T06:00:00+07:00",
+      "note": "From 15 Nov 06:00 as from 00:00, with one change. The photo check has $22 on the Mac in place of $12, with the backstop $10 higher so no other line loses room, from 15 Nov 06:00 to the end of 17 Nov: the photo job asks the model 80 times a run in place of 40 those days, a sheet of about three photos each time (PHOTO_CHECK_LIMIT in the Mac's photo job, which the site lead sets and takes out on 18 Nov), so the 621 page heads no check has judged are through by about Tue 17 in place of Thu 19. A run of 80 sheets costs about $3.20 (about $0.04 a sheet), and the line also pays the videos' photo check, about $3.80 on 14 Nov. At most $30 more over the three days (the chief of staff, 15 Nov 2026). As from 00:00: As on 14 Nov, and the troubleshooting board has $60 on the Mac: the two fix versions and the noise run judged against plain Opus (the chief of staff, 13 Nov 2026). It yields as on 14 Nov. The glossary's fuller entries have $40 a day on the Mac from 14 Nov 08:00, about 7 terms a day, in place of the $10 and $20 set earlier (the chief of staff, 13 Nov 2026, after the owner found the glossary pages still bare). The materials writer (stone, wood and substrate pages) has $8 a day on the Mac from 15 Nov, in place of the $5 set on 14 Nov, with the backstop $3 higher so no other line loses room: the two driftwood pages in turn, the second the same day only if what's left covers a page (the chief of staff, 14 and 15 Nov 2026). The album ask waits for 16 Nov: this day has no room under the backstop for it (the chief of staff, 14 Nov 2026). AquaTome's own guides (write-ideas) have $4 on GitHub from 15 Nov, two a day: a guide came to $1.51 on 13 and 14 Nov, so $3 left $1.49 after the first and the second never started (the chief of staff, 14 Nov 2026). The board spent $33.87 after midnight from a checkout 178 commits behind main, so its line is what it spent (nothing more of it runs today), the AI lead's end-to-end test of its quota road has $1 as quota-road-test, and the backstop is $314 (now $317 with the materials writer's $3): the engine's $270 and the $34 the board took, and room for the test, which yields like the board, to have its whole $1 over the $10 spare it keeps ($37.67 spent at 01:33 and $264.87 then held by the other lines left $1.46 under $314; the materials writer's $3 more raises the hold to $267.87 and the backstop to $317, which leaves the same $1.46; the chief of staff, 15 Nov 2026).",
+      "mac": {
+        "default": 4,
+        "backstop": 327,
+        "steps": {
+          "gate": null,
+          "moderate": null,
+          "run": 105,
+          "chat-board": 34,
+          "quota-road-test": 1,
+          "videos": 30,
+          "summaries": 24,
+          "review-backfill": 14,
+          "check-photos": 22,
+          "review-backfill-97": 10,
+          "watermarks": 7,
+          "guide-photos": 7,
+          "traits": 6,
+          "gallery": 5,
+          "album-ask": 0,
+          "card-crops": 1,
+          "glossary-entry": 40,
+          "material": 8,
           "write-ideas": 0
         }
       },
@@ -289,10 +338,107 @@
     },
     {
       "from": "2026-11-16T00:00:00+07:00",
-      "note": "As on 14 Nov: the troubleshooting board's two days are over, and it has the small line again. The glossary's fuller entries have $40 a day on the Mac from 14 Nov 08:00, about 7 terms a day, in place of the $10 and $20 set earlier (the chief of staff, 13 Nov 2026, after the owner found the glossary pages still bare). The materials writer has $5 a day on the Mac from 15 Nov: the two driftwood pages in turn, the second the same day only if what's left covers a page (the chief of staff, 14 Nov 2026). The album ask has $2 a day on the Mac from 16 Nov, out of the $4 under the backstop: each album photo asked once whether it shows a photo tank, the whole fish, a fish filling a small part of it, 513 sheets at about $0.02, about five days (the chief of staff, 14 Nov 2026). AquaTome's own guides (write-ideas) have $4 on GitHub from 15 Nov, two a day: a guide came to $1.51 on 13 and 14 Nov, so $3 left $1.49 after the first and the second never started (the chief of staff, 14 Nov 2026).",
+      "note": "As on 14 Nov, and the troubleshooting board has $37 on the Mac for Monday's run (the chief of staff, 15 Nov 2026), with the backstop at $328 so that line is whole when the day starts: the board yields to the other lines' $281 and keeps $10 spare (281 + 10 + 37); calls before its run on lines not named, and the gate's, come out of its room. The glossary's fuller entries have $40 a day on the Mac from 14 Nov 08:00, about 7 terms a day, in place of the $10 and $20 set earlier (the chief of staff, 13 Nov 2026, after the owner found the glossary pages still bare). The materials writer (stone, wood and substrate pages) has $8 a day on the Mac from 15 Nov, in place of the $5 set on 14 Nov, with the backstop $3 higher so no other line loses room: the two driftwood pages in turn, the second the same day only if what's left covers a page (the chief of staff, 14 and 15 Nov 2026). The album ask has $2 a day on the Mac from 16 Nov, out of the $4 under the backstop: each album photo asked once whether it shows a photo tank, the whole fish, a fish filling a small part of it, 513 sheets at about $0.02, about five days (the chief of staff, 14 Nov 2026). AquaTome's own guides (write-ideas) have $4 on GitHub from 15 Nov, two a day: a guide came to $1.51 on 13 and 14 Nov, so $3 left $1.49 after the first and the second never started (the chief of staff, 14 Nov 2026). The place-name judge has $24 a day on GitHub from 16 Nov to 19 Nov, at most 300 names a cycle, and the translations' line $65 in place of $75, so the named lines stay inside GitHub's $180: about 1,200 names a day, the 3,985 judged by Thursday (the chief of staff, 15 Nov 2026). It is back on the default line from 20 Nov. The photo check has $22 on the Mac in place of $12, with the backstop $10 higher so no other line loses room, from 15 Nov 06:00 to the end of 17 Nov: the photo job asks the model 80 times a run in place of 40 those days, a sheet of about three photos each time (PHOTO_CHECK_LIMIT in the Mac's photo job, which the site lead sets and takes out on 18 Nov), so the 621 page heads no check has judged are through by about Tue 17 in place of Thu 19. A run of 80 sheets costs about $3.20 (about $0.04 a sheet), and the line also pays the videos' photo check, about $3.80 on 14 Nov. At most $30 more over the three days (the chief of staff, 15 Nov 2026).",
       "mac": {
         "default": 4,
-        "backstop": 270,
+        "backstop": 328,
+        "steps": {
+          "gate": null,
+          "moderate": null,
+          "run": 105,
+          "chat-board": 37,
+          "videos": 30,
+          "summaries": 24,
+          "review-backfill": 14,
+          "check-photos": 22,
+          "review-backfill-97": 10,
+          "watermarks": 7,
+          "guide-photos": 7,
+          "traits": 6,
+          "gallery": 5,
+          "album-ask": 2,
+          "card-crops": 1,
+          "glossary-entry": 40,
+          "material": 8,
+          "write-ideas": 0
+        }
+      },
+      "github": {
+        "default": 4,
+        "backstop": 180,
+        "steps": {
+          "gate": null,
+          "moderate": null,
+          "localize": 65,
+          "judge-places": 24,
+          "fit-rewrite": 15,
+          "reader": 15,
+          "rewrite-vi": 12,
+          "review-backfill": 7,
+          "range": 6,
+          "localize-guides": 4,
+          "page-review": 12,
+          "autofix": 12,
+          "nightly-review": 4,
+          "write-ideas": 4
+        }
+      }
+    },
+    {
+      "from": "2026-11-17T00:00:00+07:00",
+      "note": "From 17 Nov as the table for 16 Nov was before the board's Monday line (the chief of staff, 15 Nov 2026). As on 14 Nov: the troubleshooting board's two days are over, and it has the small line again. The glossary's fuller entries have $40 a day on the Mac from 14 Nov 08:00, about 7 terms a day, in place of the $10 and $20 set earlier (the chief of staff, 13 Nov 2026, after the owner found the glossary pages still bare). The materials writer (stone, wood and substrate pages) has $8 a day on the Mac from 15 Nov, in place of the $5 set on 14 Nov, with the backstop $3 higher so no other line loses room: the two driftwood pages in turn, the second the same day only if what's left covers a page (the chief of staff, 14 and 15 Nov 2026). The album ask has $2 a day on the Mac from 16 Nov, out of the $4 under the backstop: each album photo asked once whether it shows a photo tank, the whole fish, a fish filling a small part of it, 513 sheets at about $0.02, about five days (the chief of staff, 14 Nov 2026). AquaTome's own guides (write-ideas) have $4 on GitHub from 15 Nov, two a day: a guide came to $1.51 on 13 and 14 Nov, so $3 left $1.49 after the first and the second never started (the chief of staff, 14 Nov 2026). The place-name judge has $24 a day on GitHub from 16 Nov to 19 Nov, at most 300 names a cycle, and the translations' line $65 in place of $75, so the named lines stay inside GitHub's $180: about 1,200 names a day, the 3,985 judged by Thursday (the chief of staff, 15 Nov 2026). It is back on the default line from 20 Nov. The video titles' full run has $22 on the Mac on 17 Nov alone (video-titles-redo: every title the four languages show made again on Opus, 6,012 titles at about $0.0032 a title in batches of 40, about $19), and its per-title check $15 (video-titles-check: each written title read again for a fault of meaning on Opus, about $0.0022 a title, about $13), with the backstop $37 higher so no other line loses room. The video cycle writes new videos' titles under its own step, video-titles, on the default line, so the run's spend is the hand log's video-titles-redo and video-titles-check lines (the chief of staff, 16 Nov 2026). The photo check has $22 on the Mac in place of $12, with the backstop $10 higher so no other line loses room, from 15 Nov 06:00 to the end of 17 Nov: the photo job asks the model 80 times a run in place of 40 those days, a sheet of about three photos each time (PHOTO_CHECK_LIMIT in the Mac's photo job, which the site lead sets and takes out on 18 Nov), so the 621 page heads no check has judged are through by about Tue 17 in place of Thu 19. A run of 80 sheets costs about $3.20 (about $0.04 a sheet), and the line also pays the videos' photo check, about $3.80 on 14 Nov. At most $30 more over the three days (the chief of staff, 15 Nov 2026).",
+      "mac": {
+        "default": 4,
+        "backstop": 320,
+        "steps": {
+          "gate": null,
+          "moderate": null,
+          "run": 105,
+          "videos": 30,
+          "summaries": 24,
+          "review-backfill": 14,
+          "check-photos": 22,
+          "review-backfill-97": 10,
+          "watermarks": 7,
+          "guide-photos": 7,
+          "traits": 6,
+          "gallery": 5,
+          "album-ask": 2,
+          "card-crops": 1,
+          "glossary-entry": 40,
+          "material": 8,
+          "write-ideas": 0,
+          "video-titles-redo": 22,
+          "video-titles-check": 15
+        }
+      },
+      "github": {
+        "default": 4,
+        "backstop": 180,
+        "steps": {
+          "gate": null,
+          "moderate": null,
+          "localize": 65,
+          "judge-places": 24,
+          "fit-rewrite": 15,
+          "reader": 15,
+          "rewrite-vi": 12,
+          "review-backfill": 7,
+          "range": 6,
+          "localize-guides": 4,
+          "page-review": 12,
+          "autofix": 12,
+          "nightly-review": 4,
+          "write-ideas": 4
+        }
+      }
+    },
+    {
+      "from": "2026-11-18T00:00:00+07:00",
+      "note": "From 18 Nov as from 17 Nov before the photo check's three days: the photo job is back to 40 sheets a run, the photo check has its $12 again and the backstop its $273 (the chief of staff, 15 Nov 2026). From 17 Nov as the table for 16 Nov was before the board's Monday line (the chief of staff, 15 Nov 2026). As on 14 Nov: the troubleshooting board's two days are over, and it has the small line again. The glossary's fuller entries have $40 a day on the Mac from 14 Nov 08:00, about 7 terms a day, in place of the $10 and $20 set earlier (the chief of staff, 13 Nov 2026, after the owner found the glossary pages still bare). The materials writer (stone, wood and substrate pages) has $8 a day on the Mac from 15 Nov, in place of the $5 set on 14 Nov, with the backstop $3 higher so no other line loses room: the two driftwood pages in turn, the second the same day only if what's left covers a page (the chief of staff, 14 and 15 Nov 2026). The album ask has $2 a day on the Mac from 16 Nov, out of the $4 under the backstop: each album photo asked once whether it shows a photo tank, the whole fish, a fish filling a small part of it, 513 sheets at about $0.02, about five days (the chief of staff, 14 Nov 2026). AquaTome's own guides (write-ideas) have $4 on GitHub from 15 Nov, two a day: a guide came to $1.51 on 13 and 14 Nov, so $3 left $1.49 after the first and the second never started (the chief of staff, 14 Nov 2026). The place-name judge has $24 a day on GitHub from 16 Nov to 19 Nov, at most 300 names a cycle, and the translations' line $65 in place of $75, so the named lines stay inside GitHub's $180: about 1,200 names a day, the 3,985 judged by Thursday (the chief of staff, 15 Nov 2026). It is back on the default line from 20 Nov.",
+      "mac": {
+        "default": 4,
+        "backstop": 273,
         "steps": {
           "gate": null,
           "moderate": null,
@@ -309,7 +455,54 @@
           "album-ask": 2,
           "card-crops": 1,
           "glossary-entry": 40,
-          "material": 5,
+          "material": 8,
+          "write-ideas": 0
+        }
+      },
+      "github": {
+        "default": 4,
+        "backstop": 180,
+        "steps": {
+          "gate": null,
+          "moderate": null,
+          "localize": 65,
+          "judge-places": 24,
+          "fit-rewrite": 15,
+          "reader": 15,
+          "rewrite-vi": 12,
+          "review-backfill": 7,
+          "range": 6,
+          "localize-guides": 4,
+          "page-review": 12,
+          "autofix": 12,
+          "nightly-review": 4,
+          "write-ideas": 4
+        }
+      }
+    },
+    {
+      "from": "2026-11-20T00:00:00+07:00",
+      "note": "From 20 Nov as from 17 Nov, but the place-name judge's four days are over: it has the default line again and the translations their $75 (the chief of staff, 15 Nov 2026).",
+      "mac": {
+        "default": 4,
+        "backstop": 273,
+        "steps": {
+          "gate": null,
+          "moderate": null,
+          "run": 105,
+          "videos": 30,
+          "summaries": 24,
+          "review-backfill": 14,
+          "check-photos": 12,
+          "review-backfill-97": 10,
+          "watermarks": 7,
+          "guide-photos": 7,
+          "traits": 6,
+          "gallery": 5,
+          "album-ask": 2,
+          "card-crops": 1,
+          "glossary-entry": 40,
+          "material": 8,
           "write-ideas": 0
         }
       },
@@ -333,5 +526,18 @@
         }
       }
     }
-  ]
+  ],
+  "api": {
+    "note": "Billed money: what the chat's board spends on the chat's own Anthropic keys, paid from the API's credit, apart from the Mac's and GitHub's quota so it never takes the engine's room (src/billed.ts). Its tables are in force by their `from`, as the machines' are, so one day can be raised alone: a table from that day, and one from the next back down. A billed call is held at its worst before it goes, and a run stops at its line and says so (the chief of staff, 15 Nov 2026: $15 a day to start, raised for a day when a board needs it).",
+    "tables": [
+      {
+        "from": "2026-11-15T00:00:00+07:00",
+        "default": 0,
+        "backstop": 15,
+        "steps": {
+          "chat-board-billed": 15
+        }
+      }
+    ]
+  }
 }

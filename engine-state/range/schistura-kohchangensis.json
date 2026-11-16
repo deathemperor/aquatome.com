@@ -1,0 +1,98 @@
+{
+  "id": "schistura-kohchangensis",
+  "native": {
+    "input": "40948ea4643f07ed",
+    "at": "2026-11-14T17:19:02.525Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The ornate tiger sand loach, Pogonoschistura kohchangensis, is a nemacheilid loach from southeastern Thailand and southwestern Cambodia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The ornate tiger sand loach, Pogonoschistura kohchangensis, is a nemacheilid loach from southeastern Thailand and southwestern Cambodia.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from Koh Chang island plus Chon Buri, Rayong, Chanthaburi and Trat provinces, southeastern Thailand, and the northern end of the Cardamon mountain range, southwestern Cambodia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from Koh Chang island plus Chon Buri, Rayong, Chanthaburi and Trat provinces, southeastern Thailand, and the northern end of the Cardamon mountain range, southwestern Cambodia.",
+        "words": "Cambodia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Koh Chang",
+        "source": "seriouslyfish",
+        "quote": "Known from Koh Chang island plus Chon Buri, Rayong, Chanthaburi and Trat provinces, southeastern Thailand, and the northern end of the Cardamon mountain range, southwestern Cambodia.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Cardamon mountain range",
+        "source": "seriouslyfish",
+        "quote": "Known from Koh Chang island plus Chon Buri, Rayong, Chanthaburi and Trat provinces, southeastern Thailand, and the northern end of the Cardamon mountain range, southwestern Cambodia.",
+        "country": "KH",
+        "ok": true
+      },
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "It's also expected to occur in tributaries of the lower Mekong drainage in both Thailand and Cambodia.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Schistura kohchangensis",
+    "status": "ACCEPTED",
+    "taxonKey": 5205066,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "KH"
+    ],
+    "requests": 11,
+    "at": "2026-11-14T17:19:02.525Z"
+  }
+}

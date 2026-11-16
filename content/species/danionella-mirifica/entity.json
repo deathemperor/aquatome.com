@@ -9,6 +9,34 @@
     "asia",
     "myanmar"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This fish comes from Myanmar (former Burma).",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2359133,
+      "total": 0,
+      "fetched": "2026-11-14",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

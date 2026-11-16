@@ -12,6 +12,84 @@
     "rio-xingu",
     "xingu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Xingu",
+        "Iriri River"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Brazil, Rio Xingu.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Xingu"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "IUCN Red List: Scobinancistrus aureatus is endemic to Brazil and is distributed along the Xingu River, mainly in the Volta Grande region, as well as at the mouth of the Iriri River in the state of Pará.",
+          "countries": [],
+          "regions": [
+            "Iriri River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339351,
+      "total": 24,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "BR",
+          24
+        ]
+      ],
+      "cells": [
+        [
+          -54.84375,
+          -5.625,
+          6,
+          6
+        ],
+        [
+          -53.4375,
+          -7.03125,
+          5,
+          5
+        ],
+        [
+          -53.4375,
+          -5.625,
+          5,
+          5
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -119,6 +197,17 @@
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/scotcat/1f4b4a2cdd6c3c45.webp",
+      "thumb": "https://media.aquatome.com/scotcat/1f4b4a2cdd6c3c45-480.webp",
+      "width": 500,
+      "height": 298,
+      "licence": "dùng với sự cho phép",
+      "author": "Danny Blundell / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/scobinancistrus_aureatus.htm",
+      "caption": "Scobinancistrus aureatus",
+      "source": "scotcat"
+    },
+    {
       "url": "https://media.aquatome.com/scotcat/0fe7c7aad7bf0e29.webp",
       "thumb": "https://media.aquatome.com/scotcat/0fe7c7aad7bf0e29-480.webp",
       "width": 500,
@@ -134,17 +223,6 @@
       "thumb": "https://media.aquatome.com/scotcat/98dbcf675e9b4483-480.webp",
       "width": 500,
       "height": 326,
-      "licence": "dùng với sự cho phép",
-      "author": "Danny Blundell / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/scobinancistrus_aureatus.htm",
-      "caption": "Scobinancistrus aureatus",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/1f4b4a2cdd6c3c45.webp",
-      "thumb": "https://media.aquatome.com/scotcat/1f4b4a2cdd6c3c45-480.webp",
-      "width": 500,
-      "height": 298,
       "licence": "dùng với sự cho phép",
       "author": "Danny Blundell / ScotCat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/scobinancistrus_aureatus.htm",

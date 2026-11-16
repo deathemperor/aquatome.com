@@ -11,6 +11,89 @@
     "kapuas",
     "kalimantan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Kapuas",
+        "Borneo",
+        "Danau Sentarum",
+        "Kalimantan"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Vaillant's chocolate gourami, Sphaerichthys vaillanti, is a labyrinth fish that appears to be endemic to the Kapuas drainage in Indonesian Borneo.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Kapuas",
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It appears to be endemic to the Kapuas drainage where it's also been recorded from the Danau Sentarum lake system itself as well as further downstream near the city of Sintang.",
+          "countries": [],
+          "regions": [
+            "Danau Sentarum"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Their origin is Kalimantan, the Indonesian part of Borneo.",
+          "countries": [],
+          "regions": [
+            "Kalimantan"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394136,
+      "total": 10,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "ID",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          111.09375,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          111.09375,
+          0,
+          3,
+          3
+        ],
+        [
+          112.5,
+          0,
+          2,
+          2
+        ],
+        [
+          113.90625,
+          0,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

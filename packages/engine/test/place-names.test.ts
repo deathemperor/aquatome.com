@@ -2,7 +2,7 @@ import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { ENGLISH_PLACE_WORD, genericWordsInVietnamese, namePlacesVi, sweepPlaceNames } from '../src/place-names'
+import { ENGLISH_PLACE_WORD, genericWordsInVietnamese, kindTwice, namePlacesVi, sweepPlaceNames } from '../src/place-names'
 
 async function site(places: Record<string, { entity: object; name: string; altNames?: string[]; nameFixed?: boolean }>) {
   const root = await mkdtemp(join(tmpdir(), 'aq-place-names-'))
@@ -80,6 +80,27 @@ test('until then the sweep puts the generic word in Vietnamese, so no name keeps
   expect(await s.read('congo-river')).toMatchObject({ name: 'sông Congo', altNames: ['Congo River'] })
   expect(await s.read('own-lake')).toMatchObject({ name: 'Own Lake' })
   expect(await sweepPlaceNames(s.root)).toEqual([])
+})
+
+// The chief of staff, 14 Nov 2026: "dãy Tenasserim range" says its kind twice, once in Vietnamese and once in English. The
+// sweep keeps the Vietnamese word; "sông Rio Grande" is a river's own name and stays.
+test('a name that says its kind in Vietnamese and again in English keeps the Vietnamese word alone', async () => {
+  const s = await site({
+    'cardamon-mountain-range': { entity: { kind: 'region' }, name: 'dãy Cardamon range', altNames: ['Cardamon mountain range'] },
+    'mekong-river': { entity: { kind: 'river' }, name: 'sông Mekong River' },
+    'bangka-island': { entity: { kind: 'region' }, name: 'đảo Bangka Island' },
+    'riau-islands': { entity: { kind: 'region' }, name: 'quần đảo Riau Islands' },
+    'rio-grande': { entity: { kind: 'river' }, name: 'sông Rio Grande' },
+    'own-range': { entity: { kind: 'region' }, name: 'dãy Own range', nameFixed: true },
+  })
+  expect((await sweepPlaceNames(s.root)).sort()).toEqual(['bangka-island', 'cardamon-mountain-range', 'mekong-river', 'riau-islands'])
+  expect(await s.read('cardamon-mountain-range')).toMatchObject({ name: 'dãy Cardamon', altNames: ['Cardamon mountain range', 'dãy Cardamon range'] })
+  expect((await s.read('mekong-river')).name).toBe('sông Mekong')
+  expect((await s.read('bangka-island')).name).toBe('đảo Bangka')
+  expect((await s.read('riau-islands')).name).toBe('quần đảo Riau')
+  expect((await s.read('rio-grande')).name).toBe('sông Rio Grande')
+  expect((await s.read('own-range')).name).toBe('dãy Own range')
+  expect(['dãy Annamite', 'sông Rio Grande', 'hồ Tumba', 'Cross River State'].filter(n => kindTwice(n))).toEqual([])
 })
 
 test('the step reads the source\'s name, not what the sweep made of it, so "sông Red" can\'t stick', async () => {

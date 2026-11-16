@@ -229,11 +229,11 @@ struct FishIdView: View {
       if f.hasGuesses { Text("Có thể là") }
     }
     // While the chat is on: asking about it, with the guesses (never the photo).
-    if chat.on, f.hasGuesses, let route = Self.chat(f) {
+    if chat.on, f.hasGuesses, let route = Self.chat(f, fish: { handbook.item(at: $0)?.isFish }) {
       Section {
         NavigationLink(value: route) {
           Label {
-            if route.subject?.plant == true { Text("Hỏi về cây này") } else { Text("Hỏi về con cá này") }
+            if route.subject?.plant == true { Text("Hỏi về cây này") } else if route.subject?.fish == true { Text("Hỏi về con cá này") } else { Text("Hỏi về loài này") }
           } icon: {
             Image(systemName: "bubble.left.and.text.bubble.right.fill")
           }
@@ -249,7 +249,9 @@ struct FishIdView: View {
 
   /// The chat about this identification: its guesses as it words them ("Gần như chắc chắn Cá betta (cá xiêm), có thể
   /// Cá betta imbellis"), the first's page and photo.
-  static func chat(_ f: FishId.Identification) -> ChatRoute? {
+  /// `fish`: whether the page at a path is a fish's, nil where this index has no such page (then a fish, as the verdict
+  /// says).
+  static func chat(_ f: FishId.Identification, fish: (String) -> Bool? = { _ in nil }) -> ChatRoute? {
     guard let identified = Chat.Identified(f), let first = f.results.first else { return nil }
     let guesses = f.results.prefix(3).enumerated().map { i, g in
       let s = sure(g.confidence)
@@ -258,7 +260,8 @@ struct FishIdView: View {
     return ChatRoute(start: Chat.Start(from: .fishId, identified: identified),
                      subject: ChatSubject(plant: f.verdict == "plant", name: first.page?.name ?? name(first), sci: nil, img: nil,
                                           guesses: guesses.joined(separator: ", "),
-                                          second: f.results.dropFirst().first.map { $0.page?.name ?? name($0) }))
+                                          second: f.results.dropFirst().first.map { $0.page?.name ?? name($0) },
+                                          fish: first.page?.path.flatMap(fish) ?? true))
   }
 
   private func text(_ line: FishId.Line) -> String {

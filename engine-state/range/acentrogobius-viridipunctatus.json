@@ -1,0 +1,145 @@
+{
+  "id": "acentrogobius-viridipunctatus",
+  "native": {
+    "input": "5ab78d13ad3794f1",
+    "at": "2026-11-15T05:39:34.625Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "India.",
+        "words": "India",
+        "ok": false,
+        "why": "no sentence"
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "IN"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Acentrogobius viridipunctatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2376422,
+    "datasets": [
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        83
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        37
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        19
+      ],
+      [
+        "63b115a8-da75-4d45-92f5-d43d99de95f3",
+        13
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        12
+      ],
+      [
+        "701b3ecf-3c35-4373-81cc-a570d3be7368",
+        10
+      ],
+      [
+        "419e0d91-3510-485d-96f2-40499fa58495",
+        9
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        8
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        6
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        5
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        3
+      ],
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "b7dd8170-98a0-11de-b4d9-b8a03c50a862",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "6c226b8e-0e53-432b-87c5-0842022021e7",
+        2
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        2
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "18896efa-22df-4fbd-9782-42f47257e753",
+        1
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "83cbdde7-998f-4354-95de-72d885cc5863",
+        1
+      ],
+      [
+        "878298f7-6182-4a72-bdf6-9dd480d89713",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "a4202e55-050a-46a2-9c56-8b8507015ce7",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-14T17:19:02.525Z"
+  }
+}

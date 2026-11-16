@@ -488,7 +488,12 @@
       "author": "Horst Emscher",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:200105o05.jpg",
       "caption": "zur Aufnahmezeit ca. 2 Jahre altes, wahrscheinlich männliches Exemplar",
-      "thumb": "https://media.aquatome.com/commons/d851b82ca9fc1d16-480.webp"
+      "thumb": "https://media.aquatome.com/commons/d851b82ca9fc1d16-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/d851b82ca9fc1d16-large.webp",
+        "width": 974,
+        "height": 642
+      }
     }
   ],
   "videos": [],

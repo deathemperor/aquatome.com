@@ -78,6 +78,13 @@
           "min": 26,
           "max": 30
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 26,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -102,6 +109,10 @@
       {
         "source": "seriouslyfish",
         "value": 8.1
+      },
+      {
+        "source": "glaser",
+        "value": 12
       }
     ],
     "tankCm": [
@@ -123,6 +134,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/baryancistrus-beggini",
       "html": "<p>Known as L239 before description, Baryancistrus beggini is a small loricariid from the Orinoco and lower río Guaviare in Venezuela and Colombia. Its body and fins are uniformly black to brownish with a turquoise to bluish sheen. Placement in Baryancistrus is tentative. Territorial with conspecifics but somewhat delicate, it is not recommended for the general community aquarium.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l_239_ancistrinae_gen_sp_blue_en/",
+      "html": "<p>L 239 stays only 10–12 cm long. The fins are iridescent blue, and the rest of the body is blue-blackish. It originates from Venezuela.</p>"
     },
     {
       "key": "distribution",
@@ -155,10 +172,22 @@
       "html": "<ul><li>Temperature: 26–30°C (79–86°F)</li><li>pH: 5.5–7.5</li><li>Hardness: 1–10 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l_239_ancistrinae_gen_sp_blue_en/",
+      "html": "<p>Like many other species from the upper Orinoco, it prefers slightly warmer water than usual (26–28°C).</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/baryancistrus-beggini",
       "html": "<p>Gut analyses of wild specimens revealed the diet to be composed chiefly of periphyton and associated microorganisms, meaning this species is not as herbivorous as some other members of the genus (see 'Notes').</p><p>In the aquarium aufwuchs should be allowed to colonise all surfaces except the viewing pane so that the fish can browse naturally although the diet should of course be supplemented with high-quality sinking dried foods (preferably with added vegetable content), live or frozen bloodworm, mosquito larvae and similar, plus the occasional defrosted prawn or shrimp.</p><p>Home-made, gelatine-bound recipes containing a mixture of puréed fish food, shellfish, fruit and vegetables, are also proven to work well and in many ways represent the ideal staple diet since the ingredients can be altered at will.</p><p>When made well such foods contain a greater concentration and diversity of nutrients than any of the other options.</p><p>Baryancistrus spp. are often under-nourished and/or suffering from health issues post-importation and may require an extended period of quarantine and acclimatisation.</p><p>They also have a relatively high metabolic rate and may require several meals per day during the initial period.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l_239_ancistrinae_gen_sp_blue_en/",
+      "html": "<p>The species feeds mainly on plant material.</p>"
     },
     {
       "key": "behaviour",
@@ -173,6 +202,12 @@
       "html": "<p>Adult males develop relatively longer odontodes on the opercles and pectoral-fin spines, and possibly display a greater degree of blue pigmentation than females.</p><p>Sexually-mature females are slightly wider-bodied than males, this being more noticeable when gravid.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l_239_ancistrinae_gen_sp_blue_en/",
+      "html": "<p>Sexually mature males develop many odontodes (\"whiskers\" and on the pectoral spines).</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/baryancistrus-beggini",
@@ -183,6 +218,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/baryancistrus-beggini",
       "html": "<p>Prior to description this species was traded under the L-number L239.</p><p>It can be distinguished from other species in the genus and other hypostomines by its uniformly black to brownish body and fin colouration with a turquoise to bluish sheen, and the acutely bent shape of midventral body plates 3-5 which form a distinctive keel running along the body, above the pectoral fins.</p><p>Placement in Baryancistrus can only be considered tentative, however, since it exhibits several notable differences to other members of the grouping. This was noted by Lujan et al. in its description and it may be moved elsewhere in the future, pending results of more detailed comparative studies between related species.</p><p>The genus Baryancistrus can be distinguished from all other loricariids by possession of an enlarged membrane located posteriorly to the last branched dorsal-fin ray. This membrane may or may not reach the supporting structure of the adipose fin (it does so in B. beggini) and in this way members can be told apart from the genera Oligancistrus, Parancistrus, and Spectracanthicus, in which the dorsal and adipose fins are completely connected, and Hemiancistrus in which the membrane is not well-developed.</p><p>The family Loricariidae is the largest among catfishes with over 700 species described to date and many awaiting description. The latter are typically assigned a specific 'L' number by hobbyists and scientists alike in order to provide a basic means of identification, although in some cases several species have been referred to the same number, or multiple numbers have been used for different populations of a single taxon. All loricariids are also commonly referred to as 'pleco', 'plecostomus', or 'suckermouth armoured catfishes'.</p><p>At any rate Baryancistrus is currently considered a member of the tribe Ancistrini within Hypostominae and grouped in the Panaque clade of that tribe, close to Parancistrus and Hemiancistrus.</p><p>The sucking disc formed by the mouthparts is common to all representatives but both oral and dental morphology are highly variable depending on a given species' ecological adaptation(s), and some even practice xylophagy (wood-eating). Many are also facultative air-breathers, i.e., they possess the ability to respire atmospheric air if necessary.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l_239_ancistrinae_gen_sp_blue_en/",
+      "html": "<p>It was not possible so far to place the species in an existing genus, and the species seemed to be undescribed. Addendum: there is now no doubt that L239 is identical with the species described in 2009 under the name Baryancistrus beggini.</p><p>Once the fish are settled they are hardy and long-living. They have even been bred successfully in aquaria.</p>"
     },
     {
       "key": "references",
@@ -280,5 +321,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-15"
 }

@@ -1,18 +1,20 @@
 import type Anthropic from '@anthropic-ai/sdk'
 import { isTombstone, type Device, type Tank as SavedTank } from '@aq/schema/tanks'
+import { emailHash } from '../accounts/email'
 import { sameSiteOk, sessionOf, tokenOf } from '../accounts/session'
+import { TESTER_ADDRESS } from '../accounts/tester'
 import { loadStore } from '../accounts/tanks'
 import { accountDayKey } from '../comments/api'
 import { kvHealth } from '../fishid/api'
 import { clientFor, costOf, DEFAULT_MODEL, priceOf } from '../fishid/claude'
 import { healthyKeys, isApiError, loadKeys, rotate, type Attempt, type KeyEntry } from '../fishid/keys'
-import { ledgerClient, usdCap, type Stopped } from '../fishid/ledger'
+import { ledgerClient, usdCap, type Role, type Stopped } from '../fishid/ledger'
 import { relayFetch } from '../fishid/relay'
 import { turnsOf } from '../fishid/transcript'
 import { fileClashes } from './clash-store'
 import { handoverFor } from './handover'
 import { sectionSearch } from './section-search'
-import { answerQuestion, CHAT_LIMITS, CHAT_PRESENT, MAX_TOKENS, OPENING_TOKENS, type ChatRun, type Earlier, type Start } from './agent'
+import { answerQuestion, CHAT_LIMITS, CHAT_PRESENT, MAX_TOKENS, noThinking, OPENING_TOKENS, type ChatRun, type Earlier, type Start } from './agent'
 import type { ChatBlock } from './answer'
 import { handbookOf, type Handbook, type Lang, type Source } from './handbook'
 import { chatAccount, conversationKey, retryKey, secs, stopKey } from './store'
@@ -21,8 +23,8 @@ import { transcriptKey, type ChatRunRecord } from './transcript'
 
 /**
  * The chat (protocols/chat.openapi.json): GET /api/chat says whether it's on; POST asks one question in a conversation,
- * for signed-in readers only. Off unless CHAT is "1" (or "owner", on for the owner's accounts only) and everything it needs
- * is bound.
+ * for signed-in readers only. Off unless CHAT is "1" (or "owner", on for the owner's accounts and the test account only)
+ * and everything it needs is bound.
  *
  * - Who: the app's bearer, or the site's session cookie from the site's own pages (same-origin), as accounts checks
  *   them. No session is 401; a bearer that isn't a live app session never falls back to the cookie.
@@ -42,8 +44,8 @@ import { transcriptKey, type ChatRunRecord } from './transcript'
  */
 export type ChatEnv = {
   /**
-   * "1": chat is on. "owner": on for the owner's accounts only (OWNER_ACCOUNTS), as the owner's report is: anyone else,
-   * signed in or not, finds it off, the GET too.
+   * "1": chat is on. "owner": on for the owner's accounts (OWNER_ACCOUNTS) and the test account (accounts/tester.ts)
+   * only: anyone else, signed in or not, finds it off, the GET too.
    */
   CHAT?: string
   /** The owner's account ids, comma-separated (a Worker secret, as the dashboard reads it). */
@@ -146,19 +148,39 @@ export function callClaude(c: Anthropic, b: Anthropic.MessageCreateParamsNonStre
   const done = s.finalMessage().catch((e: unknown) => { throw e instanceof sdkError && !isApiError(e) ? Object.assign(e, { status: undefined }) : e })
   return Promise.race([done, bound]).finally(() => clearTimeout(timer))
 }
-/** On for this account: everyone's while CHAT is "1", the owner's alone while it is "owner". */
-export const askable = (env: ChatEnv, userId: string | undefined) => env.CHAT !== 'owner' || (userId !== undefined && (env.OWNER_ACCOUNTS ?? '').split(',').map(id => id.trim()).includes(userId))
+/** Who asks, as chat counts and tags it: an owner's account (OWNER_ACCOUNTS), the test account (accounts/tester.ts), or a reader. */
+export type { Role }
+/**
+ * The asker's role. Nobody signed in, or an owner's account, needs no query; anyone else, one lookup for a sign-in with
+ * the tester's address. A lookup that fails is logged and reads as a reader's: chat on for everyone stays on, and on for
+ * the owner, the tester finds it off until the next try.
+ */
+export async function roleOf(env: ChatEnv, userId: string | undefined): Promise<Role> {
+  if (userId === undefined) return 'reader'
+  if ((env.OWNER_ACCOUNTS ?? '').split(',').map(id => id.trim()).includes(userId)) return 'owner'
+  if (!TESTER_ADDRESS || !env.DB || !env.ACCOUNT_HMAC_KEY) return 'reader'
+  try {
+    const hash = await emailHash(env.ACCOUNT_HMAC_KEY, TESTER_ADDRESS)
+    return (await env.DB.prepare('SELECT 1 AS x FROM credentials WHERE user_id = ? AND email_hash = ? LIMIT 1').bind(userId, hash).first()) ? 'tester' : 'reader'
+  } catch (e) {
+    console.error('chat role:', e)
+    return 'reader'
+  }
+}
+/** On for this asker: everyone's while CHAT is "1"; while it is "owner", the owner's accounts' and the test account's. */
+export const askable = (env: ChatEnv, role: Role) => env.CHAT !== 'owner' || role !== 'reader'
 export const limit = (v: string | undefined, d: number) => (Number(v) > 0 ? Math.floor(Number(v)) : d)
 export const live = (env: ChatEnv): env is ChatEnv & Required<Pick<ChatEnv, 'ANTHROPIC_KEYS' | 'COMMENT_HMAC_KEY' | 'ACCOUNT_HMAC_KEY' | 'DB' | 'UPLOADS' | 'FISHID_LEDGER'>> =>
   (env.CHAT === '1' || env.CHAT === 'owner') && Boolean(env.ANTHROPIC_KEYS && env.COMMENT_HMAC_KEY && env.ACCOUNT_HMAC_KEY && env.DB && env.UPLOADS && env.FISHID_LEDGER)
 
 /**
  * The chat's most a question can cost, reserved at admission: every call's input past the trigger by half, all written to
- * cache, and every output in full; and the first line's call, whose input (the first message) is under the trigger.
+ * cache, and every output in full; and the first line's call, whose input (the first message) is under the trigger, and
+ * its output with the model's room to think.
  */
 export function chatWorstCost(model: string): number {
   const p = priceOf(model)
-  const line = CHAT_LIMITS.inputTokens * p.input + OPENING_TOKENS * p.output
+  const line = CHAT_LIMITS.inputTokens * p.input + (OPENING_TOKENS + noThinking(model).room) * p.output
   return (CHAT_LIMITS.inputTokens * 1.5 * Math.max(p.input, p.cacheWrite) + Math.max(CHAT_LIMITS.calls, CHAT_PRESENT.calls) * MAX_TOKENS * p.output + line) / 1e6
 }
 
@@ -263,7 +285,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   const maxTurns = limit(env.CHAT_MAX_TURNS, MAX_TURNS)
   if (req.method === 'GET') {
     if (!live(env)) return json({ on: false })
-    if (env.CHAT === 'owner' && !askable(env, (await sessionOf(req, env.DB, now).catch(() => null))?.userId)) return json({ on: false })
+    if (env.CHAT === 'owner' && !askable(env, await roleOf(env, (await sessionOf(req, env.DB, now).catch(() => null))?.userId))) return json({ on: false })
     const resting = !(await healthyKeys((await keysOf(env.ANTHROPIC_KEYS)).keys, kvHealth(env.AB), now.getTime())).length
     return json({ on: true, resting, perAccount, maxTurns, maxChars })
   }
@@ -275,8 +297,9 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   const bearer = req.headers.has('authorization')
   if (!bearer && tokenOf(req)?.via === 'cookie' && !sameSiteOk(req, true)) return json({ error: 'cross-origin' }, 403)
   const session = await sessionOf(req, env.DB, now)
-  // On for the owner only: anyone else finds it off, signed in or not, before anything is read or counted.
-  if (!askable(env, session?.userId)) return json({ error: 'chat_off' }, 503)
+  const role = await roleOf(env, session?.userId)
+  // On for the owner and the tester only: anyone else finds it off, signed in or not, before anything is read or counted.
+  if (!askable(env, role)) return json({ error: 'chat_off' }, 503)
   if (!session || (bearer && session.via !== 'bearer')) return json({ error: 'session' }, 401)
   const idem = req.headers.get('idempotency-key')?.trim().toLowerCase() ?? ''
   if (idem && !UUID.test(idem)) return json({ error: 'bad idempotency-key' }, 400)
@@ -325,7 +348,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   const ledger = ledgerClient(env.FISHID_LEDGER)
   const day = now.toISOString().slice(0, 10)
   const reader = `chat:acct:${(await accountDayKey(env.COMMENT_HMAC_KEY, session.userId, now)).slice(3)}`
-  const admitted = await ledger.admit({ day, reader, perReader: perAccount, perDay: limit(env.CHAT_PER_DAY, PER_DAY), usdCap: usdCap(env.FISH_ID_USD_PER_DAY), reserve: chatWorstCost(model), healthy: healthy.length > 0, kind: 'chat', key: idem ? stopKey(account, idem) : undefined })
+  const admitted = await ledger.admit({ day, reader, perReader: perAccount, perDay: limit(env.CHAT_PER_DAY, PER_DAY), usdCap: usdCap(env.FISH_ID_USD_PER_DAY), reserve: chatWorstCost(model), healthy: healthy.length > 0, kind: 'chat', role, key: idem ? stopKey(account, idem) : undefined })
     .catch(e => { console.error('chat ledger:', e); return null })
   if (!admitted) return json({ error: 'unavailable' }, 503)
   if (!admitted.ok && admitted.error === 'cancelled') return json(stopBody(admitted), 410)
@@ -530,11 +553,11 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   }
 
   const since = (t: number | undefined) => (t === undefined ? undefined : t - now.getTime())
-  /** What the question said and did (transcript.ts): what the reader asked and got, never who they are. */
+  /** What the question said and did (transcript.ts): what the reader asked and got, and the asker's role, never who they are. */
   const transcript = (done: { status: number; body: Record<string, unknown> }, t: ChatRun): ChatRunRecord => {
     const s = t.spent
     return {
-      v: 1, conversation: q.conversation, n: (conv?.turns.length ?? 0) + 1, at: now.toISOString(), lang: q.lang, model,
+      v: 1, conversation: q.conversation, n: (conv?.turns.length ?? 0) + 1, at: now.toISOString(), role, lang: q.lang, model,
       question: q.question, outcome: done.status === 200 ? 'ok' : String(done.body.error), ms: clock() - began,
       // From the question's arrival: to the run's start (the session, the conversation, the ledger); on a stream, to the
       // text's first piece and its last, the run's end, and `done` (the turn saved).

@@ -13,6 +13,93 @@
     "republic-of-the-congo",
     "lower-congo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD",
+        "CG"
+      ],
+      "regions": [
+        "Congo",
+        "Pool Malebo"
+      ],
+      "sources": [
+        "aquatome",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Democratic Republic of Congo, Republic of the Congo.",
+          "countries": [
+            "CD",
+            "CG"
+          ],
+          "regions": []
+        },
+        {
+          "source": "aquatome",
+          "quote": "Loài này sống ở Pool Malebo (Stanley Pool), hạ lưu sông Congo và các nhánh sông đổ vào đoạn này.",
+          "countries": [],
+          "regions": [
+            "Congo",
+            "Pool Malebo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371088,
+      "total": 43,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "CD",
+          33
+        ],
+        [
+          "CG",
+          6
+        ],
+        [
+          "CF",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          12.65625,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          12.65625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          14.0625,
+          -5.625,
+          34,
+          34
+        ],
+        [
+          14.0625,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          14.0625,
+          4.21875,
+          4,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

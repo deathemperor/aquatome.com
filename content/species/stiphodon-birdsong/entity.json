@@ -13,6 +13,40 @@
     "papua-new-guinea",
     "milne-bay"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PG"
+      ],
+      "regions": [
+        "Halmahera",
+        "Fergusson Island"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Its current known range extends eastwards from Halmahera Island around the northern coastline of Papua New Guinea as far as Fergusson Island, off the latter's eastern tip.",
+          "countries": [
+            "PG"
+          ],
+          "regions": [
+            "Halmahera",
+            "Fergusson Island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2376125,
+      "total": 0,
+      "fetched": "2026-11-15",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

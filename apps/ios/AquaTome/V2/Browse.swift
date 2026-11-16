@@ -31,9 +31,12 @@ struct BrowseHome: View {
   var body: some View {
     let s = handbook.shelves
     let top = featuredItems(s)
-    // Its first 21, then "Xem tất cả": only those come off the shelves below.
+    // Saved: its first 21; read last: its first 30; each then "Xem tất cả". Only those come off the shelves below.
     let saved = Array(savedShown.filter { !top.map(\.path).contains($0.path) }.prefix(HandbookShelves.Shown.saved))
-    let recent = recentShown.filter { r in !(top + saved).contains { $0.path == r.path } }
+    let above = Set((top + saved).map(\.path))
+    let recent = Array(recentShown.lazy.filter { !above.contains($0.path) }.prefix(HandbookShelves.Shown.recent))
+    // "Xem tất cả" once more were read than the row's 30, or past five where the row stacks (the accessibility sizes).
+    let recentMore = recentShown.count > HandbookShelves.Shown.recent || (size.isAccessibilitySize && recent.count > 5)
     // A page on one shelf only, the first it's on (its zoom starts there).
     let onTop = Set((top + saved + recent).map(\.path))
     NavigationStack(path: $path) {
@@ -45,7 +48,7 @@ struct BrowseHome: View {
           }
           if !top.isEmpty { featured(top) }
           if !saved.isEmpty { columns("Đã lưu để đọc sau", saved, more: Browse.saved) }
-          if !recent.isEmpty { columns("Đọc gần đây", recent) }
+          if !recent.isEmpty { columns("Đọc gần đây", recent, more: recentMore ? Browse.recent : nil) }
           if !handbook.keptItems.isEmpty { chips([(String(localized: "Đã tải để đọc offline"), handbook.keptItems.count, Browse.kept)]) }
           if !s.groups.isEmpty {
             VStack(alignment: .leading, spacing: 12) {
@@ -122,7 +125,7 @@ struct BrowseHome: View {
   }
 
   private func holdShelves() {
-    recentShown = handbook.recent(nil)
+    recentShown = handbook.recent(nil, limit: ReadingList.recentMax)
     savedShown = handbook.saved(nil)
   }
 
@@ -272,7 +275,8 @@ struct BrowseHome: View {
           ForEach(items) { item in
             NavigationLink(value: item) {
               VStack(alignment: .leading, spacing: 8) {
-                V2Photo(src: item.img, box: item.imgBox)
+                // A card: the fish clear of its edges where the picture has a fish's box; none (a tank, kit), centred.
+                V2Photo(src: item.img, box: item.imgBox, clear: true)
                   .aspectRatio(1.8, contentMode: .fit)
                   .overlay { if item.img == nil { Image(systemName: item.kind.symbol).font(.title2).foregroundStyle(.secondary).accessibilityHidden(true) } }
                   .clipShape(.rect(cornerRadius: 16, style: .continuous))
@@ -407,7 +411,7 @@ private struct GroupTile: View {
   }
 
   var body: some View {
-    V2Photo(src: group.img, box: group.imgBox, ground: colour) { colour = $0 }
+    V2Photo(src: group.img, box: group.imgBox, ground: colour, clear: true) { colour = $0 }
       // No photo: the kind's mark on the colour, as a row's, not an empty block.
       .overlay { if group.img == nil { Image(systemName: HandbookIndex.Kind.fish.symbol).font(.title2).foregroundStyle(.white.opacity(0.4)).accessibilityHidden(true) } }
       // No fade with no photo to fade: it dimmed the mark under a name on two lines.
@@ -442,11 +446,11 @@ private struct FeaturedCard: View {
       // At the accessibility sizes the words would cover the photo: they go under it, on its colour.
       if size.isAccessibilitySize {
         VStack(spacing: 0) {
-          V2Photo(src: item.img, box: item.imgBox, ground: colour) { colour = $0 }.frame(height: 200)
+          V2Photo(src: item.img, box: item.imgBox, ground: colour, clear: true) { colour = $0 }.frame(height: 200)
           words.frame(maxWidth: .infinity, alignment: .leading).background(colour)
         }
       } else {
-        V2Photo(src: item.img, box: item.imgBox, ground: colour) { colour = $0 }
+        V2Photo(src: item.img, box: item.imgBox, ground: colour, clear: true) { colour = $0 }
           .modifier(WordsOnPhoto(colour: colour, edge: .bottom, height: height, fade: 44) { words })
       }
     }
@@ -456,7 +460,7 @@ private struct FeaturedCard: View {
 
   private var words: some View {
     VStack(alignment: .leading, spacing: 3) {
-      Text(verbatim: item.kind.title).font(.caption.weight(.bold)).textCase(.uppercase).opacity(0.8)
+      Text(verbatim: item.kindTitle).font(.caption.weight(.bold)).textCase(.uppercase).opacity(0.8)
       Text(verbatim: item.name).font(.title3.weight(.heavy)).lineLimit(size.isAccessibilitySize ? nil : 2).multilineTextAlignment(.leading)
     }
     .foregroundStyle(.white)

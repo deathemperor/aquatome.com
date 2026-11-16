@@ -1,0 +1,81 @@
+{
+  "id": "youtube-EReEvfJgglY",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=EReEvfJgglY",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-14",
+  "video": {
+    "youtubeId": "EReEvfJgglY",
+    "title": "Building an 8ft Tall Paludarium w/ Living Wall (EP2)",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 1394,
+    "publishedAt": "2025-02-16",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWv-UY_FGKYO0_1Qnx2bQU2b",
+      "position": 2
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/EReEvfJgglY/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Nephrolepis exaltata"
+    ],
+    "gear": [
+      {
+        "category": "den",
+        "t": 1297
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Gọt keo thành dáng đá",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/EReEvfJgglY/p2-eC1jdXR0ZXIuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/EReEvfJgglY/p2-eC1jdXR0ZXIuanBn-480.webp",
+          "width": 960,
+          "height": 549,
+          "licence": "Public domain",
+          "author": "Evan-Amos",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Box-cutter.jpg",
+          "caption": "Dao rọc giấy lưỡi to, dùng để gọt keo thành dáng đá."
+        }
+      },
+      {
+        "heading": "Trộn và phủ xi măng",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/EReEvfJgglY/p4-0cnVjdGlvbi5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/EReEvfJgglY/p4-0cnVjdGlvbi5qcGc-480.webp",
+          "width": 960,
+          "height": 1280,
+          "licence": "CC BY-SA 4.0",
+          "author": "Johnnybam",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sand_and_Cement_Mixing_for_Construction.jpg",
+          "caption": "Đống hỗn hợp xi măng trộn cát được xúc bằng xẻng trên nền phẳng."
+        }
+      },
+      {
+        "heading": "Lắp vào bể và định hướng bố cục",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/EReEvfJgglY/p6-NldHVwMTMuLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/EReEvfJgglY/p6-NldHVwMTMuLmpwZw-480.webp",
+          "width": 960,
+          "height": 399,
+          "licence": "CC BY-SA 3.0",
+          "author": "JDowns",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:OfficeSetup13..jpg",
+          "caption": "Bể paludarium có vách phủ rêu và cây mọc xanh phía trên mặt nước."
+        }
+      }
+    ]
+  }
+}

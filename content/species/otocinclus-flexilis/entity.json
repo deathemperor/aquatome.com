@@ -15,128 +15,6 @@
     "argentina",
     "parana"
   ],
-  "dataCard": {
-    "tempC": [
-      {
-        "source": "planetcatfish",
-        "value": {
-          "min": 20,
-          "max": 25
-        }
-      }
-    ],
-    "ph": [
-      {
-        "source": "planetcatfish",
-        "value": {
-          "min": 6.5,
-          "max": 7.8
-        }
-      }
-    ],
-    "gh": [
-      {
-        "source": "planetcatfish",
-        "value": {
-          "min": 2,
-          "max": 25
-        }
-      }
-    ],
-    "sizeCm": [
-      {
-        "source": "planetcatfish",
-        "value": 5.5
-      }
-    ]
-  },
-  "sections": [
-    {
-      "key": "quickFacts",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1350",
-      "html": "<ul><li>Scientific name: Otocinclus flexilis Cope, 1894</li><li>Common name: Peppered Oto</li><li>Synonyms: Macrotocinclus flexilis, Otocinclus fimbriatus</li><li>IUCN Red List: Least Concern (last assessed 2018)</li></ul>"
-    },
-    {
-      "key": "distribution",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1350",
-      "html": "<p>South America: La Plata basin, including Uruguay, Paraná (Middle and Lower Paraná) and Paraguay. Type locality: Rio Jacuhy [Jacuí], Rio Grande do Sul, Brazil.</p>"
-    },
-    {
-      "key": "waterConditions",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1350",
-      "html": "<ul><li>Temperature: 20–25°C</li><li>pH: 6.5–7.8</li><li>Hardness: 2–25 dGH</li></ul>"
-    },
-    {
-      "key": "dimorphism",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1350",
-      "html": "<p>Females are larger and broader, especially when viewed from above.</p>"
-    },
-    {
-      "key": "reproduction",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1350",
-      "html": "<p>There is no breeding report.</p>"
-    },
-    {
-      "key": "references",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1350",
-      "html": "<p>Proceedings of the American Philosophical Society v. 33, pp 97, Pl. 8 [7] (figs. 13, 13a-b).</p>"
-    }
-  ],
-  "photos": [],
-  "videos": [
-    {
-      "youtubeId": "yiv7xCw06EM",
-      "title": "Otocinclus flexilis （オトシンクルス・フレキシリス）",
-      "durationSec": 59,
-      "lang": "ja"
-    },
-    {
-      "youtubeId": "_p-MCMmysO8",
-      "title": "Otocinclus flexilis 花椒小精靈",
-      "durationSec": 31,
-      "lang": "en"
-    },
-    {
-      "youtubeId": "Q9FZDhF5FxQ",
-      "title": "Otocinclus flexilis",
-      "durationSec": 88,
-      "lang": "en"
-    },
-    {
-      "youtubeId": "PehtRp5PRyA",
-      "title": "Hisonotus thayeri　（ヒソノートゥス・セイヤリー）とOtocinclus flexilis （オトシンクルス・フレキシリス）",
-      "durationSec": 27,
-      "lang": "ja"
-    }
-  ],
-  "productSlots": [
-    {
-      "category": "thuc-an",
-      "keywords": [
-        "thức ăn cá otocinclus",
-        "rong tảo cho cá oto"
-      ]
-    },
-    {
-      "category": "suoi",
-      "keywords": [
-        "sưởi bể cá nhỏ"
-      ]
-    },
-    {
-      "category": "loc",
-      "keywords": [
-        "lọc bể cá thủy sinh nhỏ"
-      ]
-    }
-  ],
-  "updatedAt": "2026-11-13",
   "range": {
     "native": {
       "countries": [
@@ -310,5 +188,193 @@
         ]
       ]
     }
-  }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.8
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 2,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 5.5
+      },
+      {
+        "source": "scotcat",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1350",
+      "html": "<ul><li>Scientific name: Otocinclus flexilis Cope, 1894</li><li>Common name: Peppered Oto</li><li>Synonyms: Macrotocinclus flexilis, Otocinclus fimbriatus</li><li>IUCN Red List: Least Concern (last assessed 2018)</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/otocinclus_flexilis.htm",
+      "html": "<ul><li>Common name: Imitator Sucker Catfish</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1350",
+      "html": "<p>South America: La Plata basin, including Uruguay, Paraná (Middle and Lower Paraná) and Paraguay. Type locality: Rio Jacuhy [Jacuí], Rio Grande do Sul, Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/otocinclus_flexilis.htm",
+      "html": "<p>South America: Brazil, Rio Jacuí, Rio Grande do Sul. Type locality: Rio Jacuhy [Jacuí], Rio Grande do Sul, Brazil.</p><p>Otocinclus flexilis is endemic to the Patos Lagoon basin, Rio Grande do Sul, Brazil.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/otocinclus_flexilis.htm",
+      "html": "<p>Requires cool waters in the aquarium as sustained high values can be problematic for this species. A planted tank is best as it is kind to plants but will keep the algae at bay. Can be a bit territorial with other fish but do well together in groups.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1350",
+      "html": "<ul><li>Temperature: 20–25°C</li><li>pH: 6.5–7.8</li><li>Hardness: 2–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/otocinclus_flexilis.htm",
+      "html": "<p>Algae eater, tablet foods, lettuce, flake and small live and frozen foods.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1350",
+      "html": "<p>Females are larger and broader, especially when viewed from above.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1350",
+      "html": "<p>There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/otocinclus_flexilis.htm",
+      "html": "<p>This species (and one other) was removed from Otocinclus into a new genus, Macrotocinclus, by Schaffer (1997) and some publications use this change but it is not widespread at present (2011). The recent paper (2010) by Lehmann, P., F. Mayer and R.E. Reis have resurrected Otocinclus arnoldi from the La Plata basin from the synonymy of O. flexilis and is thus a species in its own right based on three distinguishing features: the possession of five branched pectoral-fin rays, the larger number of enlarged odontodes on the tip of the parieto-supraoccipital posterior process, and having the prootic involved in the contact with the hyomandibular articular condyle.</p><p>Etymology: The specific name flexilis: Latin for pliant or flexible, allusion not explained nor evident.</p><p>IUCN Red List: The main threat is the loss of habitat quality, mainly in the tributary streams of the Jacui River basin. Even so, it is frequent and abundant. As there is no measurable evidence of threats to the species, it has been categorised as Least Concern (LC), (IUCN 2022).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1350",
+      "html": "<p>Proceedings of the American Philosophical Society v. 33, pp 97, Pl. 8 [7] (figs. 13, 13a-b).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/otocinclus_flexilis.htm",
+      "html": "<ul><li>Baensch, H.A. and R. Riehl 1985 Aquarien atlas. Band 2. Mergus, Verlag für Natur- und Heimtierkunde GmbH, Melle, Germany. 1216 p.</li><li>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Otocinclus flexilis. The IUCN Red List of Threatened Species 2022.</li><li>Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944.</li><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Lehmann, P., F. Mayer and R.E. Reis, 2010. Re-validation of Otocinclus arnoldi Regan and reappraisal of Otocinclus phylogeny (Siluriformes: Loricariidae). Neotrop. Ichthyol. 8(1):57-68.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/c952b11ad6b42b7d.webp",
+      "thumb": "https://media.aquatome.com/scotcat/c952b11ad6b42b7d-480.webp",
+      "width": 500,
+      "height": 281,
+      "licence": "dùng với sự cho phép",
+      "author": "Nick Ridout / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/otocinclus_flexilis.htm",
+      "caption": "Otocinclus flexilis",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "yiv7xCw06EM",
+      "title": "Otocinclus flexilis （オトシンクルス・フレキシリス）",
+      "durationSec": 59,
+      "lang": "ja"
+    },
+    {
+      "youtubeId": "_p-MCMmysO8",
+      "title": "Otocinclus flexilis 花椒小精靈",
+      "durationSec": 31,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Q9FZDhF5FxQ",
+      "title": "Otocinclus flexilis",
+      "durationSec": 88,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "PehtRp5PRyA",
+      "title": "Hisonotus thayeri　（ヒソノートゥス・セイヤリー）とOtocinclus flexilis （オトシンクルス・フレキシリス）",
+      "durationSec": 27,
+      "lang": "ja"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá otocinclus",
+        "rong tảo cho cá oto"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bể cá thủy sinh nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-14"
 }

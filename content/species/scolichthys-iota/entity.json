@@ -6,6 +6,26 @@
   "genus": "Scolichthys",
   "group": "livebearers",
   "places": [],
+  "range": {
+    "records": {
+      "taxonKey": 2349717,
+      "total": 4,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "GT",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -90,
+          15.46875,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -28,7 +48,38 @@
       "html": "<p>Males attain a maximum length of only 1.5 cm, females get almost double of that length. The number of dark stripes on the flanks of the males varies individually.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/ba2b3b7b41506895.webp",
+      "thumb": "https://media.aquatome.com/glaser/ba2b3b7b41506895-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/scolichthys_iota_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/868540adbbdd6629.webp",
+      "thumb": "https://media.aquatome.com/glaser/868540adbbdd6629-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/scolichthys_iota_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/247b68a8de005586.webp",
+      "thumb": "https://media.aquatome.com/glaser/247b68a8de005586-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/scolichthys_iota_en/",
+      "source": "glaser"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

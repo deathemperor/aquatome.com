@@ -14,7 +14,7 @@ const LOOP = {
 const YT_LOOP = {
   src: 'https://media.aquatome.com/loops/paracheirodon-axelrodi-1.mp4', poster: 'https://media.aquatome.com/loops/paracheirodon-axelrodi-1.webp',
   w: 1080, h: 1080, seconds: 8, licence: 'CC BY 3.0', licenceUrl: 'https://creativecommons.org/licenses/by/3.0/', author: 'A channel',
-  source: 'https://www.youtube.com/watch?v=XeeAEokdrR0', title: 'A title',
+  source: 'https://www.youtube.com/watch?v=XeeAEokdrR0', title: 'A title', frame: 'fill',
 }
 const YT_RECORD = { cut: { from: 266, to: 275 }, checkedAt: '2026-11-08', snapshot: 'https://web.archive.org/web/20261108154552/https://www.youtube.com/watch?v=XeeAEokdrR0' }
 const calendar: Curation = CurationSchema.parse({
@@ -44,7 +44,8 @@ test('Hôm nay gets the days from yesterday on, each pick at its address in the 
   const vi = await index('vi')
   expect(vi.home.days?.map(d => d.date)).toEqual(['2026-11-09', '2026-11-10'])
   const [mon, tue] = vi.home.days!
-  expect(mon).toEqual({ date: '2026-11-09', fish: pathOf(vi, 'paracheirodon-axelrodi'), img: IMG, guide: expect.stringMatching(/^\/vi\/huong-dan\/.+\/$/) })
+  // Its guide names no photo: the card shows the picture the guide's page opens on.
+  expect(mon).toEqual({ date: '2026-11-09', fish: pathOf(vi, 'paracheirodon-axelrodi'), img: IMG, guide: expect.stringMatching(/^\/vi\/huong-dan\/.+\/$/), guideImg: expect.stringMatching(/^https:\/\/media\.aquatome\.com\/.+\.webp$/) })
   expect(tue!.fish).toBe(pathOf(vi, 'flowerhorn-cichlid'))
   expect(tue!.story).toEqual({ path: tue!.guide, eyebrow: 'Bể đầu tiên', title: 'Set bể từ đầu' })
 })
@@ -82,7 +83,7 @@ test('a fish with a loop carries it in every language that lists it, without the
   expect((await index('vi')).items.filter(i => i.loop).length).toBe(2)
 })
 
-test("a loop cut from YouTube reaches the app with its title for the credit, and without the licence record", async () => {
+test("a loop cut from YouTube reaches the app with its title for the credit and how a card frames it, and without the licence record", async () => {
   expect((await index('vi')).items.find(i => i.id === 'paracheirodon-axelrodi')?.loop).toEqual(YT_LOOP)
 })
 

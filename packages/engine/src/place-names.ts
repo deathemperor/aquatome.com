@@ -25,19 +25,36 @@ export function genericWordsInVietnamese(name: string): string {
   return name
 }
 
+/**
+ * A Vietnamese kind word with the English word for the same kind in one name, "dãy Cardamon range": the English word, to
+ * drop. Rule (b) as the chief of staff narrowed it (14 Nov 2026): "sông Rio Grande" (a river's own name) and a plural
+ * said twice are left alone. The real-content test holds every place to none.
+ */
+const KIND_PAIRS: [RegExp, RegExp][] = [[/(?<![\p{L}])dãy(?![\p{L}])/iu, /\s*\b(?:mountain\s+)?(?:ranges?|mountains)\b/i], [/(?<![\p{L}])sông(?![\p{L}])/iu, /\s*\brivers?\b/i], [/(?<![\p{L}])hồ(?![\p{L}])/iu, /\s*\blakes?\b/i], [/(?<![\p{L}])đảo(?![\p{L}])/iu, /\s*\bislands?\b/i]]
+export function kindTwice(name: string): RegExp | undefined {
+  return KIND_PAIRS.find(([vi, en]) => vi.test(name) && en.test(name))?.[1]
+}
+
 const withName = (t: Translation, name: string): Translation => TranslationSchema.parse({ ...t, name, altNames: [...new Set([...t.altNames, t.name])].filter(n => n !== name) })
 /** The name as its source wrote it, if the sweep put its generic word in Vietnamese: what the writer reads, and what it keeps. */
 const sourceName = (t: Translation) => t.altNames.find(a => a !== t.name && genericWordsInVietnamese(a) === t.name) ?? t.name
 
-/** Every place's name with no generic word left in English (each cycle, sweep.ts), where no owner fixed it. The places changed. */
+/**
+ * Every place's name with no generic word left in English and no kind said twice (kindTwice), each cycle (sweep.ts),
+ * where no owner fixed it. The places changed.
+ */
 export async function sweepPlaceNames(root: string): Promise<string[]> {
   const dir = join(root, 'content/places')
   const changed: string[] = []
   for (const id of (await readdir(dir).catch(() => [] as string[])).sort()) {
     const file = join(dir, id, 'vi.json')
     const t = JSON.parse(await readFile(file, 'utf8').catch(() => '{}')) as Translation
-    if (!t.name || t.nameFixed || !ENGLISH_PLACE_WORD.test(t.name)) continue
-    await writeFile(file, `${JSON.stringify(withName(t, genericWordsInVietnamese(t.name)), null, 2)}\n`)
+    if (!t.name || t.nameFixed) continue
+    const twice = kindTwice(t.name)
+    if (!twice && !ENGLISH_PLACE_WORD.test(t.name)) continue
+    // A kind said twice keeps its Vietnamese word: "dãy Cardamon range" is "dãy Cardamon".
+    const name = twice ? t.name.replace(twice, '').replace(/\s+/g, ' ').trim() : genericWordsInVietnamese(t.name)
+    await writeFile(file, `${JSON.stringify(withName(t, name), null, 2)}\n`)
     changed.push(id)
   }
   return changed

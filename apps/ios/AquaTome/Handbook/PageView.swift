@@ -43,6 +43,8 @@ struct PageView: View {
   @State private var pieces: [NativePage.Piece]?
   @State private var tried = false
   @State private var onWeb = false
+  /// The heading it was opened at (a chat section's "Đọc tiếp").
+  @State private var heading: String?
   /// The name under the page's photo on the screen: the bar's name hidden, not said twice. In view at first where the
   /// page says when it scrolls away (iOS 18 on): a page opens on its name, and the bar shouldn't show it then fade.
   @State private var nameInView: Bool = {
@@ -60,12 +62,19 @@ struct PageView: View {
     }
   }
 
+  /// The web page's address, at the heading it was opened at.
+  private var atHeading: URL {
+    guard let heading, var c = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return url }
+    c.fragment = heading
+    return c.url ?? url
+  }
+
   @ViewBuilder private var page: some View {
     let native = handbook.drawsItself(item) && !onWeb
     Group {
       if native, let pieces {
         NativePage(pieces: pieces, facts: facts(inPage: true), put: inPagePut ? { putting = true } : nil, ask: chat.on ? ChatRoute(about: item) : nil,
-                   web: { onWeb = true }, nameInView: { nameInView = $0 }, path: item.path, at: at, stillPhoto: item.img,
+                   web: { onWeb = true }, nameInView: { nameInView = $0 }, path: item.path, heading: heading, at: at, stillPhoto: item.img,
                    underBar: lighter, scrolled: { s in withAnimation(.easeInOut(duration: 0.2)) { scrolled = s } }, navigator: trying, sources: sources)
       } else if native && !tried {
         // Its photo and name while the page is read: a card zoomed into a screen with only a spinner on it, black in dark mode.
@@ -76,13 +85,18 @@ struct PageView: View {
           .accessibilityIdentifier("page-head")
       } else {
         // The site's tools save to "Bể của tôi": here, to the app's tanks (PageBridge).
-        WebPage(url: url, lang: handbook.lang, offline: $offline, failed: $failed, store: tanks.storeForPages(), saved: { tanks.mergeFromPage($0) }, open: openScreen)
+        WebPage(url: atHeading, lang: handbook.lang, offline: $offline, failed: $failed, store: tanks.storeForPages(), saved: { tanks.mergeFromPage($0) }, open: openScreen)
           // On the page alone: on the whole screen, it would take the place of the facts' own (an outer id wins).
           .accessibilityIdentifier("page")
           .ignoresSafeArea(edges: .bottom)
       }
     }
       .task(id: item.path) {
+        // Taken at once, whether the app draws the page or the web does: it's for this visit alone.
+        if let at = handbook.openingAt, handbook.item(at: at.path)?.path == item.path {
+          handbook.openingAt = nil
+          heading = at.heading
+        }
         // Opened before the index said the app draws this kind: the web page, for this visit (not a spinner later).
         guard handbook.drawsItself(item), !tried else { tried = true; return }
         let traits = item.kind == .fish ? FactsCard.traits(item.facts) : nil
@@ -101,7 +115,7 @@ struct PageView: View {
       .navigationTitle(item.name)
       .navigationBarTitleDisplayMode(.inline)
       // A Hôm nay post's ✕ (v2), after the page's buttons: a toolbar applied inside theirs comes after them. On the lighter
-      // top, on its dark disc over the photo, as a fish post's.
+      // top, on its dark disc over the photo (a fish post's is in iOS's glass at rest from iOS 26).
       .v2PostCloseButton(lighter ? nil : closePost)
       .toolbar(when: lighter && closePost != nil) {
         ToolbarItem(placement: .topBarTrailing) {
@@ -230,8 +244,8 @@ struct PageView: View {
     .v2Glass(scrolled)
   }
 
-  /// White on a dark circle over the photo, in a 44-point tap area; past it, iOS's glass around it (`v2Glass`), as a fish
-  /// page's.
+  /// White on a dark circle over the photo, in a 44-point tap area; past it, iOS's glass around it (`v2Glass`). A fish
+  /// page's are in iOS's glass at rest too from iOS 26 (15 Nov); whether a guide's follow is Design's to say.
   private func round(_ symbol: String) -> some View {
     Image(systemName: symbol)
       .font(.body.weight(.semibold))

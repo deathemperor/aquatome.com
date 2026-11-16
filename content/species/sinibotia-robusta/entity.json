@@ -10,6 +10,74 @@
     "china",
     "zhu-jiang"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Zhu Jiang",
+        "Liu Jiang",
+        "Gui Jiang"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Kansu loach, Sinibotia robusta, is a botiid loach from the Zhu Jiang (Pearl River) system in Guangxi, southern China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Zhu Jiang"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "S. robusta has been recorded from several other tributary drainages of the Zhu Jiang system including the Liu Jiang and Gui Jiang.",
+          "countries": [],
+          "regions": [
+            "Liu Jiang",
+            "Gui Jiang"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2367825,
+      "total": 3,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "CN",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          106.875,
+          22.5,
+          1,
+          1
+        ],
+        [
+          108.28125,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          22.5,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

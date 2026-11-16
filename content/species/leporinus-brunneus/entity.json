@@ -22,9 +22,11 @@
       ],
       "regions": [
         "Orinoco",
-        "Casiquiare"
+        "Casiquiare",
+        "Rio Negro"
       ],
       "sources": [
+        "glaser",
         "seriouslyfish"
       ],
       "quotes": [
@@ -39,6 +41,14 @@
           "regions": [
             "Orinoco",
             "Casiquiare"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Found in the basins of the Orinoco river and the rio Negro. Origin: Venezuela.",
+          "countries": [],
+          "regions": [
+            "Rio Negro"
           ]
         }
       ]

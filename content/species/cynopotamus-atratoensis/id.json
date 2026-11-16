@@ -1,0 +1,28 @@
+{
+  "slug": "doublespot-riverdog",
+  "name": "Doublespot Riverdog",
+  "altNames": [
+    "Riverdog",
+    "Cynopotamus"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Cynopotamus atratoensis bisa mencapai panjang total sekitar 35 cm. Nama umum yang diusulkan: Doublespot Riverdog.</p>",
+    "beforeYouBuy:glaser": "<p>Tetra predator dari genus Cynopotamus sangat jarang diimpor karena ikan ini mudah stres dan tidak tahan perjalanan. Delapan ekor berukuran 18–22 cm pernah diimpor dari Venezuela dan kondisinya sangat sehat.</p><p>Bersama C. essequibensis, C. magdalenae, dan C. venezuelae, spesies ini termasuk dalam satu kelompok ikan yang penampilan luarnya sangat mirip. Mereka hanya bisa dibedakan dari jumlah sisik, jumlah jari-jari sirip, dan sebagainya. C. atratoensis dan C. venezuelae terutama nyaris tidak bisa dibedakan. C. venezuelae punya jari-jari sirip anal sedikit lebih sedikit, jadi ikan yang diimpor tadi kemungkinan besar adalah C. atratoensis.</p>",
+    "waterConditions:glaser": "<p>Kesadahan dan pH air tidak terlalu berpengaruh, tetapi ikan ini tampaknya lebih suka suhu yang sedikit lebih tinggi dari biasanya, yaitu 26–28 °C.</p>",
+    "diet:glaser": "<p>Cynopotamus adalah tetra predator yang memangsa ikan-ikan lain yang berukuran kecil.</p>",
+    "notes:glaser": "<p>Cynopotamus: dari bahasa Yunani kuno, artinya \"anjing sungai\". atratoensis: dari lokasi tipenya, Rio Atrato di Kolombia. essequibensis: dari Sungai Essequibo di Guyana. magdalenae: dari Rio Magdalena di Kolombia. venezuelae: dari Venezuela.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.85
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-15"
+  }
+}

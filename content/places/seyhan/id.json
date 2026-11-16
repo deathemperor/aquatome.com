@@ -3,6 +3,12 @@
   "name": "Seyhan",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-15T05:37:07.346Z",
+    "why": "The place is the Seyhan River in Turkey, which an Indonesian atlas would call \"Sungai Seyhan\", so the bare \"Seyhan\" leaves out the kind word \"Sungai\"."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

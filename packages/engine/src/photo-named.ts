@@ -18,8 +18,11 @@
  * trade name ("traded as B. sp. 'micros'", "sold as R. wilpita"), "spp." in a sentence about the genus ("Vaillantella spp.
  * are easily told apart"), a file code in capitals ("SP A0154"), and a plant page's own form ("Bucephalandra sp. 'Red'").
  */
+import { closeSync, openSync, readSync } from 'node:fs'
+import { dirname, join } from 'node:path'
 import { photoFitsHead, type Photo } from '@aq/schema'
 import { cardWorthy, type Verdicts } from './curation'
+import { snapshotName } from './snapshot'
 
 export const SPECIES = 0
 export const CF = 1
@@ -31,7 +34,7 @@ export type Named = typeof SPECIES | typeof CF | typeof GENUS
  * anabatoides"; knownNames), for a file named as another. `codes`: the fish's own L, LDA, C or CW numbers (`lNumber`).
  */
 export type NamedPage = { sci: string; latin?: string[]; known?: Set<string>; codes?: string[] }
-export type NamedPhoto = { sourceUrl?: string; caption?: string }
+export type NamedPhoto = { sourceUrl?: string; caption?: string; sourceCaption?: string; source?: string }
 
 /** The source's name for the photo: a Commons file's name, or the last part of the source page's address. */
 export function sourceTitle(sourceUrl: string | undefined): string {
@@ -43,6 +46,35 @@ export function sourceTitle(sourceUrl: string | undefined): string {
 }
 
 const flat = (s: string) => s.replace(/[‘’“”]/g, "'").replace(/\s+/g, ' ').trim()
+
+/**
+ * The source page's own title, from the copy the engine keeps of it (sources/<source>/<snapshotName>.md, as guide-titles.ts
+ * reads it), for a photo from a source we read. A shop's copied listing or a renamed page keeps an old address while its
+ * title names the fish it shows (the chief of staff, 2026-11-14: Betta raja's shop page, at
+ * "betta-anabatoides-wild-type-bettas-1", is titled "Betta Raja"). A former name given in brackets ("Moema hellneri
+ * (= M. cf. ortegai)") is left out. None where the copy is missing or is another address's (planetcatfish's addresses
+ * differ only by their query).
+ */
+export function storedTitles(sources: string): (p: NamedPhoto) => string | undefined {
+  const seen = new Map<string, string | undefined>()
+  const read = (file: string): string => {
+    let fd: number | undefined
+    try { fd = openSync(file, 'r'); const b = Buffer.alloc(2048); return b.subarray(0, readSync(fd, b, 0, 2048, 0)).toString('utf8') } catch { return '' } finally { if (fd !== undefined) closeSync(fd) }
+  }
+  const bare = (u: string) => u.trim().replace(/\/+$/, '')
+  return p => {
+    if (!p.source || !p.sourceUrl || /^https?:\/\/commons\.wikimedia\.org\//.test(p.sourceUrl)) return undefined
+    const key = `${p.source} ${p.sourceUrl}`
+    if (!seen.has(key)) {
+      let name: string
+      try { name = snapshotName(p.sourceUrl) } catch { seen.set(key, undefined); return undefined }
+      const head = read(join(sources, p.source, `${name}.md`))
+      const url = /^url: (.+)$/m.exec(head)?.[1], title = /^title: (.+)$/m.exec(head)?.[1]
+      seen.set(key, url && title && bare(url) === bare(p.sourceUrl) ? flat(title.replace(/\(\s*=[^)]*\)/g, ' ')) : undefined)
+    }
+    return seen.get(key)
+  }
+}
 const word = (s: string) => s.toLowerCase().replace(/^['"(]+|['".,;:)]+$/g, '')
 
 /**
@@ -51,7 +83,7 @@ const word = (s: string) => s.toLowerCase().replace(/^['"(]+|['".,;:)]+$/g, '')
  */
 const TRADE = /\b(?:traded|sold|exported|imported|offered|marketed|known) as\b[^;]*|\btrade as\b[^;]*|\btrade names?\b[^;]*/gi
 /** "Genus sp." or "spp.", lower case: "SP A0154" is a file code. */
-const SP = /(?:^|[\s(,;:])([A-Za-z][a-z]*\.?)\s+(spp?)\b\.?/g
+const SP = /(?:^|[\s(,;:])([A-Za-z][A-Za-z]*\.?)\s+(spp?)\b\.?/g
 const CF_ = /(?:^|[\s(,;:])cf\b\.?\s*['"]?[a-z]/
 /** "aff.": by convention another fish, close to this one (none on main, 2026-11-14). */
 const AFF = /(?:^|[\s(,;:])aff\b\.?\s*['"]?[a-z]/
@@ -133,6 +165,13 @@ function namesAnother(title: string, page: NamedPage): boolean {
   return !own.some(n => n[1] === two[1] || (!!n[1] && words.includes(n[1])))
 }
 
+/** Whether a source page's title says which fish it shows: this one (or a synonym), another the site has a page for, or a form. */
+function namesAFish(title: string, page: NamedPage): boolean {
+  const t = flat(title).toLowerCase()
+  const mine = [page.sci, ...(page.latin ?? [])].some(n => { const [g, e] = flat(n).toLowerCase().split(' '); return !!g && !!e && t.includes(`${g} ${e}`) })
+  return mine || namesAnother(title, page) || classOf(title, page, false) !== SPECIES
+}
+
 /** A caption in Vietnamese is ours (the album step writes them), not the source's words: its letters only Vietnamese has. */
 const OURS = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i
 
@@ -140,7 +179,7 @@ const OURS = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễ
  * Words that keep a caption from plainly naming its photo's subject: a hedge ("cf.", "aff.", "sp.", "possibly", "?"), a
  * denial ("not", "unlike", "misidentified"), a choice ("or", "vs"), or another fish beside it ("with", "and", "among").
  */
-const HEDGE = /\b(?:cf|aff|spp?|not|unlike|misidentified|mislabell?ed|possibly|probably|perhaps|maybe|likely|presumably|apparently|uncertain|unsure|unclear|doubtful|questionable|or|vs|versus|think|hybrids?|with|and|among|beside|alongside|plus)\b|[?&]/i
+const HEDGE = /\b(?:cf|aff|spp?|not|unlike|misidentified|mislabell?ed|possibly|probably|perhaps|maybe|likely|presumably|apparently|uncertain|unsure|unclear|doubtful|questionable|or|vs|versus|think|hybrids?|with|and|among|beside|alongside|plus|isn'?t|isnt|similar|rather|instead|resembl\w*|confused)\b|\bc\.\s?f\b|[?&]/i
 
 /** The site's other fish (or plants) as a caption may write them: genera, and "x. epithet" initials to their full names. */
 const shapes = new WeakMap<Set<string>, { genera: Set<string>; initials: Map<string, Set<string>> }>()
@@ -173,7 +212,7 @@ function plainlyThis(caption: string, page: NamedPage): boolean {
   const own = [page.sci, ...(page.latin ?? [])].map(n => flat(n).toLowerCase().split(' ')).filter(([g, e]) => !!g && !!e && /^[a-z]+$/.test(e))
   const ownGenera = new Set(own.map(([g]) => g!))
   const { genera, initials } = shapesOf(page.known ?? new Set())
-  const words = t.split(' ').map(w => w.replace(/^['"(]+|[)'",;:]+$/g, ''))
+  const words = t.split(' ').map(w => (/^\(?[A-Z]\.$/.test(w) ? w.replace(/^\(/, '') : w.replace(/^['"(]+|[)'",;:.]+$/g, '')))
   let mine = -1
   for (let i = 0; i < words.length; i++) {
     const a = words[i]!, b = (words[i + 1] ?? '').toLowerCase().replace(/\.$/, '')
@@ -186,6 +225,8 @@ function plainlyThis(caption: string, page: NamedPage): boolean {
       if (ours && mine < 0) mine = i
       continue
     }
+    // Another fish's genus anywhere, alone too ("Colossoma macropomum. Piaractus"): not this fish alone.
+    if (/^[A-Z][a-z]+$/.test(a) && genera.has(g) && !ownGenera.has(g)) return false
     if (!/^[A-Z][a-z]+\.?$/.test(a) || !/^[a-z]+$/.test(b)) continue
     if (own.some(([og, oe]) => og === g && oe === b)) { if (mine < 0) mine = i; continue }
     if (genera.has(g) && !ownGenera.has(g)) return false
@@ -200,12 +241,18 @@ function plainlyThis(caption: string, page: NamedPage): boolean {
  * whatever the file's name says (the chief of staff, 2026-11-14: the Colossoma's new head is described as "Schwarzer Pacu
  * (Colossoma macropomum), Tierpark Hellabrunn", in a file whose name says Piaractus).
  */
-export function namedAs(p: NamedPhoto, page: NamedPage): Named {
-  const caption = OURS.test(p.caption ?? '') ? '' : (p.caption ?? '')
+export function namedAs(p: NamedPhoto, page: NamedPage, stored?: string): Named {
+  // The source's own description where we keep it beside our caption (`sourceCaption`, from the album step's intake), else
+  // the caption unless it's ours.
+  const caption = p.sourceCaption ?? (OURS.test(p.caption ?? '') ? '' : (p.caption ?? ''))
   const said = classOf(caption, page, true)
   if (said === SPECIES && plainlyThis(caption, page)) return SPECIES
-  if (namesAnother(sourceTitle(p.sourceUrl), page)) return GENUS
-  const named = Math.max(classOf(sourceTitle(p.sourceUrl), page, false), said) as Named
+  // The source page's own title stands for its address where it says which fish it is: this one, another the site has a
+  // page for, or a "sp.", "cf." or "aff." form. A title that names no fish (a shop's listing, an article) leaves the
+  // address to decide.
+  const title = stored && namesAFish(stored, page) ? stored : sourceTitle(p.sourceUrl)
+  if (namesAnother(title, page)) return GENUS
+  const named = Math.max(classOf(title, page, false), said) as Named
   if (named === CF && DOUBT.test(caption)) return GENUS
   return named
 }
@@ -242,7 +289,6 @@ type Names = { scientificName?: string; synonyms?: string[]; lNumber?: string }
  */
 export async function namedOn(content: string): Promise<(id: string) => (p: NamedPhoto) => Named> {
   const { readdir, readFile } = await import('node:fs/promises')
-  const { join } = await import('node:path')
   const pages = new Map<string, { kind: string; e: Names }>()
   for (const kind of ['species', 'plants', 'breeds']) {
     for (const id of await readdir(join(content, kind)).catch(() => [] as string[])) {
@@ -252,10 +298,11 @@ export async function namedOn(content: string): Promise<(id: string) => (p: Name
   }
   const of = (kind: string) => knownNames([...pages.values()].filter(p => p.kind === kind).map(p => p.e))
   const known = { species: of('species'), plants: of('plants') }
+  const stored = storedTitles(join(dirname(content), 'sources'))
   return id => {
     const p = pages.get(id)
     if (!p?.e.scientificName) return () => SPECIES
     const page = { sci: p.e.scientificName, latin: p.e.synonyms, known: p.kind === 'plants' ? known.plants : known.species, codes: (p.e.lNumber ?? '').split(/\s*[,;]\s*/).filter(Boolean) }
-    return photo => namedAs(photo, page)
+    return photo => namedAs(photo, page, stored(photo))
   }
 }

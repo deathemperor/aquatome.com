@@ -1,0 +1,124 @@
+{
+  "id": "orisarma-intermedium",
+  "scientificName": "Orisarma intermedium",
+  "order": "Decapoda",
+  "family": "Sesarmidae",
+  "genus": "Orisarma",
+  "group": "other",
+  "places": [
+    "asia",
+    "taiwan"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/sesarmops_intermedium_flower_crab_en/",
+      "html": "<p>This crab is known under the trading name “Flower Crab”. It will not outgrow 4 cm, measured by its carapace. These crustaceans have two large, red claws, which could weigh up to half the total body weight.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/sesarmops_intermedium_flower_crab_en/",
+      "html": "<p>Origin: Taiwan.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/sesarmops_intermedium_flower_crab_en/",
+      "html": "<p>To thrive these crustaceans need an addition of salt in the water. One teaspoon for 10 litres of water should be sufficient.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/sesarmops_intermedium_flower_crab_en/",
+      "html": "<p>The Flower Crab needs a dry surface in their tank. Their tank should be thoroughly covered because crabs and lobsters are notorious escape artists, who will find every small opening to get out of their artificial environment in order to dry up and perish somewhere in the room.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/sesarmops_intermedium_flower_crab_en/",
+      "html": "<p>In nature they feed mainly on algae and other organic material, which they catch with smaller pincers. Feeding in captivity is no problem at all; they eat all available fish food including flake and pellets.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/1677bd46cfedf28b.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 4.0",
+      "author": "自己拍攝",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Benkeigani02.jpg",
+      "caption": "自己拍攝",
+      "thumb": "https://media.aquatome.com/commons/1677bd46cfedf28b-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/1677bd46cfedf28b-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/commons/539aa55ccb900047.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY 4.0",
+      "author": "Se Lena",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Orisarma_intermedium.jpg",
+      "caption": "A species of Orisarma",
+      "thumb": "https://media.aquatome.com/commons/539aa55ccb900047-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/2b5d7a3b7f5d8a7d.webp",
+      "width": 960,
+      "height": 540,
+      "licence": "CC BY-SA 4.0",
+      "author": "Ka23 13",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:SesarmopsIntermedium_JUL2015_FHD.jpg",
+      "caption": "Sesarmops intermedium",
+      "thumb": "https://media.aquatome.com/commons/2b5d7a3b7f5d8a7d-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/64cecf8d2eba928b.webp",
+      "width": 960,
+      "height": 960,
+      "licence": "CC BY 4.0",
+      "author": "ノボホショコロトソ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Orisarma_intermedium_in_Kochi,_Kochi_01.jpg",
+      "caption": "高知県にてベンケイガニ",
+      "thumb": "https://media.aquatome.com/commons/64cecf8d2eba928b-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "4BDZ5iVugBM",
+      "title": "ベンケイガニの放仔",
+      "durationSec": 45,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cua cảnh có nắp đậy",
+        "bể bán cạn nuôi cua"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên cho cua",
+        "thức ăn mảnh cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-14"
+}

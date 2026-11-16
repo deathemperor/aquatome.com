@@ -45,30 +45,30 @@
   "dataCard": {
     "tempC": [
       {
-        "source": "bwaquatics",
-        "value": {
-          "min": 24,
-          "max": 28
-        }
-      },
-      {
         "source": "seriouslyfish",
         "value": {
           "min": 22,
           "max": 30
         }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
       }
     ],
     "ph": [
       {
-        "source": "bwaquatics",
+        "source": "seriouslyfish",
         "value": {
-          "min": 5,
-          "max": 6.5
+          "min": 4,
+          "max": 6
         }
       },
       {
-        "source": "seriouslyfish",
+        "source": "bwaquatics",
         "value": {
           "min": 4,
           "max": 6
@@ -77,19 +77,15 @@
     ],
     "sizeCm": [
       {
-        "source": "bwaquatics",
-        "value": 3.8
-      },
-      {
         "source": "seriouslyfish",
         "value": 3.5
+      },
+      {
+        "source": "bwaquatics",
+        "value": 3
       }
     ],
     "difficulty": [
-      {
-        "source": "bwaquatics",
-        "value": 5
-      },
       {
         "source": "seriouslyfish",
         "value": 4
@@ -115,8 +111,8 @@
     {
       "key": "quickFacts",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-bangka-wild-type-bettas",
-      "html": "<p>Wild caught Betta burdigala from Bangka, from the Betta coccina complex. They are red with a very nice blue and green iridescence on the body and fins. They resemble Betta uberis without the spot in the middle, and the finnage is longer than that of B. uberis.</p><p>IUCN Red List: Critically Endangered (an extremely high risk of extinction in the wild).</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-red-wild-type-bettas",
+      "html": "<ul><li>From the Betta coccina complex.</li><li>IUCN Red List: Critically Endangered (extremely high risk of extinction in the wild).</li><li>Origin: wild caught (Bangka Island, Indonesia).</li><li>Temperament: moderately aggressive.</li><li>Bubble nester.</li></ul>"
     },
     {
       "key": "quickFacts",
@@ -131,16 +127,28 @@
       "html": "<p>Endemic to the island of Bangka just off the east coast of Sumatra, Bangka-Belitung province, Indonesia with type locality '4 kilometers north of Bikang village on road from Koba to Toboali, Bangka, Indonesia'.</p><p>The similar-looking fish from Indonesian Borneo previously known in the hobby as B. cf. burdigala 'Kubu', B. sp. 'Sukadana' and B. sp. 'Pangkalanbun' were officially described as B. uberis in 2006.</p><p>B. burdigala has been listed on the IUCN Red List of Threatened Species under the category 'Vulnerable' since 1996.</p>"
     },
     {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-red-wild-type-bettas",
+      "html": "<p>Betta burdigala is endemic to the peat swamps of Bangka Island, off the east coast of Sumatra, Indonesia. Its name comes from Burdigala, the Latin name for Bordeaux, for its deep wine-red color. Clearing of peat swamp for oil palm has left it Critically Endangered.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-burdigala",
       "html": "<p>A stenotypic inhabitant of peat swamps and associated blackwater streams.</p><p>The dense canopy of branches above means very little light penetrates the surface of such environments, and riparian vegetation also tends to grow thickly.</p><p>The water is typically stained darkly with humic acids and other chemicals released by decaying organic material.</p><p>The dissolved mineral content is generally negligible and pH can be as low as 3.0 or 4.0.</p><p>The substrate is usually covered by fallen leaves, branches and submerged tree roots and at certain times of year the fish may be forced to survive within the moist leaf litter for several weeks as permanent water is not always available.</p>"
     },
     {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-red-wild-type-bettas",
+      "html": "<p>Flooded peat swamp forest and blackwater streams on Bangka Island.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-bangka-wild-type-bettas",
-      "html": "<p>Max size: 1.2 - 1.5 inches (about 3-3.8 cm). Recommended 1 pair per 5 gallons (about 19 litres).</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-red-wild-type-bettas",
+      "html": "<p>Recommended 1 pair per 20 litres.</p>"
     },
     {
       "key": "aquariumSize",
@@ -157,8 +165,8 @@
     {
       "key": "waterConditions",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-bangka-wild-type-bettas",
-      "html": "<ul><li>TDS: 60 - 100</li><li>pH: 5.0-6.5</li><li>Temperature: 24-28°C (75-82°F)</li></ul>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-red-wild-type-bettas",
+      "html": "<ul><li>TDS: 60 to 100</li><li>pH: 4.0 to 6.0</li><li>Temperature: 24–28°C</li></ul>"
     },
     {
       "key": "waterConditions",
@@ -173,10 +181,16 @@
       "html": "<p>Likely to prey on insects and other small invertebrates in nature.</p><p>Captive fish will normally accept dried products once they're recognised as edible, but should be offered plenty of small live or frozen foods such as Daphnia, Artemia or bloodworm regularly to ensure development of optimum colour and condition.</p><p>Take care not to overfeed as Betta spp. seem particularly prone to obesity.</p>"
     },
     {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-red-wild-type-bettas",
+      "html": "<p>Carnivorous. Fed on live blackworms, frozen bloodworms and pellets.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-bangka-wild-type-bettas",
-      "html": "<p>Moderately aggressive; males can be territorial when establishing breeding grounds. However, because of their small size, you can keep multiple pairs as long as you have enough space. Recommended: 1 pair per 5 gallons (about 19 litres).</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-red-wild-type-bettas",
+      "html": "<p>Moderately aggressive. Males can be territorial when setting up a breeding site, but because of their small size multiple pairs can be kept with enough space and cover.</p>"
     },
     {
       "key": "behaviour",
@@ -191,10 +205,16 @@
       "html": "<p>Males are more colourful and develop longer fins than females as they mature.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-red-wild-type-bettas",
+      "html": "<p>On males, blue and green iridescence is spread across many flank scales rather than concentrated in one spot.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-bangka-wild-type-bettas",
-      "html": "<p>Bubblenester.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-red-wild-type-bettas",
+      "html": "<p>Bubble nester. The male builds a small bubble nest at the surface, usually under a floating leaf, inside a floating cave or among plants, and places the eggs in it after spawning. Pairs can often stay together in a well-planted tank; remove the female if the male keeps chasing her. Eggs hatch in 24 to 48 hours, and the fry are free-swimming about 3 days later. Start them on infusoria, then move to baby brine shrimp. Keep the surface calm so the nest stays intact.</p>"
     },
     {
       "key": "reproduction",
@@ -209,6 +229,12 @@
       "html": "<p>B. burdigala is exceptionally rare in the aquarium hobby with many fishes traded or pictured as such being B. uberis or other congener.</p><p>It's included in the Betta coccina group of closely-related species within the genus, an assemblage which mostly comprises small, red-coloured fishes with the exceptions of B. hendra, B. persephone and B. miniopinna which are greenish or darkish.</p><p>Identifying some of the red ones correctly is not always easy as external patterning can be both similar and confusingly variable.</p><p>Members possess the following shared characters: small adult size (up to 40 mm / 1.6 in SL); either red or black body colouration; presence of midlateral blotch in some species; 9 abdominal vertebrae (vs. 10-12 in all other Betta species); stenotypic inhabitants of forest peat swamps.</p><p>Within the group B. burdigala is most similar to B. uberis in appearance and these two can be difficult to tell apart, although they're more easily distinguished from congeners as both possess a noticeably short, rounded snout.</p><p>Some forms of B. uberis possess an iridescent bluish to greenish lateral blotch and may be more easily mistaken for other species such as B. brownorum and B. coccina but others do not and in some cases can only be separated from B. burdigala by morphometric characters.</p><p>B. burdigala can be told apart from all other members of the group by the following combination of characters:</p><p>No lateral blotch; body reddish; dorsal-fin rays 14-15; anal-fin rays 24-26; 11-11½ subdorsal scales; 5+6 principal caudal-fin rays; presence of iridescent green patches on the proximal third of the dorsal and anal fins.</p><p>In addition it can be differentiated from B. uberis by the following characters: absence of iridescent green mid-lateral body patch in males (vs. of presence, but not always); less dorsal-fin rays (14-15, vs. 14-17); less subdorsal scales (11-11½, vs. 12-13½); less predorsal scales (15-16, vs. 18-20); less postdorsal scales (8, vs. 9-11); greater postdorsal length (19.1-23.5 % SL, vs. 13.5-17.8); shorter dorsal-fin base (26.8-28.6 % SL, vs. 30.0-37.2); greater postorbital length (16.7-17.4 % SL, vs. 13.4-16.8); greater snout length (42-45 % postorbital length, vs. 29-42 %).</p><p>The genus Betta is the most speciose within the family Osphronemidae with almost 70 recognised members and looks set to grow further with new ones continuing to be described on a regular basis since the turn of the century.</p><p>Member species have successfully adapted to inhabit a variety of ecological niches from stagnant ditches to flowing hill streams including some extreme environments such as highly acidic peat swamp forests.</p><p>The referral of members to a number of groups containing closely-related species is now generally accepted but largely based on morphological and behavioural characters.</p><p>Molecular phylogenetic work may therefore prove useful in more precisely determining relationships between these fishes.</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth.</p><p>So-called due to its maze-like structure this organ allows the fish to breathe atmospheric air to a certain extent.</p><p>Comprising paired suprabranchial organs formed via expansion of the epibranchial (upper) section of the first gill arch and housed in a chamber above the gills, it contains many highly-vascularised, folded flaps of skin which function as a large respiratory surface.</p><p>Its structure varies in complexity between species, tending to be better-developed in those inhabiting harsher environments.</p>"
     },
     {
+      "key": "notes",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-red-wild-type-bettas",
+      "html": "<p>Physical characteristics: rounded head and a thicker, more robust body than Betta uberis. Fins: wide, broad unpaired fins, longer than those of Betta uberis. Scaling: small, even scales. Coloration: deep wine red with blue and green iridescence on the body and fins. No mid-lateral spot.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-burdigala",
@@ -218,16 +244,41 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/1efb0854807ad4c1.webp",
+      "thumb": "https://media.aquatome.com/commons/1efb0854807ad4c1-480.webp",
       "width": 960,
       "height": 641,
       "licence": "CC BY-SA 4.0",
       "author": "YIE BABEL",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Betta_Burdigala.jpg",
-      "caption": "Betta Burdigala merupakan juga salah satu spesies cupang alam Endemik yang berasal dari Pulau Bangka. Yang dimana ikan ini juga statusnya sudah memasuki daftar merah atau terancam punah.",
-      "thumb": "https://media.aquatome.com/commons/1efb0854807ad4c1-480.webp"
+      "caption": "Betta Burdigala merupakan juga salah satu spesies cupang alam Endemik yang berasal dari Pulau Bangka. Yang dimana ikan ini juga statusnya sudah memasuki daftar merah atau terancam punah."
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "0D5DQq1dG94",
+      "title": "야생베타 키우기ㅣ멸종위기종 부르디갈라 알아보기ㅣBetta Fish Burdigalaㅣ작은20하이큐브 수초어항",
+      "durationSec": 558,
+      "lang": "ko"
+    },
+    {
+      "youtubeId": "b352NeHRG_k",
+      "title": "Betta Burdigala bangka",
+      "durationSec": 122,
+      "lang": "id"
+    },
+    {
+      "youtubeId": "LKUH4hSLKtY",
+      "title": "Betta Burdigala Pairs",
+      "durationSec": 38,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "W4r6yLe2KpY",
+      "title": "Betta burdigala",
+      "durationSec": 11,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -257,5 +308,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-15"
 }

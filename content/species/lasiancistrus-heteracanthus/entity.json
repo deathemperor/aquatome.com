@@ -12,6 +12,40 @@
     "rio-napo"
   ],
   "range": {
+    "native": {
+      "countries": [
+        "EC",
+        "PE"
+      ],
+      "regions": [
+        "Río Napo",
+        "Amazons"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Upper Río Napo of Ecuador and the lower Río Napo of Peru.",
+          "countries": [
+            "EC",
+            "PE"
+          ],
+          "regions": [
+            "Río Napo"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Upper Amazons, Peruvian Amazons.",
+          "countries": [],
+          "regions": [
+            "Amazons"
+          ]
+        }
+      ]
+    },
     "records": {
       "taxonKey": 2339210,
       "total": 7,
@@ -34,27 +68,32 @@
         [
           -78.75,
           -5.625,
+          1,
           1
         ],
         [
           -77.34375,
           -8.4375,
+          1,
           1
         ],
         [
           -77.34375,
           0,
+          2,
           2
         ],
         [
           -74.53125,
           -4.21875,
+          2,
           2
         ],
         [
           -60.46875,
           -8.4375,
-          1
+          1,
+          0
         ]
       ]
     }
@@ -195,17 +234,6 @@
       "source": "scotcat"
     },
     {
-      "url": "https://media.aquatome.com/scotcat/3e64c55578481c47.webp",
-      "thumb": "https://media.aquatome.com/scotcat/3e64c55578481c47-480.webp",
-      "width": 500,
-      "height": 380,
-      "licence": "dùng với sự cho phép",
-      "author": "Haakon Haagensen / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/lasiancistrus_heteracanthus.htm",
-      "caption": "Lasiancistrus heteracanthus",
-      "source": "scotcat"
-    },
-    {
       "url": "https://media.aquatome.com/scotcat/54410204d50413dc.webp",
       "thumb": "https://media.aquatome.com/scotcat/54410204d50413dc-480.webp",
       "width": 500,
@@ -223,6 +251,17 @@
       "height": 333,
       "licence": "dùng với sự cho phép",
       "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/lasiancistrus_heteracanthus.htm",
+      "caption": "Lasiancistrus heteracanthus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/3e64c55578481c47.webp",
+      "thumb": "https://media.aquatome.com/scotcat/3e64c55578481c47-480.webp",
+      "width": 500,
+      "height": 380,
+      "licence": "dùng với sự cho phép",
+      "author": "Haakon Haagensen / ScotCat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/lasiancistrus_heteracanthus.htm",
       "caption": "Lasiancistrus heteracanthus",
       "source": "scotcat"

@@ -17,20 +17,30 @@
         "BR"
       ],
       "regions": [
-        "Guaporé River"
+        "Guaporé",
+        "Rio Guaporé"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The millennium cory, Brochis spectabilis, long known as Corydoras spectabilis, is an armoured catfish from the Guaporé River basin in Brazil.",
+          "quote": "Guaporé River basin, Brazil.",
           "countries": [
             "BR"
           ],
           "regions": [
-            "Guaporé River"
+            "Guaporé"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Origin: Brazil, Rio Guaporé.",
+          "countries": [],
+          "regions": [
+            "Rio Guaporé"
           ]
         }
       ]

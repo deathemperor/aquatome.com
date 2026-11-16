@@ -1,12 +1,22 @@
 {
- "at": "2026-11-11T17:44:29Z",
- "checks": [],
- "findings": [],
- "unread": true,
+ "at": "2026-11-15T00:35:03Z",
+ "checks": [
+  "elsewhere"
+ ],
+ "findings": [
+  {
+   "check": "elsewhere",
+   "quote": "Tùy thời tiết, thường từ tháng 10 trở đi phải bắt cá vào một bể lớn trong nhà.",
+   "why": "The outdoor-pond calendar, with fish brought indoors from October, follows a Central European climate, not Vietnam's."
+  }
+ ],
  "text": {
   "slug": "ca-geophagus-iporangensis",
   "name": "Cá hải hồ iporangensis",
-  "altNames": [],
+  "altNames": [
+   "Cá ăn đất vây đỏ Brazil",
+   "Red Finned Brazilian Pearl Cichlid"
+  ],
   "sections": {
    "beforeYouBuy:seriouslyfish": "<p>Loài này cần nền cát mềm. Trong cả bể, nền cát mềm là thứ quan trọng nhất, vì cá cần nó để bới tìm thức ăn như ngoài tự nhiên (xem mục 'Thức ăn').</p><p>Geophagus iporangensis là một loài cichlid chỉ mới được ghi nhận ở lưu vực sông Ribeira de Iguapé, vùng giáp ranh giữa hai bang São Paulo và Paraná ở miền nam Brazil. Cá thuộc nhóm 'G.' brasiliensis và dài khoảng 90 đến 100 mm. Cỡ này dễ nuôi hơn một số loài họ hàng. Lúc còn nhỏ, cá rất dễ bị nhầm với các loài khác trong nhóm. Khi trưởng thành thì nó nhỏ hơn và có khá ít vảy xanh ánh kim. Trong giới chơi cá, loài này không phổ biến.</p>",
    "distribution:seriouslyfish": "<p>Loài này chỉ mới được ghi nhận ở lưu vực sông Ribeira de Iguapé. Lưu vực nằm trong Vale do Ribeira, một thung lũng ven biển do chính dòng sông tạo ra, trải qua vùng giáp ranh giữa hai bang São Paulo và Paraná ở miền nam Brazil.</p><p>Nơi thu mẫu chuẩn được ghi là 'Mountain streams of Rio Ribeira de Iguapé, Iporanga, Brazil', tức các suối núi thuộc sông Ribeira de Iguapé, Iporanga, Brazil.</p>",
@@ -19,15 +29,21 @@
    "dimorphism:seriouslyfish": "<p>Cá đực lớn hơn cá cái, nhiều khi lớn hơn hẳn. Phần lớn những con đực đầu đàn đều nổi u gáy, con ít con nhiều.</p>",
    "reproduction:seriouslyfish": "<p>Cá đẻ trứng trên nền, cả cá bố và cá mẹ cùng chăm trứng và cá bột.</p>",
    "notes:seriouslyfish": "<p>Loài này không phổ biến trong giới chơi cá. Thật đáng tiếc, vì khi trưởng thành nó có kích thước dễ nuôi hơn một số loài họ hàng.</p><p>Cá con của loài này rất dễ bị nhầm với cá con của các loài khác trong nhóm 'G.' brasiliensis. Cá trưởng thành thì dễ nhận ra hơn nhiều, vì chúng nhỏ hơn và có khá ít vảy xanh ánh kim trên thân và đầu.</p><p>Kullander (1986) đã chẩn đoán lại chi Geophagus. Ông giới hạn chi này lại, chỉ giữ những loài có bóng bơi kéo dài thành một cặp về phía đuôi, được lót bởi 6–12 'xương sườn' epihemal, và có số đốt sống đuôi nhiều hơn số đốt sống bụng.</p><p>Một số loài trước đây thuộc Geophagus được chuyển sang chi Satanoperca, chi này được phục hồi lại. Những nhóm khác như nhóm 'Geophagus' brasiliensis và nhóm 'G.' steindachneri là các nhóm riêng biệt, đến nay vẫn chưa có vị trí phân loại dứt khoát.</p><p>Geophagus và một số chi gần gũi thường được xếp vào Geophaginae, một phân họ còn mang tính giả định.</p><p>Kullander (1998) đã làm một nghiên cứu phát sinh loài dựa trên hình thái. Trong nghiên cứu này, họ Cichlidae vùng Tân nhiệt đới được chia thành sáu phân họ. Phân họ Geophaginae gồm 16 chi, chia thành ba 'tông' như sau:</p><ul><li>Acarichthyini - Acarichthys và Guianacara.</li><li>Crenicaratini - Biotoecus, Crenicara, Dicrossus và Mazarunia.</li><li>Geophagini - Geophagus, Mikrogeophagus, nhóm 'Geophagus' brasiliensis, nhóm 'Geophagus' steindachneri, Gymnogeophagus, Satanoperca, Biotodoma, Apistogramma, Apistogrammoides và Taeniacara.</li></ul><p>Sau đó, các nghiên cứu phân tử của Farias và cs. (1999, 2000, 2001) đã bổ sung Crenicichla và Teleocichla vào Geophaginae. Kết quả này được López-Fernández và cs. (2005) củng cố. Nhóm này đã thực hiện phân tích phân tử chi tiết nhất về Geophaginae tính đến nay, với 16 trên 18 chi và 30 loài.</p><p>Tuy nhiên, kết luận của họ về quan hệ giữa các chi có phần khác với các giả thuyết trước. Có thể tóm lại thành mấy nhóm phân định khá lỏng như sau:</p><ul><li>Acarichthys và Guianacara là nhóm chị em, nhưng bằng chứng ủng hộ còn yếu.</li><li>một \"nhánh Satanoperca\" có bằng chứng ủng hộ tốt, gồm Satanoperca, Apistogramma, Apistogrammoides và Taeniacara.</li><li>một \"nhánh lớn\" gồm Geophagus, Mikrogeophagus, nhóm 'Geophagus' brasiliensis, nhóm 'Geophagus' steindachneri, Gymnogeophagus, Biotodoma, Crenicara và Dicrossus.</li><li>một \"nhánh crenicarine\" gồm Biotoecus và Crenicichla.</li></ul><p>Nghiên cứu này không có mẫu nào của Teleocichla hay Mazarunia. Dù vậy, Teleocichla đã được xác lập vững là nhóm chị em của Crenicichla. Còn Mazarunia thì trong các công trình trước từng xếp gần với Dicrossus và Crenicara.</p><p>Bài báo còn đi đến một kết luận chính khác. Nó xác nhận Geophaginae là một nhóm đơn ngành, và nhóm này có dấu hiệu rõ là đã trải qua bức xạ thích nghi nhanh.</p>",
-   "references:seriouslyfish": "<ul><li>Farias, I. P., G. Ortí and A. Meyer (2000). Total evidence: molecules, morphology, and the phylogenetics of cichlid fishes. The Journal of Experimental Zoology 288(1), 76-92</li><li>Farias, I. P., G. Ortí, I. Sampaio, H. Schneider and A. Meyer (1999). Mitochondrial DNA phylogeny of the family Cichlidae: monophyly and fast molecular evolution of the Neotropical assemblage. Journal of Molecular Evolution 48(6), 703-711</li><li>Farias, I. P., G. Ortí, I. Sampaio, H. Schneider and A. Meyer (2001). The cytochrome b gene as a phylogenetic marker: the limits of resolution for analyzing relationships among cichlid fishes. Journal of Molecular Evolution 53(2), 89-103</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>López-Fernández, H., R. L. Honeycutt, M. L. J. Stiassny and K. O. Winemiller (2005). Morphology, molecules, and character congruence in the phylogeny of South American geophagine cichlids (Perciformes, Labroidei). Zoologica Scripta 34(6), 627-651</li><li>Haseman, J. D. (1911). An annotated catalog of the cichlid fishes collected by the expedition of the Carnegie Museum to central South America, 1907-10. Annals of the Carnegie Museum v. 7 (nos 3-4) (18), 329-373</li></ul>"
+   "references:seriouslyfish": "<ul><li>Farias, I. P., G. Ortí and A. Meyer (2000). Total evidence: molecules, morphology, and the phylogenetics of cichlid fishes. The Journal of Experimental Zoology 288(1), 76-92</li><li>Farias, I. P., G. Ortí, I. Sampaio, H. Schneider and A. Meyer (1999). Mitochondrial DNA phylogeny of the family Cichlidae: monophyly and fast molecular evolution of the Neotropical assemblage. Journal of Molecular Evolution 48(6), 703-711</li><li>Farias, I. P., G. Ortí, I. Sampaio, H. Schneider and A. Meyer (2001). The cytochrome b gene as a phylogenetic marker: the limits of resolution for analyzing relationships among cichlid fishes. Journal of Molecular Evolution 53(2), 89-103</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>López-Fernández, H., R. L. Honeycutt, M. L. J. Stiassny and K. O. Winemiller (2005). Morphology, molecules, and character congruence in the phylogeny of South American geophagine cichlids (Perciformes, Labroidei). Zoologica Scripta 34(6), 627-651</li><li>Haseman, J. D. (1911). An annotated catalog of the cichlid fishes collected by the expedition of the Carnegie Museum to central South America, 1907-10. Annals of the Carnegie Museum v. 7 (nos 3-4) (18), 329-373</li></ul>",
+   "quickFacts:glaser": "<p>Geophagus iporangensis dài được khoảng 25 cm, và nó không nhát chút nào. Đây là loài cichlid đẻ trứng lộ thiên, cả cá bố lẫn cá mẹ cùng giữ con. Giới khoa học vẫn còn biết khá ít về nhóm này (phức hợp Geophagus brasiliensis).</p>",
+   "maintenance:glaser": "<p>Khi nước đã ổn định trên 10°C thì có thể thả cá ra hồ ngoài vườn. Tùy thời tiết, thường từ tháng 10 trở đi phải bắt cá vào một bể lớn trong nhà. Bể này nên đặt ở chỗ mát, giữ nhiệt độ từ 10 đến 15°C. Brazilian Pearl Cichlid hiền, chỉ trừ lúc đang giữ con, nên nuôi chúng qua mùa đông không khó gì cả.</p>",
+   "behaviour:glaser": "<p>Loài này không nhát chút nào, nên thả ra hồ là có thể ngồi xem chúng sinh hoạt, rất thú vị. Chúng hiền, chỉ trừ lúc đang giữ con.</p>",
+   "reproduction:glaser": "<p>G. iporangensis là cichlid đẻ trứng lộ thiên, cả bố lẫn mẹ cùng giữ con. Thả ra hồ ngoài vườn vào mùa hè thì một cặp thường sẽ cho ra một ít cá con.</p>",
+   "notes:glaser": "<p>Geophagus: gốc tiếng Hy Lạp cổ, nghĩa là \"kẻ ăn đất\". brasiliensis: nghĩa là \"đến từ Brazil\". iporangensis: đặt theo nơi thu được các mẫu chuẩn.</p>"
   },
+  "nameFixed": true,
   "quality": {
-   "score": 0.85,
+   "score": 0.8,
    "indexable": true,
    "bySource": {
-    "seriouslyfish": 0.85
+    "seriouslyfish": 0.85,
+    "glaser": 0.8
    }
-  },
-  "nameFixed": true
+  }
  }
 }

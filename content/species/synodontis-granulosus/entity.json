@@ -13,6 +13,80 @@
     "democratic-republic-of-the-congo",
     "zambia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BI",
+        "TZ"
+      ],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Synodontis granulosus is a large Synodontis catfish endemic to the northern end of Lake Tanganyika, in Burundi and Tanzania.",
+          "countries": [
+            "BI",
+            "TZ"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Burundi, Tanzania. This species is endemic to the northern end of Lake Tanganyika.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344378,
+      "total": 7,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "CD",
+          6
+        ],
+        [
+          "ZM",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -7.03125,
+          2,
+          0
+        ],
+        [
+          28.125,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          29.53125,
+          -7.03125,
+          2,
+          0
+        ],
+        [
+          30.9375,
+          -9.84375,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -137,7 +211,12 @@
       "licence": "CC BY-SA 1.0",
       "author": "Fishdude69",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Synodontis_granulosus.jpg",
-      "caption": "Cá trê Synodontis granulosus bơi trong bể kính nền xanh"
+      "caption": "Cá trê Synodontis granulosus bơi trong bể kính nền xanh",
+      "large": {
+        "url": "https://media.aquatome.com/commons/5cce8e1a586bda33-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

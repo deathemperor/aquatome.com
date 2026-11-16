@@ -1,7 +1,7 @@
 import { compactRejection } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { join, relative } from 'node:path'
 import { parse } from 'node-html-parser'
 import { loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type Summary, type WrittenLang } from '@aq/schema'
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
@@ -12,8 +12,8 @@ import { droppedName, FISH_NAMES, KIND_PASSAGES, ownWords, type FishName, type K
 import { withLNumber } from './l-numbers'
 import { pickStands, readPersonYes } from './person-yes'
 import { EMPTY_CAP, refusedOn, type PhotoVerdict } from './photo-check'
-import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, fixTranslation, isAdPoster, notAlive, isMap, unwellOff, NAMED_KINDS, renameFishNames, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
-import { loadPages, sectionFields } from './pages'
+import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmails, dropEmailsDeep, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, fixTranslation, hasEmail, isAdPoster, isMediaFile, mayHoldEmail, notAlive, isMap, unwellOff, NAMED_KINDS, renameFishNames, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
+import { loadPages, sectionFields, type PageKind } from './pages'
 import { foldPages } from './page-folds'
 import { sweepPlaceNames } from './place-names'
 import { sfDifficulty } from './process'
@@ -36,6 +36,8 @@ import { readVideoRejected } from './videos'
 import { orderAlbums } from './gallery'
 import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
 import { holdForSecondLook, listAgreed, looks, readSecondLook } from './last-photo'
+import { keptLast } from './own-mark'
+import { ageOf, grownFirst, grownHead } from './young-heads'
 import { namedOn, namedOrder, passesHead } from './photo-named'
 
 /**
@@ -46,6 +48,14 @@ import { namedOn, namedOrder, passesHead } from './photo-named'
  * - empty headings and blocks: dropped; a repeated paragraph: the later copy dropped; labels out of order: renumbered
  * - a sentence that only says the text is translated, adapted or used with permission (the source's note under an
  *   article it reprints): dropped, its paragraph too when it is all there is (dropPermissionNotes)
+ * - a source's photo caption or credit left as a block of its own in a guide's text, its photo not with it ("Ảnh: <name>",
+ *   "… © <name>"), and a source's thanks to the people or shops who helped it ("Cảm ơn <name>.", "Terima kasih kepada
+ *   <name>."): the block cut (dropPhotoCaptions, dropThanks); a caption that says something more than what its photo
+ *   shows keeps its words, its label and credits cut (dropPhotoCaptions)
+ * - an email address, in any part of a page, its references too: cut with the brackets round it, a link to one keeping its
+ *   words (dropEmails); then, last, in every field of every file under content/ (dropEmailsEverywhere). The repository is
+ *   public; the real-content test fails on one in any file under content/, so the sweep mends every hit it can have
+ * - "© <name>" after a work's title in a fish page's references: the "©" and the name cut, the title and link kept (dropRefCredits)
  * - a photo whose caption names another fish the site has, or is a map, or a Wikimedia Commons photo whose own words say
  *   it is a paper's plate, a microscope picture, a drawing or a dish: off that page (its file and its gallery). A map or
  *   a plate leaves every page (engine-state/_photo-rejected.json); a photo of another fish may still join that fish's page, so
@@ -121,7 +131,7 @@ export type SweepReport = {
   files: string[]
   /** Species pages moved to the group their order allows (regroupPages). */
   regrouped?: string[]
-  /** Pages changed by each text fix: furniture, headings, repeated, labels, permission, name, fish-name, renamed (and tidy: the fixes made on write). */
+  /** Pages changed by each text fix: furniture, headings, repeated, labels, permission, captions, thanks, ref-credits, name, fish-name, renamed (and tidy: the fixes made on write). */
   text: Record<string, string[]>
   photos: string[]
   rejected: number
@@ -182,7 +192,7 @@ export type SweepReport = {
   stopped: string
 }
 
-type Stored = { name?: string; altNames?: string[]; nameFixed?: boolean; sections?: Record<string, string>; body?: string; definition?: string; summary?: string[]; faq?: { q: string; a: string }[] }
+type Stored = { name?: string; altNames?: string[]; nameFixed?: boolean; sections?: Record<string, string>; body?: string; chapters?: string[]; definition?: string; summary?: string[]; faq?: { q: string; a: string }[] }
 
 /** A file's own indentation, so a change is the lines it changes. */
 const indentOf = (raw: string) => raw.match(/^\{\n( +)/)?.[1]?.length ?? 2
@@ -194,7 +204,7 @@ const write = async (file: string, raw: string, data: unknown) => writeFile(file
  * they can be cut; labels renumbered make a heading the tidy folds), and the real-content test holds what one pass would
  * leave.
  */
-export function sweepTranslation<T extends Stored>(t: T): { t: T; fixed: string[] } {
+export function sweepTranslation<T extends Stored>(t: T, kind?: PageKind): { t: T; fixed: string[] } {
   const fixed: string[] = []
   const mark = (name: string) => { if (!fixed.includes(name)) fixed.push(name) }
   const prose = (field: string) => !field.startsWith('sections.references')
@@ -214,6 +224,26 @@ export function sweepTranslation<T extends Stored>(t: T): { t: T; fixed: string[
     out = step('headings', repeats, dropEmptyHeadings)
     out = step('labels', out, renumberLabels)
     out = step('permission', out, dropPermissionNotes)
+    // A photo caption left in a guide's text: the site sets a guide's photos under its headings, each with its own caption.
+    out = out.map(f => {
+      const html = kind === 'guides' && f.field === 'body' ? dropPhotoCaptions(f.html) : f.html
+      if (html !== f.html) mark('captions')
+      return { ...f, html }
+    })
+    out = step('thanks', out, dropThanks)
+    // Every part, the references too: no page prints an address.
+    out = out.map(f => {
+      const html = dropEmails(f.html)
+      if (html !== f.html) mark('emails')
+      return { ...f, html }
+    })
+    // The sources' references: only the "© <name>" after a work's title.
+    out = out.map(f => {
+      if (prose(f.field)) return f
+      const html = dropRefCredits(f.html)
+      if (html !== f.html) mark('ref-credits')
+      return { ...f, html }
+    })
     const html = (field: string) => out.find(f => f.field === field)!.html
     const next = {
       ...tidy,
@@ -331,6 +361,55 @@ export async function renameCaptions(content: string, rows: readonly FishName[] 
     changed.push(`captions/${f}`)
   }
   return changed
+}
+
+/**
+ * An email address anywhere under content/, in any file and field the steps above don't write (a fish page's source text, a
+ * photo's caption or credit, a video's title, a place, a name or a question): cut (dropEmailsDeep), so every hit the
+ * real-content test can have is one the cycle mends. A file with no sign of one (mayHoldEmail) is not parsed. The files changed, and where a cut
+ * left a field empty or made two keys one (`file field`, an address's key by its place), for a person to read.
+ */
+export async function dropEmailsEverywhere(content: string): Promise<{ files: string[]; emptied: string[] }> {
+  const changed: string[] = [], emptied: string[] = []
+  const lost = (a: unknown, b: unknown, at: string, file: string): void => {
+    if (typeof a === 'string') { if (a.trim() && typeof b === 'string' && !b.trim()) emptied.push(`${file} ${at || '(text)'}`); return }
+    if (Array.isArray(a) && Array.isArray(b)) { a.forEach((v, i) => lost(v, b[i], `${at}[${i}]`, file)); return }
+    if (!a || typeof a !== 'object' || !b || typeof b !== 'object') return
+    const keys = Object.keys(a)
+    if (Object.keys(b).length < keys.length) emptied.push(`${file} ${at || '(top)'} (two keys made one)`)
+    keys.forEach((k, i) => {
+      const name = hasEmail(k) ? `(key ${i + 1})` : k
+      lost((a as Record<string, unknown>)[k], (b as Record<string, unknown>)[dropEmails(k)], at ? `${at}.${name}` : name, file)
+    })
+  }
+  // The files the real-content test reads: every one but a picture or a video.
+  const files = (await readdir(content, { recursive: true, withFileTypes: true }))
+    .filter(d => d.isFile() && !isMediaFile(d.name)).map(d => relative(content, join(d.parentPath, d.name))).sort()
+  // About 29,000 files: read 64 at a time, as a file read one after another costs a minute on a busy machine. A file is
+  // judged by its strings, never its raw text: an escape's letter before an "@" ("\n@…") is no address. A file is read
+  // further only when it may hold one, an "@" or an address written out (mayHoldEmail).
+  const hits: { f: string; raw: string }[] = []
+  for (let i = 0; i < files.length; i += 64) {
+    for (const h of await Promise.all(files.slice(i, i + 64).map(async f => {
+      const raw = await readFile(join(content, f), 'utf8')
+      return mayHoldEmail(raw) ? { f, raw } : null
+    }))) if (h) hits.push(h)
+  }
+  for (const { f, raw } of hits) {
+    if (!f.endsWith('.json')) {
+      const text = dropEmails(raw)
+      if (text !== raw) { await writeFile(join(content, f), text); changed.push(f) }
+      continue
+    }
+    let data: unknown
+    try { data = JSON.parse(raw) } catch { continue } // the real-content test names it
+    const out = dropEmailsDeep(data)
+    if (JSON.stringify(out) === JSON.stringify(data)) continue
+    lost(data, out, '', f)
+    await write(join(content, f), raw, out)
+    changed.push(f)
+  }
+  return { files: changed, emptied }
 }
 
 /** A page's Vietnamese text a reader reads, each string through `fn`, never its names, address or sources: whether it changed. */
@@ -484,7 +563,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
         const raw = await readFile(file, 'utf8').catch(() => null)
         if (!raw) continue
         const before = JSON.parse(raw) as Stored
-        const swept = sweepTranslation(before)
+        const swept = sweepTranslation(before, kind)
         // A name as hobbyists write it (alt-names.ts tidyName): Vietnamese, on the pages named for what they are.
         const named = lang === 'vi' && NAMED_KINDS.includes(kind) && swept.t.name !== undefined && swept.t.altNames ? tidyNames(swept.t as Stored & { name: string; altNames: string[] }, kind) : swept.t
         const renamed = lang === 'vi' ? renameStored(named) : named
@@ -497,7 +576,8 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
           for (const f of fixed) (report.text[f] ??= []).push(`${kind}/${id}/${lang}`)
           if (kind === 'guides' && before.body !== undefined) guides.push({ key: lang === 'vi' ? id : `${id}:${lang}`, before: before.body, after: t.body! })
         }
-        if (kind === 'guides' && t.name && t.body && countMismatch(t.name, t.body)) counted.push({ file, raw, t, kind, lang, id })
+        // A title a person fixed (nameFixed) is theirs: its count stays, whatever this rule makes of the text.
+        if (kind === 'guides' && t.name && t.body && !t.nameFixed && countMismatch(t.name, t.body, t.chapters)) counted.push({ file, raw, t, kind, lang, id })
         if (kind === 'guides' && t.name) titled.push({ file, raw, t, lang, id, title: t.name })
       }
     }
@@ -636,7 +716,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     if (budget > 0 && !report.stopped) {
       budget--
       try {
-        const r = await rewriteTitle(o.llm!, old, c.t.body!, c.lang, o.model)
+        const r = await rewriteTitle(o.llm!, old, c.t.body!, c.lang, o.model, c.t.chapters)
         if (r.score >= QUALITY_THRESHOLD) { title = r.title; how = `rewritten (${r.score.toFixed(2)})` }
         else how = `number dropped; rewrite "${r.title}" not kept (${r.score.toFixed(2)}${r.notes.length ? `: ${r.notes.slice(0, 2).join('; ')}` : ''})`
         await logReviews(root, 'title', { id: `${c.kind}/${c.id}`, lang: c.lang }, [r], title === r.title ? r : undefined, { model: o.model })
@@ -650,7 +730,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
         else how = `number dropped; rewrite failed: ${(e as Error).message.slice(0, 120)}`
       }
     }
-    if (title === old || countMismatch(title, c.t.body!)) continue
+    if (title === old || countMismatch(title, c.t.body!, c.t.chapters)) continue
     await write(c.file, c.raw, { ...c.t, name: title })
     changed(`${c.kind}/${c.id}/${c.lang}.json`)
     report.titles.push(`${c.lang}/${c.kind}/${c.id}: "${old}" → "${title}" (${how})`)
@@ -701,7 +781,8 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // while one named better passes as a head (photo-named.ts). The photo check and the lead step rank the same way; this
   // has the last word, so no step between them leaves such a head. A standing pick still leads (the loop below).
   {
-    const asHead = passesHead(await readVerdicts(root))
+    const verdicts = await readVerdicts(root)
+    const asHead = passesHead(verdicts), grown = grownHead(verdicts), kept = (u: string) => !!verdicts.kept?.(u)
     const on = await namedOn(content)
     type Named = { kind: string; id: string; file: string; raw: string; e: { scientificName?: string; synonyms?: string[]; photos?: Photo[] } }
     const read = async (kind: string) => Promise.all((await readdir(join(content, kind)).catch(() => [] as string[])).sort().map(async (id): Promise<Named | null> => {
@@ -712,11 +793,19 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     const pages = (await Promise.all(['species', 'plants', 'breeds'].map(read))).flat().filter((x): x is Named => !!x)
     for (const p of pages) {
       const photos = p.e.photos ?? []
-      if (photos.length < 2 || !p.e.scientificName) continue
+      if (photos.length < 2) continue
       // A standing pick keeps its place here, the rest ordered around it: the loop below puts it first and says so.
       const ref = `${p.kind}/${p.id}`, pick = headPicks[ref]
       const at = pick && pickStands(ref, pick, subjects, yes) ? photos.findIndex(x => x.url === pick) : -1
-      const now = namedOrder(at >= 0 ? photos.filter((_, i) => i !== at) : photos, on(p.id), x => asHead(x, p.id))
+      const rest = at >= 0 ? photos.filter((_, i) => i !== at) : photos
+      // A kept-mark photo after every unmarked one, as the photo check orders it, on a page with no Latin name too.
+      let now = keptLast(p.e.scientificName ? namedOrder(rest, on(p.id), x => asHead(x, p.id)) : rest, kept)
+      // A photo the photo check calls young doesn't lead while one of the page's own it calls grown passes as the head,
+      // named no worse, as the check orders them; a page with a standing pick keeps it (young-heads.ts; the chief of staff, 15 Nov).
+      if (at < 0) {
+        const cls = (x: Photo) => (p.e.scientificName ? on(p.id)(x) : 0), lead = now.find(x => !x.generated)
+        now = grownFirst(now, x => ageOf(subjects[x.url]?.[p.id]) === true, x => grown(x, p.id) && !!lead && cls(x) <= cls(lead))
+      }
       if (at >= 0) now.splice(at, 0, photos[at]!)
       if (now.every((x, i) => x.url === photos[i]!.url)) continue
       if (now[0]!.url !== photos[0]!.url) report.named.push(`${ref}: ${photos[0]!.url} -> ${now[0]!.url}`)
@@ -898,8 +987,8 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     for (const [url, why] of maps) if (!rejected[url]) { rejected[url] = why; report.rejected++ }
     if (report.rejected) await writePhotoState(rejectedFile, rejected)
   }
-  // Every photo on the never-again list leaves the pages and albums the photo check strips, by the check's own rule (an
-  // Aquarium Glaser photo with the shop's own mark kept stays: watermarks.ts keptOwnMark). The check strips them only
+  // Every photo on the never-again list leaves the pages and albums the photo check strips, by the check's own rule (a
+  // cleared shop's photo with the shop's own mark kept stays: watermarks.ts keptOwnMark). The check strips them only
   // in the tree its run started from. The cycle's push keeps its own lines where they clash with main's, so a photo a
   // person took off while a run was under way came back in its album (three on 2026-11-11). The cycle sweeps after it
   // catches up with main, after a clash at its push and after a clean pull there that brought main's commits in
@@ -1075,7 +1164,9 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
         }
       }
       sections = sections.flatMap(x => {
-        if (!isShop(x.source) || x.key === 'references') return [x]
+        // A part a person fixed is theirs (schemas.ts Section.fixed): a seller notice's line cut by hand can say "shipped as
+        // stock fish" or "in our fishhouse" and still be the fact that stays (15 Nov 2026).
+        if (!isShop(x.source) || x.key === 'references' || x.fixed) return [x]
         const k = `${x.key}:${x.source}`
         const has = langs.filter(l => l.t.sections[k] !== undefined)
         const { en, tr } = withoutShopTalk(x.html, Object.fromEntries(has.map(l => [l.f, l.t.sections[k]!])))
@@ -1089,7 +1180,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
       // the chief of staff and left (Astra's read: two shops' notices under one heading each took the other for the text
       // that stays, and both went).
       const vi = langs.find(l => l.f.endsWith('/vi.json'))?.t
-      const notices = new Set(sections.filter(x => isShop(x.source) && x.key !== 'references' && !!vi?.sections[`${x.key}:${x.source}`] && dealerNotice(vi.sections[`${x.key}:${x.source}`]!)))
+      const notices = new Set(sections.filter(x => isShop(x.source) && x.key !== 'references' && !x.fixed && !!vi?.sections[`${x.key}:${x.source}`] && dealerNotice(vi.sections[`${x.key}:${x.source}`]!)))
       sections = sections.filter(x => {
         const k = `${x.key}:${x.source}`
         if (!notices.has(x)) return true
@@ -1213,6 +1304,13 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   albums.files.forEach(changed)
   report.albums = albums.leads
   report.noAnimal = await noAnimalHeads(root, o.today ?? vnDate(new Date()))
+  // Last, after every step that writes a file: an email address left in any of them.
+  const emails = await dropEmailsEverywhere(content)
+  for (const f of emails.files) {
+    changed(f)
+    ;(report.text['emails'] ??= []).push(f.replace(/\.json$/, ''))
+  }
+  if (emails.emptied.length) report.text['emails-emptied'] = emails.emptied
   return report
 }
 

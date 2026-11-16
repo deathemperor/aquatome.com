@@ -200,6 +200,19 @@ export function openingAsk(question: string, lang: Lang): string {
 /** A line later than this is no use: the steps show by then. Its call doesn't think: the line is a restatement. */
 const OPENING_MS = 5_000
 export const OPENING_TOKENS = 150
+/**
+ * How a call that mustn't think (the first line, the short last answer) says so to each model, as the API took it on
+ * 15 Nov: Haiku 5.5 takes `disabled`; Sonnet 5.5 refuses that and takes `between_tools`; Opus 5.5 refuses both and always
+ * thinks, so it is sent no switch, at low effort, with `room` more tokens for its thinking (with 150 its line was cut).
+ * A refused switch fails the call, and a failed first line is silent: Sonnet's failed in all 44 of a run. A model not
+ * here is sent no switch, as Opus is, the one way no model refuses; a test holds the chat's models to rows of their own.
+ */
+export const NO_THINKING: Record<string, { thinking?: Anthropic.ThinkingConfigParam; effort?: 'low'; room: number }> = {
+  'claude-haiku-5-5': { thinking: { type: 'disabled' }, room: 0 },
+  'claude-sonnet-5-5': { thinking: { type: 'between_tools' }, room: 0 },
+  'claude-opus-5-5': { effort: 'low', room: 1_024 },
+}
+export const noThinking = (model: string) => NO_THINKING[model] ?? NO_THINKING['claude-opus-5-5']!
 
 /** `opening`: the first line the reader was shown, if one was (the turn leaves it out when the answer is off topic: api.ts). */
 export type ChatRun = AgentRun<Step> & { answer?: Answer; blocks: ChatBlock[]; dropped: string[]; opening?: string; handed?: Found[] }
@@ -309,8 +322,9 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
   const onText = o.onText && ((piece: string) => { begun = wrote = true; o.onText!(piece) })
   const send = onText ? streaming(o.send, onText, onPick) : o.send
   const first = firstMessage(o.lang, o.question, o.earlier, o.start, o.handbook)
+  const off = noThinking(o.model)
   const line = o.opening
-    ? o.send({ model: o.model, max_tokens: OPENING_TOKENS, thinking: { type: 'disabled' }, system: OPENING_SYSTEM, messages: [firstMessage(o.lang, openingAsk(o.question, o.lang), o.earlier, o.start, o.handbook)] }, { timeoutMs: OPENING_MS, call: 0 }).then(m => {
+    ? o.send({ model: o.model, max_tokens: OPENING_TOKENS + off.room, ...(off.thinking ? { thinking: off.thinking } : {}), ...(off.effort ? { output_config: { effort: off.effort } } : {}), system: OPENING_SYSTEM, messages: [firstMessage(o.lang, openingAsk(o.question, o.lang), o.earlier, o.start, o.handbook)] }, { timeoutMs: OPENING_MS, call: 0 }).then(m => {
         const text = m.content.flatMap(b => (b.type === 'text' ? [b.text] : [])).join('').trim()
         const shown = text === '-' ? undefined : openingOf(text, o.lang)
         if (shown && !begun) { opening = shown; o.onOpening?.(shown) }
@@ -338,7 +352,7 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
     // What the handover took comes out of the run's time: a Worker's request has only so long.
     limits: { ...CHAT_LIMITS, ...o.limits, ms: (o.limits?.ms ?? CHAT_LIMITS.ms) - (clock() - asked) },
     lastWord: LAST_WORD,
-    lastTry: { ...LAST_TRY, begun: () => wrote },
+    lastTry: { ...LAST_TRY, maxTokens: LAST_TRY.maxTokens + off.room, ...(off.thinking ? { thinking: off.thinking } : {}), begun: () => wrote },
     ...(o.until ? { until: o.until } : {}),
     onStep,
     clock: o.clock,

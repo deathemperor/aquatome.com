@@ -7,7 +7,7 @@ import { LlmError, type Llm } from '../src/claude'
 import { checkPages, RATCHETED, ratcheted, RULES } from '../src/content-rules'
 import { loadPages } from '../src/pages'
 import { checkPagePhotos } from '../src/photo-check'
-import { kindPassages, nameFish, sweep, sweepTranslation } from '../src/sweep'
+import { dropEmailsEverywhere, kindPassages, nameFish, sweep, sweepTranslation } from '../src/sweep'
 import { atCeiling } from './at-ceiling'
 
 const photo = (url: string, caption: string) => ({ url, width: 1200, height: 800, licence: 'CC BY 4.0', author: 'A', sourceUrl: 'https://commons.wikimedia.org/x', caption })
@@ -542,6 +542,35 @@ test('a shop\'s part that is wholly its notice of a batch or stock comes off whe
   expect(again.dealerOnly).toEqual(['species/corydoras-adolfoi: beforeYouBuy:glaser', 'species/corydoras-adolfoi: diet:glaser', 'species/corydoras-adolfoi: diet:bwaquatics'])
 })
 
+// A part a person fixed (schemas.ts Section.fixed) is theirs: the shop-talk and notice cuts leave it, whatever its words.
+// A seller notice's lasting line, cut from the notice by hand, said "shipped as stock fish" (15 Nov 2026).
+test('a shop\'s part a person fixed keeps its words through the shop-talk and notice cuts', async () => {
+  const root = await store()
+  const file = (f: string) => join(root, 'content/species/corydoras-adolfoi', f)
+  const e = JSON.parse(await readFile(file('entity.json'), 'utf8'))
+  e.sections.push(
+    { key: 'notes', source: 'glaser', sourceUrl: 'https://glaser/x', html: '<p>Hybrids are to be expected, since the fish were shipped as stock fish.</p>', fixed: true },
+    { key: 'behaviour', source: 'glaser', sourceUrl: 'https://glaser/y', html: '<p>In our fishhouse the fish hide in filter wool.</p>', fixed: true },
+    { key: 'distribution', source: 'glaser', sourceUrl: 'https://glaser/z', html: '<p>Currently wild collected fish from Venezuela are on offer.</p>', fixed: true },
+  )
+  await writeFile(file('entity.json'), JSON.stringify(e, null, 1))
+  const vi = JSON.parse(await readFile(file('vi.json'), 'utf8'))
+  Object.assign(vi.sections, {
+    'notes:glaser': '<p>Cá lai là chuyện phải tính tới, vì cá được chở đi làm cá giống.</p>',
+    'behaviour:glaser': '<p>Ở trại cá của Glaser, cá trốn trong bông lọc.</p>',
+    'distribution:glaser': '<p>Hiện ngoài tiệm có bán cá bắt ngoài tự nhiên ở Venezuela.</p>',
+  })
+  await writeFile(file('vi.json'), JSON.stringify(vi, null, 1))
+
+  const r = await sweep(root)
+  expect([r.shop, r.dealer, r.dealerOnly]).toEqual([[], [], []])
+  const glaser = (x: { sections: { key: string; source: string; html: string }[] }) => x.sections.filter(s => s.source === 'glaser').map(s => `${s.key} ${s.html}`)
+  expect(glaser(JSON.parse(await readFile(file('entity.json'), 'utf8')))).toEqual(glaser(e))
+  const sections = JSON.parse(await readFile(file('vi.json'), 'utf8')).sections
+  const keys = ['notes:glaser', 'behaviour:glaser', 'distribution:glaser']
+  expect(keys.map(k => sections[k])).toEqual(keys.map(k => vi.sections[k]))
+})
+
 const WEEKLY = "claude failed (1): You've hit your weekly limit · resets Nov 14 at 8am (Asia/Saigon)"
 // The guide body the sweep already leaves in place, so a counted title is the only thing that would change the file.
 const CLEAN = '<h3>Đèn</h3><p><strong>Sai lầm 1:</strong> đèn mạnh.</p><p><strong>Sai lầm 2:</strong> bật lâu.</p><h3>CO2</h3><p><strong>Sai lầm 3:</strong> thiếu CO2.</p><h3>Phân nền</h3><h3>Kết luận</h3><p>Kiên nhẫn là chính, thay nước đều đặn mỗi tuần và theo dõi cây.</p>'
@@ -587,6 +616,19 @@ test('a failure that is not the usage limit still drops the number from a counte
   expect(other.r.titles.find(t => t.includes('/guides/a'))).toContain('number dropped')
 })
 
+// The chief of staff, 16 Nov 2026: a count a person put back (the hard-water fish, ten under seven headings) stays.
+test('a title a person fixed keeps its count, whatever the count rule makes of the text', async () => {
+  const root = await store()
+  await countedGuide(root, 'a')
+  const file = join(root, 'content/guides/a/vi.json')
+  await writeFile(file, `${JSON.stringify({ ...(await json(root, 'content/guides/a/vi.json')), nameFixed: true }, null, 2)}\n`)
+  const r = await sweep(root, { llm: async () => { throw new Error('not asked') } })
+  expect((await json(root, 'content/guides/a/vi.json')).name).toBe('10 cách xử lý rêu hại nhanh')
+  expect(r.titles.find(x => x.includes('/guides/a'))).toBeUndefined()
+  // and the check the real-content test holds at zero leaves it too, or that test fails every cycle on a page the sweep won't touch
+  expect(checkPages(await loadPages(join(root, 'content')), RULES.filter(x => x.id === 'title-count')).findings.filter(f => f.page.kind === 'guides')).toEqual([])
+})
+
 test('a title rewritten by the model is kept when the reviewer passes it, and the number dropped when not', async () => {
   const llm = (title: string, score: number): Llm => async <T>({ schema }: { schema: object }) =>
     ((schema as { required: string[] }).required.includes('title') ? { title } : { score, notes: score < 0.75 ? ['subject changed'] : [] }) as T
@@ -614,6 +656,22 @@ test('a title rewritten by the model is kept when the reviewer passes it, and th
   const adapted = sweepTranslation({ body: '<p>Chúng chỉ đang ngủ thôi.</p><p>Bài gốc đăng trên Tropical World Magazine, số 9. Được Loaches Online chuyển thể với sự cho phép.</p>' })
   expect(adapted).toEqual({ t: { body: '<p>Chúng chỉ đang ngủ thôi.</p><p>Bài gốc đăng trên Tropical World Magazine, số 9.</p>' }, fixed: ['permission'] })
   expect(sweepTranslation(adapted.t).fixed).toEqual([])
+})
+
+// Page Recovery, 2026-11-12: a source's photo captions in a guide's text, its thanks, and the "© <name>" in a fish page's
+// references, cut each cycle, as the other text fixes are: a part a person fixed too (bodyFixed), since none of them adds a
+// word. The names are invented.
+test('the sweep cuts a guide\'s stray photo captions, a source\'s thanks and the names after "©" in the references', () => {
+  const care = '<p>Thay 20% nước mỗi tuần.</p>'
+  const guide = { body: `${care}<p>Ảnh: Nguyễn Văn A</p><p>Lá mục là thức ăn cho cá bột © Jane Example</p><p>Cảm ơn Jane Example đã góp ý.</p>`, bodyFixed: true }
+  expect(sweepTranslation(guide, 'guides')).toEqual({ t: { body: care, bodyFixed: true }, fixed: ['captions', 'thanks'] })
+  // A caption is a guide's: a fish page's part or a breed's text keeps a line of that shape.
+  expect(sweepTranslation({ body: `${care}<p>Ảnh: Nguyễn Văn A</p>` }, 'breeds').fixed).toEqual([])
+  const work = 'The ETYFish Project Fish Name Etymology Database'
+  const fish = { sections: { 'notes:x': `${care}<p>Terima kasih kepada Toko Contoh.</p>`, 'references:x': `<p>${work} © Jane Example.</p>` } }
+  expect(sweepTranslation(fish, 'species')).toEqual({ t: { sections: { 'notes:x': care, 'references:x': `<p>${work}.</p>` } }, fixed: ['thanks', 'ref-credits'] })
+  // Once is enough: a second pass changes nothing.
+  expect(sweepTranslation(sweepTranslation(fish, 'species').t, 'species').fixed).toEqual([])
 })
 
 test("a language the site doesn't serve yet is swept too: its text fixed, its names its own", async () => {
@@ -1153,6 +1211,46 @@ test("a photo on the never-again list leaves every equipment page and each langu
   expect((await sweep(root)).again).toEqual([])
 })
 
+test('a photo with a cleared shop\'s own mark kept goes after every unmarked photo, one its source names only to the genus too; a second sweep changes nothing', async () => {
+  const root = await store()
+  await sweep(root)
+  const at = 'content/species/corydoras-sterbai/entity.json'
+  const e = await json(root, at)
+  const own = e.photos[0]
+  const genus = photo('https://media.aquatome.com/commons/genus.webp', 'Corydoras sp.')
+  const page = 'https://bwaquatics.com/products/corydoras-sterbai'
+  const kept = { ...photo('https://media.aquatome.com/bwaquatics/kept.webp', 'Corydoras sterbai'), source: 'bwaquatics', sourceUrl: page }
+  const screen = await json(root, 'engine-state/_photo-watermarks.json').catch(() => ({}))
+  await writeFile(join(root, 'engine-state/_photo-watermarks.json'), JSON.stringify({ ...screen, [kept.url]: { ocr: [], watermark: true, kind: 'logo', retainedOwnMark: { source: 'bwaquatics', sourceUrl: page, owner: 'source' } } }))
+  const yes = { ok: 'yes', typical: true, person: false, logo: false }
+  await writeFile(join(root, 'engine-state/_photo-subjects.json'), JSON.stringify({ [own.url]: { 'corydoras-sterbai': yes }, [kept.url]: { 'corydoras-sterbai': { ...yes, logo: true } } }))
+  await writeFile(join(root, at), JSON.stringify({ ...e, photos: [own, kept, genus] }))
+  await sweep(root)
+  expect((await json(root, at)).photos.map((p: { url: string }) => p.url)).toEqual([own.url, genus.url, kept.url])
+  expect((await sweep(root)).files).toEqual([])
+})
+
+test('a head the photo check calls young gives way to the page\'s own photo it calls grown, typical or not; a pick of the young one stays; a second sweep changes nothing', async () => {
+  // The chief of staff, 15 Nov (young-heads.ts), after the Deocata pipefish page led with its young among snails.
+  const root = await store()
+  await sweep(root)
+  const at = 'content/species/corydoras-sterbai/entity.json'
+  const e = await json(root, at)
+  const young = photo('https://media.aquatome.com/commons/young.webp', 'Corydoras sterbai')
+  const grown = photo('https://media.aquatome.com/commons/grown.webp', 'Corydoras sterbai')
+  const seen = { ok: 'yes', typical: false, person: false, logo: false, note: '' }
+  await writeFile(join(root, 'engine-state/_photo-subjects.json'), JSON.stringify({ [young.url]: { 'corydoras-sterbai': { ...seen, young: true } }, [grown.url]: { 'corydoras-sterbai': { ...seen, young: false } } }))
+  await writeFile(join(root, at), JSON.stringify({ ...e, photos: [young, grown] }))
+  const urls = async () => (await json(root, at)).photos.map((p: { url: string }) => p.url)
+  await writeFile(join(root, 'engine-state/_photo-head-picks.json'), JSON.stringify({ 'species/corydoras-sterbai': young.url }))
+  await sweep(root)
+  expect(await urls()).toEqual([young.url, grown.url])
+  await writeFile(join(root, 'engine-state/_photo-head-picks.json'), '{}')
+  await sweep(root)
+  expect(await urls()).toEqual([grown.url, young.url])
+  expect((await sweep(root)).files).toEqual([])
+})
+
 test('a head its source names only to the genus goes behind a photo named to the species that passes as a head; a pick of it still leads; a second sweep changes nothing', async () => {
   const root = await store()
   await sweep(root)
@@ -1197,4 +1295,61 @@ test("a species page whose order its group doesn't allow is moved to the group t
   expect((await json(root, 'content/species/corydoras-x/entity.json')).group).toBe('catfish')
   expect((await json(root, 'content/species/botia-x/entity.json')).group).toBe('loaches')
   expect((await sweep(root)).regrouped).toEqual([])
+})
+
+// The chief of staff, 16 Nov 2026: no email address in any file under content/. The sweep cuts one from a page's text with
+// its other text fixes, then from every field of every file, so each hit the real-content test can have is one the cycle
+// mends (the independent reader of #1476). Addresses here are the reserved example domains.
+test("an email address goes from a page's text, and from every field of every file under content/, a caption's translation key too; a file with none stays byte for byte", async () => {
+  const swept = sweepTranslation({ body: '<p>Từ: Tác Giả (someone@example.org) Ngày: 5 tháng 8 năm 2002</p>' }, 'guides')
+  expect(swept.t.body).toBe('<p>Từ: Tác Giả Ngày: 5 tháng 8 năm 2002</p>')
+  expect(swept.fixed).toContain('emails')
+  const root = await mkdtemp(join(tmpdir(), 'sweep-'))
+  const c = join(root, 'content')
+  const put = async (path: string, data: unknown, indent = 2) => { await mkdir(join(c, path, '..'), { recursive: true }); await writeFile(join(c, path), `${JSON.stringify(data, null, indent)}\n`) }
+  await put('species/a-fish/entity.json', {
+    id: 'a-fish',
+    sections: [{ key: 'notes', html: '<p>Write to the author (someone@example.org).</p>' }],
+    videos: [{ youtubeId: 'x', title: 'Wild bettas (fishroom@example.com)' }, { youtubeId: 'y', title: 'Bettas 1080p@60fps.MOV' }],
+    photos: [{ url: 'https://user@example.net/ca@2x.PNG', caption: 'Ảnh của someone@example.org' }, { url: 'https://example.net/b.webp', author: 'someone@example.org' }],
+  }, 4)
+  await put('captions/id.json', { 'Ảnh của someone@example.org': 'Foto', 'Ảnh của x@example.net': 'Foto 2' })
+  // None here: an "@" in prose, a handle, a letter of an escape before a handle ("\n@…"), a link.
+  await put('places/a/vi.json', { name: 'Nơi', note: 'Giá 50k @ tiệm, theo @seriouslyfish', more: 'x:\n@fish.keeper', url: 'https://example.net/?mail=someone@example.org' })
+  // A text file is cut as text; a file that isn't JSON is left for the real-content test to name.
+  await mkdir(join(c, 'notes'), { recursive: true })
+  await writeFile(join(c, 'notes/a.md'), 'Hỏi tại (someone@example.org).\n')
+  await writeFile(join(c, 'notes/broken.json'), '{ "a": "someone@example.org" ')
+  // An address written out, with no "@" in its file: the sweep reads it as the check does.
+  await put('species/b-fish/entity.json', { id: 'b-fish', videos: [{ youtubeId: 'z', title: 'Bettas (someone [at] example [dot] org)' }] })
+  const untouched = await readFile(join(c, 'places/a/vi.json'), 'utf8')
+  // A field the cut leaves empty, and two keys it makes one, are listed for a person, an address's key by its place.
+  expect(await dropEmailsEverywhere(c)).toEqual({
+    files: ['captions/id.json', 'notes/a.md', 'species/a-fish/entity.json', 'species/b-fish/entity.json'],
+    emptied: ['captions/id.json (top) (two keys made one)', 'species/a-fish/entity.json photos[1].author'],
+  })
+  const raw = await readFile(join(c, 'species/a-fish/entity.json'), 'utf8')
+  expect(raw.startsWith('{\n    "id"'), 'its indentation').toBe(true)
+  const e = JSON.parse(raw)
+  expect(e.sections[0].html).toBe('<p>Write to the author.</p>')
+  expect(e.videos.map((v: { title: string }) => v.title)).toEqual(['Wild bettas', 'Bettas 1080p@60fps.MOV'])
+  expect(e.photos).toEqual([{ url: 'https://user@example.net/ca@2x.PNG', caption: 'Ảnh của' }, { url: 'https://example.net/b.webp', author: '' }])
+  expect(JSON.parse(await readFile(join(c, 'captions/id.json'), 'utf8'))).toEqual({ 'Ảnh của': 'Foto 2' })
+  expect(await readFile(join(c, 'places/a/vi.json'), 'utf8')).toBe(untouched)
+  expect(await readFile(join(c, 'notes/a.md'), 'utf8')).toBe('Hỏi tại.\n')
+  expect((await json(root, 'content/species/b-fish/entity.json')).videos[0].title).toBe('Bettas')
+  expect(await dropEmailsEverywhere(c)).toEqual({ files: [], emptied: [] })
+})
+
+// The sweep runs the cut last, over what every other step wrote (the second reader of #1476: no test held the call).
+test('the sweep itself cuts an address from a file no other step writes, lists it, and leaves it the second time', async () => {
+  const root = await store()
+  const file = join(root, 'content/species/corydoras-sterbai/entity.json')
+  const e = JSON.parse(await readFile(file, 'utf8'))
+  await writeFile(file, `${JSON.stringify({ ...e, videos: [{ youtubeId: 'v', title: 'Corys at home (someone@example.org)', durationSec: 60, lang: 'en' }] }, null, 2)}\n`)
+  const r = await sweep(root)
+  expect(r.text['emails']).toContain('species/corydoras-sterbai/entity')
+  expect(r.files).toContain('species/corydoras-sterbai/entity.json')
+  expect((await json(root, 'content/species/corydoras-sterbai/entity.json')).videos[0].title).toBe('Corys at home')
+  expect((await sweep(root)).text['emails']).toBeUndefined()
 })

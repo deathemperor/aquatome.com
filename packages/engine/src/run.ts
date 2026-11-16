@@ -2,7 +2,7 @@ import { piece, PieceAdmissionError } from './pieces'
 import { createHash } from 'node:crypto'
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { awaitsScreen, GuideSchema, isAllowedLicence, PHOTO_SCREEN_FILE, type PhotoScreenEntry, isOwnerCrop, mayPublish, setsCookies, ownerCropApproved, ownerCropCanonical, metricPage, PlaceSchema, PlantSchema, SOURCE_IDS, SpeciesSchema, TranslationSchema, judgeQuality, nameKey, slugify, speciesDepth, type ChangelogEntry, type Photo, type Section, type SourceId, type Translation } from '@aq/schema'
+import { awaitsScreen, GuideSchema, isAllowedLicence, PHOTO_SCREEN_FILE, type PhotoScreenEntry, isOwnerCrop, mayPublish, setsCookies, ownerCropApproved, ownerCropCanonical, metricPage, PlaceSchema, PlantSchema, SOURCE_IDS, SpeciesSchema, TranslationSchema, judgeQuality, nameKey, retiredTo, slugify, speciesDepth, type ChangelogEntry, type Photo, type Section, type SourceId, type Translation } from '@aq/schema'
 import type { z } from 'zod'
 import { across, LARGE_PX } from './curation'
 import { cardGaps } from './card-fill'
@@ -510,7 +510,8 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       }
       if (src.search) await soft('search cache', () => saveSearchCache(root, searchCache), undefined)
     }
-    const due = found.filter(f => (!opts.only || opts.only.test(f.url)) && (!opts.cardFill || deeper.has(f.url)) && (forced(f.url) || needsFetch(state[f.url], f.lastmod, deps.now())))
+    // A guide off the site for good (@aq/schema retired.ts) is never read again: no call is spent on a page that stays held.
+    const due = found.filter(f => !retiredTo(guideId(id, f.url)) && (!opts.only || opts.only.test(f.url)) && (!opts.cardFill || deeper.has(f.url)) && (forced(f.url) || needsFetch(state[f.url], f.lastmod, deps.now())))
     const todo = runOrder(due, state, deeper).slice(0, opts.limit ?? Infinity)
 
     let networkFailures = 0

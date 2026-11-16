@@ -1,0 +1,58 @@
+{
+  "id": "schistura-pridii",
+  "native": {
+    "input": "9bd8661fc9c548ff",
+    "at": "2026-11-14T17:19:02.525Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The mini dragon loach, Schistura pridii, is a small nemacheilid loach endemic to tributary streams of the upper Chao Phraya in northern Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to a handful of tributary streams within the upper Chao Phraya river system in northern Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Endemic to a handful of tributary streams within the upper Chao Phraya river system in northern Thailand.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Mae Taeng",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Stream Nam Muen, a tributary of river Mae Taeng, upper Chao Phraya basin, Chiangmai Province, Thailand'.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Schistura pridii",
+    "status": "ACCEPTED",
+    "taxonKey": 5205189,
+    "datasets": [],
+    "native": [
+      "TH"
+    ],
+    "requests": 2,
+    "at": "2026-11-14T17:19:02.525Z"
+  }
+}

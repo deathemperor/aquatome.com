@@ -1,0 +1,76 @@
+{
+  "id": "sicyopus-discordipinnis",
+  "native": {
+    "input": "4ce4872423dd6221",
+    "at": "2026-11-15T00:17:46.244Z",
+    "claims": [
+      {
+        "code": "PG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Letak Creek, 25 kilometers southeast of Wewak, Papua New Guinea' with additional records from northern New Guinea and the islands of Normanby, New Hanover, and Bougainville off the northeastern coast of Papua New Guinea.",
+        "words": "Papua New Guinea",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "New Guinea",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Letak Creek, 25 kilometers southeast of Wewak, Papua New Guinea' with additional records from northern New Guinea and the islands of Normanby, New Hanover, and Bougainville off the northeastern coast of Papua New Guinea.",
+        "ok": true
+      },
+      {
+        "name": "Normanby",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Letak Creek, 25 kilometers southeast of Wewak, Papua New Guinea' with additional records from northern New Guinea and the islands of Normanby, New Hanover, and Bougainville off the northeastern coast of Papua New Guinea.",
+        "country": "PG",
+        "ok": true
+      },
+      {
+        "name": "New Hanover",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Letak Creek, 25 kilometers southeast of Wewak, Papua New Guinea' with additional records from northern New Guinea and the islands of Normanby, New Hanover, and Bougainville off the northeastern coast of Papua New Guinea.",
+        "country": "PG",
+        "ok": true
+      },
+      {
+        "name": "Bougainville",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Letak Creek, 25 kilometers southeast of Wewak, Papua New Guinea' with additional records from northern New Guinea and the islands of Normanby, New Hanover, and Bougainville off the northeastern coast of Papua New Guinea.",
+        "country": "PG",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Sicyopus discordipinnis",
+    "status": "ACCEPTED",
+    "taxonKey": 5208963,
+    "datasets": [
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        8
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        2
+      ],
+      [
+        "fa375330-6c8a-11de-8226-b8a03c50a862",
+        2
+      ]
+    ],
+    "native": [
+      "PG"
+    ],
+    "requests": 11,
+    "at": "2026-11-15T00:17:46.244Z"
+  }
+}

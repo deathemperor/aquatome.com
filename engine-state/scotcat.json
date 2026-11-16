@@ -1067,6 +1067,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/claroteidae/phyllonemus_typus.htm": {
+    "entityIds": [
+      "species/phyllonemus-typus"
+    ],
+    "updatedAt": "2026-11-14T21:27:58.435Z",
+    "hash": "97834e64ad4152a99e86ba465325a11760ce7318ccdb237860affc4414649d05",
+    "processedHash": "97834e64ad4152a99e86ba465325a11760ce7318ccdb237860affc4414649d05",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/cranoglanididae/cranoglanis_henrici.htm": {
     "entityIds": [
       "species/cranoglanis-henrici"
@@ -1114,6 +1124,16 @@
     "updatedAt": "2026-11-03T08:25:39.822Z",
     "hash": "b759ac2b8c381c09bf8ac9b636cf27618394435b00c57d2a4c2b853c544301b8",
     "processedHash": "b759ac2b8c381c09bf8ac9b636cf27618394435b00c57d2a4c2b853c544301b8",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/doradidae/orinocodoras_eigenmanni.htm": {
+    "entityIds": [
+      "species/orinocodoras-eigenmanni"
+    ],
+    "updatedAt": "2026-11-15T08:46:04.552Z",
+    "hash": "0aca0a87ac04858fb4b2199dccaddecb1db827cf47597eaf8b77f84be56a8535",
+    "processedHash": "0aca0a87ac04858fb4b2199dccaddecb1db827cf47597eaf8b77f84be56a8535",
     "status": "processed",
     "attempts": 0
   },
@@ -1697,6 +1717,26 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/neoplecostomus_microps.htm": {
+    "entityIds": [
+      "species/neoplecostomus-microps"
+    ],
+    "updatedAt": "2026-11-14T21:18:55.024Z",
+    "hash": "357ca20cd473e9e78c077647ce1b2f1da6aaf3ae9851ca242061d24eec09d53b",
+    "processedHash": "357ca20cd473e9e78c077647ce1b2f1da6aaf3ae9851ca242061d24eec09d53b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/otocinclus_flexilis.htm": {
+    "entityIds": [
+      "species/otocinclus-flexilis"
+    ],
+    "updatedAt": "2026-11-14T21:20:35.889Z",
+    "hash": "93ec6a7764126cc136601bf32e01bd50b0e68f68a6469a02e4f970d10558f73b",
+    "processedHash": "93ec6a7764126cc136601bf32e01bd50b0e68f68a6469a02e4f970d10558f73b",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/otocinclus_huaorani.htm": {
     "entityIds": [
       "species/otocinclus-huaorani"
@@ -1825,6 +1865,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/pogonopoma_wertheimeri.htm": {
+    "entityIds": [
+      "species/pogonopoma-wertheimeri"
+    ],
+    "updatedAt": "2026-11-15T08:48:31.254Z",
+    "hash": "0f4b41537bcf4f4d5a64b78293a66fcd7b4a6fb33691770c55e5b604929b43ff",
+    "processedHash": "0f4b41537bcf4f4d5a64b78293a66fcd7b4a6fb33691770c55e5b604929b43ff",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/pseudancistrus_barbatus.htm": {
     "entityIds": [
       "species/pseudancistrus-barbatus"
@@ -1842,6 +1892,16 @@
     "updatedAt": "2026-11-09T14:49:58.492Z",
     "hash": "f07cd48dd181741b92257ff66092919ffb913f7ef51645f15be6782194db5aa8",
     "processedHash": "f07cd48dd181741b92257ff66092919ffb913f7ef51645f15be6782194db5aa8",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/pterosturisoma_microps.htm": {
+    "entityIds": [
+      "species/pterosturisoma-microps"
+    ],
+    "updatedAt": "2026-11-15T08:54:10.744Z",
+    "hash": "42bb4a6544e01d78609e57af4607889fd462b82ea7b7de269ce18393ff261dce",
+    "processedHash": "42bb4a6544e01d78609e57af4607889fd462b82ea7b7de269ce18393ff261dce",
     "status": "processed",
     "attempts": 0
   },
@@ -1892,6 +1952,16 @@
     "updatedAt": "2026-11-09T20:49:41.185Z",
     "hash": "1f134da10d61d1d08fb66a7fe7b220e838ae3ce6b84d1d3e19b9300f13061686",
     "processedHash": "1f134da10d61d1d08fb66a7fe7b220e838ae3ce6b84d1d3e19b9300f13061686",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/rineloricaria_castroi.htm": {
+    "entityIds": [
+      "species/rineloricaria-castroi"
+    ],
+    "updatedAt": "2026-11-15T08:58:22.543Z",
+    "hash": "753a2bf302f3a5272d1055189a52162b9b13ac2217568f0cb19e51f7db971b81",
+    "processedHash": "753a2bf302f3a5272d1055189a52162b9b13ac2217568f0cb19e51f7db971b81",
     "status": "processed",
     "attempts": 0
   },
@@ -1995,6 +2065,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/pangasiidae/pangasius_larnaudii.htm": {
+    "entityIds": [
+      "species/pangasius-larnaudii"
+    ],
+    "updatedAt": "2026-11-14T21:23:34.978Z",
+    "hash": "c58c6f176b430e5ac6773b30e6df6a9de4d47d3d58e720501e518aed4cf3ec74",
+    "processedHash": "c58c6f176b430e5ac6773b30e6df6a9de4d47d3d58e720501e518aed4cf3ec74",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/pimelodidae/aguarunichthys_tocantinsensis.htm": {
     "entityIds": [
       "species/aguarunichthys-tocantinsensis"
@@ -2082,6 +2162,16 @@
     "updatedAt": "2026-11-11T02:50:04.960Z",
     "hash": "e8c4168fc6db3c44c482867a061515ebb09ca87cfb48d618e5a94708046c623a",
     "processedHash": "e8c4168fc6db3c44c482867a061515ebb09ca87cfb48d618e5a94708046c623a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/plotosidae/plotosus_canius.htm": {
+    "entityIds": [
+      "species/plotosus-canius"
+    ],
+    "updatedAt": "2026-11-14T21:32:00.012Z",
+    "hash": "77b3362cc7d79f5d3bfbe3b7cb7e0df8d4325ad85803e9116149052823e13423",
+    "processedHash": "77b3362cc7d79f5d3bfbe3b7cb7e0df8d4325ad85803e9116149052823e13423",
     "status": "processed",
     "attempts": 0
   },
@@ -2192,6 +2282,16 @@
     "updatedAt": "2026-11-11T02:41:33.985Z",
     "hash": "5d78176ce50d08a8a3ea2676158b86cd1df1a68009150bae2f742ab38817bc6d",
     "processedHash": "5d78176ce50d08a8a3ea2676158b86cd1df1a68009150bae2f742ab38817bc6d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/sisoridae/pseudecheneis_sulcata.htm": {
+    "entityIds": [
+      "species/pseudecheneis-sulcata"
+    ],
+    "updatedAt": "2026-11-15T08:50:20.654Z",
+    "hash": "08a881d2c1695d78462ef27a2180b79c2e46694386993bad1734845ac23fb53b",
+    "processedHash": "08a881d2c1695d78462ef27a2180b79c2e46694386993bad1734845ac23fb53b",
     "status": "processed",
     "attempts": 0
   },

@@ -1,0 +1,260 @@
+{
+  "id": "orinocodoras-eigenmanni",
+  "scientificName": "Orinocodoras eigenmanni",
+  "order": "Siluriformes",
+  "family": "Doradidae",
+  "genus": "Orinocodoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "colombia",
+    "orinoco",
+    "venezuela"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 20
+      },
+      {
+        "source": "scotcat",
+        "value": 17.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/orinocodoras_eigenmanni_en/",
+      "html": "<p>The talking catfishes (Doradidae) are an interesting group of fishes in many ways. A lot of the species have a very contrasting pattern of dark and light elements, they can make sounds (that can be compared with a grumbling or gnarling) and their armour of bony plates often looks so bizarre that one might think these creatures have been developed on the drawing board of a fantasy filmmaker rather than in nature.</p><p>Orinocodoras eigenmanni attains a maximum length of about 20 cm.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/orinocodoras_eigenmanni.htm",
+      "html": "<ul><li>Common name: Long-nosed Raphael Catfish</li><li>Synonyms: none</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/orinocodoras_eigenmanni_en/",
+      "html": "<p>Orinocodoras eigenmanni is only very rarely imported. The species moreover can be easily confused with a species of Platydoras. Specimens were imported from Colombia. Some of the fish have a marbled pattern which has not been described in literature so far, while other specimens of the import look as they should.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/orinocodoras_eigenmanni.htm",
+      "html": "<p>This fish is probably imported alongside Platydoras armulatus, for if you look into a tank of the latter in any shop you will usually find one or two O. eigenmanni there. They are quite easy to spot with experience, as O. eigenmanni, as the common name suggests, has a longer nose, plus the scutes that adorn the sides of the body are smaller, and it is usually a bit darker in colouration than P. armulatus.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/orinocodoras_eigenmanni_en/",
+      "html": "<p>Origin: Colombia.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/orinocodoras_eigenmanni.htm",
+      "html": "<p>South America: Orinoco River basin, Venezuela. Type locality: Venezuela, Caño de Quiribana near Caicara.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/orinocodoras_eigenmanni.htm",
+      "html": "<p>This is a very nocturnal catfish, so give it plenty of hiding places such as pipes or rockwork and you will get the added bonus of seeing it on the odd occasion.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/orinocodoras_eigenmanni_en/",
+      "html": "<p>The species feeds readily on any usual fish food.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/orinocodoras_eigenmanni.htm",
+      "html": "<p>Will eat anything, hence the body shape it attains. You could also feed tablet food at lights out, just to make sure that it is getting its fair share. If you feed your usual fare to your aquarium inhabitants you will usually find a very large and fat O. eigenmanni the odd times that you do view it.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/orinocodoras_eigenmanni_en/",
+      "html": "<p>Orinocodoras eigenmanni is a peaceful species that seeks contact with conspecifics in the aquarium. Very small fishes can of course be eaten, but O. eigenmanni fits perfectly in a community tank with medium sized fish. The basically night-active species is also very active during the day at feeding times.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/orinocodoras_eigenmanni_en/",
+      "html": "<p>Orinocodoras means \"Doras from the Orinoco\"; Doras is another genus of talking catfish. eigenmanni is a dedication name for the ichthyologist Carl H. Eigenmann (1863 – 1927). Platydoras comes from the ancient Greek and means \"broad Doras\".</p><p>Suggested common name: Donauwelle talking cat (the Donauwelle, meaning \"wave of the river Danube\", is a chocolate covered cake with vanilla pudding, referring to the contrasting pattern of the fish).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/orinocodoras_eigenmanni.htm",
+      "html": "<p>Etymology: The specific name eigenmanni honours German-born American ichthyologist Carl H. Eigenmann (1863–1927), \"who recently [1925] placed the classification of the Doradidae on a firm foundation\".</p><p>IUCN Red List: this species is assessed as Least Concern given its widespread distribution and suspected stable population (IUCN 2022).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/orinocodoras_eigenmanni.htm",
+      "html": "<p>DoNascimiento, CD, Herrera-Collazos, E.E., Mojica, J.I., Rodríguez-Olarte, D., Taphorn, D.C. &amp; Usma, S. 2022. Orinocodoras eigenmanni. The IUCN Red List of Threatened Species 2022. ScotCat Factsheet no. 17. Nov. 1997. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/c56ac790b9232b5f.webp",
+      "thumb": "https://media.aquatome.com/glaser/c56ac790b9232b5f-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/orinocodoras_eigenmanni_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/e80f9b61a154b976.webp",
+      "thumb": "https://media.aquatome.com/glaser/e80f9b61a154b976-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/orinocodoras_eigenmanni_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ceca83b606189478.webp",
+      "thumb": "https://media.aquatome.com/glaser/ceca83b606189478-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/orinocodoras_eigenmanni_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/19e137fb1a1e9007.webp",
+      "thumb": "https://media.aquatome.com/glaser/19e137fb1a1e9007-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/orinocodoras_eigenmanni_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/557bf9fd7770fbec.webp",
+      "thumb": "https://media.aquatome.com/scotcat/557bf9fd7770fbec-480.webp",
+      "width": 500,
+      "height": 268,
+      "licence": "dùng với sự cho phép",
+      "author": "Billy Grant / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/orinocodoras_eigenmanni.htm",
+      "caption": "Orinocodoras eigenmanni",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/27a6f3d19c3a2c28.webp",
+      "thumb": "https://media.aquatome.com/scotcat/27a6f3d19c3a2c28-480.webp",
+      "width": 500,
+      "height": 439,
+      "licence": "dùng với sự cho phép",
+      "author": "Billy Grant / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/orinocodoras_eigenmanni.htm",
+      "caption": "Orinocodoras eigenmanni",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/bbbc83557c6d2ed4.webp",
+      "thumb": "https://media.aquatome.com/scotcat/bbbc83557c6d2ed4-480.webp",
+      "width": 500,
+      "height": 315,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/orinocodoras_eigenmanni.htm",
+      "caption": "Orinocodoras eigenmanni",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/9c08136ce6e552aa.webp",
+      "thumb": "https://media.aquatome.com/scotcat/9c08136ce6e552aa-480.webp",
+      "width": 500,
+      "height": 325,
+      "licence": "dùng với sự cho phép",
+      "author": "Danny Blundell / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/orinocodoras_eigenmanni.htm",
+      "caption": "Orinocodoras eigenmanni",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "Ab7JIPCK5z0",
+      "title": "Orinocodoras eigenmanni",
+      "durationSec": 19,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "GGnt4rl82tg",
+      "title": "Orinocodoras Eigenmanni",
+      "durationSec": 40,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "dX9a0wn497s",
+      "title": "Sick  Orinocodoras eigenmanni",
+      "durationSec": 239,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Yg7sYBqgB2A",
+      "title": "Orinocodoras   eigenmanni   Myers, 1927 (Raphael Catfish)",
+      "durationSec": 88,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá cộng đồng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy lọc nước hồ cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng chìm",
+        "thức ăn cá đáy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-15"
+}

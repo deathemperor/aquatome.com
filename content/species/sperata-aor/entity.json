@@ -128,28 +128,7 @@
       "html": "<p>This \"shovelnose\" is unique amongst bagrids, but superficially resembles several unrelated South American catfish species. Its common name is derived from its flattened, extended head. This is a species totally unsuited to aquarium life, yet it can sometimes be spotted in dealers' tanks. When small, it makes an interesting and undeniably impressive addition to a large aquarium, but bearing in mind its enormous adult size, near unlimited resources would be required to keep the fish for life.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/commons/80cd06b47ea00f41.webp",
-      "width": 953,
-      "height": 413,
-      "licence": "CC BY-SA 4.0",
-      "author": "Sufe",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sperata_aor.jpg",
-      "caption": "Sperata aor of bangladesh",
-      "thumb": "https://media.aquatome.com/commons/80cd06b47ea00f41-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/ca44256342b9547b.webp",
-      "width": 960,
-      "height": 291,
-      "licence": "CC BY-SA 4.0",
-      "author": "Salil Kumar Mukherjee",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sperata_aor_(Long-whiskered_catfish).jpg",
-      "caption": "Sperata aor (Long-whiskered catfish) of West Bengal, India.",
-      "thumb": "https://media.aquatome.com/commons/ca44256342b9547b-480.webp"
-    }
-  ],
+  "photos": [],
   "videos": [],
   "productSlots": [
     {
@@ -173,5 +152,249 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-09",
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "PK",
+        "NP",
+        "BD",
+        "MM"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Indian shovelnose catfish, Sperata aor, is a large bagrid catfish from India, Pakistan, Nepal, Bangladesh and Myanmar.",
+          "countries": [
+            "IN",
+            "PK",
+            "NP",
+            "BD",
+            "MM"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338079,
+      "total": 80,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "IN",
+          62
+        ],
+        [
+          "BD",
+          12
+        ],
+        [
+          "NP",
+          4
+        ],
+        [
+          "MM",
+          1
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          73.125,
+          15.46875,
+          2,
+          2
+        ],
+        [
+          74.53125,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          75.9375,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          75.9375,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          75.9375,
+          18.28125,
+          2,
+          2
+        ],
+        [
+          75.9375,
+          28.125,
+          1,
+          1
+        ],
+        [
+          77.34375,
+          22.5,
+          4,
+          4
+        ],
+        [
+          80.15625,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          80.15625,
+          16.875,
+          2,
+          2
+        ],
+        [
+          80.15625,
+          22.5,
+          8,
+          8
+        ],
+        [
+          80.15625,
+          25.3125,
+          10,
+          10
+        ],
+        [
+          81.5625,
+          16.875,
+          7,
+          7
+        ],
+        [
+          81.5625,
+          28.125,
+          1,
+          1
+        ],
+        [
+          82.96875,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          82.96875,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          84.375,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          85.78125,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          85.78125,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          87.1875,
+          22.5,
+          3,
+          3
+        ],
+        [
+          87.1875,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          90,
+          22.5,
+          6,
+          6
+        ],
+        [
+          90,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          91.40625,
+          22.5,
+          3,
+          3
+        ],
+        [
+          91.40625,
+          23.90625,
+          4,
+          4
+        ],
+        [
+          92.8125,
+          23.90625,
+          3,
+          3
+        ],
+        [
+          92.8125,
+          25.3125,
+          4,
+          4
+        ],
+        [
+          94.21875,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          28.125,
+          3,
+          3
+        ],
+        [
+          97.03125,
+          16.875,
+          1,
+          0
+        ]
+      ]
+    }
+  }
 }

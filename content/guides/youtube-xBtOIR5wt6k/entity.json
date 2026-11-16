@@ -1,0 +1,45 @@
+{
+  "id": "youtube-xBtOIR5wt6k",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=xBtOIR5wt6k",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-14",
+  "video": {
+    "youtubeId": "xBtOIR5wt6k",
+    "title": "Building an 8ft Tall Paludarium w/ Living Wall (EP1)",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 1803,
+    "publishedAt": "2025-02-13",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWv-UY_FGKYO0_1Qnx2bQU2b",
+      "position": 3
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/xBtOIR5wt6k/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Epipremnum aureum",
+      "Hedera helix",
+      "Symphysodon sp."
+    ],
+    "gear": [
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "t": 260
+      },
+      {
+        "category": "loc",
+        "type": "thung",
+        "t": 250
+      }
+    ]
+  }
+}

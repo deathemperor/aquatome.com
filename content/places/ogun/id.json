@@ -1,8 +1,13 @@
 {
   "slug": "ogun",
-  "name": "Ogun",
+  "name": "Negara Bagian Ogun",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-15T05:32:49.321Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

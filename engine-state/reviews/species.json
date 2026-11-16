@@ -139,6 +139,43 @@
       "kept": true
     }
   ],
+  "vi/species/ancistrus-dolichopterus#EU7xKjw8VZI": [
+    {
+      "at": "2026-11-15T15:29:33Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.8,
+      "notes": [
+        "[distribution] \"Nếu đúng vậy\" hedges a claim the video states flatly (native to several Amazon river systems, including the lower Trombetas and Madeira). The video does not call it uncertain.",
+        "[distribution] \"không chỉ gói trong sông Negro\" is the right contrast with the page. The page already mentions a wider Amazon range, so only the Trombetas and Madeira rivers are new.",
+        "[diet] \"Có nguồn lại xếp loài này...\" attributes the claim to an unnamed \"source\". The video simply says they are mostly herbivores and detritivores. It would be clearer to say plainly that this differs from the page's omnivore diet with a preference for invertebrates.",
+        "[dimorphism] The point about females having a few small tentacles is correct. It contradicts the page, which says females have none, but NEW does not say so outright.",
+        "[behaviour] \"ít khi thấy được\" is fine and matches the video. The sentence repeats itself slightly, with \"sống về đêm\" and \"chủ yếu ra ngoài lúc tối\" saying the same thing."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-15T15:29:33Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.5,
+      "notes": [
+        "[distribution] Trombetas and Madeira rivers are given as 'một người nuôi cho rằng... nhiều hệ sông trong lưu vực Amazon'; the video states this as fact about native range, not one keeper's opinion. The page says the species is likely endemic to the Negro, but the NEW text doesn't say plainly that the video differs.",
+        "[distribution] It doesn't flag that the video's range (Trombetas, Madeira) conflicts with the page's Rio Negro endemism. The conflict should be stated.",
+        "[diet] 'Một người nuôi loài này ba năm thấy chúng chủ yếu ăn rêu...' makes the video's general facts about diet (algae, biofilm, decaying plant matter) into one keeper's experience. The video presents these as general facts.",
+        "[diet] 'thức ăn hạt chìm' for 'sinking pellets' is fine, but the diet text mostly overlaps the page's 'thức ăn khô chìm'. Also the page says the species is probably an omnivore preferring invertebrates, which conflicts with the video's 'mostly herbivores and detritivores'. The NEW text doesn't flag this difference.",
+        "[diet] 'cạo kính bể sạch rêu khá nhanh' is attributed to the keeper, but the video says it as a general claim ('Sparkle in no time'). The attribution is shaky.",
+        "[dimorphism] 'Một người nuôi loài này thấy con cái đôi khi cũng có vài xúc tu' presents the video's general statement as one keeper's observation. It also doesn't say how it differs from the page, which says females lack tentacles. The video says females may have a few small bristles.",
+        "[behaviour] 'chủ yếu ra ngoài vào ban đêm' is supported by the video. But 'ban ngày ít khi thấy nó' is a mild extrapolation.",
+        "[notes] The star-spot description is supported by the video. 'Cái tên sao là từ bộ chấm này mà ra' is fine."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/anentome-helena#91J9w0-vZDM": [
     {
       "at": "2026-11-10T06:36:40Z",
@@ -886,6 +923,43 @@
       "kept": false
     }
   ],
+  "vi/species/poecilia-wingei#e7HfD_6ofzc": [
+    {
+      "at": "2026-11-14T23:03:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.6,
+      "notes": [
+        "[distribution] El Tigre's origin (a stream of that name in the Campoma region) contradicts the page's notes, which say it was first sent by a Thai hatchery. NEW doesn't say it differs from the page.",
+        "[distribution] \"được bắt ở một con suối khác hẳn, tên là El Tigre\" largely repeats the page's distribution line that El Tigre was first collected at El Tigre, Venezuela.",
+        "[beforeYouBuy] \"Endler class N là những dòng truy được về tận vùng nước gốc... cá hoang dã chứ không phải cá lai\" repeats the page's \"Endler thuần chủng được gọi là Endler class N\".",
+        "[beforeYouBuy] \"gần như đã tuyệt chủng vì nước bị ô nhiễm\" is already on the page (extinct at Laguna de Patos after pollution).",
+        "[behaviour] \"hiếu động\" duplicates the page's \"rất hiếu động\" for Endlers. The class K comparison is from the video, but the paragraph is thin and partly redundant.",
+        "[reproduction] The advice on keeping the line pure and the point about females looking alike are the video speaker's opinion. They are written as fact, not as one keeper's view.",
+        "[diet] \"artemia mới nở\" and the live and frozen food advice overlap with the page's diet and fry-feeding text. \"Banana worm\" is a questionable reading of the transcript's \"banana\".",
+        "[maintenance] The tight-lid and jumping advice is one keeper's experience but is written as a rule (\"bể phải có nắp đậy kín\"), not as one keeper's view."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-14T23:03:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.72,
+      "notes": [
+        "The page says El Tigre was first sent out by a hatchery in Thailand, but the video says it was collected in its own stream, El Tigre, in the Campoma region. NEW states the video's version without saying it differs from the page.",
+        "\"vùng Cumana quanh Laguna de Patos\": the video only says \"lagoon deatos\" (garbled speech) for Cumana. Naming Laguna de Patos is an inference, and the page already has that lagoon.",
+        "[distribution] repeats the page's point that El Tigre is a pure wild strain from El Tigre. The stream and separate-population detail is new.",
+        "[diet] \"bo bo\" is already on the page's diet text. The video's \"daphnia\" is rendered as bo bo, which is fine, but that item adds nothing new.",
+        "[behaviour] \"hiếu động\" is already on the page, though the comparison with the class K hybrids is new and in the video."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/puntigrus-tetrazona#e-vMaC6qG9E": [
     {
       "at": "2026-11-14T03:29:59Z",
@@ -1236,6 +1310,44 @@
         "[habitat] 'Nước ở đó mềm và có tính axit' – the page already has soft, slightly acidic water; the habitat is already covered there.",
         "[reproduction] 'Một người nuôi loài này thấy cá bột lớn khá chậm' – the video states this as a general fact, not a keeper's experience; also the page says fry eat artemia nauplii right away, and the video differs (infusoria/powder first) without saying so plainly.",
         "[reproduction] 'Nuôi theo nhóm thì cá thường bắt cặp… vớt riêng cặp đó' and 'chậu đất nung' – partly repeat page content (grouping, pairing, tubes, live/frozen feeding, water change, dance display); 'đến khi đủ lớn' and 'vài tuần' are in the video, but the several-week claim conflicts with the page's 2–4 days without noting it."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/xiphophorus-maculatus#ETOaNDemwVM": [
+    {
+      "at": "2026-11-15T15:28:23Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.74,
+      "notes": [
+        "reproduction: \"cá cái của mình cứ 3–4 tuần lại đẻ… khoảng 30 con\" – the video states this as a general fact about platies. It does not say these are the speaker's own females.",
+        "reproduction: \"hai lứa cũng gần nhau hơn mức thường gặp\" – the video doesn't compare against the page's 17–65 day range. 3–4 weeks falls inside that range, so the comparison is an unsupported stretch.",
+        "maintenance: \"Một người nuôi platy lâu năm\" – the video never says how long the speaker has kept platies. \"lâu năm\" is added.",
+        "waterConditions: \"ấm hơn mức 20–24 °C thường khuyên\" – the video itself recommends 24–26 °C. The contrast is built from the page's range, not from the video.",
+        "notes: \"Cá màu sặc sỡ như vậy mà xuất hiện ngoài tự nhiên thì chắc không trụ nổi một ngày\" – it is the speaker's remark, but it is written as a flat statement, not as one keeper's view.",
+        "waterConditions: \"cá khỏe ra thấy rõ\" is slightly stronger than the video's \"feel much better\", which is a mild overstatement."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-15T15:28:23Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.5,
+      "notes": [
+        "[notes] \"hơn 100 năm nay\" about platies kept/bred is said in video; fine, but the page already says the species has been studied 130+ years and has dozens of selective strains, so this overlaps the page.",
+        "[notes] \"cá sẽ bị bắt ăn ngay\" - the video says the color form would be \"gone within a day\" in nature, but doesn't say it is eaten by predators; this adds a cause.",
+        "[beforeYouBuy] \"Hiện chỉ một nhà nhập sỉ ở Đức có dòng này\" - the video says the wholesaler is the only one exclusively in Europe and the world, with CIA/Garnelio in Germany; wording is roughly ok but the shop is effectively a named seller context.",
+        "[beforeYouBuy] \"Cá cái giữ được tinh trùng trong người\" - the page's reproduction section already says females store sperm; repeated fact.",
+        "[beforeYouBuy] \"Muốn cá con giữ đúng dòng thì nên mua cá từ bể chỉ nuôi đúng một dòng\" - fine, but the mixing of strains is partly on the page (hybridization), lightly overlapping.",
+        "[habitat] \"do mạch nước ngầm chảy vào\" - video says a clear spring-fed pond; OK, but \"Một người chơi từng thấy\" is a single sighting, thin and marginal; the page already covers habitat.",
+        "[maintenance] \"ít rêu, ít trục trặc hơn hẳn\" - video says less algae and fewer problems; \"hẳn\" overstated. Also 50–60% weekly is one keeper's practice and the page already gives 20–25%, but it is not marked as differing from the page.",
+        "[waterConditions]/[diet]/[reproduction] \"platy cũng ăn rêu\", \"cần cho cá ăn cả thức ăn có rau\" - the page already says omnivorous and eats nearly anything; the reproduction 'every 3–4 weeks, ~30 young' differs from page (15–25 per brood, 17–65 days) but the difference is not stated plainly. 'Cho đủ ăn... bể đẹp' repeats the page."
       ],
       "attempt": "first",
       "kept": false

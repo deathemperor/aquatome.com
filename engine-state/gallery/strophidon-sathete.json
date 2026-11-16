@@ -1,10 +1,35 @@
 {
  "queue": [],
  "judged": [
-  "File:Moray Eel (15821613374).jpg"
+  "File:Moray Eel (15821613374).jpg",
+  "inat:14551798",
+  "inat:14551801",
+  "inat:14551810",
+  "inat:14760566",
+  "inat:14760591",
+  "inat:14760596",
+  "inat:59165370",
+  "inat:59165366",
+  "inat:59165363",
+  "inat:78644913",
+  "inat:78644918",
+  "inat:600271102",
+  "inat:600277561",
+  "inat:600282968",
+  "inat:700925709",
+  "inat:700925797",
+  "inat:700925871"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/43360e397b94e67e.webp": "a68727836198d066"
  },
- "commons": "2026-11-11"
+ "commons": "2026-11-11",
+ "inat": {
+  "taxon": 418134,
+  "pass": "done",
+  "after": {
+   "research": 382982242,
+   "agree": 0
+  }
+ }
 }

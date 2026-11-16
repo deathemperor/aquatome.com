@@ -1,8 +1,13 @@
 {
   "slug": "lorentz-river",
-  "name": "Lorentz",
+  "name": "Sungai Lorentz",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-15T05:30:18.502Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

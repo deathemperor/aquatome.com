@@ -82,6 +82,10 @@ pnpm engine sweep || log "sweep: failed"
 # that fails is held, a live page that got worse keeps its committed text, a page built on a foreign shop's kit is held,
 # and a held page that now passes is let out. A page it can't read stays as readers have it; only a crash stops the run,
 # and keeps its work on a branch (gate_or_keep).
+# The held video guides go to their editor here alone, 24 a run (gate.ts heldMendsOf): the Mac's five parts each sent the
+# same 12, and two rounds' 83 tries went to 27 guides (the chief of staff, 15 Nov 2026). One a mend didn't let out waits
+# 3 days on that text (MEND_AGAIN_DAYS), so the slots go to the others.
+export GATE_HELD_MENDS="${GATE_HELD_MENDS:-24}"
 gate_or_keep "content: videos" content engine-state docs/review || exit 1
 if [ -z "$(git status --porcelain -- content engine-state docs/review)" ]; then log "no changes"; exit 0; fi
 # Committed before the tests, as engine-cycle.sh does: the next run's reset drops uncommitted work for good, and a commit

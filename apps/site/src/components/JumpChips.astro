@@ -3,7 +3,8 @@ import { i18n } from '../lib/i18n'
 /**
  * A sticky row of links to a long page's main parts, in page order; the part being read is marked as the reader scrolls.
  * `end`: a chip that stays in sight at the row's end, the others scrolling beside it (the photos, lib/species-page.ts
- * jumpRow); it isn't one of the parts marked.
+ * jumpRow; a term's "Dùng trong"). It is marked as the others are while its part is read (the Design Lead, 15 Nov 2026),
+ * when it leads to a part of this page: the fish page's photos open the gallery, a page of their own, so that one never is.
  */
 interface Props { items: { href: string; label: string; end?: boolean }[] }
 const { items } = Astro.props
@@ -22,22 +23,28 @@ const { t } = i18n(Astro.url)
   const nav = document.querySelector<HTMLElement>('[data-jump]')
   if (nav) {
     const row = nav.querySelector('ul')!
-    const links = [...row.querySelectorAll('a')]
+    // The parts' chips in the row, then the end chip, which stays outside it.
+    const links = [...nav.querySelectorAll('a')]
     // Each part as the block it heads: a heading's own section (the photos' strip, the shop), else the target itself.
     const parts = links.map(a => { const el = document.getElementById(a.hash.slice(1)); return el && (el.closest('section') ?? el) })
     const calm = matchMedia('(prefers-reduced-motion: reduce)')
     let current = -2
     const update = () => {
       // The part being read: the one that spans the line just under the row once the row has reached the top (above it,
-      // the reader hasn't come to its parts); none between two parts.
+      // the reader hasn't come to its parts); none between two parts. At the page's end the last parts can't reach that
+      // line (a short term page's "Dùng trong"), so there it is the last part still in sight below the row.
       const box = nav.getBoundingClientRect(), line = box.bottom + 24
-      const i = box.top > parseFloat(getComputedStyle(nav).top) + 1 ? -1 : parts.findIndex(el => { if (!el) return false; const r = el.getBoundingClientRect(); return r.height > 0 && r.top <= line && r.bottom > line })
+      const end = scrollY + innerHeight >= document.documentElement.scrollHeight - 2
+      const at = (el: Element | null, read: (r: DOMRect) => boolean) => { if (!el) return false; const r = el.getBoundingClientRect(); return r.height > 0 && read(r) }
+      const i = box.top > parseFloat(getComputedStyle(nav).top) + 1 ? -1
+        : end ? parts.map(el => at(el, r => r.top < innerHeight && r.bottom > line)).lastIndexOf(true)
+        : parts.findIndex(el => at(el, r => r.top <= line && r.bottom > line))
       if (i === current) return
       current = i
       links.forEach((a, k) => (k === i ? a.setAttribute('aria-current', 'true') : a.removeAttribute('aria-current')))
       // Keep the marked chip in view in the row: the row scrolls sideways only, never the page.
       const a = links[i]
-      if (a) row.scrollTo({ left: a.offsetLeft - (row.clientWidth - a.offsetWidth) / 2, behavior: calm.matches ? 'auto' : 'smooth' })
+      if (a && row.contains(a)) row.scrollTo({ left: a.offsetLeft - (row.clientWidth - a.offsetWidth) / 2, behavior: calm.matches ? 'auto' : 'smooth' })
     }
     // A row wider than the screen fades out at the side that has more, so it reads as one to scroll.
     const edges = () => {

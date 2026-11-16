@@ -261,7 +261,7 @@ private struct RecentCard: View {
     VStack(alignment: .leading, spacing: 4) {
       Photo(item: item)
       Text(item.name).font(.subheadline.weight(.semibold)).foregroundStyle(.primary).lineLimit(2, reservesSpace: true)
-      Text(item.video != nil ? HandbookIndex.Kind.video.title : item.kind.title).font(.caption).foregroundStyle(.secondary)
+      Text(item.video != nil ? HandbookIndex.Kind.video.title : item.kindTitle).font(.caption).foregroundStyle(.secondary)
     }
     .accessibilityElement(children: .combine)
     .accessibilityIdentifier("item")

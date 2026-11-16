@@ -10,6 +10,56 @@
     "vietnam",
     "thu-bon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VN"
+      ],
+      "regions": [
+        "Thu Bon"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from a handful of localities within the Thu Bon river system in Quang Nam province, central Vietnam.",
+          "countries": [
+            "VN"
+          ],
+          "regions": [
+            "Thu Bon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205385,
+      "total": 3,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "VN",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          106.875,
+          14.0625,
+          2,
+          2
+        ],
+        [
+          106.875,
+          15.46875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -364,39 +364,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/683d05520e4de418.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/683d05520e4de418-480.webp",
-      "width": 800,
-      "height": 308,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-sp-le1",
-      "caption": "This undescribed species is rare in the trade.",
-      "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/80a878f72886771b.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/80a878f72886771b-480.webp",
-      "width": 600,
-      "height": 255,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-sp-le1",
-      "caption": "The blue sheen seen on the flanks of this specimen is an artefact of flash photography and not apparent in life.",
-      "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/8a94aeeb4991b8d0.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/8a94aeeb4991b8d0-480.webp",
-      "width": 800,
-      "height": 301,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalichthys-sp-le1",
-      "caption": "...from almost no patterning at all...",
-      "source": "seriouslyfish"
-    },
-    {
       "url": "https://media.aquatome.com/commons/b51bdc8a76601a8a.webp",
       "thumb": "https://media.aquatome.com/commons/b51bdc8a76601a8a-480.webp",
       "width": 960,
@@ -404,7 +371,22 @@
       "licence": "CC BY-SA 3.0",
       "author": "Wibowo Djatmiko (Wie146)",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lepidoch_hasselt_150223-48900_tdp.JPG",
-      "caption": "Lepidocephalichthys hasselti, ca 29 mm SL. From Banyumas, Central Java, Indonesia."
+      "caption": "Lepidocephalichthys hasselti, ca 29 mm SL. From Banyumas, Central Java, Indonesia.",
+      "large": {
+        "url": "https://media.aquatome.com/commons/b51bdc8a76601a8a-large.webp",
+        "width": 2000,
+        "height": 1000
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/commons/a0baaf63b277571b.webp",
+      "thumb": "https://media.aquatome.com/commons/a0baaf63b277571b-480.webp",
+      "width": 960,
+      "height": 457,
+      "licence": "CC BY-SA 3.0",
+      "author": "Wibowo Djatmiko (Wie146)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lepidoch_hasselt_150223-48921_tdp.JPG",
+      "caption": "Lepidocephalichthys hasselti, ca 30 mm SL. From Banyumas, Central Java, Indonesia."
     },
     {
       "url": "https://media.aquatome.com/commons/50b08a2277f450eb.webp",
@@ -424,16 +406,6 @@
       "licence": "CC BY-SA 3.0",
       "author": "Wibowo Djatmiko (Wie146)",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lepidoch_hasselt_150222-48844_tdp.JPG",
-      "caption": "Lepidocephalichthys hasselti, ca 30 mm SL. From Banyumas, Central Java, Indonesia."
-    },
-    {
-      "url": "https://media.aquatome.com/commons/a0baaf63b277571b.webp",
-      "thumb": "https://media.aquatome.com/commons/a0baaf63b277571b-480.webp",
-      "width": 960,
-      "height": 457,
-      "licence": "CC BY-SA 3.0",
-      "author": "Wibowo Djatmiko (Wie146)",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lepidoch_hasselt_150223-48921_tdp.JPG",
       "caption": "Lepidocephalichthys hasselti, ca 30 mm SL. From Banyumas, Central Java, Indonesia."
     }
   ],

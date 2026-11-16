@@ -33,7 +33,8 @@ test('each numbered mark opens the source with that number in the source list', 
   const sources = dom.querySelectorAll('.sources ol li a')
   expect(sources).toHaveLength(3)
   const marks = dom.querySelectorAll('.prose .cite')
-  expect(marks.map(m => m.text)).toEqual(['1', '1', '2', '1', '2', '3'])
+  // About, water, preparing (a numbered list with a list inside it, several marks to an item), suits, mistakes, buying.
+  expect(marks.map(m => m.text)).toEqual(['1', '1', '1', '2', '2', '2', '3', '2', '3', '2', '3', '1', '2', '3'])
   for (const mark of marks) expect(mark.getAttribute('href')).toBe(sources[Number(mark.text) - 1]!.getAttribute('href'))
   expect(dom.querySelector('.material')!.text).not.toMatch(/\[\d+\]/)
 })

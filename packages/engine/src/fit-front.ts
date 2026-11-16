@@ -2,6 +2,7 @@
  * The front list (fit-front.json) for the reader-fit read and the rewrite that follows it. The list's order is the
  * ruled one: pages kept off the Explore tab's top cards, then pages kept off the Today card, then the staples.
  */
+import { retiredTo } from '@aq/schema'
 
 /** The same key fitKey writes (`<lang>/<kind>/<id>`). Kept here so ordering doesn't load the reader-fit rules. */
 const keyOf = (p: { lang: string; kind: string; id: string }) => `${p.lang}/${p.kind}/${p.id}`
@@ -39,19 +40,16 @@ export const frontHeld = (list: { cleared: boolean | string }, last: FirstRun | 
 /** A page's mark from the gate (gate.ts Held): the checks it was held for, and the day. */
 export type HeldMark = { checks: readonly string[]; at: string }
 
-/** 2hraquarist's gallery posts of others' tanks: to go off, not be rewritten (the chief of staff, 14 Nov 2026). */
-const GALLERY = /^2hraquarist-blogs-aquascaping-ideas-/
-
 /**
  * The lane (the chief of staff, 14 Nov 2026): pages the gate held new, which no reader has seen, rewritten first, newest
  * first, whatever the hold on the front list; each comes out only when the gate passes it. A video guide goes to its own
- * editor instead (video-mend.ts), a page held for harm, a kit or a dose waits for a person, and a gallery post isn't paid
- * for.
+ * editor instead (video-mend.ts), a page held for harm, a kit or a dose waits for a person, and a guide off the site for
+ * good (@aq/schema retired.ts: a gallery post, a seller's notice) isn't paid for.
  */
 export function laneFirst<P extends { lang: string; kind: string; id: string }>(pages: readonly P[], held: ReadonlyMap<string, HeldMark>): P[] {
   const ours = pages.filter(p => {
     const h = held.get(keyOf(p))
-    return !!h && !(p.kind === 'guides' && (p.id.startsWith('youtube-') || GALLERY.test(p.id))) && !h.checks.some(c => ['harm', 'kit', 'dose'].includes(c))
+    return !!h && !(p.kind === 'guides' && (p.id.startsWith('youtube-') || retiredTo(p.id))) && !h.checks.some(c => ['harm', 'kit', 'dose', 'off'].includes(c))
   })
   // Newest first; a day's pages in the order given (sort is stable).
   return [...new Map(ours.map(p => [keyOf(p), p])).values()].sort((a, b) => held.get(keyOf(b))!.at.localeCompare(held.get(keyOf(a))!.at))
@@ -60,15 +58,22 @@ export function laneFirst<P extends { lang: string; kind: string; id: string }>(
 /**
  * What a `--front` rewrite runs (the chief of staff, 14 Nov 2026: "The hold covers the front list's pages only"): with the
  * lane open, its pages first, then the front list's in their order unless it's held, then the rest; with it shut, as before
- * the lane, nothing while held. `lane`: the lane's keys, whose outcomes never make a run the one on file.
+ * the lane, nothing while held. With `products` on, the pages `product` names (a foreign product or medicine on them, the
+ * owner's complaint) share the front with the lane, one for one, ahead of every other page (the chief of staff, 14 Nov
+ * 2026). `lane`: the lane's keys, whose outcomes never make a run the one on file; `mend`: the pages mended sentence by
+ * sentence, a guide too (fit-rewrite.ts): the lane's and those.
  */
-export function frontPlan<P extends { lang: string; kind: string; id: string }>(list: { cleared: boolean | string; lane: boolean; front: readonly string[] }, last: FirstRun | undefined, ranked: readonly P[], held: ReadonlyMap<string, HeldMark>) {
+export function frontPlan<P extends { lang: string; kind: string; id: string }>(list: { cleared: boolean | string; lane: boolean; products?: boolean; front: readonly string[] }, last: FirstRun | undefined, ranked: readonly P[], held: ReadonlyMap<string, HeldMark>, product: (p: P) => boolean = () => false) {
   const isHeld = frontHeld(list, last)
   const lane = list.lane ? laneFirst(ranked, held) : []
   const inLane = new Set(lane.map(keyOf))
   const front = new Set(list.front)
-  const rest = isHeld && !list.lane ? [] : orderFront(list, ranked).filter(p => !inLane.has(keyOf(p)) && !(isHeld && front.has(keyOf(p))))
-  return { held: isHeld, order: [...lane, ...rest], lane: inLane }
+  const waits = (p: P) => isHeld && front.has(keyOf(p))
+  const products = list.lane && list.products ? ranked.filter(p => product(p) && !inLane.has(keyOf(p)) && !waits(p)) : []
+  const first = new Set([...inLane, ...products.map(keyOf)])
+  const shared = Array.from({ length: Math.max(lane.length, products.length) }, (_, i) => [lane[i], products[i]]).flat().filter((p): p is P => !!p)
+  const rest = isHeld && !list.lane ? [] : orderFront(list, ranked).filter(p => !first.has(keyOf(p)) && !waits(p))
+  return { held: isHeld, order: [...shared, ...rest], lane: inLane, mend: first }
 }
 
 /** The run's outcomes without the lane's pages: what goes on file as the run the hold waits on. */

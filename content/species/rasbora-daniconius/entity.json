@@ -638,7 +638,12 @@
       "author": "Christopher",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rasbora_daniconius_68015786.jpg",
       "caption": "Slender Rasbora (Rasbora daniconius)",
-      "thumb": "https://media.aquatome.com/commons/4b9eed3ad83207cb-480.webp"
+      "thumb": "https://media.aquatome.com/commons/4b9eed3ad83207cb-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/4b9eed3ad83207cb-large.webp",
+        "width": 1441,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

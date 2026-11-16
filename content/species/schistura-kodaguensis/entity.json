@@ -10,6 +10,59 @@
     "india",
     "kaveri"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Western Ghats",
+        "Cauvery"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Schistura kodaguensis is a small nemacheilid loach from the Western Ghats of Karnataka, India, confirmed only from a tributary of the Cauvery.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Western Ghats"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Its wider distribution is unclear, with the single confirmed locality a tributary stream in the Cauvery (Kaveri) River system.",
+          "countries": [],
+          "regions": [
+            "Cauvery"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9665967,
+      "total": 1,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "IN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          74.53125,
+          11.25,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

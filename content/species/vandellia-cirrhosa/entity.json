@@ -7,7 +7,8 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "amazon"
+    "amazon",
+    "peru"
   ],
   "dataCard": {
     "ph": [
@@ -34,10 +35,22 @@
       "html": "<p>Vandellia cirrhosa Valenciennes, 1846. Common name: Candiru. Size: 170 mm (6.7\") SL. Identification: transparent to yellowish body, fleshy dorsal fin without a strong spine.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/plectrochilus_erythrurus_en/",
+      "html": "<p>Plectrochilus erythrurus is a blood-sucking Candiru catfish that is extremely rarely imported. Origin: Peru.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1056",
       "html": "<p>South America: Amazon River basin and Orinoco.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/plectrochilus_erythrurus_en/",
+      "html": "<p>Peru.</p>"
     },
     {
       "key": "waterConditions",
@@ -93,29 +106,34 @@
       "sourceUrl": "https://www.scotcat.com/trichomycteridae/vandellia_cirrhosa.htm",
       "caption": "Vandellia cirrhosa: Feeding on blood in the gill chambers of larger species",
       "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/6ebcd2ed06a45315.webp",
-      "width": 960,
-      "height": 528,
-      "licence": "CC0",
-      "author": "Ivan Sazima & Jansen Zuanon",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vandellia_cirrhosa.png",
-      "caption": "A closeup of a feeding candiru as it begins to swell with blood",
-      "thumb": "https://media.aquatome.com/commons/6ebcd2ed06a45315-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/677a9b005d471470.webp",
-      "width": 960,
-      "height": 403,
-      "licence": "Public domain",
-      "author": "François-Louis Laporte, comte de Castelnau",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vandellia.jpg",
-      "caption": "Vandellia plazaii (now syn. of Vandellia cirrhosa) & Vandellia cirrhosa",
-      "thumb": "https://media.aquatome.com/commons/677a9b005d471470-480.webp"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "QQWgUht-ObI",
+      "title": "Horror story: Candiru: the Toothpick Fish - Weird Nature - BBC animals",
+      "durationSec": 129,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "_hImZ7Qf6bY",
+      "title": "CANDIRÚ, the little fish of great destruction• #candirú #rivermonsters  #amazonfish  #curiosity",
+      "durationSec": 26,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ukfM0LWeVkM",
+      "title": "Candiru Fish: The Tiny Terror of the Amazon River",
+      "durationSec": 48,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "AyZpqg7RuWg",
+      "title": "The Truth About the Candiru — the Amazon's Most Terrifying Legend ",
+      "durationSec": 173,
+      "lang": "en"
+    }
+  ],
   "productSlots": [],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-14"
 }

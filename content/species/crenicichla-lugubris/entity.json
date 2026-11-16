@@ -22,7 +22,8 @@
       "countries": [
         "SR",
         "GY",
-        "BR"
+        "BR",
+        "VE"
       ],
       "regions": [
         "Rio Corantijn",
@@ -30,7 +31,7 @@
         "Rio Negro",
         "Rio Uatumã",
         "Rio Branco",
-        "Rio Jutai"
+        "Orinoco"
       ],
       "sources": [
         "seriouslyfish",
@@ -48,6 +49,16 @@
           "regions": []
         },
         {
+          "source": "glaser",
+          "quote": "Venezuela (Orinoco).",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Orinoco"
+          ]
+        },
+        {
           "source": "seriouslyfish",
           "quote": "Has been recorded from the Rio Corantijn in Suriname, Rio Essequibo in Guyana, Rio Negro and Rio Uatumã in Brazil and Rio Branco in both Brazil and Guyana.",
           "countries": [],
@@ -58,21 +69,13 @@
             "Rio Uatumã",
             "Rio Branco"
           ]
-        },
-        {
-          "source": "glaser",
-          "quote": "Jutai is a municipality in western Brazil, named after the Rio Jutai, which is an affluent to the Amazon river.",
-          "countries": [],
-          "regions": [
-            "Rio Jutai"
-          ]
         }
       ]
     },
     "records": {
       "taxonKey": 2370957,
       "total": 404,
-      "fetched": "2026-11-09",
+      "fetched": "2026-11-14",
       "countries": [
         [
           "VE",
@@ -148,37 +151,37 @@
           -70.3125,
           7.03125,
           8,
-          0
+          8
         ],
         [
           -70.3125,
           8.4375,
           4,
-          0
+          4
         ],
         [
           -68.90625,
           2.8125,
           1,
-          0
+          1
         ],
         [
           -68.90625,
           4.21875,
           7,
-          0
+          7
         ],
         [
           -68.90625,
           5.625,
           75,
-          0
+          74
         ],
         [
           -68.90625,
           7.03125,
           4,
-          0
+          4
         ],
         [
           -67.5,
@@ -196,37 +199,37 @@
           -67.5,
           1.40625,
           2,
-          0
+          2
         ],
         [
           -67.5,
           2.8125,
           7,
-          0
+          7
         ],
         [
           -67.5,
           4.21875,
           2,
-          0
+          2
         ],
         [
           -67.5,
           5.625,
           46,
-          0
+          46
         ],
         [
           -67.5,
           7.03125,
           20,
-          0
+          20
         ],
         [
           -67.5,
           8.4375,
           3,
-          0
+          3
         ],
         [
           -66.09375,
@@ -250,19 +253,19 @@
           -66.09375,
           1.40625,
           2,
-          0
+          2
         ],
         [
           -66.09375,
           2.8125,
           1,
-          0
+          1
         ],
         [
           -66.09375,
           5.625,
           3,
-          0
+          3
         ],
         [
           -64.6875,
@@ -280,7 +283,7 @@
           -64.6875,
           2.8125,
           1,
-          0
+          1
         ],
         [
           -63.28125,
@@ -298,13 +301,13 @@
           -63.28125,
           7.03125,
           7,
-          0
+          7
         ],
         [
           -63.28125,
           8.4375,
           1,
-          0
+          1
         ],
         [
           -61.875,
@@ -340,7 +343,7 @@
           -61.875,
           5.625,
           7,
-          1
+          7
         ],
         [
           -60.46875,

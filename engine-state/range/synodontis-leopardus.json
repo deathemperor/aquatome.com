@@ -1,0 +1,61 @@
+{
+  "id": "synodontis-leopardus",
+  "native": {
+    "input": "c583d7d4cc8e045c",
+    "at": "2026-11-15T05:39:34.625Z",
+    "claims": [
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Ruvu (or Rufu) River, near or at Korogwe, Tanzania",
+        "words": "Tanzania",
+        "ok": true
+      },
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Africa: coastal rivers, Tanzania, Somalia.",
+        "words": "Tanzania",
+        "ok": true
+      },
+      {
+        "code": "SO",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Africa: coastal rivers, Tanzania, Somalia.",
+        "words": "Somalia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ruvu River",
+        "source": "planetcatfish",
+        "quote": "Type locality: Ruvu (or Rufu) River, near or at Korogwe, Tanzania",
+        "country": "TZ",
+        "ok": false,
+        "why": "its name is not in the quote"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Synodontis leopardus",
+    "status": "ACCEPTED",
+    "taxonKey": 2344295,
+    "datasets": [],
+    "native": [
+      "TZ",
+      "SO"
+    ],
+    "requests": 2,
+    "at": "2026-11-15T05:39:34.625Z"
+  }
+}

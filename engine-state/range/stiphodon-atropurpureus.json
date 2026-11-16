@@ -1,0 +1,150 @@
+{
+  "id": "stiphodon-atropurpureus",
+  "native": {
+    "input": "1dff6b65aaa01503",
+    "at": "2026-11-15T00:17:46.244Z",
+    "claims": [
+      {
+        "code": "PH",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Native to clear, fast-flowing mountain and coastal streams across Southeast Asia, including the Philippines, Taiwan, Japan, and southern China.",
+        "words": "Philippines",
+        "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Native to clear, fast-flowing mountain and coastal streams across Southeast Asia, including the Philippines, Taiwan, Japan, and southern China.",
+        "words": "Japan",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Native to clear, fast-flowing mountain and coastal streams across Southeast Asia, including the Philippines, Taiwan, Japan, and southern China.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "PH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It has since been recorded across much of the Philippine Sea/South China Sea region and as currently recognised occurs throughout the islands of southern Japan, Taiwan, parts of the southern Chinese coastline (including Hong Kong), the Philippines, and southern Malaysia (Tioman Island, just off the southeastern coast of Peninsular Malaysia).",
+        "words": "Philippines",
+        "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It has since been recorded across much of the Philippine Sea/South China Sea region and as currently recognised occurs throughout the islands of southern Japan, Taiwan, parts of the southern Chinese coastline (including Hong Kong), the Philippines, and southern Malaysia (Tioman Island, just off the southeastern coast of Peninsular Malaysia).",
+        "words": "Japan",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It has since been recorded across much of the Philippine Sea/South China Sea region and as currently recognised occurs throughout the islands of southern Japan, Taiwan, parts of the southern Chinese coastline (including Hong Kong), the Philippines, and southern Malaysia (Tioman Island, just off the southeastern coast of Peninsular Malaysia).",
+        "words": "Chinese",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It has since been recorded across much of the Philippine Sea/South China Sea region and as currently recognised occurs throughout the islands of southern Japan, Taiwan, parts of the southern Chinese coastline (including Hong Kong), the Philippines, and southern Malaysia (Tioman Island, just off the southeastern coast of Peninsular Malaysia).",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Luzon",
+        "source": "seriouslyfish",
+        "quote": "The type specimens were collected from Rizal Province, Luzon Island, and Lanao del Norte Province, Mindanao Island, the Philippines.",
+        "country": "PH",
+        "ok": true
+      },
+      {
+        "name": "Mindanao",
+        "source": "seriouslyfish",
+        "quote": "The type specimens were collected from Rizal Province, Luzon Island, and Lanao del Norte Province, Mindanao Island, the Philippines.",
+        "country": "PH",
+        "ok": true
+      },
+      {
+        "name": "Leyte",
+        "source": "seriouslyfish",
+        "quote": "The entire series was destroyed during World War II, however, leading Watson and Kottelat (1995) to designate a neotype from Leyte Island, part of the Visayas central region of the Philippines.",
+        "country": "PH",
+        "ok": true
+      },
+      {
+        "name": "Tioman Island",
+        "source": "seriouslyfish",
+        "quote": "It has since been recorded across much of the Philippine Sea/South China Sea region and as currently recognised occurs throughout the islands of southern Japan, Taiwan, parts of the southern Chinese coastline (including Hong Kong), the Philippines, and southern Malaysia (Tioman Island, just off the southeastern coast of Peninsular Malaysia).",
+        "country": "MY",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "TW"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Stiphodon atropurpureus",
+    "status": "ACCEPTED",
+    "taxonKey": 2376130,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        48
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        37
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        11
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "9b5577ee-34f9-4d09-9ce2-c70fd03ee6cd",
+        1
+      ]
+    ],
+    "native": [
+      "PH",
+      "JP",
+      "CN",
+      "MY"
+    ],
+    "requests": 12,
+    "at": "2026-11-15T00:17:46.244Z"
+  }
+}

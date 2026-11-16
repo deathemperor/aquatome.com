@@ -10,135 +10,10 @@
     "thailand",
     "chao-phraya",
     "laos",
-    "mekong"
+    "mekong",
+    "cambodia",
+    "vietnam"
   ],
-  "dataCard": {
-    "sizeCm": [
-      {
-        "source": "planetcatfish",
-        "value": 130
-      }
-    ]
-  },
-  "sections": [
-    {
-      "key": "quickFacts",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1352",
-      "html": "<ul><li>Scientific name: Pangasius larnaudii Bocourt, 1866</li><li>Common names: One Spot Pangasius, Plettet Hajmalle (Denmark)</li><li>Type locality: Northern Thailand.</li><li>Synonyms: Pangasius burgini, Pangasius taeniura, Pangasius taeniurus</li><li>IUCN Red List: Least Concern (last assessed 2011)</li></ul>"
-    },
-    {
-      "key": "distribution",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1352",
-      "html": "<p>Asia: Mekong and Chao Phraya basins.</p>"
-    },
-    {
-      "key": "equipment",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1352",
-      "html": "<p>Needs large amount of open space for swimming room and some plants to help reduce the nervous nature of the fish.</p>"
-    },
-    {
-      "key": "dimorphism",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1352",
-      "html": "<p>Females are fuller-bodied.</p>"
-    },
-    {
-      "key": "reproduction",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1352",
-      "html": "<p>Unreported. There is no breeding report.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1352",
-      "html": "<p>This species exhibits a dark spot just above the pectoral fin; this may fade in larger specimens.</p>"
-    },
-    {
-      "key": "references",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1352",
-      "html": "<p>Nouvelles Archives du Muséum d'Histoire Naturelle, Paris v. 2, pp 15, Pl. 1 (figs. 2, 2a).</p>"
-    }
-  ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/commons/9dec7eb05e9009c2.webp",
-      "width": 960,
-      "height": 674,
-      "licence": "CC BY-SA 4.0",
-      "author": "Jony Cooper",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pangasius_larnaudii.jpg",
-      "caption": "この白パン、アクア・トトぎふで撮影しました。",
-      "thumb": "https://media.aquatome.com/commons/9dec7eb05e9009c2-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/panitvong/inat-651936051.webp",
-      "thumb": "https://media.aquatome.com/panitvong/inat-651936051-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "dùng với sự cho phép",
-      "author": "Nonn Panitvong",
-      "sourceUrl": "https://www.inaturalist.org/photos/651936051",
-      "source": "panitvong"
-    },
-    {
-      "url": "https://media.aquatome.com/panitvong/inat-673766496.webp",
-      "thumb": "https://media.aquatome.com/panitvong/inat-673766496-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "dùng với sự cho phép",
-      "author": "Nonn Panitvong",
-      "sourceUrl": "https://www.inaturalist.org/photos/673766496",
-      "source": "panitvong"
-    }
-  ],
-  "videos": [
-    {
-      "youtubeId": "rEn8-tyGXrE",
-      "title": "Wels and Black ear pangasius catfishes, Silurus glanis and Pangasius larnaudii",
-      "durationSec": 266,
-      "lang": "en"
-    },
-    {
-      "youtubeId": "pitDGBB2Jqs",
-      "title": "Stories of 2 black ear shark catfish 8yo & 1.5yo both 2ft/60cm in 1800 gal Pangasius larnaudii",
-      "durationSec": 587,
-      "lang": "en"
-    },
-    {
-      "youtubeId": "h4hAFsQGntk",
-      "title": "Feeding Pangasius larnaudii",
-      "durationSec": 77,
-      "lang": "en"
-    },
-    {
-      "youtubeId": "wSbhRFZ2Abw",
-      "title": "Pangasius larnaudii Black ear shark catfish",
-      "durationSec": 52,
-      "lang": "en"
-    }
-  ],
-  "productSlots": [
-    {
-      "category": "be-ca",
-      "keywords": [
-        "bể cá lớn",
-        "bể cá 1000 lít"
-      ]
-    },
-    {
-      "category": "loc",
-      "keywords": [
-        "lọc ngoài công suất lớn",
-        "máy bơm tạo dòng"
-      ]
-    }
-  ],
-  "updatedAt": "2026-11-13",
   "range": {
     "native": {
       "countries": [
@@ -292,5 +167,215 @@
         ]
       ]
     }
-  }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 130
+      },
+      {
+        "source": "scotcat",
+        "value": 130
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1352",
+      "html": "<ul><li>Scientific name: Pangasius larnaudii Bocourt, 1866</li><li>Common names: One Spot Pangasius, Plettet Hajmalle (Denmark)</li><li>Type locality: Northern Thailand.</li><li>Synonyms: Pangasius burgini, Pangasius taeniura, Pangasius taeniurus</li><li>IUCN Red List: Least Concern (last assessed 2011)</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pangasiidae/pangasius_larnaudii.htm",
+      "html": "<p>Family: Pangasiidae. Anal soft rays: 28–32. A large black spot above the base of the pectoral fin and a black longitudinal stripe along each caudal lobe. Dorsal and pectoral fins with a strong spine and long, filamentous rays. 13–17 gill rakers on the first arch. Size: 130 cm. Temperature: 22–26°C. pH: 7.0–8.5.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pangasiidae/pangasius_larnaudii.htm",
+      "html": "<p>This catfish is not really recommended for the home aquarium as it grows too big and has special requirements that aquarists can never meet. Do not buy it from fish stores if it is labelled as such, or as Pangasius species.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1352",
+      "html": "<p>Asia: Mekong and Chao Phraya basins.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pangasiidae/pangasius_larnaudii.htm",
+      "html": "<p>Asia: Mekong and Chao Phraya basins.</p><p>A common species is recorded from the Chao Phraya River and the Mekong basin.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pangasiidae/pangasius_larnaudii.htm",
+      "html": "<p>Occurs in medium to large-sized rivers and inhabits deep pools in the river. Found in rapids and riffles. Enters flooded forest.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1352",
+      "html": "<p>Needs large amount of open space for swimming room and some plants to help reduce the nervous nature of the fish.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pangasiidae/pangasius_larnaudii.htm",
+      "html": "<p>Feeds on shrimps, small fishes, gastropods and plants.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1352",
+      "html": "<p>Females are fuller-bodied.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1352",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pangasiidae/pangasius_larnaudii.htm",
+      "html": "<p>Migrates into floodplains and spawns at the beginning of the flood season. Artificially reared fry were 3.5 mm at 12 hours, 8.4 mm at 4 days, 8.8 mm at 8 days and 23 mm at 18 days. Teeth are present in larvae at 12 hours and 4 days old.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1352",
+      "html": "<p>This species exhibits a dark spot just above the pectoral fin; this may fade in larger specimens.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pangasiidae/pangasius_larnaudii.htm",
+      "html": "<p>Etymology: The specific name larnaudii honours R. P. Larnaudie (d. 1899), Jesuit missionary priest, for his care and hospitality during Bocourt's seven months in Thailand.</p><p>IUCN Red List: A large species, it is highly utilised and impacted by habitat loss, but is assessed as Least Concern at present as there is no evidence of significant population declines across its range, although it is slightly more vulnerable than some similar species. Impacts from potential future mainstream dams should be monitored, but needs updating (IUCN 2012).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1352",
+      "html": "<p>Nouvelles Archives du Muséum d'Histoire Naturelle, Paris v. 2, pp 15, Pl. 1 (figs. 2, 2a).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pangasiidae/pangasius_larnaudii.htm",
+      "html": "<p>Baird, I. 2012. Pangasius larnaudii. The IUCN Red List of Threatened Species 2012.</p><p>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (04/2009).</p><p>Roberts, T.R. and C. Vidthayanon 1991 Systematic revision of the Asian catfish family Pangasiidae, with biological observations and descriptions of three new species. Proc. Acad. Nat. Sci. Philad. 143:97-144.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/4cb63b0228df6ede.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4cb63b0228df6ede-480.webp",
+      "width": 500,
+      "height": 329,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/pangasiidae/pangasius_larnaudii.htm",
+      "caption": "Pangasius larnaudii: juveniles",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/80555184d9b6dc2c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/80555184d9b6dc2c-480.webp",
+      "width": 500,
+      "height": 308,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/pangasiidae/pangasius_larnaudii.htm",
+      "caption": "Pangasius larnaudii: juveniles",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/4bdab832049a5c8b.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4bdab832049a5c8b-480.webp",
+      "width": 500,
+      "height": 304,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/pangasiidae/pangasius_larnaudii.htm",
+      "caption": "Pangasius larnaudii",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/9dec7eb05e9009c2.webp",
+      "thumb": "https://media.aquatome.com/commons/9dec7eb05e9009c2-480.webp",
+      "width": 960,
+      "height": 674,
+      "licence": "CC BY-SA 4.0",
+      "author": "Jony Cooper",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pangasius_larnaudii.jpg",
+      "caption": "この白パン、アクア・トトぎふで撮影しました。"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "rEn8-tyGXrE",
+      "title": "Wels and Black ear pangasius catfishes, Silurus glanis and Pangasius larnaudii",
+      "durationSec": 266,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "pitDGBB2Jqs",
+      "title": "Stories of 2 black ear shark catfish 8yo & 1.5yo both 2ft/60cm in 1800 gal Pangasius larnaudii",
+      "durationSec": 587,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "h4hAFsQGntk",
+      "title": "Feeding Pangasius larnaudii",
+      "durationSec": 77,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "wSbhRFZ2Abw",
+      "title": "Pangasius larnaudii Black ear shark catfish",
+      "durationSec": 52,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 1000 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc ngoài công suất lớn",
+        "máy bơm tạo dòng"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-14"
 }

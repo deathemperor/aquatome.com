@@ -1,17 +1,20 @@
 import { existsSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { describe, expect, test } from 'vitest'
+import { emailHash, normalEmail } from '../accounts/email'
 import { COOKIE, createSession, type Client } from '../accounts/session'
+import { TESTER_ADDRESS } from '../accounts/tester'
+import { signInWith } from '../accounts/users'
 import { syncStore } from '../accounts/tanks'
 import { assetSource, callClaude, chat, chatWorstCost, type ChatDeps, type ChatEnv, type Conversation } from '../chat/api'
 import { chatPast } from '../chat/past'
-import { OPENING_SYSTEM } from '../chat/agent'
+import { NO_THINKING, OPENING_SYSTEM } from '../chat/agent'
 import { OFF_TOPIC } from '../chat/answer'
 import { handbookOf, sectionsOf } from '../chat/handbook'
 import { textOf } from '../chat/tools'
 import { chatAccount, conversationKey } from '../chat/store'
 import type { ChatRunRecord } from '../chat/transcript'
-import { clientFor, priceOf } from '../fishid/claude'
+import { clientFor, DEFAULT_MODEL, priceOf } from '../fishid/claude'
 import { classify, isApiError, type KeyEntry } from '../fishid/keys'
 import type { Source } from '../chat/handbook'
 import { handle } from '../index'
@@ -183,6 +186,78 @@ test('on for the owner only (CHAT "owner"): the owner\'s session finds it on and
   expect((await run(ask(bearer(owner.token)), e, deps(c.fetch))).body).toMatchObject({ n: 1, text: 'Cá neon xanh sống theo đàn.' })
 })
 
+/** An account made as an email sign-in makes it (accounts/api.ts), with its address's hash under the test's key; its app session. */
+async function signInAs(db: D1Database, address: string) {
+  const hash = await emailHash('k', normalEmail(address)!)
+  const id = await signInWith(db, { kind: 'email', subject: hash, emailHash: hash }, new Date())
+  return { id, token: await createSession(db, id, 'app', new Date()) }
+}
+
+test('the test account: its address is fixed in the form sign-in compares, and on our own domain', () => {
+  expect(TESTER_ADDRESS).toBeDefined()
+  expect(normalEmail(TESTER_ADDRESS)).toBe(TESTER_ADDRESS)
+  expect(TESTER_ADDRESS!.endsWith('@aquatome.com')).toBe(true)
+})
+
+test('on for the owner only (CHAT "owner") lets in the test account too: a sign-in with its address finds it on and is answered; another address finds it off and nothing counts', async () => {
+  const { e, db, ledger } = env({ CHAT: 'owner' })
+  const tester = await signInAs(db, TESTER_ADDRESS!)
+  const other = await signInAs(db, 'someone-else@aquatome.com')
+  const get = async (token: string) => (await run(new Request('https://x.test/api/chat', { headers: bearer(token) }), e, {})).body
+  expect(await get(tester.token)).toEqual({ on: true, resting: false, perAccount: 30, maxTurns: 20, maxChars: 1500 })
+  expect(await get(other.token)).toEqual({ on: false })
+  // The site's session as much as the app's.
+  const web = await createSession(db, tester.id, 'web', new Date())
+  expect((await run(new Request('https://x.test/api/chat', { headers: { cookie: `${COOKIE}=${web}` } }), e, {})).body).toMatchObject({ on: true })
+  const c = claude(NEON)
+  expect((await run(ask(bearer(other.token)), e, deps(c.fetch))).body).toEqual({ error: 'chat_off' })
+  expect([c.bodies.length, ledger.day()]).toEqual([0, undefined])
+  expect((await run(ask(bearer(tester.token)), e, deps(c.fetch))).body).toMatchObject({ n: 1, text: 'Cá neon xanh sống theo đàn.' })
+  // The same address vouched for by Google later joins the same account: still the tester, not a second one.
+  const hash = await emailHash('k', TESTER_ADDRESS!)
+  expect(await signInWith(db, { kind: 'google', subject: 'g-1', emailHash: hash }, new Date())).toBe(tester.id)
+})
+
+test('every question is counted and kept with who asked, the owner, the test account or a reader, and none of them hears it', async () => {
+  const { e, db, ledger, store } = env()
+  const owner = await signIn(db, 'app')
+  e.OWNER_ACCOUNTS = owner.id
+  const tester = await signInAs(db, TESTER_ADDRESS!)
+  const reader = await signIn(db, 'app')
+  const bodies: string[] = []
+  for (const who of [owner, tester, reader]) {
+    const r = await run(ask(bearer(who.token)), e, deps(claude(NEON).fetch))
+    expect(r.body).toMatchObject({ n: 1 })
+    bodies.push(JSON.stringify(r.body))
+  }
+  for (const b of bodies) expect(b).not.toMatch(/"role"|"owner"|"tester"|"reader"/)
+  const day = ledger.day()!
+  expect(day.chat).toBe(3)
+  expect(Object.fromEntries(Object.entries(day.chatBy!).map(([k, v]) => [k, v.asked]))).toEqual({ owner: 1, tester: 1, reader: 1 })
+  // Each role's dollars are its own calls' cost as they landed, the same for the same answer.
+  const usd = Object.values(day.chatBy!).map(v => v.usd)
+  expect(usd[0]).toBeGreaterThan(0)
+  expect(new Set(usd.map(u => u.toFixed(9))).size).toBe(1)
+  const roleOf = async (u: { id: string }) => {
+    const account = await chatAccount('k', u.id)
+    const key = [...store.m.keys()].find(k => k.startsWith(`chat-run/${account}/`))!
+    return store.read<ChatRunRecord>(key)!.role
+  }
+  expect([await roleOf(owner), await roleOf(tester), await roleOf(reader)]).toEqual(['owner', 'tester', 'reader'])
+})
+
+test('a lookup of the tester that fails reads as a reader\'s: open chat still answers, tagged reader; chat on for the owner is off for the tester until it works', async () => {
+  const { e, db, store } = env()
+  const tester = await signInAs(db, TESTER_ADDRESS!)
+  const failing = { ...db, prepare: (sql: string) => (sql.includes('FROM credentials') ? { bind: () => ({ first: async () => { throw new Error('D1 down') } }) } : db.prepare(sql)) } as unknown as D1Database
+  const open = { ...e, DB: failing }
+  expect((await run(ask(bearer(tester.token)), open, deps(claude(NEON).fetch))).body).toMatchObject({ n: 1 })
+  const key = [...store.m.keys()].find(k => k.startsWith('chat-run/'))!
+  expect(store.read<ChatRunRecord>(key)!.role).toBe('reader')
+  expect((await run(new Request('https://x.test/api/chat', { headers: bearer(tester.token) }), { ...open, CHAT: 'owner' }, {})).body).toEqual({ on: false })
+  expect((await run(new Request('https://x.test/api/chat', { headers: bearer(tester.token) }), { ...e, CHAT: 'owner' }, {})).body).toMatchObject({ on: true })
+})
+
 test('who may ask: an app session as a bearer, or a site session from the site\'s own pages; nothing else, and nothing malformed', async () => {
   const { e, db } = env()
   const app = await signIn(db, 'app')
@@ -290,6 +365,16 @@ test('the chat\'s model in wrangler.jsonc is Haiku 5.5, with its own price; unse
   expect(model).toBe('claude-haiku-5-5')
   expect(priceOf(model!)).not.toBe(priceOf('claude-unknown'))
   expect(chatWorstCost(model!)).toBeLessThan(chatWorstCost('claude-opus-5-5'))
+})
+
+test('the chat\'s models each have a row naming the switch that turns their thinking off, or this fails: a switch a model refuses fails its first line unseen', () => {
+  // Changing the chat's model means asking the API which switch the new one takes (15 Nov: Haiku 5.5 `disabled`,
+  // Sonnet 5.5 `between_tools`, Opus 5.5 none, as it always thinks) and giving it its row in NO_THINKING.
+  const wrangler = readFileSync(new URL('../../wrangler.jsonc', import.meta.url).pathname, 'utf8')
+  const model = /"CHAT_MODEL": "([^"]+)"/.exec(wrangler)![1]!
+  for (const m of [model, DEFAULT_MODEL]) expect(NO_THINKING[m], `${m}: which thinking switch does the API take from it?`).toBeDefined()
+  expect(NO_THINKING[model]!.thinking).toEqual({ type: 'disabled' })
+  expect(NO_THINKING[DEFAULT_MODEL]).toEqual({ effort: 'low', room: 1_024 })
 })
 
 test('deleting an account deletes its conversations, their transcripts and retries\' answers, every page of them, and no one else\'s', async () => {
@@ -544,14 +629,18 @@ test('the stream: a reader still there gets the longer turn\'s calls; one who le
   const { e, db, store } = env()
   const me = await signIn(db)
   let offset = 0
-  const clock = () => Date.now() + offset
+  // The test's own clock, which only the calls move. Read off the wall as well, it counted each call's real time against
+  // the run's limits, and on 14 Nov a loaded machine stopped the JSON answer on 'time' at its fourth call.
+  const at = Date.now()
+  const clock = () => at + offset
   /** A Claude that searches until it may only answer, each call 2.5 s: every search a step sent, as a reader there sees it. */
-  const slow = () => {
+  const slow = (ms = 0) => {
     const bodies: Record<string, unknown>[] = []
     const fetch = (async (input: RequestInfo | URL, init?: RequestInit) => {
       const b = await new Request(input, init).json() as Record<string, unknown>
       bodies.push(b)
       offset += 2_500
+      if (ms) await new Promise(r => setTimeout(r, ms))
       const r = (b.tool_choice as { type: string }).type === 'none' ? answers({})
         : msg([{ type: 'thinking', thinking: '', signature: `s${seq}` }, { type: 'tool_use', id: `t${seq}`, name: 'search_handbook', input: { query: `neon ${bodies.length}`, kind: null } }], 'tool_use')
       return b.stream ? streamOf(r) : r
@@ -581,9 +670,9 @@ test('the stream: a reader still there gets the longer turn\'s calls; one who le
   expect(recordOf(id).agent).toMatchObject({ calls: 4, stopped: 'time' })
   expect(recordOf(id).timing!.seen).toBeLessThan(recordOf(id).timing!.answered!)
   expect(store.read<Conversation>(conversationKey(await chatAccount('k', me.id), id))!.turns).toHaveLength(1)
-  // The JSON answer has no reader to see: the usual 5 calls.
+  // The JSON answer has no reader to see: the usual 5 calls. Each call takes 100 ms of real time too, as on a loaded machine.
   offset = 0
-  const plain = slow()
+  const plain = slow(100)
   const other = '8b1c2a52-8d3e-4b7a-9c41-2e5d7f80b913'
   await run(ask(bearer(me.token), { conversation: other }), e, deps(plain.fetch, { clock }))
   expect(recordOf(other).agent).toMatchObject({ calls: 5, stopped: 'calls' })

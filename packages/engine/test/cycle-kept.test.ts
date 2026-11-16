@@ -161,6 +161,8 @@ test('kept work out of time three cycles in a row fails as broken work, with its
 
 // A stand-in for the checks: the first passes while another job lands on main (`landing`, run in a clone of its own), so
 // the push after it is refused; every check after that runs out of time, or with `later` set, does that.
+// Main's commit during the race clashes with the work's own file, so the work is checked again after it.
+const CLASH_LANDS = 'echo sf > content/b.json && git add .'
 const racing = (landing: string, later = "echo 'Error: Test timed out in 30000ms.'; return 1") => `checks() {
   if [ ! -f "$HOME/passed" ]; then touch "$HOME/passed"; (cd "$HOME" && rm -rf other && git clone -q origin.git other 2>/dev/null && cd other && git config user.email a@example.com && git config user.name a && ${landing} && git commit -qm sf && git push -q 2>/dev/null); return 0; fi
   ${later}
@@ -182,10 +184,12 @@ function atOut2(c: ReturnType<typeof clone>, work = 'echo photos > content/b.jso
 test('a check that passed ends the row before any push: a push lost to a race, then out of time, counts from there', () => {
   const c = clone()
   const base = atOut2(c)
-  const log = c.cycle(`${racing('echo sf > content/c.json && git add .')}; publish_kept photos`)
+  // A race that clashes, which is checked again: one that merges cleanly now goes out after the sweep.
+  const log = c.cycle(`${racing(CLASH_LANDS)}; publish_kept photos`)
   expect(log).toContain(`LOG ${base}-out2 isn't published yet (tests out of time again: 1 of 3 cycles in a row): it stays kept for the next run, as ${base}-out1`)
   expect(c.branches()).toEqual([`${base}-out1`])
-  expect(c.onMain('content/b.json')).toBe('')
+  // Main's own, from the race: the work isn't published.
+  expect(c.onMain('content/b.json')).toBe('sf')
 }, slow(60_000))
 
 test('a check that passed ends the row before any push: a clash after it leaves the work kept with no count', () => {
@@ -241,7 +245,7 @@ test("a count that can't be written leaves the work kept under its present name,
 test('a pass whose rename fails is never held on the count it leaves', () => {
   const c = clone()
   const base = atOut2(c)
-  const log = c.cycle(`${racing('echo sf > content/c.json && git add .')}; rename_branch() { return 1; }; publish_kept photos; echo "FAULT=\${FAULT:-}"`)
+  const log = c.cycle(`${racing(CLASH_LANDS)}; rename_branch() { return 1; }; publish_kept photos; echo "FAULT=\${FAULT:-}"`)
   expect(log).toContain(`LOG ${base}-out2 isn't published yet (tests out of time again): it stays kept for the next run`)
   expect(log).toContain(`FAULT=${base}-out2 passed its checks and couldn't be renamed ${base}: it stays as ${base}-out2, and its count is wrong until it is`)
   // Codex's read of 6d2aea2bd: the next run knew nothing of the pass, and out of time it held the work at -out3. The
@@ -409,6 +413,94 @@ test("a push's next try never sends a tree its checks didn't see, though main's 
   expect(c.onMain('content/b.json')).toBe('photos')
 }, slow(60_000))
 
+// The Site lead and the chief of staff, 15 Nov 2026: the held photos run passed its checks and lost its push three times,
+// each try a re-test of 30 to 50 minutes while main took leads' merges, most with code. Once the work has passed on a newer
+// main, its lost push goes again as a run's own push does: swept, and checked again only if the sweep changed something,
+// the migration failed, or it clashed. Here main moves while the first check runs, as on a busy day, so the first push is
+// refused for real. `before` runs ahead of the kept run, and what it leaves uncommitted goes into the kept work.
+type Clone = ReturnType<typeof clone>
+function raced(file: string, text: string, o: { before?: (c: Clone) => void; sweep?: string; pnpm?: string } = {}) {
+  const c = clone()
+  o.before?.(c)
+  c.timedOutRun()
+  const [kept = ''] = c.branches()
+  if (o.sweep) c.sh(`printf '#!/bin/sh\\n[ "$1 $2" = "engine sweep" ] && ${o.sweep}\\nexit 0\\n' > "$HOME/bin/pnpm"`)
+  if (o.pnpm) c.sh(`printf '%s\\n' '#!/bin/sh' '${o.pnpm}' 'exit 0' > "$HOME/bin/pnpm"`)
+  const move = `rm -rf "$HOME/other" && git clone -q "$HOME/origin.git" "$HOME/other" 2>/dev/null && cd "$HOME/other" && git config user.email a@example.com && git config user.name a && mkdir -p "$(dirname ${file})" && printf '%b\\n' '${text}' > ${file} && git add . && git commit -qm other && git push -q 2>/dev/null`
+  const log = c.cycle(`checks() { echo run >> "$HOME/checked"; [ -f "$HOME/moved" ] || { touch "$HOME/moved"; ( ${move} ); }; }; publish_kept photos`)
+  return { c, kept, log, checks: c.sh('grep -c run "$HOME/checked"') }
+}
+const AGAIN = "LOG main moved and the sweep changed nothing the checks read: pushing again, not checked again, as a run's own push does"
+
+test('after a pass, a push lost to main moving goes again after the sweep, not checked again: content, or code', () => {
+  for (const [file, text] of [['content/c.json', 'sf'], ['packages/code.ts', '2']] as const) {
+    const { c, kept, log, checks } = raced(file, text)
+    expect(log).toContain(AGAIN)
+    expect(log).toContain(`LOG published ${kept}`)
+    expect(checks).toBe('1')
+    expect([c.onMain('content/b.json'), c.onMain(file)]).toEqual(['photos', text])
+    expect(c.branches()).toEqual([])
+  }
+}, slow(120_000))
+
+test('after a pass, a push lost to main is checked again when the sweep on the merge changes something', () => {
+  const { c, kept, log, checks } = raced('content/c.json', 'sf', { sweep: '[ -f content/c.json ] && echo swept > content/s.json' })
+  expect(log).not.toContain(AGAIN)
+  expect(log).toContain(`LOG published ${kept}`)
+  expect(checks).toBe('2')
+  expect(c.onMain('content/s.json')).toBe('swept')
+}, slow(60_000))
+
+// The chief of staff, 15 Nov 2026: the sweep on the merge dates main's changed pages, nearly every time main takes content.
+test("after a pass, a push lost to main whose sweep changes only the pages' dates goes again, the content loaded, not the tests", () => {
+  const dated = '[ -f content/c.json ] && echo dated > content/page-dates.json'
+  const { c, kept, log, checks } = raced('content/c.json', 'sf', { pnpm: `[ "$1 $2" = "engine sweep" ] && ${dated}; [ "$1 $2" = "engine check-content" ] && echo dates-checked >> "$HOME/checked"` })
+  expect(log).toContain("LOG the sweep changed only the pages' dates, and the content loads as the site's loader loads it: not checked again")
+  expect(log).toContain(AGAIN)
+  expect(log).toContain(`LOG published ${kept}`)
+  expect(checks).toBe('1')
+  expect(c.sh('grep -c dates-checked "$HOME/checked"')).toBe('1')
+  expect([c.onMain('content/page-dates.json'), c.onMain('content/b.json')]).toEqual(['dated', 'photos'])
+  // Content that doesn't load is checked in full.
+  const bad = raced('content/c.json', 'sf', { pnpm: `[ "$1 $2" = "engine sweep" ] && ${dated}; [ "$1 $2" = "engine check-content" ] && exit 1` })
+  expect(bad.log).not.toContain(AGAIN)
+  expect(bad.log).toContain(`LOG published ${bad.kept}`)
+  expect(bad.checks).toBe('2')
+}, slow(120_000))
+
+test('after a pass, a push lost to main whose sweep changes only the dates is checked again when both sides changed the calendar', () => {
+  // Readers' catch: the calendar merges line by line, and the loader doesn't open it.
+  const { c, kept, log, checks } = raced('content/curation.json', '1\\n2\\n3\\n4\\nmain', {
+    before: c => c.sh("printf '1\\n2\\n3\\n4\\n5\\n' > content/curation.json && git add . && git commit -qm cal && git push -q 2>/dev/null && printf 'run\\n2\\n3\\n4\\n5\\n' > content/curation.json"),
+    pnpm: '[ "$1 $2" = "engine sweep" ] && grep -q main content/curation.json && echo dated > content/page-dates.json',
+  })
+  expect(log).toContain('LOG the calendar changed on main and in this run: checked again')
+  expect(log).not.toContain(AGAIN)
+  expect(log).toContain(`LOG published ${kept}`)
+  expect(checks).toBe('2')
+  expect(c.onMain('content/curation.json').split('\n')).toEqual(['run', '2', '3', '4', 'main'])
+}, slow(60_000))
+
+test('after a pass, a push lost to main whose migration fails is not published, though a second migration would pass', () => {
+  // Grok's read: the check swept again, which cleared the failed migration's flag, and the tests then passed. A run's own
+  // push sweeps once and publishes nothing.
+  const fails = 'if [ "$1 $2" = "engine photo-privacy" ] && [ -f content/c.json ] && [ ! -f "$HOME/failed-migration" ]; then touch "$HOME/failed-migration"; exit 1; fi'
+  const { c, log } = raced('content/c.json', 'sf', { pnpm: fails })
+  expect(log).not.toContain(AGAIN)
+  expect(log).not.toContain('LOG published')
+  expect(log).toContain("its photo records couldn't be migrated")
+  expect(c.onMain('content/b.json')).toBe('')
+}, slow(60_000))
+
+test('after a pass, a push lost to main that clashes with the work is checked again, its own lines kept', () => {
+  // A file on main the work changed, then main changed the same line.
+  const { c, kept, log, checks } = raced('content/m.json', 'sf', { before: c => c.sh('echo base > content/m.json && git add . && git commit -qm m && git push -q 2>/dev/null && echo photos > content/m.json') })
+  expect(log).not.toContain(AGAIN)
+  expect(log).toContain(`LOG published ${kept}`)
+  expect(checks).toBe('2')
+  expect(c.onMain('content/m.json')).toBe('photos')
+}, slow(60_000))
+
 // The chief of staff, 14 Nov 2026: git's rename detection read a page main moved into a path the kept work also wrote as
 // moved, not added, and the kept version won. Added means absent where the branch was cut.
 test('a page main moved to where the kept work wrote one stays as main has it', () => {
@@ -559,6 +651,9 @@ test('the migration the cycle calls is a command of the engine', () => {
   expect(readFileSync(join(ROOT, 'scripts/cycle-checks.sh'), 'utf8')).toContain('pnpm engine photo-privacy --write ||')
   // Missing, every run would keep its work and publish nothing.
   expect(readFileSync(join(ROOT, 'packages/engine/src/cli.ts'), 'utf8')).toContain("cmd === 'photo-privacy'")
+  // So is the content's load: missing, every sweep that changed only the dates would be checked in full, as before.
+  expect(readFileSync(join(ROOT, 'scripts/cycle-checks.sh'), 'utf8')).toContain('  net nice -n 10 pnpm engine check-content || return 1')
+  expect(readFileSync(join(ROOT, 'packages/engine/src/cli.ts'), 'utf8')).toContain("cmd === 'check-content'")
 })
 const privacy = `checks() { echo tests >> "$HOME/order"; ! grep -q legacy engine-state/*.json; }`
 // As engine-cycle.sh ends: main caught up with, swept and checked, then pushed.

@@ -1,8 +1,8 @@
 {
   "id": "betta-rutilans",
   "native": {
-    "input": "9b186cc1cde2f95c",
-    "at": "2026-11-06T21:19:39.004Z",
+    "input": "982279a1cc006024",
+    "at": "2026-11-14T17:19:02.525Z",
     "claims": [
       {
         "code": "ID",
@@ -17,7 +17,7 @@
       {
         "name": "Borneo",
         "source": "seriouslyfish",
-        "quote": "The species has been collected from localities connected with the rivers Mempawah and Kepayang close to the town of Anjungan in Kalimantan Barat (West Kalimantan) province, Borneo, Indonesia.",
+        "quote": "Betta rutilans is a small, deep red labyrinth fish from peat swamps near Anjungan in West Kalimantan, Borneo, Indonesia.",
         "country": "ID",
         "ok": true
       },
@@ -33,6 +33,18 @@
         "source": "seriouslyfish",
         "quote": "The species has been collected from localities connected with the rivers Mempawah and Kepayang close to the town of Anjungan in Kalimantan Barat (West Kalimantan) province, Borneo, Indonesia.",
         "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Kapuas",
+        "source": "bwaquatics",
+        "quote": "Betta rutilans is found in the Kapuas basin in West Kalimantan, Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "bwaquatics",
+        "quote": "Betta rutilans is found in the Kapuas basin in West Kalimantan, Borneo.",
         "ok": true
       }
     ],

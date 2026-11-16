@@ -1,5 +1,5 @@
 {
- "day": "2026-11-14",
+ "day": "2026-11-16",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -11,32 +11,32 @@
  },
  "langs": {
   "vi": {
-   "pages": 4248,
-   "read": 3696,
-   "wrong": 1632,
-   "pct": 44,
-   "held": 461
+   "pages": 4312,
+   "read": 3675,
+   "wrong": 1541,
+   "pct": 42,
+   "held": 499
   },
   "id": {
-   "pages": 1390,
-   "read": 1231,
-   "wrong": 356,
-   "pct": 29,
-   "held": 94
+   "pages": 1440,
+   "read": 1265,
+   "wrong": 358,
+   "pct": 28,
+   "held": 107
   },
   "th": {
-   "pages": 1371,
-   "read": 1190,
-   "wrong": 331,
-   "pct": 28,
-   "held": 89
+   "pages": 1424,
+   "read": 1229,
+   "wrong": 337,
+   "pct": 27,
+   "held": 98
   },
   "ms": {
-   "pages": 275,
-   "read": 234,
-   "wrong": 74,
-   "pct": 32,
-   "held": 33
+   "pages": 320,
+   "read": 273,
+   "wrong": 83,
+   "pct": 31,
+   "held": 43
   }
  },
  "labels": {
@@ -58,36 +58,36 @@
  },
  "sample": [
   {
-   "lang": "id",
-   "path": "/id/ikan/rainbow-robber-tetra/",
-   "url": "https://aquatome.com/id/ikan/rainbow-robber-tetra/",
-   "title": "Rainbow Robber Tetra",
+   "lang": "th",
+   "path": "/th/plants/helanthium-bolivianum/",
+   "url": "https://aquatome.com/th/plants/helanthium-bolivianum/",
+   "title": "Echinodorus Quadricostatus",
    "wrong": []
   },
   {
-   "lang": "th",
-   "path": "/th/fish/alcolapia-grahami/",
-   "url": "https://aquatome.com/th/fish/alcolapia-grahami/",
-   "title": "เกรแฮมส์โซดาซิคลิด",
+   "lang": "ms",
+   "path": "/ms/tumbuhan/echinodorus-tropica/",
+   "url": "https://aquatome.com/ms/tumbuhan/echinodorus-tropica/",
+   "title": "Echinodorus Tropica",
    "wrong": []
   },
   {
    "lang": "vi",
-   "path": "/vi/ca/ca-tren-bau/",
-   "url": "https://aquatome.com/ca/ca-tren-bau/",
-   "title": "Cá trèn bầu",
+   "path": "/vi/ca/ca-brichardi-soc/",
+   "url": "https://aquatome.com/ca/ca-brichardi-soc/",
+   "title": "Cá brichardi sọc",
    "wrong": [
     {
      "check": "words",
-     "quote": "nhiều khả năng"
+     "quote": "giữ lãnh thổ"
     },
     {
      "check": "words",
-     "quote": "ghi nhận"
+     "quote": "phần lớn"
     },
     {
      "check": "words",
-     "quote": "thức ăn sống"
+     "quote": "Thức ăn sống"
     }
    ]
   }

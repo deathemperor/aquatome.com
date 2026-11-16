@@ -11,6 +11,68 @@
     "lake-malawi",
     "tanzania"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Malawi.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372908,
+      "total": 11,
+      "fetched": "2026-11-14",
+      "countries": [
+        [
+          "MW",
+          6
+        ],
+        [
+          "MZ",
+          3
+        ],
+        [
+          "TZ",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -14.0625,
+          6
+        ],
+        [
+          33.75,
+          -12.65625,
+          2
+        ],
+        [
+          33.75,
+          -11.25,
+          2
+        ],
+        [
+          33.75,
+          -9.84375,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -135,7 +197,12 @@
       "author": "Ed Schipul",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nimbochromis_Fuscotaeniatus_male.jpg",
       "caption": "Nimbochromis fuscotaeniatus, Houston Aquarium Electric Blue (no photoshop!)",
-      "thumb": "https://media.aquatome.com/commons/8a1305ff8d0f14dd-480.webp"
+      "thumb": "https://media.aquatome.com/commons/8a1305ff8d0f14dd-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/8a1305ff8d0f14dd-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/9c9efdbeb006a9ae.webp",

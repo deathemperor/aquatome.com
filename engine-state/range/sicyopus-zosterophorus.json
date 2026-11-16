@@ -1,0 +1,193 @@
+{
+  "id": "sicyopus-zosterophorus",
+  "native": {
+    "input": "6a5c49118ec659d3",
+    "at": "2026-11-15T00:17:46.244Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Boleling, northern Bali, Indonesia' which appears to correspond to modern-day Buleleng, but this species is currently understood to have a patchy but wide distribution with a range stretching westwards from the Marquesas Islands (French Polynesia), throughout much of Vanuatu, New Caledonia, the Solomon Islands, Papua New Guinea, Palau, Fiji, Indonesia, the Philippines, Japan, Taiwan, and most recently, southern mainland China.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "PF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Boleling, northern Bali, Indonesia' which appears to correspond to modern-day Buleleng, but this species is currently understood to have a patchy but wide distribution with a range stretching westwards from the Marquesas Islands (French Polynesia), throughout much of Vanuatu, New Caledonia, the Solomon Islands, Papua New Guinea, Palau, Fiji, Indonesia, the Philippines, Japan, Taiwan, and most recently, southern mainland China.",
+        "words": "French Polynesia",
+        "ok": true
+      },
+      {
+        "code": "VU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Boleling, northern Bali, Indonesia' which appears to correspond to modern-day Buleleng, but this species is currently understood to have a patchy but wide distribution with a range stretching westwards from the Marquesas Islands (French Polynesia), throughout much of Vanuatu, New Caledonia, the Solomon Islands, Papua New Guinea, Palau, Fiji, Indonesia, the Philippines, Japan, Taiwan, and most recently, southern mainland China.",
+        "words": "Vanuatu",
+        "ok": true
+      },
+      {
+        "code": "NC",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Boleling, northern Bali, Indonesia' which appears to correspond to modern-day Buleleng, but this species is currently understood to have a patchy but wide distribution with a range stretching westwards from the Marquesas Islands (French Polynesia), throughout much of Vanuatu, New Caledonia, the Solomon Islands, Papua New Guinea, Palau, Fiji, Indonesia, the Philippines, Japan, Taiwan, and most recently, southern mainland China.",
+        "words": "New Caledonia",
+        "ok": true
+      },
+      {
+        "code": "SB",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Boleling, northern Bali, Indonesia' which appears to correspond to modern-day Buleleng, but this species is currently understood to have a patchy but wide distribution with a range stretching westwards from the Marquesas Islands (French Polynesia), throughout much of Vanuatu, New Caledonia, the Solomon Islands, Papua New Guinea, Palau, Fiji, Indonesia, the Philippines, Japan, Taiwan, and most recently, southern mainland China.",
+        "words": "the Solomon Islands",
+        "ok": true
+      },
+      {
+        "code": "PG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Boleling, northern Bali, Indonesia' which appears to correspond to modern-day Buleleng, but this species is currently understood to have a patchy but wide distribution with a range stretching westwards from the Marquesas Islands (French Polynesia), throughout much of Vanuatu, New Caledonia, the Solomon Islands, Papua New Guinea, Palau, Fiji, Indonesia, the Philippines, Japan, Taiwan, and most recently, southern mainland China.",
+        "words": "Papua New Guinea",
+        "ok": true
+      },
+      {
+        "code": "PW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Boleling, northern Bali, Indonesia' which appears to correspond to modern-day Buleleng, but this species is currently understood to have a patchy but wide distribution with a range stretching westwards from the Marquesas Islands (French Polynesia), throughout much of Vanuatu, New Caledonia, the Solomon Islands, Papua New Guinea, Palau, Fiji, Indonesia, the Philippines, Japan, Taiwan, and most recently, southern mainland China.",
+        "words": "Palau",
+        "ok": true
+      },
+      {
+        "code": "FJ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Boleling, northern Bali, Indonesia' which appears to correspond to modern-day Buleleng, but this species is currently understood to have a patchy but wide distribution with a range stretching westwards from the Marquesas Islands (French Polynesia), throughout much of Vanuatu, New Caledonia, the Solomon Islands, Papua New Guinea, Palau, Fiji, Indonesia, the Philippines, Japan, Taiwan, and most recently, southern mainland China.",
+        "words": "Fiji",
+        "ok": true
+      },
+      {
+        "code": "PH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Boleling, northern Bali, Indonesia' which appears to correspond to modern-day Buleleng, but this species is currently understood to have a patchy but wide distribution with a range stretching westwards from the Marquesas Islands (French Polynesia), throughout much of Vanuatu, New Caledonia, the Solomon Islands, Papua New Guinea, Palau, Fiji, Indonesia, the Philippines, Japan, Taiwan, and most recently, southern mainland China.",
+        "words": "the Philippines",
+        "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Boleling, northern Bali, Indonesia' which appears to correspond to modern-day Buleleng, but this species is currently understood to have a patchy but wide distribution with a range stretching westwards from the Marquesas Islands (French Polynesia), throughout much of Vanuatu, New Caledonia, the Solomon Islands, Papua New Guinea, Palau, Fiji, Indonesia, the Philippines, Japan, Taiwan, and most recently, southern mainland China.",
+        "words": "Japan",
+        "ok": true
+      },
+      {
+        "code": "TW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Boleling, northern Bali, Indonesia' which appears to correspond to modern-day Buleleng, but this species is currently understood to have a patchy but wide distribution with a range stretching westwards from the Marquesas Islands (French Polynesia), throughout much of Vanuatu, New Caledonia, the Solomon Islands, Papua New Guinea, Palau, Fiji, Indonesia, the Philippines, Japan, Taiwan, and most recently, southern mainland China.",
+        "words": "Taiwan",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Boleling, northern Bali, Indonesia' which appears to correspond to modern-day Buleleng, but this species is currently understood to have a patchy but wide distribution with a range stretching westwards from the Marquesas Islands (French Polynesia), throughout much of Vanuatu, New Caledonia, the Solomon Islands, Papua New Guinea, Palau, Fiji, Indonesia, the Philippines, Japan, Taiwan, and most recently, southern mainland China.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "PH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "S. zosterophorus is apparently found only in pristine, often high-gradient, headwater streams and on the island of Cebu, Philippines, co-occurs alongside the congener Sicyopus cebuensis plus Lentipes armatus, Sicyopterus lagocephalus, and Stiphodon surrufus, for example.",
+        "words": "Philippines",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Bali",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Boleling, northern Bali, Indonesia' which appears to correspond to modern-day Buleleng, but this species is currently understood to have a patchy but wide distribution with a range stretching westwards from the Marquesas Islands (French Polynesia), throughout much of Vanuatu, New Caledonia, the Solomon Islands, Papua New Guinea, Palau, Fiji, Indonesia, the Philippines, Japan, Taiwan, and most recently, southern mainland China.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Marquesas Islands",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Boleling, northern Bali, Indonesia' which appears to correspond to modern-day Buleleng, but this species is currently understood to have a patchy but wide distribution with a range stretching westwards from the Marquesas Islands (French Polynesia), throughout much of Vanuatu, New Caledonia, the Solomon Islands, Papua New Guinea, Palau, Fiji, Indonesia, the Philippines, Japan, Taiwan, and most recently, southern mainland China.",
+        "country": "PF",
+        "ok": true
+      },
+      {
+        "name": "Cebu",
+        "source": "seriouslyfish",
+        "quote": "S. zosterophorus is apparently found only in pristine, often high-gradient, headwater streams and on the island of Cebu, Philippines, co-occurs alongside the congener Sicyopus cebuensis plus Lentipes armatus, Sicyopterus lagocephalus, and Stiphodon surrufus, for example.",
+        "country": "PH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Sicyopus zosterophorus",
+    "status": "ACCEPTED",
+    "taxonKey": 6168292,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        47
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        23
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        5
+      ],
+      [
+        "1597d710-98a2-11de-b4da-b8a03c50a862",
+        3
+      ],
+      [
+        "831234b2-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "b7dd8170-98a0-11de-b4d9-b8a03c50a862",
+        1
+      ]
+    ],
+    "native": [
+      "ID",
+      "PF",
+      "VU",
+      "NC",
+      "SB",
+      "PG",
+      "PW",
+      "FJ",
+      "PH",
+      "JP",
+      "TW",
+      "CN"
+    ],
+    "requests": 12,
+    "at": "2026-11-15T00:17:46.244Z"
+  }
+}

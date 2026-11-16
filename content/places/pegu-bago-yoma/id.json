@@ -3,6 +3,12 @@
   "name": "Pegu Yoma",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-15T05:33:34.153Z",
+    "why": "\"Pegu Yoma\" is a recognizable form of the range, but an Indonesian atlas would likely write \"Pegunungan Pegu Yoma\" or \"Pegu Yoma\" with a kind word like \"Pegunungan\"; the bare name lacks it, and \"Yoma\" itself means mountains in Burmese."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

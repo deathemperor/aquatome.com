@@ -1,0 +1,88 @@
+{
+  "id": "syncrossus-beauforti",
+  "native": {
+    "input": "16c8c1f01d090219",
+    "at": "2026-11-15T05:39:34.625Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Tadi stream' in Nakhon Si Thammarat province, southern (peninsular) Thailand but subsequently recorded from neighbouring Trang province and much further north in the Ataran River (part of the upper Salween basin and known as 'Kasat' river in Thailand), western Thailand/southern Myanmar and the Chao Phraya system, central and western Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Tadi stream' in Nakhon Si Thammarat province, southern (peninsular) Thailand but subsequently recorded from neighbouring Trang province and much further north in the Ataran River (part of the upper Salween basin and known as 'Kasat' river in Thailand), western Thailand/southern Myanmar and the Chao Phraya system, central and western Thailand.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ataran River",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Tadi stream' in Nakhon Si Thammarat province, southern (peninsular) Thailand but subsequently recorded from neighbouring Trang province and much further north in the Ataran River (part of the upper Salween basin and known as 'Kasat' river in Thailand), western Thailand/southern Myanmar and the Chao Phraya system, central and western Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Tadi stream' in Nakhon Si Thammarat province, southern (peninsular) Thailand but subsequently recorded from neighbouring Trang province and much further north in the Ataran River (part of the upper Salween basin and known as 'Kasat' river in Thailand), western Thailand/southern Myanmar and the Chao Phraya system, central and western Thailand.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Salween",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Tadi stream' in Nakhon Si Thammarat province, southern (peninsular) Thailand but subsequently recorded from neighbouring Trang province and much further north in the Ataran River (part of the upper Salween basin and known as 'Kasat' river in Thailand), western Thailand/southern Myanmar and the Chao Phraya system, central and western Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Mae Klong",
+        "source": "seriouslyfish",
+        "quote": "It probably also occurs in the Mae Klong drainage in western Thailand but previous records from the Mekong River apparently refer to two species formerly considered synonyms which Grant (2007) tentatively recognised as valid; S. yunnanensis (Chen, 1980) from the upper Mekong and S. formosanus (Pellegrin & Fang, 1940) from the lower Mekong.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Syncrossus beauforti",
+    "status": "ACCEPTED",
+    "taxonKey": 2368153,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-15T05:39:34.625Z"
+  }
+}

@@ -3,6 +3,12 @@
   "name": "Pai-ho",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-15T05:33:10.660Z",
+    "why": "Nama \"Pai-ho\" tanpa kata \"Sungai\" menghilangkan jenis tempat; atlas Indonesia menulis \"Sungai Baihe\" (pinyin) atau \"Sungai Pai-ho\", bukan hanya nama tanpa kata jenis."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

@@ -3,6 +3,12 @@
   "name": "Lembah Maliau",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-15T05:30:48.775Z",
+    "why": "Maliau Basin is a basin/plateau (cekungan), and Indonesian atlases write \"Cekungan Maliau\"; \"Lembah\" means valley, which is a different landform, and the Indonesian name isn't a faithful rendering."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

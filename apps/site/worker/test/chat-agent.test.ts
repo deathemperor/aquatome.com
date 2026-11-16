@@ -4,13 +4,13 @@ import type Anthropic from '@anthropic-ai/sdk'
 import type { PageDoc } from '@aq/schema/app-page'
 import { LANGS } from '@aq/schema/langs'
 import { expect, test, vi } from 'vitest'
-import { answerQuestion, CHAT_LIMITS, firstMessage, openedTank, HANDBOOK, HANDOVER_MS, LAST_TRY, LAST_WORD, MAX_TOKENS, OPENING_SYSTEM, SYSTEM, unaccented, type ChatOptions, type Start } from '../chat/agent'
+import { answerQuestion, CHAT_LIMITS, NO_THINKING, firstMessage, openedTank, HANDBOOK, HANDOVER_MS, LAST_TRY, LAST_WORD, MAX_TOKENS, OPENING_SYSTEM, SYSTEM, unaccented, type ChatOptions, type Start } from '../chat/agent'
 import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, OFF_TOPIC, picksReader, readAnswer, textReader, type Answer, type Choice } from '../chat/answer'
 import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
 import { fold, search, searchTopics } from '../chat/search'
 import { heldOf, topicsOf, type Topics } from '../chat/topics'
 import { checkMates, drawnOf, type MatesCheck } from '../chat/mates'
-import { chatTools, NOTES_CHARS, SECTION_CHARS, type Step, type Tank } from '../chat/tools'
+import { chatTools, handedTanks, NOTES_CHARS, SECTION_CHARS, type Step, type Tank } from '../chat/tools'
 import { tankCheck, type TankFish } from '../../src/scripts/tank-check'
 import { factsOf } from '../chat/handbook'
 import { contract } from './contract'
@@ -299,6 +299,32 @@ test('check_tank_mates checks fish as the tank-mates tool does, in the reader\'s
   expect(plant).toEqual({ blocks: [], dropped: ['tool: tank-mates with ["anubias-barteri-nana"], not fish'] })
 })
 
+test('check_tank_mates counts every breed of a species: two breeds of one species are as many fish as both, not the first breed\'s alone', async () => {
+  // The board, 16 Nov: 1 ranchu and 1 pearlscale were checked as one goldfish, and the answer called it the safe number.
+  const h = await hb()
+  const tool = chatTools({ handbook: h, tanks: async () => [] }).find(t => t.name === 'check_tank_mates')!
+  const out = JSON.parse(await tool.run({ fish: [{ id: 'paracheirodon-innesi', count: 10 }, { id: 'pigeon-blood-discus', count: 2 }, { id: 'symphysodon-aequifasciatus', count: 3 }], tank: { l: 60, w: 30, h: 36 } }, { photosLeft: 0 }) as string) as MatesCheck
+  expect(out.fish.map(f => [f.id, f.count])).toEqual([['paracheirodon-innesi', 10], ['symphysodon-aequifasciatus', 5]])
+  // How full the tank would be, as the five discus and ten neons the reader asked about, not two discus.
+  expect(out.stocking).toEqual(checkMates([{ id: 'paracheirodon-innesi', count: 10 }, { id: 'symphysodon-aequifasciatus', count: 5 }], { l: 60, w: 30, h: 36 }, h).stocking)
+  // The block's link names the species with the count checked.
+  const { blocks } = await fill(answer([pick({ t: 'tool', tool: 'tank-mates', fish: [{ id: 'paracheirodon-innesi', count: 10 }, { id: 'pigeon-blood-discus', count: 2 }, { id: 'symphysodon-aequifasciatus', count: 3 }], tank: { l: 60, w: 30, h: 36 } })]), h, [out])
+  expect(blocks[0]).toMatchObject({ url: '/vi/cong-cu/nuoi-chung/?ca=ca-neon-xanh:10,ca-dia:5&l=60&w=30&h=36' })
+  // Added up, still at most 200 of one.
+  expect(checkMates([{ id: 'pigeon-blood-discus', count: 150 }, { id: 'symphysodon-aequifasciatus', count: 150 }, { id: 'paracheirodon-innesi', count: 1 }], null, h).fish.find(f => f.id === 'symphysodon-aequifasciatus')!.count).toBe(200)
+})
+
+test('a fish the reader saved without a count reads "not given", never 1: read_tanks, and the tank that goes with every question', async () => {
+  // The board, 16 Nov: a saved school with no count was handed over as one fish, and the answer said one fish needs no quarantine.
+  const h = await hb()
+  const tank: Tank = { id: 't1', name: 'Bể 60', species: [{ id: 'paracheirodon-innesi' }, { id: 'symphysodon-aequifasciatus', count: 2 }], unlisted: [{ name: 'Cá lạ', kind: 'fish' }] }
+  const want = [{ name: 'Cá neon xanh', id: 'paracheirodon-innesi', count: 'not given' }, { name: h.byId('symphysodon-aequifasciatus')!.name, id: 'symphysodon-aequifasciatus', count: 2 }, { name: 'Cá lạ', count: 'not given' }]
+  const read = chatTools({ handbook: h, tanks: async () => [tank] }).find(t => t.name === 'read_tanks')!
+  expect(JSON.parse(await read.run({}, { photosLeft: 0 }) as string)[0].fish).toEqual(want)
+  expect(JSON.parse(handedTanks([tank], h))[0].fish).toEqual(want)
+  expect(read.description).toContain('"not given"')
+})
+
 test('check_tank_mates in the reader\'s tank checks it as the tank page does, with the fish added; its block names the tank, and links every kind up to six', async () => {
   const h = await hb()
   const dims = { l: 60, w: 30, h: 36 }
@@ -403,6 +429,34 @@ test('check_tank_mates in the reader\'s tank checks it as the tank page does, wi
   await expect(tool.run({ fish: [], tank: null, tankId: 'empty' }, { photosLeft: 0 })).rejects.toThrow('That tank has no fish')
   tanks = null
   await expect(tool.run({ fish: neon4, tank: null, tankId: 'tank-1' }, { photosLeft: 0 })).rejects.toThrow(/can't be read/)
+})
+
+test("the chat finds only fish and plants by id: a guide's, a term's, a series' or a kind of kit's id names no page to it", async () => {
+  // The app index gives every kind its id (the app's language switch), unique within a kind only: a glossary term and a
+  // kind of kit are both "co2". A tank, the page a chat starts from and the tools name fish and plants alone.
+  const items = [
+    { kind: 'glossary', id: 'co2', name: 'CO2', path: '/vi/thuat-ngu/co2/' },
+    { kind: 'equipment', id: 'co2', name: 'Bộ CO2', path: '/vi/thiet-bi/co2/' },
+    { kind: 'guide', id: 'thay-nuoc', name: 'Thay nước', path: '/vi/huong-dan/thay-nuoc/' },
+    { kind: 'video', id: 'PLseries', name: 'Loạt video', path: '/vi/video/loat/' },
+    { kind: 'fish', id: 'danio-rerio', name: 'Cá ngựa vằn', path: '/vi/ca/ca-ngua-van/' },
+    { kind: 'plant', id: 'rotala-rotundifolia', name: 'Rotala đỏ', path: '/vi/cay/rotala-do/' },
+  ]
+  const guide = { kind: 'guide', title: 'Thay nước', blocks: [{ t: 'p', c: ['Thay một phần ba mỗi tuần.'] }] }
+  const h = (await handbookOf({
+    index: async () => ({ lang: 'vi', items, shards: { guide: { n: 1 } } }),
+    shard: async () => ({ v: 1, pages: { '/vi/huong-dan/thay-nuoc/': guide } }),
+  } as never, 'vi'))!
+  expect(h.byId('danio-rerio')?.path).toBe('/vi/ca/ca-ngua-van/')
+  expect(h.byId('rotala-rotundifolia')?.path).toBe('/vi/cay/rotala-do/')
+  for (const id of ['co2', 'thay-nuoc', 'PLseries']) expect(h.byId(id), id).toBeUndefined()
+  expect(JSON.stringify(firstMessage('vi', 'Hỏi', [], { about: 'thay-nuoc' }, h))).not.toContain('The chat is about')
+  // Nor does the model see one: a search lists, and a page read gives, a fish's or plant's id alone.
+  const found = JSON.parse((await run('search_handbook', { query: 'CO2', kind: null }, h)).out as string) as { kind: string; id?: string }[]
+  expect(found.map(x => x.kind).sort()).toEqual(['equipment', 'glossary'])
+  for (const x of found) expect(x.id, x.kind).toBeUndefined()
+  expect(JSON.parse((await run('search_handbook', { query: 'Cá ngựa vằn', kind: null }, h)).out as string)[0]).toMatchObject({ kind: 'fish', id: 'danio-rerio' })
+  expect(JSON.parse((await run('read_page', { path: '/vi/huong-dan/thay-nuoc/', heading: null }, h)).out as string).id).toBeUndefined()
 })
 
 test('a section is every block under its heading, to the next heading, however many: the part of the page the site draws', async () => {
@@ -1046,6 +1100,32 @@ test('a call still silent as time runs out is given up for a short answer; once 
   expect(said.join('')).toContain('Cá neon')
   expect(tries).toBe(1)
   expect(cut.stopped).toBe('error')
+})
+
+test('the first line and the short last answer turn thinking off as each model accepts it: Sonnet with between_tools, Opus with none, low and room to think', async () => {
+  // Sent `disabled`, Sonnet 5.5 and Opus 5.5 refuse the call (400, 15 Nov), and the first line fails without a word.
+  const final = { offTopic: false, text: 'Cá neon xanh sống theo đàn, từ 6 con.', covered: true, blocks: [], suggestions: [] }
+  const h = await hb()
+  const sent = async (model: string) => {
+    let now = 0
+    const bodies: { call: number; body: Anthropic.MessageCreateParamsNonStreaming }[] = []
+    await answerQuestion({
+      model, lang: 'vi', question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: h, tanks: async () => [], opening: true, clock: () => now,
+      send: async (body, o) => {
+        bodies.push({ call: o.call, body })
+        if (o.call === 0) return message([{ type: 'text', text: 'Mình đang tra cẩm nang về cá neon xanh cho bạn.' }])
+        if (bodies.filter(b => b.call > 0).length === 1) { now += o.timeoutMs; throw new Error('Request timed out.') }
+        return message([{ type: 'text', text: JSON.stringify(final) }])
+      },
+    })
+    const line = bodies.find(b => b.call === 0)!.body, last = bodies.filter(b => b.call > 0)[1]!.body
+    return { line: [line.thinking, line.max_tokens, line.output_config?.effort], last: [last.thinking, last.max_tokens, last.output_config?.effort, last.tool_choice] }
+  }
+  expect(await sent('claude-sonnet-5-5')).toEqual({ line: [{ type: 'between_tools' }, 150, undefined], last: [{ type: 'between_tools' }, LAST_TRY.maxTokens, 'low', { type: 'none' }] })
+  expect(await sent('claude-opus-5-5')).toEqual({ line: [undefined, 150 + 1_024, 'low'], last: [undefined, LAST_TRY.maxTokens + 1_024, 'low', { type: 'none' }] })
+  // A model with no row of its own is sent what no model refuses: Opus's way.
+  expect(await sent('claude-next-6')).toEqual(await sent('claude-opus-5-5'))
+  expect(Object.keys(NO_THINKING)).toEqual(['claude-haiku-5-5', 'claude-sonnet-5-5', 'claude-opus-5-5'])
 })
 
 test('without onText a run is as before: no call is asked to stream, and a tool call after an answer\'s text still runs', async () => {

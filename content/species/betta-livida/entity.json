@@ -89,8 +89,8 @@
       {
         "source": "bwaquatics",
         "value": {
-          "min": 5,
-          "max": 6.5
+          "min": 3.5,
+          "max": 6
         }
       }
     ],
@@ -101,7 +101,7 @@
       },
       {
         "source": "bwaquatics",
-        "value": 3.8
+        "value": 3.6
       }
     ],
     "difficulty": [
@@ -137,13 +137,7 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-livida-wild-betta-fish",
-      "html": "<p>Wild-caught Betta livida from Indonesia, belonging to the Betta coccina complex. The body is dark red with specks of metallic yellow/green, and some fish have a dark green spot in the centre of the body. Like most coccina-type bettas, they have reflective blue eyes.</p><ul><li>TDS: 60–100</li><li>Diet: carnivorous</li><li>Breeding: bubble nester</li></ul>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-livida-wild-betta-fish",
-      "html": "<p>Have the aquarium set up and ready before purchasing the fish.</p>"
+      "html": "<p>From the Betta coccina complex. IUCN Red List: Endangered (very high risk of extinction in the wild). Origin: wild caught (Peninsular Malaysia). Maximum size 1.4 inches (3.6 cm). TDS: 60 to 100.</p>"
     },
     {
       "key": "distribution",
@@ -152,22 +146,28 @@
       "html": "<p>Endemic to northern Selangor state, Peninsular Malaysia with type locality 'Blackwater stream, north Selangor peat swamp, 800 meters from 45 kilometer mark on road from Tanjong Malim to Sungai Besar, Peninsula Malaysia'.</p><p>Populations from different localities are often labelled as such by collectors in order to maintain accuracy and preserve pure bloodlines, e.g., 'Sepang', 'Tg Malim', etc.</p><p>Selangor is among the most developed states in Malaysia and many of the species' habitats have been destroyed or damaged with much of its natural range having been turned over to oil palm or rubber plantations.</p><p>It's now thought to restricted to a few remaining pockets of primary forest and is listed as 'endangered' by the IUCN Red List of Threatened Species.</p><p>The 'Tg Malim' locality, which apparently is not close to the town of the same name, has been designated an officially-protected zone by national authorities.</p>"
     },
     {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-livida-wild-betta-fish",
+      "html": "<p>Betta livida is endemic to the north Selangor peat swamp forest and southern Perak in Peninsular Malaysia. The name comes from the Latin lividus, \"jealous\", for its green eyes. Much of its range has been converted to oil palm and rubber, and Malaysian hobbyist groups have bred the species and released it back into the wild.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-livida",
       "html": "<p>A stenotypic inhabitant of peat swamps and associated blackwater streams.</p><p>The dense canopy of branches above means very little light penetrates the surface of such environments, and riparian vegetation also tends to grow thickly.</p><p>The water is typically stained darkly with humic acids and other chemicals released by decaying organic material. The dissolved mineral content is generally negligible and pH can be as low as 3.0 or 4.0.</p><p>The substrate is usually covered by fallen leaves, branches and submerged tree roots and at certain times of year the fish may be forced to survive within the moist leaf litter for several weeks as permanent water is not always available.</p><p>In 1991 the type locality contained tea-coloured water with a pH of 3.5-3.7.</p><p>The substrate was composed of leaf litter and detritus and the fish most common in slow-moving, well-shaded, shallow (&lt; 1 m deep) habitats, or along vegetated margins of deeper streams, although it's also been collected from the banks of faster-flowing streams.</p><p>Many of the habitats were noted to be temporal in occurrence, with sympatric species including Anabas testudineus, Betta bellica, Parosphromenus harveyi, Sphaerichthys osphromenoides, Trichopodus leerii, T. pectoralis, Trichopsis vittata, Helostoma temminckii, and Luciocephalus pulcher.</p><p>At a second locality near the town of Rawang there were growths of a Pandanus sp. and the water was light brown to clear with a pH of 4.5-5.5.</p><p>There was a fast-flowing stream nearby and other species included Belontia hasselti, Parosphromenus harveyi, Sphaerichthys osphromenoides, Trichopodus pectoralis, T. trichopterus, Trichopsis vittata, and Helostoma temminckii.</p>"
     },
     {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-livida-wild-betta-fish",
+      "html": "<p>Shaded blackwater streams and shallow pools under a meter deep in peat swamp forest. The type locality measured pH 3.5 to 3.7.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-livida",
       "html": "<p>An aquarium with base measurements of 45 × 30 cm (18 × 12 in) should be the minimum considered but is suitable for a pair or small group. Volume is about 41 litres.</p>"
-    },
-    {
-      "key": "aquariumSize",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-livida-wild-betta-fish",
-      "html": "<p>Recommended: 1 pair per 5 gallons (about 19 litres).</p>"
     },
     {
       "key": "maintenance",
@@ -185,7 +185,7 @@
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-livida-wild-betta-fish",
-      "html": "<ul><li>Temperature: 75–82°F (24–28°C)</li><li>pH: 5.0–6.5</li><li>TDS: 60–100</li></ul>"
+      "html": "<p>pH: 3.5 to 6.0. Temperature: 24 to 28°C. TDS: 60 to 100.</p>"
     },
     {
       "key": "diet",
@@ -197,7 +197,7 @@
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-livida-wild-betta-fish",
-      "html": "<p>Carnivorous. Can be fed live blackworms, frozen bloodworms and pellets.</p>"
+      "html": "<p>Carnivorous. Fed live blackworms, frozen bloodworms and pellets.</p>"
     },
     {
       "key": "behaviour",
@@ -209,13 +209,19 @@
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-livida-wild-betta-fish",
-      "html": "<p>Moderately aggressive; males can be territorial when establishing breeding grounds. Because of their small size, multiple pairs can be kept together as long as there is enough space and cover. Expect fin nipping.</p>"
+      "html": "<p>Moderately aggressive. Males can be territorial when setting up a breeding site, but because of their small size you can keep multiple pairs with enough space and cover. Expect fin nipping. Recommended 1 pair per 20 litres.</p>"
     },
     {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-livida",
       "html": "<p>Males are more colourful and develop more-extended fins than females as they mature.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-livida-wild-betta-fish",
+      "html": "<p>Males have longer dorsal fins than females. Females are duller. Coloration: dark red with metallic yellow-green specks, green reflective eyes and parallel vertical gold bars on the gill cover. Body small and slender with a rounded caudal fin and small, even scales; scattered scales carry metallic yellow-green specks, and some fish have a small green lateral blotch that fades with age.</p>"
     },
     {
       "key": "reproduction",
@@ -227,19 +233,13 @@
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-livida-wild-betta-fish",
-      "html": "<p>Bubble nester.</p>"
+      "html": "<p>Bubblenester. The male builds a small bubble nest at the surface, usually under a floating leaf, inside a floating cave or among plants, and places the eggs in it after spawning. Pairs can often stay together in a well-planted tank; remove the female if the male keeps chasing her. Eggs hatch in 24 to 48 hours, and the fry are free-swimming about 3 days later. Start them on infusoria, then move to baby brine shrimp. Keep the surface calm so the nest stays intact.</p>"
     },
     {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-livida",
       "html": "<p>This species is included in the B. coccina group of closely-related Betta species within the genus.</p><p>This assemblage mostly comprises small, red-coloured fishes, with the exceptions of B. hendra, B. persephone and B. miniopinna which are greenish or darkish, and identifying some of them can be problematic as external patterning can be both similar and confusingly variable.</p><p>Members possess the following shared characters: small adult size (up to 40 mm / 1.6 in SL); either red or black body colouration; presence of midlateral blotch in some species; 9 abdominal vertebrae (vs. 10-12 in all other Betta species); stenotypic inhabitants of forest peat swamps.</p><p>B. livida can be told apart from other members of the group by the following characters: small, iridescent green lateral blotch in both male and female, disappearing with age; body red in colour; presence of parallel, vertical gold bars on opercle; pelvic fin falcate with wide, iridescent-green tip; dorsal-fin rays 9-13; anal-fin rays 25-31; subdorsal scales 7; lateral scales 30-31; predorsal scales 18-21.</p><p>The genus Betta is the most speciose within the family Osphronemidae with almost 70 recognised members and looks set to grow further with new ones continuing to be described on a regular basis since the turn of the century.</p><p>Member species have successfully adapted to inhabit a variety of ecological niches from stagnant ditches to flowing hill streams including some extreme environments such as highly acidic peat swamp forests.</p><p>The referral of members to a number of groups containing closely-related species is now generally accepted but largely based on morphological and behavioural characters.</p><p>Molecular phylogenetic work may therefore prove useful in more precisely determining relationships between these fishes.</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth.</p><p>So-called due to its maze-like structure this organ allows the fish to breathe atmospheric air to a certain extent.</p><p>Comprising paired suprabranchial organs formed via expansion of the epibranchial (upper) section of the first gill arch and housed in a chamber above the gills, it contains many highly-vascularised, folded flaps of skin which function as a large respiratory surface.</p><p>Its structure varies in complexity between species, tending to be better-developed in those inhabiting harsher environments.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-livida-wild-betta-fish",
-      "html": "<p>IUCN Red List: Endangered (a very high risk of extinction in the wild).</p>"
     },
     {
       "key": "references",
@@ -327,5 +327,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-14"
 }

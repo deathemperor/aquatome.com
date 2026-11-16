@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs'
 import { readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { metricPage, QUALITY_THRESHOLD, TranslationSchema, type GuideEntity, type Translation } from '@aq/schema'
+import { machine, type Machine } from './ceiling'
 import type { Llm } from './claude'
 import { FIT_TITLE, givesDose, type FitFinding } from './fit'
 import type { Mend } from './gate'
@@ -17,14 +18,37 @@ import { fixDraft, reviewDraft, type Draft, type WriteOpts, type YouTube } from 
 /** What the mender's editor is told to do, said to its reviewer: a foreign price turned into the comparison it makes is a fact kept (the Writing Lead's ruling, 2026-11-11). */
 const REVIEW_NOTE = readFileSync(new URL('./prompts/video-mend-review.md', import.meta.url), 'utf8')
 
-/** The sentence a quote sits in, within its paragraph (both as `norm` gives them); the quote alone when no paragraph has it whole. */
-function sentenceOf(paragraphs: string[], quote: string): string {
-  for (const p of paragraphs) {
+/**
+ * The sentence a quote sits in, within its paragraph (both as `norm` gives them); the quote alone when no paragraph has it
+ * whole. A quote that ends its sentence ("…4 nắp.", as the reader stores one) ends there, not at the next sentence's stop
+ * (Grok's read).
+ *
+ * `cased`, the same paragraphs with their capitals: then only a stop after a word of three letters or more (not "P.",
+ * "vd.", "v.v.", "sp.", "spp.") that the next sentence starts after with a capital or a figure ends it, so a dose's
+ * sentence reads on to a rate after an abbreviation (Grok's reads). A paragraph whose two forms don't line up is read
+ * whole: unsure, more is read, and a dose waits.
+ */
+function sentenceOf(paragraphs: string[], quote: string, cased?: string[]): string {
+  for (const [k, p] of paragraphs.entries()) {
     const i = p.indexOf(quote)
     if (i < 0) continue
-    const start = Math.max(p.lastIndexOf('. ', i), p.lastIndexOf('? ', i), p.lastIndexOf('! ', i)) + 1
-    const end = p.slice(i + quote.length).search(/[.?!](?:\s|$)/)
-    return p.slice(start, end < 0 ? p.length : i + quote.length + end + 1)
+    const c = cased?.[k]
+    if (cased && c?.length !== p.length) return p
+    const ends = (m: RegExpMatchArray) => {
+      if (!c) return true
+      const word = /[\p{L}\d]+$/u.exec(c.slice(0, m.index))?.[0] ?? ''
+      if (/^\p{L}{1,2}$/u.test(word) || /^(?:spp|ssp|var|aff|etc|cf)$/iu.test(word)) return false
+      return /^\s*["'“‘«(]*(?:[\p{Lu}\d]|$)/u.test(c.slice(m.index! + m[0].length))
+    }
+    // The quote's own last mark, past a closing quote mark: a stop there ends the sentence; one inside the quote doesn't.
+    const last = i + Math.max(1, quote.replace(CLOSING, '').length) - 1
+    let start = 0, end = p.length
+    for (const m of p.matchAll(STOP)) {
+      if (!ends(m)) continue
+      if (m.index + m[0].length <= i) start = m.index + m[0].length
+      else if (m.index >= last) { end = m.index + m[0].length; break }
+    }
+    return p.slice(start, end).trim()
   }
   return quote
 }
@@ -100,7 +124,16 @@ function figures(text: string): Map<string, number> {
 }
 /** A figure's dose unit, when its key has one ("hai mươi nắp" is in nắp, "20 mg trênl" in mg). */
 const unit = (k: string) => k.split(' ').slice(1).find(p => DOSE_UNIT.test(p)) ?? ''
-const split = (t: string) => t.split(/\n|(?<=[.?!])\s+/).map(x => x.trim()).filter(Boolean)
+/**
+ * A sentence's stop: ".", "?", "!" or an ellipsis, with any quote mark after it, before a space or the end. Every one is a
+ * stop for what a mend must keep, a genus's initial ("p. aethiopicus", the text as `norm` gives it) too: split finest,
+ * no sentence rides along with a named one (Grok's reads).
+ */
+const MARKS_AFTER = `"'”’»)“‘`
+const CLOSING = new RegExp(`[${MARKS_AFTER}]+$`, 'u')
+const STOP_MARK = `[.?!…⋯‥][${MARKS_AFTER}]*`
+const STOP = new RegExp(`${STOP_MARK}(?=\\s|$)`, 'gu')
+const split = (t: string) => t.split(new RegExp(`\\n|(?<=${STOP_MARK})\\s+`, 'u')).map(x => x.trim()).filter(Boolean)
 /** What `a` has more of than `b`. */
 const more = (a: Map<string, number>, b: Map<string, number>) => [...a].flatMap(([k, n]) => (n > (b.get(k) ?? 0) ? [k] : []))
 const less = (a: Map<string, number>, gone: Map<string, number>) => new Map([...a].map(([k, n]) => [k, Math.max(0, n - (gone.get(k) ?? 0))]))
@@ -133,7 +166,10 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   const paragraphs = [vi.name, ...(vi.summary ?? []), ...render(sanitizeHtml(vi.body ?? '')).split('\n'), ...(vi.faq ?? []).flatMap(f => [f.q, f.a])].map(norm)
   // A dose the editor may take is the source's own tank's; any other waits for a person, and so does the guide.
   const doses = findings.filter(f => f.check === 'dose').map(f => sentenceOf(paragraphs, norm(f.quote)))
-  if (!doses.every(ownTankDose)) return undefined
+  // The tank's own in its own sentence, and nothing of advice read on past an abbreviation ("loài P. aethiopicus, mỗi 10
+  // lít"): a "bể này" in the next sentence doesn't make a dose the tank's (Grok's read of "Châm 5 ml. Bể này ổn.").
+  const cased = [vi.name, ...(vi.summary ?? []), ...render(sanitizeHtml(vi.body ?? '')).split('\n'), ...(vi.faq ?? []).flatMap(f => [f.q, f.a])].map(x => x.normalize('NFC').replace(/\s+/g, ' ').trim())
+  if (!findings.filter(f => f.check === 'dose').every(f => ownTankDose(sentenceOf(paragraphs, norm(f.quote))) && ownTankDose(sentenceOf(paragraphs, norm(f.quote), cased)))) return undefined
   const sentence = (f: FitFinding) => sentenceOf(paragraphs, norm(f.quote))
   if (findings.some(f => (f.check === 'product' || f.check === 'price') && givesDose(sentence(f)) && !doses.includes(sentence(f)))) return undefined
   const lang = e.video.lang ?? 'en'
@@ -167,6 +203,17 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   // Grok's read).
   const taken = less(figures([...new Set(findings.filter(f => f.check !== 'units').map(sentence))].join('\n')), figures(findings.filter(f => f.check === 'units').map(f => norm(f.quote)).join('\n')))
   if (more(has, had).length || more(less(had, taken), has).length) return false
+  // Every other sentence survives word for word: a mend takes out only a sentence a finding names, one with a non-units
+  // finding's quote in it (the chief of staff, 14 Nov 2026, the lane's rule). One that also tidies the same thing said
+  // another way elsewhere is refused, and the guide stays held: the gate counts these, to say whether a finding for a
+  // repeated mention is worth adding.
+  const quotes = findings.filter(f => f.check !== 'units').map(f => norm(f.quote))
+  // Line by line, as the text it mends is read: a heading or the title is its own sentence.
+  // The summary and FAQ as they're written: unescaped ("&amp;" is "&", Grok's read).
+  const plain = plainParts(fixed.summary, fixed.faq)
+  const kept = new Set(split([name, ...plain.summary, ...render(sanitizeHtml(fixed.body)).split('\n'), ...plain.faq.flatMap(f => [f.q, f.a])].map(norm).join('\n')))
+  const lost = split(paragraphs.join('\n')).filter(x => !kept.has(x) && !quotes.some(q => x.includes(q)) && !findings.some(f => f.check !== 'units' && split(sentence(f)).includes(x)))
+  if (lost.length) return { refused: `a sentence no finding names was changed or left out: "${lost[0]}"${lost.length > 1 ? ` and ${lost.length - 1} more` : ''}` }
 
   const review = await reviewDraft(d.llm, transcript, { ...fixed, viTitle: name }, { title: e.video.title, channel: e.video.channel, lang }, REVIEW_NOTE)
   const page = { id: `guides/${p.id}`, lang: 'vi' }
@@ -187,3 +234,11 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   await logReviews(root, 'video-guide', page, [review], review, { now, rewrite: true })
   return true
 }
+
+/**
+ * The gate's mender where this runs: the Mac's alone (the chief of staff, 15 Nov 2026). Its transcript comes through
+ * yt-dlp, which GitHub's runners don't have, so each mend the cloud's gate sent failed before any model call and spent one
+ * of the run's mends and a log line: 12 held video guides each cloud cycle. There the gate has no mender; the Mac's mend.
+ */
+export const gateMend = (root: string, d: Parameters<typeof videoMend>[1], where: Machine = machine()): Mend | undefined =>
+  where === 'mac' ? videoMend(root, d) : undefined

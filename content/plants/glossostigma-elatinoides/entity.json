@@ -4,9 +4,10 @@
   "difficulty": 3,
   "light": "high",
   "co2": "required",
-  "growth": "medium",
+  "growth": "fast",
   "placement": [
-    "foreground"
+    "foreground",
+    "midground"
   ],
   "sections": [
     {
@@ -16,38 +17,78 @@
       "html": "<ul><li>Type: Carpeting</li><li>Origin: Australia</li><li>Height: 3 - 5+ cm (average height after two months in the tank)</li><li>Light demand: High</li><li>CO2: High (approx. 15-25 mg/L)</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/glosso-care-guide-planting-growing-and-propagation/",
+      "html": "<ul><li>Common name: Glosso (Mud mat)</li><li>Minimum tank: 10 gallons (~40 litres)</li><li>Lighting: medium to high</li><li>Substrate: needed (nutrient-rich)</li><li>Growth rate: moderate to fast</li><li>Placement: mostly foreground / midground</li><li>Height: 3–6 cm</li><li>Fertilizer: recommended</li><li>CO2: recommended</li><li>Propagation: by producing runners</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/glosso-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Glossostigma elatinoides is native to Australia, New Zealand and Tasmania. Its use in aquariums dates back to the 1980s. It belongs to the genus Glossostigma in the lopseed family Phrymaceae (previously classified under Scrophulariaceae). The genus includes six accepted species: Glossostigma cleistanthum, Glossostigma diandrum, Glossostigma drummondii, Glossostigma elatinoides, Glossostigma submersum and Glossostigma trichodes. Of these, Glossostigma elatinoides is the only one renowned for use in aquascaping.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/glosso-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Glossostigma elatinoides is a low-growing plant that grows partially to completely submersed in shallow water, bogs, marshes and river banks. Although small, it can reach high densities and often forms extensive mats on the substrate, hence the common name Mud mat.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Glossostigmaelatinoides(045ATC)/4470",
       "html": "<p>A difficult plant demanding a lot of light. Grows upwards if light is poor. Make sure larger plants do not overshadow it. When planting in the aquarium small clumps (approx. 1/8 pot) should be placed at intervals of a few centimetres to help the plants grow together more quickly. CO2 addition and soft water promote growth significantly.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/glosso-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Glosso is demanding and requires a great deal of maintenance and nutrient supplementation to keep the carpet in excellent condition.</p><ul><li>Trim the carpet frequently to keep it low and compact, about 3 cm. Otherwise old foliage rots as new growth smothers it. Trimming low also encourages lateral growth.</li><li>Cut off yellow leaves and decaying shoots. Collect clippings with a sieve or net, stir the carpet briefly to lift dirt, then do a partial water change to remove nitrates and impurities.</li><li>Provide high light for horizontal growth; low light results in leggy growth.</li><li>Use root tabs or dose liquid fertilizers.</li><li>CO2 injection is necessary: liquid carbon or a pressurized CO2 system (some aquarists recommend about 20–30 mg/l). Stable CO2 is needed, so a pressurized system is better. Without high light and CO2, Glosso grows vertically and very slowly or dies out quickly.</li><li>Regular root tabs or liquid fertilizers rich in macro and micronutrients sustain healthy growth and coloration.</li></ul><p>If you keep shrimp with Glosso: high CO2 and copper (found in most fertilizers) are extremely dangerous to shrimp.</p><h3>Planting and propagation</h3><ul><li>Remove the binding material from the pot and quarantine/disinfect if needed (not necessary for in vitro plants, which are grown on sterile nutrient media).</li><li>Split the clumps into small plantlets; each pot can usually be divided into 10–15 portions.</li><li>Keep plantlets moist by misting with aquarium water or covering with a damp paper towel.</li><li>Plant with tweezers, burying the plantlets so only the leaves show, which prevents floating.</li><li>Space plantlets 2.5 cm apart so runners can spread; a grid or chessboard pattern gives best coverage.</li><li>Make sure new plants are not shaded by other plants or decor.</li></ul><p>Glosso propagates rapidly by runners or lateral shoots once plants mature. It can also be grown with the dry start method, which boosts the growth of slow-growing plants, cycles the substrate and removes algae problems; it also makes Glosso a good choice for paludariums.</p><h3>Common problems</h3><ul><li>Melting: the plant dies back after planting, common with plants not grown underwater early on. The change from emersed to submersed form causes melt, then new leaves grow.</li><li>Leggy growth: caused by low light; provide intense lighting.</li><li>Leaf rot: new leaves smother old ones, so trim frequently.</li><li>Yellowing leaves: due to inadequate light or nutrients. Use a nutrient-rich substrate, dose liquid fertilizers rich in nitrogen, phosphorus, potassium, magnesium, boron, manganese and chelated iron, and provide intense light for at least 8 hours daily.</li></ul>"
+    },
+    {
       "key": "notes",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Glossostigmaelatinoides(045ATC)/4470",
       "html": "<p>Glossostigma elatinoides from New Zealand is much in demand in Japanese-inspired aquariums. It is one of the smallest aquarium plants (2-3 cm tall), and thus a good foreground plant.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/glosso-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Glosso is one of the smallest aquarium plants. It usually grows to 5–6 cm, making it a good foreground ground-cover plant. The leaves are bright green and tongue-shaped, typically about 6 mm long, with petioles. Internodes are about 1 cm long but can reach up to 5 cm, which allows rapid spread on the substrate. Air bubbles may appear on the surface of healthy plants, especially when CO2 levels are stable. Plenty of light, CO2 and nutrients help the plant keep a low, compact growth form. It is commonly used in Nature, Iwagumi and Dutch style aquascapes. It is not ideal for beginners because of its high light, CO2 and nutrient demands.</p><h3>Tank requirements</h3><p>The recommended minimum tank is 10 gallons (~40 litres). Although the plant is small, it needs stable water parameters and CO2 injection, which is close to impossible in nano tanks.</p><p>Temperature: optimal 22–30 °C; slight variations outside this range are tolerated. Hardness: thrives in soft to hard water. pH: ideal 6.5–7.5; it can withstand slightly acidic water down to 5.0.</p><h3>Lighting</h3><p>Glosso appreciates moderate to high light. Intense light lets it form thick mats, whereas low light triggers upward growth of the shoots. For optimal growth it needs 30–50 PAR and a photoperiod of at least 8 hours daily (preferably 10 hours).</p><h3>Substrate</h3><p>It requires a smooth, nutrient-rich substrate that lets the thin roots penetrate easily. Recommended: ADA Amazonia aqua soil, CaribSea Eco-Complete, Seachem Fluorite.</p><h3>Tankmates</h3><p>Glosso suits planted tanks with docile fish and small invertebrates, such as bleeding heart tetras, neon tetras, mollies, killifish, swordtails, white cloud mountain minnows, zebra danios, cherry barbs, platies, Endlers, otocinclus, pygmy corydoras, dwarf shrimp and snails (Japanese trapdoor, ramshorn, nerite, Malaysian trumpet, black devil snails, Asolene spixi, rabbit snails). Ornamental snails should not be kept long in low pH water as it harms their shells. Avoid fish that may eat the plant, such as silver dollars, Buenos Aires tetras, koi, goldfish, oscars, rainbowfish, Jack Dempsey, clown loaches and African cichlids. Crayfish and freshwater crabs are also a poor combination, as they cut, eat and uproot plants.</p><h3>Buying</h3><p>Choose healthy plants and avoid specimens with yellow or brown leaves, rips, curls and spots. Fake Glosso seeds exist online; they are generally some kind of Hygrophila that does not stay small, or terrestrial plants that die after a few weeks underwater. Only trust reputable sellers.</p><h3>Quarantine</h3><p>Quarantine the plant before adding it to the aquarium if necessary. It can carry parasites, pests such as snails, or predators (dragonfly and damselfly nymphs). It may also have been treated with pesticides, which are extremely poisonous to fish, shrimp and other invertebrates.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/8aa63710890e49bc.webp",
+      "thumb": "https://media.aquatome.com/commons/8aa63710890e49bc-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 3.0",
       "author": "Billtsai1518",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E7%9F%AE%E7%8F%8D%E7%8F%A0.jpg",
-      "caption": "​一種水草缸前景草",
-      "thumb": "https://media.aquatome.com/commons/8aa63710890e49bc-480.webp"
+      "caption": "​一種水草缸前景草"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/570cc6f49efcd268.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/570cc6f49efcd268-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/glosso-care-guide-planting-growing-and-propagation/",
+      "source": "aquariumbreeder"
     },
     {
       "url": "https://media.aquatome.com/commons/2f4db791e435394e.webp",
+      "thumb": "https://media.aquatome.com/commons/2f4db791e435394e-480.webp",
       "width": 960,
       "height": 1280,
       "licence": "CC BY-SA 4.0",
       "author": "Miriam Serrano Álvarez",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Glossostigma_elatinoides.jpg",
-      "caption": "Imagen que muestra un espécimen de la especie Glossostigma elatinoides en acuariofilia. Ejemplar reproducido en cautividad mediante reproducción asexual por rizomas.",
-      "thumb": "https://media.aquatome.com/commons/2f4db791e435394e-480.webp"
+      "caption": "Imagen que muestra un espécimen de la especie Glossostigma elatinoides en acuariofilia. Ejemplar reproducido en cautividad mediante reproducción asexual por rizomas."
     },
     {
       "url": "https://media.aquatome.com/tropica/e074204a35d05d12.webp",
@@ -87,5 +128,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-14"
 }

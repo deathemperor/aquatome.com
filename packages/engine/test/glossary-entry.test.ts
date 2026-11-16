@@ -112,6 +112,20 @@ test('a rewrite keeps the photos put on the term', async () => {
   expect(JSON.parse(await readFile(join(root, 'content/glossary/lua/entity.json'), 'utf8')).photos).toEqual([photo])
 })
 
+// The owner, 15 Nov 2026: "what does each look like?". Each kind's photo is Curation's: a rewrite keeps every one, and one
+// whose kind the new text no longer lists is named in the run's result, not dropped.
+test('a rewrite keeps each kind\'s photo, and names one whose kind the new text no longer lists', async () => {
+  const root = await site()
+  const photo = (n: string) => ({ url: `https://media.aquatome.com/x/${n}.webp`, width: 1000, height: 667, licence: 'dùng với sự cho phép', author: 'A shop', sourceUrl: `https://example.org/${n}` })
+  const kinds = [{ id: 'lua-do-quyen', photo: photo('a') }, { id: 'mopani', photo: photo('b') }]
+  await writeFile(join(root, 'content/glossary/lua/entity.json'), JSON.stringify({ id: 'lua', en: 'Driftwood', kinds }))
+  const body = '<h3>Các loại lũa</h3><ul><li><strong>Lũa đỗ quyên</strong> (spider wood): rễ cây đỗ quyên.</li></ul>'
+  const llm: Llm = async ({ prompt }) => (prompt.startsWith('GLOSSARY RULES') ? { notes: [] } : isCheck(prompt) ? verdicts(prompt) : { ...written, body }) as never
+  const r = await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'lua', { kind: 'aquascaping' })
+  expect(JSON.parse(await readFile(join(root, 'content/glossary/lua/entity.json'), 'utf8')).kinds).toEqual(kinds)
+  expect(r).toMatchObject({ id: 'lua', kindPhotosUnplaced: ['mopani'] })
+})
+
 // A shop's listing on a marketplace, or a post on a social network, found by research through search: never a source, and
 // nothing it alone says reaches the writer (the owner's rule; the Site Lead, 13 Nov 2026).
 test('a marketplace\'s or a social network\'s page is never a source, nor are the facts that cite it', async () => {
@@ -240,6 +254,42 @@ test('new research adds to what was kept, a fact both give once; --fresh starts 
   expect(JSON.parse(await readFile(join(root, 'engine-state/glossary/lua.json'), 'utf8'))).toEqual(more)
 })
 
+// The chief of staff, 15 Nov 2026: what Artemia is, and the Vĩnh Châu eggs keepers here buy, each a fact before a revise
+// writes it. A top-up researches only what the term's notes ask, adds it to the kept research, and writes nothing.
+test('--top-up researches only what the notes ask, adds it to the kept research and writes nothing', async () => {
+  const root = await site()
+  const files = ['content/glossary/lua/entity.json', 'content/glossary/lua/vi.json']
+  const before = await Promise.all(files.map(f => readFile(join(root, f), 'utf8')))
+  const never: Llm = async () => { throw new Error('nothing is written in a top-up') }
+  expect(await makeGlossaryEntry(root, { research: never, llm: never }, 'lua', { kind: 'aquascaping', topUp: true })).toEqual({ id: 'lua', refused: ['no kept research to top up'] })
+  await mkdir(join(root, 'engine-state/glossary'), { recursive: true })
+  await writeFile(join(root, 'engine-state/glossary/lua.json'), JSON.stringify(facts))
+  await writeFile(join(root, 'engine-state/glossary/ph.json'), JSON.stringify(facts))
+  expect(await makeGlossaryEntry(root, { research: never, llm: never }, 'ph', { kind: 'setup', topUp: true })).toEqual({ id: 'ph', refused: ['nothing to top up: the notes file gives this term no also or read'] })
+  for (const with_ of [{ fresh: true }, { reuse: true }, { revise: true }, { fromDraft: true }, { accept: 'the chief of staff' }])
+    expect(await makeGlossaryEntry(root, { research: never, llm: never }, 'lua', { kind: 'aquascaping', topUp: true, ...with_ })).toMatchObject({ refused: [expect.stringMatching(/^--top-up only researches/)] })
+  const more: TopicFacts = {
+    found: true,
+    facts: [
+      { section: 'what', fact: 'Lũa sa tùng is the root of a pine', source: 0 },
+      { section: 'steps', fact: 'Soak new driftwood for one to two weeks, changing the water, before it goes in a tank', source: 1 },
+    ],
+    species: [],
+    sources: [{ url: 'https://example.org/sa-tung', title: 'Lũa sa tùng', kind: 'shop' }, facts.sources[1]!],
+  }
+  let asked = ''
+  const r = await makeGlossaryEntry(root, { research: async ({ prompt }) => { asked = prompt; return more as never }, llm: never }, 'lua', { kind: 'aquascaping', topUp: true })
+  expect(r).toEqual({ id: 'lua', toppedUp: ['Lũa sa tùng is the root of a pine (https://example.org/sa-tung)'] })
+  // The ask is the notes' own, not the whole topic again.
+  const ASKS = JSON.parse(await readFile(new URL('../src/glossary-asks.json', import.meta.url), 'utf8')) as Record<string, { also?: string[]; read?: string[] }>
+  expect(asked).toContain(`Find only these, each from a page that says it; where no page you may use says one, add nothing for it: ${ASKS.lua!.also!.join('; ')}.`)
+  expect(asked).toContain(`Read these pages and keep what they say: ${ASKS.lua!.read!.join(', ')}.`)
+  expect(asked).not.toContain('what it does in a tank')
+  const kept = JSON.parse(await readFile(join(root, 'engine-state/glossary/lua.json'), 'utf8')) as TopicFacts
+  expect(kept.facts).toEqual([...facts.facts, { section: 'what', fact: 'Lũa sa tùng is the root of a pine', source: 3 }])
+  expect(await Promise.all(files.map(f => readFile(join(root, f), 'utf8')))).toEqual(before)
+})
+
 // Lũa's fifth (14 Nov 2026, 03:13) ran to 2,917 words, twice the first's 1,527. A term with kinds holds to about 900
 // words and 60 for each kind its notes file names: past it, a note for one trim pass; more than 15 percent past, a stop (the
 // chief of staff, 14 Nov 2026). A term without kinds holds to about 400, the same way. The kinds are counted from the notes
@@ -256,6 +306,12 @@ test('an entry\'s length: 900 and 60 a named kind, or 400; one trim note past it
   expect(lengthNotes(`<p>${'nước '.repeat(1300)}</p>${kinds(16, 58)}`, 16)).toEqual({ notes: ['The entry is 2263 words: hold it to about 1860, about 60 a kind, and leave what is left out to the pages that use the term.'], stop: true })
   // A list inside an item counts as its own items (Codex, 14 Nov 2026).
   expect(lengthNotes(`<ul><li>Hai loại ${'gỗ '.repeat(50)}<ul><li>${'đá '.repeat(50)}</li><li>${'cát '.repeat(95)}</li></ul></li></ul>`, 3).notes).toEqual([expect.stringMatching(/^An item is 95 words, at most about 60: "cát cát/)])
+  // A term with kinds and its own length in the notes file is held to its own (the owner, 15 Nov 2026: "what does each
+  // look like?"; a kind's picture carries its look, so its item needs a line or two): 600 words of 500 is a note, past
+  // 575 a stop, where the kinds' rule would let 1,860 pass.
+  expect(lengthNotes(`<p>${'nước '.repeat(600)}</p>`, 16, 500)).toEqual({ notes: ['The entry is 600 words: hold it to about 500, and leave what is left out to the pages that use the term.'], stop: true })
+  expect(lengthNotes(`<p>${'nước '.repeat(520)}</p>`, 16, 500)).toEqual({ notes: ['The entry is 520 words: hold it to about 500, and leave what is left out to the pages that use the term.'], stop: false })
+  expect(lengthNotes(`<p>${'nước '.repeat(600)}</p>`, 16)).toEqual({ notes: [], stop: false })
   // A term whose notes file names no kinds holds to about 400, however its lists look: pH's four bold labels are not kinds
   // (its draft ran to 916 words; this one, 917).
   const ph = `<ul>${['Làm pH lên:', 'Làm pH xuống:', 'Lá bàng và lũa:', 'Không đáng lo:'].map(k => `<li><strong>${k}</strong> ${'đá '.repeat(226)}</li>`).join('')}</ul>`
@@ -280,10 +336,30 @@ test('a term\'s notes file sets its length: pH\'s 648 words get a trim pass and 
   expect(await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'ph', { kind: 'setup' })).toMatchObject({ id: 'ph', score: 1 })
   expect(writes.length).toBe(2)
   // The writer is told the term's own length (Codex, 14 Nov 2026: it was told only the prompt's 200–300 words).
-  expect(writes[0]).toContain('--- ĐỘ DÀI ---\nKhoảng 600 chữ cả bài')
+  expect(writes[0]).toContain('--- ĐỘ DÀI ---\nKhoảng 620 chữ cả bài')
   const asks = JSON.parse(await readFile(new URL('../src/glossary-asks.json', import.meta.url), 'utf8')) as Record<string, { length?: { words: number; why: string } }>
-  expect(asks.ph!.length!.words).toBe(600)
+  // The chief of staff's 620, 15 Nov 2026, once every read sentence was kept.
+  expect(asks.ph!.length!.words).toBe(620)
   for (const [id, a] of Object.entries(asks)) if (a.length) expect(a.length.words <= 600 || /chief of staff/.test(a.length.why), id).toBe(true)
+})
+
+// The owner, 15 Nov 2026: "what does each look like?". Nền bể names its kinds and sets its own length, 500: the writer is
+// told the 500, and that each kind takes a line or two, as its picture shows how it looks.
+test('a term with kinds and its own length tells the writer the length, and a line or two a kind', async () => {
+  const root = await site()
+  await mkdir(join(root, 'content/glossary/nen-be'), { recursive: true })
+  await writeFile(join(root, 'content/glossary/nen-be/entity.json'), JSON.stringify({ id: 'nen-be', en: 'Substrate' }))
+  await writeFile(join(root, 'content/glossary/nen-be/vi.json'), JSON.stringify({ slug: 'nen-be', name: 'Nền bể', altNames: [], sections: {}, definition: 'Lớp vật liệu phủ đáy bể.', quality: { score: 0.9, indexable: true } }))
+  const writes: string[] = []
+  const llm: Llm = async ({ prompt }) => {
+    if (prompt.startsWith('GLOSSARY RULES')) return { notes: [] } as never
+    if (isCheck(prompt)) return verdicts(prompt) as never
+    writes.push(prompt)
+    return written as never
+  }
+  await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'nen-be', { kind: 'setup' })
+  expect(writes[0]).toContain('--- ĐỘ DÀI ---\nKhoảng 500 chữ cả bài, thay cho độ dài nói ở trên. Mỗi loại một hai câu, vì ảnh của nó cho thấy nó trông thế nào.')
+  expect(writes[0]).toContain('--- LOẠI BÁN Ở VIỆT NAM ---\nđất nền (aqua soil)')
 })
 
 // Past Lũa's cap: its notes file names 17 kinds, so 1,920 words and a stop past 2,208.
@@ -378,27 +454,44 @@ const none: Llm = async () => { throw new Error('no model call') }
 const draftPath = (root: string) => join(root, 'engine-state/glossary/lua.draft.json')
 const long6 = { ...sixth.entry, body: longKinds }
 
+// A draft a run kept, read, before a draft past its stop went unread (the chief of staff, 15 Nov 2026): its file, and its
+// digest in the log, as the step wrote them.
+async function readKept(root: string, d: Draft) {
+  const text = `${JSON.stringify(d, null, 2)}\n`
+  await mkdir(join(root, 'engine-state/glossary'), { recursive: true })
+  await writeFile(join(root, 'engine-state/glossary/lua.json'), JSON.stringify(facts))
+  await writeFile(draftPath(root), text)
+  const review = { score: d.score, notes: d.notes }
+  await logReviews(root, 'glossary', { id: 'glossary/lua', lang: 'vi' }, [review], undefined, { draft: { of: review, sha: createHash('sha256').update(text).digest('hex') } })
+  return text
+}
+
 test('an accepted draft is saved as the step kept it, logged with who accepted it and every note; a refused one changes nothing', async () => {
   const root = await site()
   const before = await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8')
+  const accept = (o: { now?: () => Date } = {}) => makeGlossaryEntry(root, { research: none, llm: none }, 'lua', { kind: 'aquascaping', accept: 'the chief of staff', ...o })
   // Refused: a contradiction.
-  await keptDraft(root, long6, ['Rule 1: two statements contradict', 'Rule 4: x'])
-  expect(await makeGlossaryEntry(root, { research: none, llm: none }, 'lua', { kind: 'aquascaping', accept: 'the chief of staff' })).toMatchObject({ refused: ['a note that stops a save: Rule 1: two statements contradict'] })
+  await keptDraft(root, sixth.entry, ['Rule 1: two statements contradict', 'Rule 4: x'])
+  expect(await accept()).toMatchObject({ refused: ['a note that stops a save: Rule 1: two statements contradict'] })
   expect(await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8')).toBe(before)
-  // Refused: a draft that isn't as the step kept it, however small the change. Kept for its length alone.
+  // Refused: a draft past its stop, which the step kept unread (the chief of staff, 15 Nov 2026).
   await keptDraft(root, long6, sixth.notes.slice(1, 4))
-  const kept = await readFile(draftPath(root), 'utf8')
+  const unread = await readFile(draftPath(root), 'utf8')
+  expect(JSON.parse(unread)).toMatchObject({ unread: true, entry: long6 })
+  expect(await accept()).toEqual({ id: 'lua', refused: ['it was never read: it is past its length. Set its length in the notes file and run it from its draft'] })
+  // Refused: a draft that isn't as the step kept it, however small the change.
+  const kept = await readKept(root, { score: 1, broken: 7, notes: [...sixth.notes.slice(1, 4), ...lengthNotes(long6.body, 17).notes], entry: long6 })
   await writeFile(draftPath(root), kept.replace('ngấm đủ nước', 'ngấm nước'))
-  expect(await makeGlossaryEntry(root, { research: none, llm: none }, 'lua', { kind: 'aquascaping', accept: 'the chief of staff' })).toEqual({ id: 'lua', refused: ['the kept draft is not as the step kept it'] })
+  expect(await accept()).toEqual({ id: 'lua', refused: ['the kept draft is not as the step kept it'] })
   await writeFile(draftPath(root), kept.replace(/"broken": \d+/, '"broken": 2'))
-  expect(await makeGlossaryEntry(root, { research: none, llm: none }, 'lua', { kind: 'aquascaping', accept: 'the chief of staff' })).toEqual({ id: 'lua', refused: ['the kept draft is not as the step kept it'] })
+  expect(await accept()).toEqual({ id: 'lua', refused: ['the kept draft is not as the step kept it'] })
   expect(await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8')).toBe(before)
   // A later draft kept, the earlier one put back byte for byte is still one the step kept.
   await keptDraft(root, { ...long6, body: long6.body.replace('Lũa khô nổi', 'Bản sau: lũa khô nổi') }, sixth.notes.slice(1, 4))
   expect(await readFile(draftPath(root), 'utf8')).not.toBe(kept)
   // Accepted as kept: saved, with no model call, the draft gone.
   await writeFile(draftPath(root), kept)
-  const r = await makeGlossaryEntry(root, { research: none, llm: none }, 'lua', { kind: 'aquascaping', accept: 'the chief of staff', now: () => new Date('2026-11-14T00:00:00Z') })
+  const r = await accept({ now: () => new Date('2026-11-14T00:00:00Z') })
   expect(r).toMatchObject({ id: 'lua', score: 1, acceptedBy: 'the chief of staff', refs: 3 })
   const vi = JSON.parse(await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8'))
   expect(vi).toMatchObject({ definition: sixth.entry.definition, body: long6.body, altNames: ['lũa gỗ', 'gỗ lũa'], quality: { score: 1, indexable: true } })
@@ -408,7 +501,7 @@ test('an accepted draft is saved as the step kept it, logged with who accepted i
   expect(JSON.parse(kept).notes).toHaveLength(7)
   await expect(readFile(draftPath(root), 'utf8')).rejects.toThrow()
   // Nothing kept: nothing to accept.
-  expect(await makeGlossaryEntry(root, { research: none, llm: none }, 'lua', { kind: 'aquascaping', accept: 'the chief of staff' })).toEqual({ id: 'lua', refused: ['no kept draft to accept'] })
+  expect(await accept()).toEqual({ id: 'lua', refused: ['no kept draft to accept'] })
 })
 
 // Lũa's sixth was kept before the log had a draft's digest: it is the step's by the digest of the copy made when it was
@@ -501,6 +594,22 @@ test('an entry about to be saved has its loose sentences reworded once, and the 
   expect(JSON.parse(await readFile(join(root, 'engine-state/reviews/glossary.json'), 'utf8'))['vi/glossary/lua'][0]).toMatchObject({ kept: true, notes: (r as { notes: string[] }).notes })
 })
 
+// The chief of staff, 15 Nov 2026: chu trình nitơ's rewording undid three things its notes asked for, read by nothing after.
+test('the house rules are read again after the rewording, and a rewording they note goes back before the entry is saved', async () => {
+  const root = await site()
+  let reads = 0
+  const llm: Llm = async ({ prompt, system }) => {
+    if (prompt.startsWith('GLOSSARY RULES')) { reads++; return { notes: prompt.split('--- ENTRY ---')[1]!.includes('khoảng 1–2 tuần') ? ['Rule 12: "Ngâm lũa mới khoảng 1–2 tuần." drops what THIS TERM asks for'] : [] } as never }
+    if (system.startsWith('You reword')) return { sentences: [{ n: 1, text: 'Ngâm lũa mới khoảng 1–2 tuần.' }] } as never
+    if (isCheck(prompt)) return verdicts(prompt, t => (t === 'Ngâm lũa mới 1–2 tuần.' ? 'loose: one source says two weeks' : undefined)) as never
+    return written as never
+  }
+  const r = await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'lua', { kind: 'aquascaping' })
+  expect(r).toMatchObject({ id: 'lua', score: 1, notes: ['Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: "Ngâm lũa mới 1–2 tuần." (not "Ngâm lũa mới khoảng 1–2 tuần.": Rule 12: "Ngâm lũa mới khoảng 1–2 tuần." drops what THIS TERM asks for)'] })
+  expect(reads).toBe(2)
+  expect(JSON.parse(await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8')).body).toBe('<h3>Nên làm gì</h3><p>Ngâm lũa mới 1–2 tuần.</p>')
+})
+
 // Chu trình nitơ's saved entry (14 Nov 2026) has a sentence the sentence check stops, advice the old say-once rule pushed the
 // writer to add; Lũa's next save rewrites its saved entry with its kinds' own pages. `revise` rewrites the saved entry once on
 // its notes, from its research, and saves only what passes.
@@ -530,6 +639,91 @@ test('a saved entry revised: one rewrite on its notes, from its research, saved 
   expect(w).toBe(1)
 })
 
+// The chief of staff, 15 Nov 2026: each revision of pH and chu trình nitơ fixed what its notes asked and dropped something
+// already read (pH's worked example of the log scale went in a trim for length), and a rewrite that put a notes line right
+// lost a tie to the saved text on its length.
+const scale: TopicFacts = { ...facts, facts: [...facts.facts, { section: 'what', fact: 'Each pH step is ten times the next: pH 4.0 is ten times more acidic than pH 5.0', source: 0 }] }
+const logLine = 'Mỗi nấc cách nhau 10 lần, tức là pH 4,0 chua gấp 10 lần pH 5,0.'
+const soak = '<h3>Nên làm gì</h3><p>Ngâm lũa mới 1–2 tuần.</p>'
+const soakFixed = '<h3>Nên làm gì</h3><p>Ngâm lũa mới 1–2 tuần, thay nước.</p>'
+async function savedWith(body: string, id = 'lua', kind: 'aquascaping' | 'care' = 'aquascaping') {
+  const root = await site()
+  const fresh: Llm = async ({ prompt }) => (prompt.startsWith('GLOSSARY RULES') ? { notes: [] } : isCheck(prompt) ? verdicts(prompt) : { ...written, body }) as never
+  await makeGlossaryEntry(root, { research: async () => scale as never, llm: fresh }, id, { kind })
+  return root
+}
+const bodyOf = async (root: string, id = 'lua') => JSON.parse(await readFile(join(root, 'content/glossary', id, 'vi.json'), 'utf8')).body
+/** The model for a revision: the rules read gives `notes` while the entry holds `while`, the writer gives `bodies` in turn. */
+const revising = (writes: string[], bodies: string[], notes: string[], while_: string): Llm => async ({ prompt }) => {
+  if (prompt.startsWith('GLOSSARY RULES')) return { notes: prompt.split('--- ENTRY ---')[1]!.includes(while_) ? notes : [] } as never
+  if (isCheck(prompt)) return verdicts(prompt) as never
+  writes.push(prompt)
+  return { ...written, body: bodies.length > 1 ? bodies.shift() : bodies[0] } as never
+}
+const revise = (root: string, llm: Llm, id = 'lua', kind: 'aquascaping' | 'care' = 'aquascaping') => makeGlossaryEntry(root, { research: async () => { throw new Error('no research') }, llm }, id, { kind, revise: true })
+
+test('a saved entry revised: a rewrite that drops what no note asks for is not saved, and what it dropped goes back to the writer once', async () => {
+  const before = `${soak}<p>Thang pH là thang logarit. ${logLine}</p>`
+  const asked = ['Rule 12: "Ngâm lũa mới 1–2 tuần." should say to change the water']
+  const trimmed = `${soakFixed}<p>Thang pH là thang logarit, mỗi nấc cách nhau 10 lần.</p>`
+  const whole = `${soakFixed}<p>Thang pH là thang logarit. ${logLine}</p>`
+  // The first rewrite does as the note asks and trims the worked example; told what it dropped, the second keeps it.
+  const root = await savedWith(before)
+  const writes: string[] = []
+  expect(await revise(root, revising(writes, [trimmed, whole], asked, 'Ngâm lũa mới 1–2 tuần.'))).toMatchObject({ id: 'lua', score: 1 })
+  expect(writes).toHaveLength(2)
+  expect(writes[1]).toContain(`- The rewrite dropped from "${logLine}" the figure 4,0, the figure 5,0, the advice "tức là pH 4,0 chua gấp 10 lần pH 5,0", and nothing lets that sentence go: write it as it was, word for word.`)
+  expect(await bodyOf(root)).toBe(whole)
+  // A writer that drops it again: the saved entry stays as it was.
+  const again = await savedWith(before)
+  const twice: string[] = []
+  await revise(again, revising(twice, [trimmed], asked, 'Ngâm lũa mới 1–2 tuần.'))
+  expect(twice).toHaveLength(2)
+  expect(await bodyOf(again)).toBe(before)
+  // A review note asking for it to go doesn't let it go (the seventh read, 15 Nov 2026: notes quote sentences to keep
+  // them as often as to change them); a sentence the facts don't carry, stopped, may go.
+  const cutBody = `${soak}<p>Thang pH là thang logarit.</p>`
+  const third = await savedWith(before)
+  const asks: string[] = []
+  await revise(third, revising(asks, [cutBody], [`Rule 12: "${logLine}" says the scale twice: leave it out`], logLine))
+  expect(asks).toHaveLength(2)
+  expect(asks[1]).toContain(`- The rewrite dropped from "${logLine}"`)
+  expect(await bodyOf(third)).toBe(before)
+  const fourth = await savedWith(before)
+  const once: string[] = []
+  const unborne: Llm = async ({ prompt }) => {
+    if (prompt.startsWith('GLOSSARY RULES')) return { notes: [] } as never
+    if (isCheck(prompt)) return verdicts(prompt, t => (t === logLine ? 'unsupported: not in the facts' : undefined)) as never
+    once.push(prompt)
+    return { ...written, body: cutBody } as never
+  }
+  expect(await revise(fourth, unborne)).toMatchObject({ id: 'lua', score: 1 })
+  expect(once).toHaveLength(1)
+  expect(await bodyOf(fourth)).toBe(cutBody)
+})
+
+// The Sonnet reviewer's read, 15 Nov 2026: a revision held to a kept draft in place of the saved entry would let the drop
+// check pass what the saved entry lost.
+test('a revision starts from the saved entry, never with a kept draft', async () => {
+  const root = await savedWith(soak)
+  const none: Llm = async () => { throw new Error('no model call') }
+  for (const o of [{ fromDraft: true }, { accept: 'the chief of staff' }]) {
+    expect(await makeGlossaryEntry(root, { research: none, llm: none }, 'lua', { kind: 'aquascaping', revise: true, ...o })).toEqual({ id: 'lua', refused: ['--revise starts from the saved entry, not with --from-draft or --accept'] })
+  }
+})
+
+test('a saved entry revised: an unmet line of the term\'s notes outranks a length still under its stop', async () => {
+  // pH's notes file sets its own length: a rewrite that meets the notes line 40 words past it, still under its stop, is saved.
+  const own = (JSON.parse(await readFile(new URL('../src/glossary-asks.json', import.meta.url), 'utf8')) as Record<string, { length: { words: number } }>).ph!.length.words
+  const root = await savedWith(soak, 'ph', 'care')
+  const long = `${soakFixed}<p>${'nước '.repeat(own + 40)}</p>`
+  const writes: string[] = []
+  const r = await revise(root, revising(writes, [long], ['Rule 12: "Ngâm lũa mới 1–2 tuần." should say to change the water'], 'Ngâm lũa mới 1–2 tuần.'), 'ph', 'care')
+  expect(r).toMatchObject({ id: 'ph', score: 1 })
+  expect((r as { notes: string[] }).notes.some(n => /^The entry is \d+ words/.test(n))).toBe(true)
+  expect(await bodyOf(root, 'ph')).toBe(long)
+})
+
 test('a sentence the whole entry\'s final read stops after the rewording keeps it from being saved, kept for a reader', async () => {
   const root = await site()
   const before = await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8')
@@ -549,10 +743,48 @@ test('a sentence the whole entry\'s final read stops after the rewording keeps i
   expect(JSON.parse(await readFile(draftPath(root), 'utf8')).score).toBe(0.67)
 })
 
+// The chief of staff, 15 Nov 2026: dry food and Artemia each paid about $3 of reads to stop on a word count.
+test('the length is counted before any paid read: an entry past its stop is trimmed first, and one still past it is never read', async () => {
+  const long = `<p>Tanin làm nước vàng. ${'nước '.repeat(470)}</p>`, short = `<p>Tanin làm nước vàng. ${'nước '.repeat(300)}</p>`
+  const run = async (bodies: string[], at?: string, o: { fromDraft?: boolean } = {}) => {
+    const root = at ?? await site()
+    const calls: ('write' | 'read')[] = [], asked: string[] = []
+    const llm: Llm = async ({ prompt }) => {
+      if (prompt.startsWith('GLOSSARY RULES')) { calls.push('read'); return { notes: [] } as never }
+      if (isCheck(prompt)) { calls.push('read'); return verdicts(prompt, t => (t.includes('chết') ? 'unsupported: made up' : undefined)) as never }
+      calls.push('write')
+      asked.push(prompt)
+      return { ...written, body: bodies.length > 1 ? bodies.shift() : bodies[0] } as never
+    }
+    return { r: await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'tanin', { kind: 'setup', ...o }), calls, asked, root }
+  }
+  // Trimmed once before it is read, then read and saved.
+  const one = await run([long, short])
+  expect(one.r).toMatchObject({ id: 'tanin', score: 1 })
+  expect(one.calls.slice(0, 3)).toEqual(['write', 'write', 'read'])
+  expect(one.asked[1]).toContain('- The entry is 474 words: hold it to about 400, and leave what is left out to the pages that use the term.')
+  // A writer that never gets under its stop: no read at all; the run stops on its length and keeps the draft, unread.
+  const never = await run([long])
+  expect(never.calls).not.toContain('read')
+  expect(never.r).toMatchObject({ id: 'tanin', skipped: 'stopped by 1 note', notes: ['The entry is 474 words: hold it to about 400, and leave what is left out to the pages that use the term.'] })
+  expect(JSON.parse(await readFile(join(never.root, 'engine-state/glossary/tanin.draft.json'), 'utf8'))).toMatchObject({ unread: true })
+  // Run from that kept draft: trimmed before it is read too (frozen food, 15 Nov 2026: 731 words of 500, read first).
+  const kept = await run([short], never.root, { fromDraft: true })
+  expect(kept.calls.slice(0, 2)).toEqual(['write', 'read'])
+  expect(kept.r).toMatchObject({ id: 'tanin', score: 1 })
+  // A read draft in its length outranks an unread one, though two of its sentences are stopped: it is the one kept.
+  const stopped = `<p>Tanin làm nước vàng. Tanin làm cá chết. Tanin làm cây chết. ${'nước '.repeat(300)}</p>`
+  const both = await run([long, long, stopped])
+  expect(both.r).toMatchObject({ id: 'tanin', skipped: 'stopped by 2 notes' })
+  const d = JSON.parse(await readFile(join(both.root, 'engine-state/glossary/tanin.draft.json'), 'utf8'))
+  expect(d.unread).toBeUndefined()
+  expect(d.entry.body).toContain('Tanin làm cá chết.')
+})
+
 // Codex, 14 Nov 2026: the count after rewording held pH to 400 words, not its own 600, and stopped a right entry.
 test('the entry as reworded is counted against the term\'s own length', async () => {
   const root = await site()
-  const body = `<p>pH đo độ chua. Nước ${'nước '.repeat(594)}</p>`
+  const body = `<p>pH đo độ chua. Nước ${'nước '.repeat(590)}</p>`
   let rewordings = 0
   const llm: Llm = async ({ prompt, system }) => {
     if (prompt.startsWith('GLOSSARY RULES')) return { notes: [] } as never
@@ -566,8 +798,9 @@ test('the entry as reworded is counted against the term\'s own length', async ()
   expect(JSON.parse(await readFile(join(root, 'content/glossary/ph/vi.json'), 'utf8')).body).toContain('pH đo độ chua của nước.')
 })
 
-// Codex, 14 Nov 2026: a rewording that ran the entry past its cap was saved, since its length wasn't counted again.
-test('the entry as reworded is counted again: a rewording that runs it past the cap keeps it from being saved', async () => {
+// Codex, 14 Nov 2026: a rewording that ran the entry past its cap was saved, since its length wasn't counted again. The
+// chief of staff, 15 Nov 2026: then it stopped a right entry (Artemia, 455 words to 480); the rewording goes back instead.
+test('the entry as reworded is held to its length: a rewording that would run it past goes back, and the entry is saved as written', async () => {
   const root = await site()
   const before = await readFile(join(root, 'content/glossary/tanin/vi.json'), 'utf8')
   const body = `<p>Tanin làm nước vàng. Nước ${'nước '.repeat(389)}</p>`
@@ -581,9 +814,11 @@ test('the entry as reworded is counted again: a rewording that runs it past the 
   }
   const r = await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'tanin', { kind: 'setup' })
   expect(rewordings).toBe(1)
-  expect(r).toMatchObject({ id: 'tanin', skipped: 'stopped by 1 note' })
-  expect((r as { notes: string[] }).notes).toContain('The entry is 466 words: hold it to about 400, and leave what is left out to the pages that use the term.')
-  expect(await readFile(join(root, 'content/glossary/tanin/vi.json'), 'utf8')).toBe(before)
+  expect(r).toMatchObject({ id: 'tanin', score: 1 })
+  expect((r as { notes: string[] }).notes).toContain(`Loose, rewording would take the entry past its length, old wording kept for the reader: "Tanin làm nước vàng." (not "${longer.replace(/\s+/g, ' ').trim()}")`)
+  const saved = await readFile(join(root, 'content/glossary/tanin/vi.json'), 'utf8')
+  expect(saved).not.toBe(before)
+  expect(JSON.parse(saved).body).toBe(body)
 })
 
 test('a kind word the table allows before a scientific name doesn\'t stop a save; one it doesn\'t allow does', async () => {

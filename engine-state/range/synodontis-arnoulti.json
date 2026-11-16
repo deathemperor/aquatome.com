@@ -1,0 +1,52 @@
+{
+  "id": "synodontis-arnoulti",
+  "native": {
+    "input": "058afecc8b98ea9a",
+    "at": "2026-11-15T05:39:34.625Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Volta",
+        "source": "planetcatfish",
+        "quote": "Africa: Volta basin.",
+        "ok": true
+      },
+      {
+        "name": "Black Volta",
+        "source": "planetcatfish",
+        "quote": "Type locality: Kou R., tributary of the Black Volta R., 30 km north of Bobo-Dioulasso, West Africa.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BF"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Synodontis arnoulti",
+    "status": "ACCEPTED",
+    "taxonKey": 2344490,
+    "datasets": [
+      [
+        "d2724ca9-8ccd-416e-9837-7aee75f67422",
+        6
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        2
+      ],
+      [
+        "40a262b4-6627-4011-afbe-159c00ec97e7",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-15T05:39:34.625Z"
+  }
+}

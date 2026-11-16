@@ -1,0 +1,137 @@
+{
+  "id": "serrasalmus-manueli",
+  "native": {
+    "input": "7a4d3820cf25b72f",
+    "at": "2026-11-15T00:17:46.244Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Serrasalmus manueli, sometimes sold as the 'green tiger piranha', is a piranha from parts of the Amazon and Orinoco basins in Brazil and Venezuela.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Serrasalmus manueli, sometimes sold as the 'green tiger piranha', is a piranha from parts of the Amazon and Orinoco basins in Brazil and Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Native to parts of the Amazon and Rio Orinoco basins in northern Brazil and Venezuela.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Native to parts of the Amazon and Rio Orinoco basins in northern Brazil and Venezuela.",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "seriouslyfish",
+        "quote": "Its range covers the Rio Negro, Rio Xingu and tributaries including the Rio Cassiquiare, Rio Atabapo and Rio Cunucunuma.",
+        "ok": true
+      },
+      {
+        "name": "Rio Xingu",
+        "source": "seriouslyfish",
+        "quote": "Its range covers the Rio Negro, Rio Xingu and tributaries including the Rio Cassiquiare, Rio Atabapo and Rio Cunucunuma.",
+        "ok": true
+      },
+      {
+        "name": "Venezuelan Llanos",
+        "source": "seriouslyfish",
+        "quote": "This species is known to inhabit quite a diverse range of biotopes, from areas of dense jungle to the tropical grasslands of the Venezuelan Llanos with their clear, sunlit water and lush growth of aquatic plants.",
+        "country": "VE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Serrasalmus manueli",
+    "status": "ACCEPTED",
+    "taxonKey": 2354134,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        67
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        56
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        36
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        25
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        24
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        23
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        9
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        7
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        5
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "2bee4a91-9d92-430e-a87e-ab32d3b1ce47",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "VE"
+    ],
+    "requests": 12,
+    "at": "2026-11-15T00:17:46.244Z"
+  }
+}

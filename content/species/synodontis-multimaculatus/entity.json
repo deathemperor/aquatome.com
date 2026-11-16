@@ -10,6 +10,58 @@
     "democratic-republic-of-the-congo",
     "ubangi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD"
+      ],
+      "regions": [
+        "Congo",
+        "Ubangi"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Ubangi River at Banzyville, Democratic Republic of Congo, about 4°18'N, 21°11'E.",
+          "countries": [
+            "CD"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Africa: Ubangi, Congo basin.",
+          "countries": [],
+          "regions": [
+            "Congo",
+            "Ubangi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344305,
+      "total": 1,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "CD",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          21.09375,
+          4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -1,0 +1,48 @@
+{
+  "id": "stiphodon-ornatus",
+  "native": {
+    "input": "a4fa9a2759c7acc2",
+    "at": "2026-11-15T00:17:46.244Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the provinces of Aceh and West Sumatra, Sumatra, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Known only from the provinces of Aceh and West Sumatra, Sumatra, Indonesia.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Stiphodon ornatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2376117,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        20
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-15T00:17:46.244Z"
+  }
+}

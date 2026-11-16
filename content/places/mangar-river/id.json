@@ -1,8 +1,13 @@
 {
   "slug": "mangar-river",
-  "name": "Mangar",
+  "name": "Sungai Mangar",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.96,
+    "at": "2026-11-15T05:30:56.721Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

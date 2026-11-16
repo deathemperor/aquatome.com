@@ -1,0 +1,86 @@
+{
+  "id": "serpenticobitis-zonata",
+  "native": {
+    "input": "701bee0d764268cb",
+    "at": "2026-11-15T00:17:46.244Z",
+    "claims": [
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Serpenticobitis zonata is a small loach from the Xe Bangfai and Xe Bang Hiang drainages in Laos, and Chanthaburi province in south-eastern Thailand.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Serpenticobitis zonata is a small loach from the Xe Bangfai and Xe Bang Hiang drainages in Laos, and Chanthaburi province in south-eastern Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Xe Bangfai and Xe Bang Hiang river drainages in Laos, both of which are part of the middle Mekong basin, plus the south-eastern province of Chanthaburi, Thailand.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Xe Bangfai and Xe Bang Hiang river drainages in Laos, both of which are part of the middle Mekong basin, plus the south-eastern province of Chanthaburi, Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Xe Bangfai",
+        "source": "seriouslyfish",
+        "quote": "Known from the Xe Bangfai and Xe Bang Hiang river drainages in Laos, both of which are part of the middle Mekong basin, plus the south-eastern province of Chanthaburi, Thailand.",
+        "country": "LA",
+        "ok": true
+      },
+      {
+        "name": "Xe Bang Hiang",
+        "source": "seriouslyfish",
+        "quote": "Known from the Xe Bangfai and Xe Bang Hiang river drainages in Laos, both of which are part of the middle Mekong basin, plus the south-eastern province of Chanthaburi, Thailand.",
+        "country": "LA",
+        "ok": true
+      },
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Known from the Xe Bangfai and Xe Bang Hiang river drainages in Laos, both of which are part of the middle Mekong basin, plus the south-eastern province of Chanthaburi, Thailand.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Serpenticobitis zonata",
+    "status": "ACCEPTED",
+    "taxonKey": 2368148,
+    "datasets": [
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [
+      "LA",
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-15T00:17:46.244Z"
+  }
+}

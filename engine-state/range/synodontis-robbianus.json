@@ -1,0 +1,59 @@
+{
+  "id": "synodontis-robbianus",
+  "native": {
+    "input": "de684242020f5ae4",
+    "at": "2026-11-15T05:39:34.625Z",
+    "claims": [
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is found only in Nigeria.",
+        "words": "Nigeria",
+        "ok": true
+      },
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Synodontis robbianus is a Synodontis catfish found only in Nigeria, in the Lower Niger and Cross rivers.",
+        "words": "Nigeria",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lower Niger",
+        "source": "seriouslyfish",
+        "quote": "Naturally occurs in the Lower Niger and Cross rivers.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Cross",
+        "source": "seriouslyfish",
+        "quote": "Naturally occurs in the Lower Niger and Cross rivers.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "NE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Synodontis robbianus",
+    "status": "ACCEPTED",
+    "taxonKey": 2344335,
+    "datasets": [],
+    "native": [
+      "NG"
+    ],
+    "requests": 2,
+    "at": "2026-11-15T05:39:34.625Z"
+  }
+}
