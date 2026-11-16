@@ -284,13 +284,20 @@ test("the lead a page shows stays where the check passes it as typical, and give
   expect(await urls(r, 'content/species/eee-fish/entity.json')).toEqual(['eee-lead', 'eee-typical'])
 })
 
-// The reader of #1515, 16 Nov 2026: the photo check orders heads as the lead step and the sweep do, so it reads the
-// calendar's hold too, and a held lead it found typical doesn't stay first over another typical photo.
-test("a lead the calendar holds off cards gives way to a typical photo, as the lead step and the sweep read the hold", async () => {
-  const r = await root([{ id: 'hhh-fish', sci: 'hhh fish', photos: ['hhh-lead', 'hhh-typical'] }])
-  await writeFile(join(r, 'content/curation.json'), JSON.stringify({ avoid: { [url('hhh-lead')]: 'a test' } }))
-  await checkPagePhotos(r, model({ 'hhh-lead': { typical: true }, 'hhh-typical': { typical: true } }), { limit: 10 })
-  expect(await urls(r, 'content/species/hhh-fish/entity.json')).toEqual(['hhh-typical', 'hhh-lead'])
+// The reader of #1515, 16 Nov 2026: the photo check orders heads as the lead step and the sweep do (photo-named.ts), so it
+// reads the calendar's hold too. Where the lead step put a held head behind a photo named less surely ("cf."), the held
+// photo sets no bar here, so it doesn't go first again; with the hold unread, it does.
+test("a held head the lead step put behind a \"cf.\" photo stays behind it: the photo check reads the hold as the lead step and the sweep do", async () => {
+  const cf = { ...photo('rc-cf', 'Rineloricaria cf. castroi') }, held = { ...photo('rc-held', 'Rineloricaria castroi') }
+  const page = { id: 'rineloricaria-castroi', sci: 'Rineloricaria castroi', extra: { photos: [cf, held] } }
+  const d = model({ 'rc-cf': { typical: true }, 'rc-held': { typical: true } })
+  const r = await root([page])
+  await writeFile(join(r, 'content/curation.json'), JSON.stringify({ avoid: { [held.url]: 'a test' } }))
+  await checkPagePhotos(r, d, { limit: 10 })
+  expect(await urls(r, 'content/species/rineloricaria-castroi/entity.json')).toEqual(['rc-cf', 'rc-held'])
+  const open = await root([page])
+  await checkPagePhotos(open, model({ 'rc-cf': { typical: true }, 'rc-held': { typical: true } }), { limit: 10 })
+  expect(await urls(open, 'content/species/rineloricaria-castroi/entity.json')).toEqual(['rc-held', 'rc-cf'])
 })
 
 test("a lead's sheet takes the page's own photos before its gallery's, so a photo that takes a removed lead's place was judged beside it", async () => {
