@@ -1,4 +1,81 @@
 {
+  "vi/glossary/artemia": [
+    {
+      "at": "2026-11-16T03:31:06Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở, nên vớt ra và cho cá ăn trong khoảng thời gian này.\" (not \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở.\": Rule 12: \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở.\" gives the reason but drops its advice. THIS TERM asks for each feeding reas…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Ở nhiệt độ này trứng thường nở sau 18–24 giờ, nước lạnh thì lâu hơn, có khi tới 48 giờ.\" (not \"Ở nhiệt độ này trứng thường nở sau khoảng 24 giờ vào mùa hè, mùa đông có khi tới 48 giờ.\": it drops the figure 18, the advice \"nước lạnh thì lâu hơn\")",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Tắt sục và chờ khoảng 5 phút.\" (not \"Tắt sục và chờ 5–10 phút.\": Rules 4 and 12: \"Tắt sục và chờ 5–10 phút.\" puts a 5–10 minute wait right before \"hút ra trước mốc 10 phút\", so the 10 minutes is said twice and the two lines don't match. THIS TERM wants harvest timing as one statement: turn the air off, wa…",
+        "The entry is 516 words: hold it to about 515, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-16T03:31:06Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 1,
+      "notes": [
+        "Rules 4 and 12: \"Hạt trứng khô nhỏ hơn ấu trùng.\" and, two sentences later, \"hợp với cá miệng nhỏ hơn\" split one fact across two places. The size comparison and what it suits must be one sentence, as fact 54 gives it: \"Hạt trứng khô nhỏ hơn ấu trùng nên hợp với cá nhỏ hơn.\" \"cá miệng nhỏ hơn\" also changes the fact's \"smaller fish\".",
+        "Rule 12: \"Không còn vỏ nên cá con ăn được hết\" reads as though any fry can eat it. Fact 53 says that with the shell gone, every egg, hatched or not, can be fed. The text must say \"mọi hạt trứng, nở hay không, đều cho ăn được\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-16T03:04:16Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở, nên vớt ra và cho cá ăn trong khoảng thời gian này.\" (not \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở.\": Rule 12: \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở.\" gives the 12-hour reason without the advice that goes with it. THIS TERM sa…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Ở nhiệt độ này trứng thường nở sau 18–24 giờ, nước lạnh thì lâu hơn, có khi tới 48 giờ.\" (not \"Ở nhiệt độ này ủ trứng 24–48 giờ: mùa hè khoảng 24 giờ, mùa đông có khi tới 48 giờ.\": it drops the figure 18, the advice \"nước lạnh thì lâu hơn\")",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Tắt sục và chờ khoảng 5 phút.\" (not \"Tắt sục và chờ khoảng 5–10 phút.\": Rules 4 and 12: \"Tắt sục và chờ khoảng 5–10 phút.\" sits beside \"hút ra trước mốc 10 phút\", so the 10 minutes is said twice. THIS TERM asks for one statement: turn the air off, wait about 5 minutes, and siphon before 10. It forbids \"ch…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-16T03:04:16Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 1,
+      "notes": [
+        "Rule 12: The entry leaves out the other name \"tôm vụn\". THIS TERM says the other names are \"tôm vụn\" (one source) and \"brine shrimp\". The definition gives only \"Tên tiếng Anh của nó là brine shrimp.\" and altNames is empty.",
+        "Rule 12: The required sentence \"Ấu trùng đã sang giai đoạn thứ hai cũng khó cho cá bột bắt hơn.\" is missing. THIS TERM says it must be written back, word for word, beside the 12-hour sentence \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở, nên vớt ra và cho cá ăn trong khoảng thời gian này.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-16T02:02:29Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Bộ ấp bán ở Việt Nam dùng bình hình phễu.\" the advice \"Bộ ấp bán ở Việt Nam dùng bình hình phễu\" under Trứng Artemia, and nothing lets that sentence go: write it as it was, word for word.",
+        "The entry is 506 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-16T02:02:29Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Dùng nước dưới 22 °C hoặc trứng hết hạn.\" the figure 22, the advice \"Dùng nước dưới 22 °C\", the advice \"trứng hết hạn\", and nothing lets that sentence go: write it as it was, word for word.",
+        "The entry is 507 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    }
+  ],
   "vi/glossary/chu-trinh-nito": [
     {
       "at": "2026-11-16T01:08:49Z",
