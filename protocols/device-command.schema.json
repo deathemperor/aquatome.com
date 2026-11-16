@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "One device set one way, by the iOS app: a step of the master button, or what the chat asks the app to switch (apps/ios/AquaTomeKit/Sources/Tanks/DeviceCommand.swift). The device is its record's id on the reader's tanks (tanks.schema.json). protocols/device-command-vectors.json has a case for each rule.",
+  "$defs": {
+    "DeviceCommand": {
+      "type": "object",
+      "properties": {
+        "device": {
+          "description": "The device record's id: a plug (kind plug, brand tuya) or the Love Ecology lamp (kind light, brand loveecology).",
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "outlet": {
+          "description": "A plug's outlet, its switch code (the record's outlets[].code). Absent for the lamp.",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 40
+        },
+        "on": {
+          "type": "boolean"
+        },
+        "colour": {
+          "description": "The lamp turned on, in one of its recorded colours. Absent: it comes on as it was (asked by the chat: in the master button's colour).",
+          "enum": ["white", "red", "orange", "yellow", "green", "cyan", "blue", "magenta"]
+        }
+      },
+      "required": ["device", "on"],
+      "dependentSchemas": {
+        "colour": {
+          "properties": { "on": { "const": true } },
+          "not": { "required": ["outlet"] }
+        }
+      },
+      "additionalProperties": false
+    },
+    "SwitchResult": {
+      "description": "How one command went: done (a plug reported the state asked for; the lamp's command went out, it answers nothing), or not, with why in a line shown as it is.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": { "ok": { "const": true } },
+          "required": ["ok"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": { "ok": { "const": false }, "line": { "type": "string", "minLength": 1 } },
+          "required": ["ok", "line"],
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "$ref": "#/$defs/DeviceCommand"
+}
