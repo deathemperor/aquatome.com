@@ -1,66 +1,5 @@
 {
   "found": true,
-  "species": [
-    "Betta splendens",
-    "Carassius auratus"
-  ],
-  "sources": [
-    {
-      "url": "https://ukpetfood.org/pet-care-advice/fish-care-nutrition.html",
-      "title": "Fish health & nutrition advice",
-      "kind": "other"
-    },
-    {
-      "url": "https://cafishvet.com/?p=87701",
-      "title": "Store Fish Food Correctly",
-      "kind": "vet"
-    },
-    {
-      "url": "https://www.aquariumcoop.com/blogs/aquarium/fish-food-guide",
-      "title": "How to Pick the Best Fish Foods That Aquarium Fish Can't Resist",
-      "kind": "shop"
-    },
-    {
-      "url": "https://www.msdvetmanual.com/veterinary/exotic-and-laboratory-animals/aquarium-fish/nutritional-diseases-of-fish",
-      "title": "Nutritional Diseases of Fish",
-      "kind": "vet"
-    },
-    {
-      "url": "https://m55.vn/cac-loai-thuc-an-cho-ca-canh-pho-bien-hien-nay/",
-      "title": "Các loại thức ăn cho cá cảnh phổ biến hiện nay",
-      "kind": "shop"
-    },
-    {
-      "url": "https://thuysinhable.com/thuc-an-cho-ca-canh/",
-      "title": "Thức ăn cho cá cảnh: Hướng dẫn chọn lựa & cách cho ăn hiệu quả",
-      "kind": "shop"
-    },
-    {
-      "url": "https://thegioicacanh.com.vn/thong-tin-ve-cac-loai-cam-thuc-an-cho-ca-canh-n124403.html",
-      "title": "Thông Tin Về Các Loại Cám Thức Ăn Cho Cá Cảnh",
-      "kind": "shop"
-    },
-    {
-      "url": "https://gensou.sg/?p=31773",
-      "title": "Fish Food Storage in Tropical Climate Singapore: Humidity and Shelf Life",
-      "kind": "shop"
-    },
-    {
-      "url": "https://chamca.vn/dinh-duong-cho-ca-canh/",
-      "title": "Dinh Dưỡng Cho Cá Cảnh Chuẩn Khoa Học Để Cá Luôn Khoẻ",
-      "kind": "other"
-    },
-    {
-      "url": "https://www.petmd.com/fish/what-do-fish-eat-your-guide-feeding-pet-fish",
-      "title": "What Do Fish Eat? Your Guide To Feeding Pet Fish",
-      "kind": "vet"
-    },
-    {
-      "url": "https://bettafish.org/care/food-feeding/",
-      "title": "Best Betta Fish Food | What to Feed & How Much - Bettafish.org",
-      "kind": "keeper"
-    }
-  ],
   "facts": [
     {
       "section": "other",
@@ -341,6 +280,136 @@
       "section": "other",
       "fact": "Most feeds should be supplemented with a stabilized form of vitamin C. Too little vitamin C can cause \"broken back disease\", a severe scoliosis.",
       "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Tetra calls TetraMin Flakes a complete food that gives a full diet for the daily feeding of all ornamental fish.",
+      "source": 11
+    },
+    {
+      "section": "what",
+      "fact": "Tetra calls Tetra Phyll Flakes a complete food with plant ingredients, a balanced flake food giving a complete diet for the daily feeding of all ornamental fish.",
+      "source": 12
+    },
+    {
+      "section": "what",
+      "fact": "sera labels sera GVG Mix Royal Flakes a complete feed for all ornamental fish. It describes staple foods as universal foods that can be fed daily and supply all important nutrients in sufficient amounts.",
+      "source": 13
+    },
+    {
+      "section": "steps",
+      "fact": "sera's instructions for sera GVG Mix Royal Flakes: feed once or twice daily, only as much as the fish take up within a short time.",
+      "source": 13
+    },
+    {
+      "section": "what",
+      "fact": "UK Pet Food says a good-quality prepared food will give fish a complete and balanced diet with all the nutrients they need.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "UK Pet Food advises feeding fish two to three times daily, a few flakes, granules or pellets per fish.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "UK Pet Food warns that unless a tank holds only one species, different foods will very likely be needed, so one complete food may not suit every fish in a community tank.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "A vet writing for PetMD says most pet fish thrive on a pelleted or flake-based staple diet.",
+      "source": 9
+    },
+    {
+      "section": "mistakes",
+      "fact": "PetMD's vet says live, freeze-dried and frozen foods are not nutritionally complete. They should only complement a pelleted diet and not be the only food unless a vet says so.",
+      "source": 9
+    },
+    {
+      "section": "other",
+      "fact": "None of the maker pages found (Tetra, sera) say outright that their complete food should be the fish's only food. They say it is a complete or full diet for daily feeding.",
+      "source": 11,
+      "also": [
+        12,
+        13
+      ]
+    }
+  ],
+  "species": [
+    "Betta splendens",
+    "Carassius auratus"
+  ],
+  "sources": [
+    {
+      "url": "https://ukpetfood.org/pet-care-advice/fish-care-nutrition.html",
+      "title": "Fish health & nutrition advice",
+      "kind": "other"
+    },
+    {
+      "url": "https://cafishvet.com/?p=87701",
+      "title": "Store Fish Food Correctly",
+      "kind": "vet"
+    },
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/fish-food-guide",
+      "title": "How to Pick the Best Fish Foods That Aquarium Fish Can't Resist",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.msdvetmanual.com/veterinary/exotic-and-laboratory-animals/aquarium-fish/nutritional-diseases-of-fish",
+      "title": "Nutritional Diseases of Fish",
+      "kind": "vet"
+    },
+    {
+      "url": "https://m55.vn/cac-loai-thuc-an-cho-ca-canh-pho-bien-hien-nay/",
+      "title": "Các loại thức ăn cho cá cảnh phổ biến hiện nay",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhable.com/thuc-an-cho-ca-canh/",
+      "title": "Thức ăn cho cá cảnh: Hướng dẫn chọn lựa & cách cho ăn hiệu quả",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thegioicacanh.com.vn/thong-tin-ve-cac-loai-cam-thuc-an-cho-ca-canh-n124403.html",
+      "title": "Thông Tin Về Các Loại Cám Thức Ăn Cho Cá Cảnh",
+      "kind": "shop"
+    },
+    {
+      "url": "https://gensou.sg/?p=31773",
+      "title": "Fish Food Storage in Tropical Climate Singapore: Humidity and Shelf Life",
+      "kind": "shop"
+    },
+    {
+      "url": "https://chamca.vn/dinh-duong-cho-ca-canh/",
+      "title": "Dinh Dưỡng Cho Cá Cảnh Chuẩn Khoa Học Để Cá Luôn Khoẻ",
+      "kind": "other"
+    },
+    {
+      "url": "https://www.petmd.com/fish/what-do-fish-eat-your-guide-feeding-pet-fish",
+      "title": "What Do Fish Eat? Your Guide To Feeding Pet Fish",
+      "kind": "vet"
+    },
+    {
+      "url": "https://bettafish.org/care/food-feeding/",
+      "title": "Best Betta Fish Food | What to Feed & How Much - Bettafish.org",
+      "kind": "keeper"
+    },
+    {
+      "url": "https://tetra.net/en-eu/products/tetramin-flakes",
+      "title": "TetraMin Flakes: Tetra",
+      "kind": "maker"
+    },
+    {
+      "url": "https://tetra.net/en-eu/products/tetra-phyll-flakes-1",
+      "title": "Tetra Phyll Flakes: Tetra",
+      "kind": "maker"
+    },
+    {
+      "url": "https://www.sera.de/us/product/freshwater-aquarium/sera-gvg-mix-royal-flakes",
+      "title": "sera GVG Mix Royal Flakes | sera",
+      "kind": "maker"
     }
   ]
 }
