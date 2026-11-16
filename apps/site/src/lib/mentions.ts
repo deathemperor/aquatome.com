@@ -1,4 +1,4 @@
-import { linkTerms, stillShown, THUMB_WIDTH, thumbOf, type Content, type LinkTarget, type Localized, type GuideEntity, type Photo, type PlantEntity, type SpeciesEntity, type BreedEntity } from '@aq/schema'
+import { fitsCard, linkTerms, stillShown, THUMB_WIDTH, thumbOf, unmarked, type Content, type LinkTarget, type Localized, type GuideEntity, type Photo, type PlantEntity, type SpeciesEntity, type BreedEntity } from '@aq/schema'
 import { categoriesIn } from './equipment'
 import { GROUP_LABELS } from './format'
 import { taxonHref } from './taxa-places'
@@ -237,15 +237,36 @@ export function titleNames(c: Content, g: Localized<GuideEntity>): Named[] {
  * takes a guide card's own look, as one that borrows no fish does (the chief of staff, 16 Nov).
  *
  * No photo the calendar keeps off cards (content/curation.json `avoid`, withOffCards): a guide's card stands for more than
- * one fish, so a head held off the day's card is off it too (the chief of staff, 16 Nov).
+ * one fish, so a head held off the day's card is off it too, and the page it borrows from gives its next photo with no
+ * mark on it instead, as a chip's named fish does (the chief of staff, 16 Nov).
  */
 export function guideImages(c: Content, g: Localized<GuideEntity>): Photo[] {
   const frame = framePicked(g)
   if (frame.length) return frame
-  const off = OFF_CARDS.get(c) ?? {}
+  const held = offCards(c)
   const v = g.video, stills = (v?.figures ?? []).flatMap(f => f.moments).filter(stillShown).map(m => stillPhoto(v!, m))
-  return [...g.photos, ...stills, ...heads(c, g).flatMap(x => x.photos[0] ?? [])].filter(p => !p.generated && !Object.hasOwn(off, p.url))
+  return [...[...g.photos, ...stills].filter(p => !p.generated && !held(p)), ...borrowed(c, g, held)]
 }
+/**
+ * A guide's card as it was before 16 Nov's rule: its own photos, the photos its video's sections show (a strip a card's
+ * 16:9 would crop to a sliver left out), then what its title names. Only the app's data reads it, for a guide whose card
+ * now has none, until the app's build draws a guide card's designed cover (app-index.ts APP_GUIDE_COVERS).
+ */
+export function guideImageBefore(c: Content, g: Localized<GuideEntity>): Photo | undefined {
+  const held = offCards(c), sections = (g.video?.figures ?? []).flatMap(f => f.photo ?? []).filter(fitsCard)
+  return [...[...g.photos, ...sections].filter(p => !p.generated && !held(p)), ...borrowed(c, g, held)][0]
+}
+/** A series' card: its first part that has a picture, so a series whose first part has none still shows one (the chief of
+ * staff, 16 Nov). */
+export const seriesImage = (c: Content, guides: Localized<GuideEntity>[]): Photo | undefined =>
+  guides.map(g => guideImage(c, g)).find(p => !!p)
+/** Each page a guide borrows from (heads) by its head, or where the calendar holds that off cards, its next photo. */
+const borrowed = (c: Content, g: Localized<GuideEntity>, held: (p: Photo) => boolean): Photo[] =>
+  heads(c, g).flatMap(x => {
+    const [head, ...rest] = x.photos
+    if (!head || head.generated) return []
+    return held(head) ? rest.filter(p => !p.generated && unmarked(p) && !held(p)).slice(0, 1) : [head]
+  })
 /**
  * A video guide's picture picked by hand from its own video (guide-frames.json: the guide's id → the second of one of its
  * sections' stills, so in every language), and its only one: its card, the app's poster, and its series' card where it
@@ -270,6 +291,7 @@ function stillPhoto(v: Video, m: NonNullable<Video['figures']>[number]['moments'
 /** The photos the calendar keeps off cards (content/curation.json `avoid`: its photo → why), set as the site loads its
  * content (content.ts), as withVietnameseHeads sets the Vietnamese. */
 const OFF_CARDS = new WeakMap<Content, Readonly<Record<string, string>>>()
+const offCards = (c: Content) => { const off = OFF_CARDS.get(c) ?? {}; return (p: Photo) => Object.hasOwn(off, p.url) }
 export function withOffCards(c: Content, avoid: Readonly<Record<string, string>>): Content {
   OFF_CARDS.set(c, avoid)
   return c

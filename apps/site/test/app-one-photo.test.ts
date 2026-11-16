@@ -1,12 +1,13 @@
 import { expect, test } from 'vitest'
-import { CurationSchema, LANGS, type Content, type Photo } from '@aq/schema'
+import { CurationSchema, fitsCard, LANGS, type Content, type Photo } from '@aq/schema'
 import { PageDoc } from '@aq/schema/app-page'
-import { APP_WHOLE_PHOTOS, appIndex, cardSrc, photoBox, refusedByCards } from '../src/lib/app-index'
+import { APP_GUIDE_COVERS, APP_WHOLE_PHOTOS, appGuideImage, appIndex, cardSrc, photoBox, refusedByCards } from '../src/lib/app-index'
 import { appPages, fishDoc, guideDoc } from '../src/lib/app-page'
 import { getContent } from '../src/lib/content'
 import { guideParts } from '../src/lib/guide-page'
 import { resizeOf, smallSrc } from '../src/lib/img'
-import { guideImage } from '../src/lib/mentions'
+import coversOff from '../src/lib/guide-covers-off.json' with { type: 'json' }
+import { guideImage, guideImageBefore, guideImages } from '../src/lib/mentions'
 
 // A card and the page it opens show one photo, and the app shows a page's photo whole where no frame may fill with it,
 // never nothing (the Design Lead's line, accepted by the chief of staff, 13 Nov). On 13 Nov 41 fish pages led with a
@@ -80,7 +81,7 @@ test("a video guide's poster is its card's photo, at full size, with its box whe
   const videos = vi.guides.filter(g => g.video)
   expect(videos.length).toBeGreaterThan(0)
   for (const g of videos) {
-    const card = guideImage(vi, g), doc = guideDoc('vi', vi, g, listed)
+    const card = appGuideImage(vi, g), doc = guideDoc('vi', vi, g, listed)
     expect(doc.lead, g.id).toBeUndefined()
     if (!card) { expect(doc.video?.poster, g.id).toBeUndefined(); continue }
     expect(doc.video?.poster, g.id).toMatchObject({ src: card.url, w: Math.round(card.width), h: Math.round(card.height), credit: { text: expect.any(String) } })
@@ -163,6 +164,8 @@ const PAGE_PHOTO_KINDS = new Set(['fish', 'plant'])
 /** Every photo the content holds, by its address: the photo a card's small copy and a head's full one are both of. */
 function photosByUrl(c: Content): Map<string, Photo> {
   const out = new Map<string, Photo>(), seen = new Set<object>()
+  // A video guide's still as its card takes it, with its 480 px copy: the content holds the still without one.
+  for (const g of c.guides) for (const p of guideImages(c, g)) out.set(p.url, p)
   const walk = (x: unknown) => {
     if (!x || typeof x !== 'object' || seen.has(x)) return
     seen.add(x)
@@ -233,3 +236,30 @@ test("every album photo carries its box, and its small copy only where that is t
   }
   expect(boxed).toBeGreaterThan(0)
 }, 600_000)
+
+// The chief of staff, 16 Nov 2026: a video guide whose card has no picture under that day's rule (no still that passes, no
+// fish in its title) keeps, in the app's data, the picture it had, until the app's build that draws a guide card's designed
+// cover (Thu 19); none where that picture shows something the guide isn't about at all (guide-covers-off.json). With the
+// switch on, none, as on the site.
+test("a guide with no card picture keeps the one it had in the app's index and poster while the switch is off; none when listed, or with it on", async () => {
+  const vi = await getContent('vi')
+  const was = vi.guides.find(g => g.video?.figures?.some(f => f.photo && fitsCard(f.photo)))!
+  const g = { ...was, t: { ...was.t, name: 'Không nhắc loài nào' }, photos: [], video: { ...was.video!, figures: was.video!.figures!.map(f => ({ ...f, moments: [] })) } }
+  const c = { ...vi, guides: vi.guides.map(x => (x.id === g.id ? g : x)) }
+  expect(guideImage(c, g)).toBeUndefined()
+  const before = guideImageBefore(c, g)!
+  expect(before.url).toBe(was.video!.figures!.find(f => f.photo && fitsCard(f.photo))!.photo!.url)
+  const app = (on: boolean) => {
+    const prev = APP_GUIDE_COVERS.on
+    APP_GUIDE_COVERS.on = on
+    try {
+      const index = appIndex('vi', c)
+      return [index.items.find(i => i.id === g.id)?.img, guideDoc('vi', c, g, new Set(index.items.map(i => i.path))).video?.poster?.src]
+    } finally { APP_GUIDE_COVERS.on = prev }
+  }
+  expect(app(false)).toEqual([cardSrc(before), before.url])
+  expect(app(true)).toEqual([undefined, undefined])
+  const off = coversOff as Record<string, string>
+  off[g.id] = 'a test'
+  try { expect(app(false)).toEqual([undefined, undefined]) } finally { delete off[g.id] }
+}, 240_000)

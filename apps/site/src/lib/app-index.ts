@@ -1,4 +1,4 @@
-import { boxFractions, cleanPhoto, FIRST_GUIDES, FIRST_PLANTS, frameOf, photoFitsCard, POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, unmarked, type BreedEntity, type Chip, type Content, type Curation, type Loop, type Photo, type PlantEntity, type Range, type SpeciesEntity, type Traits } from '@aq/schema'
+import { boxFractions, cleanPhoto, FIRST_GUIDES, FIRST_PLANTS, frameOf, photoFitsCard, POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, unmarked, type BreedEntity, type Chip, type Content, type Curation, type GuideEntity, type Localized, type Loop, type Photo, type PlantEntity, type Range, type SpeciesEntity, type Traits } from '@aq/schema'
 import type { Box, KindShards, PageDoc } from '@aq/schema/app-page'
 import type { SpeciesIndexItem } from '../scripts/filter'
 import { breedFigures, speciesOf, type BreedFigures } from './breeds'
@@ -9,7 +9,8 @@ import { easyPlants, featuredSpecies, groupTiles, leadGuides, listOrder } from '
 import { resizeOf, sameShape, smallSrc } from './img'
 import { appPath, served, translator, type Lang } from './i18n'
 import { termListing } from './glossary-page'
-import { guideImage, mentionIndex } from './mentions'
+import { guideImage, guideImageBefore, mentionIndex, seriesImage } from './mentions'
+import coversOff from './guide-covers-off.json' with { type: 'json' }
 import { toIndexItem } from './species-index'
 import { appRange, capitalized, countryNames, originPages, regionNames, type AppCountry, type AppRange } from './range'
 import { ORIGINS, PLACE_INTRO, PLACE_INTROS, PLACE_TITLES, RANKS, TAXON_INTRO } from './taxa-places'
@@ -253,6 +254,21 @@ export const refusedByCards = (p: Photo): boolean => p.headFit === 'contain' || 
  * so a test holds both ways.
  */
 export const APP_WHOLE_PHOTOS = { on: true }
+/**
+ * The switch for a guide's card with no picture in the app (the chief of staff, 16 Nov). Off until the app's build that
+ * draws a guide card's designed cover (Thu 19): such a guide keeps the picture it had before that day's rule
+ * (guideImageBefore), so a quarter of the video shelf doesn't go grey for three days; none where that picture shows
+ * something the guide isn't about at all (guide-covers-off.json, the guide's id → what it shows). On: none, as on the
+ * site. An object, so a test holds both ways.
+ */
+export const APP_GUIDE_COVERS = { on: false }
+const OFF = coversOff as Record<string, string>
+/** A guide's picture in the app's data: its card's (guideImage), else, while APP_GUIDE_COVERS is off, the one it had. */
+export const appGuideImage = (c: Content, g: Localized<GuideEntity>): Photo | undefined =>
+  guideImage(c, g) ?? (APP_GUIDE_COVERS.on || Object.hasOwn(OFF, g.id) ? undefined : guideImageBefore(c, g))
+/** A series' card in the app: its first part that has a picture (seriesImage), else its first part's, as a guide's. */
+export const appSeriesImage = (c: Content, guides: Localized<GuideEntity>[]): Photo | undefined =>
+  seriesImage(c, guides) ?? (guides[0] && appGuideImage(c, guides[0]))
 const realPhoto = (photos: Photo[]) => photos.find(p => !p.generated)
 /**
  * The one photo a page's card and its head both show, for a fish, a breed or a plant: the page's first photo that isn't
@@ -416,8 +432,8 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
     for (const g of appGuides(lang, c)) {
       const m = mentions.get(g.id)
       const about = m ? [...m.species.map(s => s.id), ...m.plants.map(p => p.id)] : []
-      // Its card's picture on the site: its own photo, else one from its video's sections, else a fish or plant it names.
-      const ph = guideImage(c, g)
+      // Its card's picture on the site (guideImage), or while the app has no designed cover, the one it had (appGuideImage).
+      const ph = appGuideImage(c, g)
       const path = at(`/vi/huong-dan/${g.t.slug}/`)
       guideAt.set(g.id, path)
       // The picture its page opens on (guide-page.ts, app-page.ts), by its large copy as a day's card loads a head.
@@ -437,7 +453,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   }
   // A series as its page lists it; the same series the app gets pages of.
   for (const { s, guides } of appSeries(lang, c)) {
-    const ph = guideImage(c, guides[0]!)
+    const ph = appSeriesImage(c, guides)
     items.push(clean({ kind: 'video', id: s.id, name: s.vi.name, sub: s.channel, path: at(`/vi/video/${s.vi.slug}/`), img: ph && cardSrc(ph), imgBox: boxOf(ph), parts: guides.length }))
   }
   // An equipment category as its page names it; the same categories the app gets pages of.
