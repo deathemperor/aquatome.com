@@ -11,21 +11,7 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Costasiella_Kuroshimae_(19080120525)_(2).jpg",
       "caption": "Sên biển cừu lá xanh nhìn chính diện, rất nét",
       "best": true,
-      "kind": "other",
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/commons/752bcefe019d9eea.webp",
-      "thumb": "https://media.aquatome.com/commons/752bcefe019d9eea-480.webp",
-      "width": 1200,
-      "height": 1544,
-      "licence": "CC BY 2.0",
-      "author": "Christian Gloor",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Costasiella_sp_(19797152176).jpg",
-      "caption": "Sên biển cừu lá xanh rực rỡ, nền tối",
-      "best": true,
-      "kind": "other",
-      "unchecked": true
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/5dbe1ad0644a797f.webp",
@@ -37,8 +23,7 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Babosa_de_mar_(Costasiella_kuroshimae),_Anilao,_Filipinas,_2023-08-23,_DD_111.jpg",
       "caption": "Sên biển cừu lá đốm vàng trên nền tảo xanh",
       "best": true,
-      "kind": "other",
-      "unchecked": true
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/cd5c09b03792be52.webp",
@@ -50,8 +35,7 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Babosa_de_mar_(Costasiella_kuroshimae),_Anilao,_Filipinas,_2023-08-23,_DD_112.jpg",
       "caption": "Sên biển cừu lá màu xanh lục đốm vàng trên tảo xanh",
       "best": true,
-      "kind": "other",
-      "unchecked": true
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/59cd46c40fb69734.webp",
@@ -63,8 +47,7 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Costasiella_kuroshimae.jpg",
       "caption": "Hai con sên biển cừu lá cùng bò trên tảo",
       "best": false,
-      "kind": "group",
-      "unchecked": true
+      "kind": "group"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/725042608.webp",
@@ -169,6 +152,18 @@
       "best": false,
       "kind": "other",
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/commons/752bcefe019d9eea.webp",
+      "thumb": "https://media.aquatome.com/commons/752bcefe019d9eea-480.webp",
+      "width": 1200,
+      "height": 1544,
+      "licence": "CC BY 2.0",
+      "author": "Christian Gloor",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Costasiella_sp_(19797152176).jpg",
+      "caption": "Sên biển cừu lá xanh rực rỡ, nền tối",
+      "best": true,
+      "kind": "other"
     }
   ],
   "seen": 42,

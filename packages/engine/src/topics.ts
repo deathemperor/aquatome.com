@@ -237,8 +237,8 @@ export function viFacts(researched: TopicFacts) {
 /**
  * viFacts with every source research may not read cited by no address, so it goes, and the facts resting on it alone with
  * it: a marketplace's page, or one on a host the engine reads only at its own pace (cycle-only.ts, the magazine read for
- * ideas among them). Research is denied those hosts, but may still name a page it found through search (the chief of
- * staff, 14 Nov 2026).
+ * ideas among them), or a site refused as a source (cycle-only.ts REFUSED_SITES). Research is denied those hosts, but may
+ * still name a page it found through search (the chief of staff, 14 Nov 2026).
  */
 async function citedFacts(root: string, researched: TopicFacts) {
   const off = await cycleOnlyHosts(root)

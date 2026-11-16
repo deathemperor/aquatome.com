@@ -10,6 +10,119 @@
     "brazil",
     "rio-de-janeiro"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [],
+      "sources": [
+        "planetcatfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Brazil. Rivers of Rio de Janeiro State (including Macaé), Minas Gerais State, Espirito Santo State and Sao Paulo State.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339258,
+      "total": 81,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "BR",
+          81
+        ]
+      ],
+      "cells": [
+        [
+          -52.03125,
+          -26.71875,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -28.125,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -26.71875,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -26.71875,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          -46.40625,
+          -23.90625,
+          2,
+          2
+        ],
+        [
+          -45,
+          -23.90625,
+          7,
+          7
+        ],
+        [
+          -45,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -23.90625,
+          21,
+          21
+        ],
+        [
+          -43.59375,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -42.1875,
+          -22.5,
+          28,
+          28
+        ],
+        [
+          -42.1875,
+          -21.09375,
+          11,
+          11
+        ],
+        [
+          -40.78125,
+          -21.09375,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -104,7 +217,52 @@
       "html": "<p>Proceedings of the California Academy of Sciences (Series 2) v. 2, pp 41.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/a095e73a233fa3e5.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a095e73a233fa3e5-480.webp",
+      "width": 500,
+      "height": 345,
+      "licence": "dùng với sự cho phép",
+      "author": "Nathan Sudell / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hisonotus_notatus.htm",
+      "caption": "Hisonotus notatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/8794159114f19807.webp",
+      "thumb": "https://media.aquatome.com/scotcat/8794159114f19807-480.webp",
+      "width": 500,
+      "height": 312,
+      "licence": "dùng với sự cho phép",
+      "author": "Hans-Georg Evers / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hisonotus_notatus.htm",
+      "caption": "Hisonotus notatus: adult",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/afb7d967f2ef042c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/afb7d967f2ef042c-480.webp",
+      "width": 500,
+      "height": 293,
+      "licence": "dùng với sự cho phép",
+      "author": "Hans-Georg Evers / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hisonotus_notatus.htm",
+      "caption": "Hisonotus notatus: juvenile pair",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/1dd83478d1c48a70.webp",
+      "thumb": "https://media.aquatome.com/scotcat/1dd83478d1c48a70-480.webp",
+      "width": 500,
+      "height": 347,
+      "licence": "dùng với sự cho phép",
+      "author": "Ivor Hilton / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hisonotus_notatus.htm",
+      "caption": "Hisonotus notatus",
+      "source": "scotcat"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "KMlMjEwGI24",

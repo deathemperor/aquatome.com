@@ -3,6 +3,12 @@
   "name": "Kananmae Chaung",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.35,
+    "at": "2026-11-16T00:09:11.523Z",
+    "why": "The name keeps the Burmese generic word \"Chaung\" (stream) untranslated, whereas a Malaysian atlas would use the Malay \"Sungai\" for a river or stream."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

@@ -74,6 +74,23 @@ function ranOut(output: string) {
   return spawnSync('bash', ['-c', `set -euo pipefail; log() { :; }; TEST_LOG="${dir}/test.log"; source "${CHECKS}"; ran_out 0`]).status === 0
 }
 
+// The tests verify names as failed: failed_tests over a check's output.
+function failedTests(output: string) {
+  const dir = mkdtempSync(join(tmpdir(), 'aq-failed-'))
+  writeFileSync(join(dir, 'test.log'), output)
+  return spawnSync('bash', ['-c', `set -euo pipefail; log() { :; }; TEST_LOG="${dir}/test.log"; source "${CHECKS}"; failed_tests 0`], { encoding: 'utf8' }).stdout.trim()
+}
+
+// A content run's short step (CONTENT_STEP, cycle-checks.sh) runs each package's test:content script, and pnpm prefixes its
+// lines "<package> test:content: ": read as the whole suite's, or a time-out there would hold the work instead of keeping it.
+test('the short step\'s output reads as the whole suite\'s: its time-outs are time-outs, its failed tests named', () => {
+  for (const prefix of ['packages/engine test: ', 'packages/engine test:content: ']) {
+    expect(ranOut(`${prefix}Error: Test timed out in 30000ms.`), prefix).toBe(true)
+    expect(ranOut(`${prefix}AssertionError: expected 'Error: Test timed out in 30000ms.' to equal 'ok'`), prefix).toBe(false)
+    expect(failedTests(`${prefix} FAIL  test/a.test.ts > keeps its order`), prefix).toBe('test/a.test.ts > keeps its order')
+  }
+})
+
 // 13 November, 22:36 and 23:35: a test that failed on its own quoted "Test timed out in" in its source, which vitest
 // prints under the failure, and the run's work was kept for ever as out of time instead of held. Only vitest's own line
 // counts, at the start of a line after pnpm's prefix, colours off: never a quote of one in an assertion, a diff, a test's

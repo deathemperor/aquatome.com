@@ -852,6 +852,46 @@
       "kept": true
     }
   ],
+  "id/guides/aquatome-nuoi-ca-koi-trong-be-kinh-va-ho-nho-the-tich-loc-thuc-an-va-mat-do": [
+    {
+      "at": "2026-11-15T23:36:19Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "\"jadi kolam atau akuarium kecil cepat jadi terlalu padat dan airnya cepat kotor\" is a mild inference. The facts only say koi need depth and horizontal swimming room.",
+        "\"gejalanya bisa terlihat mirip dengan piping\" is an inference. The facts only say nitrite-affected fish behave as if short of oxygen.",
+        "\"Periksa kualitas air, ganti air, dan rawat filter\" in the FAQ answer on piping is a general recommendation. The facts give water changes and filter care only for ammonia and nitrite."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.86,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "at": "2026-11-15T23:36:19Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "\"Ukur amonia dan nitrit, terutama setelah menambah ikan atau kalau filter baru dibersihkan\": the facts give no such testing schedule or trigger.",
+        "\"Ukur klorin bebas dan klorin total setiap kali memakai air keran yang sudah diolah\": the facts say to test before and after treating the water, not every time tap water is used.",
+        "\"wadah yang kelihatannya cukup besar untuk ikan hias biasa sering terlalu kecil untuk koi\" and \"akuarium biasa umumnya terlalu sempit untuk koi dewasa\": these are generalisations. The facts only call a 204-litre pond too small."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.88,
+        0.85,
+        0.8
+      ]
+    }
+  ],
   "id/guides/aquatome-nuoi-ca-rong-arowana-trong-be-kich-thuoc-be-nuoc-thuc-an-va-benh-thuong-gap": [
     {
       "at": "2026-11-08T20:40:08Z",
@@ -1085,6 +1125,42 @@
   ],
   "id/guides/aquatome-trung-mo-neo-va-ran-ca-nhan-biet-va-cach-diet": [
     {
+      "at": "2026-11-15T23:39:45Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "\"Garam (garam non-yodium)\": the facts never say the salt must be non-iodized.",
+        "\"terutama saat air hangat\": the fact says summer (mùa hè), not warm water.",
+        "\"bernanah\": the fact says red, inflamed or ulcerated, with no mention of pus."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.88,
+        0.72,
+        0.85
+      ]
+    },
+    {
+      "at": "2026-11-15T23:39:45Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "\"tambahkan vitamin C dan probiotik pencernaan\": the facts say digestive enzymes (men tiêu hóa), not probiotics."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.85,
+        0.88
+      ]
+    },
+    {
       "at": "2026-11-08T20:29:27Z",
       "model": "sonnet",
       "score": 0.85,
@@ -1147,37 +1223,6 @@
       ],
       "attempt": "rewrite",
       "kept": false
-    },
-    {
-      "at": "2026-11-08T16:50:24Z",
-      "model": "sonnet",
-      "score": 0.92,
-      "notes": [
-        "\"vitamin C dan probiotik pencernaan\": the facts say \"men tiêu hóa\", which means digestive enzymes. Probiotics is a different product, so this is a mistranslation.",
-        "\"Jangan melebihi takaran\" for KMnO₄ is a generic caution. The facts only list overdosing as a common mistake and give no further guidance. This is minor and mostly supported.",
-        "\"Kutu betina ... lalu bisa bertahan di inangnya sekitar 30 hari sambil terus bertelur\" joins two separate facts. Both parts are individually supported, so the problem is small."
-      ],
-      "attempt": "first",
-      "kept": true
-    },
-    {
-      "at": "2026-11-08T14:28:14Z",
-      "model": "sonnet",
-      "score": 0.82,
-      "notes": [
-        "\"Rendaman jangka panjang dengan organofosfat seperti trichlorfon efektif untuk ikan hias\" is supported, but \"Pada ikan besar, cabut ... lalu pantau\" fine. No issue there.",
-        "\"Pernah ada akuarium yang dipenuhi kutu ikan padahal tidak ada ikan atau tanaman baru\": the facts say no fish or plants were added, which matches. Fine.",
-        "\"Kutu ini jarang ditemukan pada ikan hias akuarium tanaman\": the facts say 'cá cảnh thủy sinh' (aquarium fish in general), so 'akuarium tanaman' slightly narrows it.",
-        "\"Satu produk diflubenzuron ... memakai dosis sesuai labelnya\": the facts DO give a dose for Argusol (10 ml per 364 litres), but the guide leaves it out. This is an omission, not an invention.",
-        "\"Jangan memberi kalium permanganat melebihi dosis (sumber 8)\": the facts only list overdosing KMnO4 as a common mistake. The guide turns this into an instruction, which is a reasonable reading.",
-        "\"Obat dibiarkan 7 hari\" and \"Untuk dosisnya, ikuti label produk diflubenzuron\": the Dimilin 0.01 mg/L dose is in the facts but the guide tells readers to follow the label. This is the writer's rule rather than a claim.",
-        "\"Garam ikan di akuarium karantina ... Sekitar 1 sendok makan per 20 liter\": the facts say 'bể bệnh' (sick/hospital tank), so this is acceptable.",
-        "\"Kutu ikan berupa cakram pipih lonjong\" in the FAQ: 'lonjong' comes from source 2, but the answer cites source 3. This is a minor mix.",
-        "\"Tidak ada sumber yang memberi dosis trichlorfon, jadi ikuti label produknya\": this is the writer's rule, not a claim from the facts.",
-        "\"Sumber tersebut tidak menyebutkan obat biusnya\": this is a true statement about the facts, not an unsupported claim."
-      ],
-      "attempt": "rewrite",
-      "kept": true
     }
   ],
   "id/guides/aquatome-ve-sinh-be-ca-va-lau-sach-kinh-xoa-vet-xuoc": [
@@ -2018,6 +2063,44 @@
     }
   ],
   "ms/guides/aquatome-ca-ngoi-len-mat-nuoc-tho-gap-nguyen-nhan-va-cach-xu-ly": [
+    {
+      "at": "2026-11-16T00:05:24Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "FAQ: \"Jangan beri makan semasa elektrik terputus dan selama 24 jam selepas elektrik pulih\". The facts only say don't feed for the first 1–2 hours of an outage, then 24 hours after power returns. The FAQ stretches the first limit to the whole outage.",
+        "Betta FAQ: \"Perhatikan sama ada ada tanda lain seperti lesu, insang terkembang atau warna menjadi gelap\". The facts do not give these as checks for telling a normal betta from a sick one. They are general hypoxia signs.",
+        "\"Kebanyakan ikan boleh bertahan kira-kira seminggu tanpa makanan, jadi tidak mengapa\" is in the facts (source 7), but it is a general safety claim. It sits oddly beside the other outage advice."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.9,
+        0.72,
+        0.8
+      ]
+    },
+    {
+      "at": "2026-11-16T00:05:24Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "\"Kit ujian menunjukkan ada nitrit ... ikan boleh mati dalam beberapa jam\" overstates the facts. They say death within hours applies to nitrite poisoning or zero oxygen, not to any detectable nitrite.",
+        "\"dalam tangki aquascape\" - the facts say \"planted tank\", not aquascape. This is a minor wording change.",
+        "\"oksigen rendah paling mungkin berlaku ketika cuaca panas\" - the fact says \"summer\". This is a slight reinterpretation."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.72,
+        0.93,
+        0.9
+      ]
+    },
     {
       "at": "2026-11-08T15:50:25Z",
       "model": "sonnet",
@@ -3335,6 +3418,44 @@
       "kept": false
     }
   ],
+  "th/guides/aquatome-nuoi-ca-koi-trong-be-kinh-va-ho-nho-the-tich-loc-thuc-an-va-mat-do": [
+    {
+      "at": "2026-11-15T23:48:51Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-15T23:48:51Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"สัตวแพทย์ระบุว่าออกซิเจนละลายน้ำที่สูงกว่า 5 mg/L\" - source 2 is a vet, but the statement attributes Merck correctly as vet; fine. However the guide wrongly gives 'ตู้กระจกหรือบ่อเล็กเหมาะกับการเลี้ยงปลาคาร์ปขนาดเล็กชั่วคราวเท่านั้น' - the facts do not say small koi can be kept temporarily in glass tanks",
+        "\"ปลาคาร์ปโตเร็ว\" - fast growth is not in the facts",
+        "\"ใช้ระบบกรองที่ใหญ่พอและล้างได้ง่าย\" fine, but \"ติดสกิมเมอร์และท่อระบายก้นบ่อ\" as a step 'ถ้าทำได้' is mild embellishment",
+        "Source labelling: \"คู่มือการเลี้ยงปลาเล่มหนึ่ง\" for Cotswold Koi's 600–1,000 gallons is fine (shop), but the feeding season guide is attributed to a guide and fits",
+        "\"เมื่อน้ำเย็นจัด\" / \"เมื่อน้ำอุ่น\" - the facts say summer/spring/fall/winter, converted to water temperature conditions that the facts do not give",
+        "\"ให้อาหารเท่าเดิมเมื่อน้ำเย็น\" - invents a mistake framing; the facts only say koi still eat in cool seasons, which can cause problems",
+        "\"ใส่ปลาแน่นเกินไป ทำให้ออกซิเจนต่ำและของเสียสะสม\" - waste accumulation from overstocking is not stated directly",
+        "\"ดูจากอาการอย่างเดียวจึงแยกสองกรณีนี้ออกจากกันได้ยาก\" - not stated in the facts",
+        "\"ควรเติมอากาศให้มากขึ้นและตรวจคุณภาพน้ำ\" in the FAQ for piping - not directly given as a remedy",
+        "\"เลือกปั๊มและระบบกรองที่หมุนเวียนน้ำ\" - pump selection is added; the facts only mention circulating pond volume"
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.6,
+        0.6,
+        0.62
+      ]
+    }
+  ],
   "th/guides/aquatome-nuoi-ca-rong-arowana-trong-be-kich-thuoc-be-nuoc-thuc-an-va-benh-thuong-gap": [
     {
       "at": "2026-11-08T15:08:26Z",
@@ -3478,6 +3599,50 @@
     }
   ],
   "th/guides/aquatome-su-co-may-bom-nuoc-keu-to-giat-cuc-nong-yeu-nhiem-dien-chay": [
+    {
+      "at": "2026-11-15T23:51:29Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.82,
+      "notes": [
+        "\"ถ้าเป็นแค่เสียงดังหรือน้ำออกเบา ให้ถอดปลั๊กแล้วนำปั๊มออกมาทำความสะอาด\" is fine, but the opening line \"ส่วนไฟรั่วลงน้ำเป็นอันตรายต่อคนเลี้ยงโดยตรง\" is a mild generality not stated in the facts.",
+        "\"ซึ่งทำลายแบคทีเรียที่มีประโยชน์\" attributes harm to tap water directly. The facts only say to rinse in tank water, not tap water, to protect beneficial bacteria.",
+        "\"ข้อมูลจากแต่ละแหล่งต่างกัน\" frames the sources as conflicting. The facts do not say that.",
+        "\"ปั๊มร้อนผิดปกติหรือติด ๆ ดับ ๆ ... ควรถอดปลั๊กแล้วตรวจ\" is advice the facts do not give directly.",
+        "\"สายไฟหรือปลั๊กชำรุด ... หยุดใช้และพิจารณาเปลี่ยน\" merges two separate facts into one recommendation."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.82,
+        0.96,
+        0.82
+      ]
+    },
+    {
+      "at": "2026-11-15T23:51:29Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.72,
+      "notes": [
+        "\"โดยให้สายห้อยต่ำกว่าเต้ารับ\" – the facts only say to make a drip loop so water drips off the cord; the hanging-below-the-outlet detail is not given.",
+        "\"ควรทำห่วงหยดน้ำให้สายไฟ เพื่อไม่ให้น้ำไหลตามสายเข้าเต้ารับอีก\" in the FAQ is given as the answer to a wet plug or socket; the facts list the drip loop as prevention, not as a response to that problem.",
+        "\"ตัวอย่างเช่น ... ถ้าปั๊มรุ่นแบบนี้หยุดไปเฉย ๆ อาจไม่ใช่ปั๊มเสีย แต่ระบบป้องกันกำลังทำงานอยู่\" – this conclusion is not in the facts.",
+        "\"ถ้าเสียงยังดังอยู่ ให้ตรวจข้อต่อที่หลวม\" is supported, but \"เช่น ตอนเปลี่ยนน้ำ\" (e.g. during a water change) is an invented example for when to unplug the pump and heater.",
+        "\"ซ่อมเองได้ไหม ... หลังทำความสะอาดตามคู่มือของผู้ผลิต\" – the FAQ adds 'per the maker's manual' to the shop-guide claim, which the facts don't say.",
+        "\"ปั๊มบางรุ่นมีระบบป้องกัน ... ผู้ผลิตปั๊มรุ่น ... ระบุ\" and the line that the guide's electrical advice is \"ตู้ไฟหลัก\" are fine, but \"ไฟรั่วมักไม่มีสัญญาณเตือนจนกว่าจะมีคนโดนไฟดูด\" turns 'until current finds a path to ground' into 'until someone is shocked'.",
+        "\"ควรยึดคู่มือของปั๊มที่ใช้อยู่เป็นหลักว่าทำอะไรเองได้แค่ไหน\" is a recommendation not in the facts."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.72,
+        0.72,
+        0.72
+      ]
+    },
     {
       "at": "2026-11-10T06:53:13Z",
       "model": "sonnet",

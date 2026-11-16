@@ -1,8 +1,13 @@
 {
   "slug": "moesi-river",
-  "name": "Musi",
+  "name": "Sungai Musi",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.97,
+    "at": "2026-11-16T00:14:20.261Z"
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

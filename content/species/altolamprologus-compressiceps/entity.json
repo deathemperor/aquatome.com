@@ -16,14 +16,9 @@
   "range": {
     "native": {
       "countries": [
-        "ZM",
-        "BI",
-        "TZ",
-        "CD"
+        "ZM"
       ],
-      "regions": [
-        "Lake Tanganyika"
-      ],
+      "regions": [],
       "sources": [
         "seriouslyfish"
       ],
@@ -35,45 +30,13 @@
             "ZM"
           ],
           "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "\"Burundi red fin\", collected at the north-eastern extremity of the lake in Burundi.",
-          "countries": [
-            "BI"
-          ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "\"black cheek\" from Cape Kagobo, Tanzania.",
-          "countries": [
-            "TZ"
-          ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "\"gold\" from Kiku, Democratic Republic of the Congo.",
-          "countries": [
-            "CD"
-          ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "The compressed cichlid, Altolamprologus compressiceps, is a substrate-spawning cichlid endemic to Lake Tanganyika, where it lives among rocky rubble.",
-          "countries": [],
-          "regions": [
-            "Lake Tanganyika"
-          ]
         }
       ]
     },
     "records": {
       "taxonKey": 2372765,
       "total": 115,
-      "fetched": "2026-11-06",
+      "fetched": "2026-11-16",
       "countries": [
         [
           "ZM",
@@ -94,30 +57,32 @@
         [
           "MW",
           4
-        ],
-        [
-          "SS",
-          1
         ]
       ],
       "cells": [
         [
+          -30.9375,
+          -7.03125,
+          1,
+          0
+        ],
+        [
           28.125,
           -7.03125,
           7,
-          7
+          0
         ],
         [
           28.125,
           -5.625,
           3,
-          3
+          0
         ],
         [
           28.125,
           -4.21875,
           20,
-          20
+          0
         ],
         [
           29.53125,
@@ -129,37 +94,31 @@
           29.53125,
           -8.4375,
           11,
-          11
+          5
         ],
         [
           29.53125,
           -7.03125,
           10,
-          10
+          0
         ],
         [
           29.53125,
           -5.625,
           10,
-          10
-        ],
-        [
-          29.53125,
-          5.625,
-          1,
           0
         ],
         [
           30.9375,
           -9.84375,
           31,
-          31
+          30
         ],
         [
           30.9375,
           -8.4375,
           2,
-          2
+          0
         ],
         [
           33.75,

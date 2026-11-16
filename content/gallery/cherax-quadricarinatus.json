@@ -170,6 +170,20 @@
       "kind": "other"
     },
     {
+      "url": "https://media.aquatome.com/flickr/48427772772.webp",
+      "thumb": "https://media.aquatome.com/flickr/48427772772-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-SA 2.0",
+      "author": "Nature.Catcher",
+      "sourceUrl": "https://www.flickr.com/photos/96826734@N08/48427772772",
+      "caption": "Tôm hùm đất đỏ Úc trong tự nhiên, trên lá khô",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/381752742.webp",
       "thumb": "https://media.aquatome.com/inaturalist/381752742-480.webp",
       "width": 720,
@@ -350,7 +364,7 @@
       "kind": "form"
     }
   ],
-  "seen": 123,
-  "updatedAt": "2026-11-08",
-  "builtAt": "2026-11-08"
+  "seen": 124,
+  "updatedAt": "2026-11-15",
+  "builtAt": "2026-11-15"
 }
