@@ -72,6 +72,25 @@ test('what a heading is about: its scientific name in brackets decides, else the
   expect(headingSubject('11. Cá neon thường (Paracheirodon axelrodi)', fish)).toBeUndefined() // a species without a page here, whatever its name
 })
 
+// 2026-11-16, the live site's page check on every deploy: the green-water guide's "water sprite (Ceratopteris siliquosa)"
+// linked C. thalictroides, which has "water sprite" among its names. The site has no page for C. siliquosa, and a plant's
+// genus has no page of its own to say the site knows it: its scientific name says so (LinkTarget.sci).
+const ferns = [
+  { key: 'plant:ceratopteris-thalictroides', href: '/vi/cay/duong-xi-nuoc/', names: ['Ceratopteris thalictroides', 'Dương xỉ nước', 'water sprite'], sci: 'Ceratopteris thalictroides' },
+  { key: 'plant:salvinia-natans', href: '/vi/cay/beo-tai-chuot/', names: ['Salvinia natans'], sci: 'Salvinia natans' },
+]
+test("a plant named with another species' scientific name, of a genus the site has, isn't linked to the one it has", () => {
+  const r = linkTerms('<p>Misalnya Salvinia natans, water sprite (Ceratopteris siliquosa), hornwort.</p>', ferns, 'ml')
+  expect(r.keys).toEqual(['plant:salvinia-natans'])
+  expect(r.html).not.toContain('/vi/cay/duong-xi-nuoc/')
+  // Its own scientific name, or none, still links it.
+  expect(linkTerms('<p>Water sprite (Ceratopteris thalictroides) mọc nhanh.</p>', ferns, 'ml').keys).toEqual(['plant:ceratopteris-thalictroides'])
+  expect(linkTerms('<p>Thêm water sprite cho bể.</p>', ferns, 'ml').keys).toEqual(['plant:ceratopteris-thalictroides'])
+  // A heading about the species without a page is about none of the site's plants.
+  expect(headingSubject('Water sprite (Ceratopteris siliquosa)', ferns)).toBeUndefined()
+  expect(headingSubject('Water sprite (Ceratopteris thalictroides)', ferns)?.key).toBe('plant:ceratopteris-thalictroides')
+})
+
 // 2026-11-07, a design lab: the "5 easy plants" guide's "Pogostemon stellatus Octopus" linked P. stellatus (strong light,
 // CO₂), when the easy Octopus shops sell is P. quadrifolius, whose page has "Pogostemon stellatus 'Octopus'". The 50 red
 // plants guide wrote it ‘Octopus’. A trade or cultivar name is the same name with or without its quotes, in any style.
