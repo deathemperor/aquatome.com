@@ -259,9 +259,10 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
     { from: '2026-11-15T06:00:00+07:00', to: '2026-11-15T23:59:00+07:00', steps: 480, backstop: 507, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 34, quota: 1, glossary: 40, material: 8, ask: 0, ideas: 4, photos: 22 },
     { from: '2026-11-16T00:00:00+07:00', to: '2026-11-16T23:59:00+07:00', whole: true, steps: 498, backstop: 508, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 37, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24, photos: 22 },
     { from: '2026-11-17T00:00:00+07:00', to: '2026-11-17T23:59:00+07:00', whole: true, steps: 506, backstop: 516, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 8, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24, photos: 22, titles: 22, titlesCheck: 15 },
-    { from: '2026-11-18T00:00:00+07:00', to: '2026-11-18T23:59:00+07:00', whole: true, steps: 463, backstop: 473, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 12, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24, photos: 12 },
-    { from: '2026-11-19T00:00:00+07:00', to: '2026-11-19T23:59:00+07:00', steps: 451, backstop: 453, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24, photos: 12 },
-    { from: '2026-11-20T00:00:00+07:00', to: '2026-12-31T00:00:00+07:00', steps: 437, backstop: 453, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 8, ask: 2, ideas: 4, photos: 12 },
+    { from: '2026-11-18T00:00:00+07:00', to: '2026-11-18T23:59:00+07:00', whole: true, steps: 488, backstop: 498, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 12, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24, photos: 12, recheck: 25 },
+    { from: '2026-11-19T00:00:00+07:00', to: '2026-11-19T23:59:00+07:00', steps: 476, backstop: 478, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24, photos: 12, recheck: 25 },
+    { from: '2026-11-20T00:00:00+07:00', to: '2026-11-24T23:59:00+07:00', steps: 462, backstop: 478, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 8, ask: 2, ideas: 4, photos: 12, recheck: 25 },
+    { from: '2026-11-25T00:00:00+07:00', to: '2026-12-31T00:00:00+07:00', steps: 443, backstop: 459, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 8, ask: 2, ideas: 4, photos: 12, recheck: 6 },
   ]
   const fresh = await logs({ 'aquatome-cost-hand.jsonl': [] }).then(d => join(d, 'aquatome-cost-hand.jsonl'))
   for (const p of periods) for (const when of [p.from, p.to]) {
@@ -317,6 +318,12 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
     // (the chief of staff, 14 Nov 2026).
     expect(cap(when, 'github', 'write-ideas')).toBe(p.ideas ?? 3)
     expect(cap(when, 'mac', 'write-ideas')).toBe(0)
+    // The two-model recheck: $25 a day on GitHub, where the rewrite part runs, from 18 Nov to its last day, 24 Nov, with
+    // GitHub's backstop $25 higher, while the 699 pages out of search for their score have their reads; then $6 a day for
+    // the pages new translations leave under the bar, the backstop $6 over its $180 (the chief of staff, 16 Nov 2026).
+    expect(cap(when, 'github', 'recheck')).toBe(p.recheck ?? p.small)
+    expect(cap(when, 'mac', 'recheck')).toBe(p.small)
+    if (p.recheck) expect(t.github.backstop).toBe(180 + p.recheck)
     // A step that runs on the other machine, or a new one, has the small ceiling, never none.
     expect(cap(when, 'github', 'run')).toBe(p.small)
     expect(cap(when, 'mac', 'anything-new')).toBe(p.small)

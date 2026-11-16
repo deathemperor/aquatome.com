@@ -413,6 +413,30 @@ The layers above still check the result.
   - **The style rewrite takes the pages out of search for their score first** (`rewriteExisting`, `vi-backfill.ts`),
     then the rest in its kinds' order: a kept rewrite is what brings such a page back, and in folder order the last of
     them waited five weeks (2026-11-10: 238 fish and plant pages; 28 of the 31 it had reached were back in search).
+  - **An Indonesian or Thai fish page out of search for its score comes back on two fresh reads on two models**
+    (`pnpm engine recheck`, `localize-recheck.ts`, in the rewrite part after the other translations; the chief of staff,
+    2026-11-16). A kept rewrite is no longer the only way back. The steady Sonnet read of the page's text as it is, then,
+    after a pass, the steady Opus read: when both pass and no read of that text carries a note on a dose or harm, the page
+    is back at the lower of the two scores.
+    - One try a text, by its hash (`engine-state/recheck-<lang>.json`): a page that fails either read keeps its place and
+      its old score and goes to the rewrite as before, and isn't read again until its text changes. One pass after one fail
+      changes nothing.
+    - A dose or harm note counts on any read of the text the page has: the two fresh reads, a logged read of it, the
+      translator's own. One on a text the page never kept doesn't. One the Page Recovery or Writing lead has read and
+      cleared, by page and quoted whole with why (`packages/engine/src/dose-cleared.json`, by pull request), doesn't
+      either; nothing is cleared by pattern.
+    - The bar moves one way. Main already keeps a pass over a later fail (a passing translation is never replaced by one
+      under it, above), and with this a page under it can pass on a later read, while one over it isn't read again. That
+      is accepted because two models must agree, and both fail what is wrong: on 2026-11-16, of 12 passing pages with one
+      fault planted in each (a figure, a caution dropped or turned round, a wrong name, an invented sentence), Opus named
+      all 12 and Sonnet 11 in their notes, and each it named fell under the bar; Sonnet's one miss, a cut caution, Opus
+      failed at 0.6. What it rests on: of 40 pages under the bar, 30 passed a fresh read with nothing changed and 29 of
+      those passed Opus too, and of 40 in search at exactly the bar, 39 passed again. Most pages under it were put there by
+      one early read, before the middle-of-three read began (2026-11-11).
+    - Indonesian and Thai fish pages only, the kinds that was measured on. Malay fish pages and other kinds each get a
+      20-page sample first. `RECHECK_LIMIT` pages a language a cycle (15), the translator's pages of the last day first so
+      a new page its first read failed has its two reads in the same cycle, then the most-read, starting none after
+      `RECHECK_MINUTES` (15), on its own line on GitHub's side of `ceilings.json`.
   - **What recurs, per kind:** `docs/review/reviews.md` (`pnpm engine reviews`, each cycle's photos part): how many pages
     each kind last left under the bar and the faults their notes name most, grouped, with notes quoted and their pages.
     What prompt fixes start from.

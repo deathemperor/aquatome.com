@@ -324,6 +324,13 @@ if part rewrite; then
     ahead pnpm engine localize-equipment --lang "$lang" --limit "${LOCALIZE_EQUIPMENT_AHEAD_LIMIT:-2}"
     ahead pnpm engine localize-cards --lang "$lang"
   done
+  # Indonesian and Thai fish pages out of search for their score, read afresh on two models, Sonnet then Opus
+  # (localize-recheck.ts): back when both pass and no read of the text has a note on a dose or harm (the chief of staff,
+  # 16 Nov 2026). One try a text. Pages the translator wrote in the last day go first, so a new page its first read failed
+  # has its two reads in the same cycle. RECHECK_LIMIT pages a language a cycle (120 a day at about 4 cycles), on its own
+  # line in ceilings.json ("recheck", GitHub's side, where this part runs), gated as the steps above: a cycle that has run
+  # long gives it first, and it starts no page after RECHECK_MINUTES, so it ends inside the job as they do.
+  for lang in id th; do ahead pnpm engine recheck --lang "$lang" --limit "${RECHECK_LIMIT:-15}" --max-minutes "${RECHECK_MINUTES:-15}"; done
   # Indonesian, Thai and Malay place names, each judged alone against its source's sentence (place-judge.ts), after every
   # translation, Malay's too (the rewrites and translations spend first, cycle-languages.test.ts): the
   # unjudged first, the lowest batch score first, JUDGE_PLACES_LIMIT a cycle (the chief of staff, 15 Nov 2026: at most
