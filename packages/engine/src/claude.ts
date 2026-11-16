@@ -157,7 +157,7 @@ const ENGINE_ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 /**
  * Same, able to search and read the web (WebSearch, WebFetch), for `root`'s engine. Never a marketplace's page, nor one of a
  * source the engine reads only at its own pace (cycle-only.ts: through the Archive, or waiting for a person to pass its
- * browser check), read again from the engine's own record before every call, so a source marked since is off at once (the
+ * browser check), or a site refused as a source (cycle-only.ts REFUSED_SITES), read again from the engine's own record before every call, so a source marked since is off at once (the
  * chief of staff, 14 Nov 2026, on the owner's rule that nothing goes round a challenge). Slower, so a longer timeout.
  */
 export const researchFor = (root: string): Llm => async <T>({ system, prompt, schema, model }: { system: string; prompt: string; schema: object; model?: string }) =>
