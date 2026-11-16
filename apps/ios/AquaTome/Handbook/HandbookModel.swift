@@ -427,6 +427,8 @@ final class HandbookModel {
       }
       // `-plan`: the editors have planned Hôm nay's days (`fixtureDays`).
       var home = f.home
+      // `-no-chips`: an index from before the site's chips, as a phone's kept one can be (Khám phá with no row).
+      if args.contains("-no-chips") { home?.chips = [] }
       // `-wide-pictures`: each fish and plant has a photo (a wide stand-in, `-fixed-pictures`) with its fish's box across
       // nearly all of it, and each group one: a photo the frame rule shows whole wherever it goes (WholePhotoFlowTests).
       if args.contains("-wide-pictures") {

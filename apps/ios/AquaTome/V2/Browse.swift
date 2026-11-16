@@ -153,8 +153,6 @@ struct BrowseHome: View {
     .v2ShelfEdge()
   }
 
-  /// The fish groups as photo tiles, two rows that page sideways; at the accessibility sizes, the first five down the
-  /// screen, then the whole list.
   /// A list's end at the accessibility sizes, where its header has no room for it.
   private func moreLink(_ to: Browse) -> some View {
     NavigationLink(value: to) { Text("Xem tất cả").font(.body.weight(.semibold)).frame(minHeight: 44).contentShape(.rect) }

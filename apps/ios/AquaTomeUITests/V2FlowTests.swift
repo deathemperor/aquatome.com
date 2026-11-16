@@ -1431,8 +1431,8 @@ final class V2FlowTests: XCTestCase {
     }
   }
 
-  /// A page pushed from Khám phá has iOS's bar, its back button named "Khám phá"; back by the edge swipe, Khám phá has no
-  /// bar and is where it was (spec-titles.md: no bar flashing on the way back).
+  /// A page pushed from Khám phá has iOS's bar, its back button named "Khám phá"; back by the edge swipe, from a fish's page
+  /// and from a group's, Khám phá has no bar and is where it was (spec-titles.md: no bar flashing on the way back).
   func testBackFromAPageKhamPhaHasNoBarAndIsWhereItWas() {
     let app = launch("-v2", "YES")
     app.launchForFlow()
@@ -1452,6 +1452,30 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(shown.waitForNonExistence(timeout: 5), "the edge swipe didn't go back")
     XCTAssertFalse(app.navigationBars.firstMatch.waitForExistence(timeout: 1), "Khám phá has a bar after the way back")
     XCTAssertEqual(heading.frame.minY, at, accuracy: 1, "Khám phá isn't where it was")
+    // And from a group's page, a chip's.
+    let tetra = app.buttons.matching(identifier: "v2-chip").matching(NSPredicate(format: "label BEGINSWITH %@", "Tetra")).firstMatch
+    XCTAssertTrue(tetra.isHittable, "no Tetra chip in view")
+    tetra.tap()
+    let group = app.descendants(matching: .any)["v2-chip-page"]
+    XCTAssertTrue(group.waitForExistence(timeout: 5), "the group's page didn't open")
+    edgeSwipe(app, fast: false, at: offRows(app, 0.5))
+    XCTAssertTrue(group.waitForNonExistence(timeout: 5), "the edge swipe didn't go back from the group's page")
+    XCTAssertFalse(app.navigationBars.firstMatch.waitForExistence(timeout: 1), "Khám phá has a bar after the way back from a group")
+    XCTAssertEqual(heading.frame.minY, at, accuracy: 1, "Khám phá isn't where it was after a group's page")
+  }
+
+  /// Back from a Hôm nay post, Hôm nay has no bar (spec-titles.md: no bar flashing on the way back).
+  func testBackFromAHomNayPostHomNayHasNoBar() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    let card = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(card.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    card.tap()
+    let shown = app.descendants(matching: .any)["v2-species"]
+    XCTAssertTrue(shown.waitForExistence(timeout: 8), "the fish of the day didn't open")
+    app.leavePage()
+    XCTAssertTrue(shown.waitForNonExistence(timeout: 5), "the post didn't close")
+    XCTAssertFalse(app.navigationBars.firstMatch.waitForExistence(timeout: 1), "Hôm nay has a bar after the way back")
   }
 
   /// A page's end stops above the fade over the tab bar: the last of Khám phá isn't dimmed for good.
@@ -1507,6 +1531,26 @@ final class V2FlowTests: XCTestCase {
     }
   }
 
+  /// With no chips in the index (a phone's kept one from before them, offline), Khám phá opens as if the row never existed:
+  /// no row, no empty strip and no gap under the title (Design, 16 Nov). The first shelf moves up by the row and the 8 points
+  /// over it, nothing less.
+  func testKhamPhaWithNoChipsHasNoRowAndNoGap() {
+    var gaps: [CGFloat] = []
+    for more in [[], ["-no-chips"]] {
+      let app = XCUIApplication()
+      app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults", "-v2", "YES"] + more
+      app.launchForFlow()
+      app.openTab("Khám phá")
+      let title = app.scrollViews.staticTexts["Khám phá"].firstMatch, shelf = app.scrollViews.staticTexts["Loài quen thuộc"].firstMatch
+      XCTAssertTrue(shelf.waitForExistence(timeout: 5), "no fish shelf on Khám phá \(more)")
+      XCTAssertEqual(app.descendants(matching: .any)["v2-chips"].exists, more.isEmpty, "the chips' row with \(more.isEmpty ? "chips" : "none")")
+      gaps.append(shelf.frame.minY - title.frame.maxY)
+      app.terminate()
+    }
+    // The row as drawn at size L (38) and the 8 over it: the whole difference, with no strip or gap left.
+    XCTAssertEqual(gaps[0] - gaps[1], 38 + 8, accuracy: 2, "Khám phá with no chips keeps room under its title: \(gaps)")
+  }
+
   /// What a chip opens (spec-chips.md): a group of one page and no guide, that page; one with a guide, a pushed page under
   /// the chip's name with iOS's back button, whose photo the chip shows, a wide card (not the grid), then its guides and
   /// video guides; from six pages, the grid.
@@ -1535,6 +1579,17 @@ final class V2FlowTests: XCTestCase {
     // The grid has the list's filter; wide cards have none.
     XCTAssertFalse(app.buttons["filter"].exists, "a group of one page in the grid")
     XCTAssertTrue(app.staticTexts["Bài viết"].exists && app.staticTexts["Video"].exists, "no guides or video guides under the group")
+    app.leavePage()
+    // The fish the site names (`imgOf`), not the group's first: Cá nhỏ's photo is its second page's, Cá ngựa vằn.
+    chip("Cá nhỏ").tap()
+    XCTAssertTrue(page.waitForExistence(timeout: 5), "Cá nhỏ's page didn't open")
+    XCTAssertEqual(photoOf.label, "Ảnh đại diện nhóm: Cá ngựa vằn", "Cá nhỏ's page names another fish than its photo's")
+    photoOf.tap()
+    let fish = app.descendants(matching: .any)["v2-species"]
+    XCTAssertTrue(fish.waitForExistence(timeout: 5), "the photo's fish didn't open")
+    XCTAssertTrue(fish.staticTexts["Cá ngựa vằn"].firstMatch.exists, "the photo's line opened another fish than Cá ngựa vằn")
+    app.leavePage()
+    XCTAssertTrue(page.waitForExistence(timeout: 5), "not back on Cá nhỏ's page")
     app.leavePage()
     // Along the row, at its own height, till the last chip is whole.
     let many = chip("Cá thử"), y = many.frame.midY / app.frame.height

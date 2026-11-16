@@ -8,10 +8,12 @@ import SwiftUI
 struct ChipsRow: View {
   let chips: [HandbookShelves.ChipShelf]
   @ScaledMetric(relativeTo: .body) private var height: CGFloat = 38
-  /// The picture's height: 3:2, 33 × 22 at size L.
+  /// The picture's height: 3:2, 33 × 22 at size L, 48 × 32 at the largest (spec-chips.md).
   @ScaledMetric(relativeTo: .body) private var picture: CGFloat = 22
 
   var body: some View {
+    // Drawn at its height, tapped over 44 points (spec-chips.md): the row lies out at the drawn height, its taps over it.
+    let reach = max(0, (44 - height) / 2), tall = min(picture, 32)
     ScrollView(.horizontal, showsIndicators: false) {
       HStack(spacing: 8) {
         ForEach(chips) { c in
@@ -20,7 +22,7 @@ struct ChipsRow: View {
               // Its fish's picture only where the chip's page can name that fish; else the name alone (Design, 16 Nov).
               if c.photoOf != nil {
                 V2Photo(src: c.chip.img, box: c.chip.imgBox)
-                  .frame(width: picture * 1.5, height: picture)
+                  .frame(width: tall * 1.5, height: tall)
                   .clipShape(.rect(cornerRadius: 6, style: .continuous))
                   .accessibilityHidden(true)
               }
@@ -30,14 +32,16 @@ struct ChipsRow: View {
             .padding(.trailing, 14)
             .frame(minHeight: height)
             .background(.fill.tertiary, in: Capsule())
-            .contentShape(Capsule())
+            .padding(.vertical, reach)
+            .contentShape(.rect)
           }
-          .buttonStyle(.plain)
+          .buttonStyle(CardPress())
           .accessibilityLabel(Text("\(c.chip.name), nhóm cá"))
           .accessibilityIdentifier("v2-chip")
         }
       }
     }
+    .padding(.vertical, -reach)
     // From the title's left edge to the screen's right one, where a chip is cut, with no fade (unlike the shelves).
     .contentMargins(.horizontal, 20, for: .scrollContent)
     .padding(.horizontal, -20)
@@ -54,12 +58,6 @@ struct ChipsRow: View {
       NavigationLink(value: ChipRoute(shelf: c), label: label)
     }
   }
-}
-
-extension HandbookShelves.ChipShelf {
-  /// The page whose photo the chip shows, as the site names it (`imgOf`). The chip's page names and links that fish (the
-  /// chief, 15 Nov), so the chip shows its photo only with it: never a photo whose fish it can't name.
-  var photoOf: HandbookIndex.Item? { chip.img == nil ? nil : pages.first { $0.contentId == chip.imgOf } }
 }
 
 /// A chip's page, pushed (`ChipPage`).
@@ -106,16 +104,18 @@ struct ChipPage: View {
     return VStack(alignment: .leading, spacing: 0) {
       Text(g > 0 ? "\(n) trang · \(g) bài viết" : "\(n) trang")
       if let fish = shelf.photoOf {
+        // Drawn at the text's height, tapped over 44 points: the reach inside the link, so its tap has it, and taken back
+        // outside, so a line that wraps keeps its own height and doesn't run over the count.
+        let reach = max(0, (44 - line) / 2)
         NavigationLink(value: fish) {
           Text("Ảnh đại diện nhóm: \(Text(verbatim: fish.name).foregroundStyle(.tint))")
             .multilineTextAlignment(.leading)
             .fixedSize(horizontal: false, vertical: true)
+            .padding(.vertical, reach)
+            .contentShape(.rect)
         }
         .buttonStyle(Dims())
-        // Drawn at the text's height, tapped over 44 points.
-        .frame(minHeight: 44, alignment: .leading)
-        .contentShape(.rect)
-        .padding(.vertical, -max(0, (44 - line) / 2))
+        .padding(.vertical, -reach)
         .accessibilityRemoveTraits(.isButton)
         .accessibilityAddTraits(.isLink)
         .accessibilityIdentifier("v2-chip-photo-of")
@@ -165,7 +165,8 @@ private struct WideCard: View {
           .clipShape(.rect(cornerRadius: 16, style: .continuous))
       }
       .buttonStyle(CardPress())
-      .accessibilityLabel(Text(verbatim: item.name))
+      // One stop for VoiceOver: the row under it, which opens the same page and reads its name and line.
+      .accessibilityHidden(true)
       Lockup(item: item, line: factsLine(item, handbook.lang), icon: false)
     }
   }
