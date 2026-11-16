@@ -8,8 +8,7 @@
       "guides/aquariumcoop-blogs-aquarium-our-favorite-easy-low-light-plants-cryptocoryne-lutea-and-vallisneria",
       "guides/youtube-0xEdMSmpNHo"
     ],
-    "mentions": 54,
-    "onSource": "https://www.aquariumcoop.com/blogs/aquarium/our-favorite-easy-low-light-plants-cryptocoryne-lutea-and-vallisneria"
+    "mentions": 54
   },
   "epipremnum-aureum": {
     "name": "Epipremnum aureum",
@@ -130,7 +129,8 @@
       "species/akysis-vespa",
       "species/barilius-infrafasciatus"
     ],
-    "mentions": 16
+    "mentions": 16,
+    "onSource": "https://www.seriouslyfish.com/species/acanthocobitis-pictilis"
   },
   "platydoras-costatus": {
     "name": "Platydoras costatus",
@@ -152,8 +152,7 @@
       "species/baryancistrus-beggini",
       "species/baryancistrus-demantoides"
     ],
-    "mentions": 15,
-    "onSource": "https://www.scotcat.com/loricariidae/panaque_nigrolineatus_laurafabianae.htm"
+    "mentions": 15
   },
   "physella-acuta": {
     "name": "Physella acuta",
@@ -637,8 +636,7 @@
       "species/corydoras-incolicana",
       "species/corydoras-melini"
     ],
-    "mentions": 6,
-    "onSource": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_tukano_en/"
+    "mentions": 6
   },
   "sicyopterus-fasciatus": {
     "name": "Sicyopterus fasciatus",
@@ -937,6 +935,16 @@
     ],
     "mentions": 8
   },
+  "lomariopsis-lineata": {
+    "name": "Lomariopsis lineata",
+    "mentionedIn": [
+      "guides/aquariumbreeder-best-plants-for-sand-aquariums",
+      "guides/youtube-AAjZ3Ldk4go",
+      "guides/youtube-LmUGilbUlzY",
+      "guides/youtube-Ojpc5djfQ9U"
+    ],
+    "mentions": 4
+  },
   "macrognathus-circumcinctus": {
     "name": "Macrognathus circumcinctus",
     "mentionedIn": [
@@ -1036,8 +1044,7 @@
       "species/geophagus-megasema",
       "species/mikrogeophagus-altispinosus"
     ],
-    "mentions": 4,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/aphyocharax_alburnus_en/"
+    "mentions": 4
   },
   "acrossocheilus-spinifer": {
     "name": "Acrossocheilus spinifer",
@@ -1294,8 +1301,7 @@
       "guides/aquariumbreeder-why-wont-my-shrimp-breed",
       "species/caridina-pareparensis-parvidentata"
     ],
-    "mentions": 3,
-    "onSource": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/caridina-pareparensis-parvidentata-2/"
+    "mentions": 3
   },
   "caridina-serrata": {
     "name": "Caridina serrata",
@@ -1443,15 +1449,6 @@
     ],
     "mentions": 3
   },
-  "lomariopsis-lineata": {
-    "name": "Lomariopsis lineata",
-    "mentionedIn": [
-      "guides/youtube-AAjZ3Ldk4go",
-      "guides/youtube-LmUGilbUlzY",
-      "guides/youtube-Ojpc5djfQ9U"
-    ],
-    "mentions": 3
-  },
   "vallisneria-nana": {
     "name": "Vallisneria nana",
     "mentionedIn": [
@@ -1477,8 +1474,7 @@
       "guides/youtube-iKAv9xxkYoY",
       "species/knodus-borki"
     ],
-    "mentions": 3,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/knodus-borki-previously-incorrectly-identified-as-boehlkea-fredcochui/"
+    "mentions": 3
   },
   "geosesarma-dennerle": {
     "name": "Geosesarma dennerle",
@@ -1721,8 +1717,7 @@
       "species/corydoras-boesemani",
       "species/corydoras-bondi"
     ],
-    "mentions": 3,
-    "onSource": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-punctatus-nanay-2/"
+    "mentions": 3
   },
   "heptapterus-mustelinus": {
     "name": "Heptapterus mustelinus",
@@ -1832,15 +1827,6 @@
     ],
     "mentions": 3
   },
-  "hyphessobrycon-pando": {
-    "name": "Hyphessobrycon pando",
-    "mentionedIn": [
-      "species/hyphessobrycon-haraldschultzi",
-      "species/hyphessobrycon-pyrrhonotus",
-      "species/iguanodectes-spilurus"
-    ],
-    "mentions": 3
-  },
   "labiobarbus-lineatus": {
     "name": "Labiobarbus lineatus",
     "mentionedIn": [
@@ -1903,6 +1889,14 @@
       "species/sinibotia-superciliaris"
     ],
     "mentions": 3
+  },
+  "micromussa-lordhowensis": {
+    "name": "Micromussa lordhowensis",
+    "mentionedIn": [
+      "guides/aquariumbreeder-best-corals-for-a-nano-reef-tank",
+      "guides/aquariumbreeder-reasons-why-corals-die-in-aquariums"
+    ],
+    "mentions": 2
   },
   "lumbriculus-variegatus": {
     "name": "Lumbriculus variegatus",
@@ -1990,8 +1984,7 @@
       "guides/glaser-en-08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc-labeo-parvus-and-l-barbatus-en",
       "species/labeo-coubie"
     ],
-    "mentions": 2,
-    "onSource": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labeo_parvus_and_l_barbatus_en/"
+    "mentions": 2
   },
   "thorichthys-maculipinnis": {
     "name": "Thorichthys maculipinnis",
@@ -2017,6 +2010,14 @@
     ],
     "mentions": 2
   },
+  "gastromyzon-borneensis": {
+    "name": "Gastromyzon borneensis",
+    "mentionedIn": [
+      "guides/loachesonline-articles-suckerbelly-loaches",
+      "species/gastromyzon-punctulatus"
+    ],
+    "mentions": 2
+  },
   "engraulicypris-sardella": {
     "name": "Engraulicypris sardella",
     "mentionedIn": [
@@ -2031,7 +2032,8 @@
       "guides/seriouslyfish-articles-european-killifishes-part-1-the-genus-aphanius-in-spain",
       "species/apricaphanius-iberus"
     ],
-    "mentions": 2
+    "mentions": 2,
+    "onSource": "https://www.seriouslyfish.com/species/aphanius-iberus"
   },
   "aphanius-baeticus": {
     "name": "Aphanius baeticus",
@@ -2039,7 +2041,8 @@
       "guides/seriouslyfish-articles-european-killifishes-part-1-the-genus-aphanius-in-spain",
       "species/apricaphanius-baeticus"
     ],
-    "mentions": 2
+    "mentions": 2,
+    "onSource": "https://www.seriouslyfish.com/species/aphanius-baeticus"
   },
   "badis-laspiophilus": {
     "name": "Badis laspiophilus",
@@ -2063,7 +2066,8 @@
       "guides/seriouslyfish-articles-whaddaya-mean-too-hot",
       "species/paraphanius-mento"
     ],
-    "mentions": 2
+    "mentions": 2,
+    "onSource": "https://www.seriouslyfish.com/species/aphanius-mento"
   },
   "micralestes-acutidens": {
     "name": "Micralestes acutidens",
@@ -2424,7 +2428,8 @@
       "species/anatolichthys-sureyanus",
       "species/anatolichthys-transgrediens"
     ],
-    "mentions": 2
+    "mentions": 2,
+    "onSource": "https://www.seriouslyfish.com/species/aphanius-anatoliae"
   },
   "incertae-sedis": {
     "name": "incertae sedis",
@@ -2931,8 +2936,7 @@
       "species/geophagus-megasema",
       "species/mikrogeophagus-altispinosus"
     ],
-    "mentions": 2,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/tyttocharax_tambopatensis_en/"
+    "mentions": 2
   },
   "apistogramma-linkei": {
     "name": "Apistogramma linkei",
@@ -3306,13 +3310,6 @@
     ],
     "mentions": 1
   },
-  "micromussa-lordhowensis": {
-    "name": "Micromussa lordhowensis",
-    "mentionedIn": [
-      "guides/aquariumbreeder-best-corals-for-a-nano-reef-tank"
-    ],
-    "mentions": 1
-  },
   "fimbriaphyllia-divisa": {
     "name": "Fimbriaphyllia divisa",
     "mentionedIn": [
@@ -3376,13 +3373,6 @@
     ],
     "mentions": 1
   },
-  "thiara-cancellata": {
-    "name": "Thiara cancellata",
-    "mentionedIn": [
-      "guides/aquariumbreeder-importance-of-surface-agitation-in-aquariums"
-    ],
-    "mentions": 1
-  },
   "syntripsa-matannensis": {
     "name": "Syntripsa matannensis",
     "mentionedIn": [
@@ -3443,6 +3433,13 @@
     "name": "Lockhartia oerstedii",
     "mentionedIn": [
       "guides/aquariumbreeder-paludarium-plants"
+    ],
+    "mentions": 1
+  },
+  "rhynchocinetes-durbanensis": {
+    "name": "Rhynchocinetes durbanensis",
+    "mentionedIn": [
+      "guides/aquariumbreeder-reasons-why-corals-die-in-aquariums"
     ],
     "mentions": 1
   },
@@ -3557,8 +3554,7 @@
     "mentionedIn": [
       "guides/glaser-en-09-characoids-tetra-relationship-distichodus-rostratus-d-engycephalus-and-d-brevipinnis-from-nigeria-en"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/distichodus_rostratus_d_engycephalus_and_d_brevipinnis_from_nigeria_en/"
+    "mentions": 1
   },
   "myloplus-lobatus": {
     "name": "Myloplus lobatus",
@@ -3578,6 +3574,13 @@
     "name": "Astroblepus mancoi",
     "mentionedIn": [
       "guides/glaser-en-10-catfishes-10c-catfishes-remaining-catfish-from-south-america-astroblepus-from-peru-imported-en"
+    ],
+    "mentions": 1
+  },
+  "phractocephalus-hemiliopterus": {
+    "name": "Phractocephalus hemiliopterus",
+    "mentionedIn": [
+      "guides/glaser-en-10-catfishes-10c-catfishes-remaining-catfish-from-south-america-phractocephalus-hemiliopterus-en"
     ],
     "mentions": 1
   },
@@ -3641,13 +3644,6 @@
     "name": "Balistoides conspicillum",
     "mentionedIn": [
       "guides/loachesonline-articles-is-this-the-best-loach-shop-in-the-world"
-    ],
-    "mentions": 1
-  },
-  "gastromyzon-borneensis": {
-    "name": "Gastromyzon borneensis",
-    "mentionedIn": [
-      "guides/loachesonline-articles-suckerbelly-loaches"
     ],
     "mentions": 1
   },
@@ -3880,8 +3876,7 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/mylossoma_duriventre_en/"
+    "mentions": 1
   },
   "ictiobus-bubalus": {
     "name": "Ictiobus bubalus",
@@ -4575,8 +4570,7 @@
     "mentionedIn": [
       "guides/youtube-lH2GnVdN-4s"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/hemichromis-guttatus-paprika-2/"
+    "mentions": 1
   },
   "coleus-scutellarioides": {
     "name": "Coleus scutellarioides",
@@ -4950,6 +4944,13 @@
     ],
     "mentions": 1
   },
+  "amphilius-jacksonii": {
+    "name": "Amphilius jacksonii",
+    "mentionedIn": [
+      "species/amphilius-lujani"
+    ],
+    "mentions": 1
+  },
   "sciades-herzbergii": {
     "name": "Sciades herzbergii",
     "mentionedIn": [
@@ -4997,7 +4998,8 @@
     "mentionedIn": [
       "species/anatolichthys-villwocki"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/aphanius-villwocki"
   },
   "ancharius-griseus": {
     "name": "Ancharius griseus",
@@ -5221,7 +5223,8 @@
     "mentionedIn": [
       "species/barbodes-semifasciolatus"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/puntius-snyderi"
   },
   "barboides-britzi": {
     "name": "Barboides britzi",
@@ -5972,8 +5975,7 @@
     "mentionedIn": [
       "species/erethistes-pusillus"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/10-catfishes/hara-hara-erethistes-pusillus-2/"
+    "mentions": 1
   },
   "aphanius-sophiae": {
     "name": "Aphanius sophiae",
@@ -6015,7 +6017,8 @@
     "mentionedIn": [
       "species/garra-bicornuta"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/nemachilichthys-shimogensis"
   },
   "garra-micropulvinus": {
     "name": "Garra micropulvinus",
@@ -6316,8 +6319,7 @@
     "mentionedIn": [
       "species/haludaria-fasciata"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/haludaria-fasciata-the-melon-barb-formerly-barbus-fasciatus/"
+    "mentions": 1
   },
   "barbonymus-balleroides": {
     "name": "Barbonymus balleroides",
@@ -6576,8 +6578,7 @@
     "mentionedIn": [
       "species/hyphessobrycon-herbertaxelrodi"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia_dichroura_en/"
+    "mentions": 1
   },
   "serrapinnus-calliurus": {
     "name": "Serrapinnus calliurus",
@@ -6591,8 +6592,7 @@
     "mentionedIn": [
       "species/hyphessobrycon-herbertaxelrodi"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/holoshestes_pequira_en/"
+    "mentions": 1
   },
   "farlowella-paraguayensis": {
     "name": "Farlowella paraguayensis",
@@ -7746,6 +7746,13 @@
     "name": "Macrognathus semiocellatus",
     "mentionedIn": [
       "species/syncrossus-helodes"
+    ],
+    "mentions": 1
+  },
+  "tachysurus-spilotus": {
+    "name": "Tachysurus spilotus",
+    "mentionedIn": [
+      "species/tachysurus-argentivittatus"
     ],
     "mentions": 1
   },

@@ -1223,8 +1223,48 @@
     "genus": "Amphilius",
     "matchType": "EXACT"
   },
+  "Amphilius jacksonii": {
+    "canonicalName": "Amphilius jacksonii",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Amphiliidae",
+    "genus": "Amphilius",
+    "matchType": "EXACT"
+  },
   "Amphilius kivuensis": {
     "canonicalName": "Amphilius kivuensis",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Amphiliidae",
+    "genus": "Amphilius",
+    "matchType": "EXACT"
+  },
+  "Amphilius lujani": {
+    "canonicalName": "Amphilius lujani",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Amphiliidae",
+    "genus": "Amphilius",
+    "matchType": "EXACT"
+  },
+  "Amphilius natalensis": {
+    "canonicalName": "Amphilius natalensis",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Amphiliidae",
+    "genus": "Amphilius",
+    "matchType": "EXACT"
+  },
+  "Amphilius platychir": {
+    "canonicalName": "Amphilius platychir",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Amphiliidae",
+    "genus": "Amphilius",
+    "matchType": "EXACT"
+  },
+  "Amphilius rheophilus": {
+    "canonicalName": "Amphilius rheophilus",
     "phylum": "Chordata",
     "order": "Siluriformes",
     "family": "Amphiliidae",
@@ -5327,6 +5367,14 @@
   },
   "Bucephalandra mini": null,
   "Bucephalandra trong": null,
+  "Bujurquina oenolaemus": {
+    "canonicalName": "Bujurquina oenolaemus",
+    "phylum": "Chordata",
+    "order": "Perciformes",
+    "family": "Cichlidae",
+    "genus": "Bujurquina",
+    "matchType": "EXACT"
+  },
   "Buncephalus depressus": {
     "canonicalName": "Pterobunocephalus depressus",
     "order": "Siluriformes",
@@ -6336,6 +6384,14 @@
     "order": "Perciformes",
     "family": "Channidae",
     "genus": "Channa",
+    "matchType": "EXACT"
+  },
+  "Chapalichthys pardalis": {
+    "canonicalName": "Chapalichthys pardalis",
+    "phylum": "Chordata",
+    "order": "Cyprinodontiformes",
+    "family": "Goodeidae",
+    "genus": "Chapalichthys",
     "matchType": "EXACT"
   },
   "Characidium deludens": {
@@ -11857,6 +11913,14 @@
     "matchType": "EXACT"
   },
   "Ginga rubra": null,
+  "Girardinus falcatus": {
+    "canonicalName": "Girardinus falcatus",
+    "phylum": "Chordata",
+    "order": "Cyprinodontiformes",
+    "family": "Poeciliidae",
+    "genus": "Girardinus",
+    "matchType": "EXACT"
+  },
   "Girardinus metallicus": {
     "canonicalName": "Girardinus metallicus",
     "order": "Cyprinodontiformes",
@@ -14720,6 +14784,14 @@
     "genus": "Ichthyophthirius",
     "matchType": "EXACT"
   },
+  "Ichtyborus ornatus": {
+    "canonicalName": "Ichthyborus ornatus",
+    "phylum": "Chordata",
+    "order": "Characiformes",
+    "family": "Distichodontidae",
+    "genus": "Ichthyborus",
+    "matchType": "FUZZY"
+  },
   "Ictalurus brunneus": {
     "canonicalName": "Ameiurus brunneus",
     "order": "Siluriformes",
@@ -17096,6 +17168,15 @@
   },
   "Macrobrachium dayanum": {
     "canonicalName": "Macrobrachium dayanum",
+    "order": "Decapoda",
+    "family": "Palaemonidae",
+    "genus": "Macrobrachium",
+    "matchType": "EXACT"
+  },
+  "Macrobrachium eriocheirum": {
+    "canonicalName": "Macrobrachium dienbienphuense",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
     "order": "Decapoda",
     "family": "Palaemonidae",
     "genus": "Macrobrachium",
@@ -21192,6 +21273,7 @@
     "genus": "Epiplatys",
     "matchType": "EXACT"
   },
+  "Panchax takes": null,
   "Pandaka rouxi": {
     "canonicalName": "Pandaka rouxi",
     "order": "Perciformes",
@@ -22814,6 +22896,14 @@
     "order": "Cypriniformes",
     "family": "Cyprinidae",
     "genus": "Phoxinus",
+    "matchType": "EXACT"
+  },
+  "Phractocephalus hemiliopterus": {
+    "canonicalName": "Phractocephalus hemiliopterus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Pimelodidae",
+    "genus": "Phractocephalus",
     "matchType": "EXACT"
   },
   "Phractocephalus hemioliferus": null,
@@ -24718,6 +24808,14 @@
     "genus": "Pterolebias",
     "matchType": "EXACT"
   },
+  "Pterolebias peruensis": {
+    "canonicalName": "Aphyolebias peruensis",
+    "phylum": "Chordata",
+    "order": "Cyprinodontiformes",
+    "family": "Rivulidae",
+    "genus": "Aphyolebias",
+    "matchType": "EXACT"
+  },
   "Pterophyllum altum": {
     "canonicalName": "Pterophyllum altum",
     "order": "Perciformes",
@@ -26167,6 +26265,15 @@
     "matchType": "EXACT"
   },
   "Rhopalurus junceus": null,
+  "Rhynchocinetes durbanensis": {
+    "canonicalName": "Rhynchocinetes durbanensis",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Rhynchocinetidae",
+    "genus": "Rhynchocinetes",
+    "matchType": "EXACT"
+  },
   "Rhynchodoras woodsi": {
     "canonicalName": "Rhynchodoras woodsi",
     "order": "Siluriformes",
@@ -28604,6 +28711,14 @@
     "genus": "Barbodes",
     "matchType": "EXACT"
   },
+  "Tachysurus argentivittatus": {
+    "canonicalName": "Tachysurus argentivittatus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Bagridae",
+    "genus": "Tachysurus",
+    "matchType": "EXACT"
+  },
   "Tachysurus fulvidraco": {
     "canonicalName": "Tachysurus fulvidraco",
     "order": "Siluriformes",
@@ -28635,6 +28750,14 @@
   },
   "Tachysurus nudiceps": {
     "canonicalName": "Tachysurus nudiceps",
+    "order": "Siluriformes",
+    "family": "Bagridae",
+    "genus": "Tachysurus",
+    "matchType": "EXACT"
+  },
+  "Tachysurus spilotus": {
+    "canonicalName": "Tachysurus spilotus",
+    "phylum": "Chordata",
     "order": "Siluriformes",
     "family": "Bagridae",
     "genus": "Tachysurus",
@@ -28756,6 +28879,14 @@
   },
   "Tatia creutzbergi": {
     "canonicalName": "Tatia gyrina",
+    "order": "Siluriformes",
+    "family": "Auchenipteridae",
+    "genus": "Tatia",
+    "matchType": "EXACT"
+  },
+  "Tatia dunni": {
+    "canonicalName": "Tatia dunni",
+    "phylum": "Chordata",
     "order": "Siluriformes",
     "family": "Auchenipteridae",
     "genus": "Tatia",
@@ -30209,6 +30340,14 @@
   },
   "Xenotoca eiseni": {
     "canonicalName": "Xenotoca eiseni",
+    "order": "Cyprinodontiformes",
+    "family": "Goodeidae",
+    "genus": "Xenotoca",
+    "matchType": "EXACT"
+  },
+  "Xenotoca variata": {
+    "canonicalName": "Xenotoca variata",
+    "phylum": "Chordata",
     "order": "Cyprinodontiformes",
     "family": "Goodeidae",
     "genus": "Xenotoca",

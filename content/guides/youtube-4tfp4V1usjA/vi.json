@@ -55,8 +55,7 @@
   "held": {
     "checks": [
       "price",
-      "shop",
-      "units"
+      "shop"
     ],
     "at": "2026-11-16"
   }
