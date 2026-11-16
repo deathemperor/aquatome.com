@@ -651,7 +651,12 @@ The layers above still check the result.
     and, for a breed, what sets it apart. Verdicts: shows it (in the wild too, where it is clearly seen), something else
     (it says what), not a photo of it (a map, chart, hands, a tank, a packshot, a landscape or stream where it can't be
     picked out), or can't tell. "Something else" and "not a photo of it" leave the page; a photo no page keeps joins
-    `_photo-rejected.json`. Can't tell stays and is listed in
+    `_photo-rejected.json`. When the check answers "something else" for an album photo, the same run judges that album's
+    other photos from the same uploader that have no verdict for the page yet: the same source (its id, else the site)
+    and author (the author's page where both photos have one, else the name). This round goes past the run's limit and
+    stops at the check's daily line. Only the run's own first answers start it: not a file name's verdict, a guide's, a
+    page's own photo's, an earlier verdict or this round's answers (the chief of staff, 16 Nov: on 15 Nov a second
+    photo by the same uploader in one album was the same wrong fish, and waited for a person). Can't tell stays and is listed in
     `docs/review/photo-subjects.md`, with the removals and the pages left with no photo (they show none; the check
     puts nothing in its place, and the photo steps fill it from their sources as for any page short of photos). A
     "can't tell" photo keeps showing, behind the others (the owner, 2026-11-11): it never leads a page, a breed's
