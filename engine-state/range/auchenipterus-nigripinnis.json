@@ -1,8 +1,8 @@
 {
   "id": "auchenipterus-nigripinnis",
   "native": {
-    "input": "96a3d5a6b6b84f1e",
-    "at": "2026-11-07T02:19:57.912Z",
+    "input": "da4bec8d11aa7f4b",
+    "at": "2026-11-16T00:17:52.050Z",
     "claims": [
       {
         "code": "AR",
@@ -61,19 +61,13 @@
         "ok": true
       },
       {
-        "name": "La Plata",
+        "name": "Rio de La Plata",
         "source": "scotcat",
-        "quote": "South America: La Plata River basin.",
+        "quote": "Known only from the Rio de La Plata drainage.",
         "ok": true
       },
       {
         "name": "Rio Paraná",
-        "source": "scotcat",
-        "quote": "In the Rio Paraná, the species has been recorded above the junction of the Rio Paraguay.",
-        "ok": true
-      },
-      {
-        "name": "Rio Paraguay",
         "source": "scotcat",
         "quote": "In the Rio Paraná, the species has been recorded above the junction of the Rio Paraguay.",
         "ok": true

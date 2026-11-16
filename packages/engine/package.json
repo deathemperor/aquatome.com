@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "test": "vitest run",
+    "test:content": "AQ_CONTENT_ONLY=1 vitest run --passWithNoTests",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

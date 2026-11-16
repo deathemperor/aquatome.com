@@ -1,0 +1,40 @@
+{
+ "at": "2026-11-16T00:47:06Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "spesimen dewasa kelamin yang difoto memiliki panjang total (termasuk sirip ekor) 7 cm (jantan) dan 5 cm (betina)",
+   "why": "Refers to the source's own photographed fish, which this page doesn't show."
+  }
+ ],
+ "text": {
+  "slug": "crenicichla-regani",
+  "name": "Crenicichla regani",
+  "altNames": [
+   "Pike cichlid regani",
+   "Regan's pike cichlid",
+   "Wallaciia regani",
+   "Dwarf pike cichlid"
+  ],
+  "sections": {
+   "quickFacts:glaser": "<p>Pike cichlid (<em>Crenicichla</em>) termasuk salah satu genus cichlid dengan jumlah spesies terbanyak di dunia. Saat ini ada 85 spesies yang diakui. Banyak di antaranya tumbuh lebih dari 20 cm, tetapi ada juga spesies kerdil. <em>Crenicichla regani</em> yang bertubuh ramping, yang menurut literatur bisa mencapai ukuran maksimal 15 cm (jantan) atau 8 cm (betina), termasuk golongan kerdil ini.</p>",
+   "reproduction:glaser": "<p>Sejauh ini semua <em>Crenicichla</em> terbukti merupakan pemijah di gua (cave brooder) yang menjaga anaknya.</p>",
+   "notes:glaser": "<p>Memelihara ikan ini sama sekali tidak sulit. Ikan tangkapan alam tidak pernah mencapai ukuran yang disebutkan di literatur; spesimen dewasa kelamin yang difoto memiliki panjang total (termasuk sirip ekor) 7 cm (jantan) dan 5 cm (betina).</p><p><em>Crenicichla</em>: dari bahasa Yunani kuno, berarti \"<em>Cichla</em> bersisir\"; <em>Cichla</em> adalah genus cichlid lain. <em>regani</em>: nama persembahan untuk Charles Tate Regan (1878–1943), ahli ikan (iktiolog) terkenal dari British Museum di London.</p>",
+   "distribution:glaser": "<p>Spesies <em>Crenicichla regani</em> tersebar sangat luas di kawasan Amazon. Mirip dengan <em>Tropheus</em> dari Danau Tanganyika di Afrika, ada banyak sekali varian geografisnya. Sering kali mustahil memastikan apakah suatu varian masih termasuk <em>C. regani</em> atau sudah merupakan spesies baru yang belum dideskripsikan.</p><p>Ikan yang dibahas di sini diimpor dari Venezuela. Spesies/populasi ini dicirikan oleh tepi merah ceri pada bintik mata (ocellus) di sirip punggung betina. Ikan jantan sama sekali tidak memiliki bintik mata di sirip punggungnya.</p>",
+   "habitat:glaser": "<p>Di alam, ikan ini ditemukan di perairan lunak dan asam, tetapi kondisi ini tidak wajib di akuarium.</p>",
+   "aquariumSize:glaser": "<p>Meskipun ukurannya kecil, ikan ini sebaiknya tidak dipelihara di akuarium kecil, karena di sana ikan ini menjadi cukup agresif.</p>",
+   "waterConditions:glaser": "<p>Yang jauh lebih penting daripada kimia air adalah suhu air, yang sebaiknya relatif tinggi (27–32 °C).</p>",
+   "diet:glaser": "<p>Ikan ini mau makan segala jenis pakan beku dan pakan hidup.</p>"
+  },
+  "quality": {
+   "score": 0.85,
+   "indexable": true,
+   "bySource": {
+    "glaser": 0.85
+   }
+  }
+ }
+}

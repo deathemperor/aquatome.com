@@ -1,8 +1,13 @@
 {
   "slug": "essiquibo-river",
-  "name": "Essequibo",
+  "name": "Sungai Essequibo",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-16T00:07:15.085Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

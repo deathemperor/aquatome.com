@@ -3,6 +3,12 @@
   "name": "Duc My",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.45,
+    "at": "2026-11-16T00:07:02.183Z",
+    "why": "Malay atlases write a river as \"Sungai Duc My\" with the kind word \"Sungai\", so bare \"Duc My\" omits it and reads as a place rather than a river."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

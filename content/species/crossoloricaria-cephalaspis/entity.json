@@ -9,6 +9,88 @@
     "south-america",
     "colombia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This species originates from the north of Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340243,
+      "total": 114,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "CO",
+          114
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -75.9375,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -75.9375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          7.03125,
+          67,
+          67
+        ],
+        [
+          -75.9375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          7.03125,
+          7,
+          7
+        ],
+        [
+          -74.53125,
+          8.4375,
+          32,
+          32
+        ],
+        [
+          -73.125,
+          9.84375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -37,7 +119,41 @@
       "html": "<p>They absolutely need a sandy substrate in which they can bury themselves as deep as possible. This means they are often difficult to spot at all. When newly introduced to the aquarium they only come out of the sand at night, but after a period of acclimatisation they appear at feeding time.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/c4e8e1197587b01f.webp",
+      "thumb": "https://media.aquatome.com/scotcat/c4e8e1197587b01f-480.webp",
+      "width": 500,
+      "height": 138,
+      "licence": "dùng với sự cho phép",
+      "author": "Steven Grant / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/crossoloricaria_cephalaspis.htm",
+      "caption": "Crossoloricaria cephalaspis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/00d3541e300acc96.webp",
+      "thumb": "https://media.aquatome.com/scotcat/00d3541e300acc96-480.webp",
+      "width": 500,
+      "height": 276,
+      "licence": "dùng với sự cho phép",
+      "author": "Steven Grant / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/crossoloricaria_cephalaspis.htm",
+      "caption": "Crossoloricaria cephalaspis: dorsal view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/f9c33295b0c38cc1.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f9c33295b0c38cc1-480.webp",
+      "width": 500,
+      "height": 255,
+      "licence": "dùng với sự cho phép",
+      "author": "Steven Grant / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/crossoloricaria_cephalaspis.htm",
+      "caption": "Crossoloricaria cephalaspis: head view",
+      "source": "scotcat"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

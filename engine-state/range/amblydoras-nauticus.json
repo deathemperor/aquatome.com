@@ -1,8 +1,8 @@
 {
   "id": "amblydoras-nauticus",
   "native": {
-    "input": "2069fc09c2c3940a",
-    "at": "2026-11-06T12:17:30.771Z",
+    "input": "d58a32d6d7ac47c9",
+    "at": "2026-11-16T00:17:52.050Z",
     "claims": [
       {
         "code": "PE",
@@ -59,15 +59,9 @@
         "ok": true
       },
       {
-        "name": "Amazon",
+        "name": "Amazon River",
         "source": "planetcatfish",
         "quote": "South America: Upper Amazon River basin.",
-        "ok": true
-      },
-      {
-        "name": "Amazonia",
-        "source": "glaser",
-        "quote": "One of the most common species of Doradidae in Amazonia.",
         "ok": true
       }
     ],

@@ -1,8 +1,8 @@
 {
   "id": "gasteropelecus-maculatus",
   "native": {
-    "input": "44ed07b888bc3682",
-    "at": "2026-11-08T10:57:49.558Z",
+    "input": "188f1a19f9f9f9b5",
+    "at": "2026-11-16T00:17:52.050Z",
     "claims": [
       {
         "code": "CO",
@@ -11,6 +11,15 @@
         "quote": "Origin: Colombia",
         "words": "Colombia",
         "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Colombia.",
+        "words": "Colombia",
+        "ok": false,
+        "why": "no sentence"
       }
     ],
     "regions": [],

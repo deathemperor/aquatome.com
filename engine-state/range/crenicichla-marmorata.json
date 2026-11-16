@@ -1,10 +1,18 @@
 {
   "id": "crenicichla-marmorata",
   "native": {
-    "input": "aa539286c6c959d4",
-    "at": "2026-11-10T04:57:39.069Z",
+    "input": "89f65d4d7fb6e878",
+    "at": "2026-11-16T00:17:52.050Z",
     "claims": [],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Lago Maracana",
+        "source": "glaser",
+        "quote": "Crenicichla marmorata from that lake were received for the first time ever.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {

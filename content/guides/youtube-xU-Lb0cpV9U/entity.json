@@ -37,6 +37,125 @@
         "type": "lon",
         "t": 150
       }
+    ],
+    "figures": [
+      {
+        "heading": "Vì sao không treo đèn thẳng từ trần",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/xU-Lb0cpV9U/p0-xNTcyMjkyMy5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/xU-Lb0cpV9U/p0-xNTcyMjkyMy5qcGc-480.webp",
+          "width": 960,
+          "height": 1280,
+          "licence": "CC BY-SA 2.0",
+          "author": "w_lemay",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lobby_Pendant_Light,_Shedd_Aquarium,_Roosevelt_Road,_Chicago,_IL_-_54215722923.jpg",
+          "caption": "Đèn pendant rủ thẳng từ trần xuống bằng một sợi dây mảnh."
+        }
+      },
+      {
+        "heading": "Lên kế hoạch khoan lỗ trên ống",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/xU-Lb0cpV9U/p1-fZWRpdGlvbi5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/xU-Lb0cpV9U/p1-fZWRpdGlvbi5qcGc-480.webp",
+          "width": 960,
+          "height": 321,
+          "licence": "CC BY-SA 4.0",
+          "author": "Mad Tatu",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Elex_Pipe_copper_edition.jpg",
+          "caption": "Mạch đèn LED lắp trong ống trong suốt, khung ống nối góc."
+        }
+      },
+      {
+        "heading": "Cắt và khoan ống đồng",
+        "moments": [
+          {
+            "t": 480,
+            "url": "https://media.aquatome.com/video/xU-Lb0cpV9U/at480-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dùng máy khoan mini gắn đĩa cắt để cắt ống đồng ngoài trời.",
+            "sharpness": 196.4
+          },
+          {
+            "t": 570,
+            "url": "https://media.aquatome.com/video/xU-Lb0cpV9U/at570-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ống đồng và dụng cụ cắt đặt trên nền sỏi ngoài trời.",
+            "sharpness": 886.4
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/xU-Lb0cpV9U/p2-9tYXNvbnJ5LmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/xU-Lb0cpV9U/p2-9tYXNvbnJ5LmpwZw-480.webp",
+          "width": 960,
+          "height": 689,
+          "licence": "CC BY-SA 3.0",
+          "author": "Emrys2 at English Wikipedia",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Drill_tip_masonry.jpg",
+          "caption": "Mũi khoan đầu hợp kim cứng, loại dùng để khoan được ống đồng."
+        }
+      },
+      {
+        "heading": "Lấy tâm bể và đánh dấu trên trần",
+        "moments": [
+          {
+            "t": 610,
+            "url": "https://media.aquatome.com/video/xU-Lb0cpV9U/at610-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tia laser xanh chiếu xuyên qua bể để tìm điểm giữa bể.",
+            "sharpness": 633.3
+          },
+          {
+            "t": 650,
+            "url": "https://media.aquatome.com/video/xU-Lb0cpV9U/at650-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dựng cây ống đồng thẳng lên theo tia laser hướng về phía trần.",
+            "sharpness": 757
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/xU-Lb0cpV9U/p3-KSxfbGFzZXIuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/xU-Lb0cpV9U/p3-KSxfbGFzZXIuanBn-480.webp",
+          "width": 960,
+          "height": 598,
+          "licence": "CC BY 2.0",
+          "author": "MTA Capital Construction Mega Projects",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Installation_of_a_stainless-steel_angle_at_the_bottom_of_a_column_in_the_future_LIRR_Concourse._11-12-2019_(49070775291),_laser.jpg",
+          "caption": "Máy laser chiếu các tia xanh lên sàn và tường để lấy điểm chuẩn."
+        }
+      },
+      {
+        "heading": "Gắn đèn và luồn dây điện qua ống",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/xU-Lb0cpV9U/p4-X2F0XzVwY3QuSlBH.webp",
+          "thumb": "https://media.aquatome.com/video/xU-Lb0cpV9U/p4-X2F0XzVwY3QuSlBH-480.webp",
+          "width": 960,
+          "height": 822,
+          "licence": "CC BY-SA 4.0",
+          "author": "wdwd",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:High_Power_COB-LED_with_low_current_at_5pct.JPG",
+          "caption": "Chip đèn LED COB đang sáng, loại thường dùng cho đèn treo bể cá."
+        }
+      },
+      {
+        "heading": "Giấu nốt dây phía sau",
+        "moments": [
+          {
+            "t": 1300,
+            "url": "https://media.aquatome.com/video/xU-Lb0cpV9U/at1300-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dây treo đèn thả thẳng từ trần xuống phía sau bể, có chậu cây treo bên cạnh.",
+            "sharpness": 573.6
+          }
+        ]
+      }
     ]
   }
 }

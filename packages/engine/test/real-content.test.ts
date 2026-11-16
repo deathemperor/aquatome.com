@@ -583,7 +583,12 @@ test('P. annectens\'s dealer part says its bites often seem a mistake for food, 
 
 // C. robustus's sexing part (the Writing Lead, 15 Nov 2026): the narcissus notice's two lines under its address, so the
 // ventral fins link to a page that says them; "females a little bigger" stays in the quick facts, under the bred article.
-// Indonesian and Thai lose their old text, so the translator makes the new part.
+// Indonesian and Thai lose their old text, so the translator makes the new part: either may have the part, never the old
+// text (until 16 Nov this asked for no part at all, and held two rewrite cycles whose translations were right).
+const ROBUSTUS_OLD_SEXING: Record<string, string> = {
+  id: '<p>Betina tumbuh sedikit lebih besar daripada jantan. Jari-jari sirip punggung pada kedua jenis kelamin tumbuh panjang.</p>',
+  th: '<p>ตัวเมียโตกว่าตัวผู้เล็กน้อย ทั้งสองเพศมีก้านครีบหลังยาว</p>',
+}
 test('C. robustus\'s dealer sexing part is the notice\'s ventral-fins line, and its quick facts keep the females\' size', () => {
   const dir = fileURLToPath(new URL('../../../content/species/corydoras-robustus', import.meta.url))
   const read = <T>(f: string) => JSON.parse(readFileSync(join(dir, f), 'utf8')) as T
@@ -591,7 +596,7 @@ test('C. robustus\'s dealer sexing part is the notice\'s ventral-fins line, and 
   expect(parts.find(s => s.key === 'dimorphism')!.html).toContain('The sexes can be told best apart by the shape of the ventral fins.')
   expect(parts.find(s => s.key === 'quickFacts')!.html).toContain('Females become somewhat bigger than males.')
   expect(read<Translation>('vi.json').sections!['dimorphism:glaser']).toBe('<p>Ở C. robustus, cả cá đực lẫn cá cái đều có vây lưng dài. Cách phân biệt đực cái tốt nhất là nhìn hình dạng vây bụng.</p>')
-  for (const l of ['id', 'th']) expect(read<Translation>(`${l}.json`).sections!['dimorphism:glaser'], l).toBeUndefined()
+  for (const l of ['id', 'th']) expect(read<Translation>(`${l}.json`).sections?.['dimorphism:glaser'], l).not.toBe(ROBUSTUS_OLD_SEXING[l])
   // The notice itself forwards to C. narcissus, the fish it's mostly about; nothing of narcissus moves (ruling b).
   expect(RETIRED_GUIDES['glaser-en-10-catfishes-10a-catfishes-corydoras-co-show-corydoras-arrived-en']).toEqual({ kind: 'species', id: 'corydoras-narcissus' })
 })
@@ -600,7 +605,7 @@ test('C. robustus\'s dealer sexing part is the notice\'s ventral-fins line, and 
 // says it: the lungfish notice's "predators, for experienced keepers only" on P. dolloi, with its other lines, about the
 // group ("Các loài … đều"), since "Cá phổi châu Phi" is P. annectens's page name; and the eques notice's look-alike line
 // on C. duplicareus, after the name's meaning in the part already under that address (the Writing Lead, 16:24).
-// Indonesian and Thai have no such part, so the translator makes it.
+// Indonesian and Thai had no such part, so the translator makes it: when it has, both lines, each naming C. adolfoi.
 test('P. dolloi\'s dealer part says African lungfishes are predators for experienced keepers, and C. duplicareus\'s that it is hard to tell from C. adolfoi', () => {
   const read = <T>(fish: string, f: string) => JSON.parse(readFileSync(fileURLToPath(new URL(`../../../content/species/${fish}/${f}`, import.meta.url)), 'utf8')) as T
   const en = (fish: string, key: string) => read<{ sections: { key: string; source: string; html: string }[] }>(fish, 'entity.json').sections.find(s => s.key === key && s.source === 'glaser')!.html
@@ -608,7 +613,10 @@ test('P. dolloi\'s dealer part says African lungfishes are predators for experie
   expect(read<Translation>('protopterus-dolloi', 'vi.json').sections!['behaviour:glaser']).toMatch(/^<p>Các loài cá phổi châu Phi đều là cá săn mồi, chỉ hợp với người chơi đã có kinh nghiệm\. Có vẻ/)
   expect(en('corydoras-duplicareus', 'notes')).toBe('<p>duplicareus: Latin for doubled; refers to the extreme similarity to C. adolfoi.</p><p>The only problem with this Corydoras gem is to distinguish it from its close relative C. adolfoi. Otherwise the fish is undemanding.</p>')
   expect(read<Translation>('corydoras-duplicareus', 'vi.json').sections!['notes:glaser']).toBe('<p>duplicareus: tiếng Latinh nghĩa là "nhân đôi", ý chỉ loài này cực kỳ giống C. adolfoi.</p><p>Cái khó duy nhất với loài cá chuột này là phân biệt nó với cá chuột Adolfo (C. adolfoi), một loài rất gần. Ngoài chuyện đó thì cá dễ nuôi.</p>')
-  for (const l of ['id', 'th']) expect(read<Translation>('corydoras-duplicareus', `${l}.json`).sections!['notes:glaser'], l).toBeUndefined()
+  for (const l of ['id', 'th']) {
+    const part = read<Translation>('corydoras-duplicareus', `${l}.json`).sections?.['notes:glaser']
+    if (part !== undefined) expect(part.split('</p>').filter(p => p.trim()).map(p => /adolfoi/.test(p)), l).toEqual([true, true])
+  }
 })
 
 test('the seller notices kept as guides say nothing of the dealer\'s stock, and the two renamed forward', () => {
@@ -1172,6 +1180,28 @@ test('the Botia markings guide prints no email address, still credits its author
   expect(all.includes('@'), 'an "@", an address or any of it').toBe(false)
   expect((t.body ?? '').match(/<strong>Từ:<\/strong> \p{Lu}\p{L}+ (?:\p{Lu}\. )?\p{Lu}\p{L}+/gu)?.length, 'letters whose header names their sender').toBe(2)
   expect(t.bodyFixed).toBe(true)
+})
+
+// The chief of staff, 16 Nov 2026: the acclimation guide filled a fish bag a third oxygen, the wrong way round (Tetra and
+// the trade association's transport code: a third water, two thirds oxygen), and the Lũa material said shop wood comes
+// with no chemicals, where a keepers' page tells of oiled wood that killed every fish in a few tanks. Both rested on a
+// refused shop alone, and both are mended by hand: the guide's body is fixed, and the material was already.
+test('a fish bag is a third water and two thirds oxygen, and shop wood is smelled before use, both fixed by hand', () => {
+  const root = fileURLToPath(new URL('../../../', import.meta.url))
+  const guide = join(root, 'content/guides/aquatome-tha-ca-moi-mua-vao-be-cach-thuan-nuoc-dung')
+  const t = JSON.parse(readFileSync(join(guide, 'vi.json'), 'utf8')) as Translation & { bodyFixed?: boolean }
+  expect(t.body).toContain('Túi đựng cá nên có khoảng 1/3 là nước và 2/3 là oxy.')
+  expect(t.body).not.toMatch(/1\/3 là oxy/)
+  expect(t.bodyFixed).toBe(true)
+  const refs = (JSON.parse(readFileSync(join(guide, 'entity.json'), 'utf8')) as { refs: { url: string }[] }).refs.map(r => r.url)
+  expect(refs).toEqual(expect.arrayContaining(['https://blog.tetra.net/en-en/fish-transport-and-acclimatisation/', 'https://ornamentalfish.org/wp-content/uploads/OATA-Transport-Code-Oct-2022.pdf']))
+  const lua = JSON.parse(readFileSync(join(root, 'content/materials/lua/vi.json'), 'utf8')) as { sections: { about: string }; bodyFixed?: boolean }
+  expect(lua.sections.about).not.toContain('không tẩm hóa chất')
+  expect(lua.sections.about).toContain('Gỗ có mùi hóa chất thì đừng cho vào bể.')
+  expect(lua.sections.about).toContain('đã làm chết hết cá trong vài bể [14]')
+  expect(lua.bodyFixed).toBe(true)
+  const sources = (JSON.parse(readFileSync(join(root, 'content/materials/lua/entity.json'), 'utf8')) as { sources: { url: string }[] }).sources
+  expect(sources[13]?.url).toBe('https://aquariumscience.org/14-10-wood/')
 })
 
 // The chief of staff, 16 Nov 2026: no email address in any file under content/, in any field, a page's text or a video's

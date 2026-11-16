@@ -1,5 +1,4 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
-import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import type { Content } from '@aq/schema'
 import { drawnKinds, levelBlocks, PageDoc, PageShard, pageShard, shardCount, type Block, type Inline } from '@aq/schema/app-page'
@@ -20,7 +19,6 @@ type Vectors = {
   docs: { note: string; valid: boolean; doc: unknown; blocks: string[] }[]
 }
 const v: Vectors = JSON.parse(readFileSync(new URL('../../../protocols/page-vectors.json', import.meta.url), 'utf8'))
-const CONTENT = fileURLToPath(new URL('../../../content/', import.meta.url))
 const clean = (s: string) => s.replace(/\s+/g, ' ').trim()
 const textOf = (c: Inline[] = []) => c.map(r => (typeof r === 'string' ? r : r.text)).join('')
 const pagesOf = (d: PageDoc) => d.blocks.flatMap(b => (b.t === 'pages' ? b.paths : []))
@@ -44,27 +42,6 @@ test.each(v.shards)('$path is in shard $n of $shards', c => {
 test('about 8 pages a shard, a power of two', () => {
   expect([0, 1, 8, 9, 16, 17, 249, 1016].map(shardCount)).toEqual([1, 1, 1, 2, 2, 4, 32, 128])
 })
-
-test('every content file\'s text converts: nothing the app would have to send to the web', () => {
-  const unknown = new Map<string, string>()
-  let n = 0
-  for (const kind of ['guides', 'species', 'plants', 'breeds']) {
-    for (const id of readdirSync(CONTENT + kind)) {
-      for (const lang of LANGS) {
-        const f = `${CONTENT}${kind}/${id}/${lang}.json`
-        if (!existsSync(f)) continue
-        const t = JSON.parse(readFileSync(f, 'utf8')) as { body?: string; sections?: Record<string, string> }
-        for (const html of [t.body, ...Object.values(t.sections ?? {})]) {
-          if (typeof html !== 'string' || !html) continue
-          n++
-          for (const u of htmlBlocks(html).unknown) unknown.set(u, `${kind}/${id}/${lang}`)
-        }
-      }
-    }
-  }
-  expect(n).toBeGreaterThan(100)
-  expect([...unknown]).toEqual([])
-}, slow(60_000)) // about 17,000 texts: a second alone, more beside the other tests
 
 test('every guide converts as its page shows it (links, photos, a video\'s pictures), and is the format', async () => {
   let n = 0

@@ -208,6 +208,34 @@
       "unchecked": true
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/16628511.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/16628511-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC0",
+      "author": "Dawn VanDeman",
+      "sourceUrl": "https://www.inaturalist.org/photos/16628511",
+      "caption": "Trai Corbicula vỏ vàng nâu trên nền sỏi cát ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/16628575.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/16628575-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC0",
+      "author": "Dawn VanDeman",
+      "sourceUrl": "https://www.inaturalist.org/photos/16628575",
+      "caption": "Trai Corbicula vỏ sẫm có vân đồng tâm trên bãi cát",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/7805280.webp",
       "thumb": "https://media.aquatome.com/inaturalist/7805280-480.webp",
       "width": 768,
@@ -247,7 +275,7 @@
       "unchecked": true
     }
   ],
-  "seen": 300,
-  "updatedAt": "2026-11-13",
-  "builtAt": "2026-11-13"
+  "seen": 320,
+  "updatedAt": "2026-11-15",
+  "builtAt": "2026-11-15"
 }

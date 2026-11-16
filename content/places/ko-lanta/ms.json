@@ -3,6 +3,12 @@
   "name": "Koh Lanta",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.72,
+    "at": "2026-11-16T00:09:43.994Z",
+    "why": "Malaysian atlases usually write \"Pulau Lanta\" or \"Ko Lanta\" for this island; \"Koh Lanta\" is the common English spelling and leaves out the Malay word \"Pulau\" for island."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false
