@@ -167,7 +167,38 @@ test('a run cut short past a mark is judged again on all it read: 30 refused of 
   let calls = 0
   const llm: Llm = async <T>() => { calls++; return { checks: [] } as T }
   const r = await checkVideoTitles(root, llm, 'vi', titles, { verdicts: { refused, passed } })
-  expect([calls, r.prior, r.stopped]).toEqual([0, { checked: 240, refused: 30 }, 'over one in ten refused at 200 titles: 30 of 240'])
+  expect([calls, r.prior, r.stopped]).toEqual([0, { checked: 240, refused: 30 }, 'over one in ten refused among the 240 titles read before: 30 of 240'])
+})
+
+test('a language that ended under the line is not stopped when passed videos leave their pages: what was read before counts, its video on a page or not (the reviewers of the check, 16 Nov)', async () => {
+  const { root, ids, titles } = await many(500)
+  const dir = join(root, 'content/video-titles')
+  await writeFile(join(dir, 'vi.json'), JSON.stringify(titles))
+  // 40 of 400 refused: one in ten exactly, so the language went on. Then five passed videos leave the page.
+  await writeFile(join(dir, 'vi.refused.json'), JSON.stringify(Object.fromEntries(ids.slice(0, 40).map(id => [id, 'dropped: x']))))
+  await writeFile(join(dir, 'vi.passed.json'), JSON.stringify(Object.fromEntries(ids.slice(40, 400).map(id => [id, titles[id]!]))))
+  const page = join(root, 'content/species/a/entity.json'), gone = new Set(ids.slice(40, 45))
+  const e = JSON.parse(await readFile(page, 'utf8')) as { videos: { youtubeId: string }[] }
+  await writeFile(page, JSON.stringify({ ...e, videos: e.videos.filter(v => !gone.has(v.youtubeId)) }))
+  let calls = 0
+  const llm: Llm = async <T>({ prompt }: { prompt: string }) => { calls++; return { checks: rowsOf(prompt).map((_, j) => ({ n: j + 1, ok: true })) } as T }
+  const r = await runTitleCheck(root, llm, 'vi', { write: true })
+  expect([r.prior, r.stopped, calls]).toEqual([{ checked: 400, refused: 40 }, '', 3])
+  expect(existsSync(join(dir, 'stopped.json'))).toBe(false)
+})
+
+test('two languages checked side by side keep both their stops: each reads the record again just before saving its own (the reviewers of the check, 16 Nov)', async () => {
+  const { root, ids, titles } = await many(300)
+  const dir = join(root, 'content/video-titles')
+  await writeFile(join(root, 'content/species/a/th.json'), JSON.stringify({ name: 'ปลา A' }))
+  await writeFile(join(dir, 'vi.json'), JSON.stringify(titles))
+  await writeFile(join(dir, 'th.json'), JSON.stringify(titles))
+  const bad = new Set(ids.slice(0, 23))
+  const llm: Llm = async <T>({ prompt }: { prompt: string }) => ({ checks: rowsOf(prompt).map((l, j) => (bad.has(/Aus (v\d+)/.exec(l)![1]!) ? { n: j + 1, ok: false, kind: 'dropped', why: 'x' } : { n: j + 1, ok: true })) }) as T
+  const line = 'over one in ten refused at 200 titles: 23 of 200'
+  const [vi, th] = await Promise.all([runTitleCheck(root, llm, 'vi', { write: true }), runTitleCheck(root, llm, 'th', { write: true })])
+  expect([vi.stopped, th.stopped]).toEqual([line, line])
+  expect(JSON.parse(await readFile(join(dir, 'stopped.json'), 'utf8'))).toEqual({ th: line, vi: line })
 })
 
 test('--only never takes a language past its stop: the titles read before are counted whatever it picks (the reviewers of the check, 16 Nov)', async () => {
@@ -284,7 +315,8 @@ test('a recorded stop holds whatever the files say after it: after an earlier pa
       expect([m.calls, again.prior, again.stopped, checkOutcome('vi', again).exitCode]).toEqual([0, { checked: 230, refused: 21 }, stopRecord, 1])
     }
   }
-  // A run stops at exactly 200 with 21 refused; then a refused video leaves its page, so 20 of 199 are on file.
+  // A run stops at exactly 200 with 21 refused; then a refused video leaves its page. Its verdict still counts (21 of 200),
+  // and the record holds.
   {
     const { root, ids, titles } = await many(500)
     const dir = join(root, 'content/video-titles')
@@ -296,7 +328,7 @@ test('a recorded stop holds whatever the files say after it: after an earlier pa
     await writeFile(page, JSON.stringify({ ...e, videos: e.videos.filter(v => v.youtubeId !== ids[0]) }))
     m.calls = 0
     const again = await runTitleCheck(root, m.llm, 'vi', { write: true })
-    expect([m.calls, again.prior, again.stopped]).toEqual([0, { checked: 199, refused: 20 }, stopRecord])
+    expect([m.calls, again.prior, again.stopped]).toEqual([0, { checked: 200, refused: 21 }, stopRecord])
   }
 })
 

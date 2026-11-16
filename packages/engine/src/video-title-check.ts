@@ -47,10 +47,13 @@ export async function checkVideoTitles(root: string, llm: Llm, lang: Lang, title
   }
   const shared = [...rows.keys()].filter(id => about.get(id)!.size > 1)
   for (const id of shared) rows.delete(id)
-  const prior = { checked: 0, refused: 0 }
-  for (const [id, row] of o.verdicts ? rows : []) {
+  // Every title read before in its present words counts toward the stop line, its video on a page or not: a passed video
+  // leaving its page must not tip a language that ended under the line over it (the reviewers of the check, 16 Nov).
+  const prior = { checked: 0, refused: 0 }, notRead = new Set(shared)
+  for (const [id, written] of o.verdicts ? Object.entries(titles) : []) {
+    if (notRead.has(id)) continue
     const refused = id in o.verdicts!.refused
-    if (refused || o.verdicts!.passed[id] === row.written) { rows.delete(id); prior.checked++; if (refused) prior.refused++ }
+    if (refused || o.verdicts!.passed[id] === written) { rows.delete(id); prior.checked++; if (refused) prior.refused++ }
   }
   // `only` picks what this run reads, after the titles read before are counted: it never takes a language past its stop.
   const list = [...rows.values()].filter(r => !o.only || o.only.includes(r.youtubeId))
@@ -66,7 +69,7 @@ export async function checkVideoTitles(root: string, llm: Llm, lang: Lang, title
     if (marked === 0 && prior.checked >= MARK) {
       marked = Math.floor(prior.checked / MARK) * MARK
       if (prior.refused * 10 > prior.checked) {
-        report.stopped = report.line = `over one in ten refused at ${marked} titles: ${prior.refused} of ${prior.checked}`
+        report.stopped = report.line = prior.checked === marked ? `over one in ten refused at ${marked} titles: ${prior.refused} of ${marked}` : `over one in ten refused among the ${prior.checked} titles read before: ${prior.refused} of ${prior.checked}`
         return
       }
     }
@@ -118,7 +121,8 @@ export async function runTitleCheck(root: string, llm: Llm, lang: Lang, o: { tit
   const titles = Object.fromEntries(Object.entries(JSON.parse(await readFile(o.titlesFile ?? join(dir, `${lang}.json`), 'utf8')) as Record<string, string>).filter(([id]) => !(id in kept)))
   const verdicts = o.write ? { refused: await readMap(join(dir, `${lang}.refused.json`)), passed: await readMap(join(dir, `${lang}.passed.json`)) } : undefined
   const r = await checkVideoTitles(root, llm, lang, titles, { only: o.only, verdicts, stopped: o.write ? stops[lang] : undefined, record: o.write ? checks => recordVerdicts(root, lang, checks, titles) : undefined })
-  if (o.write && r.line) await saveMap(stopsFile, stops, { ...stops, [lang]: r.line })
+  // Read again just before saving: another language checked meanwhile may have recorded its own stop.
+  if (o.write && r.line) { const now = await readMap(stopsFile); await saveMap(stopsFile, now, { ...now, [lang]: r.line }) }
   return r
 }
 
