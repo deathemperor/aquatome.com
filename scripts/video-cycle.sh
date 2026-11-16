@@ -88,10 +88,16 @@ pnpm engine sweep || log "sweep: failed"
 # that fails is held, a live page that got worse keeps its committed text, a page built on a foreign shop's kit is held,
 # and a held page that now passes is let out. A page it can't read stays as readers have it; only a crash stops the run,
 # and keeps its work on a branch (gate_or_keep).
-# The held video guides go to their editor here alone, 24 a run (gate.ts heldMendsOf): the Mac's five parts each sent the
-# same 12, and two rounds' 83 tries went to 27 guides (the chief of staff, 15 Nov 2026). One a mend didn't let out waits
-# 3 days on that text (MEND_AGAIN_DAYS), so the slots go to the others.
-export GATE_HELD_MENDS="${GATE_HELD_MENDS:-24}"
+# The held video guides go to their editor here alone (gate.ts heldMendsOf): the Mac's five parts each sent the same 12,
+# and two rounds' 83 tries went to 27 guides (the chief of staff, 15 Nov 2026). One a mend didn't let out waits 3 days on
+# that text (MEND_AGAIN_DAYS), so the slots go to the others.
+# At most 4 held guides and 2 new or live ones a run, in place of 24 and 20 (the chief of staff, 16 Nov 2026): on 16 Nov
+# the editor's rewrites, logged under the gate's name, came to about $40 of the gate's $57 on the Mac, and its own check
+# threw out 65 of at least 92 after each was paid for. The gate has no line, so that spend ended every other step's day at
+# 21:50. A guide not mended stays held, and a live one that got worse keeps its committed text. Each figure is one
+# setting here, and the job's environment can set either.
+export GATE_HELD_MENDS="${GATE_HELD_MENDS:-4}"
+export GATE_MENDS="${GATE_MENDS:-2}"
 gate_or_keep "content: videos" content engine-state docs/review || exit 1
 if [ -z "$(git status --porcelain -- content engine-state docs/review)" ]; then log "no changes"; exit 0; fi
 # Committed before the tests, as engine-cycle.sh does: the next run's reset drops uncommitted work for good, and a commit
