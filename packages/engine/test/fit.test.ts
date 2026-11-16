@@ -665,6 +665,9 @@ test('a dealer\'s shelf in its own part is named, a sentence that also gives a p
     // A look, a maximum, how rare.
     'Cá đang bán hiện nay dài 10-12 cm và màu khá xỉn.', 'Hiện có cá Desmopuntius hexazona đánh bắt ngoài tự nhiên, rất đẹp, đã đạt kích thước tối đa (5-6 cm).',
     'Loài này rất hiếm khi về hàng, và lần nhập vừa rồi cũng chỉ có được vài con.',
+    // A figure besides the size on offer, or more after it; a sentence the mend reads whole, past a semicolon or an initial.
+    'Cỡ cá hiện có: 4-5 cm, trưởng thành dài tới 30 cm.', 'Cá bán ra thường dài 3-5 cm, lớn nhanh.',
+    'Cỡ cá thường bán: 4-5 cm; cá trưởng thành dài 12 cm.', 'Hiện trên thị trường đang có cá A. atahualpa đánh bắt tự nhiên từ Peru.',
   ]
   const stays = [
     'Gần như toàn bộ cá bán ra là cá nhân giống.', 'Cá hô con đang bán hiện nay đều xuất phát từ trại nuôi thủy sản.', 'Tiếc là loài này rất hiếm khi có bán.',

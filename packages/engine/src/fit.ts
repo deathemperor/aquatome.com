@@ -11,6 +11,7 @@ import { LANG_NAME, type Page, type PageKind } from './pages'
 import { PHRASES, phraseQuotes } from './phrases'
 import { label, norm, readable, render, RETRACTED } from './reader'
 import { CONVERTED_LITRES, sourceGives } from './round'
+import { sentences } from './sentences'
 import { snapshotName } from './snapshot'
 import { SOURCES } from './sources'
 
@@ -278,14 +279,19 @@ const SHELF_VI = [
  */
 const SHELF_PLACE = /(?<![\p{L}])(?:(?:từ|ở|tại|thuộc) (?!Đức(?![\p{L}])|Châu Âu)(?:sông |bang |vùng |hồ |tỉnh )?|(?:sông|lưu vực|bang|vùng) )\p{Lu}/u
 const SHELF_FACT = new RegExp(`${WORD('màu|sọc|chấm|vây|hoa văn|mặt nạ|đực|cái|vảy|xỉn|tối đa|nhất|dạng|con cháu|dòng nuôi|thế hệ đầu|hiếm|ít khi|thỉnh thoảng|lúc nào cũng|quanh năm')}|(?<!\\d)(?:1[89]|20)\\d\\d(?!\\d)`, 'iu')
-const CLAUSE = /(?<=[.!?…;])\s+|\n/u
-/** A Vietnamese text's shelf sentences: those wholly a dealer's shelf (named) and those that are a fact too (left, listed). */
+/** A sentence's only figure is the size on offer, at its end: "Cỡ cá hiện có: 4-5 cm, trưởng thành dài tới 30 cm." gives a maximum too. */
+const SIZE_ALONE = /^[^\d]*\d+(?:[.,]\d+)?(?:\s*(?:[-–]|đến|tới)\s*\d+(?:[.,]\d+)?)?\s*cm\)?\s*[.!]?$/u
+/**
+ * A Vietnamese text's shelf sentences: those wholly a dealer's shelf (named) and those that are a fact too (left, listed).
+ * Cut into sentences as the mend cuts them (sentences.ts), which takes a named sentence whole: one cut finer, at a
+ * semicolon or an initial ("cá A. atahualpa … từ Peru"), would name a piece and lose the rest with it.
+ */
 export function dealerShelf(text: string): { named: string[]; left: string[] } {
   const named: string[] = [], left: string[] = []
-  for (const raw of text.split(CLAUSE)) {
-    const s = raw.trim().replace(/^(?:(?:tuy|vì|do) (?:vậy|thế)|tuy nhiên|ngoài ra),\s*/iu, '')
+  for (const raw of text.split('\n').flatMap(l => sentences(l).filter(x => x.sentence).map(x => x.html.trim()))) {
+    const s = raw.replace(/^(?:(?:tuy|vì|do) (?:vậy|thế)|tuy nhiên|ngoài ra),\s*/iu, '')
     if (!s || !SHELF_VI.some(r => r.test(s))) continue
-    ;(SHELF_PLACE.test(s) || SHELF_FACT.test(s) ? left : named).push(raw.trim())
+    ;(SHELF_PLACE.test(s) || SHELF_FACT.test(s) || (/\d/.test(s) && !SIZE_ALONE.test(s)) ? left : named).push(raw)
   }
   return { named, left }
 }
