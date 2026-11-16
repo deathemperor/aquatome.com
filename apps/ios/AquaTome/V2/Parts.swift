@@ -63,6 +63,9 @@ struct V2Photo: View {
         }
       }
       .clipped()
+      // Tapped only where it's drawn: `clipped()` hides what a covering photo lays out past its frame, but that still took
+      // taps (a wide card's photo took those of the photo line above it, Design, 17 Nov).
+      .contentShape(.rect)
       .onGeometryChange(for: CGSize.self) { $0.size } action: { points = $0; pixels = CGSize(width: $0.width * scale, height: $0.height * scale) }
       .onChange(of: phase) { if phase == .active, let src, missing == src { again += 1 } }
       .onChange(of: image?.size, initial: true) { _, s in if let shape, let s, s.height > 0 { shape(s.width / s.height) } }

@@ -92,6 +92,8 @@ struct ChipPage: View {
       }
     }
     .modifier(ClearUnderLargeTitle())
+    // Back from a fish's page at its top, as it was left (Design, 17 Nov).
+    .background(OpensAtTop())
     .navigationTitle(shelf.chip.name)
     .accessibilityIdentifier("v2-chip-page")
   }

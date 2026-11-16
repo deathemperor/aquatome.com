@@ -81,28 +81,43 @@ struct HandbookView: View {
 /// tab's list first a little scrolled, past where iOS draws the big title, with its field always shown; pulled down and back
 /// it draws it big (10 Nov). So the first time the list is shown, it's set at its very top and the bar measures itself
 /// again, which is when it draws its title big; setting the list's place alone left it small (15 Nov). Nothing else is
-/// touched.
-private struct OpensAtTop: UIViewControllerRepresentable {
+/// touched. And back from a page pushed over it, a screen left at its top comes back there with its title big, as it was
+/// left: iOS brought a group's page back 55 points up, its title folded into the bar (Design, 17 Nov).
+struct OpensAtTop: UIViewControllerRepresentable {
   func makeUIViewController(context: Context) -> Holder { Holder() }
   func updateUIViewController(_ holder: Holder, context: Context) {}
 
   final class Holder: UIViewController {
-    private var done = false
+    private var first = true
+    private var leftAtTop = false
+
+    override func viewWillDisappear(_ animated: Bool) {
+      super.viewWillDisappear(animated)
+      if let list = list() { leftAtTop = list.contentOffset.y <= -list.adjustedContentInset.top + 1 }
+    }
 
     override func viewDidAppear(_ animated: Bool) {
       super.viewDidAppear(animated)
-      guard !done else { return }
-      done = true
+      guard first || leftAtTop else { return }
+      first = false
+      leftAtTop = false
       top()
       // Again once iOS has laid the bar out after its own appearance.
       DispatchQueue.main.async { [weak self] in self?.top() }
     }
 
     private func top() {
-      guard let bar = navigationController?.navigationBar, let screen = navigationController?.topViewController?.view,
-            let list = Self.firstScroll(in: screen) else { return }
+      guard let bar = navigationController?.navigationBar, let list = list() else { return }
       list.setContentOffset(CGPoint(x: list.contentOffset.x, y: -list.adjustedContentInset.top), animated: false)
       bar.sizeToFit()
+    }
+
+    /// The screen's own list: from the screen this sits in, not the stack's top, which is the page pushed over it by the
+    /// time this one goes.
+    private func list() -> UIScrollView? {
+      var screen: UIViewController = self
+      while let up = screen.parent, !(up is UINavigationController) { screen = up }
+      return Self.firstScroll(in: screen.view)
     }
 
     private static func firstScroll(in v: UIView) -> UIScrollView? {
