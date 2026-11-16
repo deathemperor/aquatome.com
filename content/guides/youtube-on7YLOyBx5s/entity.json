@@ -73,7 +73,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh cây mọc dày xanh um, gần thành rừng rậm.",
-            "sharpness": 702
+            "sharpness": 702,
+            "person": false
           },
           {
             "t": 1240,
@@ -81,7 +82,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể có lũa, đá phủ rêu và cây mọc tự nhiên.",
-            "sharpness": 213.8
+            "sharpness": 213.8,
+            "person": false
           }
         ]
       },
@@ -94,7 +96,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh phủ thảm cây xanh mướt với đá bố cục.",
-            "sharpness": 1843.8
+            "sharpness": 1843.8,
+            "person": false
           },
           {
             "t": 350,
@@ -102,7 +105,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tủ dưới bể có chai phân và bơm định lượng châm phân.",
-            "sharpness": 466.1
+            "sharpness": 466.1,
+            "person": false
           }
         ],
         "photo": {
@@ -120,20 +124,13 @@
         "heading": "Gắn và cài máy châm phân tự động",
         "moments": [
           {
-            "t": 210,
-            "url": "https://media.aquatome.com/video/on7YLOyBx5s/at210-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hộp máy châm phân tự động còn nguyên, chuẩn bị mở ra lắp.",
-            "sharpness": 297.6
-          },
-          {
             "t": 300,
             "url": "https://media.aquatome.com/video/on7YLOyBx5s/at300-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Máy châm phân đã gắn lên thành tủ, ống dẫn thả xuống thùng nước.",
-            "sharpness": 327.9
+            "sharpness": 327.9,
+            "person": false
           }
         ]
       },
@@ -146,7 +143,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lá trầu bà mọc sát dưới đèn, có lá bị héo, cháy.",
-            "sharpness": 549.1
+            "sharpness": 549.1,
+            "person": false
           }
         ],
         "photo": {
@@ -169,7 +167,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ngọn cây cắt nổi lềnh bềnh sát mặt nước, chờ gom lại cắm.",
-            "sharpness": 741.2
+            "sharpness": 741.2,
+            "person": false
           },
           {
             "t": 660,
@@ -177,7 +176,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bụi Limnophila xanh tốt trồng phía sau, ngọn đang lên cao.",
-            "sharpness": 391.8
+            "sharpness": 391.8,
+            "person": false
           }
         ],
         "photo": {
@@ -193,24 +193,7 @@
       },
       {
         "heading": "Vớt bớt cây nổi và dọn rác cây",
-        "moments": [
-          {
-            "t": 680,
-            "url": "https://media.aquatome.com/video/on7YLOyBx5s/at680-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh có lớp cây nổi phủ mặt nước, cây bên dưới xanh tốt.",
-            "sharpness": 1129.9
-          },
-          {
-            "t": 730,
-            "url": "https://media.aquatome.com/video/on7YLOyBx5s/at730-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Toàn cảnh bể sau khi dọn, cây nổi thưa và cây dưới nền xanh khỏe.",
-            "sharpness": 1562.5
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/on7YLOyBx5s/p5-9zdXJmYWNlLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/on7YLOyBx5s/p5-9zdXJmYWNlLmpwZw-480.webp",
@@ -231,7 +214,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây dương xỉ gắn trên lũa trong bể thủy sinh.",
-            "sharpness": 181.8
+            "sharpness": 181.8,
+            "person": false
           },
           {
             "t": 130,
@@ -239,7 +223,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nhìn ngang bể thủy sinh có lũa, nước hơi ngả vàng.",
-            "sharpness": 1313.9
+            "sharpness": 1313.9,
+            "person": false
           }
         ]
       }

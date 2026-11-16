@@ -3,6 +3,12 @@
   "name": "Perbukitan Kardamom",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-16T11:21:41.605Z",
+    "why": "Indonesian usage typically writes \"Pegunungan Cardamom\" (or \"Bukit Cardamom\"); \"Kardamom\" is a respelling of the proper name, and \"Perbukitan\" is a looser kind word than the usual \"Pegunungan\"."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

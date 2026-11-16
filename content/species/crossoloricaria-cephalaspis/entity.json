@@ -15,9 +15,14 @@
       "countries": [
         "CO"
       ],
-      "regions": [],
+      "regions": [
+        "Magdalena",
+        "Cauca",
+        "Atrato"
+      ],
       "sources": [
-        "glaser"
+        "glaser",
+        "scotcat"
       ],
       "quotes": [
         {
@@ -27,6 +32,23 @@
             "CO"
           ],
           "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Magdalena River basin, Colombia.",
+          "countries": [],
+          "regions": [
+            "Magdalena"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "However, this species has a wide distribution in the lowlands throughout the Magdalena, Cauca and Atrato river basins.",
+          "countries": [],
+          "regions": [
+            "Cauca",
+            "Atrato"
+          ]
         }
       ]
     },

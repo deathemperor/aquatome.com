@@ -904,6 +904,29 @@
       "\"Tanaman air yang cantik ini\" adds \"air\", which the source does not say, but this is harmless. \"merah kecokelatan\" for \"red-brown\" is fine, but \"bintik-bintik merah kecokelatan\" adds \"kecil\" in the ID text, which is not in the source; remove \"kecil\" if it was added."
     ]
   },
+  "echinodorus-tenellus": {
+    "at": "2026-11-16",
+    "from": "2026-11-15",
+    "name": "Echinodorus tenellus",
+    "confidence": "high",
+    "score": 0.8,
+    "notes": [
+      "Item 3: \"Runners may jump out of the substrate\" rendered as \"Sulur bisa mencuat keluar dari substrat\" – \"mencuat\" is a bit off; better \"sulur bisa terlepas/muncul keluar dari substrat\".",
+      "Item 3: \"Add root tabs to the substrate\" rendered as \"Benamkan root tab\" is fine, but \"Dose ... in the water column\" -> \"berikan pupuk cair ke kolom air\" is slightly awkward; \"kolom air\" is OK, consider \"tuang ke dalam air\".",
+      "Item 3: \"Emersed plants produce seeds freely\" -> \"mudah menghasilkan biji\" fine, but \"tidak bisa dipertahankan di satu titik saja\" is awkward; better \"sehingga tanaman tidak tetap di satu tempat\".",
+      "Item 6: \"goldfish\" translated as \"ikan mas koki\"; use \"ikan mas\" or \"koki\" (mas koki is the common name for goldfish, acceptable, but \"lobster air tawar\" for crayfish is fine).",
+      "Item 5: \"rakus nutrisi lewat akar\" is colloquial; prefer \"banyak menyerap nutrisi lewat akar\".",
+      "Item 6: \"Teman satu akuarium\" is slightly stiff; \"penghuni lain/tankmate\" is more natural."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "8b6b4b6fa891",
+      "distribution:aquariumbreeder": "0b1f4d7dda97",
+      "maintenance:aquariumbreeder": "0329aaa41fd9",
+      "waterConditions:aquariumbreeder": "7deecd0ec8c0",
+      "equipment:aquariumbreeder": "0ae5c84f435e",
+      "notes:aquariumbreeder": "b14dfdf88eb0"
+    }
+  },
   "echinodorus-x-barthii": {
     "at": "2026-11-09",
     "from": "2026-11-09",
@@ -1741,16 +1764,26 @@
     ]
   },
   "najas-guadalupensis": {
-    "at": "2026-11-09",
-    "from": "2026-11-09",
-    "name": "Guppy Grass",
+    "at": "2026-11-16",
+    "from": "2026-11-15",
+    "name": "Najas",
     "confidence": "medium",
-    "score": 0.9,
+    "score": 0.93,
     "notes": [
-      "Item 2: the source text is in Vietnamese, not English; the Indonesian translation matches its content well, so no real problem, but the source mismatch should be flagged.",
-      "Item 1: 'aquarist' left in English; use 'penghobi akuarium' or 'aquascaper'.",
-      "Item 1: 'perbanyakannya gampang sekali' is a bit colloquial for a handbook; consider 'mudah diperbanyak'."
-    ]
+      "Item 1: \"aquarist\" is left in English; \"penghobi akuarium\" is more natural."
+    ],
+    "parts": {
+      "quickFacts:tropica": "ea6a4bf24a9c",
+      "beforeYouBuy:aquatome": "13300c6fa350",
+      "aquariumSize:aquatome": "e7d9aa157043",
+      "maintenance:aquatome": "84ddbac96eaa",
+      "maintenance:tropica": "ac9c6222a3ea",
+      "waterConditions:aquatome": "87cc142a1cd6",
+      "behaviour:aquatome": "d3493d587794",
+      "reproduction:aquatome": "7349d148cef3",
+      "notes:tropica": "f0ff05bf2bca",
+      "notes:aquatome": "08c126e45cf4"
+    }
   },
   "nymphaea-lotus": {
     "at": "2026-11-05",

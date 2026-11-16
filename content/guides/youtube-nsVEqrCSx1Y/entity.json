@@ -224,20 +224,13 @@
         "heading": "Lớp mặt cho giống lòng suối",
         "moments": [
           {
-            "t": 1380,
-            "url": "https://media.aquatome.com/video/nsVEqrCSx1Y/at1380-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lớp cát trắng sạch được san phẳng quanh đá và lũa.",
-            "sharpness": 244.3
-          },
-          {
             "t": 1580,
             "url": "https://media.aquatome.com/video/nsVEqrCSx1Y/at1580-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Nền bể phủ sỏi và cát hạt thô, đặt đá cuội cùng lũa.",
-            "sharpness": 1072.7
+            "sharpness": 1072.7,
+            "person": false
           }
         ],
         "photo": {
@@ -285,40 +278,8 @@
         }
       },
       {
-        "heading": "Trồng cây theo thứ tự nào",
-        "moments": [
-          {
-            "t": 1910,
-            "url": "https://media.aquatome.com/video/nsVEqrCSx1Y/at1910-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhiều loại cây thủy sinh đã tách sẵn, chia theo loại trên bàn.",
-            "sharpness": 1068.6,
-            "person": false
-          },
-          {
-            "t": 1920,
-            "url": "https://media.aquatome.com/video/nsVEqrCSx1Y/at1920-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây gắn trên lũa và đá, bể trồng dày cây ngay từ đầu.",
-            "sharpness": 1769.6,
-            "person": false
-          }
-        ]
-      },
-      {
         "heading": "Châm nước, chạy lọc và làm trong nước",
         "moments": [
-          {
-            "t": 2310,
-            "url": "https://media.aquatome.com/video/nsVEqrCSx1Y/at2310-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đang châm nước vào hồ thủy sinh bằng ống, nước chảy nhẹ lên nền.",
-            "sharpness": 1900,
-            "person": false
-          },
           {
             "t": 2320,
             "url": "https://media.aquatome.com/video/nsVEqrCSx1Y/at2320-hd.webp",

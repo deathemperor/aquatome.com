@@ -61,8 +61,9 @@ export const cardCrop = (bytes: Uint8Array) => sharp(bytes).rotate().resize(640,
 /**
  * What a fish's head should do: lead with this photo, or ask about this pair first; nothing if it stays. `age`: true for a
  * photo the photo check calls young, false for one it calls grown that may lead in a young one's place (young-heads.ts).
+ * `held`: a photo the calendar keeps off cards (content/curation.json `avoid`, a shop's lettered photo among them).
  */
-export function leadChoice(own: Photo[], gallery: GalleryPhoto[], passes: (p: Photo) => boolean, compared: Compared, marked: (p: Photo) => boolean = () => false, named: (p: Photo) => number = () => 0, kept: (p: Photo) => boolean = () => false, age: (p: Photo) => boolean | undefined = () => undefined): { lead: Photo } | { ask: { head: Photo; photo: Photo } } | undefined {
+export function leadChoice(own: Photo[], gallery: GalleryPhoto[], passes: (p: Photo) => boolean, compared: Compared, marked: (p: Photo) => boolean = () => false, named: (p: Photo) => number = () => 0, kept: (p: Photo) => boolean = () => false, age: (p: Photo) => boolean | undefined = () => undefined, held: (p: Photo) => boolean = () => false): { lead: Photo } | { ask: { head: Photo; photo: Photo } } | undefined {
   // A non-commercial album photo stays in its album: it never leads a page (the owner's yes was for albums, 10 Nov).
   own=own.filter(photoFitsHead);gallery=gallery.filter(p=>photoFitsHead(p)&&!isNonCommercial(p.licence))
   // A photo its source names only with "cf.", to its genus or as another fish (`named`, photo-named.ts) doesn't lead while
@@ -82,8 +83,10 @@ export function leadChoice(own: Photo[], gallery: GalleryPhoto[], passes: (p: Ph
   const pool = [...new Map([...own.slice(1), ...[...gallery].sort((a, b) => Number(b.best ?? false) - Number(a.best ?? false) || across(b.large ?? b, 'square') - across(a.large ?? a, 'square'))].map(p => [p.url, p])).values()]
   if (!head) { const lead = pool.find(p => passes(p) && !down(p)) ?? pool.find(marked); return lead ? { lead } : undefined }
   // A photo with its source's mark leads only where nothing else passes, and one its source names worse than the bar
-  // gives way to the first that passes at the bar. So does one with a shop's own mark, kept (`kept`, own-mark.ts).
-  if (marked(head) || kept(head) || down(head)) { const lead = pool.find(p => passes(p) && !down(p)); if (lead) return { lead } }
+  // gives way to the first that passes at the bar. So does one with a shop's own mark, kept (`kept`, own-mark.ts), and one
+  // kept off cards (`held`): a fish's own thumbnail is its head, so a held head stays only while nothing else passes (the
+  // chief of staff, 16 Nov, on Rineloricaria castroi's lettered head over two photos that pass).
+  if (marked(head) || kept(head) || held(head) || down(head)) { const lead = pool.find(p => passes(p) && !down(p)); if (lead) return { lead } }
   // A head the photo check calls young gives way to the first of the page's own photos it calls grown, named no worse
   // than the head, as the check and the sweep order them (`age`, young-heads.ts; the chief of staff, 15 Nov). A head a person picked has no age here.
   if (age(head) === true) { const lead = own.slice(1).find(p => named(p) <= named(head) && age(p) === false); if (lead) return { lead } }
@@ -153,7 +156,7 @@ export async function screenLeads(root: string, d: LeadDeps, o: { limit: number;
     if (picks[f.ref] && pickStands(f.ref, picks[f.ref]!, verdicts.subjects, yes)) return undefined
     return ageOf(verdicts.subjects[p.url]?.[f.id]) === true ? true : grown(asked(f, p), f.id) && !(p.url in avoid) ? false : undefined
   }
-  const choose = (f: Fish) => leadChoice(f.entity.photos ?? [], f.gallery, p => cardWorthy(asked(f, p), f.id, verdicts, avoid), compared, p => ownMarkOnly(asked(f, p), f.id, verdicts, avoid), named(f.id), p => !!verdicts.kept?.(p.url), age(f))
+  const choose = (f: Fish) => leadChoice(f.entity.photos ?? [], f.gallery, p => cardWorthy(asked(f, p), f.id, verdicts, avoid), compared, p => ownMarkOnly(asked(f, p), f.id, verdicts, avoid), named(f.id), p => !!verdicts.kept?.(p.url), age(f), p => p.url in avoid)
 
   // Asked in rounds, since a pair answered no sends its fish on to the next photo.
   const dir = await mkdtemp(join(tmpdir(), 'lead-photos-'))

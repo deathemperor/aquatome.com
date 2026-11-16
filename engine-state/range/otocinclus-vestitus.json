@@ -1,8 +1,8 @@
 {
   "id": "otocinclus-vestitus",
   "native": {
-    "input": "5a016e83f8157e64",
-    "at": "2026-11-16T05:47:36.414Z",
+    "input": "106ea064159d6ac0",
+    "at": "2026-11-16T11:31:54.968Z",
     "claims": [
       {
         "code": "PE",
@@ -27,9 +27,55 @@
         "quote": "It is found in Peru, Bolivia, and Paraguay.",
         "words": "Paraguay",
         "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Bolivia, Dept. Beni, Madeira basin.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Peru, Rio Ampyiacu.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Paraguay, Paraná basin.",
+        "words": "Paraguay",
+        "ok": true
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Madeira",
+        "source": "scotcat",
+        "quote": "South America: Bolivia, Dept. Beni, Madeira basin.",
+        "country": "BO",
+        "ok": true
+      },
+      {
+        "name": "Rio Ampyiacu",
+        "source": "scotcat",
+        "quote": "Peru, Rio Ampyiacu.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Paraná",
+        "source": "scotcat",
+        "quote": "Paraguay, Paraná basin.",
+        "country": "PY",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {

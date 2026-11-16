@@ -491,6 +491,23 @@
   "Amphilius longirostris": [
     "Anoplopterus longirostris"
   ],
+  "Amphilius lujani": [],
+  "Amphilius natalensis": [],
+  "Amphilius platychir": [
+    "Amphilius grammatophorus",
+    "Pimelodus platychir"
+  ],
+  "Amphilius rheophilus": [],
+  "Amphilius uranoscopus": [
+    "Amphilius brevidorsalis",
+    "Amphilius cubangoensis",
+    "Amphilius hargeri",
+    "Amphilius leroyi",
+    "Amphilius transvaaliensis",
+    "Anoplopterus uranoscopus",
+    "Chimarrhoglanis leroyi",
+    "Pimelodus uranoscopus"
+  ],
   "Amphilophus citrinellus": [
     "Amphilophus granadense",
     "Archocentrus citrinellus",
@@ -755,6 +772,10 @@
   "Aphyocharax rathbuni": [
     "Aphyocharax stramineus",
     "Piabarchus stramineus"
+  ],
+  "Aphyolebias peruensis": [
+    "Moema peruensis",
+    "Pterolebias peruensis"
   ],
   "Aphyolebias schleseri": [],
   "Aphyosemion australe": [
@@ -1963,6 +1984,7 @@
     "Microcasia pygmaea"
   ],
   "Bucephalandra sordidula": [],
+  "Bujurquina oenolaemus": [],
   "Bunocephalus colombianus": [],
   "Bunocephalus coracoideus": [
     "Bunocephalus bicolor",
@@ -2388,6 +2410,7 @@
     "Channa stewartius",
     "Ophiocephalus stewartii"
   ],
+  "Chapalichthys pardalis": [],
   "Characidium fasciatum": [],
   "Characodon lateralis": [
     "Characodon garmani"
@@ -2766,6 +2789,7 @@
     "Pyrrhulina argyrops",
     "Pyrrhulina guttata"
   ],
+  "Copeina osgoodi": [],
   "Copella arnoldi": [
     "Copeina arnoldi"
   ],
@@ -3280,6 +3304,7 @@
     "Hemichromis afer",
     "Paratilapia afra"
   ],
+  "Cynotilapia axelrodi": [],
   "Cynotilapia pulpican": [
     "Maylandia pulpican",
     "Metriaclima pulpican"
@@ -4432,6 +4457,11 @@
   "Geophagus taeniopareius": [],
   "Geophagus winemilleri": [],
   "Geosesarma hagen": [],
+  "Girardinus falcatus": [
+    "Girardichthys falcatus",
+    "Glaridichthys atherinoides",
+    "Glaridichthys falcatus"
+  ],
   "Girardinus metallicus": [
     "Girardinus garmani",
     "Girardinus pygmaeus"
@@ -4546,6 +4576,7 @@
     "Gymnogeophagus cyanopterus"
   ],
   "Gymnogeophagus meridionalis": [],
+  "Gymnorhamphichthys hypostomus": [],
   "Gymnothorax tile": [
     "Gymnothorax borneensis",
     "Lycodontis literata",
@@ -5292,6 +5323,7 @@
   ],
   "Hyphessobrycon melanostichos": [],
   "Hyphessobrycon metae": [],
+  "Hyphessobrycon pando": [],
   "Hyphessobrycon peruvianus": [],
   "Hyphessobrycon pulchripinnis": [],
   "Hyphessobrycon pyrrhonotus": [],
@@ -5435,6 +5467,11 @@
     "Heros balteatus",
     "Heros nicaraguensis",
     "Hypsophrys unimaculatus"
+  ],
+  "Ichthyborus ornatus": [
+    "Ichthyborus taeniatus",
+    "Neoborus ornatus",
+    "Phagoborus ornatus"
   ],
   "Iguanodectes adujai": [
     "Iguanodectes andujai"
@@ -6348,6 +6385,10 @@
   "Macrobrachium dayanum": [
     "Palaemon dayanus"
   ],
+  "Macrobrachium dienbienphuense": [
+    "Macrobrachium eriocheirum",
+    "Macrobrachium longidigitum"
+  ],
   "Macrochirichthys macrochirus": [
     "Leuciscus macrochirus",
     "Leuciscus uranoscopus",
@@ -7015,6 +7056,7 @@
   "Monosolenium tenerum": [
     "Dumortieropsis liukiuensis"
   ],
+  "Mugilogobius rexi": [],
   "Murdannia keisak": [
     "Aneilema coreanum",
     "Aneilema keisak",
@@ -8288,6 +8330,7 @@
   "Parosphromenus quindecim": [],
   "Parosphromenus sumatranus": [],
   "Parosphromenus tweediei": [],
+  "Parotocinclus jumbo": [],
   "Parotocinclus maculicauda": [
     "Otocinclus maculicauda",
     "Parotocinclus steindachneri"
@@ -8558,6 +8601,7 @@
   "Phyllanthus fluitans": [
     "Diasperus fluitans"
   ],
+  "Phyllantus fluitans": [],
   "Phyllonemus typus": [],
   "Physopyxis lyra": [],
   "Physoschistura elongata": [
@@ -8728,6 +8772,7 @@
     "Mollienisia velifera"
   ],
   "Poecilia wingei": [],
+  "Poeciliopsis prolifica": [],
   "Poecilocharax weitzmani": [],
   "Pogonopoma parahybae": [
     "Pogonopomoides parahybae",
@@ -9207,7 +9252,375 @@
     "Silurus armatus",
     "Silurus duodecimradiatus"
   ],
+  "Pterolebias longipinnis": [
+    "Pterolebias bokermanni",
+    "Pterolebias luelingi",
+    "Rivulichthys luelingi"
+  ],
+  "Pterophyllum altum": [],
+  "Pterophyllum leopoldi": [
+    "Plataxoides leopoldi"
+  ],
+  "Pterophyllum scalare": [
+    "Platax scalaris",
+    "Plataxoides dumerilii",
+    "Pterophillum eimekei",
+    "Pterophyllum dumerilii",
+    "Pterophyllum eimekei",
+    "Zeus scalaris"
+  ],
+  "Pterosturisoma microps": [
+    "Harttia microps"
+  ],
+  "Pterygoplichthys etentaculatus": [
+    "Ancistrus longimanus",
+    "Hypostoma etentaculatum",
+    "Hypostomus brevitentaculatus",
+    "Hypostomus duodecimalis",
+    "Pterygoplichthys duodecimalis"
+  ],
+  "Pterygoplichthys gibbiceps": [
+    "Ancistrus gibbiceps",
+    "Glyptoperichthys gibbiceps",
+    "Liposarcus altipinnis"
+  ],
+  "Pterygoplichthys joselimaianus": [
+    "Glyptoperichthys joselimaianus"
+  ],
+  "Pterygoplichthys pardalis": [
+    "Hypostomus pardalis",
+    "Liposarcus jeanesianus",
+    "Liposarcus pardalis",
+    "Liposarcus varius"
+  ],
+  "Pterygoplichthys punctatus": [
+    "Glyptoperichthys punctatus",
+    "Loricaria punctata"
+  ],
+  "Pterygoplichthys zuliaensis": [],
+  "Ptychochromis oligacanthus": [
+    "Ptychochromis nossibeensis",
+    "Ptychochromis oligocantus",
+    "Tilapia oligacanthus"
+  ],
+  "Pungu maclareni": [
+    "Barombia maclareni"
+  ],
+  "Puntigrus anchisporus": [
+    "Barbus anchisporus",
+    "Puntius anchisporus",
+    "Systomus anchisporus"
+  ],
+  "Puntigrus navjotsodhii": [
+    "Systomus navjotsodhii"
+  ],
+  "Puntigrus partipentazona": [
+    "Barbus partipentazona",
+    "Puntius partipentazona",
+    "Systomus partipentazona"
+  ],
+  "Puntigrus pulcher": [
+    "Puntius pulcher",
+    "Systomus pulcher"
+  ],
+  "Puntigrus tetrazona": [
+    "Barbus tetrazona",
+    "Capoeta tetrazona",
+    "Puntius tetrazona",
+    "Systomus sumatranus",
+    "Systomus sumatrensis",
+    "Systomus tetrazona"
+  ],
+  "Puntius bimaculatus": [
+    "Barbus bimaculatus",
+    "Barbus puckelli",
+    "Gnathopogon bimaculatus",
+    "Puntius puckelli"
+  ],
+  "Puntius chola": [
+    "Barbus chola",
+    "Barbus tetrarupagus",
+    "Barbus titius",
+    "Barbus unimaculatus",
+    "Capoeta chola",
+    "Cyprinus chola",
+    "Cyprinus titius",
+    "Puntius tetrarupagus",
+    "Puntius titius",
+    "Puntius titus",
+    "Systomus tetrarupagus",
+    "Systomus unimaculatus"
+  ],
+  "Puntius kamalika": [],
+  "Puntius mahecola": [
+    "Leuciscus mahecola"
+  ],
+  "Puntius puntio": [
+    "Barbus puntio",
+    "Cyprinus puntio"
+  ],
+  "Puntius sahyadriensis": [],
+  "Puntius terio": [
+    "Barbus terio",
+    "Cyprinus terio",
+    "Systomus gibbosus",
+    "Systomus terio"
+  ],
+  "Puntius titteya": [
+    "Barbus titteya",
+    "Capoeta titteya"
+  ],
+  "Puntius vittatus": [
+    "Barbus vittatus"
+  ],
+  "Pygocentrus cariba": [
+    "Pygocentrus caribe",
+    "Pygocentrus notatus",
+    "Pygocentrus stigmaterythraeus",
+    "Serrasalmo albus",
+    "Serrasalmo cariba",
+    "Serrasalmo notatus",
+    "Serrasalmus caribe",
+    "Serrasalmus notatus"
+  ],
+  "Pygocentrus nattereri": [
+    "Pygocentrus altus",
+    "Pygocentrus natterei",
+    "Pygocentrus ternetzi",
+    "Rooseveltiella nattereri",
+    "Serrasalmo ternetzi",
+    "Serrasalmus natterei",
+    "Serrasalmus nattereri",
+    "Serrasalmus ternetzi"
+  ],
+  "Pygocentrus piraya": [
+    "Polycentrus piraya",
+    "Pygocentrus bidorsalis",
+    "Pygocentrus piranha",
+    "Serrasalmo ferox",
+    "Serrasalmo piranha",
+    "Serrasalmus piraya"
+  ],
+  "Pygopristis denticulata": [
+    "Pygopristis fumarius",
+    "Serrasalmus denticulatus",
+    "Serrasalmus punctatus"
+  ],
+  "Pyrrhulina australis": [
+    "Pyrrhulina australe",
+    "Pyrrhulina macrolepis"
+  ],
+  "Pyrrhulina brevis": [],
+  "Pyrrhulina filamentosa": [],
+  "Pyrrhulina lugubris": [],
+  "Pyrrhulina spilota": [],
+  "Rachoviscus crassiceps": [],
+  "Radix rubiginosa": [
+    "Cerasina bulla",
+    "Limnaea bongsonensis",
+    "Limnaea crosseana",
+    "Limnaea javanica",
+    "Limnaea klossi",
+    "Limnaea spadicea",
+    "Limnaeus bulla",
+    "Limnaeus crosseanus",
+    "Limnaeus javanicus",
+    "Limnaeus longulus",
+    "Limnaeus singaporinus",
+    "Limnaeus spadiceus",
+    "Limnaeus ventricularius",
+    "Limnea spadicea",
+    "Lymnaea rubiginosa",
+    "Lymnaeus rubiginosus",
+    "Lymnoeus rubiginosus"
+  ],
   "Ranunculus inundatus": [],
+  "Rasbora argyrotaenia": [
+    "Leuciscus argyrotaenia",
+    "Leuciscus cyanotaenia",
+    "Leuciscus schwenkii",
+    "Rasbora agyrotaenia"
+  ],
+  "Rasbora borapetensis": [],
+  "Rasbora caudimaculata": [
+    "Rasbora dorsimaculata",
+    "Rasbora layangi"
+  ],
+  "Rasbora cephalotaenia": [
+    "Leuciscus cephalotaenia"
+  ],
+  "Rasbora dandia": [
+    "Leuciscus dandia",
+    "Leuciscus dandria"
+  ],
+  "Rasbora daniconius": [
+    "Cyprinus anjana",
+    "Cyprinus daniconius",
+    "Leuciscus anjana",
+    "Leuciscus daniconius",
+    "Leuciscus flavus",
+    "Leuciscus lateralis",
+    "Leuciscus malabaricus",
+    "Leuciscus xanthogrammae",
+    "Leuciscus xanthogramme",
+    "Opsarius anjana",
+    "Opsarius daniconius",
+    "Parluciosoma daniconius",
+    "Rasbora daviconius",
+    "Rasbora malabarica",
+    "Rasbora neilgherriensis",
+    "Rasbora palustris",
+    "Rasbora woolaree",
+    "Rasbora zanzibarensis"
+  ],
+  "Rasbora dorsinotata": [],
+  "Rasbora dusonensis": [
+    "Leuciscus dusonensis",
+    "Parluciosoma dusonensis",
+    "Rasbora argyrotaenoides"
+  ],
+  "Rasbora einthovenii": [
+    "Leuciscus einthovenii",
+    "Rasbora labuana",
+    "Rasbora vegae"
+  ],
+  "Rasbora elegans": [],
+  "Rasbora kalochroma": [
+    "Leuciscus kalochroma",
+    "Rasbora kalachroma"
+  ],
+  "Rasbora kottelati": [],
+  "Rasbora lacrimula": [],
+  "Rasbora patrickyapi": [],
+  "Rasbora paucisqualis": [
+    "Rasbora paucisquamis"
+  ],
+  "Rasbora paviana": [
+    "Rasbora paviei"
+  ],
+  "Rasbora rasbora": [
+    "Cyprinus rasbora",
+    "Leuciscus presbyter",
+    "Leuciscus rasbora",
+    "Rasbora buchanani"
+  ],
+  "Rasbora rubrodorsalis": [],
+  "Rasbora sarawakensis": [],
+  "Rasbora tornieri": [],
+  "Rasbora trilineata": [
+    "Rasbora stigmatura"
+  ],
+  "Rasbora vulcanus": [],
+  "Rasboroides vaterifloris": [
+    "Rasbora vaterifloris"
+  ],
+  "Rasbosoma spilocerca": [
+    "Rasbora spilocerca"
+  ],
+  "Reganochromis calliurus": [
+    "Leptochromis calliurum",
+    "Paratilapia calliura"
+  ],
+  "Renova oscari": [],
+  "Retroculus acherontos": [],
+  "Retroculus lapidifer": [
+    "Acara lapidifera",
+    "Chromys lapidifera",
+    "Geophagus lapidifera",
+    "Retroculus boulengeri",
+    "Retroculus lapidifera",
+    "Satanoperca lapidifera"
+  ],
+  "Retroculus xinguensis": [],
+  "Rhadinocentrus ornatus": [
+    "Rhadiocentrus ornatus"
+  ],
+  "Rhadinoloricaria macromystax": [
+    "Loricaria macromystax"
+  ],
+  "Rhadinoloricaria rhami": [
+    "Crossoloricaria rhami"
+  ],
+  "Rhamphichthys hahni": [
+    "Sternacorhamphus hahni",
+    "Sternarchorhamphus hahni"
+  ],
+  "Rhaphiodon vulpinus": [
+    "Hydropardus rapax",
+    "Raphiodon vulpinus",
+    "Rhaphiodontichthys vulpinus",
+    "Salmo tamuco"
+  ],
+  "Rhinodoras boehlkei": [],
+  "Rhinodoras dorbignyi": [
+    "Doras d'orbignyi",
+    "Doras nebulosus",
+    "Doras spec"
+  ],
+  "Rhinogobius candidianus": [
+    "Ctenogobius candidianus",
+    "Rhinogobius candidius",
+    "Rhinogobius taiwanus"
+  ],
+  "Rhinogobius chiengmaiensis": [
+    "Ctenogobius chiangmaiensis",
+    "Rhinogobius chiangmaiensis"
+  ],
+  "Rhinogobius duospilus": [
+    "Ctenogobius duospilus",
+    "Ctenogobius whitleyi",
+    "Ctenogobius wui",
+    "Gobius duospilus",
+    "Gobius whitleyi",
+    "Rhinogobius wui"
+  ],
+  "Rhinogobius filamentosus": [
+    "Ctenogobius filamentosus"
+  ],
+  "Rhinogobius flumineus": [
+    "Tukugobius flumineus"
+  ],
+  "Rhinogobius formosanus": [],
+  "Rhinogobius gigas": [],
+  "Rhinogobius lanyuensis": [],
+  "Rhinogobius leavelli": [
+    "Ctenogobius leavelli"
+  ],
+  "Rhinogobius lentiginis": [
+    "Ctenogobius lentiginis"
+  ],
+  "Rhinogobius maculafasciatus": [],
+  "Rhinogobius mekongianus": [
+    "Ctenogobius cephalopardus",
+    "Ctenogobius mekongianus",
+    "Gobius mekongianus"
+  ],
+  "Rhinogobius nantaiensis": [],
+  "Rhinogobius rubromaculatus": [],
+  "Rhinogobius similis": [
+    "Aboma tsinanensis",
+    "Gobius similis"
+  ],
+  "Rhinogobius yaoshanensis": [
+    "Ctenogobius yaoshanensis"
+  ],
+  "Rhinogobius zhoui": [],
+  "Rhodeus amarus": [
+    "Cyprinus amarus",
+    "Rhodeus genitalis",
+    "Rhodeus lucinae"
+  ],
+  "Rhodeus ocellatus": [
+    "Pseudoperilampus ocellatus",
+    "Rhodeus hwanghoensis",
+    "Rhodeus kurumeus",
+    "Rhodeus maculatus",
+    "Rhodeus pingi",
+    "Rhodeus wangkinfui"
+  ],
+  "Rhynchodoras woodsi": [
+    "Rhyncodoras woodsi"
+  ],
   "Riccardia chamedryfolia": [
     "Aneura crenulata",
     "Aneura koyensis",
@@ -9239,6 +9652,70 @@
     "Riccia media",
     "Ricciella fluitans",
     "Ricciella minor"
+  ],
+  "Rineloricaria beni": [
+    "Hemiloricaria beni",
+    "Loricaria beni"
+  ],
+  "Rineloricaria castroi": [
+    "Hemiloricaria castroi"
+  ],
+  "Rineloricaria eigenmanni": [
+    "Hemiloricaria eigenmanni",
+    "Loricaria eigenmanni"
+  ],
+  "Rineloricaria fallax": [
+    "Hemiloricaria fallax",
+    "Loricaria fallax"
+  ],
+  "Rineloricaria lanceolata": [
+    "Hemiloricaria lanceolata",
+    "Loricaria lanceolata"
+  ],
+  "Rineloricaria melini": [
+    "Hemiloricaria melini",
+    "Loricariichthys melini"
+  ],
+  "Rineloricaria morrowi": [
+    "Hemiloricaria morrowi",
+    "Rhineloricaria morrowi"
+  ],
+  "Rineloricaria parva": [
+    "Hemiloricaria parva",
+    "Loricaria parva"
+  ],
+  "Rineloricaria platyura": [
+    "Hemiloricaria platyura",
+    "Loricaria platyura",
+    "Loricaria submarginatus"
+  ],
+  "Rineloricaria teffeana": [
+    "Hemiloricaria teffeana",
+    "Loricaria teffeana",
+    "Loricaria valenciennesii"
+  ],
+  "Rita chrysea": [
+    "Rita chrysa"
+  ],
+  "Rita kuturnee": [
+    "Arius hastatus",
+    "Arius pumilus",
+    "Phractocephalus kuturnee",
+    "Rita hastata"
+  ],
+  "Rocio octofasciata": [
+    "Archocentrus octofasciatus",
+    "Cichlasoma biocellatum",
+    "Cichlasoma hedricki",
+    "Cichlasoma octofasciatus",
+    "Cichlosoma biocellatum",
+    "Heros octofasciatus",
+    "Nandopsis octofasciata",
+    "Parapetenia octofasciata"
+  ],
+  "Roeboides araguaito": [],
+  "Roeboides descalvadensis": [
+    "Roeboides paranensis"
   ],
   "Rotala indica": [
     "Ameletia acutidens",
@@ -9279,6 +9756,28 @@
     "Sagittaria loricata",
     "Sagittaria pusilla"
   ],
+  "Sahyadria chalakkudiensis": [
+    "Dawkinsia chalakkudiensis",
+    "Puntius chalakkudiensis",
+    "Puntius chalakudaiensis"
+  ],
+  "Sahyadria denisonii": [
+    "Barbus denisonii",
+    "Crossocheilus denisonii",
+    "Dawkinsia denisonii",
+    "Labeo denisonii",
+    "Puntius denisoni"
+  ],
+  "Salminus brasiliensis": [
+    "Hydrocynus brasiliensis",
+    "Hydrocyon brevidens",
+    "Salminus brevidens",
+    "Salminus cuvieri",
+    "Salminus maxillosus",
+    "Salminus orbignyanus",
+    "Salmo auratus",
+    "Salmo vigintiseptemradiatus"
+  ],
   "Salvinia auriculata": [
     "Marsilea auriculata",
     "Marsilea natans",
@@ -9289,7 +9788,221 @@
     "Salvinia rotundifolia"
   ],
   "Salvinia minima": [],
+  "Sandelia bainsii": [
+    "Anabas bainsii",
+    "Ctenopoma microlepidotum",
+    "Spirobranchus bainsii"
+  ],
+  "Sandelia capensis": [
+    "Anabas capensis",
+    "Anabas vicinus",
+    "Sandelia vicina",
+    "Sardelia capensis",
+    "Spirobranchus capensis"
+  ],
+  "Saron marmoratus": [
+    "Hippolyte gibberosus",
+    "Hippolyte hemprichii",
+    "Hippolyte leachii",
+    "Hippolyte marmoratus",
+    "Hippolyte spec",
+    "Hyppolite kraussii",
+    "Nauticaris grandirostris",
+    "Palaemon marmoratus"
+  ],
+  "Sarotherodon melanotheron": [
+    "Chromis heudelotii",
+    "Chromis macrocephalus",
+    "Chromis microcephalus",
+    "Melanogenes macrocephalus",
+    "Melanogenes microcephalus",
+    "Tilapia heudeloti",
+    "Tilapia leonensis",
+    "Tilapia macrocephala",
+    "Tilapia melanotheron",
+    "Tilapia microcephala",
+    "Tilapia rangii"
+  ],
+  "Satanoperca acuticeps": [
+    "Geophagus acuticeps"
+  ],
+  "Satanoperca daemon": [
+    "Geophagus daemon"
+  ],
+  "Satanoperca jurupari": [
+    "Geophagus jurupari",
+    "Satanoperca jurapari"
+  ],
+  "Satanoperca leucosticta": [
+    "Geophagus leucostictus",
+    "Satanoperca macrolepis"
+  ],
+  "Satanoperca lilith": [],
+  "Satanoperca mapiritensis": [
+    "Geophagus mapiritensis"
+  ],
+  "Satanoperca pappaterra": [
+    "Geophagus pappaterra"
+  ],
+  "Satanoperca rhynchitis": [],
+  "Sawbwa resplendens": [],
+  "Scatophagus argus": [
+    "Cacodoxus argus",
+    "Chaetodon argus",
+    "Chaetodon atromaculatus",
+    "Chaetodon pairatalis",
+    "Ephippus argus",
+    "Sargus maculatus",
+    "Scatophagus aetatevarians",
+    "Scatophagus alternans",
+    "Scatophagus bougainvillii",
+    "Scatophagus maculatus",
+    "Scatophagus ornatus",
+    "Scatophagus purpurascens",
+    "Scatophagus quadranus",
+    "Scatophagus quadratus"
+  ],
+  "Schilbe marmoratus": [
+    "Schilbe congolensis"
+  ],
   "Schismatoglottis prietoi": [],
+  "Schismatogobius ampluvinculus": [],
+  "Schismatogobius roxasi": [],
+  "Schistura aizawlensis": [],
+  "Schistura alticrista": [
+    "Noemacheilus alticrista"
+  ],
+  "Schistura aurantiaca": [],
+  "Schistura balteata": [
+    "Nemacheilus balteatus"
+  ],
+  "Schistura beavani": [
+    "Nemacheilus beavani",
+    "Nemachilus beavani",
+    "Noemacheilus beavani"
+  ],
+  "Schistura callichromus": [
+    "Nemacheilus callichromus",
+    "Noemacheilus callichromus"
+  ],
+  "Schistura caudofurca": [
+    "Barbatula caudofurca",
+    "Nemacheilus laterivittatus",
+    "Noemacheilus laterivittatus",
+    "Schistura laterivittata"
+  ],
+  "Schistura deansmarti": [],
+  "Schistura denisoni": [
+    "Nemacheilus chryseus",
+    "Nemacheilus denisoni",
+    "Nemacheilus densoni",
+    "Nemachilus chryseus",
+    "Nemachilus denisoni",
+    "Noemacheilus denisonii"
+  ],
+  "Schistura devdevi": [
+    "Nemacheilus devdevi",
+    "Nemachilus devdevi",
+    "Noemacheilus devdevi"
+  ],
+  "Schistura disparizona": [],
+  "Schistura geisleri": [
+    "Noemacheilus geisleri"
+  ],
+  "Schistura hypsiura": [],
+  "Schistura jarutanini": [],
+  "Schistura kengtungensis": [
+    "Nemacheilus kengtungensis",
+    "Noemacheilus kentungensis"
+  ],
+  "Schistura kloetzliae": [],
+  "Schistura kodaguensis": [
+    "Nemacheilus kodaguensis",
+    "Noemacheilus kodaguensis"
+  ],
+  "Schistura kohchangensis": [
+    "Nemacheilus kohchangensis",
+    "Noemacheilus kohchangensis"
+  ],
+  "Schistura maepaiensis": [
+    "Noemacheilus maepaiensis"
+  ],
+  "Schistura nicholsi": [
+    "Nemacheilus nicholsi",
+    "Nemacheilus thai",
+    "Noemacheilus nicholsi",
+    "Noemacheilus thai",
+    "Schistura thai"
+  ],
+  "Schistura notostigma": [
+    "Nemacheilus notostigma",
+    "Nemachilus notostigma",
+    "Noemacheilus notostigma"
+  ],
+  "Schistura oedipus": [
+    "Noemacheilus oedipus"
+  ],
+  "Schistura polytaenia": [
+    "Nemacheilus polytaenia",
+    "Nemachilus polytaenia"
+  ],
+  "Schistura pridii": [],
+  "Schistura robertsi": [
+    "Noemacheilus robertsi"
+  ],
+  "Schistura schultzi": [
+    "Nemacheilus schultzi",
+    "Noemacheilus schultzi"
+  ],
+  "Schistura spilota": [
+    "Nemacheilus spilotus",
+    "Noemacheilus spilotus"
+  ],
+  "Schistura vinciguerrae": [
+    "Nemacheilus putaoensis",
+    "Nemacheilus vinciguerrae",
+    "Nemachilus vinciguerrae",
+    "Noemacheilus vinciguerrae"
+  ],
+  "Schizolecis guntheri": [
+    "Microlepidogaster guntheri",
+    "Pseudotocinclus ribeiroi"
+  ],
+  "Sciaenochromis fryeri": [],
+  "Scleromystax barbatus": [
+    "Callichthys barbatus",
+    "Corydoras barbatus",
+    "Corydoras eigenmanni",
+    "Corydoras kronei"
+  ],
+  "Scleromystax macropterus": [
+    "Corydoras bertoni",
+    "Corydoras macropterus"
+  ],
+  "Scleromystax prionotos": [
+    "Corydoras prionotos",
+    "Corydoras prionotus"
+  ],
+  "Scleromystax salmacis": [],
+  "Scleropages formosus": [
+    "Osteoglossum formosum",
+    "Scleropages aureus",
+    "Scleropages legendrei",
+    "Scleropages macrocephalus"
+  ],
+  "Scleropages inscriptus": [],
+  "Scleropages jardinii": [
+    "Osteoglossum jardinii"
+  ],
+  "Scleropages leichardti": [
+    "Osteoglossum guntheri",
+    "Scleropages scheichhardti"
+  ],
+  "Scobinancistrus aureatus": [
+    "Panaque aureatus"
+  ],
+  "Scolichthys iota": [],
+  "Scoloplax empousa": [],
   "Selaginella uncinata": [
     "Lycopodioides uncinata",
     "Lycopodium aristatum",
@@ -9300,8 +10013,139 @@
     "Selaginella caesia",
     "Selaginella eurystachya"
   ],
+  "Selenotoca multifasciata": [
+    "Ephippus multifasciatus",
+    "Scatophagus multifasciatus",
+    "Scatophagus semistrigatus"
+  ],
+  "Semaprochilodus insignis": [
+    "Prochilodus amazonensis",
+    "Prochilodus insignis",
+    "Prochilodus theraponura",
+    "Semaprochilodus amazonensis",
+    "Semaprochilodus theraponura",
+    "Semiprochilodus amazonensis",
+    "Semiprochilodus theraponura"
+  ],
+  "Semaprochilodus laticeps": [
+    "Prochilodus laticeps"
+  ],
+  "Semaprochilodus taeniurus": [
+    "Curimatus taeniurus",
+    "Prochilodus taeniurus",
+    "Semaprochilodus taenirus",
+    "Semiprochilodus taeniurus"
+  ],
+  "Serpenticobitis octozona": [],
+  "Serpenticobitis zonata": [],
+  "Serrapinnus sterbai": [],
+  "Serrasalmus altuvei": [],
+  "Serrasalmus brandtii": [
+    "Serrasalmo brandtii"
+  ],
+  "Serrasalmus compressus": [],
+  "Serrasalmus eigenmanni": [
+    "Pristobrycon eigenmanni"
+  ],
+  "Serrasalmus elongatus": [
+    "Serrasalmus pingke"
+  ],
+  "Serrasalmus geryi": [],
+  "Serrasalmus gouldingi": [],
+  "Serrasalmus maculatus": [
+    "Pygocentrus melanurus",
+    "Serrasalmus aesopus"
+  ],
+  "Serrasalmus manueli": [
+    "Pygocentrus manueli"
+  ],
+  "Serrasalmus marginatus": [
+    "Serrasalme marginatus"
+  ],
+  "Serrasalmus neveriensis": [],
+  "Serrasalmus rhombeus": [
+    "Pygocentrus niger",
+    "Pygocentrus normani",
+    "Salmo rhombeus",
+    "Serrasalmo immaculatus",
+    "Serrasalmo paraense",
+    "Serrasalmus boekeri",
+    "Serrasalmus niger",
+    "Serrasalmus normani",
+    "Serrasalmus paraense"
+  ],
+  "Serrasalmus sanchezi": [],
+  "Serrasalmus serrulatus": [
+    "Pygopristis serrulatus"
+  ],
+  "Serrasalmus spilopleura": [
+    "Pygocentrus dulcis"
+  ],
+  "Sewellia albisuera": [],
+  "Sewellia breviventralis": [],
+  "Sewellia elongata": [],
+  "Sewellia lineolata": [
+    "Balitora lineolata"
+  ],
+  "Sewellia speciosa": [],
   "Shinnersia rivularis": [
     "Trichocoronis rivularis"
+  ],
+  "Sicyopus cebuensis": [],
+  "Sicyopus discordipinnis": [],
+  "Sicyopus exallisquamulus": [],
+  "Sicyopus zosterophorus": [
+    "Sicydium balinense",
+    "Sicydium zosterophorum",
+    "Sicyopterus balinense",
+    "Sicyopus balinense",
+    "Sicyopus balinensis"
+  ],
+  "Sillaginopsis panijus": [
+    "Cheilodipterus panijus",
+    "Sillaginopsis domina",
+    "Sillaginopsis punijas",
+    "Sillago domina",
+    "Sillago panjius"
+  ],
+  "Silonia silondia": [
+    "Ageniosus lurida",
+    "Pimelodus silondia",
+    "Silondia silondia",
+    "Silonia lurida",
+    "Silonia silundia",
+    "Silundia gangetica"
+  ],
+  "Silurichthys hasseltii": [],
+  "Silurus glanis": [
+    "Siluris glanis",
+    "Silurus silurus"
+  ],
+  "Sinibotia pulchra": [
+    "Botia gigantea",
+    "Botia pulchra"
+  ],
+  "Sinibotia reevesae": [
+    "Botia reevesae"
+  ],
+  "Sinibotia robusta": [
+    "Botia hexafurca",
+    "Botia robusta"
+  ],
+  "Sinibotia superciliaris": [
+    "Botia superciliaris"
+  ],
+  "Sinogastromyzon puliensis": [],
+  "Sinogastromyzon tonkinensis": [],
+  "Sinogastromyzon wui": [
+    "Sinogastromyzon intermedius",
+    "Sinogastromyzon sanhoensis"
+  ],
+  "Skiffia francesae": [],
+  "Skiffia multipunctata": [
+    "Goodea multipunctata",
+    "Ollentodon multipunctatus",
+    "Xenendum multipunctatum"
   ],
   "Solenostoma tetragonum": [
     "Aplozia comptonii",
@@ -9313,10 +10157,265 @@
     "Plectocolea parabolica",
     "Plectocolea tetragona"
   ],
+  "Sorubim lima": [
+    "Platystoma lima",
+    "Platystoma luceri",
+    "Silurus gerupensis",
+    "Silurus lima",
+    "Sorubim infraoculare",
+    "Sorubim latirostris"
+  ],
+  "Sorubimichthys planiceps": [
+    "Platystoma planiceps",
+    "Platystoma spatula",
+    "Pteroglanis manni",
+    "Sorubim jandia",
+    "Sorubim pirauaca",
+    "Sorubimichthys ortoni",
+    "Sorubimichthys spatula"
+  ],
+  "Spectracanthicus murinus": [],
+  "Spectracanthicus zuanoni": [],
+  "Sperata aor": [
+    "Aoria aor",
+    "Aorichthys aor",
+    "Macrones aor",
+    "Mystus aor",
+    "Orichthys aor",
+    "Pimelodus aor"
+  ],
+  "Sperata seenghala": [
+    "Aor seenghala",
+    "Aoria seenghala",
+    "Aorichthys seengala",
+    "Aorichthys seenghala",
+    "Bagrus lamarrii",
+    "Bagrus seenghala",
+    "Macrones lamarrii",
+    "Macrones seenghala",
+    "Mystus seenghala",
+    "Mystus seenghali",
+    "Mystus seenghara",
+    "Platystoma seenghala",
+    "Platystomus seenghala",
+    "Sperata sarwari"
+  ],
+  "Sphaerichthys acrostoma": [],
+  "Sphaerichthys osphromenoides": [
+    "Osphromenus malayanus",
+    "Sphaerichthys malayanus",
+    "Sphaerichthys osphronemoides"
+  ],
+  "Sphaerichthys selatanensis": [],
+  "Sphaerichthys vaillanti": [],
+  "Sphoeroides annulatus": [
+    "Liosaccus melanostictus",
+    "Tetrodon annulatus"
+  ],
+  "Spinibarbus denticulatus": [
+    "Barbodes denticulatus",
+    "Spinibarbichthys denticulatus",
+    "Spinibarbus spinicelatus"
+  ],
   "Spirodela polyrrhiza": [],
+  "Squaliforma emarginata": [
+    "Aphanotorulus emarginatus",
+    "Hypostomus emarginatus"
+  ],
   "Staurogyne repens": [
     "Ebermaiera repens"
   ],
+  "Steatocranus casuarius": [
+    "Steatocranus casuarinus"
+  ],
+  "Steatocranus tinanti": [
+    "Gobiochromis tinanti",
+    "Leptotilapia tinanti"
+  ],
+  "Steatogenys elegans": [
+    "Brachyhypopomus elegans",
+    "Brachyramphichthys elegans",
+    "Rhamphichthys elegans",
+    "Rhamphichthys mirabilis",
+    "Steatogenes elegans"
+  ],
+  "Stenomelania torulosa": [
+    "Bulimus torulosus",
+    "Melania aculeus",
+    "Melania confusa",
+    "Melania gendinganensis",
+    "Melania porcata",
+    "Melania semicancellata",
+    "Melania tirouri",
+    "Melanoides aculeus",
+    "Melanoides torulosus",
+    "Stenomelania semicancellata",
+    "Stenomelania tortuosa",
+    "Thiara torulosa",
+    "Tiara crenulata"
+  ],
+  "Sternarchorhynchus goeldii": [],
+  "Stigmatogobius sadanundio": [
+    "Gobius apogonius",
+    "Gobius sadanundio"
+  ],
+  "Stiphodon alcedo": [],
+  "Stiphodon atratus": [],
+  "Stiphodon atropurpureus": [
+    "Microsicydium atropurpureum",
+    "Microsicydium formosum",
+    "Stiphodon formosum"
+  ],
+  "Stiphodon birdsong": [],
+  "Stiphodon maculidorsalis": [],
+  "Stiphodon ornatus": [],
+  "Stiphodon pelewensis": [],
+  "Stiphodon percnopterygionus": [],
+  "Stiphodon rutilaureus": [],
+  "Stiphodon semoni": [],
+  "Stiphodon surrufus": [],
+  "Stomatepia pindu": [
+    "Stomalepia pindu",
+    "Stomatepia pundu"
+  ],
+  "Striuntius lineatus": [
+    "Barbus lineatus",
+    "Puntius lineatus"
+  ],
+  "Strophidon sathete": [
+    "Evenchelys macrurus",
+    "Gymnothorax sathete",
+    "Lycodontis longicaudata",
+    "Lycodontis sathete",
+    "Muraena macrurus",
+    "Muraena sathete",
+    "Muraenophis sathete",
+    "Strophidon ui",
+    "Thyrosidea macrura",
+    "Thyrsoidea longissima",
+    "Thyrsoidea macrura"
+  ],
+  "Sturisoma nigrirostrum": [
+    "Sturiosoma nigrirostrum"
+  ],
+  "Sturisomatichthys aureum": [
+    "Loricaria aurea",
+    "Sturisoma aureum"
+  ],
+  "Sturisomatichthys leightoni": [
+    "Oxyloricaria leightoni"
+  ],
+  "Sulcospira testudinaria": [
+    "Brotia testudinaria",
+    "Melania doriae",
+    "Melania foeda",
+    "Melania junghuhni",
+    "Melania martini",
+    "Melania spadicea",
+    "Melania testudinaria",
+    "Sulcospira foeda",
+    "Sulcospira martini"
+  ],
+  "Sundadanio axelrodi": [
+    "Rasbora axelrodi"
+  ],
+  "Sundasalanx microps": [],
+  "Symphysodon aequifasciatus": [
+    "Symphysodon axelrodi",
+    "Symphysodon haraldi"
+  ],
+  "Symphysodon discus": [],
+  "Synaptolaemus latofasciatus": [
+    "Leporinus latofasciatus"
+  ],
+  "Synbranchus marmoratus": [
+    "Falconeria aptera",
+    "Falconeria pinnata",
+    "Symbranchus doeringii",
+    "Symbranchus doringii",
+    "Symbranchus hieronymi",
+    "Symbranchus marmoratus",
+    "Symbranchus tigrinus",
+    "Synbranchus doringii",
+    "Synbranchus fuliginosus",
+    "Synbranchus hieronymi",
+    "Synbranchus immaculatus",
+    "Synbranchus mercedarius",
+    "Synbranchus pardalis",
+    "Synbranchus tigrinus",
+    "Synbranchus vittatus",
+    "Unibranchapertura lineata"
+  ],
+  "Syncrossus beauforti": [
+    "Botia beauforti",
+    "Botia lucas-bahi",
+    "Botia yunnanensis"
+  ],
+  "Syncrossus berdmorei": [
+    "Botia berdmorei"
+  ],
+  "Syncrossus helodes": [
+    "Botia helodes"
+  ],
+  "Syncrossus hymenophysa": [
+    "Botia hymenophysa",
+    "Botia hymeophysa",
+    "Cobitis hymenophysa",
+    "Hymenophysa macclellandi"
+  ],
+  "Synodontis acanthomias": [
+    "Synodontis pfefferi"
+  ],
+  "Synodontis alberti": [],
+  "Synodontis albolineatus": [],
+  "Synodontis angelicus": [
+    "Synodontis tholloni",
+    "Synodontis werneri"
+  ],
+  "Synodontis ansorgii": [],
+  "Synodontis arnoulti": [],
+  "Synodontis aterrimus": [],
+  "Synodontis bastiani": [
+    "Synodontis dageti",
+    "Synodontis eburneensis"
+  ],
+  "Synodontis batensoda": [
+    "Brachysynodontis batensoda",
+    "Synodontes ruppelli",
+    "Synodontis melanogaster"
+  ],
+  "Synodontis brichardi": [],
+  "Synodontis clarias": [
+    "Pimelodus clarias",
+    "Pimelodus synodontes",
+    "Pimelodus synodontis",
+    "Silurus callarias",
+    "Silurus clarias",
+    "Synodontis macrodon"
+  ],
+  "Synodontis contractus": [
+    "Synodontis davidi"
+  ],
+  "Synodontis decorus": [
+    "Synodontis vittatus"
+  ],
+  "Synodontis dhonti": [],
+  "Synodontis eupterus": [
+    "Synodontis galinae",
+    "Synodontis macrepipterus"
+  ],
+  "Synodontis flavitaeniatus": [],
+  "Synodontis frontosus": [
+    "Synodontis citernii"
+  ],
+  "Synodontis granulosus": [],
+  "Synodontis greshoffi": [
+    "Synodontis grenshoffi",
+    "Synodontis holopercnus",
+    "Synodontis pantherinus"
+  ],
+  "Synodontis leopardus": [],
+  "Synodontis lucipinnis": [],
   "Taxiphyllum alternans": [
     "Gollania cochlearifolia",
     "Isopterygium alternans",

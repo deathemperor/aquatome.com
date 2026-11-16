@@ -44,6 +44,9 @@ git config merge.changelog.driver 'node scripts/merge-changelog.mjs %O %A %B'
 git config merge.jsonmap.driver 'node scripts/merge-json-map.mjs %O %A %B'
 # Each run rewrites the fit reports, so keep the current side when they clash.
 git config merge.regenerated.driver true
+# Picture files two jobs both write: a pull merges them value by value, never a picture built from two (.gitattributes,
+# scripts/merge-main-whole.mjs). Only in the engine's clones: in anyone else's checkout a rebase would drop their edits.
+if engine_clone || engine_cloud; then git config merge.main-whole.driver 'node scripts/merge-main-whole.mjs %O %A %B %P'; fi
 git config merge.entity.driver 'node scripts/merge-entity.mjs %O %A %B'
 pnpm install --frozen-lockfile --silent
 publish_kept video-recheck
@@ -85,7 +88,9 @@ if ! verify_cycle; then keep_unpublished video-recheck; log "tests failed, not p
 # The video job and the GitHub engine push too; the files merge through their drivers. Lines both changed give way to
 # this run's, as video-cycle.sh does; then the tests run again on the merge.
 for _ in 1 2 3; do
-  main=$(git rev-parse '@{u}' 2>/dev/null || true) run=$(git rev-parse HEAD) moved=
+  # main: the commit this work sits on, not the last main fetched, which a fetch before this pull (catch_up's, stopped
+  # after its fetch) may have moved: swept_pull then sees main's commits come in (a reader's catch, 16 Nov).
+  main=$(git merge-base HEAD '@{u}' 2>/dev/null || true) run=$(git rev-parse HEAD) moved=
   if ! git pull -q --rebase; then
     log "another job changed the same files: $(git diff --name-only --diff-filter=U | tr '\n' ' ')"
     git rebase --abort 2>/dev/null || true

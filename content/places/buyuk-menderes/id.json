@@ -1,8 +1,13 @@
 {
   "slug": "buyuk-menderes",
-  "name": "Büyük Menderes",
+  "name": "Sungai Büyük Menderes",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-16T11:21:15.264Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

@@ -16,11 +16,13 @@
         "BR"
       ],
       "regions": [
-        "Rio Tapajós",
-        "Amazon"
+        "Tapajós",
+        "Amazon",
+        "Xingu"
       ],
       "sources": [
-        "planetcatfish"
+        "planetcatfish",
+        "scotcat"
       ],
       "quotes": [
         {
@@ -29,8 +31,15 @@
           "countries": [
             "BR"
           ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Spectracanthicus murinus is endemic to Brazil and widely distributed, occurring in the Tapajós River basin and possibly in the lower Xingu River, Pará state.",
+          "countries": [],
           "regions": [
-            "Rio Tapajós"
+            "Tapajós",
+            "Xingu"
           ]
         },
         {

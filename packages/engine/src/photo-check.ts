@@ -17,6 +17,7 @@ import { keptOwnMark, LOGO_FOLDERS, retainedOwnMark, stripPhotos, type Watermark
 import { keptLast } from './own-mark'
 import { ageOf, ageUnasked, grownFirst, grownHead, headAsksAge, youngUnasked } from './young-heads'
 import { CF, namedOn, namedOrder, passesHead, SPECIES } from './photo-named'
+import { readAvoid } from './curation'
 import { priorityFish } from './priority-fish'
 
 type Photo = { url: string; caption?: string; author?: string; authorUrl?: string; sourceUrl?: string; generated?: unknown }
@@ -423,7 +424,9 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const namedHere = await namedOn(content)
   const faces = (await readJson<Record<string, number>>(join(root, 'engine-state/_photo-faces.json'))) ?? {}
   const heads = { subjects: cache, legacy, rejected, faces, personYes: yes.counted, kept }
-  const asHead = passesHead(heads), grown = grownHead(heads)
+  // The calendar's hold, as the lead step and the sweep read it, so none puts back a held head another moved.
+  const avoid = await readAvoid(root)
+  const asHead = passesHead(heads, avoid), grown = grownHead(heads, avoid)
   const shown: Shown[] = []
   for (const s of all) {
     let bare = false

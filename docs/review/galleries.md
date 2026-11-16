@@ -7,16 +7,16 @@ Written by `pnpm engine gallery` (2026-11-16). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 664 | 30 | 9 | 23 | 680 |
-| rest | 20 | 1718 | 74 | 0 | 74 | 1718 |
+| covered | 30 | 671 | 30 | 9 | 23 | 687 |
+| rest | 20 | 1729 | 75 | 0 | 91 | 1713 |
 
-## Short of target: every source read (438)
+## Short of target: every source read (498)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
 | Page | Tier | Photos | Target |
 | --- | --- | --- | --- |
-| species/betta-mahachaiensis | covered | 7 | 30 |
+| species/betta-mahachaiensis | covered | 6 | 30 |
 | species/ageneiosus-inermis | rest | 0 | 20 |
 | species/amphilius-frieli | rest | 0 | 20 |
 | species/amphilius-kivuensis | rest | 0 | 20 |
@@ -93,7 +93,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/corydoras-hastatus | shop | 1 | 60 |
 | breeds/mickey-mouse-platy | shop | 3 | 60 |
 | species/corydoras-similis | shop | 0 | 60 |
-| plants/helanthium-tenellum | shop | 22 | 60 |
+| plants/helanthium-tenellum | shop | 20 | 60 |
 | breeds/butterfly-koi | shop | 6 | 60 |
 | species/corydoras-adolfoi | shop | 1 | 60 |
 | breeds/pigeon-blood-discus | shop | 4 | 60 |
@@ -294,6 +294,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/corydoras-splendens | covered | 1 | 30 |
 | species/denticetopsis-seducta | covered | 0 | 30 |
 | species/farlowella-platorynchus | covered | 0 | 30 |
+| species/hisonotus-notatus | covered | 0 | 30 |
 | species/hypancistrus-inspector | covered | 0 | 30 |
 | species/hypancistrus-zebra | covered | 0 | 30 |
 | species/hyphessobrycon-vilmae | covered | 2 | 30 |
@@ -304,8 +305,11 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/mastiglanis-asopos | covered | 0 | 30 |
 | species/megalancistrus-parananus | covered | 1 | 30 |
 | species/moenkhausia-oligolepis | covered | 2 | 30 |
+| species/monocirrhus-polyacanthus | covered | 7 | 30 |
 | species/myloplus-schomburgkii | covered | 2 | 30 |
 | species/nothobranchius-rachovii | covered | 4 | 30 |
+| species/oryzias-woworae | covered | 1 | 30 |
+| species/pseudeutropius-brachypopterus | covered | 0 | 30 |
 | species/pterobunocephalus-depressus | covered | 0 | 30 |
 | species/pterophyllum-altum | covered | 13 | 30 |
 | species/sphaerichthys-osphromenoides | covered | 1 | 30 |
@@ -378,6 +382,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/batasio-fasciolatus | covered | 0 | 30 |
 | species/batrochoglanis-raninus | covered | 0 | 30 |
 | species/batrochoglanis-villosus | covered | 0 | 30 |
+| species/beaufortia-kweichowensis | covered | 0 | 30 |
 | species/betta-albimarginata | covered | 4 | 30 |
 | species/betta-antoni | covered | 0 | 30 |
 | species/betta-balunga | covered | 0 | 30 |
@@ -454,3 +459,58 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/clypeobarbus-congicus | covered | 0 | 30 |
 | species/copadichromis-borleyi | covered | 2 | 30 |
 | species/corydoras-amandajanea | covered | 0 | 30 |
+| species/corydoras-armatus | covered | 0 | 30 |
+| species/corydoras-atropersonatus | covered | 0 | 30 |
+| species/corydoras-axelrodi | covered | 0 | 30 |
+| species/corydoras-britskii | covered | 0 | 30 |
+| species/corydoras-burgessi | covered | 0 | 30 |
+| species/corydoras-carlae | covered | 2 | 30 |
+| species/corydoras-duplicareus | covered | 0 | 30 |
+| species/corydoras-elegans | covered | 0 | 30 |
+| species/corydoras-ephippifer | covered | 0 | 30 |
+| species/corydoras-gossei | covered | 0 | 30 |
+| species/corydoras-haraldschultzi | covered | 0 | 30 |
+| species/corydoras-imitator | covered | 8 | 30 |
+| species/corydoras-kanei | covered | 3 | 30 |
+| species/corydoras-loxozonus | covered | 0 | 30 |
+| species/corydoras-melini | covered | 0 | 30 |
+| species/corydoras-napoensis | covered | 0 | 30 |
+| species/corydoras-nijsseni | covered | 0 | 30 |
+| species/corydoras-oiapoquensis | covered | 0 | 30 |
+| species/corydoras-pantanalensis | covered | 0 | 30 |
+| species/corydoras-polystictus | covered | 0 | 30 |
+| species/corydoras-reticulatus | covered | 0 | 30 |
+| species/corydoras-robustus | covered | 0 | 30 |
+| species/corydoras-schwartzi | covered | 0 | 30 |
+| species/corydoras-serratus | covered | 0 | 30 |
+| species/corydoras-sodalis | covered | 0 | 30 |
+| species/corydoras-spectabilis | covered | 0 | 30 |
+| species/corydoras-trilineatus | covered | 7 | 30 |
+| species/corydoras-vittatus | covered | 0 | 30 |
+| species/cranoglanis-henrici | covered | 0 | 30 |
+| species/crenicichla-compressiceps | covered | 0 | 30 |
+| species/crenicichla-johanna | covered | 0 | 30 |
+| species/crenicichla-lugubris | covered | 0 | 30 |
+| species/crenuchus-spilurus | covered | 1 | 30 |
+| species/crossoloricaria-cephalaspis | covered | 0 | 30 |
+| species/ctenochromis-polli | covered | 0 | 30 |
+| species/ctenopoma-acutirostre | covered | 1 | 30 |
+| species/ctenopoma-kingsleyae | covered | 1 | 30 |
+| species/ctenops-nobilis | covered | 0 | 30 |
+| species/cyclocheilichthys-janthochir | covered | 0 | 30 |
+| species/cyprichromis-leptosoma | covered | 5 | 30 |
+| species/danio-aesculapii | covered | 0 | 30 |
+| species/danio-albolineatus | covered | 3 | 30 |
+| species/danio-dangila | covered | 0 | 30 |
+| species/danio-erythromicron | covered | 2 | 30 |
+| species/danio-roseus | covered | 1 | 30 |
+| species/danionella-dracula | covered | 1 | 30 |
+| species/danionella-translucida | covered | 0 | 30 |
+| species/dario-hysginon | covered | 0 | 30 |
+| species/dawkinsia-assimilis | covered | 1 | 30 |
+| species/dawkinsia-exclamatio | covered | 1 | 30 |
+| species/dawkinsia-rohani | covered | 0 | 30 |
+| species/dekeyseria-scaphirhyncha | covered | 0 | 30 |
+| species/denticetopsis-macilenta | covered | 0 | 30 |
+| species/denticetopsis-praecox | covered | 0 | 30 |
+| species/desmopuntius-hexazona | covered | 1 | 30 |

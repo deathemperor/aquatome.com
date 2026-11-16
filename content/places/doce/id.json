@@ -1,8 +1,13 @@
 {
   "slug": "doce",
-  "name": "Doce",
+  "name": "Sungai Doce",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-16T11:24:00.612Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

@@ -13,212 +13,6 @@
     "gabon",
     "ogowe"
   ],
-  "dataCard": {
-    "tempC": [
-      {
-        "source": "planetcatfish",
-        "value": {
-          "min": 24,
-          "max": 28
-        }
-      },
-      {
-        "source": "scotcat",
-        "value": {
-          "min": 24,
-          "max": 28
-        }
-      }
-    ],
-    "sizeCm": [
-      {
-        "source": "planetcatfish",
-        "value": 41
-      },
-      {
-        "source": "scotcat",
-        "value": 40
-      }
-    ],
-    "ph": [
-      {
-        "source": "scotcat",
-        "value": {
-          "min": 6,
-          "max": 7.5
-        }
-      }
-    ]
-  },
-  "sections": [
-    {
-      "key": "quickFacts",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1389",
-      "html": "<ul><li>Scientific name: Parauchenoglanis punctatus (Boulenger, 1902)</li><li>Common name: Spotted Giraffe Catfish</li><li>Type locality: Lindi River, Democratic Republic of Congo</li><li>Synonym: Auchenoglanis punctatus</li><li>IUCN Red List: Least Concern (last assessed 2009)</li></ul>"
-    },
-    {
-      "key": "quickFacts",
-      "source": "scotcat",
-      "sourceUrl": "https://www.scotcat.com/claroteidae/parauchenoglanis_punctatus.htm",
-      "html": "<ul><li>Synonym: Auchenoglanis punctatus</li></ul>"
-    },
-    {
-      "key": "distribution",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1389",
-      "html": "<p>Africa: Congo River system.</p>"
-    },
-    {
-      "key": "distribution",
-      "source": "scotcat",
-      "sourceUrl": "https://www.scotcat.com/claroteidae/parauchenoglanis_punctatus.htm",
-      "html": "<p>Africa: lower and central Congo River system; San Benito and Ogowe River basins. Type locality: Lindi River, which flows into the Congo at the Stanley Falls.</p>"
-    },
-    {
-      "key": "aquariumSize",
-      "source": "scotcat",
-      "sourceUrl": "https://www.scotcat.com/claroteidae/parauchenoglanis_punctatus.htm",
-      "html": "<p>Grows quite large but is not a predator as such, so should be safe to house with smaller species. Best suited to the larger aquarium.</p>"
-    },
-    {
-      "key": "diet",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1389",
-      "html": "<p>In nature, it preys on insect larvae, crustaceans, and small fishes. It is not a fussy eater in the aquarium and will eat most foods.</p>"
-    },
-    {
-      "key": "diet",
-      "source": "scotcat",
-      "sourceUrl": "https://www.scotcat.com/claroteidae/parauchenoglanis_punctatus.htm",
-      "html": "<p>Will eat a variety of foods: tablet and pellet foods with a good quality flake and frozen bloodworms. Also relishes live worms such as the common garden worm, making sure that there has been no weedkiller on the premises, and white worm.</p>"
-    },
-    {
-      "key": "behaviour",
-      "source": "scotcat",
-      "sourceUrl": "https://www.scotcat.com/claroteidae/parauchenoglanis_punctatus.htm",
-      "html": "<p>Peaceful large catfish which will do well in company of larger characins from Africa and large barbs.</p>"
-    },
-    {
-      "key": "reproduction",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1389",
-      "html": "<p>Unreported. There is no breeding report.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1389",
-      "html": "<p>In all Parauchenoglanis the small eyes are not covered by a transparent skin (having a free border). The first dorsal spine is small, the second large and strong followed by seven branched fin rays (rarely eight). Pectoral fin with one spine and 7-8 branched rays, pelvic fin with six rays (of which five are branched), anal fin with 6-10 branched rays. Edge of caudal is straight or rounded.</p><p>This species' barbels are extremely long, maxillary barbel reaching at least to pectoral spine base, external mandibular barbel always reaching beyond spine tip. Adipose fin solid and higher than in other species (except for some adults of P. altipinnis). Head dark brown, typically darker than flanks, sometimes with indistinct, large, dark marks. Flanks brown, occasionally with a purple hue, and 6-10 (rarely 11) vertical rows of very dark to black separate dots, each smaller than the eye. In younger specimens dark vertical bands may be barely apparent. Belly pale brown to whitish.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "scotcat",
-      "sourceUrl": "https://www.scotcat.com/claroteidae/parauchenoglanis_punctatus.htm",
-      "html": "<p>This genus, which includes another 8 species, is quite difficult to identify, and juveniles can have different markings and colouration to the adults. Diagnosis: caudal peduncle short and deep, its depth twice as large as the horizontal distance between the adipose and caudal fin bases and in some specimens even deeper; anterior edge of pectoral spine fully serrate with serrations smaller but more numerous than those along the posterior edge; barbels very long, e.g. external mandibular barbel reaching beyond tip of pectoral spine, maxillary barbel reaching at least to pectoral spine base; adipose fin always high and solid. Dorsal spines (total): 2. Colouration: typical pattern of 6–10 (11) vertical rows of black dots.</p>"
-    },
-    {
-      "key": "references",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1389",
-      "html": "<p>Proceedings of the Zoological Society of London 1902, v. 1 (pt 1) (art. 4), pp 267, Pl. 29 (figs. 1-1a).</p>"
-    },
-    {
-      "key": "references",
-      "source": "scotcat",
-      "sourceUrl": "https://www.scotcat.com/claroteidae/parauchenoglanis_punctatus.htm",
-      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2021. FishBase. www.fishbase.org (02/2021). Geerinckx, T., D. Adriaens, G.G. Teugels and W. Verraes, 2004. A systematic revision of the African catfish genus Parauchenoglanis (Siluriformes: Claroteidae). J. Nat. Hist. 38:775-803.</p>"
-    }
-  ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/e5326bcbb4beae1b.webp",
-      "thumb": "https://media.aquatome.com/scotcat/e5326bcbb4beae1b-480.webp",
-      "width": 500,
-      "height": 313,
-      "licence": "dùng với sự cho phép",
-      "author": "Allan James / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/parauchenoglanis_punctatus.htm",
-      "caption": "Parauchenoglanis punctatus",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/71b1d1dc8b7216c9.webp",
-      "thumb": "https://media.aquatome.com/scotcat/71b1d1dc8b7216c9-480.webp",
-      "width": 500,
-      "height": 282,
-      "licence": "dùng với sự cho phép",
-      "author": "Allan James / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/parauchenoglanis_punctatus.htm",
-      "caption": "Parauchenoglanis punctatus",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/b096e11b58f48c64.webp",
-      "thumb": "https://media.aquatome.com/scotcat/b096e11b58f48c64-480.webp",
-      "width": 500,
-      "height": 294,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/parauchenoglanis_punctatus.htm",
-      "caption": "Parauchenoglanis punctatus",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/45a3a3bd05d43b63.webp",
-      "thumb": "https://media.aquatome.com/scotcat/45a3a3bd05d43b63-480.webp",
-      "width": 500,
-      "height": 294,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/parauchenoglanis_punctatus.htm",
-      "caption": "Parauchenoglanis punctatus",
-      "source": "scotcat"
-    }
-  ],
-  "videos": [
-    {
-      "youtubeId": "xefaNqTBl_A",
-      "title": "Parauchenoglanis punctatus",
-      "durationSec": 61,
-      "lang": "en"
-    },
-    {
-      "youtubeId": "tJlkFb6mFB0",
-      "title": "Parauchenoglanis guttatus and punctatus",
-      "durationSec": 25,
-      "lang": "en"
-    },
-    {
-      "youtubeId": "q-Wu3KseiDY",
-      "title": "Parauchenoglanis cf. punctatus feeding",
-      "durationSec": 143,
-      "lang": "en"
-    }
-  ],
-  "productSlots": [
-    {
-      "category": "be-ca",
-      "keywords": [
-        "bể cá 200 cm",
-        "bể cá lớn nuôi cá da trơn"
-      ]
-    },
-    {
-      "category": "loc",
-      "keywords": [
-        "lọc thùng bể lớn",
-        "máy bơm tạo dòng"
-      ]
-    },
-    {
-      "category": "suoi",
-      "keywords": [
-        "sưởi bể cá 300w"
-      ]
-    }
-  ],
-  "updatedAt": "2026-11-15",
   "range": {
     "native": {
       "countries": [
@@ -226,10 +20,13 @@
       ],
       "regions": [
         "Congo River",
-        "Lindi River"
+        "Lindi River",
+        "Ogowe River",
+        "San Benito"
       ],
       "sources": [
-        "planetcatfish"
+        "planetcatfish",
+        "scotcat"
       ],
       "quotes": [
         {
@@ -248,6 +45,15 @@
           "countries": [],
           "regions": [
             "Congo River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Africa: lower and central Congo River system; San Benito and Ogowe River basins.",
+          "countries": [],
+          "regions": [
+            "Ogowe River",
+            "San Benito"
           ]
         }
       ]
@@ -581,5 +387,251 @@
         ]
       ]
     }
-  }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 41
+      },
+      {
+        "source": "scotcat",
+        "value": 40
+      },
+      {
+        "source": "glaser",
+        "value": 40
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1389",
+      "html": "<ul><li>Scientific name: Parauchenoglanis punctatus (Boulenger, 1902)</li><li>Common name: Spotted Giraffe Catfish</li><li>Type locality: Lindi River, Democratic Republic of Congo</li><li>Synonym: Auchenoglanis punctatus</li><li>IUCN Red List: Least Concern (last assessed 2009)</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/parauchenoglanis_punctatus.htm",
+      "html": "<ul><li>Synonym: Auchenoglanis punctatus</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/parauchenoglanis_punctatus_en/",
+      "html": "<p>Among the imports from central Africa this beautiful catfish is a real rarity. From that region only few fish are imported regularly.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1389",
+      "html": "<p>Africa: Congo River system.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/parauchenoglanis_punctatus.htm",
+      "html": "<p>Africa: lower and central Congo River system; San Benito and Ogowe River basins. Type locality: Lindi River, which flows into the Congo at the Stanley Falls.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/parauchenoglanis_punctatus_en/",
+      "html": "<p>It is known so far only from the central Congo basin. Origin: D.R. Congo.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/parauchenoglanis_punctatus.htm",
+      "html": "<p>Grows quite large but is not a predator as such, so should be safe to house with smaller species. Best suited to the larger aquarium.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/parauchenoglanis_punctatus_en/",
+      "html": "<p>The species attains a length of approximately 40 cm. Thus it is a perfect tankmate for show aquaria with larger species of cichlid, barb or tetra.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1389",
+      "html": "<p>In nature, it preys on insect larvae, crustaceans, and small fishes. It is not a fussy eater in the aquarium and will eat most foods.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/parauchenoglanis_punctatus.htm",
+      "html": "<p>Will eat a variety of foods: tablet and pellet foods with a good quality flake and frozen bloodworms. Also relishes live worms such as the common garden worm, making sure that there has been no weedkiller on the premises, and white worm.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/parauchenoglanis_punctatus_en/",
+      "html": "<p>Interestingly the gut of specimens in the field contained only parts of plant material, insect larvae and shrimp, but no fish.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/parauchenoglanis_punctatus.htm",
+      "html": "<p>Peaceful large catfish which will do well in company of larger characins from Africa and large barbs.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/parauchenoglanis_punctatus_en/",
+      "html": "<p>Nevertheless it seems not wise to keep too small fish along with them.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/parauchenoglanis_punctatus_en/",
+      "html": "<p>It is very interesting that imported specimens (6-8 cm long) already show a sexual dimorphism (body proportions, larger fins in males).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1389",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1389",
+      "html": "<p>In all Parauchenoglanis the small eyes are not covered by a transparent skin (having a free border). The first dorsal spine is small, the second large and strong followed by seven branched fin rays (rarely eight). Pectoral fin with one spine and 7-8 branched rays, pelvic fin with six rays (of which five are branched), anal fin with 6-10 branched rays. Edge of caudal is straight or rounded.</p><p>This species' barbels are extremely long, maxillary barbel reaching at least to pectoral spine base, external mandibular barbel always reaching beyond spine tip. Adipose fin solid and higher than in other species (except for some adults of P. altipinnis). Head dark brown, typically darker than flanks, sometimes with indistinct, large, dark marks. Flanks brown, occasionally with a purple hue, and 6-10 (rarely 11) vertical rows of very dark to black separate dots, each smaller than the eye. In younger specimens dark vertical bands may be barely apparent. Belly pale brown to whitish.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/parauchenoglanis_punctatus.htm",
+      "html": "<p>This genus, which includes another 8 species, is quite difficult to identify, and juveniles can have different markings and colouration to the adults. Diagnosis: caudal peduncle short and deep, its depth twice as large as the horizontal distance between the adipose and caudal fin bases and in some specimens even deeper; anterior edge of pectoral spine fully serrate with serrations smaller but more numerous than those along the posterior edge; barbels very long, e.g. external mandibular barbel reaching beyond tip of pectoral spine, maxillary barbel reaching at least to pectoral spine base; adipose fin always high and solid. Dorsal spines (total): 2. Colouration: typical pattern of 6–10 (11) vertical rows of black dots.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1389",
+      "html": "<p>Proceedings of the Zoological Society of London 1902, v. 1 (pt 1) (art. 4), pp 267, Pl. 29 (figs. 1-1a).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/claroteidae/parauchenoglanis_punctatus.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2021. FishBase. www.fishbase.org (02/2021). Geerinckx, T., D. Adriaens, G.G. Teugels and W. Verraes, 2004. A systematic revision of the African catfish genus Parauchenoglanis (Siluriformes: Claroteidae). J. Nat. Hist. 38:775-803.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/e5326bcbb4beae1b.webp",
+      "thumb": "https://media.aquatome.com/scotcat/e5326bcbb4beae1b-480.webp",
+      "width": 500,
+      "height": 313,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/parauchenoglanis_punctatus.htm",
+      "caption": "Parauchenoglanis punctatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/71b1d1dc8b7216c9.webp",
+      "thumb": "https://media.aquatome.com/scotcat/71b1d1dc8b7216c9-480.webp",
+      "width": 500,
+      "height": 282,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/parauchenoglanis_punctatus.htm",
+      "caption": "Parauchenoglanis punctatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/45a3a3bd05d43b63.webp",
+      "thumb": "https://media.aquatome.com/scotcat/45a3a3bd05d43b63-480.webp",
+      "width": 500,
+      "height": 294,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/parauchenoglanis_punctatus.htm",
+      "caption": "Parauchenoglanis punctatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/b096e11b58f48c64.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b096e11b58f48c64-480.webp",
+      "width": 500,
+      "height": 294,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenoglanididae/parauchenoglanis_punctatus.htm",
+      "caption": "Parauchenoglanis punctatus",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "xefaNqTBl_A",
+      "title": "Parauchenoglanis punctatus",
+      "durationSec": 61,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "tJlkFb6mFB0",
+      "title": "Parauchenoglanis guttatus and punctatus",
+      "durationSec": 25,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "q-Wu3KseiDY",
+      "title": "Parauchenoglanis cf. punctatus feeding",
+      "durationSec": 143,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 200 cm",
+        "bể cá lớn nuôi cá da trơn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy bơm tạo dòng"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300w"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-16"
 }

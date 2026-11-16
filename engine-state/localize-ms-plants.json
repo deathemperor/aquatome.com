@@ -1073,6 +1073,28 @@
       "notes:tropica": "5103c963dd43"
     }
   },
+  "echinodorus-tenellus": {
+    "at": "2026-11-16",
+    "from": "2026-11-15",
+    "name": "Pygmy Chain Sword",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 1: \"Saiz tangki minimum: 40 liter\" – \"liter\" is the English/Indonesian spelling; Malaysian standard is \"liter\"/\"liter\" in DBP but hobbyists commonly write \"L\" or \"liter\". Minor; consider \"40 L\".",
+      "Item 3: \"Runner mungkin tercabut dan terapung keluar dari substrat\" – the English says runners may jump out of the substrate; \"terapung\" (float) is added detail. Use \"tercabut keluar dari substrat\".",
+      "Item 3: \"Dos makronutrien ... untuk mengelakkan kekurangan nutrien yang menyebabkan batang berubah warna\" – awkward; \"dos\" for dosing is acceptable, but \"kekurangan\" followed by a long clause reads stiffly. Consider \"menyebabkan batang pudar warna\".",
+      "Item 3: \"Daun mudah ditumbuhi alga\" – \"mudah\" (easily) is added; the English says leaves attract algae under excessive light.",
+      "Item 2: \"famili water plantain\" – mixed English; prefer \"famili Alismataceae (water plantain)\"."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "8b6b4b6fa891",
+      "distribution:aquariumbreeder": "0b1f4d7dda97",
+      "maintenance:aquariumbreeder": "0329aaa41fd9",
+      "waterConditions:aquariumbreeder": "7deecd0ec8c0",
+      "equipment:aquariumbreeder": "0ae5c84f435e",
+      "notes:aquariumbreeder": "b14dfdf88eb0"
+    }
+  },
   "echinodorus-x-barthii": {
     "at": "2026-11-14",
     "from": "2026-11-09",
@@ -1378,6 +1400,68 @@
       "waterConditions:aquariumbreeder": "fab44938b8bc",
       "equipment:aquariumbreeder": "8283ed8aa22b",
       "notes:aquariumbreeder": "7c5c9ffc9162"
+    }
+  },
+  "hydrocotyle-tripartita": {
+    "at": "2026-11-16",
+    "from": "2026-10-30",
+    "name": "Hydrocotyle tripartita 'Japan'",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"cahaya yang mencukupi\" for \"good light\" slightly weakens the meaning; consider \"cahaya yang baik\" or \"cahaya yang terang\".",
+      "\"Jenis: tumbuhan batang\": \"tumbuhan berbatang\" or \"tumbuhan batang (stem plant)\" is more common among hobbyists."
+    ],
+    "parts": {
+      "quickFacts:tropica": "9b831e6972a8",
+      "notes:tropica": "57d2b7ae6b71"
+    }
+  },
+  "hydrocotyle-verticillata": {
+    "at": "2026-11-16",
+    "from": "2026-11-08",
+    "name": "Pegaga Air",
+    "confidence": "medium",
+    "score": 0.88,
+    "notes": [
+      "#7: 'providing unlimited CO2' is rendered 'bekalan CO2 yang mencukupi'. Use 'bekalan CO2 tanpa had' so the meaning stays the same.",
+      "#12: 'may die back' is rendered 'layu dan reput'. 'Reput' adds a fact, so use 'mati susut' or 'layu' only.",
+      "#12: 'local ... stores' is rendered 'kedai ikan hiasan'. This narrows the meaning, so use 'kedai tempatan'."
+    ],
+    "parts": {
+      "quickFacts:tropica": "f919dae3e61f",
+      "quickFacts:aquariumbreeder": "fe2e914244ca",
+      "distribution:aquariumbreeder": "2de7d170c456",
+      "habitat:aquariumbreeder": "167c1cfebf54",
+      "aquariumSize:aquariumbreeder": "e5d71e33f1ea",
+      "maintenance:tropica": "4877d221fac6",
+      "maintenance:aquariumbreeder": "2e65bd607f9a",
+      "waterConditions:aquariumbreeder": "ad2a06d5a677",
+      "equipment:aquariumbreeder": "5158341f6bde",
+      "behaviour:aquariumbreeder": "41d5309ec94f",
+      "notes:tropica": "88512f6dee81",
+      "notes:aquariumbreeder": "56db5e2f7dfc"
+    }
+  },
+  "hygrophila-angustifolia": {
+    "at": "2026-11-16",
+    "from": "2026-10-31",
+    "name": "Willow Hygro",
+    "confidence": "medium",
+    "score": 0.93,
+    "notes": [
+      "Item 3: \"dinaiki air\" for \"flooded areas\" is a little odd. \"yang dilimpahi air\" or \"yang banjir\" reads more naturally."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "5f69dbd14132",
+      "distribution:aquariumbreeder": "eabc28332091",
+      "habitat:aquariumbreeder": "9fa270841ef5",
+      "aquariumSize:aquariumbreeder": "89be80e14585",
+      "maintenance:aquariumbreeder": "a76cd3b3aefb",
+      "waterConditions:aquariumbreeder": "b0ae92245d1d",
+      "equipment:aquariumbreeder": "a8171384a7f4",
+      "notes:aquariumbreeder": "1e997f089f03",
+      "references:aquariumbreeder": "42d6c2b32740"
     }
   }
 }

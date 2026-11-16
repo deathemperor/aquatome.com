@@ -16,10 +16,13 @@
       "countries": [
         "BR"
       ],
-      "regions": [],
+      "regions": [
+        "São João River"
+      ],
       "sources": [
         "planetcatfish",
-        "glaser"
+        "glaser",
+        "scotcat"
       ],
       "quotes": [
         {
@@ -29,6 +32,14 @@
             "BR"
           ],
           "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Hisonotus notatus is endemic to Brazil and is distributed in the São João River basin and in the tributaries of Guanabara and Sepetiba Bays, in the state of Rio de Janeiro.",
+          "countries": [],
+          "regions": [
+            "São João River"
+          ]
         }
       ]
     },
