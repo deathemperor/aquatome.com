@@ -2,19 +2,6 @@
   "id": "rasbora-dandia",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/60068502.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/60068502-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Christoph Moning",
-      "sourceUrl": "https://www.inaturalist.org/photos/60068502",
-      "caption": "Cá rasbora dandia bơi trong suối tự nhiên, nhìn từ trên xuống",
-      "best": true,
-      "kind": "habitat",
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/310018703.webp",
       "thumb": "https://media.aquatome.com/inaturalist/310018703-480.webp",
       "width": 1024,
@@ -28,14 +15,14 @@
       "unchecked": true
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/373938701.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/373938701-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/60068502.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/60068502-480.webp",
       "width": 1024,
       "height": 683,
       "licence": "CC BY",
-      "author": "Edmundas Greimas",
-      "sourceUrl": "https://www.inaturalist.org/photos/373938701",
-      "caption": "Cá rasbora dandia bơi trên nền cát trong suối",
+      "author": "Christoph Moning",
+      "sourceUrl": "https://www.inaturalist.org/photos/60068502",
+      "caption": "Cá rasbora dandia bơi trong suối tự nhiên, nhìn từ trên xuống",
       "best": true,
       "kind": "habitat",
       "unchecked": true
@@ -51,6 +38,19 @@
       "caption": "Đàn cá rasbora dandia bơi trên nền cát trong suối",
       "best": true,
       "kind": "group",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/373938701.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/373938701-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Edmundas Greimas",
+      "sourceUrl": "https://www.inaturalist.org/photos/373938701",
+      "caption": "Cá rasbora dandia bơi trên nền cát trong suối",
+      "best": true,
+      "kind": "habitat",
       "unchecked": true
     },
     {
