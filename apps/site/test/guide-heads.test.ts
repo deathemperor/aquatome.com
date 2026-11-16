@@ -1,6 +1,7 @@
+import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { beforeAll, expect, test } from 'vitest'
-import { fitsCard, loadAll, type Content, type Photo } from '@aq/schema'
+import { fitsCard, loadAll, stillShown, thumbOf, type Content, type Photo } from '@aq/schema'
 import { slow } from '@aq/schema/test-time'
 import { guideImage, guideImages, titleNames, withVietnameseHeads } from '../src/lib/mentions'
 import awaiting from '../src/lib/guide-heads-awaiting.json' with { type: 'json' }
@@ -57,8 +58,11 @@ test('a guide picked by hand shows only its own photos and its pick, the same in
 
 // The owner's report, 16 Nov 2026: a coffee-table tank's series opened on an office ceiling light, a stock photo the
 // picture step found for one of its parts. A video guide picked by hand opens on its own video's still, its only picture, in
-// every language it is in, credited to the channel; a pick naming a still the guide doesn't have fails here, not quietly on the site.
+// every language it is in, credited to the channel; a pick naming a still the guide doesn't have, or one the stills' bar
+// doesn't show (a person in it, soft, small), fails here, not quietly on the site. The stock photo taken off its part
+// (the engine's refused list, which its runs read) stays off.
 test("a video guide picked by hand opens on its own video's still at that second, and on nothing else, in every language", () => {
+  const refused = JSON.parse(readFileSync(new URL('../../../engine-state/_photo-rejected.json', import.meta.url), 'utf8')) as Record<string, string>
   for (const [id, t] of Object.entries(frames as Record<string, number>)) {
     const langs = LANGS.filter(lang => all[lang].guides.some(x => x.id === id))
     expect(langs, id).toContain('vi')
@@ -66,7 +70,9 @@ test("a video guide picked by hand opens on its own video's still at that second
       const g = all[lang].guides.find(x => x.id === id)!
       const still = (g.video?.figures ?? []).flatMap(f => f.moments).find(m => m.t === t)
       expect(still, `${lang} ${id} has a still at ${t} s`).toBeDefined()
-      expect(guideImages(all[lang], g), `${lang} ${id}`).toEqual([expect.objectContaining({ url: still!.url, licence: 'YouTube', author: g.video!.channel, source: 'youtube' })])
+      expect(stillShown(still!), `${lang} ${id}: the still at ${t} s passes the stills' bar`).toBe(true)
+      expect(guideImages(all[lang], g), `${lang} ${id}`).toEqual([expect.objectContaining({ url: still!.url, thumb: thumbOf(still!.url), licence: 'YouTube', author: g.video!.channel, source: 'youtube' })])
+      expect((g.video?.figures ?? []).flatMap(f => f.photo ? [f.photo.url] : []).filter(u => u in refused), `${lang} ${id}: a refused photo on a part`).toEqual([])
     }
   }
 })

@@ -1,4 +1,4 @@
-import { fitsCard, linkTerms, type Content, type LinkTarget, type Localized, type GuideEntity, type Photo, type PlantEntity, type SpeciesEntity, type BreedEntity } from '@aq/schema'
+import { fitsCard, linkTerms, stillShown, THUMB_WIDTH, thumbOf, type Content, type LinkTarget, type Localized, type GuideEntity, type Photo, type PlantEntity, type SpeciesEntity, type BreedEntity } from '@aq/schema'
 import { categoriesIn } from './equipment'
 import { GROUP_LABELS } from './format'
 import { taxonHref } from './taxa-places'
@@ -243,13 +243,17 @@ export function guideImages(c: Content, g: Localized<GuideEntity>): Photo[] {
  * comes first. A page that already shows it gives the guide's card no picture rather than a stock photo (lib/pictures.ts).
  * For a guide whose stock photos show something that isn't the video's own (the owner, 16 Nov: an office ceiling light on
  * a coffee-table tank's series); the sections keep theirs. Credited to the channel, as the video's thumbnail is
- * (videoPhoto). None where the guide has no still at that second, and then the usual pictures.
+ * (videoPhoto). Only a still the stills' own bar shows (stillShown: no one in it, sharp, large enough), so a pick never puts a
+ * person on a card. None where the guide has no such still at that second, and then the usual pictures. Cards load its
+ * 480 px copy, as the stills' grid does (lib/video.ts).
  */
 const FRAMES = new Map<string, number>(Object.entries(frames as Record<string, number>))
 function framePicked(g: Localized<GuideEntity>): Photo[] {
   const t = FRAMES.get(g.id), v = g.video
   const m = t === undefined || !v ? undefined : (v.figures ?? []).flatMap(f => f.moments).find(x => x.t === t)
-  return v && m ? [{ url: m.url, width: m.width, height: m.height, licence: 'YouTube', author: v.channel, sourceUrl: `https://www.youtube.com/watch?v=${v.youtubeId}&t=${t}s`, source: 'youtube', caption: m.caption }] : []
+  if (!v || !m || !stillShown(m)) return []
+  const thumb = m.width > THUMB_WIDTH ? thumbOf(m.url) : undefined
+  return [{ url: m.url, ...(thumb ? { thumb } : {}), width: m.width, height: m.height, licence: 'YouTube', author: v.channel, sourceUrl: `https://www.youtube.com/watch?v=${v.youtubeId}&t=${t}s`, source: 'youtube', caption: m.caption }]
 }
 /**
  * The pages a guide borrows its head from, chosen once for every language (the chief of staff, 15 Nov 2026): Curation's
