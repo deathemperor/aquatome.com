@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { doseOrHarm, hasDose, keepsWhatItSays, mendLocalized, pageTextHash, partsNamed, quotesIn, sameTextMended, type MendTry } from '../src/localize-mend'
+import { changesOf, doseOrHarm, hasDose, keepsWhatItSays, mendLocalized, pageTextHash, partsNamed, quotesIn, sameTextMended, type MendTry } from '../src/localize-mend'
 import { logReviews, readReviews } from '../src/review-log'
 
 const LONG = 'ปลาชนิดนี้อยู่รวมกันเป็นฝูงและควรเลี้ยงอย่างน้อยหกตัวในตู้ที่ปลูกไม้น้ำหนาแน่นและมีที่ว่างให้ว่ายน้ำตรงกลางตู้'
@@ -52,14 +52,16 @@ async function site(notes: string[], o: { score?: number; read?: number | 'stale
 }
 
 /**
- * An editor that answers with `fix` for each part it is sent, and a reviewer that gives `asItIs` for the page's text and
- * `fixed` for a text with the fix in it, however often it is asked.
+ * An editor that answers with `fix` for each part it is sent, a check of amounts that answers `same` for every change, and a
+ * reviewer that gives `asItIs` for the page's text and `fixed` for a text with the fix in it, however often it is asked.
  */
-function fake(fix: (id: string, old: string) => string, asItIs?: { score: number; notes: string[] }, fixed?: { score: number; notes: string[] }) {
-  const calls: { prompt: string; review: boolean }[] = []
+function fake(fix: (id: string, old: string) => string, asItIs?: { score: number; notes: string[] }, fixed?: { score: number; notes: string[] }, same = true) {
+  const calls: { prompt: string; kind: 'review' | 'fix' | 'check' }[] = []
   const llm = (async (a: { prompt: string; schema: { required?: string[] } }) => {
     const isReview = !!a.schema.required?.includes('score')
-    calls.push({ prompt: a.prompt, review: isReview })
+    const isCheck = !!a.schema.required?.includes('answers')
+    calls.push({ prompt: a.prompt, kind: isReview ? 'review' : isCheck ? 'check' : 'fix' })
+    if (isCheck) return { answers: [...a.prompt.matchAll(/^### (\d+)$/gm)].map(m => ({ n: Number(m[1]), same })) }
     if (isReview) return (a.prompt.includes('ขนาดเล็ก') ? fixed : asItIs) ?? (() => { throw new Error('a read nobody expected') })()
     const parts = [...a.prompt.split('--- PARTS ---')[1]!.matchAll(/^### (\S+)\nEN:\n[\s\S]*?\nTH:\n([\s\S]*?)\nNOTES:/gm)]
     return { parts: parts.map(m => ({ id: m[1]!, text: fix(m[1]!, m[2]!) })) }
@@ -77,16 +79,20 @@ test('a page with no steady read of its text on file is read first, three times 
     const { llm, calls } = fake(small, { score: 0.62, notes: [NOTE, 'The name is fine.'] }, AFTER)
     const r = await mendLocalized(root, llm, 'th', ['a'], { now })
     expect(r).toEqual({ read: ['a: 0.6 then 0.62, 2 notes'], kept: ['a: 1 of 3 parts, 2 notes: 0.62 to 0.85, open, 1 parts changed'], notBetter: [], skipped: [], failed: [], stopped: '' })
-    expect(calls.map(c => c.review)).toEqual([true, true, true, false, true, true, true])
+    expect(calls.map(c => c.kind)).toEqual(['review', 'review', 'review', 'fix', 'check', 'review', 'review', 'review'])
     // The first read is of the page as it is, every translatable part.
     expect(calls[0]!.prompt).toContain(page.sections['diet:seriouslyfish'])
     const sent = calls[3]!.prompt
     expect(sent).toContain('### diet:seriouslyfish')
     expect(sent).toContain(NOTE)
     for (const not of ['### habitat:seriouslyfish', '### behaviour:glaser', 'Not ours to translate', 'old note', 'no longer has']) expect(sent).not.toContain(not)
+    // The check of amounts sees the changed phrase before and after, beside its English, and nothing else of the page.
+    expect(calls[4]!.prompt).toContain('BEFORE: แมลงขนาดใหญ่\nAFTER: แมลงขนาดเล็ก')
+    expect(calls[4]!.prompt).toContain(PARTS[1]!.en)
+    expect(calls[4]!.prompt).not.toContain('ลำธาร')
     // The reviewer then reads the whole page as it will be written.
-    expect(calls[4]!.prompt).toContain('แมลงขนาดเล็ก')
-    expect(calls[4]!.prompt).toContain(page.sections['habitat:seriouslyfish'])
+    expect(calls[5]!.prompt).toContain('แมลงขนาดเล็ก')
+    expect(calls[5]!.prompt).toContain(page.sections['habitat:seriouslyfish'])
     const t = await read(root, 'content/species/a/th.json')
     expect(t.sections).toEqual(FIXED)
     expect(t.quality).toEqual({ score: 0.85, indexable: true, bySource: { seriouslyfish: 0.85, glaser: 0.85 } })
@@ -102,7 +108,7 @@ test('a steady read of the page\'s text on file is the one used: no second read 
   const { root } = await site([NOTE], { read: 0.6 })
   const { llm, calls } = fake(small, undefined, AFTER)
   expect(await mendLocalized(root, llm, 'th', ['a'], { now })).toMatchObject({ read: [], kept: ['a: 1 of 3 parts, 1 notes: 0.6 to 0.85, open, 1 parts changed'] })
-  expect(calls.map(c => c.review)).toEqual([false, true, true, true])
+  expect(calls.map(c => c.kind)).toEqual(['fix', 'check', 'review', 'review', 'review'])
 })
 
 test('a fix that reads no higher than the page or than its unfixed text leaves both as they were, and that text is not tried again', async () => {
@@ -118,7 +124,7 @@ test('a fix that reads no higher than the page or than its unfixed text leaves b
     expect(await readFile(join(root, 'engine-state/localize-th.json'), 'utf8')).toBe(state)
     expect((await readReviews(root, 'localize'))['th/species/a']![0]).toMatchObject({ attempt: 'rewrite', kept: false, score: fixed, textHash: HASH })
     // What was tried is handed over, though the page keeps none of it.
-    expect(tries).toEqual([{ id: 'a', was, read: unfixed, score: fixed, kept: false, parts: [{ id: 'diet:seriouslyfish', notes: [NOTE], before: SECTIONS['diet:seriouslyfish'], after: FIXED['diet:seriouslyfish'] }] }])
+    expect(tries).toEqual([{ id: 'a', was, read: unfixed, score: fixed, kept: false, parts: [{ id: 'diet:seriouslyfish', notes: [NOTE], before: SECTIONS['diet:seriouslyfish'], after: FIXED['diet:seriouslyfish'] }], check: [{ part: 'diet:seriouslyfish', before: 'แมลงขนาดใหญ่', after: 'แมลงขนาดเล็ก', same: true }] }])
     const again = fake(small, AFTER)
     expect((await mendLocalized(root, again.llm, 'th', ['a'], { now })).skipped).toEqual(['a: a fix of this text was tried'])
     expect(again.calls).toEqual([])
@@ -130,7 +136,7 @@ test('a page that passes its new read is left as it is, and --reads stops after 
   const before = await file()
   const { llm, calls } = fake(small, { score: 0.8, notes: [] })
   expect(await mendLocalized(root, llm, 'th', ['a'], { now })).toMatchObject({ read: ['a: 0.6 then 0.8, 0 notes, passes as it is'], kept: [], skipped: [] })
-  expect(calls.map(c => c.review)).toEqual([true, true, true])
+  expect(calls.map(c => c.kind)).toEqual(['review', 'review', 'review'])
   expect(await file()).toBe(before)
   expect((await readReviews(root, 'localize'))['th/species/a']![0]).toMatchObject({ attempt: 'recheck', kept: true, score: 0.8, reads: [0.8, 0.8, 0.8], textHash: HASH })
   const again = fake(small, AFTER)
@@ -140,7 +146,7 @@ test('a page that passes its new read is left as it is, and --reads stops after 
   const other = await site([])
   const reads = fake(small, { score: 0.6, notes: [NOTE] })
   expect(await mendLocalized(other.root, reads.llm, 'th', ['a'], { now, readsOnly: true })).toMatchObject({ read: ['a: 0.6 then 0.6, 1 notes'], kept: [], notBetter: [], skipped: [] })
-  expect(reads.calls.map(c => c.review)).toEqual([true, true, true])
+  expect(reads.calls.map(c => c.kind)).toEqual(['review', 'review', 'review'])
 })
 
 test('a page with a note on a dose or harm is left for that check, and so are one whose notes name no part and one that lacks a part of the English', async () => {
@@ -176,12 +182,14 @@ test('a part the editor rewrote, emptied, returned as it was, or whose figures, 
     (_: string, old: string) => old.replace('ขนาดใหญ่', 'ขนาดเล็ก').replace(' ให้อาหารวันละสองครั้ง', ''),
     // A paragraph more.
     (_: string, old: string) => old.replace('ขนาดใหญ่', 'ขนาดเล็ก').replace('</p>', '</p><p>ย่อหน้าใหม่</p>'),
+    // The quoted phrase mended, and a word no note quotes changed with it.
+    (_: string, old: string) => old.replace('ขนาดใหญ่', 'ขนาดเล็ก').replace('ให้อาหาร', 'ป้อนอาหาร'),
   ]) {
     const { root, file } = await site([NOTE], { read: 0.6 })
     const before = await file()
     const { llm, calls } = fake(fix)
     expect((await mendLocalized(root, llm, 'th', ['a'], { now })).skipped).toEqual(['a: 1 of 3 parts, 1 notes: the fix changed nothing'])
-    expect(calls.filter(c => c.review)).toEqual([])
+    expect(calls.map(c => c.kind)).toEqual(['fix'])
     expect(await file()).toBe(before)
     const again = fake(small, AFTER, AFTER)
     expect((await mendLocalized(root, again.llm, 'th', ['a'], { now })).skipped).toEqual(['a: a fix of this text was tried'])
@@ -198,6 +206,20 @@ test('a part fixed by hand or with a dose in it is never sent to the editor', as
     expect(calls).toEqual([])
     expect(await file()).toBe(before)
   }
+})
+
+test('a fix the check of amounts says no to is not kept and not read, and that text is not tried again', async () => {
+  const { root, file } = await site([NOTE], { read: 0.6 })
+  const before = await file()
+  const tries: MendTry[] = []
+  const { llm, calls } = fake(small, undefined, AFTER, false)
+  expect((await mendLocalized(root, llm, 'th', ['a'], { now, onTry: t => void tries.push(t) })).notBetter).toEqual(['a: 1 of 3 parts, 1 notes: an amount, a frequency or a limit not as the English says (1 of 1 changes), left as it was'])
+  expect(calls.map(c => c.kind)).toEqual(['fix', 'check'])
+  expect(await file()).toBe(before)
+  expect(tries[0]).toMatchObject({ kept: false, check: [{ before: 'แมลงขนาดใหญ่', after: 'แมลงขนาดเล็ก', same: false }] })
+  const again = fake(small, AFTER, AFTER)
+  expect((await mendLocalized(root, again.llm, 'th', ['a'], { now })).skipped).toEqual(['a: a fix of this text was tried'])
+  expect(again.calls).toEqual([])
 })
 
 test('a fix whose read after has a note on a dose or harm is not kept, however high it reads', async () => {
@@ -269,35 +291,54 @@ test('the parts a note names, and what counts as the same text mended', () => {
 
 test('what a fix must keep, and what is a dose', () => {
   const keeps = (lang: 'id' | 'ms' | 'th', old: string, next: string, quotes: string[] = []) => keepsWhatItSays(lang, `<p>${old}</p>`, `<p>${next}</p>`, quotes)
-  // A quoted phrase mended, the rest word for word; a quoted figure written another way, at the same value.
+  // A quoted phrase mended, the rest word for word.
   expect(keeps('id', 'Suhu 24-28 °C. Jangan campur dengan ikan besar.', 'Suhu 24–28 °C. Jangan dicampur dengan ikan besar.', ['Jangan campur'])).toBe(true)
-  expect(keeps('id', 'pH 6,5.', 'pH 6.5.', ['6,5'])).toBe(true)
-  // A word outside the quotes changed, however small; a quoted phrase dropped rather than reworded.
+  expect(keeps('th', 'กินแมลงและสาหร่ายในตู้', 'กินแมลงเล็กและสาหร่ายในตู้', ['แมลง'])).toBe(true)
+  // A word outside the quotes changed or cut, however small, in every language. (The Thai has no number or caution word: only this rule refuses it.)
   expect(keeps('id', 'Suhu 24-28 °C. Jangan campur dengan ikan besar.', 'Suhu 24-28 °C. Jangan dicampur dengan ikan besar.')).toBe(false)
-  expect(keeps('id', 'Ikan ini damai. Jangan dicampur dengan udang kecil.', 'Ikan ini damai.', ['Jangan dicampur dengan udang kecil'])).toBe(false)
-  expect(keeps('id', 'Ikan ini damai. Jangan dicampur dengan udang kecil.', 'Ikan ini damai. Jangan dicampurkan dengan udang kecil.', ['Jangan dicampur dengan udang kecil'])).toBe(true)
-  // A caution, a clause or a sentence no note quotes, cut or reworded, in every language.
+  expect(keeps('th', 'กินแมลงและสาหร่ายในตู้', 'กินแมลงเล็กในตู้', ['แมลง'])).toBe(false)
   expect(keeps('ms', 'Ia makan serangga. Jangan simpan dengan ikan besar.', 'Ia makan serangga kecil.', ['serangga'])).toBe(false)
   expect(keeps('th', 'กินแมลง ห้ามเลี้ยงกับปลาใหญ่', 'กินแมลงเล็ก', ['กินแมลง'])).toBe(false)
   expect(keeps('id', 'Ikan ini damai, tetapi jangan dicampur dengan udang kecil.', 'Ikan ini damai.', ['damai'])).toBe(false)
   expect(keeps('id', 'Ikan ini damai. Jangan dicampur dengan udang kecil. Makan cacing darah.', 'Ikan ini damai. Ikan ini makan. Makan cacing darah.', ['damai'])).toBe(false)
-  expect(keeps('id', 'Ikan ini damai, tetapi jangan dicampur dengan udang kecil.', 'Ikan ini damai, tetapi jangan dengan udang kecil.', ['damai'])).toBe(false)
   expect(keeps('th', `กินแมลงขนาดใหญ่ ให้อาหารวันละสองครั้ง ${LONG}`, `กินแมลงขนาดเล็ก ${LONG}`, ['แมลงขนาดใหญ่'])).toBe(false)
   expect(keepsWhatItSays('th', '<p>กินแมลง</p><p>ห้ามเลี้ยงกับปลาใหญ่</p>', '<p>กินแมลง ห้ามเลี้ยงกับปลาใหญ่</p>', ['กินแมลง'])).toBe(false)
-  // A figure, its unit or the word after it, or a range's order changed, quoted or not.
+  // The Thai "not" beside a quote is not the quote's.
+  expect(keeps('th', 'ไม่ควรเลี้ยงรวมกับกุ้ง', 'ควรเลี้ยงรวมกับกุ้ง', ['ควรเลี้ยง'])).toBe(false)
+  // A quoted phrase reworded at about its length is taken; one cut to under half, or dropped, is not.
+  expect(keeps('id', 'Ia pemakan segala jenis serangga kecil di alam.', 'Ia pemakan segala macam serangga kecil di alam.', ['pemakan segala jenis serangga kecil'])).toBe(true)
+  expect(keeps('id', 'Ia pemakan segala jenis serangga kecil di alam.', 'Ia pemakan di alam.', ['pemakan segala jenis serangga kecil'])).toBe(false)
+  expect(keeps('id', 'Ikan ini damai. Jangan dicampur dengan udang kecil.', 'Ikan ini damai.', ['Jangan dicampur dengan udang kecil'])).toBe(false)
+  // A quote past one clause or over QUOTE_MAX opens nothing, nor does one inside a word.
+  expect(keeps('id', 'Ikan ini damai, tetapi jangan dicampur dengan udang kecil.', 'Ikan ini sangat damai.', ['Ikan ini damai, tetapi jangan dicampur dengan udang kecil.'])).toBe(false)
+  expect(keeps('id', 'Ikan ini damai. Ia suka makan serangga kecil dan cacing darah beku.', 'Ikan ini damai. Ia suka makan serangga kecil dan cacing darah segar.', ['Ia suka makan serangga kecil dan cacing darah beku'])).toBe(false)
+  expect(keeps('th', 'กินแมลง ห้ามเลี้ยงกับปลาใหญ่', 'กินแมลง เลี้ยงกับปลาใหญ่ได้', ['กินแมลง ห้ามเลี้ยงกับปลาใหญ่'])).toBe(false)
+  expect(keeps('id', 'Ikan makan tanaman.', 'Ikan makan tumbuhan.', ['an'])).toBe(false)
+  // A "not", "never" or "only" may be added inside a quote, never taken out.
+  expect(keeps('id', 'Ikan ini bisa dicampur dengan udang.', 'Ikan ini tidak bisa dicampur dengan udang.', ['bisa dicampur'])).toBe(true)
+  expect(keeps('id', 'Ikan ini tidak bisa dicampur dengan udang.', 'Ikan ini bisa dicampur dengan udang.', ['tidak bisa dicampur'])).toBe(false)
+  // A figure, the two words before it and the two after stay, quoted or not: the number, its unit, what it counts and its limit.
+  expect(keeps('id', 'pH 6,5.', 'pH 6.5.', ['6,5'])).toBe(false)
   expect(keeps('id', 'Suhu 24-28 °C.', 'Suhu 26-28 °C.', ['Suhu 24-28 °C'])).toBe(false)
   expect(keeps('id', 'Suhu 24 °C.', 'Suhu 24 °F.', ['Suhu 24 °C'])).toBe(false)
   expect(keeps('id', 'Panjang 5 cm.', 'Panjang 5 mm.')).toBe(false)
   expect(keeps('id', 'Akuarium 10 liter.', 'Akuarium 10 galon.')).toBe(false)
   expect(keeps('id', 'Suhu 24-28 °C.', 'Suhu 28-24 °C.')).toBe(false)
-  expect(keeps('ms', 'Simpan 6 fish bersama.', 'Simpan 6 ekor bersama.', ['6 fish'])).toBe(false)
-  expect(keeps('th', 'อุณหภูมิ 24 องศาเซลเซียส', 'อุณหภูมิ 24 องศาฟาเรนไฮต์', ['24 องศาเซลเซียส'])).toBe(false)
-  expect(keeps('th', 'ตู้ 20 ลิตรขึ้นไป', 'ตู้ 20 มิลลิลิตรขึ้นไป', ['20 ลิตรขึ้นไป'])).toBe(false)
-  // A number written as a word.
-  expect(keeps('th', 'เลี้ยงอย่างน้อยหกตัว', 'เลี้ยงอย่างน้อยห้าตัว', ['อย่างน้อยหกตัว'])).toBe(false)
-  expect(keeps('id', 'Pelihara setidaknya enam ekor.', 'Pelihara setidaknya lima ekor.', ['setidaknya enam ekor'])).toBe(false)
+  expect(keeps('id', 'Air hangat sekitar 24 derajat Celsius.', 'Air hangat sekitar 24 derajat Fahrenheit.', ['24 derajat Celsius'])).toBe(false)
+  expect(keeps('id', 'Suhu air sekitar 24 °C.', 'Suhu air di atas 24 °C.', ['sekitar'])).toBe(false)
+  expect(keeps('th', 'อุณหภูมิไม่ต่ำกว่า 24 องศา', 'อุณหภูมิไม่สูงกว่า 24 องศา', ['ต่ำกว่า'])).toBe(false)
+  expect(keeps('ms', 'Simpan 6 fish bersama.', 'Simpan 6 ekor bersama.', ['fish'])).toBe(false)
+  expect(keeps('th', 'อุณหภูมิ 24 องศาเซลเซียส', 'อุณหภูมิ 24 องศาฟาเรนไฮต์', ['องศาเซลเซียส'])).toBe(false)
+  expect(keeps('th', 'ตู้ 20 ลิตรขึ้นไป', 'ตู้ 20 มิลลิลิตรขึ้นไป', ['ลิตรขึ้นไป'])).toBe(false)
+  // A number written as a word, and what follows it.
+  expect(keeps('th', 'เลี้ยงอย่างน้อยหกตัว', 'เลี้ยงอย่างน้อยห้าตัว', ['หกตัว'])).toBe(false)
+  expect(keeps('th', 'ตู้ยี่สิบลิตร', 'ตู้สิบลิตร', ['ยี่สิบลิตร'])).toBe(false)
+  expect(keeps('id', 'Pelihara setidaknya enam ekor.', 'Pelihara setidaknya lima ekor.', ['enam ekor'])).toBe(false)
+  expect(keeps('id', 'Akuarium seratus liter cukup.', 'Akuarium seribu liter cukup.', ['seratus liter cukup'])).toBe(false)
   // English left in the Thai, quoted and put into Thai: the figures and the rest stay.
   expect(keeps('th', 'ปลา shoaling fish ชอบอยู่เป็นฝูง 6 ตัว', 'ปลาที่อยู่รวมเป็นฝูง ชอบอยู่เป็นฝูง 6 ตัว', ['shoaling fish'])).toBe(true)
+  // What the check of amounts is shown: each quoted phrase before and after, and words added at an end.
+  expect(changesOf('id', '<p>Ikan ini damai. Jangan campur dengan ikan besar.</p>', '<p>Ikan ini damai. Jangan dicampur dengan ikan besar. Ia melompat.</p>', ['Jangan campur'])).toEqual([{ before: 'Jangan campur', after: 'Jangan dicampur' }, { before: '', after: 'Ia melompat.' }])
   for (const d of ['2 ml', '5mg/l', '1 g/l', '3 drops', '2 tetes', '1 teaspoon', '0.5 ppm', '5 grams', '10 millilitres', '2 sendok', '3 หยด', '1 กรัม', '1 sdt', '2 sudu', '3 titis']) expect(hasDose(`<p>Add ${d} a day.</p>`), d).toBe(true)
   for (const d of ['20 gallons', '6 fish', '24 °C', 'pH 6.5', '10 cm']) expect(hasDose(`<p>${d}.</p>`), d).toBe(false)
 })
