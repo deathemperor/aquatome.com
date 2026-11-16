@@ -30,7 +30,9 @@ deploy() { gh workflow run deploy.yml -R "${GITHUB_REPOSITORY:-deathemperor/aqua
 push() {
   local main run moved
   for _ in 1 2 3; do
-    main=$(git rev-parse '@{u}' 2>/dev/null || true) run=$(git rev-parse HEAD) moved=
+    # main: the commit this work sits on, not the last main fetched, which a fetch before this pull (catch_up's, stopped
+    # after its fetch) may have moved: swept_pull then sees main's commits come in (a reader's catch, 16 Nov).
+    main=$(git merge-base HEAD '@{u}' 2>/dev/null || true) run=$(git rev-parse HEAD) moved=
     if ! net git pull -q --rebase; then
       local clash; clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
       log "another part changed the same files: $clash"

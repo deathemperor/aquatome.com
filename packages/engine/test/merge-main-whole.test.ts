@@ -66,7 +66,7 @@ const PROTECT: { base: Side; main: Side; run: Side } = {
 // stubbed, the tests a VERIFY line), with the repository's .gitattributes and, `withDriver`, the job's own line for the
 // driver (its script made absolute: the test's repositories have no scripts/); without it, the files merge as text, as
 // they did until this change.
-function push(sides: { base: Side; main: Side; run: Side }, withDriver: boolean) {
+function push(sides: { base: Side; main: Side; run: Side }, withDriver: boolean, o: { fetchedFirst?: boolean } = {}) {
   const dir = mkdtempSync(join(tmpdir(), 'aq-main-whole-'))
   const json = (v: unknown) => `${JSON.stringify(v, null, 2)}\n`
   // the run's verdict on a still it judged, a file only it changed: its commit isn't left empty
@@ -90,6 +90,7 @@ function push(sides: { base: Side; main: Side; run: Side }, withDriver: boolean)
     cd cycle
     ${withDriver ? config : ':'}
     ${write({ ...sides.run, ...verdicts })} && git commit -qm 'content: engine photos'
+    ${o.fetchedFirst ? 'git fetch -q' : ':'}
     set +e
     PART=photos
     log() { echo "LOG $*"; }
@@ -156,6 +157,14 @@ test("a run whose guide main also changed pushes main's records whole: none buil
   // the run's other work goes out
   expect(r.verdicts).toEqual({ [still(1900, '', 0).url]: { person: false } })
   // lines both sides changed, which used to clash and be tested again, are tested again
+  expect(r.out).toContain(`LOG picture files with lines changed on both sides, merged by record: checked again (${G} )`)
+  expect(r.out).toContain('VERIFY')
+})
+
+test("a pull after an earlier fetch (catch_up's, stopped after it) still sweeps and tests again what clashed", () => {
+  const r = push(CROSS, true, { fetchedFirst: true })
+  expect(r.out).toContain('CODE 0')
+  expect(r.pushed(G)).toEqual(CROSS.main[G])
   expect(r.out).toContain(`LOG picture files with lines changed on both sides, merged by record: checked again (${G} )`)
   expect(r.out).toContain('VERIFY')
 })
@@ -267,6 +276,12 @@ test("what either side took off the file stays off, however the other side chang
   // main moved the photo into a figure while the run took it off for a face
   expect(mergeMainWhole({ photos: [FACE], figures: [{ heading: 'A', moments: [s(1)] }] }, { photos: [], figures: [{ heading: 'A', photo: FACE, moments: [s(1)] }] },
     { photos: [], figures: [{ heading: 'A', moments: [s(1)] }] })).toEqual({ photos: [], figures: [{ heading: 'A', moments: [s(1)] }] })
+  // the run moved a figure's photo to another figure while main read its credit again: once, where the run put it
+  const C = { url: 'u/c', author: 'a' }
+  expect(mergeMainWhole({ figures: [{ heading: 'A', photo: C, moments: [s(1)] }, { heading: 'B', moments: [s(2)] }] },
+    { figures: [{ heading: 'A', photo: { ...C, author: 'main' }, moments: [s(1)] }, { heading: 'B', moments: [s(2)] }] },
+    { figures: [{ heading: 'A', moments: [s(1)] }, { heading: 'B', photo: C, moments: [s(2)] }] }))
+    .toEqual({ figures: [{ heading: 'A', moments: [s(1)] }, { heading: 'B', photo: C, moments: [s(2)] }] })
   // a figure's photo main swapped for another while the run took the old one off: main's new one
   expect(mergeMainWhole({ figures: [{ heading: 'A', photo: FACE, moments: [s(1)] }] }, { figures: [{ heading: 'A', photo: { url: 'u/new' }, moments: [s(1)] }] },
     { figures: [{ heading: 'A', moments: [s(1)] }] })).toEqual({ figures: [{ heading: 'A', photo: { url: 'u/new' }, moments: [s(1)] }] })
@@ -331,6 +346,8 @@ test("a breed's sources and the care figures that point into them merge as one: 
   // the run took a source off while main put a figure on it
   const main2 = { id: 'x', sources: [S('a')], care: { tempC: { source: 0 }, ph: { source: 0 } } }
   expect(mergeMainWhole(base, main2, { id: 'x', sources: [], care: {} }, {}, B)).toEqual(main2)
+  // a breed both sides wrote new: main's pair
+  expect(mergeMainWhole(undefined, ours, { id: 'x', sources: [S('run')], care: { tempC: { source: 0 } } }, {}, B)).toEqual(ours)
   // only the run changed them: the run's
   const run3 = { id: 'x', sources: [S('a'), S('run')], care: { tempC: { source: 1 } } }
   expect(mergeMainWhole(base, { ...base, seen: 1 }, run3, {}, B)).toEqual({ ...run3, seen: 1 })

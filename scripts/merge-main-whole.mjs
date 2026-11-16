@@ -172,8 +172,8 @@ export function mergeMainWhole(base, ours, theirs, said = {}, path = '') {
     said.card = out === theirs && out !== ours
     return out
   }
-  if (path.startsWith('content/breeds/') && isObj(base)) {
-    const unit = v => ({ sources: v.sources, care: v.care })
+  if (path.startsWith('content/breeds/')) {
+    const unit = v => ({ sources: v?.sources, care: v?.care })
     if (!eq(unit(base), unit(ours)) && !eq(unit(base), unit(theirs)) && !eq(unit(ours), unit(theirs))) {
       theirs = { ...theirs }
       for (const k of ['sources', 'care']) if (k in ours) theirs[k] = ours[k]; else delete theirs[k]
