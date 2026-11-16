@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/coenobita-compressus-detailed-guide-care-diet-and-breeding/
 title: Coenobita Compressus – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-11-02T22:07:24.822Z
-hash: 4957351270ce5ed45650eabb58fb9fbe1c9bda06649236d648360b309b5aedc1
+hash: 0dcb3a015994a1d64f95c2da8056f7f26e1806b6e3996a0758a485864e068192
 ---
 
 The Ecuadorian hermit crab (Coenobita compressus) is one of the smallest terrestrial hermit crabs that are commonly kept as pets.
@@ -251,6 +251,3 @@ This species has very specific conditions to be met for its diet and habitat. Yo
 - Contreras-Garduño, Jorge, José Luis Osorno, and Alex Córdoba-Aguilar. “Male-male competition and female behavior as determinants of male mating success in the semi-terrestrial hermit crab Coenobita compressus (H. Milne Edwards).” Journal of Crustacean Biology3 (2007): 411-416.
 - Guillén, Fedro Carlos, and José Luis Osorno. “Elección de concha en Coenobita compressus (Decapoda: Coenobitidae).” Revista de biología tropical(1993): 65-72.
 - Bright, Donald B. “The land crabs of Costa Rica.” Revista de Biología Tropical2 (1966): 183-203.
-## 2 thoughts on “Coenobita Compressus – Detailed Guide: Care, Diet, and Breeding”
-- Your writing is very complete and informative! I remembered the majority of it but now I’m going to get a 40 gallon breeder tank for the space so we can have quite a few to be social. I am going to set up the tank first and get it going for a week first to make sure the humidity and everything stable first. I’m hoping to print this out. ReplyHi Patricia Huntley, Thank you for your kind words! It sounds like you have a great plan for your new tank. Setting it up and letting it stabilize for a week is a smart approach to ensure everything is just right. It would be great if you keep me posted! Best regards, Michael Reply
-### Leave a Reply Cancel reply

@@ -3,6 +3,12 @@
   "name": "Ayeyarwady",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-16T05:44:42.474Z",
+    "why": "The spelling Ayeyarwady is fine, but the source sentences describe the river, and Indonesian atlases write the river as 'Sungai Ayeyarwady' with the kind word, so the bare name is incomplete."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

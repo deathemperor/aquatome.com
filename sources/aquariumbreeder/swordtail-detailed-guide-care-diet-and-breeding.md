@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/swordtail-detailed-guide-care-diet-and-breeding/
 title: Swordtails – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-11-02T18:31:51.072Z
-hash: a6c98a52265d6552b07e6af4a495ada2cc9f694218fbc0f591c0b963707ce15d
+hash: eb67b1d834f10cc905322c2a3984f61a3fc794516987023ed1728dfeac770c85
 ---
 
 Xiphophorus hellerii, commonly known as the Green Swordtail, is a freshwater live-bearing fish species that belongs to the Poeciliidae family. This particular type of fish has been a staple in the aquarium hobby for a long time and is highly praised by enthusiasts.
@@ -223,6 +223,3 @@ While they are not very demanding, it is important to keep in mind that they sti
 - KALLMAN, KLAUS & Walter, Ronald & MORIZOT, DONALD & KAZIANIS, STEVEN. (2009). Two New Species of Xiphophorus (Poeciliidae) from the Isthmus of Tehuantepec, Oaxaca, Mexico, with a Discussion of the Distribution of theX. clemenciae Clade. American Museum Novitates. 3441. 1-34. 10.1206/0003-0082(2004)441<0001:TNSOXP>2.0.CO;2.
 - First confirmed record of an established population of green swordtail (Xiphophorus helleriiHeckel, 1848) in Europe Pencho Pandakov, Zhivko Barzov, Radoslav Moldovanski and Helena Huđek Manag. Aquat. Ecosyst., 422 (2021) 31.
 - H. Hieronimus, Guppies, Mollies, and Platies, Complete Pet Owners Manual Series, Barron’s, 2009
-## 2 thoughts on “Swordtails – Detailed Guide: Care, Diet, and Breeding”
-- Thanks for including the gestation-vs-temperature data — the “roughly 3 more fry per spawn for every degree” figure is something I hadn’t seen quantified before, and it explains why warm summer tanks suddenly fill up with fry.Two practical notes from our own swordtail keeping that line up with your guide: – Your 15 gal for 1 male + 3–4 females works, but once you keep the fry we found 20 gal for 3–4 adults (30 gal for a community) is a more comfortable number, mainly because the males never stop chasing and the females need somewhere to get away. – On the jumping point: it isn’t just “get a lid” — the gaps around filter and heater cut-outs are where ours went out. Anything larger than about 5 mm is enough for a startled female. ReplyHi Viki Wu,Good points. You’re right about the tank size – 15 gallons works for a small group, but once fry start piling up, it gets crowded fast. Males never stop chasing, so the extra room helps.And yeah, the lid isn’t enough on its own. Anything bigger than 5mm and a startled female will find it. I should’ve mentioned that since most people think “lid” means sealed, but it never is.Thanks for the practical details. Best regards, Michael Reply
-### Leave a Reply Cancel reply

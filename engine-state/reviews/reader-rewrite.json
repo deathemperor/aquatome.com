@@ -389,6 +389,22 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-CSsZOq0SyyU#body": [
+    {
+      "at": "2026-11-16T05:59:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"bèo Amazon frogbit\" became \"bèo Nhật\": a different plant name, so the named species is changed.",
+        "\"giúp giữ nước tốt\" became \"giữ nước sạch\": the meaning shifts slightly.",
+        "\"dễ vớt khi nhiều\" became \"khi lên dày cũng dễ vớt bớt\": small nuance change, acceptable."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-HUa1u8usS5w#body": [
     {
       "at": "2026-11-10T05:24:45Z",
@@ -444,6 +460,22 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-N8N1xQCE7ok#body": [
+    {
+      "at": "2026-11-16T11:50:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"rau diếp nước mini\" changed to \"bèo tai tượng mini\": a different plant name (water lettuce vs. a different plant), so the name is changed.",
+        "\"cây bị giữ lại nên mọc hướng lên\" changed to \"Bị giữ lại một chỗ nên bèo mọc hướng lên\": the subject shifts from the plants (cây) to the floating plants (bèo). This changes who grows upward and who is held back.",
+        "\"cây vươn khỏi mặt nước\" became \"đám cây vươn khỏi mặt nước\": a small addition (\"đám\") that doesn't change the meaning."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-OrW6PZgqKSM#body": [
     {
       "at": "2026-11-11T00:42:01Z",
@@ -452,6 +484,21 @@
       "notes": [
         "\"không chịu nước\" became \"không chạm nước\": this changes the reason given. The original says the pieces are not water-resistant. The rewrite says they don't touch water, which is a small nuance shift.",
         "The polycarbonate option is kept as a hedge (\"có thể\"), and the drawback is kept."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-P33hkCbg2hc#body": [
+    {
+      "at": "2026-11-16T11:46:23Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "Dropped 'Cây vảy ốc' Vietnamese name; 'Cây vảy ốc (Ludwigia) đỏ' became 'Ngọn Ludwigia đỏ' (minor nuance lost).",
+        "'Chúng không mọc quá nhanh' became 'Loài này', fine."
       ],
       "attempt": "first",
       "kept": true
@@ -609,6 +656,23 @@
       "kept": true
     }
   ],
+  "vi/guides/youtube-bqwUw5DDboU#body": [
+    {
+      "at": "2026-11-16T05:58:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.62,
+      "notes": [
+        "Said more surely than before: \"Cây trồng cạn (trầu bà, trầu bà lá xẻ Monstera, hồng môn) cũng cắm rễ xuống bể được, phần thân lá thì vươn lên khỏi mặt nước.\" (was: \"Cây trồng nổi (trầu bà, trầu bà lá xẻ Monstera, hồng môn) có thể cắm rễ vào bể cho mọc vươn lên khỏi mặt nước.\")",
+        "\"2 giọt mỗi giây\" became \"2 bọt mỗi giây\": the dosing unit changed from drops to bubbles.",
+        "\"Cây trồng nổi\" became \"Cây trồng cạn\": the plant category was changed.",
+        "\"phần thân lá thì vươn lên khỏi mặt nước\" is a slight restructuring that adds the detail of stems and leaves."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-hO_nLV0YpX8#body": [
     {
       "at": "2026-11-11T03:46:24Z",
@@ -622,6 +686,22 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/guides/youtube-hQZSvYIFBvk#body": [
+    {
+      "at": "2026-11-16T00:29:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Added: \"nhưng không ăn thua\" — BEFORE only says the clarifier was tried, not that it failed (though implied by contrast).",
+        "Changed: \"nên mất đèn thì nó sẽ chết\" — BEFORE says green water needs light so it dies; AFTER wording \"mất đèn\" is slightly shifted, and \"mới sống được\" adds emphasis.",
+        "\"không chiếu xuống nước được\" vs \"không xuyên xuống được\" is fine."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/guides/youtube-iS8fJvjUa1Q#body": [
@@ -681,6 +761,36 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-l-PVtRWJwNw#body": [
+    {
+      "at": "2026-11-16T00:30:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [
+        "\"cá ali xanh\" -> \"cá acara xanh\": name changed, but the English term is retained; likely an acceptable term variant",
+        "\"gần như đứng yên\" -> \"hầu như không chảy\": slight wording change, same meaning"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-lH2GnVdN-4s#body": [
+    {
+      "at": "2026-11-16T11:48:39Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "\"giữ nguyên nước trong bể cũ để sau trồng lại\" vs \"ngâm cây trong nước bể cũ\": the meaning changes. BEFORE says to keep the old tank water untouched. AFTER says to soak the plants in it, which is a new instruction.",
+        "\"Kiểm tra nhiệt độ hai bể có khớp nhau không\" vs \"Xem nhiệt độ hai bể có bằng nhau không\": \"bằng nhau\" (equal) is slightly stricter than \"khớp nhau\" (match). This is a small nuance."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-nXDe9QF-Gu8#body": [
     {
       "at": "2026-11-09T10:47:51Z",
@@ -716,6 +826,36 @@
       "score": 0.85,
       "notes": [
         "Common name changed: \"Cá ngân long Colombia\" -> \"Cá tetra Colombia\"; this is a plain hobby-term swap, and the scientific/English name in parentheses and the colour description are kept."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-tjBIz6NjbwI#body": [
+    {
+      "at": "2026-11-16T06:00:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "\"ráy (Alocasia)\" became \"môn Alocasia\": common name changed (ráy vs môn), minor nuance shift",
+        "Tank volume 2500 litres kept; no hedges present"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-xBtOIR5wt6k#body": [
+    {
+      "at": "2026-11-16T00:32:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "\"còn phần dưới nước thì sau này xếp thêm lũa, đá\": BEFORE gives a reason (\"vì ... vẫn bố trí lũa, đá\"). AFTER turns it into a contrast and adds \"sau này\" (later), a slight shift in nuance.",
+        "\"nối lên vách\": \"vách\" is added in step 1. BEFORE only says \"nối lên\". It is a small addition but consistent with the context."
       ],
       "attempt": "first",
       "kept": true

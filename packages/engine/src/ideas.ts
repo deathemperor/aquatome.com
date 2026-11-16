@@ -224,7 +224,8 @@ export async function refreshIdeas(root: string, d: IdeasDeps, o: { force?: bool
 
 /**
  * The lines a guide's research gets from the shops' posts on its topic. Never a post on a host research may not open
- * (`denied`: cycle-only.ts, the magazine's always, idea-sources.ts NEVER_RESEARCHED) nor a marketplace's, told by its
+ * (`denied`: cycle-only.ts, the magazine's always, idea-sources.ts NEVER_RESEARCHED, or a site refused as a source,
+ * cycle-only.ts REFUSED_SITES) nor a marketplace's, told by its
  * address alone, whatever list it was saved in (the chief of staff, 14 Nov 2026).
  */
 export function ideaLeads(idea: Idea, state: IdeasState, denied: readonly string[] = NEVER_RESEARCHED): string {

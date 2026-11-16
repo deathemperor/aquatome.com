@@ -11,6 +11,74 @@
     "rio-xingu",
     "xingu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Xingu"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Brazil, Rio Xingu.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Xingu"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372827,
+      "total": 10,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "BR",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          -54.84375,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          6,
+          6
+        ],
+        [
+          -52.03125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

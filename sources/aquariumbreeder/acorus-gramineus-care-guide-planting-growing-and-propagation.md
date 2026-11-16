@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/acorus-gramineus-care-guide-planting-growing-and-propagation/
 title: Acorus Gramineus Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-10-29T07:05:06.869Z
-hash: 08c569edd5072d2fd83ec8489ca9d2dc4389b6cceb3de6fe1a633f87192314b4
+hash: 46a6e2f014537796b189b575e93a5b885508303227b19c0a47525ad9abb4a032
 ---
 
 Acorus gramineus, commonly known as Japanese sweet flag, is widely used as a landscape plant in nurseries and gardening centers.
@@ -113,4 +113,3 @@ The only downside though is that it is not suitable for small aquariums.
 - Chen, Qi-Xiong, Jing-Kun Miao, Chun Li, Xiao-Wen Li, Xiao-Mei Wu, and Xiao-ping Zhang. “Anticonvulsant activity of acute and chronic treatment with a-asarone from Acorus gramineus in seizure models.” Biological and Pharmaceutical Bulletin36, no. 1 (2013): 23-30.
 - Balakumbahan, Ramachandran, K. Rajamani, and K. Kumanan. “Acorus calamus: An overview.” Journal of Medicinal Plants Research4, no. 25 (2010): 2740-2745.
 - Wu Zheng-yi, Peter H. Raven, Deyuan Hong (eds.):Flora of China. Volume 23: Acoraceae through Cyperaceae , Science Press and Missouri Botanical Garden Press, Beijing and St. Louis, 2010.
-### Leave a Reply Cancel reply

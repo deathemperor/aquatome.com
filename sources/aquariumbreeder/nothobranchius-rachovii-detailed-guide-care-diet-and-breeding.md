@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/nothobranchius-rachovii-detailed-guide-care-diet-and-breeding/
 title: Nothobranchius Rachovii – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-10-30T19:20:35.890Z
-hash: 8b26513b057c095db9a8a8fc6c6b5bc69109ad9f77944a23bdae2971055bce7e
+hash: bd3a099a0d87ba878770d8d87f2d2c522c72f4ddf7886d4614bb71b2366bd8fe
 ---
 
 Nothobranchius rachovii is the most beautiful and vibrant representative of its genus. However, if you are a beginner aquarist or unfamiliar with this particular species, I would recommend you be extremely cautious and avoid impulsive buys.
@@ -219,4 +219,3 @@ However, we need to always attention to the males’ territorial behavior and th
 - Radkhah, Ali Reza, Soheil Eagderi, and Esmaeil Sadeghinejad Masouleh. “Investigation of biological and ecological characteristics of Bluefin Notho Nothobranchius rachovii Ahl, 1926 (Cyprinodontiformes: Nothobranchiidae) as one of the freshwater aquarium fish: A review.” Journal of Ornamental Aquatics9, no. 3 (2022): 21-30.
 - Herrera, Michael, and Pudur Jagadeeswaran. “Annual fish as a genetic model for aging.” The Journals of Gerontology Series A: Biological Sciences and Medical Sciences59, no. 2 (2004): B101-B107.
 - Lucas-Sánchez, Alejandro, Antonio Martinez-Nicolas, Juan Antonio Madrid, Pedro Francisco Almaida-Pagán, Pilar Mendiola, and Jorge de Costa. “Circadian activity rhythms during the last days of Nothobranchius rachovii’s life: a descriptive model of circadian system breakdown.” Chronobiology international32, no. 3 (2015): 395-404.
-### Leave a Reply Cancel reply

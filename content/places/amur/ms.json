@@ -3,6 +3,12 @@
   "name": "Amur",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-16T05:37:30.109Z",
+    "why": "The spelling \"Amur\" is right, but the source's Amur is the river or drainage and the place is a region, so a Malaysian atlas would write \"Sungai Amur\" or \"Wilayah Amur\" (Oblast Amur) rather than the bare name."
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

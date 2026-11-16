@@ -27,7 +27,7 @@ SPECIES = [
             ('habitat','seriouslyfish','Sống ở các suối nước đen chảy chậm thuộc lưu vực Rio Negro, nước có màu trà do lá mục.'),
             ('waterConditions','seriouslyfish','Ưa nước mềm, hơi chua; nên ổn định thông số trước khi thả.'),
             ('diet','seriouslyfish','Ăn tạp thiên về động vật: thức ăn khô cỡ nhỏ xen kẽ trùn chỉ, artemia.'),
-            ('behaviour','seriouslyfish','Hiền, nên nuôi đàn từ 10 con trở lên để cá tự tin và lên màu đẹp. Hiểu rõ chu trình nitơ trước khi thả đàn lớn.'),
+            ('behaviour','seriouslyfish','Hiền, nên nuôi đàn từ 8 con trở lên để cá tự tin và lên màu đẹp. Hiểu rõ chu trình nitơ trước khi thả đàn lớn.'),
             ('dimorphism','seriouslyfish','Con cái thường tròn bụng hơn con đực khi trưởng thành.'),
             ('reproduction','seriouslyfish','Đẻ rải trứng, cần nước rất mềm và ánh sáng yếu.'),
             ('reproduction','glaser','Ghi chú nhập khẩu: cá hoang dã cần thời gian thích nghi trước khi cho sinh sản.')],

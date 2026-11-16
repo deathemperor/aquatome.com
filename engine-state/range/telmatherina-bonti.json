@@ -1,0 +1,58 @@
+{
+  "id": "telmatherina-bonti",
+  "native": {
+    "input": "6f57e597cdcd2da1",
+    "at": "2026-11-16T11:31:54.968Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Malili Lake System",
+        "source": "glaser",
+        "quote": "The Malili Lake System on Sulawesi (formerly Celebes) consists of five lakes, three large and two small: Matano, Towuti, Mahalona, Lontoa and Masapi.",
+        "ok": true
+      },
+      {
+        "name": "Sulawesi",
+        "source": "glaser",
+        "quote": "The Malili Lake System on Sulawesi (formerly Celebes) consists of five lakes, three large and two small: Matano, Towuti, Mahalona, Lontoa and Masapi.",
+        "ok": true
+      },
+      {
+        "name": "Lake Matano",
+        "source": "glaser",
+        "quote": "The Malili Lake System on Sulawesi (formerly Celebes) consists of five lakes, three large and two small: Matano, Towuti, Mahalona, Lontoa and Masapi.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Lake Towuti",
+        "source": "glaser",
+        "quote": "The Malili Lake System on Sulawesi (formerly Celebes) consists of five lakes, three large and two small: Matano, Towuti, Mahalona, Lontoa and Masapi.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Telmatherina bonti",
+    "status": "ACCEPTED",
+    "taxonKey": 2412061,
+    "datasets": [
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        72
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-16T11:31:54.968Z"
+  }
+}

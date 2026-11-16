@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/cherax-boesemani-detailed-guide-care-diet-and-breeding/
 title: Cherax Boesemani – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-11-04T06:54:53.646Z
-hash: 1ab0f518c7f3377155f51db24990ab6d4463280d83107625011b54868c16d7cd
+hash: ed923d8ae3f6244792399b222d75d1c7b815992b9094a265a1e64292e3a2335c
 ---
 
 Many crayfish species of the genus Cherax, have been exploited for ornamental purposes in recent years and Cherax boesemani is one of them. This species (commonly known as “Blue Moon crayfish” or “Rainbow Crayfish”) is absolutely gorgeous and beautiful. These crayfish are sure to attract attention in any home aquarium.
@@ -167,4 +167,3 @@ However, be careful and check your state laws – this species can be banned in 
 - vanKuijk, Tiedo, Jacobus C. Biesmeijer, Berry B. van der Hoorn, and Piet FM Verdonschot. “Functional traits explain crayfish invasive success in the Netherlands.” Scientific reports 11, no. 1 (2021): 1-12.
 - Faulkes Z. 2015. The global trade in crayfish as pets. Crustacean Res 44: 75–92.
 - S. Fish and Wildlife Service. 2017. Cherax boesemani (a crayfish, no common name). Ecological Risk Screening Summary. Revised Edition.
-### Leave a Reply Cancel reply

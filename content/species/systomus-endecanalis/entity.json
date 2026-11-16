@@ -10,6 +10,66 @@
     "indonesia",
     "kapuas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Kapuas",
+        "Danau Sentarum",
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Records are not extensive but D. endecanalis is apparently endemic to the Kapuas River basin in the Indonesian province of Kalimantan Barat (West Kalimantan), Borneo, including the Danau Sentarum lake system.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Kapuas",
+            "Danau Sentarum",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7566064,
+      "total": 8,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "ID",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          111.09375,
+          0,
+          1,
+          1
+        ],
+        [
+          112.5,
+          0,
+          3,
+          3
+        ],
+        [
+          113.90625,
+          -2.8125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

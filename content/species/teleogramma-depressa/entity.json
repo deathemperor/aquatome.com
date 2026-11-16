@@ -10,6 +10,56 @@
     "democratic-republic-of-the-congo",
     "lower-congo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CG"
+      ],
+      "regions": [
+        "Congo"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Lower Congo catchment area, Congo.",
+          "countries": [
+            "CG"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "A fast-swimming cichlid from the lower Congo catchment area, growing up to 10 cm.",
+          "countries": [],
+          "regions": [
+            "Congo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5852369,
+      "total": 2,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "CD",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          12.65625,
+          -5.625,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

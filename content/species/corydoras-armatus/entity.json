@@ -24,23 +24,23 @@
         "BO"
       ],
       "regions": [
-        "Rio Huallaga",
-        "Río Madeira"
+        "Río Huallaga",
+        "Río Marañón",
+        "Río Madeira",
+        "Amazon"
       ],
       "sources": [
-        "glaser",
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
-          "source": "glaser",
-          "quote": "The type specimens originated from Peru (Rio Huallaga).",
+          "source": "seriouslyfish",
+          "quote": "Type description as given by Günther is 'Xeberos and Huallaga', which appears to correspond to the district of Jeberos in Alto Amazonas state, Peru and small province of Huallaga in San Martín region, respectively.",
           "countries": [
             "PE"
           ],
-          "regions": [
-            "Rio Huallaga"
-          ]
+          "regions": []
         },
         {
           "source": "seriouslyfish",
@@ -51,6 +51,23 @@
           ],
           "regions": [
             "Río Madeira"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Hoplisoma armatum, long known as Corydoras armatus, is an armoured catfish from the Río Huallaga watershed in Peru, to which it may be endemic.",
+          "countries": [],
+          "regions": [
+            "Río Huallaga"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Huallaga is a tributary of the Río Marañón which later becomes the Amazon following its confluence with the Ucayali.",
+          "countries": [],
+          "regions": [
+            "Río Marañón",
+            "Amazon"
           ]
         }
       ]

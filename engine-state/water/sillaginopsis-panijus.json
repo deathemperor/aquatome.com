@@ -1,0 +1,19 @@
+{
+  "id": "sillaginopsis-panijus",
+  "input": "3a966f62c968b2f4",
+  "at": "2026-11-16T00:25:38.138Z",
+  "claims": [
+    {
+      "kind": "brackish",
+      "source": "glaser",
+      "quote": "Only juveniles live in pure freshwater; larger fish and adults should be kept in brackish or marine water.",
+      "ok": true
+    },
+    {
+      "kind": "marine",
+      "source": "glaser",
+      "quote": "Only juveniles live in pure freshwater; larger fish and adults should be kept in brackish or marine water.",
+      "ok": true
+    }
+  ]
+}

@@ -1,4 +1,165 @@
 {
+  "vi/glossary/artemia": [
+    {
+      "at": "2026-11-16T03:31:06Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở, nên vớt ra và cho cá ăn trong khoảng thời gian này.\" (not \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở.\": Rule 12: \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở.\" gives the reason but drops its advice. THIS TERM asks for each feeding reas…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Ở nhiệt độ này trứng thường nở sau 18–24 giờ, nước lạnh thì lâu hơn, có khi tới 48 giờ.\" (not \"Ở nhiệt độ này trứng thường nở sau khoảng 24 giờ vào mùa hè, mùa đông có khi tới 48 giờ.\": it drops the figure 18, the advice \"nước lạnh thì lâu hơn\")",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Tắt sục và chờ khoảng 5 phút.\" (not \"Tắt sục và chờ 5–10 phút.\": Rules 4 and 12: \"Tắt sục và chờ 5–10 phút.\" puts a 5–10 minute wait right before \"hút ra trước mốc 10 phút\", so the 10 minutes is said twice and the two lines don't match. THIS TERM wants harvest timing as one statement: turn the air off, wa…",
+        "The entry is 516 words: hold it to about 515, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-16T03:31:06Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 1,
+      "notes": [
+        "Rules 4 and 12: \"Hạt trứng khô nhỏ hơn ấu trùng.\" and, two sentences later, \"hợp với cá miệng nhỏ hơn\" split one fact across two places. The size comparison and what it suits must be one sentence, as fact 54 gives it: \"Hạt trứng khô nhỏ hơn ấu trùng nên hợp với cá nhỏ hơn.\" \"cá miệng nhỏ hơn\" also changes the fact's \"smaller fish\".",
+        "Rule 12: \"Không còn vỏ nên cá con ăn được hết\" reads as though any fry can eat it. Fact 53 says that with the shell gone, every egg, hatched or not, can be fed. The text must say \"mọi hạt trứng, nở hay không, đều cho ăn được\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-16T03:04:16Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở, nên vớt ra và cho cá ăn trong khoảng thời gian này.\" (not \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở.\": Rule 12: \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở.\" gives the 12-hour reason without the advice that goes with it. THIS TERM sa…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Ở nhiệt độ này trứng thường nở sau 18–24 giờ, nước lạnh thì lâu hơn, có khi tới 48 giờ.\" (not \"Ở nhiệt độ này ủ trứng 24–48 giờ: mùa hè khoảng 24 giờ, mùa đông có khi tới 48 giờ.\": it drops the figure 18, the advice \"nước lạnh thì lâu hơn\")",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Tắt sục và chờ khoảng 5 phút.\" (not \"Tắt sục và chờ khoảng 5–10 phút.\": Rules 4 and 12: \"Tắt sục và chờ khoảng 5–10 phút.\" sits beside \"hút ra trước mốc 10 phút\", so the 10 minutes is said twice. THIS TERM asks for one statement: turn the air off, wait about 5 minutes, and siphon before 10. It forbids \"ch…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-16T03:04:16Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 1,
+      "notes": [
+        "Rule 12: The entry leaves out the other name \"tôm vụn\". THIS TERM says the other names are \"tôm vụn\" (one source) and \"brine shrimp\". The definition gives only \"Tên tiếng Anh của nó là brine shrimp.\" and altNames is empty.",
+        "Rule 12: The required sentence \"Ấu trùng đã sang giai đoạn thứ hai cũng khó cho cá bột bắt hơn.\" is missing. THIS TERM says it must be written back, word for word, beside the 12-hour sentence \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở, nên vớt ra và cho cá ăn trong khoảng thời gian này.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-16T02:02:29Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Bộ ấp bán ở Việt Nam dùng bình hình phễu.\" the advice \"Bộ ấp bán ở Việt Nam dùng bình hình phễu\" under Trứng Artemia, and nothing lets that sentence go: write it as it was, word for word.",
+        "The entry is 506 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-16T02:02:29Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Dùng nước dưới 22 °C hoặc trứng hết hạn.\" the figure 22, the advice \"Dùng nước dưới 22 °C\", the advice \"trứng hết hạn\", and nothing lets that sentence go: write it as it was, word for word.",
+        "The entry is 507 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    }
+  ],
+  "vi/glossary/chu-trinh-nito": [
+    {
+      "at": "2026-11-16T01:08:49Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Một số bộ test lại đọc nitrit theo nitơ-nitrit, nên trên loại bộ test này ngưỡng đó vào khoảng 0,03, vì số đọc nhân 3,3 mới ra NO2.\" (not \"Phần lớn bộ test đọc nitrit theo nitơ-nitrit, nên phải nhân số đọc với 3,3 mới ra NO2.\": Rule 12: \"Phần lớn bộ test đọc nitrit theo nitơ-nitrit\" must say \"Một số bộ te…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Lọc chín khi TAN và nitrit lên đỉnh rồi giảm về 0 hoặc gần 0, sau đó nitrat tăng lên.\" (not \"Lọc chín khi TAN và nitrit lên đỉnh rồi giảm xuống, sau đó nitrat tăng lên.\": Rule 12: \"Lọc chín khi TAN và nitrit lên đỉnh rồi giảm xuống, sau đó nitrat tăng lên.\" doesn't say the readings fall to \"0 hoặc gần 0\".…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Lọc mới thường mất khoảng 6 tuần mới ổn định hẳn, nhanh hơn nếu có vi sinh hay vật liệu lọc từ bể cũ.\" (not \"Lọc mới thường mất khoảng 6 tuần mới ổn định hẳn.\": Rule 12: \"Lọc mới thường mất khoảng 6 tuần mới ổn định hẳn.\" leaves out that the cycle is shorter with bacteria or filter media from an establish…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Khử clo cho nước máy bằng một trong ba cách: trữ 3–4 ngày, sục khí 24 giờ, hoặc dùng thuốc khử clo loại khử được cả chloramine và khóa luôn lượng amoniac sinh ra.\" (not \"Khử clo cho nước máy bằng một trong ba cách: trữ 3–4 ngày, sục khí 24 giờ, hoặc dùng Seachem Prime.\": Rules 8 and 12: \"Khử clo cho nước …",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cá thả vào giai đoạn amoniac rất dễ mắc bệnh và có thể chết.\" (not \"Cá thả vào giai đoạn amoniac rất dễ mắc bệnh.\": Rule 12: \"Thả cá khi chu trình chưa ổn định. Cá thả vào giai đoạn amoniac rất dễ mắc bệnh.\" leaves out that the fish can die. Say it once, here in the mistakes list. / it drops the caution \"…",
+        "The entry is 485 words: hold it to about 480, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-16T01:08:49Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Đa số bộ test lại đọc nitrit theo nitơ-nitrit\" — the THIS TERM line requires \"Một số bộ test\", never \"đa số\", because the drop kits sold in Vietnam read NO2.",
+        "Rules 4 and 12: \"Có tiệm nói chu trình xong sau 1–2 tuần, nhưng tài liệu thú y ghi rằng lọc mới thường mất khoảng 6 tuần mới ổn định hẳn\" — this sets a shop against the vet source. The cycle time must be one statement: about 6 weeks for a new filter, shorter with added bacteria or with water and media from an established tank (for example \"Lọc mới thường mất khoảng 6 tuần mới ổn định hẳn, nhanh h…",
+        "The entry is 488 words: hold it to about 480, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-16T01:01:07Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 0.97,
+      "notes": [
+        "\"Lọc mới thường mất khoảng 6 tuần mới ổn định hẳn, 1–2 tuần thì còn quá sớm để tin là xong.\": the facts don't carry it (unsupported, unsupported, unsupported): facts don't say 1–2 weeks is too early; supplements or used media can shorten the cycle / No source says 1–2 weeks is too early, and other facts allow a shorter cycle. / seeding/supplements can finish in about 2 weeks or less",
+        "The entry is 482 words: hold it to about 480, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-16T01:01:07Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Lọc chín khi TAN và nitrit lên đỉnh rồi giảm về 0 hoặc gần 0, sau đó nitrat tăng lên.\" (not \"Lọc chín khi TAN và nitrit lên đỉnh rồi giảm xuống, sau đó nitrat tăng lên.\": Rule 12: \"Lọc chín khi TAN và nitrit lên đỉnh rồi giảm xuống, sau đó nitrat tăng lên.\" doesn't say that the readings fall to \"0 hoặc gầ…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Khử clo cho nước máy bằng một trong ba cách: trữ 3–4 ngày, sục khí 24 giờ, hoặc dùng thuốc khử clo loại khử được cả chloramine và khóa luôn lượng amoniac sinh ra.\" (not \"Khử clo cho nước máy bằng một trong ba cách: trữ 3–4 ngày, sục khí 24 giờ, hoặc dùng Seachem Prime.\": Rules 8 and 12: \"hoặc dùng Seachem…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cá thả vào giai đoạn amoniac rất dễ mắc bệnh và có thể chết.\" (not \"Cá thả vào giai đoạn amoniac rất dễ mắc bệnh.\": Rule 12: \"Thả cá khi chu trình chưa ổn định. Cá thả vào giai đoạn amoniac rất dễ mắc bệnh.\" leaves out that the fish can die. This item in the mistakes list must say that fish added during t…",
+        "Rule 12: \"Đa số bộ test lại đọc nitrit theo nitơ-nitrit\": the nitrite line has to say \"Một số bộ test\", never \"đa số\". The drop kits sold here read NO2.",
+        "Rules 4 and 12: \"Có tiệm nói chu trình xong sau 1–2 tuần, nhưng tài liệu thú y ghi rằng lọc mới thường mất khoảng 6 tuần mới ổn định hẳn\": this sets a shop against the vet source. How long the cycle takes must be one statement, for example \"Lọc mới thường mất khoảng 6 tuần mới ổn định hẳn, nên đừng tin rằng 1–2 tuần là xong.\"",
+        "The entry is 488 words: hold it to about 480, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-15T03:15:29Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Loose, reworded: \"Nitrat ít độc hơn, nên giữ dưới 20 mg/L.\" → \"Nitrat ít độc hơn amoniac và nitrit, và với bể nước ngọt thì nên giữ dưới 20 mg/L.\" (supported)",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Lọc chín khi TAN và nitrit lên đỉnh rồi giảm về 0 hoặc gần 0, sau đó nitrat tăng lên.\" (not \"Lọc chín khi TAN và nitrit lên đỉnh rồi giảm xuống, sau đó nitrat tăng lên.\": Rule 12: \"Lọc chín khi TAN và nitrit lên đỉnh rồi giảm xuống, sau đó nitrat tăng lên.\": THIS TERM says this sentence must say that TAN …",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Khử clo cho nước máy bằng một trong ba cách: trữ 3–4 ngày, sục khí 24 giờ, hoặc dùng thuốc khử clo loại khử được cả chloramine và khóa luôn lượng amoniac sinh ra.\" (not \"Khử clo cho nước máy bằng một trong ba cách: trữ 3–4 ngày, sục khí 24 giờ, hoặc dùng Seachem Prime.\": Rules 8 and 12: \"hoặc dùng Seachem…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cá thả vào giai đoạn amoniac rất dễ mắc bệnh và có thể chết.\" (not \"Cá thả vào giai đoạn amoniac rất dễ mắc bệnh.\": Rule 12: \"Thả cá khi chu trình chưa ổn định. Cá thả vào giai đoạn amoniac rất dễ mắc bệnh.\": THIS TERM says this mistakes item must also say that the fish can die. The item only says they fa…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-15T03:15:29Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Châm thêm men vi sinh nitrat hóa của hãng uy tín.\" leaves only the bottled bacteria. THIS TERM says to keep the seeding sentence word for word: \"Châm thêm men vi sinh của hãng uy tín, hoặc lấy nước, bông lọc từ một bể đã ổn định; riêng vật liệu lọc thì chỉ lấy từ bể đã ổn định mà cá trong đó đều khỏe.\" The water, floss and media from an established tank are missing, and \"nitrat hóa\" was…"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    }
+  ],
   "vi/glossary/lua": [
     {
       "at": "2026-11-14T04:29:50Z",
@@ -118,6 +279,97 @@
         "\"Thả lũa vào một hôm không thay nước\" is a rephrasing of the fact that adding wood together with a water change hides the cause. It is acceptable.",
         "\"Ngâm ngập lũa trong xô lớn ít nhất 1–2 tuần, có khi tới vài tháng\" combines sources 23 and 28 (1 to 6 months). It is acceptable.",
         "\"Manzanita ... nhiều nhánh nhỏ\" and \"Mopani ... hay có hốc\": 'nhiều nhánh nhỏ' for manzanita is not stated. TFH says 'twiggy', so this is roughly supported. \"Mopani ... Ngoài nâu nhạt\" matches the 'tan outside' fact."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    }
+  ],
+  "vi/glossary/ph": [
+    {
+      "at": "2026-11-16T00:55:17Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Lá bàng hạ pH chậm, có thể tới khoảng 1–2 đơn vị.\" (not \"Lá bàng hạ pH nhẹ và chậm.\": Rule 12: \"Lá bàng hạ pH nhẹ và chậm.\" uses \"nhẹ\" and leaves out the range. It must state the range as a ceiling, without \"nhẹ\": \"Lá bàng hạ pH chậm, có thể tới khoảng 1–2 đơn vị.\" / it drops the figure 1, the figure 2, t…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Trước khi set bể, đo pH nước máy hoặc nước giếng xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\" (not \"Trước khi set bể, đo pH nước máy xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\": Rule 12: \"đo pH nước máy xem có h…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,2 đơn vị, rồi đo lại.\" (not \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,5 đơn vị.\": Rule 12: \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,5 đơn vị\" uses the faster pace from source 1. It must use the slower pace from so…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Khi cá ngộ độc amoniac, thay 50% nước.\" (not \"Khi cá ngộ độc amoniac, thay 25–50% nước, và nếu cá chịu được thì hạ pH xuống khoảng 6,0–6,5.\": Rules 4 and 12: \"Khi cá ngộ độc amoniac, thay 25–50% nước\" gives 25–50%. This entry and the nitrogen-cycle entry must share one figure, 50%. It should read \"Khi cá …",
+        "Rules 4 and 12: Indian almond leaves are said to lower pH in two places: \"Lá bàng và lũa: tanin trong chúng làm pH xuống.\" and \"Lá bàng hạ pH chậm, có thể tới khoảng 1–2 đơn vị.\" THIS TERM asks for Indian almond leaves in one sentence. The first line should cover only driftwood (lũa), and the leaves should appear only in \"Lá bàng hạ pH chậm, có thể tới khoảng 1–2 đơn vị.\""
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-16T00:55:17Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Rules 6 and 12: \"cichlid Rift Lake\" in \"Cá neon vua ở Rio Negro sống trong nước dưới pH 5,5, còn cichlid Rift Lake ưa pH 8,0–9,0.\": THIS TERM requires \"cichlid hồ châu Phi\", as it was written before, and never \"cichlid Rift Lake\".",
+        "Rule 12: \"Nếu dùng CO2 để hạ pH, ghi lại pH trước khi bật CO2, đo 30 phút một lần trong lúc chạy và dừng khi pH thấp hơn mức ban đầu khoảng 1 đơn vị.\": THIS TERM forbids \"Nếu dùng CO2 để hạ pH…\". The CO2 limit must be given as a cap on how far pH may fall while the CO2 runs, not as a way to lower the tank's pH, and it must say \"tắt CO2\", for example \"Khi châm CO2, pH tụt trong lúc CO2 chạy: ghi p…",
+        "Rules 1 and 12: \"Lá bàng hạ pH nhẹ và chậm, khoảng 1–2 đơn vị.\": THIS TERM forbids \"nhẹ\" next to the figure, because two units isn't light. It also wants the range given as a ceiling, as in \"Lá bàng hạ pH chậm, có thể tới khoảng 1–2 đơn vị.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-15T04:11:25Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Loose, reworded: \"Nếu dùng CO2 để hạ pH, ghi lại pH trước khi bật CO2, đo trong lúc chạy và dừng khi pH thấp hơn mức ban đầu khoảng 1 đơn vị.\" → \"Nếu dùng CO2 để hạ pH, ghi lại pH trước khi bật CO2, đo 30 phút một lần trong lúc chạy và dừng khi pH thấp hơn mức ban đầu khoảng 1 đơn vị.\" (supported)",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Lá bàng hạ pH nhẹ và chậm, khoảng 1–2 đơn vị.\" (not \"Lá bàng chỉ hạ pH nhẹ và chậm.\": Rule 12: \"Lá bàng và lũa: tanin trong chúng làm pH xuống. Lá bàng chỉ hạ pH nhẹ và chậm.\" Indian almond leaves should get one sentence with everything the facts give. They lower pH mildly and slowly (source 4), by about …",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Trước khi set bể, đo pH nước máy hoặc nước giếng xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\" (not \"Trước khi set bể, đo pH nước máy xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\": Rule 12: \"Trước khi set bể, đo pH…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,2 đơn vị, rồi đo lại.\" (not \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,5 đơn vị, rồi đo lại.\": Rule 12: \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,5 đơn vị, rồi đo lại.\" The pace for raising pH must be the slower one…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Khi cá ngộ độc amoniac, thay 50% nước.\" (not \"Khi cá ngộ độc amoniac, thay 25–50% nước và, nếu cá chịu được, hạ pH xuống khoảng 6,0–6,5.\": Rules 1 and 12: \"Khi cá ngộ độc amoniac, thay 25–50% nước và, nếu cá chịu được, hạ pH xuống khoảng 6,0–6,5.\" The guidance for this term says to leave out lowering pH t…",
+        "Rules 4 and 12: Indian almond leaves are covered in two sentences instead of one. \"Lá bàng và lũa: tanin trong chúng làm pH xuống.\" says they lower pH, and the next sentence, \"Lá bàng hạ pH nhẹ và chậm, khoảng 1–2 đơn vị.\", says it again. THIS TERM wants lá bàng in one sentence only.",
+        "Rule 4: Changing pH slowly is said twice. Step 5 already gives the pace (\"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,2 đơn vị, rồi đo lại.\"), and the mistakes list repeats it with \"Muốn đổi pH thì đổi chậm để cá và cây không bị sốc\". It should be said once.",
+        "Rule 12: \"Nếu pH cao, tìm và bỏ thứ làm pH lên ra trước.\" leaves out what this must come before. THIS TERM wants the restraint said in full: find and take out what is raising pH (coral, limestone, shells and the like) before adding anything to lower it. \"ra trước\" on its own doesn't say that."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-15T04:11:25Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Rule 6: \"cichlid hồ châu Phi\" in \"Cá neon vua ở Rio Negro sống trong nước dưới pH 5,5, còn cichlid hồ châu Phi ưa pH 8,0–9,0.\": this group has no line in PAGES, and the writer made up this Vietnamese name. It is also wider than the 'Rift Lake cichlids' the FACTS name. The group should be named the way the FACTS write it.",
+        "Rules 4 and 12: \"Mức hạ của lá bàng thì các trang hướng dẫn nuôi cá ghi khác nhau: nơi nói 1–2 đơn vị, nơi nói chỉ hạ nhẹ và chậm.\": THIS TERM wants Indian almond leaves covered in one sentence, with no line saying the pages give different figures. For example: \"Lá bàng hạ pH nhẹ và chậm, khoảng 1–2 đơn vị.\"",
+        "Rule 12: \"CO2\" in \"<strong>Làm pH xuống:</strong> than bùn (peat), CO2, vật liệu lọc cũ, lọc lâu không vệ sinh.\": CO2 is listed as something that lowers pH, but without the limit the FACTS give (source 4). That limit is: note the pH before the CO2 goes on, test as it runs, and stop at about 1 unit below that first reading.",
+        "Rule 12: \"Bút đo điện tử chính xác hơn nhưng phải hiệu chuẩn thường xuyên và giữ đầu đo sạch.\": it doesn't say what the pen is more accurate than. THIS TERM wants \"chính xác hơn giấy quỳ\".",
+        "Rule 12: \"mỗi ngày không quá 0,5 đơn vị\" in \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,5 đơn vị, rồi đo lại.\": THIS TERM wants the slower pace from source 6: no more than 0,2 a day.",
+        "Rules 4 and 12: \"Có tiệm lại cho rằng dùng san hô để nâng pH là sai, vì nó làm tăng cả GH và TDS, sau này khó kiểm soát.\": coral must be said once, as a trade-off, where it is first advised (crushed coral or shells raise pH, but coral also raises GH and TDS, which are hard to control). This line uses 'a shop says', adds a second line on coral after the advice, and casts the point as a disagreemen…",
+        "Rule 12: \"Khi cá ngộ độc amoniac, thay 25–50% nước.\": THIS TERM fixes the water change for ammonia poisoning at 50%, so it matches the nitrogen cycle entry: \"Khi cá ngộ độc amoniac, thay 50% nước.\"",
+        "Rule 12: \"Dùng phèn chua để hạ pH. Phèn chua không hạ pH, chữ \\\"chua\\\" chỉ là do vị của nó.\": THIS TERM forbids anything on alum (phèn chua), even as a mistake."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-15T03:09:26Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (not placeable): \"Làm pH lên: san hô, đá vôi, vỏ ốc, sỏi ba màu trộn vỏ ốc, cát muối tiêu, đá trắng như đá tai mèo, sục khí mạnh, baking soda.\"",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Trước khi set bể, đo pH nước máy hoặc nước giếng xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\" (not \"Trước khi set bể, đo pH nước máy xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\": Rule 12: \"đo pH nước máy xem có h…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,5 đơn vị, rồi đo lại.\" (not \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,2 đơn vị.\": Rule 12: \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,2 đơn vị.\" gives the wrong pace. THIS TERM says to raise pH gradually, no more th…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-15T03:09:26Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 0.98,
+      "notes": [
+        "\"Cá neon vua sống ở nước dưới pH 5,5, còn cichlid hồ châu Phi ưa pH 8,0–9,0.\": the facts don't carry it (unsupported, supported, supported, unsupported, unsupported, unsupported): drops 'from the Rio Negro' qualifier on cardinal tetras / Drops the 'from the Rio Negro' qualifier, so a claim about wild cardinals in their native water reads as true of all cardinal tetras. / Drops 'from the Rio Negro…",
+        "Rule 12: The log-scale line \"Thang pH là thang logarit, mỗi nấc cách nhau 10 lần.\" is missing the worked example that THIS TERM requires. It should read \"Mỗi nấc cách nhau 10 lần, tức là pH 4,0 chua gấp 10 lần pH 5,0 và gấp 100 lần pH 6,0.\" A trim for length must never take this example out."
       ],
       "attempt": "rewrite",
       "kept": false

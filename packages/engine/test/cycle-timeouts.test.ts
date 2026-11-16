@@ -20,11 +20,14 @@ test('every package the engine cycle tests gives a test 30 s, so a busy Mac does
 
 // verify (scripts/cycle-checks.sh) with `checks` (one step under the lock), `calm` and `settled` stood in for: each run
 // prints the next of `runs` and fails unless it prints "ok". Returns verify's exit code, how many times a step ran, the
-// steps that ran (a second try's as it was given), the waits and tries in order, and what the cycle logged.
+// steps that ran (each as it was given), the waits and tries in order, and what the cycle logged. As on the Mac, whose
+// tries both run their packages one at a time (FIRST_TRY_WORKERS, the chief of staff, 16 Nov 2026); GitHub's first try
+// runs the step as it is (test-time-scale.test.ts).
 const ONE_AT_A_TIME = 'export pnpm_config_workspace_concurrency=1; '
 function verify(runs: string[], steps = ['pnpm build && pnpm test']) {
   const dir = mkdtempSync(join(tmpdir(), 'aq-verify-'))
   const script = `
+    unset GITHUB_ACTIONS
     log() { echo "LOG $*"; }
     TEST_LOG="${dir}/test.log"
     source "${join(ROOT, 'scripts/cycle-checks.sh')}"
@@ -52,9 +55,9 @@ test('tests that ran out of time on a busy Mac run once more before a cycle give
 test('only the step that ran out of time runs again: the build before it passed, and a second one would take hours', () => {
   // 2026-11-07: the pages part's tests ran out of time, and their second run queued the whole build again.
   const steps = ['I18N_LENIENT=1 pnpm build', 'pnpm test']
-  expect(verify(['ok', 'Error: Test timed out in 30000ms.', 'ok'], steps)).toMatchObject({ code: 0, runs: 3, steps: [steps[0], steps[1], ONE_AT_A_TIME + steps[1]] })
+  expect(verify(['ok', 'Error: Test timed out in 30000ms.', 'ok'], steps)).toMatchObject({ code: 0, runs: 3, steps: [ONE_AT_A_TIME + steps[0], ONE_AT_A_TIME + steps[1], ONE_AT_A_TIME + steps[1]] })
   // A build that fails twice stops the checks there: no tests run on it.
-  expect(verify(['[ERROR] build failed', '[ERROR] build failed', 'ok'], steps)).toMatchObject({ code: 1, runs: 2, steps: [steps[0], ONE_AT_A_TIME + steps[0]] })
+  expect(verify(['[ERROR] build failed', '[ERROR] build failed', 'ok'], steps)).toMatchObject({ code: 1, runs: 2, steps: [ONE_AT_A_TIME + steps[0], ONE_AT_A_TIME + steps[0]] })
   // One more run a cycle: tests that ran out of time again fail it.
   expect(verify(['ok', 'Error: Test timed out in 30000ms.', 'Error: Test timed out in 30000ms.'], steps)).toMatchObject({ code: 1, runs: 3 })
 })
@@ -64,11 +67,11 @@ test("a second try waits for the first try's own load to go, then runs the packa
   // and ran two to four times slower than the first: its site tests ran out of time and the cycle didn't publish.
   for (const first of ['AssertionError: expected 20 to be 10', 'Error: Test timed out in 30000ms.']) {
     const r = verify([first, 'ok'], ['pnpm test'])
-    expect(r).toMatchObject({ code: 0, runs: 2, steps: ['pnpm test', ONE_AT_A_TIME + 'pnpm test'] })
-    expect(r.order).toEqual(['calm', 'check pnpm test', 'settled', 'calm', 'check ' + ONE_AT_A_TIME + 'pnpm test'])
+    expect(r).toMatchObject({ code: 0, runs: 2, steps: [ONE_AT_A_TIME + 'pnpm test', ONE_AT_A_TIME + 'pnpm test'] })
+    expect(r.order).toEqual(['calm', 'check ' + ONE_AT_A_TIME + 'pnpm test', 'settled', 'calm', 'check ' + ONE_AT_A_TIME + 'pnpm test'])
   }
   // A first try that passes has no second, and nothing waits after it.
-  expect(verify(['ok'], ['pnpm test']).order).toEqual(['calm', 'check pnpm test'])
+  expect(verify(['ok'], ['pnpm test']).order).toEqual(['calm', 'check ' + ONE_AT_A_TIME + 'pnpm test'])
   // And it still fails the cycle when it fails again.
   expect(verify(['AssertionError: expected 1 to be 2', 'AssertionError: expected 1 to be 2'], ['pnpm test'])).toMatchObject({ code: 1, runs: 2 })
 })
@@ -104,7 +107,7 @@ test("settled waits a minute, then until the 1-minute load is under one a core, 
   expect(settled([200], { GITHUB_ACTIONS: 'true' })).toMatchObject({ code: 0, slept: [], reads: 0 })
 })
 
-test('pnpm reads the one-at-a-time setting the second try sets, so its packages do run one after another', () => {
+test('pnpm reads the one-at-a-time setting the tries on the Mac set, so their packages do run one after another', () => {
   const get = (env: Record<string, string>) => spawnSync('pnpm', ['config', 'get', 'workspace-concurrency'], { cwd: ROOT, encoding: 'utf8', env: { ...process.env, ...env } }).stdout.trim()
   expect(get({ pnpm_config_workspace_concurrency: '1' })).toBe('1')
   expect(readFileSync(join(ROOT, 'scripts/cycle-checks.sh'), 'utf8')).toContain('checks "export pnpm_config_workspace_concurrency=1; $step"')
@@ -123,14 +126,14 @@ test('the video job checks as the engine cycle does: it waits for a calmer Mac, 
   // 2026-11-07: its own checks, without either, failed twice at a load of 667 on 16 cores and held back the videos.
   const cycle = readFileSync(join(ROOT, 'scripts/video-cycle.sh'), 'utf8')
   expect(cycle).toContain('source scripts/cycle-checks.sh')
-  expect(cycle.match(/\bverify '/g)).toHaveLength(3) // its work, after a merge on push, after a sweep on a clean pull
+  expect(cycle.match(/\bverify_cycle\b/g)).toHaveLength(3) // its work, after a merge on push, after a sweep on a clean pull
   expect(cycle).not.toMatch(/\bchecks '|^checks\(\)/m)
 })
 
 test('video guides are checked again by their own job alone, recheck then redo, with the video job\'s checks', () => {
   const recheck = readFileSync(join(ROOT, 'scripts/video-recheck.sh'), 'utf8')
   expect(recheck).toContain('source scripts/cycle-checks.sh')
-  expect(recheck.match(/\bverify '/g)).toHaveLength(3) // as the video job
+  expect(recheck.match(/\bverify_cycle\b/g)).toHaveLength(3) // as the video job
   expect(recheck).toMatch(/^pnpm engine review-backfill --kind video-guide --reviewed-before .*\n(#.*\n)*pnpm engine videos --redo --rechecked-since /m)
   // The low guides in search get their two more reads first, under their own command's ceiling (2026-11-11).
   expect(recheck).toMatch(/^pnpm engine review-backfill-97 .*\n(#.*\n)*pnpm engine review-backfill --kind video-guide /m)

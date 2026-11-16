@@ -3,6 +3,12 @@
   "name": "Cheng-Tang",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-16T11:22:28.846Z",
+    "why": "The source text is about a river system in Zhejiang (likely the Cheng-Tang, i.e. Qiantang River), so \"Cheng-Tang\" is a transliteration that omits the Indonesian kind word \"Sungai\" and doesn't match the standard Indonesian name \"Sungai Qiantang\"."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

@@ -3,6 +3,12 @@
   "name": "Sungai Mutiara",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-16T05:37:05.932Z",
+    "why": "Indonesian atlases write the Chinese river as \"Sungai Zhujiang\" (or \"Sungai Pearl\"/\"Sungai Mutiara\" is only an uncommon calque), so the word-by-word translation of the proper name \"Mutiara\" is not the standard form."
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

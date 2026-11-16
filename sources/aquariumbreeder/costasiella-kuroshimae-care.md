@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/costasiella-kuroshimae-care/
 title: Costasiella Kuroshimae Care - Shrimp and Snail Breeder
 fetchedAt: 2026-11-13T21:44:41.665Z
-hash: 747dbf0188bd3d33170e478016f16b1776e761874b6992653be3621f5514b0eb
+hash: c281f57cc39f8553e6ea8a4f8d8234c3dcaecc3f4f575f567681bd0ca5d027c5
 ---
 
 Costasiella kuroshimae which is informally known as “Leaf sheep” or “Leaf slug” is, without doubt, one of the most adorable and sophisticated marine creatures in the world.
@@ -62,8 +62,3 @@ Costasiella kuroshimae is scarce in the aquarium trade, probably because most aq
 The Leaf sheep make an interesting and unique addition to saltwater aquariums. This little reef invertebrate is beautiful and reef-safe, however, its downside is the preference towards a specific type of green macroalgae, susceptibility to predatory attacks, and short lifespan while in captivity.
 You should only acquire this sea slug if you are willing to give it special care and attention since it cannot thrive on other food items neither can it survive in a tank full of aggressive tankmates.
 Ignoring these caveats means you are bound to lose the Leaf sheep earlier than expected, and the death of a dear pet is something everyone dreads.
-## 5 thoughts on “Costasiella Kuroshimae Care”
-- Thank you for this well informed article! ReplyHi Cheryl Gafner, I am glad you like it! Best regards, Michael Reply
-- I’m gonna keep it safe forever Reply
-- Hi, thanks for the article, please can you tell me where I can found / buy her? Thanks ReplyHi Janine, I appreciate the question, but I have to be honest with you. I have not seen them on sale for quite some time now. They have a very specific diet (certain types of algae) and are considered difficult to keep, which is why most stores don’t carry them. Best regards, Michael Reply
-### Leave a Reply Cancel reply

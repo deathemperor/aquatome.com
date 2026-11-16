@@ -1,8 +1,8 @@
 {
   "id": "pterosturisoma-microps",
   "native": {
-    "input": "b519780f059771be",
-    "at": "2026-11-14T17:19:02.525Z",
+    "input": "229f4e0173344bca",
+    "at": "2026-11-16T05:47:36.414Z",
     "claims": [
       {
         "code": "PE",
@@ -11,9 +11,24 @@
         "quote": "Origin: Peru.",
         "words": "Peru",
         "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Peru, Upper Amazon at Iquitos.",
+        "words": "Peru",
+        "ok": true
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "This monotypic genus is known only from the upper Amazon River basin.",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {

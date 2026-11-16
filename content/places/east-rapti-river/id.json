@@ -3,6 +3,12 @@
   "name": "Rapti Timur",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-16T11:24:11.535Z",
+    "why": "\"Rapti Timur\" correctly renders \"East\" as \"Timur\", but it leaves out \"Sungai\", the kind word Indonesian uses for a river."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

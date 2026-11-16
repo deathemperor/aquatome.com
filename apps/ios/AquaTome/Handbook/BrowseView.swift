@@ -13,6 +13,8 @@ enum Browse: Hashable {
   case kept
   /// The pages saved to read later (Tìm's "Đọc tiếp").
   case saved
+  /// The pages read last, all that are kept, newest first (Khám phá's "Đọc gần đây").
+  case recent
   /// A kind's ways in, as a list: the fish groups, where plants go, the guides' subjects (Tìm's chips, at the
   /// accessibility text sizes).
   case ways(HandbookIndex.Kind)
@@ -69,6 +71,11 @@ struct BrowseView: View {
       .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
       .navigationTitle("Đã lưu để đọc sau")
       .accessibilityIdentifier("saved")
+    case .recent:
+      List(handbook.recent(nil, limit: ReadingList.recentMax)) { Row(item: $0) }
+        .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
+        .navigationTitle("Đọc gần đây")
+        .accessibilityIdentifier("recent")
     case .ways(let kind):
       let ways: [(HandbookShelves.Shelf, Browse)] = switch kind {
       case .fish: s.groups.map { ($0, .fish($0.key)) }

@@ -12,6 +12,193 @@
     "colombia",
     "meta"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "CO"
+      ],
+      "regions": [
+        "Orinoco",
+        "Apure",
+        "Cinaruco",
+        "Atabapo",
+        "Meta",
+        "Guarapiche"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the Orinoco basin in Venezuela and Colombia.",
+          "countries": [
+            "VE",
+            "CO"
+          ],
+          "regions": [
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Venezuela it's recorded from the Apure and Cinaruco rivers in Apure state, from tributaries of the middle Orinoco near Caicara del Orinoco in Bolívar state, and in Amazonas state from the Atabapo, Sipapo and Mavaca rivers.",
+          "countries": [],
+          "regions": [
+            "Apure",
+            "Cinaruco",
+            "Atabapo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Colombia it's known from the Meta drainage, where it has been collected from a small stream thought to belong to the Mozambique lake complex and from the El Viento stream south of Matazul (Sarmento-Soares and Martins-Pinheiro, 2008).",
+          "countries": [],
+          "regions": [
+            "Meta"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Mees (1988) also recorded it from the Guarapiche river in Monagas state.",
+          "countries": [],
+          "regions": [
+            "Guarapiche"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344641,
+      "total": 56,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "VE",
+          47
+        ],
+        [
+          "BR",
+          5
+        ],
+        [
+          "CO",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          -68.90625,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          -68.90625,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          -68.90625,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          -67.5,
+          4.21875,
+          10,
+          10
+        ],
+        [
+          -67.5,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          7.03125,
+          16,
+          16
+        ],
+        [
+          -66.09375,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -9.84375,
+          3,
+          0
+        ],
+        [
+          -61.875,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          -53.4375,
+          -2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

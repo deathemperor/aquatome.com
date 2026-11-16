@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/crabs-as-pets-pros-and-cons/
 title: Crabs as Pets: Pros and Cons - Shrimp and Snail Breeder
 fetchedAt: 2026-11-09T15:08:50.724Z
-hash: 40315cac16f5dfeb848c649a55d3409662e3f3e733bb884530f2b54cc1a8dfef
+hash: e700b537ac2186d1dfac95a698d1dbedcf88888b5fe1c1b6664b6165c7d39d36
 ---
 
 If you are looking to adorn your terrarium, paludarium, or freshwater aquarium with some new and somewhat unorthodox pet to care for, the crabs might be your choice. They are fascinating creatures to watch and have lots of personalities.
@@ -110,8 +110,3 @@ On my blog, you can find detailed articles on many species, not just the ones me
 Let me know if you have any questions.
 ## Related article:
 - 50 Most Popular Questions about Crabs
-## 6 thoughts on “Crabs as Pets: Pros and Cons”
-- You don’t explain if they need salt water or freshwater, if they need air to breath or not, what they eat ? They need sand or rocks? Do they need a place to come out of water and go back when ever they need ReplyHi Alfredo trevino, This article had a different focus. It is not possible to put everything in one article. On my blog, you will find all answers to these questions. Every species is different and requires specific requirements. Check out my article “10 Questions to Ask When Buying Aquarium Crustaceans“, there will be references to many crab species as well. Best regards, Michael Reply
-- What about hermit crabs? Are they friendly? ReplyHi Breez Henriquez, As for hermit crabs, they are generally considered social animals and it is recommended to keep them with their own kind as it can reduce their stress and help them behave more naturally. However, even with these crabs, things may not always go smoothly, especially if they differ greatly in size or belong to different species. Therefore, it is recommended to observe them closely at first to assess the possibility of keeping them together. Best regards, Michael Reply
-- From what I’ve found vampire crabs do completely fine with planted paludariums. ReplyHi James Reader, You are right. I keep my vampire crabs in a heavily planted paludarium and they thrive in it. They love the dried leaf litter. It gives them plenty of places to hide. Just make sure you keep the humidity high. They need a large land area to get completely out of the water. If the tank is too open, they will dry out. Best regards, Michael Reply
-### Leave a Reply Cancel reply

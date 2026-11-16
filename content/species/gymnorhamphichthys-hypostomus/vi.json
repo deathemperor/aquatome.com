@@ -1,0 +1,31 @@
+{
+  "slug": "ca-dao-cat-gymnorhamphichthys",
+  "name": "Cá dao cát Gymnorhamphichthys",
+  "altNames": [
+    "Cá dao nhiệt kế",
+    "Thermometer knifefish",
+    "Sand knifefish"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Cá dao cát (họ Rhamphichthyidae) ở Nam Mỹ thuộc nhóm cá phát điện yếu. Chúng phát xung điện liên tục để dò mồi, định hướng và trao đổi tín hiệu với con cùng loài. Hiện người ta biết ba chi với 14 loài.</p>",
+    "distribution:glaser": "<p>Lứa cá nhập về có nguồn từ Peru. Thế nhưng đến nay, Danh mục cá nước ngọt Nam Mỹ chưa có loài Gymnorhamphichthys nào ở Peru.</p>",
+    "habitat:glaser": "<p>Chi Gymnorhamphichthys, còn gọi là cá dao nhiệt kế, có năm loài đã được mô tả. Người ta hầu như chưa biết gì về chúng, vì loài này chỉ ra kiếm ăn ban đêm, còn ban ngày thì vùi mình trong cát. Thế nên ngoài tự nhiên không thể nghiên cứu kỹ về chúng.</p>",
+    "diet:glaser": "<p>Cá dễ cho ăn vì ăn ngay trùng huyết đông lạnh. Đây cũng là món chiếm phần nhiều trong thức ăn của chúng ngoài tự nhiên. Người ta đã mổ ruột cá Gymnorhamphichthys bắt ngoài tự nhiên và thấy đúng như vậy.</p>",
+    "behaviour:glaser": "<p>Chúng sống với nhau rất hiền. Loài cá này hoàn toàn không có răng, cũng không có bộ phận nào khác đủ sức làm nhau bị thương.</p>",
+    "notes:glaser": "<p>Hoa văn trên mấy con này khớp nhất với mô tả của G. hypostomus. Nhưng loài đó có mõm ngắn hơn. Vậy nên cũng có thể đây là một loài khoa học chưa biết tới, và vì thế chúng được nhập về dưới tên G. cf. hypostomus. G. hypostomus lớn tối đa khoảng 20 cm, còn mấy con này dài 14–18 cm.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-16"
+  }
+}

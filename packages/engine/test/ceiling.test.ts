@@ -235,7 +235,7 @@ test('ceilings.json: it names its clock, its tables are in order, one is always 
   }
 })
 
-test('ceilings.json: nothing until the third sign-in is back, then one, two and three sign-ins\' days', () => {
+test('ceilings.json: nothing until the third sign-in is back, then one, two and three sign-ins\' days', async () => {
   // Until 12 Nov 13:00 every sign-in is out, and nothing has a ceiling above $0.
   for (const where of ['mac', 'github'] as const) for (const step of ['run', 'localize', 'rewrite-vi', 'videos', 'anything-new']) expect(cap('2026-11-12T12:59:00+07:00', where, step)).toBe(0)
   const sum = (p: Place) => Object.values(p.steps).reduce<number>((n, x) => n + (x ?? 0), 0)
@@ -244,7 +244,8 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
   // The troubleshooting board: $40 on the Mac on 14 Nov and $60 on 15 Nov, then the small line (the chief of staff, 13 Nov
   // 2026), inside the backstop that was already there. On 15 Nov its line came down to the $33.87 it had spent, the quota
   // road's test had $1, and the backstop rose by the $34 and the test's room; on 16 Nov it has $37, and the backstop what
-  // that line needs to be whole (the chief of staff, 15 Nov 2026).
+  // that line needs to be whole (the chief of staff, 15 Nov 2026). On 17 Nov it has $8 and on 18 Nov $12, each with the
+  // backstop what that line needs to be whole, then the small line again from 19 Nov (the chief of staff, 16 Nov 2026).
   // The photo check: $22 on the Mac from 15 Nov 06:00 to the end of 17 Nov, with the backstop $10 higher, while the photo
   // job runs 80 sheets a run to judge the 621 page heads no check has seen; $12 again from 18 Nov (the chief of staff,
   // 15 Nov 2026).
@@ -256,11 +257,13 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
     { from: '2026-11-14T08:00:00+07:00', to: '2026-11-14T23:59:00+07:00', steps: 466, backstop: 450, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 40, glossary: 40, ask: 0, photos: 12 },
     { from: '2026-11-15T00:00:00+07:00', to: '2026-11-15T05:59:00+07:00', steps: 470, backstop: 497, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 34, quota: 1, glossary: 40, material: 8, ask: 0, ideas: 4, photos: 12 },
     { from: '2026-11-15T06:00:00+07:00', to: '2026-11-15T23:59:00+07:00', steps: 480, backstop: 507, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 34, quota: 1, glossary: 40, material: 8, ask: 0, ideas: 4, photos: 22 },
-    { from: '2026-11-16T00:00:00+07:00', to: '2026-11-16T23:59:00+07:00', steps: 498, backstop: 508, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 37, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24, photos: 22 },
-    { from: '2026-11-17T00:00:00+07:00', to: '2026-11-17T23:59:00+07:00', steps: 461, backstop: 463, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24, photos: 22 },
-    { from: '2026-11-18T00:00:00+07:00', to: '2026-11-19T23:59:00+07:00', steps: 451, backstop: 453, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24, photos: 12 },
+    { from: '2026-11-16T00:00:00+07:00', to: '2026-11-16T23:59:00+07:00', whole: true, steps: 498, backstop: 508, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 37, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24, photos: 22 },
+    { from: '2026-11-17T00:00:00+07:00', to: '2026-11-17T23:59:00+07:00', whole: true, steps: 506, backstop: 516, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 8, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24, photos: 22, titles: 22, titlesCheck: 15 },
+    { from: '2026-11-18T00:00:00+07:00', to: '2026-11-18T23:59:00+07:00', whole: true, steps: 463, backstop: 473, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 12, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24, photos: 12 },
+    { from: '2026-11-19T00:00:00+07:00', to: '2026-11-19T23:59:00+07:00', steps: 451, backstop: 453, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24, photos: 12 },
     { from: '2026-11-20T00:00:00+07:00', to: '2026-12-31T00:00:00+07:00', steps: 437, backstop: 453, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 8, ask: 2, ideas: 4, photos: 12 },
   ]
+  const fresh = await logs({ 'aquatome-cost-hand.jsonl': [] }).then(d => join(d, 'aquatome-cost-hand.jsonl'))
   for (const p of periods) for (const when of [p.from, p.to]) {
     const t = tableInForce(CEILINGS.tables, new Date(when))!
     expect(sum(t.mac) + sum(t.github)).toBe(p.steps)
@@ -298,6 +301,15 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
     // staff, 15 Nov 2026).
     expect(cap(when, 'github', 'judge-places')).toBe(p.judge ?? p.small)
     expect(cap(when, 'mac', 'judge-places')).toBe(p.small)
+    // The video titles' full run and its per-title check: $22 and $15 on the Mac on 17 Nov alone, with the backstop $37
+    // higher. The video cycle's own titles stay on the default line under their own step (the chief of staff, 16 Nov 2026).
+    expect(cap(when, 'mac', 'video-titles-redo')).toBe(p.titles ?? p.small)
+    expect(cap(when, 'mac', 'video-titles-check')).toBe(p.titlesCheck ?? p.small)
+    expect(cap(when, 'mac', 'video-titles')).toBe(p.small)
+    // The $37 rise is the Mac's, with the board's $16 for its $8 on top: GitHub's backstop is as before.
+    if (p.titles) expect([t.mac.backstop, t.github.backstop]).toEqual([336, 180])
+    // From 16 Nov the board's line is whole when the day starts: the other lines' and the $10 it keeps spare leave all of it.
+    if (p.whole) expect(leftYielding('chat-board', fresh, 10, CEILINGS, new Date(when), 'mac')).toBe(p.board)
     // The ideas step: on 12 Nov its $1 line stopped it part way through its first guide, which costs about $1.30 (9
     // calls), and it wrote nothing. Now a guide starts only when its line covers one (pieces.ts), and the line is $3, two
     // guides, in the cloud, where the step runs; the Mac's is $0 (the chief of staff, 12 Nov 2026). A guide came to $1.51 on
@@ -314,9 +326,10 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
 // The chief of staff, 15 Nov 2026: after midnight the board ran from a checkout 178 commits behind main and spent $33.87 of
 // the day's room. The engine gets that back, the AI lead's test of the board's quota road (four calls, about 50 cents,
 // logged as quota-road-test) has its whole $1 as it yields with the $10 spare the board keeps, and Monday's board line of
-// $37 is whole when that day starts. Tuesday is as it was. The day's spend is the Mac's cost logs at 01:33 on the 15th.
+// $37 is whole when that day starts. Tuesday's $8 and Wednesday's $12 are whole when theirs start, and Thursday has nothing
+// (the chief of staff, 16 Nov 2026). The day's spend is the Mac's cost logs at 01:33 on the 15th.
 // The materials writer's $8 from 15 Nov raises each day's backstop by its $3, so neither the test nor the board loses room.
-test('ceilings.json: the quota road test has its $1 after the board\'s $33.87 on 15 Nov, the board its $37 on 16 Nov, nothing on 17 Nov', async () => {
+test('ceilings.json: the quota road test has its $1 after the board\'s $33.87 on 15 Nov, the board its $37 on 16 Nov, $8 on 17 Nov, $12 on 18 Nov, nothing on 19 Nov', async () => {
   const at = (lines: unknown[]) => logs({ 'aquatome-cost-hand.jsonl': lines }).then(d => join(d, 'aquatome-cost-hand.jsonl'))
   const night = '2026-11-14T17:30:00.000Z'
   const spent = await at([{ at: night, step: 'chat-board', usd: 33.87 }, { at: night, step: 'glossary-entry', usd: 1.26 }, { at: night, step: 'check-one', usd: 2.54 }])
@@ -328,7 +341,9 @@ test('ceilings.json: the quota road test has its $1 after the board\'s $33.87 on
   expect(yielding('chat-board', spent, '2026-11-15T06:00:00+07:00')).toBeCloseTo(0.13, 2)
   const none = await at([])
   expect(yielding('chat-board', none, '2026-11-16T00:00:00+07:00')).toBe(37)
-  expect(yielding('chat-board', none, '2026-11-17T00:00:00+07:00')).toBe(0)
+  expect(yielding('chat-board', none, '2026-11-17T00:00:00+07:00')).toBe(8)
+  expect(yielding('chat-board', none, '2026-11-18T00:00:00+07:00')).toBe(12)
+  expect(yielding('chat-board', none, '2026-11-19T00:00:00+07:00')).toBe(0)
 })
 
 test('whatever yields to the engine runs only with main\'s ceilings: a checkout behind main, or with a change of its own, is refused', async () => {

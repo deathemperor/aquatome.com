@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/the-arizona-bark-scorpion-detailed-guide-care-diet-and-breeding/
 title: Arizona Bark Scorpion – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-10-31T15:26:36.621Z
-hash: 426ee5a1bbb077d9982f7dbff94280244f35b5f5b93b107f4cef51192b014b65
+hash: 5498a6d57d8770bdadc73cce2a11969aa6f68fce6e1a121f35fff21a908b9aab
 ---
 
 Like many other kinds of scorpions, Arizona bark scorpions (Centruroides sculpturatus and Centruroides exilicauda) have become more and more well-liked as exotic pets in recent years. These scorpions can be a fascinating addition to any collection of arachnids due to their distinctive appearance and intriguing activity.
@@ -229,6 +229,3 @@ Therefore, despite their hardy nature, novice keepers, people with young childre
 - Webber, Michael M., and Matthew R. Graham. “An Arizona bark scorpion (Centruroides sculpturatus) found consuming a venomous prey item nearly twice its length.” Western North American Naturalist73, no. 4 (2013): 530-532.
 - Gonzalez-Santillan, E.; Possani, L.D. North American scorpion species of public health importance with a reappraisal of historical epidemiology. Acta Trop. 2018, 187, 264–274
 - Patel, Avni, and Dirk M. Elston. “What’s Eating You? Bark Scorpions (Centruroides exilicauda and Centruroides sculpturatus).” Cutis 105, no. 5 (2020): 239-240.
-## 2 thoughts on “Arizona Bark Scorpion – Detailed Guide: Care, Diet, and Breeding”
-- Hello my name is stephen. Im trying to start breeding barks scorpions for both wholesale purpose and research purposes. ive caught up to 300 in residential areas and ive seen direct affects of this such as not see them as much. i would love to talk more but i dont want overwhelm ReplyHi Stephen, Sure, check your email. Best regards, Michael Reply
-### Leave a Reply Cancel reply

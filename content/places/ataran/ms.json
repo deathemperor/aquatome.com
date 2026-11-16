@@ -1,8 +1,13 @@
 {
   "slug": "ataran",
-  "name": "Ataran",
+  "name": "Sungai Ataran",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.85,
+    "at": "2026-11-16T05:38:01.049Z"
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

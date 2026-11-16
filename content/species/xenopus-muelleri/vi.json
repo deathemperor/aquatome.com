@@ -1,0 +1,34 @@
+{
+  "slug": "ech-mong-vuot-muller",
+  "name": "Ếch móng vuốt Muller",
+  "altNames": [
+    "Ếch platanna",
+    "Muller's clawed frog",
+    "Clawed frog",
+    "Platanna"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Xenopus muelleri dài 7–8 cm, con đực nhỏ hơn con cái khoảng 20%. Thân nó có hoa văn đốm khá đẹp. Đây là một trong những loài Xenopus cỡ nhỏ.</p>",
+    "beforeYouBuy:glaser": "<p>Ngoài tiệm hay bán nhất là Xenopus laevis. Đây là loài lớn nhất trong chi, có con to bằng bàn tay người lớn. Ếch cỡ đó ăn được cả cá khá to. Tuy nhiên cũng có những loài nhỏ hơn, chẳng hạn Xenopus muelleri.</p>",
+    "distribution:glaser": "<p>X. muelleri sống trên một vùng rất rộng ở châu Phi nhiệt đới và cận nhiệt đới, nhưng những con nói tới ở đây là ếch trại cho đẻ ở châu Âu.</p>",
+    "maintenance:glaser": "<p>Ếch móng vuốt (Xenopus) được nhiều người nuôi trong bể. Chúng sống hoàn toàn dưới nước và chỉ bò lên cạn khi tò mò hoặc khi vũng nước khô cạn. Nhưng bể vẫn phải đậy thật kín, vì chỉ một chuyến đi lạc ra phòng khách khô ráo cũng đủ làm ếch chết.</p>",
+    "dimorphism:glaser": "<p>Con đực nhỏ hơn con cái khoảng 20%.</p>",
+    "reproduction:glaser": "<p>Giống mọi loài Xenopus khác, nòng nọc của loài này ăn bằng cách lọc nước. Trông chúng giống những con cá da trơn nhỏ hơn là nòng nọc của các loài ếch bản địa châu Âu.</p>",
+    "notes:glaser": "<p>Nguồn gốc tên gọi: Xenopus là tiếng Hy Lạp cổ, nghĩa là \"bàn chân lạ\", ý chỉ ba móng vuốt sắc ở chân sau. laevis là tiếng Latin, nghĩa là \"nhẵn, bóng\". muelleri là tên đặt để tưởng nhớ một người.</p><p>Có ý kiến cho rằng những con ếch nuôi ở đây có thể là một phân loài của X. laevis chứ không phải X. muelleri. Lý do đưa ra là ở X. muelleri, kể cả con còn nhỏ cũng phải có xúc tu dưới mắt dài hơn nhiều so với những con này.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "elsewhere",
+      "source"
+    ],
+    "at": "2026-11-16"
+  }
+}

@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/malaysian-fire-snail-a-profile-of-an-extraordinary-species/
 title: Malaysian Fire Snail: A Profile of an Extraordinary Species - Shrimp and Snail Breeder
 fetchedAt: 2026-11-01T00:42:29.898Z
-hash: 952aa7c7bbb49511a6b30c4e2468bdd2c6a9550b2223fe86780ae6c72ac3fedc
+hash: 56fc21338adaccf48d86889a13f16a45d6b30252fc492e0d185d4278b6795545
 ---
 
 The Malaysian fire snail (Platymma tweediei) can undeniably be considered one of the most exquisite and beautiful snail species on our planet. Unfortunately, the striking red and black coloration of this large land snail has led to its near-extinction in the wild as lots of hobbyists have sought to keep it as a pet.
@@ -90,6 +90,3 @@ As someone who deeply cares about invertebrates, I strongly encourage everyone t
 - https://platymma-tweediei.jimdofree.com/
 - Supplementary Material – Foon, J.K. 2014. Habitat loss and wildlife trade threaten the survival of the montane cloud forest land snail Platymma tweediei in Cameron and Lojing Highlands, Peninsular Malaysia. Tentacle 22: 5-7.
 - TOMLIN, J.R. Le B. (1938): A new Ariophantid from the Malay — Proceedings of the Malacological Society 23: 116-117, plate 14A, London
-## 2 thoughts on “Malaysian Fire Snail: A Profile of an Extraordinary Species”
-- Thanks Michael for stressing the difficult husbandry of this species. I saw them imported to us (where I was working at the time) in the late 70s early 80s and all perished accept for a few taken immediately by private collectors/breeders never to be seen again. This species absolutely belong on the CITES registry and a captivate “local” breeding program started in their natural habitat and at the same altitude as well. From this breeding stock…if we are lucky…the wild population can be bolstered and “hardery” captive specimens might be made available to the hobbyist trade once we crack the code or proper husbandry. It could well be a species that simply is not meant for the hobby at all, like a number of biome specific species. ReplyHi Jay C. White Cloud,You are absolutely right about CITES listing. A captive breeding program in their natural habitat is a crucial next step. Thanks for sharing your expertise!Best regards, Michael Reply
-### Leave a Reply Cancel reply

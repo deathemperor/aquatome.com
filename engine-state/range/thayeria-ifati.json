@@ -1,0 +1,126 @@
+{
+  "id": "thayeria-ifati",
+  "native": {
+    "input": "6a11f336ac78c86a",
+    "at": "2026-11-16T11:31:54.968Z",
+    "claims": [
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Appears to be endemic to the rivers Maroni and Approuague in French Guiana.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Apparent occurrences in Brazil and Guyana are now known to have been misidentifications.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Apparent occurrences in Brazil and Guyana are now known to have been misidentifications.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The holotype was collected from the upper Rio Maroni, close to the settlement of Gaa Kabaon on the French Guiana/Suriname border by the famous ichthyologist Jacques Géry in 1957.",
+        "words": "Suriname",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Maroni",
+        "source": "seriouslyfish",
+        "quote": "Appears to be endemic to the rivers Maroni and Approuague in French Guiana.",
+        "country": "GF",
+        "ok": true
+      },
+      {
+        "name": "Approuague",
+        "source": "seriouslyfish",
+        "quote": "Appears to be endemic to the rivers Maroni and Approuague in French Guiana.",
+        "country": "GF",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": [
+        "SR"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Thayeria ifati",
+    "status": "ACCEPTED",
+    "taxonKey": 5204173,
+    "datasets": [
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        6
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        6
+      ],
+      [
+        "5818223b-9b8e-432c-9fca-cb4c43387e6a",
+        4
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        4
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        3
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "941aeef8-2aa1-490d-b6fc-0133095dccea",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "GF",
+      "SR"
+    ],
+    "requests": 11,
+    "at": "2026-11-16T11:31:54.968Z"
+  }
+}

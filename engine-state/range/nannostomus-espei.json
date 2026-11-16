@@ -1,8 +1,8 @@
 {
   "id": "nannostomus-espei",
   "native": {
-    "input": "cff4d9a185679c0f",
-    "at": "2026-11-10T15:58:17.469Z",
+    "input": "806a83c69bdcf65a",
+    "at": "2026-11-16T05:47:36.414Z",
     "claims": [
       {
         "code": "GY",
@@ -15,8 +15,8 @@
       {
         "code": "GY",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The original description contained no type locality but this species is currently considered endemic to the Mazaruni River system in Guyana, including many of its tributaries such as the Kurupung (where the species was first discovered in 1953), Eping, and Tabuba.",
+        "source": "glaser",
+        "quote": "Up to now this ornamental tetra is only known from western Guyana, South America, in the lower course of the Mazaruni River.",
         "words": "Guyana",
         "ok": true
       },
@@ -31,7 +31,14 @@
     ],
     "regions": [
       {
-        "name": "Mazaruni",
+        "name": "Mazaruni River",
+        "source": "seriouslyfish",
+        "quote": "The barred pencilfish, Nannostomus espei, is a lebiasinid considered endemic to the Mazaruni River system in Guyana.",
+        "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Kurupung",
         "source": "seriouslyfish",
         "quote": "The original description contained no type locality but this species is currently considered endemic to the Mazaruni River system in Guyana, including many of its tributaries such as the Kurupung (where the species was first discovered in 1953), Eping, and Tabuba.",
         "country": "GY",

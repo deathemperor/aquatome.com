@@ -1,0 +1,30 @@
+{
+  "slug": "ca-rivulus-vay-cam",
+  "name": "Cá rivulus vây cam",
+  "altNames": [
+    "Cá rivulus đuôi thuổng",
+    "Orange finned Rivulus",
+    "Spadefin Rivulus"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Rivulus là chi có nhiều loài nhất trong nhóm cá killi châu Mỹ. Loài R. rectocaudatus từ Peru rất riêng nhờ vây hậu môn và vây đuôi màu cam rất đẹp, thêm hàng vảy cam chạy dọc thân.</p>",
+    "distribution:glaser": "<p>Xuất xứ: Peru.</p>",
+    "behaviour:glaser": "<p>Rivulus hoàn toàn không phải cá killi sống theo mùa (annual). Chúng sống lâu ngang mọi loài cá cùng cỡ, dù đó là cá tetra, cá đẻ con hay loài nào khác. Điểm rất đặc biệt ở Rivulus là chúng hay bò lên cạn đi chỗ khác khi trời đủ ẩm. Ngoài tự nhiên, chúng nhảy từ cây này sang cây khác và dính thân vào lá ướt. Trong phòng khách mà làm y như vậy thì cá thường chết, nên phải đậy kín bể. Khe hở nhỏ đến đâu cá cũng tìm ra!</p>",
+    "dimorphism:glaser": "<p>Đàn cá nhập về hiện chưa dễ phân biệt trống mái. Cá mới dài 3-4 cm, và con nào cũng có đốm Rivulus ở gốc vây đuôi, vốn là dấu hiệu của cá cái lớn. Nhưng nhìn vây hậu môn thì đã nhận ra cá đực: vây này của cá đực có viền đỏ, còn của cá cái thì cam hoàn toàn. Lớn lên, cá đực sẽ có thân ánh xanh lam, mất đốm ở đuôi và có vây đuôi hình cái thuổng rất đặc trưng. Vây đuôi cá cái thì vẫn tròn.</p>",
+    "notes:glaser": "<p>Giải nghĩa tên: Rivulus: tiếng Latin, nghĩa là \"con suối nhỏ\". Có lẽ người mô tả đặt tên này vì nghe kể loài cá sống ở suối. rectocaudatus: tiếng Latin, recto nghĩa là \"thẳng\", caudatus nghĩa là \"có đuôi\", ý chỉ hình dạng đặc trưng của vây đuôi.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-16"
+  }
+}

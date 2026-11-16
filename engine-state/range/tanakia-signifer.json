@@ -1,0 +1,62 @@
+{
+  "id": "tanakia-signifer",
+  "native": {
+    "input": "7f3c8b3029360cb6",
+    "at": "2026-11-16T11:31:54.968Z",
+    "claims": [
+      {
+        "code": "KP",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Korean peninsula where it occurs in southern North Korea and northern South Korea.",
+        "words": "North Korea",
+        "ok": true
+      },
+      {
+        "code": "KR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Korean peninsula where it occurs in southern North Korea and northern South Korea.",
+        "words": "South Korea",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Korean peninsula",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Korean peninsula where it occurs in southern North Korea and northern South Korea.",
+        "ok": true
+      },
+      {
+        "name": "Han",
+        "source": "seriouslyfish",
+        "quote": "It is considered endangered in the latter, where it occurs only in the Han river system, and many populations have already been extirpated.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Tanakia signifer",
+    "status": "ACCEPTED",
+    "taxonKey": 2359397,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ]
+    ],
+    "native": [
+      "KP",
+      "KR"
+    ],
+    "requests": 11,
+    "at": "2026-11-16T11:31:54.968Z"
+  }
+}

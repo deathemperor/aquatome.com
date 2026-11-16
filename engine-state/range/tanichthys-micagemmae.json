@@ -1,0 +1,64 @@
+{
+  "id": "tanichthys-micagemmae",
+  "native": {
+    "input": "c84ac6b48e614817",
+    "at": "2026-11-16T11:31:54.968Z",
+    "claims": [
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The Jewel minnow was discovered in 2001 in Central Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "To date known only from the Ben Hai river system in north central Vietnam which flows chiefly through the province of Quang Tri.",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ben Hai",
+        "source": "seriouslyfish",
+        "quote": "To date known only from the Ben Hai river system in north central Vietnam which flows chiefly through the province of Quang Tri.",
+        "country": "VN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Tanichthys micagemmae",
+    "status": "ACCEPTED",
+    "taxonKey": 5207571,
+    "datasets": [
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        21
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "VN"
+    ],
+    "requests": 11,
+    "at": "2026-11-16T11:31:54.968Z"
+  }
+}

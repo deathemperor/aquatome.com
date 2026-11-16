@@ -16,6 +16,243 @@
     "colombia",
     "brazil"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE",
+        "SR",
+        "CO",
+        "BR"
+      ],
+      "regions": [
+        "Amazon",
+        "Marowijne",
+        "Itaya"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Río Itaya, Iquitos, Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Upper Amazon River basin, Guyana waters, coastal rivers of the Guianas, Suriname coastal rivers (Suriname), Marowijne, Itaya.",
+          "countries": [
+            "SR"
+          ],
+          "regions": [
+            "Amazon",
+            "Marowijne",
+            "Itaya"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Upper and central Amazon, in Peru, Colombia and Brazil.",
+          "countries": [
+            "CO",
+            "BR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344653,
+      "total": 56,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "BR",
+          22
+        ],
+        [
+          "SR",
+          18
+        ],
+        [
+          "PE",
+          7
+        ],
+        [
+          "VE",
+          4
+        ],
+        [
+          "BO",
+          3
+        ],
+        [
+          "CO",
+          1
+        ],
+        [
+          "GY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -71.71875,
+          0,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          -14.0625,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          -12.65625,
+          2,
+          0
+        ],
+        [
+          -67.5,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          0,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -56.25,
+          4.21875,
+          15,
+          15
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          9,
+          9
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

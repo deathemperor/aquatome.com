@@ -862,6 +862,33 @@
       "Item 3: \"กระถางสี่เหลี่ยม 9 ซม.\" is fine, but \"ต้นแม่\" for a large mother plant could be clearer as \"ต้นแม่พันธุ์ขนาดใหญ่\"."
     ]
   },
+  "echinodorus-tenellus": {
+    "at": "2026-11-16",
+    "from": "2026-11-15",
+    "name": "เทเนลลัส",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Section 2: 'เทเนลลัส' is used as the common name for 'Pygmy chain sword', but the name is never introduced and no established Thai name is given. Use a consistent name such as 'ไม้น้ำเอคินโนโดรัสแคระ/ใบหญ้า' or keep 'Pygmy chain sword'.",
+      "Section 3: 'Runners may jump out of the substrate, so the plant cannot be kept in one spot' is rendered as 'ไหลอาจโผล่ขึ้นมาจากวัสดุปลูก' and 'ไม่สามารถบังคับให้ต้นอยู่เฉพาะจุดเดียวได้'. This is stilted and loses the sense that runners pop up elsewhere and spread. Rephrase.",
+      "Section 3: 'Emersed to submersed' is rendered as 'การเปลี่ยนจากต้นบกเป็นต้นน้ำ'. 'ต้นน้ำ' is unclear, and 'ต้นที่ปลูกแบบบก' is used elsewhere. Use 'จากต้นที่ปลูกแบบบกเป็นปลูกใต้น้ำ'.",
+      "Section 3: 'ปุ๋ยฝังลงในวัสดุปลูก' and 'ฝังปุ๋ยฝัง' repeat the word 'ฝัง' awkwardly. Use 'เม็ดปุ๋ยรากหรือปุ๋ยเม็ดฝัง'.",
+      "Section 3: 'ใส่คาร์บอนน้ำ' for liquid carbon is non-standard. Use 'คาร์บอนน้ำ (liquid carbon)' or 'ใส่ Liquid Carbon'.",
+      "Section 3: 'ใส่ธาตุอาหารรอง เช่น เหล็กและแมงกานีส' renders 'trace elements' as 'secondary nutrients'. Iron and manganese are micronutrients, so use 'ธาตุอาหารเสริม/ธาตุอาหารจุลธาตุ'.",
+      "Section 3: 'ใช้ธาตุเหล็กเสริมสำหรับไม้น้ำโดยเฉพาะ' leaves 'ธาตุเหล็ก' unqualified. Fine meaning-wise, but 'Perform partial water changes weekly' is a care instruction that is kept; no issue.",
+      "Section 6: 'ซาจิแคระ' is an unfamiliar term for dwarf sagittaria. Use 'ซาจิทาเรียแคระ' or 'ซาจิทาเรีย'.",
+      "Section 6: 'ปลาออตโต้' is the nonstandard form of otocinclus. Use 'ปลาออโต้/ออโตซินคลัส'.",
+      "Section 6: 'ปลาคาร์ป' for koi should be 'ปลาคราฟ', which is the term Thai hobbyists use. 'กุ้งเครย์ฟิช' is acceptable."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "8b6b4b6fa891",
+      "distribution:aquariumbreeder": "0b1f4d7dda97",
+      "maintenance:aquariumbreeder": "0329aaa41fd9",
+      "waterConditions:aquariumbreeder": "7deecd0ec8c0",
+      "equipment:aquariumbreeder": "0ae5c84f435e",
+      "notes:aquariumbreeder": "b14dfdf88eb0"
+    }
+  },
   "echinodorus-x-barthii": {
     "at": "2026-11-09",
     "from": "2026-11-09",
@@ -972,12 +999,27 @@
     ]
   },
   "glossostigma-elatinoides": {
-    "at": "2026-10-31",
-    "from": "2026-10-30",
+    "at": "2026-11-15",
+    "from": "2026-11-14",
     "name": "กลอสโซ่",
     "confidence": "high",
-    "score": 0.97,
-    "notes": []
+    "score": 0.8,
+    "notes": [
+      "Item 8: \"ปลาแคระ (otocinclus)\" is too vague. Use the hobby name \"ปลาอ็อตโต\" (ออโตซินคลัส).",
+      "Item 8: \"ปลาเตตร้าเลือด\" for bleeding heart tetra is not a standard hobby name. Use \"ปลาเตตร้าหัวใจเลือดออก\" or similar.",
+      "Item 8: \"หอยเขาแกะ\" and \"หอยแบล็คเดวิล\" are inconsistent with the other snail names. Check them against terms Thai hobbyists actually use (for example ramshorn is often \"หอยแรมฮอร์น\").",
+      "Item 8: \"ปลาหมูอินโด\" for clown loach is not the commonest term. \"ปลาหมูอารีย์\" is more recognisable to Thai hobbyists."
+    ],
+    "parts": {
+      "quickFacts:tropica": "df2d730f4a3c",
+      "quickFacts:aquariumbreeder": "5fdf59697245",
+      "distribution:aquariumbreeder": "ff51df00aaf4",
+      "habitat:aquariumbreeder": "47f628bc0309",
+      "maintenance:tropica": "a05a85abd59f",
+      "maintenance:aquariumbreeder": "d7d6768a820d",
+      "notes:tropica": "1561001f69cd",
+      "notes:aquariumbreeder": "89c3e687f6b8"
+    }
   },
   "gratiola-viscidula": {
     "at": "2026-11-01",
@@ -1271,18 +1313,31 @@
     ]
   },
   "lilaeopsis-brasiliensis": {
-    "at": "2026-11-03",
-    "from": "2026-10-30",
+    "at": "2026-11-15",
+    "from": "2026-11-15",
     "name": "ไมโครซอร์ด",
     "confidence": "medium",
     "score": 0.85,
-    "notes": [
-      "Item 1: \"Type: Stolon\" rendered as \"ไม้น้ำที่แตกต้นใหม่ด้วยไหล\" is a wordy paraphrase; shorter \"แตกไหล\" or \"ไหล (Stolon)\" would read better in a spec list.",
-      "Item 2: \"high light intensity\" as \"แสงจ้ามาก\" is slightly loose; \"แสงสูง/ความเข้มแสงสูง\" is the usual hobby wording.",
-      "Item 2: \"พรมสนามหญ้า\" for \"lawn effect\" is awkward; use \"เป็นพรมหญ้า\" or \"carpet/lawn\".",
-      "Item 2: \"ห่างกันสักไม่กี่เซนติเมตร\" is clumsy; use \"ห่างกันไม่กี่เซนติเมตร\".",
-      "Item 3: \"บ่อในสวน\" is slightly awkward; \"บ่อน้ำในสวน\" is more natural."
-    ]
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "5793d8c669df",
+      "maintenance:tropica": "8a0fbdb97f63",
+      "notes:tropica": "e54125693440"
+    },
+    "failed": {
+      "at": "2026-11-15T23:42:43.885Z",
+      "parts": {
+        "quickFacts:aquariumbreeder": "b9e110bbf4a1",
+        "distribution:aquariumbreeder": "98f051d07e09",
+        "habitat:aquariumbreeder": "781360c1bfda",
+        "aquariumSize:aquariumbreeder": "e08e9223d8ef",
+        "maintenance:aquariumbreeder": "24a0518b4f04",
+        "waterConditions:aquariumbreeder": "42fe85c14ff0",
+        "equipment:aquariumbreeder": "67cdda69b89f",
+        "behaviour:aquariumbreeder": "c8fc08f55194",
+        "notes:aquariumbreeder": "0f46d53c3935"
+      }
+    }
   },
   "limnobium-laevigatum": {
     "at": "2026-11-09",
@@ -1684,14 +1739,24 @@
     ]
   },
   "najas-guadalupensis": {
-    "at": "2026-11-09",
-    "from": "2026-11-09",
-    "name": "นาจาส",
+    "at": "2026-11-16",
+    "from": "2026-11-15",
+    "name": "สาหร่ายนาจาส",
     "confidence": "medium",
-    "score": 0.85,
-    "notes": [
-      "Item 2: the Latin genus name \"Najas\" is transliterated as \"นาจาส\". Keep \"Najas\" in Latin letters, as the other items do. You could also add a Thai common name such as \"สาหร่ายหางกระรอก\" if you want to use one, but check it first."
-    ]
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "ea6a4bf24a9c",
+      "beforeYouBuy:aquatome": "13300c6fa350",
+      "aquariumSize:aquatome": "e7d9aa157043",
+      "maintenance:aquatome": "84ddbac96eaa",
+      "maintenance:tropica": "ac9c6222a3ea",
+      "waterConditions:aquatome": "87cc142a1cd6",
+      "behaviour:aquatome": "d3493d587794",
+      "reproduction:aquatome": "7349d148cef3",
+      "notes:tropica": "f0ff05bf2bca",
+      "notes:aquatome": "08c126e45cf4"
+    }
   },
   "nymphaea-lotus": {
     "at": "2026-11-05",

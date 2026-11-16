@@ -250,6 +250,13 @@
           "min": 20,
           "max": 26
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
       }
     ],
     "ph": [
@@ -274,6 +281,10 @@
       {
         "source": "seriouslyfish",
         "value": 15
+      },
+      {
+        "source": "glaser",
+        "value": 15
       }
     ],
     "tankCm": [
@@ -297,10 +308,22 @@
       "html": "<p>The Asian bumblebee catfish, Pseudomystus siamensis, is a bagrid from the lower Mekong and the Chao Phraya river in Thailand. It was formerly placed in Leiocassis, a name still used in much of the literature, and similarly patterned congeners may be sold under its name. Shy and nocturnal, it hides among submerged roots by day, will eat any tankmate small enough, and is territorial towards other bottom-dwellers.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/pseudomystus_siamensis_leiocassis_siamensis__en/",
+      "html": "<p>Pseudomystus siamensis is a smaller species of catfish. Maximum length given in literature is 15 cm, but this length is hardly ever reached.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudomystus-siamensis",
       "html": "<p>Native to the lower Mekong river running through Thailand, Laos, Cambodia and Vietnam. It's also found in the Chao Phraya river in Thailand.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/pseudomystus_siamensis_leiocassis_siamensis__en/",
+      "html": "<p>Pseudomystus siamensis originates from Thailand, Cambodia, and Laos.</p>"
     },
     {
       "key": "habitat",
@@ -327,16 +350,34 @@
       "html": "<ul><li>Temperature: 20–26°C (68–79°F)</li><li>pH: 5.8 to 7.8. Does best in acidic conditions.</li><li>Hardness: 4 to 25 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/pseudomystus_siamensis_leiocassis_siamensis__en/",
+      "html": "<p>Regarding water parameters the animals are completely undemanding. Water temperature should be between 22 and 26°C.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudomystus-siamensis",
       "html": "<p>Predatory by nature, but usually adapts well to dead foods in captivity. It relishes meaty items such as prawns, mussels, cockle, lancefish or earthworms. Most specimens will also take dried sinking foods. When first introduced it may only feed after lights out, and food should be added accordingly.</p><p>It should not be fed the meat of mammals such as beef heart or chicken. Some of the lipids contained in these meats cannot be properly metabolised by the fish, and can cause excess deposits of fat and even organ degeneration. Similarly there is no benefit in the use of 'feeder' fish such as livebearers or other small fish. Risks involved with feeding these include the potential of disease introduction.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/pseudomystus_siamensis_leiocassis_siamensis__en/",
+      "html": "<p>The catfish feed on anything available, may it be dry, frozen or live food.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudomystus-siamensis",
       "html": "<p>It will eat any tankmates small enough to be considered food, but can be safely housed with larger species that inhabit other areas of the tank. Ideal choices are medium to large-sized cyprinids, characins and peaceful cichlids. It's territorial towards other bottom-dwellers though, especially conspecifics. It should only be combined with such species in a suitably sized tank with plenty of hiding places and broken lines of sight.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/pseudomystus_siamensis_leiocassis_siamensis__en/",
+      "html": "<p>Against congeners and other species of fish the Asian Bumblebee Cat is quite peaceful as long as they are big enough. Otherwise they are taken for food. Although the fish are most active at dawn, they are comparably smart and learn to come out of their hiding place at any time of the day when food is given.</p>"
     },
     {
       "key": "dimorphism",
@@ -355,6 +396,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudomystus-siamensis",
       "html": "<p>This species was formerly included in the genus Leiocassis, and is still referred to as such in a great deal of the available literature. The current genus Pseudomystus contains many similarly patterned species, some of which may be being imported and sold as P. siamensis. Its commonly encountered congener is P. stenomus, but this can be plainly distinguished by its lack of \"bumblebee\" patterning. The Asian bumblebee can also be easily told apart from the South American Pimelodid \"bumbebee\" catfish by the pair of nasal barbels located just in front of the eyes.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/pseudomystus_siamensis_leiocassis_siamensis__en/",
+      "html": "<p>Plants are ignored.</p>"
     }
   ],
   "photos": [
@@ -379,31 +426,34 @@
       "sourceUrl": "https://www.scotcat.com/bagridae/pseudomystus_siamensis.htm",
       "caption": "Pseudomystus siamensis",
       "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/df6efcd7a3bcea0c.webp",
-      "thumb": "https://media.aquatome.com/scotcat/df6efcd7a3bcea0c-480.webp",
-      "width": 502,
-      "height": 323,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/bagridae/pseudomystus_siamensis.htm",
-      "caption": "Catfish Stamp: Pseudomystus siamensis",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/5040f089c29bf480.webp",
-      "thumb": "https://media.aquatome.com/scotcat/5040f089c29bf480-480.webp",
-      "width": 501,
-      "height": 362,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/bagridae/pseudomystus_siamensis.htm",
-      "caption": "Catfish Stamp: Pseudomystus siamensis",
-      "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "xtQadPgm5RE",
+      "title": "Pseudomystus siamensis",
+      "durationSec": 61,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "LNisYOhbTE8",
+      "title": "Pseudomystus siamensis / Bumble bee Asian Catfish",
+      "durationSec": 31,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "19YB6AyzoSE",
+      "title": "Pseudomystus siamensis  ( sinh sản nhân tạo)",
+      "durationSec": 8,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "btXP9qtBbIM",
+      "title": "Asian bumblebee catfish  (Pseudomystus siamensis), Siamesischer Ringelwels",
+      "durationSec": 42,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -432,5 +482,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-16"
 }

@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/scorpions-external-anatomy/
 title: Scorpions External Anatomy - Shrimp and Snail Breeder
 fetchedAt: 2026-11-04T22:23:49.343Z
-hash: 95a7f56be74fa8ba3ab3564ed3c4cd72c18a583f1ed5d8a0160f29dee9b89866
+hash: 095b66d17e4cd63b3fcf958029cf2717d4f08974d42f0f15fccc1afcdc2596ad
 ---
 
 Due to the fact that scorpions comprise a few thousand species, it is absolutely not possible to mention all the anatomical differences between them in one article. Therefore, I will describe the scorpion anatomy in general.
@@ -101,7 +101,3 @@ They have 4 pairs of walking legs and one pair of claws (called Pedipalps).
 ## Related article:
 - Scorpions Internal Anatomy
 - 55 Most Popular Questions about Scorpions
-## 4 thoughts on “Scorpions External Anatomy”
-- Help me about black scorpion . Do you purchase black scorpion . I have many black scorpions. ReplyHi Noor Ahmad, Thank you for reaching out. However, I’m not buying them now. Sorry. Best regards, Michael Reply
-- Hi Michael, I am a biology student at the University of Florida, looking into specialize in Arachnids. This page was very helpful in my understanding of the emperor scorpion. May I have to your resources or any other reading materials you think I should have to gain more knowledge about scorpions? ReplyHi Sylus, I am just a hobbyist, so my library is mostly practical care books. Since you are a biology student, you need academic texts. For everyday keeping, Arachnoboards is the best forum. The old-timers there have decades of breeding experience. I learned most of my scorpion keeping from reading their threads. Focus on their venom and sensory hairs. That is where the real interesting biology is. Best regards, Michael Reply
-### Leave a Reply Cancel reply

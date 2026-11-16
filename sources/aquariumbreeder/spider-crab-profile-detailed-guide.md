@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/spider-crab-profile-detailed-guide/
 title: Spider Crab Profile – Detailed Guide - Shrimp and Snail Breeder
 fetchedAt: 2026-11-06T03:56:23.332Z
-hash: 31a49b9d0ffdf9fe798a1283ded88ebb58a2c6cbbb6e126a5f8990a853ff33e9
+hash: 1bc6ca783635ced09491b9c158e369b8f0f7f73b4256dd69b7cdc86907fe1882
 ---
 
 Neosarmatium meinerti (also known as the Red mangrove crab or Spider crab) is one of the rarest crab species in our hobby. If you by chance buy one you will be surprised to find out how little is known about them.
@@ -178,6 +178,3 @@ Caring for these semi-terrestrial crabs is extremely easy and can be recommended
 - Emmerson, W. D. “Aspects of the population dynamics of Neosarmatium meinerti at Mgazana, a warm temperate mangrove swamp in the East Cape, South Africa, investigated using an indirect method.” In Advances in Decapod Crustacean Research, pp. 221-229. Springer, Dordrecht, 2001.
 - Pedersen, Carsten, Bernadine I. Everett, Peter J. Fielding, Wendy D. Robertson, and Robert Kyle. “Subsistence utilization of the crab Neosarmatium meinerti in the Kosi Lakes ecosystem, KwaZulu-Natal, South Africa.” African Zoology 38, no. 1 (2003): 15-28.
 - Litulo, Carlos. “Size at sexual maturity in the red mangrove crab Neosarmatium meinerti (De Man, 1887)(Brachyura: Grapsidae).” Western Indian Ocean Journal of Marine Science 4, no. 2 (2005): 207-210.
-## 1 thought on “Spider Crab Profile – Detailed Guide”
-- Hello, once again – just a random passerby who wanted to say something.Looks like the pictures that you used for the Spider Crab are not actually Spider Crabs, but red color variations of Cardisoma Carnifex. (Except the very first picture)Oh, and one more thing.If you take a look at this article: journals.biologists.com/jeb/article/208/22/4333/15792/Respiratory-and-acid-base-responses-during You can see that for land crabs with developed ‘lungs,’ humidity isn’t a requirement for their respiration. Instead, the humidity allows them to make up for the lost water when they are outside their burrows.The thing called “High humidity enables the land crabs to breathe” seems like a wrong thing, as it applies to fully aquatic crabs with normal gills. Reply
-### Leave a Reply Cancel reply

@@ -1,0 +1,141 @@
+{
+  "id": "amphilius-rheophilus",
+  "scientificName": "Amphilius rheophilus",
+  "order": "Siluriformes",
+  "family": "Amphiliidae",
+  "genus": "Amphilius",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "guinea",
+    "liberia",
+    "senegal",
+    "gambia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 12
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_rheophilus.htm",
+      "html": "<p>Family: Amphiliidae. Size: 12 cm. Temperature: 18–22°C. pH: 6.5–7.5. Describer: Daget, 1959.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_rheophilus.htm",
+      "html": "<p>Western Africa: Guinea, Liberia, Senegal. Type locality: Gambie à Mpantié (parc national du Niokolo-Koba); Gambie à Banharé.</p><p>IUCN Red List: Least Concern, due to its large EOO (29,105 km²). The ongoing effects of mining, deforestation, agriculture, pollution and dams are limiting the quality and extent of the preferred habitat, so there may be localised extirpation of this species. Additional research is needed to determine the extent of this species within the Rio Corubal and Gambie River drainages (IUCN 2020).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_rheophilus.htm",
+      "html": "<p>It occurs in fast-flowing upper tributaries of rivers and streams (the specific name rheophilus means fond of streams or current).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_rheophilus.htm",
+      "html": "<p>Can be kept in aquaria with a small grained gravel or sand substrate, and well planted with a slight current to facilitate their natural habitat. Provide rockwork and caves. This genus prefers cooler temperatures in the aquarium.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_rheophilus.htm",
+      "html": "<p>Mosquito larvae, Tubifex, Cyclops, Daphnia, grindal worms, vegetable food, tablet and flake.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_rheophilus.htm",
+      "html": "<p>Description: Dorsal spines (total): 0; dorsal soft rays (total): 7; anal spines: 0; anal soft rays: 7–8. Dorsal-fin base distinctly ahead of pelvic-fin insertions; distance from head to dorsal fin less than 20% of standard length; interorbital space about 35% of head length; caudal peduncle long and relatively slender, its length over twice its depth, caudal fin forked, with lower lobe distinctly longer than upper lobe; maxillary barbell rather short, less than 60% of head length; snout length about 60% of head length; branchiostegal membrane weakly notched on midventral line.</p><p>Etymology: rhéos, stream, current or rushing stream; phílos, fond of, referring to its occurrence in fast-flowing upper tributaries of rivers and streams.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_rheophilus.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2025. FishBase. www.fishbase.org (11/2025).</p><p>Schmidt, R. 2020. Amphilius rheophilus. The IUCN Red List of Threatened Species 2020.</p><p>Skelton, P.H., L.M. Risch and D. Paugy, 2003. Amphiliidae. p. 117-143 In C. Lévêque, D. Paugy and G.G. Teugels (eds.) Faune des poissons d'eaux douce et saumâtres de l'Afrique de l'Ouest, Tome 2. Coll. Faune et Flore tropicales 40. Musée Royal de l'Afrique Centrale, Tervuren, Belgique, Museum National d'Histoire Naturalle, Paris, France and Institut de Recherche pour le Développement, Paris, France. 815 p.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/df52e9a6c72d888f.webp",
+      "thumb": "https://media.aquatome.com/scotcat/df52e9a6c72d888f-480.webp",
+      "width": 500,
+      "height": 312,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_rheophilus.htm",
+      "caption": "Amphilius rheophilus: dorsal view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/f15602d2e978b8ea.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f15602d2e978b8ea-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Gina Wa / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_rheophilus.htm",
+      "caption": "Amphilius rheophilus: Koinadugu, Sierra Leone",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn thủy sinh",
+        "sỏi hạt nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy tạo dòng chảy",
+        "lọc thủy sinh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "quạt làm mát bể cá",
+        "máy làm lạnh nước"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng chỉ đông lạnh",
+        "thức ăn viên chìm cho cá nheo"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-16"
+}
