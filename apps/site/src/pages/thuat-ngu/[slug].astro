@@ -1,5 +1,5 @@
 ---
-import type { GlossaryEntity, Localized, Photo } from '@aq/schema'
+import { slugify, type GlossaryEntity, type Localized, type Photo } from '@aq/schema'
 import Browse from '../../layouts/Browse.astro'
 import GlossaryTip from '../../components/GlossaryTip.astro'
 import JumpChips from '../../components/JumpChips.astro'
@@ -13,7 +13,7 @@ import { creditsFor } from '../../lib/credits'
 import { fmt } from '../../lib/format'
 import { smallSrc, tileFrame } from '../../lib/img'
 import { guideImages } from '../../lib/mentions'
-import { albumCaption, bodySections, glossaryParts, termTitle, tipLine, usedPictures, usedRows } from '../../lib/glossary-page'
+import { bodySections, glossaryParts, kindCaption, kindCredit, termTitle, tipLine, usedPictures, usedRows } from '../../lib/glossary-page'
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const c = await getContent(langOf(routePattern))
   return c.glossary.map(g => ({ params: { slug: g.t.slug }, props: { g } }))
@@ -28,9 +28,14 @@ const p = glossaryParts(lang, c, g)
 // each, or all of them where they come to six or fewer; past that a search for every page that names it.
 type Row = { href: string; name: string; photo?: Photo; sci?: string; kind?: string; fish?: boolean }
 const rows = usedRows(p)
-// No picture twice on the page: the term's photos and its kinds' (glossaryParts), then each row the first of its pictures
+// The kinds as cards (the Design Lead's board, 16 Nov 2026): those with a photo, then those in words; each opens large.
+const kinds = p.kinds
+const cards = kinds?.items.filter(k => k.photo) ?? [], words = kinds?.items.filter(k => !k.photo) ?? []
+const kindsId = kinds ? slugify(kinds.title) || 'cac-loai' : ''
+const kindPhotos = cards.map(k => k.photo!)
+// No picture twice on the page: the kinds' photos, the term's (glossaryParts), then each row the first of its pictures
 // not shown yet, else none.
-const pics = usedPictures(c, [p.photo, ...p.album.map(a => a.photo)], rows, x => guideImages(c, x))
+const pics = usedPictures(c, [p.photo, ...p.others, ...kindPhotos], rows, x => guideImages(c, x))
 const photo = (x: Photo | null | undefined) => (x ? { photo: x } : {})
 const used: { label: string; all: number; rows: Row[] }[] = [
   { label: t('Hướng dẫn'), all: p.guides.length, rows: rows.guides.map((x, i) => ({ href: `/vi/huong-dan/${x.t.slug}/`, name: x.t.name, ...photo(pics.guides[i]), kind: x.video ? t('Video hướng dẫn') : t('Hướng dẫn') })) },
@@ -39,32 +44,79 @@ const used: { label: string; all: number; rows: Row[] }[] = [
 ].filter(x => x.all > 0)
 // A fish's picture framed on the fish (its tile's rule at 3:2); a guide's or a plant's cropped to the middle.
 const frame = (r: Row) => (r.photo && r.fish ? tileFrame(r.photo, 3 / 2) : {})
-// A long term's parts, as the fish page's jump row, with "Dùng trong" at its end; a term of a meaning alone has none.
-const body = bodySections(p.body)
-const jumps = body.parts.length >= 2 ? [...body.parts, ...(p.total ? [{ href: '#dung-trong', label: t('Dùng trong {n}', { n: num(p.total) }), end: true }] : [])] : []
+// A long term's parts, as the fish page's jump row, its kinds first, with "Dùng trong" at its end; a term of a meaning
+// alone has none.
+const body = bodySections(p.pageBody)
+const parts = [...(kinds ? [{ href: `#${kindsId}`, label: kinds.title }] : []), ...body.parts]
+const jumps = parts.length >= 2 ? [...parts, ...(p.total ? [{ href: '#dung-trong', label: t('Dùng trong {n}', { n: num(p.total) }), end: true }] : [])] : []
+// "9 loại", "2 dạng": the kinds heading's own word.
+const kindWord = kinds?.title.split(/\s+/)[1]?.toLocaleLowerCase('vi') ?? ''
+const n = kinds?.items.length ?? 0
+const viewId = (id: string) => `loai-${id}`
 // Sources: the first five, the rest folded.
 const REFS_SHOWN = 5
 ---
-<Browse title={glossaryTitle(lang, termTitle(g))} heading={g.t.name} description={g.t.definition} crumbs={[['/vi/thuat-ngu/', t('Thuật ngữ')]]} noindex={!g.t.quality.indexable} alternates={alternates} credits={creditsFor([p.photo, ...p.album.map(a => a.photo), ...used.flatMap(u => u.rows.map(r => r.photo))])}>
+<Browse title={glossaryTitle(lang, termTitle(g))} heading={g.t.name} description={g.t.definition} crumbs={[['/vi/thuat-ngu/', t('Thuật ngữ')]]} noindex={!g.t.quality.indexable} alternates={alternates} credits={creditsFor([p.photo, ...p.others, ...kindPhotos, ...used.flatMap(u => u.rows.map(r => r.photo))])}>
   {p.otherNames.length > 0 && <p class="aka">{t('Tên khác: {names}', { names: p.otherNames.join(', ') })}</p>}
   <p class="en">{t('Tiếng Anh:')} <span lang="en">{g.en}</span>{g.latin && sciBeside(g.en ?? '', g.latin) && <>, <span class="sci">{g.latin}</span></>}</p>
+  {/* The picture before the explanation (the Design Lead's board, 16 Nov 2026): the term's photo under its names, its other photos two across under it. */}
+  {p.photo && <Fragment set:html={figureHtml(lang, { photo: p.photo, label: p.photo.caption })} />}
+  {p.others.length > 0 && <div class="others">{p.others.map(o => <Fragment set:html={figureHtml(lang, { photo: o, label: o.caption }, true)} />)}</div>}
   {p.definition && <p class="def" set:html={p.definition} />}
   {p.material && <p class="material-link"><a href={p.material.href}>{p.material.text}</a></p>}
-  {p.photo && <Fragment set:html={figureHtml(lang, { photo: p.photo, label: p.photo.caption })} />}
-  {p.album.length > 0 && (
-    <ul class="album">{p.album.map(a => {
-      const { name, rest } = albumCaption(lang, a)
-      return (
-        <li><figure>
-          <a href={a.photo.url} tabindex="-1"><img src={smallSrc(a.photo)} width={a.photo.width} height={a.photo.height} alt={a.photo.caption ?? a.name ?? g.t.name} loading="lazy" decoding="async" /></a>
-          <figcaption>{name && <strong>{name}</strong>}{rest && <span>{rest}</span>}</figcaption>
-        </figure></li>
-      )
-    })}</ul>
-  )}
   {p.treat && <p class="treat"><a href={p.treat.href}>{p.treat.text}</a></p>}
   {jumps.length > 0 && <JumpChips items={jumps} />}
-  {body.html && <div class="body" set:html={body.html} />}
+  {(kinds || body.html) && (
+    <div class="body">
+      {kinds && (
+        <section class="kinds" aria-labelledby={kindsId} data-kinds>
+          <div class="k-head"><h2 id={kindsId}>{kinds.title}</h2><span class="k-count">{num(n)} {kindWord}</span></div>
+          {kinds.intro && <Fragment set:html={kinds.intro} />}
+          {cards.length > 0 && (
+            <ul class="k-cards">{cards.map(k => (
+              <li><a class="k-card" href={`#${viewId(k.id)}`} data-view={viewId(k.id)}>
+                <span class="k-pic"><img src={smallSrc(k.photo!)} width={k.photo!.width} height={k.photo!.height} alt={k.photo!.caption ?? k.name} loading="lazy" decoding="async" /></span>
+                <span class="k-name">{k.name}</span>{k.aka && <span class="k-aka">{k.aka}</span>}<span class="k-line">{k.line}</span>
+              </a></li>
+            ))}</ul>
+          )}
+          {words.length > 0 && (
+            <ul class="k-words">{words.map(k => (
+              <li><a class="k-card" href={`#${viewId(k.id)}`} data-view={viewId(k.id)}>
+                <span class="k-name">{k.name}</span>{k.aka && <span class="k-aka">{k.aka}</span>}<span class="k-line">{k.line}</span>
+              </a></li>
+            ))}</ul>
+          )}
+          {/* Each kind large, in card order: its photo (drawn by the script when it opens, so the page holds each picture
+              once), its caption and credit, its whole text, and the kinds either side by name. Without a script a card's
+              link shows its view in place (:target), with its credit and text. */}
+          {kinds.items.map((k, i) => {
+            const prev = kinds.items[(i - 1 + n) % n]!, next = kinds.items[(i + 1) % n]!
+            const caption = k.photo ? kindCaption(lang, k.name, k.photo.caption) : ''
+            return (
+              <dialog class="k-view" id={viewId(k.id)} aria-labelledby={`${viewId(k.id)}-h`} data-full={k.photo?.url} data-w={k.photo?.width} data-h={k.photo?.height} data-alt={k.photo ? k.photo.caption ?? k.name : undefined}>
+                <div class="kv-bar"><span class="kv-n">{num(i + 1)} / {num(n)}</span><a class="kv-x" href={`#${kindsId}`} aria-label={t('Đóng')}><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg></a></div>
+                <div class="kv-body">
+                  {k.photo && <div class="kv-pic" style={`aspect-ratio: ${k.photo.width} / ${k.photo.height}`}></div>}
+                  {k.photo && <p class="kv-by">{caption && <>{caption} </>}<Fragment set:html={kindCredit(lang, k.photo).html} /></p>}
+                  <h3 id={`${viewId(k.id)}-h`}>{k.name}</h3>
+                  {k.aka && <p class="kv-aka">{k.aka}</p>}
+                  <div class="kv-text" set:html={k.html} />
+                </div>
+                {n > 1 && (
+                  <nav class="kv-step" aria-label={kinds.title}>
+                    <a href={`#${viewId(prev.id)}`} data-view={viewId(prev.id)} rel="prev">‹ {prev.name}</a>
+                    <a href={`#${viewId(next.id)}`} data-view={viewId(next.id)} rel="next">{next.name} ›</a>
+                  </nav>
+                )}
+              </dialog>
+            )
+          })}
+        </section>
+      )}
+      {body.html && <Fragment set:html={body.html} />}
+    </div>
+  )}
   {p.related.length > 0 && (
     <section class="related" aria-labelledby="xem-them">
       <h2 id="xem-them">{t('Xem thêm')}</h2>
@@ -105,6 +157,58 @@ const REFS_SHOWN = 5
   )}
   <GlossaryTip />
 </Browse>
+<script>
+  // A kind's card opens its view as a modal dialog: the page behind it inert, Esc or ✕ closes it, focus goes back to the
+  // card; the kinds either side open in its place. Its photo is drawn when it opens, so the page holds each picture once
+  // (the site's rule). Without this script a card's link shows its view in place (:target).
+  const section = document.querySelector<HTMLElement>('[data-kinds]')
+  if (section) {
+    let from: HTMLElement | undefined
+    const draw = (d: HTMLDialogElement) => {
+      const box = d.querySelector<HTMLElement>('.kv-pic')
+      if (!box || box.firstChild || !d.dataset.full) return
+      const img = document.createElement('img')
+      img.src = d.dataset.full
+      img.alt = d.dataset.alt ?? ''
+      img.width = Number(d.dataset.w)
+      img.height = Number(d.dataset.h)
+      img.decoding = 'async'
+      box.append(img)
+    }
+    const open = (id: string, opener?: HTMLElement) => {
+      const d = document.getElementById(id)
+      if (!(d instanceof HTMLDialogElement)) return false
+      for (const o of section.querySelectorAll<HTMLDialogElement>('dialog[open]')) if (o !== d) o.close()
+      if (opener) from = opener
+      draw(d)
+      if (!d.open) d.showModal()
+      d.querySelector<HTMLElement>('.kv-x')?.focus()
+      return true
+    }
+    section.addEventListener('click', e => {
+      const a = (e.target as Element).closest<HTMLAnchorElement>('a')
+      if (!a || e.metaKey || e.ctrlKey || e.shiftKey) return
+      if (a.dataset.view) { if (open(a.dataset.view, a.classList.contains('k-card') ? a : undefined)) e.preventDefault() }
+      else if (a.classList.contains('kv-x')) { e.preventDefault(); a.closest('dialog')?.close() }
+    })
+    for (const d of section.querySelectorAll('dialog')) {
+      // Focus back on the card once no kind is open (stepping to the next one closes this one first).
+      // An address that named it would show it again in place (:target): the page's own address again.
+      d.addEventListener('close', () => {
+        if (location.hash === `#${d.id}`) history.replaceState(history.state, '', location.pathname + location.search)
+        if (!section.querySelector('dialog[open]')) from?.focus()
+      })
+      // A tap outside the panel closes it, as the menu sheet.
+      d.addEventListener('click', e => {
+        const r = d.getBoundingClientRect()
+        if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) d.close()
+      })
+    }
+    // An address that names a kind (a link someone shared) opens it.
+    const hash = decodeURIComponent(location.hash.slice(1))
+    if (hash.startsWith('loai-')) open(hash, section.querySelector<HTMLElement>(`.k-card[data-view="${CSS.escape(hash)}"]`) ?? undefined)
+  }
+</script>
 <style>
   .aka, .en { color: var(--c-ink-soft); }
   .aka { margin-bottom: 0; }
@@ -120,14 +224,48 @@ const REFS_SHOWN = 5
   .refs ol { padding-left: 1.4em; margin: 0; }
   .refs li { padding-block: 2px; overflow-wrap: anywhere; }
   .refs a { display: inline-flex; align-items: center; min-height: 44px; }
-  /* A term's other photos, and its kinds' named, in a row under its first: two or three across a phone, as a fish page's
-     album row (the chief of staff, 15 Nov 2026). */
-  .album { list-style: none; margin: var(--space-3) 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(9.5rem, 45%), 1fr)); gap: var(--space-3); max-width: var(--measure); }
-  .album figure { margin: 0; }
-  .album a { display: block; background: var(--c-plate); }
-  .album img { display: block; width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: cover; }
-  .album figcaption { font: 0.85rem/1.35 var(--f-body); color: var(--c-ink-soft); margin-top: var(--space-1); overflow-wrap: anywhere; }
-  .album strong { display: block; font-weight: 600; color: var(--c-ink); }
+  /* A term's other photos, two across under its first (the Design Lead's board, 16 Nov 2026: Lá bàng). */
+  .others { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); max-width: var(--measure); margin-top: var(--space-3); }
+  .others :global(figure) { margin: 0; }
+  .others :global(img) { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+  /* The kinds as cards (the Design Lead's board, 16 Nov 2026): two across on a phone, three on a computer; a photo at 4:3,
+     the name, the bracketed name, the one line. Those without a photo after, in words between hairlines. */
+  .kinds { margin-top: var(--space-5); }
+  .k-head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-3); }
+  .body .k-head h2 { margin-top: 0; }
+  .k-count { font: 0.85rem var(--f-body); color: var(--c-ink-soft); white-space: nowrap; }
+  .k-cards, .k-words { list-style: none; margin: var(--space-3) 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4) var(--space-3); }
+  @media (min-width: 860px) { .k-cards, .k-words { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .k-words { margin-top: var(--space-5); row-gap: 0; }
+  .k-words li { border-top: 1px solid var(--c-rule); border-bottom: 1px solid var(--c-rule); padding-block: var(--space-3); }
+  .k-card { display: flex; flex-direction: column; min-height: 44px; color: var(--c-ink); text-decoration: none; }
+  .k-card:hover .k-name { text-decoration: underline; }
+  .k-pic { display: block; aspect-ratio: 4 / 3; overflow: hidden; background: var(--c-plate); border-radius: var(--radius-media); margin-bottom: var(--space-2); }
+  .k-pic img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .k-name { font: 600 1rem/1.35 var(--f-body); overflow-wrap: anywhere; }
+  .k-aka { font: 0.85rem/1.35 var(--f-body); color: var(--c-ink-faint); overflow-wrap: anywhere; }
+  .k-line { font: 0.9rem/1.45 var(--f-body); color: var(--c-ink-soft); margin-top: 2px; }
+  /* A kind large: full screen on a phone, a panel on a computer; its count and ✕ on top, the kinds either side at its foot. */
+  .k-view { padding: 0; border: 0; margin: 0; width: 100%; height: 100%; max-width: none; max-height: none; background: var(--c-paper); color: var(--c-ink); }
+  .k-view[open], .k-view:target { display: flex; flex-direction: column; }
+  .k-view:target:not([open]) { position: fixed; inset: 0; z-index: 60; }
+  .k-view::backdrop { background: rgb(0 0 0 / 0.55); }
+  @media (min-width: 860px) {
+    .k-view { width: min(46rem, 90vw); height: auto; max-height: 90vh; margin: auto; box-shadow: 0 12px 40px rgb(0 0 0 / 0.35); }
+    .k-view:target:not([open]) { inset: 5vh 0 auto; margin: 0 auto; box-shadow: 0 0 0 100vmax rgb(0 0 0 / 0.55); }
+  }
+  .kv-bar { flex: none; display: flex; align-items: center; justify-content: space-between; padding: var(--space-1) var(--space-2) var(--space-1) var(--space-4); }
+  .kv-n { font: 0.9rem var(--f-body); color: var(--c-ink-soft); }
+  .kv-x { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; color: var(--c-ink); }
+  .kv-body { flex: 1 1 auto; overflow: auto; }
+  .kv-pic { width: 100%; max-height: 60vh; background: var(--c-plate); }
+  .kv-pic :global(img) { display: block; width: 100%; height: 100%; object-fit: contain; }
+  .kv-by, .kv-aka { margin: var(--space-3) var(--space-4) 0; font: 0.85rem/1.45 var(--f-body); color: var(--c-ink-soft); }
+  .kv-by :global(a) { color: var(--c-moss); }
+  .k-view h3 { font: 400 var(--step-2)/1.2 var(--f-display); margin: var(--space-4) var(--space-4) var(--space-2); }
+  .kv-text { padding: 0 var(--space-4) var(--space-4); line-height: 1.6; }
+  .kv-step { flex: none; display: flex; justify-content: space-between; gap: var(--space-3); border-top: 1px solid var(--c-rule); padding: var(--space-1) var(--space-4); }
+  .kv-step a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; color: var(--c-moss); text-decoration: none; }
   .used { margin-top: var(--space-6); max-width: var(--measure); }
   .used h2 { font-size: var(--step-1); }
   .used h3 { font-size: var(--step-0); margin: var(--space-4) 0 var(--space-2); }

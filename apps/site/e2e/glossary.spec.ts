@@ -179,3 +179,36 @@ test('a term\'s jump row marks "Dùng trong" at its end while the reader is in t
   await expect(end).not.toHaveAttribute('aria-current')
   expect(errors).toEqual([])
 })
+
+// The Design Lead's board, 16 Nov 2026: a term's kinds as cards; a tap opens one large over the page, with its count, its
+// whole text and the kinds either side by name; the next one opens in its place; Esc or ✕ closes it, and focus is back on
+// the card. A term with kinds: the fixture's cá đàn, and on aquatome.com lũa (names and counts read off the page).
+const KINDS = process.env.E2E_BASE_URL ? '/thuat-ngu/lua/' : '/thuat-ngu/ca-dan/'
+
+test('a kind\'s card opens it large; the next kind opens in its place; Esc and ✕ close it, focus back on the card', async ({ page, errors }) => {
+  await page.goto(KINDS)
+  const cards = page.locator('section.kinds a.k-card')
+  const n = await cards.count()
+  expect(n).toBeGreaterThan(1)
+  const first = cards.first()
+  const name = (await first.locator('.k-name').textContent())!.trim()
+  await first.click()
+  const open = page.locator('dialog.k-view[open]')
+  await expect(open).toHaveCount(1)
+  await expect(open.locator('h3')).toHaveText(name)
+  await expect(open.locator('.kv-n')).toHaveText(`1 / ${n}`)
+  // Its photo is drawn as it opens, where the card has one.
+  if (await first.locator('img').count()) await expect(open.locator('.kv-pic img')).toBeVisible()
+  const next = (await cards.nth(1).locator('.k-name').textContent())!.trim()
+  await open.locator('.kv-step a[rel="next"]').click()
+  await expect(open).toHaveCount(1)
+  await expect(open.locator('h3')).toHaveText(next)
+  await expect(open.locator('.kv-n')).toHaveText(`2 / ${n}`)
+  await page.keyboard.press('Escape')
+  await expect(open).toHaveCount(0)
+  await expect(first).toBeFocused()
+  await first.click()
+  await open.locator('.kv-x').click()
+  await expect(open).toHaveCount(0)
+  expect(errors).toEqual([])
+})

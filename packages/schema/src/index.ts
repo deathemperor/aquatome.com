@@ -22,7 +22,7 @@ export { CARD_TYPES, cardShownIn, CardSchema, CardTextSchema, type Card, type Ca
 export { addDays, ChipSchema, CurationSchema, vnDate, type Chip, type Curation, type CurationCopy, type CurationDay, type CurationWeek, type Loop } from './curation'
 export { loadAll, MARKET, PHOTO_BOXES_FILE, PHOTO_SCREEN_FILE, placeNamed, QUALITY_THRESHOLD, type LoadOptions, type Localized, type Content } from './load'
 export { linkGlossary, type GlossaryLinkTerm } from './glossary-link'
-export { glossaryKinds } from './glossary-kinds'
+export { capitalFirst, glossaryKinds, kindLine, kindsSection, type GlossaryKindItem } from './glossary-kinds'
 export { headingSubject, linkTerms, type LinkTarget } from './link-terms'
 export { headingRoles, OWN_NUMBER, ownNumber, type HeadingRole } from './headings'
 export { COOKIE_PHOTO_HOSTS, MEDIA_HOST, setsCookies, THUMB_WIDTH, thumbOf } from './thumb'

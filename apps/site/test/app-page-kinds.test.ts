@@ -449,11 +449,13 @@ test('each glossary term\'s copy reads as its built page; one in Indonesian has 
     // (A term in parts holds each part's heading and text in a section of its own, for the jump row.)
     // Its photo, then the fuller entry's headings, then the pages that use it: the heading with the count, then each
     // kind's first pages, those the app index lists. Last, its sources.
-    // One difference, by name: the page's row of a term's other photos and its kinds' (.album) isn't in the app's copy yet.
-    // The owner's phone has only drawn one photo on a term, so the app gets the row once the iOS Content Lead has drawn and
-    // shot it (the chief of staff, 15 Nov 2026).
-    expect(all(d, 'figure').length, d.path).toBe(dom.querySelectorAll('main figure').filter(f => !f.closest('.album')).length)
-    expect(all(d, 'h').map(b => b.text), d.path).toEqual(dom.querySelectorAll('.body > h2, .body > section > h2, .used h2').map(txt))
+    // Two differences, by name, until the app's own build of the kinds (the iOS Content Lead, Mon 23): the page's row of a
+    // term's other photos (.others) isn't in the app's copy yet, and the page shows its kinds first, as cards, where the
+    // app keeps them in the entry's place (the Design Lead's board, 16 Nov 2026). The owner's phone has only drawn one
+    // photo on a term, so the app gets the row once the iOS Content Lead has drawn and shot it (the chief of staff, 15 Nov 2026).
+    expect(all(d, 'figure').length, d.path).toBe(dom.querySelectorAll('main figure').filter(f => !f.closest('.others')).length)
+    const sorted = (xs: string[]) => [...xs].sort()
+    expect(sorted(all(d, 'h').map(b => b.text)), d.path).toEqual(sorted(dom.querySelectorAll('.body > h2, .body > section > h2, .body .k-head > h2, .used h2').map(txt)))
     expect(one(d, 'refs')?.items.map(r => r.url) ?? [], d.path).toEqual(dom.querySelectorAll('.refs a').map(a => a.getAttribute('href')))
     const kinds = dom.querySelectorAll('.used h3').map(h3 => ({
       t: 'pages', title: txt(h3), paths: (h3.nextElementSibling?.querySelectorAll('a') ?? []).map(a => appHref(a.getAttribute('href')!)).filter(x => listed.has(x)),
