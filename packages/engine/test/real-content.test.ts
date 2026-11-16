@@ -1205,23 +1205,25 @@ test('a fish bag is a third water and two thirds oxygen, and shop wood is smelle
 })
 
 // The chief of staff, 16 Nov 2026: the same guide watched new fish in quarantine for 1–2 weeks in a 20–40 L tank, from the
-// refused shop alone, where a keepers' page says always at least four weeks and gives no tank size. Mended by hand in the
-// three languages it has, each body fixed so a redo keeps it, and the research's fact now says the keepers' page.
+// refused shop alone, where a keeper's page says always at least four weeks and gives no tank size. Mended by hand in the
+// three languages it has, each named as a keeper (topic.md), each body fixed so a redo keeps it, the page in each
+// language's references (Indonesian and Thai keep their own list), and the research's fact now says the keeper's page.
 test('new fish are quarantined at least four weeks, in every language of the guide, fixed by hand', () => {
   const root = fileURLToPath(new URL('../../../', import.meta.url))
   const guide = join(root, 'content/guides/aquatome-tha-ca-moi-mua-vao-be-cach-thuan-nuoc-dung')
+  const quarantine = 'https://aquariumscience.org/index.php/12-3-quarantine-tanks'
   const lines = {
-    vi: 'Một trang hướng dẫn nuôi cá khuyên luôn giữ cá mới trong bể cách ly ít nhất 4 tuần.',
-    id: 'Satu panduan menyarankan ikan baru selalu dikarantina minimal 4 minggu.',
-    th: 'แหล่งหนึ่งแนะนำให้กักโรคปลาใหม่ไว้อย่างน้อย 4 สัปดาห์เสมอ',
+    vi: 'Một người chơi khuyên nên luôn giữ cá mới trong bể cách ly ít nhất 4 tuần.',
+    id: 'Seorang penghobi menyarankan ikan baru selalu dikarantina minimal 4 minggu.',
+    th: 'ผู้เลี้ยงรายหนึ่งแนะนำให้กักโรคปลาใหม่ทุกครั้ง อย่างน้อย 4 สัปดาห์',
   }
   for (const [lang, line] of Object.entries(lines)) {
-    const t = JSON.parse(readFileSync(join(guide, `${lang}.json`), 'utf8')) as Translation & { bodyFixed?: boolean }
+    const t = JSON.parse(readFileSync(join(guide, `${lang}.json`), 'utf8')) as Translation & { bodyFixed?: boolean; refs?: { url: string }[] }
     expect(t.body, lang).toContain(line)
-    expect(t.body, lang).not.toContain('20–40')
+    expect(t.body, lang).not.toMatch(/20–40 (?:L|ลิตร)/)
     expect(t.bodyFixed, lang).toBe(true)
+    if (lang !== 'vi') expect(t.refs?.map(r => r.url), lang).toContain(quarantine)
   }
-  const quarantine = 'https://aquariumscience.org/index.php/12-3-quarantine-tanks'
   const refs = (JSON.parse(readFileSync(join(guide, 'entity.json'), 'utf8')) as { refs: { url: string }[] }).refs.map(r => r.url)
   expect(refs).toContain(quarantine)
   const research = JSON.parse(readFileSync(join(root, 'engine-state/topics/aquatome-tha-ca-moi-mua-vao-be-cach-thuan-nuoc-dung.json'), 'utf8')) as { sources: { url: string }[]; facts: { fact: string; source: number }[] }
