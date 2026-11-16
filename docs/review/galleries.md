@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-16). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 671 | 30 | 9 | 23 | 687 |
-| rest | 20 | 1729 | 75 | 0 | 91 | 1713 |
+| covered | 30 | 680 | 30 | 9 | 23 | 696 |
+| rest | 20 | 1746 | 76 | 0 | 90 | 1732 |
 
-## Short of target: every source read (498)
+## Short of target: every source read (511)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -295,6 +295,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/denticetopsis-seducta | covered | 0 | 30 |
 | species/farlowella-platorynchus | covered | 0 | 30 |
 | species/hisonotus-notatus | covered | 0 | 30 |
+| species/hoplosternum-punctatum | covered | 0 | 30 |
 | species/hypancistrus-inspector | covered | 0 | 30 |
 | species/hypancistrus-zebra | covered | 0 | 30 |
 | species/hyphessobrycon-vilmae | covered | 2 | 30 |
@@ -309,7 +310,9 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/myloplus-schomburgkii | covered | 2 | 30 |
 | species/nothobranchius-rachovii | covered | 4 | 30 |
 | species/oryzias-woworae | covered | 1 | 30 |
+| species/parauchenoglanis-punctatus | covered | 0 | 30 |
 | species/pseudeutropius-brachypopterus | covered | 0 | 30 |
+| species/pseudomugil-signifer | covered | 18 | 30 |
 | species/pterobunocephalus-depressus | covered | 0 | 30 |
 | species/pterophyllum-altum | covered | 13 | 30 |
 | species/sphaerichthys-osphromenoides | covered | 1 | 30 |
@@ -514,3 +517,13 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/denticetopsis-macilenta | covered | 0 | 30 |
 | species/denticetopsis-praecox | covered | 0 | 30 |
 | species/desmopuntius-hexazona | covered | 1 | 30 |
+| species/desmopuntius-pentazona | covered | 0 | 30 |
+| species/desmopuntius-rhomboocellatus | covered | 0 | 30 |
+| species/devario-auropurpureus | covered | 0 | 30 |
+| species/devario-maetaengensis | covered | 1 | 30 |
+| species/devario-malabaricus | covered | 2 | 30 |
+| species/devario-pathirana | covered | 0 | 30 |
+| species/devario-sondhii | covered | 0 | 30 |
+| species/dianema-urostriatum | covered | 0 | 30 |
+| species/dichotomyctere-fluviatilis | covered | 2 | 30 |
+| species/dichotomyctere-ocellatus | covered | 0 | 30 |

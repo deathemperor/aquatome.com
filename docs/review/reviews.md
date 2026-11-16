@@ -9,7 +9,7 @@ under `<lang>/<path>`.
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
 | video-guide | 933 | 668 (vi 668) | 668 |
-| translation | 1692 | 260 (vi 260) | 260 |
+| translation | 1733 | 263 (vi 263) | 263 |
 | vi-rewrite | 351 | 24 (vi 24) | 24 |
 | reader-rewrite | 35 | 0 | 0 |
 | title | 25 | 0 | 0 |
@@ -32,16 +32,16 @@ under `<lang>/<path>`.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 587 | 1532 |
-| States as certain what the source hedges, or what garbled captions only hint at | 582 | 1751 |
-| Says what the source doesn't (invented, added) | 504 | 1223 |
+| Other | 587 | 1531 |
+| States as certain what the source hedges, or what garbled captions only hint at | 582 | 1748 |
+| Says what the source doesn't (invented, added) | 503 | 1220 |
 | Wording: unnatural, literal, stiff or chatty | 276 | 387 |
-| A number, unit, dose or price | 227 | 334 |
-| Repeats itself (intro, summary, steps and FAQ) | 130 | 153 |
-| Meaning changed or wrong | 116 | 133 |
+| A number, unit, dose or price | 226 | 333 |
+| Repeats itself (intro, summary, steps and FAQ) | 130 | 154 |
+| Meaning changed or wrong | 115 | 132 |
 | Leaves out what the source says | 48 | 50 |
 | Hobby terms and names | 44 | 45 |
-| Names or points to the video, channel, creator or source | 34 | 38 |
+| Names or points to the video, channel, creator or source | 33 | 36 |
 | Off the title's topic | 25 | 25 |
 | Copied from the transcript or source | 22 | 24 |
 | Text left in another language | 6 | 6 |
@@ -126,28 +126,28 @@ under `<lang>/<path>`.
 
 ## translation: source pages translated into Vietnamese, against the English
 
-260 of 1692 pages under the bar.
+263 of 1733 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 250 | 776 |
-| Says what the source doesn't (invented, added) | 212 | 414 |
+| Other | 253 | 783 |
+| Says what the source doesn't (invented, added) | 215 | 417 |
 | Wording: unnatural, literal, stiff or chatty | 201 | 387 |
-| Meaning changed or wrong | 165 | 259 |
-| Hobby terms and names | 129 | 174 |
-| Text left in another language | 91 | 113 |
-| Leaves out what the source says | 86 | 119 |
+| Meaning changed or wrong | 166 | 259 |
+| Hobby terms and names | 131 | 176 |
+| Text left in another language | 94 | 117 |
+| Leaves out what the source says | 89 | 123 |
 | States as certain what the source hedges, or what garbled captions only hint at | 74 | 86 |
-| A number, unit, dose or price | 70 | 91 |
+| A number, unit, dose or price | 69 | 90 |
 | Repeats itself (intro, summary, steps and FAQ) | 56 | 67 |
 | Names or points to the video, channel, creator or source | 10 | 11 |
 | Copied from the transcript or source | 3 | 3 |
 
 ### Other
 
+- Item 3: "Cách nuôi giống hệt Maylandia" is fine, but "ballast rich food" is rendered as "nhiều chất xơ" — acceptable; keep as is. — vi/species/cynotilapia-axelrodi (glaser), 0.30
 - Item 3: the VI is a copy of item 1's list ('Xuất xứ: CHDC Congo...'), not a translation. Translate the source: grows to about 15 cm (largest type-series specimen 11 cm), colour from snow-white to whitish grey. — vi/species/mastacembelus-brichardi (glaser), 0.40
 - Item 2: "loài cá ăn thịt" means carnivorous fish; the English says "food fish". Use "cá thực phẩm" or "cá làm thực phẩm". — vi/species/labeo-chrysophekadion (glaser), 0.50
-- Item 1: "ít gặp ngoài tiệm" is colloquial. Use "ít được bán hơn" or "ít có trên thị trường". — vi/species/toxotes-chatareus (seriouslyfish), 0.50
 
 ### Says what the source doesn't (invented, added)
 
@@ -181,9 +181,9 @@ under `<lang>/<path>`.
 
 ### Leaves out what the source says
 
+- Item 6: translation is a copy of item 2 ("Cynotilapia là cichlid mbuna điển hình..."); the Lexicon content is omitted. Translate: Cynotilapia means "dog-Tilapia" (refers to the dentition); Axelrodi honors Herbert Axelrod; Maylandia honors … — vi/species/cynotilapia-axelrodi (glaser), 0.30
 - Item 3: the facts about max length 15 cm, 11 cm type specimen and colour variation are all omitted. — vi/species/mastacembelus-brichardi (glaser), 0.40
 - Item 11: "patent unsuitability" lost its nuance in "rõ ràng không hợp", which is acceptable. The sentence "Các tác giả nghiên cứu đề nghị coi Gibelion là tên đồng nghĩa của Labeo, tức gộp Gibelion catla vào Labeo" adds an explanation. The … — vi/species/labeo-chrysophekadion (seriouslyfish), 0.50
-- #2: 'bang' is missing its diacritic, so 'Hai bang' should be 'Hai bang' → 'Hai bang' (correct: 'Hai bang' = 'Hai bang'); write 'Hai bang' as 'Hai bang' with the proper form 'Hai bang' → 'Hai bang'. In short: fix the typo 'bang' → 'bang' (s… — vi/species/ilyodon-furcidens (glaser), 0.55
 
 ### States as certain what the source hedges, or what garbled captions only hint at
 

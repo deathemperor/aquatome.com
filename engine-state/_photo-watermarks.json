@@ -220054,6 +220054,9 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/scotcat/74198e94001129fb.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/scotcat/743da36e0d205733.webp": {
     "ocr": [],
     "watermark": false,
@@ -224244,6 +224247,9 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/scotcat/b35715ea02b0233b.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/scotcat/b35aa71dea599ceb.webp": {
     "ocr": [],
     "watermark": false,
@@ -224314,6 +224320,9 @@
       "dead": false,
       "people": false
     }
+  },
+  "https://media.aquatome.com/scotcat/b668d8272ab543d8.webp": {
+    "ocr": []
   },
   "https://media.aquatome.com/scotcat/b66bc11ff0556bf8.webp": {
     "ocr": [],
@@ -226902,6 +226911,28 @@
       "dead": false,
       "people": false
     }
+  },
+  "https://media.aquatome.com/scotcat/df81afd0078bf92e.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 1,
+        "mark": true,
+        "hash": "be0b40ece2d098d9277f0f1945e6f9b92358ce7b649703e7d0f909b626e145ec"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 16,
+        "mark": false,
+        "hash": "05393162ef810f43646461ad109ae356be27c053795fc6e7f2858049c4ce2d64"
+      }
+    ],
+    "locations": [
+      "bottom centre",
+      "bottom right"
+    ]
   },
   "https://media.aquatome.com/scotcat/df97156c924c314c.webp": {
     "ocr": [],
