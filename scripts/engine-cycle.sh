@@ -129,8 +129,9 @@ git config merge.changelog.driver 'node scripts/merge-changelog.mjs %O %A %B'
 git config merge.jsonmap.driver 'node scripts/merge-json-map.mjs %O %A %B'
 # Each run rewrites the fit reports, so keep the current side when they clash.
 git config merge.regenerated.driver true
-# Picture files two jobs both write: a pull keeps main's whole file, never one built from two (.gitattributes).
-git config merge.main-whole.driver true
+# Picture files two jobs both write: a pull keeps main's records whole, never one built from two (.gitattributes,
+# scripts/merge-main-whole.mjs). Only in the engine's clones: in anyone else's checkout a rebase would drop their edits.
+if engine_clone || engine_cloud; then git config merge.main-whole.driver 'node scripts/merge-main-whole.mjs %O %A %B %P'; fi
 # Two parts can make the same new page (from Glaser and from Seriously Fish): merge it by source, not by whole file.
 git config merge.entity.driver 'node scripts/merge-entity.mjs %O %A %B'
 pnpm install --frozen-lockfile --silent

@@ -41,14 +41,13 @@ engine-state/_cards-intl.json merge=jsonmap
 docs/review/fit.md merge=regenerated
 engine-state/fit-summary.json merge=regenerated
 # Files two engine jobs both write that no driver above merges: a guide's or a breed's pictures, an album, a playlist, a
-# page's summary card, the photo review page. A run that pulls main in keeps main's whole file, never one built from two
-# versions. The push fallback (`git pull --rebase -X theirs`) merged them line by line and gave a part photo another
-# photo's credit, and a still another still's caption and "no one in it" mark (8, 9, 15 and 16 Nov 2026). The run's
-# change to such a file is dropped: a photo it put on the never-again list comes off again in the sweep after the pull,
-# one it took off as another kind at the next photos run, and a still shows only with a verdict of its own (the verdicts
-# merge per key). Only the engine's job scripts set this driver; elsewhere (leads' checkouts, GitHub's merges) these
-# merge as text, as before. Not the pages' language files: main's whole file there would drop a hold the run added, and
-# their holds follow main_holds (scripts/cycle-checks.sh).
+# page's summary card, the photo review page. Until 16 Nov they merged line by line, and the push fallback (`git pull
+# --rebase -X theirs`) gave a part photo another photo's credit, and a still another still's caption and "no one in it"
+# mark (8, 9, 15 and 16 Nov 2026). Now no record is built from two versions: main's file, with what the run took off
+# taken off and what it put in put in, each record whole; a summary card main's whole, unless the run took main's
+# approved card back to pending (scripts/merge-main-whole.mjs). Only the engine's clones set this driver (the job
+# scripts); elsewhere (leads' checkouts, GitHub's merges) these merge as text, as before. Not the pages' language files:
+# main's file there would drop a hold the run added, and their holds follow main_holds (scripts/cycle-checks.sh).
 content/guides/*/entity.json merge=main-whole
 content/breeds/*/entity.json merge=main-whole
 content/gallery/*.json merge=main-whole
