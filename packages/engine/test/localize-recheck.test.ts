@@ -177,6 +177,24 @@ test("a page whose text changes while it is read is not written; a model's error
   expect(await broken.file('b')).toBe(was)
 })
 
+test("the translator's record written while a page is read is kept as it is then: only the page's score changes in it", async () => {
+  const { root } = await site()
+  const stateFile = join(root, 'engine-state/localize-th.json')
+  const base = fake({ sonnet: PASS, opus: OPUS })
+  // The translator writes its record (another page, and this one's notes) while Opus reads.
+  const meanwhile = (async (a: { prompt: string; model?: string }) => {
+    if (a.model === 'opus') {
+      const s = JSON.parse(await readFile(stateFile, 'utf8'))
+      await writeFile(stateFile, JSON.stringify({ ...s, a: { ...s.a, notes: ['Item 1: "อาหาร" reads well.'] }, z: { at: '2026-11-18', score: 0.8 } }))
+    }
+    return base.llm(a as never)
+  }) as unknown as Llm
+  expect((await recheckLocalized(root, meanwhile, 'th', ['a'], { now })).back).toEqual(['a: 0.6, Sonnet 0.9, Opus 0.85: back at 0.85'])
+  const s = JSON.parse(await readFile(stateFile, 'utf8'))
+  expect(s.a).toMatchObject({ score: 0.85, notes: ['Item 1: "อาหาร" reads well.'] })
+  expect(s.z).toEqual({ at: '2026-11-18', score: 0.8 })
+})
+
 test('the translator\'s pages of the last day go first; the limit counts pages read; held, passing and part-less pages are left alone; a dry run and the time stop read none', async () => {
   const { root } = await site({ old: {}, held: { held: true }, open: { score: 0.75 }, lacks: { sections: { 'diet:seriouslyfish': TH['diet:seriouslyfish'] } }, fresh: { at: '2026-11-18' } })
   const ids = ['held', 'open', 'lacks', 'old', 'fresh']
@@ -196,7 +214,7 @@ test('a page whose score carries a reason other than its score is left as it is,
   expect(await recheckLocalized(thin.root, skip.llm, 'th', ['a'], { now })).toMatchObject({ back: [], skipped: ['a: its score carries a reason ("thin"), left as it is'] })
   expect(skip.calls).toEqual([])
   expect(await thin.file()).toBe(before)
-  // "score": as the Vietnamese and Malay pages carry it.
+  // "score": as the Vietnamese fish pages carry it.
   const score = await site({ a: { reason: 'score' } })
   expect((await recheckLocalized(score.root, fake({ sonnet: PASS, opus: OPUS }).llm, 'th', ['a'], { now })).back).toEqual(['a: 0.6, Sonnet 0.9, Opus 0.85: back at 0.85'])
   expect(JSON.parse(await score.file()).quality).toEqual({ score: 0.85, indexable: true, bySource: { seriouslyfish: 0.85 } })
@@ -213,6 +231,27 @@ test('a page whose score carries a reason other than its score is left as it is,
   // Not counted as a try: once the reason is gone, the page is read again.
   await writeFile(join(root, 'content/species/a/th.json'), JSON.stringify(page))
   expect((await recheckLocalized(root, fake({ sonnet: PASS, opus: OPUS }).llm, 'th', ['a'], { now })).back).toHaveLength(1)
+})
+
+test('a page held while it is read is left as it is, and says so; held no more, its text unchanged, it is read again: a refused write is no try', async () => {
+  const { root, file } = await site()
+  const page = JSON.parse(await file())
+  const base = fake({ sonnet: PASS, opus: OPUS })
+  const meanwhile = (async (a: { prompt: string; model?: string }) => {
+    if (a.model === 'opus') await writeFile(join(root, 'content/species/a/th.json'), JSON.stringify({ ...page, held: true }))
+    return base.llm(a as never)
+  }) as unknown as Llm
+  expect(await recheckLocalized(root, meanwhile, 'th', ['a'], { now })).toMatchObject({ back: [], skipped: ['a: 0.6, Sonnet 0.9, Opus 0.85: it was held while it was read'] })
+  expect(JSON.parse(await file())).toMatchObject({ held: true, quality: { score: 0.6, indexable: false } })
+  const idle = fake({ sonnet: PASS, opus: OPUS })
+  expect(await recheckLocalized(root, idle.llm, 'th', ['a'], { now })).toMatchObject({ back: [], skipped: [] })
+  expect(idle.calls).toEqual([])
+  // Released with the same text: read again, one more pair of reads. Only a write beside the step makes this happen, and
+  // the cycle runs its steps one after another (Page Recovery, 16 Nov 2026).
+  await writeFile(join(root, 'content/species/a/th.json'), JSON.stringify(page))
+  const again = fake({ sonnet: PASS, opus: OPUS })
+  expect((await recheckLocalized(root, again.llm, 'th', ['a'], { now })).back).toEqual(['a: 0.6, Sonnet 0.9, Opus 0.85: back at 0.85'])
+  expect(again.calls).toHaveLength(6)
 })
 
 test('a page whose file can\'t be read is skipped and said so; the pages after it are read', async () => {
