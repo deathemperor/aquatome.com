@@ -1374,11 +1374,14 @@ test("a head the calendar holds off cards stays behind the photo the lead step p
   await put('curation.json', { avoid: { [held.url]: "a shop's lettered photo (a test)" } })
   await sweep(root)
   expect((await json(root, 'content/species/rineloricaria-castroi/entity.json')).photos.map((p: { url: string }) => p.url)).toEqual([cf.url, held.url])
-  // An empty calendar file stops nothing: no hold (the sweep's own calendar pass passes over it too).
-  await writeFile(join(c, 'curation.json'), '')
-  await sweep(root)
   // Without the hold, the same page puts the photo named to the species first: the case above is the hold's doing.
   await put('curation.json', { avoid: {} })
+  await sweep(root)
+  expect((await json(root, 'content/species/rineloricaria-castroi/entity.json')).photos.map((p: { url: string }) => p.url)).toEqual([held.url, cf.url])
+  // An empty calendar file stops nothing and holds nothing (the sweep's own calendar pass passes over it too): from the
+  // lead step's order again, the sweep runs and the photo named to the species comes first, as with no hold.
+  await put('species/rineloricaria-castroi/entity.json', species('rineloricaria-castroi', 'Rineloricaria castroi', { photos: [cf, held] }))
+  await writeFile(join(c, 'curation.json'), '')
   await sweep(root)
   expect((await json(root, 'content/species/rineloricaria-castroi/entity.json')).photos.map((p: { url: string }) => p.url)).toEqual([held.url, cf.url])
 })
