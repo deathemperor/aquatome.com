@@ -52,9 +52,11 @@ final class OnePageFlowTests: XCTestCase {
     e.tap()
     guard app.pageBack.waitForExistence(timeout: 5) else { return XCTFail("\(what): opened no page", file: file, line: line) }
     if let named {
-      let title = app.navigationBars.firstMatch.staticTexts[named]
+      // The page's title (`navigationTitle`, the bar's name for it even where the bar shows its own item): a kind of kit
+      // with no shard of its own in the fixture opens as the web page, offline, so its heading may never come.
+      let bar = app.navigationBars[named]
       let heading = app.staticTexts[named].firstMatch
-      XCTAssertTrue(title.waitForExistence(timeout: 5) || heading.exists,
+      XCTAssertTrue(bar.waitForExistence(timeout: 5) || heading.exists,
                     "\(what): opened \(app.navigationBars.firstMatch.identifier), not \(named)", file: file, line: line)
     }
     app.pageBack.tap()
