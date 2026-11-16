@@ -258,6 +258,48 @@ test('a stop at the line is recorded, and the language reads nothing more with -
   expect([on.prior, calls > 0]).toEqual([{ checked: 239, refused: 23 }, true])
 })
 
+test('a recorded stop holds whatever the files say after it: after an earlier part-run, with --only, and when a refused video leaves its page; the run ends with an error (the reviewers of the check, 16 Nov)', async () => {
+  const stopRecord = 'stopped before (over one in ten refused at 200 titles: 21 of 200): the chief of staff decides'
+  const reader = (bad: (id: string) => boolean) => {
+    const o = { calls: 0, llm: (async <T>({ prompt }: { prompt: string }) => {
+      o.calls++
+      return { checks: rowsOf(prompt).map((l, j) => (bad(/Aus (v\d+)/.exec(l)![1]!) ? { n: j + 1, ok: false, kind: 'dropped', why: 'x' } : { n: j + 1, ok: true })) } as T
+    }) as Llm }
+    return o
+  }
+  // An earlier part-run left 150 on file, 16 refused; this run stops at 200 with 21, but its last batch read on to 230.
+  {
+    const { root, ids, titles } = await many(500)
+    const dir = join(root, 'content/video-titles')
+    await writeFile(join(dir, 'vi.json'), JSON.stringify(titles))
+    await writeFile(join(dir, 'vi.refused.json'), JSON.stringify(Object.fromEntries(ids.slice(0, 16).map(id => [id, 'dropped: x']))))
+    await writeFile(join(dir, 'vi.passed.json'), JSON.stringify(Object.fromEntries(ids.slice(16, 150).map(id => [id, titles[id]!]))))
+    const m = reader(id => id >= 'v150' && id < 'v155')
+    const first = await runTitleCheck(root, m.llm, 'vi', { write: true })
+    expect([first.prior, Object.keys(first.checks).length, first.stopped]).toEqual([{ checked: 150, refused: 16 }, 80, 'over one in ten refused at 200 titles: 21 of 200'])
+    m.calls = 0
+    // On file now 21 of 230, under the line; the record stops the run, and a run with --only on what's left.
+    for (const only of [undefined, ids.slice(230)]) {
+      const again = await runTitleCheck(root, m.llm, 'vi', { write: true, only })
+      expect([m.calls, again.prior, again.stopped, checkOutcome('vi', again).exitCode]).toEqual([0, { checked: 230, refused: 21 }, stopRecord, 1])
+    }
+  }
+  // A run stops at exactly 200 with 21 refused; then a refused video leaves its page, so 20 of 199 are on file.
+  {
+    const { root, ids, titles } = await many(500)
+    const dir = join(root, 'content/video-titles')
+    await writeFile(join(dir, 'vi.json'), JSON.stringify(titles))
+    const m = reader(id => id < 'v021')
+    expect((await runTitleCheck(root, m.llm, 'vi', { write: true })).stopped).toBe('over one in ten refused at 200 titles: 21 of 200')
+    const page = join(root, 'content/species/a/entity.json')
+    const e = JSON.parse(await readFile(page, 'utf8')) as { videos: { youtubeId: string }[] }
+    await writeFile(page, JSON.stringify({ ...e, videos: e.videos.filter(v => v.youtubeId !== ids[0]) }))
+    m.calls = 0
+    const again = await runTitleCheck(root, m.llm, 'vi', { write: true })
+    expect([m.calls, again.prior, again.stopped]).toEqual([0, { checked: 199, refused: 20 }, stopRecord])
+  }
+})
+
 test("the run's end: unread titles, or more than one in ten refused over all read in these words, even under the first mark of 200, end it with an error (the chief of staff, 16 Nov; the reviewers of the check)", () => {
   const run = (checked: number, refused: number, o: { given?: number; prior?: { checked: number; refused: number }; stopped?: string } = {}) => ({
     checks: Object.fromEntries(Array.from({ length: checked }, (_, i) => [`v${i}`, i < refused ? { ok: false as const, kind: 'dropped' as const, why: 'x' } : { ok: true as const }])),
