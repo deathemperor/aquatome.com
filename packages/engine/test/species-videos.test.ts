@@ -137,6 +137,31 @@ test('species-videos: while Wikimedia rests, a new page waits: the run stops and
   await expect(readFile(join(r, 'content/species/nanosphronemus-gemma/entity.json'), 'utf8')).rejects.toThrow()
 })
 
+// The chief of staff, 17 Nov 2026, on FishLoft's profiles: a new page opens only under a Vietnamese name that passes the
+// naming rule; with none it waits for the Writing Lead, and nothing is written. Another channel's still opens under the
+// scientific name, as before.
+test('species-videos: a FishLoft profile makes a new page only under a Vietnamese name that passes the naming rule', async () => {
+  expect(PROFILE_CHANNELS).toContain('fishloft')
+  const run = async (viNames: string[], channel = 'FishLoft') => {
+    const r = await root()
+    const d = deps([])
+    // Each name as research gives it: from a Vietnamese page among its sources.
+    const vn = { url: 'https://cacanh.vn/sac-ngoc', title: 'Cá sặc ngọc', kind: 'article' as const }
+    const found = { ...research, sources: [...research.sources, vn], viNames: viNames.map(name => ({ name, source: research.sources.length })) }
+    const fl = { ...d, research: (async () => found) as Llm, yt: { ...d.yt, video: async (id: string) => ({ ...(await d.yt.video(id)), channel }) } }
+    await speciesVideos(r, fl, { only: ['G'] })
+    const s = JSON.parse(await readFile(join(r, 'engine-state/_species-videos.json'), 'utf8')) as Record<string, SpeciesVideo>
+    const vi = await readFile(join(r, 'content/species/nanosphronemus-gemma/vi.json'), 'utf8').then(x => JSON.parse(x) as { name: string }, () => null)
+    return { g: s.G, vi }
+  }
+  const waits = { done: 'skipped', reason: 'Nanosphronemus gemma: no Vietnamese name that passes the naming rule; the page waits for the Writing Lead' }
+  expect(await run([])).toMatchObject({ g: waits, vi: null })
+  // A shrimp's word for a gourami fails the rule.
+  expect(await run(['Tép ngọc'])).toMatchObject({ g: waits, vi: null })
+  expect(await run(['Cá sặc ngọc'])).toMatchObject({ g: { done: 'new page', page: 'species/nanosphronemus-gemma' }, vi: { name: 'Cá sặc ngọc' } })
+  expect((await run([], 'CHRIS LUKHAUP')).g).toMatchObject({ done: 'new page' })
+})
+
 test('a video tried again (the owner\'s pick) after its part fell under the bar: the writer starts from that review\'s notes', async () => {
   const r = await root()
   const prompts: string[] = []

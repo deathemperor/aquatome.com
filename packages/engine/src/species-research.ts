@@ -188,7 +188,7 @@ export type SpeciesDeps = { research: Llm; llm: Llm; http: (url: string) => Prom
  * page from a source gets them (open licences, screened later by the cycle); a video only when it can be embedded.
  * Never over a page from a licensed source. Files: content/species/<id>/{entity,vi}.json.
  */
-export async function makeSpecies(root: string, d: SpeciesDeps, a: SpeciesAsk, o: { researchModel?: string; writeModel?: string; reuse?: boolean } = {}) {
+export async function makeSpecies(root: string, d: SpeciesDeps, a: SpeciesAsk, o: { researchModel?: string; writeModel?: string; reuse?: boolean; namedOnly?: boolean } = {}) {
   const content = join(root, 'content')
   const taxon = await speciesTaxon(a.name, d.http)
   if (!taxon?.family || !taxon.order) return { id: slugify(a.name), skipped: `${a.name}: GBIF has no species of that name` }
@@ -204,6 +204,11 @@ export async function makeSpecies(root: string, d: SpeciesDeps, a: SpeciesAsk, o
   if (!researched.found) return { id, skipped: `${sci}: no published source describes it` }
   const c = citeResearch(researched, a.videos ?? [])
   if (!c.facts.length) return { id, skipped: `${sci}: no cited facts` }
+  // `namedOnly`: no new page under its scientific name. Without a Vietnamese name that passes the naming rule (the one the
+  // page would open under, below), it waits for the Writing Lead, before the page is written.
+  if (o.namedOnly && !was && !c.viNames.some(n => !wrongKind(n, { order: taxon.order, family: taxon.family, genus: taxon.genus ?? sci.split(' ')[0] }))) {
+    return { id, skipped: `${sci}: no Vietnamese name that passes the naming rule; the page waits for the Writing Lead` }
+  }
 
   const forWriter = {
     species: { scientificName: sci, family: taxon.family, order: taxon.order },
