@@ -93,7 +93,7 @@ export async function sharpFrame(grab: ImageDeps['grab'], stream: Stream, at: nu
 }
 
 /** One storyboard frame at second t (nearest tile), as JPEG, with the second it shows (`at`, and `t` rounded). */
-function frames(sb: Storyboard, get: (url: string) => Promise<Uint8Array>) {
+export function frames(sb: Storyboard, get: (url: string) => Promise<Uint8Array>) {
   const sheets = new Map<number, Promise<Uint8Array>>()
   const per = sb.rows * sb.columns
   const total = sb.fragments.length * per
