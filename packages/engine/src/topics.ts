@@ -71,6 +71,12 @@ export const FACTS_SCHEMA = {
 
 export type TopicAsk = { topic: string; kind: GuideEntity['kind'] }
 
+/**
+ * Research for a guide and for a glossary term (glossary-entry.ts uses this prompt too). A figure keeps its page's place (the
+ * chief of staff, 17 Nov 2026): research had written "applies equally to Vietnam" onto a Singapore shop's thaw time and
+ * "relevant to Vietnam's hot season" onto other countries' pages, every one of them filed under the "vietnam" section,
+ * which stays as it is: hot-season and power-cut facts still go there, saying the place their page names.
+ */
 export const researchPrompt = (a: TopicAsk) => `Research this freshwater fishkeeping topic for a Vietnamese aquarium handbook: "${a.topic}" (kind: ${a.kind}). Use WebSearch and WebFetch. Search in English and in Vietnamese.
 
 Prefer aquatic vets, universities and extension services (for example UF/IFAS, Merck Veterinary Manual), makers' own documentation, and long-time hobbyist articles; forums only for what keepers report. Collect facts, each with the index of its source in sources[] and one section:
@@ -79,7 +85,7 @@ Prefer aquatic vets, universities and extension services (for example UF/IFAS, M
 - sources: every page used, once each: its URL, its title as the page itself gives it (never a description of what you found there), and its kind, by who wrote it and for whom: ${KINDS.map(k => `${k}: ${SOURCE_KINDS[k]}`).join('; ')}.
 - found: false if this is not a real fishkeeping topic or nothing reliable was found.
 
-Rules: facts in your own words, short, one claim each. Keep numbers and units as sources give them. If sources disagree, keep each fact with its own source. A dose a source gives for one product: name the product in the fact. A dose from a farm page or a forum post is used only when another page, not a farm's, gives the same dose: search for one, and put its index in the fact's also. Leave out a test's lethal level (LC50, LD50, the level that killed half the animals tested): give what the source says is safe or harmful, or that the substance is toxic at low levels. Never fetch Shopee, Lazada or Tiki pages.`
+Rules: facts in your own words, short, one claim each. Keep numbers and units as sources give them. A figure keeps its page's place: a figure a page gives for one country, city or climate (room temperatures in Singapore, a pond's in Florida) names that place in the fact, as the page does. Never add that a fact applies to Vietnam, or to anywhere wider than the page names ("relevant to Vietnam's hot season", "applies equally to Vietnam"): a fact from a page outside Vietnam says Vietnam only where the page itself does. If sources disagree, keep each fact with its own source. A dose a source gives for one product: name the product in the fact. A dose from a farm page or a forum post is used only when another page, not a farm's, gives the same dose: search for one, and put its index in the fact's also. Leave out a test's lethal level (LC50, LD50, the level that killed half the animals tested): give what the source says is safe or harmful, or that the substance is toxic at low levels. Never fetch Shopee, Lazada or Tiki pages.`
 
 /**
  * A dose a reader would measure out, in a fact's words: an amount, or a salt's percentage. The owner's chief, 8 Nov 2026,
