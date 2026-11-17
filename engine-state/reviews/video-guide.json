@@ -29577,6 +29577,23 @@
   ],
   "vi/guides/youtube-iVpF5Ya3lIw": [
     {
+      "at": "2026-11-17T12:18:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.7,
+      "notes": [
+        "\"Cá rìu bạc\" / \"silver hatchetfish\" (heading, summary, table, FAQ): the video only says \"hatchet fish\". Silver appears only for the big ones in the 30-fish story. Rename it \"cá rìu\" and drop \"bạc\" and \"silver\" as the species name.",
+        "\"Ít tiệm bày sẵn các loài này, nên cần biết tên loài để hỏi tiệm đặt về\" and \"ít tiệm bày sẵn nên thường phải hỏi đặt\": the video says most stores probably have hatchet fish. Only some of the species are hard to find. Hedge this to \"một số loài khó tìm\" instead of saying few shops stock them all.",
+        "\"Furcata nhanh nên sẽ giành hết đồ ăn, bắt nạt cá bảy màu\" (and the same in the FAQ): the video hedges this with \"can torment the guppies\". Change \"sẽ bắt nạt\" to \"có thể bắt nạt\".",
+        "\"Cá rìu bạc đôi khi bị suy dinh dưỡng ở tiệm\" and \"cá kìm thường bị đói\" in the summary bullet: these are the creator's own experience (\"I find\", \"likely to get ick\"). Add a hedge such as \"theo kinh nghiệm\" or \"có thể\" so they aren't stated as general fact.",
+        "Table row \"Cá chì đuôi nâu … nhiệt đới\" and row \"Cá kìm … nhiệt đới\": the video gives no temperature for pencilfish or halfbeaks. Replace with \"–\" or remove the figure.",
+        "\"Một đàn khoảng 30 con cá rìu bạc lớn … nếu bể đặt trong phòng ngủ thì có thể thành phiền\": this is the creator's personal anecdote. Rewrite it as a short hedged note, or drop the \"30 con\" and the bedroom example."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-08T22:07:38Z",
       "model": "sonnet",
       "score": 0.75,
