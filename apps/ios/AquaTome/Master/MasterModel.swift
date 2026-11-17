@@ -31,6 +31,10 @@ final class MasterModel {
   /// `-master-steps-wait <seconds>`: each outlet step waits that long before it goes, so a flow can sign out mid-press.
   @ObservationIgnored private let stepsWait = ProcessInfo.processInfo.arguments.firstIndex(of: "-master-steps-wait")
     .flatMap { i in ProcessInfo.processInfo.arguments.dropFirst(i + 1).first.flatMap(TimeInterval.init) }
+  /// `-master-steps-wait-account <n>`: each outlet step waits until the account has changed n times since the press and
+  /// the owner is known again (two minutes at most), so a flow can sign out and in again before it goes.
+  @ObservationIgnored private let stepsWaitAccount = ProcessInfo.processInfo.arguments.firstIndex(of: "-master-steps-wait-account")
+    .flatMap { i in ProcessInfo.processInfo.arguments.dropFirst(i + 1).first.flatMap { Int($0) } }
   /// `-master-role-mid-press <code>=<role>`: that outlet's role changes once a press has read the plugs, as another
   /// phone's sync might change it, so a flow can see a step checked as it is sent.
   @ObservationIgnored private let roleMidPress: (code: String, role: String)? = {
@@ -104,6 +108,9 @@ final class MasterModel {
   func start() async {
     guard var button, !sending, run?.isRunning != true, owner() == true else { return }
     let still = gate()
+    #if DEBUG
+    let pressed = session
+    #endif
     sending = true
     defer { sending = false; watch() }
     notes = []
@@ -142,6 +149,9 @@ final class MasterModel {
     for step in r.steps where !step.isLamp {
       #if DEBUG
       if let stepsWait { try? await Task.sleep(for: .seconds(stepsWait)) }
+      if let n = stepsWaitAccount {
+        for _ in 0..<240 where !(session >= pressed + n && owner() == true) { try? await Task.sleep(for: .milliseconds(500)) }
+      }
       #endif
       // Signed out, or no longer the owner's, since the press: the rest don't go. Each is checked against its outlet's
       // role and the owner as it goes, and again right before its command leaves (Switcher.send): CO2 is never switched
@@ -240,7 +250,11 @@ final class MasterModel {
           continue
         }
       } else if let key = switcher.outlet(c)?.key {
-        let changed = String(localized: "Ổ \(name) đã đổi trong lúc chạy nên AquaTome để nguyên.")
+        // Whether the step went isn't known (its answer lost, the outlet not read after it): said so, not that a hand
+        // changed it (Codex, 17 Nov).
+        let changed = b.guessed == true
+          ? String(localized: "Không rõ lệnh tới ổ \(name) chưa nên AquaTome để nguyên: xem lại ổ này.")
+          : String(localized: "Ổ \(name) đã đổi trong lúc chạy nên AquaTome để nguyên.")
         // Back already; switched since the last press left it (a hand, its schedule) or made a heater: left; CO2: never
         // on; not read: stays owed, for Trả lại.
         let end = MasterRun.end(b, now: read ? board.on(key) : nil, left: b.left ?? kept[c.target], role: role(c))

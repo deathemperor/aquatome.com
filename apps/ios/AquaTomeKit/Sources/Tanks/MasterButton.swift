@@ -39,6 +39,9 @@ public struct MasterRun: Sendable, Equatable, Codable {
     /// How the last press that set the outlet left it (`MasterRun.settle`): the end leaves an outlet no longer so. nil
     /// when no press set it, its step was refused before anything went, or in runs kept before it (Codex, 17 Nov).
     public var left: Bool?
+    /// `left` is only as the step asked: its answer was lost and the outlet not read after it, so whether it went isn't
+    /// known. The end then says so, rather than that a hand changed it. nil when not.
+    public var guessed: Bool?
 
     public init(command: DeviceCommand) { self.command = command }
   }
@@ -108,7 +111,10 @@ public struct MasterRun: Sendable, Equatable, Codable {
     for step in steps where !step.isLamp {
       let t = step.target
       let left: Bool? = !missed.contains(t) ? step.on : uncertain.contains(t) ? (now(step) ?? step.on) : nil
-      if let left, let i = back.firstIndex(where: { $0.command.target == t }) { back[i].left = left }
+      if let left, let i = back.firstIndex(where: { $0.command.target == t }) {
+        back[i].left = left
+        back[i].guessed = missed.contains(t) && now(step) == nil ? true : nil
+      }
     }
     if missed.isSuperset(of: steps.map(\.target)), back.isEmpty { ended = t }
   }

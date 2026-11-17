@@ -12,7 +12,8 @@ import SwiftUI
 @MainActor
 protocol LampAir: AnyObject {
   /// Broadcasts the 16-bit service UUIDs (4 hex digits each), in order, until `stop`. `done` says whether it started.
-  func start(_ uuids: [String], done: @escaping @MainActor (LampAirError?) -> Void)
+  /// `allowed` is asked right before the broadcast begins, after any wait for Bluetooth: no, and it doesn't (`.failed`).
+  func start(_ uuids: [String], allowed: @escaping @MainActor () -> Bool, done: @escaping @MainActor (LampAirError?) -> Void)
   func stop()
 }
 
@@ -23,21 +24,21 @@ enum LampAirError: Error { case off, refused, unsupported, failed }
 final class BluetoothLampAir: NSObject, LampAir {
   private var manager: CBPeripheralManager?
   /// A broadcast asked for before Bluetooth said it was on.
-  private var waiting: (uuids: [CBUUID], done: @MainActor (LampAirError?) -> Void)?
+  private var waiting: (uuids: [CBUUID], allowed: @MainActor () -> Bool, done: @MainActor (LampAirError?) -> Void)?
   private var starting: (@MainActor (LampAirError?) -> Void)?
 
-  func start(_ uuids: [String], done: @escaping @MainActor (LampAirError?) -> Void) {
+  func start(_ uuids: [String], allowed: @escaping @MainActor () -> Bool, done: @escaping @MainActor (LampAirError?) -> Void) {
     let ids = uuids.map { CBUUID(string: $0) }
     // One broadcast at a time: one still starting, or waiting for Bluetooth, is replaced, and told it didn't go (the
     // master button awaits its answer).
     if let w = waiting { waiting = nil; w.done(.failed) }
     if let s = starting { starting = nil; s(.failed) }
     guard let manager else {
-      waiting = (ids, done)
+      waiting = (ids, allowed, done)
       manager = CBPeripheralManager(delegate: self, queue: nil)
       return
     }
-    advertise(ids, on: manager, done: done)
+    advertise(ids, on: manager, allowed: allowed, done: done)
   }
 
   /// Ends the broadcast; one still starting, or waiting for Bluetooth, is told it didn't go.
@@ -47,10 +48,14 @@ final class BluetoothLampAir: NSObject, LampAir {
     manager?.stopAdvertising()
   }
 
-  private func advertise(_ ids: [CBUUID], on manager: CBPeripheralManager, done: @escaping @MainActor (LampAirError?) -> Void) {
+  private func advertise(_ ids: [CBUUID], on manager: CBPeripheralManager, allowed: @escaping @MainActor () -> Bool,
+                         done: @escaping @MainActor (LampAirError?) -> Void) {
     if let e = Self.error(manager.state) { return done(e) }
     // Unknown or resetting: wait for the state.
-    guard manager.state == .poweredOn else { waiting = (ids, done); return }
+    guard manager.state == .poweredOn else { waiting = (ids, allowed, done); return }
+    // Asked as it begins: what it was asked for may no longer stand after the wait (the master button's owner signed
+    // out, Codex, 17 Nov).
+    guard allowed() else { return done(.failed) }
     manager.stopAdvertising()
     starting = done
     manager.startAdvertising([CBAdvertisementDataServiceUUIDsKey: ids])
@@ -79,7 +84,7 @@ extension BluetoothLampAir: @preconcurrency CBPeripheralManagerDelegate {
       w.done(e)
     } else if manager.state == .poweredOn {
       waiting = nil
-      advertise(w.uuids, on: manager, done: w.done)
+      advertise(w.uuids, on: manager, allowed: w.allowed, done: w.done)
     }
   }
 
@@ -92,11 +97,22 @@ extension BluetoothLampAir: @preconcurrency CBPeripheralManagerDelegate {
 
 // Debug builds only: the UI tests' stand-in, kept out of the App Store build.
 #if DEBUG
-/// The simulator has no Bluetooth to broadcast with. `-fake-lamp-off`: Bluetooth is off.
+/// The simulator has no Bluetooth to broadcast with. `-fake-lamp-off`: Bluetooth is off. `-fake-lamp-waits <seconds>`:
+/// Bluetooth isn't ready until that long after the first broadcast is asked for (as at the first send after a launch).
 @MainActor
 final class FakeLampAir: LampAir {
-  func start(_ uuids: [String], done: @escaping @MainActor (LampAirError?) -> Void) {
-    done(ProcessInfo.processInfo.arguments.contains("-fake-lamp-off") ? .off : nil)
+  private var ready = !ProcessInfo.processInfo.arguments.contains("-fake-lamp-waits")
+  private let wait = ProcessInfo.processInfo.arguments.firstIndex(of: "-fake-lamp-waits")
+    .flatMap { i in ProcessInfo.processInfo.arguments.dropFirst(i + 1).first.flatMap(Double.init) } ?? 0
+
+  func start(_ uuids: [String], allowed: @escaping @MainActor () -> Bool, done: @escaping @MainActor (LampAirError?) -> Void) {
+    let answer: @MainActor () -> Void = { done(ProcessInfo.processInfo.arguments.contains("-fake-lamp-off") ? .off : allowed() ? nil : .failed) }
+    guard !ready else { return answer() }
+    Task { @MainActor in
+      try? await Task.sleep(for: .seconds(wait))
+      ready = true
+      answer()
+    }
   }
   func stop() {}
 }

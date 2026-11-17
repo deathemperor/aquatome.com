@@ -1,5 +1,6 @@
 import FishLamp
 import Foundation
+import Observation
 import Tanks
 
 /// The phone's one broadcaster for the Love Ecology lamp, shared by its card and the master button: two would talk over
@@ -16,9 +17,10 @@ enum LampRadio {
   /// Who broadcasts now. A stop from another (the card's three seconds ending after the button took over) is ignored.
   private static var holder: ObjectIdentifier?
 
-  static func start(_ uuids: [String], by who: AnyObject, done: @escaping @MainActor (LampAirError?) -> Void) {
+  static func start(_ uuids: [String], by who: AnyObject, allowed: @escaping @MainActor () -> Bool = { true },
+                    done: @escaping @MainActor (LampAirError?) -> Void) {
     holder = ObjectIdentifier(who)
-    air.start(uuids, done: done)
+    air.start(uuids, allowed: allowed, done: done)
   }
 
   static func stop(by who: AnyObject) {
@@ -60,8 +62,9 @@ enum LampMemory {
 /// A lamp command as the owner's recordings send it: off; on; or on, then the colour. Each for three seconds, two
 /// seconds apart (a colour begun 0.9 s after another ended wasn't taken, 14 Nov).
 @MainActor
+@Observable
 final class LampSender {
-  /// The recordings broadcast, by id, for the UI tests.
+  /// The recordings broadcast, by id, for the UI tests (`lamp-sent` on the master card, debug builds).
   private(set) var sent: [String] = []
 
   static func recordings(_ c: DeviceCommand) -> [FishLamp.Command] {
@@ -75,9 +78,10 @@ final class LampSender {
     .flatMap { i in ProcessInfo.processInfo.arguments.dropFirst(i + 1).first.flatMap(TimeInterval.init) }
   #endif
 
-  /// Nil when every recording went out; why not otherwise (then the rest aren't sent). `allowed` is asked right before
-  /// each recording: no, and it and the rest don't go (the master button's owner signed out since, Codex, 17 Nov).
-  func send(_ c: DeviceCommand, allowed: @MainActor () -> Bool = { true }) async -> LampAirError? {
+  /// Nil when every recording went out; why not otherwise (then the rest aren't sent). `allowed` is asked before each
+  /// recording, and again as its broadcast begins, after any wait for Bluetooth: no, and it and the rest don't go (the
+  /// master button's owner signed out since, Codex, 17 Nov).
+  func send(_ c: DeviceCommand, allowed: @escaping @MainActor () -> Bool = { true }) async -> LampAirError? {
     let list = Self.recordings(c)
     guard !list.isEmpty else { return .failed }
     for (i, r) in list.enumerated() {
@@ -91,7 +95,9 @@ final class LampSender {
         return .failed
       }
       // Answered once: when the broadcast started, or why not.
-      let started: LampAirError? = await withCheckedContinuation { done in LampRadio.start(r.uuids, by: self) { done.resume(returning: $0) } }
+      let started: LampAirError? = await withCheckedContinuation { done in
+        LampRadio.start(r.uuids, by: self, allowed: allowed) { done.resume(returning: $0) }
+      }
       if let started {
         // "On" went out and its colour didn't: the lamp is on, in a colour not known.
         if i > 0 { LampMemory.remember(DeviceCommand(device: c.device, on: true)) }

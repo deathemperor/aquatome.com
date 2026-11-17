@@ -83,9 +83,10 @@ final class MasterFlowTests: XCTestCase {
     expect(app, "master-problems", contains: "Không tới được ổ CO2: kiểm tra mạng rồi thử lại", timeout: 40)
     expect(app, "master-problems", contains: "Không tới được ổ Quạt: kiểm tra mạng rồi thử lại")
     shoot("unreached")
-    // Nothing went, the lamp included, and it isn't running.
+    // Nothing went, the lamp included, and it isn't running (the log's "account" notes are the sign-in, not commands).
     let log = element(app, "master-log")
-    XCTAssertFalse(log.exists && !log.label.isEmpty, log.exists ? log.label : "")
+    let sent = log.exists ? log.label.components(separatedBy: " | ").filter { !$0.isEmpty && $0 != "account" } : []
+    XCTAssertTrue(sent.isEmpty, "\(sent)")
     XCTAssertFalse(element(app, "master-end").exists, "running though nothing went")
     XCTAssertTrue(element(app, "master-start").exists, "not ready")
   }
@@ -231,11 +232,12 @@ final class MasterFlowTests: XCTestCase {
   // MARK: Codex's second read (17 Nov): each fails without its fix
 
   func testSigningOutBetweenTheLampsOnAndItsColourSendsNoColour() {
-    // The lamp's colour waits 30 s after its "on" (a debug launch argument): the owner signs out meanwhile. It used to be
-    // checked once, before the lamp's first recording.
+    // The lamp's colour waits 30 s after its "on" (a debug launch argument): the owner signs out once "on" has gone. It
+    // used to be checked once, before the lamp's first recording.
     let app = launch(["-lamp-colour-wait", "30"])
     make(app, end: "60")
     tap(app, "master-start")
+    expect(app, "lamp-sent", contains: "on", timeout: 20)
     app.openAccount()
     app.scrollToAndTap("sign-out")
     XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 10), "still signed in")
@@ -243,14 +245,31 @@ final class MasterFlowTests: XCTestCase {
     app.signInWithStandInApple()
     app.openTab("Đèn")
     expect(app, "master-problems", contains: "Chưa gửi vì bạn đã đăng xuất.", timeout: 40)
-    let log = element(app, "master-log")
-    XCTAssertFalse(log.exists && log.label.contains("lamp on+white"), log.exists ? log.label : "")
+    expect(app, "lamp-sent", lacks: "white")
+  }
+
+  func testSigningOutWhileBluetoothIsntReadySendsNothingToTheLamp() {
+    // Bluetooth isn't ready until 20 s after the first broadcast is asked for (a debug launch argument, as at the first
+    // send after a launch): the lamp's "on" waits there, and the owner signs out meanwhile. It's asked again as the
+    // broadcast begins, so nothing goes (Codex, 17 Nov: the check ran before the wait).
+    let app = launch(["-fake-lamp-waits", "20"])
+    make(app, end: "60")
+    tap(app, "master-start")
+    app.openAccount()
+    app.scrollToAndTap("sign-out")
+    XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 10), "still signed in")
+    RunLoop.current.run(until: Date().addingTimeInterval(25))
+    app.signInWithStandInApple()
+    app.openTab("Đèn")
+    expect(app, "master-problems", contains: "Chưa gửi vì bạn đã đăng xuất.", timeout: 40)
+    let sent = element(app, "lamp-sent")
+    XCTAssertFalse(sent.exists && sent.label.contains("on"), sent.exists ? sent.label : "")
   }
 
   func testSigningOutAndInAgainMidPressDoesntLetItGoOn() {
-    // The fan's step waits 40 s: the owner signs out and in again before its turn. Signed in again is a new session, and
-    // the press that began in the old one sends nothing more.
-    let app = launch(["-master-steps-wait", "40"])
+    // The fan's step waits until the owner has signed out and in again, and is known as the owner (a debug launch
+    // argument): signed in again is a new session, and the press that began in the old one sends nothing more.
+    let app = launch(["-master-steps-wait-account", "2"])
     tap(app, "master-create")
     add(app, "master-add-Quạt")
     tap(app, "master-end-60")
@@ -308,9 +327,9 @@ final class MasterFlowTests: XCTestCase {
     tap(away, "master-end")
     expect(away, "master-problems", contains: "Không tới được ổ Đèn", timeout: 40)
     // The second, the cloud reached again (afresh at a launch: the outlet on), sets the outlet on this time; then a hand
-    // switches it off (the stand-in cloud, 40 s after the launch). Kết thúc leaves it off, as the hand left it: the
+    // switches it off (the stand-in cloud, 10 s after it is told to switch it on). Kết thúc leaves it off, as the hand left it: the
     // first press's "back on" isn't sent against the hand (Codex, 17 Nov: the end compared with what was owed).
-    let again = launch(["-stand-in-hand", "switch_1=off,40"], signIn: false, reset: false)
+    let again = launch(["-stand-in-hand", "switch_1=off,10"], signIn: false, reset: false)
     tap(again, "master-edit")
     tap(again, "master-step-Đèn")
     tap(again, "master-choice-Bật")
@@ -318,7 +337,7 @@ final class MasterFlowTests: XCTestCase {
     tap(again, "master-done")
     tap(again, "master-start")
     expect(again, "master-log", contains: "switch_1 on", timeout: 40)
-    RunLoop.current.run(until: Date().addingTimeInterval(40))
+    RunLoop.current.run(until: Date().addingTimeInterval(15))
     tap(again, "master-end")
     expect(again, "master-notes", contains: "Ổ Đèn đã đổi trong lúc chạy nên AquaTome để nguyên.", timeout: 40)
     expect(again, "master-log", lacks: "switch_1 back")

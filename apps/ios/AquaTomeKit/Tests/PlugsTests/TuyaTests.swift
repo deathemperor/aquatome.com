@@ -138,27 +138,78 @@ func staleTokenOnACommand() async throws {
 @MainActor @Test("A command goes only if `allowed` still says yes once its token is in hand, and again before it goes once more for a stale one")
 func allowedAsItLeaves() async throws {
   let c = Cloud()
-  let s = c.source()
+  let fake = c.fake
+  let clock = c.clock
+  let hold = Hold()
+  // Each token request held until the test lets it go: what `allowed` answers can change meanwhile, as an outlet's role
+  // or the owner's session can while the phone asks Tuya for a token.
+  let s = TuyaPlugs(keys: keys, send: { r in
+    if r.url?.path == "/v1.0/token" { await hold.pass() }
+    return try await fake.send(r)
+  }, now: { clock.now }, wait: { _ in })
   _ = try await s.list()
-  // No (the master button's outlet made CO2, or its owner signed out, while it waited): nothing sent.
+  let permission = Permission()
+  // No from the start: nothing sent.
   await #expect(throws: Withdrawn.self) { try await s.set(provider: "tuya", device: "fake-strip-1", outlet: "switch_2", on: true, allowed: { false }) }
   #expect(c.posts == 0)
-  // Yes as it first goes, refused for a stale token (Tuya acts on nothing then), and no by the time a new token is in
-  // hand: it doesn't go again (Codex, 17 Nov: the role was checked before the wait).
-  c.fake.revoke()
-  let answers = Answers([true, false])
-  await #expect(throws: Withdrawn.self) {
-    try await s.set(provider: "tuya", device: "fake-strip-1", outlet: "switch_2", on: true, allowed: { await answers.next() })
-  }
-  #expect(c.posts == 1 && c.tokens == 2)
-  #expect(c.fake.device("fake-strip-1")?.status.first { $0.code == "switch_2" }?.value == .bool(false))
+  // The token run out: a new one is asked for before the command, and the permission withdrawn while it is. Asked
+  // before the token, it would have said yes and the command gone (Codex, 17 Nov).
+  clock.advance(7200)
+  await hold.arm()
+  let first = Task { try await s.set(provider: "tuya", device: "fake-strip-1", outlet: "switch_2", on: true, allowed: { await permission.yes }) }
+  await hold.reached()
+  await permission.set(false)
+  await hold.release()
+  await #expect(throws: Withdrawn.self) { try await first.value }
+  #expect(c.posts == 0)
+  // A stale token: the command goes, refused before Tuya acts (1010); the new token is asked for, and the permission
+  // withdrawn while it is: it doesn't go again.
+  await permission.set(true)
+  fake.revoke()
+  await hold.arm()
+  let second = Task { try await s.set(provider: "tuya", device: "fake-strip-1", outlet: "switch_2", on: true, allowed: { await permission.yes }) }
+  await hold.reached()
+  await permission.set(false)
+  await hold.release()
+  await #expect(throws: Withdrawn.self) { try await second.value }
+  #expect(c.posts == 1)
+  #expect(fake.device("fake-strip-1")?.status.first { $0.code == "switch_2" }?.value == .bool(false))
 }
 
-/// Answers asked in turn; no once they run out.
-actor Answers {
-  private var left: [Bool]
-  init(_ answers: [Bool]) { left = answers }
-  func next() -> Bool { left.isEmpty ? false : left.removeFirst() }
+actor Permission {
+  private(set) var yes = true
+  func set(_ v: Bool) { yes = v }
+}
+
+/// Token requests held, once armed, until released.
+actor Hold {
+  private var armed = false
+  private var held: [CheckedContinuation<Void, Never>] = []
+  private var watchers: [CheckedContinuation<Void, Never>] = []
+
+  func arm() { armed = true }
+
+  /// A request: held while armed.
+  func pass() async {
+    guard armed else { return }
+    await withCheckedContinuation { c in
+      held.append(c)
+      watchers.forEach { $0.resume() }
+      watchers = []
+    }
+  }
+
+  /// Returns once a request is held.
+  func reached() async {
+    guard held.isEmpty else { return }
+    await withCheckedContinuation { watchers.append($0) }
+  }
+
+  func release() {
+    armed = false
+    held.forEach { $0.resume() }
+    held = []
+  }
 }
 
 @MainActor @Test("Every request: signed with the project's keys, to its data center, the switch's command as Tuya's docs give it")

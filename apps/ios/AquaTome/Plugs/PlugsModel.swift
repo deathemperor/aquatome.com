@@ -89,7 +89,8 @@ final class PlugsModel {
   /// `-stand-in-strip <name>` names the first strip as its owner would in Smart Life (the App Store's screenshots, in
   /// each language). `-stand-in-timer enabled` gives its first outlet ("Đèn") Smart Life timers, off at 00:00 and on at
   /// 18:00 every day; `disabled`, the same timers turned off. `-stand-in-offline`: no network to it. `-stand-in-hand
-  /// switch_1=off,40`: 40 s after the launch, a hand switches the first strip's outlet so (the master button's flows).
+  /// switch_1=off,10`: 10 s after the stand-in cloud is next told to switch the first strip's outlet the other way, a
+  /// hand switches it so (the master button's flows).
   static func forSimulator(_ args: [String]) -> PlugsModel {
     let strip = args.firstIndex(of: "-stand-in-strip").flatMap { $0 + 1 < args.count ? args[$0 + 1] : nil } ?? "Ổ cắm bể 60"
     let timer = args.firstIndex(of: "-stand-in-timer").flatMap { $0 + 1 < args.count ? args[$0 + 1] : nil }
@@ -116,9 +117,13 @@ final class PlugsModel {
       let parts = args[i + 1].split(separator: ",").map(String.init)
       let kv = parts[0].split(separator: "=").map(String.init)
       if parts.count == 2, kv.count == 2, let after = Double(parts[1]) {
+        let (code, on) = (kv[0], kv[1] == "on")
+        let told: @Sendable (JSON) -> Bool = { c in c.object?["commands"]?.array?.first?.object?["code"]?.string == code && c.object?["commands"]?.array?.first?.object?["value"] == .bool(!on) }
         Task { @MainActor in
+          let before = fake.commands.count
+          while !fake.commands.dropFirst(before).contains(where: told) { try? await Task.sleep(for: .milliseconds(300)) }
           try? await Task.sleep(for: .seconds(after))
-          if let j = fake.devices[0].status.firstIndex(where: { $0.code == kv[0] }) { fake.devices[0].status[j].value = .bool(kv[1] == "on") }
+          if let j = fake.devices[0].status.firstIndex(where: { $0.code == code }) { fake.devices[0].status[j].value = .bool(on) }
         }
       }
     }

@@ -21187,6 +21187,28 @@
         }
       }
     },
+    "Không rõ lệnh tới ổ %@ chưa nên AquaTome để nguyên: xem lại ổ này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak jelas apakah perintah sampai ke stopkontak %@, jadi AquaTome membiarkannya: periksa stopkontak ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak pasti sama ada arahan sampai ke soket %@, jadi AquaTome membiarkannya: semak soket ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่แน่ใจว่าคำสั่งถึงปลั๊ก %@ หรือยัง AquaTome จึงปล่อยไว้ตามเดิม: ตรวจดูปลั๊กนี้"
+          }
+        }
+      }
+    },
     "Không thấy ổ %@ trong dự án Tuya.": {
       "localizations": {
         "id": {

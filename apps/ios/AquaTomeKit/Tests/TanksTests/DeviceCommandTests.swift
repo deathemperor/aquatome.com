@@ -210,11 +210,11 @@ func howAPressLeftEach() {
   let fanFailed = [MasterRun.Failed(target: fanOn.target, line: "b")]
   var lost = run()
   lost.settle(fanFailed, now: { $0.target == fanOn.target ? false : nil }, keeping: [owedFan.command.target], at: m0, uncertain: [fanOn.target])
-  #expect(left(lost, fanOn) == false)
+  #expect(left(lost, fanOn) == false && lost.back[0].guessed == nil)
   // Lost and not read after it: counted gone, as asked (the end leaves an outlet found otherwise, rather than undo a hand).
   var unread = run()
   unread.settle(fanFailed, now: { _ in nil }, keeping: [owedFan.command.target], at: m0, uncertain: [fanOn.target])
-  #expect(left(unread, fanOn) == true)
+  #expect(left(unread, fanOn) == true && unread.back[0].guessed == true)
   // Refused before anything went: as the earlier press left it.
   var refused = run()
   refused.settle(fanFailed, now: { _ in nil }, keeping: [owedFan.command.target], at: m0)
