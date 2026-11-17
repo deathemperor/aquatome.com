@@ -191,13 +191,19 @@ test('no caption keeps a renamed fish\'s old name, and no fish\'s photos carry a
     const words = longer.reduce((s, l) => s.replace(l, ''), c)
     for (const r of renamed) if (r.re.test(words)) left.push(`${f.slice(content.length + 1)}: "${c}" (${r.was})`)
   }
-  // Another fish's name on a fish's own photos: its album and its page.
+  // Another fish's name on a fish's own photos: its album and its page. Read without the fish's own names, which can hold
+  // the other's ("Cá molly vây buồm" holds "Cá molly", "Cá tetra Congo cam" holds "Cá tetra Congo").
   for (const id of readdirSync(join(content, 'species'))) {
     const e = JSON.parse(readFileSync(join(content, 'species', id, 'entity.json'), 'utf8')) as { scientificName: string }
     const off = NOT_ITS[e.scientificName]
     if (!off) continue
+    const page = JSON.parse(readFileSync(join(content, 'species', id, 'vi.json'), 'utf8').normalize('NFC')) as { name: string; altNames?: string[] }
+    const own = [page.name, ...(page.altNames ?? [])].sort((a, b) => b.length - a.length).map(n => new RegExp(old(n).source, 'giu'))
     for (const f of [join(content, 'gallery', `${id}.json`), join(content, 'species', id, 'entity.json')].filter(x => existsSync(x)))
-      for (const c of captionsOf(f)) for (const x of off) if (old(x.name).test(c)) left.push(`${f.slice(content.length + 1)}: "${c}" (${x.name})`)
+      for (const c of captionsOf(f)) {
+        const words = own.reduce((s, n) => s.replace(n, ' '), c)
+        for (const x of off) if (old(x.name).test(words)) left.push(`${f.slice(content.length + 1)}: "${c}" (${x.name})`)
+      }
   }
   expect(left).toEqual([])
 })
