@@ -1,0 +1,83 @@
+{
+  "id": "micropterus-salmoides",
+  "scientificName": "Micropterus salmoides",
+  "order": "Perciformes",
+  "family": "Centrarchidae",
+  "genus": "Micropterus",
+  "group": "other",
+  "places": [
+    "north-america",
+    "united-states"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 100
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/micropterus_salmoides_en/",
+      "html": "<p>Something special for your pond.</p><p>Origin: USA</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/micropterus_salmoides_en/",
+      "html": "<p>The Largemouth Bass originates from the eastern part of the United States where they occur from the Canadian border down to Mexico. By now they have been spread in numerous countries as game fish and can therefore also be found in Europe.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/micropterus_salmoides_en/",
+      "html": "<p>They prefer quiet, well warmed waters without a current and with dense vegetation. This biotope gives them protection and hiding places to sneak up on their prey.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/micropterus_salmoides_en/",
+      "html": "<p>As predators they feed on water insects and their larvae, crayfish and fish.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/micropterus_salmoides_en/",
+      "html": "<p>Spawning takes place in the spring, depending on the water temperature. They spawn in nests built by the male; eggs and larvae are guarded by the male until approximately one month after they become free swimming.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/micropterus_salmoides_en/",
+      "html": "<p>They can get up to 100 cm long and reach a weight of up to 15 kg.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/4c79b1e1d6a77704.webp",
+      "width": 960,
+      "height": 394,
+      "licence": "CC BY-SA 4.0",
+      "author": "Totti",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Micropterus_salmoides_Lake_Biwa_Museum1.jpg",
+      "caption": "ja:オオクチバス。ja:滋賀県立琵琶湖博物館飼育展示個体。",
+      "thumb": "https://media.aquatome.com/commons/4c79b1e1d6a77704-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/2d492e5dd0c16384.webp",
+      "width": 960,
+      "height": 541,
+      "licence": "Public domain",
+      "author": "USFWS Mountain Prairie",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Largemouth_Bass_(Micropterus_salmoides)_June_2023.jpg",
+      "caption": "Micropterus salmoides at Gavins Point",
+      "thumb": "https://media.aquatome.com/commons/2d492e5dd0c16384-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-17"
+}

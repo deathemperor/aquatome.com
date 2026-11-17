@@ -122,12 +122,12 @@
   "dataCard": {
     "sizeCm": [
       {
-        "source": "glaser",
-        "value": 5
-      },
-      {
         "source": "seriouslyfish",
         "value": 6
+      },
+      {
+        "source": "glaser",
+        "value": 8
       }
     ],
     "tempC": [
@@ -136,6 +136,13 @@
         "value": {
           "min": 22,
           "max": 26
+        }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 24,
+          "max": 27
         }
       }
     ],
@@ -174,8 +181,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/clypeobarbus_congicus_en/",
-      "html": "<p>The Copper-red Congobarb is astonishingly only an insider tip among aquarists and even experienced hobbyists often never have heard of it. This beautiful fish attains a maximum length of only 4-5 cm, only in rare exceptions they become up to 7 cm long. These barbs are absolutely peaceful schooling fish.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_congicus_en/",
+      "html": "<p>The Congo Barb is a rarely traded ornamental fish. With a length of 7–8 cm it belongs to the medium-sized barbs.</p>"
     },
     {
       "key": "quickFacts",
@@ -190,6 +197,12 @@
       "html": "<p>Native to parts of the Congo River drainage in both the Republic of Congo and the Democratic Republic of Congo. The type specimens were collected from the area around the coastal port towns of Boma and Matadi which lie close to the mouth of the river in the latter of the two countries.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_congicus_en/",
+      "html": "<p>Barbus congicus originates from the Congo river in Central Africa.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/clypeobarbus-congicus",
@@ -202,6 +215,12 @@
       "html": "<p>A tank with base dimensions of at least 90 × 30 cm (about 81 litres) is recommended, as apparently intraspecific aggression is high if this species is maintained in smaller quarters (see 'Behaviour and compatibility').</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_congicus_en/",
+      "html": "<p>Given its vivaciousness, it should not be kept in too small aquariums. Sufficient free swimming areas should always be present for these active shoaling fish.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/clypeobarbus-congicus",
@@ -212,6 +231,18 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/clypeobarbus-congicus",
       "html": "<ul><li>Temperature: 22–26°C</li><li>pH: 6.0–7.0</li><li>Hardness: 2–10 dGH</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_congicus_en/",
+      "html": "<p>Neutral pH, temperature 24–27°C.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_congicus_en/",
+      "html": "<p>Dense planting of the tank background is recommended, not only for aesthetic reasons. It is also a refuge for fry and suppressed individuals.</p>"
     },
     {
       "key": "diet",
@@ -244,10 +275,10 @@
       "html": "<p>C. congicus is rare in the aquatic hobby and even when it appears on exporters' lists often turns out to be something else. It was previously considered a member of the catch-all genus 'Barbus' but in 2008 was included in a phylogenetic diagnosis of the subgenus Clypeobarbus by Conway and Stiassny and subsequently reclassified.</p><p>Clypeobarbus was originally put forward as a subgenus of Barbus by Fowler in 1936 on the basis that member species possessed a midlateral row of enlarged, shield-like scales, but he only included the type species 'Barbus' kemoensis (now a junior synonym of Clypeobarbus pleuropholis) in the group.</p><p>Subsequent work by Poll and Lambert (1961), Jubb (1965) and Skelton (1993) resulted in several additional species being placed into the grouping although it appears that little of this work was widely recognised until the recent study was published.</p><p>Current members include C. pleuropholis, C. bellcrossi, C. bomokandi, C. congicus, C. hypsolepis, C. pseudognathodon and C. schoutedeni.</p><p>The genus Barbus is also in a confused state classification-wise. While there exist almost 340 putative species, the vast majority of them do not appear to be closely related to Barbus sensu stricto.</p><p>Berrebi et al. (1996) proposed that only the European, Southwest Asian and North African representatives should be included in Barbus (around 20 species) and that all species of Barbus sensu lato which cannot be placed in a proper genus be referred to as 'Barbus' pending further study. This includes all sub-Saharan species.</p>"
     },
     {
-      "key": "references",
+      "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/clypeobarbus_congicus_en/",
-      "html": "<p>Text &amp; photos: Frank Schäfer</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_congicus_en/",
+      "html": "<p>Barbus congicus makes no special demands regarding food and water and should thus be an interesting fish for the engaged hobbyist.</p>"
     },
     {
       "key": "references",
@@ -305,5 +336,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-17"
 }

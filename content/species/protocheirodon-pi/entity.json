@@ -5,7 +5,11 @@
   "family": "Characidae",
   "genus": "Protocheirodon",
   "group": "tetras",
-  "places": [],
+  "places": [
+    "south-america",
+    "bolivia",
+    "peru"
+  ],
   "range": {
     "records": {
       "taxonKey": 9741842,
@@ -136,35 +140,59 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leptagoniates_pi_en/",
-      "html": "<p>The very rare crystal glass tetra was imported once more. The charming species attains a maximum length of only about 4 cm and is very peaceful.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/mountain_crystal_tetra_leptagoniates_pi_en/",
+      "html": "<p>The Mountain crystal tetra attains a length of about 4 cm. Very characteristic and species-specific is the swim bladder, which is parted in two and has a connection on the top, forming a figure reminiscent of the ancient Greek letter \"Pi\". This is why the species is named as it is.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/mountain_crystal_tetra_leptagoniates_pi_en/",
+      "html": "<p>The species was originally described from Bolivia. The fish imported by the source came from Peru.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/mountain_crystal_tetra_leptagoniates_pi_en/",
+      "html": "<p>Any usual fish food is readily taken.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/mountain_crystal_tetra_leptagoniates_pi_en/",
+      "html": "<p>Mountain crystal tetras are very peaceful fishes, maybe a bit shy. They should always be kept in schools. Although they are so colourless (or maybe because of it) they are real eye-catchers. The species can be kept in community tanks without problems. Aquatic plants will not be damaged by the fish.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/mountain_crystal_tetra_leptagoniates_pi_en/",
+      "html": "<p>Glassfishes occur in many fish families. In the hobby, glass perches (Parambassis etc.) and glass catfishes (Kryptopterus) are well known; occasionally glass gobies (Gobiopterus) and Crystal danios (Danionella) are also kept. All these come from South and South East Asia. The Mountain crystal tetra is a species from South America that is new to the hobby.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/9ec4e1b2c051426c.webp",
+      "thumb": "https://media.aquatome.com/commons/9ec4e1b2c051426c-480.webp",
       "width": 960,
       "height": 640,
-      "licence": "CC BY-SA 4.0",
-      "author": "serwacy01-",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Protocheirodon_pi.jpg",
-      "caption": "Protocheirodon pi",
-      "thumb": "https://media.aquatome.com/commons/9ec4e1b2c051426c-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/9ec4e1b2c051426c-large.webp",
         "width": 1800,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "serwacy01-",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Protocheirodon_pi.jpg",
+      "caption": "Protocheirodon pi"
     },
     {
       "url": "https://media.aquatome.com/commons/4b6e5f11b9d83c2f.webp",
+      "thumb": "https://media.aquatome.com/commons/4b6e5f11b9d83c2f-480.webp",
       "width": 960,
       "height": 540,
       "licence": "CC BY 4.0",
       "author": "Julien Lepage",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Protocheirodon_pi2.jpg",
-      "caption": "Protocheirodon pi",
-      "thumb": "https://media.aquatome.com/commons/4b6e5f11b9d83c2f-480.webp"
+      "caption": "Protocheirodon pi"
     }
   ],
   "videos": [
@@ -209,5 +237,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-17"
 }

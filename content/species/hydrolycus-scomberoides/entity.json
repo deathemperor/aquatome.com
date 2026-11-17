@@ -600,6 +600,13 @@
           "min": 24,
           "max": 28
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -641,16 +648,34 @@
   },
   "sections": [
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hydrolycus-scomberoides/",
+      "html": "<p>The Dogtooth characins (Hydrolycus) are a small genus of tetras (four species) with a wide distribution in tropical South America. They have in common very long saber-like teeth in the lower jaw. In the upper jaw cave-like notches are present, as otherwise the fish would not be able to close the mouth.</p><p>These saber-teeth are used to stab the fish the Dogtooth characins feed on to death before they eat them.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hydrolycus-scomberoides",
       "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump. A tightly-fitting cover is essential as this species is a prodigious jumper, and it may also prove beneficial to cover the back and sides of the aquarium in order to reduce the chances of it swimming into the glass since it can be skittish, especially in confined surroundings.</li></ul><p>The vampire tetra, Hydrolycus scomberoides, is a predatory dogtooth characin from the central and upper Amazon in Brazil, Bolivia, Peru and Ecuador. Also sold as 'scomb' and 'sabre tooth tetra', it is regularly confused with the much larger payara, H. armatus. At up to 30 cm it still needs a huge tank and specialist care, and newly-imported specimens often refuse anything but live food.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hydrolycus-scomberoides/",
+      "html": "<p>Hydrolycus scomberoides is one of the largest species of the genus. The maximum length reported so far is more than a meter. This fish weighs around 18 kg. So it is clear that this species can be kept in very large aquaria only.</p><p>H. scomberoides can be easily recognized by a distinct black spot on the innermost rays of the pectoral fins. This is a feature unique to that species.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hydrolycus-scomberoides",
       "html": "<p>Type locality is given simply as 'Brazil' but this species is currently understood to be widespread in the central and upper Amazon River system in Brazil, Bolivia, Peru and Ecuador, with the rio Tapajós in Brazil appearing to mark the downstream limit of its range.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hydrolycus-scomberoides/",
+      "html": "<p>Origin: Peru.</p>"
     },
     {
       "key": "habitat",
@@ -665,6 +690,12 @@
       "html": "<p>Standard length: 30 cm SL. Aquarium base: 210 × 75 cm. Volume: ~1181 litres.</p><p>An aquarium with base dimensions of 210 × 75 cm should be the absolute minimum considered.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hydrolycus-scomberoides/",
+      "html": "<p>In the aquarium H. scomberoides requires not much space (compared with other fish), as well settled specimens do not move much.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hydrolycus-scomberoides",
@@ -677,16 +708,34 @@
       "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hydrolycus-scomberoides/",
+      "html": "<p>Water temperature should be between 22 and 28°C. The remaining water conditions are of no great importance.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hydrolycus-scomberoides",
       "html": "<p>An obligate but generalised piscivore capable of consuming surprisingly large prey.</p><p>Newly-imported specimens often refuse to accept anything but live fishes but most can be weaned onto dead alternatives once recognised as edible.</p><p>Like the vast majority of predatory fishes this species should not be fed mammalian or avian meat like beef heart or chicken, and similarly there is no benefit in the long-term use of 'feeder' fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction and at any rate tend not have a high nutritional value unless properly conditioned beforehand.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hydrolycus-scomberoides/",
+      "html": "<p>Live fish are preferred as prey, but well settled specimens will also accept dead fish for food.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hydrolycus-scomberoides",
       "html": "<p>Best kept alone or with similarly-sized, non-aggressive fishes since it's actually quite peaceful with those too large to be considered food.</p><p>It can also be maintained in a group in a suitably-sized aquarium but the purchase of at least three specimens is advisable.</p><p>Juveniles tend to adopt a presumably cryptic, oblique, 'head-down' position and lurk among the décor whereas adults are fully pelagic.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hydrolycus-scomberoides/",
+      "html": "<p>They stand in their genus-typical head-down position and wait for prey. Although these predators stand clear of congeners, they are not aggressive at all.</p>"
     },
     {
       "key": "notes",
@@ -755,5 +804,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-17"
 }

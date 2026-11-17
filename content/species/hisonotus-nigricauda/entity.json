@@ -7,7 +7,12 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "paraguay"
+    "paraguay",
+    "brazil",
+    "rio-grande-do-sul",
+    "uruguay",
+    "uruguay-river",
+    "argentina"
   ],
   "range": {
     "native": {
@@ -155,6 +160,28 @@
       {
         "source": "glaser",
         "value": 5
+      },
+      {
+        "source": "scotcat",
+        "value": 5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -172,6 +199,18 @@
       "html": "<p>The species originates from subtropical regions; its natural distribution covers the river basins of the Paraná/Paraguay and Uruguay.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hisonotus_nigricauda.htm",
+      "html": "<p>South America: Paraná/Paraguay River basin. Type locality: Rio Grande do Sul, Brazil.</p><p>Hisonotus nigricauda is distributed in the Patos Lagoon system and the Uruguay River basin, south of the mouth of the Ibicuí River (Brazil, Uruguay, and Argentina). It is an abundant and frequent species. As there is no measurable evidence of threats to the species, it has been categorised as Least Concern (LC) on the IUCN Red List.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hisonotus_nigricauda.htm",
+      "html": "<p>Said to be a bit more problematic in the aquarium if good water quality is not adhered to. They rest on aquatic vegetation in the aquarium so long leaved plants are recommended. Cooler temperatures and a strong filtration with adequate current will fare better for this species and for this genera overall.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hisonotus_nigricauda_en/",
@@ -184,16 +223,34 @@
       "html": "<p>Besides Aufwuchs, the fish feed on food tablets and frozen Cyclops.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hisonotus_nigricauda.htm",
+      "html": "<p>Will feed on flake, algae, tablet foods and algae wafers.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hisonotus_nigricauda_en/",
       "html": "<p>The species should always be kept in small groups (at least 5 specimens).</p>"
     },
     {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hisonotus_nigricauda.htm",
+      "html": "<p>Scatters eggs throughout the aquarium and are not cared for by the parents.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hisonotus_nigricauda_en/",
       "html": "<p>Lexicon: Hisonotus: nigricauda is Latin and means \"with a black tail\". Otothyropsis means \"similar to Otothyrops\"; Otothyrops is another genus of catfish. piribebuy: after the type locality, the rio Piribebuy, an affluent of the rio Paraguay.</p><p>Suggested common name: Redtail Otocinclus.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hisonotus_nigricauda.htm",
+      "html": "<p>Etymology: nigri-, black; cauda, tail, referring to “deep black” caudal fin (with outer rays spotted with white).</p>"
     }
   ],
   "photos": [
@@ -226,6 +283,39 @@
       "author": "Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hisonotus_nigricauda_en/",
       "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/d12cef5b3c67abfb.webp",
+      "thumb": "https://media.aquatome.com/scotcat/d12cef5b3c67abfb-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Pablo Lehmann / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hisonotus_nigricauda.htm",
+      "caption": "Hisonotus nigricauda: pair - female below",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/5c2e7f904160f416.webp",
+      "thumb": "https://media.aquatome.com/scotcat/5c2e7f904160f416-480.webp",
+      "width": 500,
+      "height": 377,
+      "licence": "dùng với sự cho phép",
+      "author": "Enzo Edgardo Ferreyra / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hisonotus_nigricauda.htm",
+      "caption": "Hisonotus nigricauda",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/1837fce67c9f454f.webp",
+      "thumb": "https://media.aquatome.com/scotcat/1837fce67c9f454f-480.webp",
+      "width": 500,
+      "height": 209,
+      "licence": "dùng với sự cho phép",
+      "author": "Freshwater Fish from Uruguay 2nd. edition / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hisonotus_nigricauda.htm",
+      "caption": "Hisonotus nigricauda",
+      "source": "scotcat"
     }
   ],
   "videos": [],

@@ -555,6 +555,43 @@
       "kept": false
     }
   ],
+  "vi/products/oase-filtosmart-100-thermo": [
+    {
+      "at": "2026-11-17T07:48:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.85,
+      "notes": [
+        "\"Cỡ càng lớn thì lưu lượng càng cao và sưởi càng mạnh\" is a generalization, though it is supported by the variant specs.",
+        "\"cũng có sưởi tích hợp và chứa được nhiều vật liệu lọc hơn\" for BioMaster: the facts say a built-in heater and more media, so this is supported.",
+        "\"Khí trong thùng tự thoát ra ngoài\" is supported by the auto-venting fact.",
+        "The page does not state the main spec numbers (600 L/h, 11 W, 100 W). That is an omission, not an error.",
+        "\"Bản GB/INT chạy 230 V\" is supported by the facts.",
+        "The opening sentence calls the unit \"lọc thùng nhỏ gọn có sưởi\" and recommends it, yet the Thermo is not sold in Vietnam. The page does disclose this."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-17T07:48:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.85,
+      "notes": [
+        "\"Nếu đặt lọc thấp hơn bể nhiều thì nên tính theo con số thấp hơn cho chắc\" – advice not in the facts (the facts only say listings disagree); it also misreads what head height means.",
+        "\"Phần lọc giống hệt\" for FiltoSmart 100 no heater – the facts say same flow rate and tank size, not that the filter is identical.",
+        "\"Mỗi bản có sưởi với công suất tương ứng\" – vague; the facts do give 100/200/300 W, so this is only a minor generality.",
+        "\"Khí trong thùng tự thoát ra ngoài\" – roughly supported (air vents automatically).",
+        "\"Lấy vật liệu lọc ra rửa\" – the facts only say the lid opens quickly to get at the media; washing is not mentioned.",
+        "\"Chứa được nhiều vật liệu lọc hơn\" for the BioMaster – supported (more media).",
+        "\"Tháo ra vệ sinh ít đổ nước\" – supported."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/products/tuya-smart-life-power-strip": [
     {
       "at": "2026-11-09T06:23:13Z",

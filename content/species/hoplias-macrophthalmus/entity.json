@@ -1,0 +1,86 @@
+{
+  "id": "hoplias-macrophthalmus",
+  "scientificName": "Hoplias macrophthalmus",
+  "order": "Characiformes",
+  "family": "Erythrinidae",
+  "genus": "Hoplias",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "colombia",
+    "amazon"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 120
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hoplias_macrophthalmus_en/",
+      "html": "<p>Hoplias macrophthalmus is one of the biggest predatory fishes of the Amazon river system. As an adult, with a weight of over 40 kg and a length of more than 120 cm, it is among the largest characins of all.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hoplias_macrophthalmus_en/",
+      "html": "<p>Contrary to the regularly imported Hoplias malabaricus, these arrive only extremely rarely in the trade. Very large tanks are required for keeping them, and their tankmates have to be chosen with great caution.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hoplias_macrophthalmus_en/",
+      "html": "<p>Imported from Colombia.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/3e0261ed86f1294e.webp",
+      "width": 960,
+      "height": 485,
+      "licence": "CC BY-SA 3.0",
+      "author": "Lars Simonsen",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hoplias_macropthalmus.jpg",
+      "caption": "Hoplias macropthalmus in a pet shop",
+      "thumb": "https://media.aquatome.com/commons/3e0261ed86f1294e-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/867294063bee5431.webp",
+      "width": 960,
+      "height": 441,
+      "licence": "CC BY-SA 3.0",
+      "author": "Lars Simonsen",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hoplias_macropthalmus2.jpg",
+      "caption": "Hoplias macropthalmus in a pet shop",
+      "thumb": "https://media.aquatome.com/commons/867294063bee5431-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá kính cỡ lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài công suất lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá công suất lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

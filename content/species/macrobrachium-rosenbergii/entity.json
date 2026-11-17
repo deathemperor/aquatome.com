@@ -1,0 +1,70 @@
+{
+  "id": "macrobrachium-rosenbergii",
+  "scientificName": "Macrobrachium rosenbergii",
+  "order": "Decapoda",
+  "family": "Palaemonidae",
+  "genus": "Macrobrachium",
+  "group": "shrimp",
+  "places": [
+    "asia",
+    "thailand"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 30
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium-rosenbergii/",
+      "html": "<p>Family Palaemonidae. Origin: Thailand. Grows to 25–30 cm body length, up to 50 cm including the claws.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium-rosenbergii/",
+      "html": "<p>Macrobrachium rosenbergii plays a very important role in aquaculture in many regions of Asia. Mainly in Thailand it is bred in huge numbers for human consumption. It is imported to Europe from time to time. Do not underestimate this shrimp when you find it in a shop: it should only be kept by experienced hobbyists. It is sensitive during transport, so single packing in big bags is very important to guarantee safe arrival.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium-rosenbergii/",
+      "html": "<p>They need big tanks with many places to hide.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/1d1db33eae51fb65.webp",
+      "thumb": "https://media.aquatome.com/glaser/1d1db33eae51fb65-480.webp",
+      "width": 800,
+      "height": 533,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium-rosenbergii/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn nuôi tôm càng xanh",
+        "bể kính 200 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy lọc ngoài cho bể tôm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

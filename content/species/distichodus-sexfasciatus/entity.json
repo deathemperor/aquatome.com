@@ -10,7 +10,8 @@
     "cameroon",
     "democratic-republic-of-the-congo",
     "tanzania",
-    "lake-tanganyika"
+    "lake-tanganyika",
+    "congo"
   ],
   "range": {
     "native": {
@@ -338,6 +339,10 @@
       {
         "source": "seriouslyfish",
         "value": 75
+      },
+      {
+        "source": "glaser",
+        "value": 30
       }
     ],
     "tankCm": [
@@ -361,10 +366,22 @@
       "html": "<p>The six-banded distichodus, Distichodus sexfasciatus, is a large citharinid from Cameroon, the Democratic Republic of Congo and Tanzania. The most common Distichodus in the hobby, it is often sold for the general community tank, which its temperament and size do not suit: it reaches 75 cm, though rarely more than 40 cm in aquaria. Juveniles are orange and black striped with red fins, but much of this colour fades as the fish grows.</p><ul><li>Max size: 750 mm SL (30 in)</li><li>Aquarium size: 240 × 90 cm (96 × 36 in)</li><li>Temperature: 22–26°C (72–79°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 10–20 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/distichodus_sexfasciatus_en/",
+      "html": "<p>This characin grows to approximately 30 cm in the aquarium. It is a pronounced herbivore.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/distichodus-sexfasciatus",
       "html": "<p>Cameroon, Democratic Republic of Congo, Tanzania. It is present in Lake Tanganyika.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/distichodus_sexfasciatus_en/",
+      "html": "<p>Distichodus sexfasciatus originates from the Congo River basin in the Democratic Republic of the Congo (formerly Zaire).</p>"
     },
     {
       "key": "habitat",
@@ -391,10 +408,22 @@
       "html": "<ul><li>Temperature: 22–26°C (72–79°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 10–20 dGH</li></ul>"
     },
     {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/distichodus_sexfasciatus_en/",
+      "html": "<p>A sufficient filtering should be provided, since a certain nitrite sensitivity is present. Water chemistry plays only a subordinate role in their maintenance.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/distichodus-sexfasciatus",
       "html": "<p>Omnivorous and will accept most foods offered. It should be fed a decent proportion of vegetable matter to keep it in the best of health. A diet of live and frozen foods such as earthworms, prawn and mussel, along with frozen peas (remove the shells), Spirulina flake and blanched spinach would provide the desired balance.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/distichodus_sexfasciatus_en/",
+      "html": "<p>This fish is a pronounced herbivore, so most smooth-leaved plants are regarded as food.</p>"
     },
     {
       "key": "behaviour",
@@ -431,28 +460,28 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/be1d40df9de3044c.webp",
+      "thumb": "https://media.aquatome.com/commons/be1d40df9de3044c-480.webp",
       "width": 960,
       "height": 721,
-      "licence": "CC BY-SA 3.0",
-      "author": "Hectonichus",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Distichodontidae_-_Distichodus_sexfasciatus.JPG",
-      "caption": "Distichodus sexfasciatus, on display at the Museo di Storia Naturale e del Territorio, Calci (Province Pisa), Italy",
-      "thumb": "https://media.aquatome.com/commons/be1d40df9de3044c-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/be1d40df9de3044c-large.webp",
         "width": 1598,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "Hectonichus",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Distichodontidae_-_Distichodus_sexfasciatus.JPG",
+      "caption": "Distichodus sexfasciatus, on display at the Museo di Storia Naturale e del Territorio, Calci (Province Pisa), Italy"
     },
     {
       "url": "https://media.aquatome.com/commons/ba25cb7780a8e7b6.webp",
+      "thumb": "https://media.aquatome.com/commons/ba25cb7780a8e7b6-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 4.0",
       "author": "Federigo Federighi",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Distichodus_sexfasciatus_at_Calci_Aquarium.jpg",
-      "caption": "Distichodus sexfasciatus at Calci Aquarium (Natural History Museum of Pisa University.",
-      "thumb": "https://media.aquatome.com/commons/ba25cb7780a8e7b6-480.webp"
+      "caption": "Distichodus sexfasciatus at Calci Aquarium (Natural History Museum of Pisa University."
     }
   ],
   "videos": [],
@@ -484,5 +513,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-17"
 }

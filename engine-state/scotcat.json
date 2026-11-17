@@ -757,6 +757,86 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/amphiliidae/phractura_ansorgii.htm": {
+    "entityIds": [
+      "species/phractura-ansorgii"
+    ],
+    "updatedAt": "2026-11-17T05:49:19.473Z",
+    "hash": "bb14c988d7412b13f103a53a59c670fb6d6731375c562000718228b39bacc4b6",
+    "processedHash": "bb14c988d7412b13f103a53a59c670fb6d6731375c562000718228b39bacc4b6",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amphiliidae/phractura_brevicauda.htm": {
+    "entityIds": [
+      "species/phractura-brevicauda"
+    ],
+    "updatedAt": "2026-11-17T05:53:23.286Z",
+    "hash": "c849e37c6d5da998370ee2baccbbc944ba95edb1544766144b55ffdef31978da",
+    "processedHash": "c849e37c6d5da998370ee2baccbbc944ba95edb1544766144b55ffdef31978da",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amphiliidae/phractura_clauseni.htm": {
+    "entityIds": [
+      "species/phractura-clauseni"
+    ],
+    "updatedAt": "2026-11-17T05:55:22.505Z",
+    "hash": "0161cc9ec7716e7451adbbf15e25482f64bd02a88e0e06d1c474c8e08a3c3c97",
+    "processedHash": "0161cc9ec7716e7451adbbf15e25482f64bd02a88e0e06d1c474c8e08a3c3c97",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amphiliidae/phractura_fasciata.htm": {
+    "entityIds": [
+      "species/phractura-fasciata"
+    ],
+    "updatedAt": "2026-11-17T05:57:23.005Z",
+    "hash": "b7d1ae0ff975dfb31c3a7906b3ba60975f23d65488d6f1fac609b45dd09fd982",
+    "processedHash": "b7d1ae0ff975dfb31c3a7906b3ba60975f23d65488d6f1fac609b45dd09fd982",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amphiliidae/trachyglanis_ineac.htm": {
+    "entityIds": [
+      "species/trachyglanis-ineac"
+    ],
+    "updatedAt": "2026-11-17T05:59:26.664Z",
+    "hash": "271a66641a6590149587f9b504879fe17d8ea658e12de8927176da0aff3cc449",
+    "processedHash": "271a66641a6590149587f9b504879fe17d8ea658e12de8927176da0aff3cc449",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amphiliidae/trachyglanis_sanghensis.htm": {
+    "entityIds": [
+      "species/trachyglanis-sanghensis"
+    ],
+    "updatedAt": "2026-11-17T06:01:08.809Z",
+    "hash": "018a26ae8662ca2c3d5f03a2e7d578a452eadd2a19ed6387a17b19760e2d4e04",
+    "processedHash": "018a26ae8662ca2c3d5f03a2e7d578a452eadd2a19ed6387a17b19760e2d4e04",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amphiliidae/zaireichthys_conspicuus.htm": {
+    "entityIds": [
+      "species/zaireichthys-conspicuus"
+    ],
+    "updatedAt": "2026-11-17T06:03:10.218Z",
+    "hash": "e726677d018555448a9d4d86f4d103fb8f9db7bcbc70529051bef62560c1e370",
+    "processedHash": "e726677d018555448a9d4d86f4d103fb8f9db7bcbc70529051bef62560c1e370",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amphiliidae/zaireichthys_kunenensis.htm": {
+    "entityIds": [
+      "species/zaireichthys-kunenensis"
+    ],
+    "updatedAt": "2026-11-17T06:04:43.246Z",
+    "hash": "80bc214388ba68595cb9c58922de311a8ab39ba97d6213c4ce00f2007c1dd0ea",
+    "processedHash": "80bc214388ba68595cb9c58922de311a8ab39ba97d6213c4ce00f2007c1dd0ea",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/anchariidae/ancharius_fuscus.htm": {
     "entityIds": [
       "species/ancharius-fuscus"
@@ -814,6 +894,16 @@
     "updatedAt": "2026-11-08T11:46:38.538Z",
     "hash": "f6154d569fd8db901fb2663ded752a10792c1bce43835d591b27b2c3bca14f37",
     "processedHash": "f6154d569fd8db901fb2663ded752a10792c1bce43835d591b27b2c3bca14f37",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/ernstichthys_megistus.htm": {
+    "entityIds": [
+      "species/ernstichthys-megistus"
+    ],
+    "updatedAt": "2026-11-17T05:43:23.165Z",
+    "hash": "60d1ae2a91f54b646539f8c525b6070ba5cb47cc0d243d3c834b9d8b5982c5ff",
+    "processedHash": "60d1ae2a91f54b646539f8c525b6070ba5cb47cc0d243d3c834b9d8b5982c5ff",
     "status": "processed",
     "attempts": 0
   },
@@ -1644,6 +1734,16 @@
     "updatedAt": "2026-11-02T21:50:28.724Z",
     "hash": "7189b7a121a5a65300001b43c10f365b1b8f1667fe74bcac35b30f6245aa28fd",
     "processedHash": "7189b7a121a5a65300001b43c10f365b1b8f1667fe74bcac35b30f6245aa28fd",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/hisonotus_nigricauda.htm": {
+    "entityIds": [
+      "species/hisonotus-nigricauda"
+    ],
+    "updatedAt": "2026-11-17T05:46:05.317Z",
+    "hash": "69651a768fe90c2ca960fc3a3c92c56bd67a86b48a6b077e30eeff9aaef21d0e",
+    "processedHash": "69651a768fe90c2ca960fc3a3c92c56bd67a86b48a6b077e30eeff9aaef21d0e",
     "status": "processed",
     "attempts": 0
   },

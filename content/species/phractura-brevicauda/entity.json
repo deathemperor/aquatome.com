@@ -1,0 +1,129 @@
+{
+  "id": "phractura-brevicauda",
+  "scientificName": "Phractura brevicauda",
+  "order": "Siluriformes",
+  "family": "Amphiliidae",
+  "genus": "Phractura",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "lower-congo-river",
+    "cameroon",
+    "kribi-river",
+    "gabon",
+    "ogowe"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 8.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_brevicauda.htm",
+      "html": "<ul><li>IUCN Red List: Least Concern (needs updating, IUCN 2010)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_brevicauda.htm",
+      "html": "<p>Africa: Lower Congo River. Type locality: tributary of the Lobi River, south-west of Efulen, and Kribi River, South Cameroon; Abanga River, Ogowe.</p><p>The species is widespread within the Central Africa assessment region.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_brevicauda.htm",
+      "html": "<p>These catfish inhabit fast flowing waters and spend a lot of their time clinging to aquatic leaves. If you provide long stemmed plants, such as Vallisneria, you will see this habit.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_brevicauda.htm",
+      "html": "<p>To keep this species and other members of this African hillstream family you will have to provide a well oxygenated planted aquarium and keep up your water changes, as they are not as hardy as their South American equivalents.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_brevicauda.htm",
+      "html": "<p>Commonly known as 'African Whiptails', these catfish look at first glance superficially like South American whiptails such as Rineloricaria/Hemiloricaria. Dorsal spines (total): 0; anal spines: 0. Diagnosis: caudal peduncle relatively short, 3–4.2 times in SL and slender, length 8–16 times depth. Etymology: the specific name brevicauda means 'with short caudal'.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_brevicauda.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2021. FishBase. www.fishbase.org (08/2021). Moelants, T. 2010. Phractura brevicauda. The IUCN Red List of Threatened Species 2010. Skelton, P.H. and G.G. Teugels, 1986. Amphiliidae. p. 54-65. In J. Daget, J.-P. Gosse and D.F.E. Thys van den Audenaerde (eds.) Check-list of the freshwater fishes of Africa (CLOFFA). ISNB, Brussels; MRAC, Tervuren; and ORSTOM, Paris. Vol. 2.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/25211646abd6ec4a.webp",
+      "thumb": "https://media.aquatome.com/scotcat/25211646abd6ec4a-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Joe Cutler / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_brevicauda.htm",
+      "caption": "Phractura brevicauda: Lope National Park, Gabon",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/402b681253299b8a.webp",
+      "thumb": "https://media.aquatome.com/scotcat/402b681253299b8a-480.webp",
+      "width": 500,
+      "height": 281,
+      "licence": "dùng với sự cho phép",
+      "author": "Joe Cutler / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_brevicauda.htm",
+      "caption": "Phractura brevicauda: Komo, Gabon",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm sục khí",
+        "lọc tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây Vallisneria",
+        "cây thủy sinh thân dài"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH nước"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

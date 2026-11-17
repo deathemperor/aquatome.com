@@ -203,6 +203,7 @@
     "Cladophora yuennanensis",
     "Conferva aegagropila"
   ],
+  "Aegla platensis": [],
   "Aequidens patricki": [],
   "Aequidens tetramerus": [
     "Acara tetramerus",
@@ -913,6 +914,7 @@
   "Apistogramma panduro": [],
   "Apistogramma pantalone": [],
   "Apistogramma paulmuelleri": [],
+  "Apistogramma personata": [],
   "Apistogramma rupununi": [],
   "Apistogramma steindachneri": [
     "Apistogramma ornatipinnis",
@@ -1201,6 +1203,13 @@
     "Uca annulipes",
     "Uca consobrinus"
   ],
+  "Awaous lateristriga": [
+    "Awaous guineensis",
+    "Chonophorus guineensis",
+    "Chonophorus lateristriga",
+    "Gobius guineensis",
+    "Gobius lateristriga"
+  ],
   "Axelrodia riesei": [],
   "Axelrodia stigmatias": [
     "Axelrodia fowleri",
@@ -1475,6 +1484,14 @@
     "Haemopis weberi"
   ],
   "Barbucca diabolica": [],
+  "Barbus barbus": [
+    "Barbus communis",
+    "Barbus fluviatilis",
+    "Barbus mayori",
+    "Barbus microphthalmus",
+    "Barbus vulgaris",
+    "Cyprinus barba"
+  ],
   "Barilius ardens": [
     "Opsarius ardens"
   ],
@@ -2241,6 +2258,7 @@
     "Silurus caecutiens",
     "Silurus coecutiens"
   ],
+  "Ceylonthelphusa kandambyi": [],
   "Chaca bankanensis": [
     "Chaca bankae"
   ],
@@ -2942,6 +2960,7 @@
   "Corydoras aurofrenatus": [],
   "Corydoras axelrodi": [],
   "Corydoras bicolor": [],
+  "Corydoras bifasciatus": [],
   "Corydoras boesemani": [],
   "Corydoras bondi": [],
   "Corydoras brevirostris": [],
@@ -3986,6 +4005,11 @@
     "Radianthus gelam",
     "Ropalactis vas"
   ],
+  "Enteromius callipterus": [
+    "Barbodes callipterus",
+    "Barbus callipterus",
+    "Puntius callipterus"
+  ],
   "Enteromius candens": [
     "Barbus candens"
   ],
@@ -4187,6 +4211,7 @@
     "Atopochilus guentheri",
     "Atopochilus guntheri"
   ],
+  "Euryrhynchus amazoniensis": [],
   "Eutropiichthys britzi": [],
   "Eutropiichthys burmannicus": [],
   "Eutropiichthys cetosus": [],
@@ -4255,6 +4280,9 @@
     "Paludina martensi",
     "Sinotai ingallsiana",
     "Vivipara martensiana"
+  ],
+  "Fimbriaphyllia divisa": [
+    "Euphyllia divisa"
   ],
   "Fissidens fontanus": [
     "Conomitrium julianum",
@@ -5113,6 +5141,7 @@
   "Hoplias aimara": [
     "Macrodon aimara"
   ],
+  "Hoplias macrophthalmus": [],
   "Hoplias malabaricus": [
     "Erythrinus macrodon",
     "Erythrinus trahira",
@@ -5558,6 +5587,10 @@
     "Iodochromis sprengeri"
   ],
   "Iriatherina werneri": [],
+  "Isichthys henryi": [
+    "Mormyrus cobitiformis",
+    "Mormyrus henryi"
+  ],
   "Isorineloricaria acuarius": [],
   "Ituglanis passensis": [],
   "Jinshaia sinensis": [
@@ -6467,6 +6500,14 @@
     "Palaemon ritsemae",
     "Palaemon robustus"
   ],
+  "Macrobrachium rosenbergii": [
+    "Cryphiops rosenbergii",
+    "Macrobrachium dacqueti",
+    "Palaemon dacqueti",
+    "Palaemon rosenbergii",
+    "Palaemon spec",
+    "Palaemon whitei"
+  ],
   "Macrochirichthys macrochirus": [
     "Leuciscus macrochirus",
     "Leuciscus uranoscopus",
@@ -6976,6 +7017,18 @@
     "Siphostoma torrei",
     "Syngnathus cayennensis",
     "Syngnathus torrei"
+  ],
+  "Micropterus salmoides": [
+    "Aplites salmoides",
+    "Grystes megastoma",
+    "Grystes nigricans",
+    "Grystes nobilis",
+    "Grystes salmoides",
+    "Huro nigricans",
+    "Huro salmoides",
+    "Labrus salmoides",
+    "Perca nigricans",
+    "Pikea sericea"
   ],
   "Microrasbora rubescens": [],
   "Microsorum pteropus": [
@@ -8090,6 +8143,14 @@
     "Astacus trowbridgii",
     "Pacifastacus trowbridgi"
   ],
+  "Palaemon concinnus": [
+    "Leander lagdaoensis",
+    "Leander lagdoaoensis",
+    "Leander longicarpus",
+    "Palaemon exilimanus",
+    "Palaemon lagdaoensis",
+    "Palaemon lagdoaoensis"
+  ],
   "Paludomus loricata": [
     "Paludomus aereus",
     "Paludomus distinguendus",
@@ -8709,6 +8770,14 @@
     "Phractolaemus gabonensis",
     "Phractolaemus spinosus"
   ],
+  "Phractura ansorgii": [],
+  "Phractura brevicauda": [
+    "Phractura brevicaudata"
+  ],
+  "Phractura clauseni": [],
+  "Phractura fasciata": [
+    "Leptoglanis fasciatus"
+  ],
   "Phyllanthus fluitans": [
     "Diasperus fluitans"
   ],
@@ -9296,6 +9365,9 @@
     "Leiocassis ellenriederii",
     "Leiocassis stenomus"
   ],
+  "Pseudophallus mindii": [
+    "Syngnathus mindii"
+  ],
   "Pseudopimelodus bufonius": [
     "Pimelodus bufonius"
   ],
@@ -9364,6 +9436,9 @@
   ],
   "Pseudoxiphophorus anzuetoi": [
     "Heterandria anzuetoi"
+  ],
+  "Pterobrycon myrnae": [
+    "Pristis myrnae"
   ],
   "Pterobunocephalus depressus": [
     "Bunocephalus albifasciatus",
@@ -10846,6 +10921,10 @@
     "Trachydoras atripes",
     "Trachydoras trachyparia"
   ],
+  "Trachyglanis ineac": [
+    "Phractura ineac"
+  ],
+  "Trachyglanis sanghensis": [],
   "Tramitichromis intermedius": [
     "Lethrinops intermedia",
     "Trematocranus intermedius"
@@ -11364,6 +11443,8 @@
   "Zaireichthys camerunensis": [
     "Leptoglanis camerunensis"
   ],
+  "Zaireichthys conspicuus": [],
+  "Zaireichthys kunenensis": [],
   "Zenarchopterus dunckeri": [],
   "Zoogoneticus tequila": [],
   "Zungaro zungaro": [

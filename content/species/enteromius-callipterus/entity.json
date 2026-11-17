@@ -1,0 +1,72 @@
+{
+  "id": "enteromius-callipterus",
+  "scientificName": "Enteromius callipterus",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Enteromius",
+  "group": "barbs",
+  "places": [
+    "africa",
+    "cameroon",
+    "nigeria"
+  ],
+  "dataCard": {
+    "tankCm": [
+      {
+        "source": "glaser",
+        "value": 80
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_cf_callipterus_en/",
+      "html": "<p>Origin: Cameroon, Nigeria.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_cf_callipterus_en/",
+      "html": "<p>The following information refers to the general keeping conditions of larger barb species. They prefer well-planted tanks (&gt; 80 cm) with open water for swimming.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_cf_callipterus_en/",
+      "html": "<p>Barbs usually have no excessive requirements regarding food, but like other fish they enjoy an occasional addition of frozen or live food to a base diet of commercial flake food. One is then often surprised at the energy in a shoal of barbs if, for example, live water fleas are offered to them.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_cf_callipterus_en/",
+      "html": "<p>They are social shoaling fish, which are best kept in groups of at least 7 individuals. Other peaceful, active fish are suitable tank mates.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá dạng vảy",
+        "bo bo đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy lọc nước hồ cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

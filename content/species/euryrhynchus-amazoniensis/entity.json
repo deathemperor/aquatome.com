@@ -1,0 +1,78 @@
+{
+  "id": "euryrhynchus-amazoniensis",
+  "scientificName": "Euryrhynchus amazoniensis",
+  "order": "Decapoda",
+  "family": "Euryrhynchidae",
+  "genus": "Euryrhynchus",
+  "group": "shrimp",
+  "places": [
+    "south-america",
+    "peru",
+    "brazil"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/euryrhynchus_amazoniensis_en/",
+      "html": "<p>A rare shrimp species from South America. The delightful pattern of points and stripes on their body justifies its English name Peru Zebra Shrimp. It reaches only about 3 cm.</p><p>April 2006: available again.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/euryrhynchus_amazoniensis_en/",
+      "html": "<p>Peru, Brazil.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/euryrhynchus_amazoniensis_en/",
+      "html": "<p>For long-lasting maintenance it needs low pH values and soft water, since otherwise a certain susceptibility to bacterial diseases seems to be present.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/euryrhynchus_amazoniensis_en/",
+      "html": "<p>Due to its small size it should naturally not be kept with predatory fish. It is very suitable for a South American community tank with small characins and corys.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể thủy sinh nhỏ nuôi tép",
+        "bể 40 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sponge cho tép"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho tép cảnh"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH nước",
+        "test GH KH"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

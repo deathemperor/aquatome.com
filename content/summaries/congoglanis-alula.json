@@ -1,13 +1,14 @@
 {
   "id": "congoglanis-alula",
-  "summary": "Cá nheo Congoglanis alula hợp với người muốn nuôi loài sống đáy trong nước mát 18–22 °C, pH 6,5–7,5, có dòng chảy mạnh và nhiều đá lớn. Cá trưởng thành 14 cm, hồ sơ không nêu bể tối thiểu hay độ khó. Điểm khó nhất là dựng được môi trường sông chảy xiết như ngoài tự nhiên.",
+  "summary": "Cá nheo Congoglanis alula cỡ 14 cm, thẻ ghi nhiệt độ 18–22 °C, pH 6,5–7,5. Ngoài tự nhiên cá sống ở đoạn sông chảy xiết, quanh tảng đá lớn, ban ngày tụ dưới gầm đá, đêm bò ra nằm trên mặt đá. Hồ sơ không nêu bể tối thiểu, độ khó hay cách nuôi, nên chưa đủ căn cứ để nói ai hợp nuôi hay điểm khó nhất.",
   "mistakes": [
-    "Đừng để bể nước tĩnh hay thoáng trống. Loài này sống ở đoạn sông chảy xiết và tránh chỗ nước trống, nên cần dòng chảy mạnh.",
-    "Đừng bày bể thiếu đá. Cá nằm dưới gầm đá ban ngày và bò lên mặt đá ban đêm, nên cần đá lớn có gầm để trú.",
-    "Đừng để nước ấm hơn 22 °C. Giữ trong khoảng 18–22 °C và pH 6,5–7,5."
+    "Để bể trống, ít chỗ núp: cá không có bóng bơi nên tránh chỗ nước trống, nên có đá lớn có gầm cho cá chui và nằm lên."
   ],
   "speciesUpdatedAt": "2026-11-16",
-  "writtenFrom": "4e6acf72dc03ad6f",
-  "generatedAt": "2026-11-17T02:00:40.323Z",
-  "review": "approved"
+  "writtenFrom": "328b5ac17d56b2b8",
+  "generatedAt": "2026-11-17T07:57:35.751Z",
+  "review": "pending",
+  "problems": [
+    "The mistake \"Để bể trống, ít chỗ núp… nên có đá lớn có gầm cho cá chui và nằm lên\" gives aquarium set-up advice. The page only describes wild habitat and behaviour. It never advises how to furnish a tank. The summary also says the page gives no care instructions, so this fix contradicts that statement."
+  ]
 }
