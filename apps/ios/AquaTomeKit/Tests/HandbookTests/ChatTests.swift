@@ -294,6 +294,21 @@ private func key(_ b: Chat.Block) -> String {
   #expect(props == ["on", "resting", "perAccount", "maxTurns", "maxChars"])
 }
 
+/// With no reply (offline), chat stays as it last was only for the account it was asked as: a reader who signs out
+/// offline doesn't keep the account's yes.
+@Test func chatStaysOnOfflineOnlyForTheAccountItWasAskedAs() {
+  #expect(Chat.on(after: nil, as: "a1", last: true, lastAs: "a1"))
+  #expect(!Chat.on(after: nil, as: nil, last: true, lastAs: "a1"))
+  #expect(!Chat.on(after: nil, as: "a2", last: true, lastAs: "a1"))
+  #expect(!Chat.on(after: nil, as: "a1", last: true, lastAs: nil))
+  #expect(Chat.on(after: nil, as: nil, last: true, lastAs: nil))
+  #expect(!Chat.on(after: nil, as: nil, last: false, lastAs: nil))
+  // A reply is the reply's, whoever asked last.
+  #expect(Chat.on(after: (Data(#"{"on":true}"#.utf8), 200), as: nil, last: false, lastAs: "a1"))
+  #expect(!Chat.on(after: (Data(#"{"on":false}"#.utf8), 200), as: "a1", last: true, lastAs: "a1"))
+  #expect(!Chat.on(after: (Data(#"{"on":true}"#.utf8), 503), as: "a1", last: true, lastAs: "a1"))
+}
+
 // MARK: Requests
 
 @Test func aQuestionIsAskedAsTheAccountForTheStreamWithItsKey() throws {

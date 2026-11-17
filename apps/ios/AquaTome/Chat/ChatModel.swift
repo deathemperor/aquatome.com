@@ -65,17 +65,22 @@ final class ChatStore {
   @ObservationIgnored private var current: ChatModel?
   /// Asked again when the reader signs in or out (follow).
   @ObservationIgnored private var following = false
+  /// The account the last reply was for (its id, nil signed out).
+  @ObservationIgnored private var onAs: String?
 
   /// Whether chat is on, asked as the account when signed in: it may be on for some accounts alone (the owner's, at
   /// first), so it's asked again when the reader signs in or out.
   func refresh(account: AccountModel, site: URL) async {
     follow(account, site: site)
     func get(_ token: String?) -> URLRequest { Chat.status(site: site, version: ChatModel.version, ownCopy: ChatModel.ownCopy, token: token) }
+    // Asked as this account: the reply is for it, though the reader may sign in or out while it comes.
+    let who = account.user?.id
     var answer: (Data, Int)?
-    if account.user != nil { answer = (try? await account.send { get($0) }) ?? nil } else { answer = await account.fetch(get(nil)) }
+    if who != nil { answer = (try? await account.send { get($0) }) ?? nil } else { answer = await account.fetch(get(nil)) }
+    on = Chat.on(after: answer, as: who, last: on, lastAs: onAs)
     guard let (data, status) = answer else { return }
+    onAs = who
     let s = Chat.status(data, status: status)
-    on = s.map { $0.on } ?? false
     maxChars = s?.maxChars ?? 500
     perAccount = s?.perAccount
   }

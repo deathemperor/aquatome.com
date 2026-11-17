@@ -261,6 +261,14 @@ public enum Chat {
                   maxChars: o["maxChars"] as? Int)
   }
 
+  /// Whether chat's ways in show, once GET /api/chat was asked as `account` (its id, nil signed out): the reply's `on`; with
+  /// no reply (offline), the last reply's only if it was for the same account. A reader who signs out offline doesn't keep
+  /// the account's yes.
+  public static func on(after reply: (Data, Int)?, as account: String?, last: Bool, lastAs: String?) -> Bool {
+    guard let (data, code) = reply else { return account == lastAs && last }
+    return status(data, status: code)?.on ?? false
+  }
+
   /// A refused request's answer (any status but a stream's 200).
   public static func refusal(_ data: Data, status: Int) -> Refusal {
     let o = object(data)
