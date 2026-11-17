@@ -1257,6 +1257,13 @@ The layers above still check the result.
     front list's pages whose read is of older text. After its
     first run (`engine-state/_fit-front.json` has what it did) it waits until the chief of staff has looked at that
     run's pages and `cleared` is set in the list's file (`fit-front.test.ts`).
+  - The pages whose saved read found a foreign product or medicine still on them (the owner's complaint) go ahead of
+    the lane until they're done (`products: "ahead"`), each read again first if its read is of older text, and tried
+    once more past the cap. Where the writer's cut is refused, code cuts each sentence holding the product, a shop or a
+    price whole, beside findings of other kinds, which wait for the page's next read and try; each sentence it cuts is
+    in the run's list for the chief of staff, and a true care line in one gets its general half back by hand the same
+    day (the chief of staff, 17 Nov 2026: after eight runs at one for one, 62 of the 74 were left, the fallback never
+    having run on a page with another finding; `fit-rewrite.test.ts`, `fit-front.test.ts`).
   - The app's short cards (`content/cards`, the Curation Lead's) pass the same gate, read with lines of their own: a
     dated source is expected on a card; a new species is "described", with its paper's date, never "discovered" unless
     the source says so; a trend names its figures and where they come from. A held card stays out of the app, and the
