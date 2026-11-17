@@ -764,9 +764,9 @@ const PLACE_KEPT: Record<string, { gone: string[]; said: string[] }> = {
     said: ['Ở Singapore, rủi ro chính về nhiệt độ là nước quá nóng chứ không phải quá lạnh.', 'Một cửa hàng cá ở Singapore ghi: bể đặt trong phòng không máy lạnh có thể vượt 32°C', 'Một cửa hàng cá ở Singapore khuyên: phòng có máy lạnh lúc bật lúc tắt thì cài sưởi ở 25–26°C'],
   },
   'aquatome-san-dep-planaria-va-thuy-tuc-hydra-trong-be-ca-be-tep-nhan-biet-va-cach-diet': { gone: ['Nước ở vùng nhiệt đới thường ở mức 28–32', 'ở đây cho ăn cẩn thận'], said: ['Một cửa hàng cá ở Singapore ghi: trong nước nhiệt đới 28–32 °C, chất hữu cơ phân hủy rất nhanh, vì vậy cho ăn cẩn thận'] },
-  'aquatome-cach-lam-trong-nuoc-be-ca-bi-duc': { gone: ['mùa nóng ở nước mình'], said: [] },
+  'aquatome-cach-lam-trong-nuoc-be-ca-bi-duc': { gone: ['mùa nóng ở nước mình'], said: ['Bể đã chạy lâu mà tự dưng đục trắng thì có thể là do những tháng nóng, hoặc do bể đón ánh sáng ban ngày quá lâu.'] },
   'aquatome-nuoc-be-ca-bi-xanh-do-tao-xanh-va-cach-xu-ly': { gone: ['mùa nóng ở Việt Nam', 'nguy hiểm nhất'], said: ['nên nước càng ấm thì đêm thiếu oxy càng nguy hiểm.'] },
-  'aquatome-nuoi-ca-trong-binh-chau-khong-loc-khong-sui-oxy-loai-nao-song-duoc-va-cach-cham': { gone: ['không riêng Việt Nam', 'mùa hè ở mình'], said: [] },
+  'aquatome-nuoi-ca-trong-binh-chau-khong-loc-khong-sui-oxy-loai-nao-song-duoc-va-cach-cham': { gone: ['không riêng Việt Nam', 'mùa hè ở mình'], said: ['Nước càng ấm thì càng giữ được ít oxy. Vì vậy vào mùa nóng, bình đặt trong nhà dễ cần sủi thêm hơn.'] },
 }
 test.each(Object.entries(PLACE_KEPT))('advice for elsewhere: %s keeps each figure\'s place and says nothing of Vietnam its pages don\'t', (id, { gone, said }) => {
   const t = JSON.parse(readFileSync(fileURLToPath(new URL(`../../../content/guides/${id}/vi.json`, import.meta.url)), 'utf8')) as { body: string; bodyFixed?: boolean }
