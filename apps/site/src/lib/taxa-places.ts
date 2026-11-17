@@ -28,7 +28,13 @@ export function taxonHref(s: Ranked, level: 2 | 3): string | undefined {
  * report of 15 Nov on the fiddler crab's page: about 100 of the fish list's species are crabs, shrimps, snails, frogs,
  * newts and corals. A group's page asks with no order: `isFish({ group, order: '' })`.
  */
-export const isFish = (s: { group: string; order: string }) => s.group !== 'shrimp' && s.group !== 'snails' && (!s.order.trim() || s.order.endsWith('iformes'))
+/**
+ * Pages whose content doesn't say what they are, and that aren't fish (17 Nov): the sea slug has no order, and the crystal
+ * red shrimp's line links to no species (Caridina cantonensis has no page). The engine's to fill: each leaves this list
+ * when its content says it.
+ */
+export const NOT_FISH_GAPS = new Set(['costasiella-kuroshimae', 'crystal-red-shrimp'])
+export const isFish = (s: { id?: string; group: string; order: string }) => !NOT_FISH_GAPS.has(s.id ?? '') && s.group !== 'shrimp' && s.group !== 'snails' && (!s.order.trim() || s.order.endsWith('iformes'))
 /** The keys of a species' taxon lists (list-data.ts), one per rank it has: phan-loai/<order>, …/<family>, …/<genus>. */
 export const taxonKeys = (s: Ranked) => taxonRanks(s).map((_, i, all) => `phan-loai/${all.slice(0, i + 1).map(x => x.slug).join('/')}`)
 /** A taxon page's line under its heading: its rank's word, its name and how many species it lists. */

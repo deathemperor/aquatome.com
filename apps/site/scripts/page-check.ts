@@ -71,7 +71,7 @@ export async function loadFacts(root: string): Promise<Facts> {
     for (const b of c.breeds) add(`breed:${b.id}`, `/vi/ca/${b.t.slug}/`, [b.t.name, ...b.t.altNames], b.photos)
     for (const s of c.species.filter(s => !isFish(s))) for (const p of ['', 'anh/']) facts.notFish.add(localizePath(lang, `/vi/ca/${s.t.slug}/${p}`))
     for (const g of new Set(c.species.map(s => s.group))) if (!isFish({ group: g, order: '' })) facts.notFish.add(localizePath(lang, `/vi/nhom/${g}/`))
-    for (const b of c.breeds.filter(b => !breedIsFish(c, b))) facts.notFish.add(localizePath(lang, `/vi/ca/${b.t.slug}/`))
+    for (const b of c.breeds.filter(b => !breedIsFish(c, b))) for (const p of ['', 'anh/']) facts.notFish.add(localizePath(lang, `/vi/ca/${b.t.slug}/${p}`))
     addCredits(facts.credits, c)
   }
   return facts
@@ -114,7 +114,7 @@ const text = (el: HTMLElement) => el.textContent.replace(/\s+/g, ' ').trim()
  * its structured data).
  */
 const FISH_WORD: Record<Lang, RegExp> = { vi: /(?<![\p{L}\p{M}])cá(?![\p{L}\p{M}])(?! nhân)/iu, id: /\bikan\b/i, ms: /\bikan\b/i, th: /ปลา/ }
-const saysFish = (lang: Lang, s: string) => FISH_WORD[lang].test(lang === 'th' ? s.replaceAll('ตู้ปลา', '') : s)
+export const saysFish = (lang: Lang, s: string) => FISH_WORD[lang].test(lang === 'th' ? s.replaceAll('ตู้ปลา', '') : s)
 const NOT_ABOUT_IT = new Set(['Bể cá', 'Cá, tép hoặc ốc', 'Loài cá'])
 /**
  * Owed: the "Vì sao?" panel's size line and its lead in Thai still call a crab, a shrimp or a snail a fish. Its words are
@@ -213,11 +213,12 @@ export function checkPage(path: string, html: string, facts: Facts): Problem[] {
     // Every line of the site's own words in the page that says fish (the range's "có thể là cá do người thả ra", the size
     // line's "cá dài", a line's kind "Dòng cá cảnh"): a long one anywhere in the page's text; a short one as a label of its
     // own, outside the text the engine wrote (its sections, the summary), where "cá dài" can be a sentence's. The reasons to
-    // keep another species away are that species' (below).
+    // keep another species away are that species' (below). The page's title and description, a search result's words, too.
     const main = root.querySelector('main')
     if (main) {
       const reason = (e: HTMLElement) => e.hasAttribute('data-reason')
-      const all = shownText(main, reason).join(' ')
+      const head = [text(root.querySelector('title') ?? parse('')), ...root.querySelectorAll('meta[name="description"], meta[property="og:description"]').map(m => m.getAttribute('content') ?? '')]
+      const all = [...head, ...shownText(main, reason)].join(' ')
       const own = shownText(main, e => reason(e) || ['body', 'qs'].some(c => e.classList.contains(c)))
       const labels = new Set(own.map(bare))
       for (const { line, part } of fishLines(lang)) {

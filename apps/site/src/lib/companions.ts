@@ -17,7 +17,7 @@ export type AvoidReason = (typeof AVOID_REASONS)[number]
 export const avoidWhy = (t: T, name: string, fish = true): Record<AvoidReason, string> => ({
   eatsIt: t('Lớn tới {size}, có thể ăn {name}', { name }), eatenByIt: t('Chỉ dài {size}, có thể bị {name} ăn', { name }),
   predator: t(fish ? 'Cá săn mồi, ăn con nào vừa miệng' : 'Săn mồi, ăn con nào vừa miệng'), aggressive: t('Hung dữ, thường phải nuôi riêng'),
-  semiAggressive: t('Hơi dữ, có thể rượt đuổi {name}', { name }), finNipper: t(fish ? 'Hay cắn vây cá khác' : 'Hay cắn vây cá'),
+  semiAggressive: t('Hơi dữ, có thể rượt đuổi {name}', { name }), finNipper: t(fish ? 'Hay cắn vây cá khác' : 'Hay cắn vây'),
 })
 export type Verdict = { kind: 'good' } | { kind: 'avoid'; reason: AvoidReason }
 

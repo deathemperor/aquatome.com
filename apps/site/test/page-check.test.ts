@@ -26,15 +26,17 @@ test('a shrimp\'s page and its group\'s trails say "Loài", and the check finds 
     expect(checkPage(path, html, facts).filter(p => p.check === 'not-fish'), path).toEqual([])
   }
   const { html } = page('/ca/tep-red-cherry/')
-  // The page as it was before 17 Nov: "Loài cá" in its trail and its structured data's, and (on a page with records
-  // outside its range, as 147 were live) the range's line. (The panel's "cá dài" is owed: it changes with the app's
-  // protocol, Wed 18.)
+  // The page as it was before 17 Nov: "Loài cá" in its trail and its structured data's, "cá gì" in its description, and (on
+  // a page with records outside its range, as 147 were live) the range's line. (The panel's "cá dài" is owed: it changes
+  // with the app's protocol, Wed 18.)
   const before = html.replace(/(<a href="\/ca\/"[^>]*>)Loài<\/a>/, '$1Loài cá</a>').replace('"name":"Loài"', '"name":"Loài cá"')
+    .replaceAll('nuôi chung với con gì, sinh sản.', 'nuôi chung với cá gì, sinh sản.')
     .replace('</main>', '<p>GBIF có 9 ghi nhận ngoài tự nhiên. Ghi nhận ở nơi khác có thể là cá do người thả ra, hoặc nhận nhầm loài.</p></main>')
-  expect(checkPage('/ca/tep-red-cherry/', before, facts).filter(p => p.check === 'not-fish').map(p => p.detail)).toEqual([
+  expect(checkPage('/ca/tep-red-cherry/', before, facts).filter(p => p.check === 'not-fish').map(p => p.detail).sort()).toEqual([
     'trail: "Loài cá"', 'structured data\'s trail: "Loài cá"',
+    'line "Cách nuôi, thức ăn, nuôi chung với cá gì, sinh sản.": "Cách nuôi, thức ăn, nuôi chung với cá gì, sinh sản."',
     'line "Ghi nhận ở nơi khác có thể là cá do người thả ra, hoặc nhận nhầm loài.": "Ghi nhận ở nơi khác có thể là cá do người thả ra, hoặc nhận nhầm loài."',
-  ])
+  ].sort())
   expect(facts.notFish).not.toContain('/ca/ca-galaxy/')
 })
 
@@ -46,6 +48,9 @@ test('a reason to keep a shrimp, a crab or a snail away doesn\'t call it a fish'
   expect(found(mates('/ca/tep-red-cherry/', 'Cá săn mồi, ăn con nào vừa miệng'))).toEqual(['reason for /ca/tep-red-cherry/: "Cá săn mồi, ăn con nào vừa miệng"'])
   expect(found(mates('/ca/tep-red-cherry/', 'Săn mồi, ăn con nào vừa miệng'))).toEqual([])
   expect(found(mates('/ca/ca-galaxy/', 'Cá săn mồi, ăn con nào vừa miệng'))).toEqual([])
+  // A fin nipper that isn't a fish: "Hay cắn vây", not "… vây cá".
+  expect(found(mates('/ca/tep-red-cherry/', 'Hay cắn vây cá'))).toEqual(['reason for /ca/tep-red-cherry/: "Hay cắn vây cá"'])
+  expect(found(mates('/ca/tep-red-cherry/', 'Hay cắn vây'))).toEqual([])
   // The page's own fish, named in the shrimp's reason, is that fish's name.
   expect(found(mates('/ca/tep-red-cherry/', 'Chỉ dài 3 cm, có thể bị Cá neon vua ăn'))).toEqual([])
 })

@@ -2,7 +2,7 @@ import type { BreedEntity, Content, Localized, Photo, Range } from '@aq/schema'
 import { cardRows } from './card-rows'
 import type { Lang } from './i18n'
 import { asNum, asRange } from './species-index'
-import { isFish } from './taxa-places'
+import { isFish, NOT_FISH_GAPS } from './taxa-places'
 
 export type Breed = Localized<BreedEntity>
 export const BREED_KIND: Record<BreedEntity['kind'], string> = { hybrid: 'Cá lai', variety: 'Dòng cá cảnh', transgenic: 'Cá biến đổi gen' }
@@ -11,7 +11,8 @@ const NOT_FISH_KIND: Record<BreedEntity['kind'], string> = { hybrid: 'Con lai', 
 export const breedKind = (kind: BreedEntity['kind'], fish: boolean) => (fish ? BREED_KIND : NOT_FISH_KIND)[kind]
 
 /** Whether a breed is a fish's: its species' (through the breed it's a form of), else its parents' first. */
-export function breedIsFish(c: Pick<Content, 'species' | 'breeds'>, b: Pick<BreedEntity, 'basedOn' | 'parents'>, seen = new Set<string>()): boolean {
+export function breedIsFish(c: Pick<Content, 'species' | 'breeds'>, b: Pick<BreedEntity, 'id' | 'basedOn' | 'parents'>, seen = new Set<string>()): boolean {
+  if (NOT_FISH_GAPS.has(b.id)) return false
   const s = c.species.find(x => x.id === b.basedOn) ?? c.species.find(x => x.id === b.parents.find(p => p.species)?.species)
   if (s) return isFish(s)
   const up = c.breeds.find(x => x.id === b.basedOn)
