@@ -267,6 +267,11 @@ struct Post: Hashable {
   let item: HandbookIndex.Item
 }
 
+/// A list a Hôm nay card opens ("Mới cập nhật"'s "Xem tất cả"), a post as its pages are (spec-post-push.md).
+struct PostList: Hashable {
+  let browse: Browse
+}
+
 /// Hôm nay's posts: whether one is open.
 struct Posts {
   var open: Binding<Bool>
@@ -286,6 +291,12 @@ private struct Destinations: ViewModifier {
       // zoom's swipe ignored a quick one. Its way out is iOS's own back button, drawn as ✕ (`PostBack`).
       .navigationDestination(for: Post.self) { post in
         page(post.item)
+          .background(PostBack())
+          .modifier(ClosesPost(posts: posts, always: true))
+          .onAppear { posts?.open.wrappedValue = true }
+      }
+      .navigationDestination(for: PostList.self) { post in
+        BrowseView(browse: post.browse).v2ClearOfTheFade()
           .background(PostBack())
           .modifier(ClosesPost(posts: posts, always: true))
           .onAppear { posts?.open.wrappedValue = true }
@@ -335,9 +346,32 @@ private struct PostBack: UIViewControllerRepresentable {
   func updateUIViewController(_ holder: Holder, context: Context) { holder.apply() }
 
   final class Holder: UIViewController {
+    /// Hôm nay's back item as it was before the post set its own: put back once the post has gone, so a page pushed on
+    /// Hôm nay that isn't a post never reads "Đóng" (Design, 17 Nov).
+    private weak var below: UINavigationItem?
+    private var was: (item: UIBarButtonItem?, title: String?, mode: UINavigationItem.BackButtonDisplayMode)?
+
     override func viewWillAppear(_ animated: Bool) {
       super.viewWillAppear(animated)
       apply()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+      super.viewDidDisappear(animated)
+      // Gone, not covered by a page inside it: no longer on its stack.
+      guard let post = screen(), post.navigationController?.viewControllers.contains(post) != true,
+            let below, let was else { return }
+      below.backBarButtonItem = was.item
+      below.backButtonTitle = was.title
+      below.backButtonDisplayMode = was.mode
+      self.was = nil
+    }
+
+    /// The screen the post is on: the controller this sits in that the navigation stack holds.
+    private func screen() -> UIViewController? {
+      var screen: UIViewController? = self
+      while let s = screen, !(s.parent is UINavigationController) { screen = s.parent }
+      return screen
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -346,11 +380,12 @@ private struct PostBack: UIViewControllerRepresentable {
     }
 
     func apply() {
-      // The screen the post is on: the controller this sits in that the navigation stack holds.
-      var screen: UIViewController? = self
-      while let s = screen, !(s.parent is UINavigationController) { screen = s.parent }
-      guard let post = screen, let nav = post.navigationController, let at = nav.viewControllers.firstIndex(of: post), at > 0 else { return }
+      guard let post = screen(), let nav = post.navigationController, let at = nav.viewControllers.firstIndex(of: post), at > 0 else { return }
       let below = nav.viewControllers[at - 1].navigationItem
+      if was == nil {
+        was = (below.backBarButtonItem, below.backButtonTitle, below.backButtonDisplayMode)
+        self.below = below
+      }
       let close = String(localized: "Đóng")
       #if DEBUG
       // PROBE, not for merge (15 Nov): iOS's minimal back reads "Quay lại", not the title. `-post-back item|view`.

@@ -1110,6 +1110,37 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.tabBars.buttons["Khám phá"].isHittable, "no tab bar on a page from Khám phá")
   }
 
+  /// "Mới cập nhật"'s list is a post (spec-post-push.md): full screen, iOS's back as its ✕, read "Đóng". A page from it,
+  /// on Hôm nay's stack but not a post, has iOS's chevron and never reads "Đóng"; back on the list, its ✕ again; closed,
+  /// Hôm nay with its tab bar. Twice, so Hôm nay's back is as it was after a post (Design, 17 Nov: the post's "Đóng"
+  /// stayed on Hôm nay's back item, and a plain page pushed on it later read it).
+  func testTheLatestListIsAPostAndAPageFromItNeverReadsDong() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    let tab = app.tabBars.buttons["Hôm nay"], back = app.navigationBars.buttons["BackButton"]
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no Hôm nay")
+    let all = app.buttons["Xem tất cả"].firstMatch
+    repeatUntil(all.exists && all.isHittable, times: 12) { app.swipeUp() }
+    for time in 1...2 {
+      all.tap()
+      XCTAssertTrue(back.waitForExistence(timeout: 5), "the list didn't open (\(time))")
+      XCTAssertEqual(back.label, "Đóng", "the list's ✕ doesn't read \"Đóng\" (\(time))")
+      XCTAssertFalse(tab.isHittable, "the tab bar on the list (\(time))")
+      let row = app.descendants(matching: .any).matching(identifier: "latest").firstMatch
+      XCTAssertTrue(row.waitForExistence(timeout: 5), "no page on the list (\(time))")
+      row.tap()
+      XCTAssertTrue(app.pageBack.waitForExistence(timeout: 5), "no back on a page from the list (\(time))")
+      XCTAssertNotEqual(app.pageBack.label, "Đóng", "a page from the list reads \"Đóng\" (\(time))")
+      XCTAssertFalse(tab.isHittable, "the tab bar on a page from the list (\(time))")
+      app.pageBack.tap()
+      XCTAssertTrue(row.waitForExistence(timeout: 5), "back from the page isn't the list (\(time))")
+      XCTAssertEqual(back.label, "Đóng", "back on the list, its ✕ doesn't read \"Đóng\" (\(time))")
+      back.tap()
+      let shown = XCTNSPredicateExpectation(predicate: NSPredicate(format: "isHittable == true"), object: tab)
+      XCTAssertEqual(XCTWaiter.wait(for: [shown], timeout: 5), .completed, "no tab bar back on Hôm nay (\(time))")
+    }
+  }
+
   /// From the left edge over a row that scrolls sideways (the photos, the chips), iOS's swipe still goes back, at each pace.
   func testFromTheLeftEdgeOverASidewaysRowThePageGoesBack() throws {
     try XCTSkipIf(true, "Rows as iOS has them in this build: a swipe from the very edge over a row scrolls the row, 0 of 12 back with the row piece on (27.2, 13 Nov); the fallback approved by the chief of staff, 13 Nov 2026, the limit in What to Test. The row piece comes back reworked.")

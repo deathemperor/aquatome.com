@@ -569,6 +569,7 @@ private struct LatestCard: View {
   }
 
   private var seeAll: some View {
-    NavigationLink(value: Browse.latest) { Text("Xem tất cả").frame(minHeight: 44).contentShape(.rect) }
+    // A post too (spec-post-push.md: "Mới cập nhật" and its list): full screen, closed by its ✕.
+    NavigationLink(value: PostList(browse: .latest)) { Text("Xem tất cả").frame(minHeight: 44).contentShape(.rect) }
   }
 }
