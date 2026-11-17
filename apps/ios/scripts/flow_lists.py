@@ -122,7 +122,18 @@ LIGHTS_ON_TANKS = ['LightFlowTests/' + t for t in (
     'testASavedLightIsListedAfterARelaunchAndConnectsWithWhatWasWritten',
     'testWeekAquaKeepsTheGroupOnATankAndConnectsItFromThere')] + LIGHT_OUTLET
 CONNECT_SENT = 'TelemetryFlowTests/testConnectingTheLightIsSentWithoutTheLightsNameOrTheAccount'
-LOVE_ECOLOGY = 'LightFlowTests/testTheOwnersLoveEcologyLightTakesOffThenAColour'
+LOVE_ECOLOGY = ['LightFlowTests/' + t for t in (
+    'testTheOwnersLoveEcologyLightTakesOffThenAColour', 'testTheLoveEcologyCardKeepsWhatWasSentAndWhatLeavingCutOff',
+    'testKhacsWheelSendsOncePerDragAndIsTwoValuesToAdjust', 'testAKeptRecordWithoutALevelOrWithAHueBelowZeroStillReads',
+    'testLeavingTheLightsScreenDropsWhatWaits', 'testAStartThatDoesntAnswerGivesUpAndItsLateAnswerCreditsNothing',
+    'testSigningOutDropsWhatWaits', 'testSigningOutOnAnotherTabStopsTheCardsSendOnAir')]
+# The master button's flows that share the lamp's broadcast with the Love Ecology card: its put-back to the colour the
+# card sent, the card's send its lamp step cuts short, and the light's gap both ways (the card's next send after the
+# step, seen or not; the step after the card's send).
+MASTER_LAMP = ['MasterFlowTests/' + t for t in (
+    'testEndsByTheClockAndPutsBackTheLastColourSentToTheLamp', 'testACardSendTheButtonsLampStepCutsIsNotShownAsSent',
+    'testTheCardsNextSendWaitsTheGapAfterTheButtonsLampStep', 'testTheButtonsLampStepWaitsTheGapAfterTheCardsSend',
+    'testTheCardsSendWaitsTheGapAfterALampStepPutBackWhileAway')]
 # The tanks tab: a tank's own flows, its plugs section and its hint that opens the Tài khoản sheet (where the account and
 # the posters blocked are, not here), a page's links and the handbook's tools that open it, and the lights kept on a tank.
 TANKS_TAB = ['TanksFlowTests', 'TankLifeFlowTests', 'TankCheckFlowTests', 'AccountFlowTests', 'PlugFlowTests',
@@ -214,6 +225,8 @@ REACH = {
     # Its switch, a row of the Tài khoản sheet.
     APP + 'Telemetry/TelemetrySwitch.swift': ACCOUNT_SHEET,
     APP + 'Lights/': ['LightFlowTests', CONNECT_SENT],
+    # The Love Ecology light's card sends through the broadcaster it shares with the master button.
+    APP + 'Lights/LoveEcology.swift': ['LightFlowTests', CONNECT_SENT] + MASTER_LAMP,
     # The light's card, which the page shots also take (with its outlet's warning), for a change's before and after.
     APP + 'Lights/LightsView.swift': ['LightFlowTests', CONNECT_SENT] + shots('light') + [
                                       'AccountFlowTests/testTheAccountIsInTheProfileSheetFromEveryTab'],
@@ -223,7 +236,7 @@ REACH = {
     APP + 'Plugs/': ['PlugFlowTests'] + LIGHT_OUTLET,
     # The master button on Đèn (its card, sheet, run and the owner's countdown test), and the broadcaster it shares with
     # the Love Ecology light's card.
-    APP + 'Master/': ['MasterFlowTests', LOVE_ECOLOGY],
+    APP + 'Master/': ['MasterFlowTests'] + LOVE_ECOLOGY,
     # Fish ID sends as the reader's account (signed out, its sign-in comes first); the account also holds the owner's
     # dashboard (its session, and signing out on a 401).
     APP + 'Account/': ['AccountFlowTests', 'ReaderPostFlowTests', 'FishIdFlowTests', 'OwnerFlowTests', 'ProfilePictureFlowTests', 'ChatFlowTests'],
@@ -270,14 +283,14 @@ REACH = {
     KIT + 'Sources/Plugs/': ['PlugFlowTests'] + LIGHT_OUTLET,
     # The master button's steps and run, worked out in the kit (job `kit`), and the commands it and the chat send.
     KIT + 'Sources/Tanks/MasterButton.swift': ['MasterFlowTests'],
-    KIT + 'Sources/Tanks/DeviceCommand.swift': ['MasterFlowTests', LOVE_ECOLOGY],
+    KIT + 'Sources/Tanks/DeviceCommand.swift': ['MasterFlowTests'] + LOVE_ECOLOGY,
     KIT + 'Sources/Chihiros/': ['LightFlowTests', CONNECT_SENT],
     # Week Aqua lights, on the lights tab beside the Chihiros ones.
     KIT + 'Sources/WeekAqua/': ['LightFlowTests'],
     # A Mac command line, not in the app: the kit's step in job `perf` builds it (job `kit`, nightly).
     KIT + 'Sources/light-harness/': NONE,
     # The owner's Love Ecology light's card on the Đèn tab plays its recordings back.
-    KIT + 'Sources/FishLamp/': [LOVE_ECOLOGY],
+    KIT + 'Sources/FishLamp/': LOVE_ECOLOGY,
     KIT + 'Tests/': NONE, 'protocols/': NONE,
     # The owner's dashboard's flows read it: the stand-in server serves its replies, and the owner's row counts its to-dos.
     'protocols/owner-dashboard-vectors.json': ['OwnerFlowTests', 'AccountFlowTests/testTheOwnersRowCountsTheOverviewsToDos']
@@ -340,7 +353,8 @@ def check(runs, left, reached):
                   ['apps/ios/store/listing.json', 'apps/ios/scripts/asc-listing.mjs', 'apps/ios/scripts/store-shots.py'],
                   ['apps/ios/scripts/a-new-script.sh', 'apps/ios/design/at-1024.png']):
         assert runs(paths) == [] and left(paths) == '', paths
-    assert reached([KIT + 'Sources/FishLamp/love-ecology.json']) == {LOVE_ECOLOGY}
+    assert reached([KIT + 'Sources/FishLamp/love-ecology.json']) == set(LOVE_ECOLOGY)
+    assert reached([APP + 'Lights/LoveEcology.swift']) == {'LightFlowTests', CONNECT_SENT, *MASTER_LAMP}
     # What it leaves to main: the classes of the flows it reaches that it doesn't run.
     assert left([APP + 'Handbook/HomeList.swift']) == ' '.join(sorted(set(HANDBOOK_FLOWS + ['TankVolumeFlowTests', 'ViAtRootFlowTests'])))
     assert left([APP + 'Lights/Radio.swift']) == 'LightFlowTests TelemetryFlowTests'

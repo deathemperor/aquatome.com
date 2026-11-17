@@ -693,3 +693,16 @@ private func span(_ minutes: Int) -> String {
   minutes < 60 ? String(localized: "\(minutes) phút")
     : String(localized: "\((Double(minutes) / 60 * 10).rounded() / 10, format: .number.precision(.fractionLength(0...1))) tiếng")
 }
+
+#if DEBUG
+/// The Love Ecology lamp's broadcasts started and stopped on the simulator, for the UI tests: on the app's root, so a flow
+/// reads them on any tab (the master button's steps and its put-back go out whatever tab is showing).
+struct LampCount: View {
+  var body: some View {
+    #if targetEnvironment(simulator)
+    Text(verbatim: "\((LampRadio.air as? FakeLampAir)?.starts ?? 0)").font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("lamp-starts")
+    Text(verbatim: "\((LampRadio.air as? FakeLampAir)?.stops ?? 0)").font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("lamp-stops")
+    #endif
+  }
+}
+#endif
