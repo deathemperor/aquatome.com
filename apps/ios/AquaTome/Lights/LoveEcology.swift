@@ -33,7 +33,7 @@ final class BluetoothLampAir: NSObject, LampAir {
     // One broadcast at a time: one still starting, or waiting for Bluetooth, is replaced, and told it didn't go (the
     // master button awaits its answer).
     if let w = waiting { waiting = nil; w.done(.failed) }
-    if let s = starting { starting = nil; s(.failed) }
+    if let s = starting { starting = nil; retire(); s(.failed) }
     guard let manager else {
       waiting = (ids, done)
       manager = CBPeripheralManager(delegate: self, queue: nil)
@@ -45,8 +45,17 @@ final class BluetoothLampAir: NSObject, LampAir {
   /// Ends the broadcast; one still starting, or waiting for Bluetooth, is told it didn't go.
   func stop() {
     if let w = waiting { waiting = nil; w.done(.failed) }
-    if let s = starting { starting = nil; s(.failed) }
+    if let s = starting { starting = nil; retire(); s(.failed) } else { manager?.stopAdvertising() }
+  }
+
+  /// A start whose answer hasn't come, stopped or replaced: its manager is stopped and let go, so that answer, should it
+  /// still come, reaches nothing. A manager's delegate hears every start's answer with nothing to say which: kept, a late
+  /// one would answer the next start, and an error would end that start's watch while its broadcast went on, with no end
+  /// after three seconds (Codex, 17 Nov). The next start makes a new manager, which answers once Bluetooth reports on.
+  private func retire() {
     manager?.stopAdvertising()
+    manager?.delegate = nil
+    manager = nil
   }
 
   private func advertise(_ ids: [CBUUID], on manager: CBPeripheralManager, done: @escaping @MainActor (LampAirError?) -> Void) {
@@ -70,10 +79,15 @@ final class BluetoothLampAir: NSObject, LampAir {
 
 extension BluetoothLampAir: @preconcurrency CBPeripheralManagerDelegate {
   func peripheralManagerDidUpdateState(_ manager: CBPeripheralManager) {
-    // Bluetooth went off or reset while a broadcast was starting: say so, rather than leave the card sending.
+    // A manager let go (retire): nothing it says is about the start now.
+    guard manager === self.manager else { return }
+    // Bluetooth went off or reset while a broadcast was starting: say so, rather than leave the card sending. Its answer
+    // may still come: the manager goes with it.
     if manager.state != .poweredOn, let done = starting {
       starting = nil
+      retire()
       done(Self.error(manager.state) ?? .failed)
+      return
     }
     guard let w = waiting else { return }
     if let e = Self.error(manager.state) {
@@ -86,6 +100,8 @@ extension BluetoothLampAir: @preconcurrency CBPeripheralManagerDelegate {
   }
 
   func peripheralManagerDidStartAdvertising(_ manager: CBPeripheralManager, error: Error?) {
+    // The answer of a start whose manager was let go (retire): it answers nothing now.
+    guard manager === self.manager else { return }
     let done = starting
     starting = nil
     done?(error == nil ? nil : .failed)
