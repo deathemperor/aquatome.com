@@ -61,7 +61,7 @@ const alternates = await alternatesOf('breeds', b.id)
         ))}</p>
       )}
       {b.t.altNames.length > 0 && <p class="alt" data-pagefind-ignore>{t('Tên khác: {names}', { names: b.t.altNames.join(', ') })}</p>}
-      <DataCard card={card} sources={sources} fish={fish} />
+      <DataCard card={card} sources={sources} />
       <p class="srcline">{t('AquaTome tổng hợp từ {n} nguồn (người lai tạo, bài viết, diễn đàn) rồi tự viết. Cập nhật {date}.', { n: b.sources.length, date: dmy(b.updatedAt) })}</p>
     </div>
   </header>

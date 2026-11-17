@@ -26,14 +26,13 @@ test('a shrimp\'s page and its group\'s trails say "Loài", and the check finds 
     expect(checkPage(path, html, facts).filter(p => p.check === 'not-fish'), path).toEqual([])
   }
   const { html } = page('/ca/tep-red-cherry/')
-  expect(html).toContain('con dài ')
-  // The page as it was before 17 Nov: "Loài cá" in its trail and its structured data's, "cá dài" in its card's size line,
-  // and (on a page with records outside its range, as 147 were live) the range's line.
+  // The page as it was before 17 Nov: "Loài cá" in its trail and its structured data's, and (on a page with records
+  // outside its range, as 147 were live) the range's line. (The panel's "cá dài" is owed: it changes with the app's
+  // protocol, Wed 18.)
   const before = html.replace(/(<a href="\/ca\/"[^>]*>)Loài<\/a>/, '$1Loài cá</a>').replace('"name":"Loài"', '"name":"Loài cá"')
-    .replace('con dài ', 'cá dài ').replace('</main>', '<p>GBIF có 9 ghi nhận ngoài tự nhiên. Ghi nhận ở nơi khác có thể là cá do người thả ra, hoặc nhận nhầm loài.</p></main>')
+    .replace('</main>', '<p>GBIF có 9 ghi nhận ngoài tự nhiên. Ghi nhận ở nơi khác có thể là cá do người thả ra, hoặc nhận nhầm loài.</p></main>')
   expect(checkPage('/ca/tep-red-cherry/', before, facts).filter(p => p.check === 'not-fish').map(p => p.detail)).toEqual([
     'trail: "Loài cá"', 'structured data\'s trail: "Loài cá"',
-    'line "cá dài {cm}": "cá dài"',
     'line "Ghi nhận ở nơi khác có thể là cá do người thả ra, hoặc nhận nhầm loài.": "Ghi nhận ở nơi khác có thể là cá do người thả ra, hoặc nhận nhầm loài."',
   ])
   expect(facts.notFish).not.toContain('/ca/ca-galaxy/')
@@ -42,11 +41,13 @@ test('a shrimp\'s page and its group\'s trails say "Loài", and the check finds 
 // A reason to keep a species away is about that species: on a fish's page, a crayfish kept away for eating what fits its
 // mouth isn't "Cá săn mồi"; a fish kept away for it is.
 test('a reason to keep a shrimp, a crab or a snail away doesn\'t call it a fish', () => {
-  const mates = (href: string, why: string) => `<html><body><main><section class="mates"><ul><li><a href="${href}"><span class="nm">X<span class="why" data-reason="predator">${why}</span></span></a></li></ul></section></main></body></html>`
+  const mates = (href: string, why: string) => `<html><body><main><h1>Cá neon vua</h1><section class="mates"><ul><li><a href="${href}"><span class="nm">X<span class="why" data-reason="predator">${why}</span></span></a></li></ul></section></main></body></html>`
   const found = (html: string) => checkPage('/ca/ca-neon-vua/', html, facts).filter(p => p.check === 'not-fish').map(p => p.detail)
   expect(found(mates('/ca/tep-red-cherry/', 'Cá săn mồi, ăn con nào vừa miệng'))).toEqual(['reason for /ca/tep-red-cherry/: "Cá săn mồi, ăn con nào vừa miệng"'])
   expect(found(mates('/ca/tep-red-cherry/', 'Săn mồi, ăn con nào vừa miệng'))).toEqual([])
   expect(found(mates('/ca/ca-galaxy/', 'Cá săn mồi, ăn con nào vừa miệng'))).toEqual([])
+  // The page's own fish, named in the shrimp's reason, is that fish's name.
+  expect(found(mates('/ca/tep-red-cherry/', 'Chỉ dài 3 cm, có thể bị Cá neon vua ăn'))).toEqual([])
 })
 
 // 2026-11-02, the check on aquatome.com: "rêu Java (Vesicularia dubyana)", "Amazon sword (Echinodorus amazonicus)" linked
