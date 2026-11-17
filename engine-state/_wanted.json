@@ -748,17 +748,6 @@
     ],
     "mentions": 5
   },
-  "planorbarius-corneus": {
-    "name": "Planorbarius corneus",
-    "mentionedIn": [
-      "guides/youtube-KhlxefF9aRg",
-      "guides/youtube-Zl5gW-39XRE",
-      "guides/youtube-gB277jXfVTM",
-      "species/marisa-cornuarietis",
-      "species/planorbella-duryi"
-    ],
-    "mentions": 5
-  },
   "acanthocobitis-longipinnis": {
     "name": "Acanthocobitis longipinnis",
     "mentionedIn": [
@@ -1005,6 +994,16 @@
     ],
     "mentions": 4
   },
+  "monstera-deliciosa": {
+    "name": "Monstera deliciosa",
+    "mentionedIn": [
+      "guides/youtube-HgM7_AzVv2w",
+      "guides/youtube-kkPHSQFW2dk",
+      "guides/youtube-tcrd-3oG394",
+      "guides/youtube-yVuK23DAxOI"
+    ],
+    "mentions": 4
+  },
   "cabomba-caroliniana": {
     "name": "Cabomba caroliniana",
     "mentionedIn": [
@@ -1173,6 +1172,16 @@
       "species/batasio-fluviatilis",
       "species/batasio-tigrinus",
       "species/batasio-travancoria"
+    ],
+    "mentions": 4
+  },
+  "ompok-leiacanthus": {
+    "name": "Ompok leiacanthus",
+    "mentionedIn": [
+      "species/belontia-hasselti",
+      "species/brevibora-cheeya",
+      "species/desmopuntius-johorensis",
+      "species/ompok-fumidus"
     ],
     "mentions": 4
   },
@@ -1506,15 +1515,6 @@
     ],
     "mentions": 3
   },
-  "monstera-deliciosa": {
-    "name": "Monstera deliciosa",
-    "mentionedIn": [
-      "guides/youtube-HgM7_AzVv2w",
-      "guides/youtube-kkPHSQFW2dk",
-      "guides/youtube-tcrd-3oG394"
-    ],
-    "mentions": 3
-  },
   "pseudomugil-paskai": {
     "name": "Pseudomugil paskai",
     "mentionedIn": [
@@ -1670,15 +1670,6 @@
   },
   "pangio-alcoides": {
     "name": "Pangio alcoides",
-    "mentionedIn": [
-      "species/belontia-hasselti",
-      "species/brevibora-cheeya",
-      "species/desmopuntius-johorensis"
-    ],
-    "mentions": 3
-  },
-  "ompok-leiacanthus": {
-    "name": "Ompok leiacanthus",
     "mentionedIn": [
       "species/belontia-hasselti",
       "species/brevibora-cheeya",
@@ -1962,6 +1953,14 @@
     ],
     "mentions": 2
   },
+  "fimbriaphyllia-divisa": {
+    "name": "Fimbriaphyllia divisa",
+    "mentionedIn": [
+      "guides/aquariumbreeder-best-corals-for-a-nano-reef-tank",
+      "guides/aquariumbreeder-how-to-care-for-hammer-corals"
+    ],
+    "mentions": 2
+  },
   "lumbriculus-variegatus": {
     "name": "Lumbriculus variegatus",
     "mentionedIn": [
@@ -2047,6 +2046,14 @@
     "mentionedIn": [
       "guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-thorichthys-week-at-aquarium-glaser-en",
       "guides/seriouslyfish-articles-major-changes-in-new-world-cichlid-taxonomy"
+    ],
+    "mentions": 2
+  },
+  "geophagus-surinamensis": {
+    "name": "Geophagus surinamensis",
+    "mentionedIn": [
+      "guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-wonderful-german-bred-south-american-cichlids-en",
+      "species/cleithracara-maronii"
     ],
     "mentions": 2
   },
@@ -2462,14 +2469,6 @@
     ],
     "mentions": 2
   },
-  "nannopetersius-ansorgii": {
-    "name": "Nannopetersius ansorgii",
-    "mentionedIn": [
-      "species/alestopetersius-brichardi",
-      "species/alestopetersius-nigropterus"
-    ],
-    "mentions": 2
-  },
   "cribroheros-bussingi": {
     "name": "Cribroheros bussingi",
     "mentionedIn": [
@@ -2494,6 +2493,14 @@
     ],
     "mentions": 2,
     "onSource": "https://www.seriouslyfish.com/species/aphanius-anatoliae"
+  },
+  "otothyropsis-piribebuy": {
+    "name": "Otothyropsis piribebuy",
+    "mentionedIn": [
+      "species/apistogramma-commbrae",
+      "species/hisonotus-nigricauda"
+    ],
+    "mentions": 2
   },
   "incertae-sedis": {
     "name": "incertae sedis",
@@ -3380,13 +3387,6 @@
     ],
     "mentions": 1
   },
-  "fimbriaphyllia-divisa": {
-    "name": "Fimbriaphyllia divisa",
-    "mentionedIn": [
-      "guides/aquariumbreeder-best-corals-for-a-nano-reef-tank"
-    ],
-    "mentions": 1
-  },
   "euphyllia-glabrescens": {
     "name": "Euphyllia glabrescens",
     "mentionedIn": [
@@ -3394,10 +3394,38 @@
     ],
     "mentions": 1
   },
+  "neohelice-granulata": {
+    "name": "Neohelice granulata",
+    "mentionedIn": [
+      "guides/aquariumbreeder-do-crabs-crayfish-or-shrimp-feel-pain"
+    ],
+    "mentions": 1
+  },
+  "carcinus-maenas": {
+    "name": "Carcinus maenas",
+    "mentionedIn": [
+      "guides/aquariumbreeder-do-crabs-crayfish-or-shrimp-feel-pain"
+    ],
+    "mentions": 1
+  },
   "holtodrilus-truncatus": {
     "name": "Holtodrilus truncatus",
     "mentionedIn": [
       "guides/aquariumbreeder-holtodrilus-truncates-parasites-in-shrimp-keeping-hobby"
+    ],
+    "mentions": 1
+  },
+  "fimbriaphyllia-paraancora": {
+    "name": "Fimbriaphyllia paraancora",
+    "mentionedIn": [
+      "guides/aquariumbreeder-how-to-care-for-hammer-corals"
+    ],
+    "mentions": 1
+  },
+  "achaeus-japonicus": {
+    "name": "Achaeus japonicus",
+    "mentionedIn": [
+      "guides/aquariumbreeder-how-to-care-for-hammer-corals"
     ],
     "mentions": 1
   },
@@ -3618,6 +3646,13 @@
     ],
     "mentions": 1
   },
+  "corydoras-bifasciatus": {
+    "name": "Corydoras bifasciatus",
+    "mentionedIn": [
+      "guides/glaser-en-10-catfishes-10a-catfishes-corydoras-co-corydoras-from-the-rio-jamanxim-c-bifasciatus-en"
+    ],
+    "mentions": 1
+  },
   "sturisoma-robustum": {
     "name": "Sturisoma robustum",
     "mentionedIn": [
@@ -3636,13 +3671,6 @@
     "name": "Phractocephalus hemiliopterus",
     "mentionedIn": [
       "guides/glaser-en-10-catfishes-10c-catfishes-remaining-catfish-from-south-america-phractocephalus-hemiliopterus-en"
-    ],
-    "mentions": 1
-  },
-  "hisonotus-nigricauda": {
-    "name": "Hisonotus nigricauda",
-    "mentionedIn": [
-      "guides/glaser-en-10-catfishes-10c-catfishes-remaining-catfish-from-south-america-three-rare-catfish-species-from-paraguay-en"
     ],
     "mentions": 1
   },
@@ -5091,13 +5119,6 @@
     ],
     "mentions": 1
   },
-  "otothyropsis-piribebuy": {
-    "name": "Otothyropsis piribebuy",
-    "mentionedIn": [
-      "species/apistogramma-commbrae"
-    ],
-    "mentions": 1
-  },
   "apistogramma-martini": {
     "name": "Apistogramma martini",
     "mentionedIn": [
@@ -5151,6 +5172,13 @@
     "name": "Astacopsis tricornis",
     "mentionedIn": [
       "species/astacopsis-gouldi"
+    ],
+    "mentions": 1
+  },
+  "faxonius-limosus": {
+    "name": "Faxonius limosus",
+    "mentionedIn": [
+      "species/astacus-astacus"
     ],
     "mentions": 1
   },
@@ -5557,13 +5585,6 @@
   },
   "anablepsoides-stagnatus": {
     "name": "Anablepsoides stagnatus",
-    "mentionedIn": [
-      "species/cleithracara-maronii"
-    ],
-    "mentions": 1
-  },
-  "geophagus-surinamensis": {
-    "name": "Geophagus surinamensis",
     "mentionedIn": [
       "species/cleithracara-maronii"
     ],
