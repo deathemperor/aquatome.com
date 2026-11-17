@@ -7,7 +7,7 @@ import { GALLERY_POST, LANGS, loadAll, mayPublish, RETIRED_GUIDES, resolveDataCa
 import { checkPages, countMismatch, hasEmail, isLink, isMediaFile, mayHoldEmail, photoCaptions, RATCHETED, ratcheted, refCredits, RULES, SWEPT_KINDS, thanksLines } from '../src/content-rules'
 import { englishOf } from '../src/english'
 import { tilapiaUnnamed } from '../src/kind-words'
-import { droppedName, FISH_NAMES, KIND_PASSAGES, oldNames } from '../src/names'
+import { droppedName, FISH_NAMES, KIND_PASSAGES, oldNames, renamings } from '../src/names'
 import { altKey, NOT_ITS } from '../src/alt-names'
 import { GROUP_ORDERS, MISMATCHED } from '../src/gbif'
 import { productOf } from '../src/fit'
@@ -129,6 +129,10 @@ const KEPT_ADDRESS: Record<string, string> = {
   'aphyosemion-gabunense': 'ca-killi-duoi-dan-lia-gabon-gabon-lyretail',
   'boulengerella-cuvieri': 'ca-cuvieri-boulengerella-cuvieri',
   'myriophyllum-elatinoides': 'cay-rong-duoi-chon-nuoc-myriophyllum-elatinoides',
+  // Its row only says its own words; its address waits for the owner's answer on addresses.
+  'trichopsis-pumila': 'ca-sac-lun-trichopsis',
+  'trichopodus-leerii': 'ca-sac-ngoc-trai',
+  'symphysodon-aequifasciatus': 'ca-dia',
 }
 test("the chief of staff's fish and plant names stay, each guarded, the old name kept for search or dropped, the address as it was or forwarding", () => {
   const content = fileURLToPath(new URL('../../../content', import.meta.url))
@@ -149,18 +153,75 @@ test("the chief of staff's fish and plant names stay, each guarded, the old name
     // An old name is this one's alone (Astra, 2026-11-13): no other page is called by it, or by a name it begins, but for
     // another species' longer name the row lists, which the text rename leaves whole ("Cá platy variatus").
     const theirs = (n: string) => (r.longer ?? []).some(l => `${n.toLowerCase()} `.startsWith(`${l.toLowerCase()} `))
-    for (const was of oldNames(r)) expect(others.filter(p => [p.t.name, ...p.t.altNames].some(n => old(was).test(n) && !theirs(n))).map(p => p.page), was).toEqual([])
+    for (const { was } of renamings(r)) expect(others.filter(p => [p.t.name, ...p.t.altNames].some(n => old(was).test(n) && !theirs(n))).map(p => p.page), was).toEqual([])
   }
   const files = [...readdirSync(join(content, 'summaries')).map(f => `summaries/${f}`), ...readdirSync(join(content, 'captions')).map(f => `captions/${f}`)]
   // Less the longer names the rows list, which keep their words ("Cá platy variatus (Xiphophorus variatus) dễ nuôi").
   const longer = FISH_NAMES.flatMap(r => r.longer ?? []).map(l => new RegExp(old(l).source, 'giu'))
   const holdsOld = (f: string) => {
     const words = longer.reduce((s, l) => s.replace(l, ''), readFileSync(join(content, f), 'utf8').normalize('NFC'))
-    return FISH_NAMES.some(r => oldNames(r).some(was => old(was).test(words)))
+    return FISH_NAMES.some(r => renamings(r).some(({ was }) => old(was).test(words)))
   }
   expect(files.filter(holdsOld)).toEqual([])
   // The passages a person found read as they said (names.ts KIND_PASSAGES).
   for (const r of KIND_PASSAGES) expect(readFileSync(join(content, r.page, 'vi.json'), 'utf8').normalize('NFC'), r.page).not.toContain(r.was)
+})
+
+// The naming rule's caption check (the chief of staff, 17 Nov): a caption is also its picture's alt text everywhere on the
+// site, so it names its animal as the pages do. No caption, on a fish's, plant's, breed's or guide's photos, their
+// albums or a video's stills, keeps a renamed fish's old name (names.ts FISH_NAMES, which the sweep renames); and no
+// fish's own photos carry a name a person found is another fish's (alt-names.ts NOT_ITS).
+test('no caption keeps a renamed fish\'s old name, and no fish\'s photos carry another fish\'s name', () => {
+  const content = fileURLToPath(new URL('../../../content', import.meta.url))
+  const old = (was: string) => new RegExp(`(?<!\\p{L})${was.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/ /g, '\\s+')}(?!\\p{L})`, 'iu')
+  const longer = FISH_NAMES.flatMap(r => r.longer ?? []).map(l => new RegExp(old(l).source, 'giu'))
+  const renamed = FISH_NAMES.flatMap(r => renamings(r).map(({ was }) => ({ was, re: old(was) })))
+  type Photo = { caption?: string }
+  type Figure = { photo?: Photo; moments?: Photo[] }
+  const captionsOf = (f: string) => {
+    const e = JSON.parse(readFileSync(f, 'utf8').normalize('NFC')) as { photos?: Photo[]; video?: { figures?: Figure[] } }
+    return [...(e.photos ?? []), ...(e.video?.figures ?? []).flatMap(x => [...(x.photo ? [x.photo] : []), ...(x.moments ?? [])])].map(p => p.caption ?? '').filter(Boolean)
+  }
+  const files = [
+    ...readdirSync(join(content, 'gallery')).filter(f => f.endsWith('.json')).map(f => join(content, 'gallery', f)),
+    ...['species', 'plants', 'breeds', 'guides'].flatMap(k => readdirSync(join(content, k)).map(id => join(content, k, id, 'entity.json')).filter(f => existsSync(f))),
+  ]
+  const left: string[] = []
+  for (const f of files) for (const c of captionsOf(f)) {
+    const words = longer.reduce((s, l) => s.replace(l, ''), c)
+    for (const r of renamed) if (r.re.test(words)) left.push(`${f.slice(content.length + 1)}: "${c}" (${r.was})`)
+  }
+  // Another fish's name on a fish's own photos: its album and its page.
+  for (const id of readdirSync(join(content, 'species'))) {
+    const e = JSON.parse(readFileSync(join(content, 'species', id, 'entity.json'), 'utf8')) as { scientificName: string }
+    const off = NOT_ITS[e.scientificName]
+    if (!off) continue
+    for (const f of [join(content, 'gallery', `${id}.json`), join(content, 'species', id, 'entity.json')].filter(x => existsSync(x)))
+      for (const c of captionsOf(f)) for (const x of off) if (old(x.name).test(c)) left.push(`${f.slice(content.length + 1)}: "${c}" (${x.name})`)
+  }
+  expect(left).toEqual([])
+})
+
+// Two fish pages' photos kept a name their page had dropped (the Writing Lead's count of 17 Nov, 6 of 10,654 captions):
+// Abbottina rivularis's "cá gudgeon giả Trung Quốc" and Mystus leucophasis's "cá nheo ngửa châu Á". A caption is also its
+// photo's alt text, so they say the page's name.
+test('two fish pages\' photos say the name their page has, not the one it dropped', () => {
+  const gallery = fileURLToPath(new URL('../../../content/gallery', import.meta.url))
+  const captions = (id: string) => (JSON.parse(readFileSync(join(gallery, `${id}.json`), 'utf8')) as { photos: { caption?: string }[] }).photos.map(p => p.caption ?? '')
+  expect(captions('abbottina-rivularis').filter(c => /gudgeon giả/iu.test(c))).toEqual([])
+  expect(captions('mystus-leucophasis').filter(c => /nheo ngửa/iu.test(c))).toEqual([])
+})
+
+// Three plecos' L numbers, settled from the saved sources (the Writing Lead's read, 16 Nov): Glaser and ScotCat give
+// Spectracanthicus zuanoni L20 as well as L354; ScotCat calls L165 the true P. gibbiceps and lists L83; and of the two fish
+// sold as L200, Glaser's stock list and Seriously Fish give Baryancistrus demantoides "L200a", Hemiancistrus subviridis
+// keeping L200. The record is kept as it is (merge.ts), and each head shows its first number.
+test('three plecos carry the L numbers their saved sources give, and each head shows the first', () => {
+  const content = fileURLToPath(new URL('../../../content/species', import.meta.url))
+  const read = (id: string, f: string) => JSON.parse(readFileSync(join(content, id, f), 'utf8')) as { lNumber?: string; name?: string }
+  expect(['spectracanthicus-zuanoni', 'pterygoplichthys-gibbiceps', 'baryancistrus-demantoides', 'hemiancistrus-subviridis'].map(id => read(id, 'entity.json').lNumber))
+    .toEqual(['L354, L20', 'L165, L83', 'L200a', 'L200'])
+  for (const lang of ['vi', 'id', 'th']) expect(read('baryancistrus-demantoides', `${lang}.json`).name, lang).toMatch(/ L200a$/)
 })
 
 // Two plant names a person fixed lose the scientific name in brackets and keep their address (the naming plan, 14 Nov);

@@ -9,7 +9,7 @@ import { METRIC_KINDS } from './metric'
 import { BOUNDS } from './process'
 import { dropEmptyBlocks, fishThaiLai, tidyHeadings, tidyHtml, unescapePlain, unescapeTwice, viWording, wordingSlips } from './sanitize'
 import { LANG_NAME, pageUrl, type Page, type PageKind } from './pages'
-import { FISH_NAMES, oldNames, SWAPPED } from './names'
+import { FISH_NAMES, renamings, SWAPPED } from './names'
 import { PHRASES, phraseSlips } from './phrases'
 import { unfitCommons } from './photos'
 
@@ -1190,9 +1190,9 @@ const swapsIn = (sentence: string) => SWAPS.filter(r => placesIn(r, sentence).le
 // line break): "Chọn mua cá</h3><p>Platy…" is no "cá platy".
 const literal = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/ /g, '[^\\S\\n]+')
   .replace(/\\\(/g, '\\([^\\S\\n]*').replace(/\\\)/g, '[^\\S\\n]*\\)')
-const RENAMES = FISH_NAMES.flatMap(r => oldNames(r).map(was => {
+const RENAMES = FISH_NAMES.flatMap(r => renamings(r).map(({ was, name }) => {
   const rests = (r.longer ?? []).filter(n => n.toLowerCase().startsWith(`${was.toLowerCase()} `)).map(n => literal(n.slice(was.length).trim()))
-  return { ...r, was, old: new RegExp(word(literal(was)), 'giu'), longer: rests.length ? new RegExp(`^\\s+(?:${rests.join('|')})(?!\\p{L})`, 'iu') : undefined }
+  return { ...r, was, name, old: new RegExp(word(literal(was)), 'giu'), longer: rests.length ? new RegExp(`^\\s+(?:${rests.join('|')})(?!\\p{L})`, 'iu') : undefined }
 }))
 /** An English name's last word, which no scientific name ends in: "Red rainbowfish", "Congo tetra". */
 const ENGLISH = /(?:fish|tetra|barb|danio|rasbora|molly|platy|guppy|cory|corydoras|pleco|loach|gourami|cichlid|eyes?|killi|goby|shrimp|snail|crab|rainbow)$/
@@ -1241,7 +1241,7 @@ export const renameFishNames = (text: string) => {
   const out = renameAll(was)
   return out === was ? text : out
 }
-const asWritten = (m: string, name: string) => (m[0] === m[0]!.toLowerCase() ? name[0]!.toLowerCase() + name.slice(1) : name)
+const asWritten = (m: string, name: string) => (m[0] === m[0]!.toLowerCase() ? name[0]!.toLowerCase() : name[0]!.toUpperCase()) + name.slice(1)
 /**
  * What a reader sees, at the same offsets: a tag between blocks (a paragraph's, a list item's, a heading's, a line break)
  * ends a sentence, one inside a sentence (<em>) is a space. The rule reads HTML this way too.
