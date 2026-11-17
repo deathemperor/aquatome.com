@@ -2,7 +2,7 @@ import { expect, test } from 'vitest'
 import { copyFile, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { onRefused, refsWithoutRefused, refusedSweep, WAITING, withoutRefused } from '../src/refused-sources'
+import { filesNamingRefused, namesRefused, onRefused, refsWithoutRefused, refusedSweep, WAITING, withoutRefused } from '../src/refused-sources'
 import { sweep } from '../src/sweep'
 
 const REFUSED = 'https://cabaymau.vn/cach-tha-ca-moi-mua-vao-be-2/'
@@ -83,11 +83,24 @@ test('facts with no refused source come back as they were; a near name is anothe
 
 // The chief of staff, 17 Nov 2026: a sub-domain, a redirect and an archived copy.
 test('a refused site\'s hosts and archived copies of its pages are refused; near names, look-alike hosts and other sites are not', () => {
-  const yes = ['https://cabaymau.vn/x', 'http://www.cabaymau.vn/x', 'https://forum.cabaymau.vn/t/1', 'https://CABAYMAU.VN/x', 'https://web.archive.org/web/2024/https://cabaymau.vn/x', 'https://archive.ph/2024.01.01/https://www.cabaymau.vn/x', '<p>Xem <a href="https://cabaymau.vn/x">trang này</a>.</p>']
-  // An address that doesn't parse isn't one, though refusedSite refuses it for a fetch (the first reader, 17 Nov 2026).
-  const no = ['https://cabaymau.net/x', 'https://xcabaymau.vn/x', 'https://cabaymau.vn.example.com/x', 'https://example.org/?from=cabaymau.vn', 'https://web.archive.org/web/2024/https://cabaymau.net/x', 'https://[bad/x', 'a book', '']
+  // A host written another way is the site, as the address parses (Codex, 17 Nov 2026); an archive's copy with or without its scheme.
+  const yes = ['https://cabaymau.vn/x', 'http://www.cabaymau.vn/x', 'https://forum.cabaymau.vn/t/1', 'https://CABAYMAU.VN/x', 'https://cabaymau.vn./x', 'https://user:pass@cabaymau.vn/x',
+    'https://%63abaymau.vn/x', 'https://ｃａｂａｙｍａｕ.vn/x', 'https://cabaymau。vn/x',
+    'https://web.archive.org/web/2024/https://cabaymau.vn/x', 'https://web.archive.org/web/2024id_/http://www.cabaymau.vn/x?p=1', 'https://web.archive.org/web/2024/cabaymau.vn/x', 'https://archive.ph/2024.01.01/https://www.cabaymau.vn/x', 'https://archive.ph/newest/cabaymau.vn/x']
+  // An address that doesn't parse isn't one, though refusedSite refuses it for a fetch (the first reader, 17 Nov 2026). Another
+  // site's address that carries the site's in its query, path or fragment is that site's (Codex, 17 Nov 2026).
+  const no = ['https://cabaymau.net/x', 'https://xcabaymau.vn/x', 'https://cabaymau.vn.example.com/x', 'https://cabaymau.vn@example.com/x', 'https://example.org/?from=cabaymau.vn', 'https://web.archive.org/web/2024/https://cabaymau.net/x',
+    'https://example.org/?url=https://cabaymau.vn/x', 'https://example.org/articles/https://cabaymau.vn/x', 'https://example.org/#https://cabaymau.vn/x', 'https://archive.org/details/https://cabaymau.vn/x', 'https://archive.ph/AbCdE',
+    'https://[bad/x', 'a book', '']
   expect(yes.map(onRefused)).toEqual(yes.map(() => true))
   expect(no.map(onRefused)).toEqual(no.map(() => false))
+  // In a text, each address is taken whole: a link to the site is one, a share link to another site isn't.
+  expect(namesRefused('<p>Xem <a href="https://cabaymau.vn/x">trang này</a>.</p>')).toBe(true)
+  expect(namesRefused('Xem https://example.org/a và https://www.cabaymau.vn/x')).toBe(true)
+  expect(namesRefused('<a href="https://example.org/?url=https://cabaymau.vn/x">chia sẻ</a>')).toBe(false)
+  // A fact whose own source is a share link stays (Codex, 17 Nov 2026).
+  const shared = { found: true, facts: [{ section: 'x', fact: 'independent page', source: 0 }], sources: [src('https://example.org/?url=https://cabaymau.vn/x')] }
+  expect(withoutRefused(shared).kept).toBe(shared)
 })
 
 // A cycle that started before a refused site's facts left, on older code, can write them again; the sweep at its push runs
@@ -108,6 +121,24 @@ test('the sweep takes a refused site\'s facts out of kept research and its pages
   for (const f of ['entity.json', 'th.json']) expect(JSON.parse(await readFile(join(guide, f), 'utf8')).refs).toEqual([ref('https://a.example/1')])
   // A second sweep finds nothing.
   expect((await sweep(root, {})).refusedSources).toEqual([])
+})
+
+// Codex, 17 Nov 2026: the pass and the real-content check skipped a file that didn't spell the site's name plainly, though
+// the address parses to it. Both read every file now, and the check is the same code the real-content test runs.
+test('the pass and the check find the site\'s host however it is written', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'aq-refused-spelled-'))
+  const term = join(root, 'content/glossary/t')
+  await mkdir(term, { recursive: true })
+  await mkdir(join(root, 'engine-state/glossary'), { recursive: true })
+  const ways = ['https://%63abaymau.vn/x', 'https://ｃａｂａｙｍａｕ.vn/x', 'https://cabaymau。vn/x']
+  const ref = (url: string) => ({ url, title: url })
+  await writeFile(join(term, 'entity.json'), JSON.stringify({ id: 't', refs: [ref('https://a.example/1'), ...ways.map(ref)] }, null, 2))
+  await writeFile(join(root, 'engine-state/glossary/t.json'), JSON.stringify({ found: true, facts: [{ section: 'x', fact: 'a', source: 0 }, ...ways.map((_, i) => ({ section: 'x', fact: `b${i}`, source: i + 1 }))], sources: [src('https://a.example/1'), ...ways.map(src)] }, null, 2))
+  expect(await filesNamingRefused(root)).toEqual(['content/glossary/t/entity.json', 'engine-state/glossary/t.json'])
+  const out = await refusedSweep(root)
+  expect(out.facts.map(f => [f.file, f.dropped])).toEqual([['engine-state/glossary/t.json', 3]])
+  expect(out.refs).toEqual([{ file: 'content/glossary/t/entity.json', urls: ways }])
+  expect(await filesNamingRefused(root)).toEqual([])
 })
 
 // The first reader, 17 Nov 2026: an `also` that was empty stays; a refused page cited outside a list is said, never
