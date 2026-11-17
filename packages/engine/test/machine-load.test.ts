@@ -71,7 +71,7 @@ test('the sweep removes a worktree only when no work can be lost and nobody is i
 // commit on no remote or a change not committed. A lead's checkout a helper shared stays the lead's.
 test("the sweep takes a helper's own checkout an hour after its thread ends, saving first what the remote lacks", () => {
   const now = Date.parse('2026-11-17T10:00:00Z')
-  const done = { id: 'thread:delegated-task:command%3Amcp%3Ax%3Adelegate-task%3Ay', at: now - 2 * 3_600_000, active: false }
+  const done = { id: 'thread:delegated-task:command%3Amcp%3Ax%3Adelegate-task%3Ay', at: now - 2 * 3_600_000, active: false, runs: 1, last: 'completed' }
   const h = { path: `${homedir()}/.infinitus/worktrees/aquatome.com/infi-ffb9be67-8366a39a0df50f26`, liveCwd: false, threads: [done], dirty: false, unpushed: 0, now }
   expect(helperVerdict(h)).toBe('remove')
   expect(helperVerdict({ ...h, path: `${homedir()}/.infinitus/worktrees/aquatome.com/infinitus-0c47974a-12259ca8fd11f902` })).toBe('remove')
@@ -86,9 +86,22 @@ test("the sweep takes a helper's own checkout an hour after its thread ends, sav
   expect(helperVerdict({ ...h, liveCwd: true })).toBe('a process is working in it')
   expect(helperVerdict({ ...h, threads: [] })).toBe('no thread found for it')
   expect(helperVerdict({ ...h, threads: [{ ...done, at: NaN }] })).toBe('its thread ended within the hour')
+  // A time it can't read beside an old one it can, or a live thread beside an ended one: it stays. An hour to the ms: it goes.
+  expect(helperVerdict({ ...h, threads: [{ ...done, at: NaN }, { ...done, at: now - 30 * 3_600_000 }] })).toBe('its thread ended within the hour')
+  expect(helperVerdict({ ...h, threads: [done, { ...done, active: true }] })).toBe('its thread is live')
+  expect(helperVerdict({ ...h, threads: [{ ...done, at: now - 3_600_000 }] })).toBe('remove')
+  // One its lead may send more (a reader's count, 17 Nov: 21 of 1,047 helpers were resumed over an hour after a run ended,
+  // after up to 7.5 h): resumed before, or its last run stopped by a usage limit or cancelled. Three days, then it goes.
+  const paused = 'its lead may send it more: resumed before, or its last run unfinished'
+  expect(helperVerdict({ ...h, threads: [{ ...done, runs: 11, at: now - 15 * 3_600_000 }] })).toBe(paused)
+  expect(helperVerdict({ ...h, threads: [{ ...done, last: 'failed' }] })).toBe(paused)
+  expect(helperVerdict({ ...h, threads: [{ ...done, last: 'cancelled' }] })).toBe(paused)
+  expect(helperVerdict({ ...h, threads: [done, { ...done, runs: 2 }] })).toBe(paused)
+  expect(helperVerdict({ ...h, threads: [{ ...done, runs: 11, at: now - 72 * 3_600_000 }] })).toBe('remove')
+  expect(helperVerdict({ ...h, threads: [{ ...done, runs: NaN }] })).toBe(paused)
   // A lead's checkout, even one a finished helper shared, and anything not named as Infinitus names a helper's.
   expect(helperVerdict({ ...h, threads: [done, { id: '9e9c8b4c-lead', at: now - 5 * 3_600_000, active: false }] })).toBe("a lead's thread works in it")
-  for (const path of [`${homedir()}/.infinitus/worktrees/aquatome.com/lab-app-v2`, `${homedir()}/.infinitus/worktrees/aquatome.com/trail-not-fish`, `${homedir()}/.infinitus/worktrees/other/infi-ffb9be67-8366a39a0df50f26`, `${homedir()}/.infinitus/projects/aquatome.com`])
+  for (const path of [`${homedir()}/.infinitus/worktrees/aquatome.com/lab-app-v2`, `${homedir()}/.infinitus/worktrees/aquatome.com/trail-not-fish`, `${homedir()}/.infinitus/worktrees/other/infi-ffb9be67-8366a39a0df50f26`, `${homedir()}/.infinitus/projects/aquatome.com`, `${homedir()}/.infinitus/worktrees/aquatome.com/lab-app-v2/infi-ffb9be67-8366a39a0df50f26`])
     expect(helperVerdict({ ...h, path })).toBe("not a helper's checkout")
 })
 
