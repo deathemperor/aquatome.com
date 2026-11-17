@@ -143,15 +143,23 @@ const spelled = <F extends { check: FitCheck; product?: string; quote?: string }
   // text apart, so a list item's or a cell's end doesn't run into the next one's start (the readers of #1578).
   const pieces = sentences(html)
   const shown = pieces.filter(p => p.sentence).map(p => visible(p.html))
-  // The finding's own words, letter for letter as the page has them, since the writer reads a quote so: a curly
-  // apostrophe where the page has one ("Dr. Tim’s"; Codex's read of #1578).
-  if (f.quote && holding(pieces, f.quote).length) {
-    const own = [f.quote, f.quote.replace(/'/g, '’')].find(q => shown.some(t => norm(t).includes(norm(q))))
+  const re = new RegExp(x.match.source, 'iu')
+  // The finding's own words, letter for letter as the sentence holding them has them, since the writer reads a quote
+  // so: with whichever apostrophe the page prints ("Dr. Tim’s", "Dr. Tim‘s"), else the pattern's match in that
+  // sentence. Never another sentence's: a phrase the pattern also takes there would be cut in the product's place
+  // (Codex's reads of #1578).
+  const held = f.quote ? holding(pieces, f.quote) : []
+  if (held.length) {
+    const own = ["'", '’', '‘', '`'].map(a => f.quote!.replace(/['’‘`]/g, a)).find(q => held.some(i => norm(shown[i]!).includes(norm(q))))
     if (own) return own === f.quote ? f : { ...f, quote: own }
+    for (const i of held) {
+      const m = shown[i]!.match(re)
+      if (m) return { ...f, quote: m[0] }
+    }
+    return f
   }
   // Else the pattern's first match within one sentence: across two ("Easy" in one list item, "Green" the next) it's
   // no name.
-  const re = new RegExp(x.match.source, 'iu')
   for (const t of shown) {
     const m = t.match(re)
     if (m) return { ...f, quote: m[0] }

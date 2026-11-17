@@ -1215,6 +1215,9 @@ test('code cuts the sentence that names the product as a reader sees it, not a l
     { html: '<ul><li>Easy</li><li>Green mọc tốt.</li><li>Dùng EasyGreen cho cây.</li></ul><p>Cá sống theo đàn.</p>', product: 'Easy Green', n: 3, gone: 'Dùng EasyGreen cho cây.', left: '<ul><li>Easy</li><li>Green mọc tốt.</li></ul><p>Cá sống theo đàn.</p>' },
     // The writer gets the page's curly apostrophe, as it reads a quote letter for letter (Codex's read).
     { html: '<p>Dùng Dr. Tim’s One &amp; Only. Cá sống theo đàn. Bể cần nắp.</p>', product: 'Dr. Tim\'s One & Only', n: 1, gone: 'Dùng Dr. Tim’s One & Only.', left: '<p>Cá sống theo đàn. Bể cần nắp.</p>' },
+    // An opening quote mark printed for the apostrophe: the spelling comes from the sentence that holds the name, never
+    // from the pattern's "one and only" in another (Codex's read of 3c2c97352).
+    { html: '<p>Đây là loài one and only của vùng. Dùng Dr. Tim‘s One &amp; Only. Cá sống theo đàn.</p>', product: 'Dr. Tim\'s One & Only', gone: 'Dùng Dr. Tim‘s One & Only.', left: '<p>Đây là loài one and only của vùng. Cá sống theo đàn.</p>' },
   ]
   for (const c of cases as ((typeof cases)[number] & { n?: number })[]) {
     const root = await content()
