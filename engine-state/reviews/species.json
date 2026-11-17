@@ -760,6 +760,46 @@
       "kept": false
     }
   ],
+  "vi/species/microdevario-kubotai#hqup8d0KH8M": [
+    {
+      "at": "2026-11-16T23:50:25Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.5,
+      "notes": [
+        "[waterConditions] 'kiềm hơn mức hay được khuyên' - the video does not say this; the page range is 6–7, so it is a comparison the video doesn't make, though it does flag a difference from the page.",
+        "[diet] 'cho ăn thức ăn khô là chính' - the video says they accept any dry food but does not say the keeper feeds mainly dry food.",
+        "[diet] 'ít hơn hẳn so với lời khuyên lấy đồ tươi và đông lạnh làm thức ăn chính' - the video does not compare this with the page's advice; the writer inserted it.",
+        "[diet] 'mỗi tuần thêm một hai bữa' vs 'ít nhất hai lần mỗi tuần' - the video's own figures conflict; the text blends them and presents the advice as the keeper's.",
+        "[diet] 'côn trùng rơi xuống mặt nước' - the page already says wild fish eat insects; the claim partly repeats the page.",
+        "[behaviour] 'nhiều hơn con số thường được khuyên' - the page says 8–10, the video says 10–15; the text hints at this but never states the page's figure.",
+        "[behaviour] 'cá otto' - this is an odd shortening of Otocinclus; 'ốc ăn rêu' is also wrong, since the video says the snails eat algae (tảo), not moss.",
+        "[aquariumSize] / [notes] / [dimorphism] - 'Một người nuôi loài này lâu năm thấy…' is invented experience framing; the video says nothing about the keeper's years of keeping. The notes size (1.5–2.5 cm) overlaps the page's size figure (2.5–4 cm) without saying the video differs; the 'cá nuôi bể' reasoning is also reworded from the video."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-16T23:50:25Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.7,
+      "notes": [
+        "waterConditions: \"pH từ 6,0 đến 7,3, có lúc lên 7,5\" differs from the page's pH 6–7, but the text never says it differs. The brief asked for the difference to be stated plainly.",
+        "waterConditions: \"cá vẫn ổn\" is not said in the video. The speaker only says the temperature rises and drops a little.",
+        "behaviour: \"khuyên mua ít nhất 10–15 con\" contradicts the page's \"ít nhất 8-10 con\" and \"nhóm nhỏ 6-8 con\". The conflict is not flagged.",
+        "behaviour: \"nên không giành chỗ với chúng\" is the writer's inference. The video only says otocinclus stay nearer the bottom and that combining them is no problem.",
+        "diet: \"nên cho ăn thêm đồ tươi sống hoặc đông lạnh ... ít nhất hai lần mỗi tuần\" is written as a general rule. In the video it is one keeper's habit (\"once or twice a week\", then \"I recommend … at least twice\"). It also conflicts with the page's \"phần lớn khẩu phần nên là thức ăn sống\" and does not say so.",
+        "diet: \"nhận mọi loại thức ăn khô\" overlaps with the page's \"ăn được nhiều loại thức ăn\" and \"vẫn ăn thức ăn khô\".",
+        "maintenance: \"Loài này gốc ở suối nước chảy\" repeats the page's \"Ngoài tự nhiên loài này sống ở nước chảy\".",
+        "behaviour: \"Cá hiền đến mức...\" repeats the page's \"Đây là loài cá hiền\" and \"Cá rất hiền\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/nannostomus-beckfordi#fK5blxaKV3Y": [
     {
       "at": "2026-11-16T11:43:50Z",

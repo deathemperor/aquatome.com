@@ -64,7 +64,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lũa xếp thành các cụm thưa, chừa nhiều khe trống cho cây mọc lấp vào.",
-            "sharpness": 1464.9
+            "sharpness": 1464.9,
+            "person": false
           },
           {
             "t": 890,
@@ -95,7 +96,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Giá kệ nhiều bể chỉ để nuôi cây, cây mọc um tùm dưới đèn.",
-            "sharpness": 1338.2
+            "sharpness": 1338.2,
+            "person": false
           },
           {
             "t": 630,
@@ -103,7 +105,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây cắt cắm lá đỏ và xanh mọc khỏe bên cạnh đá.",
-            "sharpness": 922.3
+            "sharpness": 922.3,
+            "person": false
           }
         ],
         "photo": {
@@ -119,24 +122,7 @@
       },
       {
         "heading": "Trồng theo thứ tự nào",
-        "moments": [
-          {
-            "t": 160,
-            "url": "https://media.aquatome.com/video/LiotY1HIneo/at160-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây thấp nhú lên thành từng bụi xanh giữa nền cát và lũa.",
-            "sharpness": 2843.7
-          },
-          {
-            "t": 390,
-            "url": "https://media.aquatome.com/video/LiotY1HIneo/at390-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các bụi cây thấp trồng dọc chân đá và lũa trong hồ.",
-            "sharpness": 1368.5
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/LiotY1HIneo/p2-1bV9wbGFudC5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/LiotY1HIneo/p2-1bV9wbGFudC5qcGc-480.webp",
@@ -150,24 +136,7 @@
       },
       {
         "heading": "Giữ nước trong suốt lúc trồng",
-        "moments": [
-          {
-            "t": 260,
-            "url": "https://media.aquatome.com/video/LiotY1HIneo/at260-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lọc trong tạm gắn ở góc bể, nước trong lúc đang trồng cây.",
-            "sharpness": 424.9
-          },
-          {
-            "t": 280,
-            "url": "https://media.aquatome.com/video/LiotY1HIneo/at280-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lọc trong nhỏ gắn vào kính bể, tạo dòng chảy quanh cây mới trồng.",
-            "sharpness": 895.4
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/LiotY1HIneo/p3-ZXJkcml2ZTIuanBn.webp",
           "thumb": "https://media.aquatome.com/video/LiotY1HIneo/p3-ZXJkcml2ZTIuanBn-480.webp",
@@ -183,20 +152,13 @@
         "heading": "Ráy kiếm và cây tạo chi tiết",
         "moments": [
           {
-            "t": 510,
-            "url": "https://media.aquatome.com/video/LiotY1HIneo/at510-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bụi ráy kiếm Amazon xanh tươi trong chậu, cá đĩa bơi bên cạnh.",
-            "sharpness": 1155.2
-          },
-          {
             "t": 550,
             "url": "https://media.aquatome.com/video/LiotY1HIneo/at550-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Ráy kiếm tạo mảng lá xanh làm nền trong hồ thủy sinh có đá và lũa.",
-            "sharpness": 1471
+            "sharpness": 1471,
+            "person": false
           }
         ],
         "photo": {
@@ -214,54 +176,13 @@
         "heading": "Đèn khi bể có nắp",
         "moments": [
           {
-            "t": 640,
-            "url": "https://media.aquatome.com/video/LiotY1HIneo/at640-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh cây đỏ và cây xanh lên màu đẹp dưới đèn.",
-            "sharpness": 1194.9
-          },
-          {
             "t": 670,
             "url": "https://media.aquatome.com/video/LiotY1HIneo/at670-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Thảm cỏ và lũa dưới ánh đèn tím trong bể thủy sinh.",
-            "sharpness": 1425.2
-          }
-        ]
-      },
-      {
-        "heading": "Làm nắp mica không bị cong vênh",
-        "moments": [
-          {
-            "t": 410,
-            "url": "https://media.aquatome.com/video/LiotY1HIneo/at410-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tấm mica trắng mỏng đặt phía trên bể làm nắp.",
-            "sharpness": 1599.8
-          }
-        ]
-      },
-      {
-        "heading": "Thay nước lớn sau khi trồng",
-        "moments": [
-          {
-            "t": 820,
-            "url": "https://media.aquatome.com/video/LiotY1HIneo/at820-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể đang có nước với cây và đá, chuẩn bị thay nước.",
-            "sharpness": 280
-          },
-          {
-            "t": 830,
-            "url": "https://media.aquatome.com/video/LiotY1HIneo/at830-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh đã trồng cây xong, hòn non bộ và gỗ lũa rõ nét.",
-            "sharpness": 546.7
+            "sharpness": 1425.2,
+            "person": false
           }
         ]
       }

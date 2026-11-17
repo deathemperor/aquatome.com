@@ -81,24 +81,7 @@
     "figures": [
       {
         "heading": "Dằn lũa trước khi trồng cây",
-        "moments": [
-          {
-            "t": 60,
-            "url": "https://media.aquatome.com/video/JuaFSSYxyAI/at60-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai khúc lũa lớn đặt cạnh đá trong hồ chưa châm nước.",
-            "sharpness": 905.6
-          },
-          {
-            "t": 100,
-            "url": "https://media.aquatome.com/video/JuaFSSYxyAI/at100-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay ép khúc lũa vào đá để dán chặt điểm tiếp xúc.",
-            "sharpness": 1038.2
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/JuaFSSYxyAI/p0-kzMDMyOTYpLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/JuaFSSYxyAI/p0-kzMDMyOTYpLmpwZw-480.webp",
@@ -119,7 +102,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể đáy dài um tùm cây kiếm lớn làm hậu cảnh, có cá đỏ bơi trước.",
-            "sharpness": 2304.1
+            "sharpness": 2304.1,
+            "person": false
           },
           {
             "t": 310,
@@ -127,7 +111,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây kiếm Amazon đã nhổ lên, rễ trắng dài, đặt trên giấy để tỉa lá.",
-            "sharpness": 1862.8
+            "sharpness": 1862.8,
+            "person": false
           }
         ],
         "photo": {
@@ -143,24 +128,7 @@
       },
       {
         "heading": "Giữ cây không khô trong lúc trồng",
-        "moments": [
-          {
-            "t": 480,
-            "url": "https://media.aquatome.com/video/JuaFSSYxyAI/at480-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể đang set với lũa, cây và lớp cát ẩm.",
-            "sharpness": 4043.6
-          },
-          {
-            "t": 500,
-            "url": "https://media.aquatome.com/video/JuaFSSYxyAI/at500-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bình xịt phun sương dùng để xịt ẩm cây và cát trong bể.",
-            "sharpness": 2145.2
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/JuaFSSYxyAI/p2-9zcHJheWVyLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/JuaFSSYxyAI/p2-9zcHJheWVyLmpwZw-480.webp",
@@ -181,15 +149,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cụm cây xanh mọc bên cạnh khúc lũa lớn trong bể.",
-            "sharpness": 1778.2
-          },
-          {
-            "t": 560,
-            "url": "https://media.aquatome.com/video/JuaFSSYxyAI/at560-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bó cây cắt cắm màu đỏ nâu đặt xen giữa các cây xanh.",
-            "sharpness": 1785
+            "sharpness": 1778.2,
+            "person": false
           }
         ],
         "photo": {
@@ -212,7 +173,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh trồng xong, cây tụ theo vùng và chừa bãi cát.",
-            "sharpness": 3219.6
+            "sharpness": 3219.6,
+            "person": false
           },
           {
             "t": 790,
@@ -220,7 +182,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tiền cảnh trồng cỏ xen bãi cát trắng trống phía trước.",
-            "sharpness": 1730.7
+            "sharpness": 1730.7,
+            "person": false
           }
         ],
         "photo": {
@@ -243,15 +206,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể đã châm nước, cây và lũa còn thưa, nhìn rõ bố cục.",
-            "sharpness": 1511
-          },
-          {
-            "t": 850,
-            "url": "https://media.aquatome.com/video/JuaFSSYxyAI/at850-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đầu hút lọc gắn ống trong bể, cây trồng mới còn thưa.",
-            "sharpness": 2984.4
+            "sharpness": 1511,
+            "person": false
           }
         ],
         "photo": {
@@ -274,7 +230,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể mới setup với nước trắng đục, lũa và cây thủy sinh bên trong.",
-            "sharpness": 1606.5
+            "sharpness": 1606.5,
+            "person": false
           },
           {
             "t": 980,
@@ -282,7 +239,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh có lũa lớn, nước trong hơn sau khi thay nước.",
-            "sharpness": 1749.4
+            "sharpness": 1749.4,
+            "person": false
           }
         ],
         "photo": {
@@ -305,7 +263,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh các bụi cây mới trồng trên nền cát, cạnh lũa.",
-            "sharpness": 2332.1
+            "sharpness": 2332.1,
+            "person": false
           },
           {
             "t": 1130,
@@ -313,7 +272,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh mới trồng, cây xanh um ở góc trái và dọc lũa.",
-            "sharpness": 1697.3
+            "sharpness": 1697.3,
+            "person": false
           }
         ]
       },
@@ -326,7 +286,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh trồng nhiều cây xanh rậm rạp ở hậu cảnh và tiền cảnh.",
-            "sharpness": 2901.2
+            "sharpness": 2901.2,
+            "person": false
           },
           {
             "t": 1170,
