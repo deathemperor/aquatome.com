@@ -77,7 +77,8 @@ test('the lane: pages the gate held new go first, newest first, whatever the hol
 
 test('the front list file parses and names each page once', () => {
   // False, or the at of the run on file the chief of staff has read (one-shot).
-  expect(list.cleared === false || !Number.isNaN(Date.parse(String(list.cleared)))).toBe(true)
+  const cleared = list.cleared as boolean | string
+  expect(cleared === false || !Number.isNaN(Date.parse(String(cleared)))).toBe(true)
   expect(typeof list.lane).toBe('boolean')
   expect(list.about).toMatch(/lane/)
   expect(Number.isNaN(Date.parse(list.first))).toBe(false)
