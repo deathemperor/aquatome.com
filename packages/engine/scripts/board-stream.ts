@@ -1,3 +1,6 @@
+import { type HealthStore, type KeyEntry, rotate } from '../../../apps/site/worker/fishid/keys'
+import { type Billed, BilledLimit, type Tokens } from '../src/billed'
+
 /**
  * One streamed call of the board's (chat-board.ts), timed as the Worker times it (chat/api.ts `callClaude`): `timeoutMs`
  * until the answer begins, then `writingMs` from the call's start, if that's longer. A call our timer ends fails as a
@@ -38,3 +41,33 @@ export async function streamOnce<M>(open: (signal: AbortSignal) => Stream<M>, ti
 
 /** Why a call got no answer, as the run records it. */
 export const noAnswer = (cut: Cut, reason: string) => (cut.by ? `out of time: our timer cut the call ${cut.by}` : `no key answered: ${reason}`)
+
+/** A reply's usage as tokens; none when the API sent none, and the call then counts at its worst (billed.ts). */
+export const tokensOf = (u: any): Tokens | undefined => (u ? { input: u.input_tokens ?? 0, output: u.output_tokens ?? 0, cacheRead: u.cache_read_input_tokens ?? 0, cacheWrite: u.cache_creation_input_tokens ?? 0 } : undefined)
+/** One call of the board's as its log keeps it: when it began and how long it took, from the run's start. */
+export type CallLog = { call: number; at: number; ms: number; out?: number; tools?: number; failed?: boolean; cut?: string }
+
+/**
+ * The board's send, as the Worker sends: each call through the keys in turn (fishid/keys.ts `rotate`), and each try on a
+ * key a billed call (billed.ts), held to the line before its request leaves and settled once its stream ends or fails.
+ * Stopped at the line, no request leaves. Each call's timing goes to `log`.
+ */
+export function boardSender(o: { billed: Billed; healthy: KeyEntry[]; store: HealthStore; clientFor: (k: KeyEntry) => Promise<any>; log?: CallLog[]; t0?: number }) {
+  const log = o.log ?? [], t0 = o.t0 ?? Date.now()
+  return async (b: any, opts: any) => {
+    if (o.billed.stopped) throw new BilledLimit(o.billed.stopped)
+    const at = Date.now(), cut: Cut = {}
+    const r = await rotate(o.healthy, o.store, async (k, left) => {
+      const c = await o.clientFor(k)
+      return o.billed.call({ body: b, key: k.hash }, async () => {
+        const timeout = Math.min(left, opts.timeoutMs)
+        const m = await streamOnce<any>(signal => c.messages.stream(b, { timeout, signal }), timeout, opts, cut)
+        return { value: m, tokens: tokensOf(m.usage) }
+      })
+    }, { budgetMs: opts.timeoutMs })
+    if (!r.ok && o.billed.stopped) throw new BilledLimit(o.billed.stopped)
+    if (!r.ok) { log.push({ call: opts.call, at: at - t0, ms: Date.now() - at, failed: true, ...(cut.by ? { cut: cut.by } : {}) }); throw new Error(noAnswer(cut, r.reason)) }
+    log.push({ call: opts.call, at: at - t0, ms: Date.now() - at, out: r.value.usage?.output_tokens, tools: r.value.content.filter((x: any) => x.type === 'tool_use').length })
+    return r.value
+  }
+}
