@@ -328,6 +328,28 @@ test('the gill fluke guide gives praziquantel in food by the fish\'s weight, and
   }
 })
 
+// The chief of staff, 17 Nov 2026: a US seller's three quarantine medicines (sold there, with their doses per 10 US gallons)
+// came off the site with the video guide built on them. The general guide had the same protocol in every language, and its
+// Thai page printed the writer's source numbers ("(แหล่งที่ 0)"). Its saved facts no longer name the medicines, and the copy
+// writer doesn't save a copy that prints source numbers (topics.ts sourceNumbers), so no rewrite brings either back.
+test('the quarantine guide names no US seller\'s medicine in any language, nor its saved facts, and Thai prints no source number', async () => {
+  const id = 'aquatome-cach-ly-ca-moi-mua-be-cach-ly-va-quy-trinh'
+  const dir = fileURLToPath(new URL(`../../../content/guides/${id}/`, import.meta.url))
+  const brands = /Maracyn|ParaCleanse|Ich-X|PraziPro|ParaGuard|quarantine trio|bộ ba thuốc/iu
+  // The protocol unnamed too (Codex's read of #1588: Malay gave it as "a combination of" three medicines): its seven
+  // days without food, in each language's words on main before, and Malay's combination.
+  const protocol = /7 ngày[^.]*không cho ăn|7 hari tanpa (?:diberi pakan|memberi makan)|7 วันโดยไม่ให้อาหาร|gabungan ubat antibakteria/u
+  for (const lang of ['vi', 'id', 'th', 'ms']) {
+    const t = JSON.parse(await readFile(join(dir, `${lang}.json`), 'utf8')) as Translation
+    expect(JSON.stringify([t.body, t.summary, t.faq]), lang).not.toMatch(brands)
+    expect(JSON.stringify([t.body, t.summary, t.faq]), lang).not.toMatch(protocol)
+  }
+  expect((JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8')) as Translation).bodyFixed).toBe(true)
+  expect((JSON.parse(await readFile(join(dir, 'th.json'), 'utf8')) as Translation).body).not.toMatch(/แหล่งที่\s*\d/u)
+  const facts = await readFile(fileURLToPath(new URL(`../../../engine-state/topics/${id}.json`, import.meta.url)), 'utf8')
+  expect(facts).not.toMatch(brands)
+})
+
 // University of Florida's angelfish paper: "50mg/kg body weight for five consecutive days". A dose per kilo says a kilo of what.
 test('the hexamita guide says the food dose is per kilo of the fish, in every language', async () => {
   const dir = fileURLToPath(new URL('../../../content/guides/aquatome-ca-di-phan-trang-benh-trung-roi-hexamita-ca-dia-nguyen-nhan-cach-chua/', import.meta.url))
