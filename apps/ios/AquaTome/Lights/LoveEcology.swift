@@ -222,15 +222,8 @@ final class LoveEcologyModel {
   /// How long each command is broadcast, and the wait after one ends before the next starts: on 14 Nov the light didn't
   /// take an orange begun 0.9 s after a yellow it took had ended. A drag sends once the finger pauses this long, or lifts.
   static let seconds: Duration = .seconds(3)
-  static let pacer = FishLamp.Pacer(pause: .milliseconds(500), gap: .seconds(gap))
-  /// The light's gap: 2 s; `-lamp-gap <seconds>` in a debug build, so a flow can act while a send waits its turn.
-  private static var gap: Double {
-    #if DEBUG
-    let args = ProcessInfo.processInfo.arguments
-    if let i = args.firstIndex(of: "-lamp-gap"), i + 1 < args.count, let s = Double(args[i + 1]) { return s }
-    #endif
-    return 2
-  }
+  /// The gap is the phone's one broadcaster's (LampRadio.gap), the master button's lamp step's too.
+  static let pacer = FishLamp.Pacer(pause: .milliseconds(500), gap: LampRadio.gap)
   /// How long the card broadcasts each: `seconds`; `-lamp-on-air <seconds>` in a debug build, so a flow can act while
   /// one is on air.
   private static var airTime: Duration {
@@ -279,7 +272,6 @@ final class LoveEcologyModel {
   @ObservationIgnored private var dragging: Send?
   @ObservationIgnored private var waiting: Queued?
   @ObservationIgnored private var onAir: Queued?
-  @ObservationIgnored private var lastEnded: ContinuousClock.Instant?
   @ObservationIgnored private var pause: Task<Void, Never>?
   @ObservationIgnored private var gap: Task<Void, Never>?
   @ObservationIgnored private var ending: Task<Void, Never>?
@@ -375,7 +367,7 @@ final class LoveEcologyModel {
       if watchdog != nil { stopOnAir() }
       drop()
     } else {
-      lastEnded = .now
+      // The gap after the steps is the broadcaster's (LampRadio.lastEnded), heard even if this card didn't see them.
       next()
     }
   }
@@ -424,7 +416,6 @@ final class LoveEcologyModel {
     watchdog = nil
     latest += 1
     onAir = nil
-    lastEnded = .now
     LampRadio.stop(by: self)
   }
 
@@ -472,7 +463,7 @@ final class LoveEcologyModel {
   private func next() {
     gap?.cancel()
     guard !held, onAir == nil, let q = waiting else { return }
-    let due = Self.pacer.due(moved: .now, lifted: true, lastEnded: lastEnded)
+    let due = Self.pacer.due(moved: .now, lifted: true, lastEnded: LampRadio.lastEnded)
     if due <= .now { return broadcast(q) }
     gap = Task { [weak self] in
       try? await Task.sleep(until: due, clock: .continuous)
@@ -516,11 +507,10 @@ final class LoveEcologyModel {
       self.ending = Task {
         try? await Task.sleep(for: Self.airTime)
         guard !Task.isCancelled else { return }
-        // Gone only if the card held the broadcaster to the end: the master button's lamp step takes it at once.
+        // Gone only if the card held the broadcaster to the end: the master button's lamp step takes it, then waits the gap.
         let whole = LampRadio.holds(self)
         LampRadio.stop(by: self)
         self.onAir = nil
-        self.lastEnded = .now
         if whole { self.ended(q) } else { self.cutShort(q) }
         self.next()
       }
