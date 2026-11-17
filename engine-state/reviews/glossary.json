@@ -202,6 +202,34 @@
   ],
   "vi/glossary/thuc-an-kho": [
     {
+      "at": "2026-11-17T00:34:19Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Đựng trong lọ kín nắp vặn, côn trùng không chui vào được.\" (not \"Đựng trong hộp kín, chẳng hạn lọ thủy tinh hay hộp nắp vặn.\": it drops the advice \"côn trùng không chui vào được\")"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-17T00:34:19Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 1,
+      "notes": [
+        "Rule 12: altNames is empty, but THIS TERM says the other names are \"cám\" (one shop) and the English \"dry food\".",
+        "Rule 12: \"chỉ khi nước từ 18 °C trở lên\" in the freeze-dried item must say \"trên 18 °C\", never \"từ 18 °C\". Source 9 gives 65 °F, which is 18.3 °C.",
+        "Rule 12: \"Đông khô hút ẩm trong không khí nên mốc nhanh\" joins the two facts with \"nên\". THIS TERM says they are joined with \"và\" and never \"nên\" (fact 44).",
+        "Rule 12: In \"Cất ở chỗ khô, mát, tối, tránh nắng chiếu thẳng, vì nóng và ẩm làm thức ăn mau hỏng, lên mốc và bị ôi\", the reason (heat and damp: breakdown, mould, rancidity) must come right after \"khô, mát\". Darkness and keeping out of direct sun stand with no reason. Here they sit between the two, so the reason seems to cover them too.",
+        "Rule 12: \"Ở khí hậu nóng ẩm như Việt Nam\" must not say \"như Việt Nam\". The figures are Singapore's, and the page says they hold for similar climates (fact 40). Write \"Ở khí hậu nóng ẩm\".",
+        "Rule 12: \"còn ở nước mát và khô thì giữ được chừng sáu tháng\" uses \"giữ được\" on its own, which reads as the vitamins keeping. THIS TERM says it must be said of the loss: a cool, dry country may take about six months to lose as much.",
+        "Rule 12: \"Ở khí hậu như vậy, chỉ để ngoài một ít đủ dùng hằng ngày\" uses \"như vậy\". THIS TERM says the next item names the climate again (\"Ở khí hậu nóng ẩm\")."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-16T18:09:33Z",
       "model": "sonnet",
       "cli": "2.1.325",
@@ -245,32 +273,6 @@
         "The rewrite dropped from \"Đông khô hút ẩm trong không khí nên mốc nhanh, và độc tố nấm có thể đã sinh ra trước khi thấy mốc.\" the caution \"độc\", the advice \"Đông khô hút ẩm trong không khí nên mốc nhanh\" under Thức ăn đông khô, the advice \"độc tố nấm có thể đã sinh ra trước khi thấy mốc\" under Thức ăn đông khô, and nothing lets that sentence go: write it as it was, word for word.",
         "Rules 4 and 12: \"ngày 1–2 lần\" in \"Riêng cá betta thì đếm viên: 2–4 viên mỗi lần, ngày 1–2 lần.\" repeats how often to feed, which \"Cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong 2–5 phút.\" already says for all fish. THIS TERM says how often is said once for all fish and never again in the betta line. One caveat: its note in brackets, \"'ngày 1–2 lần' is free there\", can be read as …",
         "The entry is 582 words: hold it to about 550, and leave what is left out to the pages that use the term."
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-16T17:40:21Z",
-      "model": "sonnet",
-      "cli": "2.1.325",
-      "score": 0.97,
-      "notes": [
-        "\"Thức ăn phải để khô vì vitamin bắt đầu mất ngay từ lúc mở gói.\": the facts don't carry it (unsupported, unsupported, unsupported): invented causal link between dryness and vitamin loss on opening / invented causal link between keeping dry and vitamin loss on opening",
-        "Rule 12: \"Thức ăn khô phải để khô vì vitamin bắt đầu mất ngay từ lúc mở gói\" gives the start of vitamin loss after opening (fact 36) as the reason to keep the food dry. THIS TERM says that fact must be its own clause and never the reason for keeping it dry. The reason should be the one the facts give: damp heat makes an open pack lose its vitamins faster (fact 40), and heat and damp break the foo…",
-        "The entry is 585 words: hold it to about 550, and leave what is left out to the pages that use the term."
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-16T17:29:54Z",
-      "model": "sonnet",
-      "cli": "2.1.325",
-      "score": 1,
-      "notes": [
-        "The rewrite dropped from \"Đông khô hút ẩm trong không khí nên mốc nhanh, và độc tố nấm có thể đã sinh ra trước khi thấy mốc.\" the caution \"độc\", the advice \"Đông khô hút ẩm trong không khí nên mốc nhanh\" under Thức ăn đông khô, the advice \"độc tố nấm có thể đã sinh ra trước khi thấy mốc\" under Thức ăn đông khô, and nothing lets that sentence go: write it as it was, word for word.",
-        "Rules 4 and 12: \"ngày 1–2 lần\" in \"Riêng cá betta thì đếm viên: 2–4 viên mỗi lần, ngày 1–2 lần.\" repeats how often to feed, which \"Cho ăn ngày một đến hai lần\" already says for all fish. THIS TERM says the betta line keeps only its own count (2–4 pellets each time) and never gives the frequency again.",
-        "The entry is 567 words: hold it to about 550, and leave what is left out to the pages that use the term."
       ],
       "attempt": "rewrite",
       "kept": false
