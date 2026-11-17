@@ -45,8 +45,12 @@ test('every key it tries is a billed call: held before its request, settled afte
   const m = await send(new Billed(BILLED_STEP, log, line(10), () => NOW), fetch)(BODY, OPTS)
   expect(m.content).toMatchObject([{ type: 'text', text: '{"text":"Nuôi theo đàn."}' }])
   const r = await rows(log)
-  expect(r.filter(x => x.held).map(x => [x.key, x.usd])).toEqual([['ha', billedWorst(BODY)], ['hb', billedWorst(BODY)]])
-  expect(r.filter(x => x.settles).map(x => [x.key, x.cost, x.error])).toEqual([['ha', 0, true], ['hb', billedCost(BODY.model, { input: 1000, output: 20, cacheRead: 0, cacheWrite: 0 }), false]])
+  // Whichever key the rotation tries first (its order isn't fixed), each try is held, then settled, in turn.
+  const [first, second] = r.filter(x => x.held).map(x => x.key)
+  expect([first, second].sort()).toEqual(['ha', 'hb'])
+  expect(r.map(x => [x.held ? 'held' : 'settles', x.key])).toEqual([['held', first], ['settles', first], ['held', second], ['settles', second]])
+  expect(r.filter(x => x.held).map(x => x.usd)).toEqual([billedWorst(BODY), billedWorst(BODY)])
+  expect(r.filter(x => x.settles).map(x => [x.cost, x.error])).toEqual([[0, true], [billedCost(BODY.model, { input: 1000, output: 20, cacheRead: 0, cacheWrite: 0 }), false]])
   expect(fetch).toHaveBeenCalledTimes(2)
 })
 
