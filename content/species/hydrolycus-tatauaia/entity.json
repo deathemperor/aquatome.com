@@ -19,6 +19,7 @@
   "range": {
     "native": {
       "countries": [
+        "PE",
         "VE",
         "CO",
         "GY",
@@ -30,9 +31,18 @@
         "Rio Xingu"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
         {
           "source": "seriouslyfish",
           "quote": "This species is widely distributed throughout the lower and central Amazon region, the upper Orinoco basin in Venezuela and Colombia plus coastal drainages in Guyana.",
@@ -61,7 +71,7 @@
     "records": {
       "taxonKey": 2352288,
       "total": 261,
-      "fetched": "2026-11-08",
+      "fetched": "2026-11-17",
       "countries": [
         [
           "BR",
@@ -85,7 +95,7 @@
           -74.53125,
           -4.21875,
           4,
-          0
+          4
         ],
         [
           -70.3125,

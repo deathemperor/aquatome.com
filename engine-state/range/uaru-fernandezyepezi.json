@@ -1,0 +1,92 @@
+{
+  "id": "uaru-fernandezyepezi",
+  "native": {
+    "input": "9d999ec3f813ea34",
+    "at": "2026-11-17T05:18:20.405Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Colombia / Venezuela",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Colombia / Venezuela",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The home of this extremely rare cichlid is in the border area of Colombia and Venezuela, where it occurs in the area of the Rio Atabapo.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The home of this extremely rare cichlid is in the border area of Colombia and Venezuela, where it occurs in the area of the Rio Atabapo.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Atabapo",
+        "source": "glaser",
+        "quote": "The home of this extremely rare cichlid is in the border area of Colombia and Venezuela, where it occurs in the area of the Rio Atabapo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Uaru fernandezyepezi",
+    "status": "ACCEPTED",
+    "taxonKey": 2371461,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "CO",
+      "VE"
+    ],
+    "requests": 11,
+    "at": "2026-11-17T05:18:20.405Z"
+  }
+}

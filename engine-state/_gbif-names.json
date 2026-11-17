@@ -103,6 +103,14 @@
     "genus": "Ailia",
     "matchType": "EXACT"
   },
+  "Acanthophacelus melanzonus": {
+    "canonicalName": "Poecilia parae",
+    "phylum": "Chordata",
+    "order": "Cyprinodontiformes",
+    "family": "Poeciliidae",
+    "genus": "Poecilia",
+    "matchType": "EXACT"
+  },
   "Acanthophthalmus kuhlii": {
     "canonicalName": "Pangio kuhlii",
     "order": "Cypriniformes",
@@ -250,6 +258,15 @@
     "order": "Characiformes",
     "family": "Acestrorhynchidae",
     "genus": "Acestrorhynchus",
+    "matchType": "EXACT"
+  },
+  "Achaeus japonicus": {
+    "canonicalName": "Achaeus japonicus",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Inachidae",
+    "genus": "Achaeus",
     "matchType": "EXACT"
   },
   "Acheilognathus changtingensis": {
@@ -2669,6 +2686,14 @@
     "genus": "Arnoldichthys",
     "matchType": "EXACT"
   },
+  "Arothron firmamentum": {
+    "canonicalName": "Arothron firmamentum",
+    "phylum": "Chordata",
+    "order": "Tetraodontiformes",
+    "family": "Tetraodontidae",
+    "genus": "Arothron",
+    "matchType": "EXACT"
+  },
   "Arothron hispidus": {
     "canonicalName": "Arothron hispidus",
     "order": "Tetraodontiformes",
@@ -3688,6 +3713,7 @@
   "Bangladesh has": null,
   "Bao aquasoil": null,
   "Bao ghi": null,
+  "Bao ngo": null,
   "Bao nhi": null,
   "Bao quanh": null,
   "Barak comprises": null,
@@ -3864,6 +3890,14 @@
   "Barbus camerunensis": null,
   "Barbus camptacanthus": {
     "canonicalName": "Enteromius camptacanthus",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Enteromius",
+    "matchType": "EXACT"
+  },
+  "Barbus candens": {
+    "canonicalName": "Enteromius candens",
+    "phylum": "Chordata",
     "order": "Cypriniformes",
     "family": "Cyprinidae",
     "genus": "Enteromius",
@@ -4180,6 +4214,7 @@
     "genus": "Baryancistrus",
     "matchType": "EXACT"
   },
+  "Baryancistrus ngh": null,
   "Baryancistrus niveatus": {
     "canonicalName": "Baryancistrus niveatus",
     "order": "Siluriformes",
@@ -5439,6 +5474,7 @@
   },
   "Burdur toothcarp": null,
   "Buridge provides": null,
+  "Buriram smaragdina": null,
   "Burma has": null,
   "Butis amboinensis": {
     "canonicalName": "Butis amboinensis",
@@ -5693,6 +5729,15 @@
     "genus": "Carassius",
     "matchType": "EXACT"
   },
+  "Carcinus maenas": {
+    "canonicalName": "Carcinus maenas",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Carcinidae",
+    "genus": "Carcinus",
+    "matchType": "EXACT"
+  },
   "Cardisoma armatum": {
     "canonicalName": "Cardisoma armatum",
     "order": "Decapoda",
@@ -5905,6 +5950,7 @@
     "genus": "Catoprion",
     "matchType": "EXACT"
   },
+  "Cauca mollies": null,
   "Caulastrea furcata": {
     "canonicalName": "Caulastraea furcata",
     "order": "Scleractinia",
@@ -6507,6 +6553,15 @@
     "genus": "Charax",
     "matchType": "EXACT"
   },
+  "Chasmagnathus granulatus": {
+    "canonicalName": "Neohelice granulata",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Varunidae",
+    "genus": "Neohelice",
+    "matchType": "EXACT"
+  },
   "Chaudhuria ritvae": {
     "canonicalName": "Chaudhuria ritvae",
     "order": "Synbranchiformes",
@@ -6550,6 +6605,15 @@
   },
   "Cherax holthuisi": {
     "canonicalName": "Cherax holthuisi",
+    "order": "Decapoda",
+    "family": "Parastacidae",
+    "genus": "Cherax",
+    "matchType": "EXACT"
+  },
+  "Cherax lorentzi": {
+    "canonicalName": "Cherax lorentzi",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
     "order": "Decapoda",
     "family": "Parastacidae",
     "genus": "Cherax",
@@ -10181,6 +10245,22 @@
     "genus": "Doryichthys",
     "matchType": "EXACT"
   },
+  "Doumea angolensis": {
+    "canonicalName": "Doumea angolensis",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Amphiliidae",
+    "genus": "Doumea",
+    "matchType": "EXACT"
+  },
+  "Doumea chappuisi": {
+    "canonicalName": "Doumea chappuisi",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Amphiliidae",
+    "genus": "Doumea",
+    "matchType": "EXACT"
+  },
   "Dracaena thalioides": {
     "canonicalName": "Dracaena thalioides",
     "order": "Asparagales",
@@ -10342,6 +10422,7 @@
     "genus": "Ectodus",
     "matchType": "EXACT"
   },
+  "Eduard von": null,
   "Edwardsiella ictaluri": {
     "canonicalName": "Edwardsiella ictaluri",
     "order": "Enterobacterales",
@@ -10816,6 +10897,14 @@
     "matchType": "EXACT"
   },
   "Erithistes has": null,
+  "Ernstichthys megistus": {
+    "canonicalName": "Ernstichthys megistus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Aspredinidae",
+    "genus": "Ernstichthys",
+    "matchType": "EXACT"
+  },
   "Erpetoichthys calabaricus": {
     "canonicalName": "Erpetoichthys calabaricus",
     "order": "Polypteriformes",
@@ -10952,6 +11041,15 @@
     "order": "Scleractinia",
     "family": "Euphylliidae",
     "genus": "Euphyllia",
+    "matchType": "EXACT"
+  },
+  "Euphyllia paraancora": {
+    "canonicalName": "Fimbriaphyllia paraancora",
+    "phylum": "Cnidaria",
+    "class": "Anthozoa",
+    "order": "Scleractinia",
+    "family": "Euphylliidae",
+    "genus": "Fimbriaphyllia",
     "matchType": "EXACT"
   },
   "Euro quanh": null,
@@ -11119,6 +11217,15 @@
   },
   "Filopaludina javanica": {
     "canonicalName": "Filopaludina javanica",
+    "order": "Architaenioglossa",
+    "family": "Viviparidae",
+    "genus": "Filopaludina",
+    "matchType": "EXACT"
+  },
+  "Filopaludina martensi": {
+    "canonicalName": "Filopaludina martensi",
+    "phylum": "Mollusca",
+    "class": "Gastropoda",
     "order": "Architaenioglossa",
     "family": "Viviparidae",
     "genus": "Filopaludina",
@@ -12203,6 +12310,14 @@
     "order": "Perciformes",
     "family": "Cichlidae",
     "genus": "Gnathochromis",
+    "matchType": "EXACT"
+  },
+  "Gnathonemus longibarbis": {
+    "canonicalName": "Gnathonemus longibarbis",
+    "phylum": "Chordata",
+    "order": "Osteoglossiformes",
+    "family": "Mormyridae",
+    "genus": "Gnathonemus",
     "matchType": "EXACT"
   },
   "Gnathonemus petersii": {
@@ -15300,6 +15415,7 @@
   "Khi thay": null,
   "Khi thi": null,
   "Khi thu": null,
+  "Khi tia": null,
   "Khi treo": null,
   "Khi trong": null,
   "Khi xem": null,
@@ -15789,6 +15905,14 @@
     "order": "Siluriformes",
     "family": "Loricariidae",
     "genus": "Lamontichthys",
+    "matchType": "EXACT"
+  },
+  "Lampiella gibbosa": {
+    "canonicalName": "Lampiella gibbosa",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Lampiella",
     "matchType": "EXACT"
   },
   "Lamprologus brevis": {
@@ -17267,6 +17391,15 @@
     "genus": "Macrobrachium",
     "matchType": "EXACT"
   },
+  "Macrobrachium idae": {
+    "canonicalName": "Macrobrachium idae",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Palaemonidae",
+    "genus": "Macrobrachium",
+    "matchType": "EXACT"
+  },
   "Macrochelys temminckii": {
     "canonicalName": "Macrochelys temminckii",
     "family": "Chelydridae",
@@ -17545,6 +17678,14 @@
   },
   "Mastacembelus erythrotaenia": {
     "canonicalName": "Mastacembelus erythrotaenia",
+    "order": "Synbranchiformes",
+    "family": "Mastacembelidae",
+    "genus": "Mastacembelus",
+    "matchType": "EXACT"
+  },
+  "Mastacembelus greshoffi": {
+    "canonicalName": "Mastacembelus greshoffi",
+    "phylum": "Chordata",
     "order": "Synbranchiformes",
     "family": "Mastacembelidae",
     "genus": "Mastacembelus",
@@ -20723,6 +20864,15 @@
     "genus": "Opsodoras",
     "matchType": "EXACT"
   },
+  "Orconectes limosus": {
+    "canonicalName": "Faxonius limosus",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Cambaridae",
+    "genus": "Faxonius",
+    "matchType": "EXACT"
+  },
   "Orconectes rusticus": {
     "canonicalName": "Faxonius rusticus",
     "order": "Decapoda",
@@ -21435,6 +21585,22 @@
     "family": "Pangasiidae",
     "genus": "Pangasianodon",
     "matchType": "FUZZY"
+  },
+  "Pangasius altifrons": {
+    "canonicalName": "Pangasius bocourti",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Pangasiidae",
+    "genus": "Pangasius",
+    "matchType": "EXACT"
+  },
+  "Pangasius bocourti": {
+    "canonicalName": "Pangasius bocourti",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Pangasiidae",
+    "genus": "Pangasius",
+    "matchType": "EXACT"
   },
   "Pangasius burgini": {
     "canonicalName": "Pangasius larnaudii",
@@ -23477,6 +23643,14 @@
     "genus": "Poecilia",
     "matchType": "FUZZY"
   },
+  "Poecilia caucana": {
+    "canonicalName": "Poecilia caucana",
+    "phylum": "Chordata",
+    "order": "Cyprinodontiformes",
+    "family": "Poeciliidae",
+    "genus": "Poecilia",
+    "matchType": "EXACT"
+  },
   "Poecilia latipinna": {
     "canonicalName": "Poecilia latipinna",
     "order": "Cyprinodontiformes",
@@ -24001,6 +24175,15 @@
     "family": "Pristolepididae",
     "genus": "Pristolepis",
     "matchType": "EXACT"
+  },
+  "Procamarus clarki": {
+    "canonicalName": "Procambarus clarkii",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Cambaridae",
+    "genus": "Procambarus",
+    "matchType": "FUZZY"
   },
   "Procambarus alleni": {
     "canonicalName": "Procambarus alleni",
@@ -25543,6 +25726,14 @@
   },
   "Pyrrhulina filamentosa": {
     "canonicalName": "Pyrrhulina filamentosa",
+    "order": "Characiformes",
+    "family": "Lebiasinidae",
+    "genus": "Pyrrhulina",
+    "matchType": "EXACT"
+  },
+  "Pyrrhulina laeta": {
+    "canonicalName": "Pyrrhulina laeta",
+    "phylum": "Chordata",
     "order": "Characiformes",
     "family": "Lebiasinidae",
     "genus": "Pyrrhulina",

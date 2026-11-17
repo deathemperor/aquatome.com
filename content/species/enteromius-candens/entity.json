@@ -16,9 +16,8 @@
         "CD"
       ],
       "regions": [
-        "Congo River",
-        "Itimbiri River",
-        "Lilanda River"
+        "Congo",
+        "Itimbiri River"
       ],
       "sources": [
         "seriouslyfish"
@@ -26,12 +25,18 @@
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "This species has been collected from parts of the Congo River basin in northern and central Democratic Republic of Congo (DRC), Africa.",
+          "quote": "Enteromius candens is a small African barb from the Congo basin in northern and central DR Congo, mainly between Lisala and Kisangani.",
           "countries": [
             "CD"
           ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This species has been collected from parts of the Congo River basin in northern and central Democratic Republic of Congo (DRC), Africa.",
+          "countries": [],
           "regions": [
-            "Congo River"
+            "Congo"
           ]
         },
         {
@@ -40,14 +45,6 @@
           "countries": [],
           "regions": [
             "Itimbiri River"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Other populations have been found further south in the Lilanda River (Yangole area) and close to Ikela.",
-          "countries": [],
-          "regions": [
-            "Lilanda River"
           ]
         }
       ]

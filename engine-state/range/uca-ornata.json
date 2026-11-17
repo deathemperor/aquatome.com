@@ -1,0 +1,61 @@
+{
+  "id": "uca-ornata",
+  "native": {
+    "input": "0169562b0ccea05e",
+    "at": "2026-11-17T05:18:20.405Z",
+    "claims": [
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This species occurs along the Pacific coast from Ecuador to Nicaragua.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "NI",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This species occurs along the Pacific coast from Ecuador to Nicaragua.",
+        "words": "Nicaragua",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Uca ornata",
+    "status": "ACCEPTED",
+    "taxonKey": 4382549,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        10
+      ],
+      [
+        "968dfa3e-3614-4bab-a3b5-e9209bdd6078",
+        10
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "21b5400a-8810-40f1-b46a-7da00ab6ac70",
+        2
+      ]
+    ],
+    "native": [
+      "EC",
+      "NI"
+    ],
+    "requests": 12,
+    "at": "2026-11-17T05:18:20.405Z"
+  }
+}

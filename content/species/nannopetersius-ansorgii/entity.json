@@ -10,6 +10,148 @@
     "democratic-republic-of-the-congo",
     "lac-mai-ndombe"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD"
+      ],
+      "regions": [
+        "Lac Mai Ndombe"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This fish comes from Zaire and was caught in Lac Mai Ndombe.",
+          "countries": [
+            "CD"
+          ],
+          "regions": [
+            "Lac Mai Ndombe"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2356254,
+      "total": 197,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "GA",
+          162
+        ],
+        [
+          "CG",
+          24
+        ],
+        [
+          "AO",
+          5
+        ],
+        [
+          "CD",
+          3
+        ],
+        [
+          "GQ",
+          2
+        ],
+        [
+          "CM",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          8.4375,
+          -2.8125,
+          7,
+          0
+        ],
+        [
+          8.4375,
+          -1.40625,
+          2,
+          0
+        ],
+        [
+          8.4375,
+          1.40625,
+          2,
+          0
+        ],
+        [
+          9.84375,
+          -2.8125,
+          135,
+          0
+        ],
+        [
+          9.84375,
+          -1.40625,
+          7,
+          0
+        ],
+        [
+          11.25,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          11.25,
+          -5.625,
+          22,
+          1
+        ],
+        [
+          11.25,
+          -4.21875,
+          8,
+          0
+        ],
+        [
+          11.25,
+          -2.8125,
+          4,
+          0
+        ],
+        [
+          11.25,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          12.65625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          12.65625,
+          -2.8125,
+          4,
+          0
+        ],
+        [
+          12.65625,
+          -1.40625,
+          2,
+          0
+        ],
+        [
+          12.65625,
+          2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "ph": [
       {
@@ -29,12 +171,6 @@
   },
   "sections": [
     {
-      "key": "quickFacts",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/phenacogrammus-cf-ansorgei/",
-      "html": "<p>Phenacogrammus cf. ansorgei grows up to 8 cm. Available size: 5–7 cm.</p>"
-    },
-    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/phenacogrammus-cf-ansorgei/",
@@ -51,12 +187,6 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/phenacogrammus-cf-ansorgei/",
       "html": "<p>All fish from this blackwater lake should be kept at a pH of about 6.0.</p>"
-    },
-    {
-      "key": "reproduction",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/phenacogrammus-cf-ansorgei/",
-      "html": "<p>Attempts will be made to breed them, with the aim of offering the first German-bred fish in the near future.</p>"
     }
   ],
   "photos": [

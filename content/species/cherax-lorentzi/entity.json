@@ -9,6 +9,45 @@
     "oceania",
     "new-guinea"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "New Guinea"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: New Guinea.",
+          "countries": [],
+          "regions": [
+            "New Guinea"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5789934,
+      "total": 1,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          133.59375,
+          -7.03125,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

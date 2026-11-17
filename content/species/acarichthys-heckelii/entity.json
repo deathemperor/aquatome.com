@@ -28,14 +28,11 @@
       ],
       "regions": [
         "Amazon",
-        "Essequibo",
-        "Putumayo",
-        "Trombetas",
-        "Negro",
-        "Xingu"
+        "Essequibo"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -47,20 +44,15 @@
             "BR",
             "GY"
           ],
-          "regions": [
-            "Amazon",
-            "Essequibo"
-          ]
+          "regions": []
         },
         {
           "source": "seriouslyfish",
           "quote": "Native to northern parts of the Amazon basin in Colombia, Peru and Brazil including lower parts of the ríos Putumayo, Trombetas, Negro, Xingu, Tocantins, Capim and Branco River plus the Essequibo drainage in Guyana.",
           "countries": [],
           "regions": [
-            "Putumayo",
-            "Trombetas",
-            "Negro",
-            "Xingu"
+            "Amazon",
+            "Essequibo"
           ]
         }
       ]

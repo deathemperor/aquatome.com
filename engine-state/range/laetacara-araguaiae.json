@@ -1,14 +1,14 @@
 {
   "id": "laetacara-araguaiae",
   "native": {
-    "input": "02146ed533511150",
-    "at": "2026-11-09T09:57:55.009Z",
+    "input": "58a32abb7cb9c820",
+    "at": "2026-11-17T05:18:20.405Z",
     "claims": [
       {
         "code": "BR",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Known from the rio Araguaia basin in central Brazil.",
+        "quote": "Laetacara araguaiae is a small cichlid from the rio Araguaia basin in central Brazil.",
         "words": "Brazil",
         "ok": true
       }
@@ -17,8 +17,20 @@
       {
         "name": "Araguaia",
         "source": "seriouslyfish",
-        "quote": "Known from the rio Araguaia basin in central Brazil.",
+        "quote": "Laetacara araguaiae is a small cichlid from the rio Araguaia basin in central Brazil.",
         "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Verde",
+        "source": "glaser",
+        "quote": "According to the authors the species comes from the Rio Verde in the Rio Araguaia drainage.",
+        "ok": true
+      },
+      {
+        "name": "Xingu",
+        "source": "glaser",
+        "quote": "However, aquarium literature gives a much wider distribution, namely the southeastern tributaries of the Amazon river from the Tapajos to the mouth of the Amazon, and also the Xingu river.",
         "ok": true
       }
     ],

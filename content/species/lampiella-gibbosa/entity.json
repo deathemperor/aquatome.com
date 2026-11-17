@@ -17,20 +17,45 @@
         "BR"
       ],
       "regions": [
-        "Rio Betari"
+        "Rio Betari",
+        "Ribeira de Iguape",
+        "Rio Bethary"
       ],
       "sources": [
-        "glaser"
+        "glaser",
+        "scotcat"
       ],
       "quotes": [
         {
           "source": "glaser",
-          "quote": "The species occurs in the Brazilian state of Sao Paulo in the Rio Betari.",
+          "quote": "Maximum size: 5 cm. Origin: Brazil.",
           "countries": [
             "BR"
           ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "The species occurs in the Brazilian state of Sao Paulo in the Rio Betari.",
+          "countries": [],
           "regions": [
             "Rio Betari"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Brazil, Ribeira de Iguape River basin.",
+          "countries": [],
+          "regions": [
+            "Ribeira de Iguape"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Rio Bethary.",
+          "countries": [],
+          "regions": [
+            "Rio Bethary"
           ]
         }
       ]

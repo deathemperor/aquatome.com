@@ -100,6 +100,22 @@
       "kept": true
     }
   ],
+  "vi/guides/aquariumbreeder-how-to-set-up-a-caridina-shrimp-tank#body": [
+    {
+      "at": "2026-11-17T05:32:51Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "Said more surely than before: \"Bể cỡ này lỡ có sai sót về nước thì cũng ít hại tép hơn, nhất là với người mới.\" (was: \"Cỡ bể này dễ dung thứ nhất cho những lỗi thỉnh thoảng mắc phải về nước, nhất là lỗi của người mới.\")",
+        "\"dễ dung thứ nhất\" (most forgiving) became \"ít hại tép hơn\": the superlative is weakened, and \"hại tép\" (harm to shrimp) is a small addition.",
+        "\"những lỗi thỉnh thoảng mắc phải\" became \"lỡ có sai sót\": the \"occasional\" frequency nuance is turned into a conditional."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/aquariumbreeder-old-tank-syndrome#body": [
     {
       "at": "2026-11-10T21:53:32Z",
@@ -127,6 +143,21 @@
         "\"Thay nước... Nhớ hút cặn luôn\" became \"Mỗi lần thay thì nhớ hút cặn luôn\": this adds a condition (do it at each water change) that BEFORE does not state.",
         "\"để phosphat không tích lại\" became \"thì phosphat không tích lại trong bể\": the purpose is now stated as a certain result, which is slightly stronger.",
         "\"cần cây ăn rễ\" became \"phải trồng cây ăn rễ\": a mild strengthening of the requirement."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/aquatome-may-sui-oxy-suc-khi-cho-be-ca-cong-dung-va-cach-chon#body": [
+    {
+      "at": "2026-11-17T05:33:35Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.62,
+      "notes": [
+        "Added content: \"thổi luồng đặt chìm, chỉ đẩy nước quanh bể mà không khuấy mặt nước\" is not in BEFORE, which only says \"máy bơm tạo dòng\".",
+        "\"máy bơm tạo dòng\" became \"thổi luồng đặt chìm\", which changes the item named and adds a mechanism explanation the source did not give."
       ],
       "attempt": "first",
       "kept": false
@@ -169,6 +200,20 @@
         "\"Rõ ràng\" (Apparently/Clearly) hedge dropped; AFTER states breeding seasonality as flat fact.",
         "\"khá rõ\" (fairly pronounced) seasonality changed to plain \"chỉ sinh sản theo mùa\"; the degree is lost.",
         "\"hiếm khi có hàng nhập về nhất\" is awkward. It is still close to \"rarest imported\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-beautiful-new-varieties-of-liverbearers-arrived-en#body": [
+    {
+      "at": "2026-11-17T05:34:03Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "\"tất cả các dòng trên\" became \"dòng nào\", which loses the reference to the strains listed above. This is a very slight change."
       ],
       "attempt": "first",
       "kept": true

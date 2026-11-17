@@ -14,6 +14,72 @@
     "terengganu",
     "kalimantan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MY"
+      ],
+      "regions": [
+        "Malay Peninsula",
+        "Sumatra",
+        "Borneo",
+        "Batang Hari",
+        "Kapuas River",
+        "Pulau Bintan"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Ompok fumidus has a wide distribution over the Malay Peninsula, Sumatra, Borneo, Riau Islands and Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Malay Peninsula",
+            "Sumatra",
+            "Borneo"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: North Selangor peat swamp forest, 43 km on road from Tanjong Malim to Sungai Besar, Selangor, Malaysia.",
+          "countries": [
+            "MY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "The IUCN Red List: this species occurs from the Mae Nam Kolok drainage southwards to the Pahang River drainage in the Malay Peninsula; Pulau Bintan (Riau Archipelago); Batang Hari drainage in central Sumatra, and the Kapuas River drainage southwards to the Arut River drainage in Borneo, with an estimated extent of occurrence (EOO) of 573,960 km2.",
+          "countries": [],
+          "regions": [
+            "Batang Hari",
+            "Kapuas River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Asia: Peninsular Malaysia (Terengganu, Selangor, Perak and Pahang); Pulau Bintan (Riau Archipelago), as well as Kalimantan Barat and Kalimantan Tengah (Borneo).",
+          "countries": [],
+          "regions": [
+            "Pulau Bintan"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2337635,
+      "total": 0,
+      "fetched": "2026-11-17",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -166,43 +232,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-16",
-  "range": {
-    "native": {
-      "countries": [
-        "TH"
-      ],
-      "regions": [
-        "Malay Peninsula",
-        "Sumatra",
-        "Borneo",
-        "Riau Islands"
-      ],
-      "sources": [
-        "glaser"
-      ],
-      "quotes": [
-        {
-          "source": "glaser",
-          "quote": "Ompok fumidus has a wide distribution over the Malay Peninsula, Sumatra, Borneo, Riau Islands and Thailand.",
-          "countries": [
-            "TH"
-          ],
-          "regions": [
-            "Malay Peninsula",
-            "Sumatra",
-            "Borneo",
-            "Riau Islands"
-          ]
-        }
-      ]
-    },
-    "records": {
-      "taxonKey": 2337635,
-      "total": 0,
-      "fetched": "2026-11-17",
-      "countries": [],
-      "cells": []
-    }
-  }
+  "updatedAt": "2026-11-16"
 }

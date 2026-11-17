@@ -12,11 +12,12 @@ export type AvoidReason = (typeof AVOID_REASONS)[number]
 /**
  * Why to keep a fish away from `name`, in a few words: the clash as the tank-mates tool sees it, with the other fish's
  * adult size where the size is the reason ({size}, filled in by the page: a length the units toggle converts).
+ * `fish`: whether the one kept away is a fish; a crab's, a shrimp's or a snail's reason doesn't call it one.
  */
-export const avoidWhy = (t: T, name: string): Record<AvoidReason, string> => ({
+export const avoidWhy = (t: T, name: string, fish = true): Record<AvoidReason, string> => ({
   eatsIt: t('Lớn tới {size}, có thể ăn {name}', { name }), eatenByIt: t('Chỉ dài {size}, có thể bị {name} ăn', { name }),
-  predator: t('Cá săn mồi, ăn con nào vừa miệng'), aggressive: t('Hung dữ, thường phải nuôi riêng'),
-  semiAggressive: t('Hơi dữ, có thể rượt đuổi {name}', { name }), finNipper: t('Hay cắn vây cá khác'),
+  predator: t(fish ? 'Cá săn mồi, ăn con nào vừa miệng' : 'Săn mồi, ăn con nào vừa miệng'), aggressive: t('Hung dữ, thường phải nuôi riêng'),
+  semiAggressive: t('Hơi dữ, có thể rượt đuổi {name}', { name }), finNipper: t(fish ? 'Hay cắn vây cá khác' : 'Hay cắn vây'),
 })
 export type Verdict = { kind: 'good' } | { kind: 'avoid'; reason: AvoidReason }
 

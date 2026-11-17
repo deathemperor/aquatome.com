@@ -3,7 +3,7 @@ import { readdir, readFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
-import { GALLERY_POST, LANGS, loadAll, mayPublish, RETIRED_GUIDES, resolveDataCard, slugify, tankKeywordFits, WRITTEN_LANGS, type Translation } from '@aq/schema'
+import { GALLERY_POST, LANGS, loadAll, mayPublish, RETIRED_GUIDES, resolveDataCard, retiredTo, slugify, tankKeywordFits, WRITTEN_LANGS, type Translation } from '@aq/schema'
 import { checkPages, countMismatch, hasEmail, isLink, isMediaFile, mayHoldEmail, photoCaptions, RATCHETED, ratcheted, refCredits, RULES, SWEPT_KINDS, thanksLines } from '../src/content-rules'
 import { englishOf } from '../src/english'
 import { tilapiaUnnamed } from '../src/kind-words'
@@ -326,6 +326,28 @@ test('the gill fluke guide gives praziquantel in food by the fish\'s weight, and
     expect(t.body, lang).toMatch(/<td>40 (?:mg|มก)/u)
     expect(t.body, `${lang}: Florida's warning beside its food dose`).toMatch(/nghiên cứu|diteliti|dikaji|วิจัย/u)
   }
+})
+
+// The chief of staff, 17 Nov 2026: a US seller's three quarantine medicines (sold there, with their doses per 10 US gallons)
+// came off the site with the video guide built on them. The general guide had the same protocol in every language, and its
+// Thai page printed the writer's source numbers ("(แหล่งที่ 0)"). Its saved facts no longer name the medicines, and the copy
+// writer doesn't save a copy that prints source numbers (topics.ts sourceNumbers), so no rewrite brings either back.
+test('the quarantine guide names no US seller\'s medicine in any language, nor its saved facts, and Thai prints no source number', async () => {
+  const id = 'aquatome-cach-ly-ca-moi-mua-be-cach-ly-va-quy-trinh'
+  const dir = fileURLToPath(new URL(`../../../content/guides/${id}/`, import.meta.url))
+  const brands = /Maracyn|ParaCleanse|Ich-X|PraziPro|ParaGuard|quarantine trio|bộ ba thuốc/iu
+  // The protocol unnamed too (Codex's read of #1588: Malay gave it as "a combination of" three medicines): its seven
+  // days without food, in each language's words on main before, and Malay's combination.
+  const protocol = /7 ngày[^.]*không cho ăn|7 hari tanpa (?:diberi pakan|memberi makan)|7 วันโดยไม่ให้อาหาร|gabungan ubat antibakteria/u
+  for (const lang of ['vi', 'id', 'th', 'ms']) {
+    const t = JSON.parse(await readFile(join(dir, `${lang}.json`), 'utf8')) as Translation
+    expect(JSON.stringify([t.body, t.summary, t.faq]), lang).not.toMatch(brands)
+    expect(JSON.stringify([t.body, t.summary, t.faq]), lang).not.toMatch(protocol)
+  }
+  expect((JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8')) as Translation).bodyFixed).toBe(true)
+  expect((JSON.parse(await readFile(join(dir, 'th.json'), 'utf8')) as Translation).body).not.toMatch(/แหล่งที่\s*\d/u)
+  const facts = await readFile(fileURLToPath(new URL(`../../../engine-state/topics/${id}.json`, import.meta.url)), 'utf8')
+  expect(facts).not.toMatch(brands)
 })
 
 // University of Florida's angelfish paper: "50mg/kg body weight for five consecutive days". A dose per kilo says a kilo of what.
@@ -676,7 +698,7 @@ test('every guide taken off for good is one the content has, and forwards to a p
     expect(existsSync(join(content, 'guides', id, 'vi.json')), id).toBe(true)
     if (to !== 'guides') expect(existsSync(join(content, to.kind, to.id, 'vi.json')), `${id} → ${to.kind}/${to.id}`).toBe(true)
   }
-  expect(Object.keys(RETIRED_GUIDES)).toHaveLength(31)
+  expect(Object.keys(RETIRED_GUIDES)).toHaveLength(34)
   expect(readdirSync(join(content, 'guides')).filter(id => GALLERY_POST.test(id)).length).toBeGreaterThanOrEqual(66)
 })
 
@@ -920,6 +942,22 @@ test('the fire-bellied toad guide is held by hand in every language it has', () 
   const langs = readdirSync(dir).filter(f => f !== 'entity.json' && f.endsWith('.json'))
   expect(langs).toContain('vi.json')
   for (const f of langs) expect((JSON.parse(readFileSync(join(dir, f), 'utf8')) as Translation).held, f).toEqual(hold)
+})
+
+// The chief of staff, 17 Nov 2026: three pages a foreign seller's products or medicines make up go off for good. The
+// shopping list goes to the guides list, the iron fertiliser to the guide on choosing a fertiliser, and the quarantine video
+// built on three medicines sold abroad to our general quarantine guide. Each target is a page and stays.
+test('the two kits and the quarantine video are off for good, each to the page it names', () => {
+  expect(retiredTo('aquariumcoop-blogs-aquarium-aquarium-shopping-list')).toBe('guides')
+  const want = {
+    'aquariumcoop-blogs-aquarium-iron-fertilizer': 'aquariumcoop-blogs-aquarium-which-aquatic-fertilizer-is-right-for-you',
+    'youtube-LrRhfOYfXns': 'aquatome-cach-ly-ca-moi-mua-be-cach-ly-va-quy-trinh',
+  }
+  for (const [id, target] of Object.entries(want)) {
+    expect(retiredTo(id), id).toEqual({ kind: 'guides', id: target })
+    expect(retiredTo(target), target).toBeUndefined()
+    expect(existsSync(fileURLToPath(new URL(`../../../content/guides/${target}/vi.json`, import.meta.url))), target).toBe(true)
+  }
 })
 
 // The Writing Lead's answer of 15 Nov 2026 on 60 findings in 17 held video guides (the source talking, units, prices),

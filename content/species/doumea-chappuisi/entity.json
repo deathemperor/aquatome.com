@@ -13,6 +13,94 @@
     "cavally",
     "guinea-bissau"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GW",
+        "GN",
+        "LR",
+        "CI"
+      ],
+      "regions": [
+        "Cavally",
+        "Nuon",
+        "St. Paul",
+        "Koumba"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Doumea chappuisi occurs in several coastal basins in Guinea-Bissau, Guinea, Liberia and Côte d'Ivoire.",
+          "countries": [
+            "GW",
+            "GN",
+            "LR",
+            "CI"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Africa: Guinea, Liberia and Côte d’Ivoire; Cavally, Nuon, St. Paul, and Koumba River systems.",
+          "countries": [],
+          "regions": [
+            "Cavally",
+            "Nuon",
+            "St. Paul",
+            "Koumba"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340801,
+      "total": 34,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "LR",
+          17
+        ],
+        [
+          "GN",
+          16
+        ],
+        [
+          "CI",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -12.65625,
+          11.25,
+          1,
+          1
+        ],
+        [
+          -9.84375,
+          7.03125,
+          24,
+          24
+        ],
+        [
+          -9.84375,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -8.4375,
+          7.03125,
+          7,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -1,8 +1,13 @@
 {
   "slug": "rio-paucerna",
-  "name": "Paucerna",
+  "name": "Sungai Paucerna",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-17T05:08:32.612Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

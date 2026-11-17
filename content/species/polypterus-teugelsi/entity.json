@@ -16,10 +16,12 @@
         "CM"
       ],
       "regions": [
+        "Cross River",
         "River Cross"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -30,6 +32,14 @@
           ],
           "regions": [
             "River Cross"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Polypterus teugelsi originates from the Cross River system in Cameroon.",
+          "countries": [],
+          "regions": [
+            "Cross River"
           ]
         }
       ]

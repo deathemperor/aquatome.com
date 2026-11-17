@@ -1,15 +1,15 @@
 {
   "id": "enteromius-candens",
   "native": {
-    "input": "6a246ed90fb5805a",
-    "at": "2026-11-08T03:17:10.020Z",
+    "input": "e0652e841ecdd465",
+    "at": "2026-11-17T05:18:20.405Z",
     "claims": [
       {
         "code": "CD",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "This species has been collected from parts of the Congo River basin in northern and central Democratic Republic of Congo (DRC), Africa.",
-        "words": "Democratic Republic of Congo",
+        "quote": "Enteromius candens is a small African barb from the Congo basin in northern and central DR Congo, mainly between Lisala and Kisangani.",
+        "words": "DR Congo",
         "ok": true
       },
       {
@@ -23,7 +23,7 @@
     ],
     "regions": [
       {
-        "name": "Congo River",
+        "name": "Congo",
         "source": "seriouslyfish",
         "quote": "This species has been collected from parts of the Congo River basin in northern and central Democratic Republic of Congo (DRC), Africa.",
         "country": "CD",
@@ -36,9 +36,9 @@
         "ok": true
       },
       {
-        "name": "Lilanda River",
-        "source": "seriouslyfish",
-        "quote": "Other populations have been found further south in the Lilanda River (Yangole area) and close to Ikela.",
+        "name": "Congo",
+        "source": "glaser",
+        "quote": "Three very similar species of dwarfish barbs occur in the central Congo basin.",
         "ok": true
       }
     ],

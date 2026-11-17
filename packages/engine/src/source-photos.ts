@@ -3,7 +3,7 @@ import sharp from 'sharp'
 import type { Photo, SourceId } from '@aq/schema'
 import { parse } from 'node-html-parser'
 import { ArchiveRefused } from './archive'
-import type { PageImage } from './outline'
+import { dropEmails, type PageImage } from './outline'
 import { creditKind, type CreditKind } from './photo-credit'
 import { ARTWORK } from './photos'
 
@@ -122,9 +122,10 @@ export async function linkedPhotos(html: string, pageUrl: string, photoPage: Reg
     // The credit follows the image; the site's own "©2026 SCOTCAT.COM" footer is further down.
     const at = page.indexOf(img.getAttribute('src')!)
     const author = page.slice(at, at + 600).match(/(?:©|&copy;)(?:\s|&nbsp;|<[^>]+>)*([^<]+)/)?.[1]?.replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim()
+    const credit = author && dropEmails(author).replace(/\s+/g, ' ').trim()
     const width = Number(img.getAttribute('width')) || undefined
     const height = Number(img.getAttribute('height')) || undefined
-    out.push({ src: new URL(img.getAttribute('src')!, u).href, alt: (img.getAttribute('alt') ?? '').replace(/\s*=\s*/, ': ').trim(), ...(width ? { displayWidth: width } : {}), ...(height ? { displayHeight: height } : {}), page: u, ...(author ? { author } : {}) })
+    out.push({ src: new URL(img.getAttribute('src')!, u).href, alt: dropEmails(img.getAttribute('alt') ?? '').replace(/\s*=\s*/, ': ').replace(/\s+/g, ' ').trim(), ...(width ? { displayWidth: width } : {}), ...(height ? { displayHeight: height } : {}), page: u, ...(credit ? { author: credit } : {}) })
   }
   return out
 }
