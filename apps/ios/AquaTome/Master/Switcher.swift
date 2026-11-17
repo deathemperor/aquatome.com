@@ -102,8 +102,8 @@ final class Switcher {
     if c.isLamp {
       let before = lamp.sent.count
       let e = await lamp.send(c, allowed: allowed)
-      let end = CommandEnd.lamp(sentAny: lamp.sent.count > before, failed: e != nil, withReason: e != nil && e != .failed,
-                                withdrawn: withdrawn())
+      let end = CommandEnd.lamp(sentAny: lamp.sent.count > before, cut: e == .cut, failed: e != nil,
+                                withReason: e != nil && e != .failed && e != .cut, withdrawn: withdrawn())
       return (said(end, c, name: name(c), lamp: e), !end.nothingSent)
     }
     guard let o = outlet(c) else { return (.failed(String(localized: "Ổ cắm này không còn trên bể nào.")), false) }
@@ -135,6 +135,8 @@ final class Switcher {
     case .lampOnOnly(.signedOut): .failed(String(localized: "Đèn Love Ecology đã bật nhưng chưa đổi màu vì bạn đã đăng xuất."))
     case .lampOnOnly(.own): .failed(String(localized: "Đèn Love Ecology đã bật nhưng chưa đổi màu: \((lamp ?? .failed).line)"))
     case .lampOnOnly(.unknown): .failed(String(localized: "Đèn Love Ecology đã bật nhưng chưa đổi màu. Thử lại."))
+    case .lampUnknown(onWent: false): .failed(String(localized: "Không rõ đèn Love Ecology đã nhận lệnh chưa. Bạn xem lại đèn."))
+    case .lampUnknown(onWent: true): .failed(String(localized: "Đèn Love Ecology đã bật, nhưng không rõ đã đổi màu chưa. Bạn xem lại đèn."))
     }
   }
 

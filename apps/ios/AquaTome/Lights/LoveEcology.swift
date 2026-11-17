@@ -13,11 +13,15 @@ import SwiftUI
 protocol LampAir: AnyObject {
   /// Broadcasts the 16-bit service UUIDs (4 hex digits each), in order, until `stop`. `done` says whether it started.
   /// `allowed` is asked right before the broadcast begins, after any wait for Bluetooth: no, and it doesn't (`.failed`).
+  /// One handed to Bluetooth and then cut before Bluetooth said it had started (`.cut`) may have gone out.
   func start(_ uuids: [String], allowed: @escaping @MainActor () -> Bool, done: @escaping @MainActor (LampAirError?) -> Void)
   func stop()
 }
 
-enum LampAirError: Error { case off, refused, unsupported, failed }
+/// Why a broadcast didn't start. `cut`: it was handed to Bluetooth, then cut before Bluetooth said it had started
+/// (Bluetooth went off or reset, or another broadcast took over): it may have gone out (Codex, 18 Nov). The others:
+/// nothing went.
+enum LampAirError: Error { case off, refused, unsupported, failed, cut }
 
 /// The phone's Bluetooth, broadcasting as Fish lamp does. Its manager is made at the first tap, not when the screen opens.
 @MainActor
@@ -29,10 +33,10 @@ final class BluetoothLampAir: NSObject, LampAir {
 
   func start(_ uuids: [String], allowed: @escaping @MainActor () -> Bool, done: @escaping @MainActor (LampAirError?) -> Void) {
     let ids = uuids.map { CBUUID(string: $0) }
-    // One broadcast at a time: one still starting, or waiting for Bluetooth, is replaced, and told it didn't go (the
-    // master button awaits its answer).
+    // One broadcast at a time: one still starting, or waiting for Bluetooth, is replaced, and told it didn't go, or, once
+    // handed to Bluetooth, that it may have (the master button awaits its answer).
     if let w = waiting { waiting = nil; w.done(.failed) }
-    if let s = starting { starting = nil; s(.failed) }
+    if let s = starting { starting = nil; s(.cut) }
     guard let manager else {
       waiting = (ids, allowed, done)
       manager = CBPeripheralManager(delegate: self, queue: nil)
@@ -41,10 +45,10 @@ final class BluetoothLampAir: NSObject, LampAir {
     advertise(ids, on: manager, allowed: allowed, done: done)
   }
 
-  /// Ends the broadcast; one still starting, or waiting for Bluetooth, is told it didn't go.
+  /// Ends the broadcast; one waiting for Bluetooth is told it didn't go, one still starting that it may have.
   func stop() {
     if let w = waiting { waiting = nil; w.done(.failed) }
-    if let s = starting { starting = nil; s(.failed) }
+    if let s = starting { starting = nil; s(.cut) }
     manager?.stopAdvertising()
   }
 
@@ -73,10 +77,11 @@ final class BluetoothLampAir: NSObject, LampAir {
 
 extension BluetoothLampAir: @preconcurrency CBPeripheralManagerDelegate {
   func peripheralManagerDidUpdateState(_ manager: CBPeripheralManager) {
-    // Bluetooth went off or reset while a broadcast was starting: say so, rather than leave the card sending.
+    // Bluetooth went off or reset while a broadcast was starting: say so, rather than leave the card sending. It was
+    // handed to Bluetooth, so it may have gone out.
     if manager.state != .poweredOn, let done = starting {
       starting = nil
-      done(Self.error(manager.state) ?? .failed)
+      done(.cut)
     }
     guard let w = waiting else { return }
     if let e = Self.error(manager.state) {
@@ -99,14 +104,23 @@ extension BluetoothLampAir: @preconcurrency CBPeripheralManagerDelegate {
 #if DEBUG
 /// The simulator has no Bluetooth to broadcast with. `-fake-lamp-off`: Bluetooth is off. `-fake-lamp-waits <seconds>`:
 /// Bluetooth isn't ready until that long after the first broadcast is asked for (as at the first send after a launch).
+/// `-fake-lamp-cuts <n>`: the nth broadcast begun is cut before it says it started (Bluetooth reset as it began).
 @MainActor
 final class FakeLampAir: LampAir {
   private var ready = !ProcessInfo.processInfo.arguments.contains("-fake-lamp-waits")
   private let wait = ProcessInfo.processInfo.arguments.firstIndex(of: "-fake-lamp-waits")
     .flatMap { i in ProcessInfo.processInfo.arguments.dropFirst(i + 1).first.flatMap(Double.init) } ?? 0
+  private let cuts = ProcessInfo.processInfo.arguments.firstIndex(of: "-fake-lamp-cuts")
+    .flatMap { i in ProcessInfo.processInfo.arguments.dropFirst(i + 1).first.flatMap(Int.init) }
+  private var begun = 0
 
   func start(_ uuids: [String], allowed: @escaping @MainActor () -> Bool, done: @escaping @MainActor (LampAirError?) -> Void) {
-    let answer: @MainActor () -> Void = { done(ProcessInfo.processInfo.arguments.contains("-fake-lamp-off") ? .off : allowed() ? nil : .failed) }
+    let answer: @MainActor () -> Void = { [unowned self] in
+      if ProcessInfo.processInfo.arguments.contains("-fake-lamp-off") { return done(.off) }
+      guard allowed() else { return done(.failed) }
+      self.begun += 1
+      done(self.begun == self.cuts ? .cut : nil)
+    }
     guard !ready else { return answer() }
     Task { @MainActor in
       try? await Task.sleep(for: .seconds(wait))
@@ -282,6 +296,7 @@ struct LoveEcologyCard: View {
     case .problem(.refused): String(localized: "AquaTome chưa được dùng Bluetooth. Bật trong Cài đặt → AquaTome → Bluetooth.")
     case .problem(.unsupported): String(localized: "Máy này không có Bluetooth.")
     case .problem(.failed): String(localized: "Không gửi được lệnh tới đèn. Thử lại.")
+    case .problem(.cut): String(localized: "Không rõ đèn Love Ecology đã nhận lệnh chưa. Bạn xem lại đèn.")
     }
   }
 

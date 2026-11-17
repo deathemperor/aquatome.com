@@ -75,6 +75,20 @@ final class MasterFlowTests: XCTestCase {
     expect(app, "master-log", contains: "switch_3 off")
   }
 
+  func testALampBroadcastCutAsItBeganIsNeverSaidNotSentAndGoesBackAtTheEnd() {
+    // The lamp's "on" is handed to Bluetooth and cut before Bluetooth says it started (a debug launch argument: the first
+    // broadcast): it may have gone out, so the card says it isn't known, never that it wasn't sent, and the end puts the
+    // lamp back (Codex, 18 Nov).
+    let app = launch(["-fake-lamp-cuts", "1"])
+    make(app, end: "60")
+    tap(app, "master-start")
+    expect(app, "master-problems", contains: "Không rõ đèn Love Ecology đã nhận lệnh chưa. Bạn xem lại đèn.", timeout: 40)
+    expect(app, "master-problems", lacks: "Chưa gửi")
+    expect(app, "master-problems", lacks: "Không gửi được lệnh tới đèn")
+    tap(app, "master-end")
+    expect(app, "master-log", contains: "lamp back off", timeout: 40)
+  }
+
   func testWithThePlugsUnreachedNothingGoesAndItSaysWhy() {
     // No network to the stand-in Tuya cloud: how the outlets are now can't be read, so neither can what goes back.
     let app = launch(["-stand-in-offline"])

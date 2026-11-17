@@ -159,15 +159,61 @@ func noLineSaysNotSentWhenItWent() async {
   }
   // Both kinds were met: the check isn't empty.
   #expect(reached > 0 && notReached > 0)
-  // The lamp: any of its recordings out, whether it failed, whether it said why; then signed out, or not.
+  // The lamp: any of its recordings out, the last one tried cut after Bluetooth had it (it may have gone), whether it
+  // failed, whether it said why; then signed out, or not.
   for sentAny in [false, true] {
-    for failed in [false, true] where failed || sentAny {
-      for withReason in [false, true] where failed || !withReason {
-        for w in [nil, .signedOut, .role] as [CommandEnd.Withdrawal?] {
-          let e = CommandEnd.lamp(sentAny: sentAny, failed: failed, withReason: withReason, withdrawn: w)
-          #expect(!(sentAny && e.nothingSent), "lamp: sent any \(sentAny), failed \(failed), reason \(withReason), \(String(describing: w)): \(e)")
-          #expect(sentAny || e.nothingSent, "lamp: nothing broadcast, and the card says it may have gone: \(e)")
+    for cut in [false, true] {
+      for failed in [false, true] where failed || (sentAny && !cut) {
+        for withReason in [false, true] where failed || !withReason {
+          for w in [nil, .signedOut, .role] as [CommandEnd.Withdrawal?] {
+            let e = CommandEnd.lamp(sentAny: sentAny, cut: cut, failed: failed, withReason: withReason, withdrawn: w)
+            let went = sentAny || cut
+            #expect(!(went && e.nothingSent), "lamp: sent any \(sentAny), cut \(cut), failed \(failed), reason \(withReason), \(String(describing: w)): \(e)")
+            #expect(went || e.nothingSent, "lamp: nothing broadcast, and the card says it may have gone: \(e)")
+          }
         }
+      }
+    }
+  }
+}
+
+/// Each way a command can end, and whether any of it may have reached the device: as this check holds it, apart from
+/// `CommandEnd.nothingSent`.
+let everyEnd: [(CommandEnd, mayHaveReached: Bool)] = [
+  (.done, true), (.unconfirmed, true), (.unknown, true),
+  (.lampOnOnly(.signedOut), true), (.lampOnOnly(.own), true), (.lampOnOnly(.unknown), true),
+  (.lampUnknown(onWent: false), true), (.lampUnknown(onWent: true), true),
+  (.withdrawn(.signedOut), false), (.withdrawn(.role), false), (.notSent, false), (.refused(.quota), false),
+  (.refused(.plugOffline), false), (.lampNotSent, false),
+]
+
+@Test("The card's words for each ending: one that may have reached the device never reads as not sent")
+func theCardsWordsForEachEnding() throws {
+  for (e, reached) in everyEnd { #expect(e.nothingSent == !reached, "\(e)") }
+  // The app's own words (apps/ios/AquaTome/Master/Switcher.swift, `said`): each case of an ending that may have
+  // reached the device says it went, or may have; none says it wasn't sent.
+  let file = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()
+    .deletingLastPathComponent().appendingPathComponent("AquaTome/Master/Switcher.swift")
+  let code = try String(contentsOf: file, encoding: .utf8)
+  let start = try #require(code.range(of: "private func said("), "no `said` in \(file.path)")
+  // Its cases, to the function's end: the kind each words, and what it says (after "case …: .").
+  let cases = code[start.upperBound...].split(separator: "\n").dropFirst().prefix { !$0.hasPrefix("  }") }
+    .filter { $0.hasPrefix("    case .") }
+  let words = Dictionary(cases.map { line -> (String, [String]) in
+    let kind = String(line.dropFirst("    case .".count).prefix { $0.isLetter })
+    return (kind, [line.components(separatedBy: ": .").dropFirst().joined(separator: ": .")])
+  }, uniquingKeysWith: +)
+  #expect(Set(words.keys) == ["done", "withdrawn", "notSent", "refused", "lampNotSent", "unconfirmed", "unknown", "lampOnOnly", "lampUnknown"],
+          "the endings `said` words: \(words.keys.sorted())")
+  // How a line that may have gone begins: done; the outlet not confirmed; not known; the lamp on.
+  let went = ["Ổ \\(name) chưa báo đã đổi.", "\"Không rõ ", "\"Đèn Love Ecology đã bật"]
+  for kind in ["done", "unconfirmed", "unknown", "lampOnOnly", "lampUnknown"] {
+    let said = words[kind] ?? []
+    #expect(!said.isEmpty, "\(kind) not worded")
+    for line in said {
+      #expect(line == "done" || went.contains { line.contains($0) }, "\(kind) may have reached the device, and the card says: \(line)")
+      for notSent in ["signedOut", "words(", "unreached(", "Chưa gửi", "Không gửi được", "Không tới được", "mất kết nối", "Bật Bluetooth"] {
+        #expect(!line.contains(notSent), "\(kind) may have reached the device, and the card says: \(line)")
       }
     }
   }
@@ -184,11 +230,14 @@ func whatAFailedCommandSays() async {
   #expect(CommandEnd.plug(.confirmed, withdrawn: .signedOut) == .done)
   // The lamp: "on" went and its colour didn't. Bluetooth's reason kept, a sign-out after it too; signed out with no
   // other reason: the sign-out (Codex, 17 Nov).
-  #expect(CommandEnd.lamp(sentAny: true, failed: true, withReason: true, withdrawn: .signedOut) == .lampOnOnly(.own))
-  #expect(CommandEnd.lamp(sentAny: true, failed: true, withReason: false, withdrawn: .signedOut) == .lampOnOnly(.signedOut))
-  #expect(CommandEnd.lamp(sentAny: true, failed: true, withReason: false, withdrawn: nil) == .lampOnOnly(.unknown))
-  #expect(CommandEnd.lamp(sentAny: false, failed: true, withReason: true, withdrawn: .signedOut) == .withdrawn(.signedOut))
-  #expect(CommandEnd.lamp(sentAny: false, failed: true, withReason: true, withdrawn: nil) == .lampNotSent)
+  #expect(CommandEnd.lamp(sentAny: true, cut: false, failed: true, withReason: true, withdrawn: .signedOut) == .lampOnOnly(.own))
+  #expect(CommandEnd.lamp(sentAny: true, cut: false, failed: true, withReason: false, withdrawn: .signedOut) == .lampOnOnly(.signedOut))
+  #expect(CommandEnd.lamp(sentAny: true, cut: false, failed: true, withReason: false, withdrawn: nil) == .lampOnOnly(.unknown))
+  #expect(CommandEnd.lamp(sentAny: false, cut: false, failed: true, withReason: true, withdrawn: .signedOut) == .withdrawn(.signedOut))
+  #expect(CommandEnd.lamp(sentAny: false, cut: false, failed: true, withReason: true, withdrawn: nil) == .lampNotSent)
+  // Handed to Bluetooth and cut before it said it had started: it may have gone, a sign-out since or not (Codex, 18 Nov).
+  #expect(CommandEnd.lamp(sentAny: false, cut: true, failed: true, withReason: false, withdrawn: .signedOut) == .lampUnknown(onWent: false))
+  #expect(CommandEnd.lamp(sentAny: true, cut: true, failed: true, withReason: false, withdrawn: nil) == .lampUnknown(onWent: true))
   // The keys changed while its answer was lost: the board says it may have switched.
   #expect(await ending(.losesAnswer, .removed, listFails: false).outcome == .unknown)
   #expect(await ending(.losesAnswer, .another, listFails: false).outcome == .unknown)

@@ -141,7 +141,7 @@ final class MasterModel {
     run = r
     keep()
     let lampSteps = r.steps.filter(\.isLamp)
-    let lampSent = switcher.lamp.sent.count
+    let lampSent = switcher.lamp.mayHaveGone
     async let lampFailed = sendLamp(lampSteps, still: still)
     var failed: [MasterRun.Failed] = []
     // Steps that failed after their command may have reached the plug (its answer lost, or not confirmed).
@@ -176,8 +176,9 @@ final class MasterModel {
       for s in r.steps { if let key = switcher.outlet(s)?.key, let on = switcher.plugs.board.on(key) { after[s.target] = on } }
     }
     let refusals = refused.map { MasterRun.Failed(target: $0.target, line: String(localized: "Nút không bật tắt ổ \(switcher.name($0)) được trong bản này.")) }
-    // A lamp step that failed after one of its recordings went out ("on", then not its colour) changed the lamp.
-    let halfSent = switcher.lamp.sent.count > lampSent ? Set(lampSteps.map(\.target)) : []
+    // A lamp step that failed after one of its recordings went out, or may have ("on", then not its colour; one cut as
+    // it began), may have changed the lamp: it goes back at the end.
+    let halfSent = switcher.lamp.mayHaveGone > lampSent ? Set(lampSteps.map(\.target)) : []
     r.settle(refusals + failed, now: { after[$0.target] }, keeping: Set(owed.map(\.command.target)).union(halfSent), at: now(),
              uncertain: uncertain)
     run = r

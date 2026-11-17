@@ -21187,6 +21187,28 @@
         }
       }
     },
+    "Không rõ đèn Love Ecology đã nhận lệnh chưa. Bạn xem lại đèn.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum jelas apakah lampu Love Ecology sudah menerima perintah. Periksa lampunya."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak pasti sama ada lampu Love Ecology sudah menerima arahan. Semak lampu."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่แน่ใจว่าไฟ Love Ecology ได้รับคำสั่งแล้วหรือยัง ตรวจดูไฟอีกครั้ง"
+          }
+        }
+      }
+    },
     "Không rõ lệnh đã tới ổ %@ chưa, nên AquaTome để nguyên. Bạn xem lại ổ này.": {
       "localizations": {
         "id": {
@@ -21953,6 +21975,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ไฟ Love Ecology เปิดแล้ว แต่ยังไม่ได้เปลี่ยนสี: %@"
+          }
+        }
+      }
+    },
+    "Đèn Love Ecology đã bật, nhưng không rõ đã đổi màu chưa. Bạn xem lại đèn.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology sudah menyala, tapi belum jelas apakah warnanya sudah berubah. Periksa lampunya."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology sudah menyala, tetapi tidak pasti sama ada warnanya sudah bertukar. Semak lampu."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไฟ Love Ecology เปิดแล้ว แต่ไม่แน่ใจว่าเปลี่ยนสีแล้วหรือยัง ตรวจดูไฟอีกครั้ง"
           }
         }
       }

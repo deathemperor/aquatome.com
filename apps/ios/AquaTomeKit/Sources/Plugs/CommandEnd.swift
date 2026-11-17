@@ -25,6 +25,9 @@ public enum CommandEnd: Equatable, Sendable {
   case unknown
   /// The lamp's "on" went out and its colour didn't: the lamp is on, in a colour not known.
   case lampOnOnly(LampWhy)
+  /// The lamp's last recording tried was handed to Bluetooth and cut before Bluetooth said it had started: it may have
+  /// gone out (Codex, 18 Nov). `onWent`: its "on" went out before it.
+  case lampUnknown(onWent: Bool)
 
   public enum Withdrawal: Equatable, Sendable {
     case signedOut
@@ -45,7 +48,7 @@ public enum CommandEnd: Equatable, Sendable {
   public var nothingSent: Bool {
     switch self {
     case .withdrawn, .notSent, .refused, .lampNotSent: true
-    case .done, .unconfirmed, .unknown, .lampOnOnly: false
+    case .done, .unconfirmed, .unknown, .lampOnOnly, .lampUnknown: false
     }
   }
 
@@ -63,12 +66,14 @@ public enum CommandEnd: Equatable, Sendable {
     }
   }
 
-  /// The lamp's command, by whether any of its recordings went out (`sentAny`), whether it failed, whether the lamp gave
-  /// its own reason (`withReason`: Bluetooth off, not allowed; not when its broadcast only didn't start, as a recording
-  /// withdrawn ends) and why it would be withdrawn now: that reason when nothing went; after "on", the sign-out only in
-  /// place of no reason, the lamp's own reason kept.
-  public static func lamp(sentAny: Bool, failed: Bool, withReason: Bool, withdrawn: Withdrawal?) -> CommandEnd {
+  /// The lamp's command, by whether any of its recordings went out (`sentAny`), whether the last one tried was cut after
+  /// it was handed to Bluetooth (`cut`: it may have gone), whether it failed, whether the lamp gave its own reason
+  /// (`withReason`: Bluetooth off, not allowed; not when its broadcast only didn't start, as a recording withdrawn ends)
+  /// and why it would be withdrawn now: that reason when nothing went; after "on", the sign-out only in place of no
+  /// reason, the lamp's own reason kept.
+  public static func lamp(sentAny: Bool, cut: Bool, failed: Bool, withReason: Bool, withdrawn: Withdrawal?) -> CommandEnd {
     guard failed else { return .done }
+    if cut { return .lampUnknown(onWent: sentAny) }
     guard sentAny else { return withdrawn.map(CommandEnd.withdrawn) ?? .lampNotSent }
     return .lampOnOnly(withReason ? .own : withdrawn == .signedOut ? .signedOut : .unknown)
   }

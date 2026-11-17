@@ -69,6 +69,10 @@ final class LampSender {
   /// The recordings asked of the air, by id, whether they then went or not (`master-lamp-asked`): a flow sees one waiting
   /// for Bluetooth.
   private(set) var asked: [String] = []
+  /// The recordings handed to Bluetooth and cut before it said they had started (`LampAirError.cut`): they may have gone.
+  private(set) var cut: [String] = []
+  /// How many recordings went out, or may have.
+  var mayHaveGone: Int { sent.count + cut.count }
 
   static func recordings(_ c: DeviceCommand) -> [FishLamp.Command] {
     let ids = !c.on ? ["off"] : ["on"] + (c.colour.map { [$0] } ?? [])
@@ -103,6 +107,7 @@ final class LampSender {
         LampRadio.start(r.uuids, by: self, allowed: allowed) { done.resume(returning: $0) }
       }
       if let started {
+        if started == .cut { cut.append(r.id) }
         // "On" went out and its colour didn't: the lamp is on, in a colour not known.
         if i > 0 { LampMemory.remember(DeviceCommand(device: c.device, on: true)) }
         return started
@@ -124,6 +129,7 @@ extension LampAirError {
     case .refused: String(localized: "AquaTome chưa được dùng Bluetooth. Bật trong Cài đặt → AquaTome → Bluetooth.")
     case .unsupported: String(localized: "Máy này không có Bluetooth.")
     case .failed: String(localized: "Không gửi được lệnh tới đèn. Thử lại.")
+    case .cut: String(localized: "Không rõ đèn Love Ecology đã nhận lệnh chưa. Bạn xem lại đèn.")
     }
   }
 }
