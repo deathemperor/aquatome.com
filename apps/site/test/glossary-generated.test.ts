@@ -1,7 +1,7 @@
-import { expect, test } from 'vitest'
+import { afterAll, beforeAll, describe, expect, test } from 'vitest'
 import { parse } from 'node-html-parser'
 import { kindAiLabel, kindLargeFallback } from '../src/lib/glossary-kind-image'
-import { LANGS, loadAll, type Photo } from '@aq/schema'
+import { LANGS, loadAll, type Content, type Photo } from '@aq/schema'
 import { fileURLToPath } from 'node:url'
 import { createHash } from 'node:crypto'
 import { slow } from '@aq/schema/test-time'
@@ -85,18 +85,40 @@ for (const lang of LANGS) test(`${lang}: the actual card and large-view markup l
 })
 
 // Counts/hashes only: a failure must not print the real content's personal credit names.
-for (const lang of LANGS) test(`${lang}: the glossary-only switch with no approval changes neither real content nor app data`, async () => {
-  const root = fileURLToPath(new URL('../../../content', import.meta.url))
-  const before = await loadAll({ root, lang, publicBuild: true, glossaryKindImages: false })
-  const after = await loadAll({ root, lang, publicBuild: true, glossaryKindImages: true })
-  const hash = (value: unknown) => createHash('sha256').update(JSON.stringify(value)).digest('hex')
-  expect(hash(after)).toBe(hash(before))
-  const beforeIndex = appIndex(lang, before), afterIndex = appIndex(lang, after)
-  expect(hash(afterIndex)).toBe(hash(beforeIndex))
-  const docs = (c: typeof before, index: typeof beforeIndex) => {
-    // Build this once per snapshot, not once per term (listedPaths rebuilds the entire app index).
-    const listed = new Set(index.items.map(item => item.path))
-    return c.glossary.map(g => glossaryDoc(lang, c, g, listed))
+// Loading two full repositories, building their indexes, and making every glossary document are separate operations.
+// Keep each bounded, instead of one timed-out comparison continuing into the next language's load.
+for (const lang of LANGS) describe(`${lang}: real-content equivalence with the glossary-only switch and no approval`, () => {
+  let before: Content | undefined, after: Content | undefined
+  let cachedIndexes: { before: ReturnType<typeof appIndex>; after: ReturnType<typeof appIndex> } | undefined
+  const snapshots = () => {
+    if (!before || !after) throw new Error('real-content snapshots unavailable')
+    return { before, after }
   }
-  expect(hash(docs(after, afterIndex))).toBe(hash(docs(before, beforeIndex)))
-}, slow(60_000)) // Two complete real-content snapshots; same scaled allowance as the other real-content checks.
+  const indexes = () => {
+    const c = snapshots()
+    return cachedIndexes ??= { before: appIndex(lang, c.before), after: appIndex(lang, c.after) }
+  }
+  const hash = (value: unknown) => createHash('sha256').update(JSON.stringify(value)).digest('hex')
+  beforeAll(async () => {
+    const root = fileURLToPath(new URL('../../../content', import.meta.url))
+    before = await loadAll({ root, lang, publicBuild: true, glossaryKindImages: false })
+    after = await loadAll({ root, lang, publicBuild: true, glossaryKindImages: true })
+  }, slow(60_000))
+  afterAll(() => { before = undefined; after = undefined; cachedIndexes = undefined })
+  test('all loaded real content is identical', () => {
+    const c = snapshots()
+    expect(hash(c.after)).toBe(hash(c.before))
+  })
+  test('the complete app index is identical', () => {
+    const index = indexes()
+    expect(hash(index.after)).toBe(hash(index.before))
+  }, slow(60_000))
+  test('every glossary app page is identical', () => {
+    const c = snapshots(), index = indexes()
+    const docs = (content: Content, entries: ReturnType<typeof appIndex>) => {
+      const listed = new Set(entries.items.map(item => item.path))
+      return content.glossary.map(g => glossaryDoc(lang, content, g, listed))
+    }
+    expect(hash(docs(c.after, index.after))).toBe(hash(docs(c.before, index.before)))
+  }, slow(60_000))
+})
