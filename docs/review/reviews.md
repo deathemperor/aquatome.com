@@ -8,19 +8,19 @@ under `<lang>/<path>`.
 
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
-| video-guide | 965 | 688 (vi 688) | 688 |
-| translation | 1847 | 275 (vi 275) | 275 |
+| video-guide | 965 | 687 (vi 687) | 687 |
+| translation | 1871 | 276 (vi 276) | 276 |
 | vi-rewrite | 366 | 24 (vi 24) | 24 |
-| reader-rewrite | 37 | 0 | 0 |
+| reader-rewrite | 38 | 0 | 0 |
 | title | 25 | 0 | 0 |
 | breed | 27 | 3 (ms 3) | 3 |
 | topic | 107 | 6 (id 1, ms 1, th 4) | 6 |
 | product | 18 | 1 (vi 1) | 1 |
 | product-reviews | 17 | 0 | 0 |
-| summary | 2331 | 122 (vi 122) | 122 |
-| localize | 2333 | 891 (id 400, ms 60, th 431) | 891 |
+| summary | 2332 | 122 (vi 122) | 122 |
+| localize | 2362 | 889 (id 398, ms 61, th 430) | 889 |
 | glossary | 9 | 0 | 0 |
-| places | 6869 | 4184 (id 1435, ms 1432, th 1218, vi 99) | 1143 |
+| places | 6956 | 4250 (id 1457, ms 1454, th 1240, vi 99) | 1173 |
 | equipment | 5 | 0 | 0 |
 | planting | 32 | 0 | 0 |
 | species | 16 | 0 | 0 |
@@ -28,17 +28,17 @@ under `<lang>/<path>`.
 
 ## video-guide: Vietnamese guides written from YouTube videos, against the transcript
 
-688 of 965 pages under the bar.
+687 of 965 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 603 | 1565 |
-| States as certain what the source hedges, or what garbled captions only hint at | 598 | 1788 |
-| Says what the source doesn't (invented, added) | 514 | 1237 |
-| Wording: unnatural, literal, stiff or chatty | 292 | 412 |
+| Other | 602 | 1563 |
+| States as certain what the source hedges, or what garbled captions only hint at | 597 | 1787 |
+| Says what the source doesn't (invented, added) | 513 | 1236 |
+| Wording: unnatural, literal, stiff or chatty | 291 | 411 |
 | A number, unit, dose or price | 228 | 335 |
 | Repeats itself (intro, summary, steps and FAQ) | 132 | 156 |
-| Meaning changed or wrong | 119 | 136 |
+| Meaning changed or wrong | 118 | 135 |
 | Leaves out what the source says | 48 | 50 |
 | Hobby terms and names | 48 | 49 |
 | Names or points to the video, channel, creator or source | 33 | 36 |
@@ -126,20 +126,20 @@ under `<lang>/<path>`.
 
 ## translation: source pages translated into Vietnamese, against the English
 
-275 of 1847 pages under the bar.
+276 of 1871 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
 | Other | 265 | 815 |
-| Says what the source doesn't (invented, added) | 226 | 437 |
-| Wording: unnatural, literal, stiff or chatty | 209 | 400 |
-| Meaning changed or wrong | 172 | 269 |
-| Hobby terms and names | 138 | 184 |
+| Says what the source doesn't (invented, added) | 227 | 442 |
+| Wording: unnatural, literal, stiff or chatty | 210 | 401 |
+| Meaning changed or wrong | 173 | 270 |
+| Hobby terms and names | 139 | 185 |
 | Text left in another language | 97 | 121 |
 | Leaves out what the source says | 92 | 126 |
 | States as certain what the source hedges, or what garbled captions only hint at | 80 | 93 |
-| A number, unit, dose or price | 70 | 91 |
-| Repeats itself (intro, summary, steps and FAQ) | 58 | 69 |
+| A number, unit, dose or price | 71 | 92 |
+| Repeats itself (intro, summary, steps and FAQ) | 59 | 70 |
 | Names or points to the video, channel, creator or source | 10 | 11 |
 | Copied from the transcript or source | 3 | 3 |
 
@@ -299,7 +299,7 @@ under `<lang>/<path>`.
 
 ## reader-rewrite: parts the reader step rewrote with its findings
 
-0 of 37 pages under the bar.
+0 of 38 pages under the bar.
 
 ## title: titles rewritten to promise only what the text has
 
@@ -412,7 +412,7 @@ under `<lang>/<path>`.
 
 ## summary: species' quick summaries (the numbers and claims check: 1 pass, 0 fail)
 
-122 of 2331 pages under the bar.
+122 of 2332 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -480,21 +480,21 @@ under `<lang>/<path>`.
 
 ## localize: species and plant pages in Indonesian and Thai, against the English
 
-891 of 2333 pages under the bar.
+889 of 2362 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 827 | 2363 |
-| Wording: unnatural, literal, stiff or chatty | 766 | 1612 |
-| Says what the source doesn't (invented, added) | 526 | 760 |
-| Meaning changed or wrong | 497 | 760 |
-| Hobby terms and names | 484 | 638 |
-| A number, unit, dose or price | 477 | 598 |
-| Text left in another language | 323 | 416 |
-| Leaves out what the source says | 266 | 310 |
-| Repeats itself (intro, summary, steps and FAQ) | 253 | 283 |
-| States as certain what the source hedges, or what garbled captions only hint at | 194 | 215 |
-| Copied from the transcript or source | 27 | 27 |
+| Other | 829 | 2351 |
+| Wording: unnatural, literal, stiff or chatty | 768 | 1615 |
+| Says what the source doesn't (invented, added) | 522 | 749 |
+| Meaning changed or wrong | 493 | 756 |
+| Hobby terms and names | 480 | 636 |
+| A number, unit, dose or price | 472 | 590 |
+| Text left in another language | 323 | 413 |
+| Leaves out what the source says | 270 | 313 |
+| Repeats itself (intro, summary, steps and FAQ) | 253 | 282 |
+| States as certain what the source hedges, or what garbled captions only hint at | 196 | 218 |
+| Copied from the transcript or source | 26 | 26 |
 | Off the title's topic | 1 | 1 |
 
 ### Other
@@ -573,13 +573,13 @@ under `<lang>/<path>`.
 
 ## places: place names in Indonesian and Thai (reviewed in batches)
 
-4184 of 6869 pages under the bar.
+4250 of 6956 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 1025 | 1110 |
+| Other | 1047 | 1132 |
 | Meaning changed or wrong | 69 | 69 |
-| Leaves out what the source says | 44 | 44 |
+| Leaves out what the source says | 52 | 52 |
 | Wording: unnatural, literal, stiff or chatty | 25 | 25 |
 | States as certain what the source hedges, or what garbled captions only hint at | 9 | 9 |
 | Hobby terms and names | 9 | 9 |

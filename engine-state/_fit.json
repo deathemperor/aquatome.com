@@ -15908,10 +15908,25 @@
  },
  "id/species/elacatinus-oceanops": {
   "at": "2026-11-17",
-  "hash": "91cda6cb8ea23fab",
+  "hash": "31bff43796e98bb8",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "units",
+    "part": "P1",
+    "quote": "Ukuran akuarium minimum: 38 liter",
+    "why": "38 litres is a converted 10-gallon tank size, which nobody in Indonesia would use.",
+    "by": "model"
+   },
+   {
+    "check": "units",
+    "part": "P4",
+    "quote": "Ukuran akuarium minimumnya adalah 38 liter.",
+    "why": "38 litres is a converted 10-gallon tank size, which nobody in Indonesia would use.",
+    "by": "model"
+   }
+  ],
   "products": []
  },
  "id/species/elassoma-gilberti": {

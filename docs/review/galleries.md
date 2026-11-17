@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-17). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 712 | 31 | 9 | 24 | 728 |
-| rest | 20 | 1778 | 75 | 0 | 98 | 1755 |
+| covered | 30 | 718 | 31 | 9 | 24 | 734 |
+| rest | 20 | 1784 | 77 | 0 | 100 | 1761 |
 
-## Short of target: every source read (611)
+## Short of target: every source read (617)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -360,6 +360,8 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/apistogramma-borellii | covered | 19 | 30 |
 | species/apistogramma-cacatuoides | covered | 22 | 30 |
 | species/apistogramma-commbrae | covered | 1 | 30 |
+| species/apistogramma-elizabethae | covered | 0 | 30 |
+| species/apistogramma-eunotus | covered | 0 | 30 |
 | species/apistogramma-macmasteri | covered | 3 | 30 |
 | species/apistogramma-mendezi | covered | 1 | 30 |
 | species/apistogramma-panduro | covered | 3 | 30 |
@@ -396,6 +398,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/betta-brownorum | covered | 0 | 30 |
 | species/betta-burdigala | covered | 0 | 30 |
 | species/betta-channoides | covered | 0 | 30 |
+| species/betta-coccina | covered | 1 | 30 |
 | species/betta-dennisyongi | covered | 0 | 30 |
 | species/betta-dimidiata | covered | 0 | 30 |
 | species/betta-edithae | covered | 11 | 30 |
@@ -432,6 +435,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/boulengerella-maculata | covered | 4 | 30 |
 | species/brachychalcinus-orbicularis | covered | 0 | 30 |
 | species/brachygobius-aggregatus | covered | 0 | 30 |
+| species/brachygobius-sabanus | covered | 0 | 30 |
 | species/brachyplatystoma-juruense | covered | 0 | 30 |
 | species/brachyplatystoma-tigrinum | covered | 0 | 30 |
 | species/brachyrhamdia-heteropleura | covered | 0 | 30 |
@@ -580,6 +584,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/hemibagrus-macropterus | covered | 0 | 30 |
 | species/hemichromis-bimaculatus | covered | 0 | 30 |
 | species/hemichromis-elongatus | covered | 0 | 30 |
+| species/hemigrammus-bellottii | covered | 0 | 30 |
 | species/hemigrammus-hyanuary | covered | 0 | 30 |
 | species/hemigrammus-ocellifer | covered | 0 | 30 |
 | species/hemigrammus-rhodostomus | covered | 8 | 30 |
@@ -627,3 +632,4 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/hypsophrys-nicaraguensis | covered | 0 | 30 |
 | species/iheringichthys-megalops | covered | 0 | 30 |
 | species/ilyodon-furcidens | covered | 22 | 30 |
+| species/imparfinis-mirini | covered | 0 | 30 |
