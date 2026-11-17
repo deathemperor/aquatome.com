@@ -100,10 +100,14 @@ test("the monitor's policy as the live site sends it: a report-to group whose ad
     [LIVE, ENDPOINTS.slice(0, -1)],
     [LIVE, `other="a\\x", ${ENDPOINTS}`],
     [LIVE, 'cf-csp-endpoint=https'],
+    // A parameter no structured field can have (Codex's read of 825cf2c25), or one run on into the next word.
+    [LIVE, `${ENDPOINTS};p=?2`],
+    [LIVE, `${ENDPOINTS};p=1x`],
+    [LIVE, `${ENDPOINTS};p=(1 2)`],
   ] as const) expect(live(policy, endpoints), `${policy} | ${endpoints}`).toBeUndefined()
   // Read whole, the monitor's group is still found: with a parameter of its own, beside a member whose string holds a
   // comma and an escaped quote, and in two fields the log joins by a new line.
-  for (const endpoints of [`${ENDPOINTS};p=1`, `other="https://reports.example/a,b\\"c", ${ENDPOINTS}`, `cf-nel="https://a.nel.cloudflare.com/r"\n${ENDPOINTS}`])
+  for (const endpoints of [`${ENDPOINTS};p=1`, `${ENDPOINTS};a=?1;b=-1.5;c=:aGk=:;d=tok/en`, `other="https://reports.example/a,b\\"c", ${ENDPOINTS}`, `cf-nel="https://a.nel.cloudflare.com/r"\n${ENDPOINTS}`])
     expect(live(LIVE, endpoints), endpoints).toBe(`${CUT}; report-to cf-csp-endpoint`)
 })
 
@@ -139,6 +143,8 @@ test("the monitor's policy is the load's only when no other response of it has a
   const split = [response('2', 'https://aquatome.com/embed/', 'Document', { 'content-security-policy-report-only': LIVE }), extra('2', 200, { 'reporting-endpoints': ENDPOINTS })]
   expect(loadPolicy([...live, ...split], PAGE)).toBe(`${CUT}; report-to cf-csp-endpoint`)
   expect(loadPolicy([...live, extra('2', 302, { 'content-security-policy-report-only': LIVE }), ...split], PAGE)).toBeUndefined()
+  // Two responses under one id: each is read, the first's policy too (Codex's read of 825cf2c25).
+  expect(loadPolicy([...live, response('2', frame, 'Document', { 'content-security-policy-report-only': "connect-src 'self'" }), response('2', frame, 'Document', {})], PAGE)).toBeUndefined()
   expect(loadPolicy([...page, response('2', frame, 'Document', { 'content-security-policy': "default-src 'none'" })], PAGE)).toBe(CUT)
   expect(loadPolicy([page[0]!, extra('1', 301, { location: PAGE, 'content-security-policy-report-only': "connect-src 'self'" }), ...page.slice(1)], PAGE)).toBe(CUT)
   // No monitor on the page: nothing, whatever else the load has.

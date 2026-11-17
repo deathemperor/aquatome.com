@@ -78,9 +78,15 @@ export function dictionary(field: string): [string, string | undefined][] | unde
   let i = 0
   const ows = () => { while (field[i] === ' ' || field[i] === '\t') i++ }
   const key = () => { const m = /^[a-z*][a-z0-9_.*-]*/.exec(field.slice(i)); if (m) i += m[0].length; return m?.[0] }
-  // A string's text; undefined for another kind of item (a token, a number); null for one it can't read.
+  // A string's text; undefined for another kind of item (a token, a number, a byte sequence, a boolean); null for one it
+  // can't read, which spoils the whole field (`?2`: Codex's read of 825cf2c25).
   const item = (): string | undefined | null => {
-    if (field[i] !== '"') { const m = /^[^\s;,"]+/.exec(field.slice(i)); if (!m) return null; i += m[0].length; return undefined }
+    if (field[i] !== '"') {
+      const m = /^(?:-?\d{1,15}(?:\.\d{1,3})?|\?[01]|:[A-Za-z0-9+/=]*:|[A-Za-z*][!#$%&'*+\-.^_`|~0-9A-Za-z:/]*)/.exec(field.slice(i))
+      if (!m) return null
+      i += m[0].length
+      return undefined
+    }
     let text = ''
     for (i++; i < field.length; ) {
       const c = field[i++]!
@@ -125,17 +131,19 @@ export function loadPolicy(log: readonly Event[], page: string): string | undefi
   }
   // Each other response's headers read as the page's are (lighthouse-headers.ts): its own with those the network logged
   // beside it at its status, so a frame the monitor sampled, its policy in one and the group's address in the other, is
-  // the monitor's (Codex's read of 8d0b99747). Anything else logged under it (a redirect's hop, a response not logged) is
-  // read alone, as before: a policy there that isn't the monitor's leaves the load unattributed.
+  // the monitor's (Codex's read of 8d0b99747). Headers logged beside none of them (a redirect's hop, a response not
+  // logged) are read alone, as before: a policy there that isn't the monitor's leaves the load unattributed.
+  // Every response under one id is read, each with the last headers logged beside it at its status (Codex's read of
+  // 825cf2c25: keeping only the last hid a first one's policy).
   const foreign = [...others.values()].some(events => {
-    const res = events.filter(e => e.method === 'Network.responseReceived').at(-1)
-    const status = res && of(res).response?.status
     const beside = events.filter(e => e.method === 'Network.responseReceivedExtraInfo')
-    const final = res ? beside.filter(e => of(e).statusCode === status).at(-1) : undefined
-    const read = [
-      ...(res ? [{ ...lower(of(res).response?.headers), ...(final ? lower(of(final).headers) : {}) }] : []),
-      ...beside.filter(e => e !== final).map(e => lower(of(e).headers)),
-    ]
+    const paired = new Set<Event>()
+    const read = events.filter(e => e.method === 'Network.responseReceived').map(res => {
+      const final = beside.filter(e => of(e).statusCode === of(res).response?.status).at(-1)
+      if (final) paired.add(final)
+      return { ...lower(of(res).response?.headers), ...(final ? lower(of(final).headers) : {}) }
+    })
+    read.push(...beside.filter(e => !paired.has(e)).map(e => lower(of(e).headers)))
     return read.some(headers => headers[REPORT_ONLY] !== undefined && monitorPolicy(headers, page) === undefined)
   })
   return foreign ? undefined : policy
