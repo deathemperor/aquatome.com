@@ -492,7 +492,9 @@ if (cmd === 'photo-privacy') {
   // Openverse's client only when the search reaches it, after the kind and the words are checked: it may ask for a token.
   let ov: Awaited<ReturnType<typeof openverseApi>> | undefined
   const hits = await glossaryPhotoSearch(ROOT, { term: values.term, kind: values.kind, search: values.search }, { http, openverse: async u => (ov ??= await openverseApi())(u) })
-  for (const h of hits) console.log(`${h.key}  ${h.licence}  ${h.author}  ${h.sourceUrl}\n  ${h.words}\n  pnpm engine glossary-photo --term ${values.term} --kind ${values.kind} ${h.take}`)
+  // A source's own words on one line each: a newline in a credit or a description can't print a line that looks like a command.
+  const one = (s: string) => s.replace(/\s+/g, ' ').trim()
+  for (const h of hits) console.log(`${one(`${h.key}  ${h.licence}  ${h.author}  ${h.sourceUrl}`)}\n  ${one(h.words)}\n  pnpm engine glossary-photo --term ${values.term} --kind ${values.kind} ${h.take}`)
   console.log(`glossary-photo: ${hits.length} candidates for "${values.search}", nothing stored`)
 } else if (cmd === 'glossary-photo') {
   // A candidate photo for one kind of a glossary term, stored and screened, for Curation to pick by hand (glossary-photo.ts);
