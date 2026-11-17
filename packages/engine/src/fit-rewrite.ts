@@ -142,9 +142,21 @@ const spelled = <F extends { check: FitCheck; product?: string; quote?: string }
   // Whole words within one sentence, as the cut finds them ("Easy Carbo" isn't in "Easy Carbon"), and each sentence's own
   // text apart, so a list item's or a cell's end doesn't run into the next one's start (the readers of #1578).
   const pieces = sentences(html)
-  if (f.quote && holding(pieces, f.quote).length) return f
-  const m = pieces.filter(p => p.sentence).map(p => visible(p.html)).join('\n').match(new RegExp(x.match.source, 'iu'))
-  return m ? { ...f, quote: m[0] } : f
+  const shown = pieces.filter(p => p.sentence).map(p => visible(p.html))
+  // The finding's own words, letter for letter as the page has them, since the writer reads a quote so: a curly
+  // apostrophe where the page has one ("Dr. Tim’s"; Codex's read of #1578).
+  if (f.quote && holding(pieces, f.quote).length) {
+    const own = [f.quote, f.quote.replace(/'/g, '’')].find(q => shown.some(t => norm(t).includes(norm(q))))
+    if (own) return own === f.quote ? f : { ...f, quote: own }
+  }
+  // Else the pattern's first match within one sentence: across two ("Easy" in one list item, "Green" the next) it's
+  // no name.
+  const re = new RegExp(x.match.source, 'iu')
+  for (const t of shown) {
+    const m = t.match(re)
+    if (m) return { ...f, quote: m[0] }
+  }
+  return f
 }
 
 export const rewriteDue = (p: Page, state: FitState) =>

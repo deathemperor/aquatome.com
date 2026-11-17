@@ -1211,8 +1211,12 @@ test('code cuts the sentence that names the product as a reader sees it, not a l
     { html: '<p>Dùng Easy Carbon của hãng khác. Thêm EasyCarbo mỗi tuần. Cá sống theo đàn.</p>', product: 'Easy Carbo', gone: 'Thêm EasyCarbo mỗi tuần.', left: '<p>Dùng Easy Carbon của hãng khác. Cá sống theo đàn.</p>' },
     // A list item's end doesn't run into the next one's start ("sạchMelafix").
     { html: '<ul><li>Nước sạch</li><li>Melafix trị vết thương.</li></ul><p>Cá sống theo đàn.</p>', product: 'API Melafix', gone: 'Melafix trị vết thương.', left: '<ul><li>Nước sạch</li></ul><p>Cá sống theo đàn.</p>' },
+    // Nor does the pattern read "Easy" in one item and "Green" in the next as the name (Codex's read).
+    { html: '<ul><li>Easy</li><li>Green mọc tốt.</li><li>Dùng EasyGreen cho cây.</li></ul><p>Cá sống theo đàn.</p>', product: 'Easy Green', n: 3, gone: 'Dùng EasyGreen cho cây.', left: '<ul><li>Easy</li><li>Green mọc tốt.</li></ul><p>Cá sống theo đàn.</p>' },
+    // The writer gets the page's curly apostrophe, as it reads a quote letter for letter (Codex's read).
+    { html: '<p>Dùng Dr. Tim’s One &amp; Only. Cá sống theo đàn. Bể cần nắp.</p>', product: 'Dr. Tim\'s One & Only', n: 1, gone: 'Dùng Dr. Tim’s One & Only.', left: '<p>Cá sống theo đàn. Bể cần nắp.</p>' },
   ]
-  for (const c of cases) {
+  for (const c of cases as ((typeof cases)[number] & { n?: number })[]) {
     const root = await content()
     const file = join(root, 'content/species', ID, 'vi.json')
     const vi = JSON.parse(await readFile(file, 'utf8'))
@@ -1222,7 +1226,7 @@ test('code cuts the sentence that names the product as a reader sees it, not a l
     const keys = new Set([fitKey(p)])
     const state = reading(p, [{ check: 'product', part: part(p, 'sections.habitat:seriouslyfish'), quote: c.product, why: 'sold abroad', product: c.product }])
     const r = await fitRewrite(root, [p], state, { llm: fakeLlm(v => `${v} x`, 0.5).llm, now: () => new Date() }, { limit: 5, mend: keys, products: keys })
-    expect.soft(r.gone, c.product).toEqual([`vi/species/danio-margaritatus sections.habitat:seriouslyfish sentence 2 went whole: "${c.gone}"`])
+    expect.soft(r.gone, c.product).toEqual([`vi/species/danio-margaritatus sections.habitat:seriouslyfish sentence ${c.n ?? 2} went whole: "${c.gone}"`])
     expect.soft(JSON.parse(await readFile(file, 'utf8')).sections['habitat:seriouslyfish'], c.product).toBe(c.left)
   }
 })
