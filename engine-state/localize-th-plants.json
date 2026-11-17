@@ -297,15 +297,30 @@
     ]
   },
   "bacopa-caroliniana": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-11-17",
+    "from": "2026-11-17",
     "name": "บาโคปา แคโรไลนา",
     "confidence": "medium",
     "score": 0.9,
-    "notes": [
-      "Item 2: \"Its slow growth rate makes it one of the few stem plants that do not need much attention\" — \"ไม่ต้องดูแลบ่อย\" is fine, but \"เลี้ยงง่ายมาก\" slightly overstates \"very convenient\"; consider \"สะดวกมาก\" (minor).",
-      "Item 3: \"3–4 cm wide\" refers to the stem/leaf width in the source; \"ต้น...กว้าง 3–4 ซม.\" is ambiguous — consider specifying the width of the plant/leaf cluster (minor)."
-    ]
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "3cc7c3149b72",
+      "maintenance:tropica": "ba9a6dc2507d",
+      "notes:tropica": "1ad8d7aa6a02"
+    },
+    "failed": {
+      "at": "2026-11-17T11:04:58.642Z",
+      "parts": {
+        "quickFacts:aquariumbreeder": "84310afbe3ec",
+        "distribution:aquariumbreeder": "0069199a0303",
+        "habitat:aquariumbreeder": "d9967dad3aff",
+        "aquariumSize:aquariumbreeder": "6e1e757490a0",
+        "maintenance:aquariumbreeder": "6a7e6dca1a61",
+        "waterConditions:aquariumbreeder": "aa3977bf097e",
+        "equipment:aquariumbreeder": "fdca4076e868",
+        "notes:aquariumbreeder": "2aa9acefa0e1"
+      }
+    }
   },
   "bacopa-monnieri": {
     "at": "2026-10-30",

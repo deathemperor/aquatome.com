@@ -42,10 +42,11 @@
   "rule": 3
  },
  "vi/guides/aquariumbreeder-how-to-remove-red-algae-in-aquariums": {
-  "at": "2026-11-15T05:57:06.590Z",
+  "at": "2026-11-17T12:01:21.731Z",
   "hash": "2fe2b7f4f6f541b8",
-  "n": 1,
-  "rule": 3
+  "n": 2,
+  "rule": 3,
+  "cut": true
  },
  "vi/guides/aquariumbreeder-how-to-set-up-a-caridina-shrimp-tank": {
   "at": "2026-11-17T05:36:30.195Z",
@@ -78,10 +79,11 @@
   "rule": 3
  },
  "vi/guides/aquariumbreeder-misconception-of-liquid-carbon-in-aquarium-products": {
-  "at": "2026-11-15T05:57:06.590Z",
+  "at": "2026-11-17T12:01:21.731Z",
   "hash": "c1cec20a9aefbb8f",
-  "n": 1,
-  "rule": 3
+  "n": 2,
+  "rule": 3,
+  "cut": true
  },
  "vi/guides/aquariumbreeder-paludarium-animals": {
   "at": "2026-11-16T11:52:16.376Z",
@@ -120,16 +122,24 @@
   "rule": 3
  },
  "vi/guides/aquariumcoop-blogs-aquarium-30-gallon-oddball-fish": {
-  "at": "2026-11-15T05:57:06.590Z",
+  "at": "2026-11-17T12:01:21.731Z",
   "hash": "94b20506b5eca0bc",
-  "n": 1,
-  "rule": 3
+  "n": 2,
+  "rule": 3,
+  "cut": true
  },
  "vi/guides/aquariumcoop-blogs-aquarium-55-gallon-fish": {
   "at": "2026-11-15T05:57:06.590Z",
   "hash": "1858622a955fcff0",
   "n": 1,
   "rule": 3
+ },
+ "vi/guides/aquariumcoop-blogs-aquarium-7-colorful-fish-for-10-gallon-aquarium": {
+  "at": "2026-11-17T12:01:21.731Z",
+  "hash": "384e63c40e48a7d6",
+  "n": 1,
+  "rule": 3,
+  "cut": true
  },
  "vi/guides/aquariumcoop-blogs-aquarium-algae-removal": {
   "at": "2026-11-15T05:57:06.590Z",
@@ -138,58 +148,67 @@
   "rule": 3
  },
  "vi/guides/aquariumcoop-blogs-aquarium-angelfish-care-guide": {
-  "at": "2026-11-16T00:35:39.817Z",
+  "at": "2026-11-17T12:01:21.731Z",
   "hash": "2d934b1362340211",
-  "n": 1,
-  "rule": 3
+  "n": 2,
+  "rule": 3,
+  "cut": true
  },
  "vi/guides/aquariumcoop-blogs-aquarium-aquarium-algae": {
-  "at": "2026-11-16T00:35:39.817Z",
+  "at": "2026-11-17T12:01:21.731Z",
   "hash": "56b77cee99cbbb14",
-  "n": 1,
-  "rule": 3
+  "n": 2,
+  "rule": 3,
+  "cut": true
  },
  "vi/guides/aquariumcoop-blogs-aquarium-aquarium-salt-for-sick-fish": {
-  "at": "2026-11-16T00:35:39.817Z",
+  "at": "2026-11-17T12:01:21.731Z",
   "hash": "8672c0fafcdb7cc8",
-  "n": 1,
-  "rule": 3
+  "n": 2,
+  "rule": 3,
+  "cut": true
  },
  "vi/guides/aquariumcoop-blogs-aquarium-breed-livebearers-for-profit": {
-  "at": "2026-11-16T00:35:39.817Z",
-  "hash": "2f05492dfa47a6fe",
-  "n": 1,
-  "rule": 3
+  "at": "2026-11-17T12:01:21.731Z",
+  "hash": "af2c34324f7feecd",
+  "n": 2,
+  "rule": 3,
+  "cut": true
  },
  "vi/guides/aquariumcoop-blogs-aquarium-daphnia-culturing-how-to-raise-daphnia": {
-  "at": "2026-11-16T00:35:39.817Z",
+  "at": "2026-11-17T12:01:21.731Z",
   "hash": "609e407115ed9f9a",
-  "n": 1,
-  "rule": 3
+  "n": 2,
+  "rule": 3,
+  "cut": true
  },
  "vi/guides/aquariumcoop-blogs-aquarium-easy-aquarium-plants": {
-  "at": "2026-11-16T00:35:39.817Z",
+  "at": "2026-11-17T12:01:21.731Z",
   "hash": "a3c63c726f586537",
-  "n": 1,
-  "rule": 3
+  "n": 2,
+  "rule": 3,
+  "cut": true
  },
  "vi/guides/aquariumcoop-blogs-aquarium-fish-fungus": {
-  "at": "2026-11-16T00:35:39.817Z",
+  "at": "2026-11-17T12:01:21.731Z",
   "hash": "81cb2d714f52f4cb",
-  "n": 1,
-  "rule": 3
+  "n": 2,
+  "rule": 3,
+  "cut": true
  },
  "vi/guides/aquariumcoop-blogs-aquarium-how-to-get-started-with-aquarium-plants": {
-  "at": "2026-11-16T00:35:39.817Z",
+  "at": "2026-11-17T12:01:21.731Z",
   "hash": "3f75f7c07adf9764",
-  "n": 1,
-  "rule": 3
+  "n": 2,
+  "rule": 3,
+  "cut": true
  },
  "vi/guides/aquariumcoop-blogs-aquarium-how-to-treat-sick-aquarium-fish": {
-  "at": "2026-11-16T00:35:39.817Z",
+  "at": "2026-11-17T12:01:21.731Z",
   "hash": "51de0adc048c5a47",
-  "n": 1,
-  "rule": 3
+  "n": 2,
+  "rule": 3,
+  "cut": true
  },
  "vi/guides/aquariumcoop-blogs-aquarium-iron-fertilizer": {
   "at": "2026-11-16T00:35:39.817Z",
@@ -198,22 +217,32 @@
   "rule": 3
  },
  "vi/guides/aquariumcoop-blogs-aquarium-livebearer-disease": {
-  "at": "2026-11-16T06:04:51.385Z",
+  "at": "2026-11-17T12:01:21.731Z",
   "hash": "4382c9a46666dce1",
-  "n": 1,
-  "rule": 3
+  "n": 2,
+  "rule": 3,
+  "cut": true
  },
  "vi/guides/aquariumcoop-blogs-aquarium-molly-fish-care": {
-  "at": "2026-11-16T06:04:51.385Z",
+  "at": "2026-11-17T12:01:21.731Z",
   "hash": "3653fb7a3a945c86",
+  "n": 2,
+  "rule": 3,
+  "cut": true
+ },
+ "vi/guides/aquariumcoop-blogs-aquarium-nano-fish": {
+  "at": "2026-11-17T12:01:21.731Z",
+  "hash": "f5c8f91c2ee6ead7",
   "n": 1,
-  "rule": 3
+  "rule": 3,
+  "cut": true
  },
  "vi/guides/aquariumcoop-blogs-aquarium-nerite-snail-care": {
-  "at": "2026-11-16T06:04:51.385Z",
+  "at": "2026-11-17T12:01:21.731Z",
   "hash": "46450815fcd4e8a4",
-  "n": 1,
-  "rule": 3
+  "n": 2,
+  "rule": 3,
+  "cut": true
  },
  "vi/guides/aquariumcoop-blogs-aquarium-nitrogen-cycle": {
   "at": "2026-11-16T06:04:51.385Z",
@@ -222,22 +251,32 @@
   "rule": 3
  },
  "vi/guides/aquariumcoop-blogs-aquarium-ph-gh-kh": {
-  "at": "2026-11-16T06:04:51.385Z",
+  "at": "2026-11-17T12:01:21.731Z",
   "hash": "1ea7047e8a906987",
-  "n": 1,
-  "rule": 3
+  "n": 2,
+  "rule": 3,
+  "cut": true
  },
  "vi/guides/aquariumcoop-blogs-aquarium-plant-nutrient-deficiencies": {
-  "at": "2026-11-16T06:04:51.385Z",
+  "at": "2026-11-17T12:01:21.731Z",
   "hash": "19ad7d8eae40ef82",
-  "n": 1,
-  "rule": 3
+  "n": 2,
+  "rule": 3,
+  "cut": true
  },
  "vi/guides/aquariumcoop-blogs-aquarium-planted-aquarium-substrate": {
-  "at": "2026-11-16T06:04:51.385Z",
+  "at": "2026-11-17T12:01:21.731Z",
   "hash": "a454dd89b0b45d30",
+  "n": 2,
+  "rule": 3,
+  "cut": true
+ },
+ "vi/guides/aquariumcoop-blogs-aquarium-plants-for-african-cichlids": {
+  "at": "2026-11-17T12:01:21.731Z",
+  "hash": "6cc40defaf7a644b",
   "n": 1,
-  "rule": 3
+  "rule": 3,
+  "cut": true
  },
  "vi/guides/aquariumcoop-blogs-aquarium-plants-for-breeding-fish": {
   "at": "2026-11-16T11:52:16.376Z",
@@ -246,10 +285,11 @@
   "rule": 3
  },
  "vi/guides/aquariumcoop-blogs-aquarium-platy-care-guide": {
-  "at": "2026-11-16T11:52:16.376Z",
-  "hash": "75c96344a30bc496",
-  "n": 1,
-  "rule": 3
+  "at": "2026-11-17T12:01:21.731Z",
+  "hash": "a737c0a8527edaaa",
+  "n": 2,
+  "rule": 3,
+  "cut": true
  },
  "vi/guides/aquariumcoop-blogs-aquarium-quarantine-tank": {
   "at": "2026-11-16T11:52:16.376Z",
@@ -510,10 +550,11 @@
   "rule": 2
  },
  "vi/plants/vallisneria": {
-  "at": "2026-11-14T00:29:15.650Z",
-  "hash": "3eeb1919b94839bf",
-  "n": 2,
-  "rule": 2
+  "at": "2026-11-17T12:01:21.731Z",
+  "hash": "423fbc31b9c786df",
+  "n": 3,
+  "rule": 3,
+  "cut": true
  },
  "vi/species/acentrogobius-viridipunctatus": {
   "at": "2026-11-14T17:39:12.276Z",
@@ -849,10 +890,11 @@
   "rule": 3
  },
  "vi/species/manarma-moeschii": {
-  "at": "2026-11-15T05:57:06.590Z",
+  "at": "2026-11-17T12:01:21.731Z",
   "hash": "2ee91edd070b18d0",
-  "n": 1,
-  "rule": 3
+  "n": 2,
+  "rule": 3,
+  "cut": true
  },
  "vi/species/megalops-atlanticus": {
   "at": "2026-11-15T05:57:06.590Z",

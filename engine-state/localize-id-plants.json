@@ -310,18 +310,33 @@
     ]
   },
   "bacopa-caroliniana": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-11-17",
+    "from": "2026-11-17",
     "name": "Bacopa caroliniana",
     "confidence": "high",
     "score": 0.8,
     "notes": [
-      "\"tanaman air akuarium\" is slightly redundant; use \"tanaman akuarium\" or \"tanaman air\".",
-      "\"tidak banyak tuntutan\" is awkward; use \"tidak menuntut banyak\" or \"perawatannya mudah\".",
-      "\"termasuk sedikit tanaman batang yang tidak perlu banyak perhatian\" is clumsy; use \"termasuk salah satu dari sedikit tanaman batang yang tidak memerlukan banyak perhatian\".",
-      "\"3–4 cm wide\" is translated as \"lebar 3–4 cm\", which is fine. However, \"Batangnya ... lebar\" is ambiguous, because stems don't have width. The source is likely about leaves, but keep as is or use \"daunnya\" only if clear.",
-      "\"tanam di substrat\" for \"plant it in the bottom\" is acceptable. \"dasar akuarium\" would be more literal."
-    ]
+      "\"Melting (daun meluruh)\": mixes a term in English with a gloss; fine, but \"akibat ... tanaman yang dibudidayakan di luar air (emersed) belum beradaptasi\" is slightly awkward; rephrase as \"tanaman emers yang belum beradaptasi\".",
+      "\"Pupuk tablet akar (root tab)\": the more natural term is \"pupuk akar/tablet pupuk akar\".",
+      "\"Bentuk di bawah air (submersed)\" and \"tanaman batang menahun (perennial)\": the bracketed English is fine, but the sentence \"Pertumbuhannya yang lambat ... tidak memerlukan banyak perhatian\" repeats the same wording, which reads as slightly stiff.",
+      "\"Dispose of cuttings ... stems can also be dipped in bleach solution\": \"larutan pemutih\" is correct, but add a safety remark; the translation is faithful.",
+      "\"Sebagian aquarist\": use \"sebagian aquascaper/penghobi akuarium\" for the more common Indonesian hobby term.",
+      "\"lobster air tawar\" for crayfish is fine, but \"siput terompet Malaysia\" should be \"siput MTS (Malaysian trumpet snail)\" as hobbyists write it.",
+      "\"udang ghost\", \"udang vampir\": the usual hobby name is \"udang hantu (ghost shrimp)\"; add the local name."
+    ],
+    "parts": {
+      "quickFacts:tropica": "3cc7c3149b72",
+      "quickFacts:aquariumbreeder": "84310afbe3ec",
+      "distribution:aquariumbreeder": "0069199a0303",
+      "habitat:aquariumbreeder": "d9967dad3aff",
+      "aquariumSize:aquariumbreeder": "6e1e757490a0",
+      "maintenance:tropica": "ba9a6dc2507d",
+      "maintenance:aquariumbreeder": "6a7e6dca1a61",
+      "waterConditions:aquariumbreeder": "aa3977bf097e",
+      "equipment:aquariumbreeder": "fdca4076e868",
+      "notes:tropica": "1ad8d7aa6a02",
+      "notes:aquariumbreeder": "2aa9acefa0e1"
+    }
   },
   "bacopa-monnieri": {
     "at": "2026-10-30",

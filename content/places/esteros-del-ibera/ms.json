@@ -3,6 +3,12 @@
   "name": "Esteros del Iberá",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T11:34:11.770Z",
+    "why": "The name keeps the Spanish proper name unchanged, which is acceptable, but a Malaysian atlas would likely add the Malay kind word, e.g. \"Paya Esteros del Iberá\" or \"Tanah Lembap Esteros del Iberá\", since \"esteros\" means wetlands and the bare name leaves that word untranslated."
+  },
   "quality": {
     "score": 0.4,
     "indexable": false

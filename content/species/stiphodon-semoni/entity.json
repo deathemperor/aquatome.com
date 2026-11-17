@@ -20,16 +20,19 @@
       "countries": [
         "ID",
         "PG",
-        "SB"
+        "SB",
+        "PH"
       ],
       "regions": [
         "Ambon Island",
         "Maluku Islands",
         "Sumatra",
-        "Bismarck Archipelago"
+        "Bismarck Archipelago",
+        "New Guinea"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -46,13 +49,23 @@
             "Sumatra",
             "Bismarck Archipelago"
           ]
+        },
+        {
+          "source": "glaser",
+          "quote": "It is found in Indonesia, the Philippines, New Guinea and the Solomon Islands.",
+          "countries": [
+            "PH"
+          ],
+          "regions": [
+            "New Guinea"
+          ]
         }
       ]
     },
     "records": {
       "taxonKey": 2376126,
       "total": 272,
-      "fetched": "2026-11-15",
+      "fetched": "2026-11-17",
       "countries": [
         [
           "ID",

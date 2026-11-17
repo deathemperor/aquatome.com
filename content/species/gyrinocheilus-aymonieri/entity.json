@@ -31,10 +31,12 @@
         "Mekong",
         "Chao Phraya",
         "Mae Klong",
-        "Dong Nai"
+        "Dong Nai",
+        "Malay Peninsula"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "aquariumbreeder"
       ],
       "quotes": [
         {
@@ -51,6 +53,14 @@
             "Chao Phraya",
             "Mae Klong",
             "Dong Nai"
+          ]
+        },
+        {
+          "source": "aquariumbreeder",
+          "quote": "Despite its name, it is found in the northern Malay Peninsula, the Chao Phraya, Mae Klong and Mekong basins of Cambodia, Yunnan province in China, Laos, Thailand and Vietnam.",
+          "countries": [],
+          "regions": [
+            "Malay Peninsula"
           ]
         }
       ]

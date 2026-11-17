@@ -3,6 +3,12 @@
   "name": "Pucallpa",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T11:39:37.829Z",
+    "why": "Pucallpa is a city in Peru (capital of Ucayali region), and the name is spelled correctly, but the place is described as a \"region\", which suggests Ucayali; an Indonesian atlas would write \"Provinsi Coronel Portillo\" or \"Ucayali\" for the region, while \"Pucallpa\" alone names the city."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

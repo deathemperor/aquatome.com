@@ -1856,6 +1856,12 @@
     ],
     "ruled": "c3c248785753128d"
   },
+  "vi/guides/aquariumbreeder-crayfish-internal-anatomy": {
+    "at": "2026-11-17",
+    "hash": "f447936a161f34e3",
+    "findings": [],
+    "ruled": "f447936a161f34e3"
+  },
   "vi/guides/aquariumbreeder-crossbreeding-can-you-mix-different-color-shrimp": {
     "at": "2026-11-11",
     "hash": "49e797ee705f6b84",
@@ -3144,6 +3150,40 @@
     ],
     "ruled": "060a29b75e4bc204"
   },
+  "vi/guides/aquariumbreeder-how-to-set-up-a-crayfish-tank": {
+    "at": "2026-11-17",
+    "hash": "36048f829d8ed71f",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "high",
+        "part": "P1",
+        "quote": "Chạy vi sinh xong (lúc này không được có nitrat) cũng đừng vội thả tôm.",
+        "problem": "The page says nitrate forms at the end of the cycle and that a finished cycle means zero ammonia and nitrite, but here it says there must be no nitrate (it should be nitrite).",
+        "fix": "Chạy vi sinh xong (lúc này amoniac và nitrit phải về 0) cũng đừng vội thả tôm.",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Tôm hùm đất thích pH 7,0 hoặc 8,0.",
+        "problem": "The pH is given as two separate values ('or') instead of the range 7.0–8.0.",
+        "fix": "Tôm hùm đất thích pH khoảng 7,0–8,0.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "còn tép đang lột xác thì là bữa ăn ngon ăn",
+        "problem": "'bữa ăn ngon ăn' repeats 'ăn' and reads oddly. The intended meaning is easy prey.",
+        "fix": "còn tép đang lột xác thì là mồi ngon ăn",
+        "field": "body"
+      }
+    ],
+    "ruled": "36048f829d8ed71f"
+  },
   "vi/guides/aquariumbreeder-how-to-set-up-a-freshwater-crab-tank": {
     "at": "2026-11-16",
     "hash": "38c079cff8907b30",
@@ -4018,6 +4058,30 @@
       }
     ],
     "ruled": "5d7b52af625d69bc"
+  },
+  "vi/guides/aquariumbreeder-rust-disease-in-a-shrimp-tank-treatment": {
+    "at": "2026-11-17",
+    "hash": "d06bcedb2923432e",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "| Thời gian điều trị\n| 1–5 ngày",
+        "problem": "The table gives a treatment length of 1–5 days, but the treatment steps say to repeat for at least 3 days in a row.",
+        "field": "body"
+      },
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Người ta hay tưởng đó chỉ là trầy xước ngoài mặt hoặc vệt màu bình thường.",
+        "problem": "The source says the lesions are thought to come from surface damage or colour marks, not that owners mistake them for scratches.",
+        "fix": "Những vết này được cho là do vỏ bị tổn thương ở bề mặt, hoặc chỉ là vệt màu.",
+        "field": "body"
+      }
+    ],
+    "ruled": "d06bcedb2923432e"
   },
   "vi/guides/aquariumbreeder-science-of-substrate-siphoning-in-aquaria-siphon-or-not": {
     "at": "2026-11-16",
@@ -10237,6 +10301,12 @@
     ],
     "ruled": "f98ebad25da69a69"
   },
+  "vi/guides/glaser-en-09-characoids-tetra-relationship-black-winged-dwarf-hatchets-en": {
+    "at": "2026-11-17",
+    "hash": "dbf9c40ec6a4040d",
+    "findings": [],
+    "ruled": "dbf9c40ec6a4040d"
+  },
   "vi/guides/glaser-en-09-characoids-tetra-relationship-distichodus-noboli-and-d-affinis-en": {
     "at": "2026-11-12",
     "hash": "e4bdf5d7bb3812f5",
@@ -10479,6 +10549,28 @@
     "hash": "a3d52db4cbd385dc",
     "findings": [],
     "ruled": "a3d52db4cbd385dc"
+  },
+  "vi/guides/glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-a-new-pleco-from-the-rio-sao-francisco-en": {
+    "at": "2026-11-17",
+    "hash": "4136e78bfa3cdcae",
+    "findings": [
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "vì trước giờ chưa ai thấy con nào như vậy",
+        "problem": "The source only says the importers had never seen such a fish, but the page says nobody had ever seen one.",
+        "fix": "vì trước giờ họ chưa từng thấy con nào như vậy",
+        "field": "body"
+      }
+    ],
+    "ruled": "4136e78bfa3cdcae"
+  },
+  "vi/guides/glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-big-from-peru-en": {
+    "at": "2026-11-17",
+    "hash": "c3845c06813f72fd",
+    "findings": [],
+    "ruled": "c3845c06813f72fd"
   },
   "vi/guides/glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-hemiloricaria-bycatches": {
     "at": "2026-11-04",
@@ -10952,6 +11044,12 @@
     "findings": [],
     "ruled": "4688f68efa3e98c9"
   },
+  "vi/guides/glaser-en-31-crayfishes-shrimps-crabs-snails-mussels-bamboo-shrimps-actually-spawned-en": {
+    "at": "2026-11-17",
+    "hash": "f7006cc7e9bec4cf",
+    "findings": [],
+    "ruled": "f7006cc7e9bec4cf"
+  },
   "vi/guides/glaser-en-32-all-the-rest-congo-importation-arrived-en": {
     "at": "2026-11-10",
     "hash": "dff04a22f6f6d729",
@@ -10998,6 +11096,21 @@
       }
     ],
     "ruled": "0574b32e7a0a36aa"
+  },
+  "vi/guides/glaser-en-32-all-the-rest-semifinal-brazil-vs-germany-en": {
+    "at": "2026-11-17",
+    "hash": "9f0a911f4f572c5a",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C1",
+        "quote": "Halbfinale! Brasilien vs. Deutschland",
+        "problem": "The caption is about a football semifinal (Brazil vs. Germany), not about a photo of discus or guppies.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "9f0a911f4f572c5a"
   },
   "vi/guides/glaser-en-fisharchive-black-winged-dwarf-hatchets-carnegiella-marthae-and-c-schereri": {
     "at": "2026-11-03",
@@ -14433,6 +14546,39 @@
     ],
     "ruled": "261b20775997fc9f"
   },
+  "vi/guides/youtube-_eBnzKNJeTI": {
+    "at": "2026-11-17",
+    "hash": "22f0f57816d1917b",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Lần thả này, mấy con Ancistrus trốn đi gần như ngay, chỉ còn thấy một con lấp ló ở phía sau.",
+        "problem": "This is a narration of one specific release from the source video. On a how-to page the reader has no idea which release 'this time' means.",
+        "fix": "Thả xong, Ancistrus thường trốn đi gần như ngay, có khi chỉ thấy một con lấp ló phía sau.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Chúng giật mình lao tới, dừng lại, rồi lại lao tiếp.",
+        "problem": "'Giật mình' means startled, which looks like a mistranslation of 'darting'. The tetras aren't frightened, they rush in fast and jerkily.",
+        "fix": "Chúng lao vụt tới, khựng lại, rồi lại lao tiếp.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Nếu thích thì có thể giữ một cặp lớn ở bể tạm có cây, lũa và thức ăn tảo, rồi sau đó set một bể đẻ đàng hoàng.",
+        "problem": "The paragraph about keeping a breeding pair sits under the heading about preparing hiding places, which it has nothing to do with.",
+        "field": "body"
+      }
+    ],
+    "ruled": "22f0f57816d1917b"
+  },
   "vi/guides/youtube-_je30CT1MVw": {
     "at": "2026-11-10",
     "hash": "937c7eaf9419e47d",
@@ -15396,6 +15542,12 @@
     "findings": [],
     "ruled": "1418983aabc63de2"
   },
+  "vi/guides/youtube-2Spfw4pWphk": {
+    "at": "2026-11-17",
+    "hash": "bed4876b39509596",
+    "findings": [],
+    "ruled": "bed4876b39509596"
+  },
   "vi/guides/youtube-2Wjd1L52uWE": {
     "at": "2026-11-11",
     "hash": "7861b685c567d2ef",
@@ -15452,6 +15604,43 @@
     "hash": "adf2edf133ea5dd5",
     "findings": [],
     "ruled": "adf2edf133ea5dd5"
+  },
+  "vi/guides/youtube-37GntJo93ec": {
+    "at": "2026-11-17",
+    "hash": "99e180f39b2f07d8",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Không dán cây vào lũa vì cây đặt sai chỗ, thiếu dòng chảy hay sau này mọc che mất khoảng giữa thì vẫn dời được.",
+        "problem": "The cause-and-effect is garbled: 'vì' turns the ability to move the plants into the reason for not gluing them, so the sentence reads backwards.",
+        "fix": "Không dán cây thẳng vào lũa. Cây dán trên đá thì lỡ đặt sai chỗ, thiếu dòng chảy hay sau này mọc che mất khoảng giữa vẫn dời đi được.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Dù vậy, lúc châm nước vẫn phải để ý.",
+        "problem": "'Dù vậy' is on the site's list of words to avoid. Here it reads as a translated 'even so'.",
+        "fix": "Nhưng lúc châm nước vẫn phải để ý.",
+        "rule": "Flag the phrase 'Dù vậy' anywhere in the text.",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-17",
+        "field": "body",
+        "score": 0.6,
+        "kept": false,
+        "problems": [
+          "The cause-and-effect is garbled: 'vì' turns the ability to move the plants into the reason for not gluing them, so the sentence reads backwards."
+        ]
+      }
+    ],
+    "ruled": "99e180f39b2f07d8"
   },
   "vi/guides/youtube-3jqe5KGD9lI": {
     "at": "2026-11-10",
@@ -16511,6 +16700,48 @@
     ],
     "ruled": "40f8012af3414416"
   },
+  "vi/guides/youtube-9NaYA94FPZc": {
+    "at": "2026-11-17",
+    "hash": "a36680ed87a22f0b",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Lúc thả, nhiệt độ nước đựng cá đã khớp với nước bể.",
+        "problem": "This list item is a step to follow, but it is written as a report of what already happened, so it does not read as an instruction.",
+        "fix": "Trước khi thả, cho nhiệt độ nước trong túi cá khớp với nước bể.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L2",
+        "quote": "Lúc thả, nhiệt độ nước đựng cá đã khớp với bể.",
+        "problem": "This summary point repeats the same report-style wording instead of telling the reader what to do.",
+        "fix": "Trước khi thả, cho nhiệt độ nước túi cá khớp với nước bể.",
+        "field": "summary.1"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cá da trơn kính sọc cứ mắc vào lưới, nên chúng được múc vào ca rồi thả.",
+        "problem": "The sentence uses a passive 'được' as if narrating one past event, when it should give the reader a tip.",
+        "fix": "Cá da trơn kính sọc hay mắc vào lưới, nên múc chúng bằng ca rồi thả.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bài này đi qua cách hoàn thiện phần cây ngay trước khi thả",
+        "problem": "'Đi qua' is a word-for-word copy of the English 'goes through', and 'bài này' is the article-intro phrasing the house style avoids.",
+        "field": "body"
+      }
+    ],
+    "ruled": "a36680ed87a22f0b"
+  },
   "vi/guides/youtube-9NhMq1H-aoo": {
     "at": "2026-11-06",
     "hash": "371f6dbbc10832e5",
@@ -16850,6 +17081,12 @@
     "hash": "10ed593883e280b2",
     "findings": [],
     "ruled": "10ed593883e280b2"
+  },
+  "vi/guides/youtube-AEMv84NfI4o": {
+    "at": "2026-11-17",
+    "hash": "c1d7eedbe1d739b2",
+    "findings": [],
+    "ruled": "c1d7eedbe1d739b2"
   },
   "vi/guides/youtube-aGrKKWNFl2k": {
     "at": "2026-11-08",
@@ -19588,6 +19825,12 @@
     ],
     "ruled": "9e614891979dec1d"
   },
+  "vi/guides/youtube-H-wwZiQJL4E": {
+    "at": "2026-11-17",
+    "hash": "671a32e5e3c3265e",
+    "findings": [],
+    "ruled": "671a32e5e3c3265e"
+  },
   "vi/guides/youtube-h94Jp82Dk_U": {
     "at": "2026-11-09",
     "hash": "116cddcfdfb53db4",
@@ -19642,6 +19885,42 @@
         "field": "body"
       }
     ]
+  },
+  "vi/guides/youtube-hENX7VGbPUA": {
+    "at": "2026-11-17",
+    "hash": "c57f09bd7e99ae14",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "thì để lúc có nước rồi lau cũng dễ, nhưng khi bể đầy nước thì khó với tay ra tới phía sau",
+        "problem": "The sentence contradicts itself: it says to leave the back glass until there is water because cleaning is easy then, and then says the back is hard to reach once the tank is full.",
+        "fix": "Bụi và rêu cũ còn bám ở thành sau thì lúc có nước lau dễ hơn, nhưng nên lau ngay từ bây giờ, vì khi bể đầy nước thì khó với tay ra tới phía sau.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "che luôn chỗ nền sau bị bóng",
+        "problem": "Typo: 'bị bóng' should be 'bị bong', meaning the patch where the black paint peeled off the back.",
+        "fix": "che luôn chỗ sơn nền sau bị bong",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-17",
+        "field": "body",
+        "score": 0.6,
+        "kept": false,
+        "problems": [
+          "The sentence contradicts itself: it says to leave the back glass until there is water because cleaning is easy then, and then says the back is hard to reach once the tank is full."
+        ]
+      }
+    ],
+    "ruled": "c57f09bd7e99ae14"
   },
   "vi/guides/youtube-HeOOfGW7eAk": {
     "at": "2026-11-09",
@@ -21380,6 +21659,12 @@
     ],
     "ruled": "5b0e462d9de20235"
   },
+  "vi/guides/youtube-kkPHSQFW2dk": {
+    "at": "2026-11-17",
+    "hash": "cab556d48a5b0448",
+    "findings": [],
+    "ruled": "cab556d48a5b0448"
+  },
   "vi/guides/youtube-km7iEo-NsD0": {
     "at": "2026-11-04",
     "hash": "158270047a71d7ed",
@@ -22105,6 +22390,22 @@
     ],
     "ruled": "dadcb51cbf1878e4"
   },
+  "vi/guides/youtube-Ls2IOQ5m0Y4": {
+    "at": "2026-11-17",
+    "hash": "a3c93d53f265a7e7",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Trong bể nhỏ thì không nên nuôi chung hai loài này vì dễ sinh chuyện.",
+        "problem": "\"Hai loài này\" has no clear referent, because the paragraph before is about silver tip tetras and several new species, not two.",
+        "fix": "Trong bể nhỏ thì không nên nuôi chung cá silver tip tetra với các đàn cá mới vì dễ sinh chuyện.",
+        "field": "body"
+      }
+    ],
+    "ruled": "a3c93d53f265a7e7"
+  },
   "vi/guides/youtube-LsQQ1yVFsBQ": {
     "at": "2026-11-04",
     "hash": "af6fc87e3dd5f0c8",
@@ -22392,6 +22693,12 @@
       }
     ],
     "ruled": "4b87e78999aa9acb"
+  },
+  "vi/guides/youtube-mccSmIuItEY": {
+    "at": "2026-11-17",
+    "hash": "ec113dddefd2a1a1",
+    "findings": [],
+    "ruled": "ec113dddefd2a1a1"
   },
   "vi/guides/youtube-MCII9KCy60M": {
     "at": "2026-11-13",
@@ -23493,6 +23800,33 @@
       }
     ],
     "ruled": "d10feedc90372ae4"
+  },
+  "vi/guides/youtube-Ox-PCTr1E-s": {
+    "at": "2026-11-17",
+    "hash": "a78c240cbba2bf7e",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cá mới thả gần như sẽ trốn ngay, chuyện này bình thường.",
+        "problem": "\"gần như sẽ\" reads like a machine translation of \"almost certainly will\" and sounds unnatural.",
+        "fix": "Cá mới thả gần như chắc chắn sẽ trốn ngay, chuyện này bình thường.",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-17",
+        "field": "body",
+        "score": 0.97,
+        "kept": true,
+        "problems": [
+          "The word order reverses the meaning: it says the fish saw something, when the intended meaning is that the fish was glimpsed between the rocks."
+        ]
+      }
+    ],
+    "ruled": "a78c240cbba2bf7e"
   },
   "vi/guides/youtube-oXXJ8UgM2kM": {
     "at": "2026-11-06",
@@ -25797,6 +26131,31 @@
     "hash": "9987815d6423d5e3",
     "findings": [],
     "ruled": "9987815d6423d5e3"
+  },
+  "vi/guides/youtube-uH5Qi9XDh44": {
+    "at": "2026-11-17",
+    "hash": "a7ff31ff7f2d7cec",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "L6",
+        "quote": "cho ăn đá viên đông lạnh còn cứng hoặc krill để cá tự mài răng",
+        "problem": "\"Đá viên đông lạnh\" means ice cubes. The body says whole frozen bloodworm cubes, so the summary reads as \"feed ice cubes\".",
+        "fix": "cho ăn viên trùng huyết đông lạnh còn nguyên khối hoặc krill để cá tự mài răng",
+        "field": "summary.5"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Ví dụ dùng cát xây dựng loại cho trẻ chơi (play sand)",
+        "problem": "Play sand is called \"construction sand\" (cát xây dựng), which is a different product and could send a reader to buy the wrong sand.",
+        "fix": "Ví dụ dùng cát cho trẻ chơi (play sand)",
+        "field": "body"
+      }
+    ],
+    "ruled": "a7ff31ff7f2d7cec"
   },
   "vi/guides/youtube-UhGWKDI8qn8": {
     "at": "2026-11-04",

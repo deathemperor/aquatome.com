@@ -309,19 +309,30 @@
     ]
   },
   "bacopa-caroliniana": {
-    "at": "2026-11-07",
-    "from": "2026-10-30",
+    "at": "2026-11-17",
+    "from": "2026-11-17",
     "name": "Bacopa caroliniana",
     "confidence": "high",
     "score": 0.75,
-    "notes": [
-      "\"tangki\" in item 1: Malaysian hobbyists usually say \"akuarium\" (or \"tangki akuarium\"); use that.",
-      "\"tidak banyak kerenah\": \"kerenah\" has a negative sense (fussiness, mischief). Use \"tidak cerewet\" or \"tidak memerlukan penjagaan khusus\".",
-      "\"tidak perlu dijaga sangat\" is colloquial. Use \"tidak memerlukan banyak perhatian\".",
-      "\"tanam di dasar\": use \"tanam di substrat/dasar akuarium\", because \"dasar\" alone is vague.",
-      "\"lebar 3-4 cm\" for stems is a literal carry-over of the English. It most likely means leaf width, but the source is ambiguous. Check the context, and consider \"daun selebar 3-4 cm\" if that is what is meant.",
-      "\"tumbuhan batang\": the usual hobby term is \"tumbuhan berbatang\" (stem plants). It can be kept, with \"(stem plant)\" in brackets."
-    ]
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "3cc7c3149b72",
+      "maintenance:tropica": "ba9a6dc2507d",
+      "notes:tropica": "1ad8d7aa6a02"
+    },
+    "failed": {
+      "at": "2026-11-17T11:16:04.780Z",
+      "parts": {
+        "quickFacts:aquariumbreeder": "84310afbe3ec",
+        "distribution:aquariumbreeder": "0069199a0303",
+        "habitat:aquariumbreeder": "d9967dad3aff",
+        "aquariumSize:aquariumbreeder": "6e1e757490a0",
+        "maintenance:aquariumbreeder": "6a7e6dca1a61",
+        "waterConditions:aquariumbreeder": "aa3977bf097e",
+        "equipment:aquariumbreeder": "fdca4076e868",
+        "notes:aquariumbreeder": "2aa9acefa0e1"
+      }
+    }
   },
   "bacopa-monnieri": {
     "at": "2026-11-07",
@@ -1668,6 +1679,73 @@
       "behaviour:aquariumbreeder": "0e094dcf5b8e",
       "notes:aquariumbreeder": "85eb67bc1fcf",
       "references:aquariumbreeder": "7f85c6a52f4b"
+    }
+  },
+  "lagenandra-meeboldii": {
+    "at": "2026-11-17",
+    "from": "2026-10-30",
+    "name": "Lagenandra meeboldii Red",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"Daunnya selebar 4-8 cm dan sepanjang 6-12 cm\" is fine, but \"pokok\" for the whole plant is slightly informal; consider \"tumbuhan\".",
+      "\"hijau pudar\" for \"dusty green\" is a bit unnatural; consider \"hijau kelabu\" or \"hijau berdebu\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "e0170e392e06",
+      "notes:tropica": "d9f58e07e309"
+    }
+  },
+  "leptodictyum-riparium": {
+    "at": "2026-11-17",
+    "from": "2026-10-30",
+    "name": "Stringy Moss",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"menjaga anak ikan\" for \"brood care\": more natural is \"melindungi/menyembunyikan anak ikan\" or \"tempat anak ikan membesar\"; current phrasing is slightly awkward",
+      "\"hijau terang yang pekat\" is slightly contradictory for \"intense green\"; consider \"hijau pekat\"",
+      "\"Asal: Kosmopolitan\" is fine but could add \"seluruh dunia\" for clarity"
+    ],
+    "parts": {
+      "quickFacts:tropica": "cf70c122a8e1",
+      "notes:tropica": "56ffd767c507"
+    }
+  },
+  "lilaeopsis-brasiliensis": {
+    "at": "2026-11-17",
+    "from": "2026-11-15",
+    "name": "Micro Sword",
+    "confidence": "high",
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "5793d8c669df",
+      "quickFacts:aquariumbreeder": "b9e110bbf4a1",
+      "distribution:aquariumbreeder": "98f051d07e09",
+      "habitat:aquariumbreeder": "781360c1bfda",
+      "aquariumSize:aquariumbreeder": "e08e9223d8ef",
+      "maintenance:tropica": "8a0fbdb97f63",
+      "maintenance:aquariumbreeder": "24a0518b4f04",
+      "waterConditions:aquariumbreeder": "42fe85c14ff0",
+      "equipment:aquariumbreeder": "67cdda69b89f",
+      "behaviour:aquariumbreeder": "c8fc08f55194",
+      "notes:tropica": "e54125693440",
+      "notes:aquariumbreeder": "0f46d53c3935"
+    }
+  },
+  "limnobium-laevigatum": {
+    "at": "2026-11-17",
+    "from": "2026-11-09",
+    "name": "Amazon Frogbit",
+    "confidence": "high",
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "59b516c565c6",
+      "maintenance:aquatome": "350432080dfe",
+      "maintenance:tropica": "20c294bd22f8",
+      "notes:tropica": "b645db1d5396"
     }
   }
 }

@@ -192,6 +192,54 @@
       "kept": true
     }
   ],
+  "id/plants/bacopa-caroliniana": [
+    {
+      "at": "2026-11-17T11:02:59Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "\"Melting (daun meluruh)\": mixes a term in English with a gloss; fine, but \"akibat ... tanaman yang dibudidayakan di luar air (emersed) belum beradaptasi\" is slightly awkward; rephrase as \"tanaman emers yang belum beradaptasi\".",
+        "\"Pupuk tablet akar (root tab)\": the more natural term is \"pupuk akar/tablet pupuk akar\".",
+        "\"Bentuk di bawah air (submersed)\" and \"tanaman batang menahun (perennial)\": the bracketed English is fine, but the sentence \"Pertumbuhannya yang lambat ... tidak memerlukan banyak perhatian\" repeats the same wording, which reads as slightly stiff.",
+        "\"Dispose of cuttings ... stems can also be dipped in bleach solution\": \"larutan pemutih\" is correct, but add a safety remark; the translation is faithful.",
+        "\"Sebagian aquarist\": use \"sebagian aquascaper/penghobi akuarium\" for the more common Indonesian hobby term.",
+        "\"lobster air tawar\" for crayfish is fine, but \"siput terompet Malaysia\" should be \"siput MTS (Malaysian trumpet snail)\" as hobbyists write it.",
+        "\"udang ghost\", \"udang vampir\": the usual hobby name is \"udang hantu (ghost shrimp)\"; add the local name."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.95,
+        0.8
+      ]
+    },
+    {
+      "at": "2026-11-17T11:02:59Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "\"platy pedang (swordtail)\": swordtail is 'swordtail' / 'ikan pedang' (Xiphophorus hellerii), not 'platy pedang'; it is a different fish from platy, so the name is misleading.",
+        "\"Colorata ... merah muda kemerahan\": English says 'light red'; use 'merah muda' or 'merah terang' to keep the meaning.",
+        "\"Dalam bentuk emersed ... submersed\": terms are inconsistent; the first use is explained in item 4 but is left unglossed in item 11 and in 'tanaman hasil budidaya emersed'. Use 'di atas air (emersed)' consistently.",
+        "\"dose fertilizer\" translated as \"berikan pupuk\": fine, but 'Melting ... akibat ... tanaman hasil budidaya emersed' drops 'grown out of water' wording; use 'tanaman yang dibudidayakan di luar air'.",
+        "\"burayak ikan\": 'burayak' is a rare, non-hobby term; use 'anakan ikan' or 'benih ikan'.",
+        "\"Pencahayaan: ... Lama penyinaran 8–10 jam per hari bermanfaat\": stiff; use 'durasi pencahayaan 8–10 jam per hari baik untuk tanaman ini'.",
+        "\"lobster air tawar\" for crayfish is fine, but 'Malaysian trumpet snail (MTS)' / 'siput mystery' / 'Japanese trapdoor' are left untranslated or only partly adapted while 'ramshorn' and 'nerite' are left as English; use local names consistently (e.g., 'siput ramshorn', 'siput nerite')."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    }
+  ],
   "id/plants/blyxa-aubertii": [
     {
       "at": "2026-11-10T00:11:31Z",
@@ -2135,6 +2183,29 @@
       "kept": true
     }
   ],
+  "id/species/aegla-platensis": [
+    {
+      "at": "2026-11-17T10:17:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.75,
+      "notes": [
+        "Item 1: \"hanya ditemukan di bagian selatan Amerika Selatan\" is wordy; the English says exclusively freshwater inhabitants of southern South America. Better: \"semuanya penghuni perairan tawar di bagian selatan Amerika Selatan\".",
+        "Item 1: \"hobi akuarium\" is fine, but \"thoroughly interesting\" -> \"sangat menarik\" is acceptable. \"Aegla termasuk kepiting yang relatif kecil\" is stiff; use \"Aegla tergolong kepiting yang relatif kecil\".",
+        "Item 3: \"Jika memungkinkan, suhu pemeliharaan tidak melebihi 24 °C\" lacks \"sebaiknya\" (shouldn't exceed). Use \"sebaiknya tidak melebihi 24 °C\".",
+        "Item 4: \"jentik nyamuk\" for mosquito larvae is OK, but hobbyists would say \"jentik nyamuk (bloodworm/larva nyamuk beku)\"; minor.",
+        "Item 5: \"hidup sangat tersembunyi\" is awkward; use \"hidup sangat tertutup/suka bersembunyi\"."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    }
+  ],
   "id/species/aequidens-patricki": [
     {
       "at": "2026-11-10T01:02:48Z",
@@ -2666,6 +2737,26 @@
     }
   ],
   "id/species/ambastaia-sidthimunki": [
+    {
+      "at": "2026-11-17T09:57:42Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "#5 \"kayu\" for \"bogwood\": use \"kayu bogwood\" or \"kayu apung/driftwood\"; \"kayu\" alone is too generic.",
+        "#4 \"sadah\" is a formal term; hobbyists more often say \"air tidak terlalu keras\" or \"GH tidak terlalu tinggi\".",
+        "#5 \"Echinodorus ... juga bisa\" is a little unclear; consider \"juga dapat digunakan\".",
+        "#1 \"Dwarf chain loach\" is fine, but the English \"Dwarf Loach\" is not rendered; consider \"botia kerdil/botia dwarf\" on first mention."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.85,
+        0.8
+      ]
+    },
     {
       "at": "2026-11-12T19:13:14Z",
       "model": "sonnet",
@@ -4824,6 +4915,28 @@
       "kept": true
     }
   ],
+  "id/species/apistogramma-personata": [
+    {
+      "at": "2026-11-17T10:17:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "\"Uwe Werner dan rekan-rekannya\" is fine, but \"Uwe berhasil membawa pulang\" drops \"with him\" (minor); fine overall.",
+        "\"tidak mencolok\" for \"not a burner\" is a slight softening; \"burner\" (very flashy, intensely coloured fish) could be \"bukan ikan dengan warna menyala\".",
+        "\"saat sedang tenang\" for \"in cool moods\" is acceptable, but \"kondisi santai\" would be more natural; \"bergairah\" for \"excited\" has a sexual connotation, so \"sangat terangsang/agresif\" or \"sangat aktif/bersemangat\" would be safer.",
+        "\"sama-sama masih sangat sedikit diteliti\" is slightly awkward; \"sama-sama belum banyak diteliti\" is more natural."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    }
+  ],
   "id/species/apistogramma-rupununi": [
     {
       "at": "2026-11-10T01:03:36Z",
@@ -5593,6 +5706,46 @@
   ],
   "id/species/astacus-astacus": [
     {
+      "at": "2026-11-17T11:23:26Z",
+      "model": "opus",
+      "ran": "claude-opus-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "#3: \"(pereiopoda)\" is added after \"kaki jalan\" but the source doesn't have it. Remove it, or keep it only if the handbook adds technical glosses like this elsewhere.",
+        "#1: \"Lobster air tawar Noble cray atau River cray\" is a bit clunky. Consider \"Lobster air tawar Noble cray atau River cray (Astacus astacus)\", or putting the descriptor after the names, so it reads more smoothly."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "textHash": "b9a1016a94ff4d0e0b3a629da87d837fda031b789737f23732f857a7126778d4"
+    },
+    {
+      "at": "2026-11-17T11:23:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.75,
+      "notes": [
+        "Item 1: \"Lobster air tawar Noble cray atau River cray\" and \"lobster air tawar yang disebut Camber cray\" — \"Camber cray\" is a rendering of the English; \"Noble cray\" is left in English. Prefer the local name \"udang karang/crayfish noble\" or give it as \"crayfish (Noble cray)\". Minor.",
+        "Item 1: \"wabah penyakit lobster air tawar\" is clumsy for \"crayfish plague\". Use \"wabah crayfish (crayfish plague)\" or \"penyakit pes crayfish\".",
+        "Item 1: \"Penyakit ini berupa jamur\" is a slight reshaping of \"This fungus\". The English never states earlier that the disease is a fungus, so it is acceptable, but \"Jamur ini tidak membahayakan\" is closer.",
+        "Item 3: \"pereiopoda\" was added for \"walking legs\", and the English has no such term. It is acceptable but unneeded; \"kaki jalan\" alone is enough. Also, \"memang sama sekali tidak ada apa-apa\" is stiff for \"simply nothing\"; \"tidak ada apa pun\" reads more naturally."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.75,
+        0.75,
+        0.75
+      ],
+      "textHash": "b9a1016a94ff4d0e0b3a629da87d837fda031b789737f23732f857a7126778d4"
+    },
+    {
       "at": "2026-11-17T04:15:21Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -5703,6 +5856,45 @@
   ],
   "id/species/astronotus-ocellatus": [
     {
+      "at": "2026-11-17T11:23:04Z",
+      "model": "opus",
+      "ran": "claude-opus-5-5",
+      "cli": "2.1.322",
+      "score": 0.65,
+      "notes": [
+        "#31: \"Kebanyakan orang tidak sengaja membiakkan oscar\" reads as 'most people breed oscars accidentally', which reverses the meaning. Use \"Kebanyakan orang tidak berniat membiakkan oscar\" or \"tidak membiakkan oscar secara sengaja\".",
+        "#3: \"bola American football\" is clunky. Use \"sepanjang bola american football (rugbi)\" or simply \"sekitar 30 cm\"-style phrasing.",
+        "#22: \"opportunistically\" is only loosely rendered. Consider \"secara oportunis akan memakan apa saja yang bisa dimakan yang ditemuinya\".",
+        "#10: \"habitat white water\" leaves English in the running text. Prefer \"habitat perairan keruh (white water)\" or \"air putih/keruh berlumpur\"."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.65,
+        0.6,
+        0.95
+      ],
+      "textHash": "c55402c3497f0fbfdee2b5570c56a5d7aa81ec0d6bd0f91b6f15d54baec307de"
+    },
+    {
+      "at": "2026-11-17T11:22:39Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "Item 22: \"nuts\" is translated as \"biji-bijian\", which means grains or seeds. Use \"kacang-kacangan\" or \"buah berkulit keras\" instead."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.9,
+        0.92,
+        0.95
+      ],
+      "textHash": "c55402c3497f0fbfdee2b5570c56a5d7aa81ec0d6bd0f91b6f15d54baec307de"
+    },
+    {
       "at": "2026-11-16T16:02:28Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -5777,43 +5969,6 @@
         "Item 20: 'ulat hongkong' for mealworms is correct local term; 'Krill kering beku' should be 'krill freeze-dried (kering-beku)'.",
         "Item 18: 'whitebait' rendered 'ikan kecil (whitebait)' vague; 'omnivora generalis' awkward; use 'omnivora generalis' -> 'omnivora yang tidak pilih-pilih'.",
         "Item 6/16: 'hama non-asli' awkward; use 'spesies hama non-asli/invasif'."
-      ],
-      "attempt": "first",
-      "kept": false
-    },
-    {
-      "at": "2026-11-06T18:43:28Z",
-      "model": "sonnet",
-      "score": 0.7,
-      "notes": [
-        "Item 3: 'bisa hidup selama seekor anjing' is garbled; use 'bisa hidup sepanjang usia seekor anjing'.",
-        "Item 28: 'Meskipun Anda memiliki seekor oscar jantan dan betina' is awkward; use 'Meskipun Anda punya sepasang oscar jantan dan betina'.",
-        "Item 10: the 'Volume: ~540 liter' figure is kept, but 150×60 cm gives a different volume. This is a source issue, not a translation fault.",
-        "Item 6: 'Di banyak negara bagian AS tempat ikan ini dilepas ke alam, Oscar digolongkan sebagai spesies hama non-asli' is stiff; 'spesies invasif/hama non-native' reads more naturally.",
-        "Item 30: 'bersifat kamuflase' for 'cryptic' colour pattern is acceptable, but 'ocelli ... tampaknya hanya ada pada populasi Amazon bagian barat' is fine. 'tribus dugaan' is awkward; use 'tribus yang diduga (putative)'.",
-        "Item 22: the 'Jack Dempsey' and 'Convict Cichlid' names are fine, but 'Silver Dollar' needs a fish type, e.g. 'ikan silver dollar'.",
-        "Item 19: 'populasi berlebih (organisme dari pakan hidup yang berkembang biak)' adds an explanation not in the source; the source says only that the tank may become overpopulated.",
-        "Item 18: 'ikan teri (whitebait)' is a loose match; whitebait is juvenile herring/smelt, not anchovies. Use 'ikan whitebait' or 'ikan kecil'.",
-        "Item 20: 'ulat hongkong' for mealworms is fine. 'Berikan pakan yang sangat bervariasi' is slightly off; use 'Berikan beragam jenis pakan'."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-06T18:43:28Z",
-      "model": "sonnet",
-      "score": 0.6,
-      "notes": [
-        "Item 2: 'Tank level: Top, mid-dweller' became 'Area berenang: Atas, tengah' – fine; but 'Minimum tank size: 65 gallons (about 250 litres)' is OK. No issue there.",
-        "Item 10: Volume '~540 liter' is fine, but 'baru pas-pasan' is slightly colloquial; use 'baru cukup untuk'.",
-        "Item 19: 'overpopulating your tank' rendered as 'akuarium menjadi terlalu padat' – meaning shifted (it refers to breeding/pest organisms from live food); clarify 'populasi berlebih'.",
-        "Item 22: Vietnamese glosses 'cá Jack Dempsey', 'cá đô la bạc' were dropped properly, no issue.",
-        "Item 28: 'Betina akan bertelur antara 1.000–2.000 butir' – use 'antara 1.000 dan 2.000 butir' or '1.000–2.000 butir' without 'antara'.",
-        "Item 28: 'Sediakan permukaan batu pipih' – source says 'some flat rock or stone surfaces'; fine. But 'berukuran sekitar 380 liter' is OK.",
-        "Item 1: 'tercatat mulai dari Kolombia dan Venezuela hingga ke selatan sampai Argentina' – redundant 'hingga ke selatan sampai'; use 'ke selatan hingga Argentina'.",
-        "Item 26: 'betina memiliki satu lubang lebih kecil dan satu lubang lebih besar' – 'ovipositor (saluran untuk mengeluarkan telur)' fine; 'telentang' should be 'terlentang'.",
-        "Item 24/27: 'nuptial females' → 'betina yang siap memijah' OK; 'Selama masa pendekatan' for courtship is vague; use 'masa penjajakan/pacaran'.",
-        "Item 20: 'ulat hongkong' for mealworms is OK; but 'Krill kering beku (freeze-dried)' should be 'krill freeze-dried (kering-beku)'."
       ],
       "attempt": "first",
       "kept": false
@@ -6212,6 +6367,21 @@
       "notes": [
         "Item 4: \"wadah\" for \"tank\" is acceptable but \"akuarium/akuaterarium\" would be more natural for hobbyists; minor.",
         "Item 3: \"mundur ke dalam tempat persembunyiannya\" is slightly awkward; \"masuk ke dalam lubang persembunyiannya\" is more natural."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/species/awaous-lateristriga": [
+    {
+      "at": "2026-11-17T10:18:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "Sentence 3: \"lahan yang tergenang banjir\" is slightly awkward for \"flooded fields\"; \"ladang/lahan basah yang kebanjiran\" would read more naturally.",
+        "Sentence 4: \"larva menetas di air tawar\" renders \"are born\" acceptably, but \"naik kembali\" could be \"bermigrasi naik/kembali ke hulu\" for natural phrasing."
       ],
       "attempt": "first",
       "kept": true
@@ -6990,6 +7160,27 @@
         0.95,
         0.92,
         0.93
+      ]
+    }
+  ],
+  "id/species/barbus-barbus": [
+    {
+      "at": "2026-11-17T10:18:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "\"Spesies endemik ini dapat ditemukan di seluruh Eropa\": fine, but \"akuarium ikan endemik\" and \"akuarium air bersuhu sedang (temperate)\" are slightly awkward; prefer \"akuarium khusus ikan endemik Eropa\" and \"akuarium subtropis/suhu sejuk\".",
+        "\"lapisan sekresi keruh di kepala\": awkward; prefer \"lendir keruh di kepala\" or \"sekresi keruh\".",
+        "\"semua jenis pakan nabati yang tersedia\": \"all available vegetarian stuff\" is informal; fine, but \"pakan tablet\" could simply be \"tablet\"."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.8,
+        0.8
       ]
     }
   ],
@@ -9850,6 +10041,19 @@
   ],
   "id/species/biotoecus-opercularis": [
     {
+      "at": "2026-11-17T10:06:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "Item 15: \"warna kemerahmudaan\" is awkward; use \"warna merah jambu\" or \"keperakan kemerahan\".",
+        "Item 17: \"jumlah jari-jari sirip punggung modal\" is awkward; use \"jumlah jari-jari sirip punggung yang paling umum (modus)\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    },
+    {
       "at": "2026-11-09T21:57:22Z",
       "model": "sonnet",
       "score": 0.7,
@@ -9960,6 +10164,26 @@
     }
   ],
   "id/species/boraras-micros": [
+    {
+      "at": "2026-11-17T10:07:39Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "#17: typo \"termininiaturisasi\" should be \"terminiaturisasi\".",
+        "#15: \"tidak lebih dari beberapa hari\" is looser than the English \"no more than a couple of days\"; use \"dua hari\" or \"paling lama sekitar dua hari\".",
+        "#3: \"di titik jalan no. 2 memotong rel kereta api\" is awkward; use \"di persimpangan jalan no. 2 dengan rel kereta api\".",
+        "#17: \"Di antara mereka, Boraras ditemukan membentuk...\" is clumsy for \"Of these it was found to form...\"; use \"Di antara genus-genus tersebut\"."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.85,
+        0.8
+      ]
+    },
     {
       "at": "2026-11-07T17:33:47Z",
       "model": "sonnet",
@@ -10408,6 +10632,75 @@
     }
   ],
   "id/species/brachychalcinus-orbicularis": [
+    {
+      "at": "2026-11-17T11:23:39Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Item 9: temperature range changed? Source says 20 and 28°C; the translation keeps 28, which is fine — but 'sama sekali tidak rewel' is acceptable. No issue here.",
+        "Item 6: 'Volume: ±120 liter' is correct per the table, but the source's '~108 litres' is fine; no change needed.",
+        "Item 15: 'The adults should be removed post-spawning' follows the source, but the source's 'This should be very dimly lit' refers to the breeding aquarium. The translation adds 'Akuarium pemijahan', which is an added referent; check that it is consistent.",
+        "Item 17: 'subfamili yang diduga, Stethaprioninae' is awkward and unclear for 'putative subfamily'. Use 'subfamili Stethaprioninae (yang statusnya masih diperdebatkan/diduga)'.",
+        "Item 17: 'panjang kepala bagian dorsal' for 'dorsal length of the head' is unclear. Rephrase it as 'panjang dorsal kepala'.",
+        "Item 7: 'bebatuan sungai yang halus terkikis air' is awkward for 'water-worn rocks'. Use 'batu sungai yang terkikis air (membulat)'.",
+        "Item 7: 'batu besar berukuran kecil' is contradictory for 'small boulders'. Use 'bongkahan batu kecil'.",
+        "Item 12: 'cukup lincah dan aktif' is a mild addition for 'somewhat vigorous'. Use 'cukup bertenaga/aktif'.",
+        "Item 10: 'kutu air' for Daphnia is acceptable, but 'Daphnia' is also commonly used in the hobby. Use 'kutu air (Daphnia)'.",
+        "Item 18: the reference list is left untranslated, which is allowed."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.6,
+        0.55,
+        0.6
+      ],
+      "textHash": "860a4365720de71049f69d9543ff4a50950fc0a28c6cc319b2cf5665526fe520"
+    },
+    {
+      "at": "2026-11-17T10:09:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "Item 9: 'Suhu sebaiknya antara 20 dan 28 °C' is fine, but 'Ikan ini sama sekali tidak rewel' is OK; no fix needed here. The real issue is below.",
+        "Item 6: 'Volume: ±120 liter' is correct per the table, but the English 'Volume: ~108 litres' is fine. No change needed.",
+        "Item 7: 'bebatuan sungai yang halus terkikis air' is awkward and unclear for 'water-worn rocks'. Use 'batu sungai yang bulat terkikis air' or 'batu kali'. 'batu besar berukuran kecil' is contradictory; use 'beberapa batu bulat berukuran sedang' or 'bongkahan kecil'.",
+        "Item 12: 'perilakunya yang cukup lincah dan aktif' adds 'dan aktif' for 'somewhat vigorous'. 'lele dari famili callichthyid dan loricariid' is fine, but 'burayak' (item 15) is an uncommon term; 'anakan' or 'burayak' is acceptable.",
+        "Item 15: 'Akuarium pemijahan' is added as the subject. The English 'This' refers to the aquarium, so this is fine. However, 'dapat terjadi' and 'Induk sebaiknya dipindahkan' are fine. 'We've been unable to locate' is correctly neutral.",
+        "Item 17: 'subfamili yang diduga, Stethaprioninae' is awkward for 'putative subfamily'. Use 'subfamili Stethaprioninae yang statusnya masih diperdebatkan/diduga'. 'panjang kepala bagian dorsal' is a mistranslation of 'dorsal length of the head'. Check the source and use 'panjang kepala di sisi punggung' or similar.",
+        "Item 10: 'kutu air' for Daphnia is the common local term; fine. 'pelet butiran kering' is odd for 'dried granules'; use 'granul kering'.",
+        "Item 2: 'Ephippicharax orbicularis adalah sinonim yang cukup dikenal untuk ikan ini, yang cukup populer' repeats 'cukup'; vary wording."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.6,
+        0.7
+      ]
+    },
+    {
+      "at": "2026-11-17T10:09:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Item 6: 'Volume: ~108 liter' — a 29 US gal tank should be named 120 liter per the table; the number is wrong.",
+        "Item 2: the fact 'which is quite popular in the hobby despite the fact that it displays not much coloration' is reordered but okay; no fix needed. Item 12: 'perilakunya yang cukup agresif bergerak' is awkward and shifts the meaning; use 'perilakunya yang cukup lincah/aktif'.",
+        "Item 12: 'membuat takut' is stiff; 'mengintimidasi' or 'membuat gentar' would be more natural. 'tidak mudah kaget' for 'less skittish' is OK.",
+        "Item 9: the English says 28°C but items 1 and 8 say 27°C. This is a source inconsistency, so keep the number as is.",
+        "Item 17: 'panjang dorsal kepala' is unclear; the English is 'dorsal length of the head', so use 'panjang kepala bagian dorsal'.",
+        "Item 15: 'Akuarium ini sebaiknya...' — the English 'This' refers to the breeding tank, but the Indonesian never introduced a tank. Write 'Akuarium pemijahan' explicitly.",
+        "Item 1/6: the Indonesian drops the 'SL' explanation. Consider 'panjang standar (SL)' on first use."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
     {
       "at": "2026-11-08T07:54:38Z",
       "model": "sonnet",
@@ -11622,6 +11915,29 @@
   ],
   "id/species/caquetaia-myersi": [
     {
+      "at": "2026-11-17T11:23:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "Sentence 5: \"leads up to 600 young\" means raises/leads fry; \"menggiring hingga 600 anakan\" is awkward — use \"mengasuh/menjaga hingga 600 anakan\".",
+        "Sentence 5: \"Teman setangki\" is non-standard; use \"penghuni akuarium lainnya\" or \"tank mate\" in brackets.",
+        "Sentence 4: \"ikan smelt beku\" is OK, but \"agar tumbuh dengan baik\" should be \"agar tumbuh sehat\" (thrive); \"Anakan ... pakan serpihan\" fine. \"pakan stik khusus cichlid\" adds \"khusus\" (not in source) — minor.",
+        "Sentence 3: the \"500 litres upwards\" figure is kept correctly, but \"tidak berenang lebih dari yang diperlukan\" is stiff; use \"tidak banyak berenang\".",
+        "Sentence 1: \"Ukurannya bisa mencapai 25 cm\" loses \"long\"; use \"panjangnya bisa mencapai 25 cm\".",
+        "Sentence 5: \"fully grown adults\" translated \"dewasa yang sudah besar penuh\" is awkward; use \"dewasa yang sudah mencapai ukuran penuh\"."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.7,
+        0.7
+      ],
+      "textHash": "7369a31ceb4d1105bb2e26677406592964768d6389004342300d73cf83ea9398"
+    },
+    {
       "at": "2026-11-16T10:06:27Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -12334,6 +12650,29 @@
   ],
   "id/species/centropomus-unionensis": [
     {
+      "at": "2026-11-17T11:24:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "Item 6: \"Before the recent past\" translated as \"Sampai belum lama ini\" is fine, but \"giant perches (Lates)\" as \"ikan kakap putih\" is okay; however \"Sampai belum lama ini\" slightly shifts meaning (until recently vs. before the recent past, i.e., they are now separated) – clarify e.g. \"Hingga beberapa waktu lalu ... kini dipisah\".",
+        "Item 2: \"Benua Amerika\" for \"New World\" loses the sense; better \"Dunia Baru (benua Amerika)\" or \"wilayah Amerika\".",
+        "Item 2: \"lokasi tipe\" is awkward; use \"lokalitas tipe\" (type locality).",
+        "Item 1: \"wilayah lereng Pasifik\" is clumsy; use \"lereng Pasifik\" or \"sisi Pasifik Kolombia\".",
+        "Item 5: \"Individu berukuran 5–8 cm\" and \"Penggemar ikan predator yang tidak biasa\" are ambiguous; use \"ikan predator yang unik\".",
+        "Item 6: \"20 cm panjang total\" is unnatural; use \"panjang total 20 cm\"."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.7,
+        0.8
+      ],
+      "textHash": "09d271fd8a807983c01b8cadaae3e5262a9a170e7dff1505fd9b690540664000"
+    },
+    {
       "at": "2026-11-16T10:07:03Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -12464,6 +12803,21 @@
         "Item 11: \"berebut makan dengan kalap\" is awkward. \"Berebut makan dengan beringas\" would be more natural.",
         "Item 5: \"Usahakan posisi output filter diatur\" is clumsy. Use \"Usahakan arahkan aliran keluaran filter agar memecah permukaan air\".",
         "Item 8: \"Ada yang cukup berhasil memeliharanya\" is vague. Use \"Sebagian penghobi cukup berhasil memeliharanya\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/species/ceylonthelphusa-kandambyi": [
+    {
+      "at": "2026-11-17T10:18:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "Item 3: \"jauh lebih jarang merusak tanaman\" is acceptable, but \"tidak luput dari incarannya\" slightly overstates \"do not spare\"; consider \"juga tidak dibiarkan begitu saja / ikan kecil pun tetap dimangsa\".",
+        "Item 4: \"pasti masih akan ada temuan-temuan baru\" is fine; \"hobi akuarium maupun terarium\" could be \"hobi akuarium dan/atau terarium\" to keep the source's \"and/or\"."
       ],
       "attempt": "first",
       "kept": true
@@ -13759,6 +14113,52 @@
       "kept": true
     }
   ],
+  "id/species/chitala-ornata": [
+    {
+      "at": "2026-11-17T10:02:39Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "#1: 'Rated difficult because it needs a tank at least 2 m long' is translated fine, but 'line-bred for the purpose' -> 'untuk pasar ini' changes the meaning slightly (the purpose is the ornamental hobby, not 'the market'); use 'untuk keperluan hobi tersebut'. Same in #16.",
+        "#7: 'a degree of movement' -> 'sedikit arus' is acceptable, but 'weekly water changes of 50-70%' is fine. 'kayu apung' for driftwood is acceptable but misleading, since driftwood sinks and 'kayu apung' suggests floating wood; consider 'kayu driftwood' or 'akar/kayu rendam'.",
+        "#10: 'bogwood' -> 'kayu apung (bogwood)' is the same problem; use 'kayu bogwood' or 'kayu rendam'.",
+        "#6: 'highly-specialised' -> 'sangat khusus' is a bit stiff; consider 'berspesifikasi khusus'.",
+        "#11: 'ikan mas koki kecil' for 'small goldfish' is fine, but 'dikondisikan' is vague; use 'diberi pakan bergizi terlebih dahulu'.",
+        "#3: 'Lokasi tipe' is non-standard; use 'Lokalitas tipe'.",
+        "#1/#16: 'leucistic' left untranslated in the text; use 'leusistik'."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    {
+      "at": "2026-11-17T10:02:39Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "#1: 'Rated difficult because it needs a tank at least 2 m long' is fine, but 'sengaja ditangkarkan secara selektif untuk pasar ini' – 'for the purpose' is OK; however 'Clown featherback ... 1000 mm SL' leaves mm/SL unconverted, acceptable. Main issue elsewhere.",
+        "#11: 'feeder' fish translated as 'pakan hidup' (live food) – loses the meaning of feeder fish; use 'ikan pakan (feeder)'.",
+        "#11: 'small goldfish' rendered 'ikan mas koki kecil' is OK, but 'dead alternatives' → 'pakan mati' fine; 'obligat' fine.",
+        "#12: 'Small cut meat, preferably crab meat' → 'terutama daging kepiting' changes 'preferably' (lebih disukai) to 'especially'; use 'sebaiknya daging kepiting'.",
+        "#2: 'nocturnal fish and when they get older they become solitary' – OK, but 'imported as early as 1934' → 'sudah diimpor' loses 'as early as' nuance; minor.",
+        "#4: Region/locality is only a list; 'Mekong' fine. No issue.",
+        "#5: 'well-adaptable' is rendered awkwardly as 'tampaknya bisa ditinggali ikan ini dengan baik'; should say it adapts well ('tampaknya beradaptasi dengan baik').",
+        "#16: 'inexplicably popular' → 'entah kenapa' is too colloquial; use 'anehnya' or 'tanpa alasan yang jelas'.",
+        "#16: 'transverse gold or silver bars' rendered as 'garis melintang' – 'bars' should be 'pita/bilah'; 'dorsum' as 'bagian punggung' fine.",
+        "#10/#9: ok. #15: 'hutan yang tergenang' fine."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "id/species/chlamydogobius-eremius": [
     {
       "at": "2026-11-09T17:36:35Z",
@@ -13847,6 +14247,18 @@
     }
   ],
   "id/species/chromobotia-macracanthus": [
+    {
+      "at": "2026-11-17T10:04:51Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "Item 26: \"sistem danau Danau Sentarum\" is redundant; use \"sistem danau Sentarum\" or \"Danau Sentarum\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    },
     {
       "at": "2026-11-11T00:44:40Z",
       "model": "sonnet",
@@ -14017,6 +14429,19 @@
     }
   ],
   "id/species/cichla-temensis": [
+    {
+      "at": "2026-11-17T10:09:59Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "\"dipancing sebagai ikan sport fishing\" (items 1 and 17) is awkward. Use \"dipancing sebagai ikan olahraga (sport fish)\" or \"menjadi target pemancingan rekreasi\".",
+        "\"pelompat yang sangat andal\" (item 10) is a slightly odd collocation. \"pelompat ulung\" is more natural."
+      ],
+      "attempt": "first",
+      "kept": true
+    },
     {
       "at": "2026-11-10T05:45:49Z",
       "model": "sonnet",
@@ -14588,6 +15013,16 @@
     }
   ],
   "id/species/clypeobarbus-congicus": [
+    {
+      "at": "2026-11-17T10:10:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    },
     {
       "at": "2026-11-10T08:34:23Z",
       "model": "sonnet",
@@ -15727,6 +16162,74 @@
       "kept": true
     }
   ],
+  "id/species/corydoras-bifasciatus": [
+    {
+      "at": "2026-11-17T11:24:15Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "Item 2: \"Creek at left bank of Rio Cururu\" was translated as \"anak sungai di tepi kiri Rio Cururu\", and then \"tributary of upper River Tapajós\" as \"anak sungai bagian hulu Sungai Tapajós\". Use \"sungai kecil/kali\" for creek, so it is not the same word as tributary. The phrase \"anak sungai bagian hulu\" is also ambiguous. Use \"anak sungai Tapajós bagian hulu\".",
+        "Item 3: \"lacks the black zone in the dorsal fin that merges into a shoulder band\" is translated as \"area hitam pada sirip punggung\". The sentence \"Pola tersebut khas...\" lost its antecedent, so it is unclear which pattern is meant. Clarify it as \"pola ini\" with the pattern named.",
+        "Item 3: \"Hoplisoma sp. C133 ada spesies Brochis bermoncong panjang\". The English says \"a long-snouted Brochis species\", so \"spesies ini juga sesekali diimpor\" for C133 is fine. Replace \"nomor C maupun CW\" with \"nomor C atau CW\" for naturalness.",
+        "Item 3: \"pita memanjang yang bawah dari kedua pita membujur\" is awkward and redundant. Use \"pita membujur bagian bawah dari kedua pita\". \"pada satu-dua individu\" changes \"single specimens\" to one or two, so use \"individu tunggal\".",
+        "Item 1: \"lele berzirah\" is a non-standard term. Hobbyists use \"corydoras\" or \"lele berbaju zirah\". \"baru belakangan ini diimpor\" is fine."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.85,
+        0.7
+      ],
+      "textHash": "b36a7e2a3f04063aeaeef63454cbe5154ebc1bbd75bcc3222b5d9819a0b53885"
+    },
+    {
+      "at": "2026-11-17T10:19:25Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "Item 3, para 2: \"Pola tersebut (area hitam pada sirip punggung yang menyatu dengan pita bahu) khas untuk Hoplisoma sp. CW127\" adds a parenthetical explanation not in the English (English says only \"This pattern\"); remove the added text.",
+        "Item 3, para 2: the \"lacks the black zone ... ; it was also occasionally imported\" sentence is ambiguous in the source, and the translation \"spesies ini\" makes C133 the subject; acceptable, but \"Pola tersebut\" should simply stay \"Pola ini\".",
+        "Item 3, para 4: \"pita membujur yang bawah dari kedua pita itu\" is clumsy; use \"pita membujur bagian bawah dari dua pita tersebut\".",
+        "Item 3, para 4: \"ada juga individu yang pita membujur keduanya berjalan jelas di bawah garis tengah\" is awkward and unclear; use \"ada juga individu yang pita membujur keduanya jelas berada di bawah garis tengah tubuh\".",
+        "Item 3, para 3: \"pola punggung\" for \"dorsal pattern\" is ambiguous; use \"pola sirip punggung\" if the dorsal fin is meant.",
+        "Item 2: \"7°45’LS, 58°00’BB\" is acceptable, but keep the coordinates consistent with the hobby's usual form (\"7°45’ LS, 58°00’ BB\")."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.7,
+        0.9,
+        0.7
+      ]
+    },
+    {
+      "at": "2026-11-17T10:19:25Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.72,
+      "notes": [
+        "Item 2: \"anak sungai di tepi kiri Rio Cururu\" translates \"Creek\" as tributary-like term; use \"kali kecil/aliran kecil (creek)\" — \"anak sungai\" is also used for \"tributary\", so the creek vs tributary distinction is lost.",
+        "Item 3: \"lele berzirah\" (item 1) is non-standard; hobbyists say \"lele lapis baja\" or simply \"corydoras/ikan kucing berlapis tulang\"; \"berzirah\" is awkward.",
+        "Item 3: \"Hoplisoma sp. C133 ... tidak memiliki area hitam pada sirip punggung\" — then \"Pola tersebut khas untuk CW127\" is ambiguous; the original means the pattern with black dorsal zone is typical for CW127; clarify \"pola tersebut (area hitam pada sirip punggung yang menyatu dengan pita bahu)\".",
+        "Item 3: \"Untuk Hoplisoma sp. C133 ada spesies Brochis bermoncong panjang\" — original is \"a Brochis species\" (fish), \"spesies\" fine but \"corak yang identik\" ok; \"hanya muncul pada satu-dua individu\" changes \"single specimens\" slightly (added \"two\"); use \"hanya pada individu tunggal\".",
+        "Item 3: \"pita memanjang yang bawah dari kedua pita membujur\" is clumsy and redundant; use \"pita membujur yang bawah dari kedua pita itu\".",
+        "Item 3: \"Pada impor yang sekarang, ada juga individu yang pita membujur keduanya jelas berada di bawah\" is awkward; \"pita membujur kedua\" would be clearer."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.72,
+        0.8,
+        0.72
+      ]
+    }
+  ],
   "id/species/corydoras-boesemani": [
     {
       "at": "2026-11-10T16:59:27Z",
@@ -16070,6 +16573,19 @@
     }
   ],
   "id/species/corydoras-duplicareus": [
+    {
+      "at": "2026-11-17T09:58:05Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "#4: \"lele lain yang damai\" is slightly off for aquarium catfish. \"lele\" suggests the food fish, so \"catfish damai lainnya\" or \"ikan catfish\" would suit hobbyists better.",
+        "#3: \"kutu air\" for \"bo bo\" is acceptable. \"kutu air (Daphnia/Moina)\" would be more precise."
+      ],
+      "attempt": "first",
+      "kept": true
+    },
     {
       "at": "2026-11-15T22:45:55Z",
       "model": "sonnet",
@@ -20064,6 +20580,51 @@
   ],
   "id/species/danio-aesculapii": [
     {
+      "at": "2026-11-17T11:24:29Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Item 6: the English says '~54 litres' for a 60 × 30 cm base; the Indonesian keeps '~54 liter'. Check this is unchanged, since it is fine, so do not change it.",
+        "Item 1: 'smallest representative of the Danio genus' is rendered 'anggota terkecil genus Danio'. The English says 'do not grow over 4 cm' but item 2 says 25–30 mm. This is a source inconsistency, not a translation error.",
+        "Item 2: 'kubangan' for 'pools' means a muddy puddle. Use 'kolam' or 'genangan' for natural stream pools, as in item 5. Also 'Danio family' in item 11 is rendered 'keluarga Danio'; use 'genus Danio'. The English wording is loose, but the Indonesian should be accurate.",
+        "Item 5: 'Pangio' etc. are fine. 'Penangkapan ikan' for 'Collection of fish' is fine. 'kubangan berair tenang' for 'stagnant pool' is acceptable.",
+        "Item 8: 'Kesadahan: Gunakan air lunak dengan GH 1–5 dGH' adds 'GH', which is redundant. Use 'Gunakan air lunak 1–5 dGH'.",
+        "Item 15: 'Tinca tinca (ikan tench)' is fine. 'Celestichthys ... divalidasi ulang' is awkward. Prefer 'diakui kembali' or 'diaktifkan kembali'.",
+        "Item 15: 'These were subsequently split into distinct genera by Kottelat (2013), as follows:' is rendered correctly, but the list intro paragraphs lack colon continuity. This is minor.",
+        "Item 13: 'burayak' is a regional term. 'Anakan' is more commonly used by Indonesian hobbyists; consider switching.",
+        "Item 7: 'setup' left in English. Consider 'tata letak' or 'aquascape'. Minor."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.6,
+        0.6
+      ],
+      "textHash": "74c5389cd5f9474e6b0c220bb1f4e8556ef2c6bff938be902419d571df09ae66"
+    },
+    {
+      "at": "2026-11-17T09:58:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "\"Ikan kecil ini\" for \"These minnows\": generic; consider \"Ikan minnow ini\" or \"Danio kecil ini\" to keep the minnow term.",
+        "\"keluarga Danio\" is a literal copy of \"Danio family\"; Danio is a genus, so \"genus Danio\" is more accurate (also consistent with sentence 1).",
+        "\"ikan yang hidup bergerombol\": \"ikan berkelompok (schooling fish)\" is more usual among hobbyists."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.85,
+        0.9
+      ]
+    },
+    {
       "at": "2026-11-15T22:28:52Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -21764,6 +22325,48 @@
   ],
   "id/species/devario-chrysotaeniatus": [
     {
+      "at": "2026-11-17T11:25:02Z",
+      "model": "opus",
+      "ran": "claude-opus-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "#6: \"beberapa batu besar berukuran kecil\" contradicts itself (\"large stones of small size\"). Use \"beberapa bongkahan batu kecil\" instead.",
+        "#12: In \"Garis pertama berisi spesies dengan garis lateral\", \"garis\" means both a genetic lineage and a body stripe, which is confusing. Write \"Garis keturunan pertama mencakup spesies dengan garis lateral yang menonjol\".",
+        "#3: The type locality is left in English (\"Mengla County, Yunnan Province, China\"). Consider rendering it as \"Kabupaten Mengla, Provinsi Yunnan, Tiongkok\", or keep it only if it is meant as a verbatim citation."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.85,
+        0.85
+      ],
+      "textHash": "15dee50668df115afb2c82dce352b8408373cd50c4d70e40ad59287ae026e23b"
+    },
+    {
+      "at": "2026-11-17T11:24:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.78,
+      "notes": [
+        "Item 6: \"arus sederas air bah\" for \"torrent-like\" — \"air bah\" means flood; use \"arus deras seperti air terjun/torrent\".",
+        "Item 6: \"bebatuan halus bekas tergerus air\" — \"halus\" is not in the source; use \"batu yang terkikis air\" (water-worn).",
+        "Item 6: \"batu besar berukuran kecil\" is contradictory; use \"beberapa bongkahan batu kecil\".",
+        "Item 9: \"lele/catfish\" narrows catfishes to lele; use \"ikan catfish\" or \"kucing-kucingan\" only.",
+        "Item 11: \"air matang\" normally means boiled water; use \"air dari akuarium yang sudah matang/berjalan\"."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.6,
+        0.78,
+        0.85
+      ],
+      "textHash": "15dee50668df115afb2c82dce352b8408373cd50c4d70e40ad59287ae026e23b"
+    },
+    {
       "at": "2026-11-16T04:31:27Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -21806,6 +22409,31 @@
     }
   ],
   "id/species/devario-devario": [
+    {
+      "at": "2026-11-17T11:25:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "Item 4: \"Volume: ~243 litres\" was rendered \"~243 liter\" — the volume is an exact conversion; per the tank table a 120 × 45 cm tank should be given as the keepers' size (e.g. 120 litres/200 litres as appropriate), not an odd figure. Verify and fix the figure.",
+        "Item 10: \"satu atau dua pasang kemudian dimasukkan\" is fine, but \"Bila pasangan sudah siap memijah\" drops the sense of 'If ready' clumsily; \"betina tampak bertelur (perutnya penuh)\" — use \"tampak penuh telur\".",
+        "Items 1 and 5: \"semua Devario spp. pelompat ulung\" lacks the verb \"adalah\"; write \"semua Devario spp. adalah pelompat ulung\".",
+        "Item 1: \"Juga dikenal sebagai 'Sind danio', ikan ini dibedakan...\" is awkward; the 'devario dari' wording is also unnatural — use \"salah satu spesies Devario dari ...\".",
+        "Item 3: \"sungai kecil berarus sedang\" adds 'small'; the original says only 'moderately-flowing streams' (stream = anak sungai/aliran sungai), so \"kecil\" is not a faithful addition.",
+        "Item 8: \"rakus saat makan\" overstates 'vigorous feeding behaviour'; use \"agresif/lincah saat makan\". \"lele/catfish\" is inaccurate for catfishes in general; use \"catfish\".",
+        "Item 11: \"Kottelat ... Brachydanio dan Celestichthys yang divalidasi ulang\" is ambiguous; \"kerabat terdekat (sister group)\" should be \"kelompok saudara\"; 'Garis lateral yang mencolok' for 'prominent lateral stripes' should be \"garis memanjang\"; \"burayak\" is fine.",
+        "Item 8: \"Agresi apa pun juga akan teredam\" is stiff; use \"Agresi juga akan terkendali\"."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.55,
+        0.4,
+        0.55
+      ],
+      "textHash": "9530e17c2ccf823b790cbed2bd97c301de96e5582d5c5449ed0ade02ef579edf"
+    },
     {
       "at": "2026-11-16T04:33:44Z",
       "model": "sonnet",
@@ -21978,6 +22606,25 @@
   ],
   "id/species/devario-pathirana": [
     {
+      "at": "2026-11-17T11:25:27Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "Item 10: \"Tuntutan pemeliharaan spesies ini sama dengan Devario malabaricus\" — the English says \"as demanding as\", but the original probably means \"as undemanding/hardy\" in context; the sentence as translated is plausible but check it. Also \"cukup cocok\" is awkward.",
+        "Item 6: \"Volume: ~243 liter\" — the tank volume should follow the table. For a 120 × 45 cm base, use a keeper-standard size, not an exact conversion.",
+        "Item 14: \"Yang pertama berisi spesies-spesies dengan garis lateral yang mencolok, sehingga anggota sisanya ... posisi taksonominya belum pasti\" — \"sehingga\" (so) adds a causal link that the English \"which leaves\" does not make; rephrase as \"sehingga tersisa\" or similar.",
+        "Item 14: \"dibiakkan secara komersial ... sehingga kadang-kadang tersedia di pasaran, meskipun harganya selalu mahal\" — the English says \"irregular basis\"; \"kadang-kadang\" is fine, but \"meskipun\" is an unnatural double concession after \"walau\".",
+        "Item 2: \"Barred 'danio'\" is left in English; it should be translated (e.g. 'danio' bergaris).",
+        "Item 5: \"Tanaman yang tumbuh mencuat di atas air (emersed)\" is awkward; use \"tanaman emers\" or \"tanaman yang tumbuh menyembul di atas permukaan air\".",
+        "Item 14: \"Fang and Kullander, 2009\" and \"Catalog of Fishes\" are fine, but the citation \"Fang and Kullander\" should read \"Fang dan Kullander\" for consistency."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "textHash": "163249a85cf332930c39a974f1ce1d6587bf5dd016a862993df378bc6ec597b4"
+    },
+    {
       "at": "2026-11-16T10:10:46Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -22014,6 +22661,30 @@
     }
   ],
   "id/species/devario-regina": [
+    {
+      "at": "2026-11-17T11:25:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Item 5: \"sekitar 250 liter\" is wrong for 120 × 45 cm base (about 243 L, not a US-gallon tank); use the converted figure, e.g. \"sekitar 243 liter\".",
+        "Item 12: \"Danio ... klad ... monofiletik\" sentence changes meaning: English says older phylogenies agreed that Danio was monophyletic with two clades, which is fine, but \"Garis pertama berisi spesies-spesies dengan garis lateral yang mencolok, sehingga anggota sisanya\" adds a causal \"sehingga\" absent in the source (\"which leaves\"). Rephrase as \"yang menyisakan\".",
+        "Item 12: \"Nama genus ... divalidasi ulang\" and \"Kelak spesies-spesies ini mungkin dipisahkan ... nama Parabarilius sudah tersedia\" are acceptable, but \"prosesus premaksila (celah pada rahang atas)\" and \"kinetmoid\" should be \"kinetmoid/kinethmoid\" consistently with the Latin term.",
+        "Item 2/12: \"kelompok kerabat sejenis (satu genus)\" adds a gloss \"(satu genus)\" not in the source (congeners). This is an added explanation; the phrase is also awkward.",
+        "Item 4: \"tiga habitat, antara lain\" is fine, but \"sedikit vegetasi\" for \"some marginal or over-hanging vegetation\" understates; use \"vegetasi di tepian atau yang menjuntai\".",
+        "Item 6: \"batu-batu sungai yang halus terkikis air\" is awkward; use \"batu sungai yang membulat terkikis air\".",
+        "Item 11: \"Alas plastik jenis 'rumput'\" fine; \"burayak\" is a less common term, prefer \"anakan\"."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.6,
+        0.6,
+        0.6
+      ],
+      "textHash": "ddc59d8028998a1f76a62f10ea12083302f8f39a5fb3ff60e2debcdc09269de5"
+    },
     {
       "at": "2026-11-16T10:12:55Z",
       "model": "sonnet",
@@ -22258,6 +22929,32 @@
   ],
   "id/species/dicrossus-maculatus": [
     {
+      "at": "2026-11-17T11:25:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Item 5: \"~68 liter\" is an exact conversion; the tank-size table gives ~68 L (60×30×38 cm = 68.4 L), so it is fine as a computed volume. The \"60 × 30 cm\" base is kept, which is fine. Not a problem.",
+        "Item 10: \"non conspecifics\" means fish of other species. \"Sangat damai terhadap ikan yang bukan sesama spesiesnya\" is correct, so no change is needed.",
+        "Item 12: \"paternal care\" was translated as \"pengasuhan anak oleh Maculatus dewasa\". The source's \"paternal\" is lost, and item 13 says only the female cares for the young. Phrase it neutrally, e.g. \"pengasuhan induk\", and make sure it does not contradict item 13.",
+        "Item 8: \"perairan berair putih (white water)\" is redundant and awkward. Use \"perairan air putih (white water)\" or \"air putih (white water)\".",
+        "Item 8: \"tidak berpengaruh dalam pemeliharaan\" for \"has no meaning for keeping\" is acceptable. \"gravel composed of fine sand\" became \"substrat berupa pasir halus\", which is fine.",
+        "Item 7: \"dH\" is kept, which is fine. \"suhu tinggi\" is fine.",
+        "Item 14: the source says the temperature should be lowered towards 24°C, and the translation keeps this. The sentence \"umumnya lebih banyak jantan dibanding pada pH lebih rendah/suhu lebih tinggi\" reverses the source's meaning. The source says lower pH and higher temperature give generally more males, so the comparison is inverted and the care advice is changed. Rewrite it as \"umumnya lebih banya…",
+        "Item 14: \"Spadetailed Checkerboard\" is left in English. Add a local explanation or keep it as a trade name consistently.",
+        "Item 14: \"Unlike species of Apistogramma females\" was translated sensibly. \"dilipat\" for the closed fins is acceptable; \"dikatupkan\" would be more natural."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.6,
+        0.6
+      ],
+      "textHash": "ee1f5ac8743ef92f4d7060b54bd6e7e539027fc48c546e8b27ac68ccafc4faa4"
+    },
+    {
       "at": "2026-11-16T10:20:29Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -22334,6 +23031,30 @@
     }
   ],
   "id/species/discherodontus-ashmeadi": [
+    {
+      "at": "2026-11-17T11:26:04Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Item 7: The tank volume \"~243 liter\" is not rounded to the standard tank size. The English gives ~64 US gal, which should be named 250 litres.",
+        "Item 5: \"tanaman emersed\" leaves English untranslated. Use \"tanaman emers\" or \"tanaman yang tumbuh menyembul di atas air\".",
+        "Item 14: \"biasanya bertubuh jelas lebih gemuk\" changes the meaning. The English says females \"should be noticeably thicker-bodied\". Use \"seharusnya tampak jelas lebih gemuk\".",
+        "Item 12: \"Males will also display their best colours as they compete with one other\" is fine, but \"at least half a dozen\" became \"minimal enam ekor\" and the phrase \"interesting alternatives\" is repeated clumsily as \"menarik ... menarik\".",
+        "Item 9: \"akuarium yang siklus nitrogennya belum matang\" and \"setup\" are acceptable, but \"arus seperti air bah\" overstates \"torrent-like\". Use \"arus deras\".",
+        "Item 13: \"Species of the genus Botia or other barbs\" is rendered \"barb lain\", which is fine. However \"Sebagai teman satu akuarium\" for \"socialisation\" is a loose paraphrase.",
+        "Item 1/6: Minor: \"anak sungai\" for \"brooks\" is fine, but \"sungai-sungai kecil serta aliran di hutan\" is slightly awkward."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.6,
+        0.6,
+        0.6
+      ],
+      "textHash": "c54dbfbff67261b6ee07ba6f826788f76c9506b1925b7f6adb9ecb45e077b8b7"
+    },
     {
       "at": "2026-11-17T04:12:03Z",
       "model": "sonnet",
@@ -22419,6 +23140,32 @@
   ],
   "id/species/discherodontus-schroederi": [
     {
+      "at": "2026-11-17T11:26:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Item 4: '120 × 30 cm ... (about 108 litres)' — the tank depth is not given, so the volume figure is carried over from the source; ok, but no change needed. Real problems follow.",
+        "Item 1: 'tetapi jarang ditangkap ... Kemungkinan alasannya karena warnanya paling kusam' — the English says 'least colourful'; the 'tetapi' contrast is fine, but 'presumably' is rendered as 'Kemungkinan', which is OK. No change.",
+        "Items 3 and 5: 'tanaman emersed' leaves English untranslated; use 'tanaman emergen/tanaman yang tumbuh menyembul di atas air'.",
+        "Item 5: 'setup' left in English; use 'tata letak/aquascape' or 'set-up' consistently, e.g. 'akuarium bergaya sungai'.",
+        "Item 5: 'dirumput oleh ikan' is awkward; use 'dimakan/dikerik oleh ikan'.",
+        "Item 5: 'akuarium yang siklus nitrogennya belum matang' — 'biologically immature system' is better rendered as 'akuarium yang belum matang secara biologis (belum cycling)'.",
+        "Item 8: 'dengan beberapa pilihan alternatif yang unik' — 'interesting alternatives' is rendered as 'unik'; use 'menarik'.",
+        "Item 8: 'jadi kurang gugup' is awkward; use 'tidak mudah stres/lebih tenang'.",
+        "Item 11: 'anus' for 'vent' is acceptable, but 'Amerika Serikat' is fine; 'Kerabat terdekatnya' wording OK."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.6,
+        0.6,
+        0.7
+      ],
+      "textHash": "7bb71e03ebe610a3430b643fcb170b3a68b24d9e3d6ec934f29a72ccb919cd7f"
+    },
+    {
       "at": "2026-11-16T22:31:00Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -22458,6 +23205,28 @@
     }
   ],
   "id/species/distichodus-affinis": [
+    {
+      "at": "2026-11-17T11:26:25Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Item 5: \"sekitar 108 liter\" is wrong for a 29 US gal tank; per the table it should be about \"120 liter\" (tank size as keepers name it).",
+        "Item 1/13: \"Siripnya berubah jadi merah cerah\" and \"kilau merah muda\" are fine, but \"Silver distichodus\" is left in English with no local name or italics. Consider \"distichodus perak\".",
+        "Item 9: \"Mormyridae\" is the family name, but the English says \"Mormyrids\". Use \"mormyrid\" or \"ikan gajah (mormyrid)\". Also, \"lele Synodontis\" and \"ikan lele\" are inconsistent. Use \"sinodontis\" consistently.",
+        "Item 8: \"kutu air\" for Daphnia is acceptable but ambiguous. Use \"Daphnia (kutu air)\".",
+        "Item 12: \"dibudidayakan secara komersial\" is slightly stronger than \"produced commercially\". Fine, but \"Belum pernah tercatat berhasil dipijahkan\" adds \"berhasil\" (successfully), which the source does not say."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.6,
+        0.6,
+        0.6
+      ],
+      "textHash": "1f8b3c786ef761b0e1147ad1bf1e7a01eaf60b0318f3428ec53382fc6d7e94ae"
+    },
     {
       "at": "2026-11-16T22:31:53Z",
       "model": "sonnet",
@@ -22506,6 +23275,26 @@
     }
   ],
   "id/species/distichodus-sexfasciatus": [
+    {
+      "at": "2026-11-17T09:58:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.75,
+      "notes": [
+        "\"herbivora sejati\" for \"pronounced herbivore\": acceptable, but \"herbivora murni/dominan\" is more precise.",
+        "\"berdaun halus\" for \"smooth-leaved\": better \"berdaun lunak/tidak berbulu\"; \"halus\" can be read as fine/feathery leaves, which is a different meaning.",
+        "\"Kimia air hanya berperan kecil\": a bit stiff; \"Parameter air tidak terlalu penting\" is more natural.",
+        "\"dianggap sebagai pakan\": \"dianggap\" is slightly off; \"dimakan sebagai pakan\" is more natural."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.75,
+        0.75
+      ]
+    },
     {
       "at": "2026-11-16T22:33:18Z",
       "model": "sonnet",
@@ -22981,6 +23770,61 @@
       "kept": true
     }
   ],
+  "id/species/elacatinus-oceanops": [
+    {
+      "at": "2026-11-17T10:20:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "\"Pakan beku seperti artemia\": fine, but \"udang biasa yang dicincang\" for \"chopped table shrimp\" is vague; use \"udang konsumsi yang dicincang\".",
+        "\"Sifatnya yang tenang\" for \"easy-going nature\" is okay, but \"Sebagian ikan cukup pilih-pilih soal siklus pencahayaan\" is slightly awkward; use \"Beberapa ikan sensitif terhadap siklus pencahayaan\".",
+        "\"neon goby dan Yellowline Goby pernah disilangkan\": awkward repetition; use \"keduanya pernah disilangkan\".",
+        "\"dengan santainya berenang\" adds nuance not in the English (\"willing\"); use \"yang bersedia\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    {
+      "at": "2026-11-17T10:20:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Items 1 and 4: '38 liter' for 10 gallons should be '40 liter' per the tank-size table.",
+        "Item 11: 'keduanya pernah disilangkan' is wrong. The English says the neon goby and Yellowline Goby were bred together. Name both species, e.g. 'neon goby dan Yellowline Goby pernah disilangkan'.",
+        "Item 7: 'artemia' for 'brine shrimp' is fine, but 'udang konsumsi' for 'table shrimp' is awkward. Use 'udang meja/udang segar untuk konsumsi', or write it as 'udang biasa yang dicincang'.",
+        "Item 8: 'pasangan yang sudah jadi' is awkward. Use 'pasangan yang sudah terbentuk'.",
+        "Item 10: 'Pembudidaya ikan yang paling pemula sekalipun' is awkward. Use 'Bahkan pembudidaya pemula sekalipun'. 'mengurus sisanya' is fine.",
+        "Item 11: 'pale ventrum' was translated as 'bagian perut yang pucat'. It is acceptable, but 'sisi bawah tubuh' would be more precise."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "id/species/elassoma-gilberti": [
+    {
+      "at": "2026-11-17T10:21:20Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "#1 \"Sebuah pedagang grosir\": use \"Seorang pedagang grosir\" or \"Sebuah perusahaan grosir\" (consistent with #2, which uses \"Seorang\").",
+        "#3 \"bagian sungai kecil yang airnya berputar\": the source means a backwater/stagnant stretch, so \"bagian sungai kecil yang airnya menggenang (backwater)\" would be clearer.",
+        "#2 \"di anak sungai Wacissa\": the source says a branch of the Wacissa River, so \"di salah satu anak sungai Wacissa\" is more precise."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/species/entacmaea-quadricolor": [
     {
       "at": "2026-11-10T22:06:32Z",
@@ -23153,6 +23997,16 @@
     }
   ],
   "id/species/garra-flavatra": [
+    {
+      "at": "2026-11-17T10:13:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": false
+    },
     {
       "at": "2026-11-07T13:40:57Z",
       "model": "sonnet",
@@ -23471,6 +24325,49 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "id/species/gyrinocheilus-aymonieri": [
+    {
+      "at": "2026-11-17T10:01:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Item 8: \"sekitar 300 liter\" is fine, but the English gives 80 US gal; the table gives 300 litres for 75 gal, and 80 gal is not listed, so convert to whole litres: ~304 liter, not 300.",
+        "Item 3: \"10 or 20-gallon tank\" → 40 or 80 litres is correct, no change needed.",
+        "Item 1: \"Max size: 280 mm SL\" is fine, but the English also says 11 in; no issue.",
+        "Item 18: \"kelompok kecil berisi 2–3 ekor tidak dianjurkan kecuali akuariumnya sangat besar\" - English says 'huge' tank; acceptable. But \"sumatra (tiger barb)\" is fine, \"Katak kerdil\" fine.",
+        "Item 18: \"ikan bergerombol lainnya\" for \"shoaling fish\" fine; but \"Hindari lobster air tawar\" for crayfish is OK.",
+        "Item 16: \"kutu air\" for daphnia fine; but \"cacing darah\" for bloodworms fine; \"Ikan dewasa perlu tambahan pakan berprotein\" ok.",
+        "Item 15: \"Kacang polong yang dikupas\" fine.",
+        "Item 5: \"Provinsi Yunnan di Cina\" is fine.",
+        "Item 2: \"Nitrat: kurang dari 20\" lacks unit (mg/L), as in the source; acceptable.",
+        "Item 7: \"sawah atau lahan yang tergenang\" for 'flooded fields' fine; \"anak sungai\" added 'streams' is in the English, fine."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-17T10:01:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "Item 8: 'Volume: sekitar 304 liter' — the source's 80 US gal must be given as 300 liters per the tank table; 304 is the exact conversion. Fix to 'sekitar 300 liter'.",
+        "Item 3: '40 atau 80 liter' — 10-gallon should be 40 L and 20-gallon 80 L, which matches the table, so this is fine; ignore.",
+        "Item 18: 'manfish' for angelfish — use the common Indonesian name 'angelfish' (or 'manfish' is acceptable but 'angelfish' is more standard).",
+        "Item 18: 'sumatra (tiger barb)' — 'sumatra' is OK, but 'botia (clown loach)' ok; 'platy pedang (swordtail)' is awkward, use 'swordtail' or 'ikan pedang'.",
+        "Item 18: 'Hindari lobster air tawar' — 'crayfish' is rendered as lobster air tawar; acceptable.",
+        "Item 18: 'kelompok berisi 5 ekor ... tetapi hanya di akuarium yang sangat besar; kelompok kecil ... kecuali akuariumnya sangat besar' — repetitive; fine in meaning.",
+        "Item 7: 'aliran kecil' for 'streams' — use 'anak sungai'/'sungai kecil'.",
+        "Item 22: 'Burayaknya' — use the more common 'Burayak' or 'Anakan ikan'.",
+        "Item 24: 'Dua lubang insang tambahan' — source says 'branchial apertures'; the added word 'tambahan' is an addition; use 'Dua lubang insang'."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "id/species/hampala-bimaculata": [
@@ -26706,6 +27603,16 @@
   ],
   "id/species/parathelphusa-pantherina": [
     {
+      "at": "2026-11-17T10:13:28Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    },
+    {
       "at": "2026-11-10T22:08:56Z",
       "model": "sonnet",
       "score": 0.9,
@@ -28535,6 +29442,52 @@
   ],
   "id/species/stiphodon-semoni": [
     {
+      "at": "2026-11-17T10:17:16Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Item 9: 'bagian lain akuarium' is fine, but 'Anubias sangat berguna' — English says 'The latter' (Anubias only); acceptable. However 'diletakkan langsung di dasar kaca akuarium' adds 'kaca' (English 'tank base'); remove the added detail.",
+        "Item 9: 'Kayu apung' is a poor term for driftwood (kayu apung floats); use 'kayu bogwood/kayu rendaman' or 'driftwood'.",
+        "Item 9: 'kaca depan untuk melihat' for 'viewing pane' is awkward; use 'kaca depan'.",
+        "Item 8: 'Volume: ~54 litres' for 60×30 base is kept; ok. Item 1: 'sudah benar-benar matang' slightly exaggerates 'well-established'; use 'sudah mapan/matang'.",
+        "Item 15: 'sirip ekor bertakik (emarginate)' is fine, but 'Pemijahan biasanya terjadi di bawah batu' — English says 'It usually occurs under rocks'; ok. 'air terjun bertingkat' for 'cascades' ok.",
+        "Item 15: 'Amfidromi ... dijalankan oleh semua genus lainnya' ok; 'tanpa ada pesaing' in item 11 correct.",
+        "Item 16: 'pita putih di tepinya' and 'cakram menempel di antara kelima jari-jarinya' ok; 'Sicydiine'/'sicydiinae' spelling inconsistent (Sicydiinae vs sicydiine) – harmonise.",
+        "Item 12: 'cacing sutra hidup mau dimakan/diterima dengan baik' is clumsy with slash; use 'mau menerima pakan kering dan cacing sutra hidup'.",
+        "Item 2: 'Sthiphodon elegans' — typo retained from source, but Latin name should be Stiphodon elegans (consistent with item 3).",
+        "Item 13: 'ikan ini juga pernah terlihat dipelihara' — 'it' referring to the species; consistent. 'bagian hilir sungai' for 'lower reaches' fine, but English 'lower' in tank context ('inhabiting the lower reaches') likely means bottom of tank; verify meaning."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.7,
+        0.6,
+        0.6
+      ]
+    },
+    {
+      "at": "2026-11-17T10:17:16Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Item 8: 'Volume: ~54 liter' is kept from a 60×30 cm base; fine, but item 1 vs item 9 flow figures differ in the source and are carried over, no fix needed.",
+        "Item 12: 'cacing sutra hidup' for Tubifex is acceptable, but 'mau dimakan' is slightly awkward; use 'diterima/mau memakan'.",
+        "Item 15: 'Selama musim dingin tahunan' – the English says 'annual cool spell', not winter; in the tropics use 'periode dingin/sejuk tahunan'.",
+        "Item 15: 'burayak' is used for larvae/fry throughout; 'The fry hatch as undeveloped larvae' → 'Larva menetas dalam keadaan belum berkembang'; 'burayak' is a non-standard term for newly hatched larvae.",
+        "Item 15: 'Ukuran telur yang kecil ... diduga menguntungkan' is fine, but 'Pemijahan biasanya terjadi di bawah batu, dan jantan di akuarium...' mistranslates 'captive males' timing; acceptable. Main issue: 'Sicydiinae sangat berhasil mengkolonisasi' (item 6) is awkward; use 'sangat sukses menjajah'.",
+        "Item 9: 'batu dan kerikil sungai yang halus terkikis air' is awkward for 'water-worn rocks and pebbles'; use 'batu dan kerikil sungai yang membulat'.",
+        "Item 9: 'Aged driftwood' translated as 'sudah lama terendam' adds a claim; use 'kayu apung yang sudah tua/matang (aged)'.",
+        "Item 13: 'Hindari ikan yang rakus dan agresif saat makan' – 'rakus' is added; 'feed aggressively' = 'agresif saat makan'.",
+        "Item 6: 'Anggota genus ini hampir seluruhnya menghuni' is fine, but 'dataran lebih tinggi' for 'higher altitude' is misleading; use 'ketinggian lebih tinggi/dataran tinggi'."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
+    {
       "at": "2026-11-10T05:40:19Z",
       "model": "sonnet",
       "score": 0.9,
@@ -29479,6 +30432,53 @@
     }
   ],
   "ms/plants/bacopa-caroliniana": [
+    {
+      "at": "2026-11-17T11:18:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "Item 5: the source gives a 40 litre minimum and the translation keeps it as 40 liter. The tank table is not the issue here, so this is fine. Use the local spelling 'liter'/'L' consistently.",
+        "Item 11: 'Colorata' is described as 'light red' in the source. The translation says 'merah cerah', which means bright red and slightly changes the colour. Use 'merah muda/merah cair'.",
+        "Item 11: 'Malaysian trumpet' snail is translated as 'siput trumpet Malaysia'. Hobbyists in Malaysia call it 'siput trumpet' or 'siput gondang/Melanoides'. Use the local name.",
+        "Item 7: 'dipped in bleach solution before disposal' is translated as 'larutan peluntur'. This is fine, but it should add the care caveat that it kills the cuttings. Do not add facts that are not in the source.",
+        "Item 3: 'tersebar luas di seluruh Tenggara Amerika Syarikat' is awkward. Use 'di seluruh tenggara Amerika Syarikat' or 'wilayah Tenggara AS'.",
+        "Item 11: 'Melting (daun reput)' adds an explanation that is not in the source, and 'dose fertilizer' becomes 'berikan baja'. Both are acceptable, but 'emers' is a non-standard coinage. Use 'timbul (emersed)' consistently with item 4.",
+        "Item 11: 'perang tembaga' for 'copper-brown' is slightly unnatural. Use 'perang kekuprum' or 'coklat tembaga'."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    {
+      "at": "2026-11-17T11:18:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Item 11: 'Varian jarang Colorata mempunyai warna merah muda yang lebih ketara' — English says 'light red', not pink; 'merah muda' also clashes with 'merah jambu' used earlier for pink. Use 'merah cerah'.",
+        "Item 11: 'Buang bahagian yang hampir mati' — English says 'dying parts'; acceptable, but 'berikan baja' for 'dose fertilizer' is fine. The real issue is 'Melting (daun cair)' mismatch is minor.",
+        "Item 5: minimum tank 40 litres is correct, but 'liter' should be 'liter/L' consistently; minor.",
+        "Item 3: 'tenggara Amerika Syarikat' should be 'Tenggara Amerika Syarikat' (proper region); 'famili' better as 'keluarga'.",
+        "Item 11: 'Keratan' and 'tweezer' are fine; 'Malaysian trumpet' snail should use the local name 'siput trumpet Malaysia' (and 'mystery snail' as 'siput misteri') rather than untranslated English.",
+        "Item 11: 'udang ghost', 'udang bamboo', 'udang vampire' leave English adjectives untranslated; use local names (udang hantu, udang buluh) or keep trade name consistently.",
+        "Item 11: 'Elakkan membelanya bersama udang karang atau ketam, yang suka memotong' — 'suka' adds nuance; 'yang memotong atau mencabut tumbuhan' is more faithful.",
+        "Item 11: 'tumbuhan yang ditanam di luar air' for 'plant grown out of water' is okay, but 'Tempat mencari makan' for foraging ground and 'kuarantin' are fine; 'Membantu membekalkan oksigen' is slightly off for 'oxygenate'."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.7,
+        0.6,
+        0.6
+      ]
+    },
     {
       "at": "2026-11-07T08:25:56Z",
       "model": "sonnet",
@@ -31246,6 +32246,66 @@
       ]
     }
   ],
+  "ms/plants/lagenandra-meeboldii": [
+    {
+      "at": "2026-11-17T11:18:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "\"Daunnya selebar 4-8 cm dan sepanjang 6-12 cm\" is fine, but \"pokok\" for the whole plant is slightly informal; consider \"tumbuhan\".",
+        "\"hijau pudar\" for \"dusty green\" is a bit unnatural; consider \"hijau kelabu\" or \"hijau berdebu\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/plants/leptodictyum-riparium": [
+    {
+      "at": "2026-11-17T11:19:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "\"menjaga anak ikan\" for \"brood care\": more natural is \"melindungi/menyembunyikan anak ikan\" or \"tempat anak ikan membesar\"; current phrasing is slightly awkward",
+        "\"hijau terang yang pekat\" is slightly contradictory for \"intense green\"; consider \"hijau pekat\"",
+        "\"Asal: Kosmopolitan\" is fine but could add \"seluruh dunia\" for clarity"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    }
+  ],
+  "ms/plants/lilaeopsis-brasiliensis": [
+    {
+      "at": "2026-11-17T11:20:20Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/plants/limnobium-laevigatum": [
+    {
+      "at": "2026-11-17T11:20:42Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/species/abbottina-rivularis": [
     {
       "at": "2026-11-08T12:38:32Z",
@@ -32271,6 +33331,49 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "ms/species/aegla-platensis": [
+    {
+      "at": "2026-11-17T10:52:16Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.75,
+      "notes": [
+        "#1 'hanya terdapat di selatan Amerika Selatan' is fine, but 'tidak banyak melebihi 5 cm' is awkward; use 'jarang melebihi 5 cm' or 'hanya sedikit melebihi 5 cm'.",
+        "#1 'Ekornya dilipat di bawah perut' is slightly literal; 'abdomen/ekor dilipat ke bawah badan' reads more natural.",
+        "#3 'rehat musim sejuk' is a literal rendering; Malaysia has no winter, so 'tempoh sejuk (winter rest)' would be clearer. The added gloss 'iaitu tempoh suhu rendah' is acceptable but 'terlalu panas' for 'too warm' is slightly strong; use 'terlalu hangat'.",
+        "#4 'jentik-jentik nyamuk' for mosquito larvae is fine, but 'artemia' should be written 'Artemia' as in the source."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    {
+      "at": "2026-11-17T10:52:16Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "Item 4: \"jentik-jentik\" for mosquito larvae is vague/inaccurate; use \"jentik-jentik nyamuk\" (or \"larva nyamuk\"), and \"artemia\" is fine. Without \"nyamuk\" the original detail is lost.",
+        "Item 5: \"hidup dengan sangat bersembunyi\" is unnatural; use \"sangat suka bersembunyi\" or \"hidup secara sangat tertutup/menyembunyikan diri\".",
+        "Item 5: \"menyusup ke dalam dasar, bermula dengan bahagian ekor\" is awkward; use \"membenamkan diri ke dalam pasir dengan ekor dahulu\".",
+        "Item 1: \"hanya sedikit melebihi 5 cm\" is imprecise; use \"tidak banyak melebihi 5 cm\" (original: grows little longer than 5 cm).",
+        "Item 3: \"rehat musim sejuk\" is odd for Malaysia; consider \"rehat musim sejuk\" with a gloss like \"tempoh suhu rendah\"."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.7,
+        0.7,
+        0.7
+      ]
     }
   ],
   "ms/species/aequidens-patricki": [
@@ -33414,6 +34517,38 @@
     }
   ],
   "ms/species/ambastaia-sidthimunki": [
+    {
+      "at": "2026-11-17T10:49:35Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-17T10:49:35Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.72,
+      "notes": [
+        "Sentence 2: \"pond bred\" is rendered as \"hasil ternakan kolam\" and fine, but \"Dwarf loach ... akuarium komuniti ikan Asia\" is OK; main issue is in sentence 5: \"kerana mungkin tiada bezanya bagi dwarf loach\" is clumsy; use \"kerana besar kemungkinan dwarf loach tidak kisah\".",
+        "Sentence 7: \"menghargai hubungan dengan ikan sespesies\" is stiff and literal; use \"kerana ikan ini gemar berkawan dengan sesama spesies\".",
+        "Sentence 7: \"Ia boleh dipelihara bersama\" and \"Ia patut\" use \"ia\" for fish in a stiff way; \"akuarium seperti ini tidak pernah membosankan\" is acceptable but use \"ikan ini\" instead of \"Ia\" for clarity.",
+        "Sentence 4: \"Supaya ikan ini sihat, air tidak patut terlalu keras\" is weak; use \"air tidak boleh terlalu keras\" or \"air sebaiknya tidak terlalu keras\" for care advice.",
+        "Sentence 5: \"gaya yang sepadan\" is awkward; use \"gaya aquascape yang sesuai\". \"Neon Tetras\" is lower-cased to \"neon tetra\", which is fine.",
+        "Sentence 8: \"mungkin belum pernah berjaya\" is acceptable but hedging \"probably\" is placed oddly; use \"Pembiakan dalam akuarium nampaknya belum berjaya setakat ini\"."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.7,
+        0.75,
+        0.72
+      ]
+    },
     {
       "at": "2026-11-15T05:12:43Z",
       "model": "sonnet",
@@ -34806,6 +35941,116 @@
       ]
     }
   ],
+  "ms/species/ancistrus-ranunculus": [
+    {
+      "at": "2026-11-17T10:54:16Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "Item 2: \"bebas\" for \"emancipated\" loses the joke (the female also has a beard, like a liberated woman); consider \"paling 'setara jantina'\" or a short clarification.",
+        "Item 12: \"dipastikan hidup di dalam akuarium\" is awkward; use \"dipelihara dalam akuarium\" or \"dikekalkan hidup\".",
+        "Item 8: \"lebih gemar makanan yang lebih tinggi protein\" is redundant; use \"lebih gemar makanan yang kaya protein\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-17T10:54:16Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.72,
+      "notes": [
+        "Item 5: 'a couple of specimens' is translated as 'beberapa ekor' (several). This changes the stocking advice. Use 'sepasang' or 'dua ekor'.",
+        "Item 6: 'tangki bertumbuhan' is unnatural for 'planted tank'. Use 'tangki berpokok' or 'akuarium tumbuhan akuatik'.",
+        "Item 11: 'Kondisikan ikan' is awkward. Use 'Beri ikan makanan berkhasiat untuk menggalakkan pembiakan' or 'Sediakan ikan untuk membiak dengan...'.",
+        "Item 2: '\"setara jantina\"' for 'emancipated' is a stretched joke. Consider 'paling \"bebas\"' or a more natural rendering."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.7,
+        0.85,
+        0.72
+      ]
+    }
+  ],
+  "ms/species/ancistrus-triradiatus": [
+    {
+      "at": "2026-11-17T10:55:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/species/andinoacara-latifrons": [
+    {
+      "at": "2026-11-17T10:55:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.75,
+      "notes": [
+        "\"mengiringi anak-anak\" is a stiff literal rendering of \"lead the brood\"; use \"menjaga dan memimpin/mengawal anak-anak\" or just \"menjaga anak-anak yang ramai\".",
+        "\"Semakin besar akuarium, semakin aman cichlid ini\" is slightly awkward; \"semakin damai\" or \"semakin tenang sifat cichlid ini\" is more natural.",
+        "\"tidak banyak menggali dan tidak mengganggu tumbuhan\": \"gentle with plants\" is better as \"tidak merosakkan tumbuhan\".",
+        "\"boleh bertelur\" for \"spawn\" is acceptable, but \"boleh membiak/mengawan\" is more usual hobby wording.",
+        "\"keturunan yang dibiakkan di Jerman\" for \"German offspring\" is fine, but \"anak ikan\" or \"generasi\" would be clearer."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.75,
+        0.75,
+        0.75
+      ]
+    },
+    {
+      "at": "2026-11-17T10:55:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "\"kedua-dua induk bersama-sama mengawal anak-anak yang banyak\": \"mengawal\" (control) is a poor rendering of \"lead\"; use \"memimpin\" or \"menjaga dan mengiringi anak-anak yang ramai\".",
+        "\"pembiak terbuka yang tipikal dengan keluarga ibu bapa\": awkward/calqued; better \"pembiak terbuka (open breeder) tipikal dengan sistem keluarga dua induk\".",
+        "\"tipikal\" is a stiff loanword; use \"tipikal\" → \"khas\" or \"biasa\".",
+        "\"memikat hati penggemar\": \"penggemar\" is added; English has no object, so \"memikat hati\" generations of keepers is acceptable, but \"varied behavior\" → \"tingkah laku yang pelbagai\" is fine; check \"cara menjaga anak yang menarik\" – OK but \"penjagaan anak\" is more natural.",
+        "\"Lebih besar akuarium, lebih aman cichlid ini\": unnatural; use \"Semakin besar akuarium, semakin aman cichlid ini\".",
+        "\"kurang menggali\" for \"little burrowing\": better \"tidak banyak menggali\".",
+        "\"keturunan yang dibiakkan di Jerman\": \"German offspring\" fine, but \"berasal daripada induk\" okay; \"juga lama dianggap\" adds \"juga\" not in the source; remove it.",
+        "\"gentle with plants\" rendered \"tidak merosakkan tumbuhan\" is slightly stronger than \"lembut/tidak mengganggu tumbuhan\"."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.7,
+        0.72,
+        0.7
+      ]
+    }
+  ],
+  "ms/species/andinoacara-pulcher": [
+    {
+      "at": "2026-11-17T10:56:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "#9: \"sedikit tajam\" for \"slightly pointed\" fins is a little odd; \"agak runcing\" is more natural.",
+        "#10: \"Tempat ini mungkin batu leper\" reads slightly abrupt; \"mungkin berupa batu leper\" would be smoother."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/species/andinoacara-rivulatus": [
     {
       "at": "2026-11-07T08:25:26Z",
@@ -34817,6 +36062,89 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "ms/species/anematichthys-repasson": [
+    {
+      "at": "2026-11-17T10:57:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/species/anentome-helena": [
+    {
+      "at": "2026-11-17T10:58:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.72,
+      "notes": [
+        "Item 4: \"8 L air atau lebih\" is the correct number (8 litres kept), no problem; but \"seekor siput boleh hidup dengan selesa\" adds 'comfortably' – minor, keep 'dengan mudah'/'boleh hidup'.",
+        "Item 6: \"newborn fry (wrigglers)\" – 'newborn' omitted: \"benih ikan yang baru lahir yang belum berenang bebas\"; \"deceased animals\" translated \"bangkai haiwan\" is fine.",
+        "Item 2: \"bumblebee (sejenis lebah)\" left in English; use \"lebah bumbung/ketuyu\" or \"lebah\" instead of English 'bumblebee'.",
+        "Item 7: \"Keluarkan semua siput yang tidak mahu dimakan\" is awkward; use \"Asingkan semua siput yang tidak mahu dijadikan mangsa\".",
+        "Item 2: \"It is a natural way to get rid of pest snails\" → \"Siput ini ialah cara semula jadi\" is awkward; say \"kaedah semula jadi untuk membasmi siput perosak\".",
+        "Item 9: \"belalainya\" for trunk is OK, but \"tangki\" for tank is acceptable; \"loach\" and 'ikan buntal' fine. \"yang kebanyakan penggemar gunakan\" is awkward; rephrase \"yang digunakan ramai penggemar\".",
+        "Item 8: \"sebiji telur kuning\" – use \"sebutir telur kuning\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.72,
+        0.92,
+        0.72
+      ]
+    },
+    {
+      "at": "2026-11-17T10:58:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "Item 4: \"8 liter\" is a non-standard spelling; use \"8 liter/L\" consistently, but more importantly check that 8 L is the original figure kept. Prefer \"8 L\".",
+        "Item 2: \"Siput ini cara semula jadi untuk menghapuskan siput perosak\" is missing the verb \"ialah\"; use \"Siput ini ialah cara semula jadi untuk menghapuskan siput perosak\".",
+        "Item 2: \"lebah bumblebee\" is redundant; use \"lebah bumblebee\" -> \"bumblebee (sejenis lebah)\" or \"lebah madu besar\".",
+        "Item 6: \"bangkai haiwan\" for \"deceased animals\" is fine, but \"anak ikan yang baru menetas (wriggler)\" mistranslates: wrigglers are fry that are not yet free-swimming, and \"wriggler\" is not a hobby term for them; use \"benih ikan yang belum berenang bebas\".",
+        "Item 8: \"Siput betina bertelur dalam kapsul telur ... sebiji telur kuning\" is acceptable, but \"bucu yang tajam\" should be \"bucu runcing\" (pointy corners).",
+        "Item 9: \"belalainya\" for \"trunk\" is acceptable, but \"Siput pemakan siput\" plus \"tangki sekecil itu\" are fine; \"banyak digunakan oleh penggemar untuk memelihara udang kerdil\" reads awkwardly; rephrase as \"yang kebanyakan penggemar gunakan untuk memelihara udang kerdil\"."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.7,
+        0.85,
+        0.7
+      ]
+    }
+  ],
+  "ms/species/annamia-normani": [
+    {
+      "at": "2026-11-17T11:00:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-17T11:00:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Item 6: '~108 liter' is not the size keepers use. The source's ~29 US gal tank should be given as ~120 litres, per the tank-size table."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "ms/species/astronotus-ocellatus": [
@@ -35198,6 +36526,36 @@
     }
   ],
   "ms/species/chitala-ornata": [
+    {
+      "at": "2026-11-17T10:51:24Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-17T10:51:24Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Item 6: 'Hanya sesuai untuk akuarium awam atau akuarium persendirian yang paling besar dan sangat khusus' is fine, but item 5: 'hutan yang dinaiki air' is unnatural; use 'hutan banjir' or 'hutan yang dinaiki banjir'.",
+        "Item 5: 'yang nampaknya mudah ia sesuaikan diri' is awkward and ungrammatical; use 'yang nampaknya mudah disesuaikan olehnya' or 'yang didiami dengan baik'.",
+        "Item 16: 'hibrid yang ketara dengan C. blanci' mistranslates 'apparent hybrids' (seemingly/probable); use 'hibrid yang kelihatan seperti' or 'hibrid yang dipercayai'.",
+        "Item 16: 'popular tanpa sebab yang jelas' for 'inexplicably popular' is acceptable but 'sukar difahami' is more natural.",
+        "Item 1: 'tersilap dikenal pasti' is awkward; use 'sering dikelirukan dengan C. chitala'. 'untuk tujuan ini' is vague; specify 'untuk tujuan hobi'.",
+        "Item 1: 'Dikategorikan sukar kerana ia memerlukan tangki sekurang-kurangnya 2 m panjang' is acceptable, but 'bintik berbentuk mata (ocellus)' is fine.",
+        "Item 11: 'dikondisikan' is non-standard; use 'diberi makanan berzat terlebih dahulu' or 'dikondisikan' replaced with 'dirawat/disediakan'. 'kemerosotan organ' is OK.",
+        "Item 2: 'penggemar' for hobby okay; 'dewasa' fine. Item 15: 'contruct' typo handled; 'tinggal untuk menjaga' should be 'kekal menjaga'.",
+        "Item 10: 'kayu bog' is not a common Malaysian term; use 'kayu hanyut' consistently."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
     {
       "at": "2026-11-07T15:14:27Z",
       "model": "sonnet",
@@ -37116,6 +38474,48 @@
         "Section 7: \"ปลาคาร์ฟ\" for koi should be \"ปลาคาร์พ/ปลาโคอิ\"; \"ปลาออตโต้\" should be \"ปลาออโตซินคลัส/ออตโต\".",
         "Section 7: \"ไนโตรเจนกับคาร์บอนไดออกไซด์\" is OK, but \"ยุคน้ำแข็งหลายยุคต่อเนื่องกัน\" overstates 'a succession of ice ages'; minor.",
         "Section 3: \"แหนแดง\" is the Thai name for Azolla, but the heading calls it \"Fairy moss\" in the table (item 1); mixing is fine, but \"ไทรโคม\" should be \"ไทรโคม (trichomes)\" with the English term in brackets for clarity."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "th/plants/bacopa-caroliniana": [
+    {
+      "at": "2026-11-17T11:07:15Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Item 11 'Problems': 'Stems floating up: use plant weights' is rendered 'ใช้ตะกั่วถ่วงต้นไม้' (lead weights); 'ตะกั่ว' is a specific material and is not in the source. Use 'แถบถ่วงไม้น้ำ' or similar.",
+        "Item 11 'Tankmates': 'Malaysian trumpet' snail is rendered 'หอยทรัมเป็ตมาเลเซีย'. 'Japanese trapdoor' is rendered 'หอยโอเพอร์คิวลัมญี่ปุ่น', which is not a standard hobby name. 'Mystery snails' is rendered 'หอยแอปเปิ้ลมิสทรี'; use the common names (หอยจอบ/หอยเจดีย์, หอยฝาปิดญี่ปุ่น, หอยแอปเปิ้ล).",
+        "Item 11 'Tankmates': 'ปลาเพลตี้' and 'ปลาราสบอร่า' are fine, but 'กุ้งแคระกลุ่ม Neocaridina และ Caridina' puts the Latin names in the wrong form. Use 'กุ้งแคระ (Neocaridina) และกุ้งในสกุล Caridina' or the local trade names such as กุ้งเชอร์รี่ and กุ้งคริสตัล.",
+        "Item 11 'Tankmates': 'กุ้งไผ่ (กุ้งพัด)' and 'กุ้งแวมไพร์' are acceptable, but 'ปลาโอโตซินคลัส' and 'ปลานีออน' are loose. Use 'ปลาอ๊อตโต' and 'ปลาเนออน'.",
+        "Item 11 'Problems': 'Remove dying parts, check water quality and dose fertilizer' is translated as 'เติมปุ๋ย'. This is faithful. 'Algae' is rendered 'ตะไคร่', which is fine.",
+        "Item 11 'Buying': 'ศัตรูพืช' for 'pests' is applied to plant-borne pests in an aquarium context, and 'หอย' is listed as an example of a pest. The tone is slightly off but meaning is intact. 'สัตว์ไม่มีกระดูกสันหลัง' is stiff; use 'สัตว์น้ำไร้กระดูกสันหลัง' or 'กุ้งหอย'.",
+        "Item 7: 'น้ำยาฟอกขาว (คลอรีน/ไฮเตอร์)' adds 'คลอรีน/ไฮเตอร์', which the source does not give. This is a minor addition; keep only 'น้ำยาฟอกขาว'.",
+        "Item 7: 'ใช้แหนบคีบปักไม้น้ำปักต้นที่สมบูรณ์' repeats 'ปัก' and reads awkwardly. 'Plant healthy stems... with tweezers' should read 'ใช้แหนบปักต้นที่สมบูรณ์ลงในวัสดุปลูก'.",
+        "Item 7: The source says 'Side shoots can be clipped and replanted and root after a few days'. The Thai merges this into 'จะออกรากภายในไม่กี่วัน' and leaves out 'clipped', so the meaning is slightly changed.",
+        "Item 1: 'ลงตู้ได้สองเดือน' is fine, but 'ความต้องการ CO2: ต่ำ' conflicts with item 2 only in the source. Ignore."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-17T11:07:15Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "\"ปลาซิว\" for rasboras is too generic (it also covers many unrelated local fish); use \"ปลาราสบอร่า\".",
+        "\"ปลาเสือข้างลาย (cherry barb)\" is wrong: a cherry barb is \"ปลาบาร์บเชอร์รี่\" (ปลาตะเพียนเชอร์รี่). Tiger barb is a different fish.",
+        "\"ปลาโอโต\" should be \"ปลาโอโตซินคลัส\" (Otocinclus), and \"แพะแคระ\" should be \"คอรี่แคระ\" (pygmy corydoras). \"แพะ\" is a wrong term.",
+        "\"กุ้งบัมเบิ้ลบี (bamboo shrimp)\" is a mistranslation: bamboo shrimp is \"กุ้งไผ่\" (กุ้งพัด), while bumblebee shrimp is a different species.",
+        "\"กุ้งฝอย (ghost shrimp)\" is questionable: กุ้งฝอย is the local freshwater shrimp, and ghost shrimp is \"กุ้งแก้ว\".",
+        "\"หอยขมญี่ปุ่น (Japanese trapdoor)\" is wrong: use \"หอยโอเพอร์คิวลัมญี่ปุ่น\" or \"หอยเชอร์รี่ญี่ปุ่น\" (Japanese trapdoor snail, Viviparus). \"หอยเขาแกะ\" for ramshorn is OK but \"หอยมิสทรี\" is better written \"หอยแอปเปิ้ลมิสทรี\".",
+        "\"ตะกั่วถ่วงต้นไม้\" (plant weights) is fine, but \"ต้นละลาย\" for melting is OK. \"ใบล่างร่วง\" omits that the translator should not call it \"ปรับตัวไม่ได้\" without context. Minor.",
+        "In 7, \"ปากคีบ\" is awkward: use \"แหนบ\" or \"คีบปักไม้น้ำ\" for tweezers. \"น้ำยาฟอกขาว\" should be \"น้ำยาฟอกขาว (คลอรีน/ไฮเตอร์)\" for clarity."
       ],
       "attempt": "first",
       "kept": false
@@ -39240,6 +40640,66 @@
       "kept": true
     }
   ],
+  "th/species/aegla-platensis": [
+    {
+      "at": "2026-11-17T11:27:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Item 4: \"Artemia\" translated as \"ไรทะเล\" – Artemia is brine shrimp (อาร์ทีเมีย / ไรน้ำเค็ม); \"ไรทะเล\" is non-standard and may mislead. Use \"อาร์ทีเมีย\".",
+        "Item 4: \"mosquito larvae\" as \"ลูกน้ำ\" is acceptable, but in frozen-food context consider \"ลูกน้ำแช่แข็ง/ลูกน้ำยุง\"; the frozen food is usually bloodworm-type larvae, keep \"ลูกน้ำยุง\" for fidelity.",
+        "Item 1: \"grows little longer than 5 cm\" – \"โตได้ยาวกว่า 5 ซม. เพียงเล็กน้อย\" is okay, but \"Aegla are thoroughly interesting aquarium occupants\" is rendered fine; \"short-tailed crabs\" as \"ปูกลุ่มหางสั้น\" is awkward – use \"ปูแท้ (Brachyura)\".",
+        "Item 7: \"In Aegla platensis in particular\" rendered as \"โดยเฉพาะใน Aegla platensis\" repeats the species name oddly and reads as a non-sequitur; rephrase naturally, e.g. \"โดยเฉพาะชนิดนี้\"."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.6,
+        0.6,
+        0.6
+      ],
+      "textHash": "03574437ec94a732fec8f0a55e6e160876cd67e8b559063286a3f0c36db0287a"
+    },
+    {
+      "at": "2026-11-17T10:36:16Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Item 4: \"ลูกน้ำแช่แข็ง\" for \"mosquito larvae\" is fine, but \"Artemia\" is rendered as \"อาร์ทีเมีย/ไรทะเล\"; \"ไรทะเล\" is a common name, so this is only minor. The real problem is that \"ลูกน้ำ\" is the common name for mosquito larvae while \"หนอนแดง\" (bloodworm) would be a different food. Keep \"ลูกน้ำ\" and drop the repeated \"แช่แข็ง\" after \"อาหารแช่แข็ง\".",
+        "Item 1: \"short-tailed crabs\" (Brachyura) is rendered as \"ปูแท้\", which is a non-standard term. Use \"ปูหางสั้น\" or \"ปูทั่วไป (Brachyura)\".",
+        "Item 1: \"A. platensis โตได้ราว 5 ซม. หรือยาวกว่านั้นเพียงเล็กน้อย\" is acceptable, but \"แทบไม่เคยมีให้เห็น\" and \"วงการปลาสวยงาม\" for \"aquarium hobby\" could be more natural as \"วงการตู้ปลา/สัตว์น้ำสวยงาม\".",
+        "Item 7: \"ไม่ได้ผสมพันธุ์เฉพาะบางช่วงของปี\" says the species does not mate only at certain times. The English says it is not restricted to breeding at particular times. This is acceptable, but \"ไข่มีการพัฒนาแบบโดยตรง\" is stiff. Use \"ไข่พัฒนาเป็นตัวเต็มวัยขนาดเล็กโดยตรง (ไม่มีระยะตัวอ่อน)\".",
+        "Item 5: \"ถ้าปูพื้นด้วยทรายละเอียด\" is fine. However \"มุดตัวลงไปในทราย\" slightly changes \"into the bottom\", so use \"มุดลงในพื้นตู้\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.7,
+        0.6,
+        0.6
+      ]
+    },
+    {
+      "at": "2026-11-17T10:36:16Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Item 4: \"Artemia\" translated as \"ไรทะเล\" – should be \"อาร์ทีเมีย\" (brine shrimp is \"ไรน้ำเค็ม\"); \"ไรทะเล\" is a non-standard/ambiguous term. \"mosquito larvae\" as \"ลูกน้ำ\" is fine but note it's specifically frozen mosquito larvae (ลูกน้ำแช่แข็ง).",
+        "Item 1: \"สัตว์เลี้ยงในตู้ปลา\" for \"aquarium occupants\" is slightly awkward; consider \"สัตว์ที่เหมาะกับการเลี้ยงในตู้\".",
+        "Item 1: \"แทบไม่เคยมีให้เห็นในวงการปลาสวยงาม\" – fine, but \"short-tailed crabs\" as \"ปูกลุ่มหางสั้น\" is a literal rendering; use the established term for Brachyura (\"ปูแท้\" / \"ปูกลุ่ม Brachyura\").",
+        "Item 1: \"grows little longer than 5 cm\" – \"โตได้ยาวกว่า 5 ซม. เพียงเล็กน้อย\" is acceptable, but sentence flow is a bit awkward.",
+        "Item 7: \"โดยเฉพาะใน Aegla platensis\" repeats the species name awkwardly; \"in particular\" could be rendered as \"ในกรณีของ A. platensis\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/species/aequidens-patricki": [
     {
       "at": "2026-11-10T01:13:38Z",
@@ -39727,6 +41187,18 @@
   ],
   "th/species/ambastaia-sidthimunki": [
     {
+      "at": "2026-11-17T10:21:42Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "Item 7: \"ต้องการการติดต่อกับปลาชนิดเดียวกัน\" is stilted; more natural: \"ชอบอยู่รวมกับปลาชนิดเดียวกัน\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    },
+    {
       "at": "2026-11-12T20:03:01Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -39979,6 +41451,27 @@
   ],
   "th/species/amphilius-kivuensis": [
     {
+      "at": "2026-11-17T11:27:50Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.72,
+      "notes": [
+        "Item 5: 'Tubifex' translated as 'ไส้เดือนน้ำ' – Thai hobbyists say 'หนอนแดง' (or keep Tubifex); 'ไส้เดือนน้ำ' is a different/ambiguous term.",
+        "Item 5: 'Daphnia' as 'ไรแดง' is correct for Thai hobby, but 'Cyclops' as 'ไซคลอปส์' is okay; 'mosquito larvae' as 'ลูกน้ำ' fine. 'vegetable food' as 'อาหารประเภทพืชผัก' is slightly stiff; use 'อาหารจากพืช'.",
+        "Item 7: Dropped '© Christopher Scharpf' from the ETYFish reference; the reference list should be left identical to the source.",
+        "Item 4: 'small grained gravel' and 'to facilitate their natural habitat' – 'ปลูกไม้น้ำให้หนาแน่น' is stronger than 'well planted'; consider 'ปลูกไม้น้ำอย่างดี/พอสมควร'."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.95,
+        0.7,
+        0.72
+      ],
+      "textHash": "5e163469e6c7ca8da6dc1bd2bafe0030e0451137713515cd5e5b215e5c92b5b2"
+    },
+    {
       "at": "2026-11-16T16:14:23Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -40042,6 +41535,28 @@
     }
   ],
   "th/species/amphilius-longirostris": [
+    {
+      "at": "2026-11-17T11:28:03Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Item 6: \"snout longer than post-orbit length\" is mistranslated as \"จะงอยปากยาวกว่าระยะจากขอบหลังของตาถึงขอบหลังของหัว\". Post-orbit length is the distance from the eye to the head's rear margin, so the Thai happens to match it, but it is not a stated term. Keep it closer to \"ความยาวส่วนหลังตา\" for fidelity.",
+        "Item 6: \"Dorsal spines 0 / anal spines 0\" is rendered as no hard rays. This is acceptable, but \"caudal peduncle ... longer than deep\" as \"คอดหางยาวกว่าความลึก\" is awkward. Use \"ความลึกของก้านหาง\" or \"ลำตัวส่วนคอดหาง ยาวเป็น 1.6–2 เท่าของความลึก\".",
+        "Item 5: \"tablet\" is rendered as \"อาหารเม็ดอัดแบบแผ่น (tablet)\", which is confusing because it mixes pellet and flake. Use \"อาหารเม็ดจมแบบแท็บเล็ต\" or \"อาหารเม็ด\".",
+        "Item 5: \"Tubifex\" is rendered as \"ไส้เดือนน้ำ\". Hobbyists in Thailand usually say \"หนอนแดง\" or \"ไทฟิเน็กซ์\", and \"ไส้เดือนน้ำ\" is ambiguous. \"Daphnia\" as \"ไรแดง\" is the usual Thai name, but \"Cyclops\" as \"ไซคลอปส์\" is fine.",
+        "Item 2: \"Equatorial Guinea\" is rendered as \"อิเควทอเรียลกินี\", and \"Western-central Africa\" as \"แอฟริกาตะวันตกตอนกลาง\". The standard Thai is \"อิเควทอเรียลกินี\" or \"อิเควทอเรียลกินี\" with \"แอฟริกากลาง-ตะวันตก\". Check the wording and tidy \"ที่ระดับความสูง 450–600 ม. ประเทศแคเมอรูน\"."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.6,
+        0.6,
+        0.85
+      ],
+      "textHash": "7950480b7783e53206d42b9859c27255222c3463cf396ee3a0f779d448036f2a"
+    },
     {
       "at": "2026-11-16T16:14:43Z",
       "model": "sonnet",
@@ -40119,6 +41634,30 @@
     }
   ],
   "th/species/amphilius-natalensis": [
+    {
+      "at": "2026-11-17T11:28:18Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "Item 1: \"ชื่อสามัญ: Natal mountain catfish\" leaves the common name untranslated. Give a Thai name or a transliteration, e.g. \"ปลาแคทฟิชภูเขานาทาล (Natal mountain catfish)\".",
+        "Item 5: \"อาหารเม็ดแบบแผ่นกด\" for \"tablet\" is awkward and non-standard. Use \"อาหารเม็ดจม/อาหารเม็ดแบบแท็บเล็ต\".",
+        "Item 5: \"ไส้เดือนน้ำ\" for Tubifex is acceptable, but \"หนอนแดง/ไทฟิเฟกซ์\" is the more common hobby term. \"ไรแดง\" is Moina or Daphnia in Thai usage, so check it. \"ไรน้ำ\" is also used for Daphnia.",
+        "Item 4: \"This genera prefer cooler temperatures\" is translated as \"ค่อนข้างเย็น\", which is fine. \"เพื่อให้ใกล้เคียงกับแหล่งอาศัย\" is slightly awkward.",
+        "Item 8: \"ชื่อชนิด natalensis ตั้งตามจังหวัดนาทาล\" translates Province as \"จังหวัด\", which reads oddly for South Africa. Use \"แคว้น/จังหวัดนาตาล\" with the established spelling.",
+        "Item 8: \"ไม่เข้าเกณฑ์ประเภทใดของสถานะถูกคุกคาม\" is stiff. \"ไม่เข้าเกณฑ์สถานะถูกคุกคามในระดับใดเลย\" would read better.",
+        "Item 3: \"ตัวอ่อนริ้น\" for midge larvae is imprecise. Use \"ตัวอ่อนแมลงหากิน/หนอนแดง (ตัวอ่อนแมลงช้าง)\" or \"ตัวอ่อนริ้นน้ำจืด (Chironomid)\"."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.6,
+        0.7
+      ],
+      "textHash": "8eb36a869006780d7d2070ab286d2a8b23e8289b6746de5e65d1f7e8fea02c31"
+    },
     {
       "at": "2026-11-16T16:20:23Z",
       "model": "sonnet",
@@ -40205,6 +41744,28 @@
     }
   ],
   "th/species/amphilius-rheophilus": [
+    {
+      "at": "2026-11-17T11:28:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "Item 5: 'tablet' translated as 'อาหารเม็ดจม' (sinking pellets) – adds 'sinking' not in source; use 'อาหารเม็ด'.",
+        "Item 5: 'Tubifex' rendered as 'ไส้เดือนน้ำ'; hobbyists in Thailand usually say 'หนอนแดง' (or keep Tubifex); 'ไส้เดือนน้ำ' is ambiguous.",
+        "Item 7: ETYFish reference line dropped '© Christopher Scharpf'; the reference list should stay untranslated and complete.",
+        "Item 6: 'ครีบหลังแข็ง/ก้านครีบ' fine, but 'ก้านครีบหลังแข็ง (ทั้งหมด)' lacks consistency; 'ความยาวมาตรฐาน' ok. Minor: 'คอดหาง' length phrase 'ความยาวมากกว่าสองเท่าของความลึก' should say 'ของความสูงคอดหาง' for clarity.",
+        "Item 2: 'Gambia River' rendered as 'แม่น้ำ Gambia' while type locality uses 'Gambie'; Latin/French place names left untranslated – consider Thai 'แม่น้ำแกมเบีย'."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.7,
+        0.88
+      ],
+      "textHash": "6a9df2a0e26b64da8cd3f3dbac67828b525ac247b823e3c47deed08138fc3f7f"
+    },
     {
       "at": "2026-11-16T16:22:44Z",
       "model": "sonnet",
@@ -41211,6 +42772,48 @@
   ],
   "th/species/apistogramma-cacatuoides": [
     {
+      "at": "2026-11-17T11:29:12Z",
+      "model": "opus",
+      "ran": "claude-opus-5-5",
+      "cli": "2.1.322",
+      "score": 0.82,
+      "notes": [
+        "#1, #10: \"ปลาเล็กที่ใช้เป็น dither fish\" leaves the English term with no Thai. Add a Thai explanation, e.g. \"ปลาเล็กที่ว่ายนำช่วยให้ปลาหมอกล้าออกมา (dither fish)\".",
+        "#9: \"Daphnia\" became \"ไรแดง\", but Thai hobbyists use ไรแดง for Moina. Use \"ไรน้ำ (Daphnia)\" or \"ไดแดฟเนีย\".",
+        "#10: \"ไม่ควรเลี้ยงรวมกับ Apistogramma ชนิดอื่น\" drops \"ideally\" and makes the advice stricter than the source. Write \"หากเป็นไปได้ไม่ควรเลี้ยงรวม…\".",
+        "#13: \"กลุ่ม monophyletic\" leaves the English term in place. Write \"กลุ่มที่มีบรรพบุรุษร่วมเดียวกัน (monophyletic)\".",
+        "#13: \"สายวงศ์ (lineage)\" is a non-standard term. \"สายวิวัฒนาการ (lineage)\" reads more naturally."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.8,
+        0.82
+      ],
+      "textHash": "7f783286c6c79d55645896c1d96c9b7933342bef009e510bc5cc75e7920f9870"
+    },
+    {
+      "at": "2026-11-17T11:28:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "Items 1 and 10: \"dither fish\" is left in English. Consider giving a Thai gloss, e.g. ปลาที่ช่วยลดความเครียด/ปลาล่อให้ปลาหมอกล้าออกมา (dither fish).",
+        "Item 13: \"monophyletic\" is left in English. Use กลุ่มที่มีบรรพบุรุษร่วมกัน (monophyletic).",
+        "Item 9: \"Artemia\" is translated as ไรทะเล. Hobbyists more commonly say อาร์ทีเมีย or ไรน้ำเค็ม."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.88,
+        0.9,
+        0.9
+      ],
+      "textHash": "7f783286c6c79d55645896c1d96c9b7933342bef009e510bc5cc75e7920f9870"
+    },
+    {
       "at": "2026-11-16T16:27:48Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -41283,41 +42886,6 @@
       ],
       "attempt": "first",
       "kept": true
-    },
-    {
-      "at": "2026-11-06T16:22:37Z",
-      "model": "sonnet",
-      "score": 0.6,
-      "notes": [
-        "Item 7: 'Artemia' is rendered 'ไรทะเล', which is a generic term. Artemia is usually called 'อาร์ทีเมีย' or 'ไรน้ำเค็ม' in Thai. Check this against local hobby usage.",
-        "Item 7: 'ไรแดง' for Daphnia is acceptable. 'benthic invertebrates' as 'สัตว์น้ำไม่มีกระดูกสันหลังหน้าดิน' is stiff. Use 'สัตว์ไม่มีกระดูกสันหลังที่อาศัยตามพื้น'.",
-        "Item 5: 'Ketapang almond leaves' is rendered 'ใบหูกวาง'. This is correct and common in Thai, so keep it. 'beech, oak' are fine.",
-        "Item 5: 'most populations will appreciate the tannins' is rendered 'ประชากรส่วนใหญ่ก็จะได้ประโยชน์'. 'ประชากร' is unnatural here. Use 'ปลาจากแหล่งส่วนใหญ่' or 'ปลาหลายกลุ่ม'.",
-        "Item 1: 'double red' and 'orange flash' are left in Latin letters. This is acceptable, but add the Thai trade name if one exists.",
-        "Item 2: 'ลองจิจูด 69°W ถึง 71°W' is correct, but 'ríos Ucayali and Amazonas' is rendered 'แม่น้ำอามาโซนัส'. Amazonas in Peru is the Amazon main stem, so use 'แม่น้ำแอมะซอน' for consistency with the rest of the text.",
-        "Item 10: 'substrate spawner' is rendered 'ปลาวางไข่ตามพื้นและซอกหลืบ'. This adds 'ซอกหลืบ', which is not in the English. Use 'ปลาวางไข่บนพื้นผิว'.",
-        "Item 11: 'ผ่านการแผ่ขยายเชิงปรับตัว (adaptive radiation)' is acceptable. 'เผ่า (tribe)' and 'กลุ่มซับซ้อน (complex)' are stiff but understandable.",
-        "Item 12: The reference list is left untranslated as instructed, so no fix is needed."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-06T16:22:37Z",
-      "model": "sonnet",
-      "score": 0.55,
-      "notes": [
-        "Item 1: 'อพิสโตคอกคาทู' is an invented/unnatural name for Apistogramma cacatuoides; use the common Thai trade name (e.g., ปลาหมอแคระค็อกคาทู / ค็อกคาทู) and keep it consistent.",
-        "Item 1: 'Max size: ♂ 75 mm SL' — ♂/♀ were rendered as ตัวผู้/ตัวเมีย (fine) but 'SL' left unexplained; write 'ความยาวมาตรฐาน (SL)'. Also 'ปลาหมอแคระ' in the intro is fine but 'ตู้ปลารวม' is OK.",
-        "Item 5: 'เปลี่ยนใหม่ทุก ๆ 2–3 สัปดาห์' — the English says only 'every few weeks'; the specific '2–3 สัปดาห์' is an added number. Use 'ทุกไม่กี่สัปดาห์'.",
-        "Item 5: 'ใบไม้ที่เน่าเปื่อย' / 'most populations will appreciate the tannins' — 'ชอบสารแทนนิน' is a bit off; say 'ได้ประโยชน์จาก'. Also 'ไม้น้ำ ... เหมาะที่สุด' and 'กรองแสงให้นุ่มลง' are awkward.",
-        "Item 3: 'น้ำขุ่นขาว' for white water is acceptable, but 'ขุ่นขาว' could mislead; clarify as 'น้ำขาว (white water)'.",
-        "Item 7: 'ตัวอ่อนของริ้นน้ำจืด (หนอนแดง)' — chironomid larvae are ตัวอ่อนของแมลงริ้นน้ำ/ยุงขนาดเล็ก; 'ไรทะเล' for Artemia is OK but 'ไรแดง' for Daphnia is the usual term (fine). 'สัตว์ไม่มีกระดูกสันหลังที่อาศัยตามพื้นน้ำ' is stiff; use 'สัตว์น้ำไม่มีกระดูกสันหลังหน้าดิน'.",
-        "Item 10: 'เป็นปลาที่วางไข่บนวัสดุ' for 'substrate spawner' is a literal rendering; use 'ปลาวางไข่ตามพื้น/ซอกหลืบ (substrate spawner)'. 'ของตกแต่งตู้' fine.",
-        "Item 11: 'วงศ์ Cichlidae เขตร้อนโลกใหม่' and 'วงศ์ย่อยที่เสนอไว้' — 'neotropical' should be 'เขตนีโอทรอปิก/อเมริกาใต้และกลางเขตร้อน'. 'Kullander (1998) ได้ศึกษาสายวิวัฒนาการ' is fine. Leaving the 'อพิสโตคอกคาทู' naming inconsistent with elsewhere where Latin name is used."
-      ],
-      "attempt": "first",
-      "kept": false
     }
   ],
   "th/species/apistogramma-cinilabra": [
@@ -41913,6 +43481,29 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/species/apistogramma-personata": [
+    {
+      "at": "2026-11-17T10:36:50Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "\"มีให้เลี้ยงในจำนวนน้อยเท่านั้น\" is slightly awkward; more natural: \"มีจำหน่ายในจำนวนน้อยเท่านั้น\" (Available = on sale).",
+        "\"ไม่ได้มีสีสดจัดจ้าน\" for \"not a burner\" is slightly awkward; consider \"สีไม่ฉูดฉาด/ไม่โดดเด่นสะดุดตา\".",
+        "\"หนังสือและวารสาร\" for \"hobby literature\" adds \"วารสาร\" slightly; \"สื่อสิ่งพิมพ์ในวงการ\" would be more neutral.",
+        "\"ครั้งนั้น Uwe นำปลา...\" adds \"ครั้งนั้น\" (that time) not in the source, though the meaning is harmless.",
+        "\"in cool moods\" translated \"อารมณ์สงบ\" is fine, but \"ปลาชนิดนี้จึงเรียกกันง่าย ๆ\" slightly changes \"They are simply named...\" connection; \"จึง\" implies a cause that is not in the source (it should be a plain statement)."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.8,
+        0.85
+      ]
     }
   ],
   "th/species/apistogramma-rupununi": [
@@ -42658,6 +44249,42 @@
   ],
   "th/species/astacus-astacus": [
     {
+      "at": "2026-11-17T11:29:29Z",
+      "model": "opus",
+      "ran": "claude-opus-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.95,
+        0.95,
+        0.95
+      ],
+      "textHash": "ac529d27ef648292b14bc9bd902fa3dc00056e6ee3982e38d40210306bdda28f"
+    },
+    {
+      "at": "2026-11-17T11:29:19Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "Item 1: \"กุ้งโนเบิลเครย์ฟิช\" and \"กุ้งเครย์ฟิชแคมเบอร์\" are literal transliterations; add the commonly used names or the English in brackets (e.g. Noble crayfish) for clarity.",
+        "Item 1: \"กำลังใกล้สูญพันธุ์ ... ซึ่งเป็นเรื่องน่าเสียดาย\" is slightly awkward; the sentence order could be smoother.",
+        "Item 1: \"เชื้อราตัวนี้\" - \"ตัว\" is odd for a fungus; use \"เชื้อราชนิดนี้\"."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.75,
+        0.85,
+        0.85
+      ],
+      "textHash": "ac529d27ef648292b14bc9bd902fa3dc00056e6ee3982e38d40210306bdda28f"
+    },
+    {
       "at": "2026-11-17T04:28:41Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -43365,6 +44992,27 @@
       ]
     }
   ],
+  "th/species/awaous-lateristriga": [
+    {
+      "at": "2026-11-17T10:37:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "\"ปลาที่แสดงในหน้านี้\" adds \"on this page\"; the English says \"the animal presented here\", so use a neutral wording such as \"ปลาที่นำเสนอ\".",
+        "\"ปลาโตเต็มวัยจะอาศัยอยู่ในน้ำจืด\": \"there\" means in fresh water, which is fine, but \"ลอยไปตามกระแสน้ำ\" for \"drift passively\" could say \"ล่องลอยไปตามน้ำ\". This is a minor point.",
+        "\"ลูกปลาวัยอ่อน\" for \"larvae\" is acceptable; \"ตัวอ่อน\" is the more common hobby term."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.85,
+        0.9
+      ]
+    }
+  ],
   "th/species/axelrodia-riesei": [
     {
       "at": "2026-11-07T07:41:26Z",
@@ -43982,6 +45630,27 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "th/species/barbus-barbus": [
+    {
+      "at": "2026-11-17T10:37:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "Item 1: \"ปลาท้องถิ่นของยุโรป\" for \"endemic\" is acceptable but \"พบได้ทั่วยุโรป\" slightly overstates \"through Europe\"; consider \"พบในยุโรป\".",
+        "Item 3: \"สารคัดหลั่งขุ่น ๆ บนหัว\" is stiff; consider \"มีเมือกขุ่นบริเวณหัว พร้อมตุ่มขาว (breeding tubercles)\".",
+        "Item 4: \"ปลาบาร์บ\" for the barb is fine, but \"ชนิดย่อย\" repeated and \"ตู้ปลาน้ำเย็น\" for temperate aquarium could be \"ตู้ปลาเขตอบอุ่น\"; \"ยูโกสลาเวีย\" kept as in source is OK."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.72
+      ]
     }
   ],
   "th/species/barilius-ardens": [
@@ -46041,6 +47710,26 @@
   ],
   "th/species/betta-smaragdina": [
     {
+      "at": "2026-11-17T10:22:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "\"เพื่อนร่วมตู้ที่ไม่ใช่ปลากัดตัวผู้\" is a bit literal; more natural: \"ปลาชนิดอื่นที่ไม่ใช่ปลากัดตัวผู้\" or \"ปลาที่เลี้ยงร่วมตู้\"",
+        "\"เป็นที่ทราบว่าทนอุณหภูมิได้ต่ำถึง 16 °C\" is stiff; consider \"มีรายงานว่าทนอุณหภูมิต่ำได้ถึง 16 °C\"",
+        "\"ว่ายน้ำได้อิสระ\" is slightly awkward; hobbyists say \"ลูกปลาเริ่มว่ายน้ำได้เอง/ลอยตัวว่ายน้ำ\"",
+        "\"ลูกไรทะเลแรกฟัก\" is okay but hobbyists usually say \"ลูกไรทะเล/อาร์ทีเมียแรกฟัก\""
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    {
       "at": "2026-11-17T04:18:43Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -46500,6 +48189,41 @@
   ],
   "th/species/biotoecus-opercularis": [
     {
+      "at": "2026-11-17T10:40:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "Item 7: 'most populations will appreciate the tannins' is rendered 'ปลาส่วนใหญ่ยังชอบ' (most fish). Use 'ปลาจากหลายประชากร' or 'ปลาหลายประชากร' to stay faithful.",
+        "Item 7: 'biologically immature aquarium' has 'หรือยังไม่ผ่านการไซเคิลน้ำ' added. It is redundant and not in the source. Remove it, or fold it into the first clause.",
+        "Item 7: 'ไม่เรื่องมากเรื่องการจัดตู้' is slightly colloquial. Consider 'ไม่จุกจิกเรื่องการตกแต่งตู้'."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-17T10:40:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.4,
+      "notes": [
+        "#3 omits the source fact 'Aquarium Glaser' (the importer). It is not shop talk in a care context, but the Thai drops the subject and the reference to the importer entirely, so the fact is lost.",
+        "#5 '(ประมาณ 81 ลิตร)': 90 × 30 cm base needs a height to give 81 L. The English volume is kept, so this is fine, but the volume is only for 90 × 30 × 30 cm, which the Thai doesn't say. Minor.",
+        "#6 'ตัวเมียมากกว่าตัวผู้เล็กน้อย' is fine. #16 'They are cave brooders' is translated as 'วางไข่ในโพรง' and loses the brooder sense. Use 'ปลาหมอสีที่วางไข่และเลี้ยงลูกในโพรง (cave brooder)'.",
+        "#14 'more colourful and extended fins' is rendered 'สีสันสดกว่าและครีบยาวกว่า'. Acceptable, but 'ครีบยาวกว่า' loses 'more colourful fins'. Minor.",
+        "#7 'ไม่ควรปล่อยลงตู้ที่ระบบกรองและวงจรไนโตรเจนยังไม่เซ็ตตัว' adds 'ระบบกรอง' to 'biologically immature'. Use 'ตู้ที่ระบบชีวภาพยังไม่สมบูรณ์/ยังไม่ผ่านการไซเคิลน้ำ'.",
+        "#7 'ใบโอ๊ก/ใบบีช' are okay. 'ปล่อยลงตู้... เสื่อมคุณภาพ' is fine. 'water changes 10-15% ... ต่อสัปดาห์' is fine.",
+        "#17 'Kullander (1998)... six subfamilies' is translated as 'วงศ์ย่อย' correctly. The 'putative subfamily' phrase is garbled: 'โดยวงศ์ย่อยที่เสนอไว้คือ Geophaginae' needs rewording.",
+        "#17 'โคลอมเบียและเวเนซุเอลา' etc. are fine. 'ไรทะเล' for Artemia (#11) is non-standard. Use 'อาร์ทีเมีย' or 'ไรน้ำเค็ม'. 'ไส้เดือนน้ำ' for Tubifex is a common local term, so fine.",
+        "#13 'เหมาะที่สุดที่จะเลี้ยงเดี่ยวเป็นชนิดเดียว' is fine. #12 'Dry food is only accepted in very special cases' is fine.",
+        "#17 'Chironomidae ... ตัวอ่อนแมลงในวงศ์' is fine. 'ออสตราคอด' is a transliteration. Add 'ไรเมล็ดผัก (ostracods)' or similar."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
+    {
       "at": "2026-11-09T22:41:38Z",
       "model": "sonnet",
       "score": 0.9,
@@ -46579,6 +48303,40 @@
     }
   ],
   "th/species/boraras-micros": [
+    {
+      "at": "2026-11-17T10:43:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "Item 11: \"นักล่าขนาดจิ๋ว\" for \"micropredator\" can be read as a tiny predator. Say it preys on tiny animals, e.g. \"นักล่าที่กินสัตว์ขนาดเล็ก\".",
+        "Item 15: \"ไข่ชุดแรกน่าจะฟักภายในวันที่สอง\" and \"เมื่อเริ่มวางไข่แล้วน่าจะวางไข่ต่อไป\" add hedging that the English does not have, since the English says \"should\". This is minor."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-17T10:43:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "Item 6: '(ประมาณ 41 ลิตร)' – 45 × 30 cm base tank volume was given in the source; the number is kept, but a tank this size should be named by common local size; check the litre figure is not an exact conversion (keep or round sensibly).",
+        "Item 13: 'แพะแคระ (Corydoras ขนาดเล็ก)' – wrong term; 'แพะ' is not the Thai hobby name for Corydoras, which is 'ปลาหมูขนาดเล็ก/คอรีดอรัสแคระ' (pygmy Corydoras). Fix.",
+        "Item 15: 'อาจขนาดประมาณ 10-15 ลิตร' and 'ขุนรวมกันได้' – 'ขุน' (fatten) is a wrong rendering of 'condition'; use 'เลี้ยงเตรียมความพร้อม/ปรุงสภาพ'. Also 'ระบบเซ็ตตัว' for 'mature aquarium' is awkward.",
+        "Item 15: 'เมื่อเริ่มวางไข่แล้วก็ควรวางไข่ต่อเนื่องทุกวัน' – the sentence is acceptable but 'ไข่ชุดแรกน่าจะฟักภายในวันที่สอง' lacks 'should hatch by the second day' nuance; also 'ความกระด้าง 5-10°H' – use dGH.",
+        "Item 17: 'ในบรรดาปลาเหล่านี้ พบว่า Boraras จัดเป็นกลุ่มโมโนฟิเลติก' – source says 'Of these it was found to form a monophyletic group with Rasboroides'; fine, but 'Boraras ... เป็นกลุ่มโมโนฟิเลติกร่วมกับ' is awkward; 'ผลการศึกษาของ B. brigittae' is garbled.",
+        "Item 17: 'ต่ำกว่า 20 มม. (SL)' – imperial figure dropped is OK, but 'significantly reduced size of less than 20 mm' fine; 'ตัวเต็มวัยที่เจริญพันธุ์แล้วมีขนาดเล็กลงอย่างมาก' ok.",
+        "Item 3: 'Swamp 6 kilometers north...' type locality left in English plus translation in brackets – fine, but 'สถานที่พบตัวอย่างต้นแบบ' should be 'แหล่งที่พบตัวอย่างต้นแบบ/แหล่งอ้างอิงชนิด'.",
+        "Item 11: 'สัตว์พวกกุ้งกั้งปูขนาดเล็ก' – use 'สัตว์เปลือกแข็งขนาดเล็ก (crustaceans)'; 'ไรทะเล' for Artemia ok but Daphnia 'ไรแดง' is correct.",
+        "Item 2/9: 'ปลาแคระที่ยังไม่ได้รับการบรรยายลักษณะ' is stilted; consider 'ยังไม่มีการตั้งชื่อทางวิทยาศาสตร์'.",
+        "Item 5: 'Cerotophyllum dermersum' retained as source typo; Latin names unchanged is ok."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
     {
       "at": "2026-11-07T18:10:31Z",
       "model": "sonnet",
@@ -46956,6 +48714,28 @@
     }
   ],
   "th/species/brachychalcinus-orbicularis": [
+    {
+      "at": "2026-11-17T10:45:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-17T10:45:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "Item 6: \"ประมาณ 108 ลิตร\" is the exact conversion of 29 US gal. Per the tank-size table, 29 gallons should be named \"ประมาณ 120 ลิตร\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
     {
       "at": "2026-11-08T08:20:47Z",
       "model": "sonnet",
@@ -48300,6 +50080,29 @@
   ],
   "th/species/caquetaia-kraussii": [
     {
+      "at": "2026-11-17T11:29:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "Item 3: \"fish up to 10 cm long can be swallowed\" is rendered as \"ปลาที่ยาวได้ถึง 10 ซม. อาจถูก...กลืนเข้าไปได้\". It is understandable but awkward. Say \"ปลาที่ยาวไม่เกิน 10 ซม.\".",
+        "Item 3: \"they will hardly be hurt\" became \"แทบจะไม่ถูก C. kraussii ทำให้บาดเจ็บเลย\", and the Thai adds the subject C. kraussii. The English says only that they will hardly be hurt. Consider rewording it as \"แทบไม่ได้รับบาดเจ็บ\".",
+        "Item 3: \"ไม่ล็อคปากต่อสู้กันเหมือนปลาหมอชนิดอื่น\" is mostly fine, but \"ล็อคปาก\" should be spelled \"ล็อกปาก\". Also, \"mouthfighting\" is the behaviour, so use \"ต่อสู้ด้วยปาก\".",
+        "Item 3: \"Caquetaia จะอดอาหารจนตาย\" drops the nuance that the fish would starve because its mouth was injured. Use \"จะกินอาหารไม่ได้และอดตาย\".",
+        "Item 4: \"led by their parents throughout the tank\" is rendered as \"พาฝูงลูกปลา...ว่ายไปทั่วตู้\". This is fine. However, \"ตั้งแต่นั้นเป็นต้นไป\" leaves it unclear what \"that moment\" refers to, so make it explicit as \"นับจากนั้น\" or \"ตั้งแต่ลูกปลาเริ่มว่ายน้ำ\".",
+        "Item 4: \"ปลาที่เลี้ยงร่วม\" is repeated within one sentence, which reads heavily. Reduce it, for example with \"ปลาร่วมตู้\"."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.7,
+        0.7
+      ],
+      "textHash": "7a01309fb8226beef0e5b61f93421b63c1e20a3a659a547e14edc86293bbc8a8"
+    },
+    {
       "at": "2026-11-16T10:26:31Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -49202,6 +51005,69 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/species/ceylonthelphusa-kandambyi": [
+    {
+      "at": "2026-11-17T11:29:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "Item 3: \"they do not spare smaller fish either\" is rendered as \"ปูชนิดนี้ก็ล่าปลาตัวเล็กเช่นกัน\" (also hunts small fish). The original says they don't spare them, meaning they may eat or attack them. \"ล่า\" is a slightly stronger claim. Use something like \"ก็ไม่เว้นปลาตัวเล็กเช่นกัน\".",
+        "Item 1: \"Ceylonthelphusa\" is left unchanged, which is fine. \"เป็นปูอีกชนิดที่น่าสนใจ ซึ่งเพิ่มเข้ามาในกลุ่มกุ้งและปูที่มีจำหน่าย\" adds \"กุ้งและ\" (shrimp and), which the original does not have. It says \"crustaceans\". Use \"สัตว์น้ำเปลือกแข็ง\" or \"สัตว์จำพวกครัสเตเชียน\" instead.",
+        "Item 4: \"จึงจะมีการค้นพบใหม่ ๆ ... อย่างแน่นอน\" is a little stiff. \"Terrarium\" as \"ตู้เทอราเรียม\" is acceptable; \"ตู้เลี้ยงสัตว์เลื้อยคลาน/ตู้บกกึ่งน้ำ\" is more natural for a Thai hobbyist.",
+        "Item 1: \"ได้รับการบรรยายลักษณะทางวิทยาศาสตร์\" is stiff. \"ถูกอธิบายเป็นชนิดใหม่ทางวิทยาศาสตร์ในปี ค.ศ. 1999\" is more natural, and giving ค.ศ. avoids confusion with the Thai Buddhist year."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.7,
+        0.7
+      ],
+      "textHash": "b4ca2e87bf2cde1318ebf743dddb7d5eee6811ef1911053a6c2106469d302dc9"
+    },
+    {
+      "at": "2026-11-17T10:46:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "Segment 3: \"ก็ล่าปลาตัวเล็กเช่นกัน\" for \"do not spare smaller fish either\" – acceptable meaning, but \"ทำลายไม้น้ำน้อยกว่า...มาก\" is fine; no major issue. Minor: \"first reports\" rendered as \"รายงานเบื้องต้น\" – better \"รายงานแรก ๆ\".",
+        "Segment 4: \"จึงจะมีการค้นพบใหม่ ๆ\" loses the hedge flow of \"some new discoveries will surely be made\"; the word \"some\" is omitted. Suggest \"คงจะมีการค้นพบใหม่ ๆ บางอย่างเกี่ยวกับปูชนิดนี้อย่างแน่นอน\".",
+        "Segment 1: \"ได้รับการบรรยายลักษณะทางวิทยาศาสตร์\" is stiff; use \"ได้รับการอธิบายและตั้งชื่อทางวิทยาศาสตร์ในปี 1999\" or \"ค.ศ. 1999\"; the year in Thai text could be clarified as ค.ศ.",
+        "Segment 1: \"ปูอีกชนิดที่น่าสนใจ ซึ่งเพิ่มเข้ามาในกลุ่มกุ้งและปูที่มีจำหน่าย\" adds \"กุ้งและ\" (shrimp and); the English says only \"crustaceans\" – this is fine, but the sentence is wordy.",
+        "Segment 4: \"ตู้เทอราเรียม\" – more common is \"เทอร์ราเรียม\" or \"ตู้เลี้ยงสัตว์เลื้อยคลาน/กึ่งบก\"; use the standard spelling \"เทอร์เรียม\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    {
+      "at": "2026-11-17T10:46:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "#1: \"เป็นปูที่มีสีสันสวยงามอีกชนิดหนึ่ง\" adds \"colourful\"; the English only says \"attractive addition\". Rephrase to something like \"เป็นปูอีกชนิดที่น่าสนใจ\".",
+        "#1: \"กุ้งปูที่มีขายในวงการ\" is slightly awkward for \"offered crustaceans\". Consider \"สัตว์น้ำกลุ่มcrustacean ที่มีจำหน่าย\" or \"กุ้งและปูที่มีจำหน่าย\".",
+        "#2: \"ผู้นำเข้า\" (importer) for \"supplier\" adds a fact. Use \"ผู้จำหน่าย\" or \"ผู้ขาย\".",
+        "#2: \"ปูชุดนี้\" (this batch) for \"the animals\" is a slight shift. Use \"ปูเหล่านี้\".",
+        "#3: \"จากรายงานแรก ๆ\" is stiff. Use \"จากรายงานเบื้องต้น\".",
+        "#3: \"ทำลายไม้น้ำน้อยกว่า...มาก\" is okay, but \"they do not spare smaller fish\" is better as \"ก็ล่าปลาตัวเล็กเช่นกัน\", which is clearer than \"ไม่ปล่อยปลาตัวเล็กไว้\".",
+        "#4: \"ตู้เลี้ยงสัตว์กึ่งบกกึ่งน้ำ\" for \"terrarium\" narrows the meaning (a paludarium). Use \"เทอร์rarium\" or \"ตู้เทอร์เรียม\".",
+        "#4: \"some new discoveries will surely be made\" is translated as \"จึงน่าจะ...แน่นอน\", which mixes \"probably\" with \"surely\". Use only one level of certainty."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "th/species/chaca-bankanensis": [
@@ -50556,6 +52422,23 @@
       "kept": false
     }
   ],
+  "th/species/chitala-ornata": [
+    {
+      "at": "2026-11-17T10:32:16Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "Item 11: \"เป็นปลานักล่าโดยสมบูรณ์\" is a stiff rendering of \"obligate predator\". Something like \"เป็นปลานักล่าโดยธรรมชาติ/กินเนื้อเป็นหลัก\" reads more naturally.",
+        "Items 1 and 16: \"ลิวซิสติก\" is a bare transliteration of \"leucistic\". Add a short gloss, e.g. \"ปลาที่มีสีซีด (leucistic)\", so hobbyists understand it.",
+        "Item 16: \"โผล่มาให้เห็นเป็นครั้งคราว\" is too colloquial for a handbook. Use \"พบได้เป็นครั้งคราว\".",
+        "Item 5: \"อ่างเก็บน้ำเหนือเขื่อน\" adds detail not in the original. The English says only \"man-made dams\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/species/chlamydogobius-eremius": [
     {
       "at": "2026-11-09T17:53:51Z",
@@ -50654,6 +52537,19 @@
     }
   ],
   "th/species/chromobotia-macracanthus": [
+    {
+      "at": "2026-11-17T10:35:16Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "Item 3: \"at least a few inches long\" became \"อย่างน้อยหลายเซนติเมตร\", which is vague. A few inches is roughly 5–8 cm, so give a concrete figure such as \"อย่างน้อยประมาณ 5–8 ซม.\".",
+        "Item 9: \"ปลาขนาดใหญ่ที่ว่ายในมวลน้ำ\" for \"pelagic\" is stiff. Consider \"ปลาที่ว่ายอยู่กลางน้ำ\" instead."
+      ],
+      "attempt": "first",
+      "kept": true
+    },
     {
       "at": "2026-11-11T01:09:12Z",
       "model": "sonnet",
@@ -50869,6 +52765,16 @@
     }
   ],
   "th/species/cichla-temensis": [
+    {
+      "at": "2026-11-17T10:47:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    },
     {
       "at": "2026-11-10T05:55:46Z",
       "model": "sonnet",
@@ -51562,6 +53468,21 @@
     }
   ],
   "th/species/clypeobarbus-congicus": [
+    {
+      "at": "2026-11-17T10:48:25Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "Item 13: \"ปลาแมวในวงศ์ Mochokidae\" is a non-standard term; use \"ปลาแคทฟิช\" or \"ปลากด\" instead.",
+        "Item 7: \"ปลาฝูงที่ว่ายน้ำตลอดเวลา\" for \"active shoaling fish\" overstates; use \"ปลาฝูงที่ว่ายคล่องแคล่ว\".",
+        "Item 3: Boma and Matadi are left in Latin script; add Thai transliterations (โบมา, มาตาดี).",
+        "Item 15: \"ประสบความสำเร็จอย่างมากกับปลาชนิดที่ใกล้เคียงกัน\" is slightly clumsy; use \"มักได้ผลดีกับปลาชนิดใกล้เคียงกัน\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    },
     {
       "at": "2026-11-10T09:02:50Z",
       "model": "sonnet",
@@ -52953,6 +54874,21 @@
       ]
     }
   ],
+  "th/species/corydoras-bifasciatus": [
+    {
+      "at": "2026-11-17T10:48:53Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "\"ลวดลายบริเวณหลัง\" for \"dorsal pattern\" is ambiguous (back or dorsal fin); consider \"ลวดลายบริเวณครีบหลัง\" if the fin is meant.",
+        "\"เวอร์ชันจมูกยาว\" is a bit colloquial; \"ฉบับจมูกยาว\" or \"ปลาจมูกยาวที่คล้ายกับ ...\" reads more naturally."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/species/corydoras-boesemani": [
     {
       "at": "2026-11-10T17:17:33Z",
@@ -53490,6 +55426,61 @@
   ],
   "th/species/corydoras-duplicareus": [
     {
+      "at": "2026-11-17T11:30:50Z",
+      "model": "opus",
+      "ran": "claude-opus-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "#3: the type-locality sentence 'Rio Poranga, 8 kilometers north of the Nobua oba, prior to where it joins a small tributary of the upper Negro River, Brazil' is still in English. Translate it into Thai, e.g. 'แม่น้ำ Poranga ห่างจาก Nobua oba ไปทางเหนือ 8 กิโลเมตร ก่อนจุดที่ไหลมาบรรจบกับลำน้ำสาขาเล็ก ๆ ของแม่น้ำ Negro ตอนบน ประเทศบราซิล'. The English original can stay in brackets.",
+        "#5: 'หากรักษาความสะอาดอย่างสม่ำเสมอ' only means 'cleaned regularly', which is weaker than 'scrupulously clean'. Use 'หากรักษาความสะอาดอย่างพิถีพิถัน'.",
+        "#16: 'จากกลางหัว' means 'from the middle of the head', but the source says 'đỉnh đầu' (the top of the head). Use 'จากด้านบนของหัว' or 'จากกระหม่อม'.",
+        "#16: 'มีแถบสีดำเข้มพาดคลุมอยู่' calls a covering patch ('mảng') a stripe. Use 'มีปื้นสีดำเข้มคลุมอยู่', and 'ความเข้มของปื้นดำนี้' in the next clause."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.7,
+        0.7
+      ],
+      "textHash": "fbc47e22846950c951965721a2802df88c21b7deb5b69f7a63571e790bab7ab5"
+    },
+    {
+      "at": "2026-11-17T11:30:19Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "Items 1, 4, 15: 'แม่น้ำ rio Negro' leaves the river name in Latin letters and is redundant, since 'rio' already means river. Use 'แม่น้ำริโอเนโกร' or 'ริโอเนโกร' consistently.",
+        "Item 3: the type-locality quotation is left wholly in English. Consider a Thai rendering of it, such as 'แม่น้ำโปรังกา ห่างไปทางเหนือของ Nobua oba 8 กิโลเมตร ก่อนบรรจบกับลำน้ำสาขาเล็กของแม่น้ำเนโกรตอนบน ประเทศบราซิล', with the original in brackets.",
+        "Item 16: 'จากกลางหัว' for 'từ đỉnh đầu' (top of the head) is slightly imprecise. 'จากบริเวณเหนือหัว' or 'จากส่วนบนของหัว' would be closer."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.68,
+        0.85,
+        0.85
+      ],
+      "textHash": "fbc47e22846950c951965721a2802df88c21b7deb5b69f7a63571e790bab7ab5"
+    },
+    {
+      "at": "2026-11-17T10:22:24Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "#5: \"จากกลางหัว\" renders \"đỉnh đầu\" (top of the head) loosely; \"จากส่วนบนของหัว\" is closer.",
+        "#5: \"mảng đen\" is a patch or blotch, but \"แถบสีดำ\" means a stripe or band; \"mảng\" would be better as \"ปื้นสีดำ\" or \"บริเวณสีดำเข้ม\".",
+        "#4: \"ปลาแมว\" for \"cá da trơn\" is slightly narrow. \"ปลาหนัง\" or \"แคทฟิช\" is the more common hobby term."
+      ],
+      "attempt": "first",
+      "kept": true
+    },
+    {
       "at": "2026-11-15T23:14:08Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -53539,22 +55530,6 @@
       ],
       "attempt": "rewrite",
       "kept": false
-    },
-    {
-      "at": "2026-11-10T22:25:19Z",
-      "model": "sonnet",
-      "score": 0.7,
-      "notes": [
-        "Item 1/2/3/10: 'rio Negro' left in Latin letters; use Thai 'แม่น้ำริโอเนโกร' (or แม่น้ำเนโกร) with the English in brackets once. 'ระบบแม่น้ำ rio Negro' also duplicates 'river' (rio = river).",
-        "Item 2: type locality quote left entirely in English; the Thai reader gets no translation of the locality (Rio Poranga, 8 km north of Nobua oba, before it joins a small tributary of the upper Negro). Translate it (8 kilometers is fine as 8 กม.) and keep the original name in brackets.",
-        "Item 10: 'Corydoras ... เป็นหนึ่งในสกุลปลาแคทฟิชที่ใหญ่ที่สุด' – fine, but 'ปลาในวงศ์ Lebiasinidae' in item 3 leaves the family name untranslated; use the common term (e.g. ปลากลุ่ม lebiasinids) – minor.",
-        "Item 10: 'กลุ่มปลาแคทฟิช หุ้มเกราะ' drops 'or ‘mailed’' (armoured or mailed catfishes); add the second common name.",
-        "Item 10: 'หายใจจากอากาศได้เมื่อจำเป็น' is awkward for 'facultative air breathers'; use 'หายใจด้วยอากาศได้ในบางสภาวะ (facultative air breather)'.",
-        "Item 10: 'ก้านครีบอกที่แข็งสามารถแทงทะลุผิวหนังคนได้ และอาจเจ็บปวดมาก' omits the 'sting' idea; say 'อาจเจ็บปวดมากเหมือนถูกต่อย' — and 'กลุ่มที่ไม่เป็นทางการ' plus 'บรรยายลักษณะทางวิทยาศาสตร์' are stiff, prefer 'ยังไม่ได้รับการตั้งชื่อ'.",
-        "Item 6: 'ไส้เดือนน้ำ' for Tubifex is fine, but 'หนอนแดง' for chironomid larvae is okay; 'ปลาในกลุ่ม Corydoras' should use Thai hobby name 'ปลาคอรี่ (Corydoras)'; item 1 'ปลาแคทฟิชเกราะ' likewise could be 'ปลาหมูเกราะ/คอรี่'."
-      ],
-      "attempt": "first",
-      "kept": true
     }
   ],
   "th/species/corydoras-ehrhardti": [
@@ -57749,6 +59724,47 @@
   ],
   "th/species/danio-aesculapii": [
     {
+      "at": "2026-11-17T10:23:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "Item 1: \"smallest representative of the Danio genus\" is rendered fine, but \"ปลาซิวชนิดนี้\" for \"These minnows\" drops the plural; consider \"ปลาซิวกลุ่มนี้\" or just \"ปลาชนิดนี้\". Minor.",
+        "Item 3: \"Danio family\" is translated as \"ปลาสกุล Danio\" (genus). This is accurate in substance but differs from the source wording. Minor.",
+        "Item 3: \"นิสัยไม่ก้าวร้าว\" for \"friendly\" is acceptable but slightly stiff; \"นิสัยดี\" or \"เป็นมิตร\" is more natural. Minor."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.9,
+        0.85
+      ]
+    },
+    {
+      "at": "2026-11-17T10:23:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "Item 1: \"ปลาเล็กกลุ่มนี้\" for \"minnows\" is vague; use \"ปลาซิว\" or \"ปลาในวงศ์ปลาตะเพียน (minnows)\".",
+        "Item 1: \"smallest representative of the Danio genus\" should be \"ปลาที่เล็กที่สุดชนิดหนึ่ง/ตัวแทนที่เล็กที่สุด\"; the current wording is fine in meaning but the flow is awkward. Consider \"จึงเป็นปลาสกุล Danio ที่เล็กที่สุด\".",
+        "Item 3: \"Danio family\" is translated as \"กลุ่มดานิโอ\". Using \"ปลาสกุลดานิโอ\" would be more consistent with item 1, which says \"สกุล Danio\". The Thai terms mix transliteration and Latin for the same genus.",
+        "Item 3: \"เป็นปลาที่อยู่เป็นฝูง\" is clumsy. Use \"เป็นปลาฝูง\" or \"ชอบอยู่รวมกันเป็นฝูง\".",
+        "Item 3: \"เป็นมิตร\" is a literal rendering for a fish. Use \"นิสัยไม่ก้าวร้าว/เข้ากับปลาอื่นได้ดี\".",
+        "Item 2: \"เมียนมา\" vs \"พม่า\" in item 1 is inconsistent. Use one term throughout. \"พม่า\" is the one hobbyists commonly use."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.7,
+        0.7,
+        0.8
+      ]
+    },
+    {
       "at": "2026-11-15T22:51:14Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -59402,6 +61418,33 @@
   ],
   "th/species/devario-apogon": [
     {
+      "at": "2026-11-17T11:31:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "Item 4: '~72 litres' for an 80×30 cm tank is kept as 'ประมาณ 72 ลิตร', which is the exact source figure. Check that it matches the tank-size convention; if the tank is a US-gallon size, use the table value instead.",
+        "Item 10: 'premaxillary process (cleft in the upper jaw)' is translated as 'รอยแยกในขากรรไกรบน'. 'Short maxillary barbel' became 'หนวดที่ขากรรไกรบนสั้น ๆ'. Both are acceptable, but the English terms kinethmoid, infraorbital and synapomorphy are left untranslated or are awkward. Give Thai terms with the English in brackets.",
+        "Item 10: 'Nuptial'/'terminating at the caudal peduncle' — 'คอดหาง' is fine. 'a theory upheld ... ยืนยัน' overstates 'upheld'; use 'สนับสนุน'.",
+        "Item 2: 'Fang (200)' is copied as in the source. It is probably a typo for 2000; fix it or flag it.",
+        "Item 3: 'ปี 1995' and the 'AMSL' phrase 'ที่ระดับความสูงกว่า 900 ม. จากระดับน้ำทะเลเล็กน้อย' is clumsy. Use 'สูงจากระดับน้ำทะเลปานกลางเล็กน้อยกว่า 900 ม.' ('just over 900 m'). Also 'หินชั้นที่โผล่พ้นพื้น' for 'exposed bedrock' is unnatural. Use 'หินพื้นที่โผล่ขึ้นมา' or 'ชั้นหินแข็ง'.",
+        "Item 3: 'Dario dayingensis' is listed among 'other fish species' at the type locality of 'Dario dayingensis'. Check this against the source, but the translation is faithful.",
+        "Item 6: 'ความกระด้าง (GH): 1–8 dGH' adds '(GH)' that is not in the English. This is minor. In the temperature bullet, 'น่าจะอยู่ได้สบาย' for 'should be comfortable' is fine.",
+        "Item 1: 'ไม่มีหนวดและเส้นข้างลำตัว' is slightly ambiguous. Use 'ไม่มีทั้งหนวดและเส้นข้างลำตัว'.",
+        "Item 7: 'ไรแดง' for Daphnia is the usual Thai term, but 'ไรทะเล' for Artemia is more commonly 'อาร์ทีเมีย' or 'ไรน้ำเค็ม'. Check which term fits hobby usage.",
+        "Item 5: 'ตู้ต้องมีฝาปิดที่ปิดได้สนิทมาก' is slightly awkward. 'เลี้ยงในที่เลี้ยง' is redundant; use 'การเลี้ยงในตู้'."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "textHash": "5b33338603449d845bbfbc4857febfe4247c0df299e3c3bee22ac37c4b8050fe"
+    },
+    {
       "at": "2026-11-16T04:50:30Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -59561,6 +61604,45 @@
   ],
   "th/species/devario-devario": [
     {
+      "at": "2026-11-17T11:32:04Z",
+      "model": "opus",
+      "ran": "claude-opus-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "#3: \"ก้อนหิน\" for \"boulders\" understates the size, and it is now smaller than \"หินกรวดขนาดใหญ่\" (cobbles) just before it. Use \"ก้อนหินขนาดใหญ่\".",
+        "#8: \"...มีขนาดใกล้เคียงกันมากที่สุด\" can be read as \"the most similar in size\". Move \"มากที่สุด\" so it modifies \"เหมาะ\": \"จึงเหมาะที่สุดกับตู้ขนาดใหญ่ที่เลี้ยงร่วมกับปลาที่แข็งแรงและมีขนาดใกล้เคียงกัน\".",
+        "#7: In the hobby, \"ไรน้ำ\" usually means water fleas such as Daphnia or Moina, not water mites. Write \"ไรน้ำ (water mite)\" or \"แมงมุมน้ำ/ไรน้ำจืด\" so readers don't confuse it with live food."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.9,
+        0.85,
+        0.9
+      ],
+      "textHash": "54e43cd92787be0b29646f0c75574f516feca5c34c4e407519aa4c71fa84971c"
+    },
+    {
+      "at": "2026-11-17T11:31:32Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "Item 8: 'เหมาะกับตู้ขนาดใหญ่ที่เลี้ยงร่วมกับปลาที่แข็งแรงและมีขนาดใกล้เคียงกันมากที่สุด' misplaces 'most appropriate' (ที่สุด). It now reads as 'fish of the most similar size'. Move it to the verb: 'จึงเหมาะที่สุดกับตู้ขนาดใหญ่ ...'.",
+        "Item 11: 'ในการศึกษาแรก' for 'the former study' is ambiguous. Name the study, e.g. 'ในการศึกษาของ Fang et al. (2009)'."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.88,
+        0.85,
+        0.4
+      ],
+      "textHash": "54e43cd92787be0b29646f0c75574f516feca5c34c4e407519aa4c71fa84971c"
+    },
+    {
       "at": "2026-11-16T05:01:27Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -59669,6 +61751,25 @@
     }
   ],
   "th/species/devario-neilgherriensis": [
+    {
+      "at": "2026-11-17T11:32:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "Item 5: \"(ประมาณ 243 ลิตร)\" is acceptable as a calculated volume, but check: 120×45 cm surface with the source's implied depth is not stated; the figure is unchanged from the English, so keep it consistent.",
+        "Item 12: the reference list is untranslated as allowed, so it needs no fix.",
+        "Item 2/6: \"ปลาชนิดนี้กระโดด\" and \"ฝาปิดที่สนิทมาก\" are stiff; prefer \"ปลาชนิดนี้มีนิสัยชอบกระโดด\" and \"ฝาปิดที่แน่นหนา\".",
+        "Item 6: \"รากหรือกิ่งขอนไม้\" is odd; use \"ขอนไม้ รากไม้ หรือกิ่งไม้\".",
+        "Item 9: \"ปลาหนัง\" for catfish and \"ปลาในวงศ์ปลาตะเพียน\" for cyprinids are acceptable, but \"intimidate\" as \"รู้สึกถูกข่ม\" is slightly weak; use \"ข่มขวัญ/รังควาน\".",
+        "Item 10: \"น่าจะมี\" for \"should be\" hedges slightly differently than the source; use \"ควรจะ\" or \"โดยทั่วไป\".",
+        "Item 8: \"ไรแดง\" for Daphnia is acceptable, but \"ไรทะเล\" for Artemia is better written \"อาร์ทีเมีย\" or \"ไรทะเล (Artemia)\"."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "textHash": "e626ee0b40b72e4ceb3c38deda1d21ec49ecceac1081f626655247800a13b6cd"
+    },
     {
       "at": "2026-11-16T10:33:16Z",
       "model": "sonnet",
@@ -59785,6 +61886,44 @@
     }
   ],
   "th/species/dianema-longibarbis": [
+    {
+      "at": "2026-11-17T11:32:45Z",
+      "model": "opus",
+      "ran": "claude-opus-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "\"ปลาแมว\" (#1, #8) is a literal calque of \"catfish\". In Thai, ปลาแมว is a different fish, an anchovy-like species. Use the hobby term \"ปลาแมวน้ำจืด\"? No: use \"ปลาแคทฟิช\" or \"ปลาหนัง\", e.g. \"ปลาแคทฟิชในวงศ์ Callichthyidae\" and \"ซึ่งถือว่าแปลกสำหรับปลาแคทฟิช\".",
+        "\"อาหารเม็ดแบบจม\" (#7) leaves out \"dried\". Consider \"อาหารเม็ดแห้งแบบจม\".",
+        "\"ไรทะเล\" (#7) is understood, but most Thai hobbyists say \"อาร์ทีเมีย\" for brine shrimp. Consider \"อาร์ทีเมีย (ไรน้ำเค็ม)\"."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.75,
+        0.9,
+        0.8
+      ],
+      "textHash": "3fce45467ce77c240e4cc3e000828e76d196e34edfe03dd250c29e8ac1438a0b"
+    },
+    {
+      "at": "2026-11-17T11:32:24Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "Item 8: \"Corydoras\" is left in Latin letters next to \"ปลาแพะ\". Use the common Thai hobby name \"คอรี่ดอรัส\" or \"ปลาคอรี่\" consistently. Also consider a familiar name for the small Loricariids, such as \"ปลาซักเกอร์\"."
+      ],
+      "attempt": "recheck",
+      "kept": true,
+      "reads": [
+        0.9,
+        0.8,
+        0.95
+      ],
+      "textHash": "3fce45467ce77c240e4cc3e000828e76d196e34edfe03dd250c29e8ac1438a0b"
+    },
     {
       "at": "2026-11-16T10:41:58Z",
       "model": "sonnet",
@@ -60094,6 +62233,25 @@
     }
   ],
   "th/species/distichodus-sexfasciatus": [
+    {
+      "at": "2026-11-17T10:23:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "\"กินพืชเป็นหลักอย่างชัดเจน\" for \"pronounced herbivore\" is slightly stiff; \"กินพืชเป็นอาหารหลัก\" would read more naturally.",
+        "\"ความสำคัญเพียงรองลงไป\" is awkward for \"only a subordinate role\"; \"มีความสำคัญไม่มากนัก\" would be more natural.",
+        "\"ไม้น้ำใบเรียบส่วนใหญ่จึงถูกมองว่าเป็นอาหาร\" is a little literal; \"ปลาจะมองว่าเป็นอาหาร\" or \"ปลามักกินไม้น้ำใบเรียบเกือบทุกชนิด\" would be smoother."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
     {
       "at": "2026-11-16T22:51:35Z",
       "model": "sonnet",
@@ -60610,6 +62768,86 @@
   ],
   "th/species/garra-flavatra": [
     {
+      "at": "2026-11-17T11:27:29Z",
+      "model": "opus",
+      "ran": "claude-opus-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "#16: the source states two separate facts, but \"ไม่จำเป็นต้องเป็น 0 ppm พอดี เพราะถ้าในตู้ไม่มีไนเตรตเลย...\" joins them with an added causal \"เพราะ\". Make it a separate sentence: \"ถ้าในตู้ไม่มีไนเตรตเลย ตะไคร่แทบจะขึ้นไม่ได้\".",
+        "#29: \"Garra flavatra จึงโดดเด่นในสกุลนี้\" adds a causal \"จึง\" that is not in the source. Use \"Garra flavatra โดดเด่นเป็นเอกลักษณ์ในสกุลนี้\"."
+      ],
+      "attempt": "recheck",
+      "kept": false,
+      "reads": [
+        0.9,
+        0.9,
+        0.95
+      ],
+      "textHash": "b281983a36322abb10759cd4717d2ce94a6ac385990c5e58534f5d5dfc284685"
+    },
+    {
+      "at": "2026-11-17T11:26:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "Item 28: \"การทบทวนอนุกรมวิธานบางครั้งก็ถูกตั้งคำถาม\" – the English says only \"some of the revisions\"; \"อนุกรมวิธาน\" is an addition and could be dropped.",
+        "Item 17: \"การเติบโตของไม้น้ำจะแย่งสารอาหารกับตะไคร่\" – the English says only \"competes with algae\"; \"สารอาหาร\" is an addition. Use plain \"แข่งกับตะไคร่\"."
+      ],
+      "attempt": "recheck",
+      "kept": false,
+      "reads": [
+        0.9,
+        0.85,
+        0.92
+      ],
+      "textHash": "b281983a36322abb10759cd4717d2ce94a6ac385990c5e58534f5d5dfc284685"
+    },
+    {
+      "at": "2026-11-17T10:31:15Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "Item 3: 'Minimum tank: 20 gallons (~80 litres)' is fine, but 'Nitrate: less than 20' and 'KH: 2–8' fine; no issue. Real issues are below.",
+        "Item 10: 'ปริมาตร: ประมาณ 81 ลิตร' keeps the exact 81 L; fine as the source gives it, but 'SL' left untranslated is minor.",
+        "Item 22: 'Southern platyfish' rendered as 'ปลาเพลตี้' and 'Yunnanilus cruciatus' fine; 'ปลาตะเพียนเชอร์รี่' for cherry barb is OK but 'ปลาซัคเกอร์บริสเทิลโนสเผือก' is awkward; use 'ปลาเทกซัส/บริสเทิลโนสอัลบิโน'.",
+        "Item 19: 'ไรแดง' for daphnia is fine, but 'ไรทะเล' for brine shrimp OK; 'ไส้เดือนน้ำ' used for Tubifex (items 18, 25) is fine; however in item 25 'live Tubifex worms' ok.",
+        "Item 1: 'ปลาตะเพียนปากดูด' for suckermouth barb is a questionable term; 'Garra' is commonly called 'ปลาการ์ร่า/ปลาหมูเลียกระจก'.",
+        "Item 2: 'หมุนเวียนน้ำได้ 8–12 เท่า' is correct; no issue.",
+        "Item 14: 'ส่วนค่าน้ำอื่น ๆ ไม่มีความสำคัญสำหรับปลาชนิดนี้' — acceptable but slightly stiff.",
+        "Item 17: 'การเติบโตของไม้น้ำจะแย่งสารอาหารกับตะไคร่ ... ดังนั้นควรให้แสงมาก ๆ' — 'Plant growth competes with algae' is OK, but 'expose it to plenty of light' refers to algae; wording changes the logic slightly.",
+        "Item 11: The English rule 'a 20-gallon tank is acceptable for four' → 80 L is correct; 'ตู้ 40 ลิตร' correct.",
+        "Item 22 (Crayfish): 'ห้ามเด็ดขาด' fine. Item 8: 'หินกรวดมน' for pebbles okay but 'Opsarius barna' etc. fine; 'low forest' → 'ป่าเตี้ย' is a bit literal."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-17T10:31:15Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.4,
+      "notes": [
+        "Item 3: 'Minimum tank: 20 gallons (~80 litres)' is fine, but the Thai omits nothing here; no issue. Real problems follow.",
+        "Item 10: Thai matches, OK. Item 11: '1 Panda Garra per 5 gallons' converted to 20 litres is right (5 gal = 20 L); no issue.",
+        "Item 18: 'Tubifex' translated as 'ไส้เดือนน้ำ' is OK, but 'Artemia' as 'ไรทะเล' is fine; 'chironomid larvae (bloodworm)' as 'หนอนแดง' is fine. No fix.",
+        "Item 19: 'daphnia' translated as 'ไรแดง' is acceptable; but 'grindal worms' fine. No fix.",
+        "Item 22: 'pygmy cories' translated as 'แพะแคระ' is wrong (แพะ is a goat); use 'คอรี่แคระ' / 'ปลาแพะแคระ' is not standard. Fix to 'คอรี่แคระ (pygmy cory)'.",
+        "Item 22: 'harlequin rasboras' translated as 'ปลาซิวข้างขวาน' is wrong; use 'ฮาร์เลควินราสโบร่า' / 'ปลาซิวฮาร์เลควิน'. 'Cherry barbs' as 'ปลาเสือเชอร์รี่' is non-standard; use 'ปลาตะเพียนเชอร์รี่'. 'White Clouds' as 'ปลาคาดินัลจีน' is non-standard; use 'ปลาไวท์คลาวด์'. 'hillstream loaches' as 'ปลาค้างคาว' is questionable; use 'ปลาหมูลำธาร/ฮิลล์สตรีมโลช'.",
+        "Item 22: 'Southern platyfish' / 'Endlers' mapping fine; but 'Royal Farlowella' left untranslated and 'Otocinclus' transliterated inconsistently; add Thai names.",
+        "Item 27: The Thai omits 'Text & photos: Frank Schäfer' byline — that is permitted; no fix.",
+        "Item 29: 'loaches or catfish' translated 'ปลาหมูหรือปลาแมว' — 'ปลาแมว' is not a standard term for catfish; use 'ปลาดุก/ปลาแคทฟิช'.",
+        "Item 28: 'Labeoninae/Cyprininae subfamily' rendered 'วงศ์ย่อย' fine; 'polyphyletic' translated as 'กลุ่มที่มีหลายบรรพบุรุษ' is OK. Item 25: 'Tubifex worms' as 'ไส้เดือนน้ำ' acceptable; 'smaller, 80 litre, tanks' rendered 'ตู้ขนาดเล็กกว่า 80 ลิตร' means 'smaller than 80 L' — wrong; should be 'ตู้ขนาดเล็กลง ขนาด 80 ลิตร'."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
+    {
       "at": "2026-11-06T12:35:28Z",
       "model": "sonnet",
       "score": 0.5,
@@ -60949,6 +63187,21 @@
       "notes": [
         "Item 7: \"เป็นนักล่าโดยสมบูรณ์\" for \"obligate predator\" reads stiffly. Use something like \"เป็นปลานักล่าโดยธรรมชาติ\" or \"กินเนื้อเป็นอาหารหลักเท่านั้น\".",
         "Items 2 and 8: \"กินปลาอื่นเป็นอาหารอย่างมาก\" for \"highly piscivorous\" is awkward. Use \"กินปลาเป็นอาหารหลัก\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/species/gyrinocheilus-aymonieri": [
+    {
+      "at": "2026-11-17T10:25:24Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "Item 18: \"แถบดำสิ้นสุดที่ปลายหาง\" adds \"ดำ\"; the English says only \"a stripe\", so use \"แถบ\" or \"แถบสีเข้ม\".",
+        "Item 24: \"ปลาไม่กินไม้น้ำที่แข็งแรง\" would read more naturally as \"ไม้น้ำที่สุขภาพดี\" (healthy plants)."
       ],
       "attempt": "first",
       "kept": true

@@ -1,8 +1,8 @@
 {
   "id": "stiphodon-semoni",
   "native": {
-    "input": "c8a91f6abf1fc793",
-    "at": "2026-11-15T05:39:34.625Z",
+    "input": "3db0ba2af3a98ba3",
+    "at": "2026-11-17T11:42:48.614Z",
     "claims": [
       {
         "code": "ID",
@@ -27,6 +27,30 @@
         "quote": "Described from Ambon Island, South Molucca Islands, a group within the Maluku Islands chain in central Indonesia, but currently considered to range eastwards from western Sumatra across much of Indonesia, northern Papua New Guinea and the Bismarck Archipelago as far as the Solomon Islands.",
         "words": "Solomon Islands",
         "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It is found in Indonesia, the Philippines, New Guinea and the Solomon Islands.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "PH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It is found in Indonesia, the Philippines, New Guinea and the Solomon Islands.",
+        "words": "the Philippines",
+        "ok": true
+      },
+      {
+        "code": "SB",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It is found in Indonesia, the Philippines, New Guinea and the Solomon Islands.",
+        "words": "Solomon Islands",
+        "ok": true
       }
     ],
     "regions": [
@@ -48,6 +72,7 @@
         "name": "Sumatra",
         "source": "seriouslyfish",
         "quote": "Described from Ambon Island, South Molucca Islands, a group within the Maluku Islands chain in central Indonesia, but currently considered to range eastwards from western Sumatra across much of Indonesia, northern Papua New Guinea and the Bismarck Archipelago as far as the Solomon Islands.",
+        "country": "ID",
         "ok": true
       },
       {
@@ -55,13 +80,18 @@
         "source": "seriouslyfish",
         "quote": "Described from Ambon Island, South Molucca Islands, a group within the Maluku Islands chain in central Indonesia, but currently considered to range eastwards from western Sumatra across much of Indonesia, northern Papua New Guinea and the Bismarck Archipelago as far as the Solomon Islands.",
         "ok": true
+      },
+      {
+        "name": "New Guinea",
+        "source": "glaser",
+        "quote": "It is found in Indonesia, the Philippines, New Guinea and the Solomon Islands.",
+        "ok": true
       }
     ],
     "disputed": [],
     "outranked": [],
     "origin": {
       "pagesOnly": [
-        "PH",
         "NC"
       ],
       "sourcesOnly": []
@@ -108,9 +138,10 @@
     "native": [
       "ID",
       "PG",
-      "SB"
+      "SB",
+      "PH"
     ],
     "requests": 12,
-    "at": "2026-11-15T05:39:34.625Z"
+    "at": "2026-11-17T11:42:48.614Z"
   }
 }

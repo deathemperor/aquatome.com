@@ -1,0 +1,20 @@
+{
+  "id": "fimbriaphyllia-divisa",
+  "input": "203d551b90426841",
+  "at": "2026-11-17T11:51:54.029Z",
+  "claims": [
+    {
+      "kind": "marine",
+      "source": "aquariumbreeder",
+      "quote": "Frogspawn corals are a great addition to reef aquariums, valued for their fast growth rate, ease of care, attractive colours and the gentle sway of their long multi-tipped tentacles in the current.",
+      "ok": false,
+      "why": "says nothing of salt or the sea"
+    },
+    {
+      "kind": "marine",
+      "source": "aquariumbreeder",
+      "quote": "Optimal salinity: SG 1.023–1.025",
+      "ok": true
+    }
+  ]
+}

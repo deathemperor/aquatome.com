@@ -1,0 +1,102 @@
+{
+  "aegla-platensis": {
+    "hash": "03574437ec94a732fec8f0a55e6e160876cd67e8b559063286a3f0c36db0287a",
+    "at": "2026-11-17T11:27:40.989Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "amphilius-kivuensis": {
+    "hash": "5e163469e6c7ca8da6dc1bd2bafe0030e0451137713515cd5e5b215e5c92b5b2",
+    "at": "2026-11-17T11:27:50.894Z",
+    "sonnet": 0.72,
+    "back": false
+  },
+  "amphilius-longirostris": {
+    "hash": "7950480b7783e53206d42b9859c27255222c3463cf396ee3a0f779d448036f2a",
+    "at": "2026-11-17T11:28:03.740Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "amphilius-natalensis": {
+    "hash": "8eb36a869006780d7d2070ab286d2a8b23e8289b6746de5e65d1f7e8fea02c31",
+    "at": "2026-11-17T11:28:18.324Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "amphilius-rheophilus": {
+    "hash": "6a9df2a0e26b64da8cd3f3dbac67828b525ac247b823e3c47deed08138fc3f7f",
+    "at": "2026-11-17T11:28:31.348Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "apistogramma-cacatuoides": {
+    "hash": "7f783286c6c79d55645896c1d96c9b7933342bef009e510bc5cc75e7920f9870",
+    "at": "2026-11-17T11:29:12.554Z",
+    "sonnet": 0.9,
+    "opus": 0.82,
+    "back": true
+  },
+  "astacus-astacus": {
+    "hash": "ac529d27ef648292b14bc9bd902fa3dc00056e6ee3982e38d40210306bdda28f",
+    "at": "2026-11-17T11:29:29.617Z",
+    "sonnet": 0.85,
+    "opus": 0.95,
+    "back": true
+  },
+  "caquetaia-kraussii": {
+    "hash": "7a01309fb8226beef0e5b61f93421b63c1e20a3a659a547e14edc86293bbc8a8",
+    "at": "2026-11-17T11:29:43.846Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "ceylonthelphusa-kandambyi": {
+    "hash": "b4ca2e87bf2cde1318ebf743dddb7d5eee6811ef1911053a6c2106469d302dc9",
+    "at": "2026-11-17T11:29:57.546Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "corydoras-duplicareus": {
+    "hash": "fbc47e22846950c951965721a2802df88c21b7deb5b69f7a63571e790bab7ab5",
+    "at": "2026-11-17T11:30:50.779Z",
+    "sonnet": 0.85,
+    "opus": 0.7,
+    "back": false
+  },
+  "devario-apogon": {
+    "hash": "5b33338603449d845bbfbc4857febfe4247c0df299e3c3bee22ac37c4b8050fe",
+    "at": "2026-11-17T11:31:10.961Z",
+    "sonnet": 0.55,
+    "back": false
+  },
+  "devario-devario": {
+    "hash": "54e43cd92787be0b29646f0c75574f516feca5c34c4e407519aa4c71fa84971c",
+    "at": "2026-11-17T11:32:04.762Z",
+    "sonnet": 0.85,
+    "opus": 0.9,
+    "back": true
+  },
+  "devario-neilgherriensis": {
+    "hash": "e626ee0b40b72e4ceb3c38deda1d21ec49ecceac1081f626655247800a13b6cd",
+    "at": "2026-11-17T11:32:10.564Z",
+    "sonnet": 0.5,
+    "back": false
+  },
+  "dianema-longibarbis": {
+    "hash": "3fce45467ce77c240e4cc3e000828e76d196e34edfe03dd250c29e8ac1438a0b",
+    "at": "2026-11-17T11:32:45.616Z",
+    "sonnet": 0.9,
+    "opus": 0.8,
+    "back": true
+  },
+  "garra-flavatra": {
+    "hash": "b281983a36322abb10759cd4717d2ce94a6ac385990c5e58534f5d5dfc284685",
+    "at": "2026-11-17T11:27:29.902Z",
+    "sonnet": 0.9,
+    "opus": 0.9,
+    "back": false,
+    "held": [
+      "#16: the source states two separate facts, but \"ไม่จำเป็นต้องเป็น 0 ppm พอดี เพราะถ้าในตู้ไม่มีไนเตรตเลย...\" joins them with an added causal \"เพราะ\". Make it a separate sentence: \"ถ้าในตู้ไม่มีไนเตรตเลย ตะไคร่แทบจะขึ้นไม่ได้\".",
+      "Item 3: 'Minimum tank: 20 gallons (~80 litres)' is fine, but 'Nitrate: less than 20' and 'KH: 2–8' fine; no issue. Real issues are below."
+    ]
+  }
+}

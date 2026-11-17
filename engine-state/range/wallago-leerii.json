@@ -1,0 +1,117 @@
+{
+  "id": "wallago-leerii",
+  "native": {
+    "input": "356e75f5ccf841d1",
+    "at": "2026-11-17T11:42:48.614Z",
+    "claims": [
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Fairly widespread in nature, having been recorded from Vietnam, Laos, Cambodia, Thailand, Malaysia, northern Indonesia and Singapore.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Fairly widespread in nature, having been recorded from Vietnam, Laos, Cambodia, Thailand, Malaysia, northern Indonesia and Singapore.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Fairly widespread in nature, having been recorded from Vietnam, Laos, Cambodia, Thailand, Malaysia, northern Indonesia and Singapore.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Fairly widespread in nature, having been recorded from Vietnam, Laos, Cambodia, Thailand, Malaysia, northern Indonesia and Singapore.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Fairly widespread in nature, having been recorded from Vietnam, Laos, Cambodia, Thailand, Malaysia, northern Indonesia and Singapore.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Fairly widespread in nature, having been recorded from Vietnam, Laos, Cambodia, Thailand, Malaysia, northern Indonesia and Singapore.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Fairly widespread in nature, having been recorded from Vietnam, Laos, Cambodia, Thailand, Malaysia, northern Indonesia and Singapore.",
+        "words": "Singapore",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "It occurs in several river basins, including the Mekong.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Wallago leerii",
+    "status": "ACCEPTED",
+    "taxonKey": 2337840,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "90cbc357-530d-40f2-8000-331f6b575dd4",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "VN",
+      "LA",
+      "KH",
+      "TH",
+      "MY",
+      "ID",
+      "SG"
+    ],
+    "requests": 12,
+    "at": "2026-11-17T11:42:48.614Z"
+  }
+}

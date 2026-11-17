@@ -16,6 +16,102 @@
     "indonesia",
     "singapore"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VN",
+        "LA",
+        "KH",
+        "TH",
+        "MY",
+        "ID",
+        "SG"
+      ],
+      "regions": [
+        "Mekong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Fairly widespread in nature, having been recorded from Vietnam, Laos, Cambodia, Thailand, Malaysia, northern Indonesia and Singapore.",
+          "countries": [
+            "VN",
+            "LA",
+            "KH",
+            "TH",
+            "MY",
+            "ID",
+            "SG"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It occurs in several river basins, including the Mekong.",
+          "countries": [],
+          "regions": [
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2337840,
+      "total": 10,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "MY",
+          7
+        ],
+        [
+          "ID",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          5.625,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          0,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          2.8125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

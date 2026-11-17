@@ -1,14 +1,22 @@
 {
   "id": "sinogastromyzon-wui",
   "native": {
-    "input": "293a880fb4baacc9",
-    "at": "2026-11-15T00:17:46.244Z",
+    "input": "48df0e4c9db58491",
+    "at": "2026-11-17T11:42:48.614Z",
     "claims": [
       {
         "code": "CN",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Known only from parts of the Xi Jiang (West River) watershed, the major affluent of the extensive Zhu Jiang (Pearl River), in Guangxi Autonomous Region and Guangdong Province, southern China.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The habitat of this loach, described by Fang in 1930, is the Nanpan-jiang and Xi-jiang basins in Guangdong to Guangxi provinces in China.",
         "words": "China",
         "ok": true
       }
@@ -29,9 +37,29 @@
         "ok": true
       },
       {
+        "name": "Nan Pan",
+        "source": "seriouslyfish",
+        "quote": "Some records are from the Nan Pan river, a tributary system in the upper part of the drainage although the type locality appears to be within the Liu Jiang basin further east.",
+        "ok": true
+      },
+      {
         "name": "Liu Jiang",
         "source": "seriouslyfish",
         "quote": "Some records are from the Nan Pan river, a tributary system in the upper part of the drainage although the type locality appears to be within the Liu Jiang basin further east.",
+        "ok": true
+      },
+      {
+        "name": "Nanpan-jiang",
+        "source": "glaser",
+        "quote": "The habitat of this loach, described by Fang in 1930, is the Nanpan-jiang and Xi-jiang basins in Guangdong to Guangxi provinces in China.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Xi-jiang",
+        "source": "glaser",
+        "quote": "The habitat of this loach, described by Fang in 1930, is the Nanpan-jiang and Xi-jiang basins in Guangdong to Guangxi provinces in China.",
+        "country": "CN",
         "ok": true
       }
     ],

@@ -3,6 +3,12 @@
   "name": "Wilayah Kanchanaburi",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.2,
+    "at": "2026-11-17T11:34:26.673Z",
+    "why": "Thai provinces are called \"Wilayah\" rarely; Malaysian atlases use \"Wilayah\" for federal territories, and for Thai changwat they write \"Wilayah\" seldom but typically \"Provinsi\"/\"Daerah\"—Malay standard usage for Thailand's provinces is \"Wilayah\" in Malaysian media (e.g., wilayah selatan Thailand), yet"
+  },
   "quality": {
     "score": 0.4,
     "indexable": false

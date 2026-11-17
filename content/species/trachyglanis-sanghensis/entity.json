@@ -10,6 +10,40 @@
     "republic-of-the-congo",
     "sangha-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CG"
+      ],
+      "regions": [
+        "Sangha River",
+        "Congo River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Africa: Known only from the type locality: Ouesso, Sangha River (middle Congo River basin), Republic of Congo.",
+          "countries": [
+            "CG"
+          ],
+          "regions": [
+            "Sangha River",
+            "Congo River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340846,
+      "total": 0,
+      "fetched": "2026-11-17",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

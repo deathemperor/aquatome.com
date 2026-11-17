@@ -1,10 +1,13 @@
 {
   "slug": "danube",
-  "name": "Danube",
-  "altNames": [],
+  "name": "sông Danube",
+  "altNames": [
+    "Danube"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

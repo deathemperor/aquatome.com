@@ -10,6 +10,60 @@
     "colombia",
     "rio-vaupes"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Rio Vaupes"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It was collected for the first time in 1995 by Uwe Werner and company near Mitu, Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "The city of Mitu is placed at the banks of the Rio Vaupes.",
+          "countries": [],
+          "regions": [
+            "Rio Vaupes"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371288,
+      "total": 6,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "BR",
+          4
+        ],
+        [
+          "CO",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -70.3125,
+          0,
+          6,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {
