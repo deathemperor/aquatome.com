@@ -443,13 +443,16 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     }
   }
   const index = nameIndex(all)
+  // A guide photo's own page, for the wait on a Glaser logo alone (ownMarkWaits): not as its `source`, which would
+  // change its turn in the queue (`turn`).
+  const guideFrom = new Map<string, string>()
   for (const id of (await readdir(join(content, 'guides')).catch(() => [] as string[])).sort()) {
     const file = join(content, 'guides', id, 'entity.json')
     const g = await readJson<{ photos?: Photo[]; video?: { figures?: { photo?: Photo }[] } }>(file)
     for (const p of [...(g?.photos ?? []), ...(g?.video?.figures ?? []).flatMap(f => (f.photo ? [f.photo] : []))].filter(p => !p.generated)) {
       const page = p.caption ? captionSubject(p.caption, index.names, index.genera) : undefined
-      // Its page with it (`source`): a guide's Glaser photo waits for the screen as a fish page's does (ownMarkWaits).
-      shown.push({ file, url: p.url, guide: true, ...(page ? { page, caption: p.caption } : {}), ...(p.sourceUrl ? { source: p.sourceUrl } : {}) })
+      if (p.sourceUrl) guideFrom.set(p.url, p.sourceUrl)
+      shown.push({ file, url: p.url, guide: true, ...(page ? { page, caption: p.caption } : {}) })
     }
   }
   // The first check judged a page's own photos one page at a time: its verdict holds where the photo is on one page only.
@@ -627,7 +630,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   // screen, which asks whose the mark is and keeps it where every mark is the shop's own (own-mark.ts SCREENED_OWN_MARK;
   // the chief of staff, 16 Nov). The check runs before the screen in a cycle, and a logo listed here never reaches that
   // question. No public build shows the photo meanwhile (photo-screen.ts awaitsScreen). Dead fish and people still list it.
-  const ownMarkWaits = new Set(shown.filter(x => marks[x.url]?.watermark === undefined && screenedShop(x.url, x.source)).map(x => x.url))
+  const ownMarkWaits = new Set(shown.filter(x => marks[x.url]?.watermark === undefined && screenedShop(x.url, x.source ?? (x.guide ? guideFrom.get(x.url) : undefined))).map(x => x.url))
   for (const url of everywhere.keys()) {
     const why = url in rejected || !sl.open(url) ? undefined : blockedFor(cache[url], keepLogo(url) || ownMarkWaits.has(url))
     if (why) { added[url] = why; report.blocked.push(`${url}: ${why}`) }
