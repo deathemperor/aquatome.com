@@ -29,7 +29,7 @@ import { checkPages, fixStored, rulesReport } from './content-rules'
 import { loadPages } from './pages'
 import { copiesToRedo, redoCopies, type Redone } from './seasons'
 import { FIT_KINDS, fitDue, fitFindings, fitKey, fitReport, runFit, type FitState } from './fit'
-import { gate, heldMendsOf, writeFitSummary } from './gate'
+import { gate, HELD_BY_HAND, heldMendsOf, rewritable, writeFitSummary } from './gate'
 import { restingFetch } from './wikimedia-rest'
 import { fitRewrite } from './fit-rewrite'
 import { unitsMend } from './units-mend'
@@ -707,8 +707,9 @@ if (cmd === 'photo-privacy') {
   } else if (held && !fitFront.lane) {
     // Held, and the lane shut: nothing to do.
   } else {
-    // A guide off the site for good (@aq/schema retired.ts) is never rewritten.
-    const pages = (await loadPages(join(ROOT, 'content'), ['vi'])).filter(p => ['guides', 'species', 'plants', 'breeds'].includes(p.kind) && !(p.kind === 'guides' && retiredTo(p.id)) && (!values.kind || values.kind.split(',').includes(p.kind)))
+    // A guide off the site for good, or a page held by hand, is never rewritten (gate.ts rewritable).
+    const byHand = JSON.parse(await readFile(join(ROOT, HELD_BY_HAND), 'utf8').catch(() => '{}')) as Record<string, unknown>
+    const pages = (await loadPages(join(ROOT, 'content'), ['vi'])).filter(p => ['guides', 'species', 'plants', 'breeds'].includes(p.kind) && rewritable(p, byHand) && (!values.kind || values.kind.split(',').includes(p.kind)))
     const state = JSON.parse(await readFile(join(ROOT, 'engine-state/_fit.json'), 'utf8')) as FitState
     const popular = popularityOrder(await popularFirst(ROOT))
     const rank = (p: (typeof pages)[number]) => { const i = popular.indexOf(p.id); return p.kind === 'guides' ? 2 * popular.length : i >= 0 && p.kind !== 'breeds' ? i : popular.length }

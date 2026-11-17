@@ -6,7 +6,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError, type Llm } from '../src/claude'
 import { fitKey, fitText, type FitFinding, type FitState } from '../src/fit'
-import { changedFiles, fitPct, fitSummary, gate, gateCall, gateChecks, HELD_BY_HAND, heldMendsOf, MEND_AGAIN_DAYS, putBackFile, wrongChecks } from '../src/gate'
+import { changedFiles, fitPct, fitSummary, gate, gateCall, gateChecks, HELD_BY_HAND, heldMendsOf, MEND_AGAIN_DAYS, putBackFile, rewritable, wrongChecks } from '../src/gate'
 import { localizeSpecies, partHash } from '../src/localize'
 import { loadPages, type Page } from '../src/pages'
 import { plantsWithoutPlanting } from '../src/planting'
@@ -1131,4 +1131,14 @@ test('a guide held for the video\'s own dose goes to its editor while the read f
   await gate(again, { llm: dosed(), now, mend: dropper(again, none), heldMends: 1 })
   expect(none).toEqual([])
   expect((await readJson(again, GUIDE)).held).toEqual({ checks: ['dose', 'shop'], at: '2026-11-09' })
+})
+
+// The chief of staff, 17 Nov 2026: the quarantine guide built on three medicines sold abroad is held by hand until a general
+// one takes its place. The rewrite, which put the products pages ahead of every other, would spend a call on it each run.
+test('the rewrite takes no page held by hand and no guide off the site for good', () => {
+  const byHand = { 'guides/youtube-LrRhfOYfXns': { checks: ['dose', 'product'], why: '', at: '2026-11-17' } }
+  expect(rewritable({ kind: 'guides', id: 'youtube-LrRhfOYfXns' }, byHand)).toBe(false)
+  expect(rewritable({ kind: 'guides', id: 'aquariumcoop-blogs-aquarium-iron-fertilizer' }, byHand)).toBe(false)
+  expect(rewritable({ kind: 'species', id: 'youtube-LrRhfOYfXns' }, byHand)).toBe(true)
+  expect(rewritable({ kind: 'guides', id: 'aquariumcoop-blogs-aquarium-which-aquatic-fertilizer-is-right-for-you' }, byHand)).toBe(true)
 })
