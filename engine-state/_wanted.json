@@ -8,8 +8,7 @@
       "guides/aquariumcoop-blogs-aquarium-our-favorite-easy-low-light-plants-cryptocoryne-lutea-and-vallisneria",
       "guides/youtube-0xEdMSmpNHo"
     ],
-    "mentions": 54,
-    "onSource": "https://www.aquariumcoop.com/blogs/aquarium/our-favorite-easy-low-light-plants-cryptocoryne-lutea-and-vallisneria"
+    "mentions": 54
   },
   "epipremnum-aureum": {
     "name": "Epipremnum aureum",
@@ -29,9 +28,20 @@
       "guides/youtube-4a87l1r7_Yg",
       "guides/youtube-CuZeMDsjK70",
       "guides/youtube-HgM7_AzVv2w",
-      "guides/youtube-IHeT0y1_PDo"
+      "guides/youtube-HlXrfMjRcQI"
     ],
-    "mentions": 30
+    "mentions": 37
+  },
+  "pistia-stratiotes": {
+    "name": "Pistia stratiotes",
+    "mentionedIn": [
+      "guides/youtube-0EqLihKj8os",
+      "guides/youtube-34R1VF2bzmg",
+      "guides/youtube-8ZiMtySXASw",
+      "guides/youtube-8kjsLDxIvw8",
+      "guides/youtube-8qCMy4BnnDI"
+    ],
+    "mentions": 31
   },
   "eleocharis-vivipara": {
     "name": "Eleocharis vivipara",
@@ -44,17 +54,6 @@
     ],
     "mentions": 29
   },
-  "pistia-stratiotes": {
-    "name": "Pistia stratiotes",
-    "mentionedIn": [
-      "guides/youtube-0EqLihKj8os",
-      "guides/youtube-34R1VF2bzmg",
-      "guides/youtube-8ZiMtySXASw",
-      "guides/youtube-8kjsLDxIvw8",
-      "guides/youtube-8qCMy4BnnDI"
-    ],
-    "mentions": 26
-  },
   "crossocheilus-oblongus": {
     "name": "Crossocheilus oblongus",
     "mentionedIn": [
@@ -64,7 +63,7 @@
       "guides/glaser-en-32-all-the-rest-new-names-well-known-fishes-much-confusion-en",
       "guides/youtube-H-wwZiQJL4E"
     ],
-    "mentions": 29
+    "mentions": 31
   },
   "barbodes-xouthos": {
     "name": "Barbodes xouthos",
@@ -130,7 +129,8 @@
       "species/akysis-vespa",
       "species/barilius-infrafasciatus"
     ],
-    "mentions": 16
+    "mentions": 16,
+    "onSource": "https://www.seriouslyfish.com/species/acanthocobitis-pictilis"
   },
   "platydoras-costatus": {
     "name": "Platydoras costatus",
@@ -152,8 +152,18 @@
       "species/baryancistrus-beggini",
       "species/baryancistrus-demantoides"
     ],
-    "mentions": 15,
-    "onSource": "https://www.scotcat.com/loricariidae/panaque_nigrolineatus_laurafabianae.htm"
+    "mentions": 15
+  },
+  "caridina-cantonensis": {
+    "name": "Caridina cantonensis",
+    "mentionedIn": [
+      "guides/aquariumbreeder-importance-of-surface-agitation-in-aquariums",
+      "guides/aquariumcoop-blogs-aquarium-soft-water-fish",
+      "guides/youtube--UPryAP14hY",
+      "guides/youtube-3ghYi_liXK0",
+      "guides/youtube-5QIzdnCXP1U"
+    ],
+    "mentions": 13
   },
   "physella-acuta": {
     "name": "Physella acuta",
@@ -164,7 +174,7 @@
       "guides/youtube-NnedKiWs71U",
       "guides/youtube-P7GTfHdl5E8"
     ],
-    "mentions": 17
+    "mentions": 18
   },
   "gastromyzon-embalohensis": {
     "name": "Gastromyzon embalohensis",
@@ -185,6 +195,17 @@
       "guides/youtube-BTGMS7pm6zo",
       "guides/youtube-LTq4EuuY_iA",
       "guides/youtube-MCII9KCy60M"
+    ],
+    "mentions": 12
+  },
+  "barbonymus-schwanenfeldii": {
+    "name": "Barbonymus schwanenfeldii",
+    "mentionedIn": [
+      "guides/aquariumbreeder-fish-causing-problems-in-planted-tanks",
+      "guides/sprucepets-barb-species-1380768",
+      "guides/sprucepets-lifespans-of-aquarium-fish-1378340",
+      "guides/youtube-2htJPBhx7Cs",
+      "guides/youtube-LTq4EuuY_iA"
     ],
     "mentions": 12
   },
@@ -220,17 +241,6 @@
       "species/oryzias-javanicus"
     ],
     "mentions": 12
-  },
-  "barbonymus-schwanenfeldii": {
-    "name": "Barbonymus schwanenfeldii",
-    "mentionedIn": [
-      "guides/sprucepets-barb-species-1380768",
-      "guides/sprucepets-lifespans-of-aquarium-fish-1378340",
-      "guides/youtube-2htJPBhx7Cs",
-      "guides/youtube-LTq4EuuY_iA",
-      "guides/youtube-mGmIvhtIM9k"
-    ],
-    "mentions": 11
   },
   "channa-striata": {
     "name": "Channa striata",
@@ -286,17 +296,6 @@
       "guides/youtube-Pc-uoB80jyk"
     ],
     "mentions": 10
-  },
-  "caridina-cantonensis": {
-    "name": "Caridina cantonensis",
-    "mentionedIn": [
-      "guides/aquariumbreeder-importance-of-surface-agitation-in-aquariums",
-      "guides/aquariumcoop-blogs-aquarium-soft-water-fish",
-      "guides/youtube--UPryAP14hY",
-      "guides/youtube-5QIzdnCXP1U",
-      "guides/youtube-CcJ24tAXjSQ"
-    ],
-    "mentions": 9
   },
   "cryptocoryne-willisii": {
     "name": "Cryptocoryne willisii",
@@ -496,17 +495,6 @@
     ],
     "mentions": 7
   },
-  "cambarellus-texanus": {
-    "name": "Cambarellus texanus",
-    "mentionedIn": [
-      "guides/aquariumbreeder-are-crayfish-good-pets-for-beginners-pros-and-cons",
-      "guides/aquariumbreeder-crayfish-and-suitable-tank-mates",
-      "guides/aquariumbreeder-how-long-do-crayfish-live",
-      "guides/aquariumbreeder-most-popular-aquarium-crayfish-species",
-      "guides/aquariumbreeder-most-popular-questions-about-crayfish"
-    ],
-    "mentions": 6
-  },
   "bombina-orientalis": {
     "name": "Bombina orientalis",
     "mentionedIn": [
@@ -648,8 +636,7 @@
       "species/corydoras-incolicana",
       "species/corydoras-melini"
     ],
-    "mentions": 6,
-    "onSource": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_tukano_en/"
+    "mentions": 6
   },
   "sicyopterus-fasciatus": {
     "name": "Sicyopterus fasciatus",
@@ -747,6 +734,28 @@
       "guides/youtube-NnedKiWs71U",
       "guides/youtube-hFE1mUn-MY8",
       "guides/youtube-vl1Lx9iWDYU"
+    ],
+    "mentions": 5
+  },
+  "monstera-deliciosa": {
+    "name": "Monstera deliciosa",
+    "mentionedIn": [
+      "guides/youtube-HgM7_AzVv2w",
+      "guides/youtube-HlXrfMjRcQI",
+      "guides/youtube-kkPHSQFW2dk",
+      "guides/youtube-tcrd-3oG394",
+      "guides/youtube-yVuK23DAxOI"
+    ],
+    "mentions": 5
+  },
+  "cabomba-caroliniana": {
+    "name": "Cabomba caroliniana",
+    "mentionedIn": [
+      "guides/youtube-HlXrfMjRcQI",
+      "guides/youtube-N3uNPHmKkjc",
+      "guides/youtube-cFz39Sl2OR4",
+      "guides/youtube-dkLOgcPoYuE",
+      "guides/youtube-wtRniN_Ef9k"
     ],
     "mentions": 5
   },
@@ -946,6 +955,16 @@
     ],
     "mentions": 4
   },
+  "caridina-pareparensis": {
+    "name": "Caridina pareparensis",
+    "mentionedIn": [
+      "guides/aquariumbreeder-crossbreeding-can-you-mix-different-color-shrimp",
+      "guides/aquariumbreeder-top-5-exotic-and-hardy-aquarium-shrimp",
+      "guides/aquariumbreeder-why-wont-my-shrimp-breed",
+      "species/caridina-pareparensis-parvidentata"
+    ],
+    "mentions": 4
+  },
   "macrognathus-circumcinctus": {
     "name": "Macrognathus circumcinctus",
     "mentionedIn": [
@@ -994,8 +1013,7 @@
       "guides/youtube-iKAv9xxkYoY",
       "species/knodus-borki"
     ],
-    "mentions": 4,
-    "onSource": "https://www.aquariumglaser.de/en/fisharchive/knodus-borki-previously-incorrectly-identified-as-boehlkea-fredcochui/"
+    "mentions": 4
   },
   "chelydra-serpentina": {
     "name": "Chelydra serpentina",
@@ -1007,23 +1025,13 @@
     ],
     "mentions": 4
   },
-  "monstera-deliciosa": {
-    "name": "Monstera deliciosa",
+  "vallisneria-nana": {
+    "name": "Vallisneria nana",
     "mentionedIn": [
-      "guides/youtube-HgM7_AzVv2w",
-      "guides/youtube-kkPHSQFW2dk",
-      "guides/youtube-tcrd-3oG394",
-      "guides/youtube-yVuK23DAxOI"
-    ],
-    "mentions": 4
-  },
-  "cabomba-caroliniana": {
-    "name": "Cabomba caroliniana",
-    "mentionedIn": [
-      "guides/youtube-N3uNPHmKkjc",
-      "guides/youtube-cFz39Sl2OR4",
-      "guides/youtube-dkLOgcPoYuE",
-      "guides/youtube-wtRniN_Ef9k"
+      "guides/youtube-Cr2y1-aACrE",
+      "guides/youtube-ahN0nP8HLaI",
+      "guides/youtube-hO_nLV0YpX8",
+      "guides/youtube-lRF7KD1VMYA"
     ],
     "mentions": 4
   },
@@ -1076,8 +1084,7 @@
       "species/geophagus-megasema",
       "species/mikrogeophagus-altispinosus"
     ],
-    "mentions": 4,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/aphyocharax_alburnus_en/"
+    "mentions": 4
   },
   "acrossocheilus-spinifer": {
     "name": "Acrossocheilus spinifer",
@@ -1355,15 +1362,14 @@
     ],
     "mentions": 3
   },
-  "caridina-pareparensis": {
-    "name": "Caridina pareparensis",
+  "caridina-parvidentata": {
+    "name": "Caridina parvidentata",
     "mentionedIn": [
       "guides/aquariumbreeder-crossbreeding-can-you-mix-different-color-shrimp",
-      "guides/aquariumbreeder-why-wont-my-shrimp-breed",
-      "species/caridina-pareparensis-parvidentata"
+      "guides/aquariumbreeder-top-5-exotic-and-hardy-aquarium-shrimp",
+      "guides/aquariumbreeder-why-wont-my-shrimp-breed"
     ],
-    "mentions": 3,
-    "onSource": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/caridina-pareparensis-parvidentata-2/"
+    "mentions": 3
   },
   "caridina-serrata": {
     "name": "Caridina serrata",
@@ -1371,6 +1377,15 @@
       "guides/aquariumbreeder-importance-of-surface-agitation-in-aquariums",
       "guides/aquariumcoop-blogs-aquarium-freshwater-dwarf-shrimp",
       "guides/seriouslyfish-articles-new-shrimp-from-hong-kong-and-southern-china"
+    ],
+    "mentions": 3
+  },
+  "trachemys-scripta": {
+    "name": "Trachemys scripta",
+    "mentionedIn": [
+      "guides/aquariumbreeder-paludarium-animals",
+      "guides/youtube-LTq4EuuY_iA",
+      "guides/youtube-X1cBflLeYuU"
     ],
     "mentions": 3
   },
@@ -1539,12 +1554,12 @@
     ],
     "mentions": 3
   },
-  "vallisneria-nana": {
-    "name": "Vallisneria nana",
+  "hydrocotyle-benguetensis": {
+    "name": "Hydrocotyle benguetensis",
     "mentionedIn": [
-      "guides/youtube-Cr2y1-aACrE",
-      "guides/youtube-ahN0nP8HLaI",
-      "guides/youtube-hO_nLV0YpX8"
+      "guides/youtube-B3vzV_r7tPY",
+      "guides/youtube-Je1_33YOCl4",
+      "guides/youtube-LiotY1HIneo"
     ],
     "mentions": 3
   },
@@ -1789,8 +1804,7 @@
       "species/corydoras-boesemani",
       "species/corydoras-bondi"
     ],
-    "mentions": 3,
-    "onSource": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-punctatus-nanay-2/"
+    "mentions": 3
   },
   "heptapterus-mustelinus": {
     "name": "Heptapterus mustelinus",
@@ -1995,14 +2009,6 @@
     ],
     "mentions": 2
   },
-  "caridina-parvidentata": {
-    "name": "Caridina parvidentata",
-    "mentionedIn": [
-      "guides/aquariumbreeder-crossbreeding-can-you-mix-different-color-shrimp",
-      "guides/aquariumbreeder-why-wont-my-shrimp-breed"
-    ],
-    "mentions": 2
-  },
   "cherax-cainii": {
     "name": "Cherax cainii",
     "mentionedIn": [
@@ -2016,14 +2022,6 @@
     "mentionedIn": [
       "guides/aquariumbreeder-how-to-care-for-hammer-corals",
       "species/euphyllia-glabrescens"
-    ],
-    "mentions": 2
-  },
-  "trachemys-scripta": {
-    "name": "Trachemys scripta",
-    "mentionedIn": [
-      "guides/aquariumbreeder-paludarium-animals",
-      "guides/youtube-LTq4EuuY_iA"
     ],
     "mentions": 2
   },
@@ -2057,8 +2055,7 @@
       "guides/glaser-en-08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc-labeo-parvus-and-l-barbatus-en",
       "species/labeo-coubie"
     ],
-    "mentions": 2,
-    "onSource": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/labeo_parvus_and_l_barbatus_en/"
+    "mentions": 2
   },
   "thorichthys-maculipinnis": {
     "name": "Thorichthys maculipinnis",
@@ -2114,7 +2111,8 @@
       "guides/seriouslyfish-articles-european-killifishes-part-1-the-genus-aphanius-in-spain",
       "species/apricaphanius-iberus"
     ],
-    "mentions": 2
+    "mentions": 2,
+    "onSource": "https://www.seriouslyfish.com/species/aphanius-iberus"
   },
   "aphanius-baeticus": {
     "name": "Aphanius baeticus",
@@ -2122,7 +2120,8 @@
       "guides/seriouslyfish-articles-european-killifishes-part-1-the-genus-aphanius-in-spain",
       "species/apricaphanius-baeticus"
     ],
-    "mentions": 2
+    "mentions": 2,
+    "onSource": "https://www.seriouslyfish.com/species/aphanius-baeticus"
   },
   "badis-laspiophilus": {
     "name": "Badis laspiophilus",
@@ -2146,7 +2145,8 @@
       "guides/seriouslyfish-articles-whaddaya-mean-too-hot",
       "species/paraphanius-mento"
     ],
-    "mentions": 2
+    "mentions": 2,
+    "onSource": "https://www.seriouslyfish.com/species/aphanius-mento"
   },
   "barbatula-barbatula": {
     "name": "Barbatula barbatula",
@@ -2220,14 +2220,6 @@
     ],
     "mentions": 2
   },
-  "hydrocotyle-benguetensis": {
-    "name": "Hydrocotyle benguetensis",
-    "mentionedIn": [
-      "guides/youtube-B3vzV_r7tPY",
-      "guides/youtube-LiotY1HIneo"
-    ],
-    "mentions": 2
-  },
   "anubias-hastifolia": {
     "name": "Anubias hastifolia",
     "mentionedIn": [
@@ -2281,6 +2273,14 @@
     "mentionedIn": [
       "guides/youtube-LTq4EuuY_iA",
       "guides/youtube-cfBKt5dc_IQ"
+    ],
+    "mentions": 2
+  },
+  "cyprinus-carpio": {
+    "name": "Cyprinus carpio",
+    "mentionedIn": [
+      "guides/youtube-LTq4EuuY_iA",
+      "guides/youtube-tWu-EMSl6vU"
     ],
     "mentions": 2
   },
@@ -2354,6 +2354,14 @@
     "mentionedIn": [
       "guides/youtube-SEnv3QWLIMw",
       "guides/youtube-jSjctgA1RZQ"
+    ],
+    "mentions": 2
+  },
+  "moenkhausia-hasemani": {
+    "name": "Moenkhausia hasemani",
+    "mentionedIn": [
+      "guides/youtube-SlmXdV5n3Hw",
+      "guides/youtube-yClGV2jXnic"
     ],
     "mentions": 2
   },
@@ -2507,7 +2515,8 @@
       "species/anatolichthys-sureyanus",
       "species/anatolichthys-transgrediens"
     ],
-    "mentions": 2
+    "mentions": 2,
+    "onSource": "https://www.seriouslyfish.com/species/aphanius-anatoliae"
   },
   "otothyropsis-piribebuy": {
     "name": "Otothyropsis piribebuy",
@@ -2706,6 +2715,22 @@
     "mentionedIn": [
       "species/botia-dario",
       "species/rasbora-rasbora"
+    ],
+    "mentions": 2
+  },
+  "cambarellus-ninae": {
+    "name": "Cambarellus ninae",
+    "mentionedIn": [
+      "species/cambarellus-diminutus",
+      "species/cambarellus-texanus"
+    ],
+    "mentions": 2
+  },
+  "cambarellus-montezumae": {
+    "name": "Cambarellus montezumae",
+    "mentionedIn": [
+      "species/cambarellus-diminutus",
+      "species/cambarellus-texanus"
     ],
     "mentions": 2
   },
@@ -3014,8 +3039,7 @@
       "species/geophagus-megasema",
       "species/mikrogeophagus-altispinosus"
     ],
-    "mentions": 2,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/tyttocharax_tambopatensis_en/"
+    "mentions": 2
   },
   "apistogramma-linkei": {
     "name": "Apistogramma linkei",
@@ -3410,8 +3434,7 @@
     "mentionedIn": [
       "guides/aquariumbreeder-aquarium-crabs-and-tankmates-possible-or-not"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cardisoma_armatum_en/"
+    "mentions": 1
   },
   "hymenochirus-curtipes": {
     "name": "Hymenochirus curtipes",
@@ -3630,6 +3653,27 @@
     ],
     "mentions": 1
   },
+  "halocaridina-rubra": {
+    "name": "Halocaridina rubra",
+    "mentionedIn": [
+      "guides/aquariumbreeder-top-5-exotic-and-hardy-aquarium-shrimp"
+    ],
+    "mentions": 1
+  },
+  "palaemon-sinensis": {
+    "name": "Palaemon sinensis",
+    "mentionedIn": [
+      "guides/aquariumbreeder-top-5-exotic-and-hardy-aquarium-shrimp"
+    ],
+    "mentions": 1
+  },
+  "macrobrachium-lanchesteri": {
+    "name": "Macrobrachium lanchesteri",
+    "mentionedIn": [
+      "guides/aquariumbreeder-top-5-exotic-and-hardy-aquarium-shrimp"
+    ],
+    "mentions": 1
+  },
   "micranthemum-tweedei": {
     "name": "Micranthemum tweedei",
     "mentionedIn": [
@@ -3719,8 +3763,7 @@
     "mentionedIn": [
       "guides/glaser-en-09-characoids-tetra-relationship-distichodus-rostratus-d-engycephalus-and-d-brevipinnis-from-nigeria-en"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/distichodus_rostratus_d_engycephalus_and_d_brevipinnis_from_nigeria_en/"
+    "mentions": 1
   },
   "myloplus-lobatus": {
     "name": "Myloplus lobatus",
@@ -3748,8 +3791,7 @@
     "mentionedIn": [
       "guides/glaser-en-10-catfishes-10c-catfishes-remaining-catfish-from-south-america-phractocephalus-hemiliopterus-en"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/phractocephalus_hemiliopterus_en/"
+    "mentions": 1
   },
   "ompok-pabda": {
     "name": "Ompok pabda",
@@ -4050,8 +4092,7 @@
     "mentionedIn": [
       "guides/sprucepets-common-fish-names-beginning-with-s-1378555"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/mylossoma_duriventre_en/"
+    "mentions": 1
   },
   "ictiobus-bubalus": {
     "name": "Ictiobus bubalus",
@@ -4174,13 +4215,6 @@
   },
   "melanotaenia-duboulayi": {
     "name": "Melanotaenia duboulayi",
-    "mentionedIn": [
-      "guides/sprucepets-types-of-rainbow-fish-5272300"
-    ],
-    "mentions": 1
-  },
-  "chilatherina-sentaniensis": {
-    "name": "Chilatherina sentaniensis",
     "mentionedIn": [
       "guides/sprucepets-types-of-rainbow-fish-5272300"
     ],
@@ -4432,17 +4466,17 @@
     ],
     "mentions": 1
   },
+  "cabomba-furcata": {
+    "name": "Cabomba furcata",
+    "mentionedIn": [
+      "guides/youtube-HlXrfMjRcQI"
+    ],
+    "mentions": 1
+  },
   "limnophila-siamensis": {
     "name": "Limnophila siamensis",
     "mentionedIn": [
       "guides/youtube-L8tiOsI7dyk"
-    ],
-    "mentions": 1
-  },
-  "cyprinus-carpio": {
-    "name": "Cyprinus carpio",
-    "mentionedIn": [
-      "guides/youtube-LTq4EuuY_iA"
     ],
     "mentions": 1
   },
@@ -4513,13 +4547,6 @@
     "name": "Cipangopaludina japonica",
     "mentionedIn": [
       "guides/youtube-SEnv3QWLIMw"
-    ],
-    "mentions": 1
-  },
-  "moenkhausia-hasemani": {
-    "name": "Moenkhausia hasemani",
-    "mentionedIn": [
-      "guides/youtube-SlmXdV5n3Hw"
     ],
     "mentions": 1
   },
@@ -4724,8 +4751,14 @@
     "mentionedIn": [
       "guides/youtube-lH2GnVdN-4s"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/hemichromis-guttatus-paprika-2/"
+    "mentions": 1
+  },
+  "rotala-hippuris": {
+    "name": "Rotala hippuris",
+    "mentionedIn": [
+      "guides/youtube-lRF7KD1VMYA"
+    ],
+    "mentions": 1
   },
   "coleus-scutellarioides": {
     "name": "Coleus scutellarioides",
@@ -5139,7 +5172,8 @@
     "mentionedIn": [
       "species/anatolichthys-villwocki"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/aphanius-villwocki"
   },
   "ancharius-griseus": {
     "name": "Ancharius griseus",
@@ -5363,7 +5397,8 @@
     "mentionedIn": [
       "species/barbodes-semifasciolatus"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/puntius-snyderi"
   },
   "barboides-britzi": {
     "name": "Barboides britzi",
@@ -5550,20 +5585,6 @@
   },
   "cambarellus-schmitti": {
     "name": "Cambarellus schmitti",
-    "mentionedIn": [
-      "species/cambarellus-diminutus"
-    ],
-    "mentions": 1
-  },
-  "cambarellus-ninae": {
-    "name": "Cambarellus ninae",
-    "mentionedIn": [
-      "species/cambarellus-diminutus"
-    ],
-    "mentions": 1
-  },
-  "cambarellus-montezumae": {
-    "name": "Cambarellus montezumae",
     "mentionedIn": [
       "species/cambarellus-diminutus"
     ],
@@ -6107,8 +6128,7 @@
     "mentionedIn": [
       "species/erethistes-pusillus"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/10-catfishes/hara-hara-erethistes-pusillus-2/"
+    "mentions": 1
   },
   "aphanius-sophiae": {
     "name": "Aphanius sophiae",
@@ -6164,7 +6184,8 @@
     "mentionedIn": [
       "species/garra-bicornuta"
     ],
-    "mentions": 1
+    "mentions": 1,
+    "onSource": "https://www.seriouslyfish.com/species/nemachilichthys-shimogensis"
   },
   "garra-micropulvinus": {
     "name": "Garra micropulvinus",
@@ -6472,8 +6493,7 @@
     "mentionedIn": [
       "species/haludaria-fasciata"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/haludaria-fasciata-the-melon-barb-formerly-barbus-fasciatus/"
+    "mentions": 1
   },
   "barbonymus-balleroides": {
     "name": "Barbonymus balleroides",
@@ -6739,8 +6759,7 @@
     "mentionedIn": [
       "species/hyphessobrycon-herbertaxelrodi"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia_dichroura_en/"
+    "mentions": 1
   },
   "serrapinnus-calliurus": {
     "name": "Serrapinnus calliurus",
@@ -6754,8 +6773,7 @@
     "mentionedIn": [
       "species/hyphessobrycon-herbertaxelrodi"
     ],
-    "mentions": 1,
-    "onSource": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/holoshestes_pequira_en/"
+    "mentions": 1
   },
   "farlowella-paraguayensis": {
     "name": "Farlowella paraguayensis",

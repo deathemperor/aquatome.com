@@ -5,12 +5,12 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 4630 | 3904 | 1592 | 37 | 41 | 196 | 40 | 1131 | 340 | 2579 | 471 | 9 | 10 | 0 | 2 | 5 | 3 | 0 |
+| Vietnamese | 4662 | 3936 | 1612 | 37 | 41 | 196 | 42 | 1147 | 341 | 2599 | 477 | 9 | 10 | 0 | 2 | 5 | 3 | 0 |
 | Indonesian | 1551 | 1374 | 395 | 22 | 8 | 4 | 4 | 197 | 37 | 66 | 185 | 0 | 1 | 0 | 2 | 2 | 0 | 0 |
 | Thai | 1539 | 1343 | 363 | 17 | 3 | 5 | 2 | 175 | 41 | 90 | 168 | 0 | 1 | 0 | 1 | 0 | 0 | 0 |
 | Malay | 423 | 380 | 108 | 9 | 2 | 0 | 1 | 52 | 17 | 23 | 45 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
-Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 12 of 142, Indonesian 2 of 55, Thai 2 of 52, Malay 1 of 22.
+Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 12 of 143, Indonesian 2 of 55, Thai 2 of 52, Malay 1 of 22.
 
 ## Doses on more than one page
 
@@ -77,8 +77,8 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - keo 502: 38
 - panacur: 34
 - ada: 26
+- tropica: 20
 - ada amazonia aqua soil: 19
-- tropica: 19
 - ada amazonia: 18
 - fluval stratum: 18
 - dennerle: 16
@@ -92,10 +92,10 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - apt fix: 11
 - aquario neo soil: 11
 - carib sea eco-complete: 11
+- twinstar: 11
+- 1-2-grow: 10
 - caribsea eco-complete: 10
 - ge silicone 1: 10
-- twinstar: 10
-- 1-2-grow: 9
 - aquaclear: 9
 - repashy soilent green: 9
 - weld-on 4: 9
@@ -112,4 +112,4 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - seachem flourite: 7
 - seachem flourite dark: 7
 - api accu-clear: 6
-- chihiros a2: 6
+- api leaf zone: 6
