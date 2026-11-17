@@ -8,16 +8,16 @@ under `<lang>/<path>`.
 
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
-| video-guide | 965 | 689 (vi 689) | 689 |
-| translation | 1807 | 269 (vi 269) | 269 |
+| video-guide | 965 | 688 (vi 688) | 688 |
+| translation | 1847 | 275 (vi 275) | 275 |
 | vi-rewrite | 366 | 24 (vi 24) | 24 |
 | reader-rewrite | 37 | 0 | 0 |
 | title | 25 | 0 | 0 |
 | breed | 27 | 3 (ms 3) | 3 |
 | topic | 107 | 6 (id 1, ms 1, th 4) | 6 |
-| product | 17 | 1 (vi 1) | 1 |
-| product-reviews | 16 | 0 | 0 |
-| summary | 2278 | 119 (vi 119) | 119 |
+| product | 18 | 1 (vi 1) | 1 |
+| product-reviews | 17 | 0 | 0 |
+| summary | 2331 | 122 (vi 122) | 122 |
 | localize | 2333 | 891 (id 400, ms 60, th 431) | 891 |
 | glossary | 9 | 0 | 0 |
 | places | 6869 | 4184 (id 1435, ms 1432, th 1218, vi 99) | 1143 |
@@ -28,17 +28,17 @@ under `<lang>/<path>`.
 
 ## video-guide: Vietnamese guides written from YouTube videos, against the transcript
 
-689 of 965 pages under the bar.
+688 of 965 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 604 | 1566 |
-| States as certain what the source hedges, or what garbled captions only hint at | 598 | 1786 |
-| Says what the source doesn't (invented, added) | 515 | 1238 |
-| Wording: unnatural, literal, stiff or chatty | 293 | 412 |
+| Other | 603 | 1565 |
+| States as certain what the source hedges, or what garbled captions only hint at | 598 | 1788 |
+| Says what the source doesn't (invented, added) | 514 | 1237 |
+| Wording: unnatural, literal, stiff or chatty | 292 | 412 |
 | A number, unit, dose or price | 228 | 335 |
 | Repeats itself (intro, summary, steps and FAQ) | 132 | 156 |
-| Meaning changed or wrong | 120 | 137 |
+| Meaning changed or wrong | 119 | 136 |
 | Leaves out what the source says | 48 | 50 |
 | Hobby terms and names | 48 | 49 |
 | Names or points to the video, channel, creator or source | 33 | 36 |
@@ -126,20 +126,20 @@ under `<lang>/<path>`.
 
 ## translation: source pages translated into Vietnamese, against the English
 
-269 of 1807 pages under the bar.
+275 of 1847 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 259 | 797 |
-| Says what the source doesn't (invented, added) | 220 | 428 |
-| Wording: unnatural, literal, stiff or chatty | 207 | 397 |
-| Meaning changed or wrong | 169 | 263 |
-| Hobby terms and names | 134 | 180 |
-| Text left in another language | 95 | 119 |
-| Leaves out what the source says | 91 | 125 |
-| States as certain what the source hedges, or what garbled captions only hint at | 77 | 90 |
-| A number, unit, dose or price | 69 | 90 |
-| Repeats itself (intro, summary, steps and FAQ) | 57 | 68 |
+| Other | 265 | 815 |
+| Says what the source doesn't (invented, added) | 226 | 437 |
+| Wording: unnatural, literal, stiff or chatty | 209 | 400 |
+| Meaning changed or wrong | 172 | 269 |
+| Hobby terms and names | 138 | 184 |
+| Text left in another language | 97 | 121 |
+| Leaves out what the source says | 92 | 126 |
+| States as certain what the source hedges, or what garbled captions only hint at | 80 | 93 |
+| A number, unit, dose or price | 70 | 91 |
+| Repeats itself (intro, summary, steps and FAQ) | 58 | 69 |
 | Names or points to the video, channel, creator or source | 10 | 11 |
 | Copied from the transcript or source | 3 | 3 |
 
@@ -171,7 +171,7 @@ under `<lang>/<path>`.
 
 - Items 1, 2, 5, 6: 'cá chạch sông' is a poor name for spiny eels (Mastacembelidae). The standard Vietnamese name is 'cá chạch gai' or 'cá chạch lửa/chạch bông' for the group. Use 'cá chạch gai mù' for Blind Spiny Eel. — vi/species/mastacembelus-brichardi (glaser), 0.40
 - Item 1: "cá sấu Cuba" is a questionable common name for Cuban gar. "Cá sấu hỏa tiễn Cuba" is more consistent with item 5. Use one name for gar across all items, not "cá gar" in some places and "cá gar/cá sấu hỏa tiễn" in others. — vi/species/atractosteus-tristoechus (glaser), 0.55
-- Terminology: "crayfish" is rendered throughout as "tôm càng đỏ". That is the common name of Cherax quadricarinatus (red claw), not crayfish in general. Use "tôm hùm nước ngọt" or "tôm hùm đất" for crayfish, and keep "tôm càng đỏ" for red c… — vi/guides/aquariumbreeder-do-crayfish-need-to-come-out-of-water (aquariumbreeder), 0.60
+- "Tuyến hàm trên" for maxillary gland is imprecise. Use "tuyến hàm" or give the term with the Latin/English original. — vi/guides/aquariumbreeder-crayfish-internal-anatomy (aquariumbreeder), 0.60
 
 ### Text left in another language
 
@@ -189,7 +189,7 @@ under `<lang>/<path>`.
 
 - Item 5: "đầu hồi nước" is non-standard for 'outflows'; use 'đầu nước ra/ống xả'. 'đầu ra' for 'returns' is also unclear. — vi/species/helostoma-temminckii (seriouslyfish), 0.55
 - #1: 'bắt Ilyodon về làm thức ăn' – 'found on the human menu' is slightly changed; and 'Vì to như vậy' overstates causation, since 15 cm is exceptional only. — vi/species/ilyodon-furcidens (glaser), 0.55
-- "Khí hô hấp và ion trao đổi ngay lúc nước chảy qua" is awkward and its word order is unclear. Try "Việc trao đổi khí hô hấp và ion diễn ra khi nước được hút vào khoang mang và chảy qua bề mặt mang". — vi/guides/aquariumbreeder-do-crayfish-need-to-come-out-of-water (aquariumbreeder), 0.60
+- The stomach muscles table row has "–" for function. The source merges those cells, so the row is unclear. Mandible muscle is listed under "Bộ phận miệng" and the anterior/posterior muscles are not explained. Make clear that the stomach mus… — vi/guides/aquariumbreeder-crayfish-internal-anatomy (aquariumbreeder), 0.60
 
 ### A number, unit, dose or price
 
@@ -381,7 +381,7 @@ under `<lang>/<path>`.
 
 ## product: product pages, against their research
 
-1 of 17 pages under the bar.
+1 of 18 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -408,22 +408,22 @@ under `<lang>/<path>`.
 
 ## product-reviews: product pages' review summaries (the code's checks: 1 pass, 0 fail)
 
-0 of 16 pages under the bar.
+0 of 17 pages under the bar.
 
 ## summary: species' quick summaries (the numbers and claims check: 1 pass, 0 fail)
 
-119 of 2278 pages under the bar.
+122 of 2331 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Says what the source doesn't (invented, added) | 59 | 66 |
-| States as certain what the source hedges, or what garbled captions only hint at | 49 | 55 |
+| Says what the source doesn't (invented, added) | 64 | 72 |
+| States as certain what the source hedges, or what garbled captions only hint at | 48 | 54 |
 | Other | 32 | 35 |
-| Leaves out what the source says | 13 | 14 |
-| A number, unit, dose or price | 13 | 13 |
-| Meaning changed or wrong | 11 | 11 |
+| Meaning changed or wrong | 13 | 13 |
+| A number, unit, dose or price | 12 | 12 |
+| Leaves out what the source says | 11 | 12 |
+| Hobby terms and names | 3 | 3 |
 | Off the title's topic | 2 | 2 |
-| Hobby terms and names | 2 | 2 |
 | Wording: unnatural, literal, stiff or chatty | 2 | 2 |
 
 ### Says what the source doesn't (invented, added)
@@ -444,11 +444,11 @@ under `<lang>/<path>`.
 - "nên cần cho ăn đúng loại mồi giun": the page only says that in the tank they "thích" (prefer) worms such as frozen bloodworm and white worms. It does not say that feeding must be exactly worms, or that their frantic feeding is the reason.… — vi/species/amblyceps-tenuispinis, 0.00
 - "hợp với người thích cá lạ và chịu tự tìm hiểu thêm" says who the species suits. The page doesn't state or imply this. — vi/species/ammoglanis-multidentatus, 0.00
 
-### Leaves out what the source says
+### Meaning changed or wrong
 
-- The page says male black lancers "có thể rất hung hăng giữ lãnh thổ" (can be very aggressive). The summary drops the hedge: "cá đực hung hăng giữ lãnh thổ". — vi/species/bagrichthys-hypselopterus, 0.00
-- Mistake 1: "cá lớn hoặc năng nổ hơn sẽ bắt nạt và tranh hết phần ăn" turns the page's hedge ("nhiều khả năng sẽ bắt nạt", meaning "likely") into a certainty. It also drops "hơn nhiều" (much larger or more active). — vi/species/betta-falx, 0.00
-- Mistake 1: "nuôi lẻ thì cá nhút nhát hoặc hung hăng" drops the page's hedge. The page says a single fish "có thể trở nên nhút nhát, lầm lì hoặc hung hăng", so this turns a possibility into a certainty. — vi/species/chromobotia-macracanthus, 0.00
+- Mistake 2 "chọn bể nhỏ ... nên lo bể rộng ngay từ đầu" is advice the page doesn't give. The page says the fish can breed in a "bể khá nhỏ, chỉ cần từ 200 lít trở lên", so the fix of a spacious tank contradicts or goes beyond the page. — vi/species/aequidens-patricki, 0.00
+- "đèn sáng" listed as a mistake and "đèn khá tối" as the fix: the page only says the most popular tanks tend to have fairly dim light. It gives no rule that bright light is wrong, so this is advice the page doesn't give. — vi/species/anabas-testudineus, 0.00
+- Mistake 2 fix: "chỉ cho viên tảo hoặc spirulina một đến hai lần mỗi ngày". The page calls algae or spirulina pellets the best food, but it also says flake, granules and bloodworms are "đều ổn". The word "chỉ" (only) contradicts that. — vi/species/ancistrus-cirrhosus, 0.00
 
 ### A number, unit, dose or price
 
@@ -456,21 +456,22 @@ under `<lang>/<path>`.
 - "khó nhất là giữ nước mát": the page never says keeping water cool is hard. It only gives the 10–22 °C range, so this hardest point is the summary's own inference. — vi/species/channa-burmanica, 0.00
 - "Đừng để nước ấm hơn mức cá cần": the page never warns against warm water or says this is a mistake. Only the card's 20–24 °C range exists, so this mistake and its fix are not on the page. — vi/species/cranoglanis-henrici, 0.00
 
-### Meaning changed or wrong
+### Leaves out what the source says
 
-- Mistake 2 "chọn bể nhỏ ... nên lo bể rộng ngay từ đầu" is advice the page doesn't give. The page says the fish can breed in a "bể khá nhỏ, chỉ cần từ 200 lít trở lên", so the fix of a spacious tank contradicts or goes beyond the page. — vi/species/aequidens-patricki, 0.00
-- "đèn sáng" listed as a mistake and "đèn khá tối" as the fix: the page only says the most popular tanks tend to have fairly dim light. It gives no rule that bright light is wrong, so this is advice the page doesn't give. — vi/species/anabas-testudineus, 0.00
-- Mistake 2 fix: "chỉ cho viên tảo hoặc spirulina một đến hai lần mỗi ngày". The page calls algae or spirulina pellets the best food, but it also says flake, granules and bloodworms are "đều ổn". The word "chỉ" (only) contradicts that. — vi/species/ancistrus-cirrhosus, 0.00
+- The page says male black lancers "có thể rất hung hăng giữ lãnh thổ" (can be very aggressive). The summary drops the hedge: "cá đực hung hăng giữ lãnh thổ". — vi/species/bagrichthys-hypselopterus, 0.00
+- Mistake 1: "cá lớn hoặc năng nổ hơn sẽ bắt nạt và tranh hết phần ăn" turns the page's hedge ("nhiều khả năng sẽ bắt nạt", meaning "likely") into a certainty. It also drops "hơn nhiều" (much larger or more active). — vi/species/betta-falx, 0.00
+- Mistake 2: "nên làm lọc sump" drops the page's condition "Nếu được". The page gives sump as preferred if possible, and otherwise says to buy the biggest filter and change water often. — vi/species/colossoma-macropomum, 0.00
+
+### Hobby terms and names
+
+- "hợp với người thích cá lùn": the page never calls this species a dwarf fish or says who it suits in these terms. This is an unsupported claim. — vi/species/apistogramma-velifera, 0.00
+- "ít người tính tới chuyện nuôi lâu dài": the page says juveniles are often sold without full long-term care information. It never says buyers rarely plan for long-term keeping, so this is an unsupported claim about buyer behaviour. — vi/species/atractosteus-spatula, 0.00
+- "Mua cá ghi tên pellegrinii hay 'apollo shark' ... tên này hay bị gắn nhầm": the page says 'apollo shark' is a shop name for juveniles of other species (L. setigerum, L. bleekeri). It does not say that name is wrongly given to pellegrinii.… — vi/species/luciosoma-pellegrinii, 0.00
 
 ### Off the title's topic
 
 - Mistake 2: it links treating the fish as a tank cleaner ("máy dọn bể") to overfeeding ("cho ăn quá tay"). The page gives these as two unrelated points. It says the fish don't really clean the tank, and separately says never to overfeed. — vi/species/ancistrus-cirrhosus, 0.00
 - "Ngoài tự nhiên cá gặp ở cả suối nhánh chảy xiết lẫn vũng nước, hồ": the page says this about the genus ("Các loài Nematabramis sống ở đủ kiểu nơi"), not about N. alestes. The summary turns a genus-level statement into a certain fact about… — vi/species/nematabramis-alestes, 0.00
-
-### Hobby terms and names
-
-- "hợp với người thích cá lùn": the page never calls this species a dwarf fish or says who it suits in these terms. This is an unsupported claim. — vi/species/apistogramma-velifera, 0.00
-- "Mua cá ghi tên pellegrinii hay 'apollo shark' ... tên này hay bị gắn nhầm": the page says 'apollo shark' is a shop name for juveniles of other species (L. setigerum, L. bleekeri). It does not say that name is wrongly given to pellegrinii.… — vi/species/luciosoma-pellegrinii, 0.00
 
 ### Wording: unnatural, literal, stiff or chatty
 

@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-17). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 701 | 31 | 9 | 24 | 717 |
-| rest | 20 | 1764 | 75 | 0 | 95 | 1744 |
+| covered | 30 | 712 | 31 | 9 | 24 | 728 |
+| rest | 20 | 1778 | 75 | 0 | 98 | 1755 |
 
-## Short of target: every source read (602)
+## Short of target: every source read (611)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -136,8 +136,8 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | plants/utricularia-graminifolia | shop | 13 | 60 |
 | species/poropanchax-normani | shop | 6 | 60 |
 | species/hasemania-nana | shop | 1 | 60 |
-| plants/marsilea-hirsuta | shop | 12 | 60 |
 | species/gyrinocheilus-aymonieri | shop | 14 | 60 |
+| plants/marsilea-hirsuta | shop | 12 | 60 |
 | species/erpetoichthys-calabaricus | shop | 2 | 60 |
 | plants/sagittaria-subulata | shop | 13 | 60 |
 | plants/lilaeopsis-brasiliensis | shop | 8 | 60 |
@@ -273,9 +273,9 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | breeds/albino-oscar | covered | 7 | 30 |
 | species/epiplatys-annulatus | covered | 2 | 30 |
 | species/akysis-vespa | covered | 0 | 30 |
+| species/ambastaia-sidthimunki | covered | 1 | 30 |
 | species/corydoras-fowleri | covered | 1 | 30 |
 | species/aguarunichthys-torosus | covered | 0 | 30 |
-| species/ambastaia-sidthimunki | covered | 1 | 30 |
 | species/amblydoras-nauticus | covered | 0 | 30 |
 | species/aphanotorulus-unicolor | covered | 0 | 30 |
 | species/axelrodia-riesei | covered | 1 | 30 |
@@ -426,9 +426,11 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/biotodoma-wavrini | covered | 0 | 30 |
 | species/biotoecus-opercularis | covered | 0 | 30 |
 | species/boraras-maculatus | covered | 1 | 30 |
+| species/boraras-micros | covered | 1 | 30 |
 | species/boraras-naevus | covered | 2 | 30 |
 | species/botia-histrionica | covered | 1 | 30 |
 | species/boulengerella-maculata | covered | 4 | 30 |
+| species/brachychalcinus-orbicularis | covered | 0 | 30 |
 | species/brachygobius-aggregatus | covered | 0 | 30 |
 | species/brachyplatystoma-juruense | covered | 0 | 30 |
 | species/brachyplatystoma-tigrinum | covered | 0 | 30 |
@@ -547,6 +549,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/epiplatys-dageti | covered | 0 | 30 |
 | species/erethistes-pusillus | covered | 1 | 30 |
 | species/eretmodus-cyanostictus | covered | 0 | 30 |
+| species/ernstichthys-megistus | covered | 0 | 30 |
 | species/erythrinus-erythrinus | covered | 0 | 30 |
 | species/etroplus-canarensis | covered | 0 | 30 |
 | species/etroplus-maculatus | covered | 24 | 30 |
@@ -586,10 +589,12 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/hemisilurus-moolenburghi | covered | 0 | 30 |
 | species/heros-efasciatus | covered | 13 | 30 |
 | species/herotilapia-multispinosa | covered | 0 | 30 |
+| species/hisonotus-nigricauda | covered | 0 | 30 |
 | species/homaloptera-parclitella | covered | 3 | 30 |
 | species/homalopteroides-tweediei | covered | 0 | 30 |
 | species/hydrocynus-goliath | covered | 7 | 30 |
 | species/hydrolycus-armatus | covered | 1 | 30 |
+| species/hydrolycus-scomberoides | covered | 1 | 30 |
 | species/hydrolycus-tatauaia | covered | 0 | 30 |
 | species/hypancistrus-contradens | covered | 0 | 30 |
 | species/hypancistrus-debilittera | covered | 0 | 30 |
@@ -618,3 +623,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/hypostomus-soniae | covered | 0 | 30 |
 | species/hypostomus-taphorni | covered | 0 | 30 |
 | species/hypselecara-temporalis | covered | 4 | 30 |
+| species/hypselobarbus-jerdoni | covered | 0 | 30 |
+| species/hypsophrys-nicaraguensis | covered | 0 | 30 |
+| species/iheringichthys-megalops | covered | 0 | 30 |
+| species/ilyodon-furcidens | covered | 22 | 30 |
