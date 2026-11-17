@@ -1136,6 +1136,39 @@ final class V2FlowTests: XCTestCase {
     XCTAssertFalse(tab.isHittable, "back on Hôm nay, the post shows the tab bar")
   }
 
+  /// Every card the spec lists opens as a post (spec-post-push.md, its checks): the fish of the day, the guide, the video
+  /// series, a "Mới cập nhật" page and its "Xem tất cả" list, in turn from one launch. Each pushed with no tab bar and iOS's
+  /// back reading "Đóng"; its ✕ closes it to Hôm nay with the tab bar. A card that slips back to a plain push fails here
+  /// (Design, 17 Nov).
+  func testEveryCardTheSpecListsOpensAPost() {
+    // The editors' day (`-plan`, `-today`) for the guide; the site's what's new with photos (`-whats-new`,
+    // `-wide-pictures`) for "Mới cập nhật", where Rotala đỏ is then a row.
+    let app = launch("-v2", "YES", "-plan", "-today", "2026-11-13", "-whats-new", "-wide-pictures")
+    app.launchForFlow()
+    let tab = app.tabBars.buttons["Hôm nay"], back = app.navigationBars.buttons["BackButton"]
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no Hôm nay")
+    func titled(_ words: String) -> XCUIElement { app.buttons.matching(NSPredicate(format: "label CONTAINS %@", words)).firstMatch }
+    // Top to bottom, as Hôm nay lists them: each found by scrolling on down.
+    let cards: [(String, XCUIElement)] = [
+      ("the fish of the day", app.buttons["v2-fish-of-the-day"]),
+      ("the guide", titled("Cách hạn chế rêu hại")),
+      ("the video series", titled("Video hướng dẫn")),
+      ("a Mới cập nhật page", app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Rotala đỏ")).firstMatch),
+      ("the Mới cập nhật list", app.buttons["Xem tất cả"].firstMatch),
+    ]
+    for (post, card) in cards {
+      repeatUntil(card.exists && card.isHittable, times: 12) { app.swipeUp() }
+      XCTAssertTrue(card.isHittable, "no card for \(post) on Hôm nay")
+      card.tap()
+      XCTAssertTrue(back.waitForExistence(timeout: 5), "\(post) didn't open with iOS's back")
+      XCTAssertEqual(back.label, "Đóng", "\(post): its ✕ doesn't read \"Đóng\"")
+      XCTAssertFalse(tab.isHittable, "\(post): the tab bar shows")
+      back.tap()
+      let shown = XCTNSPredicateExpectation(predicate: NSPredicate(format: "isHittable == true"), object: tab)
+      XCTAssertEqual(XCTWaiter.wait(for: [shown], timeout: 5), .completed, "\(post): no tab bar back on Hôm nay")
+    }
+  }
+
   /// A post runs to the screen's foot (today-story.md, "The foot"): no tab bar, so no fade to stop above. Scrolled to its
   /// end, the fish of the day's last row ("Ảnh và giấy phép", 44 tall) ends the page's own 40 points and the home
   /// indicator's 34 above the foot (74), not 24 more for a fade that isn't there (98).
