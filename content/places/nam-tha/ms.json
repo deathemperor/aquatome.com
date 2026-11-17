@@ -3,6 +3,12 @@
   "name": "Nam Tha",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T00:07:48.467Z",
+    "why": "Nam Tha is a river (Sungai Nam Tha) in Laos, and the bare name omits the Malay kind word \"Sungai\", which an atlas in Malaysia would normally include."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

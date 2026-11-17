@@ -1,8 +1,13 @@
 {
   "slug": "kobroor",
-  "name": "Kobroor",
+  "name": "Pulau Kobroor",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-17T00:05:42.878Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

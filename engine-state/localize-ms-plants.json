@@ -1110,38 +1110,52 @@
     }
   },
   "egeria-densa": {
-    "at": "2026-11-15",
-    "from": "2026-10-30",
+    "at": "2026-11-16",
+    "from": "2026-11-16",
     "name": "Elodea",
     "confidence": "medium",
     "score": 0.7,
     "notes": [
-      "\"anchor\" was translated as \"pemberat\" (weight). The English says the stems are gathered in an anchor, a lead or metal strip that holds the bunch. \"pemberat\" is acceptable, but \"diikat dengan pemberat\" is a little loose. Say \"diikat pada jalur pemberat plumbum\" or similar.",
-      "\"the tendrils grow thin\" was rendered as \"batangnya tumbuh halus\". The English says tendrils, but the translation says stems. Use \"batang\" only if tendrils means the stems here, and keep it consistent.",
-      "\"nutrition available\" became \"nutrien yang ada\". The meaning is fine, but \"nutrien\" is used for both \"nutrients\" and \"nutrition\". This is minor.",
-      "\"tangki\" in item 1 is understandable, but Malaysian hobbyists usually say \"akuarium\" or \"tangki akuarium\". The translation uses \"akuarium\" in item 3, so it is inconsistent.",
-      "\"Tumbuhan batang\" for \"Stem\" is acceptable. \"Tumbuhan berbatang\" is more natural.",
-      "The \"(2\")\" imperial figure was correctly dropped, but check that \"5 cm\" is a sensible conversion. 2 in is about 5 cm, so this is fine."
+      "Item 2: \"bank biji benih dalam sedimen\" is redundant (biji benih); use \"bank benih dalam sedimen\".",
+      "Item 2: \"negara bahagian\" for \"states\" is stiff and may confuse Malaysian readers (who read it as \"negeri\"); say \"banyak negeri/wilayah (di AS)\" or \"banyak kawasan\"."
     ],
     "parts": {
       "quickFacts:tropica": "e3d355c3ab2c",
       "maintenance:tropica": "c35c7022e1a1",
-      "notes:tropica": "6a1436394a76"
+      "notes:tropica": "6a1436394a76",
+      "quickFacts:aquariumbreeder": "757eafbccbaf",
+      "beforeYouBuy:aquariumbreeder": "39e278d95f3f",
+      "distribution:aquariumbreeder": "406b4d173c33",
+      "habitat:aquariumbreeder": "acab4b21fef3",
+      "aquariumSize:aquariumbreeder": "53db7c4dd85b",
+      "maintenance:aquariumbreeder": "eec8f3aa71ee",
+      "waterConditions:aquariumbreeder": "858a5fe96ee8",
+      "equipment:aquariumbreeder": "1aeacb6e6d0c",
+      "behaviour:aquariumbreeder": "3498f59a3460",
+      "notes:aquariumbreeder": "2d052eb80ad4"
     }
   },
   "eleocharis-acicularis": {
-    "at": "2026-11-15",
-    "from": "2026-10-30",
+    "at": "2026-11-16",
+    "from": "2026-11-16",
     "name": "Hairgrass",
     "confidence": "high",
     "score": 0.85,
     "notes": [
-      "\"tangki\" is acceptable, but \"akuarium\" is used in item 2; use one term consistently.",
-      "\"Walau bagaimanapun, kawasan terbuka ... lebih baik\" is slightly awkward; consider \"masih lebih baik jika ditanam di kawasan terbuka tanpa teduhan tumbuhan lain\"."
+      "\"mula menjadi\" / \"benar-benar membesar\" (catch on / get going) is slightly awkward. Use \"mula bertapak\" and \"mula tumbuh dengan pesat\".",
+      "\"tidak mengapa jika ditekan ke bawah\" is vague for \"fine to hold down\". Say that the portions need to be pressed or held down gently so they don't float up."
     ],
     "parts": {
       "quickFacts:tropica": "3f889c91d3f8",
-      "maintenance:tropica": "9ed1d23bc27f"
+      "maintenance:tropica": "9ed1d23bc27f",
+      "quickFacts:aquariumbreeder": "b03582bd1273",
+      "distribution:aquariumbreeder": "0c90484f53fe",
+      "habitat:aquariumbreeder": "8f4ad1f0faa7",
+      "aquariumSize:aquariumbreeder": "f6595ba7c978",
+      "maintenance:aquariumbreeder": "2cd1203e1b62",
+      "waterConditions:aquariumbreeder": "82407b12779f",
+      "equipment:aquariumbreeder": "521d2e293a02",
+      "notes:aquariumbreeder": "772e5ec6a93c"
     }
   },
   "eleocharis-montevidensis": {
@@ -1532,6 +1546,41 @@
     "parts": {
       "quickFacts:tropica": "47aaa6f1900d",
       "notes:tropica": "703e339adc2e"
+    }
+  },
+  "hygrophila-odora": {
+    "at": "2026-11-16",
+    "from": "2026-10-30",
+    "name": "Hygrophila odora",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 1: \"tangki\" is fine, but \"Sederhana\" for light/CO2 demand is acceptable; consider \"Sederhana\" kept. No real issues.",
+      "Item 3: \"cantik\" for \"vibrant\" is slightly weak; \"bertenaga/subur\" could fit better (minor)."
+    ],
+    "parts": {
+      "quickFacts:tropica": "ee65f3ec9f46",
+      "maintenance:tropica": "7191f848e597",
+      "notes:tropica": "a12ed500b30c"
+    }
+  },
+  "hygrophila-pinnatifida": {
+    "at": "2026-11-16",
+    "from": "2026-10-30",
+    "name": "Hygrophila pinnatifida",
+    "confidence": "high",
+    "score": 0.7,
+    "notes": [
+      "#2: \"Tumbuhan ini mengeluarkan tunas sisi yang menjalar mendatar\" - 'menjalar' (creeping) is added meaning; the source only says horizontal side shoots. Use \"tunas sisi mendatar\".",
+      "#2: \"stems 15-40 cm tall and 10-20 cm wide\" is fine in number, but \"Pencahayaan yang kuat memastikan pertumbuhan yang padat kerana kadar pertumbuhan ... perlahan hingga sederhana\" conflicts with the earlier 'Pertumbuhannya sederhana'. The source is inconsistent, so keep it faithful, but 'kerana' could be read as the wrong causal link. Use 'disebabkan kadar pertumbuhan perlahan hingga sederhana'.",
+      "#3: \"Tumbuhan akuatik\" - 'aquarium plant' should be \"Tumbuhan akuarium\".",
+      "#3: \"daripada kultur tisu dalam cawan tertutup\" - 'closed cup' is better as \"dalam cawan tertutup (closed cup)\" or \"dalam cawan tertutup\" with 'kultur tisu' clear. Minor wording.",
+      "#3: \"Daunnya berwarna perang dengan tompok-tompok di bahagian atas, dan berwarna merah burgundi ... di bahagian bawah\" - 'brown, patched leaves on the surface' is restructured. 'Bahagian atas' for 'surface' is acceptable, but 'ketara' for 'distinctive' is slightly off. Use 'yang tersendiri' or 'yang istimewa'."
+    ],
+    "parts": {
+      "quickFacts:tropica": "68bceb5215f2",
+      "maintenance:tropica": "1d5fa563c9c1",
+      "notes:tropica": "857a2e5e2bdc"
     }
   }
 }

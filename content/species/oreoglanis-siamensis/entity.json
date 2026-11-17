@@ -23,12 +23,6 @@
   },
   "sections": [
     {
-      "key": "beforeYouBuy",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/_en-25/",
-      "html": "<p>Only a very few pieces were available, and the species is very rare. Origin: Thailand.</p>"
-    },
-    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/_en-25/",
@@ -71,18 +65,6 @@
       "title": "ปลาค้างคาวอินทนนท์ ปลาหายากบนดอย #วนศาสตร์#สัตว์ป่า #ป่าเขา #อนุรักษ์ #ปลา",
       "durationSec": 40,
       "lang": "en"
-    },
-    {
-      "youtubeId": "eihSwNPkPxE",
-      "title": "ปลาค้างคาว",
-      "durationSec": 151,
-      "lang": "en"
-    },
-    {
-      "youtubeId": "jDgeAHGoFUY",
-      "title": "10 ปลาค้างคาวติดหิน ที่พบได้เฉพาะในประเทศไทย",
-      "durationSec": 487,
-      "lang": "th"
     }
   ],
   "productSlots": [
@@ -107,5 +89,66 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-16"
+  "updatedAt": "2026-11-16",
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya",
+        "Mae Nam Ping"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "In the northern part of Thailand they can be found in the mountain area of Mae Nam Ping and Doi Chiang Dow.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Mae Nam Ping"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "They live in the Mekong area and the Chao Phraya basins.",
+          "countries": [],
+          "regions": [
+            "Mekong",
+            "Chao Phraya"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341198,
+      "total": 4,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "TH",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          18.28125,
+          3,
+          3
+        ]
+      ]
+    }
+  }
 }

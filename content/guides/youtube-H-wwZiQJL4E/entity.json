@@ -51,24 +51,7 @@
     "figures": [
       {
         "heading": "Chuẩn bị nước trước khi thả cá",
-        "moments": [
-          {
-            "t": 40,
-            "url": "https://media.aquatome.com/video/H-wwZiQJL4E/at40-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh lớn với đá, lũa và cây, cần châm nước lại.",
-            "sharpness": 1600.7
-          },
-          {
-            "t": 140,
-            "url": "https://media.aquatome.com/video/H-wwZiQJL4E/at140-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể nhỏ có cá dĩa và cá vàng, dùng để chuyển cá.",
-            "sharpness": 745.3
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/H-wwZiQJL4E/p0-bV9maXNoZXMuanBn.webp",
           "thumb": "https://media.aquatome.com/video/H-wwZiQJL4E/p0-bV9maXNoZXMuanBn-480.webp",
@@ -84,20 +67,13 @@
         "heading": "Tháo lọc treo tạm thời mà không làm tràn nước",
         "moments": [
           {
-            "t": 180,
-            "url": "https://media.aquatome.com/video/H-wwZiQJL4E/at180-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ống lọc ngoài treo trên thành bể có cá, đang chỉ vào khớp nối.",
-            "sharpness": 807.9
-          },
-          {
             "t": 205,
             "url": "https://media.aquatome.com/video/H-wwZiQJL4E/at205-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Ống inox/thủy tinh của lọc nhúng trong nước bể thủy sinh.",
-            "sharpness": 524.4
+            "sharpness": 524.4,
+            "person": false
           }
         ]
       },
@@ -105,20 +81,13 @@
         "heading": "Bố trí dòng chảy với hai lọc",
         "moments": [
           {
-            "t": 225,
-            "url": "https://media.aquatome.com/video/H-wwZiQJL4E/at225-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đầu ra của lọc đặt ở góc bể, hướng dòng chảy dọc theo kính.",
-            "sharpness": 528.6
-          },
-          {
             "t": 235,
             "url": "https://media.aquatome.com/video/H-wwZiQJL4E/at235-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể thủy sinh với các ống dòng chảy đặt ở hai đầu bể.",
-            "sharpness": 749.1
+            "sharpness": 749.1,
+            "person": false
           }
         ]
       },
@@ -126,20 +95,13 @@
         "heading": "Bắt và thả cá dĩa bằng vợt",
         "moments": [
           {
-            "t": 305,
-            "url": "https://media.aquatome.com/video/H-wwZiQJL4E/at305-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng vợt vớt cá dĩa đỏ ra khỏi bể.",
-            "sharpness": 2223.2
-          },
-          {
             "t": 340,
             "url": "https://media.aquatome.com/video/H-wwZiQJL4E/at340-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Cá dĩa sau khi thả vào bể thủy sinh mới, bơi khỏe.",
-            "sharpness": 367.6
+            "sharpness": 367.6,
+            "person": false
           }
         ],
         "photo": {
@@ -162,7 +124,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá chuột nằm sát mặt nền cát sỏi trong bể trồng cây.",
-            "sharpness": 618.3
+            "sharpness": 618.3,
+            "person": false
           },
           {
             "t": 450,
@@ -183,7 +146,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây mới trồng còn nhỏ, chưa dày bụi, bên cạnh khúc lũa.",
-            "sharpness": 1354
+            "sharpness": 1354,
+            "person": false
           },
           {
             "t": 485,
@@ -191,7 +155,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá dĩa dồn ra sát mặt kính phía trước bể.",
-            "sharpness": 524.8
+            "sharpness": 524.8,
+            "person": false
           }
         ]
       }

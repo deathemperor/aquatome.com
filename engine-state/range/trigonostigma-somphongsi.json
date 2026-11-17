@@ -1,0 +1,55 @@
+{
+  "id": "trigonostigma-somphongsi",
+  "native": {
+    "input": "c33149e9bb885325",
+    "at": "2026-11-17T00:14:47.070Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Trigonostigma somphongsi is a small rasbora, probably endemic to western Thailand and reckoned to occur somewhere in the Mae Klong basin.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mae Klong",
+        "source": "seriouslyfish",
+        "quote": "Trigonostigma somphongsi is a small rasbora, probably endemic to western Thailand and reckoned to occur somewhere in the Mae Klong basin.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Trigonostigma somphongsi",
+    "status": "ACCEPTED",
+    "taxonKey": 2367619,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ]
+    ],
+    "native": [
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-17T00:14:47.070Z"
+  }
+}

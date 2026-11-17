@@ -1,11 +1,17 @@
 {
   "id": "leporinus-fasciatus-tigrinus",
-  "summary": "Cá Leporinus hổ (Leporinus fasciatus tigrinus) hợp với người muốn nuôi một loài Leporinus có sọc, trưởng thành 20 cm. Hồ sơ không có số liệu về nhiệt độ, pH, độ cứng hay bể tối thiểu, nên chưa thể nói chắc về nước. Điểm khó nhất là thiếu thông tin: loài này có thể chưa được mô tả, và hồ sơ chỉ đoán là cá ăn chủ yếu thực vật.",
+  "summary": "Cá Leporinus hổ (Leporinus fasciatus tigrinus) hợp với người thích cá có sọc rõ, dải sọc đôi trước vây lưng và hàng vảy óng ánh trên lưng. Thẻ ghi kích thước trưởng thành 20 cm, nhưng hồ sơ cho rằng cá có thể lớn hơn, nên cần chọn bể rộng. Hồ sơ không có số liệu về nhiệt độ, pH hay bể tối thiểu. Điểm khó nhất là tính đôi khi hay gây gổ với cá cùng loài.",
   "mistakes": [
-    "Đừng mặc định cá hiền mãi: Leporinus đôi khi hay gây gổ với cá cùng loài, nên theo dõi khi nuôi chung nhiều con.",
-    "Đừng cho ăn toàn đạm động vật: hồ sơ cho rằng cá rất có thể ăn chủ yếu thực vật, nên cần chuẩn bị thức ăn thực vật."
+    "Nuôi nhiều con cùng loài trong bể chật: Leporinus đôi khi hay gây gổ với đồng loại, nên cho bể rộng hoặc tránh nhốt chung nhiều con.",
+    "Chỉ chọn bể vừa cho cá 20 cm: hồ sơ cho rằng cá có thể lớn hơn mức đó, nên chọn bể dư chỗ ngay từ đầu."
   ],
   "speciesUpdatedAt": "2026-11-13",
-  "generatedAt": "2026-11-13T07:08:26.870Z",
-  "review": "approved"
+  "writtenFrom": "c0a697da4797fb64",
+  "generatedAt": "2026-11-17T02:04:33.478Z",
+  "review": "pending",
+  "problems": [
+    "\"nên cần chọn bể rộng\": the page gives no tank-size advice. It only says the fish may be longer than 20 cm.",
+    "\"Nuôi nhiều con cùng loài trong bể chật ... nên cho bể rộng hoặc tránh nhốt chung nhiều con\": the page only says the fish is sometimes aggressive to its own kind. It says nothing about cramped tanks, roomier tanks or avoiding groups, so the mistake and its fix are invented.",
+    "\"Chỉ chọn bể vừa cho cá 20 cm ... nên chọn bể dư chỗ ngay từ đầu\": the page gives no tank advice, so this fix is invented. It also turns a guess (\"có thể đoán\") into a firm instruction."
+  ]
 }

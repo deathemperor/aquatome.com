@@ -6,7 +6,7 @@
     "quickFacts:glaser": "<p>Orthospinus franciscensis là một loài cá tetra chỉ có ở sông Sao Francisco, Brazil. Cá lớn nhất cũng chỉ dài 8 cm.</p>",
     "distribution:glaser": "<p>Loài này chỉ có ở sông Sao Francisco, Brazil.</p>",
     "maintenance:glaser": "<p>Cách nuôi giống cá đô la bạc (Brachychalcinus orbicularis), và có lẽ cho đẻ cũng vậy. Có điều O. franciscensis nhỏ hơn, lớn nhất chỉ dài 8 cm.</p>",
-    "notes:glaser": "<p>Nguồn gốc tên: Orthospinus nghĩa là \"gai dựng đứng\", ý chỉ chiếc gai nằm ngay trước vây lưng. Chữ franciscensis lấy theo nơi loài này sống, sông Sao Francisco.</p><p>Loài này mới được nhập về lần đầu.</p>"
+    "notes:glaser": "<p>Nguồn gốc tên: Orthospinus nghĩa là \"gai dựng đứng\", ý chỉ chiếc gai nằm ngay trước vây lưng. Chữ franciscensis lấy theo nơi loài này sống, sông Sao Francisco.</p>"
   },
   "quality": {
     "score": 0.9,
@@ -15,11 +15,5 @@
       "glaser": 0.9
     },
     "reason": "thin"
-  },
-  "held": {
-    "checks": [
-      "source"
-    ],
-    "at": "2026-11-17"
   }
 }

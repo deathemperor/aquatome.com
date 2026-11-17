@@ -1,0 +1,141 @@
+{
+  "id": "poecilia-caucana",
+  "scientificName": "Poecilia caucana",
+  "order": "Cyprinodontiformes",
+  "family": "Poeciliidae",
+  "genus": "Poecilia",
+  "group": "livebearers",
+  "places": [
+    "south-america",
+    "colombia",
+    "rio-cauca",
+    "venezuela"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 26,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 8.2,
+          "max": 8.6
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia_caucana_en/",
+      "html": "<p>With an overall length of 3–5 cm the Cauca Molly (Poecilia caucana), originating from Colombia and Venezuela, belongs to the smaller livebearers. Remarkable are the yellow-orange dorsal fin and a violet, metallically shining longitudinal line.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia_caucana_en/",
+      "html": "<p>Colombia, Venezuela.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia_caucana_en/",
+      "html": "<p>The water values (pH 8.2–8.6, conductivity 360 and 420 µS/cm), based on different places where the animals are found in the area of the Rio Cauca, make them suitable aquarium inhabitants for most Central European tap waters. They appreciate higher temperatures between 26 and 28°C.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia_caucana_en/",
+      "html": "<p>As industrious algae eaters, Cauca mollies are constantly on the search for food. All usual kinds of fish food are greedily eaten.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia_caucana_en/",
+      "html": "<p>With appropriate care a new generation will appear sooner or later.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/cb3e90cf3e78d831.webp",
+      "thumb": "https://media.aquatome.com/glaser/cb3e90cf3e78d831-480.webp",
+      "width": 640,
+      "height": 426,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia_caucana_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "4sLXzHb4zMw",
+      "title": "POECILIA CAUCANA | MOLLY DEL CAUCA",
+      "durationSec": 136,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "e3WfZJlQWKo",
+      "title": "Poecilia caucana - The Cauca Molly (Wild Type Livebearer) ᴴᴰ",
+      "durationSec": 120,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "OUnyDVGsvcQ",
+      "title": "poecilia caucana",
+      "durationSec": 25,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "akxHHLkfVh0",
+      "title": "Poecilia caucana",
+      "durationSec": 28,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá mini"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá bảy màu",
+        "thức ăn cá molly"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy lọc bể cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

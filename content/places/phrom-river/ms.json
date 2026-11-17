@@ -1,8 +1,13 @@
 {
   "slug": "phrom-river",
-  "name": "Phrom",
+  "name": "Sungai Phrom",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-17T00:10:12.886Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

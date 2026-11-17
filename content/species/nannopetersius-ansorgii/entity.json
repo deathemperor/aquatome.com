@@ -1,0 +1,105 @@
+{
+  "id": "nannopetersius-ansorgii",
+  "scientificName": "Nannopetersius ansorgii",
+  "order": "Characiformes",
+  "family": "Alestidae",
+  "genus": "Nannopetersius",
+  "group": "tetras",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "lac-mai-ndombe"
+  ],
+  "dataCard": {
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 6,
+          "max": 6
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/phenacogrammus-cf-ansorgei/",
+      "html": "<p>Phenacogrammus cf. ansorgei grows up to 8 cm. Available size: 5–7 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/phenacogrammus-cf-ansorgei/",
+      "html": "<p>This fish comes from Zaire and was caught in Lac Mai Ndombe. In the past this lake was called Lac Leopold II.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/phenacogrammus-cf-ansorgei/",
+      "html": "<p>Lac Mai Ndombe is a blackwater lake.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/phenacogrammus-cf-ansorgei/",
+      "html": "<p>All fish from this blackwater lake should be kept at a pH of about 6.0.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/phenacogrammus-cf-ansorgei/",
+      "html": "<p>Attempts will be made to breed them, with the aim of offering the first German-bred fish in the near future.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/ae60964e978158bb.webp",
+      "thumb": "https://media.aquatome.com/glaser/ae60964e978158bb-480.webp",
+      "width": 717,
+      "height": 504,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/phenacogrammus-cf-ansorgei/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120 lít",
+        "bể cá 100cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm sục khí"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra",
+        "thức ăn cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

@@ -444,3 +444,17 @@ test('last item cost refuses admission without calls or content writes', async (
     expect(calls).toBe(0)
   })
 })
+
+// Frozen food's research wrote "This applies equally to Vietnam's tropical climate" onto a Singapore shop's thaw time, and
+// guides' research wrote "relevant to Vietnam's hot season" onto other countries' pages, all filed under the "vietnam"
+// section. A figure keeps its page's place; the section itself stays as it was (the chief of staff, 17 Nov 2026).
+test('a guide\'s research keeps a figure to its page\'s place and adds Vietnam nowhere the page doesn\'t; the vietnam section stays', async () => {
+  const root = await site()
+  let asked = ''
+  const r = await makeTopic(root, { research: async ({ prompt }) => { asked = prompt; return { ...facts, found: false } as never }, llm: async () => { throw new Error('nothing is written') } }, { topic: 'Cá bỏ ăn', kind: 'care' })
+  expect(r).toMatchObject({ skipped: 'Cá bỏ ăn: nothing reliable found' })
+  expect(asked).toContain('A figure keeps its page\'s place: a figure a page gives for one country, city or climate (room temperatures in Singapore, a pond\'s in Florida) names that place in the fact, as the page does.')
+  expect(asked).toContain('Never add that a fact applies to Vietnam, or to anywhere wider than the page names')
+  expect(asked).toContain('a fact from a page outside Vietnam says Vietnam only where the page itself does')
+  expect(asked).toContain('vietnam (anything specific to Vietnam: tropical climate and hot season, tap water, power cuts, products or names used there)')
+})

@@ -3,6 +3,12 @@
   "name": "Hue",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T00:02:22.631Z",
+    "why": "Malay atlases in Malaysia usually write the city as \"Hue\" (without the Vietnamese diacritic), but the place here is a region (a province), so the name doesn't carry the Malay kind word \"Wilayah\" or \"Wilayah Thua Thien-Hue\". Using \"Hue\" alone for a region is incomplete."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

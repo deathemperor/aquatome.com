@@ -146,6 +146,13 @@
           "min": 17,
           "max": 24
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 21,
+          "max": 23
+        }
       }
     ],
     "ph": [
@@ -154,6 +161,13 @@
         "value": {
           "min": 5,
           "max": 7
+        }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 5,
+          "max": 5.7
         }
       }
     ],
@@ -170,6 +184,10 @@
       {
         "source": "seriouslyfish",
         "value": 3.5
+      },
+      {
+        "source": "glaser",
+        "value": 4
       }
     ],
     "tankCm": [
@@ -193,6 +211,12 @@
       "html": "<p>Enteromius candens is a small African barb from the Congo basin in northern and central DR Congo, mainly between Lisala and Kisangani. It lives in slow-moving, shady rainforest streams and swamps with soft, acidic, brown-stained water. Rare in the trade and sporadically collected, it can be told from the better-known E. hulstaerti, which has a bluer body, larger dark markings and yellow fins in males. Its shy nature suits it to a tank of similarly small, peaceful species.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_candens_en/",
+      "html": "<p>Three very similar species of dwarfish barbs occur in the central Congo basin. All of them become only 3-4 cm long. Additional forms are already known, but not researched scientifically yet. The three described species are B. candens, B. hulstaerti, and B. papilio.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/enteromius-candens",
@@ -203,6 +227,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/enteromius-candens",
       "html": "<p>Inhabits typical slow-moving, shallow, shady rainforest streams and swamps with dense marginal vegetation. The water is stained brown due to the release of tannins and other chemicals released by decomposing plant matter and the substrate scattered with fallen leaves, twigs and branches. Such environments characteristically contain very soft (negligible hardness), acidic, cool water and are often dimly-lit due to the rainforest canopy above.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_candens_en/",
+      "html": "<p>They live in shadowy brooks that have acidic (pH 5.0 – 5.7) and cool (21-23°C) water.</p>"
     },
     {
       "key": "aquariumSize",
@@ -241,6 +271,12 @@
       "html": "<p>Males are more brightly coloured than females possessing dark stripe-like markings in the dorsal, ventral and anal fins and additional red pigmentation in the ventrals and anal. Females tend to be slightly thicker-bodied, especially when in breeding condition, and have almost clear fins.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_candens_en/",
+      "html": "<p>As in all members of the group, males may be recognized by the coloured dorsal fin, which is hyaline in females.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/enteromius-candens",
@@ -251,6 +287,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/enteromius-candens",
       "html": "<p>This species is rare in the trade due to scarcity of wild collections in the DRC and the fact it is not being bred on a commercial basis. Collections from its native waters remain sporadic and it tends to command a relatively high price when available.</p><p>Two closely-related species are also found in the Congo basin and infrequently seen in the trade. 'B.' hulstaerti hails from the great area of equatorial rainforest situated south and east of the main river channel and is the best known of the group in the hobby.</p><p>It can be distinguished from 'B.' candens by its overall bluer body colouration, larger dark markings on the body and yellow dorsal, ventral and anal fins in males. 'B.' papillo is known only from its type locality close to the eastern town of Kindu between the Lualaba and Lomami rivers. It has an elongated central body marking and males possess black dorsal, ventral and anal fins.</p><p>The genus Barbus is in something of a confused state classification-wise. While there exist almost 340 putative species the vast majority of them do not appear to be closely-related to the genus Barbus sensu stricto.</p><p>Berrebi et al. (1996) proposed that only the European, Southwest Asian and North African representatives should be included in Barbus (around 20 species) and that 'all species of Barbus sensu lato which cannot be placed in a proper genus or allocated to an already existing genus be referred to as 'Barbus'' pending further study. This includes all sub-Saharan species.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_candens_en/",
+      "html": "<p>Barbus candens is the largest of the three, becoming about 4 cm long. It is a very beautiful and peaceful species that fits perfectly for nano tanks.</p><p>Lexicon: Barbus: Latin, means “the bearded one”, referring to the barbels. candens: Latin, means “shining, glittering, white gleaming”; hulstaerti: dedication name; papilio: Latin, means “Butterfly”.</p>"
     }
   ],
   "photos": [
@@ -324,5 +366,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-07"
+  "updatedAt": "2026-11-17"
 }

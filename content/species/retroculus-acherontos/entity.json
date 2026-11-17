@@ -17,10 +17,11 @@
       ],
       "regions": [
         "Tocantins",
-        "Rio das Almas"
+        "Rio Tocantins"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -29,16 +30,22 @@
           "countries": [
             "BR"
           ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from affluents within the upper rio Tocantins basin draining into the enormous Serra da Mesa hydroelectric reservoir in Goiás state, Brazil.",
+          "countries": [],
           "regions": [
             "Tocantins"
           ]
         },
         {
-          "source": "seriouslyfish",
-          "quote": "Type locality is 'Brazil, Goiás, Rio Tocantins basin, Rio das Almas, tributary of left margin of Rio Maranhão, 14˚37′51.2″S, 49˚1′56.6″W'.",
+          "source": "glaser",
+          "quote": "Rio Tocantins.",
           "countries": [],
           "regions": [
-            "Rio das Almas"
+            "Rio Tocantins"
           ]
         }
       ]

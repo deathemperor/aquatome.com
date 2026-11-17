@@ -8,7 +8,8 @@
   "places": [
     "south-america",
     "brazil",
-    "araguaia"
+    "araguaia",
+    "rio-araguaia"
   ],
   "range": {
     "native": {
@@ -267,6 +268,10 @@
       {
         "source": "seriouslyfish",
         "value": 3.5
+      },
+      {
+        "source": "glaser",
+        "value": 8
       }
     ],
     "difficulty": [
@@ -284,10 +289,22 @@
       "html": "<p>Laetacara araguaiae is a small cichlid from the rio Araguaia basin in central Brazil. Known in the hobby as L. sp. 'Buckelkopf' before it was described, it grows to around 35 mm SL and is a biparental substrate-spawner. Some populations differ from one another in colour pattern, and 7-8 dorsal-fin rays separate it from all congeners.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/laetacara_araguaiae_en/",
+      "html": "<p>Laetacara sp. \"Buckelkopf\" has been known in the hobby for many years. The somewhat unusual common name (the German word \"Buckelkopf\" means \"humphead\") derives from a feature developed by some very old males, but this happens rather seldom. It is a typical dwarf cichlid: males grow to a length of about 8 cm, females to about 6 cm. These typical open brooders with biparental care are easy to keep and breed.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-araguaiae",
       "html": "<p>Known from the rio Araguaia basin in central Brazil. Aquarium literature also gives the rios Tapajós and Xingu, but FishBase and Ota et al. (2018) list only the Araguaia basin. It has also been found in the upper rio Paraná basin, where Ota et al. (2018) treat it as introduced and link it to the aquarium trade. Some populations differ from one another in colour pattern.</p><p>Type locality is 'Buriti palm near rio Verde, 32 kilometers north of São Miguel do Araguaia, rio Araguaia basin, Estado de Goiás, Brazil'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/laetacara_araguaiae_en/",
+      "html": "<p>The species has now been formally described by F. P. Ortoni and W. J. E. M. Costa as Laetacara araguaiae. According to the authors the species comes from the Rio Verde in the Rio Araguaia drainage. However, aquarium literature gives a much wider distribution, namely the southeastern tributaries of the Amazon river from the Tapajos to the mouth of the Amazon, and also the Xingu river.</p>"
     },
     {
       "key": "waterConditions",
@@ -296,16 +313,34 @@
       "html": "<ul><li>Temperature: 24–26°C</li><li>pH: 6.0–7.0</li></ul>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/laetacara_araguaiae_en/",
+      "html": "<p>Males grow to about 8 cm, females to about 6 cm. Some very old males develop a hump on the head, but this happens rather seldom.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-araguaiae",
       "html": "<p>Biparental substrate-spawner.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/laetacara_araguaiae_en/",
+      "html": "<p>Open brooders with biparental care; easy to breed.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-araguaiae",
       "html": "<p>This species was known as L. sp. 'Buckelkopf' in the aquarium hobby prior to publication of its official description.</p><p>The genus Laetacara currently contains seven valid species and L. araguaiae can be distinguished from all congeners by possessing 7-8 dorsal-fin rays (vs. 9–10 in L. dorsigera, L. fulvipinnis and L. thayeri, 8–9 in L. curviceps and L. flamannellus, and 9–11 in L. flavilabris).</p><p>It further differs from L. dorsigera by possessing a narrow ectopterygoid (vs. wide), lesser head depth (80.0–88.7 % mm HL vs. 90.2–96.3 % mm HL), a shorter snout (snout length 26.7–32.2 % mm HL vs 33.0–37.9 % mm HL) and more scales in the longitudinal series (23–25 vs. 21–22).</p><p>It can be told apart from L. curviceps, L. dorsigera and L. flamannellus by lacking a dark spot on the dorsal-fin base (vs. possessing), from L. thayeri by possessing cycloid scales on the sides of the head (vs. ctenoid scales) and presence of a dark spot at the caudal-fin base (vs. absence), from L. flavilabris by having fewer total vertebrae (24 vs. 26) and fewer scales in the upper lateral line (12–14 vs. 15–18), and from L. fulvipinnis by possessing fewer scales in the upper lateral line (12–14 vs. 15–17), fewer scales in the lower lateral line (6–8 vs. 8–9) and lack of a dark dot at the edge of each scale on the midlateral portion of the flank (vs. presence).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/laetacara_araguaiae_en/",
+      "html": "<p>This is the second Laetacara species that had to be named provisionally by aquarists; Laetacara sp. \"Orangefin\" was already described in 2007 by W. Staeck and I. Schindler as L. fulvipinnis. Interestingly, the authors apparently intended to describe a further species of Laetacara, and by mistake the species is mentioned twice under the name L. minuatacara (pp. 45 and 46) in the paper. However, this name remains a nomen nudum without any validity, but it clearly shows that more new species can be expected in this interesting genus.</p><p>Etymology: Laetacara: from Latin \"laetus\" = cheerful and the indigenous name \"acara\" for cichlid, referring to the pattern on the snout which suggests that the fish is smiling. araguaiae: from the river Araguaia. fulvipinnis: with orange fins.</p>"
     },
     {
       "key": "references",
@@ -320,18 +355,43 @@
       "thumb": "https://media.aquatome.com/inaturalist/486871931-480.webp",
       "width": 1024,
       "height": 683,
-      "licence": "CC BY",
-      "author": "Douglas Lopes",
-      "sourceUrl": "https://www.inaturalist.org/photos/486871931",
-      "caption": "Cá Laetacara araguaiae chụp nghiêng trên nền đen, thân vàng xám có đốm đen",
       "large": {
         "url": "https://media.aquatome.com/inaturalist/486871931-large.webp",
         "width": 1800,
         "height": 1200
-      }
+      },
+      "licence": "CC BY",
+      "author": "Douglas Lopes",
+      "sourceUrl": "https://www.inaturalist.org/photos/486871931",
+      "caption": "Cá Laetacara araguaiae chụp nghiêng trên nền đen, thân vàng xám có đốm đen"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "Dh5sLsw4ZxQ",
+      "title": "Laetacara araguaiae",
+      "durationSec": 67,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "zqZfEput7DA",
+      "title": "Smiling Acara Cichlid  Laetacara araguaiae | Species Spotlight",
+      "durationSec": 109,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "PW8pPGob0vM",
+      "title": "Laetacara araguaiae",
+      "durationSec": 56,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "YeZS-1Wyvv4",
+      "title": "5-6CM Cichlid - Laetacara Araguaiae",
+      "durationSec": 10,
+      "lang": "tr"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -362,5 +422,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-17"
 }

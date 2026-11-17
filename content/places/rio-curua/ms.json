@@ -1,8 +1,13 @@
 {
   "slug": "rio-curua",
-  "name": "Curuá",
+  "name": "Sungai Curuá",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-17T00:11:36.202Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

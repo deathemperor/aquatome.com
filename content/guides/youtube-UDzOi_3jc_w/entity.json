@@ -62,7 +62,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể đã đổ đầy nước đặt trên kệ gỗ để kiểm tra rò rỉ.",
-            "sharpness": 681.3
+            "sharpness": 681.3,
+            "person": false
           },
           {
             "t": 90,
@@ -70,28 +71,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Kệ gỗ đứng vững dưới bể đầy nước, chưa thấy dấu hiệu võng.",
-            "sharpness": 1226.4
-          }
-        ]
-      },
-      {
-        "heading": "Đắp độ cao phía sau bằng sỏi thô",
-        "moments": [
-          {
-            "t": 150,
-            "url": "https://media.aquatome.com/video/UDzOi_3jc_w/at150-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Một ít sỏi thô được đổ vào xô để rửa.",
-            "sharpness": 934.7
-          },
-          {
-            "t": 240,
-            "url": "https://media.aquatome.com/video/UDzOi_3jc_w/at240-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Sỏi thô được đắp thành đống phía sau trong bể.",
-            "sharpness": 1574.8
+            "sharpness": 1226.4,
+            "person": false
           }
         ]
       },
@@ -104,7 +85,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lớp phân nền mỏng được trải trong bể, xen giữa các tảng đá.",
-            "sharpness": 1508.2
+            "sharpness": 1508.2,
+            "person": false
           },
           {
             "t": 640,
@@ -112,7 +94,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lớp cát trang trí phủ lên nền bể, có đặt vài tảng đá.",
-            "sharpness": 1512.9
+            "sharpness": 1512.9,
+            "person": false
           }
         ]
       },
@@ -125,7 +108,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đá và lũa được bày hết ra sàn để chọn trước khi đặt.",
-            "sharpness": 361.2
+            "sharpness": 361.2,
+            "person": false
           },
           {
             "t": 650,
@@ -133,7 +117,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Những viên đá lớn đặt trên lớp cát nền, chừa khe hở giữa các viên.",
-            "sharpness": 776.2
+            "sharpness": 776.2,
+            "person": false
           }
         ]
       },
@@ -146,15 +131,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các nhánh lũa manzanita xoắn vặn bắt chéo nhau trên các tảng đá.",
-            "sharpness": 255.2
-          },
-          {
-            "t": 830,
-            "url": "https://media.aquatome.com/video/UDzOi_3jc_w/at830-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Toàn cảnh bể với lũa manzanita vắt ngang qua các cụm đá.",
-            "sharpness": 1928.9
+            "sharpness": 255.2,
+            "person": false
           }
         ]
       },
@@ -162,41 +140,13 @@
         "heading": "Thêm đá nhỏ cho có tỷ lệ và chiều sâu",
         "moments": [
           {
-            "t": 1020,
-            "url": "https://media.aquatome.com/video/UDzOi_3jc_w/at1020-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đá nhỏ đặt lệch bên cạnh đá lớn giúp bố cục có tỷ lệ.",
-            "sharpness": 1969.6
-          },
-          {
             "t": 1040,
             "url": "https://media.aquatome.com/video/UDzOi_3jc_w/at1040-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Vài viên đá nhỏ rải cạnh cụm đá lớn trên nền cát.",
-            "sharpness": 1596.9
-          }
-        ]
-      },
-      {
-        "heading": "Rải sỏi chi tiết cho giống lòng suối",
-        "moments": [
-          {
-            "t": 1170,
-            "url": "https://media.aquatome.com/video/UDzOi_3jc_w/at1170-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đống sỏi nhỏ màu xám trải trên mặt bàn gỗ, chuẩn bị rải.",
-            "sharpness": 1225
-          },
-          {
-            "t": 1200,
-            "url": "https://media.aquatome.com/video/UDzOi_3jc_w/at1200-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bốc một nắm sỏi thả xuống cạnh khối đá trong hồ.",
-            "sharpness": 2388.7
+            "sharpness": 1596.9,
+            "person": false
           }
         ]
       }

@@ -1,8 +1,13 @@
 {
   "slug": "ndian-river",
-  "name": "Ndian",
+  "name": "Sungai Ndian",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-17T00:08:16.982Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

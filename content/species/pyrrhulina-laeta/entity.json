@@ -1,0 +1,116 @@
+{
+  "id": "pyrrhulina-laeta",
+  "scientificName": "Pyrrhulina laeta",
+  "order": "Characiformes",
+  "family": "Lebiasinidae",
+  "genus": "Pyrrhulina",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina-laeta/",
+      "html": "<p>Including the caudal fin the males can reach 12 cm in length. Males are generally larger than the females. A characteristic pattern for the species is the black line that extends to the level of the dorsal fin.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina-laeta/",
+      "html": "<p>The species originates from the upper and central Amazon river basin, Brazil.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina-laeta/",
+      "html": "<p>Water temperature should be between 24-28°C. pH and hardness are of little importance.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina-laeta/",
+      "html": "<p>They feed readily on live, frozen and dry fish food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina-laeta/",
+      "html": "<p>In the aquarium Pyrrhulina laeta is an ideal tankmate for community tanks. It is very peaceful. However, tankmates must not be too small, otherwise they are taken as food. Only in breeding condition males defend their territory and might become a bit quarrelsome. Plants are neglected.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina-laeta/",
+      "html": "<p>Like all its congeners P. laeta is a brood-caring species. The eggs (up to 500) are deposited on the top of a large leaf. The male defends and cares for the eggs until they hatch.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/35cea7b756550409.webp",
+      "thumb": "https://media.aquatome.com/glaser/35cea7b756550409-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina-laeta/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "Srb-OcnIV4s",
+      "title": "Pyrrhulina laeta 002",
+      "durationSec": 100,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "_hiWCHeeLI4",
+      "title": "Pyrrhulina Laeta 001",
+      "durationSec": 63,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "edy4QX212ow",
+      "title": "Tropical Freshwater Aquarium - Guiana Shield Habitat - South America",
+      "durationSec": 4588,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bể cá cộng đồng"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

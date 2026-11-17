@@ -3,6 +3,12 @@
   "name": "Kaladan",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T00:04:28.953Z",
+    "why": "Kaladan is a river (Sungai Kaladan) in Mizoram/Myanmar, and the record calls it a region; the bare name omits the Malay kind word \"Sungai\", though the spelling is kept."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

@@ -1,0 +1,21 @@
+{
+  "slug": "ball-headed-goby",
+  "name": "Ball-headed Goby",
+  "altNames": [
+    "Drombus Goby",
+    "Globe-headed Goby",
+    "Goby Drombus"
+  ],
+  "sections": {
+    "beforeYouBuy:glaser": "<p>Goby yang cantik ini hanya sangat jarang tersedia. Ikan ini pernah sekali lagi diimpor dari India. Spesies ini hanya mencapai panjang 5–7 cm.</p>",
+    "waterConditions:glaser": "<p>Penambahan sedikit garam laut (satu sendok per 10 liter air) cukup bermanfaat bagi ikan ini.</p>",
+    "notes:glaser": "<p>Identifikasi spesies ini masih bersifat sementara karena situasi taksonomi/identifikasi goby yang rumit; ikan ini mungkin saja termasuk spesies A. moloanus.</p>"
+  },
+  "quality": {
+    "score": 0.75,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.75
+    }
+  }
+}

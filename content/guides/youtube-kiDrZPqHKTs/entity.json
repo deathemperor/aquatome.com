@@ -56,34 +56,6 @@
     ],
     "figures": [
       {
-        "heading": "Lọc tinh từ nửa chai nước làm thế nào",
-        "moments": [
-          {
-            "t": 110,
-            "url": "https://media.aquatome.com/video/kiDrZPqHKTs/at110-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bộ lọc nửa chai nhồi bông gắn vào máy bơm, thả trong bể.",
-            "sharpness": 1439.8,
-            "person": false
-          }
-        ]
-      },
-      {
-        "heading": "Khi nào nên chạy lọc tinh và chạy bao lâu",
-        "moments": [
-          {
-            "t": 130,
-            "url": "https://media.aquatome.com/video/kiDrZPqHKTs/at130-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bộ lọc tinh gắn bông lọc đang chạy trong bể, nước còn vẩn cặn.",
-            "sharpness": 1470.8,
-            "person": false
-          }
-        ]
-      },
-      {
         "heading": "Bộ hút váng mặt nước làm thế nào",
         "moments": [
           {
@@ -93,15 +65,6 @@
             "height": 675,
             "caption": "Cắt các khấc răng cưa ở miệng chai nhựa.",
             "sharpness": 37.4
-          },
-          {
-            "t": 230,
-            "url": "https://media.aquatome.com/video/kiDrZPqHKTs/at230-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chai nhồi bông lọc gắn vào máy bơm trong hồ làm bộ hút váng.",
-            "sharpness": 270.7,
-            "person": false
           }
         ]
       },
@@ -115,15 +78,6 @@
             "height": 675,
             "caption": "Cận cảnh phần đầu chai có răng cưa, nước chảy vào bên trong.",
             "sharpness": 66.7
-          },
-          {
-            "t": 270,
-            "url": "https://media.aquatome.com/video/kiDrZPqHKTs/at270-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bộ hút váng làm từ chai nhựa, răng cưa nằm sát mặt nước.",
-            "sharpness": 285.8,
-            "person": false
           }
         ]
       },
@@ -163,7 +117,58 @@
             "height": 675,
             "caption": "Đống hạt vật liệu lọc K1 màu trắng đặt trên mặt bàn.",
             "sharpness": 50.8
+          }
+        ]
+      },
+      {
+        "heading": "Lọc tinh làm trong nước (water polisher)",
+        "moments": [
+          {
+            "t": 110,
+            "url": "https://media.aquatome.com/video/kiDrZPqHKTs/at110-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bộ lọc nửa chai nhồi bông gắn vào máy bơm, thả trong bể.",
+            "sharpness": 1439.8,
+            "person": false
           },
+          {
+            "t": 130,
+            "url": "https://media.aquatome.com/video/kiDrZPqHKTs/at130-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bộ lọc tinh gắn bông lọc đang chạy trong bể, nước còn vẩn cặn.",
+            "sharpness": 1470.8,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Bộ hút váng mặt nước (surface skimmer)",
+        "moments": [
+          {
+            "t": 230,
+            "url": "https://media.aquatome.com/video/kiDrZPqHKTs/at230-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chai nhồi bông lọc gắn vào máy bơm trong hồ làm bộ hút váng.",
+            "sharpness": 270.7,
+            "person": false
+          },
+          {
+            "t": 270,
+            "url": "https://media.aquatome.com/video/kiDrZPqHKTs/at270-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bộ hút váng làm từ chai nhựa, răng cưa nằm sát mặt nước.",
+            "sharpness": 285.8,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Vì sao không nên làm lọc chai chạy K1",
+        "moments": [
           {
             "t": 510,
             "url": "https://media.aquatome.com/video/kiDrZPqHKTs/at510-hd.webp",

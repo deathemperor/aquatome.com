@@ -2162,10 +2162,12 @@
     "reason": "[notes] \"Dạng compact không phải lúc nào cũng bò sát nền\" is framed as a keeper's experience, but the video never says some keepers grow it differently. It only says it grows vertically. It also contradicts the page without saying plainly that the video differs.; [notes] \"làm nền sau, đứng sau các cây thấp ở phía trước\" repeats the idea of use in the background/middle. \"làm nền sau\" is also awkward Vietnamese (should be \"hậu cảnh\"). The page already covers midground placement."
   },
   "hfh5PudNVCA": {
-    "at": "2026-11-07",
+    "at": "2026-11-16",
     "title": "Discover the Enigmatic Super Schwartzi Corydoras CW028",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "HLbu5fAWi1g": {
     "at": "2026-11-07",
@@ -2184,10 +2186,12 @@
     "reason": "AI slop commentary"
   },
   "hNJxBJ-qr4w": {
-    "at": "2026-11-07",
+    "at": "2026-11-16",
     "title": "Tigershrimp in the Habitat",
     "channel": "CHRIS LUKHAUP",
-    "kind": "profile"
+    "kind": "other",
+    "done": "skipped",
+    "reason": "expedition: Trip to tiger shrimp habitats in Guangdong, China, collecting with nets"
   },
   "Hq2NUAjTcSs": {
     "at": "2026-11-07",
@@ -2198,10 +2202,15 @@
     "reason": "aquarium scene in Italy"
   },
   "hqup8d0KH8M": {
-    "at": "2026-11-07",
+    "at": "2026-11-16",
     "title": "Microdevario kubotai - Emerald Rasbora Care Guide",
     "channel": "CHRIS LUKHAUP",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Microdevario kubotai",
+    "page": "species/microdevario-kubotai",
+    "done": "low",
+    "score": 0.7,
+    "reason": "waterConditions: \"pH từ 6,0 đến 7,3, có lúc lên 7,5\" differs from the page's pH 6–7, but the text never says it differs. The brief asked for the difference to be stated plainly.; waterConditions: \"cá vẫn ổn\" is not said in the video. The speaker only says the temperature rises and drops a little."
   },
   "hWVWaZvniyo": {
     "at": "2026-11-07",

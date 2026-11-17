@@ -1,0 +1,72 @@
+{
+  "id": "oreoglanis-siamensis",
+  "native": {
+    "input": "aca6fffb3eacda4f",
+    "at": "2026-11-17T00:14:47.070Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "In the northern part of Thailand they can be found in the mountain area of Mae Nam Ping and Doi Chiang Dow.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "glaser",
+        "quote": "They live in the Mekong area and the Chao Phraya basins.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "glaser",
+        "quote": "They live in the Mekong area and the Chao Phraya basins.",
+        "ok": true
+      },
+      {
+        "name": "Mae Nam Ping",
+        "source": "glaser",
+        "quote": "In the northern part of Thailand they can be found in the mountain area of Mae Nam Ping and Doi Chiang Dow.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Oreoglanis siamensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2341198,
+    "datasets": [
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-17T00:14:47.070Z"
+  }
+}

@@ -5,7 +5,7 @@
   "sections": {
     "quickFacts:scotcat": "<ul><li>Danh sách Đỏ IUCN: Ít quan tâm (cần cập nhật)</li></ul>",
     "distribution:scotcat": "<p>Châu Phi: dòng chính hạ lưu sông Congo và các nhánh như Inkisi, Lufu. Loài này còn gặp ở Aruwimi, trung lưu Congo, thác Wagenia và Lualaba, thuộc Cộng hòa Dân chủ Congo. Nơi thu mẫu chuẩn là sông Lufu, cách chỗ hợp lưu với sông Zaire khoảng 2 km, gần đập thủy điện Inga, 5º31,5'S, 13º37,5'E.</p>",
-    "habitat:scotcat": "<p>Amphilius zairensis là cá sống ở tầng đáy. Chúng có ở dòng chính lẫn các nhánh sông dốc, nước chảy xiết (Skelton 1986), và đặc biệt hay gặp ở ghềnh.</p><p>Con cá trong ảnh do người góp ảnh bắt ở thác Wagenia, Kisangani, tỉnh Orientale, CHDC Congo.</p>",
+    "habitat:scotcat": "<p>Amphilius zairensis là cá sống ở tầng đáy. Chúng có ở dòng chính lẫn các nhánh sông dốc, nước chảy xiết (Skelton 1986), và đặc biệt hay gặp ở ghềnh.</p>",
     "maintenance:scotcat": "<p>Loài này nuôi được trong bể nền sỏi hạt nhỏ hoặc nền cát. Bể nên trồng nhiều cây và có dòng chảy nhẹ cho giống nơi chúng sống ngoài tự nhiên. Xếp thêm đá và tạo hang cho cá. Các loài trong chi này thích nước mát hơn.</p>",
     "diet:scotcat": "<p>Lăng quăng, trùn chỉ, Cyclops, bo bo, giun grindal, thức ăn có rau, thức ăn viên và thức ăn dạng mảnh.</p>",
     "notes:scotcat": "<p>Nguồn gốc tên gọi: tên loài zairensis lấy từ sông Zaire, châu Phi.</p>",
@@ -17,11 +17,5 @@
     "bySource": {
       "scotcat": 0.8
     }
-  },
-  "held": {
-    "checks": [
-      "source"
-    ],
-    "at": "2026-11-17"
   }
 }

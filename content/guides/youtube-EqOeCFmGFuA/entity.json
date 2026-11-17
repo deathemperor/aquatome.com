@@ -78,19 +78,6 @@
     ],
     "figures": [
       {
-        "heading": "Làm trong nước đục và nước vàng sau khi set bể",
-        "moments": [
-          {
-            "t": 30,
-            "url": "https://media.aquatome.com/video/EqOeCFmGFuA/at30-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể vừa set với lũa, đá và cây, nước hơi ngả màu trà.",
-            "sharpness": 1523.6
-          }
-        ]
-      },
-      {
         "heading": "Gắn cây trên cạn lên thành bể",
         "moments": [
           {
@@ -99,7 +86,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể có cây kiếm lá xanh, cành lũa và cây vươn lên gần mặt nước.",
-            "sharpness": 1714.8
+            "sharpness": 1714.8,
+            "person": false
           }
         ],
         "photo": {
