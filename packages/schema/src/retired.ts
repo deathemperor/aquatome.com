@@ -58,10 +58,12 @@ export const RETIRED_GUIDES: Readonly<Record<string, RetiredTo>> = {
   'glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-huge-acanthicus-adonis-arrived-en': fish('acanthicus-adonis'),
   'glaser-en-29-lungfishes-lungfishes-from-the-congo': fish('protopterus-dolloi'),
   'glaser-en-10-catfishes-10a-catfishes-corydoras-co-show-corydoras-arrived-en': fish('corydoras-narcissus'),
-  // Two kits a foreign seller's products make up, which no cut leaves a page of (the chief of staff, 17 Nov 2026): the
-  // shopping list to the guides list, the iron fertiliser to the guide on choosing a fertiliser.
+  // Three pages a foreign seller's products or medicines make up, which no cut leaves a page of (the chief of staff, 17 Nov
+  // 2026): the shopping list to the guides list, the iron fertiliser to the guide on choosing a fertiliser, and the
+  // quarantine video built on three medicines sold abroad, with their doses, to our general quarantine guide.
   'aquariumcoop-blogs-aquarium-aquarium-shopping-list': 'guides',
   'aquariumcoop-blogs-aquarium-iron-fertilizer': { kind: 'guides', id: 'aquariumcoop-blogs-aquarium-which-aquatic-fertilizer-is-right-for-you' },
+  'youtube-LrRhfOYfXns': { kind: 'guides', id: 'aquatome-cach-ly-ca-moi-mua-be-cach-ly-va-quy-trinh' },
 }
 
 /** 2hraquarist's gallery posts of other people's tanks: every one, those written later too, off to the guides list. */

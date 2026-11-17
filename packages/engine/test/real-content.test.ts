@@ -676,7 +676,7 @@ test('every guide taken off for good is one the content has, and forwards to a p
     expect(existsSync(join(content, 'guides', id, 'vi.json')), id).toBe(true)
     if (to !== 'guides') expect(existsSync(join(content, to.kind, to.id, 'vi.json')), `${id} → ${to.kind}/${to.id}`).toBe(true)
   }
-  expect(Object.keys(RETIRED_GUIDES)).toHaveLength(33)
+  expect(Object.keys(RETIRED_GUIDES)).toHaveLength(34)
   expect(readdirSync(join(content, 'guides')).filter(id => GALLERY_POST.test(id)).length).toBeGreaterThanOrEqual(66)
 })
 
@@ -922,29 +922,41 @@ test('the fire-bellied toad guide is held by hand in every language it has', () 
   for (const f of langs) expect((JSON.parse(readFileSync(join(dir, f), 'utf8')) as Translation).held, f).toEqual(hold)
 })
 
-// The chief of staff, 17 Nov 2026: the quarantine guide built on three medicines sold abroad (their doses in its body,
-// summary and questions) comes off the site today in every language it has, held by hand until a general quarantine
-// guide takes its place.
-test('the quarantine guide built on medicines sold abroad is held by hand in every language it has', () => {
-  const id = 'youtube-LrRhfOYfXns'
-  const byHand = JSON.parse(readFileSync(fileURLToPath(new URL('../../../engine-state/held-by-hand.json', import.meta.url)), 'utf8')) as Record<string, { checks: string[]; at: string }>
-  const hold = { checks: ['dose', 'product'], at: '2026-11-17' }
-  expect(byHand[`guides/${id}`]).toMatchObject(hold)
-  const dir = fileURLToPath(new URL(`../../../content/guides/${id}`, import.meta.url))
-  const langs = readdirSync(dir).filter(f => f !== 'entity.json' && f.endsWith('.json'))
-  expect(langs).toContain('vi.json')
-  for (const f of langs) expect((JSON.parse(readFileSync(join(dir, f), 'utf8')) as Translation).held, f).toEqual(hold)
+// The chief of staff, 17 Nov 2026: three pages a foreign seller's products or medicines make up go off for good. The
+// shopping list goes to the guides list, the iron fertiliser to the guide on choosing a fertiliser, and the quarantine video
+// built on three medicines sold abroad to our general quarantine guide. Each target is a page and stays.
+test('the two kits and the quarantine video are off for good, each to the page it names', () => {
+  expect(retiredTo('aquariumcoop-blogs-aquarium-aquarium-shopping-list')).toBe('guides')
+  const want = {
+    'aquariumcoop-blogs-aquarium-iron-fertilizer': 'aquariumcoop-blogs-aquarium-which-aquatic-fertilizer-is-right-for-you',
+    'youtube-LrRhfOYfXns': 'aquatome-cach-ly-ca-moi-mua-be-cach-ly-va-quy-trinh',
+  }
+  for (const [id, target] of Object.entries(want)) {
+    expect(retiredTo(id), id).toEqual({ kind: 'guides', id: target })
+    expect(retiredTo(target), target).toBeUndefined()
+    expect(existsSync(fileURLToPath(new URL(`../../../content/guides/${target}/vi.json`, import.meta.url))), target).toBe(true)
+  }
 })
 
-// The chief of staff, 17 Nov 2026: two kits a foreign seller's products make up go off for good, the shopping list to the
-// guides list and the iron fertiliser to the guide on choosing a fertiliser, which is a page and stays.
-test('the two kits are off for good, one to the guides list, the iron fertiliser to the fertiliser guide', () => {
-  expect(retiredTo('aquariumcoop-blogs-aquarium-aquarium-shopping-list')).toBe('guides')
-  const to = retiredTo('aquariumcoop-blogs-aquarium-iron-fertilizer')
-  expect(to).toEqual({ kind: 'guides', id: 'aquariumcoop-blogs-aquarium-which-aquatic-fertilizer-is-right-for-you' })
-  const target = to !== 'guides' && to ? to.id : ''
-  expect(retiredTo(target)).toBeUndefined()
-  expect(existsSync(fileURLToPath(new URL(`../../../content/guides/${target}/vi.json`, import.meta.url)))).toBe(true)
+// The chief of staff, 17 Nov 2026: the quarantine video forwards to our general quarantine guide, whose Vietnamese page
+// names no medicine. Its Indonesian and Thai pages still gave the three medicines sold abroad with their doses, the
+// maker's word that they're safe, a brand to prevent with, and two more brands for parasites; and the Thai page printed
+// the writer's own source numbers ("แหล่งที่ 0") 55 times. Cut by hand, each body fixed.
+test('the general quarantine guide names no medicine sold abroad in any language, and prints no source number', () => {
+  const dir = fileURLToPath(new URL('../../../content/guides/aquatome-cach-ly-ca-moi-mua-be-cach-ly-va-quy-trinh', import.meta.url))
+  const page = (lang: string) => JSON.parse(readFileSync(join(dir, `${lang}.json`), 'utf8')) as Translation & { bodyFixed?: boolean }
+  for (const lang of ['vi', 'id', 'th', 'ms']) {
+    const t = page(lang)
+    const text = [t.body, ...(t.summary ?? []), ...(t.faq ?? []).flatMap(q => [q.q, q.a])].join('\n')
+    for (const gone of ['Maracyn', 'ParaCleanse', 'Ich-X', 'PraziPro', 'ParaGuard']) expect(text, `${lang}: ${gone}`).not.toContain(gone)
+    expect(text.match(/แหล่งที่\s*\d|sumber\s*\d|nguồn\s*\d/gi), lang).toBeNull()
+  }
+  for (const lang of ['id', 'th']) expect(page(lang).bodyFixed, lang).toBe(true)
+  expect(page('id').body).toContain('<strong>Ikan dari toko lokal atau peternak yang terpercaya:</strong> amati dan beri pakan selama beberapa hari, lalu obati hanya jika muncul gejala.</p>')
+  expect(page('id').body).toContain('Angkat karbon aktif dan matikan sterilisator UV sebelum memberi obat.')
+  expect(page('th').body).toContain('<strong>ปลาจากร้านในพื้นที่หรือผู้เพาะที่ไว้ใจได้:</strong> เฝ้าดูและให้อาหารไปสองสามวัน รักษาเมื่อมีอาการเท่านั้น</p>')
+  expect(page('th').body).toContain('ก่อนใส่ยา ให้เอาถ่านกัมมันต์ (activated carbon) ออก และปิดหลอด UV')
+  expect(page('th').body).not.toContain('ปลอดภัยกับปลาไม่มีเกล็ด')
 })
 
 // The Writing Lead's answer of 15 Nov 2026 on 60 findings in 17 held video guides (the source talking, units, prices),

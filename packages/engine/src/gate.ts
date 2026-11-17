@@ -186,13 +186,6 @@ async function headPages(root: string, files: string[]): Promise<{ pages: Map<st
 export const HELD_BY_HAND = 'engine-state/held-by-hand.json'
 export type HandHold = { checks: string[]; why: string; at: string }
 
-/**
- * A page the rewrite may take (cli.ts fit-rewrite): not a guide off the site for good (@aq/schema retired.ts), nor a page
- * held by hand, which waits for a person and would only spend a call (the chief of staff, 17 Nov 2026: the quarantine
- * guide built on three medicines sold abroad, off the site until a general one takes its place).
- */
-export const rewritable = (p: { kind: string; id: string }, byHand: Readonly<Record<string, unknown>>) => !(p.kind === 'guides' && !!retiredTo(p.id)) && !byHand[`${p.kind}/${p.id}`]
-
 /** Every held page in the working tree, by its language file. */
 async function heldNow(root: string, pages: Page[]): Promise<Map<string, Held>> {
   const out = new Map<string, Held>()
