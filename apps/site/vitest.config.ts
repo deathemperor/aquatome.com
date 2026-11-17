@@ -8,4 +8,4 @@ const scale = Math.max(1, Number(process.env.AQ_TEST_TIME_SCALE) || 1)
 // The run's scratch, one folder removed when it ends (@aq/schema/test-scratch): tests never leave theirs in the temp folder.
 testRunScratch()
 // setupFiles: which test files read the real content, when AQ_CONTENT_TRACE asks (@aq/schema's test-content-trace.ts).
-export default defineConfig({ test: { include: ['test/**/*.test.ts', 'worker/test/**/*.test.ts'], exclude: testExclude('apps/site'), setupFiles: ['../../packages/schema/src/test-content-trace.ts'], testTimeout: 30_000 * scale, hookTimeout: 10_000 * scale } })
+export default defineConfig({ test: { include: ['test/**/*.test.ts', 'worker/test/**/*.test.ts'], exclude: [...testExclude('apps/site'), ...(process.env.AQ_GLOSSARY_REAL_PROOF === '1' ? [] : ['test/glossary-generated-real.test.ts'])], setupFiles: ['../../packages/schema/src/test-content-trace.ts'], testTimeout: 30_000 * scale, hookTimeout: 10_000 * scale } })

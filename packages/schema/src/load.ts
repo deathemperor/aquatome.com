@@ -48,6 +48,8 @@ export type LoadOptions = {
   wholeBoxes?: boolean
   /** The independently reviewed glossary-kind stand-in path; never changes species/plant image switches. */
   glossaryKindImages?: boolean
+  /** Restrictive proof mode: ignore kind approvals; never supplies or overrides an approval. */
+  glossaryKindApprovals?: false
 }
 export type Localized<E> = E & { t: Translation }
 export type Content = {
@@ -490,7 +492,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
 
   const allPlaces = (await loadKind(root, 'places', PlaceSchema, lang)).filter(p => placeNamed(p.t))
   const kindImages = opts.glossaryKindImages ?? GLOSSARY_KIND_IMAGES.on
-  const kindApprovals = kindImages ? await readFile(join(root, GLOSSARY_KIND_APPROVALS), 'utf8').then(s => {
+  const kindApprovals = kindImages && opts.glossaryKindApprovals !== false ? await readFile(join(root, GLOSSARY_KIND_APPROVALS), 'utf8').then(s => {
     const v = JSON.parse(s) as { photos?: Record<string, unknown> }
     return v && v.photos && typeof v.photos === 'object' && !Array.isArray(v.photos) ? v.photos : {}
   }).catch(() => ({} as Record<string, unknown>)) : {}

@@ -1,10 +1,8 @@
-import { afterAll, beforeAll, describe, expect, test } from 'vitest'
+import { expect, test } from 'vitest'
 import { parse } from 'node-html-parser'
 import { kindAiLabel, kindLargeFallback } from '../src/lib/glossary-kind-image'
-import { LANGS, loadAll, type Content, type Photo } from '@aq/schema'
+import { LANGS, loadAll, type Photo } from '@aq/schema'
 import { fileURLToPath } from 'node:url'
-import { createHash } from 'node:crypto'
-import { slow } from '@aq/schema/test-time'
 import { appIndex } from '../src/lib/app-index'
 import { glossaryDoc, listedPaths } from '../src/lib/app-page'
 import { glossaryParts, kindCardImage, kindCredit } from '../src/lib/glossary-page'
@@ -82,52 +80,4 @@ for (const lang of LANGS) test(`${lang}: the actual card and large-view markup l
   expect(kindAiLabel(lang, real, 'card')).toBe('')
   expect(kindAiLabel(lang, real, 'large')).toBe('')
   expect(kindLargeFallback(real, 'Fixture')).toBe('')
-})
-
-// Counts/hashes only: a failure must not print the real content's personal credit names.
-// Loading two full repositories, building their indexes, and making every glossary document are separate operations.
-// Keep each bounded, instead of one timed-out comparison continuing into the next language's load.
-for (const lang of LANGS) describe(`${lang}: real-content equivalence with the glossary-only switch and no approval`, () => {
-  let before: Content | undefined, after: Content | undefined
-  let cachedIndexes: { before: ReturnType<typeof appIndex>; after: ReturnType<typeof appIndex> } | undefined
-  const snapshots = () => {
-    if (!before || !after) throw new Error('real-content snapshots unavailable')
-    return { before, after }
-  }
-  const timed = <T>(stage: string, action: () => T): T => {
-    const start = performance.now()
-    try { return action() } finally {
-      // Only controlled stage/language names and elapsed milliseconds; never content or credit strings.
-      if (process.env.CI) console.info('glossary-equivalence-timing', JSON.stringify({ lang, stage, ms: Math.round(performance.now() - start) }))
-    }
-  }
-  const indexes = () => {
-    const c = snapshots()
-    return cachedIndexes ??= { before: timed('index-before', () => appIndex(lang, c.before)), after: timed('index-after', () => appIndex(lang, c.after)) }
-  }
-  const hash = (value: unknown) => createHash('sha256').update(JSON.stringify(value)).digest('hex')
-  beforeAll(async () => {
-    const start = performance.now()
-    const root = fileURLToPath(new URL('../../../content', import.meta.url))
-    before = await loadAll({ root, lang, publicBuild: true, glossaryKindImages: false })
-    after = await loadAll({ root, lang, publicBuild: true, glossaryKindImages: true })
-    if (process.env.CI) console.info('glossary-equivalence-timing', JSON.stringify({ lang, stage: 'load-pair', ms: Math.round(performance.now() - start) }))
-  }, slow(60_000))
-  afterAll(() => { before = undefined; after = undefined; cachedIndexes = undefined })
-  test('all loaded real content is identical', () => {
-    const c = snapshots()
-    timed('content-comparison', () => expect(hash(c.after)).toBe(hash(c.before)))
-  })
-  test('the complete app index is identical', () => {
-    const index = indexes()
-    expect(hash(index.after)).toBe(hash(index.before))
-  }, slow(120_000)) // Two complete real indexes; this is an equivalence check, not a speed budget.
-  test('every glossary app page is identical', () => {
-    const c = snapshots(), index = indexes()
-    const docs = (content: Content, entries: ReturnType<typeof appIndex>) => {
-      const listed = new Set(entries.items.map(item => item.path))
-      return content.glossary.map(g => glossaryDoc(lang, content, g, listed))
-    }
-    timed('glossary-pages-comparison', () => expect(hash(docs(c.after, index.after))).toBe(hash(docs(c.before, index.before))))
-  }, slow(60_000))
 })
