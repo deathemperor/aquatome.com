@@ -761,9 +761,9 @@ const PLACE_KEPT: Record<string, { gone: string[]; said: string[] }> = {
   'aquatome-ca-bi-san-mang-gill-flukes-dau-hieu-cach-chua-va-phong': { gone: ['Ở xứ nóng, phòng không máy lạnh'], said: ['Ở Singapore, phòng không máy lạnh có thể lên 28–31 °C.'] },
   'aquatome-ca-bo-an-khong-chiu-an-nguyen-nhan-va-cach-xu-ly': {
     gone: ['gần giống miền Nam', '<li>Bể đặt trong phòng không máy lạnh', '<li>Phòng có máy lạnh lúc bật lúc tắt'],
-    said: ['Ở Singapore, bể đặt trong phòng không máy lạnh có thể vượt 32°C', 'Một cửa hàng cá ở Singapore khuyên: phòng có máy lạnh lúc bật lúc tắt thì cài sưởi ở 25–26°C'],
+    said: ['Một cửa hàng cá ở Singapore ghi: bể đặt trong phòng không máy lạnh có thể vượt 32°C', 'Một cửa hàng cá ở Singapore khuyên: phòng có máy lạnh lúc bật lúc tắt thì cài sưởi ở 25–26°C'],
   },
-  'aquatome-san-dep-planaria-va-thuy-tuc-hydra-trong-be-ca-be-tep-nhan-biet-va-cach-diet': { gone: ['Nước ở vùng nhiệt đới thường ở mức 28–32', 'ở đây cho ăn cẩn thận'], said: ['Ở Singapore, nước bể thường ở mức 28–32 °C'] },
+  'aquatome-san-dep-planaria-va-thuy-tuc-hydra-trong-be-ca-be-tep-nhan-biet-va-cach-diet': { gone: ['Nước ở vùng nhiệt đới thường ở mức 28–32', 'ở đây cho ăn cẩn thận'], said: ['Một cửa hàng cá ở Singapore ghi: trong nước nhiệt đới 28–32 °C, chất hữu cơ phân hủy rất nhanh, vì vậy cho ăn cẩn thận'] },
   'aquatome-cach-lam-trong-nuoc-be-ca-bi-duc': { gone: ['mùa nóng ở nước mình'], said: [] },
   'aquatome-nuoc-be-ca-bi-xanh-do-tao-xanh-va-cach-xu-ly': { gone: ['mùa nóng ở Việt Nam', 'nguy hiểm nhất'], said: ['nên nước ấm làm đợt thiếu oxy ban đêm càng nguy hiểm.'] },
   'aquatome-nuoi-ca-trong-binh-chau-khong-loc-khong-sui-oxy-loai-nao-song-duoc-va-cach-cham': { gone: ['không riêng Việt Nam', 'mùa hè ở mình'], said: [] },
