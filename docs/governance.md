@@ -605,8 +605,9 @@ The layers above still check the result.
     and affiliate links. One exception sits behind a switch (`IMAGE_SWITCHES.inatNonCommercial`,
     `packages/schema/src/image-policy.ts`), on from 18 Nov, on the chief of staff's yes of 17 Nov (the owner's yes, 10 Nov): iNaturalist's
     research-grade CC BY-NC and CC BY-NC-SA photos, any version, never ND, all rights reserved or none. With it on they
-    are the album step's last source, read once every open one has run dry; they rank after every open photo, pass every
-    screen and the photo check like any album photo, and their credit names the licence. They stay in albums: no page's
+    are the album step's last source, read once every open one has run dry and after every page's open sources in a run,
+    and only while fewer than 200 of them wait for the photo check, which judges them after every other photo; they rank
+    after every open photo, pass every screen and the photo check like any album photo, and their credit names the licence. They stay in albums: no page's
     head, card or fish-ID reference takes one. Their licence text is their mark (`isNonCommercial`, `licence.ts`), so with
     the switch off the site shows none and the sweep takes every one off every album and page (`dropNonCommercial`).
     Commons, GBIF, Openverse, hand seeds and the mirror keep refusing NC whatever the switch says (the mirror copies an
