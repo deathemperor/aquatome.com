@@ -392,7 +392,9 @@ class OutOfBudget extends Error {}
 /**
  * iNaturalist's photo bytes a run of the album step may download (the photos it screens, at iNaturalist's "medium" size,
  * 500 px). iNaturalist asks for under 5 GB of photos an hour and 24 GB a day (its API's recommended practices); the step
- * runs once a cycle, about 8 a day, so its runs stay under 1.6 GB a day whatever they meet.
+ * runs once a cycle, about 8 a day, so its runs stay under 1.6 GB a day whatever they meet. A run starts no download once
+ * it has reached the cap, but the six downloads of a batch start together (`screenTagged`), so a run can end up to one
+ * batch past it: six photos at 500 px, about a megabyte.
  */
 export const INAT_BYTES = 200_000_000
 /**
@@ -476,7 +478,7 @@ async function otherBreeds(root: string, id: string): Promise<{ urls: Set<string
 export async function galleries(root: string, deps: GalleryDeps, o: { sheets: number; only?: string; budget?: Partial<SourceBudget>; shard?: [number, number]; switches?: Readonly<ImageSwitches>; inatBytes?: number; ncWaiting?: number }) {
   const content = join(root, 'content')
   const report = { done: [] as string[], failed: [] as string[], stopped: '', sheets: 0, added: {} as Record<string, number>, short: [] as string[], inatBytes: 0, ncWaiting: 0 }
-  // Every iNaturalist photo the run downloads is counted; past the cap (INAT_BYTES) the run stops.
+  // Every iNaturalist photo the run downloads is counted; once at the cap (INAT_BYTES) it starts no more, and the run stops.
   const inatCap = o.inatBytes ?? INAT_BYTES
   const d: GalleryDeps = {
     ...deps,

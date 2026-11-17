@@ -250,6 +250,24 @@ test("the album step's iNaturalist photo bytes: counted, and past the run's cap 
   expect(next.inatBytes).toBe(sizes.reduce((a, b) => a + b, 0))
 })
 
+test("the album step's iNaturalist byte cap, crossed: the batch under way finishes, and no download starts after it", async () => {
+  const r = await root()
+  await mkdir(join(r, 'engine-state/gallery'), { recursive: true })
+  const cand = (n: number) => ({ key: `inat:${100 + n}`, url: `https://inaturalist-open-data.s3.amazonaws.com/photos/${100 + n}/large.jpg`, thumb: `https://inaturalist-open-data.s3.amazonaws.com/photos/${100 + n}/medium.jpg`, width: 1024, height: 768, licence: 'CC BY', author: 'sampletown', sourceUrl: INAT(100 + n) })
+  await writeFile(join(r, `engine-state/gallery/${ID}.json`), JSON.stringify({ queue: Array.from({ length: 8 }, (_, i) => cand(i + 1)), judged: [], hashes: {} }))
+  const d = deps([])
+  const got: string[] = []
+  const counting: GalleryDeps = { ...d, get: async u => { if (u.includes('inaturalist')) got.push(u); return d.get(u) } }
+  // A cap of one byte: the first batch of six starts under it, so all six finish; the seventh never starts.
+  const run = await galleries(r, counting, { sheets: 5, switches: ON, inatBytes: 1 })
+  expect(run.stopped).toMatch(/iNaturalist's photo bytes for this run spent/)
+  expect(got).toHaveLength(6)
+  expect(run.inatBytes).toBeGreaterThan(1)
+  const st = await read(r, `engine-state/gallery/${ID}.json`)
+  expect(st.judged).toEqual([])
+  expect(st.queue).toHaveLength(8)
+})
+
 test('album order: non-commercial photos after every open one, AI pictures last; a second pass changes nothing', () => {
   const p = (n: string, licence: string, extra: Partial<GalleryPhoto> = {}): GalleryPhoto => ({ url: `https://media.aquatome.com/g/${n}.webp`, width: 1024, height: 768, licence, author: 'Sampletown', sourceUrl: `https://example.org/${n}`, kind: 'male', ...extra })
   const ai = p('ai', 'AI-generated', { generated: { model: 'm', driverModel: 'd', date: '2026-11-16', prompt: 'fish', referenceHash: 'a'.repeat(64) } })
