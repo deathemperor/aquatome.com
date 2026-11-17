@@ -141,24 +141,28 @@ export const droppedName = (r: FishName, n: string) => [...(r.drop ?? []), ...(r
 export const oldNames = (r: FishName) => [...new Set([r.was, ...(r.drop ?? [])])].filter(n => n !== r.name && !(r.elsewhere ?? []).includes(n))
 /** A name without its kind's word: "Cá sặc lùn" is "sặc lùn". */
 const withoutKind = (n: string) => n.replace(/^cá\s+/iu, '')
-/** Each name a row renames, with the name it becomes: its old ones, and with `bare` each without the kind's word too. */
+/**
+ * Each name a row renames, with the name it becomes: its old ones, and with `bare` each without the kind's word too
+ * (`kindless`: the whole name, "cá" and all, is the first one's to rename or leave).
+ */
 export const renamings = (r: FishName) => [
-  ...oldNames(r).map(was => ({ was, name: r.name })),
-  ...(r.bare ? oldNames(r).map(was => ({ was: withoutKind(was), name: withoutKind(r.name) })) : []),
+  ...oldNames(r).map(was => ({ was, name: r.name, kindless: false })),
+  ...(r.bare ? oldNames(r).map(was => ({ was: withoutKind(was), name: withoutKind(r.name), kindless: true })) : []),
 ]
 /**
  * Its own page's words with a name that is another animal's written as `own`: "Rận nước (Asellus aquaticus)" and "Rận
  * nước Asellus aquaticus" as the scientific name, ", còn gọi là rận nước," gone with both its commas, any other "rận nước"
  * as "Asellus".
  */
-export const ownWords = (r: FishName, text: string) => (r.elsewhere ?? []).reduce((s, n) => {
+export const ownWords = (r: FishName, text: string) => (r.elsewhere ?? []).flatMap(n => {
+  // Whole, then without the kind's word ("Sặc lùn trong bể…"), which another row's `bare` would rename too.
+  const own = r.own ?? r.sci
+  return withoutKind(n) === n ? [{ n, own }] : [{ n, own }, { n: withoutKind(n), own: withoutKind(own) }]
+}).reduce((s, { n, own }) => {
   const w = `(?<!\\p{L})${n.replace(/ /g, '\\s+')}(?!\\p{L})`
   return s.replace(new RegExp(`${w}\\s*(?:\\(\\s*${r.sci}\\s*\\)|${r.sci})`, 'giu'), r.sci)
     .replace(new RegExp(`,\\s*còn gọi là\\s+${w}(\\s*\\([^()]*\\))?,?`, 'giu'), '$1')
-    .replace(new RegExp(w, 'giu'), m => {
-      const own = r.own ?? r.sci
-      return m[0] === m[0]!.toUpperCase() ? own[0]!.toUpperCase() + own.slice(1) : own
-    })
+    .replace(new RegExp(w, 'giu'), m => (m[0] === m[0]!.toUpperCase() ? own[0]!.toUpperCase() + own.slice(1) : own))
 }, text.normalize('NFC'))
 
 /**
@@ -183,4 +187,17 @@ export const KIND_PASSAGES: readonly KindPassage[] = [
   { page: 'guides/youtube--YXB8au4nnU', was: 'cá nhỏ như cá sặc lùn', now: 'cá nhỏ như cá thanh ngọc lùn' },
   // There it's one of the fish's other names, the English one translated: the one its page lists, "Cá sặc kêu lùn".
   { page: 'guides/aquariumcoop-blogs-aquarium-top-5-gouramis', was: 'cá sặc lùn kêu (dwarf croaking gourami)', now: 'cá sặc kêu lùn (dwarf croaking gourami)' },
+  // Four video guides of 8 Nov call the same fish, the sparkling gourami, "cá sặc gấm": the dwarf gourami's name now
+  // (Codex's read of the names change, 17 Nov). Its own name there, every place.
+  ...['youtube-JQiui3Wmurs', 'youtube-ahN0nP8HLaI', 'youtube-cGTFcYJ_BQs', 'youtube-g6Rqis9uO1Y'].flatMap(id => [
+    { page: `guides/${id}`, was: 'cá sặc gấm (sparkling gourami)', now: 'cá thanh ngọc lùn (sparkling gourami)' },
+    { page: `guides/${id}`, was: 'Cá sặc gấm (sparkling gourami)', now: 'Cá thanh ngọc lùn (sparkling gourami)' },
+  ]),
+  { page: 'guides/youtube-cGTFcYJ_BQs', was: 'đàn sặc gấm đang chuẩn bị sinh sản', now: 'đàn thanh ngọc lùn đang chuẩn bị sinh sản' },
+  { page: 'guides/youtube-g6Rqis9uO1Y', was: 'Cá sặc gấm (<em>Trichopsis pumila</em>)', now: 'Cá thanh ngọc lùn (<em>Trichopsis pumila</em>)' },
+  { page: 'guides/youtube-g6Rqis9uO1Y', was: 'cá sặc gấm đôi khi săn tép con', now: 'cá thanh ngọc lùn đôi khi săn tép con' },
+  { page: 'guides/youtube-g6Rqis9uO1Y', was: 'Cá sặc gấm đôi khi săn tép con', now: 'Cá thanh ngọc lùn đôi khi săn tép con' },
+  { page: 'guides/youtube-g6Rqis9uO1Y', was: 'Cá sặc gấm có nuôi chung với tép', now: 'Cá thanh ngọc lùn có nuôi chung với tép' },
+  { page: 'guides/youtube-g6Rqis9uO1Y', was: '<td>Sặc gấm</td>', now: '<td>Thanh ngọc lùn</td>' },
+  { page: 'guides/youtube-g6Rqis9uO1Y', was: 'chọn sặc gấm hoặc dario', now: 'chọn thanh ngọc lùn hoặc dario' },
 ]

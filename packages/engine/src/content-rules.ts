@@ -1190,9 +1190,9 @@ const swapsIn = (sentence: string) => SWAPS.filter(r => placesIn(r, sentence).le
 // line break): "Chọn mua cá</h3><p>Platy…" is no "cá platy".
 const literal = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/ /g, '[^\\S\\n]+')
   .replace(/\\\(/g, '\\([^\\S\\n]*').replace(/\\\)/g, '[^\\S\\n]*\\)')
-const RENAMES = FISH_NAMES.flatMap(r => renamings(r).map(({ was, name }) => {
+const RENAMES = FISH_NAMES.flatMap(r => renamings(r).map(({ was, name, kindless }) => {
   const rests = (r.longer ?? []).filter(n => n.toLowerCase().startsWith(`${was.toLowerCase()} `)).map(n => literal(n.slice(was.length).trim()))
-  return { ...r, was, name, old: new RegExp(word(literal(was)), 'giu'), longer: rests.length ? new RegExp(`^\\s+(?:${rests.join('|')})(?!\\p{L})`, 'iu') : undefined }
+  return { ...r, was, name, kindless, old: new RegExp(word(literal(was)), 'giu'), longer: rests.length ? new RegExp(`^\\s+(?:${rests.join('|')})(?!\\p{L})`, 'iu') : undefined }
 }))
 /** An English name's last word, which no scientific name ends in: "Red rainbowfish", "Congo tetra". */
 const ENGLISH = /(?:fish|tetra|barb|danio|rasbora|molly|platy|guppy|cory|corydoras|pleco|loach|gourami|cichlid|eyes?|killi|goby|shrimp|snail|crab|rainbow)$/
@@ -1212,9 +1212,12 @@ const itsEpithet = (a: string, sci: string) => stem(a.split(' ')[1] ?? '') === s
 /** In brackets right after the old name, or right before it with a bracket or a dash between. */
 const BRACKET_AFTER = /^\s*\(([^()]{0,80})\)/
 const BINOMIAL_BEFORE = /((?:[A-Z][a-z]+\s+|[A-Z]\.\s*)[a-z]+)\s*[(),:–-]\s*\(?\s*$/
+/** "cá" right before a name: the whole name, which its own pass renamed or left ("Trichopsis pumila (cá sặc lùn)"). */
+const KIND_BEFORE = /(?<!\p{L})cá[^\S\n]+$/iu
 const renamesIn = (r: (typeof RENAMES)[number], text: string) => [...text.matchAll(r.old)].filter(m => {
   const end = m.index! + m[0].length
   if (r.longer?.test(text.slice(end))) return false
+  if (r.kindless && KIND_BEFORE.test(text.slice(Math.max(0, m.index! - 8), m.index!))) return false
   const named = [...binomials(BRACKET_AFTER.exec(text.slice(end, end + 90))?.[1] ?? ''), ...binomials(BINOMIAL_BEFORE.exec(text.slice(Math.max(0, m.index! - 60), m.index!))?.[1] ?? '')]
   return !named.length || named.some(n => itsEpithet(n, r.sci))
 })

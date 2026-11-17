@@ -1174,7 +1174,7 @@ test('a name that is another animal\'s leaves the page, its other names, its for
 // The dwarf gourami takes keepers' "Cá sặc gấm" (18 Nov), and its old "cá sặc lùn" was the pygmy gourami's English name
 // translated on that fish's own page, photos and two guides: those say the pygmy gourami's own name first, so the rename
 // can't give it the dwarf gourami's.
-test('the dwarf gourami becomes "Cá sặc gấm", bare and whole, and the pygmy gourami\'s own "cá sặc lùn" becomes its own name first', async () => {
+test('the dwarf gourami becomes "Cá sặc gấm", bare and whole, and the pygmy gourami\'s own "cá sặc lùn", bare or whole, becomes its own name first', async () => {
   const root = await store()
   const c = join(root, 'content')
   const put = async (path: string, data: unknown) => { await mkdir(join(c, path, '..'), { recursive: true }); await writeFile(join(c, path), `${JSON.stringify(data, null, 2)}\n`) }
@@ -1184,12 +1184,12 @@ test('the dwarf gourami becomes "Cá sặc gấm", bare and whole, and the pygmy
   await put('species/trichopsis-pumila/entity.json', species('trichopsis-pumila', 'Trichopsis pumila'))
   await put('species/trichopsis-pumila/vi.json', { ...vi('Cá thanh ngọc lùn', {
     'quickFacts:seriouslyfish': '<p>Cá sặc lùn (sparkling gourami, Trichopsis pumila) là một loài cá mê cung nhỏ.</p>',
-    'notes:seriouslyfish': '<p>Loài này còn có tên tiếng Anh là \'pygmy gourami\' (cá sặc lùn). So với các loài cùng chi, cá sặc lùn nhỏ hơn.</p>',
+    'notes:seriouslyfish': '<p>Loài này còn có tên tiếng Anh là \'pygmy gourami\' (cá sặc lùn). So với các loài cùng chi, cá sặc lùn nhỏ hơn. Sặc lùn trong bể cần nhiều cây.</p>',
   }), slug: 'ca-sac-lun-trichopsis', nameFixed: true, altNames: ['Sparkling gourami', 'Cá sặc kêu lùn'] })
-  await put('gallery/trichopsis-pumila.json', { id: 'trichopsis-pumila', photos: [photo('https://media.aquatome.com/commons/p.webp', 'Cá sặc lùn trong bể thủy sinh có nhiều cây')], seen: 1, updatedAt: '2026-10-01' })
+  await put('gallery/trichopsis-pumila.json', { id: 'trichopsis-pumila', photos: [photo('https://media.aquatome.com/commons/p.webp', 'Cá sặc lùn trong bể thủy sinh có nhiều cây'), photo('https://media.aquatome.com/commons/q.webp', 'Sặc lùn đực bên lá cây')], seen: 1, updatedAt: '2026-10-01' })
   await put('captions/id.json', { 'Cá sặc lùn trong bể thủy sinh có nhiều cây': 'Gurami kerdil di akuarium', 'Cá sặc lùn đực bên đám cây': 'Gurami kerdil jantan' })
   const guide = await json(root, 'content/guides/g/vi.json')
-  await put('guides/g/vi.json', { ...guide, body: `<p>Một đàn sặc lùn đúng là có thể sống ổn. Nên chọn cá sặc lùn cái.</p>${guide.body}` })
+  await put('guides/g/vi.json', { ...guide, body: `<p>Một đàn sặc lùn đúng là có thể sống ổn. Nên chọn cá sặc lùn cái.</p><p>Trichopsis pumila (cá sặc lùn) thì nhỏ hơn.</p>${guide.body}` })
   await put('guides/youtube--YXB8au4nnU/entity.json', await json(root, 'content/guides/g/entity.json'))
   await put('guides/youtube--YXB8au4nnU/vi.json', { ...guide, slug: 'be-bat', body: '<p>Sau đó thả bốn con cá sặc lùn (sparkling gourami).</p>', faq: [{ q: 'Thả cá gì trước?', a: 'Thả tép trước, sau đó mới thả cá nhỏ như cá sặc lùn.' }] })
   await sweep(root)
@@ -1199,14 +1199,16 @@ test('the dwarf gourami becomes "Cá sặc gấm", bare and whole, and the pygmy
   expect(dwarf.sections['quickFacts:seriouslyfish']).toBe('<p>Cá sặc gấm (Trichogaster lalius) sống ở Ấn Độ. Sặc gấm đực rất sặc sỡ, như cá sặc gấm xanh.</p>')
   expect((await json(root, 'content/gallery/trichogaster-lalius.json')).photos[0].caption).toBe('Cá sặc gấm đực bên đám cây')
   expect((await json(root, 'content/guides/g/vi.json')).body).toContain('<p>Một đàn sặc gấm đúng là có thể sống ổn. Nên chọn cá sặc gấm cái.</p>')
+  // Another fish's scientific name beside it, "cá" and all: neither the whole name nor the bare one is this fish's.
+  expect((await json(root, 'content/guides/g/vi.json')).body).toContain('<p>Trichopsis pumila (cá sặc lùn) thì nhỏ hơn.</p>')
 
   const pygmy = await json(root, 'content/species/trichopsis-pumila/vi.json')
   expect([pygmy.name, pygmy.slug, pygmy.altNames]).toEqual(['Cá thanh ngọc lùn', 'ca-sac-lun-trichopsis', ['Sparkling gourami', 'Cá sặc kêu lùn']])
   expect(pygmy.sections).toEqual({
     'quickFacts:seriouslyfish': '<p>Cá thanh ngọc lùn (sparkling gourami, Trichopsis pumila) là một loài cá mê cung nhỏ.</p>',
-    'notes:seriouslyfish': '<p>Loài này còn có tên tiếng Anh là \'pygmy gourami\' (cá thanh ngọc lùn). So với các loài cùng chi, cá thanh ngọc lùn nhỏ hơn.</p>',
+    'notes:seriouslyfish': '<p>Loài này còn có tên tiếng Anh là \'pygmy gourami\' (cá thanh ngọc lùn). So với các loài cùng chi, cá thanh ngọc lùn nhỏ hơn. Thanh ngọc lùn trong bể cần nhiều cây.</p>',
   })
-  expect((await json(root, 'content/gallery/trichopsis-pumila.json')).photos[0].caption).toBe('Cá thanh ngọc lùn trong bể thủy sinh có nhiều cây')
+  expect((await json(root, 'content/gallery/trichopsis-pumila.json')).photos.map((p: { caption: string }) => p.caption)).toEqual(['Cá thanh ngọc lùn trong bể thủy sinh có nhiều cây', 'Thanh ngọc lùn đực bên lá cây'])
   expect(await json(root, 'content/captions/id.json')).toEqual({ 'Cá thanh ngọc lùn trong bể thủy sinh có nhiều cây': 'Gurami kerdil di akuarium', 'Cá sặc gấm đực bên đám cây': 'Gurami kerdil jantan' })
   const video = await json(root, 'content/guides/youtube--YXB8au4nnU/vi.json')
   expect([video.body, video.faq[0].a]).toEqual(['<p>Sau đó thả bốn con cá thanh ngọc lùn (sparkling gourami).</p>', 'Thả tép trước, sau đó mới thả cá nhỏ như cá thanh ngọc lùn.'])
