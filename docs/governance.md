@@ -436,7 +436,9 @@ The layers above still check the result.
     - Indonesian and Thai fish pages only, the kinds that was measured on. Malay fish pages and other kinds each get a
       20-page sample first. `RECHECK_LIMIT` pages a language a cycle (15), the translator's pages of the last day first so
       a new page its first read failed has its two reads in the same cycle, then the most-read, starting none after
-      `RECHECK_MINUTES` (15), on its own line on GitHub's side of `ceilings.json`.
+      `RECHECK_MINUTES` (15), on its own line on GitHub's side of `ceilings.json`: $12 on 18 Nov and $6 on 19 Nov until
+      13:00, about $18 on the second sign-in while the third is out of its week, then $25 a day to 24 Nov and $6 from
+      25 Nov, GitHub's backstop $180 and that line (the chief of staff, 16 and 17 Nov 2026).
   - **What recurs, per kind:** `docs/review/reviews.md` (`pnpm engine reviews`, each cycle's photos part): how many pages
     each kind last left under the bar and the faults their notes name most, grouped, with notes quoted and their pages.
     What prompt fixes start from.
@@ -516,6 +518,10 @@ The layers above still check the result.
   - A measurement yields to the engine: the chat's board spends only what leaves every other step its whole line and
     some room for the gate (`leftYielding`), so the backstop never stops a step on its account (the chief of staff,
     13 Nov 2026).
+  - From 18 Nov the Mac's backstop is its named lines and $59 more, the room for the steps without a line of their own
+    (the gate with the video guides' editor, and the steps on the small line), which spent $88 on 16 Nov against the $10
+    then kept and stopped the day at 21:50; `ceiling.test.ts` fails on a Mac table that keeps less (the chief of staff,
+    17 Nov 2026).
   - The AI page review on pull requests, the nightly AI review and the auto-fix call Claude on the same accounts by
     another road, and each has a line on GitHub's side (`page-review`, `nightly-review`, `autofix`). A call writes a
     cost line: the time, the step, the account's hash, the model, dollars and tokens, and nothing of a page, a prompt
