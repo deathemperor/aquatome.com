@@ -55,8 +55,9 @@ extension ChatRoute {
 @MainActor
 final class ChatStore {
   /// Whether chat is on: no entry shows until GET says so.
-  var on: Bool { gate.on }
+  var on: Bool { gate.on(for: reader?.user?.id) }
   private var gate = Chat.Gate()
+  @ObservationIgnored private weak var reader: AccountModel?
   private(set) var maxChars = 500
 
   /// A question was refused as too long at this limit: the Worker's own, until its status next says.
@@ -70,13 +71,14 @@ final class ChatStore {
   /// Whether chat is on, asked as the account when signed in: it may be on for some accounts alone (the owner's, at
   /// first), so it's asked again when the reader signs in or out.
   func refresh(account: AccountModel, site: URL) async {
+    reader = account
     follow(account, site: site)
     func get(_ token: String?) -> URLRequest { Chat.status(site: site, version: ChatModel.version, ownCopy: ChatModel.ownCopy, token: token) }
     // Asked as this account: the reply is for it, though the reader may sign in or out while it comes.
     let who = account.user?.id
     var answer: (Data, Int)?
     if who != nil { answer = (try? await account.send { get($0) }) ?? nil } else { answer = await account.fetch(get(nil)) }
-    guard gate.take(answer, asked: who, now: account.user?.id), let (data, status) = answer else { return }
+    guard let (data, status) = answer, gate.take((data, status), asked: who, now: account.user?.id) else { return }
     let s = Chat.status(data, status: status)
     maxChars = s?.maxChars ?? 500
     perAccount = s?.perAccount

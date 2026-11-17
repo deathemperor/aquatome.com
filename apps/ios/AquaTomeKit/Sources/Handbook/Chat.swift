@@ -261,20 +261,23 @@ public enum Chat {
                   maxChars: o["maxChars"] as? Int)
   }
 
-  /// Whether chat's ways in show, as the reader's own GET /api/chat last said. A reader who signs out offline doesn't keep
-  /// the account's yes, and a reply that comes after the reader signed in or out is for someone else.
+  /// Whether chat's ways in show: as the last GET /api/chat said, and only while the reader is the one it was asked as
+  /// (an account, or signed out), so they go the moment the reader signs out, online or not.
   public struct Gate: Equatable, Sendable {
-    public private(set) var on = false
+    private var yes = false
     /// The account the last reply taken was for (its id, nil signed out).
-    public private(set) var account: String?
+    private var account: String?
     public init() {}
 
-    /// GET's reply (nil offline), asked as `asked` (an account's id, nil signed out), once the reader is `now`: the reply's
-    /// `on`; with no reply, the last yes only if it was for the same account. False, with nothing changed, if the reader
-    /// signed in or out while it came: the reader's own is on its way.
-    public mutating func take(_ reply: (Data, Int)?, asked: String?, now: String?) -> Bool {
+    /// Whether chat's ways in show for `reader` (an account's id, nil signed out).
+    public func on(for reader: String?) -> Bool { yes && account == reader }
+
+    /// GET's reply, asked as `asked`, once the reader is `now`. False, with nothing changed, if the reader signed in or
+    /// out while it came: the reader's own is on its way, and may have come first.
+    public mutating func take(_ reply: (Data, Int), asked: String?, now: String?) -> Bool {
       guard asked == now else { return false }
-      if let (data, code) = reply { on = Chat.status(data, status: code)?.on ?? false; account = asked } else if account != asked { on = false }
+      yes = Chat.status(reply.0, status: reply.1)?.on ?? false
+      account = asked
       return true
     }
   }
