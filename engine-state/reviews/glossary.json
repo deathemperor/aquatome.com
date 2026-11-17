@@ -162,6 +162,51 @@
   ],
   "vi/glossary/la-bang": [
     {
+      "at": "2026-11-17T00:30:07Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (the definition's first sentence): \"Lá bàng khô là lá cây bàng đã rụng, màu nâu hoặc nâu đỏ, dài chừng 10–18 cm.\"",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Muốn giữ màu thì đừng luộc, vì luộc làm lá nhả hết tanin ra nồi.\" (not \"Đừng luộc lá trước khi thả vào bể, vì luộc làm lá nhả hết tanin.\": it drops the advice \"Muốn giữ màu thì đừng luộc\")",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Thay lá đúng hạn.\" (not \"Đừng để lá quá lâu trong bể, vì nước có thể bị thối.\": Rule 4: The rot warning appears twice in step 5. It is given first as \"Đừng để lá quá lâu trong bể, vì nước có thể bị thối\" and then again as \"có tiệm bảo thay sau 5–7 ngày vì lá mục làm bẩn nước\". Opening step 5 with \"Đừng để…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Lá tươi ít tanin, lại để váng và nhựa trong nước.\" (not \"Lá xanh hái trên cây ít tanin.\": it drops the advice \"lại để váng\", the advice \"nhựa trong nước\")",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Coi lá bàng là thuốc.\" (not \"Lá bàng không thay được thuốc chữa bệnh.\": Rule 4: The warning that leaves don't replace medicine appears twice in the last bullet. It is stated first without a source, \"Lá bàng không thay được thuốc chữa bệnh.\", and then repeated with a source, \"tiệm khác nói lá không thay đư…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-17T00:30:07Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Thay lá đúng hạn.\" the advice \"Thay lá đúng hạn\", and nothing lets that sentence go: write it as it was, word for word.",
+        "The entry is 503 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-17T00:30:07Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 0.95,
+      "notes": [
+        "\"Ở Việt Nam, người nuôi còn mua lá cho cá rồng châu Á.\": the facts don't carry it (unsupported, unsupported, unsupported): facts say arowana, not specifically Asian arowana / 'Asian' arowana not in facts",
+        "\"Một bài báo nói chuyện lá diệt ký sinh trùng hay làm vây cá rồng châu Á dày hơn chỉ là lời người bán kể, chưa được thử nghiệm.\": the facts don't carry it (unsupported, unsupported, unsupported): facts say arowana, not specifically Asian arowana / 'Asian' arowana not in facts / facts say arowana, not Asian arowana",
+        "Rule 12: \"nhất là KH trên 4–5\" in \"còn ở nước có độ đệm cao, nhất là KH trên 4–5, thì hầu như không đổi\": THIS TERM says to give no KH figure, because the KH page gives it no unit. Say only that there is almost no change in well-buffered water.",
+        "Rule 12: \"Chọn lá đã ngả vàng.\": THIS TERM forbids this wording because it reads as a yellow leaf taken from the tree. Use fact 8's wording: \"Chọn lá khô đã rụng hoặc đã ngả vàng.\"",
+        "Rule 12: \"nước cốt\" in \"Châm nước cốt quá tay có thể làm pH tụt đột ngột khiến cá bị sốc.\": too much extract (fact 34) must be called \"nước lá bàng\". \"Nước cốt\" is the name the entry gives the bottled shop product (fact 52).",
+        "Rule 12: \"Thay nước nhiều một lần trong bể đang dùng lá bàng. pH có thể vọt lên đột ngột, cá bị sốc và bỏ ăn.\": this claim comes from one keeper's page (fact 39). It must be credited to that page (\"Một nguồn người nuôi ghi …\"), but here it is stated as a general fact.",
+        "Rule 4: \"Thay lá đúng hạn.\" in \"Thay lá đúng hạn. Mỗi nguồn ghi một khác: …\": the line tells the keeper to replace leaves on time, as if there were one right time. The same item then says the sources disagree on that time, and the FACTS give no way to settle it. The disagreement should be stated once and left there.",
+        "The entry is 503 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-16T18:06:12Z",
       "model": "sonnet",
       "cli": "2.1.325",
@@ -203,39 +248,6 @@
         "Rules 4 and 12: \"Thay lá đúng hạn.\" opens step 4 as if there were one correct time to replace the leaves. The next sentence says the sources disagree (5–7 days, 2–3 weeks, 1–2 months), and the FACTS don't say which to follow. The step should state the disagreement once and leave it, without telling the keeper to keep to a deadline the FACTS don't set."
       ],
       "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-16T17:25:51Z",
-      "model": "sonnet",
-      "cli": "2.1.325",
-      "score": 1,
-      "notes": [
-        "Rule 6: \"cá rồng\" in \"Ở Việt Nam, người nuôi còn mua lá cho cá rồng.\" and in \"Chuyện lá diệt ký sinh trùng hay làm vây cá rồng dày hơn là lời người bán kể, chưa phải kết quả thử nghiệm.\": this fish has a page, and the page's name is \"Cá rồng châu Á\". \"Cá rồng\" is only one of its other names. Mid-sentence it should read \"cá rồng châu Á\".",
-        "Rule 4: The definition already says the leaf floats and then sinks: \"Thả vào bể, lá nổi trước rồi ngấm nước mới chìm.\" The body says it again: \"Các tiệm ghi thời gian lá chìm khác nhau: tiệm này nói lá thường chìm trong 24–48 giờ, tiệm khác nói lá nổi 3–7 ngày đầu.\" Floating and sinking should be covered once, in one place.",
-        "Rule 4: The definition already says the leaf is fallen and brown or reddish-brown: \"Lá bàng khô là lá cây bàng đã rụng, màu nâu hoặc nâu đỏ\". The body repeats this in \"Lá bán cho bể cá là lá bàng (Terminalia catappa) đã rụng và khô hẳn\" and again in step 1, \"Chọn lá đã vàng hoặc đã rụng, màu nâu đỏ\".",
-        "Rule 12: The health claim \"Chuyện lá diệt ký sinh trùng hay làm vây cá rồng dày hơn là lời người bán kể, chưa phải kết quả thử nghiệm\" doesn't say who makes this judgement. In the FACTS it comes from a news source (source 5). The other health claims in the same item are credited to shops (\"Một tiệm ghi…\", \"tiệm khác nói…\"), so this one should be credited too.",
-        "The entry is 506 words: hold it to about 500, and leave what is left out to the pages that use the term."
-      ],
-      "attempt": "rewrite",
-      "kept": false,
-      "draft": "21ce97e875b2d4f3c418918e8f5c0e53c2bfc8eb95398a78faa992850631f562"
-    },
-    {
-      "at": "2026-11-16T17:25:51Z",
-      "model": "sonnet",
-      "cli": "2.1.325",
-      "score": 0.98,
-      "notes": [
-        "\"Ở Việt Nam, người nuôi còn mua lá cho cá rồng châu Á.\": the facts don't carry it (unsupported, loose, unsupported): facts say arowana, not specifically Asian arowana / source says arowana, not specifically Asian arowana / 'Asian' arowana not stated in facts",
-        "Rule 12: The definition says only \"hạ pH chậm, chút ít\". It leaves out the size of the drop that the FACTS give (about 0.2–0.5 units in soft water). It also leaves out their condition that in well-buffered water, especially above KH 4–5, the effect is negligible. The term's line asks for both in that same sentence.",
-        "Rule 12: The body's pH sentence \"Trong nước mềm, tanin hạ pH khoảng 0,2–0,5 đơn vị...\" gives the size of the change but not how fast it happens. The FACTS say the leaves lower pH slowly (\"chậm\"), and a change in water chemistry must carry its pace.",
-        "Rule 4: The definition and the body say the same things twice. The size and colour (\"màu nâu hoặc nâu đỏ, dài chừng 10–18 cm\" and \"màu nâu hoặc nâu đỏ, dài khoảng 10–18 cm\") appear in both. So do floating then sinking (\"lá nổi trước rồi ngấm nước mới chìm\" and \"Lá khô nổi lúc đầu, ngấm nước rồi mới chìm\") and the tea colour of the water (\"làm nước ngả màu trà\" and \"làm nước ngả màu hổ phách hay m…",
-        "Rule 10: In \"Có một nguồn người nuôi tính đậm hơn hẳn, khoảng 10 cm lá cho 4–8 lít\", the claim that this source's dose is much stronger than the others is a comparison the FACTS don't make. Also, \"Các nguồn thường tính khoảng một lá cỡ 15 cm cho 20–30 lít\" presents one shop's dose table as what most sources say.",
-        "Rule 12: In \"Lá chỉ kháng khuẩn, kháng nấm rất nhẹ, và lá không thay được thuốc\", the health claims don't say who makes them: a shop, which adds that scientists are still researching this. In \"Chuyện lá diệt ký sinh trùng hay làm vây cá rồng dày hơn chỉ là lời kể, chưa ai kiểm chứng\", the claim is also unattributed (it comes from a news report about sellers' claims). \"Chưa ai kiểm chứng\" is also …",
-        "The entry is 556 words: hold it to about 500, and leave what is left out to the pages that use the term."
-      ],
-      "attempt": "first",
       "kept": false
     }
   ],
