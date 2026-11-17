@@ -119,6 +119,18 @@ public final class PlugBoard {
     note(o, now == on ? .confirmed : now == nil ? .unknown : .unconfirmed)
   }
 
+  /// Whether the plug lists a countdown for the outlet (`LiveOutlet.countdown`).
+  public func hasCountdown(_ o: Outlet) -> Bool {
+    list?.plug(provider: o.provider, id: o.device)?.outlets.first { $0.code == o.code }?.countdown == true
+  }
+
+  /// Starts (or with 0 ends) the outlet's own countdown, for the master button: once, to a plug listed online with one.
+  /// True when the plug reported it; false when it was refused, failed, or not read back.
+  public func countdown(_ o: Outlet, seconds: Int) async -> Bool {
+    guard let source, hasCountdown(o), online(provider: o.provider, device: o.device) == true else { return false }
+    return (try? await source.countdown(provider: o.provider, device: o.device, outlet: o.code, seconds: seconds)) == true
+  }
+
   /// One list read; when it's the newest answer, it replaces what switch answers reported before it started. Its start,
   /// or nil when it failed or was dropped.
   private func read(_ source: any PlugSource) async -> Int? {

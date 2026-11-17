@@ -1,0 +1,32 @@
+{
+  "slug": "amphilius-platychir",
+  "name": "เมาน์เทนบาร์เบล",
+  "altNames": [
+    "Mountain barbel",
+    "แอมฟิเลียส"
+  ],
+  "sections": {
+    "quickFacts:scotcat": "<ul><li>ชื่อสามัญ: เมาน์เทนบาร์เบล (Mountain barbel)</li></ul>",
+    "beforeYouBuy:scotcat": "<p>ปลาชนิดนี้และน่าจะรวมถึงปลาส่วนใหญ่ในสกุลเดียวกันถูกระบุชนิดผิดได้ง่าย ภาพประกอบจึงอาจเป็นปลาชนิดนี้หรือชนิดที่ใกล้เคียงกันมาก เช่น A. atesuensis หรือ A. uranoscopus เมื่อเลี้ยงในตู้ปลา ปลาเหล่านี้แทบไม่ต่างกัน ปลาชนิดนี้ไม่ค่อยมีการนำเข้า แต่หากเลี้ยงในสภาพที่เหมาะสมก็เป็นปลาที่น่าเลี้ยงในตู้</p>",
+    "distribution:scotcat": "<p>แอฟริกา: เซียร์ราลีโอน กินี โกตดิวัวร์ แหล่งที่พบตัวอย่างต้นแบบ (type locality): เซียร์ราลีโอน</p>",
+    "habitat:scotcat": "<p>ในธรรมชาติ ปลาสกุลนี้อาศัยอยู่ในแหล่งน้ำไหล</p>",
+    "waterConditions:scotcat": "<p>ปลาสกุลนี้ต้องเลี้ยงในน้ำที่มีอุณหภูมิค่อนข้างต่ำ เนื่องจากในธรรมชาติอาศัยอยู่ในแหล่งน้ำไหล เมื่อเลี้ยงในตู้ปลา ปลาสกุลนี้ชอบอุณหภูมิที่ค่อนข้างต่ำ อุณหภูมิ: 23–26 °C ค่า pH: 6.5–7.5</p>",
+    "equipment:scotcat": "<p>เลี้ยงได้ในตู้ปลาที่ปูพื้นด้วยกรวดเม็ดเล็กหรือทราย ปลูกไม้น้ำหนาแน่น และมีกระแสน้ำอ่อน ๆ เพื่อจำลองสภาพแหล่งอาศัยตามธรรมชาติ ควรจัดหินและโพรงให้ปลาด้วย</p>",
+    "diet:scotcat": "<p>ลูกน้ำ ไส้เดือนน้ำ ไซคลอปส์ ไรแดง หนอนกรินดัล อาหารผัก อาหารเม็ดอัด และอาหารแผ่น</p>",
+    "notes:scotcat": "<p>ที่มาของชื่อ: ชื่อชนิด platychir มาจาก platy แปลว่าแบนหรือกว้าง และ cheiros แปลว่ามือ หมายถึงก้านครีบอกที่กว้างแผ่ออกคล้ายพัด</p><p>IUCN Red List: ปลาชนิดนี้มีการกระจายพันธุ์กว้างและไม่พบภัยคุกคามสำคัญ จึงจัดอยู่ในสถานภาพกังวลน้อยที่สุด (Least Concern) เนื่องจากมีงานวิจัยที่ชี้ว่าอาจมีชนิดซ่อนเร้น (cryptic species) ที่ยังไม่ได้รับการบรรยายอยู่ในกลุ่ม A. platychir จึงจำเป็นต้องมีการศึกษาเพิ่มเติมด้านอนุกรมวิธานและการกระจายพันธุ์ของปลาชนิดนี้ (IUCN 2020)</p>",
+    "references:scotcat": "<p>Diouf, K. &amp; Entsua-Mensah, M. 2020. Amphilius platychir. The IUCN Red List of Threatened Species 2020.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Seegers, Lothar; The Catfishes of Africa. A handbook for identification and maintenance. Tetra Verlag GmbH. 604p.</p>"
+  },
+  "quality": {
+    "score": 0.7,
+    "indexable": false,
+    "bySource": {
+      "scotcat": 0.7
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-17"
+  }
+}

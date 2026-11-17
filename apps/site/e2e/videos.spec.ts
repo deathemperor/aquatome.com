@@ -21,6 +21,37 @@ async function speciesWithVideo(request: APIRequestContext): Promise<string> {
   throw new Error('no species page has a video')
 }
 
+/** A species page with a video not spoken in Vietnamese, so the title check below has something to check (the reviewer, 15 Nov: the first page with any video had only a Vietnamese one, and the check passed with nothing marked). */
+async function speciesWithForeignVideo(request: APIRequestContext): Promise<string> {
+  const species = sourcePages().filter(p => /^\/ca\/[^/]+\/$/.test(p))
+  for (let i = 0; i < species.length; i += 20) {
+    const batch = species.slice(i, i + 20)
+    const has = await Promise.all(batch.map(async p => {
+      const videos = /<section class="videos"[\s\S]*?<\/section>/.exec(await (await request.get(p)).text())?.[0] ?? ''
+      return [...videos.matchAll(/<small[^>]*>([^<]*)<\/small>/g)].some(m => !m[1]!.includes('tiếng Việt'))
+    }))
+    const hit = batch.find((_, j) => has[j])
+    if (hit) return hit
+  }
+  throw new Error('no species page has a video in another language')
+}
+
+// The owner's report (2026-11-10): a Vietnamese page listing English titles. Read from the page, so it holds on the fixture
+// build and on aquatome.com: the title against the original the page keeps, not a guess at its language.
+test("a species page's videos read in the page's language", async ({ page, request }) => {
+  await page.goto(await speciesWithForeignVideo(request))
+  const rows = await page.locator('.videos li p').evaluateAll(ps => ps.map(p => ({ title: p.firstChild?.textContent ?? '', from: p.getAttribute('data-title-from'), own: p.hasAttribute('data-own-title'), under: p.querySelector('small')?.textContent ?? '' })))
+  expect(rows.length).toBeGreaterThan(0)
+  for (const r of rows) {
+    expect(r.under, 'its language is a word, not a code').not.toMatch(/\b[A-Z]{2}(-[A-Z]{2})?\b/)
+    // A language not yet turned on for translated titles (content/video-titles/on.json) shows a video's own title, marked.
+    if (!r.under.includes('tiếng Việt') && !r.own) {
+      expect(r.from, `"${r.title}" keeps its original beside it`).toBeTruthy()
+      expect(r.title, 'and it was translated').not.toBe(r.from)
+    }
+  }
+})
+
 test("a species page's video plays where it was tapped", async ({ page, request, errors }) => {
   await page.goto(await speciesWithVideo(request))
   await page.locator('.videos button[data-youtube-id]').first().click()

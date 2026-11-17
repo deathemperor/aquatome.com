@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/ludwigia-arcuate-care-guide-planting-growing-and-propagation/
 title: Ludwigia Arcuate Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-10-31T19:50:03.771Z
-hash: a7a3eaef3489b66c1ac58bdbbdfbaec2ae8c335dfc7e99ea29eb83394bf1af17
+hash: 2c3d60f7a47de8941c915e24b86596597316ce96301e91a8655fcb8c9a787754
 ---
 
 Needle leaf Ludwigia (Ludwigia arcuate) is a classical aquarium stem plant. This species is loved by freshwater aquarists and enthusiasts because of the highly attractive reddish foliage it possesses. Also, Ludwigia arcuata can be employed as a midground or background plant depending on the tank’s layout.
@@ -115,7 +115,3 @@ Oxygenation: Ludwigia arcuata oxygenates and aerates the tank water.
 Ludwigia arcuata is a very attractive stem plant owing to its characteristic reddish foliage. Actually, under optimal conditions, this plant goes an incredible deep wine red color.
 The main problem though is that Ludwigia arcuata is not easy to maintain, and it requires CO2, nutrient-rich substrate, moderate to high levels of nutrients, and lighting.
 Therefore, this plant is not for beginners and those who seek to carry out little maintenance from time to time, unless you want to keep it in the emersed form in paludarium set ups.
-## 3 thoughts on “Ludwigia Arcuate Care Guide – Planting, Growing, and Propagation”
-- All of your articles are great. You are my go-to guy. What country do you live in? Reply
-- Mines been in my tank a couple of weeks,,was wondering if you know how long it takes to transition to submerged form ReplyHi Alan Jones,The transition varies, but generally takes a couple of weeks to a month. You should start seeing changes within a week or two, but complete submersion adaptation may take longer. Best regards, Michael Reply
-### Leave a Reply Cancel reply

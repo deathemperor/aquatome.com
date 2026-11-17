@@ -10,6 +10,72 @@
     "guinea",
     "bafing"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GN"
+      ],
+      "regions": [
+        "Bafing River"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Bafing at Ballay, Guinea.",
+          "countries": [
+            "GN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Africa: Bafing River (Senegal basin), Guinea.",
+          "countries": [],
+          "regions": [
+            "Bafing River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344428,
+      "total": 8,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "BJ",
+          6
+        ],
+        [
+          "SN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -16.875,
+          15.46875,
+          2,
+          0
+        ],
+        [
+          0,
+          9.84375,
+          3,
+          0
+        ],
+        [
+          1.40625,
+          11.25,
+          3,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

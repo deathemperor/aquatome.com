@@ -1,0 +1,16 @@
+---
+url: https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/schizolecis_guntheri_and_lg4_en/
+title: Schizolecis guntheri and LG4 - Aquarium Glaser GmbH
+fetchedAt: 2026-11-15T19:03:57.761Z
+hash: c51af0e3692f724ec802f106e8ac74434cbd04b330ac811a4922516421e96d24
+---
+
+The coastal rainforests of southeastern Brazil are the home of a good number of unusual aquarium fish. One of the most popular and most attractive species from that region is for sure Scleromystax barbatus, the Bearded cory (formerly known as Corydoras b.). Sadly the natural habitats in that region are much affected by the growing human population. Especially the pollution of the water bodies is a growing threat for the aquatic animals and many of the endemic fish are in danger of extinction. Collecting these animals for aquarium purposes has no effect in this context. On the other hand it is not unlikely that some of the more attractive species will survive this century only in captivity.
+We have received recently a very nice importation of fish from that region, among which were a good number of Schizolecis guntheri. The species looks a bit like an elongated marbled Otocinclus. One of the very special features of that species is the fact that almost any specimen has an individual pattern. Uninitiated people may even think that such a shipment would contain a great number of different species, even if in fact only Schizolecis guntheri is represented in it.
+Nevertheless every now and then so-called by-catches are found in Schizolecis shipments and these enjoy spezialized aquarists a lot. So in our current shipment a specimen was detected that was given the name “LG 4” by Hans-Georg Evers and Ingo Seidel in their book “Wels-Atlas”, because it was not possible to apply either a genus or a specific name on it.
+Keeping such gems is not very problematical, but a species-specific tank should be preferred. This tank needs not to be very large, as the tiny species (maximum length reported is 5 cm) do not need spacious aquaria. The tank should be well illuminated to make sure that algae can grow. Schizolecis are feeding mainly on aufwuchs, although all types of regular small fishfood are readily accepted. One should always keep in mind that these fishes originate from relatively cool (maximum 23°C), fast running waters. Thus a regular water change of 50-70% is highly recommended. Besides this the water should be well filtered. The tank should be placed in a cool room.
+For our customers: Schizolecis guntheri has code 293173 on our stocklist. Please note that we exclusively supply the wholesale trade.
+Lexicon: Schizolecis: ancient Greek, means “with splitted platelet”, this refers to an anatomical feature. guntheri: dedication name for Albert Günther (1830 – 1914), one of the most important ichthyologists at all. Scleromystax: combined from an ancient Greek and a Latin term, means “with hard moustache”. barbatus: Latin, means “bearded”. Otocinclus: ancient Greek, means “ear-grid”, this refers to a perforated bone situated at the place where in human beings the ear is placed.
+Suggestion of a common name: Gunther´s algae eater
+Text & Photos: Frank Schäfer
+Angaben zum Tier Herkunft Brasilien / Brazil Verfügbare Größe in cm 3-4

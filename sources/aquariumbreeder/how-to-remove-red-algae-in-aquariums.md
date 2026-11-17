@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/how-to-remove-red-algae-in-aquariums/
 title: How to Remove Red Algae in Aquariums - Shrimp and Snail Breeder
 fetchedAt: 2026-10-31T19:51:51.718Z
-hash: 04f03ff45bf0dc273af2c550706b5f27b14373c8fda4dc7246848f6769590ad2
+hash: 5780fdb3c9ff09d2e27c9dca5bf046bc757800adf0ab6e5922e2a008af32f9fc
 ---
 
 Red algae refer to the group Rhodophyta, which includes notorious types of algae such as Black Beard algae and Staghorn algae.
@@ -127,4 +127,3 @@ By combining routine water changes, manual cleaning, and the application of algi
 - Necchi Jr, Orlando, and Marcelo R. Zucchi. “Systematics and distribution of freshwater Audouinella (Acrochaetiaceae, Rhodophyta) in Brazil.” European Journal of Phycology30, no. 3 (1995): 209-218.
 - Huisman, John Marinus. Marine plants of Australia. University of Western Australia Press in association with Australian Biological Resources Study, 2000.
 - World Health Organization (2009). Stuart MC, Kouimtzi M, Hill SR (eds.). WHO Model Formulary 2008. World Health Organization. pp. 323, 325. hdl:10665/44053. ISBN 9789241547659.
-### Leave a Reply Cancel reply

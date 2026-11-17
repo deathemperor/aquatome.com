@@ -15,7 +15,8 @@
   "range": {
     "native": {
       "countries": [
-        "VE"
+        "VE",
+        "BR"
       ],
       "regions": [
         "Río Negro",
@@ -23,16 +24,20 @@
         "Casiquiare"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
           "quote": "Southern Venezuela and probably northern Brazil with type locality given as 'Laguna Yocuta, 2.1347°N, 66.3742°W, Río Siapa, Amazonas, Venezuela'.",
           "countries": [
-            "VE"
+            "VE",
+            "BR"
           ],
-          "regions": []
+          "regions": [
+            "Río Siapa"
+          ]
         },
         {
           "source": "seriouslyfish",
@@ -40,7 +45,6 @@
           "countries": [],
           "regions": [
             "Río Negro",
-            "Río Siapa",
             "Casiquiare"
           ]
         }
@@ -48,12 +52,12 @@
     },
     "records": {
       "taxonKey": 5208415,
-      "total": 25,
-      "fetched": "2026-11-08",
+      "total": 26,
+      "fetched": "2026-11-16",
       "countries": [
         [
           "BR",
-          17
+          18
         ],
         [
           "VE",
@@ -69,7 +73,7 @@
           -70.3125,
           0,
           10,
-          0
+          10
         ],
         [
           -67.5,
@@ -99,19 +103,19 @@
           -66.09375,
           -1.40625,
           3,
-          0
+          3
         ],
         [
           -63.28125,
           -1.40625,
-          3,
-          0
+          4,
+          4
         ],
         [
           -61.875,
           -2.8125,
           1,
-          0
+          1
         ]
       ]
     }
@@ -160,6 +164,10 @@
       {
         "source": "seriouslyfish",
         "value": 4
+      },
+      {
+        "source": "glaser",
+        "value": 2
       }
     ]
   },
@@ -171,10 +179,22 @@
       "html": "<ul><li>Needs a very large tank.</li><li>Needs a soft, sandy substrate: the most essential item of décor is a soft, sandy substrate so that the fish can browse naturally (see 'Diet').</li></ul><p>Geophagus winemilleri is a cichlid from southern Venezuela and probably northern Brazil, recorded from the upper Río Negro, Río Siapa and Casiquiare. It is rare in the hobby, though other species are sometimes sold under its name. A dark preopercular marking and four ventrally-inclined bars on each flank help identify it, and it may be restricted to acidic blackwater.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_winemilleri_en/",
+      "html": "<p>G. winemilleri is often confused with G. proximus and a second, still undescribed or unidentified species. However, G. winemilleri can be identified by the dark spot on the operculum, reddish fins and four dark vertical bars on the body. It is mentioned already in the original description of the species that the caudal fin can be spotted or striped (depending on the population?).</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-winemilleri",
       "html": "<p>Southern Venezuela and probably northern Brazil with type locality given as 'Laguna Yocuta, 2.1347°N, 66.3742°W, Río Siapa, Amazonas, Venezuela'.</p><p>Official collections have been from the upper Río Negro and Río Siapa plus the Casiquiare system of waterways which allows transfer of water between the Negro and Orinoco basins, though the species' presence in the latter drainage remains unconfirmed.</p><p>It's apparently common at fish markets along the middle course of the Negro and may be conspecific with the fish known in the trade under the names G. sp. 'Río Negro I'/G. sp. 'stripetail'.</p><p>If that is the case it's likely distributed throughout much of the Negro drainage, possibly as far south as the Arquipélago de Anavilhanas near its mouth.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_winemilleri_en/",
+      "html": "<p>The main distribution of Geophagus winemilleri is the southern part of Venezuela. Nevertheless most imports come from Brazil, because the species also occurs in the Rio Negro.</p>"
     },
     {
       "key": "habitat",
@@ -223,6 +243,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-winemilleri",
       "html": "<p>Substrate-spawning, larvophilous, biparental mouthbrooder that has been bred in aquaria.</p><p>There doesn't appear to be any particular trigger for the spawning process with the main requirements being good diet and stringent maintenance regime involving relatively large weekly water changes.</p><p>Since accurate sexing is very difficult it's best to begin with a group of young fish and allow pairs to form naturally.</p><p>A degree of patience is also required since it can be at least a year until they become sexually mature.</p><p>Courtship is relatively unobtrusive consisting of fin flaring, circling, gaping and head jerking displays, and when ready to spawn a pair will select a suitable site.</p><p>This is normally a piece of décor such as a flat rock or section of driftwood although it's not unknown for the base of the aquarium to be used and once chosen the area is cleaned and defended against intruders.</p><p>Spawning occurs in typical substrate-spawning style with the female laying one or more rows of eggs before the male moves in to fertilise them, the process being repeated numerous times over a period of several hours.</p><p>Post-spawning the female stays close to the eggs, tending and defending them against intruders while the male is responsible for defence of the surrounding territory.</p><p>After around 72 hours the eggs hatch and fry immediately taken into the mouth of the female although on some occasions both parents may be involved from the start.</p><p>Once the fry are free swimming brood care/defence is shared although this varies depending on the male with some individuals becoming involved earlier and others not at all.</p><p>Some females therefore continue to hold all the fry or may even be driven away by the male to care for them alone.</p><p>In other cases both parents hold fry simultaneously or exchange the entire brood between one another on a regular basis, with such transfers tending to take place in a sheltered location such as a depression in the substrate.</p><p>When not brooding the adults will normally feed, and may even take some small morsels while holding fry.</p><p>The fry become free swimming at 8-11 days of age and the parents begin to release them to feed, initially with caution but for increasingly longer periods.</p><p>If danger is sensed the fry are shepherded back into the adults' mouths, with rapid movement of the ventral fins appearing to act as a signal.</p><p>As time elapses and the fry grow they may only return to their parents' mouths at night while the size of the territory becomes correspondingly larger.</p><p>They're easily-fed, accepting good quality powdered dry foods, Artemia nauplii, microworm, etc., as soon as the free-swimming stage is reached.</p><p>If maintaining the adults in a community situation it's recommended to remove brooding females as the fry become easy prey for other fishes, including conspecifics, once released.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_winemilleri_en/",
+      "html": "<p>Geophagus winemilleri is a biparental larvophilous mouthbrooder, which is pretty easy to keep and can be even bred without too many problems.</p>"
     },
     {
       "key": "notes",
@@ -337,5 +363,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-16"
 }

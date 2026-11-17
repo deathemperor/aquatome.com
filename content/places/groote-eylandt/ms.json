@@ -3,6 +3,12 @@
   "name": "Groote Eylandt",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-16T17:26:16.216Z",
+    "why": "Nama ini mengekalkan \"Eylandt\", perkataan Belanda untuk \"pulau\", tanpa kata jenis Melayu \"Pulau\", jadi ia tidak ditulis seperti dalam atlas Malaysia."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

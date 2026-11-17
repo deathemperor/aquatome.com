@@ -2,18 +2,6 @@
   "id": "chitala-ornata",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/130041687.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/130041687-480.webp",
-      "width": 1024,
-      "height": 820,
-      "licence": "CC BY",
-      "author": "portioid",
-      "sourceUrl": "https://www.inaturalist.org/photos/130041687",
-      "caption": "Cá thát lát cườm nhỏ bơi trong chậu trắng, thân có đốm rõ",
-      "best": true,
-      "kind": "juvenile"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/642201352.webp",
       "thumb": "https://media.aquatome.com/inaturalist/642201352-480.webp",
       "width": 1024,
@@ -31,18 +19,6 @@
       }
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/130041777.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/130041777-480.webp",
-      "width": 1024,
-      "height": 817,
-      "licence": "CC BY",
-      "author": "portioid",
-      "sourceUrl": "https://www.inaturalist.org/photos/130041777",
-      "caption": "Cá thát lát cườm con bơi nghiêng trong chậu trắng",
-      "best": true,
-      "kind": "juvenile"
-    },
-    {
       "url": "https://media.aquatome.com/commons/e2aacd9755454d8b.webp",
       "thumb": "https://media.aquatome.com/commons/e2aacd9755454d8b-480.webp",
       "width": 1200,
@@ -56,16 +32,6 @@
         "width": 2367,
         "height": 1163
       }
-    },
-    {
-      "url": "https://media.aquatome.com/commons/85f81480db2a18b6.webp",
-      "thumb": "https://media.aquatome.com/commons/85f81480db2a18b6-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY 4.0",
-      "author": "Jesaya Li",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Adult_Clown_featherback_in_aquarium.jpg",
-      "caption": "Cá thát lát cườm nâu bơi trong bể nước xanh"
     },
     {
       "url": "https://media.aquatome.com/commons/31c602b01a1dcfdf.webp",
@@ -121,6 +87,40 @@
       "author": "Julien Lepage",
       "sourceUrl": "https://www.inaturalist.org/photos/51693885",
       "caption": "Hai cá thát lát cườm trong bể lớn nền cát có đá"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/130041687.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/130041687-480.webp",
+      "width": 1024,
+      "height": 820,
+      "licence": "CC BY",
+      "author": "portioid",
+      "sourceUrl": "https://www.inaturalist.org/photos/130041687",
+      "caption": "Cá thát lát cườm nhỏ bơi trong chậu trắng, thân có đốm rõ",
+      "best": true,
+      "kind": "juvenile"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/130041777.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/130041777-480.webp",
+      "width": 1024,
+      "height": 817,
+      "licence": "CC BY",
+      "author": "portioid",
+      "sourceUrl": "https://www.inaturalist.org/photos/130041777",
+      "caption": "Cá thát lát cườm con bơi nghiêng trong chậu trắng",
+      "best": true,
+      "kind": "juvenile"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/85f81480db2a18b6.webp",
+      "thumb": "https://media.aquatome.com/commons/85f81480db2a18b6-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY 4.0",
+      "author": "Jesaya Li",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Adult_Clown_featherback_in_aquarium.jpg",
+      "caption": "Cá thát lát cườm nâu bơi trong bể nước xanh"
     },
     {
       "url": "https://media.aquatome.com/commons/3888c566b68bbca8.webp",

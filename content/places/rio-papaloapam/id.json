@@ -3,6 +3,12 @@
   "name": "Papaloapan",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-16T00:15:26.795Z",
+    "why": "Papaloapan is the correct spelling of the Mexican river, but the name leaves out the kind word \"Sungai\", which an Indonesian atlas would write."
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

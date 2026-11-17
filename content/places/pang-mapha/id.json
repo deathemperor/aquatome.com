@@ -3,6 +3,12 @@
   "name": "Pang Mapha",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-16T17:17:00.978Z",
+    "why": "\"Pang Mapha\" keeps the Thai place name, but an Indonesian atlas would add the kind word \"Distrik\" (or \"Kecamatan\"), since the place is a region/district, so the bare name is incomplete."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

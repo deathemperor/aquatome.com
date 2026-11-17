@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/lava-rocks-in-aquariums-pros-and-cons/
 title: Lava Rocks in Aquariums: Pros and Cons - Shrimp and Snail Breeder
 fetchedAt: 2026-10-28T16:11:11.662Z
-hash: c8d904c5d162dd96222ea3d5af3223cad69c8c991c63b75eac96f2dac50b2ae9
+hash: 37a839c7e013bdf1e202ae58305f7cf834f3286d20f654f330973ba992ef0249
 ---
 
 Lava rocks have a porous structure which allows them to act as a natural filter. These rocks provide an ideal habitat for beneficial bacteria, which are essential for maintaining a healthy and stable aquarium environment.
@@ -78,7 +78,3 @@ Related articles:
 ## In Conclusion
 Lava rocks are a versatile and beneficial addition to many tanks. They can provide both aesthetic and functional advantages.
 These rocks will also have a positive effect on aquarium plants and are generally considered a good match for planted tanks.
-## 4 thoughts on “Lava Rocks in Aquariums: Pros and Cons”
-- Are you familiar with opae ula shrimps-my tank is set up, very sparingly, about 1mo with shrimps..now I want to add lava cinders about an inch in my tank..Will it change parameter readings n harm my shrimps? Thank you ReplyHi Marcia, Yes, I know that species quite well – I even wrote an article about them a few years back! As far as keeping them goes, the same guidelines still apply. And to answer your question directly, natural lava rocks are a great addition to their tank. They shouldn’t affect the water parameters at all. If you have any doubts about the source of the lava rocks, you can quarantine them and monitor their impact on the water parameters there. Best regards, Michael Reply
-- Is it possible for lava rock to increase silicate or phosphate levels in the aquarium? Does it have the property to absorb liquid fertilizers? ReplyHi Deyan Valentinov, Generally, no. Quality lava rock is primarily silica and alumina and is considered inert. It should not leach silicates or phosphates into the water. However, in rare cases, low-quality rocks from unknown sources might contain impurities. If you’re worried, you can soak the rock in a bucket of water for a week and test the water for phosphates/silicates before adding it to your main tank. As to your second question – does it absorb liquid fertilizers? Yes, it acts like a sponge. Because lava rock is extremely porous, it will physically absorb nutrient-rich water into its tiny holes. It doesn’t “bind” the chemicals, but it traps the fertilized water, making those nutrients available right at the surface for attached plants or biofilm. Best regards, Michael Reply
-### Leave a Reply Cancel reply

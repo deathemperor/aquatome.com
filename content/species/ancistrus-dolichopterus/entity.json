@@ -17,10 +17,13 @@
         "BR"
       ],
       "regions": [
-        "rio Negro"
+        "Rio Negro",
+        "Trombetas",
+        "Madeira"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "aquatome"
       ],
       "quotes": [
         {
@@ -30,7 +33,16 @@
             "BR"
           ],
           "regions": [
-            "rio Negro"
+            "Rio Negro"
+          ]
+        },
+        {
+          "source": "aquatome",
+          "quote": "Loài này còn được ghi là có ở nhiều hệ sông trong lưu vực Amazon, chẳng hạn hạ lưu sông Trombetas và sông Madeira ở Brazil.",
+          "countries": [],
+          "regions": [
+            "Trombetas",
+            "Madeira"
           ]
         }
       ]

@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/eriocaulon-cinereum-care-guide-planting-growing-and-propagation/
 title: Eriocaulon Cinereum Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-10-31T04:13:28.966Z
-hash: 675b171cc2ba5a84c05ed8704081c1275d432e20840f1a71b5f039ea55c1aaaf
+hash: 853a2e806a732d093611ccbc2da64eb8964353ee3c106f5ba2ad0ab060ce2ee1
 ---
 
 Despite its small size, Eriocaulon cinereum is an incredibly unusual aquarium plant. It looks amazing when planted both as a single specimen and in groups of 3-5 plants.
@@ -155,4 +155,3 @@ For these reasons, I would recommend carefully considering these drawbacks when 
 - Roskov Y., Kunze T., Orrell T., Abucay L., Paglinawan L., Culham A., Bailly N., Kirk P., Bourgoin T., Baillargeon G., Decock W., De Wever A., Didžiulis V. (ed) (2019). “Species 2000 & ITIS Catalogue of Life: 2019 Annual Checklist”. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X. TaxonID: 43184246. Gikuhaniadtong 2019-11-11.
 - Chaudhary, Amit, BishnuBilashAdhikari, and Jiban Shrestha. “Effect of weed species on drought tolerant rice genotypes at Sundarbazar, Lamjung, Nepal.” Open Agriculture4, no. 1 (2019): 65-78.
 - Choi, Yu Seong, and Jae Geun Kim. “Seed bank has potential for the restoration of insectivorous plants in Janggun montane wetland.” Ecological Engineering182 (2022): 106728.
-### Leave a Reply Cancel reply

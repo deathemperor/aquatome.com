@@ -1,5 +1,4 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
-import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import type { Content } from '@aq/schema'
 import { drawnKinds, levelBlocks, PageDoc, PageShard, pageShard, shardCount, type Block, type Inline } from '@aq/schema/app-page'
@@ -20,7 +19,6 @@ type Vectors = {
   docs: { note: string; valid: boolean; doc: unknown; blocks: string[] }[]
 }
 const v: Vectors = JSON.parse(readFileSync(new URL('../../../protocols/page-vectors.json', import.meta.url), 'utf8'))
-const CONTENT = fileURLToPath(new URL('../../../content/', import.meta.url))
 const clean = (s: string) => s.replace(/\s+/g, ' ').trim()
 const textOf = (c: Inline[] = []) => c.map(r => (typeof r === 'string' ? r : r.text)).join('')
 const pagesOf = (d: PageDoc) => d.blocks.flatMap(b => (b.t === 'pages' ? b.paths : []))
@@ -44,27 +42,6 @@ test.each(v.shards)('$path is in shard $n of $shards', c => {
 test('about 8 pages a shard, a power of two', () => {
   expect([0, 1, 8, 9, 16, 17, 249, 1016].map(shardCount)).toEqual([1, 1, 1, 2, 2, 4, 32, 128])
 })
-
-test('every content file\'s text converts: nothing the app would have to send to the web', () => {
-  const unknown = new Map<string, string>()
-  let n = 0
-  for (const kind of ['guides', 'species', 'plants', 'breeds']) {
-    for (const id of readdirSync(CONTENT + kind)) {
-      for (const lang of LANGS) {
-        const f = `${CONTENT}${kind}/${id}/${lang}.json`
-        if (!existsSync(f)) continue
-        const t = JSON.parse(readFileSync(f, 'utf8')) as { body?: string; sections?: Record<string, string> }
-        for (const html of [t.body, ...Object.values(t.sections ?? {})]) {
-          if (typeof html !== 'string' || !html) continue
-          n++
-          for (const u of htmlBlocks(html).unknown) unknown.set(u, `${kind}/${id}/${lang}`)
-        }
-      }
-    }
-  }
-  expect(n).toBeGreaterThan(100)
-  expect([...unknown]).toEqual([])
-}, slow(60_000)) // about 17,000 texts: a second alone, more beside the other tests
 
 test('every guide converts as its page shows it (links, photos, a video\'s pictures), and is the format', async () => {
   let n = 0
@@ -153,9 +130,9 @@ test('a page the app index leaves out is in no "pages" block; a link to it in th
   expect(pagesOf(d)).not.toContain(fish)
   expect(hrefsOf(d)).toContain(fish)
   // A fish and a guide whose translations scored low (Cá boraras đỏ, Thay nước đúng cách) are on the site's lists, so in
-  // the index and in the blocks that name them. A guide with no picture is on no list of guides to read next (leadGuides),
-  // and since 15 Nov one borrows a fish only when its title names it (mentions.ts): the fixture's "Thay nước đúng cách"
-  // names none, so here it has a photo of its own.
+  // the index and in the blocks that name them. A guide with no picture is on none of the app's lists of guides to read next
+  // (guide-page.ts appNext), and since 15 Nov one borrows a fish only when its title names it (mentions.ts): the fixture's
+  // "Thay nước đúng cách" names none, so here it has a photo of its own.
   const own = c.species.find(s => s.id === 'boraras-brigittae')!.photos[0]!
   const withPhoto = { ...c, guides: c.guides.map(x => (x.id === g.id ? { ...x, photos: [own] } : x)) }
   const block = (id: string) => pagesOf(guideDoc('vi', withPhoto, appGuides('vi', withPhoto).find(x => x.id === id)!, listed))

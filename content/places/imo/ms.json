@@ -1,8 +1,13 @@
 {
   "slug": "imo",
-  "name": "Imo",
+  "name": "Negeri Imo",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.85,
+    "at": "2026-11-16T00:08:06.951Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

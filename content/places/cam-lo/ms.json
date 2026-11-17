@@ -1,8 +1,13 @@
 {
   "slug": "cam-lo",
-  "name": "Cam Lo",
+  "name": "Daerah Cam Lộ",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-16T17:24:26.392Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

@@ -1,0 +1,84 @@
+{
+  "id": "schizolecis-guntheri",
+  "native": {
+    "input": "8ab433dea2dbfaee",
+    "at": "2026-11-16T11:31:54.968Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Schizolecis guntheri comes from the coastal rainforests of southeastern Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Schizolecis guntheri",
+    "status": "ACCEPTED",
+    "taxonKey": 2339518,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        113
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        100
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        43
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        32
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        11
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        4
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-16T11:31:54.968Z"
+  }
+}

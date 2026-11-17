@@ -1,0 +1,101 @@
+{
+  "id": "orthospinus-franciscensis",
+  "scientificName": "Orthospinus franciscensis",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Orthospinus",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-sao-francisco"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/orthospinus_franciscensis_en/",
+      "html": "<p>Orthospinus franciscensis is a tetra endemic to the Rio Sao Francisco in Brazil. It reaches only 8 cm maximum length.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/orthospinus_franciscensis_en/",
+      "html": "<p>Endemic to the Rio Sao Francisco in Brazil.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/orthospinus_franciscensis_en/",
+      "html": "<p>Keeping and also probably breeding is the same as in the Silver Dollar (Brachychalcinus orbicularis). However, O. franciscensis stays smaller, reaching only 8 cm maximum length.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/orthospinus_franciscensis_en/",
+      "html": "<p>Lexicon: Orthospinus means \"erected spine\", which refers to a spine placed before the dorsal fin. franciscensis refers to the origin of the species, the Rio Sao Francisco.</p><p>This species was imported for the first time.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/3829f4c61147a3ff.webp",
+      "thumb": "https://media.aquatome.com/glaser/3829f4c61147a3ff-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/orthospinus_franciscensis_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/71eda31927162abe.webp",
+      "thumb": "https://media.aquatome.com/glaser/71eda31927162abe-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/orthospinus_franciscensis_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "nT76YldWZZw",
+      "title": "Orthospinus franciscensis & Psalidodon anisitsi (05/16/2026)",
+      "durationSec": 77,
+      "lang": "en-US"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120 lít",
+        "bể cá cộng đồng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm sục khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra",
+        "thức ăn cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-16"
+}

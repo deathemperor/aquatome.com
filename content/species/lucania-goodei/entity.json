@@ -1,0 +1,289 @@
+{
+  "id": "lucania-goodei",
+  "scientificName": "Lucania goodei",
+  "order": "Cyprinodontiformes",
+  "family": "Fundulidae",
+  "genus": "Lucania",
+  "group": "killifish",
+  "places": [
+    "north-america",
+    "united-states",
+    "florida"
+  ],
+  "range": {
+    "records": {
+      "taxonKey": 2349571,
+      "total": 1549,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "US",
+          1549
+        ]
+      ],
+      "cells": [
+        [
+          -122.34375,
+          37.96875,
+          13
+        ],
+        [
+          -119.53125,
+          33.75,
+          2
+        ],
+        [
+          -118.125,
+          32.34375,
+          2
+        ],
+        [
+          -99.84375,
+          29.53125,
+          5
+        ],
+        [
+          -98.4375,
+          28.125,
+          17
+        ],
+        [
+          -98.4375,
+          29.53125,
+          2
+        ],
+        [
+          -97.03125,
+          26.71875,
+          2
+        ],
+        [
+          -97.03125,
+          28.125,
+          39
+        ],
+        [
+          -97.03125,
+          29.53125,
+          13
+        ],
+        [
+          -97.03125,
+          30.9375,
+          7
+        ],
+        [
+          -97.03125,
+          32.34375,
+          3
+        ],
+        [
+          -95.625,
+          29.53125,
+          2
+        ],
+        [
+          -88.59375,
+          29.53125,
+          1
+        ],
+        [
+          -88.59375,
+          32.34375,
+          1
+        ],
+        [
+          -87.1875,
+          29.53125,
+          2
+        ],
+        [
+          -85.78125,
+          29.53125,
+          25
+        ],
+        [
+          -85.78125,
+          30.9375,
+          9
+        ],
+        [
+          -85.78125,
+          32.34375,
+          2
+        ],
+        [
+          -84.375,
+          28.125,
+          27
+        ],
+        [
+          -84.375,
+          29.53125,
+          38
+        ],
+        [
+          -82.96875,
+          25.3125,
+          26
+        ],
+        [
+          -82.96875,
+          26.71875,
+          50
+        ],
+        [
+          -82.96875,
+          28.125,
+          513
+        ],
+        [
+          -82.96875,
+          29.53125,
+          131
+        ],
+        [
+          -81.5625,
+          23.90625,
+          17
+        ],
+        [
+          -81.5625,
+          25.3125,
+          100
+        ],
+        [
+          -81.5625,
+          26.71875,
+          297
+        ],
+        [
+          -81.5625,
+          28.125,
+          171
+        ],
+        [
+          -81.5625,
+          29.53125,
+          1
+        ],
+        [
+          -81.5625,
+          30.9375,
+          1
+        ],
+        [
+          -80.15625,
+          25.3125,
+          6
+        ],
+        [
+          -80.15625,
+          32.34375,
+          16
+        ],
+        [
+          -78.75,
+          33.75,
+          8
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/lucania_goodei_en/",
+      "html": "<p>The Bluefin killifish originates from Florida and reaches a length of about 5 cm. In contrast to most other species of killifish this is a schooling species. The harmless mock fights of the males are marvelous to observe.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/lucania_goodei_en/",
+      "html": "<p>Lucania goodei is found in hard water in the wild and prefers such conditions also in the aquarium.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/lucania_goodei_en/",
+      "html": "<p>The Bluefin killifish spawns between plants and the eggs need about 14 days to hatch.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/lucania_goodei_en/",
+      "html": "<p>Lucania: Latin, means \"the shining one\". goodei: dedication name.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/fd0dc31efefd46da.webp",
+      "thumb": "https://media.aquatome.com/glaser/fd0dc31efefd46da-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/lucania_goodei_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "W2BRNYiihsM",
+      "title": "Lucania goodei (BlueFin Killifish) In My Outdoor Pond",
+      "durationSec": 61,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Ubtbal2dgjo",
+      "title": "Male Bluefin killifish (Lucania goodei)",
+      "durationSec": 7,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "-7PpKfYbIcg",
+      "title": "Wild Caught Bluefin Killifish Tank",
+      "durationSec": 625,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "vRbUwL9B4dA",
+      "title": "bluefin killifish Lucania goodei",
+      "durationSec": 49,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh rậm",
+        "rong đuôi chó"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá killi",
+        "artemia đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-15"
+}

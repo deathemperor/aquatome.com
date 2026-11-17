@@ -1,0 +1,481 @@
+{
+  "found": true,
+  "species": [
+    "Paracheirodon axelrodi",
+    "Paracheirodon innesi",
+    "Symphysodon",
+    "Carassius auratus",
+    "Betta splendens",
+    "Poecilia reticulata",
+    "Pterophyllum",
+    "Cyprinus carpio",
+    "Caridina"
+  ],
+  "sources": [
+    {
+      "url": "https://www.seriouslyfish.com/glossary/ph",
+      "title": "pH",
+      "kind": "reference"
+    },
+    {
+      "url": "https://vin.com/doc/?id=8249984",
+      "title": "Practical Water Quality: What It Means and How to Fix It",
+      "kind": "vet"
+    },
+    {
+      "url": "https://aqueon.com/articles/ph-importance",
+      "title": "What is pH and Why Is It Important?",
+      "kind": "maker"
+    },
+    {
+      "url": "https://mayaqua.vn/dieu-chinh-do-ph-trong-be-thuy-sinh-nhu-the-nao/",
+      "title": "ĐIỀU CHỈNH ĐỘ pH TRONG BỂ THỦY SINH NHƯ THẾ NÀO?",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhaz.com/tanggiamph/",
+      "title": "Cách tăng giảm độ pH trong hồ cá thủy sinh 1 cách an toàn và hiệu quả",
+      "kind": "shop"
+    },
+    {
+      "url": "https://shrimphome.vn/cac-thong-so-nuoc-trong-mot-be-nuoi-trong",
+      "title": "Các Thông Số Nước Trong Một Bể Nuôi Trồng - Thủy sinh | Shrimp Home",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquazonefish.vn/blogs/kien-thuc/cach-giu-ph-on-dinh-cho-ho-ca",
+      "title": "Cách Giữ PH Ổn Định Cho Hồ Cá Đơn Giản, Dễ Làm",
+      "kind": "shop"
+    },
+    {
+      "url": "https://cafishvet.com/?p=86839",
+      "title": "Old Tank Syndrome",
+      "kind": "vet"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "pH measures how acidic or basic (alkaline) water is.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "The pH scale runs from 0.0 to 14.0; pure water is neutral at about pH 7.0, lower values are acidic and higher values are basic.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "pH is logarithmic: each whole number is a tenfold change, so pH 4.0 is 10 times more acidic than pH 5.0 and 100 times more acidic than pH 6.0.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Some fish need a fairly specific pH while others tolerate a wide range; captive-bred fish usually need a specific pH less than wild-caught fish do.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Alkalinity (KH) is the water's buffering capacity, its ability to resist pH change; hard water buffers better than soft water.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Most freshwater tropical fish do best at pH 6.8 to 7.8.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Rift Lake cichlids prefer pH 8.0 to 9.0, while cardinal tetras (Paracheirodon axelrodi) from the Rio Negro live in water below pH 5.5.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Above pH 7.3 more of the ammonia is the toxic free form (NH3); below 7.3 more of it is the less harmful ammonium ion (NH4+).",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "High pH shifts ammonia toward its more toxic free form; pH matters more than temperature or salinity here.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Acidic water disturbs fish's ionic and osmotic balance, and nitrite and chlorine are more toxic at lower pH.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Low pH can release potentially toxic metals from sediments.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "The biofilter is inhibited below pH 5.0; nitrifying reactions run fastest at about pH 8–9.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "pH changes how medicines work: chloramine-T is more toxic in acidic water, so a lower dose is needed; organophosphates break down faster in alkaline water.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "KH stabilises pH, feeds nitrifying bacteria and gives plants carbon; the target for most freshwater fish is 60–80 mg/L and for Rift Lake cichlids 120–200 mg/L.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "KH acts as a buffer, so pH usually changes when KH changes.",
+      "source": 5
+    },
+    {
+      "section": "what",
+      "fact": "At low pH (below 7), plants take up iron and other micronutrients more easily and ammonia becomes the much less toxic ammonium, but the beneficial bacteria colony is weaker.",
+      "source": 5
+    },
+    {
+      "section": "what",
+      "fact": "At high pH (above 7), beneficial bacteria thrive and algae are easier to control, but micronutrients are less available to plants and CO2 dissolves less well.",
+      "source": 5
+    },
+    {
+      "section": "what",
+      "fact": "Most aquatic plants do well at about pH 5.5 to 6.5; the page gives about 5 to 8 as a workable range for aquarium water and says no single pH suits every tank.",
+      "source": 5
+    },
+    {
+      "section": "what",
+      "fact": "Bee shrimp (Caridina) prefer lower pH, unlike most tank animals, and the Tonina plant family does poorly at high pH.",
+      "source": 5
+    },
+    {
+      "section": "what",
+      "fact": "The page gives the ideal pH for ornamental fish as about 6.5 to 7.5, depending on the species.",
+      "source": 6
+    },
+    {
+      "section": "what",
+      "fact": "The page lists these pH ranges: goldfish (Carassius) 7.0–8.4, betta (Betta) 6.5–7.5, neon tetra (Paracheirodon) 5.0–7.0, discus (Symphysodon) 6.0–7.0, guppy (Poecilia) 7.0–8.0.",
+      "source": 6
+    },
+    {
+      "section": "what",
+      "fact": "The page calls pH 5–8 the most ideal range for an aquarium.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Koi (Cyprinus) kept at pH 4.5 showed excess mucus, piping, flashing, fin twitching, poor appetite, listlessness, jumping, loss of buoyancy control and death.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Water is usually most acidic in the morning, because plants and algae use up CO2 by day and CO2 builds up overnight.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "In planted tanks, pH rises by day through photosynthesis and falls at night as CO2 is released; the swings are bigger with low buffering or added CO2.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Old tank syndrome shows few, vague signs (more parasites and disease, occasional deaths or a sudden die-off) and only water tests confirm it: pH below 6.0, KH under 50 mg/L (often 0), high ammonia and nitrate.",
+      "source": 7
+    },
+    {
+      "section": "causes",
+      "fact": "Low pH is usually caused by poor tank hygiene and a build-up of organic matter.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "As a tank ages, pH tends to fall gradually as organic waste builds up and mineral buffers are used up.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "In old tank syndrome, the buffers are gradually used up, and once KH nears 0 the pH can swing sharply and crash.",
+      "source": 7
+    },
+    {
+      "section": "causes",
+      "fact": "Soft-water tanks are more prone to sudden pH drops (pH crashes) if they are not maintained correctly.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Things that raise pH include coral, limestone, snail shells, certain coloured gravels, some decorative rocks, high dissolved oxygen and baking soda.",
+      "source": 5
+    },
+    {
+      "section": "causes",
+      "fact": "Things that lower pH include peat moss, humic acid, CO2, acids (lemon juice, vinegar, vitamin C, strong mineral acids), Indian almond leaves (Terminalia catappa) and old filter media.",
+      "source": 5
+    },
+    {
+      "section": "causes",
+      "fact": "Coral releases calcium, magnesium and bicarbonate, raising pH, KH and gH; three-colour gravel mixed with small snail shells, 'cát muối tiêu' (crushed coral or ground shells) and white rocks such as 'đá tai mèo' do the same.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "A filter that has not been cleaned for a long time can lower pH.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "The page says source water (tap or well water), rocks, gravel and driftwood, and decomposing food and waste can all shift pH.",
+      "source": 6
+    },
+    {
+      "section": "firstAid",
+      "fact": "For old tank syndrome, do not do a full water change; change 10–15% of the water daily in week 1, the same amount every other day in week 2, then 20–25% twice a week in weeks 3–4, and retest.",
+      "source": 7
+    },
+    {
+      "section": "firstAid",
+      "fact": "The page notes that in old tank syndrome the low pH protects fish from the high nitrogen levels.",
+      "source": 7
+    },
+    {
+      "section": "firstAid",
+      "fact": "During ammonia poisoning, lowering pH to about 6.0–6.5 is recommended if the fish tolerate it, along with 25–50% water changes.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "To raise low pH, do water changes, remove organic material and add sodium bicarbonate, limestone, crushed coral or shells.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "To lower high pH, phosphate salts or acids such as sulfuric or nitric acid can be used, but phosphates should be avoided where possible because they feed algae; peat filtration is a natural option.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Baking soda (NaHCO3): dissolve 8–9 g in a glass of water and pour it in; the page says this raises pH by about 1 unit in 100 L and adds 25–50 TDS.",
+      "source": 3,
+      "also": [
+        4
+      ]
+    },
+    {
+      "section": "treatment",
+      "fact": "To lower pH with CO2, record the pH before CO2, then measure every 30 minutes and stop at about 1 unit below that baseline; the author calls a drop of 0.7 to 1 unit safe.",
+      "source": 4,
+      "also": [
+        3
+      ]
+    },
+    {
+      "section": "treatment",
+      "fact": "Acids such as nitric acid (HNO3) or phosphoric acid (H3PO4, used for discus tanks): dilute a few ml in a cup of water, pour it in, wait 5–10 minutes and retest; in the author's 300 L tank about 10 ml HNO3 lowered pH by 1 unit.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "The author finds citric acid fine for ordinary shrimp, but advises care with high-value shrimp, and says vitamin C works but is weak.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Peat moss must be soaked or boiled until it releases no more tannin colour; it lowers pH slowly.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Dry Indian almond leaves (lá bàng, Terminalia) or their soaking water release mild natural acids; the page says they lower pH by 1–2 units.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Indian almond leaves (Terminalia) and blackwater lower pH only mildly and slowly.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Strong aeration removes CO2 and slightly raises pH.",
+      "source": 4,
+      "also": [
+        3
+      ]
+    },
+    {
+      "section": "treatment",
+      "fact": "Driftwood and Indian almond leaves (Terminalia) release organic acids from their tannins, which lowers pH.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Wood and driftwood should be soaked until they stop releasing colour, or they will tint the water.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Before adjusting high pH, find and remove what is raising it (coral, limestone, shells and similar) before adding anything to lower it.",
+      "source": 5,
+      "also": [
+        4
+      ]
+    },
+    {
+      "section": "steps",
+      "fact": "If the materials raising pH stay in the tank, acid corrections wear off within a few hours to a day.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "When setting up a tank, test your tap water first to check it suits the animals you plan to keep, and research each species' water needs before buying.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "pH can be checked with test strips, liquid kits, pen meters or online monitors.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Litmus paper is cheap but less accurate and should be checked with another method; an electronic pH meter is more accurate but needs regular calibration and a clean probe.",
+      "source": 6
+    },
+    {
+      "section": "steps",
+      "fact": "Test pH at the same time of day each time and treat single readings with caution, because pH varies through the day.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Regular partial water changes remove pollutants and replace the minerals that buffer pH.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "The page advises replacing about 20–30% of the water weekly with treated, tested water, testing pH weekly, keeping the filter clean and not overfeeding.",
+      "source": 6
+    },
+    {
+      "section": "prevention",
+      "fact": "Old tank syndrome is prevented by regular water changes and filter cleaning.",
+      "source": 7
+    },
+    {
+      "section": "mistakes",
+      "fact": "Raise pH gradually, by no more than 0.5 units per day.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "The page recommends changing pH by no more than 0.2 units per day.",
+      "source": 6
+    },
+    {
+      "section": "mistakes",
+      "fact": "Sudden or drastic pH changes can harm or even kill fish.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Change pH slowly to avoid shocking fish and plants.",
+      "source": 3,
+      "also": [
+        4
+      ]
+    },
+    {
+      "section": "mistakes",
+      "fact": "Using coral to raise pH is a mistake because it also raises gH and TDS, which are hard to control.",
+      "source": 4,
+      "also": [
+        3
+      ]
+    },
+    {
+      "section": "mistakes",
+      "fact": "Trying to match the native water of captive-bred fish is unnecessary; most are bred in different water, so acclimate them to yours.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Other mistakes are letting pH drift down in an old tank and not testing pH during cycling.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Any pH change must stay within each species' tolerance range.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Treat acids with care: do not breathe them in or touch them, and keep them away from children.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "If the tank is stable, the author says not to worry much about the exact pH.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "The author bought the acids he uses for pH (HNO3, H3PO4) at Kim Biên market (chợ Kim Biên) in Saigon; baking soda is cheap and sold at pharmacies.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Dragon stone ('đá da voi') and construction stone ('đá xây dựng') are said to raise pH.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "Four-hole bricks ('gạch ống') used as substrate filler do not affect pH, river gravel ('sỏi suối') usually does not raise it, and white lava rock and tiger rock are fine.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "A pH drop some time after adding fresh tap water may come from dissolved CO2 escaping; also check that the pH pen reads correctly.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "If the source water is pH 8, acids may help; if it is below 8 but the tank is higher, something in the tank is raising pH and acid will not help.",
+      "source": 4
+    },
+    {
+      "section": "myths",
+      "fact": "Alum (phèn chua, KAl(SO4)2) does not lower pH, according to the Thuỷ sinh AZ author; its name refers to its sour taste.",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "Vietnamese name: \"độ pH\" (\"Độ pH là chỉ số đo hoạt động của các ion (H+) trong dung dịch\").",
+      "source": 3
+    },
+    {
+      "section": "other",
+      "fact": "Vietnamese name: \"độ pH\", used in the title \"Cách tăng giảm độ pH trong hồ cá thủy sinh\".",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "Vietnamese name: \"PH\", used in the title \"Cách Giữ PH Ổn Định Cho Hồ Cá\".",
+      "source": 6
+    },
+    {
+      "section": "other",
+      "fact": "Vietnamese name: \"Độ pH\", defined as \"chỉ số đo độ axit hoặc kiềm của nước\".",
+      "source": 6
+    },
+    {
+      "section": "other",
+      "fact": "Vietnamese name: \"PH\" (section heading); the text writes \"pH là chỉ số đo độ hoạt động của các ion (H+) trong dung dịch\".",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "English name: \"pH\".",
+      "source": 0
+    }
+  ]
+}

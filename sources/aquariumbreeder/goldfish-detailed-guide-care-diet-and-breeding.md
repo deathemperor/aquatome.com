@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/goldfish-detailed-guide-care-diet-and-breeding/
 title: Goldfish – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-10-31T19:48:46.620Z
-hash: 83c4491dd8d8e4cf4be19b3986ffb57ce51bf1a4c91ac7d2d59a9a64fd746f83
+hash: 53dfd9aab9b95169fb9a33247a1f4317f8edc923cef8d78f0d229029d5eed21e
 ---
 
 The Goldfish (Carassius auratus) is perhaps the most recognizable and one of the most beloved species of ornamental fish among aquarium enthusiasts. In many ways, the history of fishkeeping began with them back in the 3rd or 4th centuries.
@@ -249,4 +249,3 @@ Generally, these are hardy and large fish that can be easily recommended for beg
 - Mondal, Arindam, Paramveer Singh, ManasMondal, Mukta Singh, Girish Tripathi, and Gaurav Shankar Tripathi. “Comparative study of gold fish (Carassiusauratus) breeding via induced and natural breeding.” International Journal of Chemical Studies6, no. 6 (2018): 1940-1944.
 - Sinha, Amit Kumar, Hon Jung Liew, MarjanDiricx, Ronny Blust, and Gudrun De Boeck. “The interactive effects of ammonia exposure, nutritional status and exercise on metabolic and physiological responses in gold fish (Carassius auratus L.).” Aquatic Toxicology109 (2012): 33-46.
 - Yoshitomi, Koji, Yuichi Ozaki, Akihiro Kimura, Shinji Adachi, and KOHEL YAMAUCHI. “Effects of water quality on physiological functions in goldfish (Carassiusauratus).” Fisheries science 68, no. sup1 (2002): 1012-1013.
-### Leave a Reply Cancel reply

@@ -11,13 +11,16 @@ import { generatedApproved, isOwnerCrop, IMAGE_SWITCHES, MARK_RESIDUE_LIMIT, MAR
 import { HAND_BOXES } from './hand-boxes'
 import { markOutsideCrop, photoFitsCard, photoFitsHead, photoFitsWholeHead, SUBJECT_FRAMES, subjectPixels, validCropGeometry, type SubjectFractions } from './image-geometry'
 import { judgeQuality, speciesDepth } from './depth'
-import { isAllowedLicence } from './licence'
+import { isAllowedLicence, isInatNonCommercial, isNonCommercial } from './licence'
 import { isVietnamese, markVietnameseNames } from './text'
-import { BreedSchema, CaptionsSchema, OneVoiceSchema, PageDatesSchema, PictureHashesSchema, ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MATERIAL_SECTION_ORDER, MaterialSchema, MarketSchema, mayPublish, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
+import { pageFish, videosForPage, videosOnTwoFish } from './videos'
+import { BreedSchema, CaptionsSchema, VideoGeneratedSchema, VideoTitlesSchema, VideoTitlesOnSchema, OneVoiceSchema, PageDatesSchema, PictureHashesSchema, ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MATERIAL_SECTION_ORDER, MaterialSchema, MarketSchema, mayPublish, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
 import type { PictureHashes } from './pictures'
-import type { BreedEntity, ChangelogEntry, EquipmentGuide, GlossaryEntity, GuideEntity, Lang, Market, MaterialEntity, Photo, PlaceEntity, PlantEntity, ProductEntity, Section, Series, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
+import type { BreedEntity, ChangelogEntry, EquipmentGuide, GlossaryEntity, GuideEntity, Lang, Market, MaterialEntity, Photo, Video, PlaceEntity, PlantEntity, ProductEntity, Section, Series, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
 
 export const QUALITY_THRESHOLD = 0.75
+/** A video not spoken in the page's language shows only with its title translated (the owner's report, 2026-11-10). */
+const REQUIRE_VIDEO_TITLE = true
 /** The market (prices, shops) each site language serves. */
 export const MARKET: Record<Lang, string> = { vi: 'vn', id: 'id', th: 'th', ms: 'my' }
 
@@ -263,10 +266,13 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     const { caption: vi, ...rest } = p
     return (captions[vi] ? { ...rest, caption: captions[vi] } : rest) as P
   }
-  /** Photos copied from a source follow that source's publish gate; others need an open licence. */
+  /**
+   * Photos copied from a source follow that source's publish gate; others need an open licence. An album's (`album`) may
+   * also be an iNaturalist photo under CC BY-NC or CC BY-NC-SA, while its switch is on (IMAGE_SWITCHES.inatNonCommercial).
+   */
   // A public build shows no photo from a host that sets third-party cookies: it waits for `pnpm engine mirror-photos`
   // (2026-10-31: 487 Commons photos put on pages straight from Wikimedia failed best practices on every live page).
-  const cleanPhotos = <P extends Photo>(xs: P[], page = '', scientificName = ''): P[] => realPhotosFirst(xs.flatMap(p => {
+  const cleanPhotos = <P extends Photo>(xs: P[], page = '', scientificName = '', album = false): P[] => realPhotosFirst(xs.flatMap(p => {
     if (isOwnerCrop(p)) {
       const valid=ownerCropApproved(p,page,scientificName,createHash('sha256').update(ownerCropCanonical(p,page,scientificName)).digest('hex'))
       const veto=p.source && sources[p.source]?.permission?.markRemoval?.allowed===false
@@ -300,7 +306,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
         }
       }
     }
-    return p.source ? photoAllowed(p.source) : isAllowedLicence(p.licence)
+    return p.source ? photoAllowed(p.source) : isAllowedLicence(p.licence) || (album && images.inatNonCommercial && isInatNonCommercial(p))
   }).map(p => caption(boxed(p))))
   /** The card's values from sources this build may show, without a tank length that is that source's tank volume (card-facts). */
   const cleanCard = (card: SpeciesEntity['dataCard'], sections: Section[]): SpeciesEntity['dataCard'] => shownCard(card, sections, s => allowed(s as SourceId))
@@ -323,12 +329,36 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     return { ...x, t: { ...x.t, quality: judgeQuality(q, scoreOk, speciesDepth(x.sections).deep) } }
   }
 
+  // A video's title in the page's language, and the mark on a generated one. One with no title in this language isn't shown,
+  // unless it's spoken in the page's language.
+  const titlesFile = join(root, 'video-titles', `${lang}.json`)
+  const videoTitles = (await exists(titlesFile)) ? await readJson(titlesFile, VideoTitlesSchema) : {}
+  // A language's translated titles show once it's in on.json, one line each, added with the chief of staff's yes; until then
+  // only the kept ones the editors passed do, and every other video keeps its own title (the chief of staff, 15 Nov).
+  const onFile = join(root, 'video-titles', 'on.json'), keptFile = join(root, 'video-titles', 'kept.json')
+  const titlesOn = (await exists(onFile)) && (await readJson(onFile, VideoTitlesOnSchema)).includes(lang)
+  const keptTitles = (await exists(keptFile)) ? await readJson(keptFile, VideoTitlesSchema) : {}
+  // Titles the meaning check refused: the video keeps its own title, marked, even once the language is on (the chief of staff, 16 Nov).
+  const refusedFile = join(root, 'video-titles', `${lang}.refused.json`)
+  const refusedTitles = (await exists(refusedFile)) ? await readJson(refusedFile, VideoTitlesSchema) : {}
+  // The words the meaning check passed: with the language on, a stored title shows only where they are its words (the
+  // reviewers of the check, 16 Nov). No file is no title passed.
+  const passedFile = join(root, 'video-titles', `${lang}.passed.json`)
+  const passedTitles = (await exists(passedFile)) ? await readJson(passedFile, VideoTitlesSchema) : {}
+  const generatedFile = join(root, 'video-generated.json')
+  const videoGenerated = (await exists(generatedFile)) ? await readJson(generatedFile, VideoGeneratedSchema) : {}
+  // Every species and product page in this language, held ones too, as the writer counts them: a video on the pages of
+  // more than one fish keeps its own title on each, whatever the title files say (the reviewers of the check, 16 Nov).
+  const allSpecies = await loadKind(root, 'species', SpeciesSchema, lang), allProducts = await loadKind(root, 'products', ProductSchema, lang)
+  const sharedVideos = videosOnTwoFish([...allSpecies.map(s => ({ fish: pageFish('species', s.id, s), videos: s.videos })), ...allProducts.map(p => ({ fish: pageFish('products', p.id, null), videos: p.reviews?.videos ?? [] }))], lang)
+  const forPage = <V extends Video>(videos: V[], o?: { order?: boolean; requireTitle?: boolean }) => videosForPage(videos, lang, videoTitles, videoGenerated, { requireTitle: REQUIRE_VIDEO_TITLE, on: titlesOn, kept: keptTitles, refused: refusedTitles, passed: passedTitles, shared: sharedVideos, ...o })
+
   const voices = (await exists(join(root, 'one-voice.json'))) ? await readJson(join(root, 'one-voice.json'), OneVoiceSchema) : {}
   // After the depth is judged: a block set aside here still counts for the page's place in search.
   const generatedPages = new Set<string>()
   const rememberGenerated = <E extends { id: string; photos: Photo[] }>(page: E): E => { if (page.photos.some(p => p.generated)) generatedPages.add(page.id); return page }
-  const species = (await loadKind(root, 'species', SpeciesSchema, lang, leaveOutHeld)).map(rememberGenerated)
-    .map(s => oneVoice(judgeDepth({ ...s, sections: cleanSections(s.sections), photos: cleanPhotos(s.photos, `species/${s.id}`, s.scientificName), dataCard: cleanCard(s.dataCard, s.sections) }), voices[s.id]))
+  const species = allSpecies.filter(s => !(leaveOutHeld && s.t.held)).map(rememberGenerated)
+    .map(s => oneVoice(judgeDepth({ ...s, sections: cleanSections(s.sections), photos: cleanPhotos(s.photos, `species/${s.id}`, s.scientificName), videos: forPage(s.videos), dataCard: cleanCard(s.dataCard, s.sections) }), voices[s.id]))
     .filter(s => s.sections.length > 0)
   const plants = (await loadKind(root, 'plants', PlantSchema, lang, leaveOutHeld)).map(rememberGenerated)
     .map(p => cleanQuality({ ...p, sections: cleanSections(p.sections), photos: cleanPhotos(p.photos) }))
@@ -366,7 +396,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     const g = await readJson(join(root, 'gallery', f), GallerySchema)
     // A photo the photo check has not judged yet (`unchecked`) waits: no page shows it, and it counts towards no album.
     const speciesPage=species.find(p=>p.id===g.id)
-    const photos = cleanPhotos(g.photos.filter(p => !p.unchecked), speciesPage ? `species/${g.id}` : '', speciesPage?.scientificName ?? '')
+    const photos = cleanPhotos(g.photos.filter(p => !p.unchecked), speciesPage ? `species/${g.id}` : '', speciesPage?.scientificName ?? '', true)
     if (photos.length) galleries[g.id] = photos
   }
 
@@ -378,7 +408,8 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // Preserve explicitly fitted heads; add a fitted fallback only after ordinary publication admission.
   const fitsHead = (p: Photo) => p.headFit === 'contain' || photoFitsHead(p)
   for (const page of [...species, ...plants, ...breeds]) if (page.photos.some(p=>p.headFit==='contain'||!photoFitsHead(p)) || page.photos[0]?.generated || (!page.photos.length && (generatedPages.has(page.id) || (galleries[page.id]??[]).some(p=>!p.generated&&photoFitsWholeHead(p))))) {
-    const all=realPhotosFirst([...new Map([...page.photos,...(galleries[page.id]??[])].map(p=>[p.url,p])).values()])
+    // A non-commercial album photo stays in its album: it never leads a page (the owner's yes was for albums, 10 Nov).
+    const all=realPhotosFirst([...new Map([...page.photos,...(galleries[page.id]??[]).filter(p=>!isNonCommercial(p.licence))].map(p=>[p.url,p])).values()])
     const albumOnly=page.photos.filter(p=>!fitsHead(p))
     if(albumOnly.length)galleries[page.id]=realPhotosFirst([...new Map([...(galleries[page.id]??[]),...albumOnly].map(p=>[p.url,p])).values()])
     page.photos=page.photos.filter(fitsHead)
@@ -406,9 +437,11 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   }
 
   const products: Content['products'] = []
-  for (const p of await loadKind(root, 'products', ProductSchema, lang)) {
+  for (const p of allProducts) {
     const file = join(root, 'products', p.id, `${MARKET[lang]}.json`)
-    products.push(await exists(file) ? { ...p, market: await readJson(file, MarketSchema) } : p)
+    // A product's reviews keep their order and all stay: the first is the one the page embeds, and its points cite them by number.
+    const shown = p.reviews ? { ...p, reviews: { ...p.reviews, videos: forPage(p.reviews.videos, { order: false, requireTitle: false }) } } : p
+    products.push(await exists(file) ? { ...shown, market: await readJson(file, MarketSchema) } : shown)
   }
 
   // A card in this language, unless the gate holds it back there or it's an event in another reader's country

@@ -318,10 +318,12 @@ private struct Photo: View {
 }
 
 /// The kinds of kit, three to a row as small tiles, each its symbol and name (the index's photos of them don't show the
-/// kit); a list at the accessibility text sizes.
+/// kit); a list at the accessibility text sizes. The tiles are buttons, as the tools' are: links, all in one row of the
+/// list, were one link to it, and a tap on any opened every kind, the last on top (the owner, 16 Nov).
 private struct KitGrid: View {
   let items: [HandbookIndex.Item]
   @Environment(\.dynamicTypeSize) private var size
+  @Environment(\.openScreen) private var openScreen
 
   var body: some View {
     if size.isAccessibilitySize {
@@ -329,7 +331,7 @@ private struct KitGrid: View {
     } else {
       LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8, alignment: .top), count: 3), spacing: 8) {
         ForEach(items) { item in
-          NavigationLink(value: item) {
+          Button { openScreen(.page(item.path)) } label: {
             VStack(alignment: .leading, spacing: 6) {
               Image(systemName: Self.symbol(item)).font(.title3).foregroundStyle(.tint).accessibilityHidden(true)
               Text(item.name).font(.subheadline.weight(.semibold)).foregroundStyle(.primary).lineLimit(2)
@@ -347,8 +349,6 @@ private struct KitGrid: View {
       .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 0))
       .listRowBackground(Color.clear)
       .listRowSeparator(.hidden)
-      // A grid of one kind is a row with one link, which List gives its own chevron, outside the tile.
-      .navigationLinkIndicatorVisibility(.hidden)
     }
   }
 

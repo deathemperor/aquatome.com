@@ -1,0 +1,111 @@
+{
+  "id": "oreoglanis-siamensis",
+  "scientificName": "Oreoglanis siamensis",
+  "order": "Siluriformes",
+  "family": "Sisoridae",
+  "genus": "Oreoglanis",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "thailand",
+    "mae-nam-ping"
+  ],
+  "dataCard": {
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 6.4,
+          "max": 8.9
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/_en-25/",
+      "html": "<p>Only a very few pieces were available, and the species is very rare. Origin: Thailand.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/_en-25/",
+      "html": "<p>They live in the Mekong area and the Chao Phraya basins. In the northern part of Thailand they can be found in the mountain area of Mae Nam Ping and Doi Chiang Dow.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/_en-25/",
+      "html": "<p>They are found in fast-flowing hillstreams with a temperature of around 18°C and a pH of 6.4-8.9. Because they are very rare in their habitats, there are still projects in Asia to breed them and release the bred fish into the wild.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/_en-25/",
+      "html": "<p>Oxygen is about 8-10 mg per litre and must be taken into account if you want to keep this fish.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/_en-25/",
+      "html": "<p>They can be fed all kinds of small fish food, such as tablets or small frozen food.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/panitvong/inat-179197659.webp",
+      "thumb": "https://media.aquatome.com/panitvong/inat-179197659-480.webp",
+      "width": 577,
+      "height": 1024,
+      "licence": "dùng với sự cho phép",
+      "author": "Nonn Panitvong",
+      "sourceUrl": "https://www.inaturalist.org/photos/179197659",
+      "source": "panitvong"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "pPVxgPvxCRo",
+      "title": "ปลาค้างคาวอินทนนท์ ปลาหายากบนดอย #วนศาสตร์#สัตว์ป่า #ป่าเขา #อนุรักษ์ #ปลา",
+      "durationSec": 40,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "eihSwNPkPxE",
+      "title": "ปลาค้างคาว",
+      "durationSec": 151,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "jDgeAHGoFUY",
+      "title": "10 ปลาค้างคาวติดหิน ที่พบได้เฉพาะในประเทศไทย",
+      "durationSec": 487,
+      "lang": "th"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "máy sục khí bể cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "quạt làm mát bể cá",
+        "máy làm lạnh nước bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-16"
+}

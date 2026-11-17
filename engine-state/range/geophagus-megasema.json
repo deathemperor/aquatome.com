@@ -1,8 +1,8 @@
 {
   "id": "geophagus-megasema",
   "native": {
-    "input": "9448ef59b2a0b397",
-    "at": "2026-11-08T10:57:49.558Z",
+    "input": "be1e05fcb7ef673c",
+    "at": "2026-11-16T17:28:41.839Z",
     "claims": [
       {
         "code": "BR",
@@ -27,6 +27,14 @@
         "quote": "Records exist from the Río Mamoré and Río Guaporé drainages in Bolivia (where the Guaporé is known as the Iténez) and Brazil.",
         "words": "Brazil",
         "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "However, only very few specimens reached Europe from Bolivia since then.",
+        "words": "Bolivia",
+        "ok": true
       }
     ],
     "regions": [
@@ -37,17 +45,15 @@
         "ok": true
       },
       {
-        "name": "Río Guaporé",
+        "name": "Rio Guaporé",
         "source": "seriouslyfish",
         "quote": "Records exist from the Río Mamoré and Río Guaporé drainages in Bolivia (where the Guaporé is known as the Iténez) and Brazil.",
-        "country": "BO",
         "ok": true
       },
       {
         "name": "Río Mamoré",
         "source": "seriouslyfish",
         "quote": "Records exist from the Río Mamoré and Río Guaporé drainages in Bolivia (where the Guaporé is known as the Iténez) and Brazil.",
-        "country": "BO",
         "ok": true
       }
     ],

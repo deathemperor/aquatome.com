@@ -1,0 +1,77 @@
+{
+  "id": "thalassophryne-amazonica",
+  "native": {
+    "input": "a385f362b662ad3e",
+    "at": "2026-11-16T11:31:54.968Z",
+    "claims": [
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Inhabits tributaries of the Amazon in Ecuador, Peru and Brazil.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Inhabits tributaries of the Amazon in Ecuador, Peru and Brazil.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Inhabits tributaries of the Amazon in Ecuador, Peru and Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Inhabits tributaries of the Amazon in Ecuador, Peru and Brazil.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Thalassophryne amazonica",
+    "status": "ACCEPTED",
+    "taxonKey": 2350895,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        5
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ]
+    ],
+    "native": [
+      "EC",
+      "PE",
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-16T11:31:54.968Z"
+  }
+}

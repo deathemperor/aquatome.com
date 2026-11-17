@@ -1,8 +1,8 @@
 {
   "id": "spectracanthicus-murinus",
   "native": {
-    "input": "a98c69e8f68de3bf",
-    "at": "2026-11-15T00:17:46.244Z",
+    "input": "fd1298603ea7fdfe",
+    "at": "2026-11-16T11:31:54.968Z",
     "claims": [
       {
         "code": "BR",
@@ -11,13 +11,21 @@
         "quote": "Type locality: Poça de Pedra, Rio Tapajós, eastern Pará, Brazil.",
         "words": "Brazil",
         "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Spectracanthicus murinus is endemic to Brazil and widely distributed, occurring in the Tapajós River basin and possibly in the lower Xingu River, Pará state.",
+        "words": "Brazil",
+        "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Rio Tapajós",
-        "source": "planetcatfish",
-        "quote": "Type locality: Poça de Pedra, Rio Tapajós, eastern Pará, Brazil.",
+        "name": "Tapajós",
+        "source": "scotcat",
+        "quote": "Spectracanthicus murinus is endemic to Brazil and widely distributed, occurring in the Tapajós River basin and possibly in the lower Xingu River, Pará state.",
         "country": "BR",
         "ok": true
       },
@@ -25,6 +33,13 @@
         "name": "Amazon",
         "source": "planetcatfish",
         "quote": "South America: Amazon, Lower Amazon, Tapajós.",
+        "ok": true
+      },
+      {
+        "name": "Xingu",
+        "source": "scotcat",
+        "quote": "Spectracanthicus murinus is endemic to Brazil and widely distributed, occurring in the Tapajós River basin and possibly in the lower Xingu River, Pará state.",
+        "country": "BR",
         "ok": true
       }
     ],

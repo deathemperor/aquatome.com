@@ -1,0 +1,117 @@
+{
+  "id": "youtube-fMoj-xijVPU",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=fMoj-xijVPU",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "pterophyllum-scalare",
+    "paracheirodon-axelrodi"
+  ],
+  "updatedAt": "2026-11-15",
+  "video": {
+    "youtubeId": "fMoj-xijVPU",
+    "title": "EP1: SELF SUSTAINING TANK - no water changes, no cleaning, no filter",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 1209,
+    "publishedAt": "2024-07-11",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWsL1GebROnJ2S2E-op6rJ5e",
+      "position": 0
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/fMoj-xijVPU/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Toxotes sp.",
+      "Pterophyllum scalare",
+      "Paracheirodon axelrodi"
+    ],
+    "gear": [
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "brand": "Chihiros",
+        "model": "WRGB 2",
+        "t": 170
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "t": 220
+      },
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "brand": "Aquamarin",
+        "model": "Plant 1200",
+        "t": 150
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 375
+      },
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 375
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 880
+      },
+      {
+        "category": "loc",
+        "type": "bot-bien",
+        "t": 1
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Vì sao bể không lọc vẫn chạy được",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/fMoj-xijVPU/p0-FzY2FwaW5nLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/fMoj-xijVPU/p0-FzY2FwaW5nLmpwZw-480.webp",
+          "width": 960,
+          "height": 338,
+          "licence": "CC BY 3.0",
+          "author": "Ghostsword",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
+          "caption": "Bể thủy sinh cây um tùm, cá nhỏ bơi giữa thảm cây xanh."
+        }
+      },
+      {
+        "heading": "Bể và đèn: không cần đồ đắt",
+        "moments": [
+          {
+            "t": 300,
+            "url": "https://media.aquatome.com/video/fMoj-xijVPU/at300-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hai đèn kẹp trên bể thủy sinh, chiếu sáng cho cây.",
+            "sharpness": 1020.7,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/fMoj-xijVPU/p1-1bV9MaWdodC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/fMoj-xijVPU/p1-1bV9MaWdodC5qcGc-480.webp",
+          "width": 960,
+          "height": 666,
+          "licence": "CC BY-SA 3.0",
+          "author": "Lime Huang",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
+          "caption": "Bể thủy sinh kính trong có đèn LED gắn trên, cây xanh mướt."
+        }
+      }
+    ]
+  }
+}

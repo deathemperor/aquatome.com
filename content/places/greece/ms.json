@@ -3,6 +3,12 @@
   "name": "Greece",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.03,
+    "at": "2026-11-16T17:26:13.195Z",
+    "why": "\"Greece\" is the English name; Malay in Malaysia writes the country as \"Greece\" only in English text, while the Malay name is \"Greek\" (Yunani is Indonesian-style), so the English form is not the Malay name."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

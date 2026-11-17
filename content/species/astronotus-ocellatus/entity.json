@@ -41,11 +41,15 @@
       "regions": [
         "Amazon",
         "Orinoco",
-        "Ucayali",
-        "Negro"
+        "Amazonas",
+        "Negro",
+        "Madeira",
+        "Tocantins"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "sprucepets",
+        "glaser"
       ],
       "quotes": [
         {
@@ -63,8 +67,15 @@
             "UY",
             "AR"
           ],
+          "regions": []
+        },
+        {
+          "source": "sprucepets",
+          "quote": "Like many South American cichlids, the Oscar originates from the Amazon and Orinoco river basins.",
+          "countries": [],
           "regions": [
-            "Amazon"
+            "Amazon",
+            "Orinoco"
           ]
         },
         {
@@ -72,9 +83,10 @@
           "quote": "Across this range it has been collected from numerous river systems, including the Ucayali, Solimões, Amazonas, Negro, Madeira, Tapajós, Tocantins, Orinoco, Approuague, and Oyapock.",
           "countries": [],
           "regions": [
-            "Orinoco",
-            "Ucayali",
-            "Negro"
+            "Amazonas",
+            "Negro",
+            "Madeira",
+            "Tocantins"
           ]
         }
       ]
@@ -1063,6 +1075,12 @@
       "html": "<p>Oscar cichlids are among the most popular fish sold at pet stores because of their beautiful colours and unique personality. They are intelligent enough to recognise their owner, come to the front of the tank to greet you, and can be trained to eat out of your hand. They can also get moody and sulk at the bottom of the aquarium after a water change or after decorations are moved. Adults grow to the length of an American football and can live as long as a dog.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/astronotus_ocellatus_wild_colombia_en/",
+      "html": "<p>The Oscar, Astronotus ocellatus, belongs to the most popular species among the large cichlids. It was imported to Europe in 1929 for the first time. In Asia, many different sports have been bred since.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/oscar-fish",
@@ -1085,6 +1103,12 @@
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/oscar-fish",
       "html": "<p>Astronotus ocellatus is found in countries all over South America.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/astronotus_ocellatus_wild_colombia_en/",
+      "html": "<p>Origin: Colombia.</p>"
     },
     {
       "key": "habitat",
@@ -1231,22 +1255,16 @@
       "html": "<p>The common Oscar is also known as the Tiger Oscar, a darker brown to light green fish with highlights of red and orange. The color pattern can vary wildly with a characteristic eye spot, or ocelli, on the tail fin. There are albino variations with an all white body with red spots.</p><p>The species also includes mutations with vibrant colors like yellow and blue, mostly black, and even all-white (albino).</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/astronotus_ocellatus_wild_colombia_en/",
+      "html": "<p>However, the wild ancestors of the Oscar remain somewhat mysterious and little understood. Until recently, only one or two species were recognized within Astronotus. In the hobby, on the other hand, several populations are distinguished. Still scientists behave rather conservative in that point. So the Oscar from Colombia is stored in museums and listed in scientific literature still under the name of Astronotus ocellatus, whereas hobbyists call them sometimes Astronotus sp. “Orinoco”. The Colombians differ from “regular” wild Oscars by the lack of spots in the back bordered with red. Despite this constant difference, coloration in these wild Oscars is highly variable, as in all wild Oscars. Juveniles have a very nice, contrasting pattern.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/astronotus-ocellatus",
       "html": "<ul><li>Kullander, S. O. (1986). Cichlid fishes of the Amazon River drainage of Peru. Swedish Museum of Natural History, 1-431</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Leo Smith, W., P. Chakrabarty, and J. S. Sparks (2008). Phylogeny, taxonomy, and evolution of Neotropical cichlids (Teleostei: Cichlidae: Cichlinae). Cladistics 24, 625-641</li><li>López-Fernández, H., K. O. Winemiller, and R. L. Honeycutt (2010). Multilocus phylogeny and rapid radiations in Neotropical cichlid fishes (Perciformes: Cichlidae: Cichlinae). Molecular Phylogenetics and Evolution 55, 1070-1086</li><li>López-Fernández, H., R. L. Honeycutt, M: L. J. Stiassny, and K. O. Winemiller, (2005). Morphology, molecules, and character congruence in the phylogeny of South American geophagine cichlids (Perciformes: Cichlidae). Zoologica Scripta 34, 627-651</li><li>Spix, J. B. von and L. Agassiz (1829). Selecta genera et species piscium quos in itinere per Brasiliam annos MDCCCXVII-MDCCCXX jussu et auspiciis Maximiliani Josephi I.... colleget et pingendso curavit Dr J. B. de Spix.... Monachii. Selecta Piscium Brasiliam, Part 1: i-xvi + i-ii + 1-82, Pls. 1-48;, Part 2: 83-138, Pls. 49-101</li><li>Kullander, S. O. (1998). A phylogeny and classification of the South American Cichlidae (Teleostei: Perciformes). Pp. 461-498 In: Malabarba, L. R. , R. E. Reis, R. P. Vari, Z. M. S. de Lucena and C. A. S. Lucena (eds). Phylogeny and classification of Neotropical fishes. Edipucrs, Porto Alegre, 1-603</li></ul>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/astronotus_ocellatus_wild_en/",
-      "html": "<p>Although oscars are always available as bred ones, wild-collected ones are real rarities on the market.</p>"
-    },
-    {
-      "key": "distribution",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/astronotus_ocellatus_wild_en/",
-      "html": "<p>Large wild-collected oscars from Colombia are currently available.</p>"
     }
   ],
   "photos": [
@@ -1372,5 +1390,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-16"
 }

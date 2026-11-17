@@ -1,0 +1,36 @@
+{
+ "at": "2026-11-16T18:11:58Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "Pada kiriman kali ini, hampir semua spesimen memakai cangkang keong putih",
+   "why": "Refers to the source shop's own shipment, which the reader knows nothing about."
+  }
+ ],
+ "text": {
+  "slug": "kelomang-air-payau-afrika",
+  "name": "Kelomang Air Tawar",
+  "altNames": [
+   "Umang-umang Air Tawar",
+   "African Freshwater Hermit Crab",
+   "Freshwater Hermit Crab",
+   "Kelomang Afrika"
+  ],
+  "sections": {
+   "quickFacts:glaser": "<p>Kelomang yang menawan, Clibanarius africanus, kini sudah jadi penghuni akuarium yang sangat populer. Spesies ini bersifat eurihalin, artinya bisa bertahan hidup baik di air tawar murni maupun di air laut murni.</p>",
+   "waterConditions:glaser": "<p>Namun, tampaknya kelomang ini hanya bisa hidup di air tawar murni selama beberapa bulan saja, jadi jauh lebih baik dipelihara di air payau.</p>",
+   "diet:glaser": "<p>Clibanarius adalah pemakan detritus. Detritus terdiri dari berbagai sisa tumbuhan dan hewan yang sudah mati. Di akuarium, Clibanarius mau makan berbagai pakan ikan yang umum dengan lahap.</p>",
+   "notes:glaser": "<p>Biasanya C. africanus diimpor dengan cangkang keong berwarna cokelat dari spesies keong Tympanotonus fuscatus. Pada kiriman kali ini, hampir semua spesimen memakai cangkang keong putih yang sangat cantik dari spesies keong Pachymelania aurita.</p><p>Arti nama: Clibanarius: sebutan untuk prajurit berkuda berzirah berat. africanus: berarti \"berasal dari Afrika\".</p>"
+  },
+  "quality": {
+   "score": 0.9,
+   "indexable": true,
+   "bySource": {
+    "glaser": 0.9
+   }
+  }
+ }
+}

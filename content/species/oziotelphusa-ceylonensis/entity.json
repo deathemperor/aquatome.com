@@ -9,6 +9,46 @@
     "asia",
     "sri-lanka"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LK"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Sri Lanka.",
+          "countries": [
+            "LK"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5972619,
+      "total": 1,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "LK",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          78.75,
+          5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -35,12 +75,6 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/oziothelphusa_ceylonensis_en/",
       "html": "<p>Most crustaceans develop from free-swimming larvae, a so-called zoea phase, towards the adult and sessile phase. The zoea larvae of most brackish- and freshwater crustaceans float after hatching from riverine systems towards the sea, where they spend their youth in seawater and migrate back to brackish or freshwater when they reach their sessile form. O. ceylonensis, however, stays its whole life in freshwater and has a direct development without a zoea phase. This makes this crab very suitable for the home aquarium.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/oziothelphusa_ceylonensis_en/",
-      "html": "<p>An amazing variety of crustaceans can be found in tropical fresh- and brackish water areas, but only a few species are imported regularly. This species was imported recently.</p>"
     }
   ],
   "photos": [],

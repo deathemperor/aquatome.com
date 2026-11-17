@@ -1,14 +1,22 @@
 {
   "id": "pseudomugil-signifer",
   "native": {
-    "input": "5fdf702a4bf1029f",
-    "at": "2026-11-13T11:20:11.221Z",
+    "input": "2a71d648a5f65519",
+    "at": "2026-11-16T17:28:41.839Z",
     "claims": [
       {
         "code": "AU",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "The Pacific blue-eye, Pseudomugil signifer, is the most widely-distributed blue-eye in Australia, found along most of the eastern coastline.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Eastern coastal area of Queensland and New South Wales, Australia.",
         "words": "Australia",
         "ok": true
       }
@@ -40,12 +48,6 @@
       },
       {
         "name": "Herbert River",
-        "source": "seriouslyfish",
-        "quote": "Those from northern and southern localities have been considered distinct by various authors, for example, and in Queensland forms originating north and south of the Herbert River also appear dissimilar, with an intermediate form apparently native to the area around Townsville (Ross River).",
-        "ok": true
-      },
-      {
-        "name": "Ross River",
         "source": "seriouslyfish",
         "quote": "Those from northern and southern localities have been considered distinct by various authors, for example, and in Queensland forms originating north and south of the Herbert River also appear dissimilar, with an intermediate form apparently native to the area around Townsville (Ross River).",
         "ok": true

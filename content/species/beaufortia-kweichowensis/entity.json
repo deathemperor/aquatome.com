@@ -20,6 +20,7 @@
         "Zhu Jiang"
       ],
       "sources": [
+        "aquariumbreeder",
         "seriouslyfish"
       ],
       "quotes": [
@@ -64,11 +65,25 @@
           "min": 16,
           "max": 24
         }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
       }
     ],
     "ph": [
       {
         "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      },
+      {
+        "source": "aquariumbreeder",
         "value": {
           "min": 6.5,
           "max": 8
@@ -82,12 +97,23 @@
           "min": 2,
           "max": 15
         }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 4,
+          "max": 12
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "seriouslyfish",
         "value": 7.5
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": 7
       }
     ],
     "tankCm": [
@@ -100,15 +126,40 @@
       {
         "source": "seriouslyfish",
         "value": 4
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": 5
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 5,
+          "max": 6
+        }
       }
     ]
   },
   "sections": [
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/butterfly-hillstream-loach-care/",
+      "html": "<ul><li>Scientific name: Beaufortia kweichowensis (also Beaufortia leverreti kweichowensis)</li><li>Recommended tank size: 15 gallons (~60 litres)</li><li>Breeding: Medium-Hard</li><li>Dwellers: Bottom</li><li>Nitrate: less than 20</li><li>Diet: Omnivore</li><li>Temperament: Peaceful</li><li>Colour form: from light beige to almost black</li></ul>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/beaufortia-kweichowensis",
       "html": "<p>Needs a tight-fitting lid as this species is known to jump. Since it needs stable water conditions and feeds on biofilm, this species should never be added to a biologically immature set-up, and a tightly-fitting cover is necessary since it can literally climb glass.</p><p>The butterfly loach, Beaufortia kweichowensis, is a hillstream loach from the Xi Jiang (West River) system in southern China. In many countries it is the most common gastromyzontid in the shops, one of several loaches traded as 'butterfly loach', 'Hong Kong plec' or 'Chinese hillstream loach' regardless of species. The name B. leveretti is often applied to it. It needs clean, well-oxygenated, fast-flowing water, and 16 to 24 °C is recommended.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/butterfly-hillstream-loach-care/",
+      "html": "<p>The main difficulty with Beaufortia species is that they are not really the easiest fish to keep. The fish requires an enclosure with very clean water and high water flow to survive. Although it is possible for them to adapt to warmer and no-flow waters, the adaption process is long, complicated and not guaranteed.</p><p>Chinese hillstream butterfly loaches are sensitive and a poor choice for the first inhabitants of a tank. They are very susceptible to tank changes and need extra attention in the first few weeks. They often do not show any change in behaviour when stressed, right up till they roll over dead.</p><p>Most (almost all) hillstream loaches are wild-caught. Many aquarists complain that these fish can be very picky eaters in the beginning and often won't touch commercial foods.</p><p>The species does not possess scales on its flattened body, which makes it liable to contract infections easily, and it is extremely sensitive to medications used to treat fish diseases.</p>"
     },
     {
       "key": "distribution",
@@ -117,10 +168,22 @@
       "html": "<p>Native to the Xi Jiang (West River) system in southern China, the major tributary of the great Zhu Jiang (Pearl River).</p><p>Type locality is 'San-ho Hsien, Kweichow, China, elevation 650 feet' in the upper part of the basin, Guizhou Province, but it's relatively widespread and also occurs in Guangxi Autonomous Region and Guangdong Province.</p><p>The area is one of the most populous and industrialised in China so much of the main river channel is now highly polluted, particularly in its lower reaches.</p>"
     },
     {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/butterfly-hillstream-loach-care/",
+      "html": "<p>The Chinese hillstream butterfly loach is a species of gastromyzontid loach indigenous to shallow, freshwater streams and rivers in China. It was described as Gastromyzon leveretti kweichowensis by P.W. Fang in 1931. It is native to the Xi Jiang River system in Southern China, the major tributary of the great Zhu Jiang (Pearl River).</p><p>The type locality is San-ho Hsien, Kweichow, in the upper part of the basin, Guizhou Province. Apart from this area, the fish can also be found in Guangxi Autonomous Region and Guangdong Province.</p><p>The species was named after Dr. Lieven F. de Beaufort and the type locality, Kweichow in China. The Chinese name “貴州爬岩鰍” (guì zhōu pá yán qīu) literally translates to “the rock-climbing loaches of Guizhou”.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/beaufortia-kweichowensis",
       "html": "<p>Beaufortia spp. are obligate dwellers of shallow, fast-flowing, highly-oxygenated headwaters and minor tributaries characterised by stretches of riffles and runs broken up by pools or cascades in some cases.</p><p>Substrates are normally composed of smaller rocks, sand and gravel with jumbles of boulders, and while riparian vegetation and patches of submerged leaf litter are common features aquatic plants aren't usually present.</p><p>The most favourable habitats contain clear, oxygen-saturated water which, allied with the sun, facilitates the development of a rich biofilm carpeting submerged surfaces.</p><p>During periods of high rainfall some streams may be temporarily turbid due to suspended material dislodged by increased (sometimes torrential) flow rate and water depth.</p><p>Guangdong Province is the centre of Chinese ornamental fish exports and other species occupying similar habitats exported from the Xi basin include Erromyzon sinensis, Liniparhomaloptera disparis, Pseudogastromyzon myersi, Sinogastromyzon wui, Vanmanenia pingchowensis and Rhinogobius duospilus.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/butterfly-hillstream-loach-care/",
+      "html": "<p>Beaufortia kweichowensis inhabits shallow, fast-flowing hill streams and rivers with highly oxygenated water. The substrate is composed of smaller rocks, sand, gravel and many boulders. There is not much aquatic vegetation in the region, and the substrate usually contains submerged leaves.</p><p>Oxygen-rich water and sunlight encourage the development of abundant biofilm on surfaces, which is a major food source for the species.</p>"
     },
     {
       "key": "aquariumSize",
@@ -129,10 +192,22 @@
       "html": "<p>An aquarium with base measurements of 60 × 30 cm (24 × 12 in) should be the smallest considered. Volume is approximately 54 litres.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/butterfly-hillstream-loach-care/",
+      "html": "<p>Despite their small size, the minimum tank size for housing one Chinese hillstream butterfly loach is 10 gallons (~40 litres). Recommended for 1 fish is 15 gallons (60 litres), while for about 3–4 specimens a 30-gallon (120 litre) tank and above is needed.</p><p>This is a demanding fish and requires good and stable water quality, which is difficult to achieve and maintain in nano tanks. They also prefer to be kept in groups of 4–5 or more, and a small tank cannot support their feeding habits.</p><p>Place a tight-fitting lid, since this fish can climb glass.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/beaufortia-kweichowensis",
       "html": "<p>Most importantly the water must be clean and well-oxygenated so we suggest the use of an over-sized filter as a minimum requirement.</p><p>Turnover should ideally be 10-15 times per hour so additional powerheads, airstones, etc. should also be employed as necessary.</p><p>Base substrate can either be of gravel, sand or a mixture of both to which should be added a layer of water-worn rocks and pebbles of varying sizes.</p><p>Aged driftwood can also be used but avoid new pieces since these usually leach tannins that discolour the water and reduce the effectiveness of artificial lighting, an unwanted side-effect since the latter should be strong to promote the growth of algae and associated microorganisms.</p><p>Exposed filter sponges will also be grazed, and some enthusiasts maintain an open filter in the tank specifically to provide an additional food source.</p><p>Although rarely a feature of the natural habitat aquatic plants can be used with adaptable genera such as Microsorum, Crinum and Anubias spp. likely to fare best. The latter are particularly useful as their leaves tend to attract algal growth and provide additional cover.</p><p>Since it needs stable water conditions and feeds on biofilm this species should never be added to a biologically immature set-up, and a tightly-fitting cover is necessary since it can literally climb glass.</p><p>While regular partial water changes are essential aufwuchs can be allowed to grow on all surfaces except perhaps the viewing pane.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/butterfly-hillstream-loach-care/",
+      "html": "<p>Before introducing them, the tank should be cycled, fully established and have algae growth for sustenance. The main reason they die is that they need an established tank. The species should not be added to a biologically immature tank, as it demands stable water conditions and biofilm to feed on.</p><p>The aquarium water needs to be very clean, adequately aerated and well-oxygenated, with a powerful and efficient filter and other aeration devices to foster water movement and boost dissolved oxygen.</p><p>Provide plenty of hiding places using smooth rocks and driftwood. Avoid new driftwood, since it can leach tannins into the water and cause discolouration among other problems. Use aged driftwood instead, and provide ample lighting to encourage algae growth on surfaces.</p><p>Make sure to clean and quarantine any new additions to the aquarium, be it fish, plants or decorations, as these can introduce parasites and diseases. Keep water parameters stable, provide a clean environment and feed a well-balanced diet.</p><p>Some sources claim the requirements of hillstream loaches are exaggerated: that they do not necessarily need fast-flowing water, can tolerate a wide range of temperatures (including 25–27 °C), and are good eaters that are not hard to care for. The page's author disagrees, noting reports of hillstream loaches dying within days or weeks of shipping when those recommendations were followed.</p>"
     },
     {
       "key": "waterConditions",
@@ -141,10 +216,28 @@
       "html": "<ul><li>Temperature: 16–24 °C (61–75 °F). Its natural waters lie in a humid, subtropical region where air temperatures rarely drop below 15.5 °C (60 °F) and may be much higher in summer. It can withstand temporarily warmer conditions provided dissolved oxygen levels are maintained.</li><li>pH: 6.5–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/butterfly-hillstream-loach-care/",
+      "html": "<p>Temperature: the species inhabits natural waters where air temperature seldom drops below 15.5 °C. In the aquarium, the recommended temperature is 18–24 °C. Higher temperatures can be tolerated for a temporary period when high dissolved oxygen levels are present.</p><p>pH: 6.5–8.0.</p><p>Hardness: 4–12 GH.</p><p>Nitrate: less than 20.</p><p>Perform weekly water changes of at least one-third of the tank water to eliminate excess nitrates.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/butterfly-hillstream-loach-care/",
+      "html": "<p>Lighting: the species is not demanding when it comes to lighting and can thrive under any lighting conditions. Lighting should be adapted to the needs of plants and algae in the tank. Medium to high lighting is recommended because it facilitates the growth of algae on solid surfaces. High lighting is not recommended for beginners, who risk a tank overrun with many types of algae.</p><p>Substrate: the fish can be kept in any tank with any substrate, but smooth gravel is recommended, since their natural environment is composed of smaller rocks, sand, gravel and boulders and algae grows more easily on them. Avoid coarse gravel, whose sharp edges can injure the fish's body as they swim in the lower regions of the tank.</p><p>Plants: the natural habitat has submerged leaf litter, which may be replicated in an aquarium. Hardy plants such as Bucephalandra, Microsorum pteropus (Java fern) and Anubias spp. can thrive in tanks with very high flow without needing substrate. Anubias leaves provide shade and a surface on which algae can attach for the fish to consume.</p><p>Filtration and aeration: a powerful filtration system is needed to aerate the water and maintain a high level of oxygenation. An over-sized filter is recommended to keep the water clean and well-oxygenated. The fish enjoys a strong current; external canister filters with spray bars (for surface agitation) may serve this purpose, otherwise additional powerheads can be installed. Aim for a total turnover rate of 10–15 times per hour. Air stones and other aeration decors can be added for more oxygenation.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/beaufortia-kweichowensis",
       "html": "<p>Much of the natural diet is likely to be composed of benthic algae plus associated micro-organisms which are rasped from solid surfaces.</p><p>In captivity it will accept good-quality dried foods and meatier items like live or frozen bloodworm but may suffer internal problems if the diet contains excessive protein.</p><p>Home-made foods using a mixture of natural ingredients bound with gelatin are very useful since they can be tailored to contain a high proportion of fresh vegetables, Spirulina and similar ingredients.</p><p>For long-term success it's best to provide a mature aquarium with a plentiful supply of algae-covered rocks and other surfaces.</p><p>If unable to grow sufficient algae in the main tank or you have a community containing numerous herbivorous fishes which consume what's available quickly it may be necessary to maintain a separate tank in which to grow algae on rocks and switch them with those in the main tank on a cyclical basis.</p><p>Such a 'nursery' doesn't have to be very large, requires only strong lighting and in sunny climates can be kept outdoors. Algal type is also important with diatoms and softer, green varieties preferred to tougher types such as rhodophytic 'black brush' algae.</p><p>Gastromyzontids are often seen on sale in an emaciated state which can be difficult to correct.</p><p>A good dealer will have done something about this prior to sale but if you decide to take a chance with severely weakened specimens they'll initially require a constant source of suitable foods in the absence of competitors if they're to recover.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/butterfly-hillstream-loach-care/",
+      "html": "<p>In the wild the species feeds on benthic algae, biofilm and microorganisms from solid surfaces. It is a renowned algae grazer, so a steady supply of algae should be provided.</p><p>In the aquarium the fish will accept high-quality dry foods and meaty foods such as live or frozen bloodworms and daphnia. They will also eat sinking fish pellets, flakes, algae wafers, spirulina and vegetable matter such as blanched spinach, zucchini, cucumber, kale and mashed peas.</p><p>This species may be prone to internal health problems if fed a diet with very high protein content. The best way to ensure its longevity is to provide a mature aquarium with plenty of algae growing on rocks and other solid surfaces.</p><p>Because wild-caught fish are not used to flakes and wafers, they may not accept them and can starve in captivity. Algae can be grown for them in a separate transparent container filled with water from water changes, with many small clean aquarium-safe rocks (marble chips, ceramic filter media), under the strongest lighting available (ideally 24/7), with plant fertiliser and an airstone. Once the rocks turn green, place a few in the tank and return them to the container when clean. At the same time, keep training the fish to eat algae wafers and vegetables, for example by breaking a wafer into pieces and leaving them in their favourite places overnight. There are reports that hillstream loaches really like Repashy Soilent Green.</p>"
     },
     {
       "key": "behaviour",
@@ -153,10 +246,22 @@
       "html": "<p>Largely peaceful although its environmental requirements limit the choice of suitable tankmates somewhat.</p><p>Species inhabiting similar natural waters include Barilius, Garra, Devario, some Rasbora, Rhinogobius, Sicyopterus and Stiphodon gobies plus catfishes like Glyptothorax, Akysis and Oreoglanis.</p><p>Many loaches from the family Nemacheilidae, Balitoridae and Gastromyzontidae are also suitable although harmless squabbles may occur with the latter group in particular.</p><p>Research your choices before purchase in order to be sure and please note that although usually sold as such members of this genus make poor companions for goldfish.</p><p>It exists in loose aggregations in nature so buy a group of six or more to see its most interesting behaviour.</p><p>While often said to be timid this isn't strictly the case; males are far bolder than females and if a group containing both sexes is present will form small territories in all parts of the tank, with the alpha individual(s) occupying the most favourable feeding spots.</p><p>These are defended against all conspecific males and the majority similar-looking species.</p><p>Females tend to congregate together in quieter parts of the tank with high water flow and their presence in male territories is normally tolerated, with exceptions usually down to hunger rather than ownership of space.</p><p>If only two or three specimens are purchased this species can indeed become withdrawn, though, especially if all are female.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/butterfly-hillstream-loach-care/",
+      "html": "<p>Beaufortia is for the most part a peaceful species and will co-exist with a variety of small, docile fish and invertebrates such as dwarf shrimp. It lacks the ability to swim far in open water, so it mostly crawls along the substrate and climbs on rocks.</p><p>Since it lives in loose aggregations in nature, it is best to keep a group of 4 to 6. They tend to be a little shy when kept alone or in groups of 2–3. With non-aggressive tankmates and members of their own species they are more active and more social.</p><p>The fish will sometimes defend territories against conspecifics, especially when food is involved. The stronger alpha males defend the prime feeding spots against other males and similar species by pushing them away. Females dwell together in quieter areas of the tank with high flow, and their presence in male territories is usually tolerated. Actual harm never occurs during such bouts, but they should not be taken lightly, as the oppressed fish might be afraid to feed. Provide plenty of shade and space to reduce skirmishes.</p><p>Features: social: yes; schooling: no; active: yes; peaceful: yes, can be a bit territorial.</p><p>Compatible fish: species from similar waterways, such as Barilius, Rasbora, tetras, gobies and catfish like Glyptothorax, Akysis and Oreoglanis. Other hillstream loaches (Sewellia, Gastromyzon, etc.) can get along with Beaufortia, though there might be some territorial conflicts. They can also be paired with guppies, platies, Corydoras catfish, rasboras, bristlenose plecos, neon tetras, swordtails, pygmy cories, Otocinclus catfish, panda garra, etc.</p><p>Shrimp: they are not predatory and will not hunt adult dwarf shrimp, but because they are omnivores they might snack on baby shrimp small enough to fit in their mouth. This does not happen very often, and many aquarists keep dwarf shrimp with them. Of all shrimp, the best neighbours are bamboo shrimp and vampire shrimp, which prefer relatively high water velocity and a coarse substrate.</p><p>Snails: they are compatible with any freshwater snails.</p><p>Crayfish and crabs: not suitable, because of the nippy and aggressive nature of most crayfish and crabs.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/beaufortia-kweichowensis",
       "html": "<p>The most obvious external characteristics are the shape of the head and body when viewed from above.</p><p>Females are comparatively broad and heavy-framed, and the snout is almost continuous with the pectoral fins.</p><p>Males are slighter and the snout is much squarer in shape with the pectoral fins emerging almost at right-angles.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/butterfly-hillstream-loach-care/",
+      "html": "<p>On close observation, females are broader with bulky bodies, and the snout connects closely with the pectoral fins. Males are less heavy, the snout is more squarely shaped and the pectoral fins are a little further apart.</p>"
     },
     {
       "key": "reproduction",
@@ -165,10 +270,22 @@
       "html": "<p>Presumably a seasonal spawner in nature but nothing has been recorded in aquaria as far as we know.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/butterfly-hillstream-loach-care/",
+      "html": "<p>Chinese hillstream butterfly loaches are not normally bred in captivity. Some aquarists may have attempted it over the years, but there is no breeding protocol yet.</p><p>Beaufortia are assumed to be egg scatterers, with eggs hatching where the current takes them. They release eggs and milt into the water column. Fertilised eggs fall down under the gravel, where they develop for a few days and hatch.</p><p>The fry are tiny (about 2 mm) and stay between the gravel most of the time. The adults do not prey on their young, but because the fry are so small they may not even notice them, so it is recommended to keep and raise the fry in a separate tank.</p><p>The rearing tank should have the same water parameters, some current and rich oxygenation. Use an extra sponge pre-filter on the filter intake to prevent fry from being sucked in. Substrate is not needed, which makes feeding and cleaning easier. Feed and clean at least once a day with crushed pellets, flakes and/or powder foods. The fry should be kept in a mature tank so they can graze constantly, for good growth and survival.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/beaufortia-kweichowensis",
       "html": "<p>One of several loaches traded as 'butterfly loach', 'butterfly plec', 'Hong Kong plec(o)', 'Chinese hillstream loach' or simply 'hill stream loach' regardless of species.</p><p>In many countries it's the most common gastromyzontid in the shops but is also often found in mixed shipments containing members of other genera.</p><p>At time of writing there exist almost 20 recognised species in the genus though only B. kweichowensis is known in the trade.</p><p>A subspecies, B. k. gracilicauda Chen &amp; Zheng, 1980 is native to the Bei Jiang (North River) and Dong Jiang (East River), the two other main tributaries of the Zhu Jiang.</p><p>It can be distinguished from B. kweichowensis by its relatively slender caudal peduncle and the fact that the dorsal-fin origin is clearly positioned anterior to the ventral-fin origin (vs. dorsal-fin origin opposite the second/third ventral-fin ray).</p><p>Another similar species is B. leveretti (Fang, 1931) which isn't currently in the trade though the name is often applied to B. kweichowensis.</p><p>It has only faint body spots (vs. distinct in B. kweichowensis), no distinct black or white margins in the paired pins (vs. present), the anus is covered by the ventral fins (vs. clearly visible), and the lower lip with a rough-looking surface and a prominent notch in the middle (vs. smooth-surfaced and without a notch).</p><p>B. leveretti is traditionally said to be endemic to Hainan Island off the coast of Guangdong Province, southern China but is now known to range from Yunnan Province (China) down to northern Vietnam.</p><p>Beaufortia spp. have specialised morphology adapted to life in fast-flowing water. The paired fins are orientated horizontally, head and body flattened, and pelvic fins fused together.</p><p>These features form a powerful sucking cup which allows the fish to cling tightly to solid surfaces. The ability to swim in open water is greatly reduced and they instead 'crawl' their way over and under rocks.</p><p>The family Gastromyzontidae is currently considered valid as per Kottelat (2012).</p><p>It contains a number of genera which had formerly been included in several families and subfamilies, most recently Balitoridae, of which the most well-known in the aquarium hobby include Beaufortia, Formosania, Gastromyzon, Pseudogastromyzon, Hypergastromyzon, Liniparhomaloptera, Sewellia, and Vanmanenia.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/butterfly-hillstream-loach-care/",
+      "html": "<p>The species is sometimes confused with other hillstream loaches. Compared with Sewellia and Gastromyzon, Beaufortia reaches about 5–7 cm, has a short mouth, average-sized pectoral and pelvic fins, and is more territorial.</p><p>The species is flat-bellied with a yellow-brown body and prominent black spots. Body coloration varies between individuals, and the fish can change colour depending on background and stress, from light beige to almost black; when the colour fades, the spots become almost invisible.</p><p>It has a specialised morphology for fast-moving water: horizontally oriented paired fins, a flattened head and body, and fused pelvic fins, which together form a powerful suction cup. According to one study, the species has two suckers: when stationary the whole body acts as one sucker, but during movement an anterior sucker (bearing the pectoral fins and head) and a posterior sucker (bearing the pelvic fins) can be distinguished. This adhesive system can resist a pulling force of up to 1000 times the fish's weight.</p>"
     },
     {
       "key": "references",
@@ -221,9 +338,44 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/beaufortia-kweichowensis",
       "caption": "Head and mouth detail of a male.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/46a66fd92440c8c0.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/46a66fd92440c8c0-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/butterfly-hillstream-loach-care/",
+      "source": "aquariumbreeder"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "SeucpB3GpEU",
+      "title": "Hillstream loach (Beaufortia kweichowensis) Making sure my rocks r neat and clean",
+      "durationSec": 31,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "MogydHcNhVk",
+      "title": "LA GUIDA DEFINITIVA AL CHINESE BUTTERFLY LOACH: Beaufortia kweichowensis / Beaufortia Leveretti",
+      "durationSec": 937,
+      "lang": "it"
+    },
+    {
+      "youtubeId": "AWXbVb7xHLg",
+      "title": "Hillstream Loach (Beaufortia kweichowensis) - The Glass Cleaning Expert!",
+      "durationSec": 19,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "QuQfSPLQyq8",
+      "title": "Hillstream Loach on Java Fern (Beaufortia kweichowensis)",
+      "durationSec": 194,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -253,5 +405,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-15"
 }

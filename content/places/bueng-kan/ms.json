@@ -3,6 +3,12 @@
   "name": "Bueng Kan",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-16T05:39:27.936Z",
+    "why": "Bueng Kan is a province (region), and Malay atlases would write \"Wilayah Bueng Kan\" or \"Provinsi Bueng Kan\"; in Malaysia, Thai changwat are usually called \"Wilayah\", so the bare name omits the kind word, though the proper name spelling is correct."
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

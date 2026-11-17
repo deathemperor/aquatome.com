@@ -1,0 +1,12 @@
+---
+url: https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_megasema_en/
+title: Geophagus megasema - Aquarium Glaser GmbH
+fetchedAt: 2026-11-16T12:54:52.913Z
+hash: 25a58cdfc5aa38ba806c56df93db2be411032c98f4d2e62a84d6cfd41d053c6a
+---
+
+There is almost no chance that commercial importations of wild collected Geophagus megasema will ever appear. So it is very welcome that travelling aquarium enthusiast collect such species in areas that are ignored by professional fish collectors and bring them home alive, which makes it possible to develope a captive bred stock. Geophagus megasema was described scientifically by Heckels as early as 1840. However, only very few specimens reached Europe from Bolivia since then. Moreover, the fish were quite often mis-identified as other Geophagus species. It was only in 2006 that a group of travelling aquarists from Austria, Germany and Switzerland were able to import a good number of specimens of this cichlid from the Rio San Martin in Bolivia. Soon after they were able to breed them and the species was spread in the hobby. Now Aquarium Glaser is able to offer bred specimens of this beautiful eartheater in perfect quality. Geophagus megasema is a quite hardy species and can be kept even in harder water up to 20° dGH; however, it will be not as colorful as it could be under these conditions. If the fish are kept in soft and slight acidic water they are real eyeburners! Breeding is also easier under these conditions, but the fish can also be bred in harder water. Food should not be too rough for this species: flakes, different types of frozen bloodworm, mosquito larvae, and artemia are perfect for it. This species of eartheater from Bolivia can be kept and bred at relative low temperatures of 25 to 28°C. Geophagus megasema is a larvophilous mouthbrooder. The larvae are taken in the mouth by both parents as soon as they leave the eggs. Parental care is taken by both sexes in an equal way.
+For our customers: the fish have code 678614 on our stocklist. Please note that we exclusively supply the wholesale trade.
+Lexicon: Geophagus: ancient Greek, means “eartheater”. megasema: ancient Greek, means “with a big sign”. This is referring to the large lateral spot.
+Text & photos: Thomas Weidner
+Angaben zum Tier Herkunft Nachzucht / bred Verfügbare Größe in cm 10-15

@@ -1,8 +1,8 @@
 {
   "id": "astronotus-ocellatus",
   "native": {
-    "input": "a45d8ffd1ccd4ec0",
-    "at": "2026-11-09T23:57:44.132Z",
+    "input": "32a0117020799990",
+    "at": "2026-11-16T17:28:41.839Z",
     "claims": [
       {
         "code": "CO",
@@ -107,23 +107,19 @@
         "quote": "In many US states where fish have been released into the wild, they are labeled a non-native pest species.",
         "words": "US",
         "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Colombia.",
+        "words": "Colombia",
+        "ok": true
       }
     ],
     "regions": [
       {
         "name": "Amazon",
-        "source": "seriouslyfish",
-        "quote": "Widely-distributed in the Amazon region and has been recorded in Colombia, Venezuela, Bolivia, Ecuador, Peru, Brazil, French Guiana, Paraguay, Uruguay and Argentina.",
-        "ok": true
-      },
-      {
-        "name": "Orinoco",
-        "source": "seriouslyfish",
-        "quote": "Across this range it has been collected from numerous river systems, including the Ucayali, Solimões, Amazonas, Negro, Madeira, Tapajós, Tocantins, Orinoco, Approuague, and Oyapock.",
-        "ok": true
-      },
-      {
-        "name": "Amazon",
         "source": "sprucepets",
         "quote": "Like many South American cichlids, the Oscar originates from the Amazon and Orinoco river basins.",
         "ok": true
@@ -135,13 +131,25 @@
         "ok": true
       },
       {
-        "name": "Ucayali",
+        "name": "Amazonas",
         "source": "seriouslyfish",
         "quote": "Across this range it has been collected from numerous river systems, including the Ucayali, Solimões, Amazonas, Negro, Madeira, Tapajós, Tocantins, Orinoco, Approuague, and Oyapock.",
         "ok": true
       },
       {
         "name": "Negro",
+        "source": "seriouslyfish",
+        "quote": "Across this range it has been collected from numerous river systems, including the Ucayali, Solimões, Amazonas, Negro, Madeira, Tapajós, Tocantins, Orinoco, Approuague, and Oyapock.",
+        "ok": true
+      },
+      {
+        "name": "Madeira",
+        "source": "seriouslyfish",
+        "quote": "Across this range it has been collected from numerous river systems, including the Ucayali, Solimões, Amazonas, Negro, Madeira, Tapajós, Tocantins, Orinoco, Approuague, and Oyapock.",
+        "ok": true
+      },
+      {
+        "name": "Tocantins",
         "source": "seriouslyfish",
         "quote": "Across this range it has been collected from numerous river systems, including the Ucayali, Solimões, Amazonas, Negro, Madeira, Tapajós, Tocantins, Orinoco, Approuague, and Oyapock.",
         "ok": true

@@ -99,11 +99,19 @@ function headings(scope: HTMLElement): Map<HTMLElement, string> {
  */
 const AD_INSERTS = '.humix-universal-js-insert, .ez-video-wrap, .ezoic-ad, [id^="ezoic-pub-ad-placeholder"]'
 
+/**
+ * A page's comments: the box readers write in, with each commenter's name, words and picture. Never the article: on 16 Nov
+ * Aquarium Breeder's comments were found read as its text (78 stored copies, readers' questions in 7 published guides), and
+ * only the size floor kept its commenters' pictures from the photo picker. The usual WordPress boxes, then any picture left.
+ */
+const COMMENTS = '#comments, .comments-area, #respond, .comment-respond, .comment-list, .commentlist, .wp-block-comments, .wp-block-post-comments, img.avatar'
+
 export function htmlToOutline(html: string, contentSelector?: string): { title: string; outline: string; images: PageImage[] } {
   const root = parse(html, { comment: false })
   const title = clean(root.querySelector('title')?.text ?? root.querySelector('h1')?.text ?? '')
   const scope = (contentSelector && root.querySelector(contentSelector)) || root.querySelector('main') || root.querySelector('article') || root.querySelector('body') || root
   for (const ad of scope.querySelectorAll(AD_INSERTS)) ad.remove()
+  for (const box of scope.querySelectorAll(COMMENTS)) box.remove()
   const under = headings(scope)
   const images = scope.querySelectorAll('img').flatMap(i => {
     const p = pageImage(i)
@@ -118,7 +126,7 @@ export function htmlToOutline(html: string, contentSelector?: string): { title: 
 }
 
 /** Page furniture that changes without the article changing (prices, newsletter, related/featured lists). */
-const TAIL = /^#{1,6}\s*(subscribe|recent (blog )?posts|featured products|related (articles|posts|products)|you may also like|more from|newsletter|share this|comments?)\b/i
+const TAIL = /^#{1,6}\s*(subscribe|recent (blog )?posts|featured products|related (articles|posts|products)|you may also like|more from|newsletter|share this|comments?|(\d+|one)\s+(thoughts?|comments?|responses?|replies)\s+(on|to)(?=\s*["“‘'])|leave a (reply|comment))\b/i
 const PRICE = /\b(regular|sale|unit) price\b|\$\s?\d[\d.,]*(\s?USD)?|€\s?\d[\d.,]*|\b\d[\d.,]*\s?(USD|EUR|€)\b|\b(sold out|variant sold out or unavailable|shipping calculated at checkout\.?|add to cart|in stock|out of stock)(?!\w)/gi
 
 /** Keep the article: cut at the first furniture heading, strip prices and stock words, collapse blank runs. */

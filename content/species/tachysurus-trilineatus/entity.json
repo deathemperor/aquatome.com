@@ -10,6 +10,57 @@
     "china",
     "dongjiang"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Dongjiang",
+        "Zhujiang"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Dongjiang drainage (part of the Zhujiang [Pearl River] drainage) in southern China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Dongjiang",
+            "Zhujiang"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 10188086,
+      "total": 4,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "HK",
+          3
+        ],
+        [
+          "CN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          113.90625,
+          22.5,
+          4,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/green-water-algae-profile-and-how-to-remove/
 title: Green Water Algae Profile and How to Remove - Shrimp and Snail Breeder
 fetchedAt: 2026-11-14T03:31:22.752Z
-hash: 3494177924f97e424d9e4d9669867c0b323bedf5016a5f5565027e1636e8d421
+hash: fa347e79169f8609afb5fe0febab4a71fe126f8addad4b2b0f32933c1b260e7c
 ---
 
 The green water problem in freshwater aquariums is often caused by a bloom of microscopic green algae. Unlike Green spot algae (GSA) and Green dust algae (GSA), this green algae type is free-floating, and they do not settle on solid surfaces such as glass, décor, or aquarium equipment.
@@ -116,4 +116,3 @@ However, if your tank is already suffering from a green water algae bloom, then 
 - How to Remove Brown Algae (Diatoms) in Freshwater Tanks
 - How to Remove Red Algae in Aquariums
 - How to Remove Green Dust Algae in Aquariums
-### Leave a Reply Cancel reply

@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/heteranthera-zosterifolia-care-guide-planting-growing-and-propagation/
 title: Heteranthera Zosterifolia Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-11-03T05:04:28.983Z
-hash: a3c7f2884f49ab7d2d4b6218d357e20c96cf03a20d938222807c0c705643f86b
+hash: 3735f06a093abccbbfd075451e7a46be43201840d87f8341a157cecb255ea5b7
 ---
 
 Heteranthera zosterifolia, commonly known as the Stargrass, is a nice-looking aquatic stem plant that became popular due to its bushy and lovely green texture after it was used in Takashi Amano’s aquascapes.
@@ -128,4 +128,3 @@ Therefore, it is more suitable for experienced aquarists due to its specific dem
 - Horn, Charles Norman. A SYSTEMATIC REVISION OF THE GENUS HETERANTHERA (SENSU LATO; PONTEDERIACEAE)(ECOLOGY, DISTRIBUTION). The University of Alabama, 1985.
 - Rodriguez, Estela Elizabeth, Alberto Carlos Slanis, and Pablo Gilberto Aceñolaza. “Nuevas adiciones a la flora de la provincia de Entre Ríos (Argentina).” (2013).
 - Simpson, Michael G., and Darren H. Burton. “Systematic floral anatomy of Pontederiaceae.” Aliso: A Journal of Systematic and Floristic Botany 22, no. 1 (2006): 499-519.
-### Leave a Reply Cancel reply

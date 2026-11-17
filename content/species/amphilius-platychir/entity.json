@@ -1,0 +1,324 @@
+{
+  "id": "amphilius-platychir",
+  "scientificName": "Amphilius platychir",
+  "order": "Siluriformes",
+  "family": "Amphiliidae",
+  "genus": "Amphilius",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "sierra-leone",
+    "guinea",
+    "cote-d-ivoire"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "SL",
+        "GN",
+        "CI"
+      ],
+      "regions": [],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Africa: Sierra Leone, Guinea, Côte d’Ivoire. Type locality: Sierra Leone.",
+          "countries": [
+            "SL",
+            "GN",
+            "CI"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340734,
+      "total": 86,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "GN",
+          46
+        ],
+        [
+          "LR",
+          32
+        ],
+        [
+          "SL",
+          3
+        ],
+        [
+          "CD",
+          1
+        ],
+        [
+          "MW",
+          1
+        ],
+        [
+          "TZ",
+          1
+        ],
+        [
+          "ZA",
+          1
+        ],
+        [
+          "ZM",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -14.0625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -14.0625,
+          9.84375,
+          12,
+          12
+        ],
+        [
+          -12.65625,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -12.65625,
+          9.84375,
+          16,
+          16
+        ],
+        [
+          -12.65625,
+          11.25,
+          13,
+          13
+        ],
+        [
+          -11.25,
+          5.625,
+          3,
+          0
+        ],
+        [
+          -9.84375,
+          5.625,
+          2,
+          0
+        ],
+        [
+          -9.84375,
+          7.03125,
+          31,
+          4
+        ],
+        [
+          -8.4375,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          23.90625,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          25.3125,
+          -18.28125,
+          1,
+          0
+        ],
+        [
+          29.53125,
+          -26.71875,
+          1,
+          0
+        ],
+        [
+          35.15625,
+          -16.875,
+          1,
+          0
+        ],
+        [
+          36.5625,
+          -4.21875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 16.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_platychir.htm",
+      "html": "<ul><li>Common name: Mountain barbel</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_platychir.htm",
+      "html": "<p>This species and probably most of this genus can easily be misidentified, and the thumbnails may show this species or closely related species such as A. atesuensis or A. uranoscopus. They are all more or less the same when kept in aquaria. It is not imported very often but would make a good aquarium addition if kept in optimum conditions.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_platychir.htm",
+      "html": "<p>Africa: Sierra Leone, Guinea, Côte d’Ivoire. Type locality: Sierra Leone.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_platychir.htm",
+      "html": "<p>The genus inhabits flowing waters in its natural habitat.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_platychir.htm",
+      "html": "<p>Water would need to be kept on the cool side for this genus, as they inhabit flowing waters in their natural habitat. This genus prefers cooler temperatures in the aquarium. Temperature: 23–26°C. pH: 6.5–7.5.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_platychir.htm",
+      "html": "<p>Can be kept in aquaria with a small-grained gravel or sand substrate, well planted, with a slight current to mimic their natural habitat. Provide rockwork and caves.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_platychir.htm",
+      "html": "<p>Mosquito larvae, Tubifex, Cyclops, Daphnia, grindal worms, vegetable food, tablet and flake.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_platychir.htm",
+      "html": "<p>Etymology: The specific name platychir: platy, flat or broad; cheiros, hand, referring to the broad, fan-like pectoral-fin rays.</p><p>IUCN Red List: this species is widespread with no known major threats and is classified as Least Concern. With research suggesting undescribed cryptic species within the A. platychir complex, additional research on the taxonomy and distribution of this species is needed (IUCN 2020).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_platychir.htm",
+      "html": "<p>Diouf, K. &amp; Entsua-Mensah, M. 2020. Amphilius platychir. The IUCN Red List of Threatened Species 2020.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Seegers, Lothar; The Catfishes of Africa. A handbook for identification and maintenance. Tetra Verlag GmbH. 604p.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/02cc2fdebe84a704.webp",
+      "thumb": "https://media.aquatome.com/scotcat/02cc2fdebe84a704-480.webp",
+      "width": 500,
+      "height": 294,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_platychir.htm",
+      "caption": "Amphilius platychir",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/d1c1eb9d124514c9.webp",
+      "thumb": "https://media.aquatome.com/scotcat/d1c1eb9d124514c9-480.webp",
+      "width": 500,
+      "height": 294,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_platychir.htm",
+      "caption": "Amphilius platychir",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/44b89af2ab8e2f37.webp",
+      "thumb": "https://media.aquatome.com/scotcat/44b89af2ab8e2f37-480.webp",
+      "width": 500,
+      "height": 332,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_platychir.htm",
+      "caption": "Amphilius platychir: Showing underbelly",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/a271429994da932a.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a271429994da932a-480.webp",
+      "width": 500,
+      "height": 334,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_platychir.htm",
+      "caption": "Amphilius platychir",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy làm mát bể cá",
+        "quạt làm mát bể cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc bể cá"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "sỏi hạt nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá da trơn",
+        "trùng chỉ đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-16"
+}

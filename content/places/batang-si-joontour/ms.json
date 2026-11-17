@@ -3,6 +3,12 @@
   "name": "Batang Si Joontour",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.7,
+    "at": "2026-11-16T05:38:41.096Z",
+    "why": "The name keeps the local proper name with \"Batang\" (river) and is unchanged from the Vietnamese form, which is acceptable, but the place is unverified and the spelling \"Joontour\" is unusual."
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

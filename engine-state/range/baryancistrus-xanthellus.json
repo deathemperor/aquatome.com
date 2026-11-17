@@ -1,8 +1,8 @@
 {
   "id": "baryancistrus-xanthellus",
   "native": {
-    "input": "f869b1f4629cdcf1",
-    "at": "2026-11-06T15:17:52.851Z",
+    "input": "dacf2f26377090c8",
+    "at": "2026-11-16T00:17:52.050Z",
     "claims": [
       {
         "code": "BR",
@@ -23,27 +23,26 @@
     ],
     "regions": [
       {
-        "name": "Rio Xingu",
+        "name": "Xingu",
         "source": "seriouslyfish",
         "quote": "Endemic to the rio Xingu basin where it inhabits a section of the river's main channel known as 'Volta Grande do rio Xingu' which lies between Belo Monte falls and the mouth of the rio Iriri in Pará state, Brazil.",
         "country": "BR",
         "ok": true
       },
       {
-        "name": "Rio Iriri",
+        "name": "Iriri",
         "source": "seriouslyfish",
         "quote": "The Iriri is a major tributary of the Xingu and B. xanthellus has also been recorded along its mid-to-lower course with that population coded L177.",
-        "ok": false,
-        "why": "its name is not in the quote"
+        "ok": true
       },
       {
-        "name": "Rio Xingu",
+        "name": "Xingu",
         "source": "glaser",
         "quote": "All these gold seams originate from the Rio Xingu and its tributaries.",
         "ok": true
       },
       {
-        "name": "Iriri River",
+        "name": "Iriri",
         "source": "glaser",
         "quote": "L177 is collected in a tributary of the Xingu, the Iriri River.",
         "ok": true

@@ -1,0 +1,137 @@
+{
+  "id": "moema-ortegai",
+  "scientificName": "Moema ortegai",
+  "order": "Cyprinodontiformes",
+  "family": "Rivulidae",
+  "genus": "Moema",
+  "group": "killifish",
+  "places": [
+    "south-america",
+    "peru"
+  ],
+  "range": {
+    "records": {
+      "taxonKey": 5203602,
+      "total": 1,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -70.3125,
+          -14.0625,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 12
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 1.5,
+          "max": 1.5
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/moema_cf_ortegai_en/",
+      "html": "<p>The females are around 8 cm, the males around 12 cm long. This places them among the largest species of killifish known so far. The extremely large pectoral fins of the males are very impressive.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/moema_cf_ortegai_en/",
+      "html": "<p>Astonishingly large Moema cf. ortegai were imported from Peru. Available size: 8–12 cm.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/moema_cf_ortegai_en/",
+      "html": "<p>The whole finnage of the males is much enlarged, and some fancy bettas and fancy guppies must be ashamed of them when looking at the Moema. The only difference is that in this case it was not a human breeder but mother nature that selected for enlarged finnage. The females are around 8 cm, the males around 12 cm long.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/moema_cf_ortegai_en/",
+      "html": "<p>Moema are bottom divers, which means the spawning pair dives deep into the bottom, where the eggs remain during the dry season. The adults die then and thus never become old in the wild, but in captivity they can live as long as 1.5 years. The eggs need 5–10 months to hatch.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/moema_cf_ortegai_en/",
+      "html": "<p>Lexicon: Moema: a city in Brazil. ortegai: dedication name. Suggestion of a popular name: Golden giant longfin.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/7b43b228e2883728.webp",
+      "thumb": "https://media.aquatome.com/glaser/7b43b228e2883728-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/moema_cf_ortegai_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/794a5c53ae17ec67.webp",
+      "thumb": "https://media.aquatome.com/glaser/794a5c53ae17ec67-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/moema_cf_ortegai_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/8b5f7722db6bb536.webp",
+      "thumb": "https://media.aquatome.com/glaser/8b5f7722db6bb536-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/moema_cf_ortegai_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá killi",
+        "bể 60cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá killi",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-15"
+}

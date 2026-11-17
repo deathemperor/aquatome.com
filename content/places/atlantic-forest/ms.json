@@ -3,6 +3,12 @@
   "name": "Hutan Atlantik",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-16T05:38:01.493Z",
+    "why": "\"Hutan Atlantik\" is a plausible translation, but Malay atlases and Wikipedia write the biome as \"Hutan Atlantik\" mostly while Malaysian usage generally prefers \"Hutan Atlantik\" with \"Atlantik\" spelling; however, the standard rendering here is uncertain, so the score reflects moderate confidence."
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

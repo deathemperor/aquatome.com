@@ -28,7 +28,7 @@ const LIVE: Record<(typeof LIVE_RUN_SETTINGS)[number], string> = {
 // and vitest's limit can't stop it.
 const FAILED_ON_13_NOV = [
   "a check's second try on the Mac gives its tests 6 times their limits",
-  "a check's second try starts two vitest workers at a time",
+  "a check's first try on the Mac starts four vitest workers at a time, its second two; GitHub's its usual number",
   'a Mac cycle whose opening fetch outlives a sleep ends',
 ]
 test("the tests that failed every Mac run on 13 Nov pass with a live run's settings around them", () => {

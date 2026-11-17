@@ -17,27 +17,33 @@
       ],
       "regions": [
         "Mucuri River",
-        "São Mateus River"
+        "São Mateus River",
+        "Mucuri",
+        "São Mateus"
       ],
       "sources": [
-        "planetcatfish"
+        "planetcatfish",
+        "scotcat"
       ],
       "quotes": [
         {
           "source": "planetcatfish",
-          "quote": "Type locality: Rio Mucuri District, Santa Clara, Bahia State, Brazil.",
+          "quote": "Currently known from three coastal river drainages in southeastern Brazil: the Mucuri River in Bahia State and the São Mateus River in Espirito Santo State.",
           "countries": [
             "BR"
           ],
-          "regions": []
-        },
-        {
-          "source": "planetcatfish",
-          "quote": "Currently known from three coastal river drainages in southeastern Brazil: the Mucuri River in Bahia State and the São Mateus River in Espirito Santo State.",
-          "countries": [],
           "regions": [
             "Mucuri River",
             "São Mateus River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Mucuri and São Mateus River basins, Brazil.",
+          "countries": [],
+          "regions": [
+            "Mucuri",
+            "São Mateus"
           ]
         }
       ]

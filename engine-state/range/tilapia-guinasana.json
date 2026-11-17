@@ -1,0 +1,52 @@
+{
+  "id": "tilapia-guinasana",
+  "native": {
+    "input": "2dd2af3bdb6faba1",
+    "at": "2026-11-16T11:31:54.968Z",
+    "claims": [
+      {
+        "code": "NA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Tilapia guinasana is a cichlid endemic to Lake Guinas, a deep sinkhole lake in Namibia, and is considered critically endangered.",
+        "words": "Namibia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Guinas",
+        "source": "seriouslyfish",
+        "quote": "Tilapia guinasana is a cichlid endemic to Lake Guinas, a deep sinkhole lake in Namibia, and is considered critically endangered.",
+        "country": "NA",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Tilapia guinasana",
+    "status": "ACCEPTED",
+    "taxonKey": 2370580,
+    "datasets": [
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        33
+      ],
+      [
+        "1b18bab9-abdb-41b4-83c8-368ca2e6d391",
+        1
+      ]
+    ],
+    "native": [
+      "NA"
+    ],
+    "requests": 11,
+    "at": "2026-11-16T11:31:54.968Z"
+  }
+}

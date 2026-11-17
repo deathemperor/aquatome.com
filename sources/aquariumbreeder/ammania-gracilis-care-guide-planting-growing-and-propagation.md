@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/ammania-gracilis-care-guide-planting-growing-and-propagation/
 title: Ammania Gracilis Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-10-31T19:56:38.549Z
-hash: f86c4961c41eedac14688306515294817194b78b2f09cd962e00c41ac329d0f1
+hash: 511739880a2d30825c75218c10f36bf684074b544fcdb4e4608a762f5a8d3d33
 ---
 
 Ammannia gracilis is an elegant, light-loving, and long-stemmed plant that can add vibrant colors to a freshwater aquarium when properly cared for.
@@ -134,4 +134,3 @@ Additionally, due to its large size, it is advisable to keep Ammannia gracilis i
 - Hassler M. (2019). World Plants: Synonymic Checklists of the Vascular Plants of the World (version Nov 2018). In: Species 2000 & ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org/annual-checklist/2019. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.
 - Ammannia gracilis at Tropicos.org. Missouri Botanical Garden, St Louis.
 - Ammannia gracilis. JSTOR Global Plants. Flora of Tropical Africa, Vol 2, page 464, (1871) Author: (By Mr. J. G. Baker.)
-### Leave a Reply Cancel reply

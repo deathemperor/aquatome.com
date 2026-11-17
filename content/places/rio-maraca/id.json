@@ -1,8 +1,13 @@
 {
   "slug": "rio-maraca",
-  "name": "Maracá",
+  "name": "Sungai Maracá",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-16T17:18:21.266Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

@@ -1734,28 +1734,44 @@
     "reason": "Vague title, no species named; not clearly a single-species profile"
   },
   "EY13FDXeW3Q": {
-    "at": "2026-11-07",
+    "at": "2026-11-15",
     "title": "GUPPY GRASS SPECIES PROFILE",
     "channel": "Daniel Keeping Fish",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Najas guadalupensis",
+    "page": "plants/najas-guadalupensis",
+    "done": "added",
+    "score": 0.8
   },
   "eygTHQ8ISLo": {
-    "at": "2026-11-07",
+    "at": "2026-11-15",
     "title": "Pink tail Chalceus erythrurus",
     "channel": "Team Detritus",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Chalceus erythrurus",
+    "page": "species/chalceus-erythrurus",
+    "done": "nothing new"
   },
   "eZ9yKYiueNA": {
-    "at": "2026-11-07",
+    "at": "2026-11-15",
     "title": "Fancy Guppy Strains (Blue Grass)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Poecilia reticulata",
+    "page": "species/poecilia-reticulata",
+    "done": "added",
+    "score": 0.82
   },
   "eZZR2z2rHxU": {
-    "at": "2026-11-07",
+    "at": "2026-11-16",
     "title": "Coral Red Pencilfish - Nannostomus Mortenthaleri - Rare Freshwater Nano Aquarium Fish Profile",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Nannostomus mortenthaleri",
+    "page": "species/nannostomus-mortenthaleri",
+    "done": "low",
+    "score": 0.5,
+    "reason": "Latin names added to the tank mates (\"Eirmotus octozona\", \"Tateurndina ocellicauda\", \"Pseudomugil gertrudae\") are not said in the video, which gives only common names.; \"cá Copella cầu vồng (rainbow copella)\" is a shaky rendering of \"rainbow cappella tetras\", and the Copella genus is never named in the video."
   },
   "F8HABfA0iyQ": {
     "at": "2026-11-07",
@@ -1774,10 +1790,15 @@
     "reason": "several fish"
   },
   "Fa7qaXaqYeI": {
-    "at": "2026-11-07",
+    "at": "2026-11-16",
     "title": "Cryptocoryne Wendtii Green (Plant Propagation)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Cryptocoryne wendtii",
+    "page": "plants/cryptocoryne-wendtii",
+    "done": "low",
+    "score": 0.7,
+    "reason": "\"thấy chúng lớn nhanh\" contradicts the page, which says growth is slow (\"lớn khá chậm\", rarely more than 2.5 cm in two weeks, and the card says slow). NEW doesn't say it differs from the page. It should state the contrast plainly, e.g. that this keeper's plants grew faster than the page describes.; \"tách được 32 cây từ hai cây ban đầu\" is one keeper's result. It is not framed against the page's slow-propagation claim (\"Kiểu nhân giống này chậm\"), so it reads as unexplained and conflicting."
   },
   "fbfFKUh3apo": {
     "at": "2026-11-07",
@@ -1828,10 +1849,12 @@
     "reason": "5 species"
   },
   "fg6m6pk3Vfc": {
-    "at": "2026-11-07",
+    "at": "2026-11-16",
     "title": "Quick Dip into The Panda Loach - Yaoshania pachychilus",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "failed",
+    "reason": "whisper: ValueError: Unsupported language: zxx"
   },
   "fgJUfUzhF9Y": {
     "at": "2026-11-07",
@@ -1850,16 +1873,26 @@
     "reason": "several fish"
   },
   "fJmubCLthGg": {
-    "at": "2026-11-07",
+    "at": "2026-11-16",
     "title": "NEW SHRIMP! Neocardina davidi Green Rili",
     "channel": "CHRIS LUKHAUP",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Neocaridina davidi",
+    "page": "species/neocaridina-davidi",
+    "done": "low",
+    "score": 0.6,
+    "reason": "[behaviour] \"Ngoài ốc, có thể nuôi chung với tôm hùm đất\": the video says crayfish, snails and other peaceful invertebrates; \"Ngoài ốc\" is odd, and \"tôm hùm đất\" is an unnatural rendering of crayfish (tôm càng/crayfish). The crayfish claim is risky next to the page's advice.; [behaviour] \"Chúng không làm hại cá\" is stated flatly; the video says harmless to fish, fine, but the page already covers tankmates and fish eating shrimp, so the point is thin/possibly contradictory."
   },
   "fK5blxaKV3Y": {
-    "at": "2026-11-07",
+    "at": "2026-11-16",
     "title": "Meet the Curious Beckford's Pencilfish - Nannostomus beckfordi - Also Known as The Golden Pencilfish",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Nannostomus beckfordi",
+    "page": "species/nannostomus-beckfordi",
+    "done": "low",
+    "score": 0.66,
+    "reason": "[waterConditions] 24–28 °C differs from the page's 21–27 °C and 'best 24–26 °C', but the text never says it differs from the page.; [waterConditions] 'Một người nuôi loài này thấy...' turns the video's general statement into one keeper's experience, which is an odd framing. 'Soft, slightly acidic' overlaps the page's note that wild fish do best at low pH/GH."
   },
   "FMCICI_Rd_A": {
     "at": "2026-11-07",
@@ -2065,16 +2098,21 @@
     "reason": "unboxing several fish"
   },
   "GzgJfjq84nE": {
-    "at": "2026-11-07",
+    "at": "2026-11-16",
     "title": "Discover the Cenepa Red Pencilfish - Nannostomus sp - Rare Expensive Aquarium Fish Bright Red!!",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Nannostomus sp.",
+    "done": "skipped",
+    "reason": "no page, and GBIF has no species of that name"
   },
   "H1Jb3F0lyMg": {
-    "at": "2026-11-07",
+    "at": "2026-11-16",
     "title": "Endler's Livebearer (JAPAN BLUE, K Class)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "H3-QKNY1xXM": {
     "at": "2026-11-07",
@@ -2085,16 +2123,24 @@
     "reason": "fishroom clips"
   },
   "h7exZ48gp1o": {
-    "at": "2026-11-07",
+    "at": "2026-11-16",
     "title": "panda garra ( Garra flavatra ) species profile",
     "channel": "Team Detritus",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Garra flavatra",
+    "page": "species/garra-flavatra",
+    "done": "low",
+    "score": 0.72,
+    "reason": "[behaviour] \"gần giống cá ali\" – \"cá ali\" is not a natural hobbyist term for cichlids, so it reads as a translation and may confuse readers.; [behaviour] \"Về số lượng, người này có ý khác\" – this is vague. The page advises 3–4 or more, while the video says never keep two or three. NEW should say plainly that it differs from the page and how."
   },
   "h7HcLQMOFTc": {
-    "at": "2026-11-07",
+    "at": "2026-11-16",
     "title": "Royal Farlowella: A Strange Fish Worth Keeping",
     "channel": "Steenfott Aquatics",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Sturisomatichthys aureus",
+    "done": "skipped",
+    "reason": "no page, and GBIF has no species of that name"
   },
   "hbNQBTGQ56g": {
     "at": "2026-11-07",
@@ -2105,10 +2151,15 @@
     "reason": "general algae topic"
   },
   "hfCkBxPITQc": {
-    "at": "2026-11-07",
+    "at": "2026-11-16",
     "title": "Bacopa Monnieri (Plant propagation)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Bacopa monnieri",
+    "page": "plants/bacopa-monnieri",
+    "done": "low",
+    "score": 0.6,
+    "reason": "[notes] \"Dạng compact không phải lúc nào cũng bò sát nền\" is framed as a keeper's experience, but the video never says some keepers grow it differently. It only says it grows vertically. It also contradicts the page without saying plainly that the video differs.; [notes] \"làm nền sau, đứng sau các cây thấp ở phía trước\" repeats the idea of use in the background/middle. \"làm nền sau\" is also awkward Vietnamese (should be \"hậu cảnh\"). The page already covers midground placement."
   },
   "hfh5PudNVCA": {
     "at": "2026-11-07",

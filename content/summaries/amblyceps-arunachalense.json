@@ -1,11 +1,17 @@
 {
   "id": "amblyceps-arunachalense",
-  "summary": "Cá trê nhỏ dài 13 cm, sống ở suối và sông nước chảy xiết, đáy cát hoặc đá. Nước cần mát 18–22 °C, pH 6,5–7,5; hồ sơ không nêu bể tối thiểu hay độ khó. Loài được IUCN xếp hạng Nguy cấp (đánh giá năm 2009), và ở một phần vùng phân bố được coi là rất hiếm.",
+  "summary": "Cá trê Amblyceps arunachalense dài tới 13 cm, sống ở suối và sông nước chảy xiết, đáy cát hoặc đá, nên cần nước mát 18–22 °C, pH 6,5–7,5. Hồ sơ không có thông tin về bể tối thiểu, thức ăn hay cách nuôi trong bể, nên người muốn nuôi khó có cơ sở để làm theo. Loài này chỉ được ghi nhận ở hai con sông Dikrong và Subansiri, xếp hạng Nguy cấp.",
   "mistakes": [
-    "Đừng nuôi trong nước tĩnh hoặc ấm; giữ nước 18–22 °C và tạo dòng chảy xiết như suối.",
-    "Đừng bỏ qua nền; dùng cát hoặc đá như môi trường sống tự nhiên của loài."
+    "Đừng để nước ngoài khoảng 18–22 °C; nên giữ nhiệt độ trong khoảng này.",
+    "Đừng để nước đứng; nên tạo dòng chảy, vì cá sống ở suối và sông nước chảy xiết.",
+    "Đừng bỏ qua nền; nên dùng đáy cát hoặc đá như môi trường tự nhiên của cá."
   ],
   "speciesUpdatedAt": "2026-10-31",
-  "generatedAt": "2026-10-31T16:21:44.125Z",
-  "review": "approved"
+  "writtenFrom": "d1a10a129190c45b",
+  "generatedAt": "2026-11-15T20:30:31.586Z",
+  "review": "pending",
+  "problems": [
+    "\"Đừng để nước đứng; nên tạo dòng chảy\": the page only says the species lives in fast-flowing streams and rivers. It gives no aquarium advice about water flow, so this fix is advice the page doesn't give. It also conflicts with the summary's own statement that the page has no information on keeping the fish in a tank.",
+    "\"Đừng bỏ qua nền; nên dùng đáy cát hoặc đá\": the page describes only the wild habitat (sand or rock bottom). It gives no substrate advice for a tank, so this mistake and its fix are invented."
+  ]
 }

@@ -1,8 +1,8 @@
 {
   "id": "pangasius-larnaudii",
   "native": {
-    "input": "58cda42f7d650c57",
-    "at": "2026-11-14T00:09:29.977Z",
+    "input": "36fc16171ab40a6e",
+    "at": "2026-11-16T05:47:36.414Z",
     "claims": [
       {
         "code": "TH",
@@ -25,13 +25,27 @@
         "source": "planetcatfish",
         "quote": "Asia: Mekong and Chao Phraya basins.",
         "ok": true
+      },
+      {
+        "name": "Mekong",
+        "source": "scotcat",
+        "quote": "Asia: Mekong and Chao Phraya basins.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "scotcat",
+        "quote": "Asia: Mekong and Chao Phraya basins.",
+        "ok": true
       }
     ],
     "disputed": [],
     "outranked": [],
     "origin": {
       "pagesOnly": [
-        "LA"
+        "LA",
+        "KH",
+        "VN"
       ],
       "sourcesOnly": []
     }

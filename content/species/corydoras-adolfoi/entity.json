@@ -215,17 +215,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/d324fadec027938c.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/d324fadec027938c-480.webp",
-      "width": 797,
-      "height": 323,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-adolfoi",
-      "caption": "Typical colour pattern of Corydoras duplicareus (left) vs. C. adolfoi (right), although the differences are not always as pronounced.",
-      "source": "seriouslyfish"
-    },
-    {
       "url": "https://media.aquatome.com/commons/241e4896ed03734d.webp",
       "thumb": "https://media.aquatome.com/commons/241e4896ed03734d-480.webp",
       "width": 960,
@@ -233,7 +222,12 @@
       "licence": "CC BY-SA 4.0",
       "author": "Corydoras-adolfoi",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras-adolfoi-alone.jpg",
-      "caption": "A single Corydoras adolfoi."
+      "caption": "A single Corydoras adolfoi.",
+      "large": {
+        "url": "https://media.aquatome.com/commons/241e4896ed03734d-large.webp",
+        "width": 1272,
+        "height": 827
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/1f8fbe3ab3aaf383.webp",
@@ -244,6 +238,17 @@
       "author": "Corydoras-adolfoi",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras-adolfoi.jpg",
       "caption": "Two Corydoras adolfoi."
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/d324fadec027938c.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/d324fadec027938c-480.webp",
+      "width": 797,
+      "height": 323,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-adolfoi",
+      "caption": "Typical colour pattern of Corydoras duplicareus (left) vs. C. adolfoi (right), although the differences are not always as pronounced.",
+      "source": "seriouslyfish"
     }
   ],
   "videos": [

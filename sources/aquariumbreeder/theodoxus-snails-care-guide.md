@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/theodoxus-snails-care-guide/
 title: Theodoxus snails – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-11-15T09:08:53.308Z
-hash: 1d7f7f0e9dcceb2ffa873d1c4a5f821a1cb38e391966c5bed6098913ae3ef8a1
+hash: 3213b8ef80a7f062afcd98b667ceaf5deae43fc714a17a7ac7efdfc5b73b0913
 ---
 
 Even though Theodoxus snails (also known as River Nerites or Ladybug snails) are pretty common in Europe, they are one of the rarest snail species you can find on the U.S. pet trade market. This is, in my opinion, a huge loss for this hobby.
@@ -159,9 +159,3 @@ Theodoxus snails (River Nerites)ProsConsTolerate freshwater and brackishwaterThe
 - Kivistik C, Knobloch J, Käiro K, Tammert H, Kisand V, Hildebrandt J-P and Herlemann DPR (2020) Impact of Salinity on the Gastrointestinal Bacterial Community of Theodoxus fluviatilis. Front. Microbiol. 11:683. doi: 10.3389/fmicb.2020.00683.
 - Theodoxus fluviatilis’ re-establishment in the River Rhine: a native relict or a cryptic invader? Conservation Genetics. 2015.
 - Distribution of the species of Theodoxus Montfort, 1810 (Gastropoda: Neritidae) in Serbia: an Overview. Zoogeography and Faunistics, 66 (4), 2014: 477-484.
-## 7 thoughts on “Theodoxus snails – Detailed Guide: Care, Diet, and Breeding”
-- Are their any online sellers of them in the US? ReplyHi Oliver, I have seen a few types, unfortunately, I don’t remember where it was. Sorry. Best regards, Michael Reply
-- I was happily surprised to see you posted a guide on Theodoxus fluviatilis! Been waiting several years now for these to be brought to the US by my specialist importer. It is far too common for hobbyists to simply state “All species of nerite require brackish conditions to reproduce.” without realizing just how vast Neritidae is in regards to their distribution. Reply
-- If anyone knows of a US. seller please leave a message on here. ReplyWe got ours at Aquatics Unlimited in Milwaukee. I believe Shrimpybusiness.com has them sometimes! Reply
-- Hello and greetings, thank you for the enlightening article. They have now offered for me to purchase this type of snail. I wanted to know, does it eat only algae? Or will it also eat things like cucumber or lettuce? ReplyHi YAKOV, Yes, they will eat it. However, it’s advisable to provide cucumbers and etc. only as supplementary food. Best regards, Michael Reply
-### Leave a Reply Cancel reply

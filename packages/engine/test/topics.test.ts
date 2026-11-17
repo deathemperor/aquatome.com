@@ -93,10 +93,10 @@ test('a rewrite from the kept research keeps a body fixed by hand', async () => 
 
 // The chief of staff, 14 Nov 2026: research is denied a marketplace's pages and the hosts the engine reads only at its own
 // pace, but its answer can still cite one it found through search. Such a citation goes, and a fact resting on it alone.
-test("a guide never cites a page research may not read: a marketplace's, the magazine read for ideas, the Archive's, a shop that refused us", async () => {
+test("a guide never cites a page research may not read: a marketplace's, the magazine read for ideas, the Archive's, a shop that refused us, a site refused as a source", async () => {
   const root = await site()
   await writeFile(join(root, 'engine-state/_sources.json'), JSON.stringify({ aquazonefish: { blockedAt: '2026-11-14T00:00:00.000Z' } }))
-  const off = ['https://shopee.vn/thuoc-loi-mat-i.1.2', 'https://www.tokopedia.com/toko/obat-mata-ikan', 'https://www.practicalfishkeeping.co.uk/fishkeeping-answers/popeye/', 'https://web.archive.org/web/2020/https://x.org/popeye', 'https://aquazonefish.vn/blogs/kien-thuc/popeye']
+  const off = ['https://shopee.vn/thuoc-loi-mat-i.1.2', 'https://www.tokopedia.com/toko/obat-mata-ikan', 'https://www.practicalfishkeeping.co.uk/fishkeeping-answers/popeye/', 'https://web.archive.org/web/2020/https://x.org/popeye', 'https://aquazonefish.vn/blogs/kien-thuc/popeye', 'https://cabaymau.vn/ca-bi-loi-mat/']
   const cited: TopicFacts = {
     ...facts,
     facts: [...facts.facts, ...off.map((_, i) => ({ section: 'treatment' as const, fact: `Only off-limits ${i}`, source: 4 + i })), { section: 'signs' as const, fact: 'Cloudy eyes too', source: 1 }],

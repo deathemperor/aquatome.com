@@ -1,8 +1,13 @@
 {
   "slug": "ganges-brahmaputra",
-  "name": "Gangga-Brahmaputra",
+  "name": "Lembangan Ganges-Brahmaputra",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.85,
+    "at": "2026-11-16T00:07:22.667Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

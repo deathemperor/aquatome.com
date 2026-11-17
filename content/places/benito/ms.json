@@ -3,6 +3,12 @@
   "name": "Benito",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-16T05:38:53.481Z",
+    "why": "Benito is a river (Río Benito, Mbini) and a former region name in Equatorial Guinea; Malay atlases would likely write \"Sungai Benito\" for the river, while the bare \"Benito\" as a region name is plausible but unattested, so moderate confidence."
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

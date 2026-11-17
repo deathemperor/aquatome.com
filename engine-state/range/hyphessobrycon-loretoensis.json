@@ -1,8 +1,8 @@
 {
   "id": "hyphessobrycon-loretoensis",
   "native": {
-    "input": "d25a8ffddb993c18",
-    "at": "2026-11-09T05:57:45.266Z",
+    "input": "1717a35e0024e5de",
+    "at": "2026-11-16T17:28:41.839Z",
     "claims": [
       {
         "code": "CO",
@@ -27,6 +27,14 @@
         "quote": "The Loreto tetra, Hyphessobrycon loretoensis, is a small characid from the upper Amazon basin in Colombia, Peru and Ecuador.",
         "words": "Ecuador",
         "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The tetra originates from the upper Amazon river, Loreto province, Peru.",
+        "words": "Peru",
+        "ok": true
       }
     ],
     "regions": [
@@ -37,26 +45,33 @@
         "ok": true
       },
       {
-        "name": "Rio Napo",
+        "name": "Napo",
         "source": "seriouslyfish",
         "quote": "Native to the upper Amazon River basin, with its range extending westward from Leticia in southern Colombia, at least as far as the upper rio Napo basin in Peru and Ecuador and lower rio Ucayali in Peru.",
         "ok": true
       },
       {
-        "name": "Rio Ucayali",
+        "name": "Ucayali",
         "source": "seriouslyfish",
         "quote": "Native to the upper Amazon River basin, with its range extending westward from Leticia in southern Colombia, at least as far as the upper rio Napo basin in Peru and Ecuador and lower rio Ucayali in Peru.",
         "country": "PE",
         "ok": true
       },
       {
-        "name": "Rio Madeira",
+        "name": "Madeira",
         "source": "seriouslyfish",
         "quote": "García-Alzate et al. (2013) report it from the Madre de Dios watershed, a tributary in the upper rio Madeira basin, which would appear to represent a significant range expansion and may indicate it to be present throughout the Peruvian Amazon; there is also an isolated record from the rio Palcazu drainage in the upper rio Ucayali basin.",
         "ok": true
       },
       {
-        "name": "Rio Aguarico",
+        "name": "Amazon",
+        "source": "glaser",
+        "quote": "The tetra originates from the upper Amazon river, Loreto province, Peru.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Aguarico",
         "source": "seriouslyfish",
         "quote": "There exist numerous records from the rios Loreto-Yacu and Pichuna in Colombia, and the rio Aguarico, which forms a section of the border between Peru and Ecuador, but presumably it also occurs in other tributary systems in the region.",
         "ok": true
