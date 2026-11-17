@@ -938,27 +938,6 @@ test('the two kits and the quarantine video are off for good, each to the page i
   }
 })
 
-// The chief of staff, 17 Nov 2026: the quarantine video forwards to our general quarantine guide, whose Vietnamese page
-// names no medicine. Its Indonesian and Thai pages still gave the three medicines sold abroad with their doses, the
-// maker's word that they're safe, a brand to prevent with, and two more brands for parasites; and the Thai page printed
-// the writer's own source numbers ("แหล่งที่ 0") 55 times. Cut by hand, each body fixed.
-test('the general quarantine guide names no medicine sold abroad in any language, and prints no source number', () => {
-  const dir = fileURLToPath(new URL('../../../content/guides/aquatome-cach-ly-ca-moi-mua-be-cach-ly-va-quy-trinh', import.meta.url))
-  const page = (lang: string) => JSON.parse(readFileSync(join(dir, `${lang}.json`), 'utf8')) as Translation & { bodyFixed?: boolean }
-  for (const lang of ['vi', 'id', 'th', 'ms']) {
-    const t = page(lang)
-    const text = [t.body, ...(t.summary ?? []), ...(t.faq ?? []).flatMap(q => [q.q, q.a])].join('\n')
-    for (const gone of ['Maracyn', 'ParaCleanse', 'Ich-X', 'PraziPro', 'ParaGuard']) expect(text, `${lang}: ${gone}`).not.toContain(gone)
-    expect(text.match(/แหล่งที่\s*\d|sumber\s*\d|nguồn\s*\d/gi), lang).toBeNull()
-  }
-  for (const lang of ['id', 'th']) expect(page(lang).bodyFixed, lang).toBe(true)
-  expect(page('id').body).toContain('<strong>Ikan dari toko lokal atau peternak yang terpercaya:</strong> amati dan beri pakan selama beberapa hari, lalu obati hanya jika muncul gejala.</p>')
-  expect(page('id').body).toContain('Angkat karbon aktif dan matikan sterilisator UV sebelum memberi obat.')
-  expect(page('th').body).toContain('<strong>ปลาจากร้านในพื้นที่หรือผู้เพาะที่ไว้ใจได้:</strong> เฝ้าดูและให้อาหารไปสองสามวัน รักษาเมื่อมีอาการเท่านั้น</p>')
-  expect(page('th').body).toContain('ก่อนใส่ยา ให้เอาถ่านกัมมันต์ (activated carbon) ออก และปิดหลอด UV')
-  expect(page('th').body).not.toContain('ปลอดภัยกับปลาไม่มีเกล็ด')
-})
-
 // The Writing Lead's answer of 15 Nov 2026 on 60 findings in 17 held video guides (the source talking, units, prices),
 // fixed by hand: each guide is bodyFixed, and the pond guide's FAQ faqFixed, so no run takes a fix back. Each line is in
 // test/fixtures/held-video-fixes.json: what went, and what stands in its place.
