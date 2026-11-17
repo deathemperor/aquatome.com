@@ -2,7 +2,8 @@ import { expect, test } from 'vitest'
 import { copyFile, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { namesRefused, onProxy, onRefused, refsWithoutRefused, refusedScan, refusedSweep, WAITING, withoutRefused } from '../src/refused-sources'
+import { ARCHIVES, namesRefused, onProxy, onRefused, PROXY_HOSTS, refsWithoutRefused, refusedScan, refusedSweep, WAITING, withoutRefused } from '../src/refused-sources'
+import { cycleOnlyHosts, refused } from '../src/cycle-only'
 import { sweep } from '../src/sweep'
 
 const REFUSED = 'https://cabaymau.vn/cach-tha-ca-moi-mua-vao-be-2/'
@@ -111,13 +112,27 @@ test('a refused site\'s hosts and archived copies of its pages are refused; near
   // A link's address in quotes is taken whole (Codex's third read, 17 Nov 2026).
   expect(namesRefused('<a href="https://example.org/?ref=(https://cabaymau.vn/x)">chia sẻ</a>')).toBe(false)
   expect(namesRefused('<a href=\'https://cabaymau.vn/x\'>trang</a>')).toBe(true)
+  // Only an attribute's quotes: an apostrophe may stand in a link, and quotes in prose don't make one address of two (Codex's
+  // fourth read, 17 Nov 2026).
+  expect(namesRefused('<a href="https://example.org/?ref=(https://cabaymau.vn/x)&label=it\'s">link</a>')).toBe(false)
+  expect(namesRefused('Xem "https://example.org/x,https://cabaymau.vn/x".')).toBe(true)
   // A fact whose own source is a share link stays (Codex, 17 Nov 2026), and so does one whose source isn't a web address:
   // a book, a relative path, another scheme (Codex's third read).
-  const kept = ['https://example.org/?url=https://cabaymau.vn/x', 'https://example.org/?ref=(https://cabaymau.vn/x)', 'a book', 'example.org/cabaymau.vn', '/cabaymau.vn/x', 'mailto:info@cabaymau.vn', 'ISBN: 978-0-00-000000-0']
+  const kept = ['https://example.org/?url=https://cabaymau.vn/x', 'https://example.org/?ref=(https://cabaymau.vn/x)', 'a book', 'example.org/cabaymau.vn', '/cabaymau.vn/x', '\\cabaymau.vn\\x', 'mailto:info@cabaymau.vn', 'ISBN: 978-0-00-000000-0']
   const shared = { found: true, facts: kept.map((_, i) => ({ section: 'x', fact: `f${i}`, source: i })), sources: kept.map(src) }
   expect(withoutRefused(shared).kept).toBe(shared)
   // One with its scheme written without slashes is the site's.
   expect(withoutRefused({ found: true, facts: [{ section: 'x', fact: 'f', source: 0 }], sources: [src('https:cabaymau.vn/x')] }).refused).toEqual([{ url: 'https:cabaymau.vn/x', items: 1 }])
+})
+
+// Codex's fourth read, 17 Nov 2026: research's copy-host list missed archive.fo and some proxies' hosts. Every host whose
+// copies this file reads, or whose addresses it names, is one research may not fetch, itself or any host under it.
+test('research may fetch no host this file reads copies from or names as a proxy', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'aq-refused-hosts-'))
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await writeFile(join(root, 'engine-state/_sources.json'), '{}')
+  const off = await cycleOnlyHosts(root)
+  for (const h of [...ARCHIVES, ...PROXY_HOSTS]) for (const u of [`https://${h}/x`, `https://sub.${h}/x`]) expect(refused(off, u), u).toBe(true)
 })
 
 // The chief of staff, 17 Nov 2026: a copy of a page under a proxy's host (Google's cache, Translate's proxy, a reader proxy)

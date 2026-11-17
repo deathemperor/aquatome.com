@@ -51,21 +51,24 @@ const webAddress = (x: unknown): string | undefined => {
   const url = !!x && typeof x === 'object' ? (x as { url?: unknown }).url : undefined
   if (typeof url !== 'string') return undefined
   const a = address(url)
-  if (!a || /^[/.#?]/.test(a)) return undefined
+  if (!a || /^[/\\.#?]/.test(a)) return undefined
   // A scheme, but not a host and its port.
   if (/^[a-z][a-z0-9+.-]*:/i.test(a) && !/^[^/:\s]+:\d+(?:[/?#]|$)/.test(a)) return /^https?:/i.test(a) ? a : undefined
   return `https://${a}`
 }
 const urlRefused = (x: unknown) => { const a = webAddress(x); return !!a && onRefused(a) }
 
+/** An HTML attribute's address in its quotes (`href="…"`, `src='…'`): the other quote may stand in it (an apostrophe). */
+const ATTRIBUTE = /=\s*(?:"(https?:\/\/[^"\s<>]+)"|'(https?:\/\/[^'\s<>]+)')/gi
+
 /**
- * Every address in a text: an address alone, or in a page's HTML. One in quotes (a link's `href`) is taken whole; any
- * other ends at a space, a quote, a bracket, a comma or a semicolon, without the sentence's punctuation after it (Codex,
- * 17 Nov 2026).
+ * Every address in a text: an address alone, or in a page's HTML. An attribute's (a link's `href`) is taken whole; any
+ * other, quotes in prose too, ends at a space, a quote, a bracket, a comma or a semicolon, without the sentence's
+ * punctuation after it (Codex, 17 Nov 2026).
  */
 const addressesIn = (text: string) => [
-  ...[...text.matchAll(/(["'])(https?:\/\/[^\s"'<>]+)\1/gi)].map(m => m[2]!),
-  ...(text.replace(/(["'])https?:\/\/[^\s"'<>]+\1/gi, ' ').match(/https?:\/\/[^\s"'<>()[\]{},;`]+/gi) ?? []),
+  ...[...text.matchAll(ATTRIBUTE)].map(m => (m[1] ?? m[2])!),
+  ...(text.replace(ATTRIBUTE, ' ').match(/https?:\/\/[^\s"'<>()[\]{},;`]+/gi) ?? []),
 ].map(address)
 
 /** Whether a text names a refused site's page. It's read only by the check, where a wrong yes stops a push and is seen. */

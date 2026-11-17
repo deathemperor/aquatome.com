@@ -7,14 +7,14 @@ import { SOURCES, type SourceConfig } from './sources'
 /**
  * Hosts that hold other copies of any page, each a way round the cycle's pace (the Writing Lead, 14 Nov 2026): the Internet
  * Archive's, archive.today's names, Google's cache, Google Translate's proxy (a host for every site) and a reader proxy. A
- * WebFetch domain rule matches its host only and "*.host" every host under it, never the host itself, so both are given.
+ * WebFetch domain rule matches its host only and "*.host" every host under it, never the host itself, so both are given:
+ * archive.fo, and the bare or sub-hosts of the proxies, were missing (Codex, 17 Nov 2026). refused-sources.ts reads the
+ * archives' copies and names the proxies' addresses, and its test holds every one of its hosts to this list.
  */
 const COPY_HOSTS = [
   'archive.org', '*.archive.org',
-  ...['archive.ph', 'archive.is', 'archive.today', 'archive.li', 'archive.md', 'archive.vn'].flatMap(h => [h, `*.${h}`]),
-  'webcache.googleusercontent.com',
-  '*.translate.goog',
-  'r.jina.ai',
+  ...['archive.ph', 'archive.is', 'archive.today', 'archive.li', 'archive.md', 'archive.vn', 'archive.fo'].flatMap(h => [h, `*.${h}`]),
+  ...['webcache.googleusercontent.com', 'translate.goog', 'r.jina.ai'].flatMap(h => [h, `*.${h}`]),
 ]
 
 /**
