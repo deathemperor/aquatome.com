@@ -57,7 +57,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh phong cách Amazon với lũa và cây xanh, hợp nuôi cichlid lùn.",
-            "sharpness": 2351.9
+            "sharpness": 2351.9,
+            "person": false
           },
           {
             "t": 35,
@@ -65,7 +66,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh bể có lũa và cây, vài con cá nhỏ bơi gần đáy.",
-            "sharpness": 224
+            "sharpness": 224,
+            "person": false
           }
         ],
         "photo": {
@@ -83,20 +85,13 @@
         "heading": "Chọn cá ở tiệm và nên thả mấy con",
         "moments": [
           {
-            "t": 5,
-            "url": "https://media.aquatome.com/video/OYxDI5jDSJk/at5-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh có đàn cá nhỏ bơi giữa cây và lũa.",
-            "sharpness": 1086.3
-          },
-          {
             "t": 45,
             "url": "https://media.aquatome.com/video/OYxDI5jDSJk/at45-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể trồng cây với lũa, cá nhỏ sống thoải mái trong không gian rộng.",
-            "sharpness": 2302.5
+            "sharpness": 2302.5,
+            "person": false
           }
         ],
         "photo": {
@@ -147,7 +142,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh có lũa và cỏ, nơi cặp cá có thể chọn làm chỗ ở.",
-            "sharpness": 1947.8
+            "sharpness": 1947.8,
+            "person": false
           }
         ],
         "photo": {

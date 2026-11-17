@@ -110,20 +110,13 @@
         "heading": "Thả tép để dọn rêu",
         "moments": [
           {
-            "t": 635,
-            "url": "https://media.aquatome.com/video/SJ6LTc4VGy8/at635-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cốc đựng tép đang được thả làm quen với nước trong bể.",
-            "sharpness": 418.6
-          },
-          {
             "t": 660,
             "url": "https://media.aquatome.com/video/SJ6LTc4VGy8/at660-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Cây thủy sinh rậm rạp là nơi tép trốn và bò kiếm ăn.",
-            "sharpness": 233.7
+            "sharpness": 233.7,
+            "person": false
           }
         ],
         "photo": {

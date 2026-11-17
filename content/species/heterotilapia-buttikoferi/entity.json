@@ -66,17 +66,12 @@
       "author": "Hectonichus",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichlidae_-_Heterotilapia_buttikoferi.JPG",
       "caption": "Heterotilapia buttikoferi, on display at the Museo di Storia Naturale e del Territorio, Calci (Province Pisa), Italy",
-      "thumb": "https://media.aquatome.com/commons/1ec07cc19aaee95a-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/52e7d279a3fc8b47.webp",
-      "width": 960,
-      "height": 541,
-      "licence": "CC BY-SA 4.0",
-      "author": "Cedricguppy - Looury Cédric",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tilapia_buttikoferi_-_aqua_porte_dor%C3%A9e_01.JPG",
-      "caption": "Tilapia buttikoferi - Aquarium tropicale du palais de la porte dorée, Paris, ile de France, France - 12/2014",
-      "thumb": "https://media.aquatome.com/commons/52e7d279a3fc8b47-480.webp"
+      "thumb": "https://media.aquatome.com/commons/1ec07cc19aaee95a-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/1ec07cc19aaee95a-large.webp",
+        "width": 1602,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/864f55b07d55ac44.webp",
@@ -87,6 +82,16 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tilapia_z%C3%A8bre_(1).jpg",
       "caption": "Tilapia butikoferi - zebra tilapia from the tropical aquarium in Porte dorée Palace, Paris, France",
       "thumb": "https://media.aquatome.com/commons/864f55b07d55ac44-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/52e7d279a3fc8b47.webp",
+      "width": 960,
+      "height": 541,
+      "licence": "CC BY-SA 4.0",
+      "author": "Cedricguppy - Looury Cédric",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tilapia_buttikoferi_-_aqua_porte_dor%C3%A9e_01.JPG",
+      "caption": "Tilapia buttikoferi - Aquarium tropicale du palais de la porte dorée, Paris, ile de France, France - 12/2014",
+      "thumb": "https://media.aquatome.com/commons/52e7d279a3fc8b47-480.webp"
     }
   ],
   "videos": [

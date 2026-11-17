@@ -8,16 +8,16 @@ under `<lang>/<path>`.
 
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
-| video-guide | 965 | 687 (vi 687) | 687 |
-| translation | 1904 | 279 (vi 279) | 279 |
+| video-guide | 997 | 711 (vi 711) | 711 |
+| translation | 1942 | 286 (vi 286) | 286 |
 | vi-rewrite | 366 | 24 (vi 24) | 24 |
 | reader-rewrite | 40 | 0 | 0 |
 | title | 25 | 0 | 0 |
 | breed | 27 | 3 (ms 3) | 3 |
 | topic | 114 | 6 (id 1, ms 1, th 4) | 6 |
-| product | 18 | 1 (vi 1) | 1 |
+| product | 19 | 1 (vi 1) | 1 |
 | product-reviews | 17 | 0 | 0 |
-| summary | 2332 | 122 (vi 122) | 122 |
+| summary | 2409 | 129 (vi 129) | 129 |
 | localize | 2410 | 897 (id 398, ms 64, th 435) | 897 |
 | glossary | 9 | 0 | 0 |
 | places | 7032 | 4307 (id 1476, ms 1473, th 1259, vi 99) | 1206 |
@@ -28,22 +28,22 @@ under `<lang>/<path>`.
 
 ## video-guide: Vietnamese guides written from YouTube videos, against the transcript
 
-687 of 965 pages under the bar.
+711 of 997 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 602 | 1563 |
-| States as certain what the source hedges, or what garbled captions only hint at | 597 | 1787 |
-| Says what the source doesn't (invented, added) | 513 | 1236 |
-| Wording: unnatural, literal, stiff or chatty | 291 | 411 |
-| A number, unit, dose or price | 228 | 335 |
-| Repeats itself (intro, summary, steps and FAQ) | 132 | 156 |
-| Meaning changed or wrong | 118 | 135 |
-| Leaves out what the source says | 48 | 50 |
-| Hobby terms and names | 48 | 49 |
-| Names or points to the video, channel, creator or source | 33 | 36 |
+| Other | 622 | 1608 |
+| States as certain what the source hedges, or what garbled captions only hint at | 620 | 1853 |
+| Says what the source doesn't (invented, added) | 525 | 1255 |
+| Wording: unnatural, literal, stiff or chatty | 304 | 434 |
+| A number, unit, dose or price | 233 | 340 |
+| Repeats itself (intro, summary, steps and FAQ) | 140 | 166 |
+| Meaning changed or wrong | 123 | 140 |
+| Hobby terms and names | 51 | 52 |
+| Leaves out what the source says | 49 | 51 |
+| Names or points to the video, channel, creator or source | 36 | 40 |
 | Off the title's topic | 25 | 25 |
-| Copied from the transcript or source | 22 | 24 |
+| Copied from the transcript or source | 24 | 26 |
 | Text left in another language | 6 | 6 |
 
 ### Other
@@ -88,17 +88,17 @@ under `<lang>/<path>`.
 - "Đèn đang để ở 80%" and "mặt cát sáng gần gấp đôi": the creator said the lights read 80% and the sand is 'doubly light'. Also the bullet "Giảm đèn khoảng 40% vì nền cát sáng màu hắt ánh sáng gấp đôi" is wrong, because the lights were made … — vi/guides/youtube-AZKwyFdqe50, 0.40
 - "Nên dùng nhiều cách cùng lúc, vì mỗi cách đơn lẻ đều có lúc sai": the video says polarized glasses depend on conditions, and that one indicator is usually enough. Remove the claim that every method can be wrong, and the advice to use seve… — vi/guides/youtube-C4W86NMP3CU, 0.40
 
-### Leaves out what the source says
-
-- "Lắp từ dưới lên thì hợp lý hơn" / "Thứ tự đó khó theo" and "Nhà sản xuất có làm video hướng dẫn lắp, nên xem qua trước khi bắt tay vào": he said the manual made no sense to him and that he would watch the tutorial, but then dropped the ma… — vi/guides/youtube-JpAXeFEVws8, 0.40
-- "Nên dùng mica thay cho kính vì mica dễ cắt, dễ phay và dễ dán hơn nhiều" (also in FAQ and the summary): the video only says he chose acrylic because it is much easier to machine; no comparison on cutting/gluing and no recommendation. Redu… — vi/guides/youtube-seBch2HWlZs, 0.40
-- Remove "Hiểu sai một lần là mất luôn một mùa sinh sản". The video only says no babies were made because there were no plants. It never says a whole breeding season was lost. — vi/guides/youtube-7l1Ja0NL_UQ, 0.45
-
 ### Hobby terms and names
 
 - Remove the advice "Hạn chế mở nắp trong thời gian đo" and "Đo kéo dài vài tháng" as instructions. The video gives neither as a step. It only mentions wanting long-term data, and only as the speaker's own plan. — vi/guides/youtube-7l1Ja0NL_UQ, 0.45
 - "Dân chơi gọi hiện tượng này là cây "thở" (pearling)": the "dân chơi gọi" generalisation and the English term "pearling" are not in the video; remove the English and say it neutrally, e.g. the creator describes the plants as "thở". — vi/guides/youtube-H-A6KwMSa9s, 0.50
 - "Bể đẹp tới đâu còn tùy bố cục, và với paludarium thì chuyện này càng quan trọng": reword to hedge and follow the video, a build is only as good as its scape, especially a paludarium. Also "dây nhỏ giọt" for "drip vine" is a clumsy term; u… — vi/guides/youtube-HK0vWQGwNOE, 0.50
+
+### Leaves out what the source says
+
+- "Lắp từ dưới lên thì hợp lý hơn" / "Thứ tự đó khó theo" and "Nhà sản xuất có làm video hướng dẫn lắp, nên xem qua trước khi bắt tay vào": he said the manual made no sense to him and that he would watch the tutorial, but then dropped the ma… — vi/guides/youtube-JpAXeFEVws8, 0.40
+- "Nên dùng mica thay cho kính vì mica dễ cắt, dễ phay và dễ dán hơn nhiều" (also in FAQ and the summary): the video only says he chose acrylic because it is much easier to machine; no comparison on cutting/gluing and no recommendation. Redu… — vi/guides/youtube-seBch2HWlZs, 0.40
+- Remove "Hiểu sai một lần là mất luôn một mùa sinh sản". The video only says no babies were made because there were no plants. It never says a whole breeding season was lost. — vi/guides/youtube-7l1Ja0NL_UQ, 0.45
 
 ### Names or points to the video, channel, creator or source
 
@@ -126,20 +126,20 @@ under `<lang>/<path>`.
 
 ## translation: source pages translated into Vietnamese, against the English
 
-279 of 1904 pages under the bar.
+286 of 1942 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 268 | 820 |
-| Says what the source doesn't (invented, added) | 230 | 446 |
-| Wording: unnatural, literal, stiff or chatty | 213 | 404 |
-| Meaning changed or wrong | 174 | 271 |
-| Hobby terms and names | 141 | 187 |
-| Text left in another language | 98 | 122 |
-| Leaves out what the source says | 93 | 128 |
-| States as certain what the source hedges, or what garbled captions only hint at | 80 | 93 |
-| A number, unit, dose or price | 71 | 92 |
-| Repeats itself (intro, summary, steps and FAQ) | 59 | 70 |
+| Other | 273 | 825 |
+| Says what the source doesn't (invented, added) | 238 | 462 |
+| Wording: unnatural, literal, stiff or chatty | 219 | 413 |
+| Meaning changed or wrong | 177 | 278 |
+| Hobby terms and names | 143 | 191 |
+| Text left in another language | 99 | 123 |
+| Leaves out what the source says | 98 | 134 |
+| States as certain what the source hedges, or what garbled captions only hint at | 81 | 94 |
+| A number, unit, dose or price | 74 | 97 |
+| Repeats itself (intro, summary, steps and FAQ) | 60 | 71 |
 | Names or points to the video, channel, creator or source | 10 | 11 |
 | Copied from the transcript or source | 3 | 3 |
 
@@ -153,7 +153,7 @@ under `<lang>/<path>`.
 
 - Item 1: 'tên tiếng Anh: Blind Spiny Eel' is an acceptable addition, but it is unnecessary if the Vietnamese name is established. — vi/species/mastacembelus-brichardi (glaser), 0.40
 - Item 4: "ăn tép, ốc và những con mồi nhỏ tương tự" adds facts (shrimp, snails) not in the source. Use "động vật không xương sống" for invertebrates: "Ăn động vật không xương sống và cá nhỏ." — vi/species/arius-maculatus (scotcat), 0.50
-- Item 4: the English says the name "shark" is a good description despite the zoological relationship. The Vietnamese adds "không có họ hàng gì với cá mập", which is slightly stronger and not quite the same meaning. Make it neutral, e.g. "Dù… — vi/species/labeo-chrysophekadion (glaser), 0.50
+- Item 4: "các con nhỏ như tép, ốc, sâu bọ" adds facts (shrimp, snails, insects) not in the source; use "động vật không xương sống". — vi/species/arius-subrostratus (scotcat), 0.50
 
 ### Wording: unnatural, literal, stiff or chatty
 
@@ -163,7 +163,7 @@ under `<lang>/<path>`.
 
 ### Meaning changed or wrong
 
-- Item 1: "Cá chép đen (black shark)" is a wrong common name. Labeo chrysophekadion is usually called "cá chài đen" or "cá mè lúi đen" in Vietnamese. It is not a true carp. Use an established name. — vi/species/labeo-chrysophekadion (seriouslyfish), 0.50
+- Item 4: the English says the name "shark" is a good description despite the zoological relationship. The Vietnamese adds "không có họ hàng gì với cá mập", which is slightly stronger and not quite the same meaning. Make it neutral, e.g. "Dù… — vi/species/labeo-chrysophekadion (glaser), 0.50
 - Item 11: "loài này còn là cá ăn thịt" is a mistranslation. It means "carnivorous fish", but the English says it is eaten as a food fish. Use "được dùng làm thực phẩm / cá thực phẩm". — vi/species/toxotes-chatareus (seriouslyfish), 0.50
 - Item 2: "Cá hôn là loài cá ăn thịt phổ biến" mistranslates 'popular food fish' (cá thực phẩm/cá làm thực phẩm phổ biến); 'ăn thịt' means carnivorous, a wrong fact. — vi/species/helostoma-temminckii (seriouslyfish), 0.55
 
@@ -171,13 +171,13 @@ under `<lang>/<path>`.
 
 - Items 1, 2, 5, 6: 'cá chạch sông' is a poor name for spiny eels (Mastacembelidae). The standard Vietnamese name is 'cá chạch gai' or 'cá chạch lửa/chạch bông' for the group. Use 'cá chạch gai mù' for Blind Spiny Eel. — vi/species/mastacembelus-brichardi (glaser), 0.40
 - Item 3: "Bong bóng" for air bladders. The standard term is "bóng bơi" ("bóng bơi của chúng"). — vi/species/arius-maculatus (scotcat), 0.50
-- Item 1: "cá sấu Cuba" is a questionable common name for Cuban gar. "Cá sấu hỏa tiễn Cuba" is more consistent with item 5. Use one name for gar across all items, not "cá gar" in some places and "cá gar/cá sấu hỏa tiễn" in others. — vi/species/atractosteus-tristoechus (glaser), 0.55
+- Item 1: "Cá chép đen (black shark)" is a wrong common name. Labeo chrysophekadion is usually called "cá chài đen" or "cá mè lúi đen" in Vietnamese. It is not a true carp. Use an established name. — vi/species/labeo-chrysophekadion (seriouslyfish), 0.50
 
 ### Text left in another language
 
 - Item 2: 'cichlid' is left untranslated. Use 'cá rô phi/cichlid (họ Cichlidae)', or keep it with a gloss on first use. — vi/species/mastacembelus-brichardi (glaser), 0.40
+- Item 7: The references are left in English, which is acceptable for citations, but "pag. var." and similar could stay as is. No change needed. — vi/species/arius-subrostratus (scotcat), 0.50
 - Item 4: "white shark" is left in English in brackets. Remove it, or use "cá mập trắng" only. — vi/species/labeo-chrysophekadion (glaser), 0.50
-- Item 8: 'cá chình gai' for mastacembelids is fine. 'Cichlid' and 'characin' are left in English or loosely rendered; use 'cá rô phi/cichlid' and 'cá tetra họ characin' consistently. — vi/species/helostoma-temminckii (seriouslyfish), 0.55
 
 ### Leaves out what the source says
 
@@ -193,9 +193,9 @@ under `<lang>/<path>`.
 
 ### A number, unit, dose or price
 
+- Item 1: "25 cm (tính cả đuôi)" - TL is total length; better "chiều dài tổng thể (TL)". The 10 in figure is correctly dropped. — vi/species/batrachocephalus-mino (scotcat), 0.55
 - Item 4: the converted litre volume is kept but the duplicate 'Volume' is OK. 'Chiều dài chuẩn (SL) tối đa' adds 'tối đa', which is acceptable. — vi/species/helostoma-temminckii (seriouslyfish), 0.55
 - #6: 'below 26°C in summer' mistranslated as 'cá hợp nhất với nước dưới 26°C' – awkward/wrong; should be 'nhiệt độ nước dưới 26°C vào mùa hè và khoảng 17°C vào mùa đông là lý tưởng'. — vi/species/ilyodon-furcidens (glaser), 0.55
-- Item 4: English minimum is 72" x 24" x 24" (≈183 × 61 × 61 cm); the translation gives '180 × 60 × 60 cm', which is acceptable rounding, but the base '183 × 61 cm' is stated as 180 × 60 and the volume '~681 litres' as 'khoảng 700 lít'. Thes… — vi/species/osphronemus-goramy (seriouslyfish), 0.55
 
 ### Repeats itself (intro, summary, steps and FAQ)
 
@@ -381,7 +381,7 @@ under `<lang>/<path>`.
 
 ## product: product pages, against their research
 
-1 of 18 pages under the bar.
+1 of 19 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -412,19 +412,19 @@ under `<lang>/<path>`.
 
 ## summary: species' quick summaries (the numbers and claims check: 1 pass, 0 fail)
 
-122 of 2332 pages under the bar.
+129 of 2409 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Says what the source doesn't (invented, added) | 64 | 72 |
-| States as certain what the source hedges, or what garbled captions only hint at | 48 | 54 |
-| Other | 32 | 35 |
-| Meaning changed or wrong | 13 | 13 |
-| A number, unit, dose or price | 12 | 12 |
-| Leaves out what the source says | 11 | 12 |
+| Says what the source doesn't (invented, added) | 66 | 76 |
+| States as certain what the source hedges, or what garbled captions only hint at | 52 | 58 |
+| Other | 35 | 40 |
+| Meaning changed or wrong | 14 | 15 |
+| A number, unit, dose or price | 13 | 14 |
+| Leaves out what the source says | 12 | 13 |
 | Hobby terms and names | 3 | 3 |
+| Wording: unnatural, literal, stiff or chatty | 3 | 3 |
 | Off the title's topic | 2 | 2 |
-| Wording: unnatural, literal, stiff or chatty | 2 | 2 |
 
 ### Says what the source doesn't (invented, added)
 
@@ -458,9 +458,9 @@ under `<lang>/<path>`.
 
 ### Leaves out what the source says
 
+- "Cá sống ở các hệ thống nước ngọt Bắc Mỹ": the page says the fish lives "chủ yếu ở các hệ thống nước ngọt" (mainly in freshwater systems). The summary drops the hedge "chủ yếu" and states it as fully freshwater, so a hedge becomes a certai… — vi/species/ariopsis-assimilis, 0.00
 - The page says male black lancers "có thể rất hung hăng giữ lãnh thổ" (can be very aggressive). The summary drops the hedge: "cá đực hung hăng giữ lãnh thổ". — vi/species/bagrichthys-hypselopterus, 0.00
 - Mistake 1: "cá lớn hoặc năng nổ hơn sẽ bắt nạt và tranh hết phần ăn" turns the page's hedge ("nhiều khả năng sẽ bắt nạt", meaning "likely") into a certainty. It also drops "hơn nhiều" (much larger or more active). — vi/species/betta-falx, 0.00
-- Mistake 2: "nên làm lọc sump" drops the page's condition "Nếu được". The page gives sump as preferred if possible, and otherwise says to buy the biggest filter and change water often. — vi/species/colossoma-macropomum, 0.00
 
 ### Hobby terms and names
 
@@ -468,15 +468,16 @@ under `<lang>/<path>`.
 - "ít người tính tới chuyện nuôi lâu dài": the page says juveniles are often sold without full long-term care information. It never says buyers rarely plan for long-term keeping, so this is an unsupported claim about buyer behaviour. — vi/species/atractosteus-spatula, 0.00
 - "Mua cá ghi tên pellegrinii hay 'apollo shark' ... tên này hay bị gắn nhầm": the page says 'apollo shark' is a shop name for juveniles of other species (L. setigerum, L. bleekeri). It does not say that name is wrongly given to pellegrinii.… — vi/species/luciosoma-pellegrinii, 0.00
 
+### Wording: unnatural, literal, stiff or chatty
+
+- "Cần bể từ 60 cm, ... nền cát mịn và vài hòn đá nhẵn": the page says fine sand is best but rounded gravel is also fine, and decor is up to the keeper. Smooth stones only "có vẻ hợp" (seem to suit). The summary turns this hedge into a requi… — vi/species/corydoras-gladysae, 0.00
+- The mistake "nên giữ nước sạch và sục khí tốt" gives a fix (aeration) that the page never states. The page only says the river water is clear, clean and oxygen-rich. The phrase "Nước tù" (stagnant water) is also not on the page. — vi/species/gogo-ornatus, 0.00
+- Mistake 1, "Dùng nền trơn thì nên chuyển sang nền cát và đá": the page only describes the wild habitat (streams over rock and sand, fish foraging in sand). It never advises a substrate for the aquarium or calls a smooth substrate a mistake. — vi/species/trichogenes-longipinnis, 0.00
+
 ### Off the title's topic
 
 - Mistake 2: it links treating the fish as a tank cleaner ("máy dọn bể") to overfeeding ("cho ăn quá tay"). The page gives these as two unrelated points. It says the fish don't really clean the tank, and separately says never to overfeed. — vi/species/ancistrus-cirrhosus, 0.00
 - "Ngoài tự nhiên cá gặp ở cả suối nhánh chảy xiết lẫn vũng nước, hồ": the page says this about the genus ("Các loài Nematabramis sống ở đủ kiểu nơi"), not about N. alestes. The summary turns a genus-level statement into a certain fact about… — vi/species/nematabramis-alestes, 0.00
-
-### Wording: unnatural, literal, stiff or chatty
-
-- "Cần bể từ 60 cm, ... nền cát mịn và vài hòn đá nhẵn": the page says fine sand is best but rounded gravel is also fine, and decor is up to the keeper. Smooth stones only "có vẻ hợp" (seem to suit). The summary turns this hedge into a requi… — vi/species/corydoras-gladysae, 0.00
-- Mistake 1, "Dùng nền trơn thì nên chuyển sang nền cát và đá": the page only describes the wild habitat (streams over rock and sand, fish foraging in sand). It never advises a substrate for the aquarium or calls a smooth substrate a mistake. — vi/species/trichogenes-longipinnis, 0.00
 
 ## localize: species and plant pages in Indonesian and Thai, against the English
 

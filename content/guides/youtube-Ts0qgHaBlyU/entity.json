@@ -92,7 +92,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể sinh thái với cây phủ xanh và cát sáng.",
-            "sharpness": 2564.3
+            "sharpness": 2564.3,
+            "person": false
           },
           {
             "t": 270,
@@ -100,7 +101,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Rau dừa đỏ vươn lên khỏi mặt nước, mọc dạng cạn bên lũa.",
-            "sharpness": 3864.6
+            "sharpness": 3864.6,
+            "person": false
           }
         ],
         "photo": {
@@ -123,7 +125,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bèo tấm phủ kín mặt nước trong bể thủy sinh.",
-            "sharpness": 1465.2
+            "sharpness": 1465.2,
+            "person": false
           },
           {
             "t": 100,
@@ -131,7 +134,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Vợt nhỏ vớt bèo ra rồi bỏ vào chậu.",
-            "sharpness": 824.9
+            "sharpness": 824.9,
+            "person": false
           }
         ],
         "photo": {
@@ -149,20 +153,13 @@
         "heading": "Tảo silic và cặn dưới nền: xử lý thế nào",
         "moments": [
           {
-            "t": 155,
-            "url": "https://media.aquatome.com/video/Ts0qgHaBlyU/at155-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cặn nâu đọng trên nền cát ở góc bể thủy sinh.",
-            "sharpness": 2361.7
-          },
-          {
             "t": 165,
             "url": "https://media.aquatome.com/video/Ts0qgHaBlyU/at165-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Nền cát phía trước phủ lớp tảo silic nâu và cặn bẩn.",
-            "sharpness": 2483.8
+            "sharpness": 2483.8,
+            "person": false
           }
         ],
         "photo": {
@@ -178,24 +175,7 @@
       },
       {
         "heading": "Chọn cá cho đợt thả đầu",
-        "moments": [
-          {
-            "t": 510,
-            "url": "https://media.aquatome.com/video/Ts0qgHaBlyU/at510-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể chứa cây xanh um, nơi lấy cá cho đợt thả đầu.",
-            "sharpness": 1887.8
-          },
-          {
-            "t": 545,
-            "url": "https://media.aquatome.com/video/Ts0qgHaBlyU/at545-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cá nhỏ trong cốc nước, chuẩn bị thả sang bể mới.",
-            "sharpness": 578.5
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/Ts0qgHaBlyU/p4-hX1dpbmdlaS5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/Ts0qgHaBlyU/p4-hX1dpbmdlaS5qcGc-480.webp",
@@ -211,20 +191,13 @@
         "heading": "Thả cá: canh nhiệt độ",
         "moments": [
           {
-            "t": 580,
-            "url": "https://media.aquatome.com/video/Ts0qgHaBlyU/at580-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đo nhiệt độ nước bằng nhiệt kế trong cốc thủy tinh.",
-            "sharpness": 267.7
-          },
-          {
             "t": 600,
             "url": "https://media.aquatome.com/video/Ts0qgHaBlyU/at600-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh chứa cây không có sưởi, nước theo nhiệt độ phòng.",
-            "sharpness": 1566
+            "sharpness": 1566,
+            "person": false
           }
         ]
       },
@@ -232,20 +205,13 @@
         "heading": "Sau khi thả",
         "moments": [
           {
-            "t": 640,
-            "url": "https://media.aquatome.com/video/Ts0qgHaBlyU/at640-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Toàn cảnh bể thủy sinh sau khi thả cá, cây cối rậm rạp.",
-            "sharpness": 2555.1
-          },
-          {
             "t": 670,
             "url": "https://media.aquatome.com/video/Ts0qgHaBlyU/at670-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Cá có thể trốn trong đám cây và lũa phía sau bể.",
-            "sharpness": 1228.1
+            "sharpness": 1228.1,
+            "person": false
           }
         ],
         "photo": {

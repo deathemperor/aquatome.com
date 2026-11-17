@@ -14,18 +14,6 @@
       "kind": "pair"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/211396173.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/211396173-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY",
-      "author": "Luis Ángel Niño Barreat",
-      "sourceUrl": "https://www.inaturalist.org/photos/211396173",
-      "caption": "Cá Blue Acara bơi trong nước xanh ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/commons/6c29712efd5784de.webp",
       "thumb": "https://media.aquatome.com/commons/6c29712efd5784de-480.webp",
       "width": 1200,
@@ -84,6 +72,18 @@
       "caption": "Cá blue acara bơi gần đá, cá bột nhỏ xung quanh",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/211396173.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/211396173-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Luis Ángel Niño Barreat",
+      "sourceUrl": "https://www.inaturalist.org/photos/211396173",
+      "caption": "Cá Blue Acara bơi trong nước xanh ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
     }
   ],
   "seen": 14,

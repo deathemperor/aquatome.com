@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-17). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 724 | 31 | 9 | 24 | 740 |
-| rest | 20 | 1796 | 79 | 0 | 103 | 1772 |
+| covered | 30 | 733 | 31 | 9 | 24 | 749 |
+| rest | 20 | 1810 | 79 | 0 | 103 | 1786 |
 
-## Short of target: every source read (635)
+## Short of target: every source read (645)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -252,7 +252,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/macropodus-opercularis | popular | 20 | 40 |
 | species/pelvicachromis-pulcher | popular | 9 | 40 |
 | species/thorichthys-meeki | popular | 14 | 40 |
-| species/heros-severus | popular | 12 | 40 |
+| species/heros-severus | popular | 8 | 40 |
 | species/rocio-octofasciata | popular | 37 | 40 |
 | species/channa-barca | popular | 0 | 40 |
 | species/channa-bleheri | popular | 1 | 40 |
@@ -327,7 +327,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/trichogaster-chuna | covered | 10 | 30 |
 | species/xyliphius-lepturus | covered | 0 | 30 |
 | species/acanthicus-adonis | covered | 1 | 30 |
-| species/acarichthys-heckelii | covered | 1 | 30 |
+| species/acarichthys-heckelii | covered | 0 | 30 |
 | species/acentronichthys-leptos | covered | 0 | 30 |
 | species/acestridium-dichromum | covered | 0 | 30 |
 | species/acestrorhynchus-altus | covered | 0 | 30 |
@@ -378,6 +378,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/auchenipterus-nigripinnis | covered | 0 | 30 |
 | species/auchenoglanis-occidentalis | covered | 5 | 30 |
 | species/axelrodia-stigmatias | covered | 0 | 30 |
+| species/bagre-marinus | covered | 10 | 30 |
 | species/bagrichthys-hypselopterus | covered | 0 | 30 |
 | species/bagrichthys-macracanthus | covered | 0 | 30 |
 | species/bagrichthys-obscurus | covered | 0 | 30 |
@@ -578,6 +579,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/geophagus-winemilleri | covered | 0 | 30 |
 | species/gnathochromis-permaxillaris | covered | 1 | 30 |
 | species/gobioides-broussonnetii | covered | 6 | 30 |
+| species/gymnallabes-typus | covered | 0 | 30 |
 | species/gymnocorymbus-bondi | covered | 0 | 30 |
 | species/haludaria-fasciata | covered | 11 | 30 |
 | species/hampala-macrolepidota | covered | 4 | 30 |
@@ -651,3 +653,11 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/labeo-calbasu | covered | 0 | 30 |
 | species/labeo-chrysophekadion | covered | 0 | 30 |
 | species/labeo-cyclorhynchus | covered | 0 | 30 |
+| species/labiobarbus-leptocheilus | covered | 1 | 30 |
+| species/ladigesia-roloffi | covered | 4 | 30 |
+| species/laemolyta-taeniata | covered | 0 | 30 |
+| species/laetacara-araguaiae | covered | 1 | 30 |
+| species/laetacara-curviceps | covered | 1 | 30 |
+| species/laetacara-dorsigera | covered | 0 | 30 |
+| species/laetacara-fulvipinnis | covered | 0 | 30 |
+| species/lamontichthys-filamentosus | covered | 0 | 30 |

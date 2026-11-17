@@ -12,7 +12,11 @@
   "File:PolPolypterusEndlicheri2B.jpg"
  ],
  "hashes": {
-  "https://media.aquatome.com/commons/a544a006706b8e4e.webp": "65656767c56d4ccc"
+  "https://media.aquatome.com/commons/a544a006706b8e4e.webp": "65656767c56d4ccc",
+  "https://media.aquatome.com/glaser/bf23e1058ae5b128.webp": "c9d99a3e13cb6ce5",
+  "https://media.aquatome.com/glaser/066d18d28a61b221.webp": "ffe3ee9f339943c6",
+  "https://media.aquatome.com/glaser/605b0a304e3dd0bd.webp": "99e963378bc35312",
+  "https://media.aquatome.com/glaser/e63dd1ac7074bc69.webp": "4d9e59039e36734d"
  },
  "commons": "2026-11-09",
  "inat": {
@@ -22,5 +26,9 @@
    "research": 0,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 2346582,
+  "next": null
  }
 }

@@ -83,7 +83,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể mới trồng với nền cát và cây còn nhỏ, chưa mọc thêm.",
-            "sharpness": 200.9
+            "sharpness": 200.9,
+            "person": false
           }
         ],
         "photo": {
@@ -106,7 +107,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh khúc lũa trong bể cùng cây thủy sinh xung quanh.",
-            "sharpness": 841.5
+            "sharpness": 841.5,
+            "person": false
           },
           {
             "t": 70,
@@ -114,7 +116,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh có lũa và cây, nơi rêu hại dễ bám.",
-            "sharpness": 446.1
+            "sharpness": 446.1,
+            "person": false
           }
         ],
         "photo": {
@@ -137,15 +140,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Chải rêu bám trên lũa và đá trong bể.",
-            "sharpness": 511.9
-          },
-          {
-            "t": 215,
-            "url": "https://media.aquatome.com/video/h1IjcWlVgQQ/at215-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng bàn chải chà sạch rêu hại bám trên lũa.",
-            "sharpness": 275
+            "sharpness": 511.9,
+            "person": false
           }
         ],
         "photo": {
@@ -168,7 +164,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể Amazon trồng nhiều cây thân màu đỏ và xanh, đàn cá bơi phía trước.",
-            "sharpness": 1208.2
+            "sharpness": 1208.2,
+            "person": false
           },
           {
             "t": 475,
@@ -176,7 +173,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây thân dày đặc trong bể Amazon, cần tỉa lại cho gọn gàng.",
-            "sharpness": 590.7
+            "sharpness": 590.7,
+            "person": false
           }
         ]
       }

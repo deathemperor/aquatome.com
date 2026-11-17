@@ -98,27 +98,6 @@
         }
       },
       {
-        "heading": "Lũa phủ rêu làm phông tối phía sau",
-        "moments": [
-          {
-            "t": 255,
-            "url": "https://media.aquatome.com/video/iMQqhLViuUk/at255-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ba cụm lũa phủ rêu xếp thành bức tường phía sau bể.",
-            "sharpness": 7351.4
-          },
-          {
-            "t": 260,
-            "url": "https://media.aquatome.com/video/iMQqhLViuUk/at260-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay đang xếp các nhánh lũa phủ rêu thành cụm trong bể.",
-            "sharpness": 5207.5
-          }
-        ]
-      },
-      {
         "heading": "Xếp đá cuội theo kiểu hoang dã",
         "moments": [
           {
@@ -127,15 +106,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đá cuội tròn đặt rải rác giữa lũa và rêu trong bể.",
-            "sharpness": 5603
-          },
-          {
-            "t": 390,
-            "url": "https://media.aquatome.com/video/iMQqhLViuUk/at390-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay đặt thêm đá cuội nhỏ xen giữa các viên đá lớn.",
-            "sharpness": 3901
+            "sharpness": 5603,
+            "person": false
           }
         ]
       },
@@ -148,15 +120,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Trải giấy ăn lên nền dốc để nước không xới tung phân nền.",
-            "sharpness": 4686
-          },
-          {
-            "t": 470,
-            "url": "https://media.aquatome.com/video/iMQqhLViuUk/at470-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nước đổ vừa ngang mặt phân nền, phía trước ngập hơn một chút.",
-            "sharpness": 4640.3
+            "sharpness": 4686,
+            "person": false
           }
         ],
         "photo": {
@@ -172,24 +137,7 @@
       },
       {
         "heading": "Chia cây tiền cảnh và chỗ trồng từng loại",
-        "moments": [
-          {
-            "t": 520,
-            "url": "https://media.aquatome.com/video/iMQqhLViuUk/at520-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các búi cây tiền cảnh nhỏ đã được tách ra, xếp sẵn để đem trồng.",
-            "sharpness": 1771.2
-          },
-          {
-            "t": 550,
-            "url": "https://media.aquatome.com/video/iMQqhLViuUk/at550-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây tiền cảnh được trồng quanh gốc đá trong hồ.",
-            "sharpness": 12639.5
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/iMQqhLViuUk/p4-Jpc19rejAzLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/iMQqhLViuUk/p4-Jpc19rejAzLmpwZw-480.webp",
@@ -210,15 +158,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các cốc ngưu mao chiên mini cấy mô đặt trên bể, sẵn sàng để cắm.",
-            "sharpness": 2343.7
-          },
-          {
-            "t": 750,
-            "url": "https://media.aquatome.com/video/iMQqhLViuUk/at750-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Một mảng Monte Carlo cầm trên tay, chuẩn bị cắm vào bể.",
-            "sharpness": 1501.8
+            "sharpness": 2343.7,
+            "person": false
           }
         ]
       },

@@ -80,7 +80,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể Amazon cây mọc tự nhiên, đàn cá bơi giữa các bụi cây.",
-            "sharpness": 1573.7
+            "sharpness": 1573.7,
+            "person": false
           },
           {
             "t": 100,
@@ -101,15 +102,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể thủy sinh sau 6 tháng, cây và thảm cỏ lên xanh.",
-            "sharpness": 2261.6
-          },
-          {
-            "t": 175,
-            "url": "https://media.aquatome.com/video/hTfXauFaDLI/at175-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bộ test nước và máy đo TDS được bày trên bàn.",
-            "sharpness": 857.7
+            "sharpness": 2261.6,
+            "person": false
           }
         ]
       },
@@ -122,7 +116,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh cây xanh um, thảm cỏ dày, sống lâu không thay nước.",
-            "sharpness": 1501.9
+            "sharpness": 1501.9,
+            "person": false
           }
         ],
         "photo": {
@@ -137,40 +132,6 @@
         }
       },
       {
-        "heading": "Nhìn cây để biết nước tốt hay không",
-        "moments": [
-          {
-            "t": 300,
-            "url": "https://media.aquatome.com/video/hTfXauFaDLI/at300-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dãy kệ bể thủy sinh với cây xanh tốt, khỏe mạnh.",
-            "sharpness": 1483.8
-          }
-        ]
-      },
-      {
-        "heading": "Trồng lan ý, monstera cho rễ ngâm trong bể",
-        "moments": [
-          {
-            "t": 360,
-            "url": "https://media.aquatome.com/video/hTfXauFaDLI/at360-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lan ý và monstera mọc xanh tốt phía trên mặt bể.",
-            "sharpness": 1092.6
-          },
-          {
-            "t": 385,
-            "url": "https://media.aquatome.com/video/hTfXauFaDLI/at385-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây mọc cạn trên mặt bể, rễ thả xuống nước phía dưới.",
-            "sharpness": 1187.3
-          }
-        ]
-      },
-      {
         "heading": "Đèn pha LED rẻ tiền có trồng được cây không",
         "moments": [
           {
@@ -179,15 +140,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể ươm bên dưới trồng dày cây cắt cắm, cây lên xanh tốt.",
-            "sharpness": 334.5
-          },
-          {
-            "t": 455,
-            "url": "https://media.aquatome.com/video/hTfXauFaDLI/at455-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể chính với thảm cỏ xanh mướt dưới ánh đèn pha LED.",
-            "sharpness": 277.5
+            "sharpness": 334.5,
+            "person": false
           }
         ],
         "photo": {
@@ -210,7 +164,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá chuột gấu trúc kiếm ăn dưới đáy cát giữa bụi cây dày.",
-            "sharpness": 168.9
+            "sharpness": 168.9,
+            "person": false
           },
           {
             "t": 550,
@@ -218,7 +173,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá chuột gấu trúc sục cát giữa các gốc cây ở đáy bể.",
-            "sharpness": 172
+            "sharpness": 172,
+            "person": false
           }
         ],
         "photo": {
@@ -241,7 +197,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tetra Colombia vây đuôi đỏ bơi cùng đàn tetra giữa bụi cây.",
-            "sharpness": 212.2
+            "sharpness": 212.2,
+            "person": false
           },
           {
             "t": 110,
@@ -249,7 +206,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh tetra Colombia to, đuôi đỏ, bơi trong bể thủy sinh.",
-            "sharpness": 163.1
+            "sharpness": 163.1,
+            "person": false
           }
         ],
         "photo": {
