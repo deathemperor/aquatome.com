@@ -508,6 +508,22 @@
       "kept": false
     }
   ],
+  "vi/plants/phyllantus-fluitans": [
+    {
+      "at": "2026-11-16T17:39:43Z",
+      "model": "opus",
+      "ran": "claude-opus-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "\"Loài này không ưa nước động\" drops the INPUT's qualifier \"nhiều\" (\"không ưa nước động nhiều\"), so it overstates the plant's dislike of water movement.",
+        "\"giữ bèo ở một góc\" narrows the INPUT's \"ở một khu\" (one area) to a corner.",
+        "\"thả sang bể chính\" brings in a 'main tank' that the INPUT doesn't mention; the source only says \"trước khi thả vào bể\". This is a small wording addition."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/plants/pogostemon-stellatus": [
     {
       "at": "2026-11-09T06:12:29Z",

@@ -8,7 +8,8 @@
   "places": [
     "south-america",
     "brazil",
-    "uruguay-river"
+    "uruguay-river",
+    "argentina"
   ],
   "range": {
     "native": {
@@ -165,6 +166,18 @@
       "html": "<p>Family: Loricariidae. Size: 30 cm. Temperature: 20-24°C. pH: 6.5-7.2.</p><p>The genus Hypostomus has 7 soft rays in the dorsal fin, whereas the similar-looking Pterygoplichthys species have 10 soft dorsal fin rays.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypostomus_isbrueckeri_en/",
+      "html": "<p>Origin: Brazil, Argentina.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypostomus_isbrueckeri_en/",
+      "html": "<p>Their origin is the border region of Brazil and Argentina, and imports of them are rather rare. As recently some breeding attempts of big loricariids were successful, ambitious breeders should also try to spawn this species.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1197",
@@ -177,10 +190,22 @@
       "html": "<p>South America: middle and upper Uruguay River basin. Type locality: Rio Conceição, Ijui, Rio Grande do Sul, Brazil.</p><p>Hypostomus isbrueckeri is endemic to Brazil and is distributed in the upper and middle Uruguay River basins. The species is widely distributed, frequent and abundant. As no significant threats to its population have been identified, it is categorised as Least Concern (LC) (IUCN 2022).</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypostomus_isbrueckeri_en/",
+      "html": "<p>Brazil, Argentina (border region).</p>"
+    },
+    {
       "key": "maintenance",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_isbrueckeri.htm",
       "html": "<p>As with most of this genus, it will do well in a larger aquarium, and the aquarium should be well filtered. Water parameters can be quite diverse for this genus.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypostomus_isbrueckeri_en/",
+      "html": "<p>Since they originate from a region with a subtropical climate, they should not be kept all year round at high temperatures. A well-structured, unheated tank should be ideal for them.</p>"
     },
     {
       "key": "diet",
@@ -193,6 +218,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_isbrueckeri.htm",
       "html": "<p>Mature males have white to yellow seams on the distal margins of the caudal fin.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypostomus_isbrueckeri_en/",
+      "html": "<p>The male pictured is easily distinguishable from its partners by the bright colors of the caudal fin. This is probably the only Loricariid species which shows such a pronounced gender difference.</p>"
     },
     {
       "key": "reproduction",
@@ -269,5 +300,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-16"
 }

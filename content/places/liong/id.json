@@ -3,6 +3,12 @@
   "name": "Liong",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-16T17:14:36.121Z",
+    "why": "The source refers to the Liong river basin, so an Indonesian atlas would write \"Sungai Liong\" with the kind word, and bare \"Liong\" omits it."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

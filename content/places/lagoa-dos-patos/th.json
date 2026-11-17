@@ -1,8 +1,13 @@
 {
   "slug": "lagoa-dos-patos",
-  "name": "ลากัวดุสปาตุส",
+  "name": "ทะเลสาบปาตุส",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.8,
+    "at": "2026-11-16T17:22:11.616Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

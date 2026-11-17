@@ -18,10 +18,6 @@
   "dataCard": {
     "sizeCm": [
       {
-        "source": "glaser",
-        "value": 4
-      },
-      {
         "source": "seriouslyfish",
         "value": 5
       }
@@ -70,26 +66,14 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/trichopsis-schalleri-2/",
-      "html": "<p>Schaller's Croaking Gourami attains a length of about 4 cm. It becomes larger than the Croaking Dwarf Gourami (Trichopsis pumila, 2.5-3 cm), but stays smaller than the common Croaking Gourami (T. vittata, up to 6 cm).</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/_en-44/",
+      "html": "<p>The genus Trichopsis (Croaking gouramis) currently comprises three accepted species: T. vittata, T. pumila, and T. schalleri. This hardly reflects the reality. Especially T. vittata seems to be a catch-all species and represents a number of undescribed species.</p>"
     },
     {
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trichopsis-schalleri",
       "html": "<p>Trichopsis schalleri is a croaking gourami from the lower Mekong basin and the Chao Phraya watershed in Thailand, Laos, Cambodia and Vietnam. Sometimes called the Mekong croaking gourami or three-stripe gourami, it is larger than the similar T. pumila, and its upper body stripe varies with mood and sometimes fades entirely. Peaceful unless breeding, it can be kept in a pair or a group.</p>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/trichopsis-schalleri-2/",
-      "html": "<p>Schaller's Croaking Gourami is sadly only very occasionally available in the trade.</p>"
-    },
-    {
-      "key": "distribution",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/trichopsis-schalleri-2/",
-      "html": "<p>The fish originates from central Thailand.</p>"
     },
     {
       "key": "distribution",
@@ -122,16 +106,28 @@
       "html": "<ul><li>Temperature: 22–28°C</li><li>pH: 5.0–7.5</li><li>Hardness: 1–12 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/_en-44/",
+      "html": "<p>All Croaking gouramis like to be kept in soft to moderately hard water and a slightly acidic pH.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/_en-44/",
+      "html": "<p>A well planted tank with peaceful tankmates is recommended.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trichopsis-schalleri",
       "html": "<p>Likely to feed on insects and other small invertebrates in the wild.</p><p>Captive fish will normally accept dried products once they are recognised as edible, but should be offered plenty of small live or frozen foods such as Daphnia, Artemia or chironomid larvae (bloodworm) to ensure development of optimal colour and condition.</p>"
     },
     {
-      "key": "behaviour",
+      "key": "diet",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/trichopsis-schalleri-2/",
-      "html": "<p>These are very undemanding fish that are ideal inhabitants for community tanks with small, peaceful fish from Southeastern Asia, like Rasboras.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/_en-44/",
+      "html": "<p>They readily take any live, frozen or dried food of an appropriate size.</p>"
     },
     {
       "key": "behaviour",
@@ -146,10 +142,10 @@
       "html": "<p>Males are larger than females and possess extended rays in the pelvic, dorsal, anal, and caudal fins. Sexually mature individuals can also be sexed by placing a strong light behind the fish, with the ovaries in females clearly visible below the swim bladder.</p>"
     },
     {
-      "key": "reproduction",
+      "key": "dimorphism",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/trichopsis-schalleri-2/",
-      "html": "<p>In contrast to many other labyrinth fishes, the males prefer to build the bubble nest under broad leaves, in caves or similar places instead of on the water surface.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/_en-44/",
+      "html": "<p>The males have very nice orange-red finnage with lots of iridescent blue spots.</p>"
     },
     {
       "key": "reproduction",
@@ -216,7 +212,32 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "hPwscnrxCKw",
+      "title": "Trichopsis schalleri (wild) bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 26,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "2mYNDMiWjds",
+      "title": "Trichopsis schalleri",
+      "durationSec": 33,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "FIIMomZNBxQ",
+      "title": "Trichopsis Schalleri Mating",
+      "durationSec": 20,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "haRh1bXGyaw",
+      "title": "The Croaking Gourami Trichopsis schalleri",
+      "durationSec": 366,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -239,5 +260,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-16"
 }

@@ -1,5 +1,5 @@
 {
- "day": "2026-11-16",
+ "day": "2026-11-17",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -11,32 +11,32 @@
  },
  "langs": {
   "vi": {
-   "pages": 4388,
-   "read": 3681,
-   "wrong": 1505,
+   "pages": 4450,
+   "read": 3746,
+   "wrong": 1535,
    "pct": 41,
-   "held": 501
+   "held": 530
   },
   "id": {
-   "pages": 1474,
-   "read": 1299,
-   "wrong": 367,
+   "pages": 1486,
+   "read": 1311,
+   "wrong": 372,
    "pct": 28,
-   "held": 116
+   "held": 121
   },
   "th": {
-   "pages": 1463,
-   "read": 1268,
-   "wrong": 340,
+   "pages": 1475,
+   "read": 1280,
+   "wrong": 343,
    "pct": 27,
-   "held": 102
+   "held": 107
   },
   "ms": {
-   "pages": 353,
-   "read": 311,
-   "wrong": 88,
+   "pages": 364,
+   "read": 322,
+   "wrong": 90,
    "pct": 28,
-   "held": 48
+   "held": 50
   }
  },
  "labels": {
@@ -59,37 +59,24 @@
  "sample": [
   {
    "lang": "th",
-   "path": "/th/plants/helanthium-bolivianum/",
-   "url": "https://aquatome.com/th/plants/helanthium-bolivianum/",
-   "title": "Echinodorus Quadricostatus",
+   "path": "/th/fish/esomus-metallicus/",
+   "url": "https://aquatome.com/th/fish/esomus-metallicus/",
+   "title": "ปลาซิวหนวดยาว",
    "wrong": []
   },
   {
-   "lang": "ms",
-   "path": "/ms/tumbuhan/echinodorus-tropica/",
-   "url": "https://aquatome.com/ms/tumbuhan/echinodorus-tropica/",
-   "title": "Echinodorus Tropica",
+   "lang": "id",
+   "path": "/id/ikan/bulldog-pleco/",
+   "url": "https://aquatome.com/id/ikan/bulldog-pleco/",
+   "title": "Bulldog Pleco",
    "wrong": []
   },
   {
-   "lang": "vi",
-   "path": "/vi/ca/ca-brichardi-soc/",
-   "url": "https://aquatome.com/ca/ca-brichardi-soc/",
-   "title": "Cá brichardi sọc",
-   "wrong": [
-    {
-     "check": "words",
-     "quote": "giữ lãnh thổ"
-    },
-    {
-     "check": "words",
-     "quote": "phần lớn"
-    },
-    {
-     "check": "words",
-     "quote": "Thức ăn sống"
-    }
-   ]
+   "lang": "id",
+   "path": "/id/ikan/nemacheilus-saravacensis/",
+   "url": "https://aquatome.com/id/ikan/nemacheilus-saravacensis/",
+   "title": "Nemacheilus saravacensis",
+   "wrong": []
   }
  ]
 }

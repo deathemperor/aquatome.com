@@ -3,6 +3,12 @@
   "name": "Giang",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-16T17:25:58.946Z",
+    "why": "\"Giang\" is the bare Vietnamese name of an unspecified region; the record gives no clear place, and an atlas in Malaysia would normally add a kind word such as \"Wilayah\" or \"Daerah\", or use a specific name, so this can't be confirmed as the right Malay form."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

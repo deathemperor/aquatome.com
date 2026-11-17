@@ -57,6 +57,13 @@
           "min": 18,
           "max": 28
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 16,
+          "max": 22
+        }
       }
     ],
     "ph": [
@@ -110,14 +117,20 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/rhinogobius_formosanus_en/",
-      "html": "<p>A pretty brook goby imported from Taiwan. The specific name refers to the old name of the island, as Taiwan was formerly known as Formosa. The fish can attain a maximum length of about 8 cm.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/rhinogobius_formosanus_en-2/",
+      "html": "<p>This freshwater goby from Taiwan becomes about 8 cm long. Suggested common name: Formosa brook goby.</p>"
     },
     {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-formosanus",
       "html": "<p>This species is endemic to river systems of northern and northeastern Taiwan.</p><p>Type locality is 'Shinchiku, Taiwan', Shinchiku referring to a prefecture (administrative division) of the island when it was under Japanese rule and corresponding to the modern day counties of Taoyuan, Hsinchu, and Miaoli.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/rhinogobius_formosanus_en-2/",
+      "html": "<p>Taiwan. Taiwan was formerly known as Formosa, which is why the species bears its specific name.</p>"
     },
     {
       "key": "aquariumSize",
@@ -132,6 +145,12 @@
       "html": "<p>Not difficult to maintain under the correct conditions; we strongly recommend keeping it in a tank designed to simulate a flowing stream with a substrate of variably-sized rocks, sand, fine gravel, and some water-worn boulders.</p><p>This can be further furnished with driftwood branches, terracotta pipes, plant pots, etc., arranged to form a network of nooks, crannies, and shaded spots, thus providing broken lines of sight.</p><p>While the majority of aquatic plants will fail to thrive in such surroundings hardy types such as Microsorum, Bolbitis, or Anubias spp. can be grown attached to the décor.</p><p>Like many fishes that naturally inhabit running water it's intolerant to accumulation of organic pollutants and requires spotless water in order to thrive, thus weekly water changes of 30-50% tank volume should also be considered routine.</p><p>Though torrent-like conditions are unnecessary it does best if there is a high proportion of dissolved oxygen and some water movement in the tank meaning power filter(s), additional powerhead(s), or airstone(s) should be employed as necessary.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/rhinogobius_formosanus_en-2/",
+      "html": "<p>One should keep the fish at room temperatures (16-22°C) in a tank that is furnished like a brook, e.g. sandy bottom and larger, rounded stones.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-formosanus",
@@ -144,22 +163,28 @@
       "html": "<p>Rhinogobius spp. tend to be opportunistic carnivores feeding on a range of small invertebrates, crustaceans and similar in nature.</p><p>In the aquarium they should be offered small live or frozen foods such as chironomid (bloodworm) or mosquito larvae, Artemia, Daphnia, Mysis, etc.</p><p>Dried foods may be accepted following a period of acclimatisation but should not be used regularly.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/rhinogobius_formosanus_en-2/",
+      "html": "<p>Regarding food this species is completely undemanding and readily accepts all types of usual food for ornamental fish. However, one should be careful with worms, like Tubifex, for that food is very fatty and in the wild Rhinogobius have only very nutrient-poor food available. So worms should not be given very often.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-formosanus",
       "html": "<p>This is a robust species and can be aggressive at times but it can be kept in a community provided tankmates are chosen with care.</p><p>Peaceful, pelagic species which inhabit similar environments in nature such as Tanichthys or Danio species are perhaps the best choices for the upper levels, but we've also seen Rhinogobius spp. being maintained alongside barbs, small characins, poeciliid livebearers, etc.</p><p>Less suitable are freshwater shrimp from genera such as Caridina and Neocaridina as these are likely to be predated upon.</p><p>Balitorid and nemacheilid loaches may prove suitable in larger tanks but in smaller set-ups R. formosanus should ideally be the only benthic species included.</p><p>It should not be mixed with congeners, especially closely-related ones, since it's not yet clear if they're capable of hybridisation.</p><p>Larger fishes are best omitted although in very large set-ups it may be possible to add a few non-predatory, surface-dwelling ones, while the majority of cichlids and other territorial fishes inhabiting the lower reaches should be avoided entirely.</p><p>While males are territorial with one another to an extent serious damage is unlikely provided the tank contains sufficient cover, and in fact they appear to actively require the presence of conspecifics.</p><p>Aim to purchase at least two males and as many or more females or the fish may become listless and inactive.</p>"
     },
     {
-      "key": "behaviour",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/rhinogobius_formosanus_en/",
-      "html": "<p>One should not keep them along with too small other fish, for the gobies may take them happily for food.</p>"
-    },
-    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-formosanus",
       "html": "<p>Adult males possess more extended dorsal and anal fins, a more intensive colour pattern, and grow larger than females.</p><p>In gravid females the eggs are visible as a bluish mass through the abdomen.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/rhinogobius_formosanus_en-2/",
+      "html": "<p>Males and females look quite similar in R. formosanus, but the males have longer skulls and a differently marked dorsal fin.</p>"
     },
     {
       "key": "reproduction",
@@ -174,6 +199,12 @@
       "html": "<p>R. formosanus was previously considered to be a subspecies of R. nagoyae but has generally been accepted as distinct since 2008.</p><p>It can be told apart from other Taiwanese Rhinogobius spp. by presence of irregular, worm-like, wavy, reddish-brown lines on the cheek and opercle, and from the closely-related R. nagoyae by possessing three (vs. four) pairs of red stripes on the snout and 32-34 (vs. 34-37) longitudinal (lateral) scales.</p><p>It's included in the R. brunneus group of closely-related species within the genus of which members share the following combination of characters: predorsal naked, or with small cycloid scales, the scaled area never extending beyond the vertical of the posterior margin of the preoperculum; cheek with 2 mainly horizontal rows of sensory papillae.</p><p>The Gobiidae is the most speciose vertebrate family and notoriously problematic in terms of identifying fishes down to species level.</p><p>Within this sizeable assemblage Rhinogobius is often included in the subfamily Gobionellinae alongside genera such as Brachygobius, Chlamydogobius, Mugilogobius, Pseudogobiopsis, Schismatogobius, and Stigmatogobius.</p><p>The genus is widely-distributed throughout much of continental Asia in Russia, Korea, China, Vietnam, Laos, Cambodia, and Thailand, plus numerous islands of the Western Pacific including Japan, Taiwan, Hainan, and the Philippines.</p><p>There currently exist over 60 recognised species with many more awaiting formal description, and a number of the described ones are only considered nominal taxa pending additional study.</p><p>Those exhibiting similarities in appearance, morphology and behaviour are therefore often aggregated in nominal species groups, e.g., the R. brunneus group, R. duospilus group, etc., for ease of reference.</p><p>The fused pelvic fins form a structure normally referred to as the 'pelvic disc', a common feature among gobiids which is used to adhere to rocks and other submerged surfaces.</p><p>Rhinogobius spp. also exhibit different reproductive strategies depending on environment, with those inhabiting rivers connected directly to the sea typically amphidromous, and those landlocked in upper reaches of rivers or lakes non-diadromous.</p><p>Many of those appearing in the aquarium trade have proven difficult to identify for a number of reasons including:</p><ul><li>taxonomic confusion.</li><li>lack of aquarium literature.</li><li>incorrect labelling by exporters and subsequently shops.</li><li>historical over-use of some names, e.g., 'Rhinogobius wui', long treated as a synonym of R. duospilus and now recognised as a valid species.</li><li>likely trade of undescribed species without locality data.</li><li>mixing of species at export facilities.</li></ul>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/rhinogobius_formosanus_en-2/",
+      "html": "<p>The determination of the numerous Rhinogobius species is often very difficult. R. formosanus is a pleasant exception, as it differs from all Rhinogobius species from Taiwan by the unique red coloration of the face.</p><p>Rhinogobius means \"goby with a nose\"; formosanus means \"originating from Formosa\".</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-formosanus",
@@ -186,15 +217,15 @@
       "thumb": "https://media.aquatome.com/commons/fc053250e72b92a6-480.webp",
       "width": 1200,
       "height": 800,
-      "licence": "CC BY 4.0",
-      "author": "Liao T-Y, Huang W-C, Iizuka Y, Chou M-T, Shiao J-C (2020) Facultative amphidromy and pelagic larval duration plasticity of Rhinogobius formosanus (Teleostei, Gobioidei). ZooKeys 951: 91-107.",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rhinogobius_formosanus_(10.3897-zookeys.951.50429)_Figure_1.jpg",
-      "caption": "Cá bống suối Đài Loan trong bể cá có đá cuội",
       "large": {
         "url": "https://media.aquatome.com/commons/fc053250e72b92a6-large.webp",
         "width": 1512,
         "height": 1008
-      }
+      },
+      "licence": "CC BY 4.0",
+      "author": "Liao T-Y, Huang W-C, Iizuka Y, Chou M-T, Shiao J-C (2020) Facultative amphidromy and pelagic larval duration plasticity of Rhinogobius formosanus (Teleostei, Gobioidei). ZooKeys 951: 91-107.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rhinogobius_formosanus_(10.3897-zookeys.951.50429)_Figure_1.jpg",
+      "caption": "Cá bống suối Đài Loan trong bể cá có đá cuội"
     }
   ],
   "videos": [
@@ -255,5 +286,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-10"
+  "updatedAt": "2026-11-16"
 }

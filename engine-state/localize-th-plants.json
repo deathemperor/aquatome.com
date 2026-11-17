@@ -1864,6 +1864,31 @@
       "\"ยิ่งได้รับแสงจัดมากเท่าใด ... เท่านั้น\" is stiff and bookish. A more natural option is \"ยิ่งได้รับแสงมาก ใบยิ่งเป็นสีน้ำตาลเข้มขึ้น\"."
     ]
   },
+  "phyllantus-fluitans": {
+    "at": "2026-11-16",
+    "from": "2026-11-16",
+    "name": "Phyllantus fluitans",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"ปลาแคระ (Otocinclus)\": use the common hobby name \"ปลาอ็อตโต\" (Otocinclus catfish); \"ปลาแคระ\" is vague.",
+      "\"submerged root-like leaves\": the translation says only \"ส่วนที่คล้ายรากซึ่งจมอยู่ใต้น้ำ\" and drops \"leaves\". Say \"ใบที่คล้ายราก\".",
+      "Conclusion: \"ใช้แทนไม้อย่างแหนซึ่งต้องดูแลมากกว่าเพื่อให้อยู่ในสภาพดีได้เป็นอย่างดี\" is clumsy and repeats itself. Rephrase it, for example \"ต้องดูแลมากกว่าจึงจะอยู่ในสภาพดี\".",
+      "\"หอย Black Devil\", \"หอย Asolene spixi\": the names are left in English or Latin with no Thai common name. Add the local name if there is one.",
+      "\"กุ้งฝอยใส\" for Ghost shrimp: use \"กุ้งแก้ว\" or \"กุ้งโกสต์\", the term hobbyists use."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "84386acfb575",
+      "distribution:aquariumbreeder": "10f61d50071c",
+      "habitat:aquariumbreeder": "3d25c0804c2d",
+      "aquariumSize:aquariumbreeder": "47b3d66824e7",
+      "maintenance:aquariumbreeder": "77a79b6197bc",
+      "waterConditions:aquariumbreeder": "9b4355068917",
+      "equipment:aquariumbreeder": "17266401026a",
+      "reproduction:aquariumbreeder": "298da21280b6",
+      "notes:aquariumbreeder": "7d46c69258b3"
+    }
+  },
   "plagiomnium-sp-thyme-moss": {
     "at": "2026-11-05",
     "from": "2026-10-31",

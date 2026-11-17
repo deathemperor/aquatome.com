@@ -11,6 +11,66 @@
     "sucio",
     "rio-sucio"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Río Sucio",
+        "Atrato"
+      ],
+      "sources": [
+        "planetcatfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Río Sucio, Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Río Sucio"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Colombia Caribbean Rivers, Atrato, Sucio.",
+          "countries": [],
+          "regions": [
+            "Atrato"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344682,
+      "total": 25,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "CO",
+          25
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          5.625,
+          13,
+          13
+        ],
+        [
+          -77.34375,
+          7.03125,
+          12,
+          12
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

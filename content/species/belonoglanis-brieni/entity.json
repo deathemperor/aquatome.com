@@ -1,0 +1,173 @@
+{
+  "id": "belonoglanis-brieni",
+  "scientificName": "Belonoglanis brieni",
+  "order": "Siluriformes",
+  "family": "Amphiliidae",
+  "genus": "Belonoglanis",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "stanley-pool",
+    "republic-of-the-congo"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/belonoglanis_brieni.htm",
+      "html": "<p>Family: Amphiliidae. Size: 5 cm. Temperature: 20–25°C. pH: 6.5–7.2.</p><p>Members of this genus are long and slim and remind one of the \"whiptail\" species of South America. B. brieni has a long caudal peduncle, but it is shorter than that of the other species in this genus, Belonoglanis tenuis.</p><p>On the back there is a single row of broad bony plates from the dorsal fin to the caudal peduncle, alongside two rows of bony plates on the sides of the belly. These plates unite on the caudal peduncle.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/belonoglanis_brieni.htm",
+      "html": "<p>Africa: N'Djili River, Stanley Pool, Democratic Republic of the Congo and Republic of the Congo. Type locality: Stanley Pool, Rivière N'Djili.</p><p>Not often imported. The last two thumbnail images show a capture by the image contributor in a fast-flowing stream into the Congo River at Lokutu, DRC.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/belonoglanis_brieni.htm",
+      "html": "<p>This genus is found at the margins of swift-flowing streams. Paul Brien was the first to observe the behaviour of this genus in the wild: aligning their bodies along the stems of riparian grasses and feeding on epiphytic microorganisms.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/belonoglanis_brieni.htm",
+      "html": "<p>This genus prefers water with a bit of movement. Provide a sand substrate with algae-covered rocks if possible.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/belonoglanis_brieni.htm",
+      "html": "<p>Temperature: 20–25°C. pH: 6.5–7.2.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/belonoglanis_brieni.htm",
+      "html": "<p>Algae, vegetable foods such as peas, frozen mosquito larvae and tablet food.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/belonoglanis_brieni.htm",
+      "html": "<p>Etymology: the specific name brieni honours friend and zoological colleague Paul Brien (1894–1975), Université libre de Bruxelles (Belgium), a member of the expedition that collected the type.</p><p>IUCN Red List: Data Deficient. Further collection is needed to be sure about the distribution pattern; there is currently not enough information for a full assessment (IUCN 2010).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/belonoglanis_brieni.htm",
+      "html": "<p>Baensch, H.A. and R. Riehl 1995 Aquarien Atlas. Band 4. Mergus Verlag GmbH, Melle, Germany. 864 p.</p><p>Moelants, T. 2010. Belonoglanis brieni. The IUCN Red List of Threatened Species 2010.</p><p>Seegers, L. 2008 The catfishes of Africa. A handbook for identification and maintenance. Aqualog Verlag A.C.S. GmbH, Germany. 604 p.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/a057aa675fa6bab5.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a057aa675fa6bab5-480.webp",
+      "width": 500,
+      "height": 294,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/belonoglanis_brieni.htm",
+      "caption": "Belonoglanis brieni",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/8661972c5d67c6cd.webp",
+      "thumb": "https://media.aquatome.com/scotcat/8661972c5d67c6cd-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Birger Kamprath / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/belonoglanis_brieni.htm",
+      "caption": "Belonoglanis brieni",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/1a3b9ed95af7d666.webp",
+      "thumb": "https://media.aquatome.com/scotcat/1a3b9ed95af7d666-480.webp",
+      "width": 500,
+      "height": 294,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/belonoglanis_brieni.htm",
+      "caption": "Belonoglanis brieni",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/a6517030cc26426f.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a6517030cc26426f-480.webp",
+      "width": 500,
+      "height": 376,
+      "licence": "dùng với sự cho phép",
+      "author": "Birger Kamprath / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/belonoglanis_brieni.htm",
+      "caption": "Belonoglanis brieni: head view",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "-UoayZCnHVU",
+      "title": "Belonoglanis brieni",
+      "durationSec": 34,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "cxds1hl2Ao4",
+      "title": "アフリカ底モノ水槽",
+      "durationSec": 113,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc thủy sinh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá da trơn",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-16"
+}

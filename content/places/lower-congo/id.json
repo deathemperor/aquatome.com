@@ -1,8 +1,13 @@
 {
   "slug": "lower-congo",
-  "name": "Kongo Hilir",
+  "name": "Provinsi Kongo Tengah",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.8,
+    "at": "2026-11-16T17:14:54.835Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

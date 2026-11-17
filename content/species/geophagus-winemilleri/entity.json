@@ -15,7 +15,8 @@
   "range": {
     "native": {
       "countries": [
-        "VE"
+        "VE",
+        "BR"
       ],
       "regions": [
         "Río Negro",
@@ -23,16 +24,20 @@
         "Casiquiare"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
           "quote": "Southern Venezuela and probably northern Brazil with type locality given as 'Laguna Yocuta, 2.1347°N, 66.3742°W, Río Siapa, Amazonas, Venezuela'.",
           "countries": [
-            "VE"
+            "VE",
+            "BR"
           ],
-          "regions": []
+          "regions": [
+            "Río Siapa"
+          ]
         },
         {
           "source": "seriouslyfish",
@@ -40,7 +45,6 @@
           "countries": [],
           "regions": [
             "Río Negro",
-            "Río Siapa",
             "Casiquiare"
           ]
         }
@@ -48,12 +52,12 @@
     },
     "records": {
       "taxonKey": 5208415,
-      "total": 25,
-      "fetched": "2026-11-08",
+      "total": 26,
+      "fetched": "2026-11-16",
       "countries": [
         [
           "BR",
-          17
+          18
         ],
         [
           "VE",
@@ -69,7 +73,7 @@
           -70.3125,
           0,
           10,
-          0
+          10
         ],
         [
           -67.5,
@@ -99,19 +103,19 @@
           -66.09375,
           -1.40625,
           3,
-          0
+          3
         ],
         [
           -63.28125,
           -1.40625,
-          3,
-          0
+          4,
+          4
         ],
         [
           -61.875,
           -2.8125,
           1,
-          0
+          1
         ]
       ]
     }

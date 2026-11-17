@@ -1,0 +1,23 @@
+{
+  "slug": "ca-basa",
+  "name": "Cá basa",
+  "altNames": [
+    "Cá tra bocourti",
+    "Basa catfish",
+    "Shark catfish"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Trong tiếng Anh, nhóm cá tra được gọi là shark catfish, tức \"cá da trơn cá mập\". Cái tên này đặt theo kiểu bơi của chúng, rất giống vài loài cá mập. Chúng còn giống cá mập ở chỗ bơi suốt ngày, hiếm khi dừng lại nghỉ.</p><p>Ngày nay nhiều người còn biết chúng qua tên giống khoa học, chẳng hạn Pangasius, vì nhóm cá này được nuôi đại trà ở Đông Nam Á. Phi lê cá tra ngon và không xương, hầu như cửa hàng thực phẩm nào cũng có bán, kể cả ở châu Âu.</p>",
+    "aquariumSize:glaser": "<p>Loài Pangasius nào cũng lớn, có loài lớn rất to. Muốn nuôi lâu dài thì chỉ bể trưng bày mới đủ chỗ cho chúng. Trong bể như vậy, chúng có thể sống vài chục năm.</p>",
+    "distribution:glaser": "<p>Xuất xứ: Thái Lan.</p>",
+    "notes:glaser": "<p>P. bocourti, tức cá basa, thuộc nhóm loài cỡ vừa trong giống. Con dài nhất từng thấy được khoảng 120 cm. Cá rất đẹp, và trong số các loài cùng giống bán ở tiệm cá, nó khá dễ nhận ra nhờ vây đuôi viền trắng.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  }
+}

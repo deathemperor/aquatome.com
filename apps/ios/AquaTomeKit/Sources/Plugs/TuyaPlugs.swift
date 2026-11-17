@@ -124,8 +124,9 @@ public actor TuyaPlugs: PlugSource {
         guard let o = n.object, let code = o["identifier"]?.string, let name = o["name"]?.string?.trimmingCharacters(in: .whitespacesAndNewlines), !name.isEmpty else { return nil }
         return (code, name)
       }, uniquingKeysWith: { a, _ in a })
+      let codes = Set((status.array ?? []).compactMap { $0.object?["code"]?.string })
       plugs.append(LivePlug(provider: "tuya", id: id, name: d["name"]?.string ?? "", online: d["online"] == .bool(true),
-                            outlets: outlets.map { LiveOutlet(code: $0.code, name: names[$0.code], on: $0.on) }))
+                            outlets: outlets.map { LiveOutlet(code: $0.code, name: names[$0.code], on: $0.on, countdown: codes.contains(Self.countdownCode($0.code))) }))
     }
     listed = Dictionary(plugs.map { ($0.id, $0) }, uniquingKeysWith: { a, _ in a })
     return PlugList(plugs: plugs, others: others)
@@ -149,6 +150,20 @@ public actor TuyaPlugs: PlugSource {
       reported = status.flatMap { Self.outlets($0).first { $0.code == code }?.on }
     } while reported != on && waited < Self.readFor && now().timeIntervalSince(start) < limit
     return Switched(on: reported, confirmed: reported == on)
+  }
+
+  /// One command to the outlet's countdown, then its value read back once: running (above 0) when one was started, 0
+  /// when one was ended. Tuya's countdown switches the outlet the other way when it reaches 0.
+  public func countdown(provider: String, device: String, outlet code: String, seconds: Int) async throws -> Bool {
+    guard provider == "tuya", let plug = listed[device], plug.outlets.contains(where: { $0.code == code && $0.countdown }) else { throw PlugError.noSuchPlug }
+    guard plug.online else { throw PlugError.plugOffline }
+    let dp = Self.countdownCode(code)
+    _ = try await call("POST", "/v1.0/iot-03/devices/\(Self.segment(device))/commands", body: ["commands": .array([.object(["code": .string(dp), "value": .number(Double(seconds))])])])
+    await wait(.milliseconds(Self.readEvery))
+    let status = try? await call("GET", "/v1.0/iot-03/devices/\(Self.segment(device))/status")
+    let value = (status?.array ?? []).first { $0.object?["code"]?.string == dp }?.object?["value"]?.number
+    guard let value else { return false }
+    return seconds > 0 ? value > 0 && value <= Double(seconds) : value == 0
   }
 
   /// The plug's timers in Smart Life: one read, nothing changed.
@@ -232,6 +247,9 @@ public actor TuyaPlugs: PlugSource {
       return (code, on)
     }
   }
+
+  /// An outlet's countdown: `countdown_1` for `switch_1`, `countdown_usb1` for `switch_usb1`, `countdown` for `switch`.
+  static func countdownCode(_ outlet: String) -> String { "countdown" + outlet.dropFirst("switch".count) }
 
   static func isOutlet(_ code: String) -> Bool {
     if code == "switch" { return true }

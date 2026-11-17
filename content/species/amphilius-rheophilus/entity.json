@@ -12,6 +12,108 @@
     "senegal",
     "gambia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GN",
+        "LR",
+        "SN"
+      ],
+      "regions": [
+        "Gambie River",
+        "Rio Corubal"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Western Africa: Guinea, Liberia, Senegal.",
+          "countries": [
+            "GN",
+            "LR",
+            "SN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Additional research is needed to determine the extent of this species within the Rio Corubal and Gambie River drainages (IUCN 2020).",
+          "countries": [],
+          "regions": [
+            "Gambie River",
+            "Rio Corubal"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340723,
+      "total": 45,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "GN",
+          44
+        ],
+        [
+          "CM",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -14.0625,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          -12.65625,
+          9.84375,
+          18,
+          18
+        ],
+        [
+          -12.65625,
+          11.25,
+          12,
+          12
+        ],
+        [
+          -11.25,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -11.25,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          -9.84375,
+          7.03125,
+          6,
+          6
+        ],
+        [
+          -9.84375,
+          8.4375,
+          3,
+          3
+        ],
+        [
+          9.84375,
+          2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

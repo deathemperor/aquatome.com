@@ -1,7 +1,10 @@
 {
   "slug": "ca-trachycorystes",
   "name": "Cá trachycorystes",
-  "altNames": [],
+  "altNames": [
+    "Cá trơn lũa đen",
+    "Black Driftwood Catfish"
+  ],
   "sections": {
     "quickFacts:glaser": "<p>Loài kỳ lạ này được mô tả khoa học từ năm 1840. Cá có thể đạt tổng chiều dài khoảng 45 cm.</p>",
     "beforeYouBuy:glaser": "<p>Gần đây đã nhập được sáu cá thể từ Peru. Chúng dài 15–20 cm nên mới chỉ là cá non.</p>",
@@ -9,20 +12,27 @@
     "diet:glaser": "<p>Những loài cá da trơn này ăn ngay bất cứ thức ăn nguồn gốc động vật nào vừa miệng.</p>",
     "behaviour:glaser": "<p>T. trachycorystes được biết là khá hung dữ với bạn cùng bể, dù là đồng loại hay loài khác. Tuy vậy, cả sáu cá thể vẫn chen chúc cùng nhau trong một ống PVC. Nhu cầu ẩn nấp của chúng lớn hơn nhiều so với sự ghét bỏ lẫn nhau.</p><p>Nếu định nuôi loài cá da trơn này trong bể cộng đồng, cần lưu ý để các bạn cùng bể không trở thành thức ăn của chúng.</p>",
     "maintenance:glaser": "<p>Những loài cá da trơn này khá dễ nuôi.</p>",
-    "notes:glaser": "<p>Từ nguyên: Trachycorystes bắt nguồn từ tiếng Hy Lạp cổ, trachys nghĩa là \"thô ráp\" và korystes nghĩa là \"người mang mũ trụ\".</p>"
+    "notes:glaser": "<p>Từ nguyên: Trachycorystes bắt nguồn từ tiếng Hy Lạp cổ, trachys nghĩa là \"thô ráp\" và korystes nghĩa là \"người mang mũ trụ\".</p>",
+    "quickFacts:scotcat": "<ul><li>Danh sách đỏ IUCN: Ít quan ngại, vì loài này phân bố rộng và không gặp mối đe dọa trực tiếp nào (IUCN 2023).</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông Amazon, lưu vực sông Essequibo ở Guyana và lưu vực sông Orinoco ở Venezuela. Mẫu chuẩn thu ở Brazil.</p>",
+    "behaviour:scotcat": "<p>Đây là một trong những loài cá da trơn dữ nhất mà người chơi hay nuôi. Bộ áo đen tuyền của nó trông rất nổi bật, nhưng nó chắc chắn không hợp để thả chung với cá hiền như các bể thông thường. Ngoài dạng đen còn có một dạng thân ngả nâu hơn, và dạng này có thể là một loài riêng. Khi cá lớn dần thì đừng tin nó, vì nó sẽ nhanh chóng giết hết những con nhỏ hơn trong bể. Có lẽ nuôi chung được với cichlid lớn, nhưng về cơ bản đây là loài nên nuôi riêng.</p>",
+    "dimorphism:scotcat": "<p>Con đực trưởng thành có vây hậu môn dày lên, giống vây hậu môn của cá đực họ Goodeidae (một họ cá đẻ con). Ở con cái, lỗ sinh dục to hơn và lõm vào trong bụng.</p>",
+    "diet:scotcat": "<p>Đây là loài săn mồi, nhưng vẫn chịu ăn giun, tép và trùng huyết đông lạnh, miếng cá đông lạnh, thức ăn viên nén và cám viên.</p>",
+    "notes:scotcat": "<p>Từ nguyên: Tên giống Trachycorystes lấy trùng với tên loài của Auchenipterus trachycorystes. Trong đó trachys nghĩa là thô ráp, còn corystes nghĩa là đội mũ trụ, ý chỉ tấm giáp sọ sần sùi. Tên loài trachycorystes cũng vậy: trachys nghĩa là thô ráp, corystes nghĩa là đội mũ trụ, ý chỉ tấm giáp sọ sần sùi.</p>",
+    "references:scotcat": "<p>Burgess, W.E. 1989 An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p. Ferraris, Dr. C.J. Jr., Catfish in the Aquarium. Tetra Press Publication. 199 p. Frederico, R.G. 2023. Trachycorystes trachycorystes. The IUCN Red List of Threatened Species 2023. ScotCat Factsheet no. 156. June 2009. Watkins, Graham; Saul Bill; Holm, Erling; Watson, Cynthia; Arjoon, Deokie; Bicknell Jake and the North Rupununi District Development Board. The Fish Fauna of the Iwokrama Forest. 32 p.</p>"
   },
   "quality": {
-    "score": 0.8,
-    "indexable": false,
+    "score": 0.75,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.8
-    },
-    "reason": "thin"
+      "glaser": 0.8,
+      "scotcat": 0.75
+    }
   },
   "held": {
     "checks": [
       "source"
     ],
-    "at": "2026-11-16"
+    "at": "2026-11-17"
   }
 }

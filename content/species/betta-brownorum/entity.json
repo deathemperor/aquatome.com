@@ -121,10 +121,6 @@
       {
         "source": "seriouslyfish",
         "value": 4
-      },
-      {
-        "source": "bwaquatics",
-        "value": 4
       }
     ]
   },
@@ -132,8 +128,8 @@
     {
       "key": "quickFacts",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/wild-betta-brownorum",
-      "html": "<ul><li>From the Betta coccina complex.</li><li>IUCN Red List: Vulnerable.</li><li>TDS: 60 to 100.</li><li>Temperament: moderately aggressive.</li></ul>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-brownorum-west-kalimantan-wild-betta-fish",
+      "html": "<p>From the Betta coccina complex. IUCN Red List: Vulnerable (high risk of extinction in the wild). Origin: wild caught (West Kalimantan).</p><p>Maximum size: 2.5 to 3 cm.</p>"
     },
     {
       "key": "quickFacts",
@@ -144,8 +140,8 @@
     {
       "key": "distribution",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/wild-betta-brownorum",
-      "html": "<p>Betta brownorum is endemic to Borneo, found in southern and western Sarawak from Sibu southwest to Kuching and Matang, plus a few sites across the border in West Kalimantan. It is named after Barbara and Allan Brown, who first collected it, and its type locality is a small peat swamp near Sibu.</p><p>Origin of the fish offered: wild caught (Sibu, Sarawak, Malaysia).</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-brownorum-west-kalimantan-wild-betta-fish",
+      "html": "<p>Betta brownorum is endemic to Borneo. Most of its range is in southern and western Sarawak, Malaysia, and this group comes from the handful of populations across the border in West Kalimantan, Indonesia. It is named after Barbara and Allan Brown, who first collected it.</p>"
     },
     {
       "key": "distribution",
@@ -162,14 +158,14 @@
     {
       "key": "habitat",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/wild-betta-brownorum",
+      "sourceUrl": "https://bwaquatics.com/products/betta-brownorum-west-kalimantan-wild-betta-fish",
       "html": "<p>Peat swamp forest and blackwater streams with very acidic water; pH as low as 3.0 has been recorded.</p>"
     },
     {
       "key": "aquariumSize",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/wild-betta-brownorum",
-      "html": "<p>Recommended 1 pair per 20 litres.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-brownorum-west-kalimantan-wild-betta-fish",
+      "html": "<p>Recommended: 1 pair per 20 litres.</p>"
     },
     {
       "key": "aquariumSize",
@@ -190,10 +186,16 @@
       "html": "<ul><li>Temperature: 24–30°C</li><li>pH: 3.0–6.0</li><li>Hardness: 1–5 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-brownorum-west-kalimantan-wild-betta-fish",
+      "html": "<ul><li>TDS: 60 to 100</li><li>pH: 3.0 to 6.0</li><li>Temperature: 24 to 28°C</li></ul>"
+    },
+    {
       "key": "diet",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/wild-betta-brownorum",
-      "html": "<p>Carnivorous. Live blackworms, frozen bloodworms and pellets are fed.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-brownorum-west-kalimantan-wild-betta-fish",
+      "html": "<p>Carnivorous. Fed live blackworms, frozen bloodworms and pellets.</p>"
     },
     {
       "key": "diet",
@@ -204,8 +206,8 @@
     {
       "key": "behaviour",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/wild-betta-brownorum",
-      "html": "<p>Moderately aggressive. Males can be territorial when setting up a breeding site, but because of their small size you can keep multiple pairs with enough space and cover. Expect fin nipping.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-brownorum-west-kalimantan-wild-betta-fish",
+      "html": "<p>Moderately aggressive. Males can be territorial when setting up a breeding site, but because of their small size multiple pairs can be kept with enough space and cover. Fin nipping can occur.</p>"
     },
     {
       "key": "behaviour",
@@ -216,8 +218,8 @@
     {
       "key": "dimorphism",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/wild-betta-brownorum",
-      "html": "<p>Body shape: small and compact, one of the smallest species in the coccina complex. Scaling: small, even scales. The green spot is a cluster of iridescent scales in the middle of the flank.</p><p>Males are intense red with a green iridescent spot on the flank, and have a longer anal fin and longer unpaired fins than females. Spot size varies by locality. Females have shorter fins and duller color.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-brownorum-west-kalimantan-wild-betta-fish",
+      "html": "<p>Body shape: small and compact, one of the smallest species in the coccina complex.</p><p>Fins: males have a longer anal fin and longer unpaired fins than females. Females have shorter fins and duller colour.</p><p>Scaling: small, even scales. The green spot is a cluster of iridescent scales in the middle of the flank.</p><p>Colouration: males are intense red with a green iridescent spot on the flank; spot size varies between fish.</p>"
     },
     {
       "key": "dimorphism",
@@ -228,8 +230,8 @@
     {
       "key": "reproduction",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/wild-betta-brownorum",
-      "html": "<p>Bubble nester. The male builds a small bubble nest at the surface, usually under a floating leaf, inside a floating cave or among plants, and places the eggs in it after spawning. Pairs can often stay together in a well-planted tank; remove the female if the male keeps chasing her. Eggs hatch in 24 to 48 hours, and the fry are free-swimming about 3 days later. Start them on infusoria, then move to baby brine shrimp. Keep the surface calm so the nest stays intact.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-brownorum-west-kalimantan-wild-betta-fish",
+      "html": "<p>Bubblenester. The male builds a small bubble nest at the surface, usually under a floating leaf, inside a floating cave or among plants, and places the eggs in it after spawning. Pairs can often stay together in a well-planted tank; remove the female if the male keeps chasing her.</p><p>Eggs hatch in 24 to 48 hours, and the fry are free-swimming about 3 days later. Start them on infusoria, then move to baby brine shrimp. Keep the surface calm so the nest stays intact.</p>"
     },
     {
       "key": "reproduction",
@@ -340,5 +342,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-14"
+  "updatedAt": "2026-11-16"
 }

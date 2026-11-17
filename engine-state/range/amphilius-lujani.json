@@ -1,0 +1,98 @@
+{
+  "id": "amphilius-lujani",
+  "native": {
+    "input": "5731c9d0952bd541",
+    "at": "2026-11-16T17:28:41.839Z",
+    "claims": [
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Africa: Lake Kyoga drainage, Lake Victoria drainage and Lake Manyara basin in Tanzania.",
+        "words": "Tanzania",
+        "ok": true
+      },
+      {
+        "code": "UG",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "It occurs in the Lake Kyoga drainage and Lake Victoria affluents in Uganda and Kenya, and also in the Lake Manyara basin in Tanzania.",
+        "words": "Uganda",
+        "ok": true
+      },
+      {
+        "code": "KE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "It occurs in the Lake Kyoga drainage and Lake Victoria affluents in Uganda and Kenya, and also in the Lake Manyara basin in Tanzania.",
+        "words": "Kenya",
+        "ok": true
+      },
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "It occurs in the Lake Kyoga drainage and Lake Victoria affluents in Uganda and Kenya, and also in the Lake Manyara basin in Tanzania.",
+        "words": "Tanzania",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Victoria",
+        "source": "scotcat",
+        "quote": "Africa: Lake Kyoga drainage, Lake Victoria drainage and Lake Manyara basin in Tanzania.",
+        "ok": true
+      },
+      {
+        "name": "Lake Kyoga",
+        "source": "scotcat",
+        "quote": "Africa: Lake Kyoga drainage, Lake Victoria drainage and Lake Manyara basin in Tanzania.",
+        "ok": true
+      },
+      {
+        "name": "Lake Manyara",
+        "source": "scotcat",
+        "quote": "Africa: Lake Kyoga drainage, Lake Victoria drainage and Lake Manyara basin in Tanzania.",
+        "country": "TZ",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Amphilius lujani",
+    "status": "ACCEPTED",
+    "taxonKey": 8964367,
+    "datasets": [
+      [
+        "c2914e4b-381d-4814-8a34-66a7d949fd44",
+        46
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        1
+      ]
+    ],
+    "native": [
+      "TZ",
+      "UG",
+      "KE"
+    ],
+    "requests": 12,
+    "at": "2026-11-16T17:28:41.839Z"
+  }
+}

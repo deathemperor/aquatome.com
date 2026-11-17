@@ -6,7 +6,7 @@
   ],
   "sections": {
     "quickFacts:scotcat": "<ul><li>Tên thường gọi: cá trê núi</li></ul>",
-    "beforeYouBuy:scotcat": "<p>Loài này rất dễ bị nhận nhầm, và có lẽ đa số loài trong cùng giống cũng vậy. Ảnh minh họa có thể là chính loài này, cũng có thể là loài họ hàng gần như A. atesuensis hay A. uranoscopus. Nuôi trong bể thì các loài này gần như giống nhau. Loài này ít khi được nhập về, nhưng nếu giữ được điều kiện tốt nhất cho nó thì đây là một con đáng nuôi.</p>",
+    "beforeYouBuy:scotcat": "<p>Loài này rất dễ bị nhận nhầm, và có lẽ đa số loài trong cùng giống cũng vậy. Nuôi trong bể thì các loài này gần như giống nhau. Loài này ít khi được nhập về, nhưng nếu giữ được điều kiện tốt nhất cho nó thì đây là một con đáng nuôi.</p>",
     "distribution:scotcat": "<p>Châu Phi: Sierra Leone, Guinea, Côte d’Ivoire. Nơi thu mẫu chuẩn: Sierra Leone.</p>",
     "habitat:scotcat": "<p>Ngoài tự nhiên, các loài trong giống này sống ở vùng nước chảy.</p>",
     "waterConditions:scotcat": "<p>Giống cá này cần nước hơi mát, vì ngoài tự nhiên chúng sống ở vùng nước chảy. Nuôi trong bể, chúng cũng thích nhiệt độ mát hơn. Nhiệt độ: 23–26°C. pH: 6,5–7,5.</p>",
@@ -21,11 +21,5 @@
     "bySource": {
       "scotcat": 0.95
     }
-  },
-  "held": {
-    "checks": [
-      "source"
-    ],
-    "at": "2026-11-16"
   }
 }
