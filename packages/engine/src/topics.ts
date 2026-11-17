@@ -274,7 +274,8 @@ function localFacts(researched: TopicFacts, entity: GuideEntity) {
 export async function recheckTopic(root: string, llm: Llm, id: string, lang: 'vi' | TargetLang): Promise<Grounded> {
   const dir = join(root, 'content/guides', id)
   const read = async <T>(f: string) => JSON.parse(await readFile(f, 'utf8')) as T
-  const researched = await read<TopicFacts>(join(root, 'engine-state/topics', `${id}.json`))
+  // As every reader of kept research: without a refused site's facts (refused-sources.ts).
+  const researched = withoutRefused(await read<TopicFacts>(join(root, 'engine-state/topics', `${id}.json`))).kept
   const entity = await read<GuideEntity>(join(dir, 'entity.json'))
   const t = await read<Translation>(join(dir, `${lang}.json`))
   const vi = lang === 'vi' ? t : await read<Translation>(join(dir, 'vi.json'))
@@ -402,7 +403,7 @@ export async function localizeTopic(root: string, llm: Llm, id: string, lang: Ta
   const file = join(root, 'content/guides', id, `${lang}.json`)
   if (!o.redo && (await readFile(file, 'utf8').then(() => true, () => false))) return { id, skipped: 'done' }
   return piece(`${lang}/${id}`, async () => {
-    const researched = JSON.parse(await readFile(join(root, 'engine-state/topics', `${id}.json`), 'utf8')) as TopicFacts
+    const researched = withoutRefused(JSON.parse(await readFile(join(root, 'engine-state/topics', `${id}.json`), 'utf8')) as TopicFacts).kept
     const vi = JSON.parse(await readFile(join(root, 'content/guides', id, 'vi.json'), 'utf8')) as { name: string }
     const entity = JSON.parse(await readFile(join(root, 'content/guides', id, 'entity.json'), 'utf8')) as GuideEntity
     const { facts, refs, sources } = localFacts(researched, entity)

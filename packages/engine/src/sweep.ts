@@ -545,7 +545,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // on the merge at a cycle's push too, so a run on older code that wrote them again doesn't bring them back (the chief of
   // staff, 17 Nov 2026). Before the pages are read, so they're read as they are now.
   const cleaned = await refusedSweep(root)
-  report.refusedSources = [...cleaned.facts.map(f => `${f.file}: ${f.dropped} out`), ...cleaned.refs.map(f => `${f.file}: refs lose ${f.urls.length}`)]
+  report.refusedSources = [...cleaned.facts.map(f => `${f.file}: ${f.dropped} out`), ...cleaned.refs.map(f => `${f.file}: refs lose ${f.urls.length}`), ...cleaned.failed.map(f => `${f} (not cleaned)`)]
   // A group its order doesn't allow, before anything reads the group.
   for (const id of report.regrouped = await regroupPages(content)) changed(`species/${id}/entity.json`)
   // A fish card's school size: Seriously Fish's, never below what another source on the page says (traits.ts), here so

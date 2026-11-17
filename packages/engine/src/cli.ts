@@ -591,6 +591,7 @@ if (cmd === 'photo-privacy') {
   const r = await refusedSweep(ROOT)
   for (const f of r.facts) console.log(`${f.file}: ${f.dropped} item${f.dropped === 1 ? '' : 's'} out, from ${f.refused.map(x => `${x.url} (${x.items})`).join(', ')}; facts moved: ${JSON.stringify(f.moved)}`)
   for (const f of r.refs) console.log(`${f.file}: refs lose ${f.urls.join(', ')}`)
+  for (const f of r.failed) console.log(`not cleaned: ${f}`)
   for (const [file, why] of Object.entries(WAITING)) console.log(`waiting: ${file}: ${why}`)
   console.log(`refused-sweep: ${r.facts.length} facts files, ${r.refs.length} reference lists`)
 } else if (cmd === 'sweep') {

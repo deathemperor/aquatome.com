@@ -2,7 +2,7 @@ import { expect, test } from 'vitest'
 import { copyFile, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { onRefused, refsWithoutRefused, withoutRefused } from '../src/refused-sources'
+import { onRefused, refsWithoutRefused, refusedSweep, withoutRefused } from '../src/refused-sources'
 import { sweep } from '../src/sweep'
 
 const REFUSED = 'https://cabaymau.vn/cach-tha-ca-moi-mua-vao-be-2/'
@@ -83,8 +83,9 @@ test('facts with no refused source come back as they were; a near name is anothe
 
 // The chief of staff, 17 Nov 2026: a sub-domain, a redirect and an archived copy.
 test('a refused site\'s hosts and archived copies of its pages are refused; near names, look-alike hosts and other sites are not', () => {
-  const yes = ['https://cabaymau.vn/x', 'http://www.cabaymau.vn/x', 'https://forum.cabaymau.vn/t/1', 'https://CABAYMAU.VN/x', 'https://web.archive.org/web/2024/https://cabaymau.vn/x', 'https://archive.ph/2024.01.01/https://www.cabaymau.vn/x']
-  const no = ['https://cabaymau.net/x', 'https://xcabaymau.vn/x', 'https://cabaymau.vn.example.com/x', 'https://example.org/?from=cabaymau.vn', 'https://web.archive.org/web/2024/https://cabaymau.net/x', 'a book', '']
+  const yes = ['https://cabaymau.vn/x', 'http://www.cabaymau.vn/x', 'https://forum.cabaymau.vn/t/1', 'https://CABAYMAU.VN/x', 'https://web.archive.org/web/2024/https://cabaymau.vn/x', 'https://archive.ph/2024.01.01/https://www.cabaymau.vn/x', '<p>Xem <a href="https://cabaymau.vn/x">trang này</a>.</p>']
+  // An address that doesn't parse isn't one, though refusedSite refuses it for a fetch (the first reader, 17 Nov 2026).
+  const no = ['https://cabaymau.net/x', 'https://xcabaymau.vn/x', 'https://cabaymau.vn.example.com/x', 'https://example.org/?from=cabaymau.vn', 'https://web.archive.org/web/2024/https://cabaymau.net/x', 'https://[bad/x', 'a book', '']
   expect(yes.map(onRefused)).toEqual(yes.map(() => true))
   expect(no.map(onRefused)).toEqual(no.map(() => false))
 })
@@ -107,4 +108,21 @@ test('the sweep takes a refused site\'s facts out of kept research and its pages
   for (const f of ['entity.json', 'th.json']) expect(JSON.parse(await readFile(join(guide, f), 'utf8')).refs).toEqual([ref('https://a.example/1')])
   // A second sweep finds nothing.
   expect((await sweep(root, {})).refusedSources).toEqual([])
+})
+
+// The first reader, 17 Nov 2026: an `also` that was empty stays; a refused page cited outside a list is said, never
+// renumbered to another page; a file the pass can't read is named and the pass goes on.
+test('an empty also stays, a refused page cited outside a list stops the step, and the sweep names a file it can\'t read and goes on', async () => {
+  const r = { found: true, facts: [{ section: 'x', fact: 'a', source: 0, also: [] as number[] }, { section: 'x', fact: 'b', source: 1 }], sources: [src('https://a.example/1'), src(REFUSED)] }
+  expect(withoutRefused(r).kept.facts).toEqual([{ section: 'x', fact: 'a', source: 0, also: [] }])
+  expect(() => withoutRefused({ found: true, lead: { fact: 'a', source: 1 }, sources: [src('https://a.example/1'), src(REFUSED)] })).toThrow('lead cites a refused page (source 1) outside a list')
+  const root = await mkdtemp(join(tmpdir(), 'aq-refused-bad-'))
+  await mkdir(join(root, 'engine-state/glossary'), { recursive: true })
+  await mkdir(join(root, 'content'), { recursive: true })
+  await writeFile(join(root, 'engine-state/glossary/bad.json'), `{"sources": [{"url": "${REFUSED}"}], `)
+  await writeFile(join(root, 'engine-state/glossary/good.json'), JSON.stringify({ found: true, facts: [{ section: 'x', fact: 'a', source: 0 }], sources: [src(REFUSED)] }))
+  const out = await refusedSweep(root)
+  expect(out.failed).toHaveLength(1)
+  expect(out.failed[0]).toMatch(/^engine-state\/glossary\/bad\.json: /)
+  expect(out.facts.map(f => f.file)).toEqual(['engine-state/glossary/good.json'])
 })

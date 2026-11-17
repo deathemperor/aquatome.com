@@ -298,7 +298,8 @@ export async function localizeBreed(root: string, llm: Llm, id: string, lang: Ta
   const dir = join(root, 'content/breeds', id)
   const file = join(dir, `${lang}.json`)
   if (!o.redo && (await readFile(file, 'utf8').then(() => true, () => false))) return { id, skipped: 'done' }
-  const { facts } = webFacts(JSON.parse(await readFile(join(root, 'engine-state/breeds', `${id}.json`), 'utf8')) as BreedFacts)
+  // As every reader of kept research: without a refused site's facts (refused-sources.ts).
+  const { facts } = webFacts(withoutRefused(JSON.parse(await readFile(join(root, 'engine-state/breeds', `${id}.json`), 'utf8')) as BreedFacts).kept)
   const vi = JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8')) as Translation
   const T = TARGETS[lang]
   const forWriter = { name: facts.enNames[0] ?? id, kind: facts.kind, enNames: facts.enNames, basedOn: facts.basedOn, parents: facts.parents, origin: facts.origin, looks: facts.looks, lines: facts.lines, care: facts.care, keeping: facts.keeping, breeding: facts.breeding, health: facts.health, buying: facts.buying, controversy: facts.controversy }

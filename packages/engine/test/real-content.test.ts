@@ -20,8 +20,8 @@ import { fishThaiLai, wordingSlips } from '../src/sanitize'
 import { cardOf, cardProblems, readSummaries } from '../src/summaries'
 import { cardSchool, readTraits } from '../src/traits'
 import { sweepTranslation } from '../src/sweep'
-import { FACTS_DIRS, WAITING } from '../src/refused-sources'
-import { REFUSED_SITES, refusedSite } from '../src/cycle-only'
+import { FACTS_DIRS, onRefused, WAITING } from '../src/refused-sources'
+import { REFUSED_SITES } from '../src/cycle-only'
 import { namesSomeone } from '../src/video-covers'
 import { slow } from '@aq/schema/test-time'
 
@@ -1309,7 +1309,8 @@ test('no email address in any file under content/', async () => {
 test('no page lists a refused site\'s page in any language, and no kept research cites one', async () => {
   const repo = fileURLToPath(new URL('../../..', import.meta.url))
   const naming: string[] = []
-  const walk = (x: unknown): boolean => typeof x === 'string' ? /^https?:\/\//i.test(x) && refusedSite(x) : Array.isArray(x) ? x.some(walk) : !!x && typeof x === 'object' && Object.values(x).some(walk)
+  // Any string: an address alone, or one inside a text's HTML (a link).
+  const walk = (x: unknown): boolean => typeof x === 'string' ? onRefused(x) : Array.isArray(x) ? x.some(walk) : !!x && typeof x === 'object' && Object.values(x).some(walk)
   const dirs = ['content', ...FACTS_DIRS.map(k => `engine-state/${k}`)]
   for (const dir of dirs) {
     for (const f of (await readdir(join(repo, dir), { recursive: true, withFileTypes: true })).filter(d => d.isFile() && d.name.endsWith('.json')).map(d => relative(repo, join(d.parentPath, d.name))).sort()) {

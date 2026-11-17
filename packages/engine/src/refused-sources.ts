@@ -6,9 +6,9 @@ import { REFUSED_SITES, refusedSite } from './cycle-only'
  * A web page on a refused site, or a copy of one: an address another address carries whole, as the Internet Archive's
  * (web.archive.org/web/<time>/https://…) and archive.today's do. Matched by host, as research's deny list matches (the site
  * and any host under it, never a near name). A source that isn't a web address (a book) isn't one: refusedSite refuses what
- * it can't read as an address, for a fetch. Nothing is fetched: a page elsewhere that redirects to the site isn't seen.
+ * it can't read as an address, for a fetch, so neither is an address that doesn't parse. Nothing is fetched: a page elsewhere that redirects to the site isn't seen.
  */
-export const onRefused = (url: string) => (url.match(/https?:\/\/(?:(?!https?:\/\/)[^\s"'<>])+/gi) ?? []).some(u => refusedSite(u))
+export const onRefused = (url: string) => (url.match(/https?:\/\/(?:(?!https?:\/\/)[^\s"'<>])+/gi) ?? []).some(u => URL.canParse(u) && refusedSite(u))
 
 /**
  * A refused site's facts leave research, whatever the kind (the chief of staff, 17 Nov 2026, for Thursday 19 Nov): a guide's,
@@ -42,10 +42,12 @@ export function withoutRefused<T extends { sources: { url: string }[] }>(r: T): 
     if (!x || typeof x !== 'object') return x
     const out: Record<string, unknown> = {}
     for (const [k, v] of Object.entries(x)) {
-      if (k === 'source' && typeof v === 'number') out[k] = at(v)
+      // An item citing a refused page outside a list has nowhere to leave from: said, never renumbered to another page.
+      if (k === 'source' && typeof v === 'number') { if (gone.has(v)) throw new Error(`${path || 'the research'} cites a refused page (source ${v}) outside a list`); out[k] = at(v) }
       else if (k === 'also' && Array.isArray(v) && v.every(i => typeof i === 'number')) {
         const also = v.flatMap(i => { const j = at(i); return j === undefined ? [] : [j] })
-        if (also.length) out[k] = also
+        // An `also` the refused page alone made goes; one that was empty stays as it was.
+        if (also.length || !v.length) out[k] = also
       } else out[k] = walk(v, path ? `${path}.${k}` : k)
     }
     return out
@@ -86,15 +88,21 @@ const indentOf = (raw: string) => raw.match(/^\{\n( +)/)?.[1]?.length ?? 2
 export async function refusedSweep(root: string) {
   const facts: { file: string; refused: { url: string; items: number }[]; dropped: number; moved: Record<number, number | null> }[] = []
   const refs: { file: string; urls: string[] }[] = []
+  // A file that names a refused site but can't be read or cleaned: named, and the pass goes on (a sweep runs it every cycle).
+  const failed: string[] = []
   const files = async (dir: string) => (await readdir(join(root, dir)).catch(() => [] as string[])).filter(f => f.endsWith('.json')).sort()
   for (const kind of FACTS_DIRS) {
     for (const name of await files(`engine-state/${kind}`)) {
       const file = `engine-state/${kind}/${name}`
       const raw = await readFile(join(root, file), 'utf8')
       if (!REFUSED_SITES.some(h => raw.toLowerCase().includes(h))) continue
-      const data = JSON.parse(raw) as { sources?: { url: string }[] }
-      if (!Array.isArray(data.sources)) continue
-      const r = withoutRefused(data as { sources: { url: string }[] })
+      let data: { sources?: { url: string }[] }
+      let r: ReturnType<typeof withoutRefused<{ sources: { url: string }[] }>>
+      try {
+        data = JSON.parse(raw) as typeof data
+        if (!Array.isArray(data.sources)) continue
+        r = withoutRefused(data as { sources: { url: string }[] })
+      } catch (err) { failed.push(`${file}: ${(err as Error).message}`); continue }
       if (!r.refused.length) continue
       await writeFile(join(root, file), `${JSON.stringify(r.kept, null, indentOf(raw))}\n`)
       const gone = r.dropped.filter(d => d.list === 'facts').map(d => d.at)
@@ -109,7 +117,8 @@ export async function refusedSweep(root: string) {
   for (let i = 0; i < pages.length; i += 64) {
     for (const [file, raw] of await Promise.all(pages.slice(i, i + 64).map(async f => [f, await readFile(join(root, f), 'utf8')] as const))) {
       if (!REFUSED_SITES.some(h => raw.toLowerCase().includes(h)) || !raw.includes('"refs"')) continue
-      const page = JSON.parse(raw) as { refs?: { url: string }[] }
+      let page: { refs?: { url: string }[] }
+      try { page = JSON.parse(raw) as typeof page } catch (err) { failed.push(`${file}: ${(err as Error).message}`); continue }
       if (!Array.isArray(page.refs)) continue
       const kept = refsWithoutRefused(page.refs)
       if (kept.length === page.refs.length) continue
@@ -117,5 +126,5 @@ export async function refusedSweep(root: string) {
       refs.push({ file, urls: page.refs.filter(x => !kept.includes(x)).map(x => x.url) })
     }
   }
-  return { facts, refs }
+  return { facts, refs, failed }
 }
