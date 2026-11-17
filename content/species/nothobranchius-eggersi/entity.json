@@ -86,6 +86,10 @@
       {
         "source": "seriouslyfish",
         "value": 5
+      },
+      {
+        "source": "glaser",
+        "value": 5
       }
     ],
     "tankCm": [
@@ -107,6 +111,13 @@
           "min": 0.5,
           "max": 1.3
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 1.33,
+          "max": 1.33
+        }
       }
     ]
   },
@@ -122,6 +133,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-eggersi",
       "html": "<p>Type locality is 'Rufiji River near Utete, eastern Tanzania', and this species is apparently endemic to the lower Rufiji including the Selous Game Reserve and freshwater parts of the Rufiji delta region. Populations in the aquarium hobby include 'Rufiji river camp', 'Kikongono', 'Ruhoi River', 'Kanga', 'Utete', 'Saadani Game Reserve', 'Ruvu River', 'Bagamoyo', 'Makurunge', 'Killimani', 'Chamakwese', 'Nyamwage', 'Mohoro', and 'Ukuni'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius-eggersi-kubiti-utete-07-2/",
+      "html": "<p>Nothobranchius eggersi, the Orchid nothobranch, is one of the most variable killifish species. It was discovered on an expedition in winter 1980/81 by Lothar Seegers, Gerd Eggers, and Christel Kasselmann in eastern Tanzania. One year later L. Seegers described the species scientifically. The species is endemic to the Rufiji river basin. The type locality is south of Kibiti on the bank of the Ruhoi river, where the first four specimens were collected in a ditch.</p>"
     },
     {
       "key": "habitat",
@@ -142,6 +159,12 @@
       "html": "<p>This species does not require peat although peat moss is often used as a spawning medium.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius-eggersi-kubiti-utete-07-2/",
+      "html": "<p>Keeping and breeding Nothobranchius eggersi is comparable to other nothobranch species; it is usually not very demanding. Although the lifespan in the wild is usually only a few weeks, they can live in the aquarium for up to 16 months.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-eggersi",
@@ -160,10 +183,22 @@
       "html": "<p>Males grow larger and are far more colourful than females.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius-eggersi-kubiti-utete-07-2/",
+      "html": "<p>Maximum size reported is 4–5 cm for males; females always stay much smaller.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-eggersi",
       "html": "<p>When its natural habitats become dessicated during the dry season the adult fish die, leaving fertilised eggs encased within the substrate. These are resistant to dessication and remain there until the rains return some 5-6 months later at which point the fry hatch and grow very quickly with sexual maturity reached at around 3 weeks of age. Typical lifespan in the aquarium is 6-16 months and eggs should be stored at a temperature of 21.1–25°C for 3-4 months before being wetted. Some aquarists add a little marine salt to the water in order to reduce the risk of Oödinium, to which the fry are particularly susceptible.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius-eggersi-kubiti-utete-07-2/",
+      "html": "<p>Due to the high degree of variability it is very important to spread offspring with correct locality/collecting site information; this has a long tradition among killifish keepers. If young fish are fed heavily they can reach sexual maturity at an age of 20 days, when they are about 22 mm long.</p>"
     },
     {
       "key": "notes",
@@ -184,7 +219,32 @@
       "caption": "Cá đực Nothobranchius eggersi màu đỏ trong bể trồng cây"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "J84H-kk-eX4",
+      "title": "Nothobranchius eggersi 'Kigongo,TAN 05/43' fighting",
+      "durationSec": 62,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "fmdNiwIY0m8",
+      "title": "Nothobranchius Eggersi",
+      "durationSec": 102,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "JUlOjfuGE3g",
+      "title": "killifish (nothobranchius eggersi)",
+      "durationSec": 20,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "62LBaDA2qCU",
+      "title": "Nothobranchius Eggersi Red (Aquarium Strain)",
+      "durationSec": 131,
+      "lang": "zxx"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -215,5 +275,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-17"
 }

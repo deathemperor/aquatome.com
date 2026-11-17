@@ -1,0 +1,81 @@
+{
+  "id": "bagre-panamensis",
+  "scientificName": "Bagre panamensis",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Bagre",
+  "group": "catfish",
+  "places": [
+    "north-america",
+    "united-states",
+    "california",
+    "south-america",
+    "colombia",
+    "guatemala",
+    "peru",
+    "el-salvador",
+    "costa-rica",
+    "ecuador",
+    "honduras",
+    "nicaragua",
+    "panama",
+    "mexico",
+    "baja-california"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 51
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/bagre_panamensis.htm",
+      "html": "<p>The Chilhuil sea catfish (Bagre panamensis) is a species of sea catfish in the family Ariidae. It was described by Theodore Gill in 1863, originally under the genus Aelurichthys. Maximum total length 51 cm.</p><p>Body very robust; head shield with ridges, but without granules; lips absent except at corner of mouth; only two pairs of barbels; top barbel broad, ribbon-like, reaching as far as pelvic fins; palate teeth in four patches, but fused to form narrow, continuous band; gill rakers on first arch 5-7 + 12-14; none on posterior face of first arch; dorsal rays I, 7, dorsal spine without filament; anal rays 25-30; pectoral rays I, 12-13, pectoral spine with long flattened filament reaching origin of anal fin.</p><p>The specific name panamensis means \"from Panama\".</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/bagre_panamensis.htm",
+      "html": "<p>West coast of the Americas: from off the Santa Ana River in southern California, USA, to Peru. Only rarely found north of southern Baja California. Also recorded from Colombia, Guatemala, El Salvador, Costa Rica, Ecuador, Honduras, Nicaragua, Panama and Mexico.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/bagre_panamensis.htm",
+      "html": "<p>It inhabits subtropical marine and brackish waters in the eastern Pacific. It dwells at a depth range of 3 to 177 m, most often between 10 to 60 m. Found inshore, usually on muddy bottoms. Enters estuaries.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/bagre_panamensis.htm",
+      "html": "<p>The spine in front of the dorsal and pectoral fins is venomous and can cause a painful wound.</p><p>IUCN Red List: widespread in the Eastern Pacific and common in many parts of its range. There are no major threats and no current indication of population decline. Listed as Least Concern, but needs updating (IUCN 2010).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/bagre_panamensis.htm",
+      "html": "<p>Cooke, R., Acero, A., Betancur, R., Rojas, P., Cotto, A. 2010. Bagre panamensis. The IUCN Red List of Threatened Species 2010. D. R. Robertson and Gerald R Allen. 2015. Shorefishes of the Tropical Eastern Pacific: online information system. Version 2.0 Smithsonian Tropical Research Institute, Balboa, Panamá. Eschmeyer, W.N., E.S. Herald and H. Hammann, 1983. A field guide to Pacific coast fishes of North America. Boston (MA, USA): Houghton Mifflin Company. xii+336 p. Fishes of the East Pacific. Froese, Rainer and Pauly, Daniel, eds. (2016). \"Bagre panamensis\" in FishBase. April 2016 version. Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 12/2019 ).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/4dd2225153b00155.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4dd2225153b00155-480.webp",
+      "width": 500,
+      "height": 341,
+      "licence": "dùng với sự cho phép",
+      "author": "D. Ross Robertson / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/bagre_panamensis.htm",
+      "caption": "Bagre panamensis",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-17"
+}

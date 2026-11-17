@@ -1039,6 +1039,116 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/ariidae/arius_manillensis.htm": {
+    "entityIds": [
+      "species/arius-manillensis"
+    ],
+    "updatedAt": "2026-11-17T17:42:12.180Z",
+    "hash": "fe92bf797a5e879225e8cbf013cf0bff3a6b760ad7ca60cab74a6915bd13cd60",
+    "processedHash": "fe92bf797a5e879225e8cbf013cf0bff3a6b760ad7ca60cab74a6915bd13cd60",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/arius_subrostratus.htm": {
+    "entityIds": [
+      "species/arius-subrostratus"
+    ],
+    "updatedAt": "2026-11-17T17:43:53.363Z",
+    "hash": "4e913b84033d87afc26e1ee1f602a63e2828247c70b4ae33fdee8f6bcbafe7ec",
+    "processedHash": "4e913b84033d87afc26e1ee1f602a63e2828247c70b4ae33fdee8f6bcbafe7ec",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/arius_utik.htm": {
+    "entityIds": [
+      "species/arius-oetik"
+    ],
+    "updatedAt": "2026-11-17T17:45:54.283Z",
+    "hash": "a53957e4e6cd82e65eb688f718067e25427bf1e0f83d3c01ad1fc572965a9df7",
+    "processedHash": "a53957e4e6cd82e65eb688f718067e25427bf1e0f83d3c01ad1fc572965a9df7",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/arius_venosus.htm": {
+    "entityIds": [
+      "species/arius-venosus"
+    ],
+    "updatedAt": "2026-11-17T17:47:08.771Z",
+    "hash": "0dee38fda4e2f8c6b6e161eec3d41add4943953fea7e96ac080addbdcb58d880",
+    "processedHash": "0dee38fda4e2f8c6b6e161eec3d41add4943953fea7e96ac080addbdcb58d880",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/bagre_bagre.htm": {
+    "entityIds": [
+      "species/bagre-bagre"
+    ],
+    "updatedAt": "2026-11-17T17:49:15.732Z",
+    "hash": "011f45adb256f153a439ac4ff909f1c24d99569f5e0d209befd4c08dd5676537",
+    "processedHash": "011f45adb256f153a439ac4ff909f1c24d99569f5e0d209befd4c08dd5676537",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/bagre_marinus.htm": {
+    "entityIds": [
+      "species/bagre-marinus"
+    ],
+    "updatedAt": "2026-11-17T17:53:07.188Z",
+    "hash": "1da55a9b3564e52379dd676604df3155fac303d767ebbc382c1f259ceade4731",
+    "processedHash": "1da55a9b3564e52379dd676604df3155fac303d767ebbc382c1f259ceade4731",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/bagre_panamensis.htm": {
+    "entityIds": [
+      "species/bagre-panamensis"
+    ],
+    "updatedAt": "2026-11-17T17:54:52.487Z",
+    "hash": "c599db71789f1d7482fb4dba99af55296967aaf36b001100f3565aad68deb8b6",
+    "processedHash": "c599db71789f1d7482fb4dba99af55296967aaf36b001100f3565aad68deb8b6",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/bagre_pinnimaculatus.htm": {
+    "entityIds": [
+      "species/bagre-pinnimaculatus"
+    ],
+    "updatedAt": "2026-11-17T17:56:06.423Z",
+    "hash": "43233abbdbef1c21879bb1323cb5cafbd35bb7f3e6eadb008695b274c3ad7f52",
+    "processedHash": "43233abbdbef1c21879bb1323cb5cafbd35bb7f3e6eadb008695b274c3ad7f52",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/batrachocephalus_mino.htm": {
+    "entityIds": [
+      "species/batrachocephalus-mino"
+    ],
+    "updatedAt": "2026-11-17T17:58:00.754Z",
+    "hash": "5f2a7ca15f867da22619ef5b1b8d1807b15982f7ff2824e8064eaf58d6f4986d",
+    "processedHash": "5f2a7ca15f867da22619ef5b1b8d1807b15982f7ff2824e8064eaf58d6f4986d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/carlarius_gigas.htm": {
+    "entityIds": [
+      "species/arius-gigas"
+    ],
+    "updatedAt": "2026-11-17T18:00:36.508Z",
+    "hash": "50763446db2c8a1cc9005d4210ddcc4781a0cd81f23ee80275539e59c29b76f4",
+    "processedHash": "50763446db2c8a1cc9005d4210ddcc4781a0cd81f23ee80275539e59c29b76f4",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/carlarius_heudelotii.htm": {
+    "entityIds": [
+      "species/carlarius-heudelotii"
+    ],
+    "updatedAt": "2026-11-17T18:02:11.839Z",
+    "hash": "a29c6d61ec775119a424af0a52f32577576d9252b4e0be8f0c2cc3205eaad81b",
+    "processedHash": "a29c6d61ec775119a424af0a52f32577576d9252b4e0be8f0c2cc3205eaad81b",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/ariidae/cryptarius_truncatus.htm": {
     "entityIds": [
       "species/cryptarius-truncatus"

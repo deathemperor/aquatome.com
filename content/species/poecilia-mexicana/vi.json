@@ -6,16 +6,22 @@
     "Molly Campeche",
     "Mexican molly",
     "Atlantic molly",
-    "Campeche molly"
+    "Campeche molly",
+    "Cá molly hoang dã",
+    "Wild molly"
   ],
   "sections": {
-    "notes:glaser": "<p>Molly hoang dã ở Trung Mỹ xưa nay vẫn là một câu đố với nhiều thế hệ nhà khoa học, và có lẽ sẽ còn như vậy mãi. Mỗi con suối lại có cá trông hơi khác một chút. Ngay trong một quần thể, cá đực cũng có nhiều dáng khác nhau. Có con nhỏ, thon và trưởng thành sớm. Có con to, thân cao và trưởng thành muộn. Lại có những con nằm đâu đó ở giữa. Vì thế, chưa ai chắc dòng cá nhân giống ở Đông Nam Á này thật sự thuộc loài P. mexicana, P. sphenops hay P. limantouri. Dù vậy, với người nuôi thì mấy câu hỏi này không quan trọng mấy.</p><p>Điều thật sự quan trọng là lúc nào cũng phải ghi kèm chữ \"Campeche\" vào tên cá. Campeche là nơi người ta bắt đàn cá gốc. Nếu không ghi rõ, bạn không loại trừ được chuyện cá bị lai tạp ngoài ý muốn.</p><p>Với dân nhân giống nghiệp dư, dòng molly hoang dã này là một thử thách thật sự. Khác với molly đen, molly bạc và các dòng tương tự, cá con của dòng này lớn cực kỳ chậm. Bù lại, cá trưởng thành rất hiếu động và lên màu rực rỡ. Khả năng đổi màu của chúng rất đáng nể. Chỉ trong vài giây, cá đực có thể chuyển từ bộ màu bạc trung tính sang bộ màu xanh đen lúc khoe mẽ. Khi bị động, cá có thể nhạt màu ngay tức khắc. Tuy nhiên, chỉ cần vài ngày quen bể là chúng gần như không còn giật mình nữa.</p>"
+    "distribution:glaser": "<p>Ngoài tự nhiên, cá molly hoang dã sống ở Trung Mỹ. Đàn gốc của dạng này được bắt ở Campeche. Cá đang bán hiện nay là cá trại nuôi ở Đông Nam Á.</p>",
+    "beforeYouBuy:glaser": "<p>Luôn ghi kèm chữ \"Campeche\", tên nơi bắt đàn gốc. Thiếu tên này thì không loại trừ được chuyện cá đã bị lai tạp ngoài ý muốn.</p><p>Muốn cho dòng molly hoang dã này đẻ trong bể nhà là chuyện thật sự khó. Molly đen, molly bạc và các dòng tương tự thì khác, còn cá con của dòng này lớn cực kỳ chậm.</p>",
+    "dimorphism:glaser": "<p>Đàn nào cũng có cá đực nhiều dáng khác nhau. Có con nhỏ, thon và sớm đủ lớn để bắt cặp. Có con to, thân cao nhưng muộn hơn mới bắt cặp được. Số còn lại nằm đâu đó ở giữa.</p>",
+    "behaviour:glaser": "<p>Cá lớn bơi lội hoạt bát và lên màu rực rỡ, nuôi rất đáng công. Chúng đổi màu nhanh đến kinh ngạc: chỉ trong vài giây, con đực chuyển từ màu bạc bình thường sang màu xanh đen khi khoe mẽ. Bị động là cá có thể nhạt màu ngay trong chớp mắt. Nhưng chỉ sau vài ngày quen bể, chúng hầu như không còn giật mình nữa.</p>",
+    "notes:glaser": "<p>Molly hoang dã ở Trung Mỹ từ lâu vẫn là câu đố với các nhà khoa học. Mỗi con suối có một kiểu cá trông hơi khác. Hiện chưa chắc dòng cá nuôi ở Đông Nam Á này thật ra thuộc P. mexicana, P. sphenops hay P. limantouri. Với người nuôi thì chuyện này không quan trọng mấy.</p>"
   },
   "quality": {
-    "score": 0.8,
+    "score": 0.75,
     "indexable": false,
     "bySource": {
-      "glaser": 0.8
+      "glaser": 0.75
     },
     "reason": "thin"
   }

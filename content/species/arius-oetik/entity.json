@@ -1,0 +1,95 @@
+{
+  "id": "arius-oetik",
+  "scientificName": "Arius oetik",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Arius",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "thailand",
+    "gulf-of-thailand",
+    "malaysia",
+    "indonesia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 22
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_utik.htm",
+      "html": "<p>Arius utik is a species of sea catfish in the family Ariidae. It was described by Pieter Bleeker in 1846.</p><ul><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_utik.htm",
+      "html": "<p>Western Pacific: Gulf of Thailand and in waters around much of Malaysia and Indonesia; in coastal waters and estuaries.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_utik.htm",
+      "html": "<p>It is known from tropical marine and brackish waters in the western Pacific.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_utik.htm",
+      "html": "<p>Its diet consists of mussels, flathead locust lobsters, shrimp, conger eels, ponyfish, squids and Indian mackerels.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_utik.htm",
+      "html": "<p>Etymology: The specific name utik comes from Ikan (= fish) Manong utik, the local Jakartan (Batavian) name for this catfish. Bleeker also spelled it oetik later in 1846, which is frequently used in modern literature, but utik was clearly Bleeker's intent and appears to have priority by a few months.</p><p>Remarks: The spelling oetik is used by Bleeker 1846:166. The correct spelling is utik, as used by Bleeker 1862:31 (Eschmeyer's Catalog of Fishes). On some online searches oetik is still used.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_utik.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2021. FishBase. World Wide Web electronic publication. www.fishbase.org, (06/2021). Kailola, P.J., 1999 Ariidae (=Tachysuridae): sea catfishes (fork-tailed catfishes). Kottelat, M., A.J. Whitten, S.N. Kartikasari and S. Wirjoatmodjo, 1993. Freshwater fishes of Western Indonesia and Sulawesi. Periplus Editions, Hong Kong. 221 p.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/01ac18cf5bca5e97.webp",
+      "thumb": "https://media.aquatome.com/scotcat/01ac18cf5bca5e97-480.webp",
+      "width": 500,
+      "height": 360,
+      "licence": "dùng với sự cho phép",
+      "author": "/ / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_utik.htm",
+      "caption": "Arius utik",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-17"
+}

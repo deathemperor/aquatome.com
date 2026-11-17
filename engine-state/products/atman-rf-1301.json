@@ -7,13 +7,13 @@
       "source": 1
     },
     {
-      "key": "Voltage",
-      "value": "220–240 V",
+      "key": "Flow rate",
+      "value": "1500 L/h",
       "source": 1
     },
     {
-      "key": "Flow rate",
-      "value": "1500 L/h",
+      "key": "Voltage",
+      "value": "220–240 V",
       "source": 1
     },
     {
@@ -23,193 +23,188 @@
     },
     {
       "key": "Hose diameter",
-      "value": "16 mm, 2 × 150 cm hoses",
+      "value": "16 mm",
       "source": 1
     },
     {
-      "key": "Inlet/outlet size",
-      "value": "Ø16–17 mm",
-      "source": 5
+      "key": "Hose diameter",
+      "value": "Fi 16–17",
+      "source": 2
+    },
+    {
+      "key": "Hose length",
+      "value": "2 × 150 cm",
+      "source": 1
     },
     {
       "key": "Dimensions",
       "value": "22 × 22 × 47 cm",
-      "source": 4
+      "source": 2
     },
     {
-      "key": "Dimensions (alternate listing)",
-      "value": "22 × 22 × 42 cm",
-      "source": 3
-    },
-    {
-      "key": "Dimensions (alternate listing)",
-      "value": "260 × 260 × 470 mm",
-      "source": 0
-    },
-    {
-      "key": "Recommended tank",
-      "value": "90–150 cm long (200–400 L)",
-      "source": 1
-    },
-    {
-      "key": "Features",
-      "value": "Priming button on lid, flow-control/lock lever, 360° rotating connector, bottom-to-top flow through trays",
-      "source": 4
-    },
-    {
-      "key": "Included media",
-      "value": "Filter floss only; extra media recommended",
+      "key": "Dimensions",
+      "value": "22 x 22 x 42 cm (one distributor lists a different height)",
       "source": 5
     },
     {
-      "key": "Included media (alternate listing)",
-      "value": "Filter media not included",
-      "source": 3
+      "key": "Suitable tank",
+      "value": "90–150 cm (200–400 L)",
+      "source": 1
+    },
+    {
+      "key": "Included media",
+      "value": "Filter floss only; buy other media separately",
+      "source": 2
+    },
+    {
+      "key": "Finish",
+      "value": "Black matte",
+      "source": 5
     },
     {
       "key": "Warranty",
       "value": "6 months",
-      "source": 3
+      "source": 5
     },
     {
       "key": "Origin",
       "value": "China",
-      "source": 3
-    },
-    {
-      "key": "Water type",
-      "value": "Freshwater and saltwater",
-      "source": 0
+      "source": 5
     }
   ],
   "variants": [
     {
-      "name": "Atman RF-501",
+      "name": "RF-501",
       "specs": [
-        {
-          "key": "Power",
-          "value": "14 W",
-          "source": 6
-        },
         {
           "key": "Flow rate",
           "value": "820 L/h",
-          "source": 6
+          "source": 0
         },
         {
-          "key": "Inlet/outlet",
-          "value": "12 mm",
-          "source": 6
+          "key": "Power",
+          "value": "14 W",
+          "source": 0
         },
         {
           "key": "Filter trays",
           "value": "2",
-          "source": 6
+          "source": 0
         },
         {
-          "key": "Recommended tank",
-          "value": "40–80 cm (40–150 L)",
-          "source": 6
+          "key": "Hose",
+          "value": "12 mm",
+          "source": 0
+        },
+        {
+          "key": "Suitable tank",
+          "value": "40–80 cm / 40–150 L",
+          "source": 0
         },
         {
           "key": "Dimensions",
-          "value": "220 × 220 × 340 mm",
+          "value": "220×220×340 mm",
           "source": 0
         }
       ]
     },
     {
-      "name": "Atman RF-701",
+      "name": "RF-701",
       "specs": [
-        {
-          "key": "Power",
-          "value": "14 W",
-          "source": 6
-        },
         {
           "key": "Flow rate",
           "value": "820 L/h",
-          "source": 6
+          "source": 0
         },
         {
-          "key": "Inlet/outlet",
-          "value": "12 mm",
-          "source": 6
+          "key": "Power",
+          "value": "14 W",
+          "source": 0
         },
         {
           "key": "Filter trays",
           "value": "3",
-          "source": 6
+          "source": 0
         },
         {
-          "key": "Recommended tank",
-          "value": "60–90 cm (60–200 L)",
-          "source": 6
+          "key": "Hose",
+          "value": "12 mm",
+          "source": 0
+        },
+        {
+          "key": "Suitable tank",
+          "value": "60–90 cm / 60–200 L",
+          "source": 0
         },
         {
           "key": "Dimensions",
-          "value": "220 × 220 × 390 mm",
+          "value": "220×220×390 mm",
           "source": 0
         }
       ]
     },
     {
-      "name": "Atman RF-1001",
+      "name": "RF-1001",
       "specs": [
-        {
-          "key": "Power",
-          "value": "22 W",
-          "source": 6
-        },
         {
           "key": "Flow rate",
           "value": "1500 L/h",
-          "source": 6
+          "source": 0
         },
         {
-          "key": "Inlet/outlet",
-          "value": "16 mm",
-          "source": 6
+          "key": "Power",
+          "value": "22 W",
+          "source": 0
         },
         {
           "key": "Filter trays",
           "value": "2",
-          "source": 6
+          "source": 0
         },
         {
-          "key": "Recommended tank",
-          "value": "80–120 cm (150–250 L)",
-          "source": 6
+          "key": "Hose",
+          "value": "17 mm",
+          "source": 0
+        },
+        {
+          "key": "Suitable tank",
+          "value": "80–120 cm / 150–250 L",
+          "source": 0
         }
       ]
     },
     {
-      "name": "Atman RF-1301",
+      "name": "RF-1301",
       "specs": [
-        {
-          "key": "Power",
-          "value": "22 W",
-          "source": 6
-        },
         {
           "key": "Flow rate",
           "value": "1500 L/h",
-          "source": 6
+          "source": 0
         },
         {
-          "key": "Inlet/outlet",
-          "value": "16 mm",
-          "source": 6
+          "key": "Power",
+          "value": "22 W",
+          "source": 0
         },
         {
           "key": "Filter trays",
           "value": "3",
-          "source": 6
+          "source": 0
         },
         {
-          "key": "Recommended tank",
-          "value": "90–150 cm (200–400 L)",
-          "source": 6
+          "key": "Hose",
+          "value": "17 mm",
+          "source": 0
+        },
+        {
+          "key": "Suitable tank",
+          "value": "90–150 cm / 200–400 L",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "260×260×470 mm",
+          "source": 0
         }
       ]
     }
@@ -218,175 +213,147 @@
     {
       "shop": "Bống Vàng",
       "url": "https://bongvang.vn/product/may-loc-ngoai-atman-rf-1301/",
-      "vnd": 1760000,
       "variant": "RF-1301",
+      "vnd": 1760000,
       "source": 1
     },
     {
-      "shop": "Bách Khoa Aqua",
-      "url": "https://www.bachkhoaaqua.com/san-pham/lo-c-thu-ng-atman-rf-501-701-1001-1301",
-      "vnd": 1750000,
-      "variant": "RF-1301",
-      "source": 6
+      "shop": "Cá Cảnh Kim Giang",
+      "url": "https://cacanhkimgiang.com/may-loc-thung-atman-rf-1301-moi",
+      "variant": "RF-1301 (out of stock)",
+      "vnd": 1450000,
+      "source": 2
     },
     {
-      "shop": "Bách Khoa Aqua",
-      "url": "https://www.bachkhoaaqua.com/san-pham/lo-c-thu-ng-atman-rf-501-701-1001-1301",
-      "vnd": 1650000,
-      "variant": "RF-1001",
-      "source": 6
-    },
-    {
-      "shop": "Bách Khoa Aqua",
-      "url": "https://www.bachkhoaaqua.com/san-pham/lo-c-thu-ng-atman-rf-501-701-1001-1301",
-      "vnd": 1250000,
-      "variant": "RF-701",
-      "source": 6
-    },
-    {
-      "shop": "Bách Khoa Aqua",
-      "url": "https://www.bachkhoaaqua.com/san-pham/lo-c-thu-ng-atman-rf-501-701-1001-1301",
-      "vnd": 1150000,
-      "variant": "RF-501",
-      "source": 6
-    },
-    {
-      "shop": "Thế Giới Cá Cảnh (Happy Aquarium)",
+      "shop": "Thế Giới Cá Cảnh",
       "url": "https://thegioicacanh.com.vn/loc-thung-atman-rf-1301-cho-ho-ca-canh-p39104513.html",
+      "variant": "RF-1301",
       "vnd": 1800000,
-      "variant": "RF-1301",
-      "source": 4
-    },
-    {
-      "shop": "Greendeal (out of stock)",
-      "url": "https://greendeal.vn/atman-canister-filter-rf-1301",
-      "vnd": 1700000,
-      "variant": "RF-1301",
       "source": 3
     },
     {
-      "shop": "Cá Cảnh Kim Giang (out of stock)",
-      "url": "https://cacanhkimgiang.com/may-loc-thung-atman-rf-1301-moi",
-      "vnd": 1450000,
-      "variant": "RF-1301 new generation",
+      "shop": "Greendeal",
+      "url": "https://greendeal.vn/atman-canister-filter-rf-1301",
+      "variant": "RF-1301 (out of stock)",
+      "vnd": 1700000,
       "source": 5
     }
   ],
   "fits": [
     {
-      "fact": "Sellers rate it for tanks about 90–150 cm long, roughly 200–400 L.",
+      "fact": "Recommended for tanks 90–150 cm long, holding about 200–400 L",
       "source": 1
     },
     {
-      "fact": "Marketed for both planted tanks and fish-only tanks.",
-      "source": 5
+      "fact": "The seller pitches it for both planted tanks and fish-only tanks",
+      "source": 2
     },
     {
-      "fact": "Listed as usable in both freshwater and marine tanks.",
+      "fact": "The listing says the range works in both freshwater and saltwater, and suits beginners and experienced keepers alike",
       "source": 0
     },
     {
-      "fact": "For tanks under about 90 cm, the smaller RF-501 or RF-701 from the same range is the size match.",
-      "source": 6
-    },
-    {
-      "fact": "The 3-tray RF-1301 has the same pump as the 2-tray RF-1001 but holds more media and is rated for larger tanks.",
-      "source": 6
+      "fact": "For smaller tanks the range offers RF-501 (40–80 cm) and RF-701 (60–90 cm)",
+      "source": 0
     }
   ],
   "usage": [
     {
-      "fact": "Fix the intake and outlet hoses to the tank wall, then pump the priming button repeatedly until water fills the canister and comes out the outlet.",
+      "fact": "Put the canister below the tank, fix the inlet and outlet hoses to the tank wall and tighten every joint to stop leaks",
       "source": 4
     },
     {
-      "fact": "One shop suggests starting the siphon from the outlet hose instead of relying on the priming button.",
-      "source": 5
+      "fact": "To prime, press the button on the lid repeatedly until water runs from the tank through the canister and back out of the outlet",
+      "source": 3
     },
     {
-      "fact": "Put the canister below the tank's water line and keep the tank full. Cut hoses to length, because extra tubing tangles and reduces flow.",
-      "source": 5
-    },
-    {
-      "fact": "Tighten every fitting before you plug it in, and never run the pump dry.",
+      "fact": "One shop suggests priming by siphoning from the outlet instead of the button. It also says the filter restarts on its own after a power cut without re-priming",
       "source": 2
     },
     {
-      "fact": "According to the seller, it restarts by itself after a power cut without needing to be primed again.",
-      "source": 5
-    },
-    {
-      "fact": "Put coarse media at the bottom, finer media above it, and a thin layer of floss on top. Don't pack the media tightly, because that creates channels water can bypass through.",
-      "source": 5
-    },
-    {
-      "fact": "The trays are different sizes, so each one must go back in its original position.",
+      "fact": "Keep the tank full and never run the unit dry",
       "source": 4
     },
     {
-      "fact": "For maintenance, clean the trays and impeller when the filter has gone a long time without service or debris is blocking the impeller. If air gets in, replace the hose gasket.",
-      "source": 4
+      "fact": "Cut off extra hose so it doesn't kink or tangle and cut the flow",
+      "source": 2
     },
     {
-      "fact": "When cleaning, take care with the plastic lock, which can crack. Don't drop the ceramic impeller shaft, and leave it in place unless it is stuck.",
-      "source": 5
-    },
-    {
-      "fact": "The flow lock lever makes it easier to disconnect the hoses for cleaning.",
+      "fact": "The swivel connector turns 360°, and its lever both locks the hoses and sets the flow",
       "source": 3
+    },
+    {
+      "fact": "The trays are different sizes, so each one has to go back in its original position",
+      "source": 3
+    },
+    {
+      "fact": "Put coarse media at the bottom and finer media higher up, with a thin floss layer on top. Packing media too tightly makes water channel through it",
+      "source": 2
+    },
+    {
+      "fact": "Water moves up through all the trays from the bottom",
+      "source": 1
+    },
+    {
+      "fact": "Clean the trays regularly. Sellers give no fixed interval; clean the media and impeller when dirt builds up or the impeller clogs",
+      "source": 3
+    },
+    {
+      "fact": "The ceramic impeller shaft is fragile: take it out only if it is stuck, rinse it gently and don't drop it",
+      "source": 2
     }
   ],
   "issues": [
     {
-      "fact": "A seller warns that bio balls in the trays make noise and let debris into the trays' flow channels.",
-      "source": 5
+      "fact": "The plastic latches can break if you force them while opening or closing the canister",
+      "source": 2
     },
     {
-      "fact": "The same seller says the ceramic media that comes with the unit has little biological capacity and should be replaced.",
-      "source": 5
+      "fact": "One shop warns that bio balls make the unit noisy and let debris into the tray channels, and that the supplied ceramic rings hold few bacteria",
+      "source": 2
     },
     {
-      "fact": "The plastic lock clip can crack if handled roughly during disassembly.",
-      "source": 5
-    },
-    {
-      "fact": "If the hose gaskets don't seal, air can get into the lines, so the connections need to stay airtight.",
-      "source": 4
-    },
-    {
-      "fact": "Sold as a 'new generation' (thế hệ mới) version, but no source explains how it differs from the earlier one.",
-      "source": 5
-    },
-    {
-      "fact": "Listed dimensions don't agree: 22×22×47 cm, 22×22×42 cm and 26×26×47 cm all appear. Measure your cabinet before buying.",
+      "fact": "If air gets in at the hose joints, replace the hose gasket",
       "source": 3
     },
     {
-      "fact": "The shops' 'quiet' claims come with no measured noise figure. One listing also shows an obviously wrong weight of 8000 kg.",
+      "fact": "Sources call RF-1301 the newer replacement for Atman's DF series (DF-1300). It has a refreshed design and is said to use less power",
+      "source": 3
+    },
+    {
+      "fact": "Shops disagree on the specs: height is given as 42 or 47 cm, and hose size as 16 or 17 mm",
+      "source": 5
+    },
+    {
+      "fact": "Several shops show it as out of stock, so check availability before buying",
       "source": 2
     }
   ],
   "alternatives": [
     {
       "brand": "Atman",
-      "model": "RF-1001",
-      "why": "It has the same 22 W, 1500 L/h pump with 2 trays instead of 3 and costs about 100,000 VND less. That makes it a cheaper choice for 80–120 cm tanks."
+      "model": "DF-1300",
+      "why": "The older model RF-1301 replaced. It costs about the same (from 1,450,000₫) and Bảo Trân sells it with floss and bio balls included",
+      "source": 8,
+      "_": ""
     },
     {
-      "brand": "SunSun",
-      "model": "HW-304B / HW-704B",
-      "why": "A common Chinese canister in a higher class: about 2000 L/h and 55 W, with a built-in 9 W UV lamp. It suits larger tanks or tanks prone to green water. Overseas users report mixed results on noise and leaks. I found no VND price on Vietnamese shop websites."
+      "brand": "Sunsun",
+      "model": "HW-3000",
+      "why": "A popular budget canister at about 1,850,000–1,900,000₫, a close rival on price",
+      "source": 7
     },
     {
-      "brand": "Eheim",
-      "model": "Classic 2217",
-      "why": "A premium German canister with a long track record for reliability, aimed at buyers who put quiet running and durability first. It costs much more than Atman."
+      "brand": "Oase",
+      "model": "BioMaster 350",
+      "why": "A premium German filter at about 6,200,000₫, for buyers who want better build quality",
+      "source": 6
     }
   ],
   "sources": [
     {
       "url": "https://aquahouse.vn/loc-thung-atman-rf-1001-rf-1301-rf-501-rf-701the-he-moi-cho-ho-ca/",
-      "title": "Lọc thùng Atman RF 1001/RF 1301/RF 501/RF 701 thế hệ mới – AquaHouse",
+      "title": "Lọc thùng Atman RF 1001/1301/501/701 – Aquahouse",
       "kind": "shop"
     },
     {
@@ -395,8 +362,18 @@
       "kind": "shop"
     },
     {
+      "url": "https://cacanhkimgiang.com/may-loc-thung-atman-rf-1301-moi",
+      "title": "Máy lọc thùng Atman RF 1301 Thế Hệ Mới – Cá Cảnh Kim Giang",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thegioicacanh.com.vn/loc-thung-atman-rf-1301-cho-ho-ca-canh-p39104513.html",
+      "title": "Lọc Thùng Atman RF 1301 – Thế Giới Cá Cảnh",
+      "kind": "shop"
+    },
+    {
       "url": "https://cacanhnamaqua.com/oc-thung-atman-rf-1301-22w-1500l-h-hieu-qua-cho-be-ca-canh/",
-      "title": "Lọc thùng Atman RF-1301 – Cá Cảnh Nam Aqua",
+      "title": "Lọc Thùng Atman RF-1301 – Cá Cảnh Nam Aqua",
       "kind": "shop"
     },
     {
@@ -405,18 +382,18 @@
       "kind": "shop"
     },
     {
-      "url": "https://thegioicacanh.com.vn/loc-thung-atman-rf-1301-cho-ho-ca-canh-p39104513.html",
-      "title": "Lọc thùng Atman RF 1301 cho hồ cá cảnh – Thế Giới Cá Cảnh",
+      "url": "https://mdaqua.com.vn/san-pham/loc-oase-biomaster-350/",
+      "title": "Lọc OASE Biomaster 350 – Mỹ Đình Aquarium",
       "kind": "shop"
     },
     {
-      "url": "https://cacanhkimgiang.com/may-loc-thung-atman-rf-1301-moi",
-      "title": "Máy lọc thùng Atman RF 1301 thế hệ mới – Cá Cảnh Kim Giang",
+      "url": "https://thuysinh4u.com/loc-thung-sunsun-hw-3000",
+      "title": "Lọc thùng Sunsun HW 3000 – Thủy Sinh 4U",
       "kind": "shop"
     },
     {
-      "url": "https://www.bachkhoaaqua.com/san-pham/lo-c-thu-ng-atman-rf-501-701-1001-1301",
-      "title": "Lọc thùng ATMAN RF 501 - 701 - 1001 - 1301 – Bách Khoa Aqua",
+      "url": "http://baotranaquarium.com/loc-thung-atman-df1300-245w-1500lh-dung-cho-ho-150200cm",
+      "title": "Lọc thùng ATMAN DF1300 – Bảo Trân Aquarium",
       "kind": "shop"
     }
   ]

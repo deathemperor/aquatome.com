@@ -1067,6 +1067,10 @@
   "Arius africanus": [
     "Tachysurus africanus"
   ],
+  "Arius gigas": [
+    "Carlarius gigas",
+    "Tachysurus gigas"
+  ],
   "Arius latiscutatus": [
     "Arius biscutatus",
     "Arius lagoensis",
@@ -1089,6 +1093,24 @@
     "Silurus maculatus",
     "Silurus thunbergi",
     "Tachysurus maculatus"
+  ],
+  "Arius manillensis": [
+    "Pseudarius philippinus"
+  ],
+  "Arius oetik": [
+    "Arius utik"
+  ],
+  "Arius subrostratus": [
+    "Arius subostratus",
+    "Tachysurus subrostratus"
+  ],
+  "Arius venosus": [
+    "Arius laeviceps",
+    "Arius macruropterygius",
+    "Arius manjong",
+    "Arius micronotacanthus",
+    "Arius micruropterygius",
+    "Tachysurus venosus"
   ],
   "Arnoldichthys spilopterus": [
     "Petersius spilopterus"
@@ -1354,6 +1376,7 @@
     "Scrophularia procumbens"
   ],
   "Badis assamensis": [],
+  "Badis autumnum": [],
   "Badis badis": [
     "Badis buchanani",
     "Cychla fasciata",
@@ -1385,6 +1408,17 @@
     "Bagarius nieuwenhuisii",
     "Bagrus yarrelli"
   ],
+  "Bagre bagre": [
+    "Bagre filamentosus",
+    "Bagrus macronemus",
+    "Felichthys bagre",
+    "Felichthys filamentosus",
+    "Galeichthys gronovii",
+    "Mystus carolinensis",
+    "Paradiplomystes coruscans",
+    "Pimelodus coruscans",
+    "Silurus bagre"
+  ],
   "Bagre marinus": [
     "Aelurichthys longispinis",
     "Felichthys felis",
@@ -1393,6 +1427,21 @@
     "Galeichthys blochii",
     "Galeichthys parrae",
     "Silurus marinus"
+  ],
+  "Bagre panamensis": [
+    "Aelurichthys isthmensis",
+    "Aelurichthys nuchalis",
+    "Aelurichthys panamensis",
+    "Aelurichthys scutatus",
+    "Ailurichthys panamensis",
+    "Anemanotus panamensis",
+    "Felichthys panamensis"
+  ],
+  "Bagre pinnimaculatus": [
+    "Aelurichthys pinnimaculatus",
+    "Ailurichthys eydouxii",
+    "Felichthys pinnimaculatus",
+    "Galeichthys eydouxii"
   ],
   "Bagrichthys hypselopterus": [
     "Bagrus hypselopterus"
@@ -1631,6 +1680,12 @@
     "Dinotopterus jacksoni",
     "Dinotopterus loweae",
     "Dinotopterus nyasensis"
+  ],
+  "Batrachocephalus mino": [
+    "Ageneiosus mino",
+    "Batrachocephalus ageneiosus",
+    "Batrachocephalus ageniosus",
+    "Batrachocephalus micropogon"
   ],
   "Batrochoglanis raninus": [
     "Batrachoglanis raninus",
@@ -2127,6 +2182,7 @@
     "Cambarus shufeldtii",
     "Cambarus spec"
   ],
+  "Cambarellus texanus": [],
   "Cambarus bartonii": [
     "Astacus bartonii"
   ],
@@ -2228,6 +2284,13 @@
     "Monotreta travancoricus",
     "Tetraodon travancoricus"
   ],
+  "Carlarius heudelotii": [
+    "Arius heudeloti",
+    "Arius mercatoris",
+    "Bagrus goreensis",
+    "Tachysurus heudelotii",
+    "Tachysurus mercatoris"
+  ],
   "Carnegiella marthae": [],
   "Carnegiella myersi": [],
   "Carnegiella strigata": [
@@ -2246,6 +2309,12 @@
     "Flabellum multifore",
     "Flabellum vacuum",
     "Pectinia jardinei"
+  ],
+  "Catathyridium jenynsii": [
+    "Achirus errans",
+    "Achirus jenynsi",
+    "Achirus trichospilus",
+    "Solea jenynsii"
   ],
   "Catlocarpio siamensis": [],
   "Catoprion mento": [
@@ -2538,11 +2607,24 @@
     "Perilampus macropodus",
     "Perilampus psilopteromus"
   ],
+  "Chelonodon patoca": [
+    "Arothron kappa",
+    "Cheilichthys kappa",
+    "Chelondon patoca",
+    "Chelonodon kappa",
+    "Chelonodon potoca",
+    "Leiodon patoca",
+    "Tetraodon kappa",
+    "Tetraodon patoca",
+    "Tetrodon dissutidens",
+    "Tetrodon patoca"
+  ],
   "Cherax boesemani": [],
   "Cherax holthuisi": [],
   "Cherax lorentzi": [
     "Cheraps lorentzi"
   ],
+  "Cherax peknyi": [],
   "Cherax pulcher": [],
   "Cherax quadricarinatus": [
     "Astacus quadricarinatus"
@@ -2554,6 +2636,10 @@
     "Chaeraps tenuimanus"
   ],
   "Chilatherina bleheri": [],
+  "Chilatherina sentaniensis": [
+    "Chilaterina sentaniensi",
+    "Rhombatractus sentaniensis"
+  ],
   "Chilodus punctatus": [
     "Chaenotropus punctatus"
   ],
@@ -4752,6 +4838,13 @@
   ],
   "Gymnogeophagus meridionalis": [],
   "Gymnorhamphichthys hypostomus": [],
+  "Gymnothorax polyuranodon": [
+    "Lycodontis polyuranodon",
+    "Muraena blematigrina",
+    "Muraena polyuranodon",
+    "Polyuranodon kuhlii",
+    "Uropterygius fijiensis"
+  ],
   "Gymnothorax tile": [
     "Gymnothorax borneensis",
     "Lycodontis literata",
@@ -5150,6 +5243,11 @@
     "Silurus fossilis",
     "Silurus laticeps",
     "Silurus singio"
+  ],
+  "Heterotilapia buttikoferi": [
+    "Chromis buttikoferi",
+    "Tilapia ansorgii",
+    "Tilapia buttikoferi"
   ],
   "Heterotis niloticus": [
     "Clupisudis niloticus",
@@ -6801,6 +6899,7 @@
     "Caecomastacembelus greshoffi"
   ],
   "Mastacembelus notophthalmus": [],
+  "Mastacembelus pantherinus": [],
   "Mastacembelus plagiostomus": [
     "Afromastacembelus plagiostomus",
     "Caecomastacembelus plagiostomus"
@@ -7407,6 +7506,10 @@
     "Caulinia guadalupensis",
     "Najas microdon"
   ],
+  "Nandus nebulosus": [
+    "Bedula nebulosus",
+    "Nandus borneensis"
+  ],
   "Nannacara adoketa": [
     "Ivanacara adoketa"
   ],
@@ -7755,6 +7858,7 @@
     "Dermogenys ebrardti",
     "Hemiramphus ebrardtii"
   ],
+  "Nomorhamphus liemi": [],
   "Nomorhamphus rex": [],
   "Nothobranchius cardinalis": [],
   "Nothobranchius eggersi": [],
@@ -9645,6 +9749,10 @@
     "Glyptoperichthys punctatus",
     "Loricaria punctata"
   ],
+  "Pterygoplichthys scrophus": [
+    "Glyptoperichthys scrophus",
+    "Liposarcus scrophus"
+  ],
   "Pterygoplichthys zuliaensis": [],
   "Ptychochromis oligacanthus": [
     "Ptychochromis nossibeensis",
@@ -10217,6 +10325,12 @@
     "Scatophagus purpurascens",
     "Scatophagus quadranus",
     "Scatophagus quadratus"
+  ],
+  "Scatophagus tetracanthus": [
+    "Cacodoxus tetracanthus",
+    "Chaetodon tetracanthus",
+    "Ephippus tetracanthus",
+    "Scatophagus fasciatus"
   ],
   "Schilbe marmoratus": [
     "Schilbe congolensis"

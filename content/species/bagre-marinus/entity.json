@@ -11,120 +11,19 @@
     "gulf-of-mexico",
     "cuba",
     "south-america",
-    "venezuela"
+    "venezuela",
+    "mexico",
+    "belize",
+    "honduras",
+    "nicaragua",
+    "costa-rica",
+    "panama",
+    "colombia",
+    "guyana",
+    "suriname",
+    "french-guiana",
+    "brazil"
   ],
-  "dataCard": {
-    "ph": [
-      {
-        "source": "planetcatfish",
-        "value": {
-          "min": 8,
-          "max": 8.4
-        }
-      }
-    ],
-    "sizeCm": [
-      {
-        "source": "planetcatfish",
-        "value": 69
-      }
-    ]
-  },
-  "sections": [
-    {
-      "key": "quickFacts",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
-      "html": "<p>Scientific name: Bagre marinus (Mitchill, 1815). Common names: Gafftopsail Catfish, Bagre Cacumo (Puerto Rican), Topsejlmalle (Denmark). Type locality: New York, U.S.A. Size: 690 mm SL (69 cm). This is a true marine fish.</p>"
-    },
-    {
-      "key": "distribution",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
-      "html": "<p>Western Atlantic: coast of Gulf of Mexico, Cuba, western margin of the Caribbean, and the northern margin of South America. Sometimes in rivers and estuaries.</p>"
-    },
-    {
-      "key": "waterConditions",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
-      "html": "<p>pH 8.0–8.4. Temperature 10–20°C. This is a true marine fish.</p>"
-    },
-    {
-      "key": "equipment",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
-      "html": "<p>A marine aquarium containing a sand substrate and live rock to provide hiding places.</p>"
-    },
-    {
-      "key": "diet",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
-      "html": "<p>An opportunistic feeder in the wild that would be expected to consume a wide range of aquarium fare.</p>"
-    },
-    {
-      "key": "behaviour",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
-      "html": "<p>Compatible with other cold to cool water marine fishes that are too large for this fish to eat.</p>"
-    },
-    {
-      "key": "reproduction",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
-      "html": "<p>Unreported in aquaria. It is known that spawning in the wild occurs from May to June and that the male holds the large fertilized eggs in its mouth for up to two months until they hatch. The male does not eat during the incubation period.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
-      "html": "<p>Identification: overall gray with a blue sheen. Barbels on upper jaw noticeably flat. Long filaments on pectoral and dorsal fins reaching nearly to or beyond the anal fin. Caudal fin deeply forked with slightly longer upper lobe. Anal fin with concave margin. It has 22–26 anal fin rays and 7–12 gill rakers on the first branchial arch. Where plentiful, they are caught on longlines, bottom trawls, shore seines, cast nets, and hook and line. Not considered a food fish in North America, but eaten throughout the Caribbean and Northern South America where its flesh is considered tasty.</p>"
-    },
-    {
-      "key": "references",
-      "source": "planetcatfish",
-      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
-      "html": "<p>Transactions of the Literary and Philosophical Society of New-York v. 1 (art. 5) (for 1814), pp 433.</p>"
-    }
-  ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/inaturalist/26723211.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/26723211-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "marique",
-      "sourceUrl": "https://www.inaturalist.org/photos/26723211",
-      "caption": "Cá da trơn gafftopsail bơi sát mặt nước biển, vây lưng giương cao",
-      "large": {
-        "url": "https://media.aquatome.com/inaturalist/26723211-large.webp",
-        "width": 1800,
-        "height": 1200
-      }
-    }
-  ],
-  "videos": [
-    {
-      "youtubeId": "hSXtY_RWQck",
-      "title": "UGA Aquarium's smallest  Sea Catfish",
-      "durationSec": 61,
-      "lang": "en-US"
-    },
-    {
-      "youtubeId": "4hkKYfYOiNk",
-      "title": "UGA Aquarium's three Sea Catfish",
-      "durationSec": 61,
-      "lang": "en-US"
-    },
-    {
-      "youtubeId": "wymROnFpYDU",
-      "title": "Third one and big. Gafftopsail catfish",
-      "durationSec": 14,
-      "lang": "en"
-    }
-  ],
-  "productSlots": [],
-  "updatedAt": "2026-11-13",
   "range": {
     "native": {
       "countries": [
@@ -810,5 +709,173 @@
     "kind": "marine",
     "source": "planetcatfish",
     "quote": "A marine aquarium containing a sand substrate and live rock to provide hiding places."
-  }
+  },
+  "dataCard": {
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 8,
+          "max": 8.4
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 69
+      },
+      {
+        "source": "scotcat",
+        "value": 40
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 12,
+          "max": 26
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
+      "html": "<p>Scientific name: Bagre marinus (Mitchill, 1815). Common names: Gafftopsail Catfish, Bagre Cacumo (Puerto Rican), Topsejlmalle (Denmark). Type locality: New York, U.S.A. Size: 690 mm SL (69 cm). This is a true marine fish.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/bagre_marinus.htm",
+      "html": "<p>Family: Ariidae. Size: 40 cm. Temperature: 12–26°C. pH: 7.0–8.5. Anal soft rays: 22–28. Maxillary barbels, the first ray of the dorsal fin and the first ray of the pectoral fin are extended as long, flat filaments. There is one pair of barbels on the chin. The dorsal and pectoral fins have a serrated, erectile spine, both of which are venomous.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
+      "html": "<p>Western Atlantic: coast of Gulf of Mexico, Cuba, western margin of the Caribbean, and the northern margin of South America. Sometimes in rivers and estuaries.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/bagre_marinus.htm",
+      "html": "<p>Eastern America: United States, Mexico, Cuba, Belize, Honduras, Nicaragua, Costa Rica, Panama, Colombia, Venezuela, Guyana, Surinam, French Guyana and Brazil. Type locality: New York, U.S.A.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/bagre_marinus.htm",
+      "html": "<p>Mainly marine but enters brackish estuaries with relatively high salinities.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
+      "html": "<p>pH 8.0–8.4. Temperature 10–20°C. This is a true marine fish.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
+      "html": "<p>A marine aquarium containing a sand substrate and live rock to provide hiding places.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
+      "html": "<p>An opportunistic feeder in the wild that would be expected to consume a wide range of aquarium fare.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/bagre_marinus.htm",
+      "html": "<p>Feeds mainly on small fishes and invertebrates. Commonly caught by anglers along bridges, piers and catwalks. The flesh is considered good.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
+      "html": "<p>Compatible with other cold to cool water marine fishes that are too large for this fish to eat.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
+      "html": "<p>Unreported in aquaria. It is known that spawning in the wild occurs from May to June and that the male holds the large fertilized eggs in its mouth for up to two months until they hatch. The male does not eat during the incubation period.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
+      "html": "<p>Identification: overall gray with a blue sheen. Barbels on upper jaw noticeably flat. Long filaments on pectoral and dorsal fins reaching nearly to or beyond the anal fin. Caudal fin deeply forked with slightly longer upper lobe. Anal fin with concave margin. It has 22–26 anal fin rays and 7–12 gill rakers on the first branchial arch. Where plentiful, they are caught on longlines, bottom trawls, shore seines, cast nets, and hook and line. Not considered a food fish in North America, but eaten throughout the Caribbean and Northern South America where its flesh is considered tasty.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/bagre_marinus.htm",
+      "html": "<p>Etymology: the specific name marinus means 'of the sea', the 'Salt-water Catfish' of New York State (USA).</p><p>IUCN Red List: this widely distributed species is common and abundant where it occurs in shallow coastal and estuarine waters. It is a valued fishery resource in the Gulf of Mexico off Mexico and the level of exploitation is considered to be at maximum sustainable yield. It is likely vulnerable to overexploitation due to ongoing illegal fishing activity that targets spawning adults. It also occurs as bycatch in trawl fisheries and artisanal catch off Brazil. It does not support a significant fishery in U.S. waters. Currently, there is no indication of significant decline on the global level. Therefore, it is listed as Least Concern with a recommendation to improve monitoring and regulation of the Mexican fisheries (IUCN 2015).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=137",
+      "html": "<p>Transactions of the Literary and Philosophical Society of New-York v. 1 (art. 5) (for 1814), pp 433.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/bagre_marinus.htm",
+      "html": "<ul><li>Chao, L., Vega-Cendejas, M., Tolan, J., Jelks, H. &amp; Espinosa-Perez, H. 2015. Bagre marinus. The IUCN Red List of Threatened Species 2015.</li><li>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (10/2009).</li><li>Marceniuk, Alexandre P.; Menezes, Naércio A. (2007). \"Systematics of the family Ariidae (Ostariophysi, Siluriformes), with a redefinition of the genera\" Zootaxa 1416: 1–126.</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/26723211.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/26723211-480.webp",
+      "width": 1024,
+      "height": 683,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/26723211-large.webp",
+        "width": 1800,
+        "height": 1200
+      },
+      "licence": "CC BY",
+      "author": "marique",
+      "sourceUrl": "https://www.inaturalist.org/photos/26723211",
+      "caption": "Cá da trơn gafftopsail bơi sát mặt nước biển, vây lưng giương cao"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "hSXtY_RWQck",
+      "title": "UGA Aquarium's smallest  Sea Catfish",
+      "durationSec": 61,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "4hkKYfYOiNk",
+      "title": "UGA Aquarium's three Sea Catfish",
+      "durationSec": 61,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "wymROnFpYDU",
+      "title": "Third one and big. Gafftopsail catfish",
+      "durationSec": 14,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-17"
 }

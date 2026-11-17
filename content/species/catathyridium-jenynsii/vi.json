@@ -1,0 +1,30 @@
+{
+  "slug": "ca-bon-parana-co-rau",
+  "name": "Cá bơn Paraná có râu",
+  "altNames": [
+    "Cá lưỡi trâu nước ngọt Paraná",
+    "Bearded Paraná Sole"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Loài này dài tối đa khoảng 20–25 cm, tức là một con cá khá lớn.</p>",
+    "behaviour:glaser": "<p>Catathyridium jenynsii là cá săn mồi. Cá quá nhỏ thả chung có thể bị nó ăn, nên đừng chọn những con như vậy. Với các loài cá khác thì nó hoàn toàn hiền.</p>",
+    "diet:glaser": "<p>Ngoài cá sống và cá cắt miếng, con cá bơn này cũng ăn giun đất ngay.</p>",
+    "equipment:glaser": "<p>Đáy bể nuôi cá bơn phải có chỗ trải cát mịn để cá vùi mình. Không có chỗ vùi thì cá sẽ bị bệnh ngoài da.</p>",
+    "waterConditions:glaser": "<p>Đây là loài sống ở vùng phía nam, nên thỉnh thoảng cần cho nước mát xuống. Nếu bể đặt trong phòng khách thì tốt nhất là tắt sưởi suốt mùa đông.</p>",
+    "notes:glaser": "<p>Kai Arendt đề xuất gọi loài cá này là Bearded Paraná Sole (cá bơn Paraná có râu), vì quanh đầu nó có rất nhiều tua thịt (cirrhi).</p>"
+  },
+  "quality": {
+    "score": 0.6,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.6
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "elsewhere"
+    ],
+    "at": "2026-11-18"
+  }
+}

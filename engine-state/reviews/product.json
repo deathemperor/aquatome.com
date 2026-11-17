@@ -97,6 +97,37 @@
       "kept": false
     }
   ],
+  "vi/products/atman-rf-1301": [
+    {
+      "at": "2026-11-17T19:44:18Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.9,
+      "notes": [
+        "\"Bể của bạn rơi vào chỗ hai cỡ cùng ghi thì xem thêm chỗ đặt thùng và số khay mình cần\" is the page's own selection advice. The facts don't say this.",
+        "\"Mở đóng từ từ\" is an added tip. The facts only warn that the plastic latches can break if forced.",
+        "The page repeats \"nghe nói tốn ít điện hơn\" in several places. The facts do say this, but only as a vague claim, with no wattage comparison against the DF series."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-17T19:44:18Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.85,
+      "notes": [
+        "\"Nhà sản xuất ghi RF-1301 dành cho bể dài 90–150 cm\" (also \"khoảng nhà sản xuất ghi\"): the facts attribute this to a seller listing, not the manufacturer.",
+        "\"Bảng phiên bản của hãng lại ghi kích thước 260×260×470 mm\": the facts do not say this table comes from the manufacturer.",
+        "\"Bể nhỏ hơn 90 cm thì RF-1301 quá cỡ\": this is the page's own inference. The facts only give the recommended range.",
+        "\"Oase ... giá cao hơn hẳn\" and \"Sunsun ... giá gần với RF-1301\": the facts give no price for RF-1301, so these comparisons cannot be checked. The facts do give Sunsun at about 1.85–1.9M and Oase at about 6.2M."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/products/chihiros-a2-series": [
     {
       "at": "2026-11-11T04:45:26Z",

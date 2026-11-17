@@ -8,7 +8,8 @@
   "places": [
     "asia",
     "india",
-    "brahmaputra"
+    "brahmaputra",
+    "assam"
   ],
   "range": {
     "native": {
@@ -101,6 +102,10 @@
       {
         "source": "seriouslyfish",
         "value": 17
+      },
+      {
+        "source": "glaser",
+        "value": 20
       }
     ],
     "tankCm": [
@@ -124,10 +129,22 @@
       "html": "<ul><li>Max size: 170 mm SL (7 in SL)</li><li>Aquarium size: 120 × 30 cm (48 × 12 in)</li><li>Temperature: 14–28°C (57–82°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 2–20 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-bleheri-2/",
+      "html": "<p>The rainbow snakehead (Channa bleheri) from the state of Assam in India is one of the most beautiful snakehead species. It is very colorful and stays comparatively small (at least in comparison with some other snakeheads), namely 15-20 cm. It is also rather peaceful in comparison with other snakeheads.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/channa-bleheri",
       "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump.</li></ul><p>The rainbow snakehead, Channa bleheri, is a snakehead endemic to the Brahmaputra basin in Assam and Arunachal Pradesh, northeastern India. A popular aquarium fish, it lacks pelvic fins and has reddish orange markings on the caudal fin. Both parents guard the floating eggs. It has been recommended as a concern for conservation because of its restricted range and burrow habitat, though it is unclear whether collection for the trade affects wild populations.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-bleheri-2/",
+      "html": "<p>This species is recommended only for experienced hobbyists, because C. bleheri is a subtropical species and lives in higher altitudes, where it can become pretty cool at times.</p>"
     },
     {
       "key": "distribution",
@@ -154,6 +171,12 @@
       "html": "<p>Prefers a dimly-lit aquarium with a layer of surface vegetation such as Ceratopteris spp. plus some submerged cover.</p><p>It is essential to use a tightly-fitting hood since Channa spp. are notorious for their ability to escape, and a gap should be left between this and the water surface as they require access to a layer of humid air.</p><p>More importantly still C. bleheri must not be maintained at a constant temperature but provided with natural seasonal variation in the form of defined winter and summer periods. During the colder period the fish do not require much food and the water level can be allowed to fall without additional top-ups.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-bleheri-2/",
+      "html": "<p>Experience has shown that the fish need cool periods from time to time to stay healthy over years and for breeding.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/channa-bleheri",
@@ -164,6 +187,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/channa-bleheri",
       "html": "<p>An obligate predator which probably feeds on smaller fishes and insects in nature, but in most cases adapts well to dead alternatives in captivity. Some specimens may accept dried foods though these should never form the staple diet.</p><p>Young fish can be offered chironomid larvae (bloodworm), small earthworms, chopped prawn and suchlike, while adults will accept strips of fish flesh, whole prawns, mussels, live river shrimp, larger earthworms, etc.</p><p>This species should not be fed mammalian or avian meat such as beef heart or chicken since some of the lipids contained in these cannot be properly metabolised by the fish and may cause excess fat deposits and even organ degeneration. Similarly there is no benefit in the use of 'feeder' fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction, and tend not have a high nutritional value unless properly conditioned beforehand.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-bleheri-2/",
+      "html": "<p>In respect of feeding C. bleheri is not very demanding. Insects and their larvae are the best choice, and the fish also like earthworms. Be careful if live feeder fish are offered, as they often carry diseases and can infect the snakeheads.</p>"
     },
     {
       "key": "behaviour",
@@ -182,6 +211,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/channa-bleheri",
       "html": "<p>A biparental free spawner which has been bred regularly in aquaria.</p><p>At the peak of courtship the male and female embrace in a similar fashion to anabantoids.</p><p>No bubble nest is built and several thousand eggs simply float at the surface with both male and female remaining to defend the eggs and fry.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-bleheri-2/",
+      "html": "<p>Rainbow snakeheads are biparental brood carers. Their eggs are lighter than water and float on the water surface, where the male gathers them into a kind of raft. Both parents take care of the fry.</p>"
     },
     {
       "key": "notes",
@@ -231,7 +266,32 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "_nFnxEwBu3M",
+      "title": "Blackwater Aquarium Setup for Snakehead • Natural Aquascape • Channa Bleheri",
+      "durationSec": 548,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "x5BxEjbinzM",
+      "title": "Can You Add a Rainbow Snakehead into a Community Aquarium?",
+      "durationSec": 482,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "eTXuCKNPH-I",
+      "title": "Channa Bleheri: Beginner-Friendly Snakehead or Not? Care Guide – Colour, Setup & Common Mistakes",
+      "durationSec": 1002,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "1QNIyvVTnUY",
+      "title": "Channa Bleheri (Rainbow Snakehead) Pair & Fry",
+      "durationSec": 77,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -262,5 +322,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-17"
 }

@@ -1,7 +1,7 @@
 ---
 url: https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilus-lineatus-gold-2/
 title: Aplocheilus lineatus "Gold" - Aquarium Glaser GmbH
-fetchedAt: 2026-11-17T16:22:22.106Z
+fetchedAt: 2026-11-17T18:39:30.797Z
 hash: 4fe9512531d291ad4861cde79bbf35c86a9b9881cab5e422c1c4744d398b344b
 ---
 

@@ -1,0 +1,26 @@
+{
+  "slug": "ca-noc-patoca",
+  "name": "Cá nóc patoca",
+  "altNames": [],
+  "sections": {
+    "quickFacts:glaser": "<p>Cá nóc nước lợ, con lớn dài tới 30 cm. Loài này nuôi trong nước lợ là tốt nhất.</p>",
+    "distribution:glaser": "<p>Chelonodon patoca phân bố rộng khắp Ấn Độ Dương. Gần đây nó hay được xếp vào chi Chelonodontops. Lô cá này nhập từ Thái Lan.</p>",
+    "habitat:glaser": "<p>Cá lớn thường sống ngoài biển. Cá non thì sống ở vùng nước lợ, đôi khi còn bơi ngược dòng lên rất xa.</p>",
+    "equipment:glaser": "<p>Bể nên trải nền cát, vì thỉnh thoảng C. patoca thích vùi mình xuống cát.</p>",
+    "behaviour:glaser": "<p>Loài cá đẹp này có cái dở là nhiều con sinh tật cắn vây. Chỉ nên nuôi chung với những loài cá bơi nhanh, đủ lẹ để né khi cá nóc lao vào cắn. Ngoài chuyện đó ra, C. patoca dễ nuôi, và giống hầu hết các loài cá nóc, nó rất thú vị.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-18"
+  }
+}

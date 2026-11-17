@@ -139,6 +139,12 @@
       "html": "<p>The dwarf flag cichlid, Laetacara curviceps, is a small cichlid from the lower Amazon basin in Brazil. An established aquarium favourite, it has also been called 'flag acara', 'smiling acara', 'sheepshead acara' and 'blunt-headed cichlid'. Populations differ in the degree of red and blue on the body and fins. It favours clear, slow-flowing water over leaf litter and is a biparental substrate-spawner.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/laetacara-curviceps-2/",
+      "html": "<p>Laetacara curviceps, the flag acara, is a small, peaceful and beautiful dwarf cichlid from Brazil.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-curviceps",
@@ -175,6 +181,12 @@
       "html": "<p>This species is an established aquarium favourite and has also been referred to as 'flag acara', 'smiling acara', 'sheepshead acara', and 'blunt-headed cichlid'.</p><p>The genus Laetacara currently contains seven valid species and L. curviceps can be told apart from all congeners except L. dorsigera and L. flamannellus by possessing (vs. lacking) a dark spot on the dorsal-fin base, though this is not present in all males.</p><p>In addition it differs from L. thayeri by possessing weakly ctenoid scales on the sides of the head (vs. strongly ctenoid) and a dark spot at the caudal-fin base (vs. no such spot), from L. flavilabris by having fewer total vertebrae (24 vs. 26), from L. araguaiae by having more proximal radials on the dorsal-fin base (22–23 vs. 21), from L. fulvipinnis by the lack of a dark dot at the edge of each scale on the midlateral portion of the flank (vs. presence), from L. flamannellus by lacking (vs. possessing) an orange-coloured ring around the basal dorsal-fin spot, and from L. dorsigera by having a deeper head (head depth 84.6–88.9 % of HL vs. 90.2–96.3 % of HL), a longer pelvic-fin spine (pelvic-fin spine length 15.5–19.7 % of SL vs. 11.7–15.4 % of SL), fewer teeth along the posterior margin of ceratobranchial 5 (19–20 vs. 21–24) and no prominent red belly in breeding specimens (vs. breeding males and females with conspicuous red cheeks, opercula and belly).</p><p>There is some confusion surrounding the year in which L. curviceps was described with the majority of sources stating 1923 whereas the year of publication actually appears to be 1924 (Ottoni et al., 2009).</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/laetacara-curviceps-2/",
+      "html": "<p>Quite a long time before the species of Apistogramma became popular in the hobby, another species of dwarf cichlid from Brazil was a favorite aquarium fish: Laetacara curviceps, the flag acara. At that time it was called Aequidens curviceps. Sadly the fish became rather rare in the past years. Currently very nice German-bred specimens are available.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-curviceps",
@@ -194,7 +206,32 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "xfNFQODqh2I",
+      "title": "Curviceps Cichlids",
+      "durationSec": 14,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Q0PqH72cjD0",
+      "title": "Feeding Laetacara Curviceps (Dwarf Flag Cichlid) (Dwarf Flag Acara)",
+      "durationSec": 66,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "C8PVG5dJxCE",
+      "title": "laetacara curviceps with fry",
+      "durationSec": 50,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "7HwYc8bzV4s",
+      "title": "[Video] The Curviceps Aquarium!",
+      "durationSec": 68,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "thuc-an",
@@ -225,5 +262,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-17"
 }

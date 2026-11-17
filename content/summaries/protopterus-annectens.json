@@ -1,13 +1,16 @@
 {
   "id": "protopterus-annectens",
-  "summary": "Cá phổi châu Phi (Protopterus annectens) hợp với người thật sự mê cá lạ và sẵn sàng gắn bó 20 năm với một con. Cá dài tới 100 cm nên cần bể rất lớn, nước 24–30 °C, độ cứng 0–10 dGH, độ khó 4/8. Khó nhất là nắp bể phải kín tuyệt đối, và cá cắn rất đau nên chỉ nuôi riêng một con.",
+  "summary": "Hợp với người mê cá lạ, chịu nuôi một con một bể và gắn bó lâu dài, vì cá sống trên 20 năm. Cá dài tới 100 cm nên cần bể rất lớn, nước 24–30 °C, độ cứng 0–10 dGH, độ khó 4/8. Khó nhất là giữ nắp bể thật khít và chấp nhận cá cắn rất mạnh nên không nuôi chung được.",
   "mistakes": [
-    "Đậy nắp còn khe hở: cá tìm cách thoát ra ngay, nên nắp phải chắc, không có khe nào, và chừa khoảng trống giữa mặt nước và nắp để cá ngoi lên hít khí.",
-    "Nuôi chung với cá lớn khác: có con sống yên một thời gian rồi quay sang cắn cá khác, nên nuôi một con một bể.",
-    "Thấy cá ít bơi nên cho vào bể nhỏ: cá vẫn cần chỗ bơi qua lại, nên chọn bể rất lớn ngay từ đầu."
+    "Đậy nắp còn khe hở: loài này hay nhảy và tìm cách thoát ngay, nên đậy thật khít, không để khe nào.",
+    "Sát nắp vào mặt nước: cá cần ngoi lên hít không khí, nên chừa khoảng trống giữa mặt nước và nắp.",
+    "Thả chung với cá lớn khác: cá phổi khó đoán và có thể quay sang cắn đứt thịt cá nuôi chung dù đã yên ổn một thời gian, nên nuôi riêng một con."
   ],
   "speciesUpdatedAt": "2026-11-09",
-  "generatedAt": "2026-11-09T23:11:47.086Z",
-  "review": "approved",
-  "writtenFrom": "3bf7c721a0bbbe7e"
+  "writtenFrom": "8d7b42e1673b0af8",
+  "generatedAt": "2026-11-17T20:01:49.257Z",
+  "review": "pending",
+  "problems": [
+    "\"nên không nuôi chung được\": the page says keeping it alone is best and that keeping it with other large fish is \"rất liều\" (very risky). It also says some people do it, and some fish lived peacefully with tank mates for a while. The summary turns this hedge into a flat rule that it can't be kept with other fish."
+  ]
 }
