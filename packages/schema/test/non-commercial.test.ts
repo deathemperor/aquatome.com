@@ -30,7 +30,7 @@ async function fixture(photos: Photo[], gallery: Photo[]) {
 }
 const load = (root: string, on: Partial<ImageSwitches> = {}) => loadAll({ root, lang: 'vi', publicBuild: true, wholeBoxes: false, imageSwitches: { ...IMAGE_SWITCHES, ...on } })
 
-test('the switch is on (the chief of staff, 16 Nov); turning it off is this one value', () => {
+test("the switch is on from 18 Nov (the chief of staff's yes of 17 Nov); turning it off is this one value", () => {
   expect(IMAGE_SWITCHES.inatNonCommercial).toBe(true)
 })
 

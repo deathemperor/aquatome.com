@@ -14,7 +14,7 @@ import { sweep } from '../src/sweep'
 
 /**
  * iNaturalist album photos under CC BY-NC or CC BY-NC-SA (the owner's yes, 10 Nov), behind IMAGE_SWITCHES.inatNonCommercial,
- * on since 17 Nov. Fixtures only: no request leaves the test.
+ * on from 18 Nov. Fixtures only: no request leaves the test.
  */
 const ON = { ...IMAGE_SWITCHES, inatNonCommercial: true }
 const OFF = { ...IMAGE_SWITCHES, inatNonCommercial: false }
@@ -146,6 +146,26 @@ test('switch off after on: a non-commercial candidate still queued is never scre
   const st = await read(r, `engine-state/gallery/${ID}.json`)
   expect(st.judged).not.toContain('inat:2')
   expect(st.queue.map((c: { key: string }) => c.key)).not.toContain('inat:2')
+})
+
+test("the album step's iNaturalist photo bytes: counted, and past the run's cap it stops, its candidates still queued and unjudged", async () => {
+  const r = await root()
+  const d = deps([])
+  const sizes: number[] = []
+  const counting: GalleryDeps = { ...d, get: async u => { const b = await d.get(u); if (u.includes('inaturalist')) sizes.push(b.byteLength); return b } }
+  const spent = await galleries(r, counting, { sheets: 5, switches: ON, inatBytes: 0 })
+  expect(spent.stopped).toMatch(/iNaturalist's photo bytes for this run spent/)
+  expect(spent.sheets).toBe(0)
+  expect(sizes).toEqual([])
+  const st = await read(r, `engine-state/gallery/${ID}.json`)
+  expect(st.queue.map((c: { key: string }) => c.key)).toContain('inat:1')
+  expect(st.judged).toEqual([])
+  // The next run, under the cap: screened and added, and every iNaturalist byte it downloaded counted.
+  const next = await galleries(r, counting, { sheets: 5, switches: ON })
+  expect(next.stopped).toBe('')
+  expect(next.added).toMatchObject({ iNaturalist: 3 })
+  expect(next.inatBytes).toBeGreaterThan(0)
+  expect(next.inatBytes).toBe(sizes.reduce((a, b) => a + b, 0))
 })
 
 test('album order: non-commercial photos after every open one, AI pictures last; a second pass changes nothing', () => {

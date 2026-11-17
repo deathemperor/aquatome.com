@@ -1022,7 +1022,7 @@ if (cmd === 'photo-privacy') {
   const env = (k: string) => (process.env[k] ? Number(process.env[k]) : undefined)
   const budget = Object.fromEntries((['inat', 'gbif', 'openverse'] as const).flatMap(k => (env(`GALLERY_${k.toUpperCase()}`) === undefined ? [] : [[k, env(`GALLERY_${k.toUpperCase()}`)!]])))
   const r = await galleries(ROOT, { ...galleryDeps(), openverse: await openverseApi() }, { sheets: values.sheets ? Number(values.sheets) : 40, ...(values.only ? { only: values.only } : {}), ...(values.shard ? { shard: values.shard.split('/').map(Number) as [number, number] } : {}), budget })
-  console.log(`gallery: ${r.done.length} pages, ${r.sheets} sheets, added ${JSON.stringify(r.added)}, ${r.short.length} short of target, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  console.log(`gallery: ${r.done.length} pages, ${r.sheets} sheets, added ${JSON.stringify(r.added)}, iNaturalist photos ${(r.inatBytes / 1e6).toFixed(1)} MB, ${r.short.length} short of target, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of [...r.done, ...r.failed]) console.log(x)
 } else if (cmd === 'album-ask') {
   // Each album photo asked once whether it shows a photo tank or a ruler, the whole fish, a fish filling a small part of

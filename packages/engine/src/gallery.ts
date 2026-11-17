@@ -149,7 +149,7 @@ export async function screenTagged(cands: Candidate[], name: string, viName: str
         } catch (e) {
           // Wikimedia resting is no verdict on the photo: the whole screening stops, and its candidates stay queued
           // unjudged (a page's album, a breed's month) until the rest ends.
-          if (e instanceof WikimediaRefused) throw e
+          if (e instanceof WikimediaRefused || e instanceof InatBytesSpent) throw e
           /* unreachable or corrupt thumb: skip */
         }
       }))
@@ -389,6 +389,15 @@ const UNSPLASH = 'Unsplash License'
 /** The source a candidate key came from, for the report. */
 export const sourceOfKey = (key: string) => (key.startsWith('inat:') ? 'iNaturalist' : key.startsWith('flickr:') ? 'Openverse (Flickr)' : key.startsWith('gbif:') ? 'GBIF' : 'Wikimedia Commons')
 class OutOfBudget extends Error {}
+/**
+ * iNaturalist's photo bytes a run of the album step may download (the photos it screens, at iNaturalist's "medium" size,
+ * 500 px). iNaturalist asks for under 5 GB of photos an hour and 24 GB a day (its API's recommended practices); the step
+ * runs once a cycle, about 8 a day, so its runs stay under 1.6 GB a day whatever they meet.
+ */
+export const INAT_BYTES = 200_000_000
+/** The run's iNaturalist photo bytes are spent: the run stops, and the candidates it hadn't screened stay queued. */
+class InatBytesSpent extends Error {}
+const isInatPhoto = (url: string) => /(^|\.)inaturalist\.org$|^inaturalist-open-data\.s3\.amazonaws\.com$/.test(new URL(url).host)
 
 type Page = { scientificName?: string; photos: Photo[]; commons?: string }
 
@@ -458,9 +467,21 @@ async function otherBreeds(root: string, id: string): Promise<{ urls: Set<string
  * photos are a last source, read once every open one has run dry. content/gallery/<id>.json;
  * engine-state/gallery/<id>.json; docs/review/galleries.md.
  */
-export async function galleries(root: string, d: GalleryDeps, o: { sheets: number; only?: string; budget?: Partial<SourceBudget>; shard?: [number, number]; switches?: Readonly<ImageSwitches> }) {
+export async function galleries(root: string, deps: GalleryDeps, o: { sheets: number; only?: string; budget?: Partial<SourceBudget>; shard?: [number, number]; switches?: Readonly<ImageSwitches>; inatBytes?: number }) {
   const content = join(root, 'content')
-  const report = { done: [] as string[], failed: [] as string[], stopped: '', sheets: 0, added: {} as Record<string, number>, short: [] as string[] }
+  const report = { done: [] as string[], failed: [] as string[], stopped: '', sheets: 0, added: {} as Record<string, number>, short: [] as string[], inatBytes: 0 }
+  // Every iNaturalist photo the run downloads is counted; past the cap (INAT_BYTES) the run stops.
+  const inatCap = o.inatBytes ?? INAT_BYTES
+  const d: GalleryDeps = {
+    ...deps,
+    get: async url => {
+      if (!isInatPhoto(url)) return deps.get(url)
+      if (report.inatBytes >= inatCap) throw new InatBytesSpent(`iNaturalist's photo bytes for this run spent (${Math.round(report.inatBytes / 1e6)} MB)`)
+      const b = await deps.get(url)
+      report.inatBytes += b.byteLength
+      return b
+    },
+  }
   const rejected = JSON.parse(await readFile(join(root, 'engine-state/_photo-rejected.json'), 'utf8').catch(() => '{}')) as Record<string, string>
   // A Commons, iNaturalist, Flickr or GBIF photo rejected after it moved to our bucket is known there by its key (mirror-photos.ts).
   const rejectedPhoto = isRejected(rejected)
@@ -670,7 +691,7 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
       report.done.push(`${t.id}: ${gallery.length}/${t.target} (+${gallery.length - before})`)
     } catch (err) {
       await save()
-      if (err instanceof LlmError) { report.stopped = `${t.id}: ${err.message}`; break }
+      if (err instanceof LlmError || err instanceof InatBytesSpent) { report.stopped = `${t.id}: ${err.message}`; break }
       report.failed.push(`${t.id}: ${(err as Error).message.slice(0, 160)}`)
     }
   }
