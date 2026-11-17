@@ -264,8 +264,9 @@ test("the album step's iNaturalist byte cap, crossed: the batch under way finish
   expect(got).toHaveLength(6)
   expect(run.inatBytes).toBeGreaterThan(1)
   const st = await read(r, `engine-state/gallery/${ID}.json`)
+  // None judged: the eight stay queued for the next run (beside what the run's own search queued).
   expect(st.judged).toEqual([])
-  expect(st.queue).toHaveLength(8)
+  expect(st.queue.map((c: { key: string }) => c.key)).toEqual(expect.arrayContaining(Array.from({ length: 8 }, (_, i) => `inat:${101 + i}`)))
 })
 
 test('album order: non-commercial photos after every open one, AI pictures last; a second pass changes nothing', () => {
