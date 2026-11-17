@@ -172,7 +172,7 @@ export class Billed {
    * `body`, the request: its worst held to the line, at the chat's list prices (`billedWorst`). `run`'s `tokens` missing:
    * the API's usage didn't come, and the call counts at its worst.
    */
-  async call<T>(c: { body: { model: string; max_tokens: number }; key?: string }, run: () => Promise<{ value: T; tokens?: Tokens }>): Promise<T> {
+  async call<T, B extends { model: string; max_tokens: number }>(c: { body: B; key?: string }, run: () => Promise<{ value: T; tokens?: Tokens }>): Promise<T> {
     if (this.stopped) throw new BilledLimit(this.stopped)
     const model = c.body.model
     const worst = billedWorst(c.body)
