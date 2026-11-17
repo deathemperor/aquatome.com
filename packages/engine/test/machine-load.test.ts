@@ -5,7 +5,7 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 // @ts-expect-error a plain script
-import { archiveNamed, archiveWorktree, expireArchive, scratch, scratchFolders, scratchKind, scratchVerdict, simVerdict, space, worktreeVerdict } from '../../../scripts/machine-sweep.mjs'
+import { archiveNamed, archiveWorktree, expireArchive, helperVerdict, scratch, scratchFolders, scratchKind, scratchVerdict, simVerdict, space, worktreeVerdict } from '../../../scripts/machine-sweep.mjs'
 import { slow } from '@aq/schema/test-time'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
@@ -67,6 +67,31 @@ test('the sweep removes a worktree only when no work can be lost and nobody is i
 })
 
 // GitHub started the 07:00 report about 5 hours late, four days running.
+// The chief of staff, 16 Nov 2026: a helper's own checkout goes an hour after its thread ends, saved first when it holds a
+// commit on no remote or a change not committed. A lead's checkout a helper shared stays the lead's.
+test("the sweep takes a helper's own checkout an hour after its thread ends, saving first what the remote lacks", () => {
+  const now = Date.parse('2026-11-17T10:00:00Z')
+  const done = { id: 'thread:delegated-task:command%3Amcp%3Ax%3Adelegate-task%3Ay', at: now - 2 * 3_600_000, active: false }
+  const h = { path: `${homedir()}/.infinitus/worktrees/aquatome.com/infi-ffb9be67-8366a39a0df50f26`, liveCwd: false, threads: [done], dirty: false, unpushed: 0, now }
+  expect(helperVerdict(h)).toBe('remove')
+  expect(helperVerdict({ ...h, path: `${homedir()}/.infinitus/worktrees/aquatome.com/infinitus-0c47974a-12259ca8fd11f902` })).toBe('remove')
+  // Its own commit, a change not committed, or git that can't count: saved first.
+  expect(helperVerdict({ ...h, unpushed: 2 })).toBe('archive')
+  expect(helperVerdict({ ...h, dirty: true })).toBe('archive')
+  expect(helperVerdict({ ...h, unpushed: NaN })).toBe('archive')
+  // Within the hour, still running, a process in it, or no thread found: it stays.
+  expect(helperVerdict({ ...h, threads: [{ ...done, at: now - 30 * 60_000 }] })).toBe('its thread ended within the hour')
+  expect(helperVerdict({ ...h, threads: [done, { ...done, at: now - 10 * 60_000 }] })).toBe('its thread ended within the hour')
+  expect(helperVerdict({ ...h, threads: [{ ...done, active: true }] })).toBe('its thread is live')
+  expect(helperVerdict({ ...h, liveCwd: true })).toBe('a process is working in it')
+  expect(helperVerdict({ ...h, threads: [] })).toBe('no thread found for it')
+  expect(helperVerdict({ ...h, threads: [{ ...done, at: NaN }] })).toBe('its thread ended within the hour')
+  // A lead's checkout, even one a finished helper shared, and anything not named as Infinitus names a helper's.
+  expect(helperVerdict({ ...h, threads: [done, { id: '9e9c8b4c-lead', at: now - 5 * 3_600_000, active: false }] })).toBe("a lead's thread works in it")
+  for (const path of [`${homedir()}/.infinitus/worktrees/aquatome.com/lab-app-v2`, `${homedir()}/.infinitus/worktrees/aquatome.com/trail-not-fish`, `${homedir()}/.infinitus/worktrees/other/infi-ffb9be67-8366a39a0df50f26`, `${homedir()}/.infinitus/projects/aquatome.com`])
+    expect(helperVerdict({ ...h, path })).toBe("not a helper's checkout")
+})
+
 test("the owner's morning report is started from this Mac at 06:58, a minute's work before 07:00, by the same job", () => {
   const dir = home()
   mkdirSync(join(dir, 'bin'))

@@ -7,6 +7,9 @@
 // - Agents: an install-*-schedule.sh plist that was newer than a running job gets loaded once the job ends.
 // - Worktrees, at 03:35 or with --worktrees: merged ones. One left alone for 7 days with no live thread is saved first
 //   (archiveWorktree: never pushed, kept 30 days), then removed. No --force without that copy.
+// - A helper's own checkout (a delegate started with a checkout of its own), every hour: an hour after its thread ended,
+//   saved first when it holds a commit on no remote or a change not committed, then removed, each by name in the log
+//   (`helperVerdict`; the chief of staff, 16 Nov 2026).
 // - ~/.cache/aquatome is what the leads keep (AGENTS.md, This Mac): never touched, but for the archive's copies past 30 days.
 // - Scratch: our tests' leftover folders in this user's temp folder and /tmp, untouched for 6 h, open in no process and
 //   holding no worktree (`scratch`; the chief of staff, 15 Nov 2026). Nothing else there: other projects', the system's,
@@ -77,6 +80,27 @@ export function worktreeVerdict({ path, liveCwd, liveThread, dirty, unpushed, re
   if (unpushed === 0 && (prs.some(p => p.state === 'MERGED') || !remoteBranch)) return hours >= 24 ? 'remove' : 'nothing unpushed, but touched within 24 h'
   if (hours >= ABANDONED_HOURS && !Number.isNaN(unpushed)) return 'archive'
   return unpushed === 0 ? 'its branch is on the remote, unmerged' : 'commits on no remote'
+}
+
+/** A helper's own checkout, as Infinitus names one it makes for a delegate (`isolation: "worktree"`). */
+const HELPER = /^(infi|infinitus)-[0-9a-f]{8}-[0-9a-f]{16}$/
+/** How long after its helper's thread ends a helper's checkout goes. */
+const HELPER_DONE_HOURS = 1
+/**
+ * 'remove', 'archive' (saved first, then removed), or why a helper's checkout stays. `threads`: every thread whose
+ * checkout this is, each with its last update (ms) and whether a run of it is live. Only a checkout Infinitus made for a
+ * delegate, whose every thread is a delegate's and has ended, the last over an hour ago: a lead's checkout that a
+ * delegate shared is the lead's. Anything it can't be sure of (git couldn't count, no thread found) stays or is saved.
+ */
+export function helperVerdict({ path, liveCwd, threads, dirty, unpushed, now = Date.now() }) {
+  if (!path.startsWith(`${HOME}/.infinitus/worktrees/aquatome.com/`) || !HELPER.test(basename(path))) return "not a helper's checkout"
+  if (!threads.length) return 'no thread found for it'
+  if (threads.some(t => !t.id.startsWith('thread:delegated-task:'))) return "a lead's thread works in it"
+  if (threads.some(t => t.active)) return 'its thread is live'
+  if (liveCwd) return 'a process is working in it'
+  const ended = (now - Math.max(...threads.map(t => t.at))) / 3_600_000
+  if (!(ended >= HELPER_DONE_HOURS)) return 'its thread ended within the hour'
+  return dirty || unpushed !== 0 ? 'archive' : 'remove'
 }
 
 /**
@@ -243,6 +267,54 @@ function liveWorktrees() {
   return threads == null ? null : new Set(threads.split('\n').filter(Boolean).map(l => l.split('\t')).filter(([, id, at, active]) => Number(active) > 0 || (!id.startsWith('thread:delegated-task:') && hoursSince(Date.parse(at)) < 72)).map(([path]) => path))
 }
 
+/** Every thread's checkout: path → its threads, each with its id, last update (ms) and whether a run of it is live. Null when the threads can't be read. */
+function threadsByPath() {
+  const rows = read('sqlite3', ['-readonly', '-separator', '\t', THREADS, `select json_extract(t.payload_json, '$.worktreePath'), t.thread_id, json_extract(t.payload_json, '$.updatedAt'), (select count(*) from orchestration_v2_projection_runs r where r.thread_id = t.thread_id and r.status in (${LIVE_RUNS.map(s => `'${s}'`).join(', ')})) from orchestration_v2_projection_threads t where t.deleted_at is null and json_extract(t.payload_json, '$.worktreePath') is not null`])
+  if (rows == null) return null
+  const by = new Map()
+  for (const [path, id, at, active] of rows.split('\n').filter(Boolean).map(l => l.split('\t'))) by.set(path, [...(by.get(path) ?? []), { id, at: Date.parse(at), active: Number(active) > 0 }])
+  return by
+}
+
+/** What a worktree holds that a build can't make again: git's status less rebuildable output; null when git can't say. */
+function statusOf(path) {
+  const listed = read('git', ['-C', path, 'status', '--porcelain', '--ignored=matching'], 90_000)
+  return listed == null ? null : listed.split('\n').filter(l => l && !(l.startsWith('!! ') && REBUILDABLE.test(l.slice(3).replace(/\/$/, '')))).join('\n')
+}
+
+/** Hourly: helpers' own checkouts an hour after their threads ended (helperVerdict), each named in the log. */
+function helpers() {
+  const list = read('git', ['-C', REPO, 'worktree', 'list', '--porcelain'])
+  const cwds = read('lsof', ['-d', 'cwd', '-Fn'])
+  const threads = threadsByPath()
+  if (!list || cwds == null || threads == null) return log("helpers' checkouts: could not read what they need, leaving them")
+  const inUse = cwds.split('\n').filter(l => l.startsWith('n')).map(l => l.slice(1))
+  let gone = 0
+  for (const block of list.split('\n\n').filter(Boolean).slice(1)) {
+    const path = block.split('\n')[0].replace('worktree ', '')
+    if (!HELPER.test(basename(path)) || !existsSync(path)) continue
+    const status = statusOf(path)
+    const verdict = helperVerdict({
+      path,
+      liveCwd: inUse.some(c => c === path || c.startsWith(`${path}/`)),
+      threads: threads.get(path) ?? [],
+      dirty: status == null || status !== '',
+      unpushed: Number(read('git', ['-C', path, 'rev-list', '--count', 'HEAD', '--not', '--remotes']) ?? NaN),
+    })
+    if (verdict === 'archive') {
+      if (DRY) { log(`would save and remove ${path}: a helper's, its thread ended`); continue }
+      try { archiveAndRemove(path); gone++ } catch (e) { log(`kept ${path}: could not save it: ${e.message}`) }
+    } else if (verdict === 'remove') {
+      if (DRY) { log(`would remove ${path}: a helper's, its thread ended, nothing in it that the remote lacks`); continue }
+      const r = spawnSync('git', ['-C', REPO, 'worktree', 'remove', path], { encoding: 'utf8' })
+      if (r.status === 0) { gone++; log(`removed ${path}: a helper's, its thread ended, nothing in it that the remote lacks`) } else log(`kept ${path}: ${r.stderr.trim().slice(0, 200)}`)
+    } else continue
+    spawnSync('sleep', ['2'])
+  }
+  if (!DRY && gone) read('git', ['-C', REPO, 'worktree', 'prune'])
+  log(`helpers' checkouts: removed ${gone}`)
+}
+
 function worktrees() {
   const list = read('git', ['-C', REPO, 'worktree', 'list', '--porcelain'])
   const remote = read('git', ['-C', REPO, 'ls-remote', '--heads', 'origin'])
@@ -260,8 +332,7 @@ function worktrees() {
     const head = lines.find(l => l.startsWith('HEAD '))?.slice(5)
     const branch = lines.find(l => l.startsWith('branch '))?.replace('branch refs/heads/', '')
     if (!existsSync(path)) continue
-    const listed = read('git', ['-C', path, 'status', '--porcelain', '--ignored=matching'], 90_000)
-    const status = listed == null ? null : listed.split('\n').filter(l => l && !(l.startsWith('!! ') && REBUILDABLE.test(l.slice(3).replace(/\/$/, '')))).join('\n')
+    const status = statusOf(path)
     const gitDir = read('git', ['-C', path, 'rev-parse', '--absolute-git-dir'])?.trim()
     const logged = gitDir && join(gitDir, 'logs/HEAD')
     // Since anyone touched it: the last checkout or commit, or the newest change not yet committed.
@@ -402,7 +473,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url) && process.argv.includes(
   archiveNamed(process.argv, { cwds, live: liveWorktrees() })
 } else if (process.argv[1] === fileURLToPath(import.meta.url)) {
   // One pass failing leaves the others to run.
-  const passes = [simulators, agents, space, ...(process.argv.includes('--worktrees') || new Date().getHours() === 3 ? [worktrees] : []), scratch]
+  const passes = [simulators, agents, space, helpers, ...(process.argv.includes('--worktrees') || new Date().getHours() === 3 ? [worktrees] : []), scratch]
   for (const pass of passes) {
     try {
       await pass()
