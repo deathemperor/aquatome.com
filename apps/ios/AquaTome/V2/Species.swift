@@ -30,6 +30,7 @@ struct SpeciesPage: View {
   @Environment(\.openScreen) private var openScreen
   @Environment(\.openURL) private var openURL
   @Environment(\.v2OpenFull) private var openFull
+  @Environment(\.v2InPost) private var inPost
   @Environment(TelemetryModel.self) private var telemetry
   @Environment(\.scenePhase) private var phase
   @Environment(\.colorScheme) private var scheme
@@ -284,9 +285,9 @@ struct SpeciesPage: View {
       .onChange(of: navigator.asked) { _, asked in go(to: asked, proxy) }
     }
     .environment(player)
-    .navigationDestination(item: $onSite) { WebScreen(url: $0).v2ClearOfTheFade() }
+    .navigationDestination(item: $onSite) { WebScreen(url: $0).v2ClearOfTheFade().v2InPost(inPost) }
     .navigationDestination(item: $gridAt) { place in
-      if let grid { PhotoGrid(gallery: grid, talk: doc?.talk, at: place, readerPhotos: $readerPhotos).ownerScreen("photos").v2ClearOfTheFade() }
+      if let grid { PhotoGrid(gallery: grid, talk: doc?.talk, at: place, readerPhotos: $readerPhotos).ownerScreen("photos").v2ClearOfTheFade().v2InPost(inPost) }
     }
     .v2ClearOfTheFade()
     .ignoresSafeArea(edges: .top)

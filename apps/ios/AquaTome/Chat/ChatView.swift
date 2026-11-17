@@ -55,6 +55,7 @@ private struct ChatThread: View {
   @Environment(\.openScreen) private var openScreen
   @Environment(\.dynamicTypeSize) private var size
   @Environment(\.accessibilityReduceMotion) private var reduceMotion
+  @Environment(\.v2InPost) private var inPost
   @FocusState private var typing: Bool
   /// The step lists opened under their fold rows.
   @State private var unfolded: Set<UUID> = []
@@ -150,7 +151,7 @@ private struct ChatThread: View {
         }
       }
     }
-    .navigationDestination(item: $onSite) { WebScreen(url: $0) }
+    .navigationDestination(item: $onSite) { WebScreen(url: $0).v2InPost(inPost) }
     // A light tap as a question goes; a soft one as its answer starts; a warning when one is stopped or fails.
     .sensoryFeedback(.impact(weight: .light), trigger: model.thread.count) { a, b in b > a }
     .sensoryFeedback(.impact(flexibility: .soft), trigger: model.thread.last?.reply.writing) { _, b in b == true }

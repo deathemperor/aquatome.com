@@ -468,9 +468,9 @@ final class OwnerFlowTests: XCTestCase {
   }
 
   /// v2, the owner's default: the report names v2's tab, the page on it and its item, and its picture is what the screen
-  /// shows. A page left for another tab is no longer named.
+  /// shows. A page left for another tab is no longer named: a post, left by its own link (it has no tab bar).
   func testTheReportNamesV2sScreenAndThePageOnIt() {
-    let app = launch(owner: "ui-apple", "-v2", "YES")
+    let app = launch(owner: "ui-apple", "-v2", "YES", "-seed-tanks", "litres")
     signIn(app)
     app.closeAccount()
     XCTAssertTrue(app.tabBars.buttons["Hôm nay"].isSelected, "v2 didn't open on Hôm nay")
@@ -493,7 +493,7 @@ final class OwnerFlowTests: XCTestCase {
     XCTAssertTrue(fish.hasPrefix("v2 today / species "), fish)
     XCTAssertTrue(fish.contains("/ca/"), fish)
 
-    app.openTab("Bể của tôi")
+    app.toTanksFromAPost()
     let tanks = report(app)
     XCTAssertTrue(tanks.hasPrefix("v2 tanks · "), tanks)
     XCTAssertFalse(tanks.contains("/ca/"), "the fish's page, left on Hôm nay, still named: \(tanks)")

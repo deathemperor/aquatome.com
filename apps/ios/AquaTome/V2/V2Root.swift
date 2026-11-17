@@ -156,6 +156,12 @@ extension View {
 
   /// A scroll view of v2's own: its end stops above the fade over the tab bar, not in it.
   func v2ClearOfTheFade() -> some View { modifier(ClearOfTheFade()) }
+
+  /// Inside a Hôm nay post (spec-post-push.md): no tab bar, and said so (`v2InPost`). The tab bar is the page in front's
+  /// to hide, so a page that pushes another by itself, not through its stack's destinations, passes this on.
+  @ViewBuilder func v2InPost(_ on: Bool) -> some View {
+    if on { toolbar(.hidden, for: .tabBar).environment(\.v2InPost, true) } else { self }
+  }
 }
 
 private struct ClearsFootGoingBack: ViewModifier {
@@ -169,7 +175,9 @@ private struct ClearsFootGoingBack: ViewModifier {
 
 private struct ClearOfTheFade: ViewModifier {
   @ScaledMetric(relativeTo: .body) private var fade = V2Fade.height
-  func body(content: Content) -> some View { content.safeAreaPadding(.bottom, fade) }
+  /// A post has no tab bar, so no fade: its page runs to the screen's foot (today-story.md, "The foot").
+  @Environment(\.v2InPost) private var inPost
+  func body(content: Content) -> some View { content.safeAreaPadding(.bottom, inPost ? 0 : fade) }
 }
 
 /// The owner's trial of the tab bar as the App Store's (11 Nov: "Try bottom bar glass effect like Appstore's"): the page
@@ -248,6 +256,8 @@ extension EnvironmentValues {
   @Entry var v2FootGround: Binding<FootGround?>?
   /// Hôm nay's posts (`Post`), on Hôm nay's stack; nil on the others.
   @Entry var v2Posts: Posts?
+  /// A page inside a Hôm nay post, the post's own first page too (`v2InPost(_:)`).
+  @Entry var v2InPost = false
   /// How many times the screen has been asked again ("Thử lại", a pull to refresh): a photo that didn't come tries again.
   @Entry var v2PhotoTries = 0
 }
@@ -325,17 +335,15 @@ private struct Destinations: ViewModifier {
 }
 
 private struct ClosesPost: ViewModifier {
-  let posts: Posts?
-  let always: Bool
+  /// Full screen: no tab bar on a post, nor on a page pushed inside it (spec-post-push.md). Fixed when the page is made, so
+  /// a page inside a post isn't made again as the post closes under it (back's long press, to Hôm nay).
+  @State private var inPost: Bool
 
-  func body(content: Content) -> some View {
-    // Full screen: no tab bar on a post, nor on a page pushed inside it (spec-post-push.md).
-    if let posts, always || posts.open.wrappedValue {
-      content.toolbar(.hidden, for: .tabBar)
-    } else {
-      content
-    }
+  init(posts: Posts?, always: Bool) {
+    _inPost = State(initialValue: posts.map { always || $0.open.wrappedValue } ?? false)
   }
+
+  func body(content: Content) -> some View { content.v2InPost(inPost) }
 }
 
 /// A post's way out (spec-post-push.md, 13 Nov): iOS's own back button, its glass circle, its place and its swipe, with ✕

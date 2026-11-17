@@ -132,14 +132,16 @@ final class V2FlowTests: XCTestCase {
   }
 
   func testSwitchingBackWithAPageOpenOnHomNayLeavesItOnTim() {
-    let app = launch()
+    let app = launch("-seed-tanks", "litres")
     app.launchForFlow(nil)
     let fish = app.buttons["v2-fish-of-the-day"]
     XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
     fish.tap()
     XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
-    // The sheet's button is on a tab's first screen, not on a page.
-    app.openTab("Khám phá")
+    // A post has no tab bar: to another tab by its own link, the post left open behind it (spec-post-push.md). The
+    // sheet's button is on a tab's first screen, not on a page: Bể của tôi's, back from the tank.
+    app.toTanksFromAPost()
+    app.navigationBars["Bể cũ"].buttons.element(boundBy: 0).tap()
     flip(app)
     XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 5), "the old look didn't open")
     let back = app.navigationBars.buttons.element(boundBy: 0)
@@ -1011,9 +1013,8 @@ final class V2FlowTests: XCTestCase {
     app.swipeUp()
     app.swipeUp()
     whole("Hôm nay")
-    repeatUntil(fish.isHittable, times: 4) { app.swipeDown() }
-    fish.tap()
-    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
+    // A fish's page from Khám phá: from Hôm nay's card it's a post, with no tab bar (spec-post-push.md).
+    _ = openForSwipe(.fishFromKhamPha, app)
     app.swipeUp()
     whole("a fish's page")
   }
@@ -1110,12 +1111,62 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.tabBars.buttons["Khám phá"].isHittable, "no tab bar on a page from Khám phá")
   }
 
-  /// "Mới cập nhật"'s list is a post (spec-post-push.md): full screen, iOS's back as its ✕, read "Đóng". A page from it,
-  /// on Hôm nay's stack but not a post, has iOS's chevron and never reads "Đóng"; back on the list, its ✕ again; closed,
-  /// Hôm nay with its tab bar. Twice, so Hôm nay's back is as it was after a post (Design, 17 Nov: the post's "Đóng"
-  /// stayed on Hôm nay's back item, and a plain page pushed on it later read it).
-  func testTheLatestListIsAPostAndAPageFromItNeverReadsDong() {
+  /// Inside a post, a page the page pushes by itself has no tab bar either (spec-post-push.md): the fish of the day's photo
+  /// grid, from its banner, and the post again after it. Before, only the pages its stack pushes hid it.
+  func testThePhotoGridInsideAPostHasNoTabBar() {
+    let app = launch("-v2", "YES", "-large-gallery", "-fixed-pictures")
+    app.launchForFlow()
+    let tab = app.tabBars.buttons["Hôm nay"], fish = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    fish.tap()
+    let banner = app.buttons["v2-lead-photo-grid"]
+    XCTAssertTrue(banner.waitForExistence(timeout: 5), "the fish of the day's photo isn't a way into its grid")
+    banner.tap()
+    XCTAssertTrue(app.buttons["grid-photo-1"].waitForExistence(timeout: 5), "the grid didn't open")
+    XCTAssertFalse(tab.isHittable, "the tab bar came back on the grid inside a post")
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    XCTAssertTrue(banner.waitForExistence(timeout: 5), "not back on the post")
+    XCTAssertFalse(tab.isHittable, "the tab bar on the post, back from its grid")
+  }
+
+  /// A post runs to the screen's foot (today-story.md, "The foot"): no tab bar, so no fade to stop above. Scrolled to its
+  /// end, the fish of the day's last words end its own 40 points and the home indicator's 34 above the foot, not 24 more
+  /// for a fade that isn't there.
+  func testAPostRunsToTheScreensFoot() {
     let app = launch("-v2", "YES")
+    app.launchForFlow()
+    let fish = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    fish.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
+    let gap = app.wordsEndAboveTheFoot()
+    XCTContext.runActivity(named: "POST FOOT: the last words end \(gap) pt above the screen's foot") { _ in }
+    XCTAssertLessThanOrEqual(gap, 34 + 40 + 8, "the post's words end \(gap) pt above the screen's foot: above a fade that isn't there")
+  }
+
+  /// PROBE, not for merge: which of the two ways iOS's back reads "Đóng" (15 Nov: the item's way read "Quay lại"). Each
+  /// way its own check, so one night's run gives both readings; the label is in the result's activities either way.
+  func testProbeThePostsBackReadByItsItem() { probePostBack("item") }
+  func testProbeThePostsBackReadByItsView() { probePostBack("view") }
+  private func probePostBack(_ way: String) {
+    let app = launch("-v2", "YES", "-post-back", way)
+    app.launchForFlow()
+    let fish = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    fish.tap()
+    let back = app.navigationBars.buttons["BackButton"]
+    XCTAssertTrue(back.waitForExistence(timeout: 5), "no ✕ (iOS's back)")
+    XCTContext.runActivity(named: "POST BACK \(way): \"\(back.label)\"") { _ in }
+    XCTAssertEqual(back.label, "Đóng", "by its \(way), the ✕ reads \"\(back.label)\"")
+  }
+
+  /// "Mới cập nhật"'s list is a post (spec-post-push.md): full screen, iOS's back as its ✕, read "Đóng". A page from it,
+  /// on Hôm nay's stack but not a post, has iOS's chevron and never reads "Đóng" (Design, 17 Nov); back on the list, its ✕
+  /// again; closed, Hôm nay with its tab bar. Twice. It can't see Hôm nay's own back item, put back as it was once a post
+  /// has gone: only a page pushed straight on Hôm nay would read it, and none is. The card lists pages with a photo
+  /// (`-wide-pictures`) from the site's what's new (`-whats-new`).
+  func testTheLatestListIsAPostAndAPageFromItNeverReadsDong() {
+    let app = launch("-v2", "YES", "-whats-new", "-wide-pictures")
     app.launchForFlow()
     let tab = app.tabBars.buttons["Hôm nay"], back = app.navigationBars.buttons["BackButton"]
     XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no Hôm nay")

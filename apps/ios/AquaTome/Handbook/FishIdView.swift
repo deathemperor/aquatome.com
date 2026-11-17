@@ -13,6 +13,7 @@ struct FishIdView: View {
   @Environment(AccountModel.self) private var account
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
+  @Environment(\.v2InPost) private var inPost
   @State private var tool = Tool.checking
   @State private var picked: PickedPhoto?
   @State private var camera = false
@@ -78,7 +79,7 @@ struct FishIdView: View {
     .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
     .navigationTitle("Đây là cá gì?")
     .navigationBarTitleDisplayMode(.inline)
-    .navigationDestination(item: $onSite) { WebScreen(url: $0) }
+    .navigationDestination(item: $onSite) { WebScreen(url: $0).v2InPost(inPost) }
     .onChange(of: said) { _, s in if let s { AccessibilityNotification.Announcement(s).post() } }
     // Asked once: back from a page the guesses opened, the screen is as it was.
     .task {

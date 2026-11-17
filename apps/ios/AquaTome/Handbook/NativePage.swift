@@ -40,6 +40,7 @@ struct NativePage: View {
   @Environment(HandbookModel.self) private var handbook
   @Environment(TelemetryModel.self) private var telemetry
   @Environment(\.scenePhase) private var phase
+  @Environment(\.v2InPost) private var inPost
   /// This page being read: how far down and how long, its shop links (made when it first shows).
   @State private var reading: PageReading?
   @Environment(\.openScreen) private var openScreen
@@ -180,9 +181,9 @@ struct NativePage: View {
     }
     .onDisappear { reading?.shown(false) }
     .onChange(of: phase) { reading?.inFront(phase == .active) }
-    .navigationDestination(item: $onSite) { WebScreen(url: $0) }
+    .navigationDestination(item: $onSite) { WebScreen(url: $0).v2InPost(inPost) }
     .navigationDestination(item: $gridAt) { place in
-      if let gallery { PhotoGrid(gallery: gallery, talk: talk, at: place, readerPhotos: $readerPhotos).ownerScreen("photos") }
+      if let gallery { PhotoGrid(gallery: gallery, talk: talk, at: place, readerPhotos: $readerPhotos).ownerScreen("photos").v2InPost(inPost) }
     }
     .alert(tip?.term ?? "", isPresented: Binding(get: { tip != nil }, set: { if !$0 { tip = nil } }), presenting: tip) { t in
       if let h = t.href, let u = URL(string: h) { Button("Xem thêm") { _ = open(u, nil) } }
