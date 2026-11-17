@@ -67776,19 +67776,11 @@
     "products": []
   },
   "vi/guides/youtube-4PqiPjmQYPo": {
-    "at": "2026-11-16",
-    "hash": "7b07ed4e23b8b446",
+    "at": "2026-11-17",
+    "hash": "e581aff72380286f",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "hy vọng là trong vài tháng tới sẽ có cá con",
-        "why": "The original writer's hope about their own tank, spoken as if the reader knew it.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/guides/youtube-4rLFh3Q_FEA": {
@@ -71960,7 +71952,8 @@
     ],
     "products": [
       "Tropica"
-    ]
+    ],
+    "mendTried": "2026-11-17"
   },
   "vi/guides/youtube-B8fj1mf64yE": {
     "at": "2026-11-15",
@@ -91881,7 +91874,8 @@
         "by": "model"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-17"
   },
   "vi/guides/youtube-UhGWKDI8qn8": {
     "at": "2026-11-08",
@@ -95885,7 +95879,8 @@
         "by": "model"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-17"
   },
   "vi/guides/youtube-Yvw0qjsNVQc": {
     "at": "2026-11-08",
@@ -125861,10 +125856,10 @@
     "products": []
   },
   "vi/species/pethia-nigrofasciata": {
-    "at": "2026-11-08",
-    "hash": "44000ca23e74b135",
+    "at": "2026-11-17",
+    "hash": "336c4477e85aed9a",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -134140,6 +134135,22 @@
     "model": "opus",
     "checklist": 3,
     "findings": [],
+    "products": []
+  },
+  "vi/species/phoxinus-phoxinus": {
+    "at": "2026-11-17",
+    "hash": "46f79290c2b23ead",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Ngoài tiệm hay có hai loài khác bán dưới cái tên na ná: Rainbow minnow (Notropis chrosomus) và Gold minnow",
+        "why": "Says the reader's shops often sell North American minnows under lookalike names, which describes shops abroad rather than shops in Vietnam.",
+        "by": "model"
+      }
+    ],
     "products": []
   }
 }
