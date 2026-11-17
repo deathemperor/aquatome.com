@@ -1,5 +1,5 @@
 {
- "day": "2026-11-17",
+ "day": "2026-11-18",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -11,11 +11,11 @@
  },
  "langs": {
   "vi": {
-   "pages": 4540,
-   "read": 3823,
-   "wrong": 1568,
+   "pages": 4566,
+   "read": 3850,
+   "wrong": 1575,
    "pct": 41,
-   "held": 541
+   "held": 549
   },
   "id": {
    "pages": 1525,
@@ -59,23 +59,23 @@
  "sample": [
   {
    "lang": "th",
-   "path": "/th/fish/esomus-metallicus/",
-   "url": "https://aquatome.com/th/fish/esomus-metallicus/",
-   "title": "ปลาซิวหนวดยาว",
+   "path": "/th/fish/pangio-piperata/",
+   "url": "https://aquatome.com/th/fish/pangio-piperata/",
+   "title": "ปลาหมูงู",
+   "wrong": []
+  },
+  {
+   "lang": "th",
+   "path": "/th/fish/eirmotus-insignis/",
+   "url": "https://aquatome.com/th/fish/eirmotus-insignis/",
+   "title": "False Eight-banded Barb",
    "wrong": []
   },
   {
    "lang": "id",
-   "path": "/id/ikan/bulldog-pleco/",
-   "url": "https://aquatome.com/id/ikan/bulldog-pleco/",
-   "title": "Bulldog Pleco",
-   "wrong": []
-  },
-  {
-   "lang": "id",
-   "path": "/id/ikan/nemacheilus-saravacensis/",
-   "url": "https://aquatome.com/id/ikan/nemacheilus-saravacensis/",
-   "title": "Nemacheilus saravacensis",
+   "path": "/id/tanaman/amazon-sword/",
+   "url": "https://aquatome.com/id/tanaman/amazon-sword/",
+   "title": "Amazon Sword",
    "wrong": []
   }
  ]
