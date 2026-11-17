@@ -44,6 +44,7 @@ import { readerReport, readPages } from './reader'
 import { checkContent } from './content-check'
 import { updatePageDates } from './page-dates'
 import { sweep } from './sweep'
+import { refusedSweep, WAITING } from './refused-sources'
 import { dropFacePhotos, visionFaces } from './faces'
 import { boxPhotos, visionSubjects } from './photo-boxes'
 import { backfillPhotos } from './photo-backfill'
@@ -584,6 +585,14 @@ if (cmd === 'photo-privacy') {
   // records back. It can go once it has run everywhere.
   const r = await redoUnread(ROOT)
   console.log(`redo-unread: ${r.restored.length} put back, ${r.left.length} left as they are`)
+} else if (cmd === 'refused-sweep') {
+  // One pass, no model, over what is kept (refused-sources.ts refusedSweep): a refused site's facts leave every facts file,
+  // and its pages every page's reference list, in every language; the step's own research does the same from then on.
+  const r = await refusedSweep(ROOT)
+  for (const f of r.facts) console.log(`${f.file}: ${f.dropped} item${f.dropped === 1 ? '' : 's'} out, from ${f.refused.map(x => `${x.url} (${x.items})`).join(', ')}; facts moved: ${JSON.stringify(f.moved)}`)
+  for (const f of r.refs) console.log(`${f.file}: refs lose ${f.urls.join(', ')}`)
+  for (const [file, why] of Object.entries(WAITING)) console.log(`waiting: ${file}: ${why}`)
+  console.log(`refused-sweep: ${r.facts.length} facts files, ${r.refs.length} reference lists`)
 } else if (cmd === 'sweep') {
   // The content rules' safe fixes on every page, each cycle before the build (sweep.ts): the source site's comments and
   // related posts cut, empty headings, repeated paragraphs and labels out of order fixed, photos of another fish or a map

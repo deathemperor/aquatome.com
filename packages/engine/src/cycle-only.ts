@@ -25,7 +25,7 @@ const COPY_HOSTS = [
  * (topics.ts citedFacts), and so do glossary terms (glossary-entry.ts offLimits); the other kinds' pages don't check what
  * they cite yet.
  */
-const REFUSED_SITES = ['cabaymau.vn']
+export const REFUSED_SITES = ['cabaymau.vn']
 
 /** Whether a page stands on a site refused as a source (REFUSED_SITES): the site itself or any host under it. */
 export const refusedSite = (url: string) => refused(REFUSED_SITES.flatMap(h => [h, `*.${h}`]), url)

@@ -20,6 +20,8 @@ import { fishThaiLai, wordingSlips } from '../src/sanitize'
 import { cardOf, cardProblems, readSummaries } from '../src/summaries'
 import { cardSchool, readTraits } from '../src/traits'
 import { sweepTranslation } from '../src/sweep'
+import { FACTS_DIRS, WAITING } from '../src/refused-sources'
+import { REFUSED_SITES, refusedSite } from '../src/cycle-only'
 import { namesSomeone } from '../src/video-covers'
 import { slow } from '@aq/schema/test-time'
 
@@ -1297,4 +1299,25 @@ test('no email address in any file under content/', async () => {
     walk(data, '', f)
   }
   expect(found).toEqual([])
+}, slow(120_000))
+
+// The chief of staff, 17 Nov 2026 (Thursday's change): no page names a refused site's page (cycle-only.ts REFUSED_SITES), in
+// any language or any part of it (references, sources, photos' pages), and no research the engine keeps holds one. A page
+// whose text cites its sources by number waits for its text (WAITING), and is held to still having it, so it leaves that
+// list the day its text is fixed. A buying list keeps an entry it has (engine-state/shop-lists, not a facts file). No model:
+// every string in every file, as `pnpm engine refused-sweep` leaves them.
+test('no page lists a refused site\'s page in any language, and no kept research cites one', async () => {
+  const repo = fileURLToPath(new URL('../../..', import.meta.url))
+  const naming: string[] = []
+  const walk = (x: unknown): boolean => typeof x === 'string' ? /^https?:\/\//i.test(x) && refusedSite(x) : Array.isArray(x) ? x.some(walk) : !!x && typeof x === 'object' && Object.values(x).some(walk)
+  const dirs = ['content', ...FACTS_DIRS.map(k => `engine-state/${k}`)]
+  for (const dir of dirs) {
+    for (const f of (await readdir(join(repo, dir), { recursive: true, withFileTypes: true })).filter(d => d.isFile() && d.name.endsWith('.json')).map(d => relative(repo, join(d.parentPath, d.name))).sort()) {
+      const raw = await readFile(join(repo, f), 'utf8')
+      // The refused sites' names, plainly, before a file is parsed: most files have none.
+      if (!REFUSED_SITES.some(h => raw.toLowerCase().includes(h))) continue
+      if (walk(JSON.parse(raw))) naming.push(f)
+    }
+  }
+  expect(naming.sort(), 'run pnpm engine refused-sweep').toEqual(Object.keys(WAITING).sort())
 }, slow(120_000))

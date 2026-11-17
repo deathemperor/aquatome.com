@@ -113,6 +113,12 @@ test("a guide never cites a page research may not read: a marketplace's, the mag
   }
   const e = JSON.parse(await readFile(join(root, 'content/guides/aquatome-ca-bi-loi-mat-popeye/entity.json'), 'utf8'))
   expect(e.refs.map((x: { url: string }) => x.url)).toEqual(['https://edis.ifas.ufl.edu/x', 'https://example.org/epsom'])
+  // The research kept holds no refused site's page, nor what it alone says; the other pages research may not read stay in
+  // it, as before (the chief of staff, 17 Nov 2026: Thursday's change, refused-sources.ts).
+  const kept = JSON.parse(await readFile(join(root, 'engine-state/topics/aquatome-ca-bi-loi-mat-popeye.json'), 'utf8')) as TopicFacts
+  expect(kept.sources.map(x => x.url)).toEqual([...facts.sources.map(x => x.url), ...off.slice(0, 5)])
+  expect(kept.facts.map(f => f.fact)).not.toContain('Only off-limits 5')
+  expect(kept.facts.map(f => f.fact)).toContain('Only off-limits 4')
   // Checked again later (review-backfill.ts), against the facts its writer had: the same facts, numbered the same, none of
   // the refused pages' (Codex's read, 14 Nov 2026: the recheck read the research as saved, before the refusal).
   const factsOf = (p: string) => { const f = JSON.parse(p.slice(p.indexOf('FACTS:\n') + 7, p.indexOf('\n\nGUIDE:'))); return { facts: f.facts, sources: f.sources } }

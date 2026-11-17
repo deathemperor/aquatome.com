@@ -10,11 +10,13 @@ import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
 import { localName, TARGETS, type TargetLang } from './localize'
 import { breedLeads, readForumState } from './forum'
 import { breedKin, breedNames, cleanBreedAltNames } from './alt-names'
+import { refusedSite } from './cycle-only'
 import { isMarketplace } from './marketplaces'
 import { BOUNDS } from './process'
 import { VI_STYLE as STYLE } from './phrases'
 import { steadyRead } from './quality'
 import { TANK_RULE, withTanks } from './round'
+import { withoutRefused } from './refused-sources'
 
 const WRITE = withTanks(readFileSync(new URL('./prompts/breed.md', import.meta.url), 'utf8'))
 const INTL = withTanks(readFileSync(new URL('./prompts/breed-intl.md', import.meta.url), 'utf8'))
@@ -193,7 +195,8 @@ export async function makeBreed(root: string, d: { research: Llm; llm: Llm; gall
   const kept = o.reuse ? JSON.parse(await readFile(factsFile, 'utf8').catch(() => 'null')) as BreedFacts | null : null
   // The Vietnamese names keepers on Diễn Đàn Cá Cảnh use for it (engine forum notes), as leads to check and cite.
   const leads = kept ? '' : breedLeads(await readForumState(join(root, 'engine-state/forum/diendancacanh.json')), [a.name])
-  const researched = kept ?? await d.research<BreedFacts>({ system: 'You research aquarium fish carefully and cite every fact. Reply only with JSON.', prompt: researchPrompt(a) + leads, schema: FACTS_SCHEMA, model: o.researchModel ?? 'opus' })
+  // A refused site's facts leave before anything reads them or the file keeps them (refused-sources.ts).
+  const researched = withoutRefused(kept ?? await d.research<BreedFacts>({ system: 'You research aquarium fish carefully and cite every fact. Reply only with JSON.', prompt: researchPrompt(a) + leads, schema: FACTS_SCHEMA, model: o.researchModel ?? 'opus' })).kept
   if (!kept) { await mkdir(join(root, 'engine-state/breeds'), { recursive: true }); await writeFile(factsFile, `${JSON.stringify(researched, null, 2)}\n`) }
   if (!researched.found) return { id, skipped: `${a.name}: not a man-made aquarium fish, or not found` }
 
@@ -456,7 +459,7 @@ export async function breedCare(root: string, research: Llm, o: { only?: string[
     for (const f of r.figures ?? []) {
       const s = r.sources?.[f.source]
       const value = want.includes(f.field) ? careValue(f) : undefined
-      if (!s || value === undefined || !/^https?:\/\/\S+$/i.test(s.url) || isMarketplace(s.url)) continue
+      if (!s || value === undefined || !/^https?:\/\/\S+$/i.test(s.url) || isMarketplace(s.url) || refusedSite(s.url)) continue
       const source = { url: s.url, title: s.title, kind: s.kind }
       let at = e.sources.findIndex(x => same(x.url, s.url))
       if (at < 0) at = e.sources.push({ ...source, at: today }) - 1

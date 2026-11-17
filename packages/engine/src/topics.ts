@@ -16,6 +16,7 @@ import { steadyRead } from './quality'
 import { VI_STYLE as STYLE } from './phrases'
 import { TANK_RULE, withTanks } from './round'
 import { foreignSeasons } from './seasons'
+import { withoutRefused } from './refused-sources'
 
 /**
  * What a source is: the research tags each one, and the writers and the checker get each fact's source with its kind, so a
@@ -331,7 +332,8 @@ export async function makeTopic(root: string, d: { research: Llm; llm: Llm }, a:
   const kept = o.reuse ? JSON.parse(await readFile(factsFile, 'utf8').catch(() => 'null')) as TopicFacts | null : null
   // Forum threads on the topic (engine forum notes): a translated post leads to its original, the source to cite.
   const leads = kept ? '' : topicLeads(await readForumState(join(root, 'engine-state/forum/diendancacanh.json')), a.topic) + (o.leads ?? '')
-  const researched = kept ?? await d.research<TopicFacts>({ system: 'You research fishkeeping topics carefully and cite every fact. Reply only with JSON.', prompt: researchPrompt(a) + leads, schema: FACTS_SCHEMA, model: o.researchModel ?? 'opus' })
+  // A refused site's facts leave before anything reads them or the file keeps them (refused-sources.ts).
+  const researched = withoutRefused(kept ?? await d.research<TopicFacts>({ system: 'You research fishkeeping topics carefully and cite every fact. Reply only with JSON.', prompt: researchPrompt(a) + leads, schema: FACTS_SCHEMA, model: o.researchModel ?? 'opus' })).kept
   if (!kept) { await mkdir(join(root, 'engine-state/topics'), { recursive: true }); await writeFile(factsFile, `${JSON.stringify(researched, null, 2)}\n`) }
   if (!researched.found) return { id, skipped: `${a.topic}: nothing reliable found` }
 

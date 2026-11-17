@@ -159,6 +159,11 @@ test('a marketplace\'s, a social network\'s or a refused site\'s page is never a
   expect(wrote).not.toContain('brine')
   const e = JSON.parse(await readFile(join(root, 'content/glossary/lua/entity.json'), 'utf8'))
   expect(e.refs.map((x: { url: string }) => x.url)).toEqual(facts.sources.map(x => x.url))
+  // The research kept holds no refused site's page, nor what it alone says; a marketplace's and a social network's pages
+  // stay in it, as before (the chief of staff, 17 Nov 2026: Thursday's change, refused-sources.ts).
+  const kept = JSON.parse(await readFile(join(root, 'engine-state/glossary/lua.json'), 'utf8')) as TopicFacts
+  expect(kept.sources.map(x => x.url)).toEqual(shops.sources.slice(0, 5).map(x => x.url))
+  expect(kept.facts.map(f => f.fact)).toEqual(shops.facts.slice(0, -1).map(f => f.fact))
 })
 
 // A body cut by hand, what rested on a refused site alone taken off the live page (bodyFixed; the chief of staff, 16 Nov
