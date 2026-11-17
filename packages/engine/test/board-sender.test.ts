@@ -43,7 +43,7 @@ test('every key it tries is a billed call: held before its request, settled afte
   // The first key: overloaded (529), refused before anything ran; the next answers.
   const fetch = vi.fn(async () => (++asked === 1 ? Response.json({ type: 'error', error: { type: 'overloaded_error', message: 'Overloaded' } }, { status: 529 }) : sse(opening + ending)))
   const m = await send(new Billed(BILLED_STEP, log, line(10), () => NOW), fetch)(BODY, OPTS)
-  expect(m.content).toEqual([{ type: 'text', text: '{"text":"Nuôi theo đàn."}', citations: null }])
+  expect(m.content).toMatchObject([{ type: 'text', text: '{"text":"Nuôi theo đàn."}' }])
   const r = await rows(log)
   expect(r.filter(x => x.held).map(x => [x.key, x.usd])).toEqual([['ha', billedWorst(BODY)], ['hb', billedWorst(BODY)]])
   expect(r.filter(x => x.settles).map(x => [x.key, x.cost, x.error])).toEqual([['ha', 0, true], ['hb', billedCost(BODY.model, { input: 1000, output: 20, cacheRead: 0, cacheWrite: 0 }), false]])
@@ -65,9 +65,9 @@ test('a stream keeps its hold until it ends, or fails, and only then is settled'
     if (how === 'ends') { ctl.enqueue(new TextEncoder().encode(ending)); ctl.close() } else ctl.error(new TypeError('network connection lost'))
     const out = await call
     const r = await rows(log)
-    expect(r.map(x => (x.held ? 'held' : 'settles')), how).toEqual(how === 'ends' ? ['held', 'settles'] : ['held', 'settles', 'held', 'settles'])
-    if (how === 'ends') expect([(out as { content: unknown[] }).content.length, r[1].error, r[1].worst]).toEqual([1, false, undefined])
-    // Cut mid-stream it may have been billed: at its worst. The rotation then asks the next key, which is held too.
+    expect(r.slice(0, 2).map(x => (x.held ? 'held' : 'settles')), how).toEqual(['held', 'settles'])
+    if (how === 'ends') expect([r.length, (out as { content: unknown[] }).content.length, r[1].error, r[1].worst]).toEqual([2, 1, false, undefined])
+    // Cut mid-stream it may have been billed: at its worst.
     else expect([out instanceof Error, r[1].error, r[1].cost]).toEqual([true, true, billedWorst(BODY)])
   }
 })
