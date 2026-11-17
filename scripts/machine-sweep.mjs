@@ -114,8 +114,8 @@ export function helperVerdict({ path, liveCwd, threads, dirty, unpushed, now = D
 }
 
 /**
- * Saves what a worktree holds that no remote has, so it can go: a bundle of its commits on no remote, a patch of its
- * uncommitted changes, a tar of its untracked files (not build output) and a note of where it was. Local only, since the
+ * Saves what a worktree holds that no remote has, so it can go: a bundle of its commits on no remote, patches of its
+ * staged and its unstaged changes, a tar of its untracked files (not build output) and a note of where it was. Local only, since the
  * repository is public: this folder is never pushed. Throws if a part can't be saved, and the worktree stays.
  */
 export function archiveWorktree(path, archive = ARCHIVE, now = new Date()) {
@@ -132,14 +132,19 @@ export function archiveWorktree(path, archive = ARCHIVE, now = new Date()) {
     git('bundle', 'create', bundle, branch || 'HEAD', '--not', '--remotes')
     git('bundle', 'verify', bundle)
   }
-  const patch = join(dir, 'uncommitted.patch')
-  const out = openSync(patch, 'w')
-  try {
-    execFileSync('git', ['-C', path, 'diff', '--binary', 'HEAD'], { stdio: ['ignore', out, 'pipe'] })
-  } finally {
-    closeSync(out)
+  // The index and the working tree apart: a file staged and then deleted from the working tree is in neither HEAD nor the
+  // working tree, only in the index (Codex's read, 17 Nov). Brought back by `git apply --index staged.patch`, then
+  // `git apply unstaged.patch`.
+  for (const [name, args] of [['staged.patch', ['--cached', 'HEAD']], ['unstaged.patch', []]]) {
+    const patch = join(dir, name)
+    const out = openSync(patch, 'w')
+    try {
+      execFileSync('git', ['-C', path, 'diff', '--binary', ...args], { stdio: ['ignore', out, 'pipe'] })
+    } finally {
+      closeSync(out)
+    }
+    if (statSync(patch).size === 0) rmSync(patch)
   }
-  if (statSync(patch).size === 0) rmSync(patch)
   const ignored = git('status', '--porcelain', '--ignored=matching').split('\n').filter(l => l.startsWith('!! ')).map(l => l.slice(3).replace(/^"|"$/g, '').replace(/\/$/, ''))
   const untracked = [...git('ls-files', '-z', '-o', '--exclude-standard').split('\0'), ...ignored].filter(f => f && !REBUILDABLE.test(f))
   if (untracked.length) {
@@ -311,37 +316,57 @@ function helperReads() {
   return path => ({ path, liveCwd: inUse.some(c => c === path || c.startsWith(`${path}/`)), threads: threads.get(path) ?? [] })
 }
 
-/** Hourly: helpers' own checkouts an hour after their threads ended (helperVerdict), each named in the log. */
-function helpers() {
-  const list = read('git', ['-C', REPO, 'worktree', 'list', '--porcelain'])
-  const first = helperReads()
-  if (!list || first == null) return log("helpers' checkouts: could not read what they need, leaving them")
-  let gone = 0
-  for (const block of list.split('\n\n').filter(Boolean).slice(1)) {
-    const path = block.split('\n')[0].replace('worktree ', '')
-    if (dirname(path) !== WORKTREES || !HELPER.test(basename(path)) || !existsSync(path)) continue
+/**
+ * One pass over helpers' checkouts (helpers(); `io` is the Mac's there, a test's in a test). Each is read three times and
+ * goes only when every read lets it: its threads and processes before any git; again with git's counts; and again just
+ * before it is saved or removed, so a helper resumed meanwhile keeps its checkout, a clean one too (Codex's read, 17 Nov).
+ * Before the first count the remote's branches are fetched, pruned: a branch deleted or replaced there since the last
+ * fetch would otherwise still count as holding the checkout's commits. A fetch that fails leaves every one.
+ */
+export function helperPass(paths, io) {
+  const first = paths.length ? io.reads() : undefined
+  if (first === null) { io.say("helpers' checkouts: could not read their threads or processes, leaving them"); return 0 }
+  let gone = 0, fetched
+  for (const path of paths) {
     // The threads and the processes first, git only on a checkout they let go.
     if (helperVerdict({ ...first(path), dirty: false, unpushed: 0 }) !== 'remove') continue
-    // Then all of it again, just before acting: a helper resumed since the pass began, or a process gone into it, keeps it.
-    const now = helperReads()
-    if (now == null) { log(`kept ${path}: could not read its threads again`); continue }
-    const fresh = () => { const again = helperReads(); return again != null && helperVerdict({ ...again(path), dirty: false, unpushed: 0 }) === 'remove' }
-    const status = statusOf(path)
-    const verdict = helperVerdict({
-      ...now(path),
-      dirty: status == null || status !== '',
-      unpushed: Number(read('git', ['--no-optional-locks', '-C', path, 'rev-list', '--count', 'HEAD', '--not', '--remotes']) ?? NaN),
-    })
+    if ((fetched ??= io.refresh()) === false) { io.say("helpers' checkouts: could not fetch the remote's branches, leaving them"); break }
+    const now = io.reads()
+    if (now == null) { io.say(`kept ${path}: could not read its threads again`); continue }
+    const status = io.status(path)
+    const verdict = helperVerdict({ ...now(path), dirty: status == null || status !== '', unpushed: io.unpushed(path) })
+    if (verdict !== 'archive' && verdict !== 'remove') continue
+    if (io.dry) { io.say(verdict === 'archive' ? `would save and remove ${path}: a helper's, its thread ended` : `would remove ${path}: a helper's, its thread ended, nothing in it that the remote lacks`); continue }
+    const fresh = () => { const again = io.reads(); return again != null && helperVerdict({ ...again(path), dirty: false, unpushed: 0 }) === 'remove' }
     if (verdict === 'archive') {
-      if (DRY) { log(`would save and remove ${path}: a helper's, its thread ended`); continue }
-      try { if (archiveAndRemove(path, REPO, ARCHIVE, log, fresh)) gone++ } catch (e) { log(`kept ${path}: could not save it: ${e.message}`) }
-    } else if (verdict === 'remove') {
-      if (DRY) { log(`would remove ${path}: a helper's, its thread ended, nothing in it that the remote lacks`); continue }
-      const r = spawnSync('git', ['-C', REPO, 'worktree', 'remove', path], { encoding: 'utf8' })
-      if (r.status === 0) { gone++; log(`removed ${path}: a helper's, its thread ended, nothing in it that the remote lacks`) } else log(`kept ${path}: ${r.stderr.trim().slice(0, 200)}`)
-    } else continue
-    spawnSync('sleep', ['2'])
+      try { if (io.archive(path, fresh)) gone++ } catch (e) { io.say(`kept ${path}: could not save it: ${e.message}`) }
+    } else if (!fresh()) {
+      io.say(`kept ${path}: its thread or a process moved while it was read`)
+    } else {
+      const why = io.remove(path)
+      if (why === true) { gone++; io.say(`removed ${path}: a helper's, its thread ended, nothing in it that the remote lacks`) } else io.say(`kept ${path}: ${why}`)
+    }
+    io.pause()
   }
+  return gone
+}
+
+/** Hourly: helpers' own checkouts an hour after their threads ended (helperVerdict, helperPass), each named in the log. */
+function helpers() {
+  const list = read('git', ['-C', REPO, 'worktree', 'list', '--porcelain'])
+  if (!list) return log("helpers' checkouts: could not read the worktrees, leaving them")
+  const paths = list.split('\n\n').filter(Boolean).slice(1).map(block => block.split('\n')[0].replace('worktree ', '')).filter(path => dirname(path) === WORKTREES && HELPER.test(basename(path)) && existsSync(path))
+  const gone = helperPass(paths, {
+    reads: helperReads,
+    refresh: () => read('git', ['-C', REPO, 'fetch', '--prune', '--quiet', 'origin'], 300_000) != null,
+    status: statusOf,
+    unpushed: path => Number(read('git', ['--no-optional-locks', '-C', path, 'rev-list', '--count', 'HEAD', '--not', '--remotes']) ?? NaN),
+    archive: (path, still) => archiveAndRemove(path, REPO, ARCHIVE, log, still),
+    remove: path => { const r = spawnSync('git', ['-C', REPO, 'worktree', 'remove', path], { encoding: 'utf8' }); return r.status === 0 || r.stderr.trim().slice(0, 200) },
+    pause: () => spawnSync('sleep', ['2']),
+    dry: DRY,
+    say: log,
+  })
   if (!DRY && gone) read('git', ['-C', REPO, 'worktree', 'prune'])
   log(`helpers' checkouts: removed ${gone}`)
 }
