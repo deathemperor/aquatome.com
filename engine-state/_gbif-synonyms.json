@@ -538,6 +538,7 @@
     "Heros labiatus",
     "Heros lobochilus"
   ],
+  "Amphilophus xiloaensis": [],
   "Anabas testudineus": [
     "Amphiprion scansor",
     "Amphiprion testudineus",
@@ -1017,6 +1018,12 @@
     "Argonectes scapularis",
     "Hemiodus longiceps"
   ],
+  "Ariopsis assimilis": [
+    "Arius assimilis",
+    "Galeichthys assimilis",
+    "Hexanematichthys assimilis",
+    "Sciades assimilis"
+  ],
   "Ariopsis felis": [
     "Arius felis",
     "Arius milberti",
@@ -1026,6 +1033,18 @@
     "Hexanematichthys felis",
     "Sciades felis",
     "Silurus felis"
+  ],
+  "Ariopsis guatemalensis": [
+    "Arius caerulescens",
+    "Arius guatemalensis",
+    "Galeichthys azureus",
+    "Galeichthys coerulescens",
+    "Galeichthys guatemalensis",
+    "Hexanematichthys coerulescens",
+    "Hexanematichthys guatemalensis",
+    "Sciades guatemalensis",
+    "Tachisurus coerulescens",
+    "Tachisurus guatemalensis"
   ],
   "Ariopsis seemanni": [
     "Ariopsis simonsi",
@@ -1045,11 +1064,31 @@
     "Tachysurus eigenmanni"
   ],
   "Aristochromis christyi": [],
+  "Arius africanus": [
+    "Tachysurus africanus"
+  ],
   "Arius latiscutatus": [
     "Arius biscutatus",
     "Arius lagoensis",
     "Carlarius latiscutatus",
     "Tachysurus lagoensis"
+  ],
+  "Arius maculatus": [
+    "Arius angulatus",
+    "Arius chondropterygioides",
+    "Arius gagorides",
+    "Arius gagoroides",
+    "Arius heckelii",
+    "Arius pidada",
+    "Arius thunbergi",
+    "Arius viviparus",
+    "Bagrus gagorides",
+    "Hemipimelodus atripinnis",
+    "Hemipimelodus bicolor",
+    "Pimelodus thunberg",
+    "Silurus maculatus",
+    "Silurus thunbergi",
+    "Tachysurus maculatus"
   ],
   "Arnoldichthys spilopterus": [
     "Petersius spilopterus"
@@ -1637,6 +1676,7 @@
     "Chromidotilapia finleyae",
     "Chromidotilapia finleyi"
   ],
+  "Benitochromis nigrodorsalis": [],
   "Benitochromis riomuniensis": [
     "Nanochromis riomuniensis"
   ],
@@ -2010,6 +2050,12 @@
     "Megalobrycon cephalus",
     "Megalobrycon erythropterum"
   ],
+  "Brycon hilarii": [
+    "Brycon melanoxanthus",
+    "Brycon microlepis",
+    "Chalceus hilarii",
+    "Salmo paraputanga"
+  ],
   "Bryconaethiops boulengeri": [],
   "Bryconops caudomaculatus": [
     "Creatochanes caudomaculatus",
@@ -2229,6 +2275,11 @@
     "Tatia romani"
   ],
   "Centropomus unionensis": [],
+  "Cephalocassis jatia": [
+    "Arius jatius",
+    "Hemipimelodus jatius",
+    "Pimelodus jatius"
+  ],
   "Cephalocassis melanochir": [
     "Arius doriae",
     "Arius melanochir",
@@ -2787,6 +2838,10 @@
   ],
   "Cobitis macrostigma": [
     "Lepidocephalus macrostigma"
+  ],
+  "Cochlefelis burmanicus": [
+    "Arius burmanicus",
+    "Tachysurus burmanicus"
   ],
   "Colomesus asellus": [
     "Cheilichthys asellus",
@@ -3749,6 +3804,10 @@
     "Cyrtocara compressiceps",
     "Paratilapia compressiceps"
   ],
+  "Dimidiochromis strigatus": [
+    "Cyrtocara strigata",
+    "Haplochromis strigatus"
+  ],
   "Diplomystes nahuelbutaensis": [
     "Diplomystes nahelbutaensis",
     "Diplomystes nahualbutensis",
@@ -3875,6 +3934,7 @@
   "Elacatinus oceanops": [
     "Gobiosoma oceanops"
   ],
+  "Elassoma evergladei": [],
   "Elassoma gilberti": [],
   "Elassoma zonatum": [],
   "Electrophorus electricus": [
@@ -4228,6 +4288,23 @@
   "Euchilichthys guentheri": [
     "Atopochilus guentheri",
     "Atopochilus guntheri"
+  ],
+  "Euphyllia glabrescens": [
+    "Caryophyllia angulosa",
+    "Caryophyllia glabrescens",
+    "Catalaphyllia okinawaensis",
+    "Euphyllia costulata",
+    "Euphyllia gaimardi",
+    "Euphyllia laxa",
+    "Euphyllia rugosa",
+    "Euphyllia striata",
+    "Euphyllia turgida",
+    "Leptosmilia costulata",
+    "Leptosmilia gaimardi",
+    "Leptosmilia glabrescens",
+    "Leptosmilia rugosa",
+    "Leptosmilia striata",
+    "Lobophyllia glabrescens"
   ],
   "Euryrhynchus amazoniensis": [],
   "Eutropiichthys britzi": [],
@@ -4633,6 +4710,7 @@
     "Ancharius brevibarbus",
     "Arius brevibarbis"
   ],
+  "Gogo ornatus": [],
   "Goniopsis pelii": [
     "Grapsus pelii",
     "Grapsus simplex"
@@ -4807,6 +4885,9 @@
     "Herpestis micrantha",
     "Micranthemum micrantha",
     "Micranthemum nuttallii"
+  ],
+  "Hemiarius dioctes": [
+    "Arius dioctes"
   ],
   "Hemibagrus filamentus": [
     "Macrones filamentus",
@@ -5418,6 +5499,7 @@
   "Hyphessobrycon jackrobertsi": [],
   "Hyphessobrycon loretoensis": [],
   "Hyphessobrycon loweae": [],
+  "Hyphessobrycon margitae": [],
   "Hyphessobrycon megalopterus": [
     "Megalamphodus megalopterus",
     "Megalamphodus rogoaguae",
@@ -7219,6 +7301,9 @@
   "Monosolenium tenerum": [
     "Dumortieropsis liukiuensis"
   ],
+  "Monostichodus mesmaekersi": [
+    "Hemistichodus mesmaekersi"
+  ],
   "Mugilogobius rexi": [],
   "Murdannia keisak": [
     "Aneilema coreanum",
@@ -7473,6 +7558,11 @@
   "Nemacheilus yingjiangensis": [
     "Nemachilus yingjiangensis",
     "Schistura yingjiangensis"
+  ],
+  "Nemapteryx macronotacantha": [
+    "Arius macronotacanthus",
+    "Arius parvipinnis",
+    "Tachysurus macronotacanthus"
   ],
   "Nemapteryx nenga": [
     "Arius aequibarbis",
@@ -8576,6 +8666,9 @@
     "Pelmatochromis pulcher",
     "Pelvicachromis sacramontis",
     "Pelvicachromis sacrimontis"
+  ],
+  "Pelvicachromis roloffi": [
+    "Pelmatochromis roloffi"
   ],
   "Pelvicachromis rubrolabiatus": [
     "Wallaceochromis rubrolabiatus"

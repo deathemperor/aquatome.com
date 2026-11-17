@@ -1,0 +1,82 @@
+{
+  "id": "nemapteryx-macronotacantha",
+  "scientificName": "Nemapteryx macronotacantha",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Nemapteryx",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "bay-of-bengal",
+    "indonesia",
+    "batavia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 26,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 30
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_macronotacanthus.htm",
+      "html": "<ul><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_macronotacanthus.htm",
+      "html": "<p>South and southeast Asia: Bay of Bengal and western central Pacific; in coastal waters and estuaries. Type locality: Batavia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_macronotacanthus.htm",
+      "html": "<p>It inhabits southern and southeastern Asian brackish waters, also occurring in marine and freshwaters but predominantly in brackish waters.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_macronotacanthus.htm",
+      "html": "<p>Described by Pieter Bleeker in 1846, originally under the genus Arius; after two genus and specific name changes it has returned to its original description. It can sometimes be found in online searches as Nemapteryx macronotacantha.</p><p>Etymology: the specific name macronotacanthus comes from macro-, large; notos, back; acanthus, spine, referring to the thick dorsal spine.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/5b9874ed96e96319.webp",
+      "thumb": "https://media.aquatome.com/scotcat/5b9874ed96e96319-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "FAO / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_macronotacanthus.htm",
+      "caption": "Arius macronotacanthus",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-17"
+}

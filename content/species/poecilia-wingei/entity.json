@@ -8,7 +8,8 @@
   "places": [
     "south-america",
     "venezuela",
-    "paria-peninsula"
+    "paria-peninsula",
+    "laguna-de-los-patos"
   ],
   "range": {
     "native": {
@@ -142,8 +143,8 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/endler_s_guppy_el_tigre_en/",
-      "html": "<p>The \"El Tigre\" fish represent a pure strain of a population that was initially collected in El Tigre, Venezuela.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia-wingei-endlers-livebearer-white-peacock/",
+      "html": "<p>According to information available from specialised web pages, the ancestors of the \"White Peacock\" fish in the trade were collected by Armado Pou in 2004 from the Laguna de los Patos North Lake.</p>"
     },
     {
       "key": "habitat",
@@ -208,8 +209,8 @@
     {
       "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/endler_s_guppy_el_tigre_en/",
-      "html": "<p>Endler's Guppys are lively fish, and they can even step up their colours during display.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia-wingei-endlers-livebearer-white-peacock/",
+      "html": "<p>The fish have an extremely lively habit and have stayed wonderfully small and dainty. Displaying males become much darker in coloration, compared with the neutral coloration.</p>"
     },
     {
       "key": "dimorphism",
@@ -244,8 +245,8 @@
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/endler_s_guppy_el_tigre_en/",
-      "html": "<p>The \"El Tigre\" variety of Endler's Guppy (Poecilia wingei) is a wild form of a small livebearer, first sent from a breeder in Thailand. The fish are variable in coloration, but they have all the features that make Endler's Guppys favorite aquarium fish: the small size, the lively behaviour and the ability to step up their colours during display. The colours are brilliant anyway.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia-wingei-endlers-livebearer-white-peacock/",
+      "html": "<p>The breeding of the different sports of Endler's Livebearer has become a popular branch of the hobby. There are many sports: some are artificial, developed by cross-breeding or selective breeding, while others are different-looking populations that appear in the wild. The White Peacock is such a wild type. The fish are now much more uniformly coloured than the animals living in the wild.</p>"
     },
     {
       "key": "references",
@@ -278,6 +279,17 @@
       "source": "aquariumcoop"
     },
     {
+      "url": "https://media.aquatome.com/aquariumcoop/1ecd8edbd3be4a96.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/1ecd8edbd3be4a96-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/endlers-livebearer-care-guide",
+      "caption": "Care Guide for Endler’s Livebearers – The Guppy’s Little Cousin - Aquarium Co-Op",
+      "source": "aquariumcoop"
+    },
+    {
       "url": "https://media.aquatome.com/commons/889d6007f3a606a9.webp",
       "thumb": "https://media.aquatome.com/commons/889d6007f3a606a9-480.webp",
       "width": 960,
@@ -306,17 +318,6 @@
       "author": "Marrabbio2",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Poecilia_wingei_male_%22black_ba%22r.JPG",
       "caption": "Poecilia wingei male, var. \"black bar\""
-    },
-    {
-      "url": "https://media.aquatome.com/aquariumcoop/1ecd8edbd3be4a96.webp",
-      "thumb": "https://media.aquatome.com/aquariumcoop/1ecd8edbd3be4a96-480.webp",
-      "width": 1000,
-      "height": 667,
-      "licence": "dùng với sự cho phép",
-      "author": "Aquarium Co-op",
-      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/endlers-livebearer-care-guide",
-      "caption": "Care Guide for Endler’s Livebearers – The Guppy’s Little Cousin - Aquarium Co-Op",
-      "source": "aquariumcoop"
     }
   ],
   "videos": [
@@ -373,5 +374,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-17"
 }

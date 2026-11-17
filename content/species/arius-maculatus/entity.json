@@ -1,0 +1,154 @@
+{
+  "id": "arius-maculatus",
+  "scientificName": "Arius maculatus",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Arius",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "sri-lanka",
+    "thailand",
+    "indonesia",
+    "philippines",
+    "china"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 50
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_maculatus.htm",
+      "html": "<p>Common name: Spotted Sea Catfish. Family: Ariidae. Size: 50 cm SL. Temperature: 20–27°C. pH: 6.5–8.0. IUCN Red List: Not Evaluated.</p><p>Strong venomous dorsal and pectoral spines provide protection for the fish. Dorsal spines (total): 1; dorsal soft rays (total): 7; anal soft rays: 16–30. Head shield somewhat rugose; deep and long median fontanelle groove.</p><p>Etymology: the specific name maculatus means spotted.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_maculatus.htm",
+      "html": "<p>South and southeast Asia: Sri Lanka, Thailand, Indonesia, Philippines and China. Type locality: China, Japan.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_maculatus.htm",
+      "html": "<p>Occurs in inshore waters and estuaries. Occasionally form schools. Caught mainly with set bag nets and bamboo stake traps. Air bladders are exported as isinglass used by the wine industry.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_maculatus.htm",
+      "html": "<p>Feeds on invertebrates and small fishes.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_maculatus.htm",
+      "html": "<p>Males incubate eggs in the buccal cavity. During incubation, males starve, which sometimes makes them resort to swallowing one or two eggs, probably to maintain basal metabolism. Early hatching embryos commence feeding on inhaled particles by the female when still in possession of large yolk.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_maculatus.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (10/2009).</p><p>Jeyaseelan, M.J.P., 1998. Manual of fish eggs and larvae from Asian mangrove waters. United Nations Educational, Scientific and Cultural Organization. Paris. 193 p.</p><p>Kailola, P.J., 1999. Ariidae (=Tachysuridae): sea catfishes (fork-tailed catfishes). p. 1827-1879. In K.E. Carpenter and V.H. Niem (eds.) FAO species identification guide for fishery purposes. The living marine resources of the Western Central Pacific. Vol. 3. Batoid fishes, chimaeras and bony fishes part 1 (Elopidae to Linophrynidae). FAO, Rome.</p><p>Marceniuk, Alexandre P.; Menezes, Naércio A. (2007). \"Systematics of the family Ariidae (Ostariophysi, Siluriformes), with a redefinition of the genera\" Zootaxa 1416: 1–126.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/a86de3cbf4d4c58c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a86de3cbf4d4c58c-480.webp",
+      "width": 500,
+      "height": 273,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_maculatus.htm",
+      "caption": "Arius maculatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/ac16f0c654e5896e.webp",
+      "thumb": "https://media.aquatome.com/scotcat/ac16f0c654e5896e-480.webp",
+      "width": 500,
+      "height": 254,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_maculatus.htm",
+      "caption": "Arius maculatus: juvenile",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/512d28c28fa6ac4c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/512d28c28fa6ac4c-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Jean-Francois Helias / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_maculatus.htm",
+      "caption": "Arius maculatus: Close up of head",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/68da4bb0ae1ebfba.webp",
+      "thumb": "https://media.aquatome.com/scotcat/68da4bb0ae1ebfba-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Jean-Francois Helias / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_maculatus.htm",
+      "caption": "Arius maculatus: Close up of head",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "EdWfOV-P69o",
+      "title": "Two sides of Spotted Sea Catfish (Arius msculatus) 😇👹 #catfish #fishtank ##fishing #anabantoidea",
+      "durationSec": 16,
+      "lang": "id"
+    },
+    {
+      "youtubeId": "irlTW-WirW0",
+      "title": "Arius Catfish / Hiu air tawar #fishtank",
+      "durationSec": 26,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "e1t1Ny9yj7U",
+      "title": "IKAN ARIUS MACULATUS CATFISH",
+      "durationSec": 35,
+      "lang": "id"
+    },
+    {
+      "youtubeId": "0Yxy5vwLc-M",
+      "title": "ARIUS MACULATUS #fypシ #akuarium #fypシ #fish #reels #ikan #viral #fun #ikanhias #catfish #DOTIZIFISH",
+      "durationSec": 60,
+      "lang": "id"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-17"
+}

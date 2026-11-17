@@ -1,0 +1,107 @@
+{
+  "id": "arius-africanus",
+  "scientificName": "Arius africanus",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Arius",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "tanzania",
+    "pangani-river",
+    "madagascar"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 45
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_africanus.htm",
+      "html": "<p>The African sea catfish (Arius africanus), also known as the marine catfish, is a species of sea catfish in the family Ariidae. It was described by Albert Günther in 1867 and reaches a maximum standard length of 45 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_africanus.htm",
+      "html": "<p>Africa: Pangani River, Tanzania and estuaries of Madagascar. Known from the lower to middle reaches of drainages along the western coast of Madagascar and Eastern Africa.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_africanus.htm",
+      "html": "<p>Coastal species found in tropical brackish and freshwater in Tanzania, Madagascar, and the Pangani River.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_africanus.htm",
+      "html": "<ul><li>Temperature: 20–27°C</li><li>pH: 7.0–8.5</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_africanus.htm",
+      "html": "<p>The diet of the African sea catfish consists of small finfish and invertebrates.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_africanus.htm",
+      "html": "<p>Etymology: The specific name africanus means \"from Africa\".</p><p>IUCN Red List: This species is assessed as Data Deficient as little is currently known regarding the status of subpopulations from throughout its range. More research is required (IUCN 2017).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_africanus.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2023. FishBase. World Wide Web electronic publication. www.fishbase.org, (07/2023).</p><p>Playfair, R. L. and A. Günther, 1867 The fishes of Zanzibar, with a list of the fishes of the whole east coast of Africa. London. i-xix + 1-153, Pls. 1-21.</p><p>Sparks, J.S. 2017. Arius africanus. The IUCN Red List of Threatened Species 2017.</p><p>Taylor, W.R., 1986. Ariidae. p. 153-159. In J. Daget, J.-P. Gosse and D.F.E. Thys van den Audenaerde (eds.) Check-list of the freshwater fishes of Africa (CLOFFA). ISBN, Brussels; MRAC, Tervuren; and ORSTOM, Paris. Vol. 2.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/f40728e04691a96b.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f40728e04691a96b-480.webp",
+      "width": 500,
+      "height": 314,
+      "licence": "dùng với sự cho phép",
+      "author": "/ / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_africanus.htm",
+      "caption": "Arius africanus",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "iSus_xdnAe8",
+      "title": "Poisson, ordre Siluriformes, famille Ariidae mâchoiron fish congo marinus africain Kreuzberg Guri",
+      "durationSec": 47,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-17"
+}

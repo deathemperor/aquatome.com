@@ -1,0 +1,106 @@
+{
+  "id": "hemiarius-dioctes",
+  "scientificName": "Hemiarius dioctes",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Hemiarius",
+  "group": "catfish",
+  "places": [
+    "oceania",
+    "australia",
+    "norman-river",
+    "papua-new-guinea"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 120
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/aceroichthys_dioctes.htm",
+      "html": "<ul><li>Common name: Warrior catfish</li><li>Synonyms: Arius dioctes, Hemiarius dioctes</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/aceroichthys_dioctes.htm",
+      "html": "<p>Oceania: Southern New Guinea and Australia. Type locality: Norman River at Karumba (17º29'S, 140º50'E), Queensland, Australia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/aceroichthys_dioctes.htm",
+      "html": "<p>Inhabits coastal and lower mangrove areas, estuaries into main rivers and lagoons.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/aceroichthys_dioctes.htm",
+      "html": "<p><strong>Description:</strong> Dorsal spines (total): 1; dorsal soft rays (total): 7; anal spines: 0; anal soft rays: 17–21; vertebrae: 49–50. Teeth strong, non-depressible; in narrow bands in jaws and in four patches arranged across front palate. Snout prominent, jaw teeth exposed; mouth wide. Head somewhat venulosus, head shield almost smooth. Eye small, free of head skin, 6–14% HL. No rakers on posterior face of first two arches; gill opening wide.</p><p><strong>Colouration:</strong> Body orange-yellow; lips, inside mouth and body usually covered with orange or yellow mucus, and teeth usually reddish.</p><p><strong>Etymology:</strong> The genus name Aceroichthys: in honour of Colombian ichthyologist Arturo Acero P. (b. 1954), for his “valuable” contributions to ariid taxonomy; ichthys, fish. The species epithet dioctes: derived from Ancient Greek, refers to the species' hunting qualities.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/aceroichthys_dioctes.htm",
+      "html": "<ul><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 12/2019 ).</li><li>Hemiarius dioctes in Fishes of Australia, accessed 03 Sep 2020.</li><li>Kailola, P.J., 2000. Six new species of fork-tailed catfishes (Pisces, Teleostei, Ariidae) from Australia and New Guinea. Beagle, Rec. Mus. Art Galler. North. Territ. 16:127-144.</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/1210f848bb3427f1.webp",
+      "thumb": "https://media.aquatome.com/scotcat/1210f848bb3427f1-480.webp",
+      "width": 500,
+      "height": 271,
+      "licence": "dùng với sự cho phép",
+      "author": "Dave Wilson / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/aceroichthys_dioctes.htm",
+      "caption": "Aceroichthys dioctes: juvenile",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/9040bb20b3ef2d2b.webp",
+      "thumb": "https://media.aquatome.com/scotcat/9040bb20b3ef2d2b-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/aceroichthys_dioctes.htm",
+      "caption": "Aceroichthys dioctes: holotype as Arius",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "KMFRKnGJ9Ho",
+      "title": "Hemiarius Dioctes /warrior catfish",
+      "durationSec": 38,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Op_Y31GdMlk",
+      "title": "Warrior Catfish/Hemiarius dioctes",
+      "durationSec": 47,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "vY3gy6npdgM",
+      "title": "Edisi nyari ikan mayung atau hemiarius dioctes buat ikan hias di aquarium dimuara",
+      "durationSec": 55,
+      "lang": "id"
+    },
+    {
+      "youtubeId": "q6hQrV_qepw",
+      "title": "ikan hias air payau hemiarius dioctes",
+      "durationSec": 47,
+      "lang": "id"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-17"
+}

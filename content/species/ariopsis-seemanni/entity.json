@@ -284,6 +284,13 @@
           "min": 22,
           "max": 26
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
       }
     ],
     "ph": [
@@ -292,6 +299,13 @@
         "value": {
           "min": 6.8,
           "max": 8.5
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 7,
+          "max": 8
         }
       }
     ],
@@ -308,12 +322,20 @@
       {
         "source": "seriouslyfish",
         "value": 35
+      },
+      {
+        "source": "scotcat",
+        "value": 35
       }
     ],
     "tankCm": [
       {
         "source": "seriouslyfish",
         "value": 240
+      },
+      {
+        "source": "scotcat",
+        "value": 183
       }
     ],
     "difficulty": [
@@ -331,10 +353,28 @@
       "html": "<p>The Colombian shark catfish, Ariopsis seemanni, is an ariid catfish from river mouths along the Pacific coast of the Americas, from Mexico to Peru. Usually sold as a silvery 2 to 3 inch juvenile, it grows to 350 mm SL and lives mostly in brackish water, so it is not recommended to those lacking the facilities to house it for life. Venom glands at the base of the first dorsal spine can cause a painful swelling.</p><ul><li>Max size: 350 mm SL (14 in)</li><li>Aquarium size: 240 × 60 cm (96 × 24 in)</li><li>Temperature: 22–26°C (72–79°F)</li><li>pH: 6.8–8.5</li><li>Hardness: 10–30 dGH</li><li>Difficulty: 6 of 8 (difficult), because it needs a tank at least 2 m long</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ariopsis_seemanni.htm",
+      "html": "<ul><li>Size: 35 cm SL, but can grow larger in the wild.</li><li>IUCN Red List: Least Concern. The species is widespread in the Eastern Pacific, common in many parts of its range, and occurs in a wide range of habitats.</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ariopsis_seemanni.htm",
+      "html": "<p>Tete sea catfishes are occasionally available in the pet trade under a variety of names, including Colombian (or Columbian) shark, silver tipped shark, white tip shark catfish, black fin shark, Christian catfish, Jordan's catfish, and West American cat shark. However, they are not appropriate for most aquarists because they must be acclimated from freshwater to saltwater as they mature.</p><p>As this fish grows it will require more salt, and from a sub-adult brackish water system it will progress into a marine environment which will need marine salt to be added. Previous tropical tankmates will not be able to tolerate the added salt and would need to be moved to a tropical tank immediately. They can also get aggressive as they mature, so this is not really a catfish for the hobbyist unless you know what is ahead of you and can maintain this species through the stages of tropical (juvenile), brackish (sub-adult) and adult (marine).</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ariopsis-seemanni",
       "html": "<p>Widespread down the Pacific coastline of Central America and north-western South America. Populations exist in Mexico, Guatemala, El Salvador, Nicaragua, Costa Rica, Panama, Colombia, Ecuador and Peru.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ariopsis_seemanni.htm",
+      "html": "<p>Western America: Mexico, Guatemala, El Salvador, Nicaragua, Costa Rica, Panama, Colombia, Ecuador and Peru. Type locality: Central America (Pacific). The species migrates from the rivers of the Pacific coast countries out into the sea, where large adults can fend for themselves.</p>"
     },
     {
       "key": "habitat",
@@ -349,6 +389,12 @@
       "html": "<p>Standard length: 350 mm SL (14 in). Aquarium base: 240 × 60 cm (96 × 24 in). Volume: approx. 864 litres (228 US gal).</p><p>Minimum base dimensions of 240 × 60 cm (96 × 24 in) should be considered mandatory.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ariopsis_seemanni.htm",
+      "html": "<p>It requires a very large tank due to its size and active swimming habits. A large tank will be needed; 72 inches (about 183 cm) or larger would be good for four adults.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ariopsis-seemanni",
@@ -361,10 +407,28 @@
       "html": "<ul><li>Temperature: 22–26°C (72–79°F)</li><li>pH: 6.8–8.5</li><li>Hardness: 10–30 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ariopsis_seemanni.htm",
+      "html": "<ul><li>Temperature: 22–26°C</li><li>pH: 7.0–8.0</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ariopsis_seemanni.htm",
+      "html": "<p>Growing plants will be difficult due to the added salt. Provide caves for hiding, a dark substrate and low lighting. They will also need good filtration with a swift current.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ariopsis-seemanni",
       "html": "<p>Young specimens will take bloodworm and other small meaty foods, while larger fish appreciate earthworms, mussel, prawn and sinking tablets. It can sometimes be reluctant to take dried foods, but will usually learn to accept them over time.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ariopsis_seemanni.htm",
+      "html": "<p>Omnivore: insect larvae, frozen foods such as mosquito larvae, tubifex and bloodworm. Tablet and flake foods are also taken.</p>"
     },
     {
       "key": "behaviour",
@@ -389,23 +453,29 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ariopsis-seemanni",
       "html": "<p>This species is not recommended to those lacking the facilities to house it for life. Sadly it's all too often seen for sale as an attractive, silvery 2-3\" juvenile, supposedly suitable for the general freshwater community tank. To make matters worse, it is also usually given an 'alluring' name such as 'black-finned' or 'silvertip' shark catfish. The fate of the majority of these specimens is in all likelihood a depressing one.</p><p>As the fish grow, they tend to go through several periods of restlessness, during which they're prone to mad dashes around the tank. It's thought that this behaviour may be related to natural migratory instincts. A fluctuation in salinity may help to settle things down.</p><p>Extreme caution should be exercised when performing tank maintenance or handling the fish for any reason. Like some others in the family, they have venom-producing glands at the base of the first dorsal spine. These can cause a nasty, painful swelling if you happen to be impaled. If stung, the wound should be immersed in water as hot as you can stand, as this will help to denature the proteins in the venom. Medical advice should also be sought.</p><p>Another interesting fact is that it can produce audible sounds by grinding the pectoral fins against their sockets. If you have a group of these, you'll often hear these through the tank glass. It's thought that they're used for communication with conspecifics and possibly echo-location.</p><p>It was only placed into the current genus a few years ago, and may still be seen labelled erroneous, previously valid names, usually Hexanematichthys or Arius seemanni, or A. jordani. Recent authors have also tended to refer it to the genus Sciades following Marceniuk and Menezez (2007) but this change apparently requires additional study so we have not followed it here.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ariopsis_seemanni.htm",
+      "html": "<p>Etymology: the specific name seemanni honours German botanist Berthold Carl Seemann (1825–1871), who collected the type.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/f213f50ce5bb335a.webp",
+      "thumb": "https://media.aquatome.com/commons/f213f50ce5bb335a-480.webp",
       "width": 960,
       "height": 587,
-      "licence": "CC BY-SA 3.0",
-      "author": "Xocolatl",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:MA_Luisenpark_Sciades_seemanni.jpg",
-      "caption": "Sciades seemanni",
-      "thumb": "https://media.aquatome.com/commons/f213f50ce5bb335a-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/f213f50ce5bb335a-large.webp",
         "width": 1962,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "Xocolatl",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:MA_Luisenpark_Sciades_seemanni.jpg",
+      "caption": "Sciades seemanni"
     },
     {
       "url": "https://media.aquatome.com/scotcat/2b63f2fcd38ddf77.webp",
@@ -441,7 +511,32 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "4ZJvbFVqTY4",
+      "title": "Columbian Shark Catfish: Care Guide for Ariopsis seemanni in Home Aquariums",
+      "durationSec": 283,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "jX_r4rZUWUg",
+      "title": "콜롬비아 샤크캣(Ariopsis seemanni)",
+      "durationSec": 19,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "wpFv0F8WiSs",
+      "title": "ティートゥシーキャットフィッシュ　Tete sea catfish　Ariopsis seemanni",
+      "durationSec": 53,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "8Fca1lxok9s",
+      "title": "Columbian shark",
+      "durationSec": 15,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -471,5 +566,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-17"
 }
