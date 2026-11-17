@@ -60,57 +60,25 @@ export function monitorPolicy(headers: Record<string, string>, pageUrl: string):
   const to = reportHost(report[0])
   if (!to) return undefined
   if (!group) return `script-src 'unsafe-inline' 'unsafe-eval'; connect-src 'none'; report-uri https://${to}${REPORT_PATH}`
-  // The group's address, from `reporting-endpoints`, read whole: named once there, as a string. A field that can't be read,
-  // or the name twice (the later one would win, Codex's read of 8d0b99747), and it isn't the monitor's.
-  const endpoints = dictionary(headers['reporting-endpoints'] ?? '')
-  const found = (endpoints ?? []).filter(([name]) => name === group[0])
-  if (group.length !== 1 || !endpoints || found.length !== 1 || reportHost(found[0]![1]) !== to) return undefined
+  // The group's address, from `reporting-endpoints` in the one shape the live site sends (endpoints()): named once there.
+  // A field in any other shape, or the name twice (the later one would win, Codex's read of 8d0b99747): not the monitor's.
+  const listed = endpoints(headers['reporting-endpoints'] ?? '')
+  const found = (listed ?? []).filter(([name]) => name === group[0])
+  if (group.length !== 1 || !listed || found.length !== 1 || reportHost(found[0]![1]) !== to) return undefined
   return `script-src 'unsafe-inline' 'unsafe-eval'; connect-src 'none'; report-uri https://${to}${REPORT_PATH}; report-to ${group[0]}`
 }
 
+/** A member of `reporting-endpoints` as the live site writes it: a lower-case name, `=`, an address quoted plainly. */
+const MEMBER = '([a-z*][a-z0-9_.*-]*)="([\\x20\\x21\\x23-\\x5b\\x5d-\\x7e]*)"'
 /**
- * A structured header's dictionary (RFC 8941, as `reporting-endpoints` is): each member's name and its value when that is
- * a string, in order, duplicates kept; its parameters read and set aside. Two fields joined by a new line (the protocol's
- * log) are one list. A field it can't read whole: undefined.
+ * `reporting-endpoints` read in the one shape the live site sends (16 Nov: `cf-csp-endpoint="https://…"`): members
+ * `name="address"` by commas, or by the new line that joins two fields in the protocol's log, with no parameters and no
+ * escapes in an address. Its grammar (RFC 8941) allows more, and each more is a way to be read two ways (Codex's reads of
+ * 8d0b99747, 825cf2c25 and bb58fbba8), so any other shape is a field not read for certain: undefined, and nothing excused.
  */
-export function dictionary(field: string): [string, string | undefined][] | undefined {
-  const out: [string, string | undefined][] = []
-  let i = 0
-  const ows = () => { while (field[i] === ' ' || field[i] === '\t') i++ }
-  const key = () => { const m = /^[a-z*][a-z0-9_.*-]*/.exec(field.slice(i)); if (m) i += m[0].length; return m?.[0] }
-  // A string's text; undefined for another kind of item (a token, a number, a byte sequence, a boolean); null for one it
-  // can't read, which spoils the whole field (`?2`: Codex's read of 825cf2c25).
-  const item = (): string | undefined | null => {
-    if (field[i] !== '"') {
-      const m = /^(?:-?\d{1,15}(?:\.\d{1,3})?|\?[01]|:[A-Za-z0-9+/=]*:|[A-Za-z*][!#$%&'*+\-.^_`|~0-9A-Za-z:/]*)/.exec(field.slice(i))
-      if (!m) return null
-      i += m[0].length
-      return undefined
-    }
-    let text = ''
-    for (i++; i < field.length; ) {
-      const c = field[i++]!
-      if (c === '"') return text
-      if (c === '\\') { const n = field[i++]; if (n !== '"' && n !== '\\') return null; text += n } else text += c
-    }
-    return null
-  }
-  ows()
-  while (i < field.length) {
-    const name = key()
-    if (!name) return undefined
-    let value: string | undefined
-    if (field[i] === '=') { i++; const v = item(); if (v === null) return undefined; value = v }
-    while (field[i] === ';') { i++; ows(); if (!key()) return undefined; if (field[i] === '=') { i++; if (item() === null) return undefined } }
-    out.push([name, value])
-    ows()
-    if (i >= field.length) break
-    if (field[i] !== ',' && field[i] !== '\n') return undefined
-    i++
-    ows()
-    if (i >= field.length) return undefined
-  }
-  return out
+export function endpoints(field: string): [string, string][] | undefined {
+  if (!new RegExp(`^[ \\t]*(?:${MEMBER}(?:[ \\t]*[,\\n][ \\t]*${MEMBER})*)?[ \\t]*$`).test(field)) return undefined
+  return [...field.matchAll(new RegExp(MEMBER, 'g'))].map(([, name, address]) => [name!, address!])
 }
 
 /**
@@ -129,23 +97,21 @@ export function loadPolicy(log: readonly Event[], page: string): string | undefi
     if ((e.method !== 'Network.responseReceived' && e.method !== 'Network.responseReceivedExtraInfo') || of(e).requestId === of(main!).requestId) continue
     others.set(of(e).requestId, [...(others.get(of(e).requestId) ?? []), e])
   }
-  // Each other response's headers read as the page's are (lighthouse-headers.ts): its own with those the network logged
-  // beside it at its status, so a frame the monitor sampled, its policy in one and the group's address in the other, is
-  // the monitor's (Codex's read of 8d0b99747). Headers logged beside none of them (a redirect's hop, a response not
-  // logged) are read alone, as before: a policy there that isn't the monitor's leaves the load unattributed.
-  // Every response under one id is read, each with the last headers logged beside it at its status (Codex's read of
-  // 825cf2c25: keeping only the last hid a first one's policy).
-  const foreign = [...others.values()].some(events => {
-    const beside = events.filter(e => e.method === 'Network.responseReceivedExtraInfo')
-    const paired = new Set<Event>()
-    const read = events.filter(e => e.method === 'Network.responseReceived').map(res => {
-      const final = beside.filter(e => of(e).statusCode === of(res).response?.status).at(-1)
-      if (final) paired.add(final)
-      return { ...lower(of(res).response?.headers), ...(final ? lower(of(final).headers) : {}) }
-    })
-    read.push(...beside.filter(e => !paired.has(e)).map(e => lower(of(e).headers)))
-    return read.some(headers => headers[REPORT_ONLY] !== undefined && monitorPolicy(headers, page) === undefined)
-  })
+  // Every report-only policy logged is judged on the headers it came in, never merged with another event's, so none can
+  // hide one (Codex's reads of 825cf2c25 and bb58fbba8): each of another request's, and the page's own at its final
+  // status (a redirect's hop never applied to a document). Only its report group's address may come from beside it: a
+  // frame the monitor sampled can have its policy in its response and `reporting-endpoints` in the headers logged beside
+  // it at the same status (Codex's read of 8d0b99747), and that address is taken when every such event gives the same one.
+  const status = (e: Event) => (e.method === 'Network.responseReceived' ? of(e).response?.status : of(e).statusCode)
+  const headersOf = (e: Event) => lower(e.method === 'Network.responseReceived' ? of(e).response?.headers : of(e).headers)
+  const own = log.filter(e => (e.method === 'Network.responseReceived' || e.method === 'Network.responseReceivedExtraInfo') && of(e).requestId === of(main!).requestId && status(e) === of(main!).response?.status)
+  const foreign = [...others.values(), own].some(events => events.some(e => {
+    const headers = headersOf(e)
+    if (headers[REPORT_ONLY] === undefined) return false
+    const beside = [...new Set(events.filter(x => x !== e && status(x) === status(e)).map(x => headersOf(x)['reporting-endpoints']).filter(v => v !== undefined))]
+    const group = headers['reporting-endpoints'] ?? (beside.length === 1 ? beside[0] : undefined)
+    return monitorPolicy({ ...headers, ...(group === undefined ? {} : { 'reporting-endpoints': group }) }, page) === undefined
+  }))
   return foreign ? undefined : policy
 }
 

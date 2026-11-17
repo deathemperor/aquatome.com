@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { dictionary, loadPolicy, monitorPolicy, onlyMonitorBreaks, policyNames, scoreWith, type Issues, type Lhr } from '../e2e/lighthouse-edge'
+import { endpoints, loadPolicy, monitorPolicy, onlyMonitorBreaks, policyNames, scoreWith, type Issues, type Lhr } from '../e2e/lighthouse-edge'
 import { documentHeaders } from '../e2e/lighthouse-headers'
 
 // Live checks 43558404985 and 43564278975, 14 Nov 2026: on loads Cloudflare's script monitor sampled, every script file
@@ -100,21 +100,27 @@ test("the monitor's policy as the live site sends it: a report-to group whose ad
     [LIVE, ENDPOINTS.slice(0, -1)],
     [LIVE, `other="a\\x", ${ENDPOINTS}`],
     [LIVE, 'cf-csp-endpoint=https'],
-    // A parameter no structured field can have (Codex's read of 825cf2c25), or one run on into the next word.
+    // Any parameter, valid or not (Codex's reads of 825cf2c25 and bb58fbba8: `?2`, a decimal too long, base64 that isn't,
+    // a tab in a string), or a word run on: the field isn't in the live site's shape.
     [LIVE, `${ENDPOINTS};p=?2`],
     [LIVE, `${ENDPOINTS};p=1x`],
     [LIVE, `${ENDPOINTS};p=(1 2)`],
+    [LIVE, `${ENDPOINTS};p=1234567890123.1`],
+    [LIVE, `${ENDPOINTS};p=:===:`],
+    [LIVE, `${ENDPOINTS};p="\t"`],
+    [LIVE, `${ENDPOINTS};p=1`],
+    [LIVE, `other="https://reports.example/a\\"b", ${ENDPOINTS}`],
   ] as const) expect(live(policy, endpoints), `${policy} | ${endpoints}`).toBeUndefined()
-  // Read whole, the monitor's group is still found: with a parameter of its own, beside a member whose string holds a
-  // comma and an escaped quote, and in two fields the log joins by a new line.
-  for (const endpoints of [`${ENDPOINTS};p=1`, `${ENDPOINTS};a=?1;b=-1.5;c=:aGk=:;d=tok/en`, `other="https://reports.example/a,b\\"c", ${ENDPOINTS}`, `cf-nel="https://a.nel.cloudflare.com/r"\n${ENDPOINTS}`])
+  // In the live shape, the monitor's group is found: beside a member whose address holds a comma, and in two fields the
+  // log joins by a new line.
+  for (const endpoints of [`other="https://reports.example/a,b", ${ENDPOINTS}`, `cf-nel="https://a.nel.cloudflare.com/r"\n${ENDPOINTS}`])
     expect(live(LIVE, endpoints), endpoints).toBe(`${CUT}; report-to cf-csp-endpoint`)
 })
 
-test("a structured dictionary is read whole: names in order, a string's text, parameters set aside, or nothing", () => {
-  expect(dictionary('a="x", b=tok;q=1, c;d="y,z", e="say \\"hi\\""')).toEqual([['a', 'x'], ['b', undefined], ['c', undefined], ['e', 'say "hi"']])
-  expect(dictionary('')).toEqual([])
-  for (const bad of ['a="x",', 'a="x', 'A="x"', 'a="x" b="y"', 'a=;', 'a="\\n"']) expect(dictionary(bad), bad).toBeUndefined()
+test("reporting-endpoints is read only in the live site's shape: name=\"address\" members, nothing else", () => {
+  expect(endpoints('a="https://x/1", b="https://x/2,3"\nc=""')).toEqual([['a', 'https://x/1'], ['b', 'https://x/2,3'], ['c', '']])
+  expect(endpoints('')).toEqual([])
+  for (const bad of ['a="x",', 'a="x', 'A="x"', 'a="x" b="y"', 'a=x', 'a', 'a="x";p', 'a="\\n"', 'a="\t"', 'a="é"']) expect(endpoints(bad), bad).toBeUndefined()
 })
 
 test("the monitor's policy is the load's only when no other response of it has a report-only policy of its own", () => {
@@ -143,8 +149,12 @@ test("the monitor's policy is the load's only when no other response of it has a
   const split = [response('2', 'https://aquatome.com/embed/', 'Document', { 'content-security-policy-report-only': LIVE }), extra('2', 200, { 'reporting-endpoints': ENDPOINTS })]
   expect(loadPolicy([...live, ...split], PAGE)).toBe(`${CUT}; report-to cf-csp-endpoint`)
   expect(loadPolicy([...live, extra('2', 302, { 'content-security-policy-report-only': LIVE }), ...split], PAGE)).toBeUndefined()
-  // Two responses under one id: each is read, the first's policy too (Codex's read of 825cf2c25).
+  // Two responses under one id: each is read, the first's policy too (Codex's read of 825cf2c25), and when both are at
+  // the same status beside headers with the monitor's policy (Codex's read of bb58fbba8).
   expect(loadPolicy([...live, response('2', frame, 'Document', { 'content-security-policy-report-only': "connect-src 'self'" }), response('2', frame, 'Document', {})], PAGE)).toBeUndefined()
+  expect(loadPolicy([...live, response('2', frame, 'Document', { 'content-security-policy-report-only': "connect-src 'self'" }), response('2', frame, 'Document', { 'content-security-policy-report-only': LIVE }), extra('2', 200, { 'content-security-policy-report-only': LIVE, 'reporting-endpoints': ENDPOINTS })], PAGE)).toBeUndefined()
+  // The page's own response with a policy that isn't the monitor's, the headers beside it the monitor's: each is judged.
+  expect(loadPolicy([page[0]!, response('1', PAGE, 'Document', { 'content-security-policy-report-only': "connect-src 'self'" }), extra('1', 200, { 'content-security-policy-report-only': MONITOR }), page[3]!], PAGE)).toBeUndefined()
   expect(loadPolicy([...page, response('2', frame, 'Document', { 'content-security-policy': "default-src 'none'" })], PAGE)).toBe(CUT)
   expect(loadPolicy([page[0]!, extra('1', 301, { location: PAGE, 'content-security-policy-report-only': "connect-src 'self'" }), ...page.slice(1)], PAGE)).toBe(CUT)
   // No monitor on the page: nothing, whatever else the load has.
