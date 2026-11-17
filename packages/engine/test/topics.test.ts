@@ -176,6 +176,7 @@ test('a copy that prints the facts\' source numbers is written once more without
   expect(sourceNumbers('<p>Dua sumber, 3 sumber lain, sumber 2024, sumbernya, แหล่งหนึ่ง, แหล่งที่มา.</p>')).toEqual([])
   // A measure isn't a source's number (Codex's second read): the source water's temperature, a volume, a range.
   expect(sourceNumbers('<p>Suhu air sumber 24 °C. Air sumber 5 liter, sumber 2–3 kali.</p>')).toEqual([])
+  expect(sourceNumbers('<p>Suhu air sumber 24,5 °C. Air sumber 24.5 °C. Menurut sumber 2, 3.</p>')).toEqual(['sumber 2'])
   const root = await site()
   const llm0: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : { name: 'Cá bị lồi mắt', summary: ['x'], body: '<p>x</p>', faq: [] }) as never
   const r0 = await makeTopic(root, { research: async () => facts as never, llm: llm0 }, { topic: 'Cá bị lồi mắt (popeye)', kind: 'disease' })
