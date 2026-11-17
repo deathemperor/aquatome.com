@@ -6,8 +6,7 @@ import { getContent } from '../../../lib/content'
 import { albumOf, hasPhotoPage } from '../../../lib/photo-page'
 import { i18n, langOf, localizePath, toVi, type Lang } from '../../../lib/i18n'
 import { alternatesOf } from '../../../lib/alternates'
-import { isFish } from '../../../lib/taxa-places'
-import { breedIsFish } from '../../../lib/breeds'
+import { pageIsFish } from '../../../lib/breeds'
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const c = await getContent(langOf(routePattern))
   // Species and man-made fish (breeds) alike; a breed has no scientific name.
@@ -17,7 +16,7 @@ export async function getStaticPaths({ routePattern }: { routePattern: string })
 const { s, photos } = Astro.props as { s: Localized<SpeciesEntity> | Localized<BreedEntity>; photos: Photo[] }
 const { t, lang } = i18n(Astro.url)
 const sci = 'scientificName' in s ? s.scientificName : undefined
-const fish = 'order' in s ? isFish(s) : breedIsFish(await getContent(lang), s)
+const fish = pageIsFish(await getContent(lang), s)
 const page = `/vi/ca/${s.t.slug}/`
 // The same photos in every language: the gallery is there wherever its fish's page is.
 const alternates = Object.fromEntries(Object.entries(await alternatesOf(sci ? 'species' : 'breeds', s.id)).map(([l, p]) => [l, localizePath(l as Lang, `${toVi(p)}anh/`)]))

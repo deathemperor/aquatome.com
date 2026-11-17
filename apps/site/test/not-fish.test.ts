@@ -1,9 +1,10 @@
+import { readFileSync } from 'node:fs'
 import { LANGS, type BreedEntity, type Content } from '@aq/schema'
 import { expect, test } from 'vitest'
-import { saysFish } from '../scripts/page-check'
-import { breedIsFish, breedKind } from '../src/lib/breeds'
+import { notFishPaths, saysFish } from '../scripts/page-check'
+import { breedIsFish, breedKind, pageIsFish } from '../src/lib/breeds'
 import { AVOID_REASONS, avoidWhy } from '../src/lib/companions'
-import { translator } from '../src/lib/i18n'
+import { localizePath, translator } from '../src/lib/i18n'
 import { speciesDescription } from '../src/lib/meta'
 import { isFish } from '../src/lib/taxa-places'
 
@@ -40,4 +41,19 @@ test("a line is a fish's by its species, through the line it's a form of; a page
   // The sea slug has no order: by name until its content says it.
   expect(isFish({ id: 'costasiella-kuroshimae', group: 'other', order: '' })).toBe(false)
   expect(isFish({ group: 'other', order: '' })).toBe(true)
+})
+
+test("a shrimp line's page and its photos page are a shrimp's, and the check reads both (a reader's point, 17 Nov: the crystal red shrimp's photos page said \"Loài cá\")", () => {
+  const c = {
+    species: [{ id: 'neocaridina-davidi', group: 'shrimp', order: 'Decapoda', t: { slug: 'tep-red-cherry' } }, { id: 'carassius-auratus', group: 'goldfish', order: 'Cypriniformes', t: { slug: 'ca-vang' } }],
+    breeds: [{ id: 'blue-velvet-shrimp', kind: 'variety', basedOn: 'neocaridina-davidi', parents: [], t: { slug: 'tep-blue-velvet' } }, { id: 'ranchu', kind: 'variety', basedOn: 'carassius-auratus', parents: [], t: { slug: 'ca-ranchu' } }],
+  } as unknown as Content
+  expect(pageIsFish(c, c.breeds[0]!)).toBe(false)
+  expect(pageIsFish(c, c.breeds[1]!)).toBe(true)
+  expect(pageIsFish(c, c.species[0]!)).toBe(false)
+  expect(notFishPaths(c, 'vi').sort()).toEqual(['/ca/tep-blue-velvet/', '/ca/tep-blue-velvet/anh/', '/ca/tep-red-cherry/', '/ca/tep-red-cherry/anh/', '/nhom/shrimp/'])
+  expect(notFishPaths(c, 'th')).toContain(localizePath('th', '/vi/ca/tep-blue-velvet/anh/'))
+  // The photos page asks the same question for a species and a line alike.
+  expect(readFileSync(new URL('../src/pages/ca/[slug]/anh.astro', import.meta.url), 'utf8')).toContain("t(fish ? 'Loài cá' : 'Loài')")
+  expect(readFileSync(new URL('../src/pages/ca/[slug]/anh.astro', import.meta.url), 'utf8')).toContain('const fish = pageIsFish(')
 })

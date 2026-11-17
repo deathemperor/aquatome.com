@@ -7,13 +7,13 @@ import { readdirSync, readFileSync, statSync } from 'node:fs'
 import { join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { HTMLElement, parse } from 'node-html-parser'
-import { headingSubject, loadAll, PictureSet, pictureOf, type LinkTarget, type Photo, type PictureHashes } from '@aq/schema'
+import { headingSubject, loadAll, PictureSet, pictureOf, type Content, type LinkTarget, type Photo, type PictureHashes } from '@aq/schema'
 import { LANGS, langOf, LINK_MARK, localizePath, translator, type Lang } from '../src/lib/i18n'
 import { saysSci, sciWords } from '../src/lib/sci'
 import { linkTargets } from '../src/lib/mentions'
 import { smallSrc } from '../src/lib/img'
 import { isFish } from '../src/lib/taxa-places'
-import { breedIsFish } from '../src/lib/breeds'
+import { pageIsFish } from '../src/lib/breeds'
 
 export const CHECKS = {
   repeat: 'the same picture twice',
@@ -51,6 +51,14 @@ export type Facts = {
   notFish: Set<string>
 }
 
+/** A crab's, a shrimp's or a snail's pages in this language: its page and its photos page, a line's too, and a group's that holds no fish. */
+export function notFishPaths(c: Pick<Content, 'species' | 'breeds'>, lang: Lang): string[] {
+  return [
+    ...[...c.species, ...c.breeds].filter(s => !pageIsFish(c, s)).flatMap(s => ['', 'anh/'].map(p => localizePath(lang, `/vi/ca/${s.t.slug}/${p}`))),
+    ...[...new Set(c.species.map(s => s.group))].filter(g => !isFish({ group: g, order: '' })).map(g => localizePath(lang, `/vi/nhom/${g}/`)),
+  ]
+}
+
 /** The site's facts from the content a build was made from. */
 export async function loadFacts(root: string): Promise<Facts> {
   const facts: Facts = { hashes: {}, byPath: new Map(), living: new Map(), owner: new Map(), targets: {} as Record<Lang, LinkTarget[]>, genera: new Set(), credits: new Map(), notFish: new Set() }
@@ -69,9 +77,7 @@ export async function loadFacts(root: string): Promise<Facts> {
     for (const s of c.species) add(`species:${s.id}`, `/vi/ca/${s.t.slug}/`, [s.scientificName, s.t.name, ...s.t.altNames], s.photos, s.scientificName)
     for (const p of c.plants) add(`plant:${p.id}`, `/vi/cay/${p.t.slug}/`, [p.scientificName, ...(p.synonyms ?? []), p.t.name, ...p.t.altNames], p.photos, p.scientificName)
     for (const b of c.breeds) add(`breed:${b.id}`, `/vi/ca/${b.t.slug}/`, [b.t.name, ...b.t.altNames], b.photos)
-    for (const s of c.species.filter(s => !isFish(s))) for (const p of ['', 'anh/']) facts.notFish.add(localizePath(lang, `/vi/ca/${s.t.slug}/${p}`))
-    for (const g of new Set(c.species.map(s => s.group))) if (!isFish({ group: g, order: '' })) facts.notFish.add(localizePath(lang, `/vi/nhom/${g}/`))
-    for (const b of c.breeds.filter(b => !breedIsFish(c, b))) for (const p of ['', 'anh/']) facts.notFish.add(localizePath(lang, `/vi/ca/${b.t.slug}/${p}`))
+    for (const p of notFishPaths(c, lang)) facts.notFish.add(p)
     addCredits(facts.credits, c)
   }
   return facts
