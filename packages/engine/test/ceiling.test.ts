@@ -250,24 +250,30 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
   // job runs 80 sheets a run to judge the 621 page heads no check has seen; $12 again from 18 Nov (the chief of staff,
   // 15 Nov 2026).
   const periods = [
-    { from: '2026-11-12T13:00:00+07:00', to: '2026-11-13T07:59:00+07:00', steps: 142, backstop: 150, small: 1, run: 30, localize: 25, second: 12, fit: 5, vi: 3, crops: 1, board: 1, photos: 6 },
-    { from: '2026-11-13T08:00:00+07:00', to: '2026-11-13T21:59:00+07:00', steps: 278, backstop: 300, small: 2, run: 70, localize: 50, second: 18, fit: 10, vi: 12, crops: 4, board: 2, photos: 10 },
-    { from: '2026-11-13T22:00:00+07:00', to: '2026-11-14T02:59:00+07:00', steps: 288, backstop: 300, small: 2, run: 70, localize: 50, second: 18, fit: 10, vi: 12, crops: 4, board: 2, glossary: 10, photos: 10 },
-    { from: '2026-11-14T03:00:00+07:00', to: '2026-11-14T07:59:00+07:00', steps: 303, backstop: 300, small: 2, run: 70, localize: 50, second: 18, fit: 10, vi: 12, crops: 4, board: 2, glossary: 25, photos: 10 },
-    { from: '2026-11-14T08:00:00+07:00', to: '2026-11-14T23:59:00+07:00', steps: 466, backstop: 450, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 40, glossary: 40, ask: 0, photos: 12 },
-    { from: '2026-11-15T00:00:00+07:00', to: '2026-11-15T05:59:00+07:00', steps: 470, backstop: 497, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 34, quota: 1, glossary: 40, material: 8, ask: 0, ideas: 4, photos: 12 },
-    { from: '2026-11-15T06:00:00+07:00', to: '2026-11-15T23:59:00+07:00', steps: 480, backstop: 507, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 34, quota: 1, glossary: 40, material: 8, ask: 0, ideas: 4, photos: 22 },
-    { from: '2026-11-16T00:00:00+07:00', to: '2026-11-16T23:59:00+07:00', whole: true, steps: 498, backstop: 508, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 37, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24, photos: 22 },
-    { from: '2026-11-17T00:00:00+07:00', to: '2026-11-17T23:59:00+07:00', whole: true, steps: 506, backstop: 516, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 8, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24, photos: 22, titles: 22, titlesCheck: 15 },
-    { from: '2026-11-18T00:00:00+07:00', to: '2026-11-18T23:59:00+07:00', whole: true, steps: 463, backstop: 473, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 12, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24, photos: 12 },
-    { from: '2026-11-19T00:00:00+07:00', to: '2026-11-19T23:59:00+07:00', steps: 451, backstop: 453, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24, photos: 12 },
-    { from: '2026-11-20T00:00:00+07:00', to: '2026-12-31T00:00:00+07:00', steps: 437, backstop: 453, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 8, ask: 2, ideas: 4, photos: 12 },
+    { from: '2026-11-12T13:00:00+07:00', to: '2026-11-13T07:59:00+07:00', steps: 142, backstop: 150, mac: [83, 90], small: 1, run: 30, localize: 25, second: 12, fit: 5, vi: 3, crops: 1, board: 1, photos: 6 },
+    { from: '2026-11-13T08:00:00+07:00', to: '2026-11-13T21:59:00+07:00', steps: 278, backstop: 300, mac: [161, 180], small: 2, run: 70, localize: 50, second: 18, fit: 10, vi: 12, crops: 4, board: 2, photos: 10 },
+    { from: '2026-11-13T22:00:00+07:00', to: '2026-11-14T02:59:00+07:00', steps: 288, backstop: 300, mac: [171, 180], small: 2, run: 70, localize: 50, second: 18, fit: 10, vi: 12, crops: 4, board: 2, glossary: 10, photos: 10 },
+    { from: '2026-11-14T03:00:00+07:00', to: '2026-11-14T07:59:00+07:00', steps: 303, backstop: 300, mac: [186, 180], small: 2, run: 70, localize: 50, second: 18, fit: 10, vi: 12, crops: 4, board: 2, glossary: 25, photos: 10 },
+    { from: '2026-11-14T08:00:00+07:00', to: '2026-11-14T23:59:00+07:00', steps: 466, backstop: 450, mac: [301, 270], small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 40, glossary: 40, ask: 0, photos: 12 },
+    { from: '2026-11-15T00:00:00+07:00', to: '2026-11-15T05:59:00+07:00', steps: 470, backstop: 497, mac: [304, 317], small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 34, quota: 1, glossary: 40, material: 8, ask: 0, ideas: 4, photos: 12 },
+    { from: '2026-11-15T06:00:00+07:00', to: '2026-11-15T23:59:00+07:00', steps: 480, backstop: 507, mac: [314, 327], small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 34, quota: 1, glossary: 40, material: 8, ask: 0, ideas: 4, photos: 22 },
+    { from: '2026-11-16T00:00:00+07:00', to: '2026-11-16T23:59:00+07:00', whole: true, steps: 498, backstop: 508, mac: [318, 328], small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 37, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24, photos: 22 },
+    { from: '2026-11-17T00:00:00+07:00', to: '2026-11-17T23:59:00+07:00', whole: true, steps: 506, backstop: 516, mac: [326, 336], small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 8, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24, photos: 22, titles: 22, titlesCheck: 15 },
+    { from: '2026-11-18T00:00:00+07:00', to: '2026-11-18T23:59:00+07:00', whole: true, steps: 463, backstop: 473, mac: [283, 293], small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 12, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24, photos: 12 },
+    { from: '2026-11-19T00:00:00+07:00', to: '2026-11-19T23:59:00+07:00', steps: 451, backstop: 453, mac: [271, 273], small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24, photos: 12 },
+    { from: '2026-11-20T00:00:00+07:00', to: '2026-12-31T00:00:00+07:00', steps: 437, backstop: 453, mac: [271, 273], small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 8, ask: 2, ideas: 4, photos: 12 },
   ]
   const fresh = await logs({ 'aquatome-cost-hand.jsonl': [] }).then(d => join(d, 'aquatome-cost-hand.jsonl'))
   for (const p of periods) for (const when of [p.from, p.to]) {
     const t = tableInForce(CEILINGS.tables, new Date(when))!
     expect(sum(t.mac) + sum(t.github)).toBe(p.steps)
     expect(t.mac.backstop + t.github.backstop).toBe(p.backstop)
+    // Each machine's own, not only the two together: a dollar moved from one machine's lines or backstop to the other's
+    // leaves the sums alike and stops a step early (Codex's read of 1495, 17 Nov).
+    expect([sum(t.mac), t.mac.backstop]).toEqual(p.mac)
+    // A whole day's Mac backstop is its named lines plus the $10 kept spare, to the dollar: no more, which would let the
+    // board's line hide a change elsewhere.
+    if (p.whole) expect(t.mac.backstop).toBe(sum(t.mac) + 10)
     expect([t.mac.default, t.github.default]).toEqual([p.small, p.small])
     expect(cap(when, 'mac', 'run')).toBe(p.run)
     expect(cap(when, 'github', 'localize')).toBe(p.localize)
