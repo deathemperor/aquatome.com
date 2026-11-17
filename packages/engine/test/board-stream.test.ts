@@ -1,4 +1,3 @@
-import type Anthropic from '@anthropic-ai/sdk'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { clientFor } from '../../../apps/site/worker/fishid/claude'
 import { memoryHealth, rotate } from '../../../apps/site/worker/fishid/keys'
@@ -16,6 +15,9 @@ const stream = (pieces: Piece[], tail = 0) => (signal: AbortSignal) => Object.as
   for (const p of pieces) { await wait(p.after, signal); yield { type: 'content_block_delta', index: 0, delta: p.delta } }
   await wait(tail, signal)
 })(), { finalMessage: async () => ({ content: [{ type: 'text', text: pieces.map(p => p.delta.text ?? '').join('') }] }) })
+/** The SDK's error classes, the real ones, from a client (the engine doesn't depend on the SDK itself). */
+type Errors = { APIConnectionTimeoutError: new () => Error; APIConnectionError: new (o: { message: string }) => Error; APIUserAbortError: new () => Error }
+const sdk = async () => (await clientFor({ key: 'not-a-key', hash: 'h' })).constructor as unknown as Errors
 const failing = (e: unknown) => () => Object.assign((async function* () { throw e })(), { finalMessage: async () => ({}) })
 
 beforeEach(() => { vi.useFakeTimers() })
@@ -51,13 +53,13 @@ describe('a board call our own timer ends is named as ours, not as no key answer
     expect(cut.by).toBe('before writing')
   })
   it('the SDK\'s own timeout counts as ours', async () => {
-    const SDK = (await clientFor({ key: 'not-a-key', hash: 'h' })).constructor as typeof Anthropic
+    const SDK = await sdk()
     const cut: Cut = {}
     await expect(streamOnce(failing(new SDK.APIConnectionTimeoutError()), 1000, {}, cut)).rejects.toBeInstanceOf(SDK.APIConnectionTimeoutError)
     expect(cut.by).toBe('before writing')
   })
   it('a failure that isn\'t a time limit of ours stays the key\'s or the network\'s', async () => {
-    const SDK = (await clientFor({ key: 'not-a-key', hash: 'h' })).constructor as typeof Anthropic
+    const SDK = await sdk()
     for (const e of [Object.assign(new Error('Overloaded'), { status: 529 }), new SDK.APIConnectionError({ message: 'Connection error.' }), new SDK.APIUserAbortError()]) {
       const cut: Cut = {}
       await expect(streamOnce(failing(e), 1000, {}, cut)).rejects.toBeDefined()
