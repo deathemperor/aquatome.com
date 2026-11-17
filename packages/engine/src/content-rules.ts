@@ -1209,15 +1209,18 @@ const sameSpecies = (a: string, sci: string) => {
 }
 /** Its second word under any genus: the fish moved ("Hoplisoma panda" for Corydoras panda) or its genus misspelt ("Xiphorphorus"). */
 const itsEpithet = (a: string, sci: string) => stem(a.split(' ')[1] ?? '') === stem(sci.split(' ')[1] ?? '')
-/** In brackets right after the old name, or right before it with a bracket or a dash between. */
+/** In brackets right after the old name, or right before it with a bracket or a dash between (-, – or —). */
 const BRACKET_AFTER = /^\s*\(([^()]{0,80})\)/
-const BINOMIAL_BEFORE = /((?:[A-Z][a-z]+\s+|[A-Z]\.\s*)[a-z]+)\s*[(),:–-]\s*\(?\s*$/
-/** "cá" right before a name: the whole name, which its own pass renamed or left ("Trichopsis pumila (cá sặc lùn)"). */
+const BINOMIAL_BEFORE = /((?:[A-Z][a-z]+\s+|[A-Z]\.\s*)[a-z]+)\s*[(),:—–-]\s*\(?\s*$/
+/**
+ * "cá" right before a name, a tag between read as spaces ("cá <strong>sặc lùn</strong>"): the whole name, which its own
+ * pass renamed or left ("Trichopsis pumila (cá sặc lùn)").
+ */
 const KIND_BEFORE = /(?<!\p{L})cá[^\S\n]+$/iu
 const renamesIn = (r: (typeof RENAMES)[number], text: string) => [...text.matchAll(r.old)].filter(m => {
   const end = m.index! + m[0].length
   if (r.longer?.test(text.slice(end))) return false
-  if (r.kindless && KIND_BEFORE.test(text.slice(Math.max(0, m.index! - 8), m.index!))) return false
+  if (r.kindless && KIND_BEFORE.test(text.slice(0, m.index!))) return false
   const named = [...binomials(BRACKET_AFTER.exec(text.slice(end, end + 90))?.[1] ?? ''), ...binomials(BINOMIAL_BEFORE.exec(text.slice(Math.max(0, m.index! - 60), m.index!))?.[1] ?? '')]
   return !named.length || named.some(n => itsEpithet(n, r.sci))
 })
