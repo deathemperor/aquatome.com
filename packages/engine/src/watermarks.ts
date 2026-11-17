@@ -174,7 +174,9 @@ export async function screenWatermarks(root: string, cacheFile: string, rejected
   // (keptOwnMark), and photos listed before this rule return only by their own step, on the chief of staff's word.
   const sources = JSON.parse(await readFile(join(root, 'content', 'sources.json'), 'utf8').catch(() => '{}')) as Record<string, { name?: string; homepage?: string }>
   const shopOf = (u: string): ShopPhoto | undefined => {
-    if (u in rejected) return undefined
+    // Nor one with a kept record already (a person's, on the chief of staff's word, or the image step's): the record
+    // stands, and the screen's answer can't take it off or keep it a second way.
+    if (u in rejected || retainedOwnMark(u, cache[u])) return undefined
     for (const sourceUrl of from.get(u) ?? []) {
       const source = screenedShop(u, sourceUrl), held = source && sources[source]
       if (source && held?.name && held.homepage) return { source, sourceUrl, name: held.name, homepage: held.homepage }

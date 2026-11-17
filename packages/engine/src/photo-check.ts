@@ -448,7 +448,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const g = await readJson<{ photos?: Photo[]; video?: { figures?: { photo?: Photo }[] } }>(file)
     for (const p of [...(g?.photos ?? []), ...(g?.video?.figures ?? []).flatMap(f => (f.photo ? [f.photo] : []))].filter(p => !p.generated)) {
       const page = p.caption ? captionSubject(p.caption, index.names, index.genera) : undefined
-      shown.push({ file, url: p.url, guide: true, ...(page ? { page, caption: p.caption } : {}) })
+      // Its page with it (`source`): a guide's Glaser photo waits for the screen as a fish page's does (ownMarkWaits).
+      shown.push({ file, url: p.url, guide: true, ...(page ? { page, caption: p.caption } : {}), ...(p.sourceUrl ? { source: p.sourceUrl } : {}) })
     }
   }
   // The first check judged a page's own photos one page at a time: its verdict holds where the photo is on one page only.

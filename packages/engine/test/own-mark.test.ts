@@ -176,6 +176,31 @@ test('glaser: a photo already on the never-again list is not asked whose its mar
   expect((await json(r, 'engine-state/_photo-watermarks.json'))[marked].retainedOwnMark).toBeUndefined()
 })
 
+test('glaser: a photo with a kept record already is not asked whose its mark is: the record stands, whatever the model would say', async () => {
+  const marked = 'https://media.aquatome.com/glaser/marked.webp'
+  const r = await site({ url: marked, source: 'glaser', sourceUrl: PAGE.glaser }, undefined, 'waits')
+  const record = { source: 'glaser', sourceUrl: PAGE.glaser, owner: 'source' }
+  const marks = await json(r, 'engine-state/_photo-watermarks.json')
+  await writeFile(join(r, 'engine-state/_photo-watermarks.json'), JSON.stringify({ ...marks, [marked]: { ocr: [], retainedOwnMark: record } }))
+  const prompts: string[] = []
+  expect(await steps(r, marked, screenModel(false, prompts))).toEqual({ screen: kept, check: kept, album: kept })
+  expect(prompts.join('\n')).not.toContain('Sampletown')
+  expect((await json(r, 'engine-state/_photo-watermarks.json'))[marked].retainedOwnMark).toEqual(record)
+})
+
+test('glaser: a Glaser photo in a guide alone, its caption naming the fish, waits for the screen as a page\'s does', async () => {
+  const marked = 'https://media.aquatome.com/glaser/guide-only.webp'
+  const r = await site({ url: 'https://media.aquatome.com/glaser/marked.webp', source: 'glaser', sourceUrl: PAGE.glaser })
+  await mkdir(join(r, 'content/guides/betta-guide'), { recursive: true })
+  await writeFile(join(r, 'content/guides/betta-guide/entity.json'), JSON.stringify({ id: 'betta-guide', photos: [{ ...photo(marked, 'glaser', PAGE.glaser), caption: 'Betta x' }] }))
+  const marks = await json(r, 'engine-state/_photo-watermarks.json')
+  await writeFile(join(r, 'engine-state/_photo-watermarks.json'), JSON.stringify({ ...marks, [marked]: { ocr: [] } }))
+  await checkPagePhotos(r, model(marked), { limit: 10, only: ID, emptyCap: 99 })
+  // The check judged it for the fish its caption names (its model sees a logo), and listed it not.
+  expect((await json(r, 'engine-state/_photo-subjects.json'))[marked]?.[ID]).toBeDefined()
+  expect(marked in (await json(r, 'engine-state/_photo-rejected.json'))).toBe(false)
+})
+
 test('bwaquatics: without a record its marked photo goes back on the never-again list, whatever the screen\'s model says of the mark', async () => {
   const marked = 'https://media.aquatome.com/bwaquatics/marked.webp'
   const r = await site({ url: marked, source: 'bwaquatics', sourceUrl: PAGE.bwaquatics }, undefined, 'waits')
