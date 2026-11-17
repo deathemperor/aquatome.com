@@ -4,13 +4,13 @@ import SwiftUI
 /// "Khám phá": the handbook's shelves, as the App Store's Apps tab: featured cards at the top; what the reader saved and
 /// read last; the fish groups and the well-known fish in columns of three; plants, by where they go and the easy ones;
 /// the guides to start with and guides by subject; the video series; equipment; the tools and the glossary. Each shelf
-/// has its whole list one tap away, and a page is on one shelf only (it zooms from there). Links from pages and from
+/// has its whole list one tap away, and a page is on one shelf only. Links from pages and from
 /// outside the app open here, as on v1's Tìm.
 @available(iOS 18, *)
 struct BrowseHome: View {
   @Binding var path: NavigationPath
   /// The tab in front. "Đã lưu" and "Đọc gần đây" are as they were when it came to the front, so a page just read or saved
-  /// stays where it was tapped, for its zoom back, and the shelves don't move; it takes its new place next time.
+  /// stays where it was tapped, and the shelves don't move; it takes its new place next time.
   let front: Bool
   @State private var recentShown: [HandbookIndex.Item] = []
   @State private var savedShown: [HandbookIndex.Item] = []
@@ -20,7 +20,6 @@ struct BrowseHome: View {
   @Environment(\.openScreen) private var openScreen
   @Environment(\.dynamicTypeSize) private var size
   @Environment(\.colorScheme) private var scheme
-  @Namespace private var zoom
   // Sizes growing with the text, so a tile's words stay whole at the larger sizes.
   @ScaledMetric(relativeTo: .title3) private var featuredHeight: CGFloat = 250
   @ScaledMetric(relativeTo: .body) private var rowHeight: CGFloat = 76
@@ -36,7 +35,7 @@ struct BrowseHome: View {
     let recent = Array(recentShown.lazy.filter { !above.contains($0.path) }.prefix(HandbookShelves.Shown.recent))
     // "Xem tất cả" once more were read than the row's 30, or past five where the row stacks (the accessibility sizes).
     let recentMore = recentShown.count > HandbookShelves.Shown.recent || (size.isAccessibilitySize && recent.count > 5)
-    // A page on one shelf only, the first it's on (its zoom starts there).
+    // A page on one shelf only, the first it's on.
     let onTop = Set((top + saved + recent).map(\.path))
     NavigationStack(path: $path) {
       ScrollView {
@@ -114,7 +113,7 @@ struct BrowseHome: View {
       .environment(\.v2PhotoTries, refreshes)
     }
     // On the stack, not its first screen, which disappears and comes back with a page pushed and popped. Never with a page
-    // open: for the zoom back to where it was tapped.
+    // open: the shelves don't move under it.
     .onAppear {
       if !held {
         held = true
@@ -144,7 +143,6 @@ struct BrowseHome: View {
             FeaturedCard(item: item, height: featuredHeight).containerRelativeFrame(.horizontal) { w, _ in shelfCard(w, across: 1, spacing: 12) }
           }
           .buttonStyle(CardPress())
-          .matchedTransitionSource(id: item.path, in: zoom)
         }
       }
       .scrollTargetLayout()
@@ -171,7 +169,6 @@ struct BrowseHome: View {
           ForEach(shown) { item in
             Lockup(item: item, line: factsLine(item, handbook.lang))
               .padding(.vertical, 12)
-              .matchedTransitionSource(id: item.path, in: zoom)
             if item.path != shown.last?.path { Divider() }
           }
           if let more { moreLink(more).padding(.top, 4) }
@@ -184,7 +181,6 @@ struct BrowseHome: View {
               Lockup(item: item, line: factsLine(item, handbook.lang))
                 // One column's worth: the whole width for the words, no next column to peek (`w` is less the margins).
                 .containerRelativeFrame(.horizontal) { w, _ in items.count <= 3 ? w : shelfCard(w, across: 1, spacing: 16) }
-                .matchedTransitionSource(id: item.path, in: zoom)
             }
           }
           .scrollTargetLayout()
@@ -232,7 +228,6 @@ struct BrowseHome: View {
                   .aspectRatio(1.8, contentMode: .fit)
                   .overlay { if item.img == nil { Image(systemName: item.kind.symbol).font(.title2).foregroundStyle(.secondary).accessibilityHidden(true) } }
                   .clipShape(.rect(cornerRadius: 16, style: .continuous))
-                  .matchedTransitionSource(id: item.path, in: zoom)
                 Text(verbatim: item.name).font(.subheadline.weight(.semibold)).lineLimit(3)
                   .multilineTextAlignment(.leading)
               }
@@ -272,7 +267,6 @@ struct BrowseHome: View {
               .background(Self.tints[i % Self.tints.count], in: .rect(cornerRadius: 16, style: .continuous))
             }
             .buttonStyle(CardPress())
-            .matchedTransitionSource(id: item.path, in: zoom)
           }
         }
         .scrollTargetLayout()

@@ -17,7 +17,7 @@ struct TodayView: View {
   @State private var today = TodayView.now
   /// No fish yet, as the day began: held, so a fish added from the card doesn't change the card under the sheet.
   @State private var heldBeginner: Bool?
-  /// A post is open (`Post`): the screens opened inside it have its ✕.
+  /// A post is open (`Post`): the screens opened inside it have no tab bar.
   @State private var postOpen = false
   private var beginner: Bool { heldBeginner ?? tanks.tanks.allSatisfy { $0.species.isEmpty } }
 

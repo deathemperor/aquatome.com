@@ -1284,7 +1284,7 @@ final class V2FlowTests: XCTestCase {
     let colour = foot()
     XCTAssertGreaterThan(colour.distance(to: Pixels.RGB(r: 255, g: 255, b: 255)), 60, "the neon's page isn't on its colour under the tab bar: \(colour)")
     follow(app, neon)
-    // Its zoom in, and the page under it gone from view.
+    // Its push in, and the page under it gone from view.
     Thread.sleep(forTimeInterval: 2)
     XCTAssertTrue(app.links["John Roe"].exists, "the neon's page didn't come again")
     let after = foot()
@@ -1849,7 +1849,7 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
     app.leavePage()
     XCTAssertTrue(neon.waitForExistence(timeout: 5), "not back on Khám phá")
-    // The shelves stay as they were, for the page's zoom back to where it was tapped.
+    // The shelves stay as they were on coming back.
     XCTAssertFalse(app.staticTexts["Đọc gần đây"].exists, "the shelves moved on coming back")
     app.openTab("Hôm nay")
     app.openTab("Khám phá")
