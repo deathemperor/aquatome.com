@@ -837,6 +837,44 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/amphiliidae/zaireichthys_pallidus.htm": {
+    "entityIds": [
+      "species/zaireichthys-pallidus"
+    ],
+    "updatedAt": "2026-11-17T11:46:41.376Z",
+    "hash": "6cc0c6d20ffd300ac6d0a761457119c1c431973140b9efeddc086e2116946c79",
+    "processedHash": "6cc0c6d20ffd300ac6d0a761457119c1c431973140b9efeddc086e2116946c79",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amphiliidae/zaireichthys_rotundiceps.htm": {
+    "entityIds": [
+      "species/zaireichthys-rotundiceps"
+    ],
+    "updatedAt": "2026-11-17T11:53:40.255Z",
+    "hash": "8973dfc0dadba56e47bf2e6f3419af23e4067236324b3e8e8a89a2145deda52c",
+    "processedHash": "8973dfc0dadba56e47bf2e6f3419af23e4067236324b3e8e8a89a2145deda52c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amphiliidae/zaireichthys_sp_leopardspot.htm": {
+    "entityIds": [],
+    "updatedAt": "2026-11-17T11:59:04.890Z",
+    "hash": "0fdc8d54ce9cbd60ad907863a2ba5ac2ea08dd0b37ae97cf2aeb442c1d21d720",
+    "processedHash": "0fdc8d54ce9cbd60ad907863a2ba5ac2ea08dd0b37ae97cf2aeb442c1d21d720",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amphiliidae/zaireichthys_wamiensis.htm": {
+    "entityIds": [
+      "species/zaireichthys-wamiensis"
+    ],
+    "updatedAt": "2026-11-17T12:01:18.688Z",
+    "hash": "528cc88984f15a8ef6f43200d3058429a100e597ebec2e80c0cda1982424ed4f",
+    "processedHash": "528cc88984f15a8ef6f43200d3058429a100e597ebec2e80c0cda1982424ed4f",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/anchariidae/ancharius_fuscus.htm": {
     "entityIds": [
       "species/ancharius-fuscus"
@@ -844,6 +882,26 @@
     "updatedAt": "2026-11-02T12:18:40.852Z",
     "hash": "97ec6f00d423bb2b4b5320ef5eb6975a03d94bda9cd01a3c0e758ddef317ddf0",
     "processedHash": "97ec6f00d423bb2b4b5320ef5eb6975a03d94bda9cd01a3c0e758ddef317ddf0",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/anchariidae/gogo_atratus.htm": {
+    "entityIds": [
+      "species/gogo-atratus"
+    ],
+    "updatedAt": "2026-11-17T12:04:12.535Z",
+    "hash": "2233348df40d97983d9d839df48fb73d932dd4770e2dbe01eec896c26be2047a",
+    "processedHash": "2233348df40d97983d9d839df48fb73d932dd4770e2dbe01eec896c26be2047a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/anchariidae/gogo_brevibarbis.htm": {
+    "entityIds": [
+      "species/gogo-brevibarbis"
+    ],
+    "updatedAt": "2026-11-17T12:07:07.198Z",
+    "hash": "a69bf1879e48a5c86e1efb1c20b7038a57f5831ac9f61ac006dea43a642e2b70",
+    "processedHash": "a69bf1879e48a5c86e1efb1c20b7038a57f5831ac9f61ac006dea43a642e2b70",
     "status": "processed",
     "attempts": 0
   },

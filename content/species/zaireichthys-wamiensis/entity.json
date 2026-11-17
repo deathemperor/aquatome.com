@@ -1,0 +1,96 @@
+{
+  "id": "zaireichthys-wamiensis",
+  "scientificName": "Zaireichthys wamiensis",
+  "order": "Siluriformes",
+  "family": "Amphiliidae",
+  "genus": "Zaireichthys",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "tanzania",
+    "wami-river"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 2.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/zaireichthys_wamiensis.htm",
+      "html": "<p>Africa: Wami River basin, Tanzania. Type locality: Kisangata-Bach bei Mvumi, 32 kilometer SW Kidete, am Wege nach Kimamba/Kilosa im Wami-Einzug NW Morogoro, Tanzania.</p><p>IUCN Red List: only recorded from its type locality in the Wami River drainage. Such a restricted distribution makes it vulnerable to local habitat degradation, and needs updating (IUCN 2006).</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/zaireichthys_wamiensis.htm",
+      "html": "<p>Temperature: 22-25°C. pH: 6.5-7.2. Like others in this family, it prefers cool flowing water.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/zaireichthys_wamiensis.htm",
+      "html": "<p>This species along with a few others were in the genus Leptoglanis but were reclassified by the works of Mo, 1991; Diogo, 2003b and Roberts, 2003. Leptoglanis wamiensis is now a synonym of Zaireichthys wamiensis. There are still a few undescribed species.</p><p>Description: They are small and compact and their dorsal and pectoral fins possess three ossified spines which they can lock in place. They resemble an African version of the South American Aspidoras species. Z. wamiensis has long barbels.</p><p>Etymology: the specific name wamiensis is from the Wami River, Tanzania, Africa.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/zaireichthys_wamiensis.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Hanssens, M. &amp; Snoeks, J. 2006. Zaireichthys wamiensis. The IUCN Red List of Threatened Species 2006.</p><p>Seegers, L. 2008 The catfishes of Africa. A handbook for identification and maintenance. Aqualog Verlag A.C.S. GmbH, Germany. 604 p.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/774cd72d49181dbf.webp",
+      "thumb": "https://media.aquatome.com/scotcat/774cd72d49181dbf-480.webp",
+      "width": 500,
+      "height": 294,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/zaireichthys_wamiensis.htm",
+      "caption": "Zaireichthys wamiensis",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá mini",
+        "máy sưởi bể cá 50w"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ tạo dòng chảy",
+        "máy tạo sóng bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

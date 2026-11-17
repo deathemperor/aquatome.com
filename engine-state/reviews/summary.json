@@ -20510,6 +20510,16 @@
   ],
   "vi/species/gyrinocheilus-aymonieri": [
     {
+      "at": "2026-11-17T13:48:02Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    },
+    {
       "at": "2026-11-17T07:55:58Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -25281,6 +25291,30 @@
       "kept": true
     }
   ],
+  "vi/species/laevimon-kottelati": [
+    {
+      "at": "2026-11-17T13:48:25Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-17T13:48:25Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0,
+      "notes": [
+        "\"gần như chưa có dữ liệu nuôi nào\": the page never says that little or no keeping data exists. It only says the photos of live crabs are the only ones ever taken. The summary should say this page lacks the information, not that the data doesn't exist anywhere."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/laides-hexanema": [
     {
       "at": "2026-11-17T08:00:38Z",
@@ -28374,6 +28408,16 @@
     }
   ],
   "vi/species/melanotaenia-praecox": [
+    {
+      "at": "2026-11-17T13:48:05Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    },
     {
       "at": "2026-11-15T11:09:51Z",
       "model": "sonnet",
@@ -33477,6 +33521,16 @@
   ],
   "vi/species/paracheirodon-innesi": [
     {
+      "at": "2026-11-17T13:47:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    },
+    {
       "at": "2026-11-15T11:04:54Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -33770,6 +33824,16 @@
     }
   ],
   "vi/species/parathelphusa-pantherina": [
+    {
+      "at": "2026-11-17T13:47:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    },
     {
       "at": "2026-11-10T17:02:41Z",
       "model": "sonnet",
@@ -41637,6 +41701,28 @@
   ],
   "vi/species/symphysodon-aequifasciatus": [
     {
+      "at": "2026-11-17T13:48:06Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-17T13:48:06Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0,
+      "notes": [
+        "\"hợp với người đã nuôi vài bể\": the page never says the species suits experienced keepers or people who have kept several tanks. This is an invented suitability claim. The card only gives difficulty 4/8 (medium)."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
+    {
       "at": "2026-11-15T11:05:47Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -41674,24 +41760,6 @@
       "score": 0,
       "notes": [
         "\"chịu giữ nước ổn định\": the page never says the species suits people who keep water stable, or mentions water stability at all. This audience claim is not on the page or card."
-      ],
-      "attempt": "first",
-      "kept": false
-    },
-    {
-      "at": "2026-11-08T02:11:37Z",
-      "model": "sonnet",
-      "score": 1,
-      "notes": [],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-08T02:11:37Z",
-      "model": "sonnet",
-      "score": 0,
-      "notes": [
-        "\"15 cm\" is not the card's adult size (14 cm)"
       ],
       "attempt": "first",
       "kept": false
@@ -43688,6 +43756,16 @@
   ],
   "vi/species/trichogaster-lalius": [
     {
+      "at": "2026-11-17T13:47:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    },
+    {
       "at": "2026-11-15T11:08:56Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -43868,6 +43946,16 @@
   ],
   "vi/species/trichopodus-leerii": [
     {
+      "at": "2026-11-17T13:48:15Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    },
+    {
       "at": "2026-11-08T02:15:36Z",
       "model": "sonnet",
       "score": 1,
@@ -43887,6 +43975,16 @@
     }
   ],
   "vi/species/trichopodus-pectoralis": [
+    {
+      "at": "2026-11-17T13:48:24Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    },
     {
       "at": "2026-11-08T09:05:33Z",
       "model": "sonnet",
@@ -43970,6 +44068,16 @@
     }
   ],
   "vi/species/trichopsis-pumila": [
+    {
+      "at": "2026-11-17T13:48:19Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    },
     {
       "at": "2026-11-15T20:20:35Z",
       "model": "sonnet",
@@ -44143,6 +44251,16 @@
     }
   ],
   "vi/species/trigonostigma-heteromorpha": [
+    {
+      "at": "2026-11-17T13:47:45Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    },
     {
       "at": "2026-11-17T01:53:54Z",
       "model": "sonnet",

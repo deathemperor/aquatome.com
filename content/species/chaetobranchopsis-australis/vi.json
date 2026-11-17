@@ -1,0 +1,24 @@
+{
+  "slug": "ca-chaetobranchopsis-australis",
+  "name": "Cá Chaetobranchopsis australis",
+  "altNames": [],
+  "sections": {
+    "quickFacts:glaser": "<p>Chaetobranchopsis australis là một loài cichlid ở Paraguay, chuyên ăn các sinh vật phù du nhỏ. Cá lớn tối đa 12–14 cm.</p>",
+    "diet:glaser": "<p>Loài này hút nước vào miệng như máy hút bụi rồi dùng các lược mang dài lọc lấy sinh vật phù du. Đợt cá về hồi tháng 9 năm ngoái thì sinh vật phù du ở Paraguay đang khá hiếm, nên cá gầy hơn mức mong muốn.</p>",
+    "reproduction:glaser": "<p>Chaetobranchopsis là một trong rất ít chi cichlid mà đến giờ vẫn chưa ai biết chúng đẻ thế nào. Cá nuôi trong bể từng được thấy dọn đá, nên có thể chúng đẻ trứng lộ thiên, nhưng chuyện này chưa ai biết chắc.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-17"
+  }
+}

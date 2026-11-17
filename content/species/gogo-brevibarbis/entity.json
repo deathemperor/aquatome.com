@@ -1,0 +1,63 @@
+{
+  "id": "gogo-brevibarbis",
+  "scientificName": "Gogo brevibarbis",
+  "order": "Siluriformes",
+  "family": "Anchariidae",
+  "genus": "Gogo",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "madagascar",
+    "mananjary"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 12
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/anchariidae/gogo_brevibarbis.htm",
+      "html": "<ul><li>Common name: Vaona</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/anchariidae/gogo_brevibarbis.htm",
+      "html": "<p>Africa: Mananjary River basin in the southeastern highlands of Madagascar. Type locality: Ambohimanga, Fianarantsoa Province, Madagascar, 20°52'S, 47°36'E.</p><p>The distribution range of this species was thought to include the east coast rivers between Mangoro and Mananara du Sud, Madagascar. However, recent research suggests that G. brevibarbis is only known from the holotype, which was presumably collected within the upper to middle reaches of the Mananjary river drainage in the southeastern highlands of Madagascar (Ng and Sparks 2005).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/anchariidae/gogo_brevibarbis.htm",
+      "html": "<p>Diagnosis: Gogo brevibarbis is distinguished from other members of Anchariidae in having bicuspid teeth on the upper and lower jaws vs. unicuspid. It can be further distinguished from Gogo arcuatus in having a straight dorsoposterior margin of the dorsal fin vs. concave; and from G. ornatus in having a larger eye, 15.9% of head length vs. 9.2-13.6%.</p><p>Description: dorsal spines (total): 2; dorsal soft rays (total): 6; anal spines: 0; anal soft rays: 12; vertebrae: 46.</p><p>Etymology: the specific name brevibarbus means with short barbels.</p><p>Conservation: anchariids are difficult to collect as they are active at night, and far more survey work needs to be done in the region of the type locality to determine range and population size. In light of this new evidence, the IUCN assessment for this species is Data Deficient. Prior assumptions regarding range and population size are no longer valid (IUCN 2016).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/anchariidae/gogo_brevibarbis.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 08/2019 ). IUCN. 2016. The IUCN Red List of Threatened Species. Version 2016-3. Available at: www.iucnredlist.org. Ng, H.H. and J.S. Sparks, 2005. Revision of the endemic Malagasy catfish family Anchariidae (Teleostei: Siluriformes), with descriptions of a new genus and three new species. Ichthyol. Explor. Freshwat. 16(4):303-323. Sparks, J.S. 2016. Gogo brevibarbis. The IUCN Red List of Threatened Species 2016.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/db69cc0be2406e78.webp",
+      "thumb": "https://media.aquatome.com/scotcat/db69cc0be2406e78-480.webp",
+      "width": 500,
+      "height": 501,
+      "licence": "dùng với sự cho phép",
+      "author": "Thomas Juhasz / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/anchariidae/gogo_brevibarbis.htm",
+      "caption": "Gogo brevibarbis",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-17"
+}

@@ -684,6 +684,10 @@
       {
         "source": "seriouslyfish",
         "value": 250
+      },
+      {
+        "source": "glaser",
+        "value": 200
       }
     ],
     "tankCm": [
@@ -702,6 +706,12 @@
   },
   "sections": [
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/how-to-pack-600-volts/",
+      "html": "<p>The Electric Eel, Electrophorus electricus, has the strongest electric discharges of all known electric species of fish (electric catfish, electric rays, elephant fishes, knifefishes). Up to 600 volts are quite common, and very large specimens may produce even stronger discharges.</p><p>The Electric Eel is no eel at all, but belongs to the New World knifefishes. Five families, 30 genera and about 180 species are known, all of them electric. But only the Electric Eel uses its power to knock out prey or to defend itself against enemies. All other species use their (weak) electric organ only for communication within their own species or for orientation. This organ works a bit like a radar.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/electrophorus-electricus",
@@ -718,6 +728,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/electrophorus-electricus",
       "html": "<p>Slow-moving, often oxygen deprived, stagnant waters, including weedy creeks, swamps and tributaries.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/how-to-pack-600-volts/",
+      "html": "<p>As the Electric Eel often inhabits swampy habitats, it has developed a breathing organ that enables the fish to breathe atmospheric air taken from the water surface.</p>"
     },
     {
       "key": "aquariumSize",
@@ -750,12 +766,6 @@
       "html": "<p>Best kept singly and alone. Don't even think about keeping any other species in the same tank as it's a voracious predator and is capable of killing fish that are larger than itself. It can be kept in groups of 3 or more individuals but obviously a suitably-sized tank would be required. It is unlikely that the hobbyist could adequately house such a group.</p>"
     },
     {
-      "key": "behaviour",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/newly_in_electric_eels_en/",
-      "html": "<p>Three electric eels from Peru, 40-50 cm long, were astonishingly peaceful among each other and fed readily.</p>"
-    },
-    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/electrophorus-electricus",
@@ -776,8 +786,8 @@
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/newly_in_electric_eels_en/",
-      "html": "<p>The fish have nice pale spots on the flanks, which are typical for specimens from Peru.</p><p>Etymology: Electrophorus was named after an early physical instrument which transformed mechanical work into electrostatic charge. electricus is Latin and means \"electrical\".</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/how-to-pack-600-volts/",
+      "html": "<p>The Electric Eel becomes more than 2 metres long. Large specimens are much sought after by public aquaria all over the world. Keeping these large fish is astonishingly simple.</p><p>The video shows how such a muscleman is caught and prepared for transport to its final home, in this case a public aquarium in France. The most important thing in such an operation is to keep calm. Neither the animal nor the catcher must become nervous, otherwise accidents may happen.</p>"
     }
   ],
   "photos": [

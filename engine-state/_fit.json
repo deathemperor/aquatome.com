@@ -103125,18 +103125,26 @@
     "products": []
   },
   "vi/species/apistogramma-elizabethae": {
-    "at": "2026-11-08",
+    "at": "2026-11-17",
     "hash": "edfd9a49cefd46c4",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "words",
         "part": "P7",
         "quote": "ấu trùng muỗi lắc (trùn chỉ)",
-        "why": "Bloodworms are called trùn huyết by Vietnamese keepers; trùn chỉ means tubifex worms.",
+        "why": "Bloodworms are mislabelled as trùn chỉ (tubifex); keepers call bloodworms trùng huyết.",
         "by": "model",
-        "fix": "trùn huyết"
+        "fix": "trùng huyết"
+      },
+      {
+        "check": "words",
+        "part": "P5",
+        "quote": "lọc bông xốp chạy bằng khí",
+        "why": "Literal rendering of 'air-driven sponge filter'; keepers say lọc vi sinh chạy sủi.",
+        "by": "model",
+        "fix": "lọc vi sinh chạy bằng sủi"
       }
     ],
     "products": []
@@ -103159,16 +103167,23 @@
     "products": []
   },
   "vi/species/apistogramma-eunotus": {
-    "at": "2026-11-08",
-    "hash": "7b77cfca8a4e7ec8",
+    "at": "2026-11-17",
+    "hash": "cb0b0af55a002842",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P5",
+        "quote": "lá sồi, lá dẻ gai hoặc lá bàng biển Ketapang đều phù hợp",
+        "why": "Oak and beech leaves come from European trees that keepers in Vietnam don't gather or buy.",
+        "by": "model"
+      },
       {
         "check": "words",
         "part": "P1",
-        "quote": "cá ranh lùn (dwarf cichlid)",
-        "why": "Dictionary rendering of 'dwarf cichlid'; not hobby usage in Vietnam.",
+        "quote": "một loài cá ranh lùn (dwarf cichlid)",
+        "why": "'Cá ranh lùn' is not a term Vietnamese keepers use for dwarf cichlids.",
         "by": "model",
         "fix": "cichlid lùn"
       },
@@ -103176,24 +103191,9 @@
         "check": "words",
         "part": "P11",
         "quote": "các chi cá rô phi (cichlid) Nam Mỹ",
-        "why": "'Cá rô phi' means tilapia; keepers call the family cichlid.",
+        "why": "Calling all cichlids 'cá rô phi' (tilapia) is a dictionary rendering; keepers say cichlid.",
         "by": "model",
-        "fix": "cichlid"
-      },
-      {
-        "check": "words",
-        "part": "P7",
-        "quote": "ấu trùng muỗi lắc (trùn chỉ đỏ)",
-        "why": "Bloodworms are called trùn huyết by Vietnamese keepers; trùn chỉ is tubifex.",
-        "by": "model",
-        "fix": "trùn huyết"
-      },
-      {
-        "check": "elsewhere",
-        "part": "P5",
-        "quote": "lá sồi, lá dẻ gai hoặc lá bàng biển Ketapang đều phù hợp",
-        "why": "Oak and beech leaves are what temperate-country keepers collect, not a Vietnamese reader.",
-        "by": "model"
+        "fix": "cichlid Nam Mỹ"
       }
     ],
     "products": []
@@ -105858,11 +105858,20 @@
     "products": []
   },
   "vi/species/betta-coccina": {
-    "at": "2026-11-08",
-    "hash": "bf1b2f83045832a3",
+    "at": "2026-11-17",
+    "hash": "bac5c18bfb397be6",
     "model": "opus",
-    "checklist": 2,
-    "findings": [],
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P14",
+        "quote": "giun microworm",
+        "why": "Half-translated name; keepers in Vietnam call microworms giun vi sinh.",
+        "by": "model",
+        "fix": "giun vi sinh"
+      }
+    ],
     "products": []
   },
   "vi/species/betta-compuncta": {
@@ -107525,25 +107534,31 @@
     "products": []
   },
   "vi/species/brachygobius-sabanus": {
-    "at": "2026-11-08",
-    "hash": "224885360de123ff",
+    "at": "2026-11-17",
+    "hash": "4bbb20ec69d0b7e0",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P11",
-        "quote": "dù chúng tôi đã gán hình ảnh vào các hồ sơ dựa trên mức độ phù hợp với khóa phân loại",
-        "why": "The source site's own voice ('we') refers to its own images and profiles, which this page doesn't have.",
+        "part": "P12",
+        "quote": "Loài này đã đẻ trong bể ở trại.",
+        "why": "Brings in the source's own farm and breeding story as if the reader knew it.",
         "by": "model"
       },
       {
-        "check": "words",
-        "part": "P5",
-        "quote": "bộ lọc mút xốp dùng khí là lý tưởng",
-        "why": "A literal translation of 'air-powered sponge filter'; keepers in Vietnam use a shorter hobby name.",
-        "by": "model",
-        "fix": "lọc vi sinh chạy oxy"
+        "check": "source",
+        "part": "P12",
+        "quote": "Cá bột nở vào ban đêm, đúng dịp cuối tuần.",
+        "why": "A personal anecdote from the source writer's own breeding.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P14",
+        "quote": "dù chúng tôi đã gán hình ảnh vào các hồ sơ dựa trên mức độ phù hợp",
+        "why": "The source website's staff speak as 'we' about pictures and profiles the page doesn't have.",
+        "by": "model"
       }
     ],
     "products": []
@@ -114097,7 +114112,7 @@
         "check": "units",
         "part": "P4",
         "quote": "Bể 180 x 90 x 120 cm (2040 lít)",
-        "why": "2040 litres is a 540-gallon tank converted to litres; the metric sides hold about 1944 litres.",
+        "why": "2040 litres is a 6×3×4 ft tank (about 540 US gallons) converted to metric; the metric sides given come to only about 1944 litres.",
         "by": "model"
       }
     ],
@@ -116946,39 +116961,54 @@
     "products": []
   },
   "vi/species/hemigrammus-bellottii": {
-    "at": "2026-11-13",
-    "hash": "c79ab69d30aeccbb",
+    "at": "2026-11-17",
+    "hash": "236ac60df3ace7e9",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "units",
-        "part": "P4",
-        "quote": "Một bể tiêu chuẩn 60 × 38 × 30 cm, khoảng 68 lít",
-        "why": "A 'standard' 24 × 15 × 12 inch tank converted to cm; not a size anyone in Vietnam uses.",
+        "check": "elsewhere",
+        "part": "P7",
+        "quote": "bạn có thể dùng gỗ dẻ gai (beech) thông thường",
+        "why": "Beech wood is a European material Vietnamese keepers don't buy or gather.",
         "by": "model"
       },
       {
         "check": "elsewhere",
-        "part": "P5",
-        "quote": "bạn có thể dùng gỗ dẻ gai (beech) thông thường, miễn là gỗ đã phơi thật khô",
-        "why": "Calls beech wood 'ordinary', but beech is a European tree that's hard to come by in Vietnam.",
-        "by": "model"
-      },
-      {
-        "check": "elsewhere",
-        "part": "P5",
+        "part": "P7",
         "quote": "Lá dẻ gai dùng được, lá sồi (oak) cũng hợp.",
-        "why": "Beech and oak leaves are European leaves, written as if the reader has them; keepers in Vietnam use Indian almond (bàng) leaves.",
+        "why": "Beech and oak leaves are European leaf litter not available to keepers in Vietnam.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P6",
+        "quote": "Một bể tiêu chuẩn 60 × 38 × 30 cm, khoảng 68 lít",
+        "why": "A 24×15×12 inch, 18 gallon tank converted to metric; not a size sold in Vietnam.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Kích thước bể: 60 × 38 cm",
+        "why": "Tank footprint converted from 24×15 inches.",
         "by": "model"
       },
       {
         "check": "words",
-        "part": "P8",
+        "part": "P11",
         "quote": "cá chì",
-        "why": "Pencilfish are called 'cá bút chì' by keepers in Vietnam.",
+        "why": "Pencilfish are called cá bút chì by Vietnamese keepers.",
         "by": "model",
         "fix": "cá bút chì"
+      },
+      {
+        "check": "words",
+        "part": "P11",
+        "quote": "cá rồng lùn Apistogramma",
+        "why": "Keepers don't call dwarf cichlids 'cá rồng lùn'; 'cá rồng' means arowana.",
+        "by": "model",
+        "fix": "cá Apisto / cichlid lùn"
       }
     ],
     "products": []
@@ -124640,11 +124670,20 @@
     "products": []
   },
   "vi/species/oryzias-dancena": {
-    "at": "2026-11-07",
-    "hash": "7b5da5ac857ccd6a",
+    "at": "2026-11-17",
+    "hash": "51e15c0027da7732",
     "model": "opus",
-    "checklist": 2,
-    "findings": [],
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P18",
+        "quote": "coi chúng có họ hàng gần với cá chép răng",
+        "why": "\"Cá chép răng\" is a literal translation of 'toothcarps'; keepers in Vietnam call these fish killi.",
+        "by": "model",
+        "fix": "cá killi"
+      }
+    ],
     "products": []
   },
   "vi/species/oryzias-eversi": {
@@ -130325,16 +130364,16 @@
     "products": []
   },
   "vi/species/rineloricaria-teffeana": {
-    "at": "2026-11-08",
-    "hash": "7f4e01af0ac2e003",
+    "at": "2026-11-17",
+    "hash": "7a726c1f7b27c7bc",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P9",
+        "part": "P10",
         "quote": "Báo cáo sinh sản: hiện chưa có báo cáo sinh sản nào.",
-        "why": "This refers to the source website's own spawning-report feature, which the reader can't see, and it contradicts the breeding details just given.",
+        "why": "Refers to the source site's breeding-report feature, which this page doesn't have.",
         "by": "model"
       }
     ],
@@ -131779,11 +131818,19 @@
     "products": []
   },
   "vi/species/sphaerichthys-acrostoma": {
-    "at": "2026-11-09",
-    "hash": "e063db700fb6bef6",
+    "at": "2026-11-17",
+    "hash": "7c1487fc1e117bc1",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P6",
+        "quote": "lá dẻ gai, lá sồi hoặc lá bàng đều được",
+        "why": "Beech and oak leaves are European tree leaves that keepers in Vietnam do not buy or gather.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "vi/species/sphaerichthys-osphromenoides": {
@@ -132048,19 +132095,10 @@
   },
   "vi/species/stiphodon-semoni": {
     "at": "2026-11-17",
-    "hash": "ad96b7d47a2a5f80",
+    "hash": "230b5b013664acc9",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "words",
-        "part": "P12",
-        "quote": "đồ ăn mặn cỡ nhỏ như trùng huyết sống hoặc đông lạnh",
-        "why": "Literal calque of English 'meaty foods'; 'mặn' means salty in Vietnamese.",
-        "by": "model",
-        "fix": "thức ăn giàu đạm"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/species/stiphodon-surrufus": {
@@ -135209,6 +135247,290 @@
         "by": "model"
       }
     ],
+    "products": []
+  },
+  "vi/guides/aquariumbreeder-crayfish-and-molting-process": {
+    "at": "2026-11-17",
+    "hash": "eb8c7819b95a5fe9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/aquariumbreeder-how-to-remove-hair-algae-in-aquariums": {
+    "at": "2026-11-17",
+    "hash": "8576213c907e918b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "dose",
+        "part": "P1",
+        "quote": "Châm cho cả bể 1 ml Tetra AlgaeControl cho mỗi 45 lít nước.",
+        "why": "Gives a per-volume dose of a named commercial algaecide.",
+        "by": "model",
+        "product": "Tetra AlgaeControl"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "nhưng theo mình đó là cái giá phải trả",
+        "why": "The original writer's own first-person voice speaks to the reader.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Seachem Excel",
+      "Tetra Algae Control",
+      "API AlgaeFix",
+      "Easy Life AlgExit"
+    ],
+    "doses": [
+      {
+        "treatment": "co2",
+        "strength": "",
+        "amount": 20,
+        "amountMax": 0,
+        "unit": "ml",
+        "per": 100,
+        "perUnit": "litre",
+        "use": "algae",
+        "method": "wholeTank",
+        "quote": "bơm thẳng CO2 vào bể (20 ml cho mỗi 100 lít)"
+      },
+      {
+        "treatment": "hydrogen peroxide and seachem excel",
+        "strength": "3%",
+        "amount": 1,
+        "amountMax": 0,
+        "unit": "ml",
+        "per": 4.5,
+        "perUnit": "litre",
+        "use": "algae",
+        "method": "wholeTank",
+        "quote": "liều 1 ml cho mỗi 4,5 lít nước"
+      },
+      {
+        "treatment": "hydrogen peroxide and seachem excel",
+        "strength": "3%",
+        "amount": 1.5,
+        "amountMax": 0,
+        "unit": "ml",
+        "per": 4.5,
+        "perUnit": "litre",
+        "use": "algae",
+        "method": "wholeTank",
+        "quote": "thay vì 1 ml cho mỗi 4,5 lít nước bể thì dùng 1,5 ml hoặc hơn"
+      },
+      {
+        "treatment": "tetra algaecontrol",
+        "strength": "",
+        "amount": 1,
+        "amountMax": 0,
+        "unit": "ml",
+        "per": 45,
+        "perUnit": "litre",
+        "use": "algae",
+        "method": "wholeTank",
+        "quote": "Châm cho cả bể 1 ml Tetra AlgaeControl cho mỗi 45 lít nước"
+      }
+    ],
+    "sourceRead": true
+  },
+  "vi/guides/glaser-en-09-characoids-tetra-relationship-black-winged-dwarf-hatchets": {
+    "at": "2026-11-17",
+    "hash": "2a2ff51f01eb36e6",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-the-story-of-the-cologne-wild-guppy": {
+    "at": "2026-11-17",
+    "hash": "1c5140a65b2010a6",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/glaser-en-25-perchlike-fishes-25a-perchlike-fishes-1-labyrinth-fishes-channa-sp-meghalaya-2": {
+    "at": "2026-11-17",
+    "hash": "3413a67ad158b133",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Hiện có cả hai loài, nên đây là dịp tốt để xem kỹ chúng.",
+        "why": "Refers to the source shop's current stock, which the reader doesn't know.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Đang là mùa các loài cá lóc Channa từ Ấn Độ.",
+        "why": "Shop news about its import season, written in the source's voice.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "con nhỏ nhất được bắt ra chụp ảnh",
+        "why": "Points to the source's photos, which the page doesn't have.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-discus-heckel-cross-jatapu": {
+    "at": "2026-11-17",
+    "hash": "dc8c93e271caf1ca",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Cá đĩa trái mùa, về vào mùa hè, có một cái lợi lớn.",
+        "why": "Reads as a foreign shop's stock news about fish it has just received, not advice for the reader.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/plants/cabomba-sp": {
+    "at": "2026-11-17",
+    "hash": "0a02c94bffe55604",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Seachem Excel"
+    ]
+  },
+  "vi/plants/vallisneria-sp": {
+    "at": "2026-11-17",
+    "hash": "89629d9ae1949ae8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Seachem Flourish",
+      "Iron",
+      "Seachem Flourish Excel"
+    ]
+  },
+  "vi/species/awaous-flavus": {
+    "at": "2026-11-17",
+    "hash": "bfce7f850e52ed6d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/chaetobranchopsis-australis": {
+    "at": "2026-11-17",
+    "hash": "e05bfc103d00e326",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P2",
+        "quote": "Đợt cá về hồi tháng 9 năm ngoái",
+        "why": "Refers to the source importer's own shipment of fish as if the reader knew it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/distichodus-teugelsi": {
+    "at": "2026-11-17",
+    "hash": "0a2d6a641c02e532",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/elassoma-zonatum": {
+    "at": "2026-11-17",
+    "hash": "c4c87b09db82759a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/etheostoma-caeruleum": {
+    "at": "2026-11-17",
+    "hash": "4e674614a5e1cd17",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/gogo-atratus": {
+    "at": "2026-11-17",
+    "hash": "a679ee09e0d902e8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/gogo-brevibarbis": {
+    "at": "2026-11-17",
+    "hash": "93a4094e4574de43",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/laevimon-kottelati": {
+    "at": "2026-11-17",
+    "hash": "557c986768c10b96",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P4",
+        "quote": "các ảnh chụp cua sống của loài này là những ảnh duy nhất từng có",
+        "why": "It refers to the source's own photos of live crabs, which this page doesn't show.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/melanorivulus-punctatus": {
+    "at": "2026-11-17",
+    "hash": "74293f687ff5de75",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/zaireichthys-pallidus": {
+    "at": "2026-11-17",
+    "hash": "caf79e910361caa4",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/zaireichthys-rotundiceps": {
+    "at": "2026-11-17",
+    "hash": "3694e6153f784ccc",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/zaireichthys-wamiensis": {
+    "at": "2026-11-17",
+    "hash": "2af3f40df42f934c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
     "products": []
   }
 }
