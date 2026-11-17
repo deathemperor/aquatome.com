@@ -726,9 +726,11 @@ final class V2FlowTests: XCTestCase {
   func testForTheOwnerThePageShowsUnderTheTabBarAndItsSwitchBringsTheFadeBack() {
     let app = XCUIApplication()
     // Khám phá long enough to scroll well past a drag (`-familiar`): the fixed index's own is about a screen tall, and
-    // with the rows' 3:2 pictures it scrolled about 30 points, its blank foot all that went under the bar.
-    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults", "-v2", "YES",
-                           "-fake-accounts", "on", "-reset-fake-server", "-fake-owner", "ui-apple", "-familiar", "8"]
+    // with the rows' 3:2 pictures it scrolled about 30 points, its blank foot all that went under the bar. Its photos
+    // drawn (`-fixed-pictures`): with none, only white and pale grey passed under the bar, which iOS 26.5's glass (CI's)
+    // frosts to near one colour, 0.77% of its place changing with the trial on (17 Nov), against 6% on 27.2.
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-fixed-pictures", "-reset-defaults",
+                           "-v2", "YES", "-fake-accounts", "on", "-reset-fake-server", "-fake-owner", "ui-apple", "-familiar", "8"]
     app.launch()
     XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 10), "no Hôm nay")
     app.openAccount()
