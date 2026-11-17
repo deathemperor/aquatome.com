@@ -12,8 +12,7 @@
       "caption": "Cây liễu nước với hoa nhỏ mọc ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/465312794.webp",
@@ -26,8 +25,7 @@
       "caption": "Bụi Cây liễu nước xanh tươi mọc dày đặc trên cạn",
       "best": true,
       "kind": "emersed",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/352280781.webp",
@@ -40,8 +38,7 @@
       "caption": "Hoa tím của Cây liễu nước mọc ngoài tự nhiên",
       "best": true,
       "kind": "flower",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/404554126.webp",
@@ -54,22 +51,7 @@
       "caption": "Cận cảnh thân và lá thon dài của Cây liễu nước",
       "best": true,
       "kind": "detail",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/388120227.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/388120227-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY-SA",
-      "author": "Greg Tasney",
-      "sourceUrl": "https://www.inaturalist.org/photos/388120227",
-      "caption": "Cụm Cây liễu nước mọc sát đất trong môi trường tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/443840663.webp",
@@ -182,6 +164,19 @@
       "kind": "habitat",
       "setup": false,
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/388120227.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/388120227-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-SA",
+      "author": "Greg Tasney",
+      "sourceUrl": "https://www.inaturalist.org/photos/388120227",
+      "caption": "Cụm Cây liễu nước mọc sát đất trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 33,
