@@ -44,13 +44,23 @@ export const MAX_BYTES = 1_000_000
 const ISO_DAY = /^\d{4}-\d{2}-\d{2}$/
 const ASKED = /^([1-9]|[12]\d|3[01]) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)$/
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-/** An HTML tag, which no field may hold ("Hỏi về <tên>", a placeholder in words, is not one). */
-const TAG = /<\/?[a-z][a-z0-9-]*(\s[^<>]*)?\/?>/i
+/**
+ * An HTML element's tag, which no field may hold. A placeholder in angle brackets ("Hỏi về <tên>", "/ca/<slug>/",
+ * "/_ab/<key>/") is words, not a tag. Every field is shown as text anyway (escaped): this keeps markup out of the list.
+ */
+const TAG = /<\/?(a|abbr|audio|b|base|body|br|button|code|details|div|em|embed|form|frame|h[1-6]|head|html|i|iframe|img|input|label|li|link|math|meta|object|ol|option|p|picture|pre|script|section|select|source|span|strong|style|summary|svg|table|td|template|textarea|th|tr|u|ul|video)(?=[\s/>])[^<>]*>/i
+/** A field's name, said in a refusal only where it's a plain name: anything else may be words of the list. */
+const fieldName = (k: string) => (/^[A-Za-z_][A-Za-z0-9_]{0,23}$/.test(k) ? `: ${k}` : '')
 const CONTROL = /[\u0000-\u0008\u000b-\u001f\u007f]/
 /** Our own hosts: the only addresses a row links to. */
 const OURS = new Set(['aquatome.com', 'dashboard.aquatome.com'])
 
-const isDay = (s: unknown): s is string => typeof s === 'string' && ISO_DAY.test(s) && new Date(`${s}T00:00:00Z`).toISOString().slice(0, 10) === s
+/** A real day ("2026-11-31" and "2026-13-01" aren't: refused with why, never thrown). */
+const isDay = (s: unknown): s is string => {
+  if (typeof s !== 'string' || !ISO_DAY.test(s)) return false
+  const t = Date.parse(`${s}T00:00:00Z`)
+  return Number.isFinite(t) && new Date(t).toISOString().slice(0, 10) === s
+}
 
 /** A text field, or why it fails. */
 function textOf(v: unknown, what: string, max: number, optional = false): string | { why: string } {
@@ -68,7 +78,7 @@ function rowOf(v: unknown, at: string): Ask | { why: string } {
   if (typeof v !== 'object' || v === null || Array.isArray(v)) return { why: `${at} isn't a row` }
   const r = v as Record<string, unknown>
   const odd = Object.keys(r).find(k => !ROW_KEYS.has(k))
-  if (odd) return { why: `${at} has a field the page doesn't know: ${odd.slice(0, 40)}` }
+  if (odd !== undefined) return { why: `${at} has a field the page doesn't know${fieldName(odd)}` }
   const ask = textOf(r.ask, `${at}'s ask`, MAX.ask)
   if (failed(ask)) return ask
   if (!ask.trim()) return { why: `${at}'s ask is empty` }
@@ -86,11 +96,13 @@ export function readAsks(v: unknown): Asks | { why: string } {
   if (typeof v !== 'object' || v === null || Array.isArray(v)) return { why: "the list isn't an object" }
   const o = v as Record<string, unknown>
   const odd = Object.keys(o).find(k => !['today', 'updated', 'rows', 'parked', 'rules'].includes(k))
-  if (odd) return { why: `the list has a field the page doesn't know: ${odd.slice(0, 40)}` }
+  if (odd !== undefined) return { why: `the list has a field the page doesn't know${fieldName(odd)}` }
   if (!isDay(o.today)) return { why: "today isn't a day like 2026-11-17" }
   const updated = textOf(o.updated, 'updated', MAX.updated)
   if (failed(updated)) return updated
   const lists: Record<'rows' | 'parked', Ask[]> = { rows: [], parked: [] }
+  // A list with no rows would replace the page with an empty one: refused (a parked list may be empty).
+  if (!Array.isArray(o.rows) || !o.rows.length) return { why: 'the list has no rows' }
   for (const name of ['rows', 'parked'] as const) {
     const xs = o[name] ?? []
     if (!Array.isArray(xs) || xs.length > MAX_ROWS) return { why: `${name} isn't a list of at most ${MAX_ROWS} rows` }

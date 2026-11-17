@@ -46,8 +46,8 @@ test('a changed list goes once, with the token and the file\'s time; the same fi
 test('a list the site refuses is kept as refused, with why, and not sent again until it changes', async () => {
   const f = files('refused')
   const s = site(() => Response.json({ error: 'refused', why: "rows 1's state isn't one of late, …" }, { status: 400 }))
-  expect(await sendOnce({ list: f.list, result: f.result, token: 'tok', http: s.http })).toMatchObject({ result: 'refused', why: "rows 1's state isn't one of late, …" })
-  expect(await sendOnce({ list: f.list, result: f.result, token: 'tok', http: s.http })).toMatchObject({ result: 'refused', why: "rows 1's state isn't one of late, …" })
+  expect(await sendOnce({ list: f.list, result: f.result, token: 'tok', http: s.http })).toMatchObject({ result: 'refused', why: "rows 1's state isn't one of late, …", again: false })
+  expect(await sendOnce({ list: f.list, result: f.result, token: 'tok', http: s.http })).toMatchObject({ result: 'refused', why: "rows 1's state isn't one of late, …", again: true })
   expect(s.calls).toHaveLength(1)
   writeFileSync(f.list, '{ not json')
   expect(await sendOnce({ list: f.list, result: f.result, token: 'tok', http: s.http })).toMatchObject({ result: 'refused', why: "the list isn't JSON" })

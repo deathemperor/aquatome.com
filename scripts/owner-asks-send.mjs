@@ -19,7 +19,8 @@ const TOKEN = join(homedir(), '.config/aquatome/ab-dash-token')
 
 /**
  * One run. `deps` are the outside world, so tests can stand in for it. Returns what it wrote to `result`:
- * `{ at, result, why?, hash, sent? }`: `hash` the file last tried, `sent` when a list last went.
+ * `{ at, result, why?, hash, sent? }`: `hash` the file last tried, `sent` when a list last went. The return adds `again`,
+ * not written: the same result and reason as the run before (the log says a refusal or failure once, not every minute).
  */
 export async function sendOnce({ site = SITE, list = LIST, result = RESULT, token, http = fetch, now = () => new Date() }) {
   const last = await readFile(result, 'utf8').then(JSON.parse).catch(() => ({}))
@@ -28,7 +29,7 @@ export async function sendOnce({ site = SITE, list = LIST, result = RESULT, toke
     await mkdir(dirname(result), { recursive: true })
     await writeFile(`${result}.tmp`, `${JSON.stringify(out, null, 1)}\n`)
     await rename(`${result}.tmp`, result)
-    return out
+    return { ...out, again: last.result === out.result && last.why === out.why }
   }
   let text, info
   try {
@@ -69,5 +70,5 @@ export async function sendOnce({ site = SITE, list = LIST, result = RESULT, toke
 if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
   const token = (await readFile(TOKEN, 'utf8')).trim()
   const r = await sendOnce({ token })
-  if (r.result !== 'unchanged') console.log(`${r.at} ${r.result}${r.why ? `: ${r.why}` : ''}`)
+  if (r.result !== 'unchanged' && !r.again) console.log(`${r.at} ${r.result}${r.why ? `: ${r.why}` : ''}`)
 }

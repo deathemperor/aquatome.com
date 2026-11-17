@@ -66,9 +66,17 @@ test('a list that fails is refused with why, and the page keeps the last one tha
   expect(await refused(list({ rows: [row({ now: 'see <script>alert(1)</script>' })] }))).toBe("rows 1's now holds an HTML tag")
   expect(await refused(list({ rows: [row({ ask: 'x'.repeat(301) })] }))).toBe("rows 1's ask is 301 characters, over 300")
   expect(await refused(list({ rows: [row({ asked: ['yesterday'] })] }))).toMatch(/asked isn't/)
+  expect(await refused(list({ rows: [row({ now: 'see <a href="https://x.test">here</a>' })] }))).toBe("rows 1's now holds an HTML tag")
+  expect(await refused(list({ rows: [row({ now: '<svg/onload=alert(1)>' })] }))).toBe("rows 1's now holds an HTML tag")
   expect(await refused(list({ rows: [{ ...row(), secret: 'x' }] }))).toBe("rows 1 has a field the page doesn't know: secret")
+  // A field named with the list's own words isn't said back.
+  expect(await refused(list({ rows: [{ ...row(), 'the made-up words': 'x' }] }))).toBe("rows 1 has a field the page doesn't know")
+  expect(await refused(list({ rows: [] }))).toBe('the list has no rows')
   expect(await refused(list({ rules: ['bell \u0007'] }))).toBe('rule 1 holds a control character')
   expect(await refused(list({ today: '2026-02-30' }))).toBe("today isn't a day like 2026-11-17")
+  // A month or a day out of range is refused with why, not thrown (a 500 before 17 Nov).
+  expect(await refused(list({ today: '2026-13-01' }))).toBe("today isn't a day like 2026-11-17")
+  expect(await refused(list({ today: '2026-11-32' }))).toBe("today isn't a day like 2026-11-17")
   expect(await refused('not a list')).toBe("the list isn't an object")
   const later = await w.send({ modified: '2099-01-01T00:00:00Z', list: list() })
   expect(later.status).toBe(400)
@@ -78,6 +86,9 @@ test('a list that fails is refused with why, and the page keeps the last one tha
 test('words a lead quotes with angle brackets are text, not markup; every field is shown as text', () => {
   expect(readAsks(list({ rows: [row({ where: 'any fish → Hỏi về <tên>' })] }))).toMatchObject({ rows: [{ where: 'any fish → Hỏi về <tên>' }] })
   expect(linked('a & b <tên>')).toBe('a &amp; b &lt;tên&gt;')
+  // A placeholder in an address is words too.
+  expect(readAsks(list({ rows: [row({ now: 'Live at /ca/<slug>/ and /_ab/<key>/, <b >not</b> yet' })] }))).toEqual({ why: "rows 1's now holds an HTML tag" })
+  expect(readAsks(list({ rows: [row({ now: 'Live at /ca/<slug>/ and /_ab/<key>/' })] }))).toMatchObject({ rows: [{ now: 'Live at /ca/<slug>/ and /_ab/<key>/' }] })
 })
 
 test('a row links only to our own addresses; any other address stays text', () => {
