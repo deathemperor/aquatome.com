@@ -602,8 +602,8 @@ The layers above still check the result.
     and trade names) and Openverse, never iNaturalist or GBIF, which give the wild fish; it is screened for that line
     alone, and a photo another breed's page shows stays there. Each photo's licence is read from the source's API for
     that photo, never assumed: CC BY-NC, the default on iNaturalist and Flickr, stays out, since the site carries ads
-    and affiliate links. One exception waits behind a switch that ships off (`IMAGE_SWITCHES.inatNonCommercial`,
-    `packages/schema/src/image-policy.ts`), on only when the chief of staff says (the owner's yes, 10 Nov): iNaturalist's
+    and affiliate links. One exception sits behind a switch (`IMAGE_SWITCHES.inatNonCommercial`,
+    `packages/schema/src/image-policy.ts`), on since 17 Nov on the chief of staff's yes (the owner's yes, 10 Nov): iNaturalist's
     research-grade CC BY-NC and CC BY-NC-SA photos, any version, never ND, all rights reserved or none. With it on they
     are the album step's last source, read once every open one has run dry; they rank after every open photo, pass every
     screen and the photo check like any album photo, and their credit names the licence. They stay in albums: no page's

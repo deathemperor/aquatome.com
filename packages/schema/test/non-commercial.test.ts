@@ -30,8 +30,8 @@ async function fixture(photos: Photo[], gallery: Photo[]) {
 }
 const load = (root: string, on: Partial<ImageSwitches> = {}) => loadAll({ root, lang: 'vi', publicBuild: true, wholeBoxes: false, imageSwitches: { ...IMAGE_SWITCHES, ...on } })
 
-test('the switch ships off', () => {
-  expect(IMAGE_SWITCHES.inatNonCommercial).toBe(false)
+test('the switch is on (the chief of staff, 16 Nov); turning it off is this one value', () => {
+  expect(IMAGE_SWITCHES.inatNonCommercial).toBe(true)
 })
 
 test('the mark is the photo\'s own licence text: NC in any spelling, whatever else it says', () => {
@@ -56,7 +56,7 @@ test('the site\'s albums: off, no non-commercial photo; on, iNaturalist\'s BY-NC
   const album = [inat(2, 'CC BY-NC'), inat(1, 'CC BY 4.0'), inat(3, 'CC BY-NC-SA'), inat(4, 'CC BY-ND'), inat(5, 'CC BY-NC-ND'), inat(6, 'All rights reserved'), inat(7, ''),
     { ...inat(9, 'CC BY-NC 2.0'), sourceUrl: 'https://commons.wikimedia.org/wiki/File:Sampletown.jpg' }]
   const root = await fixture([inat(8, 'CC BY-NC'), inat(10, 'CC BY-SA')], album)
-  const off = await load(root)
+  const off = await load(root, { inatNonCommercial: false })
   expect(off.galleries.alpha!.map(p => p.url)).toEqual([url(1)])
   expect(off.species[0]!.photos.map(p => p.url)).toEqual([url(10)])
   const on = await load(root, { inatNonCommercial: true })

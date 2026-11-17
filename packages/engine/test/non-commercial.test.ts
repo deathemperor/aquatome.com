@@ -14,7 +14,7 @@ import { sweep } from '../src/sweep'
 
 /**
  * iNaturalist album photos under CC BY-NC or CC BY-NC-SA (the owner's yes, 10 Nov), behind IMAGE_SWITCHES.inatNonCommercial,
- * which ships off. Fixtures only: no request leaves the test.
+ * on since 17 Nov. Fixtures only: no request leaves the test.
  */
 const ON = { ...IMAGE_SWITCHES, inatNonCommercial: true }
 const OFF = { ...IMAGE_SWITCHES, inatNonCommercial: false }

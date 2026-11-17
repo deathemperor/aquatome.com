@@ -861,7 +861,7 @@ describe('photo gallery', () => {
     expect(h1.previousElementSibling?.previousElementSibling).toBeNull()
     expect(h1.nextElementSibling?.classList.contains('lead')).toBe(true)
     expect(dom.querySelector('title')!.text).toContain('Cá neon vua')
-    expect(page('/cay/cryptocoryne-wendtii/anh/').dom.querySelector('h1')!.text).toBe('6 ảnh')
+    expect(page('/cay/cryptocoryne-wendtii/anh/').dom.querySelector('h1')!.text).toBe('7 ảnh')
   })
   test('a fish\'s gallery page has a link down to its readers\' photos, hidden until there are any; a breed\'s and a plant\'s have none', () => {
     const { dom } = page('/ca/ca-neon-vua/anh/')
@@ -916,11 +916,16 @@ describe('photo gallery', () => {
     const { dom } = page('/cay/cryptocoryne-wendtii/')
     const strip = dom.querySelector('section.strip')!
     expect(strip.querySelector('.head a')!.getAttribute('href')).toBe('/cay/cryptocoryne-wendtii/anh/')
-    expect(strip.querySelector('.head a')!.textContent).toContain('Xem tất cả 6 ảnh') // the CC BY-NC photo is left out
+    // iNaturalist's CC BY-NC photo is in, its switch on (IMAGE_SWITCHES.inatNonCommercial).
+    expect(strip.querySelector('.head a')!.textContent).toContain('Xem tất cả 7 ảnh')
     expect(dom.querySelector('#photo-credits')!.innerHTML).toContain('https://www.flickr.com/photos/1@N00/102')
     const g = page('/cay/cryptocoryne-wendtii/anh/').dom
-    expect(g.querySelectorAll('[data-gallery] a[data-i]')).toHaveLength(6)
-    expect(g.querySelector('.lead')!.textContent).toContain('Ảnh từ iNaturalist, Flickr, Wikimedia Commons và GBIF, giấy phép mở.')
+    expect(g.querySelectorAll('[data-gallery] a[data-i]')).toHaveLength(7)
+    // Its credit names its licence, and the album no longer calls itself open-licence.
+    expect(g.querySelector('[data-gallery] a[data-src="https://www.inaturalist.org/photos/107"]')!.getAttribute('data-lic')).toBe('CC BY-NC 4.0')
+    expect([...g.querySelectorAll('#photo-credits li')].map(li => li.textContent)).toContainEqual(expect.stringMatching(/Tác giả iNat 3 · CC BY-NC 4\.0/))
+    expect(g.querySelector('.lead')!.textContent).toContain('Ảnh từ iNaturalist, Flickr, Wikimedia Commons và GBIF.')
+    expect(g.querySelector('.lead')!.textContent).not.toContain('giấy phép mở')
     expect(g.querySelector('.lead a')!.getAttribute('href')).toBe('/cay/cryptocoryne-wendtii/')
     expect(g.querySelector('.lead a')!.textContent).toContain('Cách trồng')
     expect(g.querySelector('.crumb a[href="/cay/"]')).toBeTruthy()
