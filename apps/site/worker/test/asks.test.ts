@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest'
 import { createSession } from '../accounts/session'
-import { bucketOf, linked, readAsks, STALE_MS, type Ask } from '../admin/asks'
+import { bucketOf, capped, linked, readAsks, STALE_MS, type Ask } from '../admin/asks'
 import { SECTIONS } from '../dashboard'
 import { handle, type Env } from '../index'
 import { testD1 } from './d1'
@@ -88,6 +88,37 @@ test('a list that fails is refused with why, and the page keeps the last one tha
   const later = await w.send({ modified: '2099-01-01T00:00:00Z', list: list() })
   expect(later.status).toBe(400)
   expect((await (await w.open()).text())).toContain('A made-up ask')
+})
+
+// Codex's re-read, 17 Nov: the size tests above pass as well for a body read whole and then measured. The list is read as
+// it comes: past the size, the body is cancelled and nothing after the chunk that passed it is asked for; bytes are joined
+// before they're decoded, so a letter split across chunks comes through whole.
+test("the list's body is read as it comes and cancelled past the size; a letter split across chunks is whole", async () => {
+  const body = (chunks: number[][], length?: number) => {
+    const out = { pulled: 0, cancelled: false }
+    const stream = new ReadableStream<Uint8Array>({
+      pull(c) { const next = chunks[out.pulled]; if (next) { out.pulled++; c.enqueue(new Uint8Array(next)) } else c.close() },
+      cancel() { out.cancelled = true },
+    }, { highWaterMark: 0 })
+    const req = { headers: new Headers(length === undefined ? {} : { 'content-length': String(length) }), body: stream } as unknown as Request
+    return { req, out }
+  }
+  const six = (b: number) => Array(6).fill(b)
+  const over = body([six(97), six(98), six(99)])
+  expect(await capped(over.req, 10)).toBeNull()
+  expect(over.out).toEqual({ pulled: 2, cancelled: true })
+  // A length that says less than it holds is read as it comes all the same.
+  const under = body([six(97), six(98), six(99)], 5)
+  expect(await capped(under.req, 10)).toBeNull()
+  expect(under.out).toEqual({ pulled: 2, cancelled: true })
+  // One that says more is refused before a byte is read.
+  const said = body([six(97)], 11)
+  expect(await capped(said.req, 10)).toBeNull()
+  expect(said.out.pulled).toBe(0)
+  // "ể" is three bytes, here split one and two across chunks.
+  const split = body([[0x22, 0xe1], [0xbb, 0x83, 0x22]])
+  expect(await capped(split.req, 10)).toBe('"ể"')
+  expect(split.out.cancelled).toBe(false)
 })
 
 test('words a lead quotes with angle brackets are text, not markup; every field is shown as text', () => {

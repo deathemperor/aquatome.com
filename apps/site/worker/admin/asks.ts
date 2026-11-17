@@ -121,12 +121,8 @@ export function readAsks(v: unknown): Asks | { why: string } {
   return { today: o.today, updated, rows: lists.rows, parked: lists.parked, rules: kept }
 }
 
-/**
- * PUT /_ab/asks from the Mac's job, the dashboard token as its bearer (checked before this): `{ modified, list }`, the
- * file's time and the list. 200 with how many rows were kept; 400 with why it was refused, and the last list stays.
- */
 /** A request's body as text, or null once it passes `max` bytes: read no further than that. */
-async function capped(req: Request, max: number): Promise<string | null> {
+export async function capped(req: Request, max: number): Promise<string | null> {
   if (Number(req.headers.get('content-length')) > max) return null
   if (!req.body) return ''
   const reader = req.body.getReader(), parts: Uint8Array[] = []
@@ -142,6 +138,10 @@ async function capped(req: Request, max: number): Promise<string | null> {
   return new TextDecoder().decode(all)
 }
 
+/**
+ * PUT /_ab/asks from the Mac's job, the dashboard token as its bearer (checked before this): `{ modified, list }`, the
+ * file's time and the list. 200 with how many rows were kept; 400 with why it was refused, and the last list stays.
+ */
 export async function putAsks(req: Request, bucket: R2Bucket, now: Date): Promise<Response> {
   const json = (body: unknown, status = 200) => new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' } })
   const refuse = (why: string) => json({ error: 'refused', why }, 400)
