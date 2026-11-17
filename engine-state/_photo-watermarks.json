@@ -404666,5 +404666,120 @@
   },
   "https://media.aquatome.com/commons/375b6bdcce3d1637.webp": {
     "ocr": []
+  },
+  "https://media.aquatome.com/commons/fce912180b03079d.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/flickr/14524628272.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 48,
+        "mark": false,
+        "hash": "4798ac260991d8450baec0e7d9d3357aa53132a126df318a7df45a5cb224ed7e"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 24,
+        "mark": true,
+        "hash": "2a038102ae8a4fea79296774f1153b319033042d329d332d133438628930eb00"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "bottom left",
+      "top left"
+    ]
+  },
+  "https://media.aquatome.com/flickr/30775417143.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/flickr/5807040632.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/flickr/8917150972.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/flickr/8917256154.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/glaser/8548c93c6f381055.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "893a5c827cd94fdba0fc4c177e74e7309f689d2624663dcafc4c1a165d99059a"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ]
+  },
+  "https://media.aquatome.com/inaturalist/2822747.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/3637870.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/627589.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/734422108.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/745529954.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/seriouslyfish/554ffd8ee006cc32.webp": {
+    "ocr": [],
+    "watermark": true,
+    "kind": "name",
+    "locations": [
+      "bottom left"
+    ]
+  },
+  "https://media.aquatome.com/seriouslyfish/6460bdaaecf316f9.webp": {
+    "ocr": [],
+    "watermark": true,
+    "kind": "name",
+    "locations": [
+      "bottom left"
+    ]
+  },
+  "https://media.aquatome.com/seriouslyfish/86982ad9e6110e04.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
+  },
+  "https://media.aquatome.com/seriouslyfish/92f45eb1b21b4c72.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
+  },
+  "https://media.aquatome.com/seriouslyfish/9f9ae6696281eca5.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
+  },
+  "https://media.aquatome.com/seriouslyfish/d7ae8d7a074bf816.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
   }
 }

@@ -1,6 +1,6 @@
 # Photo galleries
 
-Written by `pnpm engine gallery` (2026-11-16). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
+Written by `pnpm engine gallery` (2026-11-17). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
 
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -8,9 +8,9 @@ Written by `pnpm engine gallery` (2026-11-16). Targets: packages/engine/src/gall
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
 | covered | 30 | 687 | 31 | 9 | 23 | 704 |
-| rest | 20 | 1754 | 75 | 0 | 93 | 1736 |
+| rest | 20 | 1754 | 75 | 0 | 92 | 1737 |
 
-## Short of target: every source read (549)
+## Short of target: every source read (567)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -565,3 +565,21 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/haludaria-fasciata | covered | 11 | 30 |
 | species/hampala-macrolepidota | covered | 4 | 30 |
 | species/hara-jerdoni | covered | 0 | 30 |
+| species/harttia-carvalhoi | covered | 0 | 30 |
+| species/harttia-kronei | covered | 0 | 30 |
+| species/harttia-surinamensis | covered | 0 | 30 |
+| species/hemiancistrus-medians | covered | 0 | 30 |
+| species/hemibagrus-macropterus | covered | 0 | 30 |
+| species/hemichromis-bimaculatus | covered | 0 | 30 |
+| species/hemichromis-elongatus | covered | 0 | 30 |
+| species/hemigrammus-hyanuary | covered | 0 | 30 |
+| species/hemigrammus-ocellifer | covered | 0 | 30 |
+| species/hemigrammus-rhodostomus | covered | 8 | 30 |
+| species/hemigrammus-stictus | covered | 1 | 30 |
+| species/hemiodontichthys-acipenserinus | covered | 0 | 30 |
+| species/hemisilurus-heterorhynchus | covered | 0 | 30 |
+| species/hemisilurus-moolenburghi | covered | 0 | 30 |
+| species/heros-efasciatus | covered | 13 | 30 |
+| species/herotilapia-multispinosa | covered | 0 | 30 |
+| species/homaloptera-parclitella | covered | 3 | 30 |
+| species/homalopteroides-tweediei | covered | 0 | 30 |
