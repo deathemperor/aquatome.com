@@ -1,0 +1,32 @@
+{
+  "slug": "glass-knife",
+  "name": "Glass Knife",
+  "altNames": [
+    "Glass knifefish",
+    "Ikan pisau kaca",
+    "Eigenmannia",
+    "Green knifefish"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Pada Eigenmannia, ikan jantan tumbuh jauh lebih besar daripada betina. Eigenmannia terbesar yang pernah dilaporkan sejauh ini panjangnya sekitar 50 cm, tetapi tampaknya banyak yang tetap di bawah 20 cm. Ikan-ikan di foto saat ini berukuran 9-12 cm.</p>",
+    "distribution:glaser": "<p>Glass knife atau ikan pisau kaca (Eigenmannia) tersebar luas di seluruh subbenua Amerika Selatan. E. virescens, yang dideskripsikan pada tahun 1836, ditemukan di Rio la Plata dan Paraná hilir di Brasil, Argentina, Uruguay, dan Paraguay, tetapi masih diragukan apakah spesies dari wilayah selatan ini termasuk yang lebih sering diimpor. Ikan yang dibahas di sini berasal dari Venezuela dan dalam makalah ilmiah terbaru disebut sebagai E. sp. “Orinoco”.</p>",
+    "diet:glaser": "<p>Pakan favoritnya adalah cacing darah, tetapi ikan ini juga mau makan pakan lain yang sejenis, dan biasanya juga mau pakan butiran (granul).</p>",
+    "behaviour:glaser": "<p>Ikan-ikan ini membentuk hierarki di antara sesamanya, tetapi umumnya dianggap damai.</p>",
+    "dimorphism:glaser": "<p>Ikan jantan tumbuh jauh lebih besar daripada betina. Pada pasangan yang difoto, yang kemungkinan jantan berwarna kuning, sedangkan yang kemungkinan betina berwarna abu-abu keputihan.</p>",
+    "reproduction:glaser": "<p>Glass knife yang sejauh ini sudah diamati memijah di sela-sela akar tanaman apung.</p>",
+    "notes:glaser": "<p>Secara sistematika, genus ini sulit dan sangat rumit; saat ini sudah dikenal 32 spesies. Bentuk “Orinoco” memiliki pola tiga garis hitam memanjang yang sama dengan E. trilineata, tetapi mulutnya undershot (rahang bawah jauh lebih pendek daripada rahang atas), sedangkan pada E. trilineata yang “asli” posisi mulutnya terminal. Dari sudut pandang akuarium, spesies mana tepatnya tidak terlalu penting, karena semua Eigenmannia mirip perilakunya, sehingga biasanya semuanya disebut E. virescens.</p>"
+  },
+  "quality": {
+    "score": 0.7,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.7
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-17"
+  }
+}

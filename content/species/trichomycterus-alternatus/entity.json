@@ -179,5 +179,182 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-16"
+  "updatedAt": "2026-11-16",
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Paraíba do Sul",
+        "Jequitinhonha",
+        "Rio Doce"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Trichomycterus alternatus comes from Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "IUCN Red List: Least Concern (LC). Trichomycterus alternatus is widely distributed, frequent and abundant in the Paraíba do Sul River basin and coastal rivers from the states of Rio de Janeiro to Paraná.",
+          "countries": [],
+          "regions": [
+            "Paraíba do Sul"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Atlantic coastal river basins, Rio de Janeiro and Espírito Santo States, Jequitinhonha River basin, Minas Gerais, Brazil.",
+          "countries": [],
+          "regions": [
+            "Jequitinhonha"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Rio Doce, near the village Rio Doce, Minas Gerais, Brazil [20°14'41\"S, 42°53'45\"W].",
+          "countries": [],
+          "regions": [
+            "Rio Doce"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2343016,
+      "total": 303,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "BR",
+          303
+        ]
+      ],
+      "cells": [
+        [
+          -50.625,
+          -25.3125,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -25.3125,
+          55,
+          55
+        ],
+        [
+          -47.8125,
+          -25.3125,
+          23,
+          23
+        ],
+        [
+          -47.8125,
+          -23.90625,
+          6,
+          6
+        ],
+        [
+          -47.8125,
+          -18.28125,
+          2,
+          2
+        ],
+        [
+          -46.40625,
+          -23.90625,
+          15,
+          15
+        ],
+        [
+          -45,
+          -23.90625,
+          4,
+          4
+        ],
+        [
+          -45,
+          -22.5,
+          4,
+          4
+        ],
+        [
+          -45,
+          -21.09375,
+          15,
+          15
+        ],
+        [
+          -43.59375,
+          -23.90625,
+          2,
+          2
+        ],
+        [
+          -43.59375,
+          -22.5,
+          18,
+          18
+        ],
+        [
+          -43.59375,
+          -21.09375,
+          21,
+          21
+        ],
+        [
+          -43.59375,
+          -19.6875,
+          26,
+          26
+        ],
+        [
+          -42.1875,
+          -21.09375,
+          54,
+          54
+        ],
+        [
+          -42.1875,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -42.1875,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          -42.1875,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -40.78125,
+          -21.09375,
+          46,
+          46
+        ],
+        [
+          -40.78125,
+          -19.6875,
+          7,
+          7
+        ]
+      ]
+    }
+  }
 }

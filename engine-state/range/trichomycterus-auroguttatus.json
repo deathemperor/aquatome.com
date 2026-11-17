@@ -1,0 +1,71 @@
+{
+  "id": "trichomycterus-auroguttatus",
+  "native": {
+    "input": "eca4b9f0e15bdc70",
+    "at": "2026-11-17T00:14:47.070Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio Marimbondo, tributary of Rio Preto, Rio Paraiba basin, 1 kilometer west of Visconde de Mauá, Rio de Janeiro, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Paraíba do Sul",
+        "source": "planetcatfish",
+        "quote": "South America: Marimbondo River, tributary of the Preto River, Paraíba do Sul River basin.",
+        "ok": true
+      },
+      {
+        "name": "Preto River",
+        "source": "planetcatfish",
+        "quote": "South America: Marimbondo River, tributary of the Preto River, Paraíba do Sul River basin.",
+        "ok": true
+      },
+      {
+        "name": "Paraíba do Sul",
+        "source": "scotcat",
+        "quote": "South America: Marimbondo River, tributary of the Preto River, Paraíba do Sul River basin.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Trichomycterus auroguttatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2343203,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        17
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        9
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        3
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-17T00:14:47.070Z"
+  }
+}

@@ -3,6 +3,12 @@
   "name": "Lembah Rekahan Jordan",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T00:04:07.506Z",
+    "why": "Malaysian atlases usually write \"Lembah Great Rift\" or \"Lembah Rift Jordan\"; \"Rekahan\" is an unusual word-for-word translation of \"Rift\", and the usual Malay form keeps \"Rift\" or uses \"Lurah Pemisahan\", so this isn't the standard name."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

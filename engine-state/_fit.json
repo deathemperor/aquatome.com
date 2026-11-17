@@ -3496,10 +3496,10 @@
     "products": []
   },
   "id/plants/egeria-densa": {
-    "at": "2026-11-08",
+    "at": "2026-11-17",
     "hash": "c1a2e9a1de551715",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -4310,8 +4310,8 @@
     "products": []
   },
   "id/plants/phyllantus-fluitans": {
-    "at": "2026-11-16",
-    "hash": "27261545905f6432",
+    "at": "2026-11-17",
+    "hash": "8cf7e97da6d36d78",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -9054,19 +9054,11 @@
     "products": []
   },
   "id/species/betta-brownorum": {
-    "at": "2026-11-14",
-    "hash": "185cd89f83707111",
+    "at": "2026-11-17",
+    "hash": "3b12df1b18e6bb0a",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "units",
-        "part": "P6",
-        "quote": "Disarankan 1 pasang per sekitar 19 liter.",
-        "why": "19 litres is a converted 5 US gallons, not a volume an Indonesian keeper would use.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "id/species/betta-burdigala": {
@@ -12841,7 +12833,7 @@
     "products": []
   },
   "id/species/corydoras-longipinnis": {
-    "at": "2026-11-11",
+    "at": "2026-11-17",
     "hash": "426859c6f0a8b98b",
     "model": "opus",
     "checklist": 3,
@@ -21546,7 +21538,7 @@
     "products": []
   },
   "ms/plants/egeria-densa": {
-    "at": "2026-11-15",
+    "at": "2026-11-17",
     "hash": "6ff22e938d681ed8",
     "model": "opus",
     "checklist": 3,
@@ -21554,8 +21546,8 @@
     "products": []
   },
   "ms/plants/eleocharis-acicularis": {
-    "at": "2026-11-15",
-    "hash": "cb53b3211aa7205e",
+    "at": "2026-11-17",
+    "hash": "47c1bda1c57498ac",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -27153,17 +27145,18 @@
     "sourceRead": true
   },
   "th/guides/aquatome-su-co-may-bom-nuoc-keu-to-giat-cuc-nong-yeu-nhiem-dien-chay": {
-    "at": "2026-11-16",
-    "hash": "bd6d286c8d5def3b",
+    "at": "2026-11-17",
+    "hash": "470adf56a0a672f1",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "elsewhere",
+        "check": "words",
         "part": "P1",
-        "quote": "ป้องกันวงจรของตู้ปลาด้วยเต้ารับแบบ GFCI หรือเบรกเกอร์ GFCI/AFCI",
-        "why": "GFCI outlets and GFCI/AFCI breakers are US wiring fittings; Thai homes use RCD/RCBO residual-current breakers.",
-        "by": "model"
+        "quote": "ป้องกันวงจรไฟของตู้ปลาด้วยเต้ารับแบบ GFCI หรือเบรกเกอร์ GFCI/AFCI",
+        "why": "GFCI/AFCI is US electrical terminology; Thai keepers and electricians speak of RCD/RCBO earth-leakage breakers.",
+        "by": "model",
+        "fix": "เครื่องตัดไฟรั่ว (RCD/RCBO) หรือเบรกเกอร์กันดูด"
       }
     ],
     "products": [
@@ -28215,10 +28208,10 @@
     "products": []
   },
   "th/plants/egeria-densa": {
-    "at": "2026-11-08",
+    "at": "2026-11-17",
     "hash": "6eaf834ca1d661d7",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -29066,20 +29059,11 @@
     "products": []
   },
   "th/plants/phyllantus-fluitans": {
-    "at": "2026-11-16",
-    "hash": "98c602c0a50f0f1d",
+    "at": "2026-11-17",
+    "hash": "59842d56fd14d098",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "words",
-        "part": "P9",
-        "quote": "ปลาแคระ (Otocinclus)",
-        "why": "Thai keepers call Otocinclus 'ปลาออตโต้', not a literal 'dwarf fish'.",
-        "by": "model",
-        "fix": "ปลาออตโต้"
-      }
-    ],
+    "findings": [],
     "products": [
       "Flourish Advance"
     ]
@@ -33895,19 +33879,11 @@
     "products": []
   },
   "th/species/betta-brownorum": {
-    "at": "2026-11-14",
-    "hash": "1080a972da953136",
+    "at": "2026-11-17",
+    "hash": "6c7c37b817cc51aa",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "units",
-        "part": "P6",
-        "quote": "แนะนำให้เลี้ยง 1 คู่ต่อน้ำประมาณ 19 ลิตร",
-        "why": "19 litres is a converted 5-gallon figure that no keeper in Thailand would use.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "th/species/betta-burdigala": {
@@ -38718,19 +38694,11 @@
     "products": []
   },
   "th/species/ctenopoma-acutirostre": {
-    "at": "2026-11-16",
-    "hash": "b6d944338b6c79d1",
+    "at": "2026-11-17",
+    "hash": "182d3fd983b6dda8",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P12",
-        "quote": "ปลาที่เพิ่งมาถึงมีสีเข้มสดจนแทบไม่น่าเชื่อ",
-        "why": "This is the exporter's news about fish it just received, written as if the reader knew about the shipment.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "th/species/ctenopoma-kingsleyae": {
@@ -47398,8 +47366,8 @@
     ]
   },
   "vi/guides/aquariumbreeder-is-my-snail-alive-or-dead": {
-    "at": "2026-11-16",
-    "hash": "cdfaf16dbaa45a47",
+    "at": "2026-11-17",
+    "hash": "fc7989a739442ef3",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -48161,26 +48129,11 @@
     ]
   },
   "vi/guides/aquariumbreeder-the-ideal-water-parameters-for-fish-and-shrimp-keeping": {
-    "at": "2026-11-16",
-    "hash": "5eee889892d24d01",
+    "at": "2026-11-17",
+    "hash": "b3e5f9f20e1744fb",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Mình cố hết sức giữ cho mọi thông số (pH, KH, GH, TDS, nitrat, amoniac...) đều đúng mức.",
-        "why": "A first-person story from the original writer, whom the reader doesn't know.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Câu hỏi này xuất hiện rất thường xuyên trong phần bình luận",
-        "why": "Refers to the comments section of the original article or channel, which this page doesn't have.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/guides/aquariumbreeder-top-10-weirdly-beautiful-aquarium-plants": {
@@ -58739,60 +58692,31 @@
     "products": []
   },
   "vi/guides/glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-hypancistrus-l236xx-en": {
-    "at": "2026-11-16",
-    "hash": "0558e246a4bfc45c",
+    "at": "2026-11-17",
+    "hash": "44c0eb062e8b9099",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "chính là con trong ảnh",
-        "why": "It points to a photo that this page doesn't have.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Lứa cá trại gần đây nhất có một con rất đặc biệt",
-        "why": "It reads as the source shop's news about its own latest batch of stock, which the reader doesn't know.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/guides/glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-import-season-for-orinoco-plecos-has-startet-en": {
-    "at": "2026-11-16",
-    "hash": "833501443acbb349",
+    "at": "2026-11-17",
+    "hash": "39c73a599f9c6257",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Mùa nhập cá lau kiếng từ lưu vực sông Orinoco giờ đã bắt đầu, và đã có khá nhiều loài khác nhau",
-        "why": "Announces the source shop's import season and new stock as if the reader shopped there.",
+        "quote": "Hoa văn của loài này mỗi con một kiểu",
+        "why": "Refers to an unnamed species, apparently shown in a picture the page lacks.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Trong mấy lô nhập gần đây có Hypancistrus contradens (L201).",
-        "why": "Refers to the source shop's recent shipments.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Đợt này có L243, màu rất đẹp.",
-        "why": "Refers to the source shop's current stock.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Cuối cùng là chi Guyanancistrus, đợt nhập này có L106.",
-        "why": "Refers to the source shop's current import batch.",
+        "quote": "Đây là một loài rất đẹp, ăn lớp rêu và vi sinh bám (aufwuchs).",
+        "why": "A photo caption pointing at a picture the page does not have.",
         "by": "model"
       }
     ],
@@ -58893,16 +58817,16 @@
     "products": []
   },
   "vi/guides/glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-we-can-big-too-l191-en": {
-    "at": "2026-11-16",
-    "hash": "fe037c08ffc0ebf2",
+    "at": "2026-11-17",
+    "hash": "fc1d860213965ccb",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P1",
-        "quote": "Con Panaque sp. “L191” to khủng này mới về kho cá tuần trước, sau chuyến vận chuyển từ Colombia.",
-        "why": "This is the source shop's stock news about a fish it just got in, not something the reader can see or use.",
+        "part": "TITLE",
+        "quote": "vừa nhập về từ Colombia",
+        "why": "Stock news from the source shop's arrivals, which the reader cannot buy.",
         "by": "model"
       }
     ],
@@ -58962,19 +58886,11 @@
     "products": []
   },
   "vi/guides/glaser-en-10-catfishes-10c-catfishes-remaining-catfish-from-south-america-three-rare-catfish-species-from-paraguay-en": {
-    "at": "2026-11-16",
-    "hash": "f41c7e0c50f3e07e",
+    "at": "2026-11-17",
+    "hash": "3a433bb0ebb29503",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Từ Paraguay vừa về ba loài cá da trơn rất hiếm và lạ",
-        "why": "This is the source shop announcing new stock, as if the reader knew that shop.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/guides/glaser-en-10-catfishes-10c-catfishes-remaining-catfish-from-south-america-trachycorystes-sp-white-spots-en": {
@@ -59558,19 +59474,11 @@
     "products": []
   },
   "vi/guides/glaser-en-31-crayfishes-shrimps-crabs-snails-mussels-sensation-bamboo-shrimp-from-taiwan-en": {
-    "at": "2026-11-16",
-    "hash": "1a9bd94dcb24585b",
+    "at": "2026-11-17",
+    "hash": "462102415656bc3d",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Hôm qua, mấy cặp đầu tiên của một loài tôm mới từ Đài Loan đã về tới.",
-        "why": "This is the source shop's stock news: it says the first pairs of a new shrimp arrived yesterday, as if the reader knew that shop.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/guides/glaser-en-32-all-the-rest-congo-importation-arrived-en": {
@@ -59681,56 +59589,34 @@
     "products": []
   },
   "vi/guides/glaser-en-32-all-the-rest-our-new-employee-friedolin-en": {
-    "at": "2026-11-16",
-    "hash": "ca7b7136d33ba7c8",
+    "at": "2026-11-17",
+    "hash": "7603f543b3e92285",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Trại cá vừa có thêm một nhân viên mới tên Friedolin.",
-        "why": "Shares news about the source farm's own staff as if the reader knew the farm.",
+        "quote": "Hễ có cá thật to là Friedolin ra đứng cạnh",
+        "why": "Introduces the source shop's own staff member as if the reader knew him.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Bạn đọc thân mến,",
-        "why": "Opens with the original writer's own letter-style greeting to their readers.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Ảnh số 2 trông như anh sắp câu được cá",
-        "why": "Points to a photo that is not on the page.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Mới đây Friedolin vừa trải qua chuyến phiêu lưu đầu tiên ở trại",
-        "why": "Tells the source farm's own story as if the reader knew it.",
+        "quote": "bạn đọc nhìn là biết cá trong ảnh to cỡ nào",
+        "why": "Points at photos the page does not have.",
         "by": "model"
       }
     ],
     "products": []
   },
   "vi/guides/glaser-en-32-all-the-rest-semifinal-brazil-vs-germany-en": {
-    "at": "2026-11-16",
-    "hash": "cfb4ab62040790c5",
+    "at": "2026-11-17",
+    "hash": "9a3b703958eb0b90",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Vậy nên trận bán kết tối nay ai thắng cũng được",
-        "why": "Refers to the source's own fish contest semifinal as if the reader were following it.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/guides/glaser-en-fisharchive-black-winged-dwarf-hatchets-carnegiella-marthae-and-c-schereri": {
@@ -66501,14 +66387,12 @@
     "products": []
   },
   "vi/guides/youtube-2Spfw4pWphk": {
-    "at": "2026-11-16",
-    "hash": "e5513d3af8f610ba",
+    "at": "2026-11-17",
+    "hash": "3fae7e67a50f6e62",
     "model": "opus",
     "checklist": 3,
     "findings": [],
-    "products": [
-      "Eheim Skim 350"
-    ]
+    "products": []
   },
   "vi/guides/youtube-2WBo3u9arUo": {
     "at": "2026-11-09",
@@ -69302,32 +69186,31 @@
     "products": []
   },
   "vi/guides/youtube-8kjsLDxIvw8": {
-    "at": "2026-11-16",
-    "hash": "20e114ee1aa6b51c",
+    "at": "2026-11-17",
+    "hash": "1b2f76392d048d77",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Cách xử lý ở đây là thả cá lau kiếng bristlenose (Ancistrus) vào để chúng ăn dần.",
-        "why": "A bare \"ở đây\" points to the source's own tank, which the reader doesn't know.",
+        "quote": "Cách xử lý ở đây là thả cá lau kiếng bristlenose",
+        "why": "Bare \"ở đây\" refers to the source's own tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "cách tỉa rêu Riccia mọc quá tay mà không làm bể bẩn",
+        "why": "Promises Riccia trimming content that the page does not contain.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
         "quote": "Bể này trồng chủ yếu cây chậm lớn như ráy (Anubias) và dương xỉ Java",
-        "why": "A bare \"bể này\" talks about the source's tank as if the reader knew it.",
+        "why": "Bare \"bể này\" points at the source's own tank.",
         "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P1",
-        "quote": "Đặt máy hút váng mặt nước (surface skimmer) vào chỗ nào cũng được rồi bật lên.",
-        "why": "This is a literal translation of \"surface skimmer\". Keepers in Vietnam call it a lọc váng.",
-        "by": "model",
-        "fix": "lọc váng"
       }
     ],
     "products": []
@@ -73410,8 +73293,8 @@
     ]
   },
   "vi/guides/youtube-DeGF0oCnqus": {
-    "at": "2026-11-16",
-    "hash": "b8e4f4a5d1934652",
+    "at": "2026-11-17",
+    "hash": "096cdd59a82c6112",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -73419,14 +73302,14 @@
         "check": "source",
         "part": "P1",
         "quote": "Quay lên máy ảnh thì trông sáng, nhưng thực ra nó không mạnh",
-        "why": "Refers to how the light looked in the source video, which the reader has not seen.",
+        "why": "Refers to how the source video's light looked on camera, which the reader never saw.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Bể này thả 10 cá otto, 3 cá lau kiếng mũi râu (bristlenose pleco) cùng tép amano.",
-        "why": "Bare 'bể này' points to the source video's own tank as if the reader knew it.",
+        "quote": "chuyện dòng nước và đội dọn dẹp trong bể mới",
+        "why": "Promises a clean-up crew section that the page does not contain.",
         "by": "model"
       }
     ],
@@ -100289,19 +100172,11 @@
     "products": []
   },
   "vi/species/amphilius-zairensis": {
-    "at": "2026-11-16",
-    "hash": "fbe646e59074c29b",
+    "at": "2026-11-17",
+    "hash": "3ceb893c3440f11d",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P3",
-        "quote": "Con cá trong ảnh do người góp ảnh bắt ở thác Wagenia",
-        "why": "Refers to a photo and the original site's photo contributor, neither of which this page has.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/species/amphilophus-citrinellus": {
@@ -102856,32 +102731,25 @@
     "products": []
   },
   "vi/species/astronotus-ocellatus": {
-    "at": "2026-11-16",
-    "hash": "740ff0e0b73e97a7",
+    "at": "2026-11-17",
+    "hash": "3b6536bae2e2dd47",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
         "part": "P1",
-        "quote": "Con trưởng thành dài cỡ quả bóng bầu dục Mỹ",
-        "why": "Size compared to an American football, a reference for US readers.",
+        "quote": "Cá lớn dài cỡ quả bóng bầu dục Mỹ",
+        "why": "Compares the fish to an American football, a size reference for an American reader.",
         "by": "model"
       },
       {
         "check": "words",
-        "part": "P1",
-        "quote": "loài cá bán chạy nhất ở cửa hàng thú cưng",
-        "why": "Calque of 'pet store'; fish keepers in Vietnam buy at a fish shop.",
+        "part": "P23",
+        "quote": "cá hồng cát (silver dollar)",
+        "why": "Keepers in Vietnam call the silver dollar 'cá đô la bạc', not 'cá hồng cát'.",
         "by": "model",
-        "fix": "tiệm cá cảnh"
-      },
-      {
-        "check": "source",
-        "part": "P30",
-        "quote": "Chúng tôi không tìm được dữ liệu xác nhận lý do chính xác",
-        "why": "The source writer's own 'we' voice.",
-        "by": "model"
+        "fix": "cá đô la bạc"
       }
     ],
     "products": []
@@ -116374,8 +116242,8 @@
     "products": []
   },
   "vi/species/hisonotus-notatus": {
-    "at": "2026-11-15",
-    "hash": "6d41e664692884fe",
+    "at": "2026-11-17",
+    "hash": "2842766eb03a4ade",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -119223,19 +119091,11 @@
     "products": []
   },
   "vi/species/loricaria-lentiginosa": {
-    "at": "2026-11-16",
-    "hash": "9e92addf9f99a3d3",
+    "at": "2026-11-17",
+    "hash": "8104e69e9ac21e4e",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "đây là lần đầu tiên loài này được nhập về. Lứa cá này dài khoảng 40 cm",
-        "why": "Announces the source shop's own import and stock as news the reader would know.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/species/loricaria-simillima": {
@@ -121786,24 +121646,32 @@
     "products": []
   },
   "vi/species/nemacheilus-triangularis": {
-    "at": "2026-11-15",
-    "hash": "61c92ba7ac119893",
+    "at": "2026-11-17",
+    "hash": "4256909b11f722cf",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
         "part": "P10",
-        "quote": "rồi chuyển sang bể 38 lít gắn một lọc treo nhỏ",
-        "why": "38 litres is a converted 10-gallon tank size no keeper in Vietnam would use.",
+        "quote": "chuyển sang bể 38 lít gắn một lọc treo nhỏ",
+        "why": "38 litres is a converted 10-gallon tank size nobody in Vietnam would use.",
         "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P5",
+        "quote": "Tùy bể mà gắn thêm lọc máy, thổi luồng hoặc sủi khí cho đủ.",
+        "why": "\"Thổi luồng\" is not what keepers call a powerhead.",
+        "by": "model",
+        "fix": "máy tạo sóng"
       }
     ],
     "products": []
   },
   "vi/species/nemacheilus-troglocataractus": {
-    "at": "2026-11-09",
-    "hash": "3ffd88be7a5d5445",
+    "at": "2026-11-17",
+    "hash": "0c121ab101e00e91",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -121873,8 +121741,8 @@
     "products": []
   },
   "vi/species/nematabramis-steindachnerii": {
-    "at": "2026-11-09",
-    "hash": "1218135c82ec43bd",
+    "at": "2026-11-17",
+    "hash": "c6b816a8b0f79004",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -121898,25 +121766,17 @@
     "products": []
   },
   "vi/species/nematobrycon-palmeri": {
-    "at": "2026-11-08",
-    "hash": "7a95ba0bed12d48b",
+    "at": "2026-11-17",
+    "hash": "de59a7f73a0ea2d0",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P10",
-        "quote": "Trong bể theo chủ đề Nam Mỹ như đã mô tả ở trên",
-        "why": "Refers to a themed-tank description from the original article that this page does not contain.",
+        "part": "P3",
+        "quote": "Gần đây cũng đã có lô cá lớn hẳn về, dài gần 5 cm tính cả đuôi.",
+        "why": "Stock news from the source's shop, which the reader doesn't know.",
         "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P12",
-        "quote": "Có cơ hội là cá bố mẹ thường ăn trứng",
-        "why": "Literal calque of the English 'given the chance'.",
-        "by": "model",
-        "fix": "Nếu có dịp, cá bố mẹ hay ăn trứng"
       }
     ],
     "products": []
@@ -122112,8 +121972,8 @@
     "products": []
   },
   "vi/species/neolamprologus-fasciatus": {
-    "at": "2026-11-13",
-    "hash": "ebffbf8db6d43fc8",
+    "at": "2026-11-17",
+    "hash": "f9f5a10b53e9b829",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -122121,14 +121981,7 @@
         "check": "units",
         "part": "P4",
         "quote": "Đáy bể: 90 × 38 cm.",
-        "why": "Tank footprint converted from 36 × 15 inches, not a size a Vietnamese keeper would give.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P11",
-        "quote": "lơ lửng cách nền khoảng 60–90 cm",
-        "why": "Length converted from 2–3 feet.",
+        "why": "A 38 cm side is 15 inches converted; Vietnamese keepers would not size a tank like this.",
         "by": "model"
       }
     ],
@@ -122209,8 +122062,8 @@
     "products": []
   },
   "vi/species/neolamprologus-pulcher": {
-    "at": "2026-11-11",
-    "hash": "b4ed47de0e84ce4a",
+    "at": "2026-11-17",
+    "hash": "b7fd50c2a9bef8e6",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -122489,8 +122342,8 @@
     "products": []
   },
   "vi/species/nothobranchius-rachovii": {
-    "at": "2026-11-15",
-    "hash": "26a83f8cf9c01974",
+    "at": "2026-11-17",
+    "hash": "6703523ea4aa7d6c",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -122498,23 +122351,8 @@
         "check": "units",
         "part": "P9",
         "quote": "thì phải dùng bể khoảng 57 lít",
-        "why": "57 litres is a converted 15-gallon tank size nobody in Vietnam would use.",
+        "why": "57 litres is a converted 15-gallon tank, a size nobody in Vietnam would name.",
         "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P21",
-        "quote": "lớp dày tối đa 2,5 cm",
-        "why": "2.5 cm substrate depth is a converted 1 inch.",
-        "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P23",
-        "quote": "cá killifish nhỏ (least killifish)",
-        "why": "Literal calque of the English common name for Heterandria formosa, which is not a killifish.",
-        "by": "model",
-        "fix": "cá Heterandria formosa"
       }
     ],
     "products": []
@@ -122728,16 +122566,16 @@
     "products": []
   },
   "vi/species/omobranchus-zebra": {
-    "at": "2026-11-15",
-    "hash": "7e915ebb0ac7ad54",
+    "at": "2026-11-17",
+    "hash": "16cb14f77f8d0fa5",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P4",
-        "quote": "Đến nay, những con cá này tỏ ra rất lanh lợi và khỏe, kể cả khi không pha muối.",
-        "why": "This talks about the source shop's own stock fish as if the reader knew them.",
+        "quote": "mấy con trong ảnh đã ở khoảng mười ngày trong bể chụp ảnh chỉ có nước ngọt",
+        "why": "Refers to the source writer's own photos and photo tank, which the page doesn't have and the reader doesn't know.",
         "by": "model"
       }
     ],
@@ -122976,19 +122814,11 @@
     "products": []
   },
   "vi/species/oreoglanis-siamensis": {
-    "at": "2026-11-16",
-    "hash": "3e866649db658f93",
+    "at": "2026-11-17",
+    "hash": "904e8e6702a37346",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Cá về chỉ có rất ít con",
-        "why": "This is the source shop's stock news about a shipment that has arrived, not something written for the reader.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/species/orinocodoras-eigenmanni": {
@@ -123040,19 +122870,11 @@
     "products": []
   },
   "vi/species/orthospinus-franciscensis": {
-    "at": "2026-11-16",
-    "hash": "0d4ad217213a5459",
+    "at": "2026-11-17",
+    "hash": "35df0d87edc049b7",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P4",
-        "quote": "Loài này mới được nhập về lần đầu.",
-        "why": "This is the source exporter's stock news. It doesn't tell a hobbyist in Vietnam that the fish has arrived anywhere near them.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/species/orthosternarchus-tamandua": {
@@ -132624,35 +132446,27 @@
     "products": []
   },
   "vi/species/xenopus-laevis": {
-    "at": "2026-11-16",
-    "hash": "7299c5c684ee0a4f",
+    "at": "2026-11-17",
+    "hash": "7317b468f539296b",
     "model": "opus",
     "checklist": 3,
     "findings": [],
     "products": [
       "Seachem Prime",
-      "Maracyn Plus",
       "Mardel Maroxy"
     ]
   },
   "vi/species/xenopus-muelleri": {
-    "at": "2026-11-16",
-    "hash": "301899590fd14ba8",
+    "at": "2026-11-17",
+    "hash": "6772c1cb7313bd26",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P3",
-        "quote": "những con nói tới ở đây là ếch trại cho đẻ ở châu Âu",
-        "why": "Refers to the source's own frogs as if the reader knew them.",
-        "by": "model"
-      },
-      {
-        "check": "source",
         "part": "P6",
         "quote": "những con ếch nuôi ở đây có thể là một phân loài của X. laevis",
-        "why": "Refers to the source's own stock of frogs, unknown to the reader.",
+        "why": "Refers to the source's own kept frogs as if the reader knew them.",
         "by": "model"
       }
     ],
@@ -133074,5 +132888,828 @@
     "checklist": 3,
     "findings": [],
     "products": []
+  },
+  "id/guides/aquatome-cach-chon-va-lap-may-loc-cho-be-ca-loc-thung-loc-treo-loc-tran-loc-day": {
+    "at": "2026-11-17",
+    "hash": "0ce0d8b0e73ff453",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "kalikan volume akuarium dalam galon dengan 10, lalu bulatkan ke ukuran overflow berikutnya",
+        "why": "Uses gallons as the reader's unit; the 190-litre example is a converted 50-gallon tank.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Bahwa besarnya aliran (GPH) saja yang menentukan kinerja filter",
+        "why": "GPH (gallons per hour) is an imperial flow unit, not used by keepers in Indonesia.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Dalam sebuah unggahan forum, seorang penghobi menceritakan cara ia mengebor akuariumnya untuk sump.",
+        "why": "Introduces an unknown forum writer's own tank story from the source material.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/guides/aquatome-cach-lam-trong-nuoc-be-ca-bi-duc": {
+    "at": "2026-11-17",
+    "hash": "6c2e2ff6d958e996",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "isi akuarium sekitar 2,5 cm ikan dewasa per 3,8 liter bersih",
+        "why": "Converted from the 'one inch of fish per gallon' rule; 3.8 litres is a gallon.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/amphilius-zairensis": {
+    "at": "2026-11-17",
+    "hash": "e03a09b9c61061ed",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P3",
+        "quote": "Spesimen yang ditampilkan ditangkap oleh pemilik foto di Air Terjun Wagenia",
+        "why": "Refers to a photo and its owner from the source site that the page does not have.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/belonoglanis-brieni": {
+    "at": "2026-11-17",
+    "hash": "0e22ce3ffcb1e04d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P2",
+        "quote": "Dua gambar mini terakhir memperlihatkan ikan hasil tangkapan pengirim foto",
+        "why": "Points at thumbnails the page doesn't have and at the source's photo contributor, whom the reader doesn't know.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/diplomystes-nahuelbutaensis": {
+    "at": "2026-11-17",
+    "hash": "78705680e2c638d0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/discherodontus-halei": {
+    "at": "2026-11-17",
+    "hash": "46bf627eea002402",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/discherodontus-schroederi": {
+    "at": "2026-11-17",
+    "hash": "197ec91efcab0df2",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/distichodus-affinis": {
+    "at": "2026-11-17",
+    "hash": "49a3698774a70bb5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/distichodus-lusosso": {
+    "at": "2026-11-17",
+    "hash": "73b14f56cca41e58",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/distichodus-sexfasciatus": {
+    "at": "2026-11-17",
+    "hash": "47eb9382dbbc8040",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/dolichancistrus-cobrensis": {
+    "at": "2026-11-17",
+    "hash": "d2f96002da4cc936",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/dormitator-lebretonis": {
+    "at": "2026-11-17",
+    "hash": "ad2757ab7adef7de",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P11",
+        "quote": "Ikan di foto adalah individu muda.",
+        "why": "Refers to a photo from the source article that this page does not have.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/doryichthys-boaja": {
+    "at": "2026-11-17",
+    "hash": "9c998ea5978462fb",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/drombus-globiceps": {
+    "at": "2026-11-17",
+    "hash": "d552885bc715c274",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [],
+    "doses": [
+      {
+        "treatment": "sea salt",
+        "strength": "",
+        "amount": 1,
+        "amountMax": 0,
+        "unit": "sendok",
+        "per": 10,
+        "perUnit": "litre",
+        "use": "water",
+        "method": "wholeTank",
+        "quote": "Penambahan sedikit garam laut (satu sendok per 10 liter air)"
+      }
+    ],
+    "sourceRead": true
+  },
+  "id/species/duncanopsammia-axifuga": {
+    "at": "2026-11-17",
+    "hash": "f67a7075ec8eb2c6",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P9",
+        "quote": "Gunakan turkey baster atau sea squirt feeder untuk menyemprotkan pakan langsung ke polip",
+        "why": "A turkey baster is an American kitchen tool; keepers in Indonesia feed corals with a pipette.",
+        "by": "model",
+        "fix": "pipet (pipet pakan)"
+      }
+    ],
+    "products": [
+      "Seachem Reef Dip",
+      "Blue Ocean Corals Coral Rx Dip Aquarium Treatment",
+      "Brightwell Aquatics Koral MD – Coral and Frag Dip Cleaner",
+      "larutan Lugol",
+      "reef roids"
+    ]
+  },
+  "id/species/duopalatinus-peruanus": {
+    "at": "2026-11-17",
+    "hash": "5b1e4d46ba8f6138",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/ectodus-descampsii": {
+    "at": "2026-11-17",
+    "hash": "ac2338967bdf2f26",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/eigenmannia-trilineata": {
+    "at": "2026-11-17",
+    "hash": "9e33556687cc6a28",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P2",
+        "quote": "Spesimen yang diterima berasal dari Guyana.",
+        "why": "It talks about fish the source importer received as if the reader knew about that shipment.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/eigenmannia-virescens": {
+    "at": "2026-11-17",
+    "hash": "ae3d79949e86caf8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ikan-ikan di foto saat ini berukuran 9-12 cm.",
+        "why": "Refers to the source's own photographed fish and a photo the page does not have.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P5",
+        "quote": "Pada pasangan yang difoto, yang kemungkinan jantan berwarna kuning",
+        "why": "Refers to the source's own photographed pair, which the reader cannot see.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/ompok-fumidus": {
+    "at": "2026-11-17",
+    "hash": "e9e4df6fc3d70eb0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P2",
+        "quote": "Asal-usul spesimen ini sama sekali tidak diketahui, tetapi kemungkinan besar termasuk Ompok fumidus, jadi dijual dengan nama Ompok cf. fumidus.",
+        "why": "It talks about the source shop's own fish and how that shop sells it, as if the reader knew that stock.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "ms/plants/hygrophila-odora": {
+    "at": "2026-11-17",
+    "hash": "cd685c448884d39e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/plants/hygrophila-pinnatifida": {
+    "at": "2026-11-17",
+    "hash": "b534564886790b4b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P3",
+        "quote": "Tumbuhan akuatik daripada kultur tisu dalam cawan tertutup.",
+        "why": "Describes the source shop's product as sold (a tissue-culture cup) as if the reader were buying it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "ms/species/amphilius-zairensis": {
+    "at": "2026-11-17",
+    "hash": "eee5a9fd802dfe1f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P3",
+        "quote": "Spesimen yang ditunjukkan ditangkap oleh penyumbang gambar di Air Terjun Wagenia",
+        "why": "It points to a photo and a photo contributor from the source site, and this page has neither.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "ms/species/anablepsoides-rubrolineatus": {
+    "at": "2026-11-17",
+    "hash": "8abe6ef7f03d5ed2",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/anadoras-grypus": {
+    "at": "2026-11-17",
+    "hash": "546ffb4429782a68",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/anatolichthys-anatoliae": {
+    "at": "2026-11-17",
+    "hash": "65779c916ba8b777",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P7",
+        "quote": "Ini amat penting pada musim bunga dan musim panas",
+        "why": "Treats spring and summer as the reader's own seasons, but Malaysia doesn't have them.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "ms/species/anatolichthys-danfordii": {
+    "at": "2026-11-17",
+    "hash": "ec9487a587912f43",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P7",
+        "quote": "Ini amat penting pada bulan-bulan musim bunga dan musim panas",
+        "why": "Spring and summer seasons are given as the reader's own, but Malaysia has no such seasons.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "ms/species/anatolichthys-saldae": {
+    "at": "2026-11-17",
+    "hash": "574e1d710ccf41c7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P5",
+        "quote": "Di banyak negara, ikan ini boleh, malah lebih baik, dipelihara di luar rumah sepanjang tahun",
+        "why": "Written for temperate countries; outdoors in Malaysia's heat would far exceed this fish's 22 °C maximum.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P6",
+        "quote": "Pemanas tidak diperlukan kecuali di kawasan beriklim paling sejuk, dan ikan ini perlu diberi tempoh 'musim sejuk'",
+        "why": "Assumes a reader with a cold climate and winters; in Malaysia cooling, not heating, is the issue.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P7",
+        "quote": "Ini amat penting pada musim bunga dan musim panas",
+        "why": "Refers to temperate seasons that a Malaysian reader does not have.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P10",
+        "quote": "betina bertelur lebih kurang berterusan antara bulan April hingga September",
+        "why": "Spawning season tied to northern-hemisphere seasons, given as the reader's own.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "ms/species/anatolichthys-sureyanus": {
+    "at": "2026-11-17",
+    "hash": "3000b2e79c181469",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P6",
+        "quote": "Pemanas tidak diperlukan kecuali di kawasan beriklim paling sejuk.",
+        "why": "Assumes a temperate reader's climate; in Malaysia this 5–22 °C fish needs cooling, not a heater.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "ms/species/anatolichthys-transgrediens": {
+    "at": "2026-11-17",
+    "hash": "b8d101a7d3aa7232",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "60 cm x 30 cm x 30 cm (57 liter)",
+        "why": "57 litres is a converted 15 US gallons, not the volume of these sides (about 54 L).",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "120 cm x 30 cm x 30 cm (113 liter)",
+        "why": "113 litres is a converted 30 US gallons, not the volume of these sides (about 108 L).",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P7",
+        "quote": "Ini sangat penting pada musim bunga dan musim panas",
+        "why": "Feeding is timed by temperate seasons that a Malaysian reader does not have.",
+        "by": "model"
+      }
+    ],
+    "products": [],
+    "doses": [
+      {
+        "treatment": "sea salt",
+        "strength": "",
+        "amount": 1,
+        "amountMax": 2,
+        "unit": "g",
+        "per": 1,
+        "perUnit": "litre",
+        "use": "water",
+        "method": "wholeTank",
+        "quote": "air perlu ditambah garam laut pada kadar 1–2 g/L"
+      }
+    ],
+    "sourceRead": true
+  },
+  "ms/species/anatolichthys-villwocki": {
+    "at": "2026-11-17",
+    "hash": "04938247c7091104",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P6",
+        "quote": "ia perlu diberi tempoh 'musim sejuk' selama beberapa bulan dengan suhu rendah",
+        "why": "Assumes the reader has a cold winter; Malaysia has none, so this is written for a temperate-country keeper.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P7",
+        "quote": "Ini amat penting pada bulan-bulan musim bunga dan musim panas",
+        "why": "Refers to spring and summer seasons the reader in Malaysia does not have.",
+        "by": "model"
+      }
+    ],
+    "products": [],
+    "doses": [
+      {
+        "treatment": "sea salt",
+        "strength": "",
+        "amount": 1,
+        "amountMax": 3,
+        "unit": "g",
+        "per": 1,
+        "perUnit": "litre",
+        "use": "water",
+        "method": "wholeTank",
+        "quote": "tambahan garam laut pada nisbah 1-3 g/L"
+      }
+    ],
+    "sourceRead": true
+  },
+  "ms/species/ancharius-fuscus": {
+    "at": "2026-11-17",
+    "hash": "ff9d68e3960aa84d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/guides/aquatome-cach-chon-va-lap-may-loc-cho-be-ca-loc-thung-loc-treo-loc-tran-loc-day": {
+    "at": "2026-11-17",
+    "hash": "069984a56ea7b5ea",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "เอาจำนวนแกลลอนของตู้คูณ 10 แล้วปัดขึ้นเป็นขนาดกล่องที่ใกล้ที่สุด",
+        "why": "The sizing rule asks for the tank's volume in US gallons.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "อัตราการไหล (GPH) อย่างเดียวไม่ได้บอกว่ากรองดีแค่ไหน",
+        "why": "Flow rate is given in gallons per hour, an imperial unit.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "จากโพสต์ในฟอรัม ผู้เลี้ยงรายหนึ่งเจาะรูขนาด 12 มม.",
+        "why": "Points to a forum post and someone's own build that the reader doesn't know.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/amphilius-zairensis": {
+    "at": "2026-11-17",
+    "hash": "c3a84f1c161da4f7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P3",
+        "quote": "ปลาในภาพถูกจับโดยผู้ให้ภาพที่น้ำตก Wagenia",
+        "why": "It refers to a picture that isn't on the page and to the source's photo contributor, whom the reader doesn't know.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/belonoglanis-brieni": {
+    "at": "2026-11-17",
+    "hash": "785e6464545a1fda",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P2",
+        "quote": "ภาพย่อสองภาพสุดท้ายเป็นปลาที่ผู้ให้ภาพจับได้",
+        "why": "Refers to thumbnails the page doesn't have and to the source's unnamed photo contributor.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/diplomystes-nahuelbutaensis": {
+    "at": "2026-11-17",
+    "hash": "476ce5fdeaf4c8d8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/discherodontus-halei": {
+    "at": "2026-11-17",
+    "hash": "d8c0d06b93176fef",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/discherodontus-schroederi": {
+    "at": "2026-11-17",
+    "hash": "7c31a39854ca22fa",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/distichodus-affinis": {
+    "at": "2026-11-17",
+    "hash": "bb1bd47a428cf8c4",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/distichodus-lusosso": {
+    "at": "2026-11-17",
+    "hash": "3e8c366fc8c51573",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/distichodus-sexfasciatus": {
+    "at": "2026-11-17",
+    "hash": "14f70e7dea0c3c7f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/dolichancistrus-cobrensis": {
+    "at": "2026-11-17",
+    "hash": "ef894fd156303f42",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/dormitator-lebretonis": {
+    "at": "2026-11-17",
+    "hash": "f24c730cb3a371ea",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P11",
+        "quote": "ปลาในภาพเป็นปลาวัยอ่อน",
+        "why": "Refers to a picture from the source article that the page does not have.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/doryichthys-boaja": {
+    "at": "2026-11-17",
+    "hash": "48c5b3cdc50c9950",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/drombus-globiceps": {
+    "at": "2026-11-17",
+    "hash": "8bbde8c52595dd6e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [],
+    "doses": [
+      {
+        "treatment": "sea salt",
+        "strength": "",
+        "amount": 1,
+        "amountMax": 0,
+        "unit": "ช้อน",
+        "per": 10,
+        "perUnit": "litre",
+        "use": "water",
+        "method": "wholeTank",
+        "quote": "การเติมเกลือทะเลลงในน้ำเล็กน้อย (หนึ่งช้อนต่อน้ำ 10 ลิตร)"
+      }
+    ],
+    "sourceRead": true
+  },
+  "th/species/duncanopsammia-axifuga": {
+    "at": "2026-11-17",
+    "hash": "2137da69a305ff9f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Seachem Reef Dip",
+      "Blue Ocean Corals Coral Rx Dip Aquarium Treatment",
+      "Brightwell Aquatics Koral MD – Coral and Frag Dip Cleaner",
+      "Lugol's solution",
+      "Reef Roids"
+    ]
+  },
+  "th/species/duopalatinus-peruanus": {
+    "at": "2026-11-17",
+    "hash": "fc797c6ff2a854a0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/ectodus-descampsii": {
+    "at": "2026-11-17",
+    "hash": "92a0dc5310fabf0f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/eigenmannia-trilineata": {
+    "at": "2026-11-17",
+    "hash": "467c5c998d8565ed",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P2",
+        "quote": "ปลาที่ได้รับมานั้นมาจากกายอานา",
+        "why": "Speaks of the source's own received stock as if the reader knew it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/eigenmannia-virescens": {
+    "at": "2026-11-17",
+    "hash": "21678592c0c412bd",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "ปลาในภาพปัจจุบันยาว 9-12 ซม.",
+        "why": "Refers to a picture from the source that this page does not have.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P5",
+        "quote": "ในคู่ที่อยู่ในภาพ",
+        "why": "Points to a pictured pair the reader cannot see.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/nanobagrus-stellatus": {
+    "at": "2026-11-17",
+    "hash": "3cb18ab51d4e86db",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-8QHCBrdtk4o": {
+    "at": "2026-11-17",
+    "hash": "4f4c85a49681adf4",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể cũ trong tiệm sau vài năm bị một loại rêu hại mọc kín",
+        "why": "Tells the source's own barber-shop tank story as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "So với bể cũ, bể mới được nâng cấp vài thứ",
+        "why": "Refers to the source's old and new tank, which the reader doesn't know.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Nền ở đây có ba lớp",
+        "why": "Bare 'ở đây' points at the video's tank.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này phủ toàn phân nền, không rải cát trang trí",
+        "why": "Bare 'bể này' refers to the source's tank.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Trong tiệm, bên phải bể là bức tường nên khách chủ yếu nhìn bể chéo từ phía trước bên trái.",
+        "why": "Describes the source's shop layout and customers as if the reader knew them.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "ở đây chọn đèn Chihiros vì kiểu dáng hợp với nội thất của tiệm",
+        "why": "Refers to the source's own shop interior.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bảy tuần đầu bể có châm CO2, sau đó chuyển sang chạy không CO2.",
+        "why": "Reports the source tank's history, not advice to the reader.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Thả lại cá và tép từ bể cũ.",
+        "why": "Refers to the source's old tank and its fish.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Dennerle",
+      "ADA",
+      "đá Yamaya của ADA",
+      "Seachem Matrix",
+      "Seachem Equilibrium",
+      "Seachem Stability",
+      "Seachem Flourish Advance",
+      "Chihiros"
+    ]
   }
 }

@@ -901,31 +901,59 @@
     ]
   },
   "egeria-densa": {
-    "at": "2026-10-31",
-    "from": "2026-10-30",
-    "name": "สาหร่ายอีโลเดีย",
+    "at": "2026-11-16",
+    "from": "2026-11-16",
+    "name": "สาหร่ายอิโลเดีย",
     "confidence": "medium",
     "score": 0.6,
     "notes": [
-      "\"อีโลเดียช่วยป้องกันตะไคร่\": the English says Egeria, and Elodea is a different genus. Use \"อีเจเรีย\" or \"Egeria densa\", or the Thai trade name \"สร้อยไข่มุก/เอโลเดียดำ\" only if it is correct. Don't swap the plant name.",
-      "Omitted: \"Remove the leaves from the lowest 5 cm (2\")\" is rendered as \"เด็ดใบที่โคนลำต้นออกประมาณ 5 ซม.\". That is fine, but \"ประมาณ\" (about) was added. The source gives an exact 5 cm.",
-      "\"ไม้ต้น (ไม้น้ำแบบมีลำต้น)\": \"Stem\" means a stem plant (ไม้ก้านยาว/ไม้ลำต้น). \"ไม้ต้น\" is misleading, so use \"ไม้น้ำแบบลำต้น (Stem)\".",
-      "\"ต้นไม้จะมาเป็นกำของลำต้นหรือต้นอ่อนที่มัดรวมกันไว้ด้วยตัวถ่วง\": awkward. Say \"จำหน่ายเป็นมัด\", and use \"แผ่นตะกั่ว/ตัวถ่วงตะกั่ว\" for the anchor.",
-      "\"ยอดจะเรียวเล็กลง\": \"tendrils\" here means the shoots or stems. Prefer \"ลำต้น/เถา\" so it isn't read as the shoot tips only.",
-      "\"ความต้องการแสง: น้อย\" and \"CO2: น้อย\" are acceptable. In item 1, \"20–30 ซม. ขึ้นไป\" is fine."
-    ]
+      "Item 11: \"bamboo shrimp\" is rendered as \"กุ้งบัมเบิ้ลบี (bamboo shrimp)\". That names a different species, the bumblebee shrimp. Use the correct name for the filter-feeding bamboo shrimp, such as กุ้งไผ่ or กุ้งแบมบู.",
+      "Item 13: the heading \"โตรกเกินไป\" for \"Overgrowth\" is a typo or nonsense word. Use \"โตเร็วเกินไป\" or \"รกเกินไป\".",
+      "Item 8: \"curved blade\" is translated as \"กรรไกรปลายโค้ง\" (curved-tip scissors). The source says a blade. Use \"ใบมีดโค้ง\" or \"กรรไกรปลายโค้ง\" only if that is what was meant.",
+      "Item 9: \"ทนอุณหภูมิได้ง่ายตั้งแต่ต่ำถึง 15 °C\" is awkward. Use \"ทนอุณหภูมิต่ำได้ถึง 15 °C และสูงได้ถึง 28 °C\".",
+      "Item 11: \"ปลาค้อหมากรุก (clown loach)\" is not the usual hobby name for clown loach. Use \"ปลาค้อลายเสือ\" or \"คลาวน์โลช\".",
+      "Item 11: \"กุ้งฝอย (ghost shrimp)\" is a loose match. Use \"กุ้งแก้ว\" or \"โกสต์ชริมพ์\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "e3d355c3ab2c",
+      "quickFacts:aquariumbreeder": "757eafbccbaf",
+      "beforeYouBuy:aquariumbreeder": "39e278d95f3f",
+      "distribution:aquariumbreeder": "406b4d173c33",
+      "habitat:aquariumbreeder": "acab4b21fef3",
+      "aquariumSize:aquariumbreeder": "53db7c4dd85b",
+      "maintenance:tropica": "c35c7022e1a1",
+      "maintenance:aquariumbreeder": "eec8f3aa71ee",
+      "waterConditions:aquariumbreeder": "858a5fe96ee8",
+      "equipment:aquariumbreeder": "1aeacb6e6d0c",
+      "behaviour:aquariumbreeder": "3498f59a3460",
+      "notes:tropica": "6a1436394a76",
+      "notes:aquariumbreeder": "2d052eb80ad4"
+    }
   },
   "eleocharis-acicularis": {
-    "at": "2026-10-31",
-    "from": "2026-10-30",
+    "at": "2026-11-16",
+    "from": "2026-11-16",
     "name": "แฮร์กราส",
     "confidence": "medium",
     "score": 0.9,
-    "notes": [
-      "\"หลังปลูกในตู้ได้สองเดือน\" is slightly wordy; the English means 'after two months in the tank', so \"หลังอยู่ในตู้สองเดือน\" is closer.",
-      "\"พบได้ทั่วโลก\" for 'Cosmopolitan' is acceptable, but \"กระจายพันธุ์ทั่วโลก\" is the more usual hobby wording.",
-      "\"เป็นไม้น้ำที่พบได้ทั่วไปมาก\" adds a small amount of wording. \"พบได้ทั่วไปมาก\" is slightly awkward; \"พบได้ทั่วไป\" or \"เป็นที่นิยมมาก\" reads more naturally."
-    ]
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "3f889c91d3f8",
+      "maintenance:tropica": "9ed1d23bc27f"
+    },
+    "failed": {
+      "at": "2026-11-16T23:31:57.485Z",
+      "parts": {
+        "quickFacts:aquariumbreeder": "b03582bd1273",
+        "distribution:aquariumbreeder": "0c90484f53fe",
+        "habitat:aquariumbreeder": "8f4ad1f0faa7",
+        "aquariumSize:aquariumbreeder": "f6595ba7c978",
+        "maintenance:aquariumbreeder": "2cd1203e1b62",
+        "waterConditions:aquariumbreeder": "82407b12779f",
+        "equipment:aquariumbreeder": "521d2e293a02",
+        "notes:aquariumbreeder": "772e5ec6a93c"
+      }
+    }
   },
   "eleocharis-montevidensis": {
     "at": "2026-10-31",
@@ -1871,11 +1899,8 @@
     "confidence": "medium",
     "score": 0.85,
     "notes": [
-      "\"ปลาแคระ (Otocinclus)\": use the common hobby name \"ปลาอ็อตโต\" (Otocinclus catfish); \"ปลาแคระ\" is vague.",
-      "\"submerged root-like leaves\": the translation says only \"ส่วนที่คล้ายรากซึ่งจมอยู่ใต้น้ำ\" and drops \"leaves\". Say \"ใบที่คล้ายราก\".",
-      "Conclusion: \"ใช้แทนไม้อย่างแหนซึ่งต้องดูแลมากกว่าเพื่อให้อยู่ในสภาพดีได้เป็นอย่างดี\" is clumsy and repeats itself. Rephrase it, for example \"ต้องดูแลมากกว่าจึงจะอยู่ในสภาพดี\".",
-      "\"หอย Black Devil\", \"หอย Asolene spixi\": the names are left in English or Latin with no Thai common name. Add the local name if there is one.",
-      "\"กุ้งฝอยใส\" for Ghost shrimp: use \"กุ้งแก้ว\" or \"กุ้งโกสต์\", the term hobbyists use."
+      "\"สายออกซิเจน\" works, but Thai hobbyists usually say \"สายแอร์\" or \"สายยางออกซิเจน\".",
+      "\"หอยศัตรูพืช\" is slightly off for pest snails in a tank. \"หอยที่ไม่พึงประสงค์\" or \"หอยรบกวน\" is more natural."
     ],
     "parts": {
       "quickFacts:aquariumbreeder": "84386acfb575",
@@ -1886,7 +1911,8 @@
       "waterConditions:aquariumbreeder": "9b4355068917",
       "equipment:aquariumbreeder": "17266401026a",
       "reproduction:aquariumbreeder": "298da21280b6",
-      "notes:aquariumbreeder": "7d46c69258b3"
+      "notes:aquariumbreeder": "7d46c69258b3",
+      "maintenance:aquatome": "93eaabd38bf6"
     }
   },
   "plagiomnium-sp-thyme-moss": {

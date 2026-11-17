@@ -1,6 +1,6 @@
 {
   "slug": "gambie-river",
-  "name": "sông Gambie",
+  "name": "sông Gambia",
   "altNames": [
     "Gambie River"
   ],
@@ -8,5 +8,6 @@
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

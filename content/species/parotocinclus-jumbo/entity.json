@@ -16,9 +16,17 @@
       "countries": [
         "BR"
       ],
-      "regions": [],
+      "regions": [
+        "Paraiba do Norte",
+        "Piranhas",
+        "Canhotinho River",
+        "Mundau River",
+        "Salgado River",
+        "São Francisco River"
+      ],
       "sources": [
-        "glaser"
+        "glaser",
+        "scotcat"
       ],
       "quotes": [
         {
@@ -28,6 +36,26 @@
             "BR"
           ],
           "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Paraiba do Norte and Piranhas rivers in Paraiba State, Canhotinho River in Pernambuco State, a tributary of the Mundau River, flowing near the city of Maceio in Alagoas State, and Salgado River in Ceara State.",
+          "countries": [],
+          "regions": [
+            "Paraiba do Norte",
+            "Piranhas",
+            "Canhotinho River",
+            "Mundau River",
+            "Salgado River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "IUCN Red List: Parotocinclus jumbo is distributed in coastal rivers of the Northeast and the lower São Francisco River, being frequent and abundant.",
+          "countries": [],
+          "regions": [
+            "São Francisco River"
+          ]
         }
       ]
     },

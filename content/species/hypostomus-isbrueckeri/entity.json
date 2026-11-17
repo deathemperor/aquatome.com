@@ -14,7 +14,8 @@
   "range": {
     "native": {
       "countries": [
-        "BR"
+        "BR",
+        "AR"
       ],
       "regions": [
         "Uruguay River",
@@ -22,7 +23,8 @@
       ],
       "sources": [
         "planetcatfish",
-        "scotcat"
+        "scotcat",
+        "glaser"
       ],
       "quotes": [
         {
@@ -30,6 +32,14 @@
           "quote": "Type locality: Rio Conceição, Ijui, Rio Grande do Sul, Brazil.",
           "countries": [
             "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Origin: Brazil, Argentina.",
+          "countries": [
+            "AR"
           ],
           "regions": []
         },
@@ -47,7 +57,7 @@
     "records": {
       "taxonKey": 5202137,
       "total": 124,
-      "fetched": "2026-11-09",
+      "fetched": "2026-11-17",
       "countries": [
         [
           "BR",

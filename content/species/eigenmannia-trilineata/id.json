@@ -1,0 +1,32 @@
+{
+  "slug": "glass-knife-fish",
+  "name": "Glass knife fish",
+  "altNames": [
+    "Eigenmannia",
+    "Ikan pisau kaca",
+    "Glass knifefish",
+    "Three-striped glass knifefish"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Eigenmannia adalah ikan akuarium yang luar biasa dengan keanggunan yang tak tertandingi. Tubuhnya memiliki tiga garis hitam memanjang di atas warna dasar keabu-abuan seperti asap.</p>",
+    "distribution:glaser": "<p>Spesimen yang diterima berasal dari Guyana. Sejauh ini, E. trilineata hanya diketahui berasal dari sistem sungai Paraguay-Paraná (Argentina, Brasil, Paraguay, Uruguay).</p>",
+    "maintenance:glaser": "<p>Ikan pisau membutuhkan akuarium yang tertata dengan baik dan memiliki cukup banyak tempat persembunyian.</p>",
+    "diet:glaser": "<p>Memberi pakan ikan ini cukup mudah, karena mereka langsung mau menerima segala jenis pakan hidup maupun beku. Banyak individu juga mau makan pakan granul.</p>",
+    "dimorphism:glaser": "<p>Ikan jantan bisa mencapai panjang sekitar 40 cm, dua kali lipat ukuran maksimal ikan betina. Betina juga memiliki moncong yang jauh lebih pendek.</p>",
+    "reproduction:glaser": "<p>Eigenmannia bisa dipijahkan jika kondisi musim hujan ditiru. Begitu ikan berada dalam kondisi yang tepat, mereka akan bertelur di antara akar tanaman air yang mengapung.</p>",
+    "notes:glaser": "<p>Eigenmannia: nama penghormatan untuk Carl H. Eigenmann (1863-1927). trilineata: bahasa Latin, berarti \"bergaris tiga\".</p>"
+  },
+  "quality": {
+    "score": 0.75,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.75
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-17"
+  }
+}

@@ -3711,6 +3711,47 @@
   ],
   "th/guides/aquatome-su-co-may-bom-nuoc-keu-to-giat-cuc-nong-yeu-nhiem-dien-chay": [
     {
+      "at": "2026-11-16T23:38:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "\"ที่อันตรายที่สุดคือไฟรั่วลงน้ำ\" (the most dangerous problem is stray voltage) is a ranking the facts don't make.",
+        "\"คนที่จับน้ำหรืออุปกรณ์ก็อาจกลายเป็นทางนั้นเสียเอง\" adds \"touching the water or equipment\". The facts only say a person can become the path to ground."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.92,
+        0.88,
+        0.8
+      ]
+    },
+    {
+      "at": "2026-11-16T23:38:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.72,
+      "notes": [
+        "\"ผู้ผลิตแนะนำให้ถอดปลั๊กทุกครั้งที่ไม่ได้ใช้งาน\" is fine, but \"ผู้ผลิตให้หาสาเหตุ...\" and the other maker attributions for the SuperFish items are supported. The first problem is elsewhere.",
+        "\"สาเหตุส่วนใหญ่คือมีเศษสกปรกอุดตัน ใบพัดสกปรก มีอากาศค้าง หรือชิ้นส่วนสึก\" says these are the \"most\" causes. The facts only say \"often\" or \"usually\" for particular symptoms.",
+        "\"ทำ 'ห่วงหยดน้ำ' ... คือให้สายห้อยต่ำลงเป็นห่วงก่อนถึงเต้ารับ\" adds a description of how to shape the loop. The facts only say to make a drip loop.",
+        "\"ปั๊มที่ดับไปเองอาจเป็นระบบป้องกันทำงาน ไม่ใช่ปั๊มเสียเสมอไป\" is the guide's own inference. The facts do not say this.",
+        "\"ผู้ผลิตแนะนำให้ใช้ปั๊มกับวงจรที่มีเครื่องตัดไฟรั่ว (GFCI) เท่านั้น\" is supported. But the FAQ line \"การล้างทำความสะอาดตามคู่มือยังทำได้\" sits beside the maker's \"do not repair yourself\" advice. It turns the maker's cleaning guidance into a general permission.",
+        "\"ถ้าเป็นแค่เสียงดังหรือน้ำออกเบา ให้ถอดปลั๊กแล้วนำปั๊มออกมาทำความสะอาด\" is stated as a first-response rule. The facts support cleaning but do not frame it as the immediate action for these symptoms.",
+        "The table row \"เสียงดัง\" lists \"อากาศค้างในปั๊ม\" as a noise cause. Source 0 says \"trapped air\", so this is roughly supported."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.72,
+        0.72,
+        0.93
+      ]
+    },
+    {
       "at": "2026-11-15T23:51:29Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -5514,6 +5555,141 @@
         0.82,
         0.86,
         0.85
+      ]
+    }
+  ],
+  "id/guides/aquatome-cach-chon-va-lap-may-loc-cho-be-ca-loc-thung-loc-treo-loc-tran-loc-day": [
+    {
+      "at": "2026-11-16T23:24:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.72,
+      "notes": [
+        "\"Sebuah panduan akuarium menyebut filter yang baik harus andal\" and similar: attributions to a shop guide are fine, but \"Pabrikan menyarankan memakai air akuarium karena air keran mengandung klorin dan bahan kimia yang beracun bagi ikan\" attributes the chlorine/toxicity reasoning to the maker. The facts give that reasoning from source 7 (the maker), so this is OK. It is not a note.",
+        "\"Pabrikan melarangnya karena bisa merusak unit\" is supported.",
+        "\"Pada sistem sump, setelah listrik padam air bisa tersedot balik\" is supported.",
+        "\"Soal membilas media, sumber berbeda pendapat\" is supported by the facts, which present both views.",
+        "\"Ia sendiri lebih memilih undergravel daripada filter gantung\" is supported.",
+        "\"Filter spons untuk akuarium sampai sekitar 60 cm, burayak, dan udang\" is a mild generalisation, because the 60 cm figure comes from a different source than the shrimp and fry claim. It is minor.",
+        "\"Sebelum menyambungkan kembali filter kanister dan filter gantung, bersihkan dulu\" and the other power-cut steps are supported.",
+        "\"Pabrikan melarangnya\" for the Fluval lid fasteners is supported. The section header \"Memasang filter gantung\" lists steps that omit the fact's \"put the basket in\" ordering. The step \"Isi rumah filter dengan air dan pancing alirannya\" is supported. The step \"Colokkan ke listrik, lalu atur kekuatan arus\" is supported.",
+        "\"Seorang penghobi menguji berbagai filter dengan amonia\" is supported. \"Sebuah panduan akuarium mengingatkan\" for the undergravel warning is supported (shop).",
+        "\"Potong pipanya untuk akuarium yang tingginya kurang dari 10 inci\" is supported. The guide's closing FAQ line \"Seorang penghobi berpendapat lain\" is supported."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.72,
+        0.72,
+        0.72
+      ]
+    },
+    {
+      "at": "2026-11-16T23:24:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"Pabrikan menyarankan air akuarium\" / \"Menurut pabrikan\" for rinsing in aquarium water because tap water contains chlorine: the facts give this reason to source 7 (maker) for the AquaClear, but the reason attribution is fine; however \"Sebuah panduan akuarium menyarankan membersihkan filter spons sekitar sebulan sekali\" is attributed to a guide (shop) when the facts attribute the sponge-cleaning a…",
+        "\"Sisakan ruang di sump untuk air tersebut\" is advice not in the facts.",
+        "\"Seorang penghobi menyebut aturan wajib air akuarium sebagai mitos. Kalau ingin aman, pakai air akuarium.\" The 'if you want to be safe' recommendation is not in the facts.",
+        "\"Kerikil saja bukan filter biologis yang andal\" and the 'sump gave best results' claim (\"Memberi hasil terbaik dalam uji amonia\") go beyond the facts, which say only that sumps did well.",
+        "\"Pabrikan menyarankan media yang mampet segera dibilas atau diganti\" is used in the myths section as a counterpoint to the keeper, a framing not in the facts.",
+        "\"Filter gantung dan filter kartrid: dipasang di dinding akuarium\" and \"Filter kanister: tersedia versi internal dan eksternal\" as definitions are not stated in the facts.",
+        "\"sump untuk akuarium besar\" in the summary is a generalisation; the facts say a sump for tanks over 75 gallons, and the guide gives no metric size for it.",
+        "\"Menurut ujinya, yang lebih menentukan adalah luas permukaan media\" is a mild extension of the facts.",
+        "The sump drilling steps are presented as instructions (\"Buat lubang 12 mm\") with the hole described as made 'di permukaan air', which slightly alters the keeper's account."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    }
+  ],
+  "id/guides/aquatome-cach-lam-trong-nuoc-be-ca-bi-duc": [
+    {
+      "at": "2026-11-16T23:27:25Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "\"resin penyerap\" is a generic stand-in for Seachem Purigen. The facts name the product, so this is a minor rewording.",
+        "\"hampir selalu disebabkan oleh salah satu dari empat hal\" is slightly stronger than the facts' \"usually\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.9,
+        0.92,
+        0.92
+      ]
+    },
+    {
+      "at": "2026-11-16T23:27:25Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "\"lewat suntikan atau pakan\": the facts say injected or oral medicine. \"Pakan\" (food) is a slight specification the facts don't give.",
+        "\"Partikel melayang (debu substrat, sisa pakan, dan lainnya)\": the facts name substrate dust or silt but not leftover food as a suspended-particle source.",
+        "\"Cokelat seperti teh\": the tea comparison is not in the facts. It is a minor embellishment."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.88,
+        0.92,
+        0.9
+      ]
+    }
+  ],
+  "th/guides/aquatome-cach-chon-va-lap-may-loc-cho-be-ca-loc-thung-loc-treo-loc-tran-loc-day": [
+    {
+      "at": "2026-11-16T23:41:47Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "Intro: \"ส่วนตู้ที่ใหญ่กว่า 75 แกลลอน ผู้เลี้ยงรายหนึ่งแนะนำกรองล่าง\" is OK, but the title and headings call the sump \"กรองล่าง\" and list it as a separate type. Facts only say sump. The intro also puts \"กรองนอก\" in a list of 120 cm. This is a loose mapping, not a clear error.",
+        "Test results are misassigned: the guide says \"กรองนอกตู้และกรองใต้กรวด ทำได้ปานกลาง\" (external filter and undergravel moderate). The facts say canisters and undergravel did moderately, and canisters are not necessarily external. The guide also reads \"cartridge\" as \"ไส้กรองสำเร็จรูป\".",
+        "Hang-on-back steps are wrong. The guide says \"ใส่ตะกร้า... ติดท่อดูด... เติมน้ำ\" and omits the priming step. It also adds \"ให้น้ำเต็มระบบก่อนเปิด\", which is not in the facts. The order and wording are altered, and the guide calls the BioMax insert a generic biological media.",
+        "\"ผู้ผลิตกรองแขวนรายหนึ่งแนะนำให้ล้างด้วยน้ำจากตู้\" is fine, but \"คู่มือเลี้ยงปลาแนะนำให้ล้างกรองฟองน้ำราวเดือนละครั้ง ผู้อ่านจึงชั่งน้ำหนักทั้งสองฝ่ายเองได้\" is the guide's own commentary and not in the facts.",
+        "\"กรองนอกตู้ที่มีฟองน้ำสองชิ้น\" in the care section: the facts say \"a canister with two sponges\", and the source gives no basis for calling it external. The guide also says this \"external filter\" \"clogs less than internal\", which is given but not tied to this.",
+        "The sump-with-overflow section says \"ข้องอ\" and \"ข้องออยู่สูงจากพื้นตู้ 1 ซม.\". That is a minor garble, but the \"ระบบกรองล่าง: หลังไฟดับ น้ำอาจไหลย้อนกลับ\" line is supported.",
+        "\"กรองแบบไส้กรองสำเร็จรูปและกรองแขวน ทำได้ไม่ดี\" and the table row for the hang-on filter, \"ดูตามผลทดสอบด้านบน\", are the guide's own gloss."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-16T23:41:47Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"ส่วนตู้ใหญ่กว่า 75 แกลลอน ผู้เลี้ยงรายหนึ่งแนะนำกรองล่าง\" is fine, but the results list says \"กรองล่างทำได้ดี\" is correct and the summary mixes up the terms. The bigger problem is \"ตู้ทั่วไป ใช้ลมได้\" for undergravel filters. The facts give no 'general tanks' suitability.",
+        "\"กรองแขวน ... กรองชีวภาพได้น้อย\" is used for cartridge filters. The facts say only cartridge hang-on-back filters do little biological filtration, and the guide treats all hang-on-back filters that way.",
+        "\"ผู้ผลิตแนะนำให้ใช้น้ำจากตู้ เพราะน้ำประปามีคลอรีนและสารเคมีที่เป็นพิษต่อปลา\" is a source mismatch. The facts give the chlorine reason as source 7, the maker AquaClear, so this is probably fine. The FAQ line \"ผู้ผลิตแนะนำ ... คลอรีน\" repeats it.",
+        "\"คู่มือเลี้ยงปลา\" (a fishkeeping guide) is credited with advice that came from the AquaClear maker. This applies to \"กรองฟองน้ำ ... ราวเดือนละครั้ง\", which the facts source to shop 8, so it is fine. The statement \"ผู้ผลิตแนะนำให้ล้างหรือเปลี่ยนทันที\" is also correct.",
+        "\"ก่อนขันข้องอเกลียวเข้าไป\" and \"ข้องอ\" (typos) are minor. \"เขาพันเทปและทาซิลิโคน\" is supported.",
+        "\"ไม่เผื่อเรื่องไฟดับ\" is framed as a mistake. The facts state only that water can back-siphon after a power cut, and they do not call it a mistake.",
+        "\"ตัวกรองใต้กรวด ... ทำได้ปานกลาง\" is supported. But \"ถ้ากระจายน้ำให้ไหลผ่านซี่ฟันทั้งแถว ... ตะไคร่จึงไม่ค่อยถูกดูดเข้าไป\" is supported too. The intro line \"ตู้เล็กหรือตู้อนุบาลลูกปลาใช้กรองฟองน้ำ\" extends the facts slightly."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.6,
+        0.5,
+        0.6
       ]
     }
   ]

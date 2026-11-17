@@ -217,5 +217,35 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-16"
+  "updatedAt": "2026-11-16",
+  "range": {
+    "native": {
+      "countries": [
+        "PK",
+        "IN",
+        "NP",
+        "BD",
+        "MM"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The banded gourami, Trichogaster fasciata, is a labyrinth fish from Pakistan, India, Nepal, Bangladesh and Myanmar, found in sluggish, weedy waters.",
+          "countries": [
+            "PK",
+            "IN",
+            "NP",
+            "BD",
+            "MM"
+          ],
+          "regions": []
+        }
+      ]
+    }
+  }
 }

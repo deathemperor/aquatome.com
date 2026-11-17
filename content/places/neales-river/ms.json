@@ -1,8 +1,13 @@
 {
   "slug": "neales-river",
-  "name": "Neales",
+  "name": "Sungai Neales",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-17T00:08:19.536Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

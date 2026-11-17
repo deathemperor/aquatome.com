@@ -3,6 +3,12 @@
   "name": "Río de la Plata",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T00:12:10.370Z",
+    "why": "Río de la Plata is the correct proper name and Malay keeps the Spanish spelling, but it has no Malay kind word, so an atlas in Malaysia would write \"Sungai Río de la Plata\"."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

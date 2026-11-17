@@ -1363,6 +1363,20 @@
       "kept": true
     }
   ],
+  "id/places/beni-river": [
+    {
+      "at": "2026-11-16T23:21:45Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Beni (Vietnamese, not Indonesian; should be Sungai Beni)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/benipah": [
     {
       "at": "2026-11-12T20:40:40Z",
@@ -1937,6 +1951,18 @@
       "at": "2026-11-08T05:19:45Z",
       "model": "sonnet",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/buzi": [
+    {
+      "at": "2026-11-16T23:21:45Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -3843,6 +3869,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/gambie-river": [
+    {
+      "at": "2026-11-16T23:21:45Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Gambia (Vietnamese; should be Sungai Gambia)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -6862,6 +6902,20 @@
       "kept": true
     }
   ],
+  "id/places/lake-rukwa": [
+    {
+      "at": "2026-11-16T23:21:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "hồ Rukwa (Vietnamese; should be Danau Rukwa)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/lake-sentani": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -7502,6 +7556,20 @@
       "model": "sonnet",
       "score": 0.96,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/lower-magdalena-river-basin": [
+    {
+      "at": "2026-11-16T23:21:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "lưu vực hạ lưu sông Magdalena (Vietnamese; should be Daerah Aliran Sungai Magdalena Hilir)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -10452,6 +10520,18 @@
       "kept": true
     }
   ],
+  "id/places/paraiba-do-norte": [
+    {
+      "at": "2026-11-16T23:21:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/paraiba-do-sul": [
     {
       "at": "2026-11-06T12:35:53Z",
@@ -11513,6 +11593,20 @@
       "kept": true
     }
   ],
+  "id/places/rio-betari": [
+    {
+      "at": "2026-11-16T23:21:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Betari (Vietnamese; should be Sungai Betari)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-bethary": [
     {
       "at": "2026-11-08T15:22:22Z",
@@ -11747,6 +11841,20 @@
       "score": 0.6,
       "notes": [
         "\"Corantijn\": lacks 'Sungai'"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-corubal": [
+    {
+      "at": "2026-11-16T23:21:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Corubal (Vietnamese; should be Sungai Corubal)"
       ],
       "attempt": "first",
       "kept": true
@@ -14800,6 +14908,18 @@
       "kept": true
     }
   ],
+  "id/places/stanley-pool": [
+    {
+      "at": "2026-11-16T23:21:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/struma": [
     {
       "at": "2026-11-15T05:17:17Z",
@@ -15828,6 +15948,18 @@
       "ran": "claude-sonnet-5-5",
       "cli": "2.1.322",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/tugela": [
+    {
+      "at": "2026-11-16T23:21:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -18748,6 +18880,20 @@
       "kept": true
     }
   ],
+  "ms/places/beni-river": [
+    {
+      "at": "2026-11-16T23:59:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Beni → Sungai Beni (the source name \"sông Beni\" is Vietnamese, but the Malay output \"Sungai Beni\" is correct)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/benin": [
     {
       "at": "2026-11-08T03:36:45Z",
@@ -19489,6 +19635,18 @@
       "at": "2026-11-08T12:43:56Z",
       "model": "sonnet",
       "score": 0.55,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/buzi": [
+    {
+      "at": "2026-11-16T23:59:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -21191,6 +21349,20 @@
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/gambie-river": [
+    {
+      "at": "2026-11-16T23:59:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Gambia → Sungai Gambia (source is Vietnamese, but the Malay output is correct)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -24834,6 +25006,20 @@
       "kept": true
     }
   ],
+  "ms/places/lake-rukwa": [
+    {
+      "at": "2026-11-16T23:59:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "hồ Rukwa → Tasik Rukwa (source is Vietnamese, but the Malay output is correct)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/lake-tanganyka": [
     {
       "at": "2026-11-14T05:31:11Z",
@@ -25414,6 +25600,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/lower-magdalena-river-basin": [
+    {
+      "at": "2026-11-16T23:59:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "lưu vực hạ lưu sông Magdalena → Lembangan Hilir Sungai Magdalena (source is Vietnamese; the output is acceptable, though \"Lembangan Sungai Magdalena Hilir\" is more natural Malay word order)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -28164,6 +28364,18 @@
       "kept": true
     }
   ],
+  "ms/places/paraiba-do-norte": [
+    {
+      "at": "2026-11-16T23:59:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/paraiba-do-sul": [
     {
       "at": "2026-11-08T03:37:06Z",
@@ -29539,6 +29751,20 @@
       "kept": true
     }
   ],
+  "ms/places/rio-betari": [
+    {
+      "at": "2026-11-16T23:59:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Betari → Sungai Betari (source is Vietnamese, but the Malay output is correct)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/rio-bethary": [
     {
       "at": "2026-11-08T15:47:59Z",
@@ -29821,6 +30047,20 @@
       "cli": "2.1.322",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/rio-corubal": [
+    {
+      "at": "2026-11-16T23:59:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Corubal → Sungai Corubal (source is Vietnamese, but the Malay output is correct)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -33098,6 +33338,20 @@
       "kept": true
     }
   ],
+  "ms/places/stanley-pool": [
+    {
+      "at": "2026-11-16T23:59:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Stanley Pool → Stanley Pool (left in English; Malay atlases write \"Kolam Stanley\" or use the current name \"Malebo Pool\"/\"Kolam Malebo\")"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/struma": [
     {
       "at": "2026-11-15T05:27:48Z",
@@ -34149,6 +34403,18 @@
       "ran": "claude-sonnet-5-5",
       "cli": "2.1.322",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/tugela": [
+    {
+      "at": "2026-11-16T23:59:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -36948,6 +37214,23 @@
       "kept": true
     }
   ],
+  "th/places/beni-river": [
+    {
+      "at": "2026-11-16T23:35:35Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    }
+  ],
   "th/places/benipah": [
     {
       "at": "2026-11-12T20:43:38Z",
@@ -37539,6 +37822,25 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/places/buzi": [
+    {
+      "at": "2026-11-16T23:35:35Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "บูซี and ทูเกลา: the Thai forms are plausible. Tugela is usually written ตูเกลา, and the entry is a river region. This is a minor issue."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.8
+      ]
     }
   ],
   "th/places/cabinda": [
@@ -39571,6 +39873,25 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/places/gambie-river": [
+    {
+      "at": "2026-11-16T23:35:35Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "แกมเบีย (gambie-river): this is the name of the country. The river should be แม่น้ำแกมเบีย."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.8
+      ]
     }
   ],
   "th/places/ganges-brahmaputra": [
@@ -42768,6 +43089,23 @@
       "kept": true
     }
   ],
+  "th/places/lake-rukwa": [
+    {
+      "at": "2026-11-16T23:35:35Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    }
+  ],
   "th/places/lake-sentani": [
     {
       "at": "2026-11-06T12:36:00Z",
@@ -43437,6 +43775,23 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/places/lower-magdalena-river-basin": [
+    {
+      "at": "2026-11-16T23:35:35Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.8
+      ]
     }
   ],
   "th/places/lualaba": [
@@ -46540,6 +46895,25 @@
       "kept": true
     }
   ],
+  "th/places/paraiba-do-norte": [
+    {
+      "at": "2026-11-16T23:35:35Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "ปาราอีบาดูนอร์ตี: the usual Thai form is ปาราอิบาดูนอร์ตี. This is a minor issue."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    }
+  ],
   "th/places/paraiba-do-sul": [
     {
       "at": "2026-11-06T12:36:17Z",
@@ -47659,6 +48033,23 @@
       "kept": true
     }
   ],
+  "th/places/rio-betari": [
+    {
+      "at": "2026-11-16T23:35:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    }
+  ],
   "th/places/rio-bethary": [
     {
       "at": "2026-11-08T15:23:59Z",
@@ -47923,6 +48314,23 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/places/rio-corubal": [
+    {
+      "at": "2026-11-16T23:35:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.8
+      ]
     }
   ],
   "th/places/rio-cuiaba": [
@@ -51099,6 +51507,23 @@
       "kept": true
     }
   ],
+  "th/places/stanley-pool": [
+    {
+      "at": "2026-11-16T23:35:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    }
+  ],
   "th/places/struma": [
     {
       "at": "2026-11-15T05:18:35Z",
@@ -52187,6 +52612,25 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/places/tugela": [
+    {
+      "at": "2026-11-16T23:35:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "บูซี and ทูเกลา: the Thai forms are plausible. Tugela is usually written ตูเกลา, and the entry is a river region. This is a minor issue."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.8
+      ]
     }
   ],
   "th/places/tuira": [
@@ -55153,6 +55597,19 @@
       "kept": true
     }
   ],
+  "vi/places/beni-river": [
+    {
+      "at": "2026-11-16T23:16:51Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.86,
+      "notes": [
+        "All the other names are correct or keep the source's spelling of the proper name."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/benipah": [
     {
       "at": "2026-11-12T20:38:11Z",
@@ -55813,6 +56270,19 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/buzi": [
+    {
+      "at": "2026-11-16T23:16:51Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.86,
+      "notes": [
+        "All the other names are correct or keep the source's spelling of the proper name."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -58091,6 +58561,19 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/gambie-river": [
+    {
+      "at": "2026-11-16T23:16:51Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.86,
+      "notes": [
+        "All the other names are correct or keep the source's spelling of the proper name."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -62096,6 +62579,19 @@
       "kept": true
     }
   ],
+  "vi/places/lake-rukwa": [
+    {
+      "at": "2026-11-16T23:16:51Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.86,
+      "notes": [
+        "All the other names are correct or keep the source's spelling of the proper name."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/lake-salda": [
     {
       "at": "2026-11-07T20:35:59Z",
@@ -62921,6 +63417,20 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/lower-magdalena-river-basin": [
+    {
+      "at": "2026-11-16T23:16:51Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.86,
+      "notes": [
+        "lower-magdalena-river-basin: 'lưu vực hạ lưu sông Magdalena' is a bit wordy but correct.",
+        "All the other names are correct or keep the source's spelling of the proper name."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -66663,6 +67173,19 @@
       "kept": true
     }
   ],
+  "vi/places/paraiba-do-norte": [
+    {
+      "at": "2026-11-16T23:16:51Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.86,
+      "notes": [
+        "All the other names are correct or keep the source's spelling of the proper name."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/paraiba-do-sul": [
     {
       "at": "2026-11-07T20:37:55Z",
@@ -68031,6 +68554,19 @@
       "kept": true
     }
   ],
+  "vi/places/rio-betari": [
+    {
+      "at": "2026-11-16T23:16:51Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.86,
+      "notes": [
+        "All the other names are correct or keep the source's spelling of the proper name."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-bethary": [
     {
       "at": "2026-11-08T15:21:55Z",
@@ -68300,6 +68836,19 @@
       "cli": "2.1.322",
       "score": 0.85,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-corubal": [
+    {
+      "at": "2026-11-16T23:16:51Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.86,
+      "notes": [
+        "All the other names are correct or keep the source's spelling of the proper name."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -73493,6 +74042,19 @@
       "cli": "2.1.322",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/tugela": [
+    {
+      "at": "2026-11-16T23:16:51Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.86,
+      "notes": [
+        "All the other names are correct or keep the source's spelling of the proper name."
+      ],
       "attempt": "first",
       "kept": true
     }

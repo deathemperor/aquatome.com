@@ -10,6 +10,70 @@
     "brazil",
     "sao-paulo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "In nature Loricaria lentiginosa occurs in the Brazilian state of Sao Paulo.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961504,
+      "total": 10,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "BR",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          -54.84375,
+          -26.71875,
+          3,
+          3
+        ],
+        [
+          -50.625,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -21.09375,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -22.5,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -19,12 +83,6 @@
     ]
   },
   "sections": [
-    {
-      "key": "quickFacts",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/loricaria_lentiginosa_en/",
-      "html": "<p>For the first time ever, one of the largest Loricaria species, L. lentiginosa, was imported. The animals are about 40 cm long and thus fully grown.</p>"
-    },
     {
       "key": "distribution",
       "source": "glaser",

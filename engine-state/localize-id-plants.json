@@ -943,28 +943,63 @@
     ]
   },
   "egeria-densa": {
-    "at": "2026-10-31",
-    "from": "2026-10-30",
-    "name": "Elodea densa",
+    "at": "2026-11-16",
+    "from": "2026-11-16",
+    "name": "Egeria densa",
     "confidence": "medium",
-    "score": 0.7,
+    "score": 0.6,
     "notes": [
-      "\"warnanya jadi pucat dan sulur-sulurnya tumbuh kurus\": the source says the plant \"turns light in colour\" (lighter/paler), so \"pucat\" is acceptable. But \"tendrils grow thin\" is rendered with \"kurus\", which is unnatural for plant shoots. Use \"menipis\" or \"tumbuh kecil/tipis\". Also \"jadi\" is informal; use \"menjadi\".",
-      "\"Remove the leaves from the lowest 5 cm (2\\\")\": the translation says \"Buang daun pada 5 cm bagian bawah batang\", which is fine. However \"Plant the individual plants ... into the bottom substrate\" became \"Tanam setiap batang\"; it should be \"setiap tanaman\" to match the source (individual plants, not stems).",
-      "\"anchor\" is rendered as \"pemberat (anchor)\". The source's anchor is a lead/metal strip that binds the stems, so \"pemberat\" is okay, but \"disatukan dengan pemberat\" reads slightly odd; \"diikat dengan pemberat (timah)\" would be more natural.",
-      "\"Egeria densa yang tersebar di seluruh dunia ini\": \"cosmopolitan\" means widely distributed, so the meaning is fine. The phrase is a bit long. \"Egeria densa yang kosmopolit\" or \"tersebar luas\" would be tighter."
-    ]
+      "Item 3: \"banyak negara bagian\" for \"many states\" is fine, but \"Pastikan ... tidak dilarang\" is OK; no issue. The real problem is item 10: \"Idealnya lampu dinyalakan minimal 8 jam sehari\" is fine, but item 13 says \"mulai dengan fotoperiode 10 jam\" — consistent, no change needed.",
+      "Item 7: \"the tendrils grow thin\" -> \"sulurnya tumbuh kurus\" is okay, but \"turns light in colour\" -> \"pucat\" is fine; no change.",
+      "Item 11: \"unless the plant is left floating, it is a no go\" -> \"kombinasi ini tidak bisa\" is unclear; use \"sebaiknya jangan dipelihara bersama\".",
+      "Item 11: \"koi, goldfish\" -> \"ikan mas koki\" is wrong. Goldfish is \"ikan mas\" or \"ikan koki\"; \"mas koki\" is not standard.",
+      "Item 11: \"Most crayfish\" -> \"lobster air tawar\" is acceptable, but \"doyan memakan\" is colloquial.",
+      "Item 13: \"Foraging place: ... buffet of biofilm\" -> \"sumber biofilm yang melimpah\" loses the buffet idea, which is minor.",
+      "Item 13: \"Egeria densa has heavy metal absorption properties\" -> \"mampu menyerap logam berat\" is fine, but \"Tempat bersembunyi ... peneduh\" is okay.",
+      "Item 5: \"duduk (tanpa tangkai)\" for sessile is awkward. Use \"tidak bertangkai (sesil)\".",
+      "Item 8: \"Gently remove the band\" -> \"karet/pengikat\" and \"gunting/pisau lengkung\" add an option (scissors) that the English does not have. The English says only \"curved blade\"; use \"gunting berujung lengkung\" or \"pisau lengkung\".",
+      "Item 2: \"Minimum tank size: 10 gallons (40 litres)\" -> \"40 liter\" is correct per the table; no change."
+    ],
+    "parts": {
+      "quickFacts:tropica": "e3d355c3ab2c",
+      "quickFacts:aquariumbreeder": "757eafbccbaf",
+      "beforeYouBuy:aquariumbreeder": "39e278d95f3f",
+      "distribution:aquariumbreeder": "406b4d173c33",
+      "habitat:aquariumbreeder": "acab4b21fef3",
+      "aquariumSize:aquariumbreeder": "53db7c4dd85b",
+      "maintenance:tropica": "c35c7022e1a1",
+      "maintenance:aquariumbreeder": "eec8f3aa71ee",
+      "waterConditions:aquariumbreeder": "858a5fe96ee8",
+      "equipment:aquariumbreeder": "1aeacb6e6d0c",
+      "behaviour:aquariumbreeder": "3498f59a3460",
+      "notes:tropica": "6a1436394a76",
+      "notes:aquariumbreeder": "2d052eb80ad4"
+    }
   },
   "eleocharis-acicularis": {
-    "at": "2026-10-31",
-    "from": "2026-10-30",
+    "at": "2026-11-16",
+    "from": "2026-11-16",
     "name": "Hairgrass",
     "confidence": "high",
     "score": 0.9,
-    "notes": [
-      "\"(tersebar di seluruh dunia)\" is an added gloss not in the source; harmless but could be removed.",
-      "\"tanaman air lain\" is fine, but \"Kalau\" is colloquial for a handbook; consider \"Jika\"."
-    ]
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "3f889c91d3f8",
+      "maintenance:tropica": "9ed1d23bc27f"
+    },
+    "failed": {
+      "at": "2026-11-16T23:19:19.885Z",
+      "parts": {
+        "quickFacts:aquariumbreeder": "b03582bd1273",
+        "distribution:aquariumbreeder": "0c90484f53fe",
+        "habitat:aquariumbreeder": "8f4ad1f0faa7",
+        "aquariumSize:aquariumbreeder": "f6595ba7c978",
+        "maintenance:aquariumbreeder": "2cd1203e1b62",
+        "waterConditions:aquariumbreeder": "82407b12779f",
+        "equipment:aquariumbreeder": "521d2e293a02",
+        "notes:aquariumbreeder": "772e5ec6a93c"
+      }
+    }
   },
   "eleocharis-montevidensis": {
     "at": "2026-10-31",
@@ -1899,15 +1934,7 @@
     "name": "Red Root Floater",
     "confidence": "high",
     "score": 0.8,
-    "notes": [
-      "Tank size: the table gives 5 gallons as 20 litres. That is fine, so no change is needed there.",
-      "Item 9: the English leaves Vietnamese names \"bèo ếch\", \"bèo cái lùn\" and \"bèo tấm\" in the source. The translation drops them, which is fine, but check that \"kayu apu kerdil (Dwarf Water Lettuce)\" is a sensible local name. \"Kiambang\" or \"apu-apu kerdil\" is more standard for Pistia. \"Kayu apu\" is the usual name.",
-      "Item 9: \"Frogbit\" is left untranslated. Add a local gloss, for example \"Frogbit (Limnobium)\".",
-      "Item 9: \"lemna (duckweed)\" is used for Duckweed. Hobbyists also say \"mata lele\" or \"kiambang kecil\". Consider using \"mata lele (duckweed)\".",
-      "Item 9: \"menolak air (anti air)\" for \"water-repellent\" is awkward. Use \"menolak air (hidrofobik)\" or \"tidak basah oleh air\".",
-      "Item 9: \"egg scatterers\" is rendered as \"ikan penyebar telur\". That is acceptable. \"Burayak\" for fry is fine.",
-      "Item 9: \"corydoras pygmy\" should be \"corydoras pygmy (Corydoras pygmaeus)\". Word order is more natural as \"corydoras kerdil\". Likewise \"ikan mas koki\" is redundant. Use \"ikan mas\" or \"koki\"."
-    ],
+    "notes": [],
     "parts": {
       "quickFacts:aquariumbreeder": "84386acfb575",
       "distribution:aquariumbreeder": "10f61d50071c",
@@ -1917,7 +1944,8 @@
       "waterConditions:aquariumbreeder": "9b4355068917",
       "equipment:aquariumbreeder": "17266401026a",
       "reproduction:aquariumbreeder": "298da21280b6",
-      "notes:aquariumbreeder": "7d46c69258b3"
+      "notes:aquariumbreeder": "7d46c69258b3",
+      "maintenance:aquatome": "93eaabd38bf6"
     }
   },
   "plagiomnium-sp-thyme-moss": {

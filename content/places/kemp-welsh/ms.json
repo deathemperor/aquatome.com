@@ -3,6 +3,12 @@
   "name": "Kemp Welsh",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T00:05:32.201Z",
+    "why": "Kemp Welsh is a river in Papua New Guinea's Central Province, so a Malay atlas would add the kind word \"Sungai\" and the bare name leaves it out."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

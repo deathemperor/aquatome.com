@@ -3,6 +3,12 @@
   "name": "Congo Hilir",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.35,
+    "at": "2026-11-17T00:06:57.747Z",
+    "why": "\"Congo Hilir\" omits the Malay kind word \"Sungai\", so it reads as a region rather than a river; Malay atlases write \"Hilir Sungai Congo\" or \"Sungai Congo Hilir\"."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

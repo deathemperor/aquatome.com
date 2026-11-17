@@ -1,0 +1,66 @@
+{
+  "id": "belonoglanis-brieni",
+  "native": {
+    "input": "a93d93c2d5f4f386",
+    "at": "2026-11-17T00:14:47.070Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Africa: N'Djili River, Stanley Pool, Democratic Republic of the Congo and Republic of the Congo.",
+        "words": "Democratic Republic of the Congo",
+        "ok": true
+      },
+      {
+        "code": "CG",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Africa: N'Djili River, Stanley Pool, Democratic Republic of the Congo and Republic of the Congo.",
+        "words": "Republic of the Congo",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "N'Djili River",
+        "source": "scotcat",
+        "quote": "Africa: N'Djili River, Stanley Pool, Democratic Republic of the Congo and Republic of the Congo.",
+        "ok": true
+      },
+      {
+        "name": "Stanley Pool",
+        "source": "scotcat",
+        "quote": "Africa: N'Djili River, Stanley Pool, Democratic Republic of the Congo and Republic of the Congo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Belonoglanis brieni",
+    "status": "ACCEPTED",
+    "taxonKey": 2340860,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        8
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ]
+    ],
+    "native": [
+      "CD",
+      "CG"
+    ],
+    "requests": 11,
+    "at": "2026-11-17T00:14:47.070Z"
+  }
+}

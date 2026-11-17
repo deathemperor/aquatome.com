@@ -10,6 +10,56 @@
     "brazil",
     "rio-betari"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Betari"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species occurs in the Brazilian state of Sao Paulo in the Rio Betari.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Betari"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340029,
+      "total": 67,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "BR",
+          67
+        ]
+      ],
+      "cells": [
+        [
+          -49.21875,
+          -25.3125,
+          63,
+          63
+        ],
+        [
+          -47.8125,
+          -25.3125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

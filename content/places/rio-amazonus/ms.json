@@ -1,8 +1,13 @@
 {
   "slug": "rio-amazonus",
-  "name": "Amazon",
+  "name": "Sungai Amazon",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.96,
+    "at": "2026-11-17T00:10:42.285Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

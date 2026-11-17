@@ -11,6 +11,66 @@
     "brazil",
     "uaupes"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Uaupés",
+        "Rio Negro"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Tucanoichthys tucano is a miniature characid known only from the rio Uaupés system in the upper Negro basin, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Uaupés"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Tucanoichthys lives endemic in the upper Rio Negro basin, to be more precise in the Rio Uaupes.",
+          "countries": [],
+          "regions": [
+            "Rio Negro"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354171,
+      "total": 2,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "BR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -68.90625,
+          0,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "ph": [
       {
