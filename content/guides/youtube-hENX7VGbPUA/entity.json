@@ -87,7 +87,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể kính lớn đang trống, mặt sau sơn đen và kính còn vết bẩn.",
-            "sharpness": 326.7
+            "sharpness": 326.7,
+            "person": false
           }
         ]
       },
@@ -95,43 +96,19 @@
         "heading": "Lót phân nền và phân nhét",
         "moments": [
           {
-            "t": 190,
-            "url": "https://media.aquatome.com/video/hENX7VGbPUA/at190-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bao phân nền dùng để cho vào túi lưới lót đáy.",
-            "sharpness": 1027.6
-          },
-          {
             "t": 260,
             "url": "https://media.aquatome.com/video/hENX7VGbPUA/at260-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Nhiều túi lưới đựng phân nền được rải khắp đáy bể.",
-            "sharpness": 164.3
+            "sharpness": 164.3,
+            "person": false
           }
         ]
       },
       {
         "heading": "Phủ cát và chỉnh màu cát",
-        "moments": [
-          {
-            "t": 280,
-            "url": "https://media.aquatome.com/video/hENX7VGbPUA/at280-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thùng cát tối màu được rải ra, tay đang sờ thử hạt cát.",
-            "sharpness": 692.6
-          },
-          {
-            "t": 380,
-            "url": "https://media.aquatome.com/video/hENX7VGbPUA/at380-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đổ cát sáng màu thành đống trắng xám trong hồ để trộn.",
-            "sharpness": 729
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/hENX7VGbPUA/p2-RvbV9zYW5kLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/hENX7VGbPUA/p2-RvbV9zYW5kLmpwZw-480.webp",
@@ -147,20 +124,13 @@
         "heading": "Chọn đá và xếp đá",
         "moments": [
           {
-            "t": 550,
-            "url": "https://media.aquatome.com/video/hENX7VGbPUA/at550-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Những viên đá đầu tiên được đặt sơ trên nền cát xám.",
-            "sharpness": 659.4
-          },
-          {
             "t": 570,
             "url": "https://media.aquatome.com/video/hENX7VGbPUA/at570-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Đá xếp lớp được đặt nghiêng cùng hướng trên nền cát trong bể.",
-            "sharpness": 550
+            "sharpness": 550,
+            "person": false
           }
         ],
         "photo": {
@@ -176,24 +146,7 @@
       },
       {
         "heading": "Đặt lũa sao cho thoáng",
-        "moments": [
-          {
-            "t": 700,
-            "url": "https://media.aquatome.com/video/hENX7VGbPUA/at700-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây lũa lớn đặt thoáng giữa bể, bên cạnh các cụm đá.",
-            "sharpness": 652.3
-          },
-          {
-            "t": 760,
-            "url": "https://media.aquatome.com/video/hENX7VGbPUA/at760-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lũa kéo ra khỏi kính sau, chừa khoảng trống phía sau bể.",
-            "sharpness": 570.9
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/hENX7VGbPUA/p4-YXJkc2NhcGUuanBn.webp",
           "thumb": "https://media.aquatome.com/video/hENX7VGbPUA/p4-YXJkc2NhcGUuanBn-480.webp",

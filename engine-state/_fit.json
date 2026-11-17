@@ -69748,7 +69748,8 @@
         "by": "model"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-17"
   },
   "vi/guides/youtube-9NhMq1H-aoo": {
     "at": "2026-11-09",
@@ -70991,6 +70992,31 @@
       }
     ],
     "sourceRead": true
+  },
+  "vi/guides/youtube-AWRizJTJ13E": {
+    "at": "2026-11-17",
+    "hash": "ab04aec81ed224cb",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Lũa dùng ở đây là mấy khúc gỗ sồi ngâm (stained oak) lớn",
+        "why": "Oak wood is a European/North American hardscape that keepers in Vietnam don't buy or gather.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Cây thảm ở đây là cỏ thìa lùn (dwarf sagittaria)",
+        "why": "A bare 'ở đây' points at the source's own tank, which the reader doesn't know.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "AAZ 850"
+    ]
   },
   "vi/guides/youtube-awWblosRzrQ": {
     "at": "2026-11-08",
@@ -73913,7 +73939,8 @@
     ],
     "products": [
       "Purigen"
-    ]
+    ],
+    "mendTried": "2026-11-17"
   },
   "vi/guides/youtube-DZ0JTLYiawU": {
     "at": "2026-11-08",
@@ -76378,7 +76405,8 @@
         "by": "model"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-17"
   },
   "vi/guides/youtube-gLGThPLYY_w": {
     "at": "2026-11-10",
@@ -82445,6 +82473,29 @@
         "part": "P1",
         "quote": "Bể khoảng 75–150 lít thả một đàn là đẹp",
         "why": "Tank range converted from 20–40 gallons.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-Ls2IOQ5m0Y4": {
+    "at": "2026-11-17",
+    "hash": "1e7138ac95d90cc8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Dự định ban đầu là mỗi tuần chỉ thả khoảng 10 con, nhưng cuối cùng lại thả một lần khoảng 30 con",
+        "why": "Tells the source's own stocking story as if the reader knew that tank.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "L11",
+        "quote": "Trong bể ví dụ, sau một ngày cá đã dọn khoảng 90% lớp mùn và mốc trên lũa.",
+        "why": "Refers to the source video's tank, which the reader has not seen.",
         "by": "model"
       }
     ],
@@ -91074,7 +91125,8 @@
         "by": "model"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-17"
   },
   "vi/guides/youtube-ufbEc_pOrjI": {
     "at": "2026-11-08",
@@ -95080,6 +95132,43 @@
         "part": "L11",
         "quote": "30 cm thân lọc cho bể khoảng 115–190 lít",
         "why": "A converted rule of one foot per 30–50 gallons.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-yVuK23DAxOI": {
+    "at": "2026-11-17",
+    "hash": "bfa9d2f912ffee03",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P3",
+        "quote": "Ở đây dùng mấy cây trong chậu nhỏ để sẵn trên bậu cửa sổ",
+        "why": "A bare 'ở đây' points to the source creator's own tank and windowsill plants, which the reader doesn't know.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P3",
+        "quote": "Cách này đã chạy tốt ở một bể cá betta",
+        "why": "This is the source creator's own past tank, told as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P6",
+        "quote": "Cá silver tip tetra vào bể là gom đàn ngay, kể cả trong bể lớn, và đã bơi ra đón dòng nước.",
+        "why": "It tells what happened in the video's own tank as a past event.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P7",
+        "quote": "có thể thả cá sớm là vì lọc dùng vật liệu lọc đã chạy sẵn, và lúc thả cá có châm thêm vi sinh",
+        "why": "It describes the source's own tank and filter, set against 'bể của bạn'.",
         "by": "model"
       }
     ],

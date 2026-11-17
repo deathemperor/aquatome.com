@@ -1271,6 +1271,14 @@
     "genus": "Amphilius",
     "matchType": "EXACT"
   },
+  "Amphilius zairensis": {
+    "canonicalName": "Amphilius zairensis",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Amphiliidae",
+    "genus": "Amphilius",
+    "matchType": "EXACT"
+  },
   "Amphilophus bussingi": {
     "canonicalName": "Cribroheros bussingi",
     "order": "Perciformes",
@@ -1520,6 +1528,7 @@
     "genus": "Ancistrus",
     "matchType": "EXACT"
   },
+  "Ancistrus quen": null,
   "Ancistrus scaphirhynchus": {
     "canonicalName": "Dekeyseria scaphirhyncha",
     "order": "Siluriformes",
@@ -3048,6 +3057,14 @@
     "genus": "Auchenipterus",
     "matchType": "EXACT"
   },
+  "Auchenipterus trachycorystes": {
+    "canonicalName": "Trachycorystes trachycorystes",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Auchenipteridae",
+    "genus": "Trachycorystes",
+    "matchType": "EXACT"
+  },
   "Auchenoglanis occidentalis": {
     "canonicalName": "Auchenoglanis occidentalis",
     "order": "Siluriformes",
@@ -4269,6 +4286,14 @@
     "genus": "Bathyclarias",
     "matchType": "EXACT"
   },
+  "Batrachochytrium dendrobatidis": {
+    "canonicalName": "Batrachochytrium dendrobatidis",
+    "phylum": "Chytridiomycota",
+    "class": "Rhizophydiomycetes",
+    "order": "Rhizophydiales",
+    "genus": "Batrachochytrium",
+    "matchType": "EXACT"
+  },
   "Batrachomoeus trispinosus": {
     "canonicalName": "Batrachomoeus trispinosus",
     "order": "Batrachoidiformes",
@@ -4389,6 +4414,14 @@
     "order": "Cyprinodontiformes",
     "family": "Poeciliidae",
     "genus": "Belonesox",
+    "matchType": "EXACT"
+  },
+  "Belonoglanis brieni": {
+    "canonicalName": "Belonoglanis brieni",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Amphiliidae",
+    "genus": "Belonoglanis",
     "matchType": "EXACT"
   },
   "Belontia hasselti": {
@@ -8380,6 +8413,14 @@
     "genus": "Corydoras",
     "matchType": "EXACT"
   },
+  "Corydoras venezuelae": {
+    "canonicalName": "Corydoras aeneus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Callichthyidae",
+    "genus": "Corydoras",
+    "matchType": "FUZZY"
+  },
   "Corydoras venezuelanus": {
     "canonicalName": "Corydoras aeneus",
     "order": "Siluriformes",
@@ -10473,6 +10514,7 @@
   "Endau drainages": null,
   "Endler lime": null,
   "Endler nguy": null,
+  "Endler trong": null,
   "Engraulicypris sardella": {
     "canonicalName": "Engraulicypris sardella",
     "order": "Cypriniformes",
@@ -13154,6 +13196,14 @@
     "genus": "Strobilanthes",
     "matchType": "EXACT"
   },
+  "Hemiloricaria caracasensis": {
+    "canonicalName": "Rineloricaria caracasensis",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Rineloricaria",
+    "matchType": "EXACT"
+  },
   "Hemiloricaria castroi": {
     "canonicalName": "Rineloricaria castroi",
     "phylum": "Chordata",
@@ -13509,6 +13559,14 @@
     "genus": "Hisonotus",
     "matchType": "EXACT"
   },
+  "Hisonotus nigricauda": {
+    "canonicalName": "Hisonotus nigricauda",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Hisonotus",
+    "matchType": "EXACT"
+  },
   "Hisonotus notatus": {
     "canonicalName": "Hisonotus notatus",
     "phylum": "Chordata",
@@ -13830,6 +13888,15 @@
     "genus": "Hydrocleys",
     "matchType": "EXACT"
   },
+  "Hydrocotyle japonica": {
+    "canonicalName": "Hydrocotyle benguetensis",
+    "phylum": "Tracheophyta",
+    "class": "Magnoliopsida",
+    "order": "Apiales",
+    "family": "Araliaceae",
+    "genus": "Hydrocotyle",
+    "matchType": "EXACT"
+  },
   "Hydrocotyle leucocephala": {
     "canonicalName": "Hydrocotyle leucocephala",
     "order": "Apiales",
@@ -14055,6 +14122,14 @@
     "matchType": "EXACT"
   },
   "Hyphessobrycon chung": null,
+  "Hyphessobrycon colombianus": {
+    "canonicalName": "Hyphessobrycon columbianus",
+    "phylum": "Chordata",
+    "order": "Characiformes",
+    "family": "Characidae",
+    "genus": "Hyphessobrycon",
+    "matchType": "FUZZY"
+  },
   "Hyphessobrycon columbianus": {
     "canonicalName": "Hyphessobrycon columbianus",
     "order": "Characiformes",
@@ -16632,6 +16707,7 @@
     "genus": "Limnophila",
     "matchType": "FUZZY"
   },
+  "Limnophila ngay": null,
   "Limnophila sebastianii": null,
   "Limnophila sessiliflora": {
     "canonicalName": "Limnophila sessiliflora",
@@ -16906,6 +16982,14 @@
     "order": "Siluriformes",
     "family": "Loricariidae",
     "genus": "Loricaria",
+    "matchType": "EXACT"
+  },
+  "Loricaria uracantha": {
+    "canonicalName": "Fonchiiichthys uracanthus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Fonchiiichthys",
     "matchType": "EXACT"
   },
   "Loricariichthys maculatus": {
@@ -18083,6 +18167,15 @@
     "genus": "Micranthemum",
     "matchType": "FUZZY"
   },
+  "Micranthemus micranthemoides": {
+    "canonicalName": "Micranthemum micranthemoides",
+    "phylum": "Tracheophyta",
+    "class": "Magnoliopsida",
+    "order": "Lamiales",
+    "family": "Linderniaceae",
+    "genus": "Micranthemum",
+    "matchType": "FUZZY"
+  },
   "Micranthemus tweediei": {
     "canonicalName": "Micranthemum tweedei",
     "order": "Lamiales",
@@ -18154,6 +18247,14 @@
     "family": "Cyprinidae",
     "genus": "Microdevario",
     "matchType": "FUZZY"
+  },
+  "Microgeophagus altispinosus": {
+    "canonicalName": "Mikrogeophagus altispinosus",
+    "phylum": "Chordata",
+    "order": "Perciformes",
+    "family": "Cichlidae",
+    "genus": "Mikrogeophagus",
+    "matchType": "EXACT"
   },
   "Microgeophagus ramirezi": {
     "canonicalName": "Mikrogeophagus ramirezi",
@@ -20321,6 +20422,14 @@
     "genus": "Ompok",
     "matchType": "EXACT"
   },
+  "Ompok fumidus": {
+    "canonicalName": "Ompok fumidus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Siluridae",
+    "genus": "Ompok",
+    "matchType": "EXACT"
+  },
   "Ompok leiacanthus": {
     "canonicalName": "Ompok leiacanthus",
     "order": "Siluriformes",
@@ -20708,6 +20817,14 @@
     "genus": "Orthochromis",
     "matchType": "EXACT"
   },
+  "Orthospinus franciscensis": {
+    "canonicalName": "Orthospinus franciscensis",
+    "phylum": "Chordata",
+    "order": "Characiformes",
+    "family": "Characidae",
+    "genus": "Orthospinus",
+    "matchType": "EXACT"
+  },
   "Oryzias asinua": {
     "canonicalName": "Oryzias asinua",
     "order": "Beloniformes",
@@ -20987,6 +21104,14 @@
     "order": "Siluriformes",
     "family": "Loricariidae",
     "genus": "Otocinclus",
+    "matchType": "EXACT"
+  },
+  "Otocinclus gibbosus": {
+    "canonicalName": "Lampiella gibbosa",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Lampiella",
     "matchType": "EXACT"
   },
   "Otocinclus hasemani": {
@@ -21574,6 +21699,14 @@
   },
   "Papuligobius ocellatus": {
     "canonicalName": "Papuligobius ocellatus",
+    "order": "Perciformes",
+    "family": "Gobiidae",
+    "genus": "Papuligobius",
+    "matchType": "EXACT"
+  },
+  "Papuligobius uniporus": {
+    "canonicalName": "Papuligobius uniporus",
+    "phylum": "Chordata",
     "order": "Perciformes",
     "family": "Gobiidae",
     "genus": "Papuligobius",
@@ -24923,6 +25056,15 @@
     "family": "Cichlidae",
     "genus": "Ptychochromis",
     "matchType": "FUZZY"
+  },
+  "Ptychognathus barbatus": {
+    "canonicalName": "Ptychognathus barbatus",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Varunidae",
+    "genus": "Ptychognathus",
+    "matchType": "EXACT"
   },
   "Pundamilia nyererei": {
     "canonicalName": "Haplochromis nyererei",
@@ -29415,6 +29557,14 @@
     "matchType": "EXACT"
   },
   "Trachycorystes magdalenae": null,
+  "Trachycorystes trachycorystes": {
+    "canonicalName": "Trachycorystes trachycorystes",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Auchenipteridae",
+    "genus": "Trachycorystes",
+    "matchType": "EXACT"
+  },
   "Trachydoras microstomus": {
     "canonicalName": "Trachydoras microstomus",
     "order": "Siluriformes",
@@ -29823,6 +29973,7 @@
   },
   "Tropica ghi": null,
   "Tropica nhi": null,
+  "Tropica sau": null,
   "Tsangpo thu": null,
   "Tsuga canadensis": {
     "canonicalName": "Tsuga canadensis",
@@ -30064,6 +30215,7 @@
   "Vassiere has": null,
   "Venezuela comprising": null,
   "Venezuela including": null,
+  "Verde thu": null,
   "Verhandelingen der": null,
   "Verhandlungen der": null,
   "Verlag von": null,
@@ -30517,6 +30669,7 @@
     "matchType": "EXACT"
   },
   "Xoay ngang": null,
+  "Xoay quanh": null,
   "Xoay que": null,
   "Xong chu": null,
   "Xung quanh": null,

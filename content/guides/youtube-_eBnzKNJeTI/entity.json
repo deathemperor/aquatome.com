@@ -79,7 +79,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá tetra bơi nhanh giữa các bụi cây xanh trong bể trồng cây.",
-            "sharpness": 252.6
+            "sharpness": 252.6,
+            "person": false
           }
         ],
         "photo": {
@@ -102,7 +103,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ancistrus bám kính nhìn từ dưới, thấy rõ miệng hút và râu thịt.",
-            "sharpness": 279.9
+            "sharpness": 279.9,
+            "person": false
           },
           {
             "t": 1100,
@@ -110,7 +112,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá Ancistrus bám trên khúc lũa, miệng hút đang gặm lớp bám.",
-            "sharpness": 535.3
+            "sharpness": 535.3,
+            "person": false
           }
         ],
         "photo": {
@@ -133,7 +136,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Vài con Ancistrus bám trên kính bể, lẫn với đàn cá đỏ.",
-            "sharpness": 634.4
+            "sharpness": 634.4,
+            "person": false
           },
           {
             "t": 460,
@@ -185,15 +189,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bao cá nổi trên mặt nước bể để cân bằng nhiệt độ.",
-            "sharpness": 265.9
-          },
-          {
-            "t": 860,
-            "url": "https://media.aquatome.com/video/_eBnzKNJeTI/at860-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cá được vớt bằng vợt nhỏ trước khi thả vào bể.",
-            "sharpness": 614.5
+            "sharpness": 265.9,
+            "person": false
           }
         ]
       },
@@ -201,20 +198,13 @@
         "heading": "Chuẩn bị chỗ trốn cho Ancistrus",
         "moments": [
           {
-            "t": 1070,
-            "url": "https://media.aquatome.com/video/_eBnzKNJeTI/at1070-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khúc lũa đặc đặt nghiêng trong bể có cây xanh làm chỗ núp.",
-            "sharpness": 2802.7
-          },
-          {
             "t": 1080,
             "url": "https://media.aquatome.com/video/_eBnzKNJeTI/at1080-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Lũa đặt nghiêng trong bể nhỏ có nhiều cây thủy sinh.",
-            "sharpness": 579
+            "sharpness": 579,
+            "person": false
           }
         ],
         "photo": {

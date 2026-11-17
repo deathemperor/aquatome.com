@@ -63,15 +63,6 @@
         "heading": "Bể làm từ mica thừa",
         "moments": [
           {
-            "t": 5,
-            "url": "https://media.aquatome.com/video/K2U29-mR8a0/at5-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể mica trong suốt dán không viền, không thanh giằng.",
-            "sharpness": 856.2,
-            "person": false
-          },
-          {
             "t": 70,
             "url": "https://media.aquatome.com/video/K2U29-mR8a0/at70-hd.webp",
             "width": 1200,
@@ -86,15 +77,6 @@
         "heading": "Lọc mút hoạt động thế nào",
         "moments": [
           {
-            "t": 205,
-            "url": "https://media.aquatome.com/video/K2U29-mR8a0/at205-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tấm mút lọc đen đặt trong ngăn sau của bể, có bơm và dây ống.",
-            "sharpness": 785.3,
-            "person": false
-          },
-          {
             "t": 210,
             "url": "https://media.aquatome.com/video/K2U29-mR8a0/at210-hd.webp",
             "width": 1200,
@@ -103,41 +85,7 @@
             "sharpness": 97.7,
             "person": false
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/K2U29-mR8a0/p2-JfZm9hbV8xLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/K2U29-mR8a0/p2-JfZm9hbV8xLmpwZw-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Ofkun",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_1.jpg",
-          "caption": "Khối mút lọc đen với nhiều lỗ xốp nhỏ cho vi sinh bám."
-        }
-      },
-      {
-        "heading": "Đèn LED từ đèn pha",
-        "moments": [
-          {
-            "t": 335,
-            "url": "https://media.aquatome.com/video/K2U29-mR8a0/at335-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ba chiếc đèn pha LED với nhiều kích cỡ khác nhau đặt cạnh nhau.",
-            "sharpness": 379.1,
-            "person": false
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/K2U29-mR8a0/p4-vZGxpZ2h0cy5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/K2U29-mR8a0/p4-vZGxpZ2h0cy5qcGc-480.webp",
-          "width": 960,
-          "height": 721,
-          "licence": "CC BY-SA 4.0",
-          "author": "Santeri Viinamäki",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:LED_floodlights.jpg",
-          "caption": "Hai đèn pha LED gắn chung trên một cột, giống kiểu đèn dùng cho bể thủy sinh."
-        }
+        ]
       },
       {
         "heading": "Làm hộp đèn bằng mica",
@@ -164,7 +112,69 @@
         }
       },
       {
-        "heading": "Cấp CO2 cho bể nano",
+        "heading": "Kích thước bể và vì sao làm được bể không viền",
+        "moments": [
+          {
+            "t": 5,
+            "url": "https://media.aquatome.com/video/K2U29-mR8a0/at5-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể mica trong suốt dán không viền, không thanh giằng.",
+            "sharpness": 856.2,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Lọc bông hoạt động ra sao",
+        "moments": [
+          {
+            "t": 205,
+            "url": "https://media.aquatome.com/video/K2U29-mR8a0/at205-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tấm mút lọc đen đặt trong ngăn sau của bể, có bơm và dây ống.",
+            "sharpness": 785.3,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/K2U29-mR8a0/p2-JfZm9hbV8xLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/K2U29-mR8a0/p2-JfZm9hbV8xLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Ofkun",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_1.jpg",
+          "caption": "Khối mút lọc đen với nhiều lỗ xốp nhỏ cho vi sinh bám."
+        }
+      },
+      {
+        "heading": "Tự làm đèn từ đèn pha LED",
+        "moments": [
+          {
+            "t": 335,
+            "url": "https://media.aquatome.com/video/K2U29-mR8a0/at335-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ba chiếc đèn pha LED với nhiều kích cỡ khác nhau đặt cạnh nhau.",
+            "sharpness": 379.1,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/K2U29-mR8a0/p4-vZGxpZ2h0cy5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/K2U29-mR8a0/p4-vZGxpZ2h0cy5qcGc-480.webp",
+          "width": 960,
+          "height": 721,
+          "licence": "CC BY-SA 4.0",
+          "author": "Santeri Viinamäki",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:LED_floodlights.jpg",
+          "caption": "Hai đèn pha LED gắn chung trên một cột, giống kiểu đèn dùng cho bể thủy sinh."
+        }
+      },
+      {
+        "heading": "Cấp CO2 cho bể nhỏ",
         "moments": [
           {
             "t": 490,
