@@ -90,7 +90,7 @@ test("a theme's own comment headings end the article: a count of thoughts, comme
 // never the article's, and never stored (six stored files held one on 17 Nov). Made-up addresses only.
 // Codex's read, 17 Nov: an "@" in an address's path cut the address short; a quoted name before the "@" was kept; and a
 // credit read from markup before decoding held the "@" as a character reference.
-test('an "@" inside an address\'s path stays; a quoted name before the "@" goes; an "@" written as a character reference counts', () => {
+test('an "@" inside a web address stays; a quoted name before the "@" goes; an "@" written as a character reference counts', () => {
   expect(dropEmails('See https://example.com/photos/fish@archive.example.com for more')).toBe('See https://example.com/photos/fish@archive.example.com for more')
   expect(dropEmails('https://user@example.com/fish/')).toBe('https://user@example.com/fish/')
   expect(dropEmails('Write to "fish keeper"@example.com today')).toBe('Write to  today')
@@ -98,6 +98,13 @@ test('an "@" inside an address\'s path stays; a quoted name before the "@" goes;
   expect(dropEmails('writer&#x40;example.com or writer&commat;example.org')).toBe(' or ')
   // No address: the text comes back as it was, its references too.
   expect(dropEmails('Smith &amp; Jones &#64;fishroom')).toBe('Smith &amp; Jones &#64;fishroom')
+  // Codex's re-read: letters of any language, a quoted name written as references, a web address with an address in
+  // brackets in its path, and a ".heif" picture.
+  expect(dropEmails('Viết cho é@example.com hoặc người-nuôi@ví-dụ.example.vn nhé')).toBe('Viết cho  hoặc  nhé')
+  expect(dropEmails('Photo: &quot;fish keeper&quot;&#64;example.com')).toBe('Photo: ')
+  expect(dropEmails('https://example.com/photos/(fish@example.org).jpg')).toBe('https://example.com/photos/(fish@example.org).jpg')
+  expect(dropEmails('www.example.com/u/fish@example.org and fish@example.org')).toBe('www.example.com/u/fish@example.org and ')
+  expect(dropEmails('loach@2x.heif')).toBe('loach@2x.heif')
 })
 
 test('an email address is never kept: in a post header its brackets go too; a picture named "@2x" stays', () => {

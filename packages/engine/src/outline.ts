@@ -109,20 +109,25 @@ const COMMENTS = '#comments, .comments-area, #respond, .comment-respond, .commen
 /**
  * An email address: a writer's in a forum post's header ("From: … (address) Date: …"), or one asking readers to write. A
  * person's, never the article's, and the repository is public: never kept (six stored files held one on 17 Nov), in the
- * text, the title, a picture's alt text or its credit. In brackets, the brackets go too. A picture's "@2x.png" isn't one,
- * nor an "@" inside an address's path (a slash before it: ".../photos/fish@archive.example.com"); a quoted name before
- * the "@" is (Codex's read, 17 Nov).
+ * text, the title, a picture's alt text or its credit. In brackets, the brackets go too. Letters of any language before
+ * and after the "@", and a quoted name before it, are one; a picture's name ("@2x.png") isn't, nor anything inside a web
+ * address (".../photos/fish@archive.example.com"), which stays whole (Codex's reads, 17 Nov).
  */
-const ADDRESS = String.raw`(?:mailto:)?(?<![\w.%+/-])(?:"[^"\n]{1,64}"|[\w.%+-]+)@[a-z0-9-]+(?:\.[a-z0-9-]+)*\.(?!(?:png|jpe?g|gif|webp|svg|avif|bmp|tiff?|heic)\b)[a-z]{2,}\b`
-const EMAIL = new RegExp(String.raw`\s*[(<[]\s*${ADDRESS}\s*[)>\]]|${ADDRESS}`, 'gi')
-/** An "@" written as a character reference, as a page's markup may hold it before anything decodes it. */
+const ADDRESS = String.raw`(?:mailto:)?(?<![\p{L}\p{M}\p{N}._%+/-])(?:"[^"\n]{1,64}"|[\p{L}\p{M}\p{N}._%+-]+)@[\p{L}\p{M}\p{N}-]+(?:\.[\p{L}\p{M}\p{N}-]+)*\.(?!(?:png|jpe?g|gif|webp|svg|avif|bmp|tiff?|heic|heif)(?![\p{L}\p{N}]))\p{L}{2,}(?![\p{L}\p{M}\p{N}-])`
+const EMAIL = new RegExp(String.raw`\s*[(<[]\s*${ADDRESS}\s*[)>\]]|${ADDRESS}`, 'giu')
+/** A web address, kept whole: an "@" in it is its own. */
+const WEB = /\b(?:https?:\/\/|www\.)[^\s<>"]+/gi
+/** An "@" or a quote written as a character reference, as a page's markup may hold them before anything decodes it. */
 const AT = /&#0*64;|&#x0*40;|&commat;/gi
+const QUOTE = /&quot;|&#0*34;|&#x0*22;/gi
 /** A text without its email addresses (EMAIL). Only one with an "@" is looked at: a long run of letters costs nothing. */
 export const dropEmails = (s: string): string => {
-  const t = s.replace(AT, '@')
+  const t = s.replace(AT, '@').replace(QUOTE, '"')
   if (!t.includes('@')) return s
+  let out = '', at = 0
+  for (const m of t.matchAll(WEB)) { out += t.slice(at, m.index).replace(EMAIL, '') + m[0]; at = m.index + m[0].length }
+  out += t.slice(at).replace(EMAIL, '')
   // A text with no address stays as it was, character references and all: a stored copy's hash moves only for an address.
-  const out = t.replace(EMAIL, '')
   return out === t ? s : out
 }
 

@@ -128,6 +128,23 @@ test("an email address in a post, a photo's caption or an album's title is never
   expect(s.photos['101']!.caption).toBe('Betta albimarginata, ask ')
 })
 
+// Codex's re-read, 17 Nov: what an earlier run kept, a known post or a stored photo's caption, isn't written back with an
+// address either.
+test("an address an earlier run kept in the crawl's state goes on the next run, from the state and the snapshots", async () => {
+  const root = await mkdtemp(join(tmpdir(), 'aq-fb-'))
+  await collect(root, fakeFb(site()).b, deps().d, O)
+  const file = join(root, FB.stateFile)
+  const old = JSON.parse(await readFile(file, 'utf8'))
+  old.posts['2'].text = 'Betta macrostoma pair, contact keeper@example.com'
+  old.photos['101'].caption = 'Betta albimarginata (keeper@example.com)'
+  old.albums['100'].title = 'Wild bettas keeper@example.com'
+  const { writeFile } = await import('node:fs/promises')
+  await writeFile(file, JSON.stringify(old))
+  await collect(root, fakeFb(site()).b, deps().d, O)
+  for (const f of [file, join(root, FB.snapshotDir, 'posts/2.md'), join(root, FB.snapshotDir, 'albums/100.md')]) expect(await readFile(f, 'utf8'), f).not.toMatch(/example\.com/)
+  expect((await loadFbState(root)).photos['101']!.caption).toBe('Betta albimarginata')
+})
+
 test('second run with nothing new: no uploads, and the timeline stops after 3 scrolls without a new post even though the pinned post is known', async () => {
   const root = await mkdtemp(join(tmpdir(), 'aq-fb-'))
   await collect(root, fakeFb(site()).b, deps().d, O)

@@ -36,7 +36,12 @@ const sorted = <T>(o: Record<string, T>) => Object.fromEntries(Object.keys(o).so
 
 export async function loadFbState(root: string): Promise<FbState> {
   const raw = await readFile(join(root, FB.stateFile), 'utf8').catch(() => null)
-  return raw ? JSON.parse(raw) : { posts: {}, albums: {}, photos: {}, timelineDone: false }
+  const s: FbState = raw ? JSON.parse(raw) : { posts: {}, albums: {}, photos: {}, timelineDone: false }
+  // What an earlier run kept goes through the rule too, so a known post isn't written back with an address (Codex's re-read).
+  for (const p of Object.values(s.posts)) p.text = dropEmails(p.text)
+  for (const a of Object.values(s.albums)) a.title = dropEmails(a.title)
+  for (const p of Object.values(s.photos)) if (p.caption) p.caption = dropEmails(p.caption)
+  return s
 }
 
 export async function saveFbState(root: string, s: FbState): Promise<void> {
