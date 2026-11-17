@@ -8,10 +8,11 @@ import { join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { HTMLElement, parse } from 'node-html-parser'
 import { headingSubject, loadAll, PictureSet, pictureOf, type LinkTarget, type Photo, type PictureHashes } from '@aq/schema'
-import { LANGS, langOf, LINK_MARK, localizePath, type Lang } from '../src/lib/i18n'
+import { LANGS, langOf, LINK_MARK, localizePath, translator, type Lang } from '../src/lib/i18n'
 import { saysSci, sciWords } from '../src/lib/sci'
 import { linkTargets } from '../src/lib/mentions'
 import { smallSrc } from '../src/lib/img'
+import { isFish } from '../src/lib/taxa-places'
 
 export const CHECKS = {
   repeat: 'the same picture twice',
@@ -23,6 +24,7 @@ export const CHECKS = {
   'link-mark': 'a marker localizeLinks left in the page, which no page may ship with',
   'name-twice': "a scientific name said twice: a fish's or plant's title, description, photo text or structured data, or a name with the scientific name printed beside it that the name says already",
   uncredited: 'a photo shown without its credit anywhere on the page',
+  'not-fish': 'a crab\'s, a shrimp\'s or a snail\'s page (its photos\', its group\'s) whose trail calls it a fish: "Loài cá" at its head',
 } as const
 export type Check = keyof typeof CHECKS
 export type Problem = { check: Check; detail: string }
@@ -43,11 +45,14 @@ export type Facts = {
   /** Every photo the content holds, by its picture (its address, a small copy's too) → the links its records credit it
    * to: one photo in two guides' records can carry two. An AI picture is labelled, not credited, so it isn't here. */
   credits: Map<string, Set<string>>
+  /** Pages (by path, in every language) of a species that isn't a fish (lib/taxa-places.ts isFish), its photos' page,
+   * and the shrimp's and snails' group pages: their trails don't say "Loài cá". */
+  notFish: Set<string>
 }
 
 /** The site's facts from the content a build was made from. */
 export async function loadFacts(root: string): Promise<Facts> {
-  const facts: Facts = { hashes: {}, byPath: new Map(), living: new Map(), owner: new Map(), targets: {} as Record<Lang, LinkTarget[]>, genera: new Set(), credits: new Map() }
+  const facts: Facts = { hashes: {}, byPath: new Map(), living: new Map(), owner: new Map(), targets: {} as Record<Lang, LinkTarget[]>, genera: new Set(), credits: new Map(), notFish: new Set() }
   for (const lang of LANGS) {
     const c = await loadAll({ root, lang, publicBuild: false })
     facts.hashes = c.pictureHashes
@@ -63,6 +68,8 @@ export async function loadFacts(root: string): Promise<Facts> {
     for (const s of c.species) add(`species:${s.id}`, `/vi/ca/${s.t.slug}/`, [s.scientificName, s.t.name, ...s.t.altNames], s.photos, s.scientificName)
     for (const p of c.plants) add(`plant:${p.id}`, `/vi/cay/${p.t.slug}/`, [p.scientificName, ...(p.synonyms ?? []), p.t.name, ...p.t.altNames], p.photos, p.scientificName)
     for (const b of c.breeds) add(`breed:${b.id}`, `/vi/ca/${b.t.slug}/`, [b.t.name, ...b.t.altNames], b.photos)
+    for (const s of c.species.filter(s => !isFish(s))) for (const p of ['', 'anh/']) facts.notFish.add(localizePath(lang, `/vi/ca/${s.t.slug}/${p}`))
+    for (const g of new Set(c.species.map(s => s.group))) if (!isFish({ group: g, order: '' })) facts.notFish.add(localizePath(lang, `/vi/nhom/${g}/`))
     addCredits(facts.credits, c)
   }
   return facts
@@ -152,6 +159,16 @@ export function checkPage(path: string, html: string, facts: Facts): Problem[] {
     const name = named ? text(named) : around(el)
     const sci = text(el).replace(/^\((.*)\)$/, '$1')
     if (name && sci && saysSci(name, sci)) out.push({ check: 'name-twice', detail: `"${name}" over "${sci}"` })
+  }
+
+  // A crab's, a shrimp's or a snail's page under "Loài cá": its trail, or its structured data's. The owner's report of 15 Nov,
+  // the fiddler crab's page; about 100 species then, every one of them so. A group's numbered pages are its page's.
+  if (facts.notFish.has(path.replace(/trang\/\d+\/$/, ''))) {
+    const fishList = translator(lang)('Loài cá')
+    const said = [...root.querySelectorAll('nav.crumb a').map(a => text(a)), ...root.querySelectorAll('script[type="application/ld+json"]')
+      .flatMap(ld => [JSON.parse(ld.rawText) as { '@type'?: string; itemListElement?: { name?: string }[] }].flat())
+      .filter(d => d['@type'] === 'BreadcrumbList').flatMap(d => d.itemListElement?.map(i => i.name ?? '') ?? [])]
+    for (const name of said.filter(n => n === fishList)) out.push({ check: 'not-fish', detail: `"${name}" in the trail of ${path}` })
   }
 
   // The same picture twice, whatever its file. A picture hidden from screen readers is a backdrop (a whole tile's blurred

@@ -126,3 +126,25 @@ for (const path of pages) {
     expect(checkPage(path, await res.text(), await factsOnce())).toEqual([])
   })
 }
+
+// Every crab's, shrimp's and snail's page, its photos' and its group's, in every language, not a sample: its trail
+// doesn't say "Loài cá" (the owner's report of 15 Nov, the fiddler crab's page; about 100 species). A page a language
+// doesn't have (404) is skipped; a dropped connection is asked once more.
+test('no crab\'s, shrimp\'s or snail\'s page has "Loài cá" in its trail', { tag: '@page-checks' }, async ({ request }, info) => {
+  test.skip(info.project.name !== 'phone', 'the HTML is the same on every screen')
+  test.setTimeout(300_000)
+  const facts = await factsOnce()
+  const paths = [...facts.notFish], read: string[] = [], found: string[] = []
+  for (let i = 0; i < paths.length; i += 8) {
+    await Promise.all(paths.slice(i, i + 8).map(async path => {
+      const get = () => request.get(path, { headers: { accept: 'text/html' } })
+      const res = await get().catch(get)
+      if ([404, 410].includes(res.status())) return
+      expect(res.status(), path).toBe(200)
+      read.push(path)
+      found.push(...checkPage(path, await res.text(), facts).filter(p => p.check === 'not-fish').map(p => p.detail))
+    }))
+  }
+  expect(read.length, 'pages read').toBeGreaterThan(0)
+  expect(found).toEqual([])
+})

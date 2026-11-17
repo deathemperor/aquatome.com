@@ -11,6 +11,24 @@ test('no built page shows a picture twice, a wrong fish, a wrong link, a fish wi
   expect(checkDist(DIST, facts)).toEqual([])
 })
 
+// The owner's report of 15 Nov: the fiddler crab's page said "Loài cá" at the head of its trail, as about 100 crabs',
+// shrimps', snails', frogs', newts' and corals' pages did. The fixture's shrimp is one: its page, its photos' and its
+// group's say "Loài" there, and the check over every page (the test above; live, the browser checks' sample) finds
+// "Loài cá" on any of them.
+test('a shrimp\'s page, its photos\' and its group\'s trails say "Loài", and the check finds "Loài cá" there', () => {
+  for (const path of ['/ca/tep-red-cherry/', '/ca/tep-red-cherry/anh/', '/nhom/shrimp/']) {
+    expect(facts.notFish, path).toContain(path)
+    const { html, dom } = page(path)
+    expect(dom.querySelector('nav.crumb a')!.text, path).toBe('Loài')
+    expect(checkPage(path, html, facts).filter(p => p.check === 'not-fish'), path).toEqual([])
+  }
+  const { html } = page('/ca/tep-red-cherry/')
+  const before = html.replace('<a href="/ca/">Loài</a>', '<a href="/ca/">Loài cá</a>').replace('"name":"Loài"', '"name":"Loài cá"')
+  expect(checkPage('/ca/tep-red-cherry/', before, facts).filter(p => p.check === 'not-fish').map(p => p.detail))
+    .toEqual(['"Loài cá" in the trail of /ca/tep-red-cherry/', '"Loài cá" in the trail of /ca/tep-red-cherry/'])
+  expect(facts.notFish).not.toContain('/ca/ca-galaxy/')
+})
+
 // 2026-11-02, the check on aquatome.com: "rêu Java (Vesicularia dubyana)", "Amazon sword (Echinodorus amazonicus)" linked
 // the right plants under old names their pages didn't list. A plant's former scientific names (`synonyms`) are its own:
 // the fixture's "ráy nana (Anubias nana)" in the setup guide fails the test above without them.

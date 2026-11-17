@@ -21,6 +21,14 @@ export function taxonHref(s: Ranked, level: 2 | 3): string | undefined {
   if (!r.some(x => x.level === level)) return undefined
   return `/vi/phan-loai/${r.filter(x => x.level <= level).map(x => x.slug).join('/')}/`
 }
+/**
+ * Whether a species is a fish, for the words its pages' trails call it by: not one of the shrimp and snail groups, and
+ * not a species whose order isn't a fish's (every fish order's name ends in "-iformes" and no other's does: a crab's is
+ * Decapoda, a newt's Caudata). One with no order is a fish. The app's rule (Handbook.swift `isFish`), after the owner's
+ * report of 15 Nov on the fiddler crab's page: about 100 of the fish list's species are crabs, shrimps, snails, frogs,
+ * newts and corals. A group's page asks with no order: `isFish({ group, order: '' })`.
+ */
+export const isFish = (s: { group: string; order: string }) => s.group !== 'shrimp' && s.group !== 'snails' && (!s.order.trim() || s.order.endsWith('iformes'))
 /** The keys of a species' taxon lists (list-data.ts), one per rank it has: phan-loai/<order>, …/<family>, …/<genus>. */
 export const taxonKeys = (s: Ranked) => taxonRanks(s).map((_, i, all) => `phan-loai/${all.slice(0, i + 1).map(x => x.slug).join('/')}`)
 /** A taxon page's line under its heading: its rank's word, its name and how many species it lists. */
