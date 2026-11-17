@@ -65,11 +65,11 @@ public struct MasterRun: Sendable, Equatable, Codable {
 
     /// A try to put it back failed, saying `line`, and any of it may have reached the device (`mayHaveSent`) or not;
     /// `before`: whether one before it may have (from `trying`, or `earlier` for one that sent nothing). After one that
-    /// may have, a try that sent nothing says the device's state isn't known (`notKnown`), never its own line, which would
-    /// say it wasn't sent (Fable, 18 Nov).
+    /// may have, the try says the device's state isn't known (`notKnown`), never its own line, which would say what of
+    /// it didn't go: nothing (Fable, 18 Nov), or the lamp's colour, when an earlier try's colour may have (Codex, 18 Nov).
     public mutating func failed(_ line: String, mayHaveSent: Bool, notKnown: String, before: Bool) {
       mayHaveGone = mayHaveSent || before
-      problem = mayHaveSent || !before ? line : notKnown
+      problem = before ? notKnown : line
     }
   }
 

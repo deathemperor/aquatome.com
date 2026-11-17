@@ -14,10 +14,33 @@ private let ios = URL(fileURLWithPath: #filePath).deletingLastPathComponent().de
 
 let masterCardList = #"""
 ### AquaTome/Master/MasterCard.swift
+- card · `Text("Nút tổng")` · The card's title.
+- card · `Text("Một chạm bật đèn` · What the button is for, before there is one. Nothing on what went.
+- card · `Text("Tạo nút tổng")` · The same.
+- ready · `Button("Sửa")` · Edits the button.
+- ready · `sendingOr(Text("Bắt đầu")` · Starts a press; while a press or an end is going, "Đang gửi…" (below).
 - ready · `if !master.notes.isEmpty {` · The end's notes: what it left as it was, and why. Nothing failed.
 - ready · `ForEach(master.notes` · Each note as `tell` wrote it.
+- running · `Text("Đang chạy")` · A press runs: its end not come yet. Nothing on what went.
+- running · `Text("còn")` · The time left.
+- running · `Text("từ")` · The time it started.
+- running · `Text(verbatim: master.summary(run.steps)` · What the steps set, and when it ends (`summary`, `length`, below): what was asked, not what went; what didn't go is in the lines below it.
+- running · `sendingOr(Text("Kết thúc")` · Ends it now.
 - putBack · `$0.problem != nil` · Trả lại shows while a put-back owed has a line.
+- putBack · `Text("Trả lại")` · Puts back what is owed (`finish`).
+- sendingOr · `private func sendingOr(` · While a press or an end is going:
+- sendingOr · `Text("Đang gửi…")` · "Đang gửi…" ("sending"): true while it goes, whatever then went.
 - problems · `let all = master.refusal + (master.run?.failed.map(\.line) ?? []) + (master.run?.pending.compactMap(\.problem) ?? [])` · The card's only failure lines: the press's refusals, its steps' lines, the lines of what hasn't come back.
+- length · `guard let m = minutes else { return String(localized:` · How long it runs: until Kết thúc,
+- length · `return m % 60 == 0 ? String(localized:` · or hours or minutes.
+- clock · `if s < 60 { return String(localized:` · The time left, in seconds.
+- spoken · `if s < 60 { return String(localized:` · The time left, as VoiceOver says it,
+- spoken · `if m < 60 { return String(localized:` · in minutes,
+- spoken · `return m % 60 == 0 ? String(localized:` · or hours and minutes.
+- body · `.accessibilityAction(named: Text("Bắt đầu")` · VoiceOver's start.
+- body · `.accessibilityAction(named: Text("Sửa")` · VoiceOver's edit.
+- summary · `let said = s.isLamp ? (s.on ? String(localized:` · Each step as asked: the lamp on or off,
+- summary · `: (s.on ? String(localized:` · an outlet on or off. What was asked, not what went.
 
 ### AquaTome/Master/MasterModel.swift
 - buttonKey · `runKey = "master.run"` · The one key a run is kept under: read in `init`, written only by `keep` and `store`.
@@ -27,6 +50,9 @@ let masterCardList = #"""
 - delete · `refusal = []` · The same.
 - delete · `run = nil` · Only a run ended with nothing owed.
 - delete · `keep()` · Saves that.
+- accountChanged · `session += 1` · Signed out or in: whatever a press or an end was still to send doesn't go.
+- gate · `$0.owner() == true && $0.session == s` · What each command checks as it goes: the owner signed in, in the session the press or the end began in.
+- start · `guard var button, !sending, run?.isRunning != true, owner() == true` · A press only while none is going or running, the owner signed in.
 - start · `notes = []` · Clears the last end's notes.
 - start · `refusal = []` · Clears the last press's refusals.
 - start · `let refused = button.steps.filter { !MasterButton.allows(` · Steps the button never sends (CO2 on, a heater), by the outlet's role at the press: taken out before anything goes.
@@ -38,13 +64,17 @@ let masterCardList = #"""
 - start · `keep()` · Saved before any step goes.
 - start · `let lampSent = switcher.lamp.mayHaveGone` · The lamp's recordings sent or cut before this press.
 - start · `sendLamp(lampSteps` · The lamp's steps, beside the plugs'.
+- start · `var uncertain: Set<DeviceTarget> = []` · The steps that failed after their command may have reached the plug.
+- start · `session >= pressed + n && owner() == true` · Debug builds only (`-master-steps-wait-account`): each step waits for a sign-out and sign-in, for a UI test.
 - start · `guard still() else {` · Signed out (or another session) since the press, checked before this outlet's step goes:
 - start · `failed.append(.init(target: step.target, line: Self.signedOut))` · said not sent, and nothing of it went.
 - start · `await switcher.send(step` · Sends the step (Switcher, below).
 - start · `failed.append(.init(target: step.target, line: line))` · The step's own line, from `Switcher.send`; one that may have gone is marked uncertain for `settle`.
+- start · `if mayHaveSent { uncertain.insert(step.target) }` · Marked: `settle` notes how it left the outlet as read after it, or as asked when not read, never as it was.
 - start · `MasterRun.Failed(target: $0.target` · The steps refused at the press: never sent, said so.
 - start · `let halfSent = switcher.lamp.mayHaveGone > lampSent` · A lamp recording sent or cut during this press: the lamp goes back at the end, whatever its line.
 - start · `r.settle(` · The press's lines and what goes back (`MasterRun.settle`, below).
+- start · `uncertain: uncertain)` · With the steps that may have gone.
 - start · `run = r` · Shown.
 - start · `keep()` · Saved.
 - sendLamp · `private func sendLamp(` · The lamp's steps.
@@ -86,6 +116,7 @@ let masterCardList = #"""
 - finish · `run = r` · Shown.
 - finish · `run = r.pending.isEmpty ? nil : r` · Dropped only when nothing is owed.
 - finish · `keep()` · Saved.
+- tick · `if owner() == true { Task { await finish(byReader: false) } }` · An end due goes only while the owner is signed in; else it waits.
 - keep · `private func keep()` · Saves the run shown, or removes it when there is none.
 - keep · `if let run { store(run) } else { UserDefaults.standard.removeObject(forKey: Self.runKey) }` · The same.
 - store · `private func store(_ r: MasterRun)` · The one write of a run.
@@ -136,7 +167,11 @@ let masterCardList = #"""
 - unreached · `static func unreached(` · "Không tới được ổ …": only where nothing went.
 
 ### AquaTome/Master/LampSender.swift
+- air · `private static var holder: ObjectIdentifier?` · Who broadcasts now: the lamp's card or the master button.
+- start · `holder = ObjectIdentifier(who)` · The last to start.
 - start · `air.start(uuids, allowed: allowed, done: done)` · The phone's one broadcaster (LampAirCore on a phone).
+- stop · `guard holder == ObjectIdentifier(who) else { return }` · A stop from another (the card's three seconds ending after the button took over) is ignored: it never cuts the other's start.
+- stop · `holder = nil` · Stopped.
 - stop · `air.stop()` · The same.
 - mayHaveGone · `var mayHaveGone: Int { sent.count + cut.count }` · Recordings sent, or cut after they were handed to Bluetooth.
 - send · `guard !list.isEmpty else { return .failed }` · No recording: nothing went.
@@ -179,7 +214,7 @@ let masterCardList = #"""
 - trying · `if problem != nil { problem = notKnown }` · A line it had reads as not known while it goes, and after a close.
 - trying · `return was` · Whether a try before it may have gone.
 - failed · `mayHaveGone = mayHaveSent || before` · Never unset by a try that sent nothing.
-- failed · `problem = mayHaveSent || !before ? line : notKnown` · Its line, or not known when a try before may have gone and this one sent nothing.
+- failed · `problem = before ? notKnown : line` · Its line; after a try that may have gone, not known: its own line would say what of it didn't go, and the try before may have sent it (`aPutBackTriedAgain`).
 - init · `back = owed.map { var b = $0; if b.earlier { b.mayHaveGone = true }; b.problem = nil; return b }` · Owed by an earlier press: its line goes, whether it may have gone stays.
 - init · `if let last, last.on == step.on, last.colour == step.colour { return nil }` · The lamp as this phone last sent it is what the step sets: nothing to put back.
 - init · `return Back(command: last ?? DeviceCommand(device: step.device, on: !step.on))` · Else back to what this phone last sent it, or the other way.
@@ -189,6 +224,12 @@ let masterCardList = #"""
 - settle · `back.removeAll { b in` · Nothing goes back for
 - settle · `guard missed.contains(b.command.target), !keeping.contains(b.command.target) else { return false }` · a step that failed, unless owed by an earlier press or a lamp step that may have gone,
 - settle · `return b.command.isLamp || now(b.command) == b.command.on` · when it is the lamp's (none of it went), or an outlet read after it as it was. An outlet not read after it stays owed (known and open, the second).
+- settle · `let left: Bool? = !missed.contains(t) ? step.on : uncertain.contains(t) ? (now(step) ?? step.on)` · How the press left each outlet: as asked when it went; one that may have gone, as read after it, or as asked when not read (counted gone);
+- settle · `: keeping.contains(t) ? nil : back.first(where:` · one refused before anything went, as it was (an earlier press's, when it owes it).
+- settle · `if let left, let i = back.firstIndex(where:` · Noted with its put-back:
+- settle · `back[i].left = left` · how it was left,
+- settle · `back[i].guessed = uncertain.contains(t) && now(step) == nil ? true : nil` · and whether only guessed (the end's note then says not known whether the command reached it).
+- settle · `if missed.isSuperset(of: steps.map(\.target)), back.isEmpty { ended = t }` · Every step failed and nothing goes back: it ends now.
 - end · `if now == c.on { return .already }` · Reads as it goes back: nothing to send.
 - end · `if let now, let left, now != left { return .leave }` · Switched since the press left it: left, and said so.
 - end · `if c.on && (b.held == true || role == "co2") { return .hold }` · CO2 never switched on.
@@ -259,6 +300,8 @@ let masterCardList = #"""
 - start · `w.done(.failed)` · Replaced while waiting for Bluetooth: never handed, nothing went.
 - stop · `w.done(.failed)` · Stopped while waiting: never handed.
 - stop · `if peripheral?.bluetooth == .on { peripheral?.stopAdvertising() }` · Stops only while Bluetooth is on.
+- stateChanged · `guard p === peripheral else { return }` · Only this advertiser's state: a let-go one's never cuts or starts another's.
+- answered · `guard p === peripheral, let done = starting else { return }` · Only this advertiser's answer, to the start handed to it: a let-go one's late answer is dropped.
 - answered · `starting = nil` · Bluetooth's answer to the start handed to this very advertiser.
 - answered · `done(started ? nil : .failed)` · Started, or Bluetooth's own word that it didn't (`lampAirEveryOrder`).
 - cut · `starting = nil` · One handed and not answered, replaced, stopped, or Bluetooth off or reset:
@@ -277,27 +320,31 @@ let masterCardList = #"""
 /// What the walk reads, in each file, as writing a line on the card, saving a run, or deciding whether anything went;
 /// `in`: only inside those declarations.
 private let walked: [(file: String, finds: [String], in: Set<String>?)] = [
-  ("AquaTome/Master/MasterCard.swift", ["master.refusal", "master.notes", ".problem", "failed.map"], nil),
+  ("AquaTome/Master/MasterCard.swift", ["master.refusal", "master.notes", ".problem", "failed.map", "String(localized:", "Text(\"", "Button(\"",
+                                        "sendingOr("], nil),
   ("AquaTome/Master/MasterModel.swift", ["refusal = ", "notes = ", "failed.append(", "MasterRun.Failed(", ".problem = ", "].failed(", ".trying(",
                                          "tell(", "store(", "keep()", "run = ", ".failed = ", ".settle(", "MasterRun(", "runKey", "switcher.send(",
                                          "switcher.setByButton(", "sendLamp(", "mayHaveGone", "String(localized:", "still()", "MasterButton.allows(",
                                          "held = true", "listError", "unreadTanks", "switcher.gone(", "let away", "away &&", "MasterRun.end(",
-                                         "guessed", "end == .", "end != ."], nil),
+                                         "guessed", "end == .", "end != .", "uncertain", "owner() == true", "session += 1",
+                                         "session == s"], nil),
   ("AquaTome/Master/Switcher.swift", [".failed(", "CommandEnd.lamp(", "CommandEnd.plug(", "lamp.send(", "board.set(", "nothingSent",
                                       "String(localized:", "MasterModel.signedOut", ": .done", "await set(", "await send(", "return .signedOut",
                                       "return .role", "MasterButton.allows("], nil),
   ("AquaTome/Master/LampSender.swift", ["return .failed", "return started", "return nil", "cut.append(", "sent.append(", "LampRadio.start(",
-                                        "LampRadio.stop(", "air.start(", "air.stop(", "String(localized:", "mayHaveGone", "guard allowed()"], nil),
+                                        "LampRadio.stop(", "air.start(", "air.stop(", "String(localized:", "mayHaveGone", "guard allowed()", "holder"], nil),
   ("AquaTome/Lights/LoveEcology.swift", ["core.start(", "core.stop(", "core?.", "LampAirCore(", "CBPeripheralManager(", "startAdvertising(",
                                          "stopAdvertising(", "case .powered", "case .unauthorized?", "case .unsupported?", "default: .notYet"], nil),
   ("AquaTomeKit/Sources/Tanks/MasterButton.swift", ["problem = ", "problem != nil", "mayHaveGone", "self.failed = ", "removeAll", "return ",
-                                                    "guard ", "filter {", "heater", "co2", "done = "], nil),
+                                                    "guard ", "filter {", "heater", "co2", "done = ", "let left", ".left = ", "guessed = ",
+                                                    "keeping.contains(t) ?", "ended = t"], nil),
   ("AquaTomeKit/Sources/Plugs/CommandEnd.swift", ["return ", ": true", ": false"], nil),
   ("AquaTomeKit/Sources/Plugs/PlugBoard.swift", ["return ", "catch"], ["set", "note"]),
   ("AquaTomeKit/Sources/Plugs/PlugSource.swift", [": true", ": false"], ["nothingSent"]),
   ("AquaTomeKit/Sources/Plugs/TuyaPlugs.swift", ["Withdrawn()", "throw ", "catch", "await call(", "await send(", "return Switched(", ": ."],
    ["set", "call", "request", "error"]),
-  ("AquaTomeKit/Sources/FishLamp/LampAir.swift", ["done(", "starting = ", "peripheral = ", "retired = ", "stopAdvertising()", "startAdvertising("], nil),
+  ("AquaTomeKit/Sources/FishLamp/LampAir.swift", ["done(", "starting = ", "peripheral = ", "retired = ", "stopAdvertising()", "startAdvertising(",
+                                                  "=== peripheral"], nil),
 ]
 
 private struct Place: Equatable, CustomStringConvertible {

@@ -232,7 +232,7 @@ func howAPressLeftEach() {
   #expect(MasterRun.end(went.back[0], now: true, left: left(went, fanOn), role: "fan") == .send)
 }
 
-@Test("A put-back tried again: after a try that may have gone, or one the app was closed during, one that sent nothing never says it wasn't sent")
+@Test("A put-back tried again: after a try that may have gone, or one the app was closed during, a failed one says the state isn't known, never what of it didn't go")
 func aPutBackTriedAgain() throws {
   let notKnown = "Không rõ ổ Quạt đã đổi chưa: xem trong Bể của tôi."
   let mayHave = "Ổ Quạt chưa báo đã đổi.", notSent = "Chưa gửi vì bạn đã đăng xuất."
@@ -257,8 +257,10 @@ func aPutBackTriedAgain() throws {
       case .mayHave: b.failed(mayHave, mayHaveSent: true, notKnown: notKnown, before: before)
       case .notSent: b.failed(notSent, mayHaveSent: false, notKnown: notKnown, before: before)
       }
+      // After one that may have gone, its own line would say what of it didn't go (nothing, or the lamp's colour when
+      // only its "on" went this time), and the one before may have sent it (Codex, 18 Nov).
+      #expect(b.problem == (went ? notKnown : t == .mayHave ? mayHave : notSent), "\(run), try \(n + 1): \(b.problem ?? "")")
       went = went || t == .mayHave
-      #expect(b.problem == (t == .mayHave ? mayHave : went ? notKnown : notSent), "\(run), try \(n + 1): \(b.problem ?? "")")
     }
   }
   // A run kept before `mayHaveGone`, a line from a try before: it may have gone. Never tried: its own line.
