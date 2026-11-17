@@ -1981,14 +1981,6 @@
     ],
     "mentions": 2
   },
-  "euphyllia-glabrescens": {
-    "name": "Euphyllia glabrescens",
-    "mentionedIn": [
-      "guides/aquariumbreeder-best-corals-for-a-nano-reef-tank",
-      "species/fimbriaphyllia-divisa"
-    ],
-    "mentions": 2
-  },
   "lumbriculus-variegatus": {
     "name": "Lumbriculus variegatus",
     "mentionedIn": [
@@ -2010,6 +2002,14 @@
     "mentionedIn": [
       "guides/aquariumbreeder-how-long-do-crayfish-live",
       "species/cherax-tenuimanus"
+    ],
+    "mentions": 2
+  },
+  "fimbriaphyllia-paraancora": {
+    "name": "Fimbriaphyllia paraancora",
+    "mentionedIn": [
+      "guides/aquariumbreeder-how-to-care-for-hammer-corals",
+      "species/euphyllia-glabrescens"
     ],
     "mentions": 2
   },
@@ -2486,6 +2486,14 @@
     "mentionedIn": [
       "species/amblyceps-arunachalense",
       "species/devario-devario"
+    ],
+    "mentions": 2
+  },
+  "sciades-herzbergii": {
+    "name": "Sciades herzbergii",
+    "mentionedIn": [
+      "species/anableps-anableps",
+      "species/ariopsis-assimilis"
     ],
     "mentions": 2
   },
@@ -3069,6 +3077,14 @@
     ],
     "mentions": 2
   },
+  "hyphessobrycon-nigricinctus": {
+    "name": "Hyphessobrycon nigricinctus",
+    "mentionedIn": [
+      "species/hyphessobrycon-herbertaxelrodi",
+      "species/hyphessobrycon-margitae"
+    ],
+    "mentions": 2
+  },
   "chaudhuria-ritvae": {
     "name": "Chaudhuria ritvae",
     "mentionedIn": [
@@ -3371,6 +3387,13 @@
     ],
     "mentions": 1
   },
+  "ludwigia-hexapetala": {
+    "name": "Ludwigia hexapetala",
+    "mentionedIn": [
+      "guides/aquariumbreeder-allelopathy-or-warfare-in-aquarium-plants"
+    ],
+    "mentions": 1
+  },
   "ptychognathus-barbatus": {
     "name": "Ptychognathus barbatus",
     "mentionedIn": [
@@ -3420,13 +3443,6 @@
     ],
     "mentions": 1
   },
-  "fimbriaphyllia-paraancora": {
-    "name": "Fimbriaphyllia paraancora",
-    "mentionedIn": [
-      "guides/aquariumbreeder-how-to-care-for-hammer-corals"
-    ],
-    "mentions": 1
-  },
   "achaeus-japonicus": {
     "name": "Achaeus japonicus",
     "mentionedIn": [
@@ -3455,6 +3471,48 @@
     ],
     "mentions": 1
   },
+  "botryocladia-skottsbergii": {
+    "name": "Botryocladia skottsbergii",
+    "mentionedIn": [
+      "guides/aquariumbreeder-how-to-remove-bubble-algae-in-aquariums"
+    ],
+    "mentions": 1
+  },
+  "valonia-ventricosa": {
+    "name": "Valonia ventricosa",
+    "mentionedIn": [
+      "guides/aquariumbreeder-how-to-remove-bubble-algae-in-aquariums"
+    ],
+    "mentions": 1
+  },
+  "boergesenia-forbesii": {
+    "name": "Boergesenia forbesii",
+    "mentionedIn": [
+      "guides/aquariumbreeder-how-to-remove-bubble-algae-in-aquariums"
+    ],
+    "mentions": 1
+  },
+  "dictyosphaeria-cavernosa": {
+    "name": "Dictyosphaeria cavernosa",
+    "mentionedIn": [
+      "guides/aquariumbreeder-how-to-remove-bubble-algae-in-aquariums"
+    ],
+    "mentions": 1
+  },
+  "mithraculus-sculptus": {
+    "name": "Mithraculus sculptus",
+    "mentionedIn": [
+      "guides/aquariumbreeder-how-to-remove-bubble-algae-in-aquariums"
+    ],
+    "mentions": 1
+  },
+  "ercolania-endophytophaga": {
+    "name": "Ercolania endophytophaga",
+    "mentionedIn": [
+      "guides/aquariumbreeder-how-to-remove-bubble-algae-in-aquariums"
+    ],
+    "mentions": 1
+  },
   "theodoxus-fluviatilis": {
     "name": "Theodoxus fluviatilis",
     "mentionedIn": [
@@ -3466,6 +3524,13 @@
     "name": "Theodoxus danubialis",
     "mentionedIn": [
       "guides/aquariumbreeder-how-to-remove-green-spot-algae-in-aquariums"
+    ],
+    "mentions": 1
+  },
+  "sturisomatichthys-panamense": {
+    "name": "Sturisomatichthys panamense",
+    "mentionedIn": [
+      "guides/aquariumbreeder-how-to-remove-staghorn-algae-in-aquariums"
     ],
     "mentions": 1
   },
@@ -3690,6 +3755,13 @@
     "name": "Phallichthys amates",
     "mentionedIn": [
       "guides/glaser-en-18-toothcarps-killis-and-livebearers-rare-livebearers-en"
+    ],
+    "mentions": 1
+  },
+  "enneacampus-kaupi": {
+    "name": "Enneacampus kaupi",
+    "mentionedIn": [
+      "guides/glaser-en-21-seahorses-and-pipefish-freshwater-pipefish-from-west-africa"
     ],
     "mentions": 1
   },
@@ -5018,13 +5090,6 @@
     ],
     "mentions": 1
   },
-  "sciades-herzbergii": {
-    "name": "Sciades herzbergii",
-    "mentionedIn": [
-      "species/anableps-anableps"
-    ],
-    "mentions": 1
-  },
   "pseudauchenipterus-nodosus": {
     "name": "Pseudauchenipterus nodosus",
     "mentionedIn": [
@@ -5939,13 +6004,6 @@
     ],
     "mentions": 1
   },
-  "elassoma-evergladei": {
-    "name": "Elassoma evergladei",
-    "mentionedIn": [
-      "species/elassoma-zonatum"
-    ],
-    "mentions": 1
-  },
   "premnas-biaculeatus": {
     "name": "Premnas biaculeatus",
     "mentionedIn": [
@@ -6705,13 +6763,6 @@
   },
   "aequidens-plagiozonatus": {
     "name": "Aequidens plagiozonatus",
-    "mentionedIn": [
-      "species/hyphessobrycon-herbertaxelrodi"
-    ],
-    "mentions": 1
-  },
-  "hyphessobrycon-nigricinctus": {
-    "name": "Hyphessobrycon nigricinctus",
     "mentionedIn": [
       "species/hyphessobrycon-herbertaxelrodi"
     ],
@@ -8137,10 +8188,5 @@
       "species/zoogoneticus-tequila"
     ],
     "mentions": 1
-  },
-  "sturisomatichthys-panamense": {
-    "name": "Sturisomatichthys panamense",
-    "mentionedIn": [],
-    "mentions": 0
   }
 }
