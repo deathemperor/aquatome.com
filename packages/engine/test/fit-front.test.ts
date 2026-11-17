@@ -127,4 +127,11 @@ test('the pages with a foreign product share the front with the lane, one for on
   expect(open.order.map(key)).toEqual([key(l1), key(live), key(l2), key(m1), key(m2), key(m3), key(other)])
   // Off: as before.
   expect(frontPlan({ ...list, products: false }, ran, ranked, held, product).order.map(key)).toEqual([key(l1), key(l2), key(other), key(m1), key(m2), key(m3)])
+  expect([...shut.products].sort()).toEqual([key(m1), key(m2), key(m3)].sort())
+  // Ahead: the pages with a foreign product before the lane until they're done (the chief of staff, 17 Nov 2026), then the
+  // lane, as one for one would have it with none left.
+  const ahead = frontPlan({ ...list, products: 'ahead' }, ran, ranked, held, product)
+  expect(ahead.order.map(key)).toEqual([key(m1), key(m2), key(m3), key(l1), key(l2), key(other)])
+  expect([...ahead.mend].sort()).toEqual([...shut.mend].sort())
+  expect(frontPlan({ ...list, products: 'ahead' }, ran, ranked, held, () => false).order.map(key)).toEqual([key(l1), key(l2), key(other), key(m1), key(m2), key(m3)])
 })

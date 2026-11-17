@@ -117,10 +117,11 @@ export function cutWhole(html: string, fs: readonly { check: FitCheck; quote?: s
   const pieces = sentences(html)
   const n = pieces.filter(p => p.sentence).length
   // Each sentence that holds the quote's words in a row, whole words (Astra's read: "ADA" matched in "Canada" cut the
-  // wrong sentence and left the product); a quote across two sentences is the writer's, not cut here.
+  // wrong sentence and left the product); a quote across two sentences is the writer's, not cut here. The last word may
+  // be the English plural: the market table's "Wonder Shell" is "Wonder Shells" on five pages (17 Nov 2026).
   const holds = (quote: string) => {
     const x = words(quote)
-    return x.length ? pieces.filter(p => p.sentence).flatMap((p, i) => { const w = words(p.html); return w.some((_, k) => x.every((y, j) => w[k + j] === y)) ? [i] : [] }) : []
+    return x.length ? pieces.filter(p => p.sentence).flatMap((p, i) => { const w = words(p.html); return w.some((_, k) => x.every((y, j) => w[k + j] === y || (j === x.length - 1 && /^[a-z]+$/.test(y) && w[k + j] === `${y}s`))) ? [i] : [] }) : []
   }
   const gone = new Set(fs.filter(f => CUTTABLE.includes(f.check) && f.quote).flatMap(f => holds(f.quote!)))
   if (!gone.size || gone.size >= n) return undefined
@@ -208,10 +209,11 @@ export type MendFinding = { check: FitCheck; quote: string; note: string; covers
 export type Dropped = { sentence: number; finding: number; text: string }
 /** `added`: each changed sentence that says what it didn't (addedWords): the part isn't kept with any. */
 /**
- * `whole`: what the whole-sentence rule refuses (`goesWhole`). `gone`: each sentence the part lost, whatever its finding,
- * and each that went with the one before it, as the run lists them for the chief of staff.
+ * `whole`: what the whole-sentence rule refuses (`goesWhole`). `stranded`: of those, each line the writer says no longer
+ * reads without what went, which a code cut of the same sentence would leave too. `gone`: each sentence the part lost,
+ * whatever its finding, and each that went with the one before it, as the run lists them for the chief of staff.
  */
-export type Mended = { html: string; score: number; notes: string[]; lost: HedgePair[]; unasked: string[]; added: string[]; whole: string[]; gone: string[] }
+export type Mended = { html: string; score: number; notes: string[]; lost: HedgePair[]; unasked: string[]; added: string[]; whole: string[]; stranded: string[]; gone: string[] }
 
 const WRITER_SCHEMA = {
   type: 'object', required: ['sentences'],
@@ -313,7 +315,7 @@ export async function mendPart(llm: Llm, html: string, fs: MendFinding[], o: { e
       const left = addedWords(halves(plain(texts[n - 1]!))?.head ?? '', raw.get(n - 1)!)
       return left.length ? [`Sentence ${n} keeps only what comes before its batch half, as its finding asks, and kept of the half: "${left.join(' ')}"`] : []
     })]
-  if (!changes.size) return { html, score: 1, notes: whole, lost: [], unasked: [], added: [], whole, gone: [] }
+  if (!changes.size) return { html, score: 1, notes: whole, lost: [], unasked: [], added: [], whole, stranded, gone: [] }
   // Every sentence to go: a part of three or fewer, each named by a finding that takes its sentence whole
   // (`goesWhole`: a price, product or shop finding cuts only its words, Grok's read), comes off the page whole
   // (fit-rewrite.ts), with nothing left to review. A longer one is more likely the read's mistake than the page's, and
@@ -323,7 +325,7 @@ export async function mendPart(llm: Llm, html: string, fs: MendFinding[], o: { e
     const said = texts.map((t, i) => `sentence ${i + 1}: "${plain(t!)}"`).join('; ')
     if (texts.length > 3) return `every sentence would go, and the part has ${texts.length}: held for the chief of staff (${said})`
     if (!texts.every((_, i) => named.some(f => goesWhole(f.check) && f.sentences.includes(i + 1)))) return `every sentence would go, and not each is a finding's to take: held for the chief of staff (${said})`
-    return { html: '', score: 1, notes: [], lost: [], unasked: [], added: [], whole: [], gone: texts.map((t, i) => `sentence ${i + 1} went whole: "${plain(t!)}"`) }
+    return { html: '', score: 1, notes: [], lost: [], unasked: [], added: [], whole: [], stranded: [], gone: texts.map((t, i) => `sentence ${i + 1} went whole: "${plain(t!)}"`) }
   }
   const shown = [...changes.keys()].sort((a, b) => a - b)
   const body = [
@@ -377,7 +379,7 @@ export async function mendPart(llm: Llm, html: string, fs: MendFinding[], o: { e
     ...[...follows.keys()].map(n => `sentence ${n} went with the one before it ("${plain(texts[n - 2]!)}"): "${plain(texts[n - 1]!)}"`),
   ]
   return {
-    html: after, score: Math.min(1, Math.max(0, Number(r.score) || 0)), lost, unasked, added, whole: [...whole, ...unagreed], gone,
+    html: after, score: Math.min(1, Math.max(0, Number(r.score) || 0)), lost, unasked, added, whole: [...whole, ...unagreed], stranded, gone,
     notes: [...unasked, ...added, ...whole, ...unagreed, ...lost.map(h => `Said more surely than before: "${h.to}" (was: "${h.from}")`), ...(r.notes ?? []).slice(0, 10)],
   }
 }

@@ -6,7 +6,7 @@ import { expect, test } from 'vitest'
 import { LlmError, type Llm } from '../src/claude'
 import { CHECKLIST, fitKey, fitText, SHELF_WHY, type FitFinding, type FitState } from '../src/fit'
 import { breedFigures, figuresSaid, keepsFigures, unitsLeft, withoutConcentrations } from '../src/breed-units'
-import { convertible, fitRewrite, MEND_RULE, mendable, rewriteDue } from '../src/fit-rewrite'
+import { convertible, fitRewrite, foreignProduct, MEND_RULE, mendable, rewriteDue, type Tried } from '../src/fit-rewrite'
 import { loadPages, type Page } from '../src/pages'
 import { sentences } from '../src/sentences'
 
@@ -1029,4 +1029,67 @@ test('code doesn\'t cut a part where a sentence is to go whole for another findi
   expect([r.rewritten, r.gone]).toEqual([[], []])
   expect(r.notKept.join(' ')).toContain('Sentence 2 no longer reads without what went')
   expect(await readFile(med.file, 'utf8')).toBe(med.before)
+})
+
+// The chief of staff, 17 Nov 2026: after eight runs 62 of the 74 pages with a foreign product were left. The writer's cut was
+// refused, and code never cut instead, as each page also had a finding of another kind (the source's, advice for elsewhere).
+// On those pages code now cuts the product's, shop's and price's sentences whole and leaves the rest for the page's next try.
+test('on a page with a foreign product, a refused cut falls back to code beside a finding of another kind, which waits', async () => {
+  const root = await content()
+  const file = join(root, 'content/species', ID, 'vi.json')
+  const vi = JSON.parse(await readFile(file, 'utf8'))
+  vi.sections['habitat:seriouslyfish'] = '<p>Chúng tôi bán cá tại Mỹ. Dùng phân ADA. Cá sống theo đàn.</p>'
+  await writeFile(file, JSON.stringify(vi, null, 2))
+  const p = await danio(root)
+  const fs = [
+    { check: 'source' as const, part: part(p, 'sections.habitat:seriouslyfish'), quote: 'Chúng tôi bán cá tại Mỹ.', why: 'the shop\'s own' },
+    { check: 'product' as const, part: part(p, 'sections.habitat:seriouslyfish'), quote: 'ADA', why: 'a brand sold abroad' },
+  ]
+  const writer = (async ({ schema }: { schema: object }) => ((schema as { required: string[] }).required.includes('sentences')
+    ? { sentences: [{ n: 1, vi: 'Chúng tôi bán cá tại Mỹ.' }, { n: 2, vi: 'Dùng phân bón.' }] }
+    : { score: 0.9, notes: [], dropped: [], hedges: [], follows: [] })) as Llm
+  expect(foreignProduct(p, reading(p, fs)[fitKey(p)])).toBe(true)
+  const r = await fitRewrite(root, [p], reading(p, fs), { llm: writer, now: () => new Date() }, { limit: 5, mend: new Set([fitKey(p)]), products: new Set([fitKey(p)]) })
+  expect(r.notKept).toEqual([])
+  expect(r.rewritten).toHaveLength(1)
+  expect(r.rewritten[0]).toMatch(/^vi\/species\/danio-margaritatus sections\.habitat:seriouslyfish \(cut whole by code; the writer's cut refused/)
+  expect(r.gone).toEqual(['vi/species/danio-margaritatus sections.habitat:seriouslyfish sentence 2 went whole: "Dùng phân ADA."'])
+  // The source's sentence stays for the page's next read and try.
+  expect(JSON.parse(await readFile(file, 'utf8')).sections['habitat:seriouslyfish']).toBe('<p>Chúng tôi bán cá tại Mỹ. Cá sống theo đàn.</p>')
+  const tried = JSON.parse(await readFile(join(root, 'engine-state/_fit-rewrite.json'), 'utf8')) as Tried
+  expect(tried[fitKey(p)]).toMatchObject({ n: 1, cut: true })
+  // Done: the product is off the page, though the read is of the old text.
+  expect(foreignProduct(await danio(root), reading(p, fs)[fitKey(p)])).toBe(false)
+})
+
+test('a page with a foreign product tried before with no code cut to fall back on is tried once more on the same text, past the cap, and then not again', async () => {
+  const setUp = async (before: Tried[string] | undefined) => {
+    const root = await content()
+    const file = join(root, 'content/species', ID, 'vi.json')
+    const vi = JSON.parse(await readFile(file, 'utf8'))
+    vi.sections['habitat:seriouslyfish'] = '<p>Chúng tôi bán cá tại Mỹ. Dùng phân ADA. Cá sống theo đàn.</p>'
+    await writeFile(file, JSON.stringify(vi, null, 2))
+    const p = await danio(root)
+    if (before) await writeFile(join(root, 'engine-state/_fit-rewrite.json'), JSON.stringify({ [fitKey(p)]: { ...before, hash: fitText(p).hash } }))
+    const state = reading(p, [{ check: 'product', part: part(p, 'sections.habitat:seriouslyfish'), quote: 'ADA', why: 'a brand sold abroad' }])
+    return { root, p, state }
+  }
+  const refused = () => fakeLlm(v => v.replace('Dùng phân ADA.', 'Dùng phân bón.'), 0.5)
+  for (const before of [{ at: '2026-11-15', hash: '', n: 1, rule: MEND_RULE }, { at: '2026-11-15', hash: '', n: 2, rule: MEND_RULE }]) {
+    const { root, p, state } = await setUp(before)
+    const keys = new Set([fitKey(p)])
+    // Not a page with a foreign product to this run: tried on this text, or capped, as before.
+    expect((await fitRewrite(root, [p], state, { llm: refused().llm, now: () => new Date() }, { limit: 5, mend: keys })).rewritten, JSON.stringify(before)).toEqual([])
+    const once = refused()
+    const r = await fitRewrite(root, [p], state, { llm: once.llm, now: () => new Date() }, { limit: 5, mend: keys, products: keys })
+    expect(once.calls, JSON.stringify(before)).toEqual(['rewrite', 'review'])
+    expect(r.rewritten[0], JSON.stringify(before)).toContain('cut whole by code')
+    const tried = JSON.parse(await readFile(join(root, 'engine-state/_fit-rewrite.json'), 'utf8')) as Tried
+    expect(tried[fitKey(p)], JSON.stringify(before)).toMatchObject({ n: before.n + 1, cut: true })
+  }
+  // A cut try on this text already: not tried again on it.
+  const { root, p, state } = await setUp({ at: '2026-11-17', hash: '', n: 1, rule: MEND_RULE, cut: true })
+  const again = refused()
+  expect((await fitRewrite(root, [p], state, { llm: again.llm, now: () => new Date() }, { limit: 5, mend: new Set([fitKey(p)]), products: new Set([fitKey(p)]) })).rewritten).toEqual([])
+  expect(again.calls).toEqual([])
 })

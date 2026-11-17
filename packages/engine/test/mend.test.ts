@@ -498,4 +498,7 @@ test('a plain cut takes out whole each sentence a product, shop or price finding
   expect(cutWhole('<p>Mua ở Petco, giá 5 đô la.</p>', [{ check: 'shop', quote: 'Petco' }])).toBeUndefined()
   // Whole words only, and every sentence that names it (Astra's read: "ADA" in "Canada").
   expect(cutWhole('<p>Cá được nuôi ở Canada. Dùng phân ADA. Cá cần ánh sáng vừa. Thêm ADA mỗi tuần.</p>', [{ check: 'product', quote: 'ADA' }])?.html).toBe('<p>Cá được nuôi ở Canada. Cá cần ánh sáng vừa.</p>')
+  // The table's name in the singular finds its English plural on the page, the last word only and a whole word still.
+  expect(cutWhole('<p>Nước mềm thì thêm Wonder Shells hoặc san hô vụn. Ốc cần canxi. Wonder Shellsy là tên khác.</p>', [{ check: 'product', quote: 'Wonder Shell' }])?.html).toBe('<p>Ốc cần canxi. Wonder Shellsy là tên khác.</p>')
+  expect(cutWhole('<p>Thêm Wonders Shell vào. Ốc cần canxi.</p>', [{ check: 'product', quote: 'Wonder Shell' }])).toBeUndefined()
 })

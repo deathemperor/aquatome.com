@@ -31,7 +31,7 @@ import { copiesToRedo, redoCopies, type Redone } from './seasons'
 import { FIT_KINDS, fitDue, fitFindings, fitKey, fitReport, runFit, type FitState } from './fit'
 import { gate, heldMendsOf, writeFitSummary } from './gate'
 import { restingFetch } from './wikimedia-rest'
-import { fitRewrite } from './fit-rewrite'
+import { fitRewrite, foreignProduct } from './fit-rewrite'
 import { unitsMend } from './units-mend'
 import { videoCut, VIDEO_CUT_LIMIT } from './video-cut'
 import { recordSourceFigures, sourceFigures } from './source-figures'
@@ -650,7 +650,7 @@ if (cmd === 'photo-privacy') {
   // way has a random sample; rules with no model run on every page. docs/review/fit.md has the counts, no page lists.
   // pnpm engine fit [--limit N] [--jobs N] [--kind guides,species] [--lang id,th] [--only vi/species/<id>,…: these alone,
   // the most-read first before a rewrite] [--front: the front list's pages only, in its order (fit-front.json), the ones
-  // due a read; nothing before the list's `first`]. FIT_MODEL: the reading model. Opus by
+  // due a read, then the Vietnamese pages with a foreign product still on them that are due one; nothing before the list's `first`]. FIT_MODEL: the reading model. Opus by
   // default: on a test sample Sonnet missed about half of what's written for elsewhere and a quarter of the source talk.
   if (values.front && frontEarly(fitFront, new Date())) {
     console.log(`fit: the front list waits until ${fitFront.first}`)
@@ -667,8 +667,11 @@ if (cmd === 'photo-privacy') {
     // runFit reads the pages it is given in its own order. One page a call keeps the front list's order under --limit.
     // A page not due a read (fitDue) is not passed, so it costs no call and does not use a place in the limit.
     const want = new Set(fitFront.front)
-    const chosen = orderFront(fitFront, filtered).filter(p => want.has(fitKey(p)))
     const prior = JSON.parse(await readFile(statePath, 'utf8').catch(() => '{}')) as FitState
+    // Then the Vietnamese pages whose saved read found a foreign product still on them, read again once their text has
+    // changed, so the rewrite can take them (the chief of staff, 17 Nov 2026: 11 of the 54 left had a read of older text).
+    const products = values.lang || values.only ? [] : filtered.filter(p => p.lang === 'vi' && !want.has(fitKey(p)) && !(p.kind === 'guides' && retiredTo(p.id)) && foreignProduct(p, prior[fitKey(p)]))
+    const chosen = [...orderFront(fitFront, filtered).filter(p => want.has(fitKey(p))), ...products]
     const stale = fitDue(chosen, prior)
     r = { read: 0, failed: [], left: 0 }
     state = prior
@@ -722,13 +725,20 @@ if (cmd === 'photo-privacy') {
         if (h) marks.set(fitKey(p), h)
       }
     }
-    // A page with a foreign product or medicine on it, as its saved read found (the owner's complaint): first, with the lane.
-    const product = (p: (typeof ranked)[number]) => fitFindings(p, state[fitKey(p)]).some(f => f.check === 'product')
-    const plan = values.front && !only ? frontPlan(fitFront, last, ranked, marks, product) : { held: false, order: ranked, lane: new Set<string>(), mend: new Set<string>() }
-    if (values.front && !only) console.log(`fit-rewrite: lane ${plan.lane.size} page${plan.lane.size === 1 ? '' : 's'}${plan.mend.size > plan.lane.size ? ` and ${plan.mend.size - plan.lane.size} with a foreign product` : ''} first${plan.held ? ', front list held' : ''}`)
-    const r = await fitRewrite(ROOT, plan.order, state, { llm: claudeCli, now: () => new Date() }, { limit: Number(values.limit ?? 10), retry: !!only, mend: plan.mend })
+    // A page with a foreign product or medicine still on it, as its saved read found (the owner's complaint): first, with
+    // the lane, or ahead of it (fit-front.json products).
+    const product = (p: (typeof ranked)[number]) => foreignProduct(p, state[fitKey(p)])
+    const plan = values.front && !only ? frontPlan(fitFront, last, ranked, marks, product) : { held: false, order: ranked, lane: new Set<string>(), mend: new Set<string>(), products: new Set<string>() }
+    if (values.front && !only) console.log(`fit-rewrite: ${plan.products.size} with a foreign product${fitFront.products === 'ahead' ? ', then' : ' and'} lane ${plan.lane.size} page${plan.lane.size === 1 ? '' : 's'} first${plan.held ? ', front list held' : ''}`)
+    const r = await fitRewrite(ROOT, plan.order, state, { llm: claudeCli, now: () => new Date() }, { limit: Number(values.limit ?? 10), retry: !!only, mend: plan.mend, products: plan.products })
     for (const x of [...r.rewritten.map(x => `rewritten: ${x}`), ...r.gone.map(x => `gone: ${x}`), ...r.notKept.map(x => `not kept: ${x}`), ...r.skipped.map(x => `skipped: ${x}`), ...r.failed.map(x => `failed: ${x}`)]) console.log(x)
     console.log(`fit-rewrite: ${r.rewritten.length} rewritten, ${r.notKept.length} not kept, ${r.skipped.length} skipped, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+    // The pages with a foreign product, for the day's line to the chief of staff (17 Nov 2026): tried, kept, cut by code.
+    if (plan.products.size) {
+      const of = (xs: string[]) => new Set(xs.map(x => x.split(' ')[0]!.replace(/:$/, '')).filter(k => plan.products.has(k)))
+      const kept = of(r.rewritten), tried = of([...r.rewritten, ...r.notKept, ...r.skipped, ...r.failed])
+      console.log(`fit-rewrite: foreign product pages: ${tried.size} tried, ${kept.size} with a part kept (${of(r.rewritten.filter(x => x.includes('cut whole by code'))).size} cut by code), ${plan.products.size} on the list before this run`)
+    }
     // The run on file: the front list's and live pages' outcomes, never the lane's alone (fit-front.ts offLane).
     const ran = values.front && !only && !plan.held ? firstRun(offLane(r, plan.lane), new Date().toISOString()) : undefined
     if (ran) await writeFile(lastFile, `${JSON.stringify(ran, null, 1)}\n`)
