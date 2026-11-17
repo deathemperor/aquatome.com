@@ -174,6 +174,8 @@ test('a copy that prints the facts\' source numbers is written once more without
   expect(sourceNumbers('<p><strong>แหล่งที่</strong> 3 และแหล่งข้อมูลที่ ๓</p>')).toEqual(['แหล่งที่ 3', 'แหล่งข้อมูลที่ ๓'])
   expect(sourceNumbers('<p>Menurut sumber 0 dan <em>Sumber</em> ke-2.</p>')).toEqual(['sumber 0', 'Sumber ke-2'])
   expect(sourceNumbers('<p>Dua sumber, 3 sumber lain, sumber 2024, sumbernya, แหล่งหนึ่ง, แหล่งที่มา.</p>')).toEqual([])
+  // A measure isn't a source's number (Codex's second read): the source water's temperature, a volume, a range.
+  expect(sourceNumbers('<p>Suhu air sumber 24 °C. Air sumber 5 liter, sumber 2–3 kali.</p>')).toEqual([])
   const root = await site()
   const llm0: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : { name: 'Cá bị lồi mắt', summary: ['x'], body: '<p>x</p>', faq: [] }) as never
   const r0 = await makeTopic(root, { research: async () => facts as never, llm: llm0 }, { topic: 'Cá bị lồi mắt (popeye)', kind: 'disease' })
@@ -191,11 +193,14 @@ test('a copy that prints the facts\' source numbers is written once more without
   const always: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : salinan('<p>Mata menonjol (sumber 2).</p>')) as never
   expect(await localizeTopic(root, always, r0.id, 'id')).toMatchObject({ skipped: 'prints its facts\' source numbers: sumber 2' })
   expect(existsSync(join(root, 'content/guides', r0.id, 'id.json'))).toBe(false)
-  // The rewrite is read for both again: one that drops the numbers but names a season its readers don't have isn't saved.
+  // The rewrite is read for both again: one that drops the numbers but names a season its readers don't have isn't saved,
+  // and the copy on the site stays as it was (Codex's second read: in Thai, whose numbers the old check knew too).
+  const th = join(root, 'content/guides', r0.id, 'th.json')
+  const before = await readFile(th, 'utf8')
   let n = 0
-  const swaps: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : salinan(n++ ? '<p>Paling sering pada musim panas.</p>' : '<p>Mata menonjol (sumber 2).</p>')) as never
-  expect(await localizeTopic(root, swaps, r0.id, 'id')).toMatchObject({ skipped: 'names another place\'s season: musim panas' })
-  expect(existsSync(join(root, 'content/guides', r0.id, 'id.json'))).toBe(false)
+  const swaps: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : copy(n++ ? '<p>พบบ่อยในฤดูใบไม้ผลิ</p>' : '<p>ตาโปน (แหล่งที่ 2)</p>')) as never
+  expect(await localizeTopic(root, swaps, r0.id, 'th', { redo: true })).toMatchObject({ skipped: 'names another place\'s season: ฤดูใบไม้ผลิ' })
+  expect(await readFile(th, 'utf8')).toBe(before)
 })
 
 // Codex's read of #1588: a body a person fixed is kept, so the generated one, thrown away, is no reason to write again.

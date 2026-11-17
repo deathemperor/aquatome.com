@@ -196,9 +196,10 @@ export type Written = { name: string; summary: string[]; body: string; faq: { q:
 /**
  * The facts' source numbers as a copy prints them to readers, each once, read as the reader reads the text (seasons.ts,
  * rendered: tags gone, entities read): Thai "แหล่งที่ 3", "แหล่งข้อมูลที่ ๓"; Indonesian and Malay "sumber 0", "sumber ke-2".
- * A source's number is under 100, so a year isn't one. (Codex's read of #1588: the Thai form alone let the others through.)
+ * A source's number is under 100, so a year isn't one, and a number with a unit or a range after it is a measure ("air
+ * sumber 24 °C", the source water's). (Codex's reads of #1588: the Thai form alone let the others through.)
  */
-const SOURCE_NUMBER = /แหล่ง(?:ข้อมูล)?\s*ที่\s*[0-9๐-๙]{1,2}(?![0-9๐-๙])|(?<!\p{L})sumber\s*(?:ke-?\s*|no\.?\s*|nomor\s*|nombor\s*|#\s*)?[0-9]{1,2}(?![0-9])/giu
+const SOURCE_NUMBER = /แหล่ง(?:ข้อมูล)?\s*ที่\s*[0-9๐-๙]{1,2}(?![0-9๐-๙])|(?<!\p{L})sumber\s*(?:ke-?\s*|no\.?\s*|nomor\s*|nombor\s*|#\s*)?[0-9]{1,2}(?![0-9])(?!\s*(?:[°℃%‰x×~–-]|(?:sampai|hingga|ml|l|liter|litre|mg|g|kg|cm|mm|m|ppm|ppt|dgh|dkh|gh|kh|jam|hari|minggu|bulan|tahun|menit|detik|ekor|kali)(?!\p{L})))/giu
 export const sourceNumbers = (text: string) => [...new Set([...rendered(text).matchAll(SOURCE_NUMBER)].map(m => m[0]))]
 const savedText = (w: Written) => {
   const p = plainParts(w.summary ?? [], w.faq ?? [])
