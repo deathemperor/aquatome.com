@@ -98,7 +98,8 @@
     "sizeCm": [
       {
         "source": "bwaquatics",
-        "value": 12.7
+        "value": 12.7,
+        "overruled": "BW Aquatics' 5 inches, from its page for 'Betta antuta'; Seriously Fish gives 50 mm SL. Seriously Fish's figure stands where two sources are twice apart and no second source agrees with the other (rule of 10 Nov 2026; chief of staff, 17 Nov)"
       },
       {
         "source": "seriouslyfish",
@@ -132,7 +133,8 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-antuta-high-quality-wild-betta-fish-lb",
-      "html": "<ul><li>Wild-caught, from Indonesia (\"LB\" location).</li><li>Belongs to the Betta unimaculata complex.</li><li>Maximum size: 5 inches (about 12.7 cm).</li><li>IUCN Red List: not listed (not found on IUCN).</li><li>Breeding: mouthbrooder.</li></ul>"
+      "html": "<ul><li>Wild-caught, from Indonesia (\"LB\" location).</li><li>Belongs to the Betta unimaculata complex.</li><li>IUCN Red List: not listed (not found on IUCN).</li><li>Breeding: mouthbrooder.</li></ul>",
+      "fixed": true
     },
     {
       "key": "quickFacts",
