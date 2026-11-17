@@ -1,0 +1,135 @@
+{
+  "id": "centropomus-unionensis",
+  "native": {
+    "input": "1c474eb5fd839e2d",
+    "at": "2026-11-16T11:31:54.968Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It is a snook from the Pacific slope of Colombia.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Centropomus unionensis was imported for the first time from Colombia (Pacific slope).",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "SV",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species name refers to the type locality, Bay of Union, El Salvador.",
+        "words": "El Salvador",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": [
+        "SV"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Centropomus unionensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2369650,
+    "datasets": [
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        11
+      ],
+      [
+        "5fab027d-14b6-4659-9a7e-8a0d4bd3e12b",
+        9
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        7
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        6
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        4
+      ],
+      [
+        "5b7e7b64-8e97-4644-add3-864c2a4b0043",
+        4
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        3
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        3
+      ],
+      [
+        "48d84abc-2973-42e7-bf81-a6c2689ff6e1",
+        2
+      ],
+      [
+        "7fe1bc0e-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "ec79bfca-83fc-4f89-baad-9a76d320953b",
+        2
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "727b83c1-e8a7-4dd9-a9a2-4c4a9ea9636c",
+        1
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "c94e9ad3-5cc8-48b3-9046-4b013833675b",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "d515f3de-26cb-4504-bac6-a03ad184d4e4",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ],
+      [
+        "e760ba8b-f487-46ae-91a2-526fe72bbe1c",
+        1
+      ]
+    ],
+    "native": [
+      "CO",
+      "SV"
+    ],
+    "requests": 13,
+    "at": "2026-11-16T11:31:54.968Z"
+  }
+}

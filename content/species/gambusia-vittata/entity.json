@@ -1,0 +1,245 @@
+{
+  "id": "gambusia-vittata",
+  "scientificName": "Gambusia vittata",
+  "order": "Cyprinodontiformes",
+  "family": "Poeciliidae",
+  "genus": "Gambusia",
+  "group": "livebearers",
+  "places": [
+    "north-america",
+    "mexico"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "MX"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "In nature, this livebearer inhabits Mexico (Atlantic slope).",
+          "countries": [
+            "MX"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2350605,
+      "total": 305,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "MX",
+          305
+        ]
+      ],
+      "cells": [
+        [
+          -104.0625,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          -101.25,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          -101.25,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          -99.84375,
+          19.6875,
+          7,
+          7
+        ],
+        [
+          -99.84375,
+          21.09375,
+          103,
+          103
+        ],
+        [
+          -99.84375,
+          22.5,
+          146,
+          146
+        ],
+        [
+          -99.84375,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          -98.4375,
+          19.6875,
+          21,
+          21
+        ],
+        [
+          -98.4375,
+          21.09375,
+          16,
+          16
+        ],
+        [
+          -98.4375,
+          22.5,
+          4,
+          4
+        ],
+        [
+          -98.4375,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          -97.03125,
+          18.28125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 18,
+          "max": 26
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/flexipenis_vittatus_en/",
+      "html": "<p>Flexipenis vittatus is a dwarf livebearer. Males reach 2.5–4.5 cm, females 4–6 cm in length. It is often placed in Gambusia.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/flexipenis_vittatus_en/",
+      "html": "<p>In nature, this livebearer inhabits Mexico (Atlantic slope).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/flexipenis_vittatus_en/",
+      "html": "<p>It is wise not to keep these fishes year-in year-out at too high water temperatures. In living rooms no extra aquarium heater is necessary. Temperatures may lie between 18 and 26°C.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/flexipenis_vittatus_en/",
+      "html": "<p>In contrast to Gambusia, Flexipenis has a highly developed courtship display, and the males present their pretty yellow-black dorsal fins in a very attractive way.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/flexipenis_vittatus_en/",
+      "html": "<p>This dwarf livebearer has proved somewhat problematic with regard to breeding (not keeping) over the long term under traditional aquarium conditions. However, under the open skies of Southeast Asia they breed pretty well.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/flexipenis_vittatus_en/",
+      "html": "<p>Gambusia: derived from the Cuban term \"Gambusino\", for something unimportant. Flexipenis: means \"with pliant sexual organ\". vittatus: Latin, means \"striped\".</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/e1c29a46a8510198.webp",
+      "thumb": "https://media.aquatome.com/glaser/e1c29a46a8510198-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/flexipenis_vittatus_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/2120f9dd945c97cd.webp",
+      "thumb": "https://media.aquatome.com/glaser/2120f9dd945c97cd-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/flexipenis_vittatus_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "YFR735bhzwY",
+      "title": "Gambusia vittata",
+      "durationSec": 20,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "R4DDpucD-kQ",
+      "title": "Summer Tubbing with some Gambusia vittata, aka the “Gulf Gambusia”. (adults and fry)",
+      "durationSec": 63,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "TqxQcGB0Nqs",
+      "title": "Baby Gambusia vittata",
+      "durationSec": 8,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "pHzUxrJhNF4",
+      "title": "1 month old Gambusia vittata fry",
+      "durationSec": 20,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá mini"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc bọt khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá bảy màu",
+        "thức ăn cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-15"
+}

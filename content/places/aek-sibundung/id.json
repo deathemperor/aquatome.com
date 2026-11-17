@@ -3,6 +3,12 @@
   "name": "Aek Sibundung",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-16T00:12:25.385Z",
+    "why": "\"Aek\" already means river in Batak/North Sumatran names, but an Indonesian atlas would likely write \"Sungai Aek Sibundung\" or keep \"Aek Sibundung\" as a proper name; the bare form is a plausible atlas spelling, though it lacks the Indonesian kind word \"Sungai\"."
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

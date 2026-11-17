@@ -298,6 +298,19 @@ test('each breed\'s copy reads as its built page: header, parents, card sources,
   for (const t of ['p', 'trust', 'gallery', 'summary', 'faq', 'refs']) expect(seen.has(t), t).toBe(true)
 })
 
+test('a breed\'s sections open by their headings\' ids, the web page\'s and the copy\'s the same', async () => {
+  // The board, 16 Nov: no heading on a breed's page had an id, so the chat couldn't open a ranchu's care section.
+  const c = await getContent('vi')
+  const d = breedDoc('vi', c, c.breeds.find(b => b.id === 'pigeon-blood-discus')!, listedPaths('vi', c))
+  const heads = all(d, 'h')
+  expect(heads.map(h => h.text)).toContain('Nguồn gốc')
+  const { dom } = appPage(d.path)
+  for (const h of heads) {
+    expect(h.id, h.text).toMatch(/^[a-z0-9-]+$/)
+    expect(txt(dom.querySelector(`[id="${h.id}"]`)), h.text).toBe(h.text)
+  }
+})
+
 test('a breed\'s lines are its copy\'s cards, each a form of it; a line\'s copy says what it is a form of, linked', async () => {
   const c = await getContent('vi')
   const pigeon = c.breeds.find(b => b.id === 'pigeon-blood-discus')!
@@ -436,8 +449,13 @@ test('each glossary term\'s copy reads as its built page; one in Indonesian has 
     // (A term in parts holds each part's heading and text in a section of its own, for the jump row.)
     // Its photo, then the fuller entry's headings, then the pages that use it: the heading with the count, then each
     // kind's first pages, those the app index lists. Last, its sources.
-    expect(all(d, 'figure').length, d.path).toBe(dom.querySelectorAll('main figure').length)
-    expect(all(d, 'h').map(b => b.text), d.path).toEqual(dom.querySelectorAll('.body > h2, .body > section > h2, .used h2').map(txt))
+    // Two differences, by name, until the app's own build of the kinds (the iOS Content Lead, Mon 23): the page's row of a
+    // term's other photos (.others) isn't in the app's copy yet, and the page shows its kinds first, as cards, where the
+    // app keeps them in the entry's place (the Design Lead's board, 16 Nov 2026). The owner's phone has only drawn one
+    // photo on a term, so the app gets the row once the iOS Content Lead has drawn and shot it (the chief of staff, 15 Nov 2026).
+    expect(all(d, 'figure').length, d.path).toBe(dom.querySelectorAll('main figure').filter(f => !f.closest('.others')).length)
+    const sorted = (xs: string[]) => [...xs].sort()
+    expect(sorted(all(d, 'h').map(b => b.text)), d.path).toEqual(sorted(dom.querySelectorAll('.body > h2, .body > section > h2, .body .k-head > h2, .used h2').map(txt)))
     expect(one(d, 'refs')?.items.map(r => r.url) ?? [], d.path).toEqual(dom.querySelectorAll('.refs a').map(a => a.getAttribute('href')))
     const kinds = dom.querySelectorAll('.used h3').map(h3 => ({
       t: 'pages', title: txt(h3), paths: (h3.nextElementSibling?.querySelectorAll('a') ?? []).map(a => appHref(a.getAttribute('href')!)).filter(x => listed.has(x)),

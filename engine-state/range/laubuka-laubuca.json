@@ -1,8 +1,8 @@
 {
   "id": "laubuka-laubuca",
   "native": {
-    "input": "7c8a7d2277c90618",
-    "at": "2026-11-09T12:58:06.259Z",
+    "input": "b68d4469da568519",
+    "at": "2026-11-16T05:47:36.414Z",
     "claims": [
       {
         "code": "IN",
@@ -90,6 +90,14 @@
         "source": "seriouslyfish",
         "quote": "Records from Sri Lanka, southern India, Myanmar, Thailand, Laos, Cambodia, Vietnam, Malaysia, and Indonesia appear to represent other species (see 'Notes').",
         "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: India.",
+        "words": "India",
         "ok": true
       }
     ],

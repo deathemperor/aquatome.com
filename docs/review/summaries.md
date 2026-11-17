@@ -1,4 +1,4 @@
-# Tóm tắt chờ duyệt (148)
+# Tóm tắt chờ duyệt (152)
 
 Bản qua kiểm tra tự động (số khớp thẻ dữ liệu, mọi ý có trong hồ sơ) đã được duyệt. Dưới đây là bản chưa qua, kèm lỗi kiểm tra tìm thấy.
 
@@ -29,6 +29,30 @@ Kiểm tra:
 - Mistake 2 "chọn bể nhỏ ... nên lo bể rộng ngay từ đầu" is advice the page doesn't give. The page says the fish can breed in a "bể khá nhỏ, chỉ cần từ 200 lít trở lên", so the fix of a spacious tank contradicts or goes beyond the page.
 - The summary's "hợp người đã có bể đủ rộng cho cá cỡ này" suggests a large tank is needed. The page only says 200 litres or more is enough, so this is unsupported.
 
+## Cá trê Amblyceps arunachalense (Amblyceps arunachalense)
+id: `amblyceps-arunachalense`
+
+Cá trê Amblyceps arunachalense dài tới 13 cm, sống ở suối và sông nước chảy xiết, đáy cát hoặc đá, nên cần nước mát 18–22 °C, pH 6,5–7,5. Hồ sơ không có thông tin về bể tối thiểu, thức ăn hay cách nuôi trong bể, nên người muốn nuôi khó có cơ sở để làm theo. Loài này chỉ được ghi nhận ở hai con sông Dikrong và Subansiri, xếp hạng Nguy cấp.
+
+- Đừng để nước ngoài khoảng 18–22 °C; nên giữ nhiệt độ trong khoảng này.
+- Đừng để nước đứng; nên tạo dòng chảy, vì cá sống ở suối và sông nước chảy xiết.
+- Đừng bỏ qua nền; nên dùng đáy cát hoặc đá như môi trường tự nhiên của cá.
+
+Kiểm tra:
+- "Đừng để nước đứng; nên tạo dòng chảy": the page only says the species lives in fast-flowing streams and rivers. It gives no aquarium advice about water flow, so this fix is advice the page doesn't give. It also conflicts with the summary's own statement that the page has no information on keeping the fish in a tank.
+- "Đừng bỏ qua nền; nên dùng đáy cát hoặc đá": the page describes only the wild habitat (sand or rock bottom). It gives no substrate advice for a tank, so this mistake and its fix are invented.
+
+## Cá trê Amblyceps tenuispinis (Amblyceps tenuispinis)
+id: `amblyceps-tenuispinis`
+
+Cá trê nhỏ, trưởng thành 6,5 cm, hợp người có bể nước mát 18–22 °C, pH 6,5–7,5 và có dòng chảy, nuôi chung với danio cỡ lớn, barb, rasbora. Ngoài tự nhiên chúng sống ở suối, sông nước chảy xiết, đáy cát hoặc đá, nên bể cần mô phỏng như vậy. Khó nhất là hồ sơ còn ít dữ liệu về sinh học, và chúng ăn rất cuống quýt nên cần cho ăn đúng loại mồi giun.
+
+- Nuôi bể nước tĩnh hoặc nước ấm thì khó hợp với loài suối chảy xiết này; nên giữ nước 18–22 °C và có dòng chảy.
+- Nuôi chung với cá không thích dòng chảy hoặc không cỡ vừa thì dễ không hợp; nên chọn danio cỡ lớn, barb hoặc rasbora.
+
+Kiểm tra:
+- "nên cần cho ăn đúng loại mồi giun": the page only says that in the tank they "thích" (prefer) worms such as frozen bloodworm and white worms. It does not say that feeding must be exactly worms, or that their frantic feeding is the reason. A preference has become a requirement.
+
 ## Cá Ammoglanis multidentatus (Ammoglanis multidentatus)
 id: `ammoglanis-multidentatus`
 
@@ -43,15 +67,15 @@ Kiểm tra:
 ## Cá rô đồng (Anabas testudineus)
 id: `anabas-testudineus`
 
-Cá rô đồng (Anabas testudineus) hợp người đã có bể lớn, thích loài săn mồi khỏe và chịu được nước khá rộng: 15–30 °C, pH 5,5–8, độ cứng 2–25 dGH. Cá dài tới 20 cm, bể tối thiểu dài 100 cm (đáy 100 cm x 45 cm cho một con), độ khó 4/8. Chỗ khó nhất là cá nhảy giỏi, ăn được cá nhỏ hơn nó nhiều nên không hợp bể cộng đồng thông thường, và hồ sơ ghi các ý kiến về tính hung dữ với đồng loại khi nuôi nhóm khá trái ngược.
+Cá rô đồng (Anabas testudineus) hợp người đã có kinh nghiệm vừa phải, muốn nuôi một con cá to cỡ 20 cm, không đi với cá nhỏ. Cần bể đáy 100 cm x 45 cm dù chỉ nuôi một con, nước 15–30 °C, pH 5,5–8, độ cứng 2–25 dGH, độ khó 4/8. Khó nhất là giữ nắp khít vì cá nhảy giỏi, và chọn bạn cùng bể vì cá có tính săn mồi, nuôi nhóm thì có người thấy hung, có người thấy hiền.
 
-- Đừng để bể hở hay đậy lỏng vì cá nhảy rất giỏi; dùng nắp khít và chừa khoảng trống giữa mặt nước và nắp.
-- Đừng thả chung với cá nhỏ hơn nó nhiều vì sẽ bị ăn thịt; chỉ nuôi chung với cá họ chép, cá da trơn, cá cichlid hoặc cá chạch sông cỡ tương xứng, khỏe mạnh, trong bể đủ rộng.
-- Đừng để bể trống trải, sáng chói và dòng chảy mạnh; cho thật nhiều chỗ trú như lũa, rễ hoặc cành cây, thêm lớp cây nổi, đèn tối và lọc tốt nhưng tránh dòng mạnh.
+- Để bể hở hoặc nắp lỏng vì tin cá chỉ leo trèo trong tin đồn; cá nhảy rất giỏi nên dùng nắp khít.
+- Thả chung với cá nhỏ hơn nó nhiều; cá có tính săn mồi nên chỉ nuôi với cá họ chép, cá da trơn, cichlid hoặc cá chạch sông cỡ tương xứng, khỏe, trong bể đủ rộng.
+- Nuôi bể trống, đèn sáng, dòng mạnh; nên cho nhiều chỗ trú, đèn khá tối, có lũa và cây nổi, lọc tốt nhưng tránh dòng chảy mạnh.
 
 Kiểm tra:
-- "Đừng để bể trống trải, sáng chói ... đèn tối": the page only says the most popular tanks usually have fairly dim light (a preference, "thường"). It never says bright light is a mistake or that dim light is required, so a tendency becomes a firm rule.
-- "tránh dòng mạnh" is given as a firm fix, but the page hedges it: "nếu được thì nên tránh dòng chảy mạnh" (if possible, better to avoid).
+- "chỉ nuôi với cá họ chép, cá da trơn, cichlid hoặc cá chạch sông": the page says only that these tank mates "thường nuôi chung được" if they are of suitable size and the tank is wide enough. It never says they are the only suitable ones, and the summary turns a hedge into a rule.
+- "đèn sáng" listed as a mistake and "đèn khá tối" as the fix: the page only says the most popular tanks tend to have fairly dim light. It gives no rule that bright light is wrong, so this is advice the page doesn't give.
 
 ## Cá bốn mắt (Anableps anableps)
 id: `anableps-anableps`
@@ -64,6 +88,19 @@ Cá bốn mắt (Anableps anableps) hợp với người có chỗ cho bể lớ
 
 Kiểm tra:
 - Mistake 1: "tốt nhất mười hai con trở lên, trong bể đáy không nhỏ hơn 150 cm" suggests twelve or more fish are fine in a 150 cm tank. The page says a 150 × 45 cm tank holds "tối đa khoảng sáu con trưởng thành", so this fix contradicts the page.
+
+## Cá răng thỏ Burdur (Anatolichthys sureyanus)
+id: `anatolichthys-sureyanus`
+
+Cá răng thỏ Burdur (Anatolichthys sureyanus) hợp với người đủ tâm huyết theo một dự án nuôi và nhân giống lâu dài, không hợp với người chỉ muốn bể cá màu sắc. Cần bể dài tối thiểu 120 cm, nước kiềm pH 8–10, độ cứng 15–35 dGH, pha muối biển 3–5 g/L, nhiệt độ 5–22 °C, nuôi đàn và nên nuôi riêng. Độ khó 4/8; điểm khó nhất là giữ nước đúng thông số, cho cá qua "mùa đông" lạnh mỗi năm và kiểm tra giá thể thường xuyên vì cá ăn trứng, cá con.
+
+- Bỏ qua mùa đông thì cá đẻ kém, sống ngắn hơn; mỗi năm hãy giữ nước lạnh vài tháng.
+- Để pH xuống mức axit thì cá có lẽ không sống nổi; giữ pH 8–10 và pha muối biển 3–5 g/L.
+- Không kiểm tra giá thể thì cá ăn hết trứng và cá con; trong mùa đẻ, ngày nào cũng kiểm tra giá thể và chuyển phần có trứng sang thùng riêng.
+
+Kiểm tra:
+- "Bỏ qua mùa đông thì cá đẻ kém, sống ngắn hơn": the page hedges with "nhiều khả năng" (most likely), and the summary states it as a certainty.
+- "cá ăn hết trứng và cá con": the page says only that Anatolichthys "thường ăn" (usually eat) eggs and fry. "Ăn hết" (eat all of them) overstates this.
 
 ## Cá cyprinodont Acı (Anatolichthys transgrediens)
 id: `anatolichthys-transgrediens`
@@ -78,6 +115,42 @@ Kiểm tra:
 - Mistake 2: "làm cá giảm sinh sản và ngắn tuổi thọ" turns a hedge into certainty. The page says that without a cold winter period the fish "có thể giảm khả năng sinh sản" and its lifespan is shortened, and it presents this as a risk.
 - Summary: "khó nhất là ... giữ nước kiềm cứng ổn định" is not on the page. The page says a simple system is enough and filtration need not be strong, and it never calls keeping the water stable the hardest part.
 
+## Cá lau kiếng bristlenose (Ancistrus cirrhosus)
+id: `ancistrus-cirrhosus`
+
+Cá lau kiếng bristlenose (Ancistrus cirrhosus) hợp với người mới chơi hoặc ai cần cá đáy hiền cho bể cộng đồng, độ khó 2/8, lớn tới 13 cm, sống 5–10 năm. Chịu được nhiều kiểu nước: 23–27 °C, pH 5,8–7,8, độ cứng 2–30 dGH, nhưng cần nước sục khí tốt, có dòng chảy và nhiều hang, gỗ lũa để trú ban ngày. Điểm khó nhất là con đực trưởng thành giữ lãnh thổ gắt với nhau, và cá thải khá nhiều chất thải nên đừng trông chờ nó dọn bể thay mình.
+
+- Nuôi chung với cichlid Trung và Nam Mỹ cỡ lớn; nên chọn bạn cùng bể là loài hiền như cá neon, cá mún, cá bảy màu.
+- Coi cá là máy dọn bể rồi cho ăn quá tay; chúng ăn tảo trên kính nhưng thải nhiều chất thải, nên chỉ cho viên tảo hoặc spirulina một đến hai lần mỗi ngày.
+
+Kiểm tra:
+- Mistake 2 fix: "chỉ cho viên tảo hoặc spirulina một đến hai lần mỗi ngày". The page calls algae or spirulina pellets the best food, but it also says flake, granules and bloodworms are "đều ổn". The word "chỉ" (only) contradicts that.
+- Mistake 2: it links treating the fish as a tank cleaner ("máy dọn bể") to overfeeding ("cho ăn quá tay"). The page gives these as two unrelated points. It says the fish don't really clean the tank, and separately says never to overfeed.
+
+## Cá bống tỳ hang động mù (Ancistrus formoso)
+id: `ancistrus-formoso`
+
+Loài này hợp với người muốn nuôi cá bống tỳ nhỏ, hiền, thả được trong hầu hết bể cộng đồng, cá dài tối đa 7,9 cm. Hồ sơ không có số liệu về nhiệt độ, pH hay bể tối thiểu nên đừng tự suy ra, chỉ biết bể chật thì con đực dễ đánh nhau giành lãnh thổ. Điểm cần lưu ý là hiện chưa có báo cáo sinh sản nào, và loài này đang ở mức Sắp nguy cấp theo IUCN.
+
+- Nuôi nhiều con đực trong bể chật thì chúng đánh nhau giành lãnh thổ, nên cho bể rộng hơn.
+- Cho ăn toàn đồ có thịt là sai khẩu phần, nên cho thức ăn thực vật như viên tảo, thức ăn chìm spirulina, bí ngòi hay dưa leo, thỉnh thoảng mới thêm chút đồ có thịt.
+- Nuôi chung với cá quá to hoặc quá hung dữ thì không hợp, nên chọn bạn cùng bể hiền và cỡ vừa.
+
+Kiểm tra:
+- "thì chúng đánh nhau giành lãnh thổ": the page hedges with "có thể đánh nhau" (males may fight in a cramped tank). The mistake states it as a certainty.
+
+## Cá rô phi xanh Atrato (Andinoacara latifrons)
+id: `andinoacara-latifrons`
+
+Hợp với người đã nuôi cichlid, thích xem cá bố mẹ cùng chăm đàn con. Cá lớn tối đa 17 cm, khá điềm tĩnh, ít đào bới và không phá cây, bể càng rộng thì cá càng hiền. Hồ sơ không nêu thông số nước hay bể tối thiểu, nên cần tìm thêm trước khi nuôi.
+
+- Nuôi trong bể chật thì cá bớt hiền; nên chọn bể rộng cho cá đạt 17 cm.
+- Nhầm với A. pulcher vì hai loài rất giống nhau; nên kiểm tra kỹ tên loài Andinoacara latifrons khi mua.
+- Không tính đến chuyện cá đẻ khi còn nhỏ hơn nhiều so với cỡ trưởng thành; nên chuẩn bị sẵn chỗ trống cho cá đẻ và đàn con đông.
+
+Kiểm tra:
+- "Hợp với người đã nuôi cichlid": the page never says the species suits people who have already kept cichlids, and it gives no difficulty rating or experience requirement. The page only says keepers like its varied behaviour and its parental care.
+
 ## Cá Aphanius asquamatus (Aphanius asquamatus)
 id: `aphanius-asquamatus`
 
@@ -90,6 +163,17 @@ Loài này hợp với người đủ tâm huyết theo một dự án nuôi và
 Kiểm tra:
 - Mistake 2: "nếu không sinh sản giảm và tuổi thọ ngắn lại" turns the page's hedge into a certainty. The page says "cá có thể giảm khả năng sinh sản và tuổi thọ ngắn lại" (fish may have reduced fertility and a shorter life).
 
+## Cá Aphanius vladykovi (Aphanius vladykovi)
+id: `aphanius-vladykovi`
+
+Cá Aphanius vladykovi hợp với người muốn nuôi killifish dễ tính, vì trong giống Aphanius đây là một trong những loài dễ nuôi hơn cả. Nuôi theo đàn trong bể lớn, trồng nhiều cây; cá chịu nhiệt rộng 12–32 °C, không cần muối hay nắng trực tiếp, và dài tối đa 6 cm. Điểm khó nhất là tìm được cá, vì Aphanius rất hiếm trong giới chơi cá cảnh; dòng đang có là cá sinh sản nhân tạo.
+
+- Đừng nuôi lẻ trong bể nhỏ trống trải; nuôi theo đàn trong bể lớn, trồng nhiều cây để cá đực khoe dáng.
+- Đừng tự thêm muối hay tìm nắng trực tiếp cho cá như một số loài Aphanius khác; loài này không cần những thứ đó.
+
+Kiểm tra:
+- "Đừng tự thêm muối hay tìm nắng trực tiếp cho cá" turns the page's "không cần" (not needed) into a prohibition. The page never says salt or sun is harmful. It also recommends putting the fish in an outdoor tank in summer, so avoiding sunlight contradicts the page.
+
 ## Cá killi Campo-Ma'an (Aphyosemion campomaanense)
 id: `aphyosemion-campomaanense`
 
@@ -99,6 +183,15 @@ Cá killi Campo-Ma'an (Aphyosemion campomaanense) là cá nhỏ, dài tối đa 
 
 Kiểm tra:
 - "4–5 cm" is not the card's adult size (5 cm)
+
+## Cá killi đuôi đàn lia đốm đỏ (Aphyosemion cognatum)
+id: `aphyosemion-cognatum`
+
+Cá killi đuôi đàn lia đốm đỏ (Aphyosemion cognatum) là cá nhỏ, trưởng thành 5 cm, sống ở trung và hạ lưu vùng Congo thuộc Cộng hòa Dân chủ Congo. Hồ sơ không ghi nhiệt độ, pH, độ cứng hay bể tối thiểu, nên chưa đủ cơ sở để nói cần bể và nước thế nào. Hồ sơ cũng không nêu độ khó nuôi.
+
+
+Kiểm tra:
+- "sống ở trung và hạ lưu vùng Congo": the page hedges this. It says the range "có vẻ" (seems to) cover central and lower Congo, and that "chưa rõ vùng sống của loài kéo dài tới đâu" (it is unclear how far the range extends). The summary states it as certain.
 
 ## Cá killi Hannelore (Aphyosemion hanneloreae)
 id: `aphyosemion-hanneloreae`
@@ -110,16 +203,15 @@ Kiểm tra:
 - "hợp với người đã quen nuôi cá killi cỡ nhỏ": the page and card say nothing about who the species suits or about experience level, so this is an unsupported claim.
 - "nên cần tìm thêm nguồn khác trước khi lập bể": this is advice the page does not give. The page has no care guidance at all, so "hardest part" is framed as missing info rather than a point from the page.
 
-## Cá killi Herzog (Aphyosemion herzogi)
-id: `aphyosemion-herzogi`
+## Cá killi Aphyosemion mimbon (Aphyosemion mimbon)
+id: `aphyosemion-mimbon`
 
-Cá killi Herzog (Aphyosemion herzogi) nhỏ, lớn tối đa 4,5 cm, độ khó 3/8 thuộc nhóm dễ. Cần nước mát 15–20 °C, pH 5–6,5, độ cứng 0–5 dGH.
+Cá killi Aphyosemion mimbon nhỏ, lớn tới 4,5 cm, độ khó 4/8 (mức vừa). Cá cần nước mát 18–22 °C, pH 5,5–6,5, rất mềm 0–5 dGH, giống các dòng suối đầu nguồn tây bắc Gabon nơi cá sống. Hồ sơ không nêu bể tối thiểu, nên chưa có số để tham khảo.
 
-- Để bể ấm như bể cá nhiệt đới thông thường; nên giữ nước trong khoảng 15–20 °C.
-- Dùng nước máy cứng, pH cao; nên chỉnh về pH 5–6,5 và độ cứng 0–5 dGH trước khi thả cá.
 
 Kiểm tra:
-- "Dùng nước máy cứng, pH cao": the page never mentions tap water or says it is hard or high-pH. This is an invented claim. The page only gives target values (pH 5–6,5, 0–5 dGH).
+- "giống các dòng suối đầu nguồn tây bắc Gabon nơi cá sống": the page only says where the fish lives. It never says those streams have cool, soft, acidic water, so linking the water values to the streams is an unsupported claim.
+- "Cá cần nước mát": this makes the water parameters a requirement and adds the reason that they match the wild habitat. The page gives only the numbers and no such explanation.
 
 ## Cá Apisto velifera (Apistogramma velifera)
 id: `apistogramma-velifera`
@@ -310,6 +402,18 @@ Cá betta tussyae (Betta tussyae) hợp với người chịu làm nước axit,
 Kiểm tra:
 - Mistake 1: "cá to hơn hoặc hiếu động hơn sẽ bắt nạt và giành hết thức ăn" turns the page's hedge ("nhiều khả năng sẽ bắt nạt", and only fish "to hơn nhiều" or "hiếu động hơn nhiều") into a certainty.
 
+## Cá bống ong đàn (Brachygobius aggregatus)
+id: `brachygobius-aggregatus`
+
+Cá bống ong đàn (Brachygobius aggregatus) hợp với người mới, độ khó 1/8, trưởng thành chỉ 4,4 cm. Bể đáy tối thiểu 45 cm (45 × 30 cm, khoảng 41 lít), nhiệt độ 22–28 °C, tốt nhất nuôi riêng loài này. Khó nhất là cho ăn: cá cần thức ăn sống nhỏ như Artemia, còn thức ăn khô thường bị bỏ qua.
+
+- Cho ăn thức ăn khô rồi thấy cá không ăn: nên cho Artemia mới nở còn sống, vì dễ tự ấp và là lựa chọn tốt nhất.
+- Thả chung vào bể cộng đồng: loài này khó hợp bể cộng đồng, nên nuôi trong bể riêng cho đúng loài.
+- Tin hoàn toàn vào tên khi mua: tên này hay bị gán nhầm cho loài khác, nên đối chiếu đặc điểm như không có vảy trước vây lưng, và hiểu rằng việc nhận diện mới chỉ là tạm thời.
+
+Kiểm tra:
+- "cá cần thức ăn sống nhỏ như Artemia" turns a hedge into a certainty. The page says live food is only "có lẽ là thiết yếu" (probably essential). It also says some fish learn to eat frozen food and that they eat frozen food readily.
+
 ## Cá bống mắt tre đầu vịt (Butis butis)
 id: `butis-butis`
 
@@ -321,6 +425,20 @@ Cá bống mắt tre đầu vịt (Butis butis) hợp người nuôi đã có ki
 
 Kiểm tra:
 - Summary says "Cần ... nền cát" as a requirement, but the page only hedges: gravel is usable and sand is "có lẽ là lựa chọn tốt hơn" (probably better). The hedge became a certainty.
+
+## Cá Caquetaia kraussii (Caquetaia kraussii)
+id: `caquetaia-kraussii`
+
+Cá Caquetaia kraussii hợp với người đã có kinh nghiệm nuôi cichlid, chịu chơi bể lớn vì cá dài tới 30 cm. Hồ sơ không có số nhiệt độ, pH hay bể tối thiểu nên chưa nêu được. Khó nhất là chọn cá nuôi chung: miệng nó to, cá nhỏ hơn là nuốt được, nên bể nhỏ hoặc thả chung cá không hợp thì nó dễ khó chịu.
+
+- Nuôi trong bể nhỏ rồi thả chung cá không hợp thì cá trở nên khó chịu; nên chọn bể và cá nuôi chung cho đúng ngay từ đầu.
+- Thả chung cá nhỏ, vì miệng nó to nên cá nhỏ nó cũng nuốt được; nếu muốn nuôi chung thì chọn cá khó bị thương như oscar (Astronotus), Hoplarchus hoặc Crenicichla cỡ lớn.
+- Để cá nuôi chung yếu ớt ở cùng lúc cặp cá dẫn đàn con; chỉ nuôi chung cá thật khỏe.
+
+Kiểm tra:
+- "hợp với người đã có kinh nghiệm nuôi cichlid": the page never says the species suits experienced keepers. It only says few people keep it, even cichlid specialists. The card gives no difficulty rating either. This is an unsupported claim about who it suits.
+- "chịu chơi bể lớn": the page never recommends a large tank. It only says a small tank with unsuitable tank mates can cause trouble.
+- Mistake 1, "thì cá trở nên khó chịu": the page hedges with "có thể trở nên khá khó chịu" (can become fairly unpleasant). The mistake states it as a certainty.
 
 ## Tép ong đốm trắng (Caridina dennerli)
 id: `caridina-dennerli`
@@ -334,6 +452,18 @@ Tép ong đốm trắng (Caridina dennerli) hợp với người đã có kinh n
 Kiểm tra:
 - "hợp với người đã có kinh nghiệm" states as fact what the page only reports as a past reputation ("bị coi là chỉ dành cho người chơi lâu năm"). The page then gives the breeder's view that it is "không khó nuôi chút nào", and the card has no difficulty. The hedge became a certainty.
 
+## Cá rìu lùn (Carnegiella myersi)
+id: `carnegiella-myersi`
+
+Cá rìu lùn (Carnegiella myersi) hợp với người đã có bể chạy lâu, ổn định và muốn nuôi một đàn cá nhỏ, hiền, dài 2,5 cm. Cần bể dài tối thiểu 50 cm, nước 23–26 °C, pH 4–7, độ cứng 1–6 dGH, có cây thả nổi, dòng yếu, đèn dịu; độ khó 2/8. Khó nhất là cá rất hay nhảy nên nắp phải kín, và phải nuôi đàn từ sáu con trở lên, không chung với cá hiếu động.
+
+- Để hở nắp bể, kể cả qua đêm: cá nhảy ra sàn, nên đậy nắp thật kín và nhớ rằng kéo nắp ra để cho ăn cũng có thể làm cá nhảy.
+- Nuôi lẻ hoặc dưới sáu con: phải nuôi đàn tối thiểu sáu con, càng nhiều càng tốt.
+- Thả chung với cá hiếu động hoặc bể cộng đồng thông thường: chỉ chọn cá characid hiền cỡ tương đương hoặc cá da trơn callichthyid, loricariid cỡ nhỏ hơn.
+
+Kiểm tra:
+- "chỉ chọn cá characid hiền cỡ tương đương hoặc cá da trơn callichthyid, loricariid cỡ nhỏ hơn": the page only says these are the best choices ("tốt nhất chọn") and also says the species can live with other fish of the same genus. The summary turns a hedged recommendation into an exclusive rule.
+
 ## Cá trê săn mồi Apure (Cephalosilurus apurensis)
 id: `cephalosilurus-apurensis`
 
@@ -342,18 +472,6 @@ Cá trê săn mồi Apure (Cephalosilurus apurensis) là cá da trơn săn mồi
 
 Kiểm tra:
 - "20–25 cm" is not the card's adult size (30 cm)
-
-## Cá lóc Channa barca (Channa barca)
-id: `channa-barca`
-
-Loài này hợp với người có chỗ đặt một bể thuộc loại lớn nhất, chịu nuôi riêng một con và muốn chơi cá lóc hiếm. Cá lớn tới 90 cm, sống trong nước 10–28 °C, pH 6–8, độ cứng 2–20 dGH. Độ khó 6/8 (khó): khó nhất là nắp bể phải thật khít và phải cho cá trải qua mùa đông, mùa hè khác nhau rõ ràng.
-
-- Đậy nắp không khít: cá hay nhảy và giỏi trốn, nên dùng nắp thật khít và chừa một khoảng trống giữa nắp và mặt nước để cá đớp khí ẩm.
-- Giữ nhiệt độ cố định quanh năm: cho nhiệt độ đổi theo mùa, mùa đông và mùa hè tách bạch như ngoài tự nhiên.
-- Cho ăn tim bò hoặc thịt gà: cá không chuyển hóa được chất béo trong các loại thịt này, nên cho thịt cá cắt miếng, tôm nguyên con hoặc trai.
-
-Kiểm tra:
-- "cá không chuyển hóa được chất béo trong các loại thịt này": the page says the fish cannot process "một số loại chất béo" (some kinds of fat) in these meats. The summary drops "some" and turns a limited claim into a blanket one.
 
 ## Cá lóc Channa burmanica (Channa burmanica)
 id: `channa-burmanica`
@@ -390,6 +508,18 @@ Cá lóc Channa panaw là loài cá lóc nhỏ, dài tối đa chưa tới 20 cm
 
 Kiểm tra:
 - Adult size: summary says "dài tối đa chưa tới 20 cm" (under 20 cm), but the DATA CARD gives 20 cm, and the card wins over the page text.
+
+## Cá heo hề (Chromobotia macracanthus)
+id: `chromobotia-macracanthus`
+
+Hợp với người có chỗ đặt bể dài ít nhất 180 cm và nuôi được đàn ít nhất 5 hoặc 6 con, tốt nhất là từ 10 con trở lên. Cá dài tới 40 cm và sống 10–25 năm nên phải tính chuyện lâu dài. Nước cần 24–30 °C, pH 5–7, độ cứng 1–12 dGH, sạch và giàu oxy. Độ khó 4/8, khó nhất là bể lớn, đàn đông và giữ nước thật sạch.
+
+- Mua một vài con thả bể nhỏ thì nên nuôi đàn ít nhất 5 hoặc 6 con trong bể dài ít nhất 180 cm, vì nuôi lẻ thì cá nhút nhát hoặc hung hăng, còn mua hai hoặc ba con thì con đầu đàn có thể chèn ép những con còn lại đến mức bỏ ăn.
+- Thả cá vào bể mới set chưa có hệ vi sinh thì nên chờ bể chạy ổn định rồi mới thả, sau đó thay 30–50% nước mỗi tuần vì cá không chịu được chất thải hữu cơ tích tụ.
+- Để bể hở hoặc có vật cạnh sắc thì nên đậy nắp thật khít vì cá hay nhảy, và bỏ vật sắc cạnh vì cá thích lách vào khe hẹp.
+
+Kiểm tra:
+- Mistake 1: "nuôi lẻ thì cá nhút nhát hoặc hung hăng" drops the page's hedge. The page says a single fish "có thể trở nên nhút nhát, lầm lì hoặc hung hăng", so this turns a possibility into a certainty.
 
 ## Cá minnow bụng đỏ phương Nam (Chrosomus erythrogaster)
 id: `chrosomus-erythrogaster`
@@ -452,6 +582,19 @@ Hoplisoma gladysae hợp với người thích cá nước mát, cứng và nhi�
 Kiểm tra:
 - "Cần bể từ 60 cm, ... nền cát mịn và vài hòn đá nhẵn": the page says fine sand is best but rounded gravel is also fine, and decor is up to the keeper. Smooth stones only "có vẻ hợp" (seem to suit). The summary turns this hedge into a requirement.
 
+## Cá da trơn Cranoglanis henrici (Cranoglanis henrici)
+id: `cranoglanis-henrici`
+
+Loài này chỉ hợp với người chấp nhận nuôi khi tài liệu chăm sóc còn rất ít, vì cá cũng hiếm xuất hiện trong giới chơi cá cảnh. Cá lớn tới 29 cm, cần nước mát 20–24 °C, pH 6–7,2. Khó nhất là đây là cá săn mồi và thông tin nuôi còn thiếu.
+
+- Đừng mua khi chưa tính tới chuyện đây là cá săn mồi; hãy cân nhắc kỹ điều này trước khi mua.
+- Đừng để nước ấm hơn mức cá cần; giữ nhiệt độ trong khoảng 20–24 °C.
+- Đừng mua khi chưa tính tới kích thước trưởng thành 29 cm; hãy chuẩn bị bể đủ rộng từ đầu.
+
+Kiểm tra:
+- "Đừng mua khi chưa tính tới kích thước trưởng thành 29 cm; hãy chuẩn bị bể đủ rộng từ đầu": the page gives no advice about tank size or space. It only lists the size, so this fix is invented.
+- "Đừng để nước ấm hơn mức cá cần": the page never warns against warm water or says this is a mistake. Only the card's 20–24 °C range exists, so this mistake and its fix are not on the page.
+
 ## Cá cichlid pike đốm trắng (Crenicichla albopunctata)
 id: `crenicichla-albopunctata`
 
@@ -497,17 +640,6 @@ Cá pike cichlid hổ (Crenicichla tigrina) hợp với người đã có kinh n
 Kiểm tra:
 - "hợp với người đã có kinh nghiệm": the page never says the species needs an experienced keeper. The card rates difficulty 4/8, which is medium. This claim about who it suits is not on the page.
 
-## Cá rong rêu cobitis (Crossocheilus cobitis)
-id: `crossocheilus-cobitis`
-
-Cá rong rêu cobitis (Crossocheilus cobitis) hợp với người đã nuôi cá một thời gian, độ khó 5/8 là mức vừa. Cá dài 5,2 cm, cần bể dài tối thiểu 100 cm (đáy 100 × 30 cm, khoảng 90 lít), nước 20–26 °C, trong bể cá hay gặm lớp màng sinh học hình thành trên đá. Điểm khó nhất là khẩu phần: cá ăn lớp tảo bám nên phải cho ăn đúng loại, không cho đồ giàu đạm.
-
-- Cho ăn đồ giàu đạm khiến cá tích mỡ, có thể thoái hóa nội tạng; nên cho thức ăn khô có Spirulina và thêm rau tươi như đậu Hà Lan bóc vỏ, bí ngòi chần.
-- Tin tên 'Crossocheilus siamensis' trên cá bán ra là đúng loài; nên đối chiếu đặc điểm như hai cặp râu và sọc giữa thân chạy liền từ mõm đến gốc vây đuôi, kết thúc bằng đốm nhỏ.
-
-Kiểm tra:
-- Mistake 1: "Cho ăn đồ giàu đạm khiến cá tích mỡ" states fatty build-up as certain. The page hedges it: "nếu ăn đều đặn trong thời gian dài, cá có thể bị tích mỡ quá mức". The condition (regular, long-term feeding) and the "có thể" are lost for the fat build-up.
-
 ## Cá măng characin hujeta (Ctenolucius hujeta)
 id: `ctenolucius-hujeta`
 
@@ -519,18 +651,6 @@ Hợp với người đã có bể lớn và muốn thử cá săn mồi: cá d�
 
 Kiểm tra:
 - Third mistake's fix says "nên cho cá nhỏ, trùng huyết, tôm, thịt cá cắt miếng". On the page, "Cá nhỏ" in the diet section means small specimens of this fish, which eat bloodworms and so on. It doesn't recommend small fish as food. The fix also clashes with the same mistake, which warns against feeder fish, because the page says feeder fish are of little benefit.
-
-## Cá Cyclocheilichthys armatus (Cyclocheilichthys armatus)
-id: `cyclocheilichthys-armatus`
-
-Hợp với người có bể lớn, đáy 180 × 60 cm (khoảng 648 lít), muốn nuôi một đàn cá chép hiền, lạ mắt, trưởng thành 23 cm. Nước 20–26 °C, pH 6–8, độ cứng 2–15 dGH, và phải luôn thật sạch, giàu oxy. Độ khó 5/8. Khó nhất là tài liệu nuôi còn rất ít, cá hiếm khi nhập về số lượng lớn và chưa ai cho sinh sản trong bể.
-
-- Nuôi lẻ một hai con thì cá nhát và kém màu; nuôi nhóm ít nhất sáu con.
-- Để bể trống trơn hoàn toàn; nên bày trí thêm trong bể.
-- Nuôi chung với cá bơi chậm hoặc nhát, vì cá lớn có thể làm chúng sợ; chọn bạn cùng bể như các loài cá chép, cá chạch, cichlid, cá da trơn hay characin.
-
-Kiểm tra:
-- "chưa ai cho sinh sản trong bể": the page hedges this ("có lẽ chưa ai cho loài này sinh sản trong bể", "theo những gì được biết đến nay"). The summary turns the hedge into a certainty.
 
 ## Cá Cyprichromis vảy nhỏ (Cyprichromis microlepidotus)
 id: `cyprichromis-microlepidotus`
@@ -579,6 +699,19 @@ Cá danio Meghalaya (Danio meghalayensis) hợp với người đã có kinh ngh
 
 Kiểm tra:
 - "Cắm sưởi hoặc để nước ấm lâu ngày: cá sẽ sống chật vật" – the page only says that water above 25°C for a long time means the fish "thường sống chật vật" (often struggle). The hedge becomes a certainty ("sẽ"). The page also never says a heater causes struggling. It only says it is best to keep them without a heater.
+
+## Cá badis đỏ (Dario dario)
+id: `dario-dario`
+
+Cá badis đỏ (Dario dario) hợp với người muốn một bể nano nuôi riêng một loài, độ khó 4/8. Cá dài khoảng 2 cm, bể tối thiểu 45 cm, nước 18–26 °C, pH 6,5–8,5, độ cứng 1–15 dGH, trồng dày cây và có nhiều chỗ trốn. Khó nhất là cá nhút nhát, dễ bị bạn cùng bể to dọa hoặc giành mồi, còn con đực thì hung hăng với nhau khi bể chật.
+
+- Thả chung với cá to hoặc dữ thì cá bị dọa và mất phần ăn; nên nuôi riêng, hoặc chọn cá nhỏ bơi tầng trên và giữa.
+- Cho ăn trùng huyết hoặc trùng chỉ dễ làm cá béo phì và mắc bệnh; bỏ hai món này, dùng mồi sống hoặc đông lạnh cỡ nhỏ như Artemia, Daphnia, giun micro.
+- Nhốt nhiều con đực trong bể chật sẽ có đánh nhau; bể nhỏ chỉ nên nuôi một cặp hoặc một đực với vài cái, bể rộng mới nuôi nhóm và phải chừa lãnh thổ cho từng đực.
+
+Kiểm tra:
+- Mistake 3, "Nhốt nhiều con đực trong bể chật sẽ có đánh nhau": the page hedges with "các con đực có thể rất hung hăng với nhau, nhất là trong không gian chật". The summary turns that "may" into a certainty ("sẽ có đánh nhau").
+- The summary's "con đực thì hung hăng với nhau khi bể chật" also states as fact what the page says only as a possibility ("có thể rất hung hăng").
 
 ## Cá Denticetopsis praecox (Denticetopsis praecox)
 id: `denticetopsis-praecox`
@@ -680,6 +813,13 @@ Kiểm tra:
 - Mistake 2 "Bày bể trơn hoặc nền mịn ... nên lót sỏi và đá": the page gives no aquarium or substrate advice. It only describes the wild habitat at one collection site. Turning that into a mistake and a fix is advice the page doesn't give.
 - "nên dữ liệu nuôi còn ít": the page says nothing about how much husbandry data exists. It only says the species is recorded from one site and that Garra taxonomy is confused.
 
+## Cá tỳ bà bướm chấm (Gastromyzon punctulatus)
+id: `gastromyzon-punctulatus`
+
+Hợp với người có bể nước thật sạch, giữ nhiệt trong khoảng 22–28 °C, tốt nhất ở khoảng giữa. Có dòng chảy mạnh thì càng tốt. Cá dễ cho ăn, nhận mọi loại thức ăn, hợp nhất là đồ đông lạnh cỡ nhỏ, và sống hòa thuận với cá cùng loài lẫn loài khác. Điểm khó nhất là giữ nước luôn thật sạch.
+
+- Chỉ trông vào rêu để nuôi cá: chúng tìm sinh vật li ti trong lớp bám chứ không mặn mà với rêu, nên cho thêm thức ăn đông lạnh cỡ nhỏ.
+
 ## Cá cầu vồng Glossolepis dorityi (Glossolepis dorityi)
 id: `glossolepis-dorityi`
 
@@ -722,6 +862,18 @@ Cá nheo Hemisilurus moolenburghi lớn tới 50 cm, nên cần bể thật rộ
 
 Kiểm tra:
 - "nên cần bể thật rộng" and the mistake "Nuôi như cá nhỏ trong bể vừa... chuẩn bị bể thật rộng ngay từ đầu": the page gives no tank or space advice, only the 50 cm size. This is an inference and advice the page doesn't give.
+
+## Cá rô phi Mexico Herichthys carpintis (Herichthys carpintis)
+id: `herichthys-carpintis`
+
+Hợp với người muốn bắt đầu chơi cichlid lớn Trung và Bắc Mỹ. Độ khó 4/8, cá lớn tới 30,5 cm nên cần bể tối thiểu dài 120 cm, nước 24–26 °C, pH 7, độ cứng 8–14 dGH, lọc tốt. Khó nhất là chọn cá nuôi chung vì cá hay giành chỗ, đôi khi dữ, cá nhỏ bị coi là mồi, và lúc đẻ con đực có thể đánh con cái.
+
+- Thả cá nhỏ nuôi chung thì sẽ bị coi là mồi; chọn bạn cùng bể cẩn thận, đừng chọn cá nhỏ.
+- Trồng cây dưới nền thì cá đào bật lên; dùng đá, lũa để chia chỗ và chừa khoảng trống.
+- Cho cặp đẻ mà không chuẩn bị tấm ngăn thì con cái dễ bị đực đánh; có sẵn tấm ngăn bể để tách cá khi cần.
+
+Kiểm tra:
+- Third mistake: "thì con cái dễ bị đực đánh" turns the page's hedge (the male "có thể quay sang đánh con cái") into a likelihood. It also implies that having no divider causes the attack, but the page only says to keep a divider ready in case it is needed.
 
 ## Cá rô phi Texas (Herichthys cyanoguttatus)
 id: `herichthys-cyanoguttatus`
@@ -815,18 +967,6 @@ Cá gai giáp (Indostomus paradoxus) hợp với người đã có kinh nghiệm
 Kiểm tra:
 - "hợp với người đã có kinh nghiệm": the page never says the species suits experienced keepers. The card gives difficulty 4/8, which is medium, so this is an unsupported claim about who it suits.
 
-## Cá trê thủy tinh Mekong (Kryptopterus geminus)
-id: `kryptopterus-geminus`
-
-Cá trê thủy tinh Kryptopterus geminus hợp người có bể cỡ lớn, vì cá dài tới 20 cm. Nước giữ ở 24–28 °C, pH 6–8. Cá ăn cá, tôm, côn trùng và ấu trùng côn trùng, nên khó nhất là chọn bạn cùng bể.
-
-- Thả chung với cá nhỏ hoặc tôm: loài này ăn cá và tôm, nên chọn bạn cùng bể là cá đủ lớn.
-- Coi nó như cá trê thủy tinh Kryptopterus vitreolus nhỏ phổ biến rồi nuôi bể nhỏ: K. geminus dài tới 20 cm, nên chuẩn bị bể cỡ lớn từ đầu.
-
-Kiểm tra:
-- "nên khó nhất là chọn bạn cùng bể": the page never says tank mates are the hardest part. It only lists the diet (fish, shrimp, insects), so this is an inference stated as fact.
-- "chọn bạn cùng bể là cá đủ lớn": the page gives no tank-mate advice and no size at which fish are safe from it, so this fix is invented.
-
 ## Cá Labiobarbus siamensis (Labiobarbus siamensis)
 id: `labiobarbus-siamensis`
 
@@ -859,13 +999,14 @@ Neolamprologus kungweensis hợp với người đã nuôi cichlid Tanganyika, m
 Kiểm tra:
 - "hợp với người đã nuôi cichlid Tanganyika": the page never says the species needs or suits experienced Tanganyika keepers. The card difficulty is medium (4/8), so this suitability claim is unsupported.
 
-## Cá dadio (Laubuka dadiburjori)
-id: `laubuka-dadiburjori`
+## Cá signatus (Lamprologus signatus)
+id: `lamprologus-signatus`
 
-Cá neochela dadiburjori (Laubuka dadiburjori) hợp với người muốn một đàn cá nano dài tối đa 3 cm, sống theo đàn, rất hiền, để làm sinh động phần trên của bể. Hồ sơ ghi cá không kén thông số nước, nhiệt độ nên giữ trong khoảng 22–28 °C. Điểm cần để ý nhất là cá không thích xuống đáy kiếm ăn, nên phải tính chuyện này khi cho ăn và chọn thức ăn cỡ vừa miệng.
+Cá signatus (Lamprologus signatus) nhỏ, chỉ 5,5 cm, độ khó 2/8 nên người mới có bể riêng cho cichlid Tanganyika vẫn nuôi được. Bể tối thiểu 45 cm (45 cm x 30 cm x 30 cm, 40 lít) đủ cho một cặp hoặc nhóm ba con. Nước phải cứng và kiềm: 23–27 °C, pH 7,5–9, 10–25 dGH. Điểm khó nhất là con đực rất hung dữ với đồng loại và giữ lãnh thổ quanh vỏ ốc rất quyết liệt.
 
-- Để thức ăn chìm xuống đáy: loài này không thích xuống đáy kiếm ăn, nên tính chuyện này khi cho ăn và chọn thức ăn cỡ vừa miệng.
-- Bỏ qua loài này vì nghe tiếng khó nuôi: nhiều khả năng tiếng xấu bắt nguồn từ các đợt nhập đầu tiên vào thập niên 1970, còn cá nhập hiện nay nuôi không gặp vấn đề gì.
+- Thả nhiều đực vào bể nhỏ thì chúng đánh nhau; trừ khi bể rộng, chỉ nuôi một đực, hoặc một đực với vài cái.
+- Cho ít vỏ ốc thì cá tranh chỗ và cái không có nơi đẻ; rải số vỏ nhiều hơn số cá, mỗi con cái cần 4-5 vỏ.
+- Trải nền mỏng thì cá không đào bới được; chừa nhiều khoảng cát trống và trải lớp nền dày.
 
 ## Cá cichlid ốc meeli (Lepidiolamprologus meeli)
 id: `lepidiolamprologus-meeli`
@@ -917,14 +1058,17 @@ Cá chạch Loktak (Lepidocephalichthys irrorata) hợp với người muốn nu
 Kiểm tra:
 - "trong bể thủy sinh yên tĩnh": the page never says the fish suits a planted (thủy sinh) or "quiet" tank. It only says plants are optional, the light can be dim, and strong current should be avoided. The page also says tank mates that swim in the upper level make the fish less shy.
 
-## Cá chạch Lepidocephalichthys thermalis (Lepidocephalichthys thermalis)
-id: `lepidocephalichthys-thermalis`
+## Cá cigar vây đỏ (Leptobarbus rubripinna)
+id: `leptobarbus-rubripinna`
 
-Cá chạch nhỏ, lớn tới 5 cm. Hồ sơ nói hợp người mới tập nuôi chạch, nhưng thẻ ghi độ khó 6/8 (khó). Cần bể từ 45 cm (đáy 45 × 30 cm, khoảng 41 lít), nước 22–26 °C, pH 6–8, độ cứng 2–12 dGH, dựng kiểu suối chảy với đá, sỏi, lũa và nhiều chỗ trốn. Khó nhất là giữ bể chín, nhiều oxy và có dòng chảy, thay 30–50% nước mỗi tuần.
+Cá cigar vây đỏ (Leptobarbus rubripinna) chỉ hợp với người có bể cực lớn hoặc thủy cung, không hợp bể nhà thông thường. Cá lớn tới 100 cm, cần bể dài tối thiểu 200 cm, nước 20–26 °C, pH 6–8, độ cứng 5–15 dGH, dòng chảy mạnh, nhiều oxy và nước luôn thật sạch. Khó nhất (độ khó 6/8) là cá mua ngoài tiệm còn nhỏ nhưng lớn rất to, lại hay nhảy và hay giật mình.
 
-- Thả vào bể chưa chạy xong chu trình nitơ; nên đợi bể ổn định vi sinh rồi mới thả.
-- Nuôi lẻ một con; nên nuôi theo đàn từ 4 con trở lên cho cá khỏe.
-- Để bể nước tĩnh, ít oxy; nên lắp một hoặc hai lọc ngoài công suất mạnh để tăng oxy và tạo dòng chảy.
+- Mua cá con ngoài tiệm vì dễ mua mà không tính chuyện lớn; hãy lo trước bể dài tối thiểu 200 cm cho cá trưởng thành, không có bể đó thì đừng mua.
+- Đậy nắp lỏng; cá nhảy rất mạnh và dễ giật mình, nên dùng nắp nặng, đậy thật khít.
+- Để nước tù, chất thải tích tụ; cá cần nước thật sạch, nhiều oxy và dòng chảy khá mạnh, nên dùng lọc ngoài hoặc máy tạo dòng.
+
+Kiểm tra:
+- "hay giật mình" / "dễ giật mình": the page only says large cyprinids "đôi khi khá dễ giật mình" (sometimes fairly skittish), a general remark about the group. The summary turns this hedge into a firm trait of this species.
 
 ## Cá Leptodoras cataniai (Leptodoras cataniai)
 id: `leptodoras-cataniai`
@@ -948,15 +1092,6 @@ Hợp với người đã nuôi vài loại cá đẻ con và muốn một loài
 
 Kiểm tra:
 - "Hợp với người đã nuôi vài loại cá đẻ con": the page never says this species needs previous livebearer experience. It calls the fish "khá dễ tính". The suitability claim is invented.
-
-## Cá limia perugiae (Limia perugiae)
-id: `limia-perugiae`
-
-Cá limia perugiae (Limia perugiae) là cá đẻ con, sống ở Cộng hòa Dominica. Cá bán ra là cá sinh sản tại Đức, kích cỡ 4-5 cm, hàng về khá đều nhưng mỗi đợt thường chỉ có vài con. Hồ sơ chưa ghi bể tối thiểu, nhiệt độ hay thông số nước, nên cần tìm thêm thông tin chăm sóc trước khi quyết định nuôi.
-
-
-Kiểm tra:
-- "4-5 cm": the card gives no adult size
 
 ## Cua nano Limnopilos naiyanetri (Limnopilos naiyanetri)
 id: `limnopilos-naiyanetri`
@@ -1088,15 +1223,6 @@ Hợp với người đã có chút kinh nghiệm (độ khó 5/8) và thích se
 Kiểm tra:
 - "thức ăn khô chỉ nên là phần phụ": the page only says not to feed dry food alone ("không nên chỉ cho ăn mỗi loại này") and that fish accept it. It never says dry food should be only a minor part of the diet, so this advice is invented.
 
-## Cá heo zodiac (Nemacheilus triangularis)
-id: `nemacheilus-triangularis`
-
-Cá heo zodiac (Nemacheilus triangularis) hợp với người đã có bể chạy ổn định lâu, thích bể kiểu suối và chịu thay nước đều. Cá dài 6 cm, cần bể dài tối thiểu 75 cm (đáy 75 × 30 cm), nước 18–25,5 °C, pH 6–7,5, độ cứng 2–12 dGH, có dòng chảy và nhiều oxy. Độ khó 6/8 (khó): nước phải thật sạch, còn tính khí thì khó đoán, có người thấy cá hiền, có người thấy cá giữ lãnh thổ và hung hăng.
-
-- Nuôi lẻ hoặc chỉ vài con: nên mua từ bốn con trở lên vì ngoài tự nhiên cá sống thành đàn khá đông.
-- Thả thẳng vào bể cộng đồng đã ổn định: nên thận trọng, chọn bạn cùng bể là cá khỏe ưa môi trường tương tự và đừng nuôi chung với cá chậm chạp như Corydoras.
-- Để nước tù, chất thải tích tụ: nên thay 30–50% nước mỗi tuần và thêm lọc máy, máy tạo dòng hoặc sủi khí cho nước nhiều oxy.
-
 ## Cá chạch Schistura yingjiangensis (Nemacheilus yingjiangensis)
 id: `nemacheilus-yingjiangensis`
 
@@ -1143,20 +1269,6 @@ Kiểm tra:
 - "hợp người đã có bể riêng và muốn thử cichlid Tanganyika": the page never says who the species suits. It doesn't say the keeper needs an existing tank or any experience, and the card rates it 2/8, which is easy.
 - "Thả ít vỏ ốc rỗng thì cá tranh nhau và đánh nhau": the page only says shells must outnumber the fish. It also says that in the wild and sometimes in a tank a pair shares one shell, depending on shell count and each fish's temperament. It does not say too few shells makes the fish fight over them.
 
-## Cá lau kiếng Neoplecostomus microps LDA34 (Neoplecostomus microps)
-id: `neoplecostomus-microps`
-
-Cá lau kiếng Neoplecostomus microps LDA34 hợp với người muốn nuôi loài nhỏ, trưởng thành 10,2 cm, và giữ được nước mát 20–25 °C, pH 6–7,2. Ngoài tự nhiên cá sống ở đoạn sông nước xiết nhiều đá, nên bể nên có đá và khe giữa các hòn đá. Điểm khó nhất là hồ sơ không nêu bể tối thiểu hay cách nuôi trong bể, và chưa có báo cáo nào về việc cho đẻ trong bể.
-
-- Đừng để nước ấm lên quá mức; ngoài tự nhiên cá sống ở nước mát, nên giữ nhiệt độ 20–25 °C.
-- Đừng để bể trống đá; cá lớn ở trong khe giữa các tảng đá và hòn đá, nên xếp đá để có khe cho cá núp.
-- Đừng nuôi trong nước tĩnh hoàn toàn; cá lớn sống ở đoạn nước xiết chảy qua đá, nên tạo dòng chảy trong bể.
-
-Kiểm tra:
-- "nên tạo dòng chảy trong bể" and "Đừng nuôi trong nước tĩnh hoàn toàn": the page only says adults live in fast water in the wild. It gives no aquarium advice about water flow, and this is not clearly implied.
-- "nên xếp đá để có khe cho cá núp" and "bể nên có đá và khe giữa các hòn đá": the page describes the wild habitat only and gives no tank-setup advice. This also contradicts the summary's own statement that the page says nothing about keeping the fish in a tank.
-- "Đừng để nước ấm lên quá mức": the page never lists warm water as a mistake. The card gives only the 20–25 °C range, so presenting this as a common mistake with a fix is an unsupported addition.
-
 ## Cá rô phi Mozambique (Oreochromis mossambicus)
 id: `oreochromis-mossambicus`
 
@@ -1195,14 +1307,14 @@ Kiểm tra:
 ## Cá bống tượng (Oxyeleotris marmorata)
 id: `oxyeleotris-marmorata`
 
-Cá bống tượng (Oxyeleotris marmorata) hợp với người chơi đã có kinh nghiệm, muốn nuôi một con cá săn mồi lớn, ít bơi, hoạt động về đêm. Cần bể dài tối thiểu 150 cm (150 × 60 × 60 cm, khoảng 540 lít), nước 22–28 °C, pH 6,5–7,5, độ cứng 10–15 dGH, nền cát mềm và chỗ trốn. Cá lớn tới 65 cm, nuốt mọi con cá lọt miệng nên chỉ hợp nuôi một mình, và phải cho ăn thức ăn gốc thịt, đừng cho ăn quá tay.
+Cá bống tượng (Oxyeleotris marmorata) hợp với người chơi đã có kinh nghiệm, thích cá săn mồi ít bơi, hoạt động về đêm và chịu nuôi một mình một bể. Cần bể dài tối thiểu 150 cm, nền cát mềm, nước 22–28 °C, pH 6,5–7,5, độ cứng 10–15 dGH; cá lớn tới 65 cm, độ khó 4/8. Khó nhất là chỗ cho cá to cỡ này và việc nó nuốt bất cứ con cá nào vừa miệng, nên khó nuôi ghép.
 
-- Nuôi chung với cá khác: cá nuốt bất cứ con nào lọt miệng và không chịu đồng loại, nên nuôi một mình.
-- Cho ăn thức ăn không có thịt hoặc cho ăn quá tay: cá chỉ ăn thịt và cực kỳ phàm ăn, nên cho thức ăn gốc thịt và cho vừa phải.
-- Rải nền thô, chiếu đèn sáng: cá thích đào bới và hoạt động về đêm, nên dùng cát mềm, để đèn dịu và có chỗ trốn.
+- Nuôi chung với cá nhỏ hoặc nuôi hai con cùng bể: cá nuốt mọi con lọt miệng và không chịu đồng loại, nên nuôi một mình.
+- Cho ăn quá tay vì cá cực kỳ phàm ăn: nên cho vừa phải, dùng thức ăn gốc thịt như tôm nguyên con hoặc giun đất to cho cá lớn.
+- Trải nền cứng, để đèn sáng và không có chỗ trốn: nên rải cát mềm, để đèn dịu và đặt lũa to, ống nhựa hoặc chậu đất nung cho cá nấp.
 
 Kiểm tra:
-- "hợp với người chơi đã có kinh nghiệm": the page only says it suits a really passionate keeper who has the means to keep it properly ("người chơi thật sự đam mê và có đủ điều kiện"). It never asks for prior experience, and the card difficulty is medium (5/8).
+- "hợp với người chơi đã có kinh nghiệm": the page says it suits a keen hobbyist ("người chơi thật sự đam mê") who has the means to keep it properly. It never asks for prior experience, and the card difficulty is only medium (4/8).
 
 ## Cá nheo Tachysurus intermedius (Pelteobagrus intermedius)
 id: `pelteobagrus-intermedius`
@@ -1311,6 +1423,18 @@ Tôm hùm đất hang động Miami (Procambarus milleri) hợp với người m
 Kiểm tra:
 - Third mistake: "Thả con non chung với tôm hoặc cá khác ... nên chú ý tách riêng hoặc chỉ nuôi chung khi đã trưởng thành". The page only says juveniles compete fiercely for food and space, and that adults are fairly safe in a community tank. It says nothing about juveniles attacking other shrimp or fish, and it never advises separating them. That fix is advice the page doesn't give.
 
+## Cá fenestratus (Protomelas fenestratus)
+id: `protomelas-fenestratus`
+
+Hợp với người muốn một loài cichlid Malawi hiền, không ồn như mbuna. Cần bể dài tối thiểu 120 cm, nước 24–28 °C, pH 7,6–8,8, độ cứng 10–25 dGH, nền cát và nhiều đống đá có hang; cá lớn tới 14 cm, độ khó 4/8. Khó nhất là con đực hay đuổi cá khác và có thể lai với loài gần giống, nên phải chọn kỹ cá nuôi chung.
+
+- Nuôi chung với P. taeniolatus hay Protomelas sp. 'steveni taiwan reef' thì có thể bị lai; nên nuôi riêng loài này hoặc chỉ ghép với loài khác hẳn.
+- Thả chung với mbuna ồn ào làm cá bị giành chỗ và căng thẳng; nên ghép với Aulonocara, Copadichromis hoặc các loài Malawi hiền khác.
+- Nuôi nhiều đực trong bể nhỏ hoặc chỉ một đực với một cái thì đực đuổi dữ; giữ một đực với vài con cái, chỉ nuôi hơn một đực khi bể thật lớn.
+
+Kiểm tra:
+- Mistake 2: "Thả chung với mbuna ồn ào làm cá bị giành chỗ và căng thẳng" gives a consequence the page doesn't state. The page only says this species is gentle and unsuited to noisy mbuna. The only place it mentions fish competing for spots is at spawning, and there it is this species that does it. Nothing on the page says mbuna make it lose spots or become stressed.
+
 ## Cá bống kèo (Pseudapocryptes elongatus)
 id: `pseudapocryptes-elongatus`
 
@@ -1373,12 +1497,6 @@ Cá tetra vây đỏ (Rachoviscus crassiceps) hợp với người thích loài 
 Kiểm tra:
 - Second mistake: "Đừng nuôi bằng nước cứng, kiềm ... hãy giữ nước gần với kiểu đó" is advice the page does not give. The page only says that in the wild the species lives in soft, acidic streams. It gives no tank-water guidance, and the card has no pH or dGH, so turning the habitat into a keeping rule is invented.
 
-## Cá rasbosoma (Rasbosoma spilocerca)
-id: `rasbosoma-spilocerca`
-
-Cá rasbora đuôi kéo lùn (Rasbosoma spilocerca) hợp với người mới: độ khó 1/8, dài khoảng 3 cm nên rất vừa bể nano. Nước dễ, hồ sơ ghi không kén hóa tính nước, nước máy là nuôi được, nhiệt độ 22–28 °C, độ cứng 4 dGH. Hồ sơ không nêu điểm khó nào đáng kể ở loài này.
-
-
 ## Cá bống Rhinogobius lentiginis (Rhinogobius lentiginis)
 id: `rhinogobius-lentiginis`
 
@@ -1403,15 +1521,17 @@ Cá bitterling Rhodeus ocellatus hợp với người thích loài lạ: nuôi �
 Kiểm tra:
 - The second mistake's fix says "đừng để nước ấm lên" (don't let the water warm up). The page only says the fish do very well at water temperatures up to 26°C and need no heater. It gives no advice to stop the water warming, so this is invented advice.
 
-## Cá tetra săn mồi Araguaito (Roeboides araguaito)
-id: `roeboides-araguaito`
+## Cá rô phi cằm đen (Sarotherodon melanotheron)
+id: `sarotherodon-melanotheron`
 
-Cá tetra săn mồi Araguaito (Roeboides araguaito) có nguồn gốc từ Venezuela, lớn tới 11 cm. Hồ sơ không ghi cỡ bể, nhiệt độ, pH hay độ khó, nên cần tìm thêm thông tin trước khi quyết định nuôi. Loài này chỉ bán qua kênh bán buôn, và cá có hai cỡ là 6-8 cm và 8-10 cm.
+Cá rô phi cằm đen (Sarotherodon melanotheron) không khó tính, độ khó 4/8, nuôi được ở nước ngọt trung tính đến cứng hoặc nước hơi lợ (tỷ trọng 1,005). Cần bể dài tối thiểu 120 cm, nhiệt độ 23–28 °C, pH 7–8, độ cứng 9–19 dGH, cá lớn tới 20 cm. Khó nhất là chỗ ở: cá giành chỗ khi sinh sản và ăn cá nhỏ, nên nuôi nhóm thì bể phải thật lớn.
 
+- Nuôi chung với cá nhỏ thì chúng bị ăn; chỉ ghép với cichlid châu Phi cứng cáp tương tự, cichlid Trung Mỹ hiền hơn, cá lau kiếng hoặc Synodontis.
+- Trồng cây lá mềm thì dễ bị ăn; dùng cây cứng cáp như Anubias sp., kèm đá trơn và vài khúc lũa.
+- Nuôi nhóm trong bể chật thì cá giành chỗ khi sinh sản; dùng bể thật lớn, và muốn giữ cá bột thì tách con đực sang bể riêng sau khi đẻ.
 
 Kiểm tra:
-- "6-8 cm" is not the card's adult size (11 cm)
-- "8-10 cm" is not the card's adult size (11 cm)
+- "muốn giữ cá bột thì tách con đực sang bể riêng sau khi đẻ": the page hedges this ("có lẽ nên tách con đực sang bể riêng"). The summary states it as a firm instruction and drops the hedge.
 
 ## Cá chạch suối Schistura geisleri (Schistura geisleri)
 id: `schistura-geisleri`
@@ -1424,15 +1544,6 @@ Cá chạch suối Schistura geisleri hợp người đã nuôi được vài lo
 
 Kiểm tra:
 - "hợp người đã nuôi được vài loài": the page never says this species needs prior experience. It says "không khó nuôi nếu điều kiện phù hợp", so the experience requirement is invented.
-
-## Cá chuột râu (Scleromystax barbatus)
-id: `scleromystax-barbatus`
-
-Cá chuột râu (Scleromystax barbatus) hợp người thích cá đáy hiền, dài 10 cm, nuôi nước mát 16–24 °C, pH 5,5–7,5, độ cứng 1–12 dGH. Cần bể dài từ 120 cm, nền cát mịn hoặc sỏi tròn giữ thật sạch, có chỗ ẩn nấp. Độ khó 5/8, khó nhất là các con đực giành lãnh thổ nên không nuôi chung nhiều đực trong bể nhỏ.
-
-- Thả nhiều con đực vào bể nhỏ: chúng đánh nhau giành lãnh thổ, nên dùng bể đủ lớn và bố trí nhiều chỗ ẩn nấp.
-- Coi cá là thợ dọn bể và chỉ cho ăn đồ thừa của cá khác: hãy cho thức ăn chìm riêng, đổi món với trùng huyết, trùng chỉ.
-- Vớt cá thiếu cẩn thận: gai vây ngực khóa cứng dễ mắc lưới và có thể đâm tay khá đau, nên vớt nhẹ tay.
 
 ## Cá piranha Serrasalmus altuvei (Serrasalmus altuvei)
 id: `serrasalmus-altuvei`
@@ -1472,15 +1583,6 @@ Cá trê lũa (Sorubimichthys planiceps) hợp với người nuôi có kinh ngh
 Kiểm tra:
 - "chỉ nuôi cùng cá da trơn cỡ lớn như họ Pimelodidae hoặc Doradidae": the page says the fish can live with any species that has similar water needs and is big enough not to be swallowed. It only offers these catfish families as suggestions ("gợi ý"). "Chỉ" turns a suggestion into an exclusive rule.
 
-## Cá chocolate gourami (Sphaerichthys osphromenoides)
-id: `sphaerichthys-osphromenoides`
-
-Cá sặc sô-cô-la (Sphaerichthys osphromenoides) chỉ hợp với người đã có kinh nghiệm, giữ được bể nước đen chạy lâu, ấm và cực mềm: 25–29 °C, pH 4–6,5, 0–4 dGH, cá lớn tối đa 6 cm. Cần nguồn thức ăn sống hoặc đông lạnh cỡ nhỏ đều đặn, nuôi nhóm 4–6 con trở lên trong bể yên tĩnh, nhiều chỗ trốn. Khó nhất (độ khó 7/8) là giữ nước thật ổn định và cho cá mới về chịu ăn, vì cá yếu rất nhanh khi thông số đổi đột ngột.
-
-- Thả cá vào bể mới set up thì cá dễ yếu; chỉ thả vào bể đã chạy ổn định, hệ vi sinh trưởng thành.
-- Chỉ cho ăn thức ăn chế biến sẵn thì cá mới về có thể bỏ ăn; cho ăn bo bo, cyclops, artemia mới nở hoặc thức ăn đông lạnh trong giai đoạn làm quen.
-- Nuôi chung với cá lớn, cá bơi năng động hoặc cá tranh ăn mạnh làm cá nhút nhát bị giành mồi; nên nuôi riêng hoặc chỉ ghép với cá nhỏ, hiền như Boraras, rasbora nhỏ.
-
 ## Cá Sternarchorhynchus goeldii (Sternarchorhynchus goeldii)
 id: `sternarchorhynchus-goeldii`
 
@@ -1505,15 +1607,6 @@ Sundasalanx microps là cá tí hon, lớn tới 2 cm, độ khó 4/8 (vừa). C
 
 Kiểm tra:
 - "yếu thế khi tranh ăn": the page only says the fish is likely at a disadvantage when competing with other fish ("cạnh tranh với cá khác"). It does not say the competition is over food, so the summary adds a claim the page doesn't make.
-
-## Cá chạch hổ xanh (Syncrossus hymenophysa)
-id: `syncrossus-hymenophysa`
-
-Cá chạch hổ xanh (Syncrossus hymenophysa) hợp với người đã có bể chín, ổn định và đủ chỗ nuôi cả đàn, vì cá lớn tới 21 cm và cần bể dài tối thiểu 150 cm. Nước 25–30 °C, pH 5–7,5, độ cứng 1–12 dGH, sạch và giàu oxy, dòng chảy vừa phải. Độ khó 6/8. Khó nhất là giữ nước thật sạch và xử lý đàn có thứ bậc, vì cá có thể khá hung hăng nên cần chọn bạn cùng bể cẩn thận.
-
-- Thả cá vào bể chưa ổn định vi sinh. Nên chờ bể chín rồi mới thả, và thay 30–50% nước mỗi tuần.
-- Chỉ nuôi một con hoặc hai ba con. Nên nuôi ít nhất 5–6 con, tốt nhất từ 10 con trở lên, để con đầu đàn không rượt và không cho các con còn lại ăn.
-- Không đậy nắp kín và để khe hẹp trong bể. Nên đậy nắp thật kín vì cá hay nhảy, và trám khe nhỏ bằng keo silicone loại dùng cho bể cá để cá không chui vào rồi bị kẹt.
 
 ## Cá trê lông Synodontis clarias (Synodontis clarias)
 id: `synodontis-clarias`
@@ -1574,15 +1667,6 @@ Loài này hợp với người mê cá lạ, chịu nuôi riêng một bể cho
 Kiểm tra:
 - "Hồ sơ nhấn mạnh nước lợ và lớp nền đào được là hai thứ quan trọng nhất": the page hedges this with "Có vẻ như quan trọng nhất". The summary drops the hedge and states it as a certainty.
 
-## Cá mèo gỗ sọc (Tatia strigata)
-id: `tatia-strigata`
-
-Cá mèo gỗ sọc (Tatia strigata) lớn tới 8 cm, hợp với người thích cá nhỏ, hay trốn trong khe. Hồ sơ không nêu bể tối thiểu hay thông số nước cho nuôi thường, nên chưa đủ để chốt cấu hình bể. Chỉ biết cá ăn chủ yếu côn trùng và cần khúc lũa có khe để chui vào. Khó nhất là sinh sản: trứng chỉ phát triển trong nước rất mềm và có tính axit, cá bột nhỏ và chết nhiều.
-
-- Bể trơ trọi, không có chỗ trốn: nên bỏ vào những khúc lũa có khe, có kẽ hở để cá chui vào.
-- Cho đẻ trong nước thường rồi thấy trứng tan: nếu muốn nhân giống, cần nước rất mềm và có tính axit.
-- Cho cá bột ăn thức ăn đặc ngay: vài tuần đầu chỉ cho ăn thức ăn dạng lỏng.
-
 ## Cá nóc fahaka (Tetraodon lineatus)
 id: `tetraodon-lineatus`
 
@@ -1611,22 +1695,14 @@ Kiểm tra:
 ## Cá Trematocranus (Trematocranus placodon)
 id: `trematocranus-placodon`
 
-Cá hap ăn ốc Trematocranus placodon hợp người đã quen cichlid Malawi và có bể cỡ lớn, độ khó 4/8. Cá lớn tới 25 cm, cần bể dài tối thiểu 150 cm, nước 24–28 °C, pH 7,6–8,8, độ cứng 10–25 dGH, nền cát, đá xếp thành hang và nhiều chỗ bơi trống. Khó nhất là cá đực hay giành chỗ và dữ với nhau, nên bể không thật lớn thì nuôi riêng một loài.
+Hợp với người đã nuôi cichlid Malawi và có bể lớn, dài tối thiểu 150 cm, nước 24–28 °C, pH 7,6–8,8, độ cứng 10–25 dGH. Cá lớn tới 25 cm, ăn tạp, độ khó 4/8 (vừa). Khó nhất là cá đực dữ và hay giành chỗ: bể không thật lớn thì chỉ nên nuôi một đực, kèm vài cái.
 
-- Thả nhiều con đực vào bể không thật lớn: chỉ giữ một con đực và cho đi kèm vài con cái.
-- Để dòng chảy mạnh trong bể: giữ dòng nhẹ, vì loài này không hợp dòng mạnh.
-- Nuôi chung trong bể không thật lớn: nuôi riêng một loài, vì đực có thể chiếm cả một vùng rộng.
+- Thả nhiều con đực vào bể không thật lớn thì chúng đánh nhau; chỉ nuôi một đực, kèm vài con cái.
+- Xếp đá kín bể và để dòng chảy mạnh; nên chừa nhiều khoảng nước trống, dùng nền cát, trồng Vallisneria và giữ dòng chảy yếu.
+- Vội bắt cá mẹ đang ngậm trứng sang bể khác; làm thật cẩn thận vì cá mẹ bị stress có thể nhả trứng sớm hoặc ăn con.
 
 Kiểm tra:
-- "hợp người đã quen cichlid Malawi": the page never says the species needs an experienced keeper. It only says the fish suits a large Malawi cichlid community tank, and the card rates difficulty 4/8 (medium). The experience requirement is invented.
-
-## Cá gourami sọc (Trichogaster fasciata)
-id: `trichogaster-fasciata`
-
-Cá gourami sọc (Trichogaster fasciata) hợp với người muốn một bể cộng đồng trồng cây dày, nuôi chung với cá barb nhỏ hiền lành, cá minnow và các loài tương tự. Hồ sơ không có số liệu về nhiệt độ, pH, độ cứng hay bể tối thiểu nên chưa đủ căn cứ để nói cần nước thế nào. Điểm cần cân nhắc là chọn bạn cùng bể cho hiền, vì hồ sơ chỉ nêu nhóm cá nhỏ, hiền.
-
-- Nuôi chung với cá to hoặc hung dữ thì dễ gặp rắc rối; nên chọn cá barb nhỏ hiền lành, cá minnow hoặc loài tương tự.
-- Để bể trống, ít cây thì không hợp với loài này; nên trồng cây dày như hồ sơ gợi ý.
+- "Hợp với người đã nuôi cichlid Malawi": the page never says the species suits keepers who already have experience with Malawi cichlids. It only says the fish suits a large Malawi cichlid community tank, and the card difficulty is 4/8 (medium). The experience requirement is invented.
 
 ## Cá trichogenes vây dài (Trichogenes longipinnis)
 id: `trichogenes-longipinnis`

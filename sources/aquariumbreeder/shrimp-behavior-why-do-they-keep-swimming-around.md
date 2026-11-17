@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/shrimp-behavior-why-do-they-keep-swimming-around/
 title: Shrimp Behavior: Why Do They Keep Swimming Around? - Shrimp and Snail Breeder
 fetchedAt: 2026-11-10T15:18:47.609Z
-hash: e44f78543f2b01ea67bda9d9f56c25f10ee830efe6e939cfd8ae7cd5a6583fc9
+hash: 485d17244c2be4f8d4f0bb7225761f7400952bb061cef4279a5475d4589e119c
 ---
 
 If we want to keep our shrimp healthy and happy, we need to understand what they are saying with their behavior. For example, what does it mean, when they start swimming around frantically in the tank?
@@ -151,9 +151,3 @@ You have to address it immediately!
 - If you have ammonia, nitrites, nitrates, or copper intoxication – do water changes first.
 - Make sure that pH, GH, KH, and temperature do not fluctuate.
 - Ideally, you need to have a quarantine tank always ready.
-## 7 thoughts on “Shrimp Behavior: Why Do They Keep Swimming Around?”
-- Thanks Reply
-- my shrimp have been going nuts for 3 days now it started with one now its 2 the other 2 are fine so of them have eggs and others just gave birth but it dousnt matter because the two swimming hav eggs and no eggs. i will do a 15 percent water change if that dousent help i dont now. ther are curently no plants it the tank im working on getting some but thats probly a cause. one other thing is that i made the suck rate on my hang on back go down by taking a bio bag emptying it and fastning it around the part that sucks with 2 rubber bands and thats it. if you could right me back it whould be a big help. thanks ReplyHi Nathan, I have just sent you the message. Check your email. I have also removed your email from the post, so you won’t get spam. Best regards, Michael Reply
-- Thank you for putting all the effort into this article! Great reading! I’m sure my tank got a ready female as all males gone crazy but females remained chill. That’s the time I started searching pregnant shrimp caring. after a bunch more of SEO garbages I found your blog. Finally there is something beautifully written by human! ReplyHi Jason, Thank you for the kind words! I do appreciate it. Best regards, Michael Reply
-- Thank you for the article All of mine amano shrimp are swimming erratically for certain periods of time, then temporally calm down. They didn’t finish their food today. I did a 20% water change 2 days ago and water parameters seem fine. Also crystal red shrimp in the same tank seem to behave normal. I’m very confused and would greatly appreciate some advice ReplyHi Viktorija, If your water parameters are OK, I can assume that one of the females has molted. As a result of pheromone release, the males start swimming in circles, attempting to find her. Although Amano shrimp require saltwater to breed, they mate in freshwater anyway. Best regards, Michael Reply
-### Leave a Reply Cancel reply

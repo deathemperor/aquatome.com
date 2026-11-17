@@ -1,8 +1,12 @@
 {
   "id": "brachirus-panoides",
-  "summary": "Cá bơn lưỡi Ấn Độ (Brachirus panoides) trưởng thành dài 20 cm. Hồ sơ cho biết loài này sống qua lại giữa nước ngọt và nước biển, cá lớn hay gặp nhất ở các cửa sông. Hồ sơ không nêu bể tối thiểu, nhiệt độ, pH hay độ khó.",
-  "mistakes": [],
+  "summary": "Cá bơn lưỡi Ấn Độ (Brachirus panoides) hợp với người thích loài cá đáy ít thấy trong bể cá cảnh. Cá dài tối đa 20 cm, nuôi được trong nước ngọt hoàn toàn, nhưng nếu nước mềm thì nên pha thêm muối. Bể phải có lớp cát mịn để cá vùi mình, đây là điểm khó nhất. Cá thích trùng chỉ và trùng huyết.",
+  "mistakes": [
+    "Không lót cát mịn thì cá hay bị nấm và các bệnh ngoài da khác, nên lót cát mịn để cá vùi mình xuống.",
+    "Bỏ qua độ cứng của nước, nên đo độ cứng tổng trước và pha thêm muối nếu nước mềm."
+  ],
   "speciesUpdatedAt": "2026-11-10",
-  "generatedAt": "2026-11-10T17:01:24.008Z",
-  "review": "pending"
+  "writtenFrom": "a63178fe4f4c6d25",
+  "generatedAt": "2026-11-15T11:19:28.145Z",
+  "review": "approved"
 }

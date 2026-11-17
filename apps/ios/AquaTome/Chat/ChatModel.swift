@@ -15,6 +15,8 @@ struct ChatSubject: Hashable, Codable {
   let sci: String?
   /// Its photo; from fish ID, none (the reader's own isn't kept).
   let img: URL?
+  /// Where the fish is in `img`, as its page's lists have it.
+  var imgBox: PhotoBox? = nil
   /// From fish ID: its guesses as it words them ("Gần như chắc chắn Cá betta (cá xiêm), có thể Cá betta imbellis").
   let guesses: String?
   /// From fish ID: the second guess's name, which a starter asks how to tell apart.
@@ -37,8 +39,8 @@ extension ChatRoute {
   init?(about item: HandbookIndex.Item) {
     guard [.fish, .plant].contains(item.kind), let id = item.contentId else { return nil }
     self.init(start: Chat.Start(from: .species, about: id),
-              subject: ChatSubject(plant: item.kind == .plant, name: item.name, sci: item.subUnderName, img: item.img.flatMap(URL.init(string:)), guesses: nil, second: nil,
-                                   fish: item.isFish))
+              subject: ChatSubject(plant: item.kind == .plant, name: item.name, sci: item.subUnderName, img: item.img.flatMap(URL.init(string:)), imgBox: item.imgBox,
+                                   guesses: nil, second: nil, fish: item.isFish))
   }
 }
 
@@ -469,10 +471,14 @@ final class ChatModel {
       /// An answer cut off after its text began: the text read, so it comes back with its card (not counted), not as a
       /// counted failure with no text.
       let text: String?
+      /// The wait's first line of an answer that broke after it, so it comes back as cut off (not counted). An answered
+      /// turn's line is its `done`'s, and one `done` took back isn't kept.
+      let opening: String?
 
       var asked: Asked {
         var a = Asked(id: UUID(), question: question, key: key, anew: anew, last: last)
         a.outcome = switch outcome { case "asking": .asking; case "answered": .answered; case "lost": .lost; default: .failed(outcome) }
+        if let opening { a.reply.take(.opening(opening)) }
         if let text { a.reply.take(.text(text)) }
         if let last, let e = Chat.event(ServerEvent(name: outcome == "answered" ? "done" : "error", data: last)) { a.reply.take(e) }
         return a
@@ -496,8 +502,9 @@ final class ChatModel {
     }
     let items = thread.map { a in
       let o = switch a.outcome { case .asking: "asking"; case .answered: "answered"; case .lost: "lost"; case .failed(let c): c }
-      let cut: String? = if case .failed = a.outcome, a.reply.writing { a.reply.text } else { nil }
-      return Kept.Item(question: a.question, key: a.key, outcome: o, anew: a.anew, last: a.last, text: cut)
+      let failed = if case .failed = a.outcome { true } else { false }
+      let cut: String? = failed && a.reply.writing ? a.reply.text : nil
+      return Kept.Item(question: a.question, key: a.key, outcome: o, anew: a.anew, last: a.last, text: cut, opening: failed ? a.reply.opening : nil)
     }
     try? FileManager.default.createDirectory(at: Self.file.deletingLastPathComponent(), withIntermediateDirectories: true)
     try? JSONEncoder().encode(Kept(start: route.start, conversation: conversation, thread: items)).write(to: Self.file, options: .atomic)

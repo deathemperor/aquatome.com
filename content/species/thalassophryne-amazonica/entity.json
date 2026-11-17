@@ -12,6 +12,76 @@
     "amazon",
     "brazil"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "EC",
+        "PE",
+        "BR"
+      ],
+      "regions": [
+        "Amazon"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Inhabits tributaries of the Amazon in Ecuador, Peru and Brazil.",
+          "countries": [
+            "EC",
+            "PE",
+            "BR"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2350895,
+      "total": 11,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "PE",
+          6
+        ],
+        [
+          "BR",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -8.4375,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -74.53125,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

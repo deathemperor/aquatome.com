@@ -10,6 +10,57 @@
     "vietnam",
     "ben-hai"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VN"
+      ],
+      "regions": [
+        "Ben Hai"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The Jewel minnow was discovered in 2001 in Central Vietnam.",
+          "countries": [
+            "VN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "To date known only from the Ben Hai river system in north central Vietnam which flows chiefly through the province of Quang Tri.",
+          "countries": [],
+          "regions": [
+            "Ben Hai"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5207571,
+      "total": 23,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "VN",
+          23
+        ]
+      ],
+      "cells": [
+        [
+          106.875,
+          16.875,
+          23,
+          23
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

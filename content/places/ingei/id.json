@@ -1,8 +1,13 @@
 {
   "slug": "ingei",
-  "name": "Ingei",
+  "name": "Sungai Ingei",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-16T00:13:27.329Z"
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

@@ -1,7 +1,8 @@
-import { boxFractions, cleanPhoto, FIRST_GUIDES, FIRST_PLANTS, frameOf, photoFitsCard, POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, unmarked, type BreedEntity, type Chip, type Content, type Curation, type Loop, type Photo, type PlantEntity, type Range, type SpeciesEntity, type Traits } from '@aq/schema'
+import { boxFractions, cleanPhoto, FIRST_GUIDES, FIRST_PLANTS, frameOf, photoFitsCard, POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, unmarked, type BreedEntity, type Chip, type Content, type Curation, type GuideEntity, type Localized, type Loop, type Photo, type PlantEntity, type Range, type SpeciesEntity, type Traits } from '@aq/schema'
 import type { Box, KindShards, PageDoc } from '@aq/schema/app-page'
 import type { SpeciesIndexItem } from '../scripts/filter'
 import { breedFigures, speciesOf, type BreedFigures } from './breeds'
+import { photoCredit } from './cite'
 import { curationFor, loopOf, type AppCuration } from './curation'
 import { categoriesIn } from './equipment'
 import { categoryLabel, GROUP_LABELS, GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
@@ -9,10 +10,12 @@ import { easyPlants, featuredSpecies, groupTiles, leadGuides, listOrder } from '
 import { resizeOf, sameShape, smallSrc } from './img'
 import { appPath, served, translator, type Lang } from './i18n'
 import { termListing } from './glossary-page'
-import { guideImage, mentionIndex } from './mentions'
+import { guideImage, guideImageBefore, mentionIndex, seriesImage } from './mentions'
+import coversOff from './guide-covers-off.json' with { type: 'json' }
 import { toIndexItem } from './species-index'
 import { appRange, capitalized, countryNames, originPages, regionNames, type AppCountry, type AppRange } from './range'
 import { ORIGINS, PLACE_INTRO, PLACE_INTROS, PLACE_TITLES, RANKS, TAXON_INTRO } from './taxa-places'
+import { isUnsplash } from './unsplash'
 import { seriesGuides } from './video'
 
 /**
@@ -24,7 +27,12 @@ import { seriesGuides } from './video'
 export type AppItem = {
   /** `video`: a series of video guides (/vi/video/<slug>/). `equipment`: a kind of kit (/vi/thiet-bi/<category>/). `material`: a Vietnamese material page, opened on the web. */
   kind: 'fish' | 'plant' | 'guide' | 'glossary' | 'tool' | 'video' | 'equipment' | 'material'
-  /** The page's content id, the same in every language (fish, plants): what a saved tank lists them by. */
+  /**
+   * The page's content id, the same in every language: a fish's, plant's, guide's, glossary term's or material's folder, a
+   * video series' playlist, an equipment category. A saved tank lists fish and plants by it, and the app finds an open
+   * page's copy in another language by it. Unique within a kind only: a glossary term and a material are both "lua", and
+   * a term and an equipment category both "co2".
+   */
   id?: string
   name: string
   /** Scientific name (fish, plants); a video series' channel. */
@@ -117,6 +125,14 @@ export type AppIndex = {
   countries?: Record<string, AppCountry>
   /** What's new for the app (lib/app-latest.ts), where this language's site has /vi/moi-cap-nhat/. */
   latest?: string
+  /**
+   * Every Unsplash photo the index shows, by each address it writes one at (an item's, a chip's, a day's, a week's):
+   * its credit, as a page's copy credits it (lib/cite.ts `photoCredit`: "Ảnh: <name> trên Unsplash", the name and the
+   * photographer's page). Unsplash asks for that line wherever its photo shows, in view, so a card or a row showing one
+   * draws it under the photo (docs/governance.md, Photos, Credits). Every other photo is credited on the page it opens.
+   * None when the index shows none.
+   */
+  credits?: Record<string, ReturnType<typeof photoCredit>>
 }
 /**
  * The guides the index lists in this language, and the app has pages of (lib/app-page.ts): every one the site lists (the
@@ -179,7 +195,8 @@ export type AppHome = {
  * one photo of a member whose fish a 3:2 crop keeps (`img`, `imgBox`). `guides` and `videos`: the paths of the guides
  * about the group, written and on video, in the index's order (chipGuides); none where it has none.
  */
-export type AppChip = { id: string; name: string; order: number; count: number; members: string[]; img?: string; imgBox?: Box; guides?: string[]; videos?: string[] }
+/** `imgOf`: the member whose photo `img` is (one of `members`), so a chip names and links the fish its photo shows. */
+export type AppChip = { id: string; name: string; order: number; count: number; members: string[]; img?: string; imgBox?: Box; imgOf?: string; guides?: string[]; videos?: string[] }
 /**
  * The guides about a chip's group, by their titles (the chief of staff, 14 Nov): a guide whose title holds the chip's
  * word or one of a member's names, as this index has them, whole words (Thai, written without spaces, anywhere in it).
@@ -247,6 +264,23 @@ export const refusedByCards = (p: Photo): boolean => p.headFit === 'contain' || 
  * so a test holds both ways.
  */
 export const APP_WHOLE_PHOTOS = { on: true }
+/**
+ * The switch for a guide's card with no picture in the app (the chief of staff, 16 Nov). Off until the app's build that
+ * draws a guide card's designed cover (Thu 19): such a guide keeps the picture it had before that day's rule
+ * (guideImageBefore), so a quarter of the video shelf doesn't go grey for three days; none where that picture shows
+ * something the guide isn't about at all (guide-covers-off.json, the guide's id → what it shows). On: none, as on the
+ * site. An object, so a test holds both ways.
+ */
+export const APP_GUIDE_COVERS = { on: false }
+const OFF = coversOff as Record<string, string>
+/** A guide's picture in the app's data: its card's (guideImage), else, while APP_GUIDE_COVERS is off, the one it had, but
+ * for a guide whose old picture shows what it isn't about (guide-covers-off.json). */
+export const appGuideImage = (c: Content, g: Localized<GuideEntity>): Photo | undefined =>
+  guideImage(c, g) ?? (APP_GUIDE_COVERS.on || Object.hasOwn(OFF, g.id) ? undefined : guideImageBefore(c, g))
+/** A series' card in the app: its first part that has a card picture (seriesImage), else its first part with a picture in
+ * the app's data (appGuideImage). */
+export const appSeriesImage = (c: Content, guides: Localized<GuideEntity>[]): Photo | undefined =>
+  seriesImage(c, guides) ?? guides.map(g => appGuideImage(c, g)).find(p => !!p)
 const realPhoto = (photos: Photo[]) => photos.find(p => !p.generated)
 /**
  * The one photo a page's card and its head both show, for a fish, a breed or a plant: the page's first photo that isn't
@@ -309,22 +343,25 @@ export function chipsFor(lang: Lang, c: Content, everySpecies: Content['species'
   })
   // Pictures go to the chips with fewest fish first, so a group of one fish keeps its best photo when a wider group holds
   // it too (Dĩa inside Cichlid châu Mỹ).
-  const used = new Set<string>(), pic = new Map<string, Photo>()
+  const used = new Set<string>(), pic = new Map<string, { p: Photo; of: string }>()
   for (const x of [...held].sort((a, b) => a.members.length - b.members.length)) {
     const cover = x.chip.cover ?? [], at = (id: string) => (cover.includes(id) ? cover.indexOf(id) : cover.length)
     const ranked = [...x.members].sort((a, b) => at(a.id) - at(b.id) || Math.min(b.photos.length, 3) - Math.min(a.photos.length, 3) || a.t.name.localeCompare(b.t.name, lang))
     // The members' heads first, the photo each card leads with and the engine ranked best; then their other photos, so a
     // head that doesn't qualify leaves the member's next photo in the running. 640 px wide or more first, within each.
     const fits = (p: Photo) => !p.generated && unmarked(p) && !refusedByCards(p) && foundBox(p) && frameOf(p.width / p.height, boxFractions(p), CHIP_RATIO).fit === 'cover'
-    const heads = ranked.flatMap(m => { const h = cleanPhoto(m.photos); return h && fits(h) ? [h] : [] }), head = new Set(heads)
-    const others = ranked.flatMap(m => m.photos.filter(p => !head.has(p) && fits(p)))
+    // Whose each photo is, the first member to show it: a head, or a photo from a member's page text (Cá chuột's).
+    const owner = new Map<Photo, string>()
+    const own = (p: Photo, id: string) => { if (!owner.has(p)) owner.set(p, id); return p }
+    const heads = ranked.flatMap(m => { const h = cleanPhoto(m.photos); return h && fits(h) ? [own(h, m.id)] : [] }), head = new Set(heads)
+    const others = ranked.flatMap(m => m.photos.filter(p => !head.has(p) && fits(p)).map(p => own(p, m.id)))
     const wide = (ps: Photo[]) => [...ps.filter(p => p.width >= 640), ...ps]
     const p = [...wide(heads), ...wide(others)].find(p => !used.has(p.url))
-    if (p) { used.add(p.url); pic.set(x.chip.id, p) }
+    if (p) { used.add(p.url); pic.set(x.chip.id, { p, of: owner.get(p)! }) }
   }
   return held.map((x, i) => {
-    const p = pic.get(x.chip.id)
-    return { id: x.chip.id, name: x.name, order: i + 1, count: x.members.length, members: x.members.map(m => m.id), ...(p ? { img: cardSrc(p), imgBox: photoBox(p) } : {}) }
+    const got = pic.get(x.chip.id)
+    return { id: x.chip.id, name: x.name, order: i + 1, count: x.members.length, members: x.members.map(m => m.id), ...(got ? { img: cardSrc(got.p), imgBox: photoBox(got.p), imgOf: got.of } : {}) }
   })
 }
 
@@ -388,11 +425,11 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
         of, card: Object.keys(card).length ? card : undefined, ...(of ? {} : { tempC, ph, gh, sizeCm, tankCm, difficulty }),
       }))
     }
-    home.groups = groupTiles(lang, c).map(g => {
+    home.groups = groupTiles(lang, c, undefined, cur?.calendar.avoid).map(g => {
       const box = g.photo && resizeOf(g.photo, smallSrc(g.photo)) ? photoBox(g.photo) : undefined
       return g.photo ? { id: g.group, img: smallSrc(g.photo), ...(box ? { imgBox: box } : {}) } : { id: g.group }
     })
-    home.fish = featuredSpecies(lang, c, 30).map(s => at(`/vi/ca/${s.t.slug}/`))
+    home.fish = featuredSpecies(lang, c, 30, cur?.calendar.avoid).map(s => at(`/vi/ca/${s.t.slug}/`))
   }
   if (served(lang, '/vi/cay/x/')) {
     for (const p of appPlants(lang, c)) {
@@ -407,19 +444,22 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
     for (const g of appGuides(lang, c)) {
       const m = mentions.get(g.id)
       const about = m ? [...m.species.map(s => s.id), ...m.plants.map(p => p.id)] : []
-      // Its card's picture on the site: its own photo, else one from its video's sections, else a fish or plant it names.
-      const ph = guideImage(c, g)
+      // Its card's picture on the site (guideImage), or while the app has no designed cover, the one it had (appGuideImage).
+      const ph = appGuideImage(c, g)
       const path = at(`/vi/huong-dan/${g.t.slug}/`)
-      guideAt.set(g.id, path)
+      // Khám phá's guide shelf, Curation's list first: only a guide with a picture until the app draws covers, as home.guides.
+      if (ph) guideAt.set(g.id, path)
       // The picture its page opens on (guide-page.ts, app-page.ts), by its large copy as a day's card loads a head.
       if (ph) guideLead.set(`guides/${g.id}`, (ph.large ?? ph).url)
-      items.push(clean({ kind: 'guide', name: g.t.name, aka: aka(g.t.altNames), path, img: ph && cardSrc(ph), imgBox: boxOf(ph), section: g.kind, about: about.length ? about : undefined, video: g.video?.durationSec }))
+      items.push(clean({ kind: 'guide', id: g.id, name: g.t.name, aka: aka(g.t.altNames), path, img: ph && cardSrc(ph), imgBox: boxOf(ph), section: g.kind, about: about.length ? about : undefined, video: g.video?.durationSec }))
     }
-    home.guides = leadGuides(c).map(g => at(`/vi/huong-dan/${g.t.slug}/`))
+    // The app draws no cover yet (the Design Lead's app half, 15 Nov 2026): its shelves keep to guides with a picture in its
+    // data (appGuideImage), as Khám phá's guide shelf does.
+    home.guides = leadGuides(c).filter(g => appGuideImage(c, g)).map(g => at(`/vi/huong-dan/${g.t.slug}/`))
   }
   if (served(lang, '/vi/thuat-ngu/x/')) {
     // A term's English name is among its other names: the chat's search and the app's read them from here.
-    for (const g of appGlossary(lang, c)) items.push(clean({ kind: 'glossary', name: g.t.name, aka: aka([g.t.name, ...g.t.altNames].includes(g.en) ? g.t.altNames : [...g.t.altNames, g.en]), path: at(`/vi/thuat-ngu/${g.t.slug}/`), ...termListing(lang, c, g) }))
+    for (const g of appGlossary(lang, c)) items.push(clean({ kind: 'glossary', id: g.id, name: g.t.name, aka: aka([g.t.name, ...g.t.altNames].includes(g.en) ? g.t.altNames : [...g.t.altNames, g.en]), path: at(`/vi/thuat-ngu/${g.t.slug}/`), ...termListing(lang, c, g) }))
   }
   // Vietnamese pilot pages stay out of Google. No native page shards yet: an app opens them on the web once it knows the
   // kind, and today's skips them, as it does any kind it doesn't know (AquaTomeKit's Handbook.swift).
@@ -428,13 +468,13 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   }
   // A series as its page lists it; the same series the app gets pages of.
   for (const { s, guides } of appSeries(lang, c)) {
-    const ph = guideImage(c, guides[0]!)
-    items.push(clean({ kind: 'video', name: s.vi.name, sub: s.channel, path: at(`/vi/video/${s.vi.slug}/`), img: ph && cardSrc(ph), imgBox: boxOf(ph), parts: guides.length }))
+    const ph = appSeriesImage(c, guides)
+    items.push(clean({ kind: 'video', id: s.id, name: s.vi.name, sub: s.channel, path: at(`/vi/video/${s.vi.slug}/`), img: ph && cardSrc(ph), imgBox: boxOf(ph), parts: guides.length }))
   }
   // An equipment category as its page names it; the same categories the app gets pages of.
   for (const u of appEquipment(lang, c)) {
     const g = c.equipment.find(e => e.category === u.category)
-    items.push(clean({ kind: 'equipment', name: g?.name ?? t(categoryLabel(u.category)), path: at(`/vi/thiet-bi/${u.category}/`), img: g && cardSrc(g.hero), imgBox: boxOf(g?.hero) }))
+    items.push(clean({ kind: 'equipment', id: u.category, name: g?.name ?? t(categoryLabel(u.category)), path: at(`/vi/thiet-bi/${u.category}/`), img: g && cardSrc(g.hero), imgBox: boxOf(g?.hero) }))
   }
   for (const [vi, name, own, short] of TOOLS) {
     if (served(lang, vi)) items.push(clean({ kind: 'tool', name: t(name), path: at(vi), words: own.map(w => t(w)), short: short && t(short) }))
@@ -489,11 +529,50 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   }
   const codes = [...new Set(items.flatMap(i => [...(i.range?.native ?? []), ...(i.range?.records?.outside ?? []).map(([code]) => code)]))].sort()
   const nameOf = countryNames(lang, c.places, paged)
-  return {
+  const index: AppIndex = {
     version: 1, lang, items, home, labels, places,
     ...(codes.length ? { countries: Object.fromEntries(codes.map(code => [code, nameOf(code)])) } : {}),
     ...(served(lang, '/vi/moi-cap-nhat/') ? { latest: `/app/latest/${lang}.json` } : {}),
   }
+  const credits = unsplashCredits(lang, index, c)
+  return Object.keys(credits).length ? { ...index, credits } : index
+}
+
+/**
+ * The credits of the Unsplash photos `index` shows (`AppIndex.credits`), by every address it writes one at: a photo's own,
+ * its small or card copy, its thumbnail, its large copy. Read from every string the index holds, so a new place that
+ * shows a photo is credited without a line here.
+ */
+export function unsplashCredits(lang: Lang, index: AppIndex, c: Content): NonNullable<AppIndex['credits']> {
+  const at = new Map<string, Photo>()
+  for (const p of contentPhotos(c)) {
+    if (!isUnsplash(p.licence)) continue
+    for (const u of [p.url, p.thumb, p.large?.url, smallSrc(p), cardSrc(p)]) if (u) at.set(u, p)
+  }
+  const out: NonNullable<AppIndex['credits']> = {}
+  if (!at.size) return out
+  const walk = (v: unknown): void => {
+    if (typeof v === 'string') { const p = at.get(v); if (p && !out[v]) out[v] = photoCredit(lang, p) }
+    else if (Array.isArray(v)) v.forEach(walk)
+    else if (v && typeof v === 'object') Object.values(v).forEach(walk)
+  }
+  walk({ ...index, credits: undefined })
+  return out
+}
+
+/** Every photo the content holds, wherever it sits (a page's, a gallery's, a guide's figure's, a material's). */
+function contentPhotos(c: Content): Photo[] {
+  const out: Photo[] = [], seen = new WeakSet<object>()
+  const walk = (v: unknown): void => {
+    if (!v || typeof v !== 'object' || seen.has(v)) return
+    seen.add(v)
+    if (Array.isArray(v)) { v.forEach(walk); return }
+    const o = v as Record<string, unknown>
+    if (typeof o.url === 'string' && typeof o.licence === 'string' && typeof o.author === 'string' && typeof o.sourceUrl === 'string') out.push(o as unknown as Photo)
+    Object.values(o).forEach(walk)
+  }
+  walk(c)
+  return out
 }
 
 /**

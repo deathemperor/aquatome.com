@@ -1,0 +1,469 @@
+{
+  "id": "caquetaia-kraussii",
+  "scientificName": "Caquetaia kraussii",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Caquetaia",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "venezuela",
+    "llanos"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [
+        "Llanos"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "There is literally no waterbody, be it pond, lake or river, in the Llanos of Venezuela without this cichlid.",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Llanos"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371467,
+      "total": 60118,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "CO",
+          59743
+        ],
+        [
+          "VE",
+          374
+        ],
+        [
+          "US",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -85.78125,
+          32.34375,
+          1,
+          0
+        ],
+        [
+          -78.75,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -77.34375,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -77.34375,
+          2.8125,
+          8,
+          0
+        ],
+        [
+          -77.34375,
+          4.21875,
+          6,
+          0
+        ],
+        [
+          -77.34375,
+          5.625,
+          19,
+          0
+        ],
+        [
+          -77.34375,
+          7.03125,
+          12,
+          0
+        ],
+        [
+          -77.34375,
+          8.4375,
+          6,
+          0
+        ],
+        [
+          -75.9375,
+          0,
+          2,
+          0
+        ],
+        [
+          -75.9375,
+          1.40625,
+          4,
+          0
+        ],
+        [
+          -75.9375,
+          2.8125,
+          14,
+          0
+        ],
+        [
+          -75.9375,
+          4.21875,
+          18,
+          0
+        ],
+        [
+          -75.9375,
+          5.625,
+          3827,
+          0
+        ],
+        [
+          -75.9375,
+          7.03125,
+          4976,
+          0
+        ],
+        [
+          -75.9375,
+          8.4375,
+          739,
+          0
+        ],
+        [
+          -75.9375,
+          9.84375,
+          28953,
+          0
+        ],
+        [
+          -74.53125,
+          5.625,
+          14,
+          0
+        ],
+        [
+          -74.53125,
+          7.03125,
+          1969,
+          0
+        ],
+        [
+          -74.53125,
+          8.4375,
+          1784,
+          0
+        ],
+        [
+          -74.53125,
+          9.84375,
+          17369,
+          0
+        ],
+        [
+          -74.53125,
+          11.25,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          7.03125,
+          12,
+          0
+        ],
+        [
+          -73.125,
+          8.4375,
+          19,
+          17
+        ],
+        [
+          -73.125,
+          9.84375,
+          12,
+          10
+        ],
+        [
+          -71.71875,
+          7.03125,
+          4,
+          4
+        ],
+        [
+          -71.71875,
+          8.4375,
+          9,
+          9
+        ],
+        [
+          -71.71875,
+          9.84375,
+          8,
+          8
+        ],
+        [
+          -70.3125,
+          5.625,
+          2,
+          0
+        ],
+        [
+          -70.3125,
+          7.03125,
+          29,
+          29
+        ],
+        [
+          -70.3125,
+          8.4375,
+          131,
+          131
+        ],
+        [
+          -70.3125,
+          9.84375,
+          3,
+          3
+        ],
+        [
+          -70.3125,
+          11.25,
+          3,
+          3
+        ],
+        [
+          -68.90625,
+          7.03125,
+          34,
+          34
+        ],
+        [
+          -68.90625,
+          8.4375,
+          35,
+          35
+        ],
+        [
+          -68.90625,
+          9.84375,
+          14,
+          14
+        ],
+        [
+          -67.5,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          7.03125,
+          28,
+          28
+        ],
+        [
+          -67.5,
+          8.4375,
+          17,
+          17
+        ],
+        [
+          -67.5,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          8.4375,
+          5,
+          5
+        ],
+        [
+          -66.09375,
+          9.84375,
+          5,
+          5
+        ],
+        [
+          -64.6875,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          9.84375,
+          3,
+          3
+        ],
+        [
+          -63.28125,
+          7.03125,
+          4,
+          4
+        ],
+        [
+          -63.28125,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          9.84375,
+          7,
+          7
+        ],
+        [
+          -61.875,
+          7.03125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 30
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/caquetaia_kraussii_en/",
+      "html": "<p>It is seldom kept, even by specialized cichlid keepers, and it takes a long time to find this fish in local pet shops. Much of this results from the bad reputation of the fish. However, they are not that bad; much worse species are known. Offered size: 5–7 cm, captive bred.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/caquetaia_kraussii_en/",
+      "html": "<p>In the wild, Caquetaia kraussii is something like a million fish. There is literally no waterbody, be it pond, lake or river, in the Llanos of Venezuela without this cichlid.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/caquetaia_kraussii_en/",
+      "html": "<p>C. kraussii can become quite unpleasant if kept in small tanks and with the wrong company. They have a quite large mouth: fish up to 10 cm long can be swallowed by the predator, which grows up to 30 cm. It is the keeper who has to take care of the correct tank, equipment and tankmates.</p><p>Oscars (Astronotus), Hoplarchus or large Crenicichla are suitable company for C. kraussii; they will hardly be hurt, and Caquetaia do not display mouthfighting like other cichlids. If their sensitive mouth were hurt this way, the Caquetaia would starve to death.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/caquetaia_kraussii_en/",
+      "html": "<p>Up to 2,000 young fish are no rarity in one spawn. The always hungry youngsters are led by their parents throughout the tank, and delicate tankmates are doomed from that moment on, so only very robust tankmates are suitable.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/63f8a450c6ae9c70.webp",
+      "thumb": "https://media.aquatome.com/glaser/63f8a450c6ae9c70-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/caquetaia_kraussii_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ed59b94c51639c72.webp",
+      "thumb": "https://media.aquatome.com/glaser/ed59b94c51639c72-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/caquetaia_kraussii_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/6ef0edc07202315a.webp",
+      "thumb": "https://media.aquatome.com/glaser/6ef0edc07202315a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/caquetaia_kraussii_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "zm4X_hM9BFU",
+      "title": "Caquetaia kraussi male with a cloud of fry",
+      "durationSec": 35,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "xDYrbJ28cm4",
+      "title": "Caquetaia kraussi with Fry",
+      "durationSec": 38,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "vWxYtDCzjU8",
+      "title": "Caquetaia kraussi Newly Hatched Wrigglers",
+      "durationSec": 10,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "z5_a5cThClA",
+      "title": "Caquetaia kraussi Spawning",
+      "durationSec": 78,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 200 lít",
+        "bể cá lớn cho cichlid"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc bể cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá săn mồi",
+        "thức ăn cá cichlid lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-15"
+}

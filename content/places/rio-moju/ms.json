@@ -1,8 +1,13 @@
 {
   "slug": "rio-moju",
-  "name": "Moju",
+  "name": "Sungai Moju",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-16T05:41:50.122Z"
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

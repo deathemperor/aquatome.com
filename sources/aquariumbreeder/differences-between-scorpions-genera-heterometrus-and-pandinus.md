@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/differences-between-scorpions-genera-heterometrus-and-pandinus/
 title: Differences between Scorpions (Genera Heterometrus and Pandinus) - Shrimp and Snail Breeder
 fetchedAt: 2026-11-04T22:30:20.276Z
-hash: 6a0f15b4b008421704e18d94b75cd43cbc3bf6398ada641be28d7012bf2a2117
+hash: 2bdb3e1650d664e62a45e20cb4cebfa6350a1f36508feaf2feee33c599f9eba4
 ---
 
 Arachno-hobby has been increasing for the past few decades. More and more people keep scorpions as pets. Unfortunately, owing to the difficulties involved in the identification of the most popular genera (Heterometrus and Pandinus), scorpions are often advertised under false or erroneous names.
@@ -47,6 +47,3 @@ Contrary to popular belief, we cannot simply rely on claw texture and stinger co
 - Holstein, Joachim, Ingo Wendt, and Andrea Rossi. “The Emperor is back! Rediscovery and redescription of the holotype of Pandinus imperator (Scorpiones: Scorpionidae).” Arachnologische Mitteilungen 54 (2017): 44-47.
 - Systematics and biogeography of the family Scorpionidae (Chelicerata : Scorpiones), with a discussion on phylogenetic methods. Invertebrate Systematics, 2003
 - Systematic revision of the Asian forest scorpions (Heterometrinae Simon, 1879), revised suprageneric classification of Scorpionidae Latreille, 1802, and revalidation of Rugodentidae Bastawade et al., 2005 (Bulletin of the American Museum of Natural History, no. 442). Prendini, Lorenzo; Loria, Stephanie F.
-## 2 thoughts on “Differences between Scorpions (Genera Heterometrus and Pandinus)”
-- Ihave nine pis of asian forest scorpion ReplyHi Sayed zain ulAbdin shah, I sent you an email. You cannot attach pictures in the comments section here. Check your inbox for my message. I’ll try to help you identify your Asian forest scorpions once I see the photos. Send them through email and I will get back to you. Best regards, Michael Reply
-### Leave a Reply Cancel reply

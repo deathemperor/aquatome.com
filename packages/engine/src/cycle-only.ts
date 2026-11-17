@@ -17,6 +17,19 @@ const COPY_HOSTS = [
   'r.jina.ai',
 ]
 
+/**
+ * Sites refused as a source for anything new, whatever the page (the chief of staff, 16 Nov 2026): cabaymau.vn gave a guide
+ * clinics no page named, a fish bag filled the wrong way round (a third oxygen), and a driftwood page that copies another
+ * shop's and turns two of its meanings over. An entry already on a buying list stays (nothing drops a kept entry); research
+ * for a new list, and a price check (`researchedPage`), no longer read the site. Guides drop a page of it that research cites
+ * (topics.ts citedFacts), and so do glossary terms (glossary-entry.ts offLimits); the other kinds' pages don't check what
+ * they cite yet.
+ */
+const REFUSED_SITES = ['cabaymau.vn']
+
+/** Whether a page stands on a site refused as a source (REFUSED_SITES): the site itself or any host under it. */
+export const refusedSite = (url: string) => refused(REFUSED_SITES.flatMap(h => [h, `*.${h}`]), url)
+
 /** Every host a source's pages stand on: its discovery addresses' and those its address pattern names, bare. */
 function hostsOf(s: SourceConfig): string[] {
   const d = s.discover
@@ -49,10 +62,11 @@ async function sourceRecord(root: string): Promise<Record<string, Entry>> {
  * from the engine's own list, so a new one is covered; and the sites read for ideas whose listing refused us (ideas.ts),
  * and the magazine read for ideas, always (idea-sources.ts NEVER_RESEARCHED). Each host is given bare and as "*.host" (its
  * "www.", its forum and any other host under it), plus the hosts that hold other copies of any page.
+ * Also the sites refused as a source for their quality (REFUSED_SITES): research doesn't read those at all.
  */
 export async function cycleOnlyHosts(root: string): Promise<string[]> {
   const record = await sourceRecord(root)
-  const out = new Set<string>([...COPY_HOSTS, ...NEVER_RESEARCHED])
+  const out = new Set<string>([...COPY_HOSTS, ...NEVER_RESEARCHED, ...REFUSED_SITES.flatMap(h => [h, `*.${h}`])])
   for (const s of SOURCES) {
     if (s.via !== 'archive' && !record[s.id]?.archive && !record[s.id]?.blockedAt) continue
     for (const h of hostsOf(s)) { out.add(h); out.add(`*.${h}`) }
@@ -76,7 +90,7 @@ export const researchedPage = (root: string, get: typeof fetch = fetch) => async
   const off = await cycleOnlyHosts(root)
   for (let hop = 0, url = u; hop < 4; hop++) {
     if (isMarketplace(url)) throw new Error(`marketplace: ${url}`)
-    if (refused(off, url)) throw new Error(`read only at the engine's own pace: ${url}`)
+    if (refused(off, url)) throw new Error(`off research's list (read at the engine's own pace, or refused as a source): ${url}`)
     const res = await get(url, { redirect: 'manual', headers: { 'user-agent': 'Mozilla/5.0 (compatible; AquaTome/1.0; +https://aquatome.com)' }, signal: AbortSignal.timeout(20_000) })
     const next = res.headers.get('location')
     if (res.status >= 300 && res.status < 400 && next) { url = new URL(next, url).href; continue }

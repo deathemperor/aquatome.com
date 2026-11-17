@@ -41,8 +41,9 @@
   "held": {
     "checks": [
       "dose",
-      "shop"
+      "harm",
+      "source"
     ],
-    "at": "2026-11-14"
+    "at": "2026-11-16"
   }
 }

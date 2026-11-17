@@ -40,7 +40,12 @@
       "author": "Wikimedia Commons",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zacco_platypus_by_OpenCage.jpg",
       "caption": "Zacco platypus by OpenCage.jpg",
-      "thumb": "https://media.aquatome.com/commons/00df554cbac74930-480.webp"
+      "thumb": "https://media.aquatome.com/commons/00df554cbac74930-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/00df554cbac74930-large.webp",
+        "width": 1200,
+        "height": 1202
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/5eca21a87afbf442.webp",

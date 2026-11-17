@@ -145,6 +145,13 @@
           "min": 22,
           "max": 26
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
       }
     ],
     "ph": [
@@ -167,6 +174,13 @@
         "value": {
           "min": 6.5,
           "max": 7.5
+        }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 6.2,
+          "max": 6.5
         }
       }
     ],
@@ -201,7 +215,7 @@
       },
       {
         "source": "glaser",
-        "value": 4
+        "value": 3
       }
     ],
     "tankCm": [
@@ -256,8 +270,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/pseudepiplatys_annulatus_conakry_en/",
-      "html": "<p>This tiny and charming little jewel becomes only 3-4 cm long. Common name: Clown Killi.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/pseudepiplatys_annulatus_en/",
+      "html": "<p>This tiny species originates from West Africa; the fish offered were bred in Southeast Asia. The maximum length of the male is around 3 cm, and females stay even smaller.</p>"
     },
     {
       "key": "quickFacts",
@@ -280,8 +294,8 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/pseudepiplatys_annulatus_conakry_en/",
-      "html": "<p>The animals are wild collected specimens of the form known in the hobby as the 'Conakry variety'.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/pseudepiplatys_annulatus_en/",
+      "html": "<p>West Africa.</p>"
     },
     {
       "key": "habitat",
@@ -332,6 +346,12 @@
       "html": "<p>A minimum of 40 litres is recommended for a group of 6 or more.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/pseudepiplatys_annulatus_en/",
+      "html": "<p>An ideal choice for so-called nano aquariums. The males like to fight with each other, so the tank should be well planted.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/epiplatys-annulatus",
@@ -368,6 +388,12 @@
       "html": "<ul><li>pH: 6.5-7.5</li><li>Temperature: 22-26°C</li><li>Hardness: Soft to moderately hard</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/pseudepiplatys_annulatus_en/",
+      "html": "<p>Not too hard water (up to 15 dGH) with a slightly acidic pH (6.2–6.5) is ideal, but the fish are pretty hardy and also accept less optimal conditions. However, very clean water is absolutely necessary. Water temperature can be between 18 and 24°C.</p>"
+    },
+    {
       "key": "equipment",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/clown-killifish",
@@ -384,6 +410,12 @@
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/clown-killifish",
       "html": "<p>A densely planted aquarium with plenty of hiding places is ideal.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/pseudepiplatys_annulatus_en/",
+      "html": "<p>The fish thrive best in relatively dark aquariums. It is important to put dead leaves, peat etc. on the bottom. If the tank is too bright the fish stay nervous.</p>"
     },
     {
       "key": "diet",
@@ -410,6 +442,12 @@
       "html": "<p>Omnivorous, feeding on a variety of small live and flake foods.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/pseudepiplatys_annulatus_en/",
+      "html": "<p>Feeds readily on any fine dry, frozen or live fish food.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/epiplatys-annulatus",
@@ -432,6 +470,12 @@
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/clown-killifish",
       "html": "<p>Peaceful and compatible with other small, peaceful fish.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/pseudepiplatys_annulatus_en/",
+      "html": "<p>The species is completely peaceful towards all other fish. Males like to fight with each other.</p>"
     },
     {
       "key": "dimorphism",
@@ -496,8 +540,8 @@
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/pseudepiplatys_annulatus_conakry_en/",
-      "html": "<p>Pseudepiplatys: from ancient Greek, means “false Epiplatys”. annulatus: Latin, means “ringed”.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/pseudepiplatys_annulatus_en/",
+      "html": "<p>Pseudepiplatys: from ancient Greek, meaning \"False Epiplatys\". annulatus: Latin for \"ringed\".</p>"
     },
     {
       "key": "notes",
@@ -547,16 +591,6 @@
       "source": "aquariumcoop"
     },
     {
-      "url": "https://media.aquatome.com/commons/695b9499c977215b.webp",
-      "thumb": "https://media.aquatome.com/commons/695b9499c977215b-480.webp",
-      "width": 960,
-      "height": 553,
-      "licence": "CC BY-SA 3.0",
-      "author": "Andrew Bogott",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Epiplatys_annulatus.JPG",
-      "caption": "Male Clown killi (also called Banded panchax, Epiplatys annulatus) hovering just below the surface, which is what they do."
-    },
-    {
       "url": "https://media.aquatome.com/aquariumbreeder/c9f394278fcbcfda.webp",
       "thumb": "https://media.aquatome.com/aquariumbreeder/c9f394278fcbcfda-480.webp",
       "width": 1200,
@@ -565,6 +599,16 @@
       "author": "Aquarium Breeder",
       "sourceUrl": "https://aquariumbreeder.com/clown-killifish-detailed-guide-care-diet-and-breeding/",
       "source": "aquariumbreeder"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/695b9499c977215b.webp",
+      "thumb": "https://media.aquatome.com/commons/695b9499c977215b-480.webp",
+      "width": 960,
+      "height": 553,
+      "licence": "CC BY-SA 3.0",
+      "author": "Andrew Bogott",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Epiplatys_annulatus.JPG",
+      "caption": "Male Clown killi (also called Banded panchax, Epiplatys annulatus) hovering just below the surface, which is what they do."
     }
   ],
   "videos": [
@@ -623,5 +667,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-16"
 }

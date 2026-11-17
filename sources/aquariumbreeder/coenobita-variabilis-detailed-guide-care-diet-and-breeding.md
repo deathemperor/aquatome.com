@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/coenobita-variabilis-detailed-guide-care-diet-and-breeding/
 title: Coenobita Variabilis – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-11-02T21:55:34.512Z
-hash: 54e3de537438ae88679e03a4ab8f56958edf49d9b043930e005b058f56ff0176
+hash: 095437f95b7f6af0b5a7a6f1a77d5532ddb6f43c5311b7f8521922a2da2fa35b
 ---
 
 Despite their small size, Aussie or Crazy crabs (Coenobita variabilis) are highly prized by hobbyists who desire to keep them as pets. Nonetheless, this is a very rare species of hermit crab and is not commonly found in pet stores.
@@ -218,4 +218,3 @@ Therefore, before acquiring these animals, make sure you are committed to provid
 - https://coenobitaspecies.com/
 - https://tonycoenobita.com/
 - https://hermitcrabassociation.com/
-### Leave a Reply Cancel reply

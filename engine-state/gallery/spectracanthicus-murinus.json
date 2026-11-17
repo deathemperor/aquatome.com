@@ -1,6 +1,23 @@
 {
  "queue": [],
  "judged": [],
- "hashes": {},
- "commons": "2026-11-13"
+ "hashes": {
+  "https://media.aquatome.com/scotcat/fec3f3779ab5842b.webp": "a7abb8b8b0999cd7",
+  "https://media.aquatome.com/scotcat/1599323911c0c43c.webp": "9c9c9d329419c84c",
+  "https://media.aquatome.com/scotcat/b5539bb580b96115.webp": "1f5b39befaf08898",
+  "https://media.aquatome.com/scotcat/03c337f196e67cb2.webp": "f4fcf5e1fef2cfdd"
+ },
+ "commons": "2026-11-13",
+ "inat": {
+  "taxon": 616908,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 2339282,
+  "next": null
+ }
 }

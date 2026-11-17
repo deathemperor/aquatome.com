@@ -9,6 +9,227 @@
     "asia",
     "taiwan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TW"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Taiwan.",
+          "countries": [
+            "TW"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 11156458,
+      "total": 134,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "JP",
+          97
+        ],
+        [
+          "TW",
+          21
+        ],
+        [
+          "CN",
+          10
+        ],
+        [
+          "HK",
+          3
+        ],
+        [
+          "IN",
+          2
+        ],
+        [
+          "PH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          92.8125,
+          5.625,
+          1,
+          0
+        ],
+        [
+          92.8125,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          113.90625,
+          21.09375,
+          2,
+          0
+        ],
+        [
+          113.90625,
+          22.5,
+          2,
+          0
+        ],
+        [
+          118.125,
+          25.3125,
+          3,
+          0
+        ],
+        [
+          119.53125,
+          21.09375,
+          14,
+          14
+        ],
+        [
+          120.9375,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          120.9375,
+          22.5,
+          3,
+          3
+        ],
+        [
+          120.9375,
+          23.90625,
+          3,
+          3
+        ],
+        [
+          120.9375,
+          30.9375,
+          6,
+          0
+        ],
+        [
+          122.34375,
+          23.90625,
+          2,
+          0
+        ],
+        [
+          123.75,
+          11.25,
+          1,
+          0
+        ],
+        [
+          123.75,
+          23.90625,
+          11,
+          0
+        ],
+        [
+          127.96875,
+          25.3125,
+          1,
+          0
+        ],
+        [
+          127.96875,
+          26.71875,
+          7,
+          0
+        ],
+        [
+          129.375,
+          28.125,
+          2,
+          0
+        ],
+        [
+          129.375,
+          29.53125,
+          9,
+          0
+        ],
+        [
+          129.375,
+          30.9375,
+          4,
+          0
+        ],
+        [
+          130.78125,
+          30.9375,
+          1,
+          0
+        ],
+        [
+          130.78125,
+          32.34375,
+          1,
+          0
+        ],
+        [
+          132.1875,
+          32.34375,
+          3,
+          0
+        ],
+        [
+          133.59375,
+          32.34375,
+          2,
+          0
+        ],
+        [
+          135,
+          33.75,
+          3,
+          0
+        ],
+        [
+          135,
+          35.15625,
+          1,
+          0
+        ],
+        [
+          136.40625,
+          33.75,
+          2,
+          0
+        ],
+        [
+          137.8125,
+          33.75,
+          4,
+          0
+        ],
+        [
+          139.21875,
+          35.15625,
+          44,
+          0
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "brackish",
+    "source": "glaser",
+    "quote": "To thrive these crustaceans need an addition of salt in the water."
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -58,17 +279,12 @@
       "author": "自己拍攝",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Benkeigani02.jpg",
       "caption": "自己拍攝",
-      "thumb": "https://media.aquatome.com/commons/1677bd46cfedf28b-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/64cecf8d2eba928b.webp",
-      "width": 960,
-      "height": 960,
-      "licence": "CC BY 4.0",
-      "author": "ノボホショコロトソ",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Orisarma_intermedium_in_Kochi,_Kochi_01.jpg",
-      "caption": "高知県にてベンケイガニ",
-      "thumb": "https://media.aquatome.com/commons/64cecf8d2eba928b-480.webp"
+      "thumb": "https://media.aquatome.com/commons/1677bd46cfedf28b-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/1677bd46cfedf28b-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/539aa55ccb900047.webp",
@@ -89,6 +305,16 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:SesarmopsIntermedium_JUL2015_FHD.jpg",
       "caption": "Sesarmops intermedium",
       "thumb": "https://media.aquatome.com/commons/2b5d7a3b7f5d8a7d-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/64cecf8d2eba928b.webp",
+      "width": 960,
+      "height": 960,
+      "licence": "CC BY 4.0",
+      "author": "ノボホショコロトソ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Orisarma_intermedium_in_Kochi,_Kochi_01.jpg",
+      "caption": "高知県にてベンケイガニ",
+      "thumb": "https://media.aquatome.com/commons/64cecf8d2eba928b-480.webp"
     }
   ],
   "videos": [

@@ -100,10 +100,16 @@ test('a call whose perl is slow to start is stopped at its limit when ps fails',
   mkdirSync(join(h, 'perl5'))
   writeFileSync(join(h, 'perl5', 'Slow.pm'), 'package Slow; sleep 2; 1;\n')
   exe('ps', 'exit 1')
-  const slow = { ...env, GIT_NET_SECONDS: '1', PERL5LIB: join(h, 'perl5'), PERL5OPT: '-MSlow', AQ_CLOCK: exe('clock', 'echo "$(date +%s) 0"') }
-  const r = net(h, slow, 'sleep 30')
-  expect(r.out).toEqual([expect.stringMatching(/^LOG sleep 30: no answer from GitHub in [1-6] s, stopped$/), 'status 124'])
-  expect(r.seconds).toBeLessThan(10)
+  const perlSlow = { ...env, GIT_NET_SECONDS: '1', PERL5LIB: join(h, 'perl5'), PERL5OPT: '-MSlow', AQ_CLOCK: exe('clock', 'echo "$(date +%s) 0"') }
+  const r = net(h, perlSlow, 'sleep 30')
+  // The seconds the stop reports are the limit plus perl's slow start and the Mac's own delay, which heat stretches as it
+  // does every wall-clock figure: 7 s against a bound of 6 in the photos run's checks on 15 Nov at 18:06, the cycle's
+  // only failure. So both bounds follow the test time scale, which is 1 off the Mac's hot hours and on GitHub. What proves
+  // the limit held is status 124: stopped, where the call itself would sleep 30 s and end with 0.
+  expect(r.out).toEqual([expect.stringMatching(/^LOG sleep 30: no answer from GitHub in \d+ s, stopped$/), 'status 124'])
+  expect(Number(/in (\d+) s, stopped$/.exec(r.out[0]!)![1])).toBeGreaterThanOrEqual(1)
+  expect(Number(/in (\d+) s, stopped$/.exec(r.out[0]!)![1])).toBeLessThanOrEqual(slow(6_000) / 1000)
+  expect(r.seconds).toBeLessThan(slow(10_000) / 1000)
 })
 
 test('a call that exits 124 itself, inside its limit, keeps its status and isn\'t said to be stopped', () => {

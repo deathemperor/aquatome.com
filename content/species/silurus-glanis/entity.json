@@ -1964,7 +1964,7 @@
       "key": "quickFacts",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10f-catfishes-from-europe-and-north-america/silurus_glanis_en/",
-      "html": "<ul><li>Common names: Wels catfish, Sheatfish</li><li>Original range: eastern Europe and central Asia</li><li>Available size: 6–8 cm</li><li>Origin: captive bred</li></ul>"
+      "html": "<ul><li>Common names: Wels catfish, Sheatfish</li><li>Original range: eastern Europe and central Asia</li><li>Origin: captive bred</li></ul>"
     },
     {
       "key": "beforeYouBuy",
@@ -2078,7 +2078,12 @@
       "licence": "CC BY-SA 2.0",
       "author": "Bernard DUPONT from FRANCE",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:European_Catfish_(Silurus_glanis)_(13532570755).jpg",
-      "caption": "Cá nheo châu Âu bơi cạnh công trình chìm dưới nước"
+      "caption": "Cá nheo châu Âu bơi cạnh công trình chìm dưới nước",
+      "large": {
+        "url": "https://media.aquatome.com/commons/8d5ac39c55172f71-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     }
   ],
   "videos": [

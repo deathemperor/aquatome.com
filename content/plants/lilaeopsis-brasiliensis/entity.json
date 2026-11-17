@@ -2,11 +2,12 @@
   "id": "lilaeopsis-brasiliensis",
   "scientificName": "Lilaeopsis brasiliensis",
   "difficulty": 2,
-  "light": "low",
+  "light": "high",
   "co2": "optional",
   "growth": "slow",
   "placement": [
-    "foreground"
+    "foreground",
+    "midground"
   ],
   "sections": [
     {
@@ -16,58 +17,122 @@
       "html": "<ul><li>Type: Stolon</li><li>Origin: South America</li><li>Growth rate: Slow</li><li>Height: 3 - 5+ cm (after two months in the tank)</li><li>Light demand: Low</li><li>CO2: Low</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brazilian-micro-sword-care-guide-planting-growing-and-propagation/",
+      "html": "<ul><li>Common name: Brazilian micro sword</li><li>Other names: Micro sword grass, Brazilian micro sword, Copragrass</li><li>Scientific name: Lilaeopsis brasiliensis</li><li>Optimal tank size: 10 gallons (about 40 litres)</li><li>Difficulty: Easy – Medium</li><li>Lighting: moderate to high</li><li>Water hardness: soft to moderately hard</li><li>Substrate: needed (nutrient-rich)</li><li>Growth rate: slow</li><li>Placement in tank: mostly foreground / midground</li><li>Leaf size: up to 7 cm</li><li>Fertilizer: recommended</li><li>CO2: recommended</li><li>Propagation: by producing stolons/runners</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brazilian-micro-sword-care-guide-planting-growing-and-propagation/",
+      "html": "<p>The Brazilian micro sword is a popular plant species from South America. It belongs to Apiaceae, the 16th largest family of flowering plants, with more than 3,700 identified species.</p><p>The plant was formerly classified under the genus Crantzia, but was later moved to the genus Lilaeopsis by J.M. Affolter in 1985.</p><p>The genus contains 7 species: Lilaeopsis brasiliensis, Lilaeopsis carolinensis, Lilaeopsis chinensis, Lilaeopsis masonii, Lilaeopsis novae-zelandiae, Lilaeopsis occidentalis and Lilaeopsis schaffneriana, which are all similar in morphology, making identification difficult.</p><p>The binomial name was coined from Lilaeopsis, meaning charming the eye, and brasiliensis, which hints at its place of origin (Brazil).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brazilian-micro-sword-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Brazilian micro sword is indigenous to South America – Brazil, Paraguay and Argentina – where it inhabits wetlands, ditches, swamps and streams.</p><p>It occurs naturally both submersed and emersed in its habitats, meaning it can grow fully underwater or on the banks of water bodies.</p><p>It has a grasslike appearance. Each plant consists of one to three green, sword-like leaves. These leaves are flat, narrow at the base and slightly wider at the midsection, with pointed tips. Petioles are absent.</p><p>The plant has rhizomes that send out multiple shoots and roots from their nodes. Tiny white roots help anchor the plant firmly to the substrate.</p><p>Lilaeopsis brasiliensis is often considered a subspecies of Lilaeopsis nova-zelandiae, but there is not enough proof to back this.</p><p>Its height ranges from 4 – 7 cm, varying with light intensity, CO2 and nutrient availability.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brazilian-micro-sword-care-guide-planting-growing-and-propagation/",
+      "html": "<p>The recommended tank size for growing Brazilian micro sword is a minimum of 10 gallons (about 40 litres). Due to its low form and excellent carpeting ability, it can also be used to aquascape tanks as small as 5 gallons (20 litres).</p>"
+    },
+    {
       "key": "maintenance",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Lilaeopsisbrasiliensis(040PCS)/18808",
       "html": "<p>Lilaeopsis brasiliensis from South America can grow very compact, but a \"lawn effect\" (4-7 cm tall) is only achieved at high light intensity. When planting in the aquarium, small clumps (approx. 1/8 pot) should be placed a few centimetres apart to help the plants grow together more quickly. Place in an open position without shading from other plants to ensure good light.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brazilian-micro-sword-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Although micro sword grass is relatively undemanding, it is not the easiest carpet plant to maintain. It will struggle in a low-tech tank due to its strong need for CO2 supplementation.</p><p>Provide an adequate supply of CO2, either from a CO2 canister or liquid carbon such as Seachem Flourish Excel, dosed regularly so the water gets enough carbon, which the plant takes up through its leaves.</p><p>Dose fertilisers rich in macronutrients (nitrogen, phosphorus, potassium) and micronutrients (iron, manganese, boron, etc.) to encourage optimal growth.</p><p>Lighting is another major factor. Provide moderate to high light and avoid planting in shaded areas so the plant can achieve the desired carpeting effect.</p><p>During routine cleaning, stir the carpet gently to release debris, food particles and detached stems to the surface, then siphon them out. Prune decaying or dead shoots, and trim the carpet in general to keep it low, compact and attractive. Perform regular partial water changes to maintain good water quality and keep parameters within proper ranges.</p><p><strong>Planting and propagation</strong></p><p>Avoid planting the stems in one large clump; divide the bunch into smaller clumps and place them a few centimetres apart to achieve a good spread in the foreground. Do not plant clumps too deep: keep a depth of about 1 – 1.5 cm. Use tweezers to place the stems gently into the substrate. The plants may detach after planting, so put them back in and they will anchor firmly after some time.</p><p>The plant propagates easily by producing stolons/runners that bear independent daughter plants, which can cover the substrate quickly. The daughter plants can be cut off and replanted, or left to run their course naturally.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brazilian-micro-sword-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Temperature: the ideal temperature is 18 – 25 °C. The plant can withstand slightly higher temperatures for brief periods.</p><p>pH: the ideal pH is 6.0 – 8.0. Although the plant is hardy, monitor the pH regularly with an accurate test kit.</p><p>Hardness: the plant thrives in soft to hard water, from 0 dGH up to 30 dGH. It can also tolerate slightly brackish water.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brazilian-micro-sword-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Lighting: the plant can grow in all lighting conditions, but forms beautiful lawns under very intense light. For optimal growth it requires moderate to high light intensity to put out numerous shoots. Provide T5/T8 fluorescent tubes or LED lighting, keep the tank well lit daily and maintain a photoperiod of about 10–12 hours.</p><p>Substrate: it appreciates a nutrient-rich substrate, preferably iron-rich clay or aquarium soil, which gives its fine, delicate roots a suitable medium and provides essential nutrients. Other substrates can be used, but the best results come from the recommended type. Recommended soil substrates include:</p><ul><li>ADA Amazonia aqua soil</li><li>Carib Sea Eco-Complete</li><li>Seachem Fluorite</li></ul><p>CO2 and fertilisation: it is possible to grow it without CO2, but it grows slowly without CO2 supply and the likely outcome is a moderately growing, sparse carpet. For a luxuriant carpet, CO2 is essentially a major requirement. CO2 speeds up shoot growth, helps achieve a dense, compact form and keeps plants healthier and more vibrant. Fertilisation is also vital: supply fertilisers rich in macronutrients and micronutrients regularly.</p><p>If you keep shrimp in the tank, note that a high level of CO2 and copper (most fertilisers contain copper) is extremely dangerous to shrimp.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brazilian-micro-sword-care-guide-planting-growing-and-propagation/",
+      "html": "<p>The Brazilian micro sword should be kept with docile freshwater fish and invertebrates. It is important to have species that rummage for tiny food particles, debris and algae films on the thick carpet.</p><p><strong>Fish:</strong> best kept with small, peaceful community fish such as bleeding heart tetras, neon tetras, mollies, killifish, swordtails, white cloud mountain minnows, zebra danios, cherry barbs, sunburst platies, Endlers, otocinclus catfish and pygmy corydoras.</p><p><strong>Shrimp:</strong> since it tolerates a wide range of pH, it can be kept with any dwarf shrimp species.</p><p><strong>Freshwater snails:</strong> ornamental snails should not be kept in low pH for a long time as it harms their shells. If your pH is close to 7.0, almost any snail or dwarf shrimp can be kept, for example Japanese trapdoor snails, ramshorn snails, nerite snails, Malaysian trumpet snails, black devil snails, Asolene spixi and rabbit snails.</p><p><strong>Avoid or be careful:</strong> given its fast growth, it can also be kept with plant-nipping fish, but not boisterous ones that may attack its large root network. Avoid species that find the plant too palatable, such as silver dollars, Buenos Aires tetras, koi, goldfish, oscars, rainbowfish, Jack Dempsey, clown loaches and African cichlids. These can cause real problems in planted tanks.</p><p>Most crayfish and freshwater crabs are not a good combination either, as they will cut, eat and uproot everything in the tank.</p>"
+    },
+    {
       "key": "notes",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Lilaeopsisbrasiliensis(040PCS)/18808",
       "html": "<p>Lilaeopsis brasiliensis can be used in garden ponds, and also tolerates low salt concentrations in brackish aquariums.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/brazilian-micro-sword-care-guide-planting-growing-and-propagation/",
+      "html": "<p><strong>Problems:</strong> the transition from emersed to submersed form triggers a melt of the green foliage, but the plant recovers once fully settled. During this process, dose liquid fertiliser and provide ample light. Micro sword grass is susceptible to algae, especially if the light is excessive and nutrients are plentiful, which can leave the carpet messy. Algae eaters such as Amano shrimp, red cherry shrimp and nerite snails can be introduced to polish off algae films.</p><p><strong>Benefits:</strong></p><ul><li>Aquascape: an excellent ground-cover plant that forms a dense, lush green carpet.</li><li>Removal of excess nutrients: it has heavy metal absorption properties; in one experiment the plant absorbed almost 90% of the copper and lead in two days.</li><li>Shelter: the carpet shelters bottom-dwelling fish, fry and shrimp, and is a great spawning medium for egg scatterers.</li><li>Foraging place: it serves as a foraging ground for shrimp and snails, and as a place for biofilm to grow, an ideal first food for newly hatched fry and shrimplets.</li><li>Oxygenation: it helps oxygenate the water through photosynthesis.</li><li>Prevents gas pockets: its well-developed root system helps break up anaerobic pockets in the substrate. Hydrogen sulfide pockets (H2S, smells like rotten eggs) can be dangerous to fish and shrimp.</li></ul><p><strong>Buying:</strong> look for healthy specimens with vibrant light green leaves, without rips, algae, dead tips or discoloration. The roots should be intact and abundant so the plant anchors well.</p><p><strong>Quarantine:</strong> quarantine the plant before adding it to the aquarium. It can carry parasites, pests such as snails, or even predators (dragonfly and damselfly nymphs, etc.). It may also have been treated with pesticides, which are extremely poisonous to fish, shrimp and other invertebrates.</p><p>It can be a good substitute for dwarf hairgrass and dwarf sagittaria, as all are small, easy to grow and form a compact, vivid green carpet when fully grown. It helps create an illusion of a larger tank with its delicate, cushion-forming small leaves. It is generally slow-growing in an aquarium as it requires plenty of light, high nutrient levels, fine substrate and optimal CO2 levels.</p>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/aquariumbreeder/4ebead5d80622022.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/4ebead5d80622022-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/brazilian-micro-sword-care-guide-planting-growing-and-propagation/",
+      "source": "aquariumbreeder"
+    },
+    {
       "url": "https://media.aquatome.com/commons/4df58144fba7e294.webp",
+      "thumb": "https://media.aquatome.com/commons/4df58144fba7e294-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC0",
       "author": "Daderot",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lilaeopsis_brasiliensis_-_Victoriahuset,_Bergianska_tr%C3%A4dg%C3%A5rden_-_Stockholm,_Sweden_-_DSC00261.JPG",
-      "caption": "Botanical specimen in the Victoriahuset, Bergianska trädgården - Stockholm, Sweden.",
-      "thumb": "https://media.aquatome.com/commons/4df58144fba7e294-480.webp"
+      "caption": "Botanical specimen in the Victoriahuset, Bergianska trädgården - Stockholm, Sweden."
     },
     {
       "url": "https://media.aquatome.com/commons/5850564f0e2b096b.webp",
+      "thumb": "https://media.aquatome.com/commons/5850564f0e2b096b-480.webp",
       "width": 960,
       "height": 639,
       "licence": "CC BY-SA 3.0",
       "author": "Averater",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lilaeopsis_brasiliensis_flower_(3).jpg",
-      "caption": "Flowers of Lilaeopsis brasiliensis grown indoor in a aquarium without water (just covering the sand).",
-      "thumb": "https://media.aquatome.com/commons/5850564f0e2b096b-480.webp"
+      "caption": "Flowers of Lilaeopsis brasiliensis grown indoor in a aquarium without water (just covering the sand)."
     },
     {
       "url": "https://media.aquatome.com/commons/fde8393ae740af89.webp",
+      "thumb": "https://media.aquatome.com/commons/fde8393ae740af89-480.webp",
       "width": 960,
       "height": 1441,
       "licence": "CC BY-SA 3.0",
       "author": "Averater",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lilaeopsis_brasiliensis_flower_(1).jpg",
-      "caption": "Flowers of Lilaeopsis brasiliensis grown indoor in a aquarium without water (just covering the sand).",
-      "thumb": "https://media.aquatome.com/commons/fde8393ae740af89-480.webp"
+      "caption": "Flowers of Lilaeopsis brasiliensis grown indoor in a aquarium without water (just covering the sand)."
     },
     {
       "url": "https://media.aquatome.com/commons/888281037eff4c48.webp",
+      "thumb": "https://media.aquatome.com/commons/888281037eff4c48-480.webp",
       "width": 960,
       "height": 1441,
       "licence": "CC BY-SA 3.0",
       "author": "Averater",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lilaeopsis_brasiliensis_flower_(2).jpg",
-      "caption": "Flowers of Lilaeopsis brasiliensis grown indoor in a aquarium without water (just covering the sand).",
-      "thumb": "https://media.aquatome.com/commons/888281037eff4c48-480.webp"
+      "caption": "Flowers of Lilaeopsis brasiliensis grown indoor in a aquarium without water (just covering the sand)."
     }
   ],
   "productSlots": [
@@ -97,5 +162,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-15"
 }

@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/science-of-substrate-siphoning-in-aquaria-siphon-or-not/
 title: Science of Substrate Siphoning in Aquaria. Siphon or Not? - Shrimp and Snail Breeder
 fetchedAt: 2026-10-31T01:33:20.238Z
-hash: 5286549338fd5b2b8469567a3af145b8f01502ca8e8d13c1a5b30d05a3699e72
+hash: f8a803be8b3d195e8460c96961e40de7942c2b0c3d6109d59932f4e2e4b3be48
 ---
 
 Siphoning involves the removal of debris or sediment from the substrate using a specialized tool such as a hose.
@@ -132,7 +132,3 @@ In some cases, we may notice that if we deeply siphon the substrate, plants star
 Deciding whether or not to siphon aquarium gravel can be confusing for aquarium owners. There are no identical tanks so there’s no universal rule that applies to all of them.
 Whether siphoning is harmful or necessary depends on the specific conditions of your particular aquarium (substrate depth, substrate type, stocking level, aeration, maturity of tank, types of plants, etc.). Even understanding how your aquarium functions can become the deciding factor in whether or not to siphon the substrate.
 Therefore, the best way to make a decision is to educate yourself and consider your tank conditions. If you do not want to learn, it will be safer for you to siphon the tank in all cases.
-## 4 thoughts on “Science of Substrate Siphoning in Aquaria. Siphon or Not?”
-- Thank you.This is something that even a beginner can grasp. ReplyHi Sharon, I’m glad to hear that the article was helpful to you. I did my best Best regards, Michael Reply
-- Hi Michael,The gravel in my tank has a dark brown discoloration where the gravel touches the glass. Do I need to wash the gravel? ReplyHi Albena, In the article, I tried to describe the process from complex to simple, including when to siphon the substrate and when not to. You didn’t mention the size of your gravel or whether you have another layer of the substrate, any odors, debris, etc. Nevertheless, based on your question, I assume you’re relatively new to this hobby, so it’s advisable for you to go ahead with siphoning. In general, for future reference, I strongly recommend reading the article again, taking your time. This will enable you to better assess the situation in the future and understand what is happening in your aquarium more accurately. Best regards, Michael Reply
-### Leave a Reply Cancel reply

@@ -5,10 +5,11 @@ import { guideImage, guideImages, mentionIndex } from './mentions'
 import { gearRows } from './gear'
 import { placeFigures, type Figure, type HeadedFigure } from './figures'
 import { readingMinutes, withToc } from './toc'
-import { nextGuides } from './home'
+import { leadGuides, nextGuides } from './home'
 import { illustrate, seriesGuides, seriesOf, videoPhoto } from './video'
 import { pagePictures, photosOf, tilePhotos } from './pictures'
 import { PAGE } from '../scripts/filter-list'
+import { appGuideImage } from './app-index'
 
 /** A guide's photos that name their section, each under the heading this language's text gives it (else Vietnamese's). */
 export const sectionFigures = (lang: Lang, photos: GuideEntity['photos']) =>
@@ -118,7 +119,13 @@ export function guideParts(lang: Lang, c: Content, g: Localized<GuideEntity>) {
   const inSeries = series ? seriesGuides(c, series) : []
   const pos = inSeries.findIndex(x => x.id === g.id)
   // A series reads in the creator's order: the next parts first, then related guides.
-  const next = series ? [...inSeries.slice(pos + 1, pos + 4), ...nextGuides(c, g, 3).filter(x => !inSeries.some(y => y.id === x.id))].slice(0, 3) : nextGuides(c, g)
+  const nextOf = (keep: (x: Localized<GuideEntity>) => boolean) =>
+    series ? [...inSeries.slice(pos + 1, pos + 4).filter(keep), ...nextGuides(c, g, 3, leads.filter(keep)).filter(x => !inSeries.some(y => y.id === x.id))].slice(0, 3) : nextGuides(c, g, 3, leads.filter(keep))
+  const leads = leadGuides(c)
+  const next = nextOf(() => true)
+  // The app draws no cover yet (the Design Lead's app half, 15 Nov 2026): its guides to read next, a series' next parts
+  // too, are those with a picture in the app's data (appGuideImage: while it has no covers, a guide keeps the picture it had).
+  const appNext = nextOf(x => !!appGuideImage(c, x))
   // Below the text, in page order: the next guides' covers, then the fish and plant cards (a page of them, fish first: a
   // listicle names a hundred or more), each with a picture the page doesn't show yet, or none.
   const covers = next.map(x => shown.take(guideImages(c, x)) ?? null)
@@ -130,5 +137,5 @@ export function guideParts(lang: Lang, c: Content, g: Localized<GuideEntity>) {
   const refs = g.t.localNote ? [...(own ?? []), ...g.t.localNote.refs] : own
   /** Every photo the page shows, for its credits. */
   const credited = [ph, ...placed.map(f => f.photo), ...(g.video?.figures ?? []).map(f => f.photo), ...covers, ...speciesPhotos, ...plantPhotos].filter((p): p is Photo => !!p)
-  return { m, body, species, plants, ph, lead, gear, toc, prose, minutes, series, inSeries, pos, next, refs, covers, cardSpecies, cardPlants, speciesPhotos, plantPhotos, credited }
+  return { m, body, species, plants, ph, lead, gear, toc, prose, minutes, series, inSeries, pos, next, appNext, refs, covers, cardSpecies, cardPlants, speciesPhotos, plantPhotos, credited }
 }

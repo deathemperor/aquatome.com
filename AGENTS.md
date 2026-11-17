@@ -165,6 +165,9 @@ the next run keeps the fix. A hand edit to one item needs a guard the engine res
   the page's credit line (the chief of staff, 2026-11-11).
 - A challenge page (Cloudflare, Turnstile) marks a source `needs-human`, and the owner passes it by hand in the engine's
   Chrome profile. Marketplaces (Shopee, Lazada, Tiki, Tokopedia) are reached only through their affiliate APIs.
+- Only the engine's own client asks an outside source for anything (Commons, a publisher's site, YouTube, an archive),
+  at its pace and with its rest after a refusal. A helper or a reviewer works from the repository, and one that needs
+  a source's data asks its lead (the chief of staff, 2026-11-16, after a reader fetched three Commons pages by hand).
 - Every app merge uploads to TestFlight's internal "Owner" group without asking (`testflight.yml`). Ask the owner first
   before uploads to outside testers, App Store review submissions, and production D1 migrations.
 

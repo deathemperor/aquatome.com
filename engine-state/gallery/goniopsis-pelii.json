@@ -25,9 +25,9 @@
   "inat:616337080"
  ],
  "hashes": {
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/94948011/large.jpeg": "274bc4b0b27a68dc",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/344871991/large.jpeg": "2a3cd4f8eae4cad6",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/616337080/large.jpg": "112171313131b132"
+  "https://media.aquatome.com/inaturalist/94948011.webp": "2749c4b0f278e85c",
+  "https://media.aquatome.com/inaturalist/344871991.webp": "3a1cc5f8cae6cad7",
+  "https://media.aquatome.com/inaturalist/616337080.webp": "11217171b131b161"
  },
  "inat": {
   "taxon": 521418,
@@ -37,5 +37,9 @@
    "agree": 0
   }
  },
- "commons": "2026-11-14"
+ "commons": "2026-11-14",
+ "gbif": {
+  "key": 5731483,
+  "next": null
+ }
 }

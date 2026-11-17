@@ -12,6 +12,148 @@
     "bangladesh",
     "nepal"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "BD",
+        "NP"
+      ],
+      "regions": [
+        "Ganges",
+        "Brahmaputra"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser",
+        "aquariumcoop"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from the Ganges River in northern India, including its floodplain and delta in Bangladesh, plus the Brahmaputra system in the states of Assam, Manipur, Meghalaya, and Arunachal Pradesh, with additional records from Nepal.",
+          "countries": [
+            "IN",
+            "BD",
+            "NP"
+          ],
+          "regions": [
+            "Ganges",
+            "Brahmaputra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5211191,
+      "total": 38,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "IN",
+          27
+        ],
+        [
+          "BD",
+          8
+        ],
+        [
+          "NP",
+          2
+        ],
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -43.59375,
+          -21.09375,
+          1,
+          0
+        ],
+        [
+          85.78125,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          87.1875,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          87.1875,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          88.59375,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          88.59375,
+          25.3125,
+          11,
+          11
+        ],
+        [
+          90,
+          22.5,
+          3,
+          3
+        ],
+        [
+          91.40625,
+          22.5,
+          2,
+          2
+        ],
+        [
+          91.40625,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          91.40625,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          92.8125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          92.8125,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          94.21875,
+          26.71875,
+          7,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

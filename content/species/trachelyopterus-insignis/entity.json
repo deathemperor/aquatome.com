@@ -10,6 +10,145 @@
     "colombia",
     "magdalena"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Lower Magdalena River basin"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Río Magdalena, Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Lower Magdalena River basin.",
+          "countries": [],
+          "regions": [
+            "Lower Magdalena River basin"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344660,
+      "total": 7327,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "CO",
+          7323
+        ],
+        [
+          "VE",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          5.625,
+          23,
+          23
+        ],
+        [
+          -77.34375,
+          7.03125,
+          9,
+          9
+        ],
+        [
+          -75.9375,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -75.9375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          7.03125,
+          2949,
+          2949
+        ],
+        [
+          -75.9375,
+          8.4375,
+          485,
+          485
+        ],
+        [
+          -75.9375,
+          9.84375,
+          263,
+          263
+        ],
+        [
+          -74.53125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          5.625,
+          28,
+          28
+        ],
+        [
+          -74.53125,
+          7.03125,
+          736,
+          736
+        ],
+        [
+          -74.53125,
+          8.4375,
+          2330,
+          2330
+        ],
+        [
+          -74.53125,
+          9.84375,
+          496,
+          496
+        ],
+        [
+          -73.125,
+          8.4375,
+          2,
+          0
+        ],
+        [
+          -71.71875,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          8.4375,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -150,17 +289,6 @@
       "source": "scotcat"
     },
     {
-      "url": "https://media.aquatome.com/scotcat/46e1d9bbf9e8d4b3.webp",
-      "thumb": "https://media.aquatome.com/scotcat/46e1d9bbf9e8d4b3-480.webp",
-      "width": 500,
-      "height": 269,
-      "licence": "dùng với sự cho phép",
-      "author": "Miguel Diaz Anaya / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_insignis.htm",
-      "caption": "Trachelyopterus insignis: Galeras, Sucre, Colombia",
-      "source": "scotcat"
-    },
-    {
       "url": "https://media.aquatome.com/scotcat/1eaa031955cfb9bf.webp",
       "thumb": "https://media.aquatome.com/scotcat/1eaa031955cfb9bf-480.webp",
       "width": 500,
@@ -170,16 +298,6 @@
       "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_insignis.htm",
       "caption": "Trachelyopterus insignis",
       "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/655d0ff635a587ce.webp",
-      "thumb": "https://media.aquatome.com/commons/655d0ff635a587ce-480.webp",
-      "width": 960,
-      "height": 415,
-      "licence": "CC BY 2.0",
-      "author": "Ictiologia Universidad Católica de Oriente",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tracheolipterus_insignis_(16610903379).jpg",
-      "caption": "Tracheolipterus insignis"
     }
   ],
   "videos": [

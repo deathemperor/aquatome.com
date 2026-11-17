@@ -1,0 +1,39 @@
+{
+  "id": "trichodactylus-kensleyi",
+  "native": {
+    "input": "4a13963364dc92fb",
+    "at": "2026-11-16T17:28:41.839Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Trichodactylus kensleyi",
+    "status": "ACCEPTED",
+    "taxonKey": 5178498,
+    "datasets": [
+      [
+        "f021b018-836b-4bea-b4da-275902fc546c",
+        5
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-16T17:28:41.839Z"
+  }
+}

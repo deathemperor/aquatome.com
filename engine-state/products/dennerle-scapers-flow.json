@@ -1,0 +1,226 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "Type",
+      "value": "Hang-on (backpack) external filter for freshwater aquariums",
+      "source": 0
+    },
+    {
+      "key": "Flow rate (current model, item 4573)",
+      "value": "450 L/h",
+      "source": 0
+    },
+    {
+      "key": "Max discharge head",
+      "value": "60 cm",
+      "source": 0
+    },
+    {
+      "key": "Power consumption",
+      "value": "5.6 W",
+      "source": 1
+    },
+    {
+      "key": "Recommended tank size",
+      "value": "30–120 L (8–32 gal)",
+      "source": 1
+    },
+    {
+      "key": "Included filter media",
+      "value": "Pre-filter sponge, high-performance bio-filter material, fine filter pad",
+      "source": 1
+    },
+    {
+      "key": "Lily pipe adjustment",
+      "value": "Height adjustable up to 10 mm; rotates 180°",
+      "source": 1
+    },
+    {
+      "key": "Packaging dimensions (W×H×D)",
+      "value": "18 × 15 × 20.5 cm",
+      "source": 0
+    },
+    {
+      "key": "Plug",
+      "value": "Type C Europlug (CEE 7/16)",
+      "source": 0
+    },
+    {
+      "key": "Item number / EAN",
+      "value": "4573 / 4001615045734",
+      "source": 0
+    },
+    {
+      "key": "Manufacturer price (Germany)",
+      "value": "€89.99",
+      "source": 0
+    }
+  ],
+  "variants": [
+    {
+      "name": "Scaper's Flow, current version (item 4573)",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "450 L/h",
+          "source": 0
+        },
+        {
+          "key": "Max head",
+          "value": "60 cm",
+          "source": 0
+        },
+        {
+          "key": "EAN",
+          "value": "4001615045734",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "Scaper's Flow, earlier listing (item D5790 / DE-SF)",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "max 360 L/h",
+          "source": 2
+        },
+        {
+          "key": "Power",
+          "value": "5.6 W",
+          "source": 2
+        },
+        {
+          "key": "Tank size",
+          "value": "30–120 L",
+          "source": 2
+        },
+        {
+          "key": "EAN",
+          "value": "4001615057904",
+          "source": 2
+        }
+      ]
+    }
+  ],
+  "prices": [],
+  "fits": [
+    {
+      "fact": "Made for freshwater aquariums of roughly 30–120 L.",
+      "source": 1
+    },
+    {
+      "fact": "The retailer lists it as suitable for planted tanks and shrimp tanks.",
+      "source": 1
+    },
+    {
+      "fact": "The intake has a sponge guard, which the maker says protects juvenile shrimp.",
+      "source": 2
+    },
+    {
+      "fact": "With the outlet fully underwater, the flow stays gentle and loses little CO2, which suits CO2-injected planted tanks.",
+      "source": 1
+    },
+    {
+      "fact": "The intake pipe has two parts, so its length can be matched to the substrate height.",
+      "source": 2
+    },
+    {
+      "fact": "Comes with intake pipes and a lily pipe for both black and clear back walls.",
+      "source": 0
+    }
+  ],
+  "usage": [
+    {
+      "fact": "Ships pre-assembled with all filter media already inside.",
+      "source": 0
+    },
+    {
+      "fact": "The whole unit comes apart completely for cleaning.",
+      "source": 0
+    },
+    {
+      "fact": "Daytime use: keep the lily pipe outlet fully submerged so the flow stays gentle and CO2 is kept in the water.",
+      "source": 1
+    },
+    {
+      "fact": "Nighttime use: raise the top clip to make a small surface whirlpool. This clears surface film and adds oxygen.",
+      "source": 1
+    },
+    {
+      "fact": "Set the lily pipe height to the water level and rotate it to aim the flow.",
+      "source": 1
+    },
+    {
+      "fact": "None of the pages checked give a schedule for cleaning the filter or changing the media.",
+      "source": 2
+    }
+  ],
+  "issues": [
+    {
+      "fact": "Flow ratings differ between listings: Dennerle's current page says 450 L/h, while older listings (item 5790/DE-SF) say 360 L/h. A shop that quotes 360 L/h may be selling the older version.",
+      "source": 2
+    },
+    {
+      "fact": "The Belgian shop's title says 450 L/h, but its technical data says 360 L/h and its item number is the older D5790, so check which version you are actually getting.",
+      "source": 2
+    },
+    {
+      "fact": "Sellers advertise it as very quiet, but no independent long-term reviews of noise, leaks or durability could be checked.",
+      "source": 1
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "Sunsun",
+      "model": "YBG 600 hang-on filter",
+      "why": "Much cheaper (410,000 VND) and in stock at a Vietnamese shop. Choose it if you don't need a lily pipe or the Dennerle design.",
+      "source": 4
+    },
+    {
+      "brand": "Baoyu",
+      "model": "LX-380 hang-on filter",
+      "why": "Sold in Vietnam for 590,000 VND. It has a built-in waste-separation chamber, so it is cheaper and readily available locally.",
+      "source": 4
+    },
+    {
+      "brand": "Up Aqua",
+      "model": "External 120",
+      "why": "A hang-on filter from a mid-range planted-tank brand, listed at 450,000 VND by a Vietnamese shop (marked out of stock when checked).",
+      "source": 3
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://dennerle.com/en/products/scapers-flow",
+      "title": "Dennerle Scaper's Flow – Backpack external filter for freshwater aquariums",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://www.jbjnanocubes.com/contents/en-us/p14649_DE-SF.html",
+      "title": "DE-SF Dennerle Scaper's Flow Canister Filter – JBJ",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.aquascaper.be/en/dennerle-scapers-flow-hang-on-filter.html",
+      "title": "Dennerle Scaper's Flow – Hang on Filter – Aquascaper.be",
+      "kind": "shop"
+    },
+    {
+      "url": "https://greendeal.vn/loc-thung-treo",
+      "title": "Lọc thùng treo – Green Deal",
+      "kind": "shop"
+    },
+    {
+      "url": "https://shaquarium.com/san-pham/loc-treo.html",
+      "title": "Lọc Treo – SH Aquarium",
+      "kind": "shop"
+    },
+    {
+      "url": "https://greendeal.vn/dennerle",
+      "title": "Dennerle – Green Deal (brand page, no Scaper's Flow listed)",
+      "kind": "shop"
+    }
+  ]
+}

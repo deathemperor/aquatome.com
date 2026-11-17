@@ -3,6 +3,12 @@
   "name": "Sucio",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-16T00:10:46.298Z",
+    "why": "\"Sucio\" alone omits the Malay kind word \"Sungai\" that an atlas in Malaysia would put before a river's name, so it is incomplete."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

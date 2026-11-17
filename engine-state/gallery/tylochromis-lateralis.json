@@ -1,10 +1,19 @@
 {
  "queue": [],
  "judged": [
-  "File:Tylochromis lateralis 53146450.jpg"
+  "File:Tylochromis lateralis 53146450.jpg",
+  "inat:53146450"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/ed50ead4b9a9b99d.webp": "b0e4864301872000"
  },
- "commons": "2026-11-10"
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": 114684,
+  "pass": "done",
+  "after": {
+   "research": 33814716,
+   "agree": 0
+  }
+ }
 }

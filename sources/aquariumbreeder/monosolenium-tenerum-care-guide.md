@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/monosolenium-tenerum-care-guide/
 title: Monosolenium tenerum Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-11-04T22:30:29.664Z
-hash: 75b7d72c9e570c27e67c9ef5b2d2fad57fcdbddebd52f4e14c54a302bbd1f771
+hash: a6c666eaa94e64a56097fa3f238c279ba7cd185835c4669d18447599cc234fd0
 ---
 
 Monosolenium tenerum (previously known as Pellia endiviifolia) is a very controversial plant with an interesting history.
@@ -127,4 +127,3 @@ As alternatives, you can choose Subwassertang and Crystalwort, these plants look
 ## References:
 - Pradhan, Nirmala, David G. Long, and Sanu Devi Joshi. “Monosolenium tenerum Griff.(Marchantiopsida, Monosoleniaceae) in Nepal.” Cryptogamie Bryologie(2007).
 - Yang, Bao-Yu. “The discovery of Monosolenium tenerum in Taiwan.” Taiwania11, no. 1 (1965): 29-34.
-### Leave a Reply Cancel reply

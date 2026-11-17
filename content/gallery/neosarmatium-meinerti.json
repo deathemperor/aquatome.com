@@ -2,19 +2,6 @@
   "id": "neosarmatium-meinerti",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/453461840.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/453461840-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Michael Bakker Paiva",
-      "sourceUrl": "https://www.inaturalist.org/photos/453461840",
-      "caption": "Cua đực càng đỏ cam trong rừng ngập mặn",
-      "best": true,
-      "kind": "male",
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/commons/2e3bc5b94ccf3d75.webp",
       "thumb": "https://media.aquatome.com/commons/2e3bc5b94ccf3d75-480.webp",
       "width": 1200,
@@ -48,8 +35,7 @@
       "sourceUrl": "https://www.inaturalist.org/photos/232568637",
       "caption": "Cua càng đỏ trong hang ở bãi bùn ngập mặn",
       "best": true,
-      "kind": "habitat",
-      "unchecked": true
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/488497828.webp",
@@ -61,8 +47,7 @@
       "sourceUrl": "https://www.inaturalist.org/photos/488497828",
       "caption": "Cua đỏ càng lớn cạnh cửa hang trên cát bùn",
       "best": true,
-      "kind": "habitat",
-      "unchecked": true
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/606067919.webp",
@@ -180,6 +165,18 @@
       "best": false,
       "kind": "habitat",
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/453461840.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/453461840-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Michael Bakker Paiva",
+      "sourceUrl": "https://www.inaturalist.org/photos/453461840",
+      "caption": "Cua đực càng đỏ cam trong rừng ngập mặn",
+      "best": true,
+      "kind": "male"
     }
   ],
   "seen": 29,

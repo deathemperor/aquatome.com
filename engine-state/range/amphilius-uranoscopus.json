@@ -1,0 +1,119 @@
+{
+  "id": "amphilius-uranoscopus",
+  "native": {
+    "input": "0999361bee94b911",
+    "at": "2026-11-16T17:28:41.839Z",
+    "claims": [
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "The species shown in the first thumbnail image was captured by the image contributor in the Wami drainage: CAS 80494, Tanzania, Nguru Mountains, Nguru South Forest Reserve, 6°7'S, 37°32'E (2: 49.1-101.4); BMNH 1969.1.15.1, Tanzania, stream at Arusha in the foothills of Mount Meru, 3°21'57\"S, 36°40'28\"E (1: 84.7).",
+        "words": "Tanzania",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Okavango",
+        "source": "scotcat",
+        "quote": "Africa (eastern): Okavango and Zambezi basins, eastern coastal rivers south to the Mkuze basin, Natal, and throughout east and central Africa (Skelton, 1993); Lake Rukwa basin (Seegers, 1996).",
+        "ok": true
+      },
+      {
+        "name": "Zambezi",
+        "source": "scotcat",
+        "quote": "Africa (eastern): Okavango and Zambezi basins, eastern coastal rivers south to the Mkuze basin, Natal, and throughout east and central Africa (Skelton, 1993); Lake Rukwa basin (Seegers, 1996).",
+        "ok": true
+      },
+      {
+        "name": "Lake Rukwa",
+        "source": "scotcat",
+        "quote": "Africa (eastern): Okavango and Zambezi basins, eastern coastal rivers south to the Mkuze basin, Natal, and throughout east and central Africa (Skelton, 1993); Lake Rukwa basin (Seegers, 1996).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ZA",
+        "ZM",
+        "AO"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Amphilius uranoscopus",
+    "status": "ACCEPTED",
+    "taxonKey": 2340744,
+    "datasets": [
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        680
+      ],
+      [
+        "3ea542dc-885d-4c8a-91a3-64d0a5d78301",
+        671
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        52
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        44
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        16
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        5
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        5
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        5
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        1
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        1
+      ]
+    ],
+    "native": [
+      "TZ"
+    ],
+    "requests": 12,
+    "at": "2026-11-16T17:28:41.839Z"
+  }
+}

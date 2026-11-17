@@ -18,39 +18,39 @@
   "range": {
     "native": {
       "countries": [
-        "UY",
-        "PY",
         "BR"
       ],
       "regions": [
         "La Plata",
-        "Paraná",
-        "Rio Jacuhy"
+        "Patos Lagoon"
       ],
       "sources": [
-        "planetcatfish"
+        "planetcatfish",
+        "scotcat"
       ],
       "quotes": [
-        {
-          "source": "planetcatfish",
-          "quote": "South America: La Plata basin, including Uruguay, Paraná (Middle and Lower Paraná) and Paraguay.",
-          "countries": [
-            "UY",
-            "PY"
-          ],
-          "regions": [
-            "La Plata",
-            "Paraná"
-          ]
-        },
         {
           "source": "planetcatfish",
           "quote": "Type locality: Rio Jacuhy [Jacuí], Rio Grande do Sul, Brazil.",
           "countries": [
             "BR"
           ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: La Plata basin, including Uruguay, Paraná (Middle and Lower Paraná) and Paraguay.",
+          "countries": [],
           "regions": [
-            "Rio Jacuhy"
+            "La Plata"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Otocinclus flexilis is endemic to the Patos Lagoon basin, Rio Grande do Sul, Brazil.",
+          "countries": [],
+          "regions": [
+            "Patos Lagoon"
           ]
         }
       ]
@@ -58,7 +58,7 @@
     "records": {
       "taxonKey": 2340461,
       "total": 54,
-      "fetched": "2026-11-14",
+      "fetched": "2026-11-16",
       "countries": [
         [
           "BR",
@@ -100,13 +100,13 @@
           -57.65625,
           -35.15625,
           1,
-          1
+          0
         ],
         [
           -57.65625,
           -32.34375,
           1,
-          1
+          0
         ],
         [
           -57.65625,
@@ -130,13 +130,13 @@
           -56.25,
           -35.15625,
           2,
-          2
+          0
         ],
         [
           -56.25,
           -32.34375,
           1,
-          1
+          0
         ],
         [
           -56.25,
@@ -148,19 +148,19 @@
           -56.25,
           -28.125,
           1,
-          1
+          0
         ],
         [
           -54.84375,
           -33.75,
           2,
-          2
+          0
         ],
         [
           -54.84375,
           -32.34375,
           3,
-          3
+          1
         ],
         [
           -54.84375,
@@ -317,39 +317,6 @@
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/92361aacaa0d2e2c.webp",
-      "thumb": "https://media.aquatome.com/scotcat/92361aacaa0d2e2c-480.webp",
-      "width": 500,
-      "height": 302,
-      "licence": "dùng với sự cho phép",
-      "author": "Marcelo Loureiro / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/otocinclus_flexilis.htm",
-      "caption": "Otocinclus flexilis",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/901fce68aba4c038.webp",
-      "thumb": "https://media.aquatome.com/scotcat/901fce68aba4c038-480.webp",
-      "width": 500,
-      "height": 337,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/otocinclus_flexilis.htm",
-      "caption": "Otocinclus flexilis",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/1dfd5bf57392c1cf.webp",
-      "thumb": "https://media.aquatome.com/scotcat/1dfd5bf57392c1cf-480.webp",
-      "width": 500,
-      "height": 325,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/otocinclus_flexilis.htm",
-      "caption": "Otocinclus flexilis",
-      "source": "scotcat"
-    },
     {
       "url": "https://media.aquatome.com/scotcat/c952b11ad6b42b7d.webp",
       "thumb": "https://media.aquatome.com/scotcat/c952b11ad6b42b7d-480.webp",

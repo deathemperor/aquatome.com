@@ -16,20 +16,36 @@
         "ID"
       ],
       "regions": [
-        "Bangka"
+        "Bangka",
+        "Bangka Island"
       ],
       "sources": [
+        "bwaquatics",
         "seriouslyfish"
       ],
       "quotes": [
         {
-          "source": "seriouslyfish",
-          "quote": "Betta burdigala is a small bubble-nesting labyrinth fish endemic to the island of Bangka, off the east coast of Sumatra, Indonesia.",
+          "source": "bwaquatics",
+          "quote": "Origin: wild caught (Bangka Island, Indonesia).",
           "countries": [
             "ID"
           ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the island of Bangka just off the east coast of Sumatra, Bangka-Belitung province, Indonesia with type locality '4 kilometers north of Bikang village on road from Koba to Toboali, Bangka, Indonesia'.",
+          "countries": [],
           "regions": [
             "Bangka"
+          ]
+        },
+        {
+          "source": "bwaquatics",
+          "quote": "Betta burdigala is endemic to the peat swamps of Bangka Island, off the east coast of Sumatra, Indonesia.",
+          "countries": [],
+          "regions": [
+            "Bangka Island"
           ]
         }
       ]
@@ -111,8 +127,8 @@
     {
       "key": "quickFacts",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-bangka-wild-type-bettas",
-      "html": "<p>From the Betta coccina complex. IUCN Red List: Critically Endangered (extremely high risk of extinction in the wild). Origin: wild caught (Bangka Island, Indonesia).</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-red-wild-type-bettas",
+      "html": "<ul><li>From the Betta coccina complex.</li><li>IUCN Red List: Critically Endangered (extremely high risk of extinction in the wild).</li><li>Origin: wild caught (Bangka Island, Indonesia).</li><li>Temperament: moderately aggressive.</li><li>Bubble nester.</li></ul>"
     },
     {
       "key": "quickFacts",
@@ -129,8 +145,8 @@
     {
       "key": "distribution",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-bangka-wild-type-bettas",
-      "html": "<p>Betta burdigala is endemic to the peat swamps of Bangka Island, off the east coast of Sumatra, Indonesia. Its name comes from Burdigala, the Latin name for Bordeaux, for its deep wine-red color. Clearing of peat swamp for oil palm has left it Critically Endangered, and Universitas Bangka-Belitung now keeps broodstock for a captive breeding program.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-red-wild-type-bettas",
+      "html": "<p>Betta burdigala is endemic to the peat swamps of Bangka Island, off the east coast of Sumatra, Indonesia. Its name comes from Burdigala, the Latin name for Bordeaux, for its deep wine-red color. Clearing of peat swamp for oil palm has left it Critically Endangered.</p>"
     },
     {
       "key": "habitat",
@@ -141,14 +157,14 @@
     {
       "key": "habitat",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-bangka-wild-type-bettas",
+      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-red-wild-type-bettas",
       "html": "<p>Flooded peat swamp forest and blackwater streams on Bangka Island.</p>"
     },
     {
       "key": "aquariumSize",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-bangka-wild-type-bettas",
-      "html": "<p>Recommended 1 pair per 5 gallons (20 litres).</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-red-wild-type-bettas",
+      "html": "<p>Recommended 1 pair per 20 litres.</p>"
     },
     {
       "key": "aquariumSize",
@@ -165,8 +181,8 @@
     {
       "key": "waterConditions",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-bangka-wild-type-bettas",
-      "html": "<ul><li>TDS: 60 to 100</li><li>pH: 4.0 to 6.0</li><li>Temperature: 24 to 28°C</li></ul>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-red-wild-type-bettas",
+      "html": "<ul><li>TDS: 60 to 100</li><li>pH: 4.0 to 6.0</li><li>Temperature: 24–28°C</li></ul>"
     },
     {
       "key": "waterConditions",
@@ -183,14 +199,14 @@
     {
       "key": "diet",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-bangka-wild-type-bettas",
+      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-red-wild-type-bettas",
       "html": "<p>Carnivorous. Fed on live blackworms, frozen bloodworms and pellets.</p>"
     },
     {
       "key": "behaviour",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-bangka-wild-type-bettas",
-      "html": "<p>Moderately aggressive. Males can be territorial when setting up a breeding site, but because of their small size you can keep multiple pairs with enough space and cover.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-red-wild-type-bettas",
+      "html": "<p>Moderately aggressive. Males can be territorial when setting up a breeding site, but because of their small size multiple pairs can be kept with enough space and cover.</p>"
     },
     {
       "key": "behaviour",
@@ -205,10 +221,16 @@
       "html": "<p>Males are more colourful and develop longer fins than females as they mature.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-red-wild-type-bettas",
+      "html": "<p>On males, blue and green iridescence is spread across many flank scales rather than concentrated in one spot.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-bangka-wild-type-bettas",
-      "html": "<p>Bubblenester. The male builds a small bubble nest at the surface, usually under a floating leaf, inside a floating cave or among plants, and places the eggs in it after spawning. Pairs can often stay together in a well-planted tank; remove the female if the male keeps chasing her. Eggs hatch in 24 to 48 hours, and the fry are free-swimming about 3 days later. Start them on infusoria, then move to baby brine shrimp. Keep the surface calm so the nest stays intact.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-red-wild-type-bettas",
+      "html": "<p>Bubble nester. The male builds a small bubble nest at the surface, usually under a floating leaf, inside a floating cave or among plants, and places the eggs in it after spawning. Pairs can often stay together in a well-planted tank; remove the female if the male keeps chasing her. Eggs hatch in 24 to 48 hours, and the fry are free-swimming about 3 days later. Start them on infusoria, then move to baby brine shrimp. Keep the surface calm so the nest stays intact.</p>"
     },
     {
       "key": "reproduction",
@@ -225,8 +247,8 @@
     {
       "key": "notes",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-bangka-wild-type-bettas",
-      "html": "<p><strong>Physical characteristics</strong></p><ul><li>Body shape: rounded head and a thicker, more robust body than Betta uberis.</li><li>Fins: wide, broad unpaired fins, longer than those of Betta uberis.</li><li>Scaling: small, even scales. On males, blue and green iridescence is spread across many flank scales rather than concentrated in one spot.</li><li>Coloration: deep wine red with blue and green iridescence on the body and fins. No mid-lateral spot.</li></ul>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-burdigala-red-wild-type-bettas",
+      "html": "<p>Physical characteristics: rounded head and a thicker, more robust body than Betta uberis. Fins: wide, broad unpaired fins, longer than those of Betta uberis. Scaling: small, even scales. Coloration: deep wine red with blue and green iridescence on the body and fins. No mid-lateral spot.</p>"
     },
     {
       "key": "references",
@@ -302,5 +324,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-14"
+  "updatedAt": "2026-11-15"
 }

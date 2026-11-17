@@ -3,6 +3,12 @@
   "name": "Llanos Orientales",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-16T17:14:40.930Z",
+    "why": "Indonesian atlases usually write this as \"Dataran Llanos Timur\" or \"Llanos Orientales\" with a kind word like \"Dataran\"; the bare Spanish name has no Indonesian kind word, though keeping the proper name's spelling is acceptable."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

@@ -284,6 +284,27 @@ test("the lead a page shows stays where the check passes it as typical, and give
   expect(await urls(r, 'content/species/eee-fish/entity.json')).toEqual(['eee-lead', 'eee-typical'])
 })
 
+// The reader of #1515, 16 Nov 2026: the photo check orders heads as the lead step and the sweep do (photo-named.ts), so it
+// reads the calendar's hold too. Where the lead step put a held head behind a photo named less surely ("cf."), the held
+// photo sets no bar here, so it doesn't go first again; with the hold unread, it does.
+test("a held head the lead step put behind a \"cf.\" photo stays behind it: the photo check reads the hold as the lead step and the sweep do", async () => {
+  const cf = { ...photo('rc-cf', 'Rineloricaria cf. castroi') }, held = { ...photo('rc-held', 'Rineloricaria castroi') }
+  const page = { id: 'rineloricaria-castroi', sci: 'Rineloricaria castroi', extra: { photos: [cf, held] } }
+  const d = model({ 'rc-cf': { typical: true }, 'rc-held': { typical: true } })
+  const r = await root([page])
+  await writeFile(join(r, 'content/curation.json'), JSON.stringify({ avoid: { [held.url]: 'a test' } }))
+  await checkPagePhotos(r, d, { limit: 10 })
+  expect(await urls(r, 'content/species/rineloricaria-castroi/entity.json')).toEqual(['rc-cf', 'rc-held'])
+  const open = await root([page])
+  await checkPagePhotos(open, model({ 'rc-cf': { typical: true }, 'rc-held': { typical: true } }), { limit: 10 })
+  expect(await urls(open, 'content/species/rineloricaria-castroi/entity.json')).toEqual(['rc-held', 'rc-cf'])
+  // The engine's own entries list a photo refused on some page's cards: no hold, for the lead step either (handAvoid).
+  const engine = await root([page])
+  await writeFile(join(engine, 'content/curation.json'), JSON.stringify({ avoid: { [held.url]: 'engine: a test' } }))
+  await checkPagePhotos(engine, model({ 'rc-cf': { typical: true }, 'rc-held': { typical: true } }), { limit: 10 })
+  expect(await urls(engine, 'content/species/rineloricaria-castroi/entity.json')).toEqual(['rc-held', 'rc-cf'])
+})
+
 test("a lead's sheet takes the page's own photos before its gallery's, so a photo that takes a removed lead's place was judged beside it", async () => {
   const r = await root([{ id: 'aaa-fish', sci: 'Aaa fish', photos: ['lead', 'second'] }])
   // Commons' photos have the first turn, the page's own (another source's) the second: by turn alone they would fill the sheet.

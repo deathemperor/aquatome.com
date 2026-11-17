@@ -3,6 +3,12 @@
   "name": "Copán",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.35,
+    "at": "2026-11-16T11:23:20.377Z",
+    "why": "\"Copán\" is the Indonesian spelling of the Honduran Maya site and river, but the place here is a wide region covering Mexico, Guatemala, Belize and Honduras, and the source only mentions the Río Copán as one boundary."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

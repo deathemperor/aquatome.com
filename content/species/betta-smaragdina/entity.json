@@ -23,7 +23,8 @@
       ],
       "regions": [
         "Mekong",
-        "Khorat Plateau"
+        "Khorat Plateau",
+        "Mun"
       ],
       "sources": [
         "bwaquatics",
@@ -32,9 +33,18 @@
       "quotes": [
         {
           "source": "bwaquatics",
+          "quote": "It is a hardy species from the Khorat Plateau of northeastern Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Khorat Plateau"
+          ]
+        },
+        {
+          "source": "bwaquatics",
           "quote": "Native to northeastern Thailand, Laos and parts of Cambodia in the Mekong Basin.",
           "countries": [
-            "TH",
             "LA",
             "KH"
           ],
@@ -43,11 +53,11 @@
           ]
         },
         {
-          "source": "bwaquatics",
-          "quote": "The fish originate from the Khorat Plateau in Thailand.",
+          "source": "seriouslyfish",
+          "quote": "The plateau is drained by the Mun, Chi, Songkhram, and Loei rivers, all of which belong to the Mekong watershed, and B. smaragdina has also been recorded from Mekong tributaries in central Laos.",
           "countries": [],
           "regions": [
-            "Khorat Plateau"
+            "Mun"
           ]
         }
       ]
@@ -379,6 +389,16 @@
       "source": "seriouslyfish"
     },
     {
+      "url": "https://media.aquatome.com/bwaquatics/47fc4fd0bec622c0.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/47fc4fd0bec622c0-480.webp",
+      "width": 1200,
+      "height": 960,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/smaragdina-reg",
+      "source": "bwaquatics"
+    },
+    {
       "url": "https://media.aquatome.com/seriouslyfish/b771dda61cbb7c10.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/b771dda61cbb7c10-480.webp",
       "width": 800,
@@ -399,16 +419,6 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-smaragdina",
       "caption": "Male from the Xouang river basin, Vientiane province, Laos.",
       "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/bwaquatics/47fc4fd0bec622c0.webp",
-      "thumb": "https://media.aquatome.com/bwaquatics/47fc4fd0bec622c0-480.webp",
-      "width": 1200,
-      "height": 960,
-      "licence": "dùng với sự cho phép",
-      "author": "BW Aquatics",
-      "sourceUrl": "https://bwaquatics.com/products/smaragdina-reg",
-      "source": "bwaquatics"
     },
     {
       "url": "https://media.aquatome.com/bwaquatics/17512b85b5b5e3a7.webp",

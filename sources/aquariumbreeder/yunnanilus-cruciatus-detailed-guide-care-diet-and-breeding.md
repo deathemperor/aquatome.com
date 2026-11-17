@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/yunnanilus-cruciatus-detailed-guide-care-diet-and-breeding/
 title: Yunnanilus Cruciatus – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-10-30T22:40:43.643Z
-hash: 3491ed898bee6958f489fbd572a855c210113c42e982444abb4b831b980de412
+hash: bd72a555c533a2e94b797b404c4dd43464474af8e6492de960be427e019c4c6d
 ---
 
 Yunnanilus cruciatus, commonly known as Vietnamese Multi Banded Zebra Loach, is a fascinating freshwater fish species found in the rivers of Southeast Asia. These small loaches are known for their distinctive markings on their bodies, which give them their name.
@@ -152,7 +152,3 @@ Unfortunately, it is almost impossible to breed them in captivity.
 - Luo, Fuguang, Jie Huang, Tong Luo, Jun Yang, Huanjia Zhou, and Yanhong Wen. “Complete mitochondrial genome and phylogenetic analysis of Yunnanilus pulcherrimus (Cypriniformes, Nemacheilidae).” Mitochondrial DNA Part B4, no. 1 (2019): 1269-1270.
 - Зворыкин, Дмитрий Дмитриевич. “Список рыб, населяющих внутренние водоёмы Вьетнама.”Экология внутренних вод Вьетнама (2014): 256-278.
 - Freyhof J, SerovDV. 2001. Nemacheiline loaches from Central Vietnam with descriptions of a new genus and 14 new species (Cypriniformes: Balitoridae). Ichthyological Exploration of Freshwaters, 12(2): 133- 191.
-## 4 thoughts on “Yunnanilus Cruciatus – Detailed Guide: Care, Diet, and Breeding”
-- Jeez, these fish are adorable! They seem like a wonderful alternative to corydoras! ReplyHey PurrlingReef, They really are little gems)) And yes, they make a fantastic alternative to corydoras, especially for smaller tanks. They stay tiny, are super peaceful, and have that same charming, busy personality on the bottom. Best regards, Michael Reply
-- Just got some yesterday, although they love the tank and our Pygmy Cories love their new friends who kinda look like them (an ongoing theme), our otos are a little annoyed the 2 schools are combining and messing with their scavenging. Nano rasbora (exclamation point and phoenix) and regular rummynose and celestial pearl rasboras enjoy their company too. ReplyHi Julia Thackary, Sounds like a fun setup. Those are all peaceful small fish, so they should do fine together. The otos will get over it. They’re just a bit grumpy by nature. Give them a few days and they’ll go back to ignoring everyone. Only thing to watch – if you ever get baby shrimp in there, these guys will snack on them. They’re tiny enough to fit in their mouths. Best regards, Michael Reply
-### Leave a Reply Cancel reply

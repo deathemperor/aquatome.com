@@ -3,6 +3,12 @@
   "name": "Ngoko",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-16T00:14:31.924Z",
+    "why": "The place is a region (Ngoko River basin/area) in Cameroon and Equatorial Guinea, and Indonesian atlases would write \"Sungai Ngoko\" for the river, so bare \"Ngoko\" omits the kind word and is ambiguous."
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

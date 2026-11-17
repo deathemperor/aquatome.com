@@ -1,8 +1,8 @@
 {
   "id": "acnodon-normani",
   "native": {
-    "input": "6a18ebbe65c4fc33",
-    "at": "2026-11-09T23:57:44.132Z",
+    "input": "c9060da5c48429cd",
+    "at": "2026-11-16T00:17:52.050Z",
     "claims": [
       {
         "code": "BR",
@@ -23,7 +23,7 @@
     ],
     "regions": [
       {
-        "name": "Amazon",
+        "name": "Tocantins",
         "source": "seriouslyfish",
         "quote": "Known only from the lower Amazon river basin, and possibly restricted to the Xingu and Tocantins watersheds.",
         "ok": true
@@ -35,7 +35,7 @@
         "ok": true
       },
       {
-        "name": "Tocantins",
+        "name": "Amazon",
         "source": "seriouslyfish",
         "quote": "Known only from the lower Amazon river basin, and possibly restricted to the Xingu and Tocantins watersheds.",
         "ok": true

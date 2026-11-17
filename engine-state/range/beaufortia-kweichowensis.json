@@ -1,14 +1,22 @@
 {
   "id": "beaufortia-kweichowensis",
   "native": {
-    "input": "b1387e4fc3cf0a8b",
-    "at": "2026-11-06T15:17:52.851Z",
+    "input": "2f819543d407d6e6",
+    "at": "2026-11-16T11:31:54.968Z",
     "claims": [
       {
         "code": "CN",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Native to the Xi Jiang (West River) system in southern China, the major tributary of the great Zhu Jiang (Pearl River).",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It is native to the Xi Jiang River system in Southern China, the major tributary of the great Zhu Jiang (Pearl River).",
         "words": "China",
         "ok": true
       }
@@ -25,6 +33,20 @@
         "name": "Zhu Jiang",
         "source": "seriouslyfish",
         "quote": "Native to the Xi Jiang (West River) system in southern China, the major tributary of the great Zhu Jiang (Pearl River).",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Xi Jiang",
+        "source": "aquariumbreeder",
+        "quote": "It is native to the Xi Jiang River system in Southern China, the major tributary of the great Zhu Jiang (Pearl River).",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Zhu Jiang",
+        "source": "aquariumbreeder",
+        "quote": "It is native to the Xi Jiang River system in Southern China, the major tributary of the great Zhu Jiang (Pearl River).",
         "country": "CN",
         "ok": true
       }

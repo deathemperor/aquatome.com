@@ -10,6 +10,205 @@
     "peru",
     "rio-shishita"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Negro",
+        "Rio Shishita"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "So far only one species of the genus Odontocharacidium is known to science, namely O. aphanes from the Rio Negro in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Negro"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The water parameters at a collecting site of this fish in the Rio Shishita drainage were: pH 5.32, conductivity 21 µS/cm, temperature 24°C.",
+          "countries": [],
+          "regions": [
+            "Rio Shishita"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2352326,
+      "total": 56,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "BR",
+          51
+        ],
+        [
+          "PE",
+          3
+        ],
+        [
+          "VE",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -7.03125,
+          2,
+          0
+        ],
+        [
+          -73.125,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -68.90625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          8,
+          8
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -8.4375,
+          6,
+          6
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          10,
+          10
+        ],
+        [
+          -61.875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          0,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -7.03125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

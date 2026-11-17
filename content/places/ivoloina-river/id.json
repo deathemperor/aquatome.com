@@ -1,8 +1,13 @@
 {
   "slug": "ivoloina-river",
-  "name": "Ivoloina",
+  "name": "Sungai Ivoloina",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-16T11:26:26.011Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

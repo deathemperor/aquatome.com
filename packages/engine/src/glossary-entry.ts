@@ -5,6 +5,7 @@ import { join } from 'node:path'
 import { glossaryKinds, GlossarySchema, metricPage, QUALITY_THRESHOLD, TranslationSchema, type GlossaryEntity, type GuideEntity, type Translation } from '@aq/schema'
 import type { Llm } from './claude'
 import { VI_STYLE as STYLE } from './phrases'
+import { refusedSite } from './cycle-only'
 import { isMarketplace } from './marketplaces'
 import { logReviews, readReviews } from './review-log'
 import { withTanks } from './round'
@@ -47,6 +48,12 @@ type Asks = {
    * 15 Nov 2026).
    */
   free?: string[]
+  /**
+   * Other names the entry no longer lists, as the saved entry writes them: other names are otherwise only added, so a
+   * wrong one stayed (the chief of staff, 16 Nov 2026: "dGH" under GH is its unit; "thức ăn viên" under dry food names
+   * one form, pellets).
+   */
+  notNames?: string[]
 }
 const ASKS = JSON.parse(readFileSync(new URL('./glossary-asks.json', import.meta.url), 'utf8')) as Record<string, Asks>
 const ENTRY_SCHEMA = {
@@ -201,15 +208,16 @@ export const sfGlossaryUrl = (slug: string) => `https://www.seriouslyfish.com/gl
 
 const SOCIAL = ['facebook.com', 'fb.com', 'fb.me', 'instagram.com', 'tiktok.com']
 /**
- * A page that is never a source: a marketplace's (reached only through its affiliate API) or a social network's. Research
- * can cite one it found through search without fetching it (the Site Lead, 13 Nov 2026), likeliest for the kinds shops
- * sell.
+ * A page that is never a source: a marketplace's (reached only through its affiliate API), a social network's, or one on a
+ * site refused as a source (cycle-only.ts REFUSED_SITES; the chief of staff, 16 Nov 2026). Research can cite one it found
+ * through search without fetching it (the Site Lead, 13 Nov 2026), likeliest for the kinds shops sell; and research kept
+ * before a site was refused still cites it.
  */
 export function offLimits(url: string): boolean {
   if (isMarketplace(url)) return true
   const u = new URL(url)
   const h = u.hostname.toLowerCase()
-  return SOCIAL.some(d => h === d || h.endsWith(`.${d}`)) || (/(^|\.)youtube\.com$/.test(h) && u.pathname.startsWith('/shorts'))
+  return refusedSite(url) || SOCIAL.some(d => h === d || h.endsWith(`.${d}`)) || (/(^|\.)youtube\.com$/.test(h) && u.pathname.startsWith('/shorts'))
 }
 
 /**
@@ -252,13 +260,32 @@ export function addResearch(a: TopicFacts, b: TopicFacts): TopicFacts {
  * translated (the Writing Lead, 13 Nov 2026, after the owner found a fern under a translated name). And only when the
  * site can link them safely, as the translations' (localize.ts): several words or an abbreviation, and no other term's.
  */
-export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: Llm }, id: string, o: { kind: GuideEntity['kind']; sf?: string; reuse?: boolean; fresh?: boolean; fromDraft?: boolean; revise?: boolean; accept?: string; researchModel?: string; writeModel?: string; now?: () => Date }) {
+export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: Llm; log?: (line: string) => void }, id: string, o: { kind: GuideEntity['kind']; sf?: string; reuse?: boolean; fresh?: boolean; fromDraft?: boolean; revise?: boolean; accept?: string; topUp?: boolean; researchModel?: string; writeModel?: string; now?: () => Date }) {
   const dir = join(root, 'content/glossary')
   const read = async <T>(f: string) => JSON.parse(await readFile(f, 'utf8')) as T
   const entity = GlossarySchema.parse(await read(join(dir, id, 'entity.json')))
   const vi = TranslationSchema.parse(await read(join(dir, id, 'vi.json')))
   const factsFile = join(root, 'engine-state/glossary', `${id}.json`)
   const saved = await read<TopicFacts>(factsFile).catch(() => null)
+  // A top-up only researches: what the term's notes ask (`also`) and the pages they name (`read`), added to the kept
+  // research, and nothing written, so the next revise writes from facts that are there (the chief of staff, 15 Nov 2026:
+  // what Artemia is, and Vĩnh Châu's eggs, each a fact before an entry says it, never on the checker's mercy).
+  if (o.topUp) {
+    if (o.fresh || o.reuse || o.revise || o.fromDraft || o.accept) return { id, refused: ['--top-up only researches: not with --fresh, --redo, --revise, --from-draft or --accept'] }
+    if (!saved) return { id, refused: ['no kept research to top up'] }
+    const asks = ASKS[id] ?? {}
+    if (!asks.also?.length && !asks.read?.length) return { id, refused: ['nothing to top up: the notes file gives this term no also or read'] }
+    const ask = [
+      asks.also?.length ? `Find only these, each from a page that says it; where no page you may use says one, add nothing for it: ${asks.also.join('; ')}.` : '',
+      asks.read?.length ? `Read these pages and keep what they say: ${asks.read.join(', ')}.` : '',
+    ].filter(Boolean).join(' ')
+    const found = await d.research<TopicFacts>({ system: 'You research fishkeeping topics carefully and cite every fact. Reply only with JSON.', prompt: `${researchPrompt({ topic: `${vi.name} (${entity.en}): only what is asked below; research already kept covers the rest`, kind: o.kind })}\n\n${ask}`, schema: FACTS_SCHEMA, model: o.researchModel ?? 'opus' })
+    const researched = addResearch(saved, found)
+    await writeFile(factsFile, `${JSON.stringify(researched, null, 2)}\n`)
+    const key = (f: TopicFacts['facts'][number]) => `${f.section}|${f.fact.trim().toLowerCase()}`
+    const had = new Set(saved.facts.map(key))
+    return { id, toppedUp: researched.facts.filter(f => !had.has(key(f))).map(f => `${f.fact} (${researched.sources[f.source]?.url ?? ''})`) }
+  }
   const draftFile = join(root, 'engine-state/glossary', `${id}.draft.json`)
   // A kept draft, revised or accepted, goes with the research it was written from, and only as the step kept it: a file
   // whose SHA-256 the review log has for a draft of this term (Codex's read, 14 Nov 2026), or one kept before the log had
@@ -304,6 +331,12 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   const researched = !kept && saved && !o.fresh ? addResearch(saved, found) : found
   if (!kept) { await mkdir(join(root, 'engine-state/glossary'), { recursive: true }); await writeFile(factsFile, `${JSON.stringify(researched, null, 2)}\n`) }
   if (!researched.found) return { id, skipped: 'nothing reliable found' }
+  // A refused site's page, cited by research kept before it was refused, is named in the run's log as it goes, with the
+  // facts that cite it (the Writing Lead, 16 Nov 2026, on the chief of staff's Thursday ruling for refused sources).
+  for (const url of new Set(researched.sources.filter(x => refusedSite(x.url)).map(x => x.url))) {
+    const n = researched.facts.filter(f => researched.sources[f.source]?.url === url).length
+    ;(d.log ?? console.error)(`${id}: ${url} is refused as a source: its link and the ${n} fact${n === 1 ? '' : 's'} citing it don't reach the writer`)
+  }
   // Such a page goes, with the facts that cite it, before the writer sees them: no address, no source (viFacts).
   const { facts, refs, sources } = viFacts({ ...researched, sources: researched.sources.map(x => (offLimits(x.url) ? { ...x, url: '' } : x)) })
   if (!facts.length) return { id, skipped: 'no cited facts' }
@@ -379,7 +412,23 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   let w: Entry
   let review: Checked
   const tries: Checked[] = []
+  // A kept draft, run or accepted, is held to the term's saved entry as a revision is: what it took out that no stop or
+  // free line lets go stops it (the chief of staff, 16 Nov 2026: Artemia's and dry food's runs from their drafts saved what
+  // a stopped revise had cut). A term with no written entry yet has nothing to hold it to.
+  const saving: Entry | null = (o.fromDraft || o.accept) && vi.body ? { definition: vi.definition ?? '', altNames: [], body: vi.body, related: entity.related ?? [] } : null
+  const dropsFrom = (base: Entry, e: Entry, freed: NonNullable<Checked['stopped']>) => droppedInRewrite(base, e, forWriter, freed, [...pages.flatMap(l => l.split(' | ').slice(0, 2)), ...kindNames(base, taxa).fit.map(k => k.name)], asks.free)
+  // A sentence of the saved entry the fact check stops may go, as in a revision, whose first read is of that entry. A kept
+  // draft's path reads the saved entry only when the draft drops something from it, and once (Fable's read, 16 Nov 2026).
+  let savedStops: NonNullable<Checked['stopped']> | undefined
+  const heldTo = async (base: Entry, e: Entry, freed: NonNullable<Checked['stopped']>) => {
+    const lost = dropsFrom(base, e, freed)
+    if (o.revise || !lost.length) return lost
+    savedStops ??= (await checkSentences(d.llm, forWriter, base)).stops
+    return dropsFrom(base, e, [...freed, ...savedStops])
+  }
   if (o.accept) {
+    const lost = saving ? await heldTo(saving, draft!.entry, []) : []
+    if (lost.length) return { id, refused: lost }
     w = draft!.entry
     review = { score: draft!.score, notes: draft!.notes, broken: draft!.broken }
     await logReviews(root, 'glossary', page, [review], review, { ...(now ? { now } : {}), rewrite: true, acceptedBy: o.accept })
@@ -400,15 +449,16 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     // 15 Nov 2026: each of pH's and chu trình nitơ's revisions fixed what was asked and dropped something already read). What
     // it took out of any other sentence stops it from being saved, and goes back to the writer once more, against the text
     // the rewrites started from. A fresh draft, which no one has read, is trimmed as it must be.
-    const start = w
+    const start = o.revise ? w : saving
     const freed: NonNullable<Checked['stopped']> = []
-    let dropped: string[] = []
+    let dropped: string[] = start && !o.revise ? await heldTo(start, w, []) : []
+    if (dropped.length) { review.notes = [...dropped, ...review.notes]; review.stops = stopping(review) + dropped.length; review.broken += dropped.length }
     for (let i = 0; i < 2 && (!passes(review) || (i === 0 && (!draft || o.revise || review.notes.some(isLength)) && review.notes.length) || dropped.length); i++) {
-      const notes = [...review.notes, ...dropped]
+      const notes = [...new Set([...review.notes, ...dropped])]
       // A sentence the fact check stopped may go from where it stood.
       freed.push(...(review.stopped ?? []))
       const again = await fit(await write(notes, w))
-      dropped = o.revise ? droppedInRewrite(start, again, forWriter, freed, [...pages.flatMap(l => l.split(' | ').slice(0, 2)), ...kindNames(start, taxa).fit.map(k => k.name)], asks.free) : []
+      dropped = start ? await heldTo(start, again, freed) : []
       const r = await check(again)
       if (dropped.length) { r.notes = [...dropped, ...r.notes]; r.stops = stopping(r) + dropped.length; r.broken += dropped.length }
       tries.push(r)
@@ -448,12 +498,17 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     return facts.some(f => re.test(f.fact))
   }
   const linkable = (n: string) => (/\s/.test(n) || /[A-Z].*[A-Z0-9]|\d/.test(n)) && !taken.has(n.toLowerCase()) && quoted(n)
-  const own = new Set([vi.name.toLowerCase()])
+  const own = new Set([vi.name, ...(asks.notNames ?? [])].map(n => n.toLowerCase()))
   const altNames = [...vi.altNames, ...w.altNames.map(n => unescapePlain(n).trim()).filter(linkable)].filter(n => n && !own.has(n.toLowerCase()) && own.add(n.toLowerCase()))
   const ids = new Set(others.map(x => x.id))
   const next: GlossaryEntity = GlossarySchema.parse({ ...entity, refs, related: [...new Set(w.related)].filter(r => ids.has(r)).slice(0, 6) })
+  // A body cut by hand (bodyFixed: what rested on a refused site alone, the chief of staff, 16 Nov 2026) is the step's
+  // again once it writes the entry: the writer sees no refused site's facts (offLimits), and the text is read before it goes
+  // live. So the mark goes with the save and doesn't outlive the cut. Not with an accepted draft: it is saved as it was
+  // kept, perhaps written while the writer still saw a refused site's facts, and nothing has read it against them since.
+  const { bodyFixed: _cut, ...unmarked } = vi
   const t = TranslationSchema.parse(metricPage({
-    ...vi, altNames, definition: unescapePlain(w.definition).replace(/<[^>]+>/g, '').trim(), body: sanitizeHtml(w.body),
+    ...(o.accept ? vi : unmarked), altNames, definition: unescapePlain(w.definition).replace(/<[^>]+>/g, '').trim(), body: sanitizeHtml(w.body),
     quality: { score: review.score, indexable: true },
   }, 'vi'))
   // Each kind's photo stays with the term (the spread above keeps it). One whose kind the new text no longer lists is named,

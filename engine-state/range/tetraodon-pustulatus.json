@@ -1,0 +1,79 @@
+{
+  "id": "tetraodon-pustulatus",
+  "native": {
+    "input": "74ad06d609106f18",
+    "at": "2026-11-16T11:31:54.968Z",
+    "claims": [
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Cross River pufferfish, Tetraodon pustulatus, is a puffer endemic to the Cross River basin of Nigeria and Cameroon.",
+        "words": "Nigeria",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Cross River pufferfish, Tetraodon pustulatus, is a puffer endemic to the Cross River basin of Nigeria and Cameroon.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Tetraodon pustulatus was caught in the Cross River in Cameroon.",
+        "words": "Cameroon",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Cross River",
+        "source": "seriouslyfish",
+        "quote": "The Cross River pufferfish, Tetraodon pustulatus, is a puffer endemic to the Cross River basin of Nigeria and Cameroon.",
+        "ok": true
+      },
+      {
+        "name": "Cross River",
+        "source": "glaser",
+        "quote": "Tetraodon pustulatus was caught in the Cross River in Cameroon.",
+        "country": "CM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Tetraodon pustulatus",
+    "status": "ACCEPTED",
+    "taxonKey": 5213547,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        6
+      ],
+      [
+        "2ba30ed2-6f82-480c-a892-4c8749508324",
+        1
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        1
+      ]
+    ],
+    "native": [
+      "NG",
+      "CM"
+    ],
+    "requests": 11,
+    "at": "2026-11-16T11:31:54.968Z"
+  }
+}

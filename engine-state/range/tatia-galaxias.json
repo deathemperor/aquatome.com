@@ -1,0 +1,138 @@
+{
+  "id": "tatia-galaxias",
+  "native": {
+    "input": "2ed73fc03e5ca78c",
+    "at": "2026-11-16T11:31:54.968Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Orinoco basin in Venezuela and Colombia.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Orinoco basin in Venezuela and Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Orinoco basin in Venezuela and Colombia.",
+        "ok": true
+      },
+      {
+        "name": "Apure",
+        "source": "seriouslyfish",
+        "quote": "In Venezuela it's recorded from the Apure and Cinaruco rivers in Apure state, from tributaries of the middle Orinoco near Caicara del Orinoco in Bolívar state, and in Amazonas state from the Atabapo, Sipapo and Mavaca rivers.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Cinaruco",
+        "source": "seriouslyfish",
+        "quote": "In Venezuela it's recorded from the Apure and Cinaruco rivers in Apure state, from tributaries of the middle Orinoco near Caicara del Orinoco in Bolívar state, and in Amazonas state from the Atabapo, Sipapo and Mavaca rivers.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Atabapo",
+        "source": "seriouslyfish",
+        "quote": "In Venezuela it's recorded from the Apure and Cinaruco rivers in Apure state, from tributaries of the middle Orinoco near Caicara del Orinoco in Bolívar state, and in Amazonas state from the Atabapo, Sipapo and Mavaca rivers.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Meta",
+        "source": "seriouslyfish",
+        "quote": "In Colombia it's known from the Meta drainage, where it has been collected from a small stream thought to belong to the Mozambique lake complex and from the El Viento stream south of Matazul (Sarmento-Soares and Martins-Pinheiro, 2008).",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Guarapiche",
+        "source": "seriouslyfish",
+        "quote": "Mees (1988) also recorded it from the Guarapiche river in Monagas state.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Tatia galaxias",
+    "status": "ACCEPTED",
+    "taxonKey": 2344641,
+    "datasets": [
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        24
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        11
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        5
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        5
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        2
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        2
+      ],
+      [
+        "2bee4a91-9d92-430e-a87e-ab32d3b1ce47",
+        1
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "83c9289f-0d18-42ae-98b0-2ad3621f0dfa",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [
+      "VE",
+      "CO"
+    ],
+    "requests": 12,
+    "at": "2026-11-16T11:31:54.968Z"
+  }
+}

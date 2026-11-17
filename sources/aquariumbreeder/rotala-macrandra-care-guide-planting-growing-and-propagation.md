@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/rotala-macrandra-care-guide-planting-growing-and-propagation/
 title: Rotala Macrandra Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-10-30T11:59:32.981Z
-hash: dae4511b3323fb2a12613fa065ad72f2764e11bb3223cf9ddc90b30c6250f99d
+hash: 9f6ec3e4b54d2e7ccb58304c621ad8812473f316eaf2d433e9edf7372afe5be7
 ---
 
 Rotala Macrandra is a famous and attractive aquatic stem plant that drastically complements the aesthetics and outlay of freshwater aquaria.
@@ -126,4 +126,3 @@ In addition, make sure to obtain only healthy-looking, lush specimens devoid of 
 By all indications, Rotala macrandra is an impressive and fascinating aquatic stem plant that makes an excellent candidate for freshwater aquaria.
 This species can be used to create various artistic effects in all kinds of aquascape because of its distinctive form and lively colors that clearly stand out.
 Despite that, Rotala macrandra is more suitable for experienced aquarists due to the high demands and special care required for it to grow healthily and maintain the best coloration in a freshwater tank.
-### Leave a Reply Cancel reply

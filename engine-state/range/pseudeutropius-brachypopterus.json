@@ -1,8 +1,8 @@
 {
   "id": "pseudeutropius-brachypopterus",
   "native": {
-    "input": "9c56aecb6d935b6f",
-    "at": "2026-11-13T05:31:31.275Z",
+    "input": "c0431dcc09c86e1c",
+    "at": "2026-11-16T11:31:54.968Z",
     "claims": [
       {
         "code": "ID",
@@ -17,39 +17,44 @@
       {
         "name": "Sumatra",
         "source": "planetcatfish",
-        "quote": "Asia: Sumatra and Borneo.",
+        "quote": "Asia: Sumatra and Borneo. Pacific, Greater Sunda Island Rivers, Sumatra Waters; Pacific, Greater Sunda Island Rivers, Borneo Waters.",
         "ok": true
       },
       {
         "name": "Borneo",
         "source": "planetcatfish",
-        "quote": "Asia: Sumatra and Borneo.",
+        "quote": "Asia: Sumatra and Borneo. Pacific, Greater Sunda Island Rivers, Sumatra Waters; Pacific, Greater Sunda Island Rivers, Borneo Waters.",
         "ok": true
       },
       {
-        "name": "Kapuas River",
+        "name": "Kapuas",
         "source": "scotcat",
-        "quote": "Asia: Kapuas River, Sumatra.",
-        "ok": true
-      },
-      {
-        "name": "Siak River",
-        "source": "scotcat",
-        "quote": "This species is known from the Siak River drainage southwards to the Musi River drainage in Sumatra, and from the Kapuas, and the Sampit (Mentaya) River drainage eastwards to the Sebangau River drainage in Borneo.",
+        "quote": "Asia: Kapuas River, Sumatra. Type locality: Palembang, Sumatra.",
         "ok": true
       },
       {
         "name": "Musi River",
         "source": "scotcat",
-        "quote": "This species is known from the Siak River drainage southwards to the Musi River drainage in Sumatra, and from the Kapuas, and the Sampit (Mentaya) River drainage eastwards to the Sebangau River drainage in Borneo.",
+        "quote": "This species is known from the Siak River drainage southwards to the Musi River drainage in Sumatra, and from the Kapuas, and the Sampit (Mentaya) River drainage eastwards to the Sebangau River drainage in Borneo. Extent of occurrence (EOO) is estimated to be 540,000 km2, based on georeferenced points (GBIF 2019) and expert opinion (H.H. Ng pers. comm. 2019).",
         "ok": true
       },
       {
-        "name": "Sampit River",
+        "name": "Siak River",
         "source": "scotcat",
-        "quote": "This species is known from the Siak River drainage southwards to the Musi River drainage in Sumatra, and from the Kapuas, and the Sampit (Mentaya) River drainage eastwards to the Sebangau River drainage in Borneo.",
-        "ok": false,
-        "why": "its name is not in the quote"
+        "quote": "This species is known from the Siak River drainage southwards to the Musi River drainage in Sumatra, and from the Kapuas, and the Sampit (Mentaya) River drainage eastwards to the Sebangau River drainage in Borneo. Extent of occurrence (EOO) is estimated to be 540,000 km2, based on georeferenced points (GBIF 2019) and expert opinion (H.H. Ng pers. comm. 2019).",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "glaser",
+        "quote": "Both species of the genus originate from Sumatra.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "glaser",
+        "quote": "P. brachypopterus also lives on Borneo.",
+        "ok": true
       }
     ],
     "disputed": [],

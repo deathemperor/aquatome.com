@@ -11,8 +11,7 @@
       "sourceUrl": "https://www.inaturalist.org/photos/255304525",
       "caption": "Tôm bumble bee nhìn chính diện, chân sọc vàng xanh",
       "best": true,
-      "kind": "habitat",
-      "unchecked": true
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/338353100.webp",
@@ -24,8 +23,7 @@
       "sourceUrl": "https://www.inaturalist.org/photos/338353100",
       "caption": "Tôm bumble bee sọc đen trắng trên nền cát",
       "best": true,
-      "kind": "habitat",
-      "unchecked": true
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/339053912.webp",
@@ -37,21 +35,7 @@
       "sourceUrl": "https://www.inaturalist.org/photos/339053912",
       "caption": "Tôm bumble bee nhìn nghiêng, càng sọc vàng trắng",
       "best": true,
-      "kind": "habitat",
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/590889014.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/590889014-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Cricket Raspet",
-      "sourceUrl": "https://www.inaturalist.org/photos/590889014",
-      "caption": "Tôm bumble bee sọc nâu rõ nét, chân dài",
-      "best": true,
-      "kind": "habitat",
-      "unchecked": true
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/269127167.webp",
@@ -63,8 +47,7 @@
       "sourceUrl": "https://www.inaturalist.org/photos/269127167",
       "caption": "Tôm bumble bee bên rong xanh trong môi trường tự nhiên",
       "best": false,
-      "kind": "habitat",
-      "unchecked": true
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/182539791.webp",
@@ -273,6 +256,18 @@
       "best": false,
       "kind": "habitat",
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/590889014.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/590889014-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Cricket Raspet",
+      "sourceUrl": "https://www.inaturalist.org/photos/590889014",
+      "caption": "Tôm bumble bee sọc nâu rõ nét, chân dài",
+      "best": true,
+      "kind": "habitat"
     }
   ],
   "seen": 80,

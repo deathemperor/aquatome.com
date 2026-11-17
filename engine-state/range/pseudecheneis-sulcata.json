@@ -1,22 +1,14 @@
 {
   "id": "pseudecheneis-sulcata",
   "native": {
-    "input": "42393ff89dc82aa0",
-    "at": "2026-11-14T05:39:06.336Z",
+    "input": "eb499a8ba321d93c",
+    "at": "2026-11-16T05:47:36.414Z",
     "claims": [
       {
         "code": "IN",
         "status": "native",
         "source": "planetcatfish",
-        "quote": "Type locality: Khasi Hills, Meghalaya, India",
-        "words": "India",
-        "ok": true
-      },
-      {
-        "code": "IN",
-        "status": "native",
-        "source": "planetcatfish",
-        "quote": "Asia: India, Nepal and Bangladesh. Reported from Tibet and Myanmar.",
+        "quote": "Asia: India, Nepal and Bangladesh.",
         "words": "India",
         "ok": true
       },
@@ -24,7 +16,7 @@
         "code": "NP",
         "status": "native",
         "source": "planetcatfish",
-        "quote": "Asia: India, Nepal and Bangladesh. Reported from Tibet and Myanmar.",
+        "quote": "Asia: India, Nepal and Bangladesh.",
         "words": "Nepal",
         "ok": true
       },
@@ -32,7 +24,7 @@
         "code": "BD",
         "status": "native",
         "source": "planetcatfish",
-        "quote": "Asia: India, Nepal and Bangladesh. Reported from Tibet and Myanmar.",
+        "quote": "Asia: India, Nepal and Bangladesh.",
         "words": "Bangladesh",
         "ok": true
       },
@@ -40,16 +32,24 @@
         "code": "MM",
         "status": "native",
         "source": "planetcatfish",
-        "quote": "Asia: India, Nepal and Bangladesh. Reported from Tibet and Myanmar.",
+        "quote": "Reported from Tibet and Myanmar.",
         "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Brahmaputra drainage, India. Type locality: Kasyah [Khasi] Hills, Meghalaya, India.",
+        "words": "India",
         "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Khasi Hills",
-        "source": "planetcatfish",
-        "quote": "Type locality: Khasi Hills, Meghalaya, India",
+        "name": "Brahmaputra",
+        "source": "scotcat",
+        "quote": "Asia: Brahmaputra drainage, India. Type locality: Kasyah [Khasi] Hills, Meghalaya, India.",
         "country": "IN",
         "ok": true
       }

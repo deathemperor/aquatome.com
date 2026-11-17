@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/freshwater-limpets-in-freshwater-tank-stay-or-go/
 title: Freshwater Limpets in Freshwater Tank: Stay or Go? - Shrimp and Snail Breeder
 fetchedAt: 2026-11-03T05:15:00.809Z
-hash: 5fc106e8c344b02e968d61e725cfa06479db9c5cb25ef0adaddedfe28e0b7c9d
+hash: 935b09ea3c950bbeaa8665ac196ed52177dbc3216b9b5072635ee96ae8a9c1b6
 ---
 
 Freshwater limpets (genus Acroluxus) are common visitors in our tanks. Some people absolutely hate these tiny critters with a huge passion while others do not mind having them as additional clean up crew or even live food.
@@ -105,7 +105,3 @@ References:
 - Shirokaya, Alena & Takhteev, Vadim. (2018). ОПРЕДЕЛИТЕЛЬ БРЮХОНОГИХ МОЛЛЮСКОВ СЕМЕЙСТВА ACROLOXIDAE THIELE, 1931 (PULMONATA: HYGROPHILA) ОЗЕРА БАЙКАЛ, С ЗАМЕЧАНИЯМИ ПО ЭКОЛОГИИ И РАСПРОСТРАНЕНИЮ ВИДОВ УЧЕБНОЕ ПОСОБИЕ.
 - Hunter, W. Russell. “On the growth of the fresh‐water Limpet, Ancylus fluviatilis Müller.” In Proceedings of the Zoological Society of London, vol. 123, no. 3, pp. 623-636. Oxford, UK: Blackwell Publishing Ltd, 1953.
 - Clarke, Arthur Haddleton. “The freshwater molluscs of the Canadian Interior Basin.” Malacologia 13, no. 1 (1973): 1-509.
-## 3 thoughts on “Freshwater Limpets in Freshwater Tank: Stay or Go?”
-- Thankyou for writing this, there’s a lot of information out there that A) looks like AI slop and B) is untrue and just needlessly encouraging aquarists to kill off useful “pests” ReplyHi B, Thanks for the feedback! I’m glad the article resonated. That’s exactly why I wrote it – to encourage observation over extermination for useful creatures like limpets. Regarding AI-generated content. Well, it’s become a real problem of the internet. It’s already nearly impossible to find real information amidst the huge mass of generated text, some of which is just plain wrong. And since the so-called “authors” don’t actually know the topic, they can’t even correct all that nonsense. Best regards, Michael Reply
-- Thank you, this was very informative. I kept going to AI to try to determine what these tiny things were and that was of no use. The limpets are so difficult to take a photo of, being so small and so clear. I got the invasion after my recent aquarium plantings. I have been considering going to the idea of a “dirted” aquarium substrate or giving up the aquarium, now I am not so bothered by them Reply
-### Leave a Reply Cancel reply

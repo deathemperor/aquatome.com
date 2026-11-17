@@ -1,8 +1,13 @@
 {
   "slug": "lebo-river",
-  "name": "Lebo",
+  "name": "Sungai Lebo",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-16T11:29:30.946Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

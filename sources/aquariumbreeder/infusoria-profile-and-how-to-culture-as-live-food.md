@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/infusoria-profile-and-how-to-culture-as-live-food/
 title: Infusoria Profile and How to Culture as Live Food - Shrimp and Snail Breeder
 fetchedAt: 2026-10-28T16:13:10.625Z
-hash: 91ed9ea7562ebf1ea2748706af905196d64012e5728fc628164f894a3ca3e784
+hash: 8136dfc7f5eaf839c45f821e194c1caa1efd62757062890e63cbc5c8e56f0236
 ---
 
 Culturing infusoria at home is a relatively simple, cheap, and pretty straightforward process.
@@ -93,9 +93,3 @@ Small, soft-bodied, prolific, and highly nutritious, infusoria are ideal as a st
 InfusoriaProsConsEasy to cultureAdult fish or large fry will ignore itSimple setupWater can spoil if overfedVery fast reproductionIt will require regular maintenance to avoid spoilageIdeal first food for fryCan introduce contaminants if not handled carefullyCheapCan swim (which can make them easy for fish fry to notice.)Can live in freshwater
 ## Related article:
 - 15+ Live Food Options for Aquarium Fish
-## 7 thoughts on “Infusoria Profile and How to Culture as Live Food”
-- Thank you for all this valuable information. I would like to know if Maple Tree leaves can be used to acidify aquarium water. I have read to use Oak leaves, but no mention of any other leaves. ReplyHi Joe, You are very welcome! While Oak leaves are more commonly recommended due to their widespread use and known benefits, Maple leaves can serve as a good alternative.Both types of leaves break down slowly, releasing humic acids that lower pH levels and create a more natural, blackwater environment, depending on the type of maple.Before adding maple leaves to your aquarium, ensure they are free of pesticides, pollution, or chemical treatments. Start with a small number of leaves and monitor your water parameters to prevent a sudden pH drop. Best regards, Michael Reply
-- Very inteersting. Any published articles available on this topic? ReplyHi Krishnakumar Menon, What kind of articles are you referring to? Best regards, Michael Reply
-- Thanks so much Michael. Your a prolific writer and you have original first hand experience on a broad range of topics. I look forward to spotting the channel icon when I’m searching anything aquarium related. Take Care: Shawn ReplyHi Shawn, I appreciate the support! Culturing infusoria can be a game changer when you have tiny fry or shrimp babies. Keep an eye on your cultures. If they start to smell bad, they have crashed and you need to start a new batch. Best regards, Michael Reply
-- Hi Michael, after boiling hay and letting the mixture sit for a day, can you just add the water from this mixture to a 10L container to start a culture? Was thinking if the water alone was sufficient, you’d have a slightly cleaner culture than one with the pieces of hay. Reply
-### Leave a Reply Cancel reply

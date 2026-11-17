@@ -8,40 +8,41 @@ under `<lang>/<path>`.
 
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
-| video-guide | 890 | 639 (vi 639) | 639 |
-| translation | 1612 | 253 (vi 253) | 253 |
-| vi-rewrite | 318 | 18 (vi 18) | 18 |
-| reader-rewrite | 29 | 0 | 0 |
+| video-guide | 962 | 687 (vi 687) | 687 |
+| translation | 1765 | 265 (vi 265) | 265 |
+| vi-rewrite | 351 | 24 (vi 24) | 24 |
+| reader-rewrite | 35 | 0 | 0 |
 | title | 25 | 0 | 0 |
-| breed | 26 | 3 (ms 3) | 3 |
-| topic | 89 | 5 (ms 1, th 4) | 5 |
-| product | 15 | 1 (vi 1) | 1 |
-| product-reviews | 15 | 0 | 0 |
-| summary | 1990 | 92 (vi 92) | 92 |
-| localize | 1986 | 823 (id 371, ms 47, th 405) | 823 |
-| glossary | 1 | 0 | 0 |
-| places | 6321 | 3827 (id 1298, ms 1295, th 1135, vi 99) | 926 |
+| breed | 27 | 3 (ms 3) | 3 |
+| topic | 103 | 4 (ms 1, th 3) | 4 |
+| product | 16 | 1 (vi 1) | 1 |
+| product-reviews | 16 | 0 | 0 |
+| summary | 2227 | 117 (vi 117) | 117 |
+| localize | 2243 | 874 (id 393, ms 55, th 426) | 874 |
+| glossary | 4 | 0 | 0 |
+| places | 6774 | 4136 (id 1411, ms 1408, th 1218, vi 99) | 1112 |
 | equipment | 5 | 0 | 0 |
-| planting | 31 | 0 | 0 |
-| species | 11 | 0 | 0 |
+| planting | 32 | 0 | 0 |
+| species | 13 | 0 | 0 |
+| material | 2 | 0 | 0 |
 
 ## video-guide: Vietnamese guides written from YouTube videos, against the transcript
 
-639 of 890 pages under the bar.
+687 of 962 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 562 | 1475 |
-| States as certain what the source hedges, or what garbled captions only hint at | 551 | 1675 |
-| Says what the source doesn't (invented, added) | 484 | 1190 |
-| Wording: unnatural, literal, stiff or chatty | 264 | 369 |
-| A number, unit, dose or price | 221 | 326 |
-| Repeats itself (intro, summary, steps and FAQ) | 126 | 148 |
-| Meaning changed or wrong | 111 | 126 |
-| Leaves out what the source says | 46 | 48 |
-| Hobby terms and names | 42 | 42 |
-| Names or points to the video, channel, creator or source | 32 | 34 |
-| Off the title's topic | 23 | 23 |
+| Other | 603 | 1565 |
+| States as certain what the source hedges, or what garbled captions only hint at | 596 | 1782 |
+| Says what the source doesn't (invented, added) | 513 | 1234 |
+| Wording: unnatural, literal, stiff or chatty | 290 | 409 |
+| A number, unit, dose or price | 228 | 335 |
+| Repeats itself (intro, summary, steps and FAQ) | 132 | 156 |
+| Meaning changed or wrong | 119 | 136 |
+| Leaves out what the source says | 48 | 50 |
+| Hobby terms and names | 47 | 48 |
+| Names or points to the video, channel, creator or source | 33 | 36 |
+| Off the title's topic | 25 | 25 |
 | Copied from the transcript or source | 22 | 24 |
 | Text left in another language | 6 | 6 |
 
@@ -103,7 +104,7 @@ under `<lang>/<path>`.
 
 - The section "Những sai lầm hay gặp ở ba bước đầu" and "Đặt lũa theo cảm tính, không có điểm nhấn rõ ràng", plus "ngâm ngay", "tập xếp lũa trong bể khô" – the mistakes list and the 'Bắt đầu từ đâu' steps add advice the video doesn't give; r… — vi/guides/youtube-ysH2T_HOG0E, 0.45
 - "Người làm hướng dẫn đang chạy kiểu lọc này cho bể cá rồng châu Á khoảng 1.400 lít của mình": this refers to the creator. Remove the sentence, or rewrite it without a person, for example "kiểu lọc này chạy được cho cả bể cá rồng lớn cỡ 1.4… — vi/guides/youtube-2WBo3u9arUo, 0.50
-- "Bài này gộp hai kiểu đó" / "Ở đây cá thả ngay hôm sau": refers to the video itself. Rewrite as a plain guide statement without mentioning the source (e.g. "Cách làm này gộp..."). — vi/guides/youtube-34R1VF2bzmg, 0.50
+- "Bản gốc dùng bộ LED…", "Chi phí trong bản gốc" and "Bản gốc tốn khoảng 25 USD": these refer to the video. Rewrite without "bản gốc", for example "Một cách làm tốn khoảng…". — vi/guides/youtube-9QSxJymRBak, 0.50
 
 ### Off the title's topic
 
@@ -125,28 +126,28 @@ under `<lang>/<path>`.
 
 ## translation: source pages translated into Vietnamese, against the English
 
-253 of 1612 pages under the bar.
+265 of 1765 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 244 | 756 |
-| Says what the source doesn't (invented, added) | 207 | 405 |
-| Wording: unnatural, literal, stiff or chatty | 197 | 379 |
-| Meaning changed or wrong | 160 | 254 |
-| Hobby terms and names | 124 | 165 |
-| Text left in another language | 89 | 110 |
-| Leaves out what the source says | 82 | 113 |
-| States as certain what the source hedges, or what garbled captions only hint at | 73 | 85 |
-| A number, unit, dose or price | 67 | 87 |
-| Repeats itself (intro, summary, steps and FAQ) | 57 | 68 |
+| Other | 255 | 789 |
+| Says what the source doesn't (invented, added) | 217 | 421 |
+| Wording: unnatural, literal, stiff or chatty | 203 | 391 |
+| Meaning changed or wrong | 168 | 261 |
+| Hobby terms and names | 132 | 178 |
+| Text left in another language | 95 | 119 |
+| Leaves out what the source says | 90 | 124 |
+| States as certain what the source hedges, or what garbled captions only hint at | 75 | 87 |
+| A number, unit, dose or price | 69 | 90 |
+| Repeats itself (intro, summary, steps and FAQ) | 56 | 67 |
 | Names or points to the video, channel, creator or source | 10 | 11 |
 | Copied from the transcript or source | 3 | 3 |
 
 ### Other
 
+- Item 3: "Cách nuôi giống hệt Maylandia" is fine, but "ballast rich food" is rendered as "nhiều chất xơ" — acceptable; keep as is. — vi/species/cynotilapia-axelrodi (glaser), 0.30
 - Item 3: the VI is a copy of item 1's list ('Xuất xứ: CHDC Congo...'), not a translation. Translate the source: grows to about 15 cm (largest type-series specimen 11 cm), colour from snow-white to whitish grey. — vi/species/mastacembelus-brichardi (glaser), 0.40
 - Item 2: "loài cá ăn thịt" means carnivorous fish; the English says "food fish". Use "cá thực phẩm" or "cá làm thực phẩm". — vi/species/labeo-chrysophekadion (glaser), 0.50
-- Item 1: "ít gặp ngoài tiệm" is colloquial. Use "ít được bán hơn" or "ít có trên thị trường". — vi/species/toxotes-chatareus (seriouslyfish), 0.50
 
 ### Says what the source doesn't (invented, added)
 
@@ -180,9 +181,9 @@ under `<lang>/<path>`.
 
 ### Leaves out what the source says
 
+- Item 6: translation is a copy of item 2 ("Cynotilapia là cichlid mbuna điển hình..."); the Lexicon content is omitted. Translate: Cynotilapia means "dog-Tilapia" (refers to the dentition); Axelrodi honors Herbert Axelrod; Maylandia honors … — vi/species/cynotilapia-axelrodi (glaser), 0.30
 - Item 3: the facts about max length 15 cm, 11 cm type specimen and colour variation are all omitted. — vi/species/mastacembelus-brichardi (glaser), 0.40
 - Item 11: "patent unsuitability" lost its nuance in "rõ ràng không hợp", which is acceptable. The sentence "Các tác giả nghiên cứu đề nghị coi Gibelion là tên đồng nghĩa của Labeo, tức gộp Gibelion catla vào Labeo" adds an explanation. The … — vi/species/labeo-chrysophekadion (seriouslyfish), 0.50
-- #2: 'bang' is missing its diacritic, so 'Hai bang' should be 'Hai bang' → 'Hai bang' (correct: 'Hai bang' = 'Hai bang'); write 'Hai bang' as 'Hai bang' with the proper form 'Hai bang' → 'Hai bang'. In short: fix the typo 'bang' → 'bang' (s… — vi/species/ilyodon-furcidens (glaser), 0.55
 
 ### States as certain what the source hedges, or what garbled captions only hint at
 
@@ -216,20 +217,20 @@ under `<lang>/<path>`.
 
 ## vi-rewrite: older Vietnamese rewritten in the site's style
 
-18 of 318 pages under the bar.
+24 of 351 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 18 | 48 |
-| Wording: unnatural, literal, stiff or chatty | 16 | 31 |
-| Says what the source doesn't (invented, added) | 14 | 35 |
-| Meaning changed or wrong | 14 | 24 |
-| A number, unit, dose or price | 10 | 12 |
-| Hobby terms and names | 9 | 14 |
-| Repeats itself (intro, summary, steps and FAQ) | 7 | 8 |
-| Leaves out what the source says | 6 | 9 |
-| States as certain what the source hedges, or what garbled captions only hint at | 6 | 7 |
-| Text left in another language | 6 | 6 |
+| Other | 24 | 65 |
+| Wording: unnatural, literal, stiff or chatty | 21 | 40 |
+| Says what the source doesn't (invented, added) | 20 | 44 |
+| Meaning changed or wrong | 17 | 29 |
+| Hobby terms and names | 13 | 19 |
+| A number, unit, dose or price | 12 | 14 |
+| Leaves out what the source says | 9 | 14 |
+| Repeats itself (intro, summary, steps and FAQ) | 8 | 10 |
+| Text left in another language | 8 | 8 |
+| States as certain what the source hedges, or what garbled captions only hint at | 7 | 9 |
 | Names or points to the video, channel, creator or source | 1 | 1 |
 
 ### Other
@@ -254,19 +255,25 @@ under `<lang>/<path>`.
 
 - Item 5: 'Batesian form of shoaling' was rendered as 'bắt chước kiểu Peckham' — 'Peckham' is wrong (Peckhamian mimicry is a different thing) and the original says Batesian. Use 'kiểu Bates' or 'mô phỏng kiểu Bates'. — vi/species/brachyrhamdia-imitator (scotcat), 0.60
 - Item 1: 'Cá răng đục' and 'tiệm cá' - 'tiệm cá' for 'the trade' is shop-like; use 'thị trường cá cảnh'. 'Max size: 300 mm SL' fine. The sentence 'kể cả khi nuôi trong bể rất lớn cũng phải chọn cá nuôi chung' alters meaning (English: in a v… — vi/species/cincelichthys-bocourti (seriouslyfish), 0.62
-- Item 9: "Muốn vỗ béo một cặp Compressiceps" – "vỗ béo" (fatten) mistranslates "condition"; use "cho ăn dưỡng cặp" / "kích thích sinh sản". — vi/species/crenicichla-compressiceps (seriouslyfish), 0.68
+- Item 11: 'cá lớn vẫn có kích thước nhỏ' is a mistranslation of 'small adult size'. Use 'cá trưởng thành kích thước nhỏ'. — vi/species/microdevario-gatesi (seriouslyfish), 0.62
+
+### Hobby terms and names
+
+- Item 11: 'Màn hôn cũng có thể là một phần của chuyện tán tỉnh' OK; 'chỉ ít con sống được lâu' fine. 'Cho cá ăn mồi' okay. Item 1/11: 'Cá hường' for kissing gourami is non-standard but accepted common name. — vi/species/helostoma-temminckii (seriouslyfish), 0.62
+- Item 1: 'tiệm cá' is a non-standard term for the 'aquarium hobby' (use 'giới chơi cá cảnh'). Also, 'cá chép tí hon (họ Cyprinidae)' adds the family name. — vi/species/microdevario-gatesi (seriouslyfish), 0.62
+- Item 5: 'Quả tống quán sủ (alder cone)' is a doubtful name and leaves English in brackets. Use 'quả cây alder (tống quán sủ)' or a clearer common name. — vi/species/apistogramma-baenschi (seriouslyfish), 0.70
 
 ### A number, unit, dose or price
 
 - Item 4: 'Pair needs 540 litres' OK; item 6 pH advice faithful. — vi/species/cincelichthys-bocourti (seriouslyfish), 0.62
 - Item 4: 'Volume: ~304 litres (~80 US gal)' converted to 'khoảng 304 lít' – per the tank table 80 US gal is not listed, so should be converted/rounded to whole litres (≈303 litres); check this. Acceptable, but 304 is slightly off (80 US gal… — vi/species/helostoma-temminckii (seriouslyfish), 0.62
+- Item 4: 45 × 30 cm base 'about 40 litres' is kept, which is fine, but check that the tank figure matches the source; OK. — vi/species/microdevario-gatesi (seriouslyfish), 0.62
+
+### Leaves out what the source says
+
 - "Nuôi trong bể nhỏ ... bể 40 lít": the original 10 gallons = 40 litres is right, but the sentence "Bể cho 3–5 con thì nên bắt đầu từ 40 lít" drops the recommendation framing ("I would recommend ... a tank size of 10 gallons"). Minor. — vi/guides/aquariumbreeder-fiddler-crab-tank-setup (aquariumbreeder), 0.70
-
-### Hobby terms and names
-
-- Item 11: 'Màn hôn cũng có thể là một phần của chuyện tán tỉnh' OK; 'chỉ ít con sống được lâu' fine. 'Cho cá ăn mồi' okay. Item 1/11: 'Cá hường' for kissing gourami is non-standard but accepted common name. — vi/species/helostoma-temminckii (seriouslyfish), 0.62
-- Item 5: 'Quả tống quán sủ (alder cone)' is a doubtful name and leaves English in brackets. Use 'quả cây alder (tống quán sủ)' or a clearer common name. — vi/species/apistogramma-baenschi (seriouslyfish), 0.70
-- Item 4: "Cá sấu hỏa tiễn (Alligator gar)" is wrong. Alligator gars are Atractosteus spp. (cá sấu hỏa tiễn is fine for them), but "gars" in general are Lepisosteidae. The text uses the same Vietnamese term for both, which blurs the distinct… — vi/species/atractosteus-tristoechus (glaser), 0.70
+- Omitted the "Related article" list and the "Leave a Reply" heading; the related-articles list is content, not shop talk, so it should be translated or kept. — vi/guides/aquariumbreeder-green-water-algae-profile-and-how-to-remove (aquariumbreeder), 0.70
+- Item 1: the "(2.6")" figure is omitted, which is acceptable under the conversion rule; no fix needed there. — vi/species/mochokus-niloticus (planetcatfish), 0.70
 
 ### Repeats itself (intro, summary, steps and FAQ)
 
@@ -274,11 +281,11 @@ under `<lang>/<path>`.
 - Item 9: "Có cá mục tiêu thì chúng còn kỹ hơn nữa, vì..." – adds a redundant causal clause; the English only restates it. Also "thay đổi thời gian" is OK, but "cá mục tiêu là những con để cichlid trút cơn dữ vào" is colloquial/awkward. — vi/species/crenicichla-compressiceps (seriouslyfish), 0.68
 - Item 1: "có thể bắt chước (nhại)" has a redundant bracketed synonym. Use "có thể nhại hình" (mimic) only. Also "các loài cá Pimelodella spp." is redundant: either "các loài Pimelodella" or "Pimelodella spp.". — vi/species/brachyrhamdia-heteropleura (scotcat), 0.70
 
-### Leaves out what the source says
+### Text left in another language
 
-- "Dưới đây là từng bước ... Bước 4.4 missing": the numbering jumps from 4.3 to 4.5, which mirrors the source. Not an error. — vi/guides/aquariumbreeder-fiddler-crab-tank-setup (aquariumbreeder), 0.70
-- Item 7: 'Hầu hết các loài rồi cũng tập ăn' - 'although' contrast lost; 'bo bo' for Daphnia is acceptable but 'mồi nhỏ sống ở đáy' ok. 'đồ tươi sống' ok. — vi/species/apistogramma-alacrina (seriouslyfish), 0.72
-- Item 2: 'cá tỳ bà bướm' for a hillstream loach is a non-standard name; also 'sông Qing, Wu và Da Ning He' mixes forms (Da Ning He already means river) and omits 'Ming' that other entries use. — vi/species/beaufortia-szechuanensis (seriouslyfish), 0.72
+- Item 5: 'bể càng tự nhiên' added; 'could also add to the effect' is not stated that way. Item 11: Latin 'Chisel-toothed' left in English in quotes - acceptable but unnecessary. — vi/species/cincelichthys-bocourti (seriouslyfish), 0.62
+- Untranslated English left in place: "needle sucker" — use a Vietnamese description or an established name (e.g. "cá hút đá mũi kim") instead of leaving the English term, optionally with the Latin/trade name in parentheses. — vi/species/farlowella-oxyrryncha (glaser), 0.70
+- Item 1/11: 'SL' left untranslated without explanation; consider 'chiều dài chuẩn (SL)'. Common names left in English quotes are acceptable but could add Vietnamese. — vi/species/microdevario-nana (seriouslyfish), 0.70
 
 ### States as certain what the source hedges, or what garbled captions only hint at
 
@@ -286,19 +293,13 @@ under `<lang>/<path>`.
 - Item 4: "nghe nói trước đây còn tới 3 m" - the first "formerly" is garbled. Say "nghe nói trước đây có con dài tới 3 m". "ngày xưa cái gì cũng hơn" is clumsy; use "ngày xưa cái gì cũng tốt hơn". — vi/species/atractosteus-tristoechus (glaser), 0.70
 - Item 5: "vật dựng" for "structure" is unclear; use "vật cản/chỗ ẩn nấp" or "cấu trúc trang trí". — vi/species/apistogramma-panduro (seriouslyfish), 0.72
 
-### Text left in another language
-
-- Item 5: 'bể càng tự nhiên' added; 'could also add to the effect' is not stated that way. Item 11: Latin 'Chisel-toothed' left in English in quotes - acceptable but unnecessary. — vi/species/cincelichthys-bocourti (seriouslyfish), 0.62
-- Untranslated English left in place: "needle sucker" — use a Vietnamese description or an established name (e.g. "cá hút đá mũi kim") instead of leaving the English term, optionally with the Latin/trade name in parentheses. — vi/species/farlowella-oxyrryncha (glaser), 0.70
-- Item 5: "Để làm nước giống tự nhiên, cũng có thể dùng nón alder (quả cây alder, Alnus)" leaves "alder" untranslated. Use the Vietnamese name "cây tống quán sủi" or just "nón/quả cây Alnus (alder)". Also "giống tự nhiên" is repeated in the … — vi/species/apistogramma-viejita (seriouslyfish), 0.72
-
 ### Names or points to the video, channel, creator or source
 
 - Item 11: 'López-Fernández và cộng sự (2005) cũng ra kết quả này. Các tác giả này' – ambiguous; 'Farias et al.' and 'López-Fernández' both become 'các tác giả này', but only López-Fernández did the detailed analysis. Fix to attribute the an… — vi/species/apistogramma-steindachneri (seriouslyfish), 0.72
 
 ## reader-rewrite: parts the reader step rewrote with its findings
 
-0 of 29 pages under the bar.
+0 of 35 pages under the bar.
 
 ## title: titles rewritten to promise only what the text has
 
@@ -306,7 +307,7 @@ under `<lang>/<path>`.
 
 ## breed: breed pages, against their research
 
-3 of 26 pages under the bar.
+3 of 27 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -333,12 +334,12 @@ under `<lang>/<path>`.
 
 ## topic: AquaTome's own guides, against their research
 
-5 of 89 pages under the bar.
+4 of 103 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 5 | 24 |
-| Says what the source doesn't (invented, added) | 5 | 10 |
+| Other | 4 | 21 |
+| Says what the source doesn't (invented, added) | 4 | 9 |
 | A number, unit, dose or price | 1 | 4 |
 
 ### Other
@@ -359,7 +360,7 @@ under `<lang>/<path>`.
 
 ## product: product pages, against their research
 
-1 of 15 pages under the bar.
+1 of 16 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -386,68 +387,69 @@ under `<lang>/<path>`.
 
 ## product-reviews: product pages' review summaries (the code's checks: 1 pass, 0 fail)
 
-0 of 15 pages under the bar.
+0 of 16 pages under the bar.
 
 ## summary: species' quick summaries (the numbers and claims check: 1 pass, 0 fail)
 
-92 of 1990 pages under the bar.
+117 of 2227 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Says what the source doesn't (invented, added) | 50 | 54 |
-| States as certain what the source hedges, or what garbled captions only hint at | 32 | 37 |
-| Other | 26 | 30 |
-| A number, unit, dose or price | 11 | 11 |
-| Leaves out what the source says | 10 | 11 |
-| Meaning changed or wrong | 8 | 8 |
+| Says what the source doesn't (invented, added) | 60 | 65 |
+| States as certain what the source hedges, or what garbled captions only hint at | 46 | 53 |
+| Other | 31 | 35 |
+| Leaves out what the source says | 13 | 14 |
+| A number, unit, dose or price | 13 | 13 |
+| Meaning changed or wrong | 10 | 10 |
+| Off the title's topic | 2 | 2 |
 | Wording: unnatural, literal, stiff or chatty | 2 | 2 |
-| Off the title's topic | 1 | 1 |
 | Repeats itself (intro, summary, steps and FAQ) | 1 | 1 |
 
 ### Says what the source doesn't (invented, added)
 
 - The summary's "hợp người đã có bể đủ rộng cho cá cỡ này" suggests a large tank is needed. The page only says 200 litres or more is enough, so this is unsupported. — vi/species/aequidens-patricki, 0.00
+- "Đừng bỏ qua nền; nên dùng đáy cát hoặc đá": the page describes only the wild habitat (sand or rock bottom). It gives no substrate advice for a tank, so this mistake and its fix are invented. — vi/species/amblyceps-arunachalense, 0.00
 - The mistake "Đừng cho ăn đơn điệu một loại ... nên cho ăn đa dạng theo hướng đó" gives captive feeding advice. The page only lists the wild diet (động vật thân mềm, giáp xác, mùn bã thực vật). It never says what to feed in a tank or that a… — vi/species/ammoglanis-multidentatus, 0.00
-- "hợp với người đã quen cichlid lùn": the page never says the species suits experienced dwarf-cichlid keepers. It only says the fish is "không khó tính lắm", so this suitability claim is invented. — vi/species/apistogramma-velifera, 0.00
 
 ### States as certain what the source hedges, or what garbled captions only hint at
 
 - "Cá nhạy với chất ô nhiễm hữu cơ và thông số nước đổi đột ngột": the page hedges with "có thể nhạy" (may be sensitive), but the summary states it as a certainty. — vi/species/acestrorhynchus-falcirostris, 0.00
-- "loài này hay đánh nhau khi lớn hơn" and "Điểm khó nhất là tính hay đánh nhau" turn the page's hedge "có thể hay đánh nhau" (may often fight) into a certainty. — vi/species/auriglobus-silus, 0.00
-- "Cá ăn được nhiều loại thức ăn" states as fact something the page hedges. The page says "chắc là nó ăn được nhiều loại thức ăn" (probably), inferred from its wild diet, so the hedge became a certainty. — vi/species/bagre-marinus, 0.00
+- "chỉ nuôi với cá họ chép, cá da trơn, cichlid hoặc cá chạch sông": the page says only that these tank mates "thường nuôi chung được" if they are of suitable size and the tank is wide enough. It never says they are the only suitable ones, a… — vi/species/anabas-testudineus, 0.00
+- "Bỏ qua mùa đông thì cá đẻ kém, sống ngắn hơn": the page hedges with "nhiều khả năng" (most likely), and the summary states it as a certainty. — vi/species/anatolichthys-sureyanus, 0.00
 
 ### Other
 
+- "Đừng để nước đứng; nên tạo dòng chảy": the page only says the species lives in fast-flowing streams and rivers. It gives no aquarium advice about water flow, so this fix is advice the page doesn't give. It also conflicts with the summary'… — vi/species/amblyceps-arunachalense, 0.00
+- "nên cần cho ăn đúng loại mồi giun": the page only says that in the tank they "thích" (prefer) worms such as frozen bloodworm and white worms. It does not say that feeding must be exactly worms, or that their frantic feeding is the reason.… — vi/species/amblyceps-tenuispinis, 0.00
 - "hợp với người thích cá lạ và chịu tự tìm hiểu thêm" says who the species suits. The page doesn't state or imply this. — vi/species/ammoglanis-multidentatus, 0.00
-- "4–5 cm" is not the card's adult size (5 cm) — vi/species/aphyosemion-campomaanense, 0.00
-- The fix "theo dõi sát và tách cá nếu có dấu hiệu gây hấn" (watch closely and separate fish) is advice the page doesn't give. The page only says the fish may fight when larger. — vi/species/auriglobus-silus, 0.00
-
-### A number, unit, dose or price
-
-- "khó nhất là giữ nước mát": the page never says keeping water cool is hard. It only gives the 10–22 °C range, so this hardest point is the summary's own inference. — vi/species/channa-burmanica, 0.00
-- "38–48 °C": the card gives no temperature — vi/species/cyprinodon-julimes, 0.00
-- Mistake 1, «Để nước nóng quá khoảng 18–23 °C lâu ngày thì cá hay bị đuối»: this makes water above the 18–23 °C range the trigger. The page ties the problem to a tank 'trên 25°C trong thời gian dài', not to going just over 23 °C. The thresh… — vi/species/danio-jaintianensis, 0.00
 
 ### Leaves out what the source says
 
 - The page says male black lancers "có thể rất hung hăng giữ lãnh thổ" (can be very aggressive). The summary drops the hedge: "cá đực hung hăng giữ lãnh thổ". — vi/species/bagrichthys-hypselopterus, 0.00
 - Mistake 1: "cá lớn hoặc năng nổ hơn sẽ bắt nạt và tranh hết phần ăn" turns the page's hedge ("nhiều khả năng sẽ bắt nạt", meaning "likely") into a certainty. It also drops "hơn nhiều" (much larger or more active). — vi/species/betta-falx, 0.00
-- Mistake 2: "nên làm lọc sump" drops the page's condition "Nếu được". The page gives sump as preferred if possible, and otherwise says to buy the biggest filter and change water often. — vi/species/colossoma-macropomum, 0.00
+- Mistake 1: "nuôi lẻ thì cá nhút nhát hoặc hung hăng" drops the page's hedge. The page says a single fish "có thể trở nên nhút nhát, lầm lì hoặc hung hăng", so this turns a possibility into a certainty. — vi/species/chromobotia-macracanthus, 0.00
+
+### A number, unit, dose or price
+
+- "Cá cần nước mát": this makes the water parameters a requirement and adds the reason that they match the wild habitat. The page gives only the numbers and no such explanation. — vi/species/aphyosemion-mimbon, 0.00
+- "khó nhất là giữ nước mát": the page never says keeping water cool is hard. It only gives the 10–22 °C range, so this hardest point is the summary's own inference. — vi/species/channa-burmanica, 0.00
+- "Đừng để nước ấm hơn mức cá cần": the page never warns against warm water or says this is a mistake. Only the card's 20–24 °C range exists, so this mistake and its fix are not on the page. — vi/species/cranoglanis-henrici, 0.00
 
 ### Meaning changed or wrong
 
 - Mistake 2 "chọn bể nhỏ ... nên lo bể rộng ngay từ đầu" is advice the page doesn't give. The page says the fish can breed in a "bể khá nhỏ, chỉ cần từ 200 lít trở lên", so the fix of a spacious tank contradicts or goes beyond the page. — vi/species/aequidens-patricki, 0.00
-- Mistake 2 "Nuôi nhiều con Proteus chung một bể ... nên nuôi riêng một loài là hợp hơn": the page only says it is aggressive, especially to its own kind. It does not say that keeping several Proteus is a mistake. "Bể riêng một loài" on the … — vi/species/crenicichla-proteus, 0.00
-- Mistake 1, "Để cá trong bể nước tĩnh, nền mịn: nên bố trí nền đá và sỏi, tạo dòng chảy": the page says nothing about still water or fine substrate being wrong, and the fix is not on the page. — vi/species/microsynodontis-hirsuta, 0.00
+- "đèn sáng" listed as a mistake and "đèn khá tối" as the fix: the page only says the most popular tanks tend to have fairly dim light. It gives no rule that bright light is wrong, so this is advice the page doesn't give. — vi/species/anabas-testudineus, 0.00
+- Mistake 2 fix: "chỉ cho viên tảo hoặc spirulina một đến hai lần mỗi ngày". The page calls algae or spirulina pellets the best food, but it also says flake, granules and bloodworms are "đều ổn". The word "chỉ" (only) contradicts that. — vi/species/ancistrus-cirrhosus, 0.00
+
+### Off the title's topic
+
+- Mistake 2: it links treating the fish as a tank cleaner ("máy dọn bể") to overfeeding ("cho ăn quá tay"). The page gives these as two unrelated points. It says the fish don't really clean the tank, and separately says never to overfeed. — vi/species/ancistrus-cirrhosus, 0.00
+- "Ngoài tự nhiên cá gặp ở cả suối nhánh chảy xiết lẫn vũng nước, hồ": the page says this about the genus ("Các loài Nematabramis sống ở đủ kiểu nơi"), not about N. alestes. The summary turns a genus-level statement into a certain fact about… — vi/species/nematabramis-alestes, 0.00
 
 ### Wording: unnatural, literal, stiff or chatty
 
 - "Cần bể từ 60 cm, ... nền cát mịn và vài hòn đá nhẵn": the page says fine sand is best but rounded gravel is also fine, and decor is up to the keeper. Smooth stones only "có vẻ hợp" (seem to suit). The summary turns this hedge into a requi… — vi/species/corydoras-gladysae, 0.00
 - Mistake 1, "Dùng nền trơn thì nên chuyển sang nền cát và đá": the page only describes the wild habitat (streams over rock and sand, fish foraging in sand). It never advises a substrate for the aquarium or calls a smooth substrate a mistake. — vi/species/trichogenes-longipinnis, 0.00
-
-### Off the title's topic
-
-- "Ngoài tự nhiên cá gặp ở cả suối nhánh chảy xiết lẫn vũng nước, hồ": the page says this about the genus ("Các loài Nematabramis sống ở đủ kiểu nơi"), not about N. alestes. The summary turns a genus-level statement into a certain fact about… — vi/species/nematabramis-alestes, 0.00
 
 ### Repeats itself (intro, summary, steps and FAQ)
 
@@ -455,34 +457,34 @@ under `<lang>/<path>`.
 
 ## localize: species and plant pages in Indonesian and Thai, against the English
 
-823 of 1986 pages under the bar.
+874 of 2243 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 766 | 2200 |
-| Wording: unnatural, literal, stiff or chatty | 712 | 1511 |
-| Says what the source doesn't (invented, added) | 491 | 710 |
-| Hobby terms and names | 457 | 607 |
-| Meaning changed or wrong | 450 | 698 |
-| A number, unit, dose or price | 424 | 535 |
-| Text left in another language | 300 | 386 |
-| Leaves out what the source says | 261 | 302 |
-| Repeats itself (intro, summary, steps and FAQ) | 238 | 267 |
-| States as certain what the source hedges, or what garbled captions only hint at | 179 | 199 |
-| Copied from the transcript or source | 26 | 26 |
+| Other | 814 | 2329 |
+| Wording: unnatural, literal, stiff or chatty | 754 | 1586 |
+| Says what the source doesn't (invented, added) | 519 | 750 |
+| Meaning changed or wrong | 484 | 742 |
+| Hobby terms and names | 481 | 632 |
+| A number, unit, dose or price | 464 | 584 |
+| Text left in another language | 318 | 410 |
+| Leaves out what the source says | 267 | 311 |
+| Repeats itself (intro, summary, steps and FAQ) | 250 | 280 |
+| States as certain what the source hedges, or what garbled captions only hint at | 194 | 215 |
+| Copied from the transcript or source | 27 | 27 |
 | Off the title's topic | 1 | 1 |
 
 ### Other
 
 - Item 5: the 'ID' text is correct Indonesian, but the 'EN' source is Vietnamese (bèo dâu...). This is a source/target mismatch in the data; check the source text. — id/plants/azolla, 0.20
+- Item 2: the English source is actually Vietnamese, not English, so the source text is unusual; the Malay translation is faithful to it but cannot be checked against a true English original. — ms/plants/eleocharis-pusilla, 0.30
 - Item 2: the English source is actually Vietnamese text (not English), so the source does not match the expected original; the ID is a translation of Vietnamese. Verify the source pairing. — id/plants/littorella-uniflora, 0.30
-- Item 3: the English source is not English but Vietnamese; the ID itself is faithful to it, but the original lacks an English counterpart, so check the source alignment (the source mentions 'rễ sẽ chết dần' = roots die gradually, which is r… — id/plants/micranthemum-callitrichoides, 0.30
 
 ### Wording: unnatural, literal, stiff or chatty
 
 - Item 6: 'Sering-seringlah mengurangi kelebihannya' is awkward. Use 'Pangkas kelebihannya secara berkala'. — id/plants/azolla, 0.20
+- Item 3: the 'Needs light ... however' sentence is slightly awkward. Consider 'Memerlukan cahaya yang baik untuk prestasi optimum, namun ...'. — ms/plants/eleocharis-pusilla, 0.30
 - Item 3: 'Tahan dengan intensitas cahaya yang cukup rendah' is awkward; use 'Toleran terhadap intensitas cahaya yang cukup rendah'. — id/plants/littorella-uniflora, 0.30
-- Item 3: 'varietas baru mudah dibiakkan' is fine, but 'sudut yang tidak selancip' is awkward. Use 'sudut yang kurang tajam'. — id/plants/microsorum-pteropus-narrow, 0.30
 
 ### Says what the source doesn't (invented, added)
 
@@ -490,17 +492,17 @@ under `<lang>/<path>`.
 - Item 2: 'lakukan perawatan akuarium dengan hati-hati' is fine, but the item adds/omits content relative to the item 3 source (e.g. 'tách thành từng cụm' and 'phủ kín' are not in the English); confirm the correct source. — id/plants/littorella-uniflora, 0.30
 - Item 2: 'rimpang mudah membusuk perlahan' adds 'perlahan', which the source only implies. Use 'mudah membusuk'. — id/plants/microsorum-pteropus-narrow, 0.30
 
-### Hobby terms and names
-
-- Item 4: 'minimal 40 liter' is fine, but 'Fairy moss' is rendered as 'Azolla' throughout while the common name stays elsewhere. Keep the term consistent. — id/plants/azolla, 0.20
-- Item 1: "Endangered" translated as "ใกล้สูญพันธุ์" — this is the Thai term for Near Threatened; Endangered is "ใกล้สูญพันธุ์" only loosely, so use "ใกล้สูญพันธุ์ (EN)" correctly as "ใกล้สูญพันธุ์" vs "ถูกคุกคาม" carefully; the standard Tha… — th/species/betta-patoti, 0.30
-- Item 1: 'Endangered' translated as 'ใกล้สูญพันธุ์' — that is Near Threatened/Vulnerable in Thai usage; Endangered = 'ใกล้สูญพันธุ์' is used by IUCN Thai for EN actually, but Item 5 uses 'ใกล้สูญพันธุ์อย่างยิ่ง' for Critically Endangered, w… — th/species/betta-persephone, 0.30
-
 ### Meaning changed or wrong
 
 - Item 7: 'Air payau ... bersalinitas rendah (>8,4 g/l)' keeps the English's odd '>' sign. Verify against the original (probably <8.4 g/l) rather than copying a likely error. — id/plants/azolla, 0.20
 - Item 2: the English source is actually Vietnamese, not English. The translation is faithful to it, but flag the source-language mismatch to the pipeline owner. Fix the source text if this is an error. — id/plants/microsorum-pteropus-narrow, 0.30
 - Item 9: "blackworms" is translated as "ไส้เดือนน้ำ". Use "หนอนแดงน้ำจืด" or "ไส้เดือนน้ำ" consistently. Blackworms are Lumbriculus, so "ไส้เดือนน้ำ" is acceptable, but "หนอนแดง" in the same sentence risks confusing readers. — th/species/betta-patoti, 0.30
+
+### Hobby terms and names
+
+- Item 4: 'minimal 40 liter' is fine, but 'Fairy moss' is rendered as 'Azolla' throughout while the common name stays elsewhere. Keep the term consistent. — id/plants/azolla, 0.20
+- Item 1: "Endangered" translated as "ใกล้สูญพันธุ์" — this is the Thai term for Near Threatened; Endangered is "ใกล้สูญพันธุ์" only loosely, so use "ใกล้สูญพันธุ์ (EN)" correctly as "ใกล้สูญพันธุ์" vs "ถูกคุกคาม" carefully; the standard Tha… — th/species/betta-patoti, 0.30
+- Item 1: 'Endangered' translated as 'ใกล้สูญพันธุ์' — that is Near Threatened/Vulnerable in Thai usage; Endangered = 'ใกล้สูญพันธุ์' is used by IUCN Thai for EN actually, but Item 5 uses 'ใกล้สูญพันธุ์อย่างยิ่ง' for Critically Endangered, w… — th/species/betta-persephone, 0.30
 
 ### A number, unit, dose or price
 
@@ -516,9 +518,9 @@ under `<lang>/<path>`.
 
 ### Leaves out what the source says
 
+- Item 4: 'was given to Tropica by Thomas Barr' is changed to 'diperoleh daripada Thomas Barr'. The Tropica link is dropped, so a fact is omitted. Say it was given to Tropica by Thomas Barr from the USA. — ms/plants/eleocharis-pusilla, 0.30
 - Item 4: translation is missing ("left out"). The whole paragraph on type locality and colour forms must be translated. — th/species/betta-patoti, 0.30
 - Item 1: 'SL (วัดความยาวมาตรฐาน ไม่รวมครีบหาง)' is fine, but the English '5.5"' was dropped correctly; no change needed here. — th/species/clarias-insolitus, 0.30
-- Item 5: the translation is missing, shown as "(left out)". Translate the whole paragraph on the natural range (Colombia, Guyana … Far East and Eastern Europe). — ms/species/pterophyllum-scalare, 0.30
 
 ### Repeats itself (intro, summary, steps and FAQ)
 
@@ -530,7 +532,7 @@ under `<lang>/<path>`.
 
 - Item 21: 'weakly red to orange colour patches in the fins' is rendered as 'แต้มสีแดงอ่อนถึงส้มในครีบที่ไม่เด่นเท่า'. It is unclear that this refers to the males' fin patterns. Reword it as 'แต้มสีแดงจางถึงส้มบนครีบซึ่งเด่นน้อยกว่าตัวผู้'. … — th/species/danio-margaritatus, 0.40
 - #1: 'เกือบทุกชนิดโตเกิน 20 ซม.' — English says 'most species', so use 'ส่วนใหญ่' instead of 'เกือบทุกชนิด' (overstates). The sentence 'ส่วนใหญ่มักโตได้ค่อนข้างใหญ่' then repeats it. — th/species/metynnis-lippincottianus, 0.40
-- Item 11: 'ปลาชนิดต่าง ๆ ในเขตทะเลสาบ ... เป็นหมันในระดับต่าง ๆ เมื่อผสมกับปลาจากเขตทะเลสาบ' adds a detail ('when crossed with lake fishes') framed differently from the English; 'differing degrees of sterility' unclear in Thai. — th/species/anatolichthys-anatoliae, 0.50
+- Item 18: the sentence 'ซึ่งปลาที่นำเข้าในอดีตเคยถูกจัดไว้เพียง 3 ชนิด ที่ต้องระบุชนิดใหม่!' is garbled. Restructure it as: 33 species that were earlier imported under only 3 names must now be re-identified. — th/species/gastromyzon-punctulatus, 0.45
 
 ### Copied from the transcript or source
 
@@ -544,20 +546,20 @@ under `<lang>/<path>`.
 
 ## glossary: glossary terms in Indonesian and Thai (reviewed in batches)
 
-0 of 1 pages under the bar.
+0 of 4 pages under the bar.
 
 ## places: place names in Indonesian and Thai (reviewed in batches)
 
-3827 of 6321 pages under the bar.
+4136 of 6774 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 816 | 887 |
-| Meaning changed or wrong | 62 | 62 |
+| Other | 995 | 1080 |
+| Meaning changed or wrong | 69 | 69 |
 | Leaves out what the source says | 44 | 44 |
-| Wording: unnatural, literal, stiff or chatty | 23 | 23 |
+| Wording: unnatural, literal, stiff or chatty | 25 | 25 |
 | States as certain what the source hedges, or what garbled captions only hint at | 9 | 9 |
-| Hobby terms and names | 8 | 8 |
+| Hobby terms and names | 9 | 9 |
 | Text left in another language | 7 | 7 |
 | Repeats itself (intro, summary, steps and FAQ) | 4 | 4 |
 
@@ -570,8 +572,8 @@ under `<lang>/<path>`.
 ### Meaning changed or wrong
 
 - Source names are in Vietnamese (sông, đảo, dãy, lưu vực, bờ biển, Đông Nam Á), not Malay; only the arrow targets matter, and those are mostly wrong. — ms/places/southeast-asia, 0.10
+- "Amazons → Amazonas" is fine in Indonesian, but the source is wrong: the Indonesian atlas form is Amazonas, which is acceptable — id/places/amazons, 0.30
 - The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong: — id/places/apalachicola-river-basin, 0.30
-- Ayeyarwaddy → Ayeyarwady (inconsistent/wrong spelling) — id/places/ayeyarwaddy, 0.30
 
 ### Leaves out what the source says
 
@@ -581,9 +583,9 @@ under `<lang>/<path>`.
 
 ### Wording: unnatural, literal, stiff or chatty
 
+- Ayeyarwaddy → Ayeyarwady (inconsistent/wrong spelling) — id/places/ayeyarwaddy, 0.30
 - "Perbukitan Kardamom" for Cardamom Hills in India: the usual Indonesian form is 'Bukit Kardamom' or 'Perbukitan Cardamom'. The spelling is doubtful. — id/places/cardamom-hills, 0.30
 - 'กาเวรี' for 'Chauvery': the standard Thai form is 'กาเวรี' (Kaveri), but 'Chauvery' is an odd spelling, so I'm uncertain it matches. — th/places/chauvery, 0.30
-- Tamshuei → Tamsui (acceptable spelling but differs from source) — id/places/ling, 0.30
 
 ### States as certain what the source hedges, or what garbled captions only hint at
 
@@ -595,7 +597,7 @@ under `<lang>/<path>`.
 
 - sông Siem Reap → Siem Reap: the Indonesian name for the river would be "Sungai Siem Reap", and "Siem Reap" alone drops the river type — id/places/siem-reap-river, 0.40
 - sông Siem Reap → Siem Reap: the Indonesian name for the river would be "Sungai Siem Reap", and "Siem Reap" alone drops the river type — id/places/ve, 0.40
-- sông Bandama → บันดามา (Thai usually แม่น้ำบันดามา; no 'river' term) — th/places/bandama-river, 0.60
+- venezuelan-llanos → 'Llanos Venezuela' is not proper Malay; it should be 'Llanos Venezuela' with a term such as 'Dataran Llanos Venezuela' — ms/places/venezuelan-llanos, 0.50
 
 ### Text left in another language
 
@@ -615,8 +617,12 @@ under `<lang>/<path>`.
 
 ## planting: plants' planting text, against their page and video guides
 
-0 of 31 pages under the bar.
+0 of 32 pages under the bar.
 
 ## species: species pages AquaTome writes from research, and what a species video adds to a page, against their research or video
 
-0 of 11 pages under the bar.
+0 of 13 pages under the bar.
+
+## material: hobby materials' pages (lũa, đá, nền), against their research
+
+0 of 2 pages under the bar.

@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/hygrophila-polysperma-care-guide-planting-growing-and-propagation/
 title: Hygrophila Polysperma Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-10-30T11:46:39.774Z
-hash: 198bec4cb772d681a017b2ff57314bbc77786dd0a39cc4c78f0496ab54dc0cf0
+hash: 5c535c0302a60a5d763e40b02a4df505b5d21f3f760b87b9c08b0b323b01d295
 ---
 
 Hygrophila polysperma, commonly known as Indian waterweed, is an aquarium plant that can be a good choice for beginner aquarium enthusiasts. This is because it is a pretty hardy and commonly available plant for sale.
@@ -120,4 +120,3 @@ Proper lighting, suitable temperature, and nutrient-rich substrate will ensure t
 - Doyle, Robert D., Matthew D. Francis, and R. Michael Smart. “Interference competition between Ludwigia repens and Hygrophila polysperma: two morphologically similar aquatic plant species.” Aquatic Botany77, no. 3 (2003): 223-234.
 - Gabka, M., and PAWEŁ M. Owsianny. “First records of the Hygrophila polysperma (Roxb.) T. Anderson (Acanthaceae) in Poland.” Roczniki Akademii Rolniczej w Poznaniu. Botanika-Steciana13 (2009).
 - LA, ORGANISATION EUROPEENNE ET MEDITERRANEENNE POUR, and P. R. O. T. E. C. T. I. O. N. DES PLANTES. “Pest Risk Analysis for Hygrophila polysperma.”
-### Leave a Reply Cancel reply
