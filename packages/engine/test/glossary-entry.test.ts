@@ -76,7 +76,9 @@ test('a term\'s fuller entry: cited facts only, checked and rewritten once on no
   expect(researched).toContain('never on marketplaces (Shopee, Lazada, Tiki) or social networks')
   // A figure keeps its page's place: research never says a Singapore shop's figure applies to Vietnam (the chief of staff, 17 Nov 2026).
   expect(researched).toContain('A figure keeps its page\'s place: a figure a page gives for one country, city or climate')
-  expect(researched).toContain('a fact from a page outside Vietnam says Vietnam only where the page itself does')
+  expect(researched).toContain('A fact from a page outside Vietnam says Vietnam only where the page itself does')
+  // Not "anywhere wider than the page names", which reads loosely (the chief of staff, 17 Nov 2026, on the reader's point).
+  expect(researched).toContain('A fact names no place its page doesn\'t name: never add Vietnam, a region or a climate ("the tropics", "Southeast Asia", "hot countries") to what a page says')
   expect(prompts[0]).toContain('<strong>tên các tiệm Việt Nam ghi</strong>')
   expect(prompts[0]).toContain('Trước hết là các loại bán ở Việt Nam')
   expect(prompts[0]).toContain('Soak new driftwood for one to two weeks')
@@ -314,7 +316,9 @@ test('--top-up researches only what the notes ask, adds it to the kept research 
   expect(asked).toContain(`Read these pages and keep what they say: ${ASKS.lua!.read!.join(', ')}.`)
   expect(asked).not.toContain('what it does in a tank')
   // A top-up's research keeps a figure's place too.
-  expect(asked).toContain('a fact from a page outside Vietnam says Vietnam only where the page itself does')
+  expect(asked).toContain('A fact from a page outside Vietnam says Vietnam only where the page itself does')
+  // Not "anywhere wider than the page names", which reads loosely (the chief of staff, 17 Nov 2026, on the reader's point).
+  expect(asked).toContain('A fact names no place its page doesn\'t name: never add Vietnam, a region or a climate ("the tropics", "Southeast Asia", "hot countries") to what a page says')
   const kept = JSON.parse(await readFile(join(root, 'engine-state/glossary/lua.json'), 'utf8')) as TopicFacts
   expect(kept.facts).toEqual([...facts.facts, { section: 'what', fact: 'Lũa sa tùng is the root of a pine', source: 3 }])
   expect(await Promise.all(files.map(f => readFile(join(root, f), 'utf8')))).toEqual(before)
