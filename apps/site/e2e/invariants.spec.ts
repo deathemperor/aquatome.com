@@ -134,7 +134,9 @@ for (const path of pages) {
 // asked once more.
 test('no crab\'s, shrimp\'s or snail\'s page calls it a fish', { tag: '@page-checks' }, async ({ request }, info) => {
   test.skip(info.project.name !== 'phone', 'the HTML is the same on every screen')
-  test.setTimeout(300_000)
+  // The content's facts, four languages, are read first when this worker hasn't yet: on this Mac with heat taking cores
+  // (17 Nov) that read took 238 s, and the ~420 pages 70 s more, past 300 s.
+  test.setTimeout(600_000)
   const facts = await factsOnce()
   const paths = [...facts.notFish], read: string[] = [], found: string[] = []
   for (let i = 0; i < paths.length; i += 8) {
