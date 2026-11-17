@@ -53,6 +53,7 @@ import type { KeyEntry } from '../../../apps/site/worker/fishid/keys'
 import { Billed, BilledLimit, worstOf, type Tokens } from '../src/billed'
 import { ceilingsAsMain, costLog, leftYielding, nameStep, stepName } from '../src/ceiling'
 import { claudeCli, claudeTools } from '../src/claude'
+import { type Cut, noAnswer, streamOnce } from './board-stream'
 import { pool, retry } from './eval-lib'
 import { JUDGE_SCHEMA, JUDGE_SYSTEM, judgePrompt, outcome, type PairOutcome, type PostTank, savedTank, seenOurs, tankFacts, unbrand, type Verdict } from './chat-vs-plain-lib'
 
@@ -164,39 +165,22 @@ async function answer() {
   const store = memoryHealth()
   // As the Worker sends: every call goes through the keys in turn, a key that fails rotated past.
   // Each call's start, length and output, so the time rule can be set from the calls' own times.
-  const sender = (healthy: KeyEntry[], log: { call: number; at: number; ms: number; out?: number; tools?: number; failed?: boolean }[] = [], t0 = Date.now()) => {
-    const once = async (c: any, b: any, timeoutMs: number, o: any) => {
-      const stop = new AbortController(), t0 = Date.now()
-      let timer = setTimeout(() => stop.abort(), timeoutMs), began = false
-      try {
-        const stream = c.messages.stream(b, { timeout: timeoutMs, signal: stop.signal })
-        for await (const e of stream as any) {
-          if (e.type === 'content_block_delta' && e.delta.type === 'text_delta') {
-            if (!began && o.writingMs && o.writingMs > timeoutMs) { clearTimeout(timer); timer = setTimeout(() => stop.abort(), o.writingMs - (Date.now() - t0)) }
-            began = true
-            o.onText?.(e.delta.text)
-          }
-        }
-        return await stream.finalMessage()
-      } catch (e: any) {
-        if (e?.name === 'TimeoutError' || /aborted/i.test(String(e?.message))) throw Object.assign(new Error('Request timed out.'), { status: undefined })
-        throw e
-      } finally { clearTimeout(timer) }
-    }
+  const sender = (healthy: KeyEntry[], log: { call: number; at: number; ms: number; out?: number; tools?: number; failed?: boolean; cut?: string }[] = [], t0 = Date.now()) => {
     return async (b: any, o: any) => {
       if (billed.stopped) throw new BilledLimit(billed.stopped)
-      const at = Date.now()
+      const at = Date.now(), cut: Cut = {}
       // Each try on a key is a billed call, held to the line and logged (billed.ts).
       const r = await rotate(healthy, store, async (k: any, left: number) => {
         const c = await clientFor(k)
         return billed.call({ model: b.model, worst: worstOf(b, mainPrice(b.model)), key: k.hash }, async () => {
-          const m = await once(c, b, Math.min(left, o.timeoutMs), o)
+          const timeout = Math.min(left, o.timeoutMs)
+          const m = await streamOnce<any>(signal => c.messages.stream(b, { timeout, signal }), timeout, o, cut)
           const tokens = tokensOf(m.usage)
           return { value: m, usd: tokens ? mainCost(b.model, tokens) : NaN, tokens }
         })
       }, { budgetMs: o.timeoutMs })
       if (!r.ok && billed.stopped) throw new BilledLimit(billed.stopped)
-      if (!r.ok) { log.push({ call: o.call, at: at - t0, ms: Date.now() - at, failed: true }); throw new Error(`no key answered: ${r.reason}`) }
+      if (!r.ok) { log.push({ call: o.call, at: at - t0, ms: Date.now() - at, failed: true, ...(cut.by ? { cut: cut.by } : {}) }); throw new Error(noAnswer(cut, r.reason)) }
       log.push({ call: o.call, at: at - t0, ms: Date.now() - at, out: r.value.usage?.output_tokens, tools: r.value.content.filter((x: any) => x.type === 'tool_use').length })
       return r.value
     }
