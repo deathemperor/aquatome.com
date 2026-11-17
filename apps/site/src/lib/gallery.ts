@@ -9,6 +9,10 @@ export function licenceUrl(licence: string): string | undefined {
   if (/public domain/.test(l)) return 'https://creativecommons.org/publicdomain/mark/1.0/'
   if (/unsplash/.test(l)) return 'https://unsplash.com/license'
   const v = l.match(/\d\.\d/)?.[0] ?? '4.0'
+  // Non-commercial ones first: their own deed, never plain BY's (an album shows iNaturalist's BY-NC and BY-NC-SA).
+  if (/by[- ]nc[- ]sa/.test(l)) return `https://creativecommons.org/licenses/by-nc-sa/${v}/`
+  if (/by[- ]nc[- ]nd/.test(l)) return `https://creativecommons.org/licenses/by-nc-nd/${v}/`
+  if (/by[- ]nc\b/.test(l)) return `https://creativecommons.org/licenses/by-nc/${v}/`
   if (/by[- ]sa/.test(l)) return `https://creativecommons.org/licenses/by-sa/${v}/`
   if (/\bby\b/.test(l)) return `https://creativecommons.org/licenses/by/${v}/`
   return undefined

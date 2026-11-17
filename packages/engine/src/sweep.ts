@@ -3,7 +3,7 @@ import { writePhotoState } from './photo-state'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
 import { parse } from 'node-html-parser'
-import { IMAGE_SWITCHES, loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type Summary, type WrittenLang, type ImageSwitches } from '@aq/schema'
+import { IMAGE_SWITCHES, isNonCommercial, loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type Summary, type WrittenLang, type ImageSwitches } from '@aq/schema'
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
@@ -838,6 +838,8 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
       const id = ref.split('/')[1]!
       const gallery = JSON.parse(await readFile(join(content, 'gallery', `${id}.json`), 'utf8').catch(() => '{}')) as { photos?: (Photo & { best?: boolean; kind?: string; unchecked?: boolean })[] }
       const found = gallery.photos?.find(p => p.url === url && !p.unchecked)
+      // A non-commercial album photo stays in its album, a person's pick or not (the owner's yes, 10 Nov, was for albums).
+      if (found && isNonCommercial(found.licence)) { report.heads.push(`${ref}: picked photo is non-commercial, album only`); continue }
       if (found) {
         const { best: _b, kind: _k, unchecked: _u, ...photo } = found
         picked = photo

@@ -1,7 +1,7 @@
 import { expect, onTestFinished, test } from 'vitest'
 import { LANGS, type Photo } from '@aq/schema'
 import { photoCredit, photoMark } from '../src/lib/cite'
-import { galleryLine, galleryNote } from '../src/lib/gallery'
+import { galleryLine, galleryNote, licenceUrl } from '../src/lib/gallery'
 import { translator } from '../src/lib/i18n'
 const real: Photo = { url: 'https://media.aquatome.com/real.webp', width: 800, height: 600, author: 'Source', licence: 'CC BY-SA 4.0', sourceUrl: 'https://commons.wikimedia.org/example' }
 const ai = { ...real, author: 'AI', licence: 'AI-generated', generated: { model: 'gpt-image-2', driverModel: 'gpt-5.6-sol', date: '2026-11-10', prompt: 'fish', referenceHash: 'a'.repeat(64) } }
@@ -107,6 +107,14 @@ for(const lang of ['vi','ms'] as const)test(`${lang}: a loaded whole-photo head 
  s.photos=[{...photo,headFit:undefined}]
  expect((await fishDoc(lang,c,s,listedPaths(lang,c))).lead?.src).toBe(photo.url)
  expect(appIndex(lang,c).items.find(i=>i.id===s.id)?.img).toBeTruthy()
+})
+
+test("a non-commercial photo's licence links its own deed in the gallery page's structured data, never plain BY's", () => {
+  expect(licenceUrl('CC BY-NC 4.0')).toBe('https://creativecommons.org/licenses/by-nc/4.0/')
+  expect(licenceUrl('CC BY-NC-SA 2.0')).toBe('https://creativecommons.org/licenses/by-nc-sa/2.0/')
+  expect(licenceUrl('CC BY-NC-ND 4.0')).toBe('https://creativecommons.org/licenses/by-nc-nd/4.0/')
+  expect(licenceUrl('CC BY 4.0')).toBe('https://creativecommons.org/licenses/by/4.0/')
+  expect(licenceUrl('CC BY-SA 3.0')).toBe('https://creativecommons.org/licenses/by-sa/3.0/')
 })
 
 test('an album with a non-commercial photo is not called open-licence; one without still is', () => {

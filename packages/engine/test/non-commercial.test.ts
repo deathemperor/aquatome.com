@@ -186,12 +186,21 @@ test('switch off after on: the sweep takes every non-commercial photo off every 
   expect(kept.nonCommercial.sort()).toEqual([`gallery/${ID}.json: ${photo(9, '').url}`, `species/${ID}/entity.json: ${photo(11, '').url}`].sort())
 
   const r = await swept()
-  const report = await sweep(r)
+  const report = await sweep(r, { switches: OFF })
   expect((await read(r, `content/gallery/${ID}.json`)).photos.map((p: Photo) => p.sourceUrl)).toEqual([INAT(1)])
   expect((await read(r, `content/species/${ID}/entity.json`)).photos.map((p: Photo) => p.sourceUrl)).toEqual([INAT(10)])
   expect(report.nonCommercial).toHaveLength(4)
   expect(report.files).toEqual(expect.arrayContaining([`gallery/${ID}.json`, `species/${ID}/entity.json`]))
-  expect((await sweep(r)).nonCommercial).toEqual([])
+  expect((await sweep(r, { switches: OFF })).nonCommercial).toEqual([])
+})
+
+test("a person's head pick never makes a non-commercial album photo a page's head, the switch on", async () => {
+  const r = await swept()
+  await writeFile(join(r, 'engine-state/_photo-head-picks.json'), JSON.stringify({ [`species/${ID}`]: photo(2, '').url }))
+  const report = await sweep(r, { switches: ON })
+  expect(report.heads).toContain(`species/${ID}: picked photo is non-commercial, album only`)
+  expect((await read(r, `content/species/${ID}/entity.json`)).photos.map((p: Photo) => p.sourceUrl)).toEqual([INAT(10)])
+  expect((await read(r, `content/gallery/${ID}.json`)).photos.map((p: Photo) => p.sourceUrl)).toContain(INAT(2))
 })
 
 test('the mirror copies a non-commercial photo only where the site shows it: an iNaturalist album photo, the switch on', async () => {
