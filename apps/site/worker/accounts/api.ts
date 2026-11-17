@@ -9,6 +9,7 @@ import { addPasskey, checkPasskey, loginOptions, registrationOptions, type Rp } 
 import { allow, ipOf } from './ratelimit'
 import { CLEAR_COOKIE, cookieFor, createSession, randomToken, sameSiteOk, sessionOf, sha256, tokenOf, type Client, type Session } from './session'
 import { loadStore, syncStore } from './tanks'
+import { TESTER_ADDRESS } from './tester'
 import { deleteUser, InUse, methodsOf, removeMethod, signInWith } from './users'
 import PICTURES from '../../../../protocols/profile-pictures.json' with { type: 'json' }
 
@@ -258,6 +259,10 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
       if (!claims) return fail('bad_token', 401)
       if (claims.nonce !== body.nonce && claims.nonce !== (await sha256(body.nonce))) return fail('bad_nonce', 401)
       const email = claims.emailVerified ? normalEmail(claims.email) : undefined
+      // The chat's test account signs in by its own email sign-in alone (tester.ts): Apple or Google vouching for its
+      // address neither makes an account nor joins one, linked or not, so the address never reaches another account
+      // through them (Codex's read of the chat gate, 17 Nov). Refused before anything is written.
+      if (email && email === TESTER_ADDRESS) return fail('credential_in_use', 409)
       // One Apple ID per account: deleting the account revokes it from one fresh Apple sign-in.
       if (provider === 'apple' && adding && (await db.prepare(`SELECT 1 FROM credentials WHERE user_id = ? AND kind = 'apple' AND subject != ?`).bind(adding.userId, claims.sub).first())) return fail('apple_already_linked', 409)
       try {
@@ -273,6 +278,8 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
       if (!providers(env, deps).email) return fail('provider_off', 503)
       const email = normalEmail(body.email)
       if (!email) return fail('bad_email', 400)
+      // Nor is it added to an account signed in here: refused before a code goes out (tester.ts).
+      if (adding && email === TESTER_ADDRESS) return fail('bad_email', 400)
       const lang = LANGS.find(l => l === body.lang) ?? 'vi'
       if (typeof body.turnstile !== 'string' || !(await deps.siteverify(env.TURNSTILE_SECRET!, body.turnstile, req.headers.get('cf-connecting-ip'), url.hostname))) return fail('turnstile', 403)
       const k = env.ACCOUNT_HMAC_KEY
@@ -289,6 +296,8 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
       if (!started) return fail('bad_code', 401)
       // Started to add the address to an account: only for that account, signed in here. Otherwise: a sign-in.
       if (started.userId && started.userId !== session?.userId) return fail('bad_code', 401)
+      // Nor at the code, for a flow started to add it before that check (tester.ts).
+      if (started.userId && TESTER_ADDRESS && started.value === (await emailHash(env.ACCOUNT_HMAC_KEY, TESTER_ADDRESS))) return fail('credential_in_use', 409)
       const toAccount = started.userId ? session : undefined
       try {
         const userId = await signInWith(db, { kind: 'email', subject: started.value, emailHash: started.value, ...(toAccount ? { signedIn: toAccount.userId } : {}) }, now)

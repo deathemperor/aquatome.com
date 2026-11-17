@@ -4,9 +4,10 @@
  * questions "tester" in the counts, the transcripts and the reports. Nothing else reads it as the owner's: the
  * dashboard and the owner's reports keep to OWNER_ACCOUNTS.
  *
- * Safe in a public repository: an account gets this address only by proving it, by a code to it or by Apple or Google
- * vouching for it, and this domain is ours. Never add this address to a real account as another way to sign in: a sign-in
- * with it lands in the account that first held it (accounts/users.ts `signInWith`), so on the owner's it would open the
- * dashboard. Taking the tester off is `undefined` here, and a deploy.
+ * Safe in a public repository: an account gets this address only by a code sent to it, and this domain is ours. It never
+ * joins another account: adding it to an account signed in is refused (at the start and at the code), and so is any
+ * Apple or Google sign-in carrying it, linked or not (accounts/api.ts; Codex's read of the chat gate, 17 Nov). A sign-in
+ * with it would land in the account that first held it (accounts/users.ts `signInWith`), and on the owner's it would
+ * open the dashboard. Taking the tester off is `undefined` here, and a deploy.
  */
 export const TESTER_ADDRESS: string | undefined = 'chat-tester@aquatome.com'
