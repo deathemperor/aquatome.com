@@ -2,6 +2,20 @@
   "id": "geophagus-altifrons",
   "photos": [
     {
+      "url": "https://media.aquatome.com/flickr/52231563605.webp",
+      "thumb": "https://media.aquatome.com/flickr/52231563605-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA 2.0",
+      "author": "Eric de Redelijkheid",
+      "sourceUrl": "https://www.flickr.com/photos/58438371@N02/52231563605",
+      "caption": "Cá hải hồ altifrons bơi trong bể thủy sinh có cây xanh",
+      "best": true,
+      "kind": "other",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/d342678896330751.webp",
       "thumb": "https://media.aquatome.com/commons/d342678896330751-480.webp",
       "width": 1200,
@@ -38,7 +52,7 @@
       "kind": "other"
     }
   ],
-  "seen": 12,
-  "updatedAt": "2026-11-09",
-  "builtAt": "2026-11-09"
+  "seen": 13,
+  "updatedAt": "2026-11-16",
+  "builtAt": "2026-11-16"
 }

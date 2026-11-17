@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/amano-shrimp-and-dwarf-shrimp-species-compatibility/
 title: Amano Shrimp and Dwarf Shrimp Species Compatibility - Shrimp and Snail Breeder
 fetchedAt: 2026-11-04T14:04:46.470Z
-hash: ad13cd02844be1c343ff5e2eb9c78322cd4faa7de72371ba9eef92138c47402c
+hash: 047153f1505152b16ef05e898eb794e6f4a73d431caaf5d0aa2999651aec84e6
 ---
 
 Amano shrimp and Cherry shrimp are the uber-popular choices of shrimp pets, thanks to their reputation for being amazing aquarium cleaners. Obviously, many aquarists consider housing them together. So, Can Amano shrimp and dwarf shrimp species live together?
@@ -103,7 +103,3 @@ Of course, personality may play some role here. Nonetheless, just keep in mind t
 Sure, if you completely deprive them of hiding places and essential nutrients (protein, minerals, etc.), all shrimp species can become cannibalistic but it will be your fault!
 Related article:
 - Basic Shrimp Tank Setup for Neocaridina
-## 4 thoughts on “Amano Shrimp and Dwarf Shrimp Species Compatibility”
-- Dear Michael, I have a 40-gallon breeder, heavily planted tank with CO2. with 3 Otos. 8 Ember Tetras, and 3 Nerite snails. I want to add a colony of Cherry shrimp. My pH is 7 when the CO2 is on and rises to 7.6 when the CO2 and lights are off. Is this too much of a pH swing for the Cherry shrimp?Thanks in advance, Terry ReplyHi Terry Noto, No, Cherry shrimp should be OK. They are pretty hardy. Best regards, Michael Reply
-- I was keeping Amano shrimp in a small glass aquarium on windowsill with natural light . Although the pane of glass had a green film to exclude infrared light. I also housed the green neon rasbora that grows up to an inch max . I did find an Amano shrimp had latched onto a swimming rasbora , the shrimp was as large as the rasbora. So I do think Amano shrimp are indispensable but one must be cautious on the size of their companions . ReplyHi Louis Z, I’ve never personally seen that happen in my tanks. But if a fish is sick and slow, an Amano shrimp might try to grab it, they’re opportunistic scavengers after all. They can sense it. Best regards, Michael Reply
-### Leave a Reply Cancel reply

@@ -3,6 +3,12 @@
   "name": "Sahyadri",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-16T05:42:24.957Z",
+    "why": "Sahyadri is the Western Ghats range, which Malay atlases usually write as \"Banjaran Ghats Barat\" or \"Banjaran Sahyadri\", so the bare name omits the kind word \"Banjaran\"."
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

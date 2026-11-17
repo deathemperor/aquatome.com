@@ -3,6 +3,12 @@
   "name": "Hondo",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-17T00:02:06.501Z",
+    "why": "Hondo is a district in Belize (named after the Rio Hondo); a Malaysian atlas would write \"Daerah Hondo\", and the bare \"Hondo\" leaves out the Malay kind word."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

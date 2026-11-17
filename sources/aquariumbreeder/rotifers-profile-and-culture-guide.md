@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/rotifers-profile-and-culture-guide/
 title: Rotifers Profile and Culture Guide - Shrimp and Snail Breeder
 fetchedAt: 2026-10-31T12:21:53.985Z
-hash: c9b6577ae67c79fa4263d2077658b4161d3b63fad6c4ab96ec441600c13ceb7f
+hash: 5ac96c46da026c8b229691c4bbc420cfd91ac318916edd79e478a56055bea2d4
 ---
 
 Rotifers are one of the most popular types of live food for aquarium fish fry. This food has gained popularity due to its nutritional value and ease of culturing.
@@ -163,6 +163,3 @@ Rotifers as Live foodProsConsSimple and easy to cultivateSuitable only for small
 - Snell, Terry W., and Emily M. Boyer. “Thresholds for mictic female production in the rotifer Brachionus plicatilis (Muller).” Journal of Experimental Marine Biology and Ecology124, no. 2 (1988): 73-85.
 - Fielder, D. S., G. J. Purser, and S. C. Battaglene. “Effect of rapid changes in temperature and salinity on availability of the rotifers Brachionus rotundiformis and Brachionus plicatilis.” Aquaculture189, no. 1-2 (2000): 85-99.
 - Lubzens, Esther, O. Gibson, O. Zmora, and A. Sukenik. “Potential advantages of frozen algae (Nannochloropsis sp.) for rotifer (Brachionus plicatilis) culture.” Aquaculture133, no. 3-4 (1995): 295-309.
-## 1 thought on “Rotifers Profile and Culture Guide”
-- Did povidone iodine was same as iodinol? Reply
-### Leave a Reply Cancel reply

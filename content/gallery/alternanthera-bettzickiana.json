@@ -14,28 +14,18 @@
       "kind": "emersed"
     },
     {
-      "url": "https://media.aquatome.com/commons/313bb8071bcc26e0.webp",
-      "thumb": "https://media.aquatome.com/commons/313bb8071bcc26e0-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "Public domain",
-      "author": "Chhe",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:AlternantheraAmoenaFlower.jpg",
-      "caption": "Hoa trắng hình cầu của Alternanthera bettzickiana giữa tán lá sẫm",
+      "url": "https://media.aquatome.com/inaturalist/84137109.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/84137109-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "chiuluan",
+      "sourceUrl": "https://www.inaturalist.org/photos/84137109",
+      "caption": "Cụm hoa trắng kem trên lá đỏ sẫm của Alternanthera bettzickiana",
       "best": true,
-      "kind": "flower"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/e44b2cefccbf0728.webp",
-      "thumb": "https://media.aquatome.com/commons/e44b2cefccbf0728-480.webp",
-      "width": 1200,
-      "height": 1059,
-      "licence": "Public domain",
-      "author": "Dr.S.Soundarapandian (talk · contribs)",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E0%AE%9A%E0%AF%80%E0%AE%AE%E0%AF%88%E0%AE%AA%E0%AF%8D_%E0%AE%AA%E0%AF%8A%E0%AE%A9%E0%AF%8D%E0%AE%A9%E0%AE%BE%E0%AE%99%E0%AF%8D%E0%AE%95%E0%AE%A3%E0%AF%8D%E0%AE%A3%E0%AE%BF2.jpg",
-      "caption": "Cận cảnh lá màu hồng tím của Alternanthera bettzickiana",
-      "best": true,
-      "kind": "detail"
+      "kind": "flower",
+      "setup": false,
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/commons/148f8d8da1a7cf17.webp",
@@ -84,6 +74,34 @@
       "caption": "Bụi Cây Alternanthera bettzickiana lá đỏ tía, có hoa trắng nhỏ",
       "best": true,
       "kind": "emersed"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/84137102.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/84137102-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "chiuluan",
+      "sourceUrl": "https://www.inaturalist.org/photos/84137102",
+      "caption": "Bụi Cây Alternanthera bettzickiana lá đỏ sẫm mọc ngoài trời",
+      "best": true,
+      "kind": "emersed",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/455306297.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/455306297-480.webp",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Rony Ristow",
+      "sourceUrl": "https://www.inaturalist.org/photos/455306297",
+      "caption": "Thảm Cây Alternanthera bettzickiana lá hồng đỏ nhiều màu",
+      "best": true,
+      "kind": "emersed",
+      "setup": false,
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/commons/ab50a39689945493.webp",
@@ -144,6 +162,20 @@
       "caption": "Bụi lá hồng tím và hoa trắng của Alternanthera bettzickiana",
       "best": false,
       "kind": "emersed"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/84137113.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/84137113-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "chiuluan",
+      "sourceUrl": "https://www.inaturalist.org/photos/84137113",
+      "caption": "Hoa và lá đỏ thẫm của Alternanthera bettzickiana cận cảnh",
+      "best": false,
+      "kind": "flower",
+      "setup": false,
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/commons/66328bcbe8c50c9b.webp",
@@ -216,9 +248,33 @@
       "caption": "Cây Alternanthera bettzickiana trồng chậu với lá đỏ nâu",
       "best": false,
       "kind": "emersed"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/313bb8071bcc26e0.webp",
+      "thumb": "https://media.aquatome.com/commons/313bb8071bcc26e0-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "Public domain",
+      "author": "Chhe",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:AlternantheraAmoenaFlower.jpg",
+      "caption": "Hoa trắng hình cầu của Alternanthera bettzickiana giữa tán lá sẫm",
+      "best": true,
+      "kind": "flower"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/e44b2cefccbf0728.webp",
+      "thumb": "https://media.aquatome.com/commons/e44b2cefccbf0728-480.webp",
+      "width": 1200,
+      "height": 1059,
+      "licence": "Public domain",
+      "author": "Dr.S.Soundarapandian (talk · contribs)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E0%AE%9A%E0%AF%80%E0%AE%AE%E0%AF%88%E0%AE%AA%E0%AF%8D_%E0%AE%AA%E0%AF%8A%E0%AE%A9%E0%AF%8D%E0%AE%A9%E0%AE%BE%E0%AE%99%E0%AF%8D%E0%AE%95%E0%AE%A3%E0%AF%8D%E0%AE%A3%E0%AE%BF2.jpg",
+      "caption": "Cận cảnh lá màu hồng tím của Alternanthera bettzickiana",
+      "best": true,
+      "kind": "detail"
     }
   ],
-  "seen": 44,
-  "updatedAt": "2026-11-10",
-  "builtAt": "2026-11-10"
+  "seen": 63,
+  "updatedAt": "2026-11-16",
+  "builtAt": "2026-11-16"
 }

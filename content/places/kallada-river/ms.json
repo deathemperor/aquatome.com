@@ -1,8 +1,13 @@
 {
   "slug": "kallada-river",
-  "name": "Kallada",
+  "name": "Sungai Kallada",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.96,
+    "at": "2026-11-17T00:04:42.938Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

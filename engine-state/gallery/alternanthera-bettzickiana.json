@@ -44,7 +44,26 @@
   "File:Alternanthera bettzickiana kz03.jpg",
   "File:Alternanthera bettzickiana kz04.jpg",
   "File:Alternanthera bettzickiana kz05.jpg",
-  "File:Alternanthera bettzickiana de la PUCP.jpg"
+  "File:Alternanthera bettzickiana de la PUCP.jpg",
+  "inat:84137102",
+  "inat:84137109",
+  "inat:84137113",
+  "inat:141146073",
+  "inat:141146105",
+  "inat:176217418",
+  "inat:176217461",
+  "inat:176217469",
+  "inat:176217525",
+  "inat:176217527",
+  "inat:176217540",
+  "inat:231433466",
+  "inat:231433625",
+  "inat:455306297",
+  "inat:501443679",
+  "inat:501443696",
+  "inat:650970512",
+  "inat:650970860",
+  "inat:395624415"
  ],
  "hashes": {
   "https://media.aquatome.com/aquariumbreeder/8298733114370324.webp": "8b99da22d1d61376",
@@ -65,7 +84,20 @@
   "https://media.aquatome.com/commons/d31b5b35a7ac49b7.webp": "9b5e7f6fe3d9d078",
   "https://media.aquatome.com/commons/9e780cd7ec0bbd9d.webp": "ce9b9b5a24324201",
   "https://media.aquatome.com/commons/898acc68e6647b63.webp": "5dda3c9efe4f1fb8",
-  "https://media.aquatome.com/commons/0589c7b27c53acbc.webp": "f9010eecf66adb6e"
+  "https://media.aquatome.com/commons/0589c7b27c53acbc.webp": "f9010eecf66adb6e",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/84137102/large.jpeg": "704264165d65d990",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/84137109/large.jpeg": "ec52320d816767d1",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/84137113/large.jpeg": "b1896c4c28d99d86",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/455306297/large.jpeg": "336622616a3306cf",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/395624415/large.jpg": "6c71edcdb22e4ccc"
  },
- "commons": "2026-11-10"
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": 278802,
+  "pass": "done",
+  "after": {
+   "research": 356947316,
+   "agree": 401095980
+  }
+ }
 }

@@ -40,7 +40,7 @@ const Cm = z.number().positive().max(1000)
 export const KNOWN = {
   substrate: ['soil', 'sand', 'gravel', 'lava', 'bare', 'other'],
   deviceKind: ['light', 'plug'],
-  brand: ['chihiros', 'tuya', 'ewelink', 'weekaqua'],
+  brand: ['chihiros', 'tuya', 'ewelink', 'weekaqua', 'loveecology'],
   /** What a plug's outlet powers (docs/smart-plugs.md). */
   outletRole: ['light', 'co2', 'filter', 'heater', 'air', 'fan', 'other'],
   /** What an entry without a page is. */

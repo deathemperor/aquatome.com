@@ -8,17 +8,21 @@
   "places": [
     "south-america",
     "brazil",
-    "rio-de-janeiro"
+    "rio-de-janeiro",
+    "sao-joao-river"
   ],
   "range": {
     "native": {
       "countries": [
         "BR"
       ],
-      "regions": [],
+      "regions": [
+        "São João River"
+      ],
       "sources": [
         "planetcatfish",
-        "glaser"
+        "glaser",
+        "scotcat"
       ],
       "quotes": [
         {
@@ -28,6 +32,14 @@
             "BR"
           ],
           "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Hisonotus notatus is endemic to Brazil and is distributed in the São João River basin and in the tributaries of Guanabara and Sepetiba Bays, in the state of Rio de Janeiro.",
+          "countries": [],
+          "regions": [
+            "São João River"
+          ]
         }
       ]
     },
@@ -131,6 +143,13 @@
           "min": 22,
           "max": 24
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
       }
     ],
     "ph": [
@@ -140,12 +159,23 @@
           "min": 6.5,
           "max": 7.5
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 4
+      },
+      {
+        "source": "scotcat",
+        "value": 5
       }
     ]
   },
@@ -163,6 +193,12 @@
       "html": "<p>Origin: southeast Brazil. Requirements are the same as those of the Otocinclus species. A durable care.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hisonotus_notatus.htm",
+      "html": "<p>H. notatus is often confused with Hypoptopomatinae sp. LG2 from Paraguay, but its body is more elongated and its adult size is at least 1 cm longer.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1390",
@@ -173,6 +209,12 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hisonotus_notatus_en/",
       "html": "<p>From southeast Brazil some rare specimens could be imported, related to the popular Otocinclus species.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hisonotus_notatus.htm",
+      "html": "<p>South America: Brazil, states of Rio de Janeiro and São Paulo.</p><p>Hisonotus notatus is endemic to Brazil and is distributed in the São João River basin and in the tributaries of Guanabara and Sepetiba Bays, in the state of Rio de Janeiro.</p>"
     },
     {
       "key": "habitat",
@@ -187,6 +229,12 @@
       "html": "<p>The requirements for their maintenance do not differ from those of the Otocinclus species: good filtering and frequent water changes are the requirements for their well-being.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hisonotus_notatus.htm",
+      "html": "<p>Said to be a bit more problematic in the aquarium if good water quality is not adhered to. They rest on aquatic vegetation in the aquarium so long-leaved plants are recommended. Cooler temperatures and strong filtration with adequate current will suit this species better, and this genus overall.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1390",
@@ -199,10 +247,22 @@
       "html": "<p>It may not be kept too warm. 24°C probably represents the reasonable upper limit.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hisonotus_notatus.htm",
+      "html": "<p>Temperature: 20–24°C. pH: 6.0–7.5.</p>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hisonotus_notatus_en/",
       "html": "<p>Predominantly vegetable nutrition.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hisonotus_notatus.htm",
+      "html": "<p>Will feed on flake, algae, tablet foods and algae wafers.</p>"
     },
     {
       "key": "reproduction",
@@ -211,10 +271,28 @@
       "html": "<p>Unreported. There is a single breeding report.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hisonotus_notatus.htm",
+      "html": "<p>Scatters eggs throughout the aquarium and the eggs are not cared for by the parents.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hisonotus_notatus.htm",
+      "html": "<p>Etymology: the specific name notatus means \"marked\" (Latin), presumably referring to the large median blackish spot on the caudal fin that extends to the middle caudal rays.</p><p>IUCN Red List: as no threats have been detected that put its population at risk, H. notatus has been categorised as Least Concern (LC) (IUCN 2023).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1390",
       "html": "<p>Proceedings of the California Academy of Sciences (Series 2) v. 2, pp 41.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hisonotus_notatus.htm",
+      "html": "<p>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2023. Hisonotus notatus. The IUCN Red List of Threatened Species 2023.</p><p>Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [

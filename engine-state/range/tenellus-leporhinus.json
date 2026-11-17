@@ -1,0 +1,135 @@
+{
+  "id": "tenellus-leporhinus",
+  "native": {
+    "input": "d24d17ce14b8a650",
+    "at": "2026-11-16T11:31:54.968Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "According to museum data it has been recorded from Venezuela, Guyana and Brazil, where it inhabits several river systems including the Rio Branco, Rio Orinoco and Rio Essequibo.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "According to museum data it has been recorded from Venezuela, Guyana and Brazil, where it inhabits several river systems including the Rio Branco, Rio Orinoco and Rio Essequibo.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "According to museum data it has been recorded from Venezuela, Guyana and Brazil, where it inhabits several river systems including the Rio Branco, Rio Orinoco and Rio Essequibo.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Branco",
+        "source": "seriouslyfish",
+        "quote": "According to museum data it has been recorded from Venezuela, Guyana and Brazil, where it inhabits several river systems including the Rio Branco, Rio Orinoco and Rio Essequibo.",
+        "ok": true
+      },
+      {
+        "name": "Rio Orinoco",
+        "source": "seriouslyfish",
+        "quote": "According to museum data it has been recorded from Venezuela, Guyana and Brazil, where it inhabits several river systems including the Rio Branco, Rio Orinoco and Rio Essequibo.",
+        "ok": true
+      },
+      {
+        "name": "Rio Essequibo",
+        "source": "seriouslyfish",
+        "quote": "According to museum data it has been recorded from Venezuela, Guyana and Brazil, where it inhabits several river systems including the Rio Branco, Rio Orinoco and Rio Essequibo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CO"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Tenellus leporhinus",
+    "status": "ACCEPTED",
+    "taxonKey": 8345798,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        29
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        19
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        5
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        5
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        5
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        3
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ],
+      [
+        "b8ed9b7c-5b73-4e6d-a6e1-b0911a09f947",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [
+      "VE",
+      "GY",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-16T11:31:54.968Z"
+  }
+}

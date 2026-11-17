@@ -1,8 +1,13 @@
 {
   "slug": "narmada",
-  "name": "Narmada",
+  "name": "Sungai Narmada",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-17T00:08:08.004Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

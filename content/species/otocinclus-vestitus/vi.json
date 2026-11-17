@@ -10,14 +10,21 @@
     "maintenance:glaser": "<p>O. vestitus rất dễ nuôi, đúng kiểu cá dành cho người mới chơi. Ai thích bể thủy sinh dày cây đều rất mê con cá otto này. Nó ăn rêu cực giỏi, gặm rêu trên mặt lá mà không làm hại lá chút nào.</p>",
     "diet:glaser": "<p>Cá otto ăn rêu bám trên mặt lá.</p>",
     "reproduction:glaser": "<p>Loài này cho đẻ rất dễ. Muốn cho đẻ thì nên dùng bể riêng chỉ nuôi loài này. Cách cho đẻ cũng gần giống cá chuột (Corydoras).</p>",
-    "notes:glaser": "<p>Trong một lô O. vestitus nhập từ Paraguay có một con bị xanthorism, trông rất lạ. Xanthorism là một dạng đột biến làm tăng số tế bào mang sắc tố vàng. Ngoài tự nhiên, một con nổi bật như vậy rất hiếm khi sống sót được tới lúc lớn hẳn. Trước đây cá này được bán dưới tên O. arnoldi.</p>"
+    "notes:glaser": "<p>Trong một lô O. vestitus nhập từ Paraguay có một con bị xanthorism, trông rất lạ. Xanthorism là một dạng đột biến làm tăng số tế bào mang sắc tố vàng. Ngoài tự nhiên, một con nổi bật như vậy rất hiếm khi sống sót được tới lúc lớn hẳn. Trước đây cá này được bán dưới tên O. arnoldi.</p>",
+    "quickFacts:scotcat": "<p>Họ: Loricariidae. Kích thước: 3,5 cm. Nhiệt độ: 25–30 °C. pH: 6,0–7,5.</p><p>Danh sách Đỏ IUCN: loài này còn ít thông tin, nhưng chúng phân bố rộng và không thấy mối đe dọa nào rõ ràng. Vì thế IUCN xếp chúng vào mức Ít quan tâm (IUCN 2023).</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: Bolivia, tỉnh Beni, lưu vực sông Madeira. Peru, sông Ampyiacu. Paraguay, lưu vực sông Paraná.</p>",
+    "maintenance:scotcat": "<p>Đây là một nhóm cá lau kiếng nhỏ, nuôi trong bể rất ổn. Chúng ăn rêu, giữ rêu ở mức thấp mà không phá cây trong bể. Nên nuôi theo đàn. Muốn cho đẻ thì để số con đực nhiều hơn con cái.</p>",
+    "diet:scotcat": "<p>Ăn tạp: rêu, thức ăn viên, thức ăn dạng lá và đồ đông lạnh cỡ nhỏ.</p>",
+    "reproduction:scotcat": "<p>Con đực rượt con cái khắp bể, sau đó con cái đẻ trứng lên lá cây và kính bể. Giống cá chuột, chúng bắt cặp theo tư thế chữ T.</p>",
+    "notes:scotcat": "<p>Hoa văn trên vây đuôi là chỗ để phân biệt loài này với các loài Otocinclus khác. Ở cuống đuôi có một đốm nhỏ, quanh đốm là một vùng màu sáng. Trên vây đuôi còn có hai dải.</p><p>Từ nguyên: tên loài vestitus trong tiếng Latin nghĩa là quần áo, trang phục. Người đặt tên không giải thích ý này, có lẽ là ám chỉ mấy hàng tấm xương phủ kín thân cá.</p><p>Otocinclus vestitus là loài chuẩn của chi này. Tính đến năm 2021, chi có 20 loài đã được mô tả. Muốn tìm hiểu thêm thì xem Catfish Atlas Volume 1.</p>",
+    "references:scotcat": "<p>Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944. Salvador, G.N. 2023. Otocinclus vestitus. The IUCN Red List of Threatened Species 2023. The ETYFish Project Fish Name Etymology Database.</p>"
   },
   "quality": {
-    "score": 0.95,
-    "indexable": false,
+    "score": 0.85,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.95
-    },
-    "reason": "thin"
+      "glaser": 0.95,
+      "scotcat": 0.85
+    }
   }
 }

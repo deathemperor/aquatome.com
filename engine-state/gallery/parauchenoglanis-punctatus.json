@@ -1,6 +1,8 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "gbif:1265265252:1c64503be746a0a5"
+ ],
  "hashes": {
   "https://media.aquatome.com/scotcat/e5326bcbb4beae1b.webp": "21b08e9147663b09",
   "https://media.aquatome.com/scotcat/71b1d1dc8b7216c9.webp": "67fee39aecf6ac99",
@@ -15,5 +17,13 @@
    "agree": 0
   }
  },
- "commons": "2026-11-15"
+ "commons": "2026-11-15",
+ "gbif": {
+  "key": 2337404,
+  "next": null
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-16"
 }

@@ -3,6 +3,12 @@
   "name": "Kaliningrad",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T00:04:39.604Z",
+    "why": "Nama itu ialah ejaan Rusia/Vietnam yang betul untuk tempat ini, tetapi atlas Malaysia biasanya menulis \"Wilayah Kaliningrad\" dengan perkataan jenis \"Wilayah\", dan \"Kaliningrad\" sahaja merujuk bandar atau kurang lengkap bagi sebuah wilayah."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

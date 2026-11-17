@@ -3,6 +3,12 @@
   "name": "Waccasassa",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-16T17:21:03.162Z",
+    "why": "The name is a region (the Waccasassa area), and the source sentence names the Waccasassa River, so an Indonesian atlas would more likely write \"Sungai Waccasassa\" or \"Wilayah Waccasassa\" than the bare name."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

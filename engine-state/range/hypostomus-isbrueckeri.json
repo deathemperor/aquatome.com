@@ -1,8 +1,8 @@
 {
   "id": "hypostomus-isbrueckeri",
   "native": {
-    "input": "75dca57717a97163",
-    "at": "2026-11-09T05:57:45.266Z",
+    "input": "1a00856010428bbd",
+    "at": "2026-11-17T00:14:47.070Z",
     "claims": [
       {
         "code": "BR",
@@ -18,6 +18,22 @@
         "source": "scotcat",
         "quote": "Hypostomus isbrueckeri is endemic to Brazil and is distributed in the upper and middle Uruguay River basins.",
         "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Brazil, Argentina.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Brazil, Argentina.",
+        "words": "Argentina",
         "ok": true
       }
     ],
@@ -38,6 +54,7 @@
         "name": "Uruguay River",
         "source": "scotcat",
         "quote": "Hypostomus isbrueckeri is endemic to Brazil and is distributed in the upper and middle Uruguay River basins.",
+        "country": "BR",
         "ok": true
       }
     ],
@@ -75,9 +92,10 @@
       ]
     ],
     "native": [
-      "BR"
+      "BR",
+      "AR"
     ],
     "requests": 11,
-    "at": "2026-11-09T05:57:45.266Z"
+    "at": "2026-11-17T00:14:47.070Z"
   }
 }

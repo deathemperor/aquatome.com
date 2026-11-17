@@ -3,6 +3,12 @@
   "name": "Sungai Hitam",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.15,
+    "at": "2026-11-16T11:20:38.256Z",
+    "why": "\"Sungai Hitam\" translates \"Black River\" word by word, whereas Indonesian atlases write this river as Sungai Da (Sông Đà), keeping the Vietnamese proper name."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

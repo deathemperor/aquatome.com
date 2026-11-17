@@ -5,7 +5,12 @@
   "File:Aquarium de la Porte Dorée - Poisson 121.jpg",
   "File:Aquarium de la Porte Dorée - Poisson 120.jpg",
   "File:Aquarium de la Porte Dorée - Poisson 124.jpg",
-  "File:Halle (Saale), Zoo, Leopard-Schützenfisch.jpg"
+  "File:Halle (Saale), Zoo, Leopard-Schützenfisch.jpg",
+  "inat:225046586",
+  "inat:225046641",
+  "inat:307200907",
+  "inat:307200925",
+  "inat:317905638"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/f1bf3402dc186e32.webp": "4d5d796e6c31132d",
@@ -14,7 +19,19 @@
   "https://media.aquatome.com/glaser/aa8a4661e2e2502d.webp": "17c39b37363f3c2c",
   "https://media.aquatome.com/glaser/f3a866bf7f7ab65a.webp": "49751717161f9a18",
   "https://media.aquatome.com/glaser/c298cef3ea4cd852.webp": "33188043874d0c23",
-  "https://media.aquatome.com/glaser/775680b4b534df6d.webp": "465e0e0f0f170e8d"
+  "https://media.aquatome.com/glaser/775680b4b534df6d.webp": "465e0e0f0f170e8d",
+  "https://media.aquatome.com/inaturalist/225046586.webp": "65e5ef3f7de681e0",
+  "https://media.aquatome.com/inaturalist/225046641.webp": "62ac2e1b19621490",
+  "https://media.aquatome.com/inaturalist/317905638.webp": "b29c8e94ccc44445",
+  "https://media.aquatome.com/inaturalist/307200907.webp": "00005292620183a9"
  },
- "commons": "2026-11-10"
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": 188576,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 182347822
+  }
+ }
 }

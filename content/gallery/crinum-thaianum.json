@@ -2,6 +2,34 @@
   "id": "crinum-thaianum",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/329658047.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/329658047-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Utain Pummarin",
+      "sourceUrl": "https://www.inaturalist.org/photos/329658047",
+      "caption": "Hoa trắng của Cây crinum Thái Lan nở ngoài tự nhiên",
+      "best": true,
+      "kind": "flower",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/329658087.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/329658087-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Utain Pummarin",
+      "sourceUrl": "https://www.inaturalist.org/photos/329658087",
+      "caption": "Cây crinum Thái Lan ra hoa bên bờ nước",
+      "best": true,
+      "kind": "flower",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/tropica/3d61f7b2380655e5.webp",
       "thumb": "https://media.aquatome.com/tropica/3d61f7b2380655e5-480.webp",
       "width": 1000,
@@ -24,6 +52,7 @@
       "kind": "other"
     }
   ],
-  "seen": 0,
-  "updatedAt": "2026-11-10"
+  "seen": 3,
+  "updatedAt": "2026-11-16",
+  "builtAt": "2026-11-16"
 }

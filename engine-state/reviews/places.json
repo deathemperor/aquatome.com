@@ -360,6 +360,18 @@
       "kept": true
     }
   ],
+  "id/places/ampyiacu": [
+    {
+      "at": "2026-11-16T10:59:33Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/amur-river": [
     {
       "at": "2026-11-08T05:19:45Z",
@@ -838,6 +850,20 @@
       "cli": "2.1.322",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/bafing-river": [
+    {
+      "at": "2026-11-16T10:59:33Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Bafing → Bafing (Vietnamese 'sông'; Indonesian: Sungai Bafing)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -1334,6 +1360,20 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/beni-river": [
+    {
+      "at": "2026-11-16T23:21:45Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Beni (Vietnamese, not Indonesian; should be Sungai Beni)"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -1916,6 +1956,18 @@
       "kept": true
     }
   ],
+  "id/places/buzi": [
+    {
+      "at": "2026-11-16T23:21:45Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/cabinda": [
     {
       "at": "2026-11-08T05:19:45Z",
@@ -2207,6 +2259,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/casiquiare-channel": [
+    {
+      "at": "2026-11-16T16:47:50Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "kênh Casiquiare → Casiquiare (source name is Vietnamese; the Indonesian form would be \"Terusan Casiquiare\" or \"Sungai Casiquiare\")"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -3669,6 +3735,20 @@
       "kept": true
     }
   ],
+  "id/places/fernando-poo-island": [
+    {
+      "at": "2026-11-16T05:18:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.45,
+      "notes": [
+        "Fernando Póo"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/fitzroy-river": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -3789,6 +3869,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/gambie-river": [
+    {
+      "at": "2026-11-16T23:21:45Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Gambia (Vietnamese; should be Sungai Gambia)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -4102,6 +4196,18 @@
       "at": "2026-11-08T05:20:19Z",
       "model": "sonnet",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/guarapiche": [
+    {
+      "at": "2026-11-16T16:47:50Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -5172,6 +5278,20 @@
       "kept": true
     }
   ],
+  "id/places/jong-river": [
+    {
+      "at": "2026-11-16T10:59:33Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Jong → Jong (should be Sungai Jong)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/jorai-river": [
     {
       "at": "2026-11-07T03:57:48Z",
@@ -5927,6 +6047,18 @@
       "kept": true
     }
   ],
+  "id/places/kolente": [
+    {
+      "at": "2026-11-16T10:59:33Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/kolok": [
     {
       "at": "2026-11-09T00:08:05Z",
@@ -6086,6 +6218,18 @@
       "at": "2026-11-08T08:48:27Z",
       "model": "sonnet",
       "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/kurupung": [
+    {
+      "at": "2026-11-16T10:59:33Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -6548,6 +6692,20 @@
       "kept": true
     }
   ],
+  "id/places/lake-mahalona": [
+    {
+      "at": "2026-11-16T16:47:50Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "hồ Mahalona → Danau Mahalona (source name is Vietnamese; the answer \"Danau Mahalona\" is correct)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/lake-mai-ndombe": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -6584,6 +6742,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/lake-manyara": [
+    {
+      "at": "2026-11-16T16:47:50Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "hồ Manyara → Danau Manyara (source name is Vietnamese; the answer \"Danau Manyara\" is correct)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -6726,6 +6898,20 @@
       "model": "sonnet",
       "score": 0.2,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/lake-rukwa": [
+    {
+      "at": "2026-11-16T23:21:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "hồ Rukwa (Vietnamese; should be Danau Rukwa)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -7090,6 +7276,20 @@
       "kept": true
     }
   ],
+  "id/places/lindi-river": [
+    {
+      "at": "2026-11-16T10:59:33Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Lindi → Lindi (should be Sungai Lindi)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/ling": [
     {
       "at": "2026-11-14T16:53:34Z",
@@ -7360,6 +7560,20 @@
       "kept": true
     }
   ],
+  "id/places/lower-magdalena-river-basin": [
+    {
+      "at": "2026-11-16T23:21:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "lưu vực hạ lưu sông Magdalena (Vietnamese; should be Daerah Aliran Sungai Magdalena Hilir)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/lualaba": [
     {
       "at": "2026-11-09T22:55:04Z",
@@ -7536,6 +7750,20 @@
       "cli": "2.1.322",
       "score": 0.2,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/macae-river": [
+    {
+      "at": "2026-11-16T10:59:33Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Macaé → Macaé (should be Sungai Macaé)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -7867,6 +8095,20 @@
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/malili-lake-system": [
+    {
+      "at": "2026-11-16T16:47:50Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "hệ thống hồ Malili → Kompleks Danau Malili (source name is Vietnamese; the answer is acceptable)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -8352,6 +8594,18 @@
       "kept": true
     }
   ],
+  "id/places/mbwemkuru": [
+    {
+      "at": "2026-11-16T10:59:33Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/mearim": [
     {
       "at": "2026-11-08T05:20:55Z",
@@ -8591,6 +8845,18 @@
       "at": "2026-11-06T19:55:55Z",
       "model": "sonnet",
       "score": 0.4,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/michoacan": [
+    {
+      "at": "2026-11-16T16:47:50Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -8983,6 +9249,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/muna-island": [
+    {
+      "at": "2026-11-16T10:59:33Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "đảo Muna → Pulau Muna (source is Vietnamese; the result is fine)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -9400,6 +9680,18 @@
       "at": "2026-11-08T12:08:48Z",
       "model": "sonnet",
       "score": 0.7,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/natal": [
+    {
+      "at": "2026-11-16T16:47:50Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -10216,6 +10508,30 @@
       "kept": true
     }
   ],
+  "id/places/paraguay-parana-system": [
+    {
+      "at": "2026-11-16T05:18:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.45,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/paraiba-do-norte": [
+    {
+      "at": "2026-11-16T23:21:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/paraiba-do-sul": [
     {
       "at": "2026-11-06T12:35:53Z",
@@ -10313,6 +10629,20 @@
       "score": 0.7,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/patos-lagoon": [
+    {
+      "at": "2026-11-16T10:59:33Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "phá Patos → Laguna Patos (source is Vietnamese; the result is acceptable, though Laguna Patos is fine)"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -10538,6 +10868,20 @@
       "kept": true
     }
   ],
+  "id/places/piracicaba-river": [
+    {
+      "at": "2026-11-16T16:47:50Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "sông Piracicaba → Piracicaba (river lacks \"Sungai\"; an atlas would write \"Sungai Piracicaba\")"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/pisqui": [
     {
       "at": "2026-11-14T23:44:10Z",
@@ -10694,6 +11038,18 @@
       "notes": [
         "Pru Toe-Daeng → Pru Toh Daeng (the spelling is inconsistent with the source)"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/pucallpa": [
+    {
+      "at": "2026-11-16T16:47:50Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -11058,6 +11414,20 @@
       "kept": true
     }
   ],
+  "id/places/rio-ampyiacu": [
+    {
+      "at": "2026-11-16T16:47:50Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "sông Ampyiacu → Ampyiacu (river lacks \"Sungai\")"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-approuague": [
     {
       "at": "2026-11-14T10:49:35Z",
@@ -11165,12 +11535,40 @@
       "kept": true
     }
   ],
+  "id/places/rio-atabapo": [
+    {
+      "at": "2026-11-16T05:18:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.45,
+      "notes": [
+        "Atabapo"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-aye": [
     {
       "at": "2026-11-08T05:21:29Z",
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-balsas": [
+    {
+      "at": "2026-11-16T10:59:33Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Balsas → Balsas (should be Sungai Balsas)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -11191,6 +11589,20 @@
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-betari": [
+    {
+      "at": "2026-11-16T23:21:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Betari (Vietnamese; should be Sungai Betari)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -11429,6 +11841,20 @@
       "score": 0.6,
       "notes": [
         "\"Corantijn\": lacks 'Sungai'"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-corubal": [
+    {
+      "at": "2026-11-16T23:21:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Corubal (Vietnamese; should be Sungai Corubal)"
       ],
       "attempt": "first",
       "kept": true
@@ -12345,6 +12771,20 @@
       "kept": true
     }
   ],
+  "id/places/rio-parana-paraguay": [
+    {
+      "at": "2026-11-16T16:47:50Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "sông Paraná-Paraguay → Paraná-Paraguay (river lacks \"Sungai\")"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-paranapanema": [
     {
       "at": "2026-11-08T20:40:33Z",
@@ -12559,6 +12999,20 @@
       "model": "sonnet",
       "score": 0.8,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-san-martin": [
+    {
+      "at": "2026-11-16T16:47:50Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "sông San Martín → San Martín (river lacks \"Sungai\")"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -13050,6 +13504,18 @@
       "kept": true
     }
   ],
+  "id/places/rokel": [
+    {
+      "at": "2026-11-16T10:59:33Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/romania": [
     {
       "at": "2026-11-10T01:37:17Z",
@@ -13110,6 +13576,20 @@
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/ruo-river": [
+    {
+      "at": "2026-11-16T16:47:50Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "sông Ruo → Ruo (river lacks \"Sungai\")"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -13460,6 +13940,18 @@
       "kept": true
     }
   ],
+  "id/places/san-benito": [
+    {
+      "at": "2026-11-16T16:47:50Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/san-jorge": [
     {
       "at": "2026-11-08T20:40:33Z",
@@ -13580,6 +14072,20 @@
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/sao-joao-river": [
+    {
+      "at": "2026-11-16T10:59:33Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông São João → São João (should be Sungai São João)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -14258,6 +14764,20 @@
       "kept": true
     }
   ],
+  "id/places/southeastern-brazil": [
+    {
+      "at": "2026-11-16T10:59:33Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Đông Nam Brasil → Brasil Tenggara (source is Vietnamese; the result is acceptable)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/southeastern-coast": [
     {
       "at": "2026-11-11T01:41:42Z",
@@ -14383,6 +14903,18 @@
       "at": "2026-11-08T05:22:00Z",
       "model": "sonnet",
       "score": 0.4,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/stanley-pool": [
+    {
+      "at": "2026-11-16T23:21:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -14605,6 +15137,18 @@
       "score": 0.7,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/taja": [
+    {
+      "at": "2026-11-16T10:59:33Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -15203,6 +15747,18 @@
       "kept": true
     }
   ],
+  "id/places/tocantins-araguaia": [
+    {
+      "at": "2026-11-16T16:47:50Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/tocantins-araguaia-river-basin": [
     {
       "at": "2026-11-12T13:10:56Z",
@@ -15335,6 +15891,20 @@
       "kept": true
     }
   ],
+  "id/places/trombetas-river": [
+    {
+      "at": "2026-11-16T10:59:33Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Trombetas → Trombetas (should be Sungai Trombetas)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/tsengwen": [
     {
       "at": "2026-11-15T05:17:17Z",
@@ -15378,6 +15948,18 @@
       "ran": "claude-sonnet-5-5",
       "cli": "2.1.322",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/tugela": [
+    {
+      "at": "2026-11-16T23:21:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -15511,6 +16093,20 @@
       "kept": true
     }
   ],
+  "id/places/umkomaas-river": [
+    {
+      "at": "2026-11-16T16:47:51Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "sông Umkomaas → Umkomaas (river lacks \"Sungai\")"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/unguja": [
     {
       "at": "2026-11-09T07:33:47Z",
@@ -15584,6 +16180,18 @@
       "at": "2026-11-09T11:45:44Z",
       "model": "sonnet",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/ussuri": [
+    {
+      "at": "2026-11-16T10:59:33Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -16280,6 +16888,18 @@
       "kept": true
     }
   ],
+  "id/places/zanzibar-archipelago": [
+    {
+      "at": "2026-11-16T10:59:33Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/zaracay": [
     {
       "at": "2026-11-09T07:33:47Z",
@@ -16847,6 +17467,18 @@
       "score": 0.93,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "ms/places/ampyiacu": [
+    {
+      "at": "2026-11-16T11:16:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.15,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -17574,6 +18206,20 @@
       "kept": true
     }
   ],
+  "ms/places/bafing-river": [
+    {
+      "at": "2026-11-16T11:16:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.15,
+      "notes": [
+        "sông Bafing (Vietnamese, not Malay; should be Sungai Bafing)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/bago": [
     {
       "at": "2026-11-08T03:36:45Z",
@@ -18231,6 +18877,20 @@
       "score": 0.93,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "ms/places/beni-river": [
+    {
+      "at": "2026-11-16T23:59:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Beni → Sungai Beni (the source name \"sông Beni\" is Vietnamese, but the Malay output \"Sungai Beni\" is correct)"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -18980,6 +19640,18 @@
       "kept": true
     }
   ],
+  "ms/places/buzi": [
+    {
+      "at": "2026-11-16T23:59:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/cabinda": [
     {
       "at": "2026-11-08T12:43:56Z",
@@ -19292,6 +19964,20 @@
       "model": "sonnet",
       "score": 0.55,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/casiquiare-channel": [
+    {
+      "at": "2026-11-16T17:06:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "kênh Casiquiare (Vietnamese, not Malay; should be Terusan Casiquiare)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -20582,6 +21268,25 @@
       "kept": true
     }
   ],
+  "ms/places/fernando-poo-island": [
+    {
+      "at": "2026-11-16T05:35:05Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Pulau Fernando Póo: acceptable, though the current name is Pulau Bioko (Bioko), so this is a historical name"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.6,
+        0.6
+      ]
+    }
+  ],
   "ms/places/florida-peninsula": [
     {
       "at": "2026-11-09T00:52:34Z",
@@ -20644,6 +21349,20 @@
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/gambie-river": [
+    {
+      "at": "2026-11-16T23:59:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Gambia → Sungai Gambia (source is Vietnamese, but the Malay output is correct)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -21059,6 +21778,18 @@
       "at": "2026-11-08T12:44:35Z",
       "model": "sonnet",
       "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/guarapiche": [
+    {
+      "at": "2026-11-16T17:06:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -22587,6 +23318,20 @@
       "kept": true
     }
   ],
+  "ms/places/jong-river": [
+    {
+      "at": "2026-11-16T11:16:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.15,
+      "notes": [
+        "sông Jong (should be Sungai Jong)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/jorai-river": [
     {
       "at": "2026-11-07T08:26:43Z",
@@ -23513,6 +24258,18 @@
       "kept": true
     }
   ],
+  "ms/places/kolente": [
+    {
+      "at": "2026-11-16T11:16:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.15,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/kolok": [
     {
       "at": "2026-11-09T00:52:34Z",
@@ -23656,6 +24413,18 @@
       "at": "2026-11-08T12:45:09Z",
       "model": "sonnet",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/kurupung": [
+    {
+      "at": "2026-11-16T11:16:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.15,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -24041,6 +24810,20 @@
       "kept": true
     }
   ],
+  "ms/places/lake-mahalona": [
+    {
+      "at": "2026-11-16T17:06:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "hồ Mahalona (Vietnamese; Malay prefix is Tasik, so the \"Tasik Mahalona\" shown is right but the source label is Vietnamese)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/lake-malombe": [
     {
       "at": "2026-11-08T12:45:09Z",
@@ -24069,6 +24852,20 @@
       "model": "sonnet",
       "score": 0.4,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/lake-manyara": [
+    {
+      "at": "2026-11-16T17:06:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "hồ Manyara (Vietnamese, not Malay; should be Tasik Manyara)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -24205,6 +25002,20 @@
       "cli": "2.1.322",
       "score": 0.5,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/lake-rukwa": [
+    {
+      "at": "2026-11-16T23:59:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "hồ Rukwa → Tasik Rukwa (source is Vietnamese, but the Malay output is correct)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -24537,6 +25348,20 @@
       "kept": true
     }
   ],
+  "ms/places/lindi-river": [
+    {
+      "at": "2026-11-16T11:16:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.15,
+      "notes": [
+        "sông Lindi (should be Sungai Lindi)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/ling": [
     {
       "at": "2026-11-14T17:06:26Z",
@@ -24779,6 +25604,20 @@
       "kept": true
     }
   ],
+  "ms/places/lower-magdalena-river-basin": [
+    {
+      "at": "2026-11-16T23:59:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "lưu vực hạ lưu sông Magdalena → Lembangan Hilir Sungai Magdalena (source is Vietnamese; the output is acceptable, though \"Lembangan Sungai Magdalena Hilir\" is more natural Malay word order)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/lualaba": [
     {
       "at": "2026-11-10T10:07:22Z",
@@ -24949,6 +25788,20 @@
       "cli": "2.1.322",
       "score": 0.5,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/macae-river": [
+    {
+      "at": "2026-11-16T11:16:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.15,
+      "notes": [
+        "sông Macaé (should be Sungai Macaé)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -25261,6 +26114,20 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/malili-lake-system": [
+    {
+      "at": "2026-11-16T17:06:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "hệ thống hồ Malili (Vietnamese, not Malay; should be Sistem Tasik Malili)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -25665,6 +26532,18 @@
       "kept": true
     }
   ],
+  "ms/places/mbwemkuru": [
+    {
+      "at": "2026-11-16T11:16:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.15,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/mearim": [
     {
       "at": "2026-11-08T12:45:10Z",
@@ -25882,6 +26761,18 @@
       "at": "2026-11-06T23:05:38Z",
       "model": "sonnet",
       "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/michoacan": [
+    {
+      "at": "2026-11-16T17:06:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -26235,6 +27126,20 @@
       "cli": "2.1.322",
       "score": 0.5,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/muna-island": [
+    {
+      "at": "2026-11-16T11:16:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.15,
+      "notes": [
+        "đảo Muna (Vietnamese; Pulau Muna is the Malay form)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -26662,6 +27567,18 @@
       "at": "2026-11-08T12:45:45Z",
       "model": "sonnet",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/natal": [
+    {
+      "at": "2026-11-16T17:06:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -27420,6 +28337,23 @@
       "kept": true
     }
   ],
+  "ms/places/paraguay-parana-system": [
+    {
+      "at": "2026-11-16T05:35:05Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.6,
+        0.6
+      ]
+    }
+  ],
   "ms/places/paraguay-river": [
     {
       "at": "2026-11-08T03:37:06Z",
@@ -27427,6 +28361,18 @@
       "score": 0.93,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "ms/places/paraiba-do-norte": [
+    {
+      "at": "2026-11-16T23:59:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -27571,6 +28517,20 @@
       "score": 0.93,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "ms/places/patos-lagoon": [
+    {
+      "at": "2026-11-16T11:16:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.15,
+      "notes": [
+        "phá Patos (Vietnamese; Lagun Patos is the Malay form)"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -27880,6 +28840,20 @@
       "kept": true
     }
   ],
+  "ms/places/piracicaba-river": [
+    {
+      "at": "2026-11-16T17:06:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Piracicaba (Vietnamese, not Malay; should be Sungai Piracicaba)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/pisqui": [
     {
       "at": "2026-11-15T00:09:09Z",
@@ -28074,6 +29048,18 @@
     {
       "at": "2026-11-10T10:08:06Z",
       "model": "sonnet",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/pucallpa": [
+    {
+      "at": "2026-11-16T17:06:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
       "score": 0.2,
       "notes": [],
       "attempt": "first",
@@ -28554,6 +29540,20 @@
       "kept": true
     }
   ],
+  "ms/places/rio-ampyiacu": [
+    {
+      "at": "2026-11-16T17:06:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Ampyiacu (Vietnamese, not Malay; should be Sungai Ampyiacu)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/rio-approuague": [
     {
       "at": "2026-11-14T11:00:16Z",
@@ -28668,6 +29668,25 @@
       "kept": true
     }
   ],
+  "ms/places/rio-atabapo": [
+    {
+      "at": "2026-11-16T05:35:05Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Atabapo: a river name should be \"Sungai Atabapo\" in Malay atlas style, but \"Atabapo\" has no \"Sungai\""
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.6,
+        0.6
+      ]
+    }
+  ],
   "ms/places/rio-atrato": [
     {
       "at": "2026-11-08T03:37:07Z",
@@ -28684,6 +29703,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/rio-balsas": [
+    {
+      "at": "2026-11-16T11:16:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.15,
+      "notes": [
+        "sông Balsas (should be Sungai Balsas)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -28714,6 +29747,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/rio-betari": [
+    {
+      "at": "2026-11-16T23:59:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Betari → Sungai Betari (source is Vietnamese, but the Malay output is correct)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -29000,6 +30047,20 @@
       "cli": "2.1.322",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/rio-corubal": [
+    {
+      "at": "2026-11-16T23:59:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Corubal → Sungai Corubal (source is Vietnamese, but the Malay output is correct)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -30040,6 +31101,20 @@
       "kept": true
     }
   ],
+  "ms/places/rio-parana-paraguay": [
+    {
+      "at": "2026-11-16T17:06:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Paraná-Paraguay (Vietnamese, not Malay; should be Sungai Paraná-Paraguay)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/rio-paranapanema": [
     {
       "at": "2026-11-09T00:52:35Z",
@@ -30266,6 +31341,20 @@
       "model": "sonnet",
       "score": 0.4,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/rio-san-martin": [
+    {
+      "at": "2026-11-16T17:06:02Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông San Martín (Vietnamese, not Malay; should be Sungai San Martín)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -30878,6 +31967,18 @@
       "kept": true
     }
   ],
+  "ms/places/rokel": [
+    {
+      "at": "2026-11-16T11:16:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.15,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/romania": [
     {
       "at": "2026-11-10T10:08:07Z",
@@ -30936,6 +32037,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/ruo-river": [
+    {
+      "at": "2026-11-16T17:06:02Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Ruo (Vietnamese, not Malay; should be Sungai Ruo)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -31344,6 +32459,18 @@
       "kept": true
     }
   ],
+  "ms/places/san-benito": [
+    {
+      "at": "2026-11-16T17:06:02Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/san-jorge": [
     {
       "at": "2026-11-09T00:52:35Z",
@@ -31444,6 +32571,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/sao-joao-river": [
+    {
+      "at": "2026-11-16T11:16:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.15,
+      "notes": [
+        "sông São João (should be Sungai São João)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -32051,6 +33192,20 @@
       "kept": true
     }
   ],
+  "ms/places/southeastern-brazil": [
+    {
+      "at": "2026-11-16T11:16:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.15,
+      "notes": [
+        "Đông Nam Brasil (Vietnamese; Malay is Tenggara Brazil)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/southeastern-coast": [
     {
       "at": "2026-11-12T13:20:45Z",
@@ -32179,6 +33334,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/stanley-pool": [
+    {
+      "at": "2026-11-16T23:59:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Stanley Pool → Stanley Pool (left in English; Malay atlases write \"Kolam Stanley\" or use the current name \"Malebo Pool\"/\"Kolam Malebo\")"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -32396,6 +33565,18 @@
       "at": "2026-11-10T10:08:07Z",
       "model": "sonnet",
       "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/taja": [
+    {
+      "at": "2026-11-16T11:16:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.15,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -32943,6 +34124,18 @@
       "kept": true
     }
   ],
+  "ms/places/tocantins-araguaia": [
+    {
+      "at": "2026-11-16T17:06:02Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/tocantins-araguaia-river-basin": [
     {
       "at": "2026-11-12T13:20:46Z",
@@ -33151,6 +34344,20 @@
       "kept": true
     }
   ],
+  "ms/places/trombetas-river": [
+    {
+      "at": "2026-11-16T11:16:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.15,
+      "notes": [
+        "sông Trombetas (should be Sungai Trombetas)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/tsengwen": [
     {
       "at": "2026-11-15T05:27:48Z",
@@ -33196,6 +34403,18 @@
       "ran": "claude-sonnet-5-5",
       "cli": "2.1.322",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/tugela": [
+    {
+      "at": "2026-11-16T23:59:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -33429,6 +34648,20 @@
       "kept": true
     }
   ],
+  "ms/places/umkomaas-river": [
+    {
+      "at": "2026-11-16T17:06:02Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Umkomaas (Vietnamese, not Malay; should be Sungai Umkomaas)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/unguja": [
     {
       "at": "2026-11-10T10:08:21Z",
@@ -33548,6 +34781,18 @@
         "Uruguay → Uruguay (uruguay-river): should read \"Sungai Uruguay\", to tell it apart from the country"
       ],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "ms/places/ussuri": [
+    {
+      "at": "2026-11-16T11:16:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.15,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -34444,6 +35689,18 @@
       "kept": true
     }
   ],
+  "ms/places/zanzibar-archipelago": [
+    {
+      "at": "2026-11-16T11:16:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.15,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/zaracay": [
     {
       "at": "2026-11-10T10:08:21Z",
@@ -34861,6 +36118,20 @@
       "model": "sonnet",
       "score": 0.82,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/ampyiacu": [
+    {
+      "at": "2026-11-16T11:03:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Ampyiacu → \"อัมปียากู\" is a doubtful transliteration (the Peruvian river is Ampiyacu, so \"อัมปียากู\" is plausible, but the spelling is uncertain)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -35405,6 +36676,20 @@
       ]
     }
   ],
+  "th/places/bafing-river": [
+    {
+      "at": "2026-11-16T11:03:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "The following names are acceptable: บาฟิง, จอง, โกเลนเต, คูรูพุง, ลินดี, เกาะมูนา, บัลซัส, โรเกล, เซาโจเอา, ภาคตะวันออกเฉียงใต้ของบราซิล, ทาจา, ตรอมเบตัส, อุสซูรี, หมู่เกาะแซนซิบาร์"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/bago": [
     {
       "at": "2026-11-06T12:36:07Z",
@@ -35927,6 +37212,23 @@
       "notes": [],
       "attempt": "recheck",
       "kept": true
+    }
+  ],
+  "th/places/beni-river": [
+    {
+      "at": "2026-11-16T23:35:35Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.8
+      ]
     }
   ],
   "th/places/benipah": [
@@ -36522,6 +37824,25 @@
       "kept": true
     }
   ],
+  "th/places/buzi": [
+    {
+      "at": "2026-11-16T23:35:35Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "บูซี and ทูเกลา: the Thai forms are plausible. Tugela is usually written ตูเกลา, and the entry is a river region. This is a minor issue."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    }
+  ],
   "th/places/cabinda": [
     {
       "at": "2026-11-08T05:27:08Z",
@@ -36833,6 +38154,21 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/casiquiare-channel": [
+    {
+      "at": "2026-11-16T16:51:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Casiquiare → กาซิกิอาเร: the usual Thai is กาซีกีอาเร; this is marginal",
+        "Several names are given in Vietnamese-prefixed form (kênh, hồ, hệ thống hồ, sông) in the source labels. The Thai values themselves are in Thai script, so this does not count against them."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -38384,6 +39720,25 @@
       ]
     }
   ],
+  "th/places/fernando-poo-island": [
+    {
+      "at": "2026-11-16T05:19:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "เฟร์นันโดโป: no เกาะ prefix; an atlas would usually write เกาะเฟอร์นันโดโป (now เกาะบิโอโก). Spelling is acceptable."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.8,
+        0.8
+      ]
+    }
+  ],
   "th/places/fianarantsoa": [
     {
       "at": "2026-11-06T12:36:17Z",
@@ -38518,6 +39873,25 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/places/gambie-river": [
+    {
+      "at": "2026-11-16T23:35:35Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "แกมเบีย (gambie-river): this is the name of the country. The river should be แม่น้ำแกมเบีย."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.8
+      ]
     }
   ],
   "th/places/ganges-brahmaputra": [
@@ -38855,6 +40229,20 @@
       "model": "sonnet",
       "score": 0.72,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/guarapiche": [
+    {
+      "at": "2026-11-16T16:51:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Several names are given in Vietnamese-prefixed form (kênh, hồ, hệ thống hồ, sông) in the source labels. The Thai values themselves are in Thai script, so this does not count against them."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -40004,6 +41392,20 @@
       ]
     }
   ],
+  "th/places/jong-river": [
+    {
+      "at": "2026-11-16T11:03:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "The following names are acceptable: บาฟิง, จอง, โกเลนเต, คูรูพุง, ลินดี, เกาะมูนา, บัลซัส, โรเกล, เซาโจเอา, ภาคตะวันออกเฉียงใต้ของบราซิล, ทาจา, ตรอมเบตัส, อุสซูรี, หมู่เกาะแซนซิบาร์"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/jorai-river": [
     {
       "at": "2026-11-07T04:00:41Z",
@@ -40752,6 +42154,20 @@
       "kept": true
     }
   ],
+  "th/places/kolente": [
+    {
+      "at": "2026-11-16T11:03:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "The following names are acceptable: บาฟิง, จอง, โกเลนเต, คูรูพุง, ลินดี, เกาะมูนา, บัลซัส, โรเกล, เซาโจเอา, ภาคตะวันออกเฉียงใต้ของบราซิล, ทาจา, ตรอมเบตัส, อุสซูรี, หมู่เกาะแซนซิบาร์"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/kolok": [
     {
       "at": "2026-11-09T00:10:26Z",
@@ -40958,6 +42374,20 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/kurupung": [
+    {
+      "at": "2026-11-16T11:03:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "The following names are acceptable: บาฟิง, จอง, โกเลนเต, คูรูพุง, ลินดี, เกาะมูนา, บัลซัส, โรเกล, เซาโจเอา, ภาคตะวันออกเฉียงใต้ของบราซิล, ทาจา, ตรอมเบตัส, อุสซูรี, หมู่เกาะแซนซิบาร์"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -41451,6 +42881,21 @@
       "kept": true
     }
   ],
+  "th/places/lake-mahalona": [
+    {
+      "at": "2026-11-16T16:51:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Mahalona → มาฮาโลนา is acceptable",
+        "Several names are given in Vietnamese-prefixed form (kênh, hồ, hệ thống hồ, sông) in the source labels. The Thai values themselves are in Thai script, so this does not count against them."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/lake-mai-ndombe": [
     {
       "at": "2026-11-06T12:36:00Z",
@@ -41487,6 +42932,20 @@
       "model": "sonnet",
       "score": 0.8,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/lake-manyara": [
+    {
+      "at": "2026-11-16T16:51:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Several names are given in Vietnamese-prefixed form (kênh, hồ, hệ thống hồ, sông) in the source labels. The Thai values themselves are in Thai script, so this does not count against them."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -41628,6 +43087,23 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/places/lake-rukwa": [
+    {
+      "at": "2026-11-16T23:35:35Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.8
+      ]
     }
   ],
   "th/places/lake-sentani": [
@@ -42011,6 +43487,20 @@
       "kept": true
     }
   ],
+  "th/places/lindi-river": [
+    {
+      "at": "2026-11-16T11:03:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "The following names are acceptable: บาฟิง, จอง, โกเลนเต, คูรูพุง, ลินดี, เกาะมูนา, บัลซัส, โรเกล, เซาโจเอา, ภาคตะวันออกเฉียงใต้ของบราซิล, ทาจา, ตรอมเบตัส, อุสซูรี, หมู่เกาะแซนซิบาร์"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/ling": [
     {
       "at": "2026-11-14T16:55:43Z",
@@ -42287,6 +43777,23 @@
       "kept": true
     }
   ],
+  "th/places/lower-magdalena-river-basin": [
+    {
+      "at": "2026-11-16T23:35:35Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    }
+  ],
   "th/places/lualaba": [
     {
       "at": "2026-11-09T22:57:23Z",
@@ -42459,6 +43966,20 @@
       "cli": "2.1.322",
       "score": 0.55,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/macae-river": [
+    {
+      "at": "2026-11-16T11:03:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Macaé → \"มากาเอ\" is acceptable, but \"มาเก\" or \"มากาเย\" is closer to the Portuguese pronunciation"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -42809,6 +44330,20 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/malili-lake-system": [
+    {
+      "at": "2026-11-16T16:51:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Several names are given in Vietnamese-prefixed form (kênh, hồ, hệ thống hồ, sông) in the source labels. The Thai values themselves are in Thai script, so this does not count against them."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -43273,6 +44808,20 @@
       "kept": true
     }
   ],
+  "th/places/mbwemkuru": [
+    {
+      "at": "2026-11-16T11:03:15Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Mbwemkuru → \"อึมบเวมคูรู\" is an unusual transliteration; \"มเวมกูรู\" or \"อึมบเวมกูรู\" is more typical"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/mearim": [
     {
       "at": "2026-11-08T05:28:40Z",
@@ -43554,6 +45103,21 @@
       "model": "sonnet",
       "score": 0.8,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/michoacan": [
+    {
+      "at": "2026-11-16T16:51:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Michoacán → มิโชอากัง: the standard Thai is มิโชอากัน; ending in กัง is wrong",
+        "Several names are given in Vietnamese-prefixed form (kênh, hồ, hệ thống hồ, sông) in the source labels. The Thai values themselves are in Thai script, so this does not count against them."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -43956,6 +45520,20 @@
       "model": "sonnet",
       "score": 0.88,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/muna-island": [
+    {
+      "at": "2026-11-16T11:03:15Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "The following names are acceptable: บาฟิง, จอง, โกเลนเต, คูรูพุง, ลินดี, เกาะมูนา, บัลซัส, โรเกล, เซาโจเอา, ภาคตะวันออกเฉียงใต้ของบราซิล, ทาจา, ตรอมเบตัส, อุสซูรี, หมู่เกาะแซนซิบาร์"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -44410,6 +45988,21 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/natal": [
+    {
+      "at": "2026-11-16T16:51:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Natal → นาทาล: Natal in South Africa is usually นาทัล; this is probably wrong",
+        "Several names are given in Vietnamese-prefixed form (kênh, hồ, hệ thống hồ, sông) in the source labels. The Thai values themselves are in Thai script, so this does not count against them."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -45273,6 +46866,25 @@
       "kept": true
     }
   ],
+  "th/places/paraguay-parana-system": [
+    {
+      "at": "2026-11-16T05:19:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "ปารากวัย-ปารานา: no ระบบแม่น้ำ prefix, but the name itself is correct."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.8,
+        0.8
+      ]
+    }
+  ],
   "th/places/paraguay-river": [
     {
       "at": "2026-11-06T12:36:07Z",
@@ -45281,6 +46893,25 @@
       "notes": [],
       "attempt": "recheck",
       "kept": true
+    }
+  ],
+  "th/places/paraiba-do-norte": [
+    {
+      "at": "2026-11-16T23:35:35Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "ปาราอีบาดูนอร์ตี: the usual Thai form is ปาราอิบาดูนอร์ตี. This is a minor issue."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.8
+      ]
     }
   ],
   "th/places/paraiba-do-sul": [
@@ -45392,6 +47023,20 @@
       "score": 0.72,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/patos-lagoon": [
+    {
+      "at": "2026-11-16T11:03:15Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Patos Lagoon → \"ลาโกอาดูสปาตุส\" is a Portuguese transliteration, not a standard Thai atlas name; Thai atlases would use \"ทะเลสาบปาตุส\" or similar"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -45632,6 +47277,21 @@
       "kept": true
     }
   ],
+  "th/places/piracicaba-river": [
+    {
+      "at": "2026-11-16T16:51:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Piracicaba → ปีราซีกาบา: the standard Thai is ปิราซิกาบา; this is marginal",
+        "Several names are given in Vietnamese-prefixed form (kênh, hồ, hệ thống hồ, sông) in the source labels. The Thai values themselves are in Thai script, so this does not count against them."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/pisqui": [
     {
       "at": "2026-11-14T23:49:56Z",
@@ -45813,6 +47473,20 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/pucallpa": [
+    {
+      "at": "2026-11-16T16:51:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Several names are given in Vietnamese-prefixed form (kênh, hồ, hệ thống hồ, sông) in the source labels. The Thai values themselves are in Thai script, so this does not count against them."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -46175,6 +47849,20 @@
       "kept": true
     }
   ],
+  "th/places/rio-ampyiacu": [
+    {
+      "at": "2026-11-16T16:51:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Several names are given in Vietnamese-prefixed form (kênh, hồ, hệ thống hồ, sông) in the source labels. The Thai values themselves are in Thai script, so this does not count against them."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-approuague": [
     {
       "at": "2026-11-14T10:50:58Z",
@@ -46284,12 +47972,43 @@
       "kept": true
     }
   ],
+  "th/places/rio-atabapo": [
+    {
+      "at": "2026-11-16T05:19:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.8,
+        0.8
+      ]
+    }
+  ],
   "th/places/rio-aye": [
     {
       "at": "2026-11-08T05:29:24Z",
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/rio-balsas": [
+    {
+      "at": "2026-11-16T11:03:15Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "The following names are acceptable: บาฟิง, จอง, โกเลนเต, คูรูพุง, ลินดี, เกาะมูนา, บัลซัส, โรเกล, เซาโจเอา, ภาคตะวันออกเฉียงใต้ของบราซิล, ทาจา, ตรอมเบตัส, อุสซูรี, หมู่เกาะแซนซิบาร์"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -46312,6 +48031,23 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/places/rio-betari": [
+    {
+      "at": "2026-11-16T23:35:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.8
+      ]
     }
   ],
   "th/places/rio-bethary": [
@@ -46578,6 +48314,23 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/places/rio-corubal": [
+    {
+      "at": "2026-11-16T23:35:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.8
+      ]
     }
   ],
   "th/places/rio-cuiaba": [
@@ -47508,6 +49261,20 @@
       "kept": true
     }
   ],
+  "th/places/rio-parana-paraguay": [
+    {
+      "at": "2026-11-16T16:51:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Several names are given in Vietnamese-prefixed form (kênh, hồ, hệ thống hồ, sông) in the source labels. The Thai values themselves are in Thai script, so this does not count against them."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-paranapanema": [
     {
       "at": "2026-11-08T20:47:48Z",
@@ -47726,6 +49493,20 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/rio-san-martin": [
+    {
+      "at": "2026-11-16T16:51:27Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Several names are given in Vietnamese-prefixed form (kênh, hồ, hệ thống hồ, sông) in the source labels. The Thai values themselves are in Thai script, so this does not count against them."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -48281,6 +50062,20 @@
       "kept": true
     }
   ],
+  "th/places/rokel": [
+    {
+      "at": "2026-11-16T11:03:15Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "The following names are acceptable: บาฟิง, จอง, โกเลนเต, คูรูพุง, ลินดี, เกาะมูนา, บัลซัส, โรเกล, เซาโจเอา, ภาคตะวันออกเฉียงใต้ของบราซิล, ทาจา, ตรอมเบตัส, อุสซูรี, หมู่เกาะแซนซิบาร์"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/romania": [
     {
       "at": "2026-11-10T01:42:05Z",
@@ -48342,6 +50137,20 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/ruo-river": [
+    {
+      "at": "2026-11-16T16:51:27Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Several names are given in Vietnamese-prefixed form (kênh, hồ, hệ thống hồ, sông) in the source labels. The Thai values themselves are in Thai script, so this does not count against them."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -48687,6 +50496,20 @@
       "kept": true
     }
   ],
+  "th/places/san-benito": [
+    {
+      "at": "2026-11-16T16:51:27Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Several names are given in Vietnamese-prefixed form (kênh, hồ, hệ thống hồ, sông) in the source labels. The Thai values themselves are in Thai script, so this does not count against them."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/san-jorge": [
     {
       "at": "2026-11-08T20:47:48Z",
@@ -48835,6 +50658,20 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/sao-joao-river": [
+    {
+      "at": "2026-11-16T11:03:15Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "The following names are acceptable: บาฟิง, จอง, โกเลนเต, คูรูพุง, ลินดี, เกาะมูนา, บัลซัส, โรเกล, เซาโจเอา, ภาคตะวันออกเฉียงใต้ของบราซิล, ทาจา, ตรอมเบตัส, อุสซูรี, หมู่เกาะแซนซิบาร์"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -49528,6 +51365,20 @@
       "kept": true
     }
   ],
+  "th/places/southeastern-brazil": [
+    {
+      "at": "2026-11-16T11:03:15Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "The following names are acceptable: บาฟิง, จอง, โกเลนเต, คูรูพุง, ลินดี, เกาะมูนา, บัลซัส, โรเกล, เซาโจเอา, ภาคตะวันออกเฉียงใต้ของบราซิล, ทาจา, ตรอมเบตัส, อุสซูรี, หมู่เกาะแซนซิบาร์"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/southeastern-coast": [
     {
       "at": "2026-11-11T01:45:24Z",
@@ -49654,6 +51505,23 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/places/stanley-pool": [
+    {
+      "at": "2026-11-16T23:35:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.8
+      ]
     }
   ],
   "th/places/struma": [
@@ -49895,6 +51763,20 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/taja": [
+    {
+      "at": "2026-11-16T11:03:15Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "The following names are acceptable: บาฟิง, จอง, โกเลนเต, คูรูพุง, ลินดี, เกาะมูนา, บัลซัส, โรเกล, เซาโจเอา, ภาคตะวันออกเฉียงใต้ของบราซิล, ทาจา, ตรอมเบตัส, อุสซูรี, หมู่เกาะแซนซิบาร์"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -50525,6 +52407,21 @@
       "kept": true
     }
   ],
+  "th/places/tocantins-araguaia": [
+    {
+      "at": "2026-11-16T16:51:27Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Tocantins-Araguaia → โตกังชีนส์-อารากวยยา: Tocantins is usually โตกันตินส์ and Araguaia is อารากัวยา; this rendering is wrong",
+        "Several names are given in Vietnamese-prefixed form (kênh, hồ, hệ thống hồ, sông) in the source labels. The Thai values themselves are in Thai script, so this does not count against them."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/tocantins-araguaia-river-basin": [
     {
       "at": "2026-11-12T13:12:17Z",
@@ -50657,6 +52554,20 @@
       "kept": true
     }
   ],
+  "th/places/trombetas-river": [
+    {
+      "at": "2026-11-16T11:03:15Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "The following names are acceptable: บาฟิง, จอง, โกเลนเต, คูรูพุง, ลินดี, เกาะมูนา, บัลซัส, โรเกล, เซาโจเอา, ภาคตะวันออกเฉียงใต้ของบราซิล, ทาจา, ตรอมเบตัส, อุสซูรี, หมู่เกาะแซนซิบาร์"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/tsengwen": [
     {
       "at": "2026-11-15T05:18:35Z",
@@ -50701,6 +52612,25 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/places/tugela": [
+    {
+      "at": "2026-11-16T23:35:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "บูซี and ทูเกลา: the Thai forms are plausible. Tugela is usually written ตูเกลา, and the entry is a river region. This is a minor issue."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.8
+      ]
     }
   ],
   "th/places/tuira": [
@@ -50853,6 +52783,20 @@
       "kept": true
     }
   ],
+  "th/places/umkomaas-river": [
+    {
+      "at": "2026-11-16T16:51:27Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Several names are given in Vietnamese-prefixed form (kênh, hồ, hệ thống hồ, sông) in the source labels. The Thai values themselves are in Thai script, so this does not count against them."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/unguja": [
     {
       "at": "2026-11-09T07:46:38Z",
@@ -50918,6 +52862,20 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/ussuri": [
+    {
+      "at": "2026-11-16T11:03:15Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "The following names are acceptable: บาฟิง, จอง, โกเลนเต, คูรูพุง, ลินดี, เกาะมูนา, บัลซัส, โรเกล, เซาโจเอา, ภาคตะวันออกเฉียงใต้ของบราซิล, ทาจา, ตรอมเบตัส, อุสซูรี, หมู่เกาะแซนซิบาร์"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -51640,6 +53598,20 @@
       "kept": true
     }
   ],
+  "th/places/zanzibar-archipelago": [
+    {
+      "at": "2026-11-16T11:03:15Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "The following names are acceptable: บาฟิง, จอง, โกเลนเต, คูรูพุง, ลินดี, เกาะมูนา, บัลซัส, โรเกล, เซาโจเอา, ภาคตะวันออกเฉียงใต้ของบราซิล, ทาจา, ตรอมเบตัส, อุสซูรี, หมู่เกาะแซนซิบาร์"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/zaracay": [
     {
       "at": "2026-11-09T07:46:38Z",
@@ -52202,6 +54174,20 @@
       "score": 0.93,
       "notes": [
         "No entry points to the wrong place. Every name is either a form Vietnamese readers use or the source spelling with its generic word in Vietnamese."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/ampyiacu": [
+    {
+      "at": "2026-11-16T10:58:02Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "All 18 names point to the right places.",
+        "For rivers, islands, the archipelago and the lagoon, the English generic word is correctly replaced with the Vietnamese one (sông, đảo, quần đảo, phá). The source spelling of each proper name is kept, which is allowed."
       ],
       "attempt": "first",
       "kept": true
@@ -52915,6 +54901,20 @@
       "kept": true
     }
   ],
+  "vi/places/bafing-river": [
+    {
+      "at": "2026-11-16T10:58:02Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "All 18 names point to the right places.",
+        "For rivers, islands, the archipelago and the lagoon, the English generic word is correctly replaced with the Vietnamese one (sông, đảo, quần đảo, phá). The source spelling of each proper name is kept, which is allowed."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/bago": [
     {
       "at": "2026-11-07T20:32:23Z",
@@ -53597,6 +55597,19 @@
       "kept": true
     }
   ],
+  "vi/places/beni-river": [
+    {
+      "at": "2026-11-16T23:16:51Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.86,
+      "notes": [
+        "All the other names are correct or keep the source's spelling of the proper name."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/benipah": [
     {
       "at": "2026-11-12T20:38:11Z",
@@ -54261,6 +56274,19 @@
       "kept": true
     }
   ],
+  "vi/places/buzi": [
+    {
+      "at": "2026-11-16T23:16:51Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.86,
+      "notes": [
+        "All the other names are correct or keep the source's spelling of the proper name."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/cabinda": [
     {
       "at": "2026-11-08T05:15:06Z",
@@ -54610,6 +56636,20 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/casiquiare-channel": [
+    {
+      "at": "2026-11-16T16:45:04Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 16 names are correct. Each one either keeps the source's proper name or puts its generic word into Vietnamese: kênh (channel), hồ (lake), sông (river), hệ thống hồ (lake system).",
+        "No proper name is translated word by word, and no generic word is left in English or Portuguese. 'Rio' is correctly turned into 'sông'."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -56356,6 +58396,17 @@
       "kept": true
     }
   ],
+  "vi/places/fernando-poo-island": [
+    {
+      "at": "2026-11-16T05:17:56Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/fianarantsoa": [
     {
       "at": "2026-11-07T20:34:11Z",
@@ -56510,6 +58561,19 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/gambie-river": [
+    {
+      "at": "2026-11-16T23:16:51Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.86,
+      "notes": [
+        "All the other names are correct or keep the source's spelling of the proper name."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -56934,6 +58998,20 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/guarapiche": [
+    {
+      "at": "2026-11-16T16:45:04Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 16 names are correct. Each one either keeps the source's proper name or puts its generic word into Vietnamese: kênh (channel), hồ (lake), sông (river), hệ thống hồ (lake system).",
+        "No proper name is translated word by word, and no generic word is left in English or Portuguese. 'Rio' is correctly turned into 'sông'."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -58295,6 +60373,20 @@
       "kept": true
     }
   ],
+  "vi/places/jong-river": [
+    {
+      "at": "2026-11-16T10:58:02Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "All 18 names point to the right places.",
+        "For rivers, islands, the archipelago and the lagoon, the English generic word is correctly replaced with the Vietnamese one (sông, đảo, quần đảo, phá). The source spelling of each proper name is kept, which is allowed."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/jorai-river": [
     {
       "at": "2026-11-07T20:35:05Z",
@@ -59293,6 +61385,20 @@
       "kept": true
     }
   ],
+  "vi/places/kolente": [
+    {
+      "at": "2026-11-16T10:58:02Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "All 18 names point to the right places.",
+        "For rivers, islands, the archipelago and the lagoon, the English generic word is correctly replaced with the Vietnamese one (sông, đảo, quần đảo, phá). The source spelling of each proper name is kept, which is allowed."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/kolok": [
     {
       "at": "2026-11-09T00:06:30Z",
@@ -59550,6 +61656,20 @@
       "model": "sonnet",
       "score": 0.9,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/kurupung": [
+    {
+      "at": "2026-11-16T10:58:02Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "All 18 names point to the right places.",
+        "For rivers, islands, the archipelago and the lagoon, the English generic word is correctly replaced with the Vietnamese one (sông, đảo, quần đảo, phá). The source spelling of each proper name is kept, which is allowed."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -60200,6 +62320,20 @@
       "kept": true
     }
   ],
+  "vi/places/lake-mahalona": [
+    {
+      "at": "2026-11-16T16:45:04Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 16 names are correct. Each one either keeps the source's proper name or puts its generic word into Vietnamese: kênh (channel), hồ (lake), sông (river), hệ thống hồ (lake system).",
+        "No proper name is translated word by word, and no generic word is left in English or Portuguese. 'Rio' is correctly turned into 'sông'."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/lake-maharlu": [
     {
       "at": "2026-11-07T20:35:59Z",
@@ -60267,6 +62401,20 @@
       "score": 0.95,
       "notes": [
         "All 50 names point to the right place. None is a literal word-by-word translation, and none leaves a generic word in another language."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/lake-manyara": [
+    {
+      "at": "2026-11-16T16:45:04Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 16 names are correct. Each one either keeps the source's proper name or puts its generic word into Vietnamese: kênh (channel), hồ (lake), sông (river), hệ thống hồ (lake system).",
+        "No proper name is translated word by word, and no generic word is left in English or Portuguese. 'Rio' is correctly turned into 'sông'."
       ],
       "attempt": "first",
       "kept": true
@@ -60426,6 +62574,19 @@
       "score": 0.9,
       "notes": [
         "The others are fine. \"Aek\" (Batak) and \"Danau\" (Indonesian) are generic words, correctly rendered as sông and hồ. \"Batang Gadis\", \"Lombok\", \"Timor\" and \"Parati-Mirim\" keep the source's own names. \"dãy Tennaserim\" keeps the source's spelling. Some location metadata looks odd (for example Lake Pontchartrain listed in CA), but the names themselves are the right places."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/lake-rukwa": [
+    {
+      "at": "2026-11-16T23:16:51Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.86,
+      "notes": [
+        "All the other names are correct or keep the source's spelling of the proper name."
       ],
       "attempt": "first",
       "kept": true
@@ -60926,6 +63087,20 @@
       "kept": true
     }
   ],
+  "vi/places/lindi-river": [
+    {
+      "at": "2026-11-16T10:58:02Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "All 18 names point to the right places.",
+        "For rivers, islands, the archipelago and the lagoon, the English generic word is correctly replaced with the Vietnamese one (sông, đảo, quần đảo, phá). The source spelling of each proper name is kept, which is allowed."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/ling": [
     {
       "at": "2026-11-14T16:53:04Z",
@@ -61246,6 +63421,20 @@
       "kept": true
     }
   ],
+  "vi/places/lower-magdalena-river-basin": [
+    {
+      "at": "2026-11-16T23:16:51Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.86,
+      "notes": [
+        "lower-magdalena-river-basin: 'lưu vực hạ lưu sông Magdalena' is a bit wordy but correct.",
+        "All the other names are correct or keep the source's spelling of the proper name."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/lualaba": [
     {
       "at": "2026-11-09T22:53:55Z",
@@ -61428,6 +63617,20 @@
       "cli": "2.1.322",
       "score": 0.92,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/macae-river": [
+    {
+      "at": "2026-11-16T10:58:02Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "All 18 names point to the right places.",
+        "For rivers, islands, the archipelago and the lagoon, the English generic word is correctly replaced with the Vietnamese one (sông, đảo, quần đảo, phá). The source spelling of each proper name is kept, which is allowed."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -61843,6 +64046,20 @@
       "model": "sonnet",
       "score": 0.72,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/malili-lake-system": [
+    {
+      "at": "2026-11-16T16:45:04Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 16 names are correct. Each one either keeps the source's proper name or puts its generic word into Vietnamese: kênh (channel), hồ (lake), sông (river), hệ thống hồ (lake system).",
+        "No proper name is translated word by word, and no generic word is left in English or Portuguese. 'Rio' is correctly turned into 'sông'."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -62435,6 +64652,20 @@
       "kept": true
     }
   ],
+  "vi/places/mbwemkuru": [
+    {
+      "at": "2026-11-16T10:58:02Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "All 18 names point to the right places.",
+        "For rivers, islands, the archipelago and the lagoon, the English generic word is correctly replaced with the Vietnamese one (sông, đảo, quần đảo, phá). The source spelling of each proper name is kept, which is allowed."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/mearim": [
     {
       "at": "2026-11-07T20:36:53Z",
@@ -62745,6 +64976,20 @@
       "model": "sonnet",
       "score": 0.72,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/michoacan": [
+    {
+      "at": "2026-11-16T16:45:04Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 16 names are correct. Each one either keeps the source's proper name or puts its generic word into Vietnamese: kênh (channel), hồ (lake), sông (river), hệ thống hồ (lake system).",
+        "No proper name is translated word by word, and no generic word is left in English or Portuguese. 'Rio' is correctly turned into 'sông'."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -63234,6 +65479,20 @@
       "model": "sonnet",
       "score": 0.9,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/muna-island": [
+    {
+      "at": "2026-11-16T10:58:02Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "All 18 names point to the right places.",
+        "For rivers, islands, the archipelago and the lagoon, the English generic word is correctly replaced with the Vietnamese one (sông, đảo, quần đảo, phá). The source spelling of each proper name is kept, which is allowed."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -63742,6 +66001,20 @@
       "model": "sonnet",
       "score": 0.86,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/natal": [
+    {
+      "at": "2026-11-16T16:45:04Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 16 names are correct. Each one either keeps the source's proper name or puts its generic word into Vietnamese: kênh (channel), hồ (lake), sông (river), hệ thống hồ (lake system).",
+        "No proper name is translated word by word, and no generic word is left in English or Portuguese. 'Rio' is correctly turned into 'sông'."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -64879,12 +67152,36 @@
       "kept": true
     }
   ],
+  "vi/places/paraguay-parana-system": [
+    {
+      "at": "2026-11-16T05:17:56Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/paraguay-river": [
     {
       "at": "2026-11-07T20:37:55Z",
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/paraiba-do-norte": [
+    {
+      "at": "2026-11-16T23:16:51Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.86,
+      "notes": [
+        "All the other names are correct or keep the source's spelling of the proper name."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -65030,6 +67327,21 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/patos-lagoon": [
+    {
+      "at": "2026-11-16T10:58:02Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "All 18 names point to the right places.",
+        "For rivers, islands, the archipelago and the lagoon, the English generic word is correctly replaced with the Vietnamese one (sông, đảo, quần đảo, phá). The source spelling of each proper name is kept, which is allowed.",
+        "'phá Patos' is correct. Vietnamese texts also call it 'Lagoa dos Patos'."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -65337,6 +67649,20 @@
       "kept": true
     }
   ],
+  "vi/places/piracicaba-river": [
+    {
+      "at": "2026-11-16T16:45:04Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 16 names are correct. Each one either keeps the source's proper name or puts its generic word into Vietnamese: kênh (channel), hồ (lake), sông (river), hệ thống hồ (lake system).",
+        "No proper name is translated word by word, and no generic word is left in English or Portuguese. 'Rio' is correctly turned into 'sông'."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/pisqui": [
     {
       "at": "2026-11-14T23:43:41Z",
@@ -65516,6 +67842,20 @@
       "score": 0.95,
       "notes": [
         "\"Pru Toe-Daeng\" keeps the source name exactly as written, which is acceptable."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/pucallpa": [
+    {
+      "at": "2026-11-16T16:45:04Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 16 names are correct. Each one either keeps the source's proper name or puts its generic word into Vietnamese: kênh (channel), hồ (lake), sông (river), hệ thống hồ (lake system).",
+        "No proper name is translated word by word, and no generic word is left in English or Portuguese. 'Rio' is correctly turned into 'sông'."
       ],
       "attempt": "first",
       "kept": true
@@ -66005,6 +68345,21 @@
       "kept": true
     }
   ],
+  "vi/places/rio-ampyiacu": [
+    {
+      "at": "2026-11-16T16:45:04Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 16 names are correct. Each one either keeps the source's proper name or puts its generic word into Vietnamese: kênh (channel), hồ (lake), sông (river), hệ thống hồ (lake system).",
+        "No proper name is translated word by word, and no generic word is left in English or Portuguese. 'Rio' is correctly turned into 'sông'.",
+        "Two of the entries have odd country tags, but this does not affect the names: rio-ampyiacu lists PE, BO, PY, though the Ampiyacu River is in Peru only, and san-benito is tagged CD."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-approuague": [
     {
       "at": "2026-11-14T10:49:11Z",
@@ -66124,6 +68479,17 @@
       "kept": true
     }
   ],
+  "vi/places/rio-atabapo": [
+    {
+      "at": "2026-11-16T05:17:56Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-atrato": [
     {
       "at": "2026-11-07T20:38:46Z",
@@ -66140,6 +68506,20 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-balsas": [
+    {
+      "at": "2026-11-16T10:58:02Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "All 18 names point to the right places.",
+        "For rivers, islands, the archipelago and the lagoon, the English generic word is correctly replaced with the Vietnamese one (sông, đảo, quần đảo, phá). The source spelling of each proper name is kept, which is allowed."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -66170,6 +68550,19 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-betari": [
+    {
+      "at": "2026-11-16T23:16:51Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.86,
+      "notes": [
+        "All the other names are correct or keep the source's spelling of the proper name."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -66443,6 +68836,19 @@
       "cli": "2.1.322",
       "score": 0.85,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-corubal": [
+    {
+      "at": "2026-11-16T23:16:51Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.86,
+      "notes": [
+        "All the other names are correct or keep the source's spelling of the proper name."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -67507,6 +69913,20 @@
       "kept": true
     }
   ],
+  "vi/places/rio-parana-paraguay": [
+    {
+      "at": "2026-11-16T16:45:04Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 16 names are correct. Each one either keeps the source's proper name or puts its generic word into Vietnamese: kênh (channel), hồ (lake), sông (river), hệ thống hồ (lake system).",
+        "No proper name is translated word by word, and no generic word is left in English or Portuguese. 'Rio' is correctly turned into 'sông'."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-paranapanema": [
     {
       "at": "2026-11-08T20:36:09Z",
@@ -67749,6 +70169,20 @@
       "model": "sonnet",
       "score": 0.96,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-san-martin": [
+    {
+      "at": "2026-11-16T16:45:04Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 16 names are correct. Each one either keeps the source's proper name or puts its generic word into Vietnamese: kênh (channel), hồ (lake), sông (river), hệ thống hồ (lake system).",
+        "No proper name is translated word by word, and no generic word is left in English or Portuguese. 'Rio' is correctly turned into 'sông'."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -68403,6 +70837,20 @@
       "kept": true
     }
   ],
+  "vi/places/rokel": [
+    {
+      "at": "2026-11-16T10:58:02Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "All 18 names point to the right places.",
+        "For rivers, islands, the archipelago and the lagoon, the English generic word is correctly replaced with the Vietnamese one (sông, đảo, quần đảo, phá). The source spelling of each proper name is kept, which is allowed."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rondonia": [
     {
       "at": "2026-11-07T20:39:31Z",
@@ -68460,6 +70908,20 @@
       "score": 0.96,
       "notes": [
         "Every name refers to the right place. Generic words (river, Río/Rio, Islands, mountain range) are put into Vietnamese as sông, quần đảo and dãy, and the proper names keep the source spelling."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/ruo-river": [
+    {
+      "at": "2026-11-16T16:45:04Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 16 names are correct. Each one either keeps the source's proper name or puts its generic word into Vietnamese: kênh (channel), hồ (lake), sông (river), hệ thống hồ (lake system).",
+        "No proper name is translated word by word, and no generic word is left in English or Portuguese. 'Rio' is correctly turned into 'sông'."
       ],
       "attempt": "first",
       "kept": true
@@ -68935,6 +71397,21 @@
       "kept": true
     }
   ],
+  "vi/places/san-benito": [
+    {
+      "at": "2026-11-16T16:45:04Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 16 names are correct. Each one either keeps the source's proper name or puts its generic word into Vietnamese: kênh (channel), hồ (lake), sông (river), hệ thống hồ (lake system).",
+        "No proper name is translated word by word, and no generic word is left in English or Portuguese. 'Rio' is correctly turned into 'sông'.",
+        "Two of the entries have odd country tags, but this does not affect the names: rio-ampyiacu lists PE, BO, PY, though the Ampiyacu River is in Peru only, and san-benito is tagged CD."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/san-jorge": [
     {
       "at": "2026-11-08T20:36:09Z",
@@ -69141,6 +71618,20 @@
       "score": 0.96,
       "notes": [
         "Every name refers to the right place. Generic words (river, Río/Rio, Islands, mountain range) are put into Vietnamese as sông, quần đảo and dãy, and the proper names keep the source spelling."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/sao-joao-river": [
+    {
+      "at": "2026-11-16T10:58:02Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "All 18 names point to the right places.",
+        "For rivers, islands, the archipelago and the lagoon, the English generic word is correctly replaced with the Vietnamese one (sông, đảo, quần đảo, phá). The source spelling of each proper name is kept, which is allowed."
       ],
       "attempt": "first",
       "kept": true
@@ -69996,6 +72487,21 @@
       "kept": true
     }
   ],
+  "vi/places/southeastern-brazil": [
+    {
+      "at": "2026-11-16T10:58:02Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "All 18 names point to the right places.",
+        "For rivers, islands, the archipelago and the lagoon, the English generic word is correctly replaced with the Vietnamese one (sông, đảo, quần đảo, phá). The source spelling of each proper name is kept, which is allowed.",
+        "'Đông Nam Brasil' uses the usual Vietnamese spelling 'Brasil'. Vietnamese Wikipedia may title this region 'Vùng Đông Nam (Brasil)', but this form is also correct."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/southeastern-coast": [
     {
       "at": "2026-11-11T01:39:30Z",
@@ -70438,6 +72944,20 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/taja": [
+    {
+      "at": "2026-11-16T10:58:02Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "All 18 names point to the right places.",
+        "For rivers, islands, the archipelago and the lagoon, the English generic word is correctly replaced with the Vietnamese one (sông, đảo, quần đảo, phá). The source spelling of each proper name is kept, which is allowed."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -71254,6 +73774,20 @@
       "kept": true
     }
   ],
+  "vi/places/tocantins-araguaia": [
+    {
+      "at": "2026-11-16T16:45:04Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 16 names are correct. Each one either keeps the source's proper name or puts its generic word into Vietnamese: kênh (channel), hồ (lake), sông (river), hệ thống hồ (lake system).",
+        "No proper name is translated word by word, and no generic word is left in English or Portuguese. 'Rio' is correctly turned into 'sông'."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/tocantins-araguaia-river-basin": [
     {
       "at": "2026-11-12T13:10:35Z",
@@ -71452,6 +73986,20 @@
       "kept": true
     }
   ],
+  "vi/places/trombetas-river": [
+    {
+      "at": "2026-11-16T10:58:02Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "All 18 names point to the right places.",
+        "For rivers, islands, the archipelago and the lagoon, the English generic word is correctly replaced with the Vietnamese one (sông, đảo, quần đảo, phá). The source spelling of each proper name is kept, which is allowed."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/tsengwen": [
     {
       "at": "2026-11-15T05:16:46Z",
@@ -71494,6 +74042,19 @@
       "cli": "2.1.322",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/tugela": [
+    {
+      "at": "2026-11-16T23:16:51Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.86,
+      "notes": [
+        "All the other names are correct or keep the source's spelling of the proper name."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -71671,6 +74232,20 @@
       "kept": true
     }
   ],
+  "vi/places/umkomaas-river": [
+    {
+      "at": "2026-11-16T16:45:04Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 16 names are correct. Each one either keeps the source's proper name or puts its generic word into Vietnamese: kênh (channel), hồ (lake), sông (river), hệ thống hồ (lake system).",
+        "No proper name is translated word by word, and no generic word is left in English or Portuguese. 'Rio' is correctly turned into 'sông'."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/unguja": [
     {
       "at": "2026-11-09T07:28:43Z",
@@ -71756,6 +74331,20 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/ussuri": [
+    {
+      "at": "2026-11-16T10:58:02Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "All 18 names point to the right places.",
+        "For rivers, islands, the archipelago and the lagoon, the English generic word is correctly replaced with the Vietnamese one (sông, đảo, quần đảo, phá). The source spelling of each proper name is kept, which is allowed."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -72587,6 +75176,20 @@
       "model": "sonnet",
       "score": 0.9,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/zanzibar-archipelago": [
+    {
+      "at": "2026-11-16T10:58:02Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [
+        "All 18 names point to the right places.",
+        "For rivers, islands, the archipelago and the lagoon, the English generic word is correctly replaced with the Vietnamese one (sông, đảo, quần đảo, phá). The source spelling of each proper name is kept, which is allowed."
+      ],
       "attempt": "first",
       "kept": true
     }

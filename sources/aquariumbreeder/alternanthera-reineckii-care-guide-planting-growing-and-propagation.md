@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/alternanthera-reineckii-care-guide-planting-growing-and-propagation/
 title: Alternanthera Reineckii Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-11-02T18:39:33.552Z
-hash: 4bb2030dcd5d0027fd5cf9b84f1143854132d9c44d25450a7d90cc4404c05e3b
+hash: 600ca2723a9f04a62bbfcb3045fa0bd73b8501cfe66d761a249238b169a9a65a
 ---
 
 lternanthera Reineckii, also known as “Scarlet Temple”, “Reineckia” or “Ruby Red,” is a stunning aquatic plant that can add color and texture to any freshwater tank. This amazing plant is prized for its distinctive red foliage, which grows in dense clusters along the stem.
@@ -166,4 +166,3 @@ Alternanthera reineckii requires strong lighting, CO2, and regular fertilization
 - Chango Lagla, María del Consuelo. “Identificación de plantas nativas con uso medicinal en la parroquia Toacazo comunidad San Ignacio.” Bachelor’s thesis, Ecuador, Latacunga: Universidad Técnica de Cotopaxi (UTC), 2018.
 - Mears, J.A., 1977. The nomenclature and Type collections of the widespread taxa of Alternanthera (Amaranthaceae). Proceedings of the Academy of Natural Sciences of Philadelphia 129.
 - Niemann, Hendrik J. A preliminary assessment of the role of aquarium trade in the spread of non-native aquatic plants in South Africa: a DNA barcoding approach. University of Johannesburg (South Africa), 2019.
-### Leave a Reply Cancel reply

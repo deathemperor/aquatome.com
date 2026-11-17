@@ -1,0 +1,85 @@
+{
+  "id": "parotocinclus-jumbo",
+  "native": {
+    "input": "3b3f54581bc8144f",
+    "at": "2026-11-17T00:14:47.070Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Paraiba do Norte",
+        "source": "scotcat",
+        "quote": "South America: Paraiba do Norte and Piranhas rivers in Paraiba State, Canhotinho River in Pernambuco State, a tributary of the Mundau River, flowing near the city of Maceio in Alagoas State, and Salgado River in Ceara State.",
+        "ok": true
+      },
+      {
+        "name": "Piranhas",
+        "source": "scotcat",
+        "quote": "South America: Paraiba do Norte and Piranhas rivers in Paraiba State, Canhotinho River in Pernambuco State, a tributary of the Mundau River, flowing near the city of Maceio in Alagoas State, and Salgado River in Ceara State.",
+        "ok": true
+      },
+      {
+        "name": "Canhotinho River",
+        "source": "scotcat",
+        "quote": "South America: Paraiba do Norte and Piranhas rivers in Paraiba State, Canhotinho River in Pernambuco State, a tributary of the Mundau River, flowing near the city of Maceio in Alagoas State, and Salgado River in Ceara State.",
+        "ok": true
+      },
+      {
+        "name": "Mundau River",
+        "source": "scotcat",
+        "quote": "South America: Paraiba do Norte and Piranhas rivers in Paraiba State, Canhotinho River in Pernambuco State, a tributary of the Mundau River, flowing near the city of Maceio in Alagoas State, and Salgado River in Ceara State.",
+        "ok": true
+      },
+      {
+        "name": "Salgado River",
+        "source": "scotcat",
+        "quote": "South America: Paraiba do Norte and Piranhas rivers in Paraiba State, Canhotinho River in Pernambuco State, a tributary of the Mundau River, flowing near the city of Maceio in Alagoas State, and Salgado River in Ceara State.",
+        "ok": true
+      },
+      {
+        "name": "São Francisco River",
+        "source": "scotcat",
+        "quote": "IUCN Red List: Parotocinclus jumbo is distributed in coastal rivers of the Northeast and the lower São Francisco River, being frequent and abundant.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parotocinclus jumbo",
+    "status": "ACCEPTED",
+    "taxonKey": 2340264,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        33
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        15
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        8
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-16T17:28:41.839Z"
+  }
+}

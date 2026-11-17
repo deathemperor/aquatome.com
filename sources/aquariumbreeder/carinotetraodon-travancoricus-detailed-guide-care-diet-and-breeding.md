@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/carinotetraodon-travancoricus-detailed-guide-care-diet-and-breeding/
 title: Carinotetraodon Travancoricus – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-10-29T07:43:48.425Z
-hash: c5b30ae6eb0e30828607ceb328d4af24d9218589173e5b866804021c44349ceb
+hash: c9b6d7e8e047019bdb793c9de00f81be76480bec7ec3e1c2c60a9a6202337b48
 ---
 
 Carinotetraodon travancoricus, commonly known as “Dwarf puffer fish”, is one of the smallest puffer fishes in the world. At the same time, their miniature size and “puppy” eyes should not deceive you because this fish species is predatory and, therefore, requires a special approach.
@@ -220,4 +220,3 @@ If you decide to keep them, you need to understand that they are a little more h
 - Maceda-Veiga, Alberto, and Jo Cable. “Diseased fish in the freshwater trade: from retailers to private aquarists.” Diseases of Aquatic Organisms132, no. 2 (2019): 157-162.
 - Ishibashi, Toshiaki. “Hiroyuki Doi, Harumi Sakai, Yusuke Yamanoue, Takayuki Sonoyama&.” Fish Sci81 (2015): 291-299.
 - Dekkers, W. J., 1975- Bijdragen tot de Dierkunde 45(1): 87-142Review of the Asiatic freshwater puffers of the genus Tetraodon Linnaeus, 1758 (Pisces, Tetraodontiformes, Tetraodontidae).
-### Leave a Reply Cancel reply

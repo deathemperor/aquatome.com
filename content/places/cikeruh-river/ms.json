@@ -1,8 +1,13 @@
 {
   "slug": "cikeruh-river",
-  "name": "Cikeruh",
+  "name": "Sungai Cikeruh",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-16T17:25:17.323Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

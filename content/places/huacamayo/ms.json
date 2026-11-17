@@ -3,6 +3,12 @@
   "name": "Huacamayo",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T00:02:18.468Z",
+    "why": "Huacamayo is a Peruvian place name that stays unchanged in Malay, but the name has no kind word (such as \"wilayah\" or \"kawasan\") for the region, so it is only partly right."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

@@ -1,0 +1,15 @@
+---
+url: https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/pseudeutropius_the_mini_shark_cats_en/
+title: Pseudeutropius - the mini shark cats - Aquarium Glaser GmbH
+fetchedAt: 2026-11-15T19:29:07.400Z
+hash: 3c09769fe8fb8bc8d61abf97689ddc31142aa8d1afd71b502d5637a909db0da8
+---
+
+The shark cats belonging to the genera Pangasius and Pangasianodon are very popular. The reason is their interesting swimming behaviour which reminds one in sharks. However, these fish have one big disadvantage: they grow to a very large size. Even the smallest of them, the common Siamese shark Pangasianodon hypophthalmus, becomes at least 30 – 35 cm long in home aquaria. These animals are bred in Southeast Asia as food fish and this is the reason why so many of small juveniles are always available in the trade. But undoubtedly many aquarists have problems to butcher the animals they reared in the tank over years….
+Now the trade has found a perfect alterative that stays small: catfish of the genus Pseudeutropius. They do not differ from the large shark cats in respect of coloration or swimming behaviour, but become maximum 10 cm long. Sexual maturity is reached even at half of that length.
+There are two species in that genus that look almost identical and both stay small and have the same swimming behaviour, and both originate from Sumatra. That is the reason why they are usually not distinguished from each other in the trade. However, it is quite easy to tell them apart, for P. brachypopterus (which does also live on Borneo) has a much shorter anal fin with approximately 30 rays compared with P. mooelenburghae, which has about 40 rays in that fin. The pictures illustrating this entry show P. brachypopterus.
+Besides their small size the mini shark cats have another feature that makes them very entertaining aquarium fish: umbrella-barbels! In contrast to the large shark cats Pseudeutropius own eight long barbels around the mouth. Depending on the requirements the fish bear these barbels attached to the body or stretched in front of the head. The special thing is that this stretching of the barbel appears in a jerky manner. One virtually believes to hear a “plop” when they do it! The whole thing reminds one in putting up an umbella.
+For our customers: the animals have code 445504 on our stocklist. Please note that we exclusively supply the wholesale trade.
+Lexicon: Pangasius: from a native name of the type species of the genus, Pangasius pangasius, which lives in the Ganges river in India. Pangasianodon: ancient Greek, means “with teeth like a Pangasius”. Pangasius is another genus of catfish. hypophthalmus: ancient Greek, means “goggle-eyed”. Pseudeutropius: ancient Greek, means “false Eutropius”. Eutropius is another genus of catfish. brachypopterus: ancient Greek, means “with a short fin”. moolenburghae: dedication name for Mrs Moolenburgh who supplied together with her husband a large collection of fishes from Sumatra to Weber and de Beaufort for their epochal work on the fishes of the Indo-Australian Archipelago.
+Text & Photos: Frank Schäfer
+Angaben zum Tier Herkunft Indonesien / Indonesia Verfügbare Größe in cm 5-6

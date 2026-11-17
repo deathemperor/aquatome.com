@@ -11,9 +11,9 @@ export const ageOf = (v: PhotoVerdict | undefined): boolean | undefined => (v?.o
  * small), whether or not the check called it typical. The young head it replaces isn't typical either: "typical" means
  * the adult look (photo-check.ts).
  */
-export const grownHead = (v: Verdicts) => (p: { url: string; caption?: string; generated?: unknown }, page: string): boolean => {
+export const grownHead = (v: Verdicts, avoid: Record<string, string> = {}) => (p: { url: string; caption?: string; generated?: unknown }, page: string): boolean => {
   const own = v.subjects[p.url]?.[page]
-  return ageOf(own) === false && passesHead({ ...v, subjects: { [p.url]: { [page]: { ...own!, typical: true } } } })(p, page)
+  return ageOf(own) === false && passesHead({ ...v, subjects: { [p.url]: { [page]: { ...own!, typical: true } } } }, avoid)(p, page)
 }
 
 /**

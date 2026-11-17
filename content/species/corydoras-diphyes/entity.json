@@ -16,8 +16,8 @@
         "PY"
       ],
       "regions": [
-        "Rio Monday",
-        "Rio Parana"
+        "Rio Parana",
+        "Rio Monday"
       ],
       "sources": [
         "glaser"
@@ -25,13 +25,13 @@
       "quotes": [
         {
           "source": "glaser",
-          "quote": "Corydoras diphyes originates from a tributary of the Rio Monday, a river flowing into the Rio Parana in Paraguay.",
+          "quote": "C. diphyes originates from a tributary of the Rio Monday, a river flowing into the Rio Parana in Paraguay.",
           "countries": [
             "PY"
           ],
           "regions": [
-            "Rio Monday",
-            "Rio Parana"
+            "Rio Parana",
+            "Rio Monday"
           ]
         }
       ]
@@ -65,32 +65,60 @@
   "dataCard": {},
   "sections": [
     {
-      "key": "quickFacts",
+      "key": "beforeYouBuy",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_diphyes_and_otocinclus_mimulus_en/",
-      "html": "<p>Corydoras diphyes was described by Axenrot and Kullander (2003). It is available only irregularly in Germany. It has a variable coloration, is comparatively easy to breed and is very suitable for the planted community tank together with peaceful companions.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras_diphyes_en/",
+      "html": "<p>This Corydoras is available irregularly in Germany and was recently described by Axenrot and Kullander (2003).</p>"
     },
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_diphyes_and_otocinclus_mimulus_en/",
-      "html": "<p>Corydoras diphyes originates from a tributary of the Rio Monday, a river flowing into the Rio Parana in Paraguay.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras_diphyes_en/",
+      "html": "<p>C. diphyes originates from a tributary of the Rio Monday, a river flowing into the Rio Parana in Paraguay. For a long time this species was described as Corydoras flaveolus, which however comes from the Brazilian state of Sao Paulo.</p>"
     },
     {
-      "key": "habitat",
+      "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_diphyes_and_otocinclus_mimulus_en/",
-      "html": "<p>In their natural habitat Corydoras diphyes live in large shoals together with the catfish Otocinclus mimulus. The coloration and pattern of O. mimulus match those of C. diphyes very well. In this way the Otocinclus tries to protect itself from predators, in this case Crenicichla lepidota. This phenomenon is called mimicry.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras_diphyes_en/",
+      "html": "<p>This catfish has a variable coloration and is very suitable for the planted community tank together with peaceful companions. In their natural habitat these armoured catfish live in large shoals together with Otocinclus mimulus. The coloration and pattern of O. mimulus coincide very well with those of C. diphyes. In this way the Otocinclus catfish tries to protect itself from predators, in this case Crenicichla lepidota. This phenomenon is called mimicry.</p>"
     },
     {
-      "key": "notes",
+      "key": "reproduction",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras_diphyes_and_otocinclus_mimulus_en/",
-      "html": "<p>For a long time this species was known in the hobby as Corydoras flaveolus; that species, however, comes from the Brazilian state of Sao Paulo.</p><p>At first glance C. diphyes may be confused with C. paleatus, but in direct comparison the two species look quite different and can be easily told apart.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras_diphyes_en/",
+      "html": "<p>This species is relatively easy to breed.</p>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/53991b5e5de2880b.webp",
+      "thumb": "https://media.aquatome.com/glaser/53991b5e5de2880b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras_diphyes_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d0b38ecb2558b2ce.webp",
+      "thumb": "https://media.aquatome.com/glaser/d0b38ecb2558b2ce-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras_diphyes_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "KLVL4rMk4Pc",
+      "title": "New Corydoras Guide - 10 interesting Corydoras catfish",
+      "durationSec": 460,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -121,5 +149,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-16"
 }

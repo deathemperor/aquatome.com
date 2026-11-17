@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/mermaid-weed-care-guide-planting-growing-and-propagation/
 title: Mermaid Weed Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-10-29T07:12:42.266Z
-hash: ca28ad1562f52d6719e83aa78cb17219e8da0a6f459a16d76e2315720c19736c
+hash: 6d0e34db9edec9091908fa1344564a6c9347a5dd3171fdaec49739f8a3381dd0
 ---
 
 Proserpinaca palustris, commonly known as Mermaid Weed, draws attention with its color palette and leaf shapes. This plant can easily display a range of yellow, red, orange, and even various shades of green.
@@ -135,4 +135,3 @@ To achieve its desired classic look, this plant requires CO2, nutrient-rich subs
 - de Wit, H. C. D. “Introduction to aquarium plants and some remarks on Proserpinaca palustris L.” The AquariumApril (1960): 103-108.
 - Davis, Graham J. “Proserpinaca: photoperiodic and chemical differentiation of leaf development and flowering.” Plant Physiology42, no. 5 (1967): 667-668.
 - Roskov Y., Kunze T., Orrell T., Abucay L., Paglinawan L., Culham A., Bailly N., Kirk P., Bourgoin T., Baillargeon G., Decock W., De Wever A., Didžiulis V. (ed) (2019). “Species 2000 & ITIS Catalogue of Life: 2019 Annual Checklist”. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X. TaxonID: 53479096. Retrieved 2019-11-11.
-### Leave a Reply Cancel reply

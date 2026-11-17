@@ -80,12 +80,22 @@
         "heading": "Chuẩn bị lọc và nước trước khi thả cá",
         "moments": [
           {
+            "t": 40,
+            "url": "https://media.aquatome.com/video/mSA2Qe9dv44/at40-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể thủy sinh dài với lũa và đá trên tủ gỗ.",
+            "sharpness": 2594.7,
+            "person": false
+          },
+          {
             "t": 120,
             "url": "https://media.aquatome.com/video/mSA2Qe9dv44/at120-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể lớn đã lên layout với lũa, đá và cây, nước khá trong.",
-            "sharpness": 1091.6
+            "sharpness": 1091.6,
+            "person": false
           },
           {
             "t": 160,
@@ -93,7 +103,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh khúc lũa và đá cuội trên nền cát trong bể mới.",
-            "sharpness": 330.8
+            "sharpness": 330.8,
+            "person": false
           }
         ],
         "photo": {
@@ -109,24 +120,7 @@
       },
       {
         "heading": "Vật liệu lọc cũ có còn vi sinh không",
-        "moments": [
-          {
-            "t": 1060,
-            "url": "https://media.aquatome.com/video/mSA2Qe9dv44/at1060-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Châm chai vi sinh sống vào bể lớn lúc thả cá.",
-            "sharpness": 1616.4
-          },
-          {
-            "t": 1070,
-            "url": "https://media.aquatome.com/video/mSA2Qe9dv44/at1070-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh lớn với lũa, đá và cây, nước trong.",
-            "sharpness": 1225.5
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/mSA2Qe9dv44/p1-sXzA2MDIyNy5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/mSA2Qe9dv44/p1-sXzA2MDIyNy5qcGc-480.webp",
@@ -142,20 +136,22 @@
         "heading": "Đọc tình trạng cây sau tuần đầu",
         "moments": [
           {
-            "t": 260,
-            "url": "https://media.aquatome.com/video/mSA2Qe9dv44/at260-hd.webp",
+            "t": 180,
+            "url": "https://media.aquatome.com/video/mSA2Qe9dv44/at180-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Hồ thủy sinh có lũa lớn phủ cây non xanh mướt.",
-            "sharpness": 428.5
+            "sharpness": 428.5,
+            "person": false
           },
           {
-            "t": 270,
-            "url": "https://media.aquatome.com/video/mSA2Qe9dv44/at270-hd.webp",
+            "t": 200,
+            "url": "https://media.aquatome.com/video/mSA2Qe9dv44/at200-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Cây thủy sinh mọc trên nền, lũa và lá non xanh ở phía trước.",
-            "sharpness": 203.4
+            "sharpness": 203.4,
+            "person": false
           }
         ],
         "photo": {
@@ -166,7 +162,7 @@
           "licence": "Public domain",
           "author": "User Aleš Tošovský",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amaterske_akvarium.jpg",
-          "caption": "Bể thủy sinh đã lên cây xanh tốt, có hẹ, lũa và đèn sáng."
+          "caption": "Bể thủy sinh đã ổn định, cây xanh tốt, có lũa và đá."
         }
       },
       {
@@ -180,48 +176,43 @@
           "licence": "CC BY 2.0",
           "author": "aquarist.me",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nassarius_Snail_-_6929370364.jpg",
-          "caption": "Một con ốc nhỏ bò trên lớp cát trắng trong bể cá."
+          "caption": "Một con ốc nhỏ bò trên lớp cát nền trong bể cảnh."
         }
       },
       {
         "heading": "Bắt và thả cả đàn cá một lần",
         "moments": [
           {
-            "t": 470,
-            "url": "https://media.aquatome.com/video/mSA2Qe9dv44/at470-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng vợt bắt cá trong bể chứa đầy đàn cá nhỏ.",
-            "sharpness": 1209.7
-          },
-          {
             "t": 480,
             "url": "https://media.aquatome.com/video/mSA2Qe9dv44/at480-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cả đàn cá nhỏ đã được gom vào chung một xô.",
+            "caption": "Đàn cá nhỏ đã được gom vào xô, sẵn sàng để thả.",
             "sharpness": 22.1
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/mSA2Qe9dv44/p4-5MjMxMzg0KS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/mSA2Qe9dv44/p4-5MjMxMzg0KS5qcGc-480.webp",
+          "width": 960,
+          "height": 565,
+          "licence": "Public domain",
+          "author": "Internet Archive Book Images",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_complete_aquarium_book;_the_care_and_breeding_of_goldfish_and_tropical_fishes_(1936)_(20049231384).jpg",
+          "caption": "Một đàn cá nhỏ bơi cùng nhau trong bể kính."
+        }
       },
       {
         "heading": "Cá nhỏ, cá non: những gì sẽ thay đổi",
         "moments": [
           {
-            "t": 760,
-            "url": "https://media.aquatome.com/video/mSA2Qe9dv44/at760-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh nền cát và lũa trong bể, có mấy con cá nhỏ.",
-            "sharpness": 188.2
-          },
-          {
             "t": 820,
             "url": "https://media.aquatome.com/video/mSA2Qe9dv44/at820-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể rộng trồng cây, lũa và đá, chỗ cá nhỏ có thể lớn nhanh.",
-            "sharpness": 73.3
+            "caption": "Bể rộng bài trí lũa và đá, chỗ nuôi đàn cá.",
+            "sharpness": 876.1,
+            "person": false
           }
         ],
         "photo": {
@@ -232,7 +223,7 @@
           "licence": "CC BY-SA 3.0",
           "author": "This illustration was made by Citron You must credit this : Citron / CC-BY-SA-3.0",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyphessobrycon_megalopterus_Porte_Doree.jpg",
-          "caption": "Cá hồng nhung đen nhỏ với ánh xanh tím trên thân, bơi trước đám cỏ."
+          "caption": "Hồng nhung đen cỡ nhỏ bơi trước đám cỏ, thân ánh tím xanh nhạt."
         }
       },
       {
@@ -243,28 +234,18 @@
             "url": "https://media.aquatome.com/video/mSA2Qe9dv44/at1150-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đàn cá bơi trên nền cát trắng trong bể chính.",
+            "caption": "Cá đáy bơi trên lớp cát trắng trong bể lớn.",
             "sharpness": 111.6
           },
           {
-            "t": 1190,
-            "url": "https://media.aquatome.com/video/mSA2Qe9dv44/at1190-hd.webp",
+            "t": 1160,
+            "url": "https://media.aquatome.com/video/mSA2Qe9dv44/at1160-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cá đáy kiếm ăn trên nền cát trắng cạnh đá trong bể.",
-            "sharpness": 128.3
+            "caption": "Nhiều cá đáy và cá ăn đất sống chung trong bể cát.",
+            "sharpness": 127.8
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/mSA2Qe9dv44/p6-N0aWNrUm9uLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/mSA2Qe9dv44/p6-N0aWNrUm9uLmpwZw-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 2.0",
-          "author": "NonstickRon",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brochis_splendens_NonstickRon.jpg",
-          "caption": "Cá chuột heo (Brochis) ánh xanh lục đang tìm thức ăn trên nền cát đen."
-        }
+        ]
       }
     ]
   }

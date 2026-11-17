@@ -3,6 +3,12 @@
   "name": "Isla de la Juventud",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-17T00:03:06.742Z",
+    "why": "Malay atlases in Malaysia write this as \"Pulau Isla de la Juventud\" or translate it as \"Pulau Pemuda\"; the bare Spanish name omits the Malay word \"Pulau\" for island, and the name is Spanish rather than Malay."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

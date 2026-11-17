@@ -2,34 +2,6 @@
   "id": "serrasalmus-maculatus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/59924296.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/59924296-480.webp",
-      "width": 1024,
-      "height": 727,
-      "licence": "CC BY",
-      "author": "Pablo H Capovilla",
-      "sourceUrl": "https://www.inaturalist.org/photos/59924296",
-      "caption": "Cá piranha mac con bơi trong bể kính",
-      "best": true,
-      "kind": "juvenile",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/160520395.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/160520395-480.webp",
-      "width": 1024,
-      "height": 682,
-      "licence": "CC BY",
-      "author": "Fábio Olmos",
-      "sourceUrl": "https://www.inaturalist.org/photos/160520395",
-      "caption": "Cá piranha sống bơi dưới nước giữa thảm rong tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/261716099.webp",
       "thumb": "https://media.aquatome.com/inaturalist/261716099-480.webp",
       "width": 866,
@@ -40,8 +12,7 @@
       "caption": "Cá piranha nhỏ trong nước bên cạnh thước đo, ảnh chụp thực địa",
       "best": true,
       "kind": "juvenile",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/332944646.webp",
@@ -56,6 +27,32 @@
       "kind": "habitat",
       "setup": false,
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/59924296.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/59924296-480.webp",
+      "width": 1024,
+      "height": 727,
+      "licence": "CC BY",
+      "author": "Pablo H Capovilla",
+      "sourceUrl": "https://www.inaturalist.org/photos/59924296",
+      "caption": "Cá piranha mac con bơi trong bể kính",
+      "best": true,
+      "kind": "juvenile",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/160520395.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/160520395-480.webp",
+      "width": 1024,
+      "height": 682,
+      "licence": "CC BY",
+      "author": "Fábio Olmos",
+      "sourceUrl": "https://www.inaturalist.org/photos/160520395",
+      "caption": "Cá piranha sống bơi dưới nước giữa thảm rong tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 60,

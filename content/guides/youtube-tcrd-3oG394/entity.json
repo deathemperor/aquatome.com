@@ -39,16 +39,7 @@
     "figures": [
       {
         "heading": "Chống thấm hộc chứa nước bằng epoxy",
-        "moments": [
-          {
-            "t": 1060,
-            "url": "https://media.aquatome.com/video/tcrd-3oG394/at1060-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh hộc đá lũa lỗ chỗ, có khe hở cần bịt kín bằng epoxy.",
-            "sharpness": 472.1
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/tcrd-3oG394/p0-SGFyZGVuZXIuanBn.webp",
           "thumb": "https://media.aquatome.com/video/tcrd-3oG394/p0-SGFyZGVuZXIuanBn-480.webp",
@@ -57,7 +48,7 @@
           "licence": "CC BY-SA 3.0",
           "author": "Dzhang2680",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mix_of_Epoxy_Resin_and_Hardener.jpg",
-          "caption": "Khuấy nhựa epoxy hai thành phần trong cốc trước khi quét bịt kín hộc."
+          "caption": "Trộn nhựa epoxy trong cốc bằng que khuấy trước khi quét lên hộc."
         }
       },
       {
@@ -71,40 +62,45 @@
           "licence": "CC BY-SA 2.0",
           "author": "andersen_mrjh",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spade_Drill_Bit_(6808852104).jpg",
-          "caption": "Mũi khoan dẹt dùng để khoan lỗ cho ống thoát nước."
+          "caption": "Mũi khoan dẹt dùng để khoan lỗ cho ống đi xuyên tường."
         }
       },
       {
         "heading": "Thử dòng chảy và khoan lỗ tràn",
-        "moments": [],
+        "moments": [
+          {
+            "t": 2000,
+            "url": "https://media.aquatome.com/video/tcrd-3oG394/at2000-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Vách đá phủ cây và lũa, chỗ nước sẽ chảy qua.",
+            "sharpness": 310.7,
+            "person": false
+          }
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/tcrd-3oG394/p3-RXNzZXhfMDIuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/tcrd-3oG394/p3-RXNzZXhfMDIuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/tcrd-3oG394/p3-icnVubmVucy5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/tcrd-3oG394/p3-icnVubmVucy5qcGc-480.webp",
           "width": 960,
-          "height": 640,
-          "licence": "CC BY-SA 4.0",
-          "author": "Acabashi",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pincey_Brook_flood_overflow_at_Greenhill,_Hatfield_Broad_Oak,_Essex_02.jpg",
-          "caption": "Nước tràn qua mép bậc thành nhiều dòng nhỏ, nhẹ, giống chia nước ra nhiều lỗ."
-        }
-      },
-      {
-        "heading": "Chuẩn bị chậu cho cây cạn",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/tcrd-3oG394/p4-QwMjg0NjUpLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/tcrd-3oG394/p4-QwMjg0NjUpLmpwZw-480.webp",
-          "width": 960,
-          "height": 721,
-          "licence": "CC BY-SA 2.0",
-          "author": "Leonora Enking from West Sussex, England",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aeonium_tabuliforme_(4694028465).jpg",
-          "caption": "Chậu đất nung trồng cây cạn dạng sen đá, đã trồng gọn trong chậu."
+          "height": 629,
+          "licence": "CC BY-SA 3.0",
+          "author": "Jörg Zägel",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Berlin,_Mitte,_Lustgarten,_Abflusskanal_des_ehemaligen_Springbrunnens.jpg",
+          "caption": "Nước tràn qua cửa xả xuống mặt nước, giống dòng chảy tràn của hộc lọc."
         }
       },
       {
         "heading": "Chọn cây và bố trí trên tường",
-        "moments": [],
+        "moments": [
+          {
+            "t": 1400,
+            "url": "https://media.aquatome.com/video/tcrd-3oG394/at1400-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh lá dương xỉ xanh tươi, to bản, dáng đẹp.",
+            "sharpness": 157.9
+          }
+        ],
         "photo": {
           "url": "https://media.aquatome.com/video/tcrd-3oG394/p5-sdGF0YSlfMS5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/tcrd-3oG394/p5-sdGF0YSlfMS5qcGc-480.webp",
@@ -113,8 +109,22 @@
           "licence": "CC BY-SA 3.0",
           "author": "Mokkie",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Boston_Fern_(Nephrolepis_exaltata)_1.jpg",
-          "caption": "Bụi dương xỉ Boston xanh tốt trồng trong chậu, rất hợp làm tường cây."
+          "caption": "Bụi dương xỉ Boston xanh tốt trồng trong chậu, hợp làm tường cây."
         }
+      },
+      {
+        "heading": "Gắn đèn chiếu ngược cho phần cây",
+        "moments": [
+          {
+            "t": 2440,
+            "url": "https://media.aquatome.com/video/tcrd-3oG394/at2440-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh tường cây xanh tốt, lá dương xỉ lớn ở phía trước.",
+            "sharpness": 1551.1,
+            "person": false
+          }
+        ]
       }
     ]
   }

@@ -1,0 +1,156 @@
+{
+  "id": "loricaria-lentiginosa",
+  "scientificName": "Loricaria lentiginosa",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Loricaria",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "sao-paulo"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "In nature Loricaria lentiginosa occurs in the Brazilian state of Sao Paulo.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961504,
+      "total": 10,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "BR",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          -54.84375,
+          -26.71875,
+          3,
+          3
+        ],
+        [
+          -50.625,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -21.09375,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -22.5,
+          3,
+          3
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 40
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/loricaria_lentiginosa_en/",
+      "html": "<p>In nature Loricaria lentiginosa occurs in the Brazilian state of Sao Paulo.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/loricaria_lentiginosa_en/",
+      "html": "<p>Like all Loricaria species they are paternal mouthbrooders. The male transports the eggs, which stick together, in its mouth until they hatch.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/3073c404469a3ccf.webp",
+      "thumb": "https://media.aquatome.com/glaser/3073c404469a3ccf-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/loricaria_lentiginosa_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/8f3a0c9c5dbade69.webp",
+      "thumb": "https://media.aquatome.com/glaser/8f3a0c9c5dbade69-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/loricaria_lentiginosa_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/fef7eedcd72079e5.webp",
+      "thumb": "https://media.aquatome.com/glaser/fef7eedcd72079e5-480.webp",
+      "width": 850,
+      "height": 430,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/loricaria_lentiginosa_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá dài 150 cm",
+        "bể cá lớn nuôi cá da trơn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy làm lạnh nước bể cá",
+        "quạt làm mát bể cá"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "cát mịn cho cá đáy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-16"
+}

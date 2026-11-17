@@ -80,12 +80,22 @@
         "heading": "Dấu hiệu bể thiếu dòng chảy",
         "moments": [
           {
+            "t": 20,
+            "url": "https://media.aquatome.com/video/l-PVtRWJwNw/at20-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thảm cây mọc thưa trên nền cát, chỗ cây lên tốt, chỗ yếu.",
+            "sharpness": 517,
+            "person": false
+          },
+          {
             "t": 30,
             "url": "https://media.aquatome.com/video/l-PVtRWJwNw/at30-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Thảm cây mọc thưa trên nền cát, cho thấy vùng đáy thiếu dòng chảy.",
-            "sharpness": 375.4
+            "sharpness": 375.4,
+            "person": false
           },
           {
             "t": 160,
@@ -93,7 +103,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây tiền cảnh mọc không đều trên nền cát, chỗ tốt chỗ thưa.",
-            "sharpness": 430.6
+            "sharpness": 430.6,
+            "person": false
           }
         ],
         "photo": {
@@ -108,19 +119,6 @@
         }
       },
       {
-        "heading": "Vì sao cây mới trồng cần dòng chảy",
-        "moments": [
-          {
-            "t": 70,
-            "url": "https://media.aquatome.com/video/l-PVtRWJwNw/at70-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh với thảm cây xanh và đàn cá nhỏ bơi trong dòng nước.",
-            "sharpness": 2469.7
-          }
-        ]
-      },
-      {
         "heading": "Chỉnh hướng nước thế nào",
         "moments": [
           {
@@ -129,7 +127,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây thủy sinh ở đáy bể trồng dày, cần dòng nước làm đung đưa.",
-            "sharpness": 816
+            "sharpness": 816,
+            "person": false
           },
           {
             "t": 140,
@@ -137,7 +136,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thảm cây mọc ở nền đáy bể, nhìn rõ vùng cây cần dòng chảy.",
-            "sharpness": 235.5
+            "sharpness": 235.5,
+            "person": false
           }
         ],
         "photo": {
@@ -148,38 +148,21 @@
           "licence": "CC BY-SA 4.0",
           "author": "Fish Tank Society",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
-          "caption": "Lọc thùng đặt trong tủ bể, ống dẫn nước nối lên bể phía trên."
+          "caption": "Lọc thùng đặt trong tủ bể, ống nước nối ra xô khi bảo trì."
         }
       },
       {
         "heading": "Thả cá theo thứ tự nào",
-        "moments": [
-          {
-            "t": 660,
-            "url": "https://media.aquatome.com/video/l-PVtRWJwNw/at660-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Một con ali xanh bơi giữa bể thủy sinh nhiều cây.",
-            "sharpness": 1312.2
-          },
-          {
-            "t": 670,
-            "url": "https://media.aquatome.com/video/l-PVtRWJwNw/at670-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cá ali bơi gần đàn cá nhỏ trong bể trồng cây.",
-            "sharpness": 1407.7
-          }
-        ],
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/l-PVtRWJwNw/p3-lX21vcnBoKS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/l-PVtRWJwNw/p3-lX21vcnBoKS5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/l-PVtRWJwNw/p3-9wdWxjaGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/l-PVtRWJwNw/p3-9wdWxjaGVyLmpwZw-480.webp",
           "width": 960,
-          "height": 952,
-          "licence": "CC BY 4.0",
-          "author": "Shamekh.yasser",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Electric_Blue_Acara_(Andinoacara_pulcher,_electric_blue_morph).jpg",
-          "caption": "Cá ali xanh ánh lên màu xanh điện trong bể tối."
+          "height": 720,
+          "licence": "CC BY-SA 3.0",
+          "author": "Loïc Tremblay",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aequidens_pulcher.jpg",
+          "caption": "Một con ali xanh nhỏ bơi giữa cây thủy sinh và đá trong bể."
         }
       },
       {
@@ -191,36 +174,16 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh lớn nơi cá đang sống trước khi chuyển.",
-            "sharpness": 3184.9
+            "sharpness": 3184.9,
+            "person": false
           },
           {
             "t": 500,
             "url": "https://media.aquatome.com/video/l-PVtRWJwNw/at500-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Con cichlid bơi gần kính, nhìn rõ thân cá để kiểm tra vảy và vết xước.",
+            "caption": "Cận cảnh một con cichlid để kiểm tra vảy và vết xước trên thân.",
             "sharpness": 151.4
-          }
-        ]
-      },
-      {
-        "heading": "Bắt và thả cá lớn sao cho đỡ sốc",
-        "moments": [
-          {
-            "t": 600,
-            "url": "https://media.aquatome.com/video/l-PVtRWJwNw/at600-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng hai vợt lùa cá ông tiên trong bể một cách nhẹ nhàng.",
-            "sharpness": 947.6
-          },
-          {
-            "t": 830,
-            "url": "https://media.aquatome.com/video/l-PVtRWJwNw/at830-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đưa vợt vào bể để lùa và bắt cá ông tiên.",
-            "sharpness": 1157.3
           }
         ]
       },
@@ -228,20 +191,13 @@
         "heading": "Giun rác trong bể cũ",
         "moments": [
           {
-            "t": 910,
-            "url": "https://media.aquatome.com/video/l-PVtRWJwNw/at910-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Giun rác làm ống bám dày khắp phông nền và kính bể.",
-            "sharpness": 361.6
-          },
-          {
             "t": 930,
             "url": "https://media.aquatome.com/video/l-PVtRWJwNw/at930-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Những ống nhỏ của giun rác phủ kín một mảng nền bể cũ.",
-            "sharpness": 202.6
+            "sharpness": 202.6,
+            "person": false
           }
         ],
         "photo": {
@@ -252,7 +208,7 @@
           "licence": "CC BY-SA 4.0",
           "author": "Dat doris",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:%C3%96ltr%C3%B6pfchenwurm_04.jpg",
-          "caption": "Giun rác nhỏ mảnh bò trên đá trong bể cá."
+          "caption": "Giun rác nhỏ, trong mờ, bò trên bề mặt trong bể cá."
         }
       }
     ]

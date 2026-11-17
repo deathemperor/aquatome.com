@@ -22,9 +22,13 @@ const COPY_HOSTS = [
  * clinics no page named, a fish bag filled the wrong way round (a third oxygen), and a driftwood page that copies another
  * shop's and turns two of its meanings over. An entry already on a buying list stays (nothing drops a kept entry); research
  * for a new list, and a price check (`researchedPage`), no longer read the site. Guides drop a page of it that research cites
- * (topics.ts citedFacts); the other kinds' pages don't check what they cite yet.
+ * (topics.ts citedFacts), and so do glossary terms (glossary-entry.ts offLimits); the other kinds' pages don't check what
+ * they cite yet.
  */
 const REFUSED_SITES = ['cabaymau.vn']
+
+/** Whether a page stands on a site refused as a source (REFUSED_SITES): the site itself or any host under it. */
+export const refusedSite = (url: string) => refused(REFUSED_SITES.flatMap(h => [h, `*.${h}`]), url)
 
 /** Every host a source's pages stand on: its discovery addresses' and those its address pattern names, bare. */
 function hostsOf(s: SourceConfig): string[] {

@@ -3,6 +3,12 @@
   "name": "Hangjiang",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.4,
+    "at": "2026-11-16T11:25:25.974Z",
+    "why": "Nama \"Hangjiang\" tanpa kata jenis \"Sungai\" kurang lengkap; atlas Indonesia menulis \"Sungai Hangjiang\" (kata jenis dalam bahasa Indonesia)."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

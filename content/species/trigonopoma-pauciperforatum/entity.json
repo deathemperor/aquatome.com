@@ -14,6 +14,305 @@
     "singapore",
     "brunei"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "MY",
+        "SG",
+        "BN"
+      ],
+      "regions": [
+        "Borneo",
+        "Sumatra",
+        "Malay Peninsula",
+        "Kapuas",
+        "Batang Hari",
+        "Bintan Island"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Sundaland (Indonesia, Malay Peninsula), where it lives in black water.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Malay Peninsula"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from 'Gunung Sahilan and Deli, Sumatra, Indonesia' but currently considered native to Peninsular Malaysia, Singapore, and the Greater Sunda Islands of Borneo and Sumatra.",
+          "countries": [
+            "MY",
+            "SG"
+          ],
+          "regions": [
+            "Borneo",
+            "Sumatra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "On Borneo the majority of collections have occured from the Kapuas River basin in the Indonesian province of West Kalimantan (Kalimantan Barat). It also occurs in the neighbouring Malaysian state of Sarawak and there exist numerous records from the Belait and Ingei Rivers, Belait District, Brunei Darussalam.",
+          "countries": [
+            "BN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "On Borneo the majority of collections have occured from the Kapuas River basin in the Indonesian province of West Kalimantan (Kalimantan Barat).",
+          "countries": [],
+          "regions": [
+            "Kapuas"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The only information pertaining to Sumatra we have is a single account from Gunung Sahilan in Riau province and another from the Batang Hari river system.",
+          "countries": [],
+          "regions": [
+            "Batang Hari"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Records from Singapore and Sumatra are scarce and it's likely the species can no longer be found in the former although it does still exist on nearby Bintan Island.",
+          "countries": [],
+          "regions": [
+            "Bintan Island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5962669,
+      "total": 334,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "ID",
+          200
+        ],
+        [
+          "MY",
+          107
+        ],
+        [
+          "KH",
+          18
+        ],
+        [
+          "VN",
+          8
+        ],
+        [
+          "SG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          101.25,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          102.65625,
+          -4.21875,
+          11,
+          11
+        ],
+        [
+          102.65625,
+          -2.8125,
+          21,
+          21
+        ],
+        [
+          102.65625,
+          0,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          1.40625,
+          21,
+          21
+        ],
+        [
+          102.65625,
+          2.8125,
+          7,
+          7
+        ],
+        [
+          102.65625,
+          4.21875,
+          15,
+          15
+        ],
+        [
+          102.65625,
+          5.625,
+          6,
+          6
+        ],
+        [
+          102.65625,
+          9.84375,
+          20,
+          0
+        ],
+        [
+          102.65625,
+          11.25,
+          4,
+          0
+        ],
+        [
+          104.0625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          11.25,
+          2,
+          0
+        ],
+        [
+          105.46875,
+          -4.21875,
+          12,
+          12
+        ],
+        [
+          105.46875,
+          -2.8125,
+          34,
+          34
+        ],
+        [
+          106.875,
+          -4.21875,
+          28,
+          28
+        ],
+        [
+          106.875,
+          -2.8125,
+          12,
+          12
+        ],
+        [
+          108.28125,
+          0,
+          2,
+          2
+        ],
+        [
+          109.6875,
+          -2.8125,
+          31,
+          31
+        ],
+        [
+          109.6875,
+          -1.40625,
+          11,
+          11
+        ],
+        [
+          109.6875,
+          0,
+          13,
+          13
+        ],
+        [
+          109.6875,
+          1.40625,
+          23,
+          23
+        ],
+        [
+          111.09375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          -2.8125,
+          6,
+          6
+        ],
+        [
+          111.09375,
+          0,
+          10,
+          10
+        ],
+        [
+          111.09375,
+          1.40625,
+          12,
+          12
+        ],
+        [
+          111.09375,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          112.5,
+          -2.8125,
+          17,
+          17
+        ],
+        [
+          112.5,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

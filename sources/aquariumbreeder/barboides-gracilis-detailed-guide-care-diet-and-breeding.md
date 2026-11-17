@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/barboides-gracilis-detailed-guide-care-diet-and-breeding/
 title: Barboides Gracilis – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-11-04T22:24:05.531Z
-hash: 32ae2a5d205aba61af542d4370041497de96c7c37490a19bcbcc6309b02219f4
+hash: b2cd6fecda6c9e3cbd16fd8976e13d4d9fb82df1d896924289a088ac5edbada0
 ---
 
 Barboides gracilis, generally known as the Dwarf Ember Barb is one of the smallest fish species in the aquarium hobby. Although these tiny fish can be interesting augmentations to small aquariums, this species is still very rare due to limited supply caused by difficulty in breeding.
@@ -180,4 +180,3 @@ The main problems, though, are that they are hard to breed in captivity and are 
 - Rüber, L. , M. Kottelat, H. H. Tan, P. K. L. Ng and R. Britz, 2007 – BMC Evolutionary Biology London: 7-38. Evolution of miniaturization and the phylogenetic position of Paedocypris, comprising the world’s smallest vertebrate.
 - Froese, Rainer; Pauly, Daniel (eds.) (2006). “Barboides gracilis” in FishBase. April 2006 version.
 - IUCN Red List of Threatened Species 2018-1 [182317]
-### Leave a Reply Cancel reply

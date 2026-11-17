@@ -21,6 +21,8 @@ struct LightsView: View {
           // Week Aqua lights on the first screen too: under the Chihiros card, and first once one is kept on a tank
           // (it is from its first connection), for someone with only Week Aqua lights.
           let weekAquaFirst = weekAqua.isConnected || !weekAqua.savedGroups.isEmpty
+          // The master button first, above every light (the owner's account alone).
+          MasterCard()
           if weekAquaFirst { WeekAquaEntry().modifier(Panel()) }
           LoveEcologyCard()
           LightCard()

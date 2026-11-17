@@ -116,6 +116,8 @@ test("every language's index carries the file's chips whole: its fish are its it
     const ids = new Set(ix.items.map(i => i.id)), row = ix.home.chips ?? []
     const photosOf = new Map([...c.species, ...c.breeds].map(x => [x.id, x.photos]))
     expect(row.map(ch => ch.order)).toEqual(row.map((_, i) => i + 1))
+    // The app draws the row keyed by id (the v2 Lab, 16 Nov): no id twice in a language's row.
+    expect(new Set(row.map(ch => ch.id)).size, lang).toBe(row.length)
     // In the file's order.
     const at = new Map(file.chips.map((ch, i) => [ch.id, i]))
     expect(row.map(ch => at.get(ch.id)!)).toEqual([...row.map(ch => at.get(ch.id)!)].sort((a, b) => a - b))

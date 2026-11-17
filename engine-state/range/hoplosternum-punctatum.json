@@ -1,14 +1,14 @@
 {
   "id": "hoplosternum-punctatum",
   "native": {
-    "input": "9e3949e11e3d050d",
-    "at": "2026-11-08T22:57:48.089Z",
+    "input": "61520cf9cd8f3763",
+    "at": "2026-11-16T17:28:41.839Z",
     "claims": [
       {
         "code": "PA",
         "status": "native",
         "source": "planetcatfish",
-        "quote": "Type locality: Río Marte Arnade, 6 mi. east of Panama City, Panama.",
+        "quote": "Hoplosternum punctatum Meek & Hildebrand, 1916. Common names: Spotted Hoplo. Type locality: Río Marte Arnade, 6 mi. east of Panama City, Panama. Size: 77 mm (3\") SL. IUCN Red List: Near Threatened (last assessed 2019).",
         "words": "Panama",
         "ok": true
       },
@@ -33,6 +33,22 @@
         "status": "native",
         "source": "scotcat",
         "quote": "South America: Pacific coastal drainages of Panama and Atrato River basin, Colombia.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "PA",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The natural distribution of this species is in Panama and in the rivers of Colombia flowing in the Pacific Ocean.",
+        "words": "Panama",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The natural distribution of this species is in Panama and in the rivers of Colombia flowing in the Pacific Ocean.",
         "words": "Colombia",
         "ok": true
       }

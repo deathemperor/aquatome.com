@@ -3,6 +3,12 @@
   "name": "Golden Stream",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-16T17:26:06.499Z",
+    "why": "\"Golden Stream\" is a Belize village/region name kept in English, and Malay atlases usually keep the proper name but add a kind word like \"Wilayah\" or \"Kampung\". The bare name leaves out that word, so it is only partly right."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

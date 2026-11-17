@@ -139,16 +139,7 @@
     "figures": [
       {
         "heading": "Cây đỏ cần gì để lên màu",
-        "moments": [
-          {
-            "t": 320,
-            "url": "https://media.aquatome.com/video/laoEUOhsnMw/at320-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cạo lớp sơn acrylic đen khỏi tấm kính bằng lưỡi dao.",
-            "sharpness": 612.7
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/laoEUOhsnMw/p0-ydS1JbmRpYS5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/laoEUOhsnMw/p0-ydS1JbmRpYS5qcGc-480.webp",
@@ -161,43 +152,14 @@
         }
       },
       {
-        "heading": "Làm lớp nền dinh dưỡng",
-        "moments": [
-          {
-            "t": 440,
-            "url": "https://media.aquatome.com/video/laoEUOhsnMw/at440-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Xô sỏi thô và xô phân nền chuẩn bị để trộn.",
-            "sharpness": 1366.4
-          },
-          {
-            "t": 540,
-            "url": "https://media.aquatome.com/video/laoEUOhsnMw/at540-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Trải hỗn hợp sỏi và phân nền xuống đáy bể bằng dụng cụ gạt.",
-            "sharpness": 2017.8
-          }
-        ]
-      },
-      {
         "heading": "Thêm phân nhét cho bể trồng dày",
         "moments": [
-          {
-            "t": 600,
-            "url": "https://media.aquatome.com/video/laoEUOhsnMw/at600-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rải phân nhét lên lớp nền dinh dưỡng trước khi phủ cát.",
-            "sharpness": 1486.7
-          },
           {
             "t": 670,
             "url": "https://media.aquatome.com/video/laoEUOhsnMw/at670-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Những viên phân nhét được bẻ thành mẩu nhỏ trên mặt bàn.",
+            "caption": "Các viên phân nhét được bẻ nhỏ thành mẩu trên mặt bàn.",
             "sharpness": 154.7
           }
         ]
@@ -206,32 +168,15 @@
         "heading": "Dựng bố cục đá và lũa",
         "moments": [
           {
-            "t": 950,
-            "url": "https://media.aquatome.com/video/laoEUOhsnMw/at950-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lũa dựng cao cùng mấy viên đá nhỏ trên nền cát trong bể nano.",
-            "sharpness": 402.4
-          },
-          {
             "t": 970,
             "url": "https://media.aquatome.com/video/laoEUOhsnMw/at970-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể nano đã đặt xong vài viên đá nhỏ và lũa dựng đứng.",
-            "sharpness": 732.6
+            "sharpness": 732.6,
+            "person": false
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/laoEUOhsnMw/p3-LWxlbm5hcnQuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/laoEUOhsnMw/p3-LWxlbm5hcnQuanBn-480.webp",
-          "width": 960,
-          "height": 337,
-          "licence": "CC BY-SA 4.0",
-          "author": "Lennart Jöhnk",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquascaping-minilandschaft-lennart.jpg",
-          "caption": "Bể thủy sinh bố cục đá Seiryu phủ cây xanh, tạo dáng đảo nhỏ."
-        }
+        ]
       },
       {
         "heading": "Trải cát trang trí và sỏi điểm",
@@ -242,15 +187,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lớp cát sáng màu trải trong hồ, có một viên đá nhỏ.",
-            "sharpness": 256.2
-          },
-          {
-            "t": 1100,
-            "url": "https://media.aquatome.com/video/laoEUOhsnMw/at1100-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Sỏi tối màu rải rời trên nền cát sáng, cạnh lũa.",
-            "sharpness": 914.3
+            "sharpness": 256.2,
+            "person": false
           }
         ],
         "photo": {
@@ -261,7 +199,7 @@
           "licence": "CC BY-SA 4.0",
           "author": "cty long lanh",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:White_quartz_sand.jpg",
-          "caption": "Đống cát thạch anh trắng ngà mịn, loại dùng để trải lớp cát sáng."
+          "caption": "Đống cát thạch anh trắng ngà mịn, loại hay dùng trải nền bể."
         }
       },
       {
@@ -273,38 +211,24 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh đang lên tốt với nhiều ngọn cây đỏ rực.",
-            "sharpness": 1551.5
-          },
-          {
-            "t": 1160,
-            "url": "https://media.aquatome.com/video/laoEUOhsnMw/at1160-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể cây rậm rạp, có thể lấy cây từ đây sang bể mới.",
-            "sharpness": 1598.9
+            "sharpness": 1551.5,
+            "person": false
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/laoEUOhsnMw/p5-ydS1JbmRpYS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/laoEUOhsnMw/p5-ydS1JbmRpYS5qcGc-480.webp",
+          "width": 960,
+          "height": 1106,
+          "licence": "CC BY 4.0",
+          "author": "Yercaud-elango",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rotala_Hi_Red-1-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Bụi cây thân mềm ngọn đỏ mọc dày, lên màu đẹp trong bể."
+        }
       },
       {
         "heading": "Xử lý nước, làm trong nước và châm phân",
-        "moments": [
-          {
-            "t": 1440,
-            "url": "https://media.aquatome.com/video/laoEUOhsnMw/at1440-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể nhỏ đang được đổ nước và rửa cát, bên cạnh là các bể thủy sinh.",
-            "sharpness": 1316.4
-          },
-          {
-            "t": 1450,
-            "url": "https://media.aquatome.com/video/laoEUOhsnMw/at1450-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cầm chai thuốc xử lý nước, bên cạnh là ống dẫn nước.",
-            "sharpness": 1079.5
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/laoEUOhsnMw/p6-UwMzc0MjApLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/laoEUOhsnMw/p6-UwMzc0MjApLmpwZw-480.webp",
@@ -313,19 +237,29 @@
           "licence": "Public domain",
           "author": "USFWS/Southeast",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pipes_and_tubes_providing_water_to_dozens_of_aquariums_(41005037420).jpg",
-          "caption": "Hệ thống bể nuôi với đường ống PVC và dây dẫn nước chằng chịt."
+          "caption": "Hệ thống bể nuôi với đường ống PVC dẫn và cấp nước."
         }
       },
       {
         "heading": "Có nên dùng tấm đèn nền phía sau",
         "moments": [
           {
+            "t": 1750,
+            "url": "https://media.aquatome.com/video/laoEUOhsnMw/at1750-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể không bật đèn nền, cây đỏ nổi bật và nhìn tươi hơn.",
+            "sharpness": 1733.3,
+            "person": false
+          },
+          {
             "t": 1770,
             "url": "https://media.aquatome.com/video/laoEUOhsnMw/at1770-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Nền đèn chỉnh sang đỏ, bể nhìn giả như ly nước ép.",
-            "sharpness": 1458.4
+            "sharpness": 1458.4,
+            "person": false
           },
           {
             "t": 1820,
@@ -333,7 +267,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bỏ tấm đèn nền, bể nhìn sâu và cây đỏ nổi hơn.",
-            "sharpness": 1568.2
+            "sharpness": 1568.2,
+            "person": false
           }
         ]
       },
@@ -341,12 +276,22 @@
         "heading": "Vi sinh và thả cá betta",
         "moments": [
           {
+            "t": 1950,
+            "url": "https://media.aquatome.com/video/laoEUOhsnMw/at1950-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá betta xanh trắng bơi trong bể trồng nhiều cây.",
+            "sharpness": 234.1,
+            "person": false
+          },
+          {
             "t": 2000,
             "url": "https://media.aquatome.com/video/laoEUOhsnMw/at2000-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể mới có nền cát sáng, lũa và cây thân đỏ, đã thả cá.",
-            "sharpness": 1813.9
+            "sharpness": 1813.9,
+            "person": false
           },
           {
             "t": 2070,
@@ -354,18 +299,19 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá betta bơi giữa bụi cây đỏ trong bể mới.",
-            "sharpness": 281.4
+            "sharpness": 281.4,
+            "person": false
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/laoEUOhsnMw/p8-N5amFtc2tpLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/laoEUOhsnMw/p8-N5amFtc2tpLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/laoEUOhsnMw/p8-Vfb3JhbmdlLkpQRw.webp",
+          "thumb": "https://media.aquatome.com/video/laoEUOhsnMw/p8-Vfb3JhbmdlLkpQRw-480.webp",
           "width": 960,
-          "height": 742,
+          "height": 720,
           "licence": "CC BY 4.0",
-          "author": "Henryk Niestrój",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bojownik_syjamski.jpg",
-          "caption": "Cá betta đuôi xòe màu xanh đỏ bơi trên nền sỏi đen trong bể."
+          "author": "Bernard Ladenthin",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Siamese_fighting_fish_(Betta_splendens)_female_orange.JPG",
+          "caption": "Cá betta bơi trong bể trồng cây, nền sỏi sáng, nước trong."
         }
       }
     ]

@@ -1,8 +1,13 @@
 {
   "slug": "songkhram-river",
-  "name": "สงคราม",
+  "name": "Sungai Songkhram",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-16T17:19:49.960Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

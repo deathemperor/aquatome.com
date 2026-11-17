@@ -3,7 +3,7 @@ import { expect, test } from 'vitest'
 import { CurationSchema, FIRST_GUIDES, FIRST_PLANTS, POPULAR, slugify, STAPLE_SPECIES, type Content } from '@aq/schema'
 import { pageShard, PageShard } from '@aq/schema/app-page'
 import { isVietnamese } from '@aq/schema/text'
-import { appBreeds, appEquipment, appGlossary, appGuides, appIndex, appPlants, appSeries, appSpecies, breedGroup, type AppIndex, type AppItem } from '../src/lib/app-index'
+import { appBreeds, appEquipment, appGlossary, appGuideImage, appGuides, appIndex, appPlants, appSeries, appSpecies, breedGroup, type AppIndex, type AppItem } from '../src/lib/app-index'
 import { glossaryParts } from '../src/lib/glossary-page'
 import { easyPlants, groupTiles, leadGuides } from '../src/lib/home'
 import { getContent } from '../src/lib/content'
@@ -601,8 +601,9 @@ test('a language with few of Curation\'s pages fills Khám phá\'s plants and gu
   expect(home.browse!.plants).toHaveLength(21)
   expect(home.browse!.plants).toEqual([...curatedPlants, ...easy.filter(p => !curatedPlants.includes(p))].slice(0, 21))
   expect(home.plants).toEqual(easy.slice(0, 6))
-  // Guides: Curation's one, then the lead guides in the home's order, 7 in all; the home's row of 8 unchanged.
-  const leads = leadGuides(content).map(g => guideAt(g.id)).filter(p => listed.has(p))
+  // Guides: Curation's one, then the lead guides in the home's order, 7 in all; the home's row of 8 unchanged. The app's
+  // keep to guides with a picture until it draws covers (the Design Lead's app half, 15 Nov 2026).
+  const leads = leadGuides(content).filter(g => appGuideImage(content, g)).map(g => guideAt(g.id)).filter(p => listed.has(p))
   expect(home.browse!.guides).toHaveLength(7)
   expect(home.browse!.guides).toEqual([guideAt(keptGuide), ...leads.filter(p => p !== guideAt(keptGuide))].slice(0, 7))
   expect(home.guides).toEqual(leads.slice(0, 8))

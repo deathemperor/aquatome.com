@@ -1,12 +1,16 @@
 {
   "id": "sarotherodon-melanotheron",
-  "summary": "Cá rô phi cằm đen (Sarotherodon melanotheron) hợp với người đã có chút kinh nghiệm, muốn nuôi cichlid cứng cáp, độ khó 4/8. Cá lớn tới 20 cm, cần bể dài tối thiểu 120 cm, nước 23–28 °C, pH 7–8, 9–19 dGH; sống tốt cả trong nước ngọt trung tính đến cứng lẫn nước hơi lợ (tỷ trọng 1,005). Khó nhất là lúc sinh sản: cá giành chỗ dữ hơn hẳn, nên bể phải thật lớn nếu nuôi nhóm.",
+  "summary": "Cá rô phi cằm đen (Sarotherodon melanotheron) không khó tính, độ khó 4/8, nuôi được ở nước ngọt trung tính đến cứng hoặc nước hơi lợ (tỷ trọng 1,005). Cần bể dài tối thiểu 120 cm, nhiệt độ 23–28 °C, pH 7–8, độ cứng 9–19 dGH, cá lớn tới 20 cm. Khó nhất là chỗ ở: cá giành chỗ khi sinh sản và ăn cá nhỏ, nên nuôi nhóm thì bể phải thật lớn.",
   "mistakes": [
-    "Nuôi chung với cá nhỏ thì chúng bị ăn, nên chọn bạn cùng bể là cichlid châu Phi cứng cáp, cá lau kiếng hoặc cá Synodontis.",
-    "Trồng cây lá mềm thì chắc bị cá ăn hết, nên dùng cây cứng cáp như Anubias sp., kèm đá trơn và lũa.",
-    "Nuôi nhóm trong bể chật thì đến mùa sinh sản cá giành chỗ, nhất là con đực, nên cho cá bể thật lớn."
+    "Nuôi chung với cá nhỏ thì chúng bị ăn; chỉ ghép với cichlid châu Phi cứng cáp tương tự, cichlid Trung Mỹ hiền hơn, cá lau kiếng hoặc Synodontis.",
+    "Trồng cây lá mềm thì dễ bị ăn; dùng cây cứng cáp như Anubias sp., kèm đá trơn và vài khúc lũa.",
+    "Nuôi nhóm trong bể chật thì cá giành chỗ khi sinh sản; dùng bể thật lớn, và muốn giữ cá bột thì tách con đực sang bể riêng sau khi đẻ."
   ],
   "speciesUpdatedAt": "2026-11-09",
-  "generatedAt": "2026-11-09T23:05:44.777Z",
-  "review": "approved"
+  "writtenFrom": "e82397b4f5db625e",
+  "generatedAt": "2026-11-15T20:29:20.918Z",
+  "review": "pending",
+  "problems": [
+    "\"muốn giữ cá bột thì tách con đực sang bể riêng sau khi đẻ\": the page hedges this (\"có lẽ nên tách con đực sang bể riêng\"). The summary states it as a firm instruction and drops the hedge."
+  ]
 }

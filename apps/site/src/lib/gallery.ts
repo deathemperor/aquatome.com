@@ -1,3 +1,4 @@
+import { isNonCommercial } from '@aq/schema/licence'
 import type { Photo, SourceId, SourceInfo } from '@aq/schema'
 import type { T } from './i18n'
 
@@ -54,7 +55,8 @@ const fromWords = (t: T, photos: Photo[], sources: Partial<Record<SourceId, Sour
 export function galleryNote(t: T, photos: Photo[], sources: Partial<Record<SourceId, SourceInfo>>): string {
   if (photos.every(p => p.generated) && photos.length) return t('{n} ảnh do AI tạo.', { n: photos.length })
   if (photos.some(p => p.generated)) return t('{n} ảnh, gồm ảnh thật từ {from} và ảnh do AI tạo.', { n: photos.length, from: fromWords(t, photos, sources) })
-  const open = photos.every(p => !p.source)
+  // "Open licence" only where every photo has one: not a source's permission, nor a non-commercial licence.
+  const open = photos.every(p => !p.source && !isNonCommercial(p.licence))
   return t(open ? '{n} ảnh từ {from}, giấy phép mở.' : '{n} ảnh từ {from}.', { n: photos.length, from: fromWords(t, photos, sources) })
 }
 
@@ -62,6 +64,6 @@ export function galleryNote(t: T, photos: Photo[], sources: Partial<Record<Sourc
 export function galleryLine(t: T, photos: Photo[], sources: Partial<Record<SourceId, SourceInfo>>): string {
   if (photos.every(p => p.generated) && photos.length) return t('Ảnh do AI tạo.')
   if (photos.some(p => p.generated)) return t('Ảnh thật từ {from} và ảnh do AI tạo.', { from: fromWords(t, photos, sources) })
-  const open = photos.every(p => !p.source)
+  const open = photos.every(p => !p.source && !isNonCommercial(p.licence))
   return t(open ? 'Ảnh từ {from}, giấy phép mở.' : 'Ảnh từ {from}.', { from: fromWords(t, photos, sources) })
 }

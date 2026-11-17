@@ -127,17 +127,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/scotcat/19b1b04edca3e20f.webp",
-      "thumb": "https://media.aquatome.com/scotcat/19b1b04edca3e20f-480.webp",
-      "width": 500,
-      "height": 241,
-      "licence": "dùng với sự cho phép",
-      "author": "Pertti Rassi / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyichthys_exilis.htm",
-      "caption": "Trachelyichthys exilis",
-      "source": "scotcat"
-    },
-    {
       "url": "https://media.aquatome.com/scotcat/98b17ca5f8afb30b.webp",
       "thumb": "https://media.aquatome.com/scotcat/98b17ca5f8afb30b-480.webp",
       "width": 500,
@@ -200,5 +189,107 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-10"
+  "updatedAt": "2026-11-10",
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Nanay"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The pygmy driftwood catfish, Trachelyichthys exilis, is a small auchenipterid catfish from the Nanay river basin in Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Nanay"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344624,
+      "total": 49,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "BR",
+          37
+        ],
+        [
+          "PE",
+          12
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -4.21875,
+          12,
+          12
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          4,
+          0
+        ],
+        [
+          -66.09375,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          -2.8125,
+          2,
+          0
+        ],
+        [
+          -63.28125,
+          -2.8125,
+          2,
+          0
+        ],
+        [
+          -61.875,
+          -8.4375,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          19,
+          0
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          6,
+          0
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          -2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  }
 }

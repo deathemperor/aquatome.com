@@ -1,8 +1,13 @@
 {
   "slug": "belayan",
-  "name": "Belayan",
+  "name": "Sungai Belayan",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-16T11:19:56.205Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

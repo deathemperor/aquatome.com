@@ -1,0 +1,52 @@
+{
+  "id": "mugilogobius-rexi",
+  "native": {
+    "input": "1e25141ca8c937f0",
+    "at": "2026-11-16T17:28:41.839Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Sulawesi",
+        "source": "glaser",
+        "quote": "The species is restricted to Sulawesi and even on that island it occurs only in two lakes, namely Towuti and Mahalona.",
+        "ok": true
+      },
+      {
+        "name": "Lake Towuti",
+        "source": "glaser",
+        "quote": "The species is restricted to Sulawesi and even on that island it occurs only in two lakes, namely Towuti and Mahalona.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Lake Mahalona",
+        "source": "glaser",
+        "quote": "The species is restricted to Sulawesi and even on that island it occurs only in two lakes, namely Towuti and Mahalona.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Mugilogobius rexi",
+    "status": "ACCEPTED",
+    "taxonKey": 2376848,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-16T17:28:41.839Z"
+  }
+}

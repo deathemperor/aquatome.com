@@ -16,12 +16,13 @@
         "IN"
       ],
       "regions": [
-        "Kumaradhara-Netravati river system",
+        "Kumaradhara-Netravati",
         "Kumaradhara",
         "Netravati"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -30,14 +31,8 @@
           "countries": [
             "IN"
           ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Appears locally endemic to southern Karnataka state, southwestern India where it's known only from the Kumaradhara-Netravati river system.",
-          "countries": [],
           "regions": [
-            "Kumaradhara-Netravati river system"
+            "Kumaradhara-Netravati"
           ]
         },
         {
@@ -103,6 +98,10 @@
       {
         "source": "seriouslyfish",
         "value": 11
+      },
+      {
+        "source": "glaser",
+        "value": 10
       }
     ],
     "tankCm": [
@@ -128,20 +127,20 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/etroplus_canarensis_en/",
-      "html": "<p>The Indian Wasp Cichlid (Etroplus canarensis) is extremely rare and extraordinarily beautiful. In contrast to its relatives, this species is an inhabitant of pure freshwater only and never enters brackish water zones.</p>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/etroplus_canarensis_en/",
-      "html": "<p>Available in limited numbers only.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/etroplus_canarensis_en-2/",
+      "html": "<p>Only three kinds of cichlids are found in Asia, all of them belonging to the genus Etroplus. Many scientists believe that Etroplus are closer to damselfishes than to cichlids. All three are marvelous aquarium fish. Two of them, E. maculatus and E. suratensis, are widespread. There was no trace of E. canarensis for over 100 years, and some already assumed it had died out.</p><p>This beautifully coloured perch reaches approx. 10 cm. It is a pure freshwater inhabitant.</p>"
     },
     {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/etroplus-canarensis",
       "html": "<p>Appears locally endemic to southern Karnataka state, southwestern India where it's known only from the Kumaradhara-Netravati river system.</p><p>It can be found in both the Kumaradhara and Netravati although it was thought to be restricted to the former for a number of years.</p><p>Type locality is 'South Canara, India', although it apparently relates to a spot close to Uppnangudi where the Kumaradhara and Netravati merge.</p><p>The two rivers are under a degree of threat from agriculatural pollution, sand mining and other human activities.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/etroplus_canarensis_en-2/",
+      "html": "<p>Origin: India.</p>"
     },
     {
       "key": "habitat",
@@ -178,6 +177,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/etroplus-canarensis",
       "html": "<p>Unless breeding this species is relatively peaceful and will not predate on any but the smallest fishes.</p><p>Pelagic cyprinids which occur alongside it in the wild such as Dawkinsia spp., Devario malabaricus or Rasbora daniconius are particularly suitable tankmates although if geography isn't an issue it should also do well alongside many tetras, for example.</p><p>Best avoided are territorial or otherwise aggressive species and those that require harder water, while other cichlids should also be omitted.</p><p>Etroplus species are loosely gregarious and tends to form groups unless spawning with juveniles in particular displaying a strong social response when threatened.</p><p>A group of 8+ individuals should therefore be the minimum purchase and these will form a noticeable dominance hierarchy once sexual maturity is reached.</p><p>When maintained in smaller numbers weaker specimens can become the target of excessive abuse by dominant individuals or the group may fail to settle and behave nervously.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/etroplus_canarensis_en-2/",
+      "html": "<p>The peaceful animals should not be kept in company of fast-eating species, so that they do not get too little food when being fed. Apart from fights over the hierarchy after being introduced, E. canarensis get along well together.</p>"
     },
     {
       "key": "dimorphism",
@@ -295,5 +300,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-10"
+  "updatedAt": "2026-11-16"
 }
