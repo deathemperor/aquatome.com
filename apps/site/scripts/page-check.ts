@@ -165,10 +165,13 @@ export function checkPage(path: string, html: string, facts: Facts): Problem[] {
   // the fiddler crab's page; about 100 species then, every one of them so. A group's numbered pages are its page's.
   if (facts.notFish.has(path.replace(/trang\/\d+\/$/, ''))) {
     const fishList = translator(lang)('Loài cá')
-    const said = [...root.querySelectorAll('nav.crumb a').map(a => text(a)), ...root.querySelectorAll('script[type="application/ld+json"]')
+    const crumbs = root.querySelectorAll('nav.crumb a').map(a => text(a))
+    const data = root.querySelectorAll('script[type="application/ld+json"]')
       .flatMap(ld => [JSON.parse(ld.rawText) as { '@type'?: string; itemListElement?: { name?: string }[] }].flat())
-      .filter(d => d['@type'] === 'BreadcrumbList').flatMap(d => d.itemListElement?.map(i => i.name ?? '') ?? [])]
-    for (const name of said.filter(n => n === fishList)) out.push({ check: 'not-fish', detail: `"${name}" in the trail of ${path}` })
+      .filter(d => d['@type'] === 'BreadcrumbList').flatMap(d => d.itemListElement?.map(i => i.name ?? '') ?? [])
+    for (const [where, names] of [['trail', crumbs], ['structured data\'s trail', data]] as const) {
+      if (names.includes(fishList)) out.push({ check: 'not-fish', detail: `${where}: "${fishList}"` })
+    }
   }
 
   // The same picture twice, whatever its file. A picture hidden from screen readers is a backdrop (a whole tile's blurred

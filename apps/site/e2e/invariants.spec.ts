@@ -142,7 +142,7 @@ test('no crab\'s, shrimp\'s or snail\'s page has "Loài cá" in its trail', { ta
       if ([404, 410].includes(res.status())) return
       expect(res.status(), path).toBe(200)
       read.push(path)
-      found.push(...checkPage(path, await res.text(), facts).filter(p => p.check === 'not-fish').map(p => p.detail))
+      found.push(...checkPage(path, await res.text(), facts).filter(p => p.check === 'not-fish').map(p => `${path} ${p.detail}`))
     }))
   }
   expect(read.length, 'pages read').toBeGreaterThan(0)

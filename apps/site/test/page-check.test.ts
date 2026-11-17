@@ -12,20 +12,23 @@ test('no built page shows a picture twice, a wrong fish, a wrong link, a fish wi
 })
 
 // The owner's report of 15 Nov: the fiddler crab's page said "Loài cá" at the head of its trail, as about 100 crabs',
-// shrimps', snails', frogs', newts' and corals' pages did. The fixture's shrimp is one: its page, its photos' and its
-// group's say "Loài" there, and the check over every page (the test above; live, the browser checks' sample) finds
+// shrimps', snails', frogs', newts' and corals' pages did. The fixture's shrimp is one: its page and its group's say
+// "Loài" there (its photos' page too, where it has one), and the check over every page (the test above; live, the browser checks' sample) finds
 // "Loài cá" on any of them.
-test('a shrimp\'s page, its photos\' and its group\'s trails say "Loài", and the check finds "Loài cá" there', () => {
-  for (const path of ['/ca/tep-red-cherry/', '/ca/tep-red-cherry/anh/', '/nhom/shrimp/']) {
+test('a shrimp\'s page and its group\'s trails say "Loài", and the check finds "Loài cá" there', () => {
+  // The fixture's shrimp has too few photos for a photos page; the check knows the page all the same.
+  expect(facts.notFish).toContain('/ca/tep-red-cherry/anh/')
+  for (const path of ['/ca/tep-red-cherry/', '/nhom/shrimp/']) {
     expect(facts.notFish, path).toContain(path)
     const { html, dom } = page(path)
     expect(dom.querySelector('nav.crumb a')!.text, path).toBe('Loài')
     expect(checkPage(path, html, facts).filter(p => p.check === 'not-fish'), path).toEqual([])
   }
   const { html } = page('/ca/tep-red-cherry/')
-  const before = html.replace('<a href="/ca/">Loài</a>', '<a href="/ca/">Loài cá</a>').replace('"name":"Loài"', '"name":"Loài cá"')
+  // The page as it was before 17 Nov: "Loài cá" in its trail and its structured data's.
+  const before = html.replace(/(<a href="\/ca\/"[^>]*>)Loài<\/a>/, '$1Loài cá</a>').replace('"name":"Loài"', '"name":"Loài cá"')
   expect(checkPage('/ca/tep-red-cherry/', before, facts).filter(p => p.check === 'not-fish').map(p => p.detail))
-    .toEqual(['"Loài cá" in the trail of /ca/tep-red-cherry/', '"Loài cá" in the trail of /ca/tep-red-cherry/'])
+    .toEqual(['trail: "Loài cá"', 'structured data\'s trail: "Loài cá"'])
   expect(facts.notFish).not.toContain('/ca/ca-galaxy/')
 })
 
@@ -71,6 +74,7 @@ describe('each check, on a page made to fail it', () => {
     targets: { vi: [T, U], id: [T, U], th: [T, U], ms: [T, U] },
     genera: new Set(['Aus']),
     credits: new Map([['https://m/c1.webp', new Set(['https://src/c1'])], ['https://m/c2.webp', new Set(['https://src/c2', 'https://src/c2-again'])]]),
+    notFish: new Set(),
   }
   const fig = (src: string, href?: string) => `<figure class="inl"><img src="${src}" width="1" height="1" alt=""><figcaption>${href ? `<a href="${href}">x</a>` : ''}</figcaption></figure>`
   const checks = (html: string) => checkPage('/huong-dan/x/', html, f).map(p => p.check)
