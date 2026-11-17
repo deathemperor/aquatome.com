@@ -3,32 +3,52 @@ import { join, relative } from 'node:path'
 import { refusedSite } from './cycle-only'
 
 /**
- * The archives that keep a copy of a page under the page's own address, after a time: the Internet Archive's
- * (web.archive.org/web/<time>/https://…, the only one on any page or in any research on 17 Nov 2026) and archive.today's.
+ * The archives that keep a copy of a page under the page's own address, and where in their path it sits: the Internet
+ * Archive's after /web/<time>[flags]/ (web.archive.org/web/2024id_/https://…, the only archive on any page or in any research
+ * on 17 Nov 2026), archive.today's after /<time>/, /newest/ or /oldest/. An archive.today short id (/AbCdE) carries no
+ * address, and nothing is fetched to learn it.
  */
-export const ARCHIVES = ['web.archive.org', 'wayback.archive.org', 'archive.today', 'archive.ph', 'archive.is', 'archive.li', 'archive.md', 'archive.vn', 'archive.fo']
+const COPY_ROUTES: [hosts: string[], route: RegExp][] = [
+  [['web.archive.org', 'wayback.archive.org'], /^\/web\/[0-9*]+[a-z_]*\/(.+)$/i],
+  [['archive.today', 'archive.ph', 'archive.is', 'archive.li', 'archive.md', 'archive.vn', 'archive.fo'], /^\/(?:\d[\d.-]*|newest|oldest)\/(.+)$/i],
+]
+export const ARCHIVES = COPY_ROUTES.flatMap(([hosts]) => hosts)
 
 /**
  * One web address on a refused site, or an archive's copy of a page on one. Matched by the address's own host, as
  * research's deny list matches (the site and any host under it, never a near name), after the address is parsed, so a host
- * written another way (percent-encoded, full-width, an ideographic full stop) is the site. Another site's address that
- * carries the site's in its query, path or fragment (a share link) is that other site's: only an archive's carries a copy,
- * with or without its scheme (Codex, 17 Nov 2026). A source that isn't a web address (a book) isn't one: refusedSite
- * refuses what it can't read as an address, for a fetch, so neither is an address that doesn't parse. Nothing is fetched:
- * a page elsewhere that redirects to the site isn't seen.
+ * written another way (percent-encoded, full-width, an ideographic full stop, a trailing dot) is the site. Another site's
+ * address that carries the site's in its query, path or fragment (a share link) is that other site's: only an archive's
+ * carries a copy, at its own place in the archive's path, with or without its scheme, and judged by that copy's own host
+ * (Codex, 17 Nov 2026). A source that isn't a web address (a book) isn't one: refusedSite refuses what it can't read as an
+ * address, for a fetch, so neither is an address that doesn't parse. Nothing is fetched: a page elsewhere that redirects to
+ * the site isn't seen.
  */
 export function onRefused(url: string): boolean {
-  if (!URL.canParse(url)) return false
+  if (typeof url !== 'string' || !URL.canParse(url)) return false
   const u = new URL(url)
   if (u.protocol !== 'http:' && u.protocol !== 'https:') return false
   if (refusedSite(url)) return true
-  if (!ARCHIVES.some(h => u.hostname === h || u.hostname.endsWith(`.${h}`))) return false
-  const copy = /https?:\/\/.*/i.exec(u.pathname)?.[0] ?? /^\/(?:web\/)?[^/]+\/(.+)/.exec(u.pathname)?.[1]
-  return !!copy && onRefused(/^https?:\/\//i.test(copy) ? copy : `https://${copy}`)
+  const host = u.hostname.toLowerCase().replace(/\.$/, '')
+  const copy = COPY_ROUTES.find(([hosts]) => hosts.some(h => host === h || host.endsWith(`.${h}`)))?.[1].exec(u.pathname)?.[1]
+  if (!copy) return false
+  // The path holds the copy's address percent-encoded where it isn't plain ASCII.
+  let original = copy
+  try { original = decodeURIComponent(copy) } catch { /* left as written */ }
+  return onRefused(/^https?:\/\//i.test(original) ? original : `https://${original}`)
 }
 
-/** Whether a string names a refused site's page: an address alone, or any address in a text (a link in a page's HTML), each taken whole, up to a space, a quote or a bracket. */
-export const namesRefused = (text: string) => (text.match(/https?:\/\/[^\s"'<>]+/gi) ?? []).some(onRefused)
+/** An address as written in a text or a field, without the sentence's punctuation after it. */
+const address = (s: string) => s.trim().replace(/[.,;:!?)\]}'"»”’。]+$/u, '')
+
+/** A source's or a reference's own address (`url`) on a refused site: one address, never split. */
+const urlRefused = (x: unknown) => !!x && typeof (x as { url?: unknown }).url === 'string' && onRefused(address((x as { url: string }).url))
+
+/**
+ * Whether a text names a refused site's page: any address in it (an address alone, or a link in a page's HTML), each up to a
+ * space, a quote, a bracket, a comma or a semicolon, without the sentence's punctuation after it (Codex, 17 Nov 2026).
+ */
+export const namesRefused = (text: string) => (text.match(/https?:\/\/[^\s"'<>()[\]{},;`]+/gi) ?? []).some(u => onRefused(address(u)))
 
 /**
  * A refused site's facts leave research, whatever the kind (the chief of staff, 17 Nov 2026, for Thursday 19 Nov): a guide's,
@@ -44,7 +64,7 @@ export const namesRefused = (text: string) => (text.match(/https?:\/\/[^\s"'<>]+
  */
 export function withoutRefused<T extends { sources: { url: string }[] }>(r: T): { kept: T; refused: { url: string; items: number }[]; dropped: { list: string; at: number }[] } {
   // Research that found nothing may give no sources.
-  const gone = new Set((r.sources ?? []).flatMap((s, i) => (namesRefused(s.url) ? [i] : [])))
+  const gone = new Set((r.sources ?? []).flatMap((s, i) => (urlRefused(s) ? [i] : [])))
   if (!gone.size) return { kept: r, refused: [], dropped: [] }
   const to = new Map<number, number>()
   r.sources.forEach((_, i) => { if (!gone.has(i)) to.set(i, to.size) })
@@ -80,7 +100,7 @@ export function withoutRefused<T extends { sources: { url: string }[] }>(r: T): 
 }
 
 /** A page's reference list (`refs`, as a guide's and a glossary term's give them, in every language) without a refused site's pages. */
-export const refsWithoutRefused = <R extends { url: string }>(refs: R[]): R[] => refs.filter(x => !namesRefused(x.url))
+export const refsWithoutRefused = <R extends { url: string }>(refs: R[]): R[] => refs.filter(x => !urlRefused(x))
 
 /** The kinds whose research is kept in engine-state/<kind>, each file one research with its `sources`. */
 export const FACTS_DIRS = ['topics', 'glossary', 'materials', 'breeds', 'products', 'species-research'] as const
@@ -138,10 +158,14 @@ export async function refusedSweep(root: string) {
   for (let i = 0; i < pages.length; i += 64) {
     for (const [file, raw] of await Promise.all(pages.slice(i, i + 64).map(async f => [f, await readFile(join(root, f), 'utf8')] as const))) {
       if (!raw.includes('"refs"')) continue
+      // A file that doesn't parse, or a reference list that can't be read, is named and the pass goes on (Codex, 17 Nov 2026).
       let page: { refs?: { url: string }[] }
-      try { page = JSON.parse(raw) as typeof page } catch (err) { failed.push(`${file}: ${(err as Error).message}`); continue }
-      if (!Array.isArray(page.refs)) continue
-      const kept = refsWithoutRefused(page.refs)
+      let kept: { url: string }[]
+      try {
+        page = JSON.parse(raw) as typeof page
+        if (!Array.isArray(page.refs)) continue
+        kept = refsWithoutRefused(page.refs)
+      } catch (err) { failed.push(`${file}: ${(err as Error).message}`); continue }
       if (kept.length === page.refs.length) continue
       await writeFile(join(root, file), `${JSON.stringify({ ...page, refs: kept }, null, indentOf(raw))}\n`)
       refs.push({ file, urls: page.refs.filter(x => !kept.includes(x)).map(x => x.url) })
@@ -163,7 +187,10 @@ export async function filesNamingRefused(root: string): Promise<string[]> {
       .filter(d => d.isFile() && d.name.endsWith('.json')).map(d => relative(root, join(d.parentPath, d.name))).sort()
     for (let i = 0; i < files.length; i += 64) {
       for (const [file, raw] of await Promise.all(files.slice(i, i + 64).map(async f => [f, await readFile(join(root, f), 'utf8')] as const))) {
-        if (walk(JSON.parse(raw))) naming.push(file)
+        let data: unknown
+        // A file that doesn't parse stops the check, named.
+        try { data = JSON.parse(raw) } catch (err) { throw new Error(`${file}: ${(err as Error).message}`) }
+        if (walk(data)) naming.push(file)
       }
     }
   }

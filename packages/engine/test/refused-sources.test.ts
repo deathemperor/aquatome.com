@@ -86,18 +86,28 @@ test('a refused site\'s hosts and archived copies of its pages are refused; near
   // A host written another way is the site, as the address parses (Codex, 17 Nov 2026); an archive's copy with or without its scheme.
   const yes = ['https://cabaymau.vn/x', 'http://www.cabaymau.vn/x', 'https://forum.cabaymau.vn/t/1', 'https://CABAYMAU.VN/x', 'https://cabaymau.vn./x', 'https://user:pass@cabaymau.vn/x',
     'https://%63abaymau.vn/x', 'https://ｃａｂａｙｍａｕ.vn/x', 'https://cabaymau。vn/x',
-    'https://web.archive.org/web/2024/https://cabaymau.vn/x', 'https://web.archive.org/web/2024id_/http://www.cabaymau.vn/x?p=1', 'https://web.archive.org/web/2024/cabaymau.vn/x', 'https://archive.ph/2024.01.01/https://www.cabaymau.vn/x', 'https://archive.ph/newest/cabaymau.vn/x']
+    'https://web.archive.org/web/2024/https://cabaymau.vn/x', 'https://web.archive.org/web/2024id_/http://www.cabaymau.vn/x?p=1', 'https://web.archive.org/web/2024/cabaymau.vn/x', 'https://archive.ph/2024.01.01/https://www.cabaymau.vn/x', 'https://archive.ph/newest/cabaymau.vn/x',
+    // Codex's second read, 17 Nov 2026: an archive's host with a trailing dot, any time, the copy percent-encoded.
+    'https://web.archive.org./web/2024/https://cabaymau.vn/x', 'https://web.archive.org/web/2024*/cabaymau.vn/*', 'https://wayback.archive.org/web/20240101000000/https://cabaymau.vn/x', 'https://archive.ph/oldest/https://cabaymau.vn/x', 'https://web.archive.org/web/2024/https%3A%2F%2Fcabaymau.vn%2Fx']
   // An address that doesn't parse isn't one, though refusedSite refuses it for a fetch (the first reader, 17 Nov 2026). Another
   // site's address that carries the site's in its query, path or fragment is that site's (Codex, 17 Nov 2026).
   const no = ['https://cabaymau.net/x', 'https://xcabaymau.vn/x', 'https://cabaymau.vn.example.com/x', 'https://cabaymau.vn@example.com/x', 'https://example.org/?from=cabaymau.vn', 'https://web.archive.org/web/2024/https://cabaymau.net/x',
     'https://example.org/?url=https://cabaymau.vn/x', 'https://example.org/articles/https://cabaymau.vn/x', 'https://example.org/#https://cabaymau.vn/x', 'https://archive.org/details/https://cabaymau.vn/x', 'https://archive.ph/AbCdE',
+    // Codex's second read: an archived copy of another site whose path carries the site's address, and an archive's page
+    // that isn't a copy, are not the site.
+    'https://web.archive.org/web/2024/example.org/articles/https://cabaymau.vn/x', 'https://archive.ph/about/cabaymau.vn/x',
     'https://[bad/x', 'a book', '']
   expect(yes.map(onRefused)).toEqual(yes.map(() => true))
   expect(no.map(onRefused)).toEqual(no.map(() => false))
-  // In a text, each address is taken whole: a link to the site is one, a share link to another site isn't.
+  // In a text, each address is taken whole: a link to the site is one, a share link to another site isn't. An address
+  // ends at a bracket, a comma or a semicolon, and the sentence's punctuation after it isn't part of it (Codex, 17 Nov 2026).
   expect(namesRefused('<p>Xem <a href="https://cabaymau.vn/x">trang này</a>.</p>')).toBe(true)
   expect(namesRefused('Xem https://example.org/a và https://www.cabaymau.vn/x')).toBe(true)
   expect(namesRefused('<a href="https://example.org/?url=https://cabaymau.vn/x">chia sẻ</a>')).toBe(false)
+  for (const t of ['See (https://cabaymau.vn).', 'https://cabaymau.vn, next', 'https://example.org/a,https://cabaymau.vn/x', 'Xem https://cabaymau.vn.', '[https://cabaymau.vn/x]', 'https://cabaymau.vn; https://example.org'])
+    expect(namesRefused(t), t).toBe(true)
+  for (const t of ['See (https://example.org/x).', 'https://example.org/wiki/Foo_(cabaymau.vn)', 'https://cabaymau.net, next'])
+    expect(namesRefused(t), t).toBe(false)
   // A fact whose own source is a share link stays (Codex, 17 Nov 2026).
   const shared = { found: true, facts: [{ section: 'x', fact: 'independent page', source: 0 }], sources: [src('https://example.org/?url=https://cabaymau.vn/x')] }
   expect(withoutRefused(shared).kept).toBe(shared)
@@ -152,10 +162,24 @@ test('an empty also stays, a refused page cited outside a list stops the step, a
   await mkdir(join(root, 'content'), { recursive: true })
   await writeFile(join(root, 'engine-state/glossary/bad.json'), `{"sources": [{"url": "${REFUSED}"}], `)
   await writeFile(join(root, 'engine-state/glossary/good.json'), JSON.stringify({ found: true, facts: [{ section: 'x', fact: 'a', source: 0 }], sources: [src(REFUSED)] }))
+  // Codex's second read: a reference list's item with no address (a null, an empty object) is kept as it is, a page that
+  // doesn't parse is named, and the pass goes on to the next page.
+  const page = (id: string) => join(root, `content/glossary/${id}`)
+  for (const id of ['a', 'b', 'c', 'd']) await mkdir(page(id), { recursive: true })
+  await writeFile(join(page('a'), 'entity.json'), JSON.stringify({ id: 'a', refs: [null, { url: REFUSED, title: 't' }] }))
+  await writeFile(join(page('b'), 'entity.json'), JSON.stringify({ id: 'b', refs: [{}, { url: REFUSED, title: 't' }] }))
+  await writeFile(join(page('c'), 'entity.json'), `{"id": "c", "refs": [{"url": "${REFUSED}"}`)
+  await writeFile(join(page('d'), 'entity.json'), JSON.stringify({ id: 'd', refs: [{ url: REFUSED, title: 't' }, { url: 'https://a.example/1', title: 'u' }] }))
   const out = await refusedSweep(root)
-  expect(out.failed).toHaveLength(1)
+  expect(out.failed).toHaveLength(2)
   expect(out.failed[0]).toMatch(/^engine-state\/glossary\/bad\.json: /)
+  expect(out.failed[1]).toMatch(/^content\/glossary\/c\/entity\.json: /)
   expect(out.facts.map(f => f.file)).toEqual(['engine-state/glossary/good.json'])
+  expect(out.refs.map(r => r.file)).toEqual(['a', 'b', 'd'].map(id => `content/glossary/${id}/entity.json`))
+  expect(JSON.parse(await readFile(join(page('a'), 'entity.json'), 'utf8')).refs).toEqual([null])
+  expect(JSON.parse(await readFile(join(page('b'), 'entity.json'), 'utf8')).refs).toEqual([{}])
+  // The check stops at a file that doesn't parse, and names it.
+  await expect(filesNamingRefused(root)).rejects.toThrow(/^engine-state\/glossary\/bad\.json: /)
 })
 
 // The chief of staff, 17 Nov 2026: a page left waiting for its text has an owner and a day, as a site's change carries them.
