@@ -203,17 +203,19 @@ export async function makeSpecies(root: string, d: SpeciesDeps, a: SpeciesAsk, o
   if (!kept) { await mkdir(join(root, 'engine-state/species-research'), { recursive: true }); await writeFile(factsFile, `${JSON.stringify(researched, null, 2)}\n`) }
   if (!researched.found) return { id, skipped: `${sci}: no published source describes it` }
   const cited = citeResearch(researched, a.videos ?? [])
-  // With `namedOnly`, a name a Vietnamese page gives that is the scientific name (bare or after "Cá") or one of its English
-  // names isn't a Vietnamese name, and no kind word fails it: a new page leaves it out (17 Nov 2026: "Hyphessobrycon
-  // cochui" from a .vn page would have named Cochu's blue tetra's page). Compared in lower case with spaces folded, so a
-  // doubled or no-break space doesn't let one through (the Codex read, 17 Nov).
-  const fold = (s: string) => s.toLowerCase().replace(/\s+/g, ' ').trim()
+  // With `namedOnly`, a new page opens only under a name a Vietnamese page gives that begins with a kind word fitting the
+  // animal ("Cá …", "Tép …", `kindWord`), and isn't the scientific name after it or one of its English names: the rest
+  // are left out (17 Nov 2026: "Hyphessobrycon cochui" from a .vn page would have named Cochu's blue tetra's page, and
+  // "Jewel Gourami", which no kind word judges, could have named a gourami's). Compared as `kindWord` reads a name, so a
+  // doubled, no-break or zero-width space or a hyphen doesn't let one through (the Codex reads, 17 Nov).
+  const fold = (s: string) => s.normalize('NFC').toLowerCase().replace(/[^\p{L}\p{M}\p{N}]+/gu, ' ').trim()
+  const taxonOf = { order: taxon.order, family: taxon.family, genus: taxon.genus ?? sci.split(' ')[0] }
   const foreign = (n: string) => fold(n).includes(fold(sci)) || cited.enNames.some(e => fold(e) === fold(n))
-  const c = o.namedOnly && !was ? { ...cited, viNames: cited.viNames.filter(n => !foreign(n)) } : cited
+  const c = o.namedOnly && !was ? { ...cited, viNames: cited.viNames.filter(n => !foreign(n) && kindWord(n, taxonOf)?.fits === true) } : cited
   if (!c.facts.length) return { id, skipped: `${sci}: no cited facts` }
   // `namedOnly`: no new page under its scientific name. Without a Vietnamese name that passes the naming rule (the one the
   // page would open under, below), it waits for the Writing Lead, before the page is written.
-  if (o.namedOnly && !was && !c.viNames.some(n => !wrongKind(n, { order: taxon.order, family: taxon.family, genus: taxon.genus ?? sci.split(' ')[0] }))) {
+  if (o.namedOnly && !was && !c.viNames.some(n => !wrongKind(n, taxonOf))) {
     return { id, skipped: `${sci}: no Vietnamese name that passes the naming rule; the page waits for the Writing Lead` }
   }
 

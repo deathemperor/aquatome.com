@@ -171,6 +171,18 @@ test('species-videos: a FishLoft profile makes a new page only under a Vietnames
   expect(await run(['Cá Nanosphronemus  gemma'])).toMatchObject({ g: waits, vi: null })
   expect(await run(['Cá Nanosphronemus gemma'])).toMatchObject({ g: waits, vi: null })
   expect(await run(['Jewel  Gourami'], 'FishLoft', '', ['Jewel Gourami'])).toMatchObject({ g: waits, vi: null })
+  // Nor a zero-width space or a hyphen (the second Codex read, 17 Nov).
+  expect(await run(['Cá Nanosphronemus​ gemma'])).toMatchObject({ g: waits, vi: null })
+  expect(await run(['Cá Nanosphronemus​gemma'])).toMatchObject({ g: waits, vi: null })
+  expect(await run(['Cá Nanosphronemus-gemma'])).toMatchObject({ g: waits, vi: null })
+  // A name no kind word begins isn't a Vietnamese name, whether or not research gave it as English: "Jewel Gourami" from a
+  // .vn page, with the English spelled with a doubled space (so the video's title didn't hold it) or not given at all.
+  expect(await run(['Jewel Gourami'], 'FishLoft', '', ['Jewel  Gourami'])).toMatchObject({ g: waits, vi: null })
+  expect(await run(['Jewel Gourami'])).toMatchObject({ g: waits, vi: null })
+  // Left out before a name that passes, so the page never opens under it.
+  expect(await run(['Jewel Gourami', 'Cá sặc ngọc'])).toMatchObject({ g: { done: 'new page' }, vi: { name: 'Cá sặc ngọc' } })
+  // "Cá" before a borrowed word stays a name, as keepers say "Cá platy".
+  expect(await run(['Cá Jewel Gourami'])).toMatchObject({ g: { done: 'new page' }, vi: { name: 'Cá Jewel Gourami' } })
   // The channel by its address as either reader gives it, whatever its name now.
   expect((await run([], 'Fish Loft Aquatics', 'https://www.youtube.com/channel/UC2pjf0shuwySmKTDsALixBw')).g).toMatchObject(waits)
   expect((await run([], 'Fish Loft Aquatics', 'https://www.youtube.com/@FishLoft')).g).toMatchObject(waits)
