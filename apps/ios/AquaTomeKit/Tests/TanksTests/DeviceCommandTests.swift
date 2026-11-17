@@ -232,29 +232,48 @@ func howAPressLeftEach() {
   #expect(MasterRun.end(went.back[0], now: true, left: left(went, fanOn), role: "fan") == .send)
 }
 
-@Test("A put-back tried again: after a try that may have gone, one that sent nothing never says it wasn't sent")
+@Test("A put-back tried again: after a try that may have gone, or one the app was closed during, one that sent nothing never says it wasn't sent")
 func aPutBackTriedAgain() throws {
   let notKnown = "Không rõ ổ Quạt đã đổi chưa: xem trong Bể của tôi."
   let mayHave = "Ổ Quạt chưa báo đã đổi.", notSent = "Chưa gửi vì bạn đã đăng xuất."
-  // Every run of up to five failed tries, each one that may have reached the device or one that sent nothing.
-  var runs: [[Bool]] = [[]]
-  for _ in 0..<5 { runs = runs.flatMap { r in [r + [true], r + [false]] } }
+  // Every run of up to five tries: one that may have reached the device, one that sent nothing, or one the app was
+  // closed during (kept as it was about to go, then read back).
+  enum Try: CaseIterable { case mayHave, notSent, closed }
+  var runs: [[Try]] = [[]]
+  for _ in 0..<5 { runs = runs.flatMap { r in Try.allCases.map { r + [$0] } } }
   for run in runs {
     var b = MasterRun.Back(command: fanOff)
     var went = false
-    for (n, may) in run.enumerated() {
-      b.failed(may ? mayHave : notSent, mayHaveSent: may, notKnown: notKnown)
-      went = went || may
-      #expect(b.problem == (may ? mayHave : went ? notKnown : notSent), "\(run), try \(n + 1): \(b.problem ?? "")")
+    for (n, t) in run.enumerated() {
+      let before = b.trying()
+      switch t {
+      case .closed:
+        b = try JSONDecoder().decode(MasterRun.Back.self, from: JSONEncoder().encode(b))
+        went = true
+        continue
+      case .mayHave: b.failed(mayHave, mayHaveSent: true, notKnown: notKnown, before: before)
+      case .notSent: b.failed(notSent, mayHaveSent: false, notKnown: notKnown, before: before)
+      }
+      went = went || t == .mayHave
+      #expect(b.problem == (t == .mayHave ? mayHave : went ? notKnown : notSent), "\(run), try \(n + 1): \(b.problem ?? "")")
     }
   }
-  // Kept with the run, and read as nil from a run kept before it.
-  var b = MasterRun.Back(command: fanOff)
-  b.failed(mayHave, mayHaveSent: true, notKnown: notKnown)
-  let kept = try JSONDecoder().decode(MasterRun.Back.self, from: JSONEncoder().encode(b))
-  #expect(kept.mayHaveGone == true)
-  let old = #"{"command":{"device":"\#(plug)","outlet":"switch_3","on":true},"done":false}"#
-  #expect(try JSONDecoder().decode(MasterRun.Back.self, from: Data(old.utf8)).mayHaveGone == nil)
+  // A run kept before `mayHaveGone`, a line from a try before: it may have gone. Never tried: its own line.
+  let old = #"{"command":{"device":"\#(plug)","outlet":"switch_3","on":false},"done":false,"problem":"Không rõ ổ Quạt đã đổi chưa: xem trong Bể của tôi."}"#
+  var kept = try JSONDecoder().decode(MasterRun.Back.self, from: Data(old.utf8))
+  #expect(kept.mayHaveGone == nil)
+  let wasKept = kept.trying()
+  kept.failed(notSent, mayHaveSent: false, notKnown: notKnown, before: wasKept)
+  #expect(kept.problem == notKnown)
+  var fresh = MasterRun.Back(command: fanOff)
+  let wasFresh = fresh.trying()
+  fresh.failed(notSent, mayHaveSent: false, notKnown: notKnown, before: wasFresh)
+  #expect(fresh.problem == notSent && fresh.mayHaveGone == false)
+  // Owed into the next press: its line goes, and whether it may have gone stays.
+  var owed = try JSONDecoder().decode(MasterRun.Back.self, from: Data(old.utf8))
+  owed.command = DeviceCommand(device: plug, outlet: "switch_3", on: true)
+  let next = MasterRun(MasterButton(name: "x", steps: [fanOff]), at: m0, before: { _ in true }, lamp: nil, owed: [owed])
+  #expect(next.back.first?.problem == nil && next.back.first?.mayHaveGone == true)
 }
 
 @Test("A run kept by build 390, before `Back.left`, is read as it was")

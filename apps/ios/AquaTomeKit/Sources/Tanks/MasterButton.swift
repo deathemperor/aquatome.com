@@ -48,12 +48,23 @@ public struct MasterRun: Sendable, Equatable, Codable {
 
     public init(command: DeviceCommand) { self.command = command }
 
-    /// A try to put it back failed, saying `line`, and any of it may have reached the device (`mayHaveSent`) or not.
-    /// After one that may have, a try that sent nothing says the device's state isn't known (`notKnown`), never its own
-    /// line, which would say it wasn't sent (Fable, 18 Nov).
-    public mutating func failed(_ line: String, mayHaveSent: Bool, notKnown: String) {
-      if mayHaveSent { mayHaveGone = true }
-      problem = mayHaveSent || mayHaveGone != true ? line : notKnown
+    /// A try to put it back is about to go: kept so (the app saves the run then), it counts as one that may have gone if
+    /// the app is closed before its answer (Codex, 18 Nov). How it was before, for `failed`.
+    public mutating func trying() -> Bool? {
+      let was = mayHaveGone
+      mayHaveGone = true
+      return was
+    }
+
+    /// A try to put it back failed, saying `line`, and any of it may have reached the device (`mayHaveSent`) or not;
+    /// `before`: whether one before it may have (from `trying`, or `mayHaveGone` for a try that sent nothing). After one
+    /// that may have, a try that sent nothing says the device's state isn't known (`notKnown`), never its own line, which
+    /// would say it wasn't sent (Fable, 18 Nov). Not known (a run kept before `mayHaveGone`) and a line from a try before:
+    /// counted as one that may have gone (Codex, 18 Nov).
+    public mutating func failed(_ line: String, mayHaveSent: Bool, notKnown: String, before: Bool?) {
+      let earlier = before ?? (problem != nil)
+      mayHaveGone = mayHaveSent || earlier
+      problem = mayHaveSent || !earlier ? line : notKnown
     }
   }
 
@@ -88,7 +99,9 @@ public struct MasterRun: Sendable, Equatable, Codable {
     ends = button.minutes.map { now.addingTimeInterval(TimeInterval($0 * 60)) }
     steps = button.steps
     let owedTargets = Set(owed.map(\.command.target))
-    back = owed.map { var b = $0; b.problem = nil; return b } + button.steps.filter { !owedTargets.contains($0.target) }.compactMap { step in
+    // An owed one's line goes; whether a try of it may have gone stays (one kept before `mayHaveGone`, with a line: it
+    // may have).
+    back = owed.map { var b = $0; b.mayHaveGone = b.mayHaveGone ?? (b.problem != nil ? true : nil); b.problem = nil; return b } + button.steps.filter { !owedTargets.contains($0.target) }.compactMap { step in
       if step.isLamp {
         let last = lamp.map { DeviceCommand(device: step.device, on: $0.on, colour: $0.on ? $0.colour : nil) }
         if let last, last.on == step.on, last.colour == step.colour { return nil }

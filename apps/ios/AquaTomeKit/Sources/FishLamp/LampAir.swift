@@ -60,7 +60,7 @@ public final class LampAirCore {
       w.done(.failed)
     }
     cut()
-    peripheral?.stopAdvertising()
+    if peripheral?.bluetooth == .on { peripheral?.stopAdvertising() }
   }
 
   /// Bluetooth's state changed, on `p`.

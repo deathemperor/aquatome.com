@@ -14,12 +14,17 @@ final class FakePeripheral: LampPeripheral {
   private(set) var handed: [String] = []
   private(set) var unanswered: [String] = []
   private(set) var stops = 0
+  /// Stops asked while Bluetooth wasn't on (CoreBluetooth refuses them).
+  private(set) var stopsNotOn = 0
   init(_ bluetooth: LampBluetooth) { self.bluetooth = bluetooth }
   func startAdvertising(_ uuids: [String]) {
     handed += uuids
     unanswered += uuids
   }
-  func stopAdvertising() { stops += 1 }
+  func stopAdvertising() {
+    stops += 1
+    if bluetooth != .on { stopsNotOn += 1 }
+  }
   /// The oldest start not answered yet: the one Bluetooth's next answer is for.
   func answering() -> String? { unanswered.isEmpty ? nil : unanswered.removeFirst() }
 }
@@ -153,6 +158,7 @@ func lampAirEveryOrder() {
       }
       if !handed.contains(id) { #expect(t != nil && t != .cut, "\(order): \(id) never handed, told \(String(describing: t))") }
     }
+    #expect(air.made.allSatisfy { $0.stopsNotOn == 0 }, "\(order): stopped while Bluetooth wasn't on")
   }
   #expect(handedAny > 0)
 }
