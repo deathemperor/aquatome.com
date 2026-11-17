@@ -660,6 +660,7 @@ Written by `pnpm engine check-photos` (2026-11-17), most-read pages first. Rules
 | species/betta-channoides | [photo](https://media.aquatome.com/commons/0e9916ae3d1ecdcc.webp) | subject unsure |
 | species/betta-channoides | [photo](https://media.aquatome.com/seriouslyfish/c26373aa5ac64add.webp) | subject unsure |
 | species/betta-channoides | [photo](https://media.aquatome.com/seriouslyfish/d45a37c63d35e18e.webp) | subject unsure |
+| species/betta-coccina | [photo](https://media.aquatome.com/seriouslyfish/67b536b17cadfe58.webp) | subject unsure |
 | species/betta-dennisyongi | [photo](https://media.aquatome.com/seriouslyfish/345e6cd7adce1030.webp) | subject unsure |
 | species/betta-dennisyongi | [photo](https://media.aquatome.com/seriouslyfish/a5d5d7ac2df82e19.webp) | subject unsure |
 | species/betta-dennisyongi | [photo](https://media.aquatome.com/seriouslyfish/d0107f2d6270cc5b.webp) | subject unsure |
@@ -1030,6 +1031,8 @@ Written by `pnpm engine check-photos` (2026-11-17), most-read pages first. Rules
 | species/rineloricaria-lanceolata | [photo](https://media.aquatome.com/commons/3e54398b7fed11b5.webp) | subject unsure |
 | species/rineloricaria-lanceolata | [photo](https://media.aquatome.com/scotcat/310ea7100b5113a7.webp) | subject unsure |
 | species/rineloricaria-lanceolata | [photo](https://media.aquatome.com/scotcat/420019b7f181f6ce.webp) | subject unsure |
+| species/rineloricaria-teffeana | [photo](https://media.aquatome.com/scotcat/1d2acd9fd550d029.webp) | subject unsure |
+| species/rineloricaria-teffeana | [photo](https://media.aquatome.com/scotcat/394958e275836db1.webp) | subject unsure |
 | species/salminus-brasiliensis | [photo](https://media.aquatome.com/commons/8cfcc41ecef75124.webp) | subject unsure |
 | species/satanoperca-jurupari | [photo](https://media.aquatome.com/commons/ac65977605ff4e68.webp) | subject unsure |
 | species/satanoperca-mapiritensis | [photo](https://media.aquatome.com/seriouslyfish/15235eea4c34640f.webp) | subject unsure |
@@ -1243,7 +1246,6 @@ Written by `pnpm engine check-photos` (2026-11-17), most-read pages first. Rules
 | species/belontia-signata | [photo](https://media.aquatome.com/inaturalist/612365524.webp) | subject unsure |
 | species/belontia-signata | [photo](https://media.aquatome.com/inaturalist/616626828.webp) | subject unsure |
 | species/betadevario-ramachandrani | [photo](https://media.aquatome.com/seriouslyfish/bb75ca7ffdefd8e8.webp) | subject unsure |
-| species/betta-coccina | [photo](https://media.aquatome.com/seriouslyfish/67b536b17cadfe58.webp) | subject unsure |
 | species/betta-enisae | [photo](https://media.aquatome.com/commons/83bdf118b2283f2c.webp) | subject unsure |
 | species/betta-gladiator | [photo](https://media.aquatome.com/seriouslyfish/dafd204d63f65a11.webp) | subject unsure |
 | species/betta-pugnax | [photo](https://media.aquatome.com/inaturalist/125779421.webp) | subject unsure |
@@ -1881,8 +1883,6 @@ Written by `pnpm engine check-photos` (2026-11-17), most-read pages first. Rules
 | species/rineloricaria-parva | [photo](https://media.aquatome.com/commons/b20d1bcd10a98669.webp) | subject unsure |
 | species/rineloricaria-platyura | [photo](https://media.aquatome.com/commons/92e560ca2ee4f14a.webp) | subject unsure |
 | species/rineloricaria-platyura | [photo](https://media.aquatome.com/inaturalist/5587238.webp) | subject unsure |
-| species/rineloricaria-teffeana | [photo](https://media.aquatome.com/scotcat/1d2acd9fd550d029.webp) | subject unsure |
-| species/rineloricaria-teffeana | [photo](https://media.aquatome.com/scotcat/394958e275836db1.webp) | subject unsure |
 | species/sahyadria-chalakkudiensis | [photo](https://media.aquatome.com/seriouslyfish/836f6e1f04f53521.webp) | subject unsure |
 | species/saron-marmoratus | [photo](https://media.aquatome.com/commons/8b04fd6c3166025f.webp) | subject unsure |
 | species/sarotherodon-melanotheron | [photo](https://media.aquatome.com/panitvong/inat-177392984.webp) | subject unsure |
@@ -2095,7 +2095,7 @@ Written by `pnpm engine check-photos` (2026-11-17), most-read pages first. Rules
 
 ## Removed (1493)
 
-"Something else" records a different subject; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
+"Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
@@ -2585,6 +2585,7 @@ Written by `pnpm engine check-photos` (2026-11-17), most-read pages first. Rules
 | species/batrochoglanis-villosus | [photo](https://media.aquatome.com/scotcat/3791e2af24d1623b.webp) | subject dead |
 | species/betta-bellica | [photo](https://media.aquatome.com/commons/c481446684993faf.webp) | subject other |
 | species/betta-channoides | [photo](https://media.aquatome.com/commons/0957138ee905bd5a.webp) | subject other |
+| species/betta-coccina | [photo](https://media.aquatome.com/seriouslyfish/a5bda85c1965f4f3.webp) | subject none |
 | species/betta-falx | [photo](https://media.aquatome.com/commons/881254e03544ced0.webp) | subject unsure; person |
 | species/betta-macrostoma | [photo](https://media.aquatome.com/seriouslyfish/081a24acda117a64.webp) | subject none |
 | species/betta-patoti | [photo](https://media.aquatome.com/bwaquatics/d2cb7c7fc9ac9de2.webp) | subject yes; person |
@@ -2907,6 +2908,8 @@ Written by `pnpm engine check-photos` (2026-11-17), most-read pages first. Rules
 | species/rhinogobius-formosanus | [photo](https://media.aquatome.com/glaser/323e5f01cf4ade53.webp) | subject yes; logo |
 | species/rhinogobius-formosanus | [photo](https://media.aquatome.com/glaser/b23fea3b909584bb.webp) | subject yes; logo |
 | species/rhinogobius-formosanus | [photo](https://media.aquatome.com/glaser/b2ee3e2582925591.webp) | subject yes; logo |
+| species/rineloricaria-teffeana | [photo](https://media.aquatome.com/inaturalist/179491643.webp) | subject unsure; logo |
+| species/rineloricaria-teffeana | [photo](https://media.aquatome.com/scotcat/7a9afdbc339c2cbd.webp) | subject other |
 | species/rita-kuturnee | [photo](https://media.aquatome.com/commons/740ff44d8c2a9094.webp) | subject none |
 | species/rita-kuturnee | [photo](https://media.aquatome.com/commons/9110107fd7147121.webp) | subject none |
 | species/salminus-brasiliensis | [photo](https://media.aquatome.com/commons/d7d6e40b3b086302.webp) | subject dead |
@@ -3078,7 +3081,6 @@ Written by `pnpm engine check-photos` (2026-11-17), most-read pages first. Rules
 | species/bedotia-madagascariensis | [photo](https://media.aquatome.com/commons/e22737f8a2707271.webp) | subject other |
 | species/belodontichthys-dinema | [photo](https://media.aquatome.com/scotcat/3f2840460b45b8bd.webp) | subject dead |
 | species/betadevario-ramachandrani | [photo](https://media.aquatome.com/seriouslyfish/eac466e231c45462.webp) | subject dead |
-| species/betta-coccina | [photo](https://media.aquatome.com/seriouslyfish/a5bda85c1965f4f3.webp) | subject none |
 | species/betta-lehi | [photo](https://media.aquatome.com/seriouslyfish/1e2797f1eae9923c.webp) | subject none |
 | species/betta-picta | [photo](https://media.aquatome.com/commons/c9991caccb80fa57.webp) | subject other |
 | species/betta-pugnax | [photo](https://media.aquatome.com/commons/76ead7216b8a7406.webp) | subject yes; logo |
@@ -3465,8 +3467,6 @@ Written by `pnpm engine check-photos` (2026-11-17), most-read pages first. Rules
 | species/rhinogobius-gigas | [photo](https://media.aquatome.com/inaturalist/29794488.webp) | subject dead |
 | species/rhodeus-amarus | [photo](https://media.aquatome.com/commons/f6e2b8f6d3824150.webp) | subject yes; logo |
 | species/rineloricaria-parva | [photo](https://media.aquatome.com/scotcat/da0bdebc5ec746a6.webp) | subject none; person |
-| species/rineloricaria-teffeana | [photo](https://media.aquatome.com/inaturalist/179491643.webp) | subject unsure; logo |
-| species/rineloricaria-teffeana | [photo](https://media.aquatome.com/scotcat/7a9afdbc339c2cbd.webp) | subject other |
 | species/sahyadria-chalakkudiensis | [photo](https://media.aquatome.com/seriouslyfish/0e6a3ca4ef7e26db.webp) | subject dead |
 | species/sahyadria-chalakkudiensis | [photo](https://media.aquatome.com/seriouslyfish/deb64dadd7c39cee.webp) | subject dead |
 | species/sandelia-capensis | [photo](https://media.aquatome.com/commons/816542a16e11f76d.webp) | subject dead; person |

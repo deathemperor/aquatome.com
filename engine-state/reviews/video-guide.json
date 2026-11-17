@@ -32183,6 +32183,21 @@
   ],
   "vi/guides/youtube-mccSmIuItEY": [
     {
+      "at": "2026-11-17T14:55:51Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.75,
+      "notes": [
+        "\"Ở đây chỉ dựng cho xong cái \\\"khung\\\"\": \"ở đây\" is a bare, translation-like reference. Rewrite it as \"Bước này chỉ dựng...\" or drop the phrase, and drop the scare-quoted \"khung\" too.",
+        "\"Lúc này thêm một lớp mút trắng dày lên trên lớp mút cũ\": \"lúc này\" is a bare reference. Rewrite it as \"Có thể thêm...\" or similar.",
+        "FAQ \"Gỗ làm chân bể không phẳng thì làm sao?\": the sentence \"Có thể thêm thanh giằng ở giữa cho chân bể cứng hơn\" does not answer this question. The video adds the brace to stiffen the stand, and the foam is what evens out twisted wood. Remove that sentence from this answer.",
+        "\"Cát lọc hồ bơi có dùng làm nền bể thủy sinh được không? Được.\": the video does not say pool filter sand suits planted tanks in general. It only says the sand fits this Amazon build. Rephrase the question and answer around this build, or hedge the claim."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
       "at": "2026-11-16T19:12:00Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -35793,6 +35808,22 @@
     }
   ],
   "vi/guides/youtube-sgorNs-99pc": [
+    {
+      "at": "2026-11-17T14:55:20Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.72,
+      "notes": [
+        "\"Với cụm đá nhỏ như ở đây\", \"Ở bể này\" and \"Loại đá lấp lánh dạng tinh thể ở đây\": these bare deictic phrases read as a translation. Rewrite them as a neutral example (\"Ví dụ, với một cụm đá nhỏ…\") or name the thing directly (\"loại đá lấp lánh dạng tinh thể\").",
+        "\"Sỏi thì dễ làm hỏng vẻ hang động chung của bể, đến mức phải lấy cát phủ kín lại\": the video only gives one person's regret that gravel ruined the look, so it isn't a general fact. Hedge it as a personal case (\"có thể thấy sỏi làm mất vẻ hang động\") or drop the generalisation.",
+        "\"Nếu thích dáng lạ, có thể cắt hai tấm hông xiên một góc\": the video gives no reason such as \"dáng lạ\". Say only that the side panels were cut at an angle, as part of the example build.",
+        "\"tạo hiệu ứng rất lạ\": the video calls the up-light effect \"really cool\", not strange. Say \"hiệu ứng đẹp mắt\" or simply \"hắt sáng từ dưới lên\".",
+        "\"Rêu Mini Christmas là một lựa chọn hay, vì nó mọc thành dáng giống lá dương xỉ\": this recommendation is stated too firmly. Rewrite it as the example's choice (\"Ví dụ dùng rêu Mini Christmas, loại mọc dáng giống lá dương xỉ\")."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
     {
       "at": "2026-11-09T22:00:15Z",
       "model": "sonnet",
