@@ -2435,10 +2435,15 @@
     "reason": "[beforeYouBuy] says most neons sold are still wild-caught. The page says 'Cá neon nhìn chung đều là cá sinh sản nhân tạo'. NEW never says the video differs from the page, so the conflict is hidden.; [beforeYouBuy] 'trại cho đẻ cũng có, nhưng cá neon không dễ nuôi trại' repeats the video's wild-caught claim. The page says the opposite, and NEW doesn't mark the difference."
   },
   "jIafXu3eUgI": {
-    "at": "2026-11-07",
+    "at": "2026-11-17",
     "title": "Anubias Barteri (Care Guide & Propagation)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Anubias barteri",
+    "page": "plants/anubias-barteri",
+    "done": "low",
+    "score": 0.72,
+    "reason": "\"Anubias barteri thả nổi được, nhưng nếu để nổi lâu dài thì cây không sống tốt\" is stated as a general rule, which is fine. But the first paragraph is mixed: it moves from the general claim to \"Một người nuôi loài này lâu năm thấy nó không cần phân nền\", and the video states that as fact, not as one keeper's finding.; \"Cũng theo người nuôi này... cứ khoảng 2–3 tuần cây ra một lá mới\" is fine as one keeper's experience. The phrase \"Người này trồng cây trên nền cát\" is a loose reading of the transcript's 'planted in scent', which is a garbled word. The sand claim is not clearly supported."
   },
   "JKaDAn57gUI": {
     "at": "2026-11-07",
@@ -2513,10 +2518,15 @@
     "reason": "fish room tour"
   },
   "JvlqFPiOtus": {
-    "at": "2026-11-07",
+    "at": "2026-11-17",
     "title": "Discover the Misunderstood Banded Leporinus Fish - Leporinus fasciatus",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Leporinus fasciatus",
+    "page": "species/leporinus-fasciatus",
+    "done": "low",
+    "score": 0.55,
+    "reason": "[aquariumSize] \"tức nhỏ hơn đáng kể so với bể 210 × 60 cm\" – the video makes no comparison with the page's tank size; this is the writer's own inference/commentary, not a statement from the video.; [aquariumSize] The video says 400 litres is \"best suited for experienced fishkeepers\"; NEW is fine on this, but it never says plainly how the video differs from the page (400 L vs ~756 L), and that comparison is muddled."
   },
   "jVS-IaZb3Qg": {
     "at": "2026-11-07",
@@ -2527,10 +2537,15 @@
     "reason": "lab tech tour"
   },
   "k0Ns7ulhA2s": {
-    "at": "2026-11-07",
+    "at": "2026-11-17",
     "title": "Add Some Yellow with the Gold Barb, Barbodes semifasciolatus. Species Profile & Care Guide",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Barbodes semifasciolatus",
+    "page": "species/barbodes-semifasciolatus",
+    "done": "low",
+    "score": 0.6,
+    "reason": "[dimorphism] The video says males and females have the same colouration, with only minor size and body-shape differences. The PAGE says \"Cá cái nhìn chung nhạt màu hơn hẳn cá đực\". NEW doesn't say it differs from the page, so the conflict is left unflagged.; [dimorphism] \"Theo quan sát của một người nuôi lâu năm\" presents a general statement from the video as one keeper's observation. The video isn't relaying a keeper's experience here."
   },
   "K3Yo4_0L5QE": {
     "at": "2026-11-07",

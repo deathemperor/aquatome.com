@@ -1,4 +1,44 @@
 {
+  "vi/plants/anubias-barteri#jIafXu3eUgI": [
+    {
+      "at": "2026-11-17T20:35:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.72,
+      "notes": [
+        "\"Anubias barteri thả nổi được, nhưng nếu để nổi lâu dài thì cây không sống tốt\" is stated as a general rule, which is fine. But the first paragraph is mixed: it moves from the general claim to \"Một người nuôi loài này lâu năm thấy nó không cần phân nền\", and the video states that as fact, not as one keeper's finding.",
+        "\"Cũng theo người nuôi này... cứ khoảng 2–3 tuần cây ra một lá mới\" is fine as one keeper's experience. The phrase \"Người này trồng cây trên nền cát\" is a loose reading of the transcript's 'planted in scent', which is a garbled word. The sand claim is not clearly supported.",
+        "\"Đèn yếu thì cây lên chậm hơn một chút. Đèn mạnh thì mặt trên lá có thể bị rêu bám\" is given as a general statement. It is correct per the video, but it follows the 'người này' framing awkwardly.",
+        "\"Trong bể thì hoa thường nở dưới nước nên không thụ phấn được\" is a fair summary of the video.",
+        "\"Dùng kéo đã khử trùng\" and \"đặt kéo cẩn thận\" are fine. But the video describes the care taken about leaves in a specific demonstration, and the NEW text turns it into a general instruction.",
+        "\"Một người nuôi loài này lâu năm thì thấy ngược lại. Vài tháng sau lần tách trước, cây của người này mọc ra ba cây con\" is accurate, but the repeated 'người nuôi lâu năm' framing sounds stiff. The video never says the keeper is long-term.",
+        "The NEW text never says where it differs from the page. The page says the plant sits in the foreground or midground and gives only a short care note. The NEW text does not state that the video's plant is the species Anubias barteri and not the 'Coin Leaf' cultivar.",
+        "The \"không vùi thân rễ\" point is already on the page, but it is not repeated in NEW, so there is no overlap problem."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-17T20:35:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.62,
+      "notes": [
+        "\"Khi trồng xuống nền thì chỉ vùi phần rễ\" repeats the page's notes (don't bury the rhizome); already on the PAGE.",
+        "\"Anubias barteri không cần phân nền... Chất thải của cá... là đủ\" is stated as a general rule, but the video says it as the speaker's own view.",
+        "\"Trong bể không CO2, cứ khoảng 2–3 tuần cây ra một lá mới\": the video says \"regular low tech aquariums\", not specifically no CO2; it also contradicts the page's CO2 \"Thấp\" only loosely. The speaker's single experience is hedged but still given as a figure.",
+        "\"Đèn yếu thì cây lên chậm hơn chút. Đèn mạnh thì rêu dễ bám\" is stated as a rule. The video says \"may cause\" algae, so the claim is firmer than the source.",
+        "\"Nên chọn chỗ cắt để đoạn mới có sẵn một hai rễ khỏe\" is advice generalised from the speaker's choice. The video says nothing about \"một hai rễ\" (it shows one or two roots in specific cuts).",
+        "\"Cây ra hoa là dấu hiệu cây đang khỏe\" and \"cây mẹ thường đâm thêm cây con\" turn one demonstration (three babies) into a general claim (\"thường\").",
+        "\"Cây có thể thả nổi\" is fine, but the video also says it can be attached to driftwood, rocks and decorations; the page already covers tying to rock or wood, so omitting this is fine. The \"Hoa nở dưới nước thì không thụ phấn được\" line is OK.",
+        "Mixed hedging: \"theo kinh nghiệm của một người nuôi\" is used for one claim while others are stated as plain rules. The attribution is inconsistent."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/plants/bacopa-monnieri#hfCkBxPITQc": [
     {
       "at": "2026-11-16T20:55:21Z",
@@ -388,6 +428,46 @@
         "[maintenance] \"Đèn kiểu Chihiros\" - names a brand from the video; not wrong, but placed under maintenance as a rule about lighting with no keeper attribution, and the page says the fish prefer dim light.",
         "[behaviour] \"Một người từng nuôi loài này chưa bao giờ thấy cá ăn tép con\" - the page already says baby shrimp are easily eaten; the video's uncertainty differs from the page and this is not stated plainly as a difference.",
         "[diet] The keeper-attributed statement repeats the page's claim on Cyclops and colour, and the video's list of live foods is not used; the page already covers diet in detail."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/barbodes-semifasciolatus#k0Ns7ulhA2s": [
+    {
+      "at": "2026-11-17T20:37:34Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.55,
+      "notes": [
+        "[behaviour] \"cá black ruby (Pethia nigrofasciata)\" - the video says only \"black rubies\"; the scientific name is added and is not in the video.",
+        "[behaviour] \"cá tứ vân\" - the video says \"tigers\" (tiger barbs); the Vietnamese name is a questionable rendering.",
+        "[behaviour] \"chỉ thỉnh thoảng lướt nhẹ qua lại\" - the video says it hovers in a group in the lower regions, often skimming slightly above the substrate. The tank level (lower regions) is omitted and the claim is garbled.",
+        "[dimorphism] \"khác với chuyện cá cái nhạt màu hơn\" - this contradicts the page by implication but does not say plainly that the video differs from the page (page: females much paler than males; video: same colouration). The difference is not stated clearly.",
+        "[dimorphism] \"cá cái chắc người hơn\" - the video says \"more robust\", but the page already says females are bigger and rounder-bellied, so this is partly repeated.",
+        "[notes] \"có lẽ là con vàng rực nhất\" - the video says \"arguably the brightest yellow community-type freshwater fish\". The wording is vague and sounds like a translation.",
+        "[notes] \"Dạng vàng cũng thuộc nhóm những dạng màu đầu tiên...\" - the page already says the gold form was first bred in the 1960s and is mass-produced, so this overlaps. The video's \"first commercially bred colour morphs\" point is only loosely matched.",
+        "[notes] Omits the video's key point that the gold form isn't found in the wild, which the page already covers; the text is thin and some wording reads stiffly."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-17T20:37:34Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.6,
+      "notes": [
+        "[dimorphism] The video says males and females have the same colouration, with only minor size and body-shape differences. The PAGE says \"Cá cái nhìn chung nhạt màu hơn hẳn cá đực\". NEW doesn't say it differs from the page, so the conflict is left unflagged.",
+        "[dimorphism] \"Theo quan sát của một người nuôi lâu năm\" presents a general statement from the video as one keeper's observation. The video isn't relaying a keeper's experience here.",
+        "[dimorphism] \"dáng người\" is a literal translation of body shape. A hobbyist would write \"dáng thân\" or \"thân hình\".",
+        "[dimorphism] The video's other sexing cue is left out: females are \"more robust\". The PAGE already has the rounder belly and larger size, so this is a small omission.",
+        "[behaviour] \"cá xăm hổ\" is not a natural Vietnamese name for tiger barb. \"Barb ruby đen\" also reads as a direct translation of black ruby barb.",
+        "[behaviour] \"hiền và dễ thả chung nhất\" is stronger than the video's \"one of the more peaceful and community-friendly barb species\". It overlaps with the PAGE's \"rất hiền... ứng viên lý tưởng cho bể cộng đồng\".",
+        "[behaviour] \"hơn nhiều so với\" overstates the video's \"far less active\". Also, \"tầng dưới... lướt trên nền\" partly repeats the PAGE's \"sát nền đáy\" and the quickFacts swimming level.",
+        "[notes] \"dạng màu nuôi đại trà đầu tiên\" paraphrases \"first commercially bred colour morphs\" loosely. \"đại trà\" is not quite \"commercially bred\"."
       ],
       "attempt": "first",
       "kept": false
@@ -805,6 +885,46 @@
         "[diet] \"Một người nuôi thấy đàn cá của mình rất mê trứng Artemia đã tách vỏ\" - that is a keeper experience and is fine. \"trùn chỉ\" for tubifex is fine. The page already has small dry food and live or frozen food, so repetition is minor.",
         "[dimorphism] \"Cá đực thường hoạt bát hơn cá cái\" - the video says males show higher \"conductivity and vitality\", a garbled transcript, so this is shaky. The page already says male anal fin rays are longer, so the extension is partly repeated; the red colouring and the straight female fin are new.",
         "Nothing is said plainly about where the video differs from the page, such as the range or the colour of the anal fin."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/leporinus-fasciatus#JvlqFPiOtus": [
+    {
+      "at": "2026-11-17T20:36:18Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.55,
+      "notes": [
+        "[aquariumSize] \"tức nhỏ hơn đáng kể so với bể 210 × 60 cm\" – the video makes no comparison with the page's tank size; this is the writer's own inference/commentary, not a statement from the video.",
+        "[aquariumSize] The video says 400 litres is \"best suited for experienced fishkeepers\"; NEW is fine on this, but it never says plainly how the video differs from the page (400 L vs ~756 L), and that comparison is muddled.",
+        "[behaviour] \"Đến cả lứa cá bảy màu loại thải ... cũng không bị nó làm gì\" – the video says cull guppies coexist; fine, but the 'lứa' (batch) wording is loose.",
+        "[behaviour] \"Cá cũng hay chui vào đồ trang trí và chỗ trốn\" – in the video this is said in the plants/decor section, not about tank mates; misplaced under behaviour, and 'chui vào' slightly overstates 'take regular advantage of'.",
+        "[diet] \"đoán là trong thức ăn của chúng nên có thêm chút rau\" – the video says they 'thrive on a diet that includes some plant matter'; NEW turns it into a guess about adding vegetables. Also the page's diet section already says they eat algae and fruit/seeds, so it is only partly new.",
+        "[notes] \"gần 30 năm\" – the video says '30-plus years' (over 30), so 'nearly 30' is inaccurate.",
+        "[maintenance] \"khỏe và rất dễ sống\" – video says robust and extremely hardy; OK. But the plant-eating point (\"phá sạch cây\") overlaps with the page's 'cá có thể ăn cây', so it adds little new.",
+        "[behaviour] \"cá hồng mỹ nhân (Denison)\" – Denison barb is commonly called cá hồng mỹ nhân, but 'cá đòng đong' for barb and 'cá mập cảnh' for sharks are unnatural or unclear Vietnamese; the video does not name the species it calls 'sharks'."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-17T20:36:18Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.5,
+      "notes": [
+        "[behaviour] \"cá heo (Botia)\" is a wrong translation: Botia are loaches (cá chạch), 'cá heo' means dolphin or a different fish.",
+        "[behaviour] \"cá dạng shark\" is a literal, awkward rendering; the video says 'sharks' (likely cá mập/cá da trơn dạng shark), and the wording reads as a translation.",
+        "[behaviour] \"Bể chật hoặc thả quá dày thì cá căng thẳng\" is stated as a general rule, but in the video it is the keeper's concession ('could stress them out'). It is also close to the page's claim that they are aggressive when kept in small numbers.",
+        "[aquariumSize] \"bể ít nhất phải 400 lít\" conflicts with the page's 210×60 cm tank (~756 L). The video differs from the page and NEW does not say so plainly. 'phải' is also firmer than the video's 'best suited'.",
+        "[diet] \"Cá ăn cây nhanh như vậy nên có lẽ chúng cần có rau trong thức ăn\" is a stand-alone sentence with no keeper attribution, and it is an inference rather than a fact. The page already says they eat algae and fruit, and that the fish may eat plants.",
+        "[maintenance] \"Cá khỏe và rất chịu đựng\" is stated flatly as a fact. In the video it is the keeper's view ('robust and extremely hardy'), so it should be attributed to the keeper.",
+        "[maintenance] \"Đừng trồng cây sống\" overlaps with the page, which says plants are possible but may get eaten. NEW does not say that the video contradicts the page here.",
+        "[notes] The 'so-called villain' reputation text is fine. \"cá nuôi chung\" and \"cá bảy màu loại\" read awkwardly; 'cá bảy màu loại thải' would be more natural."
       ],
       "attempt": "first",
       "kept": false
