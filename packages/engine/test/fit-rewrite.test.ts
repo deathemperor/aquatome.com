@@ -1207,6 +1207,10 @@ test('code cuts the sentence that names the product as a reader sees it, not a l
   const cases = [
     { html: '<p>Xem <a href="https://shop.vn/easygreen">bài này</a>. Dùng Easy Green cho cây. Cá sống theo đàn.</p>', product: 'Easy Green', gone: 'Dùng Easy Green cho cây.', left: '<p>Xem <a href="https://shop.vn/easygreen">bài này</a>. Cá sống theo đàn.</p>' },
     { html: '<p>Đây là loài one and only của vùng. Dùng Dr. Tim\'s One &amp; Only. Cá sống theo đàn.</p>', product: 'Dr. Tim\'s One & Only', gone: 'Dùng Dr. Tim\'s One & Only.', left: '<p>Đây là loài one and only của vùng. Cá sống theo đàn.</p>' },
+    // The table's "Easy Carbo" inside Co-Op's "Easy Carbon" isn't on the page: the page's "EasyCarbo" is.
+    { html: '<p>Dùng Easy Carbon của hãng khác. Thêm EasyCarbo mỗi tuần. Cá sống theo đàn.</p>', product: 'Easy Carbo', gone: 'Thêm EasyCarbo mỗi tuần.', left: '<p>Dùng Easy Carbon của hãng khác. Cá sống theo đàn.</p>' },
+    // A list item's end doesn't run into the next one's start ("sạchMelafix").
+    { html: '<ul><li>Nước sạch</li><li>Melafix trị vết thương.</li></ul><p>Cá sống theo đàn.</p>', product: 'API Melafix', gone: 'Melafix trị vết thương.', left: '<ul><li>Nước sạch</li></ul><p>Cá sống theo đàn.</p>' },
   ]
   for (const c of cases) {
     const root = await content()

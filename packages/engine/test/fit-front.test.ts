@@ -134,4 +134,8 @@ test('the pages with a foreign product share the front with the lane, one for on
   expect(ahead.order.map(key)).toEqual([key(m1), key(m2), key(m3), key(l1), key(l2), key(other)])
   expect([...ahead.mend].sort()).toEqual([...shut.mend].sort())
   expect(frontPlan({ ...list, products: 'ahead' }, ran, ranked, held, () => false).order.map(key)).toEqual([key(l1), key(l2), key(other), key(m1), key(m2), key(m3)])
+  // A product page the lane takes comes once, in the lane, and is a product page all the same (Codex's read of #1578).
+  const laneProduct = frontPlan({ ...list, products: 'ahead' }, ran, ranked, held, p => product(p) || p.id === 'l1')
+  expect(laneProduct.order.map(key)).toEqual([key(m1), key(m2), key(m3), key(l1), key(l2), key(other)])
+  expect([...laneProduct.products].sort()).toEqual([key(l1), key(m1), key(m2), key(m3)].sort())
 })

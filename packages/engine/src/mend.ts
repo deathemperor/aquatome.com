@@ -6,7 +6,7 @@ import { hedgesAsk, hedgesLost, HEDGES_SCHEMA, type HedgePair } from './hedges'
 import { VI_STYLE } from './phrases'
 import { givesDose, withTanks } from './round'
 import { sanitizeHtml } from './sanitize'
-import { blockOf, plain, quoted, sentences, splice } from './sentences'
+import { blockOf, plain, quoted, sentences, splice, type Piece } from './sentences'
 import { norm } from './reader'
 
 /**
@@ -115,19 +115,30 @@ const CUTTABLE: readonly FitCheck[] = ['product', 'shop', 'price']
  * findings no sentence it takes may stand next to, nor be (a dose, its caution, a lethal level: cut of the product's name,
  * a dose beside it would read as a dose of whatever came before; the readers of #1578, 17 Nov 2026). Such a sentence stays
  * for its page's next try, and the others go; nothing when one of those findings quotes no single sentence of the part, as
- * code can't tell where it stands. Nor does code cut a heading, a sentence whose block would keep only its number, or one
- * the next line points back at (the readers of #1578, 17 Nov 2026): each stays for a writer or a person.
+ * code can't tell where it stands. Nor does code cut a heading, a sentence whose block would keep only its number, the
+ * last line under a heading, or one the next line points back at (the readers of #1578, 17 Nov 2026): each stays for a
+ * writer or a person.
  */
+/**
+ * Each sentence (from 0) that holds a quote's words in a row, whole words, as `cutWhole` finds them: the last word may be
+ * the English plural ("Wonder Shells" for the table's "Wonder Shell"), and "Easy Carbo" isn't in "Easy Carbon".
+ */
+export function holding(pieces: Piece[], quote: string): number[] {
+  // A curly apostrophe is a straight one ("Dr. Tim’s"), and a price's sign is part of it: "$12" isn't the "12" of "12 cm"
+  // (Codex's read of #1578).
+  const straight = (s: string) => s.replace(/[’‘`]/g, "'")
+  const x = words(straight(quote))
+  const sign = /[$€£¥₫]/u.test(quote) ? norm(straight(quote)) : ''
+  return x.length ? pieces.filter(p => p.sentence).flatMap((p, i) => { const w = words(straight(p.html)); return w.some((_, k) => x.every((y, j) => w[k + j] === y || (j === x.length - 1 && /^[a-z]+$/.test(y) && w[k + j] === `${y}s`))) && (!sign || norm(straight(plain(p.html))).includes(sign)) ? [i] : [] }) : []
+}
+
 export function cutWhole(html: string, fs: readonly { check: FitCheck; quote?: string }[], o: { near?: readonly { quote?: string }[] } = {}): { html: string; gone: string[] } | undefined {
   const pieces = sentences(html)
   const n = pieces.filter(p => p.sentence).length
   // Each sentence that holds the quote's words in a row, whole words (Astra's read: "ADA" matched in "Canada" cut the
   // wrong sentence and left the product); a quote across two sentences is the writer's, not cut here. The last word may
   // be the English plural: the market table's "Wonder Shell" is "Wonder Shells" on five pages (17 Nov 2026).
-  const holds = (quote: string) => {
-    const x = words(quote)
-    return x.length ? pieces.filter(p => p.sentence).flatMap((p, i) => { const w = words(p.html); return w.some((_, k) => x.every((y, j) => w[k + j] === y || (j === x.length - 1 && /^[a-z]+$/.test(y) && w[k + j] === `${y}s`))) ? [i] : [] }) : []
-  }
+  const holds = (quote: string) => holding(pieces, quote)
   const near = (o.near ?? []).map(f => (f.quote ? holds(f.quote) : []))
   if (near.some(x => !x.length)) return undefined
   const close = new Set(near.flat())
@@ -141,15 +152,21 @@ export function cutWhole(html: string, fs: readonly { check: FitCheck; quote?: s
   const block = blockOf(pieces)
   let tag = ''
   const heading = pieces.flatMap(p => { if (p.sentence) return [/^h[1-6]$/.test(tag)]; for (const m of p.html.matchAll(/<(h[1-6]|p|li|td|th|dt|dd|div|blockquote|figcaption)\b/gi)) tag = m[1]!.toLowerCase(); return [] })
-  // A line that points back ("Thuốc này…", "Loại đó…", "Chúng…") would point at nothing: the sentence before it stays.
-  const points = (i: number) => /^(?:\S+\s+){0,2}(?:này|đó|ấy)(?=[\s,.:;!?]|$)|^(?:chúng|nó|đây)(?=[\s,.:;!?]|$)/iu.test(seen[i] ?? '')
+  // A line that points back would point at nothing: the sentence before it stays. "này", "đó" or "ấy" anywhere in it ("Hai
+  // sản phẩm này…", "Với loại đèn này…"), or a start that counts or names what came before ("Cả ba…", "Hai…", "Chúng…").
+  // Keeping a sentence is the cheaper mistake (Codex's read of #1578).
+  const points = (i: number) => /(?<![\p{L}\p{N}])(?:này|đó|ấy)(?![\p{L}\p{N}])|^(?:chúng|nó|đây|cả|hai|ba|bốn)(?![\p{L}\p{N}])/iu.test(seen[i] ?? '')
+  // Each sentence's section, by the headings before it: a section left with its heading alone isn't a section.
+  let sections = 0, head = -1
+  const section = texts.map((_, i) => { if (heading[i] && block[i] !== head) { sections++; head = block[i]! } return sections })
   const gone = new Set(fs.filter(f => CUTTABLE.includes(f.check) && f.quote).flatMap(f => holds(f.quote!)).filter(i => !heading[i] && !close.has(step(i, -1)) && !close.has(i) && !close.has(step(i, 1))))
   for (let changed = true; changed;) {
     changed = false
     for (const i of gone) {
       const after = step(i, 1)
       const rest = texts.map((_, j) => j).filter(j => j !== i && block[j] === block[i] && !gone.has(j))
-      if ((after < n && !gone.has(after) && points(after)) || (rest.length && rest.every(bare))) { gone.delete(i); changed = true }
+      const kept = texts.map((_, j) => j).filter(j => j !== i && section[j] === section[i] && !heading[j] && !bare(j) && !gone.has(j))
+      if ((after < n && !gone.has(after) && points(after)) || (rest.length && rest.every(bare)) || (section[i]! > 0 && !kept.length)) { gone.delete(i); changed = true }
     }
   }
   if (!gone.size || gone.size >= n) return undefined

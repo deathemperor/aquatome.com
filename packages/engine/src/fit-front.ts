@@ -77,7 +77,10 @@ export function frontPlan<P extends { lang: string; kind: string; id: string }>(
   const shared = list.products === 'ahead' ? [...products, ...lane]
     : Array.from({ length: Math.max(lane.length, products.length) }, (_, i) => [lane[i], products[i]]).flat().filter((p): p is P => !!p)
   const rest = isHeld && !list.lane ? [] : orderFront(list, ranked).filter(p => !first.has(keyOf(p)) && !waits(p))
-  return { held: isHeld, order: [...shared, ...rest], lane: inLane, mend: first, products: new Set(products.map(keyOf)) }
+  // A product page the lane takes is a product page all the same: its cut falls back to code as the others' does (Codex's
+  // read of #1578). The lane's order only keeps it from coming twice.
+  const named = list.lane && list.products ? [...products, ...lane.filter(p => product(p) && !waits(p))] : []
+  return { held: isHeld, order: [...shared, ...rest], lane: inLane, mend: first, products: new Set(named.map(keyOf)) }
 }
 
 /** The run's outcomes without the lane's pages: what goes on file as the run the hold waits on. */

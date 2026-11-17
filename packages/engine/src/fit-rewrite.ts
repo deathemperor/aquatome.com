@@ -8,7 +8,7 @@ import { dealerShelf, FIT_TITLE, fitDue, fitFindings, fitKey, fitText, type FitC
 import { rewriteForReader } from './for-reader'
 import { METRIC_KINDS } from './metric'
 import { mentions, PRODUCTS } from './market'
-import { batchHalf, cutWhole, goesWhole, mendPart, words as mendWords } from './mend'
+import { batchHalf, cutWhole, goesWhole, holding, mendPart, words as mendWords } from './mend'
 import { fixedParts, loadPages, type Page } from './pages'
 import { piece } from './pieces'
 import { fieldOf as partOf, norm, type ReaderFinding } from './reader'
@@ -139,9 +139,11 @@ const rowOf = (f: { product?: string; quote?: string }) => {
 const spelled = <F extends { check: FitCheck; product?: string; quote?: string }>(f: F, html: string): F => {
   const x = f.check === 'product' ? rowOf(f) : undefined
   if (!x) return f
-  const text = visible(html)
-  if (f.quote && norm(text).includes(norm(f.quote))) return f
-  const m = text.match(new RegExp(x.match.source, 'iu'))
+  // Whole words within one sentence, as the cut finds them ("Easy Carbo" isn't in "Easy Carbon"), and each sentence's own
+  // text apart, so a list item's or a cell's end doesn't run into the next one's start (the readers of #1578).
+  const pieces = sentences(html)
+  if (f.quote && holding(pieces, f.quote).length) return f
+  const m = pieces.filter(p => p.sentence).map(p => visible(p.html)).join('\n').match(new RegExp(x.match.source, 'iu'))
   return m ? { ...f, quote: m[0] } : f
 }
 
@@ -291,7 +293,9 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
               mine.push(g)
               told.set(g, figures)
             }
-            const now = [...pass.filter(f => !units.includes(f)), ...mine]
+            // On a product page each product finding quotes the page's own spelling, for the writer as for code: a part whose
+            // only finding is the table's "API Melafix" on a page saying "Melafix" was skipped, its quote not in the text.
+            const now = [...pass.filter(f => !units.includes(f)), ...mine].map(f => (product ? spelled(f, before) : f))
             if (!now.some(f => f.check !== 'words')) continue
             // Each figure once: the check's own finding on "132 lít" and the model's on its sentence mend one figure.
             const seen = new Set<string>()
@@ -325,7 +329,7 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
               const near = (f: FitFinding) => goesWhole(f.check) && f.check !== 'source' && f.check !== 'elsewhere'
               const shown = norm(visible(before))
               const beside = product ? [...[...now, ...fitFindings(p, state[key]).filter(f => !MENDED.includes(f.check) && fieldIn(fitText(p).parts, f) === field)].filter(near), ...(state[key]?.doses ?? []).filter(d => shown.includes(norm(d.quote)))] : []
-              const plain = !faq && (product ? !r.stranded.length && !r.follows.length : !mine.length && !r.whole.length && !now.some(f => goesWhole(f.check))) ? cutWhole(before, product ? now.map(f => spelled(f, before)) : now, product ? { near: beside } : {}) : undefined
+              const plain = !faq && (product ? !r.stranded.length && !r.follows.length : !mine.length && !r.whole.length && !now.some(f => goesWhole(f.check))) ? cutWhole(before, now, product ? { near: beside } : {}) : undefined
               if (!plain) { report.notKept.push(`${key} ${field} (${why})`); continue }
               next = plain.html
               gone = plain.gone

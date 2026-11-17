@@ -522,3 +522,18 @@ test('a plain cut leaves a heading, a block that would keep only its number, and
   // A pointing line that goes too takes nothing with it.
   expect.soft(cutWhole('<p>Trị ký sinh bằng ParaCleanse. ParaCleanse này bán ở Mỹ. Cá sống theo đàn.</p>', Q('ParaCleanse'))?.html).toBe('<p>Cá sống theo đàn.</p>')
 })
+
+// Codex's read of #1578, 17 Nov 2026, on today's guides: "Hai sản phẩm này…", "Cả ba…" and "Với loại đèn này…" were left
+// pointing at a cut sentence; "$12" took "12 cm" with it; "Dr. Tim’s" with a curly apostrophe wasn't found; and a section
+// lost its only line, leaving its heading over nothing.
+test('a plain cut keeps a sentence any pointing line follows, finds a price with its sign and a name with either apostrophe, and empties no section', () => {
+  const Q = (quote: string) => [{ check: 'product' as const, quote }]
+  expect.soft(cutWhole('<p>Để giữ pH cao, trộn san hô vụn vào nền. Sau đó bổ sung khoáng bằng Wonder Shells hoặc Seachem Equilibrium. Hai sản phẩm này cung cấp canxi và magiê.</p>', Q('Wonder Shell'))).toBeUndefined()
+  expect.soft(cutWhole('<p>Dùng Maracyn, Melafix và Pimafix. Cả ba dùng chung với nhau đều an toàn. Cá sống theo đàn.</p>', Q('Maracyn'))).toBeUndefined()
+  expect.soft(cutWhole('<p>Đèn chỉnh được độ sáng như Finnex là tốt nhất. Với loại đèn này, cây ít bị tảo. Cá sống theo đàn.</p>', Q('Finnex'))).toBeUndefined()
+  expect.soft(cutWhole('<p>Dùng Easy Green giá $12. Cá dài tối đa 12 cm. Cá sống theo đàn. Bể cần nắp.</p>', [{ check: 'product', quote: 'Easy Green' }, { check: 'price', quote: '$12' }])?.html).toBe('<p>Cá dài tối đa 12 cm. Cá sống theo đàn. Bể cần nắp.</p>')
+  expect.soft(cutWhole('<p>Đây là loài one and only của vùng. Dùng Dr. Tim’s One &amp; Only. Cá sống theo đàn. Bể cần nắp.</p>', Q('Dr. Tim\'s One & Only'))?.html).toBe('<p>Đây là loài one and only của vùng. Cá sống theo đàn. Bể cần nắp.</p>')
+  expect.soft(cutWhole('<h3>Trị nấm</h3><p>Dùng Maracyn.</p><h3>Chăm sóc</h3><p>Cá sống theo đàn. Bể cần nắp.</p>', Q('Maracyn'))).toBeUndefined()
+  // A section with a line left keeps its heading over it.
+  expect.soft(cutWhole('<h3>Trị nấm</h3><p>Dùng Maracyn. Cách ly cá bệnh.</p><h3>Chăm sóc</h3><p>Cá sống theo đàn.</p>', Q('Maracyn'))?.html).toBe('<h3>Trị nấm</h3><p>Cách ly cá bệnh.</p><h3>Chăm sóc</h3><p>Cá sống theo đàn.</p>')
+})
