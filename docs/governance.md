@@ -477,6 +477,19 @@ The layers above still check the result.
   runs first in its source's next run, with no backoff. A usage limit uses none of its 3 attempts, and 3 pages in a
   row failing on the network stop the source, so an outage doesn't use up every page's attempts. Found with the
   above: after one browser crash (2026-10-29), 115 Seriously Fish pages waited behind hundreds of new ones.
+- **Refused sources.** A site refused as a source for its quality (`REFUSED_SITES`, `packages/engine/src/cycle-only.ts`;
+  cabaymau.vn since 16 Nov 2026) is read by no research, and its pages leave everything the engine keeps or shows
+  (`packages/engine/src/refused-sources.ts`):
+  - every research step drops an item that cites one of its pages, whatever else it lists, before anything reads it;
+  - every sweep does the same to the research kept and drops its pages from every page's reference list, in every
+    language, so a run on older code can't bring them back at its push;
+  - the real-content test fails if any page or kept research names one, but for a page whose text cites it by number,
+    left waiting with its owner and day (`WAITING`).
+  - **The list is a switch for the whole site.** One more name drops that site's facts everywhere at the next push, and
+    the test then fails on main for every page still resting on them, stopping every push behind it. So a site is added
+    only in a change that carries the pass's result (`pnpm engine refused-sweep`, its files committed), the count of
+    facts and pages it took out, and each page it leaves waiting with its owner and day. Nobody adds a name alone (the
+    chief of staff, 17 Nov 2026).
 - **Daily ceiling.** Each step may spend only so many dollars on the model in a day, counted from the cost log before
   every call (`ceiling.ts`). The amounts are in `packages/engine/src/ceilings.json`, a table a period, with the clock
   a day runs on. A step the file doesn't name has the small ceiling, never none. The gate and moderation have none, and

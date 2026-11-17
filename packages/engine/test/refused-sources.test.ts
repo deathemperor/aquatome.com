@@ -2,7 +2,7 @@ import { expect, test } from 'vitest'
 import { copyFile, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { onRefused, refsWithoutRefused, refusedSweep, withoutRefused } from '../src/refused-sources'
+import { onRefused, refsWithoutRefused, refusedSweep, WAITING, withoutRefused } from '../src/refused-sources'
 import { sweep } from '../src/sweep'
 
 const REFUSED = 'https://cabaymau.vn/cach-tha-ca-moi-mua-vao-be-2/'
@@ -125,4 +125,14 @@ test('an empty also stays, a refused page cited outside a list stops the step, a
   expect(out.failed).toHaveLength(1)
   expect(out.failed[0]).toMatch(/^engine-state\/glossary\/bad\.json: /)
   expect(out.facts.map(f => f.file)).toEqual(['engine-state/glossary/good.json'])
+})
+
+// The chief of staff, 17 Nov 2026: a page left waiting for its text has an owner and a day, as a site's change carries them.
+test('every page left waiting names why, its owner and a day', () => {
+  for (const [file, w] of Object.entries(WAITING)) {
+    expect(file).toMatch(/^content\/[^/]+\/[^/]+\/[a-z]+\.json$/)
+    expect(w.why.trim(), file).not.toBe('')
+    expect(w.owner.trim(), file).not.toBe('')
+    expect(w.day, file).toMatch(/^\d{4}-\d{2}-\d{2}$/)
+  }
 })

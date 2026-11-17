@@ -66,12 +66,13 @@ export const refsWithoutRefused = <R extends { url: string }>(refs: R[]): R[] =>
 export const FACTS_DIRS = ['topics', 'glossary', 'materials', 'breeds', 'products', 'species-research'] as const
 
 /**
- * Pages whose text cites its sources by number, so a refused page can leave its list only with its text: each with why, and
- * who takes it out. The real-content check holds every other page to no refused page anywhere in it, and this one to still
- * having one, so it leaves this list the day its text is fixed.
+ * Pages whose text cites its sources by number, so a refused page can leave its list only with its text: each with why,
+ * who takes it out and the day they said (cycle-only.ts REFUSED_SITES: a site is added only with these). The real-content
+ * check holds every other page to no refused page anywhere in it, and these to still having one, so each leaves this list
+ * the day its text is fixed.
  */
-export const WAITING: Record<string, string> = {
-  'content/materials/lua/entity.json': 'the driftwood page\'s text cites the refused page as [1] in 21 sentences, and a person fixed that text (bodyFixed): the Writing Lead re-cites it by hand, Wed 18 Nov (the chief of staff, 17 Nov 2026)',
+export const WAITING: Record<string, { why: string; owner: string; day: string }> = {
+  'content/materials/lua/entity.json': { why: 'the driftwood page\'s text cites the refused page as [1] in 21 sentences, and a person fixed that text (bodyFixed): it is re-cited by hand (the chief of staff, 17 Nov 2026)', owner: 'the Writing Lead', day: '2026-11-18' },
 }
 
 const indentOf = (raw: string) => raw.match(/^\{\n( +)/)?.[1]?.length ?? 2

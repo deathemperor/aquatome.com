@@ -21,9 +21,16 @@ const COPY_HOSTS = [
  * Sites refused as a source for anything new, whatever the page (the chief of staff, 16 Nov 2026): cabaymau.vn gave a guide
  * clinics no page named, a fish bag filled the wrong way round (a third oxygen), and a driftwood page that copies another
  * shop's and turns two of its meanings over. An entry already on a buying list stays (nothing drops a kept entry); research
- * for a new list, and a price check (`researchedPage`), no longer read the site. Guides drop a page of it that research cites
- * (topics.ts citedFacts), and so do glossary terms (glossary-entry.ts offLimits); the other kinds' pages don't check what
- * they cite yet.
+ * for a new list, and a price check (`researchedPage`), no longer read the site. Every kind's research drops a page of it
+ * that research cites, with the facts resting on it, and every sweep drops them from what is kept and from every page's
+ * reference list (refused-sources.ts, 17 Nov 2026).
+ *
+ * The list is a switch for the whole site (the chief of staff, 17 Nov 2026). Every research step and every sweep reads it
+ * (refused-sources.ts), and a cycle sweeps at each push: one more name here drops that site's facts and references
+ * everywhere at the next push, and the real-content check then fails, on main, for every page still resting on them,
+ * which stops every push behind it. So a site is added only in a change that carries the pass's result
+ * (`pnpm engine refused-sweep`, its files committed), the count of facts and pages it took out, and each page it leaves
+ * waiting (refused-sources.ts WAITING) with its owner and day. Nobody adds a name alone: such a change fails its own tests.
  */
 export const REFUSED_SITES = ['cabaymau.vn']
 
