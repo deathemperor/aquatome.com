@@ -1160,14 +1160,25 @@ test('on a page with a foreign product, code doesn\'t cut beside a line that no 
       ],
       said: [{ n: 1, vi: '' }, { n: 2, vi: 'Pha 5 ml cho 40 lít nước mỗi ngày.' }], review: { score: 0.9, follows: [] },
     },
+    {
+      // A finding this step doesn't mend still marks its sentence a dose (the readers of #1578).
+      name: 'a dose only its purpose finding names',
+      html: '<p>Với Seachem Paraguard thì dùng như sau. Pha 5 ml cho 40 lít nước mỗi ngày. Cá sống theo đàn.</p>',
+      fs: (p: Page) => [
+        { check: 'product' as const, part: part(p, P), quote: 'Seachem Paraguard', why: 'a US medicine' },
+        { check: 'dose-purpose' as const, part: part(p, P), quote: 'Pha 5 ml cho 40 lít nước mỗi ngày.', why: 'a dose with no purpose' },
+      ],
+      said: [{ n: 1, vi: '' }], review: { score: 0.5, follows: [] },
+    },
   ]
+  // Each case on its own: one failing doesn't hide the next.
   for (const c of cases) {
     const s = await setUp(c.html, c.fs)
     const keys = new Set([fitKey(s.p)])
     const r = await fitRewrite(s.root, [s.p], s.state, { llm: writer(c.said, c.review), now: () => new Date() }, { limit: 5, mend: keys, products: keys })
-    expect([r.rewritten, r.gone], c.name).toEqual([[], []])
-    expect(r.notKept, c.name).toHaveLength(1)
-    expect(await readFile(s.file, 'utf8'), c.name).toBe(s.before)
+    expect.soft([r.rewritten, r.gone], c.name).toEqual([[], []])
+    expect.soft(r.notKept, c.name).toHaveLength(1)
+    expect.soft(await readFile(s.file, 'utf8'), c.name).toBe(s.before)
   }
   // A dose two sentences away from the product's is no neighbour of it: the product's sentence goes, and the dose's waits.
   // A second mention next to the dose waits with it, for the page's next try.
@@ -1179,6 +1190,44 @@ test('on a page with a foreign product, code doesn\'t cut beside a line that no 
   const r = await fitRewrite(far.root, [far.p], far.state, { llm: writer([{ n: 1, vi: 'Trị nấm bằng thuốc.' }, { n: 3, vi: 'Pha 5 ml cho 40 lít nước mỗi ngày.' }], { score: 0.9, follows: [] }), now: () => new Date() }, { limit: 5, mend: keys, products: keys })
   expect(r.gone).toEqual(['vi/species/danio-margaritatus sections.habitat:seriouslyfish sentence 1 went whole: "Trị nấm bằng Seachem Paraguard."'])
   expect(JSON.parse(await readFile(far.file, 'utf8')).sections['habitat:seriouslyfish']).toBe('<p>Cá sống theo đàn. Pha 5 ml cho 40 lít nước mỗi ngày. Seachem Paraguard bán ở Mỹ.</p>')
+})
+
+// The readers of #1578, 17 Nov 2026: code finds the product's words in what a reader sees, keeping the finding's own quote
+// where the text shows it: not "easygreen" in a link's address, nor "one and only" in the sentence before the product.
+test('code cuts the sentence that names the product as a reader sees it, not a link\'s address or a phrase its pattern also takes', async () => {
+  const cases = [
+    { html: '<p>Xem <a href="https://shop.vn/easygreen">bài này</a>. Dùng Easy Green cho cây. Cá sống theo đàn.</p>', product: 'Easy Green', gone: 'Dùng Easy Green cho cây.', left: '<p>Xem <a href="https://shop.vn/easygreen">bài này</a>. Cá sống theo đàn.</p>' },
+    { html: '<p>Đây là loài one and only của vùng. Dùng Dr. Tim\'s One &amp; Only. Cá sống theo đàn.</p>', product: 'Dr. Tim\'s One & Only', gone: 'Dùng Dr. Tim\'s One & Only.', left: '<p>Đây là loài one and only của vùng. Cá sống theo đàn.</p>' },
+  ]
+  for (const c of cases) {
+    const root = await content()
+    const file = join(root, 'content/species', ID, 'vi.json')
+    const vi = JSON.parse(await readFile(file, 'utf8'))
+    vi.sections['habitat:seriouslyfish'] = c.html
+    await writeFile(file, JSON.stringify(vi, null, 2))
+    const p = await danio(root)
+    const keys = new Set([fitKey(p)])
+    const state = reading(p, [{ check: 'product', part: part(p, 'sections.habitat:seriouslyfish'), quote: c.product, why: 'sold abroad', product: c.product }])
+    const r = await fitRewrite(root, [p], state, { llm: fakeLlm(v => `${v} x`, 0.5).llm, now: () => new Date() }, { limit: 5, mend: keys, products: keys })
+    expect.soft(r.gone, c.product).toEqual([`vi/species/danio-margaritatus sections.habitat:seriouslyfish sentence 2 went whole: "${c.gone}"`])
+    expect.soft(JSON.parse(await readFile(file, 'utf8')).sections['habitat:seriouslyfish'], c.product).toBe(c.left)
+  }
+})
+
+// The readers of #1578, 17 Nov 2026: outside the product pages' run, code cuts as before, by each finding's own quote: a
+// product the page spells another way isn't looked for there.
+test('outside the product pages\' run, code finds no sentence by the table\'s other spellings', async () => {
+  const root = await content()
+  const file = join(root, 'content/species', ID, 'vi.json')
+  const vi = JSON.parse(await readFile(file, 'utf8'))
+  vi.sections['habitat:seriouslyfish'] = '<p>Một lọ giá $12. Trị vết thương bằng Melafix. Cá sống theo đàn.</p>'
+  await writeFile(file, JSON.stringify(vi, null, 2))
+  const p = await danio(root)
+  const P = part(p, 'sections.habitat:seriouslyfish')
+  const state = reading(p, [{ check: 'price', part: P, quote: '$12', why: 'a US price' }, { check: 'product', part: P, quote: 'API Melafix', why: 'sold abroad', product: 'API Melafix' }])
+  const r = await fitRewrite(root, [p], state, { llm: fakeLlm(v => `${v} x`, 0.5).llm, now: () => new Date() }, { limit: 5, mend: new Set([fitKey(p)]) })
+  expect(r.gone.join('\n')).not.toContain('Melafix')
+  expect(JSON.parse(await readFile(file, 'utf8')).sections['habitat:seriouslyfish']).toContain('Trị vết thương bằng Melafix.')
 })
 
 // The readers of #1578, 17 Nov 2026: a page a person names (`--only`) is no product page to that run, and its record kept

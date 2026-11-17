@@ -13,7 +13,7 @@ import { fixedParts, loadPages, type Page } from './pages'
 import { piece } from './pieces'
 import { fieldOf as partOf, norm, type ReaderFinding } from './reader'
 import { metricFigures, TANK_RULE, US_UNITS } from './round'
-import { sentences } from './sentences'
+import { plain as visible, sentences } from './sentences'
 import { isShop } from './species-sources'
 
 /**
@@ -77,6 +77,10 @@ export const MEND_RULE = 3
  */
 export const MAX_TRIES = 2
 
+/** The field a finding is on: its part's, else the first whose text holds its quote. */
+const fieldIn = (parts: { id: string; field: string; text: string }[], f: FitFinding) =>
+  parts.find(x => x.id === f.part)?.field ?? parts.find(x => f.quote && norm(x.text).includes(norm(f.quote)))?.field
+
 /** What a page's parts are wrong for: its current reading's findings this step mends, by the field each quotes. */
 export function mendable(p: Page, state: FitState): Map<string, FitFinding[]> {
   const e = state[fitKey(p)]
@@ -84,7 +88,7 @@ export function mendable(p: Page, state: FitState): Map<string, FitFinding[]> {
   const out = new Map<string, FitFinding[]>()
   if (!e || e.hash !== hash) return out
   const fs = fitFindings(p, e)
-  const fieldOf = (f: FitFinding) => parts.find(x => x.id === f.part)?.field ?? parts.find(x => f.quote && norm(x.text).includes(norm(f.quote)))?.field
+  const fieldOf = (f: FitFinding) => fieldIn(parts, f)
   for (const f of fs.filter(f => MENDED.includes(f.check) && f.check !== 'units')) {
     const field = fieldOf(f)
     if (field && PART_FIELD.test(field)) out.set(field, [...(out.get(field) ?? []), f])
@@ -127,10 +131,17 @@ const rowOf = (f: { product?: string; quote?: string }) => {
   const name = f.product?.trim() || f.quote?.trim()
   return name ? PRODUCTS.find(x => new RegExp(x.match.source, 'iu').test(name)) : undefined
 }
-/** A product finding quoting the words the text has for it, so the code cut finds its sentence. */
-const spelled = <F extends { check: FitCheck; product?: string; quote?: string }>(f: F, text: string): F => {
+/**
+ * A product finding quoting the words the text shows for it, so the code cut finds its sentence: its own quote where the
+ * text shows that, else the first the row's pattern finds in what a reader sees, not in a link's address (the readers of
+ * #1578, 17 Nov 2026: "easygreen" in an address, or "one and only" in a sentence before "Dr. Tim's One & Only").
+ */
+const spelled = <F extends { check: FitCheck; product?: string; quote?: string }>(f: F, html: string): F => {
   const x = f.check === 'product' ? rowOf(f) : undefined
-  const m = x && text.match(new RegExp(x.match.source, 'iu'))
+  if (!x) return f
+  const text = visible(html)
+  if (f.quote && norm(text).includes(norm(f.quote))) return f
+  const m = text.match(new RegExp(x.match.source, 'iu'))
   return m ? { ...f, quote: m[0] } : f
 }
 
@@ -309,8 +320,10 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
               // that no longer reads, or took one with the sentence before it, nor next to a sentence a finding other than
               // the source's or one on where it applies quotes (a dose, its caution, a lethal level): cut of the product's
               // name, a dose would read as a dose of whatever came before (the readers of #1578, 17 Nov 2026).
+              // Any finding on the part, not only those this step mends: a dose's purpose, a harm, a card (the readers of #1578).
               const near = (f: FitFinding) => goesWhole(f.check) && f.check !== 'source' && f.check !== 'elsewhere'
-              const plain = !faq && (product ? !r.stranded.length && !r.follows.length : !mine.length && !r.whole.length && !now.some(f => goesWhole(f.check))) ? cutWhole(before, now.map(f => spelled(f, before)), product ? { near: now.filter(near) } : {}) : undefined
+              const beside = product ? [...now, ...fitFindings(p, state[key]).filter(f => !MENDED.includes(f.check) && fieldIn(fitText(p).parts, f) === field)].filter(near) : []
+              const plain = !faq && (product ? !r.stranded.length && !r.follows.length : !mine.length && !r.whole.length && !now.some(f => goesWhole(f.check))) ? cutWhole(before, product ? now.map(f => spelled(f, before)) : now, product ? { near: beside } : {}) : undefined
               if (!plain) { report.notKept.push(`${key} ${field} (${why})`); continue }
               next = plain.html
               gone = plain.gone
