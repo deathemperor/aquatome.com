@@ -5209,6 +5209,15 @@
     "genus": "Paravandellia",
     "matchType": "FUZZY"
   },
+  "Branchyura sowerbii": {
+    "canonicalName": "Branchiura sowerbyi",
+    "phylum": "Annelida",
+    "class": "Clitellata",
+    "order": "Tubificida",
+    "family": "Naididae",
+    "genus": "Branchiura",
+    "matchType": "FUZZY"
+  },
   "Branco has": null,
   "Brasiliae centralis": null,
   "Brasiliam annos": null,
@@ -6439,6 +6448,14 @@
   },
   "Channa panaw": {
     "canonicalName": "Channa panaw",
+    "order": "Perciformes",
+    "family": "Channidae",
+    "genus": "Channa",
+    "matchType": "EXACT"
+  },
+  "Channa pardalis": {
+    "canonicalName": "Channa pardalis",
+    "phylum": "Chordata",
     "order": "Perciformes",
     "family": "Channidae",
     "genus": "Channa",
@@ -10528,6 +10545,7 @@
   "Ein farbenfroher": null,
   "Ein ganz": null,
   "Ein neuer": null,
+  "Ein subtropischer": null,
   "Ein weiterer": null,
   "Eine neue": null,
   "Eirmotus insignis": {
@@ -10563,6 +10581,14 @@
     "order": "Characiformes",
     "family": "Crenuchidae",
     "genus": "Elachocharax",
+    "matchType": "EXACT"
+  },
+  "Elassoma evergladei": {
+    "canonicalName": "Elassoma evergladei",
+    "phylum": "Chordata",
+    "order": "Perciformes",
+    "family": "Elassomatidae",
+    "genus": "Elassoma",
     "matchType": "EXACT"
   },
   "Elassoma gilberti": {
@@ -13419,6 +13445,14 @@
     "genus": "Rineloricaria",
     "matchType": "EXACT"
   },
+  "Hemiloricaria teffeana": {
+    "canonicalName": "Rineloricaria teffeana",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Rineloricaria",
+    "matchType": "EXACT"
+  },
   "Hemimyzon formosanum": {
     "canonicalName": "Hemimyzon formosanus",
     "order": "Cypriniformes",
@@ -15227,6 +15261,7 @@
     "genus": "Indostomus",
     "matchType": "EXACT"
   },
+  "Informationen der": null,
   "Inle has": null,
   "Inlecypris auropurpurea": {
     "canonicalName": "Devario auropurpureus",
@@ -16764,6 +16799,14 @@
     "genus": "Leptobotia",
     "matchType": "EXACT"
   },
+  "Leptoglanis wamiensis": {
+    "canonicalName": "Zaireichthys wamiensis",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Amphiliidae",
+    "genus": "Zaireichthys",
+    "matchType": "EXACT"
+  },
   "Leptoptilos crumeniferus": {
     "canonicalName": "Leptoptilos crumeniferus",
     "order": "Ciconiiformes",
@@ -17441,6 +17484,7 @@
     "genus": "Macrobrachium",
     "matchType": "FUZZY"
   },
+  "Macrobacrium dayanum": null,
   "Macrobrachium assamense": {
     "canonicalName": "Macrobrachium assamense",
     "order": "Decapoda",
@@ -29418,6 +29462,7 @@
     "genus": "Tatia",
     "matchType": "EXACT"
   },
+  "Tatsachen und": null,
   "Taxiphyllum barbatum": null,
   "Taxiphyllum barbieri": {
     "canonicalName": "Ectropothecium barbieri",
@@ -31162,8 +31207,40 @@
     "genus": "Zaireichthys",
     "matchType": "EXACT"
   },
+  "Zaireichthys conspicuus": {
+    "canonicalName": "Zaireichthys conspicuus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Amphiliidae",
+    "genus": "Zaireichthys",
+    "matchType": "EXACT"
+  },
   "Zaireichthys kafuensis": {
     "canonicalName": "Zaireichthys kafuensis",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Amphiliidae",
+    "genus": "Zaireichthys",
+    "matchType": "EXACT"
+  },
+  "Zaireichthys lacustris": {
+    "canonicalName": "Zaireichthys lacustris",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Amphiliidae",
+    "genus": "Zaireichthys",
+    "matchType": "EXACT"
+  },
+  "Zaireichthys rotundiceps": {
+    "canonicalName": "Zaireichthys rotundiceps",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Amphiliidae",
+    "genus": "Zaireichthys",
+    "matchType": "EXACT"
+  },
+  "Zaireichthys wamiensis": {
+    "canonicalName": "Zaireichthys wamiensis",
     "phylum": "Chordata",
     "order": "Siluriformes",
     "family": "Amphiliidae",
