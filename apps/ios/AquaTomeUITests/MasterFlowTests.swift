@@ -237,7 +237,7 @@ final class MasterFlowTests: XCTestCase {
     let app = launch(["-lamp-colour-wait", "30"])
     make(app, end: "60")
     tap(app, "master-start")
-    expect(app, "lamp-sent", contains: "on", timeout: 20)
+    expect(app, "master-lamp-sent", contains: "on", timeout: 20)
     app.openAccount()
     app.scrollToAndTap("sign-out")
     XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 10), "still signed in")
@@ -245,7 +245,7 @@ final class MasterFlowTests: XCTestCase {
     app.signInWithStandInApple()
     app.openTab("Đèn")
     expect(app, "master-problems", contains: "Chưa gửi vì bạn đã đăng xuất.", timeout: 40)
-    expect(app, "lamp-sent", lacks: "white")
+    expect(app, "master-lamp-sent", lacks: "white")
   }
 
   func testSigningOutWhileBluetoothIsntReadySendsNothingToTheLamp() {
@@ -255,6 +255,8 @@ final class MasterFlowTests: XCTestCase {
     let app = launch(["-fake-lamp-waits", "20"])
     make(app, end: "60")
     tap(app, "master-start")
+    // Its "on" asked of the air, which waits for Bluetooth: then the sign-out.
+    expect(app, "master-lamp-asked", contains: "on", timeout: 15)
     app.openAccount()
     app.scrollToAndTap("sign-out")
     XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 10), "still signed in")
@@ -262,7 +264,7 @@ final class MasterFlowTests: XCTestCase {
     app.signInWithStandInApple()
     app.openTab("Đèn")
     expect(app, "master-problems", contains: "Chưa gửi vì bạn đã đăng xuất.", timeout: 40)
-    let sent = element(app, "lamp-sent")
+    let sent = element(app, "master-lamp-sent")
     XCTAssertFalse(sent.exists && sent.label.contains("on"), sent.exists ? sent.label : "")
   }
 

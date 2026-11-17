@@ -64,8 +64,11 @@ enum LampMemory {
 @MainActor
 @Observable
 final class LampSender {
-  /// The recordings broadcast, by id, for the UI tests (`lamp-sent` on the master card, debug builds).
+  /// The recordings broadcast, by id, for the UI tests (`master-lamp-sent` on the master card, debug builds).
   private(set) var sent: [String] = []
+  /// The recordings asked of the air, by id, whether they then went or not (`master-lamp-asked`): a flow sees one waiting
+  /// for Bluetooth.
+  private(set) var asked: [String] = []
 
   static func recordings(_ c: DeviceCommand) -> [FishLamp.Command] {
     let ids = !c.on ? ["off"] : ["on"] + (c.colour.map { [$0] } ?? [])
@@ -94,6 +97,7 @@ final class LampSender {
         if i > 0 { LampMemory.remember(DeviceCommand(device: c.device, on: true)) }
         return .failed
       }
+      asked.append(r.id)
       // Answered once: when the broadcast started, or why not.
       let started: LampAirError? = await withCheckedContinuation { done in
         LampRadio.start(r.uuids, by: self, allowed: allowed) { done.resume(returning: $0) }

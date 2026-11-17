@@ -20,7 +20,8 @@ struct MasterCard: View {
         .background {
           // What went out, for the UI tests to read (debug builds only): each step, and each of the lamp's recordings.
           Text(verbatim: master.log.joined(separator: " | ")).font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("master-log")
-          Text(verbatim: master.switcher.lamp.sent.joined(separator: "+")).font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("lamp-sent")
+          Text(verbatim: master.switcher.lamp.sent.joined(separator: "+")).font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("master-lamp-sent")
+          Text(verbatim: master.switcher.lamp.asked.joined(separator: "+")).font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("master-lamp-asked")
         }
         #endif
     }
