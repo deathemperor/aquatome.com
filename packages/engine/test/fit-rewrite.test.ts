@@ -1093,3 +1093,98 @@ test('a page with a foreign product tried before with no code cut to fall back o
   expect((await fitRewrite(root, [p], state, { llm: again.llm, now: () => new Date() }, { limit: 5, mend: new Set([fitKey(p)]), products: new Set([fitKey(p)]) })).rewritten).toEqual([])
   expect(again.calls).toEqual([])
 })
+
+// The readers of #1578, 17 Nov 2026: a rule's product finding quotes the market table's name ("API Melafix"), and the page
+// may spell it as the table's pattern allows ("Melafix"). The page still has the product, and code cuts the sentence that
+// names it, in the page's spelling.
+test('a product spelled as the table allows, not as its name, is still on the page, and code cuts its sentence', async () => {
+  const root = await content()
+  const file = join(root, 'content/species', ID, 'vi.json')
+  const vi = JSON.parse(await readFile(file, 'utf8'))
+  vi.sections['habitat:seriouslyfish'] = '<p>Chúng tôi bán cá tại Mỹ. Trị vết thương bằng Melafix. Cá sống theo đàn.</p>'
+  await writeFile(file, JSON.stringify(vi, null, 2))
+  const p = await danio(root)
+  const fs = [
+    { check: 'source' as const, part: part(p, 'sections.habitat:seriouslyfish'), quote: 'Chúng tôi bán cá tại Mỹ.', why: 'the shop\'s own' },
+    { check: 'product' as const, part: part(p, 'sections.habitat:seriouslyfish'), quote: 'API Melafix', why: 'not found at shops here', product: 'API Melafix' },
+  ]
+  expect(foreignProduct(p, reading(p, fs)[fitKey(p)])).toBe(true)
+  const writer = (async ({ schema }: { schema: object }) => ((schema as { required: string[] }).required.includes('sentences')
+    ? { sentences: [{ n: 1, vi: 'Chúng tôi bán cá tại Mỹ.' }, { n: 2, vi: 'Trị vết thương bằng thuốc.' }] }
+    : { score: 0.9, notes: [], dropped: [], hedges: [], follows: [] })) as Llm
+  const r = await fitRewrite(root, [p], reading(p, fs), { llm: writer, now: () => new Date() }, { limit: 5, mend: new Set([fitKey(p)]), products: new Set([fitKey(p)]) })
+  expect(r.gone).toEqual(['vi/species/danio-margaritatus sections.habitat:seriouslyfish sentence 2 went whole: "Trị vết thương bằng Melafix."'])
+  expect(JSON.parse(await readFile(file, 'utf8')).sections['habitat:seriouslyfish']).toBe('<p>Chúng tôi bán cá tại Mỹ. Cá sống theo đàn.</p>')
+  expect(foreignProduct(await danio(root), reading(p, fs)[fitKey(p)])).toBe(false)
+})
+
+// The readers of #1578, 17 Nov 2026: on a page with a foreign product, code still doesn't cut where the writer named a line
+// that no longer reads, where it took a line with the sentence before it, or beside a dose, its caution or a lethal level,
+// which cut of the product's name would read as a dose of whatever came before.
+test('on a page with a foreign product, code doesn\'t cut beside a line that no longer reads, a line taken with the one before, or a dose', async () => {
+  const setUp = async (html: string, fs: (p: Page) => Omit<FitFinding, 'by'>[]) => {
+    const root = await content()
+    const file = join(root, 'content/species', ID, 'vi.json')
+    const vi = JSON.parse(await readFile(file, 'utf8'))
+    vi.sections['habitat:seriouslyfish'] = html
+    await writeFile(file, JSON.stringify(vi, null, 2))
+    const p = await danio(root)
+    return { root, file, p, state: reading(p, fs(p)), before: await readFile(file, 'utf8') }
+  }
+  const writer = (sentences: { n: number; vi: string; why?: string }[], review: { score: number; follows: { sentence: number; agree: boolean }[] }) => (async ({ schema }: { schema: object }) => ((schema as { required: string[] }).required.includes('sentences')
+    ? { sentences }
+    : { score: review.score, notes: [], dropped: [], hedges: [], follows: review.follows })) as Llm
+  const P = 'sections.habitat:seriouslyfish'
+  const cases = [
+    {
+      name: 'a line that no longer reads',
+      html: '<p>Trị nấm bằng Seachem Paraguard theo nhãn. Thuốc này rất mạnh. Cá sống theo đàn.</p>',
+      fs: (p: Page) => [{ check: 'product' as const, part: part(p, P), quote: 'Seachem Paraguard', why: 'a US medicine' }],
+      said: [{ n: 1, vi: '' }, { n: 2, vi: '', why: 'it names the medicine that went' }], review: { score: 0.9, follows: [] },
+    },
+    {
+      name: 'a line taken with the one before',
+      html: '<p>Ở Mỹ dùng Seachem Paraguard. Loại này pha sẵn. Cá sống theo đàn.</p>',
+      fs: (p: Page) => [
+        { check: 'elsewhere' as const, part: part(p, P), quote: 'Ở Mỹ dùng Seachem Paraguard.', why: 'for a reader in the US' },
+        { check: 'product' as const, part: part(p, P), quote: 'Seachem Paraguard', why: 'a US medicine' },
+      ],
+      said: [{ n: 1, vi: '' }, { n: 2, vi: '', why: 'it points at the medicine that went' }], review: { score: 0.5, follows: [{ sentence: 2, agree: true }] },
+    },
+    {
+      name: 'a dose',
+      html: '<p>Với Seachem Paraguard thì dùng như sau. Pha 5 ml cho 40 lít nước mỗi ngày. Cá sống theo đàn.</p>',
+      fs: (p: Page) => [
+        { check: 'product' as const, part: part(p, P), quote: 'Seachem Paraguard', why: 'a US medicine' },
+        { check: 'dose' as const, part: part(p, P), quote: 'Pha 5 ml cho 40 lít nước mỗi ngày.', why: 'a dose of a US medicine' },
+      ],
+      said: [{ n: 1, vi: '' }, { n: 2, vi: 'Pha 5 ml cho 40 lít nước mỗi ngày.' }], review: { score: 0.9, follows: [] },
+    },
+  ]
+  for (const c of cases) {
+    const s = await setUp(c.html, c.fs)
+    const keys = new Set([fitKey(s.p)])
+    const r = await fitRewrite(s.root, [s.p], s.state, { llm: writer(c.said, c.review), now: () => new Date() }, { limit: 5, mend: keys, products: keys })
+    expect([r.rewritten, r.gone], c.name).toEqual([[], []])
+    expect(r.notKept, c.name).toHaveLength(1)
+    expect(await readFile(s.file, 'utf8'), c.name).toBe(s.before)
+  }
+})
+
+// The readers of #1578, 17 Nov 2026: a page a person names (`--only`) is no product page to that run, and its record kept
+// the cut try's mark only on the text that try was on.
+test('a named retry keeps a cut try\'s mark on the same text, not on a changed one', async () => {
+  for (const same of [true, false]) {
+    const root = await content()
+    const file = join(root, 'content/species', ID, 'vi.json')
+    const vi = JSON.parse(await readFile(file, 'utf8'))
+    vi.sections['habitat:seriouslyfish'] = '<p>Dùng phân ADA. Cá sống theo đàn.</p>'
+    await writeFile(file, JSON.stringify(vi, null, 2))
+    const p = await danio(root)
+    await writeFile(join(root, 'engine-state/_fit-rewrite.json'), JSON.stringify({ [fitKey(p)]: { at: '2026-11-17', hash: same ? fitText(p).hash : 'older', n: 1, rule: MEND_RULE, cut: true } }))
+    const state = reading(p, [{ check: 'product', part: part(p, 'sections.habitat:seriouslyfish'), quote: 'ADA', why: 'a brand sold abroad' }])
+    await fitRewrite(root, [p], state, { llm: fakeLlm(v => v, 0.5).llm, now: () => new Date() }, { limit: 5, retry: true })
+    const tried = JSON.parse(await readFile(join(root, 'engine-state/_fit-rewrite.json'), 'utf8')) as Tried
+    expect(tried[fitKey(p)]?.cut, String(same)).toBe(same ? true : undefined)
+  }
+})

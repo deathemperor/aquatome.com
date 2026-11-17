@@ -670,7 +670,8 @@ if (cmd === 'photo-privacy') {
     const prior = JSON.parse(await readFile(statePath, 'utf8').catch(() => '{}')) as FitState
     // Then the Vietnamese pages whose saved read found a foreign product still on them, read again once their text has
     // changed, so the rewrite can take them (the chief of staff, 17 Nov 2026: 11 of the 54 left had a read of older text).
-    const products = values.lang || values.only ? [] : filtered.filter(p => p.lang === 'vi' && !want.has(fitKey(p)) && !(p.kind === 'guides' && retiredTo(p.id)) && foreignProduct(p, prior[fitKey(p)]))
+    // Only the kinds the rewrite takes: a product or equipment page's read could lead to no rewrite.
+    const products = values.lang || values.only ? [] : filtered.filter(p => p.lang === 'vi' && ['guides', 'species', 'plants', 'breeds'].includes(p.kind) && !want.has(fitKey(p)) && !(p.kind === 'guides' && retiredTo(p.id)) && foreignProduct(p, prior[fitKey(p)]))
     const chosen = [...orderFront(fitFront, filtered).filter(p => want.has(fitKey(p))), ...products]
     const stale = fitDue(chosen, prior)
     r = { read: 0, failed: [], left: 0 }

@@ -7,6 +7,7 @@ import { LlmError, type Llm } from './claude'
 import { dealerShelf, FIT_TITLE, fitDue, fitFindings, fitKey, fitText, type FitCheck, type FitEntry, type FitFinding, type FitState } from './fit'
 import { rewriteForReader } from './for-reader'
 import { METRIC_KINDS } from './metric'
+import { mentions, PRODUCTS } from './market'
 import { batchHalf, cutWhole, goesWhole, mendPart, words as mendWords } from './mend'
 import { fixedParts, loadPages, type Page } from './pages'
 import { piece } from './pieces'
@@ -111,8 +112,26 @@ export function mendable(p: Page, state: FitState): Map<string, FitFinding[]> {
  * page code or a writer has cut it from is done, though its read is of the old text until it is read again.
  */
 export const foreignProduct = (p: Page, entry?: FitEntry) => {
-  const text = norm(fitText(p).parts.map(x => x.text).join('\n'))
-  return fitFindings(p, entry).some(f => f.check === 'product' && !!f.quote && text.includes(norm(f.quote)))
+  const fs = fitFindings(p, entry).filter(f => f.check === 'product' && !!f.quote)
+  if (!fs.length) return false
+  const raw = fitText(p).parts.map(x => x.text).join('\n'), text = norm(raw)
+  return fs.some(f => { const x = rowOf(f); return x ? mentions(x, raw) > 0 : text.includes(norm(f.quote!)) })
+}
+
+/**
+ * The market table's row a product finding names, by its product or its quote (a rule's quote is the row's name). A page
+ * spells it as the row's pattern allows, not always as its name: "Melafix" for "API Melafix", "EasyCarbo" for "Easy Carbo"
+ * (the readers of #1578, 17 Nov 2026).
+ */
+const rowOf = (f: { product?: string; quote?: string }) => {
+  const name = f.product?.trim() || f.quote?.trim()
+  return name ? PRODUCTS.find(x => new RegExp(x.match.source, 'iu').test(name)) : undefined
+}
+/** A product finding quoting the words the text has for it, so the code cut finds its sentence. */
+const spelled = <F extends { check: FitCheck; product?: string; quote?: string }>(f: F, text: string): F => {
+  const x = f.check === 'product' ? rowOf(f) : undefined
+  const m = x && text.match(new RegExp(x.match.source, 'iu'))
+  return m ? { ...f, quote: m[0] } : f
 }
 
 export const rewriteDue = (p: Page, state: FitState) =>
@@ -188,7 +207,7 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
     const before = tried[key]
     const product = !!o.products?.has(key)
     // A page a person names doesn't use up one of its own tries.
-    tried[key] = { at, hash: fitText(p).hash, n: triesOf(key) + (o.retry ? 0 : 1), rule: MEND_RULE, ...(product ? { cut: true as const } : {}) }
+    tried[key] = { at, hash: fitText(p).hash, n: triesOf(key) + (o.retry ? 0 : 1), rule: MEND_RULE, ...(product || (before?.cut && before.hash === fitText(p).hash) ? { cut: true as const } : {}) }
     let changed = 0
     try {
       // A guide is written whole from its facts, but one in `mend` (the lane's: no reader has read it, fit-front.ts) is mended
@@ -287,8 +306,11 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
               // On a page with a foreign product, its product, shop and price sentences go whole by code beside those too,
               // and the other findings wait for the page's next read and try (the chief of staff, 17 Nov 2026: the fallback
               // never ran on 62 of the 74, each with a finding of another kind); still not where the writer named a line
-              // that no longer reads.
-              const plain = !faq && (product ? !r.stranded.length : !mine.length && !r.whole.length && !now.some(f => goesWhole(f.check))) ? cutWhole(before, now) : undefined
+              // that no longer reads, or took one with the sentence before it, nor beside a finding other than the source's
+              // or one on where it applies (a dose, its caution, a lethal level): cut of the product's name, a dose would read
+              // as a dose of whatever came before (the readers of #1578, 17 Nov 2026).
+              const waits = (f: FitFinding) => goesWhole(f.check) && f.check !== 'source' && f.check !== 'elsewhere'
+              const plain = !faq && (product ? !r.stranded.length && !r.follows.length && !now.some(waits) : !mine.length && !r.whole.length && !now.some(f => goesWhole(f.check))) ? cutWhole(before, now.map(f => spelled(f, before))) : undefined
               if (!plain) { report.notKept.push(`${key} ${field} (${why})`); continue }
               next = plain.html
               gone = plain.gone
