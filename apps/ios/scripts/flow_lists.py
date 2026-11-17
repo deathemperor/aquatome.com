@@ -1,33 +1,38 @@
-"""The lists flows-to-run.py reads: which job runs a class of flows (HANDBOOK), and what a path can reach (REACH).
+"""The lists flows-to-run.py reads: what a test of each class of flows takes (TEST_SECONDS), and what a path can reach
+(REACH).
 
 A pull request that changes only this file runs no flow: these lists decide which flows a pull request that reaches
-these paths runs and leaves to main (main runs every flow, HANDBOOK deciding only which job runs a class), and
-`flows-to-run.py --test` checks them on every run of ios.yml, a draft's too. How the jobs' halves are cut and the smoke set are in flows-to-run.py, whose change runs every flow.
+these paths runs and leaves to main (main runs every flow, TEST_SECONDS deciding only which job runs it), and
+`flows-to-run.py --test` checks them on every run of ios.yml, a draft's too. How the flows are packed into jobs and the smoke set are in flows-to-run.py, whose change runs every flow.
 `check` holds what the lists decide for a few changes; flows-to-run.py's own checks of how it picks use stand-ins.
 """
 
 UI = 'AquaTomeUITests'
 
-# The flows of the handbook and of what a tank reads from it (its fish, plants and guides, the tank-mates check), run by
-# job `handbook` (on GitHub's Macs a full run puts some beside the light flows: WITH_LIGHTS in flows-to-run.py); job
-# `app` runs every other flow but the lights', so a class missing here still runs, in `app`.
+# The flows of the handbook and of what a tank reads from it (its fish, plants and guides, the tank-mates check): what
+# a change to the handbook's model reaches (`check`).
 HANDBOOK = ['HandbookFlowTests', 'FactsCardFlowTests', 'ReadingFlowTests', 'NativePageFlowTests', 'OfflineFlowTests',
             'TankCheckFlowTests', 'TankLifeFlowTests', 'PageShotsFlowTests', 'FishIdFlowTests', 'TankVolumeFlowTests',
             'TankMatesFlowTests', 'VideoFlowTests', 'OnePageFlowTests',
             'TelemetryFlowTests']
 
-# What a class of flows takes on GitHub's Macs, in seconds, for packing a pull request's few flows into one job
-# (flows-to-run.py): the sum of each test's median in the logs of 2026-11-06's runs, the flows' animations off. A class
-# not named here counts FLOW_SECONDS a test; light flows are never packed (their halves already fill a job each).
-# The edge swipes' classes from #1171's run on 9fecd66 (2026-11-13): about 190 s a test.
-CLASS_SECONDS = {'FactsCardFlowTests': 280, 'FishIdFlowTests': 486, 'HandbookFlowTests': 632,
-                 'FishPageEdgeSwipeFlowTests': 570, 'GuideEdgeSwipeFlowTests': 570, 'PostEdgeSwipeFlowTests': 570,
-                 'NativePageFlowTests': 648, 'OfflineFlowTests': 225, 'PageShotsFlowTests': 2100, 'PlugFlowTests': 744,
-                 'ReadingFlowTests': 69, 'TankCheckFlowTests': 67, 'TankLifeFlowTests': 280, 'TelemetryFlowTests': 136,
-                 'VideoFlowTests': 330}
+# What a test of each class of flows takes on GitHub's Macs, in seconds, for packing flows into jobs (flows-to-run.py):
+# its class's passing tests' total over their number, on main's run on 789ca5218 of 2026-11-17 (43963190389); for the
+# classes that run never reached before GitHub's 120 minutes stopped two of its jobs (OwnerFlowTests, PhotoGridFlowTests,
+# PhotoViewerFlowTests, WholePhotoFlowTests, ViAtRootFlowTests), the nightly run on fec4f1526 of 2026-11-16
+# (43775012611). A class counts this for each test its file declares, so it grows as tests are added; a class not named
+# here counts FLOW_SECONDS a test.
+TEST_SECONDS = {'AccountFlowTests': 63, 'AppIconFlowTests': 30, 'AppLinkFlowTests': 42, 'BrowseShelvesFlowTests': 40,
+                'ChatFlowTests': 63, 'FactsCardFlowTests': 23, 'FishIdFlowTests': 46,
+                'FishPageEdgeSwipeFlowTests': 238, 'GuideEdgeSwipeFlowTests': 217, 'GuideTopFlowTests': 48,
+                'HandbookFlowTests': 26, 'LightFlowTests': 88, 'MasterFlowTests': 246, 'NativePageFlowTests': 39,
+                'OfflineFlowTests': 50, 'OnePageFlowTests': 138, 'OwnerFlowTests': 57, 'PageShotsFlowTests': 56,
+                'PhotoGridFlowTests': 39, 'PhotoViewerFlowTests': 59, 'PlugFlowTests': 73,
+                'PostEdgeSwipeFlowTests': 208, 'ProfilePictureFlowTests': 49, 'ReaderPostFlowTests': 68,
+                'ReadingFlowTests': 43, 'ScrollEndFlowTests': 24, 'TankCheckFlowTests': 20, 'TankLifeFlowTests': 40,
+                'TankMatesFlowTests': 50, 'TankVolumeFlowTests': 54, 'TanksFlowTests': 30, 'TelemetryFlowTests': 38,
+                'V2FlowTests': 38, 'ViAtRootFlowTests': 25, 'VideoFlowTests': 35, 'WholePhotoFlowTests': 20}
 FLOW_SECONDS = 45
-# One page shot: 1,770 s for the 48 of 2026-11-08's pull requests (37 s each; the class's 2,100 above is 57 of them).
-SHOT_SECONDS = 37
 
 # What a path can reach. The longest prefix that matches a path decides: a list of flows (a class, or one of its
 # tests), with the smoke set; [] for the smoke set alone; ALL for every flow; NONE for no flow (job `kit`, `perf` or
