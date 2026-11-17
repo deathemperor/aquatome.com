@@ -377,6 +377,30 @@
   ],
   "vi/glossary/mang-sinh-hoc": [
     {
+      "at": "2026-11-17T00:43:30Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Lũa mới thả thường nổi một lớp lông trắng hoặc xám, nhầy, có khi thành sợi, sau vài ngày tới một tuần.\" (not \"Lũa mới thả có thể nổi một lớp màng trắng, nhầy sau vài ngày tới một tuần.\": Rule 12: \"Lũa mới thả có thể nổi một lớp màng trắng, nhầy sau vài ngày tới một tuần\" uses \"có thể nổi\". THIS TERM says …"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-17T00:43:30Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Lớp màng này xuất hiện do chất hữu cơ còn sót trong gỗ lên men.\" This gives one Vietnamese shop's explanation (fact 18) as settled fact. THIS TERM asks for it to be credited to that shop (\"Một tiệm ở Việt Nam ghi …\") or replaced with fact 17's wording, that new wood gives the film nutrients.",
+        "Rule 12: \"có thể thêm lá khô, lũa, đá nham thạch, rêu hoặc bèo nổi để màng bám rễ\". Because \"để màng bám rễ\" closes the whole list, it reads as the reason for all five items. THIS TERM says the roots belong to the floating plants alone (fact 29).",
+        "Rule 12: \"phủ trên kính, lũa, đá và cây trong bể\". In the definition, where the film grows in a tank comes in the look sentence, before what lives in it and what holds it together. THIS TERM puts where it grows in the 'what it is' part, after the look. Also, \"đá\" stands in for the lava rock the facts name (fact 13)."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-16T18:01:32Z",
       "model": "sonnet",
       "cli": "2.1.325",
@@ -430,42 +454,6 @@
       ],
       "attempt": "rewrite",
       "kept": false
-    },
-    {
-      "at": "2026-11-16T17:34:10Z",
-      "model": "sonnet",
-      "cli": "2.1.325",
-      "score": 1,
-      "notes": [
-        "Loose, left as written (the definition's first sentence): \"Lớp nhầy trong, mỏng tới mức thường không thấy, phủ trên kính, lũa, đá và cây trong bể, sờ vào thấy hơi nhớt.\"",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Lũa mới thả hay nổi một lớp lông trắng hoặc xám, nhầy, có khi thành sợi, sau vài ngày tới một tuần.\" (not \"Lũa mới thả có thể nổi một lớp nhầy màu trắng sau vài ngày tới một tuần.\": Rule 12: \"Lũa mới thả có thể nổi một lớp nhầy màu trắng sau vài ngày tới một tuần.\" The line asks for \"thường nổi\" here (fac…",
-        "Loose, reworded: \"Chỉnh đầu ra của lọc cho mặt nước gợn nhẹ, không cần bắn tung tóe.\" → \"Chỉnh đầu ra của lọc cho mặt nước gợn nhẹ, tránh bắn tung tóe mạnh.\" (supported)",
-        "Rule 12: \"phủ trên kính, lũa, đá và cây trong bể, sờ vào thấy hơi nhớt\" gives the slimy feel to wood, rock and plants as well as glass. The facts (fact 8) give the slight slimy feel only to the inside of the glass, as in \"sờ vào mặt trong kính thấy hơi nhớt\". Wood, rock and plants must not be given a feel.",
-        "Rule 12: \"Trên mút của lọc mút cũng có lớp màng này, còn chuyện vi khuẩn lọc xử lý chất thải thế nào thì xem chu trình nitơ\" talks about how the filter's bacteria handle waste, which no fact gives. The filter should be one short sentence only, as in \"Lớp màng này cũng mọc trên mút lọc.\"",
-        "Rule 12: \"Tép, cá bột và Otocinclus đều gặm lớp màng này\" uses the genus name without a kind word. It should be \"cá Otocinclus\".",
-        "Rule 12: \"Lũa mới thả hay nổi một lớp lông trắng hoặc xám\" uses \"hay nổi\", which a reader can take as \"or\". It should be \"thường nổi\".",
-        "Rule 12: \"hoặc bông lọc bị nghẹt\": \"bông lọc\" means filter floss. The fact is about clogged filter sponges, which must be \"mút lọc\".",
-        "Rule 12: \"có thể kéo theo Planaria\" uses the genus name without a kind word. It should be \"sán dẹp Planaria\"."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-16T17:16:51Z",
-      "model": "sonnet",
-      "cli": "2.1.325",
-      "score": 1,
-      "notes": [
-        "Loose, left as written (the definition's first sentence): \"Lớp nhầy trong, mỏng tới mức thường không thấy, phủ trên kính, lũa, đá và cây trong bể, sờ vào thấy hơi nhớt.\"",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Lũa mới thả hay nổi một lớp lông trắng hoặc xám, nhầy, có khi thành sợi, sau vài ngày tới một tuần.\" (not \"Lũa mới thả có thể nổi một lớp màng nhầy màu trắng sau vài ngày tới một tuần.\": it drops the advice \"xám\", the advice \"có khi thành sợi\")",
-        "Loose, reworded: \"Nước đục cả bể là do vi khuẩn nở rộ trong nước, còn màng sinh học chỉ bám trên bề mặt.\" → \"Vi khuẩn nở rộ làm đục chính nước trong bể, còn màng sinh học chỉ bám trên bề mặt.\" (supported)",
-        "Loose, reworded: \"Nó sinh ra từ thức ăn thừa, mặt nước đứng yên hoặc lọc yếu.\" → \"Nó sinh ra từ thức ăn thừa, nước đứng yên, mặt nước ít xao động hoặc bông lọc bị nghẹt.\" (supported)",
-        "Loose, reworded: \"Váng dày cản trao đổi khí và làm oxy hòa tan giảm.\" → \"Váng dày làm chậm trao đổi khí và có thể làm giảm oxy hòa tan.\" (supported)",
-        "Loose, reworded: \"Gặp màng trên lũa thì để yên.\" → \"Gặp màng trên lũa thì phần lớn trường hợp cứ để yên.\" (supported)",
-        "Rule 12: The look of the film is split between two places. The meaning gives only the thin, unseen film (\"Lớp nhầy trong, mỏng tới mức thường không thấy\"), while the look the facts give for a thick layer sits in the body (\"Khi dày lên, nó trông như thạch trong hoặc đục\"). THIS TERM says the meaning describes the film's look first, from its facts. Also, the second sentence (\"Nó gồm vi khuẩn, vi tả…"
-      ],
-      "attempt": "rewrite",
-      "kept": true
     }
   ],
   "vi/glossary/ph": [
