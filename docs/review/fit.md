@@ -5,12 +5,12 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 4550 | 3817 | 1566 | 43 | 41 | 196 | 37 | 1115 | 338 | 2569 | 467 | 9 | 10 | 0 | 2 | 2 | 3 | 0 |
+| Vietnamese | 4570 | 3839 | 1574 | 43 | 41 | 196 | 38 | 1121 | 338 | 2570 | 469 | 9 | 10 | 0 | 2 | 2 | 3 | 0 |
 | Indonesian | 1534 | 1356 | 384 | 20 | 8 | 4 | 4 | 191 | 36 | 66 | 181 | 0 | 1 | 0 | 2 | 2 | 0 | 0 |
 | Thai | 1520 | 1323 | 350 | 15 | 3 | 5 | 2 | 168 | 39 | 88 | 163 | 0 | 1 | 0 | 1 | 0 | 0 | 0 |
 | Malay | 409 | 366 | 101 | 8 | 2 | 0 | 1 | 50 | 16 | 23 | 40 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
-Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 11 of 135, Indonesian 2 of 53, Thai 2 of 51, Malay 1 of 18.
+Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 11 of 136, Indonesian 2 of 53, Thai 2 of 51, Malay 1 of 18.
 
 ## Doses on more than one page
 
@@ -47,6 +47,7 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - bleach: disinfecting, dip: 47.368 ml/l (1 pages); algae, other: 0.125 litre/l (1 pages)
 - fritzzyme 7: other, wholeTank: 3.132 ml/l, 1.579 ml/l (1 pages)
 - fritzzyme 7 freshwater: other, wholeTank: 3.132 ml/l, 1.579 ml/l (1 pages)
+- hydrogen peroxide and seachem excel 3%: algae, wholeTank: 0.222 ml/l, 0.333 ml/l (1 pages)
 - metronidazole and praziquantel: quarantine, wholeTank: 0.027 packet/l (1 pages); parasites, wholeTank: 0.03 packet/l (1 pages)
 - seachem flourish: plants, wholeTank: 0.022 ml/l, 0.017 ml/l (1 pages)
 - seachem prime: water, other: 0.026 ml/l (1 pages); water, unsaid: 0.025 ml/l (1 pages)
