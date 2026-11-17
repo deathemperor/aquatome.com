@@ -12,6 +12,78 @@
     "mozambique",
     "tanzania"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is endemic to Lake Malawi.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344315,
+      "total": 553,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "MZ",
+          520
+        ],
+        [
+          "MW",
+          32
+        ],
+        [
+          "TZ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -16.875,
+          3
+        ],
+        [
+          33.75,
+          -15.46875,
+          17
+        ],
+        [
+          33.75,
+          -14.0625,
+          297
+        ],
+        [
+          33.75,
+          -12.65625,
+          232
+        ],
+        [
+          33.75,
+          -9.84375,
+          2
+        ],
+        [
+          35.15625,
+          -15.46875,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -136,7 +208,12 @@
       "author": "Paweł Cieśla Staszek_Szybki_Jest",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Synodontis_njassae_01_ssj_20050321.jpg",
       "caption": "Unidentified Synodontis",
-      "thumb": "https://media.aquatome.com/commons/93fcbbb5649b7a53-480.webp"
+      "thumb": "https://media.aquatome.com/commons/93fcbbb5649b7a53-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/93fcbbb5649b7a53-large.webp",
+        "width": 2163,
+        "height": 936
+      }
     }
   ],
   "videos": [],

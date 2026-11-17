@@ -1,8 +1,13 @@
 {
   "slug": "nam-tha",
-  "name": "Nam Tha",
+  "name": "Sungai Nam Tha",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.8,
+    "at": "2026-11-16T17:16:24.590Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

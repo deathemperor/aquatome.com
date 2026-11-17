@@ -1,0 +1,178 @@
+{
+  "id": "leporinus-steyermarki",
+  "scientificName": "Leporinus steyermarki",
+  "order": "Characiformes",
+  "family": "Anostomidae",
+  "genus": "Leporinus",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "venezuela"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It can reach a maximum size of about 30 cm and originates from Venezuela.",
+          "countries": [
+            "VE"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2355354,
+      "total": 27,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "VE",
+          27
+        ]
+      ],
+      "cells": [
+        [
+          -67.5,
+          2.8125,
+          9,
+          9
+        ],
+        [
+          -67.5,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          5.625,
+          11,
+          11
+        ],
+        [
+          -64.6875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 30
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus_steyermarki_en/",
+      "html": "<p>Leporinus steyermarki is a beautiful large tetra. It can reach a maximum size of about 30 cm and originates from Venezuela.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus_steyermarki_en/",
+      "html": "<p>Like all Leporinus, this fish is an omnivorous animal that takes a lot of plant material for food.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus_steyermarki_en/",
+      "html": "<p>In German, the fish is now and then named \"Grey Leporinus\", which is for sure not describing accurately the coloration of the animal. Maybe this name bases on a confusion with another of the numerous species of Leporinus.</p><p>Lexicon: Leporinus: Latin, means \"hare-nose\". steyermarki: named for Julian A. Steyermark who led the 1953 botanical Venezuela Expedition of the Chicago Natural History Museum; the fish was discovered during this expedition.</p><p>Suggestion of a common name: Golden Spotted Leporinus</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/f60bd2480cd27597.webp",
+      "thumb": "https://media.aquatome.com/glaser/f60bd2480cd27597-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus_steyermarki_en/",
+      "caption": "Leporinus steyermarki",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "MZKHD_VtH_I",
+      "title": "Leporinus steyemarki. The GREY Leporinus! (Leopard Aquatic C096A)",
+      "durationSec": 57,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "bJQlaOvMbew",
+      "title": "редкий и самый интересный ​Лепоринус штейермарки (Leporinus steyermarki)",
+      "durationSec": 55,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "AL1NybeK0mM",
+      "title": "Leporinus \"Steyer\"marki 🤩#shorts #ikan #fish #aquarium #ikanhias #mainananak #ikanlucu #information",
+      "durationSec": 69,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "FoV1VXZ4QZo",
+      "title": "IKAN LEPORINUS GAK SELALU BELANG LOH! KENALIN NIH LEPORINUS FASCIATUS, STEYERMARKI DAN ARCUS!!!",
+      "durationSec": 930,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 400 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá ăn tạp",
+        "thức ăn thực vật cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-14"
+}

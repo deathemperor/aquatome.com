@@ -13,6 +13,180 @@
     "new-caledonia",
     "fiji"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PG",
+        "VU",
+        "NC",
+        "FJ"
+      ],
+      "regions": [
+        "Bismarck Archipelago"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is well-distributed with a recorded range extending southeastwards from northern Papua New Guinea throughout the Bismarck Archipelago and Solomon Islands as far as Vanuatu, New Caledonia and Fiji.",
+          "countries": [
+            "PG",
+            "VU",
+            "NC",
+            "FJ"
+          ],
+          "regions": [
+            "Bismarck Archipelago"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2376127,
+      "total": 42,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "ID",
+          14
+        ],
+        [
+          "NC",
+          12
+        ],
+        [
+          "PG",
+          9
+        ],
+        [
+          "VU",
+          6
+        ],
+        [
+          "SB",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          115.3125,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          127.96875,
+          -4.21875,
+          4,
+          0
+        ],
+        [
+          129.375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          132.1875,
+          -4.21875,
+          5,
+          0
+        ],
+        [
+          139.21875,
+          -2.8125,
+          3,
+          0
+        ],
+        [
+          143.4375,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          150.46875,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          150.46875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          151.875,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          151.875,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          154.6875,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          158.90625,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          164.53125,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          164.53125,
+          -21.09375,
+          11,
+          11
+        ],
+        [
+          165.9375,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          165.9375,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          167.34375,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          167.34375,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          168.75,
+          -19.6875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

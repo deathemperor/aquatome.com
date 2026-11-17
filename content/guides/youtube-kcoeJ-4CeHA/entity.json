@@ -72,15 +72,6 @@
             "caption": "Bể nhỏ có đá bố cục, đàn cá rìu bơi ở tầng mặt.",
             "sharpness": 541.7,
             "person": false
-          },
-          {
-            "t": 160,
-            "url": "https://media.aquatome.com/video/kcoeJ-4CeHA/at160-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đàn cá rìu nhỏ bơi gần mặt nước trong bể khoảng vài chục lít.",
-            "sharpness": 509.1,
-            "person": false
           }
         ]
       },
@@ -94,29 +85,6 @@
             "height": 675,
             "caption": "Đàn cá nhỏ bơi gần mặt nước trong bể không có nắp.",
             "sharpness": 509.6,
-            "person": false
-          },
-          {
-            "t": 250,
-            "url": "https://media.aquatome.com/video/kcoeJ-4CeHA/at250-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cá bơi sát mặt nước, dễ nhảy ra ngoài nếu bể không có nắp.",
-            "sharpness": 525.5,
-            "person": false
-          }
-        ]
-      },
-      {
-        "heading": "Bày bể ra sao",
-        "moments": [
-          {
-            "t": 375,
-            "url": "https://media.aquatome.com/video/kcoeJ-4CeHA/at375-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể bày đá tạo hốc trốn, ít cây, cá bơi gần mặt nước.",
-            "sharpness": 201.1,
             "person": false
           }
         ]
@@ -134,6 +102,48 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gasteropelecus_sternicla_-_9326.jpg",
           "caption": "Cá rìu bạc có đốm trong bể nuôi, thân rõ nét."
         }
+      },
+      {
+        "heading": "Bể bao nhiêu lít là đủ",
+        "moments": [
+          {
+            "t": 160,
+            "url": "https://media.aquatome.com/video/kcoeJ-4CeHA/at160-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá rìu nhỏ bơi gần mặt nước trong bể khoảng vài chục lít.",
+            "sharpness": 509.1,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Vì sao bể nuôi cá rìu phải có nắp",
+        "moments": [
+          {
+            "t": 250,
+            "url": "https://media.aquatome.com/video/kcoeJ-4CeHA/at250-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá bơi sát mặt nước, dễ nhảy ra ngoài nếu bể không có nắp.",
+            "sharpness": 525.5,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Bày bể thế nào",
+        "moments": [
+          {
+            "t": 375,
+            "url": "https://media.aquatome.com/video/kcoeJ-4CeHA/at375-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể bày đá tạo hốc trốn, ít cây, cá bơi gần mặt nước.",
+            "sharpness": 201.1,
+            "person": false
+          }
+        ]
       }
     ]
   }

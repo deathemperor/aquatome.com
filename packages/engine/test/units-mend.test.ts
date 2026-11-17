@@ -97,7 +97,7 @@ test('what it can\'t mend exactly stays held, as it is, and is listed; before 13
   const cases: [string, string, string][] = [
     ['<p>Bể cho chúng từ 75–110 lít trở lên.</p>', 'từ 75–110 lít', 'a range'],
     ['<p>Hai cái chạy trong bể khoảng 470 lít.</p>', 'khoảng 470 lít', 'no US tank size'],
-    ['<p>Phủ khoảng 2,5 cm cát.</p>', 'khoảng 2,5 cm cát', 'a length or a temperature'],
+    ['<p>Phủ khoảng 3,8 cm cát.</p>', 'khoảng 3,8 cm cát', 'a length or a temperature'],
     ['<p>Bể 80 lít là khoảng 75 lít.</p>', 'khoảng 75 lít', 'name one volume twice'],
     ['<p>Dùng 5 ml cho mỗi 38 lít nước.</p>', 'cho mỗi 38 lít', 'a dose'],
   ]
@@ -137,11 +137,11 @@ test('every writer and reviewer converting a tank gets the one table: no prompt 
     for (const l of loads) expect(l, f).toContain('withTanks(')
   }
   // The video guide's writer had no rule at all, and wrote "115 lít" for 30 gallons (8 to 11 Nov 2026).
-  expect(withTable).toEqual(expect.arrayContaining(['video-guide.md', 'video-review.md', 'vi-rewrite.md', 'localize.md', 'localize-review.md', 'review.md', 'process.md', 'guide-write.md', 'breed.md', 'breed-intl.md', 'species.md', 'species-video.md', 'topic.md']))
+  expect(withTable).toEqual(expect.arrayContaining(['video-guide.md', 'video-review.md', 'vi-rewrite.md', 'localize.md', 'localize-review.md', 'review.md', 'process.md', 'guide-write.md', 'breed.md', 'breed-intl.md', 'species.md', 'species-video.md', 'topic.md', 'video-titles.md']))
   // Every prompt with a rule on units has the table, but those that write no tank of their own: the checkers (the video
-  // editor's reviewer, told units are left for code), the fact finder, and the writers told to keep each figure as their
+  // editor's reviewer, told units are left for code; the video titles' meaning check), the fact finder, and the writers told to keep each figure as their
   // record gives it.
-  const KEEP_FIGURES = ['fit.md', 'reader.md', 'guide-facts.md', 'summary.md', 'review-write.md', 'video-mend-review.md']
+  const KEEP_FIGURES = ['fit.md', 'reader.md', 'guide-facts.md', 'summary.md', 'review-write.md', 'video-mend-review.md', 'video-title-check.md']
   for (const f of await readdir(dir)) {
     const text = await readFile(join(dir, f), 'utf8')
     if (/hệ mét|metric|gallon|°F|\binch|imperial|đổi đơn vị/i.test(text) && !KEEP_FIGURES.includes(f)) expect(withTable, f).toContain(f)
@@ -246,6 +246,31 @@ test('a guide\'s title a person fixed stays; a tank per something is a tank\'s l
     const root = await held(body, [quote])
     await unitsMend(root, { now: after })
     expect((await file(root)).body, body).toBe(mended ? body.replace('115', '120') : body)
+  }
+})
+
+// The chief of staff, 16 Nov 2026: the units mend turned a hand-fixed guide's 340 litres into 350. A part a person
+// fixed is theirs, as it is to every other writer: a body (bodyFixed), an FAQ (faqFixed), a section marked fixed.
+test('a body or an FAQ a person fixed keeps its figures, and the page stays held for the gate', async () => {
+  for (const mark of ['bodyFixed', 'faqFixed'] as const) {
+    const root = await held('<p>Bể 115 lít là vừa.</p>', ['Bể 115 lít là vừa'])
+    const f = join(root, GUIDE)
+    const t = JSON.parse(await readFile(f, 'utf8'))
+    if (mark === 'faqFixed') {
+      // The tank only in an FAQ answer, with a saved read of that text that quotes it there.
+      await writeFile(f, JSON.stringify({ ...t, body: '<p>Cá cho bể nhỏ.</p>', faq: [{ q: 'Bể bao nhiêu lít?', a: 'Bể 115 lít là vừa.' }] }, null, 2))
+      const p = (await loadPages(join(root, 'content'), ['vi'])).find(x => x.id === 'youtube-r53ZQW0m8VM')!
+      const part = fitText(p).parts.find(x => x.field === 'faq.0.a')!.id
+      const state: FitState = { [fitKey(p)]: { at: '2026-11-09', hash: fitText(p).hash, model: 'm', products: [], findings: [{ check: 'units', part, quote: 'Bể 115 lít là vừa', why: 'converted', by: 'model' }], checklist: 3 } }
+      await writeFile(join(root, 'engine-state/_fit.json'), `${JSON.stringify(state)}\n`)
+      // Without the mark it mends there, so the mark is what keeps it.
+      expect((await unitsMend(root, { now: after, dryRun: true })).mended.map(m => m.figures), mark).toEqual([['115 lít -> 120 lít']])
+    }
+    await writeFile(f, JSON.stringify({ ...JSON.parse(await readFile(f, 'utf8')), [mark]: true }, null, 2))
+    const before = await readFile(f, 'utf8')
+    const r = await unitsMend(root, { now: after })
+    expect(r.mended, mark).toEqual([])
+    expect(await readFile(f, 'utf8'), mark).toBe(before)
   }
 })
 

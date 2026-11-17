@@ -1,6 +1,7 @@
 import { resolveDataCard, type Content, type GlossaryEntity, type GuideEntity, type Localized, type Photo, type PlantEntity, type Range, type Series, type SourceId, type SourceInfo, type SpeciesEntity } from '@aq/schema'
 import { PAGE_VERSION, pageShard, shardCount, type Block, type Image, type Inline, type PageDoc, type PageShard } from '@aq/schema/app-page'
-import { appBreeds, appEquipment, appGlossary, appGuides, appIndex, appPlants, appSeries, appSpecies, headPhoto, photoBox, type AppIndex } from './app-index'
+import { videoAbout } from './video-about'
+import { appBreeds, appEquipment, appGlossary, appGuideImage, appGuides, appIndex, appPlants, appSeries, appSeriesImage, appSpecies, headPhoto, photoBox, type AppIndex } from './app-index'
 import { breedParts } from './breed-page'
 import { BREED_KIND, type Breed } from './breeds'
 import { photoCredit } from './cite'
@@ -224,7 +225,7 @@ export async function fishDoc(lang: Lang, c: Content, s: Localized<SpeciesEntity
   }] : []
   const videos: Block[] = p.videos.length ? [{
     t: 'videos', title: 'Video',
-    items: p.videos.map(v => ({ youtubeId: v.youtubeId, title: v.title, durationSec: Math.max(0, Math.round(v.durationSec)), lang: (v.lang ?? 'en') === 'vi' ? t('tiếng Việt') : (v.lang ?? 'en').toUpperCase() })),
+    items: p.videos.map(v => ({ youtubeId: v.youtubeId, title: v.title, durationSec: Math.max(0, Math.round(v.durationSec)), lang: videoAbout(v, lang, t) })),
   }] : []
   return {
     v: PAGE_VERSION,
@@ -353,6 +354,7 @@ export function glossaryDoc(lang: Lang, c: Content, g: Localized<GlossaryEntity>
       ...(p.definition ? proseBlocks(lang, `<p>${p.definition}</p>`).blocks : []),
       ...(p.material ? [{ t: 'p' as const, c: [{ text: p.material.text, href: appPath(lang, p.material.href) }] }] : []),
       ...(p.photo && image(lang, p.photo, p.photo.caption) ? [{ t: 'figure' as const, img: image(lang, p.photo, p.photo.caption)!, ...(p.photo.caption ? { caption: [p.photo.caption] } : {}) }] : []),
+      ...(p.treat ? [{ t: 'p' as const, c: [{ text: p.treat.text, href: appPath(lang, p.treat.href) }] }] : []),
       ...(p.body ? proseBlocks(lang, p.body).blocks : []),
       ...pagesBlock(lang, listed, t('Xem thêm'), p.related.map(r => `/vi/thuat-ngu/${r.t.slug}/`), p.related.length),
       ...(used.length ? [{ t: 'h' as const, text: t('Dùng trong {n} trang', { n: num(p.total) }) }, ...used] : []),
@@ -373,8 +375,8 @@ export function videoDoc(lang: Lang, c: Content, s: Series): PageDoc {
   const t = translator(lang)
   const at = (viPath: string) => appPath(lang, viPath)
   const p = seriesParts(lang, c, s)
-  // Its head is its card's photo in the app index: its first guide's (app-index.ts).
-  const first = seriesGuides(c, s)[0], lead = first && headImage(lang, guideImage(c, first), s.vi.name)
+  // Its head is its card's photo in the app index: its first part's that has a picture (app-index.ts).
+  const lead = headImage(lang, appSeriesImage(c, seriesGuides(c, s)), s.vi.name)
   return {
     v: PAGE_VERSION,
     kind: 'video',
@@ -387,7 +389,8 @@ export function videoDoc(lang: Lang, c: Content, s: Series): PageDoc {
       {
         t: 'cards', title: t('Video'),
         items: p.guides.map(({ g, photo, about, length }) => {
-          const img = image(lang, photo, undefined, true)
+          // A part with no picture under the site's rule keeps the one it had while the app has no designed cover.
+          const img = image(lang, photo ?? (guideImage(c, g) ? undefined : appGuideImage(c, g)), undefined, true)
           return { path: at(`/vi/huong-dan/${g.t.slug}/`), name: g.t.name, sub: `${about} · ${length}`, ...(img ? { img } : {}) }
         }),
       },
@@ -490,7 +493,7 @@ export function guideDoc(lang: Lang, c: Content, g: Localized<GuideEntity>, list
   }
   const lead = v ? undefined : headImage(lang, p.lead)
   // A video guide's head before it plays: its card's photo (app-index.ts), with its box where it has one.
-  const poster = v ? headImage(lang, guideImage(c, g), g.t.name) : undefined
+  const poster = v ? headImage(lang, appGuideImage(c, g), g.t.name) : undefined
   return {
     v: PAGE_VERSION,
     kind: 'guide',
@@ -501,7 +504,8 @@ export function guideDoc(lang: Lang, c: Content, g: Localized<GuideEntity>, list
     ...(lead ? { lead } : {}),
     ...(v ? {
       video: {
-        youtubeId: v.youtubeId, title: v.title, channel: v.channel, durationSec: v.durationSec,
+        // The guide's name in its language; "Video gốc" in its sources keeps the real title, as a credit.
+        youtubeId: v.youtubeId, title: g.t.name, channel: v.channel, durationSec: v.durationSec,
         ...(v.transcribed ? {} : { subtitles: t('Phụ đề tiếng Việt') }),
         ...(guideChapters(v, g.t.chapters).length > 1 ? { chapters: guideChapters(v, g.t.chapters).map(ch => ({ at: ch.start, title: ch.title })) } : {}),
         ...(poster ? { poster } : {}),
@@ -517,7 +521,9 @@ export function guideDoc(lang: Lang, c: Content, g: Localized<GuideEntity>, list
         ...(v ? [{ title: `${t('Video gốc:')} ${v.title}${t(', kênh')} ${v.channel} · ${clock(v.durationSec)}`, url: watchUrl(v.youtubeId) }] : []),
         ...(p.refs ?? []).map(r => ({ title: lang !== 'vi' && isVietnamese(r.title) ? `${r.title} (${t('tiếng Việt')})` : r.title, url: r.url })),
       ] }] : []),
-      ...pages(p.series && p.pos + 1 < p.inSeries.length ? t('Phần tiếp theo') : t('Bài tiếp theo'), p.next.map(x => `/vi/huong-dan/${x.t.slug}/`)),
+      // "Phần tiếp theo" over a series' next parts, as the page has it; the app's list keeps to guides with a picture
+      // (guideParts), so where it drops the next parts, the guides it has instead are "Bài tiếp theo" (Fable's read).
+      ...pages(p.appNext.some(x => p.inSeries.slice(p.pos + 1).some(y => y.id === x.id)) ? t('Phần tiếp theo') : t('Bài tiếp theo'), p.appNext.map(x => `/vi/huong-dan/${x.t.slug}/`)),
       ...pages(t('Loài và cây trong bài'), [...p.species.map(s => `/vi/ca/${s.t.slug}/`), ...p.plants.map(x => `/vi/cay/${x.t.slug}/`)]),
     ],
   }

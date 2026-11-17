@@ -12,7 +12,8 @@
     "peru",
     "ucayali",
     "ecuador",
-    "aguarico"
+    "aguarico",
+    "loreto"
   ],
   "range": {
     "native": {
@@ -23,13 +24,14 @@
       ],
       "regions": [
         "Amazon",
-        "Rio Napo",
-        "Rio Ucayali",
-        "Rio Madeira",
-        "Rio Aguarico"
+        "Napo",
+        "Ucayali",
+        "Madeira",
+        "Aguarico"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -48,8 +50,8 @@
           "countries": [],
           "regions": [
             "Amazon",
-            "Rio Napo",
-            "Rio Ucayali"
+            "Napo",
+            "Ucayali"
           ]
         },
         {
@@ -57,7 +59,7 @@
           "quote": "García-Alzate et al. (2013) report it from the Madre de Dios watershed, a tributary in the upper rio Madeira basin, which would appear to represent a significant range expansion and may indicate it to be present throughout the Peruvian Amazon; there is also an isolated record from the rio Palcazu drainage in the upper rio Ucayali basin.",
           "countries": [],
           "regions": [
-            "Rio Madeira"
+            "Madeira"
           ]
         },
         {
@@ -65,7 +67,7 @@
           "quote": "There exist numerous records from the rios Loreto-Yacu and Pichuna in Colombia, and the rio Aguarico, which forms a section of the border between Peru and Ecuador, but presumably it also occurs in other tributary systems in the region.",
           "countries": [],
           "regions": [
-            "Rio Aguarico"
+            "Aguarico"
           ]
         }
       ]
@@ -224,6 +226,13 @@
           "min": 22,
           "max": 28
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 24
+        }
       }
     ],
     "ph": [
@@ -248,6 +257,10 @@
       {
         "source": "seriouslyfish",
         "value": 2.5
+      },
+      {
+        "source": "glaser",
+        "value": 3.5
       }
     ],
     "tankCm": [
@@ -271,10 +284,22 @@
       "html": "<p>The Loreto tetra, Hyphessobrycon loretoensis, is a small characid from the upper Amazon basin in Colombia, Peru and Ecuador. It is relatively popular in the hobby, but most traded fish are wild-caught, so availability can be sporadic. Most records are from forest streams and minor tributaries with tea-coloured water, overhanging vegetation and leaf litter.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_loretoensis_en/",
+      "html": "<p>Maximum length around 3.5 cm. Imported as an ornamental fish in 1938 and described scientifically as a species new to science.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-loretoensis",
       "html": "<p>Native to the upper Amazon River basin, with its range extending westward from Leticia in southern Colombia, at least as far as the upper rio Napo basin in Peru and Ecuador and lower rio Ucayali in Peru. There exist numerous records from the rios Loreto-Yacu and Pichuna in Colombia, and the rio Aguarico, which forms a section of the border between Peru and Ecuador, but presumably it also occurs in other tributary systems in the region.</p><p>García-Alzate et al. (2013) report it from the Madre de Dios watershed, a tributary in the upper rio Madeira basin, which would appear to represent a significant range expansion and may indicate it to be present throughout the Peruvian Amazon; there is also an isolated record from the rio Palcazu drainage in the upper rio Ucayali basin.</p><p>Type locality is 'Upper Amazon River, Loreto State, Peru'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_loretoensis_en/",
+      "html": "<p>The tetra originates from the upper Amazon river, Loreto province, Peru.</p>"
     },
     {
       "key": "habitat",
@@ -301,16 +326,34 @@
       "html": "<ul><li>Temperature: 22–28°C</li><li>pH: 5.0–7.0</li><li>Hardness: 1–8 dGH</li></ul>"
     },
     {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_loretoensis_en/",
+      "html": "<p>The Loreto tetra looks best when kept in aquaria with many plants, dark bottom (dead leaves, peat etc.), soft and slightly acidic water and not too high temperatures (22-24°C).</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-loretoensis",
       "html": "<p>Likely to be omnivorous feeding on small invertebrates, crustaceans, filamentous algae, fallen fruit, and suchlike in nature.</p><p>In aquaria it may survive on a diet of dried foods but like most fishes does best when offered a varied menu which in this case should also contain live and frozen chironomid larvae (bloodworm), mosquito larvae, Daphnia, Moina, etc.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_loretoensis_en/",
+      "html": "<p>Any type of fishfood will readily be taken.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-loretoensis",
       "html": "<p>Very peaceful making it an ideal resident of the well-researched community aquarium.</p><p>It is perhaps best-maintained alongside similarly-sized characids, gasteropelecids, lebiasinids, smaller callichthyid or loricariid catfishes and non-predatory, small-to-medium-sized cichlids.</p><p>Try to buy a mixed-sex group of at least 8-10 specimens, include other schooling fishes to provide security, and you'll be rewarded with a more natural-looking spectacle.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_loretoensis_en/",
+      "html": "<p>It is not a schooling fish at all, but it is necessary to keep 10-20 specimens together. Otherwise they do not feel well and will never show their typical behaviour. The Loreto tetra swims in schools only when it feels endangered. As this situation virtually never appears in the home aquarium, each individual will soon occupy a small territory and defend it against conspecifics. The intensity of the black band and the red caudal fin shows the position in the hierarchy. However, these fights never lead to any wounds.</p><p>It is absolutely peaceful against all tankmates.</p>"
     },
     {
       "key": "dimorphism",
@@ -329,6 +372,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-loretoensis",
       "html": "<p>H. loretoensis is relatively popular in the aquarium hobby although most of the fish traded are wild caught meaning availability can be sporadic.</p><p>The most recent diagnosis appears to be that of Géry (1977), in which it was separated from other members of the group by the following combination of characters: dorsal-fin insertion at or slightly anterior to mid-body; caudal-fin almost entirely brick red to orange-red; body depth fits less than 3.6 times in SL; head length fits 3.4-3.5 times in SL; caudal peduncle length usually fits 1.2-1.75 times in SL; snout moderately long, more or less pointed; 10-11 predorsal scales; 33-34 longitudinal scales.</p><p>It is a member of the putative 'H. agulha-group' of closely-related species within the genus as proposed by Géry (1977), of which all members possess a dark lower half of the body, especially above the anal-fin, and usually a horizontally elongate humeral spot, more or less united with the asymmetrical, broad band. Other species in this group include H. agulha, H. metae, H. peruvianus, and H. herbertaxelrodi, although some authors have included one or more of these, including H. loretoensis, in the H. heterorhabdus group.</p><p>Lima et al. 2014 noted similarities between the H. aghula group and their revised H. heterorhabdus group which comprises Hyphessobrycon heterorhabdus, H. amapaensis, and H. eschwartzae. This trio all possess: a well-defined, elongate humeral blotch which is continuous with a dark, well-defined midlateral stripe that becomes blurred towards the caudal peduncle; a longitudinal red stripe extending along the body above the midlateral line; upper half of the eye red.</p><p>This pattern is different to that presented by several members of Géry's original H. heterorhabdus group, such as H. vilmae, H. cachimbensis, and H. stegemanni, which possess a continuous, solid dark lateral stripe on the body and no obvious humeral blotch.</p><p>Hyphessobrycon was raised by Durbin in Eigenmann (1908) as a subgenus of Hemigrammus, differing from the latter by the absence of scales on the caudal-fin.</p><p>The grouping was revised by Eigenmann (1918, 1921) while Géry (1977) created artificial groups of species based on colour pattern, and these definitions are still widely used today, e.g., the H. agulha group, the H. heterorhabdus group, etc. These cannot be considered to represent monophyletic assemblages, however, and their concepts continue to be redefined.</p><p>Weitzman &amp; Palmer (1997) hypothesised the existence of a monophyletic assemblage within the genus based on colour pattern and male fin morphology that they termed the 'rosy tetra clade', with one of the characters supporting its monophyly being presence of a prominent dark marking on the dorsal-fin. This assemblage, plus other morphologically similar species, is considered to represent Hyphessobrycon sensu stricto by some authors, with the remaining species included in a much-expanded H. heterorhabdus group.</p><p>Others have proposed conflicting, typically more restricted, views of both the genus and/or its constituent species groups, and significant confusion remains. What is clear is that, as currently recognised, Hyphessobrycon is a polyphyletic lineage containing several genera.</p><p>The process of splitting it up has already started, and Malabarba et al. (2012) revalidated the genus Ectrepopterus Fowler, previously considered a synonym of Hyphessobrycon. They also analysed its relationships within the Characidae in the context of Mirande's (2010) previous work, but included the type species, H. compressus, for the first time in such a study. The results demonstrated that H. compressus is more closely-related to 'rosy tetra' representatives such as H. eques, H. pulchripinnis, and H. socolofi than other species then placed in the genus, including Psalidodon anisitsi, H. bifasciatus, H. elachys, H. herbertaxelrodi, and H. luetkeni.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_loretoensis_en/",
+      "html": "<p>Hyphessobrycon: ancient Greek, means \"small Brycon\". Brycon is another genus of tetras. loretoensis: after the Loreto province in Peru.</p>"
     }
   ],
   "photos": [
@@ -343,7 +392,32 @@
       "caption": "Hai cá tetra Loreto bơi trong bể thủy sinh có rêu"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "pjCxmwmP6NY",
+      "title": "2460 l Hyphessobrycon loretoensis",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "OvEPJvA5c3Y",
+      "title": "Hyphessobrycon loretoensis",
+      "durationSec": 159,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Lxdsyk_phow",
+      "title": "Loreto tetra update",
+      "durationSec": 40,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "968BgaqD0x4",
+      "title": "Hyphessobrycon loretoensis bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 64,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -373,5 +447,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-16"
 }

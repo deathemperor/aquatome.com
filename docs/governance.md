@@ -572,6 +572,8 @@ The layers above still check the result.
   fine), no dead fish or fish as food (markets, plates, catches landed or held,
   preserved, mounted or museum specimens), each photo must show its species (a landscape where it can't be picked out
   doesn't), open licences or permission only.
+  A listed publisher's permission (Aquarium Co-op, 2Hr Aquarist, Seriously Fish, ScotCat, Aquarium Breeder) covers its
+  photos on any AquaTome page, by the owner's word of 16 Nov 2026.
   Pages show photos from our own media host: a Commons or iNaturalist photo waits for `pnpm engine mirror-photos` (every
   cycle), and a public build leaves it out until then (`setsCookies`), since those hosts set third-party cookies.
   Every request the engine sends to Wikimedia (Commons' API, its pictures, their thumbnails) asks under the engine's own
@@ -600,7 +602,15 @@ The layers above still check the result.
     and trade names) and Openverse, never iNaturalist or GBIF, which give the wild fish; it is screened for that line
     alone, and a photo another breed's page shows stays there. Each photo's licence is read from the source's API for
     that photo, never assumed: CC BY-NC, the default on iNaturalist and Flickr, stays out, since the site carries ads
-    and affiliate links. Photos a source gave permission for (`content/sources.json`) and Unsplash photos join through
+    and affiliate links. One exception waits behind a switch that ships off (`IMAGE_SWITCHES.inatNonCommercial`,
+    `packages/schema/src/image-policy.ts`), on only when the chief of staff says (the owner's yes, 10 Nov): iNaturalist's
+    research-grade CC BY-NC and CC BY-NC-SA photos, any version, never ND, all rights reserved or none. With it on they
+    are the album step's last source, read once every open one has run dry; they rank after every open photo, pass every
+    screen and the photo check like any album photo, and their credit names the licence. They stay in albums: no page's
+    head, card or fish-ID reference takes one. Their licence text is their mark (`isNonCommercial`, `licence.ts`), so with
+    the switch off the site shows none and the sweep takes every one off every album and page (`dropNonCommercial`).
+    Commons, GBIF, Openverse, hand seeds and the mirror keep refusing NC whatever the switch says (the mirror copies an
+    iNaturalist album one only while it's on). Photos a source gave permission for (`content/sources.json`) and Unsplash photos join through
     their own steps. Each source is read at the pace it asks for (iNaturalist about one request a second; Openverse 200
     a day without a key), and each page keeps its place in `engine-state/gallery/<id>.json`, so the next cycle continues
     there.
@@ -651,7 +661,12 @@ The layers above still check the result.
     and, for a breed, what sets it apart. Verdicts: shows it (in the wild too, where it is clearly seen), something else
     (it says what), not a photo of it (a map, chart, hands, a tank, a packshot, a landscape or stream where it can't be
     picked out), or can't tell. "Something else" and "not a photo of it" leave the page; a photo no page keeps joins
-    `_photo-rejected.json`. Can't tell stays and is listed in
+    `_photo-rejected.json`. When the check answers "something else" for an album photo, the same run judges that album's
+    other photos from the same uploader that have no verdict for the page yet: the same source (its id, else the site)
+    and author (the author's page where both photos have one, else the name). This round goes past the run's limit and
+    stops at the check's daily line. Only the run's own first answers start it: not a file name's verdict, a guide's, a
+    page's own photo's, an earlier verdict or this round's answers (the chief of staff, 16 Nov: on 15 Nov a second
+    photo by the same uploader in one album was the same wrong fish, and waited for a person). Can't tell stays and is listed in
     `docs/review/photo-subjects.md`, with the removals and the pages left with no photo (they show none; the check
     puts nothing in its place, and the photo steps fill it from their sources as for any page short of photos). A
     "can't tell" photo keeps showing, behind the others (the owner, 2026-11-11): it never leads a page, a breed's
@@ -942,6 +957,16 @@ The layers above still check the result.
   Nov 2026 08:00, six a run, before the gate): only a volume that maps back to the table exactly, every place the page
   gives it, each part changed in its figures alone and within a tenth; a range, a size in between, inches or degrees
   stay held and are listed (the chief of staff, 2026-11-11).
+- **A held video guide's cut.** A video guide the gate holds only for sentences its read names as the source talking, a
+  foreign shop, a price or a product has those sentences cut whole by code (`pnpm engine video-cut`, video-cut.ts, twelve
+  a run in the Mac's photos part, before the units mend and the gate), once a guide. Advice for elsewhere waits for the
+  mend. Each cut sentence is kept in `engine-state/_video-cut.json` (an entry a guide and run: its part, the sentence
+  before it, the sentence, its finding), added to and never rewritten, for the sentence-only mend to write the true
+  ones back. A guide stays as it is, and is listed, where a person waits on it (harm, a kit, a dose), a person fixed it,
+  its read isn't of its text, or a cut could break it or take a step: a sentence to cut with a step or a caution word
+  in it, a table cell, an item's label or a lead-in, a name the guide speaks of again, or what comes later; a kept sentence next to it that points back, announces it or
+  gives a figure or a price it set; a dose near it; more than a tenth of its words (the chief of staff, 15 Nov 2026,
+  after two readers and a whole read of what was left).
 - **One copy of each figure.** The data card holds a species' figures. Quick facts drop the items the card already has
   for that source, and the family (merge, and the page for older content); a block that states a figure the card shows
   otherwise says above itself which source it follows (`@aq/schema` card-facts). Found in a review: Cá neon vua's text
@@ -985,6 +1010,26 @@ The layers above still check the result.
       article it reprints ("Được Loaches Online chuyển thể với sự cho phép.", "… dengan izin", "… โดยได้รับอนุญาต"):
       dropped, its paragraph too when it is all there is (owner, 2026-11-05). A sentence that only has the words ("Chỉ
       bắt cá với sự cho phép của cơ quan quản lý.") stays. No audit rule holds it at zero yet: the sweep alone
+    - a source's photo caption or credit left as a block of its own in a guide's text, its photo not with it ("Ảnh:
+      <name>", "Hình: …", "Foto: …", "ภาพ: …", a caption ending "© <name>"); a source's thanks to a named person or shop
+      as a block of its own ("Cảm ơn <name>.", "Terima kasih kepada <name>.", "Thanks to <name> for the photos"); and
+      "© <name>" after a work's title in a fish page's references, the title and link kept (Page Recovery, 2026-11-12:
+      121 caption lines in 21 guides, 17 pages of thanks, about 130 fish pages' references). Only whole blocks of that
+      shape: a label word that starts another word ("Ảnh hưởng:", "ภาพรวม:"), a thanks inside care advice, a thanks to no
+      one named or with another sentence beside it, a caption in a `<figure>` and a "©" with a year or two names stay.
+      A caption that says something more than what its photo shows (more than eight words, a year, or a sentence of four
+      words or more: many carry a fact found nowhere else on the page) keeps its words, and only its label and credits go.
+      Like the cuts above, it cleans a part a person fixed too, since it adds no word. No audit rule lists them (their
+      words are people's names, and the report is public): a real-content test sweeps every stored page in memory and
+      holds them at zero
+    - an email address, in any field of any file under content/ (the chief of staff, 2026-11-16: a translated article
+      printed its author's in each letter's header, and two video titles their uploader's), or one written out so a
+      program won't read it ("someone [at] example [dot] org", "someone at example dot com", a full-width "＠"): cut with
+      the brackets round it, a link to one keeping its words, first in a page's text with the fixes above, then last in every file, keys
+      too (`dropEmails`, `dropEmailsEverywhere`). A file's name with a scale mark or a frame rate ("ảnh@2x.png",
+      "1080p@60fps.mov"), a handle ("@seriouslyfish") and a link's user stay. A real-content test fails on one anywhere
+      under content/, naming the file and the field, never the address, and has no list of allowed ones; sources/ and
+      engine-state/ join it once their copies are cleaned
     - a photo whose caption names another species the site has a page for, with nothing saying the fish is still the
       page's ("in a batch of", "here with", "known as"), or that is a map, or a Wikimedia Commons photo whose file name
       or description says it is no photo of the living fish (a paper's plate, a microscope picture, a drawing, a dish:

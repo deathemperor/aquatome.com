@@ -385,7 +385,7 @@
       "key": "quickFacts",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/ossancora_punctata_en/",
-      "html": "<ul><li>Maximum length about 10-12 cm</li><li>Origin: Paraguay</li><li>Available size: 4-6 cm</li><li>Scientifically known since 1855</li></ul>"
+      "html": "<ul><li>Maximum length about 10-12 cm</li><li>Origin: Paraguay</li><li>Scientifically known since 1855</li></ul>"
     },
     {
       "key": "quickFacts",
@@ -468,17 +468,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/scotcat/5631aa6003cf7561.webp",
-      "thumb": "https://media.aquatome.com/scotcat/5631aa6003cf7561-480.webp",
-      "width": 500,
-      "height": 319,
-      "licence": "dùng với sự cho phép",
-      "author": "Yann Fulliquet / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/doradidae/ossancora_punctata.htm",
-      "caption": "Ossancora punctata: head view",
-      "source": "scotcat"
-    },
-    {
       "url": "https://media.aquatome.com/scotcat/8dcb360948c0bea7.webp",
       "thumb": "https://media.aquatome.com/scotcat/8dcb360948c0bea7-480.webp",
       "width": 500,
@@ -498,6 +487,17 @@
       "author": "Yann Fulliquet / ScotCat",
       "sourceUrl": "https://www.scotcat.com/doradidae/ossancora_punctata.htm",
       "caption": "Ossancora punctata",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/5631aa6003cf7561.webp",
+      "thumb": "https://media.aquatome.com/scotcat/5631aa6003cf7561-480.webp",
+      "width": 500,
+      "height": 319,
+      "licence": "dùng với sự cho phép",
+      "author": "Yann Fulliquet / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/ossancora_punctata.htm",
+      "caption": "Ossancora punctata: head view",
       "source": "scotcat"
     }
   ],

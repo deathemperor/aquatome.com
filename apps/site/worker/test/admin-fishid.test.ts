@@ -42,6 +42,16 @@ test('the log by period: calls, answers, refusals before a call, tokens and cost
   expect(s.periods.last30).toMatchObject({ guessed: 7, linked: 3 })
 })
 
+test('the day\'s detail counts chat\'s questions by who asked, with their calls\' cost; a role that asked nothing has no line', () => {
+  const keys = { rows: [], bad: 0, today: 2, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0, offTopic: 0 }, mostRefunds: 0, cap: 50, spend: [],
+    chatBy: { owner: { asked: 3, usd: 0.12 }, tester: { asked: 5, usd: 0.4 }, reader: { asked: 0, usd: 0 } } }
+  const html = fishIdPage({ now: NOW, stats: summariseFishId([], [], [], NOW), keys, pages: new Map() })
+  expect(html).toContain('Chat questions, yours')
+  expect(html).toContain('Chat questions, the test account’s')
+  expect(html).toContain('$0.40 of calls')
+  expect(html).not.toContain('Chat questions, readers’')
+})
+
 test('no rows: every period is zero and the page says nothing was logged yet', () => {
   const s = summariseFishId([], [], [], NOW)
   expect(s.periods.d30.calls).toBe(0)

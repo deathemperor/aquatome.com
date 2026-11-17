@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/periclimenes-yucatanicus-detailed-guide-care-diet-and-breeding/
 title: Periclimenes Yucatanicus – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-10-29T07:25:18.655Z
-hash: 0f50a6df1bfe0d76457d4795ebeeff9898cef41ad21501102ef6b16931e8d80d
+hash: 37b5afb1f0f20fbaaa5aa9d3a7c8765254b673441467e24227939aea5e1b9497
 ---
 
 Even though Periclimenes yucatanicus, commonly known as the Spotted anemone shrimp, is quite common in the Caribbean basin, they are still considered relatively rare finds in the aquarium trade.
@@ -133,4 +133,3 @@ The main problems though are their rarity in the aquarium trade and the lack of 
 - Spotte, Stephen, and Patricia M. Bubucis. “Captive survivorship of the spotted anemone shrimp, Periclimenes yucatanicus.” Aquarium Sciences and Conservation1 (1997): 65-69.
 - McKeon, C. Seabird, and James L. O’Donnell. “Variation in partner benefits in a shrimp—sea anemone symbiosis.” PeerJ3 (2015): e1409.
 - Mihalik, Mary Beth. Investigations on symbioses between shrimp and sea anemones. Florida Atlantic University, 1989.
-### Leave a Reply Cancel reply

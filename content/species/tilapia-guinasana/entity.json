@@ -10,6 +10,60 @@
     "namibia",
     "lake-guinas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "NA"
+      ],
+      "regions": [
+        "Lake Guinas"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Tilapia guinasana is a cichlid endemic to Lake Guinas, a deep sinkhole lake in Namibia, and is considered critically endangered.",
+          "countries": [
+            "NA"
+          ],
+          "regions": [
+            "Lake Guinas"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370580,
+      "total": 34,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "NA",
+          32
+        ],
+        [
+          "ZA",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          16.875,
+          -19.6875,
+          32,
+          32
+        ],
+        [
+          18.28125,
+          -35.15625,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -134,7 +188,12 @@
       "author": "Udo Schröter",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tilapia_guinasana.jpg",
       "caption": "Tilapia guinasana, a species of fish in the cichlid family (Cichlidae.). These specimens are photographed at the Berlin Zoological Garden in Germany.",
-      "thumb": "https://media.aquatome.com/commons/b02ee6149ce47d79-480.webp"
+      "thumb": "https://media.aquatome.com/commons/b02ee6149ce47d79-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/b02ee6149ce47d79-large.webp",
+        "width": 1709,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

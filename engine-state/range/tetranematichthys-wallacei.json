@@ -1,0 +1,101 @@
+{
+  "id": "tetranematichthys-wallacei",
+  "native": {
+    "input": "3f05a8cba39be085",
+    "at": "2026-11-16T11:31:54.968Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Amazon basin: upper Negro River system in Brazil and Venezuela and upper Orinoco River basin in southern Venezuela.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Amazon basin: upper Negro River system in Brazil and Venezuela and upper Orinoco River basin in southern Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "South America: Amazon basin: upper Negro River system in Brazil and Venezuela and upper Orinoco River basin in southern Venezuela.",
+        "ok": true
+      },
+      {
+        "name": "Negro River",
+        "source": "scotcat",
+        "quote": "South America: Amazon basin: upper Negro River system in Brazil and Venezuela and upper Orinoco River basin in southern Venezuela.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "scotcat",
+        "quote": "South America: Amazon basin: upper Negro River system in Brazil and Venezuela and upper Orinoco River basin in southern Venezuela.",
+        "country": "VE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Tetranematichthys wallacei",
+    "status": "ACCEPTED",
+    "taxonKey": 2344589,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        16
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        7
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        4
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "2bee4a91-9d92-430e-a87e-ab32d3b1ce47",
+        2
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ]
+    ],
+    "native": [
+      "VE",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-16T11:31:54.968Z"
+  }
+}

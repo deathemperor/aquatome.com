@@ -5,6 +5,9 @@ import { licenceLabel } from './i18n'
 /** `authorUrl`: the photographer's own page, an Unsplash photo's (lib/unsplash.ts). */
 export type Credit = { author: string; authorUrl?: string; licence: string; sourceUrl: string; what: string; generated?: true; altered?: true }
 
+/** How many video guides a page shows as cards (VideoGuideGrid): their photos are the ones the page credits. */
+export const VIDEO_CARDS = 6
+
 /** One footer credit per distinct photo shown on a page (CC BY / BY-SA require attribution), with its licence as shown. */
 export function creditsFor(photos: (Photo | undefined)[], what = 'Ảnh'): Credit[] {
   const seen = new Set<string>()

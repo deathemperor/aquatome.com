@@ -9,6 +9,52 @@
     "south-america",
     "peru"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Tahuantinsuyoa macantzatza, the Inca Stone Fish, reaches a maximum length of 12 cm when fully grown. Origin: Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372919,
+      "total": 6,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "PE",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          -75.9375,
+          -7.03125,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

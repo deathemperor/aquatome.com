@@ -16,14 +16,9 @@
   "range": {
     "native": {
       "countries": [
-        "ZM",
-        "BI",
-        "TZ",
-        "CD"
+        "ZM"
       ],
-      "regions": [
-        "Lake Tanganyika"
-      ],
+      "regions": [],
       "sources": [
         "seriouslyfish"
       ],
@@ -35,45 +30,13 @@
             "ZM"
           ],
           "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "\"Burundi red fin\", collected at the north-eastern extremity of the lake in Burundi.",
-          "countries": [
-            "BI"
-          ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "\"black cheek\" from Cape Kagobo, Tanzania.",
-          "countries": [
-            "TZ"
-          ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "\"gold\" from Kiku, Democratic Republic of the Congo.",
-          "countries": [
-            "CD"
-          ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "The compressed cichlid, Altolamprologus compressiceps, is a substrate-spawning cichlid endemic to Lake Tanganyika, where it lives among rocky rubble.",
-          "countries": [],
-          "regions": [
-            "Lake Tanganyika"
-          ]
         }
       ]
     },
     "records": {
       "taxonKey": 2372765,
       "total": 115,
-      "fetched": "2026-11-06",
+      "fetched": "2026-11-16",
       "countries": [
         [
           "ZM",
@@ -94,30 +57,32 @@
         [
           "MW",
           4
-        ],
-        [
-          "SS",
-          1
         ]
       ],
       "cells": [
         [
+          -30.9375,
+          -7.03125,
+          1,
+          0
+        ],
+        [
           28.125,
           -7.03125,
           7,
-          7
+          0
         ],
         [
           28.125,
           -5.625,
           3,
-          3
+          0
         ],
         [
           28.125,
           -4.21875,
           20,
-          20
+          0
         ],
         [
           29.53125,
@@ -129,37 +94,31 @@
           29.53125,
           -8.4375,
           11,
-          11
+          5
         ],
         [
           29.53125,
           -7.03125,
           10,
-          10
+          0
         ],
         [
           29.53125,
           -5.625,
           10,
-          10
-        ],
-        [
-          29.53125,
-          5.625,
-          1,
           0
         ],
         [
           30.9375,
           -9.84375,
           31,
-          31
+          30
         ],
         [
           30.9375,
           -8.4375,
           2,
-          2
+          0
         ],
         [
           33.75,
@@ -202,6 +161,10 @@
       {
         "source": "seriouslyfish",
         "value": 12.5
+      },
+      {
+        "source": "glaser",
+        "value": 13
       }
     ],
     "tankCm": [
@@ -225,16 +188,34 @@
       "html": "<p>The compressed cichlid, Altolamprologus compressiceps, is a substrate-spawning cichlid endemic to Lake Tanganyika, where it lives among rocky rubble. Its colour pattern varies with locality, and many forms are traded under their own names, such as 'Burundi red fin' and 'black cheek'. Populations should be kept apart and labelled with their collection locality to avoid hybridisation. A smaller, shell-dwelling fish traded as A. sp. compressiceps 'shell' appears to be an undescribed species.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/altolamprologus_compressiceps_en/",
+      "html": "<ul><li>Origin: Lake Tanganyika</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/altolamprologus-compressiceps",
       "html": "<p>Type locality is the town of Kinyamkolo, now known as Mpulungu, located in Zambia at the southern tip of Lake Tanganyika. The species is endemic to the lake but quite widely-distributed with other localities including Katoto, Kabemba, Cape Chaitika, Cape Nangu, Nkamba Bay, Lufubu, Kasenga, Kiku, Kanoni, Pemba, Bujumbura, Magara, Kigoma, Cape Kagobo, Mabilibili, Lyamembe, Kekese, Ikola, Cape Mpimbwe, Nkondwe, Kerenge, Kipili, Kirando, Ulwile, Mtosi, Namansi, Malesa Island, Muzi, Kasanga, Kambwimba, Kantalamba, Kalambo, Isanga, Mwela, Chituta, Kasakalawe, Mbete Island and Mutondwe (also known as \"Crocodile\") Island.</p><p>Tanganyika is the most ancient of Africa's Great Rift Lakes and contains around 250 described species of endemic cichlid which exhibit great diversity in terms of morphology, behaviour, and ecology. This variability has evolved through a process of explosive speciation and is often referred to as a model example of adaptive radiation i.e. the rapid differentiation of a single ancestor into an array of species possessing different traits in order to exploit particular niches in environments and resources.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/altolamprologus_compressiceps_en/",
+      "html": "<p>Altolamprologus compressiceps originates from the shores of Lake Tanganyika.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/altolamprologus-compressiceps",
       "html": "<p>Restricted to areas where the substrate is composed largely of rocky rubble with few open spaces and well-developed cover of biofilm. Adults are mostly found at depths of 10 metres or more though juveniles do enter shallower water. It appears unable to cross large expanses of open substrate as it's absent from the majority of isolated rocky habitats in the lake.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/altolamprologus_compressiceps_en/",
+      "html": "<p>The fish hunter inhabits the detrital zone, which it roams in search of food. When prey is seen it approaches in slow motion, and near the prey it speeds up and catches the victim. Because of its strong lateral flattening it succeeds in penetrating crevices and lies there on the look-out.</p>"
     },
     {
       "key": "aquariumSize",
@@ -247,6 +228,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/altolamprologus-compressiceps",
       "html": "<p>A sandy substrate with some complex structures of piled rocks arranged to fill much of the available space represents the ideal environment. Place the latter directly on the base of the tank before adding the substrate in order to prevent them being toppled by the digging activity of the fish. Water quality must be of the highest order meaning weekly water changes of up to 50% should be considered mandatory.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/altolamprologus_compressiceps_en/",
+      "html": "<p>Good water quality is important for successful maintenance, since they react very sensitively to an increased water load.</p>"
     },
     {
       "key": "waterConditions",
@@ -267,16 +254,34 @@
       "html": "<p>Best maintained as a single pair but can be maintained in groups in larger aquaria. It's not particularly territorial and can make a good addition to the well-chosen community of Tanganyikan species but shouldn't be maintained alongside anything small enough to be considered food. It makes a poor companion for Tropheus or any other species requiring a diet low in protein.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/altolamprologus_compressiceps_en/",
+      "html": "<p>In the aquarium they are characterised by low aggression against tank mates. Clearly smaller co-inhabitants, however, are regarded as prey.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/altolamprologus-compressiceps",
       "html": "<p>Males grow considerably larger than females and develop slightly extended fins as they mature.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/altolamprologus_compressiceps_en/",
+      "html": "<p>The sexes are difficult to tell apart; there is no pronounced sexual dimorphism.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/altolamprologus-compressiceps",
       "html": "<p>A substrate spawner which naturally lays its brood in crevices or cavities among rocks, typically of a size so small only the female can fit inside. The male departs once the eggs are fertilised with the female remaining to guard them during incubation which usually lasts for 3-5 days. Parental care ceases altogether once the fry are free swimming at which point they're also large enough to accept Artemia nauplii. Growth is slow and it can be a year or more before they reach sexual maturity.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/altolamprologus_compressiceps_en/",
+      "html": "<p>As cave spawners they rear up to 180 slowly growing offspring.</p>"
     },
     {
       "key": "notes",
@@ -294,41 +299,66 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/c7d91695727a0eb6.webp",
+      "thumb": "https://media.aquatome.com/commons/c7d91695727a0eb6-480.webp",
       "width": 960,
       "height": 642,
-      "licence": "CC BY-SA 3.0",
-      "author": "H. Zell",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Altolamprologus_compressiceps_-_Karlsruhe_Zoo_01.jpg",
-      "caption": "Altolamprologus compressiceps (Boulenger, 1898), Compressed cichlid; Karlsruhe Zoo, Karlsruhe, Germany.",
-      "thumb": "https://media.aquatome.com/commons/c7d91695727a0eb6-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/c7d91695727a0eb6-large.webp",
         "width": 1795,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "H. Zell",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Altolamprologus_compressiceps_-_Karlsruhe_Zoo_01.jpg",
+      "caption": "Altolamprologus compressiceps (Boulenger, 1898), Compressed cichlid; Karlsruhe Zoo, Karlsruhe, Germany."
     },
     {
       "url": "https://media.aquatome.com/commons/e5d25a311b6ad74c.webp",
+      "thumb": "https://media.aquatome.com/commons/e5d25a311b6ad74c-480.webp",
       "width": 960,
       "height": 651,
       "licence": "CC BY-SA 3.0",
       "author": "H. Zell",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Altolamprologus_compressiceps_-_Karlsruhe_Zoo_02.jpg",
-      "caption": "Altolamprologus compressiceps (Boulenger, 1898), Compressed cichlid; Karlsruhe Zoo, Karlsruhe, Germany.",
-      "thumb": "https://media.aquatome.com/commons/e5d25a311b6ad74c-480.webp"
+      "caption": "Altolamprologus compressiceps (Boulenger, 1898), Compressed cichlid; Karlsruhe Zoo, Karlsruhe, Germany."
     },
     {
       "url": "https://media.aquatome.com/commons/d6c234c54a6fe7e4.webp",
+      "thumb": "https://media.aquatome.com/commons/d6c234c54a6fe7e4-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY 2.0",
       "author": "shankar s.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brilliant_fox_face_Rabbitfish_(I_think)_at_River_Wonders_Singapore.jpg",
-      "caption": "Brilliantly coloured Fox- face Rabbitfish (I think) at River Wonders Singapore. The zoo has hundreds of little fish in it's aquariums. However, despite the clear signage, it is impossible to photograp",
-      "thumb": "https://media.aquatome.com/commons/d6c234c54a6fe7e4-480.webp"
+      "caption": "Brilliantly coloured Fox- face Rabbitfish (I think) at River Wonders Singapore. The zoo has hundreds of little fish in it's aquariums. However, despite the clear signage, it is impossible to photograp"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "faEwR_gB8yM",
+      "title": "Altolamprologus compressiceps and their babies",
+      "durationSec": 124,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "R4H3DazelaE",
+      "title": "Altolamprologus Compressiceps Care Guide",
+      "durationSec": 530,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "jPFGL4T21oA",
+      "title": "Setting up an Aquarium for Altolamprologus compressiceps",
+      "durationSec": 706,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Rd7rGgokTls",
+      "title": "Altolamprologus compressiceps \"Sumbu Shell\" female with young fry 😍😍 #FranksTangs",
+      "durationSec": 46,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -358,5 +388,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-14"
 }

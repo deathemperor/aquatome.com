@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/how-to-culture-phytoplankton/
 title: How to Culture Phytoplankton - Shrimp and Snail Breeder
 fetchedAt: 2026-11-11T09:07:20.474Z
-hash: 2c8c33cef14d3a5f319de491d40aa31c347207fc35b64130ad3f28fb7fe2eec5
+hash: 1d7db3c9b0acd46f7a3043bdfe4549b0c3507a0db3ded422ca50e5c349831b3e
 ---
 
 In order to keep your aquarium fish and invertebrates active, healthy, and well-nourished — you need to feed them adequately with a nutrient-rich diet. Though there are many food items that you can serve your fish and inverts, most of them are relatively expensive. Hence, growing a few ones indoors (like phytoplankton) can save you a great deal of money.
@@ -93,4 +93,3 @@ Phytoplankton is quite easy to culture once specific conditions such as lighting
 By far, the overall cost of culturing phytoplankton is minimal when compared to a lot of other feeding options. Ultimately, even beginner hobbyists can be able to grow a substantial mass of fresh phytoplankton for their tanks.
 ## Related article:
 - Green Water Algae Profile and How to Remove
-### Leave a Reply Cancel reply

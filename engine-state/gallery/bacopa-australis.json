@@ -1,10 +1,30 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "inat:651983013",
+  "inat:651983021",
+  "inat:651983047",
+  "inat:704119756",
+  "inat:704119754",
+  "inat:704119753"
+ ],
  "hashes": {
   "https://media.aquatome.com/tropica/39206706e0d64a71.webp": "2f1f171b836107e6",
   "https://media.aquatome.com/tropica/b2bada510d15e356.webp": "1030107070303030",
-  "https://media.aquatome.com/tropica/e2ceb90d002052c7.webp": "a8a048e8c8c8c2c8"
+  "https://media.aquatome.com/tropica/e2ceb90d002052c7.webp": "a8a048e8c8c8c2c8",
+  "https://media.aquatome.com/inaturalist/704119756.webp": "59dc6665969d4016",
+  "https://media.aquatome.com/inaturalist/651983047.webp": "9d1f651e3163b66c",
+  "https://media.aquatome.com/inaturalist/704119754.webp": "32d2a212901a9215",
+  "https://media.aquatome.com/inaturalist/651983013.webp": "9b1fa71f973a6969",
+  "https://media.aquatome.com/inaturalist/704119753.webp": "8b0a1e17324d71e9"
  },
- "commons": "2026-11-10"
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": 816384,
+  "pass": "done",
+  "after": {
+   "research": 384645220,
+   "agree": 383724315
+  }
+ }
 }

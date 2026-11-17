@@ -1,0 +1,67 @@
+{
+  "id": "youtube-yVuK23DAxOI",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=yVuK23DAxOI",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "lilaeopsis-brasiliensis",
+    "sagittaria-subulata",
+    "poecilia-reticulata",
+    "paracheirodon-axelrodi"
+  ],
+  "updatedAt": "2026-11-16",
+  "video": {
+    "youtubeId": "yVuK23DAxOI",
+    "title": "Building THE AMAZON Tank (part 4) FIRST FISH!!! | MD Fish Tanks",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 821,
+    "publishedAt": "2020-12-21",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWvYQz79ssY7hvUuZkaFK4xj",
+      "position": 3
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/yVuK23DAxOI/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Lilaeopsis brasiliensis",
+      "Sagittaria subulata",
+      "Monstera deliciosa",
+      "Spathiphyllum sp.",
+      "Poecilia reticulata",
+      "Hemigrammus sp.",
+      "Paracheirodon axelrodi",
+      "Corydoras sp."
+    ],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "tao-dong",
+        "t": 62
+      },
+      {
+        "category": "den",
+        "t": 187
+      },
+      {
+        "category": "loc",
+        "t": 105
+      },
+      {
+        "category": "be-ca",
+        "t": 0
+      },
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 0
+      }
+    ]
+  }
+}

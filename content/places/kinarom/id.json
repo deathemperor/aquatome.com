@@ -3,6 +3,12 @@
   "name": "Kinarom",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-15T05:29:56.815Z",
+    "why": "Kinarom is a locality in Sabah, Malaysia; the bare name omits the Indonesian kind word \"Wilayah\" and carries a few uncertainties, so it is only moderately confident."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

@@ -38,6 +38,8 @@ final class TanksModel {
 
   var tanks: [Tank] { store.liveTanks }
   func devices(in tank: Tank) -> [Device] { store.devices(in: tank.id) }
+  /// The chat's check of a tank, on the way to that tank's page, which takes it.
+  var trial: TankTrial?
   /// Nothing to add to while the store on the phone isn't this app's to write; after a failed save, try again.
   var canAdd: Bool { canEdit && tanks.count < maxTanks }
   /// Whether this phone's store is this app's to write (none newer or unreadable is there); after a failed save, try again.
@@ -186,6 +188,13 @@ final class TanksModel {
     try? commit(s)
   }
 
+  /// The Love Ecology lamp's record, made on the first tank when the master button first takes it, so its steps can name it.
+  func keepLoveEcology() -> Device? {
+    var s = store
+    guard let d = try? s.keepLoveEcology(tankName: Self.newTankName) else { return nil }
+    return (try? commit(s)) != nil ? d : nil
+  }
+
   /// Lights moved to another of the reader's tanks, the one they light (the Week Aqua screen's "Bể").
   func moveDevices(_ ids: [String], to tankId: String) {
     var s = store
@@ -240,7 +249,7 @@ final class TanksModel {
     if args.contains("-reset-defaults") { try? fm.removeItem(at: dir) }
     guard let i = args.firstIndex(of: "-seed-tanks"), i + 1 < args.count else { return }
     switch args[i + 1] {
-    case "newer", "unreadable", "litres", "life", "many", "clash", "plug", "breed", "two":
+    case "newer", "unreadable", "litres", "life", "many", "clash", "plug", "breed", "two", "master":
       let many = (["paracheirodon-innesi"] + (1...19).map { "loai-thu-\($0)" }).map { #"{"id":"\#($0)","count":2}"# }.joined(separator: ",")
       let store = [
         "newer": #"{"v":2,"tanks":[],"devices":[]}"#,
@@ -251,6 +260,8 @@ final class TanksModel {
         "clash": #"{"v":1,"tanks":[{"id":"00000000-0000-4000-8000-000000000003","name":"Bể 60","dims":{"l":60,"w":30,"h":36},"species":[{"id":"symphysodon-aequifasciatus","count":2},{"id":"paracheirodon-innesi","count":12}],"plants":[],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}],"devices":[]}"#,
         "plug": #"{"v":1,"tanks":[{"id":"00000000-0000-4000-8000-000000000005","name":"Bể 60","species":[],"plants":[],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}],"devices":[{"id":"00000000-0000-4000-8000-000000000040","tankId":"00000000-0000-4000-8000-000000000005","kind":"plug","brand":"tuya","remoteId":"fake-strip-1","nickname":"Ổ cắm bể 60","outlets":[{"code":"switch_1","label":"Đèn"},{"code":"switch_2","label":"CO2"},{"code":"switch_3"}],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}]}"#,
         "breed": #"{"v":1,"tanks":[{"id":"00000000-0000-4000-8000-000000000006","name":"Bể đĩa","dims":{"l":120,"w":50,"h":50},"species":[{"id":"symphysodon-aequifasciatus","count":2},{"id":"pigeon-blood-discus","count":3}],"plants":[],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}],"devices":[]}"#,
+        // The master button's flows: the stand-in strip's light, CO2 and fan outlets, and a filter on another strip.
+        "master": #"{"v":1,"tanks":[{"id":"00000000-0000-4000-8000-000000000005","name":"Bể 60","species":[],"plants":[],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}],"devices":[{"id":"00000000-0000-4000-8000-000000000040","tankId":"00000000-0000-4000-8000-000000000005","kind":"plug","brand":"tuya","remoteId":"fake-strip-1","nickname":"Ổ cắm bể 60","outlets":[{"code":"switch_1","label":"Đèn","role":"light"},{"code":"switch_2","label":"CO2","role":"co2"},{"code":"switch_3","label":"Quạt","role":"fan"},{"code":"switch_4","label":"Sưởi","role":"heater"}],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"},{"id":"00000000-0000-4000-8000-000000000042","tankId":"00000000-0000-4000-8000-000000000005","kind":"plug","brand":"tuya","remoteId":"fake-strip-2","nickname":"Ổ cắm kệ","outlets":[{"code":"switch_1","label":"Lọc","role":"filter"}],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"}]}"#,
         "two": #"{"v":1,"tanks":[{"id":"00000000-0000-4000-8000-000000000007","name":"Bể 60","species":[],"plants":[],"createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"},{"id":"00000000-0000-4000-8000-000000000008","name":"Bể nước đen","species":[],"plants":[],"createdAt":"2026-10-02T08:00:00.000Z","updatedAt":"2026-10-02T08:00:00.000Z"}],"devices":[]}"#,
       ][args[i + 1]]!
       try? fm.createDirectory(at: dir, withIntermediateDirectories: true)

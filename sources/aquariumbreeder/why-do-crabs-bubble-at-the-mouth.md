@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/why-do-crabs-bubble-at-the-mouth/
 title: Why Do Crabs Bubble At The Mouth? - Shrimp and Snail Breeder
 fetchedAt: 2026-11-09T15:15:50.335Z
-hash: 0f12f26b7a3c332deb115549bfc8b2a057c010ca794299e30e1a856dbb74dae0
+hash: f963489e0ba08bb2d28691db01aa2d28e15f928edbd91ff5f12eb597f97cbca9
 ---
 
 Crabs are fascinating little crustaceans who have a strange habit of blowing bubbles or foaming at the mouth during their frequent land excursions. No, they’re not rabid. This is how they protect their gills.
@@ -47,4 +47,3 @@ Mostly, it’s the harmless byproduct of how their gills function to draw and re
 However, if it’s brown or foaming lasts too long, especially with hermit crabs, it generally means that they need water and it’s best to provide it immediately.
 ## Related Article:
 - 50 Most Popular Questions about Crabs
-### Leave a Reply Cancel reply

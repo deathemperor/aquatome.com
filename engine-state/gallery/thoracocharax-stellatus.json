@@ -21,15 +21,38 @@
   "File:Thoracocharax stellatus 4zz.jpg",
   "File:Gasteropelecidae Thoracocharax stellatus 1.jpg",
   "File:Stream fish from Araguaia and Rio da Mortes basin.png",
-  "File:Fish species collected from sandy beaches of the Acre river Brazil (2 of 5).png"
+  "File:Fish species collected from sandy beaches of the Acre river Brazil (2 of 5).png",
+  "inat:113304132",
+  "inat:126785188",
+  "inat:130348519",
+  "inat:130348548",
+  "inat:134193481",
+  "inat:134193556",
+  "inat:135905622",
+  "inat:145969835",
+  "inat:316828268",
+  "inat:504074966",
+  "inat:592616793",
+  "inat:592616833"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/b4ec115409142986.webp": "36ebe3c70f9f4731",
   "https://media.aquatome.com/seriouslyfish/0c69d65b34fd51c8.webp": "040d4f5d5d1c3a00",
-  "https://media.aquatome.com/seriouslyfish/b73efad031ac5045.webp": "3131a3a484c48181",
   "https://media.aquatome.com/commons/8d2e7605be4455f6.webp": "535317212b3a3624",
   "https://media.aquatome.com/commons/c6a59ccc765cf754.webp": "1a191912727616cc",
   "https://media.aquatome.com/commons/567ad9c15844da74.webp": "a4b7b384262e0f3b"
  },
- "commons": "2026-11-10"
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": 614172,
+  "pass": "done",
+  "after": {
+   "research": 376995315,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 2355712,
+  "next": null
+ }
 }

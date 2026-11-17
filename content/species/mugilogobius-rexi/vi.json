@@ -1,0 +1,23 @@
+{
+  "slug": "ca-bong-vang-towuti",
+  "name": "Cá bống vàng Towuti",
+  "altNames": [
+    "Cá bống vàng Sulawesi",
+    "Yellow goby"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Khác với đa số cá bống, loài bống nhỏ màu vàng này bơi giữa nước chứ không nằm đáy. Cá lớn tối đa khoảng 4-5 cm.</p>",
+    "distribution:glaser": "<p>Loài này chỉ có ở Sulawesi. Ngay trên đảo này, nó cũng chỉ sống ở hai hồ là Towuti và Mahalona.</p>",
+    "habitat:glaser": "<p>Nước ở hai hồ này rất ấm (từ 29 °C trở lên), rất sạch và hơi kiềm (pH 7,5). Độ dẫn điện khoảng 225 µS/cm.</p>",
+    "dimorphism:glaser": "<p>Con đực khi chiếm được chỗ riêng thì lên màu vàng tươi, vây cũng to ra và có các sọc sẫm. Con cái nhạt màu hơn nhiều, vây trong suốt.</p>",
+    "notes:glaser": "<p>Mugilogobius: tiếng Latin, nghĩa là \"cá bống cá đối\". rexi: tên đặt để vinh danh một người.</p>"
+  },
+  "quality": {
+    "score": 0.92,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.92
+    },
+    "reason": "thin"
+  }
+}

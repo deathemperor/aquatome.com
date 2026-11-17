@@ -1,0 +1,70 @@
+{
+  "id": "tachysurus-trilineatus",
+  "native": {
+    "input": "9d4bc07d56849946",
+    "at": "2026-11-16T05:47:36.414Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Dongjiang drainage (part of the Zhujiang [Pearl River] drainage) in southern China.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: China, Dongjiang basin.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Dongjiang",
+        "source": "planetcatfish",
+        "quote": "Dongjiang drainage (part of the Zhujiang [Pearl River] drainage) in southern China.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Zhujiang",
+        "source": "planetcatfish",
+        "quote": "Dongjiang drainage (part of the Zhujiang [Pearl River] drainage) in southern China.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Dongjiang",
+        "source": "scotcat",
+        "quote": "Asia: China, Dongjiang basin.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Tachysurus trilineatus",
+    "status": "ACCEPTED",
+    "taxonKey": 10188086,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        4
+      ]
+    ],
+    "native": [
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-16T05:47:36.414Z"
+  }
+}

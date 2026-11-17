@@ -1,8 +1,8 @@
 {
   "id": "potamotrygon-falkneri",
   "native": {
-    "input": "a84fe344571767d1",
-    "at": "2026-11-13T05:31:31.275Z",
+    "input": "ab24172eaa668753",
+    "at": "2026-11-16T11:31:54.968Z",
     "claims": [
       {
         "code": "BR",
@@ -32,7 +32,7 @@
         "code": "BR",
         "status": "native",
         "source": "glaser",
-        "quote": "Origin: Brazil, Rio Paraná-Paraguay.",
+        "quote": "Origin: Brazil, Rio Paraná-Paraguay",
         "words": "Brazil",
         "ok": true
       }
@@ -48,6 +48,13 @@
         "name": "Rio Paraguay",
         "source": "seriouslyfish",
         "quote": "Native to the Rio Paraná and Rio Paraguay basins in Brazil, Paraguay and Argentina.",
+        "ok": true
+      },
+      {
+        "name": "Rio Paraná-Paraguay",
+        "source": "glaser",
+        "quote": "Origin: Brazil, Rio Paraná-Paraguay",
+        "country": "BR",
         "ok": true
       }
     ],

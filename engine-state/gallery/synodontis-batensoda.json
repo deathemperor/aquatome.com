@@ -2,10 +2,21 @@
  "queue": [],
  "judged": [
   "File:Brachysynodontis-batensoda-GLA24-147u.jpg",
-  "File:Synodontis batensoda.jpg"
+  "File:Synodontis batensoda.jpg",
+  "inat:455693155",
+  "inat:455693145"
  ],
  "hashes": {
-  "https://media.aquatome.com/commons/e0fed339f9d7f2d0.webp": "676760c31e9e3f3d"
+  "https://media.aquatome.com/commons/e0fed339f9d7f2d0.webp": "676760c31e9e3f3d",
+  "https://media.aquatome.com/inaturalist/455693155.webp": "183173b131994961"
  },
- "commons": "2026-11-11"
+ "commons": "2026-11-11",
+ "inat": {
+  "taxon": 113597,
+  "pass": "done",
+  "after": {
+   "research": 254412028,
+   "agree": 0
+  }
+ }
 }

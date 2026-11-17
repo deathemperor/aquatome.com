@@ -2,6 +2,48 @@
   "id": "ammannia-crassicaulis",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/60597727.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/60597727-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC0",
+      "author": "Carlos G Velazco-Macias",
+      "sourceUrl": "https://www.inaturalist.org/photos/60597727",
+      "caption": "Cây Ammannia crassicaulis ra hoa giữa đám cỏ ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/60597716.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/60597716-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC0",
+      "author": "Carlos G Velazco-Macias",
+      "sourceUrl": "https://www.inaturalist.org/photos/60597716",
+      "caption": "Hoa tím của Cây Ammannia crassicaulis mọc ngoài tự nhiên",
+      "best": true,
+      "kind": "flower",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/173717623.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/173717623-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "pbsg",
+      "sourceUrl": "https://www.inaturalist.org/photos/173717623",
+      "caption": "Thân đỏ, lá và hoa nhỏ của Cây Ammannia crassicaulis",
+      "best": true,
+      "kind": "detail",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/tropica/51923e9652fa72eb.webp",
       "thumb": "https://media.aquatome.com/tropica/51923e9652fa72eb-480.webp",
       "width": 1000,
@@ -11,6 +53,20 @@
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Ammanniacrassicaulis(033B)/4449",
       "source": "tropica",
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/173717629.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/173717629-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "pbsg",
+      "sourceUrl": "https://www.inaturalist.org/photos/173717629",
+      "caption": "Lá và hoa tím nhỏ của Cây Ammannia crassicaulis cận cảnh",
+      "best": false,
+      "kind": "detail",
+      "setup": false,
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/tropica/f1f19426cfca5486.webp",
@@ -52,6 +108,7 @@
       "kind": "submersed"
     }
   ],
-  "seen": 0,
-  "updatedAt": "2026-11-10"
+  "seen": 5,
+  "updatedAt": "2026-11-16",
+  "builtAt": "2026-11-16"
 }

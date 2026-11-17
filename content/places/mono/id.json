@@ -3,6 +3,12 @@
   "name": "Mono",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-15T05:31:48.694Z",
+    "why": "The source sentence refers to the Mono river, and an Indonesian atlas would write \"Sungai Mono\", so the bare \"Mono\" leaves out the kind word."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

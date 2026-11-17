@@ -1,15 +1,32 @@
-import { FIRST_PLANTS, linkTerms, plainText, POPULAR, slugify, STAPLE_SPECIES, type Content, type GlossaryEntity, type GuideEntity, type Localized } from '@aq/schema'
-import { translator, type Lang } from './i18n'
+import { capitalFirst, cleanPhoto, FIRST_PLANTS, kindLine, kindsSection, linkTerms, photoFitsCard, plainText, POPULAR, slugify, STAPLE_SPECIES, type Content, type GlossaryEntity, type GuideEntity, type Localized, type Photo } from '@aq/schema'
+import { BREED_KIND } from './breeds'
+import { partsHtml, photoCredit, unsplashLine } from './cite'
+import { LANG, translator, type Lang } from './i18n'
+import { tilePhoto } from './img'
 import { materialPath } from './materials'
 import { mentionIndex } from './mentions'
+import { pagePictures, takeEach, tilePhotos } from './pictures'
+import { sciBeside } from './sci'
 import { sectionParts } from './section-parts'
 import { foldNearEmpty } from './sections'
+import { isUnsplash } from './unsplash'
 
 /** How many of each kind of page that uses a term its page lists; the heading gives the whole count. */
 export const USED_IN_SHOWN = { guides: 8, fish: 12, plants: 6 } as const
 
-/** A page that uses a term: its address and its name. */
-export type TermUse = { href: string; name: string }
+/**
+ * On a term's page, the rows of each kind of page that use it (the Design Lead's board, 14 Nov 2026): three of each at
+ * most, unless all of them come to six or fewer, which all show and need no search for the rest. The app's copy keeps
+ * USED_IN_SHOWN.
+ */
+export const USED_IN_ROWS = 3
+export const USED_IN_ALL = 6
+
+/**
+ * A page that uses a term: its address and its name; the picture its card shows (a fish's tile, a plant's card) and the
+ * line under its name there: the Latin name where the name doesn't say it (`sci`), a line or hybrid's kind (`kind`).
+ */
+export type TermUse = { href: string; name: string; photo?: Photo; sci?: string; kind?: string }
 /** The fish readers keep most, as the home page and the lists rank them (staples.ts), then the first plants a keeper meets. */
 const KNOWN = [...STAPLE_SPECIES, ...POPULAR.map(slugify), ...FIRST_PLANTS]
 const known = (id: string) => (KNOWN.includes(id) ? KNOWN.indexOf(id) : KNOWN.length)
@@ -40,15 +57,17 @@ function termUses(lang: Lang, c: Content): Map<string, Uses> {
   for (const s of c.species) {
     const text = foldNearEmpty(s.sections, s.t, t)
     const parts = sectionParts(lang, c, { sections: text.sections, t: text.t, self: `species:${s.id}`, selfNames: [s.scientificName, s.t.name, ...s.t.altNames], card: s.dataCard })
-    pages.push({ kind: 'fish', use: { href: `/vi/ca/${s.t.slug}/`, name: s.t.name }, rank: known(s.id), size: size(s), terms: terms(shown(parts)) })
+    const sci = sciBeside(s.t.name, s.scientificName)
+    pages.push({ kind: 'fish', use: { href: `/vi/ca/${s.t.slug}/`, name: s.t.name, ...pic(tilePhoto(tilePhotos(s.photos)[0])), ...(sci ? { sci } : {}) }, rank: known(s.id), size: size(s), terms: terms(shown(parts)) })
   }
   for (const b of c.breeds) {
     const body = b.t.body ? linkTerms(b.t.body, targets, 'ml', new Set([`breed:${b.id}`])).html : ''
-    pages.push({ kind: 'fish', use: { href: `/vi/ca/${b.t.slug}/`, name: b.t.name }, rank: KNOWN.length, size: size(b), terms: terms([body]) })
+    pages.push({ kind: 'fish', use: { href: `/vi/ca/${b.t.slug}/`, name: b.t.name, ...pic(tilePhoto(tilePhotos(b.photos)[0])), kind: t(BREED_KIND[b.kind]) }, rank: KNOWN.length, size: size(b), terms: terms([body]) })
   }
   for (const p of c.plants) {
     const parts = sectionParts(lang, c, { sections: p.sections, t: p.t, self: `plant:${p.id}`, selfNames: [p.scientificName, p.t.name, ...p.t.altNames], co2: p.co2 })
-    pages.push({ kind: 'plants', use: { href: `/vi/cay/${p.t.slug}/`, name: p.t.name }, rank: known(p.id), size: size(p), terms: terms(shown(parts)) })
+    const chosen = cleanPhoto(p.photos), sci = sciBeside(p.t.name, p.scientificName)
+    pages.push({ kind: 'plants', use: { href: `/vi/cay/${p.t.slug}/`, name: p.t.name, ...pic(chosen && !chosen.generated && photoFitsCard(chosen) ? chosen : undefined), ...(sci ? { sci } : {}) }, rank: known(p.id), size: size(p), terms: terms(shown(parts)) })
   }
   const out = new Map<string, Uses>()
   const at = (id: string) => out.get(id) ?? out.set(id, { guides: [], fish: [], plants: [] }).get(id)!
@@ -64,6 +83,7 @@ function termUses(lang: Lang, c: Content): Map<string, Uses> {
 }
 
 const escapeText = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;')
+const pic = (photo: Photo | undefined) => (photo ? { photo } : {})
 
 /** How many pages use a term: the guides, fish and plants that link it, the number its page gives under "Dùng trong". */
 const usedCount = (u: Uses) => u.guides.length + u.fish.length + u.plants.length
@@ -113,8 +133,11 @@ export function glossaryParts(lang: Lang, c: Content, g: Localized<GlossaryEntit
   const targets = mentionIndex(c).targets
   const seen = new Set([key])
   const definition = g.t.definition ? linkTerms(escapeText(g.t.definition), targets, 'ml', seen, own).html : ''
+  // The page links its own text in its own order (the kinds, below); the app's copy keeps its body whole.
+  const pageSeen = new Set(seen)
+  const h2 = (html: string) => html.replace(/<(\/?)h3>/g, '<$1h2>')
   // The entry's sections are the page's first headings, under its title.
-  const body = g.t.body ? linkTerms(g.t.body.replace(/<(\/?)h3>/g, '<$1h2>'), targets, 'ml', seen, own).html : ''
+  const body = g.t.body ? linkTerms(h2(g.t.body), targets, 'ml', seen, own).html : ''
   const terms = new Map(c.glossary.map(x => [x.id, x]))
   const related = (g.related ?? []).flatMap(id => terms.get(id) ?? [])
   const uses = termUses(lang, c).get(g.id) ?? { guides: [], fish: [], plants: [] }
@@ -127,5 +150,145 @@ export function glossaryParts(lang: Lang, c: Content, g: Localized<GlossaryEntit
   const more = guides.length > USED_IN_SHOWN.guides || fish.length > USED_IN_SHOWN.fish || plants.length > USED_IN_SHOWN.plants
   const m = lang === 'vi' ? c.materials.find(m => m.id === g.id) : undefined
   const material = m ? { href: materialPath(m), text: `Xem trang ${m.t.name}: cách chọn, xử lý${m.parent ? '' : ` và các loại ${m.t.name.toLocaleLowerCase('vi')}`} →` } : undefined
-  return { otherNames, definition, material, photo: g.photos?.[0], body, related, refs: g.refs ?? [], guides, fish, plants, total: usedCount(uses), more }
+  // A disease term's treatment: the guide that explains it first, where that is a guide on a disease that names it. The
+  // page and the app's copy give the same link.
+  const lead = guides[0]
+  const treat = lead && lead.kind === 'disease' && rank.get(lead.id)![0]
+    ? { href: `/vi/huong-dan/${lead.t.slug}/`, text: translator(lang)('Trị thế nào: đọc hướng dẫn trị {name} →', { name: g.t.name.toLocaleLowerCase(LANG[lang].locale) }) }
+    : undefined
+  // What the thing looks like (the owner, 15 Nov 2026: "what does each look like?"), none twice (pictures.ts): each kind's
+  // photo, where the entry names its kind, claims first, in the entry's order; the term's own photo is its first that no
+  // kind holds, and its other photos follow it.
+  // The kinds are cards (the Design Lead's board, 16 Nov 2026), first in the page's body: those with a photo first, each
+  // its photo, name, bracketed name and its text's first sentence (what it looks like); then those without, in words. A
+  // kind whose photo another kind holds already is in words. Each opens large on the page with its whole text.
+  const pics = pagePictures(c)
+  const section = kindsSection(g.t.body ?? '')
+  const filed = new Map((g.kinds ?? []).map(k => [k.id, k.photo]))
+  // Each term linked once, where a reader sees it first: the text over the cards and the rest of the body, then the kinds'
+  // whole texts, which show only when a card opens.
+  const intro = section?.intro ? linkTerms(h2(section.intro), targets, 'ml', pageSeen, own).html : ''
+  const restHtml = section ? section.rest : g.t.body ?? ''
+  const pageBody = restHtml.trim() ? linkTerms(h2(restHtml), targets, 'ml', pageSeen, own).html : ''
+  const items = (section?.items ?? []).map(k => {
+    const photo = filed.has(k.id) ? pics.take([filed.get(k.id)!]) : undefined
+    return { id: k.id, name: k.label, ...(k.aka ? { aka: k.aka } : {}), line: kindLine(k.html), html: linkTerms(k.html, targets, 'ml', pageSeen, own).html, ...(photo ? { photo } : {}) }
+  })
+  const kinds = section ? { title: section.heading, intro, items: [...items.filter(k => k.photo), ...items.filter(k => !k.photo)] } : undefined
+  const photos = (g.photos ?? []).flatMap(p => pics.take([p]) ?? [])
+  return { otherNames, definition, material, photo: photos[0], others: photos.slice(1), kinds, pageBody, body, related, refs: g.refs ?? [], guides, fish, plants, total: usedCount(uses), more, treat }
+}
+
+/**
+ * A kind's photo's caption in its large view: without the kind's name it opens with ("Lũa bonsai: …"), which the view's
+ * heading says, from a capital. Lũa cholla's says it is the desert cactus, not wood in a tank, so it shows whole.
+ */
+export function kindCaption(lang: Lang, name: string, caption?: string): string {
+  if (!caption) return ''
+  const locale = LANG[lang].locale
+  const rest = caption.toLocaleLowerCase(locale).startsWith(name.toLocaleLowerCase(locale)) ? caption.slice(name.length).replace(/^[\s:–-]+/, '') : caption
+  return capitalFirst(rest, locale)
+}
+
+/** A kind's photo's credit in its large view, as the site writes a photo's credit (lib/cite.ts): the words, and the photo's own page. */
+export function kindCredit(lang: Lang, p: Photo): { html: string } {
+  const t = translator(lang)
+  const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;')
+  const more = `<a href="${esc(p.sourceUrl)}" rel="noopener" target="_blank">${esc(t('Xem ảnh gốc ↗'))}</a>`
+  if (isUnsplash(p.licence)) return { html: `${partsHtml(unsplashLine(lang, p, p.sourceUrl))} · ${more}` }
+  const { text, licence } = photoCredit(lang, p)
+  return { html: `${esc(text)}${licence ? `, ${esc(licence)}` : ''}. ${more}` }
+}
+
+/** The rows a term's page shows of the pages that use it, each kind's, and whether a search finds the rest (USED_IN_ROWS). */
+export function usedRows<G, U>(p: { guides: G[]; fish: U[]; plants: U[]; total: number }) {
+  const all = p.total <= USED_IN_ALL
+  const cut = <X>(xs: X[]) => (all ? xs : xs.slice(0, USED_IN_ROWS))
+  return { guides: cut(p.guides), fish: cut(p.fish), plants: cut(p.plants), more: !all }
+}
+
+/**
+ * The pictures of a term's rows, none twice on its page (the site's rule, invariants.spec.ts "repeat"; the live checks,
+ * 15 Nov 2026: two crayfish guides that share a photo showed it twice on /thuat-ngu/tinh-lanh-tho/). After what the page
+ * shows above them (`shown`: the term's own photo), in the page's order, each row takes the first of its pictures the page
+ * doesn't show yet, else none, as every list does (pictures.ts takeEach).
+ */
+export function usedPictures<G>(c: Pick<Content, 'pictureHashes'>, shown: (Photo | undefined)[], rows: { guides: G[]; fish: TermUse[]; plants: TermUse[] }, guidePhotos: (g: G) => Photo[]) {
+  const pics = pagePictures(c)
+  for (const p of shown) pics.add(p?.url)
+  return { guides: takeEach(pics, rows.guides, guidePhotos), fish: takeEach(pics, rows.fish, x => [x.photo]), plants: takeEach(pics, rows.plants, x => [x.photo]) }
+}
+
+/**
+ * A related term's one line, as its tip begins (the Design Lead's board, 14 Nov 2026): its meaning's first sentence, to
+ * a full stop or semicolon before a space or the end (never a decimal point); a semicolon ends it as a full stop. Thai
+ * writes no full stops, and its spaces part list items as well as sentences (Grok's read, 15 Nov 2026): a meaning with no
+ * stop ends at its last space where the name, ": ", the line and "…" fit in TIP_ROOM letters, two lines on a phone (the
+ * Design Lead, 15 Nov 2026: 120 characters ran to three at 428 px, which holds about 37 Thai letters a line); a shorter one
+ * is its whole line. A letter is what takes width: Thai's vowel and tone marks above and below one take none. A space next
+ * to a figure ("ตั้งแต่ 0 ถึง 14 โดย 7 คือเป็นกลาง") or before "ๆ" (a word said twice) sits inside a phrase: no cut there.
+ */
+export const TIP_ROOM = 64
+const width = (s: string) => s.replace(/\p{Mn}/gu, '').length
+export const tipLine = (definition: string, name = '') => {
+  const d = definition.trim(), m = /^.*?[.!?;](?=\s|$)/su.exec(d)
+  if (m) return m[0].replace(/;$/, '.')
+  const room = TIP_ROOM - width(`${name}: …`)
+  if (width(d) <= room + 1) return d
+  let cut = -1
+  for (let i = d.indexOf(' '); i > 0 && width(d.slice(0, i)) <= room; i = d.indexOf(' ', i + 1)) if (!/\d/.test(d[i - 1]!) && !/[\dๆ]/.test(d[i + 1] ?? '')) cut = i
+  if (cut < 0) for (cut = 0; cut < d.length && width(d.slice(0, cut + 1)) <= room; cut++);
+  return `${d.slice(0, cut).trimEnd()}…`
+}
+
+/**
+ * A term's text as parts to jump to (the fish page's row, JumpChips): each heading with what follows it, as a section,
+ * the heading given an address from its words (one the page's own parts don't use). `parts`: each heading's address and
+ * words, in order. Text before the first heading stays as it is.
+ */
+export function bodySections(body: string): { html: string; parts: { href: string; label: string }[] } {
+  const parts: { href: string; label: string }[] = []
+  const taken = new Set(['xem-them', 'dung-trong', 'nguon', 'ref-h'])
+  const chunks = body.split(/(?=<h2>)/)
+  const html = chunks.map(chunk => {
+    const m = /^<h2>([\s\S]*?)<\/h2>/.exec(chunk)
+    if (!m) return chunk
+    const label = plainText(m[1]!).trim()
+    const base = slugify(label) || 'muc'
+    let id = base
+    for (let n = 2; taken.has(id); n++) id = `${base}-${n}`
+    taken.add(id)
+    parts.push({ href: `#${id}`, label })
+    return `<section aria-labelledby="${id}"><h2 id="${id}">${m[1]}</h2>${chunk.slice(m[0].length)}</section>`
+  }).join('')
+  return { html, parts }
+}
+
+/** The Vietnamese alphabet as the list's A to Z shows it (the Design Lead's spec): no F, J, W or Z, and Đ its own letter. */
+const VI_LETTERS = 'A B C D Đ E G H I K L M N O P Q R S T U V X Y'.split(' ')
+const LATIN = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
+/** Thai vowels written before the consonant they follow in speech: a word is filed under its first consonant (แอมโมเนีย under อ). */
+const THAI_LEAD = /^[\u0E40-\u0E44]+/
+
+/** The letter a term is filed under in the list: its first letter without accents (Đ apart, in Vietnamese); in Thai its first consonant. */
+export function letterOf(lang: Lang, name: string): string {
+  const n = name.trim()
+  // A Latin first letter in Thai too is filed as a capital, so "pH" and "PH" share one letter and one address.
+  if (lang === 'th') return n.replace(THAI_LEAD, '').charAt(0).toLocaleUpperCase('en')
+  const first = n.charAt(0)
+  if (/[đĐ]/.test(first)) return lang === 'vi' ? 'Đ' : 'D'
+  return first.normalize('NFD').replace(/\p{M}/gu, '').toLocaleUpperCase('en')
+}
+
+/**
+ * The list's letters, each with how many terms it holds: in Vietnamese and the Latin-letter languages the whole
+ * alphabet, a letter with none shown empty, and any other first letter after it; in Thai only the letters that hold a
+ * term, in Thai order (44 letters would be a wall: the Design Lead's spec).
+ */
+export function alphabet(lang: Lang, names: string[]): { letter: string; count: number }[] {
+  const count = new Map<string, number>()
+  for (const n of names) { const l = letterOf(lang, n); count.set(l, (count.get(l) ?? 0) + 1) }
+  const base = lang === 'th' ? [] : lang === 'vi' ? VI_LETTERS : LATIN
+  const rest = [...count.keys()].filter(l => !base.includes(l)).sort((a, b) => a.localeCompare(b, lang))
+  return [...base, ...rest].map(letter => ({ letter, count: count.get(letter) ?? 0 }))
 }

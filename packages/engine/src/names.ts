@@ -86,6 +86,33 @@ export const FISH_NAMES: readonly FishName[] = [
   // none for Asellus, which has no Vietnamese name in use: its scientific name, and the text's "rận nước" stays theirs.
   // Its own page says "Asellus", so a search for "rận nước" doesn't find it by its text (Astra, 13 Nov).
   { id: 'asellus-aquaticus', sci: 'Asellus aquaticus', was: 'Rận nước', name: 'Asellus aquaticus', slug: 'asellus-aquaticus', elsewhere: ['Rận nước'], own: 'Asellus' },
+  // The owner, 2026-11-15: a fiddler crab headed "Cá Austruca annulipes", a fish's word made before the kind words (14 Nov).
+  // "Cua vĩ cầm" is every fiddler crab and Gelasimus vocans' page: this one is the kind's name and its own, as keepers
+  // write a cory ("cá chuột sterbai"). The page's "Cua vĩ cầm" and "Cua càng vĩ cầm" stay among its other names.
+  { id: 'austruca-annulipes', sci: 'Austruca annulipes', was: 'Cá Austruca annulipes', name: 'Cua vĩ cầm annulipes', slug: 'cua-vi-cam-annulipes', drop: ['Cá Austruca annulipes'] },
+  // Names keepers use, buried among the page's other names under a translated one (the chief of staff, 13 Nov; the owner's
+  // sheet of 14 Nov, "silence means the seven go live", each with its new address). Each is tied to the species by a
+  // source: the trade list, Vietnamese Wikipedia or a Vietnamese shop's list. The seventh, "Cá otto", waits for the
+  // owner: its only tie was a shop the engine no longer reads (the chief of staff, 16 Nov). "Cá sặc gấm" (Trichogaster
+  // lalius) waits too: the pygmy gourami's page, captions and a video guide call that fish "cá sặc lùn", which the rename
+  // would turn into this one's name.
+  { id: 'gymnocorymbus-ternetzi', sci: 'Gymnocorymbus ternetzi', was: 'Cá tetra góa phụ đen', name: 'Cá cánh buồm', slug: 'ca-canh-buom' },
+  // Keepers' "cá mún" is any platy, so a colour after it is renamed too ("cá mún đỏ"). The other species' names that
+  // begin with "Cá platy" stay theirs.
+  { id: 'xiphophorus-maculatus', sci: 'Xiphophorus maculatus', was: 'Cá platy', name: 'Cá mún', slug: 'ca-mun', longer: ['Cá platy variatus', 'Cá platy evelynae', 'Cá platy Catemaco', 'Cá platy Miller', 'Cá platy biến sắc', 'Cá platy đa dạng', 'Cá platy Sunset Variatus'] },
+  { id: 'bolbitis-heudelotii', kind: 'plants', sci: 'Bolbitis heudelotii', was: 'Dương xỉ nước châu Phi', name: 'Dương xỉ châu Phi', slug: 'duong-xi-chau-phi' },
+  { id: 'corydoras-panda', sci: 'Corydoras panda', was: 'Cá chuột panda', name: 'Cá chuột gấu trúc', slug: 'ca-chuot-gau-truc', longer: ['Cá chuột panda đuôi cờ'] },
+  // "Nô lệ" alone is slavery: the shops' name for this fish is "cá nô lệ", with "cá".
+  { id: 'gyrinocheilus-aymonieri', sci: 'Gyrinocheilus aymonieri', was: 'Cá hút đá', name: 'Cá nô lệ', slug: 'ca-no-le', longer: ['Cá hút đá Borneo'] },
+  // A writer's names, each settled on 14 Nov (the naming plan): another kind's word, a word of the writer's own, or an
+  // English name in brackets. Each page keeps its address until the owner says to move it (the chief of staff, 16 Nov).
+  { id: 'champsochromis-caeruleus', sci: 'Champsochromis caeruleus', was: 'Cá trê Malawi', name: 'Cá ali Champsochromis caeruleus', drop: ['Cá trê Malawi'] },
+  { id: 'pelvicachromis-kribensis', sci: 'Pelvicachromis kribensis', was: 'Cá rồng đỏ Kribensis', name: 'Cá Pelvicachromis kribensis', drop: ['Cá rồng đỏ Kribensis'] },
+  { id: 'amphilius-frieli', sci: 'Amphilius frieli', was: 'Cá da trơn suối Amphilius frieli', name: 'Cá da trơn Amphilius frieli', drop: ['Cá da trơn suối Amphilius frieli'] },
+  { id: 'corbicula-fluminea', sci: 'Corbicula fluminea', was: 'Trai nước ngọt Corbicula', name: 'Hến Corbicula fluminea', drop: ['Trai nước ngọt Corbicula'] },
+  { id: 'aphyosemion-gabunense', sci: 'Aphyosemion gabunense', was: 'Cá killi đuôi đàn lia Gabon (Gabon lyretail)', name: 'Cá killi đuôi đàn lia Gabon', drop: ['Cá killi đuôi đàn lia Gabon (Gabon lyretail)'] },
+  { id: 'boulengerella-cuvieri', sci: 'Boulengerella cuvieri', was: 'Cá cuvieri (Boulengerella cuvieri)', name: 'Cá Boulengerella cuvieri', drop: ['Cá cuvieri (Boulengerella cuvieri)', 'Cá cuvieri'] },
+  { id: 'myriophyllum-elatinoides', kind: 'plants', sci: 'Myriophyllum elatinoides', was: 'Cây rong đuôi chồn nước (Myriophyllum elatinoides)', name: 'Cây rong đuôi chồn Myriophyllum elatinoides', drop: ['Cây rong đuôi chồn nước (Myriophyllum elatinoides)'] },
 ]
 
 /** A row's names a page may not keep: those it drops or that are another's, in any form (the scientific name in brackets too). */
@@ -117,4 +144,7 @@ export const KIND_PASSAGES: readonly KindPassage[] = [
   { page: 'guides/aquariumcoop-blogs-aquarium-7-colorful-fish-for-10-gallon-aquarium', was: 'Cá cầu vồng lùn sống khá ngắn', now: 'Cá mắt xanh sống khá ngắn' },
   // Astra's second read: its "cầu vồng neon đỏ" sits in a sentence of three blue-eyes, so no rule can tell it from another.
   { page: 'guides/aquariumcoop-blogs-aquarium-5-best-fish-tank-ideas-for-a-20-gallon-aquarium', was: 'cầu vồng neon đỏ (P. luminatus)', now: 'mắt xanh neon đỏ (P. luminatus)' },
+  // A fresh read of 16 Nov: the video calls the penguin tetra (Thayeria, "Cá tetra cánh cụt") "cánh buồm", the black
+  // tetra's name once Gymnocorymbus ternetzi took it, two tetras before it in the same list.
+  { page: 'guides/youtube-nuSEvQyWyXA', was: 'cánh buồm (penguin)', now: 'tetra cánh cụt (penguin)' },
 ]

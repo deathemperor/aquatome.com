@@ -11,7 +11,9 @@ import { LANG_NAME, type Page, type PageKind } from './pages'
 import { PHRASES, phraseQuotes } from './phrases'
 import { label, norm, readable, render, RETRACTED } from './reader'
 import { CONVERTED_LITRES, sourceGives } from './round'
+import { sentences } from './sentences'
 import { snapshotName } from './snapshot'
+import { SOURCES } from './sources'
 
 /**
  * Is a page written for its reader? The owner on a guide that sent Vietnamese readers to an American product: "If the vast
@@ -67,6 +69,8 @@ export type FitEntry = {
   sourceRead?: boolean
   /** The checklist it was read with (CHECKLIST); absent: the first. */
   checklist?: number
+  /** The day a held page's mend of this text didn't let it out (gate.ts `MEND_AGAIN_DAYS`). */
+  mendTried?: string
 }
 /**
  * 2: `kit` added, a check guides read before it lack, so they're read again. 3: `harm` added, after a video guide told
@@ -238,6 +242,72 @@ export function dealerNotice(html: string): boolean {
   const said = spans.filter(([a, b]) => /[\p{L}\p{N}]/u.test(text.slice(a, b)))
   return said.length > 0 && said.every(([a, b]) => at.some(i => i >= a && i < b))
 }
+
+/**
+ * A dealer's shelf now, in a shop's own part (SOURCES' `shop`), in Vietnamese: the size it sells, what it has on offer now,
+ * fish on offer bred in its own country, its last import. True of one shop's stock in Europe, not of the fish: news to no
+ * reader here (the chief of staff's line, 15 Nov 2026: what is true anywhere stays, a dealer's shelf goes). Named by code,
+ * for the sentence mend to take out; never cut by code.
+ * - Only a sentence that is wholly that: the mend takes a source finding's sentence whole. One that also gives a place (but
+ *   the dealer's own country), a look, a maximum, how rare or common the fish is, or the line's history is left
+ *   (SHELF_PLACE, SHELF_FACT) and listed: without its stock words it would speak of the whole species ("Ở
+ *   dạng cá đang có bán hiện nay, cả đực lẫn cái đều có sọc đen…").
+ * - Trade facts true anywhere aren't named: "gần như toàn bộ cá bán ra là cá nhân giống", "cá hô con đang bán hiện nay
+ *   đều xuất phát từ trại nuôi thủy sản", "rất hiếm khi có bán", "được bán dưới tên…". Unsure, a line stays.
+ */
+const SHOP_SOURCES = new Set<string>(SOURCES.filter(s => s.shop).map(s => s.id))
+const NOW_VI = '(?:hiện nay|hiện tại|hiện|bây giờ|lúc này|giờ đây)'
+const FISH_VI = '(?:những )?(?:con|cá|lứa|dòng|dạng)(?: cá)?'
+const OFFER_VI = '(?:bán ra|được chào bán|chào bán|đang (?:có )?bán(?: ra)?|đang có|hiện có|về tiệm|bán (?:ngoài|trên) (?:thị trường|tiệm))'
+const SHELF_VI = [
+  // The size on offer, with its figure: "Cỡ cá thường bán: 6–8 cm", "Kích thước hiện có: 6-8 cm", "Cá bán ra thường có cỡ 4-5 cm".
+  `^(?:cỡ|kích (?:cỡ|thước))(?: cá)?(?: thường)?(?: (?:có|được))? (?:bán(?: ra)?|về tiệm|hiện có|đang có|đang bán)(?: (?:ngoài|trên) (?:thị trường|tiệm))?(?: (?:là|thường))?\\s*[:(]?\\s*(?:khoảng |chừng |từ )?\\(?\\d`,
+  `^${FISH_VI} ${OFFER_VI}(?: (?:hiện nay|trên thị trường|ngoài (?:thị trường|tiệm)))*(?: (?:thường|chỉ|đều))? (?:có )?(?:cỡ|kích (?:cỡ|thước)|dài|ở cỡ)\\s*(?:khoảng |chừng |từ )?\\d`,
+  // On offer now: "Hiện trên thị trường đang có cá A. atahualpa đánh bắt tự nhiên"; not "Chi này hiện có mười loài".
+  `^${NOW_VI} (?:(?:trên|ngoài) (?:thị trường|tiệm) )?(?:(?:cũng|lại|đang|đã) )*có (?:bán )?(?:cả |những |vài |một số |một ít |thêm |một )?(?:cá|con|lứa|lô|đợt)(?![\\p{L}])`,
+  // Fish, never what else is sold: "Trên thị trường có rất nhiều loài trai khác nhau" is the bitterling's caution not to
+  // let mussels go. And now: without it ("Ngoài thị trường có cả cá bắt từ tự nhiên lẫn cá nhân giống") it reads as the
+  // trade's, true anywhere.
+  `^(?:trên|ngoài) (?:thị trường|tiệm) ${NOW_VI}(?: (?:cũng|lại|đang|đã))* có (?:bán )?(?:cả |những |vài |một số |một ít |thêm |một )?(?:cá|con|lứa|lô|đợt)(?![\\p{L}])`,
+  // Fish on offer bred in the dealer's own country: "Những con đang bán trên thị trường là cá nhân giống ở Đức".
+  `^(?=.*(?:bán|thị trường|tiệm|đang có)).*(?:trại|nhân giống|sinh sản|cho đẻ|người nuôi)[^.]*(?:ở|tại) (?:Đức|châu Âu)(?![\\p{L}])`,
+  // Its last import: "lần nhập vừa rồi cũng chỉ có được vài con".
+  `(?:lần|đợt) nhập (?:vừa rồi|gần nhất|mới nhất|hiện nay)`,
+].map(s => new RegExp(s, 'iu'))
+/**
+ * What makes a shelf sentence a fact too: a place but the dealer's own country, a look or a form ("Trên thị trường hiện có
+ * hai dạng của loài này", which the next lines describe), a maximum, how rare, the line's history ("đàn bố mẹ ban đầu"), a
+ * caution or advice ("…, nên bạn cần thả cá thật chậm").
+ */
+const SHELF_PLACE = /(?<![\p{L}])(?:(?:từ|ở|tại|thuộc) (?!Đức(?![\p{L}])|Châu Âu)(?:sông |bang |vùng |hồ |tỉnh )?|(?:sông|lưu vực|bang|vùng) )\p{Lu}/u
+const SHELF_FACT = new RegExp(`${WORD('màu|sọc|chấm|vây|hoa văn|mặt nạ|đực|cái|vảy|xỉn|tối đa|nhất|dạng|con cháu|dòng nuôi|thế hệ đầu|bố mẹ|ban đầu|hiếm|ít khi|thỉnh thoảng|lúc nào cũng|quanh năm|nên|đừng|cần|tránh')}|(?<!\\d)(?:1[89]|20)\\d\\d(?!\\d)`, 'iu')
+/** A sentence's only figure is the size on offer, at its end: "Cỡ cá hiện có: 4-5 cm, trưởng thành dài tới 30 cm." gives a maximum too. */
+const SIZE_ALONE = /^[^\d]*\d+(?:[.,]\d+)?(?:\s*(?:[-–]|đến|tới)\s*\d+(?:[.,]\d+)?)?\s*cm\)?\s*[.!]?$/u
+/**
+ * A next sentence that speaks of the shelf's fish ("Lứa này đang dài 6-8 cm. Chúng sống với nhau khá hòa thuận"): with the
+ * shelf line cut it would say of every such fish what was said of one batch, so the shelf line stays for a person.
+ */
+const LEANS = /^(?:(?:lứa|lô|đợt|đàn|nhóm|số cá|những con|các con|mấy con|cá)(?: cá)? (?:này|đó|ấy)|chúng)(?![\p{L}])/iu
+/**
+ * A Vietnamese text's shelf sentences: those wholly a dealer's shelf (named) and those that are a fact too, or that the
+ * next sentence leans on (left, listed). Cut into sentences as the mend cuts them (sentences.ts), which takes a named
+ * sentence whole: one cut finer, at a semicolon or an initial ("cá A. atahualpa … từ Peru"), would name a piece and lose
+ * the rest with it.
+ */
+export function dealerShelf(text: string): { named: string[]; left: string[] } {
+  const named: string[] = [], left: string[] = []
+  const all = text.split('\n').flatMap(l => sentences(l).filter(x => x.sentence).map(x => x.html.trim()))
+  for (const [i, raw] of all.entries()) {
+    const s = raw.replace(/^(?:(?:tuy|vì|do) (?:vậy|thế)|tuy nhiên|ngoài ra),\s*/iu, '')
+    if (!s || !SHELF_VI.some(r => r.test(s))) continue
+    ;(SHELF_PLACE.test(s) || SHELF_FACT.test(s) || (/\d/.test(s) && !SIZE_ALONE.test(s)) || LEANS.test(all[i + 1] ?? '') ? left : named).push(raw)
+  }
+  return { named, left }
+}
+/** A dealer's shelf finding's reason, by which the mend tells a stock-line cut (fit-rewrite.ts). */
+export const SHELF_WHY = 'a dealer\'s shelf now (the size it sells, what it has on offer, its last import): true of one shop\'s stock, not of the fish'
+/** Whether a page's part is a shop's own (`sections.<key>:<source>`). */
+const shopPart = (field: string) => SHOP_SOURCES.has(field.split(':').at(-1) ?? '')
 
 const IMPERIAL = [
   re(WORD(`${AMOUNT}(?:gal|inch(?:es)?|inci|feet|ft|foot|pounds?|lbs?|ounces?|oz|độ F)`)),
@@ -481,13 +551,14 @@ export function fitRules(p: Page): FitFinding[] {
   const say = (check: FitCheck, part: string, quote: string, why: string, extra: Partial<FitFinding> = {}) => out.push({ check, part, quote: clip(quote), why, by: 'rule', ...extra })
   const foreign = foreignIn(p.lang)
   const html = new Map(readable(p).map((f, i) => [`P${i + 1}`, f.html]))
-  for (const { id, text } of fitText(p).parts) {
+  for (const { id, field, text } of fitText(p).parts) {
     const each = (check: FitCheck, r: RegExp, why: string) => { for (const m of text.matchAll(r)) say(check, id, m[0], why) }
     each('shop', p.lang === 'vi' ? SHOP.vi : SHOP.other, 'names a foreign shop')
     for (const r of PRICE) each('price', r, 'a foreign price or shipping cost')
     if (p.lang !== 'vi') each('price', PRICE_OTHER, 'a price in Vietnamese đồng')
     each('source', SOURCE[p.lang], 'talks about the source or in its voice')
     if (p.lang === 'vi') for (const m of text.matchAll(DEALER_VI)) if (notice(text, m)) say('source', id, m[0], 'a dealer\'s own batch or stock: news to no reader here')
+    if (p.lang === 'vi' && shopPart(field)) for (const s of dealerShelf(text).named) say('source', id, s, SHELF_WHY)
     for (const r of SOURCE_NO) each('source', r, 'a source\'s number from the facts, which the reader never sees')
     for (const r of IMPERIAL) each('units', r, 'an imperial unit')
     for (const m of text.matchAll(CONVERTED)) if (!PER.test(text.slice(Math.max(0, m.index - 24), m.index))) say('units', id, m[0], 'a volume that shows it was converted from gallons')
@@ -639,6 +710,31 @@ export function doseGroups(pages: Page[], state: FitState): DoseGroup[] {
   return [...groups.values()].sort((a, b) => b.conflicts.length - a.conflicts.length || b.rows.length - a.rows.length || a.treatment.localeCompare(b.treatment))
 }
 
+/** A length in cm, or a range of two ("2,5 cm", "2,5 – 5 cm", "2.5–4 ซม."). */
+const LENGTH_CM = /(\d+(?:[.,]\d+)?)(?:\s*(?:[–-]|đến|tới|to|hingga|sampai|ถึง)\s*(\d+(?:[.,]\d+)?))?\s*(?:cm|ซม\.?)(?![\p{L}\p{N}])/giu
+/** What a length is per: a stocking rule's "mỗi 2,5 cm" is a source's per inch (breed-units.ts), never a keeper's figure. */
+const PER_LENGTH = /(?:mỗi|trên|per|setiap|tiap|ต่อ|ทุก|\/)\s*(?:khoảng\s*)?$/iu
+/** A pipe's size: keepers here buy pipe by its millimetre size, so an inch pipe written "2,5 cm" stays a fault. */
+const PIPE = /(?:ống|đường kính|pipe|tube|hose|diameter|pipa|selang|paip|ท่อ|เส้นผ่าน)[^\d.;!?]{0,20}$/iu
+/** An imperial unit named beside the length, figure or not ("inch (2,5 cm)", "2,5 cm (một inch)"): the rules see only "2 inch". */
+const IMPERIAL_WORD = /(?<!\p{L})(?:inch(?:es)?|inci|gallons?|galon|feet|foot|ft|pounds?|ounces?|oz)(?!\p{L})|นิ้ว|แกลลอน|°\s?F/iu
+/**
+ * A units finding whose figures are all lengths a keeper here writes (the chief of staff, 16 Nov 2026): under 10 cm, a
+ * whole or half centimetre ("sau một tuần mực nước có thể tụt gần 2,5 cm", "2,5–5 cm" of gravel). A converted oddity
+ * still counts ("2,54 cm", "3,8 cm"), and so does a quote with any other figure or an imperial word, a length per
+ * something, a pipe's size or a tank's sides; what a length is (per something, a pipe) is read in the page's words before
+ * the quote too (`before`), since a quote can start at the figure. From 10 cm up the checklist says it (a whole
+ * centimetre within a tenth), and the model's finding stands.
+ */
+export function keeperLengths(quote: string, before = ''): boolean {
+  if (/\d\s*[×x]\s*\d/u.test(quote) || IMPERIAL_WORD.test(quote)) return false
+  const found = [...quote.matchAll(LENGTH_CM)]
+  if (!found.length || /\d/.test(quote.replace(LENGTH_CM, ' '))) return false
+  const ctx = before + quote, at = (m: RegExpExecArray) => before.length + m.index
+  return found.every(m => !PER_LENGTH.test(ctx.slice(Math.max(0, at(m) - 24), at(m))) && !PIPE.test(ctx.slice(Math.max(0, at(m) - 32), at(m))) &&
+    [m[1], m[2]].filter((n): n is string => !!n).every(n => { const v = Number(n.replace(',', '.')); return v < 10 && Number.isInteger(v * 2) }))
+}
+
 /** Everything found on a page: the rules', the model's, and each product the model named that the table says is hard to find here. */
 export function fitFindings(p: Page, entry?: FitEntry): FitFinding[] {
   const named = (entry?.products ?? []).flatMap(n => {
@@ -647,7 +743,9 @@ export function fitFindings(p: Page, entry?: FitEntry): FitFinding[] {
   })
   // What it's for, not how: two readers agree on the first and not on the second, which is only for comparing doses.
   const unsaid = (entry?.doses ?? []).filter(d => !d.use).map(d => ({ check: 'dose-purpose' as const, part: '', quote: clip(d.quote), why: 'doesn\'t say what this dose is for', by: 'model' as const }))
-  const all = dedupe([...fitRules(p), ...(entry?.findings ?? []), ...named, ...unsaid])
+  let texts: string[] | undefined
+  const before = (q: string) => { for (const t of (texts ??= fitText(p).parts.map(x => x.text))) { const i = t.indexOf(q); if (i >= 0) return t.slice(Math.max(0, i - 32), i) } return '' }
+  const all = dedupe([...fitRules(p), ...(entry?.findings ?? []), ...named, ...unsaid]).filter(f => f.check !== 'units' || !keeperLengths(f.quote, before(f.quote)))
   if (!p.en || !all.some(f => f.check === 'units')) return all
   const { parts } = fitText(p)
   return all.filter(f => !givenBySource(p, f, parts))

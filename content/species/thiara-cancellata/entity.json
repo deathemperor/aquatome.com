@@ -1,0 +1,295 @@
+{
+  "id": "thiara-cancellata",
+  "scientificName": "Thiara cancellata",
+  "order": "",
+  "family": "Thiaridae",
+  "genus": "Thiara",
+  "group": "snails",
+  "places": [
+    "asia",
+    "philippines"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "PH"
+      ],
+      "regions": [],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "The distribution of Hairy Snails is limited to the Philippines.",
+          "countries": [
+            "PH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8184774,
+      "total": 14,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "PH",
+          6
+        ],
+        [
+          "SB",
+          3
+        ],
+        [
+          "CN",
+          2
+        ],
+        [
+          "ID",
+          1
+        ],
+        [
+          "PG",
+          1
+        ],
+        [
+          "SG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          0,
+          1,
+          0
+        ],
+        [
+          111.09375,
+          37.96875,
+          1,
+          0
+        ],
+        [
+          113.90625,
+          29.53125,
+          1,
+          0
+        ],
+        [
+          123.75,
+          8.4375,
+          6,
+          6
+        ],
+        [
+          127.96875,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          147.65625,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          158.90625,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          160.3125,
+          -9.84375,
+          2,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 3,
+          "max": 18
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquariumbreeder",
+        "value": 3
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 3
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 1,
+          "max": 2
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/hairy-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Other names: Hairy Trumpet snail, Hairy Tower Lid Snail, Porcupine Snail</li><li>Scientific name: Thiara cancellata</li><li>Optimal tank size: 40 litres</li><li>Breeding: difficult</li><li>KH: 2–12</li><li>Nitrate: less than 40 ppm</li><li>Diet: algae eater/omnivore</li><li>Temperament: peaceful</li><li>Colour: light brown, reddish-brown or dark brown</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/hairy-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The distribution of Hairy Snails is limited to the Philippines. So far there are no reports that these snails have been seen elsewhere.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/hairy-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Natively Hairy Snails prefer tropical brackish or freshwater habitats like slow-moving streams, river mouths, and estuaries with a brackish influence where the depth ranges from 1 to 3 m. In nature they are usually found on sandy substrate.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/hairy-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Hairy snails do not require a lot of space, but it is not a good idea to keep them in small tanks. 40 litres is the optimal tank size; anything smaller and you may have problems with aeration and water flow. Bigger tanks are preferred if you want them to thrive and live longer than a year.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/hairy-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The tank should be cycled before adding them. High ammonia and nitrates can still harm them.</p><ul><li>Temperature: 22–25 °C. These snails prefer warm water, so you might need a heater. At lower temperatures (21–22 °C) their metabolism slows down and they become more sluggish.</li><li>pH: keep the water hard with pH above 7.0; ideally 7.0–8.0. Shell deterioration may be a sign that the water is not hard enough.</li><li>Hardness: KH 3–15 and GH 3–18.</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/hairy-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Substrate: provide a substrate that allows the snails to bury, so sand or soil is the best choice. Replicating their natural environment matters; otherwise it can constantly stress them and shorten their life span.</p><p>Lighting: lighting should be adapted to the needs of the plants (and/or algae) in the tank.</p><p>Water flow: Hairy snails live in streams and rivers, so a well-oxygenated tank is important. Use a suitably sized pump to move the water around sufficiently.</p><p>Filtration: in small tanks, sponge filters or matten filters are recommended; they are cheap, easy to maintain and provide a lot of surface to graze on. In bigger tanks, use a hang-on-back or canister filter.</p><p>Acclimate the snails before putting them in the tank.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/hairy-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>They are omnivorous, great scavengers and excellent algae eaters, with an appetite for algae that rivals Nerite snails. They will help keep the tank clean, including against hair algae and green dust algae.</p><p>In an aquarium they eat the same food you feed your fish and shrimp (shrimp pellets, granules, fish flakes, algae wafers, etc.), but mostly survive on what is in the tank. Blanched vegetables such as carrot, sprouts, spinach, cucumber and zucchini are also recommended. Do not rely solely on their scavenging abilities: this can starve them to death.</p><p>Provide a calcium supplement to keep the shell healthy and prevent deterioration. Like other invertebrates, they are sensitive to copper and copper compounds, so make sure fertilizers do not contain copper.</p><p>Hairy snails are usually compatible with planted tanks and do not feed on healthy plants unless starving. To avoid this, feed them regularly or ensure natural food sources (for example algae and biofilm). They may occasionally uproot plants, but moving the substrate also benefits plants.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/hairy-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Despite their belligerent look, these snails are non-aggressive, solitary and docile. Their long spikes are not used as a defence and break easily without harming the snail.</p><p>They are nocturnal: activity starts at dusk and gradually stops during the night, before sunrise. Smaller snails often show higher activity.</p><p>They often burrow, digging deep enough to leave the back half of the shell exposed, and may spend time buried in the substrate. This can be a drawback in a display tank, but it prevents gas pockets building up, which can be dangerous to fish or shrimp.</p><p>Appearance: relatively small snails, 2–4 cm, average about 2.5–3 cm, with a series of thin, long, brittle spikes in a spiral form. The shell has up to 6 flattened whorls, may be yellowish or dark brown, with distinct lines between the whorls. The body is usually slightly darker than the shell and the tentacles are short. They can live 2–3 years, but in captivity their lifespan barely reaches 1–2 years at most.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/hairy-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>There is little information on breeding them in captivity and their reproductive biology is largely unknown. Males and females cannot be distinguished by external features. These snails require brackish water to breed. According to some reports they are livebearers, with a very slow breeding rate of about 1–2 babies a month. The limited information suggests a free-swimming larval stage, with larvae able to develop only in a marine or brackish environment.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/hairy-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Hairy snails are a good choice for community tanks.</p><ul><li>Fish: should not be kept with Botia lohacata, cichlids, loaches and goldfish. Suitable tank mates are calm, peaceful community fish (for example Panda Garra, Pygmy Cory Catfish and Otocinclus).</li><li>Shrimp: species that prefer slightly alkaline water, e.g. Vampire, Bamboo, Amano, Ghost, Cherry, Blue tiger, Snowball, Blue Velvet and Malawa shrimp.</li><li>Snails: Black Devil, Brotia pagodula, Rabbit, Nerite, Chopstick, Mystery, Ramshorn, Malaysian Trumpet and Horned Nerite snails. Do not keep with Assassin snails, which can eat them.</li><li>Crayfish: keep away from all crayfish (even Dwarf Mexican crayfish), most freshwater crabs and predatory shrimp such as Macrobrachium.</li></ul><p>They can escape from tanks. They are very rare in the pet trade, and breeding in captivity is not achieved in freshwater.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/34ddd8b34ae0c069.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/34ddd8b34ae0c069-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/hairy-snail-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "CkXLPxyvOxA",
+      "title": "Улитка волосатая / Snail-hairy / Улитка-шпилька #улитка_волосатая #улиткашпилька #snailhairy",
+      "durationSec": 86,
+      "lang": "ru"
+    },
+    {
+      "youtubeId": "f7yUMDw9DWQ",
+      "title": "Hairy Melania Snail Thiara cancellata",
+      "durationSec": 55,
+      "lang": "ja"
+    },
+    {
+      "youtubeId": "Oca-Bjtpt4c",
+      "title": "Aqua-Tropica \"Das Original\"- Haarschnecke, Haarige-Turmdeckelschnecke, Thiara Cancellata, Hair Snail",
+      "durationSec": 45,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "U5UanbyBZYo",
+      "title": "Slimák Piskorka pichľavá - Thiara cancellata www.shrimp.sk",
+      "durationSec": 50,
+      "lang": "sk"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 40 lít",
+        "bể thủy sinh 40 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc mút xốp",
+        "máy sục khí mini"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi thủy sinh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền thủy sinh",
+        "cát bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-16"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "taia-naticoides",
+  "native": {
+    "input": "e225f51f890bb9fe",
+    "at": "2026-11-16T11:31:54.968Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Inle Lake, Burma.",
+        "words": "Burma",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Inle Lake",
+        "source": "glaser",
+        "quote": "Inle Lake, Burma.",
+        "country": "MM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Taia naticoides",
+    "status": "ACCEPTED",
+    "taxonKey": 8235614,
+    "datasets": [],
+    "native": [
+      "MM"
+    ],
+    "requests": 2,
+    "at": "2026-11-16T11:31:54.968Z"
+  }
+}

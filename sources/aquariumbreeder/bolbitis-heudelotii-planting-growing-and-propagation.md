@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/bolbitis-heudelotii-planting-growing-and-propagation/
 title: Bolbitis Heudelotii – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-10-29T07:41:15.984Z
-hash: a07931f8b68592d426cea60f2d3d52cbf3530ae769de73fb9e96475bebd2dc2a
+hash: 917eb4472d0d0ac0537093aa9fcdaca92cecb350f690843847ae6701d30b6994
 ---
 
 African water fern (Bolbitis Heudelotii) is one of the most beautiful plant species that can be cultivated in an aquarium. It has an interesting shape that adds a special charm to the aquarium composition.
@@ -148,4 +148,3 @@ Proper lighting, suitable temperature, and water parameters will ensure the heal
 - Kasselmann, Christel, Aquarium Plants(Krieger, Malabar, Florida) 2003: 157.
 - Swaine, M. D., J. Adomako, G. Ameka, K. A. A. de Graft-Johnston, and M. Cheek. “Forest river plants and water quality in Ghana.” Aquatic botany85, №. 4 (2006): 299-308.
 - Kennedy, M. P., and K. J. Murphy. “A picture guide to aquatic plants of Zambian rivers.” SAFRASS Deliverable Report to the African, Caribbean and Pacific Group of States (ACP Group) Science and Technology Programme. University of Aberdeen, UK(2012): 25.
-### Leave a Reply Cancel reply

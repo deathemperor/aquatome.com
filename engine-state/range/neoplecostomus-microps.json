@@ -1,14 +1,22 @@
 {
   "id": "neoplecostomus-microps",
   "native": {
-    "input": "94855d5c7d9f1bfd",
-    "at": "2026-11-14T00:09:29.977Z",
+    "input": "70b4570eb64c2e11",
+    "at": "2026-11-16T05:47:36.414Z",
     "claims": [
       {
         "code": "BR",
         "status": "native",
         "source": "planetcatfish",
         "quote": "Type locality: Rio de Janeiro (possibly Rio Parahyba), Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Brazil, Paraíba do Sul River basin.",
         "words": "Brazil",
         "ok": true
       }
@@ -24,6 +32,12 @@
         "name": "Macaé",
         "source": "planetcatfish",
         "quote": "Rio de Janeiro State rivers, Paraíba do Sul and Macaé.",
+        "ok": true
+      },
+      {
+        "name": "Macaé River",
+        "source": "scotcat",
+        "quote": "Neoplecostomus microps occurred only in fast-flowing stretches with stones and boulders, typical of the upper and middle stretches of the Macaé River.",
         "ok": true
       }
     ],

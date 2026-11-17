@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/southern-platyfish-detailed-guide-care-diet-and-breeding/
 title: Southern Platyfish – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-10-31T01:21:34.138Z
-hash: fcf95104691c8cf9e0c97db7cc171daf44cc40adbb7f8d7f079001532a3dac79
+hash: 49b05b0b596c9485722a5733b7161ed8890e43205995079720688d31d61cf610
 ---
 
 Xiphophorus maculatus, commonly known as the Southern platyfish, thanks to its endurance and bright coloring, is among the most popular aquarium fish.
@@ -212,6 +212,3 @@ These fish are also pretty active. So, if you are looking for something small an
 - Rosen D, Bailey DR. The poeciliid fishes (Cyprinodontiformes), their structure, zoogeography, and systematics. Bull Am Mus Nat Hist 1963;126:1–176.
 - Allen GR, Midgley SH, Allen M, 2002. Field guide to the freshwater fishes of Australia. Field guide to the freshwater fishes of Australia, xiv + 394 pp.
 - Borowsky, Richard L. “Social control of adult size in males of Xiphophorusvariatus.” Nature245, no. 5424 (1973): 332-335.
-## 2 thoughts on “Southern Platyfish – Detailed Guide: Care, Diet, and Breeding”
-- How the heck do these guys manage to survive outdoors in Canada?! Do you have data on where that was?! I’ve seen koi and goldfish (grrr) but never anything smaller where I live in British Columbia. I’m frankly baffled at how these guys can survive our winters! ReplyHey PurrlingReef, Honestly, I’m just as baffled I haven’t found any solid records of established platy populations in Canada. The only known case of tropical livebearers surviving there is in the hot springs of Banff, Alberta. Outside of something like that, they just can’t survive Canadian winters. Best regards, Michael Reply
-### Leave a Reply Cancel reply

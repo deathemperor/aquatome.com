@@ -1,8 +1,13 @@
 {
   "slug": "takutu-river",
-  "name": "Takutu",
+  "name": "Sungai Takutu",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-16T17:20:04.992Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

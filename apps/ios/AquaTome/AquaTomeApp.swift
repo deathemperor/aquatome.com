@@ -11,6 +11,7 @@ struct AquaTomeApp: App {
   @State private var tanks: TanksModel
   @State private var account: AccountModel
   @State private var plugs: PlugsModel
+  @State private var master: MasterModel
   @State private var telemetry: TelemetryModel
   /// Whether the chat is on (its entries), and the conversation kept.
   @State private var chat = ChatStore()
@@ -76,6 +77,7 @@ struct AquaTomeApp: App {
     tanks.hasPage = { handbook.page(for: $0) != nil }
     let plugs = AquaTomeApp.plugs()
     _plugs = State(initialValue: plugs)
+    _master = State(initialValue: MasterModel(switcher: Switcher(tanks: tanks, plugs: plugs)))
     // Each records where it knows how an action went.
     let telemetry = TelemetryModel(lang: handbook.lang)
     _telemetry = State(initialValue: telemetry)
@@ -125,6 +127,7 @@ struct AquaTomeApp: App {
       .environment(tanks)
       .environment(account)
       .environment(plugs)
+      .environment(master)
       .environment(telemetry)
       .environment(chat)
       // Dates and numbers in the app's language, as its words are (Locale.app).
@@ -177,7 +180,7 @@ struct AquaTomeApp: App {
       }
       // Whatever tab is showing: a light left on a test colour goes back to its schedule (LightsModel.leave).
       .onChange(of: phase) {
-        if phase == .background { lights.leave(); telemetry.leave() } else if phase == .active { lights.returned() }
+        if phase == .background { lights.leave(); telemetry.leave() } else if phase == .active { lights.returned(); master.tick() }
         // At launch the window may come after the first apply below.
         if phase == .active { Appearance.apply(Self.testScheme ?? appearance.scheme) }
       }

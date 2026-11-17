@@ -1,8 +1,8 @@
 {
   "id": "baryancistrus-beggini",
   "native": {
-    "input": "8e9ef45c110a3599",
-    "at": "2026-11-06T15:17:52.851Z",
+    "input": "918d210135ad67e3",
+    "at": "2026-11-16T00:17:52.050Z",
     "claims": [
       {
         "code": "VE",
@@ -23,17 +23,9 @@
       {
         "code": "VE",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Known only from the area around the confluence of the río Ventuari with the río Orinoco in Amazonas state, Venezuela, plus the lower río Guaviare, Colombia, which flows into the Orinoco a little further south.",
+        "source": "glaser",
+        "quote": "It originates from Venezuela.",
         "words": "Venezuela",
-        "ok": true
-      },
-      {
-        "code": "CO",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Known only from the area around the confluence of the río Ventuari with the río Orinoco in Amazonas state, Venezuela, plus the lower río Guaviare, Colombia, which flows into the Orinoco a little further south.",
-        "words": "Colombia",
         "ok": true
       }
     ],
@@ -45,13 +37,14 @@
         "ok": true
       },
       {
-        "name": "Río Guaviare",
+        "name": "Guaviare",
         "source": "seriouslyfish",
-        "quote": "Known as L239 before description, Baryancistrus beggini is a small loricariid from the Orinoco and lower río Guaviare in Venezuela and Colombia.",
+        "quote": "Known only from the area around the confluence of the río Ventuari with the río Orinoco in Amazonas state, Venezuela, plus the lower río Guaviare, Colombia, which flows into the Orinoco a little further south.",
+        "country": "CO",
         "ok": true
       },
       {
-        "name": "Río Ventuari",
+        "name": "Ventuari",
         "source": "seriouslyfish",
         "quote": "Known only from the area around the confluence of the río Ventuari with the río Orinoco in Amazonas state, Venezuela, plus the lower río Guaviare, Colombia, which flows into the Orinoco a little further south.",
         "country": "VE",

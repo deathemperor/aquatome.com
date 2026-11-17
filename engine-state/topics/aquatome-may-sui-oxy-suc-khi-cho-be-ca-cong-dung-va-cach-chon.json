@@ -1,0 +1,306 @@
+{
+  "found": true,
+  "species": [
+    "Cyprinus carpio",
+    "Scleropages formosus"
+  ],
+  "sources": [
+    {
+      "url": "https://aquariumscience.org/index.php/9-1-aeration-in-depth",
+      "title": "9.1. Aeration in Depth",
+      "kind": "keeper"
+    },
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/power-outage-preparation",
+      "title": "How to Care for Your Aquarium Fish During a Power Outage",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/aquarium-air-stones",
+      "title": "Air Stones: The Secret Weapon Every Aquarium Needs",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.merckvetmanual.com/exotic-and-laboratory-animals/aquatic-systems/environmental-diseases-of-aquatic-animals-in-aquatic-systems",
+      "title": "Environmental Diseases of Aquatic Animals in Aquatic Systems",
+      "kind": "vet"
+    },
+    {
+      "url": "https://cacanhtailoc.com/blogs/tin-tuc/may-sui-oxy-cho-be-ca",
+      "title": "Máy sủi oxy cho bể cá: Cách sử dụng đúng và bảo dưỡng bền lâu",
+      "kind": "shop"
+    },
+    {
+      "url": "https://manualshive.com/en/manual/tetra/whisper-3i/1092819?page=1",
+      "title": "Tetra Whisper 3i Instructions, Safeguards & Warranty",
+      "kind": "maker"
+    },
+    {
+      "url": "https://manuals.plus/asin/B0DK7GRRFJ",
+      "title": "Tetra 77853",
+      "kind": "maker"
+    },
+    {
+      "url": "https://www.merckvetmanual.com/multimedia/table/common-environmental-hazards-for-fish",
+      "title": "Common Environmental Hazards for Fish",
+      "kind": "vet"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Aeration works by creating a water–air interface where oxygen enters the water and carbon dioxide leaves it.",
+      "source": 0,
+      "also": [
+        2
+      ]
+    },
+    {
+      "section": "what",
+      "fact": "An air stone mostly adds oxygen by stirring the water surface, which speeds up gas exchange, rather than by the bubbles themselves.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Good aeration comes from either strong, choppy surface agitation or a large number of rising bubbles.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "A smooth, glassy water surface gives only about 5% of the aeration of a choppy surface of the same size.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "A dissolved oxygen concentration above 5 mg/L is optimal for most finfish, and fish become stressed below 5 mg/L.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Depending on species and exposure time, deaths may occur at 4 mg/L dissolved oxygen or lower.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Aquarium Co-Op gives about 7 to 8 ppm (mg/L) as the ideal oxygen level for freshwater tanks.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Fully saturated water at 78°F holds about 8.25 mg/L of oxygen, and warmer water holds less.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Besides air stones, an air pump can drive a sponge filter, where water is pulled through the sponge and beneficial bacteria live on it, or a moving bed filter.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Fish short of oxygen gather at the surface and gulp air, a behavior called 'piping'.",
+      "source": 3,
+      "also": [
+        0,
+        2
+      ]
+    },
+    {
+      "section": "signs",
+      "fact": "Piping can also be caused by high nitrite or gill disease, not only by low oxygen.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Other signs of low oxygen are resting on the bottom, poor appetite and rapid gill movement.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "In tanks with strong current, fish short of oxygen may swim against the flow with their mouths open.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Oxygen-related deaths often appear early in the morning, when oxygen is lowest, and large fish are usually hit harder than small ones.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Of temperature, salinity and altitude, temperature has the biggest effect on how much oxygen water can hold.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Oxygen drops at night because respiration continues while photosynthesis stops.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Overstocking, overfeeding, cloudy weather and a collapsing algal bloom can all deplete oxygen.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Other causes of low oxygen include high temperature, overcrowding, certain medications or chemicals, and weak surface agitation.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Floating plants that cover the entire surface limit gas exchange.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "If oxygen is low, first do a large water change, then look for the cause.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "Gas bubble disease from water supersaturated with gas (usually nitrogen) is treated with vigorous aeration to drive off the excess gas, plus fixing the mechanical cause, such as a cavitating pump or an air leak on the intake side.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Signs of gas bubble disease include lethargy, buoyancy problems, bubbles in the gills, fins and eyes, and popeye; fine bubbles may also show on the aquarium glass.",
+      "source": 7
+    },
+    {
+      "section": "steps",
+      "fact": "An air system has an air pump, airline tubing and a check valve outside the tank; only the last section of tubing goes into the water, to the air stone or sponge filter.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Tetra Whisper 3i instructions: to prevent electric shock from water siphoning back, use the included check valve or place the pump higher than the water level.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Tetra 77853 manual: if the pump cannot sit above the water level, fit a check valve in the tubing as close to the pump as possible, facing so air flows out and water cannot flow back.",
+      "source": 6
+    },
+    {
+      "section": "steps",
+      "fact": "Put the check valve on the air line to stop water flowing back when the pump sits lower than the water surface.",
+      "source": 4,
+      "also": [
+        2
+      ]
+    },
+    {
+      "section": "other",
+      "fact": "A pump must be strong enough to make hundreds of bubbles per second for an air stone to aerate well; small pumps sold cheaply or bundled with kits are described as too weak.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Aeration demand does not grow in step with fish length: a two-inch fish needs eight times the aeration of a one-inch fish.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "In one Aquarium Co-Op test, a 40-gallon breeder with a sponge filter had more oxygen than a 55-gallon tank, because the breeder has more surface area.",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "In the same tests, a powerhead aimed at the surface did better than a venturi-type powerhead, and a circulation pump did not raise oxygen much.",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "Strong aeration drives CO2 down to around 2–3 ppm, while plants generally do best above 10 ppm, so aeration can work against injected CO2 in planted tanks.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "In dry climates, air pumps with air stones can speed up evaporation; choppy surface flow is preferred there.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "The pump diaphragm is the part that wears out most often, and replacement diaphragms are sold.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "More aeration is generally better at any temperature, because water at 78°F is not necessarily saturated.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Higher oxygen slows the growth of free-floating bacteria and helps keep water clear.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Running aeration at night helps planted and heavily stocked tanks, because oxygen is lowest overnight.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "In high-risk periods, usually hot summer weather, the Merck manual suggests checking oxygen weekly in ponds.",
+      "source": 3
+    },
+    {
+      "section": "firstAid",
+      "fact": "During a power cut, Aquarium Co-Op says that after 8 or more hours without power, run oxygen for 1 hour and repeat every 8 hours; heavily stocked tanks or gasping fish may need it every 4 hours.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "In a power cut, do not feed the fish, turn off automatic feeders and do not change water for the first 1–2 hours.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "A USB air pump can run from a USB power bank or a laptop during a power cut.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "Aquarium Co-Op's battery-backup air pump switches on by itself when power fails and runs about 20 hours, or about 40 hours or more in power-save mode (15 seconds on, 15 seconds off).",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "Hang-on-back and canister filters hold little oxygen during a power cut; unplugging them stops dirty water flushing into the tank when power returns.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "In hot weather without power, move the tank somewhere cool and shaded; a battery fan blowing across the surface cools it by evaporation, while floating frozen bottles is not advised because sudden temperature changes stress fish.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "After power returns, wait 24 hours before feeding, test ammonia and nitrite, and change water if either reads above 0 ppm.",
+      "source": 1
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese names: máy sủi / máy sủi oxy / máy sủi khí (air pump), đá sủi or thanh sủi (air stone or bar), dây sủi (airline tubing), van một chiều (check valve), màng bơm (diaphragm).",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Rechargeable air pumps (máy sủi tích điện, sủi AC/DC) are sold in Vietnam as backup during power cuts, and are recommended for high-value fish such as arowana and koi.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Air pump brands sold by Vietnamese aquarium shops include Gex, Periha and Atman.",
+      "source": 4
+    },
+    {
+      "section": "myths",
+      "fact": "The rule of 12 square inches of surface per inch of fish is a myth, according to aquariumscience.org.",
+      "source": 0
+    },
+    {
+      "section": "myths",
+      "fact": "aquariumscience.org says a tank's surface-area-to-depth ratio is meaningless for judging aeration.",
+      "source": 0
+    }
+  ]
+}

@@ -22,6 +22,16 @@ test('material sections keep their reading order, skip absent text and turn mark
   expect(sections[1]!.html).not.toContain('dịch từ nguồn')
 })
 
+// Marks written together are one group, side by side; a mark a few words after another is not beside it (lib/cite.ts
+// citeGroup, the driftwood pages of 15 Nov 2026).
+test('marks written together are one group; marks with words between them are not', async () => {
+  const m = (await content()).materials.find(m => m.id === 'lua-sa-tung')!
+  const [s] = materialSections({ ...m, t: { ...m.t, sections: { about: 'Lũa ngâm kỹ [1][2] rồi mới dùng [1], kẻo nước ngả màu [2].' } } })
+  expect(s!.html.match(/<span class="marks">/g)).toHaveLength(1)
+  expect(s!.html).toMatch(/<span class="marks"><a class="cite"[^>]*>1<\/a> <a class="cite"[^>]*>2<\/a><\/span> rồi mới dùng <a class="cite"/)
+  expect(s!.html).toMatch(/ngả màu <a class="cite"[^>]*>2<\/a>\.$/)
+})
+
 test('materials enter the app index without changing automatic guide link targets', async () => {
   const c = await content()
   expect(c.materials.length).toBe(3)

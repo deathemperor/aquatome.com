@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/water-milfoil-planting-growing-and-propagation/
 title: Water Milfoil – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-10-30T22:35:16.183Z
-hash: 9c0fa7a3212978deb70ace3832d8c468a769ec80ddf72865994fad7c02ca6adb
+hash: 183ed2cf865f66e6b53d0de83ec2ad5deedb94532ec4c601699fa0e2910e753c
 ---
 
 Myriophyllum elatinoides, commonly known as Water Milfoil, is a popular, versatile aquatic plant species for decorating freshwater aquaria.
@@ -113,4 +113,3 @@ At the same time, it should be noted that many of these advantages can, over tim
 - Orchard, A. E. “A revision of South American Myriophyllum (Haloragaceae) and its repercussions on some Australian and North American species.” Brunonia4, no. 1 (1981): 27-65.
 - Li, YuYuan, Xi Li, JinShui Wu, KuanYi Li, and WeiBo Wang. “Regional adaptability and ecological competitiveness of Myriophyllum elatinoides in mainland China.” Journal of Agro-Environment Science37, no. 10 (2018): 2252-2261.
 - Orchard, A. E. “Myriophyllum (Haloragaceae) in Australasia. 1. New Zealand: A revision of the genus and a synopsis of the family.” Brunonia2, no. 2 (1979): 247-87.
-### Leave a Reply Cancel reply

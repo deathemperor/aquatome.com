@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { citeMark, photoMark, withCite } from '../src/lib/cite'
+import { citeGroup, citeMark, photoMark, withCite } from '../src/lib/cite'
 import { htmlBlocks } from '../src/lib/page-blocks'
 
 const m = '<a class="cite">1</a>'
@@ -33,4 +33,12 @@ test('a photo a source let us use: its mark names its author and links its page,
   const p = photoMark('vi', { author: 'Seriously Fish', licence: 'dùng với sự cho phép', sourceUrl: 'https://s/x' })
   const { blocks } = htmlBlocks(`<figure class="inl"><img src="https://m/x.webp" width="800" height="600" alt="Cá"><figcaption>Cá${p}</figcaption></figure>`)
   expect(blocks).toEqual([{ t: 'figure', img: { src: 'https://m/x.webp', w: 800, h: 600, alt: 'Cá', credit: { text: 'Ảnh: Seriously Fish', licence: '', url: 'https://s/x' } }, caption: ['Cá'] }])
+})
+
+// The driftwood pages, 15 Nov 2026: global.css's rule for two marks side by side matched any two in a paragraph, words
+// between them, and a mark at a line's end reached past a phone's edge. Only a group's marks are side by side.
+test('marks side by side are one group; one mark is no group', () => {
+  expect(citeGroup([m])).toBe(m)
+  expect(citeGroup([m, m])).toBe(`<span class="marks">${m} ${m}</span>`)
+  expect(citeGroup([])).toBe('')
 })

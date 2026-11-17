@@ -1,0 +1,84 @@
+{
+  "id": "sulcospira-testudinaria",
+  "native": {
+    "input": "0e7d9b1471cd61d4",
+    "at": "2026-11-15T05:39:34.625Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Sulcospira testudinaria is endemic to Indonesia, with a wide distribution across freshwater habitats, particularly on the island of Java.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Java",
+        "source": "aquariumbreeder",
+        "quote": "Sulcospira testudinaria is endemic to Indonesia, with a wide distribution across freshwater habitats, particularly on the island of Java.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Code River",
+        "source": "aquariumbreeder",
+        "quote": "It can be observed in locations such as Central Java (Code River, Pegunungan Sewu), West Java (Bogor, Jakarta, Cikeruh River), and East Java (Meru Betiri National Park, the Brantas River).",
+        "ok": true
+      },
+      {
+        "name": "Brantas River",
+        "source": "aquariumbreeder",
+        "quote": "It can be observed in locations such as Central Java (Code River, Pegunungan Sewu), West Java (Bogor, Jakarta, Cikeruh River), and East Java (Meru Betiri National Park, the Brantas River).",
+        "ok": true
+      },
+      {
+        "name": "Cikeruh River",
+        "source": "aquariumbreeder",
+        "quote": "It can be observed in locations such as Central Java (Code River, Pegunungan Sewu), West Java (Bogor, Jakarta, Cikeruh River), and East Java (Meru Betiri National Park, the Brantas River).",
+        "ok": true
+      },
+      {
+        "name": "Pegunungan Sewu",
+        "source": "aquariumbreeder",
+        "quote": "It can be observed in locations such as Central Java (Code River, Pegunungan Sewu), West Java (Bogor, Jakarta, Cikeruh River), and East Java (Meru Betiri National Park, the Brantas River).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Sulcospira testudinaria",
+    "status": "ACCEPTED",
+    "taxonKey": 4956626,
+    "datasets": [
+      [
+        "84b18cce-083a-4464-bee8-25b2083a17cd",
+        9
+      ],
+      [
+        "ca58433a-3ff8-492f-9d7b-6f6d289eb6d6",
+        4
+      ],
+      [
+        "a307e4d7-1de2-4adc-95d5-a0a8d5f57236",
+        3
+      ],
+      [
+        "763f9aee-060c-4d71-a538-16c383e53a4d",
+        2
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-15T05:39:34.625Z"
+  }
+}

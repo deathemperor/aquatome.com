@@ -302,10 +302,15 @@ const quotes = (note: string) => {
  * once in the entry, and its new wording only when that wording stood nowhere before and the entry then reads as it did
  * but for that one sentence, which stands once: the final read's verdict on it is its own, and going back finds it.
  */
-export async function rewordLoose<E extends { definition: string; body: string }>(llm: Llm, model: string, facts: object, e: E, loose: Flagged[], keep: { rules?: (e: E) => Promise<string[]>; names?: string[] } = {}): Promise<{ entry: E; log: string[]; stops: Flagged[]; score?: number }> {
+export async function rewordLoose<E extends { definition: string; body: string }>(llm: Llm, model: string, facts: object, e: E, loose: Flagged[], keep: { rules?: (e: E) => Promise<string[]>; names?: string[]; fits?: (e: E) => boolean } = {}): Promise<{ entry: E; log: string[]; stops: Flagged[]; score?: number }> {
   const log: string[] = []
   const texts = sentences(e).map(s => s.text)
-  const here = loose.filter(s => (occurrences(e, s.text) === 1 && texts.filter(t => t === s.text).length === 1 && placed(e, s.text)) || (log.push(`Loose, left as written (not placeable): "${s.text}"`), false))
+  // The definition's first sentence says what the thing is, and no later read catches a change to it (the chief of staff,
+  // 15 Nov 2026: Artemia's "Artemia là loài tôm li ti." became its English name, dry food's lost four of its seven forms):
+  // it stays as written.
+  const lead = sentences({ definition: e.definition, body: '' })[0]?.text
+  const here = loose.filter(s => (s.text === lead && s.block === plain(e.definition) ? (log.push(`Loose, left as written (the definition's first sentence): "${s.text}"`), false) : true)
+    && ((occurrences(e, s.text) === 1 && texts.filter(t => t === s.text).length === 1 && placed(e, s.text)) || (log.push(`Loose, left as written (not placeable): "${s.text}"`), false)))
   if (!here.length) return { entry: e, log, stops: [] }
   const listed = here.map((s, i) => `${i + 1}. CÂU: ${s.text}\n   ĐOẠN: ${s.block}\n   LÝ DO: ${[...new Set(s.why)].join(' / ')}`).join('\n')
   const r = await llm<{ sentences?: { n: number; text: string }[] }>({ system: 'You reword sentences of a Vietnamese aquarium glossary entry to what its facts carry. Reply only with JSON.', model, schema: REWORD_SCHEMA, prompt: `${REWORD}\n\n--- CÂU ---\n${listed}\n\n--- DỮ KIỆN ---\n${JSON.stringify(facts)}` })
@@ -355,10 +360,14 @@ export async function rewordLoose<E extends { definition: string; body: string }
   ]
   const broke = new Map(unstopped.done.map(x => [x, [...ruled.filter(n => about(n, x)), ...(dropped(x).length ? [`it drops ${dropped(x).join(', ')}`] : [])]]))
   const staying = unstopped.done.filter(x => !broke.get(x)!.length)
-  const { entry, done } = staying.length === unstopped.done.length ? unstopped : place(staying)
+  let { entry, done } = staying.length === unstopped.done.length ? unstopped : place(staying)
+  // Past its length, the last rewordings go back to their old wording until it fits.
+  const long = new Set<Rewording>()
+  while (keep.fits && !keep.fits(entry) && done.length) { long.add(done.at(-1)!); ({ entry, done } = place(done.slice(0, -1))) }
   for (const x of changed) {
     if (stopped(x)) log.push(`Loose, rewording read as unsupported, old wording kept for the reader: "${x.s.text}" (not "${x.to}": ${verdictsOf(x.to)})`)
     else if (broke.get(x)?.length) log.push(`Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: "${x.s.text}" (not "${x.to}": ${broke.get(x)!.join(' / ')})`)
+    else if (long.has(x)) log.push(`Loose, rewording would take the entry past its length, old wording kept for the reader: "${x.s.text}" (not "${x.to}")`)
     else if (!done.includes(x)) log.push(`Loose, rewording not placed once others went back, old wording kept for the reader: "${x.s.text}" (not "${x.to}")`)
     else log.push(`${final.loose.some(f => f.text === x.to) ? 'Loose, reworded and still loose' : 'Loose, reworded'}: "${x.s.text}" → "${x.to}" (${verdictsOf(x.to)})`)
   }

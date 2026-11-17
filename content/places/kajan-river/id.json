@@ -1,8 +1,13 @@
 {
   "slug": "kajan-river",
-  "name": "Kayan",
+  "name": "Sungai Kayan",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-16T11:27:10.476Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

@@ -155,17 +155,7 @@
             "caption": "Máng đèn đã được lắp úp vào trong lòng chân đế.",
             "sharpness": 150.8
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/SAO9fY_5ATA/p5-X2ZpeHR1cmUuSlBH.webp",
-          "thumb": "https://media.aquatome.com/video/SAO9fY_5ATA/p5-X2ZpeHR1cmUuSlBH-480.webp",
-          "width": 960,
-          "height": 547,
-          "licence": "CC0",
-          "author": "Georg Pik",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluorescent_light_fixture.JPG",
-          "caption": "Máng đèn huỳnh quang có chóa phản quang, loại có thể tận dụng làm đèn bể."
-        }
+        ]
       },
       {
         "heading": "Trải nền hạt thủy tinh",
@@ -177,15 +167,6 @@
             "height": 675,
             "caption": "Đang đổ hạt thủy tinh vào bể.",
             "sharpness": 80.6
-          },
-          {
-            "t": 1280,
-            "url": "https://media.aquatome.com/video/SAO9fY_5ATA/at1280-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lớp hạt thủy tinh xanh đã phủ kín đáy bể mica.",
-            "sharpness": 335.9,
-            "person": false
           }
         ]
       },
@@ -193,35 +174,12 @@
         "heading": "Làm lọc sủi khí với K1 Kaldnes",
         "moments": [
           {
-            "t": 1340,
-            "url": "https://media.aquatome.com/video/SAO9fY_5ATA/at1340-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Vật liệu lọc lơ lửng trong hộp lọc tầng sôi, sủi khí.",
-            "sharpness": 187.6,
-            "person": false
-          },
-          {
             "t": 1440,
             "url": "https://media.aquatome.com/video/SAO9fY_5ATA/at1440-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Hộp mica tự ghép dùng làm lọc, nhìn từ trên xuống.",
             "sharpness": 113.7
-          }
-        ]
-      },
-      {
-        "heading": "Lắp máy sủi, van một chiều và dây oxy",
-        "moments": [
-          {
-            "t": 1600,
-            "url": "https://media.aquatome.com/video/SAO9fY_5ATA/at1600-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Máy sủi và dây điện đặt dưới chân đế bể, dây oxy chạy ra ngoài.",
-            "sharpness": 534.1,
-            "person": false
           }
         ]
       },
@@ -245,6 +203,20 @@
             "caption": "Con cá vàng nhỏ màu đỏ bơi trong bể, không lắp sưởi.",
             "sharpness": 128.5
           }
+        ]
+      },
+      {
+        "heading": "Đổ nước, trang trí và thả cá",
+        "moments": [
+          {
+            "t": 1280,
+            "url": "https://media.aquatome.com/video/SAO9fY_5ATA/at1280-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lớp hạt thủy tinh xanh đã phủ kín đáy bể mica.",
+            "sharpness": 335.9,
+            "person": false
+          }
         ],
         "photo": {
           "url": "https://media.aquatome.com/video/SAO9fY_5ATA/p9-hfQ2Fycm90LmpwZw.webp",
@@ -256,6 +228,34 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fantail_Goldfish_Carrot.jpg",
           "caption": "Một con cá vàng bơi trong bể nhà, không cần sưởi, sống ổn ở nhiệt độ phòng."
         }
+      },
+      {
+        "heading": "Lọc sủi tầng sôi cho bể bàn trà",
+        "moments": [
+          {
+            "t": 1340,
+            "url": "https://media.aquatome.com/video/SAO9fY_5ATA/at1340-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Vật liệu lọc lơ lửng trong hộp lọc tầng sôi, sủi khí.",
+            "sharpness": 187.6,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Van một chiều và cách đi dây khí",
+        "moments": [
+          {
+            "t": 1600,
+            "url": "https://media.aquatome.com/video/SAO9fY_5ATA/at1600-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Máy sủi và dây điện đặt dưới chân đế bể, dây oxy chạy ra ngoài.",
+            "sharpness": 534.1,
+            "person": false
+          }
+        ]
       }
     ]
   }

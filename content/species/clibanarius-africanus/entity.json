@@ -45,23 +45,40 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/clibanarius_africanus_en/",
-      "html": "<p>The charming hermit crab Clibanarius africanus has become a very popular aquarium inhabitant. It is a euryhaline species, which means that it can survive in both pure fresh and pure marine water. However, it seems that it can live in pure freshwater only for a few months, so it is much better to keep it in brackish water.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/clibanarius_africanus_with_white_shells__en/",
+      "html": "<p>The charming hermit crab Clibanarius africanus has become a very popular aquarium inhabitant. It is an euryhalin species, which means that it can survive in both pure fresh and pure marine water.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/clibanarius_africanus_with_white_shells__en/",
+      "html": "<p>However, it seems that it can live in pure freshwater only for a few months, so it is much better to keep it in brackish water.</p>"
     },
     {
       "key": "diet",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/clibanarius_africanus_en/",
-      "html": "<p>Clibanarius are detritus feeders. Detritus is composed of various dead plant and animal matter. In the aquarium, Clibanarius feed readily on any typical fish food.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/clibanarius_africanus_with_white_shells__en/",
+      "html": "<p>Clibanarius are detritus feeders. Detritus is composed from several dead stuff of plants and animals. In the aquarium, Clibanarius feed readily on any typical fish food.</p>"
     },
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/clibanarius_africanus_en/",
-      "html": "<p>C. africanus are usually imported with the brown shells of the snail species Tympanotonus fuscatus, but occasionally they bear the white shells of the snail Pachymelania aurita.</p><p>Lexicon: Clibanarius: term for a heavily armoured cavalryman. africanus: means \"comes from Africa\".</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/clibanarius_africanus_with_white_shells__en/",
+      "html": "<p>Usually C. africanus are imported with the brown snail shells of the snail species Tympanotonus fuscatus. This time almost all specimens have very pretty white snail shells from the snail species Pachymelania aurita.</p><p>Lexicon: Clibanarius: term for a heavily armoured cavalryman. africanus: means \"comes from Africa\".</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/889b5d1666f4aa77.webp",
+      "thumb": "https://media.aquatome.com/glaser/889b5d1666f4aa77-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/clibanarius_africanus_with_white_shells__en/",
+      "source": "glaser"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "x0HvpwySTOw",
@@ -103,5 +120,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-10"
+  "updatedAt": "2026-11-16"
 }

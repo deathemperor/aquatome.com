@@ -1,8 +1,13 @@
 {
   "slug": "tapti-river",
-  "name": "Tapti",
+  "name": "Sungai Tapti",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-15T05:37:17.721Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

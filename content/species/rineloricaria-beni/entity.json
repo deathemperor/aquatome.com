@@ -1,0 +1,273 @@
+{
+  "id": "rineloricaria-beni",
+  "scientificName": "Rineloricaria beni",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Rineloricaria",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "bolivia",
+    "beni-river"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 8
+      },
+      {
+        "source": "scotcat",
+        "value": 8
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hemiloricaria_beni_en/",
+      "html": "<p>The smallest known species of whiptail catfish. It hardly becomes longer than 8 cm.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_beni.htm",
+      "html": "<ul><li>Common name: Dwarf whiptail catfish</li><li>IUCN Red List: Least Concern, because it has a wide distribution, is present in several protected areas and because it is unlikely that the localised threats are affecting the population to a degree that would warrant listing in a threatened category, but it does need updating (IUCN 2016).</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hemiloricaria_beni_en/",
+      "html": "<p>As this species occurs only in Bolivia and no commercial exportations from Bolivia appear, only bred fish are offered.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hemiloricaria_beni_en/",
+      "html": "<p>This species occurs only in Bolivia.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_beni.htm",
+      "html": "<p>Bolivia: Beni River basin. Type locality: Lagoons, Lake Rogoagua, Beni River basin, Bolivia.</p><p>Etymology: the specific name beni refers to the Rio Beni, in Bolivia and Peru, South America.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_beni.htm",
+      "html": "<p>Non problematic in a community or species tank with good water parameters.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_beni.htm",
+      "html": "<p>Omnivore. Vegetable food such as cucumber and other various foods such as tablet, flake and frozen.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_beni.htm",
+      "html": "<p>This is the smallest of the Hemiloricaria/Rineloricaria and is a reasonably easy species to breed.</p><p>The female lays up to 80 orange to brown eggs in a narrow diameter pipe of at least 1.2 cm. The Rineloricaria species are usually cave spawners, where the female will place their eggs after the male has cleaned inside. The male will then guard and fan the eggs until hatching. The eggs will hatch in 4-5 days whereas the male can now be removed.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hemiloricaria_beni_en/",
+      "html": "<p>Swiss aquarists initially collected this species on a private collecting trip in 1997. Since then a stable aquarium population of this cute species has been established.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_beni.htm",
+      "html": "<p>Isbrücker &amp; Nijssen (1976a) and Isbrücker (1981a) proposed the revalidation of Hemiloricaria Bleecker, 1862 (type species: Hemiloricaria caracasensis), but they finally left it in the synonymy of Rineloricaria because of the lack of sufficient features to split these two genera. In 2001, Isbrücker et al. revalidated Hemiloricaria and created two new genera: Fonchiiichthys (type species: Loricaria uracantha) and Leliella (type species: Rineloricaria heteroptera) on the basis of subtle differences in the sexual dimorphism (Covain, Raphael; Fisch-Muller, Sonia 2007).</p><p>First imported from a collecting trip in 1997 by Swiss aquarists. More information on this species can be found in the Catfish Atlas Volume 1.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_beni.htm",
+      "html": "<p>Covain, Raphael; Fisch-Muller, Sonia (2007). \"The genera of the Neotropical armored catfish subfamily Loricariinae (Siluriformes: Loricariidae): a practical key and synopsis\" Zootaxa. 1462: 1–40. Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Sarmiento, J., Maldonado, M. &amp; Carvajal, F. 2016. Rineloricaria beni. The IUCN Red List of Threatened Species 2016.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/9dde0b16854f4d84.webp",
+      "thumb": "https://media.aquatome.com/glaser/9dde0b16854f4d84-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hemiloricaria_beni_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/74198e94001129fb.webp",
+      "thumb": "https://media.aquatome.com/scotcat/74198e94001129fb-480.webp",
+      "width": 500,
+      "height": 298,
+      "licence": "dùng với sự cho phép",
+      "author": "Hans-Georg Evers / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_beni.htm",
+      "caption": "Rineloricaria beni",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/b668d8272ab543d8.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b668d8272ab543d8-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Mitsuhiro Iwamoto / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_beni.htm",
+      "caption": "Rineloricaria beni",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/b35715ea02b0233b.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b35715ea02b0233b-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Mitsuhiro Iwamoto / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_beni.htm",
+      "caption": "Rineloricaria beni: dorsal view",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "llkn7YU5OSs",
+      "title": "Hemiloricaria beni Jungfischaufzucht im Ernstkasten",
+      "durationSec": 19,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể nhỏ",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-16",
+  "range": {
+    "native": {
+      "countries": [
+        "BO"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This species occurs only in Bolivia.",
+          "countries": [
+            "BO"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339097,
+      "total": 26,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "BO",
+          24
+        ],
+        [
+          "BR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -67.5,
+          -14.0625,
+          17,
+          17
+        ],
+        [
+          -66.09375,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -14.0625,
+          3,
+          3
+        ],
+        [
+          -64.6875,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -11.25,
+          2,
+          0
+        ]
+      ]
+    }
+  }
+}

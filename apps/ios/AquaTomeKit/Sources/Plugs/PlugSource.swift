@@ -14,6 +14,10 @@ public protocol PlugSource: Sendable {
   /// The timers set on one plug in its maker's app, as they are now. Read only, when a screen that shows them opens;
   /// never kept, never written.
   func timers(provider: String, device: String) async throws -> [PlugTimer]
+  /// Starts the outlet's own countdown (an outlet `LiveOutlet.countdown` says has one): after `seconds` the plug switches
+  /// the outlet the other way by itself, with or without the phone. 0 ends one. Sent once, never retried; then read back:
+  /// whether the plug reports it. The master button's alone (docs/smart-plugs.md), on the reader's tap.
+  func countdown(provider: String, device: String, outlet code: String, seconds: Int) async throws -> Bool
 }
 
 /// An outlet as the plug reports it now.
@@ -23,10 +27,13 @@ public struct LiveOutlet: Sendable, Equatable {
   public let name: String?
   /// Nil when it isn't known.
   public let on: Bool?
-  public init(code: String, name: String?, on: Bool?) {
+  /// The plug lists a countdown for it (Tuya's `countdown_1` for `switch_1`).
+  public let countdown: Bool
+  public init(code: String, name: String?, on: Bool?, countdown: Bool = false) {
     self.code = code
     self.name = name
     self.on = on
+    self.countdown = countdown
   }
 }
 

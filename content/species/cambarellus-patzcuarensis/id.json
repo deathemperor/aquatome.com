@@ -1,21 +1,23 @@
 {
   "slug": "lobster-mini-meksiko",
-  "name": "Lobster Mini Meksiko",
+  "name": "Lobster CPO",
   "altNames": [
-    "Mexican Dwarf Crayfish",
-    "Lobster Kerdil Meksiko",
-    "Lobster Mini",
-    "Dwarf Crayfish"
+    "CPO",
+    "Lobster kerdil Meksiko",
+    "Mexican dwarf crayfish",
+    "Orange dwarf crayfish",
+    "Cambarellus"
   ],
   "sections": {
-    "quickFacts:bwaquatics": "<p>Cambarellus patzcuarensis 'Orange' (CPO), yang juga dikenal sebagai dwarf orange crayfish atau orange Mexican dwarf crayfish, adalah krustasea berukuran kecil. Ini adalah varietas hasil seleksi dengan warna oranye yang cerah.</p>",
-    "behaviour:bwaquatics": "<p>Para penghobi menyukainya karena sifatnya yang damai. Lobster ini cocok untuk akuarium udang dan invertebrata, bahkan akuarium komunitas, dan bisa hidup berdampingan dengan penghuni akuarium lainnya.</p>"
+    "quickFacts:glaser": "<p>Lobster kerdil oranye, Cambarellus patzcuarensis, hanya tumbuh sampai 3–4 cm.</p>",
+    "distribution:glaser": "<p>Asal: Danau Pátzcuaro di Meksiko.</p>",
+    "behaviour:glaser": "<p>Lobster kerdil ini agak agresif terhadap sesamanya.</p>"
   },
   "quality": {
-    "score": 0.9,
+    "score": 0.95,
     "indexable": true,
     "bySource": {
-      "bwaquatics": 0.9
+      "glaser": 0.95
     }
   }
 }

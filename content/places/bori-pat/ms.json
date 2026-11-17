@@ -3,6 +3,12 @@
   "name": "Bori Pat",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.4,
+    "at": "2026-11-16T17:24:17.274Z",
+    "why": "\"Bori Pat\" just repeats the Vietnamese spelling, and I can't match it to a Thai region with that name in Malay, where Thai names usually follow Thai romanisation such as \"Boribat\" or \"Buri Ram\"."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

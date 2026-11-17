@@ -3,6 +3,12 @@
   "name": "Oasis Azraq",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-16T05:44:45.156Z",
+    "why": "Indonesian uses \"Oasis\" in the sense of \"oasis\", but the standard Indonesian atlas form is \"Oasis Azraq\" or \"Oase Azraq\"; the official KBBI spelling is \"oasis\", so the name is acceptable but the common Indonesian form is \"Oasis Azraq\"."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

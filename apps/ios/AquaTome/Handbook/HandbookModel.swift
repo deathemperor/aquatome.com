@@ -20,6 +20,8 @@ final class HandbookModel {
   /// The query, the kind picked and what they find (SearchState): searched once a change, not on every redraw.
   private(set) var searching = SearchState(HandbookSearch([]), page: HandbookModel.searchPage())
   var query: String { get { searching.query } set { searching.query = newValue } }
+  /// A page about to open at one of its headings (a chat section's "Đọc tiếp"): taken by that page as it opens.
+  var openingAt: (path: String, heading: String)?
   /// Counts the times a screen asked for Tìm with its words (AppScreen.search): typing changes `query` too, and v2 opens
   /// its search tab for this alone.
   var searchAsked = 0
@@ -36,7 +38,7 @@ final class HandbookModel {
   /// search again for them.
   private var search = HandbookSearch([])
   /// Fish and plant pages by their content id: what a tank's `species[].id` and `plants[].id` hold.
-  private var pages: [String: HandbookIndex.Item] = [:]
+  private var pages = ItemsByKey([]) { _ in nil }
   /// The page a tank's entry without a page is shown as, by its scientific name.
   private var matcher = PageMatcher([])
   /// Every page by its path, and what the reader keeps on this phone by path (the pages saved to read later and read
@@ -104,7 +106,12 @@ final class HandbookModel {
     drawn = Self.pageCache(source, site: site)
     paths = HandbookPaths(lang: lang, cache: drawn)
     #if DEBUG
-    if ProcessInfo.processInfo.arguments.contains("-watch-tank-searches") { tankSearchChanges = 0; watchTankSearches() }
+    let args = ProcessInfo.processInfo.arguments
+    if args.contains("-watch-tank-searches") { tankSearchChanges = 0; watchTankSearches() }
+    // `-read-familiar N`: the first N of `-familiar`'s fish read in turn, the Nth last, so "Đọc gần đây" runs long.
+    if let n = args.firstIndex(of: "-read-familiar").flatMap({ $0 + 1 < args.count ? Int(args[$0 + 1]) : nil }), n > 0 {
+      for i in 1...n { paths.read(HandbookIndex.Item(kind: .fish, name: "Cá quen \(i)", path: "/vi/ca/ca-quen-\(i)/")) }
+    }
     #endif
   }
 
@@ -364,7 +371,7 @@ final class HandbookModel {
   private func use(_ ix: HandbookIndex, _ s: Status) {
     search = HandbookSearch(ix.items)
     searching.search = search
-    pages = Dictionary(ix.items.compactMap { i in i.contentId.map { ($0, i) } }, uniquingKeysWith: { a, _ in a })
+    pages = ItemsByKey(ix.items) { $0.contentId }
     matcher = PageMatcher(index: ix.items)
     paths.use(ix)
     shardCounts = ix.pages
@@ -408,6 +415,10 @@ final class HandbookModel {
       let latest = args.contains("-whats-new") ? "/app/latest/vi.json" : nil
       // `-breeds`: the site lists a breed of the discus too, as it lists breeds.
       var items = (args.contains("-breeds") ? f.items + HandbookIndex.fixtureBreeds : f.items) + (kit ? HandbookIndex.fixtureKit : [])
+      // `-kit`: the nine kinds of kit the site lists, as Tìm's grid of them shows them (OnePageFlowTests).
+      if args.contains("-kit") { items += HandbookIndex.fixtureKits }
+      // `-crab`: a crab among the fish pages, as the site lists about 90 that aren't fish (`fixtureCrab`).
+      if args.contains("-crab") { items.append(HandbookIndex.fixtureCrab) }
       // `-series N`: N video series, the fixture's own first (0: none, as the Indonesian and Thai sites have).
       if let n = args.firstIndex(of: "-series").flatMap({ $0 + 1 < args.count ? Int(args[$0 + 1]) : nil }) {
         let own = items.filter { $0.kind == .video }
@@ -464,7 +475,8 @@ final class HandbookModel {
         : launch.contains("-long-page") ? HandbookIndex.fixturePagesLong
         : launch.contains("-long-part") ? HandbookIndex.fixturePagesWithLongParts
         : launch.contains("-long-guide") ? HandbookIndex.fixturePagesWithALongGuide
-        : launch.contains("-lead-in-gallery") ? HandbookIndex.fixturePagesLeadInGallery : HandbookIndex.fixturePages
+        : launch.contains("-lead-in-gallery") ? HandbookIndex.fixturePagesLeadInGallery
+        : launch.contains("-crab") ? HandbookIndex.fixturePagesWithACrab : HandbookIndex.fixturePages
       // `-slow-pages`: a page that takes its time to be read.
       let slow = launch.contains("-slow-pages")
       return PageCache(dir: dir, site: site, fetch: { _ in
@@ -571,6 +583,12 @@ extension HandbookIndex {
   /// UI tests' kit (`-equipment`): a kind of kit, and more fish needing it than its page lists in place.
   static let fixtureKit: [Item] = [.init(kind: .equipment, name: "Lọc", path: "/vi/thiet-bi/loc/")]
     + (1...40).map { .init(kind: .fish, contentId: "ca-thu-\($0)", name: "Cá thử \($0)", sub: "Piscis \($0)", path: "/vi/ca/ca-thu-\($0)/") }
+  /// UI tests' nine kinds of kit (`-kit`), as the site lists them, by the site's addresses (KitGrid.symbol's): Tìm's grid
+  /// of them full, three rows of three.
+  static let fixtureKits: [Item] = [("Bể cá", "be-ca"), ("Lọc, sủi khí và tạo dòng", "loc"), ("Sưởi và làm mát", "suoi"),
+                                    ("Đèn", "den"), ("Nền và lá", "phan-nen"), ("Cây thủy sinh", "cay-thuy-sinh"), ("CO2", "co2"),
+                                    ("Bộ test nước", "test-nuoc"), ("Thức ăn", "thuc-an")]
+    .map { .init(kind: .equipment, name: $0.0, path: "/vi/thiet-bi/\($0.1)/") }
 
   /// UI tests' what's new (`-whats-new`), as the site writes it: newest first, a page the index doesn't have (left out), the neon there
   /// twice, updated then new.
@@ -589,6 +607,20 @@ extension HandbookIndex {
           of: "symphysodon-aequifasciatus",
           card: .init(tempC: .init(min: 28, max: 30), ph: .init(min: 5.5, max: 7), sizeCm: 15, tankCm: 120, difficulty: 7)),
   ]
+
+  /// UI tests' crab among the fish pages (`-crab`; the owner's report of 15 Nov, the fiddler crab's page): its order a
+  /// crab's, and the neon's page under its address and name (`fixturePagesWithACrab`).
+  static let fixtureCrab = Item(kind: .fish, contentId: "austruca-annulipes", name: "Cua đồng hồ", sub: "Austruca annulipes",
+                                path: "/vi/ca/cua-dong-ho/", group: "other", tax: ["Decapoda", "Ocypodidae", "Austruca"])
+  static let fixturePagesWithACrab: Data = {
+    guard var o = try? JSONSerialization.jsonObject(with: fixturePages) as? [String: Any], var pages = o["pages"] as? [String: Any],
+          var page = pages["/vi/ca/ca-neon/"] as? [String: Any] else { return fixturePages }
+    page["path"] = fixtureCrab.path
+    page["title"] = fixtureCrab.name
+    pages[fixtureCrab.path] = page
+    o["pages"] = pages
+    return (try? JSONSerialization.data(withJSONObject: o)) ?? fixturePages
+  }()
 
   /// UI tests' page of a kind of kit (`-equipment`), as the site writes it.
   static let fixtureKitPages = Data(#"""

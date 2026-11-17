@@ -3,6 +3,12 @@
   "name": "Caeté",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-16T11:21:22.484Z",
+    "why": "The source's Caeté is a river and estuary in Pará, Brazil, so an Indonesian atlas would write \"Sungai Caeté\" or \"Estuari Caeté\", and the bare \"Caeté\" leaves out the kind word."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

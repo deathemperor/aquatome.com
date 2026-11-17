@@ -1,0 +1,26 @@
+{
+  "slug": "ca-nheo-suoi-oreoglanis-siamensis",
+  "name": "Cá nheo suối Oreoglanis siamensis",
+  "altNames": [],
+  "sections": {
+    "distribution:glaser": "<p>Loài này sống ở vùng sông Mekong và lưu vực sông Chao Phraya. Ở miền bắc Thái Lan, có thể gặp chúng ở vùng núi Mae Nam Ping và Doi Chiang Dow.</p>",
+    "habitat:glaser": "<p>Chúng sống ở những con suối vùng đồi núi có nước chảy xiết, nhiệt độ khoảng 18 °C, pH 6,4–8,9. Ngoài tự nhiên loài này rất hiếm. Vì thế ở châu Á vẫn có những dự án cho chúng đẻ rồi thả cá con ra tự nhiên.</p>",
+    "waterConditions:glaser": "<p>Nước cần có khoảng 8–10 mg oxy mỗi lít. Muốn nuôi loài này thì phải tính tới chuyện oxy.</p>",
+    "diet:glaser": "<p>Chúng ăn được đủ loại thức ăn cỡ nhỏ cho cá, chẳng hạn thức ăn viên nén hay đồ đông lạnh cỡ nhỏ.</p>",
+    "beforeYouBuy:glaser": "<p>Cá về chỉ có rất ít con, và loài này rất hiếm. Xuất xứ: Thái Lan.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.8
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-17"
+  }
+}

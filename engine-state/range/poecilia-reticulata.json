@@ -1,14 +1,22 @@
 {
   "id": "poecilia-reticulata",
   "native": {
-    "input": "b663696a94766386",
-    "at": "2026-11-14T00:09:29.977Z",
+    "input": "6a13647d8fe0f1c2",
+    "at": "2026-11-16T11:31:54.968Z",
     "claims": [
       {
         "code": "VE",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "The guppy, Poecilia reticulata, is a livebearer native to northeastern South America and the southern Caribbean, including Venezuela and Trinidad.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "They are native to freshwater streams in the north of South America, including Suriname, Guyana, and Venezuela, and the Caribbean islands, including Barbados and Trinidad and Tobago.",
         "words": "Venezuela",
         "ok": true
       },
@@ -26,14 +34,6 @@
         "source": "sprucepets",
         "quote": "They are native to freshwater streams in the north of South America, including Suriname, Guyana, and Venezuela, and the Caribbean islands, including Barbados and Trinidad and Tobago.",
         "words": "Guyana",
-        "ok": true
-      },
-      {
-        "code": "VE",
-        "status": "native",
-        "source": "sprucepets",
-        "quote": "They are native to freshwater streams in the north of South America, including Suriname, Guyana, and Venezuela, and the Caribbean islands, including Barbados and Trinidad and Tobago.",
-        "words": "Venezuela",
         "ok": true
       },
       {
@@ -74,6 +74,14 @@
         "source": "seriouslyfish",
         "quote": "Native to northeastern South America and the southern Caribbean with its original range considered to cover Venezuela, Guyana, Suriname, French Guiana plus the islands of Trinidad and Tobago, Barbados, Antigua and Barbuda and the Netherlands Antilles.",
         "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to northeastern South America and the southern Caribbean with its original range considered to cover Venezuela, Guyana, Suriname, French Guiana plus the islands of Trinidad and Tobago, Barbados, Antigua and Barbuda and the Netherlands Antilles.",
+        "words": "French Guiana",
         "ok": true
       },
       {
@@ -149,9 +157,7 @@
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [
-        "GF"
-      ],
+      "pagesOnly": [],
       "sourcesOnly": []
     }
   },
@@ -725,11 +731,12 @@
       "VE",
       "GY",
       "SR",
+      "GF",
       "TT",
       "BB",
       "AG"
     ],
     "requests": 18,
-    "at": "2026-11-14T00:09:29.977Z"
+    "at": "2026-11-16T11:31:54.968Z"
   }
 }

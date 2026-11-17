@@ -997,10 +997,13 @@ final class V2FlowTests: XCTestCase {
     app.launch()
     var wrong: [String] = []
     for page in [SwipedPage.fishFromKhamPha, .guideFromKhamPha] {
-      // From the middle across, moving at once, the page as it opens (no row under the finger: a row scrolls instead).
+      // From well in from the edge across most of the screen, moving at once, the page as it opens (no row under the
+      // finger: a row scrolls instead). Across 70% of it, in 0.45 s: iOS itself lets a shorter one fall back. Just over
+      // half (220 pt on 428) stayed 2 of 16 times in Settings and 5 of 41 on a fish page; 70% (300 pt) went back 12 of 12
+      // (27.2, 15 Nov). The flow failed one run in six on main and on Đọc gần đây's branch alike (16 Nov).
       var shown = openForSwipe(page, app)
       let o = app.coordinate(withNormalizedOffset: .zero), w = app.frame.width, h = app.frame.height
-      o.withOffset(CGVector(dx: w * 0.4, dy: h * 0.4)).press(forDuration: 0, thenDragTo: o.withOffset(CGVector(dx: w * 0.4 + 220, dy: h * 0.4)), withVelocity: XCUIGestureVelocity(220 / 0.45), thenHoldForDuration: 0)
+      o.withOffset(CGVector(dx: w * 0.2, dy: h * 0.4)).press(forDuration: 0, thenDragTo: o.withOffset(CGVector(dx: w * 0.9, dy: h * 0.4)), withVelocity: XCUIGestureVelocity(w * 0.7 / 0.45), thenHoldForDuration: 0)
       if !shown.waitForNonExistence(timeout: 5) {
         wrong.append("\(page): the swipe from the middle stayed")
         app.leavePage()
@@ -1264,6 +1267,30 @@ final class V2FlowTests: XCTestCase {
     XCTAssertLessThan(colour.distance(to: foot), 40, "white under the tab bar: \(colour) above, \(foot) under it")
   }
 
+  /// A fish's page whose head shows its photo whole, at rest: the ⋯ in iOS's glass beside the back in its own, on the
+  /// head's colour (Design's parity, 14 Nov). Before, it was bare dots there: not over the photo, so no dark circle, and in
+  /// glass only once scrolled. The stand-in photo is 8:3, which goes whole (`-wide-pictures`, as WholePhotoFlowTests).
+  func testAWholeHeadsMoreIsInGlassAtRest() {
+    let app = launch("-v2", "YES", "-fixed-pictures", "-wide-pictures")
+    app.launchForFlow()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 10), "no fish page")
+    let back = app.pageBack, more = app.buttons["page-more"]
+    XCTAssertTrue(back.waitForExistence(timeout: 5) && more.exists, "no back or ⋯ in the bar")
+    // The whole head under the bar: the stand-in's red end and its blue end both on the line just under the bar's foot.
+    // A banner would cut both away, and the check below would no longer be about a whole head.
+    Thread.sleep(forTimeInterval: 2)
+    let seen = Pixels(XCUIScreen.main.screenshot()), line = app.navigationBars.firstMatch.frame.maxY + 12
+    let along = stride(from: CGFloat(0), to: app.frame.width, by: 1).map { seen.at($0, line) }
+    XCTAssertTrue(along.contains { $0.r > 170 && $0.g < 90 && $0.b < 90 } && along.contains { $0.b > 170 && $0.r < 90 && $0.g < 120 },
+                  "the head isn't the whole photo: no red or no blue end under the bar")
+    func glass(_ b: XCUIElement, edge: CGFloat) -> Double { seen.at(b.frame.midX, b.frame.midY + 15).distance(to: seen.at(edge, b.frame.midY + 15)) }
+    let backGlass = glass(back, edge: 2), moreGlass = glass(more, edge: app.frame.width - 2)
+    XCTAssertGreaterThan(backGlass, 4, "iOS's glass behind the back doesn't show on the head's colour")
+    XCTAssertGreaterThan(moreGlass, backGlass / 2, "the ⋯ bare on a whole head's colour at rest, the back in its glass: \(moreGlass) against \(backGlass)")
+  }
+
   /// What's on the bar reads, on the page's colour and after it, and the name, once it has left the page, stays in the bar's
   /// middle as the colour goes. On the colour the back and the ⋯ are in iOS's glass alike; after it iOS can keep the dark
   /// scheme, white on the white band.
@@ -1280,6 +1307,23 @@ final class V2FlowTests: XCTestCase {
     }
     let back = app.pageBack
     XCTAssertTrue(back.exists, "iOS's glass on the page's colour")
+    // The ⋯ in iOS's glass on the colour, as the back is (Design's parity, 13 Nov: bare dots beside the back in its glass;
+    // 14 Nov: at rest too, over the whole head's colour). Under each symbol, inside its circle, the ground stands apart
+    // from the colour at the screen's edge on that line.
+    let more = app.buttons["page-more"]
+    func inGlass(_ when: String) {
+      let seen = Pixels(XCUIScreen.main.screenshot())
+      func glass(_ b: XCUIElement, edge: CGFloat) -> Double { seen.at(b.frame.midX, b.frame.midY + 15).distance(to: seen.at(edge, b.frame.midY + 15)) }
+      let backGlass = glass(back, edge: 2), moreGlass = glass(more, edge: app.frame.width - 2)
+      XCTAssertGreaterThan(backGlass, 4, "iOS's glass behind the back doesn't show on the colour \(when)")
+      XCTAssertGreaterThan(moreGlass, backGlass / 2, "the ⋯ bare on the colour \(when), the back in its glass: \(moreGlass) against \(backGlass)")
+    }
+    // Once the head's colour has come: the screen's edge on that line no longer the screen's own ground.
+    let plain = XCUIDevice.shared.appearance == .dark ? Pixels.RGB(r: 0, g: 0, b: 0) : Pixels.RGB(r: 255, g: 255, b: 255)
+    func edge() -> Pixels.RGB { Pixels(XCUIScreen.main.screenshot()).at(2, back.frame.midY + 15) }
+    repeatUntil(edge().distance(to: plain) > 8, times: 10) { Thread.sleep(forTimeInterval: 0.5) }
+    XCTAssertGreaterThan(edge().distance(to: plain), 8, "the head's colour never came under the bar")
+    inGlass("at rest")
     // The page's name under the bar, the bar still on the colour.
     let name = app.scrollViews.staticTexts["Cá neon"].firstMatch
     repeatUntil(name.frame.maxY < back.frame.maxY, times: 6) { up() }
@@ -1296,13 +1340,7 @@ final class V2FlowTests: XCTestCase {
     } else {
       chevronReads()
     }
-    // The ⋯ in iOS's glass on the colour, as the back is (Design's parity, 13 Nov: bare dots beside the back in its glass).
-    // Under each symbol, inside its circle, the ground stands apart from the colour at the screen's edge on that line.
-    let more = app.buttons["page-more"], seen = Pixels(XCUIScreen.main.screenshot())
-    func glass(_ b: XCUIElement, edge: CGFloat) -> Double { seen.at(b.frame.midX, b.frame.midY + 15).distance(to: seen.at(edge, b.frame.midY + 15)) }
-    let backGlass = glass(back, edge: 2), moreGlass = glass(more, edge: app.frame.width - 2)
-    XCTAssertGreaterThan(backGlass, 4, "iOS's glass behind the back doesn't show on the colour")
-    XCTAssertGreaterThan(moreGlass, backGlass / 2, "the ⋯ bare on the colour, the back in its glass: \(moreGlass) against \(backGlass)")
+    inGlass("once the name has gone under the bar")
     // The name in the bar from then on, the colour still under it, in the bar's middle.
     XCTAssertTrue(title.waitForExistence(timeout: 2), "no name in the bar once it has left the page")
     let onColour = title.frame
@@ -1419,6 +1457,60 @@ final class V2FlowTests: XCTestCase {
     app.openTab("Hôm nay")
     app.openTab("Khám phá")
     XCTAssertTrue(app.staticTexts["Đọc gần đây"].waitForExistence(timeout: 5), "it never took its place")
+  }
+
+  /// "Đọc gần đây" shows the 30 pages read last, and its "Xem tất cả" every page kept, newest first (the owner, 15 Nov:
+  /// "Increase display of recently view to 30. Recording of recently viewed need to be big too").
+  func testReadLastShowsThe30ReadLastAndItsListAllOfThem() {
+    let app = launch("-v2", "YES", "-familiar", "40", "-read-familiar", "35")
+    app.launchForFlow()
+    app.openTab("Khám phá")
+    let title = app.staticTexts["Đọc gần đây"]
+    XCTAssertTrue(title.waitForExistence(timeout: 5), "no Đọc gần đây")
+    // A fish by its name alone, as a row reads it ("Cá quen 1, Genus…"): "Cá quen 1" isn't "Cá quen 10".
+    func fish(_ name: String, in q: XCUIElementQuery) -> XCUIElement {
+      q.matching(NSPredicate(format: "label == %@ OR label BEGINSWITH %@", name, name + ",")).firstMatch
+    }
+    let newest = fish("Cá quen 35", in: app.buttons)
+    XCTAssertTrue(newest.exists, "the last read isn't first")
+    // The row, paged to its end a column at a time: its 30th is the 6th read, and the 5th isn't in it. Its three rows of
+    // cards, by height, from the first; the shelves below hold the fish the row doesn't.
+    // The row's pitch from its first two, as the cards' own frames are shorter than a row.
+    let second = fish("Cá quen 34", in: app.buttons)
+    XCTAssertTrue(second.exists, "no second read in the row")
+    let y = newest.frame.midY, pitch = abs(second.frame.midY - y)
+    let top = y - pitch / 2, bottom = y + 2.5 * pitch
+    func inRow(_ e: XCUIElement) -> Bool { e.exists && e.frame.midY > top && e.frame.midY < bottom }
+    let thirtieth = fish("Cá quen 6", in: app.buttons)
+    let shown = { inRow(thirtieth) && app.frame.contains(thirtieth.frame) }
+    for _ in 0..<14 where !shown() {
+      app.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: app.frame.width * 0.85, dy: y))
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: app.frame.width * 0.15, dy: y)),
+               withVelocity: .default, thenHoldForDuration: 0.1)
+    }
+    XCTAssertTrue(shown(), "the row doesn't reach its 30th, the 6th read")
+    XCTAssertFalse(inRow(fish("Cá quen 5", in: app.buttons)), "a 31st in the row")
+    let more = app.buttons.matching(NSPredicate(format: "label == %@", "Xem tất cả")).allElementsBoundByIndex
+      .first { abs($0.frame.midY - title.frame.midY) < 30 }
+    XCTAssertNotNil(more, "no Xem tất cả beside Đọc gần đây")
+    more?.tap()
+    let list = app.descendants(matching: .any)["recent"]
+    XCTAssertTrue(list.waitForExistence(timeout: 5), "its list didn't open")
+    let rows = list.descendants(matching: .any).matching(identifier: "item")
+    XCTAssertTrue(rows.firstMatch.waitForExistence(timeout: 5), "an empty list")
+    // Newest first, from the top.
+    // A row can answer twice to `item` (its link and its words): each name once, in order from the top.
+    var names: [String] = []
+    for e in rows.allElementsBoundByIndex.filter({ app.frame.contains($0.frame) }).sorted(by: { $0.frame.minY < $1.frame.minY }) {
+      let name = e.label.components(separatedBy: ",")[0]
+      if names.last != name { names.append(name) }
+    }
+    let firstThree = Array(names.prefix(3))
+    XCTAssertEqual(firstThree, ["Cá quen 35", "Cá quen 34", "Cá quen 33"], "the list isn't newest first")
+    // Past the row's 30: the first one read, the 35th from the newest.
+    let first = fish("Cá quen 1", in: rows)
+    for _ in 0..<8 where !first.exists { list.swipeUp() }
+    XCTAssertTrue(first.exists, "the list stops short of what's kept")
   }
 
   /// A page just opened (`opened` comes), read down to its end: nowhere a row to v1's whole page.

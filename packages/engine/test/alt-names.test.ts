@@ -285,6 +285,14 @@ test('a renamed fish keeps the names the chief of staff kept for it; another fis
   expect(cleanAltNames({ name: 'Cá mắt xanh neon đỏ', sci: 'Pseudomugil luminatus', altNames: ['Red-Neon Blue-eye', 'Cá cầu vồng neon đỏ mắt xanh'] }).altNames).toEqual(['Red-Neon Blue-eye', 'Cá cầu vồng neon đỏ mắt xanh'])
 })
 
+// A name the row drops is no name it kept (the fiddler crab, 2026-11-15): "Cá Austruca annulipes" reads as the scientific
+// name, so kept it would keep the bare scientific name too, which no step takes off.
+test('a renamed fish\'s dropped name is cleaned as any other, never kept', () => {
+  const rows = [{ id: 'austruca-annulipes', sci: 'Austruca annulipes', was: 'Cá Austruca annulipes', name: 'Cua vĩ cầm annulipes', drop: ['Cá Austruca annulipes'] }]
+  const page = { name: 'Cua vĩ cầm annulipes', sci: 'Austruca annulipes', altNames: ['Cua vĩ cầm', 'Austruca annulipes', 'Cá Austruca annulipes'] }
+  expect(cleanAltNames(page, [], rows).altNames).toEqual(['Cua vĩ cầm'])
+})
+
 // 2026-11-13: Boraras merah's page had "Chili rasbora", B. brigittae's name, which neither of its sources gives.
 test('a name a person found is another fish\'s leaves that page in every form and stays on its own fish\'s', () => {
   const merah = cleanAltNames({ name: 'Cá rasbora merah', sci: 'Boraras merah', altNames: ['Chili rasbora', 'Cá rasbora phượng hoàng', 'Cá chili rasbora', 'Phoenix rasbora'] })

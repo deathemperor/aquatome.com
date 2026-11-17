@@ -1,0 +1,153 @@
+{
+  "id": "hyphessobrycon-pando",
+  "scientificName": "Hyphessobrycon pando",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Hyphessobrycon",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "peru"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE",
+        "BO"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "This unique feature is very reminiscent of Hyphessobrycon pando, a species quite recently described from Bolivia.",
+          "countries": [
+            "BO"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354606,
+      "total": 12,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "BO",
+          11
+        ],
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -70.3125,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          -12.65625,
+          11,
+          11
+        ]
+      ]
+    }
+  },
+  "dataCard": {},
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_cf_pando_peru_en/",
+      "html": "<p>Origin: Peru.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_cf_pando_peru_en/",
+      "html": "<p>The specimens are still too young to say more, but the new species is distinguished from most other Rosy tetras by the bright shining stripes alongside the humeral spot. This unique feature is very reminiscent of Hyphessobrycon pando, a species quite recently described from Bolivia.</p><p>Lexicon: Hyphessobrycon: ancient Greek, means “small Brycon”. Brycon is another genus of tetras. pando: after the Bolivian department of Pando, where the species has been collected.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/00cd16bb291c238e.webp",
+      "thumb": "https://media.aquatome.com/glaser/00cd16bb291c238e-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_cf_pando_peru_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/f402f4ceee6a484b.webp",
+      "thumb": "https://media.aquatome.com/glaser/f402f4ceee6a484b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_cf_pando_peru_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/f3ee08878bcec147.webp",
+      "thumb": "https://media.aquatome.com/glaser/f3ee08878bcec147-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_cf_pando_peru_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/3d6362c4a48a1ea9.webp",
+      "thumb": "https://media.aquatome.com/glaser/3d6362c4a48a1ea9-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon_cf_pando_peru_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "-itAZLbeT0g",
+      "title": "Could  this be Hyphessobrycon pando?",
+      "durationSec": 58,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá tetra 60cm",
+        "bể thủy sinh 60cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá tetra",
+        "thức ăn cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-16"
+}

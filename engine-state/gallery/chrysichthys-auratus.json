@@ -3,8 +3,7 @@
  "judged": [],
  "hashes": {
   "https://media.aquatome.com/scotcat/dfb138d67c0782dc.webp": "20100288320e0d39",
-  "https://media.aquatome.com/scotcat/3dcf6c52b58a9370.webp": "879695833e12181c",
-  "https://media.aquatome.com/scotcat/b66ec87746570473.webp": "00b0e2c08482cdaf"
+  "https://media.aquatome.com/scotcat/3dcf6c52b58a9370.webp": "879695833e12181c"
  },
  "inat": {
   "taxon": 97770,
@@ -18,5 +17,9 @@
  "gbif": {
   "key": 2337443,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-15"
 }

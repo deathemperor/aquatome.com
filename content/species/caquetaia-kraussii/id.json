@@ -1,0 +1,27 @@
+{
+  "slug": "yellow-caquetaia",
+  "name": "Yellow Caquetaia",
+  "altNames": [
+    "Kraussii",
+    "Yellow Caquetaia cichlid"
+  ],
+  "sections": {
+    "beforeYouBuy:glaser": "<p>Ikan ini jarang dipelihara, bahkan oleh penghobi cichlid yang sudah mengkhususkan diri, dan butuh waktu lama untuk menemukannya di toko ikan hias setempat. Sebagian besar penyebabnya adalah reputasi buruk ikan ini. Padahal ikan ini tidak seburuk itu; masih banyak spesies lain yang jauh lebih buruk. Ukuran yang dijual: 5–7 cm, hasil penangkaran.</p>",
+    "distribution:glaser": "<p>Di alam, jumlah Caquetaia kraussii bisa dibilang mencapai jutaan ekor. Hampir tidak ada satu pun perairan di Llanos, Venezuela, baik kolam, danau, maupun sungai, yang tidak dihuni cichlid ini.</p>",
+    "behaviour:glaser": "<p>C. kraussii bisa menjadi cukup merepotkan bila dipelihara di akuarium kecil dan dicampur dengan teman yang salah. Mulutnya cukup besar: ikan sepanjang hingga 10 cm bisa ditelan oleh predator yang ukurannya bisa mencapai 30 cm ini. Pemeliharalah yang harus memastikan akuarium, peralatan, dan teman setangki yang tepat.</p><p>Oscar (Astronotus), Hoplarchus, atau Crenicichla berukuran besar cocok dijadikan teman untuk C. kraussii; ikan-ikan tersebut hampir tidak akan terluka, dan Caquetaia tidak melakukan adu mulut seperti cichlid lain. Kalau mulutnya yang sensitif sampai terluka dengan cara itu, Caquetaia akan mati kelaparan.</p>",
+    "reproduction:glaser": "<p>Hingga 2.000 anakan dalam satu kali pemijahan bukanlah hal yang langka. Anakan yang selalu lapar ini dituntun induknya berkeliling ke seluruh akuarium, dan sejak saat itu teman setangki yang rapuh tidak akan selamat, jadi hanya teman setangki yang sangat kuat yang cocok.</p>"
+  },
+  "quality": {
+    "score": 0.75,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.75
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-16"
+  }
+}

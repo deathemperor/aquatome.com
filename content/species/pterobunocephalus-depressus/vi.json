@@ -3,7 +3,8 @@
   "name": "Cá banjo Pterobunocephalus depressus",
   "altNames": [
     "Cá trê banjo",
-    "Banjo Catfish"
+    "Banjo Catfish",
+    "Domino banjo cat"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li><strong>Tên khoa học:</strong> Pterobunocephalus depressus (Haseman, 1911)</li><li><strong>Tên thường gọi:</strong> Banjo Catfish</li><li><strong>Nơi thu mẫu chuẩn:</strong> sông Río Machupo, gần San Joaquín, thuộc hệ thống sông Amazon, Bolivia.</li><li><strong>Tên đồng nghĩa:</strong> Buncephalus depressus, Bunocephalus albofasciatus</li><li><strong>Kích thước:</strong> 89 mm SL (chiều dài chuẩn, không tính vây đuôi).</li><li><strong>Nhận dạng:</strong> Loài này nhỏ hơn các loài Bunocephalus. Cách dễ nhất để phân biệt với chi Bunocephalus là đếm số tia vây hậu môn. Pterobunocephalus có 11-20 tia, còn Bunocephalus chỉ có 5-10 tia.</li></ul>",
@@ -16,14 +17,21 @@
     "diet:scotcat": "<p>Cho ăn thức ăn viên và đồ tươi sống cỡ nhỏ.</p>",
     "reproduction:scotcat": "<p>Ở giống này, cá cái mang phôi dính thẳng vào mặt bụng. Không loài nào khác trong họ Aspredinidae làm vậy, nên đây cũng là một đặc điểm để phân biệt chúng.</p>",
     "notes:scotcat": "<p>Pterobunocephalus là một giống trong họ Aspredinidae, gồm các loài cỡ nhỏ đến trung bình. Chúng khác mọi loài Aspredinidae khác ở những đặc điểm sau: đầu và thân cực kỳ dẹt, phần trang trí trên đầu tiêu giảm nhiều hoặc không có, hàm trên thường có một khía rõ, và vây hậu môn có 10–20 tia.</p><p>Nguồn gốc tên gọi: trong tên giống Pterobunocephalus, phần \"pterus\" nghĩa là vây hay cánh, ý chỉ vây hậu môn lớn của Bunocephalus (phân giống Pterobunocephalus) albifasciatus (= P. depressus). Tên loài depressus nói về thân hình \"rất dẹt\" của nó.</p>",
-    "references:scotcat": "<ul><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Frederico, R.G. 2021. Pterobunocephalus depressus. The IUCN Red List of Threatened Species 2021.</li><li>Friel, John Patrick (1994-12-13) (bản PDF). A Phylogenetic Study of the Neotropical Banjo Catfishes (Teleostei: Siluriformes: Aspredinidae).</li><li>Lujan, Nathan. Báo cáo trên trang Facebook.</li></ul>"
+    "references:scotcat": "<ul><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Frederico, R.G. 2021. Pterobunocephalus depressus. The IUCN Red List of Threatened Species 2021.</li><li>Friel, John Patrick (1994-12-13) (bản PDF). A Phylogenetic Study of the Neotropical Banjo Catfishes (Teleostei: Siluriformes: Aspredinidae).</li><li>Lujan, Nathan. Báo cáo trên trang Facebook.</li></ul>",
+    "quickFacts:glaser": "<p>Trong các loài cá banjo, đây là loài đẹp hơn hẳn, và cũng là loài hiếm nhất. Màu của nó cũng thuộc loại thay đổi nhiều nhất trong nhóm cá banjo. Con thường gặp có hoa văn đen trắng tương phản rõ, nửa trước trắng còn nửa sau đen. Nhưng cũng có những con khác màu, có con gần như đen tuyền, có con lại ngả nâu.</p>",
+    "aquariumSize:glaser": "<p>Pterobunocephalus depressus dài tối đa khoảng 9 cm.</p>",
+    "behaviour:glaser": "<p>Như mọi loài cá banjo khác, loài này hoàn toàn hiền và không đụng tới cá nuôi chung nào. Cá banjo chỉ hoạt động về đêm.</p>",
+    "equipment:glaser": "<p>Nên trải cát mịn để cá vùi mình xuống, nhưng không hẳn là bắt buộc.</p>",
+    "diet:glaser": "<p>Phải cho cá ăn sau khi tắt đèn, ít nhất là trong thời gian cá mới thả và đang làm quen với bể. Chúng dễ ăn, đồ tươi sống, đông lạnh hay thức ăn khô thông thường đều ăn ngay.</p>",
+    "notes:glaser": "<p>Ý nghĩa tên gọi: Pterobunocephalus lấy từ tiếng Hy Lạp cổ, nghĩa là “Bunocephalus có vây”, ý chỉ vây hậu môn khá dài của nó. Bunocephalus là một chi cá banjo khác. depressus là tiếng Latin, nghĩa là “dẹt”.</p><p>Tên thường gọi đề xuất: cá banjo domino</p>"
   },
   "quality": {
     "score": 0.7,
     "indexable": false,
     "bySource": {
       "planetcatfish": 0.8,
-      "scotcat": 0.7
+      "scotcat": 0.7,
+      "glaser": 0.7
     },
     "reason": "score"
   }

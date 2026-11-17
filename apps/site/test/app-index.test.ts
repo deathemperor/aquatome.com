@@ -1,11 +1,11 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
-import { FIRST_GUIDES, FIRST_PLANTS, POPULAR, slugify, STAPLE_SPECIES, type Content } from '@aq/schema'
+import { CurationSchema, FIRST_GUIDES, FIRST_PLANTS, POPULAR, slugify, STAPLE_SPECIES, type Content } from '@aq/schema'
 import { pageShard, PageShard } from '@aq/schema/app-page'
 import { isVietnamese } from '@aq/schema/text'
-import { appBreeds, appIndex, appPlants, appSpecies, breedGroup, type AppIndex, type AppItem } from '../src/lib/app-index'
+import { appBreeds, appEquipment, appGlossary, appGuideImage, appGuides, appIndex, appPlants, appSeries, appSpecies, breedGroup, type AppIndex, type AppItem } from '../src/lib/app-index'
 import { glossaryParts } from '../src/lib/glossary-page'
-import { easyPlants, leadGuides } from '../src/lib/home'
+import { easyPlants, groupTiles, leadGuides } from '../src/lib/home'
 import { getContent } from '../src/lib/content'
 import { appPath, LANGS, localizePath, OTHER_LANGS } from '../src/lib/i18n'
 import { appHref, appPage, DIST, page } from './dist'
@@ -62,6 +62,29 @@ test('fish and plants carry their content id (the page folder), so a saved tank 
   expect(index('vi').items.some(i => i.kind === 'plant')).toBe(true)
   for (const [lang, path] of [['vi', '/vi/cong-cu/be-cua-toi/'], ['id', '/id/alat/akuarium-saya/'], ['th', '/th/tools/my-tanks/']]) {
     expect(index(lang!).items.some(i => i.path === path), path).toBe(true)
+  }
+})
+
+// The app's language switch finds an open page's copy in the new language by its id (the iOS lead, 16 Nov 2026).
+test('guides, glossary terms, video series and kinds of kit carry their content id, the same in every language', async () => {
+  const kinds = ['guide', 'glossary', 'video', 'equipment'] as const
+  const of: Record<string, Record<string, (string | undefined)[]>> = {}
+  for (const lang of LANGS) {
+    const c = await getContent(lang)
+    const items = appIndex(lang, c).items
+    const ids = (kind: AppItem['kind']) => items.filter(i => i.kind === kind).map(i => i.id)
+    expect(ids('guide'), lang).toEqual(appGuides(lang, c).map(g => g.id))
+    expect(ids('glossary'), lang).toEqual(appGlossary(lang, c).map(g => g.id))
+    expect(ids('video'), lang).toEqual(appSeries(lang, c).map(x => x.s.id))
+    expect(ids('equipment'), lang).toEqual(appEquipment(lang, c).map(u => u.category))
+    of[lang] = Object.fromEntries(kinds.map(k => [k, ids(k)]))
+  }
+  for (const kind of kinds) {
+    // The fixture has each kind in Vietnamese, so the checks aren't empty, and every item has its id.
+    expect(of.vi![kind]!.length, kind).toBeGreaterThan(0)
+    expect(of.vi![kind]!.every(Boolean), kind).toBe(true)
+    // Another language's page has its Vietnamese copy's id: the same content, so the switch finds it.
+    for (const lang of OTHER_LANGS) for (const id of of[lang]![kind]!) expect(of.vi![kind], `${lang} ${kind} ${id}`).toContain(id)
   }
 })
 
@@ -578,8 +601,9 @@ test('a language with few of Curation\'s pages fills Khám phá\'s plants and gu
   expect(home.browse!.plants).toHaveLength(21)
   expect(home.browse!.plants).toEqual([...curatedPlants, ...easy.filter(p => !curatedPlants.includes(p))].slice(0, 21))
   expect(home.plants).toEqual(easy.slice(0, 6))
-  // Guides: Curation's one, then the lead guides in the home's order, 7 in all; the home's row of 8 unchanged.
-  const leads = leadGuides(content).map(g => guideAt(g.id)).filter(p => listed.has(p))
+  // Guides: Curation's one, then the lead guides in the home's order, 7 in all; the home's row of 8 unchanged. The app's
+  // keep to guides with a picture until it draws covers (the Design Lead's app half, 15 Nov 2026).
+  const leads = leadGuides(content).filter(g => appGuideImage(content, g)).map(g => guideAt(g.id)).filter(p => listed.has(p))
   expect(home.browse!.guides).toHaveLength(7)
   expect(home.browse!.guides).toEqual([guideAt(keptGuide), ...leads.filter(p => p !== guideAt(keptGuide))].slice(0, 7))
   expect(home.guides).toEqual(leads.slice(0, 8))
@@ -592,4 +616,19 @@ test('a breed\'s group: what it\'s a form of first (a species, or a breed in tur
   expect(breedGroup({ parents: [{ name: 'Amphilophus trimaculatus', certain: true }, { name: 'Cá đĩa', species: 'symphysodon-aequifasciatus', certain: false }] }, groups, breeds)).toBe('cichlids')
   expect(breedGroup({ basedOn: 'unknown', parents: [{ name: 'x', species: 'carassius-auratus', certain: true }] }, groups, breeds)).toBe('other')
   expect(breedGroup({ basedOn: 'loop-a', parents: [] }, groups, breeds), 'a loop ends').toBeUndefined()
+})
+
+test("the app's featured fish and group tiles leave out a head the calendar keeps off cards, as the home page does", async () => {
+  const c = await getContent('vi')
+  // An empty calendar: the test content has none, and only its avoid list matters here.
+  const calendar = CurationSchema.parse({ version: 1, weeks: [], days: [] }), today = '2026-11-15'
+  const before = appIndex('vi', c, undefined, c.species, { calendar, today })
+  const fish = c.species.find(s => before.home.fish[0]!.endsWith(`/${s.t.slug}/`))!
+  const tile = groupTiles('vi', c, undefined, calendar.avoid).find(t => t.photo)!
+  const avoid = { ...calendar.avoid, [fish.photos.find(p => !p.generated)!.url]: 'a drawing', [tile.photo!.url]: 'a figure plate' }
+  const after = appIndex('vi', c, undefined, c.species, { calendar: { ...calendar, avoid }, today })
+  expect(after.home.fish).not.toContain(before.home.fish[0])
+  const img = (x: AppIndex) => x.home.groups.find(g => g.id === tile.group)?.img
+  expect(img(before)).toBeDefined()
+  expect(img(after)).not.toBe(img(before))
 })

@@ -93,10 +93,10 @@ test('a rewrite from the kept research keeps a body fixed by hand', async () => 
 
 // The chief of staff, 14 Nov 2026: research is denied a marketplace's pages and the hosts the engine reads only at its own
 // pace, but its answer can still cite one it found through search. Such a citation goes, and a fact resting on it alone.
-test("a guide never cites a page research may not read: a marketplace's, the magazine read for ideas, the Archive's, a shop that refused us", async () => {
+test("a guide never cites a page research may not read: a marketplace's, the magazine read for ideas, the Archive's, a shop that refused us, a site refused as a source", async () => {
   const root = await site()
   await writeFile(join(root, 'engine-state/_sources.json'), JSON.stringify({ aquazonefish: { blockedAt: '2026-11-14T00:00:00.000Z' } }))
-  const off = ['https://shopee.vn/thuoc-loi-mat-i.1.2', 'https://www.tokopedia.com/toko/obat-mata-ikan', 'https://www.practicalfishkeeping.co.uk/fishkeeping-answers/popeye/', 'https://web.archive.org/web/2020/https://x.org/popeye', 'https://aquazonefish.vn/blogs/kien-thuc/popeye']
+  const off = ['https://shopee.vn/thuoc-loi-mat-i.1.2', 'https://www.tokopedia.com/toko/obat-mata-ikan', 'https://www.practicalfishkeeping.co.uk/fishkeeping-answers/popeye/', 'https://web.archive.org/web/2020/https://x.org/popeye', 'https://aquazonefish.vn/blogs/kien-thuc/popeye', 'https://cabaymau.vn/ca-bi-loi-mat/']
   const cited: TopicFacts = {
     ...facts,
     facts: [...facts.facts, ...off.map((_, i) => ({ section: 'treatment' as const, fact: `Only off-limits ${i}`, source: 4 + i })), { section: 'signs' as const, fact: 'Cloudy eyes too', source: 1 }],
@@ -164,6 +164,24 @@ test('localizeTopic: from the same facts, minus Vietnam-only ones; cites only th
   expect(th.quality).toEqual({ score: 0.88, indexable: true })
   expect(th.body).toContain('<p>อุณหภูมิ 26–27 °C</p>')
   expect(await localizeTopic(root, llm, r0.id, 'th')).toMatchObject({ skipped: 'done' })
+})
+
+// The chief of staff, 16 Nov 2026: a copy's body a person fixed is theirs, as the Vietnamese one is, so a redo (a copy the
+// fit read flags is written again by itself) can't bring back what the hand fix took out.
+test('localizeTopic: a redo keeps a body a person fixed, and its mark', async () => {
+  const root = await site()
+  const llm0: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : { name: 'Cá bị lồi mắt', summary: ['x'], body: '<p>x</p>', faq: [] }) as never
+  const r0 = await makeTopic(root, { research: async () => facts as never, llm: llm0 }, { topic: 'Cá bị lồi mắt (popeye)', kind: 'disease' })
+  const llm: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : { name: 'Mata ikan menonjol', slug: 'x', summary: ['baru'], body: '<p>tulisan baru, 3–5 hari</p>', faq: [] }) as never
+  await localizeTopic(root, llm, r0.id, 'id')
+  const file = join(root, 'content/guides', r0.id, 'id.json')
+  const t = JSON.parse(await readFile(file, 'utf8'))
+  await writeFile(file, JSON.stringify({ ...t, body: '<p>diperbaiki dengan tangan</p>', bodyFixed: true }))
+  await localizeTopic(root, llm, r0.id, 'id', { redo: true })
+  const again = JSON.parse(await readFile(file, 'utf8'))
+  expect(again.body).toBe('<p>diperbaiki dengan tangan</p>')
+  expect(again.bodyFixed).toBe(true)
+  expect(again.summary).toEqual(['baru'])
 })
 
 test('localizeTopic in Malay: addressed by its name, and a name another guide has takes its word for "guide"', async () => {

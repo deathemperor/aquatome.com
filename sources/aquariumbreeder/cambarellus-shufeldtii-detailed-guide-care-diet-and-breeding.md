@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/cambarellus-shufeldtii-detailed-guide-care-diet-and-breeding/
 title: Cambarellus Shufeldtii – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-11-04T06:59:39.015Z
-hash: f5350ed5eb781482743b05097327d984b95b56f249ce7b492462356c8978862f
+hash: 9070c7ed0df31f4b4d237f3f320684f84258095ecbdc8a878edc4af21fe8b701
 ---
 
 Even though Cambarellus shufeldtii (also known as Cajun Dwarf Crayfish, and Swamp Dwarf Crayfish) is pretty common in North America, these small crayfish are rather rare on the pet trade market yet.
@@ -201,4 +201,3 @@ I hope this complete care guide can help you decide whether they are the right p
 - Penn, G. H., Jr. 1942. Observations on the biology of the dwarf crayfish, Cambarellus shufeldtii (Faxon). The American Midland Naturalist 28(3):644-647.
 - GBIF backbone taxonomy: Cambarellus shufeldtii (Faxon, 1884). Global Biodiversity Information Facility, Copenhagen.
 - Distribution and habitat use by dwarf crayfishes (Decapoda: Cambaridae:Cambarellus). Wetlands, Vol.16, № 4, 1996.
-### Leave a Reply Cancel reply

@@ -19,9 +19,10 @@
         "BR"
       ],
       "regions": [
-        "Amazon/Solimões basin",
+        "Amazon",
         "Río Ucayali",
-        "Capim River"
+        "Capim River",
+        "Lake Manacapurú"
       ],
       "sources": [
         "seriouslyfish"
@@ -35,9 +36,17 @@
             "BR"
           ],
           "regions": [
-            "Amazon/Solimões basin",
+            "Amazon",
             "Río Ucayali",
             "Capim River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The lectotype originates from Lake Manacapurú in Amazonas state, northwestern Brazil, just upstream from the city of Manaus and fed by the main Amazon river channel.",
+          "countries": [],
+          "regions": [
+            "Lake Manacapurú"
           ]
         }
       ]
@@ -468,7 +477,7 @@
       "key": "quickFacts",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_agassizii_tefe_en/",
-      "html": "<ul><li>Variety/population: Tefé</li><li>Origin: wild caught</li><li>Available size: 4-6 cm</li></ul>"
+      "html": "<ul><li>Variety/population: Tefé</li><li>Origin: wild caught</li></ul>"
     },
     {
       "key": "distribution",

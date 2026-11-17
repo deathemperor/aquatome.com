@@ -1,7 +1,14 @@
 {
  "queue": [],
  "judged": [
-  "File:DSC 1328 copy.jpg"
+  "File:DSC 1328 copy.jpg",
+  "inat:46995018",
+  "inat:46995022",
+  "inat:46995029",
+  "inat:140122257",
+  "inat:190881194",
+  "inat:190881225",
+  "inat:190881244"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/e5bf15625568fabd.webp": "818dc6f5831dc4d1",
@@ -9,5 +16,13 @@
   "https://media.aquatome.com/seriouslyfish/fff668871eb62757.webp": "70676fc9c7b8d182",
   "https://media.aquatome.com/commons/77376fe3499b2452.webp": "4b63e3c0688c1633"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 1703480,
+  "pass": "done",
+  "after": {
+   "research": 112980242,
+   "agree": 0
+  }
+ }
 }

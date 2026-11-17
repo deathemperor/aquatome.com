@@ -1,8 +1,13 @@
 {
   "id": "oryzias-mekongensis",
-  "summary": "Cá lúa Mekong (Oryzias mekongensis) chỉ dài tối đa 3 cm, nên hợp với người muốn nuôi bể nano, tức bể thể tích nhỏ. Hồ sơ không nêu rõ nhiệt độ, pH hay dung tích bể tối thiểu, nên chưa đủ cơ sở để nói điểm khó nhất của loài này.",
-  "mistakes": [],
-  "speciesUpdatedAt": "2026-11-01",
-  "generatedAt": "2026-11-01T02:31:56.166Z",
-  "review": "pending"
+  "summary": "Cá lúa Mekong (Oryzias mekongensis) hợp người mới chơi, độ khó 2/8, cỡ 2,1 cm nên nuôi được trong bể nano từ 40 cm. Nước 23–27 °C, pH 6–7,5, độ cứng 2–15 dGH; nên trồng nhiều cây và nuôi đàn từ 8 con trở lên cho cá đẹp, bạo dạn. Khó nhất là chọn bạn cùng bể vì cá quá nhỏ, và cá bố mẹ ăn cá bột nên muốn giữ lứa con phải có cây dày hoặc tách riêng.",
+  "mistakes": [
+    "Nuôi chung với các loài Oryzias khác thì cá có thể lai với nhau; nên nuôi riêng từng loài.",
+    "Thả vào bể cộng đồng thường vì cá quá nhỏ; chỉ ghép với cá nhỏ ưa nước tương tự như Boraras, Trigonostigma, Danionella, một số loài Danio hoặc tép Caridina, Neocaridina.",
+    "Để cá bột chung với cá bố mẹ trong bể trống thì cá bột bị ăn; nên trồng cây dày hoặc vớt trứng, cá bột sang thùng ương riêng."
+  ],
+  "speciesUpdatedAt": "2026-11-03",
+  "generatedAt": "2026-11-14T23:45:39.499Z",
+  "review": "approved",
+  "writtenFrom": "3513449d616e0831"
 }

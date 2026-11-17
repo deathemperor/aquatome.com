@@ -15,6 +15,258 @@
     "philippines",
     "new-caledonia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "PG",
+        "SB"
+      ],
+      "regions": [
+        "Ambon Island",
+        "Maluku Islands",
+        "Sumatra",
+        "Bismarck Archipelago"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from Ambon Island, South Molucca Islands, a group within the Maluku Islands chain in central Indonesia, but currently considered to range eastwards from western Sumatra across much of Indonesia, northern Papua New Guinea and the Bismarck Archipelago as far as the Solomon Islands.",
+          "countries": [
+            "ID",
+            "PG",
+            "SB"
+          ],
+          "regions": [
+            "Ambon Island",
+            "Maluku Islands",
+            "Sumatra",
+            "Bismarck Archipelago"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2376126,
+      "total": 272,
+      "fetched": "2026-11-15",
+      "countries": [
+        [
+          "ID",
+          243
+        ],
+        [
+          "PG",
+          25
+        ],
+        [
+          "TL",
+          3
+        ],
+        [
+          "SB",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          -5.625,
+          22,
+          22
+        ],
+        [
+          105.46875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          -7.03125,
+          14,
+          14
+        ],
+        [
+          111.09375,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          116.71875,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          119.53125,
+          -1.40625,
+          26,
+          26
+        ],
+        [
+          120.9375,
+          -1.40625,
+          32,
+          32
+        ],
+        [
+          122.34375,
+          -1.40625,
+          26,
+          26
+        ],
+        [
+          126.5625,
+          -9.84375,
+          3,
+          0
+        ],
+        [
+          126.5625,
+          1.40625,
+          8,
+          8
+        ],
+        [
+          127.96875,
+          -4.21875,
+          86,
+          86
+        ],
+        [
+          127.96875,
+          0,
+          4,
+          4
+        ],
+        [
+          129.375,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          132.1875,
+          -4.21875,
+          7,
+          7
+        ],
+        [
+          133.59375,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          133.59375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          135,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          136.40625,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          139.21875,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          143.4375,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          144.84375,
+          -5.625,
+          8,
+          8
+        ],
+        [
+          146.25,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          146.25,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          147.65625,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          149.0625,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          149.0625,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          150.46875,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          150.46875,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          150.46875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          151.875,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          151.875,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          160.3125,
+          -9.84375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

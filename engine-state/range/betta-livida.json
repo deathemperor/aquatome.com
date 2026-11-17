@@ -1,23 +1,23 @@
 {
   "id": "betta-livida",
   "native": {
-    "input": "135a8296795b4913",
-    "at": "2026-11-06T18:08:44.169Z",
+    "input": "c6fbfd4d8897856e",
+    "at": "2026-11-16T00:17:52.050Z",
     "claims": [
       {
         "code": "MY",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Betta livida is a small bubble-nesting labyrinth fish endemic to peat swamps in northern Selangor state, Peninsular Malaysia.",
+        "quote": "Endemic to northern Selangor state, Peninsular Malaysia with type locality 'Blackwater stream, north Selangor peat swamp, 800 meters from 45 kilometer mark on road from Tanjong Malim to Sungai Besar, Peninsula Malaysia'.",
         "words": "Malaysia",
         "ok": true
       },
       {
-        "code": "ID",
+        "code": "MY",
         "status": "native",
         "source": "bwaquatics",
-        "quote": "Wild-caught Betta livida from Indonesia, belonging to the Betta coccina complex.",
-        "words": "Indonesia",
+        "quote": "Betta livida is endemic to the north Selangor peat swamp forest and southern Perak in Peninsular Malaysia.",
+        "words": "Malaysia",
         "ok": true
       }
     ],
@@ -25,7 +25,15 @@
       {
         "name": "Peninsular Malaysia",
         "source": "seriouslyfish",
-        "quote": "Betta livida is a small bubble-nesting labyrinth fish endemic to peat swamps in northern Selangor state, Peninsular Malaysia.",
+        "quote": "Endemic to northern Selangor state, Peninsular Malaysia with type locality 'Blackwater stream, north Selangor peat swamp, 800 meters from 45 kilometer mark on road from Tanjong Malim to Sungai Besar, Peninsula Malaysia'.",
+        "country": "MY",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Peninsular Malaysia",
+        "source": "bwaquatics",
+        "quote": "Betta livida is endemic to the north Selangor peat swamp forest and southern Perak in Peninsular Malaysia.",
         "country": "MY",
         "ok": false,
         "why": "a country"
@@ -34,7 +42,9 @@
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "ID"
+      ],
       "sourcesOnly": []
     }
   },
@@ -57,10 +67,9 @@
       ]
     ],
     "native": [
-      "MY",
-      "ID"
+      "MY"
     ],
     "requests": 11,
-    "at": "2026-11-06T18:08:44.169Z"
+    "at": "2026-11-16T00:17:52.050Z"
   }
 }

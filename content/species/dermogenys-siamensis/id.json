@@ -1,0 +1,28 @@
+{
+  "slug": "dermogenys-siamensis",
+  "name": "Dermogenys siamensis",
+  "altNames": [
+    "Julung-julung",
+    "Ikan julung",
+    "Halfbeak",
+    "Siamese halfbeak",
+    "Wrestling halfbeak"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>Ikan-ikan ini berasal dari Thailand bagian selatan, tepatnya dari Provinsi Petchaburi, Distrik Ban Laem, sehingga termasuk spesies Dermogenys siamensis.</p>",
+    "notes:glaser": "<p>Sistematika ikan julung-julung kecil yang tersebar luas di Asia Selatan dan Asia Tenggara cukup rumit. Revisi pertama genus ini oleh Mohr pada tahun 1936 menggabungkan banyak spesies yang sebelumnya sudah dideskripsikan menjadi sinonim dari D. pusilla. Hal ini kemudian diikuti oleh Brembach pada tahun 1991, sehingga nama D. pusilla dipakai dalam arti yang paling luas. Baru pada tahun 2001 Downing-Meisner merevisi genus ini lagi dan memecahnya menjadi beberapa spesies. Empat di antaranya membentuk kompleks Dermogenys pusilla. Keempatnya hanya bisa dibedakan lewat pemeriksaan mikroskopis pada organ kawin ikan jantan, yang disebut andropodium. Namun, karena spesies-spesies ini terpisah secara geografis, identifikasinya juga bisa dilakukan jika asal-usul ikannya diketahui.</p><p>Kini telah masuk Dermogenys pusilla yang indah, dalam arti yang paling luas dan paling lama.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.8
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-15"
+  }
+}

@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/rusty-crayfish-profile-detailed-guide/
 title: Rusty Crayfish Profile - Detailed Guide - Shrimp and Snail Breeder
 fetchedAt: 2026-11-06T19:21:11.496Z
-hash: 825a4d58d45e79a0f7dd3a5add0d719e3fd6d8e860709be2bd524d43e3878eb5
+hash: 3e690a791197f9325618028d2b4e15297ad85bdf3f2684120df8dc937c0ea246
 ---
 
 Faxonius rusticus, also known as the Rusty crayfish, does not have a good reputation because of its invasive nature.
@@ -173,4 +173,3 @@ However, be careful and check your state laws – Rusty crayfish are banned in m
 - Homan, Robert C. “Creating a Distribution Model of Invasive Rusty Crayfish (Faxonius Rusticus) in Michigan Streams Using Publically Accessible Data.” (2020).
 - Luscavage, Elizabeth. “Female Invasive Crayfish Faxonius Rusticus Prefer Pheromones of Conspecific Males During the Breeding Season.” (2021).
 - Florey, Cassidy L., and Paul A. Moore. “Analysis and description of burrow structure in four species of freshwater crayfishes (Decapoda: Astacoidea: Cambaridae) using photogrammetry to recreate casts as 3D models.” The Journal of Crustacean Biology 39, no. 6 (2019): 711-719.
-### Leave a Reply Cancel reply

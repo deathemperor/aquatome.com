@@ -44,6 +44,16 @@ for (const path of pages) {
     // Nothing wider than the screen: a sideways scroll on a phone means something broke out of the layout.
     expect(await sideways(page), 'sideways scroll').toBeNull()
 
+    // Source marks side by side are one group (lib/cite.ts citeGroup), whose tap areas reach away from each other
+    // (global.css). Outside a group each centres its 44 px, so the second's lies over the first and a tap on one opens the
+    // other: a fish's range line until 15 Nov 2026 (Fable's read). Words between two marks keep them apart.
+    const loose = await page.$$eval('a.cite', as => as.filter(a => {
+      let n = a.previousSibling
+      while (n?.nodeType === Node.TEXT_NODE && !n.textContent!.trim()) n = n.previousSibling
+      return n instanceof Element && n.matches('a.cite') && !a.parentElement!.matches('.marks')
+    }).map(a => a.parentElement!.outerHTML.slice(0, 160)))
+    expect(loose, 'source marks side by side outside a group').toEqual([])
+
     // Pictures keep their space while loading (width and height), and carry alt text (empty when decorative). An empty
     // <img> a script fills later (the gallery's viewer) is not a picture yet.
     const badImgs = await page.$$eval('img[src]', imgs => imgs.filter(i => !i.getAttribute('width') || !i.getAttribute('height') || !i.hasAttribute('alt')).map(i => i.outerHTML.slice(0, 120)))
@@ -74,6 +84,16 @@ for (const path of pages) {
       const hit = plain.match(new RegExp(`.{0,30}${VIETNAMESE.source}.{0,30}`, 'i'))?.[0]
       expect(hit?.replace(/\s+/g, ' '), 'Vietnamese on a non-Vietnamese page').toBeUndefined()
     }
+
+    // A guide card with no picture draws a cover in its picture's slot (GuideCard.astro): its kind's cloth and mark, never
+    // the empty box 98 cards of the guide list had (the chief of staff and the Design Lead, 15 Nov 2026).
+    const uncovered = await page.$$eval('.gc .img:not(:has(img))', els => els.filter(e => (e as HTMLElement).offsetParent !== null).flatMap(e => {
+      const s = getComputedStyle(e), mark = getComputedStyle(e, '::after')
+      const cloth = !/^(transparent|rgba\(0, 0, 0, 0\))$/.test(s.backgroundColor)
+      const masked = [mark.getPropertyValue('mask-image'), mark.getPropertyValue('-webkit-mask-image')].some(m => m && m !== 'none')
+      return e.classList.contains('cover') && cloth && masked && s.getPropertyValue('--x1') ? [] : [e.closest('a')?.getAttribute('href') ?? e.outerHTML.slice(0, 120)]
+    }))
+    expect(uncovered, 'a guide card with no picture and no cover').toEqual([])
 
     expect(errors, 'script errors').toEqual([])
 

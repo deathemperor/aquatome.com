@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/lysmata-amboinensis-detailed-guide-care-diet-and-breeding/
 title: Lysmata amboinensis – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-11-04T13:51:57.024Z
-hash: 732797f83e4ac58be9757d79644e8d80daf05f9b5b51b3575797b38ff17d3374
+hash: a7cd59091ba1300160908722edf95e79bfef6c296441537735e4a21d4eb5eaac
 ---
 
 Skunk Cleaner Shrimp (Lysmata amboinensis), also known as the Red Skunk Cleaner Shrimp or Doctor shrimp, are amongst the most popular marine ornamentals and are of high retail value. Therefore, today I will be going through everything from their diet to breeding, and find out if these are the shrimp for you.
@@ -114,6 +114,3 @@ Caring for these creatures is extremely easy for the most part, and the return o
 - Tziouveli, Vasiliki (2011) Broodstock conditioning and larval rearing of the marine ornamental white-striped cleaner shrimp, Lysmata amboinensis (de Man, 1888). PhD thesis, James Cook University.
 - Effect of different diets on larval production, quality and fatty acid profile of the marine ornamental shrimp Lysmata amboinensis (de Man, 1888), using wild larvae as a standardAquaculture Nutrition, 2009. A. Reis
 - A New Record of Lysmata amboinensis (De Man) (Decapoda: Hippolytidae) from Jeju-do Island, Korea. Article. September 2006 DOI: 10.5657/fas.2006.9.3.118
-## 2 thoughts on “Lysmata amboinensis – Detailed Guide: Care, Diet, and Breeding”
-- Hi, This morning I awoke to find a second skunk shrimp in my tank. Full sized, looks kind of anemic. I only had one skunk shrimp in this tank. What the heck happened? ReplyHi Diane, Are you sure that it was not a molt? People often confuse molt with ‘dead’ shrimp. Best regards, Michael Reply
-### Leave a Reply Cancel reply

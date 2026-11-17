@@ -3,6 +3,12 @@
   "name": "Amazonia",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-16T05:43:59.846Z",
+    "why": "Indonesian atlases write the region as \"Amazon\" (Hutan/Basin Amazon, Amazonia in some scientific contexts), and \"Amazonia\" is the Latin/Spanish/Portuguese-style form, so it is only partly acceptable."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

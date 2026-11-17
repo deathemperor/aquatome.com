@@ -28,29 +28,6 @@
     "gear": [],
     "figures": [
       {
-        "heading": "Soi bằng kính râm phân cực",
-        "moments": [
-          {
-            "t": 105,
-            "url": "https://media.aquatome.com/video/C4W86NMP3CU/at105-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhìn qua kính cửa sổ bên hông xe hơi để soi các vệt khuyết tật.",
-            "sharpness": 609.4,
-            "person": false
-          },
-          {
-            "t": 120,
-            "url": "https://media.aquatome.com/video/C4W86NMP3CU/at120-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Kính hông xe nhìn bằng kính râm phân cực, thử tìm vết ứng suất.",
-            "sharpness": 260.7,
-            "person": false
-          }
-        ]
-      },
-      {
         "heading": "Tìm con dấu và xem cạnh kính",
         "moments": [
           {
@@ -81,17 +58,7 @@
             "height": 90,
             "caption": "Cầm mũi khoét kim cương áp lên mặt kính bể để cào thử."
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/C4W86NMP3CU/p2-NfNjhEJTIyLkpQRw.webp",
-          "thumb": "https://media.aquatome.com/video/C4W86NMP3CU/p2-NfNjhEJTIyLkpQRw-480.webp",
-          "width": 960,
-          "height": 715,
-          "licence": "CC BY-SA 3.0",
-          "author": "Dmitry G",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diamond_core_hole_saw_%22LEC_68D%22.JPG",
-          "caption": "Mũi khoét kim cương màu vàng cùng mũi dẫn hướng, dùng để khoan kính."
-        }
+        ]
       },
       {
         "heading": "Cần chuẩn bị gì",
@@ -117,6 +84,43 @@
           "author": "JJ Harrison (https://www.jjharrison.com.au/)",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Quartz,_Tibet.jpg",
           "caption": "Tinh thể thạch anh trong suốt, thành phần chính của cát và thủy tinh."
+        }
+      },
+      {
+        "heading": "Làm sao biết kính bể có phải kính cường lực",
+        "moments": [
+          {
+            "t": 105,
+            "url": "https://media.aquatome.com/video/C4W86NMP3CU/at105-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nhìn qua kính cửa sổ bên hông xe hơi để soi các vệt khuyết tật.",
+            "sharpness": 609.4,
+            "person": false
+          },
+          {
+            "t": 120,
+            "url": "https://media.aquatome.com/video/C4W86NMP3CU/at120-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Kính hông xe nhìn bằng kính râm phân cực, thử tìm vết ứng suất.",
+            "sharpness": 260.7,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Cần chuẩn bị những gì",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/C4W86NMP3CU/p2-NfNjhEJTIyLkpQRw.webp",
+          "thumb": "https://media.aquatome.com/video/C4W86NMP3CU/p2-NfNjhEJTIyLkpQRw-480.webp",
+          "width": 960,
+          "height": 715,
+          "licence": "CC BY-SA 3.0",
+          "author": "Dmitry G",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diamond_core_hole_saw_%22LEC_68D%22.JPG",
+          "caption": "Mũi khoét kim cương màu vàng cùng mũi dẫn hướng, dùng để khoan kính."
         }
       }
     ]

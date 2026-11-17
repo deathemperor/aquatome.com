@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/lobelia-cardinalis-care-guide-planting-growing-and-propagation/
 title: Lobelia Cardinalis Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-11-08T12:23:15.357Z
-hash: e853b625bd691cab7629c817728e70834ee0b5214754a84298f38b96f6f7c431
+hash: 69bf8c1c071e281f19ad6cee2ac7836e900642fad1d83c74d5ee88ce0396ca35
 ---
 
 Lobelia cardinalis is a fascinating green stem plant characterized by lovely oval leaves when grown submerged or intense red flowers when grown emersed.
@@ -130,4 +130,3 @@ So if you need an average-sized, vibrant and attractive plant for your fish tank
 - Natural selection on floral traits of Lobelia (Lobeliaceae): Spatial and temporal variation. American Journal of Botany. September 2003
 - United States Department of Agriculture. Natural Resources Conservation Service.
 - Native Aquatic and Wetland Plants: Cardinal Flower, Lobelia cardinalis. SS-AGR-398
-### Leave a Reply Cancel reply

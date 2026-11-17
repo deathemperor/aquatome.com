@@ -1,8 +1,13 @@
 {
   "slug": "kabini-river",
-  "name": "Kabini",
+  "name": "Sungai Kabini",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-16T00:08:47.386Z"
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

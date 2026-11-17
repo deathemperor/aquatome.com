@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/red-fin-dwarf-pleco-detailed-guide-care-diet-and-breeding/
 title: Red Fin Dwarf Pleco – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-10-29T07:19:57.127Z
-hash: 60b66f11c7c0eb75d0c239300d022aec0326e254fbadd37a38fa0843c0843ef5
+hash: 202ac5880d8d4a8a89f0481c775698629cd7fecf23c75712c3abf5dfc24e1d99
 ---
 
 Parotocinclus maculicauda, commonly known as the Red Fin Dwarf Pleco, is a small fish species that can be a great addition to cold tanks.
@@ -167,4 +167,3 @@ However, it is important to note that this species is not very hardy and require
 - de Castro, André LM, Renata E. Vollú, Raquel S. Peixoto, André L. Grigorevski-Lima, Rosalie RR Coelho, Elba PS Bon, Alexandre S. Rosado, and Lucy Seldin. “Cellulolytic potential of a novel strain of Paenibacillus sp. isolated from the armored catfish Parotocinclus maculicauda gut.” Brazilian Journal of Microbiology42 (2011): 1608-1615.
 - Garavello, Julio. (1976). Systematics and geographical distribution of the genus Parotocinclus Eigenamnn & Eigenamnn, 1889 (Ostariophysi, Loricariidae). Arquivos de Zoologia. 28. 1. 10.11606/issn.2176-7793.v28i4p1-37.
 - Mazzoni, Rosana, Raquel Costa da Silva, and Míriam Plaza Pinto. “Invasion and colonisation of a tropical stream by an exotic loricariid fish: indices of gradual displacement of the native common pleco (Hypostomus punctatus) by the red fin dwarf pleco (Parotocinclus maculicauda) over fifteen years.” PloS one10, no. 10 (2015): e0139968.
-### Leave a Reply Cancel reply
