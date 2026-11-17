@@ -18,6 +18,8 @@ async function output(lang: Lang, content: Content, on: boolean) {
     // Include the address-only calendar path; it must not leak an unlabelled kind stand-in.
     const calendar = CurationSchema.parse({ version: 1, weeks: [], days: [{ date: '2026-11-17', fish: `species/${fish.id}`, img: waitingKindPhoto.url }] })
     const index = appIndex(lang, content, undefined, undefined, { calendar, today: '2026-11-17' })
+    expect(index.home.days).toHaveLength(1)
+    expect(index.home.days![0]?.img).toBeUndefined()
     const listed = new Set(index.items.map(item => item.path))
     const pages = content.glossary.map(g => glossaryDoc(lang, content, g, listed))
     return { index, pages }

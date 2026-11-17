@@ -11,6 +11,11 @@ export const waitingKindPhoto: Photo = { url: 'https://media.aquatome.com/genera
 export async function waitingKindStore(lang: Lang) {
   const dir = await mkdtemp(join(tmpdir(), 'aq-glossary-builders-')), root = join(dir, 'content')
   await cp(new URL('../fixture-content/', import.meta.url), root, { recursive: true })
+  // The ordinary site fixture is a private build with every source off. This isolated public-build fixture needs
+  // a permitted fish for the address-only calendar control; no repository source or alteration grant is changed.
+  const sourcesFile = join(root, 'sources.json'), sources = JSON.parse(await readFile(sourcesFile, 'utf8'))
+  sources.seriouslyfish.publish = true
+  await writeFile(sourcesFile, JSON.stringify(sources))
   const entityFile = join(root, 'glossary/lua/entity.json')
   const entity = JSON.parse(await readFile(entityFile, 'utf8'))
   const body = '<h3>Các loại nền</h3><ul><li><strong>Cốt nền</strong>: Lớp lót nằm dưới lớp đất.</li></ul>'
