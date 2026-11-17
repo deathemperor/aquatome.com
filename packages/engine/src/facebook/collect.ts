@@ -1,6 +1,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import sharp from 'sharp'
+import { dropEmails } from '../outline'
 import { setSourceBlock } from '../state'
 import { FB } from './config'
 import { albumsIn, listEnd, photoFull, photosIn, photoUrl, storiesIn, wall, type FbAlbum, type FbPost } from './parse'
@@ -78,7 +79,7 @@ export async function collect(root: string, b: FbBrowser, d: FbCollectDeps, o: {
     let added = 0
     for (const p of storiesIn(data, FB.ownerId)) {
       if (s.posts[p.id]) continue
-      s.posts[p.id] = { ...p, seenAt: nowIso() }
+      s.posts[p.id] = { ...p, text: dropEmails(p.text), seenAt: nowIso() }
       queue(p.photoIds)
       added++
     }
@@ -139,7 +140,7 @@ export async function collect(root: string, b: FbBrowser, d: FbCollectDeps, o: {
       const prev = s.albums[a.id]
       if (prev?.done && (d.now().getTime() - Date.parse(prev.listedAt)) / 86_400_000 < ALBUM_REFRESH_DAYS) continue
       if (!prev) report.newAlbums++
-      const album = (s.albums[a.id] = { ...a, photoIds: prev?.photoIds ?? [], listedAt: nowIso(), done: prev?.done ?? false })
+      const album = (s.albums[a.id] = { ...a, title: dropEmails(a.title), photoIds: prev?.photoIds ?? [], listedAt: nowIso(), done: prev?.done ?? false })
       const take = ({ data }: { data: unknown[] }) => {
         const photos = photosIn(data).filter(p => !p.video)
         const fresh = photos.map(p => p.id).filter(id => !album.photoIds.includes(id))
@@ -168,7 +169,8 @@ export async function collect(root: string, b: FbBrowser, d: FbCollectDeps, o: {
         const ext = format === 'jpeg' ? 'jpg' : format
         if (!ext || !['jpg', 'png', 'webp', 'gif'].includes(ext)) throw new Error(`not an image (${format})`)
         const raw = await d.putRaw(`${FB.rawPrefix}/${id}.${ext}`, bytes, `image/${format}`)
-        s.photos[id] = { status: 'stored', attempts: p.attempts + 1, raw, width: full.width, height: full.height, ...(full.caption ? { caption: full.caption } : {}) }
+        const caption = full.caption && dropEmails(full.caption)
+        s.photos[id] = { status: 'stored', attempts: p.attempts + 1, raw, width: full.width, height: full.height, ...(caption ? { caption } : {}) }
         report.stored++
       } catch (err) {
         if (err instanceof FbBlocked) throw err

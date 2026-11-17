@@ -109,12 +109,22 @@ const COMMENTS = '#comments, .comments-area, #respond, .comment-respond, .commen
 /**
  * An email address: a writer's in a forum post's header ("From: … (address) Date: …"), or one asking readers to write. A
  * person's, never the article's, and the repository is public: never kept (six stored files held one on 17 Nov), in the
- * text, the title, a picture's alt text or its credit. In brackets, the brackets go too. A picture's "@2x.png" isn't one.
+ * text, the title, a picture's alt text or its credit. In brackets, the brackets go too. A picture's "@2x.png" isn't one,
+ * nor an "@" inside an address's path (a slash before it: ".../photos/fish@archive.example.com"); a quoted name before
+ * the "@" is (Codex's read, 17 Nov).
  */
-const ADDRESS = String.raw`(?:mailto:)?[\w.%+-]+@[a-z0-9-]+(?:\.[a-z0-9-]+)*\.(?!(?:png|jpe?g|gif|webp|svg|avif|bmp|tiff?|heic)\b)[a-z]{2,}\b`
+const ADDRESS = String.raw`(?:mailto:)?(?<![\w.%+/-])(?:"[^"\n]{1,64}"|[\w.%+-]+)@[a-z0-9-]+(?:\.[a-z0-9-]+)*\.(?!(?:png|jpe?g|gif|webp|svg|avif|bmp|tiff?|heic)\b)[a-z]{2,}\b`
 const EMAIL = new RegExp(String.raw`\s*[(<[]\s*${ADDRESS}\s*[)>\]]|${ADDRESS}`, 'gi')
+/** An "@" written as a character reference, as a page's markup may hold it before anything decodes it. */
+const AT = /&#0*64;|&#x0*40;|&commat;/gi
 /** A text without its email addresses (EMAIL). Only one with an "@" is looked at: a long run of letters costs nothing. */
-export const dropEmails = (s: string): string => (s.includes('@') ? s.replace(EMAIL, '') : s)
+export const dropEmails = (s: string): string => {
+  const t = s.replace(AT, '@')
+  if (!t.includes('@')) return s
+  // A text with no address stays as it was, character references and all: a stored copy's hash moves only for an address.
+  const out = t.replace(EMAIL, '')
+  return out === t ? s : out
+}
 
 export function htmlToOutline(html: string, contentSelector?: string): { title: string; outline: string; images: PageImage[] } {
   const root = parse(html, { comment: false })
