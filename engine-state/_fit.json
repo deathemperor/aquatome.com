@@ -70453,7 +70453,8 @@
         "by": "model"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-17"
   },
   "vi/guides/youtube-8ov1q3r56Kw": {
     "at": "2026-11-10",
@@ -71617,36 +71618,29 @@
     "mendTried": "2026-11-15"
   },
   "vi/guides/youtube-ahKKqSGy0Mw": {
-    "at": "2026-11-10",
-    "hash": "f633c52a7c9aff77",
+    "at": "2026-11-17",
+    "hash": "eb73f99434d401a7",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Một con đã lớn như con được nuôi ở đây",
-        "why": "Refers to the source creator's own turtle as if the reader knew it.",
+        "quote": "Epoxy cũng dùng để gắn được, nhưng ở đây foam tiện hơn",
+        "why": "Bare 'ở đây' refers to the source's own build rather than the reader's tank.",
         "by": "model"
       },
       {
         "check": "words",
         "part": "P1",
-        "quote": "Cát chơi (play sand)",
-        "why": "Literal calque of the American product term play sand; keepers in Vietnam do not call it this.",
+        "quote": "Cát chơi (play sand) có hạt mịn",
+        "why": "'Cát chơi' is a calque of the US product 'play sand'; keepers in Vietnam don't say it.",
         "by": "model",
         "fix": "cát mịn"
-      },
-      {
-        "check": "words",
-        "part": "P1",
-        "quote": "hàn dán lại cho kín nước",
-        "why": "Calque of solvent weld; keepers in Vietnam speak of gluing the pipe.",
-        "by": "model",
-        "fix": "dán keo ống nhựa lại cho kín nước"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-17"
   },
   "vi/guides/youtube-ahN0nP8HLaI": {
     "at": "2026-11-08",
@@ -84814,50 +84808,43 @@
     "sourceRead": true
   },
   "vi/guides/youtube-MrmmzZYYBTU": {
-    "at": "2026-11-16",
-    "hash": "8384d246b3371a9e",
+    "at": "2026-11-17",
+    "hash": "b8901e7d7336dc80",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "(ở đây dùng ADA Nature Aquarium Sand loại Colorado)",
-        "why": "A bare \"ở đây\" refers to the source's own tank build.",
+        "quote": "Bể này kích thước khoảng 77 x 45 x 39 cm, tức chừng 140 lít",
+        "why": "A bare 'this tank' refers to the source's own build as if the reader knew it.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Có một bể set với nó, không lọc, không chăm gì từ đó tới giờ",
-        "why": "The writer's own story about another of their tanks.",
+        "quote": "Bể này dùng đá dragon stone (đá rồng) và lũa manzanita khúc to.",
+        "why": "Describes the source's own tank as 'this tank' rather than as an example.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Lọc thùng của bể cũ hơn một năm chưa vệ sinh nhưng vẫn chạy.",
-        "why": "Refers to the source's own old tank and filter as if the reader knew it.",
+        "quote": "Riêng cây hậu cảnh ở bể này mỗi loại dùng khoảng hai ba chậu.",
+        "why": "Refers again to the source's own tank with a bare 'bể này'.",
         "by": "model"
       },
       {
-        "check": "source",
+        "check": "words",
         "part": "P1",
-        "quote": "Ở bể này, nó biến cụm lũa thành hình cây đinh ba.",
-        "why": "A bare reference to the video's own tank.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Lọc đã chạy lâu nên vi sinh đã đủ, cá thả được ngay.",
-        "why": "Describes the source's own filter's history as the reader's.",
-        "by": "model"
+        "quote": "đất compost thủy sinh (aquatic compost)",
+        "why": "Calque of the English 'aquatic compost', which keepers in Vietnam don't say.",
+        "by": "model",
+        "fix": "đất nền thủy sinh / phân nền"
       }
     ],
-    "products": [
-      "ADA Nature Aquarium Sand"
-    ]
+    "products": [],
+    "mendTried": "2026-11-17"
   },
   "vi/guides/youtube-mSA2Qe9dv44": {
     "at": "2026-11-15",
@@ -93059,7 +93046,8 @@
         "by": "model"
       }
     ],
-    "products": []
+    "products": [],
+    "mendTried": "2026-11-17"
   },
   "vi/guides/youtube-Vb_r4iSsDo8": {
     "at": "2026-11-15",

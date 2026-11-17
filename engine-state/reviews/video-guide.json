@@ -15556,6 +15556,25 @@
   ],
   "vi/guides/youtube-MrmmzZYYBTU": [
     {
+      "at": "2026-11-17T08:56:39Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.7,
+      "notes": [
+        "Bare \"Bể này\" is used several times (\"Bể này kích thước khoảng…\", \"bể này tốn công tỉa\", \"Bể này dùng đá dragon stone\", \"Bể này dành cho cây\", \"ở bể này\"). Name the tank, for example \"bể 140 lít\" or \"một bể cây dày\", or reword so no bare \"bể này\" remains.",
+        "\"Đất compost thủy sinh rất hợp cho kiểu bể này\" states one person's good result as a general fact. Hedge it: \"có thể hợp\", or say one build with this substrate did well. Also soften \"rất\".",
+        "\"Với Helanthium mua về ở dạng lá cạn\" is invented: the video never says the plant was bought. The plants came from the creator's own other tank and were semi-emersed. Change it to \"Với Helanthium còn lá mọc bán cạn\", with no \"mua về\".",
+        "\"Riêng cây hậu cảnh ở bể này mỗi loại dùng khoảng hai ba chậu\" (also in the FAQ: \"hậu cảnh có thể dùng hai ba chậu\") over-reads the video. It says the background plants so far came to about two or three pots, not two or three pots of each kind. Drop the per-type claim or phrase it as a rough total for the background.",
+        "\"Polysperma, Limnophila sessiliflora và các loại Ludwigia là những cây từng mọc rất tốt\" gives one person's experience in his own water with no hedge. Hedge it, for example \"có thể thử trước những cây này, vì mọc tốt trong nước của một người chơi\".",
+        "\"Đá rồng nhiều cạnh góc nên nhìn có vẻ hoang sơ\": \"hoang sơ\" is not in the video, which only calls the stone \"dinosaury\" with lots of edges and angles. Remove \"hoang sơ\" and keep just the edges and angles.",
+        "\"Cá đẻ con như platy hiền, dễ nuôi và đẻ đều\" turns the creator's view of the platy he keeps into a statement about all livebearers, with \"đẻ đều\" added. Hedge it as one keeper's impression of platy, or cut \"đẻ đều\" and the generalisation.",
+        "\"Gò này giúp cây phía sau nổi lên cao hơn đá lũa\" is a calque-style \"giúp\" sentence, and \"đắp một gò dốc về phía sau\" is stiff. Rewrite in natural Vietnamese, for example \"đắp nền cao dần về phía sau để cây hậu cảnh lộ rõ phía sau đá lũa\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
       "at": "2026-11-11T12:51:05Z",
       "model": "sonnet",
       "score": 0.6,
@@ -24821,6 +24840,19 @@
     }
   ],
   "vi/guides/youtube-ahKKqSGy0Mw": [
+    {
+      "at": "2026-11-17T08:56:18Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.75,
+      "notes": [
+        "\"nhưng ở đây foam tiện hơn\": \"ở đây\" is a bare, context-dependent reference. Rewrite it directly, e.g. \"nhưng với cách làm này foam tiện hơn\".",
+        "\"Một con rùa vừa lớn thì thân chỉ dài thêm khoảng 2,5 cm nữa\": the video says this about its one particular turtle, not about turtles in general. Turn it into an example for that turtle, e.g. \"Ví dụ, con rùa trong bể này thân chỉ còn lớn thêm khoảng 1 inch\", and drop the general claim."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
     {
       "at": "2026-11-09T21:11:19Z",
       "model": "sonnet",
