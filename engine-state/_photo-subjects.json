@@ -16898,13 +16898,12 @@
   },
   "https://media.aquatome.com/commons/25509c1b8cc6a398.webp": {
     "stiphodon-percnopterygionus": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": true,
-      "young": false,
       "person": false,
       "logo": false,
-      "note": "subject yes",
-      "noteHash": "b3f2d657c7b0cafe816f111362e76e92b58383c4eace8ca5c7bd5e04d0d3144b",
+      "note": "subject unsure",
+      "noteHash": "4c2719d9649d4f9ab09bccfe24cd09491d140c67e2aab3cdad5065b8f00cfb00",
       "hints": {
         "dead": false,
         "people": false
@@ -103563,12 +103562,12 @@
   "https://media.aquatome.com/seriouslyfish/33bf4b9158372425.webp": {
     "stiphodon-alcedo": {
       "ok": "yes",
-      "typical": true,
-      "young": false,
+      "typical": false,
+      "young": true,
       "person": false,
       "logo": false,
       "note": "subject yes",
-      "noteHash": "9251dbc9236f1be2dd70e7fc0c2e8555229442535b41c048c7b8c837b0eb5c01",
+      "noteHash": "10cf60e6304ca56cd27a31d160c532e76ee7ac6d62d90aae054623396e28d000",
       "hints": {
         "dead": false,
         "people": false
@@ -104223,13 +104222,12 @@
   },
   "https://media.aquatome.com/seriouslyfish/3be79a0d7c8419b8.webp": {
     "sinogastromyzon-puliensis": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": true,
-      "young": false,
       "person": false,
       "logo": false,
-      "note": "subject yes",
-      "noteHash": "1245c5a1986e02b0ea186ef832fb79df72b56ed54cdd840d707226f18cfdb6c8",
+      "note": "subject unsure",
+      "noteHash": "0a7d20e70c40e8b8d9741766dbee48401c80007161f7136260f5f74d1d4bf5d3",
       "hints": {
         "dead": false,
         "people": false
@@ -104934,13 +104932,12 @@
   },
   "https://media.aquatome.com/seriouslyfish/44fd56ce0ea16e0b.webp": {
     "stiphodon-maculidorsalis": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": false,
-      "young": false,
       "person": false,
       "logo": false,
-      "note": "subject yes",
-      "noteHash": "3179eee47e9367bb4b4ba1a877329d55dc71fa474db24f05150b2f5d96c65d5f",
+      "note": "subject unsure",
+      "noteHash": "ecdb3ffaf1602a71f59bb3f0be0ae907ec03d5bbd0d9e2a3c723990f53b8981b",
       "hints": {
         "dead": false,
         "people": false
@@ -117093,12 +117090,12 @@
   "https://media.aquatome.com/seriouslyfish/d45d020784b546b6.webp": {
     "stiphodon-alcedo": {
       "ok": "yes",
-      "typical": true,
-      "young": false,
+      "typical": false,
+      "young": true,
       "person": false,
       "logo": false,
       "note": "subject yes",
-      "noteHash": "6536a7421bca25ba2df32ece6fc643a017cc60f0d02c39b7f14db8ab1e8edf45",
+      "noteHash": "09806630d56836ff48c50682e8131be0f0f82d7d0edb47351312ae00c6e01795",
       "hints": {
         "dead": false,
         "people": false
