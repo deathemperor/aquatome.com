@@ -3,6 +3,7 @@ import { PictureSet } from '@aq/schema'
 import { describe, expect, test } from 'vitest'
 import { checkDist, checkPage, fishSections, loadFacts, type Facts } from '../scripts/page-check'
 import { DIST, page } from './dist'
+import { localizePath } from '../src/lib/i18n'
 
 const facts = await loadFacts(process.env.CONTENT_ROOT!)
 
@@ -44,10 +45,16 @@ test('a shrimp\'s page and its group\'s trails say "Loài", and the check finds 
     'line "Chiều dài của cá khi trưởng thành.": "Chiều dài của cá khi trưởng thành."',
     'line "Khoảng nhiệt độ nước mà cá sống khỏe, tính bằng °C.": "Khoảng nhiệt độ nước mà cá sống khỏe, tính bằng °C."',
   ].sort())
-  // A group's numbered page is its page, in every language's word for it, its trail in that language's words.
+  // A group's numbered page is its page, at each language's address (/id/kelompok/shrimp/halaman/2/), its trail in that
+  // language's words. The fixture's shrimp is written in Vietnamese alone, so the other languages' group page is put in
+  // their facts here (Codex's read: without it the numbered page was never checked).
   const group = (word: string) => page('/nhom/shrimp/').html.replace(/(<a href="\/ca\/"[^>]*>)Loài<\/a>/, `$1${word}</a>`)
-  for (const [path, word] of [['/nhom/shrimp/trang/2/', 'Loài cá'], ['/id/nhom/shrimp/halaman/2/', 'Spesies ikan'], ['/th/nhom/shrimp/page/2/', 'สายพันธุ์ปลา']])
-    expect(checkPage(path, group(word), facts).filter(p => p.check === 'not-fish').map(p => p.detail), path).toContain(`trail: "${word}"`)
+  for (const [lang, word] of [['vi', 'Loài cá'], ['id', 'Spesies ikan'], ['th', 'สายพันธุ์ปลา'], ['ms', 'Spesies ikan']] as const) {
+    const path = localizePath(lang, '/vi/nhom/shrimp/trang/2/')
+    const known = { ...facts, notFish: new Set([...facts.notFish, localizePath(lang, '/vi/nhom/shrimp/')]) }
+    expect(known.notFish.has(path), path).toBe(false)
+    expect(checkPage(path, group(word), known).filter(p => p.check === 'not-fish').map(p => p.detail), path).toContain(`trail: "${word}"`)
+  }
   expect(facts.notFish).not.toContain('/ca/ca-galaxy/')
 })
 
