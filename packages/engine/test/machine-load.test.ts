@@ -135,6 +135,8 @@ test("a helper's checkout goes only when every read lets it, the last just befor
   // A fetch that fails leaves it; so does a dry run, which only says.
   expect(pass({ refresh: false })).toEqual({ gone: 0, did: ['read 1', 'fetch', "helpers' checkouts: could not fetch the remote's branches, leaving them"] })
   expect(pass({ dry: true }).did).not.toContain('removed')
+  // A dry run doesn't fetch either: a fetch prunes the remote's branches and moves FETCH_HEAD (Codex's read, 17 Nov).
+  expect(pass({ dry: true }).did).toEqual(['read 1', 'read 2', 'status', 'count', `would remove ${path}: a helper's, its thread ended, nothing in it that the remote lacks`])
   // Nothing to look at: no reads, no fetch.
   expect(helperPass([], { reads: () => { throw new Error('read') }, refresh: () => { throw new Error('fetch') } })).toBe(0)
 })
@@ -205,6 +207,13 @@ test('an archived worktree can be brought back: its commits, its changes, its un
   sh(`${dir}/main`, 'git worktree add -q --detach ../clean main')
   expect(readdirSync(archiveWorktree(`${dir}/clean`, `${dir}/archive2`))).toEqual(['note.txt'])
   expect(archiveWorktree(`${dir}/wt`, `${dir}/archive`, new Date('2026-11-08T00:00:00Z'))).toBe(`${saved}-2`)
+  // A merge left half done on a picture: its sides are only in the index's stages, which no patch carries. Not saved, so
+  // it stays (helperPass and --archive say "kept"), and nothing is written (Codex's read, 17 Nov).
+  sh(`${dir}/main`, 'git worktree add -q -b clash ../clash')
+  sh(`${dir}/clash`, 'printf "\\0base" > p.bin && git add p.bin && git commit -qm pic && git branch side && printf "\\0ours" > p.bin && git commit -qam ours && git checkout -q side && printf "\\0theirs" > p.bin && git commit -qam theirs && git checkout -q clash && (git merge -q side 2>/dev/null || true)')
+  expect(sh(`${dir}/clash`, 'git ls-files --unmerged')).toContain('p.bin')
+  expect(() => archiveWorktree(`${dir}/clash`, `${dir}/archive3`)).toThrow(/unmerged/)
+  expect(existsSync(`${dir}/archive3`)).toBe(false)
   // Thirty days later it goes, and nothing younger does.
   expect(expireArchive(`${dir}/archive`, Date.parse('2026-12-07T00:00:00Z'))).toEqual([])
   expect(expireArchive(`${dir}/archive`, Date.parse('2026-12-09T00:00:00Z'))).toEqual(['2026-11-08-wt', '2026-11-08-wt-2'])

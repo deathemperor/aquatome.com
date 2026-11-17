@@ -120,6 +120,9 @@ export function helperVerdict({ path, liveCwd, threads, dirty, unpushed, now = D
  */
 export function archiveWorktree(path, archive = ARCHIVE, now = new Date()) {
   const git = (...args) => execFileSync('git', ['-C', path, ...args], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'], maxBuffer: 256 * 1024 * 1024 })
+  // A merge left half done: an unmerged file's sides are only in the index's stages, which no patch carries (a picture's
+  // above all), so it isn't saved, and so it isn't removed (Codex's read, 17 Nov). Before anything is written.
+  if (git('ls-files', '--unmerged').trim()) throw new Error('it has unmerged files, which no copy can bring back; finish or abort its merge first')
   const stem = join(archive, `${now.toISOString().slice(0, 10)}-${basename(path)}`)
   let dir = stem
   for (let n = 2; existsSync(dir); n++) dir = `${stem}-${n}`
@@ -321,7 +324,8 @@ function helperReads() {
  * goes only when every read lets it: its threads and processes before any git; again with git's counts; and again just
  * before it is saved or removed, so a helper resumed meanwhile keeps its checkout, a clean one too (Codex's read, 17 Nov).
  * Before the first count the remote's branches are fetched, pruned: a branch deleted or replaced there since the last
- * fetch would otherwise still count as holding the checkout's commits. A fetch that fails leaves every one.
+ * fetch would otherwise still count as holding the checkout's commits. A fetch that fails leaves every one. A dry run
+ * fetches nothing and changes nothing: its counts are the last fetch's (Codex's read, 17 Nov).
  */
 export function helperPass(paths, io) {
   const first = paths.length ? io.reads() : undefined
@@ -330,7 +334,7 @@ export function helperPass(paths, io) {
   for (const path of paths) {
     // The threads and the processes first, git only on a checkout they let go.
     if (helperVerdict({ ...first(path), dirty: false, unpushed: 0 }) !== 'remove') continue
-    if ((fetched ??= io.refresh()) === false) { io.say("helpers' checkouts: could not fetch the remote's branches, leaving them"); break }
+    if ((fetched ??= io.dry || io.refresh()) === false) { io.say("helpers' checkouts: could not fetch the remote's branches, leaving them"); break }
     const now = io.reads()
     if (now == null) { io.say(`kept ${path}: could not read its threads again`); continue }
     const status = io.status(path)
