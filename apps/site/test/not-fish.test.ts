@@ -1,4 +1,4 @@
-import { LANGS, type BreedEntity, type SpeciesEntity } from '@aq/schema'
+import { LANGS, type BreedEntity, type Content } from '@aq/schema'
 import { expect, test } from 'vitest'
 import { saysFish } from '../scripts/page-check'
 import { breedIsFish, breedKind } from '../src/lib/breeds'
@@ -23,8 +23,8 @@ test("a crab's, a shrimp's or a snail's own words, in every language: its lines'
 })
 
 test("a line is a fish's by its species, through the line it's a form of; a page whose content doesn't say what it is, by name", () => {
-  const sp = (id: string, group: string, order: string) => ({ id, group, order }) as SpeciesEntity
-  const line = (id: string, basedOn?: string, parents: BreedEntity['parents'] = []) => ({ id, kind: 'variety', basedOn, parents }) as BreedEntity
+  const sp = (id: string, group: string, order: string) => ({ id, group, order }) as Content['species'][number]
+  const line = (id: string, basedOn?: string, parents: BreedEntity['parents'] = []) => ({ id, kind: 'variety', basedOn, parents }) as Content['breeds'][number]
   const c = {
     species: [sp('neocaridina-davidi', 'shrimp', 'Decapoda'), sp('carassius-auratus', 'goldfish', 'Cypriniformes')],
     breeds: [line('blue-velvet-shrimp', 'neocaridina-davidi'), line('ranchu', 'carassius-auratus'), line('ranchu-red', 'ranchu'), line('loop-a', 'loop-b'), line('loop-b', 'loop-a'), line('butterfly-koi'), line('crystal-red-shrimp')],
