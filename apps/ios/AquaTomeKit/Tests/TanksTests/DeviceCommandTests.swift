@@ -219,6 +219,13 @@ func howAPressLeftEach() {
   var refused = run()
   refused.settle(fanFailed, now: { _ in nil }, keeping: [owedFan.command.target], at: m0)
   #expect(left(refused, fanOn) == true && left(refused, lightOff) == false)
+  // This press's own step refused (by Tuya, its role or a sign-out) and not read after it: as it was, so the end never
+  // switches it (Fable, 17 Nov). The light, on before, asked off and refused, found off at the end: a hand did it; left.
+  var ownRefused = run()
+  ownRefused.settle([.init(target: lightOff.target, line: "a")], now: { _ in nil }, keeping: [owedFan.command.target], at: m0)
+  let light = ownRefused.back.first { $0.command.target == lightOff.target }!
+  #expect(light.left == true && light.guessed == nil)
+  #expect(MasterRun.end(light, now: false, left: light.left, role: "light") == .leave)
   // The end then, the fan found on: where the lost step was read off after it, a hand switched it since, so it's left;
   // where this press left it on, it goes back off, as owed.
   #expect(MasterRun.end(lost.back[0], now: true, left: left(lost, fanOn), role: "fan") == .leave)

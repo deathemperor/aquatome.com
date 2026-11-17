@@ -110,10 +110,13 @@ public struct MasterRun: Sendable, Equatable, Codable {
     }
     for step in steps where !step.isLamp {
       let t = step.target
-      let left: Bool? = !missed.contains(t) ? step.on : uncertain.contains(t) ? (now(step) ?? step.on) : nil
+      // Refused, this press's own put-back: as it was, so the end never switches it (Fable, 17 Nov: unset, the end
+      // undid a hand's change). An earlier press's keeps how that press left it.
+      let left: Bool? = !missed.contains(t) ? step.on : uncertain.contains(t) ? (now(step) ?? step.on)
+        : keeping.contains(t) ? nil : back.first(where: { $0.command.target == t })?.command.on
       if let left, let i = back.firstIndex(where: { $0.command.target == t }) {
         back[i].left = left
-        back[i].guessed = missed.contains(t) && now(step) == nil ? true : nil
+        back[i].guessed = uncertain.contains(t) && now(step) == nil ? true : nil
       }
     }
     if missed.isSuperset(of: steps.map(\.target)), back.isEmpty { ended = t }

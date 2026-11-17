@@ -249,10 +249,10 @@ final class MasterFlowTests: XCTestCase {
   }
 
   func testSigningOutWhileBluetoothIsntReadySendsNothingToTheLamp() {
-    // Bluetooth isn't ready until 20 s after the first broadcast is asked for (a debug launch argument, as at the first
+    // Bluetooth isn't ready until 40 s after the first broadcast is asked for (a debug launch argument, as at the first
     // send after a launch): the lamp's "on" waits there, and the owner signs out meanwhile. It's asked again as the
     // broadcast begins, so nothing goes (Codex, 17 Nov: the check ran before the wait).
-    let app = launch(["-fake-lamp-waits", "20"])
+    let app = launch(["-fake-lamp-waits", "40"])
     make(app, end: "60")
     tap(app, "master-start")
     // Its "on" asked of the air, which waits for Bluetooth: then the sign-out.
@@ -260,7 +260,8 @@ final class MasterFlowTests: XCTestCase {
     app.openAccount()
     app.scrollToAndTap("sign-out")
     XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 10), "still signed in")
-    RunLoop.current.run(until: Date().addingTimeInterval(25))
+    // Past the wait, so the answer comes while signed out (Fable, 17 Nov: 20 s was tight for a busy runner).
+    RunLoop.current.run(until: Date().addingTimeInterval(45))
     app.signInWithStandInApple()
     app.openTab("Đèn")
     expect(app, "master-problems", contains: "Chưa gửi vì bạn đã đăng xuất.", timeout: 40)
