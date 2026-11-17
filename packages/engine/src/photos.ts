@@ -1,5 +1,6 @@
 import { isAllowedLicence, type Photo } from '@aq/schema'
 import { mirrorPlan } from './mirror-photos'
+import { dropEmails } from './outline'
 import { authorText } from './wiki-author'
 
 type Info = { width: number; thumburl: string; thumbwidth: number; thumbheight: number; descriptionurl: string; extmetadata?: Record<string, { value: string }> }
@@ -150,10 +151,11 @@ export async function searchCommons(search: string, http: (url: string) => Promi
     .filter(({ i, words }) => !(o.living && (unfitCommons(words) || paperFigure(words))) && !blocked(i.thumburl))
     .slice(0, max)
     .map(({ p, i }) => {
-      const caption = text(i.extmetadata?.ImageDescription?.value).slice(0, 200)
+      // A file's description, title and author are a person's words: no email address in them is kept (outline.ts dropEmails).
+      const caption = dropEmails(text(i.extmetadata?.ImageDescription?.value)).replace(/\s+/g, ' ').trim().slice(0, 200)
       return {
         url: i.thumburl, width: i.thumbwidth, height: i.thumbheight, licence: i.extmetadata!.LicenseShortName!.value,
-        author: authorText(i.extmetadata?.Artist?.value) || 'Wikimedia Commons', sourceUrl: i.descriptionurl, caption: caption || p.title.replace(/^File:/, ''),
+        author: dropEmails(authorText(i.extmetadata?.Artist?.value)).replace(/\s+/g, ' ').trim() || 'Wikimedia Commons', sourceUrl: i.descriptionurl, caption: caption || dropEmails(p.title.replace(/^File:/, '')).trim(),
       }
     })
 }

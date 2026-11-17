@@ -108,6 +108,43 @@ test('first run: posts (with every photo of a post that held some back), albums 
   expect(album).toContain('- https://media.aquatome.com/facebook/101.jpg — Betta albimarginata')
 })
 
+// The repository is public (Codex's read, 17 Nov): an email address in a post, a photo's caption or an album's title is
+// kept neither in the crawl's state nor in its snapshots. Made-up addresses only.
+test("an email address in a post, a photo's caption or an album's title is never kept", async () => {
+  const root = await mkdtemp(join(tmpdir(), 'aq-fb-'))
+  const base = site()
+  const pages = {
+    ...base.pages,
+    [FB.profile]: [post('1', ['11'], { text: 'Pinned: write to keeper@example.com for fish' }), post('2', ['21', '22'], { text: 'Betta macrostoma pair' })],
+    [ALBUMS]: albumsHtml([['100', 'Wild bettas (bettas@example.com)']]),
+    [photoUrl('101')]: photoPage('101', 'Betta albimarginata, ask me@example.com'),
+  }
+  await collect(root, fakeFb({ ...base, pages }).b, deps().d, O)
+  const files = [join(root, FB.stateFile), join(root, FB.snapshotDir, 'posts/1.md'), join(root, FB.snapshotDir, 'albums/100.md')]
+  for (const f of files) expect(await readFile(f, 'utf8')).not.toMatch(/example\.com/)
+  const s = await loadFbState(root)
+  expect(s.posts['1']!.text).toMatch(/^Pinned: write to +for fish$/)
+  expect(s.albums['100']!.title).toBe('Wild bettas')
+  expect(s.photos['101']!.caption).toBe('Betta albimarginata, ask ')
+})
+
+// Codex's re-read, 17 Nov: what an earlier run kept, a known post or a stored photo's caption, isn't written back with an
+// address either.
+test("an address an earlier run kept in the crawl's state goes on the next run, from the state and the snapshots", async () => {
+  const root = await mkdtemp(join(tmpdir(), 'aq-fb-'))
+  await collect(root, fakeFb(site()).b, deps().d, O)
+  const file = join(root, FB.stateFile)
+  const old = JSON.parse(await readFile(file, 'utf8'))
+  old.posts['2'].text = 'Betta macrostoma pair, contact keeper@example.com'
+  old.photos['101'].caption = 'Betta albimarginata (keeper@example.com)'
+  old.albums['100'].title = 'Wild bettas keeper@example.com'
+  const { writeFile } = await import('node:fs/promises')
+  await writeFile(file, JSON.stringify(old))
+  await collect(root, fakeFb(site()).b, deps().d, O)
+  for (const f of [file, join(root, FB.snapshotDir, 'posts/2.md'), join(root, FB.snapshotDir, 'albums/100.md')]) expect(await readFile(f, 'utf8'), f).not.toMatch(/example\.com/)
+  expect((await loadFbState(root)).photos['101']!.caption).toBe('Betta albimarginata')
+})
+
 test('second run with nothing new: no uploads, and the timeline stops after 3 scrolls without a new post even though the pinned post is known', async () => {
   const root = await mkdtemp(join(tmpdir(), 'aq-fb-'))
   await collect(root, fakeFb(site()).b, deps().d, O)
