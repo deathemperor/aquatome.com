@@ -301,14 +301,17 @@ final class MasterFlowTests: XCTestCase {
   private func reveal(_ app: XCUIApplication, _ id: String, file: StaticString = #filePath, line: UInt = #line) -> XCUIElement {
     let e = element(app, id)
     let window = app.windows.firstMatch.frame
+    // A look first, and a wait only when it isn't there yet: a wait looks after about a second even when the element is
+    // already there, and each reveal waited twice. On main's run on 789ca5218, 371 of these 402 waits found it at once,
+    // in 1.6 s each against 0.5 s for a look: about eight of this class's 53 minutes.
     // A list builds its rows only near the screen: at the largest text the sheet's Kết thúc rows are made when scrolled to.
-    if !e.waitForExistence(timeout: 5) {
+    if !e.exists && !e.waitForExistence(timeout: 5) {
       repeatUntil(e.exists, times: 10) {
         let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0.97, dy: 0.65))
         from.press(forDuration: 0.05, thenDragTo: from.withOffset(CGVector(dx: 0, dy: -window.height / 3)), withVelocity: .default, thenHoldForDuration: 0.2)
       }
+      XCTAssertTrue(e.waitForExistence(timeout: 5), "\(id) missing", file: file, line: line)
     }
-    XCTAssertTrue(e.waitForExistence(timeout: 5), "\(id) missing", file: file, line: line)
     let pinned = ["notice", "write"].map { element(app, $0) }.filter { $0.exists }.map { $0.frame.minY }.min() ?? .infinity
     let bar = app.navigationBars.firstMatch
     let top = bar.exists ? bar.frame.maxY + 8 : window.minY
