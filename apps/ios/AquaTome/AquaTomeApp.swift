@@ -77,7 +77,10 @@ struct AquaTomeApp: App {
     tanks.hasPage = { handbook.page(for: $0) != nil }
     let plugs = AquaTomeApp.plugs()
     _plugs = State(initialValue: plugs)
-    _master = State(initialValue: MasterModel(switcher: Switcher(tanks: tanks, plugs: plugs)))
+    let master = MasterModel(switcher: Switcher(tanks: tanks, plugs: plugs))
+    // The master button is the owner's: a press stops sending once the owner signs out (MasterCard shows it to them alone).
+    master.owner = { account.owner.isOwner == true && account.user != nil }
+    _master = State(initialValue: master)
     // Each records where it knows how an action went.
     let telemetry = TelemetryModel(lang: handbook.lang)
     _telemetry = State(initialValue: telemetry)
@@ -180,7 +183,7 @@ struct AquaTomeApp: App {
       }
       // Whatever tab is showing: a light left on a test colour goes back to its schedule (LightsModel.leave).
       .onChange(of: phase) {
-        if phase == .background { lights.leave(); telemetry.leave() } else if phase == .active { lights.returned(); master.tick() }
+        if phase == .background { lights.leave(); telemetry.leave(); master.wentAway() } else if phase == .active { lights.returned(); master.cameBack() }
         // At launch the window may come after the first apply below.
         if phase == .active { Appearance.apply(Self.testScheme ?? appearance.scheme) }
       }

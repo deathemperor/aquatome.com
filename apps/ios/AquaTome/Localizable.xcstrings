@@ -3301,6 +3301,28 @@
         }
       }
     },
+    "Chưa gửi vì bạn đã đăng xuất.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum dikirim karena Anda sudah keluar."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum dihantar kerana anda telah log keluar."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังไม่ได้ส่ง เพราะคุณออกจากระบบแล้ว"
+          }
+        }
+      }
+    },
     "Chưa gửi được email: thử lại sau.": {
       "localizations": {
         "id": {

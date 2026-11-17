@@ -83,18 +83,43 @@ public struct MasterRun: Sendable, Equatable, Codable {
   }
 
   /// The steps that didn't go (`failed`), with the outlets as read after them (`now`): a plug that didn't answer may
-  /// still have switched. Only one that reads as the step asked goes back: one as it was, or not known, has nothing to
-  /// put back (never a state the phone only guessed), nor a lamp step that failed before sending anything. `keeping`:
-  /// what goes back whatever (owed by an earlier press, a lamp step half sent). When every step failed and nothing is
-  /// left, it ends at `t`.
+  /// still have switched. One that reads as it was has nothing to put back, nor a lamp step that failed before sending
+  /// anything. One that reads as the step asked, or isn't known (the read after it failed too: the command may have
+  /// reached it, a fan left off), stays owed: the end reads it again and sends nothing to one already back, so no state
+  /// the phone only guessed is sent. `keeping`: what goes back whatever (owed by an earlier press, a lamp step half
+  /// sent). When every step failed and nothing is left, it ends at `t`.
   public mutating func settle(_ failed: [Failed], now: (DeviceCommand) -> Bool?, keeping: Set<DeviceTarget>, at t: Date) {
     self.failed = failed
     let missed = Set(failed.map(\.target))
     back.removeAll { b in
       guard missed.contains(b.command.target), !keeping.contains(b.command.target) else { return false }
-      return b.command.isLamp || now(b.command) != !b.command.on
+      return b.command.isLamp || now(b.command) == b.command.on
     }
     if missed.isSuperset(of: steps.map(\.target)), back.isEmpty { ended = t }
+  }
+
+  /// What the end does with an outlet's put-back.
+  public enum End: Sendable, Equatable {
+    /// It reads as it goes back already: nothing to send.
+    case already
+    /// Switched by a hand or its schedule since this press left it, or made a heater: left as it is, and said so.
+    case leave
+    /// CO2 back on, which the phone never sends: left off, and said so.
+    case hold
+    case send
+  }
+
+  /// What the end does with `b`, an outlet's put-back, by how the outlet reads now (`now`, nil when not read), how this
+  /// press left it (`left`, nil when this press didn't set it or its step didn't go) and the outlet's role now. One no
+  /// longer as this press left it is left as it is, whatever an earlier press still owes for it: what goes back is the
+  /// state from before both, and switching it would undo a hand's change.
+  public static func end(_ b: Back, now: Bool?, left: Bool?, role: String?) -> End {
+    let c = b.command
+    if now == c.on { return .already }
+    if let now, let left, now != left { return .leave }
+    if c.on && (b.held == true || role == "co2") { return .hold }
+    if role == "heater" { return .leave }
+    return .send
   }
 
   public var isRunning: Bool { ended == nil }

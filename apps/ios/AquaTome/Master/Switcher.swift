@@ -31,6 +31,15 @@ final class Switcher {
     return tanks.store.device(c.device)?.outlets.first { $0.code == code }?.role
   }
 
+  /// `set`, for the master button and its countdown test: refused, as it is sent, if the outlet's role now forbids it
+  /// (MasterButton.allows: CO2 never on, a heater never), whatever its role was when the button was pressed.
+  func setByButton(_ c: DeviceCommand) async -> SwitchResult {
+    guard MasterButton.allows(c, role: role(c)) else {
+      return .failed(String(localized: "Nút không bật tắt ổ \(name(c)) được trong bản này."))
+    }
+    return await set(c)
+  }
+
   /// The outlet a command names, as the plug board knows it, and what the app calls it.
   func outlet(_ c: DeviceCommand) -> (key: PlugBoard.Outlet, name: String)? {
     guard let code = c.outlet, let plug = tanks.store.device(c.device), plug.kind == "plug", let brand = plug.brand,

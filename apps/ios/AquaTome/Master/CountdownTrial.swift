@@ -23,6 +23,9 @@ final class CountdownTrial {
 
   @ObservationIgnored private let switcher: Switcher
   private static let key = "master.countdownTrial"
+  /// The outlet a trial is trying, kept on the phone until it is found on, or put back on: the app killed mid-trial
+  /// leaves the plug's own countdown to switch it at 0, and nothing in memory to put it back (Codex, 17 Nov).
+  private static let tryingKey = "master.countdownTrial.trying"
   /// A minute; `-countdown-trial-seconds <n>` in the simulator's flows.
   private static let seconds: Int = {
     #if DEBUG
@@ -63,15 +66,21 @@ final class CountdownTrial {
     guard switcher.plugs.board.listError == nil, outlets().contains(where: { $0.target == target }) else {
       return keep("Thử lúc \(at): chưa thử ổ \(name) (không đọc được ổ cắm, hoặc ổ không còn bật).")
     }
-    if case .failed(let line) = await switcher.set(off) { return keep("Thử lúc \(at), ổ \(name): chưa tắt được: \(line)" + (await back(key, on))) }
+    // Kept before the first switch: if the app is killed from here on, its next start puts the outlet back (recover).
+    UserDefaults.standard.set(try? JSONEncoder().encode(target), forKey: Self.tryingKey)
+    if case .failed(let line) = await switcher.setByButton(off) { return keep("Thử lúc \(at), ổ \(name): chưa tắt được: \(line)" + (await back(key, on))) }
     let unknown = "không rõ kết quả (ổ không báo đã nhận đếm ngược, hoặc không đọc lại được)."
+    // Each countdown only while the outlet still may be switched on (not made CO2 or a heater since): at 0 the plug may.
+    let stopped = "dừng vì ổ đã thành CO2 hoặc sưởi."
+    guard allowed(on) else { return keep("Thử lúc \(at), ổ \(name): \(stopped)" + (await back(key, on))) }
     // Off, then a countdown.
     guard let cameOn = await countdown(key, name) else { return keep("Thử lúc \(at), ổ \(name): \(unknown)" + (await back(key, on))) }
     let first = "Tắt rồi đếm ngược: " + (cameOn ? "bật lại khi về 0." : "vẫn tắt khi về 0.")
     if !cameOn {
       _ = await switcher.plugs.board.countdown(key, seconds: 0)
-      if case .failed = await switcher.set(on) { return keep("Thử lúc \(at), ổ \(name):\n\(first)" + (await back(key, on))) }
+      if case .failed = await switcher.setByButton(on) { return keep("Thử lúc \(at), ổ \(name):\n\(first)" + (await back(key, on))) }
     }
+    guard allowed(on) else { return keep("Thử lúc \(at), ổ \(name):\n\(first)\nLần hai: \(stopped)" + (await back(key, on))) }
     // On, then a countdown.
     guard let stayedOn = await countdown(key, name) else { return keep("Thử lúc \(at), ổ \(name):\n\(first)\nLần hai: \(unknown)" + (await back(key, on))) }
     let second = "Bật rồi đếm ngược: " + (stayedOn ? "vẫn bật khi về 0." : "tắt khi về 0.")
@@ -91,14 +100,39 @@ final class CountdownTrial {
   }
 
   /// As it was found, on every way out: a countdown still running ended (it would switch the outlet again at 0), the
-  /// outlet read afresh, and switched back on from the phone if it isn't on, said so.
+  /// outlet read afresh, and switched back on from the phone if it isn't on, said so. Found on or put back on, the
+  /// trial is over (`tryingKey`); otherwise the app's next start or return tries again.
   private func back(_ key: PlugBoard.Outlet, _ on: DeviceCommand) async -> String {
     let board = switcher.plugs.board
     _ = await board.countdown(key, seconds: 0)
     await switcher.plugs.refresh()
-    if board.listError == nil, board.on(key) == true { return "" }
-    if case .failed(let line) = await switcher.set(on) { return "\nChưa bật lại được: \(line)" }
+    if board.listError == nil, board.on(key) == true {
+      UserDefaults.standard.removeObject(forKey: Self.tryingKey)
+      return ""
+    }
+    if case .failed(let line) = await switcher.setByButton(on) { return "\nChưa bật lại được: \(line)" }
+    UserDefaults.standard.removeObject(forKey: Self.tryingKey)
     return "\nĐiện thoại đã bật lại như lúc đầu."
+  }
+
+  /// Whether the outlet may still be switched on by the trial: not made CO2 or a heater since it was picked.
+  private func allowed(_ on: DeviceCommand) -> Bool { MasterButton.allows(on, role: switcher.role(on)) }
+
+  /// A trial the app stopped in the middle of (killed, or closed by iOS): at the app's next start or return, its
+  /// countdown ended and its outlet put back on, as it was found, and said so in the result.
+  func recover() async {
+    guard state == .idle, let data = UserDefaults.standard.data(forKey: Self.tryingKey),
+          let target = try? JSONDecoder().decode(DeviceTarget.self, from: data) else { return }
+    // The tanks on the phone not read: whether its plug is still on one isn't known. Tried again later.
+    guard switcher.unreadTanks == nil else { return }
+    let on = DeviceCommand(device: target.device, outlet: target.outlet, on: true)
+    // Its plug no longer on a tank: nothing to put back.
+    guard let o = switcher.outlet(on) else { return UserDefaults.standard.removeObject(forKey: Self.tryingKey) }
+    let at = MasterCard.time(Date())
+    // A press waits for it, as for a trial.
+    state = .running(name: o.name, until: Date())
+    defer { state = .idle }
+    keep("Thử lúc \(at), ổ \(o.name): ứng dụng đã tắt giữa lúc thử, nên đã dừng đếm ngược." + (await back(o.key, on)))
   }
 
   private func keep(_ s: String) {

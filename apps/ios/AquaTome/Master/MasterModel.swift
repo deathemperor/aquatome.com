@@ -42,21 +42,20 @@ final class MasterModel {
     return kv.count == 2 ? (kv[0], kv[1]) : nil
   }()
   #endif
-  /// How late the end may be noticed and still count as the app open at the end (the lamp sent back by itself): two
-  /// minutes; `-master-late-after <seconds>` in a flow.
-  @ObservationIgnored private let lateAfter: TimeInterval = {
-    #if DEBUG
-    let args = ProcessInfo.processInfo.arguments
-    if let i = args.firstIndex(of: "-master-late-after"), i + 1 < args.count, let s = TimeInterval(args[i + 1]) { return s }
-    #endif
-    return 120
-  }()
+  /// Whether the owner is signed in: a press stops sending once not (`AquaTomeApp` sets it to the account's).
+  @ObservationIgnored var owner: @MainActor () -> Bool = { true }
+  /// Since when the app has been in front without a break: its launch, or its last return from the background. An end
+  /// before it came while the app was away, however soon it came back.
+  @ObservationIgnored private var frontSince: Date
+  /// In the background now (iOS broadcasts nothing to the lamp from there).
+  @ObservationIgnored private var inBackground = false
 
   private static let buttonKey = "master.button", runKey = "master.run"
 
   init(switcher: Switcher) {
     self.switcher = switcher
     trial = CountdownTrial(switcher: switcher)
+    frontSince = Date()
     let d = UserDefaults.standard
     button = d.data(forKey: Self.buttonKey).flatMap { try? JSONDecoder().decode(MasterButton.self, from: $0) }
     run = d.data(forKey: Self.runKey).flatMap { try? JSONDecoder().decode(MasterRun.self, from: $0) }
@@ -98,7 +97,7 @@ final class MasterModel {
   /// (its two recordings take about eight seconds). No countdown is written to a plug (the chief, 15 Nov: not before the
   /// owner's own test of one).
   func start() async {
-    guard var button, !sending, run?.isRunning != true, trial.state == .idle else { return }
+    guard var button, !sending, run?.isRunning != true, trial.state == .idle, owner() else { return }
     sending = true
     defer { sending = false; watch() }
     notes = []
@@ -136,7 +135,13 @@ final class MasterModel {
       #if DEBUG
       if let stepsWait { try? await Task.sleep(for: .seconds(stepsWait)) }
       #endif
-      if case .failed(let line) = await switcher.set(step) {
+      // Signed out, or no longer the owner's, since the press: the rest don't go. Each is checked against its outlet's
+      // role as it goes (setByButton): CO2 is never switched on, whatever changed since the press.
+      guard owner() else {
+        failed.append(.init(target: step.target, line: Self.signedOut))
+        continue
+      }
+      if case .failed(let line) = await switcher.setByButton(step) {
         failed.append(.init(target: step.target, line: line))
       } else {
         note("\(step.outlet ?? "") \(step.on ? "on" : "off")")
@@ -161,22 +166,29 @@ final class MasterModel {
   private func sendLamp(_ steps: [DeviceCommand]) async -> [MasterRun.Failed] {
     var failed: [MasterRun.Failed] = []
     for s in steps {
-      if case .failed(let line) = await switcher.set(s) { failed.append(.init(target: s.target, line: line)) } else { note("lamp \(LampSender.recordings(s).map(\.id).joined(separator: "+"))") }
+      guard owner() else {
+        failed.append(.init(target: s.target, line: Self.signedOut))
+        continue
+      }
+      if case .failed(let line) = await switcher.setByButton(s) { failed.append(.init(target: s.target, line: line)) } else { note("lamp \(LampSender.recordings(s).map(\.id).joined(separator: "+"))") }
     }
     return failed
   }
 
+  /// A step not sent because the owner signed out during the press.
+  static var signedOut: String { String(localized: "Chưa gửi vì bạn đã đăng xuất.") }
+
   /// Ends it and puts back what it changed: "Kết thúc", "Trả lại" (`byReader`), or the clock (while the app is open, or
   /// when it next opens). An outlet no longer as the button left it (its schedule or a hand switched it during the run)
   /// is left as it is. CO2 is never switched on by the phone at the end: its schedule may mean it off by then, and CO2
-  /// with the lights out can kill fish. The lamp, ended by the clock while the app was away, waits for the reader's
-  /// "Trả lại" near it.
+  /// with the lights out can kill fish. The lamp, ended by the clock while the app was away (in the background or
+  /// closed at the end time, however soon it came back), waits for the reader's "Trả lại" near it.
   func finish(byReader: Bool) async {
     guard var r = run, !sending else { return }
     sending = true
     defer { sending = false; watch() }
     let t = now()
-    let away = r.ended == nil && r.ends.map { t.timeIntervalSince($0) > lateAfter } == true
+    let away = r.ended == nil && r.ends.map { inBackground || frontSince > $0 } == true
     let endedBefore = r.ended
     if r.ended == nil { r.ended = t }
     // How each step that went left its outlet: one found back at the end was changed during the run.
@@ -212,27 +224,20 @@ final class MasterModel {
         }
       } else if let key = switcher.outlet(c)?.key {
         let changed = String(localized: "Ổ \(name) đã đổi trong lúc chạy nên AquaTome để nguyên.")
-        if board.on(key) == c.on {
+        // Back already; switched since this press left it (a hand, its schedule) or made a heater: left; CO2: never on.
+        let end = MasterRun.end(b, now: board.on(key), left: left[c.target], role: role(c))
+        if end != .send {
           r.back[i].done = true
           r.back[i].problem = nil
-          if let l = left[c.target], l != c.on { tell(changed) }
-          continue
-        }
-        if c.on && (b.held == true || role(c) == "co2") {
-          r.back[i].done = true
-          r.back[i].problem = nil
-          tell(String(localized: "AquaTome không tự bật lại CO2. Cần thì bật ổ CO2 trong Bể của tôi."))
-          continue
-        }
-        // Made a heater during the run: never switched by the button.
-        if role(c) == "heater" {
-          r.back[i].done = true
-          r.back[i].problem = nil
-          tell(changed)
+          switch end {
+          case .already: if let l = left[c.target], l != c.on { tell(changed) }
+          case .hold: tell(String(localized: "AquaTome không tự bật lại CO2. Cần thì bật ổ CO2 trong Bể của tôi."))
+          default: tell(changed)
+          }
           continue
         }
       }
-      switch await switcher.set(c) {
+      switch await switcher.setByButton(c) {
       case .done:
         r.back[i].done = true
         r.back[i].problem = nil
@@ -248,8 +253,22 @@ final class MasterModel {
     keep()
   }
 
-  /// The app came to the front, or opened: an end that came while it was away.
+  /// The app went to the background: an end from now on comes while it's away.
+  func wentAway() { inBackground = true }
+
+  /// The app came to the front (`AquaTomeApp`, at launch too).
+  func cameBack() {
+    if inBackground {
+      inBackground = false
+      frontSince = now()
+    }
+    tick()
+  }
+
+  /// The app opened or came to the front, or the end's time came: an end that came while it was away, and a countdown
+  /// test the app stopped in the middle of (killed, or closed by iOS), its outlet put back on.
   func tick() {
+    if !busy { Task { await trial.recover() } }
     guard let r = run, !sending else { return }
     if r.isDue(at: now()) { Task { await finish(byReader: false) } } else { watch() }
   }

@@ -170,6 +170,27 @@ func whatFailed() {
   #expect(some.back.map(\.command) == [DeviceCommand(device: plug, outlet: "switch_3", on: true)] && some.isRunning)
 }
 
+@Test("At the end an outlet no longer as this press left it is left, whatever an earlier press owes; CO2 never back on")
+func whatTheEndDoes() {
+  let fanOn = MasterRun.Back(command: DeviceCommand(device: plug, outlet: "switch_3", on: true))
+  // This press's own put-back: the fan it switched off goes back on; one found on already needs nothing.
+  #expect(MasterRun.end(fanOn, now: false, left: false, role: "fan") == .send)
+  #expect(MasterRun.end(fanOn, now: true, left: false, role: "fan") == .already)
+  // Owed by an earlier press (the fan back on), and this press switched the fan on: a hand switched it off since. Left
+  // off, not switched on against the hand (Codex, 17 Nov).
+  #expect(MasterRun.end(fanOn, now: false, left: true, role: "fan") == .leave)
+  // Not read at the end: sent, and the send itself says if the plug isn't reached.
+  #expect(MasterRun.end(fanOn, now: nil, left: false, role: "fan") == .send)
+  // Its step didn't go, or this press didn't set it: as the put-back says.
+  #expect(MasterRun.end(fanOn, now: false, left: nil, role: "fan") == .send)
+  // CO2 back on, held at the press or CO2 now: never sent. A heater now: left.
+  var held = MasterRun.Back(command: DeviceCommand(device: plug, outlet: "switch_2", on: true))
+  #expect(MasterRun.end(held, now: false, left: false, role: "co2") == .hold)
+  held.held = true
+  #expect(MasterRun.end(held, now: false, left: false, role: "light") == .hold)
+  #expect(MasterRun.end(fanOn, now: false, left: false, role: "heater") == .leave)
+}
+
 @Test("It's due at its end, not before; one ended on a tap never is; what's back leaves what's pending; kept as it is")
 func whenItEnds() throws {
   var run = MasterRun(button, at: m0, before: { _ in nil }, lamp: nil)
