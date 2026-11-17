@@ -101,16 +101,18 @@ export function loadPolicy(log: readonly Event[], page: string): string | undefi
   // hide one (Codex's reads of 825cf2c25 and bb58fbba8): each of another request's, and the page's own at its final
   // status (a redirect's hop never applied to a document). Only its report group's address may come from beside it: a
   // frame the monitor sampled can have its policy in its response and `reporting-endpoints` in the headers logged beside
-  // it at the same status (Codex's read of 8d0b99747), and that address is taken when every such event gives the same one.
+  // it at the same status (Codex's read of 8d0b99747), and that address is taken when every event there gives the same one.
   const status = (e: Event) => (e.method === 'Network.responseReceived' ? of(e).response?.status : of(e).statusCode)
   const headersOf = (e: Event) => lower(e.method === 'Network.responseReceived' ? of(e).response?.headers : of(e).headers)
   const own = log.filter(e => (e.method === 'Network.responseReceived' || e.method === 'Network.responseReceivedExtraInfo') && of(e).requestId === of(main!).requestId && status(e) === of(main!).response?.status)
   const foreign = [...others.values(), own].some(events => events.some(e => {
     const headers = headersOf(e)
     if (headers[REPORT_ONLY] === undefined) return false
-    const beside = [...new Set(events.filter(x => x !== e && status(x) === status(e)).map(x => headersOf(x)['reporting-endpoints']).filter(v => v !== undefined))]
-    const group = headers['reporting-endpoints'] ?? (beside.length === 1 ? beside[0] : undefined)
-    return monitorPolicy({ ...headers, ...(group === undefined ? {} : { 'reporting-endpoints': group }) }, page) === undefined
+    // Its own `reporting-endpoints` and those beside it at its status must agree: one given elsewhere for the same
+    // response could be the one the browser used (Codex's read of c377661b0).
+    const given = [...new Set(events.filter(x => status(x) === status(e)).map(x => headersOf(x)['reporting-endpoints']).filter(v => v !== undefined))]
+    if (given.length > 1) return true
+    return monitorPolicy({ ...headers, ...(given.length ? { 'reporting-endpoints': given[0]! } : {}) }, page) === undefined
   }))
   return foreign ? undefined : policy
 }

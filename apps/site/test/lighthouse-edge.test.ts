@@ -120,7 +120,8 @@ test("the monitor's policy as the live site sends it: a report-to group whose ad
 test("reporting-endpoints is read only in the live site's shape: name=\"address\" members, nothing else", () => {
   expect(endpoints('a="https://x/1", b="https://x/2,3"\nc=""')).toEqual([['a', 'https://x/1'], ['b', 'https://x/2,3'], ['c', '']])
   expect(endpoints('')).toEqual([])
-  for (const bad of ['a="x",', 'a="x', 'A="x"', 'a="x" b="y"', 'a=x', 'a', 'a="x";p', 'a="\\n"', 'a="\t"', 'a="é"']) expect(endpoints(bad), bad).toBeUndefined()
+  // A new line left at the end (an empty second field): JavaScript's `$` is the end of the text, not of a line.
+  for (const bad of ['a="x",', 'a="x', 'A="x"', 'a="x" b="y"', 'a=x', 'a', 'a="x";p', 'a="\\n"', 'a="\t"', 'a="é"', 'a="x"\n']) expect(endpoints(bad), bad).toBeUndefined()
 })
 
 test("the monitor's policy is the load's only when no other response of it has a report-only policy of its own", () => {
@@ -153,6 +154,9 @@ test("the monitor's policy is the load's only when no other response of it has a
   // the same status beside headers with the monitor's policy (Codex's read of bb58fbba8).
   expect(loadPolicy([...live, response('2', frame, 'Document', { 'content-security-policy-report-only': "connect-src 'self'" }), response('2', frame, 'Document', {})], PAGE)).toBeUndefined()
   expect(loadPolicy([...live, response('2', frame, 'Document', { 'content-security-policy-report-only': "connect-src 'self'" }), response('2', frame, 'Document', { 'content-security-policy-report-only': LIVE }), extra('2', 200, { 'content-security-policy-report-only': LIVE, 'reporting-endpoints': ENDPOINTS })], PAGE)).toBeUndefined()
+  // A frame's response with the live policy and group, and beside it another address for that group (Codex's read of
+  // c377661b0): the browser could have used either, so it isn't the monitor's.
+  expect(loadPolicy([...live, response('2', 'https://aquatome.com/embed/', 'Document', { 'content-security-policy-report-only': LIVE, 'reporting-endpoints': ENDPOINTS }), extra('2', 200, { 'reporting-endpoints': 'cf-csp-endpoint="https://reports.example/r"' })], PAGE)).toBeUndefined()
   // The page's own response with a policy that isn't the monitor's, the headers beside it the monitor's: each is judged.
   expect(loadPolicy([page[0]!, response('1', PAGE, 'Document', { 'content-security-policy-report-only': "connect-src 'self'" }), extra('1', 200, { 'content-security-policy-report-only': MONITOR }), page[3]!], PAGE)).toBeUndefined()
   expect(loadPolicy([...page, response('2', frame, 'Document', { 'content-security-policy': "default-src 'none'" })], PAGE)).toBe(CUT)
