@@ -93,13 +93,21 @@ function json(v: unknown, indent = '', lead = 0): string {
   return Array.isArray(v) ? `[\n${body.join(',\n')}\n${indent}]` : `{\n${body.join(',\n')}\n${indent}}`
 }
 
-const kept: Vectors = JSON.parse(readFileSync(FILE, 'utf8'))
+// With UPDATE_VECTORS=1 the first test writes the file again, and every test reads it as written: a case added by hand
+// (a species and a note) is whole only then (Codex's read, 17 Nov: the shrimp's case, with no `sizeOther` in the old words).
+const read: Vectors = JSON.parse(readFileSync(FILE, 'utf8'))
+const kept: Vectors = process.env.UPDATE_VECTORS === '1' ? regenerate(read) : read
 const norm = (s: string | undefined) => s?.replace(/\s+/g, ' ').trim()
 
 test('protocols/care-needs-vectors.json is careNeeds\' answers, the panel\'s lines and its words, as the site has them now', () => {
   const next = `${json(regenerate(kept))}\n`
   if (process.env.UPDATE_VECTORS === '1') writeFileSync(FILE, next)
   expect(readFileSync(FILE, 'utf8'), 'run UPDATE_VECTORS=1 pnpm --filter site test').toBe(next)
+  // A crab's, a shrimp's or a snail's case writes its size line in sizeOther in every language, so a port that always
+  // writes `size` fails it (Codex's read, 17 Nov).
+  const other = kept.cases.filter(c => c.fish === false)
+  expect(other.map(c => c.species)).toContain('neocaridina-davidi')
+  for (const l of LANGS) expect(other.flatMap(c => c.shown[l]).some(([, , fx]) => fx.includes(kept.words[l].sizeOther.replace(' {cm}', ''))), l).toBe(true)
   // Every Indonesian and Thai word is the site's translation, none the Vietnamese left in its place.
   for (const lang of OTHER_LANGS) expect([...(missing.get(lang) ?? [])], lang).toEqual([])
 })
