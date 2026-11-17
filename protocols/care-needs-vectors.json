@@ -835,7 +835,45 @@
         "ms": [["Ruang", "Sederhana", "ikan sepanjang 15 cm"]]
       }
     },
-    {"note": "red cherry shrimp: not a fish (the shrimp group), so its size line is sizeOther, \"con dài\", in every language", "species": "neocaridina-davidi", "entry": {}, "needs": [], "shown": {"vi": [], "id": [], "th": [], "ms": []}}
+    {
+      "note": "red cherry shrimp: not a fish (the shrimp group), so its size line is sizeOther, \"con dài\", in every language",
+      "species": "neocaridina-davidi",
+      "fish": false,
+      "entry": {
+        "tempC": {"min": 18, "max": 28},
+        "ph": {"min": 6.5, "max": 8},
+        "sizeCm": 3,
+        "tankCm": 30,
+        "difficulty": 1
+      },
+      "needs": [
+        {"key": "space", "level": "easy", "tankCm": 30, "sizeCm": 3},
+        {"key": "water", "level": "easy", "ph": {"min": 6.5, "max": 8}, "why": []},
+        {"key": "temperature", "level": "easy", "tempC": {"min": 18, "max": 28}, "why": []}
+      ],
+      "shown": {
+        "vi": [
+          ["Không gian", "Dễ", "bể từ 30 cm, con dài 3 cm"],
+          ["Nước", "Dễ", "pH 6,5–8"],
+          ["Nhiệt độ", "Dễ", "18–28°C"]
+        ],
+        "id": [
+          ["Ruang", "Mudah", "akuarium mulai 30 cm, panjang tubuh 3 cm"],
+          ["Air", "Mudah", "pH 6,5–8"],
+          ["Suhu", "Mudah", "18–28°C"]
+        ],
+        "th": [
+          ["พื้นที่", "ง่าย", "ตู้ตั้งแต่ 30 cm, ตัวยาว 3 cm"],
+          ["น้ำ", "ง่าย", "pH 6.5–8"],
+          ["อุณหภูมิ", "ง่าย", "18–28°C"]
+        ],
+        "ms": [
+          ["Ruang", "Mudah", "tangki dari 30 cm, panjang badan 3 cm"],
+          ["Air", "Mudah", "pH 6.5–8"],
+          ["Suhu", "Mudah", "18–28°C"]
+        ]
+      }
+    }
   ],
   "words": {
     "vi": {
@@ -864,6 +902,7 @@
       "finNipper": "hay cắn vây",
       "tank": "bể từ {cm}",
       "size": "cá dài {cm}",
+      "sizeOther": "con dài {cm}",
       "school": "đàn từ {n} con",
       "note": "Độ khó {n}/8 là mức nguồn chấm. Nguồn có thể tính cả điều bảng không ghi, như thức ăn.",
       "how": "Cách tính các mức",
@@ -894,6 +933,7 @@
       "finNipper": "suka menggigit sirip",
       "tank": "akuarium mulai {cm}",
       "size": "ikan sepanjang {cm}",
+      "sizeOther": "panjang tubuh {cm}",
       "school": "kelompok mulai {n} ekor",
       "note": "Tingkat kesulitan {n}/8 adalah nilai dari sumber. Sumber bisa ikut menimbang hal yang tidak ada di tabel, seperti pakan.",
       "how": "Cara tingkat dihitung",
@@ -901,7 +941,7 @@
     },
     "th": {
       "summary": "ทำไม?",
-      "lead": "สิ่งที่ทำให้ปลาชนิดนี้เลี้ยงง่ายหรือยาก อ่านจากตาราง:",
+      "lead": "สิ่งที่ทำให้ชนิดนี้เลี้ยงง่ายหรือยาก อ่านจากตาราง:",
       "need": {
         "space": "พื้นที่",
         "water": "น้ำ",
@@ -930,6 +970,7 @@
       "finNipper": "ชอบกัดครีบ",
       "tank": "ตู้ตั้งแต่ {cm}",
       "size": "ปลายาว {cm}",
+      "sizeOther": "ตัวยาว {cm}",
       "school": "ฝูงตั้งแต่ {n} ตัว",
       "note": "ความยาก {n}/8 เป็นคะแนนจากแหล่งข้อมูล ซึ่งอาจคิดรวมสิ่งที่ตารางไม่ได้ระบุ เช่น อาหาร",
       "how": "วิธีคิดระดับ",
@@ -966,6 +1007,7 @@
       "finNipper": "suka menggigit sirip",
       "tank": "tangki dari {cm}",
       "size": "ikan sepanjang {cm}",
+      "sizeOther": "panjang badan {cm}",
       "school": "kumpulan sekurang-kurangnya {n} ekor",
       "note": "Tahap kesukaran {n}/8 ialah penilaian oleh sumber. Sumber mungkin turut mengambil kira perkara yang tiada dalam jadual, seperti makanan.",
       "how": "Cara tahap dikira",
