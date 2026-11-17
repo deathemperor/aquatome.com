@@ -1,10 +1,13 @@
 {
   "slug": "nan-pan",
-  "name": "Nan Pan",
-  "altNames": [],
+  "name": "sông Nam Bàn",
+  "altNames": [
+    "Nan Pan"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

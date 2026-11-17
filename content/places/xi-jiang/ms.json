@@ -3,6 +3,12 @@
   "name": "Xi Jiang",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.35,
+    "at": "2026-11-17T18:02:48.364Z",
+    "why": "\"Xi Jiang\" is the bare Pinyin name and omits the Malay kind word \"Sungai\", which a Malaysian atlas would write as \"Sungai Xi Jiang\" (or \"Sungai Barat\" in translation), so it reads as incomplete."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

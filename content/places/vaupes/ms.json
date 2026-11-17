@@ -3,6 +3,12 @@
   "name": "Vaupés",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T18:01:50.063Z",
+    "why": "Vaupés is a Colombian department; Malay atlases would write \"Jabatan Vaupés\" or \"Vaupés\" with the kind word, and the bare name lacks it, though the spelling is the standard one."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

@@ -10,6 +10,78 @@
     "democratic-republic-of-the-congo",
     "congo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD"
+      ],
+      "regions": [
+        "Congo"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "DR Congo: the fish inhabit the middle course of the Congo river.",
+          "countries": [
+            "CD"
+          ],
+          "regions": [
+            "Congo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2355918,
+      "total": 32,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "CG",
+          25
+        ],
+        [
+          "CD",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          14.0625,
+          -4.21875,
+          21,
+          0
+        ],
+        [
+          15.46875,
+          -4.21875,
+          4,
+          0
+        ],
+        [
+          22.5,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          22.5,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          23.90625,
+          0,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -3318,6 +3318,233 @@
       "references:seriouslyfish": "aea9342866e0"
     }
   },
+  "annamia-thuathienensis": {
+    "at": "2026-11-17",
+    "from": "2026-10-29",
+    "name": "Annamia thuathienensis",
+    "confidence": "low",
+    "score": 0.6,
+    "notes": [
+      "Item 4: \"Isi padu: ~108 liter\" is the exact conversion of ~29 US gal. For a 29-gallon tank the standard size is 120 litres, so use \"~120 liter\".",
+      "Item 1: \"hillstream loach\" is left in English. Give a Malay form, e.g. \"loach sungai berarus deras (hillstream loach)\", or at least make it consistent.",
+      "Item 4: \"Panjang piawai: 100 mm SL\" is acceptable, but \"cacing tubifex\" and \"artemia\" in item 7 are inconsistent in capitalisation or italics with the other Latin or trade names. Harmonise them."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "3193d217b7db",
+      "distribution:seriouslyfish": "a7a96a7fb0ce",
+      "habitat:seriouslyfish": "48238fc0860d",
+      "aquariumSize:seriouslyfish": "136b9f894a05",
+      "maintenance:seriouslyfish": "80eea14977cf",
+      "waterConditions:seriouslyfish": "cb266df30d30",
+      "diet:seriouslyfish": "43d54083649a",
+      "behaviour:seriouslyfish": "10a265eaa013",
+      "dimorphism:seriouslyfish": "7bf6df1c92fc",
+      "reproduction:seriouslyfish": "9161d5d42ca5",
+      "notes:seriouslyfish": "5b18acd7a6c7",
+      "references:seriouslyfish": "f4f3e6c1ff56"
+    }
+  },
+  "anomalochromis-thomasi": {
+    "at": "2026-11-17",
+    "from": "2026-10-29",
+    "name": "African Butterfly Cichlid",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "#10: \"spesies ini mengejutkan kerana tidak cerewet\" is awkward; use \"secara mengejutkan, spesies ini tidak cerewet tentang kimia air\".",
+      "#10: \"Luar biasanya, selepas anak ikan mula berenang bebas\" reads stiffly; use \"Uniknya\" or \"Yang luar biasa\".",
+      "#8: \"terlalu aktif dan agresif\" adds \"agresif\" for \"very vigorous\"; use \"sangat lasak/cergas\".",
+      "#11: \"Sering dipandang sepi apabila dilihat dijual\" is clumsy; use \"Sering diabaikan di kedai ikan\".",
+      "#10: \"dither fish\" is left in English; add a Malay explanation, e.g. \"ikan pengalih perhatian (dither fish)\"."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "4267f29a1526",
+      "distribution:seriouslyfish": "da0cf3788a14",
+      "habitat:seriouslyfish": "cbff0949323f",
+      "aquariumSize:seriouslyfish": "f0a5d24c143d",
+      "maintenance:seriouslyfish": "0109619e5710",
+      "waterConditions:seriouslyfish": "d3c9ae7e2681",
+      "diet:seriouslyfish": "88328d0dcdcb",
+      "behaviour:seriouslyfish": "a4c395962e18",
+      "dimorphism:seriouslyfish": "27719d30e4f0",
+      "reproduction:seriouslyfish": "7fb6b2e5350b",
+      "notes:seriouslyfish": "b7e83454c012"
+    }
+  },
+  "anostomus-anostomus": {
+    "at": "2026-11-17",
+    "from": "2026-10-29",
+    "name": "Striped Headstander",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "Item 4: \"Isi padu: ~108 liter\" keeps the exact litre figure. The source's ~29 US gal should be given as the usual tank size, 120 litres (29 gal → 120 L per the table), not 108.",
+      "Item 1: \"hidup berkawan\" is awkward for shoaling. Use \"hidup berkumpulan\" or \"berkelompok\" (shoal)."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "2a36163e9107",
+      "distribution:seriouslyfish": "67cc34ce9dba",
+      "habitat:seriouslyfish": "487454c1e91f",
+      "aquariumSize:seriouslyfish": "a5a9698de53b",
+      "maintenance:seriouslyfish": "9fbf6edd6639",
+      "waterConditions:seriouslyfish": "24c8ad8ba360",
+      "diet:seriouslyfish": "6b475f2dfebb",
+      "behaviour:seriouslyfish": "1fac4e16819c",
+      "dimorphism:seriouslyfish": "0aab70826231",
+      "reproduction:seriouslyfish": "41db64d3741d",
+      "notes:seriouslyfish": "680a56db2947",
+      "references:seriouslyfish": "5d04c6fee11f"
+    }
+  },
+  "anostomus-ternetzi": {
+    "at": "2026-11-17",
+    "from": "2026-11-03",
+    "name": "Golden Striped Headstander",
+    "confidence": "medium",
+    "score": 0.5,
+    "notes": [
+      "Item 6: '~120 liter' is the tank table value for 29 US gal, but the English gives '~108 litres'; the table applies to US-gallon-named tanks, so 120 is acceptable. However the item is fine on volume; the problem is 'Panjang piawai: 125 mm SL' drops '(5 in SL)' which is fine. No fix needed here.",
+      "Item 3: 'Spesies ini tersebar luas dalam sistem Río Orinoco di Brazil, Colombia dan Venezuela' is faithful, but 'Taman Negara Aguaro-Guariquito' is a wrong rendering: 'Taman Negara' means a Malaysian national park; use 'Taman Nasional Aguaro-Guariquito' or keep the name as 'Taman Negara' only if intentional.",
+      "Item 10: the English source contains Vietnamese glosses '(cá nhóm tetra và họ hàng)', '(cá nhóm lau kính/pleco)', '(cá da trơn họ Doradidae)', '(cá rô phi cảnh hiền lành)'. The Malay translation replaced these with Malay, which is acceptable, but 'cenderung sangat suka bergaduh' is awkward; use 'sangat suka bergaduh'.",
+      "Item 10: 'lorikariid (pleco)' and 'doradid (catfish famili Doradidae)' mix English and Malay; use 'ikan keli famili Doradidae'.",
+      "Item 17: reference list left untranslated, which is correct."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "b5c5ccda368c",
+      "quickFacts:glaser": "77e9a691f39b",
+      "distribution:seriouslyfish": "a1072ff130af",
+      "distribution:glaser": "349fb81dc814",
+      "habitat:seriouslyfish": "cdcf09266a7c",
+      "aquariumSize:seriouslyfish": "c53eb3186e39",
+      "maintenance:seriouslyfish": "9fbf6edd6639",
+      "waterConditions:seriouslyfish": "b132a4333351",
+      "diet:seriouslyfish": "1a8dea9ac29b",
+      "behaviour:seriouslyfish": "5534792de1b0",
+      "behaviour:glaser": "212eb5aabce1",
+      "dimorphism:seriouslyfish": "f281e3421eeb",
+      "dimorphism:glaser": "fb349bdbb83b",
+      "reproduction:seriouslyfish": "632ef5bb4654",
+      "notes:seriouslyfish": "edc08078050f",
+      "notes:glaser": "4905874609fd",
+      "references:seriouslyfish": "5d04c6fee11f"
+    }
+  },
+  "aphanius-apodus": {
+    "at": "2026-11-17",
+    "from": "2026-10-29",
+    "name": "Footless killifish",
+    "confidence": "low",
+    "score": 0.93,
+    "notes": [
+      "Item 10: \"warna yang lebih terang\" for \"more intense colouration\" – \"lebih pekat/jelas\" is closer.",
+      "Item 11: \"Ia jarang atau mungkin tidak dijual\" is slightly off from \"unlikely to find it on sale\"; use \"Ia jarang dijumpai dijual di kedai akuarium\"."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "278e0dc0a14c",
+      "distribution:seriouslyfish": "4bc5351b8202",
+      "habitat:seriouslyfish": "60a0482c93e4",
+      "aquariumSize:seriouslyfish": "a7f5331da055",
+      "maintenance:seriouslyfish": "ea1e9e2b9aa8",
+      "waterConditions:seriouslyfish": "609cb899b9e1",
+      "diet:seriouslyfish": "33735924b714",
+      "behaviour:seriouslyfish": "1152045db793",
+      "dimorphism:seriouslyfish": "2fdba137ad50",
+      "reproduction:seriouslyfish": "d838b2e27e62",
+      "notes:seriouslyfish": "f736578b187e",
+      "references:seriouslyfish": "b66df93db75f"
+    }
+  },
+  "aphanius-asquamatus": {
+    "at": "2026-11-17",
+    "from": "2026-10-29",
+    "name": "Scaleless killifish",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 8: \"dipelihara secara berasingan\" is ambiguous (could mean each fish kept apart); use \"dipelihara bersendirian (akuarium satu spesies sahaja)\".",
+      "Item 11: \"gigi tiga cuspid\" leaves \"cuspid\" untranslated; use \"gigi bertiga puncak (tricuspid)\".",
+      "Item 11: \"menyekat nama itu dan menggunakan Aphanius baru-baru ini pada tahun 2003\" is awkward; reword to \"seawal/sehingga baru-baru ini pada 2003\"."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "789d4b26273e",
+      "distribution:seriouslyfish": "da8c70f9b880",
+      "habitat:seriouslyfish": "1f6dd225b3f3",
+      "aquariumSize:seriouslyfish": "b8e46e4c2903",
+      "maintenance:seriouslyfish": "33998457fbc0",
+      "waterConditions:seriouslyfish": "d44c7cdc3665",
+      "diet:seriouslyfish": "276a6e4a99e6",
+      "behaviour:seriouslyfish": "3b0b196f41cd",
+      "dimorphism:seriouslyfish": "23ca745b9f4a",
+      "reproduction:seriouslyfish": "2ef49dab7faa",
+      "notes:seriouslyfish": "c90d90dfaaa4",
+      "references:seriouslyfish": "f4018c7f4139"
+    }
+  },
+  "aphanius-dispar": {
+    "at": "2026-11-17",
+    "from": "2026-10-29",
+    "name": "Arabian toothcarp",
+    "confidence": "low",
+    "score": 0.88,
+    "notes": [
+      "Item 4: \"(seekor jantan dan dua betina)\" is not in the English, which only says \"a pair or trio\". Remove the added trio composition."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "167fc4128932",
+      "distribution:seriouslyfish": "ef8df5a59d59",
+      "habitat:seriouslyfish": "8710fe470408",
+      "aquariumSize:seriouslyfish": "ac494bd1d506",
+      "maintenance:seriouslyfish": "2dc6361a3a33",
+      "waterConditions:seriouslyfish": "26c2ad84803e",
+      "diet:seriouslyfish": "6c0ae8fe805e",
+      "behaviour:seriouslyfish": "9d0a30cf98bb",
+      "dimorphism:seriouslyfish": "c5a46d5aaf97",
+      "reproduction:seriouslyfish": "72601ae10fe5",
+      "notes:seriouslyfish": "adab80887e32",
+      "references:seriouslyfish": "6a275bd5d5c7"
+    }
+  },
+  "aphanius-farsicus": {
+    "at": "2026-11-17",
+    "from": "2026-10-30",
+    "name": "Farsi toothcarp",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 3: \"specialized in water temperatures that differ\" rendered as \"sudah terbiasa dengan suhu air yang jauh berbeza\" is slightly loose; \"sudah menyesuaikan diri dengan perbezaan suhu air yang ketara antara siang dan malam\" would be more natural.",
+      "Item 3: \"hampir sepanjang tahun\" is fine, but \"musim sejuk\" is odd for Malaysia (no winter). Consider \"musim sejuk (di habitat asalnya)\" for clarity."
+    ],
+    "parts": {
+      "quickFacts:glaser": "610842a4c995",
+      "distribution:glaser": "a683c5c4cb74",
+      "notes:glaser": "7953604c7465"
+    }
+  },
+  "aphanius-fasciatus": {
+    "at": "2026-11-17",
+    "from": "2026-10-29",
+    "name": "Mediterranean killifish",
+    "confidence": "low",
+    "score": 0.88,
+    "notes": [
+      "Item 8: \"dipelihara secara berasingan\" reads as 'kept separately'; better \"dipelihara bersendirian (tanpa spesies lain)\" to mean kept alone, without other species.",
+      "Item 10: \"setiap dua atau tiga hari\" adds 'three'; English \"every couple of days\" is just \"setiap dua hari\"."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "f0646cfd647a",
+      "distribution:seriouslyfish": "a8b398db7735",
+      "habitat:seriouslyfish": "0560bfc3ae4f",
+      "aquariumSize:seriouslyfish": "a275c7482f2f",
+      "maintenance:seriouslyfish": "a8d1df1f1ab4",
+      "waterConditions:seriouslyfish": "b347ffb6c3e2",
+      "diet:seriouslyfish": "33735924b714",
+      "behaviour:seriouslyfish": "dfbc16af57f3",
+      "dimorphism:seriouslyfish": "a4710bd7f012",
+      "reproduction:seriouslyfish": "d389f71c80d0",
+      "notes:seriouslyfish": "f87dd1392eba",
+      "references:seriouslyfish": "b7fb6e81a1ad"
+    }
+  },
   "astronotus-ocellatus": {
     "at": "2026-11-16",
     "from": "2026-11-16",
@@ -4307,17 +4534,20 @@
     ]
   },
   "oryzias-dancena": {
-    "at": "2026-11-14",
-    "from": "2026-11-02",
+    "at": "2026-11-17",
+    "from": "2026-11-17",
     "name": "Indian ricefish",
     "confidence": "medium",
-    "score": 0.9,
+    "score": 0.75,
     "notes": [
-      "\"Pengawanan\" (spawning): hobbyists in Malaysia usually say \"pemijahan\" for fish spawning. \"Mengawan\" for mating is fine.",
-      "\"tumbuhan terapung di permukaan\" for \"surface vegetation\": this is slightly narrower than the original. Consider \"tumbuhan permukaan\" or \"tumbuhan yang tumbuh hingga ke permukaan\"."
+      "#2 \"ricefish ini\": English term left untranslated; use \"ikan padi\" (ricefish) or similar local term.",
+      "#3 \"apa-apa air yang boleh dijadikan air minuman manusia\": awkward; use \"mana-mana air yang selamat diminum manusia\".",
+      "#7 \"untuk satu tempoh\": stiff; use \"seketika\" or \"untuk beberapa ketika\".",
+      "#5 \"satu pertiga atas tangki\": use \"sepertiga bahagian atas tangki\"; \"tangki\" could be \"akuarium\", which is commonly used in Malaysia.",
+      "#4 \"apa-apa makanan ikan yang biasa\": use \"sebarang makanan ikan biasa\"."
     ],
     "parts": {
-      "quickFacts:glaser": "626dc647a23a",
+      "quickFacts:glaser": "f407cdba01ce",
       "quickFacts:seriouslyfish": "a8dd5994103a",
       "distribution:seriouslyfish": "b36fcca84da7",
       "habitat:seriouslyfish": "57c51a5efee1",
@@ -4328,9 +4558,14 @@
       "behaviour:seriouslyfish": "e466f60f5830",
       "dimorphism:seriouslyfish": "eaeae7c8a31c",
       "reproduction:seriouslyfish": "1d2bdc7a8f77",
-      "notes:glaser": "227bdd91758c",
       "notes:seriouslyfish": "3bb9d97b4191",
-      "references:seriouslyfish": "68a78eb6cb29"
+      "references:seriouslyfish": "68a78eb6cb29",
+      "distribution:glaser": "e1837419cc4f",
+      "waterConditions:glaser": "a41238045a87",
+      "diet:glaser": "900c34d49c8c",
+      "behaviour:glaser": "bd94fa694d31",
+      "dimorphism:glaser": "268c89360619",
+      "reproduction:glaser": "0de0f91634c6"
     }
   },
   "oryzias-javanicus": {

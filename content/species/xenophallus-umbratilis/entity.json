@@ -9,6 +9,78 @@
     "north-america",
     "costa-rica"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CR"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species is originally native to Costa Rica, but the fish now available are German-bred.",
+          "countries": [
+            "CR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2349736,
+      "total": 81,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "CR",
+          78
+        ],
+        [
+          "PA",
+          2
+        ],
+        [
+          "NI",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -85.78125,
+          9.84375,
+          11,
+          11
+        ],
+        [
+          -85.78125,
+          11.25,
+          1,
+          0
+        ],
+        [
+          -84.375,
+          9.84375,
+          67,
+          67
+        ],
+        [
+          -81.5625,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -81.5625,
+          8.4375,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

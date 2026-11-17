@@ -10,6 +10,50 @@
     "mexico",
     "laguna-catemaco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MX"
+      ],
+      "regions": [
+        "Laguna Catemaco"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This platy originates from Laguna Catemaco, a freshwater lake in Mexico.",
+          "countries": [
+            "MX"
+          ],
+          "regions": [
+            "Laguna Catemaco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2350154,
+      "total": 25,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "MX",
+          25
+        ]
+      ],
+      "cells": [
+        [
+          -95.625,
+          18.28125,
+          25,
+          25
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -21,14 +21,14 @@
       "countries": [
         "ID",
         "PG",
-        "SB",
-        "PH"
+        "SB"
       ],
       "regions": [
         "Ambon Island",
-        "Maluku Islands",
         "Sumatra",
         "Bismarck Archipelago",
+        "Sulawesi",
+        "Bali",
         "New Guinea"
       ],
       "sources": [
@@ -46,18 +46,17 @@
           ],
           "regions": [
             "Ambon Island",
-            "Maluku Islands",
             "Sumatra",
             "Bismarck Archipelago"
           ]
         },
         {
           "source": "glaser",
-          "quote": "It is found in Indonesia, the Philippines, New Guinea and the Solomon Islands.",
-          "countries": [
-            "PH"
-          ],
+          "quote": "The species has a wide distribution: it is known from Sulawesi, Bali, New Guinea (Irian Jaya), generally in Indonesia, and in the west to the Solomon Islands.",
+          "countries": [],
           "regions": [
+            "Sulawesi",
+            "Bali",
             "New Guinea"
           ]
         }

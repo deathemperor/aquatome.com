@@ -3,6 +3,12 @@
   "name": "Batang Gadis",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T17:56:23.205Z",
+    "why": "\"Batang Gadis\" is the proper name, but Malay atlases would typically write \"Taman Negara Batang Gadis\" or \"Sungai Batang Gadis\" for the drainage/region, so the bare name omits the kind word."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

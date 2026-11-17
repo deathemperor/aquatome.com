@@ -3,6 +3,12 @@
   "name": "Jardine",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-17T17:57:33.742Z",
+    "why": "The source refers to the Jardine River on Cape York, so Malay would normally write \"Sungai Jardine\"; bare \"Jardine\" drops the kind word and so names the river only by its short form."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

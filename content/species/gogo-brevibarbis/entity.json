@@ -10,6 +10,50 @@
     "madagascar",
     "mananjary"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MG"
+      ],
+      "regions": [
+        "Mananjary"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Africa: Mananjary River basin in the southeastern highlands of Madagascar.",
+          "countries": [
+            "MG"
+          ],
+          "regions": [
+            "Mananjary"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338031,
+      "total": 1,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "MG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          47.8125,
+          -18.28125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

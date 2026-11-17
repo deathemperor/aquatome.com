@@ -27,11 +27,11 @@
         "Solimões",
         "Japurá",
         "Itaya",
-        "Samiria",
-        "Yavarí"
+        "Rio Tapiche"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -44,14 +44,7 @@
           ],
           "regions": [
             "Río Ucayali",
-            "Solimões"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Described from the Río Ucayali close to the city of Pucallpa, central Peru but is widely-distributed in tributaries of that system, as well as the Solimões/Amazon as far east as the Japurá drainage.",
-          "countries": [],
-          "regions": [
+            "Solimões",
             "Japurá"
           ]
         },
@@ -60,9 +53,15 @@
           "quote": "Records exist from the Itaya, Samiria, Ampiyacu, and Yavarí basins, among others.",
           "countries": [],
           "regions": [
-            "Itaya",
-            "Samiria",
-            "Yavarí"
+            "Itaya"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Specimens of A. eunotus from the Rio Tapiche in Peru were obtained recently that differ in many respects from typical A. eunotus.",
+          "countries": [],
+          "regions": [
+            "Rio Tapiche"
           ]
         }
       ]

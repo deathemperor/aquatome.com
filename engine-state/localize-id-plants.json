@@ -592,6 +592,34 @@
       "Item 3: \"Di daerah asalnya\" narrows \"locally\" a little. \"Secara lokal\" or \"Di beberapa daerah\" would be closer."
     ]
   },
+  "cabomba-sp": {
+    "at": "2026-11-17",
+    "from": "2026-11-17",
+    "name": "Cabomba",
+    "confidence": "high",
+    "score": 0.72,
+    "notes": [
+      "Item 5: \"sekitar 40 liter\" is correct per the table, no issue; skip.",
+      "Item 6: \"Fragile: the needles break off easily\" was rendered \"daun jarumnya\" - fine; but \"Leaves falling off\" -> \"Daun rontok\" OK.",
+      "Item 8: \"Tanaman ini menyerap nutrisi dari kolom air, bukan dari akar\" - the English says it is mainly a water-column feeder 'rather than a root feeder'; \"bukan dari akar\" is too absolute, use \"lebih banyak dari kolom air daripada dari akar\".",
+      "Item 10: \"tahan cahaya redup/tempat teduh\" - 'tolerates shade'; 'tempat teduh' is redundant/awkward, use \"toleran terhadap cahaya redup\".",
+      "Item 2: \"cup tertutup\" leaves English 'cup' untranslated; use \"wadah/pot tertutup\".",
+      "Item 9: \"Lobster air tawar\" for crayfish is acceptable, but \"damai\" list leaves 'Oscar' etc. fine; 'teman setangki' is non-standard, prefer \"tank mate\"/\"penghuni akuarium lain\".",
+      "Item 7: \"lunak hingga agak sadah\" ok; \"melting (meleleh)\" repeated twice, awkward."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "b6596fed4391",
+      "beforeYouBuy:aquariumbreeder": "a7d12095e0d0",
+      "distribution:aquariumbreeder": "81691d764304",
+      "habitat:aquariumbreeder": "f5383c2b13c5",
+      "aquariumSize:aquariumbreeder": "19064e4ecbff",
+      "maintenance:aquariumbreeder": "cf4b11baf1d5",
+      "waterConditions:aquariumbreeder": "c5c9b46b9071",
+      "equipment:aquariumbreeder": "b1728eb17de4",
+      "behaviour:aquariumbreeder": "3fa1eb8c4f53",
+      "notes:aquariumbreeder": "59c2dc837df1"
+    }
+  },
   "caloglossa-beccarii": {
     "at": "2026-10-30",
     "from": "2026-10-29",
@@ -2382,6 +2410,31 @@
       "\"disatukan dengan pemberat\": \"anchor\" here is the lead/rubber plant weight; \"pemberat\" is OK but consider \"pemberat timah\" for clarity.",
       "\"tanaman air yang tangguh\": \"hardy\" is more naturally \"tahan banting/mudah dirawat\"."
     ]
+  },
+  "vallisneria-sp": {
+    "at": "2026-11-17",
+    "from": "2026-11-17",
+    "name": "Vallisneria sp.",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "#10: \"tanaman tahunan (perennial)\" is ambiguous, since \"tahunan\" can read as annual. Use \"tanaman menahun (perennial)\".",
+      "#10: \"frogbit Eropa\" drops \"common\" from \"common or European frogbit\". Add \"frogbit biasa atau frogbit Eropa\".",
+      "#5: \"(Sagittaria subulata, dwarf sagittaria)\" adds a Latin name that is not in the source. Remove it or keep only the common name.",
+      "#7: \"kurang tahan terhadap dosis CO2 cair\" softens \"does not tolerate\". Use \"tidak tahan\" or \"tidak toleran\"."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "f83b66d47850",
+      "beforeYouBuy:aquariumbreeder": "6b962f713ae9",
+      "distribution:aquariumbreeder": "e28847f58473",
+      "habitat:aquariumbreeder": "73465e5df4a3",
+      "aquariumSize:aquariumbreeder": "9c22ab5ac404",
+      "maintenance:aquariumbreeder": "e1ec8256de2b",
+      "waterConditions:aquariumbreeder": "b0f808342fc3",
+      "behaviour:aquariumbreeder": "8e7963d981bf",
+      "reproduction:aquariumbreeder": "1699b8821f0f",
+      "notes:aquariumbreeder": "a7df36e20927"
+    }
   },
   "vallisneria-sp-gigantea": {
     "at": "2026-11-07",

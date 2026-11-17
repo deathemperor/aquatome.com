@@ -1815,6 +1815,33 @@
     ],
     "ruled": "687fc4405763327b"
   },
+  "vi/guides/aquariumbreeder-crayfish-and-molting-process": {
+    "at": "2026-11-17",
+    "hash": "9167effb34ec3c54",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## Dấu hiệu tôm hùm đất sắp lột xác",
+        "problem": "The subsections are flattened to the same heading level, so a second '## 1.' list starts at the same level as the first numbered list of stages, and the stage list's own sub-question 'Giai đoạn hậu lột xác kéo dài bao lâu?' has lost its heading.",
+        "rule": "Numbering of headings restarts at 1 under a heading of the same level.",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-17",
+        "field": "body",
+        "score": 0.93,
+        "kept": true,
+        "problems": [
+          "This reads as 'stop feeding a few days after the molt', but the source means 'don't feed for the first few days after the molt'."
+        ]
+      }
+    ],
+    "ruled": "9167effb34ec3c54"
+  },
   "vi/guides/aquariumbreeder-crayfish-and-suitable-tank-mates": {
     "at": "2026-11-07",
     "hash": "7aa00f6e2efbee55",
@@ -2973,6 +3000,22 @@
       }
     ],
     "ruled": "4801ee66e6d0a2dd"
+  },
+  "vi/guides/aquariumbreeder-how-to-remove-hair-algae-in-aquariums": {
+    "at": "2026-11-17",
+    "hash": "a7e4c33b3adde81d",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "vật ký sinh (như ốc hại hoặc chuồn chuồn)",
+        "problem": "The pest that hitchhikes on plants is the dragonfly larva/nymph, not the dragonfly itself.",
+        "fix": "vật ký sinh (như ốc hại hoặc ấu trùng chuồn chuồn)",
+        "field": "body"
+      }
+    ],
+    "ruled": "a7e4c33b3adde81d"
   },
   "vi/guides/aquariumbreeder-how-to-remove-red-algae-in-aquariums": {
     "at": "2026-11-02",
@@ -4519,6 +4562,49 @@
       }
     ],
     "ruled": "af72146bd6889ece"
+  },
+  "vi/guides/aquariumbreeder-top-8-carpeting-plants-for-planted-tanks": {
+    "at": "2026-11-17",
+    "hash": "9c6d84aca29a9209",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Glossostigma elatinoides thích đèn mạnh. Nếu không đủ sáng, cây bắt đầu mọc…",
+        "problem": "The sentence is cut off, so it never says what the plant does in low light.",
+        "fix": "Glossostigma elatinoides thích đèn mạnh. Nếu không đủ sáng, cây bắt đầu mọc vống lên thay vì bò ngang.",
+        "rule": "A list item or sentence that ends in an ellipsis.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Đèn yếu, trung bình hay mạnh đều lên được.",
+        "problem": "The Monte Carlo pros say it grows in low light, but its traits list says it handles every light level except low light.",
+        "fix": "Đèn trung bình hay mạnh đều lên được.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "có thể tăng lượng CO2 bằng cách gọi là “nghỉ trưa” (siesta)",
+        "problem": "\"bằng cách gọi là\" is ungrammatical. A word is missing.",
+        "fix": "có thể tăng lượng CO2 bằng một cách gọi là “nghỉ trưa” (siesta)",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## Nền",
+        "problem": "Nền, Ánh sáng, Châm phân and the other planting steps are top-level headings, the same level as the section above them, when they should be subsections of \"Cách trồng cây trải thảm trong bể\".",
+        "field": "body"
+      }
+    ],
+    "ruled": "9c6d84aca29a9209"
   },
   "vi/guides/aquariumbreeder-top-aquarium-plants-that-grow-in-tanks-with-gravel-or-sand": {
     "at": "2026-11-17",
@@ -10301,6 +10387,22 @@
     ],
     "ruled": "f98ebad25da69a69"
   },
+  "vi/guides/glaser-en-09-characoids-tetra-relationship-black-winged-dwarf-hatchets": {
+    "at": "2026-11-17",
+    "hash": "03ce0dc6f055ada0",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Thật ra hai loài này có màu gần như giống nhau.",
+        "problem": "In the source, the similar colouring is between C. schereri and Gasteropelecus sternicla, but the page makes it read as the two dwarf hatchet species, which the next paragraph says are easy to tell apart by colour.",
+        "fix": "Thật ra C. schereri và Gasteropelecus sternicla có màu gần như giống nhau.",
+        "field": "body"
+      }
+    ],
+    "ruled": "03ce0dc6f055ada0"
+  },
   "vi/guides/glaser-en-09-characoids-tetra-relationship-black-winged-dwarf-hatchets-en": {
     "at": "2026-11-17",
     "hash": "dbf9c40ec6a4040d",
@@ -10799,6 +10901,22 @@
     "findings": [],
     "ruled": "a5fbf51c5e65c7da"
   },
+  "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-the-story-of-the-cologne-wild-guppy": {
+    "at": "2026-11-17",
+    "hash": "a3c6aebce666f988",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cá bảy màu hoang dã Cologne là loài cá thú vị.",
+        "problem": "The Cologne wild guppies are a local population of the guppy, not a separate species (the source just says 'interesting animals').",
+        "fix": "Cá bảy màu hoang dã Cologne là đàn cá rất thú vị.",
+        "field": "body"
+      }
+    ],
+    "ruled": "a3c6aebce666f988"
+  },
   "vi/guides/glaser-en-25-perchlike-fishes-25a-perchlike-fishes-1-labyrinth-fishes-anabas-en": {
     "at": "2026-11-09",
     "hash": "c824d7ff1b05d3d0",
@@ -10820,6 +10938,12 @@
     "hash": "f7ba5e1882d917a7",
     "findings": [],
     "ruled": "f7ba5e1882d917a7"
+  },
+  "vi/guides/glaser-en-25-perchlike-fishes-25a-perchlike-fishes-1-labyrinth-fishes-channa-sp-meghalaya-2": {
+    "at": "2026-11-17",
+    "hash": "9be8c3755a56337f",
+    "findings": [],
+    "ruled": "9be8c3755a56337f"
   },
   "vi/guides/glaser-en-25-perchlike-fishes-25a-perchlike-fishes-1-labyrinth-fishes-many-varieties-of-snakehead-currently-available-at-aquarium-glaser-en": {
     "at": "2026-11-10",
@@ -10926,6 +11050,22 @@
     "hash": "2db5979d744f857f",
     "findings": [],
     "ruled": "2db5979d744f857f"
+  },
+  "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-discus-heckel-cross-jatapu": {
+    "at": "2026-11-17",
+    "hash": "68a2211b056e13d0",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Mùa rộ của cá đĩa hoang dã bắt ngoài tự nhiên",
+        "problem": "'Hoang dã' and 'bắt ngoài tự nhiên' say the same thing, so the phrase repeats itself and reads like a word-for-word translation.",
+        "fix": "Mùa rộ của cá đĩa bắt ngoài tự nhiên",
+        "field": "body"
+      }
+    ],
+    "ruled": "68a2211b056e13d0"
   },
   "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-new-clown-angels-en": {
     "at": "2026-11-10",
@@ -11049,6 +11189,12 @@
     "hash": "f7006cc7e9bec4cf",
     "findings": [],
     "ruled": "f7006cc7e9bec4cf"
+  },
+  "vi/guides/glaser-en-31-crayfishes-shrimps-crabs-snails-mussels-sensation-bamboo-shrimp-from-taiwan-en": {
+    "at": "2026-11-17",
+    "hash": "6c74aab39adf4c82",
+    "findings": [],
+    "ruled": "6c74aab39adf4c82"
   },
   "vi/guides/glaser-en-32-all-the-rest-congo-importation-arrived-en": {
     "at": "2026-11-10",
@@ -14667,6 +14813,12 @@
     ],
     "ruled": "0de266b2de3c2814"
   },
+  "vi/guides/youtube--G8lFH5bHnE": {
+    "at": "2026-11-17",
+    "hash": "dcf54e18b8957d56",
+    "findings": [],
+    "ruled": "dcf54e18b8957d56"
+  },
   "vi/guides/youtube--JB4hMuqzwE": {
     "at": "2026-11-16",
     "hash": "28b442df410bcfc0",
@@ -15321,6 +15473,30 @@
     ],
     "ruled": "3461f7c60b1a976c"
   },
+  "vi/guides/youtube-223-24zhjoc": {
+    "at": "2026-11-17",
+    "hash": "6d2f4a7ef5c46820",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "L4",
+        "quote": "Cả bộ chỉ cần ống PVC 5 cm, hai chai nước 500 ml, hai giác hút, silicon an toàn cho bể và máy sủi",
+        "problem": "The list of parts leaves out the wooden airstone, which the page itself calls the most important part.",
+        "fix": "Cả bộ chỉ cần ống PVC 5 cm, hai chai nước 500 ml, hai giác hút, silicon an toàn cho bể, cục sủi gỗ và máy sủi, tổng chi phí khoảng 15 USD.",
+        "field": "summary.3"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "L16",
+        "quote": "Thường sau vài ngày chạy thì cốc sẽ có skimmate.",
+        "problem": "The question asks how often to empty the cup, but the answer only says when skimmate first shows up.",
+        "field": "faq.4.a"
+      }
+    ],
+    "ruled": "6d2f4a7ef5c46820"
+  },
   "vi/guides/youtube-27quC5jcKu0": {
     "at": "2026-11-10",
     "hash": "a9ba0ba8828a3c1a",
@@ -15818,6 +15994,31 @@
       }
     ],
     "ruled": "769e5615886e405f"
+  },
+  "vi/guides/youtube-4WD_WU536g8": {
+    "at": "2026-11-17",
+    "hash": "a5943fcd5a2d3065",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bài này đi qua từng bước",
+        "problem": "Calque of English 'walks through each step'; unnatural in Vietnamese.",
+        "fix": "Dưới đây là từng bước:",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Ấn hai tấm vào nhau cho tới khi đường keo nhìn trong.",
+        "problem": "'đường keo nhìn trong' is an awkward literal rendering; unclear that it means the bead looks clear, without air bubbles.",
+        "fix": "Ấn hai tấm vào nhau cho tới khi đường keo trong, không còn bọt khí.",
+        "field": "body"
+      }
+    ],
+    "ruled": "a5943fcd5a2d3065"
   },
   "vi/guides/youtube-4Wjl4LHy2gM": {
     "at": "2026-11-11",
@@ -17511,6 +17712,22 @@
     "findings": [],
     "ruled": "9c2871136b79eb0f"
   },
+  "vi/guides/youtube-B3vzV_r7tPY": {
+    "at": "2026-11-17",
+    "hash": "f349256f68586e55",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "L3",
+        "quote": "một cốc cây có thể thành khoảng bốn cốc sau vài tháng",
+        "problem": "The summary says 'several months', but the body gives about two months for the same growth.",
+        "fix": "một cốc cây có thể thành khoảng bốn cốc sau chừng hai tháng",
+        "field": "summary.2"
+      }
+    ],
+    "ruled": "f349256f68586e55"
+  },
   "vi/guides/youtube-B4DB-iHBofo": {
     "at": "2026-11-11",
     "hash": "3a43ef7b16a45523",
@@ -17699,6 +17916,42 @@
       }
     ],
     "ruled": "7239c7f012d820dd"
+  },
+  "vi/guides/youtube-BsRyej3Zte8": {
+    "at": "2026-11-17",
+    "hash": "baca96e8826d2e06",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "L3",
+        "quote": "Hạ mực nước, buộc ráy (Anubias) lên trước làm điểm nhấn phía trước",
+        "problem": "The summary says to tie the Anubias on, but the body says to glue small ones onto stones and tuck or glue large clumps into the wood.",
+        "fix": "Hạ mực nước, gắn ráy (Anubias) ở mặt trước trước để làm điểm nhấn, rồi mới tính phần cây phía sau.",
+        "field": "summary.2"
+      },
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Muốn hẹ phải bám chặt nền trong dòng nước chảy thì cần thêm thổi luồng.",
+        "problem": "The logic is garbled: a wavemaker doesn't make Vallisneria root more firmly, and the point is to get a river-like current that moves the plants.",
+        "fix": "Muốn có dòng chảy đủ mạnh cho hẹ đung đưa như ở sông thì cần thêm thổi luồng.",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-17",
+        "field": "body",
+        "score": 0.6,
+        "kept": false,
+        "problems": [
+          "The logic is garbled: a wavemaker doesn't make Vallisneria root more firmly, and the point is to get a river-like current that moves the plants."
+        ]
+      }
+    ],
+    "ruled": "baca96e8826d2e06"
   },
   "vi/guides/youtube-BTGMS7pm6zo": {
     "at": "2026-11-08",
@@ -18337,6 +18590,31 @@
     "hash": "f3c1b796f97aa8ef",
     "findings": [],
     "ruled": "f3c1b796f97aa8ef"
+  },
+  "vi/guides/youtube-cYmUrguvkrk": {
+    "at": "2026-11-17",
+    "hash": "b364355b5ce47af3",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Chồng hai bể lên nhau dễ làm hơn và mới làm được.",
+        "problem": "The clause \"và mới làm được\" doesn't make sense after \"dễ làm hơn\" and reads like a garbled translation.",
+        "fix": "Bể thấp thì mới chồng hai bể lên nhau được, làm cũng dễ hơn.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cạo hết vết cưa trên các cạnh bằng cách cạo cho đến khi cạnh phẳng và không còn dấu cưa.",
+        "problem": "The sentence says \"cạo\" twice (\"scrape ... by scraping\"), which sounds clumsy.",
+        "fix": "Cạo các cạnh cho đến khi phẳng và không còn dấu cưa.",
+        "field": "body"
+      }
+    ],
+    "ruled": "b364355b5ce47af3"
   },
   "vi/guides/youtube-CzyeWSYmJaQ": {
     "at": "2026-11-08",
@@ -19428,6 +19706,33 @@
     "findings": [],
     "ruled": "bd0080969595f9bb"
   },
+  "vi/guides/youtube-G2iSTDzETi0": {
+    "at": "2026-11-17",
+    "hash": "20409597de91d22a",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Mép trong mỗi lỗ được vát sâu khoảng 6 mm",
+        "problem": "'Vát' means a chamfer, which cannot hold a lid flat. The seat described here is a stepped rebate, so readers may cut the wrong shape.",
+        "fix": "Mép trong mỗi lỗ được soi bậc sâu khoảng 6 mm",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-17",
+        "field": "body",
+        "score": 0.9,
+        "kept": true,
+        "problems": [
+          "In Vietnamese hobby usage 'lọc thùng' means a canister filter, not a sump, so the hobby term is wrong."
+        ]
+      }
+    ],
+    "ruled": "20409597de91d22a"
+  },
   "vi/guides/youtube-G4qC-5UEEWo": {
     "at": "2026-11-10",
     "hash": "7c9ce1ce48c94d2b",
@@ -20023,6 +20328,22 @@
       }
     ],
     "ruled": "49208af83b331d74"
+  },
+  "vi/guides/youtube-hL271pKi_qY": {
+    "at": "2026-11-17",
+    "hash": "6389d7ff5d35f506",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Phần thân chính hoàn tất với khoảng 25 USD.",
+        "problem": "The last section gives the cost as about 25 USD, but the intro, summary and FAQ say under 25 USD.",
+        "fix": "Phần thân chính hoàn tất với giá dưới 25 USD.",
+        "field": "body"
+      }
+    ],
+    "ruled": "6389d7ff5d35f506"
   },
   "vi/guides/youtube-hL920TrlANg": {
     "at": "2026-11-07",
@@ -21335,6 +21656,12 @@
     ],
     "ruled": "b5490084258fc2d3"
   },
+  "vi/guides/youtube-JuaFSSYxyAI": {
+    "at": "2026-11-17",
+    "hash": "dd844fa5b6f2c62b",
+    "findings": [],
+    "ruled": "dd844fa5b6f2c62b"
+  },
   "vi/guides/youtube-jvEJpkByqJ0": {
     "at": "2026-11-02",
     "hash": "0accee578e601f3b",
@@ -22143,6 +22470,31 @@
       }
     ],
     "ruled": "ee24db67eaf924e9"
+  },
+  "vi/guides/youtube-LiotY1HIneo": {
+    "at": "2026-11-17",
+    "hash": "870539e35b60f936",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Xả hết nước rồi châm nước mới lại.",
+        "problem": "The body says to drain all the water, but the summary and FAQ (L6, L10) say to do a large water change, which is not the same advice.",
+        "fix": "Thay một lượng nước lớn rồi châm nước mới lại.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Pearl weed. Chỉ trồng một chỗ nhỏ",
+        "problem": "The plant's name is left in English in a Vietnamese list, where every other item has a Vietnamese name. Vietnamese hobbyists call this plant 'trân châu'.",
+        "fix": "Trân châu (pearl weed). Chỉ trồng một chỗ nhỏ",
+        "field": "body"
+      }
+    ],
+    "ruled": "870539e35b60f936"
   },
   "vi/guides/youtube-lIvdfAD26BE": {
     "at": "2026-11-06",
@@ -23913,6 +24265,12 @@
     ],
     "ruled": "615a3bee3264a11d"
   },
+  "vi/guides/youtube-P6iATC1m448": {
+    "at": "2026-11-17",
+    "hash": "36cdbbd6e8c7675a",
+    "findings": [],
+    "ruled": "36cdbbd6e8c7675a"
+  },
   "vi/guides/youtube-P7GTfHdl5E8": {
     "at": "2026-11-06",
     "hash": "a4c4898dce7d7e20",
@@ -24392,6 +24750,23 @@
     "hash": "5e7589f3ca0b2fcc",
     "findings": [],
     "ruled": "5e7589f3ca0b2fcc"
+  },
+  "vi/guides/youtube-qaow2ai3eZM": {
+    "at": "2026-11-17",
+    "hash": "ec6b4ef0cd47212b",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L16",
+        "quote": "Thủ phạm thường là tấm acrylic bị cong võng",
+        "problem": "\"Thủ phạm\" reads stiff and translated in a hobby FAQ, and the site's guide says to state the cause directly.",
+        "fix": "Thường là do tấm acrylic bị cong võng, làm khe hở rộng hơn khe do kim tạo ra.",
+        "rule": "Flag the listed word \"thủ phạm\" anywhere on a Vietnamese page.",
+        "field": "faq.4.a"
+      }
+    ],
+    "ruled": "ec6b4ef0cd47212b"
   },
   "vi/guides/youtube-qAQwhzHqh10": {
     "at": "2026-11-06",

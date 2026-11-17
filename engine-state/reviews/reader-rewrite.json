@@ -71,6 +71,21 @@
       "kept": false
     }
   ],
+  "vi/guides/aquariumbreeder-crayfish-and-molting-process#body": [
+    {
+      "at": "2026-11-17T18:17:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [
+        "\"Vài ngày đầu sau khi lột\" adds \"đầu\" (first few days), slightly more specific than \"vài ngày sau khi lột\"; minor nuance.",
+        "\"ăn hết lớp vỏ đó để lấy lại khoáng chất\" became \"ăn lại lớp vỏ đó\"; \"hết\" moved to the end clause, meaning essentially kept."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/aquariumbreeder-how-to-choose-aquarium-plants-for-beginners#body": [
     {
       "at": "2026-11-09T13:57:24Z",
@@ -469,6 +484,21 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-BsRyej3Zte8#body": [
+    {
+      "at": "2026-11-17T18:19:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "BEFORE: hẹ must 'bám chặt nền trong dòng nước chảy' (stay firmly rooted in the current); AFTER: 'đung đưa như ở sông' (sway like in a river) changes the meaning, and the rooting idea is lost.",
+        "AFTER adds 'dòng chảy đủ mạnh' (strong enough current), which BEFORE does not state."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-C3jPFBWzK68#body": [
     {
       "at": "2026-11-08T11:28:30Z",
@@ -507,6 +537,20 @@
       "cli": "2.1.322",
       "score": 0.97,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-G2iSTDzETi0#body": [
+    {
+      "at": "2026-11-17T18:21:19Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "\"lọc thùng (sump)\" changed to \"lọc tràn (sump)\": different term for the same sump, minor terminology shift."
+      ],
       "attempt": "first",
       "kept": true
     }

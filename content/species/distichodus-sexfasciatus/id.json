@@ -24,11 +24,11 @@
     "diet:glaser": "<p>Ikan ini adalah herbivora sejati, sehingga sebagian besar tanaman air berdaun halus akan dianggap sebagai pakan.</p>"
   },
   "quality": {
-    "score": 0.6,
-    "indexable": false,
+    "score": 0.88,
+    "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.6,
-      "glaser": 0.6
+      "seriouslyfish": 0.88,
+      "glaser": 0.88
     }
   }
 }

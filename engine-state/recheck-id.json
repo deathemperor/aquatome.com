@@ -13,6 +13,13 @@
     "opus": 0.65,
     "back": false
   },
+  "betta-splendens": {
+    "hash": "8fca59ac7754b7e9e7604087811d7eb1d4c6dcecd3b87a2f10508ca84a1643bf",
+    "at": "2026-11-17T17:49:06.882Z",
+    "sonnet": 0.9,
+    "opus": 0.9,
+    "back": true
+  },
   "brachychalcinus-orbicularis": {
     "hash": "860a4365720de71049f69d9543ff4a50950fc0a28c6cc319b2cf5665526fe520",
     "at": "2026-11-17T11:23:39.463Z",
@@ -30,6 +37,13 @@
     "at": "2026-11-17T11:24:00.461Z",
     "sonnet": 0.7,
     "back": false
+  },
+  "chaetobranchopsis-australis": {
+    "hash": "cf27d92f7187c2a922a0e06cbc7a85fa0086b61332259a9f6b5997fb744a0691",
+    "at": "2026-11-17T17:44:56.750Z",
+    "sonnet": 0.75,
+    "opus": 0.95,
+    "back": true
   },
   "corydoras-bifasciatus": {
     "hash": "b36a7e2a3f04063aeaeef63454cbe5154ebc1bbd75bcc3222b5d9819a0b53885",
@@ -90,6 +104,96 @@
     "hash": "1f8b3c786ef761b0e1147ad1bf1e7a01eaf60b0318f3428ec53382fc6d7e94ae",
     "at": "2026-11-17T11:26:25.829Z",
     "sonnet": 0.6,
+    "back": false
+  },
+  "distichodus-sexfasciatus": {
+    "hash": "287f7c045993a16d2cbc128859f300b79f237b03195abf07bdce66c0a61a532f",
+    "at": "2026-11-17T17:45:28.097Z",
+    "sonnet": 0.88,
+    "opus": 0.9,
+    "back": true
+  },
+  "duncanopsammia-axifuga": {
+    "hash": "c6c2002f9278c36bb62524bfbf02f286cf6ad12d209e5d668e408d2b7159454f",
+    "at": "2026-11-17T17:46:02.613Z",
+    "sonnet": 0.9,
+    "opus": 0.9,
+    "back": false,
+    "held": [
+      "#7: \"Duncan mengalami bleaching pada suhu tinggi (32 °C)\" turns a reported observation into a general rule. Use \"Duncan diketahui mengalami bleaching...\" or \"pernah mengalami bleaching...\" to keep the source's past-tense finding."
+    ]
+  },
+  "ectodus-descampsii": {
+    "hash": "68b81174d22a807a302891410f9e70138c2ca1c0cc778e336fc0b47937b70415",
+    "at": "2026-11-17T17:46:33.824Z",
+    "sonnet": 0.85,
+    "opus": 0.85,
+    "back": true
+  },
+  "electrophorus-electricus": {
+    "hash": "81e338e0ac5a20e092b9be4c187daf8f560beadb0e29647b25fd00ef0bc7e587",
+    "at": "2026-11-17T17:46:47.447Z",
+    "sonnet": 0.55,
+    "back": false
+  },
+  "enteromius-fasciolatus": {
+    "hash": "f898c86432073a58ca562ec00eb2886f3a7456725149a0494d25c3b80143d34d",
+    "at": "2026-11-17T17:47:00.076Z",
+    "sonnet": 0.7,
+    "back": false,
+    "held": [
+      "Item 4: \"Awalnya spesies ini berasal dari Afrika bagian tenggara\" – the source says southeastern Africa, but item 2 says \"Afrika bagian tengah-selatan\". The translation is faithful, but it is inconsistent. Consider harmonising the region wording."
+    ]
+  },
+  "enteromius-guirali": {
+    "hash": "e1ff534f1a03070877fcc340665fdb131b410cac97fc25d329e2e615815a37cc",
+    "at": "2026-11-17T17:47:11.952Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "enteromius-holotaenia": {
+    "hash": "e16f4ea7807dbb2edeaca62c9f610ef018d343fcf62c8aff7461237541ed60aa",
+    "at": "2026-11-17T17:47:24.707Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "gastromyzon-punctulatus": {
+    "hash": "7f4e31e08717e43d71a18465c60692ae3addde22a75870c252f7d82f1a233c5c",
+    "at": "2026-11-17T17:47:39.604Z",
+    "sonnet": 0.55,
+    "back": false,
+    "held": [
+      "Item 12: \"fights are always harmless\" became \"perkelahiannya selalu tidak berbahaya\". This is acceptable, but \"Sesamanya\" is awkward. Use \"Sesama ikan ini\"."
+    ]
+  },
+  "hemirhamphodon-tengah": {
+    "hash": "dae8dcb98221805268f101be218738b005fcbb426793b5057e1beabc6532c8bb",
+    "at": "2026-11-17T17:47:50.016Z",
+    "sonnet": 0.72,
+    "back": false
+  },
+  "kottelatia-brittani": {
+    "hash": "cd5752651179e57e3c4c7601c156799943a371a5aa75967d63366cec3fcddb9e",
+    "at": "2026-11-17T17:48:08.437Z",
+    "sonnet": 0.55,
+    "back": false
+  },
+  "neocaridina-davidi": {
+    "hash": "da5d146e7121c0be630bc7e2c7006b5e02c3dc6478bf72e6e3c6868ed71cd082",
+    "at": "2026-11-17T17:49:26.436Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "oryzias-dancena": {
+    "hash": "304f5381cf6435ce8b107bdebfbc4cbc9c35da00afaba0040075d4c32c664f83",
+    "at": "2026-11-17T17:48:20.067Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "paracheirodon-axelrodi": {
+    "hash": "1550ab1a5221807df975eda9142654fb254647de4507459b0f651f7a191450f6",
+    "at": "2026-11-17T17:49:13.287Z",
+    "sonnet": 0.45,
     "back": false
   }
 }

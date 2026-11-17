@@ -18,15 +18,17 @@
       ],
       "regions": [
         "Amazon",
-        "Madeira"
+        "Madeira",
+        "Solimões"
       ],
       "sources": [
-        "planetcatfish"
+        "planetcatfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "planetcatfish",
-          "quote": "Type locality: Amazon River near Teffé, Brazil.",
+          "quote": "Rineloricaria teffeana (Steindachner, 1879). Type locality: Amazon River near Teffé, Brazil. Etymology: Greek, rhinos = nose + Latin, lorica, loricare = cuirass of corslet of leather. Named after Tefé, its type locality. Size: 14 cm SL.",
           "countries": [
             "BR"
           ],
@@ -38,7 +40,8 @@
           "countries": [],
           "regions": [
             "Amazon",
-            "Madeira"
+            "Madeira",
+            "Solimões"
           ]
         }
       ]

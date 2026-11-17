@@ -1,8 +1,13 @@
 {
   "slug": "white-nile",
-  "name": "Nil Putih",
+  "name": "Sungai Nil Putih",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-17T18:02:28.807Z"
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

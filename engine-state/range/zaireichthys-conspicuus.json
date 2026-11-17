@@ -1,0 +1,36 @@
+{
+  "id": "zaireichthys-conspicuus",
+  "native": {
+    "input": "de75ea043947a367",
+    "at": "2026-11-17T18:05:08.130Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Zambezi",
+        "source": "scotcat",
+        "quote": "Southern Africa: Upper Zambezi River from the rapid sections at Katima Mulilo down to just above the Victoria Falls.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Zaireichthys conspicuus",
+    "status": "ACCEPTED",
+    "taxonKey": 5961343,
+    "datasets": [
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        14
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-17T18:05:08.130Z"
+  }
+}

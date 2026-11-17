@@ -1,8 +1,13 @@
 {
   "slug": "kolok-river",
-  "name": "Golok",
+  "name": "Sungai Golok",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-17T17:57:46.172Z"
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

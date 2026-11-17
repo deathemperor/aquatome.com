@@ -550,6 +550,28 @@
       "\"ต้นไม้มาเป็นกำ\": \"มา\" is a small addition (it implies the plants are sold that way). Consider \"ไม้น้ำที่เป็นกำ...\"."
     ]
   },
+  "cabomba-sp": {
+    "at": "2026-11-17",
+    "from": "2026-11-17",
+    "name": "คาบอมบ้า",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"หอยศัตรูพืช\" for \"pest snails\" is a little off. Hobbyists usually say \"หอยรบกวน\" or \"หอยตัวแถม\". This is minor."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "b6596fed4391",
+      "beforeYouBuy:aquariumbreeder": "a7d12095e0d0",
+      "distribution:aquariumbreeder": "81691d764304",
+      "habitat:aquariumbreeder": "f5383c2b13c5",
+      "aquariumSize:aquariumbreeder": "19064e4ecbff",
+      "maintenance:aquariumbreeder": "cf4b11baf1d5",
+      "waterConditions:aquariumbreeder": "c5c9b46b9071",
+      "equipment:aquariumbreeder": "b1728eb17de4",
+      "behaviour:aquariumbreeder": "3fa1eb8c4f53",
+      "notes:aquariumbreeder": "59c2dc837df1"
+    }
+  },
   "caloglossa-beccarii": {
     "at": "2026-10-30",
     "from": "2026-10-29",
@@ -2358,6 +2380,31 @@
     "confidence": "medium",
     "score": 0.95,
     "notes": []
+  },
+  "vallisneria-sp": {
+    "at": "2026-11-17",
+    "from": "2026-11-17",
+    "name": "Vallisneria sp.",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 6: \"ปลูกด้วยคีม\" for \"tweezers\" – คีม means pliers; use \"แหนบ\" or \"ปากคีบ\" (the usual aquascaping tool).",
+      "Item 10: \"tape grass\" and \"frogbit\" are left in English; add Thai (e.g. \"หญ้าริบบิ้น\", \"กลุ่มไม้น้ำลอยฟร็อกบิต\") or put the English in brackets after the Thai.",
+      "Item 7: \"คาร์บอนน้ำ (liquid CO2)\" is an awkward term; use \"CO2 น้ำ\" or \"ลิควิดคาร์บอน\", which hobbyists use.",
+      "Item 8: \"ปลาเพลทีแวกเทล\", \"หอยนีไรท์\" and \"หอยแทรปดอร์ญี่ปุ่น\" are loose transliterations; use the common names \"ปลาแพลตตี้\", \"หอยเนอริต\" and \"หอยแอปเปิ้ลญี่ปุ่น/หอยทรัมเป็ต\" as appropriate."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "f83b66d47850",
+      "beforeYouBuy:aquariumbreeder": "6b962f713ae9",
+      "distribution:aquariumbreeder": "e28847f58473",
+      "habitat:aquariumbreeder": "73465e5df4a3",
+      "aquariumSize:aquariumbreeder": "9c22ab5ac404",
+      "maintenance:aquariumbreeder": "e1ec8256de2b",
+      "waterConditions:aquariumbreeder": "b0f808342fc3",
+      "behaviour:aquariumbreeder": "8e7963d981bf",
+      "reproduction:aquariumbreeder": "1699b8821f0f",
+      "notes:aquariumbreeder": "a7df36e20927"
+    }
   },
   "vallisneria-sp-gigantea": {
     "at": "2026-11-07",

@@ -3,6 +3,12 @@
   "name": "ยมุนา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T17:54:40.335Z",
+    "why": "ยมุนา is a correct Thai spelling of the name, but it leaves out the kind word แม่น้ำ that a Thai atlas puts before a river's name."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

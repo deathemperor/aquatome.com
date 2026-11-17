@@ -10,6 +10,56 @@
     "tanzania",
     "wami-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TZ"
+      ],
+      "regions": [
+        "Wami River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Africa: Wami River basin, Tanzania.",
+          "countries": [
+            "TZ"
+          ],
+          "regions": [
+            "Wami River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340774,
+      "total": 2,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "TZ",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          35.15625,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          36.5625,
+          -7.03125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -601,6 +601,29 @@
       "\"Tanam ... ke dalam substrat dengan sedikit jarak\" is ambiguous: the English means plant with some depth into the substrate. Clarify as \"tanam sedikit dalam ke dalam substrat\" and keep \"jarak\" separate if spacing is meant."
     ]
   },
+  "cabomba-sp": {
+    "at": "2026-11-17",
+    "from": "2026-11-17",
+    "name": "Cabomba",
+    "confidence": "high",
+    "score": 0.92,
+    "notes": [
+      "Item 9: \"Crayfish\" is left in English; use the local term \"udang karang\" (crayfish).",
+      "Item 7: \"melting\" and \"cair\" are used inconsistently in the same bullet; use one term, for example \"melting (reput/cair)\"."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "b6596fed4391",
+      "beforeYouBuy:aquariumbreeder": "a7d12095e0d0",
+      "distribution:aquariumbreeder": "81691d764304",
+      "habitat:aquariumbreeder": "f5383c2b13c5",
+      "aquariumSize:aquariumbreeder": "19064e4ecbff",
+      "maintenance:aquariumbreeder": "cf4b11baf1d5",
+      "waterConditions:aquariumbreeder": "c5c9b46b9071",
+      "equipment:aquariumbreeder": "b1728eb17de4",
+      "behaviour:aquariumbreeder": "3fa1eb8c4f53",
+      "notes:aquariumbreeder": "59c2dc837df1"
+    }
+  },
   "caloglossa-beccarii": {
     "at": "2026-11-10",
     "from": "2026-10-29",
@@ -1746,6 +1769,60 @@
       "maintenance:aquatome": "350432080dfe",
       "maintenance:tropica": "20c294bd22f8",
       "notes:tropica": "b645db1d5396"
+    }
+  },
+  "limnophila-aquatica": {
+    "at": "2026-11-17",
+    "from": "2026-10-30",
+    "name": "Limnophila aquatica",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"Tumbuhan batang\" is a literal rendering of \"Stem plant\"; Malaysian hobbyists usually say \"tumbuhan berbatang\" or \"tumbuhan stem\".",
+      "\"dikelilingi daun hijau muda\" for \"circled by ... leaves\" is a literal rendering. The English means whorled leaves, so use \"daun berpusar\" or \"daun tersusun melingkar\" (leaves arranged in whorls) instead.",
+      "\"selebar sehingga 15 cm\": \"each stem up to 15 cm wide\" is rendered literally. Consider \"berdiameter/selebar hingga 15 cm\" (spread). This is minor.",
+      "\"tumbesaran\" is better written \"pertumbuhan\" in standard Malay.",
+      "\"merimbun\" is fine. \"bercabang-cabang\" does not convey \"finely branched\". Use \"bercabang halus\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "5dee00b6b23f",
+      "maintenance:tropica": "549c5ed34219",
+      "notes:tropica": "8109523b53e5"
+    }
+  },
+  "limnophila-aromatica": {
+    "at": "2026-11-17",
+    "from": "2026-11-10",
+    "name": "Limnophila aromatica",
+    "confidence": "medium",
+    "score": 0.8,
+    "notes": [
+      "#1: \"Bentuk emersed\" leaves the English term unexplained; use \"bentuk emersed (tumbuh di atas air)\" or \"bentuk atas air\".",
+      "#1: \"tumbuhan batang yang mudah dijaga\" adds \"easy to care\" to \"simple stem plant\"; \"tumbuhan batang ringkas/biasa\" is closer.",
+      "#3: \"boleh dipangkas dengan banyak\" weakens \"pruned aggressively\"; use \"boleh dipangkas dengan agresif/teruk\".",
+      "#3: \"Ia boleh tahan apabila sebahagian dirinya terlindung daripada cahaya oleh daunnya sendiri\" is clumsy; use \"Ia boleh menerima sedikit teduhan sendiri (self-shading)\"."
+    ],
+    "parts": {
+      "quickFacts:2hraquarist": "03d6832ae5c3",
+      "maintenance:aquatome": "769289baa936",
+      "maintenance:2hraquarist": "c79a562fbff9",
+      "notes:2hraquarist": "770892cea8e8"
+    }
+  },
+  "limnophila-hippuridoides": {
+    "at": "2026-11-17",
+    "from": "2026-10-30",
+    "name": "Limnophila hippuridoides",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"tangki\" is acceptable, but \"akuarium\" is the more usual hobby term if the tank means the aquarium.",
+      "\"Tumbuhan ini mudah dijaga\" for \"A simple plant\" is fine; \"ideal\" is rendered as \"sesuai\", which is slightly weaker than \"optimum/ideal\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "26d2efd86c6c",
+      "maintenance:tropica": "d0c54ace17fc",
+      "notes:tropica": "52d8b22a7270"
     }
   }
 }

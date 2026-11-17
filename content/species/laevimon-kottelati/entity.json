@@ -9,6 +9,46 @@
     "asia",
     "vietnam"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VN"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It is endemic to Vietnam.",
+          "countries": [
+            "VN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5790558,
+      "total": 2,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "VN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          106.875,
+          19.6875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
