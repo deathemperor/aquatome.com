@@ -345,6 +345,8 @@ def test():
             assert not over, (f'the full run no longer fits {sum(PARTS.values())} jobs of {LINE_SECONDS} s of flows on '
                               f'GitHub\'s Macs: {over}. A job more (PARTS here, its outputs in ios.yml), or shorter flows')
 
+    # The run warns past the same line, from its jobs' real times (retried-tests.py).
+    assert f'took > {LINE_SECONDS}:' in open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'retried-tests.py')).read()
     # The lists aren't what selects the flows: a change to them alone runs none.
     assert not machinery('apps/ios/scripts/flow_lists.py')
     assert runs(['apps/ios/scripts/flow_lists.py']) == {} and left(['apps/ios/scripts/flow_lists.py']) == ''
