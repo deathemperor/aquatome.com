@@ -421,6 +421,8 @@ final class PageShotsFlowTests: XCTestCase {
     let card = app.descendants(matching: .any)["ask-aquatome"].firstMatch
     XCTAssertTrue(card.waitForExistence(timeout: 10), "no Hỏi AquaTome on Tìm")
     capture(app, name + "-tim", dark: dark, large: true, screens: 1)
+    // The shot drags the list up after it: the card back in view before its tap.
+    repeatUntil(card.isHittable, times: 4) { app.swipeDown() }
     card.tap()
     XCTAssertTrue(app.staticTexts["Bạn muốn hỏi gì?"].waitForExistence(timeout: 5), "no chat about nothing yet")
     let sign = app.descendants(matching: .any)["apple-sign-in"].firstMatch
