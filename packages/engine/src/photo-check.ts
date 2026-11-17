@@ -14,7 +14,7 @@ import { pickStands, readPersonYes } from './person-yes'
 import { holdForSecondLook, looks, readSecondLook } from './last-photo'
 import { contactSheet } from './video-images'
 import { keptOwnMark, LOGO_FOLDERS, retainedOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
-import { keptLast } from './own-mark'
+import { keptLast, screenedShop } from './own-mark'
 import { ageOf, ageUnasked, grownFirst, grownHead, headAsksAge, youngUnasked } from './young-heads'
 import { CF, namedOn, namedOrder, passesHead, SPECIES } from './photo-named'
 import { readAvoid } from './curation'
@@ -622,8 +622,13 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   }
   const label = (id: string) => { const s = byId.get(id)!; return s.kind === 'breeds' ? (s.names[0] ?? id) : s.sci }
   const added: Record<string, string> = {}
+  // An Aquarium Glaser photo from Glaser's own pages that the watermark screen hasn't judged yet: its logo waits for the
+  // screen, which asks whose the mark is and keeps it where every mark is the shop's own (own-mark.ts SCREENED_OWN_MARK;
+  // the chief of staff, 16 Nov). The check runs before the screen in a cycle, and a logo listed here never reaches that
+  // question. No public build shows the photo meanwhile (photo-screen.ts awaitsScreen). Dead fish and people still list it.
+  const ownMarkWaits = new Set(shown.filter(x => marks[x.url]?.watermark === undefined && screenedShop(x.url, x.source)).map(x => x.url))
   for (const url of everywhere.keys()) {
-    const why = url in rejected || !sl.open(url) ? undefined : blockedFor(cache[url], keepLogo(url))
+    const why = url in rejected || !sl.open(url) ? undefined : blockedFor(cache[url], keepLogo(url) || ownMarkWaits.has(url))
     if (why) { added[url] = why; report.blocked.push(`${url}: ${why}`) }
   }
   // Not one its file name took off: a photo of the species it names, which that species' page may still take.

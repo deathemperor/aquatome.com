@@ -158,6 +158,8 @@ export type SweepReport = {
   refusedHeld: string[]
   /** Albums put in the album order (gallery.ts orderAlbums) whose lead photo changed, `id: old -> new`. */
   albums: string[]
+  /** Aquarium Glaser kept-mark photos past what an album shows, left out of its file (own-mark.ts keptCap), `id: url`. */
+  albumKeptOut: string[]
   /**
    * Non-commercial photos taken off an album or a page (gallery.ts dropNonCommercial), `file: url`: every one with
    * IMAGE_SWITCHES.inatNonCommercial off, all but iNaturalist's album photos with it on.
@@ -531,7 +533,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   const cap = o.photoCap ?? PHOTO_CAP
   if (!Number.isInteger(cap) || cap < 0) throw new Error(`sweep: the photo cap is a whole number, 0 or more, not ${cap}`)
   const content = join(root, 'content')
-  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], secondLook: [], agreed: [], unwell: [], heads: [], named: [], noAnimal: [], refused: [], refusedHeld: [], refusedPicked: [], albums: [], nonCommercial: [], videos: [], card: [], summaries: [], tanks: [], shop: [], dealer: [], dealerOnly: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], folds: [], stopped: '' }
+  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], secondLook: [], agreed: [], unwell: [], heads: [], named: [], noAnimal: [], refused: [], refusedHeld: [], refusedPicked: [], albums: [], albumKeptOut: [], nonCommercial: [], videos: [], card: [], summaries: [], tanks: [], shop: [], dealer: [], dealerOnly: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], folds: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
   const counted: { file: string; raw: string; t: Stored; kind: string; lang: WrittenLang; id: string }[] = [] // raw: for its indentation
@@ -1340,6 +1342,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   const albums = await orderAlbums(root, subjects)
   albums.files.forEach(changed)
   report.albums = albums.leads
+  report.albumKeptOut = albums.keptOut
   report.noAnimal = await noAnimalHeads(root, o.today ?? vnDate(new Date()))
   // Last, after every step that writes a file: an email address left in any of them.
   const emails = await dropEmailsEverywhere(content)
