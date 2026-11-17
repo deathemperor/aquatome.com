@@ -10599,8 +10599,11 @@
     "crystal-red-shrimp": {
       "ok": "yes",
       "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
       "note": "subject yes",
-      "noteHash": "2669e00899597d51b046d6bff7cf4ca2be4833b1bbd5190dc2dfda9fc2956a75",
+      "noteHash": "6476c32b87e126ad8bbbd8f3a4f3cdc6ab0473ae3be0238134a0bc587e29030a",
       "hints": {
         "dead": false,
         "people": false
@@ -12259,8 +12262,11 @@
     "flowerhorn-cichlid": {
       "ok": "yes",
       "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
       "note": "subject yes",
-      "noteHash": "fdaf7aeca89ca3ff4317905157cbbfe892830be5d2d346e0c9a9896cab79a4dd",
+      "noteHash": "3b9eefe80139040c5756c9fa7bbaf0931c510273268642558c4f99d61bf46960",
       "hints": {
         "dead": false,
         "people": false
@@ -16593,8 +16599,11 @@
     "oranda-goldfish": {
       "ok": "yes",
       "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
       "note": "subject yes",
-      "noteHash": "12b075c6936c6a5ce0fb8e3b1c87931f1cb6c2197311079ec443facbbf72f085",
+      "noteHash": "298e71b816714dbfe0d29c51f29dd1cc4346dfb8f636f4e18046404a31534cb1",
       "hints": {
         "dead": false,
         "people": false
@@ -19922,6 +19931,19 @@
         "dead": false,
         "people": false
       }
+    },
+    "halfmoon-betta": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "8e1ef9052c60db2e7aa85e3279b0aebc02f68ef8239b0a4d47f6bcb56302b83b",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
     }
   },
   "https://media.aquatome.com/commons/3196fa411310211f.webp": {
@@ -21730,8 +21752,11 @@
     "oranda-goldfish": {
       "ok": "yes",
       "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
       "note": "subject yes",
-      "noteHash": "58060adfd30a73e7bc465fbf8bd56012666832e42edd01c2239fb1536150d269",
+      "noteHash": "452e46cceeb23246f047fe443adc7dc374dd06da690d0be3322e0a2f151b5c65",
       "hints": {
         "dead": false,
         "people": false
@@ -23369,8 +23394,11 @@
     "oranda-goldfish": {
       "ok": "yes",
       "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
       "note": "subject yes",
-      "noteHash": "f940bc4b0fa0664a0a816e1dea14d0eeb59b6f642a0af61462cf2155a3cf20dc",
+      "noteHash": "a435a07b069ad51ee81c57e9ecb8bc70c65b1f8ec6788dc41c69052b70c96215",
       "hints": {
         "dead": false,
         "people": false
@@ -23679,8 +23707,11 @@
     "glofish": {
       "ok": "yes",
       "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
       "note": "subject yes",
-      "noteHash": "07bc9c660b4b22cb89b155ec451c45921cefd087eea50e4f660e547d68506b14",
+      "noteHash": "931a99ac092cf3b241403455c4a67973a69f81ebd5885f5172581c43f7c8879a",
       "hints": {
         "dead": false,
         "people": false
@@ -31409,9 +31440,12 @@
   "https://media.aquatome.com/commons/6adbc592d4827479.webp": {
     "crystal-red-shrimp": {
       "ok": "yes",
-      "typical": false,
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
       "note": "subject yes",
-      "noteHash": "3212a6218b5d571346307340cf6291e1bccdd2812f4fac2134f7e0b627c03f5b",
+      "noteHash": "7d45ec116bc1b2ecaa2a0da223fbdb545d6e0a1ce9c404de5265a86151952e8f",
       "hints": {
         "dead": false,
         "people": false
@@ -34287,8 +34321,11 @@
     "halfmoon-betta": {
       "ok": "yes",
       "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
       "note": "subject yes",
-      "noteHash": "d908487d1649fd5df9ee090ec4f27bf28646901768a8eeab7cf11dfd68371308",
+      "noteHash": "3be13957ae6439790f68346505d54d190537805e91a37d534cbaf55965ed82b9",
       "hints": {
         "dead": false,
         "people": false
@@ -37098,9 +37135,12 @@
   "https://media.aquatome.com/commons/85d78aa9dcd939c0.webp": {
     "crystal-red-shrimp": {
       "ok": "yes",
-      "typical": false,
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
       "note": "subject yes",
-      "noteHash": "afb2e4a246d21c3d9df4d978a0a02c9b9c110bb5aba763c7ea94c1e5c8cf8e21",
+      "noteHash": "ad8756b23975b45b6d32b9e195d91ae38a72c6136c92f92565c0e0521ccde91a",
       "hints": {
         "dead": false,
         "people": false
@@ -40308,6 +40348,18 @@
         "dead": false,
         "people": false
       }
+    },
+    "synodontis-robbianus": {
+      "ok": "other",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject other",
+      "noteHash": "6f9f07adf498d3796eff8f634562729e321440d0198d0614c67585ca8c208e33",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
     }
   },
   "https://media.aquatome.com/commons/9717d9fc1711e36c.webp": {
@@ -41522,8 +41574,11 @@
     "glofish": {
       "ok": "yes",
       "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
       "note": "subject yes",
-      "noteHash": "fafcc49d506d85e613430f5af4cd8e3edb94c12ad31393f39cda4734166dc711",
+      "noteHash": "c38180fd4da1fd0f9143c6ba91a8a4743bff9891c4836053282b56fcebf17bbf",
       "hints": {
         "dead": false,
         "people": false
@@ -43952,8 +44007,11 @@
     "flowerhorn-cichlid": {
       "ok": "yes",
       "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
       "note": "subject yes",
-      "noteHash": "9fd10ff5980482f771f11e648043ae5f6fb5b994d040cd74d6ed14ac2132fe52",
+      "noteHash": "19e0c3f84c56564dbe6d172aa03a4dbecc95b7bbd3d842818f2691d42b9ce3ef",
       "hints": {
         "dead": false,
         "people": false
@@ -45426,8 +45484,11 @@
     "oranda-goldfish": {
       "ok": "yes",
       "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
       "note": "subject yes",
-      "noteHash": "0c9f20232f22da062873ca1216a0fadd4d0d4d27828685193ec911f3e768347b",
+      "noteHash": "89f420bff144f07de18267cdd758ea681d04ee57f74c0590dd71d06dd7a658b9",
       "hints": {
         "dead": false,
         "people": false
@@ -46053,8 +46114,11 @@
     "blood-parrot-cichlid": {
       "ok": "yes",
       "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
       "note": "subject yes",
-      "noteHash": "b1d2526aafb8410060e20d4400f947fe166b0378a1831ce18bf55c85ca744979",
+      "noteHash": "ad5ae9926e0ad09230b296b9e4b719bc686a5ac68a8d8ef8912bd4e3d4a1bd12",
       "hints": {
         "dead": false,
         "people": false
@@ -47479,8 +47543,11 @@
     "blood-parrot-cichlid": {
       "ok": "yes",
       "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
       "note": "subject yes",
-      "noteHash": "94bc9f420f57bb06311bf62af224ea3a39538f42b184f11935a70ee7f442eb78",
+      "noteHash": "07871aba4d32f9368d9041a55754347d15bbc4ee9a518a456cebca2cf9080aaf",
       "hints": {
         "dead": false,
         "people": false
@@ -50821,8 +50888,11 @@
     "halfmoon-betta": {
       "ok": "yes",
       "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
       "note": "subject yes",
-      "noteHash": "cead0390e77b2e768694bea0f11a37c3ec4b9852029a355e7486082a78af1322",
+      "noteHash": "3039be6d0b756f8ee44e21534f9dcb8c102bfb9602cca127c4d42a560b4fdbdb",
       "hints": {
         "dead": false,
         "people": false
@@ -51418,8 +51488,11 @@
     "oranda-goldfish": {
       "ok": "yes",
       "typical": false,
+      "young": true,
+      "person": false,
+      "logo": false,
       "note": "subject yes",
-      "noteHash": "cae315f784573ffcd5db666a671bf69713e6dcb84ff6cd3377d2a25b9ff6f369",
+      "noteHash": "b513097ee9de2d61e86e7de7dfaccc6ab8f56c1418409227a7a3eed83bbe8aa1",
       "hints": {
         "dead": false,
         "people": false
@@ -59511,8 +59584,11 @@
     "oranda-goldfish": {
       "ok": "yes",
       "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
       "note": "subject yes",
-      "noteHash": "3be27c89e9038408e1d6234990b9655e1954a7caa310c31c059dcec1fe8cce30",
+      "noteHash": "e5575531fa18c01e5b0ee08ccb97dbbdd4d63b1c5f32939800ac523ceb6c8a2d",
       "hints": {
         "dead": false,
         "people": false
@@ -143911,6 +143987,3030 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "91ac04dd92c0dbcdb57d1d986012b1a28c519833a655c3565be5d08fd267ef96",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://images.unsplash.com/photo-1676825690123-e27a335322f4?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MXx8Y3J5c3RhbCUyMHJlZCUyMHNocmltcHxlbnwxfHx8fDE3OTM0MTAyNjR8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max": {
+    "crystal-red-shrimp": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "f4be317b4a6b2e99159130952d6a25f1e605c67bc05ce12e4def6ed75a239743",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/aquariumbreeder/3d83e50c371e510f.webp": {
+    "filopaludina-martensi": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "e44d1f34b3dcd1ee9c39919fb9f9af8437905c913d024317d955acfce840a423",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/006b1634afbd4a88.webp": {
+    "flowerhorn-cichlid": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "d82f6ddb0977bc76b0031eb42f26eabb7eb14d4cce62698185f32c481e12579f",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/09300e2c3f2e3243.webp": {
+    "halfmoon-betta": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "4fe611b51dae05d33413e532530438c5b8b7f172c8f1d8a021a38a78780a427f",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/0a59f8b0012869f0.webp": {
+    "vieja-melanura": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "9b2aa2b5e1710845bf01f49d401e0066aecba5c916a49bad4032f7f91dc69857",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/1932dc6b2cacd327.webp": {
+    "skiffia-multipunctata": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "78967123896cf797dc6baa60640c451dd935b8ef62fe5c4051a6e96c2a71ab48",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/1f0b3b7f5238b277.webp": {
+    "halfmoon-betta": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "0ced4cc1a9c897852932b68f9dc607322f4581496845f2cdcbd884e2e68be41e",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/242c73108da8899e.webp": {
+    "neocaridina-denticulata": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "37d37e8a2aad81cb48433fa2dfa443962f75c3e8c8042be22ab9c2a341a5e241",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/2738c459385b4a8a.webp": {
+    "vieja-melanura": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "96fb1f4a4b8a253df02f27159d5e050b013bde2cb65b975387be1cd7af66d9df",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/282d53b6b633ed6d.webp": {
+    "oranda-goldfish": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "310c427b4656622771efe853d5e981772b8a098f756af04e589458fcaa7a0ae8",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/28691859d71ea63e.webp": {
+    "vieja-melanura": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "ad1a956d393860aab7575a0aaec01fc7cab1315322cb0e4b55f8f2ea8fdba183",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/2b1347da9a7feb97.webp": {
+    "sphoeroides-annulatus": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "0741bcbb9c1c36fc13356c67df295f7b24b583f1f048050cd1eb8544df7f860f",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/2c86b26eb328e878.webp": {
+    "koi": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "c2e545d721a5669abd4de203daf3430f3efb840aa80dc24ae2e05f1dd6fbf7e0",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/2d5dce1297d71dc8.webp": {
+    "oreochromis-mossambicus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "b4c5375ce4ffd9c05304ef59862d134c5527b874bd8c00dab1cb367b36c9e569",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/32020d949e792c29.webp": {
+    "oreochromis-mossambicus": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "4e44e00396e152855092a33afd483c7eda61f2d7988dfc0cc19de33b412d082e",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/32bb6dbf641bd174.webp": {
+    "koi": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "13f44d359229376a2ebfc2a7ea4bfea8880a152c757b4cb0eb8e086bc9e8c0de",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/3c10e0a540cc6eb7.webp": {
+    "vieja-melanura": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "4c5ae6a83b406866857142fc879068858510bd035fb6eee706859cd4251bd55a",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/3d3dcadeb2b768db.webp": {
+    "pseudotropheus-crabro": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "af26a47e09cb100cf09e522ada3e18f8ad4246a60b097418382e5412bcec8344",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/3d5f35c3f50c41e6.webp": {
+    "koi": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "9439dab941a07e2a5cb3c3e923e20cc9408db98d80e5ea38e6a5f486a2cd490b",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/401e6885c3ffa3c9.webp": {
+    "flowerhorn-cichlid": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "2bbe4ada4d7f9bcde7371c53e9728016e03862e750183ba3758be714952367a6",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/412104b986ee21e7.webp": {
+    "neocaridina-denticulata": {
+      "ok": "other",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject other",
+      "noteHash": "6d8addcc717cb8d2e69608841e71b343231a3b1c82feb5fc2df5c5527058bcbb",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/43360e397b94e67e.webp": {
+    "strophidon-sathete": {
+      "ok": "other",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject other",
+      "noteHash": "e0744baf43078b02ebb930a32fd7ce511e0774d6f10a8a2af2056da1b72d1c96",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/43dc38ed83b4a816.webp": {
+    "neocaridina-denticulata": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "b223ae254e8a130df929d2e357ab84fe4759450db31a20bad89b3265b999eab6",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/452a0d2fd0ea3f68.webp": {
+    "oreochromis-mossambicus": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "83f7ae84ec6f71129b2d65a9a0131e628063eb5546118502385a614fcb5c7cca",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/45d44c93318f637a.webp": {
+    "vieja-melanura": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "d51d08c5e5f46cbf25a6b12881e0c471dbc8e9da3978726f79a6cb0a360b67f3",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/4744e6705690e260.webp": {
+    "steatocranus-tinanti": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "5425fe0134c2e43dcf83b95abec7cf7e783a3bc0ebb9da224ce64ee956cfd0d0",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/47b4dd00c542d697.webp": {
+    "steatocranus-tinanti": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "75bab4d1dea10508093d846eb65a4fc05c3d2e7e7281a2d144d7eb691cdcd6cc",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/48702048bb604a46.webp": {
+    "oreochromis-mossambicus": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "ac33b4114b152f7e4bb04a39d55b980f161a5ad00853337d09e26ab774512c48",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/4b53630b82d6c58a.webp": {
+    "arothron-firmamentum": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "1019700cbaa67369a19f66a1921e9e679ce3f9d5dcdeb7d25288649bb6ad326b",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/4c6a8464bcb8420b.webp": {
+    "neocaridina-denticulata": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "bb40f1f46648ce83b9678c06a0ea3935bf047bf2e0bc12a33435b5e8bfebee7b",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/4dc3a7c35c6aa21f.webp": {
+    "steatocranus-tinanti": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "6751bda67abb0fee06edc0104fa3be5ef9a722434d762478efa55a028666ba7c",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/4fc88b0ece4cfe93.webp": {
+    "blood-parrot-cichlid": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "167377633fda544503035acb5836c0fdcefdc766ecaa0b7b160f918263fac0a4",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/5463924dca25d567.webp": {
+    "arothron-firmamentum": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "49557091e3ddeef604df140c42cdfc257add45c0c091eb3d55de8ffb2a86b725",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/56e22c8551f2b465.webp": {
+    "oranda-goldfish": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "01bac98b02fd97fb957330040d8813687636c173c3b81e7cd2c1b18f9dad7a4f",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/579560754287b273.webp": {
+    "vieja-melanura": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "7fed96cfc88208f4e6c24d5b7c31401a6a4f63990b82aa814275bfbcfc6b2943",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/5a49e12593238718.webp": {
+    "steatocranus-tinanti": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "132abbcc56de8e0270ed55c722fa39e81a8715d669cc140025b7cb215a07d04b",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/60c32b8fc125e1bd.webp": {
+    "pacifastacus-leniusculus": {
+      "ok": "other",
+      "typical": false,
+      "file": true,
+      "note": "subject other",
+      "noteHash": "c544a90427603d1a117083d8b5de5047109ccb68142fadd25ff33ce36e405eee",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/64e3f1224eb8285a.webp": {
+    "koi": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "c2ae084f2e1e16fb88676a74c466d0b7d99abe073592779ebabb5273943e443a",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/6d09f5cbb624d38e.webp": {
+    "koi": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "399bc226571362aad528aa4c989e8684c72511119bd05a1497b633a315193d26",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/6f7dcc2fe482e23b.webp": {
+    "glofish": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": true,
+      "logo": false,
+      "note": "subject yes; person",
+      "noteHash": "00c8cb5dc1bec70cfce312a9093d94e3345044ea190e2639099c4a8f09e06b21",
+      "hints": {
+        "dead": false,
+        "people": true
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/717ca0971f6e5ee4.webp": {
+    "skiffia-multipunctata": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "32f147cccc11a3f6e375dd396e7df82f331e2cf3b3d1e182ea29d8c989f3ab8b",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/71de00e49a36596d.webp": {
+    "oreochromis-mossambicus": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "83f7ae84ec6f71129b2d65a9a0131e628063eb5546118502385a614fcb5c7cca",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/7318fa06e300cc8d.webp": {
+    "afruca-tangeri": {
+      "ok": "other",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject other",
+      "noteHash": "33fbc1ca7ecc304e1a26f4296e1d885b5ecfb67856730e46f1a5e2b1689b776a",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/79d4d2d6cf79d67d.webp": {
+    "vieja-melanura": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "a21cf6c066f0f891b14b1f630f54f871b6dcf5918d4562768b76e5151a7d8e4c",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/7a3c7b8745ada014.webp": {
+    "oranda-goldfish": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "97e32051b416d77fe63c85f561e3ac53641a1bd74cd6eeb6cfd5a64b6b6f720d",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/7ddccaae88040092.webp": {
+    "vieja-melanura": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "3bc21744eb39a36549873906e29c0e53bc7d4e9526b89d3c948e4f7dd2889594",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/7f1087d6ae7268a4.webp": {
+    "vieja-melanura": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "664f5b53b699b111bddd184ab333da4aa3c6909226dc32de0ea048237994d634",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/89acd49bf00c19a0.webp": {
+    "oreochromis-mossambicus": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "f97a4f45832cc0fa1f5e18041205c6e893e751bbb9dffd5b1d6e90f2b50cf9ca",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/99abce2e8390456c.webp": {
+    "afruca-tangeri": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "b7034f758c84caeef1004685a9ee2253992d0a5a195c2d6a22f0aa78ac7c756e",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/9a22c97c0dd2adab.webp": {
+    "blood-parrot-cichlid": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "a7c12c7b51a5a6d534d7e3b58431ed20af35358a764c6808e3c580188c2303b3",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/9cbb21b54eaadacf.webp": {
+    "oranda-goldfish": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "1466c13c7ceaf81245c1d3f9df5abb39fb14e8140e0d6e194f9db84794f106e5",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/9e047cd9c105956d.webp": {
+    "umbra-pygmaea": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "03c046ecdc6830001677a25b01bbc0ea0a6d23e8fc22e37228955680a8d23f18",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/a0998f512e19c69d.webp": {
+    "oreochromis-mossambicus": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "5ed09ede3955589b91b0faba29300e31891f69d6e840fc624b5bb0d711a112c3",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/a26f9fbc6f19ce2a.webp": {
+    "skiffia-multipunctata": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "8e731250a13ef29bc4cfbc92128acafd591b5172e33332395dcec1ab700fd00f",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/a64ea9d0b6915ad0.webp": {
+    "vieja-melanura": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "c441768a7fe6f0e52001375f91f0b1385204f26ffaeb60906175b3e1040b0fe0",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/a77847529d112e15.webp": {
+    "oranda-goldfish": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "72608b43ab03670c7733fc2a7be712651fb8b207b56dfa22cedf3ef4ccf794db",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/a8e2edb0cedd7475.webp": {
+    "arothron-firmamentum": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "af33bb2b6963305f771f82ae3b970ab45a0314094d84401a07a658483b80f42f",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/b04508b4c7671ade.webp": {
+    "oreochromis-mossambicus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "ea1bb4010ea300da9ba9d21d3a3c2876e4790859113fb1462ce3b355ed594c0c",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/b1544c727bc837e8.webp": {
+    "halfmoon-betta": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "f50a13bc2797b96dff7050199f7a9cd2e30c380017ec79e216e7a398e774ef5b",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/b3afb089ae8f2e31.webp": {
+    "steatocranus-tinanti": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "2a65b7f3038110f41f063641f98d46833f9bc7edddd00bbb7ff16e3982a2f7de",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/b43f20ec6e27ccf9.webp": {
+    "glofish": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "d1dbd94901ccbf3f2e5da7e8aaa4242adb0bad79e272c35985d76cf8512aaae2",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/b71a7aabf302d5b6.webp": {
+    "arothron-firmamentum": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "87be6a46f31e2266fad45756974697c15861703e60084127f9da8d1316721074",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/b8255698a1cd1428.webp": {
+    "afruca-tangeri": {
+      "ok": "none",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject none",
+      "noteHash": "930e9a127df74a5db89841a7bbd8bf4c3b399b812e9de2dc55f5f06366f8896a",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/b8beb0837a531207.webp": {
+    "neocaridina-denticulata": {
+      "ok": "other",
+      "typical": false,
+      "person": false,
+      "logo": true,
+      "note": "subject other; logo",
+      "noteHash": "5d76a458f34c7735310d6404a84184d6285d5a035860fab850dad471606d38ba",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/b9352a259f48e287.webp": {
+    "oranda-goldfish": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "61355c9e751e9b838a9cfd7886c7bcb83be279d0e3186a7ae09d7c5ab834f577",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/ba88675e49e1b386.webp": {
+    "blood-parrot-cichlid": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "bc9fe432041c366949ba82da4909ed9225a56df41614ad9da328a8835cd30cf0",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/bf936cbd805a806b.webp": {
+    "vieja-melanura": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "fbd636b8739f54d4aa74448ba3e2658c4c2ee6780d244298d5938750f7d7a820",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/c56b98b149fb052e.webp": {
+    "skiffia-multipunctata": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "b07e6c109127b8ce67745bf320c202f2521a9589822cfa2cc14644ae741b0d99",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/c7ed72601a755301.webp": {
+    "neocaridina-denticulata": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "08ad37d276d93747ab61eafa1974ed6959b8f6ef4897bd97d071d97e73010772",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/c812f7aa9518b85b.webp": {
+    "skiffia-multipunctata": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "72c4649bc1dbecf144cdbb5d1ba92df5bb065d82ac2c4c5128487866ee5afb32",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/c8a6705d81903d74.webp": {
+    "oreochromis-mossambicus": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "f84f76237708a7f71496c2b0bcc5b9a091e1067f2dac55ffd7a7a5bd69a4e0cc",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/d4091eb56a9c92dd.webp": {
+    "neocaridina-denticulata": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "25cee84df5f7a95efc3fccaa97c0fa0663c44ac9a1de27b0d06fd3f24300fb87",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/d921f09abf16d931.webp": {
+    "skiffia-multipunctata": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "a6bd3cc8985365d9cf96cd93776fe0062b382b337d83b0357e3e2243b064e30d",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/df24671cc13f9980.webp": {
+    "afruca-tangeri": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "fbbeb07e30215761da85bdab504b891c0d957493f38d57a6c9b2d4f359fecaf9",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/df56641c55333418.webp": {
+    "neocaridina-denticulata": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "7f20c69a0b77755720615844169f51f778700526c7a30fd33f136bbbc5e06cab",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/e0fed339f9d7f2d0.webp": {
+    "synodontis-batensoda": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "c5849d3905e280b4031321c0213509fd46e6d270ec276f464035dfaf8757605f",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/e20745520bfdbb2c.webp": {
+    "koi": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "b7161efff81a1a179561e93b10991edc428fba3a798bb4cebe2a3b7bca419da4",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/e3a3998cc273cc9f.webp": {
+    "neocaridina-denticulata": {
+      "ok": "unsure",
+      "typical": true,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "5eefeaa8edbc75b4a226e4a4c35ac77df4e1fb44dd6b4da5ca806e402ab81218",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/e8a7c992ee262637.webp": {
+    "flowerhorn-cichlid": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "db9e1500e94634af0c57b29d8fc0c69b1e568568355f95fb6430bc27eef5811e",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/e908bad065c7860a.webp": {
+    "skiffia-multipunctata": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "be54689ed5484b7d19bb265d391538f61f3dddf5930b92f43071e30d52f30ae4",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/ee1a999f9255d077.webp": {
+    "flowerhorn-cichlid": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "4fd8ed28ad5613333953f24db2bf2ce38ce0aaebe7b3e04367086e94f0f3e233",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/f05c8abd183b7552.webp": {
+    "blood-parrot-cichlid": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "03e41de3969ea4e198bcbd2a067437fd2082635cbd6cc834dc700656f232bd54",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/f07f592fcb8b7d1d.webp": {
+    "steatocranus-tinanti": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "62ac6faf258492afc32683263a158c84d043ead7987ecc44f8aba8f5a2f9f6f5",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/f5e3207ac836ebeb.webp": {
+    "oreochromis-mossambicus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "2039baaf22585d65f38e3df61acedfee5457a3dfa181113362fcafa993623337",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/131955732c854230.webp": {
+    "astacus-astacus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "b8a29ec9372ac69964ed0e51b65e7481a51419578ac54dc36caa1e50dc821734",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/291e52fde5da24a2.webp": {
+    "ernstichthys-megistus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "f4e55e1f22965e5351b714cd65837ddc29bbc9d49c6f8b17eecc9e33bec7ec2b",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/35cea7b756550409.webp": {
+    "pyrrhulina-laeta": {
+      "ok": "unsure",
+      "typical": true,
+      "person": false,
+      "logo": true,
+      "note": "subject unsure; logo",
+      "noteHash": "de8433f3570ec99a9061cfa187969062eed2326a67544bbe88e03b81683f4f83",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/44ed00cf02af16aa.webp": {
+    "alpheus-cyanoteles": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "fb28db9a9c4c9c1f3e2070651f19615c950a567b9e5350e0548502752fb8b8b4",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/66ec10e26bdb96f3.webp": {
+    "hisonotus-nigricauda": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "da13dfe205e820c1af083ee0581567bea82ce1ff5259e9c956fad6ca7d71badb",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/6e0ffc3ac9b8f0ea.webp": {
+    "planorbarius-corneus": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "98ad0f041b5d96dbd560a085a549ab95958bdbabc2b7710389ea77edde7bdd87",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/74ae7eed3ace9357.webp": {
+    "ernstichthys-megistus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "b24dde29e48372c63d389fbdff333145c9d36d2d79be07c09afa0aa34bb85be7",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/a6d88769b4b034fc.webp": {
+    "caridina-propinqua": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "80680b4341a1e1a61a7ddd78e284b29aad57c19dd64839fa66158528bdfeb07f",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/aa5a43161aa51e85.webp": {
+    "ernstichthys-megistus": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "e182e2de038be73ba7e63e2f884549b9dd5b83c5440a38fcc5e31c07c038cb2e",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/ae60964e978158bb.webp": {
+    "nannopetersius-ansorgii": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "b82aa79c20e04017d90670ff0bd6a3356969b078ab071acdc5b8845c2c43d03e",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/b5bb36cb568e1072.webp": {
+    "planorbarius-corneus": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "ae500bac8791b814c553c27a0615f792b1e88a48a9b272396f6b23373ebc04b7",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/c1a007da11a858e7.webp": {
+    "planorbarius-corneus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "feeff57954ab6a96a13669e01ac40775e4377f89952f9295fb82c96309c4b74e",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/c4fae1873b9d0c45.webp": {
+    "hisonotus-nigricauda": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": true,
+      "note": "subject unsure; logo",
+      "noteHash": "535eea5c0f80c3d5133d75358dd71a93e6b8ac063bfa884a0c06bed0eeeea423",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/cb3e90cf3e78d831.webp": {
+    "poecilia-caucana": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "64ba8a95eab369f912575454b56248156a4460693ce4aaf5fa184f6fc141956f",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/ce4783216aefc393.webp": {
+    "astacus-astacus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "2682710976ed38b15f295f2f0afdd41fb93dc0702845e39c16b20553100d5f56",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/e43b4deb473b0dcd.webp": {
+    "thaiphusa-sirikit": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": true,
+      "note": "subject unsure; logo",
+      "noteHash": "132ff203753e9854badcd3db96bd09cfd94aeec42c4cf15e0e68db52dc42906f",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/e5d9a9671f8a7309.webp": {
+    "astacus-astacus": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "eaddd504e9ff8258dd989eacf18401ffa898a15b94b73e3eba5fb2ec86b57e9b",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/ead5fd371bbb5574.webp": {
+    "hisonotus-nigricauda": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "eaaa8b33e7c8d4706c489fc47a871c6fee4b0199778b7e68df96707ee30174d8",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/100201704.webp": {
+    "sphoeroides-annulatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "bf7a155c2c4563e2fac29ab085eec79adb3934563793621e86099e3ae07a82d8",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/10337243.webp": {
+    "sphoeroides-annulatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "22f9c94bdd09f3ee0db0f5c6a112a36f69bb4fe64e07483a6b0eb4fb3553b745",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/10380479.webp": {
+    "sphoeroides-annulatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "ee49aa094a7f3494da45d93bd95e419f861390eb9ac5c690f7fe92d9791d495d",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/10380864.webp": {
+    "sphoeroides-annulatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "bd31b82c10490c4d85959cd2a097f43a3ecfba440222f3e0c54d4db50b149a12",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/105601892.webp": {
+    "synbranchus-marmoratus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "9d0265ba4e4d77886bbe1a9d1419d7eb2a37c19fa09e7b616f465e134914d7cd",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/105601951.webp": {
+    "synbranchus-marmoratus": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "592f1be56fb766bb358fda4ad33fdb08efbf239c54593b632e5908c671ae19dc",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/105601976.webp": {
+    "synbranchus-marmoratus": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "4ddc7ab805e74db05fc4d797e96c38cb7c4bc5840c58448a0d9cb9ae6f468231",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/108059254.webp": {
+    "sphoeroides-annulatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "361bb466819914bac32f36be8e99ac40d550a0222f8234bc730427c538517c7b",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/111138556.webp": {
+    "vieja-bifasciata": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "034621a6b5de8325a177cf6a99152ec6aa3bd8dd76d343dc488267f69d38f244",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/1128638.webp": {
+    "synbranchus-marmoratus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "f3f37ee816a974a1ba3c0d60ad43c0708cde4062f7bf73edbc4ed8914f2357f0",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/12423666.webp": {
+    "sphoeroides-annulatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "38816b441542aeca9dc4b829a1b35b90bda643dc5553b28e5c7a91df0f17aaa5",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/124917137.webp": {
+    "synbranchus-marmoratus": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "a9d7cb3ce137178470feea658ce1944e39f92c73b3a1ff2cf78a33c5da8f1038",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/127621638.webp": {
+    "synbranchus-marmoratus": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "3326d6f800c14c1cc62b6d2671f5296a76f139566f17b8393534be503896be94",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/12770676.webp": {
+    "sphoeroides-annulatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "29a883bd14acdae0635083aaaa36e22ea9bf4c04fc13e311192074e6cc36d27b",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/135470660.webp": {
+    "umbra-pygmaea": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "e584f632784d28911e442fc9fd62c8634a1ae8085454755b57b32e8a8d839315",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/135479869.webp": {
+    "umbra-pygmaea": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "66f0b012f79b9b96b47952e8da55c346af0a83b99ccaf551acbf69f136889cb8",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/146431501.webp": {
+    "umbra-pygmaea": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "0dd5e2d8a94cddc62a1fd6ff911037cacde19bc9cf1a755325c1d0245c9ffc3b",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/169535417.webp": {
+    "synbranchus-marmoratus": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "ddef59b2285c0d76c23dd4173b5ea72e786c482c32fb64dbf065033971fd8008",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/169706918.webp": {
+    "synbranchus-marmoratus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "45c659bd15ee888de9279b97c6bb4837186cde9503cf8f48ce12656d26a5a5ec",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/169707014.webp": {
+    "synbranchus-marmoratus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "68243484693d18bdeb5e396e35a5015fd8db2901467bb4fe464ff5907ae1fdfa",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/172708595.webp": {
+    "synbranchus-marmoratus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "6d278e77e820f8d6b2f14fc7d010211686d7a03ad69946b9aff80eeefc70fc9c",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/184201468.webp": {
+    "umbra-pygmaea": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "795922cfd8f2bf7465152a8c2a83e31d424278a324e23c230aea84e8464c3dd9",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/184201520.webp": {
+    "umbra-pygmaea": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "a47a3ab99a1356c1197931c69b03b4ce568e0955e6d30f12d887dfb27a555aa6",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/195138692.webp": {
+    "umbra-pygmaea": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "990bf798d502ec03fe87a46c0a546e58affebac6ecab7196044767ca5756567d",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/223153230.webp": {
+    "umbra-pygmaea": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": true,
+      "logo": false,
+      "note": "subject yes; person",
+      "noteHash": "1fccf440e9e4348901051d517d3f03ec5649557f0e9994c8f361a6d41ba5a360",
+      "hints": {
+        "dead": false,
+        "people": true
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/223154162.webp": {
+    "umbra-pygmaea": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": true,
+      "logo": false,
+      "note": "subject yes; person",
+      "noteHash": "10efefb522ba997bebd8c7d1cc44a15f266177da19d52d1a56f1c2914c931da9",
+      "hints": {
+        "dead": false,
+        "people": true
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/238589740.webp": {
+    "synbranchus-marmoratus": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "1570a52eddf67a0ee5fec5c9c6a4968bbf5794f9e7cab9f7e18500cfd1f74308",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/241156178.webp": {
+    "synbranchus-marmoratus": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "14d946ce32db98fb037a42680a0517398437cb28675f14551187bcf2936d3dbf",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/241156186.webp": {
+    "synbranchus-marmoratus": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "b7532cfdd57e1183fc05feadf4d9ecff82468bb852a112b0ad4bada32fd2f3b5",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/245151674.webp": {
+    "vieja-melanura": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "887259ac05199d7b8d814ea5ae9e2f6352c82ff7f862160bc182da41b3ceb9aa",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/245151875.webp": {
+    "vieja-melanura": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "e520b25bd8c66f37c1ac60b665dcd1c1d55404c976f5c6504f6d6bb2c1a3e365",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/246252790.webp": {
+    "synbranchus-marmoratus": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "2bab510273071c7038fe390402a7fe75cb0e13715815a72596579b2c7080084e",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/246252803.webp": {
+    "synbranchus-marmoratus": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "489623f51b35bb3c0d04fc1be17347701781144c35454442ce00f01e347b4040",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/249427343.webp": {
+    "synbranchus-marmoratus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "3d383674417680edf844015788a786c036e9ef9ad2e6343a51e100ba30de5fd6",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/256461949.webp": {
+    "umbra-pygmaea": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "76e35e429f6c4d03eb1136d0568eba8bdfd1fdb93f9613e138a6a56cc226c487",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/257148159.webp": {
+    "umbra-pygmaea": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "af98428ecaf70c742cdfd17922da66b5995757b997dc7a0d17c65ff62672b3c2",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/259648767.webp": {
+    "rhinogobius-gigas": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "d842ad15e6dbd21a46d9ecf4df3c2d67835a7e9e78e1bbc58c3949b555982dd5",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/26734676.webp": {
+    "synbranchus-marmoratus": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "351c5c3be57218e74d232afc5d65e4ede1b031909a32cf1c608d0ef5fc26269a",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/281034584.webp": {
+    "umbra-pygmaea": {
+      "ok": "unsure",
+      "typical": true,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "48c6baaad82ff6c93f0df509221f96a873926ed6a0483c86f8389830774d25d4",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/29794488.webp": {
+    "rhinogobius-gigas": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "3c5e4d327cfb4bf15de523081cbed39cb6c79fee2a3a13c41e6460ff921b213a",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/32034439.webp": {
+    "sphoeroides-annulatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "b9d920bd8bec89eebbfa98756347353d4e8294654bfdaba8b645849e4dde1cc8",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/322022484.webp": {
+    "umbra-pygmaea": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "7d59c54c5808b98408e571239c6175314b74bfb6c85b85afd0e3d235a9e9f3e2",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/322026796.webp": {
+    "umbra-pygmaea": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "068932a2bd0138b99762d6104e2f3603fe888ede0749c78b4427bcbffa09c4e3",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/352297801.webp": {
+    "umbra-pygmaea": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "2103795f66be86f10efc064a741d79bd12eafd5313f5c2975ad8a8407eae7cf4",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/38001390.webp": {
+    "sphoeroides-annulatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "ff22522b181514e86a4373945f417807d56cef8744918e69922d725dd17d32c2",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/38001393.webp": {
+    "sphoeroides-annulatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "504180f3689d3ab27a39ad3881d62fc5842c6ec16e0da7ef6f7dac9f8b50c468",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/40585549.webp": {
+    "vieja-melanura": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "3c57cdae484de72466625b100e3e50f527a07bed8acbe61a959a4ab86bf1584d",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/40585579.webp": {
+    "vieja-melanura": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "615cc2cd6340cf3b6269f8efd6b4c6c90a810046725bb902c9199059d567b444",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/41395518.webp": {
+    "sphoeroides-annulatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "9bab6b4e9df4243fab96e03e5aeb8d004af882b9da1bed1067a1c40a93e99132",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/416922917.webp": {
+    "rhinogobius-lanyuensis": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "d08a86be29d475fbea88ba7bb5340be2626fc4889133fd4da250c7b0f72e591c",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/432294195.webp": {
+    "rhinogobius-lanyuensis": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "4eafb45b9f212ace4a21e4ab0e704a91f7d54c30b1905ecec4b2062d987dbd68",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/444944904.webp": {
+    "satanoperca-lilith": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "e48b3ffe50b6f20fd74806acdcf0aff93fc72d63eb805256c81385a188104b22",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/455693155.webp": {
+    "synodontis-batensoda": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "864471e298e2a31e80153c3295242f39a442490c65514b3190a529e99dbd3f64",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/46536194.webp": {
+    "synbranchus-marmoratus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "f936fadd665bfb36e4ac23cf4c9cbeda015fa7633750906c8ab2d93361b206cf",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/467466174.webp": {
+    "serrasalmus-marginatus": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": true,
+      "note": "subject unsure; logo",
+      "noteHash": "9d11aa9a88203ff39e9624dcef9340bcc9ff6f0d5c8ace5d5c6873df1d8e8953",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/468352797.webp": {
+    "vieja-melanura": {
+      "ok": "yes",
+      "typical": false,
+      "young": true,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "1e273c49d7b802cd5d6efb007ddd7b82db438a11b2f8b2f7be70f2f18a4a2317",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/471911781.webp": {
+    "umbra-pygmaea": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "8d9158c257275d98db9b74e52e0c9b920735fa2f5ae60ef4540be153d7cbb940",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/476386863.webp": {
+    "vieja-melanura": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "16cc5b16316d35d80cf989232797a8db940fd7e0d4cc33397f090e480c0f41cc",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/476386865.webp": {
+    "vieja-melanura": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "77757bd67d1281f76e323248eb141ab13426ed20b519a6808fd43d14f1a0e3f3",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/476386866.webp": {
+    "vieja-melanura": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "6deb25b6e4c166ce1740c9887ce3c4fd600fdee638c07c3a07ec2d9915a23a85",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/478252903.webp": {
+    "vieja-melanura": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "a905fecd1a32fc03257fc8618b02b3cf16615c9daeeb76c4a15812c7d67764d8",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/478253055.webp": {
+    "vieja-melanura": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "6af51dc051a20b64540a3c36c1cee81a177b6d0f07ffa2d96bec7d0dc09a4311",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/488421312.webp": {
+    "vieja-bifasciata": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "a8cd8fdee43feaf4d7571516b21ea5da56d4a0de69c336bfd50b06ca33b35dd6",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/50269890.webp": {
+    "vieja-melanura": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "9f0aafcc4ef5c8fbb3e37f9d176b0bbc0fbe6101806b9cf228a4c13edac3db0d",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/51451501.webp": {
+    "sphoeroides-annulatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "e64384e2a3753911b52bdb22a48f6a49bb3fe34325f5bcd37758a5a34364f411",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/51451521.webp": {
+    "sphoeroides-annulatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "a6bc2620ff6d5227e57f2a99b2809bc36dec307dee36dc17a4a9ff1ee80e6cc3",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/53144470.webp": {
+    "synodontis-pleurops": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": true,
+      "logo": false,
+      "note": "subject yes; person",
+      "noteHash": "2a30cc0094e5e12de342107a1b38932a1fce9a267c1c75b890712f876fc146ee",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/55128947.webp": {
+    "oreochromis-mossambicus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "7889bbc14e0a5ff284c937493d2db1942a5c35db4d33d5878cbe7bc961bb8575",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/55570321.webp": {
+    "sphoeroides-annulatus": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "84e6b9540d4be4770a733e5327c8e83000ec3cad7bbcc2884be158ff51e25149",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/55659886.webp": {
+    "sphoeroides-annulatus": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "f2e9a41a3ac6e8edf3fa3434e67a1b0688ed50c7ba4b58635e6cdb1aa62680c8",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/5587164.webp": {
+    "synbranchus-marmoratus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "57759b914cafb5b15b3e669e53f180043cb4bf8a6179659dbb2fe20e21ff42f2",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/5587179.webp": {
+    "synbranchus-marmoratus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "fb24ddfbfc82ae77d8b55df0bed0875964012f38c580f8de2d9acc61a0dcd699",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/560274482.webp": {
+    "rhinogobius-gigas": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "3927189b3f8c576165cc8669e98bea81e50b9a6f4df592ce007f9fa98dc41124",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/560274484.webp": {
+    "rhinogobius-gigas": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "3ff71332bc44b87ab001c1818a5ff5317cbeb8438d72dbb146f262324ae308bf",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/560274486.webp": {
+    "rhinogobius-gigas": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "a1a1316979606fb6a571dcf7c98e5af570fc31dcba88541e28f4c2608f68a9a0",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/560882658.webp": {
+    "rhinogobius-gigas": {
+      "ok": "unsure",
+      "typical": true,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "231ad2bc3c6a6ef87f8774e48f8e7f54bca64df108f6ea6a29a550c22f8ad4b6",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/560882674.webp": {
+    "rhinogobius-gigas": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "516e7b64c86b86083fef28931f31f4dc64e91c66eee5f090ce26eee2add2eac0",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/56151974.webp": {
+    "sphoeroides-annulatus": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "d2fbdc1ae26a59343591957c8150b8cab371b0b12193522725731acb1c5d2aac",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/56895571.webp": {
+    "synbranchus-marmoratus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "9ef739086a056e7bc28c976e946ab6e89f5ab1e92839f0a49ede19a0d2db4b80",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/58561943.webp": {
+    "sphoeroides-annulatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "0bd73cc1b4c6c074f94ccc975693e4ad726a2f33cbd362f4248f4fb743557119",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/58937852.webp": {
+    "vieja-melanura": {
+      "ok": "yes",
+      "typical": false,
+      "young": true,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "61542a15d5e68c7b8ca76cc425fedd7ed6cd50a2f7ffc9ec12ae6c4d05fa23c8",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/607284846.webp": {
+    "umbra-pygmaea": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "03c1ae4e707405d03624cf6f93c87e4a6ad027df60dd98fff75da4d6f1d644c8",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/608859734.webp": {
+    "schistura-robertsi": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "bb8925a3b4487c72ca547c5519835892986a8d785a390978b433ab0c69e6b498",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/608859754.webp": {
+    "schistura-robertsi": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "3d3adf1a3b6b78dd9a0e77711eba9675d10769b305662e2caf6b93b296beeb82",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/61582155.webp": {
+    "vieja-melanura": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "e3e6081ec4d81add58f7becee2a46fb444e328103cca138505ee1d7da600194c",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/651797120.webp": {
+    "umbra-pygmaea": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "16e5a632109b0d740db1d3c89cc6664ba1b2d321b88b8c7b63692ab47a17a361",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/651797122.webp": {
+    "umbra-pygmaea": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "76e35e429f6c4d03eb1136d0568eba8bdfd1fdb93f9613e138a6a56cc226c487",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/661018437.webp": {
+    "umbra-pygmaea": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "8000ca30a54de5f72d0d6589b8a963ed29839d0b8deaf8a42d7045b13c294cde",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/66758291.webp": {
+    "sphoeroides-annulatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "9a5c10a19bb2e7dac5fec22cfa3cdcf83a10408e162e8e4d7f8c61a3482dce10",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/82014700.webp": {
+    "synbranchus-marmoratus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "d9833b13d1ed5bd81c52df84155a0099f215c2364159395371abab2c01a01701",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/82014918.webp": {
+    "synbranchus-marmoratus": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "88670fb9025d3fe9a65b70cfca1bc2fe77af296c70b86849acaf77fc169bf3c3",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/89759175.webp": {
+    "sphoeroides-annulatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "40049d3a3ed9c1c13409a0e441ab5a7d35855d9783582f9a257f1500a91d9aa6",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/90872526.webp": {
+    "sphoeroides-annulatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "38190ceac485d158cd804490bba020f1b7b9e78d42d743bb6ac04c975187bba4",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/97717542.webp": {
+    "synbranchus-marmoratus": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "929750fa28bc0c94fc3912fec4bc0610b1afddf8c46fd94bf416bf392563ae01",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/084e64a693d3fb1c.webp": {
+    "doumea-angolensis": {
+      "ok": "none",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject none",
+      "noteHash": "1fec596191feb5a018ffe3d74281ecaaab17a15204d156a2d1668b4eac166415",
+      "hints": {
+        "dead": false,
+        "people": false,
+        "artwork": true
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/0a9b4c37be50a20e.webp": {
+    "doumea-typica": {
+      "ok": "dead",
+      "typical": false,
+      "person": true,
+      "logo": false,
+      "note": "subject dead; person",
+      "noteHash": "86b1e7967e7c3bd0286ec0eb61a9d8b54c5ff118c3e70e3a2f52ed30de5f873e",
+      "hints": {
+        "dead": false,
+        "people": true
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/1d51afadff8de750.webp": {
+    "doumea-typica": {
+      "ok": "unsure",
+      "typical": false,
+      "person": true,
+      "logo": false,
+      "note": "subject unsure; person",
+      "noteHash": "f30128d623d6c3dd19269771ef197f42be89c2df6161d664d29fb5f455c9774b",
+      "hints": {
+        "dead": false,
+        "people": true
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/6a4373198a06044d.webp": {
+    "doumea-chappuisi": {
+      "ok": "none",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject none",
+      "noteHash": "ab97f2698c0b5505e8c3a855abd5ba47fce4686b7888549bb436d5460bd5f64a",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/80a79f80f1e56e28.webp": {
+    "doumea-typica": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "e867160ac97e1e63df1acc5b7c3729c23f6efacbf416a6a104dc92c3800f4ed3",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/8a1bed12e600c754.webp": {
+    "belonoglanis-tenuis": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "2def02d94ee95a79b569647f544b2b375c8c67e2258a54c866a96628f4d91d2e",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/9272e4c25c85dbff.webp": {
+    "congoglanis-alula": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "a99b4f57513532aa9833c3999b1a9bfd0e7c47eddb68e1db749daf81b090297d",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/a590623bc1be9e6c.webp": {
+    "belonoglanis-tenuis": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "95c535ccfa5e6effa399f38fdfeb5debb3dcb5ae1cfdaa645ae95051c3228e88",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/ddd42784f8627497.webp": {
+    "doumea-typica": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "b255a359578e606386d98da3891b7527b8c5722e99c1733b7cef876870a561f0",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/f69f14387be66976.webp": {
+    "belonoglanis-tenuis": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "09cce705f60191205f133de25d3ea14b739f33c20003652ac388ee74ab7ac08a",
       "hints": {
         "dead": false,
         "people": false

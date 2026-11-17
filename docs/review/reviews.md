@@ -9,15 +9,15 @@ under `<lang>/<path>`.
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
 | video-guide | 965 | 689 (vi 689) | 689 |
-| translation | 1765 | 265 (vi 265) | 265 |
+| translation | 1807 | 269 (vi 269) | 269 |
 | vi-rewrite | 362 | 24 (vi 24) | 24 |
 | reader-rewrite | 36 | 0 | 0 |
 | title | 25 | 0 | 0 |
 | breed | 27 | 3 (ms 3) | 3 |
 | topic | 107 | 6 (id 1, ms 1, th 4) | 6 |
-| product | 16 | 1 (vi 1) | 1 |
+| product | 17 | 1 (vi 1) | 1 |
 | product-reviews | 16 | 0 | 0 |
-| summary | 2227 | 117 (vi 117) | 117 |
+| summary | 2278 | 119 (vi 119) | 119 |
 | localize | 2291 | 888 (id 399, ms 60, th 429) | 888 |
 | glossary | 6 | 0 | 0 |
 | places | 6813 | 4156 (id 1421, ms 1418, th 1218, vi 99) | 1125 |
@@ -126,20 +126,20 @@ under `<lang>/<path>`.
 
 ## translation: source pages translated into Vietnamese, against the English
 
-265 of 1765 pages under the bar.
+269 of 1807 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 255 | 789 |
-| Says what the source doesn't (invented, added) | 217 | 421 |
-| Wording: unnatural, literal, stiff or chatty | 203 | 391 |
-| Meaning changed or wrong | 168 | 261 |
-| Hobby terms and names | 132 | 178 |
+| Other | 259 | 797 |
+| Says what the source doesn't (invented, added) | 220 | 428 |
+| Wording: unnatural, literal, stiff or chatty | 207 | 397 |
+| Meaning changed or wrong | 169 | 263 |
+| Hobby terms and names | 134 | 180 |
 | Text left in another language | 95 | 119 |
-| Leaves out what the source says | 90 | 124 |
-| States as certain what the source hedges, or what garbled captions only hint at | 75 | 87 |
+| Leaves out what the source says | 91 | 125 |
+| States as certain what the source hedges, or what garbled captions only hint at | 77 | 90 |
 | A number, unit, dose or price | 69 | 90 |
-| Repeats itself (intro, summary, steps and FAQ) | 56 | 67 |
+| Repeats itself (intro, summary, steps and FAQ) | 57 | 68 |
 | Names or points to the video, channel, creator or source | 10 | 11 |
 | Copied from the transcript or source | 3 | 3 |
 
@@ -381,7 +381,7 @@ under `<lang>/<path>`.
 
 ## product: product pages, against their research
 
-1 of 16 pages under the bar.
+1 of 17 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -412,19 +412,19 @@ under `<lang>/<path>`.
 
 ## summary: species' quick summaries (the numbers and claims check: 1 pass, 0 fail)
 
-117 of 2227 pages under the bar.
+119 of 2278 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Says what the source doesn't (invented, added) | 60 | 65 |
-| States as certain what the source hedges, or what garbled captions only hint at | 46 | 53 |
-| Other | 31 | 35 |
+| Says what the source doesn't (invented, added) | 59 | 66 |
+| States as certain what the source hedges, or what garbled captions only hint at | 49 | 55 |
+| Other | 32 | 35 |
 | Leaves out what the source says | 13 | 14 |
 | A number, unit, dose or price | 13 | 13 |
-| Meaning changed or wrong | 10 | 10 |
+| Meaning changed or wrong | 11 | 11 |
 | Off the title's topic | 2 | 2 |
+| Hobby terms and names | 2 | 2 |
 | Wording: unnatural, literal, stiff or chatty | 2 | 2 |
-| Repeats itself (intro, summary, steps and FAQ) | 1 | 1 |
 
 ### Says what the source doesn't (invented, added)
 
@@ -434,9 +434,9 @@ under `<lang>/<path>`.
 
 ### States as certain what the source hedges, or what garbled captions only hint at
 
-- "Cá nhạy với chất ô nhiễm hữu cơ và thông số nước đổi đột ngột": the page hedges with "có thể nhạy" (may be sensitive), but the summary states it as a certainty. — vi/species/acestrorhynchus-falcirostris, 0.00
 - "chỉ nuôi với cá họ chép, cá da trơn, cichlid hoặc cá chạch sông": the page says only that these tank mates "thường nuôi chung được" if they are of suitable size and the tank is wide enough. It never says they are the only suitable ones, a… — vi/species/anabas-testudineus, 0.00
 - "Bỏ qua mùa đông thì cá đẻ kém, sống ngắn hơn": the page hedges with "nhiều khả năng" (most likely), and the summary states it as a certainty. — vi/species/anatolichthys-sureyanus, 0.00
+- "thì chúng đánh nhau giành lãnh thổ": the page hedges with "có thể đánh nhau" (males may fight in a cramped tank). The mistake states it as a certainty. — vi/species/ancistrus-formoso, 0.00
 
 ### Other
 
@@ -467,14 +467,15 @@ under `<lang>/<path>`.
 - Mistake 2: it links treating the fish as a tank cleaner ("máy dọn bể") to overfeeding ("cho ăn quá tay"). The page gives these as two unrelated points. It says the fish don't really clean the tank, and separately says never to overfeed. — vi/species/ancistrus-cirrhosus, 0.00
 - "Ngoài tự nhiên cá gặp ở cả suối nhánh chảy xiết lẫn vũng nước, hồ": the page says this about the genus ("Các loài Nematabramis sống ở đủ kiểu nơi"), not about N. alestes. The summary turns a genus-level statement into a certain fact about… — vi/species/nematabramis-alestes, 0.00
 
+### Hobby terms and names
+
+- "hợp với người thích cá lùn": the page never calls this species a dwarf fish or says who it suits in these terms. This is an unsupported claim. — vi/species/apistogramma-velifera, 0.00
+- "Mua cá ghi tên pellegrinii hay 'apollo shark' ... tên này hay bị gắn nhầm": the page says 'apollo shark' is a shop name for juveniles of other species (L. setigerum, L. bleekeri). It does not say that name is wrongly given to pellegrinii.… — vi/species/luciosoma-pellegrinii, 0.00
+
 ### Wording: unnatural, literal, stiff or chatty
 
 - "Cần bể từ 60 cm, ... nền cát mịn và vài hòn đá nhẵn": the page says fine sand is best but rounded gravel is also fine, and decor is up to the keeper. Smooth stones only "có vẻ hợp" (seem to suit). The summary turns this hedge into a requi… — vi/species/corydoras-gladysae, 0.00
 - Mistake 1, "Dùng nền trơn thì nên chuyển sang nền cát và đá": the page only describes the wild habitat (streams over rock and sand, fish foraging in sand). It never advises a substrate for the aquarium or calls a smooth substrate a mistake. — vi/species/trichogenes-longipinnis, 0.00
-
-### Repeats itself (intro, summary, steps and FAQ)
-
-- The page hedges: "có lẽ cứ chăm và cho ăn như tép là được". The summary states "chăm và cho ăn như tép Caridina là được" as certain, and the first mistake's fix repeats it ("nên cho ăn và chăm như tép Caridina"). — vi/species/limnopilos-naiyanetri, 0.00
 
 ## localize: species and plant pages in Indonesian and Thai, against the English
 

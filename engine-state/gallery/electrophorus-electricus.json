@@ -1,14 +1,48 @@
 {
  "queue": [
   {
-   "key": "inat:749409293",
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/749409293/large.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/749409293/medium.jpg",
+   "key": "flickr:13931679388",
+   "url": "https://live.staticflickr.com/2919/13931679388_7be550c312_b.jpg",
+   "thumb": "https://live.staticflickr.com/2919/13931679388_7be550c312_z.jpg",
+   "width": 575,
+   "height": 1024,
+   "licence": "CC BY 2.0",
+   "author": "plosone-phylo",
+   "sourceUrl": "https://www.flickr.com/photos/123621741@N08/13931679388",
+   "openverse": "393f007e-a528-42d9-b4ec-bf0e6198b73f"
+  },
+  {
+   "key": "flickr:3040288009",
+   "url": "https://live.staticflickr.com/3222/3040288009_d7cdcdd4c3_b.jpg",
+   "thumb": "https://live.staticflickr.com/3222/3040288009_d7cdcdd4c3_z.jpg",
    "width": 1024,
-   "height": 683,
-   "licence": "CC BY",
-   "author": "Samuel GUIRAUDOU",
-   "sourceUrl": "https://www.inaturalist.org/photos/749409293"
+   "height": 768,
+   "licence": "CC BY 2.0",
+   "author": "hoyasmeg",
+   "sourceUrl": "https://www.flickr.com/photos/62126383@N00/3040288009",
+   "openverse": "9fe24707-e4f7-4dbb-b6dd-ceec3e048b5a"
+  },
+  {
+   "key": "flickr:3041118504",
+   "url": "https://live.staticflickr.com/3229/3041118504_1f063187e3_b.jpg",
+   "thumb": "https://live.staticflickr.com/3229/3041118504_1f063187e3_z.jpg",
+   "width": 1024,
+   "height": 768,
+   "licence": "CC BY 2.0",
+   "author": "hoyasmeg",
+   "sourceUrl": "https://www.flickr.com/photos/62126383@N00/3041118504",
+   "openverse": "8016245a-083f-4d0f-88f2-0078c2efda1c"
+  },
+  {
+   "key": "flickr:3568191259",
+   "url": "https://live.staticflickr.com/3397/3568191259_2ee805bbfa_b.jpg",
+   "thumb": "https://live.staticflickr.com/3397/3568191259_2ee805bbfa_z.jpg",
+   "width": 1024,
+   "height": 768,
+   "licence": "CC BY 2.0",
+   "author": "istolethetv",
+   "sourceUrl": "https://www.flickr.com/photos/44124401641@N01/3568191259",
+   "openverse": "7bffc2ab-5797-4a6d-a2e8-ae3b264f887d"
   }
  ],
  "judged": [
@@ -71,7 +105,27 @@
   "File:Actinopterygii.jpg",
   "File:Ηλεκτροφόρο Χέλι.jpg",
   "File:Electric eel - Ouwehands Dierenpark.jpg",
-  "inat:749409283"
+  "inat:749409283",
+  "inat:749409293",
+  "inat:223979620",
+  "inat:304497527",
+  "inat:304497587",
+  "inat:337737977",
+  "inat:337737969",
+  "inat:386042812",
+  "inat:386042949",
+  "inat:420402102",
+  "inat:420402223",
+  "inat:486529935",
+  "inat:625524612",
+  "inat:705628145",
+  "inat:705628182",
+  "inat:747620586",
+  "inat:747620655",
+  "inat:747620688",
+  "flickr:3915005142",
+  "flickr:5806481021",
+  "flickr:3253099001"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/b850c855738c6538.webp": "396874399d8e9c09",
@@ -97,25 +151,39 @@
   "https://media.aquatome.com/commons/2375fc140c627ebe.webp": "367344093263fc03",
   "https://media.aquatome.com/commons/70b86a85bb559b28.webp": "1212ca7469216231",
   "https://media.aquatome.com/commons/a36c06804c346c95.webp": "37c10f9d363eae33",
-  "https://upload.wikimedia.org/wikipedia/commons/e/e7/Electrophorus_001.jpg": "3c0d0d6f5695971d",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Aquarium_Tropical_Palais_Porte_Dor%C3%A9e_-_Paris_XII_%28FR75%29_-_2021-06-26_-_48.jpg/1280px-Aquarium_Tropical_Palais_Porte_Dor%C3%A9e_-_Paris_XII_%28FR75%29_-_2021-06-26_-_48.jpg": "8983c6983071e5ce",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Aquarium_Tropical_Palais_Porte_Dor%C3%A9e_-_Paris_XII_%28FR75%29_-_2021-06-26_-_47.jpg/1280px-Aquarium_Tropical_Palais_Porte_Dor%C3%A9e_-_Paris_XII_%28FR75%29_-_2021-06-26_-_47.jpg": "ed93db5bc81c1f6e",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/Electric_Eel_%289457735124%29.jpg/1280px-Electric_Eel_%289457735124%29.jpg": "633b8f337974e428",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Aquarium_de_la_Porte_Dor%C3%A9e_-_Anguille_%C3%A9lectrique_02.jpg/1280px-Aquarium_de_la_Porte_Dor%C3%A9e_-_Anguille_%C3%A9lectrique_02.jpg": "9a25315867304e03",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Aquarium_de_la_Porte_Dor%C3%A9e_-_Anguille_%C3%A9lectrique_01.jpg/1280px-Aquarium_de_la_Porte_Dor%C3%A9e_-_Anguille_%C3%A9lectrique_01.jpg": "b999d0492c204324",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Aquarium_de_la_Porte_Dor%C3%A9e_-_Anguille_%C3%A9lectrique_04.jpg/1280px-Aquarium_de_la_Porte_Dor%C3%A9e_-_Anguille_%C3%A9lectrique_04.jpg": "931a86909d86b62d",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Aquarium_de_la_Porte_Dor%C3%A9e_-_Anguille_%C3%A9lectrique_06.jpg/1280px-Aquarium_de_la_Porte_Dor%C3%A9e_-_Anguille_%C3%A9lectrique_06.jpg": "0ba7ad1d27efcf86",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Aquarium_de_la_Porte_Dor%C3%A9e_-_Anguille_%C3%A9lectrique_07.jpg/1280px-Aquarium_de_la_Porte_Dor%C3%A9e_-_Anguille_%C3%A9lectrique_07.jpg": "53f33373633db547",
-  "https://upload.wikimedia.org/wikipedia/commons/8/8c/%CE%97%CE%BB%CE%B5%CE%BA%CF%84%CF%81%CE%BF%CF%86%CF%8C%CF%81%CE%BF_%CE%A7%CE%AD%CE%BB%CE%B9.jpg": "0e71831e3fcedc53",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Electric_eel_-_Ouwehands_Dierenpark.jpg/1280px-Electric_eel_-_Ouwehands_Dierenpark.jpg": "cf8d1b994d4e5725"
+  "https://media.aquatome.com/commons/065ddf7e4c9b8c9d.webp": "4c1c031e3dced953",
+  "https://media.aquatome.com/commons/e4920b14404515b8.webp": "53d33353e3bb3743",
+  "https://media.aquatome.com/commons/84d15bbcedbeed5e.webp": "3c09082f5614921d",
+  "https://media.aquatome.com/commons/2922dfa6380b938b.webp": "edd39b5bc81c1e6c",
+  "https://media.aquatome.com/commons/fa0773c683815dc2.webp": "63330f336174e828",
+  "https://media.aquatome.com/commons/308b9540e571c7d1.webp": "9a61315826084707",
+  "https://media.aquatome.com/commons/50bc018b7d5c12e4.webp": "9999d6492c214324",
+  "https://media.aquatome.com/commons/e23d34430c394c06.webp": "931ac7d29d8e2f29",
+  "https://media.aquatome.com/commons/9d26389617cd92f9.webp": "0ba78d1fafcfcf86",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/223979620/large.jpg": "01e15e0678780064",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/337737969/large.jpeg": "0d0b128d91c39f3f",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/386042949/large.jpeg": "1c0d52467d51d978",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/705628145/large.jpg": "f17377cfc6e6d9cf",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/705628182/large.jpg": "a3b3a7c792dcde8f",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/747620655/large.jpg": "0e9434728a383c9c",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/747620688/large.jpg": "1717476bad9d3339",
+  "https://live.staticflickr.com/2645/3915005142_ececd03800_b.jpg": "feb9811325203077",
+  "https://live.staticflickr.com/3343/3253099001_09c7a82420_b.jpg": "eb3b0f034d4f2303"
  },
  "commons": "2026-11-08",
  "inat": {
   "taxon": 99786,
-  "pass": "agree",
+  "pass": "done",
   "after": {
    "research": 407770013,
-   "agree": 0
+   "agree": 406882168
   }
+ },
+ "gbif": {
+  "key": 2401958,
+  "next": null
+ },
+ "openverse": {
+  "next": 3
  }
 }

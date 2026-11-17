@@ -411,16 +411,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/7318fa06e300cc8d.webp",
-      "width": 960,
-      "height": 639,
-      "licence": "CC BY-SA 4.0",
-      "author": "Zieger M",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Afruca_tangeri_Fiddler_Crab_Angola.jpg",
-      "caption": "Afruca tangeri Fiddler Crab Angola",
-      "thumb": "https://media.aquatome.com/commons/7318fa06e300cc8d-480.webp"
-    },
-    {
       "url": "https://media.aquatome.com/commons/df24671cc13f9980.webp",
       "width": 960,
       "height": 640,
@@ -428,7 +418,12 @@
       "author": "Charles J. Sharp",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:West_African_fiddler_crab_(Uca_tangeri)_male.jpg",
       "caption": "West African fiddler crab (Uca tangeri) male, The Gambia",
-      "thumb": "https://media.aquatome.com/commons/df24671cc13f9980-480.webp"
+      "thumb": "https://media.aquatome.com/commons/df24671cc13f9980-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/df24671cc13f9980-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/99abce2e8390456c.webp",
@@ -439,16 +434,6 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Boca-cava-terra.jpg",
       "caption": "Boca-cava-terra.jpg",
       "thumb": "https://media.aquatome.com/commons/99abce2e8390456c-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/b8255698a1cd1428.webp",
-      "width": 960,
-      "height": 665,
-      "licence": "CC BY-SA 3.0",
-      "author": "PePeEfe",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Uca_tangeri_-_burrow_entrance_-_Cabanas_de_Tavira,_Portugal.jpg",
-      "caption": "Uca tangeri: burrow entrance, mud balls (product of the expansion of the burrow) and feeding and locomotion scratches (cf. Belaústegui, Z.; Muñiz, F. y de Gibert, J. M. (2010) \"Madrigueras de Uca tang",
-      "thumb": "https://media.aquatome.com/commons/b8255698a1cd1428-480.webp"
     }
   ],
   "videos": [],

@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-17). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 687 | 31 | 9 | 23 | 704 |
-| rest | 20 | 1754 | 75 | 0 | 92 | 1737 |
+| covered | 30 | 700 | 31 | 9 | 24 | 716 |
+| rest | 20 | 1764 | 75 | 0 | 94 | 1745 |
 
-## Short of target: every source read (567)
+## Short of target: every source read (583)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -36,7 +36,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/paracheirodon-axelrodi | staple | 29 | 100 |
 | species/trigonostigma-heteromorpha | staple | 17 | 100 |
 | species/symphysodon-aequifasciatus | staple | 69 | 100 |
-| species/neocaridina-davidi | staple | 53 | 100 |
+| species/neocaridina-davidi | staple | 52 | 100 |
 | species/puntius-titteya | staple | 9 | 100 |
 | species/danio-rerio | staple | 34 | 100 |
 | species/mikrogeophagus-ramirezi | staple | 28 | 100 |
@@ -264,7 +264,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/pomacea-diffusa | popular | 16 | 40 |
 | breeds/electric-blue-ram | covered | 1 | 30 |
 | breeds/blue-diamond-discus | covered | 1 | 30 |
-| breeds/glofish | covered | 13 | 30 |
+| breeds/glofish | covered | 12 | 30 |
 | breeds/crystal-red-shrimp | covered | 12 | 30 |
 | breeds/koi-angelfish | covered | 0 | 30 |
 | breeds/blue-velvet-shrimp | covered | 0 | 30 |
@@ -326,6 +326,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/trichogaster-chuna | covered | 10 | 30 |
 | species/xyliphius-lepturus | covered | 0 | 30 |
 | species/acanthicus-adonis | covered | 1 | 30 |
+| species/acarichthys-heckelii | covered | 1 | 30 |
 | species/acentronichthys-leptos | covered | 0 | 30 |
 | species/acestridium-dichromum | covered | 0 | 30 |
 | species/acestrorhynchus-altus | covered | 0 | 30 |
@@ -521,6 +522,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/desmopuntius-hexazona | covered | 1 | 30 |
 | species/desmopuntius-pentazona | covered | 0 | 30 |
 | species/desmopuntius-rhomboocellatus | covered | 0 | 30 |
+| species/devario-assamensis | covered | 1 | 30 |
 | species/devario-auropurpureus | covered | 0 | 30 |
 | species/devario-maetaengensis | covered | 1 | 30 |
 | species/devario-malabaricus | covered | 2 | 30 |
@@ -532,10 +534,12 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/dicrossus-filamentosus | covered | 0 | 30 |
 | species/dicrossus-maculatus | covered | 0 | 30 |
 | species/diplomystes-nahuelbutaensis | covered | 0 | 30 |
+| species/discherodontus-ashmeadi | covered | 0 | 30 |
 | species/distichodus-affinis | covered | 0 | 30 |
 | species/distichodus-sexfasciatus | covered | 1 | 30 |
 | species/duopalatinus-peruanus | covered | 0 | 30 |
 | species/elopichthys-bambusa | covered | 0 | 30 |
+| species/enteromius-candens | covered | 0 | 30 |
 | species/enteromius-fasciolatus | covered | 1 | 30 |
 | species/enteromius-hulstaerti | covered | 0 | 30 |
 | species/enteromius-jae | covered | 1 | 30 |
@@ -543,6 +547,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/epiplatys-dageti | covered | 0 | 30 |
 | species/erethistes-pusillus | covered | 1 | 30 |
 | species/eretmodus-cyanostictus | covered | 0 | 30 |
+| species/erythrinus-erythrinus | covered | 0 | 30 |
 | species/etroplus-canarensis | covered | 0 | 30 |
 | species/etroplus-maculatus | covered | 24 | 30 |
 | species/exodon-paradoxus | covered | 3 | 30 |
@@ -583,3 +588,14 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/herotilapia-multispinosa | covered | 0 | 30 |
 | species/homaloptera-parclitella | covered | 3 | 30 |
 | species/homalopteroides-tweediei | covered | 0 | 30 |
+| species/hydrocynus-goliath | covered | 7 | 30 |
+| species/hydrolycus-armatus | covered | 1 | 30 |
+| species/hydrolycus-tatauaia | covered | 0 | 30 |
+| species/hypancistrus-contradens | covered | 0 | 30 |
+| species/hypancistrus-debilittera | covered | 0 | 30 |
+| species/hyphessobrycon-agulha | covered | 0 | 30 |
+| species/hyphessobrycon-amapaensis | covered | 1 | 30 |
+| species/hyphessobrycon-bifasciatus | covered | 0 | 30 |
+| species/hyphessobrycon-columbianus | covered | 4 | 30 |
+| species/hyphessobrycon-erythrostigma | covered | 4 | 30 |
+| species/hyphessobrycon-eschwartzae | covered | 0 | 30 |

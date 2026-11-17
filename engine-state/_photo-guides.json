@@ -111697,5 +111697,61 @@
       "dead": false,
       "people": false
     }
+  },
+  "https://media.aquatome.com/aquariumbreeder/0f4b7c62558af8a8.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "guide photo",
+    "noteHash": "20cbdadc6fad7862606177b940203284f9079995f389636089c2cac3a2802f9d",
+    "hints": {
+      "dead": false,
+      "people": false,
+      "artwork": true
+    }
+  },
+  "https://media.aquatome.com/aquariumbreeder/c206d18aebab62d3.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "guide photo",
+    "noteHash": "4bd2311225152fb874c226f577cae00f58b6babf0bc0d2fd41b7db418ed1d1ec",
+    "hints": {
+      "dead": false,
+      "people": false
+    }
+  },
+  "https://media.aquatome.com/aquariumbreeder/c58def115d04b331.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "guide photo",
+    "noteHash": "d48271c8fcb170f03f62c3b49f543a9ceac24b146efdc53a9bdf8870992cd12e",
+    "hints": {
+      "dead": false,
+      "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/21e71ded4ea4ed45.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "guide photo",
+    "noteHash": "da68c41379cb1a442f05b8e3467e8e60c0838a947351b66479fb63f6b2bdfb3e",
+    "hints": {
+      "dead": false,
+      "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/b2d7977edc8a6a74.webp": {
+    "person": false,
+    "mark": true,
+    "brand": true,
+    "note": "guide photo; mark; brand",
+    "noteHash": "f2c47d0915b4ad941be4d831816eeda9de14ec05e8d0c684d0177d47211b18c7",
+    "hints": {
+      "dead": false,
+      "people": false
+    }
   }
 }
