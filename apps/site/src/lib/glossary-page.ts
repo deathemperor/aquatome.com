@@ -1,5 +1,5 @@
 import { capitalFirst, cleanPhoto, FIRST_PLANTS, kindLine, kindsSection, linkTerms, photoFitsCard, plainText, POPULAR, slugify, STAPLE_SPECIES, type Content, type GlossaryEntity, type GuideEntity, type Localized, type Photo } from '@aq/schema'
-import { BREED_KIND } from './breeds'
+import { breedIsFish, breedKind } from './breeds'
 import { partsHtml, photoCredit, unsplashLine } from './cite'
 import { LANG, translator, type Lang } from './i18n'
 import { tilePhoto } from './img'
@@ -62,7 +62,7 @@ function termUses(lang: Lang, c: Content): Map<string, Uses> {
   }
   for (const b of c.breeds) {
     const body = b.t.body ? linkTerms(b.t.body, targets, 'ml', new Set([`breed:${b.id}`])).html : ''
-    pages.push({ kind: 'fish', use: { href: `/vi/ca/${b.t.slug}/`, name: b.t.name, ...pic(tilePhoto(tilePhotos(b.photos)[0])), kind: t(BREED_KIND[b.kind]) }, rank: KNOWN.length, size: size(b), terms: terms([body]) })
+    pages.push({ kind: 'fish', use: { href: `/vi/ca/${b.t.slug}/`, name: b.t.name, ...pic(tilePhoto(tilePhotos(b.photos)[0])), kind: t(breedKind(b.kind, breedIsFish(c, b))) }, rank: KNOWN.length, size: size(b), terms: terms([body]) })
   }
   for (const p of c.plants) {
     const parts = sectionParts(lang, c, { sections: p.sections, t: p.t, self: `plant:${p.id}`, selfNames: [p.scientificName, p.t.name, ...p.t.altNames], co2: p.co2 })

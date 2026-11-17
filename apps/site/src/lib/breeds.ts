@@ -1,10 +1,26 @@
-import type { BreedEntity, Content, Localized, Photo, Range } from '@aq/schema'
+import type { BreedEntity, Content, Localized, Photo, Range, SpeciesEntity } from '@aq/schema'
 import { cardRows } from './card-rows'
 import type { Lang } from './i18n'
 import { asNum, asRange } from './species-index'
+import { isFish, NOT_FISH_GAPS } from './taxa-places'
 
 export type Breed = Localized<BreedEntity>
 export const BREED_KIND: Record<BreedEntity['kind'], string> = { hybrid: 'Cá lai', variety: 'Dòng cá cảnh', transgenic: 'Cá biến đổi gen' }
+/** A line of a shrimp, a crab or a snail isn't a fish: its kind in words that don't call it one. */
+const NOT_FISH_KIND: Record<BreedEntity['kind'], string> = { hybrid: 'Con lai', variety: 'Dòng nuôi cảnh', transgenic: 'Biến đổi gen' }
+export const breedKind = (kind: BreedEntity['kind'], fish: boolean) => (fish ? BREED_KIND : NOT_FISH_KIND)[kind]
+
+/** Whether a breed is a fish's: its species' (through the breed it's a form of), else its parents' first. */
+/** Whether a species' or a line's page is a fish's: a species by its group and order, a line by its species. */
+export const pageIsFish = (c: Pick<Content, 'species' | 'breeds'>, s: Pick<SpeciesEntity, 'id' | 'group' | 'order'> | Pick<BreedEntity, 'id' | 'basedOn' | 'parents'>) =>
+  'order' in s ? isFish(s) : breedIsFish(c, s)
+export function breedIsFish(c: Pick<Content, 'species' | 'breeds'>, b: Pick<BreedEntity, 'id' | 'basedOn' | 'parents'>, seen = new Set<string>()): boolean {
+  if (NOT_FISH_GAPS.has(b.id)) return false
+  const s = c.species.find(x => x.id === b.basedOn) ?? c.species.find(x => x.id === b.parents.find(p => p.species)?.species)
+  if (s) return isFish(s)
+  const up = c.breeds.find(x => x.id === b.basedOn)
+  return !up || seen.has(up.id) ? true : breedIsFish(c, up, seen.add(up.id))
+}
 
 /** What a breed is a form of: its species or parent breed page, when we have one. */
 export function basedOn(c: Content, b: Breed): { name: string; href: string } | undefined {
