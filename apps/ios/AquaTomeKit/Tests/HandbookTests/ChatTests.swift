@@ -294,19 +294,24 @@ private func key(_ b: Chat.Block) -> String {
   #expect(props == ["on", "resting", "perAccount", "maxTurns", "maxChars"])
 }
 
-/// With no reply (offline), chat stays as it last was only for the account it was asked as: a reader who signs out
-/// offline doesn't keep the account's yes.
-@Test func chatStaysOnOfflineOnlyForTheAccountItWasAskedAs() {
-  #expect(Chat.on(after: nil, as: "a1", last: true, lastAs: "a1"))
-  #expect(!Chat.on(after: nil, as: nil, last: true, lastAs: "a1"))
-  #expect(!Chat.on(after: nil, as: "a2", last: true, lastAs: "a1"))
-  #expect(!Chat.on(after: nil, as: "a1", last: true, lastAs: nil))
-  #expect(Chat.on(after: nil, as: nil, last: true, lastAs: nil))
-  #expect(!Chat.on(after: nil, as: nil, last: false, lastAs: nil))
-  // A reply is the reply's, whoever asked last.
-  #expect(Chat.on(after: (Data(#"{"on":true}"#.utf8), 200), as: nil, last: false, lastAs: "a1"))
-  #expect(!Chat.on(after: (Data(#"{"on":false}"#.utf8), 200), as: "a1", last: true, lastAs: "a1"))
-  #expect(!Chat.on(after: (Data(#"{"on":true}"#.utf8), 503), as: "a1", last: true, lastAs: "a1"))
+/// Chat's ways in show as the reader's own last reply says: offline, a yes holds only for the account it was asked as,
+/// and a reply that comes after the reader signed in or out is dropped.
+@Test func chatsWaysInShowAsTheReadersOwnReplySays() {
+  let yes = (Data(#"{"on":true}"#.utf8), 200), no = (Data(#"{"on":false}"#.utf8), 200), down = (Data(#"{"on":true}"#.utf8), 503)
+  var gate = Chat.Gate()
+  func take(_ reply: (Data, Int)?, asked: String?, now: String?) -> [Bool] { [gate.take(reply, asked: asked, now: now), gate.on] }
+  #expect(take(yes, asked: "a1", now: "a1") == [true, true])
+  #expect(take(nil, asked: "a1", now: "a1") == [true, true], "offline, the same account keeps its yes")
+  #expect(take(nil, asked: nil, now: nil) == [true, false], "signed out offline")
+  #expect(take(yes, asked: "a1", now: nil) == [false, false], "the account's reply came after it signed out")
+  #expect(take(yes, asked: nil, now: nil) == [true, true], "on signed out too")
+  #expect(take(nil, asked: nil, now: nil) == [true, true])
+  #expect(take(nil, asked: "a2", now: "a2") == [true, false], "signed in offline as an account it wasn't asked as")
+  #expect(take(nil, asked: nil, now: "a2") == [false, false])
+  #expect(take(yes, asked: "a2", now: "a2") == [true, true])
+  #expect(take(down, asked: "a2", now: "a2") == [true, false], "a reply it can't read")
+  #expect(take(yes, asked: "a2", now: "a2") == [true, true])
+  #expect(take(no, asked: "a2", now: "a2") == [true, false])
 }
 
 // MARK: Requests

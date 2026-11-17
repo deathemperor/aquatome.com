@@ -261,12 +261,22 @@ public enum Chat {
                   maxChars: o["maxChars"] as? Int)
   }
 
-  /// Whether chat's ways in show, once GET /api/chat was asked as `account` (its id, nil signed out): the reply's `on`; with
-  /// no reply (offline), the last reply's only if it was for the same account. A reader who signs out offline doesn't keep
-  /// the account's yes.
-  public static func on(after reply: (Data, Int)?, as account: String?, last: Bool, lastAs: String?) -> Bool {
-    guard let (data, code) = reply else { return account == lastAs && last }
-    return status(data, status: code)?.on ?? false
+  /// Whether chat's ways in show, as the reader's own GET /api/chat last said. A reader who signs out offline doesn't keep
+  /// the account's yes, and a reply that comes after the reader signed in or out is for someone else.
+  public struct Gate: Equatable, Sendable {
+    public private(set) var on = false
+    /// The account the last reply taken was for (its id, nil signed out).
+    public private(set) var account: String?
+    public init() {}
+
+    /// GET's reply (nil offline), asked as `asked` (an account's id, nil signed out), once the reader is `now`: the reply's
+    /// `on`; with no reply, the last yes only if it was for the same account. False, with nothing changed, if the reader
+    /// signed in or out while it came: the reader's own is on its way.
+    public mutating func take(_ reply: (Data, Int)?, asked: String?, now: String?) -> Bool {
+      guard asked == now else { return false }
+      if let (data, code) = reply { on = Chat.status(data, status: code)?.on ?? false; account = asked } else if account != asked { on = false }
+      return true
+    }
   }
 
   /// A refused request's answer (any status but a stream's 200).
