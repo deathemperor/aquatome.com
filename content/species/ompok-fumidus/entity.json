@@ -10,13 +10,37 @@
     "malaysia",
     "indonesia",
     "sumatra",
-    "thailand"
+    "thailand",
+    "terengganu",
+    "kalimantan"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 15
+      },
+      {
+        "source": "scotcat",
+        "value": 15
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 21,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ]
   },
@@ -26,6 +50,12 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/ompok_cf_fumidus_en/",
       "html": "<p>Ompok belongs, like glass catfish (Kryptopterus), Giant Catfish (Wallago) and Wels catfish (Silurus) to the family Siluridae. Maximum length in most species of Ompok is around 15 cm, only O. bimaculatus from India is said to reach up to 45 cm. O. fumidus becomes only about 15 cm long (the largest reported specimen had 145 mm without the tail fin).</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/ompok_fumidus.htm",
+      "html": "<p>Family: Siluridae. Size: 15 cm. Temperature: 21–27°C. pH: 6.0–7.0. Previously known as O. leiacanthus but newly described by Tan &amp; Ng (1996). Description: anal soft rays 53–60. Etymology: the specific name fumidus is Latin for smoky coloured, referring to its uniform grey-to-black colour.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -40,10 +70,22 @@
       "html": "<p>Ompok fumidus has a wide distribution over the Malay Peninsula, Sumatra, Borneo, Riau Islands and Thailand.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/ompok_fumidus.htm",
+      "html": "<p>Asia: Peninsular Malaysia (Terengganu, Selangor, Perak and Pahang); Pulau Bintan (Riau Archipelago), as well as Kalimantan Barat and Kalimantan Tengah (Borneo). Type locality: North Selangor peat swamp forest, 43 km on road from Tanjong Malim to Sungai Besar, Selangor, Malaysia.</p><p>The IUCN Red List: this species occurs from the Mae Nam Kolok drainage southwards to the Pahang River drainage in the Malay Peninsula; Pulau Bintan (Riau Archipelago); Batang Hari drainage in central Sumatra, and the Kapuas River drainage southwards to the Arut River drainage in Borneo, with an estimated extent of occurrence (EOO) of 573,960 km2. Although there is no detailed information on the population status, survey data indicate it is still abundant in many parts of its known distribution. However, its habitat (blackwater peat swamp forests) has undergone large scale destruction and degradation, and a population decline of about 25% due to habitat degradation and loss is suspected within the next ten years. Therefore, Ompok fumidus is assessed as Near Threatened, nearly meeting criterion A3c (IUCN 2020).</p>"
+    },
+    {
       "key": "habitat",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/ompok_cf_fumidus_en/",
       "html": "<p>It is usually found in shallow brooks with peat water.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/ompok_fumidus.htm",
+      "html": "<p>Inhabits stenotopic to peats. Collected from shallow blackwaters in a peat swamp heavily disturbed by logging activities.</p>"
     },
     {
       "key": "aquariumSize",
@@ -52,10 +94,22 @@
       "html": "<p>This \"Wels catfish en miniature\" enables even aquarists with comparatively small tanks to keep this type of catfish.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/ompok_fumidus.htm",
+      "html": "<p>Feed mainly on insect larvae, with adults eating fish instead.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/ompok_cf_fumidus_en/",
       "html": "<p>The fish proved to be very peaceful, but small fish will serve as food.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/ompok_fumidus.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2019. FishBase. www.fishbase.org. Ng, H.H. &amp; Van Veen, F. 2020. Ompok fumidus. The IUCN Red List of Threatened Species 2020. Tan, T.H.T. and P.K.L. Ng, 1996. Catfishes of the Ompok leiacanthus (Bleeker, 1853) species group (Teleostei: Siluridae) from Southeast Asia, with description of a new species. Raffles Bull. Zool. 44(2):531-542. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [

@@ -1,0 +1,29 @@
+{
+  "slug": "tom-hum-dat-song-chau-au",
+  "name": "Tôm hùm đất sông châu Âu",
+  "altNames": [
+    "Tôm hùm đất quý tộc",
+    "Noble crayfish",
+    "River cray"
+  ],
+  "sections": {
+    "beforeYouBuy:glaser": "<p>Đáng buồn là tôm hùm đất sông châu Âu (Astacus astacus) đang có nguy cơ tuyệt chủng ở Trung Âu. Nguyên nhân là môi trường sống tự nhiên của nó bị phá hủy nặng nề, cộng thêm việc một loài tôm từ Bắc Mỹ được đưa sang đây trong khoảng 1860–1870. Loài đó là tôm hùm đất Mỹ sọc (Orconectes limosus), và nó mang theo một bệnh do nấm. Nấm này không hại gì tôm hùm đất Mỹ sọc, nhưng lại giết mọi loài tôm hùm đất châu Âu. Người ta gọi bệnh này là bệnh dịch tôm hùm đất. Về sau, thêm một loài Bắc Mỹ khác là Procambarus clarkii được đưa vào Nam Âu và mang bệnh dịch tới nốt những vùng còn lại mà tôm bản địa châu Âu đang sống. Cả hai loài Orconectes limosus và Procambarus clarkii đều được đưa sang để làm thực phẩm.</p><p>Muốn nuôi tôm hùm đất sông châu Âu trong ao hay bể thì có thể mua ở các trại chuyên cho đẻ loài này, nơi tôm sạch bệnh.</p>",
+    "diet:glaser": "<p>Loài tôm này ăn tạp, nhưng ngoài tự nhiên chúng chủ yếu ăn xác thực vật. Vì vậy trong bể lúc nào cũng phải có sẵn lá khô của cây sồi, cây dẻ gai và các loại lá tương tự.</p>",
+    "waterConditions:glaser": "<p>Nhiệt độ nước tuyệt đối không được vượt quá 18 °C.</p>",
+    "dimorphism:glaser": "<p>Phân biệt đực cái rất dễ. Con đực có thêm một đôi chân đặc biệt gọi là gonopode, dùng làm cơ quan sinh dục. Đôi chân này chìa vào giữa đôi chân bò cuối cùng. Con cái thì không có gì nằm giữa chân bơi (pleopod) và chân bò cả.</p>",
+    "reproduction:glaser": "<p>Sau khi giao phối, con cái ôm trứng giữa các chân bơi (pleopod) cho tới khi trứng nở.</p>"
+  },
+  "quality": {
+    "score": 0.88,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.88
+    }
+  },
+  "held": {
+    "checks": [
+      "elsewhere"
+    ],
+    "at": "2026-11-17"
+  }
+}

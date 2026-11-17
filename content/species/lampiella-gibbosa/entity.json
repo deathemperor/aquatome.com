@@ -8,7 +8,8 @@
   "places": [
     "south-america",
     "brazil",
-    "rio-betari"
+    "rio-betari",
+    "ribeira-de-iguape"
   ],
   "range": {
     "native": {
@@ -68,12 +69,32 @@
           "min": 16,
           "max": 22
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 5
+      },
+      {
+        "source": "scotcat",
+        "value": 5
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ]
   },
@@ -85,10 +106,28 @@
       "html": "<p>Maximum size: 5 cm. Origin: Brazil.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/lampiella_gibbosa.htm",
+      "html": "<ul><li>Common name: Bumblebee Dwarf Pleco</li><li>Synonym: Otocinclus gibbosus</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/_en-20/",
       "html": "<p>The species occurs in the Brazilian state of Sao Paulo in the Rio Betari. Well known other species found here are for example Scleromystax barbatus (formerly known as Corydoras barbatus) or Parotocinclus paulinus.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/lampiella_gibbosa.htm",
+      "html": "<p>South America: Brazil, Ribeira de Iguape River basin. Type locality: Rio Bethary.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/lampiella_gibbosa.htm",
+      "html": "<p>Needs to be kept in an aquarium with a high oxygen content for their requirements due to them coming from swift currents where they sit upon rounded stones. Keep at lower temperatures as high values can be a death sentence to this species.</p>"
     },
     {
       "key": "waterConditions",
@@ -103,10 +142,28 @@
       "html": "<p>They mainly feed on aufwuchs, but they also take freshly hatched brine shrimp nauplii readily.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/lampiella_gibbosa.htm",
+      "html": "<p>No information on diet was available.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/_en-20/",
       "html": "<p>This charming little catfish species was described as early as 1908 by Miranda Ribeiro under the name Otocinclus gibbosus. But only when a group of researching aquarists (H.-G. Evers, M. Lacerda, and M. Beyer) managed to collect the fish alive it became clear how distinct from all other Otocinclus-like fishes this species really is. There exist lots of individual colour variations, some are pretty orange-black, others rather grey. Most of them are yellowish.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/lampiella_gibbosa.htm",
+      "html": "<p>The species pictured has a slightly different colouration from the original description and may only be a variant of L. gibbosa or a new species from this genus.</p><p>Etymology: The specific name gibbosa: Latin for humpbacked, referring to its projecting nape.</p><p>IUCN Red List: Lampiella gibbosa is endemic to Brazil, occurring in the Ribeira do Iguape river basin. Its extent of occurrence is estimated at 3,450 km². In the areas where it occurs, it is abundant and associated with environments with good water quality. The species is captured for aquariums, but it is not possible to estimate the impact of this activity on the species. Part of its distribution is outside protected areas, subject to habitat degradation by anthropogenic activities. As the population is not severely fragmented, and it is not possible to apply the concept of locations, the species has been classified as Near Threatened (NT), approaching the EN category in criterion B1b(iii). The main recommendations for the conservation of the species are: the protection of the aquatic ecosystem and an assessment to quantify its commercial capture (IUCN 2021).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/lampiella_gibbosa.htm",
+      "html": "<p>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2021. Lampiella gibbosa. The IUCN Red List of Threatened Species 2021.</p><p>Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944.</p><p>Ferraris, C.J. Jr. 2007 Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -139,6 +196,17 @@
       "author": "Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/_en-20/",
       "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/77be7cea59f76fce.webp",
+      "thumb": "https://media.aquatome.com/scotcat/77be7cea59f76fce-480.webp",
+      "width": 500,
+      "height": 322,
+      "licence": "dùng với sự cho phép",
+      "author": "Hans-Georg Evers / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/lampiella_gibbosa.htm",
+      "caption": "Lampiella cf. gibbosa",
+      "source": "scotcat"
     }
   ],
   "videos": [],

@@ -1,7 +1,7 @@
 ---
 url: https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus_brunneus_ventuari_en-2/
 title: Leporinus brunneus Ventuari - Aquarium Glaser GmbH
-fetchedAt: 2026-11-16T19:26:50.048Z
+fetchedAt: 2026-11-17T00:38:04.055Z
 hash: fa2faecffaa375a9ab7c2102066671e7f89316c8e7cfa79480bd5003acd8cca3
 ---
 

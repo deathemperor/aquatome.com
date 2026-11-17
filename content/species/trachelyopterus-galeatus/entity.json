@@ -7,7 +7,12 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "guyana"
+    "guyana",
+    "brazil",
+    "french-guiana",
+    "peru",
+    "suriname",
+    "trinidad-and-tobago"
   ],
   "range": {
     "records": {
@@ -1396,6 +1401,28 @@
           "min": 22,
           "max": 28
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 22
       }
     ]
   },
@@ -1413,10 +1440,28 @@
       "html": "<p>It is extremely widespread in South America. The specimens currently offered come from Guyana.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_galeatus.htm",
+      "html": "<p>South America: Brazil, French Guiana, Peru, Surinam, Trinidad &amp; Tobago.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_galeatus.htm",
+      "html": "<p>Occurs in swamps. Well-adapted to hypoxic environments, being able to survive for hours, emerged.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/_en-17/",
       "html": "<p>The fish should be kept in large tanks with lots of hiding places.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_galeatus.htm",
+      "html": "<p>As with most species in this family they need hiding places such as pipes/caves where they will reside most of the day.</p>"
     },
     {
       "key": "waterConditions",
@@ -1431,10 +1476,22 @@
       "html": "<p>They can be fed with any usual fish food, but it is necessary to feed them in the afternoon.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_galeatus.htm",
+      "html": "<p>In its natural habitat the adults feed on small fishes, arthropods, worms and sometimes on fruits. In the aquaria most prepared foods such as tablet and pellet and frozen foods such as bloodworm are taken. If the aquarium is dimly lit you can see it coming out to feed.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/_en-17/",
       "html": "<p>It is a nocturnal species. Tankmates should not be too small (minimum half the length of the catfish), otherwise they could be mistaken for food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_galeatus.htm",
+      "html": "<p>Will come out at night to prowl so smaller fishes will be looked upon as prey, although this is not one of the most aggressive members of this family.</p>"
     },
     {
       "key": "dimorphism",
@@ -1447,6 +1504,24 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/_en-17/",
       "html": "<p>Details of the breeding behaviour are still unknown. It is believed that they have internal fertilization. The only thing known for sure is that they spawn exclusively at night.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_galeatus.htm",
+      "html": "<p>The spiny structure of the pectoral fins enables the male to hold the females during mating (internal fertilisation). Sperm can be kept in the female's genital tract for several months, owing to a gelatinous emission from the seminal vesicle of the male. At maturity, the size of the adhesive eggs (20% of the female's weight) is 3 mm. Nine days after hatching, alevin size is 1.5 cm and they feed on microscopic worms or small insects. At around 11 days, their negative phototropism pushes them to hide themselves under branches or rocks.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_galeatus.htm",
+      "html": "<p>Description: Dorsal spines (total): 1; dorsal soft rays (total): 5–6; anal spines: 0; anal soft rays: 20–25. The body is stocky, the head a little depressed, the inferior jaw a little prognathous, the cephalic helmet covered with finely pigmented skin in adults, with a fontanelle shorter than the orbital diameter.</p><p>Etymology: The genus name Trachelyopterus means trachelos, neck; pterus, fin, presumably referring to the elevated nape of T. coriaceus, which gives the appearance that the dorsal fin originates at the neck region. The specific name galeatus means helmeted, presumably referring to the skin-covered cephalic shield.</p><p>Remarks: Depending on what river system they are imported from they can be variable in colouration, from light to dark. The last thumbnail specimen from Colombia shows this trait and it may turn out to be T. galeatus or an undescribed species. This genus is in need of revision in the future.</p><p>IUCN Red List: The species is widely distributed and faces no major threats. Therefore, it is assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_galeatus.htm",
+      "html": "<p>Boujard, T., M. Pascal, F.J. Meunier and P.-Y. Le Bail 1997 Poissons de Guyane. Guide écologique de l'Approuague et de la réserve des Nouragues. Institut National de la Recherche Agronomique, Paris, 219 p. Frederico, R.G. 2023. Trachelyopterus galeatus. The IUCN Red List of Threatened Species 2023. Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (01/2011). Grant, Steven. pers comm. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -1479,6 +1554,50 @@
       "author": "Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/_en-17/",
       "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/f42c060dde2505aa.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f42c060dde2505aa-480.webp",
+      "width": 500,
+      "height": 212,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_galeatus.htm",
+      "caption": "Trachelyopterus galeatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/a8a75c9d785c91c8.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a8a75c9d785c91c8-480.webp",
+      "width": 500,
+      "height": 234,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_galeatus.htm",
+      "caption": "Trachelyopterus galeatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/353fd1afac3e5ed8.webp",
+      "thumb": "https://media.aquatome.com/scotcat/353fd1afac3e5ed8-480.webp",
+      "width": 500,
+      "height": 318,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_galeatus.htm",
+      "caption": "Trachelyopterus galeatus: close up of head",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/9c830d2b1377c731.webp",
+      "thumb": "https://media.aquatome.com/scotcat/9c830d2b1377c731-480.webp",
+      "width": 500,
+      "height": 231,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_galeatus.htm",
+      "caption": "Trachelyopterus galeatus",
+      "source": "scotcat"
     }
   ],
   "videos": [

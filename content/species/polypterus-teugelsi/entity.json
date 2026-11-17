@@ -115,6 +115,12 @@
       "html": "<ul><li>Needs a very large tank, soft water kept steady and a steady temperature; hardy.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus_teugelsi_en/",
+      "html": "<p>Polypterus teugelsi was scientifically described in 2004. It could be imported for the first time in spring. It has a black network pattern covering an olive background on the dorsal and dorsolateral surface of the body. This, together with its bright orange belly, is unique among bichirs.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-teugelsi",
@@ -127,10 +133,22 @@
       "html": "<p>Probably endemic to the River Cross drainage in Cameroon.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus_teugelsi_en/",
+      "html": "<p>Polypterus teugelsi originates from the Cross River system in Cameroon.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-teugelsi",
       "html": "<p>Most commonly found in shady, slow-moving rainforest streams with lush growths of overhanging marginal vegetation.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus_teugelsi_en/",
+      "html": "<p>In their homeland they inhabit shaded rainforest streams.</p>"
     },
     {
       "key": "aquariumSize",
@@ -149,6 +167,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-teugelsi",
       "html": "<ul><li>Temperature: 25–28°C</li><li>pH: 7.0–7.5</li><li>Hardness: 1–5 dGH</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus_teugelsi_en/",
+      "html": "<p>Water chemistry plays a subordinated role for their maintenance. Strong food and regular water changes, however, are of great importance.</p>"
     },
     {
       "key": "diet",
@@ -184,16 +208,41 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/f6e50dc7b4f50f22.webp",
+      "thumb": "https://media.aquatome.com/commons/f6e50dc7b4f50f22-480.webp",
       "width": 960,
       "height": 589,
       "licence": "CC BY-SA 4.0",
       "author": "RatioTile",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Teugelsi_bichir.jpg",
-      "caption": "A Teugelsi bichir at Las Vegas Exotic Fish, an aquarium store.",
-      "thumb": "https://media.aquatome.com/commons/f6e50dc7b4f50f22-480.webp"
+      "caption": "A Teugelsi bichir at Las Vegas Exotic Fish, an aquarium store."
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "vMvejFUR-JE",
+      "title": "Polypterus teugelsi",
+      "durationSec": 36,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "79ttoQH2VHM",
+      "title": "3 Inch Polypterus teugelsi found his first Treat",
+      "durationSec": 45,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ClZHwIpeE68",
+      "title": "POLYPTERUS TEUGELSI: UMA DAS ESPÉCIES MAIS INCRÍVEL DE POLYPTERUS!",
+      "durationSec": 576,
+      "lang": "pt-BR"
+    },
+    {
+      "youtubeId": "J4jgz6xZw4U",
+      "title": "Polypterus teugelsi",
+      "durationSec": 85,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -223,5 +272,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-17"
 }

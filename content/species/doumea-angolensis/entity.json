@@ -1,0 +1,69 @@
+{
+  "id": "doumea-angolensis",
+  "scientificName": "Doumea angolensis",
+  "order": "Siluriformes",
+  "family": "Amphiliidae",
+  "genus": "Doumea",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "angola",
+    "quanza"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/doumea_angolensis.htm",
+      "html": "<p>Family: Amphiliidae. Size: 7 cm total length. Etymology: the specific name angolensis means from Angola.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/doumea_angolensis.htm",
+      "html": "<p>Africa: Quanza River system and the interior of Benguella, Angola. Type locality: The interior of Benguella, at an altitude of 4000–5000 feet, Angola.</p><p>IUCN Red List: Only known from the Benguella area (type locality) and in the upper reaches of the Lucala River (Lower Kwanza River system). No obvious known threats. Data scarce. Least Concern, but needs updating (IUCN 2007).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/doumea_angolensis.htm",
+      "html": "<p>Preferred habitat is not known, but it occurs in small rivers with running water. Biology is not known in detail, but species of this genus are adapted to live in rapids.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/doumea_angolensis.htm",
+      "html": "<p>Description: Caudal peduncle is very long and slim. The adipose fin begins above the centre of the anal fin, and the caudal fin is moderately sickle-shaped, its lobes roughly the same size.</p><p>Colouration: Body is yellowish with grey overtones on the back. A number of indistinct darker spots are superimposed on the background. The fins exhibit more or less well-defined transverse bands.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/doumea_angolensis.htm",
+      "html": "<p>Da Costa, L. 2007. Doumea angolensis. The IUCN Red List of Threatened Species 2007.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2023. FishBase. www.fishbase.org.</p><p>Poll, M., 1967. Contribution à la faune ichthyologique de l'Angola. Diamang Publ. Cult., nr. 75:381 p.</p><p>Seegers, L., 2008. The catfishes of Africa: A handbook for identification and maintenance. Aqualog Verlag A.C.S. GmbH, Germany. 604 p.</p><p>Skelton, P.H. and G.G. Teugels, 1986. Amphiliidae. p. 54-65. In J. Daget, J.-P. Gosse and D.F.E. Thys van den Audenaerde (eds.) Check-list of the freshwater fishes of Africa (CLOFFA). ISNB, Brussels; MRAC, Tervuren; and ORSTOM, Paris. Vol. 2.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/084e64a693d3fb1c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/084e64a693d3fb1c-480.webp",
+      "width": 500,
+      "height": 248,
+      "licence": "dùng với sự cho phép",
+      "author": "Poll, M. 1967 / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/doumea_angolensis.htm",
+      "caption": "Doumea angolensis: Angola, River Lucala, affluent River Cuanza",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-16"
+}

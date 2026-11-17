@@ -99796,25 +99796,17 @@
     "products": []
   },
   "vi/species/acarichthys-heckelii": {
-    "at": "2026-11-08",
-    "hash": "384679d1d3d0e3f3",
+    "at": "2026-11-17",
+    "hash": "aa5c741bf9042d1d",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P8",
+        "part": "P13",
         "quote": "có thể xem danh sách một số loài sống chung ngoài tự nhiên ở mục 'Môi trường sống' phía trên",
-        "why": "Points to a list of wild tankmates that the habitat section of this page does not contain; it was in the source article.",
+        "why": "The habitat section on this page has no such list of species, so it points at content from the source page.",
         "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P5",
-        "quote": "hiện tượng lỗ đầu",
-        "why": "Literal calque of 'hole-in-the-head'; Vietnamese keepers call it differently.",
-        "by": "model",
-        "fix": "bệnh lủng đầu"
       }
     ],
     "products": []
@@ -106072,8 +106064,8 @@
     "products": []
   },
   "vi/species/betta-smaragdina": {
-    "at": "2026-11-15",
-    "hash": "cf206cf6445d7ef7",
+    "at": "2026-11-17",
+    "hash": "df81947d41752c31",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -106183,8 +106175,8 @@
     "products": []
   },
   "vi/species/betta-uberis": {
-    "at": "2026-11-13",
-    "hash": "f83b392bbf2b29a0",
+    "at": "2026-11-17",
+    "hash": "b807e6c9c03d4b54",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -107650,7 +107642,7 @@
     "products": []
   },
   "vi/species/caridina-propinqua": {
-    "at": "2026-11-10",
+    "at": "2026-11-17",
     "hash": "12e2fe0e713dbaff",
     "model": "opus",
     "checklist": 3,
@@ -112765,10 +112757,10 @@
     "products": []
   },
   "vi/species/devario-assamensis": {
-    "at": "2026-11-08",
-    "hash": "302d3ee8f58be250",
+    "at": "2026-11-17",
+    "hash": "ebd24e052fadb627",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -113059,19 +113051,11 @@
     "products": []
   },
   "vi/species/discherodontus-ashmeadi": {
-    "at": "2026-11-08",
-    "hash": "2678c0b7d8faa36e",
+    "at": "2026-11-17",
+    "hash": "c76d6c270f4a317a",
     "model": "opus",
-    "checklist": 2,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P3",
-        "quote": "Qua những hình ảnh hiện có, sinh cảnh điển hình của loài là các đoạn ghềnh đá ngắn",
-        "why": "Refers to images the source had available, which this page does not show.",
-        "by": "model"
-      }
-    ],
+    "checklist": 3,
+    "findings": [],
     "products": []
   },
   "vi/species/discherodontus-halei": {
@@ -113350,23 +113334,16 @@
     "products": []
   },
   "vi/species/electrophorus-electricus": {
-    "at": "2026-11-07",
+    "at": "2026-11-17",
     "hash": "03f296ecc2e25129",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "units",
         "part": "P4",
         "quote": "Bể 180 x 90 x 120 cm (2040 lít)",
-        "why": "The 2040 litres is 6 × 3 × 4 feet converted, not the volume of the metric sides (about 1944 litres), so the size came from an imperial original.",
-        "by": "model"
-      },
-      {
-        "check": "elsewhere",
-        "part": "P7",
-        "quote": "cá trắng nhỏ (whitebait), cá hồi vân",
-        "why": "Whitebait is a frozen food sold in British shops and is given here as an ordinary food for the reader to buy.",
+        "why": "2040 litres is a 540-gallon tank converted to litres; the metric sides hold about 1944 litres.",
         "by": "model"
       }
     ],
@@ -113420,25 +113397,38 @@
     "products": []
   },
   "vi/species/enteromius-candens": {
-    "at": "2026-11-08",
-    "hash": "a534f348bea08634",
+    "at": "2026-11-17",
+    "hash": "606e35551a6c4994",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
-        "part": "P5",
+        "part": "P7",
         "quote": "bạn có thể dùng gỗ sồi beech hoặc sồi oak thông thường",
-        "why": "Beech and oak wood are ordinary in Europe, not in Vietnam.",
+        "why": "Beech and oak wood are European timbers that keepers in Vietnam don't buy or gather.",
         "by": "model"
       },
       {
-        "check": "words",
-        "part": "P10",
-        "quote": "có thể dùng một lọc hộp nhỏ chạy bằng sủi",
-        "why": "Calque of the English 'box filter'; keepers in Vietnam call an air-driven box filter something else.",
-        "by": "model",
-        "fix": "lọc góc chạy sủi"
+        "check": "elsewhere",
+        "part": "P7",
+        "quote": "Rải thêm lá khô (lá sồi beech, sồi oak hay lá bàng đều được)",
+        "why": "Beech and oak leaves are European leaves that keepers in Vietnam don't use.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P13",
+        "quote": "Bỏ thêm vài lá sồi oak, sồi beech hoặc lá bàng cũng là ý hay.",
+        "why": "Oak and beech leaves aren't available to keepers in Vietnam.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P13",
+        "quote": "Ted Judy, một người chơi cá người Mỹ, đã cho loài này đẻ thành công. Một phần nội dung dưới đây dựa trên kinh nghiệm của ông.",
+        "why": "Introduces the source article's hobbyist, a stranger to the reader, then calls him just \"Ted\" as if the reader knew him.",
+        "by": "model"
       }
     ],
     "products": []
@@ -113856,16 +113846,16 @@
     "products": []
   },
   "vi/species/erythrinus-erythrinus": {
-    "at": "2026-11-08",
-    "hash": "2d6e6c4bb2b726c5",
+    "at": "2026-11-17",
+    "hash": "5c91e6d6a70797ed",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
-        "part": "P7",
+        "part": "P10",
         "quote": "cá thịt trắng, chẳng hạn cá lancefish",
-        "why": "Lancefish is a frozen food sold in UK and Western shops, so it is not a fish keepers in Vietnam can buy or would name.",
+        "why": "Lancefish is a frozen feeder fish sold in Western shops, not something keepers in Vietnam buy.",
         "by": "model"
       }
     ],
@@ -118723,8 +118713,8 @@
     "products": []
   },
   "vi/species/laetacara-araguaiae": {
-    "at": "2026-11-09",
-    "hash": "f2192aa5601faa27",
+    "at": "2026-11-17",
+    "hash": "718df0a6963886ee",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -118841,7 +118831,7 @@
     "products": []
   },
   "vi/species/lampiella-gibbosa": {
-    "at": "2026-11-16",
+    "at": "2026-11-17",
     "hash": "4bc4a6a6606911b0",
     "model": "opus",
     "checklist": 3,
@@ -119488,7 +119478,7 @@
     "products": []
   },
   "vi/species/leporinus-brunneus": {
-    "at": "2026-11-15",
+    "at": "2026-11-17",
     "hash": "e76b2259622b534d",
     "model": "opus",
     "checklist": 3,
@@ -121208,18 +121198,11 @@
     "products": []
   },
   "vi/species/microctenopoma-ansorgii": {
-    "at": "2026-11-07",
-    "hash": "54212215c3c26d05",
+    "at": "2026-11-17",
+    "hash": "415bb0c54395f161",
     "model": "opus",
-    "findings": [
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Lứa cá hiện tại mới dài 3-4 cm.",
-        "why": "Refers to the source shop's current stock batch, which the reader doesn't know.",
-        "by": "model"
-      }
-    ],
+    "checklist": 3,
+    "findings": [],
     "products": []
   },
   "vi/species/microctenopoma-fasciolatum": {
@@ -122579,16 +122562,24 @@
     "products": []
   },
   "vi/species/nematobrycon-lacortei": {
-    "at": "2026-11-08",
-    "hash": "5f11cb81996d42ce",
+    "at": "2026-11-17",
+    "hash": "8f48afc0b747eb94",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "words",
-        "part": "P10",
+        "part": "P11",
+        "quote": "ấu trùng muỗi đen (Culex)",
+        "why": "Literal translation of 'black mosquito larvae'; keepers in Vietnam call these lăng quăng or bọ gậy.",
+        "by": "model",
+        "fix": "lăng quăng (bọ gậy)"
+      },
+      {
+        "check": "words",
+        "part": "P16",
         "quote": "Có cơ hội là cá bố mẹ sẽ ăn trứng",
-        "why": "Calque of English \"there's a chance\"; unnatural in Vietnamese.",
+        "why": "Calque of English 'there's a chance that'; unnatural in Vietnamese.",
         "by": "model",
         "fix": "Cá bố mẹ có thể ăn trứng"
       }
@@ -123428,16 +123419,16 @@
     "products": []
   },
   "vi/species/ompok-fumidus": {
-    "at": "2026-11-16",
-    "hash": "fd52578099cad8ed",
+    "at": "2026-11-17",
+    "hash": "fab2c06f93d2284f",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P2",
-        "quote": "Những con này không rõ bắt từ đâu về.",
-        "why": "Points at the source shop's own fish in stock, which the reader has never seen.",
+        "part": "P3",
+        "quote": "Những con này không rõ bắt từ đâu về. Chúng chắc là Ompok fumidus, nên được bán dưới tên Ompok cf. fumidus.",
+        "why": "Refers to the source shop's own stock as if the reader knew those fish.",
         "by": "model"
       }
     ],
@@ -124289,8 +124280,8 @@
     "products": []
   },
   "vi/species/pangasius-bocourti": {
-    "at": "2026-11-16",
-    "hash": "ad903117d484eb60",
+    "at": "2026-11-17",
+    "hash": "9f4e4766be8279b1",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -126730,16 +126721,16 @@
     "products": []
   },
   "vi/species/polypterus-teugelsi": {
-    "at": "2026-11-09",
-    "hash": "2f36c17546bec232",
+    "at": "2026-11-17",
+    "hash": "1d1a2d2d96fdbd5e",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "words",
-        "part": "P2",
+        "part": "P3",
         "quote": "cá khủng long là những \"nghệ sĩ trốn thoát\" xuất sắc",
-        "why": "Calque of the English 'escape artists'.",
+        "why": "Literal calque of the English 'escape artists'; not how Vietnamese keepers describe jumping fish.",
         "by": "model",
         "fix": "cá khủng long rất hay nhảy ra khỏi bể"
       }
@@ -132294,18 +132285,11 @@
     "products": []
   },
   "vi/species/toxotes-jaculatrix": {
-    "at": "2026-11-07",
-    "hash": "9df35cb744d2c512",
+    "at": "2026-11-17",
+    "hash": "c41c3ef2c41b6966",
     "model": "opus",
-    "findings": [
-      {
-        "check": "elsewhere",
-        "part": "P11",
-        "quote": "Ở Anh, thỉnh thoảng cũng có bán Toxotes chatareus",
-        "why": "Describes what is on sale in the UK hobby market, written for a British reader.",
-        "by": "model"
-      }
-    ],
+    "checklist": 3,
+    "findings": [],
     "products": []
   },
   "vi/species/traccatichthys-taeniatus": {
@@ -132373,7 +132357,7 @@
     "products": []
   },
   "vi/species/trachelyopterus-galeatus": {
-    "at": "2026-11-16",
+    "at": "2026-11-17",
     "hash": "cb3aeeade591d1c8",
     "model": "opus",
     "checklist": 3,
@@ -132923,15 +132907,16 @@
     "products": []
   },
   "vi/species/tucanoichthys-tucano": {
-    "at": "2026-11-07",
+    "at": "2026-11-17",
     "hash": "95aaae1c3c359f8d",
     "model": "opus",
+    "checklist": 3,
     "findings": [
       {
         "check": "words",
         "part": "P7",
         "quote": "quả cây tống quán sủi (alder cone)",
-        "why": "Dictionary name for alder; Vietnamese keepers just say alder cones by the borrowed name.",
+        "why": "Dictionary translation of 'alder'; keepers just call these alder cones.",
         "by": "model",
         "fix": "quả alder"
       }
@@ -133714,6 +133699,444 @@
   "vi/species/zungaro-zungaro": {
     "at": "2026-11-11",
     "hash": "382a5b07b53f6def",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/aquariumbreeder-crayfish-external-anatomy": {
+    "at": "2026-11-17",
+    "hash": "1f3b98bdc96112de",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/aquariumbreeder-do-crabs-crayfish-or-shrimp-feel-pain": {
+    "at": "2026-11-17",
+    "hash": "bb66392331cae9e5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/aquariumbreeder-how-to-care-for-hammer-corals": {
+    "at": "2026-11-17",
+    "hash": "bfa99ce892bf01db",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "bằng ống turkey baster hoặc ống cho ăn sea squirt",
+        "why": "\"Turkey baster\" is an untranslated English kitchen term; keepers in Vietnam don't call the feeding tool this.",
+        "by": "model",
+        "fix": "ống bơm thức ăn / xi lanh"
+      }
+    ],
+    "products": [
+      "Reef Roids"
+    ]
+  },
+  "vi/guides/aquariumbreeder-how-to-culture-daphnia-in-aquariums": {
+    "at": "2026-11-17",
+    "hash": "6c34e84bb55cf3a3",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Seachem Prime"
+    ]
+  },
+  "vi/guides/aquariumbreeder-how-to-set-up-a-caridina-shrimp-tank": {
+    "at": "2026-11-17",
+    "hash": "c3403c4b346d3de4",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này dùng gần đủ chừng ấy thứ.",
+        "why": "Refers to the source's own tank, which the reader never sees.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Lại nhắc lần nữa, dùng test dạng nước thì hơn",
+        "why": "Says it is repeating advice that appears nowhere earlier on this page, so it comes from the source.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Salty Shrimp GH+",
+      "Carib Sea Super Natural Sunset Gold Sand",
+      "ADA Amazonia aqua soil",
+      "Carib Sea Eco-Complete",
+      "Mr. Aqua Aquarium Soil",
+      "Seachem Fluorite",
+      "Fluval Plant and Shrimp Stratum",
+      "BeeMax",
+      "Bee3",
+      "MK Breed Z Silver Powder",
+      "Benibachi – Mironekuton powder",
+      "Aquanaut Small Bio Sponge Filter",
+      "Huijukon Air Pump Double Sponge Filter",
+      "Tetra Whisper Easy to Use Air Pump for Aquariums",
+      "Eheim Jager Aquarium Thermostat",
+      "Tim's Aquatics Ammonium Chloride Aquarium Treatment for Fishless Cycling",
+      "API Quick Start Nitrifying Bacteria",
+      "Tetra SafeStart Plus To Cycle New Aquariums",
+      "Fluval Biological Enhancer for Aquarium",
+      "API Master Test Kit"
+    ]
+  },
+  "vi/guides/aquariumbreeder-top-aquarium-plants-that-grow-in-tanks-with-gravel-or-sand": {
+    "at": "2026-11-17",
+    "hash": "42542db9cfd790ad",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/aquariumbreeder-uv-sterilizer-in-aquarium": {
+    "at": "2026-11-17",
+    "hash": "5ce6382187df2737",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "AA Aquarium Green Killing Machine 3 Watt",
+      "COODIA Internal Green Water Killer Filter Aquarium Tank",
+      "Coralife BioCube UV Sterilizer for Aquarium, Mini"
+    ]
+  },
+  "vi/guides/glaser-en-10-catfishes-10a-catfishes-corydoras-co-corydoras-from-the-rio-jamanxim-c-bifasciatus-en": {
+    "at": "2026-11-17",
+    "hash": "954eff9a98a9cdce",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "nay đã về lần thứ hai",
+        "why": "An importer's stock news: it speaks of fish that have just arrived at the source's shop, which this reader doesn't know.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-a-new-l-catfish-en": {
+    "at": "2026-11-17",
+    "hash": "4bff0de34243ee43",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Tuần trước có một đợt nhập về loài cá lau kiếng viền vàng mới",
+        "why": "Brings in the original seller's stock news (a recent import of 20 fish) as if the reader knew about it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-beautiful-new-varieties-of-liverbearers-arrived-en": {
+    "at": "2026-11-17",
+    "hash": "23fb6af5fc27d787",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Tuần này có năm dòng cá đẻ con mới, đẹp rất ấn tượng, về từ các trại chuyên ép đẻ ở châu Á.",
+        "why": "This is the source shop's announcement of new stock arriving this week.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-discus-champions-on-a-visit-en": {
+    "at": "2026-11-17",
+    "hash": "627ddb34b18262b0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Lại một lần nữa, ông Akira Ishinabe từ Nhật Bản gửi đàn cá đĩa vừa thi",
+        "why": "This is the source farm's own news about fish staying with it, written as if the reader already follows it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-wonderful-german-bred-south-american-cichlids-en": {
+    "at": "2026-11-17",
+    "hash": "cf12868fcb07b26e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Gần đây có về bốn loài trong nhóm này, con nào cũng là cá trại ở Đức, chất lượng hàng đầu.",
+        "why": "This is a foreign shop's stock news about fish that just arrived, written as if the reader knew the shop.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Thông tin chi tiết hơn về mấy loài cá này sẽ sớm được bổ sung.",
+        "why": "It promises details the source would add later, and this page doesn't have them.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/afruca-tangeri": {
+    "at": "2026-11-17",
+    "hash": "4cab871811bc3e7c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/alpheus-cyanoteles": {
+    "at": "2026-11-17",
+    "hash": "580380d5a68609fb",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/arothron-firmamentum": {
+    "at": "2026-11-17",
+    "hash": "6914954bc1571550",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/astacus-astacus": {
+    "at": "2026-11-17",
+    "hash": "a6420299fbf5c2c9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P3",
+        "quote": "lá khô của cây sồi, cây dẻ gai và các loại lá tương tự",
+        "why": "Oak and beech leaves come from European trees, and keepers in Vietnam don't buy or gather them.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/belonoglanis-tenuis": {
+    "at": "2026-11-17",
+    "hash": "2262174fc5b19337",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/cherax-lorentzi": {
+    "at": "2026-11-17",
+    "hash": "6bb52190eca77c18",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/congoglanis-alula": {
+    "at": "2026-11-17",
+    "hash": "ac84824aadd8ba8e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/doumea-angolensis": {
+    "at": "2026-11-17",
+    "hash": "e23d5849bc1cc2eb",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/doumea-chappuisi": {
+    "at": "2026-11-17",
+    "hash": "b27952a365af911a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/doumea-typica": {
+    "at": "2026-11-17",
+    "hash": "5de04d1461f65f5a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/ernstichthys-megistus": {
+    "at": "2026-11-17",
+    "hash": "06ebc654c812282e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/filopaludina-martensi": {
+    "at": "2026-11-17",
+    "hash": "5db754e349a04088",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P8",
+        "quote": "rau bina",
+        "why": "Dictionary term for spinach; keepers in Vietnam say cải bó xôi.",
+        "by": "model",
+        "fix": "cải bó xôi"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/gnathonemus-longibarbis": {
+    "at": "2026-11-17",
+    "hash": "79647ea84185ccc1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/hisonotus-nigricauda": {
+    "at": "2026-11-17",
+    "hash": "e9d6a91eba422f3c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P4",
+        "quote": "Ngoài Aufwuchs (lớp rêu và vi sinh bám trên đá, lũa, lá cây)",
+        "why": "German hobby term carried over from the source; Vietnamese keepers don't use it.",
+        "by": "model",
+        "fix": "rêu bám"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/hydrolycus-tatauaia": {
+    "at": "2026-11-17",
+    "hash": "33753f28c9ce20fd",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/labeo-longipinnis": {
+    "at": "2026-11-17",
+    "hash": "21c7168aa280a0aa",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/macrobrachium-idae": {
+    "at": "2026-11-17",
+    "hash": "c9d38471f3c2c44d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P6",
+        "quote": "được nhập từ Sri Lanka về vào tháng 1 năm 2006",
+        "why": "This is the source importer's stock news. A reader in Vietnam would take it to mean the prawn arrived in Vietnam, which it doesn't.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/mastacembelus-greshoffi": {
+    "at": "2026-11-17",
+    "hash": "63f1bd82a01e90d4",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/nannopetersius-ansorgii": {
+    "at": "2026-11-17",
+    "hash": "a6c316fb9c805bef",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P5",
+        "quote": "Loài này sẽ được thử cho đẻ, với hy vọng sớm có lứa cá đầu tiên đẻ ở Đức.",
+        "why": "The source shop's own news about breeding its stock in Germany, which means nothing to a reader in Vietnam.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/planorbarius-corneus": {
+    "at": "2026-11-17",
+    "hash": "7d2035cf8bf46d86",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/poecilia-caucana": {
+    "at": "2026-11-17",
+    "hash": "b3ce9628dbfca87b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P3",
+        "quote": "chúng hợp với nước máy ở hầu hết vùng Trung Âu",
+        "why": "Compares the fish's needs to Central European tap water as if it were the reader's own.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/pyrrhulina-laeta": {
+    "at": "2026-11-17",
+    "hash": "addb85ca4872cd65",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/thaiphusa-sirikit": {
+    "at": "2026-11-17",
+    "hash": "040cf2b5e123e577",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/uca-ornata": {
+    "at": "2026-11-17",
+    "hash": "6fdf4dde2c1bfe71",
     "model": "opus",
     "checklist": 3,
     "findings": [],

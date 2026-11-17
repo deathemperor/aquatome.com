@@ -1,0 +1,51 @@
+{
+  "id": "gnathonemus-longibarbis",
+  "scientificName": "Gnathonemus longibarbis",
+  "order": "Osteoglossiformes",
+  "family": "Mormyridae",
+  "genus": "Gnathonemus",
+  "group": "other",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "congo-river"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 40
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/gnathonemus_longibarbis_en/",
+      "html": "<p>Final size probably lies at approx. 40 cm.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/gnathonemus_longibarbis_en/",
+      "html": "<p>They were probably imported for the first time in the trade in March 2007. Since only very few of these rare fish were imported, they should get into the hands of experienced mormyrid fans.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/gnathonemus_longibarbis_en/",
+      "html": "<p>Gnathonemus longibarbis comes from the environment of Lubumbashi, the second largest city in the Congo. The fish were caught in close proximity to Bondaka. Origin: Congo, Congo River.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/gnathonemus_longibarbis_en/",
+      "html": "<p>In nature they feed on water insects and their larvae.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-17"
+}
