@@ -334,6 +334,21 @@
         12,
         13
       ]
+    },
+    {
+      "section": "what",
+      "fact": "JBL, the food maker, says in its own words that in a community aquarium \"feeding ONE main food is definitely not enough!\" Herbivores and carnivores need different foods, so a single product can suit one group and harm the other.",
+      "source": 14
+    },
+    {
+      "section": "prevention",
+      "fact": "Aquariadise says to keep packs of fish food \"well-sealed in a cool, dry, darkened closet\", and that flake foods should be \"tightly sealed between feeding\".",
+      "source": 15
+    },
+    {
+      "section": "vietnam",
+      "fact": "The Vietnamese aquarium shop Aquarium Care calls dry pellet food \"cám\", for example: \"Cám Thái Inve 5/8 hạt nhỏ là một loại thức ăn phù hợp cho rất nhiều loại cá cảnh, từ cá nhỏ đến cá trưởng thành.\"",
+      "source": 16
     }
   ],
   "species": [
@@ -410,6 +425,21 @@
       "url": "https://www.sera.de/us/product/freshwater-aquarium/sera-gvg-mix-royal-flakes",
       "title": "sera GVG Mix Royal Flakes | sera",
       "kind": "maker"
+    },
+    {
+      "url": "https://www.jbl.de/en/blog/detail/631/feeding-in-the-community-aquarium-why-fish-have-sex-more-often-than-humans?country=ee",
+      "title": "Feeding in the community aquarium - Why fish have sex more often than humans",
+      "kind": "maker"
+    },
+    {
+      "url": "https://www.aquariadise.com/does-fish-food-expire/",
+      "title": "Does Fish Food Expire? What Every Owner Should Know",
+      "kind": "magazine"
+    },
+    {
+      "url": "https://aquariumcare.vn/tin-tuc/1743/huong-dan-cach-cho-ca-thuy-sinh-an-chuan-nhat.html",
+      "title": "HƯỚNG DẪN CÁCH CHO CÁ THỦY SINH ĂN CHUẨN NHẤT - Vi Sinh Cá Cảnh Aquarium Care",
+      "kind": "shop"
     }
   ]
 }
