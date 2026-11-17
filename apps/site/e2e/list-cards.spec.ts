@@ -74,7 +74,7 @@ for (const { path, prefix } of LISTS) {
     const shown = (await cardsBySlug(page)).flatMap(([slug]) => photo.get(slug) ?? [])
     test.skip(shown.length === 0, 'no photos on the first page')
     // Each photo's own page (an Unsplash row also links its photographer and Unsplash: a.author, a.site).
-    const links = await page.locator('#photo-credits li a:not(.author, .site)').evaluateAll(as => as.map(a => a.getAttribute('href')!))
+    const links = await page.locator('#photo-credits li a:not(.author, .site, .licence)').evaluateAll(as => as.map(a => a.getAttribute('href')!))
     expect([...links].sort()).toEqual([...new Set(shown)].sort())
     const built = await rows(page)
     const key = (row: string) => /data-author="[^"]*" data-licence="[^"]*"/.exec(row)![0]
