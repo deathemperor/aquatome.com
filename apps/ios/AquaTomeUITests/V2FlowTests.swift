@@ -832,8 +832,10 @@ final class V2FlowTests: XCTestCase {
   /// one still ground; and the bar's own tap is still the bar's.
   func testThePageShowsUnderTheTabBarForEveryReader() {
     // Khám phá long enough to scroll well past a drag (`-familiar`): the fixed index's own is about a screen tall, and
-    // with the rows' 3:2 pictures it scrolled about 30 points, its blank foot all that went under the bar.
-    let app = launch("-v2", "YES", "-familiar", "8")
+    // with the rows' 3:2 pictures it scrolled about 30 points, its blank foot all that went under the bar. Its photos
+    // drawn (`-fixed-pictures`): with none, only white and pale grey passed under the bar, which iOS 26.5's glass (CI's)
+    // frosts to near one colour, 0.77% of its place changing (#1502's run, 17 Nov), against 6% on 27.2.
+    let app = launch("-v2", "YES", "-familiar", "8", "-fixed-pictures")
     app.launchForFlow()
     app.openTab("Khám phá")
     XCTAssertTrue(app.descendants(matching: .any)["v2-browse"].waitForExistence(timeout: 5), "no Khám phá")
