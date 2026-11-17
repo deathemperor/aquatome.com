@@ -161,6 +161,11 @@ final class PageShotsFlowTests: XCTestCase {
   func testTheToolsOnTim() { shootTools("tools-light") }
   func testTheToolsOnTimInTheDark() { shootTools("tools-dark", dark: true) }
   func testTheToolsOnTimInTheLargestText() { shootTools("tools-largest-light", size: largest, screens: 2) }
+  /// Tìm's "Hỏi AquaTome" card and the chat it opens, about nothing yet (Design's board, `chatways/board.png`: "Tìm before
+  /// typing" and "the chat, about nothing yet"), in the look the app opens in.
+  func testTheAskCard() { shootAskCard("ask-card-light") }
+  func testTheAskCardInTheDark() { shootAskCard("ask-card-dark", dark: true) }
+  func testTheAskCardInTheLargestText() { shootAskCard("ask-card-largest-light", size: largest) }
   func testTheHome() { shootHome("tim-light") }
   func testTheHomeOnANewPhone() { shootHome("tim-new-light", read: false) }
   func testTheHomeInTheDark() { shootHome("tim-dark", dark: true) }
@@ -408,6 +413,20 @@ final class PageShotsFlowTests: XCTestCase {
       a.lifetime = .keepAlways
       add(a)
     }
+  }
+
+  private func shootAskCard(_ name: String, dark: Bool = false, size: String? = nil) {
+    let app = launch(dark: dark, size: size, ["-fake-accounts", "on", "-reset-fake-server"], look: .v2)
+    app.openTab("Tìm kiếm")
+    let card = app.descendants(matching: .any)["ask-aquatome"].firstMatch
+    XCTAssertTrue(card.waitForExistence(timeout: 10), "no Hỏi AquaTome on Tìm")
+    capture(app, name + "-tim", dark: dark, large: true, screens: 1)
+    card.tap()
+    XCTAssertTrue(app.staticTexts["Bạn muốn hỏi gì?"].waitForExistence(timeout: 5), "no chat about nothing yet")
+    let sign = app.descendants(matching: .any)["apple-sign-in"].firstMatch
+    if sign.waitForExistence(timeout: 3) { sign.tap() }
+    XCTAssertTrue(app.buttons.matching(identifier: "chat-chip").firstMatch.waitForExistence(timeout: 10), "no starters")
+    capture(app, name + "-empty", dark: dark, large: true, screens: 1)
   }
 
   /// Tìm before a search, top to bottom, with every shelf (nine video series, a kind of kit, what's new): after a page is

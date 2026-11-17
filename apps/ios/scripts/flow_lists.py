@@ -52,6 +52,8 @@ SHOTS = {
                'testAKindASearchFindsNoneOfInTheLargestText'],
     # Tìm's home: its tools, its kit section and a long list, what's new and its list.
     'tools': ['testTheToolsOnTim', 'testTheToolsOnTimInTheDark', 'testTheToolsOnTimInTheLargestText'],
+    # Tìm's "Hỏi AquaTome" card and the chat it opens about nothing yet.
+    'ask': ['testTheAskCard', 'testTheAskCardInTheDark', 'testTheAskCardInTheLargestText'],
     'home': ['testKitOnTheHomeAndALongList', 'testKitOnTheHomeAndALongListInTheDark', 'testWhatsNew', 'testWhatsNewInTheDark',
              'testTheHome', 'testTheHomeOnANewPhone', 'testTheHomeInTheDark', 'testTheHomeInTheLargestText'],
     # The tab bar over a fish's text and over Tìm's photos.
