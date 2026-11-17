@@ -15,6 +15,7 @@ export async function waitingKindStore(lang: Lang) {
   // a permitted fish for the address-only calendar control; no repository source or alteration grant is changed.
   const sourcesFile = join(root, 'sources.json'), sources = JSON.parse(await readFile(sourcesFile, 'utf8'))
   sources.seriouslyfish.publish = true
+  sources.seriouslyfish.permission = { date: '2026-11-17', file: 'synthetic fixture only', scope: ['translation', 'automated-copying', 'facts', 'commercial'] }
   await writeFile(sourcesFile, JSON.stringify(sources))
   const entityFile = join(root, 'glossary/lua/entity.json')
   const entity = JSON.parse(await readFile(entityFile, 'utf8'))

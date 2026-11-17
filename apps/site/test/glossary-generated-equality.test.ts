@@ -12,7 +12,7 @@ test('strict loaded-content comparison retains undefined keys, Maps and Sets ins
 
 test('callback identity is not data equality: independently allocated callbacks must agree at every address', () => {
   const before = { photoWaits: (url: string) => url.endsWith('held.webp'), data: new Set([1]) }
-  expect(strictLoadedContentEqual(before, { ...before, photoWaits: url => url.endsWith('held.webp') }, ['held.webp', 'clean.webp'])).toBe(true)
+  expect(strictLoadedContentEqual(before, { ...before, photoWaits: (url: string) => url.endsWith('held.webp') }, ['held.webp', 'clean.webp'])).toBe(true)
   expect(strictLoadedContentEqual(before, { ...before, photoWaits: () => false }, ['clean.webp', 'held.webp'])).toBe(false)
   expect(strictLoadedContentEqual(before, { ...before, photoWaits: undefined }, ['held.webp'])).toBe(false)
 })
