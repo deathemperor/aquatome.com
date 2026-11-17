@@ -37,15 +37,10 @@ final class Switcher {
   /// a token, and once more if it is sent again for a stale one; each of the lamp's recordings (Codex, 17 Nov). With
   /// whether its command may have reached the device (false when refused before anything went).
   func send(_ c: DeviceCommand, still: @escaping @MainActor @Sendable () -> Bool) async -> (result: SwitchResult, mayHaveSent: Bool) {
-    if let why = refusal(c, still: still) { return (.failed(why), false) }
+    if let why = withdrawal(c, still: still) { return (.failed(words(why, c)), false) }
     let allowed: @MainActor @Sendable () -> Bool = { [unowned self] in still() && MasterButton.allows(c, role: self.role(c)) }
-    let (result, sent) = await set(c, allowed: allowed)
-    // Withdrawn as it was about to go: why, in the button's words, only when nothing of it went (MasterButton.failedLine).
-    if case .failed(let own) = result, let why = refusal(c, still: still) {
-      let lampOn: String? = c.isLamp && why == MasterModel.signedOut
-        ? String(localized: "Đèn Love Ecology đã bật nhưng chưa đổi màu vì bạn đã đăng xuất.") : nil
-      return (.failed(MasterButton.failedLine(own, withdrawn: why, sent: sent, lampOn: lampOn)), sent)
-    }
+    // Withdrawn as it was about to go: why, in the button's words, only when nothing of it went (CommandEnd).
+    let (result, sent) = await set(c, allowed: allowed, withdrawn: { self.withdrawal(c, still: still) })
     return (result, sent)
   }
 
@@ -53,10 +48,17 @@ final class Switcher {
     await send(c, still: still).result
   }
 
-  private func refusal(_ c: DeviceCommand, still: @MainActor () -> Bool) -> String? {
-    if !still() { return MasterModel.signedOut }
-    if !MasterButton.allows(c, role: role(c)) { return String(localized: "Nút không bật tắt ổ \(name(c)) được trong bản này.") }
+  private func withdrawal(_ c: DeviceCommand, still: @MainActor () -> Bool) -> CommandEnd.Withdrawal? {
+    if !still() { return .signedOut }
+    if !MasterButton.allows(c, role: role(c)) { return .role }
     return nil
+  }
+
+  private func words(_ w: CommandEnd.Withdrawal, _ c: DeviceCommand) -> String {
+    switch w {
+    case .signedOut: MasterModel.signedOut
+    case .role: String(localized: "Nút không bật tắt ổ \(name(c)) được trong bản này.")
+    }
   }
 
   /// The outlet a command names, as the plug board knows it, and what the app calls it.
@@ -89,17 +91,20 @@ final class Switcher {
   }
 
   /// Sets it, from the list last read (read it first: `plugs.refresh()`).
-  func set(_ c: DeviceCommand) async -> SwitchResult { await set(c, allowed: { true }).result }
+  func set(_ c: DeviceCommand) async -> SwitchResult { await set(c, allowed: { true }, withdrawn: { nil }).result }
 
-  /// `allowed` is asked right before each command leaves; no, and nothing more goes. With whether the command may have
-  /// reached the device: a plug's answer lost or not confirmed may still have switched it; one refused, withdrawn or
-  /// not sent didn't.
-  private func set(_ c: DeviceCommand, allowed: @escaping @MainActor @Sendable () -> Bool) async -> (result: SwitchResult, sent: Bool) {
+  /// `allowed` is asked right before each command leaves; no, and nothing more goes. `withdrawn`, asked once it has
+  /// ended: why it would be withdrawn now. With whether the command may have reached the device: a plug's answer lost
+  /// or not confirmed may still have switched it; one refused, withdrawn or not sent didn't (CommandEnd).
+  private func set(_ c: DeviceCommand, allowed: @escaping @MainActor @Sendable () -> Bool,
+                   withdrawn: @MainActor () -> CommandEnd.Withdrawal?) async -> (result: SwitchResult, sent: Bool) {
     if let gone = gone(c) { return (.failed(gone), false) }
     if c.isLamp {
       let before = lamp.sent.count
-      if let e = await lamp.send(c, allowed: allowed) { return (.failed(e.line), lamp.sent.count > before) }
-      return (.done, true)
+      let e = await lamp.send(c, allowed: allowed)
+      let end = CommandEnd.lamp(sentAny: lamp.sent.count > before, failed: e != nil, withReason: e != nil && e != .failed,
+                                withdrawn: withdrawn())
+      return (said(end, c, name: name(c), lamp: e), !end.nothingSent)
     }
     guard let o = outlet(c) else { return (.failed(String(localized: "Ổ cắm này không còn trên bể nào.")), false) }
     let (key, name) = o
@@ -109,17 +114,27 @@ final class Switcher {
       return (.failed(board.list == nil ? Self.unreached(name) : String(localized: "Không thấy ổ \(name) trong dự án Tuya.")), false)
     }
     guard live.online, board.online(provider: key.provider, device: key.device) == true else { return (.failed(String(localized: "Ổ \(name) đang mất kết nối.")), false) }
-    // The board sends nothing for an outlet already being switched, and its last outcome would be another tap's.
+    // The board sends nothing for an outlet already being switched.
     guard !board.switching.contains(key) else { return (.failed(String(localized: "Ổ \(name) đang được bật tắt: thử lại sau.")), false) }
-    await board.set(key, on: c.on, allowed: { await allowed() })
-    switch board.outcome(key) {
-    case .confirmed?: return (.done, true)
-    case .unconfirmed?: return (.failed(String(localized: "Ổ \(name) chưa báo đã đổi.")), true)
-    case .unknown?: return (.failed(String(localized: "Không rõ ổ \(name) đã đổi chưa: xem trong Bể của tôi.")), true)
-    case .refused(.plugOffline)?: return (.failed(String(localized: "Ổ \(name) đang mất kết nối.")), false)
-    // Nothing noted: withdrawn as it was about to go (`allowed`), or not sent.
-    case .refused(.offline)?, nil: return (.failed(Self.unreached(name)), false)
-    case .refused(let e)?: return (.failed(String(localized: "Không tới được ổ \(name): \(PlugProblem.text(e))")), false)
+    // This call's own outcome, even when the keys changed while it was on its way.
+    let end = CommandEnd.plug(await board.set(key, on: c.on, allowed: { await allowed() }), withdrawn: withdrawn())
+    return (said(end, c, name: name), !end.nothingSent)
+  }
+
+  /// What the card says of how it ended.
+  private func said(_ end: CommandEnd, _ c: DeviceCommand, name: String, lamp: LampAirError? = nil) -> SwitchResult {
+    switch end {
+    case .done: .done
+    case .withdrawn(let w): .failed(words(w, c))
+    case .notSent: .failed(Self.unreached(name))
+    case .refused(.plugOffline): .failed(String(localized: "Ổ \(name) đang mất kết nối."))
+    case .refused(let e): .failed(String(localized: "Không tới được ổ \(name): \(PlugProblem.text(e))"))
+    case .lampNotSent: .failed((lamp ?? .failed).line)
+    case .unconfirmed: .failed(String(localized: "Ổ \(name) chưa báo đã đổi."))
+    case .unknown: .failed(String(localized: "Không rõ ổ \(name) đã đổi chưa: xem trong Bể của tôi."))
+    case .lampOnOnly(.signedOut): .failed(String(localized: "Đèn Love Ecology đã bật nhưng chưa đổi màu vì bạn đã đăng xuất."))
+    case .lampOnOnly(.own): .failed(String(localized: "Đèn Love Ecology đã bật nhưng chưa đổi màu: \((lamp ?? .failed).line)"))
+    case .lampOnOnly(.unknown): .failed(String(localized: "Đèn Love Ecology đã bật nhưng chưa đổi màu. Thử lại."))
     }
   }
 

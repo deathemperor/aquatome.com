@@ -22,16 +22,6 @@ public struct MasterButton: Sendable, Equatable, Codable {
   public static func allows(_ step: DeviceCommand, role: String?) -> Bool {
     role != "heater" && !(role == "co2" && step.on)
   }
-
-  /// The line for a command that failed (`own`), given why it would be withdrawn now (`withdrawn`: the owner signed out
-  /// since the press, or the outlet's role no longer allows it) and whether any of it went (`sent`). Nothing went: that
-  /// reason. Some of it went (a plug's command whose answer was lost or not confirmed; the lamp's "on" without its
-  /// colour): its own line stays, or the lamp's (`lampOn`), so the card never says nothing went when something did (the
-  /// Writing Lead, 17 Nov).
-  public static func failedLine(_ own: String, withdrawn: String?, sent: Bool, lampOn: String? = nil) -> String {
-    guard let withdrawn else { return own }
-    return sent ? lampOn ?? own : withdrawn
-  }
 }
 
 /// One press of the button, kept on the phone until what it changed is back.

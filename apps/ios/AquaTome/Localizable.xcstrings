@@ -21913,6 +21913,50 @@
         }
       }
     },
+    "Đèn Love Ecology đã bật nhưng chưa đổi màu. Thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology sudah menyala, tapi warnanya belum diubah. Coba lagi."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology sudah menyala, tetapi warnanya belum ditukar. Cuba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไฟ Love Ecology เปิดแล้ว แต่ยังไม่ได้เปลี่ยนสี ลองอีกครั้ง"
+          }
+        }
+      }
+    },
+    "Đèn Love Ecology đã bật nhưng chưa đổi màu: %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology sudah menyala, tapi warnanya belum diubah: %@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology sudah menyala, tetapi warnanya belum ditukar: %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไฟ Love Ecology เปิดแล้ว แต่ยังไม่ได้เปลี่ยนสี: %@"
+          }
+        }
+      }
+    },
     "Đèn chưa về như cũ: đứng gần đèn rồi bấm Trả lại.": {
       "localizations": {
         "id": {

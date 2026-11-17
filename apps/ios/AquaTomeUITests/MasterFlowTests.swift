@@ -238,6 +238,9 @@ final class MasterFlowTests: XCTestCase {
     make(app, end: "60")
     tap(app, "master-start")
     expect(app, "master-lamp-sent", contains: "on", timeout: 20)
+    // The plugs' steps (CO2, then the fan) gone too, so the sign-out stops only the colour (Codex, 17 Nov: a fan step
+    // not sent yet said "Chưa gửi" rightly).
+    expect(app, "master-log", contains: "switch_3 off", timeout: 20)
     app.openAccount()
     app.scrollToAndTap("sign-out")
     XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 10), "still signed in")
