@@ -1,0 +1,75 @@
+{
+  "id": "trichomycterus-itatiayae",
+  "native": {
+    "input": "7a6384e0845397a9",
+    "at": "2026-11-17T00:14:47.070Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: rivers in the Itatiaia mountains, upper reaches of the Paraíba do Sul River basin in Brazil, Rio de Janeiro State.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Rivers in the Itatiaia Mountains, upper reaches of the Paraíba do Sul River basin, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Paraíba do Sul",
+        "source": "planetcatfish",
+        "quote": "South America: rivers in the Itatiaia mountains, upper reaches of the Paraíba do Sul River basin in Brazil, Rio de Janeiro State.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Itatiaia mountains",
+        "source": "planetcatfish",
+        "quote": "South America: rivers in the Itatiaia mountains, upper reaches of the Paraíba do Sul River basin in Brazil, Rio de Janeiro State.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Trichomycterus itatiayae",
+    "status": "ACCEPTED",
+    "taxonKey": 2343023,
+    "datasets": [
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        19
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        17
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        10
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-17T00:14:47.070Z"
+  }
+}

@@ -14,40 +14,18 @@
       "kind": "pair"
     },
     {
-      "url": "https://media.aquatome.com/commons/3f8fe3e3f06c6134.webp",
-      "thumb": "https://media.aquatome.com/commons/3f8fe3e3f06c6134-480.webp",
-      "width": 1200,
-      "height": 950,
-      "licence": "CC BY-SA 4.0",
-      "author": "Raimond Spekking",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kaimanfische_(Lepisosteus).jpg",
-      "caption": "Ba con cá sấu hỏa tiễn đốm bơi trong bể trồng cây",
+      "url": "https://media.aquatome.com/inaturalist/627589.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/627589-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Kristiina Hurme",
+      "sourceUrl": "https://www.inaturalist.org/photos/627589",
+      "caption": "Cá sấu hỏa tiễn đốm bơi giữa rong tảo dưới nước",
       "best": true,
-      "kind": "group"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/0bca384d610a072e.webp",
-      "thumb": "https://media.aquatome.com/commons/0bca384d610a072e-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY 2.5",
-      "author": "Brian.gratwicke on English Wikipedia",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lepisosteus_oculatus1.jpg",
-      "caption": "Cá sấu hỏa tiễn đốm bơi trong bể nước xanh",
-      "best": true,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/485523b49f16ffcf.webp",
-      "thumb": "https://media.aquatome.com/commons/485523b49f16ffcf-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY-SA 4.0",
-      "author": "Cangadoba",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lepisosteus_Oclt_-_Porte_doree_-_0143.jpg",
-      "caption": "Hai cá sấu hỏa tiễn đốm bơi trong bể thủy cung",
-      "best": true,
-      "kind": "pair"
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/commons/8b0802e97305f569.webp",
@@ -62,28 +40,18 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/commons/cd29fb843f58c100.webp",
-      "thumb": "https://media.aquatome.com/commons/cd29fb843f58c100-480.webp",
-      "width": 1200,
-      "height": 675,
-      "licence": "CC BY-SA 4.0",
-      "author": "Emőke Dénes",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hal_-_Lepisosteus_oculatus_-_2.jpg",
-      "caption": "Cá sấu hỏa tiễn đốm bơi trong bể lớn nước xanh",
+      "url": "https://media.aquatome.com/inaturalist/2822747.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/2822747-480.webp",
+      "width": 1024,
+      "height": 579,
+      "licence": "CC BY",
+      "author": "Kristiina Hurme",
+      "sourceUrl": "https://www.inaturalist.org/photos/2822747",
+      "caption": "Cá sấu hỏa tiễn đốm nằm trên cành cây chìm dưới nước",
       "best": true,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/5d8f21eaf3e27c9d.webp",
-      "thumb": "https://media.aquatome.com/commons/5d8f21eaf3e27c9d-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY-SA 4.0",
-      "author": "EgorovaSvetlana",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_spotted_gar_Lepisosteus_oculatus_New_England_Aquarium.jpg",
-      "caption": "Cá sấu hỏa tiễn đốm trong bể thủy sinh có cây và gỗ lũa",
-      "best": true,
-      "kind": "other"
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/commons/8e8775de5b04de90.webp",
@@ -98,16 +66,18 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/commons/3a02353a1acfc428.webp",
-      "thumb": "https://media.aquatome.com/commons/3a02353a1acfc428-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY-SA 4.0",
-      "author": "Cangadoba",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lepisosteus_Oclt_-_Porte_doree_-_0109.jpg",
-      "caption": "Cá sấu hỏa tiễn đốm bơi trong bể thủy cung lớn",
-      "best": false,
-      "kind": "group"
+      "url": "https://media.aquatome.com/inaturalist/3637870.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/3637870-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Sam Kieschnick",
+      "sourceUrl": "https://www.inaturalist.org/photos/3637870",
+      "caption": "Cá sấu hỏa tiễn đốm bơi gần mặt nước đục ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/commons/4a3100facd03bd31.webp",
@@ -230,6 +200,42 @@
       "kind": "other"
     },
     {
+      "url": "https://media.aquatome.com/commons/3f8fe3e3f06c6134.webp",
+      "thumb": "https://media.aquatome.com/commons/3f8fe3e3f06c6134-480.webp",
+      "width": 1200,
+      "height": 950,
+      "licence": "CC BY-SA 4.0",
+      "author": "Raimond Spekking",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kaimanfische_(Lepisosteus).jpg",
+      "caption": "Ba con cá sấu hỏa tiễn đốm bơi trong bể trồng cây",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/5d8f21eaf3e27c9d.webp",
+      "thumb": "https://media.aquatome.com/commons/5d8f21eaf3e27c9d-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 4.0",
+      "author": "EgorovaSvetlana",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_spotted_gar_Lepisosteus_oculatus_New_England_Aquarium.jpg",
+      "caption": "Cá sấu hỏa tiễn đốm trong bể thủy sinh có cây và gỗ lũa",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/3a02353a1acfc428.webp",
+      "thumb": "https://media.aquatome.com/commons/3a02353a1acfc428-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY-SA 4.0",
+      "author": "Cangadoba",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lepisosteus_Oclt_-_Porte_doree_-_0109.jpg",
+      "caption": "Cá sấu hỏa tiễn đốm bơi trong bể thủy cung lớn",
+      "best": false,
+      "kind": "group"
+    },
+    {
       "url": "https://media.aquatome.com/commons/a6a0524ef9857600.webp",
       "thumb": "https://media.aquatome.com/commons/a6a0524ef9857600-480.webp",
       "width": 1200,
@@ -242,7 +248,7 @@
       "kind": "other"
     }
   ],
-  "seen": 48,
-  "updatedAt": "2026-11-09",
-  "builtAt": "2026-11-09"
+  "seen": 68,
+  "updatedAt": "2026-11-17",
+  "builtAt": "2026-11-17"
 }

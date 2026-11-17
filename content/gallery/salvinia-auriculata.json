@@ -11,8 +11,7 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salvinia_auriculata_6.jpg",
       "caption": "Cụm Bèo ong tai chuột nổi riêng lẻ trên mặt nước",
       "best": true,
-      "kind": "habitat",
-      "unchecked": true
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/commons/67352f61716a8fd2.webp",
@@ -24,8 +23,7 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salvinia_auriculata3.JPG",
       "caption": "Thảm Bèo ong tai chuột xanh tươi phủ kín mặt nước",
       "best": true,
-      "kind": "emersed",
-      "unchecked": true
+      "kind": "emersed"
     },
     {
       "url": "https://media.aquatome.com/commons/2b1c03241996ce5e.webp",
@@ -37,47 +35,7 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salvinia_auriculata-yercaud-salem-India.JPG",
       "caption": "Lá Bèo ong tai chuột có lông và giọt nước, nhìn cận",
       "best": true,
-      "kind": "detail",
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/commons/1a70c3174857bfa7.webp",
-      "thumb": "https://media.aquatome.com/commons/1a70c3174857bfa7-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY-SA 4.0",
-      "author": "Yercaud-elango",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salvinia_auriculata-2-lake-yercaud-salem-India.jpg",
-      "caption": "Thảm Bèo ong tai chuột phủ kín mặt nước ven hồ",
-      "best": true,
-      "kind": "habitat",
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/commons/b4f0112a57d56dae.webp",
-      "thumb": "https://media.aquatome.com/commons/b4f0112a57d56dae-480.webp",
-      "width": 1200,
-      "height": 1600,
-      "licence": "CC BY-SA 4.0",
-      "author": "Vengolis",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salvinia_auriculata_0179_(3x4).jpg",
-      "caption": "Lá Bèo ong tai chuột nổi dày đặc trên mặt nước",
-      "best": true,
-      "kind": "emersed",
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/commons/7bca9e9dadcb2dc6.webp",
-      "thumb": "https://media.aquatome.com/commons/7bca9e9dadcb2dc6-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC0",
-      "author": "Thérèse Gaigé",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jardin_de_Balata_(Fort-de-France,_Martinique)_-_75.jpg",
-      "caption": "Cận cảnh lá Bèo ong tai chuột có lông phủ",
-      "best": true,
-      "kind": "detail",
-      "unchecked": true
+      "kind": "detail"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/10704071.webp",
@@ -91,6 +49,31 @@
       "best": true,
       "kind": "habitat",
       "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/commons/b4f0112a57d56dae.webp",
+      "thumb": "https://media.aquatome.com/commons/b4f0112a57d56dae-480.webp",
+      "width": 1200,
+      "height": 1600,
+      "licence": "CC BY-SA 4.0",
+      "author": "Vengolis",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salvinia_auriculata_0179_(3x4).jpg",
+      "caption": "Lá Bèo ong tai chuột nổi dày đặc trên mặt nước",
+      "best": true,
+      "kind": "emersed"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/7bca9e9dadcb2dc6.webp",
+      "thumb": "https://media.aquatome.com/commons/7bca9e9dadcb2dc6-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC0",
+      "author": "Thérèse Gaigé",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jardin_de_Balata_(Fort-de-France,_Martinique)_-_75.jpg",
+      "caption": "Cận cảnh lá Bèo ong tai chuột có lông phủ",
+      "best": true,
+      "kind": "detail",
       "unchecked": true
     },
     {
@@ -296,6 +279,18 @@
       "kind": "habitat",
       "setup": false,
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/commons/1a70c3174857bfa7.webp",
+      "thumb": "https://media.aquatome.com/commons/1a70c3174857bfa7-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 4.0",
+      "author": "Yercaud-elango",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salvinia_auriculata-2-lake-yercaud-salem-India.jpg",
+      "caption": "Thảm Bèo ong tai chuột phủ kín mặt nước ven hồ",
+      "best": true,
+      "kind": "habitat"
     }
   ],
   "seen": 44,

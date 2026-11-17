@@ -2,20 +2,32 @@ import { isNonCommercial } from '@aq/schema/licence'
 import type { Photo, SourceId, SourceInfo } from '@aq/schema'
 import type { T } from './i18n'
 
-/** A licence's deed page, for structured data (Google Images shows "Licensable" with it). */
+/**
+ * A licence's deed page: the credits list links each licence's name to it (the licences ask for that link), and
+ * structured data names it (Google Images shows "Licensable" with it). Every CC licence by its elements ("CC BY-NC-SA
+ * 2.0" → by-nc-sa/2.0/) and a country's version by its code ("CC BY-SA 3.0 de" → by-sa/3.0/de/); with no version, 4.0.
+ * None for a photo a source let us use.
+ */
 export function licenceUrl(licence: string): string | undefined {
   const l = licence.toLowerCase()
   if (/cc0/.test(l)) return 'https://creativecommons.org/publicdomain/zero/1.0/'
   if (/public domain/.test(l)) return 'https://creativecommons.org/publicdomain/mark/1.0/'
   if (/unsplash/.test(l)) return 'https://unsplash.com/license'
+  const by = l.match(/\bby((?:[- ](?:nc|nd|sa)\b)*)/)
+  if (!by) return undefined
+  const kind = ['by', ...by[1]!.split(/[- ]/).filter(Boolean)].join('-')
   const v = l.match(/\d\.\d/)?.[0] ?? '4.0'
-  // Non-commercial ones first: their own deed, never plain BY's (an album shows iNaturalist's BY-NC and BY-NC-SA).
-  if (/by[- ]nc[- ]sa/.test(l)) return `https://creativecommons.org/licenses/by-nc-sa/${v}/`
-  if (/by[- ]nc[- ]nd/.test(l)) return `https://creativecommons.org/licenses/by-nc-nd/${v}/`
-  if (/by[- ]nc\b/.test(l)) return `https://creativecommons.org/licenses/by-nc/${v}/`
-  if (/by[- ]sa/.test(l)) return `https://creativecommons.org/licenses/by-sa/${v}/`
-  if (/\bby\b/.test(l)) return `https://creativecommons.org/licenses/by/${v}/`
-  return undefined
+  const country = l.match(/\d\.\d\s+([a-z]{2})\b/)?.[1]
+  return `https://creativecommons.org/licenses/${kind}/${v}/${country ? `${country}/` : ''}`
+}
+
+/**
+ * A licence's page as the credits list links it: Unsplash's with AquaTome's UTM, as Unsplash asks of every link to it
+ * (unsplash.ts); the others as licenceUrl. Structured data names the page itself.
+ */
+export const creditLicenceUrl = (licence: string): string | undefined => {
+  const url = licenceUrl(licence)
+  return url === 'https://unsplash.com/license' ? `${url}?utm_source=aquatome&utm_medium=referral` : url
 }
 
 /** A CC BY deed (any BY variant) requires saying the work was changed. CC0 and public domain use the public-domain deeds, not /licenses/. */

@@ -473,6 +473,47 @@
       "kept": false
     }
   ],
+  "vi/products/jbl-e902": [
+    {
+      "at": "2026-11-17T01:47:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.8,
+      "notes": [
+        "\"Đáy lọc không được nằm thấp hơn mặt nước quá 180 cm\" - facts say max 180 cm height difference from the water surface to the bottom of the filter; this is roughly consistent, no real issue.",
+        "\"Hai nguồn ghi khác nhau ở chiều dài bể nhỏ nhất (80 cm và 90 cm)\" - an interpretation, but supported by the facts (80–120 vs 90–120).",
+        "\"Máy rất bền\" / \"nhiều người biết tới\" for EHEIM - the facts say \"very reliable\" and \"well-known\", so supported.",
+        "\"JBL ghi thể tích thùng lọc là 7,6 l\" - supported.",
+        "\"Bể 60 cm dùng e902 được không? ... Bể dưới 90 lít thì e402 hoặc e702\" - mixes length with volume; a 60 cm tank is not directly covered by the facts, so the recommendation is a mild inference.",
+        "\"JBL CristalProfi e702 greenline: rẻ hơn\" - the facts say cheaper, but give no e902 price to compare; this is mildly supported only by the alternatives note.",
+        "\"Máy có sẵn nút mồi nước để khởi động nhanh\" - supported by the built-in quick-start priming device.",
+        "\"Cánh quạt hỏng thì có được bảo hành không? Không\" - a slight over-generalization: the facts say wear parts such as the impeller and shaft aren't covered, so this is acceptable."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-17T01:47:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.8,
+      "notes": [
+        "\"Đáy lọc không được nằm thấp hơn mặt nước quá 180 cm\" is consistent with the facts, so it is fine. The next items are the real problems.",
+        "\"Hai nguồn lệch nhau ở chiều dài bể nhỏ nhất\" is the page's own inference. It is roughly supported (80 vs 90 cm), so it is minor.",
+        "\"Bể dưới 90 lít thì chọn e402 hoặc e702\" is supported by the facts. But \"Bể trên 300 lít ... khi đó e1502 mới đủ\" is an extrapolation, because the facts only say e1502 covers 160–600 l.",
+        "\"Bể 60 cm dùng e902 được không?\" implies a 60 cm tank is unsuitable. This is inferred from the 80–120 cm rating and is acceptable.",
+        "\"Xem luôn van có đang khóa bớt dòng không\": the facts say 'throttled flow', not a valve. This is a small paraphrase.",
+        "\"Dòng của nó yếu hơn e902 ... nhưng máy rất bền bỉ\": the facts support this ('very reliable'). The phrase \"nhiều người biết tới\" is a paraphrase of 'well-known'.",
+        "\"e702 ... rẻ hơn\" is supported by the facts, but the page leaves out the price.",
+        "\"Khóa van lại là tháo được thùng lọc mang đi rửa\": the facts only say the water-stop valve lets you disconnect the filter for cleaning. The step-by-step instruction is slightly embellished.",
+        "\"Máy có sẵn nút mồi nước để khởi động nhanh\" is supported by the facts ('built-in quick-start priming device')."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/products/oase-biomaster": [
     {
       "at": "2026-11-15T19:55:12Z",

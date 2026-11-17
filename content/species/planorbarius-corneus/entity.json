@@ -1,0 +1,153 @@
+{
+  "id": "planorbarius-corneus",
+  "scientificName": "Planorbarius corneus",
+  "order": "",
+  "family": "Planorbidae",
+  "genus": "Planorbarius",
+  "group": "snails",
+  "places": [
+    "europe"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 12,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 6.5,
+          "max": 8.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 4
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "glaser",
+        "value": 1
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 3,
+          "max": 3
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/colorful_great_ramshorn_snails_en/",
+      "html": "<p>The Great Ramshorn snail (Planorbarius corneus, formerly known as Planorbis corneus) has been kept in aquaria and garden ponds since the beginning of the hobby. It grows to a relatively large size (maximum 4 cm) and does not touch living plants. This snail has red blood that contains hemoglobin, so albinos have a bright red body.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/colorful_great_ramshorn_snails_en/",
+      "html": "<p>The water temperature should be between 12 and 25°C, hardness should be at least 10° KH (more is better), and the pH can be between 6.5 and 8.5.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/colorful_great_ramshorn_snails_en/",
+      "html": "<p>They feed exclusively on algae and detritus.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/colorful_great_ramshorn_snails_en/",
+      "html": "<p>They breathe through lungs, so at least part of the oxygen they need is taken from the air. The maximum age they can reach is about 3 years, but in the wild very few specimens get that old.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/colorful_great_ramshorn_snails_en/",
+      "html": "<p>Keeping and breeding the Great Ramshorn is extremely easy. As they are hermaphrodites, any two animals are a pair. Breeders in Singapore have succeeded in breeding full red and blue sports of this snail.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/b5bb36cb568e1072.webp",
+      "thumb": "https://media.aquatome.com/glaser/b5bb36cb568e1072-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/colorful_great_ramshorn_snails_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c1a007da11a858e7.webp",
+      "thumb": "https://media.aquatome.com/glaser/c1a007da11a858e7-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/colorful_great_ramshorn_snails_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/6e0ffc3ac9b8f0ea.webp",
+      "thumb": "https://media.aquatome.com/glaser/6e0ffc3ac9b8f0ea-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/colorful_great_ramshorn_snails_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "Q1SAbIcp9vg",
+      "title": "Leopard Ramshorn Snail",
+      "durationSec": 12,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "i9p3YKwTdGA",
+      "title": "Planorbarius corneus in 2000l pond",
+      "durationSec": 11,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "JpBamcYtinw",
+      "title": "Planorbarius corneus #snail #aquarium #fishtank #planetaquarium #acquario",
+      "durationSec": 21,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho ốc",
+        "rau củ cho ốc thủy sinh"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test KH GH",
+        "test pH nước"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

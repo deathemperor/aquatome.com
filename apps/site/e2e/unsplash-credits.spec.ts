@@ -81,7 +81,7 @@ test('the fish list: a card built in the browser credits its Unsplash photo as t
   await line(built, photo.author, photo.authorUrl)
   await expect(built.locator('.nums a')).toHaveAttribute('href', photo.url)
   // The button counts photos: the photographer's and Unsplash's links aren't photos.
-  const n = await page.locator('#photo-credits li a:not(.author, .site)').count()
+  const n = await page.locator('#photo-credits li a:not(.author, .site, .licence)').count()
   await expect(page.locator('footer .credits-btn')).toHaveText(new RegExp(`\\(${n}\\)$`))
   expect(errors).toEqual([])
 })

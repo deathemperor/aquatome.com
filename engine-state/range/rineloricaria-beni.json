@@ -1,8 +1,8 @@
 {
   "id": "rineloricaria-beni",
   "native": {
-    "input": "884eac9334470297",
-    "at": "2026-11-16T17:28:41.839Z",
+    "input": "2508d8a6bffa2d60",
+    "at": "2026-11-17T00:14:47.070Z",
     "claims": [
       {
         "code": "BO",
@@ -11,14 +11,40 @@
         "quote": "This species occurs only in Bolivia.",
         "words": "Bolivia",
         "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Bolivia: Beni River basin.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Etymology: the specific name beni refers to the Rio Beni, in Bolivia and Peru, South America.",
+        "words": "Peru",
+        "ok": true
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Beni River",
+        "source": "scotcat",
+        "quote": "Bolivia: Beni River basin.",
+        "country": "BO",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {
       "pagesOnly": [],
-      "sourcesOnly": []
+      "sourcesOnly": [
+        "PE"
+      ]
     }
   },
   "records": {
@@ -52,9 +78,10 @@
       ]
     ],
     "native": [
-      "BO"
+      "BO",
+      "PE"
     ],
     "requests": 11,
-    "at": "2026-11-16T17:28:41.839Z"
+    "at": "2026-11-17T00:14:47.070Z"
   }
 }

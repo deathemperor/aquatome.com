@@ -1,8 +1,13 @@
 {
   "slug": "lake-dianchi",
-  "name": "Tasik Dian",
+  "name": "Tasik Dianchi",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-17T00:06:14.513Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

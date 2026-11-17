@@ -559,6 +559,46 @@
       "kept": false
     }
   ],
+  "vi/species/epalzeorhynchos-bicolor#ig-rZSX16og": [
+    {
+      "at": "2026-11-17T02:46:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.45,
+      "notes": [
+        "[notes] 'Tài liệu thường ghi cá dài 10–15 cm': the video says 4 to 6 inches (about 10–15 cm), but the page card already has size 12.5 cm, so this repeats page data.",
+        "[waterConditions] 'không để nước dưới khoảng 22 °C, đoán 21 °C ... tới khoảng 27 °C ... giữ ở khoảng 24 °C': the video says 72, 70, 80 and 75–76 °F. The conversions are approximate, and the 80 °F upper limit (about 27 °C) overlaps the page's 20–26 °C.",
+        "[aquariumSize] 'bể 150 lít loại 40 gallon breeder (dài khoảng 90 cm)': the video gives no litre figure or length. A 40 breeder is about 150 L and 90 cm, which is added data. 'bể 120 cm thì tốt hơn' repeats the page's 120 cm tank size.",
+        "[behaviour] 'cá chuột hề (Chromobotia macracanthus) cũng bị nó bắt nạt': the video says clown loaches can fall victim. The page already has Chromobotia macracanthus, and it says the species seems to leave Chromobotia alone, so the video's difference from the page isn't stated plainly.",
+        "[behaviour] 'Những lúc rượt như vậy, cá thường cũng không gây thương tích nhiều': this is mild. The video says it doesn't do much damage, but the phrase is stated as a general rule from one keeper's experience.",
+        "[behaviour] 'Với đồng loại và các loài gần giống, con trội ... cho tới khi cá kia ... chết': the page already says it is aggressive to similar-looking fish. This is partly redundant, and the video's black shark and rainbow shark claim is written as a general rule.",
+        "[notes] 'gần cá anh đào hơn nhiều so với cá mập thật': the video compares it to the cherry barb. This is a plain fact, but 'cá anh đào' is an odd name for cherry barb, so it reads like a translation.",
+        "[reproduction] 'Ai muốn thử thì tự chịu rủi ro và phải tính sẵn cách tách cá ra': the video says to have an exit plan. It also says there is no evidence of breeding, which the page already states. The text presents this as a rule, not as one keeper's advice."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-17T02:46:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.62,
+      "notes": [
+        "[waterConditions] \"hồ Malawi, Tanganyika\": the video only says \"African cichlid rift lake water\", so the two lake names are added.",
+        "[maintenance] \"khi mực nước cao sát miệng lọc\": the video only says the water level is kept so it isn't noisy. The \"cao sát miệng\" detail isn't said.",
+        "[notes] \"Cái tên có lẽ là do vây lưng cao và thân thuôn\": the video says it has a high dorsal fin and torpedo body and that the name is cool. It doesn't give this as the reason for the name, so the \"có lẽ\" is a guess.",
+        "[notes] \"họ hàng gần với cá chép\": the page already says it belongs to the carp family, so this repeats the page.",
+        "[behaviour] The video says clown loaches sometimes get bullied. The page says Epalzeorhynchos leave loaches such as Chromobotia alone. NEW doesn't say it differs from the page.",
+        "[behaviour] The aggression toward similar species, the loner habit and the \"chưa rõ lâu dài\" point for keeping several together are already on the page. They are not new.",
+        "[aquariumSize] \"bể dài 120 cm tốt hơn\" repeats the page's 120 cm figure. The video says \"four-foot\".",
+        "[maintenance] The under-gravel filter story and the \"Cá tự nhiên biến mất thì kiểm tra lọc\" advice are one keeper's experience. Parts are written as general fact with no \"một người nuôi\" framing."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/garra-flavatra#h7exZ48gp1o": [
     {
       "at": "2026-11-16T20:38:40Z",
@@ -1155,6 +1195,71 @@
         "diet: \"rau tươi như bí ngòi, bí đỏ\" overlaps the page's vegetable-heavy diet line. Only the specific vegetables are new.",
         "notes: \"mỗi lần bơi ra là cả bể đều thấy\" slightly embellishes the video's \"when it comes out, you notice it\".",
         "diet: \"Cá gặm lũa rất nhiều nhờ bộ răng chuyên cạo gỗ ngập nước. Có điều, chúng không sống nhờ chất xơ...\" is a bit stiff and translated in tone."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/pethia-nigrofasciata#iWF4XFUHuD8": [
+    {
+      "at": "2026-11-17T02:47:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.72,
+      "notes": [
+        "\"ba vạch dọc trên thân\": the video says vertical stripes. In Vietnamese \"vạch dọc\" can read as lengthwise, and the page says \"dựng đứng\". This is a wording error that changes the meaning.",
+        "\"Bể đẻ cần tối\": the page already says the breeding tank should be very dark (\"ánh sáng thật tối\"). Only the reason (eggs are light-sensitive) is new, so this partly repeats the page.",
+        "\"Một người nuôi loài này thấy…\": the video states the live/frozen food point as a general fact, not as one keeper's experience. The framing is invented, and the stated effect is a bit stronger than the video's.",
+        "The video says females are slightly longer than males. NEW leaves this out, though it is a clear dimorphism point. The page only says males are smaller and slimmer.",
+        "\"Ngoài cát mịn, cá còn sống ở những đoạn suối có nền sỏi\": the video says fine sand or gravel substrate in densely vegetated areas. \"Những đoạn suối\" is a loose paraphrase."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-17T02:47:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.86,
+      "notes": [
+        "[notes] \"loài này bị xếp vào diện sắp nguy cấp\" matches the video's \"deemed vulnerable\". The page only says many native fish are at risk, so this is new. The line sits under the notes heading, which is about taxonomy, so it fits poorly there.",
+        "[maintenance] \"nhạy với nước bẩn\" is slightly stronger than the video's \"sensitivity to sub-optimal water conditions\". The video doesn't say dirty water.",
+        "[reproduction] \"Bể đẻ cần để tối\" is a bit firmer than the video's \"maintain dim lighting\". The page already says the tank should be very dark. Only the reason (eggs are light-sensitive) is new.",
+        "[reproduction] The advice to feed live or frozen food before spawning is the video's. It is written as a general rule, not as one keeper's experience. The page already recommends these foods for colour, so this overlaps slightly."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/phoxinus-phoxinus": [
+    {
+      "at": "2026-11-17T02:44:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.9,
+      "notes": [
+        "\"(cá hồi, cá hồi suối)\" – the facts only say salmonid fishes; the examples are not in the facts",
+        "\"Chúng sống gần đáy\" is supported, but \"Con trưởng thành dài khoảng 14 cm\" is fine; no other major issues"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-17T02:44:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.8,
+      "notes": [
+        "\"nếu không có cách giữ bể mát thì đừng mua\" - purchase advice not in facts (only says it must be kept cool)",
+        "\"nên nuôi theo nhóm\" - keeping in groups advice is inferred, facts only say gregarious",
+        "\"các loài cá nước lạnh như gudgeon, bitterling và whitefish\" - facts do not call these cold-water fish",
+        "\"giống những con suối lạnh nơi chúng sống ngoài tự nhiên\" - minor embellishment",
+        "\"ốc trai nhỏ\" - facts say molluscs, not small snails/mussels",
+        "\"chúng bơi suốt ngày theo đàn\" as reason for bigger tank - causal link not stated"
       ],
       "attempt": "first",
       "kept": false

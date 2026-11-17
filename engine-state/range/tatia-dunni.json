@@ -1,17 +1,9 @@
 {
   "id": "tatia-dunni",
   "native": {
-    "input": "af1fca3c9d1d32cf",
-    "at": "2026-11-16T17:28:41.839Z",
+    "input": "0c976e1d02dc25d5",
+    "at": "2026-11-17T00:14:47.070Z",
     "claims": [
-      {
-        "code": "CO",
-        "status": "native",
-        "source": "glaser",
-        "quote": "Tatia dunni was described in 1945 from Colombia.",
-        "words": "Colombia",
-        "ok": true
-      },
       {
         "code": "BR",
         "status": "native",
@@ -43,9 +35,53 @@
         "quote": "T. dunni is widely distributed: there are records of the species from Brazil, Ecuador, Colombia and Peru.",
         "words": "Peru",
         "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Upper Amazon in Ecuador and Colombia; central Amazon in Brazil; Caquetá River drainage in Colombia.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Upper Amazon in Ecuador and Colombia; central Amazon in Brazil; Caquetá River drainage in Colombia.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Upper Amazon in Ecuador and Colombia; central Amazon in Brazil; Caquetá River drainage in Colombia.",
+        "words": "Brazil",
+        "ok": true
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "South America: Upper Amazon in Ecuador and Colombia; central Amazon in Brazil; Caquetá River drainage in Colombia.",
+        "ok": true
+      },
+      {
+        "name": "Caquetá River",
+        "source": "scotcat",
+        "quote": "South America: Upper Amazon in Ecuador and Colombia; central Amazon in Brazil; Caquetá River drainage in Colombia.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Purus",
+        "source": "scotcat",
+        "quote": "Large specimens from the Purus river, in central Amazonia, usually have a completely dark body or a lightly spotted colouration.",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {

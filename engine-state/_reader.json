@@ -30871,5 +30871,394 @@
       }
     ],
     "ruled": "496631870fe6bfda"
+  },
+  "vi/guides/aquariumbreeder-is-my-snail-alive-or-dead": {
+    "at": "2026-11-17",
+    "hash": "84603785830cb0b7",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## 1. Ốc phản ứng nhanh khi bị chạm vào",
+        "problem": "The seven numbered checks are headings at the same level as their parent heading \"Ốc đang ngủ hay đã chết?\", so they don't read as items under it, and the later unnumbered sections look like they continue the same list.",
+        "rule": "Numbered headings at the same level as the unnumbered heading that introduces them with a colon.",
+        "field": "body"
+      }
+    ],
+    "ruled": "84603785830cb0b7"
+  },
+  "vi/guides/aquatome-cho-ca-an-so-lan-luong-loai-thuc-an": {
+    "at": "2026-11-17",
+    "hash": "8771df7e474471f6",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Nhà sản xuất cho biết cá hoạt động mạnh nhất ở 20–26 °C, lúc đó có thể cho 2–4 bữa nhỏ mỗi ngày.",
+        "problem": "The manufacturer's temperature and feeding figures are for outdoor koi and goldfish, but the page says so only several sentences later, so an aquarium reader in Vietnam may apply them to tropical fish that are normally kept at 26–28 °C or above.",
+        "fix": "Với cá koi và cá vàng nuôi hồ ngoài trời, nhà sản xuất cho biết cá hoạt động mạnh nhất ở 20–26 °C, lúc đó có thể cho 2–4 bữa nhỏ mỗi ngày.",
+        "field": "body"
+      }
+    ],
+    "ruled": "8771df7e474471f6"
+  },
+  "vi/guides/glaser-en-09-characoids-tetra-relationship-bilious-green-silver-dollars-en": {
+    "at": "2026-11-17",
+    "hash": "f98ebad25da69a69",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Tuần sau, khi cá đã quen chỗ hơn một chút, sẽ có ảnh đẹp hơn.",
+        "problem": "This is a leftover from the source's news post: it promises photos next week that the handbook page will never add.",
+        "field": "body"
+      }
+    ],
+    "ruled": "f98ebad25da69a69"
+  },
+  "vi/guides/glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-hypancistrus-l236xx-en": {
+    "at": "2026-11-17",
+    "hash": "95ed60151b53d829",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "chính là con trong ảnh",
+        "problem": "The text points to a photo of the special specimen, but the page has no photo, so the reader can't see what makes it unusual.",
+        "fix": "Lứa cá trại gần đây nhất có một con rất đặc biệt.",
+        "field": "body"
+      }
+    ],
+    "ruled": "95ed60151b53d829"
+  },
+  "vi/guides/glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-we-can-big-too-l191-en": {
+    "at": "2026-11-17",
+    "hash": "1aebe781fc6e0255",
+    "findings": [],
+    "ruled": "1aebe781fc6e0255"
+  },
+  "vi/guides/glaser-en-10-catfishes-10c-catfishes-remaining-catfish-from-south-america-three-rare-catfish-species-from-paraguay-en": {
+    "at": "2026-11-17",
+    "hash": "0f1c9457d0341108",
+    "findings": [],
+    "ruled": "0f1c9457d0341108"
+  },
+  "vi/guides/glaser-en-25-perchlike-fishes-25d-perchlike-fishes-4-south-american-dwarf-cichlids-en-33": {
+    "at": "2026-11-17",
+    "hash": "b0fc11c74e83d9f0",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Cỡ cá thường có: 4–5 cm",
+        "problem": "The source figure is the size the fish are sold at. Written as 'cỡ cá thường có', it reads as the adult size and clashes with the 8 cm males and 6 cm females given above.",
+        "fix": "Cỡ cá bán ra: 4–5 cm",
+        "field": "body"
+      }
+    ],
+    "ruled": "b0fc11c74e83d9f0"
+  },
+  "vi/guides/glaser-en-32-all-the-rest-our-new-employee-friedolin-en": {
+    "at": "2026-11-17",
+    "hash": "0574b32e7a0a36aa",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Ảnh số 2 trông như anh sắp câu được cá",
+        "problem": "The text points to a numbered photo from the source, but the page has no photo captions, so there is no 'photo 2' for the reader to look at.",
+        "fix": "Trong một tấm ảnh, trông như anh sắp câu được cá, nhưng thật ra không con Ryukin nào cắn câu.",
+        "rule": "A reference to a numbered photo ('ảnh số N') on a page with fewer than N captions.",
+        "field": "body"
+      }
+    ],
+    "ruled": "0574b32e7a0a36aa"
+  },
+  "vi/guides/youtube-4PqiPjmQYPo": {
+    "at": "2026-11-17",
+    "hash": "dc61872e29e73413",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Trước đó bể chỉ thay vài lần nhỏ 10–15% để bù nước bay hơi trong những ngày nóng, cộng lại chưa tới 20% từ lúc set.",
+        "problem": "Several changes of 10–15% each cannot add up to less than 20%, so the figures contradict each other.",
+        "fix": "Trước đó bể chỉ châm thêm nước một hai lần để bù nước bay hơi trong những ngày nóng.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "bể vẫn có thể có một đợt tăng nhẹ nào đó",
+        "problem": "\"một đợt tăng nhẹ nào đó\" is a literal rendering of \"some kind of slight spike\" and reads unnaturally, with no subject for what increases.",
+        "fix": "bể vẫn có thể bị một đợt vi khuẩn bùng phát nhẹ",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L9",
+        "quote": "bể vẫn có thể có một đợt tăng nhẹ nào đó",
+        "problem": "Same literal \"some kind of slight spike\" phrasing that doesn't say what increases.",
+        "fix": "bể vẫn có thể bị một đợt vi khuẩn bùng phát nhẹ",
+        "field": "faq.1.a"
+      }
+    ],
+    "ruled": "dc61872e29e73413"
+  },
+  "vi/guides/youtube-8kjsLDxIvw8": {
+    "at": "2026-11-17",
+    "hash": "8e9cf438146544e5",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "cách tỉa rêu Riccia mọc quá tay mà không làm bể bẩn",
+        "problem": "The intro promises a section on trimming overgrown Riccia, but no part of the page covers it.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "cho nhiệt độ nước cân bằng với nhiệt độ phòng, rồi mới thả vào bể",
+        "problem": "When fish are acclimated, the bag or box water should match the tank's temperature, not the room's. As written, readers would acclimate the fish the wrong way.",
+        "fix": "cho nhiệt độ nước trong hộp bằng với nước trong bể, rồi mới thả vào bể",
+        "field": "body"
+      }
+    ],
+    "ruled": "8e9cf438146544e5"
+  },
+  "vi/guides/youtube-BDqjtjoLvUM": {
+    "at": "2026-11-17",
+    "hash": "e9ef13633643e46e",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Người ta hay gọi đây là hội chứng bể mới (new tank syndrome).",
+        "problem": "The page calls the diatom bloom 'new tank syndrome', but hobbyists use that term for ammonia and nitrite spikes in a tank whose filter bacteria haven't built up, so readers will confuse the two.",
+        "fix": "Bỏ câu này, hoặc viết: \"Tảo nâu hay đi kèm giai đoạn lọc chưa đủ vi sinh, lúc nước dễ lên amoniac và nitrit (người chơi gọi là hội chứng bể mới).\"",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Chà lá cây to bằng ngón tay.",
+        "problem": "This reads as 'scrub leaves as big as a finger' rather than 'scrub large leaves with your finger'.",
+        "fix": "Lấy ngón tay chà lá cây to.",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-17",
+        "field": "body",
+        "score": 0.4,
+        "kept": false,
+        "problems": [
+          "The page calls the diatom bloom 'new tank syndrome', but hobbyists use that term for ammonia and nitrite spikes in a tank whose filter bacteria haven't built up, so readers will confuse the two."
+        ]
+      }
+    ],
+    "ruled": "e9ef13633643e46e"
+  },
+  "vi/guides/youtube-DeGF0oCnqus": {
+    "at": "2026-11-17",
+    "hash": "e08ed4e8eb024185",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "chuyện dòng nước và đội dọn dẹp trong bể mới",
+        "problem": "The intro says the page covers the cleanup crew, but no section on the page talks about it.",
+        "fix": "Phần dưới nói cách chỉnh đèn, cách đọc dấu hiệu cây đang lên và chuyện dòng nước trong bể mới.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Quay lên máy ảnh thì trông sáng, nhưng thực ra nó không mạnh",
+        "problem": "This points to the source video's camera footage, which the page reader can't see.",
+        "fix": "Nhìn bằng mắt thì thấy sáng, nhưng thực ra đèn không mạnh",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-17",
+        "field": "body",
+        "score": 0.97,
+        "kept": true,
+        "problems": [
+          "Vietnamese hobbyists use 'cây nền' for foreground carpet plants, so 'cây nền phía sau' contradicts itself. Background plants are 'cây hậu cảnh'."
+        ]
+      }
+    ],
+    "ruled": "e08ed4e8eb024185"
+  },
+  "vi/guides/youtube-E55YDUYf6zE": {
+    "at": "2026-11-17",
+    "hash": "d830d72f63a85458",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Lớp sỏi thô vừa là chỗ vi sinh sống, vừa là lớp chứa dinh dưỡng.",
+        "problem": "The page says the coarse gravel layer holds the nutrients, but everywhere else (including L1) the nutrients come from a separate thin layer of fertiliser placed on top of the gravel.",
+        "fix": "Lớp sỏi thô là chỗ vi sinh sống, còn dinh dưỡng nằm ở lớp phân đặt bên trên.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cá thích bơi quanh những thứ xung quanh",
+        "problem": "The sentence repeats itself (\"quanh\" and then \"xung quanh\") and reads like a word-for-word translation.",
+        "fix": "Cá đĩa thích bơi luồn quanh lũa đá",
+        "field": "body"
+      }
+    ],
+    "ruled": "d830d72f63a85458"
+  },
+  "vi/guides/youtube-EqOeCFmGFuA": {
+    "at": "2026-11-17",
+    "hash": "a5b8a6e862e7451c",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L1",
+        "quote": "mất thêm khoảng một ngày",
+        "problem": "Summary and FAQ say the water clears in about one more day, but the body says it was crystal clear only by the third day.",
+        "fix": "mất khoảng ba ngày",
+        "field": "summary.0"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L12",
+        "quote": "Thường mất thêm khoảng một ngày nước mới trong hẳn.",
+        "problem": "FAQ gives about one day for the water to clear, while P2 says it took until the third day.",
+        "fix": "Thường mất khoảng ba ngày nước mới trong hẳn.",
+        "field": "faq.2.a"
+      }
+    ],
+    "ruled": "a5b8a6e862e7451c"
+  },
+  "vi/guides/youtube-GKB2uxcmJ2g": {
+    "at": "2026-11-17",
+    "hash": "b4e368f1e26d8625",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nên tìm cách bớt màu bớt đi một phần",
+        "problem": "The word \"bớt\" is repeated, so the sentence is garbled.",
+        "fix": "nên tìm cách làm bớt màu đi một phần",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bố cục có thể làm đơn giản, dưới nước chỉ cần hai loại cây:",
+        "problem": "The intro promises two underwater plants, but the list that follows has four mixed items: zones, a plant, and emersed plants placed above the wood.",
+        "fix": "Bố cục có thể làm đơn giản, dưới nước chỉ cần hai loại cây là Sagittaria và Echinodorus Amazon. Cách chia từng khu:",
+        "field": "body"
+      }
+    ],
+    "ruled": "b4e368f1e26d8625"
+  },
+  "vi/guides/youtube-ijXxpcyjZwE": {
+    "at": "2026-11-17",
+    "hash": "7dd8b21ec17228e2",
+    "findings": [],
+    "ruled": "7dd8b21ec17228e2"
+  },
+  "vi/guides/youtube-n_5YAJ3EA5s": {
+    "at": "2026-11-17",
+    "hash": "dbef73c16ea35643",
+    "findings": [],
+    "ruled": "dbef73c16ea35643"
+  },
+  "vi/guides/youtube-UDzOi_3jc_w": {
+    "at": "2026-11-17",
+    "hash": "60c4aee09f2b8c5b",
+    "findings": [],
+    "ruled": "60c4aee09f2b8c5b"
+  },
+  "vi/guides/youtube-vAR4Squnq9E": {
+    "at": "2026-11-17",
+    "hash": "95a9883ab395ece0",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Bể chưa đông cá.",
+        "problem": "The receiving tank is described as not yet crowded, but later the fry losses are blamed on the tank being crowded.",
+        "fix": "Bể còn chỗ thả thêm cá.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "L3",
+        "quote": "nước dồn về đó nên hút cạn dễ hơn",
+        "problem": "The summary says to drain the tank completely, but the steps say the low corner only gets most of the water out and warn not to drain it dry before catching the fish.",
+        "fix": "nước dồn về đó nên hút được gần hết",
+        "field": "summary.2"
+      }
+    ],
+    "ruled": "95a9883ab395ece0"
+  },
+  "vi/guides/youtube-ZlJrXnSlg5U": {
+    "at": "2026-11-17",
+    "hash": "baea13e1d43a5850",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Nền lúc này chỉ là cát, chưa có dinh dưỡng.",
+        "problem": "The substrate section puts down coarse gravel, then fine gravel for the roots, with fine sand only in the foreground, but this part says the substrate is only sand and has the sand built up at the back.",
+        "fix": "Nền lúc này chỉ có sỏi và cát, chưa có dinh dưỡng.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Vì vậy cần nhét nhiều phân nhét vào các khu trồng cây.",
+        "problem": "\"nhét … phân nhét\" uses the same word twice in a row and reads clumsily.",
+        "fix": "Vì vậy nên nhét nhiều phân vào các khu trồng cây.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## Đá đẹp thì để chỗ nhìn thấy",
+        "problem": "This section on where to put good-looking rocks comes before the section that introduces placing rocks, so it reads out of order.",
+        "field": "body"
+      }
+    ],
+    "ruled": "baea13e1d43a5850"
   }
 }

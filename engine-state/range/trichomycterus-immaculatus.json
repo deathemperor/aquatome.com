@@ -1,0 +1,120 @@
+{
+  "id": "trichomycterus-immaculatus",
+  "native": {
+    "input": "e97e8cb6fcb1343f",
+    "at": "2026-11-17T00:14:47.070Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio São Matheos, Rio Doce basin, Espírito Santo, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Paraíbuna River, Paraíba do Sul River basin, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Paraíba do Sul",
+        "source": "scotcat",
+        "quote": "South America: Paraíbuna River, Paraíba do Sul River basin, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Paraíbuna River",
+        "source": "scotcat",
+        "quote": "South America: Paraíbuna River, Paraíba do Sul River basin, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Doce",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio São Matheos, Rio Doce basin, Espírito Santo, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Paraíba do Sul",
+        "source": "planetcatfish",
+        "quote": "South America: Paraíbuna River, Paraíba do Sul River basin; Rio de Janeiro State rivers, Paraíba do Sul, Paraibuna (Minas Gerais).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Trichomycterus immaculatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2343068,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        29
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        24
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        16
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        9
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        7
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        7
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        7
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        6
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        3
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-17T00:14:47.070Z"
+  }
+}

@@ -8,19 +8,19 @@ under `<lang>/<path>`.
 
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
-| video-guide | 962 | 687 (vi 687) | 687 |
+| video-guide | 965 | 689 (vi 689) | 689 |
 | translation | 1765 | 265 (vi 265) | 265 |
-| vi-rewrite | 351 | 24 (vi 24) | 24 |
-| reader-rewrite | 35 | 0 | 0 |
+| vi-rewrite | 362 | 24 (vi 24) | 24 |
+| reader-rewrite | 36 | 0 | 0 |
 | title | 25 | 0 | 0 |
 | breed | 27 | 3 (ms 3) | 3 |
-| topic | 103 | 4 (ms 1, th 3) | 4 |
+| topic | 107 | 6 (id 1, ms 1, th 4) | 6 |
 | product | 16 | 1 (vi 1) | 1 |
 | product-reviews | 16 | 0 | 0 |
 | summary | 2227 | 117 (vi 117) | 117 |
-| localize | 2243 | 874 (id 393, ms 55, th 426) | 874 |
-| glossary | 4 | 0 | 0 |
-| places | 6774 | 4136 (id 1411, ms 1408, th 1218, vi 99) | 1112 |
+| localize | 2291 | 888 (id 399, ms 60, th 429) | 888 |
+| glossary | 6 | 0 | 0 |
+| places | 6813 | 4156 (id 1421, ms 1418, th 1218, vi 99) | 1125 |
 | equipment | 5 | 0 | 0 |
 | planting | 32 | 0 | 0 |
 | species | 13 | 0 | 0 |
@@ -28,14 +28,14 @@ under `<lang>/<path>`.
 
 ## video-guide: Vietnamese guides written from YouTube videos, against the transcript
 
-687 of 962 pages under the bar.
+689 of 965 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 603 | 1565 |
-| States as certain what the source hedges, or what garbled captions only hint at | 596 | 1782 |
-| Says what the source doesn't (invented, added) | 513 | 1234 |
-| Wording: unnatural, literal, stiff or chatty | 290 | 409 |
+| Other | 605 | 1568 |
+| States as certain what the source hedges, or what garbled captions only hint at | 598 | 1785 |
+| Says what the source doesn't (invented, added) | 515 | 1238 |
+| Wording: unnatural, literal, stiff or chatty | 292 | 411 |
 | A number, unit, dose or price | 228 | 335 |
 | Repeats itself (intro, summary, steps and FAQ) | 132 | 156 |
 | Meaning changed or wrong | 119 | 136 |
@@ -217,7 +217,7 @@ under `<lang>/<path>`.
 
 ## vi-rewrite: older Vietnamese rewritten in the site's style
 
-24 of 351 pages under the bar.
+24 of 362 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -299,7 +299,7 @@ under `<lang>/<path>`.
 
 ## reader-rewrite: parts the reader step rewrote with its findings
 
-0 of 35 pages under the bar.
+0 of 36 pages under the bar.
 
 ## title: titles rewritten to promise only what the text has
 
@@ -334,19 +334,23 @@ under `<lang>/<path>`.
 
 ## topic: AquaTome's own guides, against their research
 
-4 of 103 pages under the bar.
+6 of 107 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 4 | 21 |
+| Other | 6 | 32 |
 | Says what the source doesn't (invented, added) | 4 | 9 |
-| A number, unit, dose or price | 1 | 4 |
+| A number, unit, dose or price | 2 | 6 |
+| Leaves out what the source says | 1 | 1 |
+| Repeats itself (intro, summary, steps and FAQ) | 1 | 1 |
+| Hobby terms and names | 1 | 1 |
+| Wording: unnatural, literal, stiff or chatty | 1 | 1 |
 
 ### Other
 
+- "กรองแขวน ... กรองชีวภาพได้น้อย" is used for cartridge filters. The facts say only cartridge hang-on-back filters do little biological filtration, and the guide treats all hang-on-back filters that way. — th/guides/aquatome-cach-chon-va-lap-may-loc-cho-be-ca-loc-thung-loc-treo-loc-tran-loc-day, 0.60
 - "Celup garam (untuk membuang parasit luaran pada ikan air tawar)" listed as a Saprolegnia treatment – the facts give this as a Merck parasite-removal dip, not a fungus treatment. The guide presents it in the fungus treatment table. — ms/guides/aquatome-ca-bi-nam-nam-thuy-mi-nhan-biet-cach-chua-va-phong, 0.68
 - "ปลาปอมปาดัวร์" (discus) - the facts say "discus", the guide's Thai wording is only a translation, so this is fine; but the guide names the second source as "ผู้ผลิต" or "แหล่งข้อมูล" inconsistently. The rock-hardness line is fine. — th/guides/aquatome-chon-da-soi-cat-va-nen-trang-tri-cho-be-thuy-sinh, 0.70
-- "ข้อมูลจากมหาวิทยาลัยระบุว่า" is fine, but "ตัวอ่อนวัยนี้ยังมีระบบทางเดินอาหารไม่สมบูรณ์" is attached to instar II nauplii; the facts say this about newly hatched nauplii, so the guide misattributes it. — th/guides/aquatome-cac-loai-thuc-an-cho-ca-thuc-an-song-trun-chi-trung-huyet-artemia-bobo, 0.72
 
 ### Says what the source doesn't (invented, added)
 
@@ -357,6 +361,23 @@ under `<lang>/<path>`.
 ### A number, unit, dose or price
 
 - "Saprolegnia boleh tumbuh pada suhu 0–35 °C, tetapi paling suka 15–30 °C" – the facts give 32–95°F (0–35°C) and 59–86°F (15–30°C). The conversion is fine, so this is supported. — ms/guides/aquatome-ca-bi-nam-nam-thuy-mi-nhan-biet-cach-chua-va-phong, 0.68
+- "Pabrikan melarangnya karena bisa merusak unit" is supported. — id/guides/aquatome-cach-chon-va-lap-may-loc-cho-be-ca-loc-thung-loc-treo-loc-tran-loc-day, 0.72
+
+### Leaves out what the source says
+
+- "Pabrikan melarangnya" for the Fluval lid fasteners is supported. The section header "Memasang filter gantung" lists steps that omit the fact's "put the basket in" ordering. The step "Isi rumah filter dengan air dan pancing alirannya" is s… — id/guides/aquatome-cach-chon-va-lap-may-loc-cho-be-ca-loc-thung-loc-treo-loc-tran-loc-day, 0.72
+
+### Repeats itself (intro, summary, steps and FAQ)
+
+- "ผู้ผลิตแนะนำให้ใช้น้ำจากตู้ เพราะน้ำประปามีคลอรีนและสารเคมีที่เป็นพิษต่อปลา" is a source mismatch. The facts give the chlorine reason as source 7, the maker AquaClear, so this is probably fine. The FAQ line "ผู้ผลิตแนะนำ ... คลอรีน" repea… — th/guides/aquatome-cach-chon-va-lap-may-loc-cho-be-ca-loc-thung-loc-treo-loc-tran-loc-day, 0.60
+
+### Hobby terms and names
+
+- "ส่วนตู้ใหญ่กว่า 75 แกลลอน ผู้เลี้ยงรายหนึ่งแนะนำกรองล่าง" is fine, but the results list says "กรองล่างทำได้ดี" is correct and the summary mixes up the terms. The bigger problem is "ตู้ทั่วไป ใช้ลมได้" for undergravel filters. The facts gi… — th/guides/aquatome-cach-chon-va-lap-may-loc-cho-be-ca-loc-thung-loc-treo-loc-tran-loc-day, 0.60
+
+### Wording: unnatural, literal, stiff or chatty
+
+- "ก่อนขันข้องอเกลียวเข้าไป" and "ข้องอ" (typos) are minor. "เขาพันเทปและทาซิลิโคน" is supported. — th/guides/aquatome-cach-chon-va-lap-may-loc-cho-be-ca-loc-thung-loc-treo-loc-tran-loc-day, 0.60
 
 ## product: product pages, against their research
 
@@ -457,19 +478,19 @@ under `<lang>/<path>`.
 
 ## localize: species and plant pages in Indonesian and Thai, against the English
 
-874 of 2243 pages under the bar.
+888 of 2291 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 814 | 2329 |
-| Wording: unnatural, literal, stiff or chatty | 754 | 1586 |
-| Says what the source doesn't (invented, added) | 519 | 750 |
-| Meaning changed or wrong | 484 | 742 |
-| Hobby terms and names | 481 | 632 |
-| A number, unit, dose or price | 464 | 584 |
-| Text left in another language | 318 | 410 |
-| Leaves out what the source says | 267 | 311 |
-| Repeats itself (intro, summary, steps and FAQ) | 250 | 280 |
+| Other | 825 | 2358 |
+| Wording: unnatural, literal, stiff or chatty | 764 | 1606 |
+| Says what the source doesn't (invented, added) | 527 | 759 |
+| Meaning changed or wrong | 494 | 757 |
+| Hobby terms and names | 483 | 637 |
+| A number, unit, dose or price | 475 | 596 |
+| Text left in another language | 323 | 416 |
+| Leaves out what the source says | 266 | 310 |
+| Repeats itself (intro, summary, steps and FAQ) | 253 | 283 |
 | States as certain what the source hedges, or what garbled captions only hint at | 194 | 215 |
 | Copied from the transcript or source | 27 | 27 |
 | Off the title's topic | 1 | 1 |
@@ -546,21 +567,21 @@ under `<lang>/<path>`.
 
 ## glossary: glossary terms in Indonesian and Thai (reviewed in batches)
 
-0 of 4 pages under the bar.
+0 of 6 pages under the bar.
 
 ## places: place names in Indonesian and Thai (reviewed in batches)
 
-4136 of 6774 pages under the bar.
+4156 of 6813 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 995 | 1080 |
+| Other | 1007 | 1092 |
 | Meaning changed or wrong | 69 | 69 |
 | Leaves out what the source says | 44 | 44 |
 | Wording: unnatural, literal, stiff or chatty | 25 | 25 |
 | States as certain what the source hedges, or what garbled captions only hint at | 9 | 9 |
 | Hobby terms and names | 9 | 9 |
-| Text left in another language | 7 | 7 |
+| Text left in another language | 8 | 8 |
 | Repeats itself (intro, summary, steps and FAQ) | 4 | 4 |
 
 ### Other
@@ -601,9 +622,9 @@ under `<lang>/<path>`.
 
 ### Text left in another language
 
+- Stanley Pool → Stanley Pool (left in English; Malay atlases write "Kolam Stanley" or use the current name "Malebo Pool"/"Kolam Malebo") — ms/places/stanley-pool, 0.20
 - Red: this is an English word left untranslated. It is not a Malay name, and it is probably a fragment of a longer name such as "Sungai Merah". — ms/places/red, 0.45
 - Hoa Creek → Hoa Creek (the English "Creek" is left untranslated, so it should be Malay, e.g. "Sungai Hoa") — ms/places/hoa-creek, 0.70
-- "Mogaung Chaung" and "Nan Hto Chaung": 'Chaung' is the Burmese word for stream or river, left untranslated. I did not mark these wrong because the source names are kept as written, but 'sông Mogaung' and 'sông Nan Hto' would read better to… — vi/places/mogaung-chaung, 0.72
 
 ### Repeats itself (intro, summary, steps and FAQ)
 

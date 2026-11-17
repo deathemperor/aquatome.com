@@ -1,8 +1,13 @@
 {
   "slug": "rio-cinaruco",
-  "name": "Cinaruco",
+  "name": "Sungai Cinaruco",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-17T00:11:31.086Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

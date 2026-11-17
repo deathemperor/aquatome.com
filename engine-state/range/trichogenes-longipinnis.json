@@ -1,0 +1,87 @@
+{
+  "id": "trichogenes-longipinnis",
+  "native": {
+    "input": "55de60e3d697f24c",
+    "at": "2026-11-17T00:14:47.070Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Cachoeira do Amor, kilometer 3 of the Parati-Ubatuba road, São Paulo, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: coastal streams between Rio de Janeiro and São Paulo States, Southeastern Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Coastal drainages in northern São Paulo State, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Parati-Mirim",
+        "source": "scotcat",
+        "quote": "Trichogenes longipinnis is distributed in the headwaters of the Parati-Mirim river basin in Rio de Janeiro and coastal streams in the far north of the São Paulo coast.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Trichogenes longipinnis",
+    "status": "ACCEPTED",
+    "taxonKey": 2342967,
+    "datasets": [
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        51
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        20
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        6
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        3
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-17T00:14:47.070Z"
+  }
+}

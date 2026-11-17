@@ -3269,6 +3269,24 @@
   ],
   "vi/guides/youtube-4PqiPjmQYPo": [
     {
+      "at": "2026-11-17T03:23:07Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.7,
+      "notes": [
+        "\"Cá hồng két châu Phi (jewel cichlid)\" is a wrong name, because hồng két is the parrot cichlid. English is also left in place. Use a correct Vietnamese name for jewel cichlid, such as \"cichlid jewel\", and apply it everywhere, including the FAQ.",
+        "\"cộng lại chưa tới 20% từ lúc set\" is firmer than the video, which says \"maybe 20% in the time it's been set up\". Change it to \"khoảng 20%\" and keep the hedge.",
+        "\"Cặp cá non mới đẻ lần đầu hay bị vậy, để chúng tập thêm vài lần là được\" says this often happens to young pairs, and the video doesn't say that. Hedge it to \"có thể\", and say only that young fish are still getting used to spawning.",
+        "\"Bể cỡ này thì chuyện tranh chỗ giữa các cặp kiểu gì cũng có\" opens with a bare \"bể cỡ này\". Name the size (\"bể 2,4 m\") or rephrase. \"kiểu gì cũng có\" is also stronger than the video, so soften it.",
+        "\"nước bóng hơn\" and \"Nước đục kiểu vi khuẩn bùng phát không phải chất lượng nước kém, nên chưa cần làm ngay\" read like a translation. Reword them in natural Vietnamese.",
+        "\"rêu hại lấm tấm\" in the intro, and \"chưa thấy rêu hại\" in the diatom section, add a general algae problem the video doesn't discuss. The video only mentions a little diatom growth on one leaf. Remove \"rêu hại\" and say \"tảo silic\".",
+        "\"Cá hồng két châu Phi đẻ trong vài tuần đầu cho thấy cá đã quen bể\" in the summary overstates the video. The video says the fish are still getting used to it and that the eggs are infertile. Soften it to \"có thể\" or drop the claim."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
       "at": "2026-11-16T17:57:43Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -36549,6 +36567,22 @@
     }
   ],
   "vi/guides/youtube-uH5Qi9XDh44": [
+    {
+      "at": "2026-11-17T03:23:39Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.7,
+      "notes": [
+        "\"Lọc trong bể 120 cm nên lấy từ bể cũ đã chạy khoảng 6 tháng\": the video only says its own filter had run 6 months and was moved across. It does not advise this. Rewrite it as an example (\"ví dụ, bể này dùng lọc đã chạy khoảng 6 tháng nên vi sinh có sẵn\") or drop \"nên\".",
+        "\"Gỡ bông gòn (rock wool)\" and \"phần bông gòn còn sót\": rock wool is bông khoáng, not bông gòn (cotton). Use the correct term, e.g. \"len đá (rock wool)\".",
+        "\"mỗi lần chuyển bể là một lần cá bị stress\": the video only says Congo puffers are \"a little bit sensitive\", so they are moved once. Hedge it (\"có thể bị stress\") instead of stating it as a rule.",
+        "\"Nên trồng cây lớn nhất trước, các cây khác theo sau\": this is how the video builds its own tank, not a rule it gives. Write it as one way to do it (\"một cách là trồng cây lớn nhất trước\").",
+        "\"Một cách chia thức ăn: giữ lại một viên nguyên khối…\" and \"Nên xen thêm krill để cá mài răng\": the video says this about its Amazon puffers and as its own plan. Present it as one person's way (\"có thể\"), not general advice for Congo puffers."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
     {
       "at": "2026-11-16T18:19:43Z",
       "model": "sonnet",

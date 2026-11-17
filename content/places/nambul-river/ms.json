@@ -1,8 +1,13 @@
 {
   "slug": "nambul-river",
-  "name": "Nambul",
+  "name": "Sungai Nambul",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-17T00:07:59.685Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

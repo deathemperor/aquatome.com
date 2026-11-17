@@ -1,0 +1,24 @@
+{
+  "slug": "tom-sung",
+  "name": "Tôm súng",
+  "altNames": [
+    "Tôm bắn súng",
+    "Tôm pistol",
+    "Pistolshrimp",
+    "Pistol shrimp"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Nhóm tôm này được gọi là tôm súng (pistol shrimp). Đây vốn là loài nước lợ, nhưng đã quen hẳn với nước ngọt và sống trong nước ngọt hoàn toàn được.</p>",
+    "distribution:glaser": "<p>Chúng có nguồn gốc ở bán đảo Malaysia.</p>",
+    "behaviour:glaser": "<p>Tôm súng búng ra được tiếng nổ như tiếng súng, nên mới có tên như vậy. Tiếng này to đến mức đứng ngoài bể vẫn nghe rõ. Các con tôm súng không sống chung với nhau được, mỗi bể chỉ nên nuôi một con.</p>",
+    "diet:glaser": "<p>Thức ăn gì chúng cũng ăn, nên cho ăn loại nào cũng được.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.8
+    },
+    "reason": "thin"
+  }
+}

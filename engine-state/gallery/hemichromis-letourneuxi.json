@@ -70,8 +70,7 @@
   "https://media.aquatome.com/inaturalist/208846248.webp": "e18cb3979ec89df6",
   "https://media.aquatome.com/inaturalist/171963142.webp": "03c33078d1fffe98",
   "https://media.aquatome.com/inaturalist/171963115.webp": "313f1371c1c39bdf",
-  "https://media.aquatome.com/inaturalist/208846140.webp": "bfdf79c58c9b1cf6",
-  "https://media.aquatome.com/inaturalist/176427009.webp": "d8d4c5a1b870435b"
+  "https://media.aquatome.com/inaturalist/208846140.webp": "bfdf79c58c9b1cf6"
  },
  "inat": {
   "taxon": 1439791,
@@ -81,5 +80,9 @@
    "agree": 377524959
   }
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "gbif": {
+  "key": 2371363,
+  "next": null
+ }
 }

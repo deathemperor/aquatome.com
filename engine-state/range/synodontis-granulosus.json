@@ -1,8 +1,8 @@
 {
   "id": "synodontis-granulosus",
   "native": {
-    "input": "58f7a490e7f45ab5",
-    "at": "2026-11-15T05:39:34.625Z",
+    "input": "672d79ed9ded4cd4",
+    "at": "2026-11-17T00:14:47.070Z",
     "claims": [
       {
         "code": "BI",
@@ -19,29 +19,19 @@
         "quote": "Synodontis granulosus is a large Synodontis catfish endemic to the northern end of Lake Tanganyika, in Burundi and Tanzania.",
         "words": "Tanzania",
         "ok": true
-      },
-      {
-        "code": "BI",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Burundi, Tanzania. This species is endemic to the northern end of Lake Tanganyika.",
-        "words": "Burundi",
-        "ok": true
-      },
-      {
-        "code": "TZ",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Burundi, Tanzania. This species is endemic to the northern end of Lake Tanganyika.",
-        "words": "Tanzania",
-        "ok": true
       }
     ],
     "regions": [
       {
         "name": "Lake Tanganyika",
         "source": "seriouslyfish",
-        "quote": "Burundi, Tanzania. This species is endemic to the northern end of Lake Tanganyika.",
+        "quote": "Synodontis granulosus is a large Synodontis catfish endemic to the northern end of Lake Tanganyika, in Burundi and Tanzania.",
+        "ok": true
+      },
+      {
+        "name": "Lake Tanganyika",
+        "source": "glaser",
+        "quote": "Origin: Africa, Lake Tanganyika.",
         "ok": true
       }
     ],

@@ -391,6 +391,23 @@
       "kept": true
     }
   ],
+  "vi/guides/youtube-BDqjtjoLvUM#body": [
+    {
+      "at": "2026-11-17T00:27:06Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.4,
+      "notes": [
+        "Added content: 'Tảo nâu hay đi kèm giai đoạn lọc chưa đủ vi sinh, lúc nước dễ lên amoniac và nitrit' is not in BEFORE (new claim about biofilter and ammonia/nitrite).",
+        "'hội chứng bể mới' originally was a general name people give to this phase; AFTER ties it to ammonia/nitrite spikes, changing meaning.",
+        "'Người ta hay gọi' became 'người chơi gọi', which drops the hedge 'hay'; the English term (new tank syndrome) was also dropped.",
+        "'hay bị phủ' is kept in the first sentence; 'có thể gặp' is kept."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-C3jPFBWzK68#body": [
     {
       "at": "2026-11-08T11:28:30Z",
@@ -419,6 +436,18 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/guides/youtube-DeGF0oCnqus#body": [
+    {
+      "at": "2026-11-17T00:27:24Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.97,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/guides/youtube-HUa1u8usS5w#body": [

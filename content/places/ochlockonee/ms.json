@@ -1,8 +1,13 @@
 {
   "slug": "ochlockonee",
-  "name": "Ochlockonee",
+  "name": "Sungai Ochlockonee",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-17T00:08:42.934Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

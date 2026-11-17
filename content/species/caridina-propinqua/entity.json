@@ -5,7 +5,11 @@
   "family": "Atyidae",
   "genus": "Caridina",
   "group": "shrimp",
-  "places": [],
+  "places": [
+    "asia",
+    "indonesia",
+    "sulawesi"
+  ],
   "range": {
     "records": {
       "taxonKey": 5178427,
@@ -142,28 +146,52 @@
       ]
     }
   },
-  "dataCard": {},
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 2
+      }
+    ]
+  },
   "sections": [
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/caridina_cf_propinqua_orange_shrimp_en/",
-      "html": "<p>Caridina cf. propinqua is an orange shrimp. It is basically easy to keep.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/caridina-cf-propinqua/",
+      "html": "<p>Origin: Sulawesi. Females grow up to 2 cm; males remain a little smaller. Easy to keep so far.</p>"
     },
     {
-      "key": "waterConditions",
+      "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/caridina_cf_propinqua_orange_shrimp_en/",
-      "html": "<p>If the shrimp start to lose their colour, reduce the pH.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/caridina-cf-propinqua/",
+      "html": "<p>The shrimp originate from the island of Sulawesi.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/caridina-cf-propinqua/",
+      "html": "<p>Females grow up to 2 cm, while males remain a little smaller.</p>"
     },
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/caridina_cf_propinqua_orange_shrimp_en/",
-      "html": "<p>This is a wild-caught shrimp.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/caridina-cf-propinqua/",
+      "html": "<p>From experience, the rumours that this is a brackish species cannot be confirmed. First breeding trials are still under way.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/a6d88769b4b034fc.webp",
+      "thumb": "https://media.aquatome.com/glaser/a6d88769b4b034fc-480.webp",
+      "width": 787,
+      "height": 591,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/caridina-cf-propinqua/",
+      "source": "glaser"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "vGwxPl9n3IY",
@@ -213,5 +241,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-10"
+  "updatedAt": "2026-11-17"
 }

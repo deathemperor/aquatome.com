@@ -1,14 +1,22 @@
 {
   "id": "corydoras-longipinnis",
   "native": {
-    "input": "e14f01d683bf7a09",
-    "at": "2026-11-07T13:20:47.766Z",
+    "input": "2741338fa4044da3",
+    "at": "2026-11-17T00:14:47.070Z",
     "claims": [
       {
         "code": "AR",
         "status": "native",
         "source": "planetcatfish",
         "quote": "South America: Río Dulce in Argentina.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Argentina; the species was described from the río Dulce.",
         "words": "Argentina",
         "ok": true
       }
@@ -19,6 +27,12 @@
         "source": "planetcatfish",
         "quote": "South America: Río Dulce in Argentina.",
         "country": "AR",
+        "ok": true
+      },
+      {
+        "name": "río Dulce",
+        "source": "glaser",
+        "quote": "Argentina; the species was described from the río Dulce.",
         "ok": true
       }
     ],

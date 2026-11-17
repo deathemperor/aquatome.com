@@ -1,13 +1,25 @@
 {
- "at": "2026-11-16T21:05:32Z",
- "checks": [],
- "findings": [],
- "unread": true,
+ "at": "2026-11-17T02:28:58Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "Lô cá này",
+   "why": "a dealer's own batch or stock: news to no reader here"
+  },
+  {
+   "check": "source",
+   "quote": "Lô cá này được bắt ở sông Rio Ventuari",
+   "why": "Refers to the source shop's own shipment of fish, which the reader has never seen."
+  }
+ ],
  "text": {
   "slug": "ca-leporinus-brunneus",
   "name": "Cá Leporinus brunneus",
   "altNames": [
-   "Cá leporinus nâu",
+   "Cá mõm thỏ Robin",
    "Robin hare snout"
   ],
   "sections": {
@@ -19,17 +31,19 @@
    "diet:seriouslyfish": "<p>Ngoài tự nhiên, cá Leporinus thường ăn tạp và kiếm ăn chủ yếu ở đáy. Chúng ăn tảo, động vật không xương sống và mùn bã hữu cơ.</p><p>Nuôi trong bể thì loài này khá dễ ăn, cho gì cũng nhận. Có điều nên tránh đồ ăn nhiều đạm.</p>",
    "notes:seriouslyfish": "<p>Từ nguyên: Leporinus ghép từ tiếng Latin lepus, nghĩa là 'thỏ rừng', và hậu tố -inus, nghĩa là 'thuộc về'. Tên này ám chỉ cặp răng to ở chỗ khớp hai nửa hàm của một số loài trong giống. Tên brunneus lấy từ tiếng Latin brunneus, nghĩa là 'màu nâu'.</p><p>Leporinus là một trong những giống nhiều loài hơn cả trong bộ Characiformes, với khoảng 90 loài hợp lệ. Nghiên cứu phát sinh loài của Sidlauskas và Vari (2008)[3] cho thấy giống này là một nhóm đa ngành (polyphyletic).</p><p>Vì thế, bốn loài H. despaxi, H. megalepis, H. mormyrops và H. pachycheilus được xếp sang giống Hypomasticus. Giống này do Borodin (1929) đặt ra từ trước và nay được công nhận lại.</p><p>Các loài Leporinus còn lại, trừ L. gomesi, hợp thành một nhánh cùng với Abramites. Nhánh này lại nằm trong một nhóm đa phân nhánh (polytomy) lớn, cùng các giống Anostomoides, Anostomus, Gnathodolus, Laemolyta, Petulanos, Pseudanos, Rhytiodus, Sartor, Schizodon và Synaptolaemus.</p><p>Riêng quan hệ giữa các loài bên trong Leporinus thì hầu như vẫn chưa rõ. Các tác giả cho rằng chắc là phải phân tích phân tử mới làm rõ hết được quan hệ giữa chúng.</p><p>Họ Anostomidae có mặt trên một vùng rộng của Nam Mỹ nhiệt đới và cận nhiệt đới, từ tây bắc Colombia xuống miền trung Argentina.</p><p>Các loài trong họ chủ yếu có thân dài vừa phải và hơi tròn. Cũng có vài ngoại lệ, chẳng hạn Abramites có thân tương đối cao.</p><p>Hình dạng miệng thì đa dạng hơn hẳn. Răng và cấu trúc hàm của các loài thích nghi theo đủ kiểu khác nhau.</p><p>Một số loài anostomid hay bơi nghiêng, chúi đầu xuống. Vì vậy người ta gọi chung chúng bằng cái tên thông dụng là 'headstanders' (cá chúi đầu).</p>",
    "references:seriouslyfish": "<ul><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Garavello, J. C. (2000). Two new species of Leporinus Spix with a review of the blotched species of the Río Orinoco system and redescription of Leporinus muyscorum Steindachner (Characiformes: Anostomidae). Proceedings of the Academy of Natural Sciences of Philadelphia v. 150, 193-201</li><li>Sidlauskas, B. L. and R. P. Vari (2008). Phylogenetic relationships within the South American fish family Anostomidae (Teleostei, Ostariophysi, Characiformes). Zoological Journal of the Linnean Society 154, 70–210</li></ul>",
-   "quickFacts:glaser": "<p>Leporinus brunneus (Ventuari) là một loài cá họ Characidae cỡ lớn, nhập về từ Venezuela. Loài này lớn tối đa 25-30 cm.</p>",
-   "distribution:glaser": "<p>Loài này sống ở lưu vực sông Orinoco và sông Negro. Cá nhập về được lấy từ sông Ventuari, nơi có một quần thể mang rất nhiều màu đỏ.</p>",
-   "notes:glaser": "<p>Màu cá thay đổi khá nhiều, tùy cá lấy từ đâu. Nhưng đốm cam dưới mắt, nằm trên nắp mang, vẫn là nét khá đặc trưng của loài. Tùy nguồn gốc, sọc chạy dọc thân có thể là một vệt liền hoặc gồm nhiều đốm. Màu đỏ ở vây và họng đậm hay nhạt cũng tùy cá lấy từ đâu.</p><p>Từ nguyên: Leporinus là tiếng Latin, nghĩa là \"mõm thỏ rừng\". brunneus là tiếng Latin, nghĩa là \"sẫm màu, tối\".</p><p>Gợi ý tên thường gọi: cá mõm thỏ ngực đỏ (robin hare snout).</p>"
+   "quickFacts:glaser": "<p>Đây là một loài họ hàng cỡ lớn của cá tetra, nhập về từ Venezuela. Cá có thể dài tới 25–30 cm.</p>",
+   "distribution:glaser": "<p>Loài này sống ở lưu vực sông Orinoco và sông Rio Negro.</p>",
+   "beforeYouBuy:glaser": "<p>Màu cá khác nhau khá nhiều, tùy cá được bắt ở đâu. Riêng đốm cam nằm dưới mắt, trên nắp mang, thì vẫn là nét dễ nhận ra loài này. Ở cá vùng này thì sọc dọc thân là một vệt liền, còn ở cá vùng khác thì sọc lại do nhiều đốm nối nhau. Màu đỏ ở vây và ở họng đậm hay nhạt cũng tùy nơi cá được bắt.</p><p>Cá về tiệm thường dài 12–18 cm, tức là đã gần hết cỡ, hoặc ít ra cũng đủ lớn để đẻ. Lô cá này được bắt ở sông Rio Ventuari, nơi có một quần thể lên màu đỏ rất đậm.</p>",
+   "notes:glaser": "<p>Nghĩa của tên: Leporinus là tiếng Latin, nghĩa là \"mũi thỏ\". Brunneus cũng là tiếng Latin, nghĩa là \"sẫm màu, tối màu\". Tên thường gọi được đề xuất cho loài này là robin hare snout (cá mõm thỏ cổ đỏ).</p>"
   },
   "quality": {
-   "score": 0.8,
-   "indexable": true,
+   "score": 0.7,
+   "indexable": false,
    "bySource": {
     "seriouslyfish": 0.8,
-    "glaser": 0.9
-   }
+    "glaser": 0.7
+   },
+   "reason": "score"
   }
  }
 }

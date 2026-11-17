@@ -10,6 +10,90 @@
     "democratic-republic-of-the-congo",
     "congo-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD"
+      ],
+      "regions": [
+        "Congo River",
+        "Lualaba"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Africa: Lower Congo River mainstream and tributaries such as the Inkisi and Lufu; also reported from the Aruwimi, middle Congo, Wagenia Falls and Lualaba, in Democratic Republic of the Congo.",
+          "countries": [
+            "CD"
+          ],
+          "regions": [
+            "Congo River",
+            "Lualaba"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340735,
+      "total": 27,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "CD",
+          23
+        ],
+        [
+          "CG",
+          3
+        ],
+        [
+          "CM",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          12.65625,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          14.0625,
+          -5.625,
+          16,
+          13
+        ],
+        [
+          14.0625,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          23.90625,
+          0,
+          4,
+          4
+        ],
+        [
+          25.3125,
+          0,
+          3,
+          3
+        ],
+        [
+          28.125,
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

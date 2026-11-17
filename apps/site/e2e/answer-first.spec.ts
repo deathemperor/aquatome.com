@@ -149,9 +149,15 @@ test('a video guide: its chapters one tap away, without the video\'s own list of
   // found by their HTML, 20 pages at a time, then opened.
   const guides = sourcePages().filter(p => /^\/huong-dan\/[^/]+\/$/.test(p))
   const withChapters: string[] = []
+  // A guide that didn't load is counted, so a scan that finds none says whether the pages answered (16 Nov's live runs
+  // came back empty twice on dropped connections, read as "no guides with chapters").
+  const unread: string[] = []
+  let scanned = 0
+  const read = (p: string) => page.request.get(p).then(r => (r.ok() ? r.text() : (unread.push(`${p} ${r.status()}`), '')), (e: Error) => (unread.push(`${p} ${e.message.split('\n')[0]}`), ''))
   for (let i = 0; i < guides.length && withChapters.length < 2; i += 20) {
     const batch = guides.slice(i, i + 20)
-    const html = await Promise.all(batch.map(p => page.request.get(p).then(r => r.text(), () => '')))
+    scanned += batch.length
+    const html = await Promise.all(batch.map(read))
     withChapters.push(...batch.filter((_, k) => html[k]!.includes('class="chapters"')))
   }
   for (const path of withChapters.slice(0, 2)) {
@@ -165,7 +171,7 @@ test('a video guide: its chapters one tap away, without the video\'s own list of
     if (info.project.name === 'phone') await list.locator('summary').tap(); else await list.locator('summary').click()
     await expect(list.locator('button[data-t]').first()).toBeVisible()
   }
-  expect(checked, 'video guides with chapters').toBeGreaterThan(0)
+  expect(checked, `video guides with chapters (of ${scanned} guides scanned, ${unread.length} didn't load${unread.length ? `: ${unread.slice(0, 3).join('; ')}` : ''})`).toBeGreaterThan(0)
   expect(errors).toEqual([])
 })
 

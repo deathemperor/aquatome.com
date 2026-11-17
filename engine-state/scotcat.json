@@ -707,6 +707,56 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/amphiliidae/belonoglanis_tenuis.htm": {
+    "entityIds": [
+      "species/belonoglanis-tenuis"
+    ],
+    "updatedAt": "2026-11-16T23:49:08.095Z",
+    "hash": "1970c15e476d1652f45a88b421cacbaade5469fcc3b3f971b0d67dd870ee8340",
+    "processedHash": "1970c15e476d1652f45a88b421cacbaade5469fcc3b3f971b0d67dd870ee8340",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amphiliidae/congoglanis_alula.htm": {
+    "entityIds": [
+      "species/congoglanis-alula"
+    ],
+    "updatedAt": "2026-11-16T23:52:11.873Z",
+    "hash": "3e0abe25fb6bd1979369f0a2d3310f0f22f0808afe1f4221e2174641ca32fb8f",
+    "processedHash": "3e0abe25fb6bd1979369f0a2d3310f0f22f0808afe1f4221e2174641ca32fb8f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amphiliidae/doumea_angolensis.htm": {
+    "entityIds": [
+      "species/doumea-angolensis"
+    ],
+    "updatedAt": "2026-11-16T23:53:35.005Z",
+    "hash": "586487a330aa5000e1647911f81974d7a2bb1100cf7e5218bb2bc65da266546b",
+    "processedHash": "586487a330aa5000e1647911f81974d7a2bb1100cf7e5218bb2bc65da266546b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amphiliidae/doumea_chappuisi.htm": {
+    "entityIds": [
+      "species/doumea-chappuisi"
+    ],
+    "updatedAt": "2026-11-16T23:54:42.651Z",
+    "hash": "77cf070cb564027391b5b18dba859d558abbcc22d8ee83b90d1521a93517da34",
+    "processedHash": "77cf070cb564027391b5b18dba859d558abbcc22d8ee83b90d1521a93517da34",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amphiliidae/doumea_typica.htm": {
+    "entityIds": [
+      "species/doumea-typica"
+    ],
+    "updatedAt": "2026-11-16T23:56:41.756Z",
+    "hash": "ec8b2658b568954351b64a4f7cea1a3b97345f29242b389eb0fe9f3f0f3265a9",
+    "processedHash": "ec8b2658b568954351b64a4f7cea1a3b97345f29242b389eb0fe9f3f0f3265a9",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/anchariidae/ancharius_fuscus.htm": {
     "entityIds": [
       "species/ancharius-fuscus"
@@ -884,6 +934,16 @@
     "updatedAt": "2026-11-13T04:44:24.299Z",
     "hash": "05860a04a11b220f5a1b0d9df72001b028fa50978e9f8d45e94aab4606fd6138",
     "processedHash": "05860a04a11b220f5a1b0d9df72001b028fa50978e9f8d45e94aab4606fd6138",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenipteridae/trachelyopterus_galeatus.htm": {
+    "entityIds": [
+      "species/trachelyopterus-galeatus"
+    ],
+    "updatedAt": "2026-11-16T23:46:24.333Z",
+    "hash": "851ccfcfd6a04548ee07ade873f9c7d89af8c7f08cbba8de369fb69cb553896c",
+    "processedHash": "851ccfcfd6a04548ee07ade873f9c7d89af8c7f08cbba8de369fb69cb553896c",
     "status": "processed",
     "attempts": 0
   },
@@ -1797,6 +1857,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/lampiella_gibbosa.htm": {
+    "entityIds": [
+      "species/lampiella-gibbosa"
+    ],
+    "updatedAt": "2026-11-16T23:41:34.519Z",
+    "hash": "fbdb22edbf682ed2e19a2727aa921fb450cc8db6752e23cf2c2577675bed786c",
+    "processedHash": "fbdb22edbf682ed2e19a2727aa921fb450cc8db6752e23cf2c2577675bed786c",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/lasiancistrus_heteracanthus.htm": {
     "entityIds": [
       "species/lasiancistrus-heteracanthus"
@@ -2265,6 +2335,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/pangasiidae/pangasius_bocourti.htm": {
+    "entityIds": [
+      "species/pangasius-bocourti"
+    ],
+    "updatedAt": "2026-11-16T23:44:14.195Z",
+    "hash": "cacc9fa67d87875ee8a032a59bca8a7ec1061d1ed67059ffafc84f2a964215f2",
+    "processedHash": "cacc9fa67d87875ee8a032a59bca8a7ec1061d1ed67059ffafc84f2a964215f2",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/pangasiidae/pangasius_larnaudii.htm": {
     "entityIds": [
       "species/pangasius-larnaudii"
@@ -2452,6 +2532,16 @@
     "updatedAt": "2026-11-04T06:50:36.477Z",
     "hash": "f42153e3dc75ae9bb2ecfd50bef66fb78de0416716e6c72f3aebf176547a93d3",
     "processedHash": "f42153e3dc75ae9bb2ecfd50bef66fb78de0416716e6c72f3aebf176547a93d3",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/siluridae/ompok_fumidus.htm": {
+    "entityIds": [
+      "species/ompok-fumidus"
+    ],
+    "updatedAt": "2026-11-16T23:43:08.101Z",
+    "hash": "f3380797c57a2c5eedf66b3951f17e1ba9ca1f81cd9bbd80070422306c5bfb86",
+    "processedHash": "f3380797c57a2c5eedf66b3951f17e1ba9ca1f81cd9bbd80070422306c5bfb86",
     "status": "processed",
     "attempts": 0
   },

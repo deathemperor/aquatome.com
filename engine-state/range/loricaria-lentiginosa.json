@@ -1,0 +1,52 @@
+{
+  "id": "loricaria-lentiginosa",
+  "native": {
+    "input": "9c82bf879fb64940",
+    "at": "2026-11-17T00:14:47.070Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "In nature Loricaria lentiginosa occurs in the Brazilian state of Sao Paulo.",
+        "words": "Brazilian",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Loricaria lentiginosa",
+    "status": "ACCEPTED",
+    "taxonKey": 5961504,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        4
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-17T00:14:47.070Z"
+  }
+}
