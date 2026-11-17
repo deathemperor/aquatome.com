@@ -2661,7 +2661,12 @@
       "author": "Julien Renoult",
       "sourceUrl": "https://www.inaturalist.org/photos/5587164",
       "caption": "Lươn đầm lầy bơi trong nước nông trong tự nhiên",
-      "setup": false
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/5587164-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

@@ -2,18 +2,6 @@
   "id": "phractocephalus-hemioliopterus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/db438263a63643c5.webp",
-      "thumb": "https://media.aquatome.com/commons/db438263a63643c5-480.webp",
-      "width": 1200,
-      "height": 675,
-      "licence": "CC BY-SA 4.0",
-      "author": "Emőke Dénes",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hal_-_Phractocephalus_hemioliopterus_-_2.jpg",
-      "caption": "Cá da trơn đuôi đỏ nhìn thẳng phía trước trong bể",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/commons/781111206b723dae.webp",
       "thumb": "https://media.aquatome.com/commons/781111206b723dae-480.webp",
       "width": 1200,
@@ -91,36 +79,6 @@
       }
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/600079892.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/600079892-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "David Garza",
-      "sourceUrl": "https://www.inaturalist.org/photos/600079892",
-      "caption": "Cá da trơn đuôi đỏ bơi trong bể nước xanh thủy cung"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/430043307.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/430043307-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY",
-      "author": "Julien Lepage",
-      "sourceUrl": "https://www.inaturalist.org/photos/430043307",
-      "caption": "Cá da trơn đuôi đỏ trưởng thành bơi trong bể lớn"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/386968361.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/386968361-480.webp",
-      "width": 1024,
-      "height": 771,
-      "licence": "CC BY",
-      "author": "scohlendorf",
-      "sourceUrl": "https://www.inaturalist.org/photos/386968361",
-      "caption": "Cá da trơn đuôi đỏ trưởng thành bơi trên nền cát trong thủy cung"
-    },
-    {
       "url": "https://media.aquatome.com/commons/0eaac0db0839096f.webp",
       "thumb": "https://media.aquatome.com/commons/0eaac0db0839096f-480.webp",
       "width": 1200,
@@ -159,6 +117,36 @@
       "author": "Serstef",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phractocephalus_hemioliopterus2.JPG",
       "caption": "Cá da trơn đuôi đỏ trên nền cát trong bể có đá"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/600079892.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/600079892-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "David Garza",
+      "sourceUrl": "https://www.inaturalist.org/photos/600079892",
+      "caption": "Cá da trơn đuôi đỏ bơi trong bể nước xanh thủy cung"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/430043307.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/430043307-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Julien Lepage",
+      "sourceUrl": "https://www.inaturalist.org/photos/430043307",
+      "caption": "Cá da trơn đuôi đỏ trưởng thành bơi trong bể lớn"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/386968361.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/386968361-480.webp",
+      "width": 1024,
+      "height": 771,
+      "licence": "CC BY",
+      "author": "scohlendorf",
+      "sourceUrl": "https://www.inaturalist.org/photos/386968361",
+      "caption": "Cá da trơn đuôi đỏ trưởng thành bơi trên nền cát trong thủy cung"
     },
     {
       "url": "https://media.aquatome.com/commons/1443d4f58b708459.webp",
@@ -294,6 +282,18 @@
       "sourceUrl": "https://www.inaturalist.org/photos/428596786",
       "caption": "Cá da trơn đuôi đỏ trong bể có sỏi",
       "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/db438263a63643c5.webp",
+      "thumb": "https://media.aquatome.com/commons/db438263a63643c5-480.webp",
+      "width": 1200,
+      "height": 675,
+      "licence": "CC BY-SA 4.0",
+      "author": "Emőke Dénes",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hal_-_Phractocephalus_hemioliopterus_-_2.jpg",
+      "caption": "Cá da trơn đuôi đỏ nhìn thẳng phía trước trong bể",
+      "best": true,
       "kind": "other"
     },
     {

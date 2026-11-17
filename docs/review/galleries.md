@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-17). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 700 | 31 | 9 | 24 | 716 |
-| rest | 20 | 1764 | 75 | 0 | 94 | 1745 |
+| covered | 30 | 701 | 31 | 9 | 24 | 717 |
+| rest | 20 | 1764 | 75 | 0 | 95 | 1744 |
 
-## Short of target: every source read (583)
+## Short of target: every source read (602)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -35,7 +35,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/paracheirodon-innesi | staple | 21 | 100 |
 | species/paracheirodon-axelrodi | staple | 29 | 100 |
 | species/trigonostigma-heteromorpha | staple | 17 | 100 |
-| species/symphysodon-aequifasciatus | staple | 69 | 100 |
+| species/symphysodon-aequifasciatus | staple | 65 | 100 |
 | species/neocaridina-davidi | staple | 52 | 100 |
 | species/puntius-titteya | staple | 9 | 100 |
 | species/danio-rerio | staple | 34 | 100 |
@@ -126,7 +126,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/labidochromis-caeruleus | shop | 15 | 60 |
 | plants/ammannia-gracilis | shop | 2 | 60 |
 | plants/pogostemon-stellatus | shop | 14 | 60 |
-| species/notropis-chrosomus | shop | 15 | 60 |
+| species/notropis-chrosomus | shop | 13 | 60 |
 | species/brachygobius-doriae | shop | 4 | 60 |
 | species/monodactylus-sebae | shop | 8 | 60 |
 | species/melanotaenia-praecox | shop | 5 | 60 |
@@ -147,11 +147,11 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | plants/fissidens-fontanus | shop | 22 | 60 |
 | species/poecilia-sphenops | shop | 17 | 60 |
 | plants/cryptocoryne-beckettii | shop | 1 | 60 |
-| species/corydoras-panda | shop | 14 | 60 |
+| species/corydoras-panda | shop | 13 | 60 |
 | species/corydoras-sterbai | shop | 14 | 60 |
 | species/scleropages-jardinii | shop | 3 | 60 |
 | species/scleropages-formosus | shop | 38 | 60 |
-| species/polypterus-senegalus | shop | 15 | 60 |
+| species/polypterus-senegalus | shop | 14 | 60 |
 | species/channa-pulchra | shop | 0 | 60 |
 | species/channa-stewartii | shop | 0 | 60 |
 | species/channa-andrao | shop | 1 | 60 |
@@ -287,6 +287,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/brochis-multiradiatus | covered | 3 | 30 |
 | species/colomesus-asellus | covered | 2 | 30 |
 | species/corydoras-arcuatus | covered | 1 | 30 |
+| species/corydoras-duplicareus | covered | 0 | 30 |
 | species/corydoras-eques | covered | 0 | 30 |
 | species/corydoras-habrosus | covered | 8 | 30 |
 | species/corydoras-semiaquilus | covered | 2 | 30 |
@@ -470,7 +471,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/corydoras-britskii | covered | 0 | 30 |
 | species/corydoras-burgessi | covered | 0 | 30 |
 | species/corydoras-carlae | covered | 2 | 30 |
-| species/corydoras-duplicareus | covered | 0 | 30 |
 | species/corydoras-elegans | covered | 0 | 30 |
 | species/corydoras-ephippifer | covered | 0 | 30 |
 | species/corydoras-gossei | covered | 0 | 30 |
@@ -599,3 +599,22 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/hyphessobrycon-columbianus | covered | 4 | 30 |
 | species/hyphessobrycon-erythrostigma | covered | 4 | 30 |
 | species/hyphessobrycon-eschwartzae | covered | 0 | 30 |
+| species/hyphessobrycon-flammeus | covered | 8 | 30 |
+| species/hyphessobrycon-haraldschultzi | covered | 0 | 30 |
+| species/hyphessobrycon-heterorhabdus | covered | 0 | 30 |
+| species/hyphessobrycon-loretoensis | covered | 1 | 30 |
+| species/hyphessobrycon-melanostichos | covered | 0 | 30 |
+| species/hyphessobrycon-pyrrhonotus | covered | 0 | 30 |
+| species/hyphessobrycon-roseus | covered | 1 | 30 |
+| species/hypoptopoma-gulare | covered | 0 | 30 |
+| species/hypoptopoma-psilogaster | covered | 0 | 30 |
+| species/hypostomus-ancistroides | covered | 0 | 30 |
+| species/hypostomus-basilisko | covered | 8 | 30 |
+| species/hypostomus-cochliodon | covered | 0 | 30 |
+| species/hypostomus-gymnorhynchus | covered | 3 | 30 |
+| species/hypostomus-hondae | covered | 0 | 30 |
+| species/hypostomus-pusarum | covered | 0 | 30 |
+| species/hypostomus-roseopunctatus | covered | 0 | 30 |
+| species/hypostomus-soniae | covered | 0 | 30 |
+| species/hypostomus-taphorni | covered | 0 | 30 |
+| species/hypselecara-temporalis | covered | 4 | 30 |

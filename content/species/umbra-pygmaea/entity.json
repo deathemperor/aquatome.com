@@ -408,7 +408,12 @@
       "author": "Tom Field",
       "sourceUrl": "https://www.inaturalist.org/photos/146431501",
       "caption": "Cá mudminnow Umbra trong hộp nhựa bên ao có lá súng",
-      "setup": true
+      "setup": true,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/146431501-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

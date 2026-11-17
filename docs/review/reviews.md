@@ -10,20 +10,20 @@ under `<lang>/<path>`.
 | --- | --- | --- | --- |
 | video-guide | 965 | 689 (vi 689) | 689 |
 | translation | 1807 | 269 (vi 269) | 269 |
-| vi-rewrite | 362 | 24 (vi 24) | 24 |
-| reader-rewrite | 36 | 0 | 0 |
+| vi-rewrite | 366 | 24 (vi 24) | 24 |
+| reader-rewrite | 37 | 0 | 0 |
 | title | 25 | 0 | 0 |
 | breed | 27 | 3 (ms 3) | 3 |
 | topic | 107 | 6 (id 1, ms 1, th 4) | 6 |
 | product | 17 | 1 (vi 1) | 1 |
 | product-reviews | 16 | 0 | 0 |
 | summary | 2278 | 119 (vi 119) | 119 |
-| localize | 2291 | 888 (id 399, ms 60, th 429) | 888 |
-| glossary | 6 | 0 | 0 |
-| places | 6813 | 4156 (id 1421, ms 1418, th 1218, vi 99) | 1125 |
+| localize | 2333 | 891 (id 400, ms 60, th 431) | 891 |
+| glossary | 9 | 0 | 0 |
+| places | 6869 | 4184 (id 1435, ms 1432, th 1218, vi 99) | 1143 |
 | equipment | 5 | 0 | 0 |
 | planting | 32 | 0 | 0 |
-| species | 13 | 0 | 0 |
+| species | 16 | 0 | 0 |
 | material | 2 | 0 | 0 |
 
 ## video-guide: Vietnamese guides written from YouTube videos, against the transcript
@@ -32,15 +32,15 @@ under `<lang>/<path>`.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 605 | 1568 |
-| States as certain what the source hedges, or what garbled captions only hint at | 598 | 1785 |
+| Other | 604 | 1566 |
+| States as certain what the source hedges, or what garbled captions only hint at | 598 | 1786 |
 | Says what the source doesn't (invented, added) | 515 | 1238 |
-| Wording: unnatural, literal, stiff or chatty | 292 | 411 |
+| Wording: unnatural, literal, stiff or chatty | 293 | 412 |
 | A number, unit, dose or price | 228 | 335 |
 | Repeats itself (intro, summary, steps and FAQ) | 132 | 156 |
-| Meaning changed or wrong | 119 | 136 |
+| Meaning changed or wrong | 120 | 137 |
 | Leaves out what the source says | 48 | 50 |
-| Hobby terms and names | 47 | 48 |
+| Hobby terms and names | 48 | 49 |
 | Names or points to the video, channel, creator or source | 33 | 36 |
 | Off the title's topic | 25 | 25 |
 | Copied from the transcript or source | 22 | 24 |
@@ -217,7 +217,7 @@ under `<lang>/<path>`.
 
 ## vi-rewrite: older Vietnamese rewritten in the site's style
 
-24 of 362 pages under the bar.
+24 of 366 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -299,7 +299,7 @@ under `<lang>/<path>`.
 
 ## reader-rewrite: parts the reader step rewrote with its findings
 
-0 of 36 pages under the bar.
+0 of 37 pages under the bar.
 
 ## title: titles rewritten to promise only what the text has
 
@@ -479,16 +479,16 @@ under `<lang>/<path>`.
 
 ## localize: species and plant pages in Indonesian and Thai, against the English
 
-888 of 2291 pages under the bar.
+891 of 2333 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 825 | 2358 |
-| Wording: unnatural, literal, stiff or chatty | 764 | 1606 |
-| Says what the source doesn't (invented, added) | 527 | 759 |
-| Meaning changed or wrong | 494 | 757 |
-| Hobby terms and names | 483 | 637 |
-| A number, unit, dose or price | 475 | 596 |
+| Other | 827 | 2363 |
+| Wording: unnatural, literal, stiff or chatty | 766 | 1612 |
+| Says what the source doesn't (invented, added) | 526 | 760 |
+| Meaning changed or wrong | 497 | 760 |
+| Hobby terms and names | 484 | 638 |
+| A number, unit, dose or price | 477 | 598 |
 | Text left in another language | 323 | 416 |
 | Leaves out what the source says | 266 | 310 |
 | Repeats itself (intro, summary, steps and FAQ) | 253 | 283 |
@@ -568,15 +568,15 @@ under `<lang>/<path>`.
 
 ## glossary: glossary terms in Indonesian and Thai (reviewed in batches)
 
-0 of 6 pages under the bar.
+0 of 9 pages under the bar.
 
 ## places: place names in Indonesian and Thai (reviewed in batches)
 
-4156 of 6813 pages under the bar.
+4184 of 6869 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 1007 | 1092 |
+| Other | 1025 | 1110 |
 | Meaning changed or wrong | 69 | 69 |
 | Leaves out what the source says | 44 | 44 |
 | Wording: unnatural, literal, stiff or chatty | 25 | 25 |
@@ -643,7 +643,7 @@ under `<lang>/<path>`.
 
 ## species: species pages AquaTome writes from research, and what a species video adds to a page, against their research or video
 
-0 of 13 pages under the bar.
+0 of 16 pages under the bar.
 
 ## material: hobby materials' pages (lũa, đá, nền), against their research
 

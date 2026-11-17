@@ -227,7 +227,12 @@
       "author": "Oscar Hopgood",
       "sourceUrl": "https://www.inaturalist.org/photos/608859734",
       "caption": "Cá chạch suối Schistura robertsi bơi trên nền sỏi đá",
-      "setup": true
+      "setup": true,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/608859734-large.webp",
+        "width": 1423,
+        "height": 1200
+      }
     }
   ],
   "videos": [],
