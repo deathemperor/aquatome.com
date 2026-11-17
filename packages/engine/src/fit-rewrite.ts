@@ -320,9 +320,11 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
               // that no longer reads, or took one with the sentence before it, nor next to a sentence a finding other than
               // the source's or one on where it applies quotes (a dose, its caution, a lethal level): cut of the product's
               // name, a dose would read as a dose of whatever came before (the readers of #1578, 17 Nov 2026).
-              // Any finding on the part, not only those this step mends: a dose's purpose, a harm, a card (the readers of #1578).
+              // Any finding on the part, not only those this step mends (a dose's purpose, a harm, a card), and any dose the read
+              // found in it, flagged or not (the readers of #1578).
               const near = (f: FitFinding) => goesWhole(f.check) && f.check !== 'source' && f.check !== 'elsewhere'
-              const beside = product ? [...now, ...fitFindings(p, state[key]).filter(f => !MENDED.includes(f.check) && fieldIn(fitText(p).parts, f) === field)].filter(near) : []
+              const shown = norm(visible(before))
+              const beside = product ? [...[...now, ...fitFindings(p, state[key]).filter(f => !MENDED.includes(f.check) && fieldIn(fitText(p).parts, f) === field)].filter(near), ...(state[key]?.doses ?? []).filter(d => shown.includes(norm(d.quote)))] : []
               const plain = !faq && (product ? !r.stranded.length && !r.follows.length : !mine.length && !r.whole.length && !now.some(f => goesWhole(f.check))) ? cutWhole(before, product ? now.map(f => spelled(f, before)) : now, product ? { near: beside } : {}) : undefined
               if (!plain) { report.notKept.push(`${key} ${field} (${why})`); continue }
               next = plain.html

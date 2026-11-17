@@ -502,3 +502,23 @@ test('a plain cut takes out whole each sentence a product, shop or price finding
   expect(cutWhole('<p>Nước mềm thì thêm Wonder Shells hoặc san hô vụn. Ốc cần canxi. Wonder Shellsy là tên khác.</p>', [{ check: 'product', quote: 'Wonder Shell' }])?.html).toBe('<p>Ốc cần canxi. Wonder Shellsy là tên khác.</p>')
   expect(cutWhole('<p>Thêm Wonders Shell vào. Ốc cần canxi.</p>', [{ check: 'product', quote: 'Wonder Shell' }])).toBeUndefined()
 })
+
+// The readers of #1578, 17 Nov 2026: "<h3>3. Easy-Life EasyCarbo</h3>" was cut to "<h3>3.</h3>" with its section left under
+// it; "<li>1. Maracyn trị nấm.</li>" to "<li>1.</li>"; a list's "2." stood between a product and its dose; and "Thuốc này chứa
+// metronidazole" was left after the ParaCleanse sentence it points back at.
+test('a plain cut leaves a heading, a block that would keep only its number, and a sentence the next line points back at', () => {
+  const Q = (quote: string) => [{ check: 'product' as const, quote }]
+  // A heading stays; the product's sentence in the text goes.
+  expect.soft(cutWhole('<h3>3. Easy-Life EasyCarbo</h3><p>Cá sống theo đàn.</p><p>Thêm EasyCarbo mỗi tuần.</p>', Q('EasyCarbo'))?.html).toBe('<h3>3. Easy-Life EasyCarbo</h3><p>Cá sống theo đàn.</p>')
+  // A list item would keep only its number.
+  expect.soft(cutWhole('<ul><li>1. Maracyn trị nấm.</li><li>2. Cá sống theo đàn.</li></ul><p>Câu khác.</p>', Q('Maracyn'))).toBeUndefined()
+  // A list's number between the product and a dose: the dose is still the next line.
+  expect.soft(cutWhole('<p>Dùng Maracyn trị nấm.</p><p>2. Liều 1 gói cho 38 lít.</p><p>Câu khác.</p>', Q('Maracyn'), { near: [{ quote: 'Liều 1 gói cho 38 lít' }] })).toBeUndefined()
+  // The next line points back: both stay. One that doesn't: the product's sentence goes.
+  expect.soft(cutWhole('<p>Trị ký sinh bằng ParaCleanse. Thuốc này chứa metronidazole. Cá sống theo đàn.</p>', Q('ParaCleanse'))).toBeUndefined()
+  expect.soft(cutWhole('<p>Easy Root Tabs là một ví dụ.</p><p>Loại đó làm từ đất mặt.</p><p>Cây cần ánh sáng.</p>', Q('Easy Root Tabs'))).toBeUndefined()
+  expect.soft(cutWhole('<p>Trị ký sinh bằng ParaCleanse. Chúng phản ứng yếu hơn. Cá sống theo đàn.</p>', Q('ParaCleanse'))).toBeUndefined()
+  expect.soft(cutWhole('<p>Trị ký sinh bằng ParaCleanse. Cá sống theo đàn. Bể cần nắp.</p>', Q('ParaCleanse'))?.html).toBe('<p>Cá sống theo đàn. Bể cần nắp.</p>')
+  // A pointing line that goes too takes nothing with it.
+  expect.soft(cutWhole('<p>Trị ký sinh bằng ParaCleanse. ParaCleanse này bán ở Mỹ. Cá sống theo đàn.</p>', Q('ParaCleanse'))?.html).toBe('<p>Cá sống theo đàn.</p>')
+})

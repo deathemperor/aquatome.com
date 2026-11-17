@@ -115,7 +115,8 @@ const CUTTABLE: readonly FitCheck[] = ['product', 'shop', 'price']
  * findings no sentence it takes may stand next to, nor be (a dose, its caution, a lethal level: cut of the product's name,
  * a dose beside it would read as a dose of whatever came before; the readers of #1578, 17 Nov 2026). Such a sentence stays
  * for its page's next try, and the others go; nothing when one of those findings quotes no single sentence of the part, as
- * code can't tell where it stands.
+ * code can't tell where it stands. Nor does code cut a heading, a sentence whose block would keep only its number, or one
+ * the next line points back at (the readers of #1578, 17 Nov 2026): each stays for a writer or a person.
  */
 export function cutWhole(html: string, fs: readonly { check: FitCheck; quote?: string }[], o: { near?: readonly { quote?: string }[] } = {}): { html: string; gone: string[] } | undefined {
   const pieces = sentences(html)
@@ -130,9 +131,28 @@ export function cutWhole(html: string, fs: readonly { check: FitCheck; quote?: s
   const near = (o.near ?? []).map(f => (f.quote ? holds(f.quote) : []))
   if (near.some(x => !x.length)) return undefined
   const close = new Set(near.flat())
-  const gone = new Set(fs.filter(f => CUTTABLE.includes(f.check) && f.quote).flatMap(f => holds(f.quote!)).filter(i => !close.has(i - 1) && !close.has(i) && !close.has(i + 1)))
-  if (!gone.size || gone.size >= n) return undefined
   const texts = pieces.filter(p => p.sentence).map(p => p.html)
+  const seen = texts.map(t => plain(t))
+  // A list's or a heading's own number ("3.", "2)") is a sentence to the splitter, not a line: a dose past it is still the
+  // next line, and a block left with only its number is a line cut in half (the readers of #1578, 17 Nov 2026).
+  const bare = (i: number) => /^[\s\d.,:;()–—-]*$/u.test(seen[i]!)
+  const step = (i: number, d: number) => { let j = i + d; while (j >= 0 && j < n && bare(j)) j += d; return j }
+  // Each sentence's block, and whether that block is a heading: a heading cut leaves its section under the one before.
+  const block = blockOf(pieces)
+  let tag = ''
+  const heading = pieces.flatMap(p => { if (p.sentence) return [/^h[1-6]$/.test(tag)]; for (const m of p.html.matchAll(/<(h[1-6]|p|li|td|th|dt|dd|div|blockquote|figcaption)\b/gi)) tag = m[1]!.toLowerCase(); return [] })
+  // A line that points back ("Thuốc này…", "Loại đó…", "Chúng…") would point at nothing: the sentence before it stays.
+  const points = (i: number) => /^(?:\S+\s+){0,2}(?:này|đó|ấy)(?=[\s,.:;!?]|$)|^(?:chúng|nó|đây)(?=[\s,.:;!?]|$)/iu.test(seen[i] ?? '')
+  const gone = new Set(fs.filter(f => CUTTABLE.includes(f.check) && f.quote).flatMap(f => holds(f.quote!)).filter(i => !heading[i] && !close.has(step(i, -1)) && !close.has(i) && !close.has(step(i, 1))))
+  for (let changed = true; changed;) {
+    changed = false
+    for (const i of gone) {
+      const after = step(i, 1)
+      const rest = texts.map((_, j) => j).filter(j => j !== i && block[j] === block[i] && !gone.has(j))
+      if ((after < n && !gone.has(after) && points(after)) || (rest.length && rest.every(bare))) { gone.delete(i); changed = true }
+    }
+  }
+  if (!gone.size || gone.size >= n) return undefined
   return { html: splice(pieces, new Map([...gone].map(i => [i, '']))), gone: [...gone].sort((a, b) => a - b).map(i => `sentence ${i + 1} went whole: "${plain(texts[i]!)}"`) }
 }
 

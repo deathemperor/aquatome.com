@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError, type Llm } from '../src/claude'
-import { CHECKLIST, fitKey, fitText, SHELF_WHY, type FitFinding, type FitState } from '../src/fit'
+import { CHECKLIST, fitKey, fitText, SHELF_WHY, type FitDose, type FitFinding, type FitState } from '../src/fit'
 import { breedFigures, figuresSaid, keepsFigures, unitsLeft, withoutConcentrations } from '../src/breed-units'
 import { convertible, fitRewrite, foreignProduct, MEND_RULE, mendable, rewriteDue, type Tried } from '../src/fit-rewrite'
 import { loadPages, type Page } from '../src/pages'
@@ -1170,10 +1170,19 @@ test('on a page with a foreign product, code doesn\'t cut beside a line that no 
       ],
       said: [{ n: 1, vi: '' }], review: { score: 0.5, follows: [] },
     },
+    {
+      // A dose the read found and flagged nothing on (the readers of #1578).
+      name: 'a dose the read found but didn\'t flag',
+      html: '<p>Trị nấm bằng Seachem Paraguard hoặc tắm muối. Pha 5 g muối cho 1 lít nước. Cá sống theo đàn.</p>',
+      fs: (p: Page) => [{ check: 'product' as const, part: part(p, P), quote: 'Seachem Paraguard', why: 'a US medicine' }],
+      doses: [{ treatment: 'muối', strength: '', amount: 5, amountMax: 5, unit: 'g', per: 1, perUnit: 'l', use: 'trị nấm', method: 'tắm', quote: 'Pha 5 g muối cho 1 lít nước.' }],
+      said: [{ n: 1, vi: '' }], review: { score: 0.5, follows: [] },
+    },
   ]
   // Each case on its own: one failing doesn't hide the next.
-  for (const c of cases) {
+  for (const c of cases as ((typeof cases)[number] & { doses?: FitDose[] })[]) {
     const s = await setUp(c.html, c.fs)
+    if (c.doses) s.state[fitKey(s.p)]!.doses = c.doses
     const keys = new Set([fitKey(s.p)])
     const r = await fitRewrite(s.root, [s.p], s.state, { llm: writer(c.said, c.review), now: () => new Date() }, { limit: 5, mend: keys, products: keys })
     expect.soft([r.rewritten, r.gone], c.name).toEqual([[], []])
