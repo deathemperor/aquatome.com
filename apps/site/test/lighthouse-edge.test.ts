@@ -167,6 +167,10 @@ test("the monitor's policy is the load's only when no other response of it has a
   expect(loadPolicy([page[0]!, response('1', PAGE, 'Document', { 'content-security-policy-report-only': "connect-src 'self'" }), extra('1', 200, { 'content-security-policy-report-only': MONITOR }), page[3]!], PAGE)).toBeUndefined()
   expect(loadPolicy([...page, response('2', frame, 'Document', { 'content-security-policy': "default-src 'none'" })], PAGE)).toBe(CUT)
   expect(loadPolicy([page[0]!, extra('1', 301, { location: PAGE, 'content-security-policy-report-only': "connect-src 'self'" }), ...page.slice(1)], PAGE)).toBe(CUT)
+  // Under the page's own request, headers at another status that aren't a redirect's hop (a 304; a 301 with no location)
+  // are judged (Codex's sweep of 4b5d1ad94).
+  expect(loadPolicy([...page, extra('1', 304, { 'content-security-policy-report-only': "script-src 'self'; report-uri /csp" })], PAGE)).toBeUndefined()
+  expect(loadPolicy([page[0]!, extra('1', 301, { 'content-security-policy-report-only': "connect-src 'self'" }), ...page.slice(1)], PAGE)).toBeUndefined()
   // No monitor on the page: nothing, whatever else the load has.
   expect(loadPolicy(page.filter(e => e.method !== 'Network.responseReceivedExtraInfo'), PAGE)).toBeUndefined()
 })
@@ -225,4 +229,10 @@ test('an audit that errored leaves the category with no score, as in Lighthouse,
   const errored = lhr(0, { 'errors-in-console': { score: null, scoreDisplayMode: 'error' } })
   expect(scoreWith(errored, 'best-practices', ['inspector-issues'])).toBeNull()
   expect(scoreWith(errored, 'best-practices')).toBeNull()
+  // The excused audit itself errored, or a weighted audit is missing from the report (Codex's sweep of 4b5d1ad94): no
+  // score, not 100.
+  expect(scoreWith(lhr(0, { 'inspector-issues': { score: null, scoreDisplayMode: 'error' } }), 'best-practices', ['inspector-issues'])).toBeNull()
+  const missing = lhr(0)
+  delete missing.audits.charset
+  expect(scoreWith(missing, 'best-practices', ['inspector-issues'])).toBeNull()
 })

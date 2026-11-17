@@ -108,7 +108,11 @@ export function loadPolicy(log: readonly Event[], page: string): string | undefi
   // it at the same status (Codex's read of 8d0b99747), and that address is taken when every event there gives the same one.
   const status = (e: Event) => (e.method === 'Network.responseReceived' ? of(e).response?.status : of(e).statusCode)
   const headersOf = (e: Event) => lower(e.method === 'Network.responseReceived' ? of(e).response?.headers : of(e).headers)
-  const own = log.filter(e => (e.method === 'Network.responseReceived' || e.method === 'Network.responseReceivedExtraInfo') && of(e).requestId === of(main!).requestId && status(e) === of(main!).response?.status)
+  // The page's own events: all but a redirect's hop, which is shown to be one (a 301, 302, 303, 307 or 308 with a
+  // `location`), never applied to a document. Any other status logged under it (a 304's headers) is judged too (Codex's
+  // sweep of 4b5d1ad94).
+  const hop = (e: Event) => [301, 302, 303, 307, 308].includes(status(e) ?? 0) && headersOf(e).location !== undefined
+  const own = log.filter(e => (e.method === 'Network.responseReceived' || e.method === 'Network.responseReceivedExtraInfo') && of(e).requestId === of(main!).requestId && (status(e) === of(main!).response?.status || !hop(e)))
   const foreign = [...others.values(), own].some(events => events.some(e => {
     const headers = headersOf(e)
     if (headers[REPORT_ONLY] === undefined) return false
@@ -156,16 +160,21 @@ export function onlyMonitorBreaks(issues: Issues | undefined, policy: string | u
 
 /**
  * A category's score, 0–100, as Lighthouse counts it (core/scoring.js: the weighted mean of its audits, those not
- * applicable, manual or informative left out, rounded to two places), with the audits in `passed` taken as passed. An
- * audit that errored (no score) leaves the category with none, as in Lighthouse: null.
+ * applicable, manual or informative left out, rounded to two places), with the audits in `passed` taken as passed. A
+ * weighted audit that errored (no score), excused or not, or one missing from the report, leaves the category with none:
+ * null.
  */
 export function scoreWith(lhr: Lhr, category: string, passed: readonly string[] = []): number | null {
   let sum = 0, weight = 0
   for (const r of lhr.categories[category]?.auditRefs ?? []) {
+    if (!(r.weight > 0)) continue
     const a = lhr.audits[r.id]
-    if (!a || !(r.weight > 0) || ['notApplicable', 'manual', 'informative'].includes(a.scoreDisplayMode)) continue
+    // A weighted audit the report doesn't have, or one that errored, can't be counted, excused or not (Codex's sweep of
+    // 4b5d1ad94): no score.
+    if (!a) return null
+    if (['notApplicable', 'manual', 'informative'].includes(a.scoreDisplayMode)) continue
+    if (a.score === null) return null
     const score = passed.includes(r.id) ? 1 : a.score
-    if (score === null) return null
     sum += score * r.weight
     weight += r.weight
   }
