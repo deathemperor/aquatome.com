@@ -106,5 +106,87 @@
     "amoniac",
     "ph",
     "kh"
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/ff5543c890aff87c.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/ff5543c890aff87c-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/mulm",
+      "caption": "Lớp nền sỏi nhỏ nhiều màu dưới chân cây trong một bể trồng cây.",
+      "source": "aquariumcoop"
+    }
+  ],
+  "kinds": [
+    {
+      "id": "cat",
+      "photo": {
+        "url": "https://media.aquatome.com/video/FbX_XvXFmW0/p4-RvbV9zYW5kLmpwZw.webp",
+        "thumb": "https://media.aquatome.com/video/FbX_XvXFmW0/p4-RvbV9zYW5kLmpwZw-480.webp",
+        "width": 960,
+        "height": 640,
+        "licence": "CC BY-SA 2.0",
+        "author": "kerinin",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diatom_sand.jpg",
+        "caption": "Cát: lớp cát trắng mịn trải dưới chân đá, nhìn ngang qua mặt kính bể."
+      }
+    },
+    {
+      "id": "soi",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/499597be352de181.webp",
+        "thumb": "https://media.aquatome.com/commons/499597be352de181-480.webp",
+        "width": 960,
+        "height": 574,
+        "licence": "CC BY 3.0",
+        "author": "Green Yoshi",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_gravel.jpg",
+        "caption": "Sỏi: những viên tròn, nhẵn, nhiều màu, chụp sát mặt nền."
+      }
+    },
+    {
+      "id": "nham-thach",
+      "photo": {
+        "url": "https://media.aquatome.com/aquariumbreeder/5dc452afd9be01f7.webp",
+        "thumb": "https://media.aquatome.com/aquariumbreeder/5dc452afd9be01f7-480.webp",
+        "width": 1200,
+        "height": 800,
+        "licence": "dùng với sự cho phép",
+        "author": "Aquarium Breeder",
+        "sourceUrl": "https://aquariumbreeder.com/lava-rocks-in-aquariums-pros-and-cons/",
+        "caption": "Nham thạch, sỏi núi lửa: những viên đá đỏ nâu và xám, đầy lỗ xốp.",
+        "source": "aquariumbreeder"
+      }
+    },
+    {
+      "id": "akadama",
+      "photo": {
+        "url": "https://media.aquatome.com/video/UK4S3ZFTTS8/p2-X2FuZF93ZXQuSlBH.webp",
+        "thumb": "https://media.aquatome.com/video/UK4S3ZFTTS8/p2-X2FuZF93ZXQuSlBH-480.webp",
+        "width": 800,
+        "height": 600,
+        "licence": "CC BY-SA 3.0",
+        "author": "Abrahami",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Akadama_dry_and_wet.JPG",
+        "caption": "Akadama: hạt khô màu sáng lẫn hạt ướt sẫm màu nâu đỏ."
+      }
+    },
+    {
+      "id": "peat-moss",
+      "photo": {
+        "url": "https://media.aquatome.com/seriouslyfish/83176dffba1540cb.webp",
+        "thumb": "https://media.aquatome.com/seriouslyfish/83176dffba1540cb-480.webp",
+        "width": 602,
+        "height": 402,
+        "licence": "dùng với sự cho phép",
+        "author": "Ragesross",
+        "sourceUrl": "https://www.seriouslyfish.com/articles/for-peats-sake",
+        "caption": "Peat moss: một đống sợi khô màu nâu.",
+        "source": "seriouslyfish"
+      }
+    }
   ]
 }
