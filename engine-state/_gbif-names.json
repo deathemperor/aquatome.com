@@ -1220,6 +1220,7 @@
   },
   "Amoniac cao": null,
   "Amoniac chuy": null,
+  "Amoniac gia": null,
   "Amoniac kho": null,
   "Amoniac nguy": null,
   "Amoniac trong": null,
@@ -3213,8 +3214,24 @@
     "genus": "Awaous",
     "matchType": "FUZZY"
   },
+  "Awaous flavus": {
+    "canonicalName": "Awaous flavus",
+    "phylum": "Chordata",
+    "order": "Perciformes",
+    "family": "Gobiidae",
+    "genus": "Awaous",
+    "matchType": "EXACT"
+  },
   "Awaous grammepomus": {
     "canonicalName": "Awaous grammepomus",
+    "order": "Perciformes",
+    "family": "Gobiidae",
+    "genus": "Awaous",
+    "matchType": "EXACT"
+  },
+  "Awaous lateristriga": {
+    "canonicalName": "Awaous lateristriga",
+    "phylum": "Chordata",
     "order": "Perciformes",
     "family": "Gobiidae",
     "genus": "Awaous",
@@ -3908,6 +3925,14 @@
     "order": "Cypriniformes",
     "family": "Cyprinidae",
     "genus": "Pethia",
+    "matchType": "EXACT"
+  },
+  "Barbus congicus": {
+    "canonicalName": "Clypeobarbus congicus",
+    "phylum": "Chordata",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Clypeobarbus",
     "matchType": "EXACT"
   },
   "Barbus denisonii": {
@@ -6073,6 +6098,15 @@
     "genus": "Imparfinis",
     "matchType": "EXACT"
   },
+  "Ceylonthelphusa kandanbyi": {
+    "canonicalName": "Ceylonthelphusa kandambyi",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Gecarcinucidae",
+    "genus": "Ceylonthelphusa",
+    "matchType": "FUZZY"
+  },
   "Chaca bankanensis": {
     "canonicalName": "Chaca bankanensis",
     "order": "Siluriformes",
@@ -6582,6 +6616,15 @@
     "family": "Cyprinidae",
     "genus": "Laubuka",
     "matchType": "FUZZY"
+  },
+  "Chelidonura varians": {
+    "canonicalName": "Chelidonura varians",
+    "phylum": "Mollusca",
+    "class": "Gastropoda",
+    "order": "Cephalaspidea",
+    "family": "Aglajidae",
+    "genus": "Chelidonura",
+    "matchType": "EXACT"
   },
   "Chelydra serpentina": {
     "canonicalName": "Chelydra serpentina",
@@ -8808,6 +8851,14 @@
     "order": "Siluriformes",
     "family": "Loricariidae",
     "genus": "Rhadinoloricaria",
+    "matchType": "EXACT"
+  },
+  "Crossostoma lacustre": {
+    "canonicalName": "Formosania lacustre",
+    "phylum": "Chordata",
+    "order": "Cypriniformes",
+    "family": "Balitoridae",
+    "genus": "Formosania",
     "matchType": "EXACT"
   },
   "Cruzes drainages": null,
@@ -11052,6 +11103,15 @@
     "genus": "Fimbriaphyllia",
     "matchType": "EXACT"
   },
+  "Euphyllia paradivisa": {
+    "canonicalName": "Fimbriaphyllia paradivisa",
+    "phylum": "Cnidaria",
+    "class": "Anthozoa",
+    "order": "Scleractinia",
+    "family": "Euphylliidae",
+    "genus": "Fimbriaphyllia",
+    "matchType": "EXACT"
+  },
   "Euro quanh": null,
   "Europe has": null,
   "Euryglossa panoides": {
@@ -12055,6 +12115,7 @@
   },
   "Gex xanh": null,
   "Ghi nhi": null,
+  "Giang thu": null,
   "Gibelion catla": {
     "canonicalName": "Gibelion catla",
     "order": "Cypriniformes",
@@ -12104,6 +12165,7 @@
     "genus": "Glanidium",
     "matchType": "EXACT"
   },
+  "Glaser has": null,
   "Glaser stocklist": null,
   "Glaser supplies": null,
   "Glechoma hederacea": {
@@ -12557,6 +12619,22 @@
     "family": "Gyrinocheilidae",
     "genus": "Gyrinocheilus",
     "matchType": "EXACT"
+  },
+  "Gyrinocheilus pennocki": {
+    "canonicalName": "Gyrinocheilus pennocki",
+    "phylum": "Chordata",
+    "order": "Cypriniformes",
+    "family": "Gyrinocheilidae",
+    "genus": "Gyrinocheilus",
+    "matchType": "EXACT"
+  },
+  "Gyrinocheilus pustulosis": {
+    "canonicalName": "Gyrinocheilus pustulosus",
+    "phylum": "Chordata",
+    "order": "Cypriniformes",
+    "family": "Gyrinocheilidae",
+    "genus": "Gyrinocheilus",
+    "matchType": "FUZZY"
   },
   "Gyronicheilus aymonieri": null,
   "Hadrurus arizonensis": {
@@ -15213,6 +15291,14 @@
     "matchType": "EXACT"
   },
   "Irrawaddy drainages": null,
+  "Isichthys henryi": {
+    "canonicalName": "Isichthys henryi",
+    "phylum": "Chordata",
+    "order": "Osteoglossiformes",
+    "family": "Mormyridae",
+    "genus": "Isichthys",
+    "matchType": "EXACT"
+  },
   "Isochrysis galbana": {
     "canonicalName": "Isochrysis galbana",
     "order": "Isochrysidales",
@@ -15416,6 +15502,7 @@
   "Khi thi": null,
   "Khi thu": null,
   "Khi tia": null,
+  "Khi tranh": null,
   "Khi treo": null,
   "Khi trong": null,
   "Khi xem": null,
@@ -17400,6 +17487,15 @@
     "genus": "Macrobrachium",
     "matchType": "EXACT"
   },
+  "Macrobrachium rosenbergii": {
+    "canonicalName": "Macrobrachium rosenbergii",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Palaemonidae",
+    "genus": "Macrobrachium",
+    "matchType": "EXACT"
+  },
   "Macrochelys temminckii": {
     "canonicalName": "Macrochelys temminckii",
     "family": "Chelydridae",
@@ -18282,6 +18378,15 @@
   },
   "Micranthemum micranthemoides": {
     "canonicalName": "Micranthemum micranthemoides",
+    "order": "Lamiales",
+    "family": "Linderniaceae",
+    "genus": "Micranthemum",
+    "matchType": "EXACT"
+  },
+  "Micranthemum tweedei": {
+    "canonicalName": "Micranthemum tweedei",
+    "phylum": "Tracheophyta",
+    "class": "Magnoliopsida",
     "order": "Lamiales",
     "family": "Linderniaceae",
     "genus": "Micranthemum",
@@ -22133,6 +22238,7 @@
     "genus": "Paraloricaria",
     "matchType": "EXACT"
   },
+  "Parambassis etc": null,
   "Parambassis lala": {
     "canonicalName": "Parambassis lala",
     "order": "Perciformes",
@@ -23235,6 +23341,38 @@
     "order": "Gonorynchiformes",
     "family": "Phractolaemidae",
     "genus": "Phractolaemus",
+    "matchType": "EXACT"
+  },
+  "Phractura ansorgii": {
+    "canonicalName": "Phractura ansorgii",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Amphiliidae",
+    "genus": "Phractura",
+    "matchType": "EXACT"
+  },
+  "Phractura brevicauda": {
+    "canonicalName": "Phractura brevicauda",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Amphiliidae",
+    "genus": "Phractura",
+    "matchType": "EXACT"
+  },
+  "Phractura clauseni": {
+    "canonicalName": "Phractura clauseni",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Amphiliidae",
+    "genus": "Phractura",
+    "matchType": "EXACT"
+  },
+  "Phractura fasciata": {
+    "canonicalName": "Phractura fasciata",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Amphiliidae",
+    "genus": "Phractura",
     "matchType": "EXACT"
   },
   "Phraya drainages": null,
@@ -28341,6 +28479,7 @@
     "genus": "Sternotherus",
     "matchType": "EXACT"
   },
+  "Sthiphodon elegans": null,
   "Stigmatogobius sadanundio": {
     "canonicalName": "Stigmatogobius sadanundio",
     "order": "Perciformes",
@@ -29785,6 +29924,22 @@
     "genus": "Trachydoras",
     "matchType": "EXACT"
   },
+  "Trachyglanis ineac": {
+    "canonicalName": "Trachyglanis ineac",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Amphiliidae",
+    "genus": "Trachyglanis",
+    "matchType": "EXACT"
+  },
+  "Trachyglanis sanghensis": {
+    "canonicalName": "Trachyglanis sanghensis",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Amphiliidae",
+    "genus": "Trachyglanis",
+    "matchType": "EXACT"
+  },
   "Tradescantia zebrina": {
     "canonicalName": "Tradescantia zebrina",
     "order": "Commelinales",
@@ -30119,6 +30274,7 @@
   },
   "Trong app": null,
   "Trong aquaponics": null,
+  "Trong aquascape": null,
   "Trong bao": null,
   "Trong chuy": null,
   "Trong danh": null,
@@ -30999,6 +31155,14 @@
   "Zagros toothcarp": null,
   "Zaireichthys camerunensis": {
     "canonicalName": "Zaireichthys camerunensis",
+    "order": "Siluriformes",
+    "family": "Amphiliidae",
+    "genus": "Zaireichthys",
+    "matchType": "EXACT"
+  },
+  "Zaireichthys kafuensis": {
+    "canonicalName": "Zaireichthys kafuensis",
+    "phylum": "Chordata",
     "order": "Siluriformes",
     "family": "Amphiliidae",
     "genus": "Zaireichthys",
