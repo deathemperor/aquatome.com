@@ -13,6 +13,8 @@ final class FakePeripheral: LampPeripheral {
   /// The starts handed to it, by broadcast, and those not answered yet.
   private(set) var handed: [String] = []
   private(set) var unanswered: [String] = []
+  /// Each start's whole list of UUIDs, as handed.
+  private(set) var starts: [[String]] = []
   private(set) var stops = 0
   /// Stops asked while Bluetooth wasn't on (CoreBluetooth refuses them).
   private(set) var stopsNotOn = 0
@@ -20,6 +22,7 @@ final class FakePeripheral: LampPeripheral {
   func startAdvertising(_ uuids: [String]) {
     handed += uuids
     unanswered += uuids
+    starts.append(uuids)
   }
   func stopAdvertising() {
     stops += 1

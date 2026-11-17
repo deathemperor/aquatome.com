@@ -268,7 +268,9 @@ final class MasterModel {
           r.back[i].done = true
           r.back[i].problem = nil
           switch end {
-          case .already: if let l = b.left ?? kept[c.target], l != c.on { tell(changed) }
+          // Back already, after a try of its own that may have gone: that try may be what put it back, so no word that
+          // something else changed it and AquaTome left it.
+          case .already: if !b.earlier, let l = b.left ?? kept[c.target], l != c.on { tell(changed) }
           case .hold: tell(String(localized: "AquaTome không tự bật lại CO2. Cần thì bật ổ CO2 trong Bể của tôi."))
           default: tell(changed)
           }
