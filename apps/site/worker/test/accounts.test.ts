@@ -286,8 +286,9 @@ test('signed in, a sign-in method joins the account only when asked to (link); o
 })
 
 // The chat's test account (accounts/tester.ts) signs in by its own email sign-in alone: its address never joins another
-// account, added from a signed-in account or vouched for by Google or Apple, and each refusal changes nothing (Codex's
-// read of the chat gate, 17 Nov). Before the fix, a reader adding it would have made their account the tester's.
+// account, added from a signed-in account or vouched for by Google or Apple, and each refusal writes no account or
+// credential and sends no mail (Codex's read of the chat gate, 17 Nov). Before the fix, a reader adding it would have made
+// their account the tester's.
 test('the test account\'s address: its own email sign-in only, never added to an account, never through Google or Apple', async () => {
   const { db, env, mails, call, google, emailIn } = setup()
   const tester = TESTER_ADDRESS!

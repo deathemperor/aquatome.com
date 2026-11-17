@@ -270,7 +270,8 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
       const email = claims.emailVerified ? normalEmail(claims.email) : undefined
       // The chat's test account signs in by its own email sign-in alone (tester.ts): Apple or Google vouching for its
       // address neither makes an account nor joins one, linked or not, so the address never reaches another account
-      // through them (Codex's read of the chat gate, 17 Nov). Refused before anything is written.
+      // through them (Codex's read of the chat gate, 17 Nov). Refused before any account or credential is written; the
+      // nonce is used up, as for any answer.
       if ((email && email === TESTER_ADDRESS) || toTester) return fail('credential_in_use', 409)
       // One Apple ID per account: deleting the account revokes it from one fresh Apple sign-in.
       if (provider === 'apple' && adding && (await db.prepare(`SELECT 1 FROM credentials WHERE user_id = ? AND kind = 'apple' AND subject != ?`).bind(adding.userId, claims.sub).first())) return fail('apple_already_linked', 409)
