@@ -4,6 +4,7 @@ import { kindAiLabel, kindLargeFallback } from '../src/lib/glossary-kind-image'
 import { LANGS, loadAll, type Photo } from '@aq/schema'
 import { fileURLToPath } from 'node:url'
 import { createHash } from 'node:crypto'
+import { slow } from '@aq/schema/test-time'
 import { appIndex } from '../src/lib/app-index'
 import { glossaryDoc, listedPaths } from '../src/lib/app-page'
 import { glossaryParts, kindCardImage, kindCredit } from '../src/lib/glossary-page'
@@ -71,8 +72,12 @@ for (const lang of LANGS) test(`${lang}: the actual card and large-view markup l
     expect(right.getAttribute('style')).not.toContain('left:')
   }
   const fallback = parse(kindLargeFallback(p, 'Fixture'))
-  expect(fallback.querySelector('noscript img')?.getAttribute('src')).toBe(p.url)
-  expect(fallback.querySelector('img')?.getAttribute('alt')).toBe(caption)
+  const noScript = fallback.querySelector('noscript')
+  expect(noScript).toBeTruthy()
+  // The parser keeps noscript as raw text, just as a scripting-enabled browser does. Inspect its no-script markup separately.
+  const noScriptImage = parse(noScript?.innerHTML ?? '').querySelector('img')
+  expect(noScriptImage?.getAttribute('src')).toBe(p.url)
+  expect(noScriptImage?.getAttribute('alt')).toBe(caption)
   const { generated: _, ...real } = p
   expect(kindAiLabel(lang, real, 'card')).toBe('')
   expect(kindAiLabel(lang, real, 'large')).toBe('')
@@ -86,7 +91,12 @@ for (const lang of LANGS) test(`${lang}: the glossary-only switch with no approv
   const after = await loadAll({ root, lang, publicBuild: true, glossaryKindImages: true })
   const hash = (value: unknown) => createHash('sha256').update(JSON.stringify(value)).digest('hex')
   expect(hash(after)).toBe(hash(before))
-  expect(hash(appIndex(lang, after))).toBe(hash(appIndex(lang, before)))
-  const docs = (c: typeof before) => c.glossary.map(g => glossaryDoc(lang, c, g, listedPaths(lang, c)))
-  expect(hash(docs(after))).toBe(hash(docs(before)))
-})
+  const beforeIndex = appIndex(lang, before), afterIndex = appIndex(lang, after)
+  expect(hash(afterIndex)).toBe(hash(beforeIndex))
+  const docs = (c: typeof before, index: typeof beforeIndex) => {
+    // Build this once per snapshot, not once per term (listedPaths rebuilds the entire app index).
+    const listed = new Set(index.items.map(item => item.path))
+    return c.glossary.map(g => glossaryDoc(lang, c, g, listed))
+  }
+  expect(hash(docs(after, afterIndex))).toBe(hash(docs(before, beforeIndex)))
+}, slow(60_000)) // Two complete real-content snapshots; same scaled allowance as the other real-content checks.
