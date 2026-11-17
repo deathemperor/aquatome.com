@@ -37,7 +37,7 @@ export function creditPhoto(p: CardPhoto) {
       .map(x => (x.href ? el('a', x.text, { ...(x.cls ? { class: x.cls } : {}), href: x.href, rel: 'noopener' }) : x.text))
     : [urls.length === 1 ? el('a', p.author, { href: p.url, rel: 'noopener' }) : el('strong', p.author)]
   const deed = p.licence ? licenceUrl(p.licence) : undefined
-  const more = [...(p.licence ? [deed ? el('a', p.licence, { class: 'licence', href: deed, rel: 'license noopener' }) : p.licence] : []), ...(nums ? [ct('{n} ảnh', { n: urls.length })] : [])]
+  const more = [...(p.licence ? [deed ? el('a', p.licence, { class: 'licence', href: deed, rel: 'noopener' }) : p.licence] : []), ...(nums ? [ct('{n} ảnh', { n: urls.length })] : [])]
   const lic = el('span', ' · ', { class: 'lic' })
   more.forEach((x, i) => lic.append(...(i ? [' · '] : []), x))
   row.replaceChildren(
