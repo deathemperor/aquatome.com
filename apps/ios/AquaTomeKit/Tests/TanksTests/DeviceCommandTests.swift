@@ -245,11 +245,14 @@ func aPutBackTriedAgain() throws {
     var b = MasterRun.Back(command: fanOff)
     var went = false
     for (n, t) in run.enumerated() {
-      let before = b.trying()
+      let hadLine = b.problem != nil
+      let before = b.trying(notKnown: notKnown)
       switch t {
       case .closed:
+        // Read back as kept while it went: a line from a try before says it isn't known; none, none.
         b = try JSONDecoder().decode(MasterRun.Back.self, from: JSONEncoder().encode(b))
         went = true
+        #expect(b.problem == (hadLine ? notKnown : nil), "\(run), try \(n + 1), the app closed: \(b.problem ?? "")")
         continue
       case .mayHave: b.failed(mayHave, mayHaveSent: true, notKnown: notKnown, before: before)
       case .notSent: b.failed(notSent, mayHaveSent: false, notKnown: notKnown, before: before)
@@ -262,11 +265,11 @@ func aPutBackTriedAgain() throws {
   let old = #"{"command":{"device":"\#(plug)","outlet":"switch_3","on":false},"done":false,"problem":"Không rõ ổ Quạt đã đổi chưa: xem trong Bể của tôi."}"#
   var kept = try JSONDecoder().decode(MasterRun.Back.self, from: Data(old.utf8))
   #expect(kept.mayHaveGone == nil)
-  let wasKept = kept.trying()
+  let wasKept = kept.trying(notKnown: notKnown)
   kept.failed(notSent, mayHaveSent: false, notKnown: notKnown, before: wasKept)
   #expect(kept.problem == notKnown)
   var fresh = MasterRun.Back(command: fanOff)
-  let wasFresh = fresh.trying()
+  let wasFresh = fresh.trying(notKnown: notKnown)
   fresh.failed(notSent, mayHaveSent: false, notKnown: notKnown, before: wasFresh)
   #expect(fresh.problem == notSent && fresh.mayHaveGone == false)
   // Owed into the next press: its line goes, and whether it may have gone stays.
@@ -274,6 +277,20 @@ func aPutBackTriedAgain() throws {
   owed.command = DeviceCommand(device: plug, outlet: "switch_3", on: true)
   let next = MasterRun(MasterButton(name: "x", steps: [fanOff]), at: m0, before: { _ in true }, lamp: nil, owed: [owed])
   #expect(next.back.first?.problem == nil && next.back.first?.mayHaveGone == true)
+}
+
+@Test("The end sets a put-back's line only through Back.trying and Back.failed, or clears it; the tanks not read, the one other")
+func theEndSetsPutBackLinesByTheRule() throws {
+  // apps/ios/AquaTomeKit/Tests/TanksTests/this file → apps/ios/AquaTome/Master/MasterModel.swift.
+  let file = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()
+    .deletingLastPathComponent().appendingPathComponent("AquaTome/Master/MasterModel.swift")
+  let code = try String(contentsOf: file, encoding: .utf8)
+  let sets = code.split(separator: "\n").map { $0.trimmingCharacters(in: .whitespaces) }.filter { $0.contains(".problem = ") }
+  #expect(!sets.isEmpty, "read nothing from \(file.path)")
+  for line in sets {
+    #expect(line.hasSuffix(".problem = nil") || line.hasSuffix(".problem = unread } }"), "a put-back's line set outside the rule: \(line)")
+  }
+  #expect(code.components(separatedBy: ".trying(notKnown:").count - 1 == 1 && code.components(separatedBy: "].failed(").count - 1 == 3)
 }
 
 @Test("A run kept by build 390, before `Back.left`, is read as it was")

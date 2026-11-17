@@ -248,7 +248,7 @@ final class MasterModel {
       if c.isLamp {
         if away && !byReader {
           r.back[i].failed(String(localized: "Đèn chưa về như cũ: đứng gần đèn rồi bấm Trả lại."), mayHaveSent: false,
-                           notKnown: switcher.notKnown(c), before: r.back[i].mayHaveGone)
+                           notKnown: switcher.notKnown(c), before: r.back[i].earlier)
           continue
         }
       } else if let key = switcher.outlet(c)?.key {
@@ -261,7 +261,7 @@ final class MasterModel {
         // on; not read: stays owed, for Trả lại.
         let end = MasterRun.end(b, now: read ? board.on(key) : nil, left: b.left ?? kept[c.target], role: role(c))
         if end == .unread {
-          r.back[i].failed(Switcher.unreached(name), mayHaveSent: false, notKnown: switcher.notKnown(c), before: r.back[i].mayHaveGone)
+          r.back[i].failed(Switcher.unreached(name), mayHaveSent: false, notKnown: switcher.notKnown(c), before: r.back[i].earlier)
           continue
         }
         if end != .send {
@@ -275,11 +275,13 @@ final class MasterModel {
           continue
         }
       }
-      // Kept before it goes: the app closed before its answer, it counts as one that may have gone (Codex, 18 Nov).
-      let before = r.back[i].trying()
+      // Kept and shown before it goes: the app closed before its answer, it counts and reads as one that may have gone
+      // (Codex, 18 Nov).
+      let before = r.back[i].trying(notKnown: switcher.notKnown(c))
       var going = r
       going.ended = endedBefore
       store(going)
+      run = r
       let (result, mayHaveSent) = await switcher.send(c, still: still)
       switch result {
       case .done:
@@ -297,6 +299,7 @@ final class MasterModel {
         var kept = r
         kept.ended = endedBefore
         store(kept)
+        run = r
       }
     }
     run = r.pending.isEmpty ? nil : r
