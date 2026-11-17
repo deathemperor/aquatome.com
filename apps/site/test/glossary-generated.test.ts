@@ -94,31 +94,40 @@ for (const lang of LANGS) describe(`${lang}: real-content equivalence with the g
     if (!before || !after) throw new Error('real-content snapshots unavailable')
     return { before, after }
   }
+  const timed = <T>(stage: string, action: () => T): T => {
+    const start = performance.now()
+    try { return action() } finally {
+      // Only controlled stage/language names and elapsed milliseconds; never content or credit strings.
+      if (process.env.CI) console.info('glossary-equivalence-timing', JSON.stringify({ lang, stage, ms: Math.round(performance.now() - start) }))
+    }
+  }
   const indexes = () => {
     const c = snapshots()
-    return cachedIndexes ??= { before: appIndex(lang, c.before), after: appIndex(lang, c.after) }
+    return cachedIndexes ??= { before: timed('index-before', () => appIndex(lang, c.before)), after: timed('index-after', () => appIndex(lang, c.after)) }
   }
   const hash = (value: unknown) => createHash('sha256').update(JSON.stringify(value)).digest('hex')
   beforeAll(async () => {
+    const start = performance.now()
     const root = fileURLToPath(new URL('../../../content', import.meta.url))
     before = await loadAll({ root, lang, publicBuild: true, glossaryKindImages: false })
     after = await loadAll({ root, lang, publicBuild: true, glossaryKindImages: true })
+    if (process.env.CI) console.info('glossary-equivalence-timing', JSON.stringify({ lang, stage: 'load-pair', ms: Math.round(performance.now() - start) }))
   }, slow(60_000))
   afterAll(() => { before = undefined; after = undefined; cachedIndexes = undefined })
   test('all loaded real content is identical', () => {
     const c = snapshots()
-    expect(hash(c.after)).toBe(hash(c.before))
+    timed('content-comparison', () => expect(hash(c.after)).toBe(hash(c.before)))
   })
   test('the complete app index is identical', () => {
     const index = indexes()
     expect(hash(index.after)).toBe(hash(index.before))
-  }, slow(60_000))
+  }, slow(120_000)) // Two complete real indexes; this is an equivalence check, not a speed budget.
   test('every glossary app page is identical', () => {
     const c = snapshots(), index = indexes()
     const docs = (content: Content, entries: ReturnType<typeof appIndex>) => {
       const listed = new Set(entries.items.map(item => item.path))
       return content.glossary.map(g => glossaryDoc(lang, content, g, listed))
     }
-    expect(hash(docs(c.after, index.after))).toBe(hash(docs(c.before, index.before)))
+    timed('glossary-pages-comparison', () => expect(hash(docs(c.after, index.after))).toBe(hash(docs(c.before, index.before))))
   }, slow(60_000))
 })
