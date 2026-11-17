@@ -5475,5 +5475,46 @@
         0.72
       ]
     }
+  ],
+  "vi/guides/aquatome-ho-xi-mang-moi-ngam-xa-va-do-ph-truoc-khi-tha-ca": [
+    {
+      "at": "2026-11-16T01:42:08Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.9,
+      "notes": [
+        "\"Cũng theo nguồn này, quét sơn màu tối hoặc chất chống thấm tường lên bê tông thì pH hồ dịu đi\" attributes the dark-paint claim to the same source as the preceding sentence about sealant stopping lime. The facts give the sealant claim to source 0 and the dark-pigment paint claim to source 5, so this is a small misattribution.",
+        "\"Axit không thay được chuyện ngâm xả\" is the guide's own inference. The facts only say that acid alone did not stop the lime leaching."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.9,
+        0.86,
+        0.9
+      ]
+    },
+    {
+      "at": "2026-11-16T01:42:08Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.85,
+      "notes": [
+        "\"Nhìn nước trong thì chưa biết nước đã an toàn chưa.\" The facts say nothing about water clarity.",
+        "\"đứng yên ở đó\": the facts give no requirement that pH stays stable at the target before stocking.",
+        "\"Dùng xong thứ gì cũng phải xả cho hết.\" This generalises beyond the facts, which only name vinegar and cleaning-agent residue.",
+        "\"mức này có thể làm chết cá và hại cây\": the facts tie harm to free lime and say deaths happen above pH 8.0. They do not say pH 10 kills fish.",
+        "\"Cá bột còn nhạy hơn nữa\": the facts only describe pH-shock sensitivity in fry. They do not compare it with other fish."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.82,
+        0.86,
+        0.85
+      ]
+    }
   ]
 }
