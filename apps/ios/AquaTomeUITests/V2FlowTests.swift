@@ -794,67 +794,110 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(list.label.contains("1"), list.label)
   }
 
-  /// The owner's trial of the tab bar as the App Store's (TabBarGlass, the owner, 11 Nov: "Try bottom bar glass effect like
-  /// Appstore's"): Khám phá's shelves run on under the bar, so what's under it and around it moves as the page scrolls,
-  /// where the fade leaves one still ground; the bar's own tap is still the bar's; and the switch in Tài khoản brings the
-  /// fade back at once.
-  func testForTheOwnerThePageShowsUnderTheTabBarAndItsSwitchBringsTheFadeBack() {
-    let app = XCUIApplication()
-    // Khám phá long enough to scroll well past a drag (`-familiar`): the fixed index's own is about a screen tall, and
-    // with the rows' 3:2 pictures it scrolled about 30 points, its blank foot all that went under the bar. Three of them
-    // read (`-read-familiar`), so "Đọc gần đây" stands above the fish shelf and pushes it down: on GitHub's iPhone 17 the
-    // shelf's last row, a fish's name and its lines, is under the bar at rest, and the drag takes it away and brings the
-    // next shelf's heading in. Without it, with the chips under the title, only the grey guide card and blank ground
-    // passed, which iOS 26.5's glass (CI's) frosts to near one colour: 0.77% of the bar's place changed with the trial on
-    // (17 Nov), against 6% on 27.2. Main, before the chips, passes on 26.5 on words passing alone.
-    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults", "-v2", "YES",
-                           "-fake-accounts", "on", "-reset-fake-server", "-fake-owner", "ui-apple", "-familiar", "8", "-read-familiar", "3"]
-    app.launch()
+  /// The owner's report of 15 Nov (build 379, iOS 27.2): on a fish page opened from Tìm, the summary ran under the glass tab
+  /// bar and read through it. A page pushed from each of the five tabs, dragged until its words reach the bar: under the bar
+  /// they don't read, as on the tabs' own first screens (Design's bar for the glass, 15 Nov). As the owner, whose phone it
+  /// was, on the fixed handbook.
+  func testNoPagesWordsReadUnderTheTabBarFromAnyTab() { noPagesWordsReadUnderTheTabBar() }
+
+  /// The same at the largest text, where letters outlast iOS's soft edge (Design, 15 Nov): there the hard one.
+  func testNoPagesWordsReadUnderTheTabBarAtTheLargestText() {
+    noPagesWordsReadUnderTheTabBar("-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
+  }
+
+  private func noPagesWordsReadUnderTheTabBar(_ more: String...) {
+    // The editors' day with its story (`-plan`, `-today`) for the post; the neon's long part, words enough to reach the bar.
+    let app = launch("-v2", "YES", "-plan", "-today", "2026-11-13", "-long-part", "-seed-tanks", "many", "-fake-accounts", "on",
+                     "-reset-fake-server", "-fake-owner", "ui-apple")
+    app.launchArguments += more
+    app.launchForFlow()
     XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 10), "no Hôm nay")
     app.openAccount()
     app.scrollToAndTap("apple-sign-in")
     XCTAssertTrue(app.descendants(matching: .any)["owner-dashboard"].waitForExistence(timeout: 20), "not the owner")
     app.closeAccount()
-    app.tabBars.buttons["Khám phá"].tap()
+    // Every page measured before any fails, so one run says them all.
+    var read: [String] = [], none: [String] = []
+    for (screen, open) in pagesFromEachTab(app) {
+      open()
+      app.wordsReachTheTabBar(screen)
+      let (under, above, page) = app.wordsUnderTheTabBar(screen)
+      print("words under the tab bar, \(screen): \(under) sharp under the bar, \(above) above it, \(page) higher up")
+      // Nothing moved by the bar but the page did: a bar of its own covers its foot (Đèn's), and nothing of it is under ours.
+      if above < 400, page < 2000 { none.append(screen) } else if under * 5 > max(above, 400) {
+        read.append("\(screen) (\(under) under the bar, \(above) above)")
+      }
+    }
+    XCTAssertTrue(none.isEmpty, "no words moved above the bar to measure against: " + none.joined(separator: "; "))
+    XCTAssertTrue(read.isEmpty, "words read under the tab bar: " + read.joined(separator: "; "))
+  }
+
+  /// The tab bar as the App Store's for every reader, not the owner alone (the owner, 14 Nov: "make it default"): Khám
+  /// phá's shelves run on under the bar, so what's under it and around it moves as the page scrolls, where the fade left
+  /// one still ground; and the bar's own tap is still the bar's.
+  func testThePageShowsUnderTheTabBarForEveryReader() {
+    // Khám phá long enough to scroll well past a drag (`-familiar`): the fixed index's own is about a screen tall, and
+    // with the rows' 3:2 pictures it scrolled about 30 points, its blank foot all that went under the bar.
+    let app = launch("-v2", "YES", "-familiar", "8")
+    app.launchForFlow()
+    app.openTab("Khám phá")
     XCTAssertTrue(app.descendants(matching: .any)["v2-browse"].waitForExistence(timeout: 5), "no Khám phá")
     // The page dragged up, from its top, so it has more to show under the bar: the share of the bar's place, glass and
     // all, that changed. The bar's own words stay where they are; only the page under it moves. 200 points, past the
     // height of one shelf's card: with the chips under the title, 60 left the one grey card of "Bắt đầu từ đây" under
-    // the bar before and after, and 0.14% of its place changed (27.2, 17 Nov). At 200: 6% with the switch on, 0 with it
-    // off (27.2, 17 Nov).
-    func moved() -> Double {
-      let bar = app.tabBars.firstMatch.frame
-      // A shelf's heading, to know the drag scrolled the page: with the switch off, "nothing changed" means something only
-      // if the page moved (a fresh read, 17 Nov).
-      let shelf = app.scrollViews.staticTexts["Loài quen thuộc"].firstMatch, top = shelf.frame.minY
-      let before = Pixels(XCUIScreen.main.screenshot())
-      let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.6))
-      from.press(forDuration: 0.05, thenDragTo: from.withOffset(CGVector(dx: 0, dy: -200)), withVelocity: .slow, thenHoldForDuration: 0.5)
-      Thread.sleep(forTimeInterval: 0.5)
-      XCTAssertLessThan(shelf.frame.minY, top - 100, "the drag didn't scroll Khám phá: \(top) then \(shelf.frame.minY)")
-      let after = Pixels(XCUIScreen.main.screenshot())
-      let spots = stride(from: 6.0, to: app.frame.width - 6, by: 6).flatMap { x in
-        // From just inside the bar's top: the fade, with the trial off, ends there.
-        stride(from: bar.minY + 4, to: app.frame.maxY - 2, by: 4).map { (x, $0) }
-      }
-      return Double(spots.filter { before.at($0.0, $0.1).distance(to: after.at($0.0, $0.1)) > 30 }.count) / Double(spots.count)
+    // the bar before and after, and 0.14% of its place changed (27.2, 17 Nov).
+    let bar = app.tabBars.firstMatch.frame
+    // A shelf's heading, to know the drag scrolled the page (a fresh read, 17 Nov).
+    let shelf = app.scrollViews.staticTexts["Loài quen thuộc"].firstMatch, top = shelf.frame.minY
+    let before = Pixels(XCUIScreen.main.screenshot())
+    let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.6))
+    from.press(forDuration: 0.05, thenDragTo: from.withOffset(CGVector(dx: 0, dy: -200)), withVelocity: .slow, thenHoldForDuration: 0.5)
+    Thread.sleep(forTimeInterval: 0.5)
+    XCTAssertLessThan(shelf.frame.minY, top - 100, "the drag didn't scroll Khám phá: \(top) then \(shelf.frame.minY)")
+    let after = Pixels(XCUIScreen.main.screenshot())
+    let spots = stride(from: 6.0, to: app.frame.width - 6, by: 6).flatMap { x in
+      stride(from: bar.minY + 4, to: app.frame.maxY - 2, by: 4).map { (x, $0) }
     }
-    let on = moved()
+    let moved = Double(spots.filter { before.at($0.0, $0.1).distance(to: after.at($0.0, $0.1)) > 30 }.count) / Double(spots.count)
+    // Seen on a pass too, in the result's activities.
+    XCTContext.runActivity(named: "GLASS moved: \(moved)") { _ in }
+    XCTAssertGreaterThan(moved, 0.01, "nothing of the page under the tab bar: \(moved) of the bar's place moved")
     app.tabBars.buttons["Hôm nay"].tap()
     XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 5), "the bar's tap didn't open Hôm nay")
-    // Off in Tài khoản: the fade again, one ground under the bar.
-    app.openAccount()
-    let toggle = app.switches["tab-bar-glass-switch"]
-    XCTAssertTrue(app.scrolledDown(to: toggle).exists, "no switch for the trial")
-    toggle.switches.firstMatch.exists ? toggle.switches.firstMatch.tap() : toggle.tap()
-    app.closeAccount()
-    app.tabBars.buttons["Khám phá"].tap()
-    Thread.sleep(forTimeInterval: 1)
-    let off = moved()
-    // Seen on a pass too, in the result's activities: the figures its comment gives.
-    XCTContext.runActivity(named: "GLASS TRIAL moved: \(on) on, \(off) off") { _ in }
-    XCTAssertGreaterThan(on, 0.01, "nothing of the page under the tab bar: \(on) of the bar's place moved, \(off) with the trial off")
-    XCTAssertLessThan(off, 0.002, "the page still under the tab bar with the trial off: \(off) of the bar's place moved, \(on) with it on")
+  }
+
+  /// A page pushed from each tab: a Hôm nay guide post, a fish from Khám phá, a tank, a light connected, a fish from Tìm's
+  /// search (the owner's way in).
+  private func pagesFromEachTab(_ app: XCUIApplication) -> [(String, () -> Void)] {
+    func shows(_ id: String, _ screen: String) { XCTAssertTrue(app.descendants(matching: .any)[id].waitForExistence(timeout: 10), "\(screen) didn't open") }
+    return [
+      ("a Hôm nay post", { _ = self.openForSwipe(.homNayPost, app) }),
+      ("a fish from Khám phá", { _ = self.openForSwipe(.fishFromKhamPha, app) }),
+      ("a tank", {
+        app.openTab("Bể của tôi")
+        app.buttons["tank"].firstMatch.tap()
+        XCTAssertTrue(app.navigationBars["Bể đông"].waitForExistence(timeout: 5), "the tank didn't open")
+      }),
+      ("a light", {
+        app.openTab("Đèn")
+        app.buttons["scan"].tap()
+        let light = app.buttons["light"].firstMatch
+        XCTAssertTrue(light.waitForExistence(timeout: 5), "no light found")
+        light.tap()
+        shows("notice", "a light")
+      }),
+      ("a fish from Tìm", {
+        app.openTab("Tìm kiếm")
+        let field = app.searchFields.firstMatch
+        XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
+        field.tap()
+        field.typeText("ca neon")
+        let row = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon")).firstMatch
+        XCTAssertTrue(row.waitForExistence(timeout: 5), "no Cá neon in Tìm")
+        row.tap()
+        shows("v2-species", "a fish from Tìm")
+      }),
+    ]
   }
 
   /// A page's photos all open as their grid (PhotoGrid) three ways: the banner, "N ảnh" in its corner, tapped anywhere;
@@ -1052,31 +1095,6 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
     app.swipeUp()
     whole("a fish's page")
-  }
-
-  /// Under the bar, left of the home indicator, the page's own colour as at the screen's edge: no card, photo or words
-  /// showing there, or through the glass above it.
-  func testNothingShowsUnderTheTabBar() {
-    let app = launch("-v2", "YES")
-    app.launchForFlow()
-    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
-    let foot = app.tabBars.buttons["Hôm nay"].frame.maxY + 10
-    let shot = XCUIScreen.main.screenshot().image
-    let scale = shot.scale
-    let cg = shot.cgImage!
-    let bitmap = CGContext(data: nil, width: cg.width, height: cg.height, bitsPerComponent: 8, bytesPerRow: 0, space: CGColorSpaceCreateDeviceRGB(),
-                           bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)!
-    bitmap.draw(cg, in: CGRect(x: 0, y: 0, width: cg.width, height: cg.height))
-    let bytes = bitmap.data!.assumingMemoryBound(to: UInt8.self)
-    func pixel(_ x: CGFloat) -> [Int] {
-      let at = Int(foot * scale) * bitmap.bytesPerRow + Int(x * scale) * 4
-      return (0..<3).map { Int(bytes[at + $0]) }
-    }
-    let page = pixel(4)
-    for x in stride(from: CGFloat(24), to: 120, by: 8) {
-      let off = zip(pixel(x), page).map { abs($0 - $1) }.max()!
-      XCTAssertLessThan(off, 40, "something under the tab bar at x \(x): \(pixel(x)) on a page of \(page)")
-    }
   }
 
   /// iOS 26's own swipe from the middle takes a pushed page back, as in Settings: the app sets nothing on iOS's swipes (the

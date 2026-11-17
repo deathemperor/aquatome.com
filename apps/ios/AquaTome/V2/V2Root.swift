@@ -51,15 +51,16 @@ struct V2Root: View {
           }
           .v2ClearUnderTabBar()
       }
+      // v1's screens: at the sizes that take the fade, one of a set height, as their ends have no room for one that grows.
       Tab("Bể của tôi", systemImage: "fish", value: Pick.tanks) {
-        TanksView(path: $tanksPath).v2ClearUnderTabBar(on: Color(.systemGroupedBackground))
+        TanksView(path: $tanksPath).v2ClearUnderTabBar(on: Color(.systemGroupedBackground), fade: V2Fade.height)
       }
-      Tab("Đèn", systemImage: "lightbulb", value: Pick.lights) { LightsView().v2ClearUnderTabBar(on: Color(.systemGroupedBackground)) }
+      Tab("Đèn", systemImage: "lightbulb", value: Pick.lights) { LightsView().v2ClearUnderTabBar(on: Color(.systemGroupedBackground), fade: 10) }
       Tab(value: Pick.search, role: .search) {
         HandbookView(path: $searchPath).v2StackLinks($searchPath)
           .environment(\.v2Pages, true)
           .environment(\.v2OpenFull) { item, at in searchPath.append(FullPage(item: item, at: at)) }
-          .v2ClearUnderTabBar(on: Color(.systemGroupedBackground))
+          .v2ClearUnderTabBar(on: Color(.systemGroupedBackground), fade: V2Fade.height)
       }
     }
     // A link opening a tab or a page (AquaTomeApp.open): its tab here. A page pushed on the handbook's stack shows on
@@ -145,8 +146,10 @@ extension View {
 
 private extension View {
   /// `ground`: what the tab's pages stand on, if it isn't the screen's own (a grouped list's grey).
-  func v2ClearUnderTabBar(on ground: Color = .clear) -> some View {
-    modifier(ClearUnderTabBar(ground: ground))
+  /// `fade`: at the sizes that take the fade, a set height where a pinned footer of v1's ends just above the bar;
+  /// otherwise it grows with the text.
+  func v2ClearUnderTabBar(on ground: Color = .clear, fade: CGFloat? = nil) -> some View {
+    modifier(ClearUnderTabBar(ground: ground, fade: fade))
   }
 }
 
@@ -181,20 +184,64 @@ private struct ClearOfTheFade: ViewModifier {
 }
 
 /// The tab bar as the App Store's (the owner, 14 Nov, of their trial since 11 Nov: "It works. Remove the option to enable
-/// it, make it default"): a tab's pages run on under the bar, on the tab's ground, and iOS's own soft edge blurs them into
-/// colour under its glass, so words there don't stay sharp against the tab names (Design, 15 Nov). A tab's own, not each
-/// page's: it holds for every page of the tab, v1's too.
+/// it, make it default"): a tab's pages run on under the bar, on the tab's ground. What's under its glass doesn't read, by
+/// text size (Design's ladder, 15 Nov, a heading stopped at the bar on four screens, light and dark):
+/// - up to XL, iOS's soft edge blurs it into colour;
+/// - XXL to AX2, iOS's hard edge: the soft one's blur doesn't grow with the text, and body lines read below the bar;
+/// - AX3 and up, a fade above the bar, as tall as a line of the text: below the hard one's hairline letters that size
+///   could still be made out.
+/// On 27.2 iOS draws no edge under a tab bar of its own accord: each is asked for. A tab's own, not each page's: it holds
+/// for every page of the tab, v1's too.
 private struct ClearUnderTabBar: ViewModifier {
   let ground: Color
+  /// The fade's height, if it's a set one. Short: v1's pinned controls end just above it. v2's own pages end above it
+  /// (`v2ClearOfTheFade`); an inset out here doesn't reach inside a navigation stack.
+  let fade: CGFloat?
+  /// Otherwise as tall as a line of the text, near enough: a line at the largest size is gone before the glass.
+  @ScaledMetric(relativeTo: .body) private var scaled = V2Fade.height
   /// What a page asks to stand on while its colour reaches the bar (`v2FootGround`): the colour runs on under the bar,
   /// with no white fog between.
   @State private var footGround: FootGround?
+  /// The bar's height with what's under it. Not the keyboard's: above that, nothing is under a bar.
+  @State private var bar: CGFloat = 0
+  @Environment(\.dynamicTypeSize) private var size
 
   func body(content: Content) -> some View {
-    if #available(iOS 26, *) {
+    if #available(iOS 26, *), size >= .accessibility3 {
+      content
+        .environment(\.v2FootGround, $footGround)
+        .background {
+          Color.clear.ignoresSafeArea(.keyboard).onGeometryChange(for: CGFloat.self) { $0.safeAreaInsets.bottom } action: { bar = $0 }
+        }
+        .mask {
+          VStack(spacing: 0) {
+            Color.black
+            // A bar at the foot of the screen; an iPad's is at the top, with only the home indicator's inset here.
+            if bar >= 49 {
+              LinearGradient(colors: [.black, .clear], startPoint: .top, endPoint: .bottom).frame(height: fade ?? scaled)
+              Color.clear.frame(height: bar)
+            }
+          }
+          .ignoresSafeArea()
+        }
+        .background { (footGround?.colour ?? ground).ignoresSafeArea().animation(.easeInOut(duration: 0.2), value: footGround) }
+        // A mask hides what's under it but leaves it live: a tap beside or under the bar stops here, not on a card that
+        // can't be seen. VoiceOver still reaches what's hidden, and scrolls it into view.
+        .overlay {
+          if bar >= 49 {
+            VStack(spacing: 0) {
+              Spacer(minLength: 0)
+              Color.clear.contentShape(.rect).frame(height: bar).onTapGesture {}.accessibilityHidden(true)
+            }
+            .ignoresSafeArea()
+          }
+        }
+        .scrollEdgeEffectHidden(true, for: .bottom)
+    } else if #available(iOS 26, *) {
       content
         .environment(\.v2FootGround, $footGround)
         .background { (footGround?.colour ?? ground).ignoresSafeArea().animation(.easeInOut(duration: 0.2), value: footGround) }
+        .scrollEdgeEffectStyle(size >= .xxLarge ? .hard : .soft, for: .bottom)
     } else {
       content
     }

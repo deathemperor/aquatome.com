@@ -141,6 +141,65 @@ extension XCUIApplication {
     return sharp
   }
 
+  /// Dragged up a little at a time, without a fling, until one of the page's lines of words crosses into the tab bar's
+  /// frame (the bar's own names are shorter than a line), then whether it did.
+  func wordsReachTheTabBar(_ screen: String, file: StaticString = #filePath, line: UInt = #line) {
+    let bar = tabBars.firstMatch.frame
+    func there() -> Bool {
+      guard let snap = try? snapshot() else { return false }
+      func walk(_ e: XCUIElementSnapshot) -> Bool {
+        if e.elementType == .tabBar { return false }
+        let f = e.frame
+        if e.elementType == .staticText, e.label.count >= 12, f.minY < bar.maxY - 8, f.maxY > bar.minY + 8 { return true }
+        return e.children.contains(where: walk)
+      }
+      return walk(snap)
+    }
+    let from = coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.6))
+    for _ in 0..<10 where !there() {
+      from.press(forDuration: 0.05, thenDragTo: from.withOffset(CGVector(dx: 0, dy: -120)), withVelocity: .slow, thenHoldForDuration: 0.4)
+    }
+    XCTAssertTrue(there(), "\(screen): no words reached the tab bar", file: file, line: line)
+  }
+
+  /// How readable the page's words are under the tab bar, against the same page's just above it. Two shots, the page dragged
+  /// up 40 points between them without a fling: of the pixels that changed, the side-by-side or stacked pairs 24 or more
+  /// grey levels apart, under the bar's frame (`under`) and in a band as tall a little above it, clear of iOS's edge
+  /// (`above`). A word that reads changes sharply as it moves; one blurred by the edge, softly; the bar's own names and
+  /// icons, still, not at all. `page`: the pixels that changed higher up, so a page that moved under a bar of its own over
+  /// its foot (Đèn's notice and write bar) tells apart from one that didn't move. Both shots go with the test's results.
+  func wordsUnderTheTabBar(_ screen: String) -> (under: Int, above: Int, page: Int) {
+    let bar = tabBars.firstMatch.frame
+    let top = max(bar.minY - 48 - bar.height, 0)
+    func shot(_ name: String) -> (px: [UInt8], w: Int, h: Int)? {
+      let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+      a.name = "\(screen), \(name)"
+      a.lifetime = .keepAlways
+      XCTContext.runActivity(named: a.name ?? name) { $0.add(a) }
+      return grey(in: frame)
+    }
+    guard let a = shot("before") else { return (.max, 0, 0) }
+    let from = coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
+    from.press(forDuration: 0.05, thenDragTo: from.withOffset(CGVector(dx: 0, dy: -40)), withVelocity: .slow, thenHoldForDuration: 0.6)
+    guard let b = shot("40 points on"), b.w == a.w, b.h == a.h else { return (.max, 0, 0) }
+    let moved = zip(a.px, b.px).map { abs(Int($0) - Int($1)) }
+    let scale = CGFloat(a.w) / frame.width, w = a.w
+    func sharp(_ rows: Range<Int>) -> Int {
+      var n = 0
+      for y in rows {
+        for x in 0..<w {
+          let v = moved[y * w + x]
+          if x + 1 < w, abs(v - moved[y * w + x + 1]) >= 24 { n += 1 }
+          if y + 1 < rows.upperBound, abs(v - moved[(y + 1) * w + x]) >= 24 { n += 1 }
+        }
+      }
+      return n
+    }
+    let first = min(Int((top * scale).rounded()), a.h), barRow = min(Int((bar.minY * scale).rounded()), a.h)
+    let page = moved[0..<(first * w)].filter { $0 > 30 }.count
+    return (sharp(barRow..<a.h), sharp(first..<min(first + Int((bar.height * scale).rounded()), barRow)), page)
+  }
+
   /// The bottom of the lowest words on screen, but the tab bar's own: read from one snapshot of the app, not a query a
   /// text (a fish's page has hundreds, and the screen may change between two).
   private func lowestWords() -> CGFloat {
