@@ -232,6 +232,31 @@ func howAPressLeftEach() {
   #expect(MasterRun.end(went.back[0], now: true, left: left(went, fanOn), role: "fan") == .send)
 }
 
+@Test("A put-back tried again: after a try that may have gone, one that sent nothing never says it wasn't sent")
+func aPutBackTriedAgain() throws {
+  let notKnown = "Không rõ ổ Quạt đã đổi chưa: xem trong Bể của tôi."
+  let mayHave = "Ổ Quạt chưa báo đã đổi.", notSent = "Chưa gửi vì bạn đã đăng xuất."
+  // Every run of up to five failed tries, each one that may have reached the device or one that sent nothing.
+  var runs: [[Bool]] = [[]]
+  for _ in 0..<5 { runs = runs.flatMap { r in [r + [true], r + [false]] } }
+  for run in runs {
+    var b = MasterRun.Back(command: fanOff)
+    var went = false
+    for (n, may) in run.enumerated() {
+      b.failed(may ? mayHave : notSent, mayHaveSent: may, notKnown: notKnown)
+      went = went || may
+      #expect(b.problem == (may ? mayHave : went ? notKnown : notSent), "\(run), try \(n + 1): \(b.problem ?? "")")
+    }
+  }
+  // Kept with the run, and read as nil from a run kept before it.
+  var b = MasterRun.Back(command: fanOff)
+  b.failed(mayHave, mayHaveSent: true, notKnown: notKnown)
+  let kept = try JSONDecoder().decode(MasterRun.Back.self, from: JSONEncoder().encode(b))
+  #expect(kept.mayHaveGone == true)
+  let old = #"{"command":{"device":"\#(plug)","outlet":"switch_3","on":true},"done":false}"#
+  #expect(try JSONDecoder().decode(MasterRun.Back.self, from: Data(old.utf8)).mayHaveGone == nil)
+}
+
 @Test("A run kept by build 390, before `Back.left`, is read as it was")
 func aRunKeptBeforeLeft() throws {
   let kept = #"{"started":800000000,"ends":800007200,"steps":[{"device":"\#(plug)","outlet":"switch_3","on":false}],"back":[{"command":{"device":"\#(plug)","outlet":"switch_3","on":true},"done":false,"held":false}],"failed":[]}"#

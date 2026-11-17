@@ -70,6 +70,12 @@ final class Switcher {
     return (PlugBoard.Outlet(provider: brand, device: remote, code: code), plug.outlets[i].title(number: i + 1, live: live))
   }
 
+  /// What the card says of a device a command may have reached, its state not known since.
+  func notKnown(_ c: DeviceCommand) -> String {
+    c.isLamp ? String(localized: "Không rõ đèn Love Ecology đã nhận lệnh chưa. Bạn xem lại đèn.")
+      : String(localized: "Không rõ ổ \(name(c)) đã đổi chưa: xem trong Bể của tôi.")
+  }
+
   /// What the app calls the device: the lamp's name, or the outlet's.
   func name(_ c: DeviceCommand) -> String {
     c.isLamp ? String(localized: "Đèn Love Ecology") : outlet(c)?.name ?? String(localized: "Ổ cắm")

@@ -31,6 +31,8 @@ public final class LampAirCore {
 
   private let make: @MainActor () -> any LampPeripheral
   private var peripheral: (any LampPeripheral)?
+  /// The one last let go, kept until the next is: never released inside its own callback.
+  private var retired: (any LampPeripheral)?
   /// Asked, and not handed to Bluetooth yet: Bluetooth not on yet.
   private var waiting: (uuids: [String], allowed: @MainActor () -> Bool, done: Done)?
   /// The start handed to Bluetooth and not answered yet.
@@ -75,11 +77,13 @@ public final class LampAirCore {
     done(started ? nil : .failed)
   }
 
-  /// The start handed to Bluetooth and not answered: told it may have gone out, and its peripheral stopped and let go.
+  /// The start handed to Bluetooth and not answered: told it may have gone out, and its peripheral stopped (while
+  /// Bluetooth is on: off, it stops by itself) and let go.
   private func cut() {
     guard let done = starting else { return }
     starting = nil
-    peripheral?.stopAdvertising()
+    if peripheral?.bluetooth == .on { peripheral?.stopAdvertising() }
+    retired = peripheral
     peripheral = nil
     done(.cut)
   }

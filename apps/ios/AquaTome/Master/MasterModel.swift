@@ -247,7 +247,8 @@ final class MasterModel {
       }
       if c.isLamp {
         if away && !byReader {
-          r.back[i].problem = String(localized: "Đèn chưa về như cũ: đứng gần đèn rồi bấm Trả lại.")
+          r.back[i].failed(String(localized: "Đèn chưa về như cũ: đứng gần đèn rồi bấm Trả lại."), mayHaveSent: false,
+                           notKnown: switcher.notKnown(c))
           continue
         }
       } else if let key = switcher.outlet(c)?.key {
@@ -260,7 +261,7 @@ final class MasterModel {
         // on; not read: stays owed, for Trả lại.
         let end = MasterRun.end(b, now: read ? board.on(key) : nil, left: b.left ?? kept[c.target], role: role(c))
         if end == .unread {
-          r.back[i].problem = Switcher.unreached(name)
+          r.back[i].failed(Switcher.unreached(name), mayHaveSent: false, notKnown: switcher.notKnown(c))
           continue
         }
         if end != .send {
@@ -274,7 +275,8 @@ final class MasterModel {
           continue
         }
       }
-      switch await switcher.setByButton(c, still: still) {
+      let (result, mayHaveSent) = await switcher.send(c, still: still)
+      switch result {
       case .done:
         r.back[i].done = true
         r.back[i].problem = nil
@@ -283,7 +285,8 @@ final class MasterModel {
         kept.ended = endedBefore
         store(kept)
         note(c.isLamp ? "lamp back \(LampSender.recordings(c).map(\.id).joined(separator: "+"))" : "\(c.outlet ?? "") back \(c.on ? "on" : "off")")
-      case .failed(let line): r.back[i].problem = line
+      // One that may have gone before isn't said not sent by a try that sent nothing (MasterRun.Back.failed).
+      case .failed(let line): r.back[i].failed(line, mayHaveSent: mayHaveSent, notKnown: switcher.notKnown(c))
       }
     }
     run = r.pending.isEmpty ? nil : r

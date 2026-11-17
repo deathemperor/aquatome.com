@@ -42,8 +42,19 @@ public struct MasterRun: Sendable, Equatable, Codable {
     /// `left` is only as the step asked: its answer was lost and the outlet not read after it, so whether it went isn't
     /// known. The end then says so, rather than that a hand changed it. nil when not.
     public var guessed: Bool?
+    /// A try to put it back may have reached the device (its answer lost or not confirmed, the lamp's cut): nil when
+    /// none did, or in runs kept before it.
+    public var mayHaveGone: Bool?
 
     public init(command: DeviceCommand) { self.command = command }
+
+    /// A try to put it back failed, saying `line`, and any of it may have reached the device (`mayHaveSent`) or not.
+    /// After one that may have, a try that sent nothing says the device's state isn't known (`notKnown`), never its own
+    /// line, which would say it wasn't sent (Fable, 18 Nov).
+    public mutating func failed(_ line: String, mayHaveSent: Bool, notKnown: String) {
+      if mayHaveSent { mayHaveGone = true }
+      problem = mayHaveSent || mayHaveGone != true ? line : notKnown
+    }
   }
 
   public var started: Date

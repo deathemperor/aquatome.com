@@ -149,12 +149,13 @@ final class LoveEcologyModel {
   }
 
   /// Leaving the screen ends its broadcast at once (not the master button's: the two share the phone's). One handed to
-  /// Bluetooth and not answered keeps what it is told (`.cut`: it may have gone, Codex, 18 Nov).
+  /// Bluetooth and not answered keeps what it is told (`.cut`: it may have gone, Codex, 18 Nov); one that never was,
+  /// nothing.
   func stop() {
     ending?.cancel()
     if case .sending = status {
       LampRadio.stop(by: self)
-      if case .sending = status { status = .ready }
+      if case .problem(.cut) = status {} else { status = .ready }
     }
   }
 }
