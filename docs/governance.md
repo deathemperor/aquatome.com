@@ -478,13 +478,18 @@ The layers above still check the result.
   row failing on the network stop the source, so an outage doesn't use up every page's attempts. Found with the
   above: after one browser crash (2026-10-29), 115 Seriously Fish pages waited behind hundreds of new ones.
 - **Refused sources.** A site refused as a source for its quality (`REFUSED_SITES`, `packages/engine/src/cycle-only.ts`;
-  cabaymau.vn since 16 Nov 2026) is read by no research, and its pages leave everything the engine keeps or shows
-  (`packages/engine/src/refused-sources.ts`):
-  - every research step drops an item that cites one of its pages, whatever else it lists, before anything reads it;
-  - every sweep does the same to the research kept and drops its pages from every page's reference list, in every
-    language, so a run on older code can't bring them back at its push;
-  - the real-content test fails if any page or kept research names one, but for a page whose text cites it by number,
-    left waiting with its owner and day (`WAITING`).
+  cabaymau.vn since 16 Nov 2026) is read by no research, and its pages leave the research the engine keeps and the
+  pages it shows (`packages/engine/src/refused-sources.ts`):
+  - the research steps of guides, glossary terms, materials, breeds, products and species drop an item that cites one
+    of its pages, whatever else it lists, before the step writes or uses it;
+  - every sweep does the same to the research kept in those six kinds, and drops its pages from every page's top-level
+    reference list (`refs`), in every language, so a run on older code can't bring them back at its push;
+  - the real-content test fails if any page or kept research names one anywhere, so what the sweep can't take out (a
+    list a page's text cites by number: a section's `refs`, a material's or a breed's `sources`) stops the run's push
+    until a person takes it out. A page whose text cites one by number is left waiting with its owner and day
+    (`WAITING`);
+  - a buying list keeps an entry it has (`engine-state/shop-lists`, which the test doesn't read: the chief of staff,
+    16 Nov 2026).
   - **The list is a switch for the whole site.** One more name drops that site's facts everywhere at the next push, and
     the test then fails on main for every page still resting on them, stopping every push behind it. So a site is added
     only in a change that carries the pass's result (`pnpm engine refused-sweep`, its files committed), the count of

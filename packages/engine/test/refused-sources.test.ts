@@ -109,7 +109,7 @@ test('a refused site\'s hosts and archived copies of its pages are refused; near
   for (const t of ['See (https://example.org/x).', 'https://example.org/wiki/Foo_(cabaymau.vn)', 'https://cabaymau.net, next'])
     expect(namesRefused(t), t).toBe(false)
   // A fact whose own source is a share link stays (Codex, 17 Nov 2026).
-  const shared = { found: true, facts: [{ section: 'x', fact: 'independent page', source: 0 }], sources: [src('https://example.org/?url=https://cabaymau.vn/x')] }
+  const shared = { found: true, facts: [{ section: 'x', fact: 'independent page', source: 0 }, { section: 'x', fact: 'a book', source: 1 }, { section: 'x', fact: 'another site, no scheme', source: 2 }], sources: [src('https://example.org/?url=https://cabaymau.vn/x'), src('a book'), src('example.org/cabaymau.vn')] }
   expect(withoutRefused(shared).kept).toBe(shared)
 })
 
@@ -140,13 +140,14 @@ test('the pass and the check find the site\'s host however it is written', async
   const term = join(root, 'content/glossary/t')
   await mkdir(term, { recursive: true })
   await mkdir(join(root, 'engine-state/glossary'), { recursive: true })
-  const ways = ['https://%63abaymau.vn/x', 'https://ｃａｂａｙｍａｕ.vn/x', 'https://cabaymau。vn/x']
+  // A source's or a reference's own address written without its scheme is one too (the second reader, 17 Nov 2026).
+  const ways = ['https://%63abaymau.vn/x', 'https://ｃａｂａｙｍａｕ.vn/x', 'https://cabaymau。vn/x', 'www.cabaymau.vn/y', 'cabaymau.vn:443/z']
   const ref = (url: string) => ({ url, title: url })
   await writeFile(join(term, 'entity.json'), JSON.stringify({ id: 't', refs: [ref('https://a.example/1'), ...ways.map(ref)] }, null, 2))
   await writeFile(join(root, 'engine-state/glossary/t.json'), JSON.stringify({ found: true, facts: [{ section: 'x', fact: 'a', source: 0 }, ...ways.map((_, i) => ({ section: 'x', fact: `b${i}`, source: i + 1 }))], sources: [src('https://a.example/1'), ...ways.map(src)] }, null, 2))
   expect(await filesNamingRefused(root)).toEqual(['content/glossary/t/entity.json', 'engine-state/glossary/t.json'])
   const out = await refusedSweep(root)
-  expect(out.facts.map(f => [f.file, f.dropped])).toEqual([['engine-state/glossary/t.json', 3]])
+  expect(out.facts.map(f => [f.file, f.dropped])).toEqual([['engine-state/glossary/t.json', 5]])
   expect(out.refs).toEqual([{ file: 'content/glossary/t/entity.json', urls: ways }])
   expect(await filesNamingRefused(root)).toEqual([])
 })

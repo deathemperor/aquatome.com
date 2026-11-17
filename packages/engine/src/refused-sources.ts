@@ -41,8 +41,17 @@ export function onRefused(url: string): boolean {
 /** An address as written in a text or a field, without the sentence's punctuation after it. */
 const address = (s: string) => s.trim().replace(/[.,;:!?)\]}'"»”’。]+$/u, '')
 
-/** A source's or a reference's own address (`url`) on a refused site: one address, never split. */
-const urlRefused = (x: unknown) => !!x && typeof (x as { url?: unknown }).url === 'string' && onRefused(address((x as { url: string }).url))
+/**
+ * A source's or a reference's own address (`url`) on a refused site: one address, never split. One written without its
+ * scheme (`www.cabaymau.vn/x`, `cabaymau.vn:443/x`) is read as a web address (the second reader, 17 Nov 2026; none on
+ * 17 Nov), while a source that isn't one ("a book") still doesn't parse as one.
+ */
+const urlRefused = (x: unknown) => {
+  const url = !!x && typeof x === 'object' ? (x as { url?: unknown }).url : undefined
+  if (typeof url !== 'string') return false
+  const a = address(url)
+  return onRefused(a.includes('://') ? a : `https://${a}`)
+}
 
 /**
  * Whether a text names a refused site's page: any address in it (an address alone, or a link in a page's HTML), each up to a
@@ -121,8 +130,10 @@ const indentOf = (raw: string) => raw.match(/^\{\n( +)/)?.[1]?.length ?? 2
  * A pass over what is kept, with no model: once by hand (`pnpm engine refused-sweep`), and in every sweep (sweep.ts), which
  * each cycle runs before its build and again on the merge at its push, with main's code: a run that started before a
  * refused site's facts left, on older code, and writes them again, has them taken out at its push, before its tests. It is: every facts file in engine-state/<FACTS_DIRS> through
- * withoutRefused, and every page's reference list (`refs`, in content/<kind>/<id>/<lang>.json and entity.json) through
- * refsWithoutRefused. A list whose page cites by number (a material's or a breed's `sources`) isn't one of these: see WAITING.
+ * withoutRefused, and every page's top-level reference list (`refs`, in content/<kind>/<id>/<lang>.json and entity.json)
+ * through refsWithoutRefused. A list a page's text may cite by number isn't one of these (a section's `refs`, half of whose
+ * sections cite by number on 17 Nov 2026; a material's or a breed's `sources`): the real-content check fails on one that
+ * names a refused page, so it stops the run's push until a person takes it out, and a page left so is in WAITING.
  * Only a file something left is written, at its own indent. For each facts file, where each of its top-level facts moved
  * (`moved`: old index to new, null for one that left), for the notes that name a fact by its number.
  */
@@ -180,7 +191,8 @@ export async function refusedSweep(root: string) {
  * refusedSweep leaves of it is WAITING's pages, and a refused page a person must take out of a text by hand.
  */
 export async function filesNamingRefused(root: string): Promise<string[]> {
-  const walk = (x: unknown): boolean => typeof x === 'string' ? namesRefused(x) : Array.isArray(x) ? x.some(walk) : !!x && typeof x === 'object' && Object.values(x).some(walk)
+  // Every string as a text, and every `url` also as one address, with or without its scheme.
+  const walk = (x: unknown): boolean => typeof x === 'string' ? namesRefused(x) : Array.isArray(x) ? x.some(walk) : !!x && typeof x === 'object' && (urlRefused(x) || Object.values(x).some(walk))
   const naming: string[] = []
   for (const dir of ['content', ...FACTS_DIRS.map(k => `engine-state/${k}`)]) {
     const files = (await readdir(join(root, dir), { recursive: true, withFileTypes: true }).catch(() => []))
