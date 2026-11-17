@@ -14,6 +14,7 @@ import { linkTargets } from '../src/lib/mentions'
 import { smallSrc } from '../src/lib/img'
 import { isFish } from '../src/lib/taxa-places'
 import { pageIsFish } from '../src/lib/breeds'
+import { PAGE } from '../src/scripts/filter-list'
 
 export const CHECKS = {
   repeat: 'the same picture twice',
@@ -51,11 +52,18 @@ export type Facts = {
   notFish: Set<string>
 }
 
-/** A crab's, a shrimp's or a snail's pages in this language: its page and its photos page, a line's too, and a group's that holds no fish. */
+/**
+ * A crab's, a shrimp's or a snail's pages in this language: its page and its photos page, a line's too, and a group's that
+ * holds no fish, with each of its numbered pages (PAGE species a page; Codex's read, 17 Nov: the shrimp's second page).
+ */
 export function notFishPaths(c: Pick<Content, 'species' | 'breeds'>, lang: Lang): string[] {
+  const groups = [...new Set(c.species.map(s => s.group))].filter(g => !isFish({ group: g, order: '' }))
   return [
     ...[...c.species, ...c.breeds].filter(s => !pageIsFish(c, s)).flatMap(s => ['', 'anh/'].map(p => localizePath(lang, `/vi/ca/${s.t.slug}/${p}`))),
-    ...[...new Set(c.species.map(s => s.group))].filter(g => !isFish({ group: g, order: '' })).map(g => localizePath(lang, `/vi/nhom/${g}/`)),
+    ...groups.flatMap(g => {
+      const pages = Math.ceil(c.species.filter(s => s.group === g).length / PAGE)
+      return [`/vi/nhom/${g}/`, ...Array.from({ length: Math.max(pages - 1, 0) }, (_, i) => `/vi/nhom/${g}/trang/${i + 2}/`)].map(p => localizePath(lang, p))
+    }),
   ]
 }
 
@@ -206,8 +214,9 @@ export function checkPage(path: string, html: string, facts: Facts): Problem[] {
   }
 
   // A crab's, a shrimp's or a snail's page under "Loài cá": its trail, or its structured data's. The owner's report of 15 Nov,
-  // the fiddler crab's page; about 100 species then, every one of them so. A group's numbered pages are its page's.
-  if (facts.notFish.has(path.replace(/trang\/\d+\/$/, ''))) {
+  // the fiddler crab's page; about 100 species then, every one of them so. A group's numbered pages are its page's, in
+  // every language's word for them.
+  if (facts.notFish.has(path) || facts.notFish.has(path.replace(/(?:trang|halaman|page)\/\d+\/$/, ''))) {
     const fishList = translator(lang)('Loài cá')
     const crumbs = root.querySelectorAll('nav.crumb a').map(a => text(a))
     const data = root.querySelectorAll('script[type="application/ld+json"]')
@@ -224,7 +233,9 @@ export function checkPage(path: string, html: string, facts: Facts): Problem[] {
     if (main) {
       const reason = (e: HTMLElement) => e.hasAttribute('data-reason')
       const head = [text(root.querySelector('title') ?? parse('')), ...root.querySelectorAll('meta[name="description"], meta[property="og:description"]').map(m => m.getAttribute('content') ?? '')]
-      const all = [...head, ...shownText(main, reason)].join(' ')
+      // A label's tip on tap (data-tip, GlossaryTip) is words a reader sees too: the size tip's "Chiều dài của cá" (Codex's read).
+      const tips = main.querySelectorAll('[data-tip]').map(e => e.getAttribute('data-tip') ?? '')
+      const all = [...head, ...tips, ...shownText(main, reason)].join(' ')
       const own = shownText(main, e => reason(e) || ['body', 'qs'].some(c => e.classList.contains(c)))
       const labels = new Set(own.map(bare))
       for (const { line, part } of fishLines(lang)) {

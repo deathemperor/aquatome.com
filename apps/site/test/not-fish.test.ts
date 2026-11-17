@@ -3,6 +3,7 @@ import { LANGS, type BreedEntity, type Content } from '@aq/schema'
 import { expect, test } from 'vitest'
 import { notFishPaths, saysFish } from '../scripts/page-check'
 import { breedIsFish, breedKind, pageIsFish } from '../src/lib/breeds'
+import { FIELD_TIPS, FIELD_TIPS_NOT_FISH } from '../src/lib/card-guide'
 import { AVOID_REASONS, avoidWhy } from '../src/lib/companions'
 import { localizePath, translator } from '../src/lib/i18n'
 import { speciesDescription } from '../src/lib/meta'
@@ -17,6 +18,11 @@ test("a crab's, a shrimp's or a snail's own words, in every language: its lines'
     const why = avoidWhy(t, 'X', false)
     for (const r of AVOID_REASONS) expect(saysFish(lang, why[r]), `${lang} ${r}: ${why[r]}`).toBe(false)
     expect(saysFish(lang, speciesDescription(lang, 'X', 'Xus yus', {}, false)), lang).toBe(false)
+    // The card's tips on tap (Codex's read, 17 Nov).
+    for (const [field, tip] of Object.entries(FIELD_TIPS_NOT_FISH)) {
+      expect(saysFish(lang, t(tip)), `${lang} ${field}: ${t(tip)}`).toBe(false)
+      expect(saysFish(lang, t(FIELD_TIPS[field as keyof typeof FIELD_TIPS])), `${lang} ${field}, a fish's`).toBe(true)
+    }
     // A fish's keep their words.
     expect(saysFish(lang, speciesDescription(lang, 'X', 'Xus yus', {})), lang).toBe(true)
     expect(saysFish(lang, avoidWhy(t, 'X').predator), lang).toBe(true)
@@ -53,6 +59,12 @@ test("a shrimp line's page and its photos page are a shrimp's, and the check rea
   expect(pageIsFish(c, c.species[0]!)).toBe(false)
   expect(notFishPaths(c, 'vi').sort()).toEqual(['/ca/tep-blue-velvet/', '/ca/tep-blue-velvet/anh/', '/ca/tep-red-cherry/', '/ca/tep-red-cherry/anh/', '/nhom/shrimp/'])
   expect(notFishPaths(c, 'th')).toContain(localizePath('th', '/vi/ca/tep-blue-velvet/anh/'))
+  // A group of more than a page of species: each numbered page too, in each language's word for it (Codex's read, 17 Nov:
+  // 26 shrimp, 24 a page).
+  const many = { ...c, species: [...c.species, ...Array.from({ length: 25 }, (_, i) => ({ ...c.species[0]!, id: `shrimp-${i}`, t: { slug: `tep-${i}` } }))] } as unknown as Content
+  expect(notFishPaths(many, 'vi')).toEqual(expect.arrayContaining(['/nhom/shrimp/', '/nhom/shrimp/trang/2/']))
+  expect(notFishPaths(many, 'vi')).not.toContain('/nhom/shrimp/trang/3/')
+  expect(notFishPaths(many, 'th')).toContain(localizePath('th', '/vi/nhom/shrimp/trang/2/'))
   // The photos page asks the same question for a species and a line alike.
   expect(readFileSync(new URL('../src/pages/ca/[slug]/anh.astro', import.meta.url), 'utf8')).toContain("t(fish ? 'Loài cá' : 'Loài')")
   expect(readFileSync(new URL('../src/pages/ca/[slug]/anh.astro', import.meta.url), 'utf8')).toContain('const fish = pageIsFish(')

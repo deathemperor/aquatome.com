@@ -25,18 +25,29 @@ test('a shrimp\'s page and its group\'s trails say "Loài", and the check finds 
     expect(dom.querySelector('nav.crumb a')!.text, path).toBe('Loài')
     expect(checkPage(path, html, facts).filter(p => p.check === 'not-fish'), path).toEqual([])
   }
-  const { html } = page('/ca/tep-red-cherry/')
+  const { html, dom } = page('/ca/tep-red-cherry/')
+  // The card's tips on tap say no fish either (Codex's read, 17 Nov: the size tip was "Chiều dài của cá khi trưởng thành.").
+  const tips = dom.querySelectorAll('[data-tip]').map(e => e.getAttribute('data-tip'))
+  expect(tips).toEqual(expect.arrayContaining(['Chiều dài khi trưởng thành.', 'Khoảng nhiệt độ nước mà loài này sống khỏe, tính bằng °C.']))
+  expect(tips).not.toContain('Chiều dài của cá khi trưởng thành.')
   // The page as it was before 17 Nov: "Loài cá" in its trail and its structured data's, "cá gì" in its description, and (on
   // a page with records outside its range, as 147 were live) the range's line. (The panel's "cá dài" is owed: it changes
   // with the app's protocol, Wed 18.)
   const before = html.replace(/(<a href="\/ca\/"[^>]*>)Loài<\/a>/, '$1Loài cá</a>').replace('"name":"Loài"', '"name":"Loài cá"')
     .replaceAll('nuôi chung với con gì, sinh sản.', 'nuôi chung với cá gì, sinh sản.')
     .replace('</main>', '<p>GBIF có 9 ghi nhận ngoài tự nhiên. Ghi nhận ở nơi khác có thể là cá do người thả ra, hoặc nhận nhầm loài.</p></main>')
+    .replaceAll('Chiều dài khi trưởng thành.', 'Chiều dài của cá khi trưởng thành.').replaceAll('Khoảng nhiệt độ nước mà loài này sống khỏe', 'Khoảng nhiệt độ nước mà cá sống khỏe')
   expect(checkPage('/ca/tep-red-cherry/', before, facts).filter(p => p.check === 'not-fish').map(p => p.detail).sort()).toEqual([
     'trail: "Loài cá"', 'structured data\'s trail: "Loài cá"',
     'line "Cách nuôi, thức ăn, nuôi chung với cá gì, sinh sản.": "Cách nuôi, thức ăn, nuôi chung với cá gì, sinh sản."',
     'line "Ghi nhận ở nơi khác có thể là cá do người thả ra, hoặc nhận nhầm loài.": "Ghi nhận ở nơi khác có thể là cá do người thả ra, hoặc nhận nhầm loài."',
+    'line "Chiều dài của cá khi trưởng thành.": "Chiều dài của cá khi trưởng thành."',
+    'line "Khoảng nhiệt độ nước mà cá sống khỏe, tính bằng °C.": "Khoảng nhiệt độ nước mà cá sống khỏe, tính bằng °C."',
   ].sort())
+  // A group's numbered page is its page, in every language's word for it.
+  const group = page('/nhom/shrimp/').html.replace(/(<a href="\/ca\/"[^>]*>)Loài<\/a>/, '$1Loài cá</a>')
+  for (const path of ['/nhom/shrimp/trang/2/', '/id/nhom/shrimp/halaman/2/', '/th/nhom/shrimp/page/2/'])
+    expect(checkPage(path, group, facts).filter(p => p.check === 'not-fish').map(p => p.detail), path).toContain('trail: "Loài cá"')
   expect(facts.notFish).not.toContain('/ca/ca-galaxy/')
 })
 
