@@ -73,7 +73,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây nền mọc lên trên lớp cát, lá xanh khỏe ở phía trước bể.",
-            "sharpness": 461.9
+            "sharpness": 461.9,
+            "person": false
           },
           {
             "t": 60,
@@ -81,7 +82,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể mới chạy, cây trồng dày bên lũa và nước đứng yên.",
-            "sharpness": 1346
+            "sharpness": 1346,
+            "person": false
           }
         ]
       },
@@ -94,7 +96,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh cây thủy sinh và lũa trong bể, nơi cần dòng chảy nhẹ.",
-            "sharpness": 1049.5
+            "sharpness": 1049.5,
+            "person": false
           },
           {
             "t": 85,
@@ -102,28 +105,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh phong cách sông với đá, cây xanh và nền cát sáng.",
-            "sharpness": 1562.3
-          }
-        ]
-      },
-      {
-        "heading": "Chọn cây trồng cạn để thò rễ xuống nước",
-        "moments": [
-          {
-            "t": 200,
-            "url": "https://media.aquatome.com/video/yVuK23DAxOI/at200-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây lan ý đặt trên mặt bể, có đèn bàn kẹp bên cạnh.",
-            "sharpness": 1541.4
-          },
-          {
-            "t": 225,
-            "url": "https://media.aquatome.com/video/yVuK23DAxOI/at225-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Mấy chậu cây lan ý nhỏ để sẵn trên bậu cửa sổ.",
-            "sharpness": 250.4
+            "sharpness": 1562.3,
+            "person": false
           }
         ]
       },
@@ -131,20 +114,13 @@
         "heading": "Rửa sạch đất và tỉa rễ trước khi cho vào bể",
         "moments": [
           {
-            "t": 235,
-            "url": "https://media.aquatome.com/video/yVuK23DAxOI/at235-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rửa trôi đất bám ở rễ cây dưới vòi nước.",
-            "sharpness": 357.2
-          },
-          {
             "t": 260,
             "url": "https://media.aquatome.com/video/yVuK23DAxOI/at260-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bộ rễ cây còn dính nhiều đất, cần rửa sạch trước khi trồng.",
-            "sharpness": 1189.8
+            "sharpness": 1189.8,
+            "person": false
           }
         ]
       },
@@ -152,20 +128,13 @@
         "heading": "Uốn giá đỡ bằng dây kẽm",
         "moments": [
           {
-            "t": 325,
-            "url": "https://media.aquatome.com/video/yVuK23DAxOI/at325-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dây kẽm đen quấn quanh gốc cây để làm vòng đỡ.",
-            "sharpness": 621.7
-          },
-          {
             "t": 345,
             "url": "https://media.aquatome.com/video/yVuK23DAxOI/at345-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Cây vắt trên thành bể bằng móc dây kẽm, rễ ngâm trong nước.",
-            "sharpness": 481.5
+            "sharpness": 481.5,
+            "person": false
           }
         ]
       },
@@ -178,7 +147,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Túi cá đang được thả nổi trong bể để cá làm quen nhiệt độ.",
-            "sharpness": 841.2
+            "sharpness": 841.2,
+            "person": false
           },
           {
             "t": 620,
@@ -186,7 +156,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá nhỏ vừa được thả vào bể, bơi quanh lũa và cây.",
-            "sharpness": 2420.7
+            "sharpness": 2420.7,
+            "person": false
           }
         ],
         "photo": {
@@ -209,7 +180,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể trồng cây với lũa và nền cát, chưa thả cá.",
-            "sharpness": 1442.5
+            "sharpness": 1442.5,
+            "person": false
           },
           {
             "t": 755,
@@ -217,7 +189,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể Amazon cây thủy sinh rậm rạp, sẵn sàng để thả cá.",
-            "sharpness": 2731.7
+            "sharpness": 2731.7,
+            "person": false
           }
         ],
         "photo": {

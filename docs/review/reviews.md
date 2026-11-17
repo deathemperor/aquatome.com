@@ -9,18 +9,18 @@ under `<lang>/<path>`.
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
 | video-guide | 965 | 687 (vi 687) | 687 |
-| translation | 1871 | 276 (vi 276) | 276 |
+| translation | 1904 | 279 (vi 279) | 279 |
 | vi-rewrite | 366 | 24 (vi 24) | 24 |
-| reader-rewrite | 38 | 0 | 0 |
+| reader-rewrite | 40 | 0 | 0 |
 | title | 25 | 0 | 0 |
 | breed | 27 | 3 (ms 3) | 3 |
-| topic | 107 | 6 (id 1, ms 1, th 4) | 6 |
+| topic | 114 | 6 (id 1, ms 1, th 4) | 6 |
 | product | 18 | 1 (vi 1) | 1 |
 | product-reviews | 17 | 0 | 0 |
 | summary | 2332 | 122 (vi 122) | 122 |
-| localize | 2362 | 889 (id 398, ms 61, th 430) | 889 |
+| localize | 2410 | 897 (id 398, ms 64, th 435) | 897 |
 | glossary | 9 | 0 | 0 |
-| places | 6956 | 4250 (id 1457, ms 1454, th 1240, vi 99) | 1173 |
+| places | 7032 | 4307 (id 1476, ms 1473, th 1259, vi 99) | 1206 |
 | equipment | 5 | 0 | 0 |
 | planting | 32 | 0 | 0 |
 | species | 16 | 0 | 0 |
@@ -126,17 +126,17 @@ under `<lang>/<path>`.
 
 ## translation: source pages translated into Vietnamese, against the English
 
-276 of 1871 pages under the bar.
+279 of 1904 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 265 | 815 |
-| Says what the source doesn't (invented, added) | 227 | 442 |
-| Wording: unnatural, literal, stiff or chatty | 210 | 401 |
-| Meaning changed or wrong | 173 | 270 |
-| Hobby terms and names | 139 | 185 |
-| Text left in another language | 97 | 121 |
-| Leaves out what the source says | 92 | 126 |
+| Other | 268 | 820 |
+| Says what the source doesn't (invented, added) | 230 | 446 |
+| Wording: unnatural, literal, stiff or chatty | 213 | 404 |
+| Meaning changed or wrong | 174 | 271 |
+| Hobby terms and names | 141 | 187 |
+| Text left in another language | 98 | 122 |
+| Leaves out what the source says | 93 | 128 |
 | States as certain what the source hedges, or what garbled captions only hint at | 80 | 93 |
 | A number, unit, dose or price | 71 | 92 |
 | Repeats itself (intro, summary, steps and FAQ) | 59 | 70 |
@@ -147,19 +147,19 @@ under `<lang>/<path>`.
 
 - Item 3: "Cách nuôi giống hệt Maylandia" is fine, but "ballast rich food" is rendered as "nhiều chất xơ" — acceptable; keep as is. — vi/species/cynotilapia-axelrodi (glaser), 0.30
 - Item 3: the VI is a copy of item 1's list ('Xuất xứ: CHDC Congo...'), not a translation. Translate the source: grows to about 15 cm (largest type-series specimen 11 cm), colour from snow-white to whitish grey. — vi/species/mastacembelus-brichardi (glaser), 0.40
-- Item 2: "loài cá ăn thịt" means carnivorous fish; the English says "food fish". Use "cá thực phẩm" or "cá làm thực phẩm". — vi/species/labeo-chrysophekadion (glaser), 0.50
+- Item 5: "để đủ sức duy trì cơ thể" is loose for "basal metabolism". Use "duy trì trao đổi chất cơ bản". — vi/species/arius-maculatus (scotcat), 0.50
 
 ### Says what the source doesn't (invented, added)
 
 - Item 1: 'tên tiếng Anh: Blind Spiny Eel' is an acceptable addition, but it is unnecessary if the Vietnamese name is established. — vi/species/mastacembelus-brichardi (glaser), 0.40
+- Item 4: "ăn tép, ốc và những con mồi nhỏ tương tự" adds facts (shrimp, snails) not in the source. Use "động vật không xương sống" for invertebrates: "Ăn động vật không xương sống và cá nhỏ." — vi/species/arius-maculatus (scotcat), 0.50
 - Item 4: the English says the name "shark" is a good description despite the zoological relationship. The Vietnamese adds "không có họ hàng gì với cá mập", which is slightly stronger and not quite the same meaning. Make it neutral, e.g. "Dù… — vi/species/labeo-chrysophekadion (glaser), 0.50
-- Item 7: "côn trùng, sâu bọ, tép nhỏ" for "invertebrates of various types" adds "tép nhỏ" (small shrimp), which is not in the source. Use "động vật không xương sống các loại" or something equally general. — vi/species/toxotes-chatareus (seriouslyfish), 0.50
 
 ### Wording: unnatural, literal, stiff or chatty
 
 - Item 5: 'Với cá cùng loài, nó hoàn toàn hiền' is awkward. Use 'Loài này hoàn toàn hiền hòa với đồng loại.' — vi/species/mastacembelus-brichardi (glaser), 0.40
+- Item 5: "nuốt một hai quả trứng" is unnatural. Use "nuốt một hai trứng" or "một hai viên trứng". — vi/species/arius-maculatus (scotcat), 0.50
 - Item 1: "Cá lớn rất to" is awkward and repeats itself. Use "Đây là loài cá phát triển rất lớn". — vi/species/labeo-chrysophekadion (glaser), 0.50
-- Item 5: "formerly they are said to have reached even 3 m" and "ngày xưa thứ gì cũng tốt hơn" are rendered literally. The joke reads awkwardly. Smooth it, e.g. "trước đây được cho là tới 3 m, nhưng ngày xưa cái gì cũng hơn ;-)". — vi/species/atractosteus-tristoechus (glaser), 0.55
 
 ### Meaning changed or wrong
 
@@ -170,8 +170,8 @@ under `<lang>/<path>`.
 ### Hobby terms and names
 
 - Items 1, 2, 5, 6: 'cá chạch sông' is a poor name for spiny eels (Mastacembelidae). The standard Vietnamese name is 'cá chạch gai' or 'cá chạch lửa/chạch bông' for the group. Use 'cá chạch gai mù' for Blind Spiny Eel. — vi/species/mastacembelus-brichardi (glaser), 0.40
+- Item 3: "Bong bóng" for air bladders. The standard term is "bóng bơi" ("bóng bơi của chúng"). — vi/species/arius-maculatus (scotcat), 0.50
 - Item 1: "cá sấu Cuba" is a questionable common name for Cuban gar. "Cá sấu hỏa tiễn Cuba" is more consistent with item 5. Use one name for gar across all items, not "cá gar" in some places and "cá gar/cá sấu hỏa tiễn" in others. — vi/species/atractosteus-tristoechus (glaser), 0.55
-- "Tuyến hàm trên" for maxillary gland is imprecise. Use "tuyến hàm" or give the term with the Latin/English original. — vi/guides/aquariumbreeder-crayfish-internal-anatomy (aquariumbreeder), 0.60
 
 ### Text left in another language
 
@@ -299,7 +299,7 @@ under `<lang>/<path>`.
 
 ## reader-rewrite: parts the reader step rewrote with its findings
 
-0 of 38 pages under the bar.
+0 of 40 pages under the bar.
 
 ## title: titles rewritten to promise only what the text has
 
@@ -334,7 +334,7 @@ under `<lang>/<path>`.
 
 ## topic: AquaTome's own guides, against their research
 
-6 of 107 pages under the bar.
+6 of 114 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -480,22 +480,22 @@ under `<lang>/<path>`.
 
 ## localize: species and plant pages in Indonesian and Thai, against the English
 
-889 of 2362 pages under the bar.
+897 of 2410 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 829 | 2351 |
-| Wording: unnatural, literal, stiff or chatty | 768 | 1615 |
-| Says what the source doesn't (invented, added) | 522 | 749 |
-| Meaning changed or wrong | 493 | 756 |
-| Hobby terms and names | 480 | 636 |
-| A number, unit, dose or price | 472 | 590 |
-| Text left in another language | 323 | 413 |
-| Leaves out what the source says | 270 | 313 |
-| Repeats itself (intro, summary, steps and FAQ) | 253 | 282 |
-| States as certain what the source hedges, or what garbled captions only hint at | 196 | 218 |
-| Copied from the transcript or source | 26 | 26 |
-| Off the title's topic | 1 | 1 |
+| Other | 833 | 2356 |
+| Wording: unnatural, literal, stiff or chatty | 776 | 1622 |
+| Says what the source doesn't (invented, added) | 528 | 758 |
+| Meaning changed or wrong | 496 | 761 |
+| Hobby terms and names | 485 | 641 |
+| A number, unit, dose or price | 479 | 597 |
+| Text left in another language | 323 | 412 |
+| Leaves out what the source says | 275 | 319 |
+| Repeats itself (intro, summary, steps and FAQ) | 252 | 282 |
+| States as certain what the source hedges, or what garbled captions only hint at | 198 | 221 |
+| Copied from the transcript or source | 27 | 27 |
+| Off the title's topic | 2 | 2 |
 
 ### Other
 
@@ -554,8 +554,8 @@ under `<lang>/<path>`.
 ### States as certain what the source hedges, or what garbled captions only hint at
 
 - Item 21: 'weakly red to orange colour patches in the fins' is rendered as 'แต้มสีแดงอ่อนถึงส้มในครีบที่ไม่เด่นเท่า'. It is unclear that this refers to the males' fin patterns. Reword it as 'แต้มสีแดงจางถึงส้มบนครีบซึ่งเด่นน้อยกว่าตัวผู้'. … — th/species/danio-margaritatus, 0.40
+- Item 18: the sentence 'ซึ่งปลาที่นำเข้าในอดีตเคยถูกจัดไว้เพียง 3 ชนิด ที่ต้องระบุชนิดใหม่' is garbled. The English says 33 species, which were assigned to 3 species in earlier imports, must now be redetermined. Restructure it. — th/species/gastromyzon-punctulatus, 0.40
 - #1: 'เกือบทุกชนิดโตเกิน 20 ซม.' — English says 'most species', so use 'ส่วนใหญ่' instead of 'เกือบทุกชนิด' (overstates). The sentence 'ส่วนใหญ่มักโตได้ค่อนข้างใหญ่' then repeats it. — th/species/metynnis-lippincottianus, 0.40
-- Item 18: the sentence 'ซึ่งปลาที่นำเข้าในอดีตเคยถูกจัดไว้เพียง 3 ชนิด ที่ต้องระบุชนิดใหม่!' is garbled. Restructure it as: 33 species that were earlier imported under only 3 names must now be re-identified. — th/species/gastromyzon-punctulatus, 0.45
 
 ### Copied from the transcript or source
 
@@ -565,6 +565,7 @@ under `<lang>/<path>`.
 
 ### Off the title's topic
 
+- Item 19: 'Endlers can share the tank with any freshwater snails' is a source error (Endlers are unrelated to Borneo suckers); the translation 'Endler bisa satu akuarium dengan siput' keeps it, so the fish named is wrong; also 'the source s… — id/species/gastromyzon-punctulatus, 0.55
 - Item 2: 'ปลาค้างคาวหรือปลาผีเสื้อติดหิน (hillstream loach)' - 'ปลาค้างคาว' is an unrelated/incorrect name; use ปลาผีเสื้อติดหิน only. Gastromyzon-type fish are not 'ปลาค้างคาว'. — th/species/hypergastromyzon-humilis, 0.60
 
 ## glossary: glossary terms in Indonesian and Thai (reviewed in batches)
@@ -573,11 +574,11 @@ under `<lang>/<path>`.
 
 ## places: place names in Indonesian and Thai (reviewed in batches)
 
-4250 of 6956 pages under the bar.
+4307 of 7032 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 1047 | 1132 |
+| Other | 1080 | 1167 |
 | Meaning changed or wrong | 69 | 69 |
 | Leaves out what the source says | 52 | 52 |
 | Wording: unnatural, literal, stiff or chatty | 25 | 25 |

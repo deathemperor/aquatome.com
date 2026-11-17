@@ -13,8 +13,7 @@
       "sourceCaption": "euphyllia divisa",
       "best": true,
       "kind": "form",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/540589887.webp",
@@ -27,19 +26,18 @@
       "caption": "Cận cảnh xúc tu frogspawn đầu hình cầu trên rạn",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
-      "url": "https://media.aquatome.com/commons/5560673398e8e9d2.webp",
-      "thumb": "https://media.aquatome.com/commons/5560673398e8e9d2-480.webp",
+      "url": "https://media.aquatome.com/commons/6e7c2c6b274264c2.webp",
+      "thumb": "https://media.aquatome.com/commons/6e7c2c6b274264c2-480.webp",
       "width": 1200,
-      "height": 900,
-      "licence": "CC BY 2.0",
-      "author": "Ryan Boren",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Euphyllia_sp.jpg",
-      "caption": "San hô frogspawn màu kem đầu xúc tu tròn trong bể",
-      "sourceCaption": "Euphyllia divisa or Euphyllia glabrescens, a stony coral",
+      "height": 800,
+      "licence": "CC BY-SA 4.0",
+      "author": "Emőke Dénes",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vi_-_Euphyllia_divisa_-_2.jpg",
+      "caption": "San hô frogspawn đầu xúc tu tím xanh trong bể rạn",
+      "sourceCaption": "Frogspawn coral (Euphyllia divisa) at the Scarborough SEA LIFE Sanctuary in England.",
       "best": true,
       "kind": "other",
       "setup": false,
@@ -57,38 +55,7 @@
       "sourceCaption": "Euphyllia divisa, vista de tentáculos, isla Lizard, Australia.",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/commons/681a904a1b23c3b7.webp",
-      "thumb": "https://media.aquatome.com/commons/681a904a1b23c3b7-480.webp",
-      "width": 1200,
-      "height": 675,
-      "licence": "CC BY-SA 4.0",
-      "author": "Emőke Dénes",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vi_-_Euphyllia_divisa_-_1.jpg",
-      "caption": "San hô frogspawn màu xanh lá trong bể rạn",
-      "sourceCaption": "Frogspawn coral (Euphyllia divisa) in Southend-on-Sea aquarium, England.",
-      "best": true,
-      "kind": "other",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/commons/6e7c2c6b274264c2.webp",
-      "thumb": "https://media.aquatome.com/commons/6e7c2c6b274264c2-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY-SA 4.0",
-      "author": "Emőke Dénes",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vi_-_Euphyllia_divisa_-_2.jpg",
-      "caption": "San hô frogspawn đầu xúc tu tím xanh trong bể rạn",
-      "sourceCaption": "Frogspawn coral (Euphyllia divisa) at the Scarborough SEA LIFE Sanctuary in England.",
-      "best": true,
-      "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/406044357.webp",
@@ -148,6 +115,34 @@
       "kind": "habitat",
       "setup": false,
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/commons/681a904a1b23c3b7.webp",
+      "thumb": "https://media.aquatome.com/commons/681a904a1b23c3b7-480.webp",
+      "width": 1200,
+      "height": 675,
+      "licence": "CC BY-SA 4.0",
+      "author": "Emőke Dénes",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vi_-_Euphyllia_divisa_-_1.jpg",
+      "caption": "San hô frogspawn màu xanh lá trong bể rạn",
+      "sourceCaption": "Frogspawn coral (Euphyllia divisa) in Southend-on-Sea aquarium, England.",
+      "best": true,
+      "kind": "other",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/commons/5560673398e8e9d2.webp",
+      "thumb": "https://media.aquatome.com/commons/5560673398e8e9d2-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY 2.0",
+      "author": "Ryan Boren",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Euphyllia_sp.jpg",
+      "caption": "San hô frogspawn màu kem đầu xúc tu tròn trong bể",
+      "sourceCaption": "Euphyllia divisa or Euphyllia glabrescens, a stony coral",
+      "best": true,
+      "kind": "other",
+      "setup": false
     }
   ],
   "seen": 29,

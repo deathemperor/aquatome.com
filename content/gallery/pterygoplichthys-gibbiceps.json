@@ -2,42 +2,6 @@
   "id": "pterygoplichthys-gibbiceps",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/60696978.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/60696978-480.webp",
-      "width": 1024,
-      "height": 471,
-      "licence": "CC BY-SA",
-      "author": "Ong Jyh Seng",
-      "sourceUrl": "https://www.inaturalist.org/photos/60696978",
-      "caption": "Cá lau kiếng vây cao màu vàng nâu đốm trong bể",
-      "best": true,
-      "kind": "form"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/768a704d777c34e6.webp",
-      "thumb": "https://media.aquatome.com/commons/768a704d777c34e6-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY-SA 2.0",
-      "author": "Kamil Porembiński from Lodz, Poland",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Glonojad_w_powi%C4%99kszeniu_w_%C5%81%C3%B3dzkim_ZOO.jpg",
-      "caption": "Cận cảnh cá lau kiếng vây cao đỏ vằn tổ ong trên sỏi",
-      "best": true,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/37d9bbf777dbf416.webp",
-      "thumb": "https://media.aquatome.com/commons/37d9bbf777dbf416-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY-SA 3.0",
-      "author": "Miroslav.vajdic",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pterygoplichthys_gibbiceps2.jpg",
-      "caption": "Cá lau kiếng vây cao đỏ hoa văn báo rõ nét trên cát",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/commons/014b5a1657d51162.webp",
       "thumb": "https://media.aquatome.com/commons/014b5a1657d51162-480.webp",
       "width": 1200,
@@ -122,18 +86,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/commons/bb1b86bed6b323e4.webp",
-      "thumb": "https://media.aquatome.com/commons/bb1b86bed6b323e4-480.webp",
-      "width": 1200,
-      "height": 675,
-      "licence": "CC BY-SA 4.0",
-      "author": "AnatolyPm",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pterygoplichthys_gibbiceps_in_tank.jpg",
-      "caption": "Cá lau kiếng vây cao đỏ lớn với vân mạng lưới trong bể",
-      "best": false,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/commons/eedc2a5e422c0fcf.webp",
       "thumb": "https://media.aquatome.com/commons/eedc2a5e422c0fcf-480.webp",
       "width": 1200,
@@ -166,6 +118,54 @@
       "author": "Gold eagle Kroll",
       "sourceUrl": "https://www.inaturalist.org/photos/314702455",
       "caption": "Cá lau kiếng vây cao bơi trên nền sỏi xanh",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/60696978.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/60696978-480.webp",
+      "width": 1024,
+      "height": 471,
+      "licence": "CC BY-SA",
+      "author": "Ong Jyh Seng",
+      "sourceUrl": "https://www.inaturalist.org/photos/60696978",
+      "caption": "Cá lau kiếng vây cao màu vàng nâu đốm trong bể",
+      "best": true,
+      "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/768a704d777c34e6.webp",
+      "thumb": "https://media.aquatome.com/commons/768a704d777c34e6-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 2.0",
+      "author": "Kamil Porembiński from Lodz, Poland",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Glonojad_w_powi%C4%99kszeniu_w_%C5%81%C3%B3dzkim_ZOO.jpg",
+      "caption": "Cận cảnh cá lau kiếng vây cao đỏ vằn tổ ong trên sỏi",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/37d9bbf777dbf416.webp",
+      "thumb": "https://media.aquatome.com/commons/37d9bbf777dbf416-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 3.0",
+      "author": "Miroslav.vajdic",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pterygoplichthys_gibbiceps2.jpg",
+      "caption": "Cá lau kiếng vây cao đỏ hoa văn báo rõ nét trên cát",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/bb1b86bed6b323e4.webp",
+      "thumb": "https://media.aquatome.com/commons/bb1b86bed6b323e4-480.webp",
+      "width": 1200,
+      "height": 675,
+      "licence": "CC BY-SA 4.0",
+      "author": "AnatolyPm",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pterygoplichthys_gibbiceps_in_tank.jpg",
+      "caption": "Cá lau kiếng vây cao đỏ lớn với vân mạng lưới trong bể",
       "best": false,
       "kind": "other"
     },

@@ -13,50 +13,7 @@
       "sourceCaption": "Invertebrates in Smithsonian National Zoological Park: Macrobrachium rosenbergii Giant freshwater prawn",
       "best": true,
       "kind": "male",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/248510924.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/248510924-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY",
-      "author": "Павлик Лисицын",
-      "sourceUrl": "https://www.inaturalist.org/photos/248510924",
-      "caption": "Hai con tôm càng xanh trong bể kính",
-      "best": true,
-      "kind": "pair",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/248510938.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/248510938-480.webp",
-      "width": 576,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Павлик Лисицын",
-      "sourceUrl": "https://www.inaturalist.org/photos/248510938",
-      "caption": "Tôm càng xanh nhìn từ trên xuống trong bể nuôi",
-      "best": true,
-      "kind": "other",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/248510959.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/248510959-480.webp",
-      "width": 576,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Павлик Лисицын",
-      "sourceUrl": "https://www.inaturalist.org/photos/248510959",
-      "caption": "Cận cảnh đầu và mắt tôm càng xanh",
-      "best": true,
-      "kind": "detail",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/bd665baa15cef182.webp",
@@ -70,8 +27,7 @@
       "sourceCaption": "Invertebrates in Smithsonian National Zoological Park: Macrobrachium rosenbergii Giant freshwater prawn",
       "best": true,
       "kind": "male",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/26db9efdc89f8f78.webp",
@@ -290,6 +246,45 @@
       "kind": "male",
       "setup": false,
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/248510924.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/248510924-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Павлик Лисицын",
+      "sourceUrl": "https://www.inaturalist.org/photos/248510924",
+      "caption": "Hai con tôm càng xanh trong bể kính",
+      "best": true,
+      "kind": "pair",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/248510938.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/248510938-480.webp",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Павлик Лисицын",
+      "sourceUrl": "https://www.inaturalist.org/photos/248510938",
+      "caption": "Tôm càng xanh nhìn từ trên xuống trong bể nuôi",
+      "best": true,
+      "kind": "other",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/248510959.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/248510959-480.webp",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Павлик Лисицын",
+      "sourceUrl": "https://www.inaturalist.org/photos/248510959",
+      "caption": "Cận cảnh đầu và mắt tôm càng xanh",
+      "best": true,
+      "kind": "detail",
+      "setup": false
     }
   ],
   "seen": 60,

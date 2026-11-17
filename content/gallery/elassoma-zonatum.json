@@ -2,48 +2,6 @@
   "id": "elassoma-zonatum",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/18656569.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/18656569-480.webp",
-      "width": 1024,
-      "height": 684,
-      "licence": "CC BY",
-      "author": "John P Friel",
-      "sourceUrl": "https://www.inaturalist.org/photos/18656569",
-      "caption": "Cá đực màu xanh đen ánh kim trên lưới thu mẫu",
-      "best": true,
-      "kind": "male",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/369699971.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/369699971-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC0",
-      "author": "Allan Harris",
-      "sourceUrl": "https://www.inaturalist.org/photos/369699971",
-      "caption": "Cá thái dương lùn banded có sọc vằn ngoài tự nhiên, nước nông",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/54018883.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/54018883-480.webp",
-      "width": 896,
-      "height": 608,
-      "licence": "CC BY",
-      "author": "Dan Johnson",
-      "sourceUrl": "https://www.inaturalist.org/photos/54018883",
-      "caption": "Cá thái dương lùn banded cận cảnh, thân nâu tím",
-      "best": true,
-      "kind": "other",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/175152687.webp",
       "thumb": "https://media.aquatome.com/inaturalist/175152687-480.webp",
       "width": 1024,
@@ -58,14 +16,27 @@
       "unchecked": true
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/180614264.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/180614264-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/369699971.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/369699971-480.webp",
       "width": 1024,
-      "height": 683,
+      "height": 768,
+      "licence": "CC0",
+      "author": "Allan Harris",
+      "sourceUrl": "https://www.inaturalist.org/photos/369699971",
+      "caption": "Cá thái dương lùn banded có sọc vằn ngoài tự nhiên, nước nông",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/54018883.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/54018883-480.webp",
+      "width": 896,
+      "height": 608,
       "licence": "CC BY",
-      "author": "evangrimes",
-      "sourceUrl": "https://www.inaturalist.org/photos/180614264",
-      "caption": "Cá thái dương lùn vằn sẫm bơi trên nền đen",
+      "author": "Dan Johnson",
+      "sourceUrl": "https://www.inaturalist.org/photos/54018883",
+      "caption": "Cá thái dương lùn banded cận cảnh, thân nâu tím",
       "best": true,
       "kind": "other",
       "setup": false,
@@ -86,17 +57,17 @@
       "unchecked": true
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/284361447.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/284361447-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/180614264.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/180614264-480.webp",
       "width": 1024,
-      "height": 768,
+      "height": 683,
       "licence": "CC BY",
-      "author": "Zakqary Roy",
-      "sourceUrl": "https://www.inaturalist.org/photos/284361447",
-      "caption": "Cá thái dương lùn banded trong hộp ảnh bên cạnh thước",
+      "author": "evangrimes",
+      "sourceUrl": "https://www.inaturalist.org/photos/180614264",
+      "caption": "Cá thái dương lùn vằn sẫm bơi trên nền đen",
       "best": true,
       "kind": "other",
-      "setup": true,
+      "setup": false,
       "unchecked": true
     },
     {
@@ -111,6 +82,20 @@
       "best": true,
       "kind": "male",
       "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/284361447.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/284361447-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Zakqary Roy",
+      "sourceUrl": "https://www.inaturalist.org/photos/284361447",
+      "caption": "Cá thái dương lùn banded trong hộp ảnh bên cạnh thước",
+      "best": true,
+      "kind": "other",
+      "setup": true,
       "unchecked": true
     },
     {
@@ -294,6 +279,19 @@
       "kind": "other",
       "setup": true,
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/18656569.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/18656569-480.webp",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY",
+      "author": "John P Friel",
+      "sourceUrl": "https://www.inaturalist.org/photos/18656569",
+      "caption": "Cá đực màu xanh đen ánh kim trên lưới thu mẫu",
+      "best": true,
+      "kind": "male",
+      "setup": true
     }
   ],
   "seen": 120,

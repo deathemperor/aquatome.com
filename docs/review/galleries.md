@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-17). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 718 | 31 | 9 | 24 | 734 |
-| rest | 20 | 1784 | 77 | 0 | 100 | 1761 |
+| covered | 30 | 724 | 31 | 9 | 24 | 740 |
+| rest | 20 | 1796 | 79 | 0 | 103 | 1772 |
 
-## Short of target: every source read (617)
+## Short of target: every source read (635)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -138,8 +138,8 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/hasemania-nana | shop | 1 | 60 |
 | species/gyrinocheilus-aymonieri | shop | 14 | 60 |
 | plants/marsilea-hirsuta | shop | 12 | 60 |
-| species/erpetoichthys-calabaricus | shop | 2 | 60 |
 | plants/sagittaria-subulata | shop | 13 | 60 |
+| species/erpetoichthys-calabaricus | shop | 2 | 60 |
 | plants/lilaeopsis-brasiliensis | shop | 8 | 60 |
 | species/trichopsis-vittata | shop | 11 | 60 |
 | species/boraras-urophthalmoides | shop | 1 | 60 |
@@ -150,7 +150,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/corydoras-panda | shop | 13 | 60 |
 | species/corydoras-sterbai | shop | 14 | 60 |
 | species/scleropages-jardinii | shop | 3 | 60 |
-| species/scleropages-formosus | shop | 38 | 60 |
+| species/scleropages-formosus | shop | 36 | 60 |
 | species/polypterus-senegalus | shop | 14 | 60 |
 | species/channa-pulchra | shop | 0 | 60 |
 | species/channa-stewartii | shop | 0 | 60 |
@@ -344,6 +344,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/akysis-portellus | covered | 0 | 30 |
 | species/akysis-prashadi | covered | 0 | 30 |
 | species/akysis-varius | covered | 0 | 30 |
+| species/altolamprologus-calvus | covered | 1 | 30 |
 | species/altolamprologus-compressiceps | covered | 1 | 30 |
 | species/amaralia-hypsiura | covered | 0 | 30 |
 | species/ambastaia-nigrolineata | covered | 1 | 30 |
@@ -368,6 +369,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/apistogramma-paulmuelleri | covered | 0 | 30 |
 | species/apistogramma-trifasciata | covered | 3 | 30 |
 | species/ariopsis-felis | covered | 26 | 30 |
+| species/ariopsis-seemanni | covered | 0 | 30 |
 | species/aspidoras-pauciradiatus | covered | 4 | 30 |
 | species/aspidoras-taurus | covered | 3 | 30 |
 | species/asterophysus-batrachus | covered | 1 | 30 |
@@ -423,6 +425,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/betta-rubra | covered | 2 | 30 |
 | species/betta-rutilans | covered | 1 | 30 |
 | species/betta-simorum | covered | 0 | 30 |
+| species/betta-simplex | covered | 1 | 30 |
 | species/betta-smaragdina | covered | 0 | 30 |
 | species/betta-uberis | covered | 0 | 30 |
 | species/biotodoma-cupido | covered | 1 | 30 |
@@ -465,11 +468,13 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/chitala-blanci | covered | 0 | 30 |
 | species/chrysichthys-auratus | covered | 0 | 30 |
 | species/cichla-orinocensis | covered | 1 | 30 |
+| species/cichla-temensis | covered | 1 | 30 |
 | species/clarias-meladerma | covered | 0 | 30 |
 | species/clarias-pachynema | covered | 0 | 30 |
 | species/cleithracara-maronii | covered | 5 | 30 |
 | species/clypeobarbus-congicus | covered | 0 | 30 |
 | species/copadichromis-borleyi | covered | 2 | 30 |
+| species/copella-arnoldi | covered | 1 | 30 |
 | species/corydoras-amandajanea | covered | 0 | 30 |
 | species/corydoras-armatus | covered | 0 | 30 |
 | species/corydoras-atropersonatus | covered | 0 | 30 |
@@ -628,8 +633,21 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/hypostomus-soniae | covered | 0 | 30 |
 | species/hypostomus-taphorni | covered | 0 | 30 |
 | species/hypselecara-temporalis | covered | 4 | 30 |
+| species/hypseleotris-compressa | covered | 8 | 30 |
 | species/hypselobarbus-jerdoni | covered | 0 | 30 |
 | species/hypsophrys-nicaraguensis | covered | 0 | 30 |
 | species/iheringichthys-megalops | covered | 0 | 30 |
 | species/ilyodon-furcidens | covered | 22 | 30 |
 | species/imparfinis-mirini | covered | 0 | 30 |
+| species/indostomus-paradoxus | covered | 0 | 30 |
+| species/jordanella-floridae | covered | 16 | 30 |
+| species/julidochromis-marlieri | covered | 8 | 30 |
+| species/knodus-borki | covered | 2 | 30 |
+| species/kottelatia-brittani | covered | 0 | 30 |
+| species/kronichthys-heylandi | covered | 0 | 30 |
+| species/kronichthys-subteres | covered | 0 | 30 |
+| species/kryptopterus-cryptopterus | covered | 0 | 30 |
+| species/labeo-boga | covered | 0 | 30 |
+| species/labeo-calbasu | covered | 0 | 30 |
+| species/labeo-chrysophekadion | covered | 0 | 30 |
+| species/labeo-cyclorhynchus | covered | 0 | 30 |
