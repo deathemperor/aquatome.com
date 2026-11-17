@@ -520,7 +520,12 @@ final class PageShotsFlowTests: XCTestCase {
     let app = launch(dark: dark, size: size, ["-fake-accounts", "on", "-reset-fake-server", "-chat-slow", "-chat-blocks"])
     open(app, "ca neon", "Cá neon")
     let entry = app.descendants(matching: .any)["chat-entry"].firstMatch
-    repeatUntil(entry.exists && entry.isHittable, times: 12) { app.swipeUp() }
+    // Up until its middle, where the tap lands, is clear of the tab bar: XCUITest calls it hittable once its middle is in
+    // the window, and at the largest text the button is tall. On the split's run (17 Nov) it stopped with its top at
+    // 786 pt, the tab bar from 791: the tap landed on the tab bar and opened nothing, on both tries.
+    let bar = app.tabBars.firstMatch
+    repeatUntil(entry.exists && entry.isHittable && entry.frame.midY < (bar.exists ? bar.frame.minY : app.windows.firstMatch.frame.maxY) - 8,
+                times: 12) { app.swipeUp() }
     entry.tap()
     let sign = app.descendants(matching: .any)["apple-sign-in"].firstMatch
     XCTAssertTrue(sign.waitForExistence(timeout: 5), "no sign-in")
