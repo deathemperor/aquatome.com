@@ -21,6 +21,15 @@ export function licenceUrl(licence: string): string | undefined {
   return `https://creativecommons.org/licenses/${kind}/${v}/${country ? `${country}/` : ''}`
 }
 
+/**
+ * A licence's page as the credits list links it: Unsplash's with AquaTome's UTM, as Unsplash asks of every link to it
+ * (unsplash.ts); the others as licenceUrl. Structured data names the page itself.
+ */
+export const creditLicenceUrl = (licence: string): string | undefined => {
+  const url = licenceUrl(licence)
+  return url === 'https://unsplash.com/license' ? `${url}?utm_source=aquatome&utm_medium=referral` : url
+}
+
 /** A CC BY deed (any BY variant) requires saying the work was changed. CC0 and public domain use the public-domain deeds, not /licenses/. */
 export const ccRequiresChangeNote = (licence: string) => licenceUrl(licence)?.includes('/licenses/') === true
 
