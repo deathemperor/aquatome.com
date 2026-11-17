@@ -68,9 +68,16 @@ test('a list that fails is refused with why, and the page keeps the last one tha
   expect(await refused(list({ rows: [row({ asked: ['yesterday'] })] }))).toMatch(/asked isn't/)
   expect(await refused(list({ rows: [row({ now: 'see <a href="https://x.test">here</a>' })] }))).toBe("rows 1's now holds an HTML tag")
   expect(await refused(list({ rows: [row({ now: '<svg/onload=alert(1)>' })] }))).toBe("rows 1's now holds an HTML tag")
-  expect(await refused(list({ rows: [{ ...row(), secret: 'x' }] }))).toBe("rows 1 has a field the page doesn't know: secret")
-  // A field named with the list's own words isn't said back.
+  // A field the page doesn't know isn't named: its name can be the list's own words (a reader's point, 17 Nov).
+  expect(await refused(list({ rows: [{ ...row(), PrivateReminder: 'x' }] }))).toBe("rows 1 has a field the page doesn't know")
   expect(await refused(list({ rows: [{ ...row(), 'the made-up words': 'x' }] }))).toBe("rows 1 has a field the page doesn't know")
+  expect(await refused({ ...list(), PrivateNote: 'x' })).toBe("the list has a field the page doesn't know")
+  // No refusal says back a word of the list, whatever field fails.
+  for (const bad of [list({ today: 'Private day' }), list({ rows: [row({ state: 'Private state' as never })] }), list({ rows: [row({ asked: ['Private asked'] })] }), list({ rows: [row({ now: 'Private <b>now</b>' })] }), list({ rows: [{ ...row(), Private_key: 'x' }] })])
+    expect(await refused(bad)).not.toMatch(/private/i)
+  // A list past the size is refused as it's read, by its bytes: 400,000 Vietnamese letters are 1.2 MB.
+  expect(await refused(list({ rules: ['x'.repeat(1_000_001)] }))).toBe('the list is over 1000000 bytes')
+  expect(await refused(list({ rules: ['ể'.repeat(400_000)] }))).toBe('the list is over 1000000 bytes')
   expect(await refused(list({ rows: [] }))).toBe('the list has no rows')
   expect(await refused(list({ rules: ['bell \u0007'] }))).toBe('rule 1 holds a control character')
   expect(await refused(list({ today: '2026-02-30' }))).toBe("today isn't a day like 2026-11-17")

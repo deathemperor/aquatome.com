@@ -49,8 +49,6 @@ const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', '
  * "/_ab/<key>/") is words, not a tag. Every field is shown as text anyway (escaped): this keeps markup out of the list.
  */
 const TAG = /<\/?(a|abbr|audio|b|base|body|br|button|code|details|div|em|embed|form|frame|h[1-6]|head|html|i|iframe|img|input|label|li|link|math|meta|object|ol|option|p|picture|pre|script|section|select|source|span|strong|style|summary|svg|table|td|template|textarea|th|tr|u|ul|video)(?=[\s/>])[^<>]*>/i
-/** A field's name, said in a refusal only where it's a plain name: anything else may be words of the list. */
-const fieldName = (k: string) => (/^[A-Za-z_][A-Za-z0-9_]{0,23}$/.test(k) ? `: ${k}` : '')
 const CONTROL = /[\u0000-\u0008\u000b-\u001f\u007f]/
 /** Our own hosts: the only addresses a row links to. */
 const OURS = new Set(['aquatome.com', 'dashboard.aquatome.com'])
@@ -78,7 +76,7 @@ function rowOf(v: unknown, at: string): Ask | { why: string } {
   if (typeof v !== 'object' || v === null || Array.isArray(v)) return { why: `${at} isn't a row` }
   const r = v as Record<string, unknown>
   const odd = Object.keys(r).find(k => !ROW_KEYS.has(k))
-  if (odd !== undefined) return { why: `${at} has a field the page doesn't know${fieldName(odd)}` }
+  if (odd !== undefined) return { why: `${at} has a field the page doesn't know` }
   const ask = textOf(r.ask, `${at}'s ask`, MAX.ask)
   if (failed(ask)) return ask
   if (!ask.trim()) return { why: `${at}'s ask is empty` }
@@ -96,7 +94,7 @@ export function readAsks(v: unknown): Asks | { why: string } {
   if (typeof v !== 'object' || v === null || Array.isArray(v)) return { why: "the list isn't an object" }
   const o = v as Record<string, unknown>
   const odd = Object.keys(o).find(k => !['today', 'updated', 'rows', 'parked', 'rules'].includes(k))
-  if (odd !== undefined) return { why: `the list has a field the page doesn't know${fieldName(odd)}` }
+  if (odd !== undefined) return { why: "the list has a field the page doesn't know" }
   if (!isDay(o.today)) return { why: "today isn't a day like 2026-11-17" }
   const updated = textOf(o.updated, 'updated', MAX.updated)
   if (failed(updated)) return updated
@@ -127,12 +125,30 @@ export function readAsks(v: unknown): Asks | { why: string } {
  * PUT /_ab/asks from the Mac's job, the dashboard token as its bearer (checked before this): `{ modified, list }`, the
  * file's time and the list. 200 with how many rows were kept; 400 with why it was refused, and the last list stays.
  */
+/** A request's body as text, or null once it passes `max` bytes: read no further than that. */
+async function capped(req: Request, max: number): Promise<string | null> {
+  if (Number(req.headers.get('content-length')) > max) return null
+  if (!req.body) return ''
+  const reader = req.body.getReader(), parts: Uint8Array[] = []
+  let n = 0
+  for (let r = await reader.read(); !r.done; r = await reader.read()) {
+    n += r.value.byteLength
+    if (n > max) { await reader.cancel(); return null }
+    parts.push(r.value)
+  }
+  const all = new Uint8Array(n)
+  let at = 0
+  for (const p of parts) { all.set(p, at); at += p.byteLength }
+  return new TextDecoder().decode(all)
+}
+
 export async function putAsks(req: Request, bucket: R2Bucket, now: Date): Promise<Response> {
   const json = (body: unknown, status = 200) => new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' } })
   const refuse = (why: string) => json({ error: 'refused', why }, 400)
   if (req.method !== 'PUT') return new Response(null, { status: 405, headers: { allow: 'PUT', 'cache-control': 'no-store' } })
-  const text = await req.text()
-  if (text.length > MAX_BYTES) return refuse(`the list is over ${MAX_BYTES} characters`)
+  // The size before it's read: a list past it is refused, not held in the Worker's memory.
+  const text = await capped(req, MAX_BYTES)
+  if (text === null) return refuse(`the list is over ${MAX_BYTES} bytes`)
   let body: unknown
   try { body = JSON.parse(text) } catch { return refuse("the list isn't JSON") }
   const { modified, list } = (typeof body === 'object' && body !== null ? body : {}) as Record<string, unknown>
