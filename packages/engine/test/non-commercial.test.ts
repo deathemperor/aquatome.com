@@ -173,7 +173,7 @@ test("open photos on every page before any page's non-commercial pass: a dry pag
   expect((await album(r)).map(p => p.sourceUrl).slice(-2)).toEqual([INAT(2), INAT(3)])
 })
 
-test('the non-commercial pass reads no more while its limit of photos waits for the photo check, and its open round screens none left queued', async () => {
+test('the non-commercial pass reads no more while its limit of photos waits for the photo check; its open round screens none left queued, and its own round screens them once there is room', async () => {
   const r = await root()
   await mkdir(join(r, 'content/gallery'), { recursive: true })
   const waits = { url: 'https://media.example.org/inaturalist/9.webp', width: 1024, height: 768, licence: 'CC BY-NC', author: 'sampletown', sourceUrl: INAT(9), caption: 'cá', unchecked: true }
@@ -192,6 +192,13 @@ test('the non-commercial pass reads no more while its limit of photos waits for 
   await writeFile(join(r, `engine-state/gallery/${ID}.json`), JSON.stringify({ ...st, queue: [queued], exhausted: undefined }))
   await galleries(r, deps([]), { sheets: 5, switches: ON, ncWaiting: 3 })
   expect((await read(r, `engine-state/gallery/${ID}.json`)).queue.map((c: { key: string }) => c.key)).toEqual(['inat:4'])
+  // Room again: its own round screens it, though the pass was read to its end, and the page then runs dry.
+  expect((await read(r, `engine-state/gallery/${ID}.json`)).inatNc).toMatchObject({ done: true })
+  await galleries(r, deps([]), { sheets: 5, switches: ON, ncWaiting: 10 })
+  const after = await read(r, `engine-state/gallery/${ID}.json`)
+  expect(after.queue).toEqual([])
+  expect(after.judged).toContain('inat:4')
+  expect(after.exhausted).toBeTruthy()
 })
 
 test("the non-commercial pass takes the pages with no photo of their own first, though a page with one comes before them in the plan", async () => {

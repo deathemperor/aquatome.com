@@ -522,13 +522,13 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
   const gbif = paced('gbif', 300)
   const size = async (url: string) => { const m = await sharp(Buffer.from(await d.get(url))).metadata(); return m.width && m.height ? { width: m.width, height: m.height } : null }
 
-  /** Every open source of a species' or plant's page read to its end: iNaturalist's open passes, Commons, GBIF, Openverse. */
   // Non-commercial album photos waiting for the photo check now, and while under NC_WAITING, room to read more.
   if (nc) for (const f of (await readdir(join(content, 'gallery')).catch(() => [] as string[])).filter(f => f.endsWith('.json'))) {
     const g = JSON.parse(await readFile(join(content, 'gallery', f), 'utf8')) as { photos?: GalleryPhoto[] }
     report.ncWaiting += (g.photos ?? []).filter(p => p.unchecked && isNonCommercial(p.licence)).length
   }
   const ncRoom = () => report.ncWaiting < (o.ncWaiting ?? NC_WAITING)
+  /** Every open source of a species' or plant's page read to its end: iNaturalist's open passes, Commons, GBIF, Openverse. */
   const openDry = (st: GalleryState) => st.inat?.pass === 'done' && !!st.gbif && (!st.gbif.key || st.gbif.next === null) && !!st.commons && (!d.openverse || st.openverse?.next === null)
   // Two rounds with the non-commercial switch on: every page's open sources first, then iNaturalist's non-commercial pass
   // with the sheets left, on pages whose open sources are read to their end. They rank last, so they never take a run's
@@ -556,7 +556,10 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
     // Full to its last seeded space: the seeds left wait in the queue for a photo the check takes off.
     if (gallery.length >= limit) continue
     const st: GalleryState = saved ?? { queue: [], judged: [], hashes: {} }
-    if (ncRound && (t.kind === 'breeds' || st.inatNc?.done || !openDry(st))) continue
+    // A pass read to its end can still leave candidates queued (the waiting limit, the run's sheets or its bytes stopped
+    // its round): its round screens them in a later run, and the page runs dry once they're judged.
+    const ncQueued = st.queue.some(c => isNonCommercial(c.licence))
+    if (ncRound && (t.kind === 'breeds' || (st.inatNc?.done && !ncQueued) || !openDry(st))) continue
     // A page dry before the non-commercial switch went on has never read that pass: it is read now, not in a month.
     const ncUnread = ncRound && !st.inatNc
     const due = !st.exhausted || !!o.only || days(st.exhausted) >= RETRY_DAYS
