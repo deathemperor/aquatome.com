@@ -3,6 +3,12 @@
   "name": "Wilayah Cape",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-16T17:24:32.121Z",
+    "why": "Cape Province is usually written \"Wilayah Cape\" or \"Provinsi Cape\" in Malay, but \"Tanjung\" would be wrong here. \"Wilayah\" is a plausible kind word for a historical province, though Malaysian atlases more often use \"Wilayah Cape\" or \"Provinsi Cape\" without being consistent, so I'm only moderately sur"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

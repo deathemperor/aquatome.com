@@ -997,10 +997,13 @@ final class V2FlowTests: XCTestCase {
     app.launch()
     var wrong: [String] = []
     for page in [SwipedPage.fishFromKhamPha, .guideFromKhamPha] {
-      // From the middle across, moving at once, the page as it opens (no row under the finger: a row scrolls instead).
+      // From well in from the edge across most of the screen, moving at once, the page as it opens (no row under the
+      // finger: a row scrolls instead). Across 70% of it, in 0.45 s: iOS itself lets a shorter one fall back. Just over
+      // half (220 pt on 428) stayed 2 of 16 times in Settings and 5 of 41 on a fish page; 70% (300 pt) went back 12 of 12
+      // (27.2, 15 Nov). The flow failed one run in six on main and on Đọc gần đây's branch alike (16 Nov).
       var shown = openForSwipe(page, app)
       let o = app.coordinate(withNormalizedOffset: .zero), w = app.frame.width, h = app.frame.height
-      o.withOffset(CGVector(dx: w * 0.4, dy: h * 0.4)).press(forDuration: 0, thenDragTo: o.withOffset(CGVector(dx: w * 0.4 + 220, dy: h * 0.4)), withVelocity: XCUIGestureVelocity(220 / 0.45), thenHoldForDuration: 0)
+      o.withOffset(CGVector(dx: w * 0.2, dy: h * 0.4)).press(forDuration: 0, thenDragTo: o.withOffset(CGVector(dx: w * 0.9, dy: h * 0.4)), withVelocity: XCUIGestureVelocity(w * 0.7 / 0.45), thenHoldForDuration: 0)
       if !shown.waitForNonExistence(timeout: 5) {
         wrong.append("\(page): the swipe from the middle stayed")
         app.leavePage()

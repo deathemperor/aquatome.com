@@ -413,6 +413,32 @@ The layers above still check the result.
   - **The style rewrite takes the pages out of search for their score first** (`rewriteExisting`, `vi-backfill.ts`),
     then the rest in its kinds' order: a kept rewrite is what brings such a page back, and in folder order the last of
     them waited five weeks (2026-11-10: 238 fish and plant pages; 28 of the 31 it had reached were back in search).
+  - **An Indonesian or Thai fish page out of search for its score comes back on two fresh reads on two models**
+    (`pnpm engine recheck`, `localize-recheck.ts`, in the rewrite part after the other translations; the chief of staff,
+    2026-11-16). A kept rewrite is no longer the only way back. The steady Sonnet read of the page's text as it is, then,
+    after a pass, the steady Opus read: when both pass and no read of that text carries a note on a dose or harm, the page
+    is back at the lower of the two scores.
+    - One try a text, by its hash (`engine-state/recheck-<lang>.json`): a page that fails either read keeps its place and
+      its old score and goes to the rewrite as before, and isn't read again until its text changes. One pass after one fail
+      changes nothing.
+    - A dose or harm note counts on any read of the text the page has: the two fresh reads, a logged read of it, the
+      translator's own. One on a text the page never kept doesn't. One the Page Recovery or Writing lead has read and
+      cleared, by page and quoted whole with why (`packages/engine/src/dose-cleared.json`, by pull request), doesn't
+      either; nothing is cleared by pattern.
+    - The bar moves one way. Main already keeps a pass over a later fail (a passing translation is never replaced by one
+      under it, above), and with this a page under it can pass on a later read, while one over it isn't read again. That
+      is accepted because two models must agree, and both fail what is wrong: on 2026-11-16, of 12 passing pages with one
+      fault planted in each (a figure, a caution dropped or turned round, a wrong name, an invented sentence), Opus named
+      all 12 and Sonnet 11 in their notes, and each it named fell under the bar; Sonnet's one miss, a cut caution, Opus
+      failed at 0.6. What it rests on: of 40 pages under the bar, 30 passed a fresh read with nothing changed and 29 of
+      those passed Opus too, and of 40 in search at exactly the bar, 39 passed again. Most pages under it were put there by
+      one early read, before the middle-of-three read began (2026-11-11).
+    - Indonesian and Thai fish pages only, the kinds that was measured on. Malay fish pages and other kinds each get a
+      20-page sample first. `RECHECK_LIMIT` pages a language a cycle (15), the translator's pages of the last day first so
+      a new page its first read failed has its two reads in the same cycle, then the most-read, starting none after
+      `RECHECK_MINUTES` (15), on its own line on GitHub's side of `ceilings.json`: $12 on 18 Nov and $6 on 19 Nov until
+      13:00, about $18 on the second sign-in while the third is out of its week, then $25 a day to 24 Nov and $6 from
+      25 Nov, GitHub's backstop $180 and that line (the chief of staff, 16 and 17 Nov 2026).
   - **What recurs, per kind:** `docs/review/reviews.md` (`pnpm engine reviews`, each cycle's photos part): how many pages
     each kind last left under the bar and the faults their notes name most, grouped, with notes quoted and their pages.
     What prompt fixes start from.
@@ -492,6 +518,10 @@ The layers above still check the result.
   - A measurement yields to the engine: the chat's board spends only what leaves every other step its whole line and
     some room for the gate (`leftYielding`), so the backstop never stops a step on its account (the chief of staff,
     13 Nov 2026).
+  - From 18 Nov the Mac's backstop is its named lines and $59 more, the room for the steps without a line of their own
+    (the gate with the video guides' editor, and the steps on the small line), which spent $88 on 16 Nov against the $10
+    then kept and stopped the day at 21:50; `ceiling.test.ts` fails on a Mac table that keeps less (the chief of staff,
+    17 Nov 2026).
   - The AI page review on pull requests, the nightly AI review and the auto-fix call Claude on the same accounts by
     another road, and each has a line on GitHub's side (`page-review`, `nightly-review`, `autofix`). A call writes a
     cost line: the time, the step, the account's hash, the model, dollars and tokens, and nothing of a page, a prompt
@@ -572,6 +602,8 @@ The layers above still check the result.
   fine), no dead fish or fish as food (markets, plates, catches landed or held,
   preserved, mounted or museum specimens), each photo must show its species (a landscape where it can't be picked out
   doesn't), open licences or permission only.
+  A listed publisher's permission (Aquarium Co-op, 2Hr Aquarist, Seriously Fish, ScotCat, Aquarium Breeder) covers its
+  photos on any AquaTome page, by the owner's word of 16 Nov 2026.
   Pages show photos from our own media host: a Commons or iNaturalist photo waits for `pnpm engine mirror-photos` (every
   cycle), and a public build leaves it out until then (`setsCookies`), since those hosts set third-party cookies.
   Every request the engine sends to Wikimedia (Commons' API, its pictures, their thumbnails) asks under the engine's own
@@ -600,7 +632,15 @@ The layers above still check the result.
     and trade names) and Openverse, never iNaturalist or GBIF, which give the wild fish; it is screened for that line
     alone, and a photo another breed's page shows stays there. Each photo's licence is read from the source's API for
     that photo, never assumed: CC BY-NC, the default on iNaturalist and Flickr, stays out, since the site carries ads
-    and affiliate links. Photos a source gave permission for (`content/sources.json`) and Unsplash photos join through
+    and affiliate links. One exception waits behind a switch that ships off (`IMAGE_SWITCHES.inatNonCommercial`,
+    `packages/schema/src/image-policy.ts`), on only when the chief of staff says (the owner's yes, 10 Nov): iNaturalist's
+    research-grade CC BY-NC and CC BY-NC-SA photos, any version, never ND, all rights reserved or none. With it on they
+    are the album step's last source, read once every open one has run dry; they rank after every open photo, pass every
+    screen and the photo check like any album photo, and their credit names the licence. They stay in albums: no page's
+    head, card or fish-ID reference takes one. Their licence text is their mark (`isNonCommercial`, `licence.ts`), so with
+    the switch off the site shows none and the sweep takes every one off every album and page (`dropNonCommercial`).
+    Commons, GBIF, Openverse, hand seeds and the mirror keep refusing NC whatever the switch says (the mirror copies an
+    iNaturalist album one only while it's on). Photos a source gave permission for (`content/sources.json`) and Unsplash photos join through
     their own steps. Each source is read at the pace it asks for (iNaturalist about one request a second; Openverse 200
     a day without a key), and each page keeps its place in `engine-state/gallery/<id>.json`, so the next cycle continues
     there.
@@ -651,7 +691,12 @@ The layers above still check the result.
     and, for a breed, what sets it apart. Verdicts: shows it (in the wild too, where it is clearly seen), something else
     (it says what), not a photo of it (a map, chart, hands, a tank, a packshot, a landscape or stream where it can't be
     picked out), or can't tell. "Something else" and "not a photo of it" leave the page; a photo no page keeps joins
-    `_photo-rejected.json`. Can't tell stays and is listed in
+    `_photo-rejected.json`. When the check answers "something else" for an album photo, the same run judges that album's
+    other photos from the same uploader that have no verdict for the page yet: the same source (its id, else the site)
+    and author (the author's page where both photos have one, else the name). This round goes past the run's limit and
+    stops at the check's daily line. Only the run's own first answers start it: not a file name's verdict, a guide's, a
+    page's own photo's, an earlier verdict or this round's answers (the chief of staff, 16 Nov: on 15 Nov a second
+    photo by the same uploader in one album was the same wrong fish, and waited for a person). Can't tell stays and is listed in
     `docs/review/photo-subjects.md`, with the removals and the pages left with no photo (they show none; the check
     puts nothing in its place, and the photo steps fill it from their sources as for any page short of photos). A
     "can't tell" photo keeps showing, behind the others (the owner, 2026-11-11): it never leads a page, a breed's
@@ -1212,6 +1257,13 @@ The layers above still check the result.
     front list's pages whose read is of older text. After its
     first run (`engine-state/_fit-front.json` has what it did) it waits until the chief of staff has looked at that
     run's pages and `cleared` is set in the list's file (`fit-front.test.ts`).
+  - The pages whose saved read found a foreign product or medicine still on them (the owner's complaint) go ahead of
+    the lane until they're done (`products: "ahead"`), each read again first if its read is of older text, and tried
+    once more past the cap. Where the writer's cut is refused, code cuts each sentence holding the product, a shop or a
+    price whole, beside findings of other kinds, which wait for the page's next read and try; each sentence it cuts is
+    in the run's list for the chief of staff, and a true care line in one gets its general half back by hand the same
+    day (the chief of staff, 17 Nov 2026: after eight runs at one for one, 62 of the 74 were left, the fallback never
+    having run on a page with another finding; `fit-rewrite.test.ts`, `fit-front.test.ts`).
   - The app's short cards (`content/cards`, the Curation Lead's) pass the same gate, read with lines of their own: a
     dated source is expected on a card; a new species is "described", with its paper's date, never "discovered" unless
     the source says so; a trend names its figures and where they come from. A held card stays out of the app, and the

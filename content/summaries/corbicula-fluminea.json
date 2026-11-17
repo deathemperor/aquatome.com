@@ -1,12 +1,18 @@
 {
   "id": "corbicula-fluminea",
-  "summary": "Hợp với người chịu đo nước đều và cho ăn đúng cách, không hợp kiểu thả vào rồi bỏ đó. Độ khó 3/8, trưởng thành 7,5 cm, tuổi thọ 1–2 năm, thích nước mát 18–26 °C, pH 7–8, độ cứng 5–20 dGH, nền cát mịn để trai chui xuống, dòng chảy vừa phải. Điểm khó nhất là thức ăn: trai chỉ lọc vụn và tảo lơ lửng, thiếu ăn thì chết và xác thải nhiều amoniac vào bể.",
+  "summary": "Hến Corbicula fluminea hợp với người đã chăm bể ổn định, chịu để bể có chút mùn bã và đo nước đều. Cần bể không quá nhỏ, nước mát 18–26 °C, pH 7–8, độ cứng 5–20 dGH, nền cát mịn đủ dày để hến chui xuống, dòng chảy vừa phải. Khó nhất là cho ăn: hến chỉ lọc thức ăn lơ lửng, thiếu ăn là chết và xác thải rất nhiều amoniac. Loài này sống 1–2 năm, cỡ 7,5 cm, độ khó 3/8.",
   "mistakes": [
-    "Giữ bể quá sạch rồi bỏ mặc trai: nước cần có vụn, mùn bã và tảo lơ lửng, nên cho ăn bột mịn 2–3 lần mỗi tuần.",
-    "Dùng thuốc có đồng trong bể có trai: trai rất nhạy với đồng, nên chuyển trai sang bể riêng, chỉ đưa về khi lọc hóa học đã lọc sạch đồng.",
-    "Để xác trai nằm trong bể: thỉnh thoảng gõ nhẹ vào vỏ kiểm tra, con nào mở vỏ quá rộng, không phản ứng hoặc bốc mùi trứng thối thì vớt ngay."
+    "Nuôi hến như nuôi ốc rồi bỏ đó: hãy để nước có vụn lơ lửng, mùn bã và cho ăn bột mịn 2–3 lần mỗi tuần.",
+    "Để hến chết trong bể: gõ nhẹ vào vỏ kiểm tra thường xuyên và vớt ngay con không phản ứng, vì amoniac tăng vọt có thể hỏng cả bể.",
+    "Dùng thuốc có đồng khi bể có hến: chuyển hến sang bể riêng, chỉ đưa về khi đã lọc sạch hết đồng bằng lọc hóa học."
   ],
   "speciesUpdatedAt": "2026-11-13",
-  "generatedAt": "2026-11-13T06:53:45.185Z",
-  "review": "approved"
+  "writtenFrom": "b357a3165f0d9403",
+  "generatedAt": "2026-11-17T01:56:28.155Z",
+  "review": "pending",
+  "problems": [
+    "\"thiếu ăn là chết\": the page hedges this. It says thiếu ăn, thả thích nghi không kỹ hay chỉ số nước dao động mạnh \"đều có thể làm trai chết\" (can kill). The summary turns that into a certainty.",
+    "\"hợp với người đã chăm bể ổn định\": the page never says the species suits only experienced keepers. The card gives difficulty 3/8, which is easy, and the page says \"dễ đến trung bình\".",
+    "\"gõ nhẹ vào vỏ kiểm tra thường xuyên\": the page says \"Thỉnh thoảng gõ nhẹ vào vỏ để kiểm tra\" (occasionally), not often."
+  ]
 }

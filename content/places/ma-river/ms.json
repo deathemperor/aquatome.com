@@ -3,6 +3,12 @@
   "name": "Ma",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.2,
+    "at": "2026-11-16T05:39:50.423Z",
+    "why": "\"Ma\" omits the kind word \"Sungai\" and drops the diacritic, so it is cut short and does not read as the full river name in a Malaysian atlas."
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

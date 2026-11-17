@@ -1,7 +1,36 @@
 {
   "id": "tetragonopterus-argenteus",
-  "photos": [],
-  "seen": 4,
-  "updatedAt": "2026-11-09",
-  "builtAt": "2026-11-09"
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/624808120.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/624808120-480.webp",
+      "width": 1024,
+      "height": 461,
+      "licence": "CC BY",
+      "author": "Pablo H Capovilla",
+      "sourceUrl": "https://www.inaturalist.org/photos/624808120",
+      "caption": "Cá tetra bạc với vây bụng đỏ trong hộp ảnh nhỏ",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/624809373.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/624809373-480.webp",
+      "width": 1024,
+      "height": 461,
+      "licence": "CC BY",
+      "author": "Pablo H Capovilla",
+      "sourceUrl": "https://www.inaturalist.org/photos/624809373",
+      "caption": "Cá tetra bạc nhìn nghiêng trong hộp trong suốt ngoài tự nhiên",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    }
+  ],
+  "seen": 38,
+  "updatedAt": "2026-11-16",
+  "builtAt": "2026-11-16"
 }

@@ -3,6 +3,12 @@
   "name": "Maha Oya",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-16T00:10:03.198Z",
+    "why": "\"Maha Oya\" keeps the Sinhala word \"oya\" (river) without Malay \"Sungai\", so an atlas in Malaysia would write \"Sungai Maha Oya\"; the bare form is also the name of a town."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

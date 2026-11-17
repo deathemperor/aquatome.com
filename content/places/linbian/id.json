@@ -3,6 +3,12 @@
   "name": "Linbian",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-16T17:14:26.952Z",
+    "why": "Sumbernya menyebut sungai (Linbian river), jadi atlas Indonesia menulisnya \"Sungai Linbian\", dan \"Linbian\" saja menghilangkan kata jenisnya."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

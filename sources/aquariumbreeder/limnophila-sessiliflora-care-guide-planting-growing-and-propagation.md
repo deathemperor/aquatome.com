@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/limnophila-sessiliflora-care-guide-planting-growing-and-propagation/
 title: Limnophila Sessiliflora Care Guide – Planting, Growing, and Propagation - Shrimp and Snail Breeder
 fetchedAt: 2026-10-29T07:34:21.168Z
-hash: 3ea409b55c1404bc0019eb932772ab9c7f44e95ce5147366fd4d3441391ee334
+hash: 5c33a64e3421c8a48ca7411eafa4b9abc61ad6dccb5a017fd89fe7f31ad71da6
 ---
 
 Limnophila sessiliflora, commonly known as Dwarf ambulia, is a fantastic aquarium plant for beginners.
@@ -139,6 +139,3 @@ At the same time, it should be noted that many of these advantages can, over tim
 - SPENCER, WILLIAM, and GEORGE BOWES. “Limnophila and Hygrophila. A Review and Physiological.” Aquat. Plant Manage23 (1985): 7-16.
 - Yang, Yuen-Po, and Shen-Horn Yen. “Notes on limnophila (Scrophulariaceae) of Taiwan.” Botanical Bulletin of Academia Sinica38 (1997).
 - Correll D, Correll H. 1972. Aquatic and Wetland Plants of the Southwestern United States. Environmental Protection Agency. Washington, D.C. 1777 pp.
-## 2 thoughts on “Limnophila Sessiliflora Care Guide – Planting, Growing, and Propagation”
-- Hi, I am very fond of ambulia but lately after relocating my fish house I lost all my ambulia plants and have purchased some small cuttings. Unfortunately these cuttings are without any roots so I have potted them on in some pots containing washed fine gravel but they’re taking weeks to produce any roots . Is there any way to accelerates root growth. The water temperature is 80 degrees fahrenheit and they are receiving good lighting for 12 hours Would appreciate some suggestions. Regards Clifford ReplyHi Clifford Davies, This plant thrives in a nutrient-rich substrate. It also generally shows the best growth in moderately soft water, so be mindful of your water hardness and pH levels. Best regards, Michael Reply
-### Leave a Reply Cancel reply

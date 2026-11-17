@@ -1,0 +1,187 @@
+{
+  "id": "urocaridella-antonbruunii",
+  "native": {
+    "input": "dba98b121bbde8ca",
+    "at": "2026-11-17T05:18:20.405Z",
+    "claims": [
+      {
+        "code": "KE",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Today the species has a circum-tropical distribution throughout the Indo-West Pacific region, e.g. Kenya, Australia, New Caledonia, Japan, Hawaii, the Comoro Islands, Indonesia, the Great Barrier Reef, the Palau Islands, Dzaoudzi, Pamanzi Island, the Seychelles and the South China Sea.",
+        "words": "Kenya",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Today the species has a circum-tropical distribution throughout the Indo-West Pacific region, e.g. Kenya, Australia, New Caledonia, Japan, Hawaii, the Comoro Islands, Indonesia, the Great Barrier Reef, the Palau Islands, Dzaoudzi, Pamanzi Island, the Seychelles and the South China Sea.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "NC",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Today the species has a circum-tropical distribution throughout the Indo-West Pacific region, e.g. Kenya, Australia, New Caledonia, Japan, Hawaii, the Comoro Islands, Indonesia, the Great Barrier Reef, the Palau Islands, Dzaoudzi, Pamanzi Island, the Seychelles and the South China Sea.",
+        "words": "New Caledonia",
+        "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Today the species has a circum-tropical distribution throughout the Indo-West Pacific region, e.g. Kenya, Australia, New Caledonia, Japan, Hawaii, the Comoro Islands, Indonesia, the Great Barrier Reef, the Palau Islands, Dzaoudzi, Pamanzi Island, the Seychelles and the South China Sea.",
+        "words": "Japan",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Today the species has a circum-tropical distribution throughout the Indo-West Pacific region, e.g. Kenya, Australia, New Caledonia, Japan, Hawaii, the Comoro Islands, Indonesia, the Great Barrier Reef, the Palau Islands, Dzaoudzi, Pamanzi Island, the Seychelles and the South China Sea.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "SC",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Today the species has a circum-tropical distribution throughout the Indo-West Pacific region, e.g. Kenya, Australia, New Caledonia, Japan, Hawaii, the Comoro Islands, Indonesia, the Great Barrier Reef, the Palau Islands, Dzaoudzi, Pamanzi Island, the Seychelles and the South China Sea.",
+        "words": "Seychelles",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Comoro Islands",
+        "source": "aquariumbreeder",
+        "quote": "Urocaridella antonbruunii was initially described from the Comoro Islands.",
+        "ok": true
+      },
+      {
+        "name": "Great Barrier Reef",
+        "source": "aquariumbreeder",
+        "quote": "Today the species has a circum-tropical distribution throughout the Indo-West Pacific region, e.g. Kenya, Australia, New Caledonia, Japan, Hawaii, the Comoro Islands, Indonesia, the Great Barrier Reef, the Palau Islands, Dzaoudzi, Pamanzi Island, the Seychelles and the South China Sea.",
+        "ok": true
+      },
+      {
+        "name": "South China Sea",
+        "source": "aquariumbreeder",
+        "quote": "Today the species has a circum-tropical distribution throughout the Indo-West Pacific region, e.g. Kenya, Australia, New Caledonia, Japan, Hawaii, the Comoro Islands, Indonesia, the Great Barrier Reef, the Palau Islands, Dzaoudzi, Pamanzi Island, the Seychelles and the South China Sea.",
+        "ok": true
+      },
+      {
+        "name": "Palau Islands",
+        "source": "aquariumbreeder",
+        "quote": "Today the species has a circum-tropical distribution throughout the Indo-West Pacific region, e.g. Kenya, Australia, New Caledonia, Japan, Hawaii, the Comoro Islands, Indonesia, the Great Barrier Reef, the Palau Islands, Dzaoudzi, Pamanzi Island, the Seychelles and the South China Sea.",
+        "ok": true
+      },
+      {
+        "name": "Hawaii",
+        "source": "aquariumbreeder",
+        "quote": "Today the species has a circum-tropical distribution throughout the Indo-West Pacific region, e.g. Kenya, Australia, New Caledonia, Japan, Hawaii, the Comoro Islands, Indonesia, the Great Barrier Reef, the Palau Islands, Dzaoudzi, Pamanzi Island, the Seychelles and the South China Sea.",
+        "ok": true
+      },
+      {
+        "name": "Pamanzi Island",
+        "source": "aquariumbreeder",
+        "quote": "Today the species has a circum-tropical distribution throughout the Indo-West Pacific region, e.g. Kenya, Australia, New Caledonia, Japan, Hawaii, the Comoro Islands, Indonesia, the Great Barrier Reef, the Palau Islands, Dzaoudzi, Pamanzi Island, the Seychelles and the South China Sea.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "KM",
+        "PW",
+        "US",
+        "CN"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Urocaridella antonbruunii",
+    "status": "ACCEPTED",
+    "taxonKey": 2225230,
+    "datasets": [
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        12
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        10
+      ],
+      [
+        "da6a07ed-9eee-460d-9448-910f542c1a7b",
+        7
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        7
+      ],
+      [
+        "c6ca96bc-7cf5-4fe7-ac44-d01e06394ef3",
+        5
+      ],
+      [
+        "73a6c4b3-f013-43f7-bcc9-93cf07f98a5d",
+        4
+      ],
+      [
+        "25e3e8f1-86ee-440c-adfc-8e63759a6505",
+        3
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        2
+      ],
+      [
+        "7447a228-a4cf-414b-87e4-3aba15275580",
+        2
+      ],
+      [
+        "79effe08-bb61-4212-8b48-089df14fcb44",
+        2
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        2
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        2
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        2
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        1
+      ],
+      [
+        "8b8c78fb-53d7-434c-b800-61f38b30d0c9",
+        1
+      ],
+      [
+        "8e9974a4-12e2-475f-9aec-5abdf24a1f50",
+        1
+      ]
+    ],
+    "native": [
+      "KE",
+      "AU",
+      "NC",
+      "JP",
+      "ID",
+      "SC"
+    ],
+    "requests": 15,
+    "at": "2026-11-17T05:18:20.405Z"
+  }
+}

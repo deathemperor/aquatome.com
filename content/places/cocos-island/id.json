@@ -3,6 +3,12 @@
   "name": "Pulau Cocos",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-16T11:22:59.400Z",
+    "why": "\"Pulau Cocos\" follows Indonesian style, but the place is listed in PH, JP, LK, WS and FJ, so it looks like a generic or ambiguous \"Cocos Island\" and may not match the Cocos Islands (Keeling) or Costa Rica's Isla del Coco."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

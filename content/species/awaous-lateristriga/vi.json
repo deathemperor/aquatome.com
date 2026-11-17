@@ -1,0 +1,25 @@
+{
+  "slug": "ca-bong-awaous-lateristriga",
+  "name": "Cá bống Awaous lateristriga",
+  "altNames": [],
+  "sections": {
+    "quickFacts:glaser": "<p>Con cá trong bài trông rất giống Awaous lateristriga, nhưng hiện vẫn chưa xác định được nó có đúng là loài này hay không. Awaous lateristriga dài tổng cộng khoảng 30 cm, thuộc hàng cá bống cỡ lớn.</p>",
+    "distribution:glaser": "<p>Cá bống nước ngọt Awaous lateristriga sống ở các vùng ven biển Tây Phi, từ Senegal xuống tới Angola.</p>",
+    "habitat:glaser": "<p>Ngoài tự nhiên, chúng sống ở những nơi nước ngọt như đầm lầy, ruộng ngập nước và những con sông cạn theo mùa. Chúng cũng sống cả ở vùng nước lợ.</p>",
+    "notes:glaser": "<p>Loài này rất hiếm khi được nhập về, nên chuyện nuôi chúng trong bể hầu như chưa ai biết gì. Những loài họ hàng như Awaous flavus thì thỉnh thoảng có người nuôi, và đôi khi, dù hiếm, cũng cho đẻ được. Muốn nuôi và cho đẻ các loài này thì độ mặn của nước phải thay đổi theo từng giai đoạn. Đó là do vòng đời của chúng. Cá bột nở ra trong nước ngọt, rồi trôi theo dòng ra biển hoặc ra cửa sông. Vài tháng sau, chúng lại ngược lên vùng nước ngọt. Cá lớn sống ở đó và vòng sinh sản lại bắt đầu.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-17"
+  }
+}

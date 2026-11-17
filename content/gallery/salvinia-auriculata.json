@@ -11,8 +11,7 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salvinia_auriculata_6.jpg",
       "caption": "Cụm Bèo ong tai chuột nổi riêng lẻ trên mặt nước",
       "best": true,
-      "kind": "habitat",
-      "unchecked": true
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/commons/67352f61716a8fd2.webp",
@@ -24,8 +23,7 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salvinia_auriculata3.JPG",
       "caption": "Thảm Bèo ong tai chuột xanh tươi phủ kín mặt nước",
       "best": true,
-      "kind": "emersed",
-      "unchecked": true
+      "kind": "emersed"
     },
     {
       "url": "https://media.aquatome.com/commons/2b1c03241996ce5e.webp",
@@ -37,20 +35,20 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salvinia_auriculata-yercaud-salem-India.JPG",
       "caption": "Lá Bèo ong tai chuột có lông và giọt nước, nhìn cận",
       "best": true,
-      "kind": "detail",
-      "unchecked": true
+      "kind": "detail"
     },
     {
-      "url": "https://media.aquatome.com/commons/1a70c3174857bfa7.webp",
-      "thumb": "https://media.aquatome.com/commons/1a70c3174857bfa7-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY-SA 4.0",
-      "author": "Yercaud-elango",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salvinia_auriculata-2-lake-yercaud-salem-India.jpg",
-      "caption": "Thảm Bèo ong tai chuột phủ kín mặt nước ven hồ",
+      "url": "https://media.aquatome.com/inaturalist/10704071.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/10704071-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Nicolas Olejnik",
+      "sourceUrl": "https://www.inaturalist.org/photos/10704071",
+      "caption": "Thảm Bèo ong tai chuột dày đặc nổi trên mặt nước",
       "best": true,
       "kind": "habitat",
+      "setup": false,
       "unchecked": true
     },
     {
@@ -63,8 +61,7 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salvinia_auriculata_0179_(3x4).jpg",
       "caption": "Lá Bèo ong tai chuột nổi dày đặc trên mặt nước",
       "best": true,
-      "kind": "emersed",
-      "unchecked": true
+      "kind": "emersed"
     },
     {
       "url": "https://media.aquatome.com/commons/7bca9e9dadcb2dc6.webp",
@@ -77,6 +74,20 @@
       "caption": "Cận cảnh lá Bèo ong tai chuột có lông phủ",
       "best": true,
       "kind": "detail",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/349521572.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/349521572-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Pablo Cauã da Silva Toledo",
+      "sourceUrl": "https://www.inaturalist.org/photos/349521572",
+      "caption": "Bụi Bèo ong tai chuột lá xanh sẫm giữa cây cỏ ven bờ",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
       "unchecked": true
     },
     {
@@ -132,6 +143,20 @@
       "unchecked": true
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/349521682.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/349521682-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Pablo Cauã da Silva Toledo",
+      "sourceUrl": "https://www.inaturalist.org/photos/349521682",
+      "caption": "Bèo ong tai chuột mọc trên nền cát ẩm",
+      "best": false,
+      "kind": "emersed",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/4d137d7381d15909.webp",
       "thumb": "https://media.aquatome.com/commons/4d137d7381d15909-480.webp",
       "width": 1200,
@@ -156,9 +181,119 @@
       "best": false,
       "kind": "habitat",
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/396464614.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/396464614-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Daniel Schelesky",
+      "sourceUrl": "https://www.inaturalist.org/photos/396464614",
+      "caption": "Cụm Bèo ong tai chuột lá xanh mọc trên cạn",
+      "best": false,
+      "kind": "emersed",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/3664248.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/3664248-480.webp",
+      "width": 1024,
+      "height": 770,
+      "licence": "CC BY-SA",
+      "author": "Lena Struwe",
+      "sourceUrl": "https://www.inaturalist.org/photos/3664248",
+      "caption": "Bèo ong tai chuột vàng úa mọc ngoài tự nhiên trên bùn ẩm",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/477918590.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/477918590-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "CC0",
+      "author": "Hugo Saulino",
+      "sourceUrl": "https://www.inaturalist.org/photos/477918590",
+      "caption": "Thảm Bèo ong tai chuột mọc dày trên cạn",
+      "best": false,
+      "kind": "emersed",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/179266072.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/179266072-480.webp",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Diogo Luiz",
+      "sourceUrl": "https://www.inaturalist.org/photos/179266072",
+      "caption": "Bèo ong tai chuột nổi trên mặt nước tối cùng lá rụng",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/206081893.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/206081893-480.webp",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Yoannis Domínguez",
+      "sourceUrl": "https://www.inaturalist.org/photos/206081893",
+      "caption": "Vài cây Bèo ong tai chuột nổi trên mặt nước trong",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/206081495.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/206081495-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Yoannis Domínguez",
+      "sourceUrl": "https://www.inaturalist.org/photos/206081495",
+      "caption": "Cụm Bèo ong tai chuột nhỏ trôi trên mặt nước",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/412461192.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/412461192-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "agujaceratops",
+      "sourceUrl": "https://www.inaturalist.org/photos/412461192",
+      "caption": "Bèo ong tai chuột nổi trên mặt nước tối",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/commons/1a70c3174857bfa7.webp",
+      "thumb": "https://media.aquatome.com/commons/1a70c3174857bfa7-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 4.0",
+      "author": "Yercaud-elango",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salvinia_auriculata-2-lake-yercaud-salem-India.jpg",
+      "caption": "Thảm Bèo ong tai chuột phủ kín mặt nước ven hồ",
+      "best": true,
+      "kind": "habitat"
     }
   ],
-  "seen": 24,
-  "updatedAt": "2026-11-10",
-  "builtAt": "2026-11-10"
+  "seen": 44,
+  "updatedAt": "2026-11-16",
+  "builtAt": "2026-11-16"
 }

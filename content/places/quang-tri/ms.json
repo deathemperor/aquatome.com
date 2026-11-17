@@ -3,6 +3,12 @@
   "name": "Quang Tri",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-16T05:41:12.447Z",
+    "why": "Quang Tri is a province (region), and a Malay atlas in Malaysia would write \"Wilayah Quang Tri\" or \"Provinsi Quang Tri\"; the bare name omits the kind word, though the spelling is acceptable."
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

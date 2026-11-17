@@ -9,7 +9,7 @@ import { METRIC_KINDS } from './metric'
 import { BOUNDS } from './process'
 import { dropEmptyBlocks, fishThaiLai, tidyHeadings, tidyHtml, unescapePlain, unescapeTwice, viWording, wordingSlips } from './sanitize'
 import { LANG_NAME, pageUrl, type Page, type PageKind } from './pages'
-import { FISH_NAMES, oldNames, SWAPPED } from './names'
+import { FISH_NAMES, renamings, SWAPPED } from './names'
 import { PHRASES, phraseSlips } from './phrases'
 import { unfitCommons } from './photos'
 
@@ -1185,12 +1185,17 @@ const swapsIn = (sentence: string) => SWAPS.filter(r => placesIn(r, sentence).le
 // another scientific name stands in brackets beside it ("Cá madtom đốm (Noturus nocturnus)"). A row that keeps its name
 // renames nothing.
 // A longer name it begins ("cá cầu vồng đỏ cá hồi", Salmon red rainbowfish translated) is another name, left as written.
-const RENAMES = FISH_NAMES.flatMap(r => oldNames(r).map(was => {
-  const rests = (r.longer ?? []).filter(n => n.toLowerCase().startsWith(`${was.toLowerCase()} `)).map(n => n.slice(was.length).trim().replace(/ /g, '\\s+'))
-  return { ...r, was, old: new RegExp(word(was.replace(/ /g, '\\s+')), 'giu'), longer: rests.length ? new RegExp(`^\\s+(?:${rests.join('|')})(?!\\p{L})`, 'iu') : undefined }
+// An old name may hold brackets ("Cá cuvieri (Boulengerella cuvieri)"): its words are matched as written, a tag inside
+// its brackets read as a space ("(<em>Gabon lyretail</em>)"). Its words never run across a block's edge (visibleText's
+// line break): "Chọn mua cá</h3><p>Platy…" is no "cá platy".
+const literal = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/ /g, '[^\\S\\n]+')
+  .replace(/\\\(/g, '\\([^\\S\\n]*').replace(/\\\)/g, '[^\\S\\n]*\\)')
+const RENAMES = FISH_NAMES.flatMap(r => renamings(r).map(({ was, name, kindless }) => {
+  const rests = (r.longer ?? []).filter(n => n.toLowerCase().startsWith(`${was.toLowerCase()} `)).map(n => literal(n.slice(was.length).trim()))
+  return { ...r, was, name, kindless, old: new RegExp(word(literal(was)), 'giu'), longer: rests.length ? new RegExp(`^\\s+(?:${rests.join('|')})(?!\\p{L})`, 'iu') : undefined }
 }))
 /** An English name's last word, which no scientific name ends in: "Red rainbowfish", "Congo tetra". */
-const ENGLISH = /(?:fish|tetra|barb|danio|rasbora|molly|platy|guppy|cory|pleco|loach|gourami|cichlid|eyes?|killi|goby|shrimp|snail|crab|rainbow)$/
+const ENGLISH = /(?:fish|tetra|barb|danio|rasbora|molly|platy|guppy|cory|corydoras|pleco|loach|gourami|cichlid|eyes?|killi|goby|shrimp|snail|crab|rainbow)$/
 /**
  * The scientific names in a stretch of text: a capitalised word, or its first letter and a full stop ("G. incisus"), and a
  * lowercase one, not an English name.
@@ -1202,22 +1207,47 @@ const sameSpecies = (a: string, sci: string) => {
   const [g = '', e = ''] = a.split(' '), [G = '', E = ''] = sci.split(' ')
   return (g === G || (g.endsWith('.') && G.startsWith(g.slice(0, -1)))) && stem(e) === stem(E)
 }
-/** In brackets right after the old name, or right before it with a bracket or a dash between. */
+/** Its second word under any genus: the fish moved ("Hoplisoma panda" for Corydoras panda) or its genus misspelt ("Xiphorphorus"). */
+const itsEpithet = (a: string, sci: string) => stem(a.split(' ')[1] ?? '') === stem(sci.split(' ')[1] ?? '')
+/** In brackets right after the old name, or right before it with a bracket or a dash between (-, – or —). */
 const BRACKET_AFTER = /^\s*\(([^()]{0,80})\)/
-const BINOMIAL_BEFORE = /((?:[A-Z][a-z]+\s+|[A-Z]\.\s*)[a-z]+)\s*[(),:–-]\s*\(?\s*$/
+const BINOMIAL_BEFORE = /((?:[A-Z][a-z]+\s+|[A-Z]\.\s*)[a-z]+)\s*[(),:—–-]\s*\(?\s*$/
+/**
+ * "cá" right before a name, a tag between read as spaces ("cá <strong>sặc lùn</strong>"): the whole name, which its own
+ * pass renamed or left ("Trichopsis pumila (cá sặc lùn)").
+ */
+const KIND_BEFORE = /(?<!\p{L})cá[^\S\n]+$/iu
 const renamesIn = (r: (typeof RENAMES)[number], text: string) => [...text.matchAll(r.old)].filter(m => {
   const end = m.index! + m[0].length
   if (r.longer?.test(text.slice(end))) return false
+  if (r.kindless && KIND_BEFORE.test(text.slice(0, m.index!))) return false
   const named = [...binomials(BRACKET_AFTER.exec(text.slice(end, end + 90))?.[1] ?? ''), ...binomials(BINOMIAL_BEFORE.exec(text.slice(Math.max(0, m.index! - 60), m.index!))?.[1] ?? '')]
-  return !named.length || named.some(n => sameSpecies(n, r.sci))
+  return !named.length || named.some(n => itsEpithet(n, r.sci))
 })
+/**
+ * A new name that holds the scientific name takes that name in brackets right after it along: "Hến Corbicula fluminea",
+ * never "Hến Corbicula fluminea (Corbicula fluminea)". The bracket's length, or 0.
+ */
+const ownBracket = (r: (typeof RENAMES)[number], after: string) => {
+  if (!r.name.toLowerCase().includes(r.sci.toLowerCase())) return 0
+  // In the same block: "<h2>Trai nước ngọt Corbicula</h2><p>(Corbicula fluminea) là…" keeps the paragraph's.
+  const b = /^[^\S\n]*\(([^()\n]{0,80})\)/.exec(after)
+  const inside = b?.[1]?.replace(/\s+/g, ' ').trim() ?? ''
+  const named = binomials(inside)
+  return b && named.length === 1 && named[0] === inside && sameSpecies(inside, r.sci) ? b[0].length : 0
+}
+/** Each fish page's old name (FISH_NAMES) written as its name. */
+const renameAll = (was: string) => RENAMES.reduce((s, r) => {
+  const seen = visibleText(s)
+  return splice(s, renamesIn(r, seen).map(m => ({ index: m.index!, length: m[0].length + ownBracket(r, seen.slice(m.index! + m[0].length)), to: asWritten(m[0], r.name) })))
+}, was)
 /** Text with each fish page's old name (FISH_NAMES) written as its name, as renameSwapped does first: a photo's caption. */
 export const renameFishNames = (text: string) => {
   const was = text.normalize('NFC')
-  const out = RENAMES.reduce((s, r) => splice(s, renamesIn(r, visibleText(s)).map(m => ({ index: m.index!, length: m[0].length, to: asWritten(m[0], r.name) }))), was)
+  const out = renameAll(was)
   return out === was ? text : out
 }
-const asWritten = (m: string, name: string) => (m[0] === m[0]!.toLowerCase() ? name[0]!.toLowerCase() + name.slice(1) : name)
+const asWritten = (m: string, name: string) => (m[0] === m[0]!.toLowerCase() ? name[0]!.toLowerCase() : name[0]!.toUpperCase()) + name.slice(1)
 /**
  * What a reader sees, at the same offsets: a tag between blocks (a paragraph's, a list item's, a heading's, a line break)
  * ends a sentence, one inside a sentence (<em>) is a space. The rule reads HTML this way too.
@@ -1250,7 +1280,7 @@ const splice = (raw: string, at: { index: number; length: number; to: string }[]
  */
 export function renameSwapped(text: string) {
   const was = text.normalize('NFC')
-  const renamed = RENAMES.reduce((s, r) => splice(s, renamesIn(r, visibleText(s)).map(m => ({ index: m.index!, length: m[0].length, to: asWritten(m[0], r.name) }))), was)
+  const renamed = renameAll(was)
   const seenText = visibleText(renamed)
   const at: { index: number; length: number; to: string }[] = []
   let from = 0
@@ -1274,7 +1304,7 @@ export const renameSwappedIn = <V>(v: V): V => (typeof v === 'string' ? renameSw
 
 /**
  * A stored Vietnamese page with old names renamed in what its reader reads and the rule checks: its name (one a person
- * fixed stays), text, summary, FAQ, and a product's reviews and tests. Its other names (searches find it by them) and the
+ * fixed stays), text, summary, FAQ, a video's chapters, and a product's reviews and tests. Its other names (searches find it by them) and the
  * sources' references stay. The same object when nothing changes.
  */
 export function renameStored<T extends { name?: string; nameFixed?: boolean; sections?: Record<string, string> }>(t: T): T {
@@ -1282,7 +1312,7 @@ export function renameStored<T extends { name?: string; nameFixed?: boolean; sec
     ...t,
     ...(t.name !== undefined && !t.nameFixed ? { name: renameSwapped(t.name) } : {}),
     ...(t.sections ? { sections: Object.fromEntries(Object.entries(t.sections).map(([k, v]) => [k, k.startsWith('references') ? v : renameSwapped(v)])) } : {}),
-    ...Object.fromEntries(['body', 'definition', 'summary', 'faq', 'reviews', 'tested'].flatMap(k => (k in t ? [[k, renameSwappedIn((t as Record<string, unknown>)[k])]] : []))),
+    ...Object.fromEntries(['body', 'definition', 'summary', 'faq', 'chapters', 'reviews', 'tested'].flatMap(k => (k in t ? [[k, renameSwappedIn((t as Record<string, unknown>)[k])]] : []))),
   }
   return JSON.stringify(next) === JSON.stringify(t) ? t : next
 }

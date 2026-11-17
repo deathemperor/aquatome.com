@@ -1,8 +1,13 @@
 {
   "id": "corydoras-longipinnis",
-  "temperament": null,
+  "temperament": "peaceful",
   "finNipper": false,
-  "schoolMin": null,
-  "speciesUpdatedAt": "2026-10-30",
-  "generatedAt": "2026-10-30T13:47:17.288Z"
+  "schoolMin": 7,
+  "speciesUpdatedAt": "2026-11-16",
+  "rules": {
+    "temperament": "b745c1cd5bd4",
+    "finNipper": "63a8978926d9",
+    "schoolMin": "bf8e33607d74"
+  },
+  "generatedAt": "2026-11-16T19:52:18.183Z"
 }

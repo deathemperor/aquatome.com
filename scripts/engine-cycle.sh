@@ -28,24 +28,30 @@ if [ "$PART" = sf ] && [ -n "${ENGINE_ARGS:-}" ]; then log "targeted run: the pa
 deploy() { gh workflow run deploy.yml -R "${GITHUB_REPOSITORY:-deathemperor/aquatome.com}" --ref main; }
 # Push this part's commit on top of whatever landed during the run (code, the other parts' content).
 push() {
-  local main
+  local main run moved
   for _ in 1 2 3; do
-    main=$(git rev-parse '@{u}' 2>/dev/null || true)
+    # main: the commit this work sits on, not the last main fetched, which a fetch before this pull (catch_up's, stopped
+    # after its fetch) may have moved: swept_pull then sees main's commits come in (a reader's catch, 16 Nov).
+    main=$(git merge-base HEAD '@{u}' 2>/dev/null || true) run=$(git rev-parse HEAD) moved=
     if ! net git pull -q --rebase; then
       local clash; clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
       log "another part changed the same files: $clash"
       git rebase --abort 2>/dev/null || true
-      # Its clashing lines give way to this part's (photo verdicts are re-applied every cycle); then checked again
-      # (verify_cycle: the tests).
+      # Its clashing lines give way to this part's (photo verdicts are re-applied every cycle), but for a page's hold, which
+      # follows the record that won (main_holds); then checked again (verify_cycle: the tests).
       if net git pull -q --rebase -X theirs; then
         replan_merged "$clash"
+        main_holds "$run" || true
         sweep_merged
         verify_cycle || { keep_unpublished "$PART"; log "build/tests failed after that merge, not publishing"; return 1; }
       else
         git rebase --abort 2>/dev/null || true
       fi
-    elif ! swept_pull "$main"; then
-      verify_cycle || { keep_unpublished "$PART"; log "build/tests failed after the sweep on main's changes, not publishing"; return 1; }
+    else
+      main_holds "$run" || moved=1
+      if ! swept_pull "$main" || [ -n "$moved" ]; then
+        verify_cycle || { keep_unpublished "$PART"; log "build/tests failed after the sweep on main's changes, not publishing"; return 1; }
+      fi
     fi
     net git push -q && return 0
     sleep 30
@@ -125,6 +131,9 @@ git config merge.changelog.driver 'node scripts/merge-changelog.mjs %O %A %B'
 git config merge.jsonmap.driver 'node scripts/merge-json-map.mjs %O %A %B'
 # Each run rewrites the fit reports, so keep the current side when they clash.
 git config merge.regenerated.driver true
+# Picture files two jobs both write: a pull merges them value by value, never a picture built from two (.gitattributes,
+# scripts/merge-main-whole.mjs). Only in the engine's clones: in anyone else's checkout a rebase would drop their edits.
+if engine_clone || engine_cloud; then git config merge.main-whole.driver 'node scripts/merge-main-whole.mjs %O %A %B %P'; fi
 # Two parts can make the same new page (from Glaser and from Seriously Fish): merge it by source, not by whole file.
 git config merge.entity.driver 'node scripts/merge-entity.mjs %O %A %B'
 pnpm install --frozen-lockfile --silent
@@ -320,6 +329,13 @@ if part rewrite; then
     ahead pnpm engine localize-equipment --lang "$lang" --limit "${LOCALIZE_EQUIPMENT_AHEAD_LIMIT:-2}"
     ahead pnpm engine localize-cards --lang "$lang"
   done
+  # Indonesian and Thai fish pages out of search for their score, read afresh on two models, Sonnet then Opus
+  # (localize-recheck.ts): back when both pass and no read of the text has a note on a dose or harm (the chief of staff,
+  # 16 Nov 2026). One try a text. Pages the translator wrote in the last day go first, so a new page its first read failed
+  # has its two reads in the same cycle. RECHECK_LIMIT pages a language a cycle (120 a day at about 4 cycles), on its own
+  # line in ceilings.json ("recheck", GitHub's side, where this part runs), gated as the steps above: a cycle that has run
+  # long gives it first, and it starts no page after RECHECK_MINUTES, so it ends inside the job as they do.
+  for lang in id th; do ahead pnpm engine recheck --lang "$lang" --limit "${RECHECK_LIMIT:-15}" --max-minutes "${RECHECK_MINUTES:-15}"; done
   # Indonesian, Thai and Malay place names, each judged alone against its source's sentence (place-judge.ts), after every
   # translation, Malay's too (the rewrites and translations spend first, cycle-languages.test.ts): the
   # unjudged first, the lowest batch score first, JUDGE_PLACES_LIMIT a cycle (the chief of staff, 15 Nov 2026: at most

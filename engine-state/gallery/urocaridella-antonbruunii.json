@@ -14,18 +14,32 @@
   "File:Camarón de Bruun (Urocaridella antonbruunii), Anilao, Filipinas, 2023-08-24, DD 190.jpg",
   "File:Camarón de Bruun (Urocaridella antonbruunii), Anilao, Filipinas, 2023-08-24, DD 191.jpg",
   "File:Camarón de Bruun (Urocaridella antonbruunii), Nosy Iranja, Madagascar, 2025-09-17, DD 73.jpg",
-  "File:Camarón de Bruun (Urocaridella antonbruunii), Nosy Iranja, Madagascar, 2025-09-17, DD 74.jpg"
+  "File:Camarón de Bruun (Urocaridella antonbruunii), Nosy Iranja, Madagascar, 2025-09-17, DD 74.jpg",
+  "inat:608338086",
+  "inat:609416584",
+  "inat:734229335",
+  "inat:734229328"
  ],
  "hashes": {
   "https://media.aquatome.com/aquariumbreeder/37a54ab284530b62.webp": "986f18298c28509f",
   "https://media.aquatome.com/commons/d66a44ffcab1eae8.webp": "cecd43674fde7e7e",
   "https://media.aquatome.com/commons/7621ec7551cd3161.webp": "96134727459084cc",
   "https://media.aquatome.com/commons/c16ee9e220cb3722.webp": "9400020602020022",
-  "https://media.aquatome.com/commons/4b6e5c07a52aa44c.webp": "7c5cccccaca4380e",
   "https://media.aquatome.com/commons/7f8ae180d1adfe77.webp": "2072660c082e0484",
   "https://media.aquatome.com/commons/69b066d41a5dc559.webp": "3a1c9f99623132a7",
   "https://media.aquatome.com/commons/be5cf8fcd5ea41fa.webp": "3f3f3f7f7d3e326a",
-  "https://media.aquatome.com/commons/ad80fe40afef6521.webp": "35242c64a4a13101"
+  "https://media.aquatome.com/commons/ad80fe40afef6521.webp": "35242c64a4a13101",
+  "https://media.aquatome.com/inaturalist/608338086.webp": "0436929a92198900",
+  "https://media.aquatome.com/inaturalist/609416584.webp": "e0f8c8c8d0c0c606",
+  "https://media.aquatome.com/inaturalist/734229328.webp": "0824bb1c4fd74f85"
  },
- "commons": "2026-11-10"
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": 123395,
+  "pass": "done",
+  "after": {
+   "research": 400141953,
+   "agree": 379107286
+  }
+ }
 }

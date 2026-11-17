@@ -3,6 +3,12 @@
   "name": "Parnahyba",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T00:09:47.246Z",
+    "why": "\"Parnahyba\" is an old Portuguese spelling of Parnaíba, and the place is listed in Paraguay, Brazil and Argentina, so the record is ambiguous. A Malaysian atlas would use the modern spelling \"Parnaíba\", or \"Sungai Parnaíba\" if it means the river."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

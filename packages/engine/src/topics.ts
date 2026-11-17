@@ -15,7 +15,7 @@ import { lethalFigures, NAMES_TREATMENT } from './fit'
 import { steadyRead } from './quality'
 import { VI_STYLE as STYLE } from './phrases'
 import { TANK_RULE, withTanks } from './round'
-import { foreignSeasons } from './seasons'
+import { foreignSeasons, rendered } from './seasons'
 
 /**
  * What a source is: the research tags each one, and the writers and the checker get each fact's source with its kind, so a
@@ -71,6 +71,12 @@ export const FACTS_SCHEMA = {
 
 export type TopicAsk = { topic: string; kind: GuideEntity['kind'] }
 
+/**
+ * Research for a guide and for a glossary term (glossary-entry.ts uses this prompt too). A figure keeps its page's place (the
+ * chief of staff, 17 Nov 2026): research had written "applies equally to Vietnam" onto a Singapore shop's thaw time and
+ * "relevant to Vietnam's hot season" onto other countries' pages, every one of them filed under the "vietnam" section,
+ * which stays as it is: hot-season and power-cut facts still go there, saying the place their page names.
+ */
 export const researchPrompt = (a: TopicAsk) => `Research this freshwater fishkeeping topic for a Vietnamese aquarium handbook: "${a.topic}" (kind: ${a.kind}). Use WebSearch and WebFetch. Search in English and in Vietnamese.
 
 Prefer aquatic vets, universities and extension services (for example UF/IFAS, Merck Veterinary Manual), makers' own documentation, and long-time hobbyist articles; forums only for what keepers report. Collect facts, each with the index of its source in sources[] and one section:
@@ -79,7 +85,7 @@ Prefer aquatic vets, universities and extension services (for example UF/IFAS, M
 - sources: every page used, once each: its URL, its title as the page itself gives it (never a description of what you found there), and its kind, by who wrote it and for whom: ${KINDS.map(k => `${k}: ${SOURCE_KINDS[k]}`).join('; ')}.
 - found: false if this is not a real fishkeeping topic or nothing reliable was found.
 
-Rules: facts in your own words, short, one claim each. Keep numbers and units as sources give them. If sources disagree, keep each fact with its own source. A dose a source gives for one product: name the product in the fact. A dose from a farm page or a forum post is used only when another page, not a farm's, gives the same dose: search for one, and put its index in the fact's also. Leave out a test's lethal level (LC50, LD50, the level that killed half the animals tested): give what the source says is safe or harmful, or that the substance is toxic at low levels. Never fetch Shopee, Lazada or Tiki pages.`
+Rules: facts in your own words, short, one claim each. Keep numbers and units as sources give them. A figure keeps its page's place: a figure a page gives for one country, city or climate (room temperatures in Singapore, a pond's in Florida) names that place in the fact, as the page does. Never add that a fact applies to Vietnam, or to anywhere wider than the page names ("relevant to Vietnam's hot season", "applies equally to Vietnam"): a fact from a page outside Vietnam says Vietnam only where the page itself does. If sources disagree, keep each fact with its own source. A dose a source gives for one product: name the product in the fact. A dose from a farm page or a forum post is used only when another page, not a farm's, gives the same dose: search for one, and put its index in the fact's also. Leave out a test's lethal level (LC50, LD50, the level that killed half the animals tested): give what the source says is safe or harmful, or that the substance is toxic at low levels. Never fetch Shopee, Lazada or Tiki pages.`
 
 /**
  * A dose a reader would measure out, in a fact's words: an amount, or a salt's percentage. The owner's chief, 8 Nov 2026,
@@ -187,6 +193,14 @@ export type Written = { name: string; summary: string[]; body: string; faq: { q:
  * this, not what the writer sent (Astra's read: "<div>ฤดู</div><div>ใบไม้ผลิ</div>" passed and was saved as "ฤดูใบไม้ผลิ",
  * and "musim&amp;#32;panas" passed and was saved as "musim panas").
  */
+/**
+ * The facts' source numbers as a copy prints them to readers, each once, read as the reader reads the text (seasons.ts,
+ * rendered: tags gone, entities read): Thai "แหล่งที่ 3", "แหล่งข้อมูลที่ ๓"; Indonesian and Malay "sumber 0", "sumber ke-2".
+ * A source's number is under 100, so a year isn't one, and a number with a decimal, a unit or a range after it is a measure
+ * ("air sumber 24,5 °C", the source water's). (Codex's reads of #1588: the Thai form alone let the others through.)
+ */
+const SOURCE_NUMBER = /แหล่ง(?:ข้อมูล)?\s*ที่\s*[0-9๐-๙]{1,2}(?![0-9๐-๙])|(?<!\p{L})sumber\s*(?:ke-?\s*|no\.?\s*|nomor\s*|nombor\s*|#\s*)?[0-9]{1,2}(?![0-9])(?!\s*(?:[.,][0-9]|[°℃%‰x×~–-]|(?:sampai|hingga|ml|l|liter|litre|mg|g|kg|cm|mm|m|ppm|ppt|dgh|dkh|gh|kh|jam|hari|minggu|bulan|tahun|menit|detik|ekor|kali)(?!\p{L})))/giu
+export const sourceNumbers = (text: string) => [...new Set([...rendered(text).matchAll(SOURCE_NUMBER)].map(m => m[0]))]
 const savedText = (w: Written) => {
   const p = plainParts(w.summary ?? [], w.faq ?? [])
   return [unescapePlain(w.name), ...p.summary, sanitizeHtml(w.body), ...p.faq.flatMap(f => [f.q, f.a])].join('\n')
@@ -237,8 +251,8 @@ export function viFacts(researched: TopicFacts) {
 /**
  * viFacts with every source research may not read cited by no address, so it goes, and the facts resting on it alone with
  * it: a marketplace's page, or one on a host the engine reads only at its own pace (cycle-only.ts, the magazine read for
- * ideas among them). Research is denied those hosts, but may still name a page it found through search (the chief of
- * staff, 14 Nov 2026).
+ * ideas among them), or a site refused as a source (cycle-only.ts REFUSED_SITES). Research is denied those hosts, but may
+ * still name a page it found through search (the chief of staff, 14 Nov 2026).
  */
 async function citedFacts(root: string, researched: TopicFacts) {
   const off = await cycleOnlyHosts(root)
@@ -415,17 +429,32 @@ export async function localizeTopic(root: string, llm: Llm, id: string, lang: Ta
       tries.push(r)
       if (r.score > review.score) { w = again; review = r }
     }
-    // A season none of its readers' countries has (seasons.ts), written once more with the condition in its place; a copy
-    // that still names one isn't saved (the chief of staff, 13 Nov 2026: eight guides' copies told readers in Indonesia,
-    // Thailand and Malaysia about a summer, a winter or koi fed by spring and autumn).
-    const named = foreignSeasons(savedText(w), lang)
-    if (named.length) {
-      const fixed = await write([`It names another place's season: ${named.map(s => `"${s}"`).join(', ')}. Write the condition the facts tie to it instead, and leave the season out.`, ...review.notes])
+    // What a copy may not say to its readers, read in what this write puts on the page (a body a person fixed is kept, below,
+    // so only the parts written now): a season none of its readers' countries has (seasons.ts; the chief of staff, 13 Nov
+    // 2026: eight guides' copies told readers in Indonesia, Thailand and Malaysia about a summer, a winter or koi fed by
+    // spring and autumn), and the facts' source numbers, which readers never see (17 Nov 2026: the quarantine guide's Thai
+    // copy said "(แหล่งที่ 0)" 55 times though the prompt says not to). Written once more without them; a copy that still
+    // says either, the rewrite's own included (Codex's read of #1588), isn't saved, and every try's review is logged, none
+    // of them kept (Astra's read).
+    const prev = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as Translation | null
+    const said = (x: Written) => {
+      const text = savedText(prev?.bodyFixed ? { ...x, body: '' } : x)
+      return { seasons: foreignSeasons(text, lang), numbers: sourceNumbers(text) }
+    }
+    const found = said(w)
+    if (found.seasons.length || found.numbers.length) {
+      const fixed = await write([
+        ...(found.seasons.length ? [`It names another place's season: ${found.seasons.map(s => `"${s}"`).join(', ')}. Write the condition the facts tie to it instead, and leave the season out.`] : []),
+        ...(found.numbers.length ? [`It prints the facts' source numbers, which readers never see: ${found.numbers.map(s => `"${s}"`).join(', ')}. Name each source by its kind instead ("one source", a shop, a vet), and leave the numbers out.`] : []),
+        ...review.notes,
+      ])
       const r = await check(fixed)
       tries.push(r)
-      const left = foreignSeasons(savedText(fixed), lang)
-      // Not saved, and every try's review logged, none of them kept (Astra's read).
-      if (left.length) { await logReviews(root, 'topic', { id: `guides/${id}`, lang }, tries, undefined); return { id, skipped: `names another place's season: ${left.join(', ')}` } }
+      const left = said(fixed)
+      if (left.seasons.length || left.numbers.length) {
+        await logReviews(root, 'topic', { id: `guides/${id}`, lang }, tries, undefined)
+        return { id, skipped: [left.seasons.length ? `names another place's season: ${left.seasons.join(', ')}` : '', left.numbers.length ? `prints its facts' source numbers: ${left.numbers.join(', ')}` : ''].filter(Boolean).join('; ') }
+      }
       w = fixed
       review = r
     }
@@ -435,7 +464,6 @@ export async function localizeTopic(root: string, llm: Llm, id: string, lang: Ta
       const t = JSON.parse(await readFile(join(root, 'content/guides', g, `${lang}.json`), 'utf8').catch(() => '{}')) as { slug?: string }
       if (t.slug) taken.add(t.slug)
     }
-    const prev = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as Translation | null
     const name = unescapePlain(w.name).trim()
     const slug = prev?.slug ?? pickSlug(lang === 'th' || !slugify(name) ? w.slug : name.replace(/:.*$/, ''), T.slugWords.guide, taken)
     // A body a person fixed (bodyFixed) is theirs, as in Vietnamese above: a redo keeps it and its mark (the chief of

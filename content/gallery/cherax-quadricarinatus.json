@@ -14,14 +14,14 @@
       "kind": "male"
     },
     {
-      "url": "https://media.aquatome.com/commons/be5985790c975877.webp",
-      "thumb": "https://media.aquatome.com/commons/be5985790c975877-480.webp",
-      "width": 1023,
-      "height": 709,
+      "url": "https://media.aquatome.com/commons/7c853da4debe3982.webp",
+      "thumb": "https://media.aquatome.com/commons/7c853da4debe3982-480.webp",
+      "width": 1200,
+      "height": 675,
       "licence": "CC BY-SA 4.0",
       "author": "Bleckdraco",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Notte_da_grande.jpg",
-      "caption": "Tôm hùm đất xanh dương trưởng thành, càng viền cam, trong bể",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Notte_prima_della_muta.jpg",
+      "caption": "Tôm hùm đất xanh càng lớn trong bể cảnh",
       "best": true,
       "kind": "form"
     },
@@ -48,18 +48,6 @@
       "caption": "Tôm hùm đất đỏ Úc màu xanh dưới nước",
       "best": true,
       "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/7c853da4debe3982.webp",
-      "thumb": "https://media.aquatome.com/commons/7c853da4debe3982-480.webp",
-      "width": 1200,
-      "height": 675,
-      "licence": "CC BY-SA 4.0",
-      "author": "Bleckdraco",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Notte_prima_della_muta.jpg",
-      "caption": "Tôm hùm đất xanh càng lớn trong bể cảnh",
-      "best": true,
-      "kind": "form"
     },
     {
       "url": "https://media.aquatome.com/commons/5dd9a0d4b88ab3c3.webp",
@@ -158,16 +146,18 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/341901977.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/341901977-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Hayley P",
-      "sourceUrl": "https://www.inaturalist.org/photos/341901977",
-      "caption": "Tôm hùm đất đỏ Úc nhìn từ trên xuống, càng xanh",
+      "url": "https://media.aquatome.com/flickr/48427772772.webp",
+      "thumb": "https://media.aquatome.com/flickr/48427772772-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-SA 2.0",
+      "author": "Nature.Catcher",
+      "sourceUrl": "https://www.flickr.com/photos/96826734@N08/48427772772",
+      "caption": "Tôm hùm đất đỏ Úc trong tự nhiên, trên lá khô",
       "best": true,
-      "kind": "other"
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/381752742.webp",
@@ -180,18 +170,6 @@
       "caption": "Tôm hùm đất đỏ Úc màu xanh sẫm trên mặt đất",
       "best": false,
       "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/2dd9d13f909b3f6d.webp",
-      "thumb": "https://media.aquatome.com/commons/2dd9d13f909b3f6d-480.webp",
-      "width": 1023,
-      "height": 575,
-      "licence": "CC BY-SA 4.0",
-      "author": "Bleckdraco",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ares_senza_chele.jpg",
-      "caption": "Tôm hùm đất xanh dương nhìn nghiêng trong bể thủy sinh",
-      "best": true,
-      "kind": "form"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/6192389.webp",
@@ -216,6 +194,42 @@
       "caption": "Tôm hùm đất đỏ Úc xanh càng lớn trên nền bê tông",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/be5985790c975877.webp",
+      "thumb": "https://media.aquatome.com/commons/be5985790c975877-480.webp",
+      "width": 1023,
+      "height": 709,
+      "licence": "CC BY-SA 4.0",
+      "author": "Bleckdraco",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Notte_da_grande.jpg",
+      "caption": "Tôm hùm đất xanh dương trưởng thành, càng viền cam, trong bể",
+      "best": true,
+      "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/341901977.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/341901977-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Hayley P",
+      "sourceUrl": "https://www.inaturalist.org/photos/341901977",
+      "caption": "Tôm hùm đất đỏ Úc nhìn từ trên xuống, càng xanh",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/2dd9d13f909b3f6d.webp",
+      "thumb": "https://media.aquatome.com/commons/2dd9d13f909b3f6d-480.webp",
+      "width": 1023,
+      "height": 575,
+      "licence": "CC BY-SA 4.0",
+      "author": "Bleckdraco",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ares_senza_chele.jpg",
+      "caption": "Tôm hùm đất xanh dương nhìn nghiêng trong bể thủy sinh",
+      "best": true,
+      "kind": "form"
     },
     {
       "url": "https://media.aquatome.com/commons/df1e9f856e27cbba.webp",
@@ -350,7 +364,7 @@
       "kind": "form"
     }
   ],
-  "seen": 123,
-  "updatedAt": "2026-11-08",
-  "builtAt": "2026-11-08"
+  "seen": 124,
+  "updatedAt": "2026-11-15",
+  "builtAt": "2026-11-15"
 }

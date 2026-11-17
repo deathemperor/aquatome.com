@@ -1,0 +1,226 @@
+{
+  "id": "phoxinus-phoxinus",
+  "scientificName": "Phoxinus phoxinus",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Phoxinus",
+  "group": "other",
+  "places": [
+    "europe",
+    "france",
+    "garonne",
+    "united-kingdom",
+    "ireland",
+    "asia",
+    "amur",
+    "anadyr",
+    "korea"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 8,
+          "max": 20
+        },
+        "ref": 1
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 7,
+          "max": 7.5
+        },
+        "ref": 0
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 10,
+          "max": 20
+        },
+        "ref": 0
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquatome",
+        "value": 14,
+        "ref": 0
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này có bán trong ngành cá cảnh. Ngoài ra, người ta còn đánh bắt nó với quy mô nhỏ và hay dùng làm mồi câu.</p><p><em>Phoxinus phoxinus</em> là loài khỏe nhưng chịu nóng kém, nên phải nuôi trong nước mát.</p><p>Ngoài tiệm hay có hai loài khác bán dưới cái tên na ná: Rainbow minnow (<em>Notropis chrosomus</em>) và Gold minnow (<em>Pimephales promelas</em> 'Gold'). Đó là những loài khác hẳn, không phải loài này.</p>",
+      "refs": [
+        0,
+        1
+      ]
+    },
+    {
+      "key": "distribution",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này phân bố rộng khắp lục địa Á-Âu, từ sông Garonne ở Pháp sang tới lưu vực sông Anadyr, sông Amur và bán đảo Triều Tiên. Nó có mặt ở các lưu vực đổ ra Đại Tây Dương, biển Bắc, biển Baltic, Bắc Băng Dương và bắc Thái Bình Dương. Ở Anh, nó lên tới vĩ độ 58° Bắc.</p><p><em>Phoxinus phoxinus</em> là cá bản địa của Anh. Riêng ở Ireland thì có thể nó do người thả vào.</p>",
+      "refs": [
+        0,
+        2
+      ]
+    },
+    {
+      "key": "habitat",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Ngoài tự nhiên, loài này sống trong nước lạnh, giàu oxy, từ những con suối nhỏ chảy xiết cho tới các hồ lớn. Nó thường sống chung chỗ với các loài cá họ hồi (cá hồi, cá hồi suối).</p><p>Chúng sống gần đáy, ở cả nước ngọt lẫn nước lợ, và có di cư trong sông.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Bể cho loài này tối thiểu phải 200 lít, rộng hơn thì càng tốt.</p><p>Chiều dài bể tối thiểu, độ khó và tuổi thọ của loài này hiện chưa có nguồn nào công bố.</p>",
+      "refs": [
+        1
+      ]
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Trong bể, loài này cần dòng chảy mạnh và nước nhiều oxy. Nhiệt độ nằm trong khoảng 8–20 °C, pH 7–7,5, độ cứng 10–20 dGH.</p>",
+      "refs": [
+        0,
+        1
+      ]
+    },
+    {
+      "key": "diet",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Đây là loài ăn tạp nhưng thích đồ ăn động vật hơn. Ngoài tự nhiên, nó ăn tảo, mảnh vụn thực vật, động vật thân mềm, giáp xác và côn trùng.</p><p>Trong bể, nó chịu ăn cám vảy. Nên cho thêm lăng quăng, bo bo và artemia, loại tươi hay đông lạnh đều được.</p>",
+      "refs": [
+        0,
+        1
+      ]
+    },
+    {
+      "key": "behaviour",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p><em>Phoxinus phoxinus</em> là loài sống bầy, hiền và hiếu động. Chúng bơi thành đàn sát nhau và bơi nhiều.</p><p>Loài này nuôi chung được với gudgeon, bitterling và whitefish.</p>",
+      "refs": [
+        0,
+        1
+      ]
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Mùa sinh sản, con đực lên màu đậm hơn và mọc các nốt sần trắng trên đầu và nắp mang. Con cái thì đầy đặn và to hơn con đực.</p>",
+      "refs": [
+        1
+      ]
+    },
+    {
+      "key": "reproduction",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Ngoài tự nhiên, loài này đẻ vào mùa xuân. Tới mùa, chúng ngược dòng lên chỗ nền sỏi sạch có nước chảy, hoặc lên bờ hồ có sóng vỗ, rồi rải trứng lên sỏi hay cây thủy sinh.</p><p>Cho đẻ trong bể thì được nhưng khó. Đẻ xong phải vớt cá bố mẹ ra.</p>",
+      "refs": [
+        0,
+        1
+      ]
+    },
+    {
+      "key": "notes",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p><em>Phoxinus phoxinus</em> là một loài trong họ cá chép (Cyprinidae), bộ Cypriniformes. Linnaeus mô tả loài này từ năm 1758. Trong tài liệu cũ, nó còn mang tên <em>Phoxinus laevis</em>. Tên tiếng Anh của nó gồm European minnow, Eurasian minnow, common minnow, hay gọn là minnow.</p><p>Con trưởng thành dài khoảng 14 cm. Nó được xem là loài có lẽ đẹp nhất trong các loài cá nước ngọt bản địa của Anh, nhất là lúc lên màu sinh sản. Trong Sách Đỏ IUCN, loài này xếp ở mức Ít quan ngại (Least Concern), theo đánh giá ngày 12/1/2024.</p>",
+      "refs": [
+        0,
+        1,
+        2
+      ]
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/60e55cdb3970a4b1.webp",
+      "width": 903,
+      "height": 600,
+      "licence": "CC BY-SA 3.0",
+      "author": "Etrusko25",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phoxinus.jpg",
+      "caption": "Phoxinus lumaireul photographed in northern Italy. Photo by Carlo Morelli - Forum Natura Mediterraneo",
+      "thumb": "https://media.aquatome.com/commons/60e55cdb3970a4b1-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/273689f8492cec6c.webp",
+      "width": 960,
+      "height": 480,
+      "licence": "CC BY-SA 4.0",
+      "author": "Totti",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phoxinus_phoxinus_Biwako.jpg",
+      "caption": "ヒメハヤ。琵琶湖博物館飼育展示個体。",
+      "thumb": "https://media.aquatome.com/commons/273689f8492cec6c-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "I06OsUgQIiA",
+      "title": "Quick Dip into the European Minnow - Phoxinus phoxinus",
+      "durationSec": 39,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Yo5MYoZEGZg",
+      "title": "Phoxinus phoxinus #shorts",
+      "durationSec": 33,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "78WC_UAUo58",
+      "title": "Eurasian Minnows Phoxinus phoxinus",
+      "durationSec": 122,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "J_aEw4Rr0JA",
+      "title": "A bankside shoal of European Minnows (Phoxinus phoxinus) in the River Little Ouse, Santon Downham",
+      "durationSec": 180,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-17",
+  "refs": [
+    {
+      "url": "https://www.fishbase.se/summary/Phoxinus-phoxinus.html",
+      "title": "Phoxinus phoxinus, Eurasian minnow : fisheries, aquarium, bait"
+    },
+    {
+      "url": "https://www.zoo-roco.ch/en/index.php/detail/9786eb2732f64f9989e9a4e4632dba8a",
+      "title": "Minnow | Zoo Roco"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=I06OsUgQIiA",
+      "title": "Quick Dip into the European Minnow - Phoxinus phoxinus"
+    },
+    {
+      "url": "https://aquadiction.world/species-spotlight/eurasian-minnow/",
+      "title": "Eurasian Minnow - Phoxinus phoxinus Fish Profile & Care Guide"
+    }
+  ]
+}

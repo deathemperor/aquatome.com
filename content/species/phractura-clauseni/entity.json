@@ -1,0 +1,143 @@
+{
+  "id": "phractura-clauseni",
+  "scientificName": "Phractura clauseni",
+  "order": "Siluriformes",
+  "family": "Amphiliidae",
+  "genus": "Phractura",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "burkina-faso",
+    "black-volta",
+    "ivory-coast",
+    "comoe",
+    "nigeria",
+    "ogun-river",
+    "cameroon",
+    "benue"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_clauseni.htm",
+      "html": "<p>Family: Amphiliidae. Size: 8 cm. Temperature: 20–24°C. pH: 6.5–7.2. IUCN status: Least Concern (LC), as the species is widely distributed with no known major widespread threats.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_clauseni.htm",
+      "html": "<p>West-central Africa: tributaries of the Comoe and Black Volta Rivers, Upper Volta, Ogun River, Nigeria, and Upper Benoue River, Cameroon. Type locality: Haute Comoé à Samago Iri.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_clauseni.htm",
+      "html": "<p>These catfish inhabit fast flowing waters and spend a lot of their time clinging to aquatic leaves. If you provide long stemmed plants, such as Vallisneria, you will see this habit.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_clauseni.htm",
+      "html": "<p>To keep this species and other members of this African hillstream family you will have to provide a well oxygenated planted aquarium and keep up your water changes, as they are not as hardy as their South American equivalents.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_clauseni.htm",
+      "html": "<p>Commonly known as 'African Whiptails', these catfish at first glance look superficially like South American whiptails of the Rineloricaria/Hemiloricaria genera. Description: dorsal spines 0; dorsal soft rays 7; anal spines 2; anal soft rays 7–9. Body shape elongated. Diagnosis: pectoral-fin tips not reaching pelvic-fin bases; pelvic-fin insertions behind a vertical line from the last dorsal-fin ray; snout long, over 55% of head length; posterior nostrils separated from orbits by a distance about equal to orbit width and not separated by a bony crest; humeral process pointed; branchiostegal membrane with a shallow ventral invagination; width of occipital process 3.5–6 times in its length.</p><p>Etymology: the specific name clauseni honours Claus Herluf Stenholt Clausen (1921–2002), a California-born Danish ichthyologist and biologist who collected in Liberia (1965), wrote Tropical Old World Cyprinodonts (1967) and collected the holotype.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_clauseni.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2025. FishBase. www.fishbase.org.</p><p>Olaosebikan, B.D., Entsua-Mensah, M. &amp; Lalèyè, P. 2020. Phractura clauseni. The IUCN Red List of Threatened Species 2020.</p><p>Skelton, P.H., L.M. Risch and D. Paugy, 2003. Amphiliidae. p. 117-143 In C. Lévêque, D. Paugy and G.G. Teugels (eds.) Faune des poissons d'eaux douce et saumâtres de l'Afrique de l'Ouest, Tome 2. Coll. Faune et Flore tropicales 40. Musée Royal de l'Afrique Centrale, Tervuren, Belgique, Museum National d'Histoire Naturalle, Paris, France and Institut de Recherche pour le Développement, Paris, France. 815 p.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/00ce09c0e5b64750.webp",
+      "thumb": "https://media.aquatome.com/scotcat/00ce09c0e5b64750-480.webp",
+      "width": 500,
+      "height": 283,
+      "licence": "dùng với sự cho phép",
+      "author": "Oliver Drescher / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_clauseni.htm",
+      "caption": "Phractura clauseni",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/3497614707543b3c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/3497614707543b3c-480.webp",
+      "width": 500,
+      "height": 322,
+      "licence": "dùng với sự cho phép",
+      "author": "Oliver Drescher / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_clauseni.htm",
+      "caption": "Phractura clauseni: mouth view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/ed800e34ecc96646.webp",
+      "thumb": "https://media.aquatome.com/scotcat/ed800e34ecc96646-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Oliver Drescher / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_clauseni.htm",
+      "caption": "Phractura clauseni: From Iguidi River, Benin",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc thùng bể cá",
+        "sủi oxy bể cá"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây vallisneria",
+        "cây thủy sinh thân dài"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test nước bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

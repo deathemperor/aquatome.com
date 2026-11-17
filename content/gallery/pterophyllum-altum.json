@@ -50,18 +50,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/145416143.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/145416143-480.webp",
-      "width": 576,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Afonso Nóbrega",
-      "sourceUrl": "https://www.inaturalist.org/photos/145416143",
-      "caption": "Cá ông tiên altum bơi trên nền cát trong bể",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/commons/4a03034a5cf34a09.webp",
       "thumb": "https://media.aquatome.com/commons/4a03034a5cf34a09-480.webp",
       "width": 1200,
@@ -148,6 +136,18 @@
       "best": false,
       "kind": "other",
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/145416143.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/145416143-480.webp",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Afonso Nóbrega",
+      "sourceUrl": "https://www.inaturalist.org/photos/145416143",
+      "caption": "Cá ông tiên altum bơi trên nền cát trong bể",
+      "best": true,
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/df845c128407e904.webp",

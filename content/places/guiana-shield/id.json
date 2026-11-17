@@ -3,6 +3,12 @@
   "name": "Perisai Guiana",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-16T11:25:16.826Z",
+    "why": "Indonesian atlases usually write \"Dataran Tinggi Guyana\" (or \"Perisai Guyana\"), not \"Perisai Guiana\". Guiana is spelled \"Guyana\" in Indonesian, so the spelling here is off, even though \"Perisai\" for \"shield\" is acceptable."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

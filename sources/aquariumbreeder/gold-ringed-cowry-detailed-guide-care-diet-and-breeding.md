@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/gold-ringed-cowry-detailed-guide-care-diet-and-breeding/
 title: Gold-Ringed Cowry – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-10-29T07:39:05.293Z
-hash: 19b27f92a242c17579c6eafef07ef5771e4c6493774bcddd0dea968e48ac2b62
+hash: 98f87ac5753cc49740acc20a900157890866463deff5b57410333cbaffac36e4
 ---
 
 Monetaria annulus, commonly known as Gold-ringed cowry, usually attracts aquarium enthusiasts not so much with the shape of their shells, but rather with their very unusual coloring and pattern.
@@ -121,6 +121,3 @@ As for keeping them in the tank, this is a simple species to care for. Even begi
 - LATUPEIRISSA, LOUVENSKA N., and FREDY LEIWAKABESSY. “Species density and shell morphology of gold ring cowry (Monetaria annulus, Linnaeus, 1758)(Mollusca: Gastropoda: Cypraeidae) in the coastal waters of Ambon Island, Indonesia.” Biodiversitas Journal of Biological Diversity21, no. 4 (2020).
 - Irie, T., and B. Adams. “Sexual dimorphism in soft body weight in adult Monetaria annulus (Family Cypraeidae).” Veliger49, no. 3 (2007): 209-211.
 - Irie, Takahiro, and Naoko Morimoto. “Intraspecific variations in shell calcification across thermal window and within constant temperatures: experimental study on an intertidal gastropod Monetaria annulus.” Journal of Experimental Marine Biology and Ecology483 (2016): 130-138.
-## 2 thoughts on “Gold-Ringed Cowry – Detailed Guide: Care, Diet, and Breeding”
-- I keep these! They’re my absolute favourite algae-eating marine snail; I find them much hardier than turbo snails (which I find to die jas fast as red shirted people on Star Trek,) and I haven’t ever noticed my hermits bothering them (probably as the shells are useless to them.) They’re very pretty and I love whenever I happen to notice them cruising around, although I will note that most shops seem to charge more for them than other snails, which is a shame given how utilitarian they are. ReplyHey PurrlingReef, Thanks so much for sharing your experience! And the Star Trek reference? Perfect Interesting point about hermits leaving them alone. I mean that the shell shape being useless to them, but that makes perfect sense! It’s a shame about the price, though. Thanks again for the great feedback! Best regards, Michael Reply
-### Leave a Reply Cancel reply

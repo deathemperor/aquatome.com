@@ -1,8 +1,8 @@
 {
   "id": "satanoperca-mapiritensis",
   "native": {
-    "input": "8e41050194bc534c",
-    "at": "2026-11-14T11:07:07.888Z",
+    "input": "24be4a2783e60cdc",
+    "at": "2026-11-16T05:47:36.414Z",
     "claims": [
       {
         "code": "VE",
@@ -19,25 +19,20 @@
         "quote": "Similar-looking fish have been collected in rivers draining towards Guyana, e.g., the Río Cuyuni, but it is unclear whether they are conspecific or not.",
         "words": "Guyana",
         "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Venezuela.",
+        "words": "Venezuela",
+        "ok": false,
+        "why": "no sentence"
       }
     ],
     "regions": [
       {
-        "name": "Orinoco",
-        "source": "seriouslyfish",
-        "quote": "Native to the lower Río Orinoco basin in the states of Anzoátegui, Monagas, and Bolivar in northern Venezuela, including major affluents such as the ríos Caura and Caroní.",
-        "country": "VE",
-        "ok": true
-      },
-      {
-        "name": "Caura",
-        "source": "seriouslyfish",
-        "quote": "Native to the lower Río Orinoco basin in the states of Anzoátegui, Monagas, and Bolivar in northern Venezuela, including major affluents such as the ríos Caura and Caroní.",
-        "country": "VE",
-        "ok": true
-      },
-      {
-        "name": "Caroní",
+        "name": "Río Orinoco",
         "source": "seriouslyfish",
         "quote": "Native to the lower Río Orinoco basin in the states of Anzoátegui, Monagas, and Bolivar in northern Venezuela, including major affluents such as the ríos Caura and Caroní.",
         "country": "VE",

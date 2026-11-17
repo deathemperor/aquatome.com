@@ -61,7 +61,7 @@ const creditOf = (i: HTMLElement) => {
   for (let n = i.parentNode as HTMLElement | null; n && n.tagName; n = n.parentNode as HTMLElement | null) {
     if (n.rawTagName?.toLowerCase() !== 'figure') continue
     const line = n.querySelector('figcaption [class*="credit"]')
-    return (line && clean(inline(line))) || undefined
+    return (line && clean(dropEmails(inline(line)))) || undefined
   }
   return undefined
 }
@@ -72,7 +72,7 @@ function pageImage(i: HTMLElement): PageImage | null {
   const w = Number(i.getAttribute('width')) || undefined
   const h = Number(i.getAttribute('height')) || undefined
   const set = (i.getAttribute('srcset') ?? i.getAttribute('data-srcset') ?? '').split(',').map(c => c.trim().split(/\s+/)).flatMap(([u, d]) => (u && d?.endsWith('w') ? [{ u, w: Number.parseInt(d) }] : [])).sort((a, b) => b.w - a.w)[0]
-  const alt = clean(i.getAttribute('alt') ?? '')
+  const alt = clean(dropEmails(i.getAttribute('alt') ?? ''))
   if (set && (!w || set.w > w)) return { src: set.u, alt, width: set.w, ...(w ? { displayWidth: w } : {}), ...(h ? { displayHeight: h } : {}) }
   return src ? { src, alt, ...(w ? { displayWidth: w } : {}), ...(h ? { displayHeight: h } : {}) } : null
 }
@@ -99,11 +99,44 @@ function headings(scope: HTMLElement): Map<HTMLElement, string> {
  */
 const AD_INSERTS = '.humix-universal-js-insert, .ez-video-wrap, .ezoic-ad, [id^="ezoic-pub-ad-placeholder"]'
 
+/**
+ * A page's comments: the box readers write in, with each commenter's name, words and picture. Never the article: on 16 Nov
+ * Aquarium Breeder's comments were found read as its text (78 stored copies, readers' questions in 7 published guides), and
+ * only the size floor kept its commenters' pictures from the photo picker. The usual WordPress boxes, then any picture left.
+ */
+const COMMENTS = '#comments, .comments-area, #respond, .comment-respond, .comment-list, .commentlist, .wp-block-comments, .wp-block-post-comments, img.avatar'
+
+/**
+ * An email address: a writer's in a forum post's header ("From: … (address) Date: …"), or one asking readers to write. A
+ * person's, never the article's, and the repository is public: never kept (six stored files held one on 17 Nov), in the
+ * text, the title, a picture's alt text or its credit. In brackets, the brackets go too. Letters of any language before
+ * and after the "@", and a quoted name before it, are one; a picture's name ("@2x.png") isn't, nor anything inside a web
+ * address (".../photos/fish@archive.example.com"), which stays whole (Codex's reads, 17 Nov).
+ */
+const ADDRESS = String.raw`(?:mailto:)?(?<![\p{L}\p{M}\p{N}._%+/-])(?:"[^"\n]{1,64}"|[\p{L}\p{M}\p{N}._%+-]+)@[\p{L}\p{M}\p{N}-]+(?:\.[\p{L}\p{M}\p{N}-]+)*\.(?!(?:png|jpe?g|gif|webp|svg|avif|bmp|tiff?|heic|heif)(?![\p{L}\p{N}]))\p{L}{2,}(?![\p{L}\p{M}\p{N}-])`
+const EMAIL = new RegExp(String.raw`\s*[(<[]\s*${ADDRESS}\s*[)>\]]|${ADDRESS}`, 'giu')
+/** A web address, kept whole: an "@" in it is its own. */
+const WEB = /\b(?:https?:\/\/|www\.)[^\s<>"]+/gi
+/** An "@" or a quote written as a character reference, as a page's markup may hold them before anything decodes it. */
+const AT = /&#0*64;|&#x0*40;|&commat;/gi
+const QUOTE = /&quot;|&#0*34;|&#x0*22;/gi
+/** A text without its email addresses (EMAIL). Only one with an "@" is looked at: a long run of letters costs nothing. */
+export const dropEmails = (s: string): string => {
+  const t = s.replace(AT, '@').replace(QUOTE, '"')
+  if (!t.includes('@')) return s
+  let out = '', at = 0
+  for (const m of t.matchAll(WEB)) { out += t.slice(at, m.index).replace(EMAIL, '') + m[0]; at = m.index + m[0].length }
+  out += t.slice(at).replace(EMAIL, '')
+  // A text with no address stays as it was, character references and all: a stored copy's hash moves only for an address.
+  return out === t ? s : out
+}
+
 export function htmlToOutline(html: string, contentSelector?: string): { title: string; outline: string; images: PageImage[] } {
   const root = parse(html, { comment: false })
-  const title = clean(root.querySelector('title')?.text ?? root.querySelector('h1')?.text ?? '')
+  const title = clean(dropEmails(root.querySelector('title')?.text ?? root.querySelector('h1')?.text ?? ''))
   const scope = (contentSelector && root.querySelector(contentSelector)) || root.querySelector('main') || root.querySelector('article') || root.querySelector('body') || root
   for (const ad of scope.querySelectorAll(AD_INSERTS)) ad.remove()
+  for (const box of scope.querySelectorAll(COMMENTS)) box.remove()
   const under = headings(scope)
   const images = scope.querySelectorAll('img').flatMap(i => {
     const p = pageImage(i)
@@ -118,15 +151,15 @@ export function htmlToOutline(html: string, contentSelector?: string): { title: 
 }
 
 /** Page furniture that changes without the article changing (prices, newsletter, related/featured lists). */
-const TAIL = /^#{1,6}\s*(subscribe|recent (blog )?posts|featured products|related (articles|posts|products)|you may also like|more from|newsletter|share this|comments?)\b/i
+const TAIL = /^#{1,6}\s*(subscribe|recent (blog )?posts|featured products|related (articles|posts|products)|you may also like|more from|newsletter|share this|comments?|(\d+|one)\s+(thoughts?|comments?|responses?|replies)\s+(on|to)(?=\s*["“‘'])|leave a (reply|comment))\b/i
 const PRICE = /\b(regular|sale|unit) price\b|\$\s?\d[\d.,]*(\s?USD)?|€\s?\d[\d.,]*|\b\d[\d.,]*\s?(USD|EUR|€)\b|\b(sold out|variant sold out or unavailable|shipping calculated at checkout\.?|add to cart|in stock|out of stock)(?!\w)/gi
 
-/** Keep the article: cut at the first furniture heading, strip prices and stock words, collapse blank runs. */
+/** Keep the article: cut at the first furniture heading, strip prices, stock words and email addresses, collapse blank runs. */
 export function denoise(outline: string): string {
   const lines = outline.split('\n')
   const cut = lines.findIndex((l, i) => i > 0 && TAIL.test(l))
   return (cut > 0 ? lines.slice(0, cut) : lines)
-    .map(l => l.replace(PRICE, '').replace(/\s{2,}/g, ' ').trimEnd())
+    .map(l => dropEmails(l).replace(PRICE, '').replace(/\s{2,}/g, ' ').trimEnd())
     .filter((l, i, a) => l.trim() !== '' || (i > 0 && a[i - 1]!.trim() !== ''))
     .join('\n').trim()
 }

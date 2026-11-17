@@ -1,8 +1,13 @@
 {
   "slug": "rio-javari",
-  "name": "Javari",
+  "name": "Sungai Javari",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-17T00:12:04.147Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

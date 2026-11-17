@@ -3,7 +3,7 @@ import sharp from 'sharp'
 import type { Photo, SourceId } from '@aq/schema'
 import { parse } from 'node-html-parser'
 import { ArchiveRefused } from './archive'
-import type { PageImage } from './outline'
+import { dropEmails, type PageImage } from './outline'
 import { creditKind, type CreditKind } from './photo-credit'
 import { ARTWORK } from './photos'
 
@@ -16,6 +16,8 @@ const EXTRA_DOWNLOADS = 4
 const THUMBNAIL = /\/(?:icons?|thumbs?|thumbnails?)\//i
 
 const JUNK = /logo|icon|sprite|avatar|banner|badge|placeholder|gravatar|payment|flag|button|spinner|loader|emoji|pixel|tracking/i
+/** A commenter's picture by its address: a Gravatar file is a bare hash, so the file name alone never shows it (16 Nov). */
+const AVATAR = /^https?:\/\/([a-z0-9-]+\.)*gravatar\.com\/|\/avatars?\//i
 /** QR codes for the page's own address (PlanetCatfish: quickchart.io/qr?…, /cache/qr/…). */
 const QR = /\/qr(\/|\?|$)/i
 const SCENERY = /habitat|biotope|locality|\bmap\b/i
@@ -59,7 +61,7 @@ export function pickSourcePhotos(images: PageImage[], pageUrl: string, names: st
   for (const img of [...images.filter(i => !newlyEligible(i)), ...images.filter(newlyEligible)]) {
     let src: string
     try { src = new URL(img.src, pageUrl).href } catch { continue }
-    if (!/^https?:/.test(src) || /\.(svg|gif)(\?|$)/i.test(src) || JUNK.test(`${file(src)} ${img.alt}`) || QR.test(src)) continue
+    if (!/^https?:/.test(src) || /\.(svg|gif)(\?|$)/i.test(src) || JUNK.test(`${file(src)} ${img.alt}`) || AVATAR.test(src) || QR.test(src)) continue
     if (img.link && linksElsewhere(img.link, pageUrl)) continue
     const thumbnailWidth = Number(file(src).match(/-(\d+)x\d+\.[a-z0-9]+$/i)?.[1])
     if ((newlyEligible(img) && THUMBNAIL.test(src)) || (thumbnailWidth && thumbnailWidth < minWidth)) continue
@@ -120,9 +122,10 @@ export async function linkedPhotos(html: string, pageUrl: string, photoPage: Reg
     // The credit follows the image; the site's own "©2026 SCOTCAT.COM" footer is further down.
     const at = page.indexOf(img.getAttribute('src')!)
     const author = page.slice(at, at + 600).match(/(?:©|&copy;)(?:\s|&nbsp;|<[^>]+>)*([^<]+)/)?.[1]?.replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim()
+    const credit = author && dropEmails(author).replace(/\s+/g, ' ').trim()
     const width = Number(img.getAttribute('width')) || undefined
     const height = Number(img.getAttribute('height')) || undefined
-    out.push({ src: new URL(img.getAttribute('src')!, u).href, alt: (img.getAttribute('alt') ?? '').replace(/\s*=\s*/, ': ').trim(), ...(width ? { displayWidth: width } : {}), ...(height ? { displayHeight: height } : {}), page: u, ...(author ? { author } : {}) })
+    out.push({ src: new URL(img.getAttribute('src')!, u).href, alt: dropEmails(img.getAttribute('alt') ?? '').replace(/\s*=\s*/, ': ').replace(/\s+/g, ' ').trim(), ...(width ? { displayWidth: width } : {}), ...(height ? { displayHeight: height } : {}), page: u, ...(credit ? { author: credit } : {}) })
   }
   return out
 }

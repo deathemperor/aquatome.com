@@ -1,0 +1,60 @@
+{
+  "id": "thiara-cancellata",
+  "native": {
+    "input": "cee8721a9b72782a",
+    "at": "2026-11-16T17:28:41.839Z",
+    "claims": [
+      {
+        "code": "PH",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "The distribution of Hairy Snails is limited to the Philippines.",
+        "words": "Philippines",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Thiara cancellata",
+    "status": "ACCEPTED",
+    "taxonKey": 8184774,
+    "datasets": [
+      [
+        "0214a6a7-898f-4ee8-b888-0be60ecde81f",
+        5
+      ],
+      [
+        "e2980e63-d152-4219-8c1e-0ffdef3ea6aa",
+        3
+      ],
+      [
+        "763f9aee-060c-4d71-a538-16c383e53a4d",
+        2
+      ],
+      [
+        "a307e4d7-1de2-4adc-95d5-a0a8d5f57236",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "PH"
+    ],
+    "requests": 12,
+    "at": "2026-11-16T17:28:41.839Z"
+  }
+}

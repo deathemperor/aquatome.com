@@ -1,8 +1,13 @@
 {
   "slug": "rakuto-river",
-  "name": "Nakdong",
+  "name": "Sungai Nakdong",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-16T05:41:19.026Z"
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

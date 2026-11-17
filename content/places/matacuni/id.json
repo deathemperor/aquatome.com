@@ -3,6 +3,12 @@
   "name": "Matacuni",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-16T17:15:38.894Z",
+    "why": "The source describes the Matacuni River basin, so the bare name \"Matacuni\" drops the river or basin kind word that an Indonesian atlas would normally include."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

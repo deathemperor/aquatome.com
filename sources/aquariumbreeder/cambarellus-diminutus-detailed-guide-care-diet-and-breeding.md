@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/cambarellus-diminutus-detailed-guide-care-diet-and-breeding/
 title: Cambarellus Diminutus – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-11-04T07:10:44.779Z
-hash: 64096745e25502d06d40da528c0f1978e342027443cd805a10f5b3943ac4367c
+hash: d704cda00dc43d526fb823367a7f822f1bb0d64c2e4a4aaba44f92ee73de79ec
 ---
 
 Today I would like to talk about the smallest known crayfish species in the world, with adults rarely reaching 2.5 cm (1 inch) total length. Cambarellus diminutus absolutely gorgeous and beautiful crayfish can be a great addition to any aquarium or paludarium setup.
@@ -166,6 +166,3 @@ Tasmanian Crayfish Profile. The Largest Crayfish in the World
 - Garden ponds as potential introduction pathway of ornamental crayfish. Knowledge and Management of Aquatic Ecosystems (2014) 414, 13. DOI: 10.1051/kmae/2014019
 - Imports of ornamental crayfish: the first decade from the Czech Republic’s perspective. Knowledge and Management of Aquatic Ecosystems (2015) 416, 04. DOI: 10.1051/kmae/2014040.
 - Distribution and habitat use by dwarf crayfishes (Decapoda: Cambaridae: Cambarellus). Wetlands, Vol. 16, #4 1996.
-## 2 thoughts on “Cambarellus Diminutus – Detailed Guide: Care, Diet, and Breeding”
-- What types of crabs can the be kept with I have thai micro and pom pom crabs ReplyHi Mark Smith, Ideally, I wouldn’t recommend keeping your crabs with other species as they may be bullied. The only somewhat viable option would be Ghost Dwarf Crabs. Best regards, Michael Reply
-### Leave a Reply Cancel reply

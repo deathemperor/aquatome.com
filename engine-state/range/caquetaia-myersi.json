@@ -1,0 +1,64 @@
+{
+  "id": "caquetaia-myersi",
+  "native": {
+    "input": "6df0af12d1f37862",
+    "at": "2026-11-16T11:31:54.968Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It occurs in the wild in Colombia, far from the usual collecting sites.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Caquetaia myersi",
+    "status": "ACCEPTED",
+    "taxonKey": 2371477,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        19
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        6
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6424b95e-eee2-41fc-9450-bac5d6767525",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 12,
+    "at": "2026-11-16T11:31:54.968Z"
+  }
+}

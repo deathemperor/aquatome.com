@@ -10,6 +10,40 @@
     "paraguay",
     "peru"
   ],
+  "range": {
+    "records": {
+      "taxonKey": 2343342,
+      "total": 11,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "CO",
+          9
+        ],
+        [
+          "BR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -71.71875,
+          -4.21875,
+          9
+        ],
+        [
+          -68.90625,
+          -11.25,
+          1
+        ],
+        [
+          -57.65625,
+          -7.03125,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -38,7 +72,18 @@
       "html": "<p>T. brevis can be kept problem free with small tetras, but one should better keep no Corydoras, especially C. pygmaeus, along with Tridensimilis.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/aee25c928d1d4fe8.webp",
+      "thumb": "https://media.aquatome.com/glaser/aee25c928d1d4fe8-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/tridensimilis_brevis_en/",
+      "source": "glaser"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "qAL2WJTvGJg",

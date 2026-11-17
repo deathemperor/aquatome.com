@@ -237,6 +237,13 @@
           "min": 6,
           "max": 8
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 6,
+          "max": 6.5
+        }
       }
     ],
     "gh": [
@@ -251,6 +258,10 @@
     "sizeCm": [
       {
         "source": "seriouslyfish",
+        "value": 100
+      },
+      {
+        "source": "glaser",
         "value": 100
       }
     ],
@@ -275,10 +286,22 @@
       "html": "<p>The clown featherback, Chitala ornata, is a large notopterid native to the Mae Klong, Chao Phraya and Mekong river systems of Thailand and Indochina. Also traded as the 'clown knifefish', it has rows of large ocellated spots above the anal-fin base and is regularly misidentified as C. chitala. It grows to 1000 mm SL and arguably has no place in the ornamental hobby, yet it remains popular, with albino and leucistic forms line-bred for the purpose.</p><p>Rated difficult because it needs a tank at least 2 m long.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/chitala_ornata_clown_featherback_en/",
+      "html": "<p>The Clown Featherback is well known to the hobby and has been imported as early as 1934 from South-East Asia. They are nocturnal fish and when they get older they become solitary.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/chitala-ornata",
       "html": "<p>Native to the Mae Klong, Chao Phraya, and Mekong river systems in Thailand, plus the Mekong basin in Laos, Cambodia, and Vietnam.</p><p>It has been introduced to Myanmar and the Philippines, where it is cultured for food, and the U.S.A., where a population has become established in Palm Beach County, Florida state.</p><p>Type locality was given simply as 'Indian Seas'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/chitala_ornata_clown_featherback_en/",
+      "html": "<p>Laos, Thailand, Cambodia, Mekong.</p>"
     },
     {
       "key": "habitat",
@@ -305,10 +328,28 @@
       "html": "<ul><li>Temperature: 20–28°C (68–82°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/chitala_ornata_clown_featherback_en/",
+      "html": "<p>The water should be soft (below 5 degrees German hardness) and slightly acidic (pH 6.0-6.5).</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/chitala_ornata_clown_featherback_en/",
+      "html": "<p>The fish tank should be decorated with dense patches of plants on the sides and back but should be kept with enough swimming space. A couple of hiding places made with stones and bogwood should not be omitted. These fish prefer shady areas and therefore floating plants should be added as well.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/chitala-ornata",
       "html": "<p>An obligate, typically nocturnal, predator feeding on smaller fishes, crustaceans and other invertebrates in nature but in most cases adapting well to dead alternatives in captivity.</p><p>Young fish can be offered chironomid larvae (bloodworm), small earthworms, chopped prawn and suchlike while adults will accept strips of fish flesh, whole prawns/shrimp, mussels, live river shrimp, larger earthworms, etc., as well as dried pellets although the latter should not form the staple diet.</p><p>This species should not be fed mammalian or avian meat such as beef heart or chicken since some of the lipids contained in these cannot be properly metabolised by the fish and may cause excess fat deposits and even organ degeneration.</p><p>Similarly there is no benefit in the use of 'feeder' fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction and at any rate tend not have a high nutritional value unless properly conditioned beforehand.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/chitala_ornata_clown_featherback_en/",
+      "html": "<p>These fish are predatory. They take all kinds of live food (worms, insects and their larvae, molluscs and fish). Small cut meat, preferably crab meat, is taken as well.</p>"
     },
     {
       "key": "behaviour",
@@ -333,6 +374,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/chitala-ornata",
       "html": "<p>This species is also referred to as 'clown knifefish' in the aquarium trade but arguably has no place in the ornamental hobby given its adult size and specialised requirements. It remains inexplicably popular, however, with albino and leucistic forms having been line-bred for the purpose while apparent hybrids with C. blanci also appear from time-to-time.</p><p>It can be distinguished from all congeners by presence of one or more rows of large ocellated spots above the base of the anal-fin, but is regularly misidentified as the congener C. chitala both in the aquarium trade and hobbyist literature. C. chitala is easily distinguished since it possesses non-ocellated spots above the anal-fin and is the only member of the genus in which a series of transverse gold or silver bars is normally present on the dorsum.</p><p>Notopterids are distributed in Africa and Southeast Asia and all possess an elongated anal-fin which is continuous with the caudal-fin, a 'humped' appearance, very small scales, plus the ability to breathe atmospheric air.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/chitala_ornata_clown_featherback_en/",
+      "html": "<p>C. ornata is the biggest representative of the family. It has been published that individuals have been grown up to 1 metre in length. These animals are favoured as food fish in the countries they originate from.</p>"
     },
     {
       "key": "references",
@@ -377,5 +424,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-17"
 }

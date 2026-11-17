@@ -473,6 +473,125 @@
       "kept": false
     }
   ],
+  "vi/products/jbl-e902": [
+    {
+      "at": "2026-11-17T01:47:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.8,
+      "notes": [
+        "\"Đáy lọc không được nằm thấp hơn mặt nước quá 180 cm\" - facts say max 180 cm height difference from the water surface to the bottom of the filter; this is roughly consistent, no real issue.",
+        "\"Hai nguồn ghi khác nhau ở chiều dài bể nhỏ nhất (80 cm và 90 cm)\" - an interpretation, but supported by the facts (80–120 vs 90–120).",
+        "\"Máy rất bền\" / \"nhiều người biết tới\" for EHEIM - the facts say \"very reliable\" and \"well-known\", so supported.",
+        "\"JBL ghi thể tích thùng lọc là 7,6 l\" - supported.",
+        "\"Bể 60 cm dùng e902 được không? ... Bể dưới 90 lít thì e402 hoặc e702\" - mixes length with volume; a 60 cm tank is not directly covered by the facts, so the recommendation is a mild inference.",
+        "\"JBL CristalProfi e702 greenline: rẻ hơn\" - the facts say cheaper, but give no e902 price to compare; this is mildly supported only by the alternatives note.",
+        "\"Máy có sẵn nút mồi nước để khởi động nhanh\" - supported by the built-in quick-start priming device.",
+        "\"Cánh quạt hỏng thì có được bảo hành không? Không\" - a slight over-generalization: the facts say wear parts such as the impeller and shaft aren't covered, so this is acceptable."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-17T01:47:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.325",
+      "score": 0.8,
+      "notes": [
+        "\"Đáy lọc không được nằm thấp hơn mặt nước quá 180 cm\" is consistent with the facts, so it is fine. The next items are the real problems.",
+        "\"Hai nguồn lệch nhau ở chiều dài bể nhỏ nhất\" is the page's own inference. It is roughly supported (80 vs 90 cm), so it is minor.",
+        "\"Bể dưới 90 lít thì chọn e402 hoặc e702\" is supported by the facts. But \"Bể trên 300 lít ... khi đó e1502 mới đủ\" is an extrapolation, because the facts only say e1502 covers 160–600 l.",
+        "\"Bể 60 cm dùng e902 được không?\" implies a 60 cm tank is unsuitable. This is inferred from the 80–120 cm rating and is acceptable.",
+        "\"Xem luôn van có đang khóa bớt dòng không\": the facts say 'throttled flow', not a valve. This is a small paraphrase.",
+        "\"Dòng của nó yếu hơn e902 ... nhưng máy rất bền bỉ\": the facts support this ('very reliable'). The phrase \"nhiều người biết tới\" is a paraphrase of 'well-known'.",
+        "\"e702 ... rẻ hơn\" is supported by the facts, but the page leaves out the price.",
+        "\"Khóa van lại là tháo được thùng lọc mang đi rửa\": the facts only say the water-stop valve lets you disconnect the filter for cleaning. The step-by-step instruction is slightly embellished.",
+        "\"Máy có sẵn nút mồi nước để khởi động nhanh\" is supported by the facts ('built-in quick-start priming device')."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/products/oase-biomaster": [
+    {
+      "at": "2026-11-15T19:55:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.8,
+      "notes": [
+        "\"Cả bốn cỡ đều có bản Thermo, và cỡ máy càng lớn thì sưởi càng mạnh\" - the heater wattages are supported (150/200/300/400 W), so this is mostly fine, but \"càng lớn càng mạnh\" is an inference.",
+        "\"Bản 600 ver2 cũng được shop ghi cho bể dưới 600 L\" - the facts only list it with source 2, with no mention of a shop.",
+        "\"Khi đóng nắp lại, xem gioăng còn lành và đã đặt khớp chưa\" - this is advice not in the facts, though it follows from the gasket cause.",
+        "\"Eheim ... chạy êm\" and \"JBL ... ăn ít điện, có bán ở nhiều nơi\" - consistent with the facts. \"cùng tầm giá\" is supported.",
+        "\"bể sẽ giữ được vi sinh tốt hơn\" - the facts say it helps keep the cycle going; this is a mild paraphrase.",
+        "\"Bản thường không kèm sưởi\" - supported by \"heater not included (non-Thermo)\".",
+        "\"Trong hộp có ống 16 mm, bông lọc và vật liệu lọc cơ bản\" - supported."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-15T19:55:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.323",
+      "score": 0.62,
+      "notes": [
+        "\"Bản này hợp với bể nuôi cá to, cá hay quậy, hoặc bể mà người nuôi không muốn thấy thiết bị trong bể\" - recommendation not in facts.",
+        "\"Bể đặt trong phòng ngủ thì nên tính đến điểm này\" - unsupported advice.",
+        "\"Rửa lọc thô đều tay thì bông lọc chính bên trong ít bị bẩn hơn\" - facts only say pre-filter protects main wool; mild stretch.",
+        "\"Như vậy bể giữ được chu trình nitơ, không phải chạy vi sinh lại từ đầu\" - overstated vs. 'helps keep the cycle going'.",
+        "\"Riêng mức sưởi của bản 850 thì chỉ các shop ghi chứ hãng không ghi\" - facts say 400 W per retailers; claim about the manufacturer not listing it is an extrapolation.",
+        "\"Bể 200 L thì dùng BioMaster 250 có đủ không?\" - the FAQ implies the 250 is possibly insufficient; 162 GPH reviewer judgement gets presented in a misleading way and the '40–55 gallon' is from a single review; also 'không nên chọn máy sát cỡ bể' is an unsupported recommendation.",
+        "\"Khi đóng nắp, xem lại gioăng đã nằm đúng rãnh và còn lành chưa\" - groove detail is invented.",
+        "\"Mỗi cỡ đều có bản thường và bản Thermo\" - facts list Thermo as 250/350/600/850, acceptable, but 'công suất sưởi tăng theo cỡ máy' ok; 'Đời BioMaster 2... Khi mua cần xem kỹ shop bán đời nào' is extra advice.",
+        "\"Một người chơi đo lưu lượng thực tế thấp hơn nhiều so với cỡ bể ghi trên hộp\" - the reviewer measured 162 GPH and suggested a smaller tank; the claim 'lower flow than box tank size' is a loose reinterpretation.",
+        "\"Từ bản 350 trở lên\" noise comparison is supported; \"cá không bị bỏng vì dính vào sưởi\" is acceptable."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/products/oase-filtosmart-100-thermo": [
+    {
+      "at": "2026-11-17T07:48:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.85,
+      "notes": [
+        "\"Cỡ càng lớn thì lưu lượng càng cao và sưởi càng mạnh\" is a generalization, though it is supported by the variant specs.",
+        "\"cũng có sưởi tích hợp và chứa được nhiều vật liệu lọc hơn\" for BioMaster: the facts say a built-in heater and more media, so this is supported.",
+        "\"Khí trong thùng tự thoát ra ngoài\" is supported by the auto-venting fact.",
+        "The page does not state the main spec numbers (600 L/h, 11 W, 100 W). That is an omission, not an error.",
+        "\"Bản GB/INT chạy 230 V\" is supported by the facts.",
+        "The opening sentence calls the unit \"lọc thùng nhỏ gọn có sưởi\" and recommends it, yet the Thermo is not sold in Vietnam. The page does disclose this."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-17T07:48:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.85,
+      "notes": [
+        "\"Nếu đặt lọc thấp hơn bể nhiều thì nên tính theo con số thấp hơn cho chắc\" – advice not in the facts (the facts only say listings disagree); it also misreads what head height means.",
+        "\"Phần lọc giống hệt\" for FiltoSmart 100 no heater – the facts say same flow rate and tank size, not that the filter is identical.",
+        "\"Mỗi bản có sưởi với công suất tương ứng\" – vague; the facts do give 100/200/300 W, so this is only a minor generality.",
+        "\"Khí trong thùng tự thoát ra ngoài\" – roughly supported (air vents automatically).",
+        "\"Lấy vật liệu lọc ra rửa\" – the facts only say the lid opens quickly to get at the media; washing is not mentioned.",
+        "\"Chứa được nhiều vật liệu lọc hơn\" for the BioMaster – supported (more media).",
+        "\"Tháo ra vệ sinh ít đổ nước\" – supported."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/products/tuya-smart-life-power-strip": [
     {
       "at": "2026-11-09T06:23:13Z",

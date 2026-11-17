@@ -512,12 +512,14 @@ final class LightFlowTests: XCTestCase {
   }
 
   func testTheDayPreviewPlaysOnTheLightThenTheScheduleRunsAgain() {
-    // Forty seconds (the site's ten, slowed): the light holds full for about twelve, longer than a slow runner's look.
-    let app = launch("-preview-seconds", "40")
+    // Ninety seconds (the site's ten, slowed): the light holds full for about 26 of them (from 47 s to 73 s), and the
+    // frames read keep only the last twelve, which the evening's dimming then replaces. At forty seconds it held full
+    // for twelve, and a look on GitHub's Mac took longer: twice (16 and 17 Nov) the first try read only the dimming.
+    let app = launch("-preview-seconds", "90")
     connect(app)
     // The whole day: the light follows it to full (70%) at noon, off at 20:00, then its own schedule.
     tap(app, "play")
-    expectFrames(app, ".* 07 02 46 .*", timeout: 30)
+    expectFrames(app, ".* 07 02 46 .*", timeout: 80)
     expect(app, "play", contains: "Xem thử cả ngày trên đèn", timeout: 60)
     expectFrames(app, ".* 07 02 00 .. \\| 5a 01 08 .. .. 05 12 ff ff ..")
   }
@@ -1225,7 +1227,8 @@ final class LightFlowTests: XCTestCase {
     XCUIDevice.shared.press(.home)
     let states = [XCUIApplication.State.runningBackground, .runningBackgroundSuspended].map { NSNumber(value: $0.rawValue) }
     let gone = expectation(for: NSPredicate(format: "state IN %@", states), evaluatedWith: app)
-    XCTAssertEqual(XCTWaiter.wait(for: [gone], timeout: 5), .completed, "the app didn't go to the background", file: file, line: line)
+    // Up to 30 s, not 5: on GitHub's Mac the Home press twice (16 and 17 Nov) took longer than 5 s to send the app away.
+    XCTAssertEqual(XCTWaiter.wait(for: [gone], timeout: 30), .completed, "the app didn't go to the background", file: file, line: line)
     app.activate()
   }
 

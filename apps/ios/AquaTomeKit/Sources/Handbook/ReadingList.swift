@@ -31,7 +31,7 @@ public struct ReadingList: Codable, Equatable, Sendable {
   }
 
   /// The pages at `paths` that the index has now (`byPath`), of `kind` (any for nil), in order: the first `limit`.
-  public static func items(_ paths: [String], in byPath: [String: HandbookIndex.Item], kind: HandbookIndex.Kind?, limit: Int = .max) -> [HandbookIndex.Item] {
+  public static func items(_ paths: [String], in byPath: ItemsByKey, kind: HandbookIndex.Kind?, limit: Int = .max) -> [HandbookIndex.Item] {
     var out: [HandbookIndex.Item] = []
     for p in paths where out.count < limit {
       if let i = byPath[p], kind.map(i.is) ?? true { out.append(i) }

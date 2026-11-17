@@ -33,12 +33,6 @@
             "BI",
             "TZ"
           ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Burundi, Tanzania. This species is endemic to the northern end of Lake Tanganyika.",
-          "countries": [],
           "regions": [
             "Lake Tanganyika"
           ]
@@ -119,6 +113,10 @@
       {
         "source": "seriouslyfish",
         "value": 27
+      },
+      {
+        "source": "glaser",
+        "value": 25
       }
     ],
     "tankCm": [
@@ -142,6 +140,12 @@
       "html": "<p>Max size: 27 cm SL. Aquarium size: 150 × 60 cm. Temperature: 24–28°C. pH: 7.8–8.5. Hardness: 8–35 dGH.</p><p>Synodontis granulosus is a large Synodontis catfish endemic to the northern end of Lake Tanganyika, in Burundi and Tanzania. Its deep-water habitat, limited range and solitary lifestyle make collection difficult, so it is rarely seen for sale. It is territorial with its own kind and can be very aggressive in smaller aquaria, though settled fish often become tame enough to feed from the hand. Captive-bred fish from Eastern Europe have been reported to be hybrids.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/_en-21/",
+      "html": "<p>Origin: Africa, Lake Tanganyika. Grows up to 25 cm.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-granulosus",
@@ -160,6 +164,12 @@
       "html": "<p>Standard length: 27 cm SL. Aquarium base: 150 × 60 cm. Volume: ~540 litres.</p><p>150 × 60 × 60 cm, ~540 litres. It can be very aggressive and territorial when kept in smaller aquaria.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/_en-21/",
+      "html": "<p>These are extremely active fish which grow up to 25 cm, so they should only be kept in bigger tanks.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-granulosus",
@@ -170,6 +180,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-granulosus",
       "html": "<p>Temperature: 24–28°C</p><p>pH: 7.8–8.5</p><p>Hardness: 8–35 dGH</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/_en-21/",
+      "html": "<p>They come from Lake Tanganyika, so they need harder water with a higher pH.</p>"
     },
     {
       "key": "diet",
@@ -184,6 +200,12 @@
       "html": "<p>Should not be kept with any fish so small as to be considered food but makes a good addition to a community of larger hard water cichlids, ideally of Tanganyikan origin. It is territorial with conspecifics and a group would require a huge tank.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/_en-21/",
+      "html": "<p>Adults are aggressive among themselves. They are very peaceful towards other inhabitants of a Lake Tanganyika tank, so they are real beauties in a cichlid tank.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-granulosus",
@@ -194,6 +216,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-granulosus",
       "html": "<p>Not achieved under natural conditions in aquaria, although captive breeding in Eastern Europe has occured via the use of hormone injections. However, it has been reported that these captive bred specimens are in fact hybrids and may not even resemble true granulosus when adult.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/_en-21/",
+      "html": "<p>Adults are aggressive among themselves, which is the main reason why they have not been bred so far.</p>"
     },
     {
       "key": "notes",
@@ -208,18 +236,43 @@
       "thumb": "https://media.aquatome.com/commons/5cce8e1a586bda33-480.webp",
       "width": 1200,
       "height": 900,
-      "licence": "CC BY-SA 1.0",
-      "author": "Fishdude69",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Synodontis_granulosus.jpg",
-      "caption": "Cá trê Synodontis granulosus bơi trong bể kính nền xanh",
       "large": {
         "url": "https://media.aquatome.com/commons/5cce8e1a586bda33-large.webp",
         "width": 1600,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 1.0",
+      "author": "Fishdude69",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Synodontis_granulosus.jpg",
+      "caption": "Cá trê Synodontis granulosus bơi trong bể kính nền xanh"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "whlbMge8s-M",
+      "title": "Jayant Cichlids - Synodontis granulosus",
+      "durationSec": 31,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ldOHsU9KuMM",
+      "title": "Rare Synodontis granulosus catfish in my tank/aquarium",
+      "durationSec": 11,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "lfzDUNu4hNs",
+      "title": "Synodontis Granulosus, hand feeding chopped seafood",
+      "durationSec": 8,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "I8OfpSWczSA",
+      "title": "Synodontis Granulosus Tanganyika Catfish",
+      "durationSec": 23,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -248,5 +301,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-10"
+  "updatedAt": "2026-11-16"
 }

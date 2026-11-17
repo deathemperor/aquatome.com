@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/what-are-lps-and-sps-corals/
 title: What are LPS and SPS Corals? - Shrimp and Snail Breeder
 fetchedAt: 2026-11-11T09:31:34.822Z
-hash: e83cae8c1557604a8d33c6aa82350338cd61a428d9c3d6e5ab89053f78e6e3a8
+hash: e4faca0c03609a6fed5635dffc9f524d74852be85dae5d0314235477d51b882d
 ---
 
 Whether new or acquainted with the saltwater aquarium hobby, it would be a wise and responsible decision to gain adequate information regarding the various coral types and their needs before acquiring and subjecting any species to the conditions of your tank.
@@ -98,4 +98,3 @@ To achieve the best results, target-feed both LPS and SPS corals. This entails u
 LPS and SPS corals are wonderful additions to established reef tanks. These hard corals come in a variety of sizes, unique growth forms, and attractive color morphs, and they are capable of improving the aesthetical appeal of your reef aquarium greatly.
 There are lots of stony corals in the aquarium trade. However, make sure to research extensively about the species you plan on purchasing to understand its traits, temperament, and care requirements. First timers/beginner hobbyists should opt for beginner coral species or easy LPS/SPS packs which can be sourced from offline or online aquarium stores.
 Lastly, you will witness success with LPS or SPS corals if they are properly fed and excellent water quality alongside optimal (stable) water conditions are maintained in your reef aquarium.
-### Leave a Reply Cancel reply

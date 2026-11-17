@@ -9,6 +9,7 @@ import { groupLabel } from '../../../../lib/format'
 import { speciesListPhotos, speciesLists } from '../../../../lib/list-data'
 import { PAGE } from '../../../../scripts/filter-list'
 import { i18n, langOf } from '../../../../lib/i18n'
+import { isFish } from '../../../../lib/taxa-places'
 import { alternatesWhere } from '../../../../lib/alternates'
 
 /**
@@ -36,7 +37,7 @@ const base = `/vi/nhom/${group}/`
 // The same page in another language: its group has as many pages there.
 const alternates = await alternatesWhere(Astro.url.pathname, c => c.species.filter(s => s.group === group).length > (n - 1) * PAGE)
 ---
-<Browse title={t('{name}, trang {n}', { name, n })} heading={t('{name}, trang {n}', { name, n })} crumbs={[['/vi/ca/', t('Loài cá')], [base, name]]} credits={creditsFor(photos.map(p => p ?? undefined))} alternates={alternates}>
+<Browse title={t('{name}, trang {n}', { name, n })} heading={t('{name}, trang {n}', { name, n })} crumbs={[['/vi/ca/', t(isFish({ group: group!, order: '' }) ? 'Loài cá' : 'Loài')], [base, name]]} credits={creditsFor(photos.map(p => p ?? undefined))} alternates={alternates}>
   <SpeciesGrid species={here} photos={photos} heading={t('Danh sách loài')} />
   <PageNav prev={n === 2 ? base : `${base}trang/${n - 1}/`} next={n < pages ? `${base}trang/${n + 1}/` : undefined} />
 </Browse>

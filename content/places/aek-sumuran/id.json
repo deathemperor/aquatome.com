@@ -3,6 +3,12 @@
   "name": "Aek Sumuran",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-16T00:12:25.600Z",
+    "why": "\"Aek\" is the local Batak word for \"river\", so \"Aek Sumuran\" is the proper river name, but Indonesian atlases normally write \"Sungai Aek Sumuran\" with the kind word, and the bare form is incomplete."
+  },
   "quality": {
     "score": 0.2,
     "indexable": false

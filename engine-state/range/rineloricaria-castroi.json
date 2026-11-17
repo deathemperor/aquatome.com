@@ -1,0 +1,100 @@
+{
+  "id": "rineloricaria-castroi",
+  "native": {
+    "input": "e4bb1ff6799174d4",
+    "at": "2026-11-16T05:47:36.414Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It was described scientifically from the Rio Trombetas in Brazil, but it also obviously appears in Peru.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It was described scientifically from the Rio Trombetas in Brazil, but it also obviously appears in Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Trombetas River basin, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Trombetas",
+        "source": "glaser",
+        "quote": "It was described scientifically from the Rio Trombetas in Brazil, but it also obviously appears in Peru.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Trombetas River",
+        "source": "scotcat",
+        "quote": "South America: Trombetas River basin, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Rineloricaria castroi",
+    "status": "ACCEPTED",
+    "taxonKey": 2339063,
+    "datasets": [
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        12
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        11
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        6
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        6
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        5
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        3
+      ],
+      [
+        "ada824f0-5741-4f99-8452-9bcf46472a84",
+        1
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "PE"
+    ],
+    "requests": 12,
+    "at": "2026-11-16T05:47:36.414Z"
+  }
+}

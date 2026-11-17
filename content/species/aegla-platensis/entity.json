@@ -1,0 +1,127 @@
+{
+  "id": "aegla-platensis",
+  "scientificName": "Aegla platensis",
+  "order": "Decapoda",
+  "family": "Aeglidae",
+  "genus": "Aegla",
+  "group": "other",
+  "places": [
+    "south-america",
+    "paraguay",
+    "arroyo-pozo-hondo"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/aegla_platensis_en/",
+      "html": "<p>The genus Aegla (family Aeglidae) contains more than 60 species, all exclusively freshwater inhabitants of southern South America. They have hardly ever been seen in the aquarium hobby so far, but recently imported specimens show that Aegla are thoroughly interesting aquarium occupants. Aegla are relatively small crabs – A. platensis grows little longer than 5 cm. The tail is carried folded beneath the belly, as in the short-tailed crabs.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/aegla_platensis_en/",
+      "html": "<p>The imported specimens originate from a river called the Arroyo Pozo Hondo, 137 km to the east of Asunción (Paraguay).</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/aegla_platensis_en/",
+      "html": "<p>Like fishes imported from Paraguay, Aegla may also appreciate a slight \"winter rest\" at 16-18 °C, and in general they should not be kept too warm. If possible the maintenance temperature shouldn't exceed 24 °C even in summer.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/aegla_platensis_en/",
+      "html": "<p>Aegla crabs don't appear to have any special food preferences, and both frozen foods (mosquito larvae, Artemia) and dry foods are taken.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/aegla_platensis_en/",
+      "html": "<p>In the aquarium the first (obviously very short-term) observations indicate that these little creatures live a very secretive life. If they are given fine sand as substrate then they like to bury themselves, disappearing tail-first into the bottom.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/aegla_platensis_en/",
+      "html": "<p>A number of sexual differences are known in Aegla. The males have a longer, broader carapace, the pincers are larger and the left-hand and right-hand pincers are unequally developed.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/aegla_platensis_en/",
+      "html": "<p>Aegla platensis is sexually mature at an early age. The eggs undergo direct development, and the hatching young immediately look very similar to the parents. There are no free-swimming larval stages. In Aegla platensis in particular egg-carrying females are found year-round, so this species is not restricted to breeding at particular times of the year.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/55d47bc288c757b5.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC0",
+      "author": "Sebastián Gómez Barboza Silveira",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aegla_platensis_206088153.jpg",
+      "caption": "Aegla platensis in Uruguay",
+      "thumb": "https://media.aquatome.com/commons/55d47bc288c757b5-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "wpuXJ4BDGHU",
+      "title": "Fish Geek Girl talks... Aegla platensis! How I keep and breed this unique crustacean",
+      "durationSec": 1104,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "hgT75YrZxWg",
+      "title": "Aegla Platensis Wild adults and own bred",
+      "durationSec": 173,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "E4XGHclTm5o",
+      "title": "Aegla Platensis Shenanigans",
+      "durationSec": 50,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Jy8sYuf5ge4",
+      "title": "Aegla Platensis",
+      "durationSec": 59,
+      "lang": "de"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn nền bể",
+        "cát thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia đông lạnh",
+        "thức ăn cho cua tép"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "quạt làm mát bể cá",
+        "máy làm lạnh nước bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

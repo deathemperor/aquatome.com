@@ -2,27 +2,14 @@
   "id": "rasbora-dandia",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/589409647.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/589409647-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/310018703.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/310018703-480.webp",
       "width": 1024,
-      "height": 682,
+      "height": 1024,
       "licence": "CC BY",
-      "author": "Thuhiru S. Yapa",
-      "sourceUrl": "https://www.inaturalist.org/photos/589409647",
-      "caption": "Cặp cá rasbora dandia với sọc ngang thân màu xanh đen",
-      "best": true,
-      "kind": "pair",
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/198287814.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/198287814-480.webp",
-      "width": 1024,
-      "height": 627,
-      "licence": "CC BY",
-      "author": "desertnaturalist",
-      "sourceUrl": "https://www.inaturalist.org/photos/198287814",
-      "caption": "Ba cá rasbora dandia bơi trong suối nước trong, đáy đất đỏ",
+      "author": "Paulmathi Vinod",
+      "sourceUrl": "https://www.inaturalist.org/photos/310018703",
+      "caption": "Hai cá rasbora dandia trong bể thủy sinh có nhiều cây",
       "best": true,
       "kind": "group",
       "unchecked": true
@@ -41,14 +28,14 @@
       "unchecked": true
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/310018703.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/310018703-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/373939338.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/373939338-480.webp",
       "width": 1024,
-      "height": 1024,
+      "height": 683,
       "licence": "CC BY",
-      "author": "Paulmathi Vinod",
-      "sourceUrl": "https://www.inaturalist.org/photos/310018703",
-      "caption": "Hai cá rasbora dandia trong bể thủy sinh có nhiều cây",
+      "author": "Edmundas Greimas",
+      "sourceUrl": "https://www.inaturalist.org/photos/373939338",
+      "caption": "Đàn cá rasbora dandia bơi trên nền cát trong suối",
       "best": true,
       "kind": "group",
       "unchecked": true
@@ -64,19 +51,6 @@
       "caption": "Cá rasbora dandia bơi trên nền cát trong suối",
       "best": true,
       "kind": "habitat",
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/373939338.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/373939338-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Edmundas Greimas",
-      "sourceUrl": "https://www.inaturalist.org/photos/373939338",
-      "caption": "Đàn cá rasbora dandia bơi trên nền cát trong suối",
-      "best": true,
-      "kind": "group",
       "unchecked": true
     },
     {
@@ -169,6 +143,30 @@
       "best": false,
       "kind": "habitat",
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/589409647.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/589409647-480.webp",
+      "width": 1024,
+      "height": 682,
+      "licence": "CC BY",
+      "author": "Thuhiru S. Yapa",
+      "sourceUrl": "https://www.inaturalist.org/photos/589409647",
+      "caption": "Cặp cá rasbora dandia với sọc ngang thân màu xanh đen",
+      "best": true,
+      "kind": "pair"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/198287814.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/198287814-480.webp",
+      "width": 1024,
+      "height": 627,
+      "licence": "CC BY",
+      "author": "desertnaturalist",
+      "sourceUrl": "https://www.inaturalist.org/photos/198287814",
+      "caption": "Ba cá rasbora dandia bơi trong suối nước trong, đáy đất đỏ",
+      "best": true,
+      "kind": "group"
     }
   ],
   "seen": 62,

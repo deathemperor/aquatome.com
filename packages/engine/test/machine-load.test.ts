@@ -5,7 +5,7 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 // @ts-expect-error a plain script
-import { archiveNamed, archiveWorktree, expireArchive, scratch, scratchFolders, scratchKind, scratchVerdict, simVerdict, space, worktreeVerdict } from '../../../scripts/machine-sweep.mjs'
+import { archiveNamed, archiveWorktree, expireArchive, helperPass, helperVerdict, scratch, scratchFolders, scratchKind, scratchVerdict, simVerdict, space, worktreeVerdict } from '../../../scripts/machine-sweep.mjs'
 import { slow } from '@aq/schema/test-time'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
@@ -67,6 +67,80 @@ test('the sweep removes a worktree only when no work can be lost and nobody is i
 })
 
 // GitHub started the 07:00 report about 5 hours late, four days running.
+// The chief of staff, 16 Nov 2026: a helper's own checkout goes an hour after its thread ends, saved first when it holds a
+// commit on no remote or a change not committed. A lead's checkout a helper shared stays the lead's.
+test("the sweep takes a helper's own checkout an hour after its thread ends, saving first what the remote lacks", () => {
+  const now = Date.parse('2026-11-17T10:00:00Z')
+  const done = { id: 'thread:delegated-task:command%3Amcp%3Ax%3Adelegate-task%3Ay', at: now - 2 * 3_600_000, active: false, runs: 1, last: 'completed' }
+  const h = { path: `${homedir()}/.infinitus/worktrees/aquatome.com/infi-ffb9be67-8366a39a0df50f26`, liveCwd: false, threads: [done], dirty: false, unpushed: 0, now }
+  expect(helperVerdict(h)).toBe('remove')
+  expect(helperVerdict({ ...h, path: `${homedir()}/.infinitus/worktrees/aquatome.com/infinitus-0c47974a-12259ca8fd11f902` })).toBe('remove')
+  // Its own commit, a change not committed, or git that can't count: saved first.
+  expect(helperVerdict({ ...h, unpushed: 2 })).toBe('archive')
+  expect(helperVerdict({ ...h, dirty: true })).toBe('archive')
+  expect(helperVerdict({ ...h, unpushed: NaN })).toBe('archive')
+  // Within the hour, still running, a process in it, or no thread found: it stays.
+  expect(helperVerdict({ ...h, threads: [{ ...done, at: now - 30 * 60_000 }] })).toBe('its thread ended within the hour')
+  expect(helperVerdict({ ...h, threads: [done, { ...done, at: now - 10 * 60_000 }] })).toBe('its thread ended within the hour')
+  expect(helperVerdict({ ...h, threads: [{ ...done, active: true }] })).toBe('its thread is live')
+  expect(helperVerdict({ ...h, liveCwd: true })).toBe('a process is working in it')
+  expect(helperVerdict({ ...h, threads: [] })).toBe('no thread found for it')
+  expect(helperVerdict({ ...h, threads: [{ ...done, at: NaN }] })).toBe('its thread ended within the hour')
+  // A time it can't read beside an old one it can, or a live thread beside an ended one: it stays. An hour to the ms: it goes.
+  expect(helperVerdict({ ...h, threads: [{ ...done, at: NaN }, { ...done, at: now - 30 * 3_600_000 }] })).toBe('its thread ended within the hour')
+  expect(helperVerdict({ ...h, threads: [done, { ...done, active: true }] })).toBe('its thread is live')
+  expect(helperVerdict({ ...h, threads: [{ ...done, at: now - 3_600_000 }] })).toBe('remove')
+  // One its lead may send more (a reader's count, 17 Nov: 21 of 1,047 helpers were resumed over an hour after a run ended,
+  // after up to 7.5 h): resumed before, or its last run stopped by a usage limit or cancelled. Three days, then it goes.
+  const paused = 'its lead may send it more: resumed before, or its last run unfinished'
+  expect(helperVerdict({ ...h, threads: [{ ...done, runs: 11, at: now - 15 * 3_600_000 }] })).toBe(paused)
+  expect(helperVerdict({ ...h, threads: [{ ...done, last: 'failed' }] })).toBe(paused)
+  expect(helperVerdict({ ...h, threads: [{ ...done, last: 'cancelled' }] })).toBe(paused)
+  expect(helperVerdict({ ...h, threads: [done, { ...done, runs: 2 }] })).toBe(paused)
+  expect(helperVerdict({ ...h, threads: [{ ...done, runs: 11, at: now - 72 * 3_600_000 }] })).toBe('remove')
+  expect(helperVerdict({ ...h, threads: [{ ...done, runs: NaN }] })).toBe(paused)
+  // A lead's checkout, even one a finished helper shared, and anything not named as Infinitus names a helper's.
+  expect(helperVerdict({ ...h, threads: [done, { id: '9e9c8b4c-lead', at: now - 5 * 3_600_000, active: false }] })).toBe("a lead's thread works in it")
+  for (const path of [`${homedir()}/.infinitus/worktrees/aquatome.com/lab-app-v2`, `${homedir()}/.infinitus/worktrees/aquatome.com/trail-not-fish`, `${homedir()}/.infinitus/worktrees/other/infi-ffb9be67-8366a39a0df50f26`, `${homedir()}/.infinitus/projects/aquatome.com`, `${homedir()}/.infinitus/worktrees/aquatome.com/lab-app-v2/infi-ffb9be67-8366a39a0df50f26`])
+    expect(helperVerdict({ ...h, path })).toBe("not a helper's checkout")
+})
+
+// Codex's read, 17 Nov: a helper resumed while git counted its checkout lost a clean one, since only a save read its
+// threads again; and a branch deleted or replaced on the remote since the last fetch still counted as holding its commits.
+test("a helper's checkout goes only when every read lets it, the last just before acting, and the remote's branches are fetched first", () => {
+  const path = `${homedir()}/.infinitus/worktrees/aquatome.com/infi-ffb9be67-8366a39a0df50f26`
+  const ended = { id: 'thread:delegated-task:command%3Amcp%3Ax%3Adelegate-task%3Ay', at: Date.now() - 2 * 3_600_000, active: false, runs: 1, last: 'completed' }
+  const pass = (o: { live?: number[]; refresh?: boolean; status?: string; unpushed?: number; dry?: boolean } = {}) => {
+    const did: string[] = []
+    let n = 0
+    const gone = helperPass([path], {
+      reads: () => { n++; did.push(`read ${n}`); return (p: string) => ({ path: p, liveCwd: false, threads: [{ ...ended, active: !!o.live?.includes(n) }] }) },
+      refresh: () => { did.push('fetch'); return o.refresh ?? true },
+      status: () => { did.push('status'); return o.status ?? '' },
+      unpushed: () => { did.push('count'); return o.unpushed ?? 0 },
+      archive: (_: string, still: () => boolean) => { did.push('save'); if (!still()) return false; did.push('removed'); return true },
+      remove: () => { did.push('removed'); return true },
+      pause: () => {},
+      dry: !!o.dry,
+      say: (m: string) => did.push(m),
+    })
+    return { gone, did }
+  }
+  // Every read lets it go: fetched before git counts, read once more just before it's removed.
+  expect(pass()).toEqual({ gone: 1, did: ['read 1', 'fetch', 'read 2', 'status', 'count', 'read 3', 'removed', expect.stringMatching(/^removed /)] })
+  // Resumed while git counted: a clean checkout stays, as a saved one does.
+  expect(pass({ live: [3] })).toEqual({ gone: 0, did: ['read 1', 'fetch', 'read 2', 'status', 'count', 'read 3', `kept ${path}: its thread or a process moved while it was read`] })
+  expect(pass({ live: [3], unpushed: 1 }).did).not.toContain('removed')
+  expect(pass({ unpushed: 1 })).toMatchObject({ gone: 1, did: expect.arrayContaining(['save', 'removed']) })
+  // A fetch that fails leaves it; so does a dry run, which only says.
+  expect(pass({ refresh: false })).toEqual({ gone: 0, did: ['read 1', 'fetch', "helpers' checkouts: could not fetch the remote's branches, leaving them"] })
+  expect(pass({ dry: true }).did).not.toContain('removed')
+  // A dry run doesn't fetch either: a fetch prunes the remote's branches and moves FETCH_HEAD (Codex's read, 17 Nov).
+  expect(pass({ dry: true }).did).toEqual(['read 1', 'read 2', 'status', 'count', `would remove ${path}: a helper's, its thread ended, nothing in it that the remote lacks`])
+  // Nothing to look at: no reads, no fetch.
+  expect(helperPass([], { reads: () => { throw new Error('read') }, refresh: () => { throw new Error('fetch') } })).toBe(0)
+})
+
 test("the owner's morning report is started from this Mac at 06:58, a minute's work before 07:00, by the same job", () => {
   const dir = home()
   mkdirSync(join(dir, 'bin'))
@@ -114,19 +188,32 @@ test('an archived worktree can be brought back: its commits, its changes, its un
   sh(dir, 'git init -q -b main --bare origin.git && git clone -q origin.git main 2>/dev/null && cd main && git checkout -q -b main 2>/dev/null; echo a > a && git add a && git commit -qm base && git push -q origin main && git worktree add -q -b work ../wt')
   sh(`${dir}/main`, 'printf "NOTES.md\\nbuild/\\n" > .gitignore && git add .gitignore && git commit -qm ignore && git push -q origin main')
   sh(`${dir}/wt`, 'git merge -q --ff-only main && echo unsaved > b && git add b && git commit -qm "on no remote" && echo changed > a && echo new > c && echo mine > NOTES.md && mkdir build && echo out > build/x')
+  // Staged, then deleted from the working tree: only the index has it (Codex's read, 17 Nov); and a change staged apart
+  // from a later one to the same file.
+  sh(`${dir}/wt`, 'echo staged > d && git add d && rm d && echo first > e && git add e && echo second > e')
   const saved = archiveWorktree(`${dir}/wt`, `${dir}/archive`, new Date('2026-11-08T00:00:00Z'))
   expect(saved).toBe(`${dir}/archive/2026-11-08-wt`)
   expect(readFileSync(`${saved}/note.txt`, 'utf8')).toContain('branch: work')
-  sh(`${dir}/main`, `git fetch -q ${saved}/work.bundle work:restored && git worktree add -q ../back restored && cd ../back && git apply ${saved}/uncommitted.patch && tar -xzf ${saved}/untracked.tgz`)
+  sh(`${dir}/main`, `git fetch -q ${saved}/work.bundle work:restored && git worktree add -q ../back restored && cd ../back && git apply --index ${saved}/staged.patch && git apply ${saved}/unstaged.patch && tar -xzf ${saved}/untracked.tgz`)
   expect(readFileSync(`${dir}/back/b`, 'utf8')).toBe('unsaved\n')
   expect(readFileSync(`${dir}/back/a`, 'utf8')).toBe('changed\n')
   expect(readFileSync(`${dir}/back/c`, 'utf8')).toBe('new\n')
   expect(readFileSync(`${dir}/back/NOTES.md`, 'utf8')).toBe('mine\n') // ignored, but nobody can make it again
+  expect(sh(`${dir}/back`, 'git show :d')).toBe('staged\n')
+  expect(existsSync(`${dir}/back/d`)).toBe(false)
+  expect([sh(`${dir}/back`, 'git show :e'), readFileSync(`${dir}/back/e`, 'utf8')]).toEqual(['first\n', 'second\n'])
   expect(existsSync(`${dir}/back/build/x`)).toBe(false) // build output isn't worth keeping
   // The next one of that name, the same day, doesn't overwrite it; nothing on no remote and no changes, just the note.
   sh(`${dir}/main`, 'git worktree add -q --detach ../clean main')
   expect(readdirSync(archiveWorktree(`${dir}/clean`, `${dir}/archive2`))).toEqual(['note.txt'])
   expect(archiveWorktree(`${dir}/wt`, `${dir}/archive`, new Date('2026-11-08T00:00:00Z'))).toBe(`${saved}-2`)
+  // A merge left half done on a picture: its sides are only in the index's stages, which no patch carries. Not saved, so
+  // it stays (helperPass and --archive say "kept"), and nothing is written (Codex's read, 17 Nov).
+  sh(`${dir}/main`, 'git worktree add -q -b clash ../clash')
+  sh(`${dir}/clash`, 'printf "\\0base" > p.bin && git add p.bin && git commit -qm pic && git branch side && printf "\\0ours" > p.bin && git commit -qam ours && git checkout -q side && printf "\\0theirs" > p.bin && git commit -qam theirs && git checkout -q clash && (git merge -q side 2>/dev/null || true)')
+  expect(sh(`${dir}/clash`, 'git ls-files --unmerged')).toContain('p.bin')
+  expect(() => archiveWorktree(`${dir}/clash`, `${dir}/archive3`)).toThrow(/unmerged/)
+  expect(existsSync(`${dir}/archive3`)).toBe(false)
   // Thirty days later it goes, and nothing younger does.
   expect(expireArchive(`${dir}/archive`, Date.parse('2026-12-07T00:00:00Z'))).toEqual([])
   expect(expireArchive(`${dir}/archive`, Date.parse('2026-12-09T00:00:00Z'))).toEqual(['2026-11-08-wt', '2026-11-08-wt-2'])

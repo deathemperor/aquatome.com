@@ -56,22 +56,26 @@ test("a photo the calendar keeps off cards leads no featured fish and no group t
   expect(groupTiles('vi', g, undefined, avoid)[0]!.photo?.url).toBe('https://x/b-0.jpg')
 })
 
-test("a video guide's card picture: a photo from its sections, not a strip a card would crop to a sliver; the home page's videos all have one", async () => {
+test("a video guide's card picture is its own video's still, never a part's stock photo; the home page's videos have one but for at most one", async () => {
+  const { stillShown } = await import('@aq/schema')
   const { getContent } = await import('../src/lib/content')
   const { guideImages } = await import('../src/lib/mentions')
   const { homeVideos } = await import('../src/lib/video')
+  const { pagePictures, takeRow } = await import('../src/lib/pictures')
   const c = await getContent('vi')
-  const g = c.guides.find(x => x.video?.figures?.some(f => f.photo))!
-  const photo = g.video!.figures!.find(f => f.photo)!.photo!
-  expect(guideImages(c, g)).toContain(photo)
-  const strip = { ...g, video: { ...g.video!, figures: [{ heading: 'x', moments: [], photo: { ...photo, url: 'https://x/strip.webp', width: 960, height: 267 } }] } }
-  expect(guideImages(c, strip).map(p => p.url)).not.toContain('https://x/strip.webp')
-  // A guide with no picture at all waits: the home page's row shows only videos with one.
+  const g = c.guides.find(x => x.video?.figures?.some(f => f.photo) && x.video.figures.some(f => f.moments.some(stillShown)))!
+  const photo = g.video!.figures!.find(f => f.photo)!.photo!, still = g.video!.figures!.flatMap(f => f.moments).find(stillShown)!
+  expect(guideImages(c, g)[0]?.url).toBe(still.url)
+  expect(guideImages(c, g).map(p => p.url)).not.toContain(photo.url)
+  // A guide with no picture at all keeps its place and draws a cover (the chief of staff and the Design Lead, 15 Nov 2026),
+  // one at most in the home page's row of four.
   const bare = { ...g, id: 'bare', photos: [], mentions: [], t: { ...g.t, body: '<p>Không nhắc loài nào.</p>' }, video: { ...g.video!, figures: [], series: { ...g.video!.series!, position: 0 } } }
   expect(guideImages({ ...c, guides: [bare, ...c.guides] }, bare)).toEqual([])
   const withBare = { ...c, guides: [bare, ...c.guides] }
-  expect(homeVideos(withBare).map(v => v.id)).not.toContain('bare')
-  expect(homeVideos(withBare).length).toBeGreaterThan(0)
+  expect(homeVideos(withBare).map(v => v.id)).toContain('bare')
+  const row = takeRow(pagePictures(withBare), homeVideos(withBare), v => guideImages(withBare, v))
+  expect(row.items.length).toBeGreaterThan(0)
+  expect(row.photos.filter(p => !p).length).toBeLessThanOrEqual(1)
 })
 
 test("the snails' tile shows a living snail before a museum shell, whoever is better documented", () => {
@@ -104,7 +108,7 @@ test("the home page's videos: one of each subject before a second of any", async
   const g = c.guides.find(x => x.video?.series && x.video.figures?.some(f => f.photo))!
   const part = (id: string, kind: typeof g.kind, position: number): typeof g => ({ ...g, id, kind, video: { ...g.video!, series: { ...g.video!.series!, position } } })
   const guides = [part('build-1', 'setup', 0), part('build-2', 'setup', 1), part('build-3', 'setup', 2), part('plants', 'plantCare', 3)]
-  expect(homeVideos({ ...c, guides: [...guides, ...c.guides.filter(x => !x.video)] }, 2).map(v => v.id)).toEqual(['build-1', 'plants'])
+  expect(homeVideos({ ...c, guides: [...guides, ...c.guides.filter(x => !x.video)] }).slice(0, 2).map(v => v.id)).toEqual(['build-1', 'plants'])
 })
 
 test("the home page's native fish: one whose photos are all strips waits", () => {
@@ -128,4 +132,39 @@ test("the home page's native fish: one kept in brackish or sea water waits, and 
     ],
   } as unknown as Content
   expect(nativeCards('th', c, [], 2).map(s => s.id)).toEqual(['akysis-hendricksoni', 'rasbora-x'])
+})
+
+// The chief of staff, 15 Nov 2026: a guide never loses its place in a list because it has no picture; its card draws a
+// cover (the Design Lead's board). Before, a guide with no picture was on no list of guides to lead with or read next.
+test('a guide with no picture keeps its place among the guides to lead with and to read next', async () => {
+  const { getContent } = await import('../src/lib/content')
+  const { leadGuides, nextGuides } = await import('../src/lib/home')
+  const { guideImage } = await import('../src/lib/mentions')
+  const c = await getContent('vi')
+  const lead = leadGuides(c)
+  const g = lead[0]!
+  const bare = { ...g, photos: [], t: { ...g.t, name: 'Thay nước cho bể' } }
+  const c2 = { ...c, guides: c.guides.map(x => (x.id === g.id ? bare : x)) }
+  expect(guideImage(c2, bare)).toBeUndefined()
+  expect(leadGuides(c2).map(x => x.id)).toEqual(lead.map(x => x.id))
+  // The guide before it in the lead list reads it next, as before.
+  const other = c2.guides.find(x => x.id !== g.id && !x.video && x.kind === g.kind)!
+  expect(nextGuides(c2, other, lead.length).map(x => x.id)).toContain(g.id)
+})
+
+test("a home row's four: at most one with no picture, the next with one taking its place; one passed by takes nothing", async () => {
+  const { PictureSet } = await import('@aq/schema')
+  const { takeRow } = await import('../src/lib/pictures')
+  const photo = (id: string) => ({ url: `https://x/${id}.jpg`, width: 800, height: 500 }) as never
+  const items = [{ id: 'a', p: [photo('a')] }, { id: 'none-1', p: [] }, { id: 'none-2', p: [] }, { id: 'b', p: [photo('b')] }, { id: 'c', p: [photo('c')] }, { id: 'd', p: [photo('d')] }]
+  const pics = new PictureSet({})
+  const row = takeRow(pics, items, x => x.p)
+  expect(row.items.map(x => x.id)).toEqual(['a', 'none-1', 'b', 'c'])
+  expect(row.photos.map(p => p && (p as { url: string }).url)).toEqual(['https://x/a.jpg', null, 'https://x/b.jpg', 'https://x/c.jpg'])
+  // "d" wasn't reached: the page can still show its photo.
+  expect(pics.take([photo('d')])).toBeTruthy()
+  // A photo the page shows already counts as none.
+  const shown = new PictureSet({})
+  shown.add('https://x/a.jpg')
+  expect(takeRow(shown, items, x => x.p).items.map(x => x.id)).toEqual(['a', 'b', 'c', 'd'])
 })

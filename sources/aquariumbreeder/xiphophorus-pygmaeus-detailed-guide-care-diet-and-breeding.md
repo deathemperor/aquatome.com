@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/xiphophorus-pygmaeus-detailed-guide-care-diet-and-breeding/
 title: Xiphophorus Pygmaeus – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-10-31T12:38:29.640Z
-hash: 4b8e7c381f444eaf46457214e9f2728192b1f6d16085550e1bb9f0916f55faec
+hash: 58f481a307381ee30906e2373e053b9c0d58a5cdd5be3d53f15f4da013f6b820
 ---
 
 Xiphophorus pygmaeus, commonly known as the Pygmy Swordtail, earned its name because of its tiny size. In fact, this fish is one of the smallest among all species of swordtails.
@@ -176,6 +176,3 @@ This small, colorful fish can be a highlight in many peaceful community aquarium
 - Kingston, Jennifer J., Gil G. Rosenthal, and Michael J. Ryan. “The role of sexual selection in maintaining a colour polymorphism in the pygmy swordtail, Xiphophoruspygmaeus.” Animal Behaviour65, no. 4 (2003): 735-743.
 - Morris, Molly R., and Michael J. Ryan. “Breeding cycles in natural populations of Xiphophorusnigrensis, X. multilineatus, and X. pygmaeus.” Copeia1992, no. 4 (1992): 1074-1077.
 - MORRIS, MOLLY R., WILLIAM E. WAGNER JR, and MICHAEL J. RYAN. “A negative correlation between trait and mate preference inXiphophoruspygmaeus.” Animal Behaviour52, no. 6 (1996): 1193-1203.
-## 2 thoughts on “Xiphophorus Pygmaeus – Detailed Guide: Care, Diet, and Breeding”
-- Hi Michael, Im a bit of a Xiphophorus nerd, so this might be a slightly more complicated question. I understand that many species of xiphophorus available in the pet trade (various types of platies,swordtails etc…) are rather outbred with other species of the same genus to produce some of the stunning colors we see today, and thus its incorrect to call a standard platy “X.maculatus” as it is actually a mix of a few different speices of fish. In the pictures provided it appears that that Xiphophorus Pygmaeus has not been heavily line bred for colors , so thus are the Pygmaeus available in the hobby true X.Pygmaeus? Or have they been crossbred like many other species of the Xiphophorus genus? On a similar topic, when it comes to practicality for Hobbyists, are there any major differences between Pymaeus and standard platies? Thank you for putting out such educational articles! ReplyHi Cory, First of all, you are absolutely correct. Many of the vibrant colors seen in various species like platies and swordtails are often the result of selective breeding and hybridization, making it challenging to classify them strictly by their species names. When it comes to Xiphophorus pygmaeus, there’s generally less emphasis on intensive color line-breeding compared to some of the other Xiphophorus species. Thus, pygmy swordtails are usually considered to be closer to their wild counterparts in terms of appearance and genetic makeup. Nonetheless, I can’t speak for the entire market and all sellers. I can only make assumptions based on general premises. In order to be absolutely precise, molecular research needs to be conducted, which would accurately determine how much the genetic code of the examined specimen differs from the standard.Best regards, Michael Reply
-### Leave a Reply Cancel reply

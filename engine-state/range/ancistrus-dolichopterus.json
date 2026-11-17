@@ -1,8 +1,8 @@
 {
   "id": "ancistrus-dolichopterus",
   "native": {
-    "input": "37432201a83aa847",
-    "at": "2026-11-06T18:08:44.169Z",
+    "input": "7c7b1e3c2955be6d",
+    "at": "2026-11-16T00:17:52.050Z",
     "claims": [
       {
         "code": "BR",
@@ -19,13 +19,35 @@
         "quote": "Some state it to be endemic to the middle and lower rio Negro, Amazonas state, Brazil while others claim it can also be found in Guyana or has a wider distribution within the Amazon basin.",
         "words": "Guyana",
         "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "aquatome",
+        "quote": "Loài này còn được ghi là có ở nhiều hệ sông trong lưu vực Amazon, chẳng hạn hạ lưu sông Trombetas và sông Madeira ở Brazil.",
+        "words": "Brazil",
+        "ok": true
       }
     ],
     "regions": [
       {
-        "name": "rio Negro",
+        "name": "Rio Negro",
         "source": "seriouslyfish",
         "quote": "Ancistrus dolichopterus, the starlight ancistrus (L183), is a bristlenose catfish most likely endemic to the middle and lower rio Negro, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Trombetas",
+        "source": "aquatome",
+        "quote": "Loài này còn được ghi là có ở nhiều hệ sông trong lưu vực Amazon, chẳng hạn hạ lưu sông Trombetas và sông Madeira ở Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Madeira",
+        "source": "aquatome",
+        "quote": "Loài này còn được ghi là có ở nhiều hệ sông trong lưu vực Amazon, chẳng hạn hạ lưu sông Trombetas và sông Madeira ở Brazil.",
         "country": "BR",
         "ok": true
       }

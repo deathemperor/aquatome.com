@@ -375,7 +375,23 @@
       "html": "<p>Imported specimens from India were 8–10 cm long and already sexually mature. Maximum length reported in literature is around 20 cm.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/260673654.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/260673654-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "luluchouette",
+      "sourceUrl": "https://www.inaturalist.org/photos/260673654",
+      "caption": "Cá thòi lòi Boddart xòe vây lưng ở mép nước",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/260673654-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    }
+  ],
   "videos": [
     {
       "youtubeId": "IiNfjZGS58U",

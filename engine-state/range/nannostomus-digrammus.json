@@ -1,8 +1,8 @@
 {
   "id": "nannostomus-digrammus",
   "native": {
-    "input": "a25aaa85f511ce7d",
-    "at": "2026-11-10T15:58:17.469Z",
+    "input": "20c02087c981874e",
+    "at": "2026-11-16T17:28:41.839Z",
     "claims": [
       {
         "code": "BR",
@@ -21,18 +21,10 @@
         "ok": true
       },
       {
-        "code": "GY",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Native to the central Amazon basin with records existing from the Madeira, Branco, Trombetas, and Tapajós river drainages, plus the Rupununi basin in Guyana.",
-        "words": "Guyana",
-        "ok": true
-      },
-      {
         "code": "BR",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Type locality is given by Fowler as 'Rio Madeira about 200 miles east of W. Long. 62°20', Brazil'.",
+        "source": "glaser",
+        "quote": "Origin: Brazil",
         "words": "Brazil",
         "ok": true
       },

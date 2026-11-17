@@ -9,7 +9,8 @@
     "asia",
     "india",
     "brahmaputra",
-    "bhutan"
+    "bhutan",
+    "assam"
   ],
   "range": {
     "native": {
@@ -23,27 +24,21 @@
         "Kalmoni"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
           "quote": "Type locality is 'Streamlets near Tangla, Darrang District, Assam, India', but records also exist from the Mahananda River in West Bengal state and other tributaries of the lower Brahmaputra river system, some of which originate in Bhutan.",
           "countries": [
-            "IN"
+            "IN",
+            "BT"
           ],
           "regions": [
             "Brahmaputra",
             "Mahananda River"
           ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "If distribution records are correct this species occurs in both lowland and higher altitude environments, from around 250 m AMSL in Darrang to 1767 m in Mirik, and possibly higher in Bhutan.",
-          "countries": [
-            "BT"
-          ],
-          "regions": []
         },
         {
           "source": "seriouslyfish",
@@ -107,12 +102,20 @@
       {
         "source": "seriouslyfish",
         "value": 9
+      },
+      {
+        "source": "glaser",
+        "value": 10
       }
     ],
     "tankCm": [
       {
         "source": "seriouslyfish",
         "value": 120
+      },
+      {
+        "source": "glaser",
+        "value": 100
       }
     ],
     "difficulty": [
@@ -130,6 +133,12 @@
       "html": "<ul><li>Max size: 90 mm SL (3.5 in SL)</li><li>Aquarium size: 120 × 45 cm (48 × 18 in)</li><li>Temperature: 15–22°C (59–72°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 2–12 dGH</li><li>Difficulty: moderate; needs a well-established tank and stable water</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/devario_assamensis_en/",
+      "html": "<p>Devario assamensis is one of about 35 Devario species. Some are regularly found in aquaria, while others, like Devario assamensis, are rather rare. It is a magnificently coloured barb that reaches about 10 cm and originates from eastern India.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/devario-assamensis",
@@ -140,6 +149,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/devario-assamensis",
       "html": "<p>Type locality is 'Streamlets near Tangla, Darrang District, Assam, India', but records also exist from the Mahananda River in West Bengal state and other tributaries of the lower Brahmaputra river system, some of which originate in Bhutan.</p><p>Further upstream it's been recorded in the Kalmoni river drainage in Dibrungharh district, close to the border between Assam and neighbouring Arunachal Pradesh state.</p><p>It's also been collected close to Mirik in Darjeeling district, West Bengal although presumably from surrounding streams rather than the artificial Mirik Lake, where the quality of the water is no longer suitable for drinking or bathing according to a recent report.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/devario_assamensis_en/",
+      "html": "<p>Origin: India (eastern India).</p>"
     },
     {
       "key": "habitat",
@@ -154,6 +169,12 @@
       "html": "<p>Standard length 90 mm SL (3.5 in SL). Aquarium base 120 × 45 cm (48 × 18 in); volume approximately 243 litres (64 US gal).</p><p>An aquarium with surface dimensions of 120 × 45 cm (48 × 18 in) or equivalent should be the smallest considered.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/devario_assamensis_en/",
+      "html": "<p>These are rather swim-active fish and need sufficient space, so the aquarium length should not be below 1 m. A large free swimming area is necessary. A densely planted background offers them protection when needed and a retreat area.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/devario-assamensis",
@@ -166,10 +187,22 @@
       "html": "<ul><li>Temperature: Prefers cooler water within the range 15–22 °C (59–72 °F) and will not thrive in tropical conditions. Additional aeration may be required during summer months.</li><li>pH: 6.0–8.0</li><li>Hardness: 2–12 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/devario_assamensis_en/",
+      "html": "<p>They have no special requirements for water chemistry; medium-hard water and a neutral pH are sufficient.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/devario-assamensis",
       "html": "<p>Almost certain to prey chiefly on insects and their larvae in nature and likely to prove an unfussy feeder in captivity.</p><p>A good quality dried product can be used as the staple diet but this should be supplemented with regular meals of small live and frozen fare such as bloodworm, Daphnia, Artemia, etc., for the best colouration and conditioning.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/devario_assamensis_en/",
+      "html": "<p>Great value should be placed on varying the food. Omnivores are often neglected in this regard. At feeding time they become fully active, and especially with live food they show impressive swimming tournaments.</p>"
     },
     {
       "key": "behaviour",
@@ -188,6 +221,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/devario-assamensis",
       "html": "<p>Like most small cyprinids Devario spp. are egg-scattering free spawners exhibiting no parental care.</p><p>When in good condition they will spawn often and in a well-planted, mature aquarium it's possible that small numbers of fry may start to appear without intervention.</p><p>However if you want to maximise yield a more controlled approach is required. The adult group can still be conditioned together but a smaller tank with a base measuring at least 60 cm x 30 cm should also be set up and filled with mature water.</p><p>This should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles.</p><p>Alternatively filling much of the tank with a fine-leaved plant such as Taxiphyllum spp. or spawning mops can also return decent results.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above, and an air-powered sponge filter or air stone(s) should also be included to provide oxygenation and water movement.</p><p>When the adults are well-conditioned and the females appear gravid one or two pairs should then be introduced.</p><p>If ready spawning usually taking place within 24 hours, with the female tending to appear noticeably slimmer after the event, and after 48 hours the adults should be removed whether this is observed or not.</p><p>Incubation is temperature-dependant to an extent but typically lasts 24-36 hours with the young free-swimming a few days later.</p><p>Initial food should be Paramecium or similar, introducing Artemia nauplii, microworm, powdered dry foods, etc., once the fry are large enough to accept them.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/devario_assamensis_en/",
+      "html": "<p>For productive breeding the parents should be removed after spawning, since they are fierce spawn eaters.</p>"
     },
     {
       "key": "notes",
@@ -226,7 +265,26 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "bIt5_FkCWhI",
+      "title": "Moustached danio (danio dangila) | Assam Danio (Devario assamensis) | Meghalaya Danio | AravindManoj",
+      "durationSec": 182,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "_9YkmxlcPq0",
+      "title": "Devario assamensis \"Lake Mirik, Bengal\"",
+      "durationSec": 34,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "9L1ksa__pLE",
+      "title": "Devario assamensis \"Lake Mirik, Bengal\" Fry",
+      "durationSec": 87,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -256,5 +314,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-17"
 }

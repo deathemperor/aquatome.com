@@ -3,7 +3,7 @@ import { writePhotoState } from './photo-state'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
 import { parse } from 'node-html-parser'
-import { loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type Summary, type WrittenLang } from '@aq/schema'
+import { IMAGE_SWITCHES, loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type Summary, type WrittenLang, type ImageSwitches } from '@aq/schema'
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
@@ -12,6 +12,7 @@ import { droppedName, FISH_NAMES, KIND_PASSAGES, ownWords, type FishName, type K
 import { withLNumber } from './l-numbers'
 import { pickStands, readPersonYes } from './person-yes'
 import { EMPTY_CAP, refusedOn, type PhotoVerdict } from './photo-check'
+import { CAPTIONED } from './captions'
 import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmails, dropEmailsDeep, dropEmptyHeadings, dropPermissionNotes, dropPhotoCaptions, dropRefCredits, dropRepeats, dropThanks, fixTranslation, hasEmail, isAdPoster, isMediaFile, mayHoldEmail, notAlive, isMap, unwellOff, NAMED_KINDS, renameFishNames, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields, type PageKind } from './pages'
 import { foldPages } from './page-folds'
@@ -27,13 +28,13 @@ import { SOURCES } from './sources'
 import { errorKind } from './state'
 import { isShop, readVarietyPages, withoutShopTalk } from './species-sources'
 import { cardOf, cardProblems } from './summaries'
-import { readVerdicts } from './curation'
+import { readAvoid, readVerdicts } from './curation'
 import { carryTopicChecks } from './topic-check'
 import { breedsNamed } from './topics'
 import { schoolFromSeriouslyFish } from './traits'
 import { pageGroup } from './gbif'
 import { readVideoRejected } from './videos'
-import { orderAlbums } from './gallery'
+import { dropNonCommercial, orderAlbums } from './gallery'
 import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
 import { holdForSecondLook, listAgreed, looks, readSecondLook } from './last-photo'
 import { keptLast } from './own-mark'
@@ -157,6 +158,11 @@ export type SweepReport = {
   refusedHeld: string[]
   /** Albums put in the album order (gallery.ts orderAlbums) whose lead photo changed, `id: old -> new`. */
   albums: string[]
+  /**
+   * Non-commercial photos taken off an album or a page (gallery.ts dropNonCommercial), `file: url`: every one with
+   * IMAGE_SWITCHES.inatNonCommercial off, all but iNaturalist's album photos with it on.
+   */
+  nonCommercial: string[]
   /** Heads a person picked that a page's check calls "none": out of the rule, listed each cycle, `kind/id: url`. */
   refusedPicked: string[]
   /** Rejected videos (engine-state/_video-rejected.json) taken off a page, `kind/id: youtubeId (why)`. */
@@ -325,22 +331,26 @@ export async function nameFish(content: string, rows: readonly FishName[] = FISH
 
 /**
  * A renamed fish's old name (names.ts FISH_NAMES) in the photos' captions, written as its name, and each caption's
- * translations kept under its new words (content/captions/<lang>.json is keyed by the Vietnamese). A row's own photos, in
- * its gallery and on its page, say what its own page calls it (names.ts ownWords). The files changed.
+ * translations kept under its new words (content/captions/<lang>.json is keyed by the Vietnamese). The photos are the
+ * galleries' and the pages' (CAPTIONED, as captions.ts reads them). A row's own photos, in its gallery and on its page, say
+ * what its own page calls it (names.ts ownWords), before another's old name in them is renamed: the pygmy gourami's "cá
+ * sặc lùn" is its own, not the dwarf gourami's. The files changed.
  */
 export async function renameCaptions(content: string, rows: readonly FishName[] = FISH_NAMES): Promise<string[]> {
   const changed: string[] = []
   const rekey = new Map<string, string>()
   const own = rows.filter(r => r.own).flatMap(r => [[`gallery/${r.id}.json`, r], [`${r.kind ?? 'species'}/${r.id}/entity.json`, r]] as const)
-  const files = [...(await readdir(join(content, 'gallery')).catch(() => [] as string[])).filter(x => x.endsWith('.json')).map(f => `gallery/${f}`), ...own.map(([f]) => f).filter(f => !f.startsWith('gallery/'))]
+  const list = async (dir: string) => (await readdir(join(content, dir)).catch(() => [] as string[])).sort()
+  const pages = (await Promise.all(CAPTIONED.map(async k => (await list(k)).map(id => `${k}/${id}/entity.json`)))).flat()
+  const files = [...new Set([...(await list('gallery')).filter(x => x.endsWith('.json')).map(f => `gallery/${f}`), ...pages, ...own.map(([f]) => f)])]
   for (const f of files) {
     const raw = await readFile(join(content, f), 'utf8').catch(() => null)
-    if (!raw) continue
+    if (!raw?.includes('"caption"')) continue
     const g = JSON.parse(raw) as { photos?: { caption?: string }[] }
     const r = own.find(([o]) => o === f)?.[1]
     let any = false
     const photos = (g.photos ?? []).map(p => {
-      const to = p.caption && (r ? ownWords(r, renameFishNames(p.caption)) : renameFishNames(p.caption))
+      const to = p.caption && renameFishNames(r ? ownWords(r, p.caption) : p.caption)
       if (!p.caption || to === p.caption) return p
       any = true
       rekey.set(p.caption, to!)
@@ -350,14 +360,16 @@ export async function renameCaptions(content: string, rows: readonly FishName[] 
     await write(join(content, f), raw, { ...g, photos })
     changed.push(f)
   }
-  if (!rekey.size) return changed
+  // A key no photo holds now (its photo gone from the gallery) takes the new name from its own words, so no old name
+  // waits in a file for the photo to come back. A key whose new words are already one keeps the translation there.
+  const to = (k: string) => rekey.get(k) ?? renameFishNames(k)
   for (const f of (await readdir(join(content, 'captions')).catch(() => [] as string[])).filter(x => x.endsWith('.json'))) {
     const file = join(content, 'captions', f)
     const raw = await readFile(file, 'utf8')
     const map = JSON.parse(raw) as Record<string, string>
-    if (![...rekey.keys()].some(k => k in map)) continue
+    if (!Object.keys(map).some(k => to(k) !== k)) continue
     // In place, so the file's order stays and a diff shows only the keys.
-    await write(file, raw, Object.fromEntries(Object.entries(map).map(([k, v]) => [rekey.get(k) ?? k, v])))
+    await write(file, raw, Object.fromEntries(Object.entries(map).flatMap(([k, v]) => (to(k) !== k && to(k) in map ? [] : [[to(k), v]]))))
     changed.push(`captions/${f}`)
   }
   return changed
@@ -514,13 +526,13 @@ async function regroupPages(content: string): Promise<string[]> {
   }
   return moved
 }
-export async function sweep(root: string, o: { llm?: Llm; titles?: number; retitles?: number; model?: string; photoCap?: number; today?: string } = {}): Promise<SweepReport> {
+export async function sweep(root: string, o: { llm?: Llm; titles?: number; retitles?: number; model?: string; photoCap?: number; today?: string; switches?: Readonly<ImageSwitches> } = {}): Promise<SweepReport> {
   // Before anything is written. Not a whole number ("1O" for 10 reads as none), every comparison with it is false and
   // the cap would be off (the independent reader, 2026-11-11).
   const cap = o.photoCap ?? PHOTO_CAP
   if (!Number.isInteger(cap) || cap < 0) throw new Error(`sweep: the photo cap is a whole number, 0 or more, not ${cap}`)
   const content = join(root, 'content')
-  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], secondLook: [], agreed: [], unwell: [], heads: [], named: [], noAnimal: [], refused: [], refusedHeld: [], refusedPicked: [], albums: [], videos: [], card: [], summaries: [], tanks: [], shop: [], dealer: [], dealerOnly: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], folds: [], stopped: '' }
+  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], secondLook: [], agreed: [], unwell: [], heads: [], named: [], noAnimal: [], refused: [], refusedHeld: [], refusedPicked: [], albums: [], nonCommercial: [], videos: [], card: [], summaries: [], tanks: [], shop: [], dealer: [], dealerOnly: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], folds: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
   const counted: { file: string; raw: string; t: Stored; kind: string; lang: WrittenLang; id: string }[] = [] // raw: for its indentation
@@ -607,7 +619,9 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     ;(report.text.wording ??= []).push(`summaries/${f.replace(/\.json$/, '')}`)
   }
 
-  // A page's shop searches, in the words its text uses. Fish and plants are the pages with them.
+  // A page's shop searches, in the words its text uses, a renamed fish's or plant's old name (names.ts FISH_NAMES) as its
+  // name: the shops write the name keepers use (the African fern's "dương xỉ nước châu Phi", 17 Nov). Fish and plants are
+  // the pages with them.
   for (const kind of ['species', 'plants']) {
     for (const id of (await readdir(join(content, kind)).catch(() => [] as string[])).sort()) {
       const file = join(content, kind, id, 'entity.json')
@@ -615,7 +629,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
       if (!raw) continue
       const e = JSON.parse(raw) as { productSlots?: { keywords: string[] }[] }
       const before = JSON.stringify(e.productSlots ?? [])
-      for (const row of e.productSlots ?? []) row.keywords = row.keywords.map(viSearchWords)
+      for (const row of e.productSlots ?? []) row.keywords = row.keywords.map(k => viSearchWords(renameFishNames(k)))
       if (JSON.stringify(e.productSlots ?? []) === before) continue
       await write(file, raw, e)
       changed(`${kind}/${id}/entity.json`)
@@ -782,7 +796,9 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // has the last word, so no step between them leaves such a head. A standing pick still leads (the loop below).
   {
     const verdicts = await readVerdicts(root)
-    const asHead = passesHead(verdicts), grown = grownHead(verdicts), kept = (u: string) => !!verdicts.kept?.(u)
+    // The calendar's hold, as the lead step reads it: a held head the lead step moved stays moved (lead-photo.ts `held`).
+    const avoid = await readAvoid(root)
+    const asHead = passesHead(verdicts, avoid), grown = grownHead(verdicts, avoid), kept = (u: string) => !!verdicts.kept?.(u)
     const on = await namedOn(content)
     type Named = { kind: string; id: string; file: string; raw: string; e: { scientificName?: string; synonyms?: string[]; photos?: Photo[] } }
     const read = async (kind: string) => Promise.all((await readdir(join(content, kind)).catch(() => [] as string[])).sort().map(async (id): Promise<Named | null> => {
@@ -952,30 +968,49 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     changed(`guides/${id}/entity.json`)
   }
   // A guide's photo goes under the heading its label names (the site matches the two), so a label follows its heading when
-  // the heading is rewritten: the words the sweep writes another way ("Trùn chỉ đỏ" → "Trùng huyết"), else the one heading
-  // with the label's own number ("2.", "#1", "Bước 2"; schema headings.ts, so a count title, "3 nguyên nhân chính", has
-  // none). One it can't place is listed and kept; the site shows it at the guide's end.
+  // the heading is rewritten: the words the sweep writes another way ("Trùn chỉ đỏ" → "Trùng huyết") or a renamed fish
+  // ("Thả cá platy" → "Thả cá mún"), else the one heading with the label's own number ("2.", "#1", "Bước 2"; schema
+  // headings.ts, so a count title, "3 nguyên nhân chính", has none). One it can't place is listed and kept; the site shows
+  // it at the guide's end. A video's pictures (video.figures, under an h2 or h3 by its exact words) follow a heading the
+  // sweep rewrote, and nothing else, and their captions take a renamed fish's name as the text does.
   const near = (h: string) => h.replace(/\s+/g, ' ').trim().toLowerCase()
+  type Figure = { heading: string; photo?: Photo; moments: { caption?: string }[] }
   for (const id of (await readdir(join(content, 'guides')).catch(() => [] as string[])).sort()) {
     const file = join(content, 'guides', id, 'entity.json')
     const raw = await readFile(file, 'utf8').catch(() => null)
-    const e = raw ? JSON.parse(raw) as { photos?: (Photo & { section?: Record<string, string> })[] } : null
-    if (!e?.photos?.some(p => p.section?.vi)) continue
+    const e = raw ? JSON.parse(raw) as { photos?: (Photo & { section?: Record<string, string> })[]; video?: { figures?: Figure[] } } : null
+    if (!e?.photos?.some(p => p.section?.vi) && !e?.video?.figures?.length) continue
     const t = JSON.parse(await readFile(join(content, 'guides', id, 'vi.json'), 'utf8').catch(() => 'null')) as Stored | null
-    const headings = parse(t?.body ?? '').querySelectorAll('h3').map(h => h.textContent.replace(/\s+/g, ' ').trim()).filter(Boolean)
+    const body = parse(t?.body ?? '')
+    const text = (h: { textContent: string }) => h.textContent.replace(/\s+/g, ' ').trim()
+    const headings = body.querySelectorAll('h3').map(text).filter(Boolean)
     const named = (label: string) => headings.find(h => near(h) === near(label))
     let moved = false
-    const photos = e.photos.map(p => {
-      const label = p.section?.vi
-      if (!label || named(label)) return p
+    const follow = (label: string) => {
+      if (named(label)) return label
       const numbered = ownNumber(label) === undefined ? [] : headings.filter(h => ownNumber(h) === ownNumber(label))
-      const to = named(viWording(label)) ?? (numbered.length === 1 ? numbered[0] : undefined)
-      if (!to) { report.unplaced.push(`guides/${id}: "${label}"`); return p }
+      const to = named(viWording(label)) ?? named(renameSwapped(viWording(label))) ?? (numbered.length === 1 ? numbered[0] : undefined)
+      if (!to) { report.unplaced.push(`guides/${id}: "${label}"`); return label }
       moved = true
-      return { ...p, section: { ...p.section, vi: to } }
-    })
+      return to
+    }
+    const exact = new Set(body.querySelectorAll('h2, h3').map(text))
+    const rewritten = (heading: string) => {
+      const to = renameSwapped(viWording(heading))
+      if (exact.has(heading) || to === heading || !exact.has(to)) return heading
+      moved = true
+      return to
+    }
+    const photos = e.photos?.map(p => (p.section?.vi ? { ...p, section: { ...p.section, vi: follow(p.section.vi) } } : p))
+    const caption = <P extends { caption?: string }>(p: P): P => {
+      const to = p.caption && renameFishNames(p.caption)
+      if (!to || to === p.caption) return p
+      moved = true
+      return { ...p, caption: to }
+    }
+    const figures = e.video?.figures?.map(f => ({ ...f, heading: rewritten(f.heading), ...(f.photo ? { photo: caption(f.photo) } : {}), moments: f.moments.map(caption) }))
     if (!moved) continue
-    await write(file, raw!, { ...e, photos })
+    await write(file, raw!, { ...e, ...(photos ? { photos } : {}), ...(figures ? { video: { ...e.video, figures } } : {}) })
     changed(`guides/${id}/entity.json`)
     ;(report.text['photo-heading'] ??= []).push(`guides/${id}`)
   }
@@ -1297,6 +1332,11 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     await write(file, raw, e)
     changed(`species/${id}/entity.json`)
   }
+  // Non-commercial photos off every album and page in one step: all of them with their switch off, all but iNaturalist's
+  // album photos with it on (gallery.ts dropNonCommercial). Before the albums are ordered.
+  const nonCommercial = await dropNonCommercial(content, o.switches ?? IMAGE_SWITCHES)
+  nonCommercial.files.forEach(changed)
+  report.nonCommercial = nonCommercial.photos
   // Every album in the album order, after every photo above has left: the check's screening order, photo-tank and ruler
   // photos after the others (gallery.ts orderAlbums). Before the heads with no animal are read, as a page's head may be
   // its album's first.

@@ -1,0 +1,131 @@
+{
+  "id": "zaireichthys-conspicuus",
+  "scientificName": "Zaireichthys conspicuus",
+  "order": "Siluriformes",
+  "family": "Amphiliidae",
+  "genus": "Zaireichthys",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "zambezi"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 3.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/zaireichthys_conspicuus.htm",
+      "html": "<ul><li>Common name: Blotched sand catlet</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/zaireichthys_conspicuus.htm",
+      "html": "<p>Southern Africa: Upper Zambezi River from the rapid sections at Katima Mulilo down to just above the Victoria Falls.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/zaireichthys_conspicuus.htm",
+      "html": "<p>Found in the rapid sections of rivers; seems to inhabit rocky rapids rather than sandy bottoms.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/zaireichthys_conspicuus.htm",
+      "html": "<p>It feeds on insects.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/zaireichthys_conspicuus.htm",
+      "html": "<p>This species differs from Zaireichthys kafuensis, Z. kavangoensis, Z. monomotapa and Z. pallidus in having a premaxillary tooth patch with the buccal margin expanded laterally, and from all other species in its more robust form and bold markings.</p><p>Dorsal spines (total): 2; dorsal soft rays (total): 6; anal spines: 0; anal soft rays: 9–11; vertebrae: 34–35.</p><p>Etymology: the specific name 'conspicuus' refers to the conspicuous bold markings of this species.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/zaireichthys_conspicuus.htm",
+      "html": "<p>Eccles, D.H., D. Tweddle and P.H. Skelton, 2011. Eight new species in the dwarf catfish genus Zaireichthys (Siluriformes: Amphiliidae). Smithiana Bull. (13):3-28. Froese, R. and D. Pauly. Editors. 2023. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 06/2023 ). The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/eeeda7525360b22d.webp",
+      "thumb": "https://media.aquatome.com/scotcat/eeeda7525360b22d-480.webp",
+      "width": 500,
+      "height": 290,
+      "licence": "dùng với sự cho phép",
+      "author": "Joe Cutler / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/zaireichthys_conspicuus.htm",
+      "caption": "Zaireichthys conspicuus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/8cd42afb0dfc9dba.webp",
+      "thumb": "https://media.aquatome.com/scotcat/8cd42afb0dfc9dba-480.webp",
+      "width": 500,
+      "height": 213,
+      "licence": "dùng với sự cho phép",
+      "author": "/ / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/zaireichthys_conspicuus.htm",
+      "caption": "Zaireichthys conspicuus: Cuvango-Power station camp, Angola",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 40cm",
+        "bể cá mini"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thác nước mini",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá mini"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi nhỏ nền bể",
+        "đá suối trang trí bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

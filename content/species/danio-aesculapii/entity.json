@@ -20,7 +20,8 @@
         "Kananmae Chaung"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -107,6 +108,10 @@
       {
         "source": "seriouslyfish",
         "value": 3
+      },
+      {
+        "source": "glaser",
+        "value": 4
       }
     ],
     "tankCm": [
@@ -124,6 +129,12 @@
   },
   "sections": [
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danio_aesculapii_danio_sp_pantherinus__en/",
+      "html": "<p>These minnows originate from Burma, do not grow over 4 cm and are therefore the smallest representative of the Danio genus.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-aesculapii",
@@ -138,8 +149,8 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danio_aesculapii_en/",
-      "html": "<p>This species was first imported from Burma in 2005.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danio_aesculapii_danio_sp_pantherinus__en/",
+      "html": "<p>Origin: Myanmar.</p>"
     },
     {
       "key": "habitat",
@@ -178,6 +189,12 @@
       "html": "<p>This species is generally peaceful making it an ideal resident of the well-furnished community aquarium.</p><p>As it places no special demands in terms of water chemistry it can be combined with many of the most popular fish in the hobby including other small cyprinids as well as tetras, livebearers, rainbowfishes, anabantoids, catfishes and loaches, though as always when selecting a compatible community of fish proper research is essential and its adult size must be taken into account.</p><p>A set-up based around fish from the western Rakhine Yoma will be more difficult to achieve as most are unavailable in the aquatic trade. There remain a few potential options though, some of which are listed in the 'Habitat' section above.</p><p>It's a schooling species by nature and really should be kept in a group of at least 8-10 specimens.</p><p>Maintaining it in decent numbers will not only make the fish less nervous but result in a more effective, natural-looking display while males will also exhibit their best colours as they compete with one other for female attention.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danio_aesculapii_danio_sp_pantherinus__en/",
+      "html": "<p>As with all representatives of the Danio family, D. sp. \"Pantherinus\" is a schooling fish and therefore should be kept in a group of at least 6 individuals of the same species. It is a friendly and fast swimming fish.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-aesculapii",
@@ -190,16 +207,16 @@
       "html": "<p>Like many small cyprinids this species is an egg-scattering spawner that exhibits no parental care.</p><p>When the fish are in good condition they will spawn often and in a densely-planted, mature aquarium it's possible that small numbers of fry may start to appear without intervention.</p><p>However if you want to increase the yield of fry a slightly more controlled approach is required.</p><p>The adult group can still be conditioned together but one or more smaller, say 10-15 litre, containers should also be set up and half-filled with water.</p><p>These should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through it but small enough so that the adults cannot reach them.</p><p>The widely available plastic 'grass'-type matting can also be used and works very well; alternatively filling much of the tank with Java moss or other fine-leaved plant can also yield good results.</p><p>The water itself should be very soft, of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above.</p><p>A small power filter can be added initially and this should be positioned so that the flow is directed down the full length of the tank; alternatively simply install a mature sponge-type filter.</p><p>When the adult fish are well-conditioned and the females appear full of eggs one or two pairs should then be introduced to each container.</p><p>Spawning can be initiated by adding small amounts of cool water every few hours in such a way that the tank is gradually topped up and feeding small amounts of live and frozen foods.</p><p>The pair should spawn the following morning. The easiest and quickest way to tell is simply to look at the female since if the fish have spawned she will be noticeably slimmer.</p><p>The adults will eat any eggs they find and are best removed after a couple of days at which point the power filter (if using) should be switched for a sponge-type unit in order to avoid fry being sucked into the mechanism.</p><p>Incubation is temperature-dependant to an extent but usually takes around 36 hours with the young free-swimming 3-4 days later.</p><p>Initial food should be Paramecium or a proprietary dry food of sufficiently small (5-50 micron diameter) grade, introducing Artemia nauplii, microworm, etc. once the fry are large enough to accept them.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danio_aesculapii_danio_sp_pantherinus__en/",
+      "html": "<p>No reports about the breeding of this species could be found, but no serious problem should occur with breeding attempts because almost all Danio species are easy to breed.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-aesculapii",
       "html": "<p>Despite its official description this species continues to be traded under various names including 'Danio sp. pantheri', 'D. sp. hieroglyph' and 'D. sp. TW03'.</p><p>The first specimens were probably collected by Sunder Lal Hora in 1937 but misidentified as Danio choprae.</p><p>D. aesculapii is distinguished from congeners by the following characters: colour pattern comprising 6-7 brown vertical bars anteriorly on side and two horizontal rows of small brown spots posteriorly; D stripe absent; no dark stripes on caudal fin; 12 circumpeduncular scale rows; 6 branched dorsal fin rays.</p><p>In recent years it's become commonplace to refer to the stripes on the body and fins of danionins as follows:</p><ul><li>P stripe: or \"pigment stripe\" is the central, dark, lateral stripe on the body which extends into the caudal-fin in some species. Stripes above it are numbered P+1, P+2, etc. and those beneath P-1, P-2, P-3.</li><li>A stripe: the central stripe on the anal-fin; the proximal stripe (above it) is A+1 and the distal stripe (beneath) A-1.</li><li>D stripe: The submarginal dorsal-fin stripe.</li></ul><p>Following Fang (2003) Danio spp. are characterised by the presence of an A stripe on the anal-fin and two or more P stripes on the caudal, plus some internal characteristics such as enlarged nasal lamellae.</p><p>The genus has undergone some significant taxonomic reshuffling in recent years following the publication of a series of phylogenetic studies.</p><p>Older, molecular, phylogenies tended to agree that it represented a monophyletic group consisting of two major clades; the 'Danio devario' group containing the larger, deeper-bodied species and the 'D. rerio' clade comprising the smaller, slimmer fish.</p><p>However in 2003 Fang conducted a more detailed study based on morphological characters which included members of other related genera, and the results suggested for the first time that the genus Danio as previously considered represents a polyphyletic grouping, i.e., not all members derived from a single common ancestor.</p><p>The genus name Devario was suggested for the larger species with Danio being applied only to the smaller fish (with the exception of the type species, D. dangila which can grow to around 89 mm SL). Recent molecular studies by Mayden et al. (2007) and Fang et al. (2009) resulted in further changes, with the latter study considering the genus Danio to be composed of three subclades. These were subsequently split into distinct genera by Kottelat (2013), as follows:</p><p>The former species D. erythromicron, D. margaritatus, D. choprae and D. flagrans were grouped together in the revalidated genus Celestichthys Roberts, 2007. These exhibit unique body patterning consisting of vertical bars (D. erythromicron, D. choprae, D. flagrans) or light spots (D. margaritatus) and possess either very short barbels or none at all.</p><p>Kottelat (2013) left only the type species, D. dangila, in Danio, separated on the basis of its larger size and the shape of the caudal-fin, which in adults is only slightly emarginate or even truncate in shape, a feature it shares only with Tinca tinca (the common tench) among other cyprinids.</p><p>The remaining species, of which D. rerio is thought to be the most ancient, were placed in the revalidated genus Brachydanio Weber &amp; de Beaufort, 1916. Kullander (2015) did not follow this split, because phylogenetic analyses strongly support a single Danio in the sense of Fang (2003), with Devario a separate genus. The Catalog of Fishes and FishBase both keep all of these species in Danio.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danio_aesculapii_en/",
-      "html": "<p>In 2005 this pretty species appeared under the provisional trade name Danio sp. \"Pantherinus\". In 2009 it was formally described as Danio aesculapii. It was named after the ancient Greek god of medicine, whose regalia was a stick with one or two snakes wrapped around it. The colour pattern of D. aesculapii is referred to as a snakeskin pattern, hence the name.</p><p>The symbol of Aesculapius probably does not show snakes on a staff at all, but the Guinea worm wrapped on a stick. The Guinea worm (Dracunculus medinensis) is a parasite of humans, who infect themselves by drinking water containing infected small crustaceans. The male Guinea worm dies after mating, but the female lives on and builds up a boil the size of a gudgeon's egg in the skin. When this boil comes into contact with water, the very thin skin in its centre breaks off and the female protrudes part of her body to release larvae into the water. The Guinea worm, up to one metre long but only 1.5 mm thick, can be removed only by winding it around a stick about 10 cm per day (not more, otherwise there is a danger of rupture and a heavy bacterial infection). This disease is or was (it seems almost extinct nowadays) widespread in tropical Africa and Asia, but unknown in ancient Greece. So the symbol of the healer, a stick wrapped with Guinea worm, was mistaken for a staff with snakes. This is just noted in the margin.</p>"
     },
     {
       "key": "references",
@@ -278,5 +295,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-14"
+  "updatedAt": "2026-11-17"
 }

@@ -1,18 +1,21 @@
 {
   "slug": "cambarellus-patzcuarensis",
-  "name": "กุ้งแคระเม็กซิกัน",
+  "name": "กุ้งเครฟิชแคระ",
   "altNames": [
-    "CPO",
-    "กุ้งเครฟิชแคระ",
-    "กุ้งแคระส้ม",
-    "Mexican dwarf crayfish"
+    "Patzcuaro dwarf crayfish",
+    "Mexican dwarf crayfish",
+    "Dwarf crayfish"
   ],
-  "sections": {},
+  "sections": {
+    "quickFacts:glaser": "<p>กุ้งเครฟิชแคระสีส้ม Cambarellus patzcuarensis โตได้เพียง 3–4 ซม. เท่านั้น</p>",
+    "distribution:glaser": "<p>ถิ่นกำเนิด: ทะเลสาบปาตซ์กวาโร (Pátzcuaro) ประเทศเม็กซิโก</p>",
+    "behaviour:glaser": "<p>กุ้งเครฟิชแคระชนิดนี้ค่อนข้างก้าวร้าวต่อกันเองเล็กน้อย</p>"
+  },
   "quality": {
-    "score": 0.85,
+    "score": 0.9,
     "indexable": true,
     "bySource": {
-      "bwaquatics": 0.85
+      "glaser": 0.9
     }
   }
 }

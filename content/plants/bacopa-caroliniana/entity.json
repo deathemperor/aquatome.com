@@ -5,11 +5,10 @@
     "Bacopa amplexicaulis"
   ],
   "difficulty": 1,
-  "light": "low",
-  "co2": "optional",
-  "growth": "slow",
+  "light": "medium",
+  "co2": "none",
+  "growth": "medium",
   "placement": [
-    "midground",
     "background"
   ],
   "sections": [
@@ -20,48 +19,106 @@
       "html": "<ul><li>Origin: North America</li><li>Growth rate: slow</li><li>Height: 20-30+ cm (average after two months in the tank)</li><li>Light demand: low</li><li>CO2 demand: low</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bacopa-caroliniana-care-guide-planting-growing-and-propagation/",
+      "html": "<ul><li>Other names: lemon bacopa, blue waterhyssop, mint bacopa</li><li>Lighting: medium</li><li>GH: soft to hard (2–15 dGH is best)</li><li>Substrate: any</li><li>Growth form: stem; growth rate moderate</li><li>Placement: background</li><li>Fertilizers: not needed to low</li><li>CO2: not needed to low</li><li>Propagation: by cuttings</li><li>Colour: green to reddish</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bacopa-caroliniana-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Bacopa caroliniana is native to North America. It is commonly seen in Florida and is widely distributed throughout the Southeastern United States, with large populations reported in Texas, South Carolina, Alabama, Maryland and elsewhere. It belongs to the genus Bacopa, which has about 70–100 aquatic plants in the family Scrophulariaceae.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bacopa-caroliniana-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Bacopa caroliniana is a hydrophyte found in wetlands, marshes, lakes and ponds, where it grows as a submersed or emergent plant. It is also great for paludarium set-ups.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bacopa-caroliniana-care-guide-planting-growing-and-propagation/",
+      "html": "<p>The plant thrives in many tank sizes, even nano tanks if properly maintained. Because of its size and mass, the minimum tank size for growing it is 40 litres.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Bacopacaroliniana(043CLP)(1)/31156",
       "html": "<p>Bacopa caroliniana has few demands and is thus very convenient for beginners. Its slow growth rate makes it one of the few stem plants that do not need much attention. Like most stem plants, it is most decorative when planted in small groups. It is easy to propagate by cuttings: take a side shoot and plant it in the bottom.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bacopa-caroliniana-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Care is relatively easy. Left alone, the plant produces long, robust stems that give strong vertical accents. Regular pruning of top or lateral shoots encourages side shoots and a thick, bushy look. Dispose of cuttings in waste bags to keep them out of local waterways, or replant them; stems can also be dipped in bleach solution before disposal.</p><p>Do weekly partial water changes and remove dead leaves, flowers and stems. With plenty of CO2, bright light and nutrients, growth is slightly faster, colour more intense and leaves thicker. It often starts slowly but grows faster once established.</p><h3>Planting and propagation</h3><p>Plant healthy stems into the substrate with tweezers, taking care not to break the fragile stems. Fertiliser helps in the early stages. To propagate, cut off lateral shoots and replant them. Cuttings should be 7–15 cm long, with the leaves removed from the lower 5 cm of the stem before planting. Side shoots can be clipped and replanted and root after a few days. Do not plant stems too close together, as overcrowding increases competition for nutrients. Some aquarists let the cuttings float until roots develop.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bacopa-caroliniana-care-guide-planting-growing-and-propagation/",
+      "html": "<ul><li>Temperature: optimal 20–28 °C; tolerates cooler water, but not below 13 °C.</li><li>pH: 6.0–8.0 is recommended, but the plant adapts to almost any pH as long as extremes are avoided.</li><li>Hardness: tolerates hard and soft water; thrives best at 2–15 dGH.</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bacopa-caroliniana-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Lighting: it grows from fairly low to high light, which makes it one of the best plants for low-light planted tanks, but strong light gives the best growth and reddish top leaves; in low light it stays green. A photoperiod of 8–10 hours daily is beneficial.</p><p>Substrate: it does not need a nutrient-rich substrate, though it benefits from one. It can grow in sand or gravel.</p><p>CO2 and fertilisation: it thrives without CO2 injection. If the substrate is rich in minerals or there is plenty of fish and snail waste, that may be enough fertiliser. Stem plants mostly feed from the water column, so dose liquid fertiliser; root tabs are less effective. Iron and potassium help maintain green colour and healthy leaves. If you keep shrimp, remember that high CO2 and copper (found in most fertilisers) are very dangerous to them.</p>"
+    },
+    {
       "key": "notes",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Bacopacaroliniana(043CLP)(1)/31156",
       "html": "<p>Bacopa caroliniana originates from the US and has been used as an aquarium plant for many years. Stems become 10-30 cm long and 3-4 cm wide, branching willingly from the bottom.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bacopa-caroliniana-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Bacopa caroliniana is a perennial stem plant that grows in two forms. Emersed, the stems are about 2.5–5 mm thick, sparsely hairy, up to 1 metre long, prostrate and rooting at the nodes. The leaves are opposite, clasping the stem, fleshy, ovate or elliptical, 20–30 mm long and 10–15 mm wide, glossy green above and finely downy beneath. The flowers are bright blue. Crushed leaves smell of lemon or mint.</p><p>The submersed form averages 20–40 cm long and 3–4 cm wide, with green or greenish-yellow leaves with darker, clearly visible, moderately undulate veins. Under intense light and low nitrate the shoots turn bronze, copper-brown and sometimes pink. The rare variant 'Colorata' has a more pronounced light red colour.</p><h3>Uses</h3><ul><li>Aquascape: a very tall plant, used in the background.</li><li>Foraging ground: fish, shrimp and snails pick at the stems and base for food particles and detritus, and biofilm grows on it, an ideal first food for fry and shrimplets.</li><li>Removes excess nutrients and heavy metals.</li><li>Shelter and spawning place for shrimp and small fish.</li><li>Helps oxygenate the water.</li><li>Helps reduce algae because it outcompetes them for nutrients.</li><li>Bacopa caroliniana and Bacopa monnieri are considered edible and are reported to have medicinal uses.</li></ul><h3>Problems</h3><ul><li>Melting: due to poor water quality or a plant grown out of water that has not acclimated. Remove dying parts, check water quality and dose fertilizer.</li><li>Algae: from infected plants or materials, poor water quality or excessive light. Fix water quality, reduce light intensity and photoperiod, and disinfect plants and hardscape before use.</li><li>Stems floating up: use plant weights to hold stems down.</li><li>Loss of lower leaves: upper leaves grow larger and block light. Cut off the lower part and replant the top.</li></ul><h3>Bacopa caroliniana vs Bacopa monnieri</h3><ul><li>B. caroliniana has blue flowers and round, aromatic leaves; B. monnieri has white flowers and unscented leaves broader at the tip than at the base.</li><li>The leaves of B. caroliniana are generally bigger.</li><li>B. caroliniana has a darker stem; B. monnieri has an all-green stem.</li><li>B. monnieri stems are straighter; B. caroliniana stems are a little twisted.</li></ul><h3>Tankmates</h3><p>The plant is sturdy and fish rarely eat it, possibly because of the scent of its leaves. Suitable companions include Otocinclus, pygmy corydoras, neon tetras, guppies, cherry barbs, swordtails, rasboras, platies, Neocaridina and Caridina shrimp, Amano shrimp, ghost shrimp, bamboo shrimp, vampire shrimp, and snails such as ramshorn, nerite, Malaysian trumpet, Japanese trapdoor and mystery snails. Avoid keeping it with crayfish or crabs, which cut or uproot plants.</p><h3>Buying and quarantine</h3><p>It is widely available from aquarium shops, water garden suppliers, nurseries and online vendors. A pot or bunch may have up to 10 stems; choose plants free of damage (rips, curls, rot), pests and algae. Unless grown in sterile in vitro conditions in an unopened pot, quarantine and disinfect the plant first, since it may carry parasites, pests such as snails, predators (dragonfly or damselfly nymphs) or pesticide residues that are very poisonous to fish and invertebrates.</p>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/aquariumbreeder/3e482d10d9576524.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/3e482d10d9576524-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/bacopa-caroliniana-care-guide-planting-growing-and-propagation/",
+      "source": "aquariumbreeder"
+    },
+    {
       "url": "https://media.aquatome.com/commons/7758a7639361f523.webp",
+      "thumb": "https://media.aquatome.com/commons/7758a7639361f523-480.webp",
       "width": 960,
       "height": 1280,
       "licence": "CC BY-SA 3.0",
       "author": "User:BotBln",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bacopa_caroliniana_BotGardBln07122011D.JPG",
-      "caption": "At Botanical Gardens Berlin-Dahlem Species Bacopa caroliniana",
-      "thumb": "https://media.aquatome.com/commons/7758a7639361f523-480.webp"
+      "caption": "At Botanical Gardens Berlin-Dahlem Species Bacopa caroliniana"
     },
     {
       "url": "https://media.aquatome.com/commons/ceba6812ee21f2f9.webp",
+      "thumb": "https://media.aquatome.com/commons/ceba6812ee21f2f9-480.webp",
       "width": 960,
       "height": 1280,
       "licence": "CC BY-SA 3.0",
       "author": "User:BotBln",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bacopa_caroliniana_BotGardBln07122011B.JPG",
-      "caption": "At Botanical Gardens Berlin-Dahlem Species Bacopa caroliniana",
-      "thumb": "https://media.aquatome.com/commons/ceba6812ee21f2f9-480.webp"
+      "caption": "At Botanical Gardens Berlin-Dahlem Species Bacopa caroliniana"
     },
     {
       "url": "https://media.aquatome.com/commons/9cf12cb3c9d6ab30.webp",
+      "thumb": "https://media.aquatome.com/commons/9cf12cb3c9d6ab30-480.webp",
       "width": 960,
       "height": 712,
       "licence": "CC BY-SA 4.0",
       "author": "Krzystzof Ziarnek, Kenraiz",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bacopa_caroliniana_kz1.jpg",
-      "caption": "Bacopa caroliniana at the New York Botanical Garden",
-      "thumb": "https://media.aquatome.com/commons/9cf12cb3c9d6ab30-480.webp"
+      "caption": "Bacopa caroliniana at the New York Botanical Garden"
     }
   ],
   "productSlots": [
@@ -86,5 +143,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-17"
 }

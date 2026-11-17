@@ -9,7 +9,12 @@
   "inat:250688537",
   "inat:316030127",
   "inat:316030128",
-  "File:Labelled H pogonognathus.jpg"
+  "File:Labelled H pogonognathus.jpg",
+  "gbif:2235909137:fd88e0c0f64cbc82",
+  "gbif:2236110004:0efbe63c10f3ea52",
+  "gbif:2235959484:b689c4e68a3a5a1e",
+  "gbif:2235959484:eef2d0ffbe2803d4",
+  "gbif:2236151578:ae17b96499759b8a"
  ],
  "hashes": {
   "https://media.aquatome.com/inaturalist/316028882.webp": "7687cd8bd3c6d0b3",
@@ -25,5 +30,9 @@
    "research": 213628650,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 2368761,
+  "next": null
  }
 }

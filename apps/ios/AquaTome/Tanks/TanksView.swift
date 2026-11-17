@@ -71,7 +71,7 @@ struct TanksView: View {
             if let p = tanks.problem { Section { ProblemText(problem: p) } }
             Section {
               ForEach(tanks.tanks) { t in
-                NavigationLink(value: t.id) { TankRow(tank: t, lights: tanks.devices(in: t).filter { $0.kind == "light" }.count) }
+                NavigationLink(value: t.id) { TankRow(tank: t, lights: tanks.devices(in: t).filter { $0.kind == "light" && !$0.isLoveEcology }.count) }
                   .accessibilityIdentifier("tank")
               }
               // In the list too, where it's seen: the + in the bar above is easy to miss.
@@ -183,7 +183,8 @@ private struct TankDetail: View {
 
   @ViewBuilder private var tank: some View {
     if let t = tanks.tanks.first(where: { $0.id == id }) {
-      let lights = tanks.devices(in: t).filter { $0.kind == "light" }
+      // The Love Ecology lamp is on Đèn's own card and the master button: nothing to connect to here.
+      let lights = tanks.devices(in: t).filter { $0.kind == "light" && !$0.isLoveEcology }
       List {
         Section("Thông tin bể") {
           let f = facts(t)

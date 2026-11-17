@@ -2,7 +2,7 @@
 url: https://aquariumbreeder.com/danio-rerio-detailed-guide-care-diet-and-breeding/
 title: Danio Rerio – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
 fetchedAt: 2026-10-30T16:49:11.128Z
-hash: 8533333babfb493bb3e9073a2d98106181354d53a4b4cf3cdb1c5c9ba4ecf140
+hash: f031ee7e4e159c537a518930cab4aa58bd4fc763cf1fd5df63702de390c2ab75
 ---
 
 Danio rerio, generally known as the Zebrafish are fascinating small freshwater fish that has been popular in the aquarium hobby for decades.
@@ -282,4 +282,3 @@ As long as Zebrafish have adequate water parameters, tank size, food, and safety
 - Gerhard, G.S., Kauffman, E.J., Wang, X., Stewart, R., Moore, J.L., Kasales, C.J., Demidenko, E., Cheng, K.C., 2002. Life spans and senescent phenotypes in two strains of Zebrafish (Danio rerio). Gerontol. 37, 1055–1068
 - Noam Miller, Robert Gerlai, Quantification of shoaling behaviour in zebrafish (Danio rerio), Behavioural Brain Research, Volume 184, Issue 2, 2007, Pages 157-166.
 - Hundt, Matthias, Benjamin Schreiber, Reiner Eckmann, Bjørn Tore Lunestad, Hannah Wünneman, and Ralf Schulz. “The effect of water hardness on mortality of zebrafish (Danio rerio) during exposure to oxytetracycline.” Bulletin of environmental contamination and toxicology96, no. 2 (2016): 144-149.
-### Leave a Reply Cancel reply

@@ -3,6 +3,12 @@
   "name": "Periyar",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T00:10:08.495Z",
+    "why": "The place is the Periyar river system in Kerala, and in Malay an atlas would write the river with its kind word, as \"Sungai Periyar\", not bare \"Periyar\"."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

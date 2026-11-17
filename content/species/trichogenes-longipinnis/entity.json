@@ -11,6 +11,75 @@
     "sao-paulo",
     "parati-mirim"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Parati-Mirim"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Cachoeira do Amor, kilometer 3 of the Parati-Ubatuba road, São Paulo, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Trichogenes longipinnis is distributed in the headwaters of the Parati-Mirim river basin in Rio de Janeiro and coastal streams in the far north of the São Paulo coast.",
+          "countries": [],
+          "regions": [
+            "Parati-Mirim"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342967,
+      "total": 84,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "BR",
+          84
+        ]
+      ],
+      "cells": [
+        [
+          -46.40625,
+          -23.90625,
+          15,
+          15
+        ],
+        [
+          -45,
+          -23.90625,
+          67,
+          67
+        ],
+        [
+          -45,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -45,
+          -21.09375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

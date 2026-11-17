@@ -2,28 +2,38 @@
   "slug": "ca-otocinclus-den",
   "name": "Cá otocinclus đen",
   "altNames": [
-    "Black Otocinclus"
+    "Black Otocinclus",
+    "Cá oto đen"
   ],
   "sections": {
-    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Hisonotus notatus Eigenmann &amp; Eigenmann, 1889</li><li>Tên thường gọi: cá otto đen (Black Otocinclus)</li><li>Sách Đỏ IUCN: Ít quan tâm (đánh giá lần cuối năm 2018)</li></ul>",
-    "distribution:planetcatfish": "<p>Nam Mỹ: Brazil. Loài này sống ở các con sông thuộc bang Rio de Janeiro (có cả sông Macaé), bang Minas Gerais, bang Espirito Santo và bang Sao Paulo.</p><p>Nơi thu mẫu chuẩn: bang Rio de Janeiro, Santa Cruz, sông Guandu, trang trại Santa Cruz (trang trại của Hoàng đế Pedro II), Brazil.</p>",
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Hisonotus notatus Eigenmann &amp; Eigenmann, 1889</li><li>Tên thường gọi: cá Otocinclus đen</li><li>Danh lục Đỏ IUCN: Ít quan tâm (đánh giá lần cuối năm 2018)</li></ul>",
+    "distribution:planetcatfish": "<p>Nam Mỹ: Brazil. Các sông thuộc bang Rio de Janeiro (kể cả sông Macaé), bang Minas Gerais, bang Espirito Santo và bang Sao Paulo.</p><p>Nơi thu mẫu định danh (type locality): bang Rio de Janeiro, Santa Cruz, sông Guandu, trang trại Santa Cruz (trang trại của Hoàng đế Pedro II), Brazil.</p>",
     "waterConditions:planetcatfish": "<ul><li>pH: 6,5–7,5</li><li>Nhiệt độ: 22–24 °C</li><li>Thông số khác: dH 20</li></ul>",
-    "reproduction:planetcatfish": "<p>Chưa có tài liệu về cách sinh sản của loài này. Hiện mới có đúng một báo cáo cho đẻ.</p>",
+    "reproduction:planetcatfish": "<p>Chưa có thông tin được công bố. Chỉ có một báo cáo về việc sinh sản.</p>",
     "references:planetcatfish": "<p>Proceedings of the California Academy of Sciences (Series 2) v. 2, pp 41.</p>",
     "quickFacts:glaser": "<p>Xuất xứ: Đông Nam Brazil. Loài này nuôi giống như cá otto, và rất bền.</p>",
     "distribution:glaser": "<p>Thỉnh thoảng có vài con hiếm được nhập về từ Đông Nam Brazil. Chúng là họ hàng của cá otto, loài quen thuộc với nhiều người nuôi.</p>",
     "habitat:glaser": "<p>Ngoài tự nhiên, Hisonotus ornatus sống ở những vùng nước có cỏ mọc dày.</p>",
     "waterConditions:glaser": "<p>Đừng để nước quá ấm. Mức cao nhất có lẽ chỉ nên tới 24°C.</p>",
     "maintenance:glaser": "<p>Cách nuôi không khác gì cá otto. Muốn chúng khỏe thì phải có lọc tốt và thay nước thường xuyên.</p>",
-    "diet:glaser": "<p>Thức ăn chủ yếu là rau và tảo.</p>"
+    "diet:glaser": "<p>Thức ăn chủ yếu là rau và tảo.</p>",
+    "quickFacts:scotcat": "<p>H. notatus hay bị nhầm với Hypoptopomatinae sp. LG2 ở Paraguay. Nhưng thân nó thon dài hơn, và khi lớn hết cỡ thì nó dài hơn con kia ít nhất 1 cm.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: Brazil, các bang Rio de Janeiro và São Paulo.</p><p>Hisonotus notatus là loài đặc hữu của Brazil. Nó sống ở lưu vực sông São João và ở các nhánh sông đổ vào vịnh Guanabara và vịnh Sepetiba, thuộc bang Rio de Janeiro.</p>",
+    "maintenance:scotcat": "<p>Nghe nói loài này khó nuôi hơn một chút nếu nước trong bể không sạch. Trong bể, chúng hay nằm nghỉ trên lá cây, nên trồng những cây lá dài. Nước mát hơn, lọc mạnh và có dòng chảy vừa đủ thì hợp với loài này hơn, mà cũng hợp với cả chi này nói chung.</p>",
+    "waterConditions:scotcat": "<p>Nhiệt độ: 20–24 °C. pH: 6,0–7,5.</p>",
+    "diet:scotcat": "<p>Chúng ăn cám vảy, rêu, thức ăn viên nén và viên tảo.</p>",
+    "reproduction:scotcat": "<p>Loài này rải trứng khắp bể và bố mẹ không chăm trứng.</p>",
+    "notes:scotcat": "<p>Từ nguyên: tên loài notatus trong tiếng Latin nghĩa là \"có dấu\". Cái tên này có lẽ là để chỉ đốm đen lớn ở giữa vây đuôi, kéo dài tới các tia vây đuôi ở giữa.</p><p>Danh sách Đỏ IUCN: chưa thấy mối đe dọa nào làm quần thể của nó gặp nguy, nên IUCN xếp H. notatus vào mức Ít quan tâm (LC) (IUCN 2023).</p>",
+    "references:scotcat": "<p>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2023. Hisonotus notatus. The IUCN Red List of Threatened Species 2023.</p><p>Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944.</p><p>The ETYFish Project Fish Name Etymology Database.</p>"
   },
   "quality": {
     "score": 0.6,
     "indexable": false,
     "bySource": {
       "planetcatfish": 0.9,
-      "glaser": 0.6
+      "glaser": 0.6,
+      "scotcat": 0.8
     },
-    "reason": "thin"
+    "reason": "score"
   }
 }

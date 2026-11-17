@@ -1,6 +1,8 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "flickr:5807038678"
+ ],
  "hashes": {
   "https://media.aquatome.com/scotcat/a8900a6cef7b2023.webp": "1d1d0f0c07030707",
   "https://media.aquatome.com/scotcat/4ade6c5bf738a7d7.webp": "4303604c341e4606",
@@ -19,5 +21,9 @@
  "gbif": {
   "key": 2344635,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-15"
 }

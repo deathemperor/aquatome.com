@@ -1,0 +1,125 @@
+{
+  "id": "tachysurus-nudiceps",
+  "native": {
+    "input": "42514ec2544fc69f",
+    "at": "2026-11-16T05:47:36.414Z",
+    "claims": [
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Lake Biwa, Japan.",
+        "words": "Japan",
+        "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Japan, Lake Biwa; central and western Honshu, eastern Shikoku, and northwestern Kyushu islands (Matsuura et al., 2000).",
+        "words": "Japan",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Biwa",
+        "source": "planetcatfish",
+        "quote": "Asia: Japan (Lake Biwa).",
+        "country": "JP",
+        "ok": true
+      },
+      {
+        "name": "Lake Biwa",
+        "source": "scotcat",
+        "quote": "Asia: Japan, Lake Biwa; central and western Honshu, eastern Shikoku, and northwestern Kyushu islands (Matsuura et al., 2000).",
+        "country": "JP",
+        "ok": true
+      },
+      {
+        "name": "Honshu",
+        "source": "scotcat",
+        "quote": "Asia: Japan, Lake Biwa; central and western Honshu, eastern Shikoku, and northwestern Kyushu islands (Matsuura et al., 2000).",
+        "ok": true
+      },
+      {
+        "name": "Shikoku",
+        "source": "scotcat",
+        "quote": "Asia: Japan, Lake Biwa; central and western Honshu, eastern Shikoku, and northwestern Kyushu islands (Matsuura et al., 2000).",
+        "ok": true
+      },
+      {
+        "name": "Kyushu",
+        "source": "scotcat",
+        "quote": "Asia: Japan, Lake Biwa; central and western Honshu, eastern Shikoku, and northwestern Kyushu islands (Matsuura et al., 2000).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Tachysurus nudiceps",
+    "status": "ACCEPTED",
+    "taxonKey": 6168086,
+    "datasets": [
+      [
+        "c6859214-65a4-4563-8d17-d464541af191",
+        813
+      ],
+      [
+        "8129ab94-f762-11e1-a439-00145eb45e9a",
+        504
+      ],
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        22
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        13
+      ],
+      [
+        "869e4288-f762-11e1-a439-00145eb45e9a",
+        13
+      ],
+      [
+        "bfff7519-92f1-4ed2-afa3-5655e91fc2a2",
+        3
+      ],
+      [
+        "8498cbf2-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "dbbdb1f4-d5c7-4b72-b31f-ef6fdf33a9b3",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "JP"
+    ],
+    "requests": 11,
+    "at": "2026-11-16T05:47:36.414Z"
+  }
+}

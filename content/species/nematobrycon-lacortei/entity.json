@@ -8,7 +8,8 @@
   "places": [
     "south-america",
     "colombia",
-    "calima"
+    "calima",
+    "rio-san-juan"
   ],
   "range": {
     "native": {
@@ -20,7 +21,8 @@
         "Río Calima"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -35,7 +37,7 @@
         },
         {
           "source": "seriouslyfish",
-          "quote": "Type locality is 'probably from Río Calima, Colombia'.",
+          "quote": "All records of N. lacortei appear to correspond to the Río Calima, a tributary in the lower part of the basin.",
           "countries": [],
           "regions": [
             "Río Calima"
@@ -106,10 +108,22 @@
       "html": "<p>The rainbow tetra, Nematobrycon lacortei, is a small characid from western Colombia, considered endemic to the Río San Juan system. All records appear to come from the Río Calima, where it is apparently restricted to small, isolated forest pools. It is very close to N. palmeri in morphology but has a highly distinctive colour pattern, and adult males are territorial to an extent.</p><ul><li>Max size: 36 mm SL</li><li>Aquarium size: 120 × 30 cm</li><li>Temperature: 20–28°C</li><li>pH: 5.0–7.2</li><li>Hardness: 1–10 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nematobrycon_lacortei_en/",
+      "html": "<p>The Rainbow Tetra is one of the most attractive characins of South America. It belongs to the same genus as the usually better known Emperor Tetra Nematobrycon palmeri.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nematobrycon-lacortei",
       "html": "<p>Considered endemic to the Río San Juan river system, which drains the departments of Choco and Valle de Cauca in western Colombia. All records of N. lacortei appear to correspond to the Río Calima, a tributary in the lower part of the basin.</p><p>Type locality is 'probably from Río Calima, Colombia'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nematobrycon_lacortei_en/",
+      "html": "<p>They originate from western Colombia, where they are caught in the tributaries of the Rio San Juan.</p>"
     },
     {
       "key": "habitat",
@@ -136,16 +150,40 @@
       "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 5.0–7.2</li><li>Hardness: 1–10 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nematobrycon_lacortei_en/",
+      "html": "<p>For their maintenance medium-hard water is sufficient, for breeding attempts however it should be soft and acidic.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nematobrycon_lacortei_en/",
+      "html": "<p>Their aquarium should therefore contain larger structure-forming elements such as bogwood and large plants.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nematobrycon-lacortei",
       "html": "<p>Probably an opportunistic omnivore by nature. In the aquarium it is easily-fed but the best condition and colours offer regular meals of small live and frozen foods such as chironomid larvae (bloodworm), Daphnia, Artemia, etc., alongside good quality dried flakes and granules.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nematobrycon_lacortei_en/",
+      "html": "<p>A lot of foods will be eaten. For good spawning condition, black mosquito larvae (Culex) should be fed regularly.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nematobrycon-lacortei",
       "html": "<p>This species is relatively peaceful making it an ideal resident of the well-researched community aquarium, although adult males are territorial and aggressive to an extent, and this behaviour may sometimes extend to similarly-shaped species. It is perhaps best-maintained alongside similarly-sized characids, gasteropelecids, lebiasinids, smaller callichthyid or loricariid catfishes and non-predatory, medium-sized cichlids.</p><p>Try to buy a group of at least 8-10 specimens comprising both males and females, include other schooling fishes to provide security, and you will be rewarded with a more natural-looking spectacle. The interaction between rival males is fascinating to watch and they will display their best colours when competing for female attention or hierarchical position.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nematobrycon_lacortei_en/",
+      "html": "<p>Rainbow Tetras cannot be characterized as true schooling fishes, since the males try to establish and defend territories.</p>"
     },
     {
       "key": "dimorphism",
@@ -185,7 +223,32 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "uAGQ-se99Qk",
+      "title": "Nematobrycon lacortei",
+      "durationSec": 67,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "TX3tyXg8iwo",
+      "title": "Nematobrycon lacortei (wild) bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 61,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ZO5YQHQIhO8",
+      "title": "Regenbogentetra - Nematobrycon lacortei",
+      "durationSec": 43,
+      "lang": "de-DE"
+    },
+    {
+      "youtubeId": "iCWAZ6HRaBs",
+      "title": "Nematobrycon Lacortei",
+      "durationSec": 134,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -214,5 +277,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-17"
 }

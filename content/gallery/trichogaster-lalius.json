@@ -2,30 +2,6 @@
   "id": "trichogaster-lalius",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/186507841.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/186507841-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Sandipan Das",
-      "sourceUrl": "https://www.inaturalist.org/photos/186507841",
-      "caption": "Cá sặc lùn đực màu đỏ cam trong bể thủy sinh",
-      "best": true,
-      "kind": "male"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/269339344.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/269339344-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Lobed Homunculus",
-      "sourceUrl": "https://www.inaturalist.org/photos/269339344",
-      "caption": "Cá sặc lùn đực màu xanh lam trong bể thủy sinh",
-      "best": true,
-      "kind": "form"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/468870953.webp",
       "thumb": "https://media.aquatome.com/inaturalist/468870953-480.webp",
       "width": 1024,
@@ -33,7 +9,7 @@
       "licence": "CC BY-SA",
       "author": "Guilherme Cameis Freda",
       "sourceUrl": "https://www.inaturalist.org/photos/468870953",
-      "caption": "Cá sặc lùn đực sọc đỏ xanh trong bể cây thủy sinh",
+      "caption": "Cá sặc gấm đực sọc đỏ xanh trong bể cây thủy sinh",
       "best": true,
       "kind": "male"
     },
@@ -45,21 +21,9 @@
       "licence": "CC BY",
       "author": "olmagon",
       "sourceUrl": "https://www.inaturalist.org/photos/545966912",
-      "caption": "Cá sặc lùn màu xanh lam nhạt trong bể thủy sinh",
+      "caption": "Cá sặc gấm màu xanh lam nhạt trong bể thủy sinh",
       "best": true,
       "kind": "form"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/cb58208be655b322.webp",
-      "thumb": "https://media.aquatome.com/commons/cb58208be655b322-480.webp",
-      "width": 769,
-      "height": 1024,
-      "licence": "CC BY-SA 4.0",
-      "author": "StefanoElli",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trichogaster.jpg",
-      "caption": "Cá sặc lùn đực màu xanh đỏ bơi cạnh lũa trong bể",
-      "best": true,
-      "kind": "male"
     },
     {
       "url": "https://media.aquatome.com/commons/17f577174a4cf28f.webp",
@@ -69,17 +33,7 @@
       "licence": "CC BY-SA 3.0",
       "author": "Wikimedia Commons",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Colisa_lalia_m.jpg",
-      "caption": "Cá sặc lùn màu cam nhạt bơi trên nền sỏi trong bể"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/f674b9667f1aba48.webp",
-      "thumb": "https://media.aquatome.com/commons/f674b9667f1aba48-480.webp",
-      "width": 1200,
-      "height": 862,
-      "licence": "Public domain",
-      "author": "Wikimedia Commons",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Colisa_lalia.jpg",
-      "caption": "Cá sặc lùn đực sọc đỏ ánh xanh trong bể thủy sinh"
+      "caption": "Cá sặc gấm màu cam nhạt bơi trên nền sỏi trong bể"
     },
     {
       "url": "https://media.aquatome.com/commons/d1f54cb26b72449c.webp",
@@ -89,17 +43,7 @@
       "licence": "CC BY-SA 3.0",
       "author": "Fred Hsu",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Colisa_lalia_Neon_Red_1.jpg",
-      "caption": "Cá sặc lùn đực màu cam trong bể cạnh đá"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/b0cbaff20e3de1c9.webp",
-      "thumb": "https://media.aquatome.com/commons/b0cbaff20e3de1c9-480.webp",
-      "width": 1200,
-      "height": 1005,
-      "licence": "CC BY-SA 3.0",
-      "author": "Fred Hsu",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Colisa_lalia_Neon_Blue_1.jpg",
-      "caption": "Cá sặc lùn màu bạc xanh nhạt bơi trong bể"
+      "caption": "Cá sặc gấm đực màu cam trong bể cạnh đá"
     },
     {
       "url": "https://media.aquatome.com/commons/e04f11f8c11c8968.webp",
@@ -109,7 +53,7 @@
       "licence": "CC BY-SA 3.0",
       "author": "Fred Hsu",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Colisa_lalia_Neon_Blue_2.jpg",
-      "caption": "Cá sặc lùn đực màu xanh cobalt trong bể"
+      "caption": "Cá sặc gấm đực màu xanh cobalt trong bể"
     },
     {
       "url": "https://media.aquatome.com/commons/33eaeb236b1f9a6e.webp",
@@ -119,7 +63,7 @@
       "licence": "CC BY-SA 3.0",
       "author": "Fred Hsu",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Colisa_lalia_Neon_Blue_3.jpg",
-      "caption": "Cá sặc lùn xanh dương bơi nghiêng trong bể"
+      "caption": "Cá sặc gấm xanh dương bơi nghiêng trong bể"
     },
     {
       "url": "https://media.aquatome.com/commons/c44835fd07e39216.webp",
@@ -129,7 +73,7 @@
       "licence": "CC BY-SA 3.0",
       "author": "Fred Hsu",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Colisa_lalia_Neon_Blue_4.jpg",
-      "caption": "Cá sặc lùn đực màu xanh dương trong bể"
+      "caption": "Cá sặc gấm đực màu xanh dương trong bể"
     },
     {
       "url": "https://media.aquatome.com/commons/173f7a8b381b6a2f.webp",
@@ -139,7 +83,7 @@
       "licence": "CC BY-SA 2.5",
       "author": "André Karwath aka Aka",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Colisa_lalia_-_side_(aka).jpg",
-      "caption": "Cá sặc lùn đực xanh dương rực rỡ nhìn nghiêng trong bể"
+      "caption": "Cá sặc gấm đực xanh dương rực rỡ nhìn nghiêng trong bể"
     },
     {
       "url": "https://media.aquatome.com/commons/993230b8b8ff4a5e.webp",
@@ -149,7 +93,7 @@
       "licence": "CC BY-SA 2.5",
       "author": "André Karwath aka Aka",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Colisa_lalia_-_Trichogaster_lalius_(aka).jpg",
-      "caption": "Cá sặc lùn đực màu đỏ cam rực rỡ trong bể"
+      "caption": "Cá sặc gấm đực màu đỏ cam rực rỡ trong bể"
     },
     {
       "url": "https://media.aquatome.com/commons/4c9e641b52f381be.webp",
@@ -159,7 +103,7 @@
       "licence": "CC BY-SA 2.5",
       "author": "Daiju Azuma",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Colisa_lalia_(Neon_Dwarf_gourami).jpg",
-      "caption": "Cá sặc lùn bơi trên nền cát nâu trong bể"
+      "caption": "Cá sặc gấm bơi trên nền cát nâu trong bể"
     },
     {
       "url": "https://media.aquatome.com/commons/d72574d329020597.webp",
@@ -169,7 +113,7 @@
       "licence": "Public domain",
       "author": "Jvarszegi",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dwarf_gourami_common_color_morph.jpg",
-      "caption": "Cá sặc lùn đực sọc đỏ cam nền xanh dương"
+      "caption": "Cá sặc gấm đực sọc đỏ cam nền xanh dương"
     },
     {
       "url": "https://media.aquatome.com/commons/bd8c83f7715bb4f9.webp",
@@ -179,7 +123,7 @@
       "licence": "CC BY-SA 3.0",
       "author": "JanRehschuh",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zwergfadenfisch-M%C3%A4nnchen_Colisa_Lalia_male_P101001.JPG",
-      "caption": "Cá sặc lùn đực sọc đỏ trong bể thủy sinh"
+      "caption": "Cá sặc gấm đực sọc đỏ trong bể thủy sinh"
     },
     {
       "url": "https://media.aquatome.com/commons/9d29a54ad786231d.webp",
@@ -189,7 +133,7 @@
       "licence": "CC BY-SA 3.0",
       "author": "JanRehschuh",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zwergfadenfisch_Colisa_Lalia_male_calm_P1010015.JPG",
-      "caption": "Cá sặc lùn đực sọc đỏ bơi giữa cây thủy sinh"
+      "caption": "Cá sặc gấm đực sọc đỏ bơi giữa cây thủy sinh"
     },
     {
       "url": "https://media.aquatome.com/commons/9a5362cafa266357.webp",
@@ -199,7 +143,7 @@
       "licence": "CC BY-SA 3.0",
       "author": "Debivort at English Wikipedia",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blue_dwarf_gourami_1.jpg",
-      "caption": "Cá sặc lùn đực sọc đỏ xanh trong bể trồng cây"
+      "caption": "Cá sặc gấm đực sọc đỏ xanh trong bể trồng cây"
     },
     {
       "url": "https://media.aquatome.com/commons/c226cb7cbc922e1d.webp",
@@ -209,7 +153,7 @@
       "licence": "CC BY-SA 3.0",
       "author": "Debivort at English Wikipedia",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flame_gourami_1.jpg",
-      "caption": "Cá sặc lùn đực màu đỏ cam rực rỡ giữa cây thủy sinh"
+      "caption": "Cá sặc gấm đực màu đỏ cam rực rỡ giữa cây thủy sinh"
     },
     {
       "url": "https://media.aquatome.com/commons/9a288e6604f02e97.webp",
@@ -219,7 +163,7 @@
       "licence": "CC0",
       "author": "Usien",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Colisa_lalia_blue.JPG",
-      "caption": "Cá sặc lùn màu xanh bạc, vây viền đỏ trong bể"
+      "caption": "Cá sặc gấm màu xanh bạc, vây viền đỏ trong bể"
     },
     {
       "url": "https://media.aquatome.com/commons/817146a82747d818.webp",
@@ -229,17 +173,17 @@
       "licence": "CC0",
       "author": "Rosieandgingerbits",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Powder_blue_dwarf_gourami.jpg",
-      "caption": "Cá sặc lùn đực màu xanh lam trong bể thủy sinh"
+      "caption": "Cá sặc gấm đực màu xanh lam trong bể thủy sinh"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/179813066.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/179813066-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/153656387.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/153656387-480.webp",
       "width": 1024,
       "height": 1024,
       "licence": "CC BY",
       "author": "Sandipan Das",
-      "sourceUrl": "https://www.inaturalist.org/photos/179813066",
-      "caption": "Cá sặc lùn đực màu xanh đỏ bên đá trong bể",
+      "sourceUrl": "https://www.inaturalist.org/photos/153656387",
+      "caption": "Cá sặc gấm đực màu xanh đỏ bơi gần mặt nước",
       "best": false,
       "kind": "male"
     },
@@ -251,7 +195,7 @@
       "licence": "CC BY",
       "author": "Sandipan Das",
       "sourceUrl": "https://www.inaturalist.org/photos/151525327",
-      "caption": "Cá sặc lùn đực màu xanh tím trong bể",
+      "caption": "Cá sặc gấm đực màu xanh tím trong bể",
       "best": false,
       "kind": "form"
     },
@@ -263,19 +207,19 @@
       "licence": "CC BY",
       "author": "Sandipan Das",
       "sourceUrl": "https://www.inaturalist.org/photos/186507763",
-      "caption": "Cá sặc lùn trong bể thủy sinh có cây xanh",
+      "caption": "Cá sặc gấm trong bể thủy sinh có cây xanh",
       "best": false,
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/153656387.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/153656387-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/188281877.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/188281877-480.webp",
       "width": 1024,
-      "height": 1024,
+      "height": 768,
       "licence": "CC BY",
       "author": "Sandipan Das",
-      "sourceUrl": "https://www.inaturalist.org/photos/153656387",
-      "caption": "Cá sặc lùn đực màu xanh đỏ bơi gần mặt nước",
+      "sourceUrl": "https://www.inaturalist.org/photos/188281877",
+      "caption": "Cá sặc gấm đực viền xanh trong bể trồng cây",
       "best": false,
       "kind": "male"
     },
@@ -287,31 +231,7 @@
       "licence": "CC BY",
       "author": "olmagon",
       "sourceUrl": "https://www.inaturalist.org/photos/504511852",
-      "caption": "Cá sặc lùn màu cam vàng trong bể",
-      "best": false,
-      "kind": "form"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/188281877.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/188281877-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Sandipan Das",
-      "sourceUrl": "https://www.inaturalist.org/photos/188281877",
-      "caption": "Cá sặc lùn đực viền xanh trong bể trồng cây",
-      "best": false,
-      "kind": "male"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/545966910.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/545966910-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "olmagon",
-      "sourceUrl": "https://www.inaturalist.org/photos/545966910",
-      "caption": "Cá sặc lùn màu cam đỏ trong bể nuôi chung",
+      "caption": "Cá sặc gấm màu cam vàng trong bể",
       "best": false,
       "kind": "form"
     },
@@ -323,7 +243,99 @@
       "licence": "CC BY",
       "author": "Sandipan Das",
       "sourceUrl": "https://www.inaturalist.org/photos/188704167",
-      "caption": "Cá sặc lùn đực sọc đỏ trong bể thủy sinh",
+      "caption": "Cá sặc gấm đực sọc đỏ trong bể thủy sinh",
+      "best": false,
+      "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/545966910.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/545966910-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "olmagon",
+      "sourceUrl": "https://www.inaturalist.org/photos/545966910",
+      "caption": "Cá sặc gấm màu cam đỏ trong bể nuôi chung",
+      "best": false,
+      "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/470430345.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/470430345-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-SA",
+      "author": "Guilherme Cameis Freda",
+      "sourceUrl": "https://www.inaturalist.org/photos/470430345",
+      "caption": "Cá sặc gấm đực sọc xanh bơi gần cây thủy sinh",
+      "best": false,
+      "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/186507841.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/186507841-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Sandipan Das",
+      "sourceUrl": "https://www.inaturalist.org/photos/186507841",
+      "caption": "Cá sặc gấm đực màu đỏ cam trong bể thủy sinh",
+      "best": true,
+      "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/269339344.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/269339344-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Lobed Homunculus",
+      "sourceUrl": "https://www.inaturalist.org/photos/269339344",
+      "caption": "Cá sặc gấm đực màu xanh lam trong bể thủy sinh",
+      "best": true,
+      "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/cb58208be655b322.webp",
+      "thumb": "https://media.aquatome.com/commons/cb58208be655b322-480.webp",
+      "width": 769,
+      "height": 1024,
+      "licence": "CC BY-SA 4.0",
+      "author": "StefanoElli",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trichogaster.jpg",
+      "caption": "Cá sặc gấm đực màu xanh đỏ bơi cạnh lũa trong bể",
+      "best": true,
+      "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/f674b9667f1aba48.webp",
+      "thumb": "https://media.aquatome.com/commons/f674b9667f1aba48-480.webp",
+      "width": 1200,
+      "height": 862,
+      "licence": "Public domain",
+      "author": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Colisa_lalia.jpg",
+      "caption": "Cá sặc gấm đực sọc đỏ ánh xanh trong bể thủy sinh"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/b0cbaff20e3de1c9.webp",
+      "thumb": "https://media.aquatome.com/commons/b0cbaff20e3de1c9-480.webp",
+      "width": 1200,
+      "height": 1005,
+      "licence": "CC BY-SA 3.0",
+      "author": "Fred Hsu",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Colisa_lalia_Neon_Blue_1.jpg",
+      "caption": "Cá sặc gấm màu bạc xanh nhạt bơi trong bể"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/179813066.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/179813066-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Sandipan Das",
+      "sourceUrl": "https://www.inaturalist.org/photos/179813066",
+      "caption": "Cá sặc gấm đực màu xanh đỏ bên đá trong bể",
       "best": false,
       "kind": "male"
     },
@@ -335,19 +347,7 @@
       "licence": "CC BY",
       "author": "Noland Aull",
       "sourceUrl": "https://www.inaturalist.org/photos/443340993",
-      "caption": "Cá sặc lùn đực xanh cobalt vằn sọc trong bể",
-      "best": false,
-      "kind": "male"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/470430345.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/470430345-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY-SA",
-      "author": "Guilherme Cameis Freda",
-      "sourceUrl": "https://www.inaturalist.org/photos/470430345",
-      "caption": "Cá sặc lùn đực sọc xanh bơi gần cây thủy sinh",
+      "caption": "Cá sặc gấm đực xanh cobalt vằn sọc trong bể",
       "best": false,
       "kind": "male"
     },
@@ -359,7 +359,7 @@
       "licence": "CC0",
       "author": "dinomariobob",
       "sourceUrl": "https://www.inaturalist.org/photos/514213729",
-      "caption": "Cá sặc lùn đực màu đỏ sẫm trong bể",
+      "caption": "Cá sặc gấm đực màu đỏ sẫm trong bể",
       "best": false,
       "kind": "male"
     },
@@ -371,7 +371,7 @@
       "licence": "CC BY",
       "author": "olmagon",
       "sourceUrl": "https://www.inaturalist.org/photos/545966972",
-      "caption": "Cá sặc lùn màu cam nhạt bơi trong bể cảnh",
+      "caption": "Cá sặc gấm màu cam nhạt bơi trong bể cảnh",
       "best": true,
       "kind": "other"
     }

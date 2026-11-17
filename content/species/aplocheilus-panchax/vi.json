@@ -5,22 +5,23 @@
     "Cá panchax xanh",
     "Cá sóc panchax",
     "Common panchax",
-    "Blue panchax"
+    "Blue panchax",
+    "Panchax"
   ],
   "sections": {
-    "distribution:glaser": "<p>Kết nối chuyến bay từ Ấn Độ đến nay vẫn còn kém, nên cá từ đây chỉ thỉnh thoảng mới nhập về được. Vừa rồi lại có một đợt nhập thành công. Lô hàng có nhiều loài, trong đó có cá panchax thường (Aplocheilus panchax). Ở nhiều vùng rộng lớn của Ấn Độ, A. panchax là loài cá phổ biến nhất. Nó có mặt ở khắp nơi theo đúng nghĩa đen, từ vũng nước nhỏ nhất đến bờ các con sông, hồ lớn. Loài này còn chịu được cả nước lợ ở cửa sông.</p>",
-    "habitat:glaser": "<p>Nhiệt độ nước ở đây lên xuống rất mạnh, nhất là ở các vũng nhỏ. Trời nắng thì nước dễ vượt xa mức 30°C, còn ban đêm có thể nguội xuống chỉ còn 12-14°C.</p>",
-    "notes:glaser": "<p>Sau Thế chiến thứ hai, panchax dần vắng bóng trong các bể nuôi. Lúc đó người ta đã có sưởi điện (thay cho đèn cồn đặt dưới bể), có lọc, có sục khí, và nhất là có đèn. Trước kia, bể thường đặt chéo góc so với cửa sổ để nắng rọi vào từ bên hông. Với kiểu ánh sáng đó, panchax lên màu khá đẹp vì nhiều vảy ánh xanh lam. Đèn huỳnh quang chiếu từ trên xuống thì khác hẳn. Cá trông khá xám, nhất là khi chưa thích nghi.</p>",
-    "maintenance:glaser": "<p>Nuôi panchax đơn giản. Đây là loài cá sống ở tầng mặt. Thông số nước và nhiệt độ hầu như không ảnh hưởng gì tới nó (xem phần trên).</p>",
-    "diet:glaser": "<p>Chúng ăn ngon lành mọi loại thức ăn cho cá có kích cỡ vừa miệng.</p>",
-    "behaviour:glaser": "<p>A. panchax thường hiền lành, nhưng thỉnh thoảng cũng có con đực hay gây sự. Cá nuôi chung vì thế không nên là loài quá yếu ớt. Những loài sống cùng sinh cảnh với panchax rất hợp để nuôi chung, chẳng hạn cá barb hồng ngọc (rosy barb) hay cá sọc ngựa vằn (zebra danio). Panchax không phá cây.</p>",
-    "dimorphism:glaser": "<p>Cá đực khác cá cái ở hình dạng vây hậu môn.</p>"
+    "distribution:glaser": "<p>Hiện nhóm loài này chỉ có một loài được công nhận chính thức là Aplocheilus panchax. Loài này sống từ Trung Quốc qua nhiều vùng rộng lớn của Ấn Độ, Myanmar và Đông Dương (Thái Lan, Việt Nam, Campuchia, Lào), sang tới Indonesia. Cá ở mỗi nơi trông rất khác nhau, nên gần như chắc chắn đây là nhiều loài chứ không chỉ một.</p><p>Aplocheilus panchax lần đầu được mô tả từ cá ở Bengal. Cá panchax mới ở Manipur, miền bắc Ấn Độ, là một trong những dạng khác hẳn đó. Nó khác A. panchax điển hình ở chỗ thân có nhiều đốm đỏ, vây màu cam tươi, và hiện lên một dải sẫm màu khi bị động.</p>",
+    "habitat:glaser": "<p>Dạng Manipur sống ở vùng núi, nơi nhiệt độ dễ xuống tới 15°C. Loài này thích chỗ nước nông. Những ngày nắng, nước ở đó có thể nóng lên rất nhanh, tới 30°C hoặc hơn.</p>",
+    "waterConditions:glaser": "<p>Cá panchax mới ở Manipur vốn là cá vùng núi, nên đừng nuôi nóng quá suốt cả năm.</p>",
+    "diet:glaser": "<p>Cá panchax ăn ngay mọi loại thức ăn cá thông thường, kể cả cám vảy.</p>",
+    "behaviour:glaser": "<p>Cá panchax rất hợp để nuôi chung với cá khác. Trong bể, chúng sống ở sát mặt nước. Cá nuôi chung không được quá nhỏ, vì nhỏ quá là bị nó ăn.</p>",
+    "dimorphism:glaser": "<p>Phân biệt đực cái dễ, chỉ cần nhìn vây hậu môn: con cái có vây này ngắn và tròn hơn. A. panchax điển hình ở Bengal có nhiều kiểu màu trong cùng một loài. Ngay trong một đàn ngoài tự nhiên đã có con đực vây trắng lẫn con đực vây cam, còn con cái thì con nào cũng giống con nào. A. panchax điển hình không bao giờ có đốm đỏ trên thân.</p>",
+    "reproduction:glaser": "<p>Loài này cho đẻ rất dễ. A. panchax là cá đẻ trứng.</p>"
   },
   "quality": {
-    "score": 0.88,
+    "score": 0.8,
     "indexable": true,
     "bySource": {
-      "glaser": 0.88
+      "glaser": 0.8
     }
   }
 }

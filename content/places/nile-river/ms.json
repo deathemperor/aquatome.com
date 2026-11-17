@@ -1,8 +1,13 @@
 {
   "slug": "nile-river",
-  "name": "Nil",
+  "name": "Sungai Nil",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-17T00:08:35.340Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

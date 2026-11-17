@@ -750,6 +750,12 @@
       "html": "<p>Best kept singly and alone. Don't even think about keeping any other species in the same tank as it's a voracious predator and is capable of killing fish that are larger than itself. It can be kept in groups of 3 or more individuals but obviously a suitably-sized tank would be required. It is unlikely that the hobbyist could adequately house such a group.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/newly_in_electric_eels_en/",
+      "html": "<p>Three electric eels from Peru, 40-50 cm long, were astonishingly peaceful among each other and fed readily.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/electrophorus-electricus",
@@ -766,56 +772,81 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/electrophorus-electricus",
       "html": "<p>One of the most notorious fish in the world, the electric eel is a truly fascinating species. Its vital organs are contained in the front portion of the body, with up to 80% of it being reserved for the enormous electricity-producing organs. It uses electricity in several ways. The species is nocturnal and has very poor eyesight and so uses a weak electric field to navigate and identify its surroundings. This weak, pulsing signal is produced by the Sachs organ, one of 3 electricity-producing organs possessed by the fish. It can sense the tiniest disturbance in this weak field and so can locate prey easily by this method. The fish also uses weak electric signals to communicate with each other and find partners. The strong bursts of electricity for which it is famous are used both in attack and defence. Its mouth doesn't contain any teeth, so it uses a strong burst of electricity to stun its prey before consuming it. These powerful bursts are produced by the 2 larger organs, known as the Main and Hunter organs and can be over 600 volts and 1 ampere in strength. As well as being useful when hunting, this electrical discharge is also enough to disable a larger animal or human if the fish feels threatened. Repeated shocks of this size could kill a human. All 3 of these organs are formed by stacks of specialised cells known as electrocytes or electroplaques. These are disc-shaped, flat cells that each produce a weak electrical discharge. They can be thought of as acting in a similar way to a battery when they occur in large numbers, and a single electric eel can have over 5000 of them.</p><p>A further adaptation is that, unusually for a fish, the electric eel has very good hearing. It has a specialised set of bones, known as the Weberian apparatus, that connects the swim bladder to the ear and acts like an amplifier. It's also an obligate air breather. The gills are poorly developed and the fish actually obtains around 80% of its oxygen by rising to the surface and taking in gulps of air. The mouth is lined with folds of highly vascularised skin to assist in this. If deprived of atmospheric air an electric eel will drown very quickly. Despite its common name, this fish is actually a member of the order Gymnotiformes, better known as knifefishes.</p><p>In captivity it's obviously a very dangerous animal to own, although once it settles, it isn't an aggressive species and will usually only produce bursts of electricity when provoked. However it's still only suitable for the true specialist. If you have one of these, you should always wear rubber-soled shoes and rubber gloves when performing tank maintenance. If you have to move or handle the fish for any reason, use a net with a very long, wooden handle. If kept in suitable conditions and cared for properly, captive specimens can actually become very tame and, if you're really crazy, will hand feed willingly.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/newly_in_electric_eels_en/",
+      "html": "<p>The fish have nice pale spots on the flanks, which are typical for specimens from Peru.</p><p>Etymology: Electrophorus was named after an early physical instrument which transformed mechanical work into electrostatic charge. electricus is Latin and means \"electrical\".</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/b850c855738c6538.webp",
+      "thumb": "https://media.aquatome.com/commons/b850c855738c6538-480.webp",
       "width": 960,
       "height": 582,
-      "licence": "CC BY-SA 3.0",
-      "author": "Stan Shebs",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Electrophorus_electricus_3.jpg",
-      "caption": "Photo of Electrophorus electricus (electric eel) at the Steinhart Aquarium in San Francisco",
-      "thumb": "https://media.aquatome.com/commons/b850c855738c6538-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/b850c855738c6538-large.webp",
         "width": 1800,
         "height": 1091
-      }
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "Stan Shebs",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Electrophorus_electricus_3.jpg",
+      "caption": "Photo of Electrophorus electricus (electric eel) at the Steinhart Aquarium in San Francisco"
     },
     {
       "url": "https://media.aquatome.com/commons/ea49b17e561ba24e.webp",
+      "thumb": "https://media.aquatome.com/commons/ea49b17e561ba24e-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 3.0",
       "author": "Steven G. Johnson",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Electric-eel.jpg",
-      "caption": "Electric eel (Electrophorus electricus). Taken at the New England Aquarium (Boston, MA, December 2006. Copyright © 2006 Steven G. Johnson and donated to Wikipedia under GFDL and CC-by-SA.",
-      "thumb": "https://media.aquatome.com/commons/ea49b17e561ba24e-480.webp"
+      "caption": "Electric eel (Electrophorus electricus). Taken at the New England Aquarium (Boston, MA, December 2006. Copyright © 2006 Steven G. Johnson and donated to Wikipedia under GFDL and CC-by-SA."
     },
     {
       "url": "https://media.aquatome.com/commons/f65c9cd8f5dfcbf1.webp",
+      "thumb": "https://media.aquatome.com/commons/f65c9cd8f5dfcbf1-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY 2.5",
       "author": "Wikimedia Commons",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Electric_Eel.jpg",
-      "caption": "Electric Eel.jpg",
-      "thumb": "https://media.aquatome.com/commons/f65c9cd8f5dfcbf1-480.webp"
+      "caption": "Electric Eel.jpg"
     },
     {
       "url": "https://media.aquatome.com/commons/be220d474db67c85.webp",
+      "thumb": "https://media.aquatome.com/commons/be220d474db67c85-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 2.0",
       "author": "Sander van der Wel from Netherlands",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sidderaal_(4039238527).jpg",
-      "caption": "Sidderaal",
-      "thumb": "https://media.aquatome.com/commons/be220d474db67c85-480.webp"
+      "caption": "Sidderaal"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "xWtSP338juY",
+      "title": "Electric Eel Attacks!",
+      "durationSec": 9,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "_F0Ew-UD20Q",
+      "title": "Electric eel vs Arapaima",
+      "durationSec": 20,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "aSErIXARYC0",
+      "title": "22 Electric Eel Electrophorus electricus Tetras Plecos Aquarium Berlin 2017",
+      "durationSec": 103,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -844,5 +875,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-17"
 }
