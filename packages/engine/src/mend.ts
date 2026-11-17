@@ -111,9 +111,13 @@ const CUTTABLE: readonly FitCheck[] = ['product', 'shop', 'price']
  * The part with each sentence a `CUTTABLE` finding quotes cut whole, by code: no model and no new word (the chief of staff,
  * 14 Nov 2026: a sentence a finding flags is deleted, or its foreign detail is). What a writer's cut the guard refused gets
  * instead (fit-rewrite.ts). Nothing when no such sentence is in the part, or every sentence would go (the dealer check's).
- * `gone`: each sentence it took, as `Mended.gone` lists a writer's, for the run's list to the chief of staff.
+ * `gone`: each sentence it took, as `Mended.gone` lists a writer's, for the run's list to the chief of staff. `near`:
+ * findings no sentence it takes may stand next to, nor be (a dose, its caution, a lethal level: cut of the product's name,
+ * a dose beside it would read as a dose of whatever came before; the readers of #1578, 17 Nov 2026). Such a sentence stays
+ * for its page's next try, and the others go; nothing when one of those findings quotes no single sentence of the part, as
+ * code can't tell where it stands.
  */
-export function cutWhole(html: string, fs: readonly { check: FitCheck; quote?: string }[]): { html: string; gone: string[] } | undefined {
+export function cutWhole(html: string, fs: readonly { check: FitCheck; quote?: string }[], o: { near?: readonly { quote?: string }[] } = {}): { html: string; gone: string[] } | undefined {
   const pieces = sentences(html)
   const n = pieces.filter(p => p.sentence).length
   // Each sentence that holds the quote's words in a row, whole words (Astra's read: "ADA" matched in "Canada" cut the
@@ -123,7 +127,10 @@ export function cutWhole(html: string, fs: readonly { check: FitCheck; quote?: s
     const x = words(quote)
     return x.length ? pieces.filter(p => p.sentence).flatMap((p, i) => { const w = words(p.html); return w.some((_, k) => x.every((y, j) => w[k + j] === y || (j === x.length - 1 && /^[a-z]+$/.test(y) && w[k + j] === `${y}s`))) ? [i] : [] }) : []
   }
-  const gone = new Set(fs.filter(f => CUTTABLE.includes(f.check) && f.quote).flatMap(f => holds(f.quote!)))
+  const near = (o.near ?? []).map(f => (f.quote ? holds(f.quote) : []))
+  if (near.some(x => !x.length)) return undefined
+  const close = new Set(near.flat())
+  const gone = new Set(fs.filter(f => CUTTABLE.includes(f.check) && f.quote).flatMap(f => holds(f.quote!)).filter(i => !close.has(i - 1) && !close.has(i) && !close.has(i + 1)))
   if (!gone.size || gone.size >= n) return undefined
   const texts = pieces.filter(p => p.sentence).map(p => p.html)
   return { html: splice(pieces, new Map([...gone].map(i => [i, '']))), gone: [...gone].sort((a, b) => a - b).map(i => `sentence ${i + 1} went whole: "${plain(texts[i]!)}"`) }

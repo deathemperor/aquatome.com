@@ -306,11 +306,11 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
               // On a page with a foreign product, its product, shop and price sentences go whole by code beside those too,
               // and the other findings wait for the page's next read and try (the chief of staff, 17 Nov 2026: the fallback
               // never ran on 62 of the 74, each with a finding of another kind); still not where the writer named a line
-              // that no longer reads, or took one with the sentence before it, nor beside a finding other than the source's
-              // or one on where it applies (a dose, its caution, a lethal level): cut of the product's name, a dose would read
-              // as a dose of whatever came before (the readers of #1578, 17 Nov 2026).
-              const waits = (f: FitFinding) => goesWhole(f.check) && f.check !== 'source' && f.check !== 'elsewhere'
-              const plain = !faq && (product ? !r.stranded.length && !r.follows.length && !now.some(waits) : !mine.length && !r.whole.length && !now.some(f => goesWhole(f.check))) ? cutWhole(before, now.map(f => spelled(f, before))) : undefined
+              // that no longer reads, or took one with the sentence before it, nor next to a sentence a finding other than
+              // the source's or one on where it applies quotes (a dose, its caution, a lethal level): cut of the product's
+              // name, a dose would read as a dose of whatever came before (the readers of #1578, 17 Nov 2026).
+              const near = (f: FitFinding) => goesWhole(f.check) && f.check !== 'source' && f.check !== 'elsewhere'
+              const plain = !faq && (product ? !r.stranded.length && !r.follows.length : !mine.length && !r.whole.length && !now.some(f => goesWhole(f.check))) ? cutWhole(before, now.map(f => spelled(f, before)), product ? { near: now.filter(near) } : {}) : undefined
               if (!plain) { report.notKept.push(`${key} ${field} (${why})`); continue }
               next = plain.html
               gone = plain.gone

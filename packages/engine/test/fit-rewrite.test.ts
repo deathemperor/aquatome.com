@@ -1121,7 +1121,7 @@ test('a product spelled as the table allows, not as its name, is still on the pa
 // The readers of #1578, 17 Nov 2026: on a page with a foreign product, code still doesn't cut where the writer named a line
 // that no longer reads, where it took a line with the sentence before it, or beside a dose, its caution or a lethal level,
 // which cut of the product's name would read as a dose of whatever came before.
-test('on a page with a foreign product, code doesn\'t cut beside a line that no longer reads, a line taken with the one before, or a dose', async () => {
+test('on a page with a foreign product, code doesn\'t cut beside a line that no longer reads, a line taken with the one before, or next to a dose', async () => {
   const setUp = async (html: string, fs: (p: Page) => Omit<FitFinding, 'by'>[]) => {
     const root = await content()
     const file = join(root, 'content/species', ID, 'vi.json')
@@ -1169,6 +1169,16 @@ test('on a page with a foreign product, code doesn\'t cut beside a line that no 
     expect(r.notKept, c.name).toHaveLength(1)
     expect(await readFile(s.file, 'utf8'), c.name).toBe(s.before)
   }
+  // A dose two sentences away from the product's is no neighbour of it: the product's sentence goes, and the dose's waits.
+  // A second mention next to the dose waits with it, for the page's next try.
+  const far = await setUp('<p>Trị nấm bằng Seachem Paraguard. Cá sống theo đàn. Pha 5 ml cho 40 lít nước mỗi ngày. Seachem Paraguard bán ở Mỹ.</p>', p => [
+    { check: 'product', part: part(p, P), quote: 'Seachem Paraguard', why: 'a US medicine' },
+    { check: 'dose', part: part(p, P), quote: 'Pha 5 ml cho 40 lít nước mỗi ngày.', why: 'a dose' },
+  ])
+  const keys = new Set([fitKey(far.p)])
+  const r = await fitRewrite(far.root, [far.p], far.state, { llm: writer([{ n: 1, vi: 'Trị nấm bằng thuốc.' }, { n: 3, vi: 'Pha 5 ml cho 40 lít nước mỗi ngày.' }], { score: 0.9, follows: [] }), now: () => new Date() }, { limit: 5, mend: keys, products: keys })
+  expect(r.gone).toEqual(['vi/species/danio-margaritatus sections.habitat:seriouslyfish sentence 1 went whole: "Trị nấm bằng Seachem Paraguard."'])
+  expect(JSON.parse(await readFile(far.file, 'utf8')).sections['habitat:seriouslyfish']).toBe('<p>Cá sống theo đàn. Pha 5 ml cho 40 lít nước mỗi ngày. Seachem Paraguard bán ở Mỹ.</p>')
 })
 
 // The readers of #1578, 17 Nov 2026: a page a person names (`--only`) is no product page to that run, and its record kept
