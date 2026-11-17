@@ -41,7 +41,7 @@ const NAMES: Partial<Record<WrittenLang, RegExp>> = { th: /โรคเลือ
  * A text as its reader sees it: tags gone (a block's as a space), entities read, each run of spaces one. A season split
  * by markup ("musim <strong>panas</strong>"), a line break or an entity ("musim&#32;panas") is still named (Astra's read).
  */
-const rendered = (text: string) => parse(text.replace(/<\/?(?:p|li|ul|ol|h[1-6]|div|br|tr|td|th|table|blockquote)\b[^>]*>/gi, ' ')).text.replace(/\s+/g, ' ')
+export const rendered = (text: string) => parse(text.replace(/<\/?(?:p|li|ul|ol|h[1-6]|div|br|tr|td|th|table|blockquote)\b[^>]*>/gi, ' ')).text.replace(/\s+/g, ' ')
 
 /** The seasons a text names that a copy for its language's readers may not, as the text gives them, each once; a name aside. */
 export function foreignSeasons(text: string, lang: WrittenLang): string[] {

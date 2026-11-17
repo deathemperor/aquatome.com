@@ -169,6 +169,11 @@ test('localizeTopic: from the same facts, minus Vietnam-only ones; cites only th
 // The chief of staff, 17 Nov 2026: the quarantine guide's Thai copy printed its facts' source numbers to readers 55 times.
 test('a copy that prints the facts\' source numbers is written once more without them, and not saved if it still does', async () => {
   expect(sourceNumbers('<p>ตามแหล่งที่ 0 และแหล่งที่ 12 (แหล่งที่ 0)</p><p>แหล่งหนึ่ง</p>')).toEqual(['แหล่งที่ 0', 'แหล่งที่ 12'])
+  // Codex's read of #1588: as the reader reads it (markup gone), with Thai digits, and Indonesian's and Malay's forms; a
+  // count of sources, a year and a source by its kind are none.
+  expect(sourceNumbers('<p><strong>แหล่งที่</strong> 3 และแหล่งข้อมูลที่ ๓</p>')).toEqual(['แหล่งที่ 3', 'แหล่งข้อมูลที่ ๓'])
+  expect(sourceNumbers('<p>Menurut sumber 0 dan <em>Sumber</em> ke-2.</p>')).toEqual(['sumber 0', 'Sumber ke-2'])
+  expect(sourceNumbers('<p>Dua sumber, 3 sumber lain, sumber 2024, sumbernya, แหล่งหนึ่ง, แหล่งที่มา.</p>')).toEqual([])
   const root = await site()
   const llm0: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : { name: 'Cá bị lồi mắt', summary: ['x'], body: '<p>x</p>', faq: [] }) as never
   const r0 = await makeTopic(root, { research: async () => facts as never, llm: llm0 }, { topic: 'Cá bị lồi mắt (popeye)', kind: 'disease' })
@@ -182,8 +187,35 @@ test('a copy that prints the facts\' source numbers is written once more without
   expect(await localizeTopic(root, once, r0.id, 'th')).toMatchObject({ slug: 'fish-popeye' })
   expect(asked[1]).toContain('It prints the facts\' source numbers, which readers never see: "แหล่งที่ 0"')
   expect(JSON.parse(await readFile(join(root, 'content/guides', r0.id, 'th.json'), 'utf8')).body).toBe('<p>ตาโปน ตามที่แหล่งหนึ่งบอก</p>')
-  const always: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : copy('<p>ตาโปน (แหล่งที่ 2)</p>')) as never
-  expect(await localizeTopic(root, always, r0.id, 'id')).toMatchObject({ skipped: 'prints its facts\' source numbers: แหล่งที่ 2' })
+  const salinan = (body: string) => ({ name: 'Mata ikan menonjol', slug: 'x', summary: ['Mata ikan menonjol.'], body, faq: [] })
+  const always: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : salinan('<p>Mata menonjol (sumber 2).</p>')) as never
+  expect(await localizeTopic(root, always, r0.id, 'id')).toMatchObject({ skipped: 'prints its facts\' source numbers: sumber 2' })
+  expect(existsSync(join(root, 'content/guides', r0.id, 'id.json'))).toBe(false)
+  // The rewrite is read for both again: one that drops the numbers but names a season its readers don't have isn't saved.
+  let n = 0
+  const swaps: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : salinan(n++ ? '<p>Paling sering pada musim panas.</p>' : '<p>Mata menonjol (sumber 2).</p>')) as never
+  expect(await localizeTopic(root, swaps, r0.id, 'id')).toMatchObject({ skipped: 'names another place\'s season: musim panas' })
+  expect(existsSync(join(root, 'content/guides', r0.id, 'id.json'))).toBe(false)
+})
+
+// Codex's read of #1588: a body a person fixed is kept, so the generated one, thrown away, is no reason to write again.
+test('a copy whose body a person fixed is read for what this write puts on the page', async () => {
+  const root = await site()
+  const llm0: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : { name: 'Cá bị lồi mắt', summary: ['x'], body: '<p>x</p>', faq: [] }) as never
+  const r0 = await makeTopic(root, { research: async () => facts as never, llm: llm0 }, { topic: 'Cá bị lồi mắt (popeye)', kind: 'disease' })
+  const file = join(root, 'content/guides', r0.id, 'th.json')
+  let writes = 0
+  const llm: Llm = async ({ prompt }) => {
+    if (prompt.startsWith('Below are FACTS')) return { score: 0.9, notes: [] } as never
+    writes++
+    return { name: 'ตาโปนในปลา', slug: 'fish-popeye', summary: ['ใหม่'], body: '<p>ตาโปน (แหล่งที่ 1)</p>', faq: [] } as never
+  }
+  await writeFile(file, JSON.stringify({ slug: 'fish-popeye', name: 'ตาโปนในปลา', body: '<p>แก้ด้วยมือ</p>', bodyFixed: true }))
+  expect(await localizeTopic(root, llm, r0.id, 'th', { redo: true })).toMatchObject({ slug: 'fish-popeye' })
+  expect(writes).toBe(1)
+  const saved = JSON.parse(await readFile(file, 'utf8'))
+  expect(saved.body).toBe('<p>แก้ด้วยมือ</p>')
+  expect(saved.summary).toEqual(['ใหม่'])
 })
 
 // The chief of staff, 16 Nov 2026: a copy's body a person fixed is theirs, as the Vietnamese one is, so a redo (a copy the

@@ -336,9 +336,13 @@ test('the quarantine guide names no US seller\'s medicine in any language, nor i
   const id = 'aquatome-cach-ly-ca-moi-mua-be-cach-ly-va-quy-trinh'
   const dir = fileURLToPath(new URL(`../../../content/guides/${id}/`, import.meta.url))
   const brands = /Maracyn|ParaCleanse|Ich-X|PraziPro|ParaGuard|quarantine trio|bộ ba thuốc/iu
+  // The protocol unnamed too (Codex's read of #1588: Malay gave it as "a combination of" three medicines): its seven
+  // days without food, in each language's words on main before, and Malay's combination.
+  const protocol = /7 ngày[^.]*không cho ăn|7 hari tanpa (?:diberi pakan|memberi makan)|7 วันโดยไม่ให้อาหาร|gabungan ubat antibakteria/u
   for (const lang of ['vi', 'id', 'th', 'ms']) {
     const t = JSON.parse(await readFile(join(dir, `${lang}.json`), 'utf8')) as Translation
     expect(JSON.stringify([t.body, t.summary, t.faq]), lang).not.toMatch(brands)
+    expect(JSON.stringify([t.body, t.summary, t.faq]), lang).not.toMatch(protocol)
   }
   expect((JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8')) as Translation).bodyFixed).toBe(true)
   expect((JSON.parse(await readFile(join(dir, 'th.json'), 'utf8')) as Translation).body).not.toMatch(/แหล่งที่\s*\d/u)
