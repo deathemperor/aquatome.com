@@ -666,6 +666,42 @@ test("the avoid list's engine entries: each page's held or refused photos up to 
   expect(u(99) in next).toBe(false)
 })
 
+test("a page whose head is on avoid gives the faces for more than one fish its first photo that passes; a page whose head passes or isn't judged gives none", async () => {
+  const { cardPhotos } = await import('../src/curation')
+  const u = (n: number) => `https://media.aquatome.com/commons/${n.toString(16).padStart(16, '0')}.webp`
+  const ph = (n: number) => ({ url: u(n), width: 1600, height: 1200, licence: 'CC BY 4.0', author: 'Sample Shooter', sourceUrl: 'https://example.org/a' })
+  const yes = { ok: 'yes', typical: true, note: '' } as const
+  const v = {
+    subjects: {
+      [u(1)]: { a: { ok: 'unsure', typical: false, note: '' } }, [u(3)]: { a: yes },
+      [u(4)]: { b: yes }, [u(5)]: { b: { ok: 'dead', typical: false, note: '' } },
+      [u(7)]: { c: yes },
+      [u(8)]: { d: { ok: 'other', typical: false, note: '' } },
+      [u(10)]: { e: yes }, [u(11)]: { e: yes },
+    },
+    legacy: {}, rejected: {}, faces: {},
+  } as Awaited<ReturnType<typeof readVerdicts>>
+  const pages = [
+    // its head the check can't tell; one no check has judged is passed over; the first that passes is the card's.
+    { id: 'a', photos: [ph(1), ph(2), ph(3)] },
+    // its head passes: none (the head is the card's photo), whatever comes after it.
+    { id: 'b', photos: [ph(4), ph(5)] },
+    // its head not judged yet: none, as the site shows that head.
+    { id: 'c', photos: [ph(6), ph(7)] },
+    // its head another fish and nothing after it passes: none, and the face moves on.
+    { id: 'd', photos: [ph(8), ph(9)] },
+    // its head held for a second look, or listed by a person: the next that passes.
+    { id: 'e', photos: [ph(12), ph(10)] },
+    { id: 'f', photos: [ph(13), ph(11)] },
+  ]
+  const v2 = { ...v, subjects: { ...v.subjects, [u(11)]: { f: yes }, [u(12)]: { e: yes }, [u(13)]: { f: yes } } } as Awaited<ReturnType<typeof readVerdicts>>
+  expect(cardPhotos(pages, v2, { [u(13)]: 'a ruler in the picture' }, url => url === u(12))).toEqual({ a: u(3), e: u(10), f: u(11) })
+  // The planner carries the map, and the calendar's schema keeps it on the way back in (the site reads the file).
+  const cur = CurationSchema.parse({ version: 1, weeks: [], days: [] })
+  const { calendar } = plan({ ...cur, cardPhoto: { a: u(3) } }, [], '2026-11-17', 0)
+  expect(CurationSchema.parse(JSON.parse(JSON.stringify(calendar))).cardPhoto).toEqual({ a: u(3) })
+})
+
 test("a week's top card whose page's head a check refused or the second look holds goes out, and a fish that passes takes its place", () => {
   const old = 'https://media.aquatome.com/commons/5555555555555555.webp'
   const cands = ['a', 'b', 'c', 'd', 'e', 'f'].map(id => fish(id))

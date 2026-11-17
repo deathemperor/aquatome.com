@@ -37,7 +37,7 @@ import { videoCut, VIDEO_CUT_LIMIT } from './video-cut'
 import { recordSourceFigures, sourceFigures } from './source-figures'
 import fitFront from './fit-front.json'
 import { firstRun, frontEarly, frontHeld, frontPlan, offLane, orderFront, type FirstRun, type HeldMark } from './fit-front'
-import { candidates, cardsOf, checkCalendar, demandByPath, handAvoid, headAvoid, heldBy, pagePhotos, plan, readCalendar, readVerdicts, withEngineAvoid, writeCalendar } from './curation'
+import { candidates, cardPhotos, cardsOf, checkCalendar, demandByPath, handAvoid, headAvoid, heldBy, pagePhotos, plan, readCalendar, readVerdicts, withEngineAvoid, writeCalendar } from './curation'
 import { readSecondLook } from './last-photo'
 import { phraseMatch } from './phrases'
 import { readerReport, readPages } from './reader'
@@ -827,11 +827,15 @@ if (cmd === 'photo-privacy') {
     // Every page's held or refused photos, up to its first that passes, into the avoid list the site's faces for more than
     // one fish skip (curation.ts headAvoid); last run's engine entries go, a person's stay.
     const secondLook = await readSecondLook(ROOT)
-    const engine = headAvoid(await pagePhotos(ROOT), await readVerdicts(ROOT), hand, heldBy(secondLook))
+    const pages = await pagePhotos(ROOT), verdicts = await readVerdicts(ROOT)
+    const engine = headAvoid(pages, verdicts, hand, heldBy(secondLook))
+    // And for each page whose head is on it, the photo the walk stopped at, which those faces take instead (cardPhotos).
+    const cardPhoto = cardPhotos(pages, verdicts, hand, heldBy(secondLook))
     const was = Object.keys(cur.avoid).filter(u => !(u in hand))
-    const { calendar, report: r } = plan({ ...cur, avoid: withEngineAvoid(cur.avoid, engine) }, cands, today, days)
+    const { calendar, report: r } = plan({ ...cur, avoid: withEngineAvoid(cur.avoid, engine), cardPhoto }, cands, today, days)
     await writeCalendar(ROOT, calendar)
     console.log(`  avoid: ${Object.keys(engine).length} held or refused photos (${Object.keys(engine).filter(u => !was.includes(u)).length} new, ${was.filter(u => !(u in engine)).length} gone), ${Object.keys(hand).length} a person's`)
+    console.log(`  card photos: ${Object.keys(cardPhoto).length} pages whose head is on avoid, each with its first photo that passes`)
     for (const x of r.replaced) console.log(`  replaced ${x.date} ${x.slot} ${x.was}: ${x.why}`)
     for (const x of r.filled) console.log(`  filled ${x}`)
     for (const x of r.empty) console.log(`  empty ${x}`)

@@ -217,6 +217,28 @@ export function headAvoid(pages: { id: string; photos: Photo[] }[], v: Verdicts,
   return out
 }
 
+/**
+ * For each page whose head is on the avoid list (the engine's or a person's), the photo headAvoid's walk stops at: its
+ * first own photo that passes the card rule, by its own address, so the site takes the photo's large copy from its
+ * record. The site's faces for more than one fish fall back to it, not to a photo no check has judged (the site has no
+ * verdicts; the Site lead, 17 Nov). A page whose head passes, or isn't judged yet, has none.
+ */
+export function cardPhotos(pages: { id: string; photos: Photo[] }[], v: Verdicts, hand: Record<string, string>, held: (url: string) => boolean): Record<string, string> {
+  const out: Record<string, string> = {}
+  for (const page of pages) {
+    let headRefused: boolean | undefined
+    for (const p of page.photos) {
+      if (p.generated) continue
+      // On the list: refused as headAvoid lists it, or listed by a person.
+      const listed = !!refusedWhy(p, page.id, v, hand, held) || p.url in hand
+      headRefused ??= listed
+      if (!headRefused) break
+      if (!listed && cardWorthy(p, page.id, v, hand)) { out[page.id] = p.url; break }
+    }
+  }
+  return out
+}
+
 /** The avoid list with the engine's entries rebuilt from `engine`: a person's entries first, as they were, then the engine's by address. */
 export function withEngineAvoid(avoid: Record<string, string>, engine: Record<string, string>): Record<string, string> {
   return { ...handAvoid(avoid), ...Object.fromEntries(Object.entries(engine).sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))) }

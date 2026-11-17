@@ -153,6 +153,12 @@ export const CurationSchema = z.object({
   /** Photos never to lead a card, with why (a sick fish, a dark tank where the fish is small). */
   avoid: z.record(z.string(), z.string()).default({}),
   /**
+   * The photo a face for more than one fish takes for a page whose head is on `avoid`, by page id: the page's first own
+   * photo that passes the card rule, by its own address (the engine's, rebuilt on each `curate`). A page whose head
+   * isn't on `avoid` has none: its head is the card's photo.
+   */
+  cardPhoto: z.record(z.string(), z.string()).default({}),
+  /**
    * Head photos, by the address a card loads, whose fish Hôm nay's card cuts, with why. That card crops its photo by the
    * middle to the space under the fish's name, and a long fish's snout can fall outside it. Such a photo still leads its
    * page and Khám phá's wide card; its fish isn't a day's fish while it is the head.
