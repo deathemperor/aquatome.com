@@ -10,9 +10,11 @@ import { asNum, asRange } from '../lib/species-index'
 /**
  * Species cite source ids (sources.json); breeds cite their own sources by position. `traits`: the species' behaviour
  * (content/traits), for the temperament and social needs of "Vì sao độ khó này"; a breed has none.
+ * `fish`: false on a crab's, a shrimp's or a snail's page, whose size line doesn't call it a fish.
  */
-interface Props { card: Partial<Record<DataCardField, { source: string; value: Range | number }[]>>; sources: Partial<Record<string, { name: string }>>; traits?: Pick<NeedInput, 'temperament' | 'finNipper' | 'schoolMin'> }
-const { card, sources, traits } = Astro.props
+interface Props { card: Partial<Record<DataCardField, { source: string; value: Range | number }[]>>; sources: Partial<Record<string, { name: string }>>; traits?: Pick<NeedInput, 'temperament' | 'finNipper' | 'schoolMin'>; fish?: boolean }
+const { card, sources, traits, fish = true } = Astro.props
+const sizeWords = fish ? 'cá dài {cm}' : 'con dài {cm}'
 const { t, lang } = i18n(Astro.url)
 const { num, range } = fmt(lang)
 // Sources that disagree: the range they all accept; each source's own figure in "Nguồn và độ tin cậy". The dot only where
@@ -57,7 +59,7 @@ const around = (s: string) => s.split(/\{\w+\}/) as [string, string]
                               {n.key === 'space' && <>
                                 {n.tankCm !== undefined && <>{around(t('bể từ {cm}'))[0]}<span data-cm={`${n.tankCm},${n.tankCm}`}>{num(n.tankCm)} cm</span>{around(t('bể từ {cm}'))[1]}</>}
                                 {n.tankCm !== undefined && n.sizeCm !== undefined && ', '}
-                                {n.sizeCm !== undefined && <>{around(t('cá dài {cm}'))[0]}<span data-cm={`${n.sizeCm},${n.sizeCm}`}>{num(n.sizeCm)} cm</span>{around(t('cá dài {cm}'))[1]}</>}
+                                {n.sizeCm !== undefined && <>{around(t(sizeWords))[0]}<span data-cm={`${n.sizeCm},${n.sizeCm}`}>{num(n.sizeCm)} cm</span>{around(t(sizeWords))[1]}</>}
                               </>}
                               {n.key === 'water' && <>
                                 {n.why.map(w => t(WHY_WORDS[w])).join(', ')}{n.why.length > 0 && ' · '}

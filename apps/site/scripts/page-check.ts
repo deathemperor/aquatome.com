@@ -13,6 +13,7 @@ import { saysSci, sciWords } from '../src/lib/sci'
 import { linkTargets } from '../src/lib/mentions'
 import { smallSrc } from '../src/lib/img'
 import { isFish } from '../src/lib/taxa-places'
+import { breedIsFish } from '../src/lib/breeds'
 
 export const CHECKS = {
   repeat: 'the same picture twice',
@@ -24,7 +25,7 @@ export const CHECKS = {
   'link-mark': 'a marker localizeLinks left in the page, which no page may ship with',
   'name-twice': "a scientific name said twice: a fish's or plant's title, description, photo text or structured data, or a name with the scientific name printed beside it that the name says already",
   uncredited: 'a photo shown without its credit anywhere on the page',
-  'not-fish': 'a crab\'s, a shrimp\'s or a snail\'s page (its photos\', its group\'s) whose trail calls it a fish: "Loài cá" at its head',
+  'not-fish': 'a crab\'s, a shrimp\'s or a snail\'s page (its photos\', its group\'s, its lines\') that calls it a fish: "Loài cá" at the head of its trail, or any line of the site\'s own words that says fish; or a reason to keep a crab, a shrimp or a snail away that calls it one, on any page',
 } as const
 export type Check = keyof typeof CHECKS
 export type Problem = { check: Check; detail: string }
@@ -70,6 +71,7 @@ export async function loadFacts(root: string): Promise<Facts> {
     for (const b of c.breeds) add(`breed:${b.id}`, `/vi/ca/${b.t.slug}/`, [b.t.name, ...b.t.altNames], b.photos)
     for (const s of c.species.filter(s => !isFish(s))) for (const p of ['', 'anh/']) facts.notFish.add(localizePath(lang, `/vi/ca/${s.t.slug}/${p}`))
     for (const g of new Set(c.species.map(s => s.group))) if (!isFish({ group: g, order: '' })) facts.notFish.add(localizePath(lang, `/vi/nhom/${g}/`))
+    for (const b of c.breeds.filter(b => !breedIsFish(c, b))) facts.notFish.add(localizePath(lang, `/vi/ca/${b.t.slug}/`))
     addCredits(facts.credits, c)
   }
   return facts
@@ -102,6 +104,36 @@ function addCredits(credits: Facts['credits'], content: unknown) {
 }
 
 const text = (el: HTMLElement) => el.textContent.replace(/\s+/g, ' ').trim()
+
+/**
+ * The site's own lines that say fish, as each language writes them (every key of a language's file is one of the site's
+ * Vietnamese lines; a translation can say fish where the Vietnamese doesn't). Each is cut at its blanks ({name}, {cm})
+ * into the parts a page prints as they are, and a part counts where it says fish in the page's language: "cá" (not "cá
+ * nhân", personal), "ikan", "ปลา" (not in "ตู้ปลา", an aquarium). Two say fish without calling the page's animal one: the
+ * aquarium (an equipment kind, "Bể cá") and the list of all three kinds. "Loài cá" is the trail's (checked there, with
+ * its structured data).
+ */
+const FISH_WORD: Record<Lang, RegExp> = { vi: /(?<![\p{L}\p{M}])cá(?![\p{L}\p{M}])(?! nhân)/iu, id: /\bikan\b/i, ms: /\bikan\b/i, th: /ปลา/ }
+const saysFish = (lang: Lang, s: string) => FISH_WORD[lang].test(lang === 'th' ? s.replaceAll('ตู้ปลา', '') : s)
+const NOT_ABOUT_IT = new Set(['Bể cá', 'Cá, tép hoặc ốc', 'Loài cá'])
+const UI_KEYS = Object.keys(JSON.parse(readFileSync(fileURLToPath(new URL('../src/i18n/id.json', import.meta.url)), 'utf8')) as Record<string, string>)
+const fishLinesOf = new Map<Lang, { line: string; part: string }[]>()
+const fishLines = (lang: Lang) => fishLinesOf.get(lang) ?? fishLinesOf.set(lang, UI_KEYS.filter(k => !NOT_ABOUT_IT.has(k)).flatMap(k =>
+  translator(lang)(k).split(/\{\w+\}/).map(p => p.replace(/\s+/g, ' ').trim()).filter(p => saysFish(lang, p)).map(part => ({ line: k, part })))).get(lang)!
+/** A short line's words as a label prints them: no spaces, punctuation or figures at either end (", cá dài 4 cm"). */
+const bare = (s: string) => s.replace(/^[\s\p{P}\p{N}]+|[\s\p{P}\p{N}]+$/gu, '')
+/** The words a reader sees in an element, as text nodes, leaving out scripts, styles and the parts `skip` names. */
+function shownText(el: HTMLElement, skip: (e: HTMLElement) => boolean): string[] {
+  const out: string[] = []
+  const walk = (n: HTMLElement) => {
+    for (const c of n.childNodes) {
+      if (c instanceof HTMLElement) { if (!['script', 'style'].includes(c.rawTagName?.toLowerCase()) && !skip(c)) walk(c) }
+      else { const s = c.text.replace(/\s+/g, ' ').trim(); if (s) out.push(s) }
+    }
+  }
+  walk(el)
+  return out
+}
 /** The text of what `el` sits in, without `el`'s own. */
 const around = (el: HTMLElement) => el.parentNode ? el.parentNode.childNodes.filter(n => n !== el).map(n => n.textContent).join('').replace(/\s+/g, ' ').trim() : ''
 const BRACKETED = /^\s*\(\s*([A-Z][a-z]+ [a-z]{3,}(?: [a-z]{3,})?)\s*\)/
@@ -172,6 +204,25 @@ export function checkPage(path: string, html: string, facts: Facts): Problem[] {
     for (const [where, names] of [['trail', crumbs], ['structured data\'s trail', data]] as const) {
       if (names.includes(fishList)) out.push({ check: 'not-fish', detail: `${where}: "${fishList}"` })
     }
+    // Every line of the site's own words in the page that says fish (the range's "có thể là cá do người thả ra", the size
+    // line's "cá dài", a line's kind "Dòng cá cảnh"): a long one anywhere in the page's text; a short one as a label of its
+    // own, outside the text the engine wrote (its sections, the summary), where "cá dài" can be a sentence's. The reasons to
+    // keep another species away are that species' (below).
+    const main = root.querySelector('main')
+    if (main) {
+      const reason = (e: HTMLElement) => e.hasAttribute('data-reason')
+      const all = shownText(main, reason).join(' ')
+      const own = shownText(main, e => reason(e) || ['body', 'qs'].some(c => e.classList.contains(c)))
+      const labels = new Set(own.map(bare))
+      for (const { line, part } of fishLines(lang)) {
+        if (part.length < 12 ? labels.has(bare(part)) : all.includes(part)) out.push({ check: 'not-fish', detail: `line "${line}": "${part}"` })
+      }
+    }
+  }
+  // A reason to keep a crab, a shrimp or a snail away (Companions.astro) is about it: it doesn't call it a fish.
+  for (const why of root.querySelectorAll('.mates [data-reason]')) {
+    const href = why.closest('a')?.getAttribute('href') ?? ''
+    if (facts.notFish.has(href) && saysFish(lang, text(why))) out.push({ check: 'not-fish', detail: `reason for ${href}: "${text(why)}"` })
   }
 
   // The same picture twice, whatever its file. A picture hidden from screen readers is a backdrop (a whole tile's blurred

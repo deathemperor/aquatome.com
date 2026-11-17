@@ -127,10 +127,12 @@ for (const path of pages) {
   })
 }
 
-// Every crab's, shrimp's and snail's page, its photos' and its group's, in every language, not a sample: its trail
-// doesn't say "Loài cá" (the owner's report of 15 Nov, the fiddler crab's page; about 100 species). A page a language
-// doesn't have (404) is skipped; a dropped connection is asked once more.
-test('no crab\'s, shrimp\'s or snail\'s page has "Loài cá" in its trail', { tag: '@page-checks' }, async ({ request }, info) => {
+// Every crab's, shrimp's and snail's page, its photos', its group's and its lines', in every language, not a sample:
+// nothing of the site's own calls it a fish, its trail ("Loài cá", the owner's report of 15 Nov, the fiddler crab's
+// page; about 100 species) or any line (the range's "có thể là cá do người thả ra", the Writing Lead, 17 Nov). Live on
+// 17 Nov, before the fix: 1,373 on 408 pages. A page a language doesn't have (404) is skipped; a dropped connection is
+// asked once more.
+test('no crab\'s, shrimp\'s or snail\'s page calls it a fish', { tag: '@page-checks' }, async ({ request }, info) => {
   test.skip(info.project.name !== 'phone', 'the HTML is the same on every screen')
   test.setTimeout(300_000)
   const facts = await factsOnce()

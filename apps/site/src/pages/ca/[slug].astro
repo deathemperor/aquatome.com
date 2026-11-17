@@ -78,7 +78,7 @@ const alternates = await alternatesOf('species', s.id)
       <h2 id="card-h" class="visually-hidden">{t('Bảng dữ liệu')}</h2>
       <details class="full" open>
         <summary><span class="label">{t('Xem đủ bảng')}</span><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3.5 6l4.5 4.5L12.5 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></summary>
-        <DataCard card={card} sources={sources} traits={mates.self} />
+        <DataCard card={card} sources={sources} traits={mates.self} fish={isFish(s)} />
       </details>
       {/* Closed on a phone, where the key facts above it already answer; open on a computer (no toggle there). */}
       <script is:inline>(function (d) { var m = matchMedia('(max-width: 860px)'); var set = function () { d.open = !m.matches }; set(); m.addEventListener('change', set) })(document.currentScript.previousElementSibling)</script>
@@ -106,7 +106,7 @@ const alternates = await alternatesOf('species', s.id)
   {/* The gallery's thumbnails, after the care text, on a page with no photo of its own. A page with one has them under
       its photo, on a phone too (a single row: GalleryStrip.astro). */}
   {s.photos.length === 0 && strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} href={galleryPath} name={s.t.name} readers />}
-  <BreedList breeds={breeds} photos={breedPhotos} heading={t('Các dòng và cá lai từ {name}', { name: s.t.name })} />
+  <BreedList breeds={breeds} photos={breedPhotos} heading={t(isFish(s) ? 'Các dòng và cá lai từ {name}' : 'Các dòng và con lai từ {name}', { name: s.t.name })} />
   <GuideLinks guides={guides} heading={t('Bài viết nhắc đến loài này')} />
   <VideoGuideGrid guides={videoGuides} photos={videoPhotos} heading={t('Có trong video hướng dẫn')} />
 
