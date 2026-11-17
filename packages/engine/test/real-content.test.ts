@@ -3,7 +3,7 @@ import { readdir, readFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
-import { GALLERY_POST, LANGS, loadAll, mayPublish, RETIRED_GUIDES, resolveDataCard, slugify, tankKeywordFits, WRITTEN_LANGS, type Translation } from '@aq/schema'
+import { GALLERY_POST, LANGS, loadAll, mayPublish, RETIRED_GUIDES, resolveDataCard, retiredTo, slugify, tankKeywordFits, WRITTEN_LANGS, type Translation } from '@aq/schema'
 import { checkPages, countMismatch, hasEmail, isLink, isMediaFile, mayHoldEmail, photoCaptions, RATCHETED, ratcheted, refCredits, RULES, SWEPT_KINDS, thanksLines } from '../src/content-rules'
 import { englishOf } from '../src/english'
 import { tilapiaUnnamed } from '../src/kind-words'
@@ -698,7 +698,7 @@ test('every guide taken off for good is one the content has, and forwards to a p
     expect(existsSync(join(content, 'guides', id, 'vi.json')), id).toBe(true)
     if (to !== 'guides') expect(existsSync(join(content, to.kind, to.id, 'vi.json')), `${id} → ${to.kind}/${to.id}`).toBe(true)
   }
-  expect(Object.keys(RETIRED_GUIDES)).toHaveLength(31)
+  expect(Object.keys(RETIRED_GUIDES)).toHaveLength(34)
   expect(readdirSync(join(content, 'guides')).filter(id => GALLERY_POST.test(id)).length).toBeGreaterThanOrEqual(66)
 })
 
@@ -942,6 +942,22 @@ test('the fire-bellied toad guide is held by hand in every language it has', () 
   const langs = readdirSync(dir).filter(f => f !== 'entity.json' && f.endsWith('.json'))
   expect(langs).toContain('vi.json')
   for (const f of langs) expect((JSON.parse(readFileSync(join(dir, f), 'utf8')) as Translation).held, f).toEqual(hold)
+})
+
+// The chief of staff, 17 Nov 2026: three pages a foreign seller's products or medicines make up go off for good. The
+// shopping list goes to the guides list, the iron fertiliser to the guide on choosing a fertiliser, and the quarantine video
+// built on three medicines sold abroad to our general quarantine guide. Each target is a page and stays.
+test('the two kits and the quarantine video are off for good, each to the page it names', () => {
+  expect(retiredTo('aquariumcoop-blogs-aquarium-aquarium-shopping-list')).toBe('guides')
+  const want = {
+    'aquariumcoop-blogs-aquarium-iron-fertilizer': 'aquariumcoop-blogs-aquarium-which-aquatic-fertilizer-is-right-for-you',
+    'youtube-LrRhfOYfXns': 'aquatome-cach-ly-ca-moi-mua-be-cach-ly-va-quy-trinh',
+  }
+  for (const [id, target] of Object.entries(want)) {
+    expect(retiredTo(id), id).toEqual({ kind: 'guides', id: target })
+    expect(retiredTo(target), target).toBeUndefined()
+    expect(existsSync(fileURLToPath(new URL(`../../../content/guides/${target}/vi.json`, import.meta.url))), target).toBe(true)
+  }
 })
 
 // The Writing Lead's answer of 15 Nov 2026 on 60 findings in 17 held video guides (the source talking, units, prices),
