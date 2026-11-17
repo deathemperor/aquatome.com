@@ -167,6 +167,10 @@ test('species-videos: a FishLoft profile makes a new page only under a Vietnames
   expect(await run(['Cá nanosphronemus gemma'])).toMatchObject({ g: waits, vi: null })
   expect(await run(['jewel gourami'], 'FishLoft', '', ['Jewel Gourami'])).toMatchObject({ g: waits, vi: null })
   expect(await run(['Cá Nanosphronemus gemma', 'Cá sặc ngọc'])).toMatchObject({ g: { done: 'new page' }, vi: { name: 'Cá sặc ngọc' } })
+  // A doubled or no-break space doesn't let either through (the Codex read, 17 Nov).
+  expect(await run(['Cá Nanosphronemus  gemma'])).toMatchObject({ g: waits, vi: null })
+  expect(await run(['Cá Nanosphronemus gemma'])).toMatchObject({ g: waits, vi: null })
+  expect(await run(['Jewel  Gourami'], 'FishLoft', '', ['Jewel Gourami'])).toMatchObject({ g: waits, vi: null })
   // The channel by its address as either reader gives it, whatever its name now.
   expect((await run([], 'Fish Loft Aquatics', 'https://www.youtube.com/channel/UC2pjf0shuwySmKTDsALixBw')).g).toMatchObject(waits)
   expect((await run([], 'Fish Loft Aquatics', 'https://www.youtube.com/@FishLoft')).g).toMatchObject(waits)

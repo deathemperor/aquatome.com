@@ -205,8 +205,10 @@ export async function makeSpecies(root: string, d: SpeciesDeps, a: SpeciesAsk, o
   const cited = citeResearch(researched, a.videos ?? [])
   // With `namedOnly`, a name a Vietnamese page gives that is the scientific name (bare or after "Cá") or one of its English
   // names isn't a Vietnamese name, and no kind word fails it: a new page leaves it out (17 Nov 2026: "Hyphessobrycon
-  // cochui" from a .vn page would have named Cochu's blue tetra's page).
-  const foreign = (n: string) => n.toLowerCase().includes(sci.toLowerCase()) || cited.enNames.some(e => e.toLowerCase() === n.toLowerCase())
+  // cochui" from a .vn page would have named Cochu's blue tetra's page). Compared in lower case with spaces folded, so a
+  // doubled or no-break space doesn't let one through (the Codex read, 17 Nov).
+  const fold = (s: string) => s.toLowerCase().replace(/\s+/g, ' ').trim()
+  const foreign = (n: string) => fold(n).includes(fold(sci)) || cited.enNames.some(e => fold(e) === fold(n))
   const c = o.namedOnly && !was ? { ...cited, viNames: cited.viNames.filter(n => !foreign(n)) } : cited
   if (!c.facts.length) return { id, skipped: `${sci}: no cited facts` }
   // `namedOnly`: no new page under its scientific name. Without a Vietnamese name that passes the naming rule (the one the
