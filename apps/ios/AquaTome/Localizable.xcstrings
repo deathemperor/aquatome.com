@@ -21187,24 +21187,24 @@
         }
       }
     },
-    "Không rõ lệnh tới ổ %@ chưa nên AquaTome để nguyên: xem lại ổ này.": {
+    "Không rõ lệnh đã tới ổ %@ chưa, nên AquaTome để nguyên. Bạn xem lại ổ này.": {
       "localizations": {
         "id": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tidak jelas apakah perintah sampai ke stopkontak %@, jadi AquaTome membiarkannya: periksa stopkontak ini."
+            "value": "Belum jelas apakah perintah sudah sampai ke stopkontak %@, jadi AquaTome membiarkannya: periksa stopkontak ini."
           }
         },
         "ms": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tidak pasti sama ada arahan sampai ke soket %@, jadi AquaTome membiarkannya: semak soket ini."
+            "value": "Tidak pasti sama ada arahan sudah sampai ke soket %@, jadi AquaTome membiarkannya: semak soket ini."
           }
         },
         "th": {
           "stringUnit": {
             "state": "translated",
-            "value": "ไม่แน่ใจว่าคำสั่งถึงปลั๊ก %@ หรือยัง AquaTome จึงปล่อยไว้ตามเดิม: ตรวจดูปลั๊กนี้"
+            "value": "ไม่แน่ใจว่าคำสั่งไปถึงปลั๊ก %@ หรือยัง AquaTome จึงปล่อยไว้ตามเดิม: ตรวจดูปลั๊กนี้"
           }
         }
       }
@@ -21887,6 +21887,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "หมดเวลาแล้ว เปิด AquaTome ใกล้ตู้เพื่อคืนค่าไฟและปลั๊กไฟให้เหมือนเดิม"
+          }
+        }
+      }
+    },
+    "Đèn Love Ecology đã bật nhưng chưa đổi màu vì bạn đã đăng xuất.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology sudah menyala, tapi warnanya belum diubah karena Anda sudah keluar."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology sudah menyala, tetapi warnanya belum ditukar kerana anda telah log keluar."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไฟ Love Ecology เปิดแล้ว แต่ยังไม่ได้เปลี่ยนสี เพราะคุณออกจากระบบแล้ว"
           }
         }
       }

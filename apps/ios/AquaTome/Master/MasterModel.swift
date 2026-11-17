@@ -253,7 +253,7 @@ final class MasterModel {
         // Whether the step went isn't known (its answer lost, the outlet not read after it): said so, not that a hand
         // changed it (Codex, 17 Nov).
         let changed = b.guessed == true
-          ? String(localized: "Không rõ lệnh tới ổ \(name) chưa nên AquaTome để nguyên: xem lại ổ này.")
+          ? String(localized: "Không rõ lệnh đã tới ổ \(name) chưa, nên AquaTome để nguyên. Bạn xem lại ổ này.")
           : String(localized: "Ổ \(name) đã đổi trong lúc chạy nên AquaTome để nguyên.")
         // Back already; switched since the last press left it (a hand, its schedule) or made a heater: left; CO2: never
         // on; not read: stays owed, for Trả lại.

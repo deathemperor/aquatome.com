@@ -232,6 +232,23 @@ func howAPressLeftEach() {
   #expect(MasterRun.end(went.back[0], now: true, left: left(went, fanOn), role: "fan") == .send)
 }
 
+@Test("A failed command says why it was withdrawn only when nothing of it went; one that went keeps its own line")
+func whatAFailedCommandSays() {
+  let own = "Ổ Quạt chưa báo đã đổi.", signedOut = "Chưa gửi vì bạn đã đăng xuất."
+  let role = "Nút không bật tắt ổ Quạt được trong bản này.", lampOn = "Đèn đã bật nhưng chưa đổi màu."
+  // Nothing went: why it was withdrawn.
+  #expect(MasterButton.failedLine(own, withdrawn: signedOut, sent: false) == signedOut)
+  #expect(MasterButton.failedLine(own, withdrawn: role, sent: false) == role)
+  // Its command went, its answer lost or not confirmed: its own line, after a sign-out and after a role change (the
+  // Writing Lead, 17 Nov: the card said nothing was sent).
+  #expect(MasterButton.failedLine(own, withdrawn: signedOut, sent: true) == own)
+  #expect(MasterButton.failedLine(own, withdrawn: role, sent: true) == own)
+  // The lamp's "on" went and its colour didn't: the lamp's own line.
+  #expect(MasterButton.failedLine("Không gửi được lệnh tới đèn. Thử lại.", withdrawn: signedOut, sent: true, lampOn: lampOn) == lampOn)
+  // Not withdrawn: its own line, whatever went.
+  #expect(MasterButton.failedLine(own, withdrawn: nil, sent: false) == own && MasterButton.failedLine(own, withdrawn: nil, sent: true) == own)
+}
+
 @Test("A run kept by build 390, before `Back.left`, is read as it was")
 func aRunKeptBeforeLeft() throws {
   let kept = #"{"started":800000000,"ends":800007200,"steps":[{"device":"\#(plug)","outlet":"switch_3","on":false}],"back":[{"command":{"device":"\#(plug)","outlet":"switch_3","on":true},"done":false,"held":false}],"failed":[]}"#

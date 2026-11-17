@@ -244,7 +244,10 @@ final class MasterFlowTests: XCTestCase {
     RunLoop.current.run(until: Date().addingTimeInterval(35))
     app.signInWithStandInApple()
     app.openTab("Đèn")
-    expect(app, "master-problems", contains: "Chưa gửi vì bạn đã đăng xuất.", timeout: 40)
+    // Its "on" went, so the card says the lamp is on and its colour didn't follow, never that nothing was sent (the
+    // Writing Lead, 17 Nov).
+    expect(app, "master-problems", contains: "Đèn Love Ecology đã bật nhưng chưa đổi màu vì bạn đã đăng xuất.", timeout: 40)
+    expect(app, "master-problems", lacks: "Chưa gửi vì bạn đã đăng xuất.")
     expect(app, "master-lamp-sent", lacks: "white")
   }
 

@@ -40,8 +40,12 @@ final class Switcher {
     if let why = refusal(c, still: still) { return (.failed(why), false) }
     let allowed: @MainActor @Sendable () -> Bool = { [unowned self] in still() && MasterButton.allows(c, role: self.role(c)) }
     let (result, sent) = await set(c, allowed: allowed)
-    // Withdrawn as it was about to go: why, in the button's words.
-    if case .failed = result, let why = refusal(c, still: still) { return (.failed(why), sent) }
+    // Withdrawn as it was about to go: why, in the button's words, only when nothing of it went (MasterButton.failedLine).
+    if case .failed(let own) = result, let why = refusal(c, still: still) {
+      let lampOn: String? = c.isLamp && why == MasterModel.signedOut
+        ? String(localized: "Đèn Love Ecology đã bật nhưng chưa đổi màu vì bạn đã đăng xuất.") : nil
+      return (.failed(MasterButton.failedLine(own, withdrawn: why, sent: sent, lampOn: lampOn)), sent)
+    }
     return (result, sent)
   }
 
