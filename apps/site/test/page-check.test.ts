@@ -44,10 +44,10 @@ test('a shrimp\'s page and its group\'s trails say "Loài", and the check finds 
     'line "Chiều dài của cá khi trưởng thành.": "Chiều dài của cá khi trưởng thành."',
     'line "Khoảng nhiệt độ nước mà cá sống khỏe, tính bằng °C.": "Khoảng nhiệt độ nước mà cá sống khỏe, tính bằng °C."',
   ].sort())
-  // A group's numbered page is its page, in every language's word for it.
-  const group = page('/nhom/shrimp/').html.replace(/(<a href="\/ca\/"[^>]*>)Loài<\/a>/, '$1Loài cá</a>')
-  for (const path of ['/nhom/shrimp/trang/2/', '/id/nhom/shrimp/halaman/2/', '/th/nhom/shrimp/page/2/'])
-    expect(checkPage(path, group, facts).filter(p => p.check === 'not-fish').map(p => p.detail), path).toContain('trail: "Loài cá"')
+  // A group's numbered page is its page, in every language's word for it, its trail in that language's words.
+  const group = (word: string) => page('/nhom/shrimp/').html.replace(/(<a href="\/ca\/"[^>]*>)Loài<\/a>/, `$1${word}</a>`)
+  for (const [path, word] of [['/nhom/shrimp/trang/2/', 'Loài cá'], ['/id/nhom/shrimp/halaman/2/', 'Spesies ikan'], ['/th/nhom/shrimp/page/2/', 'สายพันธุ์ปลา']])
+    expect(checkPage(path, group(word), facts).filter(p => p.check === 'not-fish').map(p => p.detail), path).toContain(`trail: "${word}"`)
   expect(facts.notFish).not.toContain('/ca/ca-galaxy/')
 })
 
