@@ -2390,10 +2390,12 @@
     "reason": "heater disaster story"
   },
   "J5731aDVx8I": {
-    "at": "2026-11-07",
+    "at": "2026-11-17",
     "title": "RAMSHORN SNAILS SPECIES PROFILE",
     "channel": "Daniel Keeping Fish",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "jBs4Zjr2C4w": {
     "at": "2026-11-07",
@@ -2404,10 +2406,14 @@
     "reason": "vague new fish look"
   },
   "jedoN9nxfpc": {
-    "at": "2026-11-07",
+    "at": "2026-11-17",
     "title": "Discover the Stunning Duplicate Corydoras (Corydoras duplicareus) False Adolfoi Corydoras",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Corydoras duplicareus",
+    "page": "species/corydoras-duplicareus",
+    "done": "added",
+    "score": 0.8
   },
   "JG6APmdKrXA": {
     "at": "2026-11-07",
@@ -2418,10 +2424,15 @@
     "reason": "feeding clip"
   },
   "Jh0Xx6BZfu8": {
-    "at": "2026-11-07",
+    "at": "2026-11-17",
     "title": "Neon Tetra ( Paracheirodon innesi ) species profile",
     "channel": "Team Detritus",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Paracheirodon innesi",
+    "page": "species/paracheirodon-innesi",
+    "done": "low",
+    "score": 0.62,
+    "reason": "[beforeYouBuy] says most neons sold are still wild-caught. The page says 'Cá neon nhìn chung đều là cá sinh sản nhân tạo'. NEW never says the video differs from the page, so the conflict is hidden.; [beforeYouBuy] 'trại cho đẻ cũng có, nhưng cá neon không dễ nuôi trại' repeats the video's wild-caught claim. The page says the opposite, and NEW doesn't mark the difference."
   },
   "jIafXu3eUgI": {
     "at": "2026-11-07",

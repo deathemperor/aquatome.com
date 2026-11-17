@@ -393,6 +393,40 @@
       "kept": false
     }
   ],
+  "vi/species/corydoras-duplicareus#jedoN9nxfpc": [
+    {
+      "at": "2026-11-17T05:44:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.8,
+      "notes": [
+        "[dimorphism] \"thon và ngắn hơn con cái một chút\" mostly repeats the page, which already says the female is larger, rounder and broader than the male.",
+        "[behaviour] \"tép, ốc cảnh\": the video says \"ornamental invertebrates\" and doesn't mention snails, so \"ốc\" is an addition.",
+        "[behaviour] \"cá sặc cảnh\" is an awkward rendering of gouramis.",
+        "[beforeYouBuy] \"trong tiệm cá\" is a small embellishment; the video says only that the species is uncommon in the hobby.",
+        "[behaviour] The keeper-advice framing (\"chứ không phải 4\") correctly shows how the video differs from the page's 4–6. This is fine, but the wording is slightly stiff."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-17T05:44:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.8,
+      "notes": [
+        "\"Nuôi đàn đông hơn 6 con thì càng tốt\" changes the video's \"at least six, larger groups preferable\". The video's minimum of six is the same as \"ít nhất\" six, not \"more than six\".",
+        "The page says \"ít nhất 4–6 con\" and the video says at least six. NEW doesn't point out this difference.",
+        "\"cá sặc\" for gouramis is loose. A hobbyist would more likely write \"cá lia thia/gourami\" or \"cá sặc cảnh\".",
+        "\"Mỗi tuần có thể cho ăn thêm một hai lần\" is natural but a bit clipped. \"Một hai lần\" would read better as \"một đến hai lần\".",
+        "The colour description leaves out the gold patch between the eye mask and the dorsal fin base. This is an omission, not an error."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/species/corydoras-pantanalensis#CVc-EzMdCeY": [
     {
       "at": "2026-11-13T19:08:10Z",
@@ -1195,6 +1229,45 @@
         "diet: \"rau tươi như bí ngòi, bí đỏ\" overlaps the page's vegetable-heavy diet line. Only the specific vegetables are new.",
         "notes: \"mỗi lần bơi ra là cả bể đều thấy\" slightly embellishes the video's \"when it comes out, you notice it\".",
         "diet: \"Cá gặm lũa rất nhiều nhờ bộ răng chuyên cạo gỗ ngập nước. Có điều, chúng không sống nhờ chất xơ...\" is a bit stiff and translated in tone."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/paracheirodon-innesi#Jh0Xx6BZfu8": [
+    {
+      "at": "2026-11-17T05:47:51Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.62,
+      "notes": [
+        "[beforeYouBuy] says most neons sold are still wild-caught. The page says 'Cá neon nhìn chung đều là cá sinh sản nhân tạo'. NEW never says the video differs from the page, so the conflict is hidden.",
+        "[beforeYouBuy] 'trại cho đẻ cũng có, nhưng cá neon không dễ nuôi trại' repeats the video's wild-caught claim. The page says the opposite, and NEW doesn't mark the difference.",
+        "[diet] 'trùng huyết con to thì khó nuốt' goes against the page, which recommends bloodworms. The video's point (large bloodworms are hard for such a small fish) is given without saying it differs from the page.",
+        "[behaviour] 'Nên mua khoảng 10 con, có khi 20 con' is written as general advice, not as one keeper's view. It also overlaps the page's 6+ and 8–10 advice without saying how the video differs.",
+        "[behaviour] 'ở bể dài từ 120 cm trở xuống chúng tản ra' is stated as a rule. In the video it is one keeper's observation.",
+        "[notes] 'Có lẽ chưa loài cá nhiệt đới nào bán ra nhiều bằng cá neon' mostly repeats the page's 'một trong những loài cá cảnh phổ biến nhất'. It adds little that is new.",
+        "[waterConditions] 'lỗi hay gặp là nuôi cá neon quá ấm' and 'khoảng 22 °C là hợp nhất' sit close to the page's 21–25 °C range. NEW doesn't say how the video's advice differs from it."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-17T05:47:51Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.5,
+      "notes": [
+        "[notes] \"Một người chơi cá lâu năm lại kể là chưa từng gặp bệnh neon tetra lần nào\" is the video's keeper's experience, but it's awkwardly attributed and sits oddly beside the page's NTD coverage.",
+        "[notes] \"Thấy môi cá neon có gì lạ thì cứ coi như columnaris và trị ngay\" is stated as a general rule. It is one keeper's advice in the video and should be framed as one keeper's.",
+        "[notes] \"Bệnh columnaris hay gặp ở cá neon... Bệnh thường hiện ở vùng mặt và quanh môi\" overlaps with the page, which already covers columnaris as a look-alike disease. The 'face and lips' detail comes from the video.",
+        "[beforeYouBuy] \"phần nhiều vẫn là cá bắt tự nhiên\" contradicts the page, which says neon are almost all captive-bred. The text doesn't say plainly that the video differs from the page.",
+        "[beforeYouBuy] \"Theo họ, cá neon chưa quen với trại nuôi bằng nhiều loài khác\" is clumsy, translation-like Vietnamese.",
+        "[beforeYouBuy] \"giữ cho người dân không phải chuyển sang những cách kiếm sống hại rừng hơn\" adds 'rừng'. The video says 'hurt the environment', not forest.",
+        "[waterConditions] The advice \"khoảng 22 °C là đẹp\" and \"từ khoảng 26 °C trở lên\" is presented as fact. The video gives it as one keeper's view (72°F, upper 70s and 80s), and the 26 °C conversion is loose. The page's temperature range overlaps.",
+        "[waterConditions] \"Pha nước RO vào nước máy\" and \"quá ấm\" are given as general rules, not attributed to one keeper. \"Sức đề kháng kém\" is presented as fact for hard water."
       ],
       "attempt": "first",
       "kept": false

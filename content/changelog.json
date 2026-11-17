@@ -2,6 +2,13 @@
   {
     "date": "2026-11-17",
     "kind": "species",
+    "id": "corydoras-duplicareus",
+    "source": "aquatome",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-17",
+    "kind": "species",
     "id": "afruca-tangeri",
     "source": "glaser",
     "action": "new"
@@ -3489,13 +3496,6 @@
     "date": "2026-11-13",
     "kind": "species",
     "id": "leporinus-fasciatus-tigrinus",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-13",
-    "kind": "guide",
-    "id": "glaser-en-09-characoids-tetra-relationship-a-new-species-of-crenuchus-en",
     "source": "glaser",
     "action": "new"
   }
