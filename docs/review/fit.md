@@ -5,12 +5,12 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 4596 | 3866 | 1581 | 44 | 41 | 196 | 39 | 1125 | 338 | 2572 | 470 | 9 | 10 | 0 | 2 | 4 | 3 | 0 |
-| Indonesian | 1534 | 1356 | 384 | 20 | 8 | 4 | 4 | 191 | 36 | 66 | 181 | 0 | 1 | 0 | 2 | 2 | 0 | 0 |
-| Thai | 1520 | 1323 | 350 | 15 | 3 | 5 | 2 | 168 | 39 | 88 | 163 | 0 | 1 | 0 | 1 | 0 | 0 | 0 |
-| Malay | 409 | 366 | 101 | 8 | 2 | 0 | 1 | 50 | 16 | 23 | 40 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Vietnamese | 4598 | 3871 | 1581 | 36 | 41 | 196 | 39 | 1124 | 339 | 2576 | 468 | 9 | 10 | 0 | 2 | 4 | 3 | 0 |
+| Indonesian | 1551 | 1374 | 395 | 22 | 8 | 4 | 4 | 197 | 37 | 66 | 185 | 0 | 1 | 0 | 2 | 2 | 0 | 0 |
+| Thai | 1539 | 1343 | 363 | 17 | 3 | 5 | 2 | 175 | 41 | 90 | 168 | 0 | 1 | 0 | 1 | 0 | 0 | 0 |
+| Malay | 423 | 380 | 108 | 9 | 2 | 0 | 1 | 52 | 17 | 23 | 45 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
-Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 11 of 140, Indonesian 2 of 53, Thai 2 of 51, Malay 1 of 18.
+Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 12 of 141, Indonesian 2 of 55, Thai 2 of 52, Malay 1 of 22.
 
 ## Doses on more than one page
 
@@ -19,7 +19,7 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - hydrogen peroxide 3% — **18 conflicts**: cyanobacteria, spot: 0.75 ml/l (2 pages); algae, spot: 0.75 ml/l, 0.167 ml/l, 0.5 ml/l (7 pages); algae, wholeTank: 0.333 ml/l, 0.4 ml/l, 0.395 ml/l (4 pages); bacteria, wholeTank: 0.333 ml/l (1 pages)
 - salt — **5 conflicts**: water, wholeTank: 1–2 g/l, 5–10 g/l, 0.5 ml/l, 1–3 g/l, 10–15 g/l (16 pages); water, unsaid: 5–10 g/l, 10–15 g/l, 5–15 g/l, 10–20 g/l (5 pages); fungus, unsaid: 1 g/l, 1.364 ml/l, 1–3 g/l (3 pages); other, wholeTank: 1.111–1.667 ml/l, 3.947 ml/l, 1.5 ml/l, 1–3 g/l (8 pages); parasites, wholeTank: 0.75 ml/l, 0.013 cup/l, 3.2 ml/l (6 pages); water, other: 15–25 g/l (1 pages); bacteria, wholeTank: 1.316 ml/l (1 pages); ich, wholeTank: 1.974 ml/l (1 pages); other, other: 15 ml/l, 5 ml/l, 0.5 ml/l, 30 g/l (5 pages); bacteria, bath: 22.222 g/l (3 pages); finRot, bath: 10 g/l (4 pages); other, unsaid: 1–3 g/l, 17 g/l, 12 g/l, 1.316 ml/l (3 pages); fungus, wholeTank: 1–5 g/l, 1–3 g/l, 1.364 ml/l, 2 ml/l, 3.947 ml/l (3 pages); fungus, bath: 30 g/l, 1–5 g/l (4 pages); other, bath: 1–3 g/l (3 pages); snails, dip: 63.158 ml/l, 0.263 cup/l (3 pages); disinfecting, other: 5 ml/l (2 pages); bacteria, unsaid: 7.368 g/l (1 pages); finRot, wholeTank: 1–3 g/l (1 pages); disinfecting, bath: 5 ml/l (1 pages); bacteria, dip: 22.222 g/l (1 pages)
 - liquid fertiliser — **1 conflicts**: plants, wholeTank: 0.02 ml/l, 0.04 ml/l, 0.05 ml/l (2 pages)
-- sea salt: water, wholeTank: 1–2 g/l, 1–3 g/l, 5 ml/l, 5–10 g/l, 0.1 thìa/l, 0.5–1 ml/l, 3–10 g/l, 15 g/l, 0.5 ml/l, 10–20 g/l, 18.75 ml/l, 7.5 ml/l, 0.1 sendok/l, 0.1 ช้อน/l (45 pages); water, unsaid: 1–3 g/l, 5–15 g/l, 10–20 g/l (6 pages); other, wholeTank: 0.1 thìa/l (1 pages); water, other: 30 ml/l, 7.5 ml/l (5 pages); other, other: 15 ml/l (1 pages); other, unsaid: 1–3 g/l (2 pages)
+- sea salt: water, wholeTank: 1–2 g/l, 1–3 g/l, 5 ml/l, 5–10 g/l, 0.1 thìa/l, 0.5–1 ml/l, 3–10 g/l, 15 g/l, 0.5 ml/l, 10–20 g/l, 18.75 ml/l, 7.5 ml/l, 0.1 sendok/l, 0.1 ช้อน/l (49 pages); water, unsaid: 1–3 g/l, 5–15 g/l, 10–20 g/l (6 pages); other, wholeTank: 0.1 thìa/l, 0.5–1 ml/l (2 pages); water, other: 30 ml/l, 7.5 ml/l (5 pages); other, other: 15 ml/l (1 pages); other, unsaid: 1–3 g/l, 0.5–1 ml/l (3 pages)
 - metronidazole: other, wholeTank: 13 mg/l, 13.158 mg/l, 13.21 mg/l (4 pages); bacteria, wholeTank: 12.5 mg/l (3 pages); parasites, wholeTank: 12.5 mg/l, 0.013 g/l (8 pages); parasites, bath: 6.25 mg/l, 0.05 tablet/l (4 pages); bacteria, unsaid: 12.5 mg/l (1 pages)
 - malachite green: ich, wholeTank: 0.132 ml/l (1 pages); fungus, bath: 0.1 mg/l (4 pages); fungus, spot: 100 mg/l (4 pages)
 - seachem stability: other, wholeTank: 0.125 ml/l, 0.063 ml/l, 0.013 nắp/l, 0.013 cap/l (3 pages)
@@ -41,10 +41,11 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - api accu-clear: water, wholeTank: 0.053 ml/l, 0.005 cap/l (3 pages)
 - erythromycin: cyanobacteria, wholeTank: 5 mg/l, 5.263 mg/l (1 pages); algae, wholeTank: 5 mg/l (1 pages)
 - levamisole: parasites, wholeTank: 0.026 packet/l (1 pages); parasites, bath: 50 mg/l (2 pages)
+- potassium alum: parasites, dip: 15 ml/l (1 pages); snails, bath: 3.947 ml/l (1 pages); disinfecting, dip: 15 ml/l (1 pages)
 - seachem excel: algae, wholeTank: 0.125 ml/l (1 pages); algae, other: 1 cap/l (1 pages); algae, spot: 0.025 cap/l (1 pages)
 - water clarifier: water, wholeTank: 0.063 ml/l, 0.005 cap/l (3 pages)
 - bionoc 2: ich, wholeTank: 0.1 drop/l, 0.05 drop/l (1 pages)
-- bleach: disinfecting, dip: 47.368 ml/l (1 pages); algae, other: 0.125 litre/l (1 pages)
+- bleach: disinfecting, dip: 47.368 ml/l, 0.125 litre/l (2 pages)
 - fritzzyme 7: other, wholeTank: 3.132 ml/l, 1.579 ml/l (1 pages)
 - fritzzyme 7 freshwater: other, wholeTank: 3.132 ml/l, 1.579 ml/l (1 pages)
 - hydrogen peroxide and seachem excel 3%: algae, wholeTank: 0.222 ml/l, 0.333 ml/l (1 pages)
