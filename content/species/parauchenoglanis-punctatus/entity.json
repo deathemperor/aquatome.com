@@ -20,13 +20,14 @@
       ],
       "regions": [
         "Congo River",
-        "Lindi River",
         "Ogowe River",
-        "San Benito"
+        "San Benito",
+        "Congo"
       ],
       "sources": [
         "planetcatfish",
-        "scotcat"
+        "scotcat",
+        "glaser"
       ],
       "quotes": [
         {
@@ -35,9 +36,7 @@
           "countries": [
             "CD"
           ],
-          "regions": [
-            "Lindi River"
-          ]
+          "regions": []
         },
         {
           "source": "planetcatfish",
@@ -49,11 +48,19 @@
         },
         {
           "source": "scotcat",
-          "quote": "Africa: lower and central Congo River system; San Benito and Ogowe River basins.",
+          "quote": "Africa: lower and central Congo River system; San Benito and Ogowe River basins. Type locality: Lindi River, which flows into the Congo at the Stanley Falls.",
           "countries": [],
           "regions": [
             "Ogowe River",
             "San Benito"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "It is known so far only from the central Congo basin. Origin: D.R. Congo.",
+          "countries": [],
+          "regions": [
+            "Congo"
           ]
         }
       ]

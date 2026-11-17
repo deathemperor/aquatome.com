@@ -9,6 +9,65 @@
     "south-america",
     "peru"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE",
+        "BO"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "This unique feature is very reminiscent of Hyphessobrycon pando, a species quite recently described from Bolivia.",
+          "countries": [
+            "BO"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354606,
+      "total": 12,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "BO",
+          11
+        ],
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -70.3125,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          -12.65625,
+          11,
+          11
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

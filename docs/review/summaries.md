@@ -120,7 +120,7 @@ id: `ancistrus-cirrhosus`
 
 Cá lau kiếng bristlenose (Ancistrus cirrhosus) hợp với người mới chơi hoặc ai cần cá đáy hiền cho bể cộng đồng, độ khó 2/8, lớn tới 13 cm, sống 5–10 năm. Chịu được nhiều kiểu nước: 23–27 °C, pH 5,8–7,8, độ cứng 2–30 dGH, nhưng cần nước sục khí tốt, có dòng chảy và nhiều hang, gỗ lũa để trú ban ngày. Điểm khó nhất là con đực trưởng thành giữ lãnh thổ gắt với nhau, và cá thải khá nhiều chất thải nên đừng trông chờ nó dọn bể thay mình.
 
-- Nuôi chung với cichlid Trung và Nam Mỹ cỡ lớn; nên chọn bạn cùng bể là loài hiền như cá neon, cá platy, cá bảy màu.
+- Nuôi chung với cichlid Trung và Nam Mỹ cỡ lớn; nên chọn bạn cùng bể là loài hiền như cá neon, cá mún, cá bảy màu.
 - Coi cá là máy dọn bể rồi cho ăn quá tay; chúng ăn tảo trên kính nhưng thải nhiều chất thải, nên chỉ cho viên tảo hoặc spirulina một đến hai lần mỗi ngày.
 
 Kiểm tra:
@@ -812,6 +812,13 @@ Garra rakhinica là cá nhỏ, lớn tới 6 cm, độ khó 3/8 (dễ), cần nu
 Kiểm tra:
 - Mistake 2 "Bày bể trơn hoặc nền mịn ... nên lót sỏi và đá": the page gives no aquarium or substrate advice. It only describes the wild habitat at one collection site. Turning that into a mistake and a fix is advice the page doesn't give.
 - "nên dữ liệu nuôi còn ít": the page says nothing about how much husbandry data exists. It only says the species is recorded from one site and that Garra taxonomy is confused.
+
+## Cá tỳ bà bướm chấm (Gastromyzon punctulatus)
+id: `gastromyzon-punctulatus`
+
+Hợp với người có bể nước thật sạch, giữ nhiệt trong khoảng 22–28 °C, tốt nhất ở khoảng giữa. Có dòng chảy mạnh thì càng tốt. Cá dễ cho ăn, nhận mọi loại thức ăn, hợp nhất là đồ đông lạnh cỡ nhỏ, và sống hòa thuận với cá cùng loài lẫn loài khác. Điểm khó nhất là giữ nước luôn thật sạch.
+
+- Chỉ trông vào rêu để nuôi cá: chúng tìm sinh vật li ti trong lớp bám chứ không mặn mà với rêu, nên cho thêm thức ăn đông lạnh cỡ nhỏ.
 
 ## Cá cầu vồng Glossolepis dorityi (Glossolepis dorityi)
 id: `glossolepis-dorityi`
@@ -1575,12 +1582,6 @@ Cá trê lũa (Sorubimichthys planiceps) hợp với người nuôi có kinh ngh
 
 Kiểm tra:
 - "chỉ nuôi cùng cá da trơn cỡ lớn như họ Pimelodidae hoặc Doradidae": the page says the fish can live with any species that has similar water needs and is big enough not to be swallowed. It only offers these catfish families as suggestions ("gợi ý"). "Chỉ" turns a suggestion into an exclusive rule.
-
-## Cá lau kiếng Spectracanthicus murinus (Spectracanthicus murinus)
-id: `spectracanthicus-murinus`
-
-Cá lau kiếng Spectracanthicus murinus là loài nhỏ, dài tới 6,4 cm, sống ở sông Tapajós thuộc lưu vực Amazon. Cá cần nước ấm 26–30 °C, pH 5,5–7,5. Khó nhất là hồ sơ thiếu thông tin: không có số liệu về bể tối thiểu, thức ăn hay độ khó, và sinh sản mới có đúng một báo cáo.
-
 
 ## Cá Sternarchorhynchus goeldii (Sternarchorhynchus goeldii)
 id: `sternarchorhynchus-goeldii`

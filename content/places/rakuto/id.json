@@ -1,8 +1,13 @@
 {
   "slug": "rakuto",
-  "name": "Nakdong",
+  "name": "Sungai Nakdong",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-16T17:17:35.250Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

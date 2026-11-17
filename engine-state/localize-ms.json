@@ -2332,44 +2332,160 @@
   },
   "amphilius-kivuensis": {
     "at": "2026-11-16",
-    "from": "2026-11-13",
+    "from": "2026-11-16",
     "name": "Amphilius kivuensis",
     "confidence": "low",
     "score": 0.85,
     "notes": [
-      "In item 4, 'arus yang perlahan' for 'slight current' is acceptable, but 'Spesies ini' for 'This genera' (a genus-level statement) could be 'Genus ini' for consistency.",
-      "In item 5, 'flake' is left in English; use 'makanan serpihan (flake)' or 'makanan kepingan'.",
-      "In item 5, 'kutu air' for Daphnia is acceptable, but 'Daphnia' or 'kutu air (Daphnia)' is clearer to hobbyists.",
-      "In item 6, 'Congo' is better written as 'Congo' or 'Kongo' consistently. Standard Malay is 'Republik Demokratik Congo', which is fine, so no change is needed."
+      "#3: \"arus air yang perlahan\" – the English says \"slight current\"; fine, but \"to facilitate their natural habitat\" is rendered \"supaya menyerupai habitat semula jadinya\"; acceptable. Consider \"arus lemah\" for naturalness.",
+      "#3: \"susunan batu\" for \"rockwork\" is a little awkward; \"hiasan batu\" or \"batu hiasan\" is more usual.",
+      "#4: \"Republik Demokratik Congo\" – use standard Malay spelling \"Republik Demokratik Congo\" or \"Kongo\" consistently (\"Republik Demokratik Kongo\")."
     ],
     "parts": {
-      "quickFacts:scotcat": "79e7fb9f57f9",
-      "distribution:scotcat": "984ef165c96e",
+      "quickFacts:scotcat": "70861b8b1b7e",
+      "distribution:scotcat": "aaff503a1df4",
       "habitat:scotcat": "f6271be8576a",
-      "equipment:scotcat": "146c7e1ffaa2",
       "diet:scotcat": "0269b10f1c20",
-      "notes:scotcat": "3e92e0a65ae1"
+      "notes:scotcat": "63ece8a5c6a1",
+      "maintenance:scotcat": "3be2d80dba69",
+      "references:scotcat": "1f7a3dc89aba"
     }
   },
   "amphilius-longirostris": {
     "at": "2026-11-16",
-    "from": "2026-11-13",
+    "from": "2026-11-16",
     "name": "Amphilius longirostris",
     "confidence": "low",
     "score": 0.85,
     "notes": [
-      "Item 1: \"Afrika barat-tengah\" is a little awkward; \"Afrika Tengah Barat\" reads more naturally.",
-      "Item 1: \"kawasan bukit di kawasan Bulu\" repeats \"kawasan\"; use \"kawasan bukit di negara Bulu\" or \"bukit di wilayah Bulu\".",
-      "Item 3: \"susunan batu dan gua\" is awkward for \"rockwork and caves\"; use \"binaan batu-batan dan gua\" or \"hiasan batu dan tempat persembunyian (gua)\".",
-      "Item 4: \"Jentik-jentik\" is acceptable, but \"larva nyamuk\" is more exact for \"mosquito larvae\".",
-      "Item 5: \"batang ekor\" for caudal peduncle is non-standard; use \"pangkal ekor\" or \"tangkai ekor\" (caudal peduncle)."
+      "\"Dihuraikan oleh Boulenger\": more natural is \"Diperihalkan oleh Boulenger\" (taxonomic description).",
+      "\"tangki\": acceptable, but \"akuarium\" is more consistent with the rest of the text.",
+      "\"batu kerikil halus\": \"kerikil halus\" is more natural; \"batu kerikil\" is redundant.",
+      "\"tangki yang banyak tumbuhan akuatik\": \"ditanam dengan banyak tumbuhan\" reads more naturally.",
+      "\"muncung ... yang terjulur sedikit melepasi rahang bawah\": fine, but \"pasca-orbit\" could be \"selepas orbit (post-orbit)\" for clarity.",
+      "\"Sediakan susunan batu\": \"batuan hiasan\" or \"susunan batu\" is OK; consider \"batu-batan\"."
     ],
     "parts": {
       "distribution:scotcat": "ffd008ab1285",
-      "maintenance:scotcat": "b2c829352de8",
-      "equipment:scotcat": "b67d7c0bf41a",
+      "maintenance:scotcat": "c5181338b7ce",
+      "equipment:scotcat": "bff8bc2991a2",
       "diet:scotcat": "0269b10f1c20",
-      "notes:scotcat": "2bff1165f0d4"
+      "notes:scotcat": "c38463a82aed",
+      "quickFacts:scotcat": "778614089096"
+    }
+  },
+  "amphilius-lujani": {
+    "at": "2026-11-16",
+    "from": "2026-11-16",
+    "name": "Amphilius lujani",
+    "confidence": "low",
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:scotcat": "1e47da339b72",
+      "distribution:scotcat": "3d9fe3a1d401",
+      "maintenance:scotcat": "0b92232f5eba",
+      "diet:scotcat": "0269b10f1c20",
+      "notes:scotcat": "88238d7c277b",
+      "references:scotcat": "a11636b7acb3"
+    }
+  },
+  "amphilius-natalensis": {
+    "at": "2026-11-16",
+    "from": "2026-11-16",
+    "name": "Natal mountain catfish",
+    "confidence": "low",
+    "score": 0.7,
+    "notes": [
+      "Item 4: \"slight current\" is translated as \"arus perlahan\" (slow current). The source means a gentle current, and the habitat is fast-flowing. Use \"arus yang lemah/sederhana\" or similar.",
+      "Item 4: \"small grained gravel\" is rendered as \"batu kerikil halus\". This is acceptable but could be \"kerikil bersaiz kecil\".",
+      "Item 4: \"well planted\" is rendered as \"banyak tumbuhan akuatik\". Better is \"ditanam dengan padat/banyak tumbuhan\".",
+      "Item 2: the source says \"three discrete ... populations\", and the translation keeps this. \"Lokaliti jenis\" is fine, but \"diperihalkan\" is somewhat stiff. \"Dihuraikan\" or \"dikenal pasti\" is more natural.",
+      "Item 8: \"restricted species\" is translated as \"spesies yang bertaburan terhad\". The meaning is mostly kept. \"Province of Natal\" as \"Wilayah\" is non-standard. Use \"Wilayah/Provinsi Natal\" consistently.",
+      "Item 3: \"lalat mayfly\" is inaccurate. Mayflies are not true flies. Use \"larva mayfly (lalat Mei/lalat hari)\" or just \"larva mayfly\". \"Agas\" for midge is acceptable.",
+      "Item 5: \"Jentik-jentik\" for mosquito larvae is correct. Daphnia as \"kutu air\" is fine.",
+      "Item 9: the reference list is left untranslated, which is as instructed."
+    ],
+    "parts": {
+      "quickFacts:scotcat": "7563d732e8dc",
+      "distribution:scotcat": "d3d54a6158d2",
+      "habitat:scotcat": "71bc8ad184d0",
+      "maintenance:scotcat": "146c7e1ffaa2",
+      "diet:scotcat": "0269b10f1c20",
+      "dimorphism:scotcat": "b8d69b71d0ad",
+      "reproduction:scotcat": "35cdb4b2422c",
+      "notes:scotcat": "3caea09c4443",
+      "references:scotcat": "bcc6fd56a350"
+    }
+  },
+  "amphilius-platychir": {
+    "at": "2026-11-16",
+    "from": "2026-11-16",
+    "name": "Mountain barbel",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "Item 1: \"Mountain barbel\" left in English as the common name; give a Malay name or a Malay rendering such as \"Barbel gunung\", with the English in brackets if wanted.",
+      "Item 2: \"mudah tersilap dikenal pasti\" is slightly awkward; \"mudah tersalah kenal pasti\" reads more naturally.",
+      "Item 7: \"flake\" is left in English; use \"makanan serpihan (flake)\".",
+      "Item 5: \"lebih suka suhu yang lebih sejuk\" is slightly redundant. This is minor."
+    ],
+    "parts": {
+      "quickFacts:scotcat": "d57e14410a85",
+      "beforeYouBuy:scotcat": "f7dbf2895ce4",
+      "distribution:scotcat": "e23aa5f2e5c7",
+      "habitat:scotcat": "e074f60820e3",
+      "waterConditions:scotcat": "e4db33d16596",
+      "equipment:scotcat": "887db498eb63",
+      "diet:scotcat": "0269b10f1c20",
+      "notes:scotcat": "f9da4714f753",
+      "references:scotcat": "afb914681ee9"
+    }
+  },
+  "amphilius-rheophilus": {
+    "at": "2026-11-16",
+    "from": "2026-11-16",
+    "name": "Amphilius rheophilus",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "Item 1: \"Penghurai\" for \"Describer\" is wrong. Use \"Pemerihal\" or \"Penghuraian oleh\". \"Penghurai\" means decomposer.",
+      "Item 2: \"Sungai Rio Corubal\" repeats \"sungai\", because Rio already means river. Use \"Rio Corubal\" or \"Sungai Corubal\".",
+      "Item 2: \"pupus di kawasan-kawasan tertentu\" for \"localised extirpation\". Use \"pupus setempat\" (hilang secara setempat) for a more precise term.",
+      "Item 4: \"banyak tumbuhan akuatik\" for \"well planted\". Use \"ditanam dengan padat/subur\" for more natural phrasing.",
+      "Item 5: \"flake\" is left in English. Use \"makanan serpihan (flake)\". \"Cyclops\" is acceptable as a genus name."
+    ],
+    "parts": {
+      "quickFacts:scotcat": "d734b598f73f",
+      "distribution:scotcat": "3afa445860aa",
+      "habitat:scotcat": "2e0362ad3b5a",
+      "maintenance:scotcat": "3be2d80dba69",
+      "diet:scotcat": "0269b10f1c20",
+      "notes:scotcat": "430be988be28",
+      "references:scotcat": "d46f52aa5ff1"
+    }
+  },
+  "amphilius-uranoscopus": {
+    "at": "2026-11-16",
+    "from": "2026-11-16",
+    "name": "Stargazer mountain catfish",
+    "confidence": "low",
+    "score": 0.7,
+    "notes": [
+      "Item 1: \"Stargazer mountain catfish\" is left untranslated; give a Malay common name, or keep the English name in brackets after a Malay descriptive name (e.g. \"Keli gunung stargazer (Stargazer mountain catfish)\").",
+      "Item 6: \"membiak pada musim panas\" is not a problem, but \"Ia menjadi mangsa ikan trout\" is fine. No change needed here.",
+      "Item 4: \"well planted\" is rendered \"banyak tumbuhan akuatik\", which is acceptable. \"Susunan batu\" for rockwork is slightly awkward; use \"hiasan batu\" or \"batu-batan\".",
+      "Item 5: \"jentik-jentik\" (mosquito larvae) is fine, but \"flake\" is left in English. Use \"makanan serpihan (flake)\"."
+    ],
+    "parts": {
+      "quickFacts:scotcat": "18d20ca98240",
+      "distribution:scotcat": "b96d10f39c6e",
+      "habitat:scotcat": "1db9fc15f14a",
+      "maintenance:scotcat": "3be2d80dba69",
+      "diet:scotcat": "710e9f3b754b",
+      "reproduction:scotcat": "c80f8c89a418",
+      "notes:scotcat": "f6ec3643a0b6",
+      "references:scotcat": "957d1034186b"
     }
   },
   "amphilophus-citrinellus": {
@@ -2480,6 +2596,41 @@
       "references:seriouslyfish": "a2589075811f"
     }
   },
+  "anablepsoides-hartii": {
+    "at": "2026-11-16",
+    "from": "2026-11-08",
+    "name": "Rivulus hartii",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 1: \"membesar agak besar\" is repetitive and awkward; use \"tumbuh agak besar\" or \"menjadi agak besar\".",
+      "Item 1: \"ikan yang agak aman\" is slightly odd for \"rather peaceful\"; \"ikan yang agak jinak/tidak agresif\" reads more naturally.",
+      "Item 2: \"Tangki\" is acceptable, but hobbyists in Malaysia more often say \"akuarium\" or \"tangki ikan\". Use one term consistently.",
+      "Item 2: \"pandai melompat\" is a bit colloquial for \"perfect jumpers\". \"pelompat yang hebat\" or \"kuat melompat\" is better.",
+      "Item 2: \"absolutely densely covered\" is rendered as \"ditutup rapat sepenuhnya\". This is fine in meaning, but \"ditutup rapat\" alone is enough."
+    ],
+    "parts": {
+      "quickFacts:glaser": "91f9bdbb9680",
+      "maintenance:glaser": "adecb9352294"
+    }
+  },
+  "anablepsoides-ornatus": {
+    "at": "2026-11-16",
+    "from": "2026-11-02",
+    "name": "Rivulus ornatus",
+    "confidence": "low",
+    "score": 0.85,
+    "notes": [
+      "\"tangki\" is fine, but \"lantai\" for the floor is slightly odd; \"ikan ini akan melompat keluar dan berakhir di atas lantai\" could be simplified to \"melompat keluar dan jatuh ke lantai\".",
+      "\"belum dihuraikan\" for \"undescribed\" is acceptable but \"belum dikenal pasti secara rasmi/belum diperihalkan\" is more standard taxonomic wording.",
+      "\"ikan sespesies\" is slightly awkward; \"ikan sejenis/sesama spesies\" reads more naturally.",
+      "\"berhias\" for \"ornatus\" (decorated) is slightly stiff; \"berhias/dihiasi\" is acceptable but \"berhias indah\" is more natural."
+    ],
+    "parts": {
+      "quickFacts:glaser": "a63580f29a49",
+      "notes:glaser": "672df8cec706"
+    }
+  },
   "ancistrus-dolichopterus": {
     "at": "2026-11-15",
     "from": "2026-11-15",
@@ -2520,18 +2671,58 @@
     ]
   },
   "astronotus-ocellatus": {
-    "at": "2026-11-10",
-    "from": "2026-11-09",
+    "at": "2026-11-16",
+    "from": "2026-11-16",
     "name": "Ikan Oscar",
     "confidence": "high",
-    "score": 0.88,
+    "score": 0.78,
     "notes": [
-      "Item 13: \"Oscar sangat menuntut kimia air yang baik\" reads stiffly. Use something like \"Oscar sangat sensitif terhadap kualiti air\".",
-      "Item 20: \"kekacang\" means legumes. For \"nuts\" use \"kacang\" or \"buah bernut\".",
-      "Item 18: \"ikan bilis/whitebait\" is imprecise, because whitebait is not the same as ikan bilis. Use \"whitebait\" or a more exact local term.",
-      "Item 6: \"Di banyak negeri di Amerika Syarikat yang ikan ini telah dilepaskan\" is awkward. Use \"Di banyak negeri di Amerika Syarikat tempat ikan ini dilepaskan ke alam liar\".",
-      "Item 12: \"Selain itu, ia agak tidak cerewet\" is a loose rendering of \"otherwise relatively unfussy\". Use \"Selain itu, ia tidak begitu cerewet\"."
-    ]
+      "#20: \"Seperti kebanyakan besar ikan pemangsa\" has the wrong word order. Use \"Seperti kebanyakan ikan pemangsa besar\".",
+      "#20: \"akuarium awam serta kedai biasanya ditawarkan lebih banyak\" is passive and unclear. Use \"sering ditawarkan ikan ini melebihi kapasiti mereka\" or similar.",
+      "#3: \"boleh hidup selama seekor anjing\" is unnatural. Use \"boleh hidup selama seekor anjing peliharaan\" or \"sepanjang hayat seekor anjing\".",
+      "#15: \"sangat sensitif terhadap kimia air yang baik\" is misleading. The meaning is that they demand good water quality, so use \"sangat mementingkan kualiti air yang baik\". Also give a Malay gloss for \"Head and Lateral Line Erosion\".",
+      "#7: \"Di banyak negeri di Amerika Syarikat yang ikan ini telah dilepaskan\" is awkward. Use \"di mana ikan ini telah dilepaskan\".",
+      "#2: \"Penjagaan: Lanjutan\" is unnatural for \"Care: Advanced\". Use \"Tahap penjagaan: Mahir/Sukar\".",
+      "#20: \"ikan bilis\" for whitebait is not exact. Consider \"ikan bilis segar/ikan kecil\".",
+      "#12: \"cukup-cukup besar\" is colloquial. Use \"hampir tidak cukup besar\"."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "d5eb3a8cf77c",
+      "quickFacts:sprucepets": "26a3fc544989",
+      "quickFacts:aquariumcoop": "b13b09ded70b",
+      "quickFacts:glaser": "be7cb6fb0b70",
+      "beforeYouBuy:aquariumcoop": "db2b42f7206b",
+      "distribution:seriouslyfish": "1eedb8d65e14",
+      "distribution:sprucepets": "be53db7f2e05",
+      "distribution:aquariumcoop": "ef54492a93c8",
+      "distribution:glaser": "947f20d62673",
+      "habitat:seriouslyfish": "578db03ff2b3",
+      "habitat:aquariumcoop": "7464023c5c32",
+      "aquariumSize:seriouslyfish": "9280cb9e9bdb",
+      "aquariumSize:aquariumcoop": "0cddcd963466",
+      "maintenance:seriouslyfish": "4086f3e23e4a",
+      "maintenance:sprucepets": "1d4683396da0",
+      "waterConditions:seriouslyfish": "5d990156079a",
+      "waterConditions:aquariumcoop": "a1426125ef6c",
+      "equipment:sprucepets": "cd207af163f0",
+      "equipment:aquariumcoop": "6c3152065c66",
+      "diet:seriouslyfish": "e5cd455ca5bd",
+      "diet:sprucepets": "e564e5a8bce2",
+      "diet:aquariumcoop": "69a15d42de55",
+      "behaviour:seriouslyfish": "904a7ae454f7",
+      "behaviour:sprucepets": "660739a2462c",
+      "behaviour:aquariumcoop": "fff16a93f6c5",
+      "dimorphism:seriouslyfish": "e883069a7d6d",
+      "dimorphism:sprucepets": "9aac73985f9c",
+      "dimorphism:aquariumcoop": "b26896f50ad1",
+      "reproduction:seriouslyfish": "d0ba7a5aac31",
+      "reproduction:sprucepets": "3a447921f1ea",
+      "reproduction:aquariumcoop": "e84a879df61d",
+      "notes:seriouslyfish": "bbefbf83381b",
+      "notes:sprucepets": "a67e6e838901",
+      "notes:glaser": "7c27fbf16bc2",
+      "references:seriouslyfish": "42c82d4d4907"
+    }
   },
   "axelrodia-riesei": {
     "at": "2026-11-12",

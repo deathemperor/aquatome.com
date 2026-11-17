@@ -1,0 +1,116 @@
+{
+  "id": "ompok-fumidus",
+  "scientificName": "Ompok fumidus",
+  "order": "Siluriformes",
+  "family": "Siluridae",
+  "genus": "Ompok",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "malaysia",
+    "indonesia",
+    "sumatra",
+    "thailand"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 15
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/ompok_cf_fumidus_en/",
+      "html": "<p>Ompok belongs, like glass catfish (Kryptopterus), Giant Catfish (Wallago) and Wels catfish (Silurus) to the family Siluridae. Maximum length in most species of Ompok is around 15 cm, only O. bimaculatus from India is said to reach up to 45 cm. O. fumidus becomes only about 15 cm long (the largest reported specimen had 145 mm without the tail fin).</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/ompok_cf_fumidus_en/",
+      "html": "<p>Wallago always has 5 rays in the dorsal fin, Ompok always 4. Identifying the species is not easy: there are no fewer than 27 valid species of Ompok and most of them look extremely similar to each other. As nothing is known about the origin of these specimens, they most likely belong to Ompok fumidus, so they are sold as Ompok cf. fumidus. Ompok are very interesting and hardly ever available catfish.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/ompok_cf_fumidus_en/",
+      "html": "<p>Ompok fumidus has a wide distribution over the Malay Peninsula, Sumatra, Borneo, Riau Islands and Thailand.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/ompok_cf_fumidus_en/",
+      "html": "<p>It is usually found in shallow brooks with peat water.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/ompok_cf_fumidus_en/",
+      "html": "<p>This \"Wels catfish en miniature\" enables even aquarists with comparatively small tanks to keep this type of catfish.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/ompok_cf_fumidus_en/",
+      "html": "<p>The fish proved to be very peaceful, but small fish will serve as food.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/9b05e3abeafa5d88.webp",
+      "thumb": "https://media.aquatome.com/scotcat/9b05e3abeafa5d88-480.webp",
+      "width": 500,
+      "height": 334,
+      "licence": "dùng với sự cho phép",
+      "author": "Nonn Panitvong / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/ompok_fumidus.htm",
+      "caption": "Ompok fumidus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/panitvong/Omfum_u0.webp",
+      "thumb": "https://media.aquatome.com/panitvong/Omfum_u0-480.webp",
+      "width": 640,
+      "height": 427,
+      "licence": "dùng với sự cho phép",
+      "author": "Nonn Panitvong",
+      "sourceUrl": "https://fishbase.se/photos/PicturesSummary.php?pic=Omfum_u0.jpg&personnel=1825&what=collab_pic",
+      "source": "panitvong"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "l2-e-BpRIrc",
+      "title": "ompok fumidus",
+      "durationSec": 10,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100 cm",
+        "bể cá thủy sinh 120 cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm sục khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá đáy",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-16"
+}

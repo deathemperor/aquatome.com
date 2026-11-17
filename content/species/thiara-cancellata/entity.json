@@ -9,6 +9,108 @@
     "asia",
     "philippines"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PH"
+      ],
+      "regions": [],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "The distribution of Hairy Snails is limited to the Philippines.",
+          "countries": [
+            "PH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8184774,
+      "total": 14,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "PH",
+          6
+        ],
+        [
+          "SB",
+          3
+        ],
+        [
+          "CN",
+          2
+        ],
+        [
+          "ID",
+          1
+        ],
+        [
+          "PG",
+          1
+        ],
+        [
+          "SG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          0,
+          1,
+          0
+        ],
+        [
+          111.09375,
+          37.96875,
+          1,
+          0
+        ],
+        [
+          113.90625,
+          29.53125,
+          1,
+          0
+        ],
+        [
+          123.75,
+          8.4375,
+          6,
+          6
+        ],
+        [
+          127.96875,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          147.65625,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          158.90625,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          160.3125,
+          -9.84375,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

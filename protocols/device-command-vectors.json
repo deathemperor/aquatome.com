@@ -1,0 +1,21 @@
+{
+  "$comment": "Cases for protocols/device-command.schema.json, read by the iOS app's tests (TanksTests/DeviceCommandTests.swift). path: the field a command is refused for.",
+  "valid": [
+    { "note": "an outlet on", "value": { "device": "00000000-0000-4000-8000-000000000040", "outlet": "switch_2", "on": true } },
+    { "note": "an outlet off", "value": { "device": "00000000-0000-4000-8000-000000000040", "outlet": "switch_usb1", "on": false } },
+    { "note": "the lamp off", "value": { "device": "00000000-0000-4000-8000-000000000041", "on": false } },
+    { "note": "the lamp on, as it was", "value": { "device": "00000000-0000-4000-8000-000000000041", "on": true } },
+    { "note": "the lamp on, in white", "value": { "device": "00000000-0000-4000-8000-000000000041", "on": true, "colour": "white" } }
+  ],
+  "invalid": [
+    { "note": "a maker's id, not a record's", "value": { "device": "fake-strip-1", "outlet": "switch_1", "on": true }, "path": ["device"] },
+    { "note": "an empty outlet", "value": { "device": "00000000-0000-4000-8000-000000000040", "outlet": "", "on": true }, "path": ["outlet"] },
+    { "note": "a colour with the lamp off", "value": { "device": "00000000-0000-4000-8000-000000000041", "on": false, "colour": "red" }, "path": ["colour"] },
+    { "note": "a colour for an outlet", "value": { "device": "00000000-0000-4000-8000-000000000040", "outlet": "switch_2", "on": true, "colour": "red" }, "path": ["colour"] },
+    { "note": "a colour the lamp has no recording of", "value": { "device": "00000000-0000-4000-8000-000000000041", "on": true, "colour": "pink" }, "path": ["colour"] }
+  ],
+  "results": [
+    { "note": "done", "value": { "ok": true } },
+    { "note": "not done, and why", "value": { "ok": false, "line": "Không tới được ổ CO2: kiểm tra mạng rồi thử lại" } }
+  ]
+}

@@ -1,8 +1,13 @@
 {
   "slug": "lobi",
-  "name": "Lobi",
+  "name": "Sungai Lobi",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.8,
+    "at": "2026-11-16T17:14:45.299Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

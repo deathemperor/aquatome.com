@@ -4,7 +4,10 @@
   "File:Synodontis granulosus.jpg"
  ],
  "hashes": {
-  "https://media.aquatome.com/commons/5cce8e1a586bda33.webp": "f6f6b6b2d040c0c0"
+  "https://media.aquatome.com/commons/5cce8e1a586bda33.webp": "f6f6b6b2d040c0c0",
+  "https://media.aquatome.com/glaser/e4c66217073a90e8.webp": "a5d5a9cb85b5e0e4",
+  "https://media.aquatome.com/glaser/30551006570284e1.webp": "1ac3c3c64feb4b07",
+  "https://media.aquatome.com/glaser/5c14e49dc07b44ae.webp": "a5d5a9cb85b5e0e4"
  },
  "commons": "2026-11-10",
  "inat": {
@@ -14,5 +17,9 @@
    "research": 0,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 2344378,
+  "next": null
  }
 }

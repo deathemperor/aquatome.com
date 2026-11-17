@@ -284,6 +284,95 @@
       "kept": false
     }
   ],
+  "vi/glossary/nen-be": [
+    {
+      "at": "2026-11-16T17:12:30Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (not placeable): \"Phân nền (aqua soil): hạt tròn nhỏ cỡ 2–4 mm, màu đen, xám hoặc nâu sẫm, mềm hơn sỏi nhưng vẫn giữ được hình hạt.\"",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Đây là lớp rải thêm dưới cát hoặc phân nền, có cũng được, để bổ sung dinh dưỡng và giữ nền bền lâu hơn.\" (not \"Đây là lớp rải thêm dưới phân nền, có cũng được, để bổ sung dinh dưỡng và giữ nền bền lâu hơn.\": Rule 12: \"Đây là lớp rải thêm dưới phân nền, có cũng được, để bổ sung dinh dưỡng và giữ nền bền lâ…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cát nén quá chặt có thể sinh ra túi yếm khí, dấu hiệu là nền có mảng đen hoặc bốc mùi trứng thối.\" (not \"Cát nén quá chặt có thể sinh ra vùng yếm khí, nơi nitrat bị chuyển ngược lại thành amoniac.\": Rules 9 and 12: \"Cát nén quá chặt có thể sinh ra vùng yếm khí, nơi nitrat bị chuyển ngược lại thành amoniac…",
+        "Rules 7 and 12: In the Xỉ than item, the first sentence \"những mẩu to nhỏ không đều, mẩu nhỏ dùng cho lọc, mẩu lớn dùng để giữ cây\" mixes what the pieces are used for into the sentence about how they look. The term card shows that sentence alone, so it should give only the look (\"những mẩu to nhỏ không đều\"). The uses (small pieces for the filter, large pieces to anchor plants) belong in the item…",
+        "The entry is 591 words: hold it to about 580, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-16T17:12:30Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 0.97,
+      "notes": [
+        "\"Xỉ than (coal slag): những mẩu màu tối, méo mó, to nhỏ không đều, rất xốp và nhẹ, không dính thành cục.\": the facts don't carry it (unsupported, unsupported, unsupported): dark, porous, light, non-clumping not in facts / dark, misshapen, porous, light, non-clumping not in facts / dark, porous, light, non-clumping not in facts; only random sizes",
+        "Rule 12: \"Cát nén quá chặt sẽ sinh ra túi yếm khí\" uses \"sẽ\", but fact 63 says packed sand only \"can form\" these pockets. It should read \"có thể sinh ra túi yếm khí\".",
+        "Rule 12: \"nuôi cá đáy hay sàng cát\" should be \"nuôi cá đáy biết sàng cát\". The sifting must be something the fish do, not the keeper.",
+        "Rule 12: Peat moss's look, \"chất sợi màu nâu\", should be put in a keeper's words as \"vật liệu dạng sợi màu nâu\".",
+        "Rule 12: In the lava item, \"Rải nó thành lớp lót 1–2 cm rồi phủ phân nền, cát hoặc sỏi đen lên trên, các lỗ xốp là chỗ cho vi khuẩn có lợi sinh sống.\" joins the pores clause to how lava is laid with a comma. The pores should be their own sentence after how it is laid.",
+        "Rule 12: The root-tab step \"Lúc đó nhét thêm phân nhét gần rễ cây.\" adds \"gần rễ cây\", a place no fact gives. It should read \"Lúc đó bổ sung phân nhét.\"",
+        "Rules 12 and 10: Xỉ than's look sentence, \"những mẩu màu tối, méo mó, to nhỏ không đều, rất xốp và nhẹ, không dính thành cục\", adds things no fact gives: \"màu tối\", \"méo mó\", \"rất xốp và nhẹ\" and \"không dính thành cục\". The facts give only random piece sizes, broken small for filters and larger for anchoring plants. The first sentence should say only that.",
+        "The entry is 592 words: hold it to about 580, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-16T02:43:02Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (not placeable): \"Phân nền (aqua soil): hạt tròn nhỏ cỡ 2–4 mm, màu đen, xám hoặc nâu sẫm, mềm hơn sỏi nhưng vẫn giữ được hình hạt.\"",
+        "Loose, rewording would take the entry past its length, old wording kept for the reader: \"Cát nén quá chặt sẽ sinh ra túi yếm khí, dấu hiệu là nền có mảng đen hoặc bốc mùi trứng thối.\" (not \"Cát nén quá chặt có thể sinh ra vùng yếm khí; với nền bể nói chung, mảng đen trong nền hoặc mùi trứng thối là dấu hiệu có túi yếm khí.\")",
+        "The entry is 592 words: hold it to about 580, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-16T02:43:02Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "Rules 4 and 12: \"Vi khuẩn có lợi bám lên nền mà sinh sôi, góp phần lọc sinh học cho bể.\" is still in the entry. THIS TERM says to take this sentence out. The definition (\"Nền là chỗ cho cây bám rễ và vi khuẩn có lợi sinh sống\") and the lava rock item (\"các lỗ xốp là chỗ cho vi khuẩn có lợi sinh sống\") already cover it.",
+        "Rules 4 and 12: \"Nền có thể nhả chất vào nước hoặc hút chất từ nước.\" is still in the entry. THIS TERM says to take this sentence out. The definition already says it (\"Có loại nền còn làm thay đổi pH và độ cứng của nước\").",
+        "Rule 12: \"Cây trồng cắm rễ vào nền, và có loài như Vallisneria (cỏ lươn) lấy thức ăn chủ yếu qua rễ.\" does not match the required wording. THIS TERM wants the sentence exactly as given, naming only \"Vallisneria\". The added \"(cỏ lươn)\" comes from no fact and must go.",
+        "Rules 7 and 12: \"Nham thạch trắng (còn gọi là đá lông vũ, đá bọt biển): viên đá trắng cỡ 1–3 cm…\" puts the other names at the start of the item. THIS TERM and Rule 7 say \"đá lông vũ, đá bọt biển\" go last, after its look, whether it sinks and what it is used for.",
+        "Rule 12: \"Akadama: hạt đất sét núi lửa cứng và xốp, cỡ khoảng 1–4 mm\" gives one product's size (1–4 mm) and one grade's hardness (\"cứng\") as if they held for all akadama. THIS TERM forbids both. The item should give only what every grade shares: porous, earth-coloured clay grains that darken when wet. It should say akadama is sold in several grain sizes and that softer grades can crumble. \"Núi lử…",
+        "Rules 9 and 12: \"Nền có mảng đen hoặc bốc mùi trứng thối là dấu hiệu đã có túi yếm khí.\" gives the sign alone. THIS TERM says it must come with its cause (sand packed too tight) and what to do: use a thinner layer, keep bottom fish that sift it, or stir it by hand."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-16T02:08:48Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Vật liệu chứa canxi cacbonat như san hô vụn làm tăng KH và giữ pH ổn định.\" the advice \"Vật liệu chứa canxi cacbonat như san hô vụn làm tăng KH\", the advice \"giữ pH ổn định\", and nothing lets that sentence go: write it as it was, word for word.",
+        "Rule 12: \"Cây trồng cắm rễ vào nền, và có loài như Vallisneria lấy thức ăn chủ yếu qua rễ.\" leaves out part of the plants' sentence that THIS TERM says must stay. It drops Amazon swords. On this site that plant is called by its page name, \"cây kiếm Amazon Bleherae\", so the sentence should read \"như cây kiếm Amazon Bleherae và Vallisneria\". It also drops the point that this is why a keeper chooses…"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-16T02:08:48Z",
+      "model": "sonnet",
+      "cli": "2.1.323",
+      "score": 0.97,
+      "notes": [
+        "\"Cây trồng cắm rễ vào nền, và có loài như cây kiếm Amazon Bleherae hay Vallisneria lấy thức ăn chủ yếu qua rễ.\": the facts don't carry it (unsupported, unsupported, unsupported): 'Bleherae' species name not in facts / species name 'Bleherae' not in facts",
+        "The entry is 612 words: hold it to about 580, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "draft": "50ea94ff505f2c66e1b43350fa81f26ec360db0097d12834d62de38205427623"
+    }
+  ],
   "vi/glossary/ph": [
     {
       "at": "2026-11-16T00:55:17Z",

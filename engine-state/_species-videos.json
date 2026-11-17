@@ -2123,16 +2123,24 @@
     "reason": "fishroom clips"
   },
   "h7exZ48gp1o": {
-    "at": "2026-11-07",
+    "at": "2026-11-16",
     "title": "panda garra ( Garra flavatra ) species profile",
     "channel": "Team Detritus",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Garra flavatra",
+    "page": "species/garra-flavatra",
+    "done": "low",
+    "score": 0.72,
+    "reason": "[behaviour] \"gần giống cá ali\" – \"cá ali\" is not a natural hobbyist term for cichlids, so it reads as a translation and may confuse readers.; [behaviour] \"Về số lượng, người này có ý khác\" – this is vague. The page advises 3–4 or more, while the video says never keep two or three. NEW should say plainly that it differs from the page and how."
   },
   "h7HcLQMOFTc": {
-    "at": "2026-11-07",
+    "at": "2026-11-16",
     "title": "Royal Farlowella: A Strange Fish Worth Keeping",
     "channel": "Steenfott Aquatics",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Sturisomatichthys aureus",
+    "done": "skipped",
+    "reason": "no page, and GBIF has no species of that name"
   },
   "hbNQBTGQ56g": {
     "at": "2026-11-07",
@@ -2143,10 +2151,15 @@
     "reason": "general algae topic"
   },
   "hfCkBxPITQc": {
-    "at": "2026-11-07",
+    "at": "2026-11-16",
     "title": "Bacopa Monnieri (Plant propagation)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Bacopa monnieri",
+    "page": "plants/bacopa-monnieri",
+    "done": "low",
+    "score": 0.6,
+    "reason": "[notes] \"Dạng compact không phải lúc nào cũng bò sát nền\" is framed as a keeper's experience, but the video never says some keepers grow it differently. It only says it grows vertically. It also contradicts the page without saying plainly that the video differs.; [notes] \"làm nền sau, đứng sau các cây thấp ở phía trước\" repeats the idea of use in the background/middle. \"làm nền sau\" is also awkward Vietnamese (should be \"hậu cảnh\"). The page already covers midground placement."
   },
   "hfh5PudNVCA": {
     "at": "2026-11-07",

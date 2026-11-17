@@ -1,0 +1,34 @@
+{
+ "at": "2026-11-16T20:39:04Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "mới có lần đầu và chỉ có vài con. Lứa này dài khoảng 15 cm",
+   "why": "This is the source shop's stock news about its own batch, which the reader knows nothing about."
+  }
+ ],
+ "text": {
+  "slug": "ca-ptychochromis-oligacanthus",
+  "name": "Cá Ptychochromis oligacanthus",
+  "altNames": [],
+  "sections": {
+   "quickFacts:glaser": "<ul><li>Xuất xứ: Madagascar</li><li>Kích thước tối đa: hơn 20 cm</li><li>Tính tình: ít dữ</li><li>Không kén thức ăn, không kén nước</li></ul>",
+   "distribution:glaser": "<p>Loài này sống ở hồ miệng núi lửa Bempazawa trên đảo Nosy Be, gần Madagascar.</p>",
+   "beforeYouBuy:glaser": "<p>Ptychochromis oligacanthus \"Bempazawa\" mới có lần đầu và chỉ có vài con. Lứa này dài khoảng 15 cm và đã đủ lớn để đẻ. Với người mê cichlid, đây là một loài lạ đáng nuôi, và cũng không mấy người có được nó.</p>",
+   "waterConditions:glaser": "<p>Loài này không kén nước.</p>",
+   "diet:glaser": "<p>Loài này không kén ăn.</p>",
+   "behaviour:glaser": "<p>Loài này ít dữ.</p>"
+  },
+  "quality": {
+   "score": 0.8,
+   "indexable": false,
+   "bySource": {
+    "glaser": 0.8
+   },
+   "reason": "thin"
+  }
+ }
+}

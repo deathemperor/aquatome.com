@@ -1,0 +1,48 @@
+{
+  "id": "parotocinclus-jumbo",
+  "native": {
+    "input": "adc3d3f8b0c8b805",
+    "at": "2026-11-16T17:28:41.839Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parotocinclus jumbo",
+    "status": "ACCEPTED",
+    "taxonKey": 2340264,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        33
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        15
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        8
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-16T17:28:41.839Z"
+  }
+}

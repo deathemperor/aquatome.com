@@ -20,10 +20,10 @@ final class OwnerNotifications: NSObject, UIApplicationDelegate, UNUserNotificat
   // No token (the simulator, no network): nothing said; asked again at the next launch.
   func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {}
 
-  // The app in front: shown as it is outside it.
+  // The app in front: shown as it is outside it. Not the master button's end (EndNotice): open, the app ends it itself.
   nonisolated func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async
     -> UNNotificationPresentationOptions {
-    [.banner, .list]
+    notification.request.identifier == EndNotice.id ? [] : [.banner, .list]
   }
 
   nonisolated func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
