@@ -567,7 +567,7 @@ The layers above still check the result.
 - **Photos.** No people, and hands count (PRODUCT.md: faces dropped by Apple Vision, and the model asks about any person
   or part of one wherever it looks), no watermarks (credits, dealer logos, site names or species names added on the
   photo: `pnpm engine watermarks`, macOS Vision reads the text and the model judges it; a marked photo is blocked for
-  good; a photo that screen still owes a look waits, and no public build shows it on a page, in an album, a guide or a
+  good, but an Aquarium Glaser photo from Glaser's own pages whose every mark is Glaser's own (its banner, name, logo or web address) stays, with a kept record: the model, told the shop's name as `content/sources.json` holds it, says whose the marks are, and the photo check, which runs first in a cycle, waits for that answer before a logo on such a photo counts (the chief of staff, 16 Nov; anyone else's mark is refused as before, a photo already on the never-again list isn't asked, and BW Aquatics' kept marks still need their record by hand); a photo that screen still owes a look waits, and no public build shows it on a page, in an album, a guide or a
   card until it is judged, and the calendar, which names a picture by address, asks the screen's record about each one whatever that language's build loaded; an equipment guide whose pictures all wait is left out, and a kind of kit is linked only where the language builds its page; the homepage's cover (a site picture chosen by hand) and a video's own thumbnail (YouTube's, never in our store) are no fetched photos and are not asked: on 2026-11-11 the model ran out of quota and 36 photos reached main with no look), no shop's or dealer's brand in a guide's photo (on its own-brand products too; a maker's brand on its own product is
   fine), no dead fish or fish as food (markets, plates, catches landed or held,
   preserved, mounted or museum specimens), each photo must show its species (a landscape where it can't be picked out
@@ -624,7 +624,10 @@ The layers above still check the result.
     as when Commons holds a copy of an iNaturalist or Flickr photo); no human face (Apple Vision); then Claude, on contact
     sheets of 20, keeps only a clear living example of the species, with no person or body part, no drawing, text overlay
     or banner, and no near-copy, and writes its caption. After the photos move to our bucket, `pnpm engine watermarks`
-    reads the text on every photo shown, gallery photos included, and the model blocks a marked one for good. A gallery
+    reads the text on every photo shown, gallery photos included, and the model blocks a marked one for good. An album
+    shows at most three Aquarium Glaser photos kept with Glaser's own mark, after every clean one, and six where its page
+    has no clean photo at all, the first in the album's order: the sweep leaves the rest out of the album file, stored
+    still and off the never-again list (`keptCap`, `own-mark.ts`; the chief of staff, 16 Nov). A gallery
     leads with Claude's best picks, mixed by what they show (male, female, colour form, young, the wild; for a plant
     under water, emersed, in flower).
   - **What a picture says it is.** Before any look, a species', plant's or breed's picture is left out when its own
