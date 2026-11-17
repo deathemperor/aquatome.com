@@ -194,6 +194,23 @@ test('the non-commercial pass reads no more while its limit of photos waits for 
   expect((await read(r, `engine-state/gallery/${ID}.json`)).queue.map((c: { key: string }) => c.key)).toEqual(['inat:4'])
 })
 
+test("the non-commercial pass takes the pages with no photo of their own first, though a page with one comes before them in the plan", async () => {
+  const r = await root()
+  // First in the plan's order: a page with a photo of its own; after it, the test's page, with none.
+  const FIRST = 'testus-aaa'
+  await mkdir(join(r, `content/species/${FIRST}`), { recursive: true })
+  await writeFile(join(r, `content/species/${FIRST}/entity.json`), JSON.stringify({ scientificName: 'Testus aaa', photos: [{ url: 'https://media.example.org/x/1.webp', width: 1024, height: 768, licence: 'CC BY', author: 'sampletown', sourceUrl: 'https://example.org/1' }] }))
+  await writeFile(join(r, `content/species/${FIRST}/vi.json`), JSON.stringify({ name: 'Cá aaa' }))
+  // Both dry from a run with the switch off; their non-commercial pass unread.
+  await galleries(r, deps([]), { sheets: 10, switches: OFF })
+  for (const id of [FIRST, ID]) expect((await read(r, `engine-state/gallery/${id}.json`)).exhausted).toBe('2026-11-16')
+  // One sheet: the page with no photo of its own takes it.
+  await galleries(r, deps([], '2026-11-17T00:00:00Z'), { sheets: 1, switches: ON })
+  expect((await read(r, `engine-state/gallery/${ID}.json`)).inatNc).toMatchObject({ done: true })
+  expect((await read(r, `engine-state/gallery/${FIRST}.json`)).inatNc).toBeUndefined()
+  expect((await album(r)).map(p => p.sourceUrl).slice(-2)).toEqual([INAT(2), INAT(3)])
+})
+
 test('switch off after on: a non-commercial candidate still queued is never screened or added', async () => {
   const r = await root()
   await mkdir(join(r, 'engine-state/gallery'), { recursive: true })

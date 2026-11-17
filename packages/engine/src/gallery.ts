@@ -533,7 +533,15 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
   // Two rounds with the non-commercial switch on: every page's open sources first, then iNaturalist's non-commercial pass
   // with the sheets left, on pages whose open sources are read to their end. They rank last, so they never take a run's
   // sheets from an open photo further down the plan (the chief of staff, 2026-11-17).
-  for (const ncRound of nc ? [false, true] : [false]) for (const t of plan) {
+  // The non-commercial round takes the pages with no photo of their own first, in the plan's order, then the rest: where
+  // these photos matter (the chief of staff, 2026-11-17).
+  const ownPhoto = new Set<string>()
+  if (nc) for (const t of plan) {
+    const e = JSON.parse(await readFile(join(content, t.kind, t.id, 'entity.json'), 'utf8').catch(() => '{}')) as { photos?: Photo[] }
+    if ((e.photos ?? []).some(p => !isGenerated(p))) ownPhoto.add(t.id)
+  }
+  const ncPlan = [...plan.filter(t => !ownPhoto.has(t.id)), ...plan.filter(t => ownPhoto.has(t.id))]
+  for (const ncRound of nc ? [false, true] : [false]) for (const t of ncRound ? ncPlan : plan) {
     if (left.sheets <= 0 || report.stopped || (ncRound && !ncRoom())) break
     const gfile = join(content, 'gallery', `${t.id}.json`)
     const g = JSON.parse(await readFile(gfile, 'utf8').catch(() => 'null')) as { photos: GalleryPhoto[]; seen: number; updatedAt: string; builtAt?: string } | null
