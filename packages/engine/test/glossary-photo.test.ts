@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
 import { afterEach, expect, test } from 'vitest'
-import { GLOSSARY_PHOTOS, glossaryPhoto, type GlossaryPhotoDeps } from '../src/glossary-photo'
+import { GLOSSARY_PHOTOS, glossaryPhoto, glossaryPhotoSearch, type GlossaryPhotoDeps } from '../src/glossary-photo'
 import { mirrorPlan } from '../src/mirror-photos'
 import { assertPhotoPrivacy } from '../src/photo-privacy'
 
@@ -252,4 +252,36 @@ test("a photo already in the mark screen's file is screened again where it stand
   await writeFile(join(r, 'engine-state/_photo-watermarks.json'), `${JSON.stringify(marks, null, 2)}\n`)
   await glossaryPhoto(r, { term: 'lua', kind: 'lua-bonsai', file: FILE }, deps({ stored: [OURS] }).d)
   expect(Object.keys(await load(r, 'engine-state/_photo-watermarks.json'))).toEqual([first, OURS, OTHER])
+})
+
+test("a search lists Commons' and Openverse's open candidates by their own words, without never-again ones, and stores and writes nothing", async () => {
+  const r = await root()
+  const thumb = (n: string) => `https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/${n}.jpg/960px-${n}.jpg`
+  const hit = (index: number, n: string, o: { width?: number; licence?: string } = {}) => ({ index, title: `File:${n.replace(/_/g, ' ')}.jpg`, imageinfo: [{
+    width: o.width ?? 3000, thumburl: thumb(n), thumbwidth: 960, thumbheight: 720, descriptionurl: `https://commons.wikimedia.org/wiki/File:${n}.jpg`,
+    extmetadata: { LicenseShortName: { value: o.licence ?? 'CC BY 4.0' }, Artist: { value: ARTIST }, ImageDescription: { value: `<p>${n.replace(/_/g, ' ')} in a tank</p>` } },
+  }] })
+  const search = { query: { pages: { 1: hit(2, 'Spider_wood_b'), 2: hit(1, 'Spider_wood_a'), 3: hit(3, 'Spider_wood_nc', { licence: 'CC BY-NC 2.0' }), 4: hit(4, 'Spider_wood_small', { width: 640 }), 5: hit(5, 'Spider_wood_listed') } } }
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), `${JSON.stringify({ [`https://media.aquatome.com/${mirrorPlan(thumb('Spider_wood_listed'))!.key}`]: 'rejected: sample', 'https://media.aquatome.com/flickr/1001.webp': 'rejected: sample' }, null, 2)}\n`)
+  const { d, calls } = deps({ info: search, pages: [{ page_count: 3, results: [flickr('ov-a', 1000), flickr('ov-listed', 1001), { ...flickr('ov-nc', 1002), license: 'by-nc' }] }] })
+  const content = await snapshot(r), state = await Promise.all((await readdir(join(r, 'engine-state'))).sort().map(async f => [f, await readFile(join(r, 'engine-state', f), 'utf8')]))
+
+  // A kind the term doesn't list, or no words, asks nothing.
+  await expect(glossaryPhotoSearch(r, { term: 'lua', kind: 'lua-mopani', search: 'spider wood' }, d)).rejects.toThrow(/"lua-mopani" is not one of lua's kinds/)
+  await expect(glossaryPhotoSearch(r, { term: 'lua', kind: 'lua-cholla', search: '  ' }, d)).rejects.toThrow(/--search takes the words/)
+  expect(calls.http).toEqual([])
+  expect(calls.openverse).toEqual([])
+
+  const hits = await glossaryPhotoSearch(r, { term: 'lua', kind: 'lua-cholla', search: '"spider wood"' }, d)
+  expect(hits.map(h => [h.key, h.take])).toEqual([
+    ['File:Spider wood a.jpg', '--file "File:Spider wood a.jpg"'],
+    ['File:Spider wood b.jpg', '--file "File:Spider wood b.jpg"'],
+    ['flickr:1000', '--openverse "spider wood" --flickr 1000'],
+  ])
+  expect(hits[0]).toEqual({ key: 'File:Spider wood a.jpg', licence: 'CC BY 4.0', author: 'Ann Sample', sourceUrl: 'https://commons.wikimedia.org/wiki/File:Spider_wood_a.jpg', words: 'Spider wood a in a tank', take: '--file "File:Spider wood a.jpg"' })
+  expect(new URL(calls.http[0]!).searchParams.get('gsrsearch')).toBe('filetype:bitmap "spider wood"')
+  expect(calls.openverse.map(u => new URL(u).searchParams.get('q'))).toEqual(['"spider wood"'])
+  expect(calls).toMatchObject({ bytes: [], put: [], faces: 0, read: 0, looks: 0 })
+  expect(await snapshot(r)).toEqual(content)
+  expect(await Promise.all((await readdir(join(r, 'engine-state'))).sort().map(async f => [f, await readFile(join(r, 'engine-state', f), 'utf8')]))).toEqual(state)
 })
