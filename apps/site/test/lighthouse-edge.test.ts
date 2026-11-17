@@ -1,5 +1,6 @@
 import { expect, test } from 'vitest'
-import { documentHeaders, loadPolicy, monitorPolicy, onlyMonitorBreaks, policyNames, scoreWith, type Issues, type Lhr } from '../e2e/lighthouse-edge'
+import { loadPolicy, monitorPolicy, onlyMonitorBreaks, policyNames, scoreWith, type Issues, type Lhr } from '../e2e/lighthouse-edge'
+import { documentHeaders } from '../e2e/lighthouse-headers'
 
 // Live checks 43558404985 and 43564278975, 14 Nov 2026: on loads Cloudflare's script monitor sampled, every script file
 // and request of a page broke the monitor's report-only policy, Chrome logged each, and best-practices read 96 against a
