@@ -22,9 +22,10 @@ test('a changed open-licence photograph keeps visible attribution, licence and n
 })
 
 import { htmlBlocks } from '../src/lib/page-blocks'
-import { loadAll } from '@aq/schema'
+import { IMAGE_SWITCHES, loadAll } from '@aq/schema'
 import { fileURLToPath } from 'node:url'
-import { fishDoc, listedPaths } from '../src/lib/app-page'
+import { fishDoc, listedPaths, plantDoc } from '../src/lib/app-page'
+import { plantParts } from '../src/lib/plant-page'
 import { PageDoc } from '@aq/schema/app-page'
 for (const lang of LANGS) test(`${lang}: complete inline figures keep true licences in app JSON`, () => {
  const altered: Photo = { ...real, altered: [{ method:'mark-removal',date:'2026-11-10',originalHash:'a'.repeat(64) }] }
@@ -123,4 +124,23 @@ test('an album with a non-commercial photo is not called open-licence; one witho
   expect(galleryLine(t, [real], {})).toContain('giấy phép mở')
   expect(galleryNote(t, [real, nc], {})).not.toContain('giấy phép mở')
   expect(galleryLine(t, [real, nc], {})).not.toContain('giấy phép mở')
+})
+test("a non-commercial album photo, its switch on: in the plant page's strip and the app's, with its credit and licence; off, in neither", async () => {
+  const NC = 'https://media.aquatome.com/fixture/wendtii-7.webp'
+  const at = async (on: boolean) => {
+    const c = await loadAll({ root: fileURLToPath(new URL('./fixture-content', import.meta.url)), lang: 'vi', publicBuild: false, imageSwitches: { ...IMAGE_SWITCHES, inatNonCommercial: on } })
+    const p = c.plants.find(p => p.id === 'cryptocoryne-wendtii')!
+    const parts = plantParts('vi', c, p)
+    const album = plantDoc('vi', c, p, listedPaths('vi', c)).blocks.find(b => b.t === 'gallery')
+    const app = album?.t === 'gallery' ? album : undefined
+    return { strip: parts.strip.flatMap(x => (x ? [x.url] : [])), app: app?.photos ?? [], appStrip: app?.strip.map(i => app.photos[i]!.src) ?? [] }
+  }
+  const on = await at(true)
+  expect(on.strip).toContain(NC)
+  expect(on.appStrip).toContain(NC)
+  expect(on.app.find(x => x.src === NC)?.credit).toMatchObject({ text: 'Ảnh: Tác giả iNat 3', licence: 'CC BY-NC 4.0' })
+  // The one step that takes them all off: the switch, at the next build.
+  const off = await at(false)
+  expect(off.strip).not.toContain(NC)
+  expect(off.app.map(x => x.src)).not.toContain(NC)
 })
