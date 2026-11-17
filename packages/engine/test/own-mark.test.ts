@@ -10,7 +10,7 @@ import { keptCap, OWN_MARK_SHOPS, retainedOwnMark } from '../src/own-mark'
 import { checkPagePhotos, type PhotoCheckDeps, type PhotoVerdict } from '../src/photo-check'
 import { compactScreen } from '../src/photo-observations'
 import { SOURCES } from '../src/sources'
-import { screenWatermarks, type WatermarkDeps } from '../src/watermarks'
+import { screenWatermarks, WATERMARK_SCHEMA, type WatermarkDeps } from '../src/watermarks'
 
 // A cleared shop's own mark on its own photo, kept by a record (the chief of staff, 15 Nov): through the watermark
 // screen, the photo check and the album clean-up. Without the record, or with a third party's, it goes back on the
@@ -71,13 +71,13 @@ function model(marked: string): PhotoCheckDeps {
  * The watermark screen's model: every photo it is shown carries a logo, and `own` is its answer to whose (undefined: it
  * gives none). The prompts it was given, in `prompts`.
  */
-function screenModel(own: boolean | undefined, prompts: string[] = []): WatermarkDeps {
+function screenModel(own: boolean | undefined, prompts: string[] = [], watermark = true): WatermarkDeps {
   return {
     get: async () => new Uint8Array(await jpeg),
     read: refuse('text reader'),
     look: async (_sheet, prompt) => {
       prompts.push(prompt)
-      return { photos: [...prompt.matchAll(/^(\d+): /gm)].map(([, n]) => ({ n: Number(n), watermark: true, kind: 'logo' as const, locations: ['top centre'], ...(own === undefined ? {} : { own }) })) }
+      return { photos: [...prompt.matchAll(/^(\d+): /gm)].map(([, n]) => ({ n: Number(n), watermark, kind: watermark ? 'logo' as const : 'none' as const, locations: watermark ? ['top centre'] : [], ...(own === undefined ? {} : { own }) })) }
     },
   }
 }
@@ -153,6 +153,17 @@ test('glaser: with no answer to whose the mark is, the photo waits for the next 
   await checkPagePhotos(r, model(marked), { limit: 10, only: ID, emptyCap: 99 })
   expect(await at(r, marked)).toEqual(kept)
   expect((await json(r, 'engine-state/_photo-watermarks.json'))[marked]).toEqual({ ocr: [] })
+})
+
+test('glaser: the screen\'s model must say whose the marks are', () => {
+  expect(WATERMARK_SCHEMA.properties.photos.items.required).toContain('own')
+})
+
+test('glaser: a photo the screen calls clean gets no kept record, so a logo the photo check sees still lists it', async () => {
+  const marked = 'https://media.aquatome.com/glaser/marked.webp'
+  const r = await site({ url: marked, source: 'glaser', sourceUrl: PAGE.glaser }, undefined, 'waits')
+  expect(await steps(r, marked, screenModel(true, [], false))).toEqual({ screen: kept, check: refused, album: refused })
+  expect((await json(r, 'engine-state/_photo-watermarks.json'))[marked].retainedOwnMark).toBeUndefined()
 })
 
 test('glaser: a photo already on the never-again list is not asked whose its mark is, and stays listed', async () => {
