@@ -147016,5 +147016,34 @@
         "people": false
       }
     }
+  },
+  "https://media.aquatome.com/commons/60e55cdb3970a4b1.webp": {
+    "phoxinus-phoxinus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "91ac04dd92c0dbcdb57d1d986012b1a28c519833a655c3565be5d08fd267ef96",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/273689f8492cec6c.webp": {
+    "phoxinus-phoxinus": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "f18630e835bda4271963e6f0938763767c7714353fcccabd336e3ef40ade22d4",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
   }
 }

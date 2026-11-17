@@ -5,12 +5,12 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 4480 | 3754 | 1556 | 48 | 42 | 196 | 38 | 1101 | 335 | 2572 | 470 | 9 | 10 | 0 | 2 | 2 | 3 | 0 |
-| Indonesian | 1515 | 1336 | 378 | 21 | 8 | 4 | 5 | 186 | 35 | 65 | 179 | 0 | 1 | 0 | 2 | 2 | 0 | 0 |
-| Thai | 1503 | 1305 | 346 | 16 | 4 | 5 | 3 | 163 | 39 | 86 | 164 | 0 | 1 | 0 | 1 | 0 | 0 | 0 |
-| Malay | 385 | 343 | 98 | 7 | 2 | 0 | 1 | 47 | 16 | 21 | 40 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Vietnamese | 4515 | 3790 | 1555 | 48 | 41 | 196 | 38 | 1103 | 335 | 2578 | 468 | 9 | 10 | 0 | 2 | 2 | 3 | 0 |
+| Indonesian | 1526 | 1346 | 377 | 20 | 8 | 4 | 4 | 185 | 35 | 65 | 179 | 0 | 1 | 0 | 2 | 2 | 0 | 0 |
+| Thai | 1514 | 1316 | 346 | 15 | 3 | 5 | 2 | 163 | 39 | 87 | 164 | 0 | 1 | 0 | 1 | 0 | 0 | 0 |
+| Malay | 397 | 354 | 97 | 7 | 2 | 0 | 1 | 47 | 16 | 23 | 39 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
-Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 11 of 136, Indonesian 2 of 54, Thai 2 of 52, Malay 1 of 19.
+Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 11 of 135, Indonesian 2 of 53, Thai 2 of 51, Malay 1 of 18.
 
 ## Doses on more than one page
 
@@ -75,13 +75,13 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - keo 502: 38
 - panacur: 34
 - ada: 26
+- ada amazonia aqua soil: 19
 - tropica: 19
-- ada amazonia aqua soil: 18
 - fluval stratum: 18
 - ada amazonia: 17
 - dennerle: 16
+- seachem fluorite: 15
 - hikari first bites: 14
-- seachem fluorite: 14
 - fluval fx6: 13
 - hikari shrimp cuisine: 13
 - easy fry and small fish food: 12
@@ -89,7 +89,7 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - hikari vibra bites: 12
 - apt fix: 11
 - aquario neo soil: 11
-- carib sea eco-complete: 10
+- carib sea eco-complete: 11
 - ge silicone 1: 10
 - twinstar: 10
 - 1-2-grow: 9
@@ -102,6 +102,7 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - tropica aquarium soil: 8
 - tropica specialised nutrition: 8
 - easy shrimp and snail shells: 7
+- fluval plant and shrimp stratum: 7
 - krylon fusion: 7
 - seachem flourite: 7
 - seachem flourite dark: 7
@@ -110,4 +111,3 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - chihiros a2: 6
 - chihiros wrgb ii slim: 6
 - eco-complete: 6
-- fluval bug bites: 6
