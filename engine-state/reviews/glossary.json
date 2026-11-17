@@ -203,6 +203,36 @@
   ],
   "vi/glossary/artemia": [
     {
+      "at": "2026-11-16T17:21:56Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 0.91,
+      "notes": [
+        "\"Thả trứng khoảng 0,5–1 g cho 2 lít hoặc khoảng 1 g mỗi lít.\": the facts don't carry it (unsupported, unsupported, unsupported): 0.5–1 g per 2 L not in facts / 0.5–1 g per 2 L figure not in facts",
+        "\"Cho cá ăn ngay sau khi vớt, vì sang nước ngọt ấu trùng chỉ sống được vài giờ.\": the facts don't carry it (unsupported, unsupported, unsupported): survival time in fresh water not in facts",
+        "\"Dừng khi bụng cá bột hơi ngả cam, và sau 15–20 phút thì vớt phần còn thừa ra.\": the facts don't carry it (unsupported, unsupported, unsupported): orange-belly cue and 15–20 min removal not in facts"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-16T17:21:56Z",
+      "model": "sonnet",
+      "cli": "2.1.325",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở, nên vớt ra và cho cá ăn trong khoảng thời gian này.\" (not \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở.\": Rule 12: \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở.\" states the fact but not the advice THIS TERM pairs with it: harvest the lar…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Pha khoảng 30 g muối hột không iot mỗi lít nước, dù các công thức dao động từ khoảng 5 g mỗi lít tới mức này.\" (not \"Pha khoảng 30 g muối hột không iot mỗi lít nước.\": Rule 12: \"Pha khoảng 30 g muối hột không iot mỗi lít nước.\" gives the working figure but not the range. THIS TERM wants the range in the s…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Thả trứng khoảng 1 g mỗi lít và không quá 5 g mỗi lít.\" (not \"Với nước biển, thả trứng khoảng 1 g mỗi lít; không thả quá 5 g mỗi lít.\": Rule 12: \"Với nước biển, thả trứng khoảng 1 g mỗi lít; không thả quá 5 g mỗi lít.\" leaves out the other shop's amount, 0.5–1 g in 2 litres. THIS TERM wants both amounts i…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Ở nhiệt độ này trứng thường nở sau 18–24 giờ, nước lạnh thì lâu hơn, có khi tới 48 giờ.\" (not \"Ở khoảng 27–29 °C, phần lớn trứng nở trong vòng 18–24 giờ; nước lạnh thì nở lâu hơn.\": it drops the figure 48)",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Tắt sục và chờ khoảng 5 phút.\" (not \"Tắt sục và chờ 5–10 phút.\": Rules 4 and 12: \"Tắt sục và chờ 5–10 phút.\" sits beside \"hút ra trước mốc 10 phút\" in the same step. That gives the 10 minutes twice and in two different ways. THIS TERM wants one statement: turn the air off, wait about 5 minutes, and siphon…",
+        "Rule 12: The feeding advice gives only the first of its two reasons, \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở, nên vớt ra và cho cá ăn trong khoảng thời gian này.\" It leaves out the second reason the line asks for: once rinsed into fresh water the larvae live only a few hours, so feed them as soon as they are harvested. It also leaves out the advice to stop when the fry's bellies look…",
+        "Rule 12: The egg amount, \"Thả trứng khoảng 1 g mỗi lít và không quá 5 g mỗi lít.\", gives only one shop's figure. It leaves out the other shop's 0.5–1 g in 2 litres (source 4), so the shops' range is not given once in one sentence with the 5 g ceiling apart, as the line asks. The 0.5–1 g figure does not appear in the FACTS list either; this note also relies on the line's own citation."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
       "at": "2026-11-16T03:31:06Z",
       "model": "sonnet",
       "cli": "2.1.325",
@@ -249,30 +279,6 @@
       "notes": [
         "Rule 12: The entry leaves out the other name \"tôm vụn\". THIS TERM says the other names are \"tôm vụn\" (one source) and \"brine shrimp\". The definition gives only \"Tên tiếng Anh của nó là brine shrimp.\" and altNames is empty.",
         "Rule 12: The required sentence \"Ấu trùng đã sang giai đoạn thứ hai cũng khó cho cá bột bắt hơn.\" is missing. THIS TERM says it must be written back, word for word, beside the 12-hour sentence \"Ấu trùng bổ nhất trong khoảng 12 giờ đầu sau khi nở, nên vớt ra và cho cá ăn trong khoảng thời gian này.\""
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-16T02:02:29Z",
-      "model": "sonnet",
-      "cli": "2.1.323",
-      "score": 1,
-      "notes": [
-        "The rewrite dropped from \"Bộ ấp bán ở Việt Nam dùng bình hình phễu.\" the advice \"Bộ ấp bán ở Việt Nam dùng bình hình phễu\" under Trứng Artemia, and nothing lets that sentence go: write it as it was, word for word.",
-        "The entry is 506 words: hold it to about 500, and leave what is left out to the pages that use the term."
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-16T02:02:29Z",
-      "model": "sonnet",
-      "cli": "2.1.323",
-      "score": 1,
-      "notes": [
-        "The rewrite dropped from \"Dùng nước dưới 22 °C hoặc trứng hết hạn.\" the figure 22, the advice \"Dùng nước dưới 22 °C\", the advice \"trứng hết hạn\", and nothing lets that sentence go: write it as it was, word for word.",
-        "The entry is 507 words: hold it to about 500, and leave what is left out to the pages that use the term."
       ],
       "attempt": "rewrite",
       "kept": false
