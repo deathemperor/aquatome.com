@@ -97,18 +97,33 @@ export const answerTool = {
 const json = (text: string) => text.trimStart().startsWith('{')
 const answers = (b: Anthropic.ContentBlock) => (b.type === 'text' && json(b.text)) || (b.type === 'tool_use' && b.name === SEND_ANSWER)
 
+/** A text block that is a whole JSON object: an answer, not words that only begin like one ("{"blocks":…). */
+const whole = (text: string) => {
+  try {
+    const v: unknown = JSON.parse(text)
+    return !!v && typeof v === 'object' && !Array.isArray(v)
+  } catch {
+    return false
+  }
+}
+
 /**
  * A message as one answer: one that answered through send_answer, as one that answered in text, its input as the JSON
- * text; either way the words and tools beside it dropped and the turn ended, whether or not any of it was shown (a call
- * that doesn't stream, as the next key's after a stream that failed, shows nothing: Codex, 17 Nov). One cut short keeps
- * its stop reason, and `readAnswer` then reads no answer from it. send_answer's input isn't held to the schema: an
- * `offTopic` that isn't true or false is no answer, never one on topic.
+ * text, and the words and reading tools beside it dropped; one that answered in text, with other words beside it
+ * dropped, and its tools too once it is whole, whether or not any of it was shown (a call that doesn't stream, as the
+ * next key's after a stream that failed, shows nothing: Codex, 17 Nov). One cut short keeps its stop reason, and
+ * `readAnswer` then reads no answer from it. send_answer's input isn't held to the schema: an `offTopic` that isn't true
+ * or false is no answer, never one on topic.
  */
 export function answered(m: Anthropic.Message): Anthropic.Message {
   const first = m.content.find(answers)
   if (!first) return m
   const ended = m.stop_reason === 'tool_use' ? 'end_turn' : m.stop_reason
-  if (first.type === 'text') return m.content.some(b => b !== first && (b.type === 'text' || b.type === 'tool_use')) ? { ...m, content: m.content.filter(b => b === first || (b.type !== 'text' && b.type !== 'tool_use')), stop_reason: ended } : m
+  if (first.type === 'text') {
+    const answer = whole(first.text)
+    const drop = (b: Anthropic.ContentBlock) => b !== first && (b.type === 'text' || (answer && b.type === 'tool_use'))
+    return m.content.some(drop) ? { ...m, content: m.content.filter(b => !drop(b)), ...(answer ? { stop_reason: ended } : {}) } : m
+  }
   if (first.type !== 'tool_use') return m
   const flag = (first.input as { offTopic?: unknown } | null)?.offTopic
   return { ...m, content: [{ type: 'text', text: typeof flag === 'boolean' ? JSON.stringify(first.input) : '', citations: null }], stop_reason: ended }
