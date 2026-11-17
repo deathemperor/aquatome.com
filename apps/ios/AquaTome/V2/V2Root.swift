@@ -350,6 +350,10 @@ private struct PostBack: UIViewControllerRepresentable {
     /// Hôm nay that isn't a post never reads "Đóng" (Design, 17 Nov).
     private weak var below: UINavigationItem?
     private var was: (item: UIBarButtonItem?, title: String?, mode: UINavigationItem.BackButtonDisplayMode)?
+    /// The stack and the post's screen as they were when the ✕ was set: by `viewDidDisappear` iOS may have taken the post
+    /// out of its stack, and it would no longer find either.
+    private weak var nav: UINavigationController?
+    private weak var post: UIViewController?
 
     override func viewWillAppear(_ animated: Bool) {
       super.viewWillAppear(animated)
@@ -359,8 +363,7 @@ private struct PostBack: UIViewControllerRepresentable {
     override func viewDidDisappear(_ animated: Bool) {
       super.viewDidDisappear(animated)
       // Gone, not covered by a page inside it: no longer on its stack.
-      guard let post = screen(), post.navigationController?.viewControllers.contains(post) != true,
-            let below, let was else { return }
+      guard let nav, let post, !nav.viewControllers.contains(post), let below, let was else { return }
       below.backBarButtonItem = was.item
       below.backButtonTitle = was.title
       below.backButtonDisplayMode = was.mode
@@ -385,6 +388,8 @@ private struct PostBack: UIViewControllerRepresentable {
       if was == nil {
         was = (below.backBarButtonItem, below.backButtonTitle, below.backButtonDisplayMode)
         self.below = below
+        self.nav = nav
+        self.post = post
       }
       let close = String(localized: "Đóng")
       #if DEBUG
