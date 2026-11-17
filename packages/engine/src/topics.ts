@@ -193,6 +193,8 @@ export type Written = { name: string; summary: string[]; body: string; faq: { q:
  * this, not what the writer sent (Astra's read: "<div>ฤดู</div><div>ใบไม้ผลิ</div>" passed and was saved as "ฤดูใบไม้ผลิ",
  * and "musim&amp;#32;panas" passed and was saved as "musim panas").
  */
+/** The facts' source numbers as a copy prints them to readers: Thai "แหล่งที่ 3", each once. */
+export const sourceNumbers = (text: string) => [...new Set(text.match(/แหล่งที่\s*\d+/gu) ?? [])]
 const savedText = (w: Written) => {
   const p = plainParts(w.summary ?? [], w.faq ?? [])
   return [unescapePlain(w.name), ...p.summary, sanitizeHtml(w.body), ...p.faq.flatMap(f => [f.q, f.a])].join('\n')
@@ -432,6 +434,19 @@ export async function localizeTopic(root: string, llm: Llm, id: string, lang: Ta
       const left = foreignSeasons(savedText(fixed), lang)
       // Not saved, and every try's review logged, none of them kept (Astra's read).
       if (left.length) { await logReviews(root, 'topic', { id: `guides/${id}`, lang }, tries, undefined); return { id, skipped: `names another place's season: ${left.join(', ')}` } }
+      w = fixed
+      review = r
+    }
+    // The facts' source numbers, which readers never see, printed to them: the quarantine guide's Thai copy said
+    // "(แหล่งที่ 0)" 55 times though the prompt says not to (the chief of staff, 17 Nov 2026). Written once more without
+    // them; a copy that still prints one isn't saved.
+    const printed = sourceNumbers(savedText(w))
+    if (printed.length) {
+      const fixed = await write([`It prints the facts' source numbers, which readers never see: ${printed.map(s => `"${s}"`).join(', ')}. Name each source by its kind instead ("one source", a shop, a vet), and leave the numbers out.`, ...review.notes])
+      const r = await check(fixed)
+      tries.push(r)
+      const left = sourceNumbers(savedText(fixed))
+      if (left.length) { await logReviews(root, 'topic', { id: `guides/${id}`, lang }, tries, undefined); return { id, skipped: `prints its facts' source numbers: ${left.join(', ')}` } }
       w = fixed
       review = r
     }

@@ -330,7 +330,8 @@ test('the gill fluke guide gives praziquantel in food by the fish\'s weight, and
 
 // The chief of staff, 17 Nov 2026: a US seller's three quarantine medicines (sold there, with their doses per 10 US gallons)
 // came off the site with the video guide built on them. The general guide had the same protocol in every language, and its
-// Thai page printed the writer's source numbers ("(แหล่งที่ 0)"). Its saved facts hold neither, so no rewrite brings them back.
+// Thai page printed the writer's source numbers ("(แหล่งที่ 0)"). Its saved facts no longer name the medicines, and the copy
+// writer doesn't save a copy that prints source numbers (topics.ts sourceNumbers), so no rewrite brings either back.
 test('the quarantine guide names no US seller\'s medicine in any language, nor its saved facts, and Thai prints no source number', async () => {
   const id = 'aquatome-cach-ly-ca-moi-mua-be-cach-ly-va-quy-trinh'
   const dir = fileURLToPath(new URL(`../../../content/guides/${id}/`, import.meta.url))

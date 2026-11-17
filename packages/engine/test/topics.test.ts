@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { localizeTopic, makeTopic, recheckTopic, SOURCE_KINDS, usableFact, type TopicFacts } from '../src/topics'
+import { localizeTopic, makeTopic, recheckTopic, SOURCE_KINDS, sourceNumbers, usableFact, type TopicFacts } from '../src/topics'
 import { denied } from './piece-admission'
 
 const facts: TopicFacts = {
@@ -164,6 +164,26 @@ test('localizeTopic: from the same facts, minus Vietnam-only ones; cites only th
   expect(th.quality).toEqual({ score: 0.88, indexable: true })
   expect(th.body).toContain('<p>อุณหภูมิ 26–27 °C</p>')
   expect(await localizeTopic(root, llm, r0.id, 'th')).toMatchObject({ skipped: 'done' })
+})
+
+// The chief of staff, 17 Nov 2026: the quarantine guide's Thai copy printed its facts' source numbers to readers 55 times.
+test('a copy that prints the facts\' source numbers is written once more without them, and not saved if it still does', async () => {
+  expect(sourceNumbers('<p>ตามแหล่งที่ 0 และแหล่งที่ 12 (แหล่งที่ 0)</p><p>แหล่งหนึ่ง</p>')).toEqual(['แหล่งที่ 0', 'แหล่งที่ 12'])
+  const root = await site()
+  const llm0: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : { name: 'Cá bị lồi mắt', summary: ['x'], body: '<p>x</p>', faq: [] }) as never
+  const r0 = await makeTopic(root, { research: async () => facts as never, llm: llm0 }, { topic: 'Cá bị lồi mắt (popeye)', kind: 'disease' })
+  const copy = (body: string) => ({ name: 'ตาโปนในปลา', slug: 'fish-popeye', summary: ['ตาปลาโปน'], body, faq: [] })
+  const asked: string[] = []
+  const once: Llm = async ({ prompt }) => {
+    if (prompt.startsWith('Below are FACTS')) return { score: 0.9, notes: [] } as never
+    asked.push(prompt)
+    return (asked.length === 1 ? copy('<p>ตาโปน (แหล่งที่ 0)</p>') : copy('<p>ตาโปน ตามที่แหล่งหนึ่งบอก</p>')) as never
+  }
+  expect(await localizeTopic(root, once, r0.id, 'th')).toMatchObject({ slug: 'fish-popeye' })
+  expect(asked[1]).toContain('It prints the facts\' source numbers, which readers never see: "แหล่งที่ 0"')
+  expect(JSON.parse(await readFile(join(root, 'content/guides', r0.id, 'th.json'), 'utf8')).body).toBe('<p>ตาโปน ตามที่แหล่งหนึ่งบอก</p>')
+  const always: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : copy('<p>ตาโปน (แหล่งที่ 2)</p>')) as never
+  expect(await localizeTopic(root, always, r0.id, 'id')).toMatchObject({ skipped: 'prints its facts\' source numbers: แหล่งที่ 2' })
 })
 
 // The chief of staff, 16 Nov 2026: a copy's body a person fixed is theirs, as the Vietnamese one is, so a redo (a copy the
