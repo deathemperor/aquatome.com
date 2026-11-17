@@ -194,6 +194,20 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/642982621.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/642982621-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Navaneeth Sini George",
+      "sourceUrl": "https://www.inaturalist.org/photos/642982621",
+      "caption": "Hai cá chromide cam bơi trong nước đục ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/3f19ad96165d701b.webp",
       "thumb": "https://media.aquatome.com/commons/3f19ad96165d701b-480.webp",
       "width": 1200,
@@ -278,7 +292,7 @@
       "kind": "habitat"
     }
   ],
-  "seen": 150,
-  "updatedAt": "2026-11-09",
-  "builtAt": "2026-11-09"
+  "seen": 170,
+  "updatedAt": "2026-11-16",
+  "builtAt": "2026-11-16"
 }

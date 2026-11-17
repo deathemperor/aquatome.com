@@ -14,18 +14,12 @@
   "dataCard": {
     "sizeCm": [
       {
-        "source": "glaser",
-        "value": 10
-      },
-      {
         "source": "scotcat",
         "value": 8
-      }
-    ],
-    "tankCm": [
+      },
       {
         "source": "glaser",
-        "value": 60
+        "value": 10
       }
     ],
     "tempC": [
@@ -34,6 +28,13 @@
         "value": {
           "min": 24,
           "max": 28
+        }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 25
         }
       }
     ],
@@ -51,8 +52,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/trichomycterus_alternatus_en/",
-      "html": "<p>One of the easiest pencil catfishes to keep in the aquarium. It reaches a total length of about 10 cm and can be kept in aquariums from 60 cm in length.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/trichomycterus_alternatus_in_the_shadow_of_the_vampire_en/",
+      "html": "<p>Trichomycterus alternatus reaches about 10 cm and resembles a loach with a walrus's moustache.</p>"
     },
     {
       "key": "quickFacts",
@@ -63,8 +64,8 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/trichomycterus_alternatus_en/",
-      "html": "<p>The species originates from the Rio de Janeiro region in Brazil.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/trichomycterus_alternatus_in_the_shadow_of_the_vampire_en/",
+      "html": "<p>Trichomycterus alternatus comes from Brazil. The fish originate from fast-running brooks.</p>"
     },
     {
       "key": "distribution",
@@ -73,16 +74,16 @@
       "html": "<p>South America: Atlantic coastal river basins, Rio de Janeiro and Espírito Santo States, Jequitinhonha River basin, Minas Gerais, Brazil. Type locality: Rio Doce, near the village Rio Doce, Minas Gerais, Brazil [20°14'41\"S, 42°53'45\"W].</p>"
     },
     {
-      "key": "habitat",
+      "key": "waterConditions",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/trichomycterus_alternatus_en/",
-      "html": "<p>These very shy fish resemble the Stone loach native to Europe in appearance and live in similar biotopes in the wild, i.e. clean, fast-flowing brooks and small rivers.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/trichomycterus_alternatus_in_the_shadow_of_the_vampire_en/",
+      "html": "<p>The water temperature can be between 22 and 25°C. No special requirements for the aquarium water are needed, but it should be clean and oxygen-rich.</p>"
     },
     {
       "key": "equipment",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/trichomycterus_alternatus_en/",
-      "html": "<p>Good water hygiene and a high oxygen content are a must. A strong pump or a high-performance filter should provide a sufficient current.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/trichomycterus_alternatus_in_the_shadow_of_the_vampire_en/",
+      "html": "<p>As the fish originate from fast-running brooks, they like a good filter current.</p>"
     },
     {
       "key": "diet",
@@ -91,10 +92,28 @@
       "html": "<p>Will feed on most aquarium fare such as tablet, frozen and live foods. It is an opportunistic predator that mainly feeds on insects, but also will take small crustaceans and plant material (algae and remains of phanerogams).</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/trichomycterus_alternatus_in_the_shadow_of_the_vampire_en/",
+      "html": "<p>Regarding feeding, this loach-catfish is completely unproblematic.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/trichomycterus_alternatus_in_the_shadow_of_the_vampire_en/",
+      "html": "<p>The species likes the company of its own kind and should always be kept in groups. Otherwise the fish will be shy and hiding.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/trichomycterus_alternatus_in_the_shadow_of_the_vampire_en/",
+      "html": "<p>Males and females are coloured differently; moreover, males have longer and broader pectoral fins. Both the sexual dimorphism and the juvenile coloration are very similar to the stone loach (Barbatula barbatula).</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/trichomycterus_alternatus_en/",
-      "html": "<p>T. alternatus is not a parasite like some of its relatives from the group of the pencil or parasitic catfishes. Some of these are unpleasant, such as the urinophilic catfishes known in their homeland as Candiru, which are able to enter the human urethra. Usually, however, these little catfishes enter the gills of fishes, where their parasitic nature takes over by feeding on blood and bits of flesh.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/trichomycterus_alternatus_in_the_shadow_of_the_vampire_en/",
+      "html": "<p>The best-known of the feared species of fish in South America is the so-called candiru. In fact, the name candiru is applied to a number of different species in different genera, but this does not matter in this context. The candiru is able to penetrate the ureter of a human if the person is urinating under water. This causes horrible infections that can even be fatal. The fish has spines on the operculum which make it impossible to move backwards. So the candiru dies in the ureter and the victim is harmed from inside.</p><p>Of course this is not the real intention of the candiru. Its aim is to find one of the giant catfishes and suck blood from their gills. When a candiru swims into a human's ureter this is only an accident. Nevertheless, being a bloodsucking parasite does not make the candiru more likeable.</p><p>This is sad, because some of the close relatives of the candiru are charming and interesting aquarium inhabitants. One of them is Trichomycterus alternatus from Brazil.</p>"
     },
     {
       "key": "notes",
@@ -160,5 +179,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-10"
+  "updatedAt": "2026-11-16"
 }

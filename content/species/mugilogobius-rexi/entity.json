@@ -11,6 +11,45 @@
     "lake-towuti",
     "lake-mahalona"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Sulawesi"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species is restricted to Sulawesi and even on that island it occurs only in two lakes, namely Towuti and Mahalona.",
+          "countries": [],
+          "regions": [
+            "Sulawesi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2376848,
+      "total": 1,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          113.90625,
+          0,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

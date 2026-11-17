@@ -9,6 +9,92 @@
     "africa",
     "lake-tanganyika"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species settles along the whole of Lake Tanganyika.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372971,
+      "total": 138,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "ZM",
+          53
+        ],
+        [
+          "TZ",
+          46
+        ],
+        [
+          "CD",
+          21
+        ],
+        [
+          "BI",
+          18
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -7.03125,
+          5
+        ],
+        [
+          28.125,
+          -4.21875,
+          13
+        ],
+        [
+          29.53125,
+          -9.84375,
+          16
+        ],
+        [
+          29.53125,
+          -8.4375,
+          21
+        ],
+        [
+          29.53125,
+          -7.03125,
+          14
+        ],
+        [
+          29.53125,
+          -5.625,
+          31
+        ],
+        [
+          30.9375,
+          -9.84375,
+          35
+        ],
+        [
+          30.9375,
+          -8.4375,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -8,39 +8,39 @@ under `<lang>/<path>`.
 
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
-| video-guide | 933 | 668 (vi 668) | 668 |
-| translation | 1733 | 263 (vi 263) | 263 |
+| video-guide | 962 | 687 (vi 687) | 687 |
+| translation | 1765 | 265 (vi 265) | 265 |
 | vi-rewrite | 351 | 24 (vi 24) | 24 |
 | reader-rewrite | 35 | 0 | 0 |
 | title | 25 | 0 | 0 |
 | breed | 27 | 3 (ms 3) | 3 |
-| topic | 91 | 4 (ms 1, th 3) | 4 |
+| topic | 103 | 4 (ms 1, th 3) | 4 |
 | product | 16 | 1 (vi 1) | 1 |
 | product-reviews | 16 | 0 | 0 |
 | summary | 2227 | 117 (vi 117) | 117 |
-| localize | 2208 | 870 (id 393, ms 52, th 425) | 870 |
+| localize | 2243 | 874 (id 393, ms 55, th 426) | 874 |
 | glossary | 4 | 0 | 0 |
-| places | 6710 | 4088 (id 1395, ms 1392, th 1202, vi 99) | 1076 |
+| places | 6774 | 4136 (id 1411, ms 1408, th 1218, vi 99) | 1112 |
 | equipment | 5 | 0 | 0 |
-| planting | 31 | 0 | 0 |
+| planting | 32 | 0 | 0 |
 | species | 13 | 0 | 0 |
 | material | 2 | 0 | 0 |
 
 ## video-guide: Vietnamese guides written from YouTube videos, against the transcript
 
-668 of 933 pages under the bar.
+687 of 962 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 587 | 1531 |
-| States as certain what the source hedges, or what garbled captions only hint at | 582 | 1748 |
-| Says what the source doesn't (invented, added) | 503 | 1220 |
-| Wording: unnatural, literal, stiff or chatty | 276 | 387 |
-| A number, unit, dose or price | 226 | 333 |
-| Repeats itself (intro, summary, steps and FAQ) | 130 | 154 |
-| Meaning changed or wrong | 115 | 132 |
+| Other | 603 | 1565 |
+| States as certain what the source hedges, or what garbled captions only hint at | 596 | 1782 |
+| Says what the source doesn't (invented, added) | 513 | 1234 |
+| Wording: unnatural, literal, stiff or chatty | 290 | 409 |
+| A number, unit, dose or price | 228 | 335 |
+| Repeats itself (intro, summary, steps and FAQ) | 132 | 156 |
+| Meaning changed or wrong | 119 | 136 |
 | Leaves out what the source says | 48 | 50 |
-| Hobby terms and names | 44 | 45 |
+| Hobby terms and names | 47 | 48 |
 | Names or points to the video, channel, creator or source | 33 | 36 |
 | Off the title's topic | 25 | 25 |
 | Copied from the transcript or source | 22 | 24 |
@@ -126,18 +126,18 @@ under `<lang>/<path>`.
 
 ## translation: source pages translated into Vietnamese, against the English
 
-263 of 1733 pages under the bar.
+265 of 1765 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 253 | 783 |
-| Says what the source doesn't (invented, added) | 215 | 417 |
-| Wording: unnatural, literal, stiff or chatty | 201 | 387 |
-| Meaning changed or wrong | 166 | 259 |
-| Hobby terms and names | 131 | 176 |
-| Text left in another language | 94 | 117 |
-| Leaves out what the source says | 89 | 123 |
-| States as certain what the source hedges, or what garbled captions only hint at | 74 | 86 |
+| Other | 255 | 789 |
+| Says what the source doesn't (invented, added) | 217 | 421 |
+| Wording: unnatural, literal, stiff or chatty | 203 | 391 |
+| Meaning changed or wrong | 168 | 261 |
+| Hobby terms and names | 132 | 178 |
+| Text left in another language | 95 | 119 |
+| Leaves out what the source says | 90 | 124 |
+| States as certain what the source hedges, or what garbled captions only hint at | 75 | 87 |
 | A number, unit, dose or price | 69 | 90 |
 | Repeats itself (intro, summary, steps and FAQ) | 56 | 67 |
 | Names or points to the video, channel, creator or source | 10 | 11 |
@@ -334,7 +334,7 @@ under `<lang>/<path>`.
 
 ## topic: AquaTome's own guides, against their research
 
-4 of 91 pages under the bar.
+4 of 103 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -457,20 +457,20 @@ under `<lang>/<path>`.
 
 ## localize: species and plant pages in Indonesian and Thai, against the English
 
-870 of 2208 pages under the bar.
+874 of 2243 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 809 | 2316 |
-| Wording: unnatural, literal, stiff or chatty | 752 | 1586 |
-| Says what the source doesn't (invented, added) | 519 | 752 |
-| Meaning changed or wrong | 482 | 737 |
-| Hobby terms and names | 477 | 627 |
-| A number, unit, dose or price | 459 | 574 |
-| Text left in another language | 313 | 403 |
-| Leaves out what the source says | 267 | 309 |
-| Repeats itself (intro, summary, steps and FAQ) | 249 | 280 |
-| States as certain what the source hedges, or what garbled captions only hint at | 192 | 212 |
+| Other | 814 | 2329 |
+| Wording: unnatural, literal, stiff or chatty | 754 | 1586 |
+| Says what the source doesn't (invented, added) | 519 | 750 |
+| Meaning changed or wrong | 484 | 742 |
+| Hobby terms and names | 481 | 632 |
+| A number, unit, dose or price | 464 | 584 |
+| Text left in another language | 318 | 410 |
+| Leaves out what the source says | 267 | 311 |
+| Repeats itself (intro, summary, steps and FAQ) | 250 | 280 |
+| States as certain what the source hedges, or what garbled captions only hint at | 194 | 215 |
 | Copied from the transcript or source | 27 | 27 |
 | Off the title's topic | 1 | 1 |
 
@@ -532,7 +532,7 @@ under `<lang>/<path>`.
 
 - Item 21: 'weakly red to orange colour patches in the fins' is rendered as 'แต้มสีแดงอ่อนถึงส้มในครีบที่ไม่เด่นเท่า'. It is unclear that this refers to the males' fin patterns. Reword it as 'แต้มสีแดงจางถึงส้มบนครีบซึ่งเด่นน้อยกว่าตัวผู้'. … — th/species/danio-margaritatus, 0.40
 - #1: 'เกือบทุกชนิดโตเกิน 20 ซม.' — English says 'most species', so use 'ส่วนใหญ่' instead of 'เกือบทุกชนิด' (overstates). The sentence 'ส่วนใหญ่มักโตได้ค่อนข้างใหญ่' then repeats it. — th/species/metynnis-lippincottianus, 0.40
-- Item 11: 'ปลาชนิดต่าง ๆ ในเขตทะเลสาบ ... เป็นหมันในระดับต่าง ๆ เมื่อผสมกับปลาจากเขตทะเลสาบ' adds a detail ('when crossed with lake fishes') framed differently from the English; 'differing degrees of sterility' unclear in Thai. — th/species/anatolichthys-anatoliae, 0.50
+- Item 18: the sentence 'ซึ่งปลาที่นำเข้าในอดีตเคยถูกจัดไว้เพียง 3 ชนิด ที่ต้องระบุชนิดใหม่!' is garbled. Restructure it as: 33 species that were earlier imported under only 3 names must now be re-identified. — th/species/gastromyzon-punctulatus, 0.45
 
 ### Copied from the transcript or source
 
@@ -550,12 +550,12 @@ under `<lang>/<path>`.
 
 ## places: place names in Indonesian and Thai (reviewed in batches)
 
-4088 of 6710 pages under the bar.
+4136 of 6774 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 959 | 1041 |
-| Meaning changed or wrong | 66 | 66 |
+| Other | 995 | 1080 |
+| Meaning changed or wrong | 69 | 69 |
 | Leaves out what the source says | 44 | 44 |
 | Wording: unnatural, literal, stiff or chatty | 25 | 25 |
 | States as certain what the source hedges, or what garbled captions only hint at | 9 | 9 |
@@ -617,7 +617,7 @@ under `<lang>/<path>`.
 
 ## planting: plants' planting text, against their page and video guides
 
-0 of 31 pages under the bar.
+0 of 32 pages under the bar.
 
 ## species: species pages AquaTome writes from research, and what a species video adds to a page, against their research or video
 

@@ -12,36 +12,7 @@
       "caption": "Cá Cichlasoma istlanum bơi trong nước tối, thân có sọc đốm",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/647124070.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/647124070-480.webp",
-      "width": 1024,
-      "height": 701,
-      "licence": "CC BY",
-      "author": "Alberto Alcalá",
-      "sourceUrl": "https://www.inaturalist.org/photos/647124070",
-      "caption": "Cá Cichlasoma istlanum ở môi trường tự nhiên, nền bùn lá",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/649444275.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/649444275-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Alberto Alcalá",
-      "sourceUrl": "https://www.inaturalist.org/photos/649444275",
-      "caption": "Cá Cichlasoma istlanum mắt vàng, thân có vằn đen ngang",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/649445947.webp",
@@ -70,6 +41,32 @@
       "kind": "other",
       "setup": true,
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/647124070.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/647124070-480.webp",
+      "width": 1024,
+      "height": 701,
+      "licence": "CC BY",
+      "author": "Alberto Alcalá",
+      "sourceUrl": "https://www.inaturalist.org/photos/647124070",
+      "caption": "Cá Cichlasoma istlanum ở môi trường tự nhiên, nền bùn lá",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/649444275.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/649444275-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Alberto Alcalá",
+      "sourceUrl": "https://www.inaturalist.org/photos/649444275",
+      "caption": "Cá Cichlasoma istlanum mắt vàng, thân có vằn đen ngang",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 16,

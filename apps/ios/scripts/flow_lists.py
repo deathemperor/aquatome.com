@@ -13,7 +13,7 @@ UI = 'AquaTomeUITests'
 # `app` runs every other flow but the lights', so a class missing here still runs, in `app`.
 HANDBOOK = ['HandbookFlowTests', 'FactsCardFlowTests', 'ReadingFlowTests', 'NativePageFlowTests', 'OfflineFlowTests',
             'TankCheckFlowTests', 'TankLifeFlowTests', 'PageShotsFlowTests', 'FishIdFlowTests', 'TankVolumeFlowTests',
-            'TankMatesFlowTests', 'VideoFlowTests',
+            'TankMatesFlowTests', 'VideoFlowTests', 'OnePageFlowTests',
             'TelemetryFlowTests']
 
 # What a class of flows takes on GitHub's Macs, in seconds, for packing a pull request's few flows into one job
@@ -87,7 +87,7 @@ HANDBOOK_SHOTS = shots('pages', 'video', 'viewer', 'search', 'tools', 'home', 't
 # Every screen of the handbook: its flows, and those that start from a page (a comment posted, a fish put on a tank).
 HANDBOOK_FLOWS = ['HandbookFlowTests', 'FactsCardFlowTests', 'NativePageFlowTests',
                   'OfflineFlowTests', 'ReadingFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests', 'FishIdFlowTests',
-                  'VideoFlowTests', 'ChatFlowTests']
+                  'VideoFlowTests', 'ChatFlowTests', 'OnePageFlowTests']
 HANDBOOK_SCREENS = HANDBOOK_FLOWS + HANDBOOK_SHOTS
 # The handbook's model and the kit's Handbook: its screens, the tanks tab's parts that read it (the tank-mates check,
 # a tank's fish and plants, its guides), and the tank volume and tank-mates tools, which search and a page's links open
@@ -216,6 +216,9 @@ REACH = {
     # The Week Aqua screen, which the page shots take too.
     APP + 'Lights/WeekAquaView.swift': ['LightFlowTests', CONNECT_SENT] + shots('light'),
     APP + 'Plugs/': ['PlugFlowTests'] + LIGHT_OUTLET,
+    # The master button on Đèn (its card, sheet, run and the owner's countdown test), and the broadcaster it shares with
+    # the Love Ecology light's card.
+    APP + 'Master/': ['MasterFlowTests', LOVE_ECOLOGY],
     # Fish ID sends as the reader's account (signed out, its sign-in comes first); the account also holds the owner's
     # dashboard (its session, and signing out on a 401).
     APP + 'Account/': ['AccountFlowTests', 'ReaderPostFlowTests', 'FishIdFlowTests', 'OwnerFlowTests', 'ProfilePictureFlowTests', 'ChatFlowTests'],
@@ -231,7 +234,7 @@ REACH = {
     APP + 'Account/GoogleSignIn.swift': ACCOUNT_SHEET, APP + 'Account/Appearance.swift': ACCOUNT_SHEET,
     # v2, the app's look since 2026-11-08: its own flows (the switch, its tabs, a link into it, a fish put on a tank from
     # its page), and its page shots. Its root, which every flow on v2 runs through, reaches them all, as AquaTomeApp does.
-    APP + 'V2/': ['V2FlowTests', 'BrowseShelvesFlowTests'] + shots('v2'),
+    APP + 'V2/': ['V2FlowTests', 'BrowseShelvesFlowTests', 'OnePageFlowTests'] + shots('v2'),
     APP + 'V2/V2Root.swift': ALL,
     # The stand-in server also takes the names readers want pages for (a fish put on a tank by name), and serves the
     # owner's dashboard.
@@ -260,6 +263,9 @@ REACH = {
     KIT + 'Sources/AccountSync/': ['AccountFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests', 'FishIdFlowTests',
                                    'OwnerFlowTests', 'ProfilePictureFlowTests', 'ChatFlowTests'],
     KIT + 'Sources/Plugs/': ['PlugFlowTests'] + LIGHT_OUTLET,
+    # The master button's steps and run, worked out in the kit (job `kit`), and the commands it and the chat send.
+    KIT + 'Sources/Tanks/MasterButton.swift': ['MasterFlowTests'],
+    KIT + 'Sources/Tanks/DeviceCommand.swift': ['MasterFlowTests', LOVE_ECOLOGY],
     KIT + 'Sources/Chihiros/': ['LightFlowTests', CONNECT_SENT],
     # Week Aqua lights, on the lights tab beside the Chihiros ones.
     KIT + 'Sources/WeekAqua/': ['LightFlowTests'],

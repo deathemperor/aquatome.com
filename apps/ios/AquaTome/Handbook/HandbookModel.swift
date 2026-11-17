@@ -415,6 +415,8 @@ final class HandbookModel {
       let latest = args.contains("-whats-new") ? "/app/latest/vi.json" : nil
       // `-breeds`: the site lists a breed of the discus too, as it lists breeds.
       var items = (args.contains("-breeds") ? f.items + HandbookIndex.fixtureBreeds : f.items) + (kit ? HandbookIndex.fixtureKit : [])
+      // `-kit`: the nine kinds of kit the site lists, as Tìm's grid of them shows them (OnePageFlowTests).
+      if args.contains("-kit") { items += HandbookIndex.fixtureKits }
       // `-crab`: a crab among the fish pages, as the site lists about 90 that aren't fish (`fixtureCrab`).
       if args.contains("-crab") { items.append(HandbookIndex.fixtureCrab) }
       // `-series N`: N video series, the fixture's own first (0: none, as the Indonesian and Thai sites have).
@@ -581,6 +583,12 @@ extension HandbookIndex {
   /// UI tests' kit (`-equipment`): a kind of kit, and more fish needing it than its page lists in place.
   static let fixtureKit: [Item] = [.init(kind: .equipment, name: "Lọc", path: "/vi/thiet-bi/loc/")]
     + (1...40).map { .init(kind: .fish, contentId: "ca-thu-\($0)", name: "Cá thử \($0)", sub: "Piscis \($0)", path: "/vi/ca/ca-thu-\($0)/") }
+  /// UI tests' nine kinds of kit (`-kit`), as the site lists them, by the site's addresses (KitGrid.symbol's): Tìm's grid
+  /// of them full, three rows of three.
+  static let fixtureKits: [Item] = [("Bể cá", "be-ca"), ("Lọc, sủi khí và tạo dòng", "loc"), ("Sưởi và làm mát", "suoi"),
+                                    ("Đèn", "den"), ("Nền và lá", "phan-nen"), ("Cây thủy sinh", "cay-thuy-sinh"), ("CO2", "co2"),
+                                    ("Bộ test nước", "test-nuoc"), ("Thức ăn", "thuc-an")]
+    .map { .init(kind: .equipment, name: $0.0, path: "/vi/thiet-bi/\($0.1)/") }
 
   /// UI tests' what's new (`-whats-new`), as the site writes it: newest first, a page the index doesn't have (left out), the neon there
   /// twice, updated then new.

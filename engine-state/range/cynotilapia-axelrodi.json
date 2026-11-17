@@ -1,0 +1,38 @@
+{
+  "id": "cynotilapia-axelrodi",
+  "native": {
+    "input": "6f1c4ec73a03485f",
+    "at": "2026-11-16T17:28:41.839Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Lake Malawi",
+        "source": "glaser",
+        "quote": "In Lake Malawi, C. axelrodi is restricted to small areas (Nkhata Bay and Chirombo Point).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MW"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cynotilapia axelrodi",
+    "status": "ACCEPTED",
+    "taxonKey": 2372862,
+    "datasets": [
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        8
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-16T17:28:41.839Z"
+  }
+}

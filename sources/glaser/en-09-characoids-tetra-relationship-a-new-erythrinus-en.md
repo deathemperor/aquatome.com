@@ -1,0 +1,12 @@
+---
+url: https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/a_new_erythrinus__en/
+title: A new Erythrinus! - Aquarium Glaser GmbH
+fetchedAt: 2026-11-16T19:32:38.353Z
+hash: 95ec0ec4ba0cc2ba3919b021051b2b8a8540bf5c09db2c60eae2774daa9b82d6
+---
+
+We received for the first time ever a species of Erythrinus from Paraguay which we have never seen before: neither alive nor on pictures. The genus Erythrinus is in urgent need of revision. Currently only two species are recognized as valid. The one is spread almost over the whole of South America: Erythrinus erythrinus. The other one is known so far only from Bahia in Brazil: E. kessleri. However, no pictures are known to exist that show for sure E. kessleri. The scientific description of Steindacher (1877) based on the unique shape of a band of teeth in the palate; no external features are known to distinguish the species otherwise from E. erythrinus.
+So we name this fish provisionally Erythrinus sp. Paraguay. The vertical bands in the hind half of the body are very characteristic for the species as well as the dark horizontal stripe on the back of the fish. They can be seen best in smaller individuals (8-10 cm). In our largest fish (12-14 cm, they seem to be fully grown) a broad dark horizontal band develops in the front half of the body. Then the fish look at the first glimpse very similar to Hoplerythrinus unifasciatus, which we obtained also from Paraguay. Leaving anatomical details aside, Hoplerythrinus can be best recognized by the dark stripes running from the eye backwards, whereas the also very characteristic dark horizontal band can fade when the fish is under stress. However, the swimming behaviour of Hoplerythrinus and Erythrinus is completely different. The former is found most of the time in open water, while Erythrinus prefers to sit on the bottom or in dense vegetation.
+We could hardly find any sexual dimorphism in our new Eryrthrinus. Usually males of Erythrinus can be easily recognized by the much larger dorsal fin. However, we feel that the males in our new fish have a rather golden opercles (greenish-silvery in females). Moreover the head of the putatively females is more rounded.
+Against conspecifics, Erythrinus are really aggressive. So don´t be fooled by the pictures. Such a harmony will hardly ever be seen when the fish are settled. In a long time sight one should keep each fish solitary. Erythrinus are obligatory predators and should be fed with fish.
+Text & photos: Frank Schäfer

@@ -3,21 +3,30 @@
   "name": "Cá lau kiếng Parotocinclus jumbo LDA25",
   "altNames": [
     "Pitbull Pleco",
-    "Cá Parotocinclus jumbo LDA 25"
+    "Cá Parotocinclus jumbo LDA 25",
+    "Cá lau kiếng Parotocinclus jumbo",
+    "LDA25"
   ],
   "sections": {
     "quickFacts:glaser": "<p>Parotocinclus jumbo là một trong những loài lớn nhất của giống này. Theo các báo cáo, con lớn nhất dài khoảng 6-7 cm. Nó cũng thuộc hàng đẹp nhất trong giống. Đây là loài cá ăn rêu.</p>",
     "distribution:glaser": "<p>Nguồn gốc: Brazil.</p>",
     "dimorphism:glaser": "<p>Ở loài này, con đực và con cái khác màu nhau rất rõ, vậy mà đến nay sách báo về cá cảnh vẫn chưa nhắc tới. Cá đực có những mảng yên trên lưng màu xanh lục ánh lam, óng lên rất đẹp, còn cá cái thì không có. Ngoài ra, con cái mập hơn con đực nhiều.</p>",
     "reproduction:glaser": "<p>Đã có vài báo cáo cho loài này đẻ. Giả lập mùa mưa có vẻ có tác dụng, giống như cách làm với nhiều loài cá chuột. Nói cụ thể là thay một lượng nước lớn bằng nước mát hơn và mềm hơn nước nuôi hằng ngày. Nhiệt độ chỉ nên chênh khoảng 5 °C, không nên chênh nhiều hơn.</p><p>Cá bố mẹ hoàn toàn không chăm trứng hay chăm con. Trứng có chất dính nên bám lên kính hoặc đồ trong bể. Điểm này cũng giống cá chuột, giống như nhiều điểm khác. Theo các báo cáo, ương cá con khá khó và trứng hay bị nấm.</p>",
-    "notes:glaser": "<p>Giải nghĩa tên: Parotocinclus là tiếng Hy Lạp cổ, nghĩa là \"giống Otocinclus\". Otocinclus là một giống cá da trơn khác. Chữ jumbo nói về cỡ to khác thường của loài này so với những loài khác cùng giống.</p>"
+    "notes:glaser": "<p>Giải nghĩa tên: Parotocinclus là tiếng Hy Lạp cổ, nghĩa là \"giống Otocinclus\". Otocinclus là một giống cá da trơn khác. Chữ jumbo nói về cỡ to khác thường của loài này so với những loài khác cùng giống.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: LDA25, Pitbull Pleco</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ: sông Paraíba do Norte và sông Piranhas ở bang Paraíba, sông Canhotinho ở bang Pernambuco, một nhánh của sông Mundaú chảy gần thành phố Maceió ở bang Alagoas, và sông Salgado ở bang Ceará.</p>",
+    "habitat:scotcat": "<p>Loài này sống ở những đoạn nước nông, trong và bằng phẳng. Ở đó dòng chảy yếu, đáy là cát lẫn đá.</p>",
+    "maintenance:scotcat": "<p>Loài này chưa được nhiều người biết đến. Chỉ cần chăm bể tốt, thay nước đều và giữ nước giàu oxy là chắc đủ.</p>",
+    "diet:scotcat": "<p>Cá dễ ăn và nhận đủ loại thức ăn, chẳng hạn xà lách, dưa chuột, bí ngòi, thức ăn viên nén, thức ăn dạng mảnh, cám hạt, trùng huyết đông lạnh, và còn nhiều thứ khác nữa. Nên bỏ vào bể vài hòn đá phủ rêu hoặc làm cách nào tương tự. Chúng sẽ gặm rêu và ăn luôn những sinh vật li ti sống lẫn trong đám rêu đó.</p>",
+    "notes:scotcat": "<p>Giống Parotocinclus có vây mỡ, còn Otocinclus thì không, nên phân biệt hai giống này khá dễ. Vây lưng có tổng cộng 8 tia mềm, vây hậu môn có 6 tia mềm.</p><p>Nguồn gốc tên: tên loài jumbo là để chỉ thân hình to và mập hơn của loài Parotocinclus này so với các loài khác trong giống.</p><p>Danh sách đỏ IUCN: Parotocinclus jumbo có ở các sông ven biển vùng Đông Bắc và hạ lưu sông São Francisco, gặp thường xuyên và với số lượng nhiều. Loài này có bị ảnh hưởng do nạn bắt cá cảnh trái phép, nhưng mối đe dọa này không đáng kể, nên loài được xếp vào mức Ít quan tâm (LC). Nạn bắt trái phép vẫn nên được giám sát chặt hơn và xử lý mạnh tay hơn, vì nếu bị bắt nhiều hơn thì Parotocinclus jumbo có thể gặp nguy hơn (IUCN 2022).</p>",
+    "references:scotcat": "<p>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Parotocinclus jumbo. The IUCN Red List of Threatened Species 2022.</p><p>Froese, R. and D. Pauly. Editors. 2008. FishBase. World Wide Web electronic publication. www.fishbase.org, version (02/2009).</p>"
   },
   "quality": {
-    "score": 0.95,
-    "indexable": false,
+    "score": 0.85,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.95
-    },
-    "reason": "thin"
+      "glaser": 0.95,
+      "scotcat": 0.85
+    }
   }
 }

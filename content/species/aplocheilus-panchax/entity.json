@@ -20,7 +20,7 @@
   "range": {
     "native": {
       "countries": [
-        "IN"
+        "CN"
       ],
       "regions": [],
       "sources": [
@@ -29,9 +29,9 @@
       "quotes": [
         {
           "source": "glaser",
-          "quote": "A. panchax is the most common fish in large parts of India and can be found literally everywhere, from the smallest puddle to the shores of large rivers and lakes; the panchax can even tolerate the salty water of estuaries.",
+          "quote": "It is distributed from China over great parts of India, Burma and Indochina (Thailand, Vietnam, Cambodia, Laos), as well as over Indonesia.",
           "countries": [
-            "IN"
+            "CN"
           ],
           "regions": []
         }
@@ -40,7 +40,7 @@
     "records": {
       "taxonKey": 2347811,
       "total": 398,
-      "fetched": "2026-11-06",
+      "fetched": "2026-11-16",
       "countries": [
         [
           "ID",
@@ -102,55 +102,55 @@
           68.90625,
           21.09375,
           1,
-          1
+          0
         ],
         [
           73.125,
           14.0625,
           1,
-          1
+          0
         ],
         [
           73.125,
           19.6875,
           2,
-          2
+          0
         ],
         [
           74.53125,
           12.65625,
           2,
-          2
+          0
         ],
         [
           75.9375,
           8.4375,
           2,
-          2
+          0
         ],
         [
           75.9375,
           11.25,
           2,
-          2
+          0
         ],
         [
           80.15625,
           12.65625,
           2,
-          2
+          0
         ],
         [
           80.15625,
           22.5,
           1,
-          1
+          0
         ],
         [
           80.15625,
           26.71875,
           1,
-          1
+          0
         ],
         [
           80.15625,
@@ -162,19 +162,19 @@
           82.96875,
           16.875,
           6,
-          6
+          0
         ],
         [
           84.375,
           18.28125,
           2,
-          2
+          0
         ],
         [
           84.375,
           19.6875,
           1,
-          1
+          0
         ],
         [
           84.375,
@@ -186,7 +186,7 @@
           85.78125,
           22.5,
           3,
-          3
+          0
         ],
         [
           85.78125,
@@ -198,31 +198,31 @@
           87.1875,
           21.09375,
           1,
-          1
+          0
         ],
         [
           87.1875,
           22.5,
           7,
-          7
+          0
         ],
         [
           87.1875,
           25.3125,
           4,
-          1
+          0
         ],
         [
           88.59375,
           21.09375,
           4,
-          4
+          0
         ],
         [
           88.59375,
           22.5,
           4,
-          4
+          0
         ],
         [
           88.59375,
@@ -234,19 +234,19 @@
           88.59375,
           25.3125,
           3,
-          2
+          0
         ],
         [
           90,
           22.5,
           6,
-          1
+          0
         ],
         [
           91.40625,
           11.25,
           8,
-          8
+          0
         ],
         [
           91.40625,
@@ -264,13 +264,13 @@
           91.40625,
           23.90625,
           4,
-          1
+          0
         ],
         [
           92.8125,
           11.25,
           1,
-          1
+          0
         ],
         [
           94.21875,

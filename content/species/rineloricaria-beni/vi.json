@@ -2,20 +2,30 @@
   "slug": "ca-da-tron-duoi-roi-hemiloricaria-beni",
   "name": "Cá da trơn đuôi roi Hemiloricaria beni",
   "altNames": [
-    "Whiptail catfish"
+    "Whiptail catfish",
+    "Cá whiptail lùn",
+    "Dwarf whiptail catfish"
   ],
   "sections": {
     "quickFacts:glaser": "<p>Đây là loài nhỏ nhất trong số cá da trơn đuôi roi (whiptail) từng biết tới. Nó hầu như không dài quá 8 cm.</p>",
     "beforeYouBuy:glaser": "<p>Loài này chỉ có ở Bolivia, mà Bolivia lại không xuất khẩu cá cảnh. Vì vậy, cá bán ngoài tiệm đều là cá cho đẻ trong bể.</p>",
     "distribution:glaser": "<p>Loài này chỉ có ở Bolivia.</p>",
-    "notes:glaser": "<p>Lần đầu tiên loài này được bắt về là năm 1997, trong một chuyến đi bắt cá riêng của mấy người chơi cá Thụy Sĩ. Từ đó đến nay, con cá dễ thương này đã có một đàn sinh sản ổn định trong bể nuôi.</p>"
+    "notes:glaser": "<p>Lần đầu tiên loài này được bắt về là năm 1997, trong một chuyến đi bắt cá riêng của mấy người chơi cá Thụy Sĩ. Từ đó đến nay, con cá dễ thương này đã có một đàn sinh sản ổn định trong bể nuôi.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: cá lau kiếng đuôi roi lùn (tiếng Anh: Dwarf whiptail catfish)</li><li>Danh sách đỏ IUCN: Ít quan tâm. Loài này phân bố rộng và có mặt ở nhiều khu bảo tồn. Các mối đe dọa chỉ có ở từng vùng, khó ảnh hưởng tới quần thể đến mức phải xếp vào nhóm bị đe dọa. Tuy nhiên, đánh giá này cần cập nhật lại (IUCN 2016).</li></ul>",
+    "distribution:scotcat": "<p>Bolivia: lưu vực sông Beni. Nơi thu mẫu chuẩn: các đầm và hồ Rogoagua, lưu vực sông Beni, Bolivia.</p><p>Nguồn gốc tên: tên loài beni lấy từ sông Beni (Rio Beni), chảy qua Bolivia và Peru, Nam Mỹ.</p>",
+    "maintenance:scotcat": "<p>Thả chung với cá khác hay nuôi riêng một loài đều không có vấn đề gì, miễn là nước giữ được thông số tốt.</p>",
+    "diet:scotcat": "<p>Loài này ăn tạp. Cho ăn rau như dưa chuột, xen với các loại thức ăn khác như thức ăn viên, thức ăn dạng mảnh và đồ đông lạnh.</p>",
+    "reproduction:scotcat": "<p>Đây là loài nhỏ nhất trong nhóm Hemiloricaria/Rineloricaria, cho đẻ cũng khá dễ.</p><p>Cá cái đẻ tới 80 trứng màu cam đến nâu trong một ống hẹp, đường kính tối thiểu 1,2 cm. Các loài Rineloricaria thường đẻ trong hang. Con đực dọn sạch bên trong trước, rồi con cái mới vào đặt trứng. Sau đó con đực ở lại canh và quạt trứng tới khi nở. Trứng nở sau 4–5 ngày, lúc này có thể vớt con đực ra.</p>",
+    "notes:scotcat": "<p>Isbrücker &amp; Nijssen (1976a) và Isbrücker (1981a) từng đề xuất công nhận lại giống Hemiloricaria Bleecker, 1862 (loài chuẩn: Hemiloricaria caracasensis). Nhưng cuối cùng họ vẫn để nó là tên đồng nghĩa của Rineloricaria, vì không đủ đặc điểm để tách hai giống này. Năm 2001, Isbrücker và cộng sự công nhận lại Hemiloricaria, đồng thời lập hai giống mới là Fonchiiichthys (loài chuẩn: Loricaria uracantha) và Leliella (loài chuẩn: Rineloricaria heteroptera). Căn cứ của họ là những khác biệt nhỏ giữa con đực và con cái (Covain, Raphael; Fisch-Muller, Sonia 2007).</p><p>Loài này về tới giới nuôi cá lần đầu năm 1997, từ một chuyến đi bắt cá của mấy người chơi Thụy Sĩ. Thông tin thêm về loài này có trong Catfish Atlas Volume 1.</p>",
+    "references:scotcat": "<p>Covain, Raphael; Fisch-Muller, Sonia (2007). \"The genera of the Neotropical armored catfish subfamily Loricariinae (Siluriformes: Loricariidae): a practical key and synopsis\" Zootaxa. 1462: 1–40. Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Sarmiento, J., Maldonado, M. &amp; Carvajal, F. 2016. Rineloricaria beni. The IUCN Red List of Threatened Species 2016.</p>"
   },
   "quality": {
     "score": 0.6,
     "indexable": false,
     "bySource": {
-      "glaser": 0.6
+      "glaser": 0.6,
+      "scotcat": 0.95
     },
-    "reason": "thin"
+    "reason": "score"
   }
 }

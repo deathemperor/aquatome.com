@@ -1893,6 +1893,33 @@
       "\"mengeluarkan bunga\": \"menghasilkan bunga\" or \"berbunga\" is more natural."
     ]
   },
+  "phyllantus-fluitans": {
+    "at": "2026-11-16",
+    "from": "2026-11-16",
+    "name": "Red Root Floater",
+    "confidence": "high",
+    "score": 0.8,
+    "notes": [
+      "Tank size: the table gives 5 gallons as 20 litres. That is fine, so no change is needed there.",
+      "Item 9: the English leaves Vietnamese names \"bèo ếch\", \"bèo cái lùn\" and \"bèo tấm\" in the source. The translation drops them, which is fine, but check that \"kayu apu kerdil (Dwarf Water Lettuce)\" is a sensible local name. \"Kiambang\" or \"apu-apu kerdil\" is more standard for Pistia. \"Kayu apu\" is the usual name.",
+      "Item 9: \"Frogbit\" is left untranslated. Add a local gloss, for example \"Frogbit (Limnobium)\".",
+      "Item 9: \"lemna (duckweed)\" is used for Duckweed. Hobbyists also say \"mata lele\" or \"kiambang kecil\". Consider using \"mata lele (duckweed)\".",
+      "Item 9: \"menolak air (anti air)\" for \"water-repellent\" is awkward. Use \"menolak air (hidrofobik)\" or \"tidak basah oleh air\".",
+      "Item 9: \"egg scatterers\" is rendered as \"ikan penyebar telur\". That is acceptable. \"Burayak\" for fry is fine.",
+      "Item 9: \"corydoras pygmy\" should be \"corydoras pygmy (Corydoras pygmaeus)\". Word order is more natural as \"corydoras kerdil\". Likewise \"ikan mas koki\" is redundant. Use \"ikan mas\" or \"koki\"."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "84386acfb575",
+      "distribution:aquariumbreeder": "10f61d50071c",
+      "habitat:aquariumbreeder": "3d25c0804c2d",
+      "aquariumSize:aquariumbreeder": "47b3d66824e7",
+      "maintenance:aquariumbreeder": "77a79b6197bc",
+      "waterConditions:aquariumbreeder": "9b4355068917",
+      "equipment:aquariumbreeder": "17266401026a",
+      "reproduction:aquariumbreeder": "298da21280b6",
+      "notes:aquariumbreeder": "7d46c69258b3"
+    }
+  },
   "plagiomnium-sp-thyme-moss": {
     "at": "2026-11-05",
     "from": "2026-10-31",

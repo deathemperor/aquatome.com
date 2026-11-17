@@ -56,17 +56,17 @@ test("a photo the calendar keeps off cards leads no featured fish and no group t
   expect(groupTiles('vi', g, undefined, avoid)[0]!.photo?.url).toBe('https://x/b-0.jpg')
 })
 
-test("a video guide's card picture: a photo from its sections, not a strip a card would crop to a sliver; the home page's videos have one but for at most one", async () => {
+test("a video guide's card picture is its own video's still, never a part's stock photo; the home page's videos have one but for at most one", async () => {
+  const { stillShown } = await import('@aq/schema')
   const { getContent } = await import('../src/lib/content')
   const { guideImages } = await import('../src/lib/mentions')
   const { homeVideos } = await import('../src/lib/video')
   const { pagePictures, takeRow } = await import('../src/lib/pictures')
   const c = await getContent('vi')
-  const g = c.guides.find(x => x.video?.figures?.some(f => f.photo))!
-  const photo = g.video!.figures!.find(f => f.photo)!.photo!
-  expect(guideImages(c, g)).toContain(photo)
-  const strip = { ...g, video: { ...g.video!, figures: [{ heading: 'x', moments: [], photo: { ...photo, url: 'https://x/strip.webp', width: 960, height: 267 } }] } }
-  expect(guideImages(c, strip).map(p => p.url)).not.toContain('https://x/strip.webp')
+  const g = c.guides.find(x => x.video?.figures?.some(f => f.photo) && x.video.figures.some(f => f.moments.some(stillShown)))!
+  const photo = g.video!.figures!.find(f => f.photo)!.photo!, still = g.video!.figures!.flatMap(f => f.moments).find(stillShown)!
+  expect(guideImages(c, g)[0]?.url).toBe(still.url)
+  expect(guideImages(c, g).map(p => p.url)).not.toContain(photo.url)
   // A guide with no picture at all keeps its place and draws a cover (the chief of staff and the Design Lead, 15 Nov 2026),
   // one at most in the home page's row of four.
   const bare = { ...g, id: 'bare', photos: [], mentions: [], t: { ...g.t, body: '<p>Không nhắc loài nào.</p>' }, video: { ...g.video!, figures: [], series: { ...g.video!.series!, position: 0 } } }
