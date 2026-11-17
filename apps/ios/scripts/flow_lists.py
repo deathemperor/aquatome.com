@@ -123,10 +123,12 @@ LOVE_ECOLOGY = ['LightFlowTests/' + t for t in (
     'testLeavingTheLightsScreenDropsWhatWaits', 'testAStartThatDoesntAnswerGivesUpAndItsLateAnswerCreditsNothing',
     'testSigningOutDropsWhatWaits', 'testSigningOutOnAnotherTabStopsTheCardsSendOnAir')]
 # The master button's flows that share the lamp's broadcast with the Love Ecology card: its put-back to the colour the
-# card sent, the card's send its lamp step cuts short, and the gap the card's next send waits after the step.
+# card sent, the card's send its lamp step cuts short, and the light's gap both ways (the card's next send after the
+# step, seen or not; the step after the card's send).
 MASTER_LAMP = ['MasterFlowTests/' + t for t in (
     'testEndsByTheClockAndPutsBackTheLastColourSentToTheLamp', 'testACardSendTheButtonsLampStepCutsIsNotShownAsSent',
-    'testTheCardsNextSendWaitsTheGapAfterTheButtonsLampStep')]
+    'testTheCardsNextSendWaitsTheGapAfterTheButtonsLampStep', 'testTheButtonsLampStepWaitsTheGapAfterTheCardsSend',
+    'testTheCardsSendWaitsTheGapAfterALampStepPutBackWhileAway')]
 # The tanks tab: a tank's own flows, its plugs section and its hint that opens the Tài khoản sheet (where the account and
 # the posters blocked are, not here), a page's links and the handbook's tools that open it, and the lights kept on a tank.
 TANKS_TAB = ['TanksFlowTests', 'TankLifeFlowTests', 'TankCheckFlowTests', 'AccountFlowTests', 'PlugFlowTests',

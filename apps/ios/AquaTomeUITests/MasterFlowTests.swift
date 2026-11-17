@@ -96,6 +96,50 @@ final class MasterFlowTests: XCTestCase {
     XCTAssertLessThan(Date().timeIntervalSince(red), 240, "checked past the gap: the check proves nothing")
   }
 
+  /// The other way: the button's lamp step waits the light's gap after the card's send has ended (a minute here), as the
+  /// card's waits after the step. Đỏ tapped, then "Bắt đầu" within the gap: an "off" begun then may not be taken, and the
+  /// phone would keep it as sent (17 Nov).
+  func testTheButtonsLampStepWaitsTheGapAfterTheCardsSend() {
+    let app = launch(["-lamp-gap", "60"])
+    make(app, end: "tap")
+    tap(app, "lamp-red")
+    expect(app, "lamp-status", contains: "Đã gửi “Đỏ”", timeout: 20)
+    let ended = Date()
+    top(app)
+    tap(app, "master-start")
+    _ = XCTWaiter.wait(for: [XCTestExpectation(description: "a moment")], timeout: 5)
+    // Still waiting: the lamp started once, for red.
+    XCTAssertEqual(element(app, "lamp-starts").label, "1", "the button's lamp step went without the gap")
+    XCTAssertLessThan(Date().timeIntervalSince(ended), 50, "checked past the gap: the check proves nothing")
+    // Then it goes, the gap after red passed.
+    expect(app, "master-log", contains: "lamp on+white", timeout: 120)
+  }
+
+  /// The button's lamp step put back by the clock while Đèn wasn't showing: the card saw nothing of it, and its next send
+  /// still waits the light's gap after it (a minute here), which the phone's one broadcaster keeps, not the card.
+  func testTheCardsSendWaitsTheGapAfterALampStepPutBackWhileAway() {
+    let app = launch(["-master-ends-in", "6", "-lamp-gap", "60"])
+    // The card's yellow, sent before: what the lamp goes back to.
+    tap(app, "lamp-yellow")
+    expect(app, "lamp-status", contains: "Đã gửi “Vàng”", timeout: 20)
+    make(app, end: "tap", light: true)
+    top(app)
+    tap(app, "master-start")
+    // Away from Đèn while the step goes out and the clock puts it back: yellow, the step's on and white, then back on and
+    // yellow, each stopped at its end.
+    app.openTab("Bể của tôi")
+    let five = expectation(for: NSPredicate(format: "label == %@", "5"), evaluatedWith: element(app, "lamp-stops"))
+    XCTAssertEqual(XCTWaiter.wait(for: [five], timeout: 300), .completed, "not put back while away: \(element(app, "lamp-stops").label) stopped")
+    let back = Date()
+    app.openTab("Đèn")
+    tap(app, "lamp-red")
+    _ = XCTWaiter.wait(for: [XCTestExpectation(description: "a moment")], timeout: 5)
+    // Still waiting: started five times, red not yet.
+    XCTAssertEqual(element(app, "lamp-starts").label, "5", "red went without the gap after the put-back")
+    XCTAssertLessThan(Date().timeIntervalSince(back), 50, "checked past the gap: the check proves nothing")
+    expect(app, "master-log", contains: "lamp back on+yellow")
+  }
+
   func testTheUntilKetThucButtonShowsWhenItStarted() {
     let app = launch()
     make(app, end: "tap")

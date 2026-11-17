@@ -954,7 +954,9 @@ final class LightFlowTests: XCTestCase {
     expect(app, "lamp-status", contains: "Chưa gửi lệnh nào từ máy này")
     // Bật and Tắt are buttons, not swatches too: the eight colours and Khác.
     XCTAssertEqual(app.buttons.matching(NSPredicate(format: "identifier IN %@", ["lamp-on", "lamp-off"])).count, 2)
-    XCTAssertTrue(element(app, "lamp-other").exists, "no Khác")
+    // Scrolled to: the colour grid builds only what is on the screen, and on GitHub's iPhone 17 the card's colours start
+    // below the master button's card (17 Nov: "no Khác" on both tries, the recording showing the grid off the screen).
+    XCTAssertTrue(scrolledTo(app, "lamp-other").exists, "no Khác")
     // Nothing sent yet: the slider rests at 100%.
     expect(app, "lamp-level", value: "100%")
     // The line is two lines high from the first frame, so sending moves nothing under it (the trial row).

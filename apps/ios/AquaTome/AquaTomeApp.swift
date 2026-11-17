@@ -116,8 +116,12 @@ struct AquaTomeApp: App {
       .tabBarNeverMinimizes()
       .titleOverWhatScrolls()
       #if DEBUG
-      // Whatever tab or page is showing, for the video tests: the pages' players still alive.
-      .background { PlayerCount() }
+      // Whatever tab or page is showing, for the video tests: the pages' players still alive; and for the lamp's: its
+      // broadcasts started and stopped.
+      .background {
+        PlayerCount()
+        LampCount()
+      }
       #endif
       // The owner's report button, and its offer after a screenshot (OwnerReport): the owner's account alone. Inside the
       // environment below, which it reads the account from.
