@@ -122,6 +122,19 @@
   ],
   "kinds": [
     {
+      "id": "phan-nen",
+      "photo": {
+        "url": "https://media.aquatome.com/flickr/5430662568.webp",
+        "thumb": "https://media.aquatome.com/flickr/5430662568-480.webp",
+        "width": 1023,
+        "height": 685,
+        "licence": "CC BY 2.0",
+        "author": "Chris Penny",
+        "sourceUrl": "https://www.flickr.com/photos/61519791@N00/5430662568",
+        "caption": "Phân nền: những hạt tròn nhỏ màu nâu đen, đựng trong một chiếc cốc."
+      }
+    },
+    {
       "id": "cat",
       "photo": {
         "url": "https://media.aquatome.com/video/FbX_XvXFmW0/p4-RvbV9zYW5kLmpwZw.webp",
@@ -159,6 +172,32 @@
         "sourceUrl": "https://aquariumbreeder.com/lava-rocks-in-aquariums-pros-and-cons/",
         "caption": "Nham thạch, sỏi núi lửa: những viên đá đỏ nâu và xám, đầy lỗ xốp.",
         "source": "aquariumbreeder"
+      }
+    },
+    {
+      "id": "nham-thach-trang",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/a4aae3b27a343c2a.webp",
+        "thumb": "https://media.aquatome.com/commons/a4aae3b27a343c2a-480.webp",
+        "width": 1200,
+        "height": 1105,
+        "licence": "CC BY 2.0",
+        "author": "James St. John",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pumice_(Mt._St._Helens,_Washington_State,_USA)_1.jpg",
+        "caption": "Nham thạch trắng: một viên đá bọt màu trắng, xốp, đầy lỗ nhỏ."
+      }
+    },
+    {
+      "id": "xi-than",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/6bc7e80dbc02479e.webp",
+        "thumb": "https://media.aquatome.com/commons/6bc7e80dbc02479e-480.webp",
+        "width": 1024,
+        "height": 768,
+        "licence": "CC BY-SA 2.0",
+        "author": "Lairich Rig",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Clinker_-_geograph.org.uk_-_4713545.jpg",
+        "caption": "Xỉ than: một cục xỉ xốp, sẫm màu, nằm giữa lá khô và đá vụn."
       }
     },
     {
