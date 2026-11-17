@@ -1582,5 +1582,92 @@
       "maintenance:tropica": "1d5fa563c9c1",
       "notes:tropica": "857a2e5e2bdc"
     }
+  },
+  "hygrophila-polysperma": {
+    "at": "2026-11-17",
+    "from": "2026-10-30",
+    "name": "Hygrophila Polysperma",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:aquariumbreeder": "c18e00d073b9",
+      "quickFacts:tropica": "6057169b6944",
+      "distribution:aquariumbreeder": "6b1ad76c729e",
+      "habitat:aquariumbreeder": "11782589b50f",
+      "aquariumSize:aquariumbreeder": "3db1c165e380",
+      "maintenance:aquariumbreeder": "afcdac4ddb82",
+      "maintenance:tropica": "5b4f3277bd14",
+      "waterConditions:aquariumbreeder": "f056e7fc38c9",
+      "equipment:aquariumbreeder": "0d2df3fcd5ee",
+      "notes:aquariumbreeder": "38a8e0fc89ec",
+      "notes:tropica": "d3dc59f4c47c",
+      "references:aquariumbreeder": "849aef0e958c"
+    }
+  },
+  "hygrophila-polysperma-rosanervig": {
+    "at": "2026-11-17",
+    "from": "2026-11-09",
+    "name": "Hygrophila Rosanervig",
+    "confidence": "high",
+    "score": 0.75,
+    "notes": [
+      "Item 2: source is Vietnamese, not English; translation is faithful overall. Name 'Đại hồng hà' rendered as 'Rosanervig' (cultivar name) – acceptable but could be 'Hygrophila polysperma 'Rosanervig''.",
+      "Item 2: 'emersed (di atas air)' leaves English term; prefer 'emersed' in brackets after Malay, e.g. 'ditanam secara tumbuh atas air (emersed)'.",
+      "Item 2: 'cucuk ke dalam substrat' – 'tanam ke dalam substrat' is more natural.",
+      "Item 2: 'tangki' – 'akuarium' is also common; 'alga' fine.",
+      "Item 3: 'tidak cerewet' is slightly colloquial; 'tidak memerlukan penjagaan rumit' is more natural."
+    ],
+    "parts": {
+      "quickFacts:tropica": "bb8a995b27d6",
+      "maintenance:aquatome": "5e4d8c07afd8",
+      "maintenance:tropica": "a8dd074b5ed4",
+      "notes:tropica": "75a312a5c1e7"
+    }
+  },
+  "hygrophila-serpyllum": {
+    "at": "2026-11-17",
+    "from": "2026-10-30",
+    "name": "Hygrophila serpyllum",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"tangki\" in item 1: Malaysian hobbyists usually say \"akuarium\" (as used in item 2) – use consistent term, e.g. \"dalam akuarium\".",
+      "\"tumbesarannya\"/\"Tumbesaran\": standard spelling is \"tumbesaran\" (accepted), but \"pertumbuhan\" is more natural; keep consistent.",
+      "\"tumbuhan akuatik\" in item 2 is an addition not in the English (\"unique, compact plant\"); consider \"tumbuhan yang unik dan padat\".",
+      "\"rendang\" in item 2 means bushy/leafy and is slightly different from \"dense and compact\"; consider \"lebat\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "0f8643ea8350",
+      "maintenance:tropica": "3b031fae940e",
+      "notes:tropica": "e3fe7479a438"
+    }
+  },
+  "juncus-repens": {
+    "at": "2026-11-17",
+    "from": "2026-10-30",
+    "name": "Juncus repens",
+    "confidence": "medium",
+    "score": 0.88,
+    "notes": [
+      "Item 4: \"tanah liat berlodak\" for \"loamy soil\" is inaccurate, because loam is not clay. Use \"tanah loam\" or \"tanah gembur berhumus\".",
+      "Item 6: \"jika rupa hutan (jungle) yang diingini\" is awkward and has no subject. Use \"jika rupa hutan (jungle) yang dikehendaki\" or \"jika rupa seperti hutan memang diingini\".",
+      "Item 11: \"rush family Juncaceae\" is rendered only as \"famili Juncaceae\", so \"rush\" is dropped. Use \"famili rush, Juncaceae\".",
+      "Item 11: \"lembik\" for \"lax\" stem is slightly off. \"Longgar\" or \"terkulai\" fits better."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "bf9c3afbd4b1",
+      "quickFacts:tropica": "0a0bfddd4f2f",
+      "distribution:aquariumbreeder": "5d28d7067466",
+      "habitat:aquariumbreeder": "f0f3b91d8457",
+      "aquariumSize:aquariumbreeder": "e1a8ce8038d0",
+      "maintenance:aquariumbreeder": "e9c30448b31c",
+      "maintenance:tropica": "90a13555ac41",
+      "waterConditions:aquariumbreeder": "36ac4cdccf69",
+      "equipment:aquariumbreeder": "d9c2c358fdf8",
+      "behaviour:aquariumbreeder": "0e094dcf5b8e",
+      "notes:aquariumbreeder": "85eb67bc1fcf",
+      "references:aquariumbreeder": "7f85c6a52f4b"
+    }
   }
 }

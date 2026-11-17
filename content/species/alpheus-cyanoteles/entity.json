@@ -9,6 +9,56 @@
     "asia",
     "malaysia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "They come from the peninsula of Malaysia.",
+          "countries": [
+            "MY"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 6455800,
+      "total": 7,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "MY",
+          5
+        ],
+        [
+          "ID",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          1.40625,
+          5,
+          5
+        ],
+        [
+          119.53125,
+          -5.625,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

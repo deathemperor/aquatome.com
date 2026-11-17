@@ -10,8 +10,7 @@
     "behaviour:glaser": "<p>Nổi bật nhất ở loài này là đôi “tay” rất dài, cũng là nguồn gốc của cái tên. Con lớn nhờ đôi tay này mà với được rất xa. Chúng bắt được cả cá nhỏ, nên khó thả chung với cá hiền cỡ nhỏ. Nuôi với cá lớn hơn hoặc nuôi riêng trong bể tép thì chúng lại là loài thú vị.</p>",
     "maintenance:glaser": "<p>Giống mọi loài Macrobrachium khác, chúng cần nước sạch và ổn định. Ngoài chuyện đó ra thì loài này dễ nuôi.</p>",
     "diet:glaser": "<p>Thức ăn thông thường nào chúng cũng ăn rất háu.</p>",
-    "equipment:glaser": "<p>Bể tép không nên để đèn quá sáng, hoặc thả ít bèo cho dễ che bớt ánh sáng. Rễ bèo là chỗ trốn cho tép con, vì tép bố mẹ đôi khi săn mồi khá dữ. Bể cũng cần nhiều chỗ trốn. Có thể dùng lũa, gáo dừa và đá để bày thành cảnh dưới nước rất đẹp.</p>",
-    "notes:glaser": "<p>Tôm càng tay dài Macrobrachium idae được nhập từ Sri Lanka về vào tháng 1 năm 2006.</p>"
+    "equipment:glaser": "<p>Bể tép không nên để đèn quá sáng, hoặc thả ít bèo cho dễ che bớt ánh sáng. Rễ bèo là chỗ trốn cho tép con, vì tép bố mẹ đôi khi săn mồi khá dữ. Bể cũng cần nhiều chỗ trốn. Có thể dùng lũa, gáo dừa và đá để bày thành cảnh dưới nước rất đẹp.</p>"
   },
   "quality": {
     "score": 0.7,
@@ -20,11 +19,5 @@
       "glaser": 0.7
     },
     "reason": "thin"
-  },
-  "held": {
-    "checks": [
-      "source"
-    ],
-    "at": "2026-11-17"
   }
 }

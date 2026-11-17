@@ -31,19 +31,10 @@
       ],
       "quotes": [
         {
-          "source": "bwaquatics",
-          "quote": "Native to Thailand, found in the Mae Khlong and Mae Klong tributary basins.",
-          "countries": [
-            "TH"
-          ],
-          "regions": [
-            "Mae Khlong"
-          ]
-        },
-        {
           "source": "seriouslyfish",
           "quote": "Microdevario kubotai is a miniature cyprinid from peninsular Thailand and the Salween drainage in southern Myanmar.",
           "countries": [
+            "TH",
             "MM"
           ],
           "regions": [
@@ -64,6 +55,14 @@
           "countries": [],
           "regions": [
             "Suriya"
+          ]
+        },
+        {
+          "source": "bwaquatics",
+          "quote": "Native to Thailand, found in the Mae Khlong and Mae Klong tributary basins.",
+          "countries": [],
+          "regions": [
+            "Mae Khlong"
           ]
         }
       ]

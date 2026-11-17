@@ -11,6 +11,106 @@
     "north-america",
     "nicaragua"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "EC",
+        "NI"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This species occurs along the Pacific coast from Ecuador to Nicaragua.",
+          "countries": [
+            "EC",
+            "NI"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 4382549,
+      "total": 25,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "NI",
+          10
+        ],
+        [
+          "PA",
+          6
+        ],
+        [
+          "CR",
+          4
+        ],
+        [
+          "EC",
+          3
+        ],
+        [
+          "CO",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -88.59375,
+          12.65625,
+          10,
+          10
+        ],
+        [
+          -85.78125,
+          9.84375,
+          3,
+          0
+        ],
+        [
+          -84.375,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -81.5625,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -80.15625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -80.15625,
+          8.4375,
+          6,
+          0
+        ],
+        [
+          -78.75,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -77.34375,
+          2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

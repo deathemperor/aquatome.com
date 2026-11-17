@@ -1,8 +1,8 @@
 {
   "id": "ompok-fumidus",
   "native": {
-    "input": "7b3f8096c8759fe0",
-    "at": "2026-11-17T00:14:47.070Z",
+    "input": "de0ff488fc279304",
+    "at": "2026-11-17T05:18:20.405Z",
     "claims": [
       {
         "code": "TH",
@@ -10,6 +10,14 @@
         "source": "glaser",
         "quote": "Ompok fumidus has a wide distribution over the Malay Peninsula, Sumatra, Borneo, Riau Islands and Thailand.",
         "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: North Selangor peat swamp forest, 43 km on road from Tanjong Malim to Sungai Besar, Selangor, Malaysia.",
+        "words": "Malaysia",
         "ok": true
       }
     ],
@@ -33,9 +41,27 @@
         "ok": true
       },
       {
-        "name": "Riau Islands",
-        "source": "glaser",
-        "quote": "Ompok fumidus has a wide distribution over the Malay Peninsula, Sumatra, Borneo, Riau Islands and Thailand.",
+        "name": "Batang Hari",
+        "source": "scotcat",
+        "quote": "The IUCN Red List: this species occurs from the Mae Nam Kolok drainage southwards to the Pahang River drainage in the Malay Peninsula; Pulau Bintan (Riau Archipelago); Batang Hari drainage in central Sumatra, and the Kapuas River drainage southwards to the Arut River drainage in Borneo, with an estimated extent of occurrence (EOO) of 573,960 km2.",
+        "ok": true
+      },
+      {
+        "name": "Kapuas River",
+        "source": "scotcat",
+        "quote": "The IUCN Red List: this species occurs from the Mae Nam Kolok drainage southwards to the Pahang River drainage in the Malay Peninsula; Pulau Bintan (Riau Archipelago); Batang Hari drainage in central Sumatra, and the Kapuas River drainage southwards to the Arut River drainage in Borneo, with an estimated extent of occurrence (EOO) of 573,960 km2.",
+        "ok": true
+      },
+      {
+        "name": "Pulau Bintan",
+        "source": "scotcat",
+        "quote": "Asia: Peninsular Malaysia (Terengganu, Selangor, Perak and Pahang); Pulau Bintan (Riau Archipelago), as well as Kalimantan Barat and Kalimantan Tengah (Borneo).",
+        "ok": true
+      },
+      {
+        "name": "Pahang River",
+        "source": "scotcat",
+        "quote": "The IUCN Red List: this species occurs from the Mae Nam Kolok drainage southwards to the Pahang River drainage in the Malay Peninsula; Pulau Bintan (Riau Archipelago); Batang Hari drainage in central Sumatra, and the Kapuas River drainage southwards to the Arut River drainage in Borneo, with an estimated extent of occurrence (EOO) of 573,960 km2.",
         "ok": true
       }
     ],
@@ -43,7 +69,6 @@
     "outranked": [],
     "origin": {
       "pagesOnly": [
-        "MY",
         "ID"
       ],
       "sourcesOnly": []
@@ -55,9 +80,10 @@
     "taxonKey": 2337635,
     "datasets": [],
     "native": [
-      "TH"
+      "TH",
+      "MY"
     ],
     "requests": 2,
-    "at": "2026-11-17T00:14:47.070Z"
+    "at": "2026-11-17T05:18:20.405Z"
   }
 }

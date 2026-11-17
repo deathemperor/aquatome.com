@@ -10,6 +10,47 @@
     "angola",
     "quanza"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "AO"
+      ],
+      "regions": [
+        "Quanza River",
+        "Lucala River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Africa: Quanza River system and the interior of Benguella, Angola.",
+          "countries": [
+            "AO"
+          ],
+          "regions": [
+            "Quanza River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "IUCN Red List: Only known from the Benguella area (type locality) and in the upper reaches of the Lucala River (Lower Kwanza River system).",
+          "countries": [],
+          "regions": [
+            "Lucala River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340803,
+      "total": 0,
+      "fetched": "2026-11-17",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -21,10 +21,12 @@
       ],
       "regions": [
         "Mekong",
-        "Mae Klong"
+        "Mae Klong",
+        "Xe Bangfai"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -38,6 +40,14 @@
           "regions": [
             "Mekong",
             "Mae Klong"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Laos it's been collected from the Xe Bangfai river, a tributary of the Mekong that was due to be dammed in 2009/10.",
+          "countries": [],
+          "regions": [
+            "Xe Bangfai"
           ]
         }
       ]

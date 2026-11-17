@@ -3,6 +3,12 @@
   "name": "Hulu Congo",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.35,
+    "at": "2026-11-17T05:12:40.280Z",
+    "why": "Upper-Congo is a former province/region of the DRC (Haut-Congo), which Malay would render as \"Haut-Congo\" or \"Congo Atas\"; \"Hulu Congo\" is a loose calque, and the Vietnamese gloss refers to the upper river course, not clearly the region."
+  },
   "quality": {
     "score": 0.35,
     "indexable": false

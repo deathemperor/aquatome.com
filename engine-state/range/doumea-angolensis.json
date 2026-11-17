@@ -1,0 +1,49 @@
+{
+  "id": "doumea-angolensis",
+  "native": {
+    "input": "a35c06be77be301c",
+    "at": "2026-11-17T05:18:20.405Z",
+    "claims": [
+      {
+        "code": "AO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Africa: Quanza River system and the interior of Benguella, Angola.",
+        "words": "Angola",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Quanza River",
+        "source": "scotcat",
+        "quote": "Africa: Quanza River system and the interior of Benguella, Angola.",
+        "country": "AO",
+        "ok": true
+      },
+      {
+        "name": "Lucala River",
+        "source": "scotcat",
+        "quote": "IUCN Red List: Only known from the Benguella area (type locality) and in the upper reaches of the Lucala River (Lower Kwanza River system).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Doumea angolensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2340803,
+    "datasets": [],
+    "native": [
+      "AO"
+    ],
+    "requests": 2,
+    "at": "2026-11-17T05:18:20.405Z"
+  }
+}

@@ -1353,6 +1353,18 @@
       "kept": true
     }
   ],
+  "id/places/bempazawa": [
+    {
+      "at": "2026-11-17T04:48:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/ben-hai": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -2086,6 +2098,20 @@
       "kept": true
     }
   ],
+  "id/places/canhotinho-river": [
+    {
+      "at": "2026-11-17T04:48:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Canhotinho (Vietnamese 'sông', not Indonesian; should be Sungai Canhotinho)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/cape-fear-river": [
     {
       "at": "2026-11-09T00:08:04Z",
@@ -2156,6 +2182,20 @@
       "cli": "2.1.322",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/caqueta-river": [
+    {
+      "at": "2026-11-17T04:48:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Caquetá (should be Sungai Caquetá)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -2335,6 +2375,18 @@
       "notes": [
         "sông Cavalla (should be Sungai Cavalla)"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/cavally": [
+    {
+      "at": "2026-11-17T04:48:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -4935,6 +4987,20 @@
       "kept": true
     }
   ],
+  "id/places/itatiaia-mountains": [
+    {
+      "at": "2026-11-17T04:48:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "dãy Itatiaia (Vietnamese 'dãy'; Indonesian is Pegunungan Itatiaia)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/itayi": [
     {
       "at": "2026-11-15T05:17:17Z",
@@ -6208,6 +6274,18 @@
       "at": "2026-11-08T08:48:27Z",
       "model": "sonnet",
       "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/kumaradhara-netravati": [
+    {
+      "at": "2026-11-17T04:48:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -9267,6 +9345,20 @@
       "kept": true
     }
   ],
+  "id/places/mundau-river": [
+    {
+      "at": "2026-11-17T04:48:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Mundau (should be Sungai Mundaú)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/mungo-river": [
     {
       "at": "2026-11-08T05:20:55Z",
@@ -9361,6 +9453,20 @@
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/n-djili-river": [
+    {
+      "at": "2026-11-17T04:48:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông N'Djili (should be Sungai N'Djili)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -10542,6 +10648,20 @@
       "kept": true
     }
   ],
+  "id/places/paraibuna-river": [
+    {
+      "at": "2026-11-17T04:48:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Paraíbuna (should be Sungai Paraibuna)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/paralayar": [
     {
       "at": "2026-11-08T05:20:56Z",
@@ -10882,6 +11002,18 @@
       "kept": true
     }
   ],
+  "id/places/piranhas": [
+    {
+      "at": "2026-11-17T04:48:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/pisqui": [
     {
       "at": "2026-11-14T23:44:10Z",
@@ -10956,6 +11088,18 @@
       "kept": true
     }
   ],
+  "id/places/portugal": [
+    {
+      "at": "2026-11-17T04:48:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/potaro": [
     {
       "at": "2026-11-08T05:21:29Z",
@@ -11026,6 +11170,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/preto-river": [
+    {
+      "at": "2026-11-17T04:48:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Preto (should be Sungai Preto)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -13830,6 +13988,20 @@
       "kept": true
     }
   ],
+  "id/places/salgado-river": [
+    {
+      "at": "2026-11-17T04:48:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Salgado (should be Sungai Salgado)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/saline-river": [
     {
       "at": "2026-11-06T12:35:53Z",
@@ -14072,6 +14244,20 @@
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/sao-francisco-river": [
+    {
+      "at": "2026-11-17T04:48:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông São Francisco (should be Sungai São Francisco)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -18850,6 +19036,18 @@
       "kept": true
     }
   ],
+  "ms/places/bempazawa": [
+    {
+      "at": "2026-11-17T05:06:35Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/ben-hai": [
     {
       "at": "2026-11-08T03:36:45Z",
@@ -19810,6 +20008,20 @@
       "kept": true
     }
   ],
+  "ms/places/canhotinho-river": [
+    {
+      "at": "2026-11-17T05:06:35Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "sông Canhotinho: 'sông' is Vietnamese; Malay is 'Sungai Canhotinho'"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/cape-fear-river": [
     {
       "at": "2026-11-09T00:52:34Z",
@@ -19870,6 +20082,20 @@
       "cli": "2.1.322",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/caqueta-river": [
+    {
+      "at": "2026-11-17T05:06:35Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "sông Caquetá: Vietnamese; should be 'Sungai Caquetá'"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -20037,6 +20263,18 @@
       "at": "2026-11-08T12:43:56Z",
       "model": "sonnet",
       "score": 0.55,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/cavally": [
+    {
+      "at": "2026-11-17T05:06:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -22882,6 +23120,20 @@
       "kept": true
     }
   ],
+  "ms/places/itatiaia-mountains": [
+    {
+      "at": "2026-11-17T05:06:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "dãy Itatiaia: Vietnamese 'dãy'; Malay is 'Banjaran Itatiaia'"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/itaya": [
     {
       "at": "2026-11-08T03:36:56Z",
@@ -24403,6 +24655,18 @@
       "at": "2026-11-08T12:45:09Z",
       "model": "sonnet",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/kumaradhara-netravati": [
+    {
+      "at": "2026-11-17T05:06:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -27144,6 +27408,20 @@
       "kept": true
     }
   ],
+  "ms/places/mundau-river": [
+    {
+      "at": "2026-11-17T05:06:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "sông Mundau: Vietnamese; should be 'Sungai Mundaú'"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/mungo-river": [
     {
       "at": "2026-11-08T12:45:11Z",
@@ -27238,6 +27516,20 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/n-djili-river": [
+    {
+      "at": "2026-11-17T05:06:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "sông N'Djili: Vietnamese; should be 'Sungai N'Djili'"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -28386,6 +28678,20 @@
       "kept": true
     }
   ],
+  "ms/places/paraibuna-river": [
+    {
+      "at": "2026-11-17T05:06:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "sông Paraíbuna: Vietnamese; should be 'Sungai Paraibuna'"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/paralayar": [
     {
       "at": "2026-11-08T12:45:46Z",
@@ -28854,6 +29160,18 @@
       "kept": true
     }
   ],
+  "ms/places/piranhas": [
+    {
+      "at": "2026-11-17T05:06:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/pisqui": [
     {
       "at": "2026-11-15T00:09:09Z",
@@ -28948,6 +29266,18 @@
       "kept": true
     }
   ],
+  "ms/places/portugal": [
+    {
+      "at": "2026-11-17T05:06:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/potaro": [
     {
       "at": "2026-11-08T12:45:46Z",
@@ -29030,6 +29360,20 @@
       "model": "sonnet",
       "score": 0.2,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/preto-river": [
+    {
+      "at": "2026-11-17T05:06:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "sông Preto: Vietnamese; should be 'Sungai Preto'"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -32361,6 +32705,20 @@
       "kept": true
     }
   ],
+  "ms/places/salgado-river": [
+    {
+      "at": "2026-11-17T05:06:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "sông Salgado: Vietnamese; should be 'Sungai Salgado'"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/salo-sadang": [
     {
       "at": "2026-11-10T10:08:07Z",
@@ -32571,6 +32929,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/sao-francisco-river": [
+    {
+      "at": "2026-11-17T05:06:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "sông São Francisco: Vietnamese; should be 'Sungai São Francisco'"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -37184,6 +37556,18 @@
       "kept": true
     }
   ],
+  "th/places/bempazawa": [
+    {
+      "at": "2026-11-17T04:51:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/ben-hai": [
     {
       "at": "2026-11-06T12:36:00Z",
@@ -37971,6 +38355,18 @@
       "kept": true
     }
   ],
+  "th/places/canhotinho-river": [
+    {
+      "at": "2026-11-17T04:51:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/cape-fear-river": [
     {
       "at": "2026-11-09T00:10:26Z",
@@ -38044,6 +38440,18 @@
         "Capivari → กาปีวารี (acceptable)",
         "Mengla → เมิ่งล่า (acceptable)"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/caqueta-river": [
+    {
+      "at": "2026-11-17T04:51:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -38243,6 +38651,18 @@
       "notes": [
         "Several river names lack แม่น้ำ prefix: เบนูเว, คาวัลลา, โกโมเอ, เดโอปานี, กาลาดาน, อากัวรีโก, จูรีตี, เปาเซร์นา, ตาปตี"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/cavally": [
+    {
+      "at": "2026-11-17T04:51:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -41019,6 +41439,18 @@
       "kept": true
     }
   ],
+  "th/places/itatiaia-mountains": [
+    {
+      "at": "2026-11-17T04:51:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/itayi": [
     {
       "at": "2026-11-15T05:18:35Z",
@@ -42363,6 +42795,18 @@
       "at": "2026-11-08T08:57:32Z",
       "model": "sonnet",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/kumaradhara-netravati": [
+    {
+      "at": "2026-11-17T04:51:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -45538,6 +45982,18 @@
       "kept": true
     }
   ],
+  "th/places/mundau-river": [
+    {
+      "at": "2026-11-17T04:51:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/mungo-river": [
     {
       "at": "2026-11-08T05:28:40Z",
@@ -45641,6 +46097,18 @@
       "at": "2026-11-08T05:28:40Z",
       "model": "sonnet",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/n-djili-river": [
+    {
+      "at": "2026-11-17T04:51:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -46924,6 +47392,18 @@
       "kept": true
     }
   ],
+  "th/places/paraibuna-river": [
+    {
+      "at": "2026-11-17T04:51:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/paralayar": [
     {
       "at": "2026-11-08T05:28:40Z",
@@ -47292,6 +47772,18 @@
       "kept": true
     }
   ],
+  "th/places/piranhas": [
+    {
+      "at": "2026-11-17T04:51:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/pisqui": [
     {
       "at": "2026-11-14T23:49:56Z",
@@ -47373,6 +47865,18 @@
       "kept": true
     }
   ],
+  "th/places/portugal": [
+    {
+      "at": "2026-11-17T04:51:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/potaro": [
     {
       "at": "2026-11-08T05:29:23Z",
@@ -47451,6 +47955,18 @@
         "The Thai names are mostly plausible, but the task asks about the Thai place names, and the source labels for three entries are Vietnamese. I scored only the Thai output. Possible issues:",
         "เปรตูดาเอวา (Preto da Eva): this is a doubtful transliteration. The Portuguese pronunciation would more likely be เปรตู ดา เอวา."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/preto-river": [
+    {
+      "at": "2026-11-17T04:51:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -50392,6 +50908,18 @@
       "kept": true
     }
   ],
+  "th/places/salgado-river": [
+    {
+      "at": "2026-11-17T04:51:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/saline-river": [
     {
       "at": "2026-11-06T12:36:07Z",
@@ -50658,6 +51186,18 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/sao-francisco-river": [
+    {
+      "at": "2026-11-17T04:51:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -55560,6 +56100,19 @@
       "kept": true
     }
   ],
+  "vi/places/bempazawa": [
+    {
+      "at": "2026-11-17T04:48:03Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "No wrong places. All names either keep the source's spelling or put the generic word into Vietnamese (sông, dãy, hồ)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/ben-hai": [
     {
       "at": "2026-11-07T20:32:23Z",
@@ -56427,6 +56980,19 @@
       "kept": true
     }
   ],
+  "vi/places/canhotinho-river": [
+    {
+      "at": "2026-11-17T04:48:03Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "No wrong places. All names either keep the source's spelling or put the generic word into Vietnamese (sông, dãy, hồ)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/cape-fear-river": [
     {
       "at": "2026-11-09T00:06:30Z",
@@ -56513,6 +57079,19 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/caqueta-river": [
+    {
+      "at": "2026-11-17T04:48:03Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "No wrong places. All names either keep the source's spelling or put the generic word into Vietnamese (sông, dãy, hồ)."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -56744,6 +57323,19 @@
       "model": "sonnet",
       "score": 0.9,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/cavally": [
+    {
+      "at": "2026-11-17T04:48:03Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "No wrong places. All names either keep the source's spelling or put the generic word into Vietnamese (sông, dãy, hồ)."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -59952,6 +60544,19 @@
       "kept": true
     }
   ],
+  "vi/places/itatiaia-mountains": [
+    {
+      "at": "2026-11-17T04:48:03Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "No wrong places. All names either keep the source's spelling or put the generic word into Vietnamese (sông, dãy, hồ)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/itaya": [
     {
       "at": "2026-11-07T20:35:05Z",
@@ -61646,6 +62251,19 @@
       "model": "sonnet",
       "score": 0.9,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/kumaradhara-netravati": [
+    {
+      "at": "2026-11-17T04:48:03Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "No wrong places. All names either keep the source's spelling or put the generic word into Vietnamese (sông, dãy, hồ)."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -65497,6 +66115,19 @@
       "kept": true
     }
   ],
+  "vi/places/mundau-river": [
+    {
+      "at": "2026-11-17T04:48:03Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "No wrong places. All names either keep the source's spelling or put the generic word into Vietnamese (sông, dãy, hồ)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/mungo": [
     {
       "at": "2026-11-07T20:36:54Z",
@@ -65618,6 +66249,19 @@
       "model": "sonnet",
       "score": 0.72,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/n-djili-river": [
+    {
+      "at": "2026-11-17T04:48:03Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "No wrong places. All names either keep the source's spelling or put the generic word into Vietnamese (sông, dãy, hồ)."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -67196,6 +67840,19 @@
       "kept": true
     }
   ],
+  "vi/places/paraibuna-river": [
+    {
+      "at": "2026-11-17T04:48:03Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "No wrong places. All names either keep the source's spelling or put the generic word into Vietnamese (sông, dãy, hồ)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/paralayar": [
     {
       "at": "2026-11-07T20:37:55Z",
@@ -67663,6 +68320,19 @@
       "kept": true
     }
   ],
+  "vi/places/piranhas": [
+    {
+      "at": "2026-11-17T04:48:03Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "No wrong places. All names either keep the source's spelling or put the generic word into Vietnamese (sông, dãy, hồ)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/pisqui": [
     {
       "at": "2026-11-14T23:43:41Z",
@@ -67820,6 +68490,19 @@
       "score": 0.95,
       "notes": [
         "All ten names look right. Each one either keeps the source's spelling of the proper name or puts the generic word into Vietnamese (quần đảo, hồ, vịnh, sông)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/preto-river": [
+    {
+      "at": "2026-11-17T04:48:03Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "No wrong places. All names either keep the source's spelling or put the generic word into Vietnamese (sông, dãy, hồ)."
       ],
       "attempt": "first",
       "kept": true
@@ -71235,6 +71918,19 @@
       "kept": true
     }
   ],
+  "vi/places/salgado-river": [
+    {
+      "at": "2026-11-17T04:48:03Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "No wrong places. All names either keep the source's spelling or put the generic word into Vietnamese (sông, dãy, hồ)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/saline-river": [
     {
       "at": "2026-11-07T20:39:31Z",
@@ -71618,6 +72314,19 @@
       "score": 0.96,
       "notes": [
         "Every name refers to the right place. Generic words (river, Río/Rio, Islands, mountain range) are put into Vietnamese as sông, quần đảo and dãy, and the proper names keep the source spelling."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/sao-francisco-river": [
+    {
+      "at": "2026-11-17T04:48:03Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "No wrong places. All names either keep the source's spelling or put the generic word into Vietnamese (sông, dãy, hồ)."
       ],
       "attempt": "first",
       "kept": true
@@ -72623,6 +73332,20 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/stanley-pool": [
+    {
+      "at": "2026-11-17T04:48:03Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "No wrong places. All names either keep the source's spelling or put the generic word into Vietnamese (sông, dãy, hồ).",
+        "\"hồ Stanley\" is acceptable because it is the source name with a Vietnamese generic word. However, Stanley Pool is an old colonial name. Vietnamese sources usually call it \"hồ Malebo\" (Pool Malebo), which would be the better choice."
+      ],
       "attempt": "first",
       "kept": true
     }

@@ -1,8 +1,8 @@
 {
   "id": "leporinus-brunneus",
   "native": {
-    "input": "786ecef2daff7189",
-    "at": "2026-11-17T00:14:47.070Z",
+    "input": "48c542e1db273492",
+    "at": "2026-11-17T05:18:20.405Z",
     "claims": [
       {
         "code": "BR",
@@ -38,11 +38,12 @@
         "ok": true
       },
       {
-        "name": "Negro",
+        "name": "Rio Negro",
         "source": "seriouslyfish",
         "quote": "Known from the rios Madeira and Negro in Brazil and Orinoco system in Venezuela and Colombia plus the Casiquiare canal which connects the two.",
         "country": "BR",
-        "ok": true
+        "ok": false,
+        "why": "its name is not in the quote"
       },
       {
         "name": "Orinoco",
@@ -57,9 +58,15 @@
         "ok": true
       },
       {
-        "name": "Rio Ventuari",
+        "name": "Orinoco",
         "source": "glaser",
-        "quote": "The imported specimens come from the Rio Ventuari, where a population with a very high degree of red colours appears.",
+        "quote": "It can be found in the basins of the Orinoco river and the Rio Negro.",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "glaser",
+        "quote": "It can be found in the basins of the Orinoco river and the Rio Negro.",
         "ok": true
       }
     ],

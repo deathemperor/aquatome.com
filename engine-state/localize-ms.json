@@ -215,19 +215,32 @@
     ]
   },
   "acarichthys-heckelii": {
-    "at": "2026-11-09",
-    "from": "2026-10-28",
-    "name": "Threadfin acara",
+    "at": "2026-11-17",
+    "from": "2026-11-17",
+    "name": "Threadfin Acara",
     "confidence": "medium",
-    "score": 0.72,
-    "notes": [
-      "Item 5: 'Tidak boleh sekali-kali dimasukkan' is acceptable, but 'Kelemahan utamanya ialah spesies ini tidak henti-henti menggali, jadi jika kerikil digunakan' is fine; the real issue: 'Arus yang kuat' for 'High flow rates' is OK, but 'ikan ini mungkin menghidap ... hakisan kepala dan garisan sisi' should use the common hobby term 'HLLE' or 'hakisan kepala dan garis lateral'.",
-      "Item 10: 'Induk akan meninggalkan anak-anak apabila anak ikan berukuran...' is fine, but 'Sesetengah anak ikan terus menggunakan liang itu' is fine; the 0.4 in figure was dropped correctly. However 'ikan betina bertanggungjawab bagi sebahagian besar penjagaan anak' is fine; 'Pengganti gua bertelur yang paling terbukti berkesan' is awkward, so rephrase to 'pengganti gua bertelur yang paling terbukti'.",
-      "Item 11: 'Teleocichla sudah lama diterima sebagai kumpulan beradik' adds 'sudah lama' where the source says 'well-established'; use 'mantap/kukuh diterima'. 'subfamili yang dicadangkan' for 'putative' is OK, but 'dihuraikan semula' for 'redescribed' is better as 'dihuraikan semula' (fine); 'kertas kajian' could be 'makalah'.",
-      "Item 12: the reference list is left untranslated as instructed, so no fix is needed.",
-      "Item 1: 'Ia satu-satunya spesies dalam genusnya' is fine; 'tangki' could be 'akuarium' for consistency with the rest of the text, which mixes 'tangki' and 'akuarium'.",
-      "Item 8: 'sirip yang panjang meleret' is fine; 'komuniti gaya biotop' is slightly awkward, so use 'akuarium komuniti bergaya biotop'."
-    ]
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:seriouslyfish": "993e61f6b8be",
+      "quickFacts:glaser": "f12a03691fe3",
+      "distribution:seriouslyfish": "2fcbb1b7f39c",
+      "distribution:glaser": "ae47c475eae2",
+      "habitat:seriouslyfish": "5a4770dfecc3",
+      "habitat:glaser": "318ddb0e4593",
+      "aquariumSize:seriouslyfish": "8d1a9c8a2f1d",
+      "maintenance:seriouslyfish": "6cbdcb6b1f1d",
+      "waterConditions:seriouslyfish": "bf24c3d4dd95",
+      "diet:seriouslyfish": "51e4f61de00b",
+      "diet:glaser": "d9626abedaef",
+      "behaviour:seriouslyfish": "cde4ecedf368",
+      "behaviour:glaser": "e4c0685ad129",
+      "dimorphism:seriouslyfish": "e6dee1bb796b",
+      "reproduction:seriouslyfish": "1fb4cdabbc91",
+      "reproduction:glaser": "37609ee3c2c0",
+      "notes:seriouslyfish": "a8a5466fb649",
+      "references:seriouslyfish": "25cc2764e425"
+    }
   },
   "acentrogobius-viridipunctatus": {
     "at": "2026-11-14",
@@ -732,6 +745,25 @@
       "reproduction:seriouslyfish": "15cd71844062",
       "notes:seriouslyfish": "2b3d1fe60169",
       "references:seriouslyfish": "5ae4a8636561"
+    }
+  },
+  "afruca-tangeri": {
+    "at": "2026-11-17",
+    "from": "2026-11-17",
+    "name": "African fiddler crab",
+    "confidence": "low",
+    "score": 0.85,
+    "notes": [
+      "Sentence 5: \"bergaduh dengan jantan lain\" is informal; use \"bertarung dengan jantan pesaing\" for fights between rival males (rival nuance is lost).",
+      "Sentence 2: \"mencari makan\" is fine, but the English says \"take in food\"; consider \"mengambil makanan\" or \"makan\" (minor).",
+      "Sentence 3: \"tempat berlindung\" repeats \"tempat bersembunyi\"; rephrase, e.g. \"Beberapa tempat persembunyian membolehkannya berlindung\"."
+    ],
+    "parts": {
+      "distribution:glaser": "0f501fa43901",
+      "habitat:glaser": "d877c654157e",
+      "maintenance:glaser": "ae51a1b02f28",
+      "diet:glaser": "6b6f5696b02b",
+      "dimorphism:glaser": "955614770b41"
     }
   },
   "agamyxis-pectinifrons": {
@@ -1569,6 +1601,23 @@
       "waterConditions:seriouslyfish": "3b0ed3394719",
       "notes:seriouslyfish": "867200714a2b",
       "references:seriouslyfish": "d660dbefd9a4"
+    }
+  },
+  "alpheus-cyanoteles": {
+    "at": "2026-11-17",
+    "from": "2026-11-17",
+    "name": "Udang Pistol",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 3: \"semua benda\" is colloquial; use \"semua jenis makanan\" or \"hampir semua perkara\" for handbook register.",
+      "Item 1: \"Udang ini dikenali sebagai udang pistol\" reverses the English emphasis slightly, but meaning is intact; optional rephrase \"Udang pistol ialah nama yang diberikan kepada udang ini\"."
+    ],
+    "parts": {
+      "quickFacts:glaser": "8676f2be255a",
+      "distribution:glaser": "e12ed4c0be3d",
+      "diet:glaser": "eba2a102e949",
+      "behaviour:glaser": "e21ecee148bb"
     }
   },
   "altolamprologus-calvus": {
@@ -2896,6 +2945,81 @@
       "notes:scotcat": "c1c420eab3e4"
     }
   },
+  "ancistrus-cirrhosus": {
+    "at": "2026-11-17",
+    "from": "2026-10-29",
+    "name": "Bristlenose Pleco",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 10: \"sisa kumbahan\" means sewage; use \"sisa buangan\" or \"najis\" for the fish's waste.",
+      "Item 8: \"bulu sesungut (bristle)\" is slightly off, because the bristles are not hair; \"sesungut/bristle\" or \"juntaian berduri\" would read more naturally.",
+      "Item 5: \"angka lain yang diberikan ialah 23–27 °C\" repeats the same range. This follows from the conversion, but you could merge the two figures into one to avoid the redundancy."
+    ],
+    "parts": {
+      "quickFacts:sprucepets": "860d7a629b9a",
+      "distribution:sprucepets": "36960bfe3229",
+      "habitat:sprucepets": "109de9752463",
+      "aquariumSize:sprucepets": "b6bc71d76c25",
+      "waterConditions:sprucepets": "ddf8af2082ae",
+      "diet:sprucepets": "6fa010f8be5c",
+      "behaviour:sprucepets": "eec13a960781",
+      "dimorphism:sprucepets": "c3edb80e9019",
+      "reproduction:sprucepets": "24a0b73d3cbf",
+      "notes:sprucepets": "f519c1431e4e"
+    }
+  },
+  "ancistrus-claro": {
+    "at": "2026-11-17",
+    "from": "2026-10-29",
+    "name": "Gold Marble Bristlenose",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": [
+      "Item 11: the acknowledgement 'Thanks to L-Welse.com.' is dropped. This is acceptable as a credit, so only restore it if credits are meant to be kept.",
+      "Item 11: 'sesungut berisi' for 'fleshy tentacles' is slightly awkward. 'sesungut berdaging' would read more naturally."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "c511591fcda9",
+      "distribution:seriouslyfish": "b82d239f0983",
+      "habitat:seriouslyfish": "e8356398da0c",
+      "aquariumSize:seriouslyfish": "1e4ae9093b5e",
+      "maintenance:seriouslyfish": "4df1139bd932",
+      "waterConditions:seriouslyfish": "aa4fed2c3417",
+      "diet:seriouslyfish": "93440222619f",
+      "behaviour:seriouslyfish": "963d73135cd8",
+      "dimorphism:seriouslyfish": "718fe0331775",
+      "reproduction:seriouslyfish": "1520f3ced3ed",
+      "notes:seriouslyfish": "6b0c6cf34ff8",
+      "references:seriouslyfish": "0771126f81fd"
+    }
+  },
+  "ancistrus-cryptophthalmus": {
+    "at": "2026-11-17",
+    "from": "2026-10-31",
+    "name": "Blind Bristlenose Pleco",
+    "confidence": "low",
+    "score": 0.7,
+    "notes": [
+      "Item 6: '100 liter' for tank is fine, but 'Tangki 100 liter' OK; no issue. Real issue: Item 1 '60 mm (2.4\")' dropped imperial is fine.",
+      "Item 5: 'tumbuhan berisi yang berjambul' is awkward/unclear for 'bushy fleshy growths'; use 'tonjolan berdaging yang berjumbai'. Also 'tumbuhan' (plants) for growths on head is wrong; use 'tonjolan'/'bonjolan'.",
+      "Item 5: 'hidung berjambul' is a stilted rendering; 'hidung berjumbai' or keep 'bushy nose' only.",
+      "Item 7: 'slight medium sized spotted pattern' rendered 'sedikit corak bintik bersaiz sederhana' - acceptable but slightly awkward; 'corak bintik sederhana yang samar'.",
+      "Item 1: 'Lokaliti jenis' is stiff; use 'Lokaliti tipe' and 'meter' -> 'meter' fine; 'Negeri Goiás' ok.",
+      "Item 3: 'makanan tenggelam' better 'makanan tenggelam (sinking)' / 'makanan jenis tenggelam'; 'algae wafer' OK. 'Ancistrus patut diberi makanan berasaskan sayuran sebagai makanan utama' is okay.",
+      "Item 2: 'lembangan Sungai Tocantins' - source says 'Tocantins River drainage' within upper Paraná; fine, but 'hulu Sungai Paraná' ok."
+    ],
+    "parts": {
+      "quickFacts:planetcatfish": "86a3b4f1d81d",
+      "distribution:planetcatfish": "d3231f9f0ed9",
+      "diet:planetcatfish": "f369482be3c6",
+      "behaviour:planetcatfish": "c9e6cedee338",
+      "dimorphism:planetcatfish": "88181fde08a4",
+      "reproduction:planetcatfish": "a116ba188eac",
+      "notes:planetcatfish": "1771690d4813",
+      "references:planetcatfish": "a54b19fbbe30"
+    }
+  },
   "ancistrus-dolichopterus": {
     "at": "2026-11-15",
     "from": "2026-11-15",
@@ -2922,6 +3046,72 @@
       "notes:glaser": "fdd66c5ecfd1",
       "notes:aquatome": "99a9db57447b",
       "references:seriouslyfish": "0c8ee8281584"
+    }
+  },
+  "ancistrus-formoso": {
+    "at": "2026-11-17",
+    "from": "2026-10-31",
+    "name": "Blind Cave Bristlenose",
+    "confidence": "low",
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:planetcatfish": "86657711751f",
+      "distribution:planetcatfish": "a4a39efd82c8",
+      "diet:planetcatfish": "c0267c7bb29b",
+      "behaviour:planetcatfish": "5706d14d85ac",
+      "dimorphism:planetcatfish": "6e7ec35b836a",
+      "reproduction:planetcatfish": "a389bc734530",
+      "references:planetcatfish": "df93bbf0ff1c"
+    }
+  },
+  "ancistrus-macrophthalmus": {
+    "at": "2026-11-17",
+    "from": "2026-11-02",
+    "name": "Ancistrus macrophthalmus",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 12: \"diameter matanya 5 kali ganda lebih pendek daripada panjang kepala\" is awkward. Use \"diameter mata muat 5 kali dalam panjang kepala\" (or \"kira-kira satu perlima panjang kepala\")."
+    ],
+    "parts": {
+      "quickFacts:glaser": "0988bf4c082a",
+      "quickFacts:scotcat": "0e5d272793fe",
+      "beforeYouBuy:glaser": "422b8301f80d",
+      "distribution:scotcat": "4f2244b1a807",
+      "maintenance:scotcat": "bd2f84a5509d",
+      "diet:scotcat": "7170014871c9",
+      "behaviour:glaser": "ff95c7136b3b",
+      "dimorphism:glaser": "4a9faed22dd1",
+      "dimorphism:scotcat": "c6c46f943ae7",
+      "reproduction:scotcat": "7921f1d0dcd9",
+      "notes:glaser": "7a53e7dfeffa",
+      "notes:scotcat": "1ad5c33e2ca3",
+      "references:scotcat": "98fa3a55c4fb"
+    }
+  },
+  "ancistrus-pirareta": {
+    "at": "2026-11-17",
+    "from": "2026-10-31",
+    "name": "Pirareta Bristlenose",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "Item 1: '156 mm (6.1\")' — mm is metric so fine; but 'Least Concern' left in English with gloss — acceptable; consider 'Risiko Rendah (Least Concern)' for natural IUCN term.",
+      "Item 6: 'membiak di dalam gua' — better 'pembiak dalam gua/rekahan (cave-breeder)'; 'gua' implies real caves, use 'lubang/gua kecil'.",
+      "Item 3: 'makanan berasaskan sayuran' is OK, but 'algae wafer' could be 'wafer alga'; 'timun (jenis timun Inggeris)' wording slightly awkward.",
+      "Item 7: 'perkataan Yunani' — prefer 'perkataan Greek'; 'sut perisai' → 'baju perisai'.",
+      "Item 4: 'tangki' — prefer 'akuarium' for consistency within the same passage."
+    ],
+    "parts": {
+      "quickFacts:planetcatfish": "5887e2da355f",
+      "distribution:planetcatfish": "6546059094d1",
+      "diet:planetcatfish": "f369482be3c6",
+      "behaviour:planetcatfish": "0e36bc2e7ac4",
+      "dimorphism:planetcatfish": "e015d1c98920",
+      "reproduction:planetcatfish": "080968d25295",
+      "notes:planetcatfish": "d0a329b78322",
+      "references:planetcatfish": "17d5003d4dbc"
     }
   },
   "andinoacara-rivulatus": {
@@ -4414,12 +4604,27 @@
     ]
   },
   "toxotes-jaculatrix": {
-    "at": "2026-11-07",
-    "from": "2026-10-30",
+    "at": "2026-11-17",
+    "from": "2026-11-17",
     "name": "Ikan sumpit",
     "confidence": "high",
     "score": 0.95,
-    "notes": []
+    "notes": [],
+    "parts": {
+      "quickFacts:seriouslyfish": "f803e7abf6b1",
+      "distribution:seriouslyfish": "427a75c14c7b",
+      "distribution:glaser": "4313fc0f1c38",
+      "habitat:seriouslyfish": "e35c06bab2b8",
+      "aquariumSize:seriouslyfish": "4d44f7f29c63",
+      "maintenance:seriouslyfish": "3d1ab004ba67",
+      "waterConditions:seriouslyfish": "3d792a3a5c8f",
+      "diet:seriouslyfish": "3b1b6bebf1c8",
+      "behaviour:seriouslyfish": "9cccf0309326",
+      "dimorphism:seriouslyfish": "85ed8cb8ab7b",
+      "reproduction:seriouslyfish": "b7ea6d954c4f",
+      "notes:seriouslyfish": "f19e8e7011a6",
+      "notes:glaser": "930b50fb88c7"
+    }
   },
   "trichogaster-lalius": {
     "at": "2026-11-06",

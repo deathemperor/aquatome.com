@@ -1,9 +1,17 @@
 {
   "id": "hydrolycus-tatauaia",
   "native": {
-    "input": "c0b7e81993294293",
-    "at": "2026-11-08T22:57:48.089Z",
+    "input": "6b39350399c34fe6",
+    "at": "2026-11-17T05:18:20.405Z",
     "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Peru.",
+        "words": "Peru",
+        "ok": true
+      },
       {
         "code": "VE",
         "status": "native",
@@ -132,12 +140,13 @@
       ]
     ],
     "native": [
+      "PE",
       "VE",
       "CO",
       "GY",
       "BR"
     ],
     "requests": 12,
-    "at": "2026-11-08T22:57:48.089Z"
+    "at": "2026-11-17T05:18:20.405Z"
   }
 }

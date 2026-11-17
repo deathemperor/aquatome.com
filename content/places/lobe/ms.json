@@ -3,6 +3,12 @@
   "name": "Lobé",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T05:12:29.921Z",
+    "why": "\"Lobé\" is a Cameroonian region/river name; Malay atlases would usually write it without the accent as \"Lobe\" (and the Vietnamese-style diacritic copy is not the standard Malay spelling), and no kind word is given for a river/region."
+  },
   "quality": {
     "score": 0.35,
     "indexable": false
