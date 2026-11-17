@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError, type Llm } from '../src/claude'
-import { CHECKLIST, fitKey, fitText, type FitFinding, type FitState } from '../src/fit'
+import { CHECKLIST, fitKey, fitText, SHELF_WHY, type FitFinding, type FitState } from '../src/fit'
 import { breedFigures, figuresSaid, keepsFigures, unitsLeft, withoutConcentrations } from '../src/breed-units'
 import { convertible, fitRewrite, MEND_RULE, mendable, rewriteDue } from '../src/fit-rewrite'
 import { loadPages, type Page } from '../src/pages'
@@ -842,6 +842,64 @@ test('a part a cut reduces to one line goes off the page in every language, its 
   const kept = await fitRewrite(one, [o1], reading(o1, [price]), { llm: fakeLlm(vi => vi.replace(', giá 5 đô la ở Mỹ', ''), 0.9).llm, now: () => new Date() }, { limit: 5 })
   expect(kept.rewritten).toEqual(['vi/species/danio-margaritatus sections.habitat:seriouslyfish (0.90)'])
   expect(JSON.parse(await readFile(oneFile, 'utf8')).sections['habitat:seriouslyfish']).toBe('<p>Ao cạn nhiều cỏ ở cao nguyên Shan.</p>')
+})
+
+// The chief of staff, 16 Nov 2026, on the dealer-shelf rule's dry run (28 parts off whole, 65 true lines with them): "A
+// stock-line cut keeps the rest of a shop's quick facts when two or more lines are left." One left with a line still goes.
+test('a shop\'s quick facts cut only for the shop\'s shelf keep the rest when two lines are left; another sentence found, or one line left, takes them off', async () => {
+  const glaser = async (html: string) => {
+    const root = await content()
+    const dir = join(root, 'content/species', ID)
+    const file = join(root, 'content/sources.json')
+    const sources = JSON.parse(await readFile(file, 'utf8'))
+    Object.assign(sources.glaser, { publish: true, permission: { date: '2026-11-08', file: 'test', scope: ['text'] } })
+    await writeFile(file, JSON.stringify(sources))
+    const entity = JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8'))
+    entity.sections.push({ key: 'quickFacts', source: 'glaser', sourceUrl: 'https://www.aquariumglaser.de/en/fish-archives/danio-margaritatus/', html: '<p>Up to 2 cm. From Myanmar. Size on offer: 1.5-2 cm.</p>' })
+    await writeFile(join(dir, 'entity.json'), JSON.stringify(entity, null, 2))
+    const vi = JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8'))
+    vi.sections['quickFacts:glaser'] = html
+    await writeFile(join(dir, 'vi.json'), JSON.stringify(vi, null, 2))
+    await writeFile(join(dir, 'id.json'), JSON.stringify({ sections: { 'quickFacts:glaser': '<p>Hingga 2 cm. Dari Myanmar.</p>' } }, null, 2))
+    return { root, dir, p: await danio(root) }
+  }
+  const stock = (p: Page, why = SHELF_WHY) => ({ check: 'source' as const, part: part(p, 'sections.quickFacts:glaser'), quote: 'Cỡ cá thường bán: 1,5–2 cm.', why })
+  const cut = fakeLlm(vi => (vi.includes('thường bán') ? '' : vi), 0.9).llm
+  const kept = (dir: string) => readFile(join(dir, 'vi.json'), 'utf8').then(s => JSON.parse(s).sections['quickFacts:glaser'])
+
+  // The shelf's line alone: cut, the maximum and the origin kept, in every language.
+  const a = await glaser('<p>Cá dài tối đa 2 cm. Xuất xứ: Myanmar. Cỡ cá thường bán: 1,5–2 cm.</p>')
+  const ra = await fitRewrite(a.root, [a.p], reading(a.p, [stock(a.p)]), { llm: cut, now: () => new Date() }, { limit: 5 })
+  expect(ra.rewritten).toEqual(['vi/species/danio-margaritatus sections.quickFacts:glaser (0.90)'])
+  expect(await kept(a.dir)).toBe('<p>Cá dài tối đa 2 cm. Xuất xứ: Myanmar.</p>')
+  expect(JSON.parse(await readFile(join(a.dir, 'entity.json'), 'utf8')).sections.map((s: { key: string; source: string }) => `${s.key}:${s.source}`)).toContain('quickFacts:glaser')
+  expect(JSON.parse(await readFile(join(a.dir, 'id.json'), 'utf8')).sections).toEqual({ 'quickFacts:glaser': '<p>Hingga 2 cm. Dari Myanmar.</p>' })
+
+  // The same line in a reader's own words is the same cut: kept too.
+  const a2 = await glaser('<p>Cá dài tối đa 2 cm. Xuất xứ: Myanmar. Cỡ cá thường bán: 1,5–2 cm.</p>')
+  const ra2 = await fitRewrite(a2.root, [a2.p], reading(a2.p, [{ ...stock(a2.p, 'the source shop\'s stock listing'), quote: 'Cỡ cá thường bán' }]), { llm: cut, now: () => new Date() }, { limit: 5 })
+  expect(ra2.rewritten).toEqual(['vi/species/danio-margaritatus sections.quickFacts:glaser (0.90)'])
+  expect(await kept(a2.dir)).toBe('<p>Cá dài tối đa 2 cm. Xuất xứ: Myanmar.</p>')
+
+  // A quote another sentence holds too ("2 cm" is in the maximum as well): not told for the shelf's, off as before.
+  const a3 = await glaser('<p>Cá dài tối đa 2 cm. Xuất xứ: Myanmar. Cá sống theo đàn. Cỡ cá thường bán: 1,5–2 cm.</p>')
+  const ra3 = await fitRewrite(a3.root, [a3.p], reading(a3.p, [{ ...stock(a3.p, 'the source shop\'s stock'), quote: '2 cm' }]), { llm: fakeLlm(vi => (vi.includes('2 cm') ? '' : vi), 0.9).llm, now: () => new Date() }, { limit: 5 })
+  expect(ra3.rewritten).toEqual(['vi/species/danio-margaritatus sections.quickFacts:glaser off the page (a shop\'s list)'])
+
+  // Another sentence found beside it: a shop's list it had to mend, off as before (14 Nov 2026).
+  const b = await glaser('<p>Cá dài tối đa 2 cm. Xuất xứ: Myanmar. Cá về đợt này rất khỏe. Cỡ cá thường bán: 1,5–2 cm.</p>')
+  const batch = { check: 'source' as const, part: part(b.p, 'sections.quickFacts:glaser'), quote: 'Cá về đợt này rất khỏe.', why: 'the source shop\'s batch' }
+  const rb = await fitRewrite(b.root, [b.p], reading(b.p, [stock(b.p), batch]), { llm: fakeLlm(vi => (vi.includes('thường bán') || vi.includes('đợt này') ? '' : vi), 0.9).llm, now: () => new Date() }, { limit: 5 })
+  expect(rb.rewritten).toEqual(['vi/species/danio-margaritatus sections.quickFacts:glaser off the page (a shop\'s list)'])
+  expect(await kept(b.dir)).toBeUndefined()
+
+  // One line left: a stub, off as before.
+  const c = await glaser('<p>Xuất xứ: Myanmar. Cỡ cá thường bán: 1,5–2 cm.</p>')
+  const rc = await fitRewrite(c.root, [c.p], reading(c.p, [stock(c.p)]), { llm: cut, now: () => new Date() }, { limit: 5 })
+  expect(rc.rewritten).toEqual(['vi/species/danio-margaritatus sections.quickFacts:glaser off the page (one line left)'])
+  expect(await kept(c.dir)).toBeUndefined()
+  expect(JSON.parse(await readFile(join(c.dir, 'id.json'), 'utf8')).sections).toEqual({})
+  for (const r of [a, a2, a3, b, c]) await rm(r.root, { recursive: true, force: true })
 })
 
 // The chief of staff, 15 Nov 2026: a one-line part went whole for its batch half ("Leporinus sometimes fight their own
