@@ -16,6 +16,21 @@ final class Switcher {
     self.plugs = plugs
   }
 
+  #if DEBUG
+  /// Roles by outlet code, standing in for the outlet's record: one changed while a press runs (another phone's sync),
+  /// for the UI tests (`-master-role-mid-press`).
+  var changedRoles: [String: String] = [:]
+  #endif
+
+  /// The outlet's role, from its record as it is now.
+  func role(_ c: DeviceCommand) -> String? {
+    guard let code = c.outlet else { return nil }
+    #if DEBUG
+    if let role = changedRoles[code] { return role }
+    #endif
+    return tanks.store.device(c.device)?.outlets.first { $0.code == code }?.role
+  }
+
   /// The outlet a command names, as the plug board knows it, and what the app calls it.
   func outlet(_ c: DeviceCommand) -> (key: PlugBoard.Outlet, name: String)? {
     guard let code = c.outlet, let plug = tanks.store.device(c.device), plug.kind == "plug", let brand = plug.brand,

@@ -138,7 +138,7 @@ func whatIsOwed() {
   #expect(run.back[1].held == true && run.back[1].problem == nil)
 }
 
-@Test("A failed step that reads as it was has nothing to put back, nor a lamp step that failed; nothing left, it ends")
+@Test("A failed step that reads as it was has nothing to put back, nor a lamp step that failed; one not known stays owed")
 func whatFailed() {
   let b = MasterButton(name: "x", steps: [lampWhite, fanOff], minutes: 60)
   let all = [MasterRun.Failed(target: lampWhite.target, line: "a"), .init(target: fanOff.target, line: "b")]
@@ -150,10 +150,12 @@ func whatFailed() {
   var none = MasterRun(b, at: m0, before: { _ in true }, lamp: nil)
   none.settle(all, now: { _ in true }, keeping: [], at: m0)
   #expect(none.back.isEmpty && !none.isRunning && none.failed == all)
-  // Not known after it (the list not read again): nothing guessed goes back.
-  var unknown = MasterRun(b, at: m0, before: { _ in nil }, lamp: nil)
+  // Not known after it (its answer and the list read again both failed): the fan, on before, may be off now. It stays
+  // owed and it runs on; the end reads it again (MasterRun.end) and sends nothing if it is on (Codex, 17 Nov: dropping it
+  // left a fan off).
+  var unknown = MasterRun(b, at: m0, before: { _ in true }, lamp: nil)
   unknown.settle(all, now: { _ in nil }, keeping: [], at: m0)
-  #expect(unknown.back.isEmpty && !unknown.isRunning)
+  #expect(unknown.back.map(\.command) == [DeviceCommand(device: plug, outlet: "switch_3", on: true)] && unknown.isRunning)
   // A lamp step half sent ("on" went, its colour didn't): it goes back.
   var half = MasterRun(b, at: m0, before: { _ in true }, lamp: nil)
   half.settle(all, now: { _ in true }, keeping: [lampWhite.target], at: m0)

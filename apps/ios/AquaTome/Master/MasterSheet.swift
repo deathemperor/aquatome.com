@@ -292,10 +292,7 @@ extension MasterModel {
   static let asksAgain: Set = ["filter", "air"]
 
   /// The outlet's role, from its record.
-  func role(_ c: DeviceCommand) -> String? {
-    guard let code = c.outlet else { return nil }
-    return switcher.tanks.store.device(c.device)?.outlets.first { $0.code == code }?.role
-  }
+  func role(_ c: DeviceCommand) -> String? { switcher.role(c) }
 
   static func secondAsk(_ role: String?) -> (title: String, why: String, yes: String) {
     switch role {

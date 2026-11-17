@@ -30,6 +30,17 @@ final class MasterModel {
   /// `-master-ends-in <seconds>`: a press ends that soon, so a flow can see the end come.
   @ObservationIgnored private let endsIn = ProcessInfo.processInfo.arguments.firstIndex(of: "-master-ends-in")
     .flatMap { i in ProcessInfo.processInfo.arguments.dropFirst(i + 1).first.flatMap(TimeInterval.init) }
+  /// `-master-steps-wait <seconds>`: each outlet step waits that long before it goes, so a flow can sign out mid-press.
+  @ObservationIgnored private let stepsWait = ProcessInfo.processInfo.arguments.firstIndex(of: "-master-steps-wait")
+    .flatMap { i in ProcessInfo.processInfo.arguments.dropFirst(i + 1).first.flatMap(TimeInterval.init) }
+  /// `-master-role-mid-press <code>=<role>`: that outlet's role changes once a press has read the plugs, as another
+  /// phone's sync might change it, so a flow can see a step checked as it is sent.
+  @ObservationIgnored private let roleMidPress: (code: String, role: String)? = {
+    let args = ProcessInfo.processInfo.arguments
+    guard let i = args.firstIndex(of: "-master-role-mid-press"), i + 1 < args.count else { return nil }
+    let kv = args[i + 1].split(separator: "=").map(String.init)
+    return kv.count == 2 ? (kv[0], kv[1]) : nil
+  }()
   #endif
   /// How late the end may be noticed and still count as the app open at the end (the lamp sent back by itself): two
   /// minutes; `-master-late-after <seconds>` in a flow.
@@ -98,6 +109,9 @@ final class MasterModel {
     // What the last press hasn't put back yet (an end while the app was away, a plug not reached) stays owed.
     let owed = run?.pending ?? []
     await switcher.plugs.refresh()
+    #if DEBUG
+    if let changed = roleMidPress { switcher.changedRoles[changed.code] = changed.role }
+    #endif
     // The list not read (the network, Tuya): how the outlets are now isn't known, so neither is what goes back. Nothing
     // is sent; the lamp waits with them.
     if switcher.plugs.current != nil, switcher.plugs.board.listError != nil, button.steps.contains(where: { !$0.isLamp }) {
@@ -119,6 +133,9 @@ final class MasterModel {
     async let lampFailed = sendLamp(lampSteps)
     var failed: [MasterRun.Failed] = []
     for step in r.steps where !step.isLamp {
+      #if DEBUG
+      if let stepsWait { try? await Task.sleep(for: .seconds(stepsWait)) }
+      #endif
       if case .failed(let line) = await switcher.set(step) {
         failed.append(.init(target: step.target, line: line))
       } else {
