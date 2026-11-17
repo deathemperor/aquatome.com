@@ -489,7 +489,9 @@ if (cmd === 'photo-privacy') {
   // Candidates for one kind of a glossary term, found by a search, to choose by their words: nothing stored or written
   // (glossary-photo.ts glossaryPhotoSearch). Each line says how to bring one in. pnpm engine glossary-photo --term <id> --kind <kind id> --search "<words>"
   if (!values.term || !values.kind || values.file || values.openverse || values.flickr) throw new Error('glossary-photo: --term <id> --kind <kind id> --search "<words>"')
-  const hits = await glossaryPhotoSearch(ROOT, { term: values.term, kind: values.kind, search: values.search }, { http, openverse: await openverseApi() })
+  // Openverse's client only when the search reaches it, after the kind and the words are checked: it may ask for a token.
+  let ov: Awaited<ReturnType<typeof openverseApi>> | undefined
+  const hits = await glossaryPhotoSearch(ROOT, { term: values.term, kind: values.kind, search: values.search }, { http, openverse: async u => (ov ??= await openverseApi())(u) })
   for (const h of hits) console.log(`${h.key}  ${h.licence}  ${h.author}  ${h.sourceUrl}\n  ${h.words}\n  pnpm engine glossary-photo --term ${values.term} --kind ${values.kind} ${h.take}`)
   console.log(`glossary-photo: ${hits.length} candidates for "${values.search}", nothing stored`)
 } else if (cmd === 'glossary-photo') {

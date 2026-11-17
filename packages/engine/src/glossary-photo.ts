@@ -210,28 +210,33 @@ export async function glossaryPhoto(root: string, o: { term: string; kind: strin
 /** A search's candidate: what a person needs to choose it by its own words, and the options that bring it in (glossaryPhoto). */
 export type GlossarySearchHit = { key: string; licence: string; author: string; sourceUrl: string; words: string; take: string }
 
+/** A value as one shell word: in single quotes, each of its own single quotes closed, escaped and reopened. File titles are other people's words, and may hold quotes, `$` or backticks. */
+const shellWord = (s: string) => `'${s.replace(/'/g, `'\\''`)}'`
+/** The file types the import takes (commonsCandidate): Commons' bitmap search also finds TIFFs and GIFs. */
+const IMPORTABLE = /\.(jpe?g|png|webp)$/i
+
 /**
  * Candidates for one kind of a glossary term, found by a search, for a person to choose by their words before any is
- * stored (`--search`): Commons' open-licence bitmaps of 800 px or more (searchCommons, its first 20 hits), then
- * Openverse's open-licence Flickr photos of 800 px or more on its first page. The kind must be one the term's entry lists,
- * checked before any request; photos on the never-again list are left out. Nothing is stored and no file is written:
- * each hit says how to bring it in, which stores and screens it.
+ * stored (`--search`): Commons' open-licence JPEG, PNG and WebP bitmaps of 800 px or more (searchCommons, its first 20
+ * hits), then Openverse's open-licence Flickr photos of 800 px or more on its first page. The kind must be one the
+ * term's entry lists, and the words more than quotes, both checked before any request; photos on the never-again list
+ * are left out. Nothing is stored and no file is written: each hit says how to bring it in, which stores and screens it.
  */
 export async function glossaryPhotoSearch(root: string, o: { term: string; kind: string; search: string }, d: Pick<GlossaryPhotoDeps, 'http' | 'openverse'>): Promise<GlossarySearchHit[]> {
   await checkKind(root, o.term, o.kind)
   const search = o.search.trim()
-  if (!search) throw refuse('--search takes the words to search for')
+  // Openverse searches the words as one phrase (openversePage quotes them), so a person's own quotes come off.
+  const phrase = search.replace(/"/g, '').trim()
+  if (!phrase) throw refuse('--search takes the words to search for')
   const rejected = await readMap<string>(join(root, 'engine-state/_photo-rejected.json'))
-  const hits: GlossarySearchHit[] = (await searchCommons(search, d.http, 20, { rejected })).map(p => {
+  const hits: GlossarySearchHit[] = (await searchCommons(search, d.http, 20, { rejected })).flatMap(p => {
     const file = decodeURIComponent(new URL(p.sourceUrl).pathname.replace(/^\/wiki\//, '')).replace(/_/g, ' ')
-    return { key: file, licence: p.licence, author: p.author, sourceUrl: p.sourceUrl, words: p.caption ?? '', take: `--file "${file}"` }
+    return IMPORTABLE.test(file) ? [{ key: file, licence: p.licence, author: p.author, sourceUrl: p.sourceUrl, words: p.caption ?? '', take: `--file ${shellWord(file)}` }] : []
   })
   if (d.openverse) {
-    // Openverse searches the words as one phrase (openversePage quotes them), so a person's own quotes come off.
-    const phrase = search.replace(/"/g, '').trim()
     const blocked = isRejected(rejected)
     for (const c of (await openversePage(phrase, 1, d.openverse)).cands) {
-      if (!blocked(c.url)) hits.push({ key: c.key, licence: c.licence, author: c.author, sourceUrl: c.sourceUrl, words: '', take: `--openverse "${phrase}" --flickr ${c.key.slice('flickr:'.length)}` })
+      if (!blocked(c.url)) hits.push({ key: c.key, licence: c.licence, author: c.author, sourceUrl: c.sourceUrl, words: '', take: `--openverse ${shellWord(phrase)} --flickr ${c.key.slice('flickr:'.length)}` })
     }
   }
   return hits
