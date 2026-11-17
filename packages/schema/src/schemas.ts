@@ -44,6 +44,7 @@ const PixelBox = z.object({ x0:z.number().int().nonnegative(),y0:z.number().int(
 const HashPair = z.tuple([Hash,Hash])
 const Generated = z.object({
   model: z.string().min(1), driverModel: z.string().min(1), date: z.string().min(1), prompt: z.string().min(1), referenceHash: Hash,
+  pixelHash: Hash.optional(),
   check: z.object({ passes: z.literal(2).optional(), judgments: z.tuple([Hash, Hash]).optional(), verdict: z.literal('pass'), version: Hash, model: z.string().min(1), at: z.string().min(1), referenceHash: Hash, pixelHash: Hash, calibrationHash: Hash }).optional(),
 })
 const Alteration = z.object({
@@ -246,7 +247,7 @@ export const GlossarySchema = z.object({
    * Each kind's own picture, by the kind's id as the entry writes it (glossaryKinds: "lua-do-quyen"), shown beside that
    * kind's name (the owner, 15 Nov 2026: "what does each look like?"). One photo a kind; a kind with none has no record.
    */
-  kinds: z.array(z.object({ id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/), photo: Photo }))
+  kinds: z.array(z.object({ id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/), photo: Photo, cardCrop: PixelBox.optional(), aiLabelCorner: z.enum(['top-left', 'top-right']).optional() }))
     .refine(ks => new Set(ks.map(k => k.id)).size === ks.length, { message: 'a kind is listed twice' }).optional(),
 })
 export const PlaceSchema = z.object({

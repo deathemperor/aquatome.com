@@ -24,6 +24,7 @@ export { baseLang, languageWord, pageFish, speaksPageLang, videosForPage, videos
 export { loadAll, MARKET, PHOTO_BOXES_FILE, PHOTO_SCREEN_FILE, placeNamed, QUALITY_THRESHOLD, type LoadOptions, type Localized, type Content } from './load'
 export { linkGlossary, type GlossaryLinkTerm } from './glossary-link'
 export { capitalFirst, glossaryKinds, kindLine, kindsSection, type GlossaryKindItem } from './glossary-kinds'
+export { GLOSSARY_KIND_IMAGES, GLOSSARY_KIND_REVIEW_POLICY, GLOSSARY_KIND_APPROVALS, glossaryKindApproved, kindCanonical, kindPhotoCanonical, kindEntryCanonical, validKindCardCrop, type KindCardCrop, type KindAiLabelCorner, type GlossaryKindApproval } from './glossary-generated'
 export { headingSubject, linkTerms, type LinkTarget } from './link-terms'
 export { headingRoles, OWN_NUMBER, ownNumber, type HeadingRole } from './headings'
 export { COOKIE_PHOTO_HOSTS, MEDIA_HOST, setsCookies, THUMB_WIDTH, thumbOf } from './thumb'
