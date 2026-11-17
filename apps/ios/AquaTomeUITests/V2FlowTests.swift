@@ -139,11 +139,12 @@ final class V2FlowTests: XCTestCase {
     fish.tap()
     XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
     // A post has no tab bar: to another tab by its own link, the post left open behind it (spec-post-push.md). The
-    // sheet's button is on a tab's first screen, not on a page: Bể của tôi's, back from the tank.
+    // sheet's button is on a tab's first screen, not on a page: Bể của tôi's, back from the tank. The old look then
+    // opens on that tab, and Tìm holds what Hôm nay had open.
     app.toTanksFromAPost()
-    app.navigationBars["Bể cũ"].buttons.element(boundBy: 0).tap()
     flip(app)
     XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 5), "the old look didn't open")
+    app.openTab("Tìm")
     let back = app.navigationBars.buttons.element(boundBy: 0)
     XCTAssertTrue(back.waitForExistence(timeout: 5), "Tìm shows no page")
     back.tap()
@@ -1112,9 +1113,10 @@ final class V2FlowTests: XCTestCase {
   }
 
   /// Inside a post, a page the page pushes by itself has no tab bar either (spec-post-push.md): the fish of the day's photo
-  /// grid, from its banner, and the post again after it. Before, only the pages its stack pushes hid it.
-  func testThePhotoGridInsideAPostHasNoTabBar() {
-    let app = launch("-v2", "YES", "-large-gallery", "-fixed-pictures")
+  /// grid, from its banner, and the post again after it. Before, only the pages its stack pushes hid it. Then the post's
+  /// link to another tab ("Xem trong Bể của tôi →") leaves it open: back on Hôm nay, the post with its ✕ (Design, 17 Nov).
+  func testThePhotoGridInsideAPostHasNoTabBarAndATabsLinkLeavesThePostOpen() {
+    let app = launch("-v2", "YES", "-large-gallery", "-fixed-pictures", "-seed-tanks", "litres")
     app.launchForFlow()
     let tab = app.tabBars.buttons["Hôm nay"], fish = app.buttons["v2-fish-of-the-day"]
     XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
@@ -1127,11 +1129,16 @@ final class V2FlowTests: XCTestCase {
     app.navigationBars.buttons.element(boundBy: 0).tap()
     XCTAssertTrue(banner.waitForExistence(timeout: 5), "not back on the post")
     XCTAssertFalse(tab.isHittable, "the tab bar on the post, back from its grid")
+    app.toTanksFromAPost()
+    app.openTab("Hôm nay")
+    XCTAssertTrue(banner.waitForExistence(timeout: 5), "back on Hôm nay, the post isn't open")
+    XCTAssertTrue(app.navigationBars.buttons["BackButton"].exists, "back on Hôm nay, the post has no ✕")
+    XCTAssertFalse(tab.isHittable, "back on Hôm nay, the post shows the tab bar")
   }
 
   /// A post runs to the screen's foot (today-story.md, "The foot"): no tab bar, so no fade to stop above. Scrolled to its
-  /// end, the fish of the day's last words end its own 40 points and the home indicator's 34 above the foot, not 24 more
-  /// for a fade that isn't there.
+  /// end, the fish of the day's last row ("Ảnh và giấy phép", 44 tall) ends the page's own 40 points and the home
+  /// indicator's 34 above the foot (74), not 24 more for a fade that isn't there (98).
   func testAPostRunsToTheScreensFoot() {
     let app = launch("-v2", "YES")
     app.launchForFlow()
@@ -1139,9 +1146,12 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
     fish.tap()
     XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
-    let gap = app.wordsEndAboveTheFoot()
-    XCTContext.runActivity(named: "POST FOOT: the last words end \(gap) pt above the screen's foot") { _ in }
-    XCTAssertLessThanOrEqual(gap, 34 + 40 + 8, "the post's words end \(gap) pt above the screen's foot: above a fade that isn't there")
+    let last = app.descendants(matching: .any)["v2-mates-credits"].firstMatch
+    XCTAssertTrue(last.waitForExistence(timeout: 5), "no Ảnh và giấy phép, the page's last row")
+    app.flungToTheEnd()
+    let gap = app.frame.maxY - last.frame.maxY
+    XCTContext.runActivity(named: "POST FOOT: the last row ends \(gap) pt above the screen's foot") { _ in }
+    XCTAssertLessThanOrEqual(gap, 34 + 40 + 8, "the post's last row ends \(gap) pt above the screen's foot: above a fade that isn't there")
   }
 
   /// PROBE, not for merge: which of the two ways iOS's back reads "Đóng" (15 Nov: the item's way read "Quay lại"). Each
@@ -1155,7 +1165,10 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
     fish.tap()
     let back = app.navigationBars.buttons["BackButton"]
-    XCTAssertTrue(back.waitForExistence(timeout: 5), "no ✕ (iOS's back)")
+    XCTAssertTrue(back.waitForExistence(timeout: 5), "no ✕ (iOS's back) by its \(way): its identifier gone?")
+    // The view's way sets the label a turn of the main queue later: waited for, not read once.
+    let reads = XCTNSPredicateExpectation(predicate: NSPredicate(format: "label == %@", "Đóng"), object: back)
+    _ = XCTWaiter.wait(for: [reads], timeout: 3)
     XCTContext.runActivity(named: "POST BACK \(way): \"\(back.label)\"") { _ in }
     XCTAssertEqual(back.label, "Đóng", "by its \(way), the ✕ reads \"\(back.label)\"")
   }

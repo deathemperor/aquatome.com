@@ -10,8 +10,8 @@ extension XCUIApplication {
   }
 
   /// From a fish's post on Hôm nay, which has no tab bar, to Bể của tôi by its "Thêm vào bể" and "Xem trong Bể của tôi →"
-  /// (`-seed-tanks litres`: one tank, "Bể cũ"). The post stays open behind it, as every tab keeps its place
-  /// (spec-post-push.md, Design, 17 Nov).
+  /// (`-seed-tanks litres`: one tank, "Bể cũ"), then back from the tank to the tab's first screen. The post stays open
+  /// behind it, as every tab keeps its place (spec-post-push.md, Design, 17 Nov).
   func toTanksFromAPost(file: StaticString = #filePath, line: UInt = #line) {
     let add = buttons["v2-add"], save = buttons["put-save"], open = buttons["put-open"]
     XCTAssertTrue(add.waitForExistence(timeout: 5), "no Thêm vào bể on the post", file: file, line: line)
@@ -22,6 +22,8 @@ extension XCUIApplication {
     open.tap()
     XCTAssertTrue(navigationBars["Bể cũ"].waitForExistence(timeout: 5), "Xem trong Bể của tôi didn't open the tank", file: file, line: line)
     XCTAssertTrue(tabBars.buttons["Bể của tôi"].isSelected, "the tank opened off its tab", file: file, line: line)
+    pageBack.tap()
+    XCTAssertTrue(navigationBars["Bể cũ"].waitForNonExistence(timeout: 5), "not back from the tank", file: file, line: line)
   }
 
   /// Flung to the end of the screen, until its lowest words stop moving, then whether they end above the tab bar.
@@ -149,17 +151,8 @@ extension XCUIApplication {
     return sharp
   }
 
-  /// The bottom of the lowest words on screen, but the tab bar's own: read from one snapshot of the app, not a query a
-  /// text (a fish's page has hundreds, and the screen may change between two).
-  /// Flung to the end of a screen with no tab bar, a post's (today-story.md, "The foot"): how far above the screen's foot
-  /// its lowest words end.
-  func wordsEndAboveTheFoot() -> CGFloat {
-    flungToTheEnd()
-    return frame.maxY - lowestWords()
-  }
-
   /// Up until the screen's lowest words stop moving.
-  private func flungToTheEnd() {
+  func flungToTheEnd() {
     var low = -1.0
     for _ in 0..<30 {
       swipeUp()
@@ -170,6 +163,8 @@ extension XCUIApplication {
     }
   }
 
+  /// The bottom of the lowest words on screen, but the tab bar's own: read from one snapshot of the app, not a query a
+  /// text (a fish's page has hundreds, and the screen may change between two).
   private func lowestWords() -> CGFloat {
     guard let snap = try? snapshot() else { return 0 }
     let screen = snap.frame
