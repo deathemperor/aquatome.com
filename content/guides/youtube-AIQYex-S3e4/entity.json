@@ -73,15 +73,6 @@
             "caption": "Dãy bể kính xếp trên giá gỗ, thấy rõ khoảng trống phía trên mỗi bể.",
             "sharpness": 636.5,
             "person": false
-          },
-          {
-            "t": 145,
-            "url": "https://media.aquatome.com/video/AIQYex-S3e4/at145-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đèn treo phía trên các bể đặt cạnh nhau, chừa khoảng trống để chỉnh.",
-            "sharpness": 375.1,
-            "person": false
           }
         ],
         "photo": {
@@ -96,7 +87,31 @@
         }
       },
       {
-        "heading": "Làm lọc vách mút Hamburg",
+        "heading": "Đèn và nắp",
+        "moments": [
+          {
+            "t": 145,
+            "url": "https://media.aquatome.com/video/AIQYex-S3e4/at145-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đèn treo phía trên các bể đặt cạnh nhau, chừa khoảng trống để chỉnh.",
+            "sharpness": 375.1,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/AIQYex-S3e4/p5-lnaHQoNlcpLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/AIQYex-S3e4/p5-lnaHQoNlcpLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY 4.0",
+          "author": "223系新快速",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:LED_Wraparound_Shop_Light(6W).jpg",
+          "caption": "Cây đèn LED dạng thanh gắn trần, kiểu đèn xưởng dùng để chiếu sáng dàn bể."
+        }
+      },
+      {
+        "heading": "Lọc vách mút chạy bằng sủi khí",
         "moments": [
           {
             "t": 280,
@@ -117,20 +132,6 @@
           "author": "Pepe-aquaristik",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:HMF_Hamburger_Mattenfilter.jpg",
           "caption": "Tấm mút lọc xanh dày cắt sẵn, dùng làm vách lọc cho bể."
-        }
-      },
-      {
-        "heading": "Chọn đèn cho dàn bể",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/AIQYex-S3e4/p5-lnaHQoNlcpLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/AIQYex-S3e4/p5-lnaHQoNlcpLmpwZw-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY 4.0",
-          "author": "223系新快速",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:LED_Wraparound_Shop_Light(6W).jpg",
-          "caption": "Cây đèn LED dạng thanh gắn trần, kiểu đèn xưởng dùng để chiếu sáng dàn bể."
         }
       }
     ]
