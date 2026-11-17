@@ -1,9 +1,14 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises'
-import { join } from 'node:path'
-import { refusedSite } from './cycle-only'
+import { join, relative } from 'node:path'
+import { REFUSED_SITES, refusedSite } from './cycle-only'
 
-/** A web page on a refused site. A source that isn't a web address (a book) isn't one: refusedSite refuses what it can't read as an address, for a fetch. */
-const onRefused = (url: string) => /^https?:\/\//i.test(url) && refusedSite(url)
+/**
+ * A web page on a refused site, or a copy of one: an address another address carries whole, as the Internet Archive's
+ * (web.archive.org/web/<time>/https://…) and archive.today's do. Matched by host, as research's deny list matches (the site
+ * and any host under it, never a near name). A source that isn't a web address (a book) isn't one: refusedSite refuses what
+ * it can't read as an address, for a fetch. Nothing is fetched: a page elsewhere that redirects to the site isn't seen.
+ */
+export const onRefused = (url: string) => (url.match(/https?:\/\/(?:(?!https?:\/\/)[^\s"'<>])+/gi) ?? []).some(u => refusedSite(u))
 
 /**
  * A refused site's facts leave research, whatever the kind (the chief of staff, 17 Nov 2026, for Thursday 19 Nov): a guide's,
@@ -15,7 +20,7 @@ const onRefused = (url: string) => /^https?:\/\//i.test(url) && refusedSite(url)
  * every kind's facts, so nothing else is dropped. Out-of-range indexes are left as they are: they stay out of range.
  * Research is denied the site (claude.ts researchDeny), so what this drops is a page research found through search alone,
  * or research kept from before the site was refused. Each kind's step runs it on its research before anything reads it,
- * and `pnpm engine refused-sweep` once over what is kept.
+ * and refusedSweep over what is kept.
  */
 export function withoutRefused<T extends { sources: { url: string }[] }>(r: T): { kept: T; refused: { url: string; items: number }[]; dropped: { list: string; at: number }[] } {
   // Research that found nothing may give no sources.
@@ -70,7 +75,9 @@ export const WAITING: Record<string, string> = {
 const indentOf = (raw: string) => raw.match(/^\{\n( +)/)?.[1]?.length ?? 2
 
 /**
- * One pass over what is kept, with no model (`pnpm engine refused-sweep`): every facts file in engine-state/<FACTS_DIRS> through
+ * A pass over what is kept, with no model: once by hand (`pnpm engine refused-sweep`), and in every sweep (sweep.ts), which
+ * each cycle runs before its build and again on the merge at its push, with main's code: a run that started before a
+ * refused site's facts left, on older code, and writes them again, has them taken out at its push, before its tests. It is: every facts file in engine-state/<FACTS_DIRS> through
  * withoutRefused, and every page's reference list (`refs`, in content/<kind>/<id>/<lang>.json and entity.json) through
  * refsWithoutRefused. A list whose page cites by number (a material's or a breed's `sources`) isn't one of these: see WAITING.
  * Only a file something left is written, at its own indent. For each facts file, where each of its top-level facts moved
@@ -84,6 +91,7 @@ export async function refusedSweep(root: string) {
     for (const name of await files(`engine-state/${kind}`)) {
       const file = `engine-state/${kind}/${name}`
       const raw = await readFile(join(root, file), 'utf8')
+      if (!REFUSED_SITES.some(h => raw.toLowerCase().includes(h))) continue
       const data = JSON.parse(raw) as { sources?: { url: string }[] }
       if (!Array.isArray(data.sources)) continue
       const r = withoutRefused(data as { sources: { url: string }[] })
@@ -95,19 +103,18 @@ export async function refusedSweep(root: string) {
       facts.push({ file, refused: r.refused, dropped: r.dropped.length, moved })
     }
   }
-  for (const kind of (await readdir(join(root, 'content'), { withFileTypes: true })).filter(d => d.isDirectory()).map(d => d.name).sort()) {
-    for (const id of (await readdir(join(root, 'content', kind), { withFileTypes: true }).catch(() => [])).filter(d => d.isDirectory()).map(d => d.name).sort()) {
-      for (const name of await files(`content/${kind}/${id}`)) {
-        const file = `content/${kind}/${id}/${name}`
-        const raw = await readFile(join(root, file), 'utf8')
-        if (!raw.includes('"refs"')) continue
-        const page = JSON.parse(raw) as { refs?: { url: string }[] }
-        if (!Array.isArray(page.refs)) continue
-        const kept = refsWithoutRefused(page.refs)
-        if (kept.length === page.refs.length) continue
-        await writeFile(join(root, file), `${JSON.stringify({ ...page, refs: kept }, null, indentOf(raw))}\n`)
-        refs.push({ file, urls: page.refs.filter(x => !kept.includes(x)).map(x => x.url) })
-      }
+  // Every page's files, about 29,000: read 64 at a time, and parsed only when one names a refused site.
+  const pages = (await readdir(join(root, 'content'), { recursive: true, withFileTypes: true }).catch(() => []))
+    .filter(d => d.isFile() && d.name.endsWith('.json')).map(d => relative(root, join(d.parentPath, d.name))).sort()
+  for (let i = 0; i < pages.length; i += 64) {
+    for (const [file, raw] of await Promise.all(pages.slice(i, i + 64).map(async f => [f, await readFile(join(root, f), 'utf8')] as const))) {
+      if (!REFUSED_SITES.some(h => raw.toLowerCase().includes(h)) || !raw.includes('"refs"')) continue
+      const page = JSON.parse(raw) as { refs?: { url: string }[] }
+      if (!Array.isArray(page.refs)) continue
+      const kept = refsWithoutRefused(page.refs)
+      if (kept.length === page.refs.length) continue
+      await writeFile(join(root, file), `${JSON.stringify({ ...page, refs: kept }, null, indentOf(raw))}\n`)
+      refs.push({ file, urls: page.refs.filter(x => !kept.includes(x)).map(x => x.url) })
     }
   }
   return { facts, refs }

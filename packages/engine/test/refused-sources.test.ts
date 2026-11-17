@@ -1,5 +1,9 @@
 import { expect, test } from 'vitest'
-import { refsWithoutRefused, withoutRefused } from '../src/refused-sources'
+import { copyFile, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
+import { onRefused, refsWithoutRefused, withoutRefused } from '../src/refused-sources'
+import { sweep } from '../src/sweep'
 
 const REFUSED = 'https://cabaymau.vn/cach-tha-ca-moi-mua-vao-be-2/'
 const src = (url: string) => ({ url, title: url, kind: 'article' })
@@ -75,4 +79,32 @@ test('facts with no refused source come back as they were; a near name is anothe
   expect(out.kept).toBe(r)
   expect(out.refused).toEqual([])
   expect(refsWithoutRefused([{ url: REFUSED, title: 't' }, { url: 'https://cabaymau.net/x', title: 'u' }, { url: 'a book', title: 'b' }])).toEqual([{ url: 'https://cabaymau.net/x', title: 'u' }, { url: 'a book', title: 'b' }])
+})
+
+// The chief of staff, 17 Nov 2026: a sub-domain, a redirect and an archived copy.
+test('a refused site\'s hosts and archived copies of its pages are refused; near names, look-alike hosts and other sites are not', () => {
+  const yes = ['https://cabaymau.vn/x', 'http://www.cabaymau.vn/x', 'https://forum.cabaymau.vn/t/1', 'https://CABAYMAU.VN/x', 'https://web.archive.org/web/2024/https://cabaymau.vn/x', 'https://archive.ph/2024.01.01/https://www.cabaymau.vn/x']
+  const no = ['https://cabaymau.net/x', 'https://xcabaymau.vn/x', 'https://cabaymau.vn.example.com/x', 'https://example.org/?from=cabaymau.vn', 'https://web.archive.org/web/2024/https://cabaymau.net/x', 'a book', '']
+  expect(yes.map(onRefused)).toEqual(yes.map(() => true))
+  expect(no.map(onRefused)).toEqual(no.map(() => false))
+})
+
+// A cycle that started before a refused site's facts left, on older code, can write them again; the sweep at its push runs
+// on the merge with main's code and takes them out before its tests (the chief of staff, 17 Nov 2026).
+test('the sweep takes a refused site\'s facts out of kept research and its pages out of every language\'s references', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'aq-refused-sweep-'))
+  const guide = join(root, 'content/guides/g')
+  await mkdir(guide, { recursive: true })
+  await mkdir(join(root, 'engine-state/topics'), { recursive: true })
+  await copyFile(new URL('../../../content/sources.json', import.meta.url), join(root, 'content/sources.json'))
+  const ref = (url: string) => ({ url, title: url })
+  await writeFile(join(guide, 'entity.json'), JSON.stringify({ id: 'g', kind: 'care', source: 'aquatome', html: '', photos: [], mentions: [], updatedAt: '2026-11-17', refs: [ref('https://a.example/1'), ref(REFUSED)] }, null, 2))
+  await writeFile(join(guide, 'th.json'), JSON.stringify({ slug: 'g', name: 'g', refs: [ref(REFUSED), ref('https://a.example/1')] }, null, 2))
+  await writeFile(join(root, 'engine-state/topics/g.json'), JSON.stringify({ found: true, facts: [{ section: 'steps', fact: 'a', source: 1 }, { section: 'steps', fact: 'b', source: 0 }], sources: [src('https://a.example/1'), src(REFUSED)] }, null, 2))
+  const r = await sweep(root, {})
+  expect(r.refusedSources).toEqual(['engine-state/topics/g.json: 1 out', 'content/guides/g/entity.json: refs lose 1', 'content/guides/g/th.json: refs lose 1'])
+  expect(JSON.parse(await readFile(join(root, 'engine-state/topics/g.json'), 'utf8'))).toEqual({ found: true, facts: [{ section: 'steps', fact: 'b', source: 0 }], sources: [src('https://a.example/1')] })
+  for (const f of ['entity.json', 'th.json']) expect(JSON.parse(await readFile(join(guide, f), 'utf8')).refs).toEqual([ref('https://a.example/1')])
+  // A second sweep finds nothing.
+  expect((await sweep(root, {})).refusedSources).toEqual([])
 })
