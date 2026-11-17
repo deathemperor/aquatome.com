@@ -25,6 +25,11 @@ final class PerformanceTests: XCTestCase {
     app.homeRow("all-fish").tap()
     let list = app.scrollViews["shelf-pages"]
     XCTAssertTrue(list.waitForExistence(timeout: 5))
+    // Once down and back before measuring: the app's memory steps up 6–10 MB once, at a time that varies (GitHub's runs of
+    // 12–17 Nov: before the first fling, between two, or not within the five), so the peak read whichever side of it a
+    // run happened to be. Flung once first, the step comes before the five (perf-budgets.json, its reasons).
+    for _ in 0..<3 { list.swipeUp(velocity: .fast) }
+    for _ in 0..<3 { list.swipeDown(velocity: .fast) }
     let options = XCTMeasureOptions()
     options.invocationOptions = [.manuallyStop]
     measure(metrics: [XCTCPUMetric(application: app), XCTMemoryMetric(application: app)], options: options) {

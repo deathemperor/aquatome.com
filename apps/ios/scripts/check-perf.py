@@ -8,13 +8,22 @@ Usage:
 
 Medians, not averages: a CI runner that stalls for one of the five runs shouldn't fail the check. A budgeted metric
 the result doesn't have, or reads as 0, fails too (the test didn't run, Xcode renamed the metric, or the machine has
-no such counter): a budget never checks nothing.
+no such counter): a budget never checks nothing. A "signed" budget's metric is a change, which reads 0 or below when
+memory is let go: missing still fails, 0 doesn't.
+
+The fling's peak memory sits on one of two levels, 6–10 MB apart: the app's memory steps up once at a time that varies.
+The test flings once before measuring so the step comes first; a run whose peak still lands below it is said in the
+table's note, since its peak can hide up to the step's size of growth.
 """
 import json, os, subprocess, sys
 from statistics import median
 
 here = os.path.dirname(os.path.abspath(__file__))
 BUDGETS = os.path.join(here, '..', 'perf-budgets.json')
+# The fling's peak, and the line between its two levels: below 76.5 MB the app's one-time step hasn't come (GitHub's runs
+# of 12–17 Nov: 71.2–73.9 MB below it, 80.1–84.4 MB above).
+FLING_PEAK = ('PerformanceTests/testFlingingThroughTheFish()', 'com.apple.dt.XCTMetric_Memory-com.aquatome.app.physical_peak')
+LOW_LEVEL_KB = 76500
 
 
 def budgets(path=BUDGETS):
@@ -48,7 +57,7 @@ def check(values, app):
     for key, b in budgets().items():
         if b['test'] == 'bundle':
             value = app_size_kb(app)
-        elif key in values and median(values[key]) > 0:
+        elif key in values and (median(values[key]) > 0 or b.get('signed')):
             value = median(values[key])
         else:
             # Missing, or 0: a counter the machine doesn't have (CPU instructions read 0 on the hosted runners' VMs).
@@ -59,6 +68,10 @@ def check(values, app):
         failed |= over
         rows.append((b['name'], f'{value:.3f}'.rstrip('0').rstrip('.'), b['max'], b['unit'], '✘' if over else '✔'))
     table = ['| | measured | budget | |', '|---|---|---|---|'] + [f'| {n} | {v}{" " + u if v != "not measured" else ""} | {m} {u} | {ok} |' for n, v, m, u, ok in rows]
+    peak = values.get(FLING_PEAK)
+    if peak and median(peak) < LOW_LEVEL_KB:
+        table += ['', f'The fling\'s peak landed below the step ({median(peak):,.0f} kB, under {LOW_LEVEL_KB:,} kB): the warm-up fling '
+                      'didn\'t take it there, and up to the step\'s 6–10 MB of growth would pass its budget unseen.']
     print('\n'.join(table))
     if os.environ.get('GITHUB_STEP_SUMMARY'):
         with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as f:
