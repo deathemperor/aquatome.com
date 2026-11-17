@@ -12,18 +12,20 @@ no such counter): a budget never checks nothing. A "signed" budget's metric is a
 memory is let go: missing still fails, 0 doesn't.
 
 The fling's peak memory sits on one of two levels, 6–10 MB apart: the app's memory steps up once at a time that varies.
-The test flings once before measuring so the step comes first; a run whose peak still lands below it is said in the
-table's note, since its peak can hide up to the step's size of growth.
+The test flings once more before measuring (XCTest's own unrecorded pass makes it two), to try to bring the step first.
+A run whose peak still lands below it is said under the table, since its peak can hide up to the step's size of growth.
+The note can't tell a low run carrying 3–6 MB of growth from a high run: that waits for the step to be found.
 """
 import json, os, subprocess, sys
 from statistics import median
 
 here = os.path.dirname(os.path.abspath(__file__))
 BUDGETS = os.path.join(here, '..', 'perf-budgets.json')
-# The fling's peak, and the line between its two levels: below 76.5 MB the app's one-time step hasn't come (GitHub's runs
-# of 12–17 Nov: 71.2–73.9 MB below it, 80.1–84.4 MB above).
+# The fling's peak, and the line between its two levels: its budget less 6.5 MB, about the step's smallest. Below it the
+# app's one-time step hasn't come (GitHub's runs of 12–17 Nov: 71.2–73.9 MB below the step, 80.1–84.4 MB above it; the
+# budget 83,000 kB puts the line at 76,500).
 FLING_PEAK = ('PerformanceTests/testFlingingThroughTheFish()', 'com.apple.dt.XCTMetric_Memory-com.aquatome.app.physical_peak')
-LOW_LEVEL_KB = 76500
+STEP_KB = 6500
 
 
 def budgets(path=BUDGETS):
@@ -68,9 +70,10 @@ def check(values, app):
         failed |= over
         rows.append((b['name'], f'{value:.3f}'.rstrip('0').rstrip('.'), b['max'], b['unit'], '✘' if over else '✔'))
     table = ['| | measured | budget | |', '|---|---|---|---|'] + [f'| {n} | {v}{" " + u if v != "not measured" else ""} | {m} {u} | {ok} |' for n, v, m, u, ok in rows]
-    peak = values.get(FLING_PEAK)
-    if peak and median(peak) < LOW_LEVEL_KB:
-        table += ['', f'The fling\'s peak landed below the step ({median(peak):,.0f} kB, under {LOW_LEVEL_KB:,} kB): the warm-up fling '
+    peak, peak_budget = values.get(FLING_PEAK), budgets().get(FLING_PEAK)
+    if peak and median(peak) > 0 and peak_budget and median(peak) < peak_budget['max'] - STEP_KB:
+        line = peak_budget['max'] - STEP_KB
+        table += ['', f'The fling\'s peak landed below the step ({median(peak):,.0f} kB, under {line:,} kB): the warm-up fling '
                       'didn\'t take it there, and up to the step\'s 6–10 MB of growth would pass its budget unseen.']
     print('\n'.join(table))
     if os.environ.get('GITHUB_STEP_SUMMARY'):
@@ -82,8 +85,10 @@ def check(values, app):
 
 def tightens_only(old_path):
     old, new = budgets(old_path), budgets()
+    # A budget raised, or newly "signed" (0 or below then passes), is looser.
     loosened = [b['name'] for k, b in new.items()
-                if k in old and b['max'] > old[k]['max'] and b.get('reason') == old[k].get('reason')]
+                if k in old and (b['max'] > old[k]['max'] or (b.get('signed') and not old[k].get('signed')))
+                and b.get('reason') == old[k].get('reason')]
     dropped = [b['name'] for k, b in old.items() if k not in new]
     if loosened or dropped:
         sys.exit(f'budgets loosened without a new reason: {loosened}; budgets removed: {dropped}. '
