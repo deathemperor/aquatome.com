@@ -173,6 +173,27 @@ test("open photos on every page before any page's non-commercial pass: a dry pag
   expect((await album(r)).map(p => p.sourceUrl).slice(-2)).toEqual([INAT(2), INAT(3)])
 })
 
+test('the non-commercial pass reads no more while its limit of photos waits for the photo check, and its open round screens none left queued', async () => {
+  const r = await root()
+  await mkdir(join(r, 'content/gallery'), { recursive: true })
+  const waits = { url: 'https://media.example.org/inaturalist/9.webp', width: 1024, height: 768, licence: 'CC BY-NC', author: 'sampletown', sourceUrl: INAT(9), caption: 'cá', unchecked: true }
+  await writeFile(join(r, 'content/gallery/other-fish.json'), JSON.stringify({ id: 'other-fish', photos: [waits], seen: 1, updatedAt: '2026-11-16' }))
+  const calls: string[] = []
+  const report = await galleries(r, deps(calls), { sheets: 5, switches: ON, ncWaiting: 1 })
+  expect(report.ncWaiting).toBe(1)
+  expect(calls.some(u => u.includes('cc-by-nc'))).toBe(false)
+  expect((await album(r)).every(p => !p.licence.includes('NC'))).toBe(true)
+  // Room for more: the pass reads, and what it keeps counts.
+  const more = await galleries(r, deps([]), { sheets: 5, switches: ON, ncWaiting: 10 })
+  expect(more.ncWaiting).toBe(3)
+  // A non-commercial candidate left queued is screened only in its own round, never in the open one.
+  const st = await read(r, `engine-state/gallery/${ID}.json`)
+  const queued = { key: 'inat:4', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/4/large.jpg', thumb: 'https://inaturalist-open-data.s3.amazonaws.com/photos/4/medium.jpg', width: 1024, height: 768, licence: 'CC BY-NC', author: 'sampletown', sourceUrl: INAT(4) }
+  await writeFile(join(r, `engine-state/gallery/${ID}.json`), JSON.stringify({ ...st, queue: [queued], exhausted: undefined }))
+  await galleries(r, deps([]), { sheets: 5, switches: ON, ncWaiting: 3 })
+  expect((await read(r, `engine-state/gallery/${ID}.json`)).queue.map((c: { key: string }) => c.key)).toEqual(['inat:4'])
+})
+
 test('switch off after on: a non-commercial candidate still queued is never screened or added', async () => {
   const r = await root()
   await mkdir(join(r, 'engine-state/gallery'), { recursive: true })

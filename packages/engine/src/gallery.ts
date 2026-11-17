@@ -395,6 +395,12 @@ class OutOfBudget extends Error {}
  * runs once a cycle, about 8 a day, so its runs stay under 1.6 GB a day whatever they meet.
  */
 export const INAT_BYTES = 200_000_000
+/**
+ * Non-commercial album photos that may wait for the photo check at once. They are judged last, behind every other photo
+ * that waits, so past this the album step reads no more of them: more would only wait, their screening paid for (the
+ * chief of staff, 2026-11-17).
+ */
+export const NC_WAITING = 200
 /** The run's iNaturalist photo bytes are spent: the run stops, and the candidates it hadn't screened stay queued. */
 class InatBytesSpent extends Error {}
 const isInatPhoto = (url: string) => /(^|\.)inaturalist\.org$|^inaturalist-open-data\.s3\.amazonaws\.com$/.test(new URL(url).host)
@@ -467,9 +473,9 @@ async function otherBreeds(root: string, id: string): Promise<{ urls: Set<string
  * photos are a last source, read once every open one has run dry. content/gallery/<id>.json;
  * engine-state/gallery/<id>.json; docs/review/galleries.md.
  */
-export async function galleries(root: string, deps: GalleryDeps, o: { sheets: number; only?: string; budget?: Partial<SourceBudget>; shard?: [number, number]; switches?: Readonly<ImageSwitches>; inatBytes?: number }) {
+export async function galleries(root: string, deps: GalleryDeps, o: { sheets: number; only?: string; budget?: Partial<SourceBudget>; shard?: [number, number]; switches?: Readonly<ImageSwitches>; inatBytes?: number; ncWaiting?: number }) {
   const content = join(root, 'content')
-  const report = { done: [] as string[], failed: [] as string[], stopped: '', sheets: 0, added: {} as Record<string, number>, short: [] as string[], inatBytes: 0 }
+  const report = { done: [] as string[], failed: [] as string[], stopped: '', sheets: 0, added: {} as Record<string, number>, short: [] as string[], inatBytes: 0, ncWaiting: 0 }
   // Every iNaturalist photo the run downloads is counted; past the cap (INAT_BYTES) the run stops.
   const inatCap = o.inatBytes ?? INAT_BYTES
   const d: GalleryDeps = {
@@ -517,12 +523,18 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
   const size = async (url: string) => { const m = await sharp(Buffer.from(await d.get(url))).metadata(); return m.width && m.height ? { width: m.width, height: m.height } : null }
 
   /** Every open source of a species' or plant's page read to its end: iNaturalist's open passes, Commons, GBIF, Openverse. */
+  // Non-commercial album photos waiting for the photo check now, and while under NC_WAITING, room to read more.
+  if (nc) for (const f of (await readdir(join(content, 'gallery')).catch(() => [] as string[])).filter(f => f.endsWith('.json'))) {
+    const g = JSON.parse(await readFile(join(content, 'gallery', f), 'utf8')) as { photos?: GalleryPhoto[] }
+    report.ncWaiting += (g.photos ?? []).filter(p => p.unchecked && isNonCommercial(p.licence)).length
+  }
+  const ncRoom = () => report.ncWaiting < (o.ncWaiting ?? NC_WAITING)
   const openDry = (st: GalleryState) => st.inat?.pass === 'done' && !!st.gbif && (!st.gbif.key || st.gbif.next === null) && !!st.commons && (!d.openverse || st.openverse?.next === null)
   // Two rounds with the non-commercial switch on: every page's open sources first, then iNaturalist's non-commercial pass
   // with the sheets left, on pages whose open sources are read to their end. They rank last, so they never take a run's
   // sheets from an open photo further down the plan (the chief of staff, 2026-11-17).
   for (const ncRound of nc ? [false, true] : [false]) for (const t of plan) {
-    if (left.sheets <= 0 || report.stopped) break
+    if (left.sheets <= 0 || report.stopped || (ncRound && !ncRoom())) break
     const gfile = join(content, 'gallery', `${t.id}.json`)
     const g = JSON.parse(await readFile(gfile, 'utf8').catch(() => 'null')) as { photos: GalleryPhoto[]; seen: number; updatedAt: string; builtAt?: string } | null
     let gallery = g?.photos ?? []
@@ -648,7 +660,7 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
         }
         // iNaturalist's CC BY-NC and CC BY-NC-SA photos, its switch on: last, so they fill only what no open photo can,
         // and only once every open source is read to its end (one out of requests this run is not).
-        if (ncRound && !breed && !skip.has('inat') && !st.inatNc?.done && openDry(st)) {
+        if (ncRound && !breed && !skip.has('inat') && !st.inatNc?.done && openDry(st) && ncRoom()) {
           const r = await attempt('inat', async () => {
             st.inat ??= newInatCursor(await inatTaxon(names, inat))
             const p = await inatNcPage(st.inat.taxon, st.inatNc ?? { after: 0 }, inat)
@@ -661,14 +673,15 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
       }
       const dry = () => (breed || (st.inat?.pass === 'done' && !!st.gbif && (!st.gbif.key || st.gbif.next === null) && (!nc || !!st.inatNc?.done))) && !!st.commons && (!d.openverse || st.openverse?.next === null)
 
-      while (gallery.length < limit && left.sheets > 0) {
+      while (gallery.length < limit && left.sheets > 0 && (!ncRound || ncRoom())) {
         const want = Math.max(SHEET, (t.target - gallery.length) * 2)
         while (!full && st.queue.length < want) {
           const got = await more()
           if (got === null) break
           st.queue.push(...got.filter(isNew))
         }
-        const pool = full ? st.queue.filter(c => seeded.has(c.key)) : st.queue
+        // The open round screens no non-commercial candidate left queued from an earlier run: those wait for their own round.
+        const pool = (full ? st.queue.filter(c => seeded.has(c.key)) : st.queue).filter(c => ncRound || !isNonCommercial(c.licence))
         if (!pool.length) break
         // A full album screens no more seeds than it has spaces, so none is judged and then turned away for want of room.
         const chunk = pool.slice(0, full ? Math.min(SHEET, limit - gallery.length) : SHEET)
@@ -682,6 +695,7 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
         report.sheets += r.sheets
         seenCount += chunk.length
         const kept = r.kept
+        report.ncWaiting += kept.filter(k => isNonCommercial(k.photo.licence)).length
         for (const k of kept) {
           st.hashes[k.photo.url] = k.hash
           report.added[sourceOfKey(k.key)] = (report.added[sourceOfKey(k.key)] ?? 0) + 1
