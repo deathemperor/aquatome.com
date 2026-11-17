@@ -1,3 +1,4 @@
+import FishLamp
 import Foundation
 import Plugs
 import Tanks

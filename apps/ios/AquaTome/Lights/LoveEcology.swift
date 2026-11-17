@@ -18,85 +18,58 @@ protocol LampAir: AnyObject {
   func stop()
 }
 
-/// Why a broadcast didn't start. `cut`: it was handed to Bluetooth, then cut before Bluetooth said it had started
-/// (Bluetooth went off or reset, or another broadcast took over): it may have gone out (Codex, 18 Nov). The others:
-/// nothing went.
-enum LampAirError: Error { case off, refused, unsupported, failed, cut }
-
-/// The phone's Bluetooth, broadcasting as Fish lamp does. Its manager is made at the first tap, not when the screen opens.
+/// The phone's Bluetooth, broadcasting as Fish lamp does: FishLamp's LampAirCore over CoreBluetooth (what goes when, and
+/// what each broadcast is told, are the kit's, checked there). Its manager is made at the first tap, not when the screen
+/// opens, and again after one is let go with a start unanswered.
 @MainActor
-final class BluetoothLampAir: NSObject, LampAir {
-  private var manager: CBPeripheralManager?
-  /// A broadcast asked for before Bluetooth said it was on.
-  private var waiting: (uuids: [CBUUID], allowed: @MainActor () -> Bool, done: @MainActor (LampAirError?) -> Void)?
-  private var starting: (@MainActor (LampAirError?) -> Void)?
+final class BluetoothLampAir: LampAir {
+  private var core: LampAirCore!
+
+  init() {
+    core = LampAirCore(make: { [unowned self] in BluetoothPeripheral(core: self.core) })
+  }
 
   func start(_ uuids: [String], allowed: @escaping @MainActor () -> Bool, done: @escaping @MainActor (LampAirError?) -> Void) {
-    let ids = uuids.map { CBUUID(string: $0) }
-    // One broadcast at a time: one still starting, or waiting for Bluetooth, is replaced, and told it didn't go, or, once
-    // handed to Bluetooth, that it may have (the master button awaits its answer).
-    if let w = waiting { waiting = nil; w.done(.failed) }
-    if let s = starting { starting = nil; s(.cut) }
-    guard let manager else {
-      waiting = (ids, allowed, done)
-      manager = CBPeripheralManager(delegate: self, queue: nil)
-      return
-    }
-    advertise(ids, on: manager, allowed: allowed, done: done)
+    core.start(uuids, allowed: allowed, done: done)
   }
 
-  /// Ends the broadcast; one waiting for Bluetooth is told it didn't go, one still starting that it may have.
-  func stop() {
-    if let w = waiting { waiting = nil; w.done(.failed) }
-    if let s = starting { starting = nil; s(.cut) }
-    manager?.stopAdvertising()
-  }
-
-  private func advertise(_ ids: [CBUUID], on manager: CBPeripheralManager, allowed: @escaping @MainActor () -> Bool,
-                         done: @escaping @MainActor (LampAirError?) -> Void) {
-    if let e = Self.error(manager.state) { return done(e) }
-    // Unknown or resetting: wait for the state.
-    guard manager.state == .poweredOn else { waiting = (ids, allowed, done); return }
-    // Asked as it begins: what it was asked for may no longer stand after the wait (the master button's owner signed
-    // out, Codex, 17 Nov).
-    guard allowed() else { return done(.failed) }
-    manager.stopAdvertising()
-    starting = done
-    manager.startAdvertising([CBAdvertisementDataServiceUUIDsKey: ids])
-  }
-
-  private static func error(_ state: CBManagerState) -> LampAirError? {
-    switch state {
-    case .poweredOff: .off
-    case .unauthorized: .refused
-    case .unsupported: .unsupported
-    default: nil
-    }
-  }
+  func stop() { core.stop() }
 }
 
-extension BluetoothLampAir: @preconcurrency CBPeripheralManagerDelegate {
-  func peripheralManagerDidUpdateState(_ manager: CBPeripheralManager) {
-    // Bluetooth went off or reset while a broadcast was starting: say so, rather than leave the card sending. It was
-    // handed to Bluetooth, so it may have gone out.
-    if manager.state != .poweredOn, let done = starting {
-      starting = nil
-      done(.cut)
-    }
-    guard let w = waiting else { return }
-    if let e = Self.error(manager.state) {
-      waiting = nil
-      w.done(e)
-    } else if manager.state == .poweredOn {
-      waiting = nil
-      advertise(w.uuids, on: manager, allowed: w.allowed, done: w.done)
+/// One CBPeripheralManager, as LampAirCore uses it: its state and its answers go to the core, from this one.
+@MainActor
+final class BluetoothPeripheral: NSObject, LampPeripheral {
+  private weak var core: LampAirCore?
+  private var manager: CBPeripheralManager?
+
+  init(core: LampAirCore) {
+    self.core = core
+    super.init()
+    manager = CBPeripheralManager(delegate: self, queue: nil)
+  }
+
+  var bluetooth: LampBluetooth {
+    switch manager?.state {
+    case .poweredOn?: .on
+    case .poweredOff?: .off
+    case .unauthorized?: .refused
+    case .unsupported?: .unsupported
+    default: .notYet
     }
   }
 
+  func startAdvertising(_ uuids: [String]) {
+    manager?.startAdvertising([CBAdvertisementDataServiceUUIDsKey: uuids.map { CBUUID(string: $0) }])
+  }
+
+  func stopAdvertising() { manager?.stopAdvertising() }
+}
+
+extension BluetoothPeripheral: @preconcurrency CBPeripheralManagerDelegate {
+  func peripheralManagerDidUpdateState(_ manager: CBPeripheralManager) { core?.stateChanged(self) }
+
   func peripheralManagerDidStartAdvertising(_ manager: CBPeripheralManager, error: Error?) {
-    let done = starting
-    starting = nil
-    done?(error == nil ? nil : .failed)
+    core?.answered(self, started: error == nil)
   }
 }
 
@@ -175,12 +148,13 @@ final class LoveEcologyModel {
     }
   }
 
-  /// Leaving the screen ends its broadcast at once (not the master button's: the two share the phone's).
+  /// Leaving the screen ends its broadcast at once (not the master button's: the two share the phone's). One handed to
+  /// Bluetooth and not answered keeps what it is told (`.cut`: it may have gone, Codex, 18 Nov).
   func stop() {
     ending?.cancel()
     if case .sending = status {
       LampRadio.stop(by: self)
-      status = .ready
+      if case .sending = status { status = .ready }
     }
   }
 }
