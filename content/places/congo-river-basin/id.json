@@ -1,8 +1,13 @@
 {
   "slug": "congo-river-basin",
-  "name": "Lembah Kongo",
+  "name": "Cekungan Sungai Kongo",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-16T11:23:14.574Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

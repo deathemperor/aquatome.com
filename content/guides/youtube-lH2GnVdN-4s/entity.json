@@ -119,15 +119,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dùng dụng cụ cạo lau kính bể thủy sinh, cạnh đá và cây.",
-            "sharpness": 477.2
-          },
-          {
-            "t": 100,
-            "url": "https://media.aquatome.com/video/lH2GnVdN-4s/at100-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay đang lau kính bể bằng dụng cụ lau, bên trong là cây thủy sinh xanh.",
-            "sharpness": 1046.2
+            "sharpness": 477.2,
+            "person": false
           }
         ]
       },
@@ -141,35 +134,6 @@
             "height": 675,
             "caption": "Lớp váng bẩn trên mặt nước làm mặt bể bị mờ đục.",
             "sharpness": 83.1
-          },
-          {
-            "t": 200,
-            "url": "https://media.aquatome.com/video/lH2GnVdN-4s/at200-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Máy hút váng mặt nước gắn trên thành bể, sát mặt nước.",
-            "sharpness": 450.7
-          }
-        ]
-      },
-      {
-        "heading": "Bổ sung phân nhét cho cây ăn rễ",
-        "moments": [
-          {
-            "t": 530,
-            "url": "https://media.aquatome.com/video/lH2GnVdN-4s/at530-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng nhíp dài để nhét phân vào nền bể thủy sinh.",
-            "sharpness": 2352.2
-          },
-          {
-            "t": 560,
-            "url": "https://media.aquatome.com/video/lH2GnVdN-4s/at560-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh với nhiều cây lá lớn trồng trên nền.",
-            "sharpness": 1559.9
           }
         ]
       },
@@ -177,20 +141,13 @@
         "heading": "Bắt cá ở bể cũ thế nào cho nhanh",
         "moments": [
           {
-            "t": 730,
-            "url": "https://media.aquatome.com/video/lH2GnVdN-4s/at730-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng vợt bắt cá trong bể cũ rậm cỏ lươn.",
-            "sharpness": 497.2
-          },
-          {
             "t": 760,
             "url": "https://media.aquatome.com/video/lH2GnVdN-4s/at760-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Vợt đưa vào bể nhiều cây để lùa bắt cá.",
-            "sharpness": 526.4
+            "sharpness": 526.4,
+            "person": false
           }
         ]
       },
@@ -203,7 +160,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá nhỏ bơi trong bể thủy sinh, cá ông tiên đứng gần lũa.",
-            "sharpness": 586.3
+            "sharpness": 586.3,
+            "person": false
           },
           {
             "t": 1110,
@@ -211,7 +169,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá ông tiên bơi gần lũa giữa bể thủy sinh.",
-            "sharpness": 496
+            "sharpness": 496,
+            "person": false
           }
         ],
         "photo": {
@@ -234,7 +193,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể thủy sinh dài trồng nhiều cây và lũa.",
-            "sharpness": 1416.6
+            "sharpness": 1416.6,
+            "person": false
           },
           {
             "t": 1020,
@@ -242,7 +202,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá nhỏ bơi trong bể thủy sinh nhiều lũa và cây.",
-            "sharpness": 1514.7
+            "sharpness": 1514.7,
+            "person": false
           }
         ]
       },
@@ -254,8 +215,9 @@
             "url": "https://media.aquatome.com/video/lH2GnVdN-4s/at1220-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đàn cá neon và cá ông tiên bơi trong bể thủy sinh nhiều cây.",
-            "sharpness": 1491.7
+            "caption": "Đàn cá ông tiên và vài con cá nhỏ bơi trong bể thủy sinh nhiều cây.",
+            "sharpness": 1491.7,
+            "person": false
           }
         ]
       }

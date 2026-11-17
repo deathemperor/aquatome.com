@@ -50,6 +50,20 @@
       "kind": "emersed"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/84137109.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/84137109-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "chiuluan",
+      "sourceUrl": "https://www.inaturalist.org/photos/84137109",
+      "caption": "Cụm hoa trắng kem trên lá đỏ sẫm của Alternanthera bettzickiana",
+      "best": true,
+      "kind": "flower",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/43480c6324df1fcb.webp",
       "thumb": "https://media.aquatome.com/commons/43480c6324df1fcb-480.webp",
       "width": 1200,
@@ -84,6 +98,34 @@
       "caption": "Bụi Cây Alternanthera bettzickiana lá đỏ tía, có hoa trắng nhỏ",
       "best": true,
       "kind": "emersed"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/84137102.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/84137102-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "chiuluan",
+      "sourceUrl": "https://www.inaturalist.org/photos/84137102",
+      "caption": "Bụi Cây Alternanthera bettzickiana lá đỏ sẫm mọc ngoài trời",
+      "best": true,
+      "kind": "emersed",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/455306297.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/455306297-480.webp",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Rony Ristow",
+      "sourceUrl": "https://www.inaturalist.org/photos/455306297",
+      "caption": "Thảm Cây Alternanthera bettzickiana lá hồng đỏ nhiều màu",
+      "best": true,
+      "kind": "emersed",
+      "setup": false,
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/commons/ab50a39689945493.webp",
@@ -144,6 +186,20 @@
       "caption": "Bụi lá hồng tím và hoa trắng của Alternanthera bettzickiana",
       "best": false,
       "kind": "emersed"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/84137113.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/84137113-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "chiuluan",
+      "sourceUrl": "https://www.inaturalist.org/photos/84137113",
+      "caption": "Hoa và lá đỏ thẫm của Alternanthera bettzickiana cận cảnh",
+      "best": false,
+      "kind": "flower",
+      "setup": false,
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/commons/66328bcbe8c50c9b.webp",
@@ -218,7 +274,7 @@
       "kind": "emersed"
     }
   ],
-  "seen": 44,
-  "updatedAt": "2026-11-10",
-  "builtAt": "2026-11-10"
+  "seen": 63,
+  "updatedAt": "2026-11-16",
+  "builtAt": "2026-11-16"
 }

@@ -1,6 +1,6 @@
 import { FIRST_GUIDES, type Content, type GuideEntity, type Localized } from '@aq/schema'
 import { expect, test } from 'vitest'
-import { appIndex } from '../src/lib/app-index'
+import { appGuideImage, appIndex } from '../src/lib/app-index'
 import { guideDoc, listedPaths } from '../src/lib/app-page'
 import { getContent } from '../src/lib/content'
 import { coverStyle } from '../src/lib/cover-style'
@@ -40,7 +40,7 @@ test("a guide with no picture stays in the site's guides to read next, and off t
   // The lead guide after this one reads next on the site; the app reads the next with a picture.
   expect(parts.next[0]!.id).toBe(g.id)
   expect(parts.appNext.map(x => x.id)).not.toContain(g.id)
-  expect(parts.appNext.every(x => guideImage(c2, x))).toBe(true)
+  expect(parts.appNext.every(x => appGuideImage(c2, x))).toBe(true)
   expect(appIndex('vi', c2).home.guides).not.toContain(`/vi/huong-dan/${g.t.slug}/`)
   expect(appIndex('vi', c).home.guides).toContain(`/vi/huong-dan/${g.t.slug}/`)
 }, 120_000)
@@ -64,7 +64,7 @@ test("the app's Khám phá shelf and a series' next parts keep to guides with a 
   const parts = guideParts('vi', c2, one)
   expect(parts.next[0]!.id).toBe(two.id)
   expect(parts.appNext.map(x => x.id)).not.toContain(two.id)
-  expect(parts.appNext.every(x => guideImage(c2, x))).toBe(true)
+  expect(parts.appNext.every(x => appGuideImage(c2, x))).toBe(true)
 }, 120_000)
 
 // Fable's read of #1384: what the app is sent, not only guideParts. A guide page's next reads keep to guides with a

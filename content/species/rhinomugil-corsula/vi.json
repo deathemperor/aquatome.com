@@ -1,0 +1,21 @@
+{
+  "slug": "ca-doi-bon-mat-an-do",
+  "name": "Cá đối bốn mắt Ấn Độ",
+  "altNames": [
+    "Cá bốn mắt Ấn Độ",
+    "Indian Four Eyed Fish"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Cá bốn mắt Ấn Độ thuộc họ cá đối. Nó thường dài 15-20 cm, hiếm lắm mới có con lên tới 45 cm.</p>",
+    "distribution:glaser": "<p>Nguồn gốc: Ấn Độ.</p>",
+    "notes:glaser": "<p>Mắt của Rhinomugil chia làm hai theo chiều ngang, giống cá bốn mắt Nam Mỹ (Anableps). Nhưng hai giống này không có họ hàng gì với nhau. Nửa trên của mắt giúp cá nhìn rõ những gì trên mặt nước, còn nửa dưới để nhìn dưới nước.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  }
+}

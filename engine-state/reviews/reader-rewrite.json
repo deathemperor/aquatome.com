@@ -41,6 +41,22 @@
       "kept": true
     }
   ],
+  "vi/guides/aquariumbreeder-bloodworms-profile-life-cycle-and-culture-guide#body": [
+    {
+      "at": "2026-11-16T17:45:02Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"giao tử lớn\" changed to \"thực vật thủy sinh\": a listed food item was replaced with a different one.",
+        "\"gần như mọi thứ\" became \"Thứ gì loài này cũng ăn\": the hedge \"almost\" is now an absolute, so it is a certainty.",
+        "\"giàu chất hữu cơ\" to \"nhiều chất hữu cơ\" is fine."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/aquariumbreeder-breeding-and-life-cycle-of-crayfish#body": [
     {
       "at": "2026-11-13T16:48:08Z",
@@ -460,6 +476,22 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-N8N1xQCE7ok#body": [
+    {
+      "at": "2026-11-16T11:50:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"rau diếp nước mini\" changed to \"bèo tai tượng mini\": a different plant name (water lettuce vs. a different plant), so the name is changed.",
+        "\"cây bị giữ lại nên mọc hướng lên\" changed to \"Bị giữ lại một chỗ nên bèo mọc hướng lên\": the subject shifts from the plants (cây) to the floating plants (bèo). This changes who grows upward and who is held back.",
+        "\"cây vươn khỏi mặt nước\" became \"đám cây vươn khỏi mặt nước\": a small addition (\"đám\") that doesn't change the meaning."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-OrW6PZgqKSM#body": [
     {
       "at": "2026-11-11T00:42:01Z",
@@ -468,6 +500,21 @@
       "notes": [
         "\"không chịu nước\" became \"không chạm nước\": this changes the reason given. The original says the pieces are not water-resistant. The rewrite says they don't touch water, which is a small nuance shift.",
         "The polycarbonate option is kept as a hedge (\"có thể\"), and the drawback is kept."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-P33hkCbg2hc#body": [
+    {
+      "at": "2026-11-16T11:46:23Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "Dropped 'Cây vảy ốc' Vietnamese name; 'Cây vảy ốc (Ludwigia) đỏ' became 'Ngọn Ludwigia đỏ' (minor nuance lost).",
+        "'Chúng không mọc quá nhanh' became 'Loài này', fine."
       ],
       "attempt": "first",
       "kept": true
@@ -743,6 +790,36 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/guides/youtube-lH2GnVdN-4s#body": [
+    {
+      "at": "2026-11-16T11:48:39Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "\"giữ nguyên nước trong bể cũ để sau trồng lại\" vs \"ngâm cây trong nước bể cũ\": the meaning changes. BEFORE says to keep the old tank water untouched. AFTER says to soak the plants in it, which is a new instruction.",
+        "\"Kiểm tra nhiệt độ hai bể có khớp nhau không\" vs \"Xem nhiệt độ hai bể có bằng nhau không\": \"bằng nhau\" (equal) is slightly stricter than \"khớp nhau\" (match). This is a small nuance."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-lnOzt5QoSzY#body": [
+    {
+      "at": "2026-11-16T17:46:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.72,
+      "notes": [
+        "\"bắt vít cho ốp chặt vào máng\": BEFORE says \"vặn ốp vào\" (twist/screw it on). AFTER specifies screws (\"bắt vít\") and adds \"chặt vào máng\", which is a small addition.",
+        "\"Mặt sau lưng máng gắn 4 quạt\": \"ốp\" (mount/attach onto) became \"gắn\". This is acceptable."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/guides/youtube-nXDe9QF-Gu8#body": [

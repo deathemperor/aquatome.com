@@ -1,0 +1,23 @@
+{
+  "slug": "goby-sulawesi",
+  "name": "Goby Sulawesi",
+  "altNames": [
+    "Rexi goby",
+    "Sulawesi goby",
+    "Goby rexi"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Goby kecil berwarna kuning ini termasuk spesies yang berenang bebas di kolom air, berbeda dengan kebanyakan goby lainnya. Panjang maksimalnya sekitar 4-5 cm.</p>",
+    "distribution:glaser": "<p>Spesies ini hanya ditemukan di Sulawesi, dan di pulau itu pun hanya ada di dua danau, yaitu Towuti dan Mahalona.</p>",
+    "habitat:glaser": "<p>Air di danau-danau ini sangat hangat (29 °C atau lebih), sangat bersih, sedikit basa (pH 7,5), dengan konduktivitas sekitar 225 µS/cm.</p>",
+    "dimorphism:glaser": "<p>Jantan yang memiliki teritori berubah warna menjadi kuning cerah, dan siripnya juga tumbuh lebih besar dengan pita-pita gelap. Betina warnanya jauh lebih pucat dan siripnya bening.</p>",
+    "notes:glaser": "<p>Mugilogobius: dari bahasa Latin, artinya \"goby-belanak\". rexi: nama yang diberikan untuk menghormati seseorang.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.85
+    }
+  }
+}

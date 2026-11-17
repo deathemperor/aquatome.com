@@ -9,13 +9,20 @@
   "sections": {
     "quickFacts:glaser": "<p>Kelima spesies dalam genus Crossoloricaria semuanya terlihat sangat mirip dengan Pseudohemiodon, genus loricariid yang bentuknya mirip ikan sebelah (flounder). Ikan-ikan ini juga bertubuh pipih, dengan mata kecil yang letaknya saling berjauhan di kepala yang berbentuk segitiga. Perbedaan kedua genus ini adalah Crossoloricaria tidak memiliki lempeng tulang di bagian perut. Hanya di sepanjang garis tengah sisi bawah tubuhnya terdapat satu baris kecil lempeng tulang mungil. C. cephalaspis tidak tumbuh lebih dari 20 cm.</p>",
     "distribution:glaser": "<p>Spesies ini berasal dari Kolombia bagian utara.</p>",
-    "maintenance:glaser": "<p>Ikan ini mutlak membutuhkan substrat pasir untuk mengubur diri sedalam-dalamnya. Karena itu, ikan ini sering kali sulit terlihat sama sekali. Saat baru dimasukkan ke akuarium, ikan ini hanya keluar dari pasir pada malam hari, tetapi setelah melewati masa adaptasi, ikan ini akan muncul saat waktu pemberian pakan.</p>"
+    "maintenance:glaser": "<p>Ikan ini mutlak membutuhkan substrat pasir untuk mengubur diri sedalam-dalamnya. Karena itu, ikan ini sering kali sulit terlihat sama sekali. Saat baru dimasukkan ke akuarium, ikan ini hanya keluar dari pasir pada malam hari, tetapi setelah melewati masa adaptasi, ikan ini akan muncul saat waktu pemberian pakan.</p>",
+    "quickFacts:scotcat": "<p>Crossoloricaria cephalaspis Isbrücker, 1979. Famili: Loricariidae. Ukuran: 11 cm. Suhu: 24–28 °C. pH: 6,0–7,0.</p><p>Genus ini terlihat mirip dengan Pseudohemiodon, tetapi Pseudohemiodon memiliki lempeng tulang di sisi bawah tubuhnya, sedangkan Crossoloricaria hampir tidak berlempeng, kecuali satu baris lempeng kecil di sepanjang garis tengah sisi bawah tubuh.</p>",
+    "distribution:scotcat": "<p>Amerika Selatan: daerah aliran Sungai Magdalena, Kolombia. Lokasi tipe: Kolombia, Río Magdalena.</p><p>Daftar Merah IUCN: belum ada penelitian tentang bioekologi spesies ini maupun dinamika populasinya, dan informasi mengenai sebaran sebenarnya di Kolombia masih belum lengkap. Namun, spesies ini tersebar luas di dataran rendah di seluruh daerah aliran Sungai Magdalena, Cauca, dan Atrato. Karena itu, Crossoloricaria cephalaspis dinilai berstatus Risiko Rendah (Least Concern, LC) (IUCN 2023).</p>",
+    "maintenance:scotcat": "<p>Sediakan tempat persembunyian dan substrat pasir, karena spesies ini suka mengubur diri di dalamnya.</p>",
+    "diet:scotcat": "<p>Larva serangga.</p>",
+    "notes:scotcat": "<p>Etimologi: nama spesies cephalaspis diambil dari Cephalaspis Agassiz 1835, sejenis ostracoderm purba yang hanya dikenal dari fosil, yang \"sangat mirip\" dengan ikan ini.</p>",
+    "references:scotcat": "<p>Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>The ETYFish Project Fish Name Etymology Database.</p>"
   },
   "quality": {
     "score": 0.85,
     "indexable": true,
     "bySource": {
-      "glaser": 0.85
+      "glaser": 0.85,
+      "scotcat": 0.85
     }
   }
 }

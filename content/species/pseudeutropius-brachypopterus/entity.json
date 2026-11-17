@@ -20,9 +20,9 @@
       "regions": [
         "Sumatra",
         "Borneo",
-        "Kapuas River",
-        "Siak River",
-        "Musi River"
+        "Kapuas",
+        "Musi River",
+        "Siak River"
       ],
       "sources": [
         "planetcatfish",
@@ -39,7 +39,7 @@
         },
         {
           "source": "planetcatfish",
-          "quote": "Asia: Sumatra and Borneo.",
+          "quote": "Asia: Sumatra and Borneo. Pacific, Greater Sunda Island Rivers, Sumatra Waters; Pacific, Greater Sunda Island Rivers, Borneo Waters.",
           "countries": [],
           "regions": [
             "Sumatra",
@@ -48,19 +48,19 @@
         },
         {
           "source": "scotcat",
-          "quote": "Asia: Kapuas River, Sumatra.",
+          "quote": "Asia: Kapuas River, Sumatra. Type locality: Palembang, Sumatra.",
           "countries": [],
           "regions": [
-            "Kapuas River"
+            "Kapuas"
           ]
         },
         {
           "source": "scotcat",
-          "quote": "This species is known from the Siak River drainage southwards to the Musi River drainage in Sumatra, and from the Kapuas, and the Sampit (Mentaya) River drainage eastwards to the Sebangau River drainage in Borneo.",
+          "quote": "This species is known from the Siak River drainage southwards to the Musi River drainage in Sumatra, and from the Kapuas, and the Sampit (Mentaya) River drainage eastwards to the Sebangau River drainage in Borneo. Extent of occurrence (EOO) is estimated to be 540,000 km2, based on georeferenced points (GBIF 2019) and expert opinion (H.H. Ng pers. comm. 2019).",
           "countries": [],
           "regions": [
-            "Siak River",
-            "Musi River"
+            "Musi River",
+            "Siak River"
           ]
         }
       ]

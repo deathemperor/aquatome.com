@@ -1,8 +1,8 @@
 {
   "id": "parauchenoglanis-punctatus",
   "native": {
-    "input": "8a115228ac1e6bec",
-    "at": "2026-11-16T05:47:36.414Z",
+    "input": "dd48d67471d49cd6",
+    "at": "2026-11-16T17:28:41.839Z",
     "claims": [
       {
         "code": "CD",
@@ -10,6 +10,14 @@
         "source": "planetcatfish",
         "quote": "Type locality: Lindi River, Democratic Republic of Congo",
         "words": "Democratic Republic of Congo",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It is known so far only from the central Congo basin. Origin: D.R. Congo.",
+        "words": "D.R. Congo",
         "ok": true
       }
     ],
@@ -21,17 +29,30 @@
         "ok": true
       },
       {
-        "name": "Lindi River",
-        "source": "planetcatfish",
-        "quote": "Type locality: Lindi River, Democratic Republic of Congo",
-        "country": "CD",
+        "name": "Ogowe River",
+        "source": "scotcat",
+        "quote": "Africa: lower and central Congo River system; San Benito and Ogowe River basins. Type locality: Lindi River, which flows into the Congo at the Stanley Falls.",
+        "ok": true
+      },
+      {
+        "name": "San Benito",
+        "source": "scotcat",
+        "quote": "Africa: lower and central Congo River system; San Benito and Ogowe River basins. Type locality: Lindi River, which flows into the Congo at the Stanley Falls.",
+        "ok": true
+      },
+      {
+        "name": "Congo",
+        "source": "glaser",
+        "quote": "It is known so far only from the central Congo basin. Origin: D.R. Congo.",
         "ok": true
       }
     ],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "GA"
+      ],
       "sourcesOnly": []
     }
   },

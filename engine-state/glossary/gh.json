@@ -1,0 +1,442 @@
+{
+  "found": true,
+  "species": [
+    "Poecilia velifera",
+    "Neocaridina",
+    "Caridina"
+  ],
+  "sources": [
+    {
+      "url": "https://aquariumscience.org/index.php/4-5-1-general-hardness",
+      "title": "4 5 1 general hardness",
+      "kind": "keeper"
+    },
+    {
+      "url": "https://aquariumcoop.com/blogs/aquarium/ph-gh-kh",
+      "title": "The Fish Keeper’s Guide to pH, GH, and KH",
+      "kind": "shop"
+    },
+    {
+      "url": "https://senaquatic.vn/ph-kh-va-gh-lien-quan-nhu-the-nao",
+      "title": "pH, KH và GH liên quan như thế nào?",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhaz.com/thongso/",
+      "title": "Các Thông Số, viết tắt Thông Dụng trong thú chơi Thủy Sinh - Thuỷ sinh AZ",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.hanoizoo.com/tieu-chuan-nuoc-nuoi-ca/",
+      "title": "Tiêu chuẩn nước nuôi cá: Bí mật cho bể cá khỏe mạnh và cá phát triển tốt",
+      "kind": "other"
+    },
+    {
+      "url": "https://vietwave.com.vn/thuysinhdep/en/news/cac-thong-so-ho-thuy-sinh-va-cac-nhan-biet-thieu-hut-20",
+      "title": "Các thông số hồ thủy sinh và các nhận biết thiếu hụt",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.aquasabi.de/aquascaping-wiki-en_aquarium_total-hardness-in-the-aquarium",
+      "title": "Total hardness in the aquarium",
+      "kind": "shop"
+    },
+    {
+      "url": "https://shrimpscience.com/articles/shrimp-tank-gh",
+      "title": "shrimp tank gh",
+      "kind": "keeper"
+    },
+    {
+      "url": "https://cacanhnamaqua.com/api-gh-kh-test-kit-kiem-tra-gh-va-kh-cho-be-ca-canh-thuy-sinh/",
+      "title": "API GH & KH Test Kit",
+      "kind": "shop"
+    },
+    {
+      "url": "https://vbpl.vn/TW/Lists/vbpq/Attachments/171807/QUY CHUAN KEM THEO QĐ.docx",
+      "title": "QUY CHUAN KEM THEO QĐ",
+      "kind": "government"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "GH (general hardness) measures the calcium and magnesium ions dissolved in the water, i.e. how hard or soft it is.",
+      "source": 1,
+      "also": [
+        0,
+        2,
+        4
+      ]
+    },
+    {
+      "section": "what",
+      "fact": "GH is the sum of dissolved alkaline earth metal ions, mainly calcium and magnesium, with traces of strontium and others; these 'hardness builders' can leave lime deposits on aquarium glass.",
+      "source": 6
+    },
+    {
+      "section": "what",
+      "fact": "1 dGH equals 17.9 ppm (mg/L) of calcium carbonate equivalent.",
+      "source": 0,
+      "also": [
+        3
+      ]
+    },
+    {
+      "section": "what",
+      "fact": "1 °dH corresponds to 7.144 mg/l calcium or 4.346 mg/l magnesium.",
+      "source": 6
+    },
+    {
+      "section": "what",
+      "fact": "Hardness classes: soft below 8.4 °dH, medium-hard 8.4 to 14 °dH, hard from 14 °dH (German detergents law classification).",
+      "source": 6
+    },
+    {
+      "section": "what",
+      "fact": "Hardness scale for shrimp keepers: soft under 6 dGH, moderate 6 to 12 dGH, very hard above 12 dGH.",
+      "source": 7
+    },
+    {
+      "section": "what",
+      "fact": "GH supplies minerals for fish bone development, shrimp molting, snail shells and plant growth.",
+      "source": 1,
+      "also": [
+        4
+      ]
+    },
+    {
+      "section": "what",
+      "fact": "Calcium and magnesium are macronutrients for plants, and calcium builds the outer skeletons of snails, crabs and shrimp.",
+      "source": 6
+    },
+    {
+      "section": "what",
+      "fact": "The bacteria that break down pollutants need a certain mineral content, and so some GH.",
+      "source": 6
+    },
+    {
+      "section": "what",
+      "fact": "Too many dissolved ions raise osmotic pressure on tank inhabitants, causing stress and metabolic disorders; water too poor in minerals causes deficiencies and growth problems.",
+      "source": 6
+    },
+    {
+      "section": "what",
+      "fact": "Adult fish cope well with wide GH swings; 1 dGH (20 ppm) to 17 dGH (300 ppm) is fine for all adult fish.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Eggs, larvae and fry are more sensitive to GH than adults, but researchers' acceptable range is still broad, typically 20-300 ppm GH.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Fry need calcium from the water or their food for bone growth; fry on a calcium-poor diet can die in very soft water.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Poecilia velifera showed no difference in growth or mortality between 250 ppm and 18 ppm GH water.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "GH of 50 mg/L or more usually goes with a basic pH, but sulfate-based hardness (calcium sulfate, Epsom salt) can come with a low pH.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Clean, bacteria-free water matters more for fish than the exact GH value.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Recommended GH for most freshwater tanks: 4–8 dGH (70–140 ppm).",
+      "source": 1,
+      "also": [
+        2,
+        4,
+        5
+      ]
+    },
+    {
+      "section": "other",
+      "fact": "Soft-water fish such as discus need GH lowered to 3 dGH (50 ppm) or below; livebearers, goldfish and African cichlids prefer higher GH.",
+      "source": 1,
+      "also": [
+        2
+      ]
+    },
+    {
+      "section": "other",
+      "fact": "Target GH for Neocaridina shrimp is 4 to 10 dGH; for Caridina shrimp 4 to 6 dGH.",
+      "source": 7
+    },
+    {
+      "section": "signs",
+      "fact": "Low GH in fish can show as poor appetite, slow growth, lethargy or faded colours.",
+      "source": 1,
+      "also": [
+        2
+      ]
+    },
+    {
+      "section": "signs",
+      "fact": "Low GH can cause molting problems in shrimp and thin, flaking or pitted snail shells.",
+      "source": 1,
+      "also": [
+        2
+      ]
+    },
+    {
+      "section": "signs",
+      "fact": "Low GH can cause calcium and other mineral deficiencies in plants; magnesium deficiency shows as lighter leaves with dark veins.",
+      "source": 7,
+      "also": [
+        1
+      ]
+    },
+    {
+      "section": "signs",
+      "fact": "Too low GH can leave shrimp with a soft shell they struggle to break out of; too high GH makes the shell too tough so the shrimp gets stuck while molting.",
+      "source": 7
+    },
+    {
+      "section": "signs",
+      "fact": "Signs of too high GH in shrimp tanks include failed molts and mineral buildup near the waterline, but other causes give these too, so test GH.",
+      "source": 7
+    },
+    {
+      "section": "signs",
+      "fact": "GH that is too high makes gas exchange through fish gills harder and makes shrimp shells thick and hard to molt.",
+      "source": 5
+    },
+    {
+      "section": "signs",
+      "fact": "GH above about 11 dGH can encourage algae outbreaks, especially hair algae.",
+      "source": 5
+    },
+    {
+      "section": "causes",
+      "fact": "GH rises from water changes with harder water, topping off with tap or tank water instead of RO/distilled water, and hardscape rocks containing calcium.",
+      "source": 7
+    },
+    {
+      "section": "causes",
+      "fact": "GH falls from water changes with softer water and from Seachem CupriSorb in the filter.",
+      "source": 7
+    },
+    {
+      "section": "causes",
+      "fact": "Limestone rocks used in aquascapes such as đá kẹp kem, đá da voi and đá tai mèo are a main source of GH in tanks.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "API GH test: rinse the tube with tank water, fill to 5 mL, add GH reagent one drop at a time, shaking after each, until the colour turns from orange to green.",
+      "source": 8,
+      "also": [
+        7
+      ]
+    },
+    {
+      "section": "steps",
+      "fact": "API GH test: the number of drops is the dGH; multiply the drops by 17.9 to get mg/L.",
+      "source": 8,
+      "also": [
+        7
+      ]
+    },
+    {
+      "section": "steps",
+      "fact": "Test at the same time of day with a fresh sample, and store the kit dry, out of direct sunlight and heat.",
+      "source": 8
+    },
+    {
+      "section": "treatment",
+      "fact": "To raise GH, crushed coral is the first choice: about 1 lb per 10 gallons mixed into the substrate or in a media bag, replaced every 6–12 months; it dissolves faster at lower pH.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Wonder Shells or Seachem Equilibrium can be used instead of crushed coral to raise GH.",
+      "source": 1,
+      "also": [
+        7
+      ]
+    },
+    {
+      "section": "treatment",
+      "fact": "Cuttlebone can be added to raise GH; crushed coral raises KH and pH as well.",
+      "source": 7
+    },
+    {
+      "section": "treatment",
+      "fact": "If tap water is already hard, extra water changes are enough to raise GH.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Limestone raises both GH and KH; to raise GH alone, use calcium and magnesium sources without carbonates.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Adding minerals ('châm khoáng') raises GH, and dissolving đá kẹp kem raises GH and pH.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "To lower GH, mix in softer water such as rainwater or reverse osmosis water, or use a cation exchanger.",
+      "source": 6,
+      "also": [
+        4
+      ]
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem Discus Buffer and Acid Regulator are said to lower hardness by precipitating calcium and magnesium.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Lowering GH with RO: at GH 10 and KH 5, replacing 10% of the water with RO gives about GH 9 and KH 4.5; this also dilutes KH, pH and TDS.",
+      "source": 7
+    },
+    {
+      "section": "treatment",
+      "fact": "Lower GH gradually by mixing in RODI water and keeping water changes small, letting the tank soften over time.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Top off evaporation with RO or distilled water, not tap water, to stop hardness creeping up.",
+      "source": 7
+    },
+    {
+      "section": "prevention",
+      "fact": "Shrimp prefer stability above almost everything else: change one method at a time, make changes slowly (e.g. 10% water changes), and act only on symptoms or a big deviation.",
+      "source": 7
+    },
+    {
+      "section": "prevention",
+      "fact": "Test GH regularly instead of assuming it is fine.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "A normal GH reading can hide a calcium–magnesium imbalance: high magnesium with too little calcium; test calcium separately with a freshwater calcium kit.",
+      "source": 1,
+      "also": [
+        2,
+        7
+      ]
+    },
+    {
+      "section": "mistakes",
+      "fact": "Magnesium above about 10 mg/l can hinder calcium uptake.",
+      "source": 5
+    },
+    {
+      "section": "mistakes",
+      "fact": "Using GH, KH and other hardness terms interchangeably is a common error.",
+      "source": 0,
+      "also": [
+        6
+      ]
+    },
+    {
+      "section": "mistakes",
+      "fact": "KH is usually lower than GH but can be higher when other carbonates such as sodium hydrogen carbonate are present, so GH should not be assumed equal to KH.",
+      "source": 6
+    },
+    {
+      "section": "mistakes",
+      "fact": "Using fully demineralised RO water without remineralising or mixing it leaves too few important minerals.",
+      "source": 6
+    },
+    {
+      "section": "mistakes",
+      "fact": "Letting GH drop below what animals and plants need can lead to poor growth or death.",
+      "source": 1,
+      "also": [
+        2
+      ]
+    },
+    {
+      "section": "mistakes",
+      "fact": "Making large or fast GH changes is a mistake in shrimp tanks.",
+      "source": 7
+    },
+    {
+      "section": "myths",
+      "fact": "aquariumscience.org says the belief that Lake Malawi water is very hard is wrong.",
+      "source": 0
+    },
+    {
+      "section": "myths",
+      "fact": "aquariumscience.org says the research does not support the idea that high GH is needed for healthy fish or fry.",
+      "source": 0
+    },
+    {
+      "section": "myths",
+      "fact": "aquariumscience.org says a published claim that guppy fry do best at 900 ppm GH is impossible with calcium carbonate (maximum about 350 ppm) and likely off by a factor of ten.",
+      "source": 0
+    },
+    {
+      "section": "myths",
+      "fact": "aquariumscience.org says 150 ppm water is not 'soft' water, though it is often called that.",
+      "source": 0
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnam's national domestic water standard QCVN 01-1:2018/BYT allows hardness up to 300 mg/L as CaCO3 ('Độ cứng, tính theo CaCO3').",
+      "source": 9
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese tap water usually has a pH of about 7.5-8.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese shops suggest adding GH+ or calcium–magnesium mineral supplements when GH is below 4 dGH.",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "Vietnamese name: \"độ cứng chung\" (written as \"GH hoặc độ cứng chung\").",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "Vietnamese name: \"độ cứng chung của nước\".",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "Vietnamese name: \"Độ cứng tổng (GH)\".",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "Vietnamese name: \"độ cứng tổng\" (written as \"Đo độ cứng tổng (GH)\").",
+      "source": 8
+    },
+    {
+      "section": "other",
+      "fact": "Vietnamese name: \"độ cứng của nước\" (written as \"gH (General Hardness) là độ cứng của nước\").",
+      "source": 3
+    },
+    {
+      "section": "other",
+      "fact": "English name: \"General Hardness\" (GH).",
+      "source": 1
+    },
+    {
+      "section": "other",
+      "fact": "English name: \"Total hardness\" (GH), measured in °dH.",
+      "source": 6
+    }
+  ]
+}

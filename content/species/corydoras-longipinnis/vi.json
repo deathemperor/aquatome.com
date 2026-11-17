@@ -11,13 +11,23 @@
     "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Corydoras(ln6) longipinnis Knaack, 2007</li><li>Tên thường gọi: CW003, Long-finned Cory, Langfinnet Pansermalle (Đan Mạch)</li><li>Kích thước: 61 mm SL (chiều dài chuẩn, không tính vây đuôi)</li><li>Nguồn gốc tên: tên loài đặt theo bộ vây dài của nó (pinnis nghĩa là vây).</li><li>Sách Đỏ IUCN: Chưa được đánh giá</li></ul>",
     "distribution:planetcatfish": "<p>Nam Mỹ: sông Río Dulce ở Argentina. Nơi thu mẫu chuẩn là sông Río Dulce, đoạn cách Termas de Río Hondo khoảng 20 km về phía hạ lưu, thuộc tỉnh Santiago del Estero, Argentina, tọa độ khoảng 27°29'29''S, 64°41'58''W.</p>",
     "reproduction:planetcatfish": "<p>Sinh sản: Chưa có ghi nhận. Đến nay chưa có báo cáo nào về chuyện loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>Vertebrate Zoology v. 57 (no. 1), pp 36, Figs. 1-28, 31-39.</p>"
+    "references:planetcatfish": "<p>Vertebrate Zoology v. 57 (no. 1), pp 36, Figs. 1-28, 31-39.</p>",
+    "quickFacts:glaser": "<p>Corydoras longipinnis được Joachim Knaack mô tả khoa học năm 2007. Loài cá chuột này là họ hàng gần của Corydoras paleatus quen thuộc, và trông hơi giống dạng vây dài của C. paleatus. Điểm khác là ở C. longipinnis chỉ con đực mới có vây ngực dài thướt, còn ở dạng vây dài của C. paleatus thì con cái cũng có.</p>",
+    "distribution:glaser": "<p>Argentina. Loài này được mô tả từ sông Dulce (río Dulce).</p>",
+    "waterConditions:glaser": "<p>Corydoras longipinnis là cá cận nhiệt đới, nên nuôi ở nhiệt độ phòng. Các thông số nước không quan trọng lắm. Chỉ cần giữ pH không dưới 6 và không quá 8,5.</p>",
+    "equipment:glaser": "<p>Nhà nào có ao ngoài vườn thì mùa hè có thể thả chúng ra ao.</p>",
+    "diet:glaser": "<p>Loài này ăn ngay mọi loại thức ăn cá thông thường.</p>",
+    "behaviour:glaser": "<p>Nên nuôi Corydoras longipinnis theo đàn từ 7 con trở lên. Chúng hoàn toàn hiền với cá cùng giống lẫn mọi loài nuôi chung khác, và cũng không phá cây.</p>",
+    "dimorphism:glaser": "<p>Chỉ con đực mới có vây ngực dài thướt.</p>",
+    "reproduction:glaser": "<p>C. longipinnis dễ cho đẻ, cách làm giống hệt C. paleatus. Đầu tiên cho cá ăn thật nhiều, tới khi bụng con cái căng tròn. Sau đó thay thật nhiều nước, làm vài lần, mỗi lần bù bằng nước mát hơn nước cũ 3–5 °C. Gặp nước mát là cá bắt cặp và đẻ.</p>",
+    "references:glaser": "<p>Knaack, J. (2007): Beiträge zur Kenntnis der Callichthyidae (Teleostei: Siluruformes). III. Corydoras longipinnis sp. n. – ein neuer Panzerwels aus dem río Dulce in Argentinien (Teleostei: Siluriformes: Callichthyidae). Vertebrate Zoology 57 (1): 35-55</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.8
+      "planetcatfish": 0.8,
+      "glaser": 0.85
     }
   }
 }

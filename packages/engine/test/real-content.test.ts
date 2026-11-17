@@ -119,12 +119,22 @@ test("the owner's Hải Hồ and the names that replaced \"thài lài\" stay, ea
 // old one forwarding (with no note when the old name is dropped). No other page has the name, none has an old one in its
 // own, and no fish summary or caption keeps an old one (the sweep renames the text; the swapped-name test above holds the
 // pages).
-const KEPT_ADDRESS: Record<string, string> = { 'pseudomugil-luminatus': 'ca-cau-vong-neon-do-mat-xanh' }
+const KEPT_ADDRESS: Record<string, string> = {
+  'pseudomugil-luminatus': 'ca-cau-vong-neon-do-mat-xanh',
+  // Renamed with their addresses kept until the owner says to move them (the chief of staff, 16 Nov 2026).
+  'champsochromis-caeruleus': 'ca-tre-malawi',
+  'pelvicachromis-kribensis': 'ca-rong-do-kribensis',
+  'amphilius-frieli': 'ca-da-tron-suoi-amphilius-frieli',
+  'corbicula-fluminea': 'trai-nuoc-ngot-corbicula',
+  'aphyosemion-gabunense': 'ca-killi-duoi-dan-lia-gabon-gabon-lyretail',
+  'boulengerella-cuvieri': 'ca-cuvieri-boulengerella-cuvieri',
+  'myriophyllum-elatinoides': 'cay-rong-duoi-chon-nuoc-myriophyllum-elatinoides',
+}
 test("the chief of staff's fish and plant names stay, each guarded, the old name kept for search or dropped, the address as it was or forwarding", () => {
   const content = fileURLToPath(new URL('../../../content', import.meta.url))
   const pages = ['species', 'plants', 'breeds'].flatMap(kind => readdirSync(join(content, kind)).filter(id => existsSync(join(content, kind, id, 'vi.json')))
     .map(id => ({ page: `${kind}/${id}`, t: JSON.parse(readFileSync(join(content, kind, id, 'vi.json'), 'utf8')) as Translation & { redirectFrom?: { slug: string; name: string }[] } })))
-  const old = (was: string) => new RegExp(`(?<!\\p{L})${was}(?!\\p{L})`, 'iu')
+  const old = (was: string) => new RegExp(`(?<!\\p{L})${was.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?!\\p{L})`, 'iu')
   for (const r of FISH_NAMES) {
     const at = `${r.kind ?? 'species'}/${r.id}`
     const t = pages.find(p => p.page === at)!.t
@@ -136,13 +146,39 @@ test("the chief of staff's fish and plant names stay, each guarded, the old name
     if (!oldNames(r).length) continue
     const others = pages.filter(p => p.page !== at)
     expect(others.filter(p => [p.t.name, ...p.t.altNames].some(n => n.toLowerCase() === r.name.toLowerCase())).map(p => p.page), r.name).toEqual([])
-    // An old name is this one's alone (Astra, 2026-11-13): no other page is called by it, or by a name it begins.
-    for (const was of oldNames(r)) expect(others.filter(p => [p.t.name, ...p.t.altNames].some(n => old(was).test(n))).map(p => p.page), was).toEqual([])
+    // An old name is this one's alone (Astra, 2026-11-13): no other page is called by it, or by a name it begins, but for
+    // another species' longer name the row lists, which the text rename leaves whole ("Cá platy variatus").
+    const theirs = (n: string) => (r.longer ?? []).some(l => `${n.toLowerCase()} `.startsWith(`${l.toLowerCase()} `))
+    for (const was of oldNames(r)) expect(others.filter(p => [p.t.name, ...p.t.altNames].some(n => old(was).test(n) && !theirs(n))).map(p => p.page), was).toEqual([])
   }
   const files = [...readdirSync(join(content, 'summaries')).map(f => `summaries/${f}`), ...readdirSync(join(content, 'captions')).map(f => `captions/${f}`)]
-  expect(files.filter(f => FISH_NAMES.some(r => oldNames(r).some(was => old(was).test(readFileSync(join(content, f), 'utf8').normalize('NFC')))))).toEqual([])
+  // Less the longer names the rows list, which keep their words ("Cá platy variatus (Xiphophorus variatus) dễ nuôi").
+  const longer = FISH_NAMES.flatMap(r => r.longer ?? []).map(l => new RegExp(old(l).source, 'giu'))
+  const holdsOld = (f: string) => {
+    const words = longer.reduce((s, l) => s.replace(l, ''), readFileSync(join(content, f), 'utf8').normalize('NFC'))
+    return FISH_NAMES.some(r => oldNames(r).some(was => old(was).test(words)))
+  }
+  expect(files.filter(holdsOld)).toEqual([])
   // The passages a person found read as they said (names.ts KIND_PASSAGES).
   for (const r of KIND_PASSAGES) expect(readFileSync(join(content, r.page, 'vi.json'), 'utf8').normalize('NFC'), r.page).not.toContain(r.was)
+})
+
+// Two plant names a person fixed lose the scientific name in brackets and keep their address (the naming plan, 14 Nov);
+// and the marimo, an alga, is no moss in Tropica's quick facts in any language, the part fixed so a later read of Tropica
+// doesn't bring the line back (Curation's card, 21 Nov).
+test('two fixed plant names carry no brackets, and the marimo is called no moss in its quick facts', () => {
+  const content = fileURLToPath(new URL('../../../content', import.meta.url))
+  const vi = (id: string) => JSON.parse(readFileSync(join(content, 'plants', id, 'vi.json'), 'utf8')) as Translation
+  for (const [id, name, slug] of [['anubias-barteri-var-glabra', 'Ráy lá dài', 'ray-la-dai'], ['limnophila-sessiliflora', 'Cây tiểu bảo tháp', 'cay-tieu-bao-thap']] as const)
+    expect([vi(id).name, vi(id).nameFixed, vi(id).slug]).toEqual([name, true, slug])
+  const dir = join(content, 'plants', 'aegagropila-linnaei')
+  const tropica = (JSON.parse(readFileSync(join(dir, 'entity.json'), 'utf8')) as { sections: { key: string; source: string; html: string; fixed?: boolean }[] }).sections
+    .find(s => s.key === 'quickFacts' && s.source === 'tropica')!
+  expect([tropica.html, tropica.fixed]).toEqual([expect.not.stringMatching(/Type:/), true])
+  for (const [lang, word] of [['vi', 'Loại:'], ['id', 'Jenis:'], ['th', 'ประเภท:'], ['ms', 'Jenis:']] as const) {
+    const t = JSON.parse(readFileSync(join(dir, `${lang}.json`), 'utf8')) as { sections: Record<string, string> }
+    expect(t.sections['quickFacts:tropica'], lang).not.toContain(word)
+  }
 })
 
 // The owner, 2026-11-07: "fritz slim out is not for Vietnamese. I can effectively treat this with very cheap oxy già."

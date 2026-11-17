@@ -34,16 +34,17 @@ import Testing
 
 @Test func theListsShowThePagesTheIndexHasOfTheKindPickedFiveRecentAtMost() {
   let page = { (k: HandbookIndex.Kind, p: String) in HandbookIndex.Item(kind: k, name: p, path: p) }
-  let byPath = Dictionary(uniqueKeysWithValues: [page(.guide, "/g1/"), page(.fish, "/f1/"), page(.guide, "/g2/"), page(.fish, "/f2/"),
-                                                 page(.guide, "/g3/"), page(.guide, "/g4/"), page(.guide, "/g5/"), page(.guide, "/g6/")].map { ($0.path, $0) })
+  let pages = [page(.guide, "/g1/"), page(.fish, "/f1/"), page(.guide, "/g2/"), page(.fish, "/f2/"),
+               page(.guide, "/g3/"), page(.guide, "/g4/"), page(.guide, "/g5/"), page(.guide, "/g6/")]
+  let byPath = ItemsByKey(pages) { $0.path }
   let read = ["/g1/", "/gone/", "/f1/", "/g2/", "/f2/", "/g3/", "/g4/", "/g5/", "/g6/"]
   // A page the index no longer has is left out; the kind is picked before the five are taken.
   #expect(ReadingList.items(read, in: byPath, kind: nil, limit: 5).map(\.path) == ["/g1/", "/f1/", "/g2/", "/f2/", "/g3/"])
   #expect(ReadingList.items(read, in: byPath, kind: .guide, limit: 5).map(\.path) == ["/g1/", "/g2/", "/g3/", "/g4/", "/g5/"])
   #expect(ReadingList.items(read, in: byPath, kind: .fish).map(\.path) == ["/f1/", "/f2/"])
   // Narrowed to videos: a series, and a guide made from a video.
-  let videos = byPath.merging([("/v/", HandbookIndex.Item(kind: .video, name: "v", path: "/v/")),
-                               ("/gv/", HandbookIndex.Item(kind: .guide, name: "gv", path: "/gv/", video: 60))]) { a, _ in a }
+  let videos = ItemsByKey(pages + [HandbookIndex.Item(kind: .video, name: "v", path: "/v/"),
+                                   HandbookIndex.Item(kind: .guide, name: "gv", path: "/gv/", video: 60)]) { $0.path }
   #expect(ReadingList.items(["/g1/", "/gv/", "/v/"], in: videos, kind: .video).map(\.path) == ["/gv/", "/v/"])
 }
 
@@ -63,4 +64,16 @@ import Testing
   r.move(to: .underVi)
   #expect(r.saved == ["/vi/ca/ca-neon/", "/id/panduan/neon/", "/vi/huong-dan/nuoi-ca-neon/"])
   #expect(r.recent == ["/vi/cay/rotala-do/", "/vi/ca/ca-dia/"])
+}
+
+@Test func itemsByKeyFindEachItemByItsKeyTheFirstWithAKeyWinningAndOnesWithoutNone() {
+  let a = HandbookIndex.Item(kind: .fish, contentId: "x", name: "a", path: "/a/")
+  let b = HandbookIndex.Item(kind: .fish, contentId: "x", name: "b", path: "/b/")
+  let c = HandbookIndex.Item(kind: .guide, name: "c", path: "/c/")
+  // The one without a key first: each key's place is in the whole list, not in the ones with a key.
+  let byId = ItemsByKey([c, a, b]) { $0.contentId }
+  #expect(byId["x"]?.path == "/a/")
+  #expect(byId["c"] == nil && byId["/c/"] == nil)
+  let byPath = ItemsByKey([c, a, b]) { $0.path }
+  #expect(byPath["/b/"]?.name == "b" && byPath["/c/"]?.kind == .guide && byPath["/d/"] == nil)
 }

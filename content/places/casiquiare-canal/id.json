@@ -3,6 +3,12 @@
   "name": "Kanal Casiquiare",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-16T11:21:54.023Z",
+    "why": "Indonesian usage for this river-channel is \"Sungai Casiquiare\" (Wikipedia id: Sungai Kasikiare/Casiquiare), and \"Kanal\" suggests an artificial canal, though the Casiquiare is a natural distributary."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

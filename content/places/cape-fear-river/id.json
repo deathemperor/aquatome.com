@@ -1,8 +1,13 @@
 {
   "slug": "cape-fear-river",
-  "name": "Cape Fear",
+  "name": "Sungai Cape Fear",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-16T11:21:23.374Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

@@ -1,0 +1,151 @@
+{
+  "id": "trachydoras-steindachneri",
+  "native": {
+    "input": "df36da56c383c1c0",
+    "at": "2026-11-16T17:28:41.839Z",
+    "claims": [
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Trachydoras steindachneri is a doradid catfish from the Amazon basin in Ecuador, Colombia, Peru, Bolivia and Brazil.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Trachydoras steindachneri is a doradid catfish from the Amazon basin in Ecuador, Colombia, Peru, Bolivia and Brazil.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Trachydoras steindachneri is a doradid catfish from the Amazon basin in Ecuador, Colombia, Peru, Bolivia and Brazil.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Trachydoras steindachneri is a doradid catfish from the Amazon basin in Ecuador, Colombia, Peru, Bolivia and Brazil.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Trachydoras steindachneri is a doradid catfish from the Amazon basin in Ecuador, Colombia, Peru, Bolivia and Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Trachydoras steindachneri is a doradid catfish from the Amazon basin in Ecuador, Colombia, Peru, Bolivia and Brazil.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Trachydoras steindachneri",
+    "status": "ACCEPTED",
+    "taxonKey": 2344036,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        43
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        42
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        35
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        20
+      ],
+      [
+        "58414378-4fb2-47e0-8dd5-8b55d5c77117",
+        14
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        12
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        11
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        6
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        6
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        5
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        4
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        2
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        2
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "EC",
+      "CO",
+      "PE",
+      "BO",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-16T17:28:41.839Z"
+  }
+}

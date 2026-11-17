@@ -9,6 +9,158 @@
     "south-america",
     "peru"
   ],
+  "range": {
+    "records": {
+      "taxonKey": 2401900,
+      "total": 114,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "BR",
+          89
+        ],
+        [
+          "PE",
+          20
+        ],
+        [
+          "CO",
+          3
+        ],
+        [
+          "BO",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -8.4375,
+          1
+        ],
+        [
+          -78.75,
+          -5.625,
+          1
+        ],
+        [
+          -75.9375,
+          1.40625,
+          1
+        ],
+        [
+          -74.53125,
+          -7.03125,
+          1
+        ],
+        [
+          -74.53125,
+          -5.625,
+          3
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          9
+        ],
+        [
+          -73.125,
+          -4.21875,
+          5
+        ],
+        [
+          -70.3125,
+          -5.625,
+          1
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          2
+        ],
+        [
+          -67.5,
+          -4.21875,
+          1
+        ],
+        [
+          -67.5,
+          -2.8125,
+          2
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          11
+        ],
+        [
+          -66.09375,
+          -2.8125,
+          1
+        ],
+        [
+          -64.6875,
+          -14.0625,
+          2
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          2
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          8
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          22
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          4
+        ],
+        [
+          -56.25,
+          -4.21875,
+          1
+        ],
+        [
+          -56.25,
+          -2.8125,
+          14
+        ],
+        [
+          -54.84375,
+          -7.03125,
+          1
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          17
+        ],
+        [
+          -50.625,
+          -7.03125,
+          2
+        ],
+        [
+          -49.21875,
+          -8.4375,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -63,16 +215,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/glaser/a31b057109c01620.webp",
-      "thumb": "https://media.aquatome.com/glaser/a31b057109c01620-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/parapteronotus_bonapartii_en/",
-      "source": "glaser"
-    },
-    {
       "url": "https://media.aquatome.com/glaser/1b8e7e3af7b2293d.webp",
       "thumb": "https://media.aquatome.com/glaser/1b8e7e3af7b2293d-480.webp",
       "width": 850,
@@ -83,8 +225,8 @@
       "source": "glaser"
     },
     {
-      "url": "https://media.aquatome.com/glaser/cbe8cf57f1b5e871.webp",
-      "thumb": "https://media.aquatome.com/glaser/cbe8cf57f1b5e871-480.webp",
+      "url": "https://media.aquatome.com/glaser/508479f3afd70e90.webp",
+      "thumb": "https://media.aquatome.com/glaser/508479f3afd70e90-480.webp",
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
@@ -93,8 +235,18 @@
       "source": "glaser"
     },
     {
-      "url": "https://media.aquatome.com/glaser/508479f3afd70e90.webp",
-      "thumb": "https://media.aquatome.com/glaser/508479f3afd70e90-480.webp",
+      "url": "https://media.aquatome.com/glaser/a31b057109c01620.webp",
+      "thumb": "https://media.aquatome.com/glaser/a31b057109c01620-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/parapteronotus_bonapartii_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/cbe8cf57f1b5e871.webp",
+      "thumb": "https://media.aquatome.com/glaser/cbe8cf57f1b5e871-480.webp",
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",

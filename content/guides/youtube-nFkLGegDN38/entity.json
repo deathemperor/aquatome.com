@@ -64,20 +64,13 @@
         "heading": "Lớp nền làm thế nào",
         "moments": [
           {
-            "t": 100,
-            "url": "https://media.aquatome.com/video/nFkLGegDN38/at100-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nền đắp thành các gò cao trong bể dài, chưa đổ nước.",
-            "sharpness": 1155.5
-          },
-          {
             "t": 440,
             "url": "https://media.aquatome.com/video/nFkLGegDN38/at440-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Lớp cát phủ trên cùng của nền, trải đều và nhấp nhô.",
-            "sharpness": 865.9
+            "sharpness": 865.9,
+            "person": false
           }
         ]
       },
@@ -90,7 +83,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đèn spotlight cong treo dọc thanh phía trên mặt bể.",
-            "sharpness": 619.2
+            "sharpness": 619.2,
+            "person": false
           },
           {
             "t": 310,
@@ -98,30 +92,14 @@
             "width": 1200,
             "height": 675,
             "caption": "Các đèn rọi spotlight treo phía trên bể dài, chưa có nước.",
-            "sharpness": 553.9
+            "sharpness": 553.9,
+            "person": false
           }
         ]
       },
       {
         "heading": "Đắp gò thêm bằng sỏi và cát",
-        "moments": [
-          {
-            "t": 410,
-            "url": "https://media.aquatome.com/video/nFkLGegDN38/at410-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đổ nước đục ra khỏi thùng sau khi khuấy rửa sỏi cát.",
-            "sharpness": 1261.2
-          },
-          {
-            "t": 430,
-            "url": "https://media.aquatome.com/video/nFkLGegDN38/at430-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Xúc sỏi cát đã rửa vào bể để đắp gò.",
-            "sharpness": 1265.2
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/nFkLGegDN38/p2-MDM1NjA5NSkuanBn.webp",
           "thumb": "https://media.aquatome.com/video/nFkLGegDN38/p2-MDM1NjA5NSkuanBn-480.webp",
@@ -142,7 +120,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Khúc lũa lớn đặt vào bể trước, làm nền cho các khúc khác.",
-            "sharpness": 1638.3
+            "sharpness": 1638.3,
+            "person": false
           },
           {
             "t": 680,
@@ -150,7 +129,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các khúc lũa xếp dựa vào nhau, có khúc nghiêng tạo bố cục.",
-            "sharpness": 1124.3
+            "sharpness": 1124.3,
+            "person": false
           }
         ],
         "photo": {
@@ -173,7 +153,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Khe hở giữa đá và lũa chừa chỗ cho cây trồng quanh mép.",
-            "sharpness": 1230.6
+            "sharpness": 1230.6,
+            "person": false
           },
           {
             "t": 740,
@@ -181,28 +162,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai cụm lũa và đá cách nhau bởi khoảng nền cát thoáng.",
-            "sharpness": 1197.5
-          }
-        ]
-      },
-      {
-        "heading": "Rải cành nhỏ cho giống đáy sông",
-        "moments": [
-          {
-            "t": 810,
-            "url": "https://media.aquatome.com/video/nFkLGegDN38/at810-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cành nhỏ nằm tự nhiên giữa đá và cát sỏi trong hồ.",
-            "sharpness": 1176.9
-          },
-          {
-            "t": 840,
-            "url": "https://media.aquatome.com/video/nFkLGegDN38/at840-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hồ đã xếp lũa, đá và cành vụn rải trên nền cát.",
-            "sharpness": 1115.9
+            "sharpness": 1197.5,
+            "person": false
           }
         ]
       },
@@ -210,20 +171,13 @@
         "heading": "Lũa có nổi không, có cần dán vào đá",
         "moments": [
           {
-            "t": 870,
-            "url": "https://media.aquatome.com/video/nFkLGegDN38/at870-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay chỉnh và kiểm tra vị trí lũa trong bể trước khi cho nước.",
-            "sharpness": 1488.4
-          },
-          {
             "t": 880,
             "url": "https://media.aquatome.com/video/nFkLGegDN38/at880-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Lũa lớn đặt trong bể, chèn đá ở các điểm tiếp xúc.",
-            "sharpness": 1183.1
+            "sharpness": 1183.1,
+            "person": false
           }
         ],
         "photo": {

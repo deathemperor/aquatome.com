@@ -118,7 +118,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh phong cách Amazon với nhiều loại cây xanh và lũa.",
-            "sharpness": 2489.6
+            "sharpness": 2489.6,
+            "person": false
           },
           {
             "t": 270,
@@ -126,7 +127,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá nhỏ bơi giữa cây và lũa trong bể phong cách tự nhiên.",
-            "sharpness": 1114.4
+            "sharpness": 1114.4,
+            "person": false
           }
         ]
       },
@@ -139,7 +141,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh cây rậm, đá phủ rêu xanh và nền cát sạch.",
-            "sharpness": 1346.3
+            "sharpness": 1346.3,
+            "person": false
           }
         ]
       },
@@ -152,7 +155,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể nhỏ có cá và nền cát, có thể dùng làm bể ở tạm.",
-            "sharpness": 207.6
+            "sharpness": 207.6,
+            "person": false
           },
           {
             "t": 720,
@@ -176,24 +180,7 @@
       },
       {
         "heading": "Nhổ và phân loại cây",
-        "moments": [
-          {
-            "t": 310,
-            "url": "https://media.aquatome.com/video/wBmmyQRjsE0/at310-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ba xô đựng cây đã nhổ, được phân loại riêng.",
-            "sharpness": 770
-          },
-          {
-            "t": 320,
-            "url": "https://media.aquatome.com/video/wBmmyQRjsE0/at320-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Xô đầy cây thủy sinh vừa nhổ, còn nguyên rễ.",
-            "sharpness": 238
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/wBmmyQRjsE0/p3-ydS1JbmRpYS5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/wBmmyQRjsE0/p3-ydS1JbmRpYS5qcGc-480.webp",
@@ -209,20 +196,13 @@
         "heading": "Gỡ lũa và đá mà không bỏ sót cá, tép",
         "moments": [
           {
-            "t": 440,
-            "url": "https://media.aquatome.com/video/wBmmyQRjsE0/at440-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Những khúc lũa lớn đặt trên sàn sau khi gỡ khỏi hồ.",
-            "sharpness": 620.2
-          },
-          {
             "t": 470,
             "url": "https://media.aquatome.com/video/wBmmyQRjsE0/at470-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Lũa đã lấy ra đặt trên sàn để kiểm tra bên trong.",
-            "sharpness": 279.8
+            "sharpness": 279.8,
+            "person": false
           }
         ]
       },
@@ -235,36 +215,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể còn đầy nước, cá tản ra khắp nơi nên rất khó bắt.",
-            "sharpness": 1956.7
-          },
-          {
-            "t": 660,
-            "url": "https://media.aquatome.com/video/wBmmyQRjsE0/at660-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Mực nước đã hạ thấp, chỉ còn cát và ít đồ trong bể.",
-            "sharpness": 1008.1
-          }
-        ]
-      },
-      {
-        "heading": "Giữ cây mới trong lúc chờ trồng",
-        "moments": [
-          {
-            "t": 900,
-            "url": "https://media.aquatome.com/video/wBmmyQRjsE0/at900-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh những chậu cây còn trong bông khoáng, xếp dày trong thùng.",
-            "sharpness": 536.3
-          },
-          {
-            "t": 970,
-            "url": "https://media.aquatome.com/video/wBmmyQRjsE0/at970-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các chậu cây thủy sinh xếp sát nhau trong khay, lá xanh tốt.",
-            "sharpness": 215.5
+            "sharpness": 1956.7,
+            "person": false
           }
         ]
       },
@@ -277,7 +229,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nền cũ trong bể lớn, cây mới bắt đầu mọc lên trên mặt nền.",
-            "sharpness": 510.1
+            "sharpness": 510.1,
+            "person": false
           },
           {
             "t": 1120,
@@ -285,7 +238,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh lớp nền trộn lẫn, trông giống đáy sông thật.",
-            "sharpness": 889.3
+            "sharpness": 889.3,
+            "person": false
           }
         ],
         "photo": {

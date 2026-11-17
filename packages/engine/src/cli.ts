@@ -7,7 +7,7 @@ import { join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { parseArgs } from 'node:util'
 import { loadAll, PHOTO_BOXES_FILE, retiredTo, SOURCE_IDS, vnDate, type SourceId } from '@aq/schema'
-import { WRITTEN_LANGS, WRITTEN_OTHER_LANGS } from '@aq/schema/langs'
+import { LANGS, type Lang, WRITTEN_LANGS, WRITTEN_OTHER_LANGS } from '@aq/schema/langs'
 import { nameStep } from './ceiling'
 import { LlmError, claudeCli, claudeResearch, claudeVision } from './claude'
 import { accountReport, rejectedTokens } from './claude-accounts'
@@ -98,6 +98,8 @@ import { makeSpecies, type VideoSource } from './species-research'
 import { speciesVideos } from './species-videos'
 import { findVideos, readVideoRejected } from './videos'
 import { localizeCaptions } from './captions'
+import { titlesRunOptions, translateVideoTitles } from './video-titles'
+import { checkOutcome, checkUsage, runTitleCheck } from './video-title-check'
 import { localizeEquipment } from './equipment-intl'
 import { addWikidataNames } from './wikidata'
 import { addPlantSynonyms } from './plant-synonyms'
@@ -1326,6 +1328,31 @@ if (cmd === 'photo-privacy') {
   if (!(lang in TARGETS)) throw new Error(`usage: pnpm engine localize-captions --lang ${WRITTEN_OTHER_LANGS.join('|')} [--limit N]`)
   const r = await localizeCaptions(ROOT, claudeCli, lang, { limit: values.limit ? Number(values.limit) : undefined })
   console.log(`localize-captions ${lang}: ${r.done.length} pages done, ${r.left} left, ${r.failed.length} failed${r.stopped ? `, stopped (${r.stopped})` : ''}\n${[...r.done, ...r.failed].join('\n')}`)
+} else if (cmd === 'video-titles' || cmd === 'video-titles-redo') {
+  // A video's title in the language of the pages that show it, once each (video-titles.ts); --limit model calls, 40 titles each.
+  // video-titles-redo is --redo under its own name, so a full re-translation has a spending line of its own and the cycle's
+  // new titles (video-titles) keep theirs (ceilings.json). It writes on Opus, as the editors' rounds and its line were.
+  const lang = values.lang as Lang
+  if (!LANGS.includes(lang)) throw new Error(`usage: pnpm engine video-titles --lang ${LANGS.join('|')} [--limit N] [--parallel N] [--only youtubeId,youtubeId] [--redo]`)
+  const r = await translateVideoTitles(ROOT, claudeCli, lang, titlesRunOptions(cmd, values))
+  console.log(`video-titles ${lang}: ${r.titles} written, ${r.left} left, ${r.rejected.length} not kept, ${r.failed.length} failed${r.stopped ? `, stopped (${r.stopped})` : ''}`)
+  for (const x of [...r.rejected, ...r.failed].slice(0, 30)) console.log(`  ${x}`)
+} else if (cmd === 'video-titles-check') {
+  // Each written title read again against the video's own title for a fault of meaning (video-title-check.ts). The titles
+  // come from --titles <file> (YouTube id → title), or the language's stored ones; the kept ones, which the editors passed,
+  // aren't read. The verdicts go to --out <file>; --write, on the stored titles only, also records them after every batch
+  // (recordVerdicts): each refusal and its reason in content/video-titles/<lang>.refused.json, and each pass with its words
+  // in <lang>.passed.json, without which the site shows the video's own title. Any title left unread (a stop, a failed
+  // batch, a row the model left out) ends it with an error.
+  const lang = values.lang as Lang
+  if (!LANGS.includes(lang) || !checkUsage(values)) throw new Error(`usage: pnpm engine video-titles-check --lang ${LANGS.join('|')} (--out <file> [--titles <file>] | --write) [--only youtubeId,youtubeId]`)
+  const r = await runTitleCheck(ROOT, claudeCli, lang, { titlesFile: values.titles ? String(values.titles) : undefined, write: values.write, only: values.only ? String(values.only).split(',') : undefined })
+  if (values.out) await writeFile(String(values.out), `${JSON.stringify(r.checks, null, 2)}\n`)
+  // Unread titles, or more than one in ten refused over every title read in these words: an error, and the language isn't
+  // turned on until the chief of staff has heard (16 Nov). The check itself stops at a mark of 200 over it (MARK).
+  const outcome = checkOutcome(lang, r)
+  for (const line of outcome.lines) console.log(line)
+  process.exitCode = outcome.exitCode || process.exitCode
 } else if (cmd === 'wikidata-names') {
   // The names Wikidata gives each species in another language, added to its page's other names where no other page uses them.
   const lang = values.lang as TargetLang

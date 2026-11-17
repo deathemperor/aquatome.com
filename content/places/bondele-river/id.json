@@ -1,8 +1,13 @@
 {
   "slug": "bondele-river",
-  "name": "Bondele",
+  "name": "Sungai Bondele",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-16T11:20:54.018Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

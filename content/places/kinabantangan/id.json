@@ -3,6 +3,12 @@
   "name": "Kinabatangan",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.35,
+    "at": "2026-11-16T11:27:46.828Z",
+    "why": "The name \"Kinabatangan\" is a common spelling of the real Sabah river and district, but it drops the \"n\" of the source's \"Kinabantangan\", and Indonesian atlases write the name as \"Kinabatangan\" for the river (Sungai Kinabatangan) and the district; the place here is a region, so the plain name could f"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

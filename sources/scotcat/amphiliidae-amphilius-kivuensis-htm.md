@@ -1,7 +1,7 @@
 ---
 url: https://www.scotcat.com/amphiliidae/amphilius_kivuensis.htm
 title: Amphilius kivuensis Pellegrin, 1933
-fetchedAt: 2026-11-13T17:30:55.796Z
+fetchedAt: 2026-11-16T11:50:12.020Z
 hash: a21bd9f6f87e4431c37df639a9868d98d9e14f8d02fac86143d29528c62fa428
 ---
 

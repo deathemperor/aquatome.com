@@ -147,9 +147,10 @@ final class LightsModel {
   }
   var form: Schedule { Schedule(on: on, off: off, ramp: ramp, levels: Array(levels.prefix(channels.count))) }
 
-  /// The Chihiros lights kept on the reader's tanks, the one changed last first (Week Aqua ones are on their own screen).
+  /// The Chihiros lights kept on the reader's tanks, the one changed last first (Week Aqua ones are on their own screen,
+  /// the Love Ecology lamp on its card).
   var savedLights: [Device] {
-    (tanks?.store.liveDevices ?? []).filter { $0.kind == "light" && !$0.isWeekAqua }
+    (tanks?.store.liveDevices ?? []).filter { $0.kind == "light" && !$0.isWeekAqua && !$0.isLoveEcology }
       .sorted { Array($1.updatedAt.utf16).lexicographicallyPrecedes(Array($0.updatedAt.utf16)) }
   }
   /// The record of the light connected (or the one that dropped).

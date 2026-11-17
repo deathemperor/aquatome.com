@@ -1,0 +1,119 @@
+{
+  "id": "lampiella-gibbosa",
+  "scientificName": "Lampiella gibbosa",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Lampiella",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-betari"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 16,
+          "max": 22
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/_en-20/",
+      "html": "<p>Maximum size: 5 cm. Origin: Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/_en-20/",
+      "html": "<p>The species occurs in the Brazilian state of Sao Paulo in the Rio Betari. Well known other species found here are for example Scleromystax barbatus (formerly known as Corydoras barbatus) or Parotocinclus paulinus.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/_en-20/",
+      "html": "<p>Like all species from these regions Lampiella have to be kept rather cool (16-22°C).</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/_en-20/",
+      "html": "<p>They mainly feed on aufwuchs, but they also take freshly hatched brine shrimp nauplii readily.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/_en-20/",
+      "html": "<p>This charming little catfish species was described as early as 1908 by Miranda Ribeiro under the name Otocinclus gibbosus. But only when a group of researching aquarists (H.-G. Evers, M. Lacerda, and M. Beyer) managed to collect the fish alive it became clear how distinct from all other Otocinclus-like fishes this species really is. There exist lots of individual colour variations, some are pretty orange-black, others rather grey. Most of them are yellowish.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/abd3cd3a4d2132b8.webp",
+      "thumb": "https://media.aquatome.com/glaser/abd3cd3a4d2132b8-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/_en-20/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/a0f5a772f3871e61.webp",
+      "thumb": "https://media.aquatome.com/glaser/a0f5a772f3871e61-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/_en-20/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ae473e5360d25d4a.webp",
+      "thumb": "https://media.aquatome.com/glaser/ae473e5360d25d4a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/_en-20/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "suoi",
+      "keywords": [
+        "quạt làm mát bể cá",
+        "máy làm lạnh nước bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia mới nở",
+        "thức ăn cho cá otocinclus"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bể thủy sinh",
+        "máy tạo dòng chảy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-16"
+}

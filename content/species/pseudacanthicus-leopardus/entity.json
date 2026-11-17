@@ -9,7 +9,9 @@
   "places": [
     "south-america",
     "brazil",
-    "rio-negro"
+    "rio-negro",
+    "takutu",
+    "guyana"
   ],
   "range": {
     "native": {
@@ -18,31 +20,43 @@
         "GY"
       ],
       "regions": [
-        "rio Negro",
-        "Rupununi River"
+        "Rio Negro",
+        "Rupununi River",
+        "Takutu",
+        "Rio Branco"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Mostly collected in the rio Negro basin, Amazonas state, Brazil, and in particular the rio Demini, a northern tributary flowing into the central Negro in the municipality of Barcelos.",
+          "quote": "L114, Pseudacanthicus cf. leopardus, is a loricariid collected mostly in the rio Negro basin in Brazil, particularly the rio Demini.",
           "countries": [
             "BR"
           ],
           "regions": [
-            "rio Negro"
+            "Rio Negro"
           ]
         },
         {
           "source": "seriouslyfish",
-          "quote": "P. leopardus was described from the Rupununi River in Guyana and the identity of this fish thus remains unconfirmed.",
+          "quote": "P. leopardus was described from the Rupununi River in Guyana, so the identity of this fish remains unconfirmed.",
           "countries": [
             "GY"
           ],
           "regions": [
             "Rupununi River"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The fish were collected in the Takutu river that belongs to the system of the upper Rio Branco.",
+          "countries": [],
+          "regions": [
+            "Takutu",
+            "Rio Branco"
           ]
         }
       ]
@@ -150,10 +164,28 @@
       "html": "<p>L114, Pseudacanthicus cf. leopardus, is a loricariid collected mostly in the rio Negro basin in Brazil, particularly the rio Demini. P. leopardus was described from the Rupununi River in Guyana, so the identity of this fish remains unconfirmed. Traded as the Demini leopard cactus pleco or simply 'leopard cactus pleco', it grows to 25 cm and needs an aquarium of at least 180 x 60 cm set up to simulate a flowing river.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/pseudacanthicus_leopardus_en/",
+      "html": "<p>The genus Pseudacanthicus currently comprises five described species. Three of them are known as aquarium fish. Additionally there are 16 L-numbers given for species of Pseudacanthicus which represent either species new for science or have a doubtful identity.</p><p>One of the most popular Pseudacanthicus is L114 which originates from the middle Rio Negro basin in Brazil. This cactus cat was thought to represent the described species Pseudacanthicus leopardus for a long time.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/pseudacanthicus_leopardus_en/",
+      "html": "<p>Species of Pseudacanthicus are also known under their popular name \"cactus catfish\", for the species are very spiny and it is no good idea to catch a larger specimen with bare hands. Some species of Pseudacanthicus can reach one metre in length, but there are other species that grow up only to 25 cm. As a rule one must be aware that Pseudacanthicus become bigger than many other common aquarium fish.</p><p>Available size: 6-25 cm.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudacanthicus-cf-leopardus",
       "html": "<p>Mostly collected in the rio Negro basin, Amazonas state, Brazil, and in particular the rio Demini, a northern tributary flowing into the central Negro in the municipality of Barcelos.</p><p>P. leopardus was described from the Rupununi River in Guyana and the identity of this fish thus remains unconfirmed.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/pseudacanthicus_leopardus_en/",
+      "html": "<p>The real P. leopardus originates from the border region of Brazil and Guyana. The fish were collected in the Takutu river that belongs to the system of the upper Rio Branco. There are only very few catchers of ornamental fish in that region.</p>"
     },
     {
       "key": "aquariumSize",
@@ -180,16 +212,34 @@
       "html": "<p>Wild specimens are likely omnivorous but with a preference for aquatic invertebrates and suchlike.</p><p>In the aquarium it does best when offered a varied diet comprising sinking dried foods, frozen Daphnia, mosquito larvae, chironomid larvae (bloodworm), and prawn/shrimp, for example, plus some fresh fruit, parboiled potato, etc.</p><p>Home-made foods using a mixture of natural ingredients bound with gelatin are very useful since they can be tailored to contain fresh vegetables, Spirulina and meatier ingredients.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/pseudacanthicus_leopardus_en/",
+      "html": "<p>Larger specimens are quarrelsome against congeners and so spacious tanks with a lot of hiding places are needed for Pseudacanthicus.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudacanthicus-cf-leopardus",
       "html": "<p>Adult males possess a broader head plus more extensive odontode development than females, particularly on the leading pectoral-fin rays and interopercular region.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/pseudacanthicus_leopardus_en/",
+      "html": "<p>Males are more robust than females (they have especially a broader and heavier head) and have more spines during breeding season.</p><p>Compared with L114 the fish are much flatter and have a slightly different coloration. They can be best distinguished by the fact that in larger specimens (around 20 cm) of P. leopardus the spots on the head are very small or almost vanished, whereas these spots are relatively large in L114 in all stages.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudacanthicus-cf-leopardus",
       "html": "<p>Cave-spawner with the male responsible for brood care. Has been bred in aquaria.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/pseudacanthicus_leopardus_en/",
+      "html": "<p>There are reports of successful breeding of some species in the aquarium. The fish are typical cave brooders.</p>"
     },
     {
       "key": "notes",
@@ -261,7 +311,32 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "MSsVF4ZPtDw",
+      "title": "L600 Orange Seam Leopard Cactus Pleco (Pseudacanthicus leopardus)",
+      "durationSec": 55,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "urqaeDdvDcY",
+      "title": "F1 L600  Pseudacanthicus leopardus eggs  HD - Tom's aquatic channel",
+      "durationSec": 37,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "fxUlaat3R8E",
+      "title": "Captive bred L600 Pseudacanthicus",
+      "durationSec": 12,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "X9ZRLijJsxw",
+      "title": "Pseudacanthicus leopardus im 3500 Liter Aquarium",
+      "durationSec": 134,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -289,5 +364,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-16"
 }

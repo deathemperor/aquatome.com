@@ -1,0 +1,308 @@
+{
+  "id": "tetraodon-lineatus",
+  "native": {
+    "input": "cb562f6c7b5a13b2",
+    "at": "2026-11-16T11:31:54.968Z",
+    "claims": [
+      {
+        "code": "EG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Egypt, Kenya, Sudan, South Sudan, Senegal, Ghana, Gambia, Cameroon, Nigeria, Niger, Chad, Sierra Leone, Burkina Faso, Guinea-Bissau, Guinea, Mali, Mauritania, Ethiopia and Central African Republic.",
+        "words": "Egypt",
+        "ok": true
+      },
+      {
+        "code": "KE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Egypt, Kenya, Sudan, South Sudan, Senegal, Ghana, Gambia, Cameroon, Nigeria, Niger, Chad, Sierra Leone, Burkina Faso, Guinea-Bissau, Guinea, Mali, Mauritania, Ethiopia and Central African Republic.",
+        "words": "Kenya",
+        "ok": true
+      },
+      {
+        "code": "SD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Egypt, Kenya, Sudan, South Sudan, Senegal, Ghana, Gambia, Cameroon, Nigeria, Niger, Chad, Sierra Leone, Burkina Faso, Guinea-Bissau, Guinea, Mali, Mauritania, Ethiopia and Central African Republic.",
+        "words": "Sudan",
+        "ok": true
+      },
+      {
+        "code": "SS",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Egypt, Kenya, Sudan, South Sudan, Senegal, Ghana, Gambia, Cameroon, Nigeria, Niger, Chad, Sierra Leone, Burkina Faso, Guinea-Bissau, Guinea, Mali, Mauritania, Ethiopia and Central African Republic.",
+        "words": "South Sudan",
+        "ok": true
+      },
+      {
+        "code": "SN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Egypt, Kenya, Sudan, South Sudan, Senegal, Ghana, Gambia, Cameroon, Nigeria, Niger, Chad, Sierra Leone, Burkina Faso, Guinea-Bissau, Guinea, Mali, Mauritania, Ethiopia and Central African Republic.",
+        "words": "Senegal",
+        "ok": true
+      },
+      {
+        "code": "GH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Egypt, Kenya, Sudan, South Sudan, Senegal, Ghana, Gambia, Cameroon, Nigeria, Niger, Chad, Sierra Leone, Burkina Faso, Guinea-Bissau, Guinea, Mali, Mauritania, Ethiopia and Central African Republic.",
+        "words": "Ghana",
+        "ok": true
+      },
+      {
+        "code": "GM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Egypt, Kenya, Sudan, South Sudan, Senegal, Ghana, Gambia, Cameroon, Nigeria, Niger, Chad, Sierra Leone, Burkina Faso, Guinea-Bissau, Guinea, Mali, Mauritania, Ethiopia and Central African Republic.",
+        "words": "Gambia",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Egypt, Kenya, Sudan, South Sudan, Senegal, Ghana, Gambia, Cameroon, Nigeria, Niger, Chad, Sierra Leone, Burkina Faso, Guinea-Bissau, Guinea, Mali, Mauritania, Ethiopia and Central African Republic.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Egypt, Kenya, Sudan, South Sudan, Senegal, Ghana, Gambia, Cameroon, Nigeria, Niger, Chad, Sierra Leone, Burkina Faso, Guinea-Bissau, Guinea, Mali, Mauritania, Ethiopia and Central African Republic.",
+        "words": "Nigeria",
+        "ok": true
+      },
+      {
+        "code": "NE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Egypt, Kenya, Sudan, South Sudan, Senegal, Ghana, Gambia, Cameroon, Nigeria, Niger, Chad, Sierra Leone, Burkina Faso, Guinea-Bissau, Guinea, Mali, Mauritania, Ethiopia and Central African Republic.",
+        "words": "Niger",
+        "ok": true
+      },
+      {
+        "code": "TD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Egypt, Kenya, Sudan, South Sudan, Senegal, Ghana, Gambia, Cameroon, Nigeria, Niger, Chad, Sierra Leone, Burkina Faso, Guinea-Bissau, Guinea, Mali, Mauritania, Ethiopia and Central African Republic.",
+        "words": "Chad",
+        "ok": true
+      },
+      {
+        "code": "SL",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Egypt, Kenya, Sudan, South Sudan, Senegal, Ghana, Gambia, Cameroon, Nigeria, Niger, Chad, Sierra Leone, Burkina Faso, Guinea-Bissau, Guinea, Mali, Mauritania, Ethiopia and Central African Republic.",
+        "words": "Sierra Leone",
+        "ok": true
+      },
+      {
+        "code": "BF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Egypt, Kenya, Sudan, South Sudan, Senegal, Ghana, Gambia, Cameroon, Nigeria, Niger, Chad, Sierra Leone, Burkina Faso, Guinea-Bissau, Guinea, Mali, Mauritania, Ethiopia and Central African Republic.",
+        "words": "Burkina Faso",
+        "ok": true
+      },
+      {
+        "code": "GW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Egypt, Kenya, Sudan, South Sudan, Senegal, Ghana, Gambia, Cameroon, Nigeria, Niger, Chad, Sierra Leone, Burkina Faso, Guinea-Bissau, Guinea, Mali, Mauritania, Ethiopia and Central African Republic.",
+        "words": "Guinea-Bissau",
+        "ok": true
+      },
+      {
+        "code": "GN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Egypt, Kenya, Sudan, South Sudan, Senegal, Ghana, Gambia, Cameroon, Nigeria, Niger, Chad, Sierra Leone, Burkina Faso, Guinea-Bissau, Guinea, Mali, Mauritania, Ethiopia and Central African Republic.",
+        "words": "Guinea",
+        "ok": true
+      },
+      {
+        "code": "ML",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Egypt, Kenya, Sudan, South Sudan, Senegal, Ghana, Gambia, Cameroon, Nigeria, Niger, Chad, Sierra Leone, Burkina Faso, Guinea-Bissau, Guinea, Mali, Mauritania, Ethiopia and Central African Republic.",
+        "words": "Mali",
+        "ok": true
+      },
+      {
+        "code": "MR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Egypt, Kenya, Sudan, South Sudan, Senegal, Ghana, Gambia, Cameroon, Nigeria, Niger, Chad, Sierra Leone, Burkina Faso, Guinea-Bissau, Guinea, Mali, Mauritania, Ethiopia and Central African Republic.",
+        "words": "Mauritania",
+        "ok": true
+      },
+      {
+        "code": "ET",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Egypt, Kenya, Sudan, South Sudan, Senegal, Ghana, Gambia, Cameroon, Nigeria, Niger, Chad, Sierra Leone, Burkina Faso, Guinea-Bissau, Guinea, Mali, Mauritania, Ethiopia and Central African Republic.",
+        "words": "Ethiopia",
+        "ok": true
+      },
+      {
+        "code": "CF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Egypt, Kenya, Sudan, South Sudan, Senegal, Ghana, Gambia, Cameroon, Nigeria, Niger, Chad, Sierra Leone, Burkina Faso, Guinea-Bissau, Guinea, Mali, Mauritania, Ethiopia and Central African Republic.",
+        "words": "Central African Republic",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Nile",
+        "source": "glaser",
+        "quote": "The Nile puffer fish in the trade do not come from the Nile, but from the Niger.",
+        "ok": true
+      },
+      {
+        "name": "Niger",
+        "source": "glaser",
+        "quote": "The Nile puffer fish in the trade do not come from the Nile, but from the Niger.",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Tetraodon lineatus",
+    "status": "ACCEPTED",
+    "taxonKey": 5213591,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        35
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        35
+      ],
+      [
+        "d2724ca9-8ccd-416e-9837-7aee75f67422",
+        15
+      ],
+      [
+        "8e912d78-6259-44e3-8f58-debb3081a15f",
+        13
+      ],
+      [
+        "ed820bdb-4345-4143-a280-4fbffaacd31d",
+        7
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        4
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        3
+      ],
+      [
+        "988007b1-1179-42e0-863c-bb9f1bdfa6f7",
+        3
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        3
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "34585f24-1ffe-4744-8734-7d563c918d18",
+        1
+      ],
+      [
+        "3fb7ddd8-07c0-490d-a0f1-32b5dec8d583",
+        1
+      ],
+      [
+        "40a262b4-6627-4011-afbe-159c00ec97e7",
+        1
+      ],
+      [
+        "698535ed-f0fd-4740-b6ad-cafdf51d9802",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "c43cabdf-1a3c-488c-9923-2466abd7df9b",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "EG",
+      "KE",
+      "SD",
+      "SS",
+      "SN",
+      "GH",
+      "GM",
+      "CM",
+      "NG",
+      "NE",
+      "TD",
+      "SL",
+      "BF",
+      "GW",
+      "GN",
+      "ML",
+      "MR",
+      "ET",
+      "CF"
+    ],
+    "requests": 13,
+    "at": "2026-11-16T11:31:54.968Z"
+  }
+}

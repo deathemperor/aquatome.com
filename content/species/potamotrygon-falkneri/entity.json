@@ -24,7 +24,8 @@
       ],
       "regions": [
         "Rio Paraná",
-        "Rio Paraguay"
+        "Rio Paraguay",
+        "Rio Paraná-Paraguay"
       ],
       "sources": [
         "seriouslyfish",
@@ -42,6 +43,14 @@
           "regions": [
             "Rio Paraná",
             "Rio Paraguay"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Origin: Brazil, Rio Paraná-Paraguay",
+          "countries": [],
+          "regions": [
+            "Rio Paraná-Paraguay"
           ]
         }
       ]

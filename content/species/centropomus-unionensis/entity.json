@@ -10,6 +10,164 @@
     "colombia",
     "pacific-slope"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "SV"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It is a snook from the Pacific slope of Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "The species name refers to the type locality, Bay of Union, El Salvador.",
+          "countries": [
+            "SV"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2369650,
+      "total": 64,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "PA",
+          17
+        ],
+        [
+          "CR",
+          16
+        ],
+        [
+          "MX",
+          16
+        ],
+        [
+          "SV",
+          9
+        ],
+        [
+          "CO",
+          5
+        ],
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -106.875,
+          21.09375,
+          3,
+          0
+        ],
+        [
+          -106.875,
+          22.5,
+          3,
+          0
+        ],
+        [
+          -104.0625,
+          16.875,
+          1,
+          0
+        ],
+        [
+          -94.21875,
+          14.0625,
+          7,
+          0
+        ],
+        [
+          -92.8125,
+          14.0625,
+          2,
+          0
+        ],
+        [
+          -90,
+          12.65625,
+          3,
+          3
+        ],
+        [
+          -88.59375,
+          12.65625,
+          6,
+          6
+        ],
+        [
+          -85.78125,
+          8.4375,
+          4,
+          0
+        ],
+        [
+          -85.78125,
+          9.84375,
+          12,
+          0
+        ],
+        [
+          -82.96875,
+          7.03125,
+          4,
+          0
+        ],
+        [
+          -81.5625,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -81.5625,
+          7.03125,
+          2,
+          0
+        ],
+        [
+          -80.15625,
+          8.4375,
+          11,
+          0
+        ],
+        [
+          -78.75,
+          1.40625,
+          4,
+          4
+        ],
+        [
+          -77.34375,
+          2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "brackish",
+    "source": "glaser",
+    "quote": "It is not certain whether this species can be kept long-term in pure fresh water, so adding some salt to the water is recommended."
+  },
   "dataCard": {
     "sizeCm": [
       {

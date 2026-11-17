@@ -1,0 +1,53 @@
+{
+  "id": "macrobrachium-dienbienphuense",
+  "native": {
+    "input": "7e90021987323577",
+    "at": "2026-11-16T17:28:41.839Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Thailand.",
+        "words": "Thailand",
+        "ok": false,
+        "why": "no sentence"
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "TH"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Macrobrachium dienbienphuense",
+    "status": "ACCEPTED",
+    "taxonKey": 5863220,
+    "datasets": [
+      [
+        "43e4b44e-3a0c-11e2-b0ce-00145eb45e9a",
+        11
+      ],
+      [
+        "5221e970-757c-43cb-bdd4-2f085bf36ae4",
+        8
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-16T17:28:41.839Z"
+  }
+}

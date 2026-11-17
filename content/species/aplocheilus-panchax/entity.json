@@ -7,12 +7,20 @@
   "group": "killifish",
   "places": [
     "asia",
-    "india"
+    "india",
+    "manipur",
+    "china",
+    "myanmar",
+    "thailand",
+    "vietnam",
+    "cambodia",
+    "laos",
+    "indonesia"
   ],
   "range": {
     "native": {
       "countries": [
-        "IN"
+        "CN"
       ],
       "regions": [],
       "sources": [
@@ -21,9 +29,9 @@
       "quotes": [
         {
           "source": "glaser",
-          "quote": "A. panchax is the most common fish in large parts of India and can be found literally everywhere, from the smallest puddle to the shores of large rivers and lakes; the panchax can even tolerate the salty water of estuaries.",
+          "quote": "It is distributed from China over great parts of India, Burma and Indochina (Thailand, Vietnam, Cambodia, Laos), as well as over Indonesia.",
           "countries": [
-            "IN"
+            "CN"
           ],
           "regions": []
         }
@@ -32,7 +40,7 @@
     "records": {
       "taxonKey": 2347811,
       "total": 398,
-      "fetched": "2026-11-06",
+      "fetched": "2026-11-16",
       "countries": [
         [
           "ID",
@@ -94,55 +102,55 @@
           68.90625,
           21.09375,
           1,
-          1
+          0
         ],
         [
           73.125,
           14.0625,
           1,
-          1
+          0
         ],
         [
           73.125,
           19.6875,
           2,
-          2
+          0
         ],
         [
           74.53125,
           12.65625,
           2,
-          2
+          0
         ],
         [
           75.9375,
           8.4375,
           2,
-          2
+          0
         ],
         [
           75.9375,
           11.25,
           2,
-          2
+          0
         ],
         [
           80.15625,
           12.65625,
           2,
-          2
+          0
         ],
         [
           80.15625,
           22.5,
           1,
-          1
+          0
         ],
         [
           80.15625,
           26.71875,
           1,
-          1
+          0
         ],
         [
           80.15625,
@@ -154,19 +162,19 @@
           82.96875,
           16.875,
           6,
-          6
+          0
         ],
         [
           84.375,
           18.28125,
           2,
-          2
+          0
         ],
         [
           84.375,
           19.6875,
           1,
-          1
+          0
         ],
         [
           84.375,
@@ -178,7 +186,7 @@
           85.78125,
           22.5,
           3,
-          3
+          0
         ],
         [
           85.78125,
@@ -190,31 +198,31 @@
           87.1875,
           21.09375,
           1,
-          1
+          0
         ],
         [
           87.1875,
           22.5,
           7,
-          7
+          0
         ],
         [
           87.1875,
           25.3125,
           4,
-          1
+          0
         ],
         [
           88.59375,
           21.09375,
           4,
-          4
+          0
         ],
         [
           88.59375,
           22.5,
           4,
-          4
+          0
         ],
         [
           88.59375,
@@ -226,19 +234,19 @@
           88.59375,
           25.3125,
           3,
-          2
+          0
         ],
         [
           90,
           22.5,
           6,
-          1
+          0
         ],
         [
           91.40625,
           11.25,
           8,
-          8
+          0
         ],
         [
           91.40625,
@@ -256,13 +264,13 @@
           91.40625,
           23.90625,
           4,
-          1
+          0
         ],
         [
           92.8125,
           11.25,
           1,
-          1
+          0
         ],
         [
           94.21875,
@@ -609,102 +617,114 @@
       ]
     }
   },
-  "dataCard": {
-    "sizeCm": [
-      {
-        "source": "glaser",
-        "value": 7
-      }
-    ],
-    "difficulty": [
-      {
-        "source": "glaser",
-        "value": 2
-      }
-    ]
-  },
+  "dataCard": {},
   "sections": [
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilus-panchax-2/",
-      "html": "<p>Because of the still bad flight connections, imports from India come in only sporadically. Now once again an import worked out. It contained among others the common panchax, Aplocheilus panchax. A. panchax is the most common fish in large parts of India and can be found literally everywhere, from the smallest puddle to the shores of large rivers and lakes; the panchax can even tolerate the salty water of estuaries.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/a_new_panchax_from_manipur_en/",
+      "html": "<p>Currently only one species is accepted formally within this species-group, Aplocheilus panchax. It is distributed from China over great parts of India, Burma and Indochina (Thailand, Vietnam, Cambodia, Laos), as well as over Indonesia. Fish from different origins look very different, so it is more than likely that there are many species and not only one.</p><p>Aplocheilus panchax was initially described from Bengal. The new Panchax from Manipur, in northern India, represents such a different form. It is distinguished from typical A. panchax by many red spots on the body, bright orange fins, and a dark band that is shown when the fish feel disturbed.</p>"
     },
     {
       "key": "habitat",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilus-panchax-2/",
-      "html": "<p>The water temperatures, especially in the small waters, vary enormously: in the sun they easily rise to well over 30°C, and at night they can cool down to 12-14°C.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/a_new_panchax_from_manipur_en/",
+      "html": "<p>The Manipur form originates from mountain regions, where the temperature easily falls as low as 15°C. The species prefers shallow waters, which can warm up very quickly to 30°C and even more on sunny days.</p>"
     },
     {
-      "key": "maintenance",
+      "key": "waterConditions",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilus-panchax-2/",
-      "html": "<p>Care of the panchax is simple. They are surface-dwelling fish. The water values and the temperature play practically no role (see above).</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/a_new_panchax_from_manipur_en/",
+      "html": "<p>The new Panchax from Manipur should not be kept too warm throughout the year, as it originates from mountain regions.</p>"
     },
     {
       "key": "diet",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilus-panchax-2/",
-      "html": "<p>They will happily accept any bite-sized fish food.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/a_new_panchax_from_manipur_en/",
+      "html": "<p>The Panchax takes readily any usual fish food, even flakes.</p>"
     },
     {
       "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilus-panchax-2/",
-      "html": "<p>Mostly A. panchax are peaceful, but there are sometimes quarrelsome males, so tank mates should not be too delicate. Well suited are e.g. rosy barbs and zebra danios, which come from the same biotopes. Panchax leave plants alone.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/a_new_panchax_from_manipur_en/",
+      "html": "<p>The Panchax is an ideal fish for community tanks, where it lives near the surface. Tankmates should not be too small, otherwise they are eaten.</p>"
     },
     {
       "key": "dimorphism",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilus-panchax-2/",
-      "html": "<p>Males differ from females by the shape of the anal fin.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/a_new_panchax_from_manipur_en/",
+      "html": "<p>Males and females can be distinguished easily by the shape of the anal fin, which is shorter and rounded in females. Typical A. panchax from Bengal show polychromatism: within one population there are white-finned and orange-finned males, while the females all look the same. Red spots on the body are never present in typical A. panchax.</p>"
     },
     {
-      "key": "notes",
+      "key": "reproduction",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilus-panchax-2/",
-      "html": "<p>After World War II, the panchax gradually disappeared from aquariums. People had electric heaters (instead of spirit burners under the aquarium), filters and aeration, and especially lighting. Previously, aquariums were placed at an angle to the window, so that the sunlight coming from the side illuminated the aquarium. In such light panchaxes are quite colorful, because many scales shine blue. This is quite different in fluorescent light from above, where the panchax appear quite gray, especially if they are not yet acclimated.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/a_new_panchax_from_manipur_en/",
+      "html": "<p>Breeding is very easy. A. panchax is an egglaying fish.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/3368eeafb203fe1b.webp",
+      "thumb": "https://media.aquatome.com/commons/3368eeafb203fe1b-480.webp",
       "width": 960,
       "height": 599,
-      "licence": "CC BY-SA 3.0",
-      "author": "Vengolis",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Whitespot(Aplocheilus_panchax).jpg",
-      "caption": "Aplocheilus panchax, Kerala,India",
-      "thumb": "https://media.aquatome.com/commons/3368eeafb203fe1b-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/3368eeafb203fe1b-large.webp",
         "width": 1922,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "Vengolis",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Whitespot(Aplocheilus_panchax).jpg",
+      "caption": "Aplocheilus panchax, Kerala,India"
     },
     {
       "url": "https://media.aquatome.com/commons/210aaefda8ced161.webp",
+      "thumb": "https://media.aquatome.com/commons/210aaefda8ced161-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 4.0",
       "author": "Vengolis",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aplocheilus_panchax_00849.jpg",
-      "caption": "Aplocheilus panchax",
-      "thumb": "https://media.aquatome.com/commons/210aaefda8ced161-480.webp"
+      "caption": "Aplocheilus panchax"
     },
     {
       "url": "https://media.aquatome.com/commons/dfd4250f6f5d91e4.webp",
+      "thumb": "https://media.aquatome.com/commons/dfd4250f6f5d91e4-480.webp",
       "width": 960,
       "height": 641,
       "licence": "CC BY-SA 4.0",
       "author": "Vengolis",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aplocheilus_panchax_6190.jpg",
-      "caption": "Aplocheilus panchax",
-      "thumb": "https://media.aquatome.com/commons/dfd4250f6f5d91e4-480.webp"
+      "caption": "Aplocheilus panchax"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "abE5Zi0-Ujg",
+      "title": "Easy to Spawn Fish? Aplocheilus panchax Aquarium Beginners Guide!",
+      "durationSec": 20,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "60mFZwUHs-s",
+      "title": "Aplocheilus panchax Orange...Great Surface Dwelling Killifish",
+      "durationSec": 568,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "rLu4_uhCKkA",
+      "title": "Killifish - Aplocheilus panchax (Blue panchax)",
+      "durationSec": 35,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "GGhN_5M3BCI",
+      "title": "Aplocheilus panchax - Blue Panchax",
+      "durationSec": 61,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -727,5 +747,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-16"
 }

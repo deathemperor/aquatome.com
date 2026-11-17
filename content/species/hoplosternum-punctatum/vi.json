@@ -17,14 +17,21 @@
     "behaviour:scotcat": "<p>Đây là loài cá hiền, hay bơi từ tầng giữa xuống đáy. Bạn nên nuôi chúng theo nhóm ít nhất 4 con thì cá mới khỏe. Nuôi lẻ một con thì cá thường ủ rũ và có vẻ chẳng bao giờ lớn tốt được. Cố gắng đừng thả chúng chung bể với các loài hung dữ như một số loài cichlid. Chúng hợp với các loài cá bể cộng đồng quen thuộc hơn, và dĩ nhiên là hợp với cá chuột Corydoras.</p>",
     "diet:scotcat": "<p>Cá ăn tạp và ăn được hầu hết các loại thức ăn. Tuy vậy, chúng thích mồi sống và đông lạnh hơn, như bo bo, giun, giun trắng, giun grindal và trùng huyết. Cá cũng chịu ăn thức ăn dạng mảnh và viên chìm loại tốt.</p>",
     "notes:scotcat": "<p>Tên loài punctatum là tiếng Latin, nghĩa là \"có đốm\". Cái tên này chỉ những đốm đen nhỏ, hơi tròn phủ khắp thân cá (trừ mặt trên của đầu và vùng lưng) và trên các tia vây lưng, vây đuôi.</p><p>Trong Danh sách Đỏ IUCN, Hoplosternum punctatum phân bố ở các lưu vực đổ ra Thái Bình Dương, từ thành phố Panama (Panama) xuống phía nam tới sông Atrato ở sườn Đại Tây Dương của Colombia. Phạm vi xuất hiện của loài ước tính khoảng 15.553 km². Hiện chưa ai biết tổng số lượng cá thể hay quần thể đang tăng hay giảm. Dù vậy, khai khoáng, thay đổi mục đích sử dụng đất, mở rộng nông nghiệp dọc các tuyến giao thông lớn và nạn phá rừng đi kèm đang làm môi trường sống xấu dần liên tục ở phần lớn vùng phân bố của loài. Đây là suy giảm suy ra từ các mối đe dọa, không phải số liệu đo trực tiếp. Vì phân bố của loài cũng như phạm vi và mức độ của các mối đe dọa lớn, lan rộng vẫn còn nhiều điểm chưa rõ, người ta không xác định được loài này có mặt ở bao nhiêu điểm. Do đó IUCN xếp H. punctatum vào nhóm Sắp bị đe dọa (Near Threatened), vì loài này gần như đáp ứng đủ mọi tiêu chí phụ để vào nhóm bị đe dọa theo tiêu chí B1ab(iii) (IUCN 2020).</p>",
-    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Lyons, T.J. 2020. Hoplosternum punctatum. The IUCN Red List of Threatened Species 2020.</p><p>Reis, Roberto E. 1996. Hoplosternum Gill 1858. Version 29 April 1996.</p>"
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Lyons, T.J. 2020. Hoplosternum punctatum. The IUCN Red List of Threatened Species 2020.</p><p>Reis, Roberto E. 1996. Hoplosternum Gill 1858. Version 29 April 1996.</p>",
+    "quickFacts:glaser": "<p>Người chơi biết đến cá da trơn có giáp chi Hoplosternum chủ yếu qua mấy loài khá to, dài được 15 đến 20 cm. Nhưng chi này cũng có loài nhỏ, như H. punctatum, hiếm khi lớn quá 7 cm.</p>",
+    "beforeYouBuy:glaser": "<p>Vùng này không xuất khẩu cá cảnh, vì vậy cá bán ngoài tiệm đều là cá trại. Tiếc là trại thường bán chúng dưới tên Dianema longibarbis. Đó là một loài hoàn toàn khác, sống ở vùng Amazon.</p>",
+    "distribution:glaser": "<p>Ngoài tự nhiên, loài này sống ở Panama và ở các con sông của Colombia đổ ra Thái Bình Dương.</p>",
+    "behaviour:glaser": "<p>Hoplosternum punctatum khá hiếu động vào ban ngày và thích sống theo đàn. Chúng hay bơi lơ lửng giữa nước.</p>",
+    "dimorphism:glaser": "<p>Phân biệt đực cái khá dễ, vì gai vây ngực con đực to và dày hơn hẳn. Nhìn xuống bụng cá cũng thấy khác. Ở con đực, các tấm xương phủ ngực khít sát vào nhau, còn ở con cái thì chừa ra một khe rộng.</p>",
+    "reproduction:glaser": "<p>Cá da trơn có giáp làm tổ bọt, và con đực canh tổ rất dữ. Tiếc là đến nay chưa có tài liệu nào công bố chi tiết cách H. punctatum sinh sản.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
       "planetcatfish": 0.85,
-      "scotcat": 0.8
+      "scotcat": 0.8,
+      "glaser": 0.9
     }
   }
 }

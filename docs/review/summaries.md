@@ -1,4 +1,4 @@
-# Tóm tắt chờ duyệt (150)
+# Tóm tắt chờ duyệt (152)
 
 Bản qua kiểm tra tự động (số khớp thẻ dữ liệu, mọi ý có trong hồ sơ) đã được duyệt. Dưới đây là bản chưa qua, kèm lỗi kiểm tra tìm thấy.
 
@@ -120,7 +120,7 @@ id: `ancistrus-cirrhosus`
 
 Cá lau kiếng bristlenose (Ancistrus cirrhosus) hợp với người mới chơi hoặc ai cần cá đáy hiền cho bể cộng đồng, độ khó 2/8, lớn tới 13 cm, sống 5–10 năm. Chịu được nhiều kiểu nước: 23–27 °C, pH 5,8–7,8, độ cứng 2–30 dGH, nhưng cần nước sục khí tốt, có dòng chảy và nhiều hang, gỗ lũa để trú ban ngày. Điểm khó nhất là con đực trưởng thành giữ lãnh thổ gắt với nhau, và cá thải khá nhiều chất thải nên đừng trông chờ nó dọn bể thay mình.
 
-- Nuôi chung với cichlid Trung và Nam Mỹ cỡ lớn; nên chọn bạn cùng bể là loài hiền như cá neon, cá platy, cá bảy màu.
+- Nuôi chung với cichlid Trung và Nam Mỹ cỡ lớn; nên chọn bạn cùng bể là loài hiền như cá neon, cá mún, cá bảy màu.
 - Coi cá là máy dọn bể rồi cho ăn quá tay; chúng ăn tảo trên kính nhưng thải nhiều chất thải, nên chỉ cho viên tảo hoặc spirulina một đến hai lần mỗi ngày.
 
 Kiểm tra:
@@ -813,6 +813,13 @@ Kiểm tra:
 - Mistake 2 "Bày bể trơn hoặc nền mịn ... nên lót sỏi và đá": the page gives no aquarium or substrate advice. It only describes the wild habitat at one collection site. Turning that into a mistake and a fix is advice the page doesn't give.
 - "nên dữ liệu nuôi còn ít": the page says nothing about how much husbandry data exists. It only says the species is recorded from one site and that Garra taxonomy is confused.
 
+## Cá tỳ bà bướm chấm (Gastromyzon punctulatus)
+id: `gastromyzon-punctulatus`
+
+Hợp với người có bể nước thật sạch, giữ nhiệt trong khoảng 22–28 °C, tốt nhất ở khoảng giữa. Có dòng chảy mạnh thì càng tốt. Cá dễ cho ăn, nhận mọi loại thức ăn, hợp nhất là đồ đông lạnh cỡ nhỏ, và sống hòa thuận với cá cùng loài lẫn loài khác. Điểm khó nhất là giữ nước luôn thật sạch.
+
+- Chỉ trông vào rêu để nuôi cá: chúng tìm sinh vật li ti trong lớp bám chứ không mặn mà với rêu, nên cho thêm thức ăn đông lạnh cỡ nhỏ.
+
 ## Cá cầu vồng Glossolepis dorityi (Glossolepis dorityi)
 id: `glossolepis-dorityi`
 
@@ -991,6 +998,15 @@ Neolamprologus kungweensis hợp với người đã nuôi cichlid Tanganyika, m
 
 Kiểm tra:
 - "hợp với người đã nuôi cichlid Tanganyika": the page never says the species needs or suits experienced Tanganyika keepers. The card difficulty is medium (4/8), so this suitability claim is unsupported.
+
+## Cá signatus (Lamprologus signatus)
+id: `lamprologus-signatus`
+
+Cá signatus (Lamprologus signatus) nhỏ, chỉ 5,5 cm, độ khó 2/8 nên người mới có bể riêng cho cichlid Tanganyika vẫn nuôi được. Bể tối thiểu 45 cm (45 cm x 30 cm x 30 cm, 40 lít) đủ cho một cặp hoặc nhóm ba con. Nước phải cứng và kiềm: 23–27 °C, pH 7,5–9, 10–25 dGH. Điểm khó nhất là con đực rất hung dữ với đồng loại và giữ lãnh thổ quanh vỏ ốc rất quyết liệt.
+
+- Thả nhiều đực vào bể nhỏ thì chúng đánh nhau; trừ khi bể rộng, chỉ nuôi một đực, hoặc một đực với vài cái.
+- Cho ít vỏ ốc thì cá tranh chỗ và cái không có nơi đẻ; rải số vỏ nhiều hơn số cá, mỗi con cái cần 4-5 vỏ.
+- Trải nền mỏng thì cá không đào bới được; chừa nhiều khoảng cát trống và trải lớp nền dày.
 
 ## Cá cichlid ốc meeli (Lepidiolamprologus meeli)
 id: `lepidiolamprologus-meeli`

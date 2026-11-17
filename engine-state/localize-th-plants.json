@@ -862,6 +862,33 @@
       "Item 3: \"กระถางสี่เหลี่ยม 9 ซม.\" is fine, but \"ต้นแม่\" for a large mother plant could be clearer as \"ต้นแม่พันธุ์ขนาดใหญ่\"."
     ]
   },
+  "echinodorus-tenellus": {
+    "at": "2026-11-16",
+    "from": "2026-11-15",
+    "name": "เทเนลลัส",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Section 2: 'เทเนลลัส' is used as the common name for 'Pygmy chain sword', but the name is never introduced and no established Thai name is given. Use a consistent name such as 'ไม้น้ำเอคินโนโดรัสแคระ/ใบหญ้า' or keep 'Pygmy chain sword'.",
+      "Section 3: 'Runners may jump out of the substrate, so the plant cannot be kept in one spot' is rendered as 'ไหลอาจโผล่ขึ้นมาจากวัสดุปลูก' and 'ไม่สามารถบังคับให้ต้นอยู่เฉพาะจุดเดียวได้'. This is stilted and loses the sense that runners pop up elsewhere and spread. Rephrase.",
+      "Section 3: 'Emersed to submersed' is rendered as 'การเปลี่ยนจากต้นบกเป็นต้นน้ำ'. 'ต้นน้ำ' is unclear, and 'ต้นที่ปลูกแบบบก' is used elsewhere. Use 'จากต้นที่ปลูกแบบบกเป็นปลูกใต้น้ำ'.",
+      "Section 3: 'ปุ๋ยฝังลงในวัสดุปลูก' and 'ฝังปุ๋ยฝัง' repeat the word 'ฝัง' awkwardly. Use 'เม็ดปุ๋ยรากหรือปุ๋ยเม็ดฝัง'.",
+      "Section 3: 'ใส่คาร์บอนน้ำ' for liquid carbon is non-standard. Use 'คาร์บอนน้ำ (liquid carbon)' or 'ใส่ Liquid Carbon'.",
+      "Section 3: 'ใส่ธาตุอาหารรอง เช่น เหล็กและแมงกานีส' renders 'trace elements' as 'secondary nutrients'. Iron and manganese are micronutrients, so use 'ธาตุอาหารเสริม/ธาตุอาหารจุลธาตุ'.",
+      "Section 3: 'ใช้ธาตุเหล็กเสริมสำหรับไม้น้ำโดยเฉพาะ' leaves 'ธาตุเหล็ก' unqualified. Fine meaning-wise, but 'Perform partial water changes weekly' is a care instruction that is kept; no issue.",
+      "Section 6: 'ซาจิแคระ' is an unfamiliar term for dwarf sagittaria. Use 'ซาจิทาเรียแคระ' or 'ซาจิทาเรีย'.",
+      "Section 6: 'ปลาออตโต้' is the nonstandard form of otocinclus. Use 'ปลาออโต้/ออโตซินคลัส'.",
+      "Section 6: 'ปลาคาร์ป' for koi should be 'ปลาคราฟ', which is the term Thai hobbyists use. 'กุ้งเครย์ฟิช' is acceptable."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "8b6b4b6fa891",
+      "distribution:aquariumbreeder": "0b1f4d7dda97",
+      "maintenance:aquariumbreeder": "0329aaa41fd9",
+      "waterConditions:aquariumbreeder": "7deecd0ec8c0",
+      "equipment:aquariumbreeder": "0ae5c84f435e",
+      "notes:aquariumbreeder": "b14dfdf88eb0"
+    }
+  },
   "echinodorus-x-barthii": {
     "at": "2026-11-09",
     "from": "2026-11-09",
@@ -1712,14 +1739,24 @@
     ]
   },
   "najas-guadalupensis": {
-    "at": "2026-11-09",
-    "from": "2026-11-09",
-    "name": "นาจาส",
+    "at": "2026-11-16",
+    "from": "2026-11-15",
+    "name": "สาหร่ายนาจาส",
     "confidence": "medium",
-    "score": 0.85,
-    "notes": [
-      "Item 2: the Latin genus name \"Najas\" is transliterated as \"นาจาส\". Keep \"Najas\" in Latin letters, as the other items do. You could also add a Thai common name such as \"สาหร่ายหางกระรอก\" if you want to use one, but check it first."
-    ]
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "ea6a4bf24a9c",
+      "beforeYouBuy:aquatome": "13300c6fa350",
+      "aquariumSize:aquatome": "e7d9aa157043",
+      "maintenance:aquatome": "84ddbac96eaa",
+      "maintenance:tropica": "ac9c6222a3ea",
+      "waterConditions:aquatome": "87cc142a1cd6",
+      "behaviour:aquatome": "d3493d587794",
+      "reproduction:aquatome": "7349d148cef3",
+      "notes:tropica": "f0ff05bf2bca",
+      "notes:aquatome": "08c126e45cf4"
+    }
   },
   "nymphaea-lotus": {
     "at": "2026-11-05",
@@ -1826,6 +1863,31 @@
       "\"ข้อ ... ใบเดี่ยวเพียงใบเดียว\" is redundant. Use \"มีใบเดี่ยวข้อละหนึ่งใบ\".",
       "\"ยิ่งได้รับแสงจัดมากเท่าใด ... เท่านั้น\" is stiff and bookish. A more natural option is \"ยิ่งได้รับแสงมาก ใบยิ่งเป็นสีน้ำตาลเข้มขึ้น\"."
     ]
+  },
+  "phyllantus-fluitans": {
+    "at": "2026-11-16",
+    "from": "2026-11-16",
+    "name": "Phyllantus fluitans",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"ปลาแคระ (Otocinclus)\": use the common hobby name \"ปลาอ็อตโต\" (Otocinclus catfish); \"ปลาแคระ\" is vague.",
+      "\"submerged root-like leaves\": the translation says only \"ส่วนที่คล้ายรากซึ่งจมอยู่ใต้น้ำ\" and drops \"leaves\". Say \"ใบที่คล้ายราก\".",
+      "Conclusion: \"ใช้แทนไม้อย่างแหนซึ่งต้องดูแลมากกว่าเพื่อให้อยู่ในสภาพดีได้เป็นอย่างดี\" is clumsy and repeats itself. Rephrase it, for example \"ต้องดูแลมากกว่าจึงจะอยู่ในสภาพดี\".",
+      "\"หอย Black Devil\", \"หอย Asolene spixi\": the names are left in English or Latin with no Thai common name. Add the local name if there is one.",
+      "\"กุ้งฝอยใส\" for Ghost shrimp: use \"กุ้งแก้ว\" or \"กุ้งโกสต์\", the term hobbyists use."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "84386acfb575",
+      "distribution:aquariumbreeder": "10f61d50071c",
+      "habitat:aquariumbreeder": "3d25c0804c2d",
+      "aquariumSize:aquariumbreeder": "47b3d66824e7",
+      "maintenance:aquariumbreeder": "77a79b6197bc",
+      "waterConditions:aquariumbreeder": "9b4355068917",
+      "equipment:aquariumbreeder": "17266401026a",
+      "reproduction:aquariumbreeder": "298da21280b6",
+      "notes:aquariumbreeder": "7d46c69258b3"
+    }
   },
   "plagiomnium-sp-thyme-moss": {
     "at": "2026-11-05",

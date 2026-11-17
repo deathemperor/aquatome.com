@@ -10,6 +10,38 @@
     "myanmar",
     "inle-lake"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Inle Lake"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Inle Lake, Burma.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Inle Lake"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8235614,
+      "total": 0,
+      "fetched": "2026-11-16",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

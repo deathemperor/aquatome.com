@@ -1073,6 +1073,28 @@
       "notes:tropica": "5103c963dd43"
     }
   },
+  "echinodorus-tenellus": {
+    "at": "2026-11-16",
+    "from": "2026-11-15",
+    "name": "Pygmy Chain Sword",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 1: \"Saiz tangki minimum: 40 liter\" – \"liter\" is the English/Indonesian spelling; Malaysian standard is \"liter\"/\"liter\" in DBP but hobbyists commonly write \"L\" or \"liter\". Minor; consider \"40 L\".",
+      "Item 3: \"Runner mungkin tercabut dan terapung keluar dari substrat\" – the English says runners may jump out of the substrate; \"terapung\" (float) is added detail. Use \"tercabut keluar dari substrat\".",
+      "Item 3: \"Dos makronutrien ... untuk mengelakkan kekurangan nutrien yang menyebabkan batang berubah warna\" – awkward; \"dos\" for dosing is acceptable, but \"kekurangan\" followed by a long clause reads stiffly. Consider \"menyebabkan batang pudar warna\".",
+      "Item 3: \"Daun mudah ditumbuhi alga\" – \"mudah\" (easily) is added; the English says leaves attract algae under excessive light.",
+      "Item 2: \"famili water plantain\" – mixed English; prefer \"famili Alismataceae (water plantain)\"."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "8b6b4b6fa891",
+      "distribution:aquariumbreeder": "0b1f4d7dda97",
+      "maintenance:aquariumbreeder": "0329aaa41fd9",
+      "waterConditions:aquariumbreeder": "7deecd0ec8c0",
+      "equipment:aquariumbreeder": "0ae5c84f435e",
+      "notes:aquariumbreeder": "b14dfdf88eb0"
+    }
+  },
   "echinodorus-x-barthii": {
     "at": "2026-11-14",
     "from": "2026-11-09",
@@ -1378,6 +1400,138 @@
       "waterConditions:aquariumbreeder": "fab44938b8bc",
       "equipment:aquariumbreeder": "8283ed8aa22b",
       "notes:aquariumbreeder": "7c5c9ffc9162"
+    }
+  },
+  "hydrocotyle-tripartita": {
+    "at": "2026-11-16",
+    "from": "2026-10-30",
+    "name": "Hydrocotyle tripartita 'Japan'",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"cahaya yang mencukupi\" for \"good light\" slightly weakens the meaning; consider \"cahaya yang baik\" or \"cahaya yang terang\".",
+      "\"Jenis: tumbuhan batang\": \"tumbuhan berbatang\" or \"tumbuhan batang (stem plant)\" is more common among hobbyists."
+    ],
+    "parts": {
+      "quickFacts:tropica": "9b831e6972a8",
+      "notes:tropica": "57d2b7ae6b71"
+    }
+  },
+  "hydrocotyle-verticillata": {
+    "at": "2026-11-16",
+    "from": "2026-11-08",
+    "name": "Pegaga Air",
+    "confidence": "medium",
+    "score": 0.88,
+    "notes": [
+      "#7: 'providing unlimited CO2' is rendered 'bekalan CO2 yang mencukupi'. Use 'bekalan CO2 tanpa had' so the meaning stays the same.",
+      "#12: 'may die back' is rendered 'layu dan reput'. 'Reput' adds a fact, so use 'mati susut' or 'layu' only.",
+      "#12: 'local ... stores' is rendered 'kedai ikan hiasan'. This narrows the meaning, so use 'kedai tempatan'."
+    ],
+    "parts": {
+      "quickFacts:tropica": "f919dae3e61f",
+      "quickFacts:aquariumbreeder": "fe2e914244ca",
+      "distribution:aquariumbreeder": "2de7d170c456",
+      "habitat:aquariumbreeder": "167c1cfebf54",
+      "aquariumSize:aquariumbreeder": "e5d71e33f1ea",
+      "maintenance:tropica": "4877d221fac6",
+      "maintenance:aquariumbreeder": "2e65bd607f9a",
+      "waterConditions:aquariumbreeder": "ad2a06d5a677",
+      "equipment:aquariumbreeder": "5158341f6bde",
+      "behaviour:aquariumbreeder": "41d5309ec94f",
+      "notes:tropica": "88512f6dee81",
+      "notes:aquariumbreeder": "56db5e2f7dfc"
+    }
+  },
+  "hygrophila-angustifolia": {
+    "at": "2026-11-16",
+    "from": "2026-10-31",
+    "name": "Willow Hygro",
+    "confidence": "medium",
+    "score": 0.93,
+    "notes": [
+      "Item 3: \"dinaiki air\" for \"flooded areas\" is a little odd. \"yang dilimpahi air\" or \"yang banjir\" reads more naturally."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "5f69dbd14132",
+      "distribution:aquariumbreeder": "eabc28332091",
+      "habitat:aquariumbreeder": "9fa270841ef5",
+      "aquariumSize:aquariumbreeder": "89be80e14585",
+      "maintenance:aquariumbreeder": "a76cd3b3aefb",
+      "waterConditions:aquariumbreeder": "b0ae92245d1d",
+      "equipment:aquariumbreeder": "a8171384a7f4",
+      "notes:aquariumbreeder": "1e997f089f03",
+      "references:aquariumbreeder": "42d6c2b32740"
+    }
+  },
+  "hygrophila-corymbosa": {
+    "at": "2026-11-16",
+    "from": "2026-10-30",
+    "name": "Hygrophila corymbosa",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "146fbfc0d7ab",
+      "maintenance:tropica": "05cfd78889e4",
+      "notes:tropica": "c8154650720e"
+    }
+  },
+  "hygrophila-costata": {
+    "at": "2026-11-16",
+    "from": "2026-10-30",
+    "name": "Hygrophila costata",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 1: 'tangki' is acceptable, but 'akuarium' is the more common term for the tank."
+    ],
+    "parts": {
+      "quickFacts:tropica": "2b8448379f5d",
+      "notes:tropica": "3ee454210be1"
+    }
+  },
+  "hygrophila-difformis": {
+    "at": "2026-11-16",
+    "from": "2026-11-02",
+    "name": "Water Wisteria",
+    "confidence": "high",
+    "score": 0.6,
+    "notes": [
+      "Item 4: 'pemberat' (weight) for 'anchor' is a mistranslation. Use 'pengikat/klip logam' or similar.",
+      "Item 4: 'tapak semaian pengeluar itu sendiri' drops the name Tropica. Naming the source is not required, but 'tangki yang ditukar air' and 'ikan lain yang sensitif' are fine. Keep the meaning of 'pesticides' consistent. The sentence 'Tumbuhan ini dijual sebagai' is added text.",
+      "Item 4: the '2\"' conversion is correctly dropped, but 'sebaik sahaja baru dibeli' in item 2 is redundant. Use 'sebaik sahaja dibeli'.",
+      "Item 5: 'Jika ikan suka menggali' is slightly off. Use 'Jika ikan menggali substrat'.",
+      "Item 5: 'jarang' in 'terlalu panjang dan jarang' for 'leggy' is awkward. Use 'terlalu panjang dan kurus (leggy)'.",
+      "Item 5: 'mengatasi tumbuhan lain' for 'outcompete' is weak. Use 'mengalahkan tumbuhan lain dalam persaingan'.",
+      "Item 7: the heading 'Water wisteria vs. water sprite' is left in English. Translate it, e.g. 'Water wisteria berbanding water sprite'.",
+      "Item 7: 'berbentuk seperti bulu pelepah' for 'feathery fronds' is unnatural. Use 'berbentuk seperti bulu pelepah' only if clear. Otherwise use 'daun halus seperti bulu'.",
+      "Item 3: 'India hingga Thailand' loses 'ranging between' only slightly, which is acceptable. Item 1: 'tangki' is fine, but 'akuarium' is used elsewhere. Keep the term consistent."
+    ],
+    "parts": {
+      "quickFacts:tropica": "97a5af628acf",
+      "quickFacts:aquariumcoop": "1f7ab2d5523d",
+      "distribution:aquariumcoop": "5f394b360c28",
+      "maintenance:tropica": "85e7d850830d",
+      "maintenance:aquariumcoop": "3c46ee06425c",
+      "notes:tropica": "e1d0b346673e",
+      "notes:aquariumcoop": "599bbf2b4a8b"
+    }
+  },
+  "hygrophila-lancea-araguaia": {
+    "at": "2026-11-16",
+    "from": "2026-10-30",
+    "name": "Hygrophila lancea 'Araguaia'",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"Tumbuhan batang\" is a literal rendering of \"stem plant\". Hobbyists in Malaysia more often write \"tumbuhan berbatang\" or \"stem plant\" in brackets, for example \"Tumbuhan batang (stem plant)\".",
+      "\"Pucuk batang yang dicubit akan mengekalkan rupanya yang rimbun\" changes the meaning slightly. The English says pinching the stems keeps the plant bushy. Suggest \"Memangkas/mencubit pucuk batang membantu mengekalkan rupa yang rimbun\".",
+      "\"Kadar pertumbuhannya sederhana bagi Hygrophila\" is slightly awkward. Suggest \"Kadar pertumbuhannya purata bagi Hygrophila\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "47aaa6f1900d",
+      "notes:tropica": "703e339adc2e"
     }
   }
 }

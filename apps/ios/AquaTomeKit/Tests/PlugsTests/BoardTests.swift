@@ -150,6 +150,9 @@ struct CancelledAfterSending: PlugSource {
     throw CancellationError()
   }
   func timers(provider: String, device: String) async throws -> [PlugTimer] { try await base.timers(provider: provider, device: device) }
+  func countdown(provider: String, device: String, outlet code: String, seconds: Int) async throws -> Bool {
+    try await base.countdown(provider: provider, device: device, outlet: code, seconds: seconds)
+  }
 }
 
 @MainActor @Test("A switch that ends cancelled after its command may have gone: the list read once more says what the plug did")
@@ -192,6 +195,9 @@ struct Gated: PlugSource {
     try await base.set(provider: provider, device: device, outlet: code, on: on)
   }
   func timers(provider: String, device: String) async throws -> [PlugTimer] { try await base.timers(provider: provider, device: device) }
+  func countdown(provider: String, device: String, outlet code: String, seconds: Int) async throws -> Bool {
+    try await base.countdown(provider: provider, device: device, outlet: code, seconds: seconds)
+  }
 }
 
 @MainActor @Test("A list answer older than a switch answer doesn't put the old state back")

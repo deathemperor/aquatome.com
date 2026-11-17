@@ -45,6 +45,9 @@ git config merge.changelog.driver 'node scripts/merge-changelog.mjs %O %A %B'
 git config merge.jsonmap.driver 'node scripts/merge-json-map.mjs %O %A %B'
 # Each run rewrites the fit reports, so keep the current side when they clash.
 git config merge.regenerated.driver true
+# Picture files two jobs both write: a pull merges them value by value, never a picture built from two (.gitattributes,
+# scripts/merge-main-whole.mjs). Only in the engine's clones: in anyone else's checkout a rebase would drop their edits.
+if engine_clone || engine_cloud; then git config merge.main-whole.driver 'node scripts/merge-main-whole.mjs %O %A %B %P'; fi
 git config merge.entity.driver 'node scripts/merge-entity.mjs %O %A %B'
 pnpm install --frozen-lockfile --silent
 publish_kept videos
@@ -76,16 +79,25 @@ pnpm engine guide-photos --limit 20 || log "guide-photos: failed"
 pnpm engine dead-screen --limit "${DEAD_SCREEN_LIMIT:-48}" || log "dead-screen: failed"
 # New guides' video stills and photos: none with a watermark (macOS Vision reads the text, the model judges it).
 pnpm engine watermarks --limit 20 || log "watermarks: failed"
+# A new video's title in each language whose pages show it, before the sweep. A language shows its titles once it's turned on
+# (content/video-titles/on.json); then a foreign video without one isn't shown.
+for lang in vi id th ms; do pnpm engine video-titles --lang "$lang" --limit "${VIDEO_TITLES_LIMIT:-3}" || log "video-titles $lang: failed"; done
 # The content rules' safe fixes, as in the GitHub cycle (a new guide whose title promises a count it lacks: the tests fail on it).
 pnpm engine sweep || log "sweep: failed"
 # Last of the steps that write pages: what this run changed is read against the reader-fit checklist (gate.ts). A new page
 # that fails is held, a live page that got worse keeps its committed text, a page built on a foreign shop's kit is held,
 # and a held page that now passes is let out. A page it can't read stays as readers have it; only a crash stops the run,
 # and keeps its work on a branch (gate_or_keep).
-# The held video guides go to their editor here alone, 24 a run (gate.ts heldMendsOf): the Mac's five parts each sent the
-# same 12, and two rounds' 83 tries went to 27 guides (the chief of staff, 15 Nov 2026). One a mend didn't let out waits
-# 3 days on that text (MEND_AGAIN_DAYS), so the slots go to the others.
-export GATE_HELD_MENDS="${GATE_HELD_MENDS:-24}"
+# The held video guides go to their editor here alone (gate.ts heldMendsOf): the Mac's five parts each sent the same 12,
+# and two rounds' 83 tries went to 27 guides (the chief of staff, 15 Nov 2026). One a mend didn't let out waits 3 days on
+# that text (MEND_AGAIN_DAYS), so the slots go to the others.
+# At most 4 held guides and 2 new or live ones a run, in place of 24 and 20 (the chief of staff, 16 Nov 2026): on 16 Nov
+# the editor's rewrites, logged under the gate's name, came to about $40 of the gate's $57 on the Mac, and its own check
+# threw out 65 of at least 92 after each was paid for. The gate has no line, so that spend ended every other step's day at
+# 21:50. A guide not mended stays held, and a live one that got worse keeps its committed text. Each figure is one
+# setting here, and the job's environment can set either.
+export GATE_HELD_MENDS="${GATE_HELD_MENDS:-4}"
+export GATE_MENDS="${GATE_MENDS:-2}"
 gate_or_keep "content: videos" content engine-state docs/review || exit 1
 if [ -z "$(git status --porcelain -- content engine-state docs/review)" ]; then log "no changes"; exit 0; fi
 # Committed before the tests, as engine-cycle.sh does: the next run's reset drops uncommitted work for good, and a commit
@@ -96,7 +108,9 @@ if ! verify_cycle; then keep_unpublished videos; log "tests failed, not publishi
 # The GitHub engine pushes too; the files above merge through their drivers. Lines both changed (the photo verdicts
 # review page) give way to this run's, as engine-cycle.sh does; then the tests run again on the merge.
 for _ in 1 2 3; do
-  main=$(git rev-parse '@{u}' 2>/dev/null || true) run=$(git rev-parse HEAD) moved=
+  # main: the commit this work sits on, not the last main fetched, which a fetch before this pull (catch_up's, stopped
+  # after its fetch) may have moved: swept_pull then sees main's commits come in (a reader's catch, 16 Nov).
+  main=$(git merge-base HEAD '@{u}' 2>/dev/null || true) run=$(git rev-parse HEAD) moved=
   if ! git pull -q --rebase; then
     log "the GitHub engine changed the same files: $(git diff --name-only --diff-filter=U | tr '\n' ' ')"
     git rebase --abort 2>/dev/null || true

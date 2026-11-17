@@ -1,0 +1,226 @@
+{
+  "id": "amphilius-lujani",
+  "scientificName": "Amphilius lujani",
+  "order": "Siluriformes",
+  "family": "Amphiliidae",
+  "genus": "Amphilius",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "tanzania",
+    "lake-manyara",
+    "uganda",
+    "lake-kyoga",
+    "kenya",
+    "lake-victoria"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "TZ",
+        "UG",
+        "KE"
+      ],
+      "regions": [
+        "Lake Victoria",
+        "Lake Kyoga",
+        "Lake Manyara"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Africa: Lake Kyoga drainage, Lake Victoria drainage and Lake Manyara basin in Tanzania.",
+          "countries": [
+            "TZ"
+          ],
+          "regions": [
+            "Lake Victoria",
+            "Lake Kyoga",
+            "Lake Manyara"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "It occurs in the Lake Kyoga drainage and Lake Victoria affluents in Uganda and Kenya, and also in the Lake Manyara basin in Tanzania.",
+          "countries": [
+            "UG",
+            "KE"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8964367,
+      "total": 50,
+      "fetched": "2026-11-16",
+      "countries": [
+        [
+          "KE",
+          46
+        ],
+        [
+          "UG",
+          3
+        ],
+        [
+          "TZ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          33.75,
+          0,
+          39,
+          39
+        ],
+        [
+          35.15625,
+          0,
+          8,
+          8
+        ],
+        [
+          36.5625,
+          -7.03125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 12
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_lujani.htm",
+      "html": "<p>Family: Amphiliidae. Size: 12 cm. Temperature: 20–24°C. pH: 6.5–7.5.</p><p>Named in honour of Nathan K. Lujan, who collected the holotype and most paratypes of this species. Described by Thomson &amp; Page, 2015.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_lujani.htm",
+      "html": "<p>Africa: Lake Kyoga drainage, Lake Victoria drainage and Lake Manyara basin in Tanzania. It occurs in the Lake Kyoga drainage and Lake Victoria affluents in Uganda and Kenya, and also in the Lake Manyara basin in Tanzania.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_lujani.htm",
+      "html": "<p>Can be kept in aquaria with a small-grained gravel or sand substrate, well planted, with a slight current to mimic its natural habitat. Provide rockwork and caves. This genus prefers cooler temperatures in the aquarium.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_lujani.htm",
+      "html": "<p>Mosquito larvae, Tubifex, Cyclops, Daphnia, grindal worms, vegetable food, tablet and flake.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_lujani.htm",
+      "html": "<p>IUCN Red List: no major, widespread threats have been identified. This small catfish is listed as Least Concern, but the assessment needs updating (IUCN 2016).</p><p>It is diagnosed from A. pedunculus, A. frieli and A. crassus by a more slender caudal peduncle (depth 8.1–9.5% of standard length vs. 9.9–12.3%). It differs from A. jacksonii by a deeper caudal peduncle and deeper body, from A. ruziziensis by a wider interorbital width and deeper body, from A. frieli by fewer gill rakers on the first gill arch (6–8 vs. 10–11) and a longer caudal peduncle, and from A. crassus by more branched pectoral-fin rays (9 vs. 7–8) and a longer caudal peduncle.</p><p>Dorsal spines: 0; dorsal soft rays: 7–8; anal spines: 0; anal soft rays: 8–10.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_lujani.htm",
+      "html": "<p>FishBase team RMCA &amp; Geelhand, D. 2016. Amphilius lujani. The IUCN Red List of Threatened Species 2016. Froese, R. and D. Pauly. Editors. 2019. FishBase. www.fishbase.org. Thomson, A.W., L.M. Page and S.A. Hilber, 2015. Revision of the Amphilius jacksonii complex (Siluriformes: Amphiliidae), with the descriptions of five new species. Zootaxa 3986(1):61-87.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/b3e3d9f3992d96a5.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b3e3d9f3992d96a5-480.webp",
+      "width": 500,
+      "height": 238,
+      "licence": "dùng với sự cho phép",
+      "author": "Nathan Lujan / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_lujani.htm",
+      "caption": "Amphilius lujani: A tributary of Lake Victoria near the Kenyan border.",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/4a0a241a454286ea.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4a0a241a454286ea-480.webp",
+      "width": 500,
+      "height": 210,
+      "licence": "dùng với sự cho phép",
+      "author": "Nathan Lujan / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_lujani.htm",
+      "caption": "Amphilius lujani: Dorsal view-tributary of Lake Victoria near the Kenyan border.",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/3598d3881dbaabf5.webp",
+      "thumb": "https://media.aquatome.com/scotcat/3598d3881dbaabf5-480.webp",
+      "width": 500,
+      "height": 208,
+      "licence": "dùng với sự cho phép",
+      "author": "Nathan Lujan / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/amphilius_lujani.htm",
+      "caption": "Amphilius lujani: Ventral view-tributary of Lake Victoria near the Kenyan border.",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "suoi",
+      "keywords": [
+        "quạt làm mát bể cá",
+        "máy làm lạnh nước bể cá"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền hạt mịn",
+        "sỏi nền hạt nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên cá da trơn",
+        "trùng chỉ đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-16"
+}
