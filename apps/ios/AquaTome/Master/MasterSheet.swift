@@ -153,7 +153,7 @@ private struct StepChoice: View {
             row(String(localized: "Bật"), chosen: s.on && s.colour == nil) { set(on: true, colour: nil) }
             row(String(localized: "Tắt"), chosen: !s.on) { set(on: false, colour: nil) }
           } else {
-            // CO2 off only (MasterButton.allows): on comes after the owner's test of a plug's countdown.
+            // CO2 off only (MasterButton.allows): on comes with the CO2-on work, a plug's countdown switching it off.
             if MasterButton.allows(DeviceCommand(device: s.device, outlet: s.outlet, on: true), role: master.role(s)) {
               row(String(localized: "Bật"), chosen: s.on) { set(on: true, colour: nil) }
             }

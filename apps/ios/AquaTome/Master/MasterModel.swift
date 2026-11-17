@@ -19,8 +19,6 @@ final class MasterModel {
   /// Why the last tap on Bắt đầu sent nothing: shown until the next.
   private(set) var refusal: [String] = []
   let switcher: Switcher
-  /// The owner's test of a plug's countdown.
-  let trial: CountdownTrial
   /// What went out, for the UI tests: the lamp's recordings and each outlet's switch.
   private(set) var log: [String] = []
 
@@ -42,8 +40,13 @@ final class MasterModel {
     return kv.count == 2 ? (kv[0], kv[1]) : nil
   }()
   #endif
-  /// Whether the owner is signed in: a press stops sending once not (`AquaTomeApp` sets it to the account's).
-  @ObservationIgnored var owner: @MainActor () -> Bool = { true }
+  /// Whether the owner is signed in: true; false, not (signed out, or another account); nil, not known yet (signed in,
+  /// the account's answer not back, as at each launch). A press and an end send only while true; an end due waits until
+  /// it is (`AquaTomeApp` sets it to the account's, and ticks when it changes).
+  @ObservationIgnored var owner: @MainActor () -> Bool? = { nil }
+  /// Counts the account's changes (signed out, signed in): a press or an end sends only in the session it began in, so
+  /// one signed out and in again doesn't go on (Codex, 17 Nov). `AquaTomeApp` calls `accountChanged`.
+  @ObservationIgnored private var session = 0
   /// Since when the app has been in front without a break: its launch, or its last return from the background. An end
   /// before it came while the app was away, however soon it came back.
   @ObservationIgnored private var frontSince: Date
@@ -54,7 +57,6 @@ final class MasterModel {
 
   init(switcher: Switcher) {
     self.switcher = switcher
-    trial = CountdownTrial(switcher: switcher)
     frontSince = Date()
     let d = UserDefaults.standard
     button = d.data(forKey: Self.buttonKey).flatMap { try? JSONDecoder().decode(MasterButton.self, from: $0) }
@@ -83,21 +85,25 @@ final class MasterModel {
     }
   }
 
-  /// A press running, going out or still owing something: the owner's countdown test waits, since each would read the
-  /// other's switching as a hand's.
-  var busy: Bool { sending || run?.isRunning == true || run?.pending.isEmpty == false }
+  /// The account changed (signed out, or in): whatever a press or an end was still to send doesn't go.
+  func accountChanged() {
+    session += 1
+    note("account")
+  }
 
-  /// The owner's countdown test, never beside a press.
-  func tryCountdown(_ target: DeviceTarget) async {
-    guard !busy else { return }
-    await trial.run(target)
+  /// What each command of a press or an end checks as it goes, with its outlet's role (Switcher.send): the owner still
+  /// signed in, in the session it began in.
+  private func gate() -> @MainActor @Sendable () -> Bool {
+    let s = session
+    return { [weak self] in self.map { $0.owner() == true && $0.session == s } ?? false }
   }
 
   /// "Bắt đầu": the list of plugs read once (how each outlet is now), then each step once, the lamp's beside the plugs'
-  /// (its two recordings take about eight seconds). No countdown is written to a plug (the chief, 15 Nov: not before the
-  /// owner's own test of one).
+  /// (its two recordings take about eight seconds). No countdown is written to a plug (the chief, 15 and 17 Nov: none
+  /// from the app until the CO2-on work).
   func start() async {
-    guard var button, !sending, run?.isRunning != true, trial.state == .idle, owner() else { return }
+    guard var button, !sending, run?.isRunning != true, owner() == true else { return }
+    let still = gate()
     sending = true
     defer { sending = false; watch() }
     notes = []
@@ -129,20 +135,25 @@ final class MasterModel {
     keep()
     let lampSteps = r.steps.filter(\.isLamp)
     let lampSent = switcher.lamp.sent.count
-    async let lampFailed = sendLamp(lampSteps)
+    async let lampFailed = sendLamp(lampSteps, still: still)
     var failed: [MasterRun.Failed] = []
+    // Steps that failed after their command may have reached the plug (its answer lost, or not confirmed).
+    var uncertain: Set<DeviceTarget> = []
     for step in r.steps where !step.isLamp {
       #if DEBUG
       if let stepsWait { try? await Task.sleep(for: .seconds(stepsWait)) }
       #endif
       // Signed out, or no longer the owner's, since the press: the rest don't go. Each is checked against its outlet's
-      // role as it goes (setByButton): CO2 is never switched on, whatever changed since the press.
-      guard owner() else {
+      // role and the owner as it goes, and again right before its command leaves (Switcher.send): CO2 is never switched
+      // on, whatever changed since the press.
+      guard still() else {
         failed.append(.init(target: step.target, line: Self.signedOut))
         continue
       }
-      if case .failed(let line) = await switcher.setByButton(step) {
+      let (result, mayHaveSent) = await switcher.send(step, still: still)
+      if case .failed(let line) = result {
         failed.append(.init(target: step.target, line: line))
+        if mayHaveSent { uncertain.insert(step.target) }
       } else {
         note("\(step.outlet ?? "") \(step.on ? "on" : "off")")
       }
@@ -157,25 +168,27 @@ final class MasterModel {
     let refusals = refused.map { MasterRun.Failed(target: $0.target, line: String(localized: "Nút không bật tắt ổ \(switcher.name($0)) được trong bản này.")) }
     // A lamp step that failed after one of its recordings went out ("on", then not its colour) changed the lamp.
     let halfSent = switcher.lamp.sent.count > lampSent ? Set(lampSteps.map(\.target)) : []
-    r.settle(refusals + failed, now: { after[$0.target] }, keeping: Set(owed.map(\.command.target)).union(halfSent), at: now())
+    r.settle(refusals + failed, now: { after[$0.target] }, keeping: Set(owed.map(\.command.target)).union(halfSent), at: now(),
+             uncertain: uncertain)
     run = r
     keep()
     if r.isRunning, let ends = r.ends { await EndNotice.schedule(at: ends, title: button.name) }
   }
 
-  private func sendLamp(_ steps: [DeviceCommand]) async -> [MasterRun.Failed] {
+  private func sendLamp(_ steps: [DeviceCommand], still: @escaping @MainActor @Sendable () -> Bool) async -> [MasterRun.Failed] {
     var failed: [MasterRun.Failed] = []
     for s in steps {
-      guard owner() else {
+      guard still() else {
         failed.append(.init(target: s.target, line: Self.signedOut))
         continue
       }
-      if case .failed(let line) = await switcher.setByButton(s) { failed.append(.init(target: s.target, line: line)) } else { note("lamp \(LampSender.recordings(s).map(\.id).joined(separator: "+"))") }
+      // Each of its recordings checked as it goes: signed out after "on", its colour doesn't go.
+      if case .failed(let line) = await switcher.setByButton(s, still: still) { failed.append(.init(target: s.target, line: line)) } else { note("lamp \(LampSender.recordings(s).map(\.id).joined(separator: "+"))") }
     }
     return failed
   }
 
-  /// A step not sent because the owner signed out during the press.
+  /// A step or a put-back not sent because the owner signed out since it began.
   static var signedOut: String { String(localized: "Chưa gửi vì bạn đã đăng xuất.") }
 
   /// Ends it and puts back what it changed: "Kết thúc", "Trả lại" (`byReader`), or the clock (while the app is open, or
@@ -185,15 +198,17 @@ final class MasterModel {
   /// closed at the end time, however soon it came back), waits for the reader's "Trả lại" near it.
   func finish(byReader: Bool) async {
     guard var r = run, !sending else { return }
+    let still = gate()
     sending = true
     defer { sending = false; watch() }
     let t = now()
     let away = r.ended == nil && r.ends.map { inBackground || frontSince > $0 } == true
     let endedBefore = r.ended
     if r.ended == nil { r.ended = t }
-    // How each step that went left its outlet: one found back at the end was changed during the run.
+    // How each step that went left its outlet, for a run kept before `Back.left`: one found back at the end was changed
+    // during the run.
     let missed = Set(r.failed.map(\.target))
-    let left = Dictionary(r.steps.filter { !missed.contains($0.target) }.map { ($0.target, $0.on) }, uniquingKeysWith: { _, last in last })
+    let kept = Dictionary(r.steps.filter { !missed.contains($0.target) }.map { ($0.target, $0.on) }, uniquingKeysWith: { _, last in last })
     r.failed = []
     EndNotice.cancel()
     // The tanks on this phone not read: which devices are still on one isn't known, so nothing goes back and nothing is
@@ -206,6 +221,8 @@ final class MasterModel {
     }
     await switcher.plugs.refresh()
     let board = switcher.plugs.board
+    // The list not read again: no outlet's state now is known (the last list's is old), so none goes back.
+    let read = board.listError == nil
     for b in r.pending {
       guard let i = r.back.firstIndex(of: b) else { continue }
       let c = b.command
@@ -224,20 +241,25 @@ final class MasterModel {
         }
       } else if let key = switcher.outlet(c)?.key {
         let changed = String(localized: "Ổ \(name) đã đổi trong lúc chạy nên AquaTome để nguyên.")
-        // Back already; switched since this press left it (a hand, its schedule) or made a heater: left; CO2: never on.
-        let end = MasterRun.end(b, now: board.on(key), left: left[c.target], role: role(c))
+        // Back already; switched since the last press left it (a hand, its schedule) or made a heater: left; CO2: never
+        // on; not read: stays owed, for Trả lại.
+        let end = MasterRun.end(b, now: read ? board.on(key) : nil, left: b.left ?? kept[c.target], role: role(c))
+        if end == .unread {
+          r.back[i].problem = Switcher.unreached(name)
+          continue
+        }
         if end != .send {
           r.back[i].done = true
           r.back[i].problem = nil
           switch end {
-          case .already: if let l = left[c.target], l != c.on { tell(changed) }
+          case .already: if let l = b.left ?? kept[c.target], l != c.on { tell(changed) }
           case .hold: tell(String(localized: "AquaTome không tự bật lại CO2. Cần thì bật ổ CO2 trong Bể của tôi."))
           default: tell(changed)
           }
           continue
         }
       }
-      switch await switcher.setByButton(c) {
+      switch await switcher.setByButton(c, still: still) {
       case .done:
         r.back[i].done = true
         r.back[i].problem = nil
@@ -265,12 +287,12 @@ final class MasterModel {
     tick()
   }
 
-  /// The app opened or came to the front, or the end's time came: an end that came while it was away, and a countdown
-  /// test the app stopped in the middle of (killed, or closed by iOS), its outlet put back on.
+  /// The app opened or came to the front, the end's time came, or the owner became known: an end that came while it was
+  /// away. Due while the owner isn't signed in (or not known yet), it waits, and goes once they are.
   func tick() {
-    if !busy { Task { await trial.recover() } }
     guard let r = run, !sending else { return }
-    if r.isDue(at: now()) { Task { await finish(byReader: false) } } else { watch() }
+    if !r.isDue(at: now()) { return watch() }
+    if owner() == true { Task { await finish(byReader: false) } }
   }
 
   /// Wakes at the end while it runs (the app open).

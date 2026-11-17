@@ -79,7 +79,7 @@ struct AquaTomeApp: App {
     _plugs = State(initialValue: plugs)
     let master = MasterModel(switcher: Switcher(tanks: tanks, plugs: plugs))
     // The master button is the owner's: a press stops sending once the owner signs out (MasterCard shows it to them alone).
-    master.owner = { account.owner.isOwner == true && account.user != nil }
+    master.owner = { account.user == nil ? false : account.owner.isOwner }
     _master = State(initialValue: master)
     // Each records where it knows how an action went.
     let telemetry = TelemetryModel(lang: handbook.lang)
@@ -150,6 +150,10 @@ struct AquaTomeApp: App {
       .onChange(of: handbook.status) { if handbook.status != .loading { openLink() } }
       // Signed in: a change to the tanks goes to the account a moment later; coming to the front, the account's come back.
       .onChange(of: tanks.store) { account.changed() }
+      // Signed out or in: what the master button was still to send doesn't go (MasterModel.accountChanged).
+      .onChange(of: account.user?.id) { master.accountChanged() }
+      // The owner known (at each launch, once the account answers): an end due goes then.
+      .onChange(of: account.owner.isOwner) { master.tick() }
       .onChange(of: phase, initial: true) {
         // The latest chat's answer stops in the background, and is asked for again on return (ChatStore).
         if phase == .background { chat.inFront(false) }

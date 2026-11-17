@@ -36,6 +36,9 @@ public struct MasterRun: Sendable, Equatable, Codable {
     /// Never sent by the phone, by the outlet's role when pressed: CO2 back on (the chief, 15 Nov). nil in runs kept
     /// before it.
     public var held: Bool?
+    /// How the last press that set the outlet left it (`MasterRun.settle`): the end leaves an outlet no longer so. nil
+    /// when no press set it, its step was refused before anything went, or in runs kept before it (Codex, 17 Nov).
+    public var left: Bool?
 
     public init(command: DeviceCommand) { self.command = command }
   }
@@ -88,12 +91,24 @@ public struct MasterRun: Sendable, Equatable, Codable {
   /// reached it, a fan left off), stays owed: the end reads it again and sends nothing to one already back, so no state
   /// the phone only guessed is sent. `keeping`: what goes back whatever (owed by an earlier press, a lamp step half
   /// sent). When every step failed and nothing is left, it ends at `t`.
-  public mutating func settle(_ failed: [Failed], now: (DeviceCommand) -> Bool?, keeping: Set<DeviceTarget>, at t: Date) {
+  ///
+  /// How this press left each outlet it set goes with its put-back (`Back.left`), for the end: a step that went, as it
+  /// asked; a failed one whose command may have reached the plug (`uncertain`: its answer lost, or not confirmed), as
+  /// read after it, or, not read, as it asked (the phone can't tell, and counts it gone: the end then leaves the outlet
+  /// rather than undo what a hand may have done since); one refused before anything went, as it was (an earlier press's,
+  /// when one owes it).
+  public mutating func settle(_ failed: [Failed], now: (DeviceCommand) -> Bool?, keeping: Set<DeviceTarget>, at t: Date,
+                              uncertain: Set<DeviceTarget> = []) {
     self.failed = failed
     let missed = Set(failed.map(\.target))
     back.removeAll { b in
       guard missed.contains(b.command.target), !keeping.contains(b.command.target) else { return false }
       return b.command.isLamp || now(b.command) == b.command.on
+    }
+    for step in steps where !step.isLamp {
+      let t = step.target
+      let left: Bool? = !missed.contains(t) ? step.on : uncertain.contains(t) ? (now(step) ?? step.on) : nil
+      if let left, let i = back.firstIndex(where: { $0.command.target == t }) { back[i].left = left }
     }
     if missed.isSuperset(of: steps.map(\.target)), back.isEmpty { ended = t }
   }
@@ -106,11 +121,14 @@ public struct MasterRun: Sendable, Equatable, Codable {
     case leave
     /// CO2 back on, which the phone never sends: left off, and said so.
     case hold
+    /// Not read at the end: nothing sent, and it stays owed for Trả lại (Codex, 17 Nov: the phone sends no state it only
+    /// guessed).
+    case unread
     case send
   }
 
-  /// What the end does with `b`, an outlet's put-back, by how the outlet reads now (`now`, nil when not read), how this
-  /// press left it (`left`, nil when this press didn't set it or its step didn't go) and the outlet's role now. One no
+  /// What the end does with `b`, an outlet's put-back, by how the outlet reads now (`now`, nil when not read), how the
+  /// last press to set it left it (`left`: `Back.left`) and the outlet's role now. One no
   /// longer as this press left it is left as it is, whatever an earlier press still owes for it: what goes back is the
   /// state from before both, and switching it would undo a hand's change.
   public static func end(_ b: Back, now: Bool?, left: Bool?, role: String?) -> End {
@@ -119,6 +137,7 @@ public struct MasterRun: Sendable, Equatable, Codable {
     if let now, let left, now != left { return .leave }
     if c.on && (b.held == true || role == "co2") { return .hold }
     if role == "heater" { return .leave }
+    if now == nil { return .unread }
     return .send
   }
 

@@ -69,12 +69,27 @@ final class LampSender {
     return ids.compactMap { id in FishLamp.loveEcology.first { $0.id == id } }
   }
 
-  /// Nil when every recording went out; why not otherwise (then the rest aren't sent).
-  func send(_ c: DeviceCommand) async -> LampAirError? {
+  #if DEBUG
+  /// `-lamp-colour-wait <seconds>`: a colour waits that much longer after "on", so a flow can sign out between them.
+  private static let colourWait = ProcessInfo.processInfo.arguments.firstIndex(of: "-lamp-colour-wait")
+    .flatMap { i in ProcessInfo.processInfo.arguments.dropFirst(i + 1).first.flatMap(TimeInterval.init) }
+  #endif
+
+  /// Nil when every recording went out; why not otherwise (then the rest aren't sent). `allowed` is asked right before
+  /// each recording: no, and it and the rest don't go (the master button's owner signed out since, Codex, 17 Nov).
+  func send(_ c: DeviceCommand, allowed: @MainActor () -> Bool = { true }) async -> LampAirError? {
     let list = Self.recordings(c)
     guard !list.isEmpty else { return .failed }
     for (i, r) in list.enumerated() {
       if i > 0 { try? await Task.sleep(for: .seconds(2)) }
+      #if DEBUG
+      if i > 0, let wait = Self.colourWait { try? await Task.sleep(for: .seconds(wait)) }
+      #endif
+      guard allowed() else {
+        // "On" went out and its colour doesn't: the lamp is on, in a colour not known.
+        if i > 0 { LampMemory.remember(DeviceCommand(device: c.device, on: true)) }
+        return .failed
+      }
       // Answered once: when the broadcast started, or why not.
       let started: LampAirError? = await withCheckedContinuation { done in LampRadio.start(r.uuids, by: self) { done.resume(returning: $0) } }
       if let started {

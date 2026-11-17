@@ -86,19 +86,22 @@ public final class PlugBoard {
   }
 
   /// Sets one outlet, on the reader's tap. Not sent while it's being switched already, or unless its plug is listed
-  /// online.
-  public func set(_ o: Outlet, on: Bool) async {
+  /// online. `allowed` is asked right before the command goes (PlugSource.set): no, and nothing is sent, and no outcome
+  /// is noted (`outcome` stays nil).
+  public func set(_ o: Outlet, on: Bool, allowed: @escaping @Sendable () async -> Bool = { true }) async {
     guard let source, !switching.contains(o), online(provider: o.provider, device: o.device) == true else { return }
     let owner = source.owner
     switching.insert(o)
     defer { switching.remove(o) }
     outcomes[o] = nil
     do {
-      let r = try await source.set(provider: o.provider, device: o.device, outlet: o.code, on: on)
+      let r = try await source.set(provider: o.provider, device: o.device, outlet: o.code, on: on, allowed: allowed)
       guard owner == self.source?.owner else { return }
       tick += 1
       reported[o] = (r.on, tick)
       if r.confirmed { return note(o, .confirmed) }
+    } catch is Withdrawn {
+      return
     } catch let e as PlugError where e.nothingSent {
       guard owner == self.source?.owner else { return }
       if e == .plugOffline {
@@ -117,18 +120,6 @@ public final class PlugBoard {
     guard owner == self.source?.owner else { return }
     let now = self.on(o)
     note(o, now == on ? .confirmed : now == nil ? .unknown : .unconfirmed)
-  }
-
-  /// Whether the plug lists a countdown for the outlet (`LiveOutlet.countdown`).
-  public func hasCountdown(_ o: Outlet) -> Bool {
-    list?.plug(provider: o.provider, id: o.device)?.outlets.first { $0.code == o.code }?.countdown == true
-  }
-
-  /// Starts (or with 0 ends) the outlet's own countdown, for the master button: once, to a plug listed online with one.
-  /// True when the plug reported it; false when it was refused, failed, or not read back.
-  public func countdown(_ o: Outlet, seconds: Int) async -> Bool {
-    guard let source, hasCountdown(o), online(provider: o.provider, device: o.device) == true else { return false }
-    return (try? await source.countdown(provider: o.provider, device: o.device, outlet: o.code, seconds: seconds)) == true
   }
 
   /// One list read; when it's the newest answer, it replaces what switch answers reported before it started. Its start,

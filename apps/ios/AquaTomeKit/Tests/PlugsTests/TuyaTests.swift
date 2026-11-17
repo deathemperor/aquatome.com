@@ -135,6 +135,32 @@ func staleTokenOnACommand() async throws {
   #expect(c.posts == 3 && c.tokens == tokens + 1 && c.reads == reads)
 }
 
+@MainActor @Test("A command goes only if `allowed` still says yes once its token is in hand, and again before it goes once more for a stale one")
+func allowedAsItLeaves() async throws {
+  let c = Cloud()
+  let s = c.source()
+  _ = try await s.list()
+  // No (the master button's outlet made CO2, or its owner signed out, while it waited): nothing sent.
+  await #expect(throws: Withdrawn.self) { try await s.set(provider: "tuya", device: "fake-strip-1", outlet: "switch_2", on: true, allowed: { false }) }
+  #expect(c.posts == 0)
+  // Yes as it first goes, refused for a stale token (Tuya acts on nothing then), and no by the time a new token is in
+  // hand: it doesn't go again (Codex, 17 Nov: the role was checked before the wait).
+  c.fake.revoke()
+  let answers = Answers([true, false])
+  await #expect(throws: Withdrawn.self) {
+    try await s.set(provider: "tuya", device: "fake-strip-1", outlet: "switch_2", on: true, allowed: { await answers.next() })
+  }
+  #expect(c.posts == 1 && c.tokens == 2)
+  #expect(c.fake.device("fake-strip-1")?.status.first { $0.code == "switch_2" }?.value == .bool(false))
+}
+
+/// Answers asked in turn; no once they run out.
+actor Answers {
+  private var left: [Bool]
+  init(_ answers: [Bool]) { left = answers }
+  func next() -> Bool { left.isEmpty ? false : left.removeFirst() }
+}
+
 @MainActor @Test("Every request: signed with the project's keys, to its data center, the switch's command as Tuya's docs give it")
 func requests() async throws {
   let c = Cloud()

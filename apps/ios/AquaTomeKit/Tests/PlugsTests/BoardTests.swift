@@ -140,13 +140,22 @@ func boardInFlight() async throws {
   #expect(c.posts == 1 && board.on(lamp) == false && board.switching.isEmpty)
 }
 
+@MainActor @Test("A switch withdrawn as it was about to go sent nothing, and notes nothing")
+func boardSwitchWithdrawn() async throws {
+  let c = Cloud()
+  let board = PlugBoard()
+  await board.refresh(c.source())
+  await board.set(lamp, on: false, allowed: { false })
+  #expect(c.posts == 0 && board.outcome(lamp) == nil && board.on(lamp) == true && board.switching.isEmpty)
+}
+
 /// A source whose switch ends cancelled after the command went.
 struct CancelledAfterSending: PlugSource {
   let base: any PlugSource
   var owner: String { base.owner }
   func list() async throws -> PlugList { try await base.list() }
-  func set(provider: String, device: String, outlet code: String, on: Bool) async throws -> Switched {
-    _ = try await base.set(provider: provider, device: device, outlet: code, on: on)
+  func set(provider: String, device: String, outlet code: String, on: Bool, allowed: @escaping @Sendable () async -> Bool) async throws -> Switched {
+    _ = try await base.set(provider: provider, device: device, outlet: code, on: on, allowed: allowed)
     throw CancellationError()
   }
   func timers(provider: String, device: String) async throws -> [PlugTimer] { try await base.timers(provider: provider, device: device) }
@@ -191,8 +200,8 @@ struct Gated: PlugSource {
     await gate.wait()
     return l
   }
-  func set(provider: String, device: String, outlet code: String, on: Bool) async throws -> Switched {
-    try await base.set(provider: provider, device: device, outlet: code, on: on)
+  func set(provider: String, device: String, outlet code: String, on: Bool, allowed: @escaping @Sendable () async -> Bool) async throws -> Switched {
+    try await base.set(provider: provider, device: device, outlet: code, on: on, allowed: allowed)
   }
   func timers(provider: String, device: String) async throws -> [PlugTimer] { try await base.timers(provider: provider, device: device) }
   func countdown(provider: String, device: String, outlet code: String, seconds: Int) async throws -> Bool {

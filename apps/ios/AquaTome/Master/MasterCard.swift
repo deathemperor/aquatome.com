@@ -41,7 +41,6 @@ struct MasterCard: View {
         // A button deleted while its press still owed something: that stays.
         problems
         putBack
-        CountdownTrialRow()
       }
       .modifier(Panel())
     }
@@ -58,7 +57,7 @@ struct MasterCard: View {
       Text(verbatim: summary).font(.subheadline).foregroundStyle(.secondary).accessibilityIdentifier("master-summary")
       Button { Task { await master.start() } } label: { sendingOr(Text("Bắt đầu"), colour: ink) }
       .buttonStyle(Filled(fill: .accentColor, words: ink, keepsLook: master.sending))
-      .disabled(master.sending || b.steps.isEmpty || master.trial.state != .idle)
+      .disabled(master.sending || b.steps.isEmpty)
       .accessibilityIdentifier("master-start")
       problems
       putBack
@@ -69,7 +68,6 @@ struct MasterCard: View {
           .accessibilityElement(children: .combine)
           .accessibilityIdentifier("master-notes")
       }
-      CountdownTrialRow()
     }
     .modifier(Panel())
     // VoiceOver reads it as one ("Ngắm bể, Đèn sáng, CO2 bật, quạt tắt, 2 giờ"), Bắt đầu and Sửa its actions.

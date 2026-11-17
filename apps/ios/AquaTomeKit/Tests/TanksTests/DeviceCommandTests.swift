@@ -179,8 +179,9 @@ func whatTheEndDoes() {
   // Owed by an earlier press (the fan back on), and this press switched the fan on: a hand switched it off since. Left
   // off, not switched on against the hand (Codex, 17 Nov).
   #expect(MasterRun.end(fanOn, now: false, left: true, role: "fan") == .leave)
-  // Not read at the end: sent, and the send itself says if the plug isn't reached.
-  #expect(MasterRun.end(fanOn, now: nil, left: false, role: "fan") == .send)
+  // Not read at the end: nothing sent, and it stays owed (Codex, 17 Nov: a state the phone only guessed isn't sent).
+  #expect(MasterRun.end(fanOn, now: nil, left: false, role: "fan") == .unread)
+  #expect(MasterRun.end(fanOn, now: nil, left: nil, role: "fan") == .unread)
   // Its step didn't go, or this press didn't set it: as the put-back says.
   #expect(MasterRun.end(fanOn, now: false, left: nil, role: "fan") == .send)
   // CO2 back on, held at the press or CO2 now: never sent. A heater now: left.
@@ -189,6 +190,46 @@ func whatTheEndDoes() {
   held.held = true
   #expect(MasterRun.end(held, now: false, left: false, role: "light") == .hold)
   #expect(MasterRun.end(fanOn, now: false, left: false, role: "heater") == .leave)
+}
+
+@Test("How a press left each outlet goes with what it owes: as asked; lost, as read after or as asked; refused, as it was")
+func howAPressLeftEach() {
+  let lightOff = DeviceCommand(device: plug, outlet: "switch_1", on: false)
+  let fanOn = DeviceCommand(device: plug, outlet: "switch_3", on: true)
+  let b = MasterButton(name: "x", steps: [lightOff, fanOn], minutes: 60)
+  // An earlier press owes the fan back off, and left it on.
+  var owedFan = MasterRun.Back(command: DeviceCommand(device: plug, outlet: "switch_3", on: false))
+  owedFan.left = true
+  func run() -> MasterRun { MasterRun(b, at: m0, before: { $0.outlet == "switch_1" }, lamp: nil, owed: [owedFan]) }
+  func left(_ r: MasterRun, _ c: DeviceCommand) -> Bool? { r.back.first { $0.command.target == c.target }?.left }
+  // Both went: as asked.
+  var went = run()
+  went.settle([], now: { _ in nil }, keeping: [owedFan.command.target], at: m0)
+  #expect(left(went, lightOff) == false && left(went, fanOn) == true)
+  // The fan's answer lost: as read after it (a hand may switch it later; the end compares with this).
+  let fanFailed = [MasterRun.Failed(target: fanOn.target, line: "b")]
+  var lost = run()
+  lost.settle(fanFailed, now: { $0.target == fanOn.target ? false : nil }, keeping: [owedFan.command.target], at: m0, uncertain: [fanOn.target])
+  #expect(left(lost, fanOn) == false)
+  // Lost and not read after it: counted gone, as asked (the end leaves an outlet found otherwise, rather than undo a hand).
+  var unread = run()
+  unread.settle(fanFailed, now: { _ in nil }, keeping: [owedFan.command.target], at: m0, uncertain: [fanOn.target])
+  #expect(left(unread, fanOn) == true)
+  // Refused before anything went: as the earlier press left it.
+  var refused = run()
+  refused.settle(fanFailed, now: { _ in nil }, keeping: [owedFan.command.target], at: m0)
+  #expect(left(refused, fanOn) == true && left(refused, lightOff) == false)
+  // The end then, the fan found on: where the lost step was read off after it, a hand switched it since, so it's left;
+  // where this press left it on, it goes back off, as owed.
+  #expect(MasterRun.end(lost.back[0], now: true, left: left(lost, fanOn), role: "fan") == .leave)
+  #expect(MasterRun.end(went.back[0], now: true, left: left(went, fanOn), role: "fan") == .send)
+}
+
+@Test("A run kept by build 390, before `Back.left`, is read as it was")
+func aRunKeptBeforeLeft() throws {
+  let kept = #"{"started":800000000,"ends":800007200,"steps":[{"device":"\#(plug)","outlet":"switch_3","on":false}],"back":[{"command":{"device":"\#(plug)","outlet":"switch_3","on":true},"done":false,"held":false}],"failed":[]}"#
+  let r = try JSONDecoder().decode(MasterRun.self, from: Data(kept.utf8))
+  #expect(r.pending.count == 1 && r.back[0].left == nil && r.back[0].command.on && r.isRunning)
 }
 
 @Test("It's due at its end, not before; one ended on a tap never is; what's back leaves what's pending; kept as it is")
