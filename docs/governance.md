@@ -486,8 +486,12 @@ The layers above still check the result.
     reference list (`refs`), in every language, so a run on older code can't bring them back at its push;
   - the real-content test fails if any page or kept research names one anywhere, so what the sweep can't take out (a
     list a page's text cites by number: a section's `refs`, a material's or a breed's `sources`) stops the run's push
-    until a person takes it out. A page whose text cites one by number is left waiting with its owner and day
-    (`WAITING`);
+    until a person takes it out. The one exception is a page left waiting with its owner and day (`WAITING`), whose text
+    cites the refused page by number: the test holds it to still naming it, so it leaves that list the day its text is
+    fixed;
+  - the same test fails on any address on a proxy's host (Google's cache, Translate's proxy, a reader proxy), whose
+    original the engine doesn't read: research is refused those hosts, none is kept or shown, and none stays none, so a
+    refused site's pages can't come back through one;
   - a buying list keeps an entry it has (`engine-state/shop-lists`, which the test doesn't read: the chief of staff,
     16 Nov 2026).
   - **The list is a switch for the whole site.** One more name drops that site's facts everywhere at the next push, and

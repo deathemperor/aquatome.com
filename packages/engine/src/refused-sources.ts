@@ -42,22 +42,48 @@ export function onRefused(url: string): boolean {
 const address = (s: string) => s.trim().replace(/[.,;:!?)\]}'"»”’。]+$/u, '')
 
 /**
- * A source's or a reference's own address (`url`) on a refused site: one address, never split. One written without its
- * scheme (`www.cabaymau.vn/x`, `cabaymau.vn:443/x`) is read as a web address (the second reader, 17 Nov 2026; none on
- * 17 Nov), while a source that isn't one ("a book") still doesn't parse as one.
+ * A source's or a reference's own address (`url`) as a web address to judge, or none: one address, never split. One
+ * written without its scheme (`www.cabaymau.vn/x`, `cabaymau.vn:443/x`) is read as a web address (the second reader, 17 Nov
+ * 2026; none on 17 Nov); one with its scheme is read as written (`https:cabaymau.vn/x` too). A relative path, another
+ * scheme (`mailto:`) and a source that isn't an address ("a book") are none (Codex, 17 Nov 2026).
  */
-const urlRefused = (x: unknown) => {
+const webAddress = (x: unknown): string | undefined => {
   const url = !!x && typeof x === 'object' ? (x as { url?: unknown }).url : undefined
-  if (typeof url !== 'string') return false
+  if (typeof url !== 'string') return undefined
   const a = address(url)
-  return onRefused(a.includes('://') ? a : `https://${a}`)
+  if (!a || /^[/.#?]/.test(a)) return undefined
+  // A scheme, but not a host and its port.
+  if (/^[a-z][a-z0-9+.-]*:/i.test(a) && !/^[^/:\s]+:\d+(?:[/?#]|$)/.test(a)) return /^https?:/i.test(a) ? a : undefined
+  return `https://${a}`
 }
+const urlRefused = (x: unknown) => { const a = webAddress(x); return !!a && onRefused(a) }
 
 /**
- * Whether a text names a refused site's page: any address in it (an address alone, or a link in a page's HTML), each up to a
- * space, a quote, a bracket, a comma or a semicolon, without the sentence's punctuation after it (Codex, 17 Nov 2026).
+ * Every address in a text: an address alone, or in a page's HTML. One in quotes (a link's `href`) is taken whole; any
+ * other ends at a space, a quote, a bracket, a comma or a semicolon, without the sentence's punctuation after it (Codex,
+ * 17 Nov 2026).
  */
-export const namesRefused = (text: string) => (text.match(/https?:\/\/[^\s"'<>()[\]{},;`]+/gi) ?? []).some(u => onRefused(address(u)))
+const addressesIn = (text: string) => [
+  ...[...text.matchAll(/(["'])(https?:\/\/[^\s"'<>]+)\1/gi)].map(m => m[2]!),
+  ...(text.replace(/(["'])https?:\/\/[^\s"'<>]+\1/gi, ' ').match(/https?:\/\/[^\s"'<>()[\]{},;`]+/gi) ?? []),
+].map(address)
+
+/** Whether a text names a refused site's page. It's read only by the check, where a wrong yes stops a push and is seen. */
+export const namesRefused = (text: string) => addressesIn(text).some(onRefused)
+
+/**
+ * Copies of a page under another host whose original this file doesn't read: Google's cache, Translate's proxy (whose host
+ * is made from the site's) and a reader proxy. Research is refused them (cycle-only.ts COPY_HOSTS: cycle-only.test.ts
+ * "every other copy of a page", claude.test.ts), but a page's address can still reach research through search alone. So an
+ * address on one, anywhere in what is kept or shown, fails the real-content check: none on 17 Nov 2026, and it stays none,
+ * so a refused site's facts can't come back through one unseen (the chief of staff, 17 Nov 2026).
+ */
+export const PROXY_HOSTS = ['webcache.googleusercontent.com', 'translate.goog', 'r.jina.ai']
+export const onProxy = (url: string) => {
+  if (!URL.canParse(url)) return false
+  const host = new URL(url).hostname.toLowerCase().replace(/\.$/, '')
+  return PROXY_HOSTS.some(h => host === h || host.endsWith(`.${h}`))
+}
 
 /**
  * A refused site's facts leave research, whatever the kind (the chief of staff, 17 Nov 2026, for Thursday 19 Nov): a guide's,
@@ -186,14 +212,23 @@ export async function refusedSweep(root: string) {
 }
 
 /**
- * Every file under content/ and the kinds' kept research that names a refused site's page anywhere (namesRefused on each
- * string: references, sources, photos' pages, links in a text), each file parsed, for the real-content check. What
- * refusedSweep leaves of it is WAITING's pages, and a refused page a person must take out of a text by hand.
+ * For the real-content check, every file under content/ and the kinds' kept research, each parsed: those that name a
+ * refused site's page anywhere (`naming`: references, sources, photos' pages, links in a text), and those that name an
+ * address on a proxy's host (`proxied`, PROXY_HOSTS). What refusedSweep leaves in `naming` is WAITING's pages, and a refused
+ * page a person must take out of a list the page's text cites by number.
  */
-export async function filesNamingRefused(root: string): Promise<string[]> {
-  // Every string as a text, and every `url` also as one address, with or without its scheme.
-  const walk = (x: unknown): boolean => typeof x === 'string' ? namesRefused(x) : Array.isArray(x) ? x.some(walk) : !!x && typeof x === 'object' && (urlRefused(x) || Object.values(x).some(walk))
+export async function refusedScan(root: string): Promise<{ naming: string[]; proxied: string[] }> {
+  // Every address a file names: an object's `url` as one address, never split, with or without its scheme; every other
+  // string as a text.
+  const addresses = (x: unknown): string[] => {
+    if (typeof x === 'string') return addressesIn(x)
+    if (Array.isArray(x)) return x.flatMap(addresses)
+    if (!x || typeof x !== 'object') return []
+    const own = webAddress(x)
+    return [...(own ? [own] : []), ...Object.entries(x).flatMap(([k, v]) => (k === 'url' && typeof v === 'string' ? [] : addresses(v)))]
+  }
   const naming: string[] = []
+  const proxied: string[] = []
   for (const dir of ['content', ...FACTS_DIRS.map(k => `engine-state/${k}`)]) {
     const files = (await readdir(join(root, dir), { recursive: true, withFileTypes: true }).catch(() => []))
       .filter(d => d.isFile() && d.name.endsWith('.json')).map(d => relative(root, join(d.parentPath, d.name))).sort()
@@ -202,9 +237,11 @@ export async function filesNamingRefused(root: string): Promise<string[]> {
         let data: unknown
         // A file that doesn't parse stops the check, named.
         try { data = JSON.parse(raw) } catch (err) { throw new Error(`${file}: ${(err as Error).message}`) }
-        if (walk(data)) naming.push(file)
+        const named = addresses(data)
+        if (named.some(onRefused)) naming.push(file)
+        if (named.some(onProxy)) proxied.push(file)
       }
     }
   }
-  return naming.sort()
+  return { naming: naming.sort(), proxied: proxied.sort() }
 }

@@ -20,7 +20,7 @@ import { fishThaiLai, wordingSlips } from '../src/sanitize'
 import { cardOf, cardProblems, readSummaries } from '../src/summaries'
 import { cardSchool, readTraits } from '../src/traits'
 import { sweepTranslation } from '../src/sweep'
-import { filesNamingRefused, WAITING } from '../src/refused-sources'
+import { refusedScan, WAITING } from '../src/refused-sources'
 import { namesSomeone } from '../src/video-covers'
 import { slow } from '@aq/schema/test-time'
 
@@ -1304,8 +1304,12 @@ test('no email address in any file under content/', async () => {
 // any language or any part of it (references, sources, photos' pages), and no research the engine keeps holds one. A page
 // whose text cites its sources by number waits for its text (WAITING), and is held to still having it, so it leaves that
 // list the day its text is fixed. A buying list keeps an entry it has (engine-state/shop-lists, not a facts file). No model:
-// every string in every file, as `pnpm engine refused-sweep` leaves them (refused-sources.ts filesNamingRefused).
+// every string in every file, as `pnpm engine refused-sweep` leaves them (refused-sources.ts refusedScan).
 test('no page lists a refused site\'s page in any language, and no kept research cites one', async () => {
   const repo = fileURLToPath(new URL('../../..', import.meta.url))
-  expect(await filesNamingRefused(repo), 'run pnpm engine refused-sweep').toEqual(Object.keys(WAITING).sort())
+  const { naming, proxied } = await refusedScan(repo)
+  expect(naming, 'run pnpm engine refused-sweep').toEqual(Object.keys(WAITING).sort())
+  // No address on a proxy's host (Google's cache, Translate's proxy, a reader proxy), whose original isn't read: none on
+  // 17 Nov 2026, and it stays none, so a refused site's facts can't come back through one unseen (the chief of staff).
+  expect(proxied).toEqual([])
 }, slow(120_000))

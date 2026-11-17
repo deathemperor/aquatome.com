@@ -2,7 +2,7 @@ import { expect, test } from 'vitest'
 import { copyFile, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { filesNamingRefused, namesRefused, onRefused, refsWithoutRefused, refusedSweep, WAITING, withoutRefused } from '../src/refused-sources'
+import { namesRefused, onProxy, onRefused, refsWithoutRefused, refusedScan, refusedSweep, WAITING, withoutRefused } from '../src/refused-sources'
 import { sweep } from '../src/sweep'
 
 const REFUSED = 'https://cabaymau.vn/cach-tha-ca-moi-mua-vao-be-2/'
@@ -108,9 +108,31 @@ test('a refused site\'s hosts and archived copies of its pages are refused; near
     expect(namesRefused(t), t).toBe(true)
   for (const t of ['See (https://example.org/x).', 'https://example.org/wiki/Foo_(cabaymau.vn)', 'https://cabaymau.net, next'])
     expect(namesRefused(t), t).toBe(false)
-  // A fact whose own source is a share link stays (Codex, 17 Nov 2026).
-  const shared = { found: true, facts: [{ section: 'x', fact: 'independent page', source: 0 }, { section: 'x', fact: 'a book', source: 1 }, { section: 'x', fact: 'another site, no scheme', source: 2 }], sources: [src('https://example.org/?url=https://cabaymau.vn/x'), src('a book'), src('example.org/cabaymau.vn')] }
+  // A link's address in quotes is taken whole (Codex's third read, 17 Nov 2026).
+  expect(namesRefused('<a href="https://example.org/?ref=(https://cabaymau.vn/x)">chia sẻ</a>')).toBe(false)
+  expect(namesRefused('<a href=\'https://cabaymau.vn/x\'>trang</a>')).toBe(true)
+  // A fact whose own source is a share link stays (Codex, 17 Nov 2026), and so does one whose source isn't a web address:
+  // a book, a relative path, another scheme (Codex's third read).
+  const kept = ['https://example.org/?url=https://cabaymau.vn/x', 'https://example.org/?ref=(https://cabaymau.vn/x)', 'a book', 'example.org/cabaymau.vn', '/cabaymau.vn/x', 'mailto:info@cabaymau.vn', 'ISBN: 978-0-00-000000-0']
+  const shared = { found: true, facts: kept.map((_, i) => ({ section: 'x', fact: `f${i}`, source: i })), sources: kept.map(src) }
   expect(withoutRefused(shared).kept).toBe(shared)
+  // One with its scheme written without slashes is the site's.
+  expect(withoutRefused({ found: true, facts: [{ section: 'x', fact: 'f', source: 0 }], sources: [src('https:cabaymau.vn/x')] }).refused).toEqual([{ url: 'https:cabaymau.vn/x', items: 1 }])
+})
+
+// The chief of staff, 17 Nov 2026: a copy of a page under a proxy's host (Google's cache, Translate's proxy, a reader proxy)
+// isn't unwrapped, so an address on one anywhere fails the check, and none stays none.
+test('the check names a file with an address on a proxy\'s host', async () => {
+  const yes = ['https://webcache.googleusercontent.com/search?q=cache:https://cabaymau.vn/x', 'https://cabaymau-vn.translate.goog/x?_x_tr_sl=vi', 'https://r.jina.ai/https://cabaymau.vn/x', 'https://R.JINA.AI./https://example.org/']
+  const no = ['https://translate.google.com/', 'https://example.org/translate.goog', 'https://jina.ai/', 'https://web.archive.org/web/2024/https://example.org/', 'a book']
+  expect(yes.map(onProxy)).toEqual(yes.map(() => true))
+  expect(no.map(onProxy)).toEqual(no.map(() => false))
+  const root = await mkdtemp(join(tmpdir(), 'aq-refused-proxy-'))
+  for (const d of ['engine-state/glossary', 'content/glossary/t', 'content/guides/g']) await mkdir(join(root, d), { recursive: true })
+  await writeFile(join(root, 'engine-state/glossary/t.json'), JSON.stringify({ found: true, facts: [{ section: 'x', fact: 'a', source: 0 }], sources: [src(yes[1]!)] }))
+  await writeFile(join(root, 'content/guides/g/vi.json'), JSON.stringify({ slug: 'g', body: `<p>Xem <a href="${yes[2]}">trang này</a>.</p>` }))
+  await writeFile(join(root, 'content/glossary/t/entity.json'), JSON.stringify({ id: 't', refs: [{ url: 'https://example.org/a', title: 'a' }] }))
+  expect(await refusedScan(root)).toEqual({ naming: [], proxied: ['content/guides/g/vi.json', 'engine-state/glossary/t.json'] })
 })
 
 // A cycle that started before a refused site's facts left, on older code, can write them again; the sweep at its push runs
@@ -145,11 +167,11 @@ test('the pass and the check find the site\'s host however it is written', async
   const ref = (url: string) => ({ url, title: url })
   await writeFile(join(term, 'entity.json'), JSON.stringify({ id: 't', refs: [ref('https://a.example/1'), ...ways.map(ref)] }, null, 2))
   await writeFile(join(root, 'engine-state/glossary/t.json'), JSON.stringify({ found: true, facts: [{ section: 'x', fact: 'a', source: 0 }, ...ways.map((_, i) => ({ section: 'x', fact: `b${i}`, source: i + 1 }))], sources: [src('https://a.example/1'), ...ways.map(src)] }, null, 2))
-  expect(await filesNamingRefused(root)).toEqual(['content/glossary/t/entity.json', 'engine-state/glossary/t.json'])
+  expect((await refusedScan(root)).naming).toEqual(['content/glossary/t/entity.json', 'engine-state/glossary/t.json'])
   const out = await refusedSweep(root)
   expect(out.facts.map(f => [f.file, f.dropped])).toEqual([['engine-state/glossary/t.json', 5]])
   expect(out.refs).toEqual([{ file: 'content/glossary/t/entity.json', urls: ways }])
-  expect(await filesNamingRefused(root)).toEqual([])
+  expect((await refusedScan(root)).naming).toEqual([])
 })
 
 // The first reader, 17 Nov 2026: an `also` that was empty stays; a refused page cited outside a list is said, never
@@ -179,8 +201,8 @@ test('an empty also stays, a refused page cited outside a list stops the step, a
   expect(out.refs.map(r => r.file)).toEqual(['a', 'b', 'd'].map(id => `content/glossary/${id}/entity.json`))
   expect(JSON.parse(await readFile(join(page('a'), 'entity.json'), 'utf8')).refs).toEqual([null])
   expect(JSON.parse(await readFile(join(page('b'), 'entity.json'), 'utf8')).refs).toEqual([{}])
-  // The check stops at a file that doesn't parse, and names it.
-  await expect(filesNamingRefused(root)).rejects.toThrow(/^engine-state\/glossary\/bad\.json: /)
+  // The check stops at the first file that doesn't parse (pages are read before kept research), and names it.
+  await expect(refusedScan(root)).rejects.toThrow(/^content\/glossary\/c\/entity\.json: /)
 })
 
 // The chief of staff, 17 Nov 2026: a page left waiting for its text has an owner and a day, as a site's change carries them.
