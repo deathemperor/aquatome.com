@@ -796,8 +796,8 @@ final class V2FlowTests: XCTestCase {
 
   /// The owner's report of 15 Nov (build 379, iOS 27.2): on a fish page opened from Tìm, the summary ran under the glass tab
   /// bar and read through it. A page pushed from each of the five tabs, dragged until its words reach the bar: under the bar
-  /// they don't read, as on the tabs' own first screens (Design's bar for the glass, 15 Nov). As the owner, whose phone it
-  /// was, on the fixed handbook.
+  /// they don't read, as on the tabs' own first screens (Design's bar for the glass, 15 Nov). On the fixed handbook, as any
+  /// reader: the glass is everyone's.
   func testNoPagesWordsReadUnderTheTabBarFromAnyTab() { noPagesWordsReadUnderTheTabBar() }
 
   /// The same at the largest text, where letters outlast iOS's soft edge (Design, 15 Nov): there the hard one.
@@ -807,15 +807,10 @@ final class V2FlowTests: XCTestCase {
 
   private func noPagesWordsReadUnderTheTabBar(_ more: String...) {
     // The editors' day with its story (`-plan`, `-today`) for the post; the neon's long part, words enough to reach the bar.
-    let app = launch("-v2", "YES", "-plan", "-today", "2026-11-13", "-long-part", "-seed-tanks", "many", "-fake-accounts", "on",
-                     "-reset-fake-server", "-fake-owner", "ui-apple")
+    let app = launch("-v2", "YES", "-plan", "-today", "2026-11-13", "-long-part", "-seed-tanks", "many")
     app.launchArguments += more
     app.launchForFlow()
     XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 10), "no Hôm nay")
-    app.openAccount()
-    app.scrollToAndTap("apple-sign-in")
-    XCTAssertTrue(app.descendants(matching: .any)["owner-dashboard"].waitForExistence(timeout: 20), "not the owner")
-    app.closeAccount()
     // Every page measured before any fails, so one run says them all.
     var read: [String] = [], none: [String] = []
     for (screen, open) in pagesFromEachTab(app) {
