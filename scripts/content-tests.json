@@ -403,6 +403,7 @@
     "apps/site/test/owner-feedback-deliver.test.ts": "the install script, with a stand-in thread, into a temp home",
     "apps/site/test/public-build.test.ts": "astro build on the fixture (the site's test script sets CONTENT_ROOT)",
     "apps/site/test/tank-check.test.ts": "scripts/app-tank-check.mjs --check, on the site's code and string files",
+    "packages/engine/test/billed.test.ts": "node -e, a second billed run that holds the line's lock: it writes only the lock and the billed log the test made in the temp folder",
     "packages/engine/test/chrome-window.test.ts": "Chrome's windows through osascript and chrome-windows.py (on a Mac)",
     "packages/engine/test/cycle-catch-up.test.ts": "the cycle's scripts on repositories it makes in the temp folder",
     "packages/engine/test/cycle-checks-for.test.ts": "the cycle's scripts on repositories it makes in the temp folder",
