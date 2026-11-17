@@ -1458,8 +1458,9 @@ final class V2FlowTests: XCTestCase {
         app.inked(date, "Hôm nay's date", apart: 30)
       }
     }
-    // Scrolled: the small title in the bar, and Tìm's field under it, drawn.
-    for (tab, title) in [("Tìm kiếm", "Tìm"), ("Bể của tôi", "Bể của tôi"), ("Đèn", "Đèn")] {
+    // Scrolled: the small title in the bar, and Tìm's field under it, drawn. The search tab last: on iOS 26.5 (CI's) its
+    // field takes the tab bar's place, and the other tabs aren't buttons there.
+    for (tab, title) in [("Bể của tôi", "Bể của tôi"), ("Đèn", "Đèn"), ("Tìm kiếm", "Tìm")] {
       app.openTab(tab)
       app.swipeUp()
       app.inked(app.navigationBars.staticTexts[title].firstMatch, "\(title)'s title once scrolled")

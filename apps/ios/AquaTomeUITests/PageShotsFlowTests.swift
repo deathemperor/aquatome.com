@@ -439,7 +439,8 @@ final class PageShotsFlowTests: XCTestCase {
       atRestAndScrolled()
       app.leavePage()
     }
-    for tab in ["Tìm kiếm", "Bể của tôi", "Đèn"] {
+    // The search tab last: on iOS 26.5 (CI's) its field takes the tab bar's place, and the other tabs aren't buttons there.
+    for tab in ["Bể của tôi", "Đèn", "Tìm kiếm"] {
       app.openTab(tab)
       atRestAndScrolled()
     }
