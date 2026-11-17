@@ -106,9 +106,17 @@ const AD_INSERTS = '.humix-universal-js-insert, .ez-video-wrap, .ezoic-ad, [id^=
  */
 const COMMENTS = '#comments, .comments-area, #respond, .comment-respond, .comment-list, .commentlist, .wp-block-comments, .wp-block-post-comments, img.avatar'
 
+/**
+ * An email address: a writer's in a forum post's header ("From: … (address) Date: …"), or one asking readers to write. A
+ * person's, never the article's, and the repository is public: never kept (six stored files held one on 17 Nov). In
+ * brackets, the brackets go too. A picture's "@2x.png" isn't one.
+ */
+const ADDRESS = String.raw`(?:mailto:)?[\w.%+-]+@[a-z0-9-]+(?:\.[a-z0-9-]+)*\.(?!(?:png|jpe?g|gif|webp|svg|avif)\b)[a-z]{2,}\b`
+const EMAIL = new RegExp(String.raw`\s*\(\s*${ADDRESS}\s*\)|${ADDRESS}`, 'gi')
+
 export function htmlToOutline(html: string, contentSelector?: string): { title: string; outline: string; images: PageImage[] } {
   const root = parse(html, { comment: false })
-  const title = clean(root.querySelector('title')?.text ?? root.querySelector('h1')?.text ?? '')
+  const title = clean(root.querySelector('title')?.text ?? root.querySelector('h1')?.text ?? '').replace(EMAIL, '').trim()
   const scope = (contentSelector && root.querySelector(contentSelector)) || root.querySelector('main') || root.querySelector('article') || root.querySelector('body') || root
   for (const ad of scope.querySelectorAll(AD_INSERTS)) ad.remove()
   for (const box of scope.querySelectorAll(COMMENTS)) box.remove()
@@ -129,12 +137,12 @@ export function htmlToOutline(html: string, contentSelector?: string): { title: 
 const TAIL = /^#{1,6}\s*(subscribe|recent (blog )?posts|featured products|related (articles|posts|products)|you may also like|more from|newsletter|share this|comments?|(\d+|one)\s+(thoughts?|comments?|responses?|replies)\s+(on|to)(?=\s*["“‘'])|leave a (reply|comment))\b/i
 const PRICE = /\b(regular|sale|unit) price\b|\$\s?\d[\d.,]*(\s?USD)?|€\s?\d[\d.,]*|\b\d[\d.,]*\s?(USD|EUR|€)\b|\b(sold out|variant sold out or unavailable|shipping calculated at checkout\.?|add to cart|in stock|out of stock)(?!\w)/gi
 
-/** Keep the article: cut at the first furniture heading, strip prices and stock words, collapse blank runs. */
+/** Keep the article: cut at the first furniture heading, strip prices, stock words and email addresses, collapse blank runs. */
 export function denoise(outline: string): string {
   const lines = outline.split('\n')
   const cut = lines.findIndex((l, i) => i > 0 && TAIL.test(l))
   return (cut > 0 ? lines.slice(0, cut) : lines)
-    .map(l => l.replace(PRICE, '').replace(/\s{2,}/g, ' ').trimEnd())
+    .map(l => l.replace(EMAIL, '').replace(PRICE, '').replace(/\s{2,}/g, ' ').trimEnd())
     .filter((l, i, a) => l.trim() !== '' || (i > 0 && a[i - 1]!.trim() !== ''))
     .join('\n').trim()
 }

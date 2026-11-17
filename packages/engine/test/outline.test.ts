@@ -85,3 +85,25 @@ test("a theme's own comment headings end the article: a count of thoughts, comme
   // An article's own heading that only starts with a count stays.
   expect(denoise(`${article}\n## 5 thoughts on feeding\nFeed twice a day.`)).toBe(`${article}\n## 5 thoughts on feeding\nFeed twice a day.`)
 })
+
+// A forum post's header names its writer's email address, and an article may ask readers to write to one: a person's,
+// never the article's, and never stored (six stored files held one on 17 Nov). Made-up addresses only.
+test('an email address is never kept: in a post header its brackets go too; a picture named "@2x" stays', () => {
+  const html = `<html><head><title>Loaches (someone@example.com)</title></head><body><main>
+    <h1>Botia rostrata</h1>
+    <p>From: A Writer (a.writer@mail.example.org) Date: May 17th, 2002</p>
+    <p>From: A Writer (one@example.net) / Another (two@example.co.uk) Date: August 4th, 2002</p>
+    <p>If anyone knows, please e-mail me at someone+fish@example.com Also, ask away.</p>
+    <p><a href="mailto:someone@example.com">someone@example.com</a> / Getty Images</p>
+    <p>The file loach@2x.png is the larger picture.</p>
+  </main></body></html>`
+  const o = htmlToOutline(html)
+  expect(`${o.title}\n${o.outline}`).not.toMatch(/example\.(com|org|net|co\.uk)|mailto/)
+  expect(o.title).toBe('Loaches')
+  expect(o.outline).toContain('From: A Writer Date: May 17th, 2002')
+  expect(o.outline).toContain('From: A Writer / Another Date: August 4th, 2002')
+  expect(o.outline).toContain('please e-mail me at Also, ask away.')
+  expect(o.outline).toContain('loach@2x.png')
+  // A stored copy cleaned by the same rule reads as a fresh read would: a second pass changes nothing.
+  expect(denoise(o.outline)).toBe(o.outline)
+})
