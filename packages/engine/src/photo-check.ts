@@ -20,7 +20,7 @@ import { CF, namedOn, namedOrder, passesHead, SPECIES } from './photo-named'
 import { readAvoid } from './curation'
 import { priorityFish } from './priority-fish'
 
-type Photo = { url: string; caption?: string; author?: string; authorUrl?: string; sourceUrl?: string; generated?: unknown }
+type Photo = { url: string; caption?: string; author?: string; authorUrl?: string; sourceUrl?: string; licence?: string; generated?: unknown }
 /**
  * Does the photo show its page's subject: yes (in the wild too, where it is clearly seen); another species, breed or
  * variety (`note` says which); not a photo of the subject at all (a map, chart, hands, a tank, a packshot, a landscape or
@@ -440,7 +440,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       for (const [i, p] of photos.entries()) {
         const origin = p.source ?? site(p.sourceUrl)
         // A non-commercial album photo fills no page that has none: it can't be a head (turn).
-        const nc = file.includes('/gallery/') && isNonCommercial(p.licence)
+        const nc = file.includes('/gallery/') && isNonCommercial(p.licence ?? '')
         shown.push({ file, url: p.url, page: s.id, ...(p.author ? { author: p.author } : {}), ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), ...(p.sourceUrl ? { source: p.sourceUrl } : {}), ...(origin ? { origin } : {}), ...(file.includes('/gallery/') && place >= STRIP ? { galleryOnly: true } : {}), ...(p.unchecked ? { waits: true } : {}), ...(nc ? { nc: true } : {}), ...(i === 0 && file.endsWith('entity.json') ? { lead: true } : {}), ...(bare && file.includes('/gallery/') && !nc ? { bare: true, ...(p.source ? { sourced: true } : {}) } : {}) })
         // A photo that waits is on no page, so it takes no place in the strip.
         if (p.unchecked !== true) place++

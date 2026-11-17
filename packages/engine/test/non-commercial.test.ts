@@ -136,6 +136,43 @@ test('switch off: no non-commercial photo is asked for or taken; on: iNaturalist
   expect(['by-nc', 'by-nc-sa', 'by-nd', 'by-nc-nd'].map(l => openverseLicence(l, '4.0'))).toEqual(Array(4).fill(undefined))
 })
 
+test('the non-commercial pass waits for every open source read to its end: with Openverse out of requests this run, none is asked for', async () => {
+  const r = await root()
+  const calls: string[] = []
+  await galleries(r, deps(calls), { sheets: 5, switches: ON, budget: { openverse: 0 } })
+  expect(calls.some(u => u.includes('cc-by-nc'))).toBe(false)
+  const st = await read(r, `engine-state/gallery/${ID}.json`)
+  expect(st.inatNc).toBeUndefined()
+  expect(st.exhausted).toBeUndefined()
+  // Openverse read the next run: the pass follows, in the same run.
+  calls.length = 0
+  await galleries(r, deps(calls), { sheets: 5, switches: ON })
+  expect(calls.filter(u => u.includes('cc-by-nc'))).toHaveLength(1)
+  expect((await album(r)).map(p => p.sourceUrl).slice(-2)).toEqual([INAT(2), INAT(3)])
+})
+
+test("open photos on every page before any page's non-commercial pass: a dry page first in the plan doesn't take the run's sheets from a page below it", async () => {
+  const r = await root()
+  // The first page in the plan's order is dry from a run with the switch off; its non-commercial pass is unread.
+  await galleries(r, deps([]), { sheets: 5, switches: OFF })
+  expect((await read(r, `engine-state/gallery/${ID}.json`)).exhausted).toBe('2026-11-16')
+  const LATER = 'testus-zeta'
+  await mkdir(join(r, `content/species/${LATER}`), { recursive: true })
+  await writeFile(join(r, `content/species/${LATER}/entity.json`), JSON.stringify({ scientificName: 'Testus zeta', photos: [] }))
+  await writeFile(join(r, `content/species/${LATER}/vi.json`), JSON.stringify({ name: 'Cá zeta' }))
+  // One sheet: the page below, with open photos to screen, takes it.
+  const calls: string[] = []
+  const report = await galleries(r, deps(calls, '2026-11-17T00:00:00Z'), { sheets: 1, switches: ON })
+  expect(report.sheets).toBe(1)
+  expect(calls.some(u => u.includes('cc-by-nc'))).toBe(false)
+  expect((await read(r, `content/gallery/${LATER}.json`)).photos.length).toBeGreaterThan(0)
+  expect((await read(r, `engine-state/gallery/${ID}.json`)).inatNc).toBeUndefined()
+  // With sheets to spare, the dry page's pass is read after.
+  const more = await galleries(r, deps([], '2026-11-17T00:00:00Z'), { sheets: 5, switches: ON })
+  expect(more.done.some(x => x.startsWith(`${ID} (non-commercial): `))).toBe(true)
+  expect((await album(r)).map(p => p.sourceUrl).slice(-2)).toEqual([INAT(2), INAT(3)])
+})
+
 test('switch off after on: a non-commercial candidate still queued is never screened or added', async () => {
   const r = await root()
   await mkdir(join(r, 'engine-state/gallery'), { recursive: true })
