@@ -42,7 +42,11 @@ export function monitorPolicy(headers: Record<string, string>, pageUrl: string):
   if (!header || headers['content-security-policy']) return undefined
   // Two of a header come joined, by a comma or (in the protocol's log) a new line: a second policy isn't the monitor's.
   if (/[,\n]/.test(header)) return undefined
-  const directives = header.split(';').map(d => d.trim().split(/\s+/)).filter(d => d[0])
+  // Only printable ASCII and the space or tab between words: CSP splits on ASCII whitespace alone, so a no-break space
+  // between two keywords makes one invalid source in Chrome that a wider split would read as the monitor's two (Codex's
+  // read of 950192592).
+  if (/[^\t\x20-\x7e]/.test(header)) return undefined
+  const directives = header.split(';').map(d => d.trim().split(/[ \t]+/)).filter(d => d[0])
   const named = new Map(directives.map(([name, ...values]) => [name!.toLowerCase(), values]))
   const group = named.get('report-to')
   const count = group ? 4 : 3

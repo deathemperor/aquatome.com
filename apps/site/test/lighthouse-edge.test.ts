@@ -62,6 +62,12 @@ test("the script monitor's policy is told from any other: the whole header, dire
     MONITOR.replace('/cdn-cgi/script_monitor/report', '/csp/cdn-cgi/script_monitor/report'),
     MONITOR.replace('https://', 'http://'),
     `${MONITOR}; report-uri https://csp-reporting.cloudflare.com/cdn-cgi/script_monitor/report`,
+    // Whitespace CSP doesn't split on (Codex's read of 950192592): Chrome reads `'unsafe-inline' 'unsafe-eval'` joined by
+    // a no-break space as one invalid source; and any character past printable ASCII.
+    MONITOR.replace("'unsafe-inline' 'unsafe-eval'", "'unsafe-inline'\u00a0'unsafe-eval'"),
+    MONITOR.replace("connect-src 'none'", "connect-src\u2003'none'"),
+    MONITOR.replace('zone-key', 'zoné'),
+    MONITOR.replace('; connect-src', ';\rconnect-src'),
   ]) expect(monitorPolicy({ 'content-security-policy-report-only': other }, PAGE), other).toBeUndefined()
 })
 
