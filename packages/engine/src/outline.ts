@@ -61,7 +61,7 @@ const creditOf = (i: HTMLElement) => {
   for (let n = i.parentNode as HTMLElement | null; n && n.tagName; n = n.parentNode as HTMLElement | null) {
     if (n.rawTagName?.toLowerCase() !== 'figure') continue
     const line = n.querySelector('figcaption [class*="credit"]')
-    return (line && clean(inline(line))) || undefined
+    return (line && clean(dropEmails(inline(line)))) || undefined
   }
   return undefined
 }
@@ -72,7 +72,7 @@ function pageImage(i: HTMLElement): PageImage | null {
   const w = Number(i.getAttribute('width')) || undefined
   const h = Number(i.getAttribute('height')) || undefined
   const set = (i.getAttribute('srcset') ?? i.getAttribute('data-srcset') ?? '').split(',').map(c => c.trim().split(/\s+/)).flatMap(([u, d]) => (u && d?.endsWith('w') ? [{ u, w: Number.parseInt(d) }] : [])).sort((a, b) => b.w - a.w)[0]
-  const alt = clean(i.getAttribute('alt') ?? '')
+  const alt = clean(dropEmails(i.getAttribute('alt') ?? ''))
   if (set && (!w || set.w > w)) return { src: set.u, alt, width: set.w, ...(w ? { displayWidth: w } : {}), ...(h ? { displayHeight: h } : {}) }
   return src ? { src, alt, ...(w ? { displayWidth: w } : {}), ...(h ? { displayHeight: h } : {}) } : null
 }
@@ -108,15 +108,17 @@ const COMMENTS = '#comments, .comments-area, #respond, .comment-respond, .commen
 
 /**
  * An email address: a writer's in a forum post's header ("From: … (address) Date: …"), or one asking readers to write. A
- * person's, never the article's, and the repository is public: never kept (six stored files held one on 17 Nov). In
- * brackets, the brackets go too. A picture's "@2x.png" isn't one.
+ * person's, never the article's, and the repository is public: never kept (six stored files held one on 17 Nov), in the
+ * text, the title, a picture's alt text or its credit. In brackets, the brackets go too. A picture's "@2x.png" isn't one.
  */
-const ADDRESS = String.raw`(?:mailto:)?[\w.%+-]+@[a-z0-9-]+(?:\.[a-z0-9-]+)*\.(?!(?:png|jpe?g|gif|webp|svg|avif)\b)[a-z]{2,}\b`
-const EMAIL = new RegExp(String.raw`\s*\(\s*${ADDRESS}\s*\)|${ADDRESS}`, 'gi')
+const ADDRESS = String.raw`(?:mailto:)?[\w.%+-]+@[a-z0-9-]+(?:\.[a-z0-9-]+)*\.(?!(?:png|jpe?g|gif|webp|svg|avif|bmp|tiff?|heic)\b)[a-z]{2,}\b`
+const EMAIL = new RegExp(String.raw`\s*[(<[]\s*${ADDRESS}\s*[)>\]]|${ADDRESS}`, 'gi')
+/** A text without its email addresses (EMAIL). Only one with an "@" is looked at: a long run of letters costs nothing. */
+export const dropEmails = (s: string): string => (s.includes('@') ? s.replace(EMAIL, '') : s)
 
 export function htmlToOutline(html: string, contentSelector?: string): { title: string; outline: string; images: PageImage[] } {
   const root = parse(html, { comment: false })
-  const title = clean(root.querySelector('title')?.text ?? root.querySelector('h1')?.text ?? '').replace(EMAIL, '').trim()
+  const title = clean(dropEmails(root.querySelector('title')?.text ?? root.querySelector('h1')?.text ?? ''))
   const scope = (contentSelector && root.querySelector(contentSelector)) || root.querySelector('main') || root.querySelector('article') || root.querySelector('body') || root
   for (const ad of scope.querySelectorAll(AD_INSERTS)) ad.remove()
   for (const box of scope.querySelectorAll(COMMENTS)) box.remove()
@@ -142,7 +144,7 @@ export function denoise(outline: string): string {
   const lines = outline.split('\n')
   const cut = lines.findIndex((l, i) => i > 0 && TAIL.test(l))
   return (cut > 0 ? lines.slice(0, cut) : lines)
-    .map(l => l.replace(EMAIL, '').replace(PRICE, '').replace(/\s{2,}/g, ' ').trimEnd())
+    .map(l => dropEmails(l).replace(PRICE, '').replace(/\s{2,}/g, ' ').trimEnd())
     .filter((l, i, a) => l.trim() !== '' || (i > 0 && a[i - 1]!.trim() !== ''))
     .join('\n').trim()
 }

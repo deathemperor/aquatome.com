@@ -95,7 +95,9 @@ test('an email address is never kept: in a post header its brackets go too; a pi
     <p>From: A Writer (one@example.net) / Another (two@example.co.uk) Date: August 4th, 2002</p>
     <p>If anyone knows, please e-mail me at someone+fish@example.com Also, ask away.</p>
     <p><a href="mailto:someone@example.com">someone@example.com</a> / Getty Images</p>
-    <p>The file loach@2x.png is the larger picture.</p>
+    <p>The file loach@2x.png is the larger picture, loach@2x.heic the phone's.</p>
+    <p>From: A Writer <a.writer@example.org> [two@example.net]</p>
+    <figure><img src="https://x.test/loach.jpg" alt="Loach, photo: someone@example.com"><figcaption><span class="credit">Photo: A Writer (someone@example.com)</span></figcaption></figure>
   </main></body></html>`
   const o = htmlToOutline(html)
   expect(`${o.title}\n${o.outline}`).not.toMatch(/example\.(com|org|net|co\.uk)|mailto/)
@@ -104,6 +106,10 @@ test('an email address is never kept: in a post header its brackets go too; a pi
   expect(o.outline).toContain('From: A Writer / Another Date: August 4th, 2002')
   expect(o.outline).toContain('please e-mail me at Also, ask away.')
   expect(o.outline).toContain('loach@2x.png')
+  expect(o.outline).toContain('loach@2x.heic')
+  expect(o.outline).toContain('From: A Writer\n')
+  // A picture's alt text and its credit, which become a stored photo's caption and credit line.
+  expect(o.images).toMatchObject([{ alt: 'Loach, photo:', credit: 'Photo: A Writer' }])
   // A stored copy cleaned by the same rule reads as a fresh read would: a second pass changes nothing.
   expect(denoise(o.outline)).toBe(o.outline)
 })
