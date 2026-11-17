@@ -7,6 +7,10 @@
  * times running once. The site sends no policy of its own. These read which policy a load had, so that the monitor's
  * breaks don't count against the page and the page's own issues still do (lighthouse.spec.ts). Where a load can't be
  * read for certain, nothing is excused.
+ *
+ * A real sampled load (live check 43963219496, 16 Nov, /ca/ on a phone, best-practices 96) had one more directive than
+ * the page documents, `report-to cf-csp-endpoint`, and a `reporting-endpoints` header naming that group's address:
+ * Cloudflare's report address again.
  */
 import { documentHeaders } from './lighthouse-headers'
 
@@ -29,7 +33,9 @@ const REPORT_ONLY = 'content-security-policy-report-only'
 /**
  * The script monitor's policy on a document, its report address cut to its path (the address's query is the zone's), or
  * nothing. It is the monitor's only when it is the whole report-only header, directive for directive as Cloudflare
- * documents it, reporting to Cloudflare's host or the page's own, with no policy enforced beside it.
+ * documents it, reporting to Cloudflare's host or the page's own, with no policy enforced beside it. It may also name
+ * one group with `report-to`, as the live responses do, when the `reporting-endpoints` header gives that group the same
+ * kind of address.
  */
 export function monitorPolicy(headers: Record<string, string>, pageUrl: string): string | undefined {
   const header = headers[REPORT_ONLY]
@@ -38,15 +44,27 @@ export function monitorPolicy(headers: Record<string, string>, pageUrl: string):
   if (/[,\n]/.test(header)) return undefined
   const directives = header.split(';').map(d => d.trim().split(/\s+/)).filter(d => d[0])
   const named = new Map(directives.map(([name, ...values]) => [name!.toLowerCase(), values]))
-  if (directives.length !== 3 || named.size !== 3) return undefined
+  const group = named.get('report-to')
+  const count = group ? 4 : 3
+  if (directives.length !== count || named.size !== count) return undefined
   const script = named.get('script-src'), connect = named.get('connect-src'), report = named.get('report-uri')
   if (script?.length !== 2 || !script.includes("'unsafe-inline'") || !script.includes("'unsafe-eval'")) return undefined
   if (connect?.length !== 1 || connect[0] !== "'none'" || report?.length !== 1) return undefined
-  let to: URL
-  try { to = new URL(report[0]!, pageUrl) } catch { return undefined }
   const host = (() => { try { return new URL(pageUrl).host } catch { return undefined } })()
-  if (to.protocol !== 'https:' || to.pathname !== REPORT_PATH || (to.host !== 'csp-reporting.cloudflare.com' && to.host !== host)) return undefined
-  return `script-src 'unsafe-inline' 'unsafe-eval'; connect-src 'none'; report-uri https://${to.host}${REPORT_PATH}`
+  const reportHost = (address: string | undefined) => {
+    let to: URL
+    try { to = new URL(address ?? '', pageUrl) } catch { return undefined }
+    const ok = address !== undefined && to.protocol === 'https:' && to.pathname === REPORT_PATH && (to.host === 'csp-reporting.cloudflare.com' || to.host === host)
+    return ok ? to.host : undefined
+  }
+  const to = reportHost(report[0])
+  if (!to) return undefined
+  if (!group) return `script-src 'unsafe-inline' 'unsafe-eval'; connect-src 'none'; report-uri https://${to}${REPORT_PATH}`
+  // The group's address, from `reporting-endpoints` (a dictionary: name="address", by commas). Named once, there.
+  const endpoints = [...(headers['reporting-endpoints'] ?? '').matchAll(/(?:^|,)\s*([^\s=,]+)\s*=\s*"([^"]*)"\s*(?=,|$)/g)]
+  const found = endpoints.filter(([, name]) => name === group[0])
+  if (group.length !== 1 || found.length !== 1 || reportHost(found[0]![2]) !== to) return undefined
+  return `script-src 'unsafe-inline' 'unsafe-eval'; connect-src 'none'; report-uri https://${to}${REPORT_PATH}; report-to ${group[0]}`
 }
 
 /**

@@ -65,6 +65,35 @@ test("the script monitor's policy is told from any other: the whole header, dire
   ]) expect(monitorPolicy({ 'content-security-policy-report-only': other }, PAGE), other).toBeUndefined()
 })
 
+// Live check 43963219496, 16 Nov 2026, /ca/ on a phone (best-practices 96): the monitor's header as the live site sends
+// it, one directive more than Cloudflare's page documents, and the group's address in `reporting-endpoints`. The
+// queries here are made up.
+const LIVE = `${MONITOR}; report-to cf-csp-endpoint`
+const ENDPOINTS = 'cf-csp-endpoint="https://csp-reporting.cloudflare.com/cdn-cgi/script_monitor/report?m=zone-key&s=sample"'
+
+test("the monitor's policy as the live site sends it: a report-to group whose address is Cloudflare's report address too", () => {
+  const live = (policy: string, endpoints?: string) =>
+    monitorPolicy({ 'content-security-policy-report-only': policy, ...(endpoints === undefined ? {} : { 'reporting-endpoints': endpoints }) }, PAGE)
+  expect(live(LIVE, ENDPOINTS)).toBe(`${CUT}; report-to cf-csp-endpoint`)
+  // Among other groups (Cloudflare's network-error group), by commas.
+  expect(live(LIVE, `cf-nel="https://a.nel.cloudflare.com/report/v4?s=x", ${ENDPOINTS}`)).toBe(`${CUT}; report-to cf-csp-endpoint`)
+  // Not the monitor's: the group named nowhere, named twice, on another host, path or plain http, or on another host
+  // than its report-uri's; two groups; the group without a name; a group alone, without the documented report-uri.
+  for (const [policy, endpoints] of [
+    [LIVE, undefined],
+    [LIVE, 'other="https://csp-reporting.cloudflare.com/cdn-cgi/script_monitor/report?x"'],
+    [LIVE, `${ENDPOINTS}, ${ENDPOINTS}`],
+    [LIVE, ENDPOINTS.replace('csp-reporting.cloudflare.com', 'reports.example.com')],
+    [LIVE, ENDPOINTS.replace('/cdn-cgi/script_monitor/report', '/csp')],
+    [LIVE, ENDPOINTS.replace('https://', 'http://')],
+    [LIVE, ENDPOINTS.replace('csp-reporting.cloudflare.com', 'aquatome.com')],
+    [`${MONITOR}; report-to cf-csp-endpoint other`, ENDPOINTS],
+    [`${MONITOR}; report-to`, ENDPOINTS],
+    [`${MONITOR}; report-to cf-csp-endpoint; report-to cf-csp-endpoint`, ENDPOINTS],
+    [`script-src 'unsafe-inline' 'unsafe-eval'; connect-src 'none'; report-to cf-csp-endpoint`, ENDPOINTS],
+  ] as const) expect(live(policy, endpoints), `${policy} | ${endpoints}`).toBeUndefined()
+})
+
 test("the monitor's policy is the load's only when no other response of it has a report-only policy of its own", () => {
   const page = [
     { method: 'Network.requestWillBeSent', params: { requestId: '1' } },
@@ -82,6 +111,10 @@ test("the monitor's policy is the load's only when no other response of it has a
   // A frame of the site's that the monitor sampled too, a frame with an enforced policy only (whose breaks aren't
   // report-only, so they're never excused), and a redirect before the page with a policy of its own: still the monitor's.
   expect(loadPolicy([...page, response('2', 'https://aquatome.com/embed/', 'Document', { 'content-security-policy-report-only': MONITOR })], PAGE)).toBe(CUT)
+  // The live site's form, on the page and on such a frame: the same.
+  const live = [page[0]!, page[1]!, extra('1', 200, { 'content-security-policy-report-only': LIVE, 'reporting-endpoints': ENDPOINTS }), page[3]!]
+  expect(loadPolicy(live, PAGE)).toBe(`${CUT}; report-to cf-csp-endpoint`)
+  expect(loadPolicy([...live, response('2', 'https://aquatome.com/embed/', 'Document', { 'content-security-policy-report-only': LIVE, 'reporting-endpoints': ENDPOINTS })], PAGE)).toBe(`${CUT}; report-to cf-csp-endpoint`)
   expect(loadPolicy([...page, response('2', frame, 'Document', { 'content-security-policy': "default-src 'none'" })], PAGE)).toBe(CUT)
   expect(loadPolicy([page[0]!, extra('1', 301, { location: PAGE, 'content-security-policy-report-only': "connect-src 'self'" }), ...page.slice(1)], PAGE)).toBe(CUT)
   // No monitor on the page: nothing, whatever else the load has.
