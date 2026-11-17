@@ -17,6 +17,13 @@ export async function waitingKindStore(lang: Lang) {
   sources.seriouslyfish.publish = true
   sources.seriouslyfish.permission = { date: '2026-11-17', file: 'synthetic fixture only', scope: ['translation', 'automated-copying', 'facts', 'commercial'] }
   await writeFile(sourcesFile, JSON.stringify(sources))
+  // The shared input has no id/th species translations. Seed a synthetic calendar anchor only where missing.
+  const fishDir = join(root, 'species/apistogramma-cacatuoides'), fishLanguage = join(fishDir, `${lang}.json`)
+  const existingFish = await readFile(fishLanguage, 'utf8').catch((e: NodeJS.ErrnoException) => { if (e.code === 'ENOENT') return undefined; throw e })
+  if (existingFish === undefined) {
+    const base = JSON.parse(await readFile(join(fishDir, 'vi.json'), 'utf8'))
+    await writeFile(fishLanguage, JSON.stringify({ ...base, slug: 'fixture-fish', name: 'Fixture fish', altNames: [] }))
+  }
   const entityFile = join(root, 'glossary/lua/entity.json')
   const entity = JSON.parse(await readFile(entityFile, 'utf8'))
   const body = '<h3>Các loại nền</h3><ul><li><strong>Cốt nền</strong>: Lớp lót nằm dưới lớp đất.</li></ul>'
