@@ -72,6 +72,14 @@ test('one name written twice is kept once, in its best-written form, where the f
   expect(clean({ name: 'ปลารากกล้วย', sci: 'Acanthopsoides molobrion' }, ['รากกล้วยแคระ', 'ปลารากกล้วยแคระ'])).toEqual(['ปลารากกล้วยแคระ'])
 })
 
+// The Site Lead's spellings, 16 Nov: keepers in the south and the shops write the discus "Cá dĩa", and the cleaner took it
+// off "Cá đĩa" as the same name. A row that keeps a spelling (names.ts FISH_NAMES) keeps it; other copies still fold.
+test('a spelling a names row keeps stays beside the page\'s own name, and other copies of that name still fold', () => {
+  const clean = (altNames: string[]) => cleanAltNames({ name: 'Cá đĩa', sci: 'Symphysodon aequifasciatus', altNames }).altNames
+  expect(clean(['Discus', 'Cá dĩa', 'Cá Đĩa', 'Ca dia'])).toEqual(['Discus', 'Cá dĩa'])
+  expect(cleanAltNames({ name: 'Cá đĩa Heckel', sci: 'Symphysodon discus', altNames: ['Cá dĩa Heckel', 'Discus'] }).altNames).toEqual(['Discus'])
+})
+
 test('cleaning cleaned names changes nothing', () => {
   const pages: [{ name: string; sci: string; altNames: string[] }, BreedName[]][] = [
     [betta(BETTA), BETTA_BREEDS], [{ name: 'Cá Oscar', sci: 'Astronotus ocellatus', altNames: ['Oscar', 'Tiger Oscar', 'Cá Tiger Oscar', 'Tiger oscar', 'Red oscar'] }, []],

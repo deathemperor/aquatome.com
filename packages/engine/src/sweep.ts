@@ -333,7 +333,8 @@ export async function nameFish(content: string, rows: readonly FishName[] = FISH
  * A renamed fish's old name (names.ts FISH_NAMES) in the photos' captions, written as its name, and each caption's
  * translations kept under its new words (content/captions/<lang>.json is keyed by the Vietnamese). The photos are the
  * galleries' and the pages' (CAPTIONED, as captions.ts reads them). A row's own photos, in its gallery and on its page, say
- * what its own page calls it (names.ts ownWords). The files changed.
+ * what its own page calls it (names.ts ownWords), before another's old name in them is renamed: the pygmy gourami's "cá
+ * sặc lùn" is its own, not the dwarf gourami's. The files changed.
  */
 export async function renameCaptions(content: string, rows: readonly FishName[] = FISH_NAMES): Promise<string[]> {
   const changed: string[] = []
@@ -349,7 +350,7 @@ export async function renameCaptions(content: string, rows: readonly FishName[] 
     const r = own.find(([o]) => o === f)?.[1]
     let any = false
     const photos = (g.photos ?? []).map(p => {
-      const to = p.caption && (r ? ownWords(r, renameFishNames(p.caption)) : renameFishNames(p.caption))
+      const to = p.caption && renameFishNames(r ? ownWords(r, p.caption) : p.caption)
       if (!p.caption || to === p.caption) return p
       any = true
       rekey.set(p.caption, to!)
@@ -618,7 +619,9 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     ;(report.text.wording ??= []).push(`summaries/${f.replace(/\.json$/, '')}`)
   }
 
-  // A page's shop searches, in the words its text uses. Fish and plants are the pages with them.
+  // A page's shop searches, in the words its text uses, a renamed fish's or plant's old name (names.ts FISH_NAMES) as its
+  // name: the shops write the name keepers use (the African fern's "dương xỉ nước châu Phi", 17 Nov). Fish and plants are
+  // the pages with them.
   for (const kind of ['species', 'plants']) {
     for (const id of (await readdir(join(content, kind)).catch(() => [] as string[])).sort()) {
       const file = join(content, kind, id, 'entity.json')
@@ -626,7 +629,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
       if (!raw) continue
       const e = JSON.parse(raw) as { productSlots?: { keywords: string[] }[] }
       const before = JSON.stringify(e.productSlots ?? [])
-      for (const row of e.productSlots ?? []) row.keywords = row.keywords.map(viSearchWords)
+      for (const row of e.productSlots ?? []) row.keywords = row.keywords.map(k => viSearchWords(renameFishNames(k)))
       if (JSON.stringify(e.productSlots ?? []) === before) continue
       await write(file, raw, e)
       changed(`${kind}/${id}/entity.json`)
