@@ -1,6 +1,6 @@
 import type Anthropic from '@anthropic-ai/sdk'
 import { runAgent, type AgentRun, type Limits } from '../agent/loop'
-import { answered, ANSWER_SCHEMA, answerTool, filler, OFF_TOPIC, picksReader, readAnswer, textReader, type Answer, type ChatBlock, type Choice } from './answer'
+import { answered, ANSWER_SCHEMA, answerTool, filler, OFF_TOPIC, picksReader, readAnswer, repeatsKey, textReader, type Answer, type ChatBlock, type Choice } from './answer'
 import type { Handbook, Lang } from './handbook'
 import type { Found, Handover } from './handover'
 import type { MatesCheck } from './mates'
@@ -265,26 +265,34 @@ export type ChatOptions = {
  * `send`, with each call's text read as it comes (`textReader`) and given to `onText`, then, once the text has shown, its
  * picks as each is written (`picksReader`) to `onPick`. An answer through send_answer reads as one in text (`answered`). A
  * call that has given the reader any text is the answer: its tool calls are dropped and the run ends on it, since what
- * the reader has read can't be taken back.
+ * the reader has read can't be taken back. What is kept is what they read: an answer whose JSON names a key twice, one
+ * whose text isn't the text shown, or one off topic after text showed fails the call, and with it the run, rather than
+ * save another (Codex, 17 Nov).
  */
 function streaming(send: ChatOptions['send'], onText: (piece: string) => void, onPick?: (pick: Choice) => void): ChatOptions['send'] {
   return async (body, opts) => {
     const read = textReader()
     const picks = picksReader()
+    let raw = ''
+    let said = ''
     let shown = false
     let stuck = false
     const m = answered(await send(body, {
       ...opts,
       onText: delta => {
+        raw += delta
         const piece = read(delta)
-        if (piece) { shown = true; onText(piece) }
+        if (piece) { shown = true; said += piece; onText(piece) }
         // A reader that can't read on stops reading: it never fails the call (its cards then come once the run ends).
         let picked: Choice[] = []
         try { picked = onPick && !stuck ? picks(delta) : [] } catch (e) { stuck = true; console.error('chat picks:', e) }
         if (shown) picked.forEach(p => onPick!(p))
       },
     }))
+    if (repeatsKey(raw)) throw new Error('chat: the answer names a key twice')
     if (!shown) return m
+    const kept = readAnswer(m)
+    if (kept && (kept.offTopic || kept.text !== said)) throw new Error('chat: the answer kept isn\'t the one shown')
     return { ...m, content: m.content.filter(b => b.type !== 'tool_use'), stop_reason: m.stop_reason === 'tool_use' ? 'end_turn' : m.stop_reason }
   }
 }

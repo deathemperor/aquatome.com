@@ -3,8 +3,8 @@ import { fileURLToPath } from 'node:url'
 import type Anthropic from '@anthropic-ai/sdk'
 import type { PageDoc } from '@aq/schema/app-page'
 import { LANGS } from '@aq/schema/langs'
-import { expect, test, vi } from 'vitest'
-import { answerQuestion, ANSWER_LINE, ASK_WORD, CHAT_LIMITS, NO_THINKING, firstMessage, openedTank, HANDBOOK, HANDOVER_MS, LAST_TRY, LAST_WORD, MAX_TOKENS, OPENING_SYSTEM, SYSTEM, unaccented, type ChatOptions, type Start } from '../chat/agent'
+import { describe, expect, test, vi } from 'vitest'
+import { answerQuestion, ANSWER_LINE, ASK_WORD, CHAT_LIMITS, CHAT_PRESENT, NO_THINKING, firstMessage, openedTank, HANDBOOK, HANDOVER_MS, LAST_TRY, LAST_WORD, MAX_TOKENS, OPENING_SYSTEM, SYSTEM, unaccented, type ChatOptions, type Start } from '../chat/agent'
 import { answered, answerFeed, ANSWER_SCHEMA, choiceOf, fill, MAX_BLOCKS, MIN_TEXT, OFF_TOPIC, picksReader, readAnswer, textReader, type Answer, type Choice } from '../chat/answer'
 import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
 import { fold, search, searchTopics } from '../chat/search'
@@ -1151,8 +1151,8 @@ test('send_answer\'s input streams as a text answer does, from the first block t
   const other = answerFeed()
   expect([begins(0, { type: 'text', text: '' }), writes(0, { type: 'text_delta', text: '\n' }), writes(0, { type: 'text_delta', text }), begins(1, use('t1', 'send_answer', {})), writes(1, { type: 'input_json_delta', partial_json: raw[0]! })]
     .map(other).filter(p => p !== undefined)).toEqual([`\n${text}`])
-  const both = message([{ type: 'text', text: `\n${text}` }, use('t1', 'send_answer', JSON.parse(raw.join('')))], 'tool_use')
-  expect(answered(both)).toBe(both)
+  const both = answered(message([{ type: 'text', text: `\n${text}` }, use('t1', 'send_answer', JSON.parse(raw.join('')))], 'tool_use'))
+  expect([both.stop_reason, both.content.map(b => b.type), readAnswer(both)?.text]).toEqual(['end_turn', ['text'], 'Nuôi theo đàn từ 6 con.'])
   // Words before the call ("Now I'll send the answer."): not the answer. The call's input is shown and read, and the words
   // dropped; so too words before a text answer.
   const said = answerFeed()
@@ -1184,7 +1184,8 @@ test('send_answer\'s input isn\'t held to the schema: a pick that isn\'t one is 
 })
 
 test('asked by a limit, the answer through send_answer streams: the call keeps its tools, told to answer, and its answer ends the run as an obeyed ask', async () => {
-  // Calls of 6 s with the reader there: three read, and a fourth would end past 20 s, so it is asked to answer.
+  // Calls of 7 s with the reader there, in their longer turn: two read, and a third would end past 20 s, so it is asked to
+  // answer; read past, the answer's call would still begin by 22 s, with all its room (loop.ts `asking`).
   let now = 0
   const text = 'Cá neon xanh sống theo đàn từ 6 con, nước 20–26 °C.'
   const raw = `{"offTopic": false, "text": ${JSON.stringify(text)}, "covered": true, "blocks": [], "suggestions": [], "clashes": []}`
@@ -1193,10 +1194,10 @@ test('asked by a limit, the answer through send_answer streams: the call keeps i
   const lastWords = (b: Anthropic.MessageCreateParamsNonStreaming) => (b.messages.at(-1)!.content as Anthropic.ContentBlockParam[]).flatMap(x => (x.type === 'text' ? [x.text] : [])).at(-1)
   const out = await answerQuestion({
     model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: await hb(), tanks: async () => [],
-    clock: () => now, until: () => now + 26_000, onText: p => said.push(p),
+    clock: () => now, until: () => now + 26_000, onText: p => said.push(p), limits: CHAT_PRESENT,
     send: async (b, o) => {
       bodies.push(structuredClone(b))
-      now += 6_000
+      now += 7_000
       if (lastWords(b) !== ASK_WORD) return message([{ ...readPage, id: `t${bodies.length}` }], 'tool_use')
       // As the stream feeds it: words before the call are no part of it.
       const feed = answerFeed()
@@ -1207,9 +1208,69 @@ test('asked by a limit, the answer through send_answer streams: the call keeps i
       return message([{ type: 'text', text: 'Giờ mình gửi.' }, { type: 'tool_use', id: 'ta', name: 'send_answer', input: JSON.parse(raw) }], 'tool_use')
     },
   })
-  expect(bodies.map(b => [b.tool_choice?.type, lastWords(b) === ASK_WORD])).toEqual([['auto', false], ['auto', false], ['auto', false], ['auto', true]])
+  expect(bodies.map(b => [b.tool_choice?.type, lastWords(b) === ASK_WORD])).toEqual([['auto', false], ['auto', false], ['auto', true]])
   expect(said.join('')).toBe(text)
-  expect(out).toMatchObject({ stopped: 'time', asked: 'answered', calls: 4, answer: { text } })
+  expect(out).toMatchObject({ stopped: 'time', asked: 'answered', calls: 3, answer: { text } })
+})
+
+describe('the answer read is the one written (Codex, 17 Nov)', () => {
+  const text = 'Cá neon xanh sống theo đàn từ 6 con.'
+  const rest = { covered: true, blocks: [], suggestions: [], clashes: [] }
+  const json = JSON.stringify({ offTopic: false, text, ...rest })
+  const sendAnswer = (input: unknown) => ({ type: 'tool_use', id: 'ta', name: 'send_answer', input })
+  const turn = async (send: ChatOptions['send'], said: string[] = []) => answerQuestion({
+    model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: await hb(), tanks: async () => [],
+    until: () => Date.now() + 26_000, onText: p => said.push(p), send,
+  })
+
+  test('a text answer is the answer whatever was shown: the tools beside it are dropped and the turn ends, as when it streamed', async () => {
+    // One key streamed only the answer's opening and failed; the next answered whole, unstreamed: in text, then the tool.
+    // And an off-topic answer in text, which never streams, then a read.
+    const off = JSON.stringify({ offTopic: true, text: '', ...rest })
+    for (const [content, kept] of [[[{ type: 'text', text: json }, sendAnswer(JSON.parse(json))], text], [[{ type: 'text', text: off }, readPage], OFF_TOPIC.vi]] as const) {
+      let calls = 0
+      const out = await turn(async (_b, o) => {
+        if (++calls > 1) return message([{ type: 'text', text: json }])
+        o.onText?.('{"offTopic": false, "te')
+        return message([...content], 'tool_use')
+      })
+      expect([calls, out.stopped, out.answer?.text]).toEqual([1, 'answer', kept])
+    }
+  })
+
+  test('send_answer\'s offTopic is true or false: any other flag, or none, is no answer, never one on topic', async () => {
+    const football = 'Đội tuyển nào sẽ vô địch World Cup năm nay, theo bạn?'
+    for (const flag of [{ offTopic: 'true' }, { offTopic: 'false' }, { offTopic: 1 }, { offTopic: null }, {}]) {
+      const out = await turn(async () => message([sendAnswer({ ...flag, text: football, ...rest })], 'tool_use'))
+      expect([out.stopped, out.answer], JSON.stringify(flag)).toEqual(['answer', undefined])
+    }
+    expect((await turn(async () => message([sendAnswer({ offTopic: false, text, ...rest })], 'tool_use'))).answer?.text).toBe(text)
+    expect((await turn(async () => message([sendAnswer({ offTopic: true, text: football, ...rest })], 'tool_use'))).answer?.text).toBe(OFF_TOPIC.vi)
+  })
+
+  test('what is kept is what streamed: an answer other than the one the reader read, or one off topic after text showed, fails the run', async () => {
+    const shown = '{"offTopic": false, "text": "Cá neon xanh sống theo đàn."'
+    for (const input of [{ offTopic: false, text: 'Một câu trả lời khác hẳn, đủ dài.', ...rest }, { offTopic: true, text: '', ...rest }]) {
+      const said: string[] = []
+      const out = await turn(async (_b, o) => { o.onText?.(shown); return message([sendAnswer(input)], 'tool_use') }, said)
+      expect(said.join('')).toBe('Cá neon xanh sống theo đàn.')
+      expect([out.stopped, out.answer], JSON.stringify(input)).toEqual(['error', undefined])
+    }
+    // The same text, kept: the answer.
+    const said: string[] = []
+    const out = await turn(async (_b, o) => { for (let i = 0; i < json.length; i += 5) o.onText?.(json.slice(i, i + 5)); return message([sendAnswer(JSON.parse(json))], 'tool_use') }, said)
+    expect([said.join(''), out.answer?.text]).toEqual([text, text])
+  })
+
+  test('a key written twice in the answer is no answer: the stream showed the first, JSON keeps the last', async () => {
+    for (const raw of [`{"offTopic": false, "text": ${JSON.stringify(text)}, "covered": true, "blocks": [], "suggestions": [], "clashes": [], "text": "Một câu khác."}`,
+      `{"offTopic": false, "text": ${JSON.stringify(text)}, "covered": true, "blocks": [], "suggestions": [], "clashes": [], "offTopic": true}`,
+      // Nothing shown (it opens off topic), and JSON would keep it on topic.
+      '{"offTopic": true, "offTopic": false, "text": "Đội tuyển nào sẽ vô địch World Cup năm nay?", "covered": true, "blocks": [], "suggestions": [], "clashes": []}']) {
+      const out = await turn(async (_b, o) => { for (let i = 0; i < raw.length; i += 9) o.onText?.(raw.slice(i, i + 9)); return message([sendAnswer(JSON.parse(raw))], 'tool_use') })
+      expect([out.stopped, out.answer]).toEqual(['error', undefined])
+    }
+  })
 })
 
 test('with the reader there, on the stream, the answer comes through send_answer: offered with its input streamed, not strict, and named in the instructions; what it writes reaches the reader as written, and is the answer', async () => {

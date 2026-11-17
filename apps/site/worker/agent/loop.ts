@@ -91,7 +91,8 @@ export type AgentInput<Step> = {
    * `answers`): the tools stay on (tool_choice auto), so the answer comes through that tool and streams, where a forced
    * one (tool_choice none) is held back until it's whole. Reads it asks for instead are refused, and the next call is
    * forced. Only while the reader is there (`answerBy`'s sign): once they've gone, nothing streams to them, and a call
-   * that read past the ask would cost the time they left the run. Never on the input trigger or the last call: the forced call after one that read would be past the run's
+   * that read past the ask would cost the time they left the run. Only while a call that read past it would leave the
+   * forced answer after it the room it has now: with the chat's figures, the 2 s past `answerBy`. Never on the input trigger or the last call: the forced call after one that read would be past the run's
    * input or calls, which the chat's hold at admission counts on (chat/api.ts `chatWorstCost`).
    */
   askWord?: string
@@ -193,16 +194,20 @@ export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step
       : a.pace !== undefined && left - each < (run.calls === 1 ? a.pace.first : a.pace.quick) * each)
     const forced: Stopped | undefined = trying ? 'time' : must ?? (run.calls + 1 >= lim.calls ? 'calls' : run.tools >= lim.tools ? 'tools' : late ? 'time'
       : inputOf(run.spent) + next > lim.inputTokens ? 'tokens' : undefined)
+    const grace = lim.writingGraceMs ?? 0
+    /** How long a call that has begun writing may go: the grace past the run's end, but never past `until`. */
+    const room = Math.min(left + grace, (a.until?.() ?? Infinity) - clock())
+    // Asked only while a call that reads past the ask leaves the forced answer after it the room it would have now: with
+    // the reader there `until` moves on with that call, so the run's own end is what it costs (Codex, 17 Nov: asked at
+    // 20 s and read past, the answer's call began at 25 s with 23 s to write, where forced at once it had 26).
     const asking = a.askWord !== undefined && there && !trying && !must && (forced === 'time' || forced === 'tools') && inputOf(run.spent) + next <= lim.inputTokens
+      && deadline - clock() - each + grace >= room
     if (left < 1000) return held ? { ...run, message: held, stopped: 'answer' } : { ...run, stopped: 'error', error: new Error('out of time') }
     run.calls++
     const effort = a.lastEffort && (trying || (forced && !(a.pace && left >= a.pace.answer * each))) ? a.lastEffort : a.effort
     const began = clock()
-    const grace = lim.writingGraceMs ?? 0
     // A call gets at least a second before it's given up: key rotation sends nothing with less (fishid/keys.ts `rotate`).
     const giveUp = a.lastTry && left - a.lastTry.ms >= 1000 ? left - a.lastTry.ms : left
-    /** How long a call that has begun writing may go: the grace past the run's end, but never past `until`. */
-    const room = Math.min(left + grace, (a.until?.() ?? Infinity) - clock())
     /** How long the call may go before it begins writing. */
     const wait = trying ? room : Math.min(forced && a.pace ? left : lim.callMs, giveUp)
     let r: Anthropic.Message

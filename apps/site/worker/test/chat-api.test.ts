@@ -633,13 +633,13 @@ test('the stream: a reader still there gets the longer turn\'s calls; one who le
   // the run's limits, and on 14 Nov a loaded machine stopped the JSON answer on 'time' at its fourth call.
   const at = Date.now()
   const clock = () => at + offset
-  /** A Claude that searches until it may only answer, each call 2.5 s: every search a step sent, as a reader there sees it. */
-  const slow = (ms = 0) => {
+  /** A Claude that searches until it may only answer, each call `step` (2.5 s): every search a step sent, as a reader there sees it. */
+  const slow = (ms = 0, step = 2_500) => {
     const bodies: Record<string, unknown>[] = []
     const fetch = (async (input: RequestInfo | URL, init?: RequestInit) => {
       const b = await new Request(input, init).json() as Record<string, unknown>
       bodies.push(b)
-      offset += 2_500
+      offset += step
       if (ms) await new Promise(r => setTimeout(r, ms))
       const r = (b.tool_choice as { type: string }).type === 'none' ? answers({})
         : msg([{ type: 'thinking', thinking: '', signature: `s${seq}` }, { type: 'tool_use', id: `t${seq}`, name: 'search_handbook', input: { query: `neon ${bodies.length}`, kind: null } }], 'tool_use')
@@ -648,15 +648,16 @@ test('the stream: a reader still there gets the longer turn\'s calls; one who le
     return { fetch, bodies }
   }
   const recordOf = (conversation: string) => [...store.m.keys()].filter(k => k.startsWith('chat-run/')).map(k => store.read<ChatRunRecord>(k)!).find(r => r.conversation === conversation)!
-  // There all along: every step it is sent lands, so it reads on to 20 s (ANSWER_BY), 8 calls of 2.5 s; the 9th is asked to
-  // answer through send_answer and reads instead, and the 10th must answer. The transcript says the ask was read past.
-  const there = slow()
+  // There all along: every step it is sent lands, so it reads on toward 20 s (ANSWER_BY), 6 calls of 3 s; the 7th is asked
+  // to answer through send_answer, since one read past it still leaves the answer's call by 21 s all its room (loop.ts
+  // `asking`), and reads instead, and the 8th must answer. The transcript says the ask was read past.
+  const there = slow(0, 3_000)
   const thereWaits: Promise<unknown>[] = []
   const thereReq = ask(bearer(me.token), {}, { accept: 'text/event-stream' })
   const read = (await chat(thereReq, new URL(thereReq.url), e, new Date(), deps(there.fetch, { clock }), p => { thereWaits.push(p) })).text()
   await Promise.all(thereWaits)
   await read
-  expect(recordOf(CONV).agent).toEqual({ calls: 10, tools: 8, stopped: 'time', asked: 'read' })
+  expect(recordOf(CONV).agent).toEqual({ calls: 8, tools: 6, stopped: 'time', asked: 'read' })
   expect(recordOf(CONV).timing!.seen).toBeGreaterThanOrEqual(recordOf(CONV).timing!.answered!)
   // Gone at once: 26 s from then (the platform's 30 less the save's 4), the pace's rule forces the answer at the 4th call;
   // the turn is kept for their return.
@@ -822,6 +823,30 @@ test('a first call whose text has begun isn\'t asked again of the next key when 
   const events = text.split('\n\n').filter(Boolean).map(b => ({ event: b.split('\n')[0]!.slice('event: '.length), data: JSON.parse(b.split('\ndata: ')[1]!) }))
   expect(events.filter(x => x.event === 'text').map(x => x.data.text).join('')).toBe('Cá neon')
   expect(events.at(-1)).toEqual({ event: 'error', data: { error: 'unavailable' } })
+})
+
+test('send_answer\'s input with a key written twice is no answer: the reader read the first, JSON keeps the last, and nothing else is saved or sent (Codex, 17 Nov)', async () => {
+  const { e, db, store } = env()
+  const me = await signIn(db)
+  const ev = (type: string, data: Record<string, unknown>) => `event: ${type}\ndata: ${JSON.stringify({ type, ...data })}\n\n`
+  const raw = '{"offTopic": false, "text": "Cá neon xanh sống theo đàn.", "covered": true, "blocks": [], "suggestions": [], "clashes": [], "text": "Một câu trả lời khác hẳn."}'
+  const twice = [
+    ev('message_start', { message: { id: 'm', type: 'message', role: 'assistant', model: 'claude-opus-5-5', content: [], stop_reason: null, stop_sequence: null, usage } }),
+    ev('content_block_start', { index: 0, content_block: { type: 'tool_use', id: 'toolu_1', name: 'send_answer', input: {} } }),
+    ...raw.match(/.{1,12}/gs)!.map(partial_json => ev('content_block_delta', { index: 0, delta: { type: 'input_json_delta', partial_json } })),
+    ev('content_block_stop', { index: 0 }),
+    ev('message_delta', { delta: { stop_reason: 'tool_use', stop_sequence: null }, usage: { output_tokens: 40 } }),
+    ev('message_stop', {}),
+  ].join('')
+  const fetch = (async () => new Response(twice, { headers: { 'content-type': 'text/event-stream' } })) as typeof globalThis.fetch
+  const { res } = await run(ask(bearer(me.token), {}, { accept: 'text/event-stream' }), e, deps(fetch))
+  const text = await res.text()
+  expect(streamMisfits(text, sseMedia)).toEqual([])
+  const events = text.split('\n\n').filter(Boolean).map(b => ({ event: b.split('\n')[0]!.slice('event: '.length), data: JSON.parse(b.split('\ndata: ')[1]!) }))
+  expect(events.filter(x => x.event === 'text').map(x => x.data.text).join('')).toBe('Cá neon xanh sống theo đàn.')
+  expect(events.at(-1)!.event).toBe('error')
+  expect(text).not.toContain('Một câu trả lời khác hẳn.')
+  expect([...store.m.entries()].filter(([k]) => !k.startsWith('chat-run/')).map(([, v]) => v.body).join(' ')).not.toContain('Một câu trả lời khác hẳn.')
 })
 
 /** A stream that sends `events`, then loses its connection (`error`) or ends there (`end`), before the message is whole. */

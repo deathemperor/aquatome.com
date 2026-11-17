@@ -99,14 +99,19 @@ const answers = (b: Anthropic.ContentBlock) => (b.type === 'text' && json(b.text
 
 /**
  * A message as one answer: one that answered through send_answer, as one that answered in text, its input as the JSON
- * text, and the words and reading tools beside it dropped; one that answered in text, with other words beside it dropped.
- * One cut short keeps its stop reason, and `readAnswer` then reads no answer from it.
+ * text; either way the words and tools beside it dropped and the turn ended, whether or not any of it was shown (a call
+ * that doesn't stream, as the next key's after a stream that failed, shows nothing: Codex, 17 Nov). One cut short keeps
+ * its stop reason, and `readAnswer` then reads no answer from it. send_answer's input isn't held to the schema: an
+ * `offTopic` that isn't true or false is no answer, never one on topic.
  */
 export function answered(m: Anthropic.Message): Anthropic.Message {
   const first = m.content.find(answers)
-  if (first?.type === 'text') return m.content.some(b => b.type === 'text' && b !== first) ? { ...m, content: m.content.filter(b => b.type !== 'text' || b === first) } : m
-  if (first?.type !== 'tool_use') return m
-  return { ...m, content: [{ type: 'text', text: JSON.stringify(first.input), citations: null }], stop_reason: m.stop_reason === 'tool_use' ? 'end_turn' : m.stop_reason }
+  if (!first) return m
+  const ended = m.stop_reason === 'tool_use' ? 'end_turn' : m.stop_reason
+  if (first.type === 'text') return m.content.some(b => b !== first && (b.type === 'text' || b.type === 'tool_use')) ? { ...m, content: m.content.filter(b => b === first || (b.type !== 'text' && b.type !== 'tool_use')), stop_reason: ended } : m
+  if (first.type !== 'tool_use') return m
+  const flag = (first.input as { offTopic?: unknown } | null)?.offTopic
+  return { ...m, content: [{ type: 'text', text: typeof flag === 'boolean' ? JSON.stringify(first.input) : '', citations: null }], stop_reason: ended }
 }
 
 /**
@@ -185,6 +190,45 @@ export function choiceOf(v: unknown): Choice | undefined {
     && Array.isArray(c.fish) && c.fish.every(f => obj(f) && str(f.id) && num(f.count))
     && (c.tank === null || (obj(c.tank) && num(c.tank.l) && num(c.tank.w) && num(c.tank.h))) && strOrNull(c.tankId)
   return ok ? (c as Choice) : undefined
+}
+
+/**
+ * Whether the answer's raw JSON, as written, names a top-level key twice. JSON.parse keeps the last, where the stream
+ * showed the first (`textReader`), so such an answer is none (Codex, 17 Nov). Keys are read as JSON reads them.
+ */
+export function repeatsKey(raw: string): boolean {
+  const seen = new Set<string>()
+  let depth = 0
+  let quoted = false
+  let escaped = false
+  let wantKey = false
+  let keyAt = -1
+  for (let i = 0; i < raw.length; i++) {
+    const c = raw[i]!
+    if (quoted) {
+      if (escaped) escaped = false
+      else if (c === '\\') escaped = true
+      else if (c === '"') {
+        quoted = false
+        if (keyAt >= 0) {
+          let key: string
+          try { key = JSON.parse(raw.slice(keyAt, i + 1)) as string } catch { key = raw.slice(keyAt, i + 1) }
+          if (seen.has(key)) return true
+          seen.add(key)
+          keyAt = -1
+          wantKey = false
+        }
+      }
+    } else if (c === '"') {
+      quoted = true
+      if (depth === 1 && wantKey) keyAt = i
+    } else if (c === '{' || c === '[') {
+      depth++
+      if (depth === 1) wantKey = true
+    } else if (c === '}' || c === ']') depth--
+    else if (c === ',' && depth === 1) wantKey = true
+  }
+  return false
 }
 
 const SPACE = new Set([' ', '\t', '\n', '\r'])
