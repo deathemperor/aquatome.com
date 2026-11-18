@@ -96,7 +96,11 @@ async function main(argv) {
     console.error('usage: node scripts/chat-tester.mjs [--lang vi|id|th|ms] "<question>"')
     return 2
   }
-  const bearer = (await readFile(join(homedir(), '.config/aquatome/ab-dash-token'), 'utf8')).trim()
+  const bearer = await readFile(join(homedir(), '.config/aquatome/ab-dash-token'), 'utf8').then(t => t.trim(), () => '')
+  if (!bearer) {
+    console.error('no dashboard bearer in ~/.config/aquatome/ab-dash-token')
+    return 1
+  }
   try {
     await ask({ question, lang, bearer, say: line => console.log(line) })
     return 0

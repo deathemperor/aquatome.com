@@ -1564,3 +1564,18 @@ test('the test account\'s off-topic questions count like the rest: 20 a day in a
   // A reader's status is as it was.
   expect((await run(new Request('https://x.test/api/chat', { headers: bearer((await signIn(db)).token) }), e, {})).body).toMatchObject({ on: true, perAccount: 30 })
 })
+
+// The second reader of #1637: a stop before the text gave a reader's count back, 10 a day, so the tester could start 30.
+test('the test account\'s stop before the text counts: its 20 a day stay 20', async () => {
+  const { e, db, ledger } = env({ CHAT_TESTER: 'on' })
+  const tester = await testerIn(db)
+  const key = crypto.randomUUID()
+  const { release, asked, c } = heldClaude()
+  const running = run(ask(bearer(tester.token), {}, { 'idempotency-key': key, accept: 'text/event-stream' }), e, deps(c.fetch, { stopMs: 2 }))
+  await asked
+  expect(await stopIt(e, tester.token, key)).toEqual({ result: 'cancelled', counted: true, freeLeft: 0 })
+  release()
+  await (await running).res.text()
+  await tick()
+  expect(Object.values(ledger.day()!.readers)).toEqual([1])
+})

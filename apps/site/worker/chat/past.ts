@@ -134,7 +134,8 @@ export async function chatPast(req: Request, url: URL, env: ChatEnv, now: Date, 
     // It ended already: its turn or its error stands, unless that error is this stop's own.
     const kept = await (await bucket.get(retryKey(account, key)))?.json<Kept>()
     if (kept) return json('error' in kept && kept.error === 'cancelled' ? { result: 'cancelled', counted: kept.counted ?? false, ...(kept.freeLeft !== undefined ? { freeLeft: kept.freeLeft } : {}) } : { result: 'too late' })
-    return json(await ledgerClient(env.FISHID_LEDGER!).cancel({ day: now.toISOString().slice(0, 10), key: stopKey(account, key), free: FREE_STOPS }))
+    // The test account's stops count, as its off-topic questions do (accounts/tester.ts): its 20 a day stay 20.
+    return json(await ledgerClient(env.FISHID_LEDGER!).cancel({ day: now.toISOString().slice(0, 10), key: stopKey(account, key), free: session.userId === TESTER_ID ? 0 : FREE_STOPS }))
   }
 
   try {
