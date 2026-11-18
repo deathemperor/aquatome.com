@@ -1122,5 +1122,40 @@
       "attempt": "first",
       "kept": false
     }
+  ],
+  "vi/glossary/oxy-hoa-tan": [
+    {
+      "at": "2026-11-18T17:39:57Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Muốn khỏe, cá cần khoảng 5 mg/L oxy hòa tan trở lên.\" (not \"Với phần lớn cá, oxy hòa tan trên 5 mg/L là tốt nhất.\": it drops the advice \"Muốn khỏe\")",
+        "Loose, reworded: \"Ban ngày cây và tảo nhả oxy, còn ban đêm chúng lại dùng oxy.\" → \"Ban ngày cây và tảo nhả oxy, còn ban đêm cây lại dùng oxy.\" (supported)",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Oxy thường tụt do nuôi quá đông cá, cho ăn dư, chất hữu cơ thối rữa, tảo chết hàng loạt, dùng thuốc hay hóa chất diệt tảo quá tay, mặt nước phẳng lặng, lọc hỏng hoặc bẩn, và mất điện làm máy sủi ngưng.\" (not \"Oxy có thể tụt do mặt nước phẳng lặng, nuôi quá đông cá, chất hữu cơ thối rữa, dùng thuốc hay hóa…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Đo amoniac và nitrit.\" (not \"Cá ngáp trên mặt nước cũng có thể do nitrit cao, không chỉ do thiếu oxy.\": Rule 4: The nitrite remark is stated twice. It appears in the body as \"Tuy nhiên, cá đớp khí trên mặt nước cũng có thể do nitrit cao chứ không chỉ do thiếu oxy\" and again as step 3, \"Cá ngáp trên mặt nư…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Tìm nguyên nhân rồi xử lý: dọn chất hữu cơ đang thối rữa, xem lại số cá và lượng thức ăn.\" (not \"Để khắc phục lâu dài, hãy loại bỏ nguyên nhân: phần cây chết, tảo, bùn cặn, chỗ thối rữa, cùng đồ trang trí hay sản phẩm mới cho vào bể.\": Rule 12: Step 4, \"Để khắc phục lâu dài, hãy loại bỏ nguyên nhân: phần …",
+        "Rule 4: The timing of the oxygen low is said in two places. The definition says \"có thể chết hàng loạt, thường vào lúc gần sáng\" and the body repeats it as \"Trong bể, oxy xuống thấp nhất vào sáng sớm, trước lúc trời sáng.\" The early-morning point should be said once, in one place.",
+        "Rule 12: \"chỉnh đầu ra của lọc cho khuấy mặt nước\" is a step a keeper acts on, but only one page gives it: JBL, a maker (set the filter outlet just below the surface, angled upward). The entry states it as plain fact with no credit. Crediting it would make JBL a fourth named page, beyond the three already named (the Florida university page, the Vietnamese shop and the Vietnamese magazine). Under …",
+        "The entry is 511 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T17:39:57Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Rule 4: The dawn die-off is said twice. The definition has \"có thể chết hàng loạt, thường vào lúc gần sáng\" and the body repeats it with \"cá chết ngạt cũng hay xảy ra vào giờ này\". It should be said once, in one place.",
+        "Rule 4: The battery air pump is advised twice. Step 1 of \"Nên làm gì\" has \"hoặc chạy máy sủi bằng pin\" and the long-term list repeats it with \"Nên có sẵn máy sủi chạy pin\". It should be said once.",
+        "Rule 12: \"Dấu hiệu hay gặp là sáng sớm cá lơ lửng sát mặt nước thở gấp, rồi một lúc sau khi bật đèn lại bơi bình thường\" comes from one page only (JBL, a maker) but is written as plain fact. It needs to say whose it is. Since the entry already names three pages, it should be left out until a second page says it.",
+        "Rule 12: In \"nước 32 °C giữ khoảng 7,4 mg/L, nước 7 °C giữ khoảng 11,9 mg/L\", the temperatures were converted to °C. The fact gives them as 90°F and 45°F, and every number must keep its unit as its fact gives it.",
+        "The entry is 553 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
   ]
 }

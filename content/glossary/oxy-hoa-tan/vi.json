@@ -1,14 +1,18 @@
 {
   "slug": "oxy-hoa-tan",
   "name": "Oxy hòa tan",
-  "altNames": [],
+  "altNames": [
+    "Oxy hoà tan",
+    "Dissolved Oxygen"
+  ],
   "sections": {},
   "linkNames": [
     "oxy"
   ],
-  "definition": "Lượng oxy có trong nước mà cá thở qua mang. Nước càng nóng và càng tù đọng thì càng ít oxy; cá thiếu oxy thường ngoi lên mặt nước há miệng. Dòng chảy, sục khí và mặt nước thoáng giúp duy trì oxy hòa tan.",
+  "body": "<h3>Trong bể của bạn</h3><p>Oxy vào nước theo hai đường: cây và tảo quang hợp, và oxy từ không khí thấm qua mặt nước. Mặt nước càng gợn thì oxy vào càng nhanh, và CO2 cũng thoát ra ở chỗ này.</p><p>Muốn khỏe, cá cần khoảng 5 mg/L oxy hòa tan trở lên. Ban ngày cây và tảo nhả oxy, còn ban đêm cây lại dùng oxy. Trong bể, oxy xuống thấp nhất vào sáng sớm, trước lúc trời sáng.</p><p>Nước ấm giữ ít oxy hơn nước mát. Một tài liệu đại học ở Florida ghi:</p><ul><li>nước 32 °C giữ khoảng 7,4 mg/L, nước 7 °C giữ khoảng 11,9 mg/L,</li><li>nước ấm còn làm cá trao đổi chất nhanh hơn, nên cá dùng hết oxy nhanh hơn.</li></ul><p>Oxy thường tụt do nuôi quá đông cá, cho ăn dư, chất hữu cơ thối rữa, tảo chết hàng loạt, dùng thuốc hay hóa chất diệt tảo quá tay, mặt nước phẳng lặng, lọc hỏng hoặc bẩn, và mất điện làm máy sủi ngưng.</p><p>Cá thiếu oxy thì tụ lên mặt nước đớp khí, mang thở gấp, lờ đờ và bỏ ăn. Tuy nhiên, cá đớp khí trên mặt nước cũng có thể do nitrit cao chứ không chỉ do thiếu oxy.</p><h3>Nên làm gì</h3><ol><li>Tăng sục khí ngay: bật máy sủi, chỉnh đầu ra của lọc cho khuấy mặt nước. Mất điện thì khuấy mặt nước bằng tay. Một tiệm ở Việt Nam ghi là khuấy nhẹ 5–10 phút, cứ 30–60 phút làm lại một lần, hoặc chạy máy sủi bằng pin, hoặc chuyển bớt cá sang một bể dự phòng đã chuẩn bị sẵn.</li><li>Thay một phần nước.</li><li>Đo amoniac và nitrit.</li><li>Tìm nguyên nhân rồi xử lý: dọn chất hữu cơ đang thối rữa, xem lại số cá và lượng thức ăn.</li></ol><p>Tiệm ở Việt Nam nói trên còn ghi thêm cho lâu dài:</p><ul><li>Mất điện thì tùy cỡ bể và số cá, bể có thể trụ từ vài giờ tới khoảng một ngày. Nên có sẵn nguồn điện dự phòng như máy phát hay UPS.</li><li>Không để cây là nguồn oxy duy nhất của bể.</li><li>Giữ lọc sạch, giữ nhiệt độ ổn định và thay khoảng 20–30% nước mỗi một hoặc hai tuần.</li></ul><p>Một tạp chí ở Việt Nam khuyên cho mùa nóng:</p><ul><li>Giữ nước bể khoảng 24–28 °C.</li><li>Cho quạt thổi nhẹ ngang mặt nước, mở hé nắp hoặc dùng nắp lưới.</li><li>Nếu dùng đá lạnh thì chỉ để đá trong túi kín. Về lâu dài, máy làm lạnh là cách hiệu quả nhất.</li><li>Thay nước vào sáng sớm hoặc chiều tối, nước mới chênh với nước bể không quá khoảng 2 °C.</li></ul><h3>Sai lầm hay gặp</h3><p>Tiệm ở Việt Nam nói trên ghi mấy lỗi sau:</p><ul><li>Chỉ để ý oxy mà bỏ qua amoniac, nitrit, nitrat, pH và nhiệt độ.</li><li>Nhầm oxy với CO2 trong bể thủy sinh. CO2 quá nhiều có thể làm tụt cả oxy lẫn pH.</li><li>Gắn quá nhiều thiết bị sục khí. Cá bị stress, bể ồn mà oxy không tăng thêm bao nhiêu.</li></ul>",
+  "definition": "Oxy hòa tan là khí oxy (O2) hòa trong nước. Cá chỉ thở được bằng lượng oxy này, không lấy được oxy nằm trong phân tử nước. Khi oxy tụt, cá ngạt và có thể chết hàng loạt, thường vào lúc gần sáng.",
   "quality": {
-    "score": 0.9,
+    "score": 1,
     "indexable": true
   }
 }
