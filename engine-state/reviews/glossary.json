@@ -539,6 +539,31 @@
   ],
   "vi/glossary/thuc-an-kho": [
     {
+      "at": "2026-11-18T01:28:33Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong vài phút, thường là 2–5 phút hoặc ít hơn.\" (not \"Cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong hai đến năm phút.\": Rules 4 and 12: \"Cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong hai đến năm phút.\" gives 2–5 mi…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T01:28:33Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Rules 5 and 12: the other names list (altNames) is empty. THIS TERM asks for \"cám\" and the English name the FACTS give, \"dry food\", among the other names.",
+        "Rule 12: \"Tiệm này cũng ghi: ở Singapore, độ ẩm 75–90%, hộp đã mở mất khoảng một nửa vitamin C sau 8–12 tuần.\" The humidity must be given as fact 40 gives it, \"độ ẩm tương đối 75–90%\".",
+        "Rule 12: \"Tiệm này cũng ghi: ở khí hậu nóng ẩm, chỉ để ngoài một ít đủ dùng hằng ngày trong lọ kín có gói hút ẩm.\" The fact says humid, never \"nóng ẩm\". The sentence must open \"ở nơi khí hậu ẩm\", word for word.",
+        "Rule 12: the damp-climate storage steps are split into three sentences: \"…có gói hút ẩm. Phần còn lại cho vào túi kín rồi cất ngăn đá. Lấy túi ra thì đợi khoảng 15 phút rồi mới mở…\". A full stop ends a credit, so the last two of the shop's steps read as plain fact. They must be one sentence joined with semicolons, word for word as the line gives it."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-18T01:19:44Z",
       "model": "sonnet",
       "cli": "2.1.326",
@@ -591,32 +616,6 @@
         "Rule 12: \"mảnh mỏng và mềm, nổi trên mặt rồi chìm dần xuống cho cá tầng giữa và tầng đáy\": \"mềm\" (fact 11) and reaching bottom fish (fact 10) are each on only one page. The flakes item should say only that they are thin, float, then sink slowly.",
         "Rule 12: \"Bóp vụn ra là cho cá bột và cá nano ăn được.\": nano fish come from one page and should be cut. It should read \"Bóp vụn ra là cho cá bột ăn được.\"",
         "Rule 12: \"tấm chìm chậm xuống đáy\": \"chìm chậm\" is never used for wafers, because one page says they sink right away. They should simply sink to the bottom."
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-17T23:59:16Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 0.97,
-      "notes": [
-        "\"Một tiệm ở Singapore ghi thức ăn khô hỏng có mùi ôi như dầu ăn cũ hay sáp màu, các mảnh dính cục vì ẩm, viên lên màu trông xỉn hoặc bạc màu, hoặc có mốc thấy được bằng mắt.\": the facts don't carry it (unsupported, unsupported, unsupported): facts never say the shop is in Singapore / Facts don't say the shop is in Singapore",
-        "Rule 12: \"Bể nuôi nhiều loài thì chắc là phải dùng vài loại thức ăn khác nhau, vì một loại đầy đủ dinh dưỡng chưa chắc hợp với mọi con cá trong bể.\": the mixed-tank caution has to be two sentences and can never be joined by \"vì\". It should also say \"rất có thể cần\", not \"chắc là phải\"."
-      ],
-      "attempt": "rewrite",
-      "kept": false,
-      "draft": "67d4b31bc60f3aa44377897d58f5c7a6134d1e06e270f38954e96d270bdedd5d"
-    },
-    {
-      "at": "2026-11-17T23:59:16Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 1,
-      "notes": [
-        "The rewrite dropped from \"Bể nuôi nhiều loài thì chắc là phải dùng vài loại thức ăn khác nhau, vì một loại đầy đủ dinh dưỡng chưa chắc hợp với mọi con cá trong bể.\" the caution \"phải\", and nothing lets that sentence go: write it as it was, word for word.",
-        "Rule 12: \"Tiệm ở Singapore nói trên cũng ghi đông khô hút ẩm trong không khí và có thể mốc nhanh.\": this is a later mention of the Singapore shop. After its first opening (\"Một tiệm ở Singapore ghi …\" in the spoilage paragraph), later mentions must say \"Tiệm này cũng ghi …\".",
-        "Rule 12: \"Tiệm ở Singapore cũng ghi là ở độ ẩm 75–90%, hộp đã mở mất khoảng một nửa vitamin C sau 8–12 tuần.\": this is also a later mention of the Singapore shop, so it must open \"Tiệm này cũng ghi …\", not \"Tiệm ở Singapore cũng ghi\"."
       ],
       "attempt": "rewrite",
       "kept": false
