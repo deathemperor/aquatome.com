@@ -305,8 +305,9 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
     // of staff, 14 Nov 2026).
     expect(cap(when, 'mac', 'album-ask')).toBe(p.ask ?? p.small)
     // The place-name judge: $24 a day on GitHub from 16 Nov to 20 Nov, about 1,200 names a day, with the translations at
-    // $65 in place of $75 so the named lines stay inside GitHub's $180; the default line before and after (the chief of
-    // staff, 15 Nov 2026; Fri 20 added on 18 Nov, so the names are done by Sat 21).
+    // $65 in place of $75 so the named lines but the recheck's stay inside GitHub's $180 (the recheck's own on top, from 18
+    // Nov); the default line before and after (the chief of staff, 15 Nov 2026; Fri 20 added on 18 Nov, so the names are
+    // done by Sat 21).
     expect(cap(when, 'github', 'judge-places')).toBe(p.judge ?? p.small)
     expect(cap(when, 'mac', 'judge-places')).toBe(p.small)
     // The video titles' full run and its per-title check: $22 and $15 on the Mac on 17 Nov alone, with the backstop $37
