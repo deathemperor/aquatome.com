@@ -32,7 +32,7 @@ const fold = (s: string) => s.normalize('NFD').replace(/\p{M}/gu, '').replace(/Ä
         {gr.terms.map(g => {
           const uses = termListing(lang, c, g).uses
           return (
-            <div data-find={fold([g.t.name, ...g.t.altNames, g.en].join(' '))}>
+            <div data-find={fold([g.t.name, ...g.t.altNames, ...(g.t.linkNames ?? []), g.en].join(' '))}>
               <dt><a href={`/vi/thuat-ngu/${g.t.slug}/`}>{g.t.name}</a> <span lang="en">{g.en}</span></dt>
               {g.t.definition && <dd>{g.t.definition}</dd>}
               {uses && <dd class="uses">{t('DÃ¹ng trong {n} trang', { n: num(uses) })}</dd>}
