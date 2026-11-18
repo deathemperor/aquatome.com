@@ -2085,6 +2085,21 @@
   ],
   "vi/guides/youtube-2C3R41TTN1s": [
     {
+      "at": "2026-11-18T13:44:05Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.327",
+      "score": 0.6,
+      "notes": [
+        "Missing main point: the video uses a mature Biom 850 filter from an older tank, with the media's age as the reason for fewer algae problems and for stocking fish and shrimp straight away. The guide only says \"giai đoạn bể mới chạy\" and never states this. Add a short section on the mature-filter swap, and that a well-planted tank is not expected to have ammonia spikes.",
+        "\"Sưởi có thể đặt khoảng 23 °C\": the video says the temperature is set to about 23 °C and never mentions a heater. Say \"nhiệt độ đặt khoảng 23 °C\" and drop \"sưởi\".",
+        "\"đường ống và lọc thì ảnh hưởng đến độ gọn và giai đoạn bể mới chạy\" (intro): this is not a claim the video makes, and neither is \"Chỗ đặt bể quyết định cách làm bố cục\", which is too strong. Remove the pipework and new-tank claim, and soften the second to a hedge such as \"nên cân nhắc chỗ đặt bể khi lên bố cục\".",
+        "The final FAQ block repeats the CO2 bullet and the CO2 paragraph word for word. Remove the duplicate, or fold it into the CO2 section."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
       "at": "2026-11-10T03:29:44Z",
       "model": "sonnet",
       "score": 0.5,
