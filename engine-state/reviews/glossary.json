@@ -1166,6 +1166,38 @@
   ],
   "vi/glossary/oxy-hoa-tan": [
     {
+      "at": "2026-11-18T18:11:37Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Muốn khỏe, cá cần khoảng 5 mg/L oxy hòa tan trở lên.\" (not \"Với phần lớn các loài cá, mức oxy hòa tan trên khoảng 5 mg/L là tốt nhất.\": it drops the advice \"Muốn khỏe\")",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Trong bể, oxy xuống thấp nhất vào sáng sớm, trước lúc trời sáng.\" (not \"Oxy hòa tan thường xuống thấp nhất vào sáng sớm, nhưng oxy thấp có thể xảy ra vào bất cứ lúc nào.\": Rule 12: \"nhưng oxy thấp có thể xảy ra vào bất cứ lúc nào\" in \"Oxy hòa tan thường xuống thấp nhất vào sáng sớm, nhưng oxy thấp có thể …",
+        "Loose, reworded: \"Oxy thường tụt do nuôi quá đông cá, cho ăn dư, chất hữu cơ thối rữa, tảo chết hàng loạt, dùng thuốc hay hóa chất diệt tảo quá tay, mặt nước phẳng lặng, lọc hỏng hoặc bẩn, và mất điện làm máy sủi ngưng.\" → \"Oxy có thể tụt do nuôi quá đông cá, cho ăn dư, chất hữu cơ thối rữa, tảo chết hàng loạt, dùng thuốc hay hóa chất quá liều, sản phẩm diệt tảo, mặt nước phẳng lặng, lọc hỏng hoặ…",
+        "Rule 12: \"lọc hỏng hoặc bẩn\" in \"Oxy thường tụt do nuôi quá đông cá, … lọc hỏng hoặc bẩn, và mất điện làm máy sủi ngưng.\": only one page says a failed or dirty filter causes low oxygen (fact 30, Thế Giới Cá Cảnh), yet the entry states it as plain fact with no credit. That page is not one of the three the entry already names (the Florida university, the Vietnamese shop, the Vietnamese magazine). T…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T18:11:37Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Rule 12: The definition \"Oxy hòa tan là khí oxy (O2) hòa trong nước. Cá chỉ thở được bằng lượng oxy này, không lấy được oxy nằm trong phân tử nước.\" does not match the required wording \"Oxy hòa tan là khí oxy (O2) hòa trong nước, lượng oxy cá cần để thở và sống khỏe.\" It also includes the claim that fish can't use the oxygen in water molecules (fact 0), which THIS TERM says to leave out.",
+        "Rule 12: \"Mặt nước càng gợn thì oxy vào càng nhanh, và CO2 cũng thoát ra ở chỗ này.\" must be exactly \"Mặt nước càng gợn thì oxy vào càng nhanh.\" The added clause says carbon dioxide leaves at the surface (fact 10), which THIS TERM says to leave out as one page's claim.",
+        "Rule 12: In the university's list, \"nước 32 °C giữ khoảng 7,4 mg/L, nước 7 °C giữ khoảng 11,9 mg/L,\" must be exactly \"nước khoảng 32 °C giữ khoảng 7,4 mg/L, còn nước khoảng 7 °C giữ khoảng 11,9 mg/L;\".",
+        "Rule 12: In the university's list, \"nước ấm còn làm cá trao đổi chất nhanh hơn, nên cá dùng hết oxy nhanh hơn.\" must be exactly \"nước ấm còn làm cá trao đổi chất nhanh hơn, nên cá dùng oxy nhanh hơn.\" The word \"hết\" should not be there.",
+        "Rule 12: The first step's opening sentence \"Tăng sục khí ngay: bật máy sủi, chỉnh đầu ra của lọc cho khuấy mặt nước.\" must be exactly \"Tăng sục khí ngay: bật máy sủi.\" The filter-outlet step (fact 34, a maker's page) is to be left out.",
+        "Rule 12: The step \"Đo amoniac và nitrit.\" must be removed. No fact gives testing ammonia and nitrite as a first-aid step, and THIS TERM says it is not one of the steps.",
+        "Rule 12: The last step \"Tìm nguyên nhân rồi xử lý: dọn chất hữu cơ đang thối rữa, xem lại số cá và lượng thức ăn.\" must be replaced with exactly \"Sau đó tìm nguyên nhân và loại bỏ nó.\" Its \"xem lại số cá và lượng thức ăn\" is a remedy no fact gives, which THIS TERM says to leave out.",
+        "The entry is 511 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-18T17:39:57Z",
       "model": "sonnet",
       "cli": "2.1.327",
