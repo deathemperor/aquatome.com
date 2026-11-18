@@ -1152,11 +1152,12 @@ test('Vietnamese typed without accents is read as a keeper means it: the first m
   expect(said('id', 'ikan neon ada jamur putih')).not.toContain('without Vietnamese accents')
 })
 
-test('a long post\'s first line is written from its end; the run still reads the whole post', async () => {
+test('a long post\'s first line is written from its opening and its end; the run still reads the whole post', async () => {
   const h = await hb()
   const final = answer([], { text: 'Chia đèn hai đợt được.' })
   const bodies: { call: number; body: Anthropic.MessageCreateParamsNonStreaming }[] = []
-  const question = `Dòng đầu của bài viết. ${'Bể em set 3 tháng, đèn 8 tiếng, thay nước mỗi tuần. '.repeat(12)}Lá ráy có đốm rêu xanh. Có nên chia đèn không?`
+  const set = 'Bể em set 3 tháng, đèn 8 tiếng, thay nước mỗi tuần. '.repeat(6)
+  const question = `Dòng đầu của bài viết. ${set}Giữa bài viết. ${set}Lá ráy có đốm rêu xanh. Có nên chia đèn không?`
   await answerQuestion({
     send: async (body, opts) => {
       bodies.push({ call: opts.call, body })
@@ -1166,8 +1167,9 @@ test('a long post\'s first line is written from its end; the run still reads the
   })
   const said = (n: number) => JSON.stringify(bodies.find(b => b.call === n)!.body.messages)
   expect(said(0)).toContain('Có nên chia đèn không?')
-  expect(said(0)).not.toContain('Dòng đầu của bài viết')
-  expect(said(1)).toContain('Dòng đầu của bài viết')
+  expect(said(0)).toContain('Dòng đầu của bài viết')
+  expect(said(0)).not.toContain('Giữa bài viết')
+  expect(said(1)).toContain('Giữa bài viết')
 })
 
 test('the first line comes from a call of its own beside the run\'s first, before the first step; it counts in the turn\'s tokens, and the run\'s calls are as without it', async () => {
@@ -1289,4 +1291,26 @@ test('no first line is shown when it says the question is off topic, isn\'t in t
   // Shown, then the answer is off topic: the run keeps the line it showed, for the transcript (the turn leaves it out: api.ts).
   const offTopic = await turn({ line: text('Mình đang tra cẩm nang về cá neon xanh.'), first: later, text: JSON.stringify({ ...final, offTopic: true }) })
   expect([offTopic.shown.length, offTopic.opening]).toEqual([1, 'Mình đang tra cẩm nang về cá neon xanh.'])
+})
+
+test('a long post whose questions don\'t all fit in a line has its line written from its first, and the rest said after it (17 of 21 long Vietnamese tries got no line, 17 and 18 Nov)', async () => {
+  const h = await hb()
+  const final = answer([], { text: 'Nền trơ vẫn trồng được ráy.' })
+  const question = 'Bể mình 60x30x30, mới set được hai tuần, trồng ráy và rong đuôi chồn, đèn bật 8 tiếng mỗi ngày, chưa thả cá con nào. Mình nên dùng phân nền gì cho bể này? Chơi nền trơ có được không, hay phải có phân nền mới lên cây? Lọc thác 6W chạy cho bể này có đủ không?'
+  let asked = ''
+  const out = await answerQuestion({
+    send: async (body, opts) => {
+      if (opts.call === 0) {
+        asked = JSON.stringify(body.messages)
+        return message([{ type: 'text', text: 'Mình đang tra cẩm nang xem bể 60x30x30 của bạn nên dùng phân nền gì.' }])
+      }
+      if (opts.call === 1) { await new Promise(r => setTimeout(r, 0)); return message([readPage], 'tool_use') }
+      return message([{ type: 'text', text: JSON.stringify(final) }])
+    },
+    model: 'claude-haiku-5-5', lang: 'vi', question, earlier: [], start: {}, handbook: h, tanks: async () => [],
+    opening: true, onOpening: () => {}, onStep: () => {},
+  })
+  expect(asked).toContain('Mình nên dùng phân nền gì cho bể này?')
+  expect(asked).not.toContain('Lọc thác')
+  expect(out.opening).toBe('Mình đang tra cẩm nang xem bể 60x30x30 của bạn nên dùng phân nền gì, và mấy câu khác của bạn.')
 })
