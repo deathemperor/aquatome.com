@@ -726,11 +726,14 @@ final class V2FlowTests: XCTestCase {
   func testForTheOwnerThePageShowsUnderTheTabBarAndItsSwitchBringsTheFadeBack() {
     let app = XCUIApplication()
     // Khám phá long enough to scroll well past a drag (`-familiar`): the fixed index's own is about a screen tall, and
-    // with the rows' 3:2 pictures it scrolled about 30 points, its blank foot all that went under the bar. Its photos
-    // drawn (`-fixed-pictures`): with none, only white and pale grey passed under the bar, which iOS 26.5's glass (CI's)
-    // frosts to near one colour, 0.77% of its place changing with the trial on (17 Nov), against 6% on 27.2.
-    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-fixed-pictures", "-reset-defaults",
-                           "-v2", "YES", "-fake-accounts", "on", "-reset-fake-server", "-fake-owner", "ui-apple", "-familiar", "8"]
+    // with the rows' 3:2 pictures it scrolled about 30 points, its blank foot all that went under the bar. Three of them
+    // read (`-read-familiar`), so "Đọc gần đây" stands above the fish shelf and pushes it down: on GitHub's iPhone 17 the
+    // shelf's last row, a fish's name and its lines, is under the bar at rest, and the drag takes it away and brings the
+    // next shelf's heading in. Without it, with the chips under the title, only the grey guide card and blank ground
+    // passed, which iOS 26.5's glass (CI's) frosts to near one colour: 0.77% of the bar's place changed with the trial on
+    // (17 Nov), against 6% on 27.2. Main, before the chips, passes on 26.5 on words passing alone.
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults", "-v2", "YES",
+                           "-fake-accounts", "on", "-reset-fake-server", "-fake-owner", "ui-apple", "-familiar", "8", "-read-familiar", "3"]
     app.launch()
     XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 10), "no Hôm nay")
     app.openAccount()
