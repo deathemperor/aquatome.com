@@ -265,6 +265,19 @@ func howAPressLeftEach() {
   #expect(MasterRun.end(lost.back[0], now: true, left: left(lost, fanOn), role: "fan") == .send)
   #expect(MasterRun.end(lost.back[0], now: false, left: left(lost, fanOn), role: "fan") == .already)
   #expect(MasterRun.end(went.back[0], now: true, left: left(went, fanOn), role: "fan") == .send)
+  // An earlier press switched the fan off and still owes it back on; this press, the button edited, asks it on, its
+  // answer lost, read after still off (Fable, 18 Nov). Found off at the end: the step may never have gone, so it isn't
+  // taken as a hand's change: it goes back on, as owed. Where the step went, a hand switched it off since: left.
+  var owedOn = MasterRun.Back(command: DeviceCommand(device: plug, outlet: "switch_3", on: true))
+  owedOn.left = false
+  func again() -> MasterRun { MasterRun(MasterButton(name: "x", steps: [fanOn], minutes: 60), at: m0, before: { _ in false }, lamp: nil, owed: [owedOn]) }
+  var guessedOn = again()
+  guessedOn.settle(fanFailed, now: { _ in false }, keeping: [owedOn.command.target], at: m0, uncertain: [fanOn.target])
+  #expect(guessedOn.back.count == 1 && left(guessedOn, fanOn) == true && guessedOn.back[0].guessed == true)
+  #expect(MasterRun.end(guessedOn.back[0], now: false, left: left(guessedOn, fanOn), role: "fan") == .send)
+  var wentOn = again()
+  wentOn.settle([], now: { _ in nil }, keeping: [owedOn.command.target], at: m0)
+  #expect(MasterRun.end(wentOn.back[0], now: false, left: left(wentOn, fanOn), role: "fan") == .leave)
 }
 
 @Test("A put-back tried again: after a try that may have gone, or one the app was closed during, a failed one says the state isn't known, never what of it didn't go")

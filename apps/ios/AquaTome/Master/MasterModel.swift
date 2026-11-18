@@ -257,6 +257,9 @@ final class MasterModel {
         let changed = b.guessed == true
           ? String(localized: "Không rõ lệnh đã tới ổ \(name) chưa, nên AquaTome để nguyên. Bạn xem lại ổ này.")
           : String(localized: "Ổ \(name) đã đổi trong lúc chạy nên AquaTome để nguyên.")
+        // Only guessed, found back after a put-back try of its own that may have gone: that try may be what put it back,
+        // so it says AquaTome put it back, not that it left it (Fable, 18 Nov).
+        let putBack = String(localized: "AquaTome đã trả ổ \(name) về như cũ: lúc bấm, ổ chưa báo đã đổi. Bạn xem lại ổ này.")
         // Back already; switched since the last press left it (a hand, its schedule): left; made a heater: left, and said
         // so (Fable, 18 Nov); CO2: never on; not read: stays owed, for Trả lại.
         let end = MasterRun.end(b, now: read ? board.on(key) : nil, left: b.left ?? kept[c.target], role: role(c))
@@ -268,10 +271,11 @@ final class MasterModel {
           r.back[i].done = true
           r.back[i].problem = nil
           switch end {
-          // Back already. Only guessed: whether the press's step went isn't known, whatever put it back since, so it says
-          // so, and to look, on Trả lại too (the chief, 18 Nov; Codex). Else, after a try of its own that may have gone:
-          // that try may be what put it back, so no word that something else changed it and AquaTome left it.
-          case .already: if b.guessed == true { tell(changed) } else if !b.earlier, let l = b.left ?? kept[c.target], l != c.on { tell(changed) }
+          // Back already. Only guessed: always a note, and to look, on Trả lại too (the chief, 18 Nov; Codex): that
+          // AquaTome put it back, after a try of its own that may have gone; else that it isn't known whether the press's
+          // step went, and AquaTome left it. Else, after a try of its own that may have gone: that try may be what put it
+          // back, so no word that something else changed it and AquaTome left it.
+          case .already: if b.guessed == true { tell(b.earlier ? putBack : changed) } else if !b.earlier, let l = b.left ?? kept[c.target], l != c.on { tell(changed) }
           case .hold: tell(String(localized: "AquaTome không tự bật lại CO2. Cần thì bật ổ CO2 trong Bể của tôi."))
           case .heater: tell(String(localized: "Ổ \(name) giờ được ghi là ổ sưởi nên AquaTome để nguyên. Bạn xem lại ổ này."))
           case .leave: tell(changed)

@@ -102,13 +102,14 @@ let masterCardList = #"""
 - finish · `let changed = b.guessed == true` · The note for an outlet the end leaves:
 - finish · `? String(localized:` · the press's step's answer lost and the outlet not read after it: not known whether it reached the outlet, AquaTome left it;
 - finish · `: String(localized:` · else, that it changed during the run and AquaTome left it. Both true of this end, which sends it nothing.
+- finish · `let putBack = String(localized:` · The note for an outlet only guessed, found back after a put-back try of its own that may have gone: AquaTome put it back (that try may be what did), and to look at it (Fable, 18 Nov).
 - finish · `let end = MasterRun.end(` · What the end does with an outlet's put-back (`MasterRun.end`, below): by the outlet as read now, how the press left it, its role now.
 - finish · `if end == .unread {` · Not read:
 - finish · `r.back[i].failed(Switcher.unreached(name)` · nothing sent now; says it wasn't reached, or, a try before it may have gone, that it's not known.
 - finish · `if end != .send {` · Nothing to send:
 - finish · `r.back[i].done = true` · done;
 - finish · `r.back[i].problem = nil` · its line goes.
-- finish · `case .already: if b.guessed == true { tell(changed) } else if !b.earlier` · Back already: only guessed, that it isn't known whether the press's command reached it, AquaTome left it, look at it (whatever put it back: true after a try of its own too); else no note when a try of its own may be what put it back; else, if the press had changed it, that something else did and AquaTome left it.
+- finish · `case .already: if b.guessed == true { tell(b.earlier ? putBack : changed) } else if !b.earlier` · Back already: only guessed, always a note, and to look: after a try of its own that may have gone, that AquaTome put it back; else that it isn't known whether the press's command reached it, and AquaTome left it (this end sends nothing). Not guessed: no note when a try of its own may be what put it back; else, if the press had changed it, that something else did and AquaTome left it.
 - finish · `case .hold: tell(` · CO2 left off: AquaTome never switches CO2 on.
 - finish · `case .heater: tell(` · Made a heater since the press: left, and says so (the button never switches one; Fable, 18 Nov).
 - finish · `case .leave: tell(changed)` · Switched since the press left it: this end sends nothing, and says so.
@@ -244,7 +245,7 @@ let masterCardList = #"""
 - settle · `if missed.isSuperset(of: steps.map(\.target)), back.isEmpty { ended = t }` · Every step failed and nothing goes back: it ends now.
 - End · `case heater` · Made a heater since the press: the end's own case, with its own note (Fable, 18 Nov).
 - end · `if now == c.on { return .already }` · Reads as it goes back: nothing to send.
-- end · `if let now, let left, now != left { return .leave }` · Switched since the press left it: left, and said so.
+- end · `if let now, let left, now != left, b.guessed != true { return .leave }` · Switched since the press left it: left, and said so. Not one only guessed: its step may never have gone, so it goes back as owed (Fable, 18 Nov).
 - end · `if role == "heater" { return .heater }` · A heater never switched; before CO2's hold, so its note says it is a heater now.
 - end · `if c.on && (b.held == true || role == "co2") { return .hold }` · CO2 never switched on.
 - end · `if now == nil { return .unread }` · Not read: nothing sent, owed for Trả lại.

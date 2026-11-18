@@ -171,11 +171,12 @@ public struct MasterRun: Sendable, Equatable, Codable {
   /// What the end does with `b`, an outlet's put-back, by how the outlet reads now (`now`, nil when not read), how the
   /// last press to set it left it (`left`: `Back.left`) and the outlet's role now. One no
   /// longer as this press left it is left as it is, whatever an earlier press still owes for it: what goes back is the
-  /// state from before both, and switching it would undo a hand's change.
+  /// state from before both, and switching it would undo a hand's change. Not one only guessed (`Back.guessed`): its
+  /// step may never have gone, so it goes back as owed (Fable, 18 Nov; a hand's change undone is the cost the chief took).
   public static func end(_ b: Back, now: Bool?, left: Bool?, role: String?) -> End {
     let c = b.command
     if now == c.on { return .already }
-    if let now, let left, now != left { return .leave }
+    if let now, let left, now != left, b.guessed != true { return .leave }
     if role == "heater" { return .heater }
     if c.on && (b.held == true || role == "co2") { return .hold }
     if now == nil { return .unread }
