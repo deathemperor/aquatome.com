@@ -204,3 +204,26 @@ test('a fish page shows its readers\' photos after its album, in their own viewe
   expect(await album.locator('script[type="application/json"]').evaluate(s => (JSON.parse(s.textContent!) as { photos: unknown[] }).photos.length)).toBe(own)
   expect(errors).toEqual([])
 })
+
+// Closed on a photo whose tile is off the screen (stepped round from the last to the first): focus goes to that tile,
+// brought into view, not left off the screen (Codex's read of the album's change to the shared viewer, 18 Nov).
+test('readers\' photos: closed on a photo whose tile is off the screen, its tile is focused in view', async ({ page, errors }) => {
+  const many = Array.from({ length: 40 }, (_, i) => ({ id: `t${i + 1}`, name: `Bạn ${i + 1}`, url: photo(i + 1), thumb: photo(i + 1), width: 1200, height: 900, createdAt: new Date(Date.UTC(2026, 10, 1, 0, i)).toISOString() }))
+  await page.route(url => url.pathname === '/_p' && url.searchParams.has('e'), route => route.fulfill({ json: { photos: many, sitekey: 'x', verification: 'phone' } }))
+  await page.route(url => url.pathname.startsWith('/_e2e/'), route => route.fulfill({ contentType: 'image/svg+xml', body: svg(Number(/(\d+)\.svg$/.exec(route.request().url())![1])) }))
+  const fish = sourcePages().find(p => /^\/ca\/[^/]+\/$/.test(p))!
+  await page.goto(fish)
+  const tiles = page.locator('[data-reader-photos] [data-list] button')
+  await expect(tiles).toHaveCount(40)
+  await tiles.last().click()
+  const viewer = page.locator('dialog.pv')
+  await expect(viewer.locator('.by')).toContainText('40/40')
+  await viewer.getByRole('button', { name: 'Ảnh sau' }).click()
+  await expect(viewer.locator('.by')).toContainText('1/40')
+  test.skip(await tiles.first().evaluate(t => t.getBoundingClientRect().bottom > 0 && t.getBoundingClientRect().top < innerHeight), 'the first tile on the screen here')
+  await page.keyboard.press('Escape')
+  await expect(viewer).toBeHidden()
+  await expect(tiles.first()).toBeFocused()
+  await expect(tiles.first()).toBeInViewport()
+  expect(errors).toEqual([])
+})

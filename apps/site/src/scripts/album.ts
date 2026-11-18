@@ -28,9 +28,10 @@ if (box && json) {
   const photos: ViewerPhoto[] = album.photos.map(p => ({ src: p.u, thumb: p.t, width: p.w, height: p.h, alt: p.c ?? album.name, ...(p.c ? { caption: p.c } : {}), credit: credit(p) }))
   // Focus goes back to the closing photo's thumb, in view (the Design Lead, 18 Nov): the phone's row, which scrolls
   // sideways, brings a thumb past its edge back first, its start at the row's (where the row's scroll snaps). The page
-  // stays where it was left (the viewer focuses without scrolling), so a thumb wholly above or below the screen doesn't
-  // take it; one partly on it does. Else to what opened the viewer: the tall screen's column clips the rows past its last
-  // whole one, and most of an album has no thumb.
+  // stays where it was left (the viewer focuses without scrolling one partly on the screen), so a thumb wholly above or
+  // below the screen, or under what stays on it over the strip (the jump row at its top, over a wrapped strip), doesn't
+  // take it; one partly on it does. Else to what opened the viewer: the tall screen's column clips the rows past its
+  // last whole one, and most of an album has no thumb.
   let opener: HTMLElement | undefined
   // A thumb the strip shows: laid out, and within its list's height (the tall screen's column clips the rows below).
   const shows = (a: HTMLElement, v = (a.closest('ul') ?? box).getBoundingClientRect()) => {
@@ -42,7 +43,11 @@ if (box && json) {
     for (const a of box.querySelectorAll<HTMLElement>(`a[data-i="${i}"]`)) {
       if (!shows(a)) continue
       const ul = a.closest('ul') ?? box, r = a.getBoundingClientRect(), v = ul.getBoundingClientRect()
-      if (r.bottom <= 0 || r.top >= innerHeight) continue
+      const [top, bottom] = [Math.max(r.top, 0), Math.min(r.bottom, innerHeight)]
+      if (bottom <= top) continue
+      // What's drawn at the middle of the row's part on the screen, at the thumb's height: the row, or what covers it.
+      const hit = document.elementFromPoint((Math.max(v.left, 0) + Math.min(v.right, innerWidth)) / 2, (top + bottom) / 2)
+      if (!hit || !ul.contains(hit)) continue
       if (r.left < v.left - 1 || r.right > v.right + 1) {
         if (ul.scrollWidth <= ul.clientWidth) continue
         ul.scrollLeft += r.left - v.left

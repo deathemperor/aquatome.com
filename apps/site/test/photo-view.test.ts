@@ -72,9 +72,9 @@ test('the viewer adds one entry, whatever it steps through, and closing it by it
   v.step(3, '#a4')
   v.step(4, '#a5')
   expect(t.urls()).toEqual(['/ca/x/', '/ca/x/#a5'])
-  v.close()
+  expect(v.close(), 'it went back').toBe(true)
   expect([t.at(), t.here(), v.current()]).toEqual([0, '/ca/x/', null])
-  v.close() // closed already: Back isn't pressed again
+  expect(v.close(), 'closed already: Back isn\'t pressed again').toBe(false)
   expect(t.at()).toBe(0)
 })
 

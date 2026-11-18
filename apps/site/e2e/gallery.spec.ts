@@ -322,6 +322,7 @@ test('album, a phone: closed on a photo whose thumb is past the row\'s edge, the
   await expect(page).toHaveURL(at(path, `#a${past! + 1}`))
   await page.keyboard.press('Escape')
   await expect(viewer).toBeHidden()
+  await expect(page).toHaveURL(at(path)) // its close handler has run (the dialog's own focus comes first)
   const back = row.locator(`li a[data-i="${past}"]`)
   await expect(back).toBeFocused()
   const [r, v] = await back.evaluate(a => [a.getBoundingClientRect().toJSON(), a.closest('ul')!.getBoundingClientRect().toJSON()] as DOMRect[])
@@ -362,6 +363,7 @@ test('album, a phone: closed with the strip off the screen, the page stays, focu
   await expect(page).toHaveURL(at(path, `#a${past! + 1}`))
   await page.keyboard.press('Escape')
   await expect(viewer).toBeHidden()
+  await expect(page).toHaveURL(at(path)) // its close handler has run (the dialog's own focus comes first)
   await expect(chip).toBeFocused()
   expect(await page.evaluate(() => scrollY), 'the page where it was').toBe(y)
   expect(errors).toEqual([])
@@ -396,7 +398,48 @@ test('album, a phone: the row partly on the screen, closed on the thumb beside t
   await expect(page).toHaveURL(at(found!.path, `#a${Number(k) + 2}`))
   await page.keyboard.press('Escape')
   await expect(viewer).toBeHidden()
+  await expect(page).toHaveURL(at(found!.path)) // its close handler has run (the dialog's own focus comes first)
   await expect(next).toBeFocused()
+  expect(await page.evaluate(() => scrollY), 'the page where it was').toBe(y)
+  expect(errors).toEqual([])
+})
+
+// The row's foot under a bar that stays at the screen's top (as the jump row does over a wrapped strip; none in the
+// build, so one is put there): its thumbs are hidden, so closing on one gives focus to the chip that opened the viewer,
+// and the page stays where it was (Codex's read, 18 Nov).
+test('album, a phone: closed on a thumb under a bar at the screen\'s top, focus goes to the chip', async ({ page, request, errors, isMobile }) => {
+  test.skip(!isMobile, 'the photo column is a sideways row on a phone')
+  const found = await albumPage(request, 'ca', (a, html) => a.photos.length >= 6 && /class="strip column/.test(html) && /<nav[^>]*class="[^"]*\bjump\b/.test(html))
+  test.skip(!found, 'no fish page with a photo row and a jump row in this build')
+  const { path } = found!
+  await page.goto(path)
+  await page.waitForLoadState()
+  const row = page.locator('section.strip.column ul')
+  // The first photo with a thumb in the row's view.
+  const k = await row.evaluate(ul => {
+    const v = ul.getBoundingClientRect()
+    return Number([...ul.querySelectorAll<HTMLElement>('li a[data-i]')].find(a => a.getBoundingClientRect().right <= v.right + 1)!.dataset.i)
+  })
+  // A bar 50 px high at the screen's top, over the row's foot, 30 px of it on the screen.
+  await page.evaluate(() => {
+    const bar = document.createElement('div')
+    bar.style.cssText = 'position: fixed; inset: 0 0 auto 0; height: 50px; z-index: 5; background: #222'
+    document.body.append(bar)
+    scrollTo({ top: scrollY + document.querySelector('section.strip.column ul')!.getBoundingClientRect().bottom - 30, behavior: 'instant' })
+  })
+  const chip = page.locator('nav.jump a[href="#a1"]')
+  const [box, c] = [(await row.boundingBox())!, (await chip.boundingBox())!]
+  test.skip(Math.abs(box.y + box.height - 30) > 1 || c.y < 50, 'the page too short to put the row there, or the chip under the bar')
+  const y = await page.evaluate(() => scrollY)
+  await page.touchscreen.tap(c.x + c.width / 2, c.y + c.height / 2)
+  const viewer = page.locator('dialog.lb')
+  await expect(page).toHaveURL(at(path, '#a1'))
+  for (let j = 0; j < k; j++) await page.keyboard.press('ArrowRight')
+  await expect(page).toHaveURL(at(path, `#a${k + 1}`))
+  await page.keyboard.press('Escape')
+  await expect(viewer).toBeHidden()
+  await expect(page).toHaveURL(at(path)) // its close handler has run (the dialog's own focus comes first)
+  await expect(chip).toBeFocused()
   expect(await page.evaluate(() => scrollY), 'the page where it was').toBe(y)
   expect(errors).toEqual([])
 })
@@ -426,6 +469,7 @@ test('album: an early tap, Back, then the chip: closing gives focus to no stale 
   await expect(viewer.getByRole('status')).toHaveText(`${album.photos.length}/${album.photos.length}`)
   await page.keyboard.press('Escape')
   await expect(viewer).toBeHidden()
+  await expect(page).toHaveURL(at(path)) // its close handler has run (the dialog's own focus comes first)
   await expect(all).not.toBeFocused()
   expect(errors).toEqual([])
 })
@@ -453,6 +497,7 @@ test('album: "Xem tất cả" tapped while the album\'s script loads, closed on 
   await expect(viewer.getByRole('status')).toHaveText(`${album.photos.length}/${album.photos.length}`)
   await page.keyboard.press('Escape')
   await expect(viewer).toBeHidden()
+  await expect(page).toHaveURL(at(path)) // its close handler has run (the dialog's own focus comes first)
   await expect(all).toBeFocused()
   expect(errors).toEqual([])
 })

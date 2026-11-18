@@ -93,8 +93,13 @@ export function createViewer({ id, photos, tile, address }: ViewerOptions): View
       finish()
       zoom(1, { x: 0, y: 0 }, false)
       points.clear()
-      hist.close()
-      tile(at)?.focus({ preventScroll: true }) // the page stays where it was left
+      const back = hist.close()
+      // A tile on the screen, even partly, takes focus where it is, the page left where it was. One off it is brought
+      // into view once Back, under way, has put the page's scroll back as it was, which would undo it: the frame after
+      // its popstate (at the popstate itself, Chromium's restoring cancelled the focus's scroll).
+      const t = tile(at), r = t?.getBoundingClientRect(), on = !!r && r.bottom > 0 && r.top < innerHeight
+      if (on || !back) t?.focus({ preventScroll: on })
+      else addEventListener('popstate', () => requestAnimationFrame(() => t?.focus()), { once: true })
     })
     track.addEventListener('transitionend', e => { if (e.target === track) finish() })
     new ResizeObserver(layout).observe(stage)

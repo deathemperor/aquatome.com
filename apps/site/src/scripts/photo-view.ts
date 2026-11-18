@@ -76,7 +76,11 @@ export function viewerHistory(h: Hist, id: string) {
       h.pushState({ viewer: id, photo: i }, '', url)
     },
     step,
-    /** Closed by its button, Esc or a tap outside it: back to the entry below. */
-    close() { if (mine(h.state) !== null) h.back() },
+    /** Closed by its button, Esc or a tap outside it: back to the entry below. Whether it went back (it's under way). */
+    close() {
+      if (mine(h.state) === null) return false
+      h.back()
+      return true
+    },
   }
 }
