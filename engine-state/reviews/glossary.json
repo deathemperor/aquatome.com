@@ -463,6 +463,33 @@
   ],
   "vi/glossary/mang-sinh-hoc": [
     {
+      "at": "2026-11-18T01:15:05Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Thả tép khi bể chưa chạy xong chu trình.\" (not \"Thả tép khi bể chưa ổn định, trong khi bể cần 6 đến 8 tuần để ổn định.\": Rule 12: \"Thả tép khi bể chưa ổn định, trong khi bể cần 6 đến 8 tuần để ổn định.\" should read word for word \"Thả tép khi bể chưa chạy xong chu trình.\", as THIS TERM says. The \"6 đến 8 t…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T01:15:05Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Nó phủ trên kính, lũa, đá nham thạch và cây trong bể.\": the meaning must say word for word \"Nó phủ trên lũa, đá và các bề mặt khác trong bể.\" Glass (fact 12) and plants (fact 13) each come from only one page, so they can't be named here. \"Đá nham thạch\" should be \"đá\", and \"các bề mặt khác\" is missing.",
+        "Rule 12: \"Lũa mới thả vài ngày thường xuất hiện một lớp lông trắng hoặc xám, nhầy, có khi thành sợi.\": this must read word for word \"Lũa mới thả vài ngày thường xuất hiện một lớp lông trắng, nhầy.\" Grey (\"hoặc xám\", fact 10) and stringy (\"có khi thành sợi\", fact 11) each come from only one page and must be left out.",
+        "Rule 12: \"Tiệm thứ nhất cũng ghi: màu xanh là tảo, còn màu nâu có thể là tảo nâu hoặc màng có lẫn tảo nâu. Vi khuẩn nở rộ làm đục cả nước bể, còn màng sinh học bám trên bề mặt.\": the full stop ends the credit, so the bloom sentence, which comes from only one page (fact 15), stands as plain fact. It must be joined with a semicolon: \"…màng có lẫn tảo nâu; vi khuẩn nở rộ làm đục cả nước bể, còn màng…",
+        "Rule 12: \"Mảng nào bong ra thì hút bằng ống xi phông.\": this must read \"Có thể hút bớt màng trên lũa bằng ống xi phông.\" \"Bong ra\" (loose bits) comes from only one page (fact 31) and must go.",
+        "Rule 12: \"Nguồn người nuôi này cũng ghi: muốn màng mọc nhiều hơn, … cho màng bám vào rễ. Màng cần vài ngày để bắt đầu mọc và vài tuần mới dày.\": the full stop ends the credit, so fact 30, which comes from only one page, stands as plain fact. It must be joined with a semicolon: \"…cho màng bám vào rễ; màng cần vài ngày để bắt đầu mọc và vài tuần mới dày.\"",
+        "Rule 12: \"Cho ăn nhiều hoặc rắc quá tay thức ăn bột để nuôi màng. Nguồn người nuôi này cũng ghi: làm vậy sẽ đẩy amoniac, nitrit, nitrat lên…\": the mistake itself comes from only one page (fact 37), so it can't stand as a plain sentence before the credit. It must read word for word \"Nguồn người nuôi này cũng ghi: cho ăn nhiều hoặc rắc quá tay thức ăn bột để nuôi màng sẽ đẩy amoniac, nitrit, nitrat…"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-18T01:06:05Z",
       "model": "sonnet",
       "cli": "2.1.326",
@@ -513,39 +540,6 @@
       ],
       "attempt": "rewrite",
       "kept": false
-    },
-    {
-      "at": "2026-11-18T01:00:31Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 0.96,
-      "notes": [
-        "\"Tiệm thứ nhất cũng ghi: lắp skimmer hút váng nếu muốn hết lâu dài.\": the facts don't carry it (supported, unsupported, unsupported): credits the skimmer advice to the first shop (source 0); it came from other shops / Credits the skimmer advice to the 'first shop' (source 0), but it comes from other sources.",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Nó phủ trên kính, lũa, đá nham thạch và cây trong bể.\" (not \"Nó phủ trên kính, lũa, đá nham thạch, lũa cholla, mút lọc và rêu trong bể.\": Rule 12: \"Nó phủ trên kính, lũa, đá nham thạch, lũa cholla, mút lọc và rêu trong bể.\": THIS TERM gives this clause as \"Nó phủ trên kính, lũa, đá nham thạch và cây trong…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Lũa mới thả vài ngày thường xuất hiện một lớp lông trắng hoặc xám, nhầy, có khi thành sợi.\" (not \"Trên lũa mới thả, lớp màng này hiện ra thành một lớp lông trắng hoặc xám.\": Rule 12: \"Trên lũa mới thả, lớp màng này hiện ra thành một lớp lông trắng hoặc xám.\": THIS TERM sets this as \"Lũa mới thả vài ngày t…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Lớp này không độc và thường tự hết sau vài tuần.\" (not \"Lớp này vô hại và thường tự hết sau 2 đến 6 tuần.\": Rule 12: \"Lớp này vô hại và thường tự hết sau 2 đến 6 tuần.\": only one shop gives 2–6 weeks (fact 19), and here it has no credit. THIS TERM sets the line as \"Lớp này không độc và thường tự hết sau v…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Thả tép khi bể chưa chạy xong chu trình.\" (not \"Thả tép khi bể chưa đủ trưởng thành, vì bể cần 6 đến 8 tuần để trưởng thành.\": Rule 12: \"Thả tép khi bể chưa đủ trưởng thành, vì bể cần 6 đến 8 tuần để trưởng thành.\": this line must be word for word \"Thả tép khi bể chưa chạy xong chu trình.\" Also, only one …",
-        "Rule 12: \"Tép, cá bột và cá Otocinclus đều gặm lớp màng này.\" Only the first shop says fish fry graze the film (fact 24). THIS TERM requires the plain sentence to read \"Tép và cá Otocinclus đều gặm lớp màng này.\" The fry may go under that shop's credit, next to the baby shrimp, or be left out. They must never be in the plain sentence.",
-        "Rule 12: \"Tiệm thứ nhất cũng ghi: lắp skimmer hút váng nếu muốn hết lâu dài.\" THIS TERM says this line has no credit, because research found other pages for it (facts 54, 73, 76, 78). It also says never to put \"Tiệm thứ nhất cũng ghi:\" on the skimmer. The skimmer fact also isn't the first shop's (source 0) to begin with.",
-        "Rule 12: \"Tiệm thứ hai cũng ghi: chỉnh đầu ra của lọc cho mặt nước gợn nhẹ, tránh bắn tung tóe mạnh.\" THIS TERM lists the second shop's claims, and fact 49 (fish gasping) is its only one. The outlet tip (fact 51) is not among the claims that credit may carry."
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-18T00:54:56Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 1,
-      "notes": [
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Nó phủ trên kính, lũa, đá nham thạch và cây trong bể.\" (not \"Nó phủ trên kính, lũa, đá nham thạch và rêu trong bể.\": Rule 12: \"Nó phủ trên kính, lũa, đá nham thạch và rêu trong bể.\" The required line is \"Nó phủ trên kính, lũa, đá nham thạch và cây trong bể\" (facts 12, 13). It must say \"cây\", not \"rêu\".)",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Lũa mới thả vài ngày thường xuất hiện một lớp lông trắng hoặc xám, nhầy, có khi thành sợi.\" (not \"Trên lũa mới thả, nó hiện ra thành một lớp lông trắng hoặc xám.\": Rule 12: \"Trên lũa mới thả, nó hiện ra thành một lớp lông trắng hoặc xám.\" The required line is \"Lũa mới thả vài ngày thường xuất hiện một lớp…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Thả tép khi bể chưa chạy xong chu trình.\" (not \"Thả tép khi bể chưa đủ thời gian ổn định.\": Rule 12: \"Thả tép khi bể chưa đủ thời gian ổn định.\" The cycled-tank mistake must be word for word: \"Thả tép khi bể chưa chạy xong chu trình.\")",
-        "Rule 12: \"Tép, cá bột và cá Otocinclus đều gặm lớp màng này.\" puts fish fry (\"cá bột\") in the plain, uncredited sentence. Only the first shop says fry graze the film (fact 24). THIS TERM says the plain sentence is \"Tép và cá Otocinclus đều gặm lớp màng này.\" Fry may only appear under the first shop's credit, next to the baby shrimp, or be left out.",
-        "Rule 12: \"Tiệm thứ nhất cũng ghi: lắp skimmer hút váng nếu muốn hết lâu dài.\" credits the skimmer to the first shop. THIS TERM says this line has no credit, and \"Tiệm thứ nhất cũng ghi:\" must never go on the skimmer, because research found other pages for it (facts 54, 73, 76, 78). It should read \"Lắp skimmer hút váng nếu muốn hết lâu dài.\""
-      ],
-      "attempt": "rewrite",
-      "kept": true
     }
   ],
   "vi/glossary/nen-be": [
