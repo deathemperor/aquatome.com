@@ -10,7 +10,8 @@
     "brazil",
     "amazon",
     "venezuela",
-    "peru"
+    "peru",
+    "rio-negro"
   ],
   "range": {
     "native": {
@@ -205,6 +206,12 @@
       "html": "<p>Like the Angelfish (Pterophyllum) and Cichlasoma festivum, the Discus inhabits the vast Amazon region, extending from the middle reaches of the Amazon River far into the jungles of the Venezuelan and Peruvian flood basins.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/symphysodon-discus-blue-head-tumbira-2/",
+      "html": "<p>The name Tumbira refers to a Tukano community on the bank of the Rio Negro, below Sao Gabriel de Cachoeira. These are still wild-collected discus.</p>"
+    },
+    {
       "key": "habitat",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/discus-symphysodon-3988902",
@@ -251,9 +258,56 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/discus-symphysodon-3988902",
       "html": "<p>Viewed from the front, Discus are extremely thin for their size, but from the side they are nearly round, hence the name discus, Latin for plate or dish. Their basic body colour in nature is brown. Brilliant blue bars cover both the dorsal and anal fins and extend onto the back and belly. The dorsal, ventral and anal fins are edged in bright red.</p><p>A variety from Lake Tefé, Brazil, has bright metallic green or blue bars all over its fins and body and is occasionally called the Royal Discus.</p><p>Over the decades many varieties have appeared, such as red, yellow, and orange to yellow forms like the Sunset Discus. These varieties do not occur in nature; they have been developed over many years of careful breeding.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/symphysodon-discus-blue-head-tumbira-2/",
+      "html": "<p>Blue Head Tumbira is a remarkable Heckel discus variety. Not every specimen has a solid blue opercle: as these are wild-collected discus, each individual fish has its own pattern. However, the number of Blue Heads among Blue Head Tumbira is very high.</p><p>Another typical feature of this variety is the broad \"Heckel bar\", the vertical bar in the middle of the body.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/698a484a18c73ccb.webp",
+      "thumb": "https://media.aquatome.com/glaser/698a484a18c73ccb-480.webp",
+      "width": 850,
+      "height": 907,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/symphysodon-discus-blue-head-tumbira-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/605a4d0290ab2a7a.webp",
+      "thumb": "https://media.aquatome.com/glaser/605a4d0290ab2a7a-480.webp",
+      "width": 850,
+      "height": 907,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/symphysodon-discus-blue-head-tumbira-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/e5229b1f21b35051.webp",
+      "thumb": "https://media.aquatome.com/glaser/e5229b1f21b35051-480.webp",
+      "width": 850,
+      "height": 907,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/symphysodon-discus-blue-head-tumbira-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/2547b16460f65f85.webp",
+      "thumb": "https://media.aquatome.com/glaser/2547b16460f65f85-480.webp",
+      "width": 850,
+      "height": 907,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/symphysodon-discus-blue-head-tumbira-2/",
+      "source": "glaser"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "9tZDjK-6ZYU",
@@ -309,5 +363,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-18"
 }

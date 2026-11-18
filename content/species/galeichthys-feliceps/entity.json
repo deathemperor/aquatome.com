@@ -1,0 +1,107 @@
+{
+  "id": "galeichthys-feliceps",
+  "scientificName": "Galeichthys feliceps",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Galeichthys",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "south-africa"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 55
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/galeichthys_feliceps.htm",
+      "html": "<p>Family: Ariidae. Size: 55 cm total length. Climate: subtropical, 41°N – 28°S. IUCN Red List: Not Evaluated.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/galeichthys_feliceps.htm",
+      "html": "<p>Africa: widely distributed in southern Africa; in freshwater, estuaries and coastal environments. Type locality: around Cape Town [South Africa].</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/galeichthys_feliceps.htm",
+      "html": "<p>Generally found in large shoals on muddy bottoms in turbid waters, usually on the coastline and in estuaries. Also found in rivers.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/galeichthys_feliceps.htm",
+      "html": "<p>Feeds on crayfish, small fish and crabs.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/galeichthys_feliceps.htm",
+      "html": "<p>Dimorphism of the posterior (humeral) process of the cleithrum is obvious externally: fan-shaped in females, triangular in males. The maxillary barbel is longer in females.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/galeichthys_feliceps.htm",
+      "html": "<p>Description: vertebrae 51–52 (17 precaudal, 34–35 caudal). Head longer than, or nearly as long as, broad; relatively long and thin maxillary barbel, extending at least to the pectoral fin spine origin; deeply forked caudal fin with pointed lobes, the upper lobe longer; 11–14 gill rakers on the anterior face of the first arch; 10–12 pectoral fin rays; upper two-thirds of the body darkened, with some lateral speckling and a stark white belly.</p><p>Etymology: the specific name feliceps comes from felis, cat, and ceps, head, i.e. \"cathead\", a variation on the term \"catfish\", referring to the cat-like whiskers (barbels).</p><p>Remarks: considered a nuisance by shore and ski-boat anglers in southern Africa as little else is caught. The spines are poisonous and wounds should be treated immediately.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/0b57838c67d26308.webp",
+      "thumb": "https://media.aquatome.com/scotcat/0b57838c67d26308-480.webp",
+      "width": 500,
+      "height": 330,
+      "licence": "dùng với sự cho phép",
+      "author": "Gareth Roocroft / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/galeichthys_feliceps.htm",
+      "caption": "Galeichthys feliceps",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/c4e9963b5454279f.webp",
+      "thumb": "https://media.aquatome.com/scotcat/c4e9963b5454279f-480.webp",
+      "width": 500,
+      "height": 303,
+      "licence": "dùng với sự cho phép",
+      "author": "Gareth Roocroft / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/galeichthys_feliceps.htm",
+      "caption": "Galeichthys feliceps",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/9a441e9a1652633f.webp",
+      "thumb": "https://media.aquatome.com/scotcat/9a441e9a1652633f-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Gareth Roocroft / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/galeichthys_feliceps.htm",
+      "caption": "Galeichthys feliceps",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/03a336402930582a.webp",
+      "thumb": "https://media.aquatome.com/scotcat/03a336402930582a-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Peter Southwood / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/galeichthys_feliceps.htm",
+      "caption": "Galeichthys feliceps: Glencairn barge wreck S.A.",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-18"
+}

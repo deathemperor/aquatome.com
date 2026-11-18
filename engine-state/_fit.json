@@ -103423,10 +103423,10 @@
     "products": []
   },
   "vi/species/akysis-portellus": {
-    "at": "2026-11-08",
-    "hash": "92a7342425d10002",
+    "at": "2026-11-18",
+    "hash": "0049a8c3f2e60204",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -107501,11 +107501,20 @@
     "products": []
   },
   "vi/species/bagarius-suchus": {
-    "at": "2026-11-08",
-    "hash": "c9052f44c1fece18",
+    "at": "2026-11-18",
+    "hash": "2ec3be9f7be76792",
     "model": "opus",
-    "checklist": 2,
-    "findings": [],
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "gọi chung là cá nheo quỷ",
+        "why": "\"Cá nheo quỷ\" is a literal calque of the English \"devil catfish\"; keepers in Vietnam call Bagarius cá chiên.",
+        "by": "model",
+        "fix": "cá chiên"
+      }
+    ],
     "products": []
   },
   "vi/species/bagarius-vegrandis": {
@@ -110525,16 +110534,16 @@
     "products": []
   },
   "vi/species/brycinus-longipinnis": {
-    "at": "2026-11-13",
-    "hash": "2a991089768a7f9b",
+    "at": "2026-11-18",
+    "hash": "72fef29bf1a30c98",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
-        "part": "P4",
+        "part": "P6",
         "quote": "Một bể tiêu chuẩn 120 × 38 × 30 cm (khoảng 137 lít)",
-        "why": "A US 4 ft × 15 in × 12 in tank converted to centimetres and called standard, which it isn't in Vietnam.",
+        "why": "A 'standard' tank of 120 × 38 cm is a US tank converted from 48 × 15 inches, not a size sold or spoken of in Vietnam.",
         "by": "model"
       }
     ],
@@ -116795,20 +116804,11 @@
     "products": []
   },
   "vi/species/eirmotus-octozona": {
-    "at": "2026-11-07",
-    "hash": "742701edd654fb1c",
+    "at": "2026-11-18",
+    "hash": "eb3c35bab30cf924",
     "model": "opus",
-    "checklist": 2,
-    "findings": [
-      {
-        "check": "words",
-        "part": "P9",
-        "quote": "các vây đơn của cá đực có màu đỏ nhạt",
-        "why": "Literal rendering of 'unpaired fins'; Vietnamese keepers and ichthyology texts call these 'vây lẻ'.",
-        "by": "model",
-        "fix": "các vây lẻ"
-      }
-    ],
+    "checklist": 3,
+    "findings": [],
     "products": []
   },
   "vi/species/elacatinus-oceanops": {
@@ -119526,10 +119526,10 @@
     "products": []
   },
   "vi/species/hemiancistrus-guahiborum": {
-    "at": "2026-11-08",
-    "hash": "0843a66897ef621c",
+    "at": "2026-11-18",
+    "hash": "d4a19e0ea85d54f7",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -126001,8 +126001,8 @@
     "products": []
   },
   "vi/species/nannostomus-harrisoni": {
-    "at": "2026-11-09",
-    "hash": "f39fc6f105118013",
+    "at": "2026-11-18",
+    "hash": "17e8a6964c55cceb",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -126432,19 +126432,11 @@
     "products": []
   },
   "vi/species/nemapteryx-nenga": {
-    "at": "2026-11-07",
-    "hash": "6b8ca714348884ee",
+    "at": "2026-11-18",
+    "hash": "b26430181bfa2096",
     "model": "opus",
-    "findings": [
-      {
-        "check": "words",
-        "part": "P1",
-        "quote": "Trước đây, loài này nằm trong giống Arius",
-        "why": "'Giống' is a dictionary rendering of 'genus'; Vietnamese keepers and references say 'chi'.",
-        "by": "model",
-        "fix": "chi Arius"
-      }
-    ],
+    "checklist": 3,
+    "findings": [],
     "products": [],
     "doses": [
       {
@@ -128292,10 +128284,10 @@
     "products": []
   },
   "vi/species/pangio-anguillaris": {
-    "at": "2026-11-08",
-    "hash": "b4b0678524062356",
+    "at": "2026-11-18",
+    "hash": "3372d72bf1a2f76e",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -129817,10 +129809,10 @@
     "products": []
   },
   "vi/species/pethia-padamya": {
-    "at": "2026-11-08",
-    "hash": "919f18d26694fdd7",
+    "at": "2026-11-18",
+    "hash": "1be02f342ded9253",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -130018,11 +130010,19 @@
     "products": []
   },
   "vi/species/phallichthys-tico": {
-    "at": "2026-11-09",
-    "hash": "b4036d8478c88879",
+    "at": "2026-11-18",
+    "hash": "932695fe6a5a7bd4",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "source",
+        "part": "P2",
+        "quote": "Cá đang bán là cá cho đẻ trong bể ở Đức.",
+        "why": "This refers to the original German shop's stock as if the reader knew which fish are on sale.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "vi/species/phalloceros-caudimaculatus": {
@@ -135248,16 +135248,16 @@
     "products": []
   },
   "vi/species/symphysodon-discus": {
-    "at": "2026-11-15",
-    "hash": "93f05a88debac8fd",
+    "at": "2026-11-18",
+    "hash": "662d158a4c7c07d5",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
-        "part": "P4",
+        "part": "P5",
         "quote": "tức khoảng 285 lít trở lên",
-        "why": "285 litres is a converted 75-gallon US tank size, not a size keepers in Vietnam use.",
+        "why": "285 litres is a converted 75-gallon tank size; nobody in Vietnam sizes a tank that way.",
         "by": "model"
       }
     ],
@@ -138301,6 +138301,259 @@
     "model": "opus",
     "checklist": 3,
     "findings": [],
+    "products": []
+  },
+  "vi/guides/aquariumbreeder-10-tips-for-rooted-aquarium-plants": {
+    "at": "2026-11-18",
+    "hash": "2db3100ba55c96b2",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Còn mình thì theo nguyên tắc càng đơn giản càng tốt.",
+        "why": "The source writer's own first-person voice and preference.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Seachem Prime"
+    ]
+  },
+  "vi/guides/aquariumbreeder-asterina-starfish-friend-or-foe": {
+    "at": "2026-11-18",
+    "hash": "f770c7940c0f3c86",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/aquariumbreeder-bristleworms-profile-stay-or-go": {
+    "at": "2026-11-18",
+    "hash": "efaee8a8935dd6c0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "dose",
+        "part": "P1",
+        "quote": "Cho 5–10 mL (1–2 nắp) Reef Dip™ vào, khuấy đều.",
+        "why": "An amount per volume of a named commercial product.",
+        "by": "model",
+        "product": "Reef Dip™"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Chúng có thể theo vi khuẩn dạng hạt, đá sống và san hô.",
+        "why": "Looks like a garbled translation of 'live sand'; keepers say 'cát sống'.",
+        "by": "model",
+        "fix": "cát sống"
+      }
+    ],
+    "products": [
+      "Seachem Reef Dip"
+    ]
+  },
+  "vi/guides/aquariumbreeder-feeding-guide-axolotls": {
+    "at": "2026-11-18",
+    "hash": "e28f481c6c74123e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Loại giun này thường dễ mua ngoài tiệm, nên rất hợp làm thức ăn chính cho axolotl.",
+        "why": "Nightcrawlers being easy to buy in shops reflects North American bait shops, not Vietnam.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Lần đầu thả Artemia vào bể 80 lít, chắc là axolotl còn không nhận ra có đồ ăn.",
+        "why": "A first-person story of the original writer's own tank.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Có tiệm để tủ đông ở cuối tiệm, cạnh khu bán cá sống.",
+        "why": "Describes the layout of foreign pet store chains with freezers at the back.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Trùng huyết và tép ghost chỉ nên làm món ăn vặt.",
+        "why": "'Tép ghost' is a calque of 'ghost shrimp'; Vietnamese keepers say 'tép kính'.",
+        "by": "model",
+        "fix": "tép kính"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/aquariumbreeder-how-to-set-up-paludarium": {
+    "at": "2026-11-18",
+    "hash": "984df5e994324c71",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Lấy ví dụ một paludarium rất đẹp. Bể làm thật sự khéo.",
+        "why": "Refers to an example tank from the source (originally shown in a picture/video) that the page does not contain.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Seachem Prime"
+    ]
+  },
+  "vi/species/arius-leptonotacanthus": {
+    "at": "2026-11-18",
+    "hash": "4aaadfcb9051de79",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/asolene-spixii": {
+    "at": "2026-11-18",
+    "hash": "20f563c957ac5e4c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P2",
+        "quote": "Asolene spixi đã bị cấm chuyển qua ranh giới giữa các bang, nên trước khi mua cần xem lại luật của bang mình",
+        "why": "US interstate law is presented as the reader's own; Vietnam has no such state laws.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/cephalocassis-borneensis": {
+    "at": "2026-11-18",
+    "hash": "40b12033bff72f17",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/cryptarius-daugueti": {
+    "at": "2026-11-18",
+    "hash": "9d87dde4b20a553e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/galeichthys-ater": {
+    "at": "2026-11-18",
+    "hash": "6685e8c1f112db0b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/galeichthys-feliceps": {
+    "at": "2026-11-18",
+    "hash": "a65cf2c1c3c5f089",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/genidens-barbus": {
+    "at": "2026-11-18",
+    "hash": "b1020cb73dd49e73",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/genidens-genidens": {
+    "at": "2026-11-18",
+    "hash": "5c388ba306b14e6a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/hemiarius-stormii": {
+    "at": "2026-11-18",
+    "hash": "40e2a7d642c8dcf1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/hemiarius-verrucosus": {
+    "at": "2026-11-18",
+    "hash": "41239ff0e6d46b50",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/ketengus-typus": {
+    "at": "2026-11-18",
+    "hash": "9c95721105eb8ccb",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/micracanthicus-vandragti": {
+    "at": "2026-11-18",
+    "hash": "23426aa0d1adbd94",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P3",
+        "quote": "Đợt nhập gần đây thì về khá nhiều",
+        "why": "This is the original importer's news about its own recent shipment, told as if the reader knew about it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/odonteleotris-macrodon": {
+    "at": "2026-11-18",
+    "hash": "5c54ae4ea25eaf4b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P3",
+        "quote": "Năm con dài khoảng 15 cm được nhập về từ Thái Lan.",
+        "why": "Refers to the source shop's own imported shipment as if the reader knew it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/potamotrygon-wallacei": {
+    "at": "2026-11-18",
+    "hash": "95ee6aef94b5ba8f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Mà cá cho đẻ trong bể chủ yếu lại không ở lại EU, vì thị trường ở đây quá nhỏ.",
+        "why": "The writer says 'here' about the EU, which means the page was written for readers living in the EU, not in Vietnam.",
+        "by": "model"
+      }
+    ],
     "products": []
   }
 }

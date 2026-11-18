@@ -1,0 +1,86 @@
+{
+  "id": "galeichthys-ater",
+  "scientificName": "Galeichthys ater",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Galeichthys",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "south-africa",
+    "namibia"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 45
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/galeichthys_ater.htm",
+      "html": "<ul><li>Common name: Black Sea Catfish</li><li>Temperature: Subtropical, 34°S - 35°S</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/galeichthys_ater.htm",
+      "html": "<p>Africa: Marine; reef-associated. Southeast Atlantic: South Africa and Namibia. Type locality: es mers du Cap [South Africa].</p><p>This species is also frequently encountered in estuaries and shallower water.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/galeichthys_ater.htm",
+      "html": "<p>Dimorphism is present, with the posterior (humeral) process of the cleithrum obvious externally, fan-shaped in females and triangular in males; smooth and shallow dorsomedian cranial depression on the exposed skull not reaching the supraoccipital process.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/galeichthys_ater.htm",
+      "html": "<p>Known to be paternal mouthbrooders.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/galeichthys_ater.htm",
+      "html": "<p>Description: Anal spines: 0; anal soft rays: 19 - 22. This species is distinguished by the following characters: short head, nearly as broad as long; blunt snout, well-rounded in lateral profile and dorsally; palatal tooth patches posterior to the premaxillary tooth band meet at the midline; rounded caudal-fin lobes, of near equal length, fin not deeply forked; short and thick caudal peduncle; underside of body (both head and belly) covered with fine brown specks; anterior gill-rakers on first arch 10-13 (5 + 5); pectoral fin rays 9-12; fatty growth along pectoral fin spines of breeding females not present outside spawning season. The tail of the Black Sea Catfish is not as forked as in other sea catfishes and is more rounded. The Black Sea Catfish can easily be confused with the White Sea Catfish (G. feliceps) if certain aspects are overlooked when identifying this fish.</p><p>Colouration: As its name suggests, the Black Sea Catfish is a dark fish and can be any colour from dark brown to almost black. The underside is slightly lighter than the back, which is always dark. Small speckles can often be seen on the underbelly. The White Sea Catfish is duller in appearance, lighter in colour and can be dark brown, but never black in the region. It has a light or white underbelly and often comes in big schools.</p><p>Etymology: The specific name ater means black.</p><p>Remarks: It is said not to occur in river estuaries and shallow water, however this is starting to be disproved, and the goal is to prove this 100% (Roocroft, Gareth: www.fishthesea.co.za).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/galeichthys_ater.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2011. FishBase. World Wide Web electronic publication. www.fishbase.org, version.</p><p>Kulongowski, C., 2010. Revision of the ariid catfish genus Galeichthys Valenciennes (subfamily Galeichthyinae), with description of a new species from South Africa and designation of a neotype for G. ater Castelnau. Smithiania Bull. (12):9-23.</p><p>Seegers, L. 2008 The catfishes of Africa. A handbook for identification and maintenance. Aqualog Verlag A.C.S. GmbH, Germany. 604 p.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/04430cfc63c221b9.webp",
+      "thumb": "https://media.aquatome.com/scotcat/04430cfc63c221b9-480.webp",
+      "width": 500,
+      "height": 327,
+      "licence": "dùng với sự cho phép",
+      "author": "Gareth Roocroft / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/galeichthys_ater.htm",
+      "caption": "Galeichthys ater: Kariega River Mouth July 2010 Size: 25cm 3-4 meters, sandy bottom, close to rocks and at Night",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/78639adabfbea4e9.webp",
+      "thumb": "https://media.aquatome.com/scotcat/78639adabfbea4e9-480.webp",
+      "width": 500,
+      "height": 456,
+      "licence": "dùng với sự cho phép",
+      "author": "Wendy Wiles / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/galeichthys_ater.htm",
+      "caption": "Galeichthys ater: Dorsal view-Midbrak Conservancy, Reebok beach S.A",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-18"
+}

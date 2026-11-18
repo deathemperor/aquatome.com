@@ -1096,6 +1096,9 @@
     "Carlarius latiscutatus",
     "Tachysurus lagoensis"
   ],
+  "Arius leptonotacanthus": [
+    "Cephalocassis leptonotacanthus"
+  ],
   "Arius maculatus": [
     "Arius angulatus",
     "Arius chondropterygioides",
@@ -1141,6 +1144,11 @@
   "Asellus aquaticus": [
     "Asellus patoni",
     "Oniscus aquaticus"
+  ],
+  "Asolene spixii": [
+    "Ampullaria marginatra",
+    "Ampullaria spixii",
+    "Ampullaria zonata"
   ],
   "Aspidoras fuscoguttatus": [],
   "Aspidoras pauciradiatus": [
@@ -2277,6 +2285,7 @@
   "Cardamine lyrata": [
     "Cardamine argyi"
   ],
+  "Caridina babaulti": [],
   "Caridina dennerli": [],
   "Caridina logemanni": [],
   "Caridina mariae": [],
@@ -2390,6 +2399,15 @@
     "Tatia romani"
   ],
   "Centropomus unionensis": [],
+  "Cephalocassis borneensis": [
+    "Arius borneensis",
+    "Arius intermedius",
+    "Hemipimelodus borneensis",
+    "Hemipimelodus intermedius",
+    "Hemipimelodus macrocephalus",
+    "Hemipimelodus siamensis",
+    "Pimelodus borneensis"
+  ],
   "Cephalocassis jatia": [
     "Arius jatius",
     "Hemipimelodus jatius",
@@ -3405,6 +3423,10 @@
     "Tylognathus coatesi"
   ],
   "Crossoloricaria cephalaspis": [],
+  "Cryptarius daugueti": [
+    "Hemipimelodus daugeti",
+    "Hemipimelodus daugueti"
+  ],
   "Cryptarius truncatus": [
     "Arius truncatus",
     "Cephalocassis truncatus",
@@ -4607,6 +4629,16 @@
   "Gagata cenia": [
     "Pimelodus cenia"
   ],
+  "Galeichthys ater": [],
+  "Galeichthys feliceps": [
+    "Arius feliceps",
+    "Bagrus capensis",
+    "Bagrus feliceps",
+    "Galeichthys ocellatus",
+    "Pimelodus fossor",
+    "Pimelodus peronii",
+    "Tachysurus feliceps"
+  ],
   "Galeocharax gulo": [
     "Charax goeldii",
     "Cynopotamus goeldii",
@@ -4726,6 +4758,35 @@
     "Ocypode citharoedicus",
     "Uca marionis",
     "Uca vocans"
+  ],
+  "Genidens barbus": [
+    "Arius barbus",
+    "Arius commersonii",
+    "Arius upsulonophora",
+    "Bagrus barbatus",
+    "Bagrus commersonii",
+    "Galeichthys barbus",
+    "Guiritinga barbus",
+    "Netuma barba",
+    "Netuma commersoni",
+    "Netuma upsulonophora",
+    "Pimelodus barbus",
+    "Pimelodus commersonii",
+    "Pimelodus versicolor",
+    "Silurus 16-radiatus",
+    "Silurus marinus",
+    "Silurus sexdecimradiatus",
+    "Tachisurus barbus",
+    "Tachisurus upsulonophorus",
+    "Tachysurus barbus",
+    "Tachysurus upsulonophorus"
+  ],
+  "Genidens genidens": [
+    "Bagrus genidens",
+    "Genidens cuvieri",
+    "Genidens granulosus",
+    "Genidens valenciennesii",
+    "Pimelodus genidens"
   ],
   "Geophagus abalios": [],
   "Geophagus altifrons": [],
@@ -5034,6 +5095,15 @@
   ],
   "Hemiarius dioctes": [
     "Arius dioctes"
+  ],
+  "Hemiarius stormii": [
+    "Arius stormii",
+    "Cephalocassis stormii",
+    "Tachysurus stormii"
+  ],
+  "Hemiarius verrucosus": [
+    "Arius verrucosus",
+    "Hemiarias verrucosus"
   ],
   "Hemibagrus filamentus": [
     "Macrones filamentus",
@@ -5874,6 +5944,10 @@
     "Juncus subincurvus",
     "Tristemon repens"
   ],
+  "Ketengus typus": [
+    "Ktengus typus",
+    "Pimelodus pectinidens"
+  ],
   "Kneria stappersii": [
     "Kneria stappesii"
   ],
@@ -6358,6 +6432,7 @@
     "Leporinus frederici",
     "Salmo friderici"
   ],
+  "Leporinus nijsseni": [],
   "Leporinus steyermarki": [],
   "Lepthoplosternum pectorale": [
     "Callichthys pectoralis",
@@ -7205,6 +7280,9 @@
     "Rasborinus fukiensis",
     "Rasborinus hainanensis",
     "Rasborinus lineatus"
+  ],
+  "Micracanthicus vandragti": [
+    "Hypancistrus vandragti"
   ],
   "Micranthemum callitrichoides": [
     "Globifera adenandra",
@@ -8098,6 +8176,10 @@
     "Gobioides rubicundus",
     "Gobioidus rubicundus",
     "Taenioides rubicundus"
+  ],
+  "Odonteleotris macrodon": [
+    "Eleotris macrodon",
+    "Paloa villadolidi"
   ],
   "Odontocharacidium aphanes": [
     "Klausewitzia aphanes"
@@ -9447,6 +9529,7 @@
   ],
   "Potamotrygon schroederi": [],
   "Potamotrygon scobina": [],
+  "Potamotrygon wallacei": [],
   "Potamotrygon yepezi": [],
   "Potamotyphlus kaupii": [
     "Caecilia dorsalis",

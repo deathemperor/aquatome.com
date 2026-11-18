@@ -206,6 +206,10 @@
       {
         "source": "seriouslyfish",
         "value": 4.5
+      },
+      {
+        "source": "glaser",
+        "value": 4.5
       }
     ],
     "tankCm": [
@@ -229,10 +233,22 @@
       "html": "<p>The blackstripe pencilfish, Nannostomus harrisoni, is a lebiasinid that appears endemic to the Demerara River basin in eastern Guyana. Quite rare in the hobby, it is more often exported as bycatch among shipments of N. eques than in numbers. It inhabits sluggish tributaries, swamps and flooded forest, and mature males show red in the pelvic, anal and caudal fins.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus-harrisoni-2/",
+      "html": "<p>The Blackstripe pencilfish was scientifically described from Guyana back in 1909. It attains a maximum length of 4.5 cm and is very peaceful.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-harrisoni",
       "html": "<p>Type locality is 'Canal at Christianburg, Guyana' and this species appears endemic to the Demerara River basin, eastern Guyana including some its tributaries such as Haiama River, Kuruabaru River, Haiakwa Creek and Haianari Creek.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus-harrisoni-2/",
+      "html": "<p>The fish inhabits exclusively the Demerara river basin in Guyana.</p>"
     },
     {
       "key": "habitat",
@@ -277,6 +293,12 @@
       "html": "<p>Mature males possess red pigmentation in the pelvic, anal, and caudal fins, while in females the pelvic and anal fins are hyaline and the caudal-fin pigmention paler.</p><p>Males are normally slimmer than females, especially when the latter are gravid.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus-harrisoni-2/",
+      "html": "<p>Males differ from the females by the shape of the anal fin. Moreover, this fin has a high degree of red coloration in males which is lacking in females.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-harrisoni",
@@ -287,9 +309,56 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nannostomus-harrisoni",
       "html": "<p>This species is quite rare in the aquarium hobby and is not often available in numbers, more often being exported as bycatch among shipments of the congener N. eques.</p><p>Don't worry if your fish look different when you switch on the aquarium lights after dark or in the morning as like most Nannostomus species it assumes a cryptic, vertically-barred colour pattern at night.</p><p>This diurnal rhythm has been show to occur in blind specimens, suggesting it's an automatic response that the fish cannot control.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus-harrisoni-2/",
+      "html": "<p>Formerly the fish was placed in a separate genus, Poecilobrycon, due to the long snout. In the meantime the genus Poecilobrycon is considered to be a synonym of Nannostomus.</p><p>There is a certain similarity between Nannostomus unifasciatus and N. harrisoni; in contrast to N. unifasciatus, N. harrisoni does not swim in a head-up position as N. unifasciatus regularly does. So a confusion of living fish should be excluded.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/6e3f1d1ea534198b.webp",
+      "thumb": "https://media.aquatome.com/glaser/6e3f1d1ea534198b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus-harrisoni-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/67d4f8e4ecde4261.webp",
+      "thumb": "https://media.aquatome.com/glaser/67d4f8e4ecde4261-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus-harrisoni-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/5b0d28c6f6a266b1.webp",
+      "thumb": "https://media.aquatome.com/glaser/5b0d28c6f6a266b1-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus-harrisoni-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/aa799b3c2b51a33f.webp",
+      "thumb": "https://media.aquatome.com/glaser/aa799b3c2b51a33f-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/nannostomus-harrisoni-2/",
+      "source": "glaser"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -319,5 +388,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-18"
 }

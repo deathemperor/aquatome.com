@@ -1199,6 +1199,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/ariidae/cryptarius_daugueti.htm": {
+    "entityIds": [
+      "species/cryptarius-daugueti"
+    ],
+    "updatedAt": "2026-11-18T05:42:22.487Z",
+    "hash": "3c56c2783c115a9153578afb188063ca6f41769a649d0efe92ed9eda6755e5ba",
+    "processedHash": "3c56c2783c115a9153578afb188063ca6f41769a649d0efe92ed9eda6755e5ba",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/ariidae/cryptarius_truncatus.htm": {
     "entityIds": [
       "species/cryptarius-truncatus"
@@ -1206,6 +1216,106 @@
     "updatedAt": "2026-11-13T21:11:58.858Z",
     "hash": "f09b7d67d36ad1c2969c8560574c4aaa9fcc03003b618a6cc481dff55125273c",
     "processedHash": "f09b7d67d36ad1c2969c8560574c4aaa9fcc03003b618a6cc481dff55125273c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/galeichthys_ater.htm": {
+    "entityIds": [
+      "species/galeichthys-ater"
+    ],
+    "updatedAt": "2026-11-18T05:43:36.309Z",
+    "hash": "b3d76c941a8f5e457852bbb6a89fc099a9042e9e633388b58b849c01cb918d15",
+    "processedHash": "b3d76c941a8f5e457852bbb6a89fc099a9042e9e633388b58b849c01cb918d15",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/galeichthys_feliceps.htm": {
+    "entityIds": [
+      "species/galeichthys-feliceps"
+    ],
+    "updatedAt": "2026-11-18T05:47:01.137Z",
+    "hash": "37cb799ddbb7d23d87ba333fcc1a2d08420f8f0fd28ff26ed6a4601402ae6f02",
+    "processedHash": "37cb799ddbb7d23d87ba333fcc1a2d08420f8f0fd28ff26ed6a4601402ae6f02",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/genidens_barbus.htm": {
+    "entityIds": [
+      "species/genidens-barbus"
+    ],
+    "updatedAt": "2026-11-18T05:49:31.242Z",
+    "hash": "851f8366a16083b5e9048bb8d9af1fb120f64960606e4876c820cb5ec32c6c69",
+    "processedHash": "851f8366a16083b5e9048bb8d9af1fb120f64960606e4876c820cb5ec32c6c69",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/genidens_genidens.htm": {
+    "entityIds": [
+      "species/genidens-genidens"
+    ],
+    "updatedAt": "2026-11-18T05:51:32.083Z",
+    "hash": "092078fdb81c71c637521fbb19a6d4795c1e24c56ec887055a91912480dec386",
+    "processedHash": "092078fdb81c71c637521fbb19a6d4795c1e24c56ec887055a91912480dec386",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/hemiarius_stormii.htm": {
+    "entityIds": [
+      "species/hemiarius-stormii"
+    ],
+    "updatedAt": "2026-11-18T05:53:32.520Z",
+    "hash": "a3e8f1b80f3c80998d14aee0501aa2b62c24099317ce2b706600271593765406",
+    "processedHash": "a3e8f1b80f3c80998d14aee0501aa2b62c24099317ce2b706600271593765406",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/hemiarius_verrucosus.htm": {
+    "entityIds": [
+      "species/hemiarius-verrucosus"
+    ],
+    "updatedAt": "2026-11-18T05:56:47.455Z",
+    "hash": "47248838ab57276a1e2460fd4e089437cc4337194195ab08902af8e256e14266",
+    "processedHash": "47248838ab57276a1e2460fd4e089437cc4337194195ab08902af8e256e14266",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/hemipimelodus_borneensis.htm": {
+    "entityIds": [
+      "species/cephalocassis-borneensis"
+    ],
+    "updatedAt": "2026-11-18T05:57:48.342Z",
+    "hash": "a5efa8e5054c90463ec7b922f0e1a7b653ef3ba4b3b13f65520e483affad315c",
+    "processedHash": "a5efa8e5054c90463ec7b922f0e1a7b653ef3ba4b3b13f65520e483affad315c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/jayaramichthys_leptonotacanthus.htm": {
+    "entityIds": [
+      "species/arius-leptonotacanthus"
+    ],
+    "updatedAt": "2026-11-18T05:59:27.379Z",
+    "hash": "103e771975d11bb0879ce325c71143e29f20c6a2137f9b83e900a521c4edb12c",
+    "processedHash": "103e771975d11bb0879ce325c71143e29f20c6a2137f9b83e900a521c4edb12c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/ketengus_typus.htm": {
+    "entityIds": [
+      "species/ketengus-typus"
+    ],
+    "updatedAt": "2026-11-18T06:01:02.793Z",
+    "hash": "34a5c5b6fc1bee4c8e0af34ec01b9b8c2a1496a0d6e33277c8d871c3eae72583",
+    "processedHash": "34a5c5b6fc1bee4c8e0af34ec01b9b8c2a1496a0d6e33277c8d871c3eae72583",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/kyataphisa_nenga.htm": {
+    "entityIds": [
+      "species/nemapteryx-nenga"
+    ],
+    "updatedAt": "2026-11-18T06:03:36.874Z",
+    "hash": "2df477015dd9598098f6488493bfb228862dcc2c477d6678c885fbc74f913f88",
+    "processedHash": "2df477015dd9598098f6488493bfb228862dcc2c477d6678c885fbc74f913f88",
     "status": "processed",
     "attempts": 0
   },
