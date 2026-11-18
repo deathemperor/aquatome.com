@@ -634,6 +634,44 @@
   ],
   "vi/glossary/ph": [
     {
+      "at": "2026-11-18T01:53:50Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Trước khi set bể, đo pH nước máy hoặc nước giếng xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\" (not \"Trước khi set bể, đo nước máy xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\": Rule 12: \"Trước khi set bể, đo nước …",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Đo pH vào cùng một giờ mỗi lần và đừng tin vào một lần đo lẻ.\" (not \"Đo pH vào cùng một giờ mỗi lần và thận trọng với một lần đo lẻ.\": it drops the caution \"đừng\")",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Khi cá ngộ độc amoniac, thay 50% nước.\" (not \"Khi cá ngộ độc amoniac, thay 25–50% nước và, nếu cá chịu được, hạ pH xuống khoảng 6,0–6,5.\": Rule 12: \"Khi cá ngộ độc amoniac, thay 25–50% nước và, nếu cá chịu được, hạ pH xuống khoảng 6,0–6,5.\": the water change for ammonia poisoning must be 50%, the figure s…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Khi nâng pH, dùng thứ nào cũng chỉ nâng mỗi ngày không quá 0,2 đơn vị, rồi đo lại.\" (not \"Khi nâng pH, nâng từ từ, mỗi ngày không quá 0,5 đơn vị.\": Rule 12: \"Khi nâng pH, nâng từ từ, mỗi ngày không quá 0,5 đơn vị.\": the pace must be the slower one, no more than 0.2 a day (source 6), whatever is used, with…",
+        "The entry is 626 words: hold it to about 620, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T01:53:50Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Muốn đổi pH thì đổi chậm để cá và cây không bị sốc, và luôn giữ pH trong khoảng loài đó chịu được.\" the advice \"Muốn đổi pH thì đổi chậm để cá\", the advice \"cây không bị sốc\", and nothing lets that sentence go: write it as it was, word for word."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T01:53:50Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Lá bàng hạ pH chậm, khoảng 0,2–0,5 đơn vị trong nước mềm, còn ở nước cứng, đệm tốt thì gần như không đổi.\" How far Indian almond leaves lower pH comes from only one shop's page (source 8). THIS TERM says it must be credited to that shop, with no place named, as in \"Lá bàng hạ pH chậm. Một tiệm ghi: trong nước mềm, lá bàng hạ pH khoảng 0,2–0,5 đơn vị, còn ở nước cứng, đệm tốt thì gần như…",
+        "Rule 4: \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,2 đơn vị, rồi đo lại.\" (step 5) and \"Muốn đổi pH thì đổi chậm để cá và cây không bị sốc\" (mistakes list) give the same step of changing pH slowly twice. It should be said once, in one place."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-17T00:28:35Z",
       "model": "sonnet",
       "cli": "2.1.325",
@@ -670,46 +708,6 @@
       ],
       "attempt": "rewrite",
       "kept": true
-    },
-    {
-      "at": "2026-11-16T18:06:41Z",
-      "model": "sonnet",
-      "cli": "2.1.325",
-      "score": 0.98,
-      "notes": [
-        "\"Lá bàng hạ pH chậm, có thể tới khoảng 1–2 đơn vị.\": the facts don't carry it (contradicts, contradicts, unsupported): other sources: only 0.2–0.5 in soft water, negligible in hard water / leaves out the hardness limit: other sources say only 0.2–0.5 in soft water and almost none in hard water",
-        "Rules 10 and 12: \"Lá bàng hạ pH chậm, có thể tới khoảng 1–2 đơn vị.\" uses the 1–2 unit figure, which comes from only one shop (source 3). THIS TERM forbids that figure because two pages say the leaves have only a mild effect. The line also leaves out what the facts give: about 0,2–0,5 units in soft water, and almost no change where KH is above 4–5 (source 8). It should read like \"Lá bàng hạ pH ch…"
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-16T00:55:17Z",
-      "model": "sonnet",
-      "cli": "2.1.323",
-      "score": 1,
-      "notes": [
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Lá bàng hạ pH chậm, có thể tới khoảng 1–2 đơn vị.\" (not \"Lá bàng hạ pH nhẹ và chậm.\": Rule 12: \"Lá bàng hạ pH nhẹ và chậm.\" uses \"nhẹ\" and leaves out the range. It must state the range as a ceiling, without \"nhẹ\": \"Lá bàng hạ pH chậm, có thể tới khoảng 1–2 đơn vị.\" / it drops the figure 1, the figure 2, t…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Trước khi set bể, đo pH nước máy hoặc nước giếng xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\" (not \"Trước khi set bể, đo pH nước máy xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\": Rule 12: \"đo pH nước máy xem có h…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,2 đơn vị, rồi đo lại.\" (not \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,5 đơn vị.\": Rule 12: \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,5 đơn vị\" uses the faster pace from source 1. It must use the slower pace from so…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Khi cá ngộ độc amoniac, thay 50% nước.\" (not \"Khi cá ngộ độc amoniac, thay 25–50% nước, và nếu cá chịu được thì hạ pH xuống khoảng 6,0–6,5.\": Rules 4 and 12: \"Khi cá ngộ độc amoniac, thay 25–50% nước\" gives 25–50%. This entry and the nitrogen-cycle entry must share one figure, 50%. It should read \"Khi cá …",
-        "Rules 4 and 12: Indian almond leaves are said to lower pH in two places: \"Lá bàng và lũa: tanin trong chúng làm pH xuống.\" and \"Lá bàng hạ pH chậm, có thể tới khoảng 1–2 đơn vị.\" THIS TERM asks for Indian almond leaves in one sentence. The first line should cover only driftwood (lũa), and the leaves should appear only in \"Lá bàng hạ pH chậm, có thể tới khoảng 1–2 đơn vị.\""
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-16T00:55:17Z",
-      "model": "sonnet",
-      "cli": "2.1.323",
-      "score": 1,
-      "notes": [
-        "Rules 6 and 12: \"cichlid Rift Lake\" in \"Cá neon vua ở Rio Negro sống trong nước dưới pH 5,5, còn cichlid Rift Lake ưa pH 8,0–9,0.\": THIS TERM requires \"cichlid hồ châu Phi\", as it was written before, and never \"cichlid Rift Lake\".",
-        "Rule 12: \"Nếu dùng CO2 để hạ pH, ghi lại pH trước khi bật CO2, đo 30 phút một lần trong lúc chạy và dừng khi pH thấp hơn mức ban đầu khoảng 1 đơn vị.\": THIS TERM forbids \"Nếu dùng CO2 để hạ pH…\". The CO2 limit must be given as a cap on how far pH may fall while the CO2 runs, not as a way to lower the tank's pH, and it must say \"tắt CO2\", for example \"Khi châm CO2, pH tụt trong lúc CO2 chạy: ghi p…",
-        "Rules 1 and 12: \"Lá bàng hạ pH nhẹ và chậm, khoảng 1–2 đơn vị.\": THIS TERM forbids \"nhẹ\" next to the figure, because two units isn't light. It also wants the range given as a ceiling, as in \"Lá bàng hạ pH chậm, có thể tới khoảng 1–2 đơn vị.\""
-      ],
-      "attempt": "rewrite",
-      "kept": false
     }
   ],
   "vi/glossary/thuc-an-dong-lanh": [
