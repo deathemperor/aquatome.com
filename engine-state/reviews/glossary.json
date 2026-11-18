@@ -915,6 +915,71 @@
   ],
   "vi/glossary/vay-lung": [
     {
+      "at": "2026-11-18T03:43:26Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Bài viết thứ nhất cũng ghi: vây cụp do môi trường thường đỡ trong 24–72 giờ sau khi sửa lại nước.\" (not \"Bài viết thứ nhất cũng ghi: vây cụp do môi trường thường đỡ trong 24–72 giờ sau khi điều kiện nuôi được khắc phục.\": Rule 12: \"Bài viết thứ nhất cũng ghi: vây cụp do môi trường thường đỡ trong 24–72 gi…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T03:43:26Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Rule 12: The definition \"Vây lưng là vây đơn mọc giữa sống lưng của hầu hết các loài cá. Nó giữ cho cá không bị lật nghiêng khi bơi và giúp cá rẽ gấp.\" uses \"vây đơn\", \"hầu hết các loài\" and \"rẽ gấp\", which THIS TERM forbids. It must read word for word: \"Vây lưng là vây mọc trên lưng cá. Nó giữ cho cá không bị lật nghiêng khi bơi và giúp cá đổi hướng.\"",
+        "Rule 12: \"Tùy loài, cá có một, hai hoặc ba vây lưng. Cá vàng chỉ có một.\" comes from only one page (fact 9), and a keeper can't act on it. With three pages already named, it must be left out.",
+        "Rule 12: \"và gai của vài loài có nọc độc\" in \"Ở một số loài, vây lưng có gai cứng và nhọn để tự vệ, và gai của vài loài có nọc độc.\" comes from only one page (fact 8) and must be left out. The sentence must read word for word: \"Ở một số loài, vây lưng có gai cứng và nhọn để tự vệ.\"",
+        "Rule 12: \"và khoảng 25–27 tia ở vây phía sau\" (the rear fin's ray count, fact 13) must be left out. \"Một tiệm ở Việt Nam ghi cá rồng châu Á dòng kim long có 15–19 tia vây lưng … Tiệm này dựa vào số tia để chọn cá.\" also has no colon after \"ghi\", and a full stop ends the credit before the shop's second claim. It must read word for word: \"Một tiệm ở Việt Nam ghi: cá rồng châu Á Kim Long có 15–19 ti…",
+        "Rule 12: \"Một nguồn ghi vây cụp là khi cá xếp vây ép sát thân thay vì xòe ra. Theo nguồn này, vây cụp là dấu hiệu…\" uses the forbidden opening \"Một nguồn\", and a full stop ends the credit. It must read word for word: \"Một bài viết ghi: vây cụp là khi cá xếp vây ép sát thân thay vì xòe ra; đó là dấu hiệu cá đang căng thẳng hoặc bệnh, bản thân nó không phải một bệnh.\"",
+        "Rule 12: \"Một nguồn khác ghi trong bể nuôi chung, vây rách thường là do bị cá khác rỉa…\" uses \"Một nguồn khác\" instead of \"Một bài viết khác ghi:\". It also splits the page's claims with full stops (\"…vướng rách vây. Vây bị rỉa…\", \"…vẫn khỏe. Còn thối vây…\") where semicolons are required, as in the prescribed text.",
+        "Rule 12: \"Khi cá cụp vây, nguồn đầu tiên ghi các bước sau:\" uses the forbidden \"nguồn đầu tiên\". It must read word for word: \"Bài viết thứ nhất cũng ghi: khi cá cụp vây, làm theo các bước sau:\"",
+        "Rule 12: \"Cũng theo nguồn này, vây cụp do môi trường thường đỡ trong 24–72 giờ sau khi sửa lại nước.\" must read word for word: \"Bài viết thứ nhất cũng ghi: vây cụp do môi trường thường đỡ trong 24–72 giờ sau khi sửa lại nước.\"",
+        "Rule 12: \"Với vây rách, nguồn thứ hai ghi vết rách nhỏ… Nguồn này khuyên không nuôi… Nguồn này cũng khuyên không chữa vây bằng muối cho cá không vảy.\" uses the forbidden \"nguồn thứ hai\" and breaks the credit with full stops. It must read word for word: \"Bài viết thứ hai cũng ghi: vết rách nhỏ, mép gọn thường tự lành trong một đến hai tuần nếu nước được giữ sạch, không cần thuốc; đừng nuôi cá hay …",
+        "Rule 12: \"Nguồn về vây cụp nêu một sai lầm là coi như đã xong trong khi cá vẫn cụp vây. Vây còn cụp nghĩa là nguyên nhân vẫn còn đó.\" uses the forbidden \"Nguồn về vây cụp\", and a full stop splits the claim. It must read word for word: \"Bài viết thứ nhất cũng ghi một sai lầm: coi như đã xong trong khi cá vẫn cụp vây, vì vây còn cụp nghĩa là nguyên nhân vẫn còn đó.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T03:35:37Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 0.73,
+      "notes": [
+        "\"Một trang thú y ghi: vây cụp là khi cá xếp vây ép sát thân thay vì xòe ra; đó là dấu hiệu cá đang căng thẳng hoặc bệnh, bản thân nó không phải một bệnh.\": the facts don't carry it (loose, unsupported, unsupported): Content matches; source kind is 'other', not a vet site / Source isn't identified as a vet site; content otherwise matches / Calls source a vet site; its kind is only 'other'",
+        "\"Trang thú y này cũng ghi: khi cá cụp vây, làm theo các bước sau:\": the facts don't carry it (not a claim, unsupported, unsupported): Transition introducing steps / Calls the source a vet page, which the facts don't say / Calls source a vet site; its kind is only 'other'",
+        "\"Trang thú y này cũng ghi: vây cụp do môi trường thường đỡ trong 24–72 giờ sau khi sửa lại nước.\": the facts don't carry it (loose, unsupported, unsupported): Content matches; source called a vet site without basis / Calls the source a vet page; content otherwise matches / Calls source a vet site; also says 'fixing the water' where source says 'conditions corrected'",
+        "\"Trang thú y này cũng ghi một sai lầm: coi như đã xong trong khi cá vẫn cụp vây, vì vây còn cụp nghĩa là nguyên nhân vẫn còn đó.\": the facts don't carry it (loose, unsupported, unsupported): Content matches; source called a vet site without basis / Calls the source a vet page; content otherwise matches / Calls source a vet site; its kind is only 'other'"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T03:35:37Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Ở một số loài, vây lưng có gai cứng và nhọn để tự vệ, và gai của vài loài có nọc độc.\" (not \"Ở một số loài, vây lưng có gai cứng và nhọn để tự vệ, và ở vài loài cá da trơn, gai này có nọc độc.\": Rule 12: \"Ở một số loài, vây lưng có gai cứng và nhọn để tự vệ, và ở vài loài cá da trơn, gai này có nọc độc.\":…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Một nguồn khác ghi trong bể nuôi chung, vây rách thường là do bị cá khác rỉa, và cá vây dài hay bị nhắm tới.\" (not \"Trong bể nuôi chung, bị cá khác rỉa là nguyên nhân làm hỏng vây thường gặp nhất, và cá vây dài hay bị nhắm tới.\": Rule 12: \"Một nguồn ghi vây cụp là khi cá xếp vây ép sát thân thay vì xòe ra…",
+        "Rule 12: definition \"Vây lưng là vây đơn mọc giữa sống lưng của hầu hết các loài cá. Nó giữ cho cá không bị lật nghiêng khi bơi và giúp cá rẽ gấp.\" uses the banned \"vây đơn\", \"hầu hết các loài\" and \"rẽ gấp\". It must read word for word: \"Vây lưng là vây mọc trên lưng cá. Nó giữ cho cá không bị lật nghiêng khi bơi và giúp cá đổi hướng.\"",
+        "Rule 12: \"Tùy loài, cá có một, hai hoặc ba vây lưng. Cá vàng chỉ có một.\" gives the number of dorsal fins and says goldfish have one (fact 9). This is a one-page claim a keeper can't act on, and THIS TERM says it goes.",
+        "Rule 12: \"Ở một số loài, vây lưng có gai cứng và nhọn để tự vệ, và gai của vài loài có nọc độc.\" adds the venomous spines (fact 8), which must go. The sentence must be word for word: \"Ở một số loài, vây lưng có gai cứng và nhọn để tự vệ.\"",
+        "Rule 12: \"Một tiệm ở Việt Nam ghi cá rồng châu Á dòng kim long có 15–19 tia vây lưng và khoảng 25–27 tia ở vây phía sau. Tiệm này dựa vào số tia để chọn cá.\" keeps the rear fin's ray count (fact 13), which must go. It also has no colon after the credit and ends the credit with a full stop. It must be word for word: \"Một tiệm ở Việt Nam ghi: cá rồng châu Á Kim Long có 15–19 tia vây lưng, và tiệm d…",
+        "Rule 12: \"Một nguồn ghi vây cụp là khi cá xếp vây ép sát thân thay vì xòe ra. Theo nguồn này, vây cụp là dấu hiệu...\" uses the banned \"Một nguồn\" and splits the credit with a full stop. It must be: \"Một trang thú y ghi: vây cụp là khi cá xếp vây ép sát thân thay vì xòe ra; đó là dấu hiệu cá đang căng thẳng hoặc bệnh, bản thân nó không phải một bệnh.\"",
+        "Rule 12: \"Một nguồn khác ghi trong bể nuôi chung, vây rách thường là do bị cá khác rỉa...\" uses the banned \"nguồn\" wording instead of \"Một trang về thú nuôi ghi:\". It also splits the page's claims with full stops (\"...vướng rách vây. Vây bị rỉa...\", \"...vẫn khỏe. Còn thối vây...\") instead of semicolons inside one credit.",
+        "Rule 12: \"Khi cá cụp vây, nguồn đầu tiên ghi các bước sau:\" uses the banned \"nguồn đầu tiên\". It must be: \"Trang thú y này cũng ghi: khi cá cụp vây, làm theo các bước sau:\"",
+        "Rule 12: \"Cũng theo nguồn này, vây cụp do môi trường thường đỡ trong 24–72 giờ sau khi sửa lại nước.\" must be: \"Trang thú y này cũng ghi: vây cụp do môi trường thường đỡ trong 24–72 giờ sau khi sửa lại nước.\""
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
       "at": "2026-11-18T03:25:48Z",
       "model": "sonnet",
       "cli": "2.1.327",
