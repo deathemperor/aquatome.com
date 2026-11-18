@@ -1,50 +1,5 @@
 {
   "found": true,
-  "species": [
-    "Otocinclus"
-  ],
-  "sources": [
-    {
-      "url": "https://gensou.sg/aquarium-biofilm-guide/",
-      "title": "Aquarium Biofilm: What It Is and Why Shrimp Love It",
-      "kind": "shop"
-    },
-    {
-      "url": "https://www.horizonaquatics.co.uk/blogs/aquascaping-blogs/understanding-biofilm-on-aquarium-wood-what-it-is-why-its-nothing-to-fear",
-      "title": "Understanding Biofilm on Aquarium Wood: What It Is & Why It's Nothing to Fear",
-      "kind": "shop"
-    },
-    {
-      "url": "https://shrimpscience.com/articles/biofilm-in-shrimp-tank",
-      "title": "Growing Biofilm in Shrimp Tanks",
-      "kind": "keeper"
-    },
-    {
-      "url": "https://gensou.sg/?p=20175",
-      "title": "Aquarium Surface Film: What Causes It and How to Remove It",
-      "kind": "shop"
-    },
-    {
-      "url": "https://www.gcshop-sg.com/blogs/care-hub-aquarium-basics/aquarium-basics-oily-surface-foam-or-bubbles-that-won-t-break",
-      "title": "Aquarium Basics: Oily Surface, Foam, or Bubbles That Won't Break?",
-      "kind": "shop"
-    },
-    {
-      "url": "https://becamanhtuan.com/tac-dung-cua-lua-cholla-cho-tep/",
-      "title": "Tác dụng của lũa Cholla đối với tép cảnh và cách xử lý",
-      "kind": "shop"
-    },
-    {
-      "url": "https://mayaqua.vn/lua-cholla-co-can-trong-be-tep-khong/",
-      "title": "LŨA CHOLLA CÓ CẦN TRONG BỂ TÉP KHÔNG?",
-      "kind": "shop"
-    },
-    {
-      "url": "https://thuysinhtim.vn/lua-cholla-lon",
-      "title": "Lũa Cholla Lớn - Đồ Chơi Cho Tép Cảnh | Thủy Sinh Tím",
-      "kind": "shop"
-    }
-  ],
   "facts": [
     {
       "section": "other",
@@ -412,6 +367,111 @@
       "section": "mistakes",
       "fact": "Lũa Cholla that still floats after soaking can be boiled again for about 15–20 minutes and weighed down for a few days.",
       "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "During routine water changes, a gravel vacuum can be used to siphon biofilm directly off the wood surface; a turkey baster can also blast it off the wood while it stays in the tank, and the filter then collects the loosened bits.",
+      "source": 8
+    },
+    {
+      "section": "signs",
+      "fact": "First patches of white growth appear about days 2 to 5 after new driftwood goes in, usually starting in crevices and rough areas of the wood.",
+      "source": 8
+    },
+    {
+      "section": "treatment",
+      "fact": "JUWEL says the suction of its EccoSkim surface skimmer quickly removes residue film and other organic residues from the water surface.",
+      "source": 9
+    },
+    {
+      "section": "what",
+      "fact": "JUWEL says removing residue film and dirt from the water surface raises the oxygen content, helping plants and fish thrive.",
+      "source": 9
+    },
+    {
+      "section": "what",
+      "fact": "A thick film on the water surface reduces gas exchange, which over time lowers the dissolved oxygen in the tank.",
+      "source": 10
+    },
+    {
+      "section": "prevention",
+      "fact": "A hang-on surface skimmer keeps pulling the top layer of water through a fine filter, removing protein film entirely; FishyHub calls it the permanent solution.",
+      "source": 10
+    },
+    {
+      "section": "what",
+      "fact": "Too much oily film on the surface can stop oxygen from entering the water and harm the tank's animals.",
+      "source": 11
+    },
+    {
+      "section": "prevention",
+      "fact": "A surface skimmer is made to remove oily film from the water surface and also works to stop the film from forming.",
+      "source": 11
+    }
+  ],
+  "species": [
+    "Otocinclus"
+  ],
+  "sources": [
+    {
+      "url": "https://gensou.sg/aquarium-biofilm-guide/",
+      "title": "Aquarium Biofilm: What It Is and Why Shrimp Love It",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.horizonaquatics.co.uk/blogs/aquascaping-blogs/understanding-biofilm-on-aquarium-wood-what-it-is-why-its-nothing-to-fear",
+      "title": "Understanding Biofilm on Aquarium Wood: What It Is & Why It's Nothing to Fear",
+      "kind": "shop"
+    },
+    {
+      "url": "https://shrimpscience.com/articles/biofilm-in-shrimp-tank",
+      "title": "Growing Biofilm in Shrimp Tanks",
+      "kind": "keeper"
+    },
+    {
+      "url": "https://gensou.sg/?p=20175",
+      "title": "Aquarium Surface Film: What Causes It and How to Remove It",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.gcshop-sg.com/blogs/care-hub-aquarium-basics/aquarium-basics-oily-surface-foam-or-bubbles-that-won-t-break",
+      "title": "Aquarium Basics: Oily Surface, Foam, or Bubbles That Won't Break?",
+      "kind": "shop"
+    },
+    {
+      "url": "https://becamanhtuan.com/tac-dung-cua-lua-cholla-cho-tep/",
+      "title": "Tác dụng của lũa Cholla đối với tép cảnh và cách xử lý",
+      "kind": "shop"
+    },
+    {
+      "url": "https://mayaqua.vn/lua-cholla-co-can-trong-be-tep-khong/",
+      "title": "LŨA CHOLLA CÓ CẦN TRONG BỂ TÉP KHÔNG?",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhtim.vn/lua-cholla-lon",
+      "title": "Lũa Cholla Lớn - Đồ Chơi Cho Tép Cảnh | Thủy Sinh Tím",
+      "kind": "shop"
+    },
+    {
+      "url": "https://gensou.sg/?p=19587",
+      "title": "White Fungus on Driftwood: Is It Harmful and How to Remove It",
+      "kind": "shop"
+    },
+    {
+      "url": "https://juwel-aquarium.de/en/equipment/extras/cleaner/eccoskim",
+      "title": "EccoSkim | JUWEL Aquarium",
+      "kind": "maker"
+    },
+    {
+      "url": "https://fishyhub.com/sg/blogs/blog-detail/oily-film-on-aquarium-water",
+      "title": "Why Is My Aquarium Surface Oily? Biofilm Causes and Simple Fixes | FishyHub Blog",
+      "kind": "shop"
+    },
+    {
+      "url": "https://portlandaquarium.net/surface-skimmer/",
+      "title": "Clear the Surface: Best Skimmers for Oil Film Removal in Aquariums",
+      "kind": "keeper"
     }
   ]
 }
