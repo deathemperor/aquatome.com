@@ -102,14 +102,14 @@ let masterCardList = #"""
 - finish · `let unknown = String(localized:` · The note that it isn't known whether a command reached the outlet, AquaTome left it, look at it: for an outlet whose press step was only guessed, and for a heater after a put-back try that may have gone. True of this end, which sends it nothing.
 - finish · `let changed = b.guessed == true` · The note for an outlet the end leaves: that one, when only guessed;
 - finish · `: String(localized:` · else, that it changed during the run and AquaTome left it. Both true of this end, which sends it nothing.
-- finish · `let putBack = String(localized:` · The note for an outlet only guessed, found back after a put-back try of its own that may have gone: AquaTome put it back (that try may be what did), and to look at it (Fable, 18 Nov).
+- finish · `let maybePutBack = String(localized:` · The note for an outlet only guessed, found back after a put-back try of its own that may have gone: it is back, maybe by AquaTome's put-back, and to look at it. Neither that AquaTome left it nor that it put it back: either may be untrue (Fable, Codex, 18 Nov).
 - finish · `let end = MasterRun.end(` · What the end does with an outlet's put-back (`MasterRun.end`, below): by the outlet as read now, how the press left it, its role now.
 - finish · `if end == .unread {` · Not read:
 - finish · `r.back[i].failed(Switcher.unreached(name)` · nothing sent now; says it wasn't reached, or, a try before it may have gone, that it's not known.
 - finish · `if end != .send {` · Nothing to send:
 - finish · `r.back[i].done = true` · done;
 - finish · `r.back[i].problem = nil` · its line goes.
-- finish · `case .already: if b.guessed == true { tell(b.earlier ? putBack : changed) } else if !b.earlier` · Back already: only guessed, always a note, and to look: after a try of its own that may have gone, that AquaTome put it back; else that it isn't known whether the press's command reached it, and AquaTome left it (this end sends nothing). Not guessed: no note when a try of its own may be what put it back; else, if the press had changed it, that something else did and AquaTome left it.
+- finish · `case .already: if b.guessed == true { tell(b.earlier ? maybePutBack : changed) } else if !b.earlier` · Back already: only guessed, always a note, and to look: after a try of its own that may have gone, that it is back, maybe by that try; else that it isn't known whether the press's command reached it, and AquaTome left it (this end sends nothing). Not guessed: no note when a try of its own may be what put it back; else, if the press had changed it, that something else did and AquaTome left it.
 - finish · `case .hold: tell(` · CO2 left off: AquaTome never switches CO2 on.
 - finish · `case .heater: tell(` · Made a heater since the press: left, and says so (the button never switches one; Fable, 18 Nov).
 - finish · `case .heaterAfterTry: tell(unknown)` · The same after a put-back try of its own that may have gone: that try could still land, so not known, and to look (the chief, 18 Nov).

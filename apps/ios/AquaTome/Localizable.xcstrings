@@ -21055,6 +21055,28 @@
         }
       }
     },
+    "Ổ %@ đã về như cũ, có thể do lệnh trả lại của AquaTome. Bạn xem lại ổ này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stopkontak %@ sudah kembali seperti semula, mungkin karena perintah pengembalian dari AquaTome. Periksa stopkontak ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soket %@ sudah kembali seperti asal, mungkin kerana arahan pengembalian daripada AquaTome. Semak soket ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลั๊ก %@ กลับเป็นเหมือนเดิมแล้ว อาจเป็นเพราะคำสั่งคืนค่าของ AquaTome ตรวจดูปลั๊กนี้"
+          }
+        }
+      }
+    },
     "Bật với màu": {
       "localizations": {
         "id": {
