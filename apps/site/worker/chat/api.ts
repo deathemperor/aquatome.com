@@ -162,7 +162,7 @@ export async function roleOf(env: ChatEnv, userId: string | undefined): Promise<
 }
 /** The chat's sessions: the test account's too, while it is on. */
 export const chatSession = (req: Request, env: ChatEnv & { DB: D1Database }, now: Date) => sessionOf(req, env.DB, now, { tester: testerOn(env) })
-/** Questions a day for this asker: the test account's are fewer (accounts/tester.ts). */
+/** Questions a day for this asker: the test account's are fewer (accounts/tester.ts), and its off-topic ones count too. */
 const perAsker = (perAccount: number, role: Role) => (role === 'tester' ? Math.min(perAccount, TESTER_PER_DAY) : perAccount)
 /** On for this asker: everyone's while CHAT is "1"; while it is "owner", the owner's accounts' and the test account's. */
 export const askable = (env: ChatEnv, role: Role) => env.CHAT !== 'owner' || role !== 'reader'
@@ -282,7 +282,8 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   const maxTurns = limit(env.CHAT_MAX_TURNS, MAX_TURNS)
   if (req.method === 'GET') {
     if (!live(env)) return json({ on: false })
-    const role = env.CHAT === 'owner' ? await roleOf(env, (await chatSession(req, env, now).catch(() => null))?.userId) : 'reader'
+    // Who asks, where it changes the answer: the gate while chat is the owner's, and a signed-in asker's cap.
+    const role = env.CHAT === 'owner' || tokenOf(req) ? await roleOf(env, (await chatSession(req, env, now).catch(() => null))?.userId) : 'reader'
     if (!askable(env, role)) return json({ on: false })
     const resting = !(await healthyKeys((await keysOf(env.ANTHROPIC_KEYS)).keys, kvHealth(env.AB), now.getTime())).length
     return json({ on: true, resting, perAccount: perAsker(perAccount, role), maxTurns, maxChars })
@@ -532,7 +533,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
     const ok = turn ? wrote : undefined
     const offTopic = done.status === 200 && trail?.answer?.offTopic === true
     const cutOff = !turn && wordsAt !== undefined && !stopped
-    await ledger.settle({ day, run, refund: done.status === 503 || cutOff, ...(offTopic ? { offTopic: perAsker(perAccount, role) } : {}), keys: tally, ...(ok ? { ok } : {}) }).catch(e => console.error('chat settle:', e))
+    await ledger.settle({ day, run, refund: done.status === 503 || cutOff, ...(offTopic && role !== 'tester' ? { offTopic: perAccount } : {}), keys: tally, ...(ok ? { ok } : {}) }).catch(e => console.error('chat settle:', e))
   }
   /** Then, once the reader has the answer: the transcript, and the check for an account deleted meanwhile. */
   const after = async (done: { status: number; body: Record<string, unknown> }) => {

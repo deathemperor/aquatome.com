@@ -203,6 +203,9 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
   if (path === '/api/v1/session' && req.method === 'GET' && !on) return json({ accounts: false })
   if (!on) return fail('accounts_off', 404)
   const db = env.DB
+  // Everything that changes something: from this site's pages, or from the app with no cookie. (Before the Mac's route,
+  // so it answers a page on another site as any path does; it reads no session.)
+  if (req.method !== 'GET' && !sameSiteOk(req, tokenOf(req)?.via === 'cookie')) return fail('cross_site', 403)
   // The Mac's, before any session is read from its bearer: anyone else finds no such path.
   if (path === '/api/v1/chat-tester/code') return testerCode(req, url, env, now, () => fail('not_found', 404))
   const session = await sessionOf(req, db, now)
@@ -221,9 +224,6 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
     if (!providers(env, deps).email) return fail('provider_off', 503)
     return turnstilePage(env.TURNSTILE_SITEKEY!, url.searchParams.get('lang'))
   }
-
-  // Everything below changes something: from this site's pages, or from the app with no cookie.
-  if (req.method !== 'GET' && !sameSiteOk(req, tokenOf(req)?.via === 'cookie')) return fail('cross_site', 403)
 
   if (req.method === 'POST' && path.startsWith('/api/v1/auth/')) {
     const body = await bodyOf(req)

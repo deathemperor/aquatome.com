@@ -1551,3 +1551,16 @@ test('a ledger that hangs as the text is about to go out doesn\'t hold the answe
   const r = await run(ask(bearer(me.token), {}, { 'idempotency-key': crypto.randomUUID() }), e, deps(claude(NEON).fetch, { beginMs: 5 }))
   expect([r.res.status, r.body.n]).toEqual([200, 1])
 })
+
+// Codex's read of #1637: off-topic answers gave a reader's count back for a day's worth, so the tester's 20 could be 40.
+test('the test account\'s off-topic questions count like the rest: 20 a day in all; and open chat\'s status tells it 20', async () => {
+  const { e, db, ledger } = env({ CHAT_TESTER: 'on' })
+  const tester = await testerIn(db)
+  const off = () => msg([{ type: 'text', text: JSON.stringify({ offTopic: true, text: 'x', covered: true, blocks: [], suggestions: [] }) }])
+  for (let i = 0; i < 20; i++) expect((await run(ask(bearer(tester.token), { question: 'Tối qua MU đá thế nào?', conversation: crypto.randomUUID() }), e, deps(claude([off]).fetch))).res.status).toBe(200)
+  expect(Object.values(ledger.day()!.readers)).toEqual([20])
+  expect((await run(ask(bearer(tester.token), { conversation: crypto.randomUUID() }), e, deps(claude(NEON).fetch))).body).toEqual({ error: 'rate', limit: 20 })
+  expect((await run(new Request('https://x.test/api/chat', { headers: bearer(tester.token) }), e, {})).body).toMatchObject({ on: true, perAccount: 20 })
+  // A reader's status is as it was.
+  expect((await run(new Request('https://x.test/api/chat', { headers: bearer((await signIn(db)).token) }), e, {})).body).toMatchObject({ on: true, perAccount: 30 })
+})

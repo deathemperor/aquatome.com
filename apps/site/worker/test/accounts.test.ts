@@ -17,6 +17,8 @@ const ORIGIN = 'https://x.test'
 const NOW = new Date('2026-11-01T00:00:00.000Z')
 /** The Mac's dashboard bearer, as the test's Worker has it. */
 const BEARER = 'b'.repeat(32)
+/** The Mac's code, as on this site's host (the tests' x.test). */
+const ON = { CHAT_TESTER: 'on', AB_DASH_TOKEN: BEARER, CANONICAL_HOST: 'x.test' }
 
 /** A fake provider: an ID token is `<sub>|<nonce>|<email>`; anything else is refused. */
 function setup(over: Partial<AccountsEnv> = {}, opts: { turnstile?: boolean } = {}) {
@@ -337,7 +339,7 @@ test('the test account\'s address: its own email sign-in only, never added to an
 // or none, and later sign in through it. Signed in now by the Mac's code alone, its session is no session to anything but
 // the chat (session.ts): every way to link answers as to a token never issued, and writes nothing. A reader still links.
 test('the test account, signed in by the Mac\'s code, adds no other way in, whatever address that one carries', async () => {
-  const { db, mails, call, google, emailIn, tester } = setup({ CHAT_TESTER: 'on', AB_DASH_TOKEN: BEARER })
+  const { db, mails, call, google, emailIn, tester } = setup(ON)
   const own = await tester()
   const none = 'x'.repeat(43)
   const credentials = async () => (await db.prepare('SELECT COUNT(*) AS n FROM credentials').first<{ n: number }>())!.n
@@ -359,19 +361,20 @@ test('the test account, signed in by the Mac\'s code, adds no other way in, what
 
 // The Mac signs in to the test account (tester-sign-in.ts) for the chief of staff's questions to the live chat.
 test('the Mac\'s code: only with its bearer, on this site\'s host, while the tester is on; anything else is a path that isn\'t there', async () => {
-  const on = { CHAT_TESTER: 'on', AB_DASH_TOKEN: BEARER }
-  const unknown = async (call: ReturnType<typeof setup>['call']) => call('POST', '/api/v1/no-such-path', { body: {}, bearer: BEARER, origin: null })
+  const on = ON
+  const unknown = async (call: ReturnType<typeof setup>['call'], origin: string | null = null) => call('POST', '/api/v1/no-such-path', { body: {}, bearer: BEARER, origin })
   const same = (a: { status: number; text: string; headers: Headers }, b: { status: number; text: string; headers: Headers }) =>
-    expect([a.status, a.text, a.headers.get('cache-control'), a.headers.get('content-type')]).toEqual([b.status, b.text, b.headers.get('cache-control'), b.headers.get('content-type')])
+    expect([a.status, a.text, [...a.headers]]).toEqual([b.status, b.text, [...b.headers]])
   for (const [over, how] of [
     [on, { bearer: undefined }], [on, { bearer: 'x'.repeat(43) }], [on, { bearer: `${BEARER}x` }], [on, { bearer: BEARER.slice(0, -1) }],
     [{ ...on, CHAT_TESTER: undefined }, {}], [{ ...on, CHAT_TESTER: 'off' }, {}], [{ ...on, CHAT_TESTER: 'On' }, {}],
-    [{ ...on, AB_DASH_TOKEN: undefined }, { bearer: '' }], [{ ...on, CANONICAL_HOST: 'aquatome.com' }, {}], [on, { method: 'GET' }],
-  ] as [Partial<AccountsEnv>, { bearer?: string; method?: string }][]) {
+    [{ ...on, AB_DASH_TOKEN: undefined }, { bearer: '' }], [{ ...on, CANONICAL_HOST: 'aquatome.com' }, {}], [{ ...on, CANONICAL_HOST: undefined }, {}], [on, { method: 'GET' }],
+    [on, { origin: 'https://evil.test' }], [on, { bearer: undefined, origin: 'https://evil.test' }],
+  ] as [Partial<AccountsEnv>, { bearer?: string; method?: string; origin?: string }][]) {
     const { db, call, mails } = setup(over)
-    const r = await call(how.method ?? 'POST', '/api/v1/chat-tester/code', { body: how.method ? undefined : {}, bearer: 'bearer' in how ? how.bearer : BEARER, origin: null })
-    same(r, await unknown(call))
-    expect(r.status).toBe(404)
+    const r = await call(how.method ?? 'POST', '/api/v1/chat-tester/code', { body: how.method ? undefined : {}, bearer: 'bearer' in how ? how.bearer : BEARER, origin: how.origin ?? null })
+    same(r, await unknown(call, how.origin ?? null))
+    expect(r.status).toBe(how.origin ? 403 : 404)
     expect(mails).toEqual([])
     expect(await db.prepare('SELECT COUNT(*) AS n FROM auth_challenges').first<{ n: number }>()).toEqual({ n: 0 })
   }
@@ -385,7 +388,7 @@ test('the Mac\'s code: only with its bearer, on this site\'s host, while the tes
 })
 
 test('the Mac\'s code: no mail, used once, five minutes, a session of fifteen for the app\'s way only, and none of it logged', async () => {
-  const { db, mails, call, setNow } = setup({ CHAT_TESTER: 'on', AB_DASH_TOKEN: BEARER })
+  const { db, mails, call, setNow } = setup(ON)
   const logged: string[] = []
   const spies = (['log', 'info', 'warn', 'error', 'debug'] as const).map(k => vi.spyOn(console, k).mockImplementation((...a: unknown[]) => { logged.push(a.map(String).join(' ')) }))
   try {
@@ -413,12 +416,12 @@ test('the Mac\'s code: no mail, used once, five minutes, a session of fifteen fo
 })
 
 test('the test account is made once, with its fixed id; a code finds no account if its address were another\'s sign-in', async () => {
-  const { db, env, call, tester } = setup({ CHAT_TESTER: 'on', AB_DASH_TOKEN: BEARER })
+  const { db, env, call, tester } = setup(ON)
   expect((await tester()).id).toBe(TESTER_ID)
   expect((await tester()).id).toBe(TESTER_ID)
   expect(await db.prepare('SELECT COUNT(*) AS n FROM credentials WHERE user_id = ?').bind(TESTER_ID).first<{ n: number }>()).toEqual({ n: 1 })
   // Another account holding the address's email sign-in (none can: the test above): no code, nothing made.
-  const other = setup({ CHAT_TESTER: 'on', AB_DASH_TOKEN: BEARER })
+  const other = setup(ON)
   await signInWith(other.db, { kind: 'email', subject: await emailHash(env.ACCOUNT_HMAC_KEY!, TESTER_ADDRESS), emailHash: await emailHash(env.ACCOUNT_HMAC_KEY!, TESTER_ADDRESS) }, NOW)
   const errors = vi.spyOn(console, 'error').mockImplementation(() => {})
   expect((await other.call('POST', '/api/v1/chat-tester/code', { body: {}, bearer: BEARER, origin: null })).status).toBe(404)
@@ -428,7 +431,7 @@ test('the test account is made once, with its fixed id; a code finds no account 
 })
 
 test('off, the test account can\'t sign in: no code, and one handed out before signs nobody in', async () => {
-  const s = setup({ CHAT_TESTER: 'on', AB_DASH_TOKEN: BEARER })
+  const s = setup(ON)
   const c = (await s.call('POST', '/api/v1/chat-tester/code', { body: {}, bearer: BEARER, origin: null })).json as { flow: string; code: string }
   s.env.CHAT_TESTER = 'off'
   expect((await s.call('POST', '/api/v1/auth/email/verify', { body: { ...c, client: 'app' } })).json).toEqual({ error: 'bad_code' })
@@ -439,7 +442,7 @@ test('off, the test account can\'t sign in: no code, and one handed out before s
 // The test account asks the chat and does nothing else: its session is none to any other route (session.ts). Every
 // route that reads a session reads it through sessionOf, and only the chat's own helper asks for the tester's.
 test('the test account\'s session is no session to anything but the chat: the accounts\' routes answer it as a token never issued', async () => {
-  const { call, tester } = setup({ CHAT_TESTER: 'on', AB_DASH_TOKEN: BEARER })
+  const { call, tester } = setup(ON)
   const { token } = await tester()
   const none = 'x'.repeat(43)
   for (const [method, path, body] of [

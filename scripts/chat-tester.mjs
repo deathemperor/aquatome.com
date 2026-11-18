@@ -19,6 +19,14 @@ const LANGS = ['vi', 'id', 'th', 'ms']
 
 /** An error's code, if it is a plain one: never anything else the site sent. */
 const codeOf = (b, or) => (typeof b?.error === 'string' && /^[a-z_]{1,40}$/.test(b.error) ? b.error : or)
+/** A body read as JSON; one that isn't says so, never what it held (a parser's message quotes it). */
+const jsonOf = async (r) => {
+  try {
+    return await r.json()
+  } catch {
+    throw new Error(`the site sent something that isn't JSON (${r.status})`)
+  }
+}
 /** What a refusal says, by its error code alone: never the body as sent, never a header. */
 const said = async (r) => codeOf(await r.json().catch(() => null), `HTTP ${r.status}`)
 
@@ -34,22 +42,38 @@ async function* events(body) {
       buf = buf.slice(end + 2)
       const event = /^event: (.*)$/m.exec(block)?.[1]
       const data = /^data: (.*)$/m.exec(block)?.[1]
-      if (event && data) yield { event, data: JSON.parse(data) }
+      if (!event || !data) continue
+      let parsed
+      try { parsed = JSON.parse(data) } catch { throw new Error(`the chat sent an event that isn't JSON (${event})`) }
+      yield { event, data: parsed }
     }
   }
 }
 
 /**
- * One question as the test account. `say` gets each line to print. Throws an Error whose message holds no secret.
+ * One question as the test account. `say` gets each line to print. Every line, and the message of anything thrown, has
+ * the bearer, the flow, the code and the session cut out, wherever the site put them.
  */
 export async function ask({ question, lang = 'vi', bearer, fetch = globalThis.fetch, say, site = SITE, clock = Date.now }) {
+  const secrets = [bearer]
+  const hide = (text) => secrets.filter(x => typeof x === 'string' && x.length >= 6).reduce((t, x) => t.split(x).join('[hidden]'), String(text))
+  try {
+    await asked({ question, lang, bearer, fetch, say: line => say(hide(line)), site, clock, keep: x => secrets.push(x) })
+  } catch (e) {
+    throw new Error(hide(e instanceof Error ? e.message : 'failed'))
+  }
+}
+
+async function asked({ question, lang, bearer, fetch, say, site, clock, keep }) {
   const json = (path, body, headers = {}) => fetch(`${site}${path}`, { method: 'POST', headers: { 'content-type': 'application/json', ...headers }, body: JSON.stringify(body) })
   const c = await json('/api/v1/chat-tester/code', {}, { authorization: `Bearer ${bearer}` })
   if (!c.ok) throw new Error(`no sign-in code (${c.status}): the test account is off, the bearer isn't the site's, or today's codes are used`)
-  const { flow, code } = await c.json()
+  const { flow, code } = await jsonOf(c)
+  keep(flow); keep(code)
   const v = await json('/api/v1/auth/email/verify', { flow, code, client: 'app' })
   if (!v.ok) throw new Error(`the sign-in was refused: ${await said(v)}`)
-  const { token } = await v.json()
+  const { token } = await jsonOf(v)
+  keep(token)
   const began = clock()
   const r = await json('/api/chat', { conversation: randomUUID(), question, lang }, { authorization: `Bearer ${token}`, accept: 'text/event-stream', 'idempotency-key': randomUUID() })
   if (!r.ok || !r.body) throw new Error(`the chat refused: ${await said(r)}`)

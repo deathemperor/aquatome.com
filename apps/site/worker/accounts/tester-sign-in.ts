@@ -30,11 +30,11 @@ type Env = { DB: D1Database; ACCOUNT_HMAC_KEY: string; AB_DASH_TOKEN?: string; C
 /**
  * POST /api/v1/chat-tester/code, with the Mac's dashboard bearer: an email sign-in for the test account, its `flow` and
  * its code, for /api/v1/auth/email/verify. No mail goes out; the code is used once and lasts TESTER_CODE_MINUTES. Only on
- * this site's host, while the tester is on, CODES_A_DAY a day. Anything else gets `nothing`, the answer to a path that
+ * this site's host (none while CANONICAL_HOST isn't set), while the tester is on, CODES_A_DAY a day. Anything else gets `nothing`, the answer to a path that
  * isn't there, so nobody learns whether a code could be had. The code is never logged.
  */
 export async function testerCode(req: Request, url: URL, env: Env, now: Date, nothing: () => Response): Promise<Response> {
-  if (req.method !== 'POST' || !testerOn(env) || (env.CANONICAL_HOST && url.hostname !== env.CANONICAL_HOST) || !bearerOk(req, env.AB_DASH_TOKEN)) return nothing()
+  if (req.method !== 'POST' || !testerOn(env) || !env.CANONICAL_HOST || url.hostname !== env.CANONICAL_HOST || !bearerOk(req, env.AB_DASH_TOKEN)) return nothing()
   if (!(await allow(env.DB, env.ACCOUNT_HMAC_KEY, 'chat-tester-code', CODES_A_DAY, DAY_MS, now))) return nothing()
   if (!(await testerAccount(env.DB, env.ACCOUNT_HMAC_KEY, now))) {
     console.error('chat tester: its address is another account\'s sign-in')
