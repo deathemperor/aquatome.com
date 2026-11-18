@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-18). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 741 | 31 | 9 | 24 | 757 |
-| rest | 20 | 1826 | 79 | 0 | 106 | 1799 |
+| covered | 30 | 749 | 31 | 9 | 24 | 765 |
+| rest | 20 | 1832 | 79 | 0 | 106 | 1805 |
 
-## Short of target: every source read (665)
+## Short of target: every source read (675)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -276,6 +276,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/ambastaia-sidthimunki | covered | 1 | 30 |
 | species/corydoras-fowleri | covered | 1 | 30 |
 | species/aguarunichthys-torosus | covered | 0 | 30 |
+| species/akysis-portellus | covered | 0 | 30 |
 | species/amblydoras-nauticus | covered | 0 | 30 |
 | species/aphanotorulus-unicolor | covered | 0 | 30 |
 | species/axelrodia-riesei | covered | 1 | 30 |
@@ -341,7 +342,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/akysis-hendricksoni | covered | 0 | 30 |
 | species/akysis-longifilis | covered | 0 | 30 |
 | species/akysis-maculipinnis | covered | 0 | 30 |
-| species/akysis-portellus | covered | 0 | 30 |
 | species/akysis-prashadi | covered | 0 | 30 |
 | species/akysis-varius | covered | 0 | 30 |
 | species/altolamprologus-calvus | covered | 1 | 30 |
@@ -371,6 +371,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/apistogramma-trifasciata | covered | 3 | 30 |
 | species/ariopsis-felis | covered | 26 | 30 |
 | species/ariopsis-seemanni | covered | 0 | 30 |
+| species/arius-latiscutatus | covered | 0 | 30 |
 | species/aspidoras-pauciradiatus | covered | 4 | 30 |
 | species/aspidoras-taurus | covered | 3 | 30 |
 | species/asterophysus-batrachus | covered | 1 | 30 |
@@ -379,6 +380,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/auchenipterus-nigripinnis | covered | 0 | 30 |
 | species/auchenoglanis-occidentalis | covered | 5 | 30 |
 | species/axelrodia-stigmatias | covered | 0 | 30 |
+| species/bagarius-suchus | covered | 0 | 30 |
 | species/bagre-marinus | covered | 10 | 30 |
 | species/bagrichthys-hypselopterus | covered | 0 | 30 |
 | species/bagrichthys-macracanthus | covered | 0 | 30 |
@@ -447,6 +449,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/brachyrhamdia-imitator | covered | 0 | 30 |
 | species/brachyrhamdia-rambarrani | covered | 0 | 30 |
 | species/brotia-pagodula | covered | 0 | 30 |
+| species/brycinus-longipinnis | covered | 0 | 30 |
 | species/bunocephalus-colombianus | covered | 0 | 30 |
 | species/callochromis-macrops | covered | 0 | 30 |
 | species/cambarellus-diminutus | covered | 1 | 30 |
@@ -549,8 +552,10 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/diplomystes-nahuelbutaensis | covered | 0 | 30 |
 | species/discherodontus-ashmeadi | covered | 0 | 30 |
 | species/distichodus-affinis | covered | 0 | 30 |
+| species/distichodus-lusosso | covered | 0 | 30 |
 | species/distichodus-sexfasciatus | covered | 1 | 30 |
 | species/duopalatinus-peruanus | covered | 0 | 30 |
+| species/eirmotus-octozona | covered | 0 | 30 |
 | species/elopichthys-bambusa | covered | 0 | 30 |
 | species/enteromius-candens | covered | 0 | 30 |
 | species/enteromius-fasciolatus | covered | 1 | 30 |
@@ -572,6 +577,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/gagata-cenia | covered | 0 | 30 |
 | species/garra-qiaojiensis | covered | 0 | 30 |
 | species/gastromyzon-punctulatus | covered | 0 | 30 |
+| species/geophagus-abalios | covered | 0 | 30 |
 | species/geophagus-altifrons | covered | 4 | 30 |
 | species/geophagus-crassilabris | covered | 1 | 30 |
 | species/geophagus-iporangensis | covered | 3 | 30 |
@@ -588,6 +594,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/harttia-carvalhoi | covered | 0 | 30 |
 | species/harttia-kronei | covered | 0 | 30 |
 | species/harttia-surinamensis | covered | 0 | 30 |
+| species/hemiancistrus-guahiborum | covered | 0 | 30 |
 | species/hemiancistrus-medians | covered | 0 | 30 |
 | species/hemibagrus-macropterus | covered | 0 | 30 |
 | species/hemichromis-bimaculatus | covered | 0 | 30 |
@@ -681,3 +688,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/leptodoras-cataniai | covered | 1 | 30 |
 | species/leptodoras-linnelli | covered | 0 | 30 |
 | species/limia-melanogaster | covered | 0 | 30 |
+| species/limia-nigrofasciata | covered | 4 | 30 |
+| species/liobagrus-mediadiposalis | covered | 0 | 30 |
+| species/listrura-nematopteryx | covered | 0 | 30 |

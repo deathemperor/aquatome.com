@@ -9,13 +9,13 @@ under `<lang>/<path>`.
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
 | video-guide | 997 | 711 (vi 711) | 711 |
-| translation | 1976 | 290 (vi 290) | 290 |
+| translation | 2002 | 294 (vi 294) | 294 |
 | vi-rewrite | 380 | 28 (vi 28) | 28 |
 | reader-rewrite | 41 | 0 | 0 |
 | title | 25 | 0 | 0 |
 | breed | 27 | 3 (ms 3) | 3 |
 | topic | 115 | 6 (id 1, ms 1, th 4) | 6 |
-| product | 20 | 1 (vi 1) | 1 |
+| product | 21 | 1 (vi 1) | 1 |
 | product-reviews | 17 | 0 | 0 |
 | summary | 2450 | 127 (vi 127) | 127 |
 | localize | 2474 | 891 (id 392, ms 65, th 434) | 891 |
@@ -32,14 +32,14 @@ under `<lang>/<path>`.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 622 | 1606 |
-| States as certain what the source hedges, or what garbled captions only hint at | 620 | 1855 |
+| Other | 621 | 1608 |
+| States as certain what the source hedges, or what garbled captions only hint at | 620 | 1851 |
 | Says what the source doesn't (invented, added) | 525 | 1255 |
-| Wording: unnatural, literal, stiff or chatty | 304 | 434 |
+| Wording: unnatural, literal, stiff or chatty | 303 | 432 |
 | A number, unit, dose or price | 233 | 340 |
 | Repeats itself (intro, summary, steps and FAQ) | 141 | 167 |
 | Meaning changed or wrong | 123 | 140 |
-| Hobby terms and names | 51 | 52 |
+| Hobby terms and names | 50 | 51 |
 | Leaves out what the source says | 49 | 51 |
 | Names or points to the video, channel, creator or source | 35 | 39 |
 | Off the title's topic | 25 | 25 |
@@ -126,19 +126,19 @@ under `<lang>/<path>`.
 
 ## translation: source pages translated into Vietnamese, against the English
 
-290 of 1976 pages under the bar.
+294 of 2002 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 277 | 835 |
-| Says what the source doesn't (invented, added) | 240 | 466 |
-| Wording: unnatural, literal, stiff or chatty | 222 | 418 |
-| Meaning changed or wrong | 180 | 281 |
-| Hobby terms and names | 143 | 191 |
-| Leaves out what the source says | 100 | 136 |
-| Text left in another language | 100 | 124 |
+| Other | 281 | 842 |
+| Says what the source doesn't (invented, added) | 243 | 472 |
+| Wording: unnatural, literal, stiff or chatty | 225 | 422 |
+| Meaning changed or wrong | 182 | 283 |
+| Hobby terms and names | 145 | 193 |
+| Text left in another language | 102 | 127 |
+| Leaves out what the source says | 101 | 138 |
 | States as certain what the source hedges, or what garbled captions only hint at | 84 | 97 |
-| A number, unit, dose or price | 75 | 98 |
+| A number, unit, dose or price | 76 | 99 |
 | Repeats itself (intro, summary, steps and FAQ) | 60 | 71 |
 | Names or points to the video, channel, creator or source | 10 | 11 |
 | Copied from the transcript or source | 3 | 3 |
@@ -173,17 +173,17 @@ under `<lang>/<path>`.
 - Item 3: "Bong bóng" for air bladders. The standard term is "bóng bơi" ("bóng bơi của chúng"). — vi/species/arius-maculatus (scotcat), 0.50
 - Item 1: "Cá chép đen (black shark)" is a wrong common name. Labeo chrysophekadion is usually called "cá chài đen" or "cá mè lúi đen" in Vietnamese. It is not a true carp. Use an established name. — vi/species/labeo-chrysophekadion (seriouslyfish), 0.50
 
-### Leaves out what the source says
-
-- Item 6: translation is a copy of item 2 ("Cynotilapia là cichlid mbuna điển hình..."); the Lexicon content is omitted. Translate: Cynotilapia means "dog-Tilapia" (refers to the dentition); Axelrodi honors Herbert Axelrod; Maylandia honors … — vi/species/cynotilapia-axelrodi (glaser), 0.30
-- Item 3: the facts about max length 15 cm, 11 cm type specimen and colour variation are all omitted. — vi/species/mastacembelus-brichardi (glaser), 0.40
-- Item 11: "patent unsuitability" lost its nuance in "rõ ràng không hợp", which is acceptable. The sentence "Các tác giả nghiên cứu đề nghị coi Gibelion là tên đồng nghĩa của Labeo, tức gộp Gibelion catla vào Labeo" adds an explanation. The … — vi/species/labeo-chrysophekadion (seriouslyfish), 0.50
-
 ### Text left in another language
 
 - Item 2: 'cichlid' is left untranslated. Use 'cá rô phi/cichlid (họ Cichlidae)', or keep it with a gloss on first use. — vi/species/mastacembelus-brichardi (glaser), 0.40
 - Item 7: The references are left in English, which is acceptable for citations, but "pag. var." and similar could stay as is. No change needed. — vi/species/arius-subrostratus (scotcat), 0.50
 - Item 4: "white shark" is left in English in brackets. Remove it, or use "cá mập trắng" only. — vi/species/labeo-chrysophekadion (glaser), 0.50
+
+### Leaves out what the source says
+
+- Item 6: translation is a copy of item 2 ("Cynotilapia là cichlid mbuna điển hình..."); the Lexicon content is omitted. Translate: Cynotilapia means "dog-Tilapia" (refers to the dentition); Axelrodi honors Herbert Axelrod; Maylandia honors … — vi/species/cynotilapia-axelrodi (glaser), 0.30
+- Item 3: the facts about max length 15 cm, 11 cm type specimen and colour variation are all omitted. — vi/species/mastacembelus-brichardi (glaser), 0.40
+- Item 11: "patent unsuitability" lost its nuance in "rõ ràng không hợp", which is acceptable. The sentence "Các tác giả nghiên cứu đề nghị coi Gibelion là tên đồng nghĩa của Labeo, tức gộp Gibelion catla vào Labeo" adds an explanation. The … — vi/species/labeo-chrysophekadion (seriouslyfish), 0.50
 
 ### States as certain what the source hedges, or what garbled captions only hint at
 
@@ -381,7 +381,7 @@ under `<lang>/<path>`.
 
 ## product: product pages, against their research
 
-1 of 20 pages under the bar.
+1 of 21 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
