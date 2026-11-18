@@ -17,10 +17,10 @@ let masterCardList = #"""
 - card · `Text("Nút tổng")` · The card's title.
 - card · `Text("Một chạm bật đèn` · What the button is for, before there is one. Nothing on what went.
 - card · `Text("Tạo nút tổng")` · The same.
+- card · `endNotes` · A button deleted while its press still owed something: the end's notes there too, the same rows as under the button (`endNotes`, below; the chief, 18 Nov).
 - ready · `Button("Sửa")` · Edits the button.
 - ready · `sendingOr(Text("Bắt đầu")` · Starts a press; while a press or an end is going, "Đang gửi…" (below).
-- ready · `if !master.notes.isEmpty {` · The end's notes: what it left as it was, and why. Nothing failed.
-- ready · `ForEach(master.notes` · Each note as `tell` wrote it.
+- ready · `endNotes` · The end's notes, under the button (`endNotes`, below).
 - running · `Text("Đang chạy")` · A press runs: its end not come yet. Nothing on what went.
 - running · `Text("còn")` · The time left.
 - running · `Text("từ")` · The time it started.
@@ -28,6 +28,9 @@ let masterCardList = #"""
 - running · `sendingOr(Text("Kết thúc")` · Ends it now.
 - putBack · `$0.problem != nil` · Trả lại shows while a put-back owed has a line.
 - putBack · `Text("Trả lại")` · Puts back what is owed (`finish`).
+- endNotes · `private var endNotes: some View {` · The end's notes, one view for both cards:
+- endNotes · `if !master.notes.isEmpty {` · The end's notes: what it did, or left as it was, and why. Nothing failed. The same rows under the button and on the card without one (a button deleted while a put-back was owed; the chief, 18 Nov).
+- endNotes · `ForEach(master.notes` · Each note as `tell` wrote it.
 - sendingOr · `private func sendingOr(` · While a press or an end is going:
 - sendingOr · `Text("Đang gửi…")` · "Đang gửi…" ("sending"): true while it goes, whatever then went.
 - problems · `let all = master.refusal + (master.run?.failed.map(\.line) ?? []) + (master.run?.pending.compactMap(\.problem) ?? [])` · The card's only failure lines: the press's refusals, its steps' lines, the lines of what hasn't come back.
@@ -331,7 +334,7 @@ let masterCardList = #"""
 /// `in`: only inside those declarations.
 private let walked: [(file: String, finds: [String], in: Set<String>?)] = [
   ("AquaTome/Master/MasterCard.swift", ["master.refusal", "master.notes", ".problem", "failed.map", "String(localized:", "Text(\"", "Button(\"",
-                                        "sendingOr("], nil),
+                                        "sendingOr(", "endNotes"], nil),
   ("AquaTome/Master/MasterModel.swift", ["refusal = ", "notes = ", "failed.append(", "MasterRun.Failed(", ".problem = ", "].failed(", ".trying(",
                                          "tell(", "store(", "keep()", "run = ", ".failed = ", ".settle(", "MasterRun(", "runKey", "switcher.send(",
                                          "switcher.setByButton(", "sendLamp(", "mayHaveGone", "String(localized:", "still()", "MasterButton.allows(",
