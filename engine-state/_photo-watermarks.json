@@ -427661,5 +427661,87 @@
     "ocr": [],
     "watermark": false,
     "kind": "none"
+  },
+  "https://media.aquatome.com/inaturalist/2802207.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 11,
+        "mark": false,
+        "hash": "cf1018a0a3b790ae4b219e1d549ce51c5c071d123c01b8ac17dd40c7aaaa7935"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 7,
+        "mark": false,
+        "hash": "4d72759b35f255c66dcc1bcdbb47a17dca4f915116cb8401577daa6c48bf09dd"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "top left"
+    ]
+  },
+  "https://media.aquatome.com/inaturalist/2802208.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 11,
+        "mark": false,
+        "hash": "cf1018a0a3b790ae4b219e1d549ce51c5c071d123c01b8ac17dd40c7aaaa7935"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 7,
+        "mark": false,
+        "hash": "4d72759b35f255c66dcc1bcdbb47a17dca4f915116cb8401577daa6c48bf09dd"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "top left"
+    ]
+  },
+  "https://media.aquatome.com/inaturalist/395366159.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/395366345.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/5606542.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 10,
+        "mark": false,
+        "hash": "c7c50a9d6b95472b8883e9ced7744850f3ea4345b626c62a9f498604697aedc7"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 7,
+        "mark": false,
+        "hash": "584a875f2749b54ca3a979292a1759371f4b9e56b4f5f99e9c75f2d12d00d51d"
+      },
+      {
+        "c": 0.3,
+        "at": "top left",
+        "alnum": 6,
+        "mark": false,
+        "hash": "66874aae5782944503c61e72b27b9535bc3b0010d12fba1b91ac3005c16235eb"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "top left"
+    ]
   }
 }

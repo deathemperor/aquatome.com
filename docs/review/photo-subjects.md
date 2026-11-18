@@ -1,7 +1,7 @@
 # Photos that don't show their page's subject
 
 Written by `pnpm engine check-photos` (2026-11-18), most-read pages first. Rules: docs/governance.md, "Photos".
-12254 verdicts. Shows it: 7551; its habitat (asked again): 3; something else: 447; not a photo of it: 326; dead or as food: 539; a person in it: 173; a logo on it: 142; can't tell: 2235.
+12541 verdicts. Shows it: 7827; its habitat (asked again): 3; something else: 447; not a photo of it: 326; dead or as food: 541; a person in it: 173; a logo on it: 146; can't tell: 2240.
 
 ## Left with no photo (101)
 
@@ -107,7 +107,7 @@ Written by `pnpm engine check-photos` (2026-11-18), most-read pages first. Rules
 - species/xenotilapia-sima
 - species/xiurenbagrus-gigas
 
-## Can't tell: still shown (2235)
+## Can't tell: still shown (2240)
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
@@ -131,9 +131,10 @@ Written by `pnpm engine check-photos` (2026-11-18), most-read pages first. Rules
 | breeds/full-red-guppy | [photo](https://images.unsplash.com/photo-1465420824608-b6cb6dd080d2?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MTV8fGZ1bGwlMjByZWQlMjBndXBweXxlbnwxfHx8fDE3OTM0MTAyOTR8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | subject unsure |
 | breeds/halfmoon-betta | [photo](https://media.aquatome.com/commons/2adae8349e1ed380.webp) | subject unsure |
 | breeds/halfmoon-betta | [photo](https://media.aquatome.com/commons/561b4018211c8bee.webp) | subject unsure |
+| breeds/halfmoon-betta | [photo](https://media.aquatome.com/commons/56b5ce2d311b8d6c.webp) | subject unsure |
 | breeds/halfmoon-betta | [photo](https://media.aquatome.com/commons/c116b39ef3658eb2.webp) | subject unsure |
 | breeds/halfmoon-betta | [photo](https://media.aquatome.com/commons/dc54b63a6b4a8e53.webp) | subject unsure |
-| breeds/halfmoon-betta | [photo](https://media.aquatome.com/commons/ecbee2ff318ed33f.webp) | subject unsure |
+| breeds/halfmoon-betta | [photo](https://media.aquatome.com/commons/e6e01aded1123628.webp) | subject unsure |
 | breeds/mickey-mouse-platy | [photo](https://media.aquatome.com/commons/42458c3e4077f786.webp) | subject unsure |
 | breeds/mickey-mouse-platy | [photo](https://media.aquatome.com/commons/5351e9f1c2559785.webp) | subject unsure |
 | breeds/oranda-goldfish | [photo](https://media.aquatome.com/commons/56e22c8551f2b465.webp) | subject unsure |
@@ -150,6 +151,7 @@ Written by `pnpm engine check-photos` (2026-11-18), most-read pages first. Rules
 | breeds/ryukin-goldfish | [photo](https://media.aquatome.com/flickr/7363087118.webp) | subject unsure |
 | breeds/super-red-arowana | [photo](https://images.unsplash.com/photo-1660749396166-75025432eab5?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8Mnx8c3VwZXIlMjByZWQlMjBhcm93YW5hfGVufDF8fHx8MTc5MzQ0NTMxNnww&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | subject unsure |
 | breeds/super-red-arowana | [photo](https://media.aquatome.com/commons/882693881008ce4d.webp) | subject unsure |
+| species/betta-splendens | [photo](https://media.aquatome.com/commons/3bc9e22cb184d265.webp) | subject unsure |
 | species/poecilia-reticulata | [photo](https://media.aquatome.com/inaturalist/131701420.webp) | subject unsure |
 | species/poecilia-reticulata (a guide photo) | [photo](https://media.aquatome.com/video/4lG_4wSx_bQ/p6-uaXNfbWFsZS5qcGc.webp) | subject unsure |
 | species/paracheirodon-innesi | [photo](https://media.aquatome.com/commons/1445e84e10809727.webp) | subject unsure |
@@ -2266,6 +2268,9 @@ Written by `pnpm engine check-photos` (2026-11-18), most-read pages first. Rules
 | plants/alternanthera-bettzickiana | [photo](https://media.aquatome.com/commons/898acc68e6647b63.webp) | subject unsure |
 | plants/alternanthera-bettzickiana | [photo](https://media.aquatome.com/commons/b164cdc131fcb3fb.webp) | subject unsure |
 | plants/alternanthera-bettzickiana | [photo](https://media.aquatome.com/commons/e44b2cefccbf0728.webp) | subject unsure |
+| plants/alternanthera-bettzickiana | [photo](https://media.aquatome.com/inaturalist/84137102.webp) | subject unsure |
+| plants/alternanthera-bettzickiana | [photo](https://media.aquatome.com/inaturalist/84137109.webp) | subject unsure |
+| plants/alternanthera-bettzickiana | [photo](https://media.aquatome.com/inaturalist/84137113.webp) | subject unsure |
 | plants/ammannia-crassicaulis | [photo](https://media.aquatome.com/tropica/31380b8faaf74ed2.webp) | subject unsure |
 | plants/anubias-barteri-petite | [photo](https://media.aquatome.com/tropica/a0efc518a5463e1b.webp) | subject unsure |
 | plants/anubias-barteri-var-barteri | [photo](https://media.aquatome.com/commons/10b47feecd299b1a.webp) | subject unsure |
@@ -2347,9 +2352,9 @@ Written by `pnpm engine check-photos` (2026-11-18), most-read pages first. Rules
 | plants/vallisneria-spiralis | [photo](https://media.aquatome.com/tropica/32a5549cfa5b0c5e.webp) | subject unsure |
 | species/crenicichla-marmorata | [photo](https://media.aquatome.com/commons/e8cb82a86126e499.webp) | subject unsure |
 
-## Removed (1602)
+## Removed (1608)
 
-"Something else" records a different subject; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
+"Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
@@ -2398,16 +2403,20 @@ Written by `pnpm engine check-photos` (2026-11-18), most-read pages first. Rules
 | breeds/ryukin-goldfish | [photo](https://media.aquatome.com/commons/5c60a408b8a801e5.webp) | subject other |
 | breeds/super-red-arowana | [photo](https://media.aquatome.com/commons/b78790b4052d821e.webp) | subject yes; person |
 | species/betta-splendens | [photo](https://media.aquatome.com/commons/78302919749a9d91.webp) | subject other |
+| species/betta-splendens | [photo](https://media.aquatome.com/commons/a3549c723c4135ff.webp) | subject yes; logo |
 | species/betta-splendens | [photo](https://media.aquatome.com/commons/f7a43db1dedf2bb9.webp) | subject yes; logo |
 | species/poecilia-reticulata (a guide photo) | [photo](https://media.aquatome.com/video/cJLZq603RAY/p3-Nyb3BwZWQpLmpwZw.webp) | subject other |
 | species/trigonostigma-heteromorpha | [photo](https://media.aquatome.com/flickr/4126097617.webp) | subject yes; logo |
 | species/trigonostigma-heteromorpha (a guide photo) | [photo](https://media.aquatome.com/video/TEZjYpuJFsU/p0-RfZmVtYWxlLmpwZw.webp) | subject other |
 | species/trigonostigma-heteromorpha (a guide photo) | [photo](https://media.aquatome.com/video/TEZjYpuJFsU/p1-hZV90ZXRyYS5KUEc.webp) | subject other |
 | species/symphysodon-aequifasciatus | [photo](https://media.aquatome.com/commons/2f781da516b67046.webp) | subject yes; logo |
+| species/symphysodon-aequifasciatus | [photo](https://media.aquatome.com/commons/3b75ea56400f474f.webp) | subject yes; logo |
 | species/symphysodon-aequifasciatus | [photo](https://media.aquatome.com/commons/637f7f9a5f201d50.webp) | subject yes; logo |
 | species/symphysodon-aequifasciatus | [photo](https://media.aquatome.com/commons/ab58a871b1d77773.webp) | subject yes; logo |
 | species/symphysodon-aequifasciatus | [photo](https://media.aquatome.com/commons/b2455b14c7dd2e51.webp) | subject yes; logo |
+| species/symphysodon-aequifasciatus | [photo](https://media.aquatome.com/commons/d8e7f0f01398d30d.webp) | subject yes; logo |
 | species/symphysodon-aequifasciatus (a guide photo) | [photo](https://media.aquatome.com/video/7EUCwvZpKvg/p1-faGVhcnRfMS5qcGc.webp) | subject dead |
+| species/pterophyllum-scalare | [photo](https://media.aquatome.com/commons/254077143062f2f5.webp) | subject yes; logo |
 | species/pterophyllum-scalare | [photo](https://media.aquatome.com/commons/b1cfe1df20ed9810.webp) | subject none |
 | species/neocaridina-davidi | [photo](https://media.aquatome.com/aquariumcoop/1e2320a70d6b6de4.webp) | subject none |
 | species/neocaridina-davidi | [photo](https://media.aquatome.com/aquariumcoop/4f7c3344040c33ac.webp) | subject other |
@@ -3534,6 +3543,8 @@ Written by `pnpm engine check-photos` (2026-11-18), most-read pages first. Rules
 | species/eriocheir-sinensis | [photo](https://media.aquatome.com/commons/5237ee2e3a2770cb.webp) | subject dead |
 | species/eriocheir-sinensis | [photo](https://media.aquatome.com/commons/62083dfd64c169b4.webp) | subject dead |
 | species/eriocheir-sinensis | [photo](https://media.aquatome.com/commons/7c3febf17c689373.webp) | subject dead |
+| species/eriocheir-sinensis | [photo](https://media.aquatome.com/commons/9a13034629549660.webp) | subject dead |
+| species/eriocheir-sinensis | [photo](https://media.aquatome.com/commons/d4f2c476891b69d8.webp) | subject dead |
 | species/esomus-longimanus | [photo](https://media.aquatome.com/seriouslyfish/6f4498949638c14c.webp) | subject none |
 | species/etheostoma-caeruleum | [photo](https://media.aquatome.com/inaturalist/8477129.webp) | subject yes; person |
 | species/etheostoma-fusiforme | [photo](https://media.aquatome.com/commons/f9a491a62ab2857c.webp) | subject dead |

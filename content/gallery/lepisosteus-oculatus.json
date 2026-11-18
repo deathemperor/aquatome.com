@@ -54,16 +54,18 @@
       "unchecked": true
     },
     {
-      "url": "https://media.aquatome.com/commons/8e8775de5b04de90.webp",
-      "thumb": "https://media.aquatome.com/commons/8e8775de5b04de90-480.webp",
-      "width": 1200,
-      "height": 728,
-      "licence": "CC BY-SA 4.0",
-      "author": "Yercaud-elango",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spotted_Gar-2-jayanti_nagar-bengaluru-India.jpg",
-      "caption": "Cá sấu hỏa tiễn đốm bơi gần mặt nước trong bể kính xanh",
+      "url": "https://media.aquatome.com/inaturalist/14211225.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/14211225-480.webp",
+      "width": 1024,
+      "height": 649,
+      "licence": "CC BY-SA",
+      "author": "Nodnarb Nedloh",
+      "sourceUrl": "https://www.inaturalist.org/photos/14211225",
+      "caption": "Cá sấu hỏa tiễn đốm nổi gần mặt nước tối",
       "best": true,
-      "kind": "other"
+      "kind": "other",
+      "setup": false,
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/3637870.webp",
@@ -76,20 +78,6 @@
       "caption": "Cá sấu hỏa tiễn đốm bơi gần mặt nước đục ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/14211225.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/14211225-480.webp",
-      "width": 1024,
-      "height": 649,
-      "licence": "CC BY-SA",
-      "author": "Nodnarb Nedloh",
-      "sourceUrl": "https://www.inaturalist.org/photos/14211225",
-      "caption": "Cá sấu hỏa tiễn đốm nổi gần mặt nước tối",
-      "best": true,
-      "kind": "other",
       "setup": false,
       "unchecked": true
     },
@@ -156,18 +144,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/commons/f790702f36e9b146.webp",
-      "thumb": "https://media.aquatome.com/commons/f790702f36e9b146-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY-SA 4.0",
-      "author": "Chris Light",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blue_Gill,_Gar,_P2280521.jpg",
-      "caption": "Cá sấu hỏa tiễn đốm trong bể có đá và cây thủy sinh",
-      "best": false,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/commons/4bd8054a47655a08.webp",
       "thumb": "https://media.aquatome.com/commons/4bd8054a47655a08-480.webp",
       "width": 1200,
@@ -176,6 +152,30 @@
       "author": "Chris Light",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gar_P2270459.jpg",
       "caption": "Cá sấu hỏa tiễn đốm bơi trong bể trưng bày có đá",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/8e8775de5b04de90.webp",
+      "thumb": "https://media.aquatome.com/commons/8e8775de5b04de90-480.webp",
+      "width": 1200,
+      "height": 728,
+      "licence": "CC BY-SA 4.0",
+      "author": "Yercaud-elango",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spotted_Gar-2-jayanti_nagar-bengaluru-India.jpg",
+      "caption": "Cá sấu hỏa tiễn đốm bơi gần mặt nước trong bể kính xanh",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/f790702f36e9b146.webp",
+      "thumb": "https://media.aquatome.com/commons/f790702f36e9b146-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 4.0",
+      "author": "Chris Light",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blue_Gill,_Gar,_P2280521.jpg",
+      "caption": "Cá sấu hỏa tiễn đốm trong bể có đá và cây thủy sinh",
       "best": false,
       "kind": "other"
     },

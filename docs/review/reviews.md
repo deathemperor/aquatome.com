@@ -10,7 +10,7 @@ under `<lang>/<path>`.
 | --- | --- | --- | --- |
 | video-guide | 997 | 711 (vi 711) | 711 |
 | translation | 1976 | 290 (vi 290) | 290 |
-| vi-rewrite | 375 | 28 (vi 28) | 28 |
+| vi-rewrite | 380 | 28 (vi 28) | 28 |
 | reader-rewrite | 41 | 0 | 0 |
 | title | 25 | 0 | 0 |
 | breed | 27 | 3 (ms 3) | 3 |
@@ -18,9 +18,9 @@ under `<lang>/<path>`.
 | product | 20 | 1 (vi 1) | 1 |
 | product-reviews | 17 | 0 | 0 |
 | summary | 2450 | 127 (vi 127) | 127 |
-| localize | 2432 | 890 (id 391, ms 64, th 435) | 890 |
-| glossary | 14 | 0 | 0 |
-| places | 7132 | 4357 (id 1476, ms 1498, th 1284, vi 99) | 1226 |
+| localize | 2474 | 891 (id 392, ms 65, th 434) | 891 |
+| glossary | 15 | 0 | 0 |
+| places | 7215 | 4399 (id 1497, ms 1498, th 1305, vi 99) | 1257 |
 | equipment | 5 | 0 | 0 |
 | planting | 32 | 0 | 0 |
 | species | 19 | 0 | 0 |
@@ -32,16 +32,16 @@ under `<lang>/<path>`.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 622 | 1608 |
-| States as certain what the source hedges, or what garbled captions only hint at | 620 | 1853 |
+| Other | 622 | 1606 |
+| States as certain what the source hedges, or what garbled captions only hint at | 620 | 1855 |
 | Says what the source doesn't (invented, added) | 525 | 1255 |
 | Wording: unnatural, literal, stiff or chatty | 304 | 434 |
 | A number, unit, dose or price | 233 | 340 |
-| Repeats itself (intro, summary, steps and FAQ) | 140 | 166 |
+| Repeats itself (intro, summary, steps and FAQ) | 141 | 167 |
 | Meaning changed or wrong | 123 | 140 |
 | Hobby terms and names | 51 | 52 |
 | Leaves out what the source says | 49 | 51 |
-| Names or points to the video, channel, creator or source | 36 | 40 |
+| Names or points to the video, channel, creator or source | 35 | 39 |
 | Off the title's topic | 25 | 25 |
 | Copied from the transcript or source | 24 | 26 |
 | Text left in another language | 6 | 6 |
@@ -217,7 +217,7 @@ under `<lang>/<path>`.
 
 ## vi-rewrite: older Vietnamese rewritten in the site's style
 
-28 of 375 pages under the bar.
+28 of 380 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -479,20 +479,20 @@ under `<lang>/<path>`.
 
 ## localize: species and plant pages in Indonesian and Thai, against the English
 
-890 of 2432 pages under the bar.
+891 of 2474 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 821 | 2327 |
-| Wording: unnatural, literal, stiff or chatty | 765 | 1591 |
-| Says what the source doesn't (invented, added) | 517 | 740 |
-| Meaning changed or wrong | 489 | 748 |
-| A number, unit, dose or price | 482 | 599 |
-| Hobby terms and names | 476 | 623 |
-| Text left in another language | 323 | 412 |
-| Leaves out what the source says | 265 | 304 |
+| Other | 820 | 2313 |
+| Wording: unnatural, literal, stiff or chatty | 764 | 1588 |
+| Says what the source doesn't (invented, added) | 517 | 741 |
+| Meaning changed or wrong | 490 | 745 |
+| A number, unit, dose or price | 485 | 617 |
+| Hobby terms and names | 472 | 615 |
+| Text left in another language | 325 | 413 |
+| Leaves out what the source says | 264 | 304 |
 | Repeats itself (intro, summary, steps and FAQ) | 245 | 274 |
-| States as certain what the source hedges, or what garbled captions only hint at | 196 | 219 |
+| States as certain what the source hedges, or what garbled captions only hint at | 198 | 221 |
 | Copied from the transcript or source | 28 | 28 |
 | Off the title's topic | 2 | 2 |
 
@@ -554,7 +554,7 @@ under `<lang>/<path>`.
 
 - Item 18: the sentence 'ซึ่งปลาที่นำเข้าในอดีตเคยถูกจัดไว้เพียง 3 ชนิด ที่ต้องระบุชนิดใหม่' is garbled. The English says 33 species, which were assigned to 3 species in earlier imports, must now be redetermined. Restructure it. — th/species/gastromyzon-punctulatus, 0.40
 - #1: 'เกือบทุกชนิดโตเกิน 20 ซม.' — English says 'most species', so use 'ส่วนใหญ่' instead of 'เกือบทุกชนิด' (overstates). The sentence 'ส่วนใหญ่มักโตได้ค่อนข้างใหญ่' then repeats it. — th/species/metynnis-lippincottianus, 0.40
-- Item 11: 'ปลาชนิดต่าง ๆ ในเขตทะเลสาบ ... เป็นหมันในระดับต่าง ๆ เมื่อผสมกับปลาจากเขตทะเลสาบ' adds a detail ('when crossed with lake fishes') framed differently from the English; 'differing degrees of sterility' unclear in Thai. — th/species/anatolichthys-anatoliae, 0.50
+- Item 20: 'one or two pairs should then be introduced' became 'satu atau dua pasang dimasukkan', which loses the advisory tone; use 'sebaiknya dimasukkan'. In 'spawning should take place the following morning', 'biasanya' is an added hedge;… — id/species/pethia-conchonius, 0.45
 
 ### Copied from the transcript or source
 
@@ -569,17 +569,17 @@ under `<lang>/<path>`.
 
 ## glossary: glossary terms in Indonesian and Thai (reviewed in batches)
 
-0 of 14 pages under the bar.
+0 of 15 pages under the bar.
 
 ## places: place names in Indonesian and Thai (reviewed in batches)
 
-4357 of 7132 pages under the bar.
+4399 of 7215 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 1099 | 1186 |
+| Other | 1130 | 1220 |
 | Meaning changed or wrong | 70 | 70 |
-| Leaves out what the source says | 52 | 52 |
+| Leaves out what the source says | 54 | 54 |
 | Wording: unnatural, literal, stiff or chatty | 25 | 25 |
 | States as certain what the source hedges, or what garbled captions only hint at | 9 | 9 |
 | Hobby terms and names | 9 | 9 |

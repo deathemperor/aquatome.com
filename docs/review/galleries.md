@@ -35,7 +35,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/paracheirodon-innesi | staple | 21 | 100 |
 | species/paracheirodon-axelrodi | staple | 29 | 100 |
 | species/trigonostigma-heteromorpha | staple | 17 | 100 |
-| species/symphysodon-aequifasciatus | staple | 65 | 100 |
+| species/symphysodon-aequifasciatus | staple | 63 | 100 |
 | species/neocaridina-davidi | staple | 52 | 100 |
 | species/puntius-titteya | staple | 9 | 100 |
 | species/danio-rerio | staple | 34 | 100 |
@@ -43,7 +43,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | breeds/balloon-molly | shop | 2 | 60 |
 | species/anentome-helena | shop | 14 | 60 |
 | plants/anubias-barteri | shop | 14 | 60 |
-| breeds/flowerhorn-cichlid | shop | 22 | 60 |
+| breeds/flowerhorn-cichlid | shop | 21 | 60 |
 | plants/microsorum-pteropus | shop | 33 | 60 |
 | species/gymnocorymbus-ternetzi | shop | 50 | 60 |
 | plants/blyxa-japonica | shop | 2 | 60 |
