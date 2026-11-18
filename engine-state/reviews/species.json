@@ -1441,6 +1441,43 @@
       "kept": false
     }
   ],
+  "vi/species/paracheirodon-axelrodi#fdAqYh83wX0": [
+    {
+      "at": "2026-11-18T01:43:25Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.72,
+      "notes": [
+        "[waterConditions] \"nhiệt độ 24–27 °C\" and \"nước mềm\": the page already says 23–27 °C and soft, acidic water, so this repeats the page.",
+        "[waterConditions] \"pH không quá 6,5\" differs from the page's \"tốt nhất dưới 6 (4,6 đến 6,2)\". NEW doesn't say it differs or how.",
+        "[waterConditions] \"bên nhập cá đã bắt đầu cho đẻ những dòng chịu được nước cứng hơn\" overlaps the page's point that commercially bred fish tolerate poor water better. It isn't framed as a difference from the page.",
+        "[maintenance] \"Một người nuôi loài này khuyên dùng nền màu tối\": the video states this as a fact about the species, not as one keeper's advice. The attribution is added.",
+        "[maintenance] \"Thả lũa vào bể thì nước có thêm tanin\" is close to what the page already says about tannin and humic substances from leaves.",
+        "[behaviour] The tankmate list leaves out the otos and the cherry tetras the video names. The tank is called \"bố cục kiểu núi đá\" for a \"Mountain tank\", which is a loose reading.",
+        "[behaviour] The tank lists are specific to one person's tanks and add little. The page already lists Corydoras, dwarf gourami and rasbora as tankmates."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T01:43:25Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.8,
+      "notes": [
+        "[behaviour] \"thả neon vua chung với cá chì Beckford, cá chuột gấu trúc, cá chuột sterbai, cá otto, rasbora ớt, cá sặc gấm và tép Amano\" merges two separate tanks into one list. The video describes a mountain tank and a nature tank, and it drops the ESP tetras.",
+        "[behaviour] \"Theo người này, mấy bể đó vẫn sống hòa thuận\" is not stated in the video. It only says peaceful fish make good tankmates.",
+        "[diet] \"đớp mồi đang trôi ở giữa tầng nước\" adds detail. The video only says they like to feed from the midwater column rather than from the surface or gravel.",
+        "[diet] \"bỏ đói một ngày mỗi tuần\" is slightly stiff, translation-like wording for skipping a feeding day.",
+        "[waterConditions] \"cá nhập về bây giờ đã được cho đẻ theo hướng chịu nước cứng hơn\" is awkward and a loose rendering of importers breeding fish to tolerate harder water. The page already says captive-bred fish tolerate poor water better.",
+        "[maintenance] \"Nền màu tối làm sọc đỏ và sọc xanh của cá nổi rực hơn\" is written as a general rule. The video gives it as one keeper's advice."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/species/paracheirodon-innesi#Jh0Xx6BZfu8": [
     {
       "at": "2026-11-17T05:47:51Z",
