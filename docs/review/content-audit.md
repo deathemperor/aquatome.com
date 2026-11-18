@@ -2084,7 +2084,7 @@ borrow one from a species or plant they mention on the site.
 
 - none
 
-## Only one photo (no pictures inside the text) (1044)
+## Only one photo (no pictures inside the text) (1049)
 
 - species/aborichthys-elongatus — Cá chạch sóc đuôi đỏ
 - species/acantopsis-dialuzona — Cá chạch mặt ngựa
@@ -2270,6 +2270,7 @@ borrow one from a species or plant they mention on the site.
 - species/cathorops-arenatus — Cá da trơn biển vàng
 - species/catlocarpio-siamensis — Cá hô
 - species/centromochlus-reticulatus — Cá da trơn gỗ lũa Tatia reticulata
+- species/cephalocassis-borneensis — Cá da trơn Hemipimelodus borneensis
 - species/chaca-bankanensis — Cá nheo miệng ếch
 - species/chaetostoma-leucomelas — Cá chaetostoma hổ Magdalena
 - species/chagunius-chagunio — Cá Chagunius chagunio
@@ -2414,6 +2415,8 @@ borrow one from a species or plant they mention on the site.
 - species/fimbriaphyllia-divisa — San hô Frogspawn
 - species/fundulopanchax-marmoratus — Cá killi marmoratus
 - species/fundulopanchax-scheeli — Cá killi Fundulopanchax scheeli
+- species/galeichthys-ater — Cá Galeichthys ater
+- species/galeichthys-feliceps — Cá da trơn biển trắng
 - species/gambusia-affinis — Cá muỗi phương Tây
 - species/garra-borneensis — Cá Garra Borneo
 - species/garra-ceylonensis — Cá hút rêu Sri Lanka
@@ -2530,6 +2533,7 @@ borrow one from a species or plant they mention on the site.
 - species/jordanella-floridae — Cá flagfish Florida
 - species/julidochromis-marlieri — Cá julie Marlier
 - species/julidochromis-transcriptus — Cá julie mặt nạ
+- species/ketengus-typus — Cá úc biển miệng rộng
 - species/knodus-borki — Cá tetra xanh
 - species/kryptopterus-minor — Cá thủy tinh Kryptopterus minor
 - species/labeo-angra — Cá Labeo angra
@@ -2973,6 +2977,7 @@ borrow one from a species or plant they mention on the site.
 - plants/lysimachia-parvifolia — Lysimachia parvifolia đỏ
 - plants/micranthemum-tweediei — Cỏ Monte Carlo
 - plants/micranthemum-tweediei-monte-carlo — Cây Monte Carlo
+- plants/microsorum-pteropus — Dương xỉ Java
 - plants/microsorum-pteropus-narrow — Dương xỉ Java lá hẹp
 - plants/myriophyllum-elatinoides — Cây rong đuôi chồn Myriophyllum elatinoides
 - plants/myriophyllum-mattogrossense — Cây myriophyllum Mato Grosso

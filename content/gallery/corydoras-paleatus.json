@@ -65,6 +65,18 @@
       "kind": "pair"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/472327008.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/472327008-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Lucas Mantelo Cruz",
+      "sourceUrl": "https://www.inaturalist.org/photos/472327008",
+      "caption": "Cá chuột paleatus trên nền đáy tự nhiên",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/57c85813fbf6a78c.webp",
       "thumb": "https://media.aquatome.com/commons/57c85813fbf6a78c-480.webp",
       "width": 1200,
@@ -140,30 +152,6 @@
       "caption": "Cá chuột paleatus bên đá đen trong bể",
       "best": false,
       "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/254760976.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/254760976-480.webp",
-      "width": 1024,
-      "height": 782,
-      "licence": "CC BY",
-      "author": "Facundo Chieffo",
-      "sourceUrl": "https://www.inaturalist.org/photos/254760976",
-      "caption": "Cá chuột paleatus ngoài tự nhiên trong suối đáy sỏi",
-      "best": false,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/472327008.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/472327008-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Lucas Mantelo Cruz",
-      "sourceUrl": "https://www.inaturalist.org/photos/472327008",
-      "caption": "Cá chuột paleatus trên nền đáy tự nhiên",
-      "best": false,
-      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/commons/82b2febde4974391.webp",
@@ -342,6 +330,18 @@
       "caption": "Cá chuột paleatus bơi trên nền sỏi màu",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/254760976.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/254760976-480.webp",
+      "width": 1024,
+      "height": 782,
+      "licence": "CC BY",
+      "author": "Facundo Chieffo",
+      "sourceUrl": "https://www.inaturalist.org/photos/254760976",
+      "caption": "Cá chuột paleatus ngoài tự nhiên trong suối đáy sỏi",
+      "best": false,
+      "kind": "habitat"
     }
   ],
   "seen": 82,

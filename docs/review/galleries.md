@@ -10,13 +10,12 @@ Written by `pnpm engine gallery` (2026-11-18). Targets: packages/engine/src/gall
 | covered | 30 | 749 | 31 | 9 | 24 | 765 |
 | rest | 20 | 1832 | 79 | 0 | 106 | 1805 |
 
-## Short of target: every source read (691)
+## Short of target: every source read (693)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
 | Page | Tier | Photos | Target |
 | --- | --- | --- | --- |
-| species/betta-mahachaiensis | covered | 6 | 30 |
 | species/ageneiosus-inermis | rest | 0 | 20 |
 | species/amphilius-frieli | rest | 0 | 20 |
 | species/amphilius-kivuensis | rest | 0 | 20 |
@@ -44,7 +43,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/anentome-helena | shop | 14 | 60 |
 | plants/anubias-barteri | shop | 14 | 60 |
 | breeds/flowerhorn-cichlid | shop | 21 | 60 |
-| plants/microsorum-pteropus | shop | 33 | 60 |
+| plants/microsorum-pteropus | shop | 32 | 60 |
 | species/gymnocorymbus-ternetzi | shop | 50 | 60 |
 | plants/blyxa-japonica | shop | 2 | 60 |
 | breeds/oranda-goldfish | shop | 29 | 60 |
@@ -52,7 +51,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | plants/pogostemon-helferi | shop | 4 | 60 |
 | breeds/ranchu-goldfish | shop | 3 | 60 |
 | species/hemigrammus-bleheri | shop | 11 | 60 |
-| plants/hygrophila-polysperma | shop | 41 | 60 |
+| plants/hygrophila-polysperma | shop | 40 | 60 |
 | breeds/ryukin-goldfish | shop | 3 | 60 |
 | plants/micranthemum-tweediei | shop | 1 | 60 |
 | breeds/lionhead-goldfish | shop | 0 | 60 |
@@ -106,7 +105,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/peckoltia-compta | shop | 0 | 60 |
 | plants/monosolenium-tenerum | shop | 3 | 60 |
 | plants/echinodorus-grisebachii | shop | 7 | 60 |
-| species/caridina-multidentata | shop | 38 | 60 |
+| species/caridina-multidentata | shop | 37 | 60 |
 | plants/hygrophila-difformis | shop | 17 | 60 |
 | species/leporacanthicus-joselimai | shop | 1 | 60 |
 | plants/hygrophila-corymbosa | shop | 9 | 60 |
@@ -115,7 +114,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/melanotaenia-parkinsoni | shop | 1 | 60 |
 | species/alestopetersius-caudalis | shop | 1 | 60 |
 | plants/cryptocoryne-albida | shop | 4 | 60 |
-| species/trichogaster-lalius | shop | 34 | 60 |
+| species/trichogaster-lalius | shop | 33 | 60 |
 | plants/heteranthera-zosterifolia | shop | 6 | 60 |
 | species/hyphessobrycon-elachys | shop | 1 | 60 |
 | species/hyphessobrycon-eques | shop | 5 | 60 |
@@ -152,8 +151,8 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/scleropages-jardinii | shop | 3 | 60 |
 | species/scleropages-formosus | shop | 36 | 60 |
 | species/polypterus-senegalus | shop | 14 | 60 |
-| species/channa-pulchra | shop | 0 | 60 |
-| species/channa-stewartii | shop | 0 | 60 |
+| species/channa-pulchra | shop | 1 | 60 |
+| species/channa-stewartii | shop | 1 | 60 |
 | species/channa-andrao | shop | 1 | 60 |
 | plants/bolbitis-heteroclita | shop | 14 | 60 |
 | species/channa-asiatica | shop | 5 | 60 |
@@ -232,7 +231,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/monopterus-albus | shop | 30 | 60 |
 | species/mastacembelus-erythrotaenia | shop | 6 | 60 |
 | species/macrognathus-siamensis | shop | 5 | 60 |
-| species/mastacembelus-armatus | shop | 1 | 60 |
+| species/mastacembelus-armatus | shop | 23 | 60 |
 | species/trichopodus-trichopterus | shop | 50 | 60 |
 | species/trichopodus-leerii | shop | 19 | 60 |
 | species/botia-kubotai | shop | 2 | 60 |
@@ -304,7 +303,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/hypostomus-isbrueckeri | covered | 0 | 30 |
 | species/hypostomus-luteus | covered | 0 | 30 |
 | species/kryptopterus-geminus | covered | 0 | 30 |
-| species/lepthoplosternum-pectorale | covered | 0 | 30 |
+| species/lepthoplosternum-pectorale | covered | 1 | 30 |
 | species/loricaria-simillima | covered | 0 | 30 |
 | species/mastiglanis-asopos | covered | 0 | 30 |
 | species/megalancistrus-parananus | covered | 1 | 30 |
@@ -330,7 +329,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/acanthicus-adonis | covered | 1 | 30 |
 | species/acarichthys-heckelii | covered | 0 | 30 |
 | species/acentronichthys-leptos | covered | 0 | 30 |
-| species/acestridium-dichromum | covered | 0 | 30 |
+| species/acestridium-dichromum | covered | 1 | 30 |
 | species/acestrorhynchus-altus | covered | 0 | 30 |
 | species/acestrorhynchus-falcatus | covered | 4 | 30 |
 | species/acestrorhynchus-pantaneiro | covered | 3 | 30 |
@@ -378,7 +377,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/asterophysus-batrachus | covered | 1 | 30 |
 | species/astyanax-leopoldi | covered | 0 | 30 |
 | species/atractosteus-tristoechus | covered | 2 | 30 |
-| species/auchenipterus-nigripinnis | covered | 0 | 30 |
+| species/auchenipterus-nigripinnis | covered | 2 | 30 |
 | species/auchenoglanis-occidentalis | covered | 5 | 30 |
 | species/axelrodia-stigmatias | covered | 0 | 30 |
 | species/bagarius-suchus | covered | 0 | 30 |
@@ -400,8 +399,8 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/beaufortia-kweichowensis | covered | 0 | 30 |
 | species/betta-albimarginata | covered | 4 | 30 |
 | species/betta-antoni | covered | 0 | 30 |
-| species/betta-balunga | covered | 0 | 30 |
-| species/betta-bellica | covered | 0 | 30 |
+| species/betta-balunga | covered | 2 | 30 |
+| species/betta-bellica | covered | 7 | 30 |
 | species/betta-brownorum | covered | 0 | 30 |
 | species/betta-burdigala | covered | 0 | 30 |
 | species/betta-channoides | covered | 0 | 30 |
@@ -409,13 +408,13 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/betta-dennisyongi | covered | 0 | 30 |
 | species/betta-dimidiata | covered | 0 | 30 |
 | species/betta-edithae | covered | 11 | 30 |
-| species/betta-falx | covered | 0 | 30 |
+| species/betta-falx | covered | 5 | 30 |
 | species/betta-foerschi | covered | 0 | 30 |
 | species/betta-hendra | covered | 0 | 30 |
 | species/betta-hipposideros | covered | 2 | 30 |
 | species/betta-ideii | covered | 0 | 30 |
 | species/betta-imbellis | covered | 3 | 30 |
-| species/betta-kuehnei | covered | 0 | 30 |
+| species/betta-kuehnei | covered | 24 | 30 |
 | species/betta-livida | covered | 0 | 30 |
 | species/betta-macrostoma | covered | 0 | 30 |
 | species/betta-mandor | covered | 0 | 30 |
@@ -425,7 +424,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/betta-patoti | covered | 0 | 30 |
 | species/betta-persephone | covered | 1 | 30 |
 | species/betta-pi | covered | 0 | 30 |
-| species/betta-prima | covered | 0 | 30 |
+| species/betta-prima | covered | 4 | 30 |
 | species/betta-raja | covered | 0 | 30 |
 | species/betta-rubra | covered | 2 | 30 |
 | species/betta-rutilans | covered | 1 | 30 |
@@ -451,13 +450,13 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/brachyrhamdia-rambarrani | covered | 0 | 30 |
 | species/brotia-pagodula | covered | 0 | 30 |
 | species/brycinus-longipinnis | covered | 0 | 30 |
-| species/bunocephalus-colombianus | covered | 0 | 30 |
+| species/bunocephalus-colombianus | covered | 2 | 30 |
 | species/callochromis-macrops | covered | 0 | 30 |
 | species/cambarellus-diminutus | covered | 1 | 30 |
 | species/camposcia-retusa | covered | 19 | 30 |
 | species/carinotetraodon-borneensis | covered | 0 | 30 |
 | species/carnegiella-myersi | covered | 3 | 30 |
-| species/centrochir-crocodili | covered | 0 | 30 |
+| species/centrochir-crocodili | covered | 1 | 30 |
 | species/centromochlus-heckelii | covered | 0 | 30 |
 | species/cetopsis-coecutiens | covered | 0 | 30 |
 | species/chaca-bankanensis | covered | 1 | 30 |
@@ -512,7 +511,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/corydoras-vittatus | covered | 0 | 30 |
 | species/cranoglanis-henrici | covered | 0 | 30 |
 | species/crenicichla-compressiceps | covered | 0 | 30 |
-| species/crenicichla-johanna | covered | 0 | 30 |
+| species/crenicichla-johanna | covered | 1 | 30 |
 | species/crenicichla-lugubris | covered | 0 | 30 |
 | species/crenuchus-spilurus | covered | 1 | 30 |
 | species/crossoloricaria-cephalaspis | covered | 0 | 30 |
@@ -548,8 +547,8 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/dianema-urostriatum | covered | 0 | 30 |
 | species/dichotomyctere-fluviatilis | covered | 2 | 30 |
 | species/dichotomyctere-ocellatus | covered | 0 | 30 |
-| species/dicrossus-filamentosus | covered | 0 | 30 |
-| species/dicrossus-maculatus | covered | 0 | 30 |
+| species/dicrossus-filamentosus | covered | 1 | 30 |
+| species/dicrossus-maculatus | covered | 2 | 30 |
 | species/diplomystes-nahuelbutaensis | covered | 0 | 30 |
 | species/discherodontus-ashmeadi | covered | 0 | 30 |
 | species/distichodus-affinis | covered | 0 | 30 |
@@ -596,17 +595,17 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/harttia-kronei | covered | 0 | 30 |
 | species/harttia-surinamensis | covered | 0 | 30 |
 | species/hemiancistrus-guahiborum | covered | 0 | 30 |
-| species/hemiancistrus-medians | covered | 0 | 30 |
+| species/hemiancistrus-medians | covered | 1 | 30 |
 | species/hemibagrus-macropterus | covered | 0 | 30 |
 | species/hemichromis-bimaculatus | covered | 0 | 30 |
-| species/hemichromis-elongatus | covered | 0 | 30 |
+| species/hemichromis-elongatus | covered | 12 | 30 |
 | species/hemigrammus-bellottii | covered | 0 | 30 |
 | species/hemigrammus-hyanuary | covered | 0 | 30 |
 | species/hemigrammus-ocellifer | covered | 0 | 30 |
 | species/hemigrammus-rhodostomus | covered | 8 | 30 |
 | species/hemigrammus-stictus | covered | 1 | 30 |
-| species/hemiodontichthys-acipenserinus | covered | 0 | 30 |
-| species/hemisilurus-heterorhynchus | covered | 0 | 30 |
+| species/hemiodontichthys-acipenserinus | covered | 3 | 30 |
+| species/hemisilurus-heterorhynchus | covered | 2 | 30 |
 | species/hemisilurus-moolenburghi | covered | 0 | 30 |
 | species/heros-efasciatus | covered | 13 | 30 |
 | species/herotilapia-multispinosa | covered | 0 | 30 |
@@ -627,7 +626,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/hyphessobrycon-eschwartzae | covered | 0 | 30 |
 | species/hyphessobrycon-flammeus | covered | 8 | 30 |
 | species/hyphessobrycon-haraldschultzi | covered | 0 | 30 |
-| species/hyphessobrycon-heterorhabdus | covered | 0 | 30 |
+| species/hyphessobrycon-heterorhabdus | covered | 1 | 30 |
 | species/hyphessobrycon-loretoensis | covered | 1 | 30 |
 | species/hyphessobrycon-melanostichos | covered | 0 | 30 |
 | species/hyphessobrycon-pyrrhonotus | covered | 0 | 30 |
@@ -638,7 +637,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/hypostomus-basilisko | covered | 8 | 30 |
 | species/hypostomus-cochliodon | covered | 0 | 30 |
 | species/hypostomus-gymnorhynchus | covered | 3 | 30 |
-| species/hypostomus-hondae | covered | 0 | 30 |
+| species/hypostomus-hondae | covered | 2 | 30 |
 | species/hypostomus-pusarum | covered | 0 | 30 |
 | species/hypostomus-roseopunctatus | covered | 0 | 30 |
 | species/hypostomus-soniae | covered | 0 | 30 |
@@ -667,9 +666,9 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/laemolyta-taeniata | covered | 0 | 30 |
 | species/laetacara-araguaiae | covered | 1 | 30 |
 | species/laetacara-curviceps | covered | 1 | 30 |
-| species/laetacara-dorsigera | covered | 0 | 30 |
+| species/laetacara-dorsigera | covered | 2 | 30 |
 | species/laetacara-fulvipinnis | covered | 0 | 30 |
-| species/lamontichthys-filamentosus | covered | 0 | 30 |
+| species/lamontichthys-filamentosus | covered | 1 | 30 |
 | species/lamontichthys-llanero | covered | 0 | 30 |
 | species/lampiella-gibbosa | covered | 0 | 30 |
 | species/lamprologus-signatus | covered | 0 | 30 |
@@ -707,3 +706,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/maylandia-greshakei | covered | 0 | 30 |
 | species/megalancistrus-barrae | covered | 0 | 30 |
 | species/megalonema-platycephalum | covered | 0 | 30 |
+| species/melanotaenia-rubrostriata | covered | 0 | 30 |
+| species/metaloricaria-nijsseni | covered | 0 | 30 |
+| species/microctenopoma-fasciolatum | covered | 1 | 30 |

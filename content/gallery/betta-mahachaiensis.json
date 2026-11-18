@@ -65,9 +65,23 @@
       "sourceUrl": "https://bwaquatics.com/products/mahachaiensis",
       "caption": "Betta mahachaiensis",
       "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/460890990.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/460890990-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "memo_1",
+      "sourceUrl": "https://www.inaturalist.org/photos/460890990",
+      "caption": "Cá betta Mahachai ngoài tự nhiên trên lá mục",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
     }
   ],
-  "seen": 0,
-  "updatedAt": "2026-11-15",
-  "builtAt": "2026-11-15"
+  "seen": 20,
+  "updatedAt": "2026-11-18",
+  "builtAt": "2026-11-18"
 }

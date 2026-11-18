@@ -2,18 +2,6 @@
   "id": "limnophila-aromatica",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/259982690.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/259982690-480.webp",
-      "width": 576,
-      "height": 1024,
-      "licence": "CC BY-SA",
-      "author": "許文俊",
-      "sourceUrl": "https://www.inaturalist.org/photos/259982690",
-      "caption": "Ngò om ra hoa tím mọc ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/498488581.webp",
       "thumb": "https://media.aquatome.com/inaturalist/498488581-480.webp",
       "width": 1024,
@@ -74,14 +62,14 @@
       "kind": "emersed"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/186369192.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/186369192-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY-SA",
-      "author": "Greg Tasney",
-      "sourceUrl": "https://www.inaturalist.org/photos/186369192",
-      "caption": "Cây Ngò om nhỏ ra hoa bên mép nước",
+      "url": "https://media.aquatome.com/commons/1170f048f43f825e.webp",
+      "thumb": "https://media.aquatome.com/commons/1170f048f43f825e-480.webp",
+      "width": 1200,
+      "height": 1783,
+      "licence": "CC BY-SA 3.0",
+      "author": "Vinayaraj",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Limnophila_aromatica_03.JPG",
+      "caption": "Thân Ngò om mọc ngoài tự nhiên, lá đối xứng",
       "best": false,
       "kind": "habitat"
     },
@@ -110,14 +98,14 @@
       "kind": "flower"
     },
     {
-      "url": "https://media.aquatome.com/commons/1170f048f43f825e.webp",
-      "thumb": "https://media.aquatome.com/commons/1170f048f43f825e-480.webp",
+      "url": "https://media.aquatome.com/commons/980b6569ac063ed2.webp",
+      "thumb": "https://media.aquatome.com/commons/980b6569ac063ed2-480.webp",
       "width": 1200,
-      "height": 1783,
+      "height": 1121,
       "licence": "CC BY-SA 3.0",
       "author": "Vinayaraj",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Limnophila_aromatica_03.JPG",
-      "caption": "Thân Ngò om mọc ngoài tự nhiên, lá đối xứng",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Limnophila_aromatica_02.JPG",
+      "caption": "Ngọn Ngò om nhìn từ trên, lá xếp vòng",
       "best": false,
       "kind": "habitat"
     },
@@ -146,14 +134,14 @@
       "kind": "flower"
     },
     {
-      "url": "https://media.aquatome.com/commons/980b6569ac063ed2.webp",
-      "thumb": "https://media.aquatome.com/commons/980b6569ac063ed2-480.webp",
+      "url": "https://media.aquatome.com/commons/ed27b443070e5e1c.webp",
+      "thumb": "https://media.aquatome.com/commons/ed27b443070e5e1c-480.webp",
       "width": 1200,
-      "height": 1121,
+      "height": 1865,
       "licence": "CC BY-SA 3.0",
       "author": "Vinayaraj",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Limnophila_aromatica_02.JPG",
-      "caption": "Ngọn Ngò om nhìn từ trên, lá xếp vòng",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Limnophila_aromatica_14.JPG",
+      "caption": "Bụi Ngò om có hoa tím trong tự nhiên",
       "best": false,
       "kind": "habitat"
     },
@@ -170,15 +158,15 @@
       "kind": "flower"
     },
     {
-      "url": "https://media.aquatome.com/commons/ed27b443070e5e1c.webp",
-      "thumb": "https://media.aquatome.com/commons/ed27b443070e5e1c-480.webp",
-      "width": 1200,
-      "height": 1865,
-      "licence": "CC BY-SA 3.0",
-      "author": "Vinayaraj",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Limnophila_aromatica_14.JPG",
-      "caption": "Bụi Ngò om có hoa tím trong tự nhiên",
-      "best": false,
+      "url": "https://media.aquatome.com/inaturalist/259982690.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/259982690-480.webp",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC BY-SA",
+      "author": "許文俊",
+      "sourceUrl": "https://www.inaturalist.org/photos/259982690",
+      "caption": "Ngò om ra hoa tím mọc ngoài tự nhiên",
+      "best": true,
       "kind": "habitat"
     },
     {
@@ -216,6 +204,18 @@
       "caption": "Tầng lá Ngò om xếp vòng nhìn từ trên",
       "best": true,
       "kind": "detail"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/186369192.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/186369192-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-SA",
+      "author": "Greg Tasney",
+      "sourceUrl": "https://www.inaturalist.org/photos/186369192",
+      "caption": "Cây Ngò om nhỏ ra hoa bên mép nước",
+      "best": false,
+      "kind": "habitat"
     }
   ],
   "seen": 44,

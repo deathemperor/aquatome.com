@@ -5,9 +5,15 @@
   "File:Ophiocephalus stewartii Ford 77.jpg",
   "inat:328049234",
   "inat:328049264",
-  "inat:328049289"
+  "inat:328049289",
+  "inat:111186483",
+  "inat:626388238",
+  "inat:626388264",
+  "inat:626388307"
  ],
- "hashes": {},
+ "hashes": {
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/111186483/large.jpg": "96b1694a6479bb5b"
+ },
  "inat": {
   "taxon": 97279,
   "pass": "done",
@@ -23,6 +29,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 343826049,
+  "done": true
  },
  "exhausted": "2026-11-08"
 }
