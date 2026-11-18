@@ -287,6 +287,30 @@ func howAPressLeftEach() {
   #expect(MasterRun.end(wentOn.back[0], now: false, left: left(wentOn, fanOn), role: "fan") == .leave)
 }
 
+@Test("An end that sent a put-back nothing (the tanks unread) gives it a line, not a try that may have gone")
+func anEndThatSentNothing() {
+  let fanOn = DeviceCommand(device: plug, outlet: "switch_3", on: true)
+  // Never tried: its line isn't taken for a try (Fable, 18 Nov), nor once carried into the next press.
+  var never = MasterRun.Back(command: fanOn)
+  never.unsent("Các bể…")
+  #expect(!never.earlier && never.mayHaveGone == false && never.problem == "Các bể…")
+  let next = MasterRun(MasterButton(name: "x", steps: [], minutes: 60), at: m0, before: { _ in nil }, lamp: nil, owed: [never])
+  #expect(!next.back[0].earlier)
+  // So a heater found not back gets the plain heater note, not that a try of its own may still land.
+  never.guessed = true
+  #expect(MasterRun.end(never, now: false, left: false, role: "heater") == .heater)
+  // Tried before: still one that may have gone.
+  var tried = MasterRun.Back(command: fanOn)
+  _ = tried.trying(notKnown: "x")
+  tried.unsent("Các bể…")
+  #expect(tried.earlier && tried.mayHaveGone == true)
+  // Kept by build 390 with a line (no mayHaveGone): counted, as before (the over-count the chief accepted).
+  var old = MasterRun.Back(command: fanOn)
+  old.problem = "Không tới được ổ Quạt"
+  old.unsent("Các bể…")
+  #expect(old.earlier && old.mayHaveGone == nil)
+}
+
 @Test("A put-back tried again: after a try that may have gone, or one the app was closed during, a failed one says the state isn't known, never what of it didn't go")
 func aPutBackTriedAgain() throws {
   let notKnown = "Không rõ ổ Quạt đã đổi chưa: xem trong Bể của tôi."

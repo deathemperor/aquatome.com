@@ -225,7 +225,7 @@ final class MasterModel {
     // The tanks on this phone not read: which devices are still on one isn't known, so nothing goes back and nothing is
     // dropped as deleted. Each stays owed, with the tank list's words, for "Trả lại" once they read.
     if let unread = switcher.unreadTanks {
-      for b in r.pending { if let i = r.back.firstIndex(of: b) { r.back[i].problem = unread } }
+      for b in r.pending { if let i = r.back.firstIndex(of: b) { r.back[i].unsent(unread) } }
       run = r
       keep()
       return

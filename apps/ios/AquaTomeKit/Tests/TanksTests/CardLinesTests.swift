@@ -89,7 +89,7 @@ let masterCardList = #"""
 - finish · `if r.ended == nil { r.ended = t }` · The run shown ends now; a run saved before the end is done keeps the end as it was (below), so a close meanwhile brings the end again.
 - finish · `r.failed = []` · The press's lines go at the end; each put-back owed keeps its own.
 - finish · `if let unread = switcher.unreadTanks {` · The tanks on this phone not read: nothing goes back, and
-- finish · `.problem = unread } }` · each owed put-back's line is the tank list's words (nothing on what went); `mayHaveGone` is kept.
+- finish · `].unsent(unread) } }` · each owed put-back's line is the tank list's words (nothing on what went); one never tried is kept as one no try of which went, so that line isn't taken for a try (`Back.unsent`; Fable, 18 Nov); `mayHaveGone` of one tried is kept.
 - finish · `run = r` · Shown.
 - finish · `keep()` · Saved.
 - finish · `let read = board.listError == nil` · The list not read again: no outlet's state now is known, so none is sent (`.unread`).
@@ -223,7 +223,9 @@ let masterCardList = #"""
 - allows · `role != "heater" && !(role == "co2" && step.on)` · The button never switches a heater, nor CO2 on: asked at the press, as each command leaves, and at the end.
 - Back · `public var done = false` · Back, or nothing to send: no longer owed.
 - Back · `public var mayHaveGone: Bool?` · Kept with each put-back: a try of it may have reached the device. Nil in runs kept by build 390.
-- earlier · `mayHaveGone ?? (problem != nil)` · Whether a try before may have gone; for build 390's, one with a line counts.
+- earlier · `mayHaveGone ?? (problem != nil)` · Whether a try before may have gone; for build 390's, one with a line counts (this build's never tried, given a line by an end that sent nothing, is false: `unsent`).
+- unsent · `if mayHaveGone == nil && problem == nil { mayHaveGone = false }` · An end that sent it nothing (the tanks unread): one never tried, with no line yet, kept as one no try of which went (`anEndThatSentNothing`);
+- unsent · `problem = line` · its line, the tank list's words.
 - trying · `mayHaveGone = true` · Set before each try (`aPutBackTriedAgain`).
 - trying · `if problem != nil { problem = notKnown }` · A line it had reads as not known while it goes, and after a close.
 - trying · `return was` · Whether a try before it may have gone.
@@ -341,7 +343,7 @@ private let walked: [(file: String, finds: [String], in: Set<String>?)] = [
   ("AquaTome/Master/MasterModel.swift", ["refusal = ", "notes = ", "failed.append(", "MasterRun.Failed(", ".problem = ", "].failed(", ".trying(",
                                          "tell(", "store(", "keep()", "run = ", ".failed = ", ".settle(", "MasterRun(", "runKey", "switcher.send(",
                                          "switcher.setByButton(", "sendLamp(", "mayHaveGone", "String(localized:", "still()", "MasterButton.allows(",
-                                         "held = true", "listError", "unreadTanks", "switcher.gone(", "let away", "away &&", "MasterRun.end(",
+                                         "held = true", "listError", "unreadTanks", "].unsent(", "switcher.gone(", "let away", "away &&", "MasterRun.end(",
                                          "guessed", "end == .", "end != .", "uncertain", "owner() == true", "session += 1",
                                          "session == s", "done = true", ".ended = "], nil),
   ("AquaTome/Master/Switcher.swift", [".failed(", "CommandEnd.lamp(", "CommandEnd.plug(", "lamp.send(", "board.set(", "nothingSent",

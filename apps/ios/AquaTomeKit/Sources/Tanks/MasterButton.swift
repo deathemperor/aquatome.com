@@ -52,6 +52,14 @@ public struct MasterRun: Sendable, Equatable, Codable {
     /// before left a line (Codex, 18 Nov).
     public var earlier: Bool { mayHaveGone ?? (problem != nil) }
 
+    /// A line from an end that sent it nothing (the tanks on the phone unread): a put-back never tried, with no line
+    /// yet, is kept as one no try of which may have gone, so the line isn't taken for one (Fable, 18 Nov). One tried, or
+    /// kept by build 390 with a line, stays as it was.
+    public mutating func unsent(_ line: String) {
+      if mayHaveGone == nil && problem == nil { mayHaveGone = false }
+      problem = line
+    }
+
     /// A try to put it back is about to go: kept so (the app saves and shows the run then) until its answer, it counts as
     /// one that may have gone if the app is closed before it, and a line from a try before reads as not known
     /// (`notKnown`), never as not sent (Codex, 18 Nov). One with no line yet gets none: a put-back that goes back as it
