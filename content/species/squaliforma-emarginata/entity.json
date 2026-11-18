@@ -13,7 +13,10 @@
     "ecuador",
     "rio-napo",
     "peru",
-    "bolivia"
+    "bolivia",
+    "rio-xingu",
+    "venezuela",
+    "rio-apure"
   ],
   "range": {
     "native": {
@@ -940,6 +943,10 @@
       {
         "source": "seriouslyfish",
         "value": 40
+      },
+      {
+        "source": "glaser",
+        "value": 40
       }
     ],
     "difficulty": [
@@ -955,6 +962,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aphanotorulus-emarginatus",
       "html": "<ul><li>Max size: 400 mm SL (16 in SL)</li><li>Temperature: 25–28°C (77–82°F)</li><li>pH: 6.4–7.2</li><li>Hardness: 5–10 dGH</li><li>Difficulty: 4 of 8 (moderate)</li></ul><p>The red fin thresher plec, Aphanotorulus emarginatus, is a suckermouth catfish from the Amazon region of Brazil, Ecuador, Peru and Bolivia. Many geographical variants exist, four of them assigned L-numbers (L011, L035, L108 and L116), and all share the elongated caudal fin that gives the fish its common name. Often sold at 3-4\" as Hypostomus cf. emarginata, it grows to around 40 cm and needs a spacious tank with well-oxygenated, flowing water.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/squaliforma-cf-emarginata-l11-2/",
+      "html": "<p>L11 can become as large as 40 cm and is known as a very peaceful member of the loricariid family that is very well suited for aquaria large enough. It is also a quite pretty fish!</p>"
     },
     {
       "key": "distribution",
@@ -1015,10 +1028,82 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aphanotorulus-emarginatus",
       "html": "<p>This attractive species is often seen for sale at around 3-4\" in length (often as Hypostomus cf. emarginata or H. emarginatus), but given its adult size, its not a terribly good choice for the general community tank. Due to its very wide natural distribution, there are a number of known geographical variants, and this has resulted in four L numbers currently being assigned to it. In reality, there are many more variants than this, and all share the characteristic elongated caudal fin which gives rise to the common name of the fish. As always, when buying Loricariids such as this check the fish has a rounded belly and that its eyes aren't sunken, as these are classic signs of emaciation in newly imported specimens.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/squaliforma-cf-emarginata-l11-2/",
+      "html": "<p>This species has been known to scientists for a very long time. It was initially described in 1840 under the name Hypostomus emarginatus. Since then it has been placed in different genera: in 2001 in Squaliforma and in 2016 in Aphanotorulus, when Squaliforma was considered a synonym of Aphanotorulus. However, that latest act is not followed by all scientists so far, so the placement within Squaliforma is retained.</p>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/8491d2dade1b919b.webp",
+      "thumb": "https://media.aquatome.com/glaser/8491d2dade1b919b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/squaliforma-cf-emarginata-l11-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ce1d960fb21294fb.webp",
+      "thumb": "https://media.aquatome.com/glaser/ce1d960fb21294fb-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/squaliforma-cf-emarginata-l11-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/5da5e1354221b65e.webp",
+      "thumb": "https://media.aquatome.com/glaser/5da5e1354221b65e-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/squaliforma-cf-emarginata-l11-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/50f4542cd288ca5d.webp",
+      "thumb": "https://media.aquatome.com/glaser/50f4542cd288ca5d-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/squaliforma-cf-emarginata-l11-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "Mm4wJZiCC1c",
+      "title": "Squaliforma emarginata 1/04/2017",
+      "durationSec": 54,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "nwSRhpfu7VU",
+      "title": "Squaliforma emarginata",
+      "durationSec": 73,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "HMq5_MIzZ3k",
+      "title": "Squaliforma emarginata 24/09/2017",
+      "durationSec": 122,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "UG2iR5YuJ8k",
+      "title": "Squaliforma cf. emarginata",
+      "durationSec": 153,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -1049,5 +1134,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-18"
 }

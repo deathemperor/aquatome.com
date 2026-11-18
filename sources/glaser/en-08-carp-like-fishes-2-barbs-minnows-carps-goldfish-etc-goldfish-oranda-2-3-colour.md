@@ -1,7 +1,7 @@
 ---
 url: https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/goldfish-oranda-2-3-colour/
 title: Goldfish Oranda 2-3 Colour - Aquarium Glaser GmbH
-fetchedAt: 2026-11-18T07:03:22.111Z
+fetchedAt: 2026-11-18T18:41:14.434Z
 hash: bd9d3d8477b943310fabe3379b488a2047829f733c85c43ef7d07f130e271481
 ---
 

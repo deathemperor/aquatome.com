@@ -1,0 +1,26 @@
+{
+  "slug": "ca-hong-phat-myleus-torquatus",
+  "name": "Cá hồng phát Myleus torquatus",
+  "altNames": [
+    "Silver dollar"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Myleus torquatus khi lớn ước dài khoảng 20–25 cm. Cá có thân màu bạc, vây vàng và một dải đen rộng viền quanh vây đuôi, đây là nét riêng của loài.</p>",
+    "behaviour:glaser": "<p>Những con nhỏ nhất, dài khoảng 1,5–2 cm, có màu rất sẫm và một vệt sáng trên trán. Chúng trôi lờ đờ trong nước, ít cử động, giả làm một chiếc lá chết. Nhìn cảnh đó người nuôi dễ hoảng, nhưng đây là tập tính bình thường.</p><p>Lớn thêm một chút, khoảng 3–4 cm, cá nhạt màu dần và vệt sáng trên trán mất đi. Ngang gáy hiện ra một dải sáng mờ, kèm các đốm và vệt mỗi con một kiểu. Tập tính lúc này cũng đổi khác: chúng bơi lội nhiều và kết đàn với nhau.</p>",
+    "beforeYouBuy:glaser": "<p>Nếu lô cá mới về đúng là M. torquatus thì khi lớn chúng sẽ dài khoảng 20–25 cm. Hiện có vài con đang được nuôi tiếp để xem lớn lên chúng thành con gì.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-19"
+  }
+}

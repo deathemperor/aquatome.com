@@ -1,0 +1,93 @@
+{
+  "id": "neoarius-midgleyi",
+  "scientificName": "Neoarius midgleyi",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Neoarius",
+  "group": "catfish",
+  "places": [
+    "oceania",
+    "australia",
+    "victoria-river"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 140
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/neoarius_midgleyi.htm",
+      "html": "<ul><li>Common name: Silver Cobbler</li><li>IUCN Red List: Least Concern, because it is widespread, common and there are no major threats (IUCN 2019).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/neoarius_midgleyi.htm",
+      "html": "<p>Oceania: Northern Australia. Victoria River, Northern Territory.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/neoarius_midgleyi.htm",
+      "html": "<p>Inhabits lakes, billabongs, rivers and, to a lesser extent, brackish estuaries and the tidal portion of rivers. Found in clear or turbid fresh water reservoirs and waterholes.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/neoarius_midgleyi.htm",
+      "html": "<p>Feeds mainly on fishes, prawns and crayfish. Various arthropods are also consumed.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/neoarius_midgleyi.htm",
+      "html": "<p>Breeds early in the wet season, sometimes extending into the late wet (November to March). Eggs are incubated orally by the male for 5–6 weeks; brooding males form groups in deeper water. Juveniles grow quickly, attaining 20–30 cm by the end of the first year, and sexual maturity is reached after 3 years.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/neoarius_midgleyi.htm",
+      "html": "<p>The Australian species of the Ariidae family have been revised and placed in a new genus, Neoarius. Description: anal soft rays 16–19; vertebrae 55–57. Eye size 12.9–21.8% HL. Because of its similarity to A. paucus, the remaining diagnosis refers to both A. midgleyi and A. paucus: a sleek body; strong jaws; jaws upturned slightly at symphyses, mouth broad; snout truncate in profile; head oblong, its width averaging 66% HL. Supraoccipital process narrow with parallel margins. Numerous fine, sharp teeth on palate in transverse band of four oblong groups. No rakers on posterior aspect of gill arches. Barbels thin and short, rarely reaching beyond pectoral fin base and less than 25% SL.</p><p>An excellent eating fish, rapidly growing in popularity. This one is not as common as some of the other salmon tailed catfishes but does grow very large. There are plenty in Lake Argyle, WA, and the WA government changed the name to Silver Cobbler to sell the flesh in the Perth fish markets.</p><p>Remarks: on some online searches this species is still named by the synonym Neoarius midgleyorum.</p><p>Etymology: the specific name midgleyi honours Stephen Hamar Midgley (1918–2014), amateur ichthyologist and limnologist, and his wife Mary, for bringing this catfish to the attention of the senior author and for their \"enthusiastic and dedicated study\" of the fresh waters of northern Australia.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/575d14f576e6c64c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/575d14f576e6c64c-480.webp",
+      "width": 500,
+      "height": 294,
+      "licence": "dùng với sự cho phép",
+      "author": "Dave Wilson / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/neoarius_midgleyi.htm",
+      "caption": "Neoarius midgleyi",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-18"
+}

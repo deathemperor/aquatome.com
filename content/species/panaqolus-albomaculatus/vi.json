@@ -1,0 +1,27 @@
+{
+  "slug": "ca-lau-kieng-lda-31",
+  "name": "Cá lau kiếng LDA31",
+  "altNames": [
+    "Cá tỳ bà LDA 31",
+    "LDA 31"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>LDA 31 \"điển hình\" có nguồn gốc từ Peru, đốm thường hơi ngả trắng. Cá từ Venezuela có đốm màu cam rất sáng, nhưng người ta cũng đã xác định chúng là LDA 31.</p>",
+    "diet:glaser": "<p>Đây là loài ăn gỗ. Chỉ cần nhìn hàm răng hình thìa của chúng là thấy ngay. (Hypancistrus thì khác: răng nhọn và ăn thịt.)</p>",
+    "notes:glaser": "<p>Tạp chí Datz số 3/2018 đã công bố một mã L mới là L501. Đây là một loài Hypancistrus từ Venezuela, họ hàng gần với Hypancistrus inspector/L201/L339. Điểm khác với các họ hàng đã biết là vây hầu như không có đốm, còn đốm trên thân ngả hồng hoặc cam chứ không trắng.</p><p>Panaqolus albomaculatus/LDA 31 từ Venezuela cũng có đốm màu cam rất sáng. Những con được xem xét dài 9–12 cm, gần như đã lớn hết cỡ. Từ lâu người ta đã biết LDA 31 là loài rất nhiều biến thể (xem Wels Atlas tập 2).</p><p>Một cặp đã được chụp ảnh và xem xét kỹ hơn. Không còn nghi ngờ gì nữa, chúng là loài ăn gỗ. Vậy những con cá từ Venezuela này chỉ đơn giản là LDA 31 rất đẹp.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-19"
+  }
+}

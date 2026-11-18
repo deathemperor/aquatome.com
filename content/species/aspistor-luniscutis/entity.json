@@ -1,0 +1,109 @@
+{
+  "id": "aspistor-luniscutis",
+  "scientificName": "Aspistor luniscutis",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Aspistor",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "french-guiana",
+    "brazil"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 120
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/notarius_luniscutis.htm",
+      "html": "<p>South America: Atlantic coastal rivers of South America from French Guiana to southern Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/notarius_luniscutis.htm",
+      "html": "<p>Notarius luniscutis occurs along the eastern coast of South America from the Guianas to Brazil, and may reach a maximum length of 1.2 m. Like the other species, it occupies marine and brackish environments. Knowledge about this species is also very sparse. The family Ariidae includes the catfishes, marine and brackish water leather fishes. The family has a wide distribution in tropical and temperate waters, and its members occur near the coast, in estuaries and inland waters; few are strictly marine.</p><p>This species is widely distributed and can be common in some areas, such as the south-east of Brazil. It is not targeted in any fishery and taken only occasionally as bycatch. It is estuarine dependent and may therefore be susceptible to habitat loss, but this is not thought to be a major threat. It is assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/notarius_luniscutis.htm",
+      "html": "<p>They have a wide feeding spectrum, which may vary during their ontogenetic development, with the diet mostly constituted of detritus, decapods, fish, polychaetes and bivalves.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/notarius_luniscutis.htm",
+      "html": "<p>The catfishes seek out river mouths and lagoons during the spawning period. Reproduction normally occurs in the warmer months of the year or during the rainy period, when there is a major uptake from rivers.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/notarius_luniscutis.htm",
+      "html": "<p>Etymology: the specific name luniscutis comes from luna, moon, and scutum, shield, referring to the lunate bony plate (occipital process) in front of the dorsal fin.</p><p>Remarks: still found in some online searches as Aspistor luniscutis.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/bfaac54c9e0cc3ae.webp",
+      "thumb": "https://media.aquatome.com/scotcat/bfaac54c9e0cc3ae-480.webp",
+      "width": 500,
+      "height": 253,
+      "licence": "dùng với sự cho phép",
+      "author": "Carla Isobel Elliff / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/notarius_luniscutis.htm",
+      "caption": "Notarius luniscutis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/1c5349f75f65c168.webp",
+      "thumb": "https://media.aquatome.com/scotcat/1c5349f75f65c168-480.webp",
+      "width": 500,
+      "height": 335,
+      "licence": "dùng với sự cho phép",
+      "author": "Alfredo Carvalho Filho / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/notarius_luniscutis.htm",
+      "caption": "Notarius luniscutis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/d35eba6b02a8759a.webp",
+      "thumb": "https://media.aquatome.com/scotcat/d35eba6b02a8759a-480.webp",
+      "width": 500,
+      "height": 335,
+      "licence": "dùng với sự cho phép",
+      "author": "Alfredo Carvalho Filho / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/notarius_luniscutis.htm",
+      "caption": "Notarius luniscutis",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-18"
+}

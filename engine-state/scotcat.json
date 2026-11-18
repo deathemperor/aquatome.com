@@ -1289,6 +1289,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/ariidae/hexanematichthys_sagor.htm": {
+    "entityIds": [
+      "species/hexanematichthys-sagor"
+    ],
+    "updatedAt": "2026-11-18T17:42:06.287Z",
+    "hash": "480812283c4bd1f9aeb8152cd647f204a191b192315708ad76f2265cf9ff46f2",
+    "processedHash": "480812283c4bd1f9aeb8152cd647f204a191b192315708ad76f2265cf9ff46f2",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/ariidae/jayaramichthys_leptonotacanthus.htm": {
     "entityIds": [
       "species/arius-leptonotacanthus"
@@ -1319,6 +1329,66 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/ariidae/neoarius_berneyi.htm": {
+    "entityIds": [
+      "species/neoarius-berneyi"
+    ],
+    "updatedAt": "2026-11-18T17:44:42.122Z",
+    "hash": "e2712574b702460509d38c5f4148b0a20b2f92061e0273ab80292f74dec4a2bb",
+    "processedHash": "e2712574b702460509d38c5f4148b0a20b2f92061e0273ab80292f74dec4a2bb",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/neoarius_graeffei.htm": {
+    "entityIds": [
+      "species/neoarius-graeffei"
+    ],
+    "updatedAt": "2026-11-18T17:47:26.601Z",
+    "hash": "564cf91ac99b4ed3c9221a129b57048b6c5bb0c5508a7bd247b0bf9f6f67ae4c",
+    "processedHash": "564cf91ac99b4ed3c9221a129b57048b6c5bb0c5508a7bd247b0bf9f6f67ae4c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/neoarius_midgleyi.htm": {
+    "entityIds": [
+      "species/neoarius-midgleyi"
+    ],
+    "updatedAt": "2026-11-18T17:50:10.189Z",
+    "hash": "59c2082a2e70af5328b4cc0d35c45640bbb4b81d98254b5f77cf0acd0274baad",
+    "processedHash": "59c2082a2e70af5328b4cc0d35c45640bbb4b81d98254b5f77cf0acd0274baad",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/neoarius_paucus.htm": {
+    "entityIds": [
+      "species/sciades-paucus"
+    ],
+    "updatedAt": "2026-11-18T17:52:24.315Z",
+    "hash": "221e2840bdd27906f19b225269d11ae23fecad4dc8d7014e223eb8f55069ca2a",
+    "processedHash": "221e2840bdd27906f19b225269d11ae23fecad4dc8d7014e223eb8f55069ca2a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/neoarius_pectoralis.htm": {
+    "entityIds": [
+      "species/neoarius-pectoralis"
+    ],
+    "updatedAt": "2026-11-18T17:55:46.311Z",
+    "hash": "41e1fd4bd88066a0f30a188dca2e04af8c33a9c3158354fa6dd7acbb1cfec889",
+    "processedHash": "41e1fd4bd88066a0f30a188dca2e04af8c33a9c3158354fa6dd7acbb1cfec889",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/netuma_bilineata.htm": {
+    "entityIds": [
+      "species/netuma-bilineata"
+    ],
+    "updatedAt": "2026-11-18T17:58:04.096Z",
+    "hash": "10811cf66235fc3fe8acd50e3c877b037523855c6d6ec97dca6f728dd4d98255",
+    "processedHash": "10811cf66235fc3fe8acd50e3c877b037523855c6d6ec97dca6f728dd4d98255",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/ariidae/netuma_thalassina.htm": {
     "entityIds": [
       "species/netuma-thalassina"
@@ -1326,6 +1396,36 @@
     "updatedAt": "2026-11-06T11:43:46.575Z",
     "hash": "075678b97dafc257f43ffa1355b88bc21e802e4dfaa74adbddac81343a0b9e2f",
     "processedHash": "075678b97dafc257f43ffa1355b88bc21e802e4dfaa74adbddac81343a0b9e2f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/notarius_luniscutis.htm": {
+    "entityIds": [
+      "species/aspistor-luniscutis"
+    ],
+    "updatedAt": "2026-11-18T17:59:40.283Z",
+    "hash": "df3a50af8c8f9959dc8a0e19604c0104e9f7007652d8054be8fb8e6109be1789",
+    "processedHash": "df3a50af8c8f9959dc8a0e19604c0104e9f7007652d8054be8fb8e6109be1789",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/notarius_phrygiatus.htm": {
+    "entityIds": [
+      "species/amphiarius-phrygiatus"
+    ],
+    "updatedAt": "2026-11-18T18:01:35.593Z",
+    "hash": "8e73b8e38ab94049ce23df59c7f392d2fdb473dd5edb4216ea099f58bcef3eeb",
+    "processedHash": "8e73b8e38ab94049ce23df59c7f392d2fdb473dd5edb4216ea099f58bcef3eeb",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/notarius_quadriscutis.htm": {
+    "entityIds": [
+      "species/aspistor-quadriscutis"
+    ],
+    "updatedAt": "2026-11-18T18:03:14.610Z",
+    "hash": "91268bfe11e4a2ae348055ca7bed77da40e7a2c3fa9a9815856368f17657cf0d",
+    "processedHash": "91268bfe11e4a2ae348055ca7bed77da40e7a2c3fa9a9815856368f17657cf0d",
     "status": "processed",
     "attempts": 0
   },

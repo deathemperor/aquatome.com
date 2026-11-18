@@ -624,6 +624,42 @@
       "kept": false
     }
   ],
+  "vi/products/oase-biomaster-600-thermo": [
+    {
+      "at": "2026-11-18T19:46:50Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.327",
+      "score": 0.82,
+      "notes": [
+        "\"Hiện chỉ có cỡ 600 được test thực tế\" – the facts only contain one test for the 600; it is not stated that no other size was tested (mild overreach).",
+        "\"Hãng và shop Việt Nam đều ghi cỡ này dùng cho bể đến 600 L\" – the facts say the manufacturer rates it up to 600 L and the shops use 600 L; this is supported, but \"Hãng ghi... bảo hành\" is okay too.",
+        "\"Lưu lượng của các cỡ đều là mức tối đa\" – the facts list only \"Flow rate\" for the variants, not that it is a maximum (small inference).",
+        "\"Theo bảng thông số của shop, mỗi cỡ dùng cho bể...\" – the variant sizes are sourced as spec data, but attributing them to shop tables is not stated for 250/350/850 (small attribution stretch).",
+        "\"Khi lọc phải đẩy nước lên độ cao thường gặp lúc đặt dưới tủ bể\" – the facts say \"typical cabinet head height\"; this is consistent.",
+        "\"cánh quạt kêu to hơn và có thể mau hỏng\" – supported by the facts."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T19:46:50Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.327",
+      "score": 0.88,
+      "notes": [
+        "\"khi lọc đặt trong tủ\" – the facts say 456 L/h at 80 cm head and mention a typical cabinet head height; the test being specifically in a cabinet is a mild embellishment.",
+        "\"Bảo hành 3 năm ... đăng ký online thêm 1 năm ... Bảo hành ở Việt Nam\" – the manufacturer warranty is presented under a Vietnam heading, but the facts do not say it applies in Vietnam.",
+        "\"Nhà phân phối chính hãng bảo hành 3 năm\" for EHEIM is supported, but \"cỡ nào cũng gọi theo dung tích bể mà nó lo được\" is a generalization; the 850 is correctly noted as 800 L.",
+        "\"Lưu lượng chỉnh được ở nhiều chỗ ... nên lúc tháo lọc ra ít bị đổ nước\" – the facts say the locks and valves help prevent spills, but the claim about spills on removal is a slight extension.",
+        "\"Nếu lọc kêu to dần và có bọt sủi ra bể, hãy kiểm tra chuyện khí lọt\" – this is an advice inference, not stated in the facts, though consistent with them.",
+        "\"Hãng ghi BioMaster 600 Thermo dùng cho bể đến khoảng 600 lít\" – fine; no major invented numbers were found."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/products/oase-filtosmart-100-thermo": [
     {
       "at": "2026-11-17T07:48:40Z",
