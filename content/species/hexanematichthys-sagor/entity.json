@@ -1,0 +1,126 @@
+{
+  "id": "hexanematichthys-sagor",
+  "scientificName": "Hexanematichthys sagor",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Hexanematichthys",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "pakistan",
+    "india",
+    "bangladesh",
+    "indonesia",
+    "vietnam",
+    "mekong"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 45
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hexanematichthys_sagor.htm",
+      "html": "<p>Common name: Sagor catfish. Family: Ariidae. Size: 45 cm TL. The dorsal and pectoral spines are venomous on this species. IUCN Red List: Not Evaluated.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hexanematichthys_sagor.htm",
+      "html": "<p>Indo-West Pacific: Pakistan, India and Bangladesh east to Indonesia and Vietnam.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hexanematichthys_sagor.htm",
+      "html": "<p>Found along the coastline, mainly around estuaries. Ascends into fresh water of the upper tidal zone. Occurs in the Mekong delta.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hexanematichthys_sagor.htm",
+      "html": "<p>Feeds on invertebrates and small fishes.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hexanematichthys_sagor.htm",
+      "html": "<p>They carry the eggs in their mouths. Juveniles continue to hide in males' mouths for the first 2 months.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hexanematichthys_sagor.htm",
+      "html": "<p>Etymology: The genus name Hexanematichthys: Greek, exa = six + Greek, nema = filament + Greek, ichthys = fish. The species epithet sagor: Local Bengali name for this fish in India.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/d004255c94521927.webp",
+      "thumb": "https://media.aquatome.com/scotcat/d004255c94521927-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Sahat Ratmuangkhwang / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hexanematichthys_sagor.htm",
+      "caption": "Hexanematichthys sagor: Kampuan mangrove forest at Amphoe Suksamran, Ranong province, southern Thailand",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/f11255b93f407c00.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f11255b93f407c00-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Sahat Ratmuangkhwang / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hexanematichthys_sagor.htm",
+      "caption": "Hexanematichthys sagor: Suksamran of Ranong, Andaman Coast of Thailand",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/17dce809821d7e67.webp",
+      "thumb": "https://media.aquatome.com/scotcat/17dce809821d7e67-480.webp",
+      "width": 500,
+      "height": 312,
+      "licence": "dùng với sự cho phép",
+      "author": "Theo Modder / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hexanematichthys_sagor.htm",
+      "caption": "Hexanematichthys sagor: Changi",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "i4yGAPzwKmY",
+      "title": "HEXANEMATICHTHYS SAGOR",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "MUtvKKl0Mzs",
+      "title": "Sagor catfish albino (Hexanematichthys sagor)",
+      "durationSec": 23,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "K8z4yZczSWU",
+      "title": "Sagor Catfish (Belukang) Convert to Fresh water.",
+      "durationSec": 89,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "YVUSWRQtLiE",
+      "title": "#shorts Ikan Sagor Catfish dan Jenis Ikan lainnya di akuarium",
+      "durationSec": 21,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-18"
+}

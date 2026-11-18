@@ -12,6 +12,48 @@
     "sumatra",
     "laos"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "ID"
+      ],
+      "regions": [
+        "Sumatra",
+        "Mussi"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Asia: Thailand to Indonesia.",
+          "countries": [
+            "TH",
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Sumatra (Palembang), in flumine Mussi.",
+          "countries": [],
+          "regions": [
+            "Sumatra",
+            "Mussi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344911,
+      "total": 0,
+      "fetched": "2026-11-18",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

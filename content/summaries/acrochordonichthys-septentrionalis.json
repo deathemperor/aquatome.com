@@ -1,12 +1,16 @@
 {
   "id": "acrochordonichthys-septentrionalis",
-  "summary": "Cá trê tắc kè Mae Klong (Acrochordonichthys septentrionalis) hợp người có bể dài tối thiểu 90 cm và chịu khó giữ nước ổn định, độ khó 4/8. Cần nước mát 17,5–24 °C, pH 5–7, độ cứng 0–10 dGH, dòng chảy mạnh và nhiều oxy; cá dài khoảng 10 cm, có vẻ chủ yếu hoạt động về đêm. Khó nhất là giữ nước sạch, giàu oxy, và cá có thể tiết chất trắng sữa khi stress, giết cá khác rất nhanh trong bể.",
+  "summary": "Hợp với người muốn nuôi cá trê đáy ít bơi, chủ yếu hoạt động về đêm, trong bể mát 17,5–24 °C, pH 5–7, độ cứng 0–10 dGH. Bể tối thiểu dài 90 cm (khoảng 81 lít), cá lớn 10 cm, cần lọc mạnh, nước sạch nhiều oxy, độ khó 4/8. Khó nhất là nuôi chung: cá stress tiết chất trắng sữa có thể giết cá khác rất nhanh, lại tranh ăn kém nên thường phải đút mồi tận miệng.",
   "mistakes": [
-    "Thả cá vào bể mới set chưa chạy ổn: chỉ thả khi bể đã ổn định, vì loài này cần nước ổn định.",
-    "Nuôi chung với cá nhỏ hoặc cá hay gây stress: chọn cá đủ lớn, hiền, thích nước mát có dòng chảy như Devario, vì cá nhỏ bị ăn và chất tiết khi stress có thể giết cá khác.",
-    "Bỏ mặc thức ăn trong bể chung: cá ít di chuyển, tranh ăn kém, nên thả mồi sống hoặc đông lạnh như ấu trùng muỗi lắc, trùn chỉ ngay trước mặt cá."
+    "Thả cá vào bể mới set chưa chạy ổn; nên chờ bể ổn định rồi mới thả, vì loài này cần nước ổn định.",
+    "Cho nuôi chung với cá nhỏ hoặc cá giữ lãnh thổ trong bể cộng đồng; nên chọn bể lớn với cá đủ lớn, hiền, thích nước mát có dòng chảy như Devario.",
+    "Thả mồi rồi bỏ đó trong bể chung; nên đút mồi tận miệng như ấu trùng muỗi lắc hay trùn chỉ Tubifex vì cá tranh ăn rất kém."
   ],
   "speciesUpdatedAt": "2026-10-29",
-  "generatedAt": "2026-11-09T11:11:19.248Z",
-  "review": "approved"
+  "writtenFrom": "72c32f8dd2dbbf35",
+  "generatedAt": "2026-11-18T20:00:21.626Z",
+  "review": "pending",
+  "problems": [
+    "\"chủ yếu hoạt động về đêm\" is stated as fact about this species. The page hedges it (\"có vẻ chủ yếu hoạt động về đêm\") and says it about Acrochordonichthys species in general, so the hedge became a certainty."
+  ]
 }

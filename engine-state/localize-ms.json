@@ -727,7 +727,6 @@
       "quickFacts:glaser": "1c9c1d3788a0",
       "waterConditions:glaser": "e47459319228",
       "diet:glaser": "ffd019cab43c",
-      "behaviour:glaser": "8017cb10bad7",
       "dimorphism:glaser": "cdb9fc1790ce",
       "reproduction:glaser": "a3a7ff06b7a4"
     }
@@ -1211,14 +1210,15 @@
     }
   },
   "akysis-portellus": {
-    "at": "2026-11-14",
-    "from": "2026-10-30",
+    "at": "2026-11-18",
+    "from": "2026-11-18",
     "name": "Smallmouth Stream Catfish",
     "confidence": "low",
-    "score": 0.9,
+    "score": 0.75,
     "notes": [
-      "Item 15: \"milt\" left in English; use \"sperma\" or \"air mani\".",
-      "Items 7 and 11: \"moss\" and \"glassworm\" are left as English terms. Consider \"lumut\" for moss, and a Malay form or a bracketed English term for glassworm."
+      "#4: 'keadaan yang paling disukai' adds a superlative ('paling') not in the English; the source only says conditions in which they feel very well. Rephrase, e.g. 'keadaan yang membuat ikan keli Akysis berasa sangat selesa'.",
+      "#1: 'tidak berbahaya' is fine, but 'Hanya mereka yang mempunyai alahan' should read 'penghidap alahan' for naturalness (minor).",
+      "#5: 'Tangki' is acceptable, but 'akuarium' is the more common hobby term (minor)."
     ],
     "parts": {
       "quickFacts:seriouslyfish": "b505f1cd0edc",
@@ -1239,7 +1239,14 @@
       "notes:seriouslyfish": "03a2048642cf",
       "notes:scotcat": "364a36f69abc",
       "references:seriouslyfish": "877ca2891c4c",
-      "references:scotcat": "e22dccdde5e5"
+      "references:scotcat": "e22dccdde5e5",
+      "quickFacts:glaser": "87159e06291d",
+      "distribution:glaser": "54d1061eae63",
+      "habitat:glaser": "baecd8a12044",
+      "waterConditions:glaser": "fcabed835e40",
+      "equipment:glaser": "02a19230a2ff",
+      "diet:glaser": "356be19fe58b",
+      "behaviour:glaser": "230bd643a4e7"
     }
   },
   "akysis-prashadi": {
@@ -3851,6 +3858,322 @@
       "notes:seriouslyfish": "a6ba2fa51183"
     }
   },
+  "aphyosemion-bitaeniatum": {
+    "at": "2026-11-18",
+    "from": "2026-10-29",
+    "name": "Two-striped Lyretail",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 1: 'Two-striped lyretail' left in English in the running text; give a Malay rendering or put the English name in brackets after it, e.g. 'lyretail dua jalur (two-striped lyretail)'.",
+      "Item 4: 'berhias reben' for 'beribboned' is slightly awkward; 'berpita' or 'berjalur pita' reads more naturally."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "bbf11b047e58",
+      "distribution:seriouslyfish": "5133be8ce46d",
+      "waterConditions:seriouslyfish": "a0ff320f3237",
+      "notes:seriouslyfish": "eff908db16f2"
+    }
+  },
+  "aphyosemion-bivittatum": {
+    "at": "2026-11-18",
+    "from": "2026-10-29",
+    "name": "Two-banded Lyretail",
+    "confidence": "low",
+    "score": 0.8,
+    "notes": [
+      "Item 3: Greek 'aphúe' is rendered correctly in the English but the Malay has 'ἀφúη' with a Latin 'ú' mixed into the Greek, so the original Greek spelling was altered. Restore 'ἀφύη'.",
+      "Item 1/2: 'Taman Negara Korup' and 'Taman Negara Cross River' – 'Taman Negara' is the Malaysian national park name. Use 'Taman Nasional Korup' or keep 'Korup National Park' and 'Cross River National Park' to avoid confusion.",
+      "Item 1: 'lokaliti jenisnya' is stiff. Use 'lokaliti jenis (type locality)' or 'lokasi spesimen jenis'.",
+      "Item 1: 'Two-banded lyretail' is left untranslated. Add a local rendering or brackets, e.g. 'lyretail dua jalur'."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "f7dc45cd0054",
+      "distribution:seriouslyfish": "1e11fb9bd0af",
+      "notes:seriouslyfish": "a1bffbeb0d3b"
+    }
+  },
+  "aphyosemion-bualanum": {
+    "at": "2026-11-18",
+    "from": "2026-10-29",
+    "name": "Bouala Lyretail",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "In item 1, 'Max size: 50 mm SL' drops the English '(2.0 in SL)'. This is acceptable because imperial figures may be omitted, so no change is needed.",
+      "Item 1: 'nama ini tersalah guna' is slightly awkward. Prefer 'nama ini disalah guna' or 'telah disalahgunakan'.",
+      "Item 3: 'tersalah guna' is awkward. Prefer 'disalahgunakan' (a passive form that fits the sense of 'mis-used').",
+      "Item 2: 'dihuraikan daripada' for 'Described from' is stilted. Prefer 'Spesies ini diperihalkan berdasarkan spesimen dari ...'."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "dcfd1d71d0e8",
+      "distribution:seriouslyfish": "4149dfd6aea2",
+      "notes:seriouslyfish": "4b546d21f0e6"
+    }
+  },
+  "aphyosemion-campomaanense": {
+    "at": "2026-11-18",
+    "from": "2026-11-08",
+    "name": "Aphyosemion campomaanense",
+    "confidence": "medium",
+    "score": 0.92,
+    "notes": [
+      "Minor: \"Saudara terdekat\" is slightly odd for a species; \"kerabat terdekat\" or \"spesies yang paling hampir\" reads more naturally.",
+      "Minor: \"hasil ternakan Jerman\" could be clearer as \"diternak di Jerman\"."
+    ],
+    "parts": {
+      "quickFacts:glaser": "f5f33017b42d",
+      "distribution:glaser": "4ced02ecfbaf",
+      "notes:glaser": "806f40da7893"
+    }
+  },
+  "aphyosemion-celiae": {
+    "at": "2026-11-18",
+    "from": "2026-10-29",
+    "name": "Celia's lyretail",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "Item 1/2: \"Dideskripsikan daripada spesimen\" is awkward and adds \"spesimen\"; prefer \"Diperihalkan berdasarkan ...\" or \"Pertama kali diperihalkan dari ...\".",
+      "Item 1/3: \"Kekerasan air (GH): 0–5 dGH\" adds \"GH\" label not in source; the unit dGH already covers it, so use \"Kekerasan air: 0–5 dGH\".",
+      "Item 4: \"Holotaip\" is fine, but \"anak sulung\" for \"eldest daughter\" drops \"daughter\" and \"Beliau ialah anak sulung\" is gender-neutral; use \"anak perempuan sulung\".",
+      "Item 4: \"rumah keluarga Epie\" adds \"keluarga\"; the source says \"Epie's home\", so use \"rumah Epie\".",
+      "Item 4: \"perkataan Yunani\" is better as \"perkataan Greek\" (standard Malay for Greek)."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "7fa1fef7509f",
+      "distribution:seriouslyfish": "5a59752081e0",
+      "waterConditions:seriouslyfish": "2e2d4a28b7cb",
+      "notes:seriouslyfish": "31951d2ea007"
+    }
+  },
+  "aphyosemion-cognatum": {
+    "at": "2026-11-18",
+    "from": "2026-10-29",
+    "name": "Red-spotted Lyretail",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 2: 'beratus-ratus kilometer ke timur Kinshasa' is correct but 'Congo' vs 'Kongo' is fine; consider 'dikutip' → 'dikumpulkan' for natural collection wording.",
+      "Item 1: 'Spesimen jenis' fine; 'killifish' could be given with a local term such as 'ikan killi' for naturalness."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "ac971717de60",
+      "distribution:seriouslyfish": "1468d7206dcc",
+      "notes:seriouslyfish": "6330b9a07a99"
+    }
+  },
+  "aphyosemion-congicum": {
+    "at": "2026-11-18",
+    "from": "2026-10-29",
+    "name": "Congo Lyretail",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 2: 'dari bahagian barat' fine; but 'Kasai, yang mengalir masuk ke Sungai Congo' – 'affluent' means tributary of the Congo; wording 'yang mengalir masuk' is acceptable but could be 'anak sungai kepada Sungai Congo' for clarity.",
+      "Item 3: 'Yunani' is fine; 'lyre' left untranslated – consider 'berbentuk kecapi (lyre)'.",
+      "Item 1: 'siri jenisnya' is awkward; consider 'siri jenis (type series)' or 'spesimen siri jenis'."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "095356c6d88e",
+      "distribution:seriouslyfish": "e0dc9c56d272",
+      "notes:seriouslyfish": "90174f054df2"
+    }
+  },
+  "aphyosemion-decorsei": {
+    "at": "2026-11-18",
+    "from": "2026-10-29",
+    "name": "Decorse's Lyretail",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 1: 'Decorse's lyretail' left untranslated; acceptable as a trade name, but could add a Malay gloss, e.g. 'lyretail Decorse'.",
+      "Item 1: 'killifish' is not italicised or bracketed; consider 'ikan killifish' with consistent usage.",
+      "Item 1/2: 'menganjur hingga ke utara' is slightly awkward; 'merebak hingga ke utara' or 'meluas hingga ke' reads more naturally."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "3fde53800a99",
+      "distribution:seriouslyfish": "1eeab8674ee3",
+      "notes:seriouslyfish": "3fb6b376b430"
+    }
+  },
+  "aphyosemion-elberti": {
+    "at": "2026-11-18",
+    "from": "2026-10-29",
+    "name": "Red-barred Lyretail",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 1: \"Red-barred lyretail\" left in English with no local gloss; consider adding a Malay descriptor or marking it as a trade name.",
+      "Item 1: \"killifish\" is left in English; it is acceptable as a hobby term, but could be given as \"ikan killifish\"."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "bf2b45747919",
+      "distribution:seriouslyfish": "fc32d36d8fe0",
+      "waterConditions:seriouslyfish": "d8cce8848f89",
+      "notes:seriouslyfish": "befd85b20e50"
+    }
+  },
+  "aphyosemion-erythron": {
+    "at": "2026-11-18",
+    "from": "2026-10-29",
+    "name": "Reddish Lyretail",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "Item 1: \"25 mm SL (panjang piawai)\" – the English gives \"SL\" with the length in mm; the bracket \"panjang piawai\" is fine, but the metric figure is correct. The imperial figure was dropped as allowed, so this is OK. Real issue: \"Reddish lyretail\" is left in English with no local or descriptive rendering; add a Malay gloss, e.g. \"Reddish lyretail (killi ekor lira kemerahan)\", or keep it as a trade name.",
+      "Item 1: \"dikumpul\" is non-standard; use \"dikutip\" or \"disampel\" (or \"dikumpulkan\"). The same applies to \"dikumpul\" in item 2.",
+      "Items 1 and 2: \"lembangan\" for \"drainages\" is acceptable, but \"sistem saliran\" or \"lembangan saliran\" is closer to the source."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "dacaac2e37a2",
+      "distribution:seriouslyfish": "f38c76b61589",
+      "notes:seriouslyfish": "d6abad58827e"
+    }
+  },
+  "aphyosemion-gabunense": {
+    "at": "2026-11-18",
+    "from": "2026-11-18",
+    "name": "Gabon Lyretail",
+    "confidence": "medium",
+    "score": 0.93,
+    "notes": [
+      "Item 14: \"sama ada ada perbezaan\" is a clumsy repetition; rephrase, e.g. \"sama ada terdapat perbezaan\"."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "c19b11bdbe67",
+      "beforeYouBuy:seriouslyfish": "77b4f483c826",
+      "distribution:seriouslyfish": "896398c5311f",
+      "habitat:seriouslyfish": "c48ceb4ccfc0",
+      "aquariumSize:seriouslyfish": "182f4bf822c2",
+      "maintenance:seriouslyfish": "87199646169b",
+      "waterConditions:seriouslyfish": "b457f0244d8a",
+      "diet:seriouslyfish": "00e013c705c4",
+      "behaviour:seriouslyfish": "5597c55421a2",
+      "dimorphism:seriouslyfish": "37c774e855ab",
+      "reproduction:seriouslyfish": "0c5eb9489cf9",
+      "reproduction:glaser": "a7036c3b65db",
+      "notes:seriouslyfish": "0538de683785",
+      "notes:glaser": "ce81ba969cfa"
+    }
+  },
+  "aphyosemion-hanneloreae": {
+    "at": "2026-11-18",
+    "from": "2026-10-29",
+    "name": "Hannelore's Lyretail",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "Item 1: \"dekat dengan sempadan Republik Congo\" adds \"sempadan\"; English says close to the Republic of the Congo itself. Use \"dekat dengan Republik Congo\".",
+      "Item 1: \"jadi spesies ini mungkin juga terdapat\" adds causal \"jadi\" not in the source; use \"dan spesies ini mungkin juga terdapat\".",
+      "Item 2: \"jadi spesies ini\" adds causal link not in the source; use \"dan\".",
+      "Item 3: \"pengarang kedua\" is ambiguous; \"pengarang kedua\" (second author) of the species description is better as \"pengarang kedua penerangan spesies\", though minor.",
+      "Item 3: \"lira\" is non-standard in hobby text; \"berbentuk kecapi (lyre)\" is clearer."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "9a1bb3832db5",
+      "distribution:seriouslyfish": "297c1c98bba2",
+      "notes:seriouslyfish": "9b049b80889d"
+    }
+  },
+  "aphyosemion-herzogi": {
+    "at": "2026-11-18",
+    "from": "2026-10-29",
+    "name": "Herzog's lyretail",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"lembangan Ivindo dan Okano\": 'drainages' is better rendered 'sistem sungai' or 'lembangan saliran'; 'lembangan' alone is acceptable but in #1 'anak sungai sistem Ogooué' for basins is slightly loose.",
+      "\"dideskripsikan\": prefer the more standard Malay \"diperihalkan\" (or \"dikenal pasti secara saintifik\").",
+      "\"Kekerasan air (GH): 0–5 dGH\": the label says GH but the unit dGH; use \"Kekerasan: 0–5 dGH\" for consistency with the source."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "6af010e6c09b",
+      "distribution:seriouslyfish": "9df5f1950f33",
+      "waterConditions:seriouslyfish": "06f139efb826",
+      "notes:seriouslyfish": "6b98cb05d19d"
+    }
+  },
+  "aphyosemion-loennbergii": {
+    "at": "2026-11-18",
+    "from": "2026-10-29",
+    "name": "Lönnberg's Lyretail",
+    "confidence": "low",
+    "score": 0.85,
+    "notes": [
+      "Item 1/3: \"Kekerasan air (GH): 1–5 dGH\" mixes GH label with dGH unit; \"Kekerasan air: 1–5 dGH\" is cleaner.",
+      "\"dihuraikan daripada sungai Kienké\": \"diperihalkan dari sungai Kienké\" is more natural for 'described from' (taxonomy), and \"huraikan\" is slightly awkward.",
+      "\"lembangan sungai\" for drainages is acceptable but \"sistem sungai\" could be clearer.",
+      "Item 1: \"killifish\" left untranslated without a local term; consider \"ikan killifish\"."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "66a43bf1f42e",
+      "distribution:seriouslyfish": "71d6b2f9f17c",
+      "waterConditions:seriouslyfish": "f3a8ebe88026",
+      "notes:seriouslyfish": "fe2a8e514c71"
+    }
+  },
+  "aphyosemion-mimbon": {
+    "at": "2026-11-18",
+    "from": "2026-10-29",
+    "name": "Aphyosemion mimbon",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 4: Greek 'aphúe' is rendered as 'ἀφúη' in the MS, with a Latin 'ú' in the Greek word. Restore the original 'ἀφύη'.",
+      "Item 1: 'Kekerasan air (GH)' is used for a 'dGH' value. This is slightly inconsistent; 'Kekerasan: 0–5 dGH' is closer to the source.",
+      "Items 1 and 3: 'killifish' is left in English in item 1. Consider 'ikan killi' or 'killifish' in italics or brackets, as used locally.",
+      "Item 1: 'diperihalkan daripada satu anak sungai Sungai Mvé' is awkward. Use 'anak sungai kepada Sungai Mvé'."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "69ace085b2e9",
+      "distribution:seriouslyfish": "8f4c3673e94d",
+      "waterConditions:seriouslyfish": "b405c134fd38",
+      "notes:seriouslyfish": "8247431dde8e"
+    }
+  },
+  "aphyosemion-ogoense": {
+    "at": "2026-11-18",
+    "from": "2026-10-29",
+    "name": "Broken-line Lyretail",
+    "confidence": "low",
+    "score": 0.88,
+    "notes": [
+      "Item 11: \"tangki tidak perlu diberi lampu\" is weaker than the English \"should be unlit\". Use \"tangki hendaklah dibiarkan gelap/tanpa pencahayaan\".",
+      "Item 5: \"(seekor jantan dan dua betina)\" is added after \"tiga ekor\". The English only says \"trio\", so use \"trio\" or keep the gloss neutral.",
+      "Item 9: \"ketika berebut makanan\" is not in the English (\"outcompete\"). Remove it or make it more general."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "a7e9dd172632",
+      "beforeYouBuy:seriouslyfish": "9370e4fcface",
+      "distribution:seriouslyfish": "236bd5ad798e",
+      "habitat:seriouslyfish": "6223cd6b3d9b",
+      "aquariumSize:seriouslyfish": "a48f5e8a9433",
+      "maintenance:seriouslyfish": "c591f12dd1b6",
+      "waterConditions:seriouslyfish": "ee32f27b37e9",
+      "diet:seriouslyfish": "b5e8d67ba9da",
+      "behaviour:seriouslyfish": "5c57eb9456c2",
+      "dimorphism:seriouslyfish": "37c774e855ab",
+      "reproduction:seriouslyfish": "94aecd575bda",
+      "notes:seriouslyfish": "10c9ca7ea572"
+    }
+  },
+  "aphyosemion-punctatum": {
+    "at": "2026-11-18",
+    "from": "2026-11-18",
+    "name": "Aphyosemion punctatum",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"4.5 cm\": Malay uses a decimal comma in standard writing (4,5 cm), though the decimal point is common in Malaysia; optional.",
+      "\"Ikan ini boleh membesar sehingga 4.5 cm panjang\": consider the more natural \"sepanjang 4.5 cm\" or \"mencapai panjang 4.5 cm\"; the meaning is intact."
+    ],
+    "parts": {
+      "quickFacts:glaser": "30ee88002bd2",
+      "distribution:glaser": "9e8e26931983",
+      "notes:glaser": "2292dcee82a5"
+    }
+  },
   "astronotus-ocellatus": {
     "at": "2026-11-16",
     "from": "2026-11-16",
@@ -4807,6 +5130,35 @@
       "references:planetcatfish": "b1dd733cec67"
     }
   },
+  "marisa-cornuarietis": {
+    "at": "2026-11-18",
+    "from": "2026-11-06",
+    "name": "Siput Marisa",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 6: \"mencarik-carikkannya\" is a spelling error; use \"mencarik-carik\" (e.g. \"...sementara radula mencarik-carik daun dan batang\").",
+      "Item 9: \"proboscis\" is left in English; use \"probosis\" or \"belalai/mulut\" with the English term in brackets.",
+      "Item 12: \"bunting\" for females is odd for egg-laying snails; \"sudah mengandungi telur / bersedia bertelur\" reads more naturally."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "007229274454",
+      "quickFacts:glaser": "2f7417b5b0a5",
+      "beforeYouBuy:aquariumbreeder": "fc4f1b5bf05c",
+      "beforeYouBuy:glaser": "007b2a71ec69",
+      "distribution:aquariumbreeder": "62466d58fc1e",
+      "habitat:aquariumbreeder": "c5292dbc15c1",
+      "aquariumSize:aquariumbreeder": "eab24549d22d",
+      "waterConditions:aquariumbreeder": "7a7baea96784",
+      "diet:aquariumbreeder": "f7dff869e658",
+      "behaviour:aquariumbreeder": "40a89c1b0572",
+      "behaviour:glaser": "8cc157aa46de",
+      "dimorphism:aquariumbreeder": "39d8a922d429",
+      "reproduction:aquariumbreeder": "b086f9695843",
+      "reproduction:glaser": "e53d4bf8ac6b",
+      "notes:glaser": "9090ad91ce26"
+    }
+  },
   "maylandia-estherae": {
     "at": "2026-11-12",
     "from": "2026-10-31",
@@ -5463,21 +5815,35 @@
     }
   },
   "symphysodon-discus": {
-    "at": "2026-11-06",
-    "from": "2026-11-01",
+    "at": "2026-11-18",
+    "from": "2026-11-18",
     "name": "Ikan Discus",
     "confidence": "high",
-    "score": 0.7,
+    "score": 0.6,
     "notes": [
-      "#10: 'sirip dubur' for 'anal fin' is fine, but 'Jalur biru ... meliputi sirip dorsal dan sirip dubur' is OK; however 'sirip dorsal, sirip ventral dan sirip dubur' mixes English loan and Malay terms — use consistent 'sirip belakang/dorsal', 'sirip perut/ventral', 'sirip dubur'.",
-      "#4: 'ditanam dengan baik' is awkward/ambiguous for 'well planted' (tank with many plants); use 'ditanam dengan banyak tumbuhan' or 'berpenanaman tumbuhan yang baik'. Also 'tangki' vs 'akuarium' inconsistent, and 'penapisan yang baik' repeats 'baik'.",
-      "#4: 'Discus tidak suka perubahan ... semakin perlahan perubahan itu berlaku' is acceptable; but 'liter' should be 'liter/L' consistently (fine).",
-      "#6: 'flake' left in English; use 'makanan serpai kering (flake)'. 'Jika diberi makan flake kering sahaja' adds 'sahaja' (only), which slightly shifts 'On a diet of dry flake' - acceptable but 'makan daripada badan induk' should be 'makan daripada sisi badan induk'.",
-      "#5: 'akuarium bertumbuhan yang sudah lama stabil' is awkward for 'well-established planted aquarium'; use 'akuarium berumput/tumbuhan yang sudah matang (established)'.",
-      "#7: 'pada musim bertelur' for 'at spawning time' — 'semasa waktu bertelur' is more natural; 'Sangat aman' should be 'Sangat jinak/tidak agresif'.",
-      "#8: 'Pada musim bertelur' similarly; 'papila genital ... tirus' fine. 'roe (eggs)' simplified to 'telur' - fine.",
-      "#1: 'kekal sebagai tambahan yang cantik' is literal; 'remain a beautiful addition' better as 'tetap menjadi pilihan yang menarik'."
-    ]
+      "Item 5: 75 gallons (285 litres) should be 300 litres per the table - this is correct in MS; however the English 'about 285 litres' is converted OK. No issue there.",
+      "Item 1: 'sentiasa menjadi tambahan yang cantik' - 'remain a beautiful addition' is fine; but 'Discus antara ikan' lacks 'ialah' (minor).",
+      "Item 5: 'tangki' used alongside 'akuarium' - keep consistent, use 'akuarium'.",
+      "Item 5: 'liter' should be 'liter/litre' per Malaysian usage; use 'liter' or 'L' consistently (minor).",
+      "Item 8: 'musim bertelur' for 'spawning time' implies a season; use 'semasa bertelur'. Also 'Sangat aman' lacks subject; start with 'Ikan ini sangat aman'.",
+      "Item 9: 'Jantina hanya boleh dibezakan oleh pakar' acceptable but 'musim membiak' should be 'semasa membiak'.",
+      "Item 2: 'Seperti ikan angelfish' redundant; use 'Seperti angelfish'.",
+      "Item 12: 'bilangan Blue Head ... sangat tinggi' fine; 'kerana ini discus yang ditangkap' awkward - use 'kerana discus ini ditangkap dari alam liar'."
+    ],
+    "parts": {
+      "quickFacts:sprucepets": "a17eedc81d16",
+      "distribution:sprucepets": "d756fd48cfff",
+      "distribution:glaser": "06f926ba5183",
+      "habitat:sprucepets": "31a901a6f9f2",
+      "aquariumSize:sprucepets": "b1b2dc26f1df",
+      "waterConditions:sprucepets": "0c4f86b9245c",
+      "diet:sprucepets": "b1b5d4fe0e51",
+      "behaviour:sprucepets": "dcb5d91e85dc",
+      "dimorphism:sprucepets": "0b0779eb1705",
+      "reproduction:sprucepets": "5fca87ffba2c",
+      "notes:sprucepets": "4d48b3447e86",
+      "notes:glaser": "1f246348bf9f"
+    }
   },
   "thorichthys-meeki": {
     "at": "2026-11-18",

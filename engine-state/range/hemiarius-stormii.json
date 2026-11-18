@@ -1,0 +1,59 @@
+{
+  "id": "hemiarius-stormii",
+  "native": {
+    "input": "2310b4a01ade2e61",
+    "at": "2026-11-18T12:30:34.128Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Thailand to Indonesia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Thailand to Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "scotcat",
+        "quote": "Type locality: Sumatra (Palembang), in flumine Mussi.",
+        "ok": true
+      },
+      {
+        "name": "Mussi",
+        "source": "scotcat",
+        "quote": "Type locality: Sumatra (Palembang), in flumine Mussi.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "LA"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemiarius stormii",
+    "status": "ACCEPTED",
+    "taxonKey": 2344911,
+    "datasets": [],
+    "native": [
+      "TH",
+      "ID"
+    ],
+    "requests": 2,
+    "at": "2026-11-18T12:30:34.128Z"
+  }
+}

@@ -94,6 +94,11 @@ final class PageShotsFlowTests: XCTestCase {
   func testTheChat() { shootChat("chat-light") }
   func testTheChatInTheDark() { shootChat("chat-dark", dark: true) }
   func testTheChatInTheLargestText() { shootChat("chat-largest-light", size: largest) }
+  /// For Design's parity (Báo sai, 16 Nov), the mock's five states (docs/design/img/chat-report.webp): "Báo sai" under a
+  /// finished answer, after its cards; its sheet empty; the mock's reason typed; sending; the answer once reported.
+  func testTheReport() { shootReport("chat-report-light") }
+  func testTheReportInTheDark() { shootReport("chat-report-dark", dark: true) }
+  func testTheReportInTheLargestText() { shootReport("chat-report-largest-light", size: largest) }
   /// For Design's parity (15 Nov): a species card's page and iOS's back to the chat, where it was left; then a long section
   /// opened, its "Thu gọn" in view and measured. v2, light.
   func testTheChatsOpenSectionAndBackFromACardsPage() {
@@ -542,6 +547,61 @@ final class PageShotsFlowTests: XCTestCase {
     XCTAssertTrue(tool.waitForExistence(timeout: 30), "no blocks")
     for _ in 0..<4 { app.swipeDown() }
     capture(app, name + "-answer", dark: dark, large: size != nil, screens: size == nil ? 16 : 20)
+  }
+
+  private func shootReport(_ name: String, dark: Bool = false, size: String? = nil) {
+    // `-chat-report-slow`: the fake server holds a report 6 s, so "Đang gửi…" can be shot.
+    let app = launch(dark: dark, size: size, ["-fake-accounts", "on", "-reset-fake-server", "-chat-blocks", "-chat-report-slow"])
+    open(app, "ca neon", "Cá neon")
+    let entry = app.descendants(matching: .any)["chat-entry"].firstMatch
+    repeatUntil(entry.exists && entry.isHittable, times: 12) { app.swipeUp() }
+    entry.tap()
+    let sign = app.descendants(matching: .any)["apple-sign-in"].firstMatch
+    XCTAssertTrue(sign.waitForExistence(timeout: 5), "no sign-in")
+    sign.tap()
+    let chip = app.buttons.matching(identifier: "chat-chip").firstMatch
+    XCTAssertTrue(chip.waitForExistence(timeout: 10), "no starters")
+    chip.tap()
+    let report = app.buttons["chat-report"]
+    XCTAssertTrue(report.waitForExistence(timeout: 60), "no Báo sai under the answer")
+    // As the chat's flows: fast drags until it's on screen and clear of the box.
+    let box = app.descendants(matching: .any)["chat-box"].firstMatch
+    func clear() -> Bool { report.exists && report.isHittable && (!box.exists || report.frame.midY < box.frame.minY - 16) }
+    repeatUntil(clear(), times: 20) {
+      app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.7))
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.4)), withVelocity: .fast,
+               thenHoldForDuration: 0.1)
+    }
+    XCTAssertTrue(clear(), "Báo sai behind the box")
+    still(name + "-under", dark: dark)
+    report.tap()
+    let reason = app.descendants(matching: .any)["chat-report-reason"].firstMatch
+    XCTAssertTrue(reason.waitForExistence(timeout: 5), "no sheet")
+    still(name + "-sheet", dark: dark)
+    reason.tap()
+    reason.typeText("Bể 60 cm là 54 lít, không phải 60 lít")
+    still(name + "-typed", dark: dark)
+    let send = app.buttons["chat-report-send"]
+    send.tap()
+    let sending = XCTNSPredicateExpectation(predicate: NSPredicate(format: "label == %@", "Đang gửi…"), object: send)
+    XCTAssertEqual(XCTWaiter().wait(for: [sending], timeout: 2), .completed, "no Đang gửi…: \(send.label)")
+    still(name + "-sending", dark: dark)
+    // Still sending once shot: a late shot of "Đã báo" would pass as this one.
+    XCTAssertEqual(send.label, "Đang gửi…", "the sending shot came too late")
+    XCTAssertTrue(app.descendants(matching: .any)["chat-reported"].firstMatch.waitForExistence(timeout: 8), "not reported")
+    still(name + "-sent", dark: dark)
+  }
+
+  /// One screen as it is, not scrolled after (`capture` drags after each shot, which would move the sheet, type on the
+  /// keyboard or scroll the answer before the next tap), in the appearance asked for.
+  private func still(_ name: String, dark: Bool) {
+    settle()
+    let shot = XCUIScreen.main.screenshot()
+    XCTAssertEqual(lightness(shot.image) < 0.5, dark, "\(name) isn't \(dark ? "dark" : "light"): \(lightness(shot.image))")
+    let a = XCTAttachment(screenshot: shot)
+    a.name = "shot-\(name)-01"
+    a.lifetime = .keepAlways
+    add(a)
   }
 
   /// The handbook's row for `row`, found by `query`, opened.

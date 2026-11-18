@@ -92,10 +92,3 @@ export function galleryNote(t: T, photos: Photo[], sources: Partial<Record<Sourc
   return t(open ? '{n} ảnh từ {from}, giấy phép mở.' : '{n} ảnh từ {from}.', { n: photos.length, from: fromWords(t, photos, sources) })
 }
 
-/** The same line on the gallery page itself, with no number: its title is the count. */
-export function galleryLine(t: T, photos: Photo[], sources: Partial<Record<SourceId, SourceInfo>>): string {
-  if (photos.every(p => p.generated) && photos.length) return t('Ảnh do AI tạo.')
-  if (photos.some(p => p.generated)) return t('Ảnh thật từ {from} và ảnh do AI tạo.', { from: fromWords(t, photos, sources) })
-  const open = photos.every(p => !p.source && !isNonCommercial(p.licence))
-  return t(open ? 'Ảnh từ {from}, giấy phép mở.' : 'Ảnh từ {from}.', { from: fromWords(t, photos, sources) })
-}

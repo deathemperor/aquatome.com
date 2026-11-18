@@ -113,6 +113,9 @@
     "Xiphoramphus falcirostris",
     "Xiphorhynchus falcirostris"
   ],
+  "Acestrorhynchus heterolepis": [
+    "Xiphorhamphus heterolepis"
+  ],
   "Acestrorhynchus isalineae": [],
   "Acestrorhynchus microlepis": [
     "Acestorhynchus microlepis",
@@ -508,6 +511,12 @@
     "Ammochryptocharax elegans"
   ],
   "Ammoglanis multidentatus": [],
+  "Amphiarius phrygiatus": [
+    "Arius dieperinki",
+    "Arius phrygiatus",
+    "Cathorops phrygiatus",
+    "Notarius phrygiatus"
+  ],
   "Amphilius atesuensis": [
     "Amphilius pictus",
     "Amphlius pictus"
@@ -1158,6 +1167,15 @@
     "Corydoras raimundi"
   ],
   "Aspidoras taurus": [],
+  "Aspistor luniscutis": [
+    "Arius luniscutis",
+    "Galeichthys luniscutis",
+    "Notarius luniscutis"
+  ],
+  "Aspistor quadriscutis": [
+    "Arius quadriscutis",
+    "Notarius quadriscutis"
+  ],
   "Astacopsis gouldi": [],
   "Astacus astacus": [
     "Cancer astacus",
@@ -1965,6 +1983,9 @@
     "Rasbora urophthalma",
     "Rasbora urophthalmoides"
   ],
+  "Bostrychus zonatus": [
+    "Bostrichthys zonatus"
+  ],
   "Botia almorhae": [
     "Botia blythi",
     "Botia grandis",
@@ -2118,6 +2139,10 @@
   "Brochis multiradiatus": [
     "Chaenothorax multiradiatus",
     "Corydoras multiradiatus"
+  ],
+  "Brotia armata": [
+    "Brotia morrisonii",
+    "Paracrostoma morrisoni"
   ],
   "Brotia pagodula": [
     "Io pagodula",
@@ -3213,6 +3238,9 @@
   "Corydoras flaveolus": [],
   "Corydoras fowleri": [],
   "Corydoras fulleri": [],
+  "Corydoras geoffroy": [
+    "Corydoras octocirrus"
+  ],
   "Corydoras geryi": [
     "Corydoras bolivianus"
   ],
@@ -4985,6 +5013,7 @@
     "Sternopygus carapo",
     "Sternopygus carapus"
   ],
+  "Gymnotus chaviro": [],
   "Gymnotus pedanopterus": [],
   "Gyrinocheilus aymonieri": [
     "Gyrinocheilops kaznakoi",
@@ -5382,6 +5411,15 @@
     "Sudis adansonii",
     "Sudis niloticus"
   ],
+  "Hexanematichthys sagor": [
+    "Arius sagor",
+    "Bagrus doroides",
+    "Bagrus javensis",
+    "Bagrus sondaicus",
+    "Hexanematichthys sundaicus",
+    "Pimelodus sagor",
+    "Tachysurus sagor"
+  ],
   "Hippichthys penicillus": [
     "Corythroichthys quinquarius",
     "Hippichthys gazella",
@@ -5734,6 +5772,7 @@
   "Hyphessobrycon paepkei": [],
   "Hyphessobrycon pando": [],
   "Hyphessobrycon peruvianus": [],
+  "Hyphessobrycon piranga": [],
   "Hyphessobrycon pulchripinnis": [],
   "Hyphessobrycon pyrrhonotus": [],
   "Hyphessobrycon rosaceus": [
@@ -7468,6 +7507,7 @@
   "Moenkhausia costae": [
     "Tetragonopterus costae"
   ],
+  "Moenkhausia heikoi": [],
   "Moenkhausia oligolepis": [
     "Tetragonopterus oligolepis"
   ],
@@ -7514,6 +7554,7 @@
     "Scomber rhombeus",
     "Zeus rhombeus"
   ],
+  "Monodactylus kottelati": [],
   "Monodactylus sebae": [
     "Chaetodon rhombeus",
     "Psettias sebae",
@@ -7584,6 +7625,10 @@
     "Myletes schomburgkii",
     "Myleus schomburgkii",
     "Tetragonopterus schomburgkii"
+  ],
+  "Myloplus torquatus": [
+    "Myletes torquatus",
+    "Myleus torquatus"
   ],
   "Mylossoma aureum": [
     "Myletes aureus",
@@ -7851,6 +7896,28 @@
     "Nematogenys pallidus",
     "Trichomycterus inermis"
   ],
+  "Neoarius berneyi": [
+    "Ariopsis berneyi",
+    "Arius berneyi",
+    "Arius cleptolepis",
+    "Tachysurus berneyi"
+  ],
+  "Neoarius graeffei": [
+    "Ariopsis graeffei",
+    "Arius australis",
+    "Arius curtisii",
+    "Arius graeffei",
+    "Hexanematichthys australis"
+  ],
+  "Neoarius midgleyi": [
+    "Ariopsis midgleyi",
+    "Arius midgleyi",
+    "Arius midgleyorum"
+  ],
+  "Neoarius pectoralis": [
+    "Ariopsis pectoralis",
+    "Arius pectoralis"
+  ],
   "Neocaridina davidi": [
     "Caridina davidi",
     "Neocaridina heteropoda"
@@ -7884,6 +7951,10 @@
   "Neolamprologus caudopunctatus": [
     "Lamprologus caudopunctatus"
   ],
+  "Neolamprologus cylindricus": [
+    "Lamprologus adriani",
+    "Lamprologus cylindricus"
+  ],
   "Neolamprologus fasciatus": [
     "Altolamprologus fasciatus",
     "Lamprologus fasciatus"
@@ -7911,6 +7982,11 @@
   ],
   "Neolamprologus similis": [
     "Lamprologus similis"
+  ],
+  "Neolamprologus tetracanthus": [
+    "Lamprologus brevianalis",
+    "Lamprologus marginatus",
+    "Lamprologus tetracanthus"
   ],
   "Neolamprologus tretocephalus": [
     "Lamprologus tretocephalus",
@@ -7988,6 +8064,16 @@
     "Neritina testudinaria"
   ],
   "Neritina violacea": [],
+  "Netuma bilineata": [
+    "Arius andamanensis",
+    "Arius bilineatus",
+    "Arius dayi",
+    "Arius serratus",
+    "Bagrus bilineatus",
+    "Bagrus rhodonotus",
+    "Netuma osakae",
+    "Netuna bilineata"
+  ],
   "Netuma thalassina": [
     "Ariodes aeneus",
     "Arius nasutus",
@@ -8558,6 +8644,9 @@
     "Tanalia similis"
   ],
   "Panaqolus albivermis": [],
+  "Panaqolus albomaculatus": [
+    "Panaque albomaculatus"
+  ],
   "Panaqolus koko": [
     "Pseudoqolus koko"
   ],
@@ -9442,6 +9531,13 @@
     "Pogostemon verticillatus"
   ],
   "Polycentropsis abbreviata": [],
+  "Polynemus paradiseus": [
+    "Polydactylus paradiseus",
+    "Polynemus aureus",
+    "Polynemus longifilis",
+    "Polynemus risua",
+    "Polynemus toposui"
+  ],
   "Polypterus ansorgii": [],
   "Polypterus bichir": [
     "Polypterus lapradei",
@@ -9697,6 +9793,7 @@
     "Bunocephalus amazonicus",
     "Dysichthys amazonicus"
   ],
+  "Pseudochalceus kyburzi": [],
   "Pseudocrenilabrus multicolor": [
     "Chromis multicolor",
     "Haplochromis multicolor",
@@ -10610,6 +10707,11 @@
     "Microlepidogaster guntheri",
     "Pseudotocinclus ribeiroi"
   ],
+  "Sciades paucus": [
+    "Ariopsis paucus",
+    "Arius paucus",
+    "Neoarius paucus"
+  ],
   "Sciaenochromis fryeri": [],
   "Scleromystax barbatus": [
     "Callichthys barbatus",
@@ -10677,6 +10779,9 @@
     "Prochilodus taeniurus",
     "Semaprochilodus taenirus",
     "Semiprochilodus taeniurus"
+  ],
+  "Seriatopora hystrix": [
+    "Seriatopora angulata"
   ],
   "Serpenticobitis octozona": [],
   "Serpenticobitis zonata": [],
@@ -10818,6 +10923,7 @@
   ],
   "Spectracanthicus murinus": [],
   "Spectracanthicus zuanoni": [],
+  "Sperata acicularis": [],
   "Sperata aor": [
     "Aoria aor",
     "Aorichthys aor",
@@ -11510,6 +11616,13 @@
   "Tropheus duboisi": [],
   "Tropheus moorii": [],
   "Tucanoichthys tucano": [],
+  "Turbo fluctuosus": [
+    "Callopoma fluctatum",
+    "Turbo assimilis",
+    "Turbo fluctuatus",
+    "Turbo fokkesi",
+    "Turbo tessellatus"
+  ],
   "Tylochromis lateralis": [
     "Pelmatochromis guentheri",
     "Pelmatochromis lateralis",

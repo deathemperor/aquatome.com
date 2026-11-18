@@ -3,6 +3,12 @@
   "name": "ดำ",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-18T12:18:22.872Z",
+    "why": "\"ดำ\" only translates \"black\" word by word and omits the river kind word \"แม่น้ำ\"; Thai atlases write the Da River as \"แม่น้ำดา\" (or \"แม่น้ำดำ\" as a translation of Black River), and the bare adjective alone is not a place name."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

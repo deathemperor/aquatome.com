@@ -1,10 +1,8 @@
 {
   "Ảnh do AI tạo": "Imej dijana oleh AI",
-  "Ảnh do AI tạo.": "Imej dijana oleh AI.",
   "Ảnh đã chỉnh sửa": "Imej telah diubah",
   "{n} ảnh do AI tạo.": "{n} imej dijana oleh AI.",
   "{n} ảnh, gồm ảnh thật từ {from} và ảnh do AI tạo.": "{n} imej, termasuk foto sebenar daripada {from} dan imej janaan AI.",
-  "Ảnh thật từ {from} và ảnh do AI tạo.": "Foto sebenar daripada {from} dan imej janaan AI.",
   ", chúng tôi xử lý trong vòng vài ngày.": ", kami akan memprosesnya dalam masa beberapa hari.",
   ", dòng của": ", siri keluaran",
   ", kính nặng khoảng {kg} kg": ", kaca seberat kira-kira {kg} kg",
@@ -1335,8 +1333,6 @@
   "Yếu": "Lemah",
   "yêu cầu xem, sửa hoặc xóa bình luận của bạn (xem": "meminta untuk melihat, menyunting atau memadam komen anda (lihat",
   "Ảnh {n}": "Foto {n}",
-  "Ảnh từ {from}, giấy phép mở.": "Foto dari {from}, berlesen terbuka.",
-  "Ảnh từ {from}.": "Foto dari {from}.",
   "(bộ nhớ phiên): mã phiên ngẫu nhiên cho thống kê, xóa khi đóng tab.": "(storan sesi): kod sesi rawak untuk statistik, dipadam apabila tab ditutup.",
   "(bộ nhớ trình duyệt, đổi mới sau 13 tháng): mã khách ngẫu nhiên để đếm lượt quay lại.": "(storan pelayar, diganti baharu selepas 13 bulan): kod pelawat rawak, untuk mengira lawatan semula.",
   "(bộ nhớ trình duyệt): chỉ có khi bạn bấm “Không đếm tôi”; trình duyệt này không gửi thống kê nữa.": "(storan pelayar): hanya wujud selepas anda menekan “Jangan kira saya”; pelayar ini tidak lagi menghantar statistik.",
@@ -1348,5 +1344,6 @@
   "Để biết trang nào hữu ích và người đọc có quay lại không, trang gửi các sự kiện: đường dẫn trang, trang dẫn bạn tới (nếu có), quốc gia, loại thiết bị (điện thoại, máy tính bảng hay máy tính), mức cuộn, thời gian đọc, lượt bấm liên kết mua hàng, lượt bấm “thêm vào bể” và liên kết nguồn, lượt chạm mở thẻ giải thích một thuật ngữ hoặc bấm “Đọc thêm” trên thẻ đó (kèm thuật ngữ đó), một mã phiên và một mã khách ngẫu nhiên. Loại thiết bị do trình duyệt tự xác định; trong thống kê này, chúng tôi chỉ lưu một từ đó, không lưu thông tin trình duyệt hay kích thước màn hình. Mã khách do trình duyệt tự tạo ở lần ghé đầu, nằm trong bộ nhớ của trình duyệt (không phải cookie) và tự đổi mới sau 13 tháng. Nó chỉ cho biết cùng một trình duyệt đã quay lại. Chúng tôi không bao giờ ghép nó với tên, email, tài khoản hay địa chỉ IP của bạn. Sự kiện lưu tối đa 3 tháng. Trình duyệt bật Global Privacy Control hoặc Do Not Track thì không có mã khách; các sự kiện khác, gồm quốc gia và loại thiết bị, vẫn được ghi. Muốn không bị đếm nữa, bấm “Không đếm tôi” ở mục 3.": "Untuk mengetahui halaman yang berguna dan sama ada pembaca kembali, laman ini menghantar peristiwa: laluan halaman, laman web yang membawa anda ke sini (jika ada), negara, jenis peranti (telefon, tablet atau komputer), tahap tatal halaman, masa membaca, klik pada pautan pembelian, klik “Tambah ke tangki” dan pautan sumber, ketikan yang membuka kad penerangan istilah atau mengikuti pautan “Baca lagi” pada kad itu (berserta istilahnya), satu kod sesi dan satu kod pelawat rawak. Jenis peranti ditentukan oleh pelayar anda; dalam statistik ini kami hanya menyimpan satu perkataan itu, bukan butiran pelayar atau saiz skrin. Kod pelawat dijana sendiri oleh pelayar anda pada lawatan pertama dan disimpan dalam storan pelayar itu sendiri (bukan kuki); kod ini diganti baharu selepas 13 bulan. Kod ini hanya memberitahu kami bahawa pelayar yang sama telah kembali. Kami tidak sekali-kali menggabungkannya dengan nama, e-mel, akaun atau alamat IP anda. Peristiwa disimpan paling lama 3 bulan. Pelayar yang menghidupkan Global Privacy Control atau Do Not Track tidak diberi kod pelawat; peristiwa lain, termasuk negara dan jenis peranti, tetap direkodkan. Untuk berhenti dikira, tekan “Jangan kira saya” di bahagian 3.",
   "Thống kê (trang web và ứng dụng): tối đa 3 tháng.": "Statistik (laman web dan aplikasi): maksimum 3 bulan.",
   "Thống kê từ ứng dụng": "Statistik daripada aplikasi",
-  "không lời": "tanpa narasi"
+  "không lời": "tanpa narasi",
+  "con dài {cm}": "panjang badan {cm}"
 }

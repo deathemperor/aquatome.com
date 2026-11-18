@@ -317,6 +317,10 @@
       {
         "source": "seriouslyfish",
         "value": 3.5
+      },
+      {
+        "source": "glaser",
+        "value": 4.5
       }
     ],
     "tankCm": [
@@ -338,6 +342,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aphyocharax-paraguayensis",
       "html": "<ul><li>Max size: 35 mm SL (1.4 in)</li><li>Aquarium size: 60 × 30 cm (24 × 12 in)</li><li>Temperature: 22–27°C (72–81°F)</li><li>pH: 5.5–7.5</li><li>Hardness: 1–15 dGH</li><li>Difficulty: 2 of 8 (Easy)</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/aphyocharax-paraguayenis-2/",
+      "html": "<p>This small tetra, reaching about 4.5 cm maximum length, is one of the most attractive tetra species of all. The species is very hardy and undemanding and can easily be bred in huge numbers.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -376,6 +386,12 @@
       "html": "<ul><li>Temperature: 22–27°C (72–81°F)</li><li>pH: 5.5–7.5</li><li>Hardness: 1–15 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/aphyocharax-paraguayenis-2/",
+      "html": "<p>It is a fish of the subtropical regions and doesn't even require a heater. In the wild, water temperatures between 16 and 30°C occur. However, one must keep in mind that temperature changes in nature usually take a lot of time.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aphyocharax-paraguayensis",
@@ -386,6 +402,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aphyocharax-paraguayensis",
       "html": "<p>Peaceful enough but may nip a little at long-finned or slow-moving tankmates, and can bother sedentary species with its constant activity.</p><p>Try keeping it in a mixed shoal with other characins, along with Corydoras catfish and small Loricariids. It's also a suitable companion for Apistogramma spp. and other South American dwarf cichlids. Always keep it in a group of at least six as it's a shoaling fish by nature.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/aphyocharax-paraguayenis-2/",
+      "html": "<p>Sadly the dawn tetra (one of the popular names applied to this fish by hobbyists) has one disadvantage: it sometimes bites off parts of fins and scales from other fish. It is still a mystery why this behaviour sometimes appears. But probably, as with tiger barbs or flame tetras, the behaviour only appears when the school of dawn tetras is too small. Larger schools of 20 or more specimens have enough to do with conspecifics and usually leave other fish alone.</p>"
     },
     {
       "key": "dimorphism",
@@ -406,6 +428,12 @@
       "html": "<p>This species is normally referred to as A. paraguayensis, but that name has been considered a synonym of A. nattereri since 2003.</p><p>Confusion remains however, as the type locality for the latter is 'Villa Bella', now known as Parintins, a settlement on the main Amazon river channel between Manaus and Santarém and many kilometres away from the majority of confirmed localities.</p><p>Not a particularly popular tetra in the ornamental trade, A. nattereri is most often imported as a contaminant amongst shipments of other species. It is sometimes available in larger numbers, usually very cheaply.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/aphyocharax-paraguayenis-2/",
+      "html": "<p>Another option is to keep A. paraguayensis in a single-species tank or combined only with some catfish. For example, Corydoras hastatus lives in nature together with the dawn tetra in mixed schools. This is a fascinating sight!</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aphyocharax-paraguayensis",
@@ -415,17 +443,42 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/76ac3d43f145df02.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/76ac3d43f145df02-480.webp",
       "width": 800,
       "height": 600,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aphyocharax-paraguayensis",
       "caption": "This species is sometimes referred to as Aphyocharax paraguayensis in the aquarium trade.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/76ac3d43f145df02-480.webp"
+      "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "y_xFkIvL_lc",
+      "title": "Aphyocharax nattereri - Schwanzflecksalmler",
+      "durationSec": 15,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "aDk8fB8cUsw",
+      "title": "Aphyocharax nattereri",
+      "durationSec": 26,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "RWeFPZ3WzV4",
+      "title": "All About Dawn Tetras: Just The Tiniest Piranha!",
+      "durationSec": 520,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "w9umENxY1I0",
+      "title": "Рыбка Афиохаракс Наттерера Содержание в аквариуме Разведение Совместимость",
+      "durationSec": 486,
+      "lang": "ru"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -456,5 +509,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-18"
 }

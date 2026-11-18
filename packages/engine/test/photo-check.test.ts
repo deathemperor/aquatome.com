@@ -259,6 +259,39 @@ test("a lead nothing has looked at is judged first, Flickr's and Commons' before
   ])
 })
 
+test("non-commercial album photos that wait are judged last: after every other photo that waits, a page with none too, more-read page or not (the chief of staff, 2026-11-17)", async () => {
+  const nc = (n: string) => ({ ...photo(n), licence: 'CC BY-NC 4.0', sourceUrl: `https://www.inaturalist.org/photos/${n}`, unchecked: true })
+  const waits = (n: string) => ({ ...photo(n), sourceUrl: `https://www.inaturalist.org/photos/${n}`, unchecked: true })
+  // In page order: a page with a photo of its own and a non-commercial photo waiting, a page with none of its own whose
+  // album has one of each waiting, and a page with a photo of its own and an open photo waiting.
+  const r = await root([
+    { id: 'aaa-fish', sci: 'Aaa fish', photos: ['a-own'] },
+    { id: 'bbb-fish', sci: 'Bbb fish' },
+    { id: 'ccc-fish', sci: 'Ccc fish', photos: ['c-own'] },
+  ])
+  const gallery = (id: string, photos: object[]) => writeFile(join(r, 'content/gallery', `${id}.json`), `${JSON.stringify({ id, photos, seen: 0, updatedAt: '' }, null, 2)}\n`)
+  await gallery('aaa-fish', [nc('a-nc')])
+  await gallery('bbb-fish', [nc('b-nc'), waits('b-open')])
+  await gallery('ccc-fish', [waits('c-wait')])
+  const seen = { ok: 'yes', typical: true, note: '', logo: false, person: false }
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({ [url('a-own')]: { 'aaa-fish': seen }, [url('c-own')]: { 'ccc-fish': seen } }))
+  const d = model({})
+  await checkPagePhotos(r, d, { limit: 10 })
+  expect(d.seen.map(s => s.photos)).toEqual([
+    ['b-open', 'b-nc'], // the open photo that gives a page with none its first one; its sheet filled from the page's later turns
+    ['c-wait'], // every other photo that waits
+    ['a-nc'], // then the non-commercial one, though its page is read more
+  ])
+  // With room for one sheet, it goes to the open photo that waits, and the non-commercial one waits for a later run.
+  const d2 = model({})
+  const r2 = await root([{ id: 'aaa-fish', sci: 'Aaa fish', photos: ['a-own'] }, { id: 'ccc-fish', sci: 'Ccc fish', photos: ['c-own'] }])
+  await writeFile(join(r2, 'content/gallery/aaa-fish.json'), JSON.stringify({ id: 'aaa-fish', photos: [nc('a-nc')], seen: 0, updatedAt: '' }))
+  await writeFile(join(r2, 'content/gallery/ccc-fish.json'), JSON.stringify({ id: 'ccc-fish', photos: [waits('c-wait')], seen: 0, updatedAt: '' }))
+  await writeFile(join(r2, 'engine-state/_photo-subjects.json'), JSON.stringify({ [url('a-own')]: { 'aaa-fish': seen }, [url('c-own')]: { 'ccc-fish': seen } }))
+  await checkPagePhotos(r2, d2, { limit: 1 })
+  expect(d2.seen.map(s => s.photos)).toEqual([['c-wait']])
+})
+
 test("the lead a page shows stays where the check passes it as typical, and gives way to a typical photo where it passes as less, can't be told, is taken off, or has not been judged", async () => {
   const pages = ['aaa', 'bbb', 'ccc', 'ddd', 'eee'].map(p => ({ id: `${p}-fish`, sci: `${p} fish`, photos: [`${p}-lead`, `${p}-typical`] }))
   const r = await root(pages)

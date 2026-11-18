@@ -9,7 +9,7 @@
   "https://media.aquatome.com/glaser/4c42de68583fac1f.webp": "49590d4f33f1c080",
   "https://media.aquatome.com/glaser/623352fffbdd9cab.webp": "f37379996470e0e1",
   "https://media.aquatome.com/glaser/7ff04844f3bcaa0d.webp": "53471f8e67a5000f",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/331141961/large.jpeg": "171c882860f0b431"
+  "https://media.aquatome.com/inaturalist/331141961.webp": "161c8820e0b4b435"
  },
  "inat": {
   "taxon": 435124,
@@ -19,5 +19,9 @@
    "agree": 0
   }
  },
- "commons": "2026-11-18"
+ "commons": "2026-11-18",
+ "gbif": {
+  "key": 2224522,
+  "next": null
+ }
 }

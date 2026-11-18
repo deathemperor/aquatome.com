@@ -1,6 +1,22 @@
 {
   "id": "acestridium-dichromum",
-  "photos": [],
-  "seen": 0,
-  "updatedAt": "2026-10-29"
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/476219460.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/476219460-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "benjaminadam34770",
+      "sourceUrl": "https://www.inaturalist.org/photos/476219460",
+      "caption": "Cá whiptail xanh bám trên thân cây xanh trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    }
+  ],
+  "seen": 1,
+  "updatedAt": "2026-11-18",
+  "builtAt": "2026-11-18"
 }

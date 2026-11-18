@@ -10,6 +10,70 @@
     "laos",
     "mekong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA"
+      ],
+      "regions": [
+        "Mekong"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Laos, Champasak, Mekong River at Ban Hang Khone, just downstream from Khone Falls.",
+          "countries": [
+            "LA"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Asia: middle and lower Mekong River basin.",
+          "countries": [],
+          "regions": [
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344904,
+      "total": 3,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "KH",
+          1
+        ],
+        [
+          "LA",
+          1
+        ],
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          105.46875,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          105.46875,
+          12.65625,
+          2,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,8 +1,13 @@
 {
   "slug": "bogota",
-  "name": "โบโกตา",
+  "name": "ลุ่มแม่น้ำโบโกตา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.85,
+    "at": "2026-11-18T12:18:30.269Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

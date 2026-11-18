@@ -1991,5 +1991,159 @@
       "maintenance:2hraquarist": "c7a376f41298",
       "notes:2hraquarist": "6ce99783d0af"
     }
+  },
+  "ludwigia-glandulosa": {
+    "at": "2026-11-18",
+    "from": "2026-10-30",
+    "name": "Ludwigia glandulosa",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Item 2: \"5-12 cm wide\" is translated faithfully as \"lebar 5-12 cm\"; no change is needed unless the source number is a plant-width error.",
+      "Item 2: \"tumbuh dengan baik\" is fine. Optionally use \"tumbuh subur\" for natural hobby wording."
+    ],
+    "parts": {
+      "quickFacts:tropica": "b5e938f053cf",
+      "maintenance:tropica": "b7ef085ac26e",
+      "notes:tropica": "538d6945334f"
+    }
+  },
+  "ludwigia-palustris": {
+    "at": "2026-11-18",
+    "from": "2026-10-30",
+    "name": "Ludwigia palustris 'Super Green'",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 2: \"trimming\" left in English; use \"pemangkasan\" or \"memangkas\" (trimming) instead.",
+      "Item 1: \"Asal: kultivar\" is acceptable, but \"Asal\" could be clearer as \"Asal usul\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "9065ea806a8d",
+      "maintenance:tropica": "e6fe30d99936",
+      "notes:tropica": "812dc74b0f7a"
+    }
+  },
+  "ludwigia-repens": {
+    "at": "2026-11-18",
+    "from": "2026-11-18",
+    "name": "Ludwigia Repens Rubin",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 8: \"pada musim panas\" for \"during the warm season\" – Malaysia has no summer; use \"pada musim/cuaca panas\" or \"semasa suhu hangat\".",
+      "Item 7: \"warnanya menjadi lebih terang\" for \"colour becomes more intense\" – \"lebih pekat\" is closer.",
+      "Item 8: \"emersed\" is left in English; consider \"tumbuh di atas air (emersed)\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "2f0d921c7fee",
+      "quickFacts:aquariumbreeder": "c5cc3d5028a4",
+      "beforeYouBuy:aquariumbreeder": "1f9b44553f08",
+      "distribution:aquariumbreeder": "07870da610a8",
+      "habitat:aquariumbreeder": "328aad0c98ea",
+      "aquariumSize:aquariumbreeder": "bf7ccf0ee602",
+      "maintenance:tropica": "d3f6b0856aed",
+      "maintenance:aquariumbreeder": "a48d00c392ad",
+      "waterConditions:aquariumbreeder": "520530be4309",
+      "equipment:aquariumbreeder": "7c57596bb85b",
+      "behaviour:aquariumbreeder": "4a75b70e5d28",
+      "notes:tropica": "2225783b31ce",
+      "notes:aquariumbreeder": "ab1fb2ac2692"
+    }
+  },
+  "lysimachia-nummularia": {
+    "at": "2026-11-18",
+    "from": "2026-10-29",
+    "name": "Creeping Jenny",
+    "confidence": "medium",
+    "score": 0.72,
+    "notes": [
+      "Item 4: \"minimum tank is about 40 litres\" is fine, but \"Tangki yang tinggi lebih sesuai berbanding tangki yang panjang\" is OK; however \"liter\" should be \"liter/liter\" consistent with the standard local spelling \"liter\" – no change needed. Real issue is in item 5: \"Pertumbuhan meninggi dan jarang\" for \"Leggy growth\" is okay but \"batang yang botak\" is awkward; use \"batang yang kosong tanpa daun\".",
+      "Item 5: \"Setelah ia mantap\" is awkward; use \"Setelah ia sebati/mapan\" (established).",
+      "Item 5: \"Jarakkan setiap batang sekurang-kurangnya 5 cm\" is fine; but \"Karat dan bintik pada daun\" with \"menyiram dari atas\" is acceptable. \"ditanam secara emersed\" leaves English term untranslated; prefer \"ditanam di luar air (emersed)\".",
+      "Item 1/5/8: \"emersed\" is left as bare English; add a Malay term such as \"di atas permukaan air (emersed)\".",
+      "Item 2: \"Greece\" and \"Caucasus\" and \"New Zealand\" left in English; use \"Greek\", \"Kaukasus\", \"New Zealand\" (Selandia Baru) as standard Malay names.",
+      "Item 7: \"Arus: ... pergerakan air yang perlahan adalah paling baik\" is acceptable, but \"mendebunga sendiri\" in item 9 should be \"mendebungai sendiri\" / \"subur sendiri (swasenyawa)\".",
+      "Item 9: \"nimfa pepatung dan pepatung jarum\" is fine; \"New York Invasive Species Council\" could be glossed in Malay."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "2e8c55042a68",
+      "distribution:aquariumbreeder": "e42f86be0170",
+      "habitat:aquariumbreeder": "37a960f17996",
+      "aquariumSize:aquariumbreeder": "23a11652fc24",
+      "maintenance:aquariumbreeder": "b2e5f48bce7e",
+      "waterConditions:aquariumbreeder": "f98279e46059",
+      "equipment:aquariumbreeder": "10780d3982be",
+      "reproduction:aquariumbreeder": "f4d5fb07a301",
+      "notes:aquariumbreeder": "b2b9641be888",
+      "references:aquariumbreeder": "20db22c67908"
+    }
+  },
+  "lysimachia-parvifolia": {
+    "at": "2026-11-18",
+    "from": "2026-10-30",
+    "name": "Lysimachia parvifolia 'Red'",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"di bahagian tengah atau belakang tangki\": \"tangki\" is added, and \"midground\" is rendered as just \"tengah\". Use \"di bahagian tengah atau latar belakang akuarium\" instead.",
+      "\"warna daunnya menjadi semakin terang\": \"intense\" means \"pekat\" or \"menyerlah\", and \"terang\" suggests brightness instead. Use \"semakin pekat\" or \"semakin menyerlah\".",
+      "\"ia mudah hidup apabila keratan pucuknya ditanam semula\": this is loose. \"Responds well to replanting\" means it takes well. Use \"bertindak balas dengan baik\" or \"tumbuh dengan baik apabila pucuk yang dipangkas ditanam semula\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "3b76f9e9eeab",
+      "maintenance:tropica": "38916c999585",
+      "notes:tropica": "9b90d62291e2"
+    }
+  },
+  "marsilea-hirsuta": {
+    "at": "2026-11-18",
+    "from": "2026-10-30",
+    "name": "Marsilea hirsuta",
+    "confidence": "high",
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:aquariumbreeder": "b8d9de9acc06",
+      "quickFacts:tropica": "348edb78dccd",
+      "distribution:aquariumbreeder": "4d5b738eaf1b",
+      "habitat:aquariumbreeder": "728070194eb0",
+      "aquariumSize:aquariumbreeder": "97bbf810332b",
+      "maintenance:aquariumbreeder": "e9ffa5ed6318",
+      "waterConditions:aquariumbreeder": "d4415093d0dd",
+      "equipment:aquariumbreeder": "dbf25a23c3e1",
+      "notes:aquariumbreeder": "02626e743301",
+      "notes:tropica": "894a4ae7a0da"
+    }
+  },
+  "marsilea-minuta": {
+    "at": "2026-11-18",
+    "from": "2026-11-07",
+    "name": "Marsilea Minuta",
+    "confidence": "high",
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "5ce58698d804",
+      "maintenance:aquatome": "a4aa0fb3fd0b",
+      "maintenance:tropica": "4fb186e63550",
+      "notes:tropica": "3741e460e5b4"
+    }
+  },
+  "mayaca-fluviatilis": {
+    "at": "2026-11-18",
+    "from": "2026-10-31",
+    "name": "Mayaca fluviatilis",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"dibekalkan sebagai seikat batang atau anak pokok yang dihimpunkan dalam pemberat\": acceptable but \"anchor\" (pemberat/pengikat) could be clearer, e.g. \"pengikat berat plumbum\"; minor.",
+      "\"ikan yang sensitif\": the English says \"delicate fish\"; \"ikan yang halus/sensitif\" is fine, though \"tapak semaian sendiri milik syarikat pengeluar\" is wordy; consider \"tapak semaian Tropica sendiri\" or \"tapak semaian syarikat\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "cbdeb00cf786",
+      "maintenance:tropica": "57325dab85a2",
+      "notes:tropica": "3fcb2949a833"
+    }
   }
 }

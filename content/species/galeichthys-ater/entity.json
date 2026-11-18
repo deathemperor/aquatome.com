@@ -10,6 +10,127 @@
     "south-africa",
     "namibia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ZA",
+        "NA"
+      ],
+      "regions": [],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Southeast Atlantic: South Africa and Namibia.",
+          "countries": [
+            "ZA",
+            "NA"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2345220,
+      "total": 118,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "ZA",
+          113
+        ],
+        [
+          "NA",
+          4
+        ],
+        [
+          "AO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          11.25,
+          -18.28125,
+          3,
+          2
+        ],
+        [
+          14.0625,
+          -23.90625,
+          2,
+          2
+        ],
+        [
+          16.875,
+          -33.75,
+          1,
+          1
+        ],
+        [
+          18.28125,
+          -35.15625,
+          9,
+          9
+        ],
+        [
+          19.6875,
+          -35.15625,
+          2,
+          2
+        ],
+        [
+          21.09375,
+          -35.15625,
+          10,
+          10
+        ],
+        [
+          22.5,
+          -35.15625,
+          34,
+          34
+        ],
+        [
+          23.90625,
+          -35.15625,
+          6,
+          6
+        ],
+        [
+          25.3125,
+          -35.15625,
+          9,
+          9
+        ],
+        [
+          26.71875,
+          -33.75,
+          23,
+          23
+        ],
+        [
+          29.53125,
+          -32.34375,
+          18,
+          18
+        ],
+        [
+          29.53125,
+          -30.9375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "marine",
+    "source": "scotcat",
+    "quote": "Africa: Marine; reef-associated."
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -57,17 +178,6 @@
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/04430cfc63c221b9.webp",
-      "thumb": "https://media.aquatome.com/scotcat/04430cfc63c221b9-480.webp",
-      "width": 500,
-      "height": 327,
-      "licence": "dùng với sự cho phép",
-      "author": "Gareth Roocroft / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/ariidae/galeichthys_ater.htm",
-      "caption": "Galeichthys ater: Kariega River Mouth July 2010 Size: 25cm 3-4 meters, sandy bottom, close to rocks and at Night",
-      "source": "scotcat"
-    },
     {
       "url": "https://media.aquatome.com/scotcat/78639adabfbea4e9.webp",
       "thumb": "https://media.aquatome.com/scotcat/78639adabfbea4e9-480.webp",

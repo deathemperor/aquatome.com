@@ -1,8 +1,8 @@
 {
   "id": "brycinus-longipinnis",
   "native": {
-    "input": "228775c8ecbd3b96",
-    "at": "2026-11-07T02:19:57.912Z",
+    "input": "488c924fc81b79de",
+    "at": "2026-11-18T12:30:34.128Z",
     "claims": [
       {
         "code": "GM",
@@ -26,6 +26,14 @@
         "source": "seriouslyfish",
         "quote": "The long-finned tetra, Brycinus longipinnis, is an alestid characin from West Africa, found from Gambia to the Democratic Republic of Congo and Gabon.",
         "words": "Gabon",
+        "ok": true
+      },
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The African Longfin Tetra (Bryconalestes longipinnis, = Brycinus longipinnis) is a classic ornamental fish from Nigeria.",
+        "words": "Nigeria",
         "ok": true
       }
     ],
@@ -113,12 +121,12 @@
         6
       ],
       [
-        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
         5
       ],
       [
-        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
-        5
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        4
       ],
       [
         "7e380070-f762-11e1-a439-00145eb45e9a",
@@ -176,9 +184,10 @@
     "native": [
       "GM",
       "CD",
-      "GA"
+      "GA",
+      "NG"
     ],
     "requests": 13,
-    "at": "2026-11-07T02:19:57.912Z"
+    "at": "2026-11-18T12:30:34.128Z"
   }
 }

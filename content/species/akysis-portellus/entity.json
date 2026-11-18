@@ -18,11 +18,13 @@
       ],
       "regions": [
         "Sittaung River",
-        "Sittang River"
+        "Sittang River",
+        "Sittang"
       ],
       "sources": [
         "seriouslyfish",
-        "scotcat"
+        "scotcat",
+        "glaser"
       ],
       "quotes": [
         {
@@ -41,6 +43,14 @@
           "countries": [],
           "regions": [
             "Sittang River"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "It originates from the Sittang river basin in Burma.",
+          "countries": [],
+          "regions": [
+            "Sittang"
           ]
         }
       ]

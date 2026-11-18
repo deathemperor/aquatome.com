@@ -18,11 +18,13 @@
       "countries": [
         "GM",
         "CD",
-        "GA"
+        "GA",
+        "NG"
       ],
       "regions": [],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -34,13 +36,21 @@
             "GA"
           ],
           "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "The African Longfin Tetra (Bryconalestes longipinnis, = Brycinus longipinnis) is a classic ornamental fish from Nigeria.",
+          "countries": [
+            "NG"
+          ],
+          "regions": []
         }
       ]
     },
     "records": {
       "taxonKey": 2356362,
-      "total": 873,
-      "fetched": "2026-11-07",
+      "total": 872,
+      "fetched": "2026-11-18",
       "countries": [
         [
           "GA",
@@ -80,7 +90,7 @@
         ],
         [
           "SL",
-          21
+          20
         ],
         [
           "CD",
@@ -165,7 +175,7 @@
         [
           -12.65625,
           8.4375,
-          7,
+          6,
           0
         ],
         [
@@ -370,13 +380,13 @@
           2.8125,
           5.625,
           2,
-          0
+          2
         ],
         [
           2.8125,
           7.03125,
           5,
-          0
+          5
         ],
         [
           2.8125,
@@ -388,25 +398,25 @@
           4.21875,
           7.03125,
           2,
-          0
+          2
         ],
         [
           5.625,
           4.21875,
           30,
-          0
+          30
         ],
         [
           7.03125,
           4.21875,
           17,
-          0
+          17
         ],
         [
           7.03125,
           5.625,
           3,
-          0
+          3
         ],
         [
           8.4375,
@@ -442,7 +452,7 @@
           8.4375,
           4.21875,
           4,
-          0
+          3
         ],
         [
           8.4375,

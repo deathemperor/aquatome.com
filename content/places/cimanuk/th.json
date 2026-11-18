@@ -3,6 +3,12 @@
   "name": "จีมานุก",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-18T12:21:29.459Z",
+    "why": "The name is written in Thai and refers to the right place, but Indonesian \"Ci\" is usually rendered ชี, not จี, and the source describes a river, so Thai would normally add แม่น้ำ."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

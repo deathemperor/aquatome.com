@@ -873,12 +873,25 @@
       {
         "source": "seriouslyfish",
         "value": 125
+      },
+      {
+        "source": "glaser",
+        "value": 90
       }
     ],
     "difficulty": [
       {
         "source": "seriouslyfish",
         "value": 6
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 18,
+          "max": 18
+        }
       }
     ]
   },
@@ -890,16 +903,34 @@
       "html": "<ul><li>Needs a tank at least 2 m long</li></ul><p>The spotted gar, Lepisosteus oculatus, ranges from Lakes Erie and Michigan south through the Mississippi basin to the Gulf of Mexico drainages. Given its size and a lifespan of several decades it should not be considered a home aquarium subject, and only some public aquaria can maintain it long-term. A modified, vascularised swim bladder allows it to breathe atmospheric air to a certain extent.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/lepisosteus-oculatus-2/",
+      "html": "<p>The Spotted Gar (Lepisosteus oculatus) is a living fossil. Gars have existed on earth for about 145 million years. Today 7 species still exist, all native to North and Central America. Gars are predators. Usually this species becomes 60–90 cm long; the largest specimen known so far was 1.2 m long.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/lepisosteus-oculatus",
       "html": "<p>Known from Great Lakes Erie and Michigan with distribution extending south through the Mississippi River basin to the Gulf of Mexico drainages where it's said to occur between the lower Apalachicola River in Florida and the Nueces River in Texas.</p><p>It may also be found in the Rio Grande which forms the border between Mexico and the United States further south where records include Falcon International Reservoir, for example.</p><p>Type locality is 'Duck Lake, Calhoun County, Michigan, U.S.A.'.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/lepisosteus-oculatus-2/",
+      "html": "<p>The Spotted Gar originates from the Mississippi and other rivers that flow to the Gulf of Mexico. So it is a rather subtropical species and only conditionally winter hardy in a garden pond; this should be kept in mind if it is planned to keep the fish in outdoor ponds. Although the Spotted Gar is a freshwater fish, it is known to enter brackish waters occasionally.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/lepisosteus-oculatus",
       "html": "<p>Found in various habitat-types, from large lakes and rivers to sluggish tributaries, backwaters and pools though it tends to show a preference for larger, low-altitude bodies of water.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/lepisosteus-oculatus-2/",
+      "html": "<p>Gars can survive in oxygen-poor waters thanks to a primitive lung that enables them to breathe air in addition to gill breathing. So gars are often found in swamps and other oxygen-poor environments.</p>"
     },
     {
       "key": "aquariumSize",
@@ -926,10 +957,22 @@
       "html": "<p>Gars are ambush predators feeding on smaller fishes and aquatic crustaceans in nature.</p><p>It can sometimes be tricky to get newly-introduced captive individuals to accept dead foods though most will learn to do so following a short period of starvation.</p><p>After a short time most small individuals will accept meaty frozen foods such as prawns, lance fish, etc., while larger specimens can be offered whole fishes such as trout or sprats.</p><p>Feed every day when juvenile but as the fish grows reduce the frequency; an adult requires only one or two meals per week at most.</p><p>In extreme cases there may be no other option but to use live 'feeder' fishes for the initial period but it must be stressed that this is only advisable until an individual has built up adequate body mass to attempt a starvation period.</p><p>It's highly recommended to buy such feeders in advance and quarantine them for at least two weeks to ensure they're free of disease while feeding them a high quality diet so that the flesh is sufficiently nutritious.</p><p>This species should never be fed the meat of mammals such as beef heart or chicken since some of the lipids and other organic compounds contained in these meats cannot be properly metabolised by fishes, causing excess fat deposition and even organ degeneration over the long term.</p><p>Except for in the extreme circumstance described there's also no real benefit in the use of feeder fishes due to the risk of disease or parasite introduction.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/lepisosteus-oculatus-2/",
+      "html": "<p>As gars become quite tame in ponds or aquaria, after some time of settling in they can usually be fed dead fish from forceps.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/lepisosteus-oculatus",
       "html": "<p>Best kept alone, or with similarly-sized, non-aggressive fishes it cannot fit into its mouth.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/lepisosteus-oculatus-2/",
+      "html": "<p>Towards conspecifics and other fish too large to be eaten, gars are usually peaceful. This makes them perfect subjects for public aquaria, where they have lived as long as 70 years. In the wild, L. oculatus is said to live about 18 years.</p>"
     },
     {
       "key": "reproduction",
@@ -942,6 +985,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/lepisosteus-oculatus",
       "html": "<p>This species clearly shouldn't be considered a home aquarium subject at all given its eventual size and the fact it can live for several decades.</p><p>It is included here only because some public aquaria are able to maintain it long-term and juveniles are occasionally offered in the aquarium trade.</p><p>Gars are among the most primitive fish species still alive today.</p><p>They have a modified, vascularised swim bladder that is connected to the pharynx and allows them to breathe atmospheric air to a certain extent.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/lepisosteus-oculatus-2/",
+      "html": "<p>Some species of gar are bred regularly in Indonesia. The most attractive species in respect of coloration is Lepisosteus oculatus. The photographed specimens are 10–12 cm long.</p>"
     }
   ],
   "photos": [
@@ -950,18 +999,43 @@
       "thumb": "https://media.aquatome.com/commons/ba9db25e42d71412-480.webp",
       "width": 1200,
       "height": 800,
-      "licence": "CC BY 3.0",
-      "author": "Usien",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lepisosteus_oculatus_Knochenhecht.JPG",
-      "caption": "Hai cá sấu hỏa tiễn đốm bơi giữa cây thủy sinh",
       "large": {
         "url": "https://media.aquatome.com/commons/ba9db25e42d71412-large.webp",
         "width": 1800,
         "height": 1200
-      }
+      },
+      "licence": "CC BY 3.0",
+      "author": "Usien",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lepisosteus_oculatus_Knochenhecht.JPG",
+      "caption": "Hai cá sấu hỏa tiễn đốm bơi giữa cây thủy sinh"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "bcet7EMAd2A",
+      "title": "spotted gar pair 😍🥰#aquarium #fishtank #aligatorfish #aligatorgar",
+      "durationSec": 10,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "xVMtS4kKW5M",
+      "title": "Freshwater Gar fish  (Lepisosteus oculatus) in an aquarium video:  close up and personal",
+      "durationSec": 20,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "wJFcj-LggNE",
+      "title": "Spotted Gar (Lepisosteus oculatus)",
+      "durationSec": 34,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "WPIV7Fk5XDg",
+      "title": "AQUARIUM SPOTTED GAR*Lepisosteus oculatus*BIG GROUP GAR FISH*Luccio Maculato Americano*TANK GAR FISH",
+      "durationSec": 28,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "thuc-an",
@@ -978,5 +1052,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-18"
 }

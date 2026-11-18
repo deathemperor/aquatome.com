@@ -1,8 +1,8 @@
 {
   "id": "corydoras-bifasciatus",
   "native": {
-    "input": "55880ebb883e018a",
-    "at": "2026-11-17T11:42:48.614Z",
+    "input": "d348a02acce0d1ed",
+    "at": "2026-11-18T18:30:02.513Z",
     "claims": [
       {
         "code": "BR",
@@ -16,12 +16,6 @@
     "regions": [
       {
         "name": "Tapajós",
-        "source": "glaser",
-        "quote": "According to the exporter, the species comes from the Rio Jamanxim, a tributary of the Tapajós.",
-        "ok": true
-      },
-      {
-        "name": "Rio Cururu",
         "source": "glaser",
         "quote": "The type locality is given as: Creek at left bank of Rio Cururu, tributary of upper River Tapajós near Maloca do Conzale, about 7°45’S, 58°00’W, Pará State, Brazil.",
         "country": "BR",

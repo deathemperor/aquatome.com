@@ -9,6 +9,208 @@
     "africa",
     "south-africa"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ZA"
+      ],
+      "regions": [],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Type locality: around Cape Town [South Africa].",
+          "countries": [
+            "ZA"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2345208,
+      "total": 407,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "ZA",
+          377
+        ],
+        [
+          "NA",
+          23
+        ],
+        [
+          "MZ",
+          5
+        ],
+        [
+          "AO",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          11.25,
+          -19.6875,
+          1,
+          0
+        ],
+        [
+          11.25,
+          -18.28125,
+          3,
+          0
+        ],
+        [
+          14.0625,
+          -26.71875,
+          1,
+          0
+        ],
+        [
+          14.0625,
+          -25.3125,
+          1,
+          0
+        ],
+        [
+          14.0625,
+          -23.90625,
+          19,
+          0
+        ],
+        [
+          16.875,
+          -33.75,
+          7,
+          7
+        ],
+        [
+          16.875,
+          -32.34375,
+          3,
+          3
+        ],
+        [
+          18.28125,
+          -35.15625,
+          65,
+          65
+        ],
+        [
+          18.28125,
+          -33.75,
+          1,
+          1
+        ],
+        [
+          19.6875,
+          -35.15625,
+          22,
+          22
+        ],
+        [
+          21.09375,
+          -35.15625,
+          69,
+          69
+        ],
+        [
+          22.5,
+          -35.15625,
+          24,
+          24
+        ],
+        [
+          22.5,
+          -30.9375,
+          2,
+          2
+        ],
+        [
+          23.90625,
+          -35.15625,
+          36,
+          36
+        ],
+        [
+          25.3125,
+          -35.15625,
+          25,
+          25
+        ],
+        [
+          25.3125,
+          -33.75,
+          14,
+          14
+        ],
+        [
+          26.71875,
+          -35.15625,
+          1,
+          1
+        ],
+        [
+          26.71875,
+          -33.75,
+          65,
+          65
+        ],
+        [
+          28.125,
+          -33.75,
+          16,
+          16
+        ],
+        [
+          28.125,
+          -32.34375,
+          1,
+          1
+        ],
+        [
+          29.53125,
+          -30.9375,
+          8,
+          8
+        ],
+        [
+          30.9375,
+          -30.9375,
+          1,
+          1
+        ],
+        [
+          30.9375,
+          -29.53125,
+          17,
+          17
+        ],
+        [
+          32.34375,
+          -26.71875,
+          3,
+          0
+        ],
+        [
+          36.5625,
+          -18.28125,
+          1,
+          0
+        ],
+        [
+          37.96875,
+          -18.28125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -56,39 +258,6 @@
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/0b57838c67d26308.webp",
-      "thumb": "https://media.aquatome.com/scotcat/0b57838c67d26308-480.webp",
-      "width": 500,
-      "height": 330,
-      "licence": "dùng với sự cho phép",
-      "author": "Gareth Roocroft / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/ariidae/galeichthys_feliceps.htm",
-      "caption": "Galeichthys feliceps",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/c4e9963b5454279f.webp",
-      "thumb": "https://media.aquatome.com/scotcat/c4e9963b5454279f-480.webp",
-      "width": 500,
-      "height": 303,
-      "licence": "dùng với sự cho phép",
-      "author": "Gareth Roocroft / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/ariidae/galeichthys_feliceps.htm",
-      "caption": "Galeichthys feliceps",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/9a441e9a1652633f.webp",
-      "thumb": "https://media.aquatome.com/scotcat/9a441e9a1652633f-480.webp",
-      "width": 500,
-      "height": 375,
-      "licence": "dùng với sự cho phép",
-      "author": "Gareth Roocroft / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/ariidae/galeichthys_feliceps.htm",
-      "caption": "Galeichthys feliceps",
-      "source": "scotcat"
-    },
     {
       "url": "https://media.aquatome.com/scotcat/03a336402930582a.webp",
       "thumb": "https://media.aquatome.com/scotcat/03a336402930582a-480.webp",

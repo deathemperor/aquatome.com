@@ -11,7 +11,7 @@ const API = 'https://api.inaturalist.org/v1'
 export const INAT_LICENCE: Record<string, string> = { cc0: 'CC0', 'cc-by': 'CC BY', 'cc-by-sa': 'CC BY-SA' }
 export const inatLicence = (code: string | null | undefined): string | undefined => INAT_LICENCE[code ?? '']
 /**
- * The non-commercial codes the owner let into albums (10 Nov), as the site writes them, so the credit names the licence:
+ * The non-commercial codes the owner said yes to (10 Nov), as the site writes them, so the credit names the licence:
  * read only while IMAGE_SWITCHES.inatNonCommercial is on, research grade only. Never ND (no derivatives), all rights
  * reserved or none. The code carries no version, so the licence names none.
  */

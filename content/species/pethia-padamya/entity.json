@@ -16,28 +16,23 @@
         "MM"
       ],
       "regions": [
-        "Ayeyarwady",
-        "Chindwin"
+        "Chindwin",
+        "Ayeyarwady"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Known only from central Myanmar where the type specimens were collected from a man-made pond fed by a small stream in a village called Toe Gyi which lies in the administrative division of Mandalay.",
+          "quote": "The Odessa barb, Pethia padamya, is a small cyprinid from central Myanmar, also recorded from the lower Chindwin, a tributary of the Ayeyarwady.",
           "countries": [
             "MM"
           ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "It's also been recorded from lower stretches of the river Chindwin, a tributary of the Ayeyarwady, and a 'small pond' 500m away from the main river channel.",
-          "countries": [],
           "regions": [
-            "Ayeyarwady",
-            "Chindwin"
+            "Chindwin",
+            "Ayeyarwady"
           ]
         }
       ]
@@ -151,8 +146,8 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/the_odessa_barb_has_finally_been_named_puntius_padamya_en/",
-      "html": "<p>The first specimens of the Odessa barb appeared in the former USSR. In 2001 the first wild-collected specimens could be traced, which showed that this fish is a wild species originating from Burma (Myanmar).</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/pethia-padamya-wild-2/",
+      "html": "<p>The origin of the Odessa or Rubin barb was unknown for almost 30 years. The first specimens appeared in the former USSR in Odessa. It was unknown for a very long time whether they represented a wild species or an artificial breeding product. Only in 2001 could the first wild-collected specimens be traced. Now it was clear that this fish is a wild species originating from Burma.</p>"
     },
     {
       "key": "habitat",
@@ -211,8 +206,8 @@
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/the_odessa_barb_has_finally_been_named_puntius_padamya_en/",
-      "html": "<p>There is a good number of well-known aquarium fish that bear no scientific name, so they \"officially\" do not exist at all. Only a formal scientific description gives a species a name that is binding for everyone in the world. Common names, on the other hand, can be given by anyone, and there are no rules for them.</p><p>The origin of the Odessa barb was unknown for almost 30 years. For a very long time it was unknown whether it represented a wild species or an artificial breeding product. Sven O. Kullander and Ralf Britz described the species formally in October 2008. Its correct name is now Pethia padamya.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/pethia-padamya-wild-2/",
+      "html": "<p>Sven O. Kullander and Ralf Britz described the species formally in October 2008. Its correct name is now Pethia padamya.</p><p>Wild-collected specimens are currently available. The displaying males belong without any doubt to the most beautiful barbs of all.</p>"
     },
     {
       "key": "references",
@@ -223,7 +218,7 @@
     {
       "key": "references",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/the_odessa_barb_has_finally_been_named_puntius_padamya_en/",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/pethia-padamya-wild-2/",
       "html": "<p>Kullander, S. O. &amp; R. Britz (2008): PUNTIUS PADAMYA, A NEW SPECIES OF CYPRINID FISH FROM MYANMAR (TELEOSTEI: CYPRINIDAE). Electronic Journal of Ichthyology. October 2008 2: 56 – 66</p>"
     }
   ],
@@ -240,7 +235,32 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "_akwap8wex0",
+      "title": "Odessa Barbs A Great Planted Tank Fish. Species Profile - Pethia padamya",
+      "durationSec": 185,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "aeJw5B1E7-M",
+      "title": "Pethia padamya - Odessa Barb - new fish moving in",
+      "durationSec": 268,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "LfNC61DQfpo",
+      "title": "Odessa Barb (Pethia padamya) - Breeding in my hands ᴴᴰ",
+      "durationSec": 57,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "6yv4ZnqU4pM",
+      "title": "Odessabarben (Pethia padamya) - Odessa barbs",
+      "durationSec": 64,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",

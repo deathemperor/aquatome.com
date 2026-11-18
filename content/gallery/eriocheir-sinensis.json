@@ -62,16 +62,74 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/commons/9a13034629549660.webp",
-      "thumb": "https://media.aquatome.com/commons/9a13034629549660-480.webp",
-      "width": 800,
-      "height": 599,
-      "licence": "CC0",
-      "author": "Bj.schoenmakers",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eriocheir_sinensis_(Chinese_mitten_crab),_Lentse_Waard,_the_Netherlands.jpg",
-      "caption": "Cua len Trung Quốc trên cỏ ven sông",
+      "url": "https://media.aquatome.com/inaturalist/395366345.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/395366345-480.webp",
+      "width": 1200,
+      "height": 1600,
+      "licence": "CC BY",
+      "author": "Michael Bakker Paiva",
+      "sourceUrl": "https://www.inaturalist.org/photos/395366345",
+      "caption": "Cua len Trung Quốc giơ càng trên nền bùn",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/87289211.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/87289211-480.webp",
+      "width": 1024,
+      "height": 682,
+      "licence": "CC BY",
+      "author": "Lars Willighagen",
+      "sourceUrl": "https://www.inaturalist.org/photos/87289211",
+      "caption": "Cua len Trung Quốc bò trên bãi cát ven sông",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/87289218.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/87289218-480.webp",
+      "width": 1024,
+      "height": 682,
+      "licence": "CC BY",
+      "author": "Lars Willighagen",
+      "sourceUrl": "https://www.inaturalist.org/photos/87289218",
+      "caption": "Cua len Trung Quốc trên cát ẩm dưới nắng",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/395366159.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/395366159-480.webp",
+      "width": 1200,
+      "height": 1600,
+      "licence": "CC BY",
+      "author": "Michael Bakker Paiva",
+      "sourceUrl": "https://www.inaturalist.org/photos/395366159",
+      "caption": "Cua len nhỏ bò trên bùn ven sông",
       "best": false,
-      "kind": "habitat"
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/48091203.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/48091203-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-SA",
+      "author": "Dr. Guido Bohne",
+      "sourceUrl": "https://www.inaturalist.org/photos/48091203",
+      "caption": "Cua len Trung Quốc bò trên mặt gỗ ven bờ",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/commons/79305987d7c0fc1c.webp",
@@ -170,18 +228,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/commons/d4f2c476891b69d8.webp",
-      "thumb": "https://media.aquatome.com/commons/d4f2c476891b69d8-480.webp",
-      "width": 1200,
-      "height": 1200,
-      "licence": "CC BY-SA 4.0",
-      "author": "Heh26",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Krab_we%C5%82nistoszczypcy1.jpg",
-      "caption": "Cua len Trung Quốc càng lông nhìn nghiêng, cận cảnh",
-      "best": false,
-      "kind": "male"
-    },
-    {
       "url": "https://media.aquatome.com/commons/97e0c6b3a519ce20.webp",
       "thumb": "https://media.aquatome.com/commons/97e0c6b3a519ce20-480.webp",
       "width": 1200,
@@ -230,7 +276,7 @@
       "kind": "habitat"
     }
   ],
-  "seen": 74,
-  "updatedAt": "2026-11-08",
-  "builtAt": "2026-11-08"
+  "seen": 114,
+  "updatedAt": "2026-11-18",
+  "builtAt": "2026-11-18"
 }

@@ -1,0 +1,353 @@
+{
+  "found": true,
+  "species": [],
+  "sources": [
+    {
+      "url": "https://plants.ifas.ufl.edu/overview-of-florida-waters/water-quality/dissolved-oxygen/",
+      "title": "Dissolved Oxygen - Plant Management in Florida Waters - An Integrated Approach",
+      "kind": "university"
+    },
+    {
+      "url": "https://www.jbl.de/en/blog/detail/395/lack-of-oxygen-in-the-morning?country=ae",
+      "title": "Lack of oxygen in the morning",
+      "kind": "maker"
+    },
+    {
+      "url": "https://tepbac.com/tin-tuc/full/khac-phuc-nhiet-do-be-ca-canh-tang-cao-ngay-he-36512.html",
+      "title": "Khắc phục nhiệt độ bể cá cảnh tăng cao ngày hè",
+      "kind": "magazine"
+    },
+    {
+      "url": "https://thegioicacanh.com.vn/kien-thuc-tat-tan-tat-ve-cach-tao-oxy-cho-ca-khong-can-may-n92003.html",
+      "title": "[Kiến thức] Tất tần tật về cách tạo oxy cho cá không cần máy",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquatechvn.com/huong-dan-chi-tiet-cach-tang-oxy-cho-be-ca-canh-khoe-manh.html",
+      "title": "Hướng Dẫn Chi Tiết Cách Tăng Oxy Cho Bể Cá Cảnh Khỏe Mạnh - Aquatech",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.merckvetmanual.com/exotic-and-laboratory-animals/aquatic-systems/environmental-diseases-in-aquatic-systems",
+      "title": "Environmental Diseases in Aquatic Systems",
+      "kind": "vet"
+    },
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/aquarium-air-stones",
+      "title": "Air Stones: The Secret Weapon Every Aquarium Needs - Aquarium Co-Op",
+      "kind": "shop"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Dissolved oxygen is O2 gas held in water. Fish and other aquatic animals need it because they cannot use the oxygen bound in water molecules (H2O).",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Dissolved oxygen comes from photosynthesis by plants and algae, and from the air by diffusion. Wind, waves and mechanical aerators speed up the diffusion.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Cooler water holds more oxygen. Water at 90°F holds about 7.4 mg/L and water at 45°F about 11.9 mg/L.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Warm-water fish in Florida generally need about 5 ppm (5 mg/L) of dissolved oxygen for good health. Below about 2 mg/L, fish become stressed.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "A dissolved oxygen level above 5 mg/L is optimal for most finfish. Fish are stressed below 5 mg/L, and deaths may occur at 4 mg/L or less, depending on the species and how long they are exposed.",
+      "source": 5
+    },
+    {
+      "section": "what",
+      "fact": "Aquarium Co-Op says a freshwater tank should ideally have about 7 to 8 ppm (mg/L) of dissolved oxygen.",
+      "source": 6
+    },
+    {
+      "section": "what",
+      "fact": "Aquatech says about 4.5 to 8 mg/L is ideal for most freshwater ornamental fish, that some sensitive or cold-water species need more, and that below 3 mg/L is dangerous and can kill many fish.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "Oxygen is plentiful on sunny days, when photosynthesis peaks, and falls after sunset. Fish kills often happen around 4 to 6 am, just before dawn.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Dissolved oxygen is lowest in the early morning, but low levels can happen at any time.",
+      "source": 5
+    },
+    {
+      "section": "what",
+      "fact": "In an aquarium, an oxygen saturation below 100% may mean the aeration is not enough for the bioload.",
+      "source": 5
+    },
+    {
+      "section": "what",
+      "fact": "Gas exchange at the water surface lets carbon dioxide leave and oxygen dissolve in, and surface agitation improves it.",
+      "source": 6
+    },
+    {
+      "section": "signs",
+      "fact": "Fish short of oxygen gather near the surface and gulp air, which is called \"piping\". Hypoxia causes sudden, heavy deaths that are usually noticed early in the morning.",
+      "source": 5
+    },
+    {
+      "section": "signs",
+      "fact": "Large fish are affected by low oxygen more than small fish.",
+      "source": 5
+    },
+    {
+      "section": "signs",
+      "fact": "Piping can also be caused by high nitrite or gill disease, not only by low dissolved oxygen. Nitrite poisoning gives chocolate-brown gills (brown blood disease).",
+      "source": 5
+    },
+    {
+      "section": "signs",
+      "fact": "A typical sign is fish staying near the surface in the morning, gasping, then swimming normally soon after the lights come on.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Brief gasping after a meal is normal and should stop about an hour later.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "JBL says many reported oxygen problems turn out to be nitrite problems, usually from overstocking or a damaged bacterial culture.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Fish short of oxygen may rest on the bottom, lose their appetite and move their gills rapidly. In the worst cases they gasp at the surface.",
+      "source": 6
+    },
+    {
+      "section": "signs",
+      "fact": "Other signs of low oxygen are rapid breathing, sluggishness, fish gathering near filter outlets or air stones, loss of colour, refusing food, and more disease.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Fish short of oxygen swim slowly and eat poorly. They hang at the surface with the head up to breathe and the tail sunk.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "At night, oxygen in an aquarium can fall well below 4 mg/l, especially after heavy use during the day.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Dense planting, especially over 70% of the floor area, can cause a lack of oxygen at night, because plants use oxygen in the dark.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Natural decorations such as roots and leaves can lower oxygen, because bacteria use oxygen as they break them down.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Heavy algae growth, or algae dying off suddenly, lowers oxygen by feeding bacterial breakdown.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Bacteria breaking down ammonia and nitrite use more oxygen after cleaning, after a disturbance, and while a new tank is running in.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Care products, medications, anti-algae products and some filter media can lower oxygen by killing algae or disturbing bacteria.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "JBL names overstocking with fish and too few plants as the most common causes of low oxygen.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Other causes of low oxygen are cloudy weather, an algal bloom dying, overfeeding, overstocking and uncleaned old ponds.",
+      "source": 5
+    },
+    {
+      "section": "causes",
+      "fact": "Warm water speeds up the fish's metabolism as well as holding less oxygen, so fish use oxygen faster.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Other causes of low oxygen are a still water surface, too many fish, decaying organic waste, overdosing medicines or chemicals, and power cuts or broken equipment.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "A failed or dirty filter, polluted water, and too many fish and plants can cause a lack of oxygen.",
+      "source": 3
+    },
+    {
+      "section": "firstAid",
+      "fact": "For a quick fix when oxygen is low, do a large water change to bring in fresh oxygen, then look for the cause.",
+      "source": 6
+    },
+    {
+      "section": "firstAid",
+      "fact": "Aquatech's emergency steps are to stir the surface gently by hand for 5–10 minutes, repeated every 30–60 minutes; to run a battery air pump; to change about 20–30% of the water; or to move some fish to a prepared spare tank.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "JBL OxyTabs are only for short-term needs, such as moving fish, and are not a lasting fix.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "To raise oxygen, set the filter outlet just below the surface and angle it diagonally upward so it moves the surface.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "An air pump with a diffuser run during the dark hours adds oxygen. JBL names the JBL PROSILENT a200 and the filter diffuser JBL VenturiSet 12/16.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "For a lasting fix, remove the cause: dead plant parts, algae, sludge and rotting spots, plus any decorations or products added recently.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "The JBL PROAQUATEST O2 kit is used by adding 2 x 6 drops of reagent and comparing the colour to a chart. The result takes about 30 seconds.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "JBL advises testing oxygen weekly before water changes. When there is a problem, test half an hour before lights on, at least 3 hours after lights on, half an hour before lights off, and at least 3 hours after lights off.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "To set up an air stone you need an air pump, airline tubing, and a check valve to stop water flowing back into the tubing.",
+      "source": 6
+    },
+    {
+      "section": "prevention",
+      "fact": "A long, shallow tank has more surface area for gas exchange than a tall, narrow one.",
+      "source": 6
+    },
+    {
+      "section": "prevention",
+      "fact": "Do not let floating plants cover the whole water surface.",
+      "source": 6
+    },
+    {
+      "section": "prevention",
+      "fact": "Aquarium Co-Op recommends at least one air source, such as an air stone or sponge filter, in every aquarium.",
+      "source": 6
+    },
+    {
+      "section": "prevention",
+      "fact": "Aquatech suggests keeping backup power, such as a generator or UPS, keeping filters clean, keeping the temperature stable, and changing about 20–30% of the water every week or two.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Aquatic plants add oxygen by day but use it at night, so they should not be a tank's only oxygen source.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "A common mistake is watching only oxygen and ignoring ammonia, nitrite, nitrate, pH and temperature.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "A common mistake is confusing oxygen with CO2 in planted tanks. Too much CO2 can lower both oxygen and pH.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Adding too many aeration devices can stress fish and make noise without adding much oxygen.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Feeding fish during a power cut is a mistake, because leftover food uses up extra oxygen.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Turning a filter back on after a power cut without cleaning it first sends toxins from the filter back into the tank.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "Tepbac, a Vietnamese site, says hot summer weather raises aquarium water temperature, and warm water holds less dissolved oxygen than cool water, so fish can struggle to breathe or suffocate.",
+      "source": 2
+    },
+    {
+      "section": "vietnam",
+      "fact": "Tepbac gives about 24–28°C as the ideal aquarium water temperature.",
+      "source": 2
+    },
+    {
+      "section": "vietnam",
+      "fact": "For hot days, Tepbac suggests a gentle fan blowing across the water surface, a partly open lid or a mesh cover, ice only in a sealed bag, and a chiller as the most effective long-term option.",
+      "source": 2
+    },
+    {
+      "section": "vietnam",
+      "fact": "Tepbac advises partial water changes in the early morning or evening, with the new water within about 2°C of the tank.",
+      "source": 2
+    },
+    {
+      "section": "vietnam",
+      "fact": "Thế Giới Cá Cảnh, a Vietnamese shop, names power cuts that stop the air pump as a cause of low oxygen.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "Without an air pump, Thế Giới Cá Cảnh suggests a foot pump attached to airline tubing and an airstone, run for a few minutes, or stirring the water by hand or with a stick.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "Aquatech, a Vietnamese shop, says that in a power cut a tank may last from a few hours to about a day, depending on its size and stocking, and recommends a battery air pump as backup.",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"oxy hòa tan\"",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"Oxy hòa tan\"",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"Dissolved Oxygen\"",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"DO\"",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"Oxy hoà tan\"",
+      "source": 3
+    }
+  ]
+}

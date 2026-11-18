@@ -555,7 +555,16 @@
     "sizeCm": [
       {
         "source": "glaser",
-        "value": 30
+        "value": 50
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 1.5,
+          "max": 1.5
+        }
       }
     ]
   },
@@ -563,20 +572,20 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium-rosenbergii/",
-      "html": "<p>Family Palaemonidae. Origin: Thailand. Grows to 25–30 cm body length, up to 50 cm including the claws.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium-rosenbergii-3/",
+      "html": "<p>Macrobrachium rosenbergii is the largest species of freshwater shrimp. Males can reach a length of 50 cm (including the long arms), as shown by specimens photographed on a food market in Thailand. Despite this enormous size, the species does not live long: scientific research found that the shrimps live only 1.5 years.</p>"
     },
     {
-      "key": "beforeYouBuy",
+      "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium-rosenbergii/",
-      "html": "<p>Macrobrachium rosenbergii plays a very important role in aquaculture in many regions of Asia. Mainly in Thailand it is bred in huge numbers for human consumption. It is imported to Europe from time to time. Do not underestimate this shrimp when you find it in a shop: it should only be kept by experienced hobbyists. It is sensitive during transport, so single packing in big bags is very important to guarantee safe arrival.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium-rosenbergii-3/",
+      "html": "<p>In their lifetime the shrimps sometimes wander more than 1,000 km upstream in rivers and back again, because the larvae can hatch only in a marine environment.</p>"
     },
     {
-      "key": "aquariumSize",
+      "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium-rosenbergii/",
-      "html": "<p>They need big tanks with many places to hide.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium-rosenbergii-3/",
+      "html": "<p>Macrobrachium rosenbergii is heavily used in aquaculture in southeast Asia. Medium-sized specimens (body length without the arms 6–8 cm) are imported regularly. Some females of that size have spawned.</p>"
     }
   ],
   "photos": [
@@ -591,7 +600,32 @@
       "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "mcJdSwUB_g0",
+      "title": "How To Raise Freshwater Prawns In A Fish Tank @KTPrawns",
+      "durationSec": 595,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "nk32QhFUnhE",
+      "title": "Giant prawn shrimps  The coolest aquarium pets.-(Macrobrachium rosenbergii)",
+      "durationSec": 208,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Zve6gC-Wem8",
+      "title": "അക്വാറിയത്തിലെ കൊഞ്ച് വളർത്തൽ #ആറ്റുകൊഞ്ച് #GiantFreshwaterPrawn  #MacrobrachiumRosenbergii",
+      "durationSec": 42,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "jLp-_Nk2-kQ",
+      "title": "Macrobrachium Rosenbergii Giant River Prawn Update (DAY 25 )",
+      "durationSec": 109,
+      "lang": "en-US"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -608,5 +642,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-17"
+  "updatedAt": "2026-11-18"
 }

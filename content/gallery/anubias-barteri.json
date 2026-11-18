@@ -98,18 +98,6 @@
       "kind": "scape"
     },
     {
-      "url": "https://media.aquatome.com/commons/27dfd019f2bcfada.webp",
-      "thumb": "https://media.aquatome.com/commons/27dfd019f2bcfada-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC0",
-      "author": "Daderot",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anubias_barteri_var._nana_-_Botanischer_Garten_-_Heidelberg,_Germany_-_DSC01278.jpg",
-      "caption": "Thảm Anubias Coin Leaf dày đặc trong vườn ươm",
-      "best": false,
-      "kind": "emersed"
-    },
-    {
       "url": "https://media.aquatome.com/commons/d98602219e52d43c.webp",
       "thumb": "https://media.aquatome.com/commons/d98602219e52d43c-480.webp",
       "width": 1200,
@@ -168,6 +156,18 @@
       "caption": "Hoa Anubias với mo vàng nhạt, cận cảnh",
       "best": false,
       "kind": "flower"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/27dfd019f2bcfada.webp",
+      "thumb": "https://media.aquatome.com/commons/27dfd019f2bcfada-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC0",
+      "author": "Daderot",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anubias_barteri_var._nana_-_Botanischer_Garten_-_Heidelberg,_Germany_-_DSC01278.jpg",
+      "caption": "Thảm Anubias Coin Leaf dày đặc trong vườn ươm",
+      "best": false,
+      "kind": "emersed"
     }
   ],
   "seen": 41,

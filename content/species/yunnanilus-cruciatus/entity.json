@@ -80,6 +80,13 @@
           "min": 22,
           "max": 27
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 18,
+          "max": 26
+        }
       }
     ],
     "ph": [
@@ -122,6 +129,10 @@
       {
         "source": "seriouslyfish",
         "value": 4
+      },
+      {
+        "source": "glaser",
+        "value": 3.5
       }
     ],
     "difficulty": [
@@ -162,6 +173,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/micronemacheilus-cruciatus",
       "html": "<p>Micronemacheilus cruciatus is a small nemacheilid loach that appears to be endemic to the coastal rivers of Vietnam. It is traded under names including 'Vietnamese multi-banded zebra loach' and 'hovering zebra loach', and its colour pattern is a dark lateral stripe with numerous vertical cross-bars. It can be susceptible to swings in water chemistry and should not go into a biologically immature aquarium.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/micronemacheilus-cruciatus-yunnanilus-c-2/",
+      "html": "<p>This charming free swimming dwarf loach originates from Vietnam. It attains a maximum length of about 3.5 cm. For quite a long time it was placed in the genus Yunnanilus, but currently most scientists see them in the monotypical genus Micronemacheilus (this means the genus contains only one species).</p>"
     },
     {
       "key": "distribution",
@@ -224,6 +241,12 @@
       "html": "<ul><li>Temperature: 22–27°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/micronemacheilus-cruciatus-yunnanilus-c-2/",
+      "html": "<p>The optimal water temperature can be between 18 and 26°C, the pH around the neutral mark, hardness is meaningless for these fish.</p>"
+    },
+    {
       "key": "diet",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/yunnanilus-cruciatus-detailed-guide-care-diet-and-breeding/",
@@ -236,6 +259,12 @@
       "html": "<p>Probably a micropredator feeding chiefly on small insects, worms, crustaceans, and other zooplankton in nature.</p><p>In the aquarium it must be offered items of a suitable size and quality, particularly live Daphnia, Moina, Artemia nauplii, micro worm, etc. Small or crushed floating dried foods are also accepted and should ideally contain some plant or algal material.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/micronemacheilus-cruciatus-yunnanilus-c-2/",
+      "html": "<p>They can be easily fed with any type of usual fish food as long as it is not too big.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/yunnanilus-cruciatus-detailed-guide-care-diet-and-breeding/",
@@ -246,6 +275,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/micronemacheilus-cruciatus",
       "html": "<p>Peaceful and likely to be intimidated or outcompeted for food by larger or more boisterous tankmates, although the presence of similarly-sized schooling fishes seems to help reduce shyness.</p><p>Small cyprinids from genera such as Boraras, Microdevario, Trigonostigma, Tanichthys, and Microrasbora plus smaller danios such as D. erythromicron or D. margaritatus are perhaps the best options, and we suspect many small characids would also be fine. Many peaceful loaches and catfishes should also prove suitable but as always research your choices thoroughly in order to avoid problems.</p><p>M. cruciatus is highly gregarious and should be kept in a group of at least 8-10 specimens, ideally more. Maintaining it in such numbers will not only make the fish less nervous but result in a more effective, natural-looking display.</p><p>Unlike most loaches they also spend a lot of time in the open, often hovering in midwater and exploring all levels of the aquarium. Reports suggest that individuals naturally become more reclusive as they age, however, with older fish tending to conceal themselves more routinely.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/micronemacheilus-cruciatus-yunnanilus-c-2/",
+      "html": "<p>These fish are totally peaceful and love to swim along with conspecifics. They are very lively.</p>"
     },
     {
       "key": "dimorphism",
@@ -276,6 +311,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/micronemacheilus-cruciatus",
       "html": "<p>This species is traded under various names including 'Vietnamese multi-banded zebra loach', 'hovering zebra loach', 'Laos pygmy multi-stripe loach', and 'banded dwarf loach'.</p><p>It can be distinguished from related species by the following combination of characters: body relatively deep and with distinct vertical bars; 8½ branched dorsal-fin rays; 3-10 pored lateral line scales; one pair of large papillae in median portion of upper lip; two pairs of large papillae in median portion of lower lip; lower posterior edge of opercle with 3-4 prominent indentations.</p><p>Rendahl (1944) described Nemacheilus cruciatus and established the genus Micronemacheilus for it. There it remained until 2001 when Frehyof and Serov moved it into Yunnanilus based on the fact it shares most of the diagnostic characters for the genus given by Kottelat (1988).</p><p>The large papillae in the median portion of both lips and indentations along the posterior of the opercle are not characters associated with other Yunnanilus spp. but neither were they considered sufficient to justify retention of Micronemacheilus.</p><p>Kottelat (2012) considers Micronemacheilus to be valid, however, with M. cruciatus the sole representative. No additional information is provided.</p><p>The family Nemacheilidae is widely-distributed across most of Eurasia with the Indian subcontinent, Southeast Asia and China representing particular centres of species diversity.</p><p>It was first proposed as a genetically-distinct grouping in the 1980s but did not become widely-accepted until 2006. According to current knowledge it contains over 30 genera of which the most well-known in the aquarium hobby include Aborichthys, Acanthocobitis, Barbatula, Mesonoemacheilus, Nemacheilus, Physoschistura, Schistura, and Petruichthys.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/micronemacheilus-cruciatus-yunnanilus-c-2/",
+      "html": "<p>Micronemacheilus cruciatus is an ideal community fish for well planted tanks with other small fish of the southeast Asian region.</p>"
     },
     {
       "key": "references",
@@ -335,7 +376,32 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "mSseorQWTR4",
+      "title": "Yunnanilus cruciatus feeding",
+      "durationSec": 63,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "1BFGlaCOfnE",
+      "title": "Hovering Loach (Yunnanilus Cruciatus) #aquarium #loach #nanofish",
+      "durationSec": 42,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "PdTIM7r3I7M",
+      "title": "Tigerzwergschmerlen Yunnanilus cruciatus ❤️",
+      "durationSec": 39,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "6lGnWc9BZu0",
+      "title": "Tiger Zwergschmerle - Yunnanilus cruciatus/ Micronemacheilus cruciatus",
+      "durationSec": 39,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -365,5 +431,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-18"
 }

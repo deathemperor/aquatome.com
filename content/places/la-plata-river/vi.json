@@ -1,6 +1,6 @@
 {
   "slug": "la-plata-river",
-  "name": "sông La Plata",
+  "name": "Río de la Plata",
   "altNames": [
     "La Plata River"
   ],
@@ -8,5 +8,6 @@
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

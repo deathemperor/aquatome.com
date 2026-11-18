@@ -1,9 +1,12 @@
 {
   "id": "monostichodus-mesmaekersi",
-  "summary": "Cá Monostichodus mesmaekersi dài tối đa 6 cm, hợp với người thích tìm tòi, chịu thử loài ít ai biết. Hồ sơ không ghi bể tối thiểu, nhiệt độ, pH hay độ cứng nên chưa có thông số nước để theo. Khó nhất là thiếu tài liệu: cá thuộc nhóm ăn vây và có tài liệu nói là ăn vảy, nhưng chuyện đó chưa khẳng định cũng chưa bác bỏ được, còn cá vàng đuôi quạt, cá xiêm, cá killi và cá dao nuôi chung đều còn nguyên vây.",
-  "mistakes": [],
+  "summary": "Loài này hợp với người thích tìm tòi, chịu thử nuôi một loài ít ai biết. Cá dài tối đa 6 cm, nhưng hồ sơ không có số liệu về bể tối thiểu, nhiệt độ hay pH nên chưa thể nói rõ nước và bể thế nào. Điểm khó nhất là thông tin quá ít: chỉ có một tài liệu nuôi, và còn chưa rõ nó có ăn vảy hay không.",
+  "mistakes": [
+    "Đừng mặc định nó ăn vây như cả nhóm: nuôi chung với cá vàng đuôi quạt, cá xiêm, cá killi, cá dao thì vây vẫn còn nguyên, nhưng nên theo dõi vây và vảy của cá nuôi chung.",
+    "Đừng coi chuyện ăn vảy là đã rõ: tài liệu duy nhất nói vậy, chưa khẳng định được, nên quan sát kỹ khi mới ghép chung với cá khác."
+  ],
   "speciesUpdatedAt": "2026-11-17",
-  "writtenFrom": "8f7393342dd15018",
-  "generatedAt": "2026-11-17T19:53:27.176Z",
+  "writtenFrom": "8dc4d2767898aee5",
+  "generatedAt": "2026-11-18T19:54:41.697Z",
   "review": "approved"
 }

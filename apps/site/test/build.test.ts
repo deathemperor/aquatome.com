@@ -881,10 +881,15 @@ describe('photo gallery', () => {
   test('a plant gets an album too: the strip on its page, each photo credited, opened over the page', () => {
     const { dom } = page('/cay/cryptocoryne-wendtii/')
     const strip = dom.querySelector('section.strip')!
-    // Its strip shows all 6 (the CC BY-NC photo is left out), so no "Xem tất cả" (the Design Lead, 18 Nov).
-    expect(albumOf(dom).photos).toHaveLength(6)
-    expect(strip.querySelectorAll('li a[data-i]')).toHaveLength(6)
-    expect(strip.querySelector('[data-all]')).toBeNull()
+    // iNaturalist's CC BY-NC photo is in, its switch on (IMAGE_SWITCHES.inatNonCommercial): 7 photos, all in the strip, so
+    // "Xem tất cả" shows on a phone only, where the strip is one row (seeAll; the Design Lead, 18 Nov).
+    const album = albumOf(dom)
+    expect(album.photos).toHaveLength(7)
+    expect(strip.querySelectorAll('li a[data-i]')).toHaveLength(7)
+    const all = strip.querySelector('.head [data-all]')!
+    expect([all.tagName, all.classList.contains('phone'), all.textContent!.trim()]).toEqual(['BUTTON', true, 'Xem tất cả 7 ảnh'])
+    // Its credit names its licence and the licence's own page.
+    expect(album.photos.find(p => p.s === 'https://www.inaturalist.org/photos/107')).toMatchObject({ l: 'CC BY-NC 4.0', lu: 'https://creativecommons.org/licenses/by-nc/4.0/' })
     expect(dom.querySelector('#photo-credits')!.innerHTML).toContain('https://www.flickr.com/photos/1@N00/102')
     expect(page('/cay/ray-nana/').dom.querySelector('section.strip')).toBeNull()
   })

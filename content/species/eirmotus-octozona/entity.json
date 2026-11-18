@@ -10,7 +10,8 @@
     "malaysia",
     "johor",
     "thailand",
-    "bung-borapet"
+    "bung-borapet",
+    "indonesia"
   ],
   "range": {
     "native": {
@@ -19,7 +20,8 @@
       ],
       "regions": [],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -125,8 +127,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/eirmotus_octozona_en/",
-      "html": "<p>Eirmotus octozona is a tiny, very delicate and peaceful barb that reaches only 3-4 cm in length.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/eirmotus-octozona-2/",
+      "html": "<p>The Eightbanded barb (Eirmotus octozona) is a very delicate, slightly transparent dwarf barb from blackwaters of Malaysia and Indonesia. Eirmotus become only 3-4 cm long and are perfect tankmates for small blackwater tanks.</p>"
     },
     {
       "key": "distribution",
@@ -137,8 +139,8 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/eirmotus_octozona_en/",
-      "html": "<p>This tiny barb is very enigmatic. It was described in 1959 on the basis of specimens from the aquarium fish trade which were said to originate from Thailand (Bung Borapet). However, there have been no reports since then of any occurrence of Eirmotus in Thailand. Ornamental fish collectors formerly collected this species in the peat swamp forest of Ayer Hitam in Johor, Malaysia. This forest has been almost destroyed for oil palm plantations and all fish that lived there seem to be extinct now. In 2008 three very similar, new species of Eirmotus were described from Sumatra and Borneo. The fish offered here seem to belong to the \"real\" E. octozona.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/eirmotus-octozona-2/",
+      "html": "<p>This tiny barb is very enigmatic. It has been described in 1959 on the basis of specimens from the aquarium fish trade which were said to originate from Thailand (Bung Borapet). However, there have been no reports since then about any occurrence of Eirmotus in Thailand. Ornamental fish collectors formerly collected this species in the peat swamp forest of Ayer Hitam in Johor, Malaysia. This forest has been almost destroyed for oil palm plantations and all fish that lived there seem to be extinct now. In 2008 three very similar, new species of Eirmotus have been described from Sumatra and Borneo. The fish offered here seem to belong to the “real” E. octozona.</p>"
     },
     {
       "key": "habitat",
@@ -153,12 +155,6 @@
       "html": "<p>An aquarium with a base measuring 60 × 30 cm (24 × 12 in) or larger is recommended. Volume: approximately 54 litres (14 US gal).</p>"
     },
     {
-      "key": "aquariumSize",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/eirmotus_octozona_en/",
-      "html": "<p>Eirmotus are perfect tankmates for small blackwater tanks.</p>"
-    },
-    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/eirmotus-octozona",
@@ -169,6 +165,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/eirmotus-octozona",
       "html": "<ul><li>Temperature: 22–26°C (72–79°F)</li><li>pH: 5.0–7.0</li><li>Hardness: 1–8 dGH</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/eirmotus-octozona-2/",
+      "html": "<p>The fish gets the most intense coloration in water that is rich in humic substances from peat, dead leaves and alder cones.</p>"
     },
     {
       "key": "diet",
@@ -189,6 +191,12 @@
       "html": "<p>Adult males are noticeably slimmer than females and exhibit a pale red colouration in the unpaired fins when in good condition.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/eirmotus-octozona-2/",
+      "html": "<p>The males are much smaller than the females and sometimes even look as if they were half famished. But this is normal. Besides this, males have comparatively larger ventral fins.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/eirmotus-octozona",
@@ -197,7 +205,7 @@
     {
       "key": "reproduction",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/eirmotus_octozona_en/",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/eirmotus-octozona-2/",
       "html": "<p>Nothing has been reported so far about the breeding biology of this unusual, very peaceful barb.</p>"
     },
     {
@@ -209,8 +217,8 @@
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/eirmotus_octozona_en/",
-      "html": "<p>Eirmotus refers to the rows of sensitive pores on the head. octozona means \"with 8 bars\".</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/eirmotus-octozona-2/",
+      "html": "<p>Lexicon: Eirmotus refers to the rows of sensitive pores on the head. octozona means “with 8 bars”.</p><p>Sadly the most intense coloration cannot be realised in photo tanks for technical reasons: the resulting yellow tinge of the pictures is quite irritating.</p>"
     },
     {
       "key": "references",
@@ -243,7 +251,32 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "D9OH8ZPa_zo",
+      "title": "フォールスバルブ Eirmotus octozona (False Eight-Banded Barb / Octozona Barb)",
+      "durationSec": 124,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "59AxrKQKV8Q",
+      "title": "Eirmotus octozona. The UNSUAL Eight banded barb! (Leopard Aquatic U022A)",
+      "durationSec": 55,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "UZEIlvkuoXM",
+      "title": "エサを全く追おうとしないフォールスバルブたち Eirmotus octozona does not try to eat food",
+      "durationSec": 139,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "OXpA7PToOls",
+      "title": "10 gallon Eirmotus Octozona aquarium",
+      "durationSec": 149,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",

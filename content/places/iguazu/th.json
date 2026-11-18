@@ -3,6 +3,12 @@
   "name": "อิกวาซู",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T12:24:34.197Z",
+    "why": "The Thai name อิกวาซู transliterates Iguazu, but Thai atlases normally write the Iguazu (Iguaçu) River and falls as อีกวาซู and the standard form is อิเกวซู/อีกวาซู, and as a river or region it lacks the kind word แม่น้ำ."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

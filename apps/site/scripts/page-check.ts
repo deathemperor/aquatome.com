@@ -132,15 +132,9 @@ const text = (el: HTMLElement) => el.textContent.replace(/\s+/g, ' ').trim()
 const FISH_WORD: Record<Lang, RegExp> = { vi: /(?<![\p{L}\p{M}])cá(?![\p{L}\p{M}])(?! nhân)/iu, id: /\bikan\b/i, ms: /\bikan\b/i, th: /ปลา/ }
 export const saysFish = (lang: Lang, s: string) => FISH_WORD[lang].test(lang === 'th' ? s.replaceAll('ตู้ปลา', '') : s)
 const NOT_ABOUT_IT = new Set(['Bể cá', 'Cá, tép hoặc ốc', 'Loài cá'])
-/**
- * Owed: the "Vì sao?" panel's size line and its lead in Thai still call a crab, a shrimp or a snail a fish. Its words are
- * shared with the app (protocols/care-needs-vectors.json), which changes only in the 00:00-07:00 window: they change
- * there, in their own change, on Wed 18 Nov, and leave this list then.
- */
-const OWED = new Set(['cá dài {cm}', 'Điều làm loài này dễ hay khó nuôi, đọc từ bảng:'])
 const UI_KEYS = Object.keys(JSON.parse(readFileSync(fileURLToPath(new URL('../src/i18n/id.json', import.meta.url)), 'utf8')) as Record<string, string>)
 const fishLinesOf = new Map<Lang, { line: string; part: string }[]>()
-const fishLines = (lang: Lang) => fishLinesOf.get(lang) ?? fishLinesOf.set(lang, UI_KEYS.filter(k => !NOT_ABOUT_IT.has(k) && !OWED.has(k)).flatMap(k =>
+const fishLines = (lang: Lang) => fishLinesOf.get(lang) ?? fishLinesOf.set(lang, UI_KEYS.filter(k => !NOT_ABOUT_IT.has(k)).flatMap(k =>
   translator(lang)(k).split(/\{\w+\}/).map(p => p.replace(/\s+/g, ' ').trim()).filter(p => saysFish(lang, p)).map(part => ({ line: k, part })))).get(lang)!
 /** A short line's words as a label prints them: no spaces, punctuation or figures at either end (", cá dài 4 cm"). */
 const bare = (s: string) => s.replace(/^[\s\p{P}\p{N}]+|[\s\p{P}\p{N}]+$/gu, '')

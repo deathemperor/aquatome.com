@@ -1,10 +1,8 @@
 {
   "Ảnh do AI tạo": "ภาพสร้างโดย AI",
-  "Ảnh do AI tạo.": "ภาพสร้างโดย AI",
   "Ảnh đã chỉnh sửa": "ภาพผ่านการแก้ไข",
   "{n} ảnh do AI tạo.": "ภาพที่สร้างโดย AI {n} ภาพ",
   "{n} ảnh, gồm ảnh thật từ {from} và ảnh do AI tạo.": "ภาพ {n} ภาพ รวมภาพถ่ายจริงจาก {from} และภาพที่สร้างโดย AI",
-  "Ảnh thật từ {from} và ảnh do AI tạo.": "ภาพถ่ายจริงจาก {from} และภาพที่สร้างโดย AI",
   ", chúng tôi xử lý trong vòng vài ngày.": "เราจะดำเนินการภายในไม่กี่วัน",
   ", dòng của": ", สายพันธุ์ของ",
   ", kính nặng khoảng {kg} kg": ", กระจกหนักประมาณ {kg} kg",
@@ -39,7 +37,6 @@
   "{n} ảnh": "{n} ภาพ",
   "{n} ảnh {name}{sci}, ghi rõ tác giả và giấy phép.": "ภาพ{name}{sci} {n} ภาพ พร้อมระบุผู้ถ่ายและสัญญาอนุญาต",
   "{n} ảnh từ {from}, giấy phép mở.": "ภาพ {n} ภาพจาก {from} ใช้สัญญาอนุญาตแบบเปิด",
-  "Ảnh từ {from}, giấy phép mở.": "ภาพจาก {from} ใช้สัญญาอนุญาตแบบเปิด",
   "{n} bản ghi không hợp lệ nên chưa vào tài khoản.": "มี {n} รายการที่ไม่ถูกต้อง จึงยังไม่ได้เพิ่มเข้าบัญชี",
   "{n} bao {size} {unit}": "{n} ถุง ถุงละ {size} {unit}",
   "{n} gallon Mỹ": "{n} แกลลอนสหรัฐ",
@@ -492,7 +489,7 @@
   "Điều khiển đèn Chihiros không cần ứng dụng được không?": "ควบคุมโคมไฟ Chihiros โดยไม่ใช้แอปได้หรือไม่?",
   "Điều khiển đèn Chihiros trên trình duyệt: hẹn giờ, độ sáng": "ควบคุมโคมไฟ Chihiros บนเบราว์เซอร์: ตั้งเวลา ความสว่าง",
   "Điều khiển đèn thủy sinh Chihiros (WRGB II, Slim, Pro, A II, C II, Universal) qua Bluetooth trên Chrome: đặt lịch bật tắt có sáng dần, tối dần, chỉnh độ sáng từng màu, lịch mẫu cho bể mới và bể bị rêu.": "ควบคุมโคมไฟตู้ไม้น้ำ Chihiros (WRGB II, Slim, Pro, A II, C II, Universal) ผ่าน Bluetooth บน Chrome: ตั้งตารางเปิดปิดแบบค่อย ๆ สว่าง ค่อย ๆ มืด ปรับความสว่างแต่ละสี และตารางสำเร็จรูปสำหรับตู้ใหม่และตู้ที่มีตะไคร่",
-  "Điều làm loài này dễ hay khó nuôi, đọc từ bảng:": "สิ่งที่ทำให้ปลาชนิดนี้เลี้ยงง่ายหรือยาก อ่านจากตาราง:",
+  "Điều làm loài này dễ hay khó nuôi, đọc từ bảng:": "สิ่งที่ทำให้ชนิดนี้เลี้ยงง่ายหรือยาก อ่านจากตาราง:",
   "Đỏ": "แดง",
   "Độ chua của nước. pH dưới 7 là nước chua, trên 7 là nước kiềm.": "ความเป็นกรดของน้ำ pH ต่ำกว่า 7 คือน้ำเป็นกรด สูงกว่า 7 คือน้ำเป็นด่าง",
   "Độ cứng (dGH)": "ความกระด้าง (dGH)",
@@ -1191,7 +1188,6 @@
   "Passkey này không mở được tài khoản nào: đăng nhập cách khác.": "passkey นี้ไม่ตรงกับบัญชีใด: เข้าสู่ระบบด้วยวิธีอื่น",
   "Thêm passkey": "เพิ่ม passkey",
   "{n} ảnh từ {from}.": "ภาพ {n} ภาพจาก {from}",
-  "Ảnh từ {from}.": "ภาพจาก {from}",
   "Cách trồng {name} →": "วิธีปลูก{name} →",
   "Xem cả {n} loài cây": "ดูพืชทั้งหมด {n} ชนิด",
   "Xem cả {n} loài cây bắt buộc có CO₂": "ดูพืชทั้งหมด {n} ชนิดที่ต้องใช้ CO₂",
@@ -1347,5 +1343,6 @@
   "Thống kê (trang web và ứng dụng): tối đa 3 tháng.": "สถิติ (เว็บไซต์และแอป): เก็บไว้ไม่เกิน 3 เดือน",
   "Thống kê từ ứng dụng": "สถิติจากแอป",
   "characins": "ปลาคาราซิน",
-  "không lời": "ไม่มีเสียงพูด"
+  "không lời": "ไม่มีเสียงพูด",
+  "con dài {cm}": "ตัวยาว {cm}"
 }

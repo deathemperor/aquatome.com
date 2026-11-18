@@ -2,8 +2,610 @@
   {
     "date": "2026-11-18",
     "kind": "species",
-    "id": "micracanthicus-vandragti",
+    "id": "moenkhausia-heikoi",
     "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "serrasalmus-compressus",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "badis-corycaeus",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "microdevario-kubotai",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "bostrychus-zonatus",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "leporacanthicus-joselimai",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "carinotetraodon-irrubesco",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "polynemus-paradiseus",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "scleromystax-barbatus",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "poecilia-caucana",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "acestrorhynchus-heterolepis",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "aphyocharax-nattereri",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "macrobrachium-rosenbergii",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "pseudochalceus-kyburzi",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "telmatochromis-vittatus",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "afruca-tangeri",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "squaliforma-emarginata",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "corydoras-geoffroy",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "sperata-acicularis",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "pseudocrenilabrus-philander-dispersus",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "ctenolucius-hujeta",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "lepisosteus-oculatus",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "monodactylus-kottelati",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "microphis-aculeatus",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "gymnotus-chaviro",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "myloplus-torquatus",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "hydrocynus-vittatus",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "neolamprologus-tetracanthus",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "hyphessobrycon-piranga",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "neolamprologus-cylindricus",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "yunnanilus-cruciatus",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "brotia-armata",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "periophthalmus-barbarus",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "panaqolus-albomaculatus",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "aquariumbreeder-aquarium-safety-and-checklist",
+    "source": "aquariumbreeder",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "turbo-fluctuosus",
+    "source": "aquariumbreeder",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "aquariumbreeder-how-to-remove-algae-with-plants",
+    "source": "aquariumbreeder",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "aquariumbreeder-top-10-corals-for-beginners",
+    "source": "aquariumbreeder",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "aquariumbreeder-guide-to-planted-tank-lighting",
+    "source": "aquariumbreeder",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "aquariumbreeder-dry-start-method",
+    "source": "aquariumbreeder",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "seriatopora-hystrix",
+    "source": "aquariumbreeder",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "aquariumbreeder-proper-care-for-carpet-anemones",
+    "source": "aquariumbreeder",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "aspistor-quadriscutis",
+    "source": "scotcat",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "amphiarius-phrygiatus",
+    "source": "scotcat",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "aspistor-luniscutis",
+    "source": "scotcat",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "netuma-bilineata",
+    "source": "scotcat",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "neoarius-pectoralis",
+    "source": "scotcat",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "sciades-paucus",
+    "source": "scotcat",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "neoarius-midgleyi",
+    "source": "scotcat",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "neoarius-graeffei",
+    "source": "scotcat",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "neoarius-berneyi",
+    "source": "scotcat",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "hexanematichthys-sagor",
+    "source": "scotcat",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "betta-imbellis",
+    "source": "bwaquatics",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "betta-mahachaiensis",
+    "source": "bwaquatics",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "rasbora-borapetensis",
+    "source": "aquatome",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "youtube-sYnfFd0i8Dk",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "youtube-Z_LBvNba2oQ",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "youtube-hO58T9PhRlk",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "youtube-oLzR-_RUPA4",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "youtube-efVHn6juO-4",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "youtube-iRBorq3ZSFE",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "youtube-rmzCn0C_BMU",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "youtube-6w1xAFzJGM8",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "youtube-nzNkqajWZ3s",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "youtube-4bS6KCUkD08",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "youtube-P2uxJHRl2kM",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "youtube-razEt0THqD4",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "youtube-ojUhcailsfc",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "youtube-fjwsU2kmv2o",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "youtube-Kt0zl0pJNzw",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "youtube-BJY96DTBbUo",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "youtube-MHdRdN3t0i8",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "youtube-XYjtpXJY_Hk",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "youtube-Siun2vEDvh0",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "youtube-SF9pWfVUGjo",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "youtube-yUH5sWOu4fI",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "youtube-S4htujhM4p0",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "youtube-n48zc1KSUx0",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "youtube-D4oDBLyt9FU",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "youtube-m72wqXnyMsM",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "youtube-a-kB3RGtE2Y",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "youtube-SUBZ64BUM20",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "youtube-Arh2r7FXkdc",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "youtube-0ojuoEuL6AA",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "youtube-i1ajPb5qWD4",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "youtube-5yH835oMU04",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "guide",
+    "id": "youtube-ZjEKzzWM05U",
+    "source": "youtube",
     "action": "new"
   },
   {
@@ -12,6 +614,20 @@
     "id": "pethia-padamya",
     "source": "glaser",
     "action": "updated"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "eirmotus-octozona",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "micracanthicus-vandragti",
+    "source": "glaser",
+    "action": "new"
   },
   {
     "date": "2026-11-18",
@@ -45,13 +661,6 @@
     "date": "2026-11-18",
     "kind": "species",
     "id": "symphysodon-discus",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-18",
-    "kind": "species",
-    "id": "eirmotus-octozona",
     "source": "glaser",
     "action": "updated"
   },
@@ -2888,615 +3497,6 @@
     "kind": "guide",
     "id": "youtube-2Spfw4pWphk",
     "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "guide",
-    "id": "youtube-B3vzV_r7tPY",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "guide",
-    "id": "youtube-UDzOi_3jc_w",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "guide",
-    "id": "youtube-kkPHSQFW2dk",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "guide",
-    "id": "youtube-H-wwZiQJL4E",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "guide",
-    "id": "youtube-LiotY1HIneo",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "guide",
-    "id": "youtube-E55YDUYf6zE",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "guide",
-    "id": "youtube-ijXxpcyjZwE",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "guide",
-    "id": "youtube-EqOeCFmGFuA",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "guide",
-    "id": "youtube-GKB2uxcmJ2g",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "guide",
-    "id": "youtube-ZlJrXnSlg5U",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "guide",
-    "id": "youtube-dyyqg0yaEUU",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "guide",
-    "id": "youtube-uH5Qi9XDh44",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "guide",
-    "id": "youtube-8kjsLDxIvw8",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "guide",
-    "id": "youtube-_eBnzKNJeTI",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "guide",
-    "id": "youtube-BDqjtjoLvUM",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "guide",
-    "id": "youtube-n_5YAJ3EA5s",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "guide",
-    "id": "youtube-37GntJo93ec",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "guide",
-    "id": "youtube-vAR4Squnq9E",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "guide",
-    "id": "youtube-4PqiPjmQYPo",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "guide",
-    "id": "youtube-9NaYA94FPZc",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "guide",
-    "id": "youtube-BsRyej3Zte8",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "guide",
-    "id": "youtube-hENX7VGbPUA",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "guide",
-    "id": "youtube-P6iATC1m448",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "girardinus-falcatus",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "epiplatys-annulatus",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "trachycorystes-trachycorystes",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "bujurquina-oenolaemus",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "geophagus-winemilleri",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "aplocheilus-panchax",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "xenotoca-variata",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "poeciliopsis-prolifica",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "hoplosternum-punctatum",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "cynotilapia-axelrodi",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "telmatochromis-temporalis",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "guide",
-    "id": "glaser-en-10-catfishes-10c-catfishes-remaining-catfish-from-south-america-phractocephalus-hemiliopterus-en",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "pseudacanthicus-leopardus",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "gymnorhamphichthys-hypostomus",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "etroplus-maculatus",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "macrobrachium-dienbienphuense",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "pseudomugil-signifer",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "nannostomus-digrammus",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "pseudocrenilabrus-multicolor-victoriae",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "pseudomystus-siamensis",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "parauchenoglanis-punctatus",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "guide",
-    "id": "glaser-en-25-perchlike-fishes-25g-perchlike-fishes-7-remaining-groups-toxotes-sp-new-en",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "rineloricaria-beni",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "mugilogobius-rexi",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "astronotus-ocellatus",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "chapalichthys-pardalis",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "xenopus-muelleri",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "hyphessobrycon-loretoensis",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "ichthyborus-ornatus",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "corydoras-diphyes",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "hyphessobrycon-pando",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "geophagus-megasema",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "aphyolebias-peruensis",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "tatia-dunni",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "clibanarius-africanus",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "copeina-osgoodi",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "macrobrachium-brasiliense",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "apistogramma-cacatuoides",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "parotocinclus-jumbo",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "gastromyzon-punctulatus",
-    "source": "aquariumbreeder",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "guide",
-    "id": "aquariumbreeder-everything-about-aquarium-activated-carbon",
-    "source": "aquariumbreeder",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "plant",
-    "id": "phyllantus-fluitans",
-    "source": "aquariumbreeder",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "guide",
-    "id": "aquariumbreeder-reasons-why-corals-die-in-aquariums",
-    "source": "aquariumbreeder",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "guide",
-    "id": "aquariumbreeder-do-aquariums-need-air-pumps",
-    "source": "aquariumbreeder",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "thiara-cancellata",
-    "source": "aquariumbreeder",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "guide",
-    "id": "aquariumbreeder-the-ideal-water-parameters-for-fish-and-shrimp-keeping",
-    "source": "aquariumbreeder",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "guide",
-    "id": "aquariumbreeder-best-plants-for-sand-aquariums",
-    "source": "aquariumbreeder",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "amphilius-uranoscopus",
-    "source": "scotcat",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "amphilius-rheophilus",
-    "source": "scotcat",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "amphilius-platychir",
-    "source": "scotcat",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "amphilius-natalensis",
-    "source": "scotcat",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "amphilius-lujani",
-    "source": "scotcat",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "amphilius-longirostris",
-    "source": "scotcat",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "amphilius-kivuensis",
-    "source": "scotcat",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "tachysurus-argentivittatus",
-    "source": "scotcat",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "betta-albimarginata",
-    "source": "bwaquatics",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-15",
-    "kind": "species",
-    "id": "moema-ortegai",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-15",
-    "kind": "species",
-    "id": "potamotyphlus-kaupii",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-15",
-    "kind": "guide",
-    "id": "glaser-en-10-catfishes-10c-catfishes-remaining-catfish-from-south-america-trachycorystes-sp-white-spots-en",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-15",
-    "kind": "species",
-    "id": "pseudeutropius-brachypopterus",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-15",
-    "kind": "species",
-    "id": "laimosemion-rectocaudatus",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-15",
-    "kind": "species",
-    "id": "corydoras-gossei",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-15",
-    "kind": "species",
-    "id": "lucania-goodei",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-15",
-    "kind": "species",
-    "id": "lepomis-megalotis",
-    "source": "glaser",
     "action": "new"
   }
 ]

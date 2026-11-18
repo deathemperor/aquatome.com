@@ -17,26 +17,32 @@
         "VE"
       ],
       "regions": [
-        "Rio Orinoco"
+        "Rio Orinoco",
+        "Orinoco",
+        "Rio Ventuari"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "L106, Hemiancistrus guahiborum, is a suckermouth catfish known only from the Rio Orinoco drainage in Venezuela.",
+          "quote": "Known only from the Rio Orinoco drainage, Venezuela.",
           "countries": [
             "VE"
           ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Known only from the Rio Orinoco drainage, Venezuela.",
-          "countries": [],
           "regions": [
             "Rio Orinoco"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The species occurs in the Orinoco drainage, type locality is the Rio Ventuari at raudales Tencua.",
+          "countries": [],
+          "regions": [
+            "Orinoco",
+            "Rio Ventuari"
           ]
         }
       ]

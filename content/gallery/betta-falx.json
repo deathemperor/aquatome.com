@@ -1,7 +1,78 @@
 {
   "id": "betta-falx",
-  "photos": [],
-  "seen": 3,
-  "updatedAt": "2026-11-06",
-  "builtAt": "2026-11-06"
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/600349824.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/600349824-480.webp",
+      "width": 1024,
+      "height": 625,
+      "licence": "CC BY-NC",
+      "author": "Rafael Abizar",
+      "sourceUrl": "https://www.inaturalist.org/photos/600349824",
+      "caption": "Cá betta falx đực vây đuôi viền xanh trong bể nền đá",
+      "best": true,
+      "kind": "male",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/600349957.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/600349957-480.webp",
+      "width": 1024,
+      "height": 667,
+      "licence": "CC BY-NC",
+      "author": "Rafael Abizar",
+      "sourceUrl": "https://www.inaturalist.org/photos/600349957",
+      "caption": "Cá betta falx cái có sọc chấm trong bể nền sỏi",
+      "best": true,
+      "kind": "female",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/600349845.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/600349845-480.webp",
+      "width": 1024,
+      "height": 454,
+      "licence": "CC BY-NC",
+      "author": "Rafael Abizar",
+      "sourceUrl": "https://www.inaturalist.org/photos/600349845",
+      "caption": "Cận cảnh cá betta falx đực vây viền xanh lam trong bể",
+      "best": true,
+      "kind": "male",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/265217798.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/265217798-480.webp",
+      "width": 1024,
+      "height": 484,
+      "licence": "CC BY-NC",
+      "author": "Hendra",
+      "sourceUrl": "https://www.inaturalist.org/photos/265217798",
+      "caption": "Cá betta falx trong hộp nhựa trong để chụp ảnh",
+      "best": false,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/614184584.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/614184584-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY-NC",
+      "author": "Hendra",
+      "sourceUrl": "https://www.inaturalist.org/photos/614184584",
+      "caption": "Cá betta falx trong hộp chụp ảnh bên cạnh thước đo",
+      "best": false,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    }
+  ],
+  "seen": 23,
+  "updatedAt": "2026-11-18",
+  "builtAt": "2026-11-18"
 }

@@ -807,6 +807,24 @@
       "kept": true
     }
   ],
+  "vi/guides/youtube-X1cBflLeYuU#body": [
+    {
+      "at": "2026-11-18T12:38:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.68,
+      "notes": [
+        "\"Cây cắt cắm ăn hết dinh dưỡng\" became \"Loại cây này ăn hết...\"; 'nhờ đó' (causal link) dropped, so reasoning is weaker.",
+        "\"Cỏ thìa (hair grass)\" changed to \"Ngưu mao chiên (hair grass)\": a different Vietnamese name for the plant.",
+        "\"Dương xỉ Java thường có thể lớn trùm cả bể trong vài tháng\" became \"hay lớn trùm cả bể chỉ sau vài tháng\": 'chỉ' adds emphasis; the hedge is kept.",
+        "\"Không nên trồng nhiều dương xỉ\" became \"Đừng trồng nhiều dương xỉ\": a softer recommendation turned into a firmer command.",
+        "\"hợp với bể nhỏ\" is now stated as a consequence (\"nên hợp\"), a slight logic change."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-XvXnPFqpa6E#body": [
     {
       "at": "2026-11-14T17:32:27Z",
