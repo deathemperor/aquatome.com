@@ -3,12 +3,14 @@
   "name": "Dòng chảy",
   "altNames": [
     "dòng chảy mạnh",
-    "dòng nước"
+    "dòng nước",
+    "Water flow"
   ],
   "sections": {},
-  "definition": "Chuyển động của nước trong bể do lọc, máy tạo sóng hoặc sục khí tạo ra. Cá suối như cá chạch suối, cá bám đá cần dòng chảy mạnh và nhiều oxy, trong khi cá betta, cá đĩa hay cá sống ở vùng nước tĩnh cần dòng chảy nhẹ.",
+  "body": "<h3>Trong bể của bạn</h3>\n<p>Khi mặt nước gợn, CO2 thoát ra ngoài và oxy hòa vào nước.</p>\n<p>Chỗ nước không lưu thông gọi là điểm chết. Cặn bẩn hay đọng ở đó và ở các góc bể. Dòng quá mạnh thì nhìn cá là biết: cá bơi vất vả và hay nép vào một góc hoặc chỗ trốn.</p>\n<p>Lưu lượng của lọc ghi bằng L/h hoặc GPH/LPH, hay bằng số lần thể tích bể mỗi giờ. Một tiệm ghi lưu lượng thật giảm 20–30% khi vật liệu lọc bẩn, và bông lọc nghẹt có thể cắt mất 50–70% mà người nuôi không để ý.</p>\n<h3>Nên làm gì</h3>\n<p>Cũng tiệm đó tính lưu lượng lọc (L/h) bằng thể tích bể (lít) nhân với số lần thể tích bể mỗi giờ hợp với cá nuôi:</p>\n<ul>\n<li>Bể thủy sinh nuôi cá nhỏ, tép: 5–8 lần thể tích bể mỗi giờ, dòng yếu để không xô cây.</li>\n<li>Bể nuôi chung thông thường, như cá vàng: 5–10 lần thể tích bể mỗi giờ.</li>\n<li>Cá lớn hoặc bơi nhanh, như cá đĩa: 8–12 lần thể tích bể mỗi giờ. Dù vậy, nên tránh để dòng mạnh xả thẳng vào cá đĩa.</li>\n</ul>\n<p>Tiệm này khuyên chọn lọc có lưu lượng ghi trên hộp cao hơn mức tính ra 20–30%, vì dòng thật yếu hơn. Tiệm cũng cảnh báo chuyện cúp điện. Bơm ngừng vài tiếng là oxy tụt, vi khuẩn kỵ khí sinh độc, vi khuẩn trong lọc yếu đi và cá căng thẳng rất nhanh, nhất là khi trời nóng hoặc bể nuôi dày. Có điện lại thì đừng chỉ bật lọc lên rồi thôi: nếu đo thấy chỉ số độc tăng thì thay một phần nước bằng nước đã khử clo.</p>\n<p>Cũng tiệm đó ghi cá nhỏ, bơi yếu cần dòng nhẹ hơn hết, còn cá betta cần dòng rất nhẹ, không hợp với lọc thùng hay lọc chìm dòng mạnh. Một tiệm khác gợi ý cho bể cá betta khoảng 2–4 lần thể tích bể mỗi giờ, chẳng hạn lọc 20–40 LPH cho bể 10 lít. Cách giảm dòng tiệm này đưa ra:</p>\n<ol>\n<li>Chỉnh lọc về mức thấp nhất.</li>\n<li>Chụp một miếng mút vào đầu ra của lọc treo.</li>\n<li>Hướng dòng ra vào thành bể, không xả vào chỗ cá bơi.</li>\n<li>Mua lọc có núm chỉnh lưu lượng, hoặc tự làm vách chắn bằng mút.</li>\n</ol>\n<p>Một tài liệu tham khảo ghi: loài chạch suối Sewellia lineolata cần dòng mạnh và nước nhiều oxy; lọc cho loài này tốt nhất là đảo nước 15–20 lần thể tích bể mỗi giờ.</p>",
+  "definition": "Dòng chảy là chuyển động của nước trong bể. Nó đưa oxy đi khắp bể, đẩy chất bẩn về phía lọc và giữ nhiệt độ đều.",
   "quality": {
-    "score": 0.9,
+    "score": 1,
     "indexable": true
   }
 }
