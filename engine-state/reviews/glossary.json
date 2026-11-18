@@ -1074,5 +1074,53 @@
       "attempt": "rewrite",
       "kept": false
     }
+  ],
+  "vi/glossary/luu-vuc": [
+    {
+      "at": "2026-11-18T17:25:21Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Loose, reworded: \"Bài gọi đây là nước khá trung tính, cá dễ thích nghi.\" → \"Bài gọi đây là nước khá trung tính và dễ thích ứng.\" (supported)",
+        "Loose, reworded: \"Tìm hiểu nước, nền, cây thường gặp và mùa nước của vùng đó trước khi mua bất cứ thứ gì.\" → \"Tìm hiểu hóa học nước, nền, cây thường gặp và điều kiện theo mùa của vùng đó trước khi mua bất cứ thứ gì.\" (supported)",
+        "Rule 12: \"nhưng một hệ sông có nhiều nơi sống riêng chứ không phải một nơi duy nhất\" (and \"bể biotope chép theo một vùng tự nhiên như vậy\") is a claim from one page only, a keeper's page (source 0), but it is written as plain fact with no opening such as \"Một nguồn người nuôi ghi …\". Crediting it would add a fourth page to the three already named (the Mekong shop guide, the steps shop and the ref…",
+        "Rule 4: \"Xếp nhầm cá vào lưu vực\" takes a side on the disagreement it reports. It calls the shop guide's listing of cá heo hề a misplacement as plain fact, while the next lines present the shop and \"một tài liệu tham khảo\" as disagreeing. The disagreement should be said once, without a heading that settles it."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T17:25:21Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Rule 1: The definition says the whole river system is the pattern the tank copies: \"Lưu vực là cả một hệ sông … bể biotope lấy lưu vực làm khuôn: cá, cây và đồ trang trí đều phải từ cùng một nơi ngoài tự nhiên\". Step 2 then says species in different branches of the same river system may never meet in the wild: \"loài ở các nhánh khác nhau của cùng một hệ sông có thể không bao giờ gặp nhau ngoài tự…",
+        "Rule 4: The rule that fish, plants and decor must all come from one place is said twice. It appears in the definition (\"cá, cây và đồ trang trí đều phải từ cùng một nơi ngoài tự nhiên\") and again in the steps (\"Chọn nền, đá và lũa hợp với nơi sống đó\" and \"Chỉ thả những loài sống chung ở nơi đó và chỉ trồng cây bản địa của vùng\"). It should be said once, in one place."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T17:25:21Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Rule 4: The definition says \"bể biotope lấy lưu vực làm khuôn: cá, cây và đồ trang trí đều phải từ cùng một nơi ngoài tự nhiên\", and the body says the same thing again in \"Bể biotope chép lại một nơi có thật ngoài tự nhiên, và lưu vực là đơn vị địa lý để chọn nơi đó. Cá, cây và đồ trang trí trong bể đều phải từ cùng một chỗ\". It should be said once.",
+        "Rule 4: Step 5 (\"Chỉ thả những loài sống chung ở nơi đó và chỉ trồng cây bản địa của vùng. Nơi ngoài tự nhiên vốn trống trơn thì không trồng cây\") is repeated under Sai lầm hay gặp as \"Thả chung cá từ các châu lục hay nơi sống khác nhau vào một bể biotope\" and \"Dùng rêu hoặc cây ngoài vùng sinh thái gốc, hay trồng cây vào nơi ngoài tự nhiên vốn không có cây\". Each point should be said in one plac…",
+        "Rule 4: Step 7 (\"Chạy bể 4–6 tuần rồi mới thả dần\") is repeated as the mistake \"Thả cá khi bể chưa chạy xong chu trình nitơ. Amoniac và nitrit cao có thể làm cá sốc và chết\".",
+        "Rule 6: \"Vallisneria\" in \"Vallisneria trồng trên cát chỗ dòng vừa\": PAGES has a line for the genus Vallisneria, and its page name is \"Vallisneria (cỏ lươn)\".",
+        "Rule 12: The tank-setup lines that no fact ties to the basin should be left to the link to Bể biotope's entry. These are step 3 (\"Chọn cỡ bể... 60–80 lít... nặng khoảng 100 kg\"), step 6 (\"Chỉnh nước theo biotope trước khi thả cá... đo pH, GH và KH mỗi tuần\"), step 7 (\"Chạy bể 4–6 tuần rồi mới thả dần\") and the mistake \"Thả cá khi bể chưa chạy xong chu trình nitơ\".",
+        "Rule 12: In \"Bể 80 lít set xong có thể nặng khoảng 100 kg, nên phải xem sàn có chịu nổi không\", \"nên\" joins two facts that no single fact joins: the weight comes from the mistakes fact and the floor check from step 3.",
+        "Rule 12: \"Đoạn hạ lưu sông Mekong chảy qua Lào, Thái Lan, Campuchia và Việt Nam\" is a claim from one page (the Mekong guide shop). It is written as plain fact before that shop's opening, so it should be moved under the opening \"Bài hướng dẫn biotope sông Mekong của một tiệm ghi\".",
+        "Rule 12: \"Một hệ sông lớn lại không phải một nơi sống duy nhất. Trong nó có thể có nhiều biotope riêng\" is a claim from one keeper's page, written as plain fact. The entry already names three pages (the Mekong shop, the steps shop and the reference), and this is background a keeper can't act on, so it should be dropped.",
+        "Rule 12: The mistake \"Thả cá khi bể chưa chạy xong chu trình nitơ. Amoniac và nitrit cao có thể làm cá sốc và chết\" is a claim from one shop, written as plain fact. It would make a fourth page, so it should wait for a second page.",
+        "The entry is 448 words: hold it to about 400, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
   ]
 }
