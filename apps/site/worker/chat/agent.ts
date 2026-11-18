@@ -199,7 +199,11 @@ export function openingAsk(question: string, lang: Lang): string {
 }
 /** A line later than this is no use: the steps show by then. Its call doesn't think: the line is a restatement. */
 const OPENING_MS = 5_000
-export const OPENING_TOKENS = 150
+/**
+ * Room for a line as long as the check lets one be (opening.ts `OPENING_CHARS`), in every language. Thai takes the most:
+ * with 150, a long post's Thai line stopped at about 165 characters, mid-word, in 3 of 3 tries (17 Nov), and was shown.
+ */
+export const OPENING_TOKENS = 300
 /**
  * How a call that mustn't think (the first line, the short last answer) says so to each model, as the API took it on
  * 15 Nov: Haiku 5.5 takes `disabled`; Sonnet 5.5 refuses that and takes `between_tools`; Opus 5.5 refuses both and always
@@ -326,7 +330,8 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
   const line = o.opening
     ? o.send({ model: o.model, max_tokens: OPENING_TOKENS + off.room, ...(off.thinking ? { thinking: off.thinking } : {}), ...(off.effort ? { output_config: { effort: off.effort } } : {}), system: OPENING_SYSTEM, messages: [firstMessage(o.lang, openingAsk(o.question, o.lang), o.earlier, o.start, o.handbook)] }, { timeoutMs: OPENING_MS, call: 0 }).then(m => {
         const text = m.content.flatMap(b => (b.type === 'text' ? [b.text] : [])).join('').trim()
-        const shown = text === '-' ? undefined : openingOf(text, o.lang)
+        // A line its call didn't end of its own accord (its token room ran out) is cut: it isn't shown.
+        const shown = text === '-' || m.stop_reason !== 'end_turn' ? undefined : openingOf(text, o.lang)
         if (shown && !begun) { opening = shown; o.onOpening?.(shown) }
         return m.usage
       }).catch(() => undefined)
