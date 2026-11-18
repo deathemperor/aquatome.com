@@ -12,6 +12,7 @@ import { asNum, asRange } from '../lib/species-index'
  * (content/traits), for the temperament and social needs of "Vì sao độ khó này"; a breed has none.
  */
 interface Props { card: Partial<Record<DataCardField, { source: string; value: Range | number }[]>>; sources: Partial<Record<string, { name: string }>>; traits?: Pick<NeedInput, 'temperament' | 'finNipper' | 'schoolMin'>; fish?: boolean }
+// `fish`: false on a crab's, a shrimp's or a snail's page: its tips and its size line don't call it a fish ("con dài", not "cá dài").
 const { card, sources, traits, fish = true } = Astro.props
 const { t, lang } = i18n(Astro.url)
 const { num, range } = fmt(lang)
@@ -57,7 +58,7 @@ const around = (s: string) => s.split(/\{\w+\}/) as [string, string]
                               {n.key === 'space' && <>
                                 {n.tankCm !== undefined && <>{around(t('bể từ {cm}'))[0]}<span data-cm={`${n.tankCm},${n.tankCm}`}>{num(n.tankCm)} cm</span>{around(t('bể từ {cm}'))[1]}</>}
                                 {n.tankCm !== undefined && n.sizeCm !== undefined && ', '}
-                                {n.sizeCm !== undefined && <>{around(t('cá dài {cm}'))[0]}<span data-cm={`${n.sizeCm},${n.sizeCm}`}>{num(n.sizeCm)} cm</span>{around(t('cá dài {cm}'))[1]}</>}
+                                {n.sizeCm !== undefined && <>{around(fish ? t('cá dài {cm}') : t('con dài {cm}'))[0]}<span data-cm={`${n.sizeCm},${n.sizeCm}`}>{num(n.sizeCm)} cm</span>{around(fish ? t('cá dài {cm}') : t('con dài {cm}'))[1]}</>}
                               </>}
                               {n.key === 'water' && <>
                                 {n.why.map(w => t(WHY_WORDS[w])).join(', ')}{n.why.length > 0 && ' · '}
