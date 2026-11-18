@@ -1579,3 +1579,18 @@ test('the test account\'s stop before the text counts: its 20 a day stay 20', as
   await tick()
   expect(Object.values(ledger.day()!.readers)).toEqual([1])
 })
+
+// Codex's re-check of #1637: an answer cut off on the stream, or a failed run, gave the tester's count back, so a paid
+// 20th could let in a 21st. Its count never comes back; a reader's still does.
+test('the test account\'s count never comes back: an answer cut off on the stream still counts for it, as it doesn\'t for a reader', async () => {
+  const cut = () => claude([() => msg([{ type: 'text', text: '{"offTopic":false,"text":"Cá neon xanh sống theo đàn, từ 8 con' }], 'max_tokens')])
+  const counted: number[][] = []
+  for (const tester of [true, false]) {
+    const { e, db, ledger } = env({ CHAT_TESTER: 'on' })
+    const who = tester ? await testerIn(db) : await signIn(db)
+    const s = await run(ask(bearer(who.token), {}, { accept: 'text/event-stream' }), e, deps(cut().fetch))
+    expect((await s.res.text()).endsWith('event: error\ndata: {"error":"failed"}\n\n')).toBe(true)
+    counted.push(Object.values(ledger.day()!.readers))
+  }
+  expect(counted).toEqual([[1], [0]])
+})

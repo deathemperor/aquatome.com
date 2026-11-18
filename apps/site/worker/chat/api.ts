@@ -533,7 +533,8 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
     const ok = turn ? wrote : undefined
     const offTopic = done.status === 200 && trail?.answer?.offTopic === true
     const cutOff = !turn && wordsAt !== undefined && !stopped
-    await ledger.settle({ day, run, refund: done.status === 503 || cutOff, ...(offTopic && role !== 'tester' ? { offTopic: perAccount } : {}), keys: tally, ...(ok ? { ok } : {}) }).catch(e => console.error('chat settle:', e))
+    // The test account's count never comes back (accounts/tester.ts): a run that began may have been paid for.
+    await ledger.settle({ day, run, refund: role !== 'tester' && (done.status === 503 || cutOff), ...(offTopic && role !== 'tester' ? { offTopic: perAccount } : {}), keys: tally, ...(ok ? { ok } : {}) }).catch(e => console.error('chat settle:', e))
   }
   /** Then, once the reader has the answer: the transcript, and the check for an account deleted meanwhile. */
   const after = async (done: { status: number; body: Record<string, unknown> }) => {
