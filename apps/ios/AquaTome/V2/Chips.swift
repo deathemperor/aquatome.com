@@ -98,7 +98,7 @@ struct ChipPage: View {
     .background(OpensAtTop())
     .navigationTitle(shelf.chip.name)
     .accessibilityIdentifier("v2-chip-page")
-    .onAppear { ownScreen() }
+    .onAppear { ownScreen(ChipRoute(shelf: shelf)) }
   }
 
   /// "153 trang", or "1 trang · 4 bài viết" when guides are about it; under it, whose photo the chip shows, "Ảnh đại

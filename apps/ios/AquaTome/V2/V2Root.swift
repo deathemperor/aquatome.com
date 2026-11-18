@@ -40,8 +40,15 @@ struct V2Root: View {
             if ownFrom == nil { ownFrom = handbookPath.count }
             handbookPath.append(FullPage(item: item, at: at))
           }
-          // A group's page as it appears, the path's last: pushed by a chip's own link, not through here.
-          .environment(\.v2OwnScreen) { if ownFrom == nil { ownFrom = max(handbookPath.count - 1, 0) } }
+          // A group's page as it appears, if it's the path's last: pushed by a chip's own link, not through here. One
+          // drawn again as the tab comes back after a link replaced the stack (the kept pages' row) isn't on it now.
+          .environment(\.v2OwnScreen) { route in
+            guard ownFrom == nil, !handbookPath.isEmpty else { return }
+            var p = handbookPath
+            p.removeLast()
+            p.append(route)
+            if p == handbookPath { ownFrom = handbookPath.count - 1 }
+          }
           .v2ClearUnderTabBar()
       }
       // v1's screens: a fade of a set height, as their ends have no room for one that grows with the text.
@@ -254,9 +261,9 @@ extension EnvironmentValues {
   /// A fish's or plant's page as v1 draws it (FullPage), pushed on the stack in front where v2's holds a part it can't draw
   /// ("Xem phần này ở trang đầy đủ"), counted for switching back to v1 (V2Root).
   @Entry var v2OpenFull: (HandbookIndex.Item, _ at: String?) -> Void = { _, _ in }
-  /// A screen of v2's own that v1 has no screen for (a group's page), on Khám phá's stack: it calls this as it appears,
-  /// so switching back to v1 cuts the path there (V2Root's `ownFrom`).
-  @Entry var v2OwnScreen: () -> Void = {}
+  /// A screen of v2's own that v1 has no screen for (a group's page), on Khám phá's stack: it calls this with its route
+  /// as it appears, so switching back to v1 cuts the path there (V2Root's `ownFrom`).
+  @Entry var v2OwnScreen: (ChipRoute) -> Void = { _ in }
   /// On v2's search tab, whose screen is v1's (HandbookView): a fish's or plant's page opens as v2 draws it there too.
   @Entry var v2Pages = false
   /// What the tab stands on under its bar and fade, for a page whose colour reaches them (ClearUnderTabBar).
