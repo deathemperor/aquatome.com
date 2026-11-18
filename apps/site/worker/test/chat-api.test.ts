@@ -656,13 +656,13 @@ test('the stream: a reader still there gets the longer turn\'s calls; one who le
   // the run's limits, and on 14 Nov a loaded machine stopped the JSON answer on 'time' at its fourth call.
   const at = Date.now()
   const clock = () => at + offset
-  /** A Claude that searches until it may only answer, each call 2.5 s: every search a step sent, as a reader there sees it. */
-  const slow = (ms = 0) => {
+  /** A Claude that searches until it may only answer, each call `step` (2.5 s): every search a step sent, as a reader there sees it. */
+  const slow = (ms = 0, step = 2_500) => {
     const bodies: Record<string, unknown>[] = []
     const fetch = (async (input: RequestInfo | URL, init?: RequestInit) => {
       const b = await new Request(input, init).json() as Record<string, unknown>
       bodies.push(b)
-      offset += 2_500
+      offset += step
       if (ms) await new Promise(r => setTimeout(r, ms))
       const r = (b.tool_choice as { type: string }).type === 'none' ? answers({})
         : msg([{ type: 'thinking', thinking: '', signature: `s${seq}` }, { type: 'tool_use', id: `t${seq}`, name: 'search_handbook', input: { query: `neon ${bodies.length}`, kind: null } }], 'tool_use')
@@ -671,14 +671,16 @@ test('the stream: a reader still there gets the longer turn\'s calls; one who le
     return { fetch, bodies }
   }
   const recordOf = (conversation: string) => [...store.m.keys()].filter(k => k.startsWith('chat-run/')).map(k => store.read<ChatRunRecord>(k)!).find(r => r.conversation === conversation)!
-  // There all along: every step it is sent lands, so the turn's 10 calls are what end it, not the time.
-  const there = slow()
+  // There all along: every step it is sent lands, so it reads on toward 20 s (ANSWER_BY), 6 calls of 3 s; the 7th is asked
+  // to answer through send_answer, since one read past it still leaves the answer's call by 21 s all its room (loop.ts
+  // `asking`), and reads instead, and the 8th must answer. The transcript says the ask was read past.
+  const there = slow(0, 3_000)
   const thereWaits: Promise<unknown>[] = []
   const thereReq = ask(bearer(me.token), {}, { accept: 'text/event-stream' })
   const read = (await chat(thereReq, new URL(thereReq.url), e, new Date(), deps(there.fetch, { clock }), p => { thereWaits.push(p) })).text()
   await Promise.all(thereWaits)
   await read
-  expect(recordOf(CONV).agent).toMatchObject({ calls: 10, stopped: 'calls' })
+  expect(recordOf(CONV).agent).toEqual({ calls: 8, tools: 6, stopped: 'time', asked: 'read' })
   expect(recordOf(CONV).timing!.seen).toBeGreaterThanOrEqual(recordOf(CONV).timing!.answered!)
   // Gone at once: 26 s from then (the platform's 30 less the save's 4), the pace's rule forces the answer at the 4th call;
   // the turn is kept for their return.
@@ -846,6 +848,30 @@ test('a first call whose text has begun isn\'t asked again of the next key when 
   expect(events.at(-1)).toEqual({ event: 'error', data: { error: 'unavailable' } })
 })
 
+test('send_answer\'s input with a key written twice is no answer: the reader read the first, JSON keeps the last, and nothing else is saved or sent (Codex, 17 Nov)', async () => {
+  const { e, db, store } = env()
+  const me = await signIn(db)
+  const ev = (type: string, data: Record<string, unknown>) => `event: ${type}\ndata: ${JSON.stringify({ type, ...data })}\n\n`
+  const raw = '{"offTopic": false, "text": "Cá neon xanh sống theo đàn.", "covered": true, "blocks": [], "suggestions": [], "clashes": [], "text": "Một câu trả lời khác hẳn."}'
+  const twice = [
+    ev('message_start', { message: { id: 'm', type: 'message', role: 'assistant', model: 'claude-opus-5-5', content: [], stop_reason: null, stop_sequence: null, usage } }),
+    ev('content_block_start', { index: 0, content_block: { type: 'tool_use', id: 'toolu_1', name: 'send_answer', input: {} } }),
+    ...raw.match(/.{1,12}/gs)!.map(partial_json => ev('content_block_delta', { index: 0, delta: { type: 'input_json_delta', partial_json } })),
+    ev('content_block_stop', { index: 0 }),
+    ev('message_delta', { delta: { stop_reason: 'tool_use', stop_sequence: null }, usage: { output_tokens: 40 } }),
+    ev('message_stop', {}),
+  ].join('')
+  const fetch = (async () => new Response(twice, { headers: { 'content-type': 'text/event-stream' } })) as typeof globalThis.fetch
+  const { res } = await run(ask(bearer(me.token), {}, { accept: 'text/event-stream' }), e, deps(fetch))
+  const text = await res.text()
+  expect(streamMisfits(text, sseMedia)).toEqual([])
+  const events = text.split('\n\n').filter(Boolean).map(b => ({ event: b.split('\n')[0]!.slice('event: '.length), data: JSON.parse(b.split('\ndata: ')[1]!) }))
+  expect(events.filter(x => x.event === 'text').map(x => x.data.text).join('')).toBe('Cá neon xanh sống theo đàn.')
+  expect(events.at(-1)!.event).toBe('error')
+  expect(text).not.toContain('Một câu trả lời khác hẳn.')
+  expect([...store.m.entries()].filter(([k]) => !k.startsWith('chat-run/')).map(([, v]) => v.body).join(' ')).not.toContain('Một câu trả lời khác hẳn.')
+})
+
 /** A stream that sends `events`, then loses its connection (`error`) or ends there (`end`), before the message is whole. */
 const cutStream = (events: string, how: 'error' | 'end') => {
   let sent = false
@@ -913,7 +939,8 @@ test('a streamed call is bounded end to end: one that stalls after its first byt
 describe('a call that has begun writing', () => {
   const event = (type: string, data: object) => `event: ${type}\ndata: ${JSON.stringify({ type, ...data })}\n\n`
   const start = event('message_start', { message: { id: 'm', type: 'message', role: 'assistant', model: 'claude-opus-5-5', content: [], stop_reason: null, stop_sequence: null, usage } })
-  const writes = event('content_block_start', { index: 0, content_block: { type: 'text', text: '' } }) + event('content_block_delta', { index: 0, delta: { type: 'text_delta', text: 'Nước' } })
+  // The chat's answer is its JSON (answer.ts `answerFeed`): words that aren't, before a tool call, aren't writing it.
+  const writes = event('content_block_start', { index: 0, content_block: { type: 'text', text: '' } }) + event('content_block_delta', { index: 0, delta: { type: 'text_delta', text: '{"offTopic":false,"text":"Nước' } })
   const ends = event('content_block_stop', { index: 0 }) + event('message_delta', { delta: { stop_reason: 'end_turn', stop_sequence: null }, usage: { output_tokens: 1 } }) + event('message_stop', {})
   const body = { model: 'claude-opus-5-5', max_tokens: 10, messages: [{ role: 'user' as const, content: 'hi' }] }
   /** A stream that sends `first` at once and, `ms` later, `then` (and ends), or nothing more with no `then`. */
@@ -927,7 +954,7 @@ describe('a call that has begun writing', () => {
   test('runs past its limit to the time left, so an answer on its way isn\'t lost', async () => {
     const said: string[] = []
     const m = await callClaude(await streams(start + writes, ends, 250), body, 100, d => said.push(d), undefined, 2000)
-    expect(said).toEqual(['Nước'])
+    expect(said).toEqual(['{"offTopic":false,"text":"Nước'])
     expect(m.stop_reason).toBe('end_turn')
   })
 
@@ -937,6 +964,34 @@ describe('a call that has begun writing', () => {
     expect(Date.now() - t).toBeGreaterThanOrEqual(250)
     expect(Date.now() - t).toBeLessThan(2000)
     expect(isApiError(e) && e.status === undefined).toBe(true)
+  })
+
+  test('send_answer\'s input is the answer being written: it goes to onDelta as written, and the call runs past its limit to the time left', async () => {
+    const tool = event('content_block_start', { index: 0, content_block: { type: 'tool_use', id: 'toolu_1', name: 'send_answer', input: {} } })
+      + event('content_block_delta', { index: 0, delta: { type: 'input_json_delta', partial_json: '{"offTopic": false, "text": "Nư' } })
+    const rest = event('content_block_delta', { index: 0, delta: { type: 'input_json_delta', partial_json: 'ớc"}' } }) + event('content_block_stop', { index: 0 })
+      + event('message_delta', { delta: { stop_reason: 'tool_use', stop_sequence: null }, usage: { output_tokens: 1 } }) + event('message_stop', {})
+    const said: string[] = []
+    const m = await callClaude(await streams(start + tool, rest, 250), body, 100, d => said.push(d), undefined, 2000)
+    expect(said).toEqual(['{"offTopic": false, "text": "Nư', 'ớc"}'])
+    expect(m.content).toMatchObject([{ type: 'tool_use', name: 'send_answer', input: { offTopic: false, text: 'Nước' } }])
+    // Another tool's input is no answer: nothing to onDelta, and a call still silent at its limit is stopped.
+    const read = event('content_block_start', { index: 0, content_block: { type: 'tool_use', id: 'toolu_2', name: 'read_page', input: {} } })
+      + event('content_block_delta', { index: 0, delta: { type: 'input_json_delta', partial_json: '{"path":"/vi/' } })
+    const none: string[] = []
+    const e = await callClaude(await streams(start + read), body, 100, d => none.push(d), undefined, 2000).catch(x => x)
+    expect([none, isApiError(e) && e.status === undefined]).toEqual([[], true])
+  })
+
+  test('a call that doesn\'t stream leaves the answer tool\'s eager_input_streaming off', async () => {
+    let sent: Record<string, unknown> | undefined
+    const c = await clientFor({ key: 'sk-ant-test', hash: 'h' } as KeyEntry, (async (input: RequestInfo | URL, init?: RequestInit) => {
+      sent = await new Request(input, init).json() as Record<string, unknown>
+      return Response.json({ id: 'm', type: 'message', role: 'assistant', model: 'claude-opus-5-5', content: [{ type: 'text', text: 'x' }], stop_reason: 'end_turn', stop_sequence: null, usage })
+    }) as typeof globalThis.fetch)
+    const tools = [{ name: 'read_page', description: 'd', input_schema: { type: 'object' as const }, strict: true }, { name: 'send_answer', description: 'd', input_schema: { type: 'object' as const }, eager_input_streaming: true }]
+    await callClaude(c, { ...body, tools }, 1000)
+    expect(sent!.tools).toEqual([tools[0], { name: 'send_answer', description: 'd', input_schema: { type: 'object' } }])
   })
 
   test('a call still silent at its limit gets no more time', async () => {
