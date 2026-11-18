@@ -10,6 +10,132 @@
     "mexico",
     "xochimilco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MX"
+      ],
+      "regions": [
+        "Lake Xochimilco"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "Axolotls are native to Mexico and are endangered in the wild due to urbanisation, water pollution and the introduction of invasive predators.",
+          "countries": [
+            "MX"
+          ],
+          "regions": []
+        },
+        {
+          "source": "aquariumbreeder",
+          "quote": "Their natural habitat is Lake Xochimilco, but numbers are dwindling because of water pollution, invasive species eating the axolotls and their eggs, and their being treated as a delicacy by locals.",
+          "countries": [],
+          "regions": [
+            "Lake Xochimilco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2431950,
+      "total": 229,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "MX",
+          222
+        ],
+        [
+          "CA",
+          2
+        ],
+        [
+          "DE",
+          2
+        ],
+        [
+          "NZ",
+          2
+        ],
+        [
+          "UA",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -108.28125,
+          28.125,
+          1,
+          1
+        ],
+        [
+          -102.65625,
+          18.28125,
+          5,
+          5
+        ],
+        [
+          -102.65625,
+          22.5,
+          3,
+          3
+        ],
+        [
+          -102.65625,
+          23.90625,
+          4,
+          4
+        ],
+        [
+          -99.84375,
+          18.28125,
+          202,
+          202
+        ],
+        [
+          -99.84375,
+          19.6875,
+          7,
+          7
+        ],
+        [
+          -75.9375,
+          45,
+          2,
+          0
+        ],
+        [
+          8.4375,
+          49.21875,
+          1,
+          0
+        ],
+        [
+          12.65625,
+          52.03125,
+          1,
+          0
+        ],
+        [
+          30.9375,
+          47.8125,
+          1,
+          0
+        ],
+        [
+          172.96875,
+          -42.1875,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

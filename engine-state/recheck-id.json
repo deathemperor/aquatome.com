@@ -1,9 +1,37 @@
 {
+  "abramites-hypselonotus": {
+    "hash": "47c7d42020521f764b1b790c086368225bb1da1458a0844749f61c98b1e354e1",
+    "at": "2026-11-18T05:46:18.779Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "acanthocobitis-pavonacea": {
+    "hash": "99069d067a0130c0e0af912ee8e19e4a8fee931542320d5ce8e5c8ee48279b90",
+    "at": "2026-11-18T05:46:27.473Z",
+    "sonnet": 0.6,
+    "back": false
+  },
   "agamyxis-pectinifrons": {
     "hash": "b421cb0d3464b7f92ec734be2cea1e3da7f52e1d7b0cd63eaf546601808df7a2",
     "at": "2026-11-18T00:33:39.115Z",
     "sonnet": 0.9,
     "opus": 0.93,
+    "back": true
+  },
+  "ambystoma-mexicanum": {
+    "hash": "9aad3e8e75ec0eea53223600fb90fa0dc4469440500250f43c2d3a8f13747de5",
+    "at": "2026-11-18T05:43:38.638Z",
+    "sonnet": 0.7,
+    "back": false,
+    "held": [
+      "Item 4: \"treated as a delicacy\" became \"hidangan istimewa\"; better \"dijadikan santapan/makanan lezat\" – minor."
+    ]
+  },
+  "arius-oetik": {
+    "hash": "94dd834488a22919ed08b92e8fc88cc09c0ba1aec8f77c8e7cea8de78cedbeae",
+    "at": "2026-11-18T05:44:03.431Z",
+    "sonnet": 0.8,
+    "opus": 0.95,
     "back": true
   },
   "astacus-astacus": {
@@ -73,6 +101,12 @@
   "corydoras-bifasciatus": {
     "hash": "b36a7e2a3f04063aeaeef63454cbe5154ebc1bbd75bcc3222b5d9819a0b53885",
     "at": "2026-11-17T11:24:15.208Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "corydoras-paleatus": {
+    "hash": "69e392c1e92e997e10b4f1178e72a840e885f175c09ba08301d9b3ac86c1c0e1",
+    "at": "2026-11-18T05:45:53.973Z",
     "sonnet": 0.7,
     "back": false
   },
@@ -195,6 +229,12 @@
     "sonnet": 0.6,
     "back": false
   },
+  "epalzeorhynchos-kalopterus": {
+    "hash": "bf6521158b00aad6d98a152415b93b5ec69199fdcc1e1fda27770c5bed223466",
+    "at": "2026-11-18T05:44:45.747Z",
+    "sonnet": 0.7,
+    "back": false
+  },
   "gastromyzon-punctulatus": {
     "hash": "7f4e31e08717e43d71a18465c60692ae3addde22a75870c252f7d82f1a233c5c",
     "at": "2026-11-17T17:47:39.604Z",
@@ -203,6 +243,24 @@
     "held": [
       "Item 12: \"fights are always harmless\" became \"perkelahiannya selalu tidak berbahaya\". This is acceptable, but \"Sesamanya\" is awkward. Use \"Sesama ikan ini\"."
     ]
+  },
+  "gymnothorax-polyuranodon": {
+    "hash": "1a3f6ab005382ac94819acb54a94ccf243cac210403151d8af0f6bca132c20a4",
+    "at": "2026-11-18T05:44:14.288Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "helostoma-temminckii": {
+    "hash": "f1001110c9f9bee174543197df296c24c2512a55eb32ed07eb2637a94a27b58e",
+    "at": "2026-11-18T05:44:31.751Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "hemigrammus-bleheri": {
+    "hash": "d8e8a079e754ea794740905c94fb6d5518751426f7b616aecbc5ad106b9de855",
+    "at": "2026-11-18T05:46:06.745Z",
+    "sonnet": 0.6,
+    "back": false
   },
   "hemirhamphodon-tengah": {
     "hash": "dae8dcb98221805268f101be218738b005fcbb426793b5057e1beabc6532c8bb",
@@ -237,6 +295,13 @@
     "opus": 0.9,
     "back": true
   },
+  "maylandia-estherae": {
+    "hash": "3e18bf404ea7cf4afed0e4a44236bc672353536adfc88ed4a049a811e5be4e74",
+    "at": "2026-11-18T05:45:22.831Z",
+    "sonnet": 0.9,
+    "opus": 0.9,
+    "back": true
+  },
   "mikrogeophagus-ramirezi": {
     "hash": "08f12294cad7ba729bc3be9017777a19c219869d8a950c50de6b728b5e097e32",
     "at": "2026-11-18T00:30:22.448Z",
@@ -266,8 +331,14 @@
     ]
   },
   "paracheirodon-axelrodi": {
-    "hash": "1550ab1a5221807df975eda9142654fb254647de4507459b0f651f7a191450f6",
-    "at": "2026-11-17T17:49:13.287Z",
+    "hash": "591f04bb0c80c26cc263605f77dedee6aa70bcd3fb6e5afc70ed80f1877236a4",
+    "at": "2026-11-18T05:43:25.259Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "pethia-conchonius": {
+    "hash": "5b515427ea92a270b8f70b5c56546e5070a90f786dd59743a15da1576597e3da",
+    "at": "2026-11-18T05:44:51.647Z",
     "sonnet": 0.45,
     "back": false
   },
@@ -289,6 +360,32 @@
     "at": "2026-11-18T00:32:04.747Z",
     "sonnet": 0.5,
     "back": false
+  },
+  "sphaerichthys-vaillanti": {
+    "hash": "3701d22e6e77749ac7ad9cf70de94953acce044cb4d6c7dd9faea01adbb94d8e",
+    "at": "2026-11-18T05:44:20.449Z",
+    "sonnet": 0.3,
+    "back": false
+  },
+  "trichogaster-lalius": {
+    "hash": "35847b8e3df4bbc4fc27d1837e9e0ea19c7abc1ed16cdcd22c9ed7355af94654",
+    "at": "2026-11-18T05:45:42.395Z",
+    "sonnet": 0.6,
+    "back": false,
+    "held": [
+      "Item 3: the 'Minimum tank size: 15 gallons (~60 litres)' figure is fine, but 'Nitrat: kurang dari 60' is left without a unit (mg/L). Add the unit.",
+      "Item 16: 'dipaparkan hingga 4 g/L' is awkward; use 'dapat terpapar'. Also 'Nitrat: kurang dari 60' lacks a unit.",
+      "Item 3: 'Minimum tank size: 15 gallons (~60 litres)' is fine, but the 'Nitrate: less than 60' line is left without a unit (mg/L). Add the unit or keep as in the source."
+    ]
+  },
+  "xiphophorus-hellerii": {
+    "hash": "c32b8f67ededd350dc6b18cd432c2d446ad22d49cc4f59ed4a15d6617fc5bad0",
+    "at": "2026-11-18T05:45:29.051Z",
+    "sonnet": 0.5,
+    "back": false,
+    "held": [
+      "Item 3: 'Nitrat: kurang dari 60' lacks a unit (mg/L or ppm), as in the source; add the unit if known."
+    ]
   },
   "xiphophorus-maculatus": {
     "hash": "28e5bb514c0a0be50891b04475cc8d6fd9bf97ea80b24287324e09f1ec08a334",

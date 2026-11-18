@@ -9,6 +9,68 @@
     "south-america",
     "paraguay"
   ],
+  "range": {
+    "records": {
+      "taxonKey": 2339229,
+      "total": 11,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "BR",
+          6
+        ],
+        [
+          "PE",
+          3
+        ],
+        [
+          "AR",
+          1
+        ],
+        [
+          "PY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -9.84375,
+          2
+        ],
+        [
+          -75.9375,
+          -8.4375,
+          1
+        ],
+        [
+          -59.0625,
+          -32.34375,
+          1
+        ],
+        [
+          -59.0625,
+          -16.875,
+          1
+        ],
+        [
+          -57.65625,
+          -26.71875,
+          1
+        ],
+        [
+          -56.25,
+          -15.46875,
+          4
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -19,22 +81,10 @@
   },
   "sections": [
     {
-      "key": "quickFacts",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brochiloricaria-macrodon/",
-      "html": "<p>A mouthbrooding whiptail catfish received from Paraguay. Specimens in the current import are about 15 cm long, most probably only half grown, as there are reports of B. macrodon reaching 30 cm.</p>"
-    },
-    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brochiloricaria-macrodon/",
       "html": "<p>Brochiloricaria have a completely different mouth structure and feeding habit from Lamontichthys. Like most mouthbrooding whiptail catfish, they are more interested in meaty food than in Aufwuchs.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brochiloricaria-macrodon/",
-      "html": "<p>In the recent import the prolongations of the fins are very obvious, which is somewhat reminiscent of Lamontichthys. The species was once available as captive-bred fish many years ago.</p>"
     }
   ],
   "photos": [

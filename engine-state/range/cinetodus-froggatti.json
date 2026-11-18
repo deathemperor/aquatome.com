@@ -1,0 +1,102 @@
+{
+  "id": "cinetodus-froggatti",
+  "native": {
+    "input": "21363ee3ce08c0f4",
+    "at": "2026-11-18T06:03:35.101Z",
+    "claims": [
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Oceania: southern New Guinea and the Roper River system, northern Australia; in coastal waters, estuaries and into fresh water.",
+        "words": "Australia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "New Guinea",
+        "source": "scotcat",
+        "quote": "Oceania: southern New Guinea and the Roper River system, northern Australia; in coastal waters, estuaries and into fresh water.",
+        "ok": true
+      },
+      {
+        "name": "Roper River",
+        "source": "scotcat",
+        "quote": "Oceania: southern New Guinea and the Roper River system, northern Australia; in coastal waters, estuaries and into fresh water.",
+        "country": "AU",
+        "ok": true
+      },
+      {
+        "name": "Strickland River",
+        "source": "scotcat",
+        "quote": "Type locality: Strickland River, New Guinea.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PG"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cinetodus froggatti",
+    "status": "ACCEPTED",
+    "taxonKey": 2345483,
+    "datasets": [
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        36
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        7
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        5
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        3
+      ],
+      [
+        "18c93d12-34fb-4d3f-903c-b77215a1dcc9",
+        2
+      ],
+      [
+        "358fbd61-739f-4102-afc9-9d468f571e4d",
+        2
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        2
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "d51f93a6-a5b7-4025-83a9-3f7b8525755a",
+        2
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "AU"
+    ],
+    "requests": 11,
+    "at": "2026-11-18T06:03:35.101Z"
+  }
+}

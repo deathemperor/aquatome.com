@@ -12,6 +12,182 @@
     "malay-peninsula",
     "indonesia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Malay Peninsula"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "There are two, pretty similar species of Nandus occurring in Thailand: the deep-bodied N. oxyrhynchus from the basins of the large rivers Mekong and Mae Klong and the somewhat more slender, short-nosed N. nebulosus from the south of the country.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "The greatest part of the natural range of N. nebulosus is the Malay Peninsula and Indonesia.",
+          "countries": [],
+          "regions": [
+            "Malay Peninsula"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2399363,
+      "total": 28,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "ID",
+          13
+        ],
+        [
+          "MY",
+          10
+        ],
+        [
+          "TH",
+          3
+        ],
+        [
+          "KH",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          5.625,
+          1,
+          0
+        ],
+        [
+          101.25,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          101.25,
+          2.8125,
+          2,
+          0
+        ],
+        [
+          101.25,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          1.40625,
+          2,
+          0
+        ],
+        [
+          102.65625,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          5.625,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          9.84375,
+          2,
+          0
+        ],
+        [
+          104.0625,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          109.6875,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          109.6875,
+          0,
+          3,
+          0
+        ],
+        [
+          111.09375,
+          -2.8125,
+          2,
+          0
+        ],
+        [
+          111.09375,
+          0,
+          3,
+          0
+        ],
+        [
+          112.5,
+          0,
+          1,
+          0
+        ],
+        [
+          113.90625,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          113.90625,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          116.71875,
+          4.21875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

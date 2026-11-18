@@ -1606,17 +1606,32 @@
     ]
   },
   "ludwigia-repens": {
-    "at": "2026-11-04",
-    "from": "2026-10-30",
-    "name": "ลัดวิเจีย รูบิน",
+    "at": "2026-11-18",
+    "from": "2026-11-18",
+    "name": "ลัดวิเจีย รีเพนส์ รูบิน",
     "confidence": "medium",
     "score": 0.85,
     "notes": [
-      "Item 3: \"สายพันธุ์หนึ่งของ\" is slightly stiff for \"Variety of\"; \"ไม้น้ำสายพันธุ์/พันธุ์ปลูกเลี้ยงของ Ludwigia repens\" would be more natural.",
-      "Item 3: \"ช่วยตัดกับโทนสีเขียว\" is slightly incomplete for \"provides a great colour contrast\"; consider \"ให้สีตัดกับโทนสีเขียวในตู้ได้อย่างโดดเด่น\".",
-      "Item 2: \"เลี้ยงไม่ยาก\" for \"has few demands\" is fine in meaning, but \"ไม่ต้องการการดูแลมาก\" is closer.",
-      "Item 3: \"กว้าง 4–6 ซม.\" is ambiguous (stem vs. leaf/bush width); the original is also unclear, so check the source."
-    ]
+      "Item 2: \"ชื่ออื่น: Creeping primrose-willow\" leaves the English name untranslated. Add a Thai name or transliteration, or keep the English in brackets after a Thai name.",
+      "Item 11: \"หอยขม Japanese trapdoor\" is half English. Use a Thai name or a transliteration. Also check that หอยขม is the right Thai term for this snail.",
+      "Item 10: \"ไม่ใส่ปุ๋ยน้ำหรือปุ๋ยฝัง\" specifies liquid fertiliser, which the English doesn't. Say \"ไม่ใส่ปุ๋ยหรือปุ๋ยฝัง\" instead.",
+      "Item 8: \"ในช่วงฤดูร้อน\" for \"warm season\" is slightly off in Thailand's climate. \"ช่วงที่อากาศอบอุ่น\" is closer."
+    ],
+    "parts": {
+      "quickFacts:tropica": "2f0d921c7fee",
+      "quickFacts:aquariumbreeder": "c5cc3d5028a4",
+      "beforeYouBuy:aquariumbreeder": "1f9b44553f08",
+      "distribution:aquariumbreeder": "07870da610a8",
+      "habitat:aquariumbreeder": "328aad0c98ea",
+      "aquariumSize:aquariumbreeder": "bf7ccf0ee602",
+      "maintenance:tropica": "d3f6b0856aed",
+      "maintenance:aquariumbreeder": "a48d00c392ad",
+      "waterConditions:aquariumbreeder": "520530be4309",
+      "equipment:aquariumbreeder": "7c57596bb85b",
+      "behaviour:aquariumbreeder": "4a75b70e5d28",
+      "notes:tropica": "2225783b31ce",
+      "notes:aquariumbreeder": "ab1fb2ac2692"
+    }
   },
   "lysimachia-nummularia": {
     "at": "2026-10-30",
@@ -1860,7 +1875,7 @@
   },
   "najas-guadalupensis": {
     "at": "2026-11-16",
-    "from": "2026-11-15",
+    "from": "2026-11-18",
     "name": "สาหร่ายนาจาส",
     "confidence": "medium",
     "score": 0.95,
@@ -1876,6 +1891,21 @@
       "reproduction:aquatome": "7349d148cef3",
       "notes:tropica": "f0ff05bf2bca",
       "notes:aquatome": "08c126e45cf4"
+    },
+    "failed": {
+      "at": "2026-11-18T05:26:13.818Z",
+      "parts": {
+        "quickFacts:aquariumbreeder": "6667947c8d26",
+        "beforeYouBuy:aquariumbreeder": "b2dcac465e87",
+        "distribution:aquariumbreeder": "3ff9ffafefde",
+        "habitat:aquariumbreeder": "d68b47cd5a81",
+        "aquariumSize:aquariumbreeder": "1d28b56f08ad",
+        "maintenance:aquariumbreeder": "65268e65dfc2",
+        "waterConditions:aquariumbreeder": "df5e262e1b3f",
+        "equipment:aquariumbreeder": "3ef81522915d",
+        "behaviour:aquariumbreeder": "d6d4e5a14274",
+        "notes:aquariumbreeder": "dbd0c1a251ce"
+      }
     }
   },
   "nymphaea-lotus": {

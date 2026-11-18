@@ -5,6 +5,12 @@
     "sonnet": 0.6,
     "back": false
   },
+  "ambystoma-mexicanum": {
+    "hash": "610ccd546f48338c1dcdecd11f5708ffda237a7fba63b737fbfff99c2301d8d7",
+    "at": "2026-11-18T05:46:54.127Z",
+    "sonnet": 0.6,
+    "back": false
+  },
   "amphilius-kivuensis": {
     "hash": "5e163469e6c7ca8da6dc1bd2bafe0030e0451137713515cd5e5b215e5c92b5b2",
     "at": "2026-11-17T11:27:50.894Z",
@@ -42,6 +48,13 @@
     "sonnet": 0.6,
     "back": false
   },
+  "ariopsis-assimilis": {
+    "hash": "9bb63a4457824db68968144ae61ef6c96cacc6c13a1f239e04a27547429e586b",
+    "at": "2026-11-18T05:47:28.190Z",
+    "sonnet": 0.9,
+    "opus": 0.88,
+    "back": true
+  },
   "astacus-astacus": {
     "hash": "ac529d27ef648292b14bc9bd902fa3dc00056e6ee3982e38d40210306bdda28f",
     "at": "2026-11-17T11:29:29.617Z",
@@ -50,8 +63,8 @@
     "back": true
   },
   "bagre-marinus": {
-    "hash": "422104315d037abdd04f805e4e23f4cfb140a7d1727269519bf308e10ea192d2",
-    "at": "2026-11-18T00:36:09.239Z",
+    "hash": "22acfccf42b3c1b09148350f09738a6ebc8287fd47fa2b89407ca2c1036fe69d",
+    "at": "2026-11-18T05:47:38.396Z",
     "sonnet": 0.6,
     "back": false,
     "held": [
@@ -76,9 +89,18 @@
     "sonnet": 0.7,
     "back": false
   },
+  "carinotetraodon-travancoricus": {
+    "hash": "79a66e9e1f96e4df2e74a180b5d939ae91ac4d53c8898e41ff8ec90e6ff2f58b",
+    "at": "2026-11-18T05:51:52.152Z",
+    "sonnet": 0.4,
+    "back": false,
+    "held": [
+      "Item 6: 'quarantine medication trio' translated 'ชุดยากักโรคสามตัว' is vague/awkward; 'pet store chains' as 'ร้านสัตว์เลี้ยงแบบเครือข่าย' awkward."
+    ]
+  },
   "ceylonthelphusa-kandambyi": {
-    "hash": "b4ca2e87bf2cde1318ebf743dddb7d5eee6811ef1911053a6c2106469d302dc9",
-    "at": "2026-11-17T11:29:57.546Z",
+    "hash": "10f7b9a62e224ea584069b73df7077674b9832b360b4128b8554c96ad9612fa0",
+    "at": "2026-11-18T05:47:49.490Z",
     "sonnet": 0.7,
     "back": false
   },
@@ -100,6 +122,12 @@
     "hash": "0b11a10e08d059b653603a9d53df2d38701dbc30258247bc965015cfabcacd98",
     "at": "2026-11-18T00:39:04.028Z",
     "sonnet": 0.6,
+    "back": false
+  },
+  "danio-choprae": {
+    "hash": "44718d99cccaf2c68be3a9e63e4177d32206d5756f53f7eb9e0e4602335813a4",
+    "at": "2026-11-18T05:49:33.363Z",
+    "sonnet": 0.55,
     "back": false
   },
   "danio-margaritatus": {
@@ -237,6 +265,17 @@
       "Item 12: 'fights are always harmless' is translated as 'ไม่เคยเป็นอันตราย' (never dangerous). Use 'ไม่เป็นอันตราย'. 'ไม่สนใจปลาชนิดอื่น' also lacks a subject."
     ]
   },
+  "gymnothorax-polyuranodon": {
+    "hash": "499aea06b9506e34b526dae11ea51516ef6fbf6783bb8f4b8646b795117b1f72",
+    "at": "2026-11-18T05:48:10.387Z",
+    "sonnet": 0.95,
+    "opus": 0.95,
+    "back": false,
+    "held": [
+      "Item 4: \"จำนวนหนึ่ง\" for \"some\" is OK, but \"ปลาไหลมอเรย์\" aside, the main issue is item 3: \"ซึ่งหลายครั้งทำให้ปลาตาย\" – the English says \"often with a fatal consequence\"; fine, but \"ลอดออกไป\" adds \"out\" (acceptable). Item 1: \"โดยทั่วไปไม่พบชนิดนี้ไกลจากชายฝั่งเกิน 30-40 กม. แต่ส่วนใหญ่มักพบในน้ำจืดล้วน\" – contrast is lost/ambiguous; reword as \"ปกติไม่พบไกลจากชายฝั่งเกิน 30–40 กม. แต่มักพบในน้ำจืด…",
+      "Item 4: \"จำนวนหนึ่ง\" for \"some\" is OK, but \"ปลาไหลมอเรย์\" aside, the main issue is item 3: \"ซึ่งหลายครั้งทำให้ปลาตาย\" – the English says \"often with a fatal consequence\"; fine, but \"ลอดออกไป\" adds \"out\" (acceptable). Item 1: \"โดยทั่วไปไม่พบชนิดนี้ไกลจากชายฝั่งเกิน 30-40 กม. แต่ส่วนใหญ่มักพบในน้ำจืดล้วน\" – contrast is lost/ambiguous; reword as \"ปกติไม่พบไกลจากชายฝั่งเกิน 30–40 กม. แต่มักพบในน้ำจืดล้วน ๆ\" and keep the English meaning of 'pure freshwater'."
+    ]
+  },
   "hyphessobrycon-amandae": {
     "hash": "d8e8db18290368c818909c6371590cbc32aa60b0e8ae2c0b144328d37b39f4df",
     "at": "2026-11-18T00:37:49.503Z",
@@ -255,9 +294,22 @@
     "sonnet": 0.6,
     "back": false
   },
+  "microdevario-kubotai": {
+    "hash": "c15430e4641ec44e4186ed3404b34c625ada61a7dac6e4ba9a83fdc493768a52",
+    "at": "2026-11-18T05:49:12.341Z",
+    "sonnet": 0.85,
+    "opus": 0.85,
+    "back": true
+  },
   "neocaridina-davidi": {
     "hash": "17fe977a28bc555c5f61fc2f2417adf66e1a8fa45dc4f5599fc19e34db26783d",
     "at": "2026-11-18T00:37:30.597Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "nomorhamphus-liemi": {
+    "hash": "69d6908c22008461b2709b655f0072cc06cb3aeac26945c8942897a076670685",
+    "at": "2026-11-18T05:48:20.879Z",
     "sonnet": 0.6,
     "back": false
   },
@@ -269,9 +321,21 @@
     "back": true
   },
   "paracheirodon-axelrodi": {
-    "hash": "0684f022235f3d62783d22577600149474f0f00d2f6913250776a1c2606336b2",
-    "at": "2026-11-18T00:37:08.382Z",
+    "hash": "80c7b485edf4d4d838dacd640b312294274c82c75b64e3e315c4966da32a96db",
+    "at": "2026-11-18T05:46:39.862Z",
+    "sonnet": 0.35,
+    "back": false
+  },
+  "paracheirodon-simulans": {
+    "hash": "38355bf17282d50b92986ad0f015f8ab7d97f7b6edbed6bda26f281a0b713e26",
+    "at": "2026-11-18T05:50:42.662Z",
     "sonnet": 0.4,
+    "back": false
+  },
+  "phenacogrammus-interruptus": {
+    "hash": "a94e49c5b86dbd018cac09f18ff1532fe9a1ac5ada5fee46f1af76cfacb3d14a",
+    "at": "2026-11-18T05:51:38.744Z",
+    "sonnet": 0.45,
     "back": false
   },
   "poecilia-wingei": {
@@ -280,6 +344,32 @@
     "sonnet": 0.9,
     "opus": 0.7,
     "back": false
+  },
+  "pristella-maxillaris": {
+    "hash": "3e1a0afc19b01f1185e3b15d9912de2cdc95b307dd14d7cb0f6266213440dce2",
+    "at": "2026-11-18T05:51:30.934Z",
+    "sonnet": 0.85,
+    "opus": 0.8,
+    "back": true
+  },
+  "sewellia-breviventralis": {
+    "hash": "738b0e77ab6a7954f05fb8298d61266334f4795771cbe91f81300e643a1a8632",
+    "at": "2026-11-18T05:52:05.877Z",
+    "sonnet": 0.6,
+    "back": false,
+    "held": [
+      "\"จุลชีพ\" is too technical or medical. Use \"สิ่งมีชีวิตขนาดเล็ก/จุลินทรีย์\"."
+    ]
+  },
+  "tanichthys-albonubes": {
+    "hash": "640001e3ea7f44dd64e0283cf8406d558b9a19ef6e7f31e86948e6864830a50c",
+    "at": "2026-11-18T05:50:33.100Z",
+    "sonnet": 0.9,
+    "opus": 0.88,
+    "back": false,
+    "held": [
+      "#23: \"สีน้ำตาลทองแดง\" means copper-brown. The source says bronze-brown, so use \"สีน้ำตาลอมทองสัมฤทธิ์\" or \"สีน้ำตาลบรอนซ์\"."
+    ]
   },
   "trigonostigma-espei": {
     "hash": "8d583db31463fa01d3400dc41a732b9d201355b5b5778c97f12048292c723f9a",

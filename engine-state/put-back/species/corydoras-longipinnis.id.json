@@ -1,18 +1,13 @@
 {
- "at": "2026-11-17T00:47:12Z",
+ "at": "2026-11-18T06:32:25Z",
  "checks": [
-  "elsewhere"
+  "source"
  ],
  "findings": [
   {
-   "check": "elsewhere",
-   "quote": "spesies subtropis, jadi sebaiknya dipelihara pada suhu ruang",
-   "why": "Treats room temperature as cool, as it is in a European home; a room in Indonesia is warm all year, too warm for a subtropical fish."
-  },
-  {
-   "check": "elsewhere",
-   "quote": "bisa dipelihara di kolam taman selama musim panas",
-   "why": "Assumes a temperate summer season, and Indonesia has no such season."
+   "check": "source",
+   "quote": "Ada juga satu ikan ikutan (bycatch) yang menarik, yaitu satu spesimen Corydoras ellisae.",
+   "why": "This is the source's own import shipment, described as if the reader knew about it."
   }
  ],
  "text": {
@@ -20,32 +15,27 @@
   "name": "Corydoras longipinnis",
   "altNames": [
    "Long-finned Cory",
-   "Cory longfin",
-   "Corydoras sirip panjang",
+   "Cory longipinnis",
    "CW003",
    "Hoplisoma longipinne"
   ],
   "sections": {
-   "quickFacts:planetcatfish": "<ul><li>Nama ilmiah: Corydoras(ln6) longipinnis Knaack, 2007</li><li>Nama umum: CW003, Long-finned Cory, Langfinnet Pansermalle (Denmark)</li><li>Ukuran: 61 mm SL</li><li>Etimologi: nama spesiesnya merujuk pada siripnya yang panjang (pinnis = sirip).</li><li>Daftar Merah IUCN: Belum Dievaluasi (Not Evaluated)</li></ul>",
-   "quickFacts:glaser": "<p>Corydoras longipinnis dideskripsikan secara ilmiah pada tahun 2007 oleh Joachim Knaack. Ikan ini kerabat dekat Corydoras paleatus yang sudah terkenal dan agak mirip dengan varian sirip panjang (longfin) dari spesies tersebut. Pada C. longipinnis hanya jantan yang memiliki sirip dada panjang memanjang, sedangkan pada varian longfin C. paleatus betinanya juga menunjukkan ciri ini.</p>",
-   "distribution:planetcatfish": "<p>Amerika Selatan: Río Dulce di Argentina. Lokasi tipe: Río Dulce, sekitar 20 kilometer ke arah hilir dari Termas de Río Hondo, Provinsi Santiago del Estero, Argentina, sekitar 27°29'29''S, 64°41'58''W.</p>",
-   "distribution:glaser": "<p>Argentina; spesies ini dideskripsikan dari río Dulce.</p>",
-   "waterConditions:glaser": "<p>Corydoras longipinnis adalah spesies subtropis, jadi sebaiknya dipelihara pada suhu ruang. Parameter air tidak terlalu berpengaruh. pH sebaiknya tidak lebih rendah dari 6 dan tidak lebih tinggi dari 8,5.</p>",
-   "equipment:glaser": "<p>Bagi yang punya kesempatan, ikan ini bisa dipelihara di kolam taman selama musim panas.</p>",
-   "diet:glaser": "<p>Ikan ini mau menyantap semua jenis pakan ikan yang umum.</p>",
-   "behaviour:glaser": "<p>Corydoras longipinnis sebaiknya dipelihara dalam kelompok minimal 7 ekor. Ikan ini sepenuhnya damai terhadap sesama Corydoras maupun semua teman setangki lainnya. Tanaman tidak dirusak.</p>",
-   "dimorphism:glaser": "<p>Hanya jantan yang memiliki sirip dada panjang memanjang.</p>",
-   "reproduction:planetcatfish": "<p>Pemijahan: Belum dilaporkan. Belum ada laporan pemijahan.</p>",
-   "reproduction:glaser": "<p>Memijahkan C. longipinnis itu mudah dan caranya sama dengan C. paleatus. Ikan harus diberi pakan banyak sampai perut betina terlihat membuncit, lalu dilakukan ganti air dalam jumlah besar berulang kali dan diisi kembali dengan air yang lebih dingin (3–5 °C lebih dingin dari air lama). Ini memicu perkawinan dan pemijahan.</p>",
+   "quickFacts:planetcatfish": "<ul><li>Nama ilmiah: Corydoras(ln6) longipinnis Knaack, 2007</li><li>Nama umum: CW003, Long-finned Cory, Langfinnet Pansermalle (Denmark)</li><li>Ukuran: 61 mm SL</li><li>Etimologi: julukan spesiesnya merujuk pada siripnya yang panjang (pinnis = sirip).</li><li>Daftar Merah IUCN: Belum Dievaluasi (Not Evaluated)</li></ul>",
+   "distribution:planetcatfish": "<p>Amerika Selatan: Río Dulce di Argentina. Lokasi tipe: Río Dulce, sekitar 20 kilometer ke arah hilir dari Termas de Río Hondo, Provinsi Santiago del Estero, Argentina, kira-kira 27°29'29''S, 64°41'58''W.</p>",
+   "reproduction:planetcatfish": "<p>Pemijahan: Belum dilaporkan. Tidak ada laporan pemijahan.</p>",
    "references:planetcatfish": "<p>Vertebrate Zoology v. 57 (no. 1), pp 36, Figs. 1-28, 31-39.</p>",
-   "references:glaser": "<p>Knaack, J. (2007): Beiträge zur Kenntnis der Callichthyidae (Teleostei: Siluruformes). III. Corydoras longipinnis sp. n. – ein neuer Panzerwels aus dem río Dulce in Argentinien (Teleostei: Siluriformes: Callichthyidae). Vertebrate Zoology 57 (1): 35-55</p>"
+   "quickFacts:glaser": "<p>Corydoras longipinnis dideskripsikan secara ilmiah pada tahun 2007 oleh Joachim Knaack. Spesies ini adalah kerabat dekat Corydoras paleatus yang sudah terkenal, dan agak mirip dengan varian sirip panjang (longfin) dari spesies tersebut. Pada C. longipinnis, hanya jantan yang mengembangkan sirip dada yang panjang memanjang, sedangkan pada varian sirip panjang C. paleatus, betinanya juga memiliki ciri ini.</p>",
+   "distribution:glaser": "<p>Spesies ini diimpor dari Paraguay. Deskripsinya dibuat berdasarkan spesimen dari Río Dulce di Argentina.</p>",
+   "dimorphism:glaser": "<p>Hanya jantan yang mengembangkan sirip dada yang panjang memanjang.</p>",
+   "reproduction:glaser": "<p>Memijahkan C. longipinnis itu mudah dan caranya sama dengan C. paleatus. Ikan harus diberi pakan banyak sampai perut betina terlihat membuncit. Setelah itu, lakukan ganti air dalam jumlah besar berulang kali dan isi kembali dengan air yang lebih dingin (3–5 °C lebih dingin daripada air lama). Cara ini memicu perkawinan dan pemijahan.</p>",
+   "notes:glaser": "<p>Ada juga satu ikan ikutan (bycatch) yang menarik, yaitu satu spesimen Corydoras ellisae. C. ellisae biasa hanya punya dua bercak besar di atas warna dasar yang pucat, tetapi spesimen ini sampai batas tertentu meniru pola C. longipinnis.</p>"
   },
   "quality": {
-   "score": 0.8,
+   "score": 0.85,
    "indexable": true,
    "bySource": {
-    "planetcatfish": 0.8,
-    "glaser": 0.8
+    "planetcatfish": 0.85,
+    "glaser": 0.85
    }
   }
  }

@@ -11,6 +11,114 @@
     "indonesia",
     "batavia"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Bay of Bengal"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South and southeast Asia: Bay of Bengal and western central Pacific; in coastal waters and estuaries.",
+          "countries": [],
+          "regions": [
+            "Bay of Bengal"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344897,
+      "total": 13,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "IN",
+          4
+        ],
+        [
+          "BD",
+          3
+        ],
+        [
+          "VN",
+          2
+        ],
+        [
+          "ID",
+          1
+        ],
+        [
+          "LK",
+          1
+        ],
+        [
+          "MY",
+          1
+        ],
+        [
+          "PK",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          66.09375,
+          23.90625,
+          1
+        ],
+        [
+          78.75,
+          5.625,
+          1
+        ],
+        [
+          78.75,
+          8.4375,
+          1
+        ],
+        [
+          80.15625,
+          12.65625,
+          1
+        ],
+        [
+          88.59375,
+          21.09375,
+          1
+        ],
+        [
+          90,
+          14.0625,
+          1
+        ],
+        [
+          91.40625,
+          21.09375,
+          3
+        ],
+        [
+          99.84375,
+          4.21875,
+          1
+        ],
+        [
+          105.46875,
+          -7.03125,
+          1
+        ],
+        [
+          105.46875,
+          8.4375,
+          2
+        ]
+      ]
+    }
+  },
   "water": {
     "kind": "brackish",
     "source": "scotcat",

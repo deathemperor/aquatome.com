@@ -10,6 +10,38 @@
     "brazil",
     "rio-negro"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Negro"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The natural distribution of Hyphessobrycon paepkei is in the Rio Negro in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Negro"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7595172,
+      "total": 0,
+      "fetched": "2026-11-18",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {},
   "sections": [
     {

@@ -1,0 +1,35 @@
+{
+ "at": "2026-11-18T06:30:38Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "ปูแพนเธอร์ที่ได้รับมานั้นมาจากทะเลสาบมาตาโน (Lake Matano) ในอินโดนีเซีย",
+   "why": "Refers to the source importer's own received stock as if the reader knew it."
+  }
+ ],
+ "text": {
+  "slug": "parathelphusa-pantherina",
+  "name": "ปูแพนเธอร์",
+  "altNames": [
+   "ปูเสือดาว",
+   "ปูแพนเตอร์",
+   "Panther crab"
+  ],
+  "sections": {
+   "quickFacts:glaser": "<p>ถิ่นกำเนิด: อินโดนีเซีย ปูแพนเธอร์ที่ได้รับมานั้นมาจากทะเลสาบมาตาโน (Lake Matano) ในอินโดนีเซีย</p>",
+   "maintenance:glaser": "<p>เนื่องจากปูชนิดนี้ใช้ชีวิตอยู่ใต้น้ำแทบตลอดเวลา จึงต้องการส่วนที่เป็นบกในตู้เพียงเล็กน้อย ควรปิดฝาตู้ให้มิดชิด เพราะเป็นปูที่หนีออกจากตู้เก่งมาก</p>",
+   "waterConditions:glaser": "<p>ชอบน้ำกระด้าง อุณหภูมิ 25–29 °C</p>",
+   "diet:glaser": "<p>ให้อาหารได้ง่าย กินอาหารได้แทบทุกชนิด ตั้งแต่อาหารเม็ดไปจนถึงอาหารแช่แข็ง</p>"
+  },
+  "quality": {
+   "score": 0.9,
+   "indexable": true,
+   "bySource": {
+    "glaser": 0.9
+   }
+  }
+ }
+}

@@ -10,6 +10,38 @@
     "kenya",
     "lake-turkana"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "KE"
+      ],
+      "regions": [
+        "Lake Turkana"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The type locality was lake Rudolf (now: lake Turkana) in Kenya.",
+          "countries": [
+            "KE"
+          ],
+          "regions": [
+            "Lake Turkana"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371385,
+      "total": 0,
+      "fetched": "2026-11-18",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {},
   "sections": [
     {

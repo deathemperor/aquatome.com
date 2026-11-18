@@ -15,20 +15,18 @@
   "range": {
     "native": {
       "countries": [
-        "VE",
-        "BR",
-        "CO"
+        "VE"
       ],
       "regions": [
         "Orinoco",
-        "Apure",
-        "Cinaruco",
+        "Río Cinaruco",
         "Río Caura",
-        "Río Casiquiare",
-        "Llanos"
+        "Ventuari",
+        "Río Casiquiare"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -39,28 +37,7 @@
           ],
           "regions": [
             "Orinoco",
-            "Apure",
-            "Cinaruco"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "To the south it's found as far as the Río Casiquiare, close to the headwaters of the rio Negro (Brazil).",
-          "countries": [
-            "BR"
-          ],
-          "regions": [
-            "Río Casiquiare"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "The Llanos is a vast, highly biodiverse system of tropical savannah grasslands, seasonally-flooded plains and forests covering an area measuring almost 600,000 square kilometers in Venezuela and Colombia.",
-          "countries": [
-            "CO"
-          ],
-          "regions": [
-            "Llanos"
+            "Río Cinaruco"
           ]
         },
         {
@@ -68,7 +45,16 @@
           "quote": "It also occurs in the río Caura on the Guyana Shield plus the Ventuari and Mavaca drainages in the middle and upper Orinoco where it's also known from some white water, referring to turbidity rather than turbulence, habitats.",
           "countries": [],
           "regions": [
-            "Río Caura"
+            "Río Caura",
+            "Ventuari"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "To the south it's found as far as the Río Casiquiare, close to the headwaters of the rio Negro (Brazil).",
+          "countries": [],
+          "regions": [
+            "Río Casiquiare"
           ]
         }
       ]
@@ -76,7 +62,7 @@
     "records": {
       "taxonKey": 5208435,
       "total": 272,
-      "fetched": "2026-11-08",
+      "fetched": "2026-11-18",
       "countries": [
         [
           "VE",
@@ -96,25 +82,25 @@
           -73.125,
           1.40625,
           1,
-          1
+          0
         ],
         [
           -71.71875,
           2.8125,
           1,
-          1
+          0
         ],
         [
           -71.71875,
           5.625,
           1,
-          1
+          0
         ],
         [
           -70.3125,
           5.625,
           9,
-          9
+          1
         ],
         [
           -70.3125,
@@ -132,7 +118,7 @@
           -68.90625,
           2.8125,
           4,
-          4
+          0
         ],
         [
           -68.90625,

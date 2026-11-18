@@ -1,0 +1,58 @@
+{
+  "id": "synodontis-soloni",
+  "native": {
+    "input": "f1544d3bd8c4e492",
+    "at": "2026-11-18T06:03:35.101Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Congo",
+        "source": "glaser",
+        "quote": "A very rarely offered squeaker catfish from the Congo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CD"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Synodontis soloni",
+    "status": "ACCEPTED",
+    "taxonKey": 2344379,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        14
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "cca0058d-d593-4c7e-844c-dcc0b8feae86",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-18T06:03:35.101Z"
+  }
+}

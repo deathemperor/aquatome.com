@@ -11,29 +11,10 @@
     "arroyo-pozo-hondo"
   ],
   "range": {
-    "native": {
-      "countries": [
-        "PY"
-      ],
-      "regions": [],
-      "sources": [
-        "glaser"
-      ],
-      "quotes": [
-        {
-          "source": "glaser",
-          "quote": "The imported specimens originate from a river called the Arroyo Pozo Hondo, 137 km to the east of Asunción (Paraguay).",
-          "countries": [
-            "PY"
-          ],
-          "regions": []
-        }
-      ]
-    },
     "records": {
       "taxonKey": 4312488,
       "total": 315,
-      "fetched": "2026-11-17",
+      "fetched": "2026-11-18",
       "countries": [
         [
           "BR",
@@ -56,134 +37,112 @@
         [
           -70.3125,
           -33.75,
-          1,
-          0
+          1
         ],
         [
           -66.09375,
           -29.53125,
-          22,
-          0
+          22
         ],
         [
           -66.09375,
           -28.125,
-          16,
-          0
+          16
         ],
         [
           -66.09375,
           -26.71875,
-          19,
-          0
+          19
         ],
         [
           -59.0625,
           -35.15625,
-          1,
-          0
+          1
         ],
         [
           -59.0625,
           -32.34375,
-          1,
-          0
+          1
         ],
         [
           -57.65625,
           -35.15625,
-          1,
-          0
+          1
         ],
         [
           -57.65625,
           -30.9375,
-          1,
-          0
+          1
         ],
         [
           -57.65625,
           -28.125,
-          1,
-          0
+          1
         ],
         [
           -56.25,
           -35.15625,
-          2,
-          0
+          2
         ],
         [
           -56.25,
           -30.9375,
-          17,
-          0
+          17
         ],
         [
           -56.25,
           -28.125,
-          22,
-          0
+          22
         ],
         [
           -56.25,
           -26.71875,
-          2,
           2
         ],
         [
           -54.84375,
           -32.34375,
-          4,
-          0
+          4
         ],
         [
           -54.84375,
           -29.53125,
-          78,
-          0
+          78
         ],
         [
           -54.84375,
           -28.125,
-          56,
-          0
+          56
         ],
         [
           -53.4375,
           -30.9375,
-          1,
-          0
+          1
         ],
         [
           -53.4375,
           -29.53125,
-          19,
-          0
+          19
         ],
         [
           -53.4375,
           -28.125,
-          42,
-          0
+          42
         ],
         [
           -52.03125,
           -30.9375,
-          5,
-          0
+          5
         ],
         [
           -52.03125,
           -28.125,
-          1,
-          0
+          1
         ],
         [
           -50.625,
           -26.71875,
-          3,
-          0
+          3
         ]
       ]
     }
@@ -214,12 +173,6 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/aegla_platensis_en/",
       "html": "<p>Aegla crabs don't appear to have any special food preferences, and both frozen foods (mosquito larvae, Artemia) and dry foods are taken.</p>"
-    },
-    {
-      "key": "behaviour",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/aegla_platensis_en/",
-      "html": "<p>In the aquarium the first (obviously very short-term) observations indicate that these little creatures live a very secretive life. If they are given fine sand as substrate then they like to bury themselves, disappearing tail-first into the bottom.</p>"
     },
     {
       "key": "dimorphism",

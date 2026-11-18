@@ -3,6 +3,12 @@
   "name": "Da",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.2,
+    "at": "2026-11-18T05:53:19.254Z",
+    "why": "\"Da\" drops the word \"Sungai\" that Indonesian uses for a river and doesn't follow the source's name Lixianjiang, so it is a bare, shortened name."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

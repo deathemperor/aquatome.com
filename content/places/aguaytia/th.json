@@ -3,6 +3,12 @@
   "name": "อากวยตีอา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T05:58:17.001Z",
+    "why": "Thai transliteration of Aguaytía as \"อากวยตีอา\" is plausible, but Spanish \"gua\" before \"y\" is usually rendered \"อากวยเตีย\" or \"อากัวยตีอา\", and the name is unattested, so the rendering is uncertain."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

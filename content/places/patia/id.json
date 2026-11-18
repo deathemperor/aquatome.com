@@ -3,6 +3,12 @@
   "name": "Patía",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.7,
+    "at": "2026-11-18T05:55:03.912Z",
+    "why": "The place is the Patía basin/river region in Colombia, and Indonesian writes the proper name as \"Patía\" but would normally add the kind word \"Sungai\" (Sungai Patía) or \"Lembah/Daerah Aliran Sungai\", so the bare name is slightly incomplete."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

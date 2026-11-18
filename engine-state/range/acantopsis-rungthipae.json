@@ -1,0 +1,59 @@
+{
+  "id": "acantopsis-rungthipae",
+  "native": {
+    "input": "e43be24bfa3f1705",
+    "at": "2026-11-18T06:03:35.101Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "TH"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Acantopsis rungthipae",
+    "status": "ACCEPTED",
+    "taxonKey": 9468030,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        25
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        25
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        17
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        7
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        3
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        3
+      ],
+      [
+        "e1cd4661-3d65-4dce-bdbc-757b73e88fde",
+        3
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-18T06:03:35.101Z"
+  }
+}

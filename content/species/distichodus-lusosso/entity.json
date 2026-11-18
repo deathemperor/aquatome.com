@@ -23,9 +23,12 @@
         "AO",
         "CF"
       ],
-      "regions": [],
+      "regions": [
+        "Congo basin"
+      ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -46,6 +49,14 @@
             "CF"
           ],
           "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "The longsnout distichodus has a very wide distribution in the Congo basin.",
+          "countries": [],
+          "regions": [
+            "Congo basin"
+          ]
         }
       ]
     },

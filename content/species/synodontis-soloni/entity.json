@@ -117,5 +117,68 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-18"
+  "updatedAt": "2026-11-18",
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Congo"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "A very rarely offered squeaker catfish from the Congo.",
+          "countries": [],
+          "regions": [
+            "Congo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344379,
+      "total": 22,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "CD",
+          17
+        ],
+        [
+          "CG",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          12.65625,
+          -7.03125,
+          1
+        ],
+        [
+          14.0625,
+          -5.625,
+          14
+        ],
+        [
+          14.0625,
+          -4.21875,
+          5
+        ],
+        [
+          15.46875,
+          -5.625,
+          1
+        ],
+        [
+          23.90625,
+          0,
+          1
+        ]
+      ]
+    }
+  }
 }

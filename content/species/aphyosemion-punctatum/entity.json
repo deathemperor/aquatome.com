@@ -9,6 +9,58 @@
     "africa",
     "gabon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GA"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This gorgeous killi originates from Gabon.",
+          "countries": [
+            "GA"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348371,
+      "total": 12,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "GA",
+          12
+        ]
+      ],
+      "cells": [
+        [
+          9.84375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          11.25,
+          0,
+          1,
+          1
+        ],
+        [
+          12.65625,
+          0,
+          10,
+          10
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -13,7 +13,7 @@
     "quickFacts:glaser": "<p>Lươn đồng (lươn ruộng) là loài cá trông khá kỳ lạ, dài tới khoảng 75 cm. Ngoài tự nhiên, chúng chui sâu dưới bùn mà sống. Nước hầu như không còn oxy thì loài này vẫn sống được, vì nó có phổi để thở không khí đớp từ mặt nước. Lươn đồng là cá săn mồi, chuyên ăn cá nhỏ và tôm. Bản thân lươn cũng là loại cá ăn rất ngon. Ngoài chợ, lươn thường bán sống, vì ra khỏi nước nhiều giờ nó vẫn chưa chết.</p>",
     "reproduction:glaser": "<p>Lươn đồng không phải họ hàng với cá chình chi Anguilla. Theo những gì biết được đến nay, con đực làm tổ bọt và lươn đẻ trứng ngay bên dưới tổ này. Muốn nhận ra con đực thì nhìn đầu, vì đầu con đực bè hơn.</p>",
     "notes:glaser": "<p>Giải nghĩa tên: Monopterus nghĩa là “có một vây”. albus nghĩa là “trắng”. albinus nghĩa là “whiting” (cá tuyết trắng). cuchia lấy theo tên dân gian ở vùng Bengal. Pneumabranchus nghĩa là “nhánh của phổi”.</p><p>Tên thường gọi đề xuất: lươn tulip vàng (Golden tulip eel).</p>",
-    "behaviour:glaser": "<p>Lươn đồng cần có chỗ trốn trong bể. Không có chỗ trốn thì chúng bất an, nhát hẳn đi và dễ hoảng. Ngược lại, con nào đã quen bể thì rất dạn, chịu ăn mồi đưa bằng kẹp gắp (cá chết, chẳng hạn cá smelt đông lạnh).</p>"
+    "behaviour:glaser": "<p>Lươn đồng cần có chỗ trốn trong bể. Không có chỗ trốn thì chúng bất an, nhát hẳn đi và dễ hoảng.</p>"
   },
   "quality": {
     "score": 0.6,
@@ -22,11 +22,5 @@
       "glaser": 0.6
     },
     "reason": "thin"
-  },
-  "held": {
-    "checks": [
-      "elsewhere"
-    ],
-    "at": "2026-11-18"
   }
 }

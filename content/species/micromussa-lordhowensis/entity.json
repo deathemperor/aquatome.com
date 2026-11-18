@@ -10,6 +10,245 @@
     "australia",
     "solomon-islands"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "AU"
+      ],
+      "regions": [
+        "Dampier Archipelago",
+        "Burrup Peninsula",
+        "Flinders Reef",
+        "Elizabeth Reef",
+        "Middleton Reef"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "It is also found around Australia in Flinders Reef, Elizabeth Reef, Middleton Reef, the Dampier Archipelago and the Burrup Peninsula.",
+          "countries": [
+            "AU"
+          ],
+          "regions": [
+            "Dampier Archipelago",
+            "Burrup Peninsula",
+            "Flinders Reef",
+            "Elizabeth Reef",
+            "Middleton Reef"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8965841,
+      "total": 177,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "NF",
+          94
+        ],
+        [
+          "AU",
+          72
+        ],
+        [
+          "JP",
+          6
+        ],
+        [
+          "NC",
+          2
+        ],
+        [
+          "SB",
+          2
+        ],
+        [
+          "YE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          42.1875,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          115.3125,
+          -21.09375,
+          6,
+          6
+        ],
+        [
+          123.75,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          129.375,
+          28.125,
+          1,
+          0
+        ],
+        [
+          129.375,
+          30.9375,
+          1,
+          0
+        ],
+        [
+          130.78125,
+          29.53125,
+          1,
+          0
+        ],
+        [
+          132.1875,
+          32.34375,
+          1,
+          0
+        ],
+        [
+          133.59375,
+          -26.71875,
+          3,
+          3
+        ],
+        [
+          135,
+          32.34375,
+          1,
+          0
+        ],
+        [
+          136.40625,
+          36.5625,
+          1,
+          0
+        ],
+        [
+          143.4375,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          144.84375,
+          -18.28125,
+          2,
+          2
+        ],
+        [
+          144.84375,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          147.65625,
+          -21.09375,
+          3,
+          3
+        ],
+        [
+          149.0625,
+          -21.09375,
+          2,
+          2
+        ],
+        [
+          150.46875,
+          -23.90625,
+          15,
+          15
+        ],
+        [
+          151.875,
+          -30.9375,
+          10,
+          10
+        ],
+        [
+          151.875,
+          -28.125,
+          5,
+          5
+        ],
+        [
+          151.875,
+          -26.71875,
+          1,
+          1
+        ],
+        [
+          151.875,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          153.28125,
+          -30.9375,
+          3,
+          3
+        ],
+        [
+          153.28125,
+          -29.53125,
+          4,
+          4
+        ],
+        [
+          153.28125,
+          -28.125,
+          10,
+          10
+        ],
+        [
+          153.28125,
+          -26.71875,
+          1,
+          1
+        ],
+        [
+          158.90625,
+          -32.34375,
+          2,
+          2
+        ],
+        [
+          161.71875,
+          -11.25,
+          2,
+          0
+        ],
+        [
+          165.9375,
+          -22.5,
+          2,
+          0
+        ],
+        [
+          167.34375,
+          -29.53125,
+          94,
+          0
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "marine",
+    "source": "aquariumbreeder",
+    "quote": "Acans appreciate standard saltwater parameters and, despite their hardy nature, will not tolerate drastic changes in water chemistry."
+  },
   "dataCard": {
     "tempC": [
       {

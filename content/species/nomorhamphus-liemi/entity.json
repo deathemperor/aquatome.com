@@ -10,6 +10,45 @@
     "indonesia",
     "sulawesi"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Sulawesi"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This wonderfully coloured halfbeak originates from the island of Sulawesi (= Celebes) where it occurs in the southern half; it is endemic in the Maros highlands.",
+          "countries": [],
+          "regions": [
+            "Sulawesi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2369019,
+      "total": 1,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "JP",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          136.40625,
+          36.5625,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

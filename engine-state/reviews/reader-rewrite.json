@@ -131,6 +131,22 @@
       "kept": false
     }
   ],
+  "vi/guides/aquariumbreeder-how-to-spot-nutrient-deficiencies-in-aquatic-plants#body": [
+    {
+      "at": "2026-11-18T06:15:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "BEFORE: iron and potassium are the nutrients that \"hay gây chuyện nhất\" (cause the most trouble); AFTER changes this to \"hay thiếu nhất\" (most often deficient) - a different claim.",
+        "AFTER adds \"nên có thể chỉ mua riêng hai loại này\" (so one may buy just these two separately), which is not in BEFORE; BEFORE only says buying all-in-one is an alternative.",
+        "BEFORE's \"Có thể coi ... là\" (one can regard as) hedge is turned into a flat statement \"Sắt và kali là hai chất hay thiếu nhất\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/aquariumbreeder-old-tank-syndrome#body": [
     {
       "at": "2026-11-10T21:53:32Z",

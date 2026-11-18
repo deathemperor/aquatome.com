@@ -1633,16 +1633,35 @@
     ]
   },
   "ludwigia-repens": {
-    "at": "2026-11-04",
-    "from": "2026-10-30",
-    "name": "Ludwigia repens 'Rubin'",
-    "confidence": "high",
-    "score": 0.85,
+    "at": "2026-11-18",
+    "from": "2026-11-18",
+    "name": "Ludwigia Repens Rubin",
+    "confidence": "medium",
+    "score": 0.8,
     "notes": [
-      "\"Tanaman ini tidak banyak tuntutan\" is a bit stiff; more natural: \"Tanaman ini tidak rewel / mudah dirawat\".",
-      "\"Panjang batang 20–50 cm dengan lebar 4–6 cm\": fine in meaning, but \"lebar\" most likely refers to leaf/stem spread; consider \"lebar rumpun\" for clarity if the source means that.",
-      "\"Asal\" for Origin is okay but \"Asal daerah\" or \"Asal usul\" is more natural in a handbook."
-    ]
+      "Item 8: \"tanaman ini hanya tumbuh makin tinggi dan kurus\" is fine, but \"daunnya sedikit sekali merahnya\" is awkward; use \"daunnya hampir tidak kemerahan\".",
+      "Item 10: \"Awalnya tanaman ini digambarkan sebagai tanaman yang selalu hijau\" - use \"tanaman hijau abadi (evergreen)\" for a more natural hobby term.",
+      "Item 10: \"substrat yang kaya pupuk dan nutrisi yang mendukung perakaran sehat\" is ambiguous; rephrase as \"substrat kaya nutrisi dan pupuk yang mendukung perakaran sehat\".",
+      "Item 11: \"burayak\" is fine, but \"anakan udang\" for shrimplets and \"rainbow\" for rainbowfish are loose; use \"ikan pelangi (rainbowfish)\".",
+      "Item 11: \"lobster air tawar\" for crayfish is acceptable, but \"udang karang\" is the more common term in Indonesia.",
+      "Item 5: \"daun kelopak\" for sepals should be \"sepal\" or \"daun kelopak (sepal)\"; \"herba menahun\" is acceptable.",
+      "Item 3: \"karantina dan disinfeksi dulu\" is clumsy; use \"karantina dan desinfeksi tanaman terlebih dahulu\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "2f0d921c7fee",
+      "quickFacts:aquariumbreeder": "c5cc3d5028a4",
+      "beforeYouBuy:aquariumbreeder": "1f9b44553f08",
+      "distribution:aquariumbreeder": "07870da610a8",
+      "habitat:aquariumbreeder": "328aad0c98ea",
+      "aquariumSize:aquariumbreeder": "bf7ccf0ee602",
+      "maintenance:tropica": "d3f6b0856aed",
+      "maintenance:aquariumbreeder": "a48d00c392ad",
+      "waterConditions:aquariumbreeder": "520530be4309",
+      "equipment:aquariumbreeder": "7c57596bb85b",
+      "behaviour:aquariumbreeder": "4a75b70e5d28",
+      "notes:tropica": "2225783b31ce",
+      "notes:aquariumbreeder": "ab1fb2ac2692"
+    }
   },
   "lysimachia-nummularia": {
     "at": "2026-10-30",
@@ -1890,13 +1909,15 @@
     ]
   },
   "najas-guadalupensis": {
-    "at": "2026-11-16",
-    "from": "2026-11-15",
+    "at": "2026-11-18",
+    "from": "2026-11-18",
     "name": "Najas",
     "confidence": "medium",
-    "score": 0.93,
+    "score": 0.9,
     "notes": [
-      "Item 1: \"aquarist\" is left in English; \"penghobi akuarium\" is more natural."
+      "#2: \"disemprot pestisida\" narrows \"treated with pesticides\"; use \"diberi perlakuan pestisida\" or \"terpapar pestisida\".",
+      "#6: \"beberapa potong\" for \"many pieces\"; \"banyak potongan\" is closer.",
+      "#6/#10: \"rontok/luruh (melt)\" gives two alternatives with a slash; pick one term, e.g. \"melt (rontok)\"."
     ],
     "parts": {
       "quickFacts:tropica": "ea6a4bf24a9c",
@@ -1908,7 +1929,17 @@
       "behaviour:aquatome": "d3493d587794",
       "reproduction:aquatome": "7349d148cef3",
       "notes:tropica": "f0ff05bf2bca",
-      "notes:aquatome": "08c126e45cf4"
+      "notes:aquatome": "08c126e45cf4",
+      "quickFacts:aquariumbreeder": "6667947c8d26",
+      "beforeYouBuy:aquariumbreeder": "b2dcac465e87",
+      "distribution:aquariumbreeder": "3ff9ffafefde",
+      "habitat:aquariumbreeder": "d68b47cd5a81",
+      "aquariumSize:aquariumbreeder": "1d28b56f08ad",
+      "maintenance:aquariumbreeder": "65268e65dfc2",
+      "waterConditions:aquariumbreeder": "df5e262e1b3f",
+      "equipment:aquariumbreeder": "3ef81522915d",
+      "behaviour:aquariumbreeder": "d6d4e5a14274",
+      "notes:aquariumbreeder": "dbd0c1a251ce"
     }
   },
   "nymphaea-lotus": {

@@ -9,6 +9,68 @@
     "asia",
     "turkey"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TR"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species is a Turkey endemic.",
+          "countries": [
+            "TR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8477881,
+      "total": 69,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "TR",
+          63
+        ],
+        [
+          "SY",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          35.15625,
+          35.15625,
+          5,
+          2
+        ],
+        [
+          35.15625,
+          36.5625,
+          45,
+          45
+        ],
+        [
+          36.5625,
+          35.15625,
+          3,
+          0
+        ],
+        [
+          36.5625,
+          36.5625,
+          16,
+          16
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

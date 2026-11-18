@@ -1,8 +1,13 @@
 {
   "slug": "baram-river",
-  "name": "บารัม",
+  "name": "แม่น้ำบารัม",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-18T06:00:37.390Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

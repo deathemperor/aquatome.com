@@ -16,10 +16,13 @@
         "TZ"
       ],
       "regions": [
-        "Rufiji"
+        "Rufiji",
+        "Ruhoi River",
+        "Selous Game Reserve"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -30,6 +33,22 @@
           ],
           "regions": [
             "Rufiji"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The type locality is south of Kibiti on the bank of the Ruhoi river, where the first four specimens were collected in a ditch.",
+          "countries": [],
+          "regions": [
+            "Ruhoi River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Rufiji River near Utete, eastern Tanzania', and this species is apparently endemic to the lower Rufiji including the Selous Game Reserve and freshwater parts of the Rufiji delta region.",
+          "countries": [],
+          "regions": [
+            "Selous Game Reserve"
           ]
         }
       ]

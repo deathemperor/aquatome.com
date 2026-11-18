@@ -1,8 +1,8 @@
 {
   "id": "wallago-leerii",
   "native": {
-    "input": "356e75f5ccf841d1",
-    "at": "2026-11-17T11:42:48.614Z",
+    "input": "eb92d4757ac40397",
+    "at": "2026-11-18T06:03:35.101Z",
     "claims": [
       {
         "code": "VN",
@@ -58,6 +58,14 @@
         "source": "seriouslyfish",
         "quote": "Fairly widespread in nature, having been recorded from Vietnam, Laos, Cambodia, Thailand, Malaysia, northern Indonesia and Singapore.",
         "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Specimens originate from Thailand.",
+        "words": "Thailand",
         "ok": true
       }
     ],

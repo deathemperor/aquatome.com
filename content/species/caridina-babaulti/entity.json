@@ -14,6 +14,85 @@
     "hungary",
     "miskolctapolca"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Shetrunji",
+        "Saurashtra"
+      ],
+      "sources": [
+        "aquatome"
+      ],
+      "quotes": [
+        {
+          "source": "aquatome",
+          "quote": "Các nhà khoa học đã xác nhận nó có ở sông Shetrunji, trên bán đảo Saurashtra thuộc bang Gujarat.",
+          "countries": [],
+          "regions": [
+            "Shetrunji",
+            "Saurashtra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5863044,
+      "total": 28,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "IN",
+          20
+        ],
+        [
+          "TH",
+          7
+        ],
+        [
+          "NP",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          70.3125,
+          21.09375,
+          2
+        ],
+        [
+          78.75,
+          12.65625,
+          1
+        ],
+        [
+          82.96875,
+          26.71875,
+          1
+        ],
+        [
+          88.59375,
+          25.3125,
+          5
+        ],
+        [
+          90,
+          23.90625,
+          12
+        ],
+        [
+          98.4375,
+          7.03125,
+          6
+        ],
+        [
+          99.84375,
+          7.03125,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

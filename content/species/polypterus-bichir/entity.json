@@ -42,8 +42,11 @@
         "SD",
         "GM"
       ],
-      "regions": [],
+      "regions": [
+        "Nile"
+      ],
       "sources": [
+        "glaser",
         "seriouslyfish"
       ],
       "quotes": [
@@ -67,6 +70,14 @@
             "GM"
           ],
           "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "After returning to France, Saint-Hilaire described a very strange fish he had collected in the Nile in Egypt under the vernacular name Polyptère bichir.",
+          "countries": [],
+          "regions": [
+            "Nile"
+          ]
         }
       ]
     },

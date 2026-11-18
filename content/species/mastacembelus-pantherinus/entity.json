@@ -10,6 +10,56 @@
     "myanmar",
     "indawgyi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Lake Indawgyi"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Mastacembelus pantherinus originates from Burma.",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "It has been collected so far only in lake Indawgyi and its affluents.",
+          "countries": [],
+          "regions": [
+            "Lake Indawgyi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2351797,
+      "total": 6,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "MM",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          95.625,
+          23.90625,
+          6,
+          6
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -110,55 +160,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-17",
-  "range": {
-    "native": {
-      "countries": [
-        "MM"
-      ],
-      "regions": [
-        "Lake Indawgyi"
-      ],
-      "sources": [
-        "glaser"
-      ],
-      "quotes": [
-        {
-          "source": "glaser",
-          "quote": "Mastacembelus pantherinus originates from Burma.",
-          "countries": [
-            "MM"
-          ],
-          "regions": []
-        },
-        {
-          "source": "glaser",
-          "quote": "It has been collected so far only in lake Indawgyi and its affluents.",
-          "countries": [],
-          "regions": [
-            "Lake Indawgyi"
-          ]
-        }
-      ]
-    },
-    "records": {
-      "taxonKey": 2351797,
-      "total": 6,
-      "fetched": "2026-11-18",
-      "countries": [
-        [
-          "MM",
-          6
-        ]
-      ],
-      "cells": [
-        [
-          95.625,
-          23.90625,
-          6,
-          6
-        ]
-      ]
-    }
-  }
+  "updatedAt": "2026-11-17"
 }

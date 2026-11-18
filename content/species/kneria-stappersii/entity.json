@@ -10,6 +10,76 @@
     "democratic-republic-of-the-congo",
     "lubumbashi"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Congo",
+        "Lubumbashi"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Kneria stappersii originates from the upper Congo basin, where it inhabits exclusively the Lubumbashi river.",
+          "countries": [],
+          "regions": [
+            "Congo",
+            "Lubumbashi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5213337,
+      "total": 95,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "CD",
+          94
+        ],
+        [
+          "ZM",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          23.90625,
+          -11.25,
+          1
+        ],
+        [
+          25.3125,
+          -11.25,
+          46
+        ],
+        [
+          26.71875,
+          -12.65625,
+          39
+        ],
+        [
+          26.71875,
+          -11.25,
+          7
+        ],
+        [
+          28.125,
+          -11.25,
+          1
+        ],
+        [
+          28.125,
+          -9.84375,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

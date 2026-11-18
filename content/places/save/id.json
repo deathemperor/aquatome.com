@@ -3,6 +3,12 @@
   "name": "Save",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T05:56:27.027Z",
+    "why": "Save is a Zimbabwean river (Sungai Save) and the \"region\" is ambiguous; an Indonesian atlas would write \"Sungai Save\" for the river, and the bare \"Save\" lacks the kind word."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false
