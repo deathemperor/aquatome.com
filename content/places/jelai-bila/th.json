@@ -3,6 +3,12 @@
   "name": "เจอไลบีลา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.72,
+    "at": "2026-11-18T12:25:21.664Z",
+    "why": "The Thai transliteration เจอไลบีลา is a sound Thai rendering of Jelai Bila, but the source describes a river basin and the name omits the kind word (แม่น้ำ or ลุ่มแม่น้ำ) that Thai uses."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

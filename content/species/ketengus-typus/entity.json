@@ -13,6 +13,103 @@
     "india",
     "andaman-islands"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "ID"
+      ],
+      "regions": [
+        "Malay Peninsula",
+        "Andaman Islands"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Occurs in coastal waters from Thailand to Indonesia and westward to the Andaman Islands.",
+          "countries": [
+            "TH",
+            "ID"
+          ],
+          "regions": [
+            "Andaman Islands"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Asia: Eastern Bay of Bengal and Malay Peninsula; in nearshore coastal waters, estuaries, and lower reaches of rivers (Kailola, 1999).",
+          "countries": [],
+          "regions": [
+            "Malay Peninsula"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2345205,
+      "total": 8,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "ID",
+          3
+        ],
+        [
+          "MY",
+          2
+        ],
+        [
+          "TH",
+          2
+        ],
+        [
+          "IN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          90,
+          14.0625,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          108.28125,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          112.5,
+          2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

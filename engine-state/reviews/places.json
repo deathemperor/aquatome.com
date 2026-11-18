@@ -252,6 +252,18 @@
       "kept": true
     }
   ],
+  "id/places/alto-parana": [
+    {
+      "at": "2026-11-18T11:50:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/amazon-basin": [
     {
       "at": "2026-11-08T05:19:45Z",
@@ -2062,6 +2074,18 @@
       "kept": true
     }
   ],
+  "id/places/bung-borapet": [
+    {
+      "at": "2026-11-18T11:50:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/burkina-faso": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -2069,6 +2093,20 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/burrup-peninsula": [
+    {
+      "at": "2026-11-18T11:50:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "bán đảo Burrup (Vietnamese, not Indonesian)"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -2597,6 +2635,18 @@
       "notes": [
         "\"sông Cerekang\" (should be Sungai Cerekang)"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/cerro-largo": [
+    {
+      "at": "2026-11-18T11:50:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -3488,6 +3538,20 @@
       "kept": true
     }
   ],
+  "id/places/dampier-archipelago": [
+    {
+      "at": "2026-11-18T11:50:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "quần đảo Dampier (Vietnamese)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/dan-river": [
     {
       "at": "2026-11-08T05:19:46Z",
@@ -3939,6 +4003,20 @@
       "kept": true
     }
   ],
+  "id/places/elizabeth-reef": [
+    {
+      "at": "2026-11-18T11:50:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "rạn san hô Elizabeth (Vietnamese)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/embley": [
     {
       "at": "2026-11-13T16:24:38Z",
@@ -4084,6 +4162,20 @@
       "kept": true
     }
   ],
+  "id/places/flinders-reef": [
+    {
+      "at": "2026-11-18T11:50:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "rạn san hô Flinders (Vietnamese)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/florida": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -4127,6 +4219,18 @@
         "fly-river: \"Fly\" lacks \"Sungai\" (should be Sungai Fly)"
       ],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/formosa": [
+    {
+      "at": "2026-11-18T11:50:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -6814,6 +6918,18 @@
       "kept": true
     }
   ],
+  "id/places/la-plata-river": [
+    {
+      "at": "2026-11-18T11:50:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/la-plata-river-basin": [
     {
       "at": "2026-11-12T13:10:55Z",
@@ -7547,6 +7663,20 @@
       "model": "sonnet",
       "score": 0.96,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/lake-xochimilco": [
+    {
+      "at": "2026-11-18T11:50:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "hồ Xochimilco (Vietnamese)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -8384,6 +8514,20 @@
       "cli": "2.1.322",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/madura-strait": [
+    {
+      "at": "2026-11-18T11:50:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "eo biển Madura (Vietnamese)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -9537,6 +9681,20 @@
       "score": 0.3,
       "notes": [
         "Micronesia → Mikronesia (ok)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/middleton-reef": [
+    {
+      "at": "2026-11-18T11:50:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "rạn san hô Middleton (Vietnamese)"
       ],
       "attempt": "first",
       "kept": true
@@ -11532,6 +11690,18 @@
       "kept": true
     }
   ],
+  "id/places/patagonia": [
+    {
+      "at": "2026-11-18T11:50:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/patia": [
     {
       "at": "2026-11-06T12:35:53Z",
@@ -13469,6 +13639,20 @@
       "kept": true
     }
   ],
+  "id/places/rio-manacapuru": [
+    {
+      "at": "2026-11-18T11:50:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Manacapuru (Vietnamese)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-manuripi": [
     {
       "at": "2026-11-08T05:21:30Z",
@@ -14260,6 +14444,20 @@
       "kept": true
     }
   ],
+  "id/places/rio-tefe": [
+    {
+      "at": "2026-11-18T11:50:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Tefé (Vietnamese)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-teuchitlan": [
     {
       "at": "2026-11-10T22:48:51Z",
@@ -14665,6 +14863,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/ruhoi-river": [
+    {
+      "at": "2026-11-18T11:50:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "sông Ruhoi (Vietnamese)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -15171,6 +15383,18 @@
       "kept": true
     }
   ],
+  "id/places/santa-cruz": [
+    {
+      "at": "2026-11-18T11:50:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/santarem": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -15292,6 +15516,18 @@
       "score": 0.7,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/saurashtra": [
+    {
+      "at": "2026-11-18T11:50:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -15431,6 +15667,18 @@
       "kept": true
     }
   ],
+  "id/places/selous-game-reserve": [
+    {
+      "at": "2026-11-18T11:50:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/senegal-river": [
     {
       "at": "2026-11-08T05:21:31Z",
@@ -15534,6 +15782,18 @@
       "ran": "claude-sonnet-5-5",
       "cli": "2.1.322",
       "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/shetrunji": [
+    {
+      "at": "2026-11-18T11:50:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -18643,6 +18903,18 @@
       "kept": true
     }
   ],
+  "ms/places/alto-parana": [
+    {
+      "at": "2026-11-18T12:06:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/amapa": [
     {
       "at": "2026-11-08T03:36:44Z",
@@ -21091,6 +21363,20 @@
       "kept": true
     }
   ],
+  "ms/places/bung-borapet": [
+    {
+      "at": "2026-11-18T12:06:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "\"Bung Borapet → Bueng Boraphet\": source name is Bung Borapet, but the output is a Thai transliteration; Malaysian atlas would use \"Tasik Bueng Boraphet\" or similar, so this is questionable"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/burkina-faso": [
     {
       "at": "2026-11-08T03:36:45Z",
@@ -21098,6 +21384,20 @@
       "score": 0.93,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "ms/places/burrup-peninsula": [
+    {
+      "at": "2026-11-18T12:06:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "\"Selat Madura\", \"Kepulauan Dampier\", \"Semenanjung Burrup\": correct"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -21660,6 +21960,18 @@
       "ran": "claude-sonnet-5-5",
       "cli": "2.1.322",
       "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/cerro-largo": [
+    {
+      "at": "2026-11-18T12:06:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -22458,6 +22770,20 @@
       "kept": true
     }
   ],
+  "ms/places/dampier-archipelago": [
+    {
+      "at": "2026-11-18T12:06:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "\"Selat Madura\", \"Kepulauan Dampier\", \"Semenanjung Burrup\": correct"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/dan-river": [
     {
       "at": "2026-11-08T12:44:35Z",
@@ -22839,6 +23165,20 @@
       "kept": true
     }
   ],
+  "ms/places/elizabeth-reef": [
+    {
+      "at": "2026-11-18T12:06:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "\"Terumbu Elizabeth\", \"Terumbu Flinders\", \"Terumbu Middleton\": acceptable (\"Terumbu Karang\" is also common)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/embley": [
     {
       "at": "2026-11-13T16:37:00Z",
@@ -22968,11 +23308,37 @@
       ]
     }
   ],
+  "ms/places/flinders-reef": [
+    {
+      "at": "2026-11-18T12:06:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "\"Terumbu Elizabeth\", \"Terumbu Flinders\", \"Terumbu Middleton\": acceptable (\"Terumbu Karang\" is also common)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/florida-peninsula": [
     {
       "at": "2026-11-09T00:52:34Z",
       "model": "sonnet",
       "score": 0.4,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/formosa": [
+    {
+      "at": "2026-11-18T12:06:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -26363,6 +26729,20 @@
       "kept": true
     }
   ],
+  "ms/places/la-plata-river": [
+    {
+      "at": "2026-11-18T12:06:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "\"Río de la Plata\": Malay atlases would typically write \"Sungai La Plata\" or \"Río de la Plata\"; questionable"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/la-plata-river-basin": [
     {
       "at": "2026-11-12T13:20:24Z",
@@ -26983,6 +27363,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/lake-xochimilco": [
+    {
+      "at": "2026-11-18T12:06:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "\"Tasik Xochimilco\": acceptable"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -27791,6 +28185,20 @@
         0.93,
         0.96
       ]
+    }
+  ],
+  "ms/places/madura-strait": [
+    {
+      "at": "2026-11-18T12:06:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "\"Selat Madura\", \"Kepulauan Dampier\", \"Semenanjung Burrup\": correct"
+      ],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "ms/places/mae-khlong": [
@@ -28820,6 +29228,20 @@
       "cli": "2.1.322",
       "score": 0.45,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/middleton-reef": [
+    {
+      "at": "2026-11-18T12:06:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "\"Terumbu Elizabeth\", \"Terumbu Flinders\", \"Terumbu Middleton\": acceptable (\"Terumbu Karang\" is also common)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -30792,6 +31214,18 @@
       "score": 0.93,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "ms/places/patagonia": [
+    {
+      "at": "2026-11-18T12:06:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -33104,6 +33538,20 @@
       "kept": true
     }
   ],
+  "ms/places/rio-manacapuru": [
+    {
+      "at": "2026-11-18T12:06:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "\"Manacapuru\" (rio-manacapuru): drops the word for river; should be \"Sungai Manacapuru\""
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/rio-manuripi": [
     {
       "at": "2026-11-08T12:45:47Z",
@@ -33995,6 +34443,20 @@
       "kept": true
     }
   ],
+  "ms/places/rio-tefe": [
+    {
+      "at": "2026-11-18T12:06:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "\"Tefé\" (rio-tefe): drops the word for river; should be \"Sungai Tefé\""
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/rio-teuchitlan": [
     {
       "at": "2026-11-12T13:20:45Z",
@@ -34510,6 +34972,20 @@
       "model": "sonnet",
       "score": 0.2,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/ruhoi-river": [
+    {
+      "at": "2026-11-18T12:06:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "\"Ruhoi\" (ruhoi-river): drops the word for river; should be \"Sungai Ruhoi\""
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -35066,6 +35542,18 @@
       "kept": true
     }
   ],
+  "ms/places/santa-cruz": [
+    {
+      "at": "2026-11-18T12:06:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/santee": [
     {
       "at": "2026-11-09T00:52:35Z",
@@ -35173,6 +35661,18 @@
         0.93,
         0.96
       ]
+    }
+  ],
+  "ms/places/saurashtra": [
+    {
+      "at": "2026-11-18T12:06:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "ms/places/savannah-river": [
@@ -35299,6 +35799,20 @@
       "kept": true
     }
   ],
+  "ms/places/selous-game-reserve": [
+    {
+      "at": "2026-11-18T12:06:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "\"Rizab Permainan Selous\": wrong. \"Game reserve\" is not literally \"permainan\"; should be \"Rizab Hidupan Liar Selous\" or \"Kawasan Perlindungan Hidupan Liar Selous\""
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/senegal-river": [
     {
       "at": "2026-11-08T12:46:23Z",
@@ -35400,6 +35914,18 @@
       "ran": "claude-sonnet-5-5",
       "cli": "2.1.322",
       "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/shetrunji": [
+    {
+      "at": "2026-11-18T12:06:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -38773,6 +39299,18 @@
       "kept": true
     }
   ],
+  "th/places/alto-parana": [
+    {
+      "at": "2026-11-18T11:52:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/amazon-basin": [
     {
       "at": "2026-11-08T05:27:07Z",
@@ -40704,6 +41242,30 @@
       "kept": true
     }
   ],
+  "th/places/bung-borapet": [
+    {
+      "at": "2026-11-18T11:52:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/burrup-peninsula": [
+    {
+      "at": "2026-11-18T11:52:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/busira": [
     {
       "at": "2026-11-08T05:27:08Z",
@@ -41265,6 +41827,20 @@
       "model": "sonnet",
       "score": 0.82,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/cerro-largo": [
+    {
+      "at": "2026-11-18T11:52:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "No wrong Thai place names found. Some are slightly off: \"เสาราษฏร์\" (Saurashtra) is acceptable, though the usual Thai spelling is \"เสาราษฎร์\". \"เซร์โรลาร์โก\" is a strict transliteration and is fine. \"เขตสงวนพันธุ์สัตว์เซลูส\" is fine."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -42233,6 +42809,18 @@
       "kept": true
     }
   ],
+  "th/places/dampier-archipelago": [
+    {
+      "at": "2026-11-18T11:52:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/dan-river": [
     {
       "at": "2026-11-08T05:27:08Z",
@@ -42670,6 +43258,18 @@
       "kept": true
     }
   ],
+  "th/places/elizabeth-reef": [
+    {
+      "at": "2026-11-18T11:52:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/embley": [
     {
       "at": "2026-11-13T16:28:08Z",
@@ -42856,6 +43456,18 @@
       "kept": true
     }
   ],
+  "th/places/flinders-reef": [
+    {
+      "at": "2026-11-18T11:52:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/florida": [
     {
       "at": "2026-11-06T12:36:00Z",
@@ -42893,6 +43505,18 @@
       "score": 0.55,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/formosa": [
+    {
+      "at": "2026-11-18T11:52:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -45768,6 +46392,18 @@
       "kept": true
     }
   ],
+  "th/places/la-plata-river": [
+    {
+      "at": "2026-11-18T11:52:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/la-plata-river-basin": [
     {
       "at": "2026-11-12T13:12:16Z",
@@ -46515,6 +47151,18 @@
       "score": 0.55,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/lake-xochimilco": [
+    {
+      "at": "2026-11-18T11:52:27Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -47367,6 +48015,18 @@
       "notes": [
         "ซารามักกา (Saramacca): the usual Thai form is ซารามักกา or ซาราแมกคา, so this one is borderline"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/madura-strait": [
+    {
+      "at": "2026-11-18T11:52:27Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -48575,6 +49235,18 @@
       "ran": "claude-sonnet-5-5",
       "cli": "2.1.322",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/middleton-reef": [
+    {
+      "at": "2026-11-18T11:52:27Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -50709,6 +51381,18 @@
       "kept": true
     }
   ],
+  "th/places/patagonia": [
+    {
+      "at": "2026-11-18T11:52:27Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/patia": [
     {
       "at": "2026-11-06T12:36:17Z",
@@ -52736,6 +53420,18 @@
       "kept": true
     }
   ],
+  "th/places/rio-manacapuru": [
+    {
+      "at": "2026-11-18T11:52:27Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-manuripi": [
     {
       "at": "2026-11-08T05:29:24Z",
@@ -53548,6 +54244,18 @@
       "kept": true
     }
   ],
+  "th/places/rio-tefe": [
+    {
+      "at": "2026-11-18T11:52:27Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-teuchitlan": [
     {
       "at": "2026-11-10T22:53:23Z",
@@ -54027,6 +54735,18 @@
       "at": "2026-11-09T11:49:05Z",
       "model": "sonnet",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/ruhoi-river": [
+    {
+      "at": "2026-11-18T11:52:27Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -54532,6 +55252,18 @@
       "kept": true
     }
   ],
+  "th/places/santa-cruz": [
+    {
+      "at": "2026-11-18T11:52:27Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/santarem": [
     {
       "at": "2026-11-06T12:36:07Z",
@@ -54683,6 +55415,20 @@
       "kept": true
     }
   ],
+  "th/places/saurashtra": [
+    {
+      "at": "2026-11-18T11:52:27Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "No wrong Thai place names found. Some are slightly off: \"เสาราษฏร์\" (Saurashtra) is acceptable, though the usual Thai spelling is \"เสาราษฎร์\". \"เซร์โรลาร์โก\" is a strict transliteration and is fine. \"เขตสงวนพันธุ์สัตว์เซลูส\" is fine."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/savannah-river": [
     {
       "at": "2026-11-08T05:29:25Z",
@@ -54824,6 +55570,20 @@
       "kept": true
     }
   ],
+  "th/places/selous-game-reserve": [
+    {
+      "at": "2026-11-18T11:52:27Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "No wrong Thai place names found. Some are slightly off: \"เสาราษฏร์\" (Saurashtra) is acceptable, though the usual Thai spelling is \"เสาราษฎร์\". \"เซร์โรลาร์โก\" is a strict transliteration and is fine. \"เขตสงวนพันธุ์สัตว์เซลูส\" is fine."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/senegal-river": [
     {
       "at": "2026-11-08T05:29:25Z",
@@ -54954,6 +55714,18 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/shetrunji": [
+    {
+      "at": "2026-11-18T11:52:27Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -58147,6 +58919,19 @@
       "kept": true
     }
   ],
+  "vi/places/alto-parana": [
+    {
+      "at": "2026-11-18T11:49:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "I found no wrong places. Most names either keep the source spelling or put the generic word into Vietnamese (bán đảo, quần đảo, rạn san hô, hồ, eo biển, sông, khu bảo tồn)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/amapa": [
     {
       "at": "2026-11-07T20:32:22Z",
@@ -60555,6 +61340,33 @@
       "kept": true
     }
   ],
+  "vi/places/bung-borapet": [
+    {
+      "at": "2026-11-18T11:49:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "I found no wrong places. Most names either keep the source spelling or put the generic word into Vietnamese (bán đảo, quần đảo, rạn san hô, hồ, eo biển, sông, khu bảo tồn).",
+        "'Bung Borapet' is borderline but not marked wrong. 'Bung' (Bueng) is the Thai word for swamp or lake, but here it reads as part of the proper name. 'hồ Bueng Boraphet' would be a possible alternative."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/burrup-peninsula": [
+    {
+      "at": "2026-11-18T11:49:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "I found no wrong places. Most names either keep the source spelling or put the generic word into Vietnamese (bán đảo, quần đảo, rạn san hô, hồ, eo biển, sông, khu bảo tồn)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/busira": [
     {
       "at": "2026-11-07T20:33:13Z",
@@ -61172,6 +61984,19 @@
       "model": "sonnet",
       "score": 0.9,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/cerro-largo": [
+    {
+      "at": "2026-11-18T11:49:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "I found no wrong places. Most names either keep the source spelling or put the generic word into Vietnamese (bán đảo, quần đảo, rạn san hô, hồ, eo biển, sông, khu bảo tồn)."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -62223,6 +63048,19 @@
       "kept": true
     }
   ],
+  "vi/places/dampier-archipelago": [
+    {
+      "at": "2026-11-18T11:49:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "I found no wrong places. Most names either keep the source spelling or put the generic word into Vietnamese (bán đảo, quần đảo, rạn san hô, hồ, eo biển, sông, khu bảo tồn)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/dan-river": [
     {
       "at": "2026-11-07T20:34:11Z",
@@ -62707,6 +63545,19 @@
       "kept": true
     }
   ],
+  "vi/places/elizabeth-reef": [
+    {
+      "at": "2026-11-18T11:49:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "I found no wrong places. Most names either keep the source spelling or put the generic word into Vietnamese (bán đảo, quần đảo, rạn san hô, hồ, eo biển, sông, khu bảo tồn)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/embley": [
     {
       "at": "2026-11-13T16:24:24Z",
@@ -62898,6 +63749,19 @@
       "kept": true
     }
   ],
+  "vi/places/flinders-reef": [
+    {
+      "at": "2026-11-18T11:49:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "I found no wrong places. Most names either keep the source spelling or put the generic word into Vietnamese (bán đảo, quần đảo, rạn san hô, hồ, eo biển, sông, khu bảo tồn)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/florida": [
     {
       "at": "2026-11-07T20:34:11Z",
@@ -62946,6 +63810,19 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/formosa": [
+    {
+      "at": "2026-11-18T11:49:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "I found no wrong places. Most names either keep the source spelling or put the generic word into Vietnamese (bán đảo, quần đảo, rạn san hô, hồ, eo biển, sông, khu bảo tồn)."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -66415,6 +67292,20 @@
       "kept": true
     }
   ],
+  "vi/places/la-plata-river": [
+    {
+      "at": "2026-11-18T11:49:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "I found no wrong places. Most names either keep the source spelling or put the generic word into Vietnamese (bán đảo, quần đảo, rạn san hô, hồ, eo biển, sông, khu bảo tồn).",
+        "'Río de la Plata' is acceptable: it is the name Vietnamese sources normally use for this river."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/la-plata-river-basin": [
     {
       "at": "2026-11-12T13:10:35Z",
@@ -67446,6 +68337,19 @@
       "kept": true
     }
   ],
+  "vi/places/lake-xochimilco": [
+    {
+      "at": "2026-11-18T11:49:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "I found no wrong places. Most names either keep the source spelling or put the generic word into Vietnamese (bán đảo, quần đảo, rạn san hô, hồ, eo biển, sông, khu bảo tồn)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/lake-yandja": [
     {
       "at": "2026-11-07T20:35:59Z",
@@ -68388,6 +69292,19 @@
       "score": 0.96,
       "notes": [
         "No wrong places found. All 99 names are either names Vietnamese readers already use, or the source's own name with the generic word put into Vietnamese."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/madura-strait": [
+    {
+      "at": "2026-11-18T11:49:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "I found no wrong places. Most names either keep the source spelling or put the generic word into Vietnamese (bán đảo, quần đảo, rạn san hô, hồ, eo biển, sông, khu bảo tồn)."
       ],
       "attempt": "first",
       "kept": true
@@ -69777,6 +70694,19 @@
       "notes": [
         "All 16 names are correct. Each one either keeps the source's proper name or puts its generic word into Vietnamese: kênh (channel), hồ (lake), sông (river), hệ thống hồ (lake system).",
         "No proper name is translated word by word, and no generic word is left in English or Portuguese. 'Rio' is correctly turned into 'sông'."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/middleton-reef": [
+    {
+      "at": "2026-11-18T11:49:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "I found no wrong places. Most names either keep the source spelling or put the generic word into Vietnamese (bán đảo, quần đảo, rạn san hô, hồ, eo biển, sông, khu bảo tồn)."
       ],
       "attempt": "first",
       "kept": true
@@ -72346,6 +73276,19 @@
       "kept": true
     }
   ],
+  "vi/places/patagonia": [
+    {
+      "at": "2026-11-18T11:49:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "I found no wrong places. Most names either keep the source spelling or put the generic word into Vietnamese (bán đảo, quần đảo, rạn san hô, hồ, eo biển, sông, khu bảo tồn)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/patia": [
     {
       "at": "2026-11-07T20:37:55Z",
@@ -74628,6 +75571,19 @@
       "kept": true
     }
   ],
+  "vi/places/rio-manacapuru": [
+    {
+      "at": "2026-11-18T11:49:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "I found no wrong places. Most names either keep the source spelling or put the generic word into Vietnamese (bán đảo, quần đảo, rạn san hô, hồ, eo biển, sông, khu bảo tồn)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-manuripi": [
     {
       "at": "2026-11-07T20:38:47Z",
@@ -75556,6 +76512,19 @@
       "kept": true
     }
   ],
+  "vi/places/rio-tefe": [
+    {
+      "at": "2026-11-18T11:49:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "I found no wrong places. Most names either keep the source spelling or put the generic word into Vietnamese (bán đảo, quần đảo, rạn san hô, hồ, eo biển, sông, khu bảo tồn)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-teuchitlan": [
     {
       "at": "2026-11-10T22:46:14Z",
@@ -76092,6 +77061,19 @@
       "notes": [
         "None of the names is wrong.",
         "All the other names keep the source's spelling, which is how Vietnamese writes foreign place names."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/ruhoi-river": [
+    {
+      "at": "2026-11-18T11:49:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "I found no wrong places. Most names either keep the source spelling or put the generic word into Vietnamese (bán đảo, quần đảo, rạn san hô, hồ, eo biển, sông, khu bảo tồn)."
       ],
       "attempt": "first",
       "kept": true
@@ -76787,6 +77769,19 @@
       "kept": true
     }
   ],
+  "vi/places/santa-cruz": [
+    {
+      "at": "2026-11-18T11:49:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "I found no wrong places. Most names either keep the source spelling or put the generic word into Vietnamese (bán đảo, quần đảo, rạn san hô, hồ, eo biển, sông, khu bảo tồn)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/santarem": [
     {
       "at": "2026-11-07T20:39:31Z",
@@ -76997,6 +77992,19 @@
       "kept": true
     }
   ],
+  "vi/places/saurashtra": [
+    {
+      "at": "2026-11-18T11:49:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "I found no wrong places. Most names either keep the source spelling or put the generic word into Vietnamese (bán đảo, quần đảo, rạn san hô, hồ, eo biển, sông, khu bảo tồn)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/savannah-river": [
     {
       "at": "2026-11-07T20:39:32Z",
@@ -77165,6 +78173,20 @@
       "kept": true
     }
   ],
+  "vi/places/selous-game-reserve": [
+    {
+      "at": "2026-11-18T11:49:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "I found no wrong places. Most names either keep the source spelling or put the generic word into Vietnamese (bán đảo, quần đảo, rạn san hô, hồ, eo biển, sông, khu bảo tồn).",
+        "'khu bảo tồn Selous' is fine. Vietnamese sources may also say 'Khu bảo tồn thiên nhiên Selous'."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/senegal-river": [
     {
       "at": "2026-11-07T20:40:24Z",
@@ -77285,6 +78307,20 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/shetrunji": [
+    {
+      "at": "2026-11-18T11:49:30Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "I found no wrong places. Most names either keep the source spelling or put the generic word into Vietnamese (bán đảo, quần đảo, rạn san hô, hồ, eo biển, sông, khu bảo tồn).",
+        "Shetrunji is mainly known as a river, and the name itself is fine."
+      ],
       "attempt": "first",
       "kept": true
     }

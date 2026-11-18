@@ -3,6 +3,12 @@
   "name": "แยงซี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-18T12:20:29.441Z",
+    "why": "\"แยงซี\" is the common Thai transliteration of Yangtze, but it lacks the kind word \"แม่น้ำ\", and Thai atlases write แม่น้ำแยงซี (or แม่น้ำฉางเจียง)."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

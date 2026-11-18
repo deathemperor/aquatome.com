@@ -17,11 +17,18 @@
   "range": {
     "native": {
       "countries": [
-        "IN"
+        "IN",
+        "TH",
+        "MM",
+        "MY",
+        "ID"
       ],
-      "regions": [],
+      "regions": [
+        "Ganges"
+      ],
       "sources": [
-        "glaser"
+        "glaser",
+        "scotcat"
       ],
       "quotes": [
         {
@@ -31,13 +38,32 @@
             "IN"
           ],
           "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South and southeast Asia: India, Thailand, Myanmar, Malaysia and Indonesia.",
+          "countries": [
+            "TH",
+            "MM",
+            "MY",
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Ganges River, India.",
+          "countries": [],
+          "regions": [
+            "Ganges"
+          ]
         }
       ]
     },
     "records": {
       "taxonKey": 2344895,
       "total": 46,
-      "fetched": "2026-11-10",
+      "fetched": "2026-11-18",
       "countries": [
         [
           "MY",
@@ -117,37 +143,37 @@
           98.4375,
           11.25,
           1,
-          0
+          1
         ],
         [
           102.65625,
           2.8125,
           2,
-          0
+          2
         ],
         [
           102.65625,
           4.21875,
           1,
-          0
+          1
         ],
         [
           102.65625,
           5.625,
           3,
-          0
+          3
         ],
         [
           108.28125,
           -1.40625,
           2,
-          0
+          2
         ],
         [
           113.90625,
           2.8125,
           13,
-          0
+          13
         ]
       ]
     }

@@ -19,6 +19,132 @@
     "cerro-largo",
     "peru"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "AR",
+        "BR",
+        "BO",
+        "PY",
+        "UY",
+        "PE"
+      ],
+      "regions": [
+        "Amazon"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "These snails originate in South America: Argentina (provinces of Formosa, Chaco, Corrientes); southern Brazil (Rio Grande do Sul, Mato Grosso); Bolivia (Santa Cruz de la Sierra department, Chiquitos province); Paraguay (Alto Paraná, Itapuá, Ñeembucú departments); Uruguay (Cerro Largo department); Peru: known for the Amazon.",
+          "countries": [
+            "AR",
+            "BR",
+            "BO",
+            "PY",
+            "UY",
+            "PE"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7412117,
+      "total": 18,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "AR",
+          8
+        ],
+        [
+          "BR",
+          8
+        ],
+        [
+          "MX",
+          1
+        ],
+        [
+          "UY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -94.21875,
+          15.46875,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          -32.34375,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -32.34375,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -28.125,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -35.15625,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -28.125,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -33.75,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -32.34375,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -30.9375,
+          5,
+          5
+        ],
+        [
+          -50.625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -25.3125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

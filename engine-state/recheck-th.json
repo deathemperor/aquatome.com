@@ -1,7 +1,7 @@
 {
   "aegla-platensis": {
-    "hash": "03574437ec94a732fec8f0a55e6e160876cd67e8b559063286a3f0c36db0287a",
-    "at": "2026-11-17T11:27:40.989Z",
+    "hash": "d7262d465d269491aa887225ab5e6259bc0f12d53bf56d4d732c76ee6cb51d3c",
+    "at": "2026-11-18T12:14:06.101Z",
     "sonnet": 0.6,
     "back": false
   },
@@ -55,12 +55,36 @@
     "opus": 0.88,
     "back": true
   },
+  "ariopsis-guatemalensis": {
+    "hash": "2037f8165c2246b9271ac2fee9a0f92b4cd6ac8b0af29cb5b6c44fdb746a003a",
+    "at": "2026-11-18T12:14:19.329Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "asolene-spixii": {
+    "hash": "a3b18b456220186dad954927314579b5ad8b9c2077c0289d640117398557db07",
+    "at": "2026-11-18T12:14:36.553Z",
+    "sonnet": 0.55,
+    "back": false
+  },
   "astacus-astacus": {
     "hash": "ac529d27ef648292b14bc9bd902fa3dc00056e6ee3982e38d40210306bdda28f",
     "at": "2026-11-17T11:29:29.617Z",
     "sonnet": 0.85,
     "opus": 0.95,
     "back": true
+  },
+  "badis-autumnum": {
+    "hash": "35313d2b7f447c266fb62f63fac8720d17dc4b709e00fa68ba0827158696de75",
+    "at": "2026-11-18T12:14:49.595Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "bagarius-suchus": {
+    "hash": "2fb8e41ad8e1302a30b2aff6e0b68e209ef6a25a2a2f43b2f9aee5a2277e67cb",
+    "at": "2026-11-18T12:14:57.445Z",
+    "sonnet": 0.5,
+    "back": false
   },
   "bagre-marinus": {
     "hash": "22acfccf42b3c1b09148350f09738a6ebc8287fd47fa2b89407ca2c1036fe69d",
@@ -87,6 +111,12 @@
     "hash": "7a01309fb8226beef0e5b61f93421b63c1e20a3a659a547e14edc86293bbc8a8",
     "at": "2026-11-17T11:29:43.846Z",
     "sonnet": 0.7,
+    "back": false
+  },
+  "caridina-multidentata": {
+    "hash": "65b9761b14b3d0bb0a4b1dbc04104ed18939e6b4e7402d78125ec4656b03456b",
+    "at": "2026-11-18T12:16:01.286Z",
+    "sonnet": 0.5,
     "back": false
   },
   "carinotetraodon-travancoricus": {
@@ -123,6 +153,13 @@
     "at": "2026-11-18T00:39:04.028Z",
     "sonnet": 0.6,
     "back": false
+  },
+  "cyrtocara-moorii": {
+    "hash": "4c43298442c535c43dc19b121f93cce24168db82658bf678c447af63eb86d4f9",
+    "at": "2026-11-18T12:16:53.712Z",
+    "sonnet": 0.9,
+    "opus": 0.85,
+    "back": true
   },
   "danio-choprae": {
     "hash": "44718d99cccaf2c68be3a9e63e4177d32206d5756f53f7eb9e0e4602335813a4",
@@ -288,6 +325,13 @@
     "sonnet": 0.55,
     "back": false
   },
+  "ketengus-typus": {
+    "hash": "8aaf076880ac6867c80624c09c2061b8dd0e77b9238f8b3ed8251b2e3685929a",
+    "at": "2026-11-18T12:15:31.828Z",
+    "sonnet": 0.75,
+    "opus": 0.7,
+    "back": false
+  },
   "melanotaenia-praecox": {
     "hash": "031659a78f9cbaf8272423d0c64ff1601db9c8e26667b6a82d3af4c30b76dd91",
     "at": "2026-11-18T00:38:05.211Z",
@@ -300,6 +344,12 @@
     "sonnet": 0.85,
     "opus": 0.85,
     "back": true
+  },
+  "nemapteryx-nenga": {
+    "hash": "4ed86204a607d7bf684ce2c9937140ed7c334f4b77fb798f891a9c1914bd9b11",
+    "at": "2026-11-18T12:15:40.793Z",
+    "sonnet": 0.7,
+    "back": false
   },
   "neocaridina-davidi": {
     "hash": "17fe977a28bc555c5f61fc2f2417adf66e1a8fa45dc4f5599fc19e34db26783d",
@@ -352,6 +402,16 @@
     "opus": 0.8,
     "back": true
   },
+  "pseudomugil-gertrudae": {
+    "hash": "c48b0faef82e27106e31613967bd3df59cfc364203add9a737ed63a794521722",
+    "at": "2026-11-18T12:15:55.146Z",
+    "sonnet": 0.55,
+    "back": false,
+    "held": [
+      "Item 10: Added '(GH)' to the Hardness label is harmless, but 'แหล่งน้ำดำ' for oligotrophic blackwater drops nothing; fine.",
+      "Item 5: 'hardness 0–320 ppm' is left as is, which is fine. 'ธาตุอาหาร' for nutrients in 'dissolved nutrients' is OK."
+    ]
+  },
   "sewellia-breviventralis": {
     "hash": "738b0e77ab6a7954f05fb8298d61266334f4795771cbe91f81300e643a1a8632",
     "at": "2026-11-18T05:52:05.877Z",
@@ -381,6 +441,12 @@
     "hash": "677dcbf757784460aa10546e11c052d8b577a59f8d3cb7c0ae29a93fc0f5712c",
     "at": "2026-11-18T00:37:14.973Z",
     "sonnet": 0.4,
+    "back": false
+  },
+  "vittina-waigiensis": {
+    "hash": "55d30185a4d127f0393a2866597798fd8d295daa98f8240a9cf58790bd1e2566",
+    "at": "2026-11-18T12:16:12.828Z",
+    "sonnet": 0.6,
     "back": false
   }
 }

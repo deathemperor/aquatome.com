@@ -3,6 +3,12 @@
   "name": "จีเกียส",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T12:21:17.577Z",
+    "why": "จีเกียส is a plausible Thai rendering of the sound, but Cikeas here is a river system in West Java, so an atlas in Thailand would add แม่น้ำ, and the vowel is better written เกอัส than เกียส."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

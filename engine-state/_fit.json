@@ -5087,23 +5087,23 @@
   "products": []
  },
  "id/species/acestrorhynchus-altus": {
-  "at": "2026-11-08",
-  "hash": "a2529698f5e75468",
+  "at": "2026-11-18",
+  "hash": "d23a3fcac1dd70cd",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
-   {
-    "check": "source",
-    "part": "P4",
-    "quote": "Ikan-ikan ini didapat dari negara bagian Pará di Brasil",
-    "why": "Refers to the source shop's own imported stock as if the reader knew those fish.",
-    "by": "model"
-   },
    {
     "check": "source",
     "part": "P15",
     "quote": "Spesimen pada foto-foto di atas dikoleksi di dekat lokasi tipe",
-    "why": "Points at photos the page does not have.",
+    "why": "Refers to photos that are not on this page.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P4",
+    "quote": "Ikan-ikan ini didapat dari negara bagian Pará di Brasil",
+    "why": "Refers to the source's own fish as if the reader knew them.",
     "by": "model"
    }
   ],
@@ -5141,10 +5141,10 @@
   "products": []
  },
  "id/species/acestrorhynchus-microlepis": {
-  "at": "2026-11-08",
-  "hash": "f1bf4fd2755a49bf",
+  "at": "2026-11-18",
+  "hash": "bdd7fc3ad80342ed",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -5165,22 +5165,23 @@
   "products": []
  },
  "id/species/acestrorhynchus-pantaneiro": {
-  "at": "2026-11-07",
-  "hash": "01ad50ab3a755a76",
+  "at": "2026-11-18",
+  "hash": "a671934f38436773",
   "model": "opus",
+  "checklist": 3,
   "findings": [
    {
     "check": "source",
     "part": "P14",
     "quote": "Spesimen yang diterima berukuran 11–15 cm dan sudah menunjukkan warna yang sangat bagus.",
-    "why": "This is the source exporter's own shipment, described as if the reader knew about it.",
+    "why": "Describes the source importer's own received stock as if the reader knew it.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P15",
     "quote": "Spesimen pada foto di atas ditangkap di Paraguay",
-    "why": "It points to a photo the page doesn't have, which came from the source article.",
+    "why": "Points to a photo the page does not have.",
     "by": "model"
    }
   ],
@@ -5399,10 +5400,10 @@
   "products": []
  },
  "id/species/ageneiosus-marmoratus": {
-  "at": "2026-11-08",
-  "hash": "d40871ba5ee4680c",
+  "at": "2026-11-18",
+  "hash": "a9f2bbba3513e95f",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -5510,10 +5511,10 @@
   "products": []
  },
  "id/species/akysis-portellus": {
-  "at": "2026-11-08",
-  "hash": "d0cfca748d0091a1",
+  "at": "2026-11-18",
+  "hash": "23e4e7f072b0b0cd",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -7880,6 +7881,14 @@
   "findings": [],
   "products": []
  },
+ "id/species/ariopsis-guatemalensis": {
+  "at": "2026-11-18",
+  "hash": "f99dd8d602c18e81",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "id/species/ariopsis-seemanni": {
   "at": "2026-11-18",
   "hash": "75ab3dafc6f33277",
@@ -7911,9 +7920,33 @@
   "findings": [],
   "products": []
  },
+ "id/species/arius-africanus": {
+  "at": "2026-11-18",
+  "hash": "d1c2f51c2192a6dc",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/arius-gigas": {
+  "at": "2026-11-18",
+  "hash": "e97bd45aab5cbe49",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "id/species/arius-latiscutatus": {
   "at": "2026-11-16",
   "hash": "e1eb45cce365aa23",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/arius-leptonotacanthus": {
+  "at": "2026-11-18",
+  "hash": "183c2c8ead1dd652",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -7927,9 +7960,25 @@
   "findings": [],
   "products": []
  },
+ "id/species/arius-manillensis": {
+  "at": "2026-11-18",
+  "hash": "3efe06f77b9d2aec",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "id/species/arius-oetik": {
   "at": "2026-11-18",
   "hash": "52dad433b1ae3c21",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/arius-subrostratus": {
+  "at": "2026-11-18",
+  "hash": "29294a50c8454b9b",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -7965,6 +8014,22 @@
   "model": "opus",
   "checklist": 2,
   "findings": [],
+  "products": []
+ },
+ "id/species/asolene-spixii": {
+  "at": "2026-11-18",
+  "hash": "17e88e335e899de3",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P2",
+    "quote": "sudah dilarang dibawa melintasi batas negara bagian, jadi periksa dulu aturan di negara bagian Anda sebelum membeli",
+    "why": "US state-line transport rules are presented as the reader's own; Indonesia has no such state rules.",
+    "by": "model"
+   }
+  ],
   "products": []
  },
  "id/species/aspidoras-fuscoguttatus": {
@@ -8426,6 +8491,22 @@
   ],
   "products": []
  },
+ "id/species/badis-autumnum": {
+  "at": "2026-11-18",
+  "hash": "3715ede85d981e4e",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P2",
+    "quote": "di musim dingin suhunya bisa serendah 14–16 °C",
+    "why": "Assumes a home with a cold winter season, as in Germany; Indonesia has no winter and rooms stay far warmer than 18–22 °C.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
  "id/species/badis-badis": {
   "at": "2026-11-08",
   "hash": "82c1480750408bb0",
@@ -8671,10 +8752,10 @@
   "products": []
  },
  "id/species/bagarius-suchus": {
-  "at": "2026-11-08",
-  "hash": "4ab4c8e960ce7b04",
+  "at": "2026-11-18",
+  "hash": "1bb954438d0ec9b5",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -10926,16 +11007,16 @@
   "products": []
  },
  "id/species/brycinus-longipinnis": {
-  "at": "2026-11-12",
-  "hash": "5a2afe92ecff5a22",
+  "at": "2026-11-18",
+  "hash": "36b862e6701d2d8d",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "units",
-    "part": "P4",
-    "quote": "Ukuran dasar akuarium: 120 × 38 cm.",
-    "why": "38 cm is a 15-inch side converted from imperial; Indonesian tank sizes would not use it.",
+    "part": "P6",
+    "quote": "Alas akuarium: 120 × 38 cm.",
+    "why": "38 cm is a converted 15-inch tank side; keepers in Indonesia would not size a tank this way.",
     "by": "model"
    }
   ],
@@ -11254,6 +11335,14 @@
  "id/species/centropomus-unionensis": {
   "at": "2026-11-16",
   "hash": "a1cedd2861a8195b",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/cephalocassis-borneensis": {
+  "at": "2026-11-18",
+  "hash": "fcf3b4dc029de170",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -12878,23 +12967,23 @@
   "products": []
  },
  "id/species/corydoras-bifasciatus": {
-  "at": "2026-11-17",
-  "hash": "a080bf67be2e2a41",
+  "at": "2026-11-18",
+  "hash": "a0f74ab27df102c3",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "source",
-    "part": "P3",
+    "part": "P2",
     "quote": "ikan ini tidak ditawarkan secara terpisah",
-    "why": "Refers to the source importer's own stock offering, unknown to the reader.",
+    "why": "Refers to the source shop's own stock offering, which the reader doesn't know.",
     "by": "model"
    },
    {
     "check": "source",
-    "part": "P3",
-    "quote": "Pada impor yang sekarang",
-    "why": "Refers to the source shop's current shipment as if the reader knew it.",
+    "part": "P2",
+    "quote": "Pada impor yang sekarang, ada juga individu",
+    "why": "Refers to the source shop's current import shipment as if the reader knew it.",
     "by": "model"
    }
   ],
@@ -16119,7 +16208,7 @@
   "products": []
  },
  "id/species/eirmotus-octozona": {
-  "at": "2026-11-17",
+  "at": "2026-11-18",
   "hash": "5e319a4d4d758316",
   "model": "opus",
   "checklist": 3,
@@ -16694,6 +16783,14 @@
   "findings": [],
   "products": []
  },
+ "id/species/hemiarius-stormii": {
+  "at": "2026-11-18",
+  "hash": "7f91a4498a9a10bd",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "id/species/hemibagrus-wyckii": {
   "at": "2026-11-07",
   "hash": "257ebf69e5ede62c",
@@ -17067,6 +17164,14 @@
    "Hikari First Bites",
    "TetraMin Crisps"
   ]
+ },
+ "id/species/ketengus-typus": {
+  "at": "2026-11-18",
+  "hash": "ce0100dbc4685bda",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
  },
  "id/species/kottelatia-brittani": {
   "at": "2026-11-16",
@@ -17526,6 +17631,14 @@
    }
   ],
   "sourceRead": true
+ },
+ "id/species/marisa-cornuarietis": {
+  "at": "2026-11-18",
+  "hash": "a0928505ad9c4e2d",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
  },
  "id/species/marosatherina-ladigesi": {
   "at": "2026-11-12",
@@ -17997,6 +18110,29 @@
   "findings": [],
   "products": []
  },
+ "id/species/nemapteryx-nenga": {
+  "at": "2026-11-18",
+  "hash": "d17bc9c4055a2334",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "doses": [
+   {
+    "treatment": "salt",
+    "strength": "",
+    "amount": 5,
+    "amountMax": 10,
+    "unit": "g",
+    "per": 1,
+    "perUnit": "litre",
+    "use": "water",
+    "method": "",
+    "quote": "air payau dengan kadar garam 5–10 gram per liter"
+   }
+  ],
+  "sourceRead": true
+ },
  "id/species/nematabramis-everetti": {
   "at": "2026-11-08",
   "hash": "b779277b59ef8ca7",
@@ -18175,6 +18311,22 @@
   "model": "opus",
   "checklist": 3,
   "findings": [],
+  "products": []
+ },
+ "id/species/odonteleotris-macrodon": {
+  "at": "2026-11-18",
+  "hash": "54a6802b5871cd42",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P3",
+    "quote": "Lima ekor berukuran sekitar 15 cm didapat dari Thailand.",
+    "why": "Refers to the source writer's own specimens and acquisition story, unknown to the reader.",
+    "by": "model"
+   }
+  ],
   "products": []
  },
  "id/species/oliotius-oligolepis": {
@@ -18423,10 +18575,10 @@
   "products": []
  },
  "id/species/pangio-anguillaris": {
-  "at": "2026-11-08",
-  "hash": "768d60ac36a13fd0",
+  "at": "2026-11-18",
+  "hash": "9fe3c44b3cf8e630",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -19864,19 +20016,11 @@
   "products": []
  },
  "id/species/symphysodon-discus": {
-  "at": "2026-11-14",
-  "hash": "ddedcd6d6aeb4969",
+  "at": "2026-11-18",
+  "hash": "255b924579576d3f",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "units",
-    "part": "P4",
-    "quote": "atau minimal sekitar 285 liter",
-    "why": "285 litres is a converted 75-gallon US tank size that no keeper in Indonesia would use.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "id/species/syncrossus-hymenophysa": {
@@ -22998,6 +23142,50 @@
   "findings": [],
   "products": []
  },
+ "ms/plants/ludwigia-glandulosa": {
+  "at": "2026-11-18",
+  "hash": "a57990cbd7404789",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "ms/plants/ludwigia-palustris": {
+  "at": "2026-11-18",
+  "hash": "9a02c91bff3b27b3",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "ms/plants/ludwigia-repens": {
+  "at": "2026-11-18",
+  "hash": "50cf512f61810ffb",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P7",
+    "quote": "ia boleh membiak dalam keadaan emersed pada musim panas",
+    "why": "Malaysia has no summer season; this assumes a temperate reader's seasons.",
+    "by": "model"
+   }
+  ],
+  "products": [
+   "Seachem Fluorite",
+   "Carib Sea Eco-Complete",
+   "Fluval Plant & Shrimp Stratum"
+  ]
+ },
+ "ms/plants/lysimachia-nummularia": {
+  "at": "2026-11-18",
+  "hash": "e1cc52db11f9a34c",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "ms/species/acanthicus-adonis": {
   "at": "2026-11-16",
   "hash": "e141b8b7f38f47d0",
@@ -23606,8 +23794,8 @@
   "products": []
  },
  "ms/species/akysis-portellus": {
-  "at": "2026-11-14",
-  "hash": "230a247191108be9",
+  "at": "2026-11-18",
+  "hash": "8b2a9cfaed911ea8",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -25013,6 +25201,78 @@
   ],
   "sourceRead": true
  },
+ "ms/species/aphyosemion-bitaeniatum": {
+  "at": "2026-11-18",
+  "hash": "f25856814f75ec3d",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "ms/species/aphyosemion-bivittatum": {
+  "at": "2026-11-18",
+  "hash": "16fb9f77691446cf",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "ms/species/aphyosemion-bualanum": {
+  "at": "2026-11-18",
+  "hash": "e41ae9049e4895d8",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P3",
+    "quote": "belum dapat dipastikan sama ada spesimen dalam gambar di sini dikenal pasti dengan betul",
+    "why": "Refers to a picture from the source that this page does not have.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "ms/species/aphyosemion-campomaanense": {
+  "at": "2026-11-18",
+  "hash": "2452f15f6d838f2b",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Spesimen yang ditawarkan ialah hasil ternakan Jerman, bersaiz 4–5 cm.",
+    "why": "This is the source shop describing fish it has for sale, which the reader in Malaysia can't buy.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "ms/species/aphyosemion-celiae": {
+  "at": "2026-11-18",
+  "hash": "c08f82482753f659",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "ms/species/aphyosemion-cognatum": {
+  "at": "2026-11-18",
+  "hash": "8d58c13cf3d139c5",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "ms/species/aphyosemion-congicum": {
+  "at": "2026-11-18",
+  "hash": "37397bf3c28cf491",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "ms/species/astronotus-ocellatus": {
   "at": "2026-11-16",
   "hash": "acf123a9d92c1f22",
@@ -25679,6 +25939,14 @@
   "findings": [],
   "products": []
  },
+ "ms/species/marisa-cornuarietis": {
+  "at": "2026-11-18",
+  "hash": "64f0f7b970ab5b49",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "ms/species/maylandia-estherae": {
   "at": "2026-11-12",
   "hash": "78a3bafba7eb5612",
@@ -26228,19 +26496,11 @@
   "products": []
  },
  "ms/species/symphysodon-discus": {
-  "at": "2026-11-14",
-  "hash": "4fe99f5e79d5914d",
+  "at": "2026-11-18",
+  "hash": "be6a1610a55a8ca2",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "units",
-    "part": "P4",
-    "quote": "atau sekurang-kurangnya kira-kira 285 liter",
-    "why": "285 litres is a conversion of 75 US gallons; no keeper in Malaysia would give a tank size that way.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "ms/species/thorichthys-meeki": {
@@ -32240,10 +32500,10 @@
   "products": []
  },
  "th/species/akysis-portellus": {
-  "at": "2026-11-07",
-  "hash": "6d366d472836c37c",
+  "at": "2026-11-18",
+  "hash": "4e7b1fc089334141",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -34564,6 +34824,14 @@
   "findings": [],
   "products": []
  },
+ "th/species/ariopsis-guatemalensis": {
+  "at": "2026-11-18",
+  "hash": "b2ffacbebedcf26c",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "th/species/ariopsis-seemanni": {
   "at": "2026-11-08",
   "hash": "7e5a20e4980ff077",
@@ -34588,9 +34856,33 @@
   "findings": [],
   "products": []
  },
+ "th/species/arius-africanus": {
+  "at": "2026-11-18",
+  "hash": "c697e481c057fee3",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/arius-gigas": {
+  "at": "2026-11-18",
+  "hash": "631b36998365e6e8",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "th/species/arius-latiscutatus": {
   "at": "2026-11-18",
   "hash": "90d1250f9a5d1235",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/arius-leptonotacanthus": {
+  "at": "2026-11-18",
+  "hash": "3f4986c3011c9a8d",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -34604,9 +34896,25 @@
   "findings": [],
   "products": []
  },
+ "th/species/arius-manillensis": {
+  "at": "2026-11-18",
+  "hash": "a7e1fcb0e4fae9b1",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "th/species/arius-oetik": {
   "at": "2026-11-18",
   "hash": "fa43a23501ee7ee6",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/arius-subrostratus": {
+  "at": "2026-11-18",
+  "hash": "7e4a174fe88ffd1a",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -34648,6 +34956,38 @@
   "hash": "b988e5232711bca2",
   "model": "opus",
   "findings": [],
+  "products": []
+ },
+ "th/species/asolene-spixii": {
+  "at": "2026-11-18",
+  "hash": "572786d25bc15cf8",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P2",
+    "quote": "Asolene spixi ถูกห้ามนำข้ามเขตรัฐ จึงควรตรวจสอบกฎหมายของรัฐก่อนซื้อ",
+    "why": "Telling the reader to check their state's law on moving this snail across state lines only makes sense in the US.",
+    "by": "model"
+   },
+   {
+    "check": "words",
+    "part": "P9",
+    "quote": "กุ้งบัมเบิลบี (bamboo shrimp)",
+    "why": "Bumblebee shrimp is a different animal; this mistranslates bamboo shrimp.",
+    "by": "model",
+    "fix": "กุ้งฟิลเตอร์ / กุ้งพัด"
+   },
+   {
+    "check": "words",
+    "part": "P9",
+    "quote": "กุ้งก้ามขาว (ghost shrimp)",
+    "why": "Keepers in Thailand don't call ghost shrimp by this name.",
+    "by": "model",
+    "fix": "กุ้งแก้ว / กุ้งฝอย"
+   }
+  ],
   "products": []
  },
  "th/species/aspidoras-fuscoguttatus": {
@@ -35129,6 +35469,22 @@
   ],
   "products": []
  },
+ "th/species/badis-autumnum": {
+  "at": "2026-11-18",
+  "hash": "68d19f0188a30723",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P2",
+    "quote": "ตลอดปีส่วนใหญ่ไม่จำเป็นต้องใช้ฮีตเตอร์เพิ่ม",
+    "why": "Assumes a cool European home where room temperature is 18–22 °C and winter cools the tank; in Thailand the issue is keeping this fish cool, not heating.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
  "th/species/badis-badis": {
   "at": "2026-11-08",
   "hash": "55410de237858c01",
@@ -35370,9 +35726,10 @@
   "products": []
  },
  "th/species/bagarius-suchus": {
-  "at": "2026-11-07",
-  "hash": "613fa4df2a476efd",
+  "at": "2026-11-18",
+  "hash": "2d1ca6c2f0d3fab4",
   "model": "opus",
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -37672,11 +38029,19 @@
   "products": []
  },
  "th/species/brycinus-longipinnis": {
-  "at": "2026-11-13",
-  "hash": "0070b2f18cb085f1",
+  "at": "2026-11-18",
+  "hash": "b34850994893f0a9",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "units",
+    "part": "P6",
+    "quote": "ตู้มาตรฐานขนาด 120 × 38 × 30 ซม. (ประมาณ 137 ลิตร)",
+    "why": "A 48 × 15 × 12 inch tank converted to centimetres, which is not a size Thai keepers use.",
+    "by": "model"
+   }
+  ],
   "products": [
    "liquifry"
   ]
@@ -37983,6 +38348,14 @@
  "th/species/centropomus-unionensis": {
   "at": "2026-11-16",
   "hash": "5ad259b4b34a142a",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/cephalocassis-borneensis": {
+  "at": "2026-11-18",
+  "hash": "79995e3ce29f38cb",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -39537,23 +39910,23 @@
   "products": []
  },
  "th/species/corydoras-bifasciatus": {
-  "at": "2026-11-17",
-  "hash": "3b5addd4f110f229",
+  "at": "2026-11-18",
+  "hash": "e809df623e5c666d",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "source",
-    "part": "P3",
+    "part": "P2",
     "quote": "จึงไม่มีการแยกจำหน่าย",
-    "why": "Refers to the source importer's own sales policy as if the reader shopped there.",
+    "why": "The source shop is talking about how it sells its own stock, which this reader doesn't know.",
     "by": "model"
    },
    {
     "check": "source",
-    "part": "P3",
-    "quote": "ในล็อตที่นำเข้าครั้งล่าสุดยังพบตัวที่แถบตามยาวเส้นที่สองพาดอยู่ต่ำกว่าแนวกึ่งกลางลำตัว",
-    "why": "Refers to the source shop's own latest shipment as if the reader knew it.",
+    "part": "P2",
+    "quote": "ในล็อตที่นำเข้าครั้งล่าสุด",
+    "why": "This points to the source shop's own latest import lot as if the reader knew it.",
     "by": "model"
    }
   ],
@@ -42762,8 +43135,8 @@
   "products": []
  },
  "th/species/eirmotus-octozona": {
-  "at": "2026-11-17",
-  "hash": "caae434e736d8a32",
+  "at": "2026-11-18",
+  "hash": "16e6d4c5948333ae",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -43403,6 +43776,14 @@
   "findings": [],
   "products": []
  },
+ "th/species/hemiarius-stormii": {
+  "at": "2026-11-18",
+  "hash": "93c1f0f08d591429",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "th/species/hemibagrus-wyckii": {
   "at": "2026-11-07",
   "hash": "d3aaee3001aecd47",
@@ -43779,6 +44160,14 @@
    "Hikari First Bites",
    "TetraMin Crisps"
   ]
+ },
+ "th/species/ketengus-typus": {
+  "at": "2026-11-18",
+  "hash": "ecac0d75680d8ffb",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
  },
  "th/species/kottelatia-brittani": {
   "at": "2026-11-16",
@@ -44213,6 +44602,14 @@
    }
   ],
   "sourceRead": true
+ },
+ "th/species/marisa-cornuarietis": {
+  "at": "2026-11-18",
+  "hash": "abb04588ae093607",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
  },
  "th/species/marosatherina-ladigesi": {
   "at": "2026-11-13",
@@ -44684,6 +45081,29 @@
   "findings": [],
   "products": []
  },
+ "th/species/nemapteryx-nenga": {
+  "at": "2026-11-18",
+  "hash": "f935b058096be978",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "doses": [
+   {
+    "treatment": "salt",
+    "strength": "",
+    "amount": 5,
+    "amountMax": 10,
+    "unit": "g",
+    "per": 1,
+    "perUnit": "litre",
+    "use": "water",
+    "method": "",
+    "quote": "น้ำกร่อยที่มีปริมาณเกลือ 5-10 กรัมต่อลิตร"
+   }
+  ],
+  "sourceRead": true
+ },
  "th/species/nematabramis-everetti": {
   "at": "2026-11-07",
   "hash": "d860f20da7cb569e",
@@ -44827,6 +45247,22 @@
   "model": "opus",
   "checklist": 3,
   "findings": [],
+  "products": []
+ },
+ "th/species/odonteleotris-macrodon": {
+  "at": "2026-11-18",
+  "hash": "0cb92c857ebdaf48",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P3",
+    "quote": "ได้ตัวอย่างปลาจากประเทศไทยมา 5 ตัว แต่ละตัวยาวประมาณ 15 ซม.",
+    "why": "The original writer's first-person story of receiving specimens, which the reader doesn't know about.",
+    "by": "model"
+   }
+  ],
   "products": []
  },
  "th/species/oliotius-oligolepis": {
@@ -45069,19 +45505,11 @@
   "products": []
  },
  "th/species/pangio-anguillaris": {
-  "at": "2026-11-07",
-  "hash": "45460f14336fb95d",
+  "at": "2026-11-18",
+  "hash": "96d1635eeaf7d69d",
   "model": "opus",
-  "checklist": 2,
-  "findings": [
-   {
-    "check": "elsewhere",
-    "part": "P12",
-    "quote": "ส่วนใหญ่มักหาได้จากการที่ติดปนมากับปลาชนิดอื่นที่นำเข้ามา",
-    "why": "Says the fish is mostly obtained mixed in with imported fish, but it is native to Thailand's Chao Phraya and Mekong, so this is written for a reader abroad.",
-    "by": "model"
-   }
-  ],
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "th/species/pangio-cuneovirgata": {
@@ -48686,18 +49114,10 @@
  },
  "vi/guides/aquariumbreeder-10-tips-for-rooted-aquarium-plants": {
   "at": "2026-11-18",
-  "hash": "2db3100ba55c96b2",
+  "hash": "b822de95ef20f36d",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Còn mình thì theo nguyên tắc càng đơn giản càng tốt.",
-    "why": "The source writer's own first-person voice and preference.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": [
    "Seachem Prime"
   ]
@@ -48810,10 +49230,18 @@
  },
  "vi/guides/aquariumbreeder-asterina-starfish-friend-or-foe": {
   "at": "2026-11-18",
-  "hash": "f770c7940c0f3c86",
+  "hash": "8d1fcfb7551b2608",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "harm",
+    "part": "P1",
+    "quote": "cứ một hai tuần cắt một cánh cho tép ăn",
+    "why": "Cutting off a starfish's arm again and again as shrimp food badly injures and stresses the animal and can kill it.",
+    "by": "model"
+   }
+  ],
   "products": []
  },
  "vi/guides/aquariumbreeder-axolotl-buying-guide": {
@@ -49196,18 +49624,10 @@
  },
  "vi/guides/aquariumbreeder-crayfish-internal-anatomy": {
   "at": "2026-11-18",
-  "hash": "72f3e30c3dbc8c49",
+  "hash": "44542a7eed619990",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Đây là phần hai về giải phẫu tôm hùm đất, phần một nói về cấu tạo bên ngoài.",
-    "why": "It points to an unnamed 'part one' from the original article series, and that part is not on this page.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "vi/guides/aquariumbreeder-crossbreeding-can-you-mix-different-color-shrimp": {
@@ -49458,36 +49878,30 @@
  },
  "vi/guides/aquariumbreeder-feeding-guide-axolotls": {
   "at": "2026-11-18",
-  "hash": "e28f481c6c74123e",
+  "hash": "b510b343bfa6afc4",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "elsewhere",
-    "part": "P1",
-    "quote": "Loại giun này thường dễ mua ngoài tiệm, nên rất hợp làm thức ăn chính cho axolotl.",
-    "why": "Nightcrawlers being easy to buy in shops reflects North American bait shops, not Vietnam.",
-    "by": "model"
-   },
-   {
     "check": "source",
     "part": "P1",
-    "quote": "Lần đầu thả Artemia vào bể 80 lít, chắc là axolotl còn không nhận ra có đồ ăn.",
-    "why": "A first-person story of the original writer's own tank.",
-    "by": "model"
-   },
-   {
-    "check": "elsewhere",
-    "part": "P1",
-    "quote": "Có tiệm để tủ đông ở cuối tiệm, cạnh khu bán cá sống.",
-    "why": "Describes the layout of foreign pet store chains with freezers at the back.",
+    "quote": "Có đọc về Artemia trước rồi mà lần đầu cho ăn vẫn bất ngờ vì chúng nhỏ đến vậy",
+    "why": "The source writer's own first-person experience, unknown to the reader.",
     "by": "model"
    },
    {
     "check": "words",
     "part": "P1",
-    "quote": "Trùng huyết và tép ghost chỉ nên làm món ăn vặt.",
-    "why": "'Tép ghost' is a calque of 'ghost shrimp'; Vietnamese keepers say 'tép kính'.",
+    "quote": "giun đỏ (red wiggler, loại giun hay nuôi để ủ phân)",
+    "why": "Translated from the English 'red wiggler'; Vietnamese keepers call the composting worm trùn quế.",
+    "by": "model",
+    "fix": "trùn quế"
+   },
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "Tép ghost cũng nuôi chung với axolotl được",
+    "why": "Half-translated English 'ghost shrimp'; keepers in Vietnam say tép kính.",
     "by": "model",
     "fix": "tép kính"
    }
@@ -61462,16 +61876,16 @@
   "products": []
  },
  "vi/guides/glaser-en-07-carp-like-fishes-1-loaches-hillstream-loach-week-at-aquarium-glaser-part-3-crossostoma-lacustre-homaloptera-tweedei-gastromyzon-punctulatus-en": {
-  "at": "2026-11-17",
-  "hash": "8a14982ee8546916",
+  "at": "2026-11-18",
+  "hash": "e831a50cbdd60574",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "source",
     "part": "P1",
-    "quote": "Crossostoma lacustre giờ mới lần đầu được nhập về.",
-    "why": "This is the source shop's news about new stock arriving, and the reader doesn't know that shop.",
+    "quote": "Cá về từ Thái Lan.",
+    "why": "Reports the source shop's stock arrival as if the reader knew that shop.",
     "by": "model"
    }
   ],
@@ -61866,23 +62280,23 @@
   "products": []
  },
  "vi/guides/glaser-en-09-characoids-tetra-relationship-two-new-tetras-from-the-rio-negro-region-hyphessobrycon-paepkei-and-h-cf-agulha": {
-  "at": "2026-11-17",
-  "hash": "1576c81cf0a1c0f6",
+  "at": "2026-11-18",
+  "hash": "c44cd9fa14220db9",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "source",
     "part": "P1",
-    "quote": "mẫu chuẩn dùng để mô tả cũng lấy từ chính cơ sở nhập cá này",
-    "why": "Refers to the source importer's own facility as if the reader knew it.",
+    "quote": "Trong một lô cá Hyphessobrycon socolofi (cá neon tim chảy máu Socolof) có lẫn rất nhiều cá khác",
+    "why": "Tells the source shop's own shipment story as if the reader knew it.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P1",
-    "quote": "lần đầu tiên cá tetra hồng vai vàng xinh đẹp có hàng đều đặn",
-    "why": "Stock news from the source importer, not relevant to the reader.",
+    "quote": "Một loài mới khác trước đây cũng chỉ về lẻ tẻ vài con",
+    "why": "Stock news from the source importer about its own arrivals.",
     "by": "model"
    }
   ],
@@ -61941,23 +62355,16 @@
   "products": []
  },
  "vi/guides/glaser-en-10-catfishes-10a-catfishes-corydoras-co-corydoras-from-the-rio-jamanxim-c-bifasciatus-en": {
-  "at": "2026-11-17",
-  "hash": "7691302619a16928",
+  "at": "2026-11-18",
+  "hash": "4be6b996218d085c",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "source",
     "part": "P1",
-    "quote": "Lô cá đầu tiên từ đây toàn con mõm dài, còn lô thứ hai lại là dạng mõm ngắn tương ứng.",
-    "why": "Refers to the source importer's own shipments as if the reader knew them.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "còn mấy con mới về thì vây đuôi trong suốt",
-    "why": "Speaks of the source's newly arrived stock.",
+    "quote": "rất có thể cá của lô đầu tiên đúng là loài C. bifasciatus",
+    "why": "Refers to the source shop's own shipments (first and second batch) as if the reader knew them.",
     "by": "model"
    }
   ],
@@ -62603,16 +63010,16 @@
   "products": []
  },
  "vi/guides/glaser-en-21-seahorses-and-pipefish-freshwater-pipefish-from-west-africa": {
-  "at": "2026-11-17",
-  "hash": "c019e59d774f6e7f",
+  "at": "2026-11-18",
+  "hash": "be672acbbccde63b",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "source",
     "part": "P1",
-    "quote": "Trong lô Microphis aculeatus lần này có lẫn vài con của hai loài cá chìa vôi Tây Phi còn lại",
-    "why": "Refers to the source's own shipment as if the reader knew it.",
+    "quote": "Trong lô Microphis lọc ra được năm con",
+    "why": "Refers to the source's own shipment of fish as if the reader knew it.",
     "by": "model"
    }
   ],
@@ -113836,25 +114243,10 @@
  },
  "vi/species/corydoras-bifasciatus": {
   "at": "2026-11-18",
-  "hash": "83c46eef0dc53c14",
+  "hash": "2597fdd98eeca508",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "mãi gần đây mới được nhập về",
-    "why": "Reports the source importer's own arrival news as if the reader knew its stock.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P3",
-    "quote": "nên không được bán riêng",
-    "why": "Refers to how the source shop sells its stock.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "vi/species/corydoras-britskii": {
@@ -124982,15 +125374,15 @@
  },
  "vi/species/mastacembelus-unicolor": {
   "at": "2026-11-18",
-  "hash": "ac759c6c16ea2d70",
+  "hash": "186795282c626157",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "source",
     "part": "P1",
-    "quote": "Hai con cá nhập về có vẻ là một cặp",
-    "why": "Refers to the source shop's newly imported stock as if the reader knew about it.",
+    "quote": "Hiện giờ da của cặp cá còn hơi đục.",
+    "why": "Refers to the source writer's own pair of fish as if the reader knew them.",
     "by": "model"
    }
   ],
@@ -125691,18 +126083,10 @@
  },
  "vi/species/micracanthicus-vandragti": {
   "at": "2026-11-18",
-  "hash": "23426aa0d1adbd94",
+  "hash": "4bfbe6525c24f1e8",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "source",
-    "part": "P3",
-    "quote": "Đợt nhập gần đây thì về khá nhiều",
-    "why": "This is the original importer's news about its own recent shipment, told as if the reader knew about it.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "vi/species/microcambeva-filamentosa": {
@@ -131659,18 +132043,10 @@
  },
  "vi/species/potamotrygon-wallacei": {
   "at": "2026-11-18",
-  "hash": "95ee6aef94b5ba8f",
+  "hash": "5898e8c7c6252c32",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "elsewhere",
-    "part": "P1",
-    "quote": "Mà cá cho đẻ trong bể chủ yếu lại không ở lại EU, vì thị trường ở đây quá nhỏ.",
-    "why": "The writer says 'here' about the EU, which means the page was written for readers living in the EU, not in Vietnam.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "vi/species/potamotrygon-yepezi": {
@@ -132634,19 +133010,11 @@
   "products": []
  },
  "vi/species/pterobrycon-myrnae": {
-  "at": "2026-11-17",
-  "hash": "5ae410ae92c4cb27",
+  "at": "2026-11-18",
+  "hash": "b9240a6e66cb2746",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "source",
-    "part": "P5",
-    "quote": "còn việc cho thế hệ F1 sinh sản thì vẫn đang tiếp tục",
-    "why": "Refers to the source's own ongoing breeding effort as if the reader knew it.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "vi/species/pterobunocephalus-depressus": {

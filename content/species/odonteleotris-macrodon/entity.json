@@ -12,6 +12,146 @@
     "malaysia",
     "indonesia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "MY",
+        "ID",
+        "TH"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This species has a very wide distribution from India to Malaysia and Indonesia.",
+          "countries": [
+            "IN",
+            "MY",
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "It also occurs in Thailand, which is not surprising but has not been reported so far in the scientific literature.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2386360,
+      "total": 32,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "AU",
+          24
+        ],
+        [
+          "IN",
+          3
+        ],
+        [
+          "PH",
+          3
+        ],
+        [
+          "PG",
+          1
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          71.71875,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          98.4375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          120.9375,
+          16.875,
+          3,
+          0
+        ],
+        [
+          123.75,
+          -16.875,
+          1,
+          0
+        ],
+        [
+          126.5625,
+          -16.875,
+          1,
+          0
+        ],
+        [
+          129.375,
+          -14.0625,
+          2,
+          0
+        ],
+        [
+          130.78125,
+          -12.65625,
+          14,
+          0
+        ],
+        [
+          132.1875,
+          -12.65625,
+          2,
+          0
+        ],
+        [
+          133.59375,
+          -15.46875,
+          2,
+          0
+        ],
+        [
+          135,
+          -12.65625,
+          2,
+          0
+        ],
+        [
+          143.4375,
+          -8.4375,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "brackish",
+    "source": "glaser",
+    "quote": "Odonteleotris macrodon is a brackish water species that is also found in pure freshwater."
+  },
   "dataCard": {
     "sizeCm": [
       {

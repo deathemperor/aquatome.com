@@ -10,6 +10,74 @@
     "brazil",
     "rio-negro"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Negro"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This freshwater stingray lives endemically in the Rio Negro system in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Negro"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8515998,
+      "total": 79,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "BR",
+          79
+        ]
+      ],
+      "cells": [
+        [
+          -64.6875,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          73,
+          73
+        ],
+        [
+          -61.875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

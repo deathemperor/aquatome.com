@@ -12,6 +12,48 @@
     "indonesia",
     "madura-strait"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "ID"
+      ],
+      "regions": [],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Western Central Pacific: along the Gulf of Thailand and Indonesia; in coastal waters and estuaries.",
+          "countries": [
+            "TH",
+            "ID"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2345266,
+      "total": 1,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "MY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          118.125,
+          5.625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

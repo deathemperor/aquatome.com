@@ -1,10 +1,13 @@
 {
   "slug": "dampier-archipelago",
-  "name": "Dampier Archipelago",
-  "altNames": [],
+  "name": "quần đảo Dampier",
+  "altNames": [
+    "Dampier Archipelago"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

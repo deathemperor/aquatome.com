@@ -3,6 +3,12 @@
   "name": "โชเบ",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T12:21:02.815Z",
+    "why": "โชเบ is a correct Thai transcription of Chobe, but the source refers to the Chobe River, which Thai atlases write with the kind word แม่น้ำ, so the bare name is incomplete."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

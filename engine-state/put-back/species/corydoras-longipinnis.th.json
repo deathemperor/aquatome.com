@@ -1,13 +1,18 @@
 {
- "at": "2026-11-18T06:29:43Z",
+ "at": "2026-11-18T12:52:35Z",
  "checks": [
-  "source"
+  "elsewhere"
  ],
  "findings": [
   {
-   "check": "source",
-   "quote": "มีปลาติดมาด้วยตัวหนึ่งที่น่าสนใจ คือ Corydoras ellisae",
-   "why": "Refers to the source shop's own import shipment as if the reader knew it."
+   "check": "elsewhere",
+   "quote": "เป็นปลาจากเขตกึ่งร้อน จึงควรเลี้ยงที่อุณหภูมิห้อง",
+   "why": "Room temperature as a fit for a subtropical fish assumes a cool temperate-country room; Thai rooms are much warmer."
+  },
+  {
+   "check": "elsewhere",
+   "quote": "ผู้ที่มีโอกาสสามารถเลี้ยงปลาชนิดนี้ในบ่อในสวนได้ในช่วงฤดูร้อน",
+   "why": "Keeping fish in a garden pond only in summer reflects a temperate climate with cold winters, not Thailand."
   }
  ],
  "text": {
@@ -24,18 +29,18 @@
    "distribution:planetcatfish": "<p>อเมริกาใต้: แม่น้ำริโอดุลเซ (Río Dulce) ในอาร์เจนตินา แหล่งที่พบตัวอย่างต้นแบบ: แม่น้ำริโอดุลเซ ห่างจากเมืองเตร์มัสเดริโอออนโด (Termas de Río Hondo) ไปทางท้ายน้ำราว 20 กิโลเมตร จังหวัดซานติอาโกเดลเอสเตโร (Santiago del Estero) ประเทศอาร์เจนตินา ประมาณพิกัด 27°29'29''S, 64°41'58''W</p>",
    "reproduction:planetcatfish": "<p>การเพาะพันธุ์: ยังไม่มีรายงาน ยังไม่มีรายงานการเพาะพันธุ์</p>",
    "references:planetcatfish": "<p>Vertebrate Zoology v. 57 (no. 1), pp 36, Figs. 1-28, 31-39.</p>",
-   "quickFacts:glaser": "<p>Corydoras longipinnis ได้รับการบรรยายทางวิทยาศาสตร์ในปี 2007 โดย Joachim Knaack เป็นญาติใกล้ชิดของ Corydoras paleatus ที่รู้จักกันดี และดูคล้ายกับ paleatus สายพันธุ์ครีบยาวอยู่บ้าง ใน C. longipinnis จะมีเพียงตัวผู้เท่านั้นที่ครีบอกยืดยาวออกไป ส่วน C. paleatus สายพันธุ์ครีบยาวนั้นตัวเมียก็มีลักษณะนี้ด้วย</p>",
-   "distribution:glaser": "<p>ปลาชนิดนี้นำเข้ามาจากปารากวัย ส่วนการบรรยายชนิดนั้นใช้ตัวอย่างจากแม่น้ำริโอดุลเซ (Río Dulce) ในอาร์เจนตินา</p>",
-   "dimorphism:glaser": "<p>มีเพียงตัวผู้เท่านั้นที่ครีบอกยืดยาวออกไป</p>",
-   "reproduction:glaser": "<p>การเพาะพันธุ์ C. longipinnis ทำได้ง่ายและใช้วิธีเดียวกับ C. paleatus ต้องให้อาหารปลาปริมาณมากจนตัวเมียท้องอูม จากนั้นต้องเปลี่ยนน้ำปริมาณมากซ้ำหลายครั้ง โดยเติมน้ำที่เย็นกว่าน้ำเดิม 3–5 °C วิธีนี้จะกระตุ้นให้ปลาจับคู่และวางไข่</p>",
-   "notes:glaser": "<p>มีปลาติดมาด้วยตัวหนึ่งที่น่าสนใจ คือ Corydoras ellisae โดยปกติ C. ellisae จะมีเพียงปื้นสีใหญ่สองปื้นบนพื้นลำตัวสีอ่อน แต่ตัวนี้มีลวดลายคล้าย C. longipinnis อยู่ในระดับหนึ่ง</p>"
+   "waterConditions:glaser": "<p>Corydoras longipinnis เป็นปลาจากเขตกึ่งร้อน จึงควรเลี้ยงที่อุณหภูมิห้อง ค่าคุณภาพน้ำไม่ได้มีความสำคัญมากนัก ค่า pH ไม่ควรต่ำกว่า 6 และไม่ควรสูงกว่า 8.5</p>",
+   "equipment:glaser": "<p>ผู้ที่มีโอกาสสามารถเลี้ยงปลาชนิดนี้ในบ่อในสวนได้ในช่วงฤดูร้อน</p>",
+   "diet:glaser": "<p>ปลากินอาหารปลาทั่วไปได้ง่าย</p>",
+   "behaviour:glaser": "<p>ควรเลี้ยง Corydoras longipinnis เป็นฝูงอย่างน้อย 7 ตัว เป็นปลาที่รักสงบอย่างสมบูรณ์ทั้งกับปลาในสกุลเดียวกันและปลาอื่นทุกชนิดที่เลี้ยงร่วมตู้ ไม่ทำลายไม้น้ำ</p>",
+   "references:glaser": "<p>Knaack, J. (2007): Beiträge zur Kenntnis der Callichthyidae (Teleostei: Siluruformes). III. Corydoras longipinnis sp. n. – ein neuer Panzerwels aus dem río Dulce in Argentinien (Teleostei: Siluriformes: Callichthyidae). Vertebrate Zoology 57 (1): 35-55</p>"
   },
   "quality": {
-   "score": 0.75,
+   "score": 0.85,
    "indexable": true,
    "bySource": {
     "planetcatfish": 0.9,
-    "glaser": 0.75
+    "glaser": 0.85
    }
   }
  }
