@@ -5,12 +5,12 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 4750 | 4031 | 1593 | 36 | 41 | 195 | 42 | 1124 | 342 | 2619 | 473 | 9 | 11 | 0 | 2 | 5 | 3 | 0 |
+| Vietnamese | 4782 | 4063 | 1616 | 36 | 43 | 199 | 43 | 1141 | 343 | 2634 | 476 | 9 | 11 | 0 | 2 | 5 | 3 | 0 |
 | Indonesian | 1603 | 1440 | 407 | 23 | 9 | 4 | 5 | 200 | 37 | 65 | 190 | 0 | 1 | 0 | 2 | 2 | 0 | 0 |
 | Thai | 1594 | 1405 | 371 | 18 | 3 | 5 | 3 | 178 | 41 | 92 | 172 | 0 | 1 | 0 | 1 | 0 | 0 | 0 |
 | Malay | 471 | 428 | 121 | 11 | 2 | 0 | 2 | 59 | 17 | 25 | 50 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
-Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 13 of 148, Indonesian 2 of 58, Thai 2 of 54, Malay 1 of 26.
+Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 13 of 149, Indonesian 2 of 58, Thai 2 of 54, Malay 1 of 26.
 
 ## Doses on more than one page
 
@@ -74,11 +74,11 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 ## Products the market table has no row for, Vietnamese pages
 
 - repashy: 48
-- keo 502: 37
+- keo 502: 39
 - panacur: 34
 - ada: 26
+- tropica: 24
 - ada amazonia aqua soil: 20
-- tropica: 20
 - ada amazonia: 18
 - fluval stratum: 18
 - dennerle: 16
@@ -90,10 +90,10 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - easy fry and small fish food: 12
 - eheim: 12
 - hikari vibra bites: 12
+- 1-2-grow: 11
 - apt fix: 11
 - aquario neo soil: 11
 - twinstar: 11
-- 1-2-grow: 10
 - caribsea eco-complete: 10
 - ge silicone 1: 10
 - aquaclear: 9
