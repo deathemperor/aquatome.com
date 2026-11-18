@@ -13654,6 +13654,20 @@
   ],
   "vi/guides/youtube-Je1_33YOCl4": [
     {
+      "at": "2026-11-18T08:51:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.327",
+      "score": 0.7,
+      "notes": [
+        "\"trồng cây thành từng bụi lớn dễ thành công hơn chia nhỏ ra\" (summary bullet) and \"Làm vậy dễ thành công hơn rải mỗi chỗ một ít\": this is the creator's own experience (\"I just find I have much better success\"). Both are stated as firm fact, so hedge them as one person's way, for example \"có thể thấy dễ thành công hơn\".",
+        "\"hy vọng là rêu hại không có cửa lên\" and \"hy vọng là rêu hại không có dinh dưỡng mà lên\": the wording is awkward and colloquial, like a translation. Rewrite it naturally while keeping the hedge, for example \"nhờ đó rêu hại có thể khó phát triển\".",
+        "\"Rau má Nhật (Hydrocotyle tripartita 'Japan') và Limnophila: dùng lấp các khoảng trống\": the video only says the Hydrocotyle was forgotten and added afterwards. Only the Limnophila is used to fill gaps. Remove the gap-filling role from the Hydrocotyle."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
       "at": "2026-11-17T18:18:43Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -20121,6 +20135,25 @@
     }
   ],
   "vi/guides/youtube-SlmXdV5n3Hw": [
+    {
+      "at": "2026-11-18T08:52:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.327",
+      "score": 0.7,
+      "notes": [
+        "\"keo 502 dạng gel\": the video only says superglue gel. Remove the \"502\" brand and write \"keo dán dạng gel\".",
+        "\"Để cá yên vài tiếng\": the video gives no duration, only \"leave them for a bit\". Change to \"để cá yên một lúc\".",
+        "\"nhét giấy vệ sinh vào khe\": the video says paper towel. Change to \"giấy lau\" or \"khăn giấy\".",
+        "\"Đá kẹt giữa hai khối như vậy nhìn giống lũa trôi rồi mắc lại giữa ghềnh\": the video means the wood looks lodged between two boulders, as in rapids. Reword so the wood is what is wedged between the stones.",
+        "\"Bể này không trồng cây dưới nền\": a bare \"Bể này\" with no antecedent. Say \"Với bể nước đen kiểu này\" or reword to \"Nền không trồng cây\".",
+        "\"Lũa đã nhả đủ tannin, và nếu phủ đầy lá thì cả bể chỉ còn một khối nâu\" (also in the FAQ): this is the creator's own taste for his tank, written as a fact. Hedge it with \"có thể không cần\" or \"nếu thích thì bỏ qua\".",
+        "\"nên gom dần thì càng về sau càng dễ làm bể\": the video only says hardscape can be reused many times and that he built up a collection. Remove the \"càng về sau càng dễ\" claim.",
+        "\"Manzanita nhiều chi tiết nên rất hợp làm bộ rễ kiểu này\": this is his opinion that it is the best aquascaping wood, stated firmly. Hedge it with \"có thể rất hợp\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
     {
       "at": "2026-11-13T06:19:49Z",
       "model": "sonnet",
