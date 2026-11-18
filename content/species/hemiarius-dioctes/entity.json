@@ -11,6 +11,132 @@
     "norman-river",
     "papua-new-guinea"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "AU"
+      ],
+      "regions": [
+        "New Guinea",
+        "Norman River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Oceania: Southern New Guinea and Australia. Type locality: Norman River at Karumba (17º29'S, 140º50'E), Queensland, Australia.",
+          "countries": [
+            "AU"
+          ],
+          "regions": [
+            "New Guinea",
+            "Norman River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344917,
+      "total": 7054,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "AU",
+          7042
+        ],
+        [
+          "ID",
+          7
+        ],
+        [
+          "PG",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          129.375,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          130.78125,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          130.78125,
+          -12.65625,
+          5,
+          5
+        ],
+        [
+          132.1875,
+          -12.65625,
+          8,
+          8
+        ],
+        [
+          135,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          136.40625,
+          -5.625,
+          7,
+          0
+        ],
+        [
+          139.21875,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          140.625,
+          -18.28125,
+          2,
+          2
+        ],
+        [
+          140.625,
+          -12.65625,
+          6593,
+          6593
+        ],
+        [
+          142.03125,
+          -12.65625,
+          429,
+          429
+        ],
+        [
+          142.03125,
+          -9.84375,
+          1,
+          0
+        ],
+        [
+          142.03125,
+          -8.4375,
+          2,
+          0
+        ],
+        [
+          143.4375,
+          -8.4375,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

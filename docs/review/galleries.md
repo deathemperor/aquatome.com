@@ -1,16 +1,16 @@
 # Photo galleries
 
-Written by `pnpm engine gallery` (2026-11-17). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
+Written by `pnpm engine gallery` (2026-11-18). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
 
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 733 | 31 | 9 | 24 | 749 |
-| rest | 20 | 1810 | 79 | 0 | 103 | 1786 |
+| covered | 30 | 741 | 31 | 9 | 24 | 757 |
+| rest | 20 | 1826 | 79 | 0 | 106 | 1799 |
 
-## Short of target: every source read (645)
+## Short of target: every source read (665)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -363,6 +363,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/apistogramma-commbrae | covered | 1 | 30 |
 | species/apistogramma-elizabethae | covered | 0 | 30 |
 | species/apistogramma-eunotus | covered | 0 | 30 |
+| species/apistogramma-gibbiceps | covered | 0 | 30 |
 | species/apistogramma-macmasteri | covered | 3 | 30 |
 | species/apistogramma-mendezi | covered | 1 | 30 |
 | species/apistogramma-panduro | covered | 3 | 30 |
@@ -661,3 +662,22 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/laetacara-dorsigera | covered | 0 | 30 |
 | species/laetacara-fulvipinnis | covered | 0 | 30 |
 | species/lamontichthys-filamentosus | covered | 0 | 30 |
+| species/lamontichthys-llanero | covered | 0 | 30 |
+| species/lampiella-gibbosa | covered | 0 | 30 |
+| species/lamprologus-signatus | covered | 0 | 30 |
+| species/lasiancistrus-heteracanthus | covered | 0 | 30 |
+| species/laubuka-dadiburjori | covered | 1 | 30 |
+| species/laubuka-laubuca | covered | 0 | 30 |
+| species/leiarius-marmoratus | covered | 2 | 30 |
+| species/lepidocephalichthys-guntea | covered | 1 | 30 |
+| species/lepidosiren-paradoxa | covered | 7 | 30 |
+| species/leporacanthicus-galaxias | covered | 0 | 30 |
+| species/leporacanthicus-triactis | covered | 0 | 30 |
+| species/leporellus-vittatus | covered | 7 | 30 |
+| species/leporinus-arcus | covered | 0 | 30 |
+| species/leporinus-friderici | covered | 5 | 30 |
+| species/leptobarbus-hoevenii | covered | 2 | 30 |
+| species/leptobotia-elongata | covered | 0 | 30 |
+| species/leptodoras-cataniai | covered | 1 | 30 |
+| species/leptodoras-linnelli | covered | 0 | 30 |
+| species/limia-melanogaster | covered | 0 | 30 |

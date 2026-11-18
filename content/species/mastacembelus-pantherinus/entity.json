@@ -10,6 +10,56 @@
     "myanmar",
     "indawgyi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Lake Indawgyi"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Mastacembelus pantherinus originates from Burma.",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "It has been collected so far only in lake Indawgyi and its affluents.",
+          "countries": [],
+          "regions": [
+            "Lake Indawgyi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2351797,
+      "total": 6,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "MM",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          95.625,
+          23.90625,
+          6,
+          6
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -19,12 +69,6 @@
     ]
   },
   "sections": [
-    {
-      "key": "quickFacts",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/22-spiny-eels/mastacembelus-pantherinus-2/",
-      "html": "<p>The species attains a maximum length of at least 50 cm and is a large member of the genus. Specimens currently on offer are 20-25 cm long.</p>"
-    },
     {
       "key": "distribution",
       "source": "glaser",

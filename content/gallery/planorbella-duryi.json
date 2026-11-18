@@ -14,19 +14,6 @@
       "kind": "pair"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/32258547.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/32258547-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Kyle Elshoff",
-      "sourceUrl": "https://www.inaturalist.org/photos/32258547",
-      "caption": "Ốc đĩa non màu nâu đốm bơi trong nước",
-      "best": true,
-      "kind": "juvenile",
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/commons/02b539e52d009948.webp",
       "thumb": "https://media.aquatome.com/commons/02b539e52d009948-480.webp",
       "width": 1200,
@@ -48,8 +35,7 @@
       "sourceUrl": "https://www.inaturalist.org/photos/46656528",
       "caption": "Ốc đĩa bám trên lá cây trong bể thủy sinh",
       "best": true,
-      "kind": "other",
-      "unchecked": true
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/e7fe10a4527947df.webp",
@@ -211,6 +197,18 @@
       "caption": "Ốc đĩa vỏ hồng tím trên nền sỏi trong bể",
       "best": false,
       "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/32258547.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/32258547-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Kyle Elshoff",
+      "sourceUrl": "https://www.inaturalist.org/photos/32258547",
+      "caption": "Ốc đĩa non màu nâu đốm bơi trong nước",
+      "best": true,
+      "kind": "juvenile"
     }
   ],
   "seen": 63,

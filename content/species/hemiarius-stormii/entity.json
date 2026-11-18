@@ -1,0 +1,121 @@
+{
+  "id": "hemiarius-stormii",
+  "scientificName": "Hemiarius stormii",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Hemiarius",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "thailand",
+    "indonesia",
+    "sumatra",
+    "laos"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 12,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 40
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hemiarius_stormii.htm",
+      "html": "<ul><li>Common name: Armoured sea catfish</li><li>Synonyms: Cephalocassis stormii, Arius stormii, Tachysurus stormii</li><li>IUCN Red List: Least Concern (IUCN 2020)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hemiarius_stormii.htm",
+      "html": "<p>Asia: Thailand to Indonesia. Type locality: Sumatra (Palembang), in flumine Mussi.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hemiarius_stormii.htm",
+      "html": "<p>Occurs in medium to large-sized rivers and feeds mainly on invertebrates and small fishes.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hemiarius_stormii.htm",
+      "html": "<p>In most, if not all species, the male carries the relatively large eggs in its mouth until hatching.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hemiarius_stormii.htm",
+      "html": "<p>Description: Differs from other species of the family in Laos by having the head wider than deep. Pointed snout with conspicuous inferior mouth. Granulated palatine teeth.</p><p>Etymology: The specific name stormii honours F. J. P. Storm van 's Gravesande (1812-1875), Dutch government commissioner of Djambi (also spelled Jambi), Sumatra, who provided the type.</p><p>IUCN Red List: Although there is no detailed information on the population size and trend of this species, there is currently no evidence that the population is in significant decline; its trend is thus suspected to be stable or declining at a rate that precludes it from being assessed in a threatened category. While there may be localised or regional threats, they are unlikely to affect this species on a range-wide scale. Therefore, Hemiarius stormii is assessed as Least Concern (IUCN 2020).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hemiarius_stormii.htm",
+      "html": "<ul><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Froese, R. and D. Pauly. Editors. 2015. FishBase. World Wide Web electronic publication. www.fishbase.org, (08/2015).</li><li>Kottelat, M., 2001. Fishes of Laos. WHT Publications Ltd., Colombo 5, Sri Lanka. 198 p.</li><li>Nelson, Joseph S. 1994. Fishes of the World. Third edition. 600p.</li><li>Ng, H.H. 2020. Hemiarius stormii. The IUCN Red List of Threatened Species 2020.</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/07c0756c0d9317cb.webp",
+      "thumb": "https://media.aquatome.com/scotcat/07c0756c0d9317cb-480.webp",
+      "width": 500,
+      "height": 326,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hemiarius_stormii.htm",
+      "caption": "Hemiarius stormii: juvenile",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/b6471225742001f8.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b6471225742001f8-480.webp",
+      "width": 500,
+      "height": 286,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hemiarius_stormii.htm",
+      "caption": "Hemiarius stormii: juvenile",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn cho cá da trơn",
+        "bể cá 400 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc bể cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-18"
+}

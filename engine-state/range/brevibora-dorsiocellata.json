@@ -1,8 +1,8 @@
 {
   "id": "brevibora-dorsiocellata",
   "native": {
-    "input": "034342943f05d526",
-    "at": "2026-11-06T21:19:39.004Z",
+    "input": "c742d6185ca52684",
+    "at": "2026-11-18T00:54:56.623Z",
     "claims": [
       {
         "code": "TH",
@@ -18,14 +18,6 @@
         "source": "seriouslyfish",
         "quote": "Native to southern Thailand, Peninsular Malaysia and the Greater Sunda islands of Borneo and Sumatra.",
         "words": "Malaysia",
-        "ok": true
-      },
-      {
-        "code": "ID",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "It was once thought restricted to southern (Indonesian) parts of the island and has been recorded from various rivers and streams within the lower Kapuas River basin and the Ketungau river in West Kalimantan (Kalimantan Barat) province as well as tributaries of the Sebangau and lower Mentaya rivers in Central Kalimantan (Kalimantan Tengah).",
-        "words": "Indonesian",
         "ok": true
       }
     ],
@@ -43,38 +35,25 @@
         "ok": true
       },
       {
-        "name": "Kapuas River",
-        "source": "seriouslyfish",
-        "quote": "It was once thought restricted to southern (Indonesian) parts of the island and has been recorded from various rivers and streams within the lower Kapuas River basin and the Ketungau river in West Kalimantan (Kalimantan Barat) province as well as tributaries of the Sebangau and lower Mentaya rivers in Central Kalimantan (Kalimantan Tengah).",
-        "country": "ID",
-        "ok": true
-      },
-      {
         "name": "Muar River",
-        "source": "seriouslyfish",
-        "quote": "Type locality is 'Muar River, Tebinh Tinggi, Johore, Malaysia'.",
-        "country": "MY",
-        "ok": true
-      },
-      {
-        "name": "Tasek Bera",
         "source": "seriouslyfish",
         "quote": "In Peninsular Malaysia localities include the Selai and Muar rivers in Johor state and the blackwater swamp lake of Tasek Bera in Pahang state while in Sumatra the only report we've been able to find seems to refer to the Lalah River, Riau province in the east of the island.",
         "country": "MY",
         "ok": true
       },
       {
-        "name": "Mentaya",
+        "name": "Kapuas",
         "source": "seriouslyfish",
-        "quote": "It was once thought restricted to southern (Indonesian) parts of the island and has been recorded from various rivers and streams within the lower Kapuas River basin and the Ketungau river in West Kalimantan (Kalimantan Barat) province as well as tributaries of the Sebangau and lower Mentaya rivers in Central Kalimantan (Kalimantan Tengah).",
-        "country": "ID",
+        "quote": "Records from Borneo are confusing. It was once thought restricted to southern (Indonesian) parts of the island and has been recorded from various rivers and streams within the lower Kapuas River basin and the Ketungau river in West Kalimantan (Kalimantan Barat) province as well as tributaries of the Sebangau and lower Mentaya rivers in Central Kalimantan (Kalimantan Tengah).",
         "ok": true
       }
     ],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "ID"
+      ],
       "sourcesOnly": []
     }
   },
@@ -126,10 +105,9 @@
     ],
     "native": [
       "TH",
-      "MY",
-      "ID"
+      "MY"
     ],
     "requests": 12,
-    "at": "2026-11-06T21:19:39.004Z"
+    "at": "2026-11-18T00:54:56.623Z"
   }
 }

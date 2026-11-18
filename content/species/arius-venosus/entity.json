@@ -15,6 +15,139 @@
     "vietnam",
     "mekong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "ID"
+      ],
+      "regions": [
+        "Mekong"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Indo-West Pacific: Mozambique Channel to Burma (Myanmar) and southern China to Indonesia (excluding the Philippines and Australia).",
+          "countries": [
+            "CN",
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Found in the Mekong delta.",
+          "countries": [],
+          "regions": [
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2345242,
+      "total": 21,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "MY",
+          13
+        ],
+        [
+          "IN",
+          5
+        ],
+        [
+          "BD",
+          1
+        ],
+        [
+          "ID",
+          1
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          71.71875,
+          18.28125,
+          1,
+          0
+        ],
+        [
+          73.125,
+          16.875,
+          3,
+          0
+        ],
+        [
+          87.1875,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          88.59375,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          98.4375,
+          11.25,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          0,
+          2,
+          0
+        ],
+        [
+          102.65625,
+          5.625,
+          8,
+          0
+        ],
+        [
+          105.46875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          116.71875,
+          5.625,
+          1,
+          0
+        ],
+        [
+          118.125,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          118.125,
+          5.625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "marine",
+    "source": "scotcat",
+    "quote": "It inhabits tropical marine and brackish waters in the Indo-western Pacific region, including the Mozambique Channel, Myanmar, Indonesia and southern China."
+  },
   "dataCard": {
     "tempC": [
       {

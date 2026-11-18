@@ -10,7 +10,8 @@
     "gabon",
     "republic-of-the-congo",
     "gambia",
-    "democratic-republic-of-the-congo"
+    "democratic-republic-of-the-congo",
+    "nigeria"
   ],
   "range": {
     "native": {
@@ -616,6 +617,10 @@
       {
         "source": "seriouslyfish",
         "value": 12.5
+      },
+      {
+        "source": "glaser",
+        "value": 16
       }
     ],
     "tankCm": [
@@ -637,6 +642,18 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/bryconalestes-longipinnis",
       "html": "<p>The long-finned tetra, Brycinus longipinnis, is an alestid characin from West Africa, found from Gambia to the Democratic Republic of Congo and Gabon. It inhabits large rivers and, unusually for the genus, also moves into smaller streams and lightly brackish estuaries. Not imported often, it ships poorly but usually proves hardy once acclimatised, though it is very sensitive to deteriorating water conditions.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/bryconalestes-longipinnis-2/",
+      "html": "<p>The African Longfin Tetra (Bryconalestes longipinnis, = Brycinus longipinnis) is a classic ornamental fish from Nigeria. Maximum size reported for the species is 16 cm.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/bryconalestes-longipinnis-2/",
+      "html": "<p>Usually the fish traded are 3-5 cm long, which means that they are about half grown (maximum size reported for the species is 16 cm, but this is as rare as a 2.3 m tall human being). At that size the fish can be best transported and they easily adapt to new conditions. Some specimens were grown in a 4,000 litre tank for a project and became real beauties.</p>"
     },
     {
       "key": "distribution",
@@ -702,48 +719,48 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/30864012d19ebc67.webp",
+      "thumb": "https://media.aquatome.com/commons/30864012d19ebc67-480.webp",
       "width": 960,
       "height": 718,
-      "licence": "CC BY-SA 3.0",
-      "author": "Wikimedia Commons",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brycinus_longipinnis.JPG",
-      "caption": "Brycinus longipinnis.JPG",
-      "thumb": "https://media.aquatome.com/commons/30864012d19ebc67-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/30864012d19ebc67-large.webp",
         "width": 1605,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brycinus_longipinnis.JPG",
+      "caption": "Brycinus longipinnis.JPG"
     },
     {
       "url": "https://media.aquatome.com/commons/2985e54646ae5d19.webp",
+      "thumb": "https://media.aquatome.com/commons/2985e54646ae5d19-480.webp",
       "width": 960,
       "height": 453,
       "licence": "CC BY-SA 4.0",
       "author": "Hardyplants",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brycinus_longipinnis1.jpg",
-      "caption": "Brycinus longipinnis wild caught.",
-      "thumb": "https://media.aquatome.com/commons/2985e54646ae5d19-480.webp"
+      "caption": "Brycinus longipinnis wild caught."
     },
     {
       "url": "https://media.aquatome.com/commons/cf3187592821d104.webp",
+      "thumb": "https://media.aquatome.com/commons/cf3187592821d104-480.webp",
       "width": 960,
       "height": 682,
       "licence": "CC BY-SA 3.0",
       "author": "Rufus46",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Langflossensalmler_Brycinus_longipinnis_Tierpark_Hellabrunn-1.jpg",
-      "caption": "Langflossensalmler (Brycinus longipinnis), Tierpark Hellabrunn, München",
-      "thumb": "https://media.aquatome.com/commons/cf3187592821d104-480.webp"
+      "caption": "Langflossensalmler (Brycinus longipinnis), Tierpark Hellabrunn, München"
     },
     {
       "url": "https://media.aquatome.com/commons/25d232f3d0e307bc.webp",
+      "thumb": "https://media.aquatome.com/commons/25d232f3d0e307bc-480.webp",
       "width": 960,
       "height": 601,
       "licence": "CC BY-SA 3.0",
       "author": "Rufus46",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Langflossensalmler_Brycinus_longipinnis_Tierpark_Hellabrunn-2.jpg",
-      "caption": "Langflossensalmler (Brycinus longipinnis), Tierpark Hellabrunn, München",
-      "thumb": "https://media.aquatome.com/commons/25d232f3d0e307bc-480.webp"
+      "caption": "Langflossensalmler (Brycinus longipinnis), Tierpark Hellabrunn, München"
     }
   ],
   "videos": [
@@ -801,5 +818,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-18"
 }

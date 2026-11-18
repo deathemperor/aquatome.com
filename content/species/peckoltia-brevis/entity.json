@@ -18,10 +18,15 @@
         "BR"
       ],
       "regions": [
-        "Rio Purus"
+        "Purus",
+        "Amazon",
+        "Rio Jurua",
+        "Rio Manacapuru",
+        "Rio Tefé"
       ],
       "sources": [
-        "planetcatfish"
+        "planetcatfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -30,8 +35,25 @@
           "countries": [
             "BR"
           ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Purus River basin, Brazil.",
+          "countries": [],
           "regions": [
-            "Rio Purus"
+            "Purus"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "It originates from affluents of the Amazon river, for example from the Rio Purus, the Rio Jurua, the Rio Manacapuru, and the Rio Tefé.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Rio Jurua",
+            "Rio Manacapuru",
+            "Rio Tefé"
           ]
         }
       ]

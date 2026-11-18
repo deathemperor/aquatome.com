@@ -12,6 +12,64 @@
     "malaysia",
     "indonesia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Gulf of Thailand"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Western Pacific: Gulf of Thailand and in waters around much of Malaysia and Indonesia; in coastal waters and estuaries.",
+          "countries": [
+            "TH",
+            "MY",
+            "ID"
+          ],
+          "regions": [
+            "Gulf of Thailand"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2345235,
+      "total": 3,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "MY",
+          2
+        ],
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          0,
+          2,
+          2
+        ],
+        [
+          106.875,
+          9.84375,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

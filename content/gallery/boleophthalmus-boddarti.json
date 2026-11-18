@@ -14,18 +14,6 @@
       "kind": "pair"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/410861690.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/410861690-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Ramesh Shenai",
-      "sourceUrl": "https://www.inaturalist.org/photos/410861690",
-      "caption": "Nhóm cá thòi lòi Boddart kiếm ăn trên bãi bùn",
-      "best": true,
-      "kind": "group"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/118719241.webp",
       "thumb": "https://media.aquatome.com/inaturalist/118719241-480.webp",
       "width": 1024,
@@ -122,18 +110,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/123838558.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/123838558-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC0",
-      "author": "Philipp Hoenle",
-      "sourceUrl": "https://www.inaturalist.org/photos/123838558",
-      "caption": "Cá thòi lòi Boddart đốm xanh trên bùn, nhìn nghiêng",
-      "best": false,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/178028078.webp",
       "thumb": "https://media.aquatome.com/inaturalist/178028078-480.webp",
       "width": 1024,
@@ -166,6 +142,30 @@
       "author": "Al Kordesch",
       "sourceUrl": "https://www.inaturalist.org/photos/363094259",
       "caption": "Cá thòi lòi Boddart trên bùn xám, nhìn gần",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/410861690.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/410861690-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Ramesh Shenai",
+      "sourceUrl": "https://www.inaturalist.org/photos/410861690",
+      "caption": "Nhóm cá thòi lòi Boddart kiếm ăn trên bãi bùn",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/123838558.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/123838558-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC0",
+      "author": "Philipp Hoenle",
+      "sourceUrl": "https://www.inaturalist.org/photos/123838558",
+      "caption": "Cá thòi lòi Boddart đốm xanh trên bùn, nhìn nghiêng",
       "best": false,
       "kind": "habitat"
     },

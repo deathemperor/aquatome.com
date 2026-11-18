@@ -80,6 +80,13 @@
           "min": 18,
           "max": 22
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
       }
     ],
     "ph": [
@@ -115,6 +122,10 @@
       {
         "source": "scotcat",
         "value": 3.5
+      },
+      {
+        "source": "glaser",
+        "value": 5
       }
     ],
     "tankCm": [
@@ -148,6 +159,12 @@
       "html": "<p>Akysis portellus Ng, 2009. Family: Akysidae. Dorsal spines (total): 1; dorsal soft rays (total): 4-5; vertebrae: 32-33. Akysis portellus is most similar to A. longifilis, which occurs sympatrically in the Sittang River drainage. It is distinguished from A. longifilis by a shorter adipose-fin base, a smaller mouth and a more rounded head shape when viewed from above.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/akysis-portellus-2/",
+      "html": "<p>The wasp catfishes (Akysis) are becoming more and more popular in the aquarium hobby. Their common name refers to venomous glands at the base of the dorsal and pectoral fins. A sting from the spines of these fins is very painful, though harmless; only allergy sufferers should be extra cautious.</p><p>Akysis portellus attains a maximum length of about 4-5 cm.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-portellus",
@@ -160,10 +177,22 @@
       "html": "<p>Asia: Myanmar. Known from the type locality in the Sittang River drainage, southern Myanmar. Type locality: Shwe Kyin stream, a minor tributary of the Sittaung (aka Sittang) River system in Bago (formerly Pegu) Region, southern Myanmar.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/akysis-portellus-2/",
+      "html": "<p>It originates from the Sittang river basin in Burma.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-portellus",
       "html": "<p>Members of this genus are near-exclusive inhabitants of swiftly-flowing streams and rivers with substrates generally consisting of any combination of sand, gravel and rocks. Water is normally transparent to slightly turbid, though overall volume, flow, and thus the amount of suspended material tend to increase significantly during rainy periods.</p><p>Aquatic plants are not normally present though there may be patches of leaf litter or underwater structures such as fallen branches or roots protruding from banks.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/akysis-portellus-2/",
+      "html": "<p>It lives in smaller brooks with clear water.</p>"
     },
     {
       "key": "aquariumSize",
@@ -196,6 +225,18 @@
       "html": "<p>Temperature: 18-22°C (63-71°F). pH: 6.5-7.5.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/akysis-portellus-2/",
+      "html": "<p>Oxygen-rich, clear and clean water: these are the conditions for Akysis catfish, in which they feel very well. The water temperature should be between 22 and 26°C; at times the water can be even cooler.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/akysis-portellus-2/",
+      "html": "<p>The tank should contain at least some patches with fine sand, as Akysis love to bury themselves from time to time.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-portellus",
@@ -208,10 +249,22 @@
       "html": "<p>They will eat bloodworm, chopped earthworms, whiteworm, daphnia and sinking pellets, although they seem to prefer live or frozen food.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/akysis-portellus-2/",
+      "html": "<p>Akysis portellus feeds on any usual type of ornamental fish food.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/akysis-portellus",
       "html": "<p>Not especially competitive and should not be kept with much larger or more aggressive fishes. Miniature schooling cyprinids such as Boraras, Microdevario or smaller Danio/Rasbora species make good tankmates and if geography isn't an issue many similarly-sized characins and livebearers should also work.</p><p>Other similarly-sized akysid catfishes plus smaller sisorids such as Erithistes, Erethistoides, Hara, Pseudolaguvia and many Glyptothorax spp. are recommended for the lower levels.</p><p>In addition, many balitorid loaches from genera such as Gastromyzon, Pseudogastromyzon and Homaloptera are also suitable. Some members of the families Botiidae, Cobitidae and Nemacheilidae are ok but proper research is essential as some can be excessively aggressive/territorial or simply grow too large. This species has also been proven to co-exist peacefully with freshwater shrimp.</p><p>It's nonaggressive towards conspecifics and can be kept singly or in a group as preferred.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/akysis-portellus-2/",
+      "html": "<p>One should always keep these very peaceful animals in groups.</p>"
     },
     {
       "key": "dimorphism",
@@ -327,5 +380,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-18"
 }

@@ -1,8 +1,13 @@
 {
   "slug": "bassac-river",
-  "name": "บาสัก",
+  "name": "แม่น้ำบาสัก",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.8,
+    "at": "2026-11-18T06:00:48.148Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

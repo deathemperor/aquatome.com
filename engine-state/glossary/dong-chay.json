@@ -1,0 +1,354 @@
+{
+  "found": true,
+  "species": [
+    "Sewellia lineolata",
+    "Betta"
+  ],
+  "sources": [
+    {
+      "url": "https://jbl.de/en/blog/detail/752/go-with-the-flow-not-a-motto-for-fish?country=cy",
+      "title": "Go with the flow - not a motto for fish!",
+      "kind": "maker"
+    },
+    {
+      "url": "https://thuysinh24.com/may-loc-be-ca-cach-chon",
+      "title": "Máy Lọc Bể Cá: Cách Chọn Đúng Theo Kích Thước Hồ Và Loại Cá Nuôi - Thủy Sinh 24",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquatechvn.com/be-ca-betta-co-loc-huong-dan-chi-tiet-tu-a-den-z.html",
+      "title": "Bể Cá Betta Có Lọc: Hướng Dẫn Chi Tiết Từ A Đến Z",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.gcshop-sg.com/blogs/care-hub-aquarium-basics/aquarium-basics-water-flow-circulation",
+      "title": "Aquarium Basics: Water Flow & Circulation – Green Chapter",
+      "kind": "shop"
+    },
+    {
+      "url": "https://seriouslyfish.com/species/Sewellia-lineolata",
+      "title": "Sewellia lineolata (Tiger Hillstream Loach) · Seriously Fish",
+      "kind": "reference"
+    },
+    {
+      "url": "https://aquariumcoop.com/blogs/aquarium/easy-flow",
+      "title": "How to Improve Water Circulation on Aquarium Sponge Filters",
+      "kind": "shop"
+    },
+    {
+      "url": "https://rainbowfish.angfa.org.au/keeping_and_caring/aeration_and_circulation.html",
+      "title": "Aeration and Circulation",
+      "kind": "society"
+    }
+  ],
+  "facts": [
+    {
+      "section": "other",
+      "fact": "Vietnamese term for water flow/current: \"dòng chảy\".",
+      "source": 1,
+      "also": [
+        2
+      ]
+    },
+    {
+      "section": "other",
+      "fact": "Vietnamese term for flow rate: \"Lưu lượng\", given in \"L/h\" or as \"lần/giờ\" (times per hour).",
+      "source": 1
+    },
+    {
+      "section": "other",
+      "fact": "Vietnamese term used for a filter's water flow rate: \"Lưu Lượng Nước (GPH/LPH)\".",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "Vietnamese term for a filter's outflow current: \"dòng trả nước\".",
+      "source": 1
+    },
+    {
+      "section": "other",
+      "fact": "Vietnamese term for a flow reducer fitted to a filter outlet: \"bộ giảm dòng\".",
+      "source": 1
+    },
+    {
+      "section": "other",
+      "fact": "Vietnamese term for a dead spot (an area where water does not circulate and waste can build up): \"điểm chết\".",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Water flow carries oxygen-rich water through the tank, moves waste toward the filter, spreads heater warmth evenly and circulates nutrients and CO₂ in planted tanks.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Circulation mixes water from top to bottom so oxygen and temperature stay even, and helps carbon dioxide and excess nitrogen escape to the air.",
+      "source": 6
+    },
+    {
+      "section": "what",
+      "fact": "Surface movement lets carbon dioxide escape and fresh oxygen dissolve into the water.",
+      "source": 5
+    },
+    {
+      "section": "what",
+      "fact": "Good current spreads oxygen, fertilizer and food and keeps debris from collecting in stagnant spots.",
+      "source": 5
+    },
+    {
+      "section": "what",
+      "fact": "Some fish do not spawn without water movement: one barbel keeper's barbels and danionins that had never bred spawned within two weeks of adding flow pumps.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "In the wild, barbels and danionins seek fast water in clear streams to catch passing plankton.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Freshwater currents range from none in lakes, to gentle in lowlands and larger rivers, to strong in mountain areas; the author measured river and stream currents of 1.4 to 11 km/h.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "The aim is balanced water movement across the tank, not the strongest possible flow.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Aeration should keep dissolved oxygen above 5.0 mg/L throughout the system.",
+      "source": 6
+    },
+    {
+      "section": "signs",
+      "fact": "Too-strong flow: fish swim constantly against the current, tails get swept, or fish shelter in one corner of the tank.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Too-strong flow can push fish against the walls, tear tails, and cause stress and refusal to eat.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Betta fish that keep looking for hiding places, swim with difficulty or are pushed adrift are in too strong a current; too much flow stresses, exhausts and can injure them.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Too little flow: waste collects in corners and low-flow areas, and a surface film forms in calm areas.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Signs of low oxygen from poor circulation may show near morning hours.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "An outflow that is weaker than usual means the filter media are clogged.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Dead spots form behind rocks or wood and in dirty substrate pockets; dense hardscape often creates hidden dead zones.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Actual flow falls 20-30% as filter media get dirty, and clogged filter wool can cut actual flow by 50-70% without the keeper noticing.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Intake sponges that are never cleaned make flow weaken gradually.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Flow drops quickly with distance: an 800 l/h internal filter gave 1.4 km/h at 10 cm and 1.3 km/h at 30 cm; a 2,000 l/h submersible pump gave 2.16 km/h at 10 and 30 cm but no measurable flow at 80 cm.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "A wide jet pipe reduced the filter's flow somewhat and a spray bar reduced it to zero in JBL's tests.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Formula given: filter flow (L/h) = tank volume (L) × a multiplier for the fish kept, minimum 5–12 times per hour depending on species.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Planted tanks with small fish (neon, tetra, shrimp): 5-8 times per hour, e.g. a 100 L tank needs a 500-800 L/h filter, with weak flow so plants are not disturbed.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Ordinary community tanks (goldfish, molly, gourami): 5-10 times per hour; large or fast-swimming fish (discus, arowana, cichlids): 8-12 times per hour; outdoor koi ponds: 3-5 times per hour with very large biological media.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Choose a filter whose rated output on the box is 20–30% above the calculated need, because real flow is lower.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "For a betta tank, flow of about 2-4 times the tank volume per hour is suggested, e.g. a filter of about 20-40 LPH for a 10 litre tank.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "To reduce flow for bettas: set the filter to its lowest setting, put a sponge on the hang-on filter outlet, and aim the outflow at the tank wall rather than into the swimming space.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Choose a filter with an adjustable flow knob, or add homemade sponge baffles.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Adjust the filter output direction gradually and watch where debris settles to check that every area gets some movement.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Recheck flow after changing hardscape or equipment; reposition hardscape if large stagnant zones form; add circulation pumps only if needed.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "With the Aquarium Co-Op Easy Flow spout, aim it at the front wall to push mulm toward the middle and back where the filter can pick it up; raise it to the waterline for more surface agitation.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "If surface current from a sponge filter is too strong for top-dwelling fish, reduce it with the air pump's flow control or an air valve.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "JBL says flow pumps, unlike filters, are the only real way to create a targeted current, and flow should be measured where the fish will live, not only at the outlet.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Aim for a gentle surface ripple without heavy splashing; perfectly still surface water reduces oxygen exchange.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Do not aim strong flow straight at plants, but make sure circulation reaches lower plant areas; CO₂ systems depend on stable circulation.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Clean clogged sponges and intake guards before flow drops significantly.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Weak flow is the top priority for small, weak-swimming fish; strong flow stresses and exhausts them.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Betta need very light flow; avoid canister or submersible filters with strong flow for them, and shield or adjust submersible filter outflow.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Sponge filters are gentle enough that they will not suck up fry, dwarf shrimp or long-finned betta, though their flow is sometimes too weak to circulate the tank well.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "Discus should avoid strong direct flow, arowana need steady flow that causes no stress, while koi tolerate stronger circulation.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Vigorous aeration of submerged filter beds can dislodge beneficial bacteria.",
+      "source": 6
+    },
+    {
+      "section": "mistakes",
+      "fact": "Using too strong a filter in a small tank for betta or small fish.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "A filter designed for a 50 litre tank is too strong for a 5-10 litre betta tank.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Forgetting that actual flow drops as media get dirty, and not replacing mechanical filter wool regularly.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Assuming stronger flow is always better; excess current stresses fish, uproots plants and creates unstable flow patterns.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Blocking flow with hardscape and ignoring dead spots and debris patterns.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Assuming a filter outlet makes a strong current or that a pump's rated output equals usable flow where the fish are.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Installing an internal filter facing the wrong way can make too much turbulence for Betta.",
+      "source": 2
+    },
+    {
+      "section": "vietnam",
+      "fact": "Thủy Sinh 24 warns that if the pump stops in a power cut for a few hours, anaerobic bacteria produce toxins; oxygen falls and the filter's bacteria suffer, so fish can become stressed very quickly.",
+      "source": 1
+    },
+    {
+      "section": "vietnam",
+      "fact": "Large tanks often run into trouble in power cuts lasting many hours, especially in hot weather; switching a filter off is especially dangerous when it is hot or the tank is heavily stocked.",
+      "source": 1
+    },
+    {
+      "section": "vietnam",
+      "fact": "After a power cut, change part of the water with dechlorinated water if toxin readings rise, instead of just switching the filter back on.",
+      "source": 1
+    },
+    {
+      "section": "vietnam",
+      "fact": "Sewellia lineolata, a hillstream loach native to Vietnam, needs a strong current and well-oxygenated water; Seriously Fish suggests a filter that ideally turns the tank over 15-20 times per hour.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "Sewellia lineolata is kept at 20–24°C and tolerates warmer water only if its oxygen needs are met.",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "Flow-loving fish either hold position in the current using little energy or cling to the substrate with suction organs or fins modified into adhesive organs, as gobies do.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Finer bubbles move oxygen more efficiently; cutting bubble size from 5 mm to 2 mm can improve mixing and transfer almost fivefold.",
+      "source": 6
+    },
+    {
+      "section": "other",
+      "fact": "Porous air diffusers clog with algae, food and waste and need periodic cleaning; in water with alkalinity over 400 mg/L as CaCO₃, carbonate can block stone diffusers.",
+      "source": 6
+    }
+  ]
+}

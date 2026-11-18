@@ -143,5 +143,109 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-17"
+  "updatedAt": "2026-11-17",
+  "range": {
+    "native": {
+      "countries": [
+        "GN",
+        "LR",
+        "SL"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Tilapia buettikoferi originates from western Africa (Guinea, Liberia, Sierra Leone).",
+          "countries": [
+            "GN",
+            "LR",
+            "SL"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9466990,
+      "total": 45,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "US",
+          24
+        ],
+        [
+          "SL",
+          11
+        ],
+        [
+          "GN",
+          6
+        ],
+        [
+          "LR",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -81.5625,
+          25.3125,
+          24,
+          0
+        ],
+        [
+          -15.46875,
+          11.25,
+          2,
+          2
+        ],
+        [
+          -14.0625,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          -14.0625,
+          11.25,
+          3,
+          3
+        ],
+        [
+          -12.65625,
+          7.03125,
+          7,
+          7
+        ],
+        [
+          -12.65625,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -11.25,
+          5.625,
+          3,
+          3
+        ],
+        [
+          -11.25,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          -9.84375,
+          5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  }
 }

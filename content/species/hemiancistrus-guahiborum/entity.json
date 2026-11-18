@@ -151,6 +151,10 @@
       {
         "source": "seriouslyfish",
         "value": 15
+      },
+      {
+        "source": "glaser",
+        "value": 15
       }
     ],
     "tankCm": [
@@ -174,10 +178,22 @@
       "html": "<p>L106, Hemiancistrus guahiborum, is a suckermouth catfish known only from the Rio Orinoco drainage in Venezuela. Also known as the spotted orange seam plec, it lives amongst rocks in flowing water and needs well-oxygenated water with some current. Described in 2005, it may be the same species as the undescribed L122, although the flatter profile of L122 suggests the two are distinct.</p><ul><li>Max size: 150 mm SL (6 in)</li><li>Aquarium size: 120 × 30 cm (48 × 12 in)</li><li>Temperature: 22–26°C</li><li>pH: 6.0–7.5</li><li>Hardness: 3–12 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/guyanancistrus-guahiborum-l106-2/",
+      "html": "<p>L106 originates from Venezuela. There is a second, very similar L-number, L122. L106 has a deeper body. Maximum size reported for L106 is about 15 cm.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hemiancistrus-guahiborum",
       "html": "<p>Known only from the Rio Orinoco drainage, Venezuela.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/guyanancistrus-guahiborum-l106-2/",
+      "html": "<p>The species occurs in the Orinoco drainage, type locality is the Rio Ventuari at raudales Tencua.</p>"
     },
     {
       "key": "habitat",
@@ -204,16 +220,34 @@
       "html": "<ul><li>Temperature: 22–26°C (72–79°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 3–12 dGH</li></ul><p>Temperature: No specific data available. It should be happy in the range 22–26°C, based on the preferences of other species from the same region.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/guyanancistrus-guahiborum-l106-2/",
+      "html": "<p>Like all L-numbers from the Orinoco drainage, it should be kept at comparatively high temperatures, e.g. 28-30°C. Otherwise the fish are undemanding.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hemiancistrus-guahiborum",
       "html": "<p>Feeds on aufwuchs and small aquatic crustaceans in nature. In the aquarium, it proves omnivorous and will accept both sinking dried foods and live and frozen stuff such as bloodworm or daphnia.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/guyanancistrus-guahiborum-l106-2/",
+      "html": "<p>L106 feeds mainly on Aufwuchs.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hemiancistrus-guahiborum",
       "html": "<p>A decent choice for the community tank. In a biotope setup, good tankmates include characins such as Anostomus, Hemiodus, Semaprochilodus and Metynnis species, reophilic cichlids such as Retroculus and other Loricariids requiring similar conditions. It can also be kept in a more general community, if you wish. If you're keeping more than one, ensure each has its own refuge to call home, and expect some territorial bickering.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/guyanancistrus-guahiborum-l106-2/",
+      "html": "<p>It is a very peaceful species.</p>"
     },
     {
       "key": "dimorphism",
@@ -232,6 +266,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hemiancistrus-guahiborum",
       "html": "<p>This species was only described to science in 2005, the species name being taken from the name of a local tribe. It's also known as the spotted orange seam plec, due to its patterning. It's found living alongside other Loricariid species in nature, including Peckoltia and other Hemiancistrus species. There's ongoing discussion as to whether this species and the currently undescribed L122 are one and the same, as these two were apparently both included in the scientific description mentioned above. Based on shape, the two would appear to be distinct, as L122 has a flatter profile than H. guahiborum.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/guyanancistrus-guahiborum-l106-2/",
+      "html": "<p>The species was described scientifically in 2005 under the name Hemiancistrus guahiborum by Werneke, Armbruster, Lujan &amp; Taphorn. The authors diagnose their species as differing from all remaining already described species of the Hemiancistrus/Peckoltia group by the broad orange seams of the dorsal and the caudal fins. There is consensus among L-catfish hobbyists that the fish are placed best in the genus Guyanancistrus.</p>"
     }
   ],
   "photos": [
@@ -298,5 +338,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-18"
 }

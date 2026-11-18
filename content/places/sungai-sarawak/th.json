@@ -1,8 +1,13 @@
 {
   "slug": "sungai-sarawak",
-  "name": "ซาราวัก",
+  "name": "แม่น้ำซาราวัก",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-18T00:43:11.572Z"
+  },
   "quality": {
     "score": 0.55,
     "indexable": false

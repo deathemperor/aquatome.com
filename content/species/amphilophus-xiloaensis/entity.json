@@ -9,6 +9,56 @@
     "north-america",
     "nicaragua"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "NI"
+      ],
+      "regions": [
+        "Lake Nicaragua"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "In the lakes of Nicaragua a group of cichlids evolved, which is very interesting from a biological point of view: the Midas cichlids.",
+          "countries": [
+            "NI"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "These cichlids have settled several small satellite crater lakes from large lakes (like Lake Nicaragua) in different times.",
+          "countries": [],
+          "regions": [
+            "Lake Nicaragua"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370114,
+      "total": 11,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "NI",
+          11
+        ]
+      ],
+      "cells": [
+        [
+          -87.1875,
+          11.25,
+          11,
+          11
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

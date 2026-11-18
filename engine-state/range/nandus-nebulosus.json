@@ -1,0 +1,102 @@
+{
+  "id": "nandus-nebulosus",
+  "native": {
+    "input": "df529a24b81dcf2a",
+    "at": "2026-11-18T06:03:35.101Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "There are two, pretty similar species of Nandus occurring in Thailand: the deep-bodied N. oxyrhynchus from the basins of the large rivers Mekong and Mae Klong and the somewhat more slender, short-nosed N. nebulosus from the south of the country.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Malay Peninsula",
+        "source": "glaser",
+        "quote": "The greatest part of the natural range of N. nebulosus is the Malay Peninsula and Indonesia.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MY",
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Nandus nebulosus",
+    "status": "ACCEPTED",
+    "taxonKey": 2399363,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        8
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        3
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "dbc012d5-f8e0-4521-b17e-3c442d1f22bf",
+        2
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "90cbc357-530d-40f2-8000-331f6b575dd4",
+        1
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "TH"
+    ],
+    "requests": 12,
+    "at": "2026-11-18T06:03:35.101Z"
+  }
+}

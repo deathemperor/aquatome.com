@@ -623,6 +623,41 @@
       "kept": true
     }
   ],
+  "vi/products/tropica-aquasoil": [
+    {
+      "at": "2026-11-18T01:45:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.8,
+      "notes": [
+        "\"nhả amoni nhẹ hơn, bể chạy ổn nhanh hơn và giá thấp hơn\" is fine, but the FAQ \"Có, nhưng nhẹ hơn ADA Amazonia\" and the Anubias line are ok. Minor: the FAQ says the amoni was handled \"bằng cách thay nước nhiều, dùng lọc đã chạy lâu\", which matches the facts.",
+        "\"Nền trộn Việt Nam ... đây là các lớp lót nền giá rẻ\" - the facts say only low-cost local base layers, so this is supported. The \"giá rẻ\" claim for each is a mild generalisation.",
+        "\"Nó hợp bể thủy sinh và bể tép mới set, nhất là bể trồng cây dễ\" - \"nhất là\" is a mild emphasis not in the facts.",
+        "\"Nếu định ép tép lâu dài thì một bài so sánh thấy ADA Amazonia Ver.2 hợp hơn\" - the facts support ADA for shrimp-breeding tanks, so this is fine. \"vì nền đó giữ pH lâu hơn\" is also supported.",
+        "\"Trải một lớp là trồng được\" is a slight rewording of \"complete substrate\" with no extra claim.",
+        "\"phân nhét\" / \"nhét thêm phân nhét\" is a rewording of root tabs, not an error.",
+        "\"Hai nguồn ghi khác nhau\" in the FAQ on nutrient lifespan is accurate."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T01:45:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.92,
+      "notes": [
+        "\"Bể trồng dày kiểu Dutch hay Nature thì một lớp Aquasoil có lẽ không đủ\" is an inference. The facts only say the shop suggests adding a layer underneath for such tanks.",
+        "\"Khi nhận hàng, nên xem lại bao trước\" is advice the facts don't give. It is a reasonable extension of the shipping-dust complaints.",
+        "\"Có số lít rồi thì chọn số bao cho đủ\" is a small addition. The facts list only the 9 L bag and the 3 L and 9 L Powder bags, with no guidance on choosing a bag count.",
+        "\"hàng trong nước\" for the Vietnamese mixed substrates goes slightly beyond \"low-cost local base layers\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/products/tuya-smart-life-power-strip": [
     {
       "at": "2026-11-09T06:23:13Z",

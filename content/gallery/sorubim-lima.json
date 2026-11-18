@@ -12,8 +12,7 @@
       "caption": "Hai cá duckbill bơi cùng nhau trong bể nuôi",
       "best": true,
       "kind": "group",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/122845620.webp",
@@ -26,8 +25,7 @@
       "caption": "Cá duckbill bơi gần gốc cây chìm trong bể lớn",
       "best": true,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/122845724.webp",
@@ -40,20 +38,7 @@
       "caption": "Cá duckbill sọc đen bơi trong bể nuôi lớn",
       "best": true,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/commons/ecf2079dc6424648.webp",
-      "thumb": "https://media.aquatome.com/commons/ecf2079dc6424648-480.webp",
-      "width": 1000,
-      "height": 563,
-      "licence": "CC BY-SA 3.0",
-      "author": "Sitron",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Silure_spatule.jpg",
-      "caption": "Cá Sorubim lima bơi trong bể nuôi có đá",
-      "best": false,
-      "kind": "other"
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/f0cc4295c0ae7581.webp",
@@ -89,6 +74,18 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sorubim_lima.jpg",
       "caption": "Cá Sorubim lima thân sọc đốm bơi bên gỗ lũa và cây thủy sinh",
       "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/ecf2079dc6424648.webp",
+      "thumb": "https://media.aquatome.com/commons/ecf2079dc6424648-480.webp",
+      "width": 1000,
+      "height": 563,
+      "licence": "CC BY-SA 3.0",
+      "author": "Sitron",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Silure_spatule.jpg",
+      "caption": "Cá Sorubim lima bơi trong bể nuôi có đá",
+      "best": false,
       "kind": "other"
     }
   ],

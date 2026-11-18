@@ -17,13 +17,18 @@
   "range": {
     "native": {
       "countries": [
-        "EC"
+        "EC",
+        "BR",
+        "GY"
       ],
       "regions": [
-        "Rio Marañon"
+        "Rio Marañon",
+        "Rio Pastaza",
+        "Amazon"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -35,13 +40,32 @@
           "regions": [
             "Rio Marañon"
           ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Besides Ecuador, it is reported so far from the Amazon basin in Brazil (not in the rivers Xingu and Tocantins) and Guyana.",
+          "countries": [
+            "BR",
+            "GY"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "It is nevertheless very likely that these specimens belong to Rhynchodoras woodsi, a species described in 1976 from the Rio Pastaza basin in Ecuador.",
+          "countries": [],
+          "regions": [
+            "Rio Pastaza"
+          ]
         }
       ]
     },
     "records": {
       "taxonKey": 2344054,
       "total": 39,
-      "fetched": "2026-11-14",
+      "fetched": "2026-11-18",
       "countries": [
         [
           "BR",
@@ -83,43 +107,43 @@
           -68.90625,
           -4.21875,
           3,
-          0
+          3
         ],
         [
           -66.09375,
           -2.8125,
           1,
-          0
+          1
         ],
         [
           -61.875,
           -4.21875,
           9,
-          0
+          9
         ],
         [
           -61.875,
           -1.40625,
           1,
-          0
+          1
         ],
         [
           -60.46875,
           -4.21875,
           2,
-          0
+          2
         ],
         [
           -59.0625,
           -4.21875,
           18,
-          0
+          18
         ],
         [
           -59.0625,
           4.21875,
           1,
-          0
+          1
         ]
       ]
     }

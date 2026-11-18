@@ -10,6 +10,56 @@
     "madagascar",
     "mangoro"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MG"
+      ],
+      "regions": [
+        "Mangoro River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Type Locality: Mangoro River, 200 metres upstream of the ferry crossing on the road to Marolambo, Toamasina Province, Madagascar.",
+          "countries": [
+            "MG"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Gogo ornatus is only known from the Mangoro River drainage.",
+          "countries": [],
+          "regions": [
+            "Mangoro River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338030,
+      "total": 4,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "MG",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          47.8125,
+          -21.09375,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

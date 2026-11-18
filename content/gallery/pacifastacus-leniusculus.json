@@ -23,8 +23,7 @@
       "sourceUrl": "https://www.inaturalist.org/photos/52583",
       "caption": "Tôm càng tín hiệu với đốm trắng ở khớp càng, nhìn chính diện",
       "best": true,
-      "kind": "other",
-      "unchecked": true
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/7baf4da5133793fd.webp",
@@ -168,30 +167,6 @@
       "unchecked": true
     },
     {
-      "url": "https://media.aquatome.com/commons/ec4dd7d369ca3c16.webp",
-      "thumb": "https://media.aquatome.com/commons/ec4dd7d369ca3c16-480.webp",
-      "width": 1200,
-      "height": 749,
-      "licence": "Public domain",
-      "author": "USFWS - Pacific Region",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Signal_Crayfish_Roger_Tabor_(USFWS)_(6092822807).jpg",
-      "caption": "Tôm càng tín hiệu giữa sỏi đá ở suối",
-      "best": false,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/103e46db07c5171e.webp",
-      "thumb": "https://media.aquatome.com/commons/103e46db07c5171e-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY-SA 3.0",
-      "author": "KENPEI",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pacifastacus_leniusculus1.jpg",
-      "caption": "Tôm càng tín hiệu bò trên sỏi trong bể",
-      "best": false,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/834091.webp",
       "thumb": "https://media.aquatome.com/inaturalist/834091-480.webp",
       "width": 1024,
@@ -203,18 +178,6 @@
       "best": false,
       "kind": "habitat",
       "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/commons/a2fd4744a565daad.webp",
-      "thumb": "https://media.aquatome.com/commons/a2fd4744a565daad-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY-SA 3.0",
-      "author": "KENPEI",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pacifastacus_leniusculus2.jpg",
-      "caption": "Tôm càng tín hiệu trong bể nền sỏi cạnh đá",
-      "best": false,
-      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/4852150.webp",
@@ -278,6 +241,42 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pacifastacus_leniusculus_2.jpg",
       "caption": "Tôm càng tín hiệu giơ càng đỏ trong bể",
       "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/ec4dd7d369ca3c16.webp",
+      "thumb": "https://media.aquatome.com/commons/ec4dd7d369ca3c16-480.webp",
+      "width": 1200,
+      "height": 749,
+      "licence": "Public domain",
+      "author": "USFWS - Pacific Region",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Signal_Crayfish_Roger_Tabor_(USFWS)_(6092822807).jpg",
+      "caption": "Tôm càng tín hiệu giữa sỏi đá ở suối",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/103e46db07c5171e.webp",
+      "thumb": "https://media.aquatome.com/commons/103e46db07c5171e-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 3.0",
+      "author": "KENPEI",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pacifastacus_leniusculus1.jpg",
+      "caption": "Tôm càng tín hiệu bò trên sỏi trong bể",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/a2fd4744a565daad.webp",
+      "thumb": "https://media.aquatome.com/commons/a2fd4744a565daad-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 3.0",
+      "author": "KENPEI",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pacifastacus_leniusculus2.jpg",
+      "caption": "Tôm càng tín hiệu trong bể nền sỏi cạnh đá",
+      "best": false,
       "kind": "other"
     }
   ],

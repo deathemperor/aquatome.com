@@ -1,0 +1,103 @@
+{
+  "id": "cephalocassis-borneensis",
+  "scientificName": "Cephalocassis borneensis",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Cephalocassis",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "thailand",
+    "malaysia",
+    "cambodia",
+    "laos",
+    "vietnam",
+    "indonesia",
+    "kalimantan"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 12,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 30
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hemipimelodus_borneensis.htm",
+      "html": "<p>South and southeast Asia: Thailand, Malaysia, Cambodia, Laos, Vietnam and Indonesia. Type locality: Sambas, western Borneo, Indonesia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hemipimelodus_borneensis.htm",
+      "html": "<p>Occurs in large lowland rivers.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hemipimelodus_borneensis.htm",
+      "html": "<p>Consists of bivalve mollusks, crustaceans, aquatic macrophytes and plant detritus. Fishermen catch them with trawls, seines, and traps.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hemipimelodus_borneensis.htm",
+      "html": "<p>Description: Head about as deep as wide; rounded snout; without teeth on palate.</p><p>Etymology: The genus name Hemipimelodus: Hemi - half, referring to previous placement of H. borneensis in Pimelodus (then a catch-all genus for many catfishes). The specific name borneensis: -ensis, suffix denoting place: western Borneo, Indonesia, type locality (also occurs in Cambodia, Laos, Thailand, Malaysia and Vietnam).</p><p>Remarks: On some online searches you can still find this species listed as Cephalocassis borneensis.</p><p>IUCN Red List: Although there is no detailed information on the population size and trend of this species, it is still abundant throughout its known distribution and the population trend is thus suspected to be stable or declining at a rate that precludes it from a threatened category. While there may be localised or regional threats, they are unlikely to affect this species on a range-wide scale, and it is found in at least one protected area. Therefore, it is assessed as Least Concern (IUCN 2020).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hemipimelodus_borneensis.htm",
+      "html": "<ul><li>Marceniuk, Alexandre P.; Menezes, Naércio A. (2007). \"Systematics of the family Ariidae (Ostariophysi, Siluriformes), with a redefinition of the genera\" Zootaxa 1416: 1–126.</li><li>Ng, H.H. 2020. Cephalocassis (Hemipimelodus) borneensis. The IUCN Red List of Threatened Species 2020.</li><li>Rainboth, W.J. 1996 Fishes of the Cambodian Mekong. FAO Species Identification Field Guide for Fishery Purposes. FAO, Rome, 265 p.</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/d865d83447574a7b.webp",
+      "thumb": "https://media.aquatome.com/scotcat/d865d83447574a7b-480.webp",
+      "width": 500,
+      "height": 247,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hemipimelodus_borneensis.htm",
+      "caption": "Hemipimelodus borneensis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/57e5fadd46f4d4e9.webp",
+      "thumb": "https://media.aquatome.com/scotcat/57e5fadd46f4d4e9-480.webp",
+      "width": 500,
+      "height": 149,
+      "licence": "dùng với sự cho phép",
+      "author": "Phanara Thach / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hemipimelodus_borneensis.htm",
+      "caption": "Hemipimelodus borneensis",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-18"
+}

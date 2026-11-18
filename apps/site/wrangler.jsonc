@@ -73,6 +73,9 @@
     // retries' answers under chat-turn/<account>/, deleted with the account (accounts/users.ts): conversations kept with no
     // time limit (no lifecycle rule), retries' answers swept within a day by the daily cron (chat/store.ts).
     "CHAT": "owner",
+    // The chat's test account (worker/accounts/tester.ts): "on", the Mac signs in to it and asks the chat
+    // (scripts/chat-tester.mjs); anything else, or removed, it can't sign in and its sessions find chat off.
+    "CHAT_TESTER": "on",
     // The chat's model (the owner's choice, from docs/review/chat-eval.md); removed, the Worker's default, Opus 5.5.
     "CHAT_MODEL": "claude-haiku-5-5",
     // Cloudflare Access on dashboard.aquatome.com (worker/access.ts): the team domain (<team>.cloudflareaccess.com) and the

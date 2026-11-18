@@ -1,0 +1,42 @@
+{
+ "at": "2026-11-18T06:29:43Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "มีปลาติดมาด้วยตัวหนึ่งที่น่าสนใจ คือ Corydoras ellisae",
+   "why": "Refers to the source shop's own import shipment as if the reader knew it."
+  }
+ ],
+ "text": {
+  "slug": "corydoras-longipinnis",
+  "name": "แพะลองฟิน",
+  "altNames": [
+   "Long-finned Cory",
+   "CW003",
+   "คอริโดรัส ลองจิพินนิส",
+   "คอรี่ลองฟิน"
+  ],
+  "sections": {
+   "quickFacts:planetcatfish": "<ul><li>ชื่อวิทยาศาสตร์: Corydoras(ln6) longipinnis Knaack, 2007</li><li>ชื่อสามัญ: CW003, Long-finned Cory, Langfinnet Pansermalle (เดนมาร์ก)</li><li>ขนาด: 61 มม. SL (วัดความยาวจากปลายปากถึงโคนหาง)</li><li>ที่มาของชื่อ: ชื่อชนิดหมายถึงครีบที่ยาวของปลาชนิดนี้ (pinnis = ครีบ)</li><li>สถานภาพในบัญชีแดงของ IUCN: ยังไม่ได้รับการประเมิน (Not Evaluated)</li></ul>",
+   "distribution:planetcatfish": "<p>อเมริกาใต้: แม่น้ำริโอดุลเซ (Río Dulce) ในอาร์เจนตินา แหล่งที่พบตัวอย่างต้นแบบ: แม่น้ำริโอดุลเซ ห่างจากเมืองเตร์มัสเดริโอออนโด (Termas de Río Hondo) ไปทางท้ายน้ำราว 20 กิโลเมตร จังหวัดซานติอาโกเดลเอสเตโร (Santiago del Estero) ประเทศอาร์เจนตินา ประมาณพิกัด 27°29'29''S, 64°41'58''W</p>",
+   "reproduction:planetcatfish": "<p>การเพาะพันธุ์: ยังไม่มีรายงาน ยังไม่มีรายงานการเพาะพันธุ์</p>",
+   "references:planetcatfish": "<p>Vertebrate Zoology v. 57 (no. 1), pp 36, Figs. 1-28, 31-39.</p>",
+   "quickFacts:glaser": "<p>Corydoras longipinnis ได้รับการบรรยายทางวิทยาศาสตร์ในปี 2007 โดย Joachim Knaack เป็นญาติใกล้ชิดของ Corydoras paleatus ที่รู้จักกันดี และดูคล้ายกับ paleatus สายพันธุ์ครีบยาวอยู่บ้าง ใน C. longipinnis จะมีเพียงตัวผู้เท่านั้นที่ครีบอกยืดยาวออกไป ส่วน C. paleatus สายพันธุ์ครีบยาวนั้นตัวเมียก็มีลักษณะนี้ด้วย</p>",
+   "distribution:glaser": "<p>ปลาชนิดนี้นำเข้ามาจากปารากวัย ส่วนการบรรยายชนิดนั้นใช้ตัวอย่างจากแม่น้ำริโอดุลเซ (Río Dulce) ในอาร์เจนตินา</p>",
+   "dimorphism:glaser": "<p>มีเพียงตัวผู้เท่านั้นที่ครีบอกยืดยาวออกไป</p>",
+   "reproduction:glaser": "<p>การเพาะพันธุ์ C. longipinnis ทำได้ง่ายและใช้วิธีเดียวกับ C. paleatus ต้องให้อาหารปลาปริมาณมากจนตัวเมียท้องอูม จากนั้นต้องเปลี่ยนน้ำปริมาณมากซ้ำหลายครั้ง โดยเติมน้ำที่เย็นกว่าน้ำเดิม 3–5 °C วิธีนี้จะกระตุ้นให้ปลาจับคู่และวางไข่</p>",
+   "notes:glaser": "<p>มีปลาติดมาด้วยตัวหนึ่งที่น่าสนใจ คือ Corydoras ellisae โดยปกติ C. ellisae จะมีเพียงปื้นสีใหญ่สองปื้นบนพื้นลำตัวสีอ่อน แต่ตัวนี้มีลวดลายคล้าย C. longipinnis อยู่ในระดับหนึ่ง</p>"
+  },
+  "quality": {
+   "score": 0.75,
+   "indexable": true,
+   "bySource": {
+    "planetcatfish": 0.9,
+    "glaser": 0.75
+   }
+  }
+ }
+}

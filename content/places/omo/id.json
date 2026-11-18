@@ -3,6 +3,12 @@
   "name": "Omo",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.7,
+    "at": "2026-11-18T05:54:45.552Z",
+    "why": "\"Omo\" is the plain name of the Omo region/valley in Ethiopia, but an Indonesian atlas would likely write \"Lembah Omo\" or \"Sungai Omo\", so the bare name is ambiguous about the kind of place."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

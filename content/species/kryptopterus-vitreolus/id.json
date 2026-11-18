@@ -25,11 +25,11 @@
     "references:seriouslyfish": "<ul><li>Ng, H-H. and M. Kottelat (2013). After eighty years of misidentification, a name for the glass catfish (Teleostei: Siluridae). Zootaxa 3630, 308-316</li><li>Bornbusch, A. H. (1995). Phylogenetic relationships within the Eurasian catfish family Siluridae (Pisces: Siluriformes), with comments on generic validities and biogeography. Zoological Journal of the Linnean Society 115, 1-46</li><li>Ng, H-H. and M. Kottelat (2013). A name for the glass catfish (Teleostei: Siluridae) revisited. Zootaxa 3640(2), 299-300</li></ul>"
   },
   "quality": {
-    "score": 0.7,
-    "indexable": false,
+    "score": 0.9,
+    "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.7,
-      "glaser": 0.7
+      "seriouslyfish": 0.9,
+      "glaser": 0.9
     }
   }
 }

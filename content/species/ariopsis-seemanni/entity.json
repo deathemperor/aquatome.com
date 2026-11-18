@@ -22,40 +22,34 @@
     "native": {
       "countries": [
         "MX",
-        "PE",
         "GT",
         "SV",
         "NI",
         "CR",
         "PA",
         "CO",
-        "EC"
+        "EC",
+        "PE"
       ],
       "regions": [],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "scotcat"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The Colombian shark catfish, Ariopsis seemanni, is an ariid catfish from river mouths along the Pacific coast of the Americas, from Mexico to Peru.",
-          "countries": [
-            "MX",
-            "PE"
-          ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
           "quote": "Populations exist in Mexico, Guatemala, El Salvador, Nicaragua, Costa Rica, Panama, Colombia, Ecuador and Peru.",
           "countries": [
+            "MX",
             "GT",
             "SV",
             "NI",
             "CR",
             "PA",
             "CO",
-            "EC"
+            "EC",
+            "PE"
           ],
           "regions": []
         }

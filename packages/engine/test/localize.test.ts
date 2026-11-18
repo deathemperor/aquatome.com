@@ -156,6 +156,21 @@ test('glossary: every term from its Vietnamese definition; Thai addressed by the
   expect([...prompts[0]!.matchAll(/^### (\S+)$/gm)].map(m => m[1])).toEqual(['gh'])
 })
 
+// The chief of staff, 18 Nov 2026: a term's link phrases are never its other names. A translation written again keeps
+// them, and a name the translator gives that is one of them is not its other name.
+test('glossary: a term translated again keeps its link phrases, never as other names', async () => {
+  const root = await site()
+  await writeFile(join(root, 'content/glossary/ca-dan/ms.json'), JSON.stringify({ slug: 'ikan-shoaling', name: 'Ikan shoaling', altNames: ['shoaling fish'], sections: {}, linkNames: ['hidup berkumpulan'], definition: 'x', quality: { score: 0.9, indexable: true } }))
+  const llm = async <T,>(a: { prompt: string; schema: object }) => {
+    if ('required' in a.schema && (a.schema.required as string[]).includes('score')) return { score: 0.9, notes: [] } as T
+    const ids = [...a.prompt.matchAll(/^### (\S+)$/gm)].map(m => m[1]!)
+    return { terms: ids.map(i => ({ id: i, name: 'Ikan shoaling', altNames: ['shoaling fish', 'hidup berkumpulan'], definition: `makna ${i}` })) } as T
+  }
+  await localizeGlossary(root, llm, 'ms', { redo: true, only: ['ca-dan'] })
+  const t = JSON.parse(await readFile(join(root, 'content/glossary/ca-dan/ms.json'), 'utf8'))
+  expect(t).toMatchObject({ slug: 'ikan-shoaling', altNames: ['shoaling fish'], linkNames: ['hidup berkumpulan'], definition: 'makna ca-dan' })
+})
+
 test('place names: every place named in the language; a name with Vietnamese letters or none is not written', async () => {
   const root = await site()
   const prompts: string[] = []

@@ -3,6 +3,12 @@
   "name": "Xi Jiang",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.45,
+    "at": "2026-11-18T05:57:53.358Z",
+    "why": "Indonesian atlases write \"Sungai Xi\" or \"Sungai Xi Jiang\" (or Sungai Barat/Xijiang), with the kind word \"Sungai\"; bare \"Xi Jiang\" omits it, and \"Jiang\" already means river."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

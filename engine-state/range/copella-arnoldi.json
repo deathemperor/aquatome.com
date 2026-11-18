@@ -1,14 +1,14 @@
 {
   "id": "copella-arnoldi",
   "native": {
-    "input": "80f958b01cb50bfd",
-    "at": "2026-11-07T09:20:22.982Z",
+    "input": "05aae54c12c3d3b4",
+    "at": "2026-11-18T00:54:56.623Z",
     "claims": [
       {
         "code": "BR",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Type locality is given simply as 'Amazon' by Regan and most modern reports state that this species is widely-distributed in the lower Amazon basin in Brazil plus coastal drainages of Guyana, Suriname and French Guiana including the Demerara, Essequibo, Suriname and Nickerie.",
+        "quote": "The splash tetra, Copella arnoldi, is a lebiasinid from the lower Amazon basin in Brazil and coastal drainages of Guyana, Suriname and French Guiana.",
         "words": "Brazil",
         "ok": true
       },
@@ -16,7 +16,7 @@
         "code": "GY",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Type locality is given simply as 'Amazon' by Regan and most modern reports state that this species is widely-distributed in the lower Amazon basin in Brazil plus coastal drainages of Guyana, Suriname and French Guiana including the Demerara, Essequibo, Suriname and Nickerie.",
+        "quote": "The splash tetra, Copella arnoldi, is a lebiasinid from the lower Amazon basin in Brazil and coastal drainages of Guyana, Suriname and French Guiana.",
         "words": "Guyana",
         "ok": true
       },
@@ -24,7 +24,7 @@
         "code": "SR",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Type locality is given simply as 'Amazon' by Regan and most modern reports state that this species is widely-distributed in the lower Amazon basin in Brazil plus coastal drainages of Guyana, Suriname and French Guiana including the Demerara, Essequibo, Suriname and Nickerie.",
+        "quote": "The splash tetra, Copella arnoldi, is a lebiasinid from the lower Amazon basin in Brazil and coastal drainages of Guyana, Suriname and French Guiana.",
         "words": "Suriname",
         "ok": true
       },
@@ -32,8 +32,16 @@
         "code": "GF",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Type locality is given simply as 'Amazon' by Regan and most modern reports state that this species is widely-distributed in the lower Amazon basin in Brazil plus coastal drainages of Guyana, Suriname and French Guiana including the Demerara, Essequibo, Suriname and Nickerie.",
+        "quote": "The splash tetra, Copella arnoldi, is a lebiasinid from the lower Amazon basin in Brazil and coastal drainages of Guyana, Suriname and French Guiana.",
         "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The Splashing tetra inhabits savannah creeks in the Rio Xingu basin in Brazil in the wild; however, nowadays almost exclusively bred specimens can be found in the trade.",
+        "words": "Brazil",
         "ok": true
       }
     ],
@@ -41,7 +49,7 @@
       {
         "name": "Amazon",
         "source": "seriouslyfish",
-        "quote": "Type locality is given simply as 'Amazon' by Regan and most modern reports state that this species is widely-distributed in the lower Amazon basin in Brazil plus coastal drainages of Guyana, Suriname and French Guiana including the Demerara, Essequibo, Suriname and Nickerie.",
+        "quote": "The splash tetra, Copella arnoldi, is a lebiasinid from the lower Amazon basin in Brazil and coastal drainages of Guyana, Suriname and French Guiana.",
         "country": "BR",
         "ok": true
       },
@@ -64,11 +72,11 @@
         "ok": true
       },
       {
-        "name": "Suriname",
-        "source": "seriouslyfish",
-        "quote": "Type locality is given simply as 'Amazon' by Regan and most modern reports state that this species is widely-distributed in the lower Amazon basin in Brazil plus coastal drainages of Guyana, Suriname and French Guiana including the Demerara, Essequibo, Suriname and Nickerie.",
-        "ok": false,
-        "why": "a country"
+        "name": "Rio Xingu",
+        "source": "glaser",
+        "quote": "The Splashing tetra inhabits savannah creeks in the Rio Xingu basin in Brazil in the wild; however, nowadays almost exclusively bred specimens can be found in the trade.",
+        "country": "BR",
+        "ok": true
       },
       {
         "name": "Ilha do Arapiranga",

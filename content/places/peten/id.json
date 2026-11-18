@@ -1,8 +1,13 @@
 {
   "slug": "peten",
-  "name": "Petén",
+  "name": "Departemen Petén",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.88,
+    "at": "2026-11-18T05:55:09.728Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

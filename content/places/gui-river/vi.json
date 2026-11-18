@@ -1,6 +1,6 @@
 {
   "slug": "gui-river",
-  "name": "sông Gui",
+  "name": "sông Quế",
   "altNames": [
     "Gui River"
   ],
@@ -8,5 +8,6 @@
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

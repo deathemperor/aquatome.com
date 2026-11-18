@@ -14,18 +14,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/commons/3cda6b82dc278c89.webp",
-      "thumb": "https://media.aquatome.com/commons/3cda6b82dc278c89-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC0",
-      "author": "Justin Philbois",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Betta_anabatoides_456455993_(cropped).jpg",
-      "caption": "Cá betta anabatoides màu nâu đỏ trong bể kính",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/455875399.webp",
       "thumb": "https://media.aquatome.com/inaturalist/455875399-480.webp",
       "width": 1024,
@@ -34,18 +22,6 @@
       "author": "Justin Philbois",
       "sourceUrl": "https://www.inaturalist.org/photos/455875399",
       "caption": "Cá betta anabatoides nâu sẫm nhìn nghiêng, mắt rõ",
-      "best": true,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/456456038.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/456456038-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC0",
-      "author": "Justin Philbois",
-      "sourceUrl": "https://www.inaturalist.org/photos/456456038",
-      "caption": "Cá betta anabatoides màu nâu cam có sọc ngang trong bể",
       "best": true,
       "kind": "other"
     },
@@ -83,6 +59,30 @@
       "sourceUrl": "https://www.inaturalist.org/photos/457829754",
       "caption": "Cá betta anabatoides màu nâu đỏ, thân sọc ngang, nhìn nghiêng",
       "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/3cda6b82dc278c89.webp",
+      "thumb": "https://media.aquatome.com/commons/3cda6b82dc278c89-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC0",
+      "author": "Justin Philbois",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Betta_anabatoides_456455993_(cropped).jpg",
+      "caption": "Cá betta anabatoides màu nâu đỏ trong bể kính",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/456456038.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/456456038-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC0",
+      "author": "Justin Philbois",
+      "sourceUrl": "https://www.inaturalist.org/photos/456456038",
+      "caption": "Cá betta anabatoides màu nâu cam có sọc ngang trong bể",
+      "best": true,
       "kind": "other"
     }
   ],

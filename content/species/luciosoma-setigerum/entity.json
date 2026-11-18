@@ -21,12 +21,12 @@
   "range": {
     "native": {
       "countries": [
+        "ID",
         "TH",
         "LA",
         "KH",
         "VN",
-        "MY",
-        "ID"
+        "MY"
       ],
       "regions": [
         "Mekong",
@@ -37,9 +37,18 @@
         "Java"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This barb with the extremely aerodynamic shape originates from Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
         {
           "source": "seriouslyfish",
           "quote": "Records exist from the Mekong River basin in Thailand, Laos, Cambodia, and Vietnam, the Chao Phraya and Mae Klong watersheds in central and western Thailand, respectively, various smaller drainages in peninsular Thailand and Peninsular Malaysia, and the Greater Sunda Islands of Borneo, Sumatra, and Java.",
@@ -58,14 +67,6 @@
             "Sumatra",
             "Java"
           ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Type locality is 'Pébak River, Java, Indonesia'.",
-          "countries": [
-            "ID"
-          ],
-          "regions": []
         }
       ]
     },

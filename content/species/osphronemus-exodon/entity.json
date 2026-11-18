@@ -19,9 +19,12 @@
         "LA",
         "KH"
       ],
-      "regions": [],
+      "regions": [
+        "Mekong"
+      ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -33,6 +36,14 @@
             "KH"
           ],
           "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Osphronemus exodon is a giant gourami from the Mekong river.",
+          "countries": [],
+          "regions": [
+            "Mekong"
+          ]
         }
       ]
     },

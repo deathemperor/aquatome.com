@@ -1,0 +1,88 @@
+{
+  "id": "cryptarius-daugueti",
+  "scientificName": "Cryptarius daugueti",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Cryptarius",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "cambodia",
+    "mekong",
+    "vietnam"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 26
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/cryptarius_daugueti.htm",
+      "html": "<ul><li>Synonym: Hemipimelodus daugueti</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/cryptarius_daugueti.htm",
+      "html": "<p>Asia: Mekong basin. Large rivers of South East Asia. Type locality: Phnompenh et Snoctrou, au seuil du Grand Lac. Type(s): at Inst. Océanogr. Indochine, Nhatrang, Viet Nam.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/cryptarius_daugueti.htm",
+      "html": "<p>Inhabits large rivers.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/cryptarius_daugueti.htm",
+      "html": "<p>Etymology: the genus name Cryptarius comes from kryptos, hidden or secret, i.e. a cryptic Arius, referring to its unique combination of characters having been ignored for such a long time. The specific name daugueti honours Paul Dauguet (1883-?), merchant seaman and commander of le Lanessan, from which the type was collected.</p><p>Kailola (2004: 135) tentatively assigned this species to Cryptarius.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/cryptarius_daugueti.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2021. FishBase. www.fishbase.org. Kailola, P.J., 1999 Ariidae (=Tachysuridae): sea catfishes (fork-tailed catfishes). Rainboth, W.J., 1996 Fishes of the Cambodian Mekong. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/39927f55b5a1f5c2.webp",
+      "thumb": "https://media.aquatome.com/scotcat/39927f55b5a1f5c2-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "FAO / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/cryptarius_daugueti.htm",
+      "caption": "Cryptarius daugueti",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-18"
+}

@@ -1,8 +1,8 @@
 {
   "id": "chitala-blanci",
   "native": {
-    "input": "4fd9d65967416d9a",
-    "at": "2026-11-07T06:20:08.160Z",
+    "input": "64498f9dad49c405",
+    "at": "2026-11-18T00:54:56.623Z",
     "claims": [
       {
         "code": "LA",
@@ -64,20 +64,20 @@
     "regions": [
       {
         "name": "Mekong",
-        "source": "glaser",
-        "quote": "Chitala blanci originates from the basin of the Mekong river in Thailand, Laos, and Cambodia.",
-        "ok": true
-      },
-      {
-        "name": "Mekong",
         "source": "seriouslyfish",
-        "quote": "The royal featherback, Chitala blanci, is a very large notopterid endemic to the Mekong drainage in Laos, Thailand, Vietnam and Cambodia.",
+        "quote": "Endemic to the Mekong river drainage in Laos, Thailand, Vietnam, and Cambodia, including the Mekong delta region and Tonlé Sap lake system.",
         "ok": true
       },
       {
         "name": "Tonlé Sap",
         "source": "seriouslyfish",
         "quote": "Endemic to the Mekong river drainage in Laos, Thailand, Vietnam, and Cambodia, including the Mekong delta region and Tonlé Sap lake system.",
+        "ok": true
+      },
+      {
+        "name": "Mekong",
+        "source": "glaser",
+        "quote": "Chitala blanci originates from the basin of the Mekong river in Thailand, Laos, and Cambodia.",
         "ok": true
       }
     ],

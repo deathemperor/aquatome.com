@@ -473,6 +473,32 @@
       "kept": false
     }
   ],
+  "vi/species/caridina-babaulti": [
+    {
+      "at": "2026-11-17T23:53:05Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.97,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-17T23:53:05Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.88,
+      "notes": [
+        "\"Tép nuôi trong bể thì giữ trong bể, đừng thả ra sông hồ\" is release-prevention advice that the facts don't give. It is a mild extension of the Hungary note.",
+        "\"Nhìn bằng mắt thường thì đó là một cái chủy dài\" adds \"to the naked eye\", which the facts don't say. This is a small embellishment.",
+        "\"bám trên bề mặt trong bể\" adds \"on surfaces in the tank\" to the grazing description. This is a small embellishment."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/corydoras-duplicareus#jedoN9nxfpc": [
     {
       "at": "2026-11-17T05:44:37Z",
@@ -505,6 +531,43 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/species/corydoras-eques#KiGchMcwuT4": [
+    {
+      "at": "2026-11-17T23:48:04Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.72,
+      "notes": [
+        "[beforeYouBuy] \"Một người nuôi loài này thấy nó đã khá phổ biến\" — the video states popularity as a general fact about the hobby, not one keeper's experience, so the attribution is wrong.",
+        "[beforeYouBuy] The page's distribution section says the species is almost unknown in the hobby. NEW says it is quite popular but never notes this difference from the page.",
+        "[beforeYouBuy] \"Họ cũng thấy cá dễ nuôi và rất khỏe\" — the video gives this as a general claim (easy to care for, extremely hardy), not one keeper's observation, so the framing misattributes it.",
+        "[notes] \"Màu của loài này thay đổi theo màu nền bể\" — the video says colour varies with the substrate, which differs from the page's claim that colour is best in blackwater. NEW doesn't point out the difference.",
+        "[notes] \"mép vây đuôi\" — the video's wording (\"edges of their cordovan\") is garbled, so \"caudal fin edges\" is a guess at what was said.",
+        "[diet] \"Ấu trùng muỗi trắng\" is supported, but the sentence about frozen, live or freeze-dried food is generic and partly repeats the page's diet section."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-17T23:48:04Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.6,
+      "notes": [
+        "\"Corydoras metae\" for Bandit cory: the video only says \"Bandit corydoras\" and never gives a scientific name. NEW adds it.",
+        "\"cá chì\" for pencilfish is wrong. Hobbyists say \"cá bút chì\", so it reads as a bad translation and could be mistaken for another fish.",
+        "[diet] \"viên dạng miếng (wafer) cho cá da trơn\": the PAGE already lists wafers as \"cám vảy miếng lớn\" and sinking pellets, so this repeats the page.",
+        "[notes] \"mảng yên ngựa thường có màu nâu xanh sẫm\": the PAGE already says the saddle is dark bluish-brown in its notes and identification text.",
+        "[notes] \"dải cam sau mắt vắt qua nắp mang\" mostly repeats the PAGE's orange band across the neck, so little of it is new.",
+        "[diet] \"Ngoài các món đã kể\" and [behaviour] \"Ngoài những loài đã kể\" point back to the page. The wording is awkward and leaves unclear what is new.",
+        "[behaviour] \"Người này nuôi chúng chung...\" is stiff and reads as translated. A natural hobbyist phrasing would be \"một người nuôi thấy…\"."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/species/corydoras-pantanalensis#CVc-EzMdCeY": [
@@ -925,6 +988,30 @@
         "[maintenance] \"Cá khỏe và rất chịu đựng\" is stated flatly as a fact. In the video it is the keeper's view ('robust and extremely hardy'), so it should be attributed to the keeper.",
         "[maintenance] \"Đừng trồng cây sống\" overlaps with the page, which says plants are possible but may get eaten. NEW does not say that the video contradicts the page here.",
         "[notes] The 'so-called villain' reputation text is fine. \"cá nuôi chung\" and \"cá bảy màu loại\" read awkwardly; 'cá bảy màu loại thải' would be more natural."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/leporinus-nijsseni": [
+    {
+      "at": "2026-11-17T23:44:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.97,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-17T23:44:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.95,
+      "notes": [
+        "\"hồ, ao sâu trong đất liền\": the facts say only \"inland\" lakes and ponds. \"Sâu\" (deep) is a small addition that no fact supports."
       ],
       "attempt": "first",
       "kept": false
@@ -1352,6 +1439,43 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/species/paracheirodon-axelrodi#fdAqYh83wX0": [
+    {
+      "at": "2026-11-18T01:43:25Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.72,
+      "notes": [
+        "[waterConditions] \"nhiệt độ 24–27 °C\" and \"nước mềm\": the page already says 23–27 °C and soft, acidic water, so this repeats the page.",
+        "[waterConditions] \"pH không quá 6,5\" differs from the page's \"tốt nhất dưới 6 (4,6 đến 6,2)\". NEW doesn't say it differs or how.",
+        "[waterConditions] \"bên nhập cá đã bắt đầu cho đẻ những dòng chịu được nước cứng hơn\" overlaps the page's point that commercially bred fish tolerate poor water better. It isn't framed as a difference from the page.",
+        "[maintenance] \"Một người nuôi loài này khuyên dùng nền màu tối\": the video states this as a fact about the species, not as one keeper's advice. The attribution is added.",
+        "[maintenance] \"Thả lũa vào bể thì nước có thêm tanin\" is close to what the page already says about tannin and humic substances from leaves.",
+        "[behaviour] The tankmate list leaves out the otos and the cherry tetras the video names. The tank is called \"bố cục kiểu núi đá\" for a \"Mountain tank\", which is a loose reading.",
+        "[behaviour] The tank lists are specific to one person's tanks and add little. The page already lists Corydoras, dwarf gourami and rasbora as tankmates."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T01:43:25Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.8,
+      "notes": [
+        "[behaviour] \"thả neon vua chung với cá chì Beckford, cá chuột gấu trúc, cá chuột sterbai, cá otto, rasbora ớt, cá sặc gấm và tép Amano\" merges two separate tanks into one list. The video describes a mountain tank and a nature tank, and it drops the ESP tetras.",
+        "[behaviour] \"Theo người này, mấy bể đó vẫn sống hòa thuận\" is not stated in the video. It only says peaceful fish make good tankmates.",
+        "[diet] \"đớp mồi đang trôi ở giữa tầng nước\" adds detail. The video only says they like to feed from the midwater column rather than from the surface or gravel.",
+        "[diet] \"bỏ đói một ngày mỗi tuần\" is slightly stiff, translation-like wording for skipping a feeding day.",
+        "[waterConditions] \"cá nhập về bây giờ đã được cho đẻ theo hướng chịu nước cứng hơn\" is awkward and a loose rendering of importers breeding fish to tolerate harder water. The page already says captive-bred fish tolerate poor water better.",
+        "[maintenance] \"Nền màu tối làm sọc đỏ và sọc xanh của cá nổi rực hơn\" is written as a general rule. The video gives it as one keeper's advice."
+      ],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/species/paracheirodon-innesi#Jh0Xx6BZfu8": [

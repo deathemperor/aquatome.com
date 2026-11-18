@@ -1,0 +1,94 @@
+{
+  "id": "ketengus-typus",
+  "scientificName": "Ketengus typus",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Ketengus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "thailand",
+    "indonesia",
+    "kalimantan",
+    "india",
+    "andaman-islands"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 25
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ketengus_typus.htm",
+      "html": "<ul><li>Common name: Bigmouth sea catfish</li><li>Synonym: Pimelodus pectinidens</li><li>IUCN Red List: Not Evaluated</li></ul><p>Teeth are absent from the roof of the mouth, and the mouth opens wide, extending far beyond the eye. Only one species is recorded (monotypic genus).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ketengus_typus.htm",
+      "html": "<p>Asia: Eastern Bay of Bengal and Malay Peninsula; in nearshore coastal waters, estuaries, and lower reaches of rivers (Kailola, 1999). Occurs in coastal waters from Thailand to Indonesia and westward to the Andaman Islands. Type locality: Banjarmasin, in rivers (in fluviis).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ketengus_typus.htm",
+      "html": "<p>Found in the lower parts of rivers in either fresh or brackish waters.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ketengus_typus.htm",
+      "html": "<p>Feeds on invertebrates and small fishes.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ketengus_typus.htm",
+      "html": "<p>Etymology: The genus name Ketengus is a latinisation of Keteng, the Madurese name for this catfish in eastern Java, Indonesia. The specific name typus means serving as type of the genus.</p><p>Remarks: Caught with trawls, seines, and traps.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/36d61ccf030d60ed.webp",
+      "thumb": "https://media.aquatome.com/scotcat/36d61ccf030d60ed-480.webp",
+      "width": 349,
+      "height": 500,
+      "licence": "dùng với sự cho phép",
+      "author": "Worawich Prasittiphat / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ketengus_typus.htm",
+      "caption": "Ketengus typus: juvenile",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/c1bb230951a00dd2.webp",
+      "thumb": "https://media.aquatome.com/scotcat/c1bb230951a00dd2-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "FAO / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ketengus_typus.htm",
+      "caption": "Ketengus typus: dorsal view of head",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/a6e891707a5af29c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a6e891707a5af29c-480.webp",
+      "width": 500,
+      "height": 289,
+      "licence": "dùng với sự cho phép",
+      "author": "Pirayu / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ketengus_typus.htm",
+      "caption": "Ketengus typus",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-18"
+}

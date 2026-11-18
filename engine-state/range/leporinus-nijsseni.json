@@ -1,0 +1,130 @@
+{
+  "id": "leporinus-nijsseni",
+  "native": {
+    "input": "1f52e8309306d3bb",
+    "at": "2026-11-18T06:03:35.101Z",
+    "claims": [
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "aquatome",
+        "quote": "Có nguồn ghi vùng phân bố này nằm ở Suriname và Guiana thuộc Pháp.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "aquatome",
+        "quote": "Có nguồn ghi vùng phân bố này nằm ở Suriname và Guiana thuộc Pháp.",
+        "words": "Guiana thuộc Pháp",
+        "ok": false,
+        "why": "\"Guiana thuộc Pháp\" is not GF"
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "aquatome",
+        "quote": "Eschmeyer's Catalog of Fishes thì liệt kê nó ở Brazil, Guiana thuộc Pháp và Suriname.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Saramacca",
+        "source": "aquatome",
+        "quote": "Loài này sống ở Nam Mỹ, trong lưu vực suối Saramacca và sông Suriname.",
+        "ok": true
+      },
+      {
+        "name": "Suriname",
+        "source": "aquatome",
+        "quote": "Loài này sống ở Nam Mỹ, trong lưu vực suối Saramacca và sông Suriname.",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "GF"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Leporinus nijsseni",
+    "status": "ACCEPTED",
+    "taxonKey": 2355400,
+    "datasets": [
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        117
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        86
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        12
+      ],
+      [
+        "5d1e5f0d-811c-4ab0-bb38-f141cc0174de",
+        10
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        9
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        6
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        5
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        4
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        2
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        1
+      ]
+    ],
+    "native": [
+      "SR",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-18T06:03:35.101Z"
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "id": "ambystoma-mexicanum",
+  "native": {
+    "input": "e89395751c40dc1a",
+    "at": "2026-11-18T06:03:35.101Z",
+    "claims": [
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Axolotls are native to Mexico and are endangered in the wild due to urbanisation, water pollution and the introduction of invasive predators.",
+        "words": "Mexico",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Xochimilco",
+        "source": "aquariumbreeder",
+        "quote": "Their natural habitat is Lake Xochimilco, but numbers are dwindling because of water pollution, invasive species eating the axolotls and their eggs, and their being treated as a delicacy by locals.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Ambystoma mexicanum",
+    "status": "ACCEPTED",
+    "taxonKey": 2431950,
+    "datasets": [
+      [
+        "a72ac6ef-6f55-4b17-a1d1-b213d5bb8977",
+        113
+      ],
+      [
+        "63ed64cb-90b7-4ecc-b94c-3a0317742379",
+        39
+      ],
+      [
+        "7feba584-f762-11e1-a439-00145eb45e9a",
+        30
+      ],
+      [
+        "f6cc0fcc-1605-4bd4-bbea-dd12f697a2ba",
+        13
+      ],
+      [
+        "0159cf6b-6a46-4365-96f1-d7ca2511f082",
+        6
+      ],
+      [
+        "78f98484-a7ef-4e6c-8b51-7464f1209591",
+        6
+      ],
+      [
+        "1c5c3e48-7fc0-4d4f-96e6-c4df2c747f34",
+        4
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        3
+      ],
+      [
+        "7e34ea34-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "cece4fc2-1fec-4bb5-a335-7252548e3f0b",
+        3
+      ],
+      [
+        "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+        2
+      ],
+      [
+        "76dd8f0d-2daa-4a69-9fcd-55e04230334a",
+        2
+      ],
+      [
+        "aad97542-a068-449d-adb3-a8e937f64cb4",
+        2
+      ],
+      [
+        "c287bcb5-ee4a-456f-86b6-dae0e6fe7958",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ]
+    ],
+    "native": [
+      "MX"
+    ],
+    "requests": 14,
+    "at": "2026-11-18T06:03:35.101Z"
+  }
+}

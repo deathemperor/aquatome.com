@@ -3,6 +3,12 @@
   "name": "อามี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.45,
+    "at": "2026-11-18T05:58:44.786Z",
+    "why": "อามี is a fair Thai transliteration of Ami, but the source names a river in India, and a Thai atlas would write it with the kind word, แม่น้ำอามี."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false
