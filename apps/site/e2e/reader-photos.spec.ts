@@ -225,5 +225,15 @@ test('readers\' photos: closed on a photo whose tile is off the screen, its tile
   await expect(viewer).toBeHidden()
   await expect(tiles.first()).toBeFocused()
   await expect(tiles.first()).toBeInViewport()
+  // Forward opens it again; stepped back round to the last photo and closed, the last tile is focused in view, after
+  // Back has put the page back where it was (Codex's read, 18 Nov).
+  await page.goForward()
+  await expect(viewer.locator('.by')).toContainText('1/40')
+  await viewer.getByRole('button', { name: 'Ảnh trước' }).click()
+  await expect(viewer.locator('.by')).toContainText('40/40')
+  await page.keyboard.press('Escape')
+  await expect(viewer).toBeHidden()
+  await expect(tiles.last()).toBeFocused()
+  await expect(tiles.last()).toBeInViewport()
   expect(errors).toEqual([])
 })

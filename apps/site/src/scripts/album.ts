@@ -45,9 +45,10 @@ if (box && json) {
       const ul = a.closest('ul') ?? box, r = a.getBoundingClientRect(), v = ul.getBoundingClientRect()
       const [top, bottom] = [Math.max(r.top, 0), Math.min(r.bottom, innerHeight)]
       if (bottom <= top) continue
-      // What's drawn at the middle of the row's part on the screen, at the thumb's height: the row, or what covers it.
-      const hit = document.elementFromPoint((Math.max(v.left, 0) + Math.min(v.right, innerWidth)) / 2, (top + bottom) / 2)
-      if (!hit || !ul.contains(hit)) continue
+      // What's drawn in the middle of the row's part on the screen, at the thumb's top, middle and foot on it: the row,
+      // or what covers it. Any of them the row's, the thumb shows.
+      const x = (Math.max(v.left, 0) + Math.min(v.right, innerWidth)) / 2
+      if (![top + 1, (top + bottom) / 2, bottom - 1].some(y => ul.contains(document.elementFromPoint(x, y)))) continue
       if (r.left < v.left - 1 || r.right > v.right + 1) {
         if (ul.scrollWidth <= ul.clientWidth) continue
         ul.scrollLeft += r.left - v.left

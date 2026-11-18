@@ -406,7 +406,8 @@ test('album, a phone: the row partly on the screen, closed on the thumb beside t
 
 // The row's foot under a bar that stays at the screen's top (as the jump row does over a wrapped strip; none in the
 // build, so one is put there): its thumbs are hidden, so closing on one gives focus to the chip that opened the viewer,
-// and the page stays where it was (Codex's read, 18 Nov).
+// and the page stays where it was. With 10 px of it below the bar, the thumb takes focus itself (Codex's reads,
+// 18 Nov).
 test('album, a phone: closed on a thumb under a bar at the screen\'s top, focus goes to the chip', async ({ page, request, errors, isMobile }) => {
   test.skip(!isMobile, 'the photo column is a sideways row on a phone')
   const found = await albumPage(request, 'ca', (a, html) => a.photos.length >= 6 && /class="strip column/.test(html) && /<nav[^>]*class="[^"]*\bjump\b/.test(html))
@@ -441,6 +442,18 @@ test('album, a phone: closed on a thumb under a bar at the screen\'s top, focus 
   await expect(page).toHaveURL(at(path)) // its close handler has run (the dialog's own focus comes first)
   await expect(chip).toBeFocused()
   expect(await page.evaluate(() => scrollY), 'the page where it was').toBe(y)
+  // The row's foot 10 px below the bar: that much of the thumb shows, and it takes focus.
+  await page.evaluate(() => scrollTo({ top: scrollY + document.querySelector('section.strip.column ul')!.getBoundingClientRect().bottom - 60, behavior: 'instant' }))
+  const [y2, c2] = [await page.evaluate(() => scrollY), (await chip.boundingBox())!]
+  test.skip(Math.abs((await row.boundingBox())!.y + box.height - 60) > 1 || c2.y < 50, 'the page too short to put the row there, or the chip under the bar')
+  await page.touchscreen.tap(c2.x + c2.width / 2, c2.y + c2.height / 2)
+  await expect(page).toHaveURL(at(path, '#a1'))
+  for (let j = 0; j < k; j++) await page.keyboard.press('ArrowRight')
+  await page.keyboard.press('Escape')
+  await expect(viewer).toBeHidden()
+  await expect(page).toHaveURL(at(path)) // its close handler has run (the dialog's own focus comes first)
+  await expect(row.locator(`a[data-i="${k}"]`)).toBeFocused()
+  expect(await page.evaluate(() => scrollY), 'the page where it was').toBe(y2)
   expect(errors).toEqual([])
 })
 
