@@ -246,6 +246,30 @@
   ],
   "vi/glossary/la-bang": [
     {
+      "at": "2026-11-18T01:11:05Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Bắt đầu với một lá cho khoảng 20–30 lít.\" (not \"Với lá cỡ vừa (khoảng 15 cm), bắt đầu với một lá cho khoảng 20–30 lít.\": Rule 12: \"Với lá cỡ vừa (khoảng 15 cm), bắt đầu với một lá cho khoảng 20–30 lít.\" uses the 15 cm dose table (fact 18), which this term drops. The rules require the exact sentence \"Bắt đ…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Tiệm thứ hai cũng ghi: muốn nước màu trà đậm hơn thì thêm lá dần tới khi được màu ưng ý.\" (not \"Tiệm thứ hai cũng ghi: muốn nước đen (blackwater) thì thêm lá cùng các loại gỗ mềm như lũa Malaysia hay gỗ cholla, tới khi được màu ưng ý.\": Rules 3 and 12: \"muốn nước đen (blackwater)\" in \"Tiệm thứ hai cũng gh…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T01:11:05Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Thay lá sau khoảng 2–3 tuần. Tiệm thứ nhất cũng ghi: trong bể tép có thể để lá đến khi chỉ còn bộ gân.\" states the 2–3-week replacement as plain fact. Only the first shop gives this for whole leaves (fact 28), so it must sit under that shop's credit. The required wording is \"Tiệm thứ nhất cũng ghi: thay lá sau khoảng 2–3 tuần; trong bể tép có thể để lá đến khi chỉ còn bộ gân.\"",
+        "Rules 10 and 12: \"Chuyện lá diệt được ký sinh trùng và vi khuẩn mà người bán hay kể chưa có gì chứng minh.\" Saying \"chưa có gì chứng minh\" claims more than the facts, which call the sellers' claims untested or unsourced (facts 42, 48, 49). The required sentence ends \"chưa được kiểm chứng.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-18T00:04:12Z",
       "model": "sonnet",
       "cli": "2.1.326",
@@ -308,29 +332,6 @@
         "Rule 12: \"Tiệm ở Việt Nam bán cả lá bàng khô gom trong nước lẫn lá nhập khẩu. Có tiệm bán thêm nước cốt lá bàng đóng chai.\": the local and imported leaves and the bottled leaf-water product must both go.",
         "Rule 12: \"Bể nhỏ thì cắt đôi lá.\": this is the keeper's page's step (fact 24). It must sit under that page's single credit, \"Một nguồn người nuôi ghi …\", together with the extract's pH drop and the carbon.",
         "Rule 12: \"Muốn đợt ra màu đầu nhẹ hơn thì ngâm lá 24–48 giờ trong nước đã khử clo.\": this needs the 24–48-hour shop's credit, \"Một tiệm ghi …\"."
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-17T18:33:46Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 1,
-      "notes": [
-        "The rewrite dropped from \"Bể nhỏ thì cắt đôi lá.\" the advice \"Bể nhỏ thì cắt đôi lá\", and nothing lets that sentence go: write it as it was, word for word."
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-17T18:33:46Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 1,
-      "notes": [
-        "The rewrite dropped from \"Bể nhỏ thì cắt đôi lá.\" the advice \"Bể nhỏ thì cắt đôi lá\", and nothing lets that sentence go: write it as it was, word for word.",
-        "The rewrite dropped from \"Muốn giữ màu thì đừng luộc, vì luộc làm lá nhả hết tanin ra nồi.\" the caution \"đừng\", the advice \"Muốn giữ màu thì đừng luộc\", and nothing lets that sentence go: write it as it was, word for word."
       ],
       "attempt": "rewrite",
       "kept": false
