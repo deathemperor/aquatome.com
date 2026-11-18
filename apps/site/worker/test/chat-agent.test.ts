@@ -1298,6 +1298,7 @@ test('a long post whose questions don\'t all fit in a line has its line written 
   const final = answer([], { text: 'Nền trơ vẫn trồng được ráy.' })
   const question = 'Bể mình 60x30x30, mới set được hai tuần, trồng ráy và rong đuôi chồn, đèn bật 8 tiếng mỗi ngày, chưa thả cá con nào. Mình nên dùng phân nền gì cho bể này? Chơi nền trơ có được không, hay phải có phân nền mới lên cây? Lọc thác 6W chạy cho bể này có đủ không?'
   let asked = ''
+  const sent: string[] = []
   const out = await answerQuestion({
     send: async (body, opts) => {
       if (opts.call === 0) {
@@ -1308,9 +1309,11 @@ test('a long post whose questions don\'t all fit in a line has its line written 
       return message([{ type: 'text', text: JSON.stringify(final) }])
     },
     model: 'claude-haiku-5-5', lang: 'vi', question, earlier: [], start: {}, handbook: h, tanks: async () => [],
-    opening: true, onOpening: () => {}, onStep: () => {},
+    opening: true, onOpening: l => sent.push(l), onStep: () => {},
   })
   expect(asked).toContain('Mình nên dùng phân nền gì cho bể này?')
   expect(asked).not.toContain('Lọc thác')
-  expect(out.opening).toBe('Mình đang tra cẩm nang xem bể 60x30x30 của bạn nên dùng phân nền gì, và mấy câu khác của bạn.')
+  expect(out.opening).toBe('Mình đang tra cẩm nang xem bể 60x30x30 của bạn nên dùng phân nền gì, và xem thêm các câu hỏi khác của bạn.')
+  // The reader is sent the line the run keeps.
+  expect(sent).toEqual([out.opening])
 })

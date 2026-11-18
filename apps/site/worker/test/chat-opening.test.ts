@@ -117,8 +117,10 @@ test('a long post whose questions don\'t all fit in its line is written from its
   const post = `${opening} Bên shop tư vấn nhiều loại quá, mình đọc mãi vẫn chưa chọn được. ${asks.join(' ')}`
   expect([...post].length).toBeGreaterThan(240)
   expect(openingMore(post, 'vi')).toBe(true)
-  // The opening holds its first sentence; what sits between it and the question is left out.
-  expect(openingAsk(post, 'vi')).toBe(`${opening} ${asks[0]}`)
+  // The opening holds its first sentence, and the sentence just before the question comes with it.
+  expect(openingAsk(post, 'vi')).toBe(`${opening} Bên shop tư vấn nhiều loại quá, mình đọc mãi vẫn chưa chọn được. ${asks[0]}`)
+  // What sits further from the question is left out.
+  expect(openingAsk(post.replace('Bên shop', 'Mình đã thay nước hai lần trong tuần đầu, mỗi lần một phần ba bể, nước vẫn hơi đục. Bên shop'), 'vi')).not.toContain('thay nước hai lần')
   // Their questions fit, the post is short, or it is Thai: the line keeps every question, as before.
   expect(openingMore(`${opening.repeat(3)} ${asks[0]} ${asks[2]}`, 'vi')).toBe(false)
   expect(openingMore(asks.join(' '), 'vi')).toBe(false)
@@ -129,15 +131,36 @@ test('a long post whose questions don\'t all fit in its line is written from its
     id: 'Aku lagi cek panduan, akuarium 60 cm kamu cocoknya pakai pupuk dasar apa',
     ms: 'Saya sedang semak buku panduan, akuarium 60 cm anda patut guna baja dasar apa.',
   }
-  expect(withRest(lines.vi!, 'vi')).toBe('Mình đang tra cẩm nang xem bể 60x30x30 của bạn nên dùng phân nền gì, và mấy câu khác của bạn.')
+  expect(withRest(lines.vi!, 'vi')).toBe('Mình đang tra cẩm nang xem bể 60x30x30 của bạn nên dùng phân nền gì, và xem thêm các câu hỏi khác của bạn.')
   for (const lang of LANGS.filter(l => l !== 'th')) {
     expect(OPENING_REST[lang], lang).toBeTruthy()
     expect(openingFault(withRest(lines[lang]!, lang), lang), lang).toBeUndefined()
   }
   expect(lineShown(lines.vi!, post, 'vi')).toBe(withRest(lines.vi!, 'vi'))
   expect(lineShown(lines.vi!, asks.join(' '), 'vi')).toBe(lines.vi)
+  // Only a post over 240 characters: at 240, its questions go whole as before.
+  const at = (n: number) => `${'Bể nhà mình nuôi cá. '.repeat(20)}`.slice(0, n - asks.join(' ').length - 1).replace(/.$/u, 'x') + ` ${asks.join(' ')}`
+  expect([[...at(240)].length, openingMore(at(240), 'vi'), [...at(241)].length, openingMore(at(241), 'vi')]).toEqual([240, false, 241, true])
+  // A post that marks no question with "?" (many Indonesian and Malay ones) is written from its end, as before.
+  expect(openingMore(post.replaceAll('?', '.'), 'vi')).toBe(false)
   // A line the rest would take past the check's length is shown alone (3 of 57 long-post tries, 18 Nov).
   const long = `Mình đang tra cẩm nang xem bể xi măng nửa âm dài 5m, rộng 0,8m, nước 40cm của bạn nuôi 12 con chép, ${'con to con nhỏ, '.repeat(4)}có phải chép màu hay lai không.`
   expect([...withRest(long, 'vi')].length).toBeGreaterThan(200)
   expect(lineShown(long, post, 'vi')).toBe(long)
+})
+
+test('a link\'s "?" and a decimal\'s "." end no question: the first question is the reader\'s, whole (Codex\'s read, 18 Nov)', () => {
+  const opening = 'Kolam koi aku ukuran 2x1,5 meter, dalamnya 80 cm, isinya 8 ekor koi ukuran 20 cm.'
+  const since = 'Sudah jalan tiga bulan, airnya aku ganti seminggu sekali sepertiganya.'
+  const link = 'Fotonya di https://example.invalid/kolam?id=1&size=2 ya.'
+  const filter = 'Filternya aku bikin sendiri dari ember isi kapas, bioball dan batu zeolit.'
+  const asks = ['Filter kayak gitu cukup belum buat pH 6.5 dan 8 ekor koi?', 'Pompanya perlu diganti yang 3.000 liter per jam nggak?', 'Kalau air hijau terus, harus diapain?']
+  const post = `${opening} ${since} ${link} ${filter} ${asks.join(' ')}`
+  expect([...post].length).toBeGreaterThan(240)
+  expect(openingMore(post, 'id')).toBe(true)
+  // Its first question whole, its number too; the filter it calls "that filter" just before it; the link left out.
+  expect(openingAsk(post, 'id')).toBe(`${opening} ${since} ${filter} ${asks[0]}`)
+  // A question with a link in it is one question, the link in it.
+  const linked = `${opening} ${filter} Ikan di https://example.invalid/koi?id=7 ini sakit apa? ${asks.slice(1).join(' ')}`
+  expect(openingAsk(linked, 'id')).toContain('Ikan di https://example.invalid/koi?id=7 ini sakit apa?')
 })

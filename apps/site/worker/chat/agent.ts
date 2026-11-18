@@ -139,10 +139,10 @@ export const CHAT_PRESENT = { ms: 45_000, calls: 10, tools: 16 } as const satisf
  * when they don't fit, it still wrote them all, 15 of 21 (17 and 18 Nov).
  */
 export const OPENING_REST: Record<Lang, string> = {
-  vi: 'và mấy câu khác của bạn',
-  id: 'dan pertanyaan kamu yang lain',
-  th: 'และคำถามอื่นของคุณ',
-  ms: 'dan soalan anda yang lain',
+  vi: 'và xem thêm các câu hỏi khác của bạn',
+  id: 'sekalian cek pertanyaan kamu yang lain',
+  th: 'และคำถามอื่น ๆ ของคุณ',
+  ms: 'serta semak soalan anda yang lain',
 }
 /**
  * The first line (`opening`): one line for the reader during the wait, in their language, before anything is read
@@ -221,7 +221,11 @@ export function openingAsk(question: string, lang: Lang): string {
   const t = question.trim()
   if (openingMore(t, lang)) {
     const first = questionsIn(t)[0]!
-    return [headOf(t.slice(0, t.indexOf(first))), first].filter(Boolean).join(' ')
+    const before = t.slice(0, t.indexOf(first))
+    const head = headOf(before)
+    // And the sentence just before it, past the opening, which its "that filter" or "this" may need.
+    const last = before.slice(head.replace(/…$/u, '').length).trim().split(SENTENCE_END).at(-1)?.trim() ?? ''
+    return [head, [...last].length <= OPENING_HEAD ? last : '', first].filter(Boolean).join(' ')
   }
   const chars = [...t]
   // What the end and the opening would hold between them goes whole.
@@ -236,11 +240,13 @@ export function openingAsk(question: string, lang: Lang): string {
   // A question asked further up, past the opening, is still theirs: the first ones, as far as a line could hold.
   let room = OPENING_TAIL
   const middle = head ? before.slice(head.replace(/…$/u, '').length) : before
-  const asked = (middle.match(/[^.!?…\n]+\?/gu) ?? []).map(q => q.trim()).filter(q => (room -= q.length) >= 0)
+  const asked = questionsIn(middle).filter(q => (room -= q.length) >= 0)
   return [head, ...asked, tail].filter(Boolean).join(' ')
 }
+/** Where a sentence ends: a stop with a space or the end after it, so never inside "6.5" or a link's "?id=1". */
+const SENTENCE_END = /(?<=[.!?…])(?=\s|$)|\n/u
 /** A post's questions: its sentences that end in "?". */
-const questionsIn = (t: string) => (t.match(/[^.!?…\n]+\?/gu) ?? []).map(q => q.trim())
+const questionsIn = (t: string) => t.split(SENTENCE_END).map(q => q.trim()).filter(q => q.endsWith('?'))
 /** How much of a line its questions may take: 150 less the chat's opening words and what the question is about. */
 const ASKED_ROOM = 100
 /**
