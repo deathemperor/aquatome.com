@@ -1249,6 +1249,34 @@
   ],
   "vi/glossary/ca-bot": [
     {
+      "at": "2026-11-18T18:30:15Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (the definition's first sentence): \"Cá bột là cá con vừa nở.\"",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Từ lúc đó chúng cần thức ăn vừa miệng và nước sạch.\" (not \"Từ lúc đó, vì miệng và dạ dày còn rất nhỏ, chúng cần ăn nhiều bữa nhỏ mỗi ngày.\": Rule 4: Small meals several times a day are said twice: \"chúng cần ăn nhiều bữa nhỏ mỗi ngày\" in the definition and \"Cho ăn 3–5 bữa nhỏ mỗi ngày.\" under \"Một bài khá…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Ở loài không giữ con, tách cá bột khỏi cá trưởng thành hoặc vớt cá bố mẹ ra sau khi đẻ.\" (not \"Ở loài không giữ con, vớt cá bố mẹ ra sau khi đẻ.\": Rule 12: \"Ở loài không giữ con, vớt cá bố mẹ ra sau khi đẻ.\" is the magazine's claim alone (fact 34, source 4): only it separates guarding from non-guarding sp…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cá bột rất nhỏ của nhiều loài đẻ trứng lúc đầu chưa nuốt nổi artemia mới nở.\" (not \"Cá bột của các loài đẻ trứng như cá killi, cá cầu vồng và cá tetra lúc đầu quá nhỏ, chưa nuốt nổi artemia mới nở.\": Rule 6: \"cá killi\" in \"Cá bột của các loài đẻ trứng như cá killi, cá cầu vồng và cá tetra lúc đầu quá nhỏ,…",
+        "Rule 12: \"Ở loài không giữ con, tách cá bột khỏi cá trưởng thành hoặc vớt cá bố mẹ ra sau khi đẻ.\" The limit to species that don't guard their fry is the magazine's alone (fact 33), but it sits in the plain list \"Nên làm gì\" as plain fact, with no opening. The line also stretches that limit to the shop's advice to move fry away from adults (fact 26), and fact 26 has no such limit. Either credit t…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T18:30:15Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Rule 12: The magazine's first item is \"lúc nào bắt đầu cho ăn thì tùy loài: cá vàng bột không ăn trong 40–48 giờ đầu, còn các loài khác cần có thức ăn ngay.\" THIS TERM requires it word for word, starting with a capital: \"Lúc nào bắt đầu cho ăn thì tùy loài: …\".",
+        "Rule 12: The plain list has \"Thay nước ít một và thường xuyên.\" THIS TERM says this line must be \"Thay nước thường xuyên, lúc đầu mỗi ngày hoặc vài lần một tuần.\" (fact 27, two pages). \"Ít một\" (small changes) comes from only one page (fact 28), so it must stay out of the plain line and not be written as plain fact.",
+        "Rule 12: \"vinegar eel\" in \"Cá bột rất nhỏ ăn được nước xanh, trùng cỏ, cám bột cho cá bột và vinegar eel.\" Vinegar eels must be called \"giun giấm\", the name the site's own pages use. THIS TERM also gives this line word for word: \"Cá bột rất nhỏ ăn được nước xanh, trùng cỏ, cám bột cho cá bột và giun giấm.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-18T18:17:23Z",
       "model": "sonnet",
       "cli": "2.1.327",
