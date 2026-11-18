@@ -676,6 +676,45 @@
       "kept": false
     }
   ],
+  "vi/species/dario-dario#KtNrbUrNnV4": [
+    {
+      "at": "2026-11-18T20:42:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.327",
+      "score": 0.55,
+      "notes": [
+        "[behaviour] \"chủ yếu ở tầng dưới chứ không phải tầng giữa\" contradicts the page card (tầng giữa) but is framed as one keeper's view; acceptable, though the difference is not stated plainly.",
+        "[behaviour] \"vẫn bơi sát kính trước khi có người ghé mặt nhìn\" is garbled: the video says they use the front glass while he watches with his face pressed to it.",
+        "[behaviour] \"Cá rasbora nhỏ ở tầng trên\" repeats the page, which already says rasbora lùn suit them; and the video's emerald dwarf rasbora example is a keeper's own tank mates, presented as general fact.",
+        "[behaviour] The bullet list states keeper-specific observations as general rules: \"Ốc ramshorn, ốc Malaysian trumpet và tép Amano nuôi chung không sao\". Also \"Tép đỏ lớn thì ổn, nhưng tép con chắc chắn thành mồi\" overstates the video's 'no doubt' and 'adults should be fine'.",
+        "[diet] \"Có người tập được cho chúng ăn đồ khô\" is a hearsay claim in the video (\"I have heard\"), but \"Người nuôi này đoán... cho rằng cá ham săn mồi\" is clumsy and adds an inference. The phrase \"Nhiều loại mồi sống tự gây nuôi ở nhà khá dễ\" is a generic fact already implied on the page.",
+        "[waterConditions] Omits the specific ranges, which is fine since the page has them. But \"Loài này chịu được nước hơi lệch thông số\" is stated as a rule from one keeper's opinion (\"probably\").",
+        "[dimorphism] \"Lúc cá còn nhỏ thì càng khó phân biệt\" repeats the page, which says males and females look identical when young.",
+        "[dimorphism] \"Con cái... có con chỉ có vạch đen\" and \"Một phần vì vậy mà kiếm được cá cái khá hiếm\" are partly redundant with the page, which says only males are mostly sold. Wording like \"Đực phụ\" is a calque of 'subdominant'."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T20:42:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.327",
+      "score": 0.72,
+      "notes": [
+        "behaviour: \"Một người nuôi loài này lâu năm\" – the video never says how long the keeper has had the fish, so \"lâu năm\" is invented.",
+        "behaviour: \"cắn nhau một chút\" – the video says they chase and fight a little. Biting is not mentioned.",
+        "behaviour: \"Cá chủ yếu bơi ở tầng dưới\" – this differs from the card's \"Tầng giữa\", but NEW does not say it differs from the page.",
+        "behaviour: \"không hề nhút nhát\" – this contradicts the page's \"tính nhút nhát\", and NEW does not clearly present it as one keeper's view that differs from the page.",
+        "diet: \"Giun grindal, Artemia mới nở và bo bo đều có thể tự gây nuôi\" – the video says only that many live foods can be cultured, not that these three can, so this goes beyond it.",
+        "diet: \"loài săn mồi tí hon\" and the preference for live food repeat what the page already says about Dario being small predators that eat live foods.",
+        "diet: \"chắc phải mất thời gian, và có lẽ để cá được săn mồi thì tốt cho nó hơn\" – this is the keeper's hedged opinion but is written as general advice."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/doryichthys-heterosoma": [
     {
       "at": "2026-11-09T11:49:28Z",
@@ -1792,6 +1831,44 @@
         "[diet] \"cá cũng ăn ngay cả thức ăn dạng viên nén\" is awkward, translated-sounding Vietnamese. \"ăn ngay cả\" is unnatural.",
         "[behaviour] \"Chúng lên màu đẹp nhất lúc tán con cái ... hoặc lúc đọ sức với con đực khác\" overlaps the page, which already says males colour up best with females to show off and with rival males.",
         "[behaviour] The territory point (\"giữ một góc khuất riêng ở tầng dưới\") is the only new fact, and it sits next to the page's \"tầng giữa đến tầng đáy\" line. It is a mild, unflagged overlap."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/rasbora-borapetensis#kQ32a_kRGOg": [
+    {
+      "at": "2026-11-18T20:40:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.327",
+      "score": 0.86,
+      "notes": [
+        "[notes] \"Cái tên rasbora tuyệt đẹp... còn được dùng cho một loài khác\" is supported by the video. The page already says the fish is sold as rasbora tuyệt đẹp, so this overlaps slightly, though it does add the point about the look-alike.",
+        "[beforeYouBuy] \"Loài này thường bán rẻ\" turns one keeper's $0.99 purchase into a general statement. The next sentence is correctly attributed to one keeper.",
+        "[behaviour] \"Loài này bơi ở tầng giữa\" is stated as a rule. It is one keeper's observation and is not attributed to a keeper like the rest of the text.",
+        "[waterConditions] \"Cá vẫn sống khỏe trong nước cứng\" is stated as fact. It is one keeper's claim and should be attributed to the keeper.",
+        "[reproduction] \"cá vờn đẻ\" is slightly awkward Vietnamese for describing spawning behaviour.",
+        "[behaviour] \"đuôi nhạt màu đỏ là dấu hiệu\" is clumsy wording. \"màu đỏ ở đuôi phai đi\" would read more naturally."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T20:40:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.327",
+      "score": 0.5,
+      "notes": [
+        "[notes] 'Trong Sách Đỏ IUCN... Ít quan ngại' – the video says it, but the page's distribution/habitat doesn't; fine. However 'Sọc vàng ... đứng xa bên kia phòng vẫn thấy' is stated as a fact about the species, not as one keeper's view.",
+        "[waterConditions] 'nhiệt độ 22–28 °C' – the video says 72–82°F (≈22–28°C), but this is the page's range 22–26 differing; the difference isn't stated plainly as the video differing from the page.",
+        "[waterConditions] 'cỡ 21 °C' – video says about 70°F, converted, and the 'khoảng nước rộng hơn' framing doesn't say how it differs from the page (pH 6–7.5 vs 6–8).",
+        "[waterConditions] 'Nước mềm đến hơi cứng là hợp nhất' – the video says 'soft to moderate' recommended; 'hơi cứng' and 'hợp nhất' overstate it.",
+        "[aquariumSize] 'nên chọn bể dài hơn 60 cm' – video says over 2 feet (~60 cm), which matches the page tankCm 60; stated as a rule, not as one keeper's experience; 'thả đàn ít con hơn' is okay.",
+        "[reproduction] 'đẻ nhiều lần chỉ trong khoảng ba tháng đầu' – distorts the video: keeper saw spawning behaviour several times in about three months of owning the fish, not 'đẻ nhiều lần'.",
+        "[reproduction] 'vờn đẻ vào buổi chiều tối' is the keeper's observation, but 'hay' presents it as a general habit of the species; the 'Garra panda' fact is a keeper's tank, not a rule ('muốn có cá bột phải cho đẻ ở bể riêng' is a rule).",
+        "[behaviour] 'Cá hiền nhưng không biết tự vệ' repeats the page's 'rất hiền' partly; 'Đuôi mất màu đỏ là dấu hiệu cá đang bị stress' is stated as a rule. Also 'Một người nuôi đã thả... tetra hiếu động' omits that they were Paraguay tetras, minor."
       ],
       "attempt": "first",
       "kept": false

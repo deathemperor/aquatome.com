@@ -141,7 +141,24 @@
     "figures": [
       {
         "heading": "Vì sao nên thêm cá cho tầng đáy",
-        "moments": [],
+        "moments": [
+          {
+            "t": 0,
+            "url": "https://media.aquatome.com/video/yClGV2jXnic/at0-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể thủy sinh có lớp cát đáy phẳng, chưa có cá tầng đáy.",
+            "sharpness": 2197.3
+          },
+          {
+            "t": 10,
+            "url": "https://media.aquatome.com/video/yClGV2jXnic/at10-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể toàn tetra bơi ở tầng giữa, phần cát đáy gần như trống.",
+            "sharpness": 15.5
+          }
+        ],
         "photo": {
           "url": "https://media.aquatome.com/video/yClGV2jXnic/p0-pdGhfZWdncy5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/yClGV2jXnic/p0-pdGhfZWdncy5qcGc-480.webp",
@@ -151,6 +168,20 @@
           "author": "Nate Wessel",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_pair_with_eggs.jpg",
           "caption": "Hai con cá chuột Corydoras bơi cạnh nhau gần đáy bể trồng cây."
+        }
+      },
+      {
+        "heading": "Nuôi chung nhiều loài cá chuột",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/yClGV2jXnic/p1-dGVyYmFpLTQuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/yClGV2jXnic/p1-dGVyYmFpLTQuanBn-480.webp",
+          "width": 960,
+          "height": 796,
+          "licence": "CC BY-SA 4.0",
+          "author": "Corydoras-adolfoi",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras-sterbai-4.jpg",
+          "caption": "Nhiều con cá chuột cùng sống chung và kiếm ăn trên nền cát trong bể."
         }
       },
       {
