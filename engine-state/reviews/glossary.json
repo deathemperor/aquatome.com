@@ -1233,6 +1233,39 @@
   ],
   "vi/glossary/ca-bot": [
     {
+      "at": "2026-11-18T18:17:23Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Từ lúc đó chúng cần thức ăn vừa miệng và nước sạch.\" (not \"Miệng và dạ dày của cá bột rất nhỏ, nên chúng cần ăn nhiều bữa nhỏ mỗi ngày.\": Rule 12: \"Miệng và dạ dày của cá bột rất nhỏ, nên chúng cần ăn nhiều bữa nhỏ mỗi ngày.\" in the definition is a claim from only one page (source 0, fact 5), but it is wr…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Ở loài không giữ con, tách cá bột khỏi cá trưởng thành hoặc vớt cá bố mẹ ra sau khi đẻ.\" (not \"Ở loài không giữ con, vớt cá bố mẹ ra sau khi đẻ.\": Rule 12: \"Ở loài không giữ con, vớt cá bố mẹ ra sau khi đẻ.\" under \"Nên làm gì\" is a claim from only the magazine (source 4, fact 32), but it is written as pla…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cá bột rất nhỏ của nhiều loài đẻ trứng lúc đầu chưa nuốt nổi artemia mới nở.\" (not \"Cá bột của các loài đẻ trứng như cá killi, cá cầu vồng và cá tetra lúc đầu quá nhỏ, chưa ăn nổi artemia mới nở.\": Rule 6: \"cá killi\" in \"Cá bột của các loài đẻ trứng như cá killi, cá cầu vồng và cá tetra lúc đầu quá nhỏ, c…",
+        "Rule 12: \"Ở loài không giữ con, tách cá bột khỏi cá trưởng thành hoặc vớt cá bố mẹ ra sau khi đẻ.\" Under \"Nên làm gì\", this line is written as plain fact, but part of it comes from only one page. Only the magazine (source 4) says that in species that do not guard their fry, the parents are removed after spawning. That claim needs to go under the magazine's opening, \"Một bài tạp chí ghi:\". The onl…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T18:17:23Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Lúc nào bắt đầu cho ăn thì tùy loài. Một bài tạp chí ghi:\" states the species point as plain fact before the magazine's opening. It belongs inside the opening, word for word as the first item: \"Một bài tạp chí ghi:\" then \"lúc nào bắt đầu cho ăn thì tùy loài: cá vàng bột không ăn trong 40–48 giờ đầu, còn các loài khác cần có thức ăn ngay.\" The entry's first item, \"Cá vàng bột không ăn tr…",
+        "Rule 12: \"Một tiệm ghi thêm:\" should be exactly \"Một tiệm ghi:\" for source 0.",
+        "Rule 12: The unfertilised-egg caution (fact 36) is missing as the last item under source 0's opening. It sits instead under \"Sai lầm hay gặp\" with its own second opening, \"Tiệm thứ nhất ghi thêm:\". \"tiệm thứ nhất\" is a forbidden form, and each page gets one opening only.",
+        "Rule 12: \"Trứng không thụ tinh mà để lại sẽ lên nấm và có thể làm hỏng cả ổ. Thấy trứng như vậy thì vớt ra ngay.\" is not the required wording, \"Trứng không thụ tinh bị lên nấm mà để lại thì có thể làm hỏng cả ổ; thấy trứng như vậy thì vớt ra ngay.\" It also says leaving the eggs makes them grow fungus (\"sẽ lên nấm\"), which the fact does not say.",
+        "Rule 12: \"Một tiệm khác ghi:\" is forbidden. Source 1's opening must be \"Một bài khác ghi:\".",
+        "Rule 12: \"Sau vài tuần, khi chúng đủ lớn, mới chuyển sang artemia.\" must be written word for word as \"Sau khoảng hai tuần, khi chúng đủ lớn, mới chuyển sang artemia.\"",
+        "Rule 12: \"Cách ấp artemia: xem mục Artemia.\" is placed inside a list item of source 1's list. It must stand on its own line after that page's list, outside any page's list.",
+        "Rule 12: The overfeeding caution, \"Theo tiệm thứ hai ở trên, cho ăn quá tay làm bẩn nước và có thể làm chết cá bột. Bể ương ít nước mà cho ăn dày thì nước xuống cấp rất nhanh.\", is under \"Sai lầm hay gặp\" with a second credit for source 1. It must be the last item under \"Một bài khác ghi:\", word for word: \"Cho ăn quá tay làm bẩn nước và có thể làm chết cá bột; bể ương ít nước mà cho ăn dày thì nư…",
+        "Rule 12: \"Sai lầm hay gặp\" lacks its required plain line, \"Cho ăn quá tay làm bẩn nước.\" (facts 27, 33)."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-18T17:53:44Z",
       "model": "sonnet",
       "cli": "2.1.327",
