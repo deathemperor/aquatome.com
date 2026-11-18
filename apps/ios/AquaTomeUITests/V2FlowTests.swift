@@ -166,6 +166,41 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.searchFields.firstMatch.isHittable, "no search field on Tìm's top")
   }
 
+  /// A group's page at Khám phá's root, then the sheet's kept row, which replaces the path with the kept shelf (the same
+  /// length, one): switched back, Tìm shows that shelf, which the old look draws, not its top (a fresh read, 19 Nov).
+  func testSwitchingBackAfterTheKeptRowReplacedAGroupsPageLeavesTheShelf() {
+    let app = launch()
+    app.launchForFlow(nil)
+    XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 10), "v2 didn't open")
+    // A guide kept, on the old look's Tìm (as testTheSheetsKeptRowOpensItsShelfOnKhamPhaFromHomNay), then v2 again.
+    flip(app)
+    XCTAssertTrue(app.handbookShown(timeout: 10), "no handbook")
+    let topic = app.buttons.matching(NSPredicate(format: "identifier == 'shelf' AND label BEGINSWITH %@", "Chăm sóc")).firstMatch
+    app.scrolledDown(to: topic).tap()
+    XCTAssertTrue(app.navigationBars["Chăm sóc"].waitForExistence(timeout: 5), "not the topic's guides")
+    app.buttons["keep-offline"].tap()
+    XCTAssertTrue(app.buttons["Đã tải về đọc offline"].waitForExistence(timeout: 10), "not kept")
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    flip(app)
+    XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 5), "v2 didn't open")
+    app.openTab("Khám phá")
+    let chip = app.buttons.matching(identifier: "v2-chip").matching(NSPredicate(format: "label BEGINSWITH %@", "Cá nhỏ")).firstMatch
+    XCTAssertTrue(chip.waitForExistence(timeout: 5), "no Cá nhỏ chip on Khám phá")
+    chip.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-chip-page"].waitForExistence(timeout: 5), "Cá nhỏ's page didn't open")
+    app.openTab("Hôm nay")
+    app.openAccount()
+    let row = app.buttons["kept-row"]
+    repeatUntil(row.exists && row.isHittable, times: 6) { app.swipeUp() }
+    XCTAssertTrue(row.exists, "the sheet doesn't list the kept pages")
+    row.tap()
+    XCTAssertTrue(app.navigationBars["Đã tải để đọc offline"].waitForExistence(timeout: 5), "the kept shelf didn't show")
+    app.openTab("Hôm nay")
+    flip(app)
+    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 5), "the old look didn't open")
+    XCTAssertTrue(app.navigationBars["Đã tải để đọc offline"].waitForExistence(timeout: 5), "Tìm lost the kept shelf")
+  }
+
   func testTheHomeFromOutsideIsHomNaysTop() {
     let app = launch("-v2", "YES")
     app.launchForFlow()
