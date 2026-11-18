@@ -1,5 +1,5 @@
 {
- "day": "2026-11-18",
+ "day": "2026-11-19",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -59,24 +59,47 @@
  "sample": [
   {
    "lang": "th",
-   "path": "/th/fish/pangio-piperata/",
-   "url": "https://aquatome.com/th/fish/pangio-piperata/",
-   "title": "ปลาหมูงู",
-   "wrong": []
+   "path": "/th/fish/trigonopoma-gracile/",
+   "url": "https://aquatome.com/th/fish/trigonopoma-gracile/",
+   "title": "ซิวกราซิลิส",
+   "wrong": [
+    {
+     "check": "source",
+     "quote": "ได้รับการนำเข้ามาอีกครั้งผ่านทางสิงคโปร์ แหล่งที่มา: สิงคโปร์ ขนาดที่มีจำหน่าย: 3–4 ซม."
+    }
+   ]
   },
   {
-   "lang": "th",
-   "path": "/th/fish/eirmotus-insignis/",
-   "url": "https://aquatome.com/th/fish/eirmotus-insignis/",
-   "title": "False Eight-banded Barb",
-   "wrong": []
+   "lang": "vi",
+   "path": "/vi/huong-dan/pha-be-cu-chuan-bi-set-be-biotope-song-rio-negro/",
+   "url": "https://aquatome.com/huong-dan/pha-be-cu-chuan-bi-set-be-biotope-song-rio-negro/",
+   "title": "Phá bể cũ, chuẩn bị set bể biotope sông Rio Negro",
+   "wrong": [
+    {
+     "check": "elsewhere",
+     "quote": "Phòng có sưởi sẵn thì không cần lo khoản này."
+    },
+    {
+     "check": "source",
+     "quote": "Bể cũ có một khối lũa lớn chìa từ trên xuống, che thành một vùng tối ở phía sau."
+    },
+    {
+     "check": "source",
+     "quote": "Nước bể cũ nhìn qua thì trong, nhưng múc ra soi lên mới thấy có khá nhiều tannin"
+    }
+   ]
   },
   {
    "lang": "id",
-   "path": "/id/tanaman/amazon-sword/",
-   "url": "https://aquatome.com/id/tanaman/amazon-sword/",
-   "title": "Amazon Sword",
-   "wrong": []
+   "path": "/id/ikan/betta-pallifina/",
+   "url": "https://aquatome.com/id/ikan/betta-pallifina/",
+   "title": "Betta pallifina",
+   "wrong": [
+    {
+     "check": "elsewhere",
+     "quote": "kayu beech atau oak biasa aman dipakai asalkan benar-benar kering dan kulit kayunya sudah dikupas"
+    }
+   ]
   }
  ]
 }
