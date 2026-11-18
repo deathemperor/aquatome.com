@@ -882,7 +882,7 @@ describe('photo gallery', () => {
     const { dom } = page('/cay/cryptocoryne-wendtii/')
     const strip = dom.querySelector('section.strip')!
     // iNaturalist's CC BY-NC photo is in, its switch on (IMAGE_SWITCHES.inatNonCommercial): 7 photos, all in the strip, so
-    // "Xem tất cả" shows on a phone only, where the strip is one row (seeAll; the Design Lead, 18 Nov).
+    // "Xem tất cả" shows on a phone only, where the strip shows two rows of three (seeAll; the Design Lead, 18 Nov).
     const album = albumOf(dom)
     expect(album.photos).toHaveLength(7)
     expect(strip.querySelectorAll('li a[data-i]')).toHaveLength(7)
