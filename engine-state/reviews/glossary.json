@@ -213,6 +213,38 @@
   ],
   "vi/glossary/dong-chay": [
     {
+      "at": "2026-11-18T03:19:16Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (the definition's first sentence): \"Dòng chảy là chuyển động của nước trong bể.\"",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Khi dòng quá mạnh, cá bơi vất vả và hay nép vào một góc hoặc chỗ trốn.\" (not \"Khi dòng quá mạnh, cá phải bơi ngược dòng liên tục, đuôi bị cuốn đi, hoặc nép vào một góc bể.\": Rule 12: \"Khi dòng quá mạnh, cá phải bơi ngược dòng liên tục, đuôi bị cuốn đi, hoặc nép vào một góc bể.\" The signs of too strong a f…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T03:19:16Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Rule 12: altNames is empty. THIS TERM says the only other name is \"Water flow\", so it should be listed.",
+        "Rule 12: \"Dòng quá mạnh thì nhìn cá là biết: cá bơi vất vả và hay nép vào một góc hoặc chỗ trốn.\" THIS TERM bans \"nhìn cá là biết\". The sign should be given word for word: \"Khi dòng quá mạnh, cá bơi vất vả và hay nép vào một góc hoặc chỗ trốn.\"",
+        "Rule 12: \"Lưu lượng của lọc ghi bằng L/h hoặc GPH/LPH, hay bằng số lần thể tích bể mỗi giờ.\" THIS TERM bans \"GPH\" and gives this sentence word for word: \"Lưu lượng của lọc ghi bằng L/h, hay bằng số lần thể tích bể mỗi giờ.\"",
+        "Rule 12: \"Một tiệm ghi lưu lượng thật giảm 20–30%…\" The first shop's opening should be \"Một tiệm ghi:\", with the colon.",
+        "Rule 12: \"Cũng tiệm đó tính lưu lượng lọc (L/h)…\" THIS TERM bans \"Cũng tiệm đó\". It should be \"Tiệm thứ nhất cũng ghi:\".",
+        "Rule 12: \"Tiệm này khuyên chọn lọc có lưu lượng ghi trên hộp cao hơn mức tính ra 20–30%…\" THIS TERM bans \"Tiệm này\". It should be \"Tiệm thứ nhất cũng ghi:\".",
+        "Rule 12: \"Tiệm cũng cảnh báo chuyện cúp điện. Bơm ngừng vài tiếng là oxy tụt, vi khuẩn kỵ khí sinh độc, vi khuẩn trong lọc yếu đi và cá căng thẳng rất nhanh, nhất là khi trời nóng hoặc bể nuôi dày. Có điện lại thì đừng chỉ bật lọc lên rồi thôi: nếu đo thấy chỉ số độc tăng thì thay một phần nước bằng nước đã khử clo.\" THIS TERM bans \"Tiệm cũng\". The power-cut claim is also split over three sentenc…",
+        "Rule 12: \"Cũng tiệm đó ghi cá nhỏ, bơi yếu cần dòng nhẹ hơn hết…\" THIS TERM bans \"Cũng tiệm đó\". It should be \"Tiệm thứ nhất cũng ghi:\".",
+        "Rule 12: \"Một tiệm khác gợi ý cho bể cá betta khoảng 2–4 lần thể tích bể mỗi giờ…\" The second shop's first credit should read \"Một tiệm khác ghi:\".",
+        "Rule 12: \"Cách giảm dòng tiệm này đưa ra:\" THIS TERM bans \"tiệm này\". It should be \"Tiệm thứ hai cũng ghi:\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-18T03:08:40Z",
       "model": "sonnet",
       "cli": "2.1.326",
@@ -265,26 +297,6 @@
       "attempt": "rewrite",
       "kept": false,
       "draft": "32b43e4649ddf669de17b406692b348dd5dc2c59be1ff84d961b753121e277e3"
-    },
-    {
-      "at": "2026-11-18T02:59:58Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 0.97,
-      "notes": [
-        "\"Cá tỳ bà bướm hổ thì ngược lại: nó cần dòng mạnh và nước nhiều oxy.\": the facts don't carry it (unsupported, unsupported, unsupported): Vietnamese common name 'tỳ bà bướm hổ' not in facts / Vietnamese common name not given in facts / The Vietnamese common name 'tỳ bà bướm hổ' is not in the facts, which name only Sewellia lineolata",
-        "Rule 4: The definition's \"Nó đưa oxy đi khắp bể, đẩy chất bẩn về phía lọc và giữ nhiệt độ đều\" is said again in the body: \"Dòng chảy trộn nước từ mặt xuống đáy, nhờ đó oxy và nhiệt độ trong bể đều nhau. Nó đẩy chất thải về phía lọc\". Oxygen, waste moving to the filter and even temperature should each be said once.",
-        "Rule 4: The definition's \"Dòng yếu quá thì cặn đọng lại\" is repeated in the body as \"Cặn bẩn hay đọng ở đó và ở các góc bể\".",
-        "Rule 4: The warning that strong flow stresses fish appears three times: \"còn mạnh quá thì cá mệt và căng thẳng\" (definition), \"Cá nhỏ, bơi yếu cần dòng nhẹ hơn hết\" (body), and \"Dòng thừa làm cá căng thẳng\" (mistakes). It should be said once.",
-        "Rule 4: The warning about filters that are too strong for betta appears twice: \"Cá betta cần dòng rất nhẹ, không hợp với lọc thùng hay lọc chìm dòng mạnh\" and again in the mistakes as \"Lắp lọc quá mạnh cho bể nhỏ nuôi cá betta hay cá nhỏ\".",
-        "Rule 12: \"Lưu lượng của lọc ghi bằng L/h (LPH, GPH)\" lists GPH under L/h. GPH is gallons per hour, not litres. Each unit must be given as its fact gives it (\"GPH/LPH\").",
-        "Rule 12: \"Cá nhỏ, bơi yếu cần dòng nhẹ hơn hết. Cá betta cần dòng rất nhẹ, không hợp với lọc thùng hay lọc chìm dòng mạnh.\" comes from one shop only (source 1) but is written as plain fact. It sits outside the paragraph that names that shop, so it needs its own \"Một tiệm ghi …\" or \"Tiệm này …\" opening.",
-        "Rule 12: \"Cá tỳ bà bướm hổ thì ngược lại: nó cần dòng mạnh và nước nhiều oxy.\" comes from one reference page only (source 4) but is written as plain fact. The opening \"Một tài liệu tham khảo ghi\" covers only the next sentence. Attribute both claims to that page, or put them under one opening.",
-        "Rule 12: The entry already names three pages (two shops and one reference), but \"Dòng chảy trộn nước từ mặt xuống đáy\" comes from a fourth page alone (source 6, a society). It is a background claim a keeper can't act on, so it should be dropped rather than written as plain fact.",
-        "Rule 12: \"Nghĩ dòng càng mạnh càng tốt. Dòng thừa làm cá căng thẳng và làm bật gốc cây.\" uplifts plants on the word of one shop (source 3), a fourth page past the three already named, and states it as plain fact. A one-page claim like this should be left out until a second page supports it."
-      ],
-      "attempt": "first",
-      "kept": false
     }
   ],
   "vi/glossary/gh": [
