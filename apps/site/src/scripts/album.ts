@@ -27,15 +27,21 @@ if (box && json) {
   }
   const photos: ViewerPhoto[] = album.photos.map(p => ({ src: p.u, thumb: p.t, width: p.w, height: p.h, alt: p.c ?? album.name, ...(p.c ? { caption: p.c } : {}), credit: credit(p) }))
   // Focus goes back to the closing photo's thumb, in view (the Design Lead, 18 Nov): the phone's row, which scrolls
-  // sideways, brings a thumb past its edge back first, its start at the row's (where the row's scroll snaps), the page
-  // left where it is. Else to what opened the viewer: the tall screen's column clips the rows past its last whole one,
-  // and most of an album has no thumb.
+  // sideways, brings a thumb past its edge back first, its start at the row's (where the row's scroll snaps). The page
+  // stays where it was left, so a thumb above or below the screen doesn't take it. Else to what opened the viewer: the
+  // tall screen's column clips the rows past its last whole one, and most of an album has no thumb.
   let opener: HTMLElement | undefined
+  // A thumb the strip shows: laid out, and within its list's height (the tall screen's column clips the rows below).
+  const shows = (a: HTMLElement, v = (a.closest('ul') ?? box).getBoundingClientRect()) => {
+    if (!(a.checkVisibility?.() ?? a.offsetParent !== null)) return false
+    const r = a.getBoundingClientRect()
+    return r.width > 0 && r.top >= v.top - 1 && r.bottom <= v.bottom + 1
+  }
   const thumb = (i: number) => {
     for (const a of box.querySelectorAll<HTMLElement>(`a[data-i="${i}"]`)) {
-      if (!(a.checkVisibility?.() ?? a.offsetParent !== null)) continue
+      if (!shows(a)) continue
       const ul = a.closest('ul') ?? box, r = a.getBoundingClientRect(), v = ul.getBoundingClientRect()
-      if (!(r.width > 0 && r.top >= v.top - 1 && r.bottom <= v.bottom + 1)) continue
+      if (r.top < -1 || r.bottom > innerHeight + 1) continue
       if (r.left < v.left - 1 || r.right > v.right + 1) {
         if (ul.scrollWidth <= ul.clientWidth) continue
         ul.scrollLeft += r.left - v.left
@@ -73,12 +79,30 @@ if (box && json) {
   // bar since: its entry is over the page's already, and the viewer takes it.
   // Once the viewer's code is here, the address may have moved on (Back pressed while it loaded): the photo the address
   // asks for then, if any, and none when the viewer holds the entry already.
+  // A tap the strip's inline script took before this ran (GalleryStrip.astro, data-tapped) opened it, as a tap since does.
   const openHere = (how: () => { under?: string; adopt?: boolean }) => void view().then(v => {
-    const i = at()
-    if (i !== null && !mine()) v.open(i, how())
+    const i = at(), from = box.querySelector<HTMLElement>('[data-tapped]') ?? undefined
+    from?.removeAttribute('data-tapped')
+    if (i === null || mine()) return
+    if (from) opener = from
+    v.open(i, { ...how(), from })
   }, () => {})
   if (mine()) void view().then(v => v.restore(), () => {})
   else if (at() !== null) openHere(() => (arrived() ? { under: location.pathname + location.search } : { adopt: true }))
   addEventListener('hashchange', () => { if (at() !== null && !mine()) openHere(() => ({ adopt: true })) })
+  // The tall screen's column shows as many whole rows of thumbs as fit (GalleryStrip.astro): when they're every photo,
+  // given those the page shows already (data-fit, their places), "Xem tất cả" goes (data-fits; the Design Lead, 18 Nov).
+  const fit = box.dataset.fit, list = box.querySelector('ul')
+  if (fit !== undefined && list) {
+    const elsewhere = new Set(fit.split(' ').filter(Boolean).map(Number))
+    const fits = () => {
+      const v = list.getBoundingClientRect()
+      const seen = new Set([...list.querySelectorAll<HTMLElement>('a[data-i]')].filter(a => shows(a, v)).map(a => Number(a.dataset.i)))
+      const every = photos.every((_, i) => seen.has(i) || elsewhere.has(i))
+      for (const b of box.querySelectorAll('[data-all]')) b.toggleAttribute('data-fits', every)
+    }
+    fits()
+    new ResizeObserver(fits).observe(list)
+  }
   box.setAttribute('data-ready', '')
 }

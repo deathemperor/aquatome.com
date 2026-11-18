@@ -50,14 +50,13 @@ for (const [what, section] of [['fish', 'ca'], ['plant', 'cay']] as const) {
 
   // A button with no arrow, there only when the strip doesn't show every photo (the Design Lead, 18 Nov).
   test(`${what} album: "Xem tất cả" opens its first photo over the page, and Back closes it there`, async ({ page, request, errors }) => {
-    // One whose strip has it on every screen (not a phone's alone, the next test's).
-    const found = await albumPage(request, section, (_, html) => /<button[^>]*class="see"[^>]*\bdata-all\b/.test(html))
-    test.skip(!found, `no ${what} album with "Xem tất cả" in this build`)
+    // An album of 40 or more: more than any strip shows, so every screen has it (found by the album, not by the button).
+    const found = await albumPage(request, section, a => a.photos.length >= 40)
+    test.skip(!found, `no ${what} album of 40 photos or more in this build`)
     const { path, album } = found!
     await page.goto(path)
     await page.waitForLoadState()
     const all = page.locator('section.strip [data-all]:visible') // a fish page's row on a phone has its own
-    test.skip(!(await all.count()), 'this screen shows every photo of the strip')
     await expect(all).toHaveRole('button')
     await expect(all).toHaveAttribute('aria-haspopup', 'dialog')
     await expect(all).toHaveText(`Xem tất cả ${album.photos.length} ảnh`)
@@ -275,8 +274,13 @@ test('album, a tall computer screen: closed on a photo the column clips, focus g
 // A strip that shows every photo has no "Xem tất cả"; a phone's wrapped strip shows 6 of its thumbs, so one of 7 or 8
 // keeps it there alone (the Design Lead, 18 Nov).
 test('album: "Xem tất cả" only where the strip doesn\'t show every photo', async ({ page, request, errors }, info) => {
-  const found = await albumPage(request, 'ca', (_, html) => /<button[^>]*class="see phone"/.test(html))
-  test.skip(!found, 'no wrapped strip of 7 or 8 photos in this build')
+  // Found by its thumbs, not by the button: a wrapped strip (a breed's, or a fish's with no photo) of 7 or 8, whole.
+  const found = await albumPage(request, 'ca', (a, html) => {
+    const strip = /<section class="strip wrap"[\s\S]*?<\/ul>/.exec(html)?.[0] ?? ''
+    const n = strip.match(/<li\b/g)?.length ?? 0
+    return n >= 7 && n === a.photos.length
+  })
+  test.skip(!found, 'no wrapped strip of 7 or 8 photos, all of its album, in this build')
   await page.goto(found!.path)
   const seen = page.locator('section.strip li a[data-i]:visible')
   const all = page.locator('section.strip [data-all]:visible')
@@ -323,6 +327,106 @@ test('album, a phone: closed on a photo whose thumb is past the row\'s edge, the
   expect(r!.left, 'the thumb within the row').toBeGreaterThanOrEqual(v!.left - 1)
   expect(r!.right, 'the thumb within the row').toBeLessThanOrEqual(v!.right + 1)
   expect(await page.evaluate(() => scrollY), 'the page where it was').toBe(y)
+  expect(errors).toEqual([])
+})
+
+// Opened from the jump row's chip with the strip scrolled off the screen above, and closed on a photo whose thumb is
+// past the row's edge: the page stays where it was, and focus goes back to the chip, not to a thumb off the screen.
+test('album, a phone: closed with the strip off the screen, the page stays, focus on the chip that opened it', async ({ page, request, errors, isMobile }) => {
+  test.skip(!isMobile, 'the photo column is a sideways row on a phone')
+  const found = await albumPage(request, 'ca', (a, html) => a.photos.length >= 6 && /class="strip column/.test(html) && /<nav[^>]*class="[^"]*\bjump\b/.test(html))
+  test.skip(!found, 'no fish page with a photo row and a jump row in this build')
+  const { path } = found!
+  await page.goto(path)
+  await page.waitForLoadState()
+  const row = page.locator('section.strip.column ul')
+  const past = await row.evaluate(ul => {
+    const v = ul.getBoundingClientRect()
+    const a = [...ul.querySelectorAll<HTMLElement>('li a[data-i]')].find(a => a.getBoundingClientRect().left > v.right + 1)
+    return a ? Number(a.dataset.i) : null
+  })
+  test.skip(past === null, 'every thumb fits the row')
+  await page.evaluate(() => scrollTo({ top: scrollY + document.querySelector('section.strip ul')!.getBoundingClientRect().bottom + 300, behavior: 'instant' }))
+  const chip = page.locator('nav.jump a[href="#a1"]')
+  test.skip(!(await chip.isVisible()) || (await row.boundingBox())!.y + (await row.boundingBox())!.height > 0, 'the jump row out of sight, or the strip still on the screen')
+  await expect(chip).toBeInViewport()
+  const y = await page.evaluate(() => scrollY)
+  // A finger on the chip where it is: a locator's tap scrolls a sticky chip "into view" first, back up to its place in
+  // the page.
+  const box = (await chip.boundingBox())!
+  await page.touchscreen.tap(box.x + box.width / 2, box.y + box.height / 2)
+  const viewer = page.locator('dialog.lb')
+  await expect(viewer.getByRole('status')).toHaveText(/^1\//)
+  for (let k = 0; k < past!; k++) await page.keyboard.press('ArrowRight')
+  await expect(page).toHaveURL(at(path, `#a${past! + 1}`))
+  await page.keyboard.press('Escape')
+  await expect(viewer).toBeHidden()
+  await expect(chip).toBeFocused()
+  expect(await page.evaluate(() => scrollY), 'the page where it was').toBe(y)
+  expect(errors).toEqual([])
+})
+
+// "Xem tất cả" tapped before the album's script has run, closed on a photo with no thumb: focus goes back to it, as
+// after a tap once the script runs.
+test('album: "Xem tất cả" tapped while the album\'s script loads, closed on a photo with no thumb, focus goes back to it', async ({ page, request, errors }) => {
+  const found = await albumPage(request, 'ca', a => a.photos.length >= 40)
+  test.skip(!found, 'no fish album of 40 photos or more in this build')
+  const { path, album } = found!
+  let release = () => {}
+  const held = new Promise<void>(r => { release = r })
+  await page.route(/\/_astro\/GalleryStrip\.astro_astro_type_script[^/]*\.js$/, async route => { await held; await route.continue() })
+  await page.goto(path, { waitUntil: 'commit' })
+  await page.locator('footer.foot').waitFor({ state: 'attached' }) // the page's HTML read; the album's script held back
+  const all = page.locator('section.strip [data-all]:visible')
+  await all.click()
+  // Safari on an iPhone gives a tapped button no focus, so the viewer's dialog has none to give back: as there.
+  await page.evaluate(() => (document.activeElement as HTMLElement | null)?.blur())
+  await expect(page).toHaveURL(at(path, '#a1'))
+  release()
+  const viewer = page.locator('dialog.lb')
+  await expect(viewer.getByRole('status')).toHaveText(`1/${album.photos.length}`)
+  await page.keyboard.press('ArrowLeft') // round to the last photo, past every thumb
+  await expect(viewer.getByRole('status')).toHaveText(`${album.photos.length}/${album.photos.length}`)
+  await page.keyboard.press('Escape')
+  await expect(viewer).toBeHidden()
+  await expect(all).toBeFocused()
+  expect(errors).toEqual([])
+})
+
+// On a tall computer screen the photo column shows as many whole rows of thumbs as fit: when they are the whole album,
+// "Xem tất cả" goes there too; one photo more and it's back. The page's album cut to size in the browser.
+test('album, a tall computer screen: "Xem tất cả" goes when the column shows every photo', async ({ page, request, errors, isMobile }) => {
+  test.skip(isMobile, 'the column shows more than the strip\'s own on a tall computer screen')
+  const found = await albumPage(request, 'ca', (a, html) => a.photos.length >= 12 && /<li class="more"/.test(html))
+  test.skip(!found, 'no fish page with more thumbs for the column in this build')
+  const { path, html } = found!
+  const cut = (n: number) => html.replace(/(<section[^>]*data-album[\s\S]*?<script type="application\/json"[^>]*>)([\s\S]*?)(<\/script>)/, (_, a, j, b) => {
+    const album = JSON.parse(j) as { photos: unknown[] }
+    return a + JSON.stringify({ ...album, photos: album.photos.slice(0, n) }).replace(/</g, '\\u003c') + b
+  })
+  // The facts beside the column run on past the screen, as on most live pages (the build's are short), so the column
+  // has the screen's height to fill.
+  const long = '<style>header.top > .facts { min-height: 150vh }</style>'
+  let n = Infinity
+  await page.route(u => u.pathname === path, route => route.fulfill({ contentType: 'text/html; charset=utf-8', body: cut(n).replace('</head>', `${long}</head>`) }))
+  await page.setViewportSize({ width: 1280, height: 1000 })
+  await page.goto(path)
+  await page.waitForLoadState()
+  // The last photo the column shows whole; the ones before it are thumbs or on the page already.
+  const last = await page.locator('section.strip ul').evaluate(ul => {
+    const v = ul.getBoundingClientRect()
+    return Math.max(...[...ul.querySelectorAll<HTMLElement>('a[data-i]')].filter(a => { const r = a.getBoundingClientRect(); return a.checkVisibility() && r.height > 0 && r.top >= v.top - 1 && r.bottom <= v.bottom + 1 }).map(a => Number(a.dataset.i)))
+  })
+  test.skip(last < 8, 'the column shows no more than the strip\'s own here')
+  const all = page.locator('section.strip .head [data-all]')
+  await expect(all, 'the whole album').toBeVisible()
+  for (const [size, there] of [[last + 1, false], [last + 2, true]] as const) {
+    n = size
+    await page.reload()
+    await page.waitForLoadState()
+    if (there) await expect(all, `an album of ${size}`).toBeVisible()
+    else await expect(all, `an album of ${size}`).toBeHidden()
+  }
   expect(errors).toEqual([])
 })
 

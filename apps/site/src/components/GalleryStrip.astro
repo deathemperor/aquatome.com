@@ -30,9 +30,12 @@ const every = photos.length <= shown.length
 const phone = every && !column && shown.filter(Boolean).length > 6
 const all = !every || phone
 const see = t('Xem tất cả {n} ảnh', { n: photos.length })
+// The tall screen's column shows `more` thumbs, as many whole rows as fit: the album's script hides "Xem tất cả" when
+// they are every photo there (scripts/album.ts), given the photos the page shows already (their places, null here).
+const fit = all && column && more.some(Boolean) ? [...shown, ...more].flatMap((p, i) => (p ? [] : [i])).join(' ') : undefined
 const data = albumJson({ name, ai: t('Ảnh do AI tạo'), altered: t('Ảnh đã chỉnh sửa'), photos: albumPhotos(photos) })
 ---
-<section class:list={['strip', column ? 'column' : 'wrap']} aria-labelledby="gal-h" data-album>
+<section class:list={['strip', column ? 'column' : 'wrap']} aria-labelledby="gal-h" data-album data-fit={fit}>
   <div class="head"><h2 id="gal-h">{t('Ảnh {name}', { name })}</h2>{all && <button type="button" class:list={['see', phone && 'phone']} data-all aria-haspopup="dialog">{see}</button>}</div>
   <ul style={column ? `--rows: ${Math.ceil(shown.filter(Boolean).length / 4)}` : undefined}>
     {[...shown, ...more].map((p, i) => p && (
@@ -41,8 +44,9 @@ const data = albumJson({ name, ai: t('Ảnh do AI tạo'), altered: t('Ảnh đ�
   </ul>
   {/* A thumb or "Xem tất cả" tapped before the album's script has run (a slow phone): its photo's address, #aN, which
       that script opens once it runs, in place of the bare photo; a second tap takes the first one's entry, so one Back
-      still closes it. Once the script runs (data-ready), its own handler takes the taps. */}
-  <script is:inline>document.currentScript.parentElement.addEventListener('click',function(e){var a=e.target.closest('a[data-i],[data-all]');if(!a||this.hasAttribute('data-ready')||a.tagName=='A'&&(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey))return;e.preventDefault();var h='#a'+(+(a.dataset.i||0)+1);if(/^#a\d+$/.test(location.hash))location.replace(h);else location.hash=h})</script>
+      still closes it. What was tapped is marked (data-tapped), for focus to go back to. Once the script runs
+      (data-ready), its own handler takes the taps. */}
+  <script is:inline>document.currentScript.parentElement.addEventListener('click',function(e){var a=e.target.closest('a[data-i],[data-all]');if(!a||this.hasAttribute('data-ready')||a.tagName=='A'&&(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey))return;e.preventDefault();var o=this.querySelector('[data-tapped]');if(o)o.removeAttribute('data-tapped');a.setAttribute('data-tapped','');var h='#a'+(+(a.dataset.i||0)+1);if(/^#a\d+$/.test(location.hash))location.replace(h);else location.hash=h})</script>
   {column && all && <button type="button" class="all" data-all aria-haspopup="dialog">{see}</button>}
   <script type="application/json" set:html={data}></script>
   <script>
@@ -58,7 +62,7 @@ const data = albumJson({ name, ai: t('Ảnh do AI tạo'), altered: t('Ảnh đ�
   :where(button[data-all]):hover { color: var(--c-ink); }
   /* On one line beside the heading or under it; wrapped only where it can't fit on one (a phone 320 px wide). */
   .see { text-wrap: balance; font-size: 0.95rem; display: inline-block; padding-block: 10px; margin-block: -10px; text-align: start; }
-  .see.phone { display: none; }
+  .see.phone, .strip [data-all][data-fits] { display: none; }
   @media (max-width: 640px) { .see.phone { display: inline-block; } }
   /* Each column its share (minmax(0, 1fr)), never its content's width: a photo that doesn't load shows its alt text in its
      place, and a long word in it widened the row past a phone's edge (13 November). */
