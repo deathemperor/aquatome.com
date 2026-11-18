@@ -1,43 +1,70 @@
-import type { Page } from '@playwright/test'
+import { albumPage } from './album'
 import { expect, photosMissing, sideways, test } from './fixtures'
 import { doubleTap, pinchOut, swipe } from './gestures'
-import { sourcePages } from './pages'
+import { LIVE, sourcePages } from './pages'
 
-// A photo gallery, from the fish's or plant's page: the strip's link opens the gallery page, a photo opens in the viewer
-// with its author and licence, the arrow keys step through, Escape closes. The pages come from the build (or, live, the
-// sitemap), so the journey holds on aquatome.com's real galleries too.
-const galleryOf = (section: string) => sourcePages().find(p => new RegExp(`^/${section}/[^/]+/anh/$`).test(p))
+// A fish's or plant's album opens over its page (the owner, 17 Nov 2026: "opening a new page for it is unnecessary"):
+// a thumb opens its photo in the viewer with its author and licence, "Xem tất cả" and the jump row's chip the first;
+// the arrow keys and a swipe step through the whole album; Escape or Back closes it, and the page, its place and its
+// history are as they were. The pages come from the build (or, live, the sitemap), so the journeys hold on aquatome.com.
+const at = (path: string, hash = '') => new RegExp(`${path.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}${hash}$`)
 
 for (const [what, section] of [['fish', 'ca'], ['plant', 'cay']] as const) {
-  test(`${what} gallery: from the page's strip to the gallery, then through the photos in the viewer`, async ({ page, errors }) => {
-    const gallery = galleryOf(section)
-    test.skip(!gallery, `no ${what} gallery in this build`)
-    await page.goto(gallery!.replace(/anh\/$/, ''))
-    const all = page.locator('section.strip :is(.head a, a.all):visible') // a fish page's row on a phone has its own
-    await expect(all).toHaveAttribute('href', gallery!)
-    await all.click()
-    await expect(page).toHaveURL(new RegExp(`${gallery}$`))
-    await page.waitForLoadState() // the viewer's script, before a click on a photo (else the link opens the photo itself)
-    const photos = page.locator('[data-gallery] a[data-i]')
-    const n = await photos.count()
-    expect(n).toBeGreaterThanOrEqual(6)
-    await photos.first().click()
+  test(`${what} album: a thumb opens its photo over the page, credited; Escape closes it, the page where it was`, async ({ page, request, errors }) => {
+    const found = await albumPage(request, section)
+    test.skip(!found, `no ${what} album in this build`)
+    const { path, album } = found!
+    const n = album.photos.length
+    await page.goto('/')
+    await page.goto(path)
+    await page.waitForLoadState() // the album's script, before a click on a thumb (else the link opens the photo itself)
+    const thumb = page.locator('section.strip li a[data-i]:visible').first()
+    await thumb.scrollIntoViewIfNeeded()
+    const i = Number(await thumb.getAttribute('data-i'))
+    const y = await page.evaluate(() => scrollY)
+    await thumb.click()
     const viewer = page.locator('dialog.lb')
     await expect(viewer).toBeVisible()
+    await expect(page).toHaveURL(at(path, `#a${i + 1}`))
+    await expect(viewer.getByRole('status')).toHaveText(`${i + 1}/${n}`)
+    // Its credit: the author and source, the licence linking its own page.
+    const p = album.photos[i]!
     const by = viewer.locator('.by')
-    await expect(viewer.getByRole('status')).toHaveText(`1/${n}`)
-    await expect(by.locator('a').first()).toHaveAttribute('href', /^https:\/\//) // an Unsplash photo's line has more (unsplash-credits.spec.ts)
+    if (!p.ai) await expect(by.getByRole('link', { name: p.a, exact: true })).toHaveAttribute('href', p.un ? /^https:\/\/unsplash\.com\// : p.s)
+    if (p.l && p.lu) await expect(by.getByRole('link', { name: p.l, exact: true })).toHaveAttribute('href', p.lu)
     await page.keyboard.press('ArrowRight')
-    await expect(viewer.getByRole('status')).toHaveText(`2/${n}`)
-    await expect(page).toHaveURL(/#a2$/)
+    await expect(viewer.getByRole('status')).toHaveText(`${((i + 1) % n) + 1}/${n}`)
+    await expect(page).toHaveURL(at(path, `#a${((i + 1) % n) + 1}`))
     await page.keyboard.press('Escape')
     await expect(viewer).toBeHidden()
-    // Closed, the address is the gallery's again, focus is on the photo it closed on, and stepping through photos left
-    // nothing in the history: Back goes to the fish's page.
-    await expect(page).toHaveURL(new RegExp(`${gallery}$`))
-    await expect(photos.nth(1)).toBeFocused()
+    // Closed: the page's own address, where it was, focus on the photo it closed on when that has a thumb on screen (else
+    // on the one tapped), and nothing left in the history: Back leaves the page.
+    await expect(page).toHaveURL(at(path))
+    expect(await page.evaluate(() => scrollY), 'the page where it was').toBe(y)
+    const next = page.locator(`section.strip li a[data-i="${(i + 1) % n}"]:visible`)
+    await expect((await next.count()) ? next : thumb).toBeFocused()
     await page.goBack()
-    await expect(page).toHaveURL(new RegExp(`${gallery!.replace(/anh\/$/, '')}$`))
+    expect(new URL(page.url()).pathname).toBe('/')
+    expect(errors).toEqual([])
+  })
+
+  test(`${what} album: "Xem tất cả" opens its first photo over the page, and Back closes it there`, async ({ page, request, errors }) => {
+    const found = await albumPage(request, section)
+    test.skip(!found, `no ${what} album in this build`)
+    const { path, album } = found!
+    await page.goto(path)
+    await page.waitForLoadState()
+    const all = page.locator('section.strip :is(.head a, a.all):visible') // a fish page's row on a phone has its own
+    await expect(all).toHaveAttribute('href', '#a1')
+    await expect(all).toHaveText(`Xem tất cả ${album.photos.length} ảnh →`)
+    await all.click()
+    const viewer = page.locator('dialog.lb')
+    await expect(viewer.getByRole('status')).toHaveText(`1/${album.photos.length}`)
+    await expect(page).toHaveURL(at(path, '#a1'))
+    await page.goBack()
+    await expect(viewer).toBeHidden()
+    await expect(page).toHaveURL(at(path))
+    await expect(page.locator('section.strip')).toBeVisible()
     expect(errors).toEqual([])
   })
 
@@ -45,10 +72,10 @@ for (const [what, section] of [['fish', 'ca'], ['plant', 'cay']] as const) {
   // shows in its place, and on 13 November a long word in it (the Malay Bucephalandra page's, checked live with no photo
   // loaded) widened the strip's columns past a phone's edge. That page's word stands in for the build's own captions,
   // which are shorter: any caption or name can be.
-  test(`${what} page: the photo strip fits the screen when its photos don't load`, async ({ page }) => {
-    const gallery = galleryOf(section)
-    test.skip(!gallery, `no ${what} gallery in this build`)
-    await page.goto(gallery!.replace(/anh\/$/, ''))
+  test(`${what} page: the photo strip fits the screen when its photos don't load`, async ({ page, request }) => {
+    const found = await albumPage(request, section)
+    test.skip(!found, `no ${what} album in this build`)
+    await page.goto(found!.path)
     await expect(page.locator('section.strip img').first()).toBeAttached()
     await page.locator('section.strip img').evaluateAll(imgs => imgs.forEach(i => { (i as HTMLImageElement).alt = 'Bucephalandra' }))
     await photosMissing(page)
@@ -56,94 +83,18 @@ for (const [what, section] of [['fish', 'ca'], ['plant', 'cay']] as const) {
   })
 }
 
-// The count is the page's title (the owner's call, 2026-11-07: a gallery shows how rich the page's photos are), and a phone
-// keeps two 4:3 columns, which barely crop these mostly landscape photos.
-test('gallery page: the count is its title, ahead of its line and photos; a phone has two 4:3 columns', async ({ page, errors }, info) => {
-  const gallery = galleryOf('ca')
-  test.skip(!gallery, 'no fish gallery in this build')
-  await page.goto(gallery!)
-  const tiles = page.locator('[data-gallery] a[data-i]')
-  const n = await tiles.count()
-  const title = page.locator('h1')
-  await expect(title).toHaveText(`${n} ảnh`)
-  const y = async (sel: string) => (await page.locator(sel).first().boundingBox())!.y
-  expect(await y('h1'), 'the title over its line').toBeLessThan(await y('.lead'))
-  expect(await y('.lead'), 'the line over the photos').toBeLessThan(await y('[data-gallery]'))
-  await expect(title, 'the title on the first screen').toBeInViewport({ ratio: 1 })
-  if (info.project.name === 'phone') {
-    const [a, b, c] = await Promise.all([0, 1, 2].map(async i => (await tiles.nth(i).boundingBox())!))
-    expect(b!.y, 'the first two side by side').toBeCloseTo(a!.y, 0)
-    expect(b!.x, 'the first two side by side').toBeGreaterThan(a!.x + a!.width - 1)
-    expect(c!.y, 'the third on the next row').toBeGreaterThan(a!.y + a!.height - 1)
-    expect(c!.x, 'the third under the first').toBeCloseTo(a!.x, 0)
-    for (const box of [a!, b!, c!]) expect(box.width / box.height, '4:3').toBeCloseTo(4 / 3, 1)
-    const edge = (await page.locator('[data-gallery]').boundingBox())!
-    expect(b!.x + b!.width, 'the two columns fill the width').toBeCloseTo(edge.x + edge.width, 0)
-  }
-  expect(errors).toEqual([])
-})
-
-// Readers' photos are under the gallery, outside its count, so its title has a link down to them once the Worker says
-// there are any. The Worker's list (/_p) and the photos are stand-ins, so this holds on the fixture and on aquatome.com.
-const reader = (i: number) => ({ id: `p${i}`, name: 'Minh', url: `/_e2e/${i}.svg`, thumb: `/_e2e/${i}.svg`, width: 1200, height: 900, createdAt: '2026-11-02T03:00:00Z' })
-const standIn = async (page: Page, list: object) => {
-  await page.route(url => url.pathname === '/_p' && url.searchParams.has('e'), route => route.fulfill({ json: { sitekey: 'x', verification: 'phone', ...list } }))
-  await page.route(url => url.pathname.startsWith('/_e2e/'), route => route.fulfill({ contentType: 'image/svg+xml', body: '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900"><rect width="1200" height="900" fill="#2f6b4f"/></svg>' }))
-}
-/** A fish's gallery page, which has its readers' photos (a breed's has none). */
-async function fishGallery(page: Page) {
-  for (const gallery of sourcePages().filter(p => /^\/ca\/[^/]+\/anh\/$/.test(p)).slice(0, 20)) {
-    await page.goto(gallery)
-    if (await page.locator('[data-reader-photos]').count()) return gallery
-  }
-  return undefined
-}
-
-test('gallery page with readers\' photos: a link under the title goes down to them, with how many', async ({ page, errors }, info) => {
-  await standIn(page, { photos: [1, 2, 3].map(reader) })
-  test.skip(!(await fishGallery(page)), 'no fish gallery in this build')
-  const down = page.locator('[data-to-readers]')
-  await expect(down).toHaveText('Xem 3 ảnh bạn đọc gửi ↓')
-  await expect(down, 'on the first screen').toBeInViewport({ ratio: 1 })
-  expect((await down.boundingBox())!.height, 'a finger\'s target').toBeGreaterThanOrEqual(44)
-  if (info.project.name === 'phone') await down.tap(); else await down.click()
-  await expect(page).toHaveURL(/#rp-h$/)
-  await expect(page.locator('[data-reader-photos] h2')).toBeInViewport() // a gallery of a few photos may have it on screen already
-  await expect(page.locator('[data-reader-photos] [data-list] button')).toHaveCount(3)
-  expect(errors).toEqual([])
-})
-
-// The Worker lists 60 at a time and gives no total: with more to come, no number that would be wrong.
-test('gallery page with more readers\' photos than one list: the link says no number', async ({ page, errors }) => {
-  await standIn(page, { photos: [1, 2, 3].map(reader), next: '2026-11-01T00:00:00Z' })
-  test.skip(!(await fishGallery(page)), 'no fish gallery in this build')
-  await expect(page.locator('[data-to-readers]')).toHaveText('Xem ảnh bạn đọc gửi ↓')
-  expect(errors).toEqual([])
-})
-
-test('gallery page with no readers\' photos: no link, their part still asks for one', async ({ page, errors }) => {
-  await standIn(page, { photos: [] })
-  test.skip(!(await fishGallery(page)), 'no fish gallery in this build')
-  await expect(page.locator('[data-reader-photos] [data-empty]')).toBeVisible()
-  await expect(page.locator('[data-to-readers]')).toBeHidden()
-  expect(errors).toEqual([])
-})
-
-// The photos' chip was left out to keep the row at five, on most fish with a gallery page. It now stays at the row's end,
-// in sight while the others scroll beside it, and opens the gallery. Read from the page, so it holds on aquatome.com.
-test('a fish\'s jump row ends with the photos and their count, in sight, and opens the gallery', async ({ page, errors }, info) => {
-  let fish: string | undefined
-  for (const gallery of sourcePages().filter(p => /^\/ca\/[^/]+\/anh\/$/.test(p)).slice(0, 20)) {
-    await page.goto(gallery.replace(/anh\/$/, ''))
-    if (await page.locator('nav.jump').count()) { fish = gallery; break }
-  }
-  test.skip(!fish, 'no fish with a jump row and a gallery in this build')
+// The photos' chip stays at the row's end, in sight while the others scroll beside it, and opens the album over the page.
+test('a fish\'s jump row ends with the photos and their count, in sight, and opens the album', async ({ page, request, errors }, info) => {
+  const found = await albumPage(request, 'ca', (a, html) => a.photos.length >= 6 && /<nav[^>]*class="[^"]*\bjump\b/.test(html))
+  test.skip(!found, 'no fish with a jump row and an album in this build')
+  const { path, album } = found!
+  await page.goto(path)
+  await page.waitForLoadState()
   const row = page.locator('nav.jump')
   expect(await row.locator('a').count(), 'chips').toBeLessThanOrEqual(5)
   const chip = row.locator('a').last()
-  await expect(chip).toHaveAttribute('href', fish!)
-  const n = /^Ảnh (\d+)$/.exec((await chip.textContent())!)?.[1]
-  expect(n, 'the chip\'s count').toBeTruthy()
+  await expect(chip).toHaveAttribute('href', '#a1')
+  await expect(chip).toHaveText(`Ảnh ${album.photos.length}`)
   // A row over five left a part out, never the photos: its part is on the page, its chip isn't.
   if (await row.locator('a').count() === 5 && await page.locator('#muc-reproduction').count()) await expect(row.locator('a[href="#muc-reproduction"]')).toHaveCount(0)
   // In sight whichever way the others are scrolled.
@@ -155,23 +106,23 @@ test('a fish\'s jump row ends with the photos and their count, in sight, and ope
   const [end, last] = [(await chip.boundingBox())!, (await others.locator('a').last().boundingBox())!]
   expect(end.x, 'to the right of the others').toBeGreaterThan(last.x + last.width - 1)
   if (info.project.name === 'phone') await chip.tap(); else await chip.click()
-  await expect(page).toHaveURL(new RegExp(`${fish}$`))
-  await expect(page.locator('h1')).toHaveText(`${n} ảnh`)
-  await expect(page.locator('[data-gallery] a[data-i]')).toHaveCount(Number(n))
+  const viewer = page.locator('dialog.lb')
+  await expect(viewer.getByRole('status')).toHaveText(`1/${album.photos.length}`)
+  await page.goBack()
+  await expect(viewer).toBeHidden()
+  await expect(page).toHaveURL(at(path))
   expect(errors).toEqual([])
 })
 
-test('a fish with no gallery page has no photos chip: its photo is right above the row', async ({ page, errors }) => {
-  const pages = sourcePages()
+test('a fish with no album has no photos chip: its photo is right above the row', async ({ page, errors }) => {
   let found = false
-  for (const fish of pages.filter(p => /^\/ca\/[^/]+\/$/.test(p) && !pages.includes(`${p}anh/`)).slice(0, 30)) {
+  for (const fish of sourcePages().filter(p => /^\/ca\/[^/]+\/$/.test(p)).slice(0, 30)) {
     await page.goto(fish)
-    if (await page.locator('nav.jump').count() && await page.locator('header.top .photo').count()) { found = true; break }
+    if (!(await page.locator('[data-album]').count()) && await page.locator('nav.jump').count() && await page.locator('header.top .photo').count()) { found = true; break }
   }
-  test.skip(!found, 'no fish with a photo, a jump row and no gallery in this build')
+  test.skip(!found, 'no fish with a photo, a jump row and no album in this build')
   const row = page.locator('nav.jump')
-  await expect(row.locator('a[href="#anh"]')).toHaveCount(0)
-  await expect(row.locator('a[href$="/anh/"]')).toHaveCount(0)
+  await expect(row.locator('a[href="#a1"], a[href="#anh"], a[href$="/anh/"]')).toHaveCount(0)
   await expect(page.locator('#anh img')).toBeVisible()
   // The row's lower rule is the text's first: no second line right under it.
   await expect(page.locator('nav.jump ~ .body > :first-child')).toHaveCSS('border-top-width', '0px')
@@ -179,14 +130,15 @@ test('a fish with no gallery page has no photos chip: its photo is right above t
 })
 
 // On a phone the Back button closes the photo, not the page; the photo follows a swipe to the next one; a photo's own
-// address (#a3, as the fish page's strip links it) opens the gallery on it.
-test('gallery viewer: #a3 opens photo 3, a swipe goes to the next, Back closes it and stays on the gallery', async ({ page, errors }, info) => {
-  const gallery = galleryOf('ca')
-  test.skip(!gallery, 'no fish gallery in this build')
-  await page.goto(`${gallery}#a3`)
+// address (#a3, a shared photo's) opens it over the page.
+test('album viewer: #a3 opens photo 3, a swipe goes to the next, Back closes it and stays on the page', async ({ page, request, errors }, info) => {
+  const found = await albumPage(request, 'ca')
+  test.skip(!found, 'no fish album in this build')
+  const { path, album } = found!
+  const n = album.photos.length
+  await page.goto(`${path}#a3`)
   const viewer = page.locator('dialog.lb')
   await expect(viewer).toBeVisible()
-  const n = await page.locator('[data-gallery] a[data-i]').count()
   const by = viewer.locator('.by')
   await expect(by).toHaveText(new RegExp(`· 3/${n}$`)) // the credit line ends with the number
   await expect(viewer.getByRole('status')).toHaveText(`3/${n}`)
@@ -199,30 +151,29 @@ test('gallery viewer: #a3 opens photo 3, a swipe goes to the next, Back closes i
     await expect.poll(x).toBeCloseTo(-0.6 * width, -1)
   })
   await expect(viewer.getByRole('status')).toHaveText(`4/${n}`)
-  await expect(page).toHaveURL(new RegExp(`${gallery}#a4$`))
+  await expect(page).toHaveURL(at(path, '#a4'))
   await swipe(page, stage, 0.6, info.project.name === 'phone')
   await expect(viewer.getByRole('status')).toHaveText(`3/${n}`)
   await page.goBack()
   await expect(viewer).toBeHidden()
-  await expect(page).toHaveURL(new RegExp(`${gallery}$`))
-  await expect(page.locator('[data-gallery]')).toBeVisible()
+  await expect(page).toHaveURL(at(path))
+  await expect(page.locator('section.strip')).toBeVisible()
   expect(errors).toEqual([])
 })
 
 // Zoomed in (a pinch or a double tap on a phone, the wheel or a double click on a computer), a drag pans the photo
 // instead of going to the next one; a double tap or click zooms back out, and the swipe works again.
-test('gallery viewer: a zoomed photo pans rather than swiping; a double tap zooms back out', async ({ page, errors }, info) => {
-  const gallery = galleryOf('ca')
-  test.skip(!gallery, 'no fish gallery in this build')
+test('album viewer: a zoomed photo pans rather than swiping; a double tap zooms back out', async ({ page, request, errors }, info) => {
+  const found = await albumPage(request, 'ca')
+  test.skip(!found, 'no fish album in this build')
   const touch = info.project.name === 'phone'
-  // The gallery's widest photo: zoomed on a computer's wide screen, a tall one can stay narrower than the screen, with
+  // The album's widest photo: zoomed on a computer's wide screen, a tall one can stay narrower than the screen, with
   // nothing to pan sideways (the first fish gallery's first photo was one on 14 Nov).
-  await page.goto(gallery!)
-  const shapes = await page.locator('[data-gallery] a[data-i]').evaluateAll(as => as.map(a => Number((a as HTMLElement).dataset.w) / Number((a as HTMLElement).dataset.h)))
+  const { path, album } = found!
+  const shapes = album.photos.map(p => p.w / p.h)
   const n = shapes.length
   const k = shapes.indexOf(Math.max(...shapes)) + 1
-  await page.goto(`${gallery}#a${k}`)
-  await page.reload() // the gallery reads the address's photo as it loads
+  await page.goto(`${path}#a${k}`)
   const viewer = page.locator('dialog.lb')
   const photo = viewer.locator('.pv-slide:not([inert]) .pv-pic')
   const stage = viewer.locator('.pv-stage') // its middle is on the photo, panned or not
@@ -252,11 +203,11 @@ test('gallery viewer: a zoomed photo pans rather than swiping; a double tap zoom
 
 // With a mouse, the magnifier cursor means what it says: one click on the photo zooms in there, the next zooms back
 // out, and a double click out of habit still leaves it zoomed in.
-test('gallery viewer: one click zooms in with a mouse, the next zooms out; a double click zooms in', async ({ page, errors }, info) => {
-  const gallery = galleryOf('ca')
-  test.skip(!gallery, 'no fish gallery in this build')
+test('album viewer: one click zooms in with a mouse, the next zooms out; a double click zooms in', async ({ page, request, errors }, info) => {
   test.skip(info.project.name === 'phone', 'a finger zooms with a double tap or a pinch')
-  await page.goto(`${gallery}#a1`)
+  const found = await albumPage(request, 'ca')
+  test.skip(!found, 'no fish album in this build')
+  await page.goto(`${found!.path}#a1`)
   const viewer = page.locator('dialog.lb')
   const stage = viewer.locator('.pv-stage')
   await expect(viewer).toHaveAttribute('data-zoom', 'out')
@@ -271,5 +222,18 @@ test('gallery viewer: one click zooms in with a mouse, the next zooms out; a dou
   await page.mouse.dblclick(x, y)
   await expect(viewer).toHaveAttribute('data-zoom', 'in')
   await expect(viewer).toBeVisible()
+  expect(errors).toEqual([])
+})
+
+// Live only (the Worker forwards; the local server is files alone): an album's old address, as Google and old links keep
+// it, lands on its page, and the browser keeps the photo's #aN across the forward, which opens it there.
+test('an album\'s old address forwards to its page, and its #a2 opens photo 2 there', async ({ page, request, errors }) => {
+  test.skip(!LIVE, 'the Worker forwards it: live only')
+  const found = await albumPage(request, 'ca')
+  test.skip(!found, 'no fish album on the site')
+  const { path, album } = found!
+  await page.goto(`${path}anh/#a2`)
+  await expect(page).toHaveURL(at(path, '#a2'))
+  await expect(page.locator('dialog.lb').getByRole('status')).toHaveText(`2/${album.photos.length}`)
   expect(errors).toEqual([])
 })

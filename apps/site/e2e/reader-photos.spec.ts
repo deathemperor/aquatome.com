@@ -140,10 +140,10 @@ test('two photos sent: only the latest one\'s take-back shows', async ({ page, e
   expect(errors).toEqual([])
 })
 
-// A fish's gallery page ends with its readers' photos, loaded after the gallery's: they open in the viewer among
-// themselves, credited by the reader's name, and "Xem thêm" brings the older ones past the API's 60. The gallery's own
-// count and ImageGallery data stay its photos'. The Worker's list is a stand-in, as above.
-test('a fish gallery shows its readers\' photos after its own, in the viewer; "Xem thêm" brings older ones; the count stays the gallery\'s', async ({ page, errors }) => {
+// A fish's page with an album has its readers' photos under it: they open in the viewer among themselves, credited by
+// the reader's name, and "Xem thêm" brings the older ones past the API's 60. The album (GalleryStrip.astro) stays its
+// own photos. The Worker's list is a stand-in, as above.
+test('a fish page shows its readers\' photos after its album, in their own viewer; "Xem thêm" brings older ones; the album stays its own', async ({ page, errors }) => {
   const many = Array.from({ length: 63 }, (_, i) => ({ id: `g${i + 1}`, name: `Bạn ${i + 1}`, url: photo(i + 1), thumb: photo(i + 1), width: 1200, height: 900, createdAt: new Date(Date.UTC(2026, 10, 3) - i * 3_600_000).toISOString() }))
   const NEXT = `${many[59]!.createdAt}~00000000-0000-4000-8000-000000000060`
   const asked: URLSearchParams[] = []
@@ -153,25 +153,21 @@ test('a fish gallery shows its readers\' photos after its own, in the viewer; "X
     return route.fulfill({ json: q.get('before') === NEXT ? { photos: many.slice(60), sitekey: 'x', verification: 'phone' } : { photos: many.slice(0, 60), next: NEXT, sitekey: 'x', verification: 'phone' } })
   })
   await page.route(url => url.pathname.startsWith('/_e2e/'), route => route.fulfill({ contentType: 'image/svg+xml', body: svg(Number(/(\d+)\.svg$/.exec(route.request().url())![1])) }))
-  // A fish's gallery: a breed's has no readers' photos yet.
-  const galleries = sourcePages().filter(p => /^\/ca\/[^/]+\/anh\/$/.test(p))
-  test.skip(!galleries.length, 'no fish gallery in this build')
+  // A fish with an album: a breed's page has its readers' photos in Vietnamese alone.
   const section = page.locator('[data-reader-photos]')
   let gallery: string | undefined
-  for (const g of galleries) {
+  for (const g of sourcePages().filter(p => /^\/ca\/[^/]+\/$/.test(p)).slice(0, 40)) {
     await page.goto(g)
-    if (await section.count()) { gallery = g; break }
+    if (await section.count() && await page.locator('[data-album]').count()) { gallery = g; break }
   }
-  expect(gallery, 'a fish gallery with its readers\' photos').toBeDefined()
+  test.skip(!gallery, 'no fish page with an album in this build')
   const tiles = section.locator('[data-list] button')
   await expect(tiles).toHaveCount(60)
   expect(asked[0]!.get('e')).toMatch(/^species:[a-z0-9-]+$/)
-  // Under the gallery, which keeps its own count and data.
-  const own = await page.locator('[data-gallery] a[data-i]').count()
-  expect(await page.locator('[data-gallery]').evaluate((g, s) => !!(g.compareDocumentPosition(document.querySelector(s)!) & Node.DOCUMENT_POSITION_FOLLOWING), '[data-reader-photos]')).toBe(true)
-  const ld = (await page.locator('script[type="application/ld+json"]').allTextContents()).flatMap(t => [JSON.parse(t)].flat()) as { '@type': string; image?: unknown[] }[]
-  expect(ld.find(x => x['@type'] === 'ImageGallery')!.image).toHaveLength(Math.min(own, 60))
-  await expect(page).toHaveTitle(new RegExp(`\\b${own} ảnh`))
+  // Under the album, which keeps its own photos.
+  const album = page.locator('[data-album]')
+  const own = await album.locator('script[type="application/json"]').evaluate(s => (JSON.parse(s.textContent!) as { photos: unknown[] }).photos.length)
+  expect(await album.evaluate((g, s) => !!(g.compareDocumentPosition(document.querySelector(s)!) & Node.DOCUMENT_POSITION_FOLLOWING), '[data-reader-photos]')).toBe(true)
   // The same form as the fish page's, hidden while the phone check is on (`verification: 'phone'`) even with its
   // summary open.
   await section.locator('summary').click()
@@ -179,11 +175,11 @@ test('a fish gallery shows its readers\' photos after its own, in the viewer; "X
 
   await tiles.nth(1).click()
   const viewer = page.locator('dialog.pv')
-  await expect(viewer).toHaveCount(1) // the readers' viewer alone: the gallery's is made only when one of its photos opens
+  await expect(viewer).toHaveCount(1) // the readers' viewer alone: the album's is made only when one of its photos opens
   await expect(viewer).toBeVisible()
   const by = viewer.locator('.by')
   await expect(by).toHaveText(/^Ảnh của Bạn 2 · \d{1,2}\/\d{1,2}\/2026 · 2\/60$/)
-  await expect(page).toHaveURL(new RegExp(`${gallery}$`)) // not a gallery photo's #aN
+  await expect(page).toHaveURL(new RegExp(`${gallery}$`)) // not an album photo's #aN
   await viewer.getByRole('button', { name: 'Ảnh trước' }).click()
   await expect(by).toContainText('Bạn 1 ')
   await expect(by).toContainText('1/60')
@@ -204,5 +200,7 @@ test('a fish gallery shows its readers\' photos after its own, in the viewer; "X
   await page.goBack()
   await expect(viewer).toBeHidden()
   await expect(page).toHaveURL(new RegExp(`${gallery}$`))
+  // The album holds what it held: no reader's photo joined it.
+  expect(await album.locator('script[type="application/json"]').evaluate(s => (JSON.parse(s.textContent!) as { photos: unknown[] }).photos.length)).toBe(own)
   expect(errors).toEqual([])
 })

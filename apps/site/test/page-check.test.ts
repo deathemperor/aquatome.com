@@ -15,11 +15,9 @@ test('no built page shows a picture twice, a wrong fish, a wrong link, a fish wi
 // The owner's report of 15 Nov: the fiddler crab's page said "Loài cá" at the head of its trail, as about 100 crabs',
 // shrimps', snails', frogs', newts' and corals' pages did; and the site's own lines called them fish too (the Writing
 // Lead, 17 Nov: the range's "có thể là cá do người thả ra"). The fixture's shrimp is one: its page and its group's say
-// "Loài" there (its photos' page too, where it has one), no line of the site's calls it a fish, and the check over every
+// "Loài" there, no line of the site's calls it a fish, and the check over every
 // page (the test above; live, every such page) finds "Loài cá" and every such line on any of them.
 test('a shrimp\'s page and its group\'s trails say "Loài", and the check finds "Loài cá" there, and every line that calls it a fish', () => {
-  // The fixture's shrimp has too few photos for a photos page; the check knows the page all the same.
-  expect(facts.notFish).toContain('/ca/tep-red-cherry/anh/')
   for (const path of ['/ca/tep-red-cherry/', '/nhom/shrimp/']) {
     expect(facts.notFish, path).toContain(path)
     const { html, dom } = page(path)

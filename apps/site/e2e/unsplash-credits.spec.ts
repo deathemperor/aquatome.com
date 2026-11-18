@@ -1,11 +1,12 @@
-import type { APIRequestContext, Locator } from '@playwright/test'
+import type { Locator } from '@playwright/test'
 import { expect, test } from './fixtures'
-import { sourcePages } from './pages'
+import { albumPage } from './album'
 
 // An Unsplash photo is credited as Unsplash's API guidelines ask wherever it shows: "Ảnh: <name> trên Unsplash", the
 // name linking the photographer's Unsplash page (else, until the engine has it, the photo's) and "Unsplash" its home,
-// both with our UTM (lib/unsplash.ts). Here: the gallery's viewer, and the credits list a list's script writes for the
-// cards it builds. Both find their photos on the page, so they hold on aquatome.com's real galleries and lists too.
+// both with our UTM (lib/unsplash.ts). Here: the album's viewer over its page, and the credits list a list's script
+// writes for the cards it builds. Both find their photos on the page, so they hold on aquatome.com's real albums and
+// lists too.
 const UTM = /[?&]utm_source=aquatome&utm_medium=referral$/
 const HOME = 'https://unsplash.com/?utm_source=aquatome&utm_medium=referral'
 
@@ -17,30 +18,20 @@ async function line(el: Locator, name: string, who: string) {
   for (const href of await el.locator('a[href*="unsplash.com"]').evaluateAll(as => as.map(a => a.getAttribute('href')!))) expect(href).toMatch(UTM)
 }
 
-/** The first gallery page (of at most 60) with an Unsplash photo, and that photo's tile. */
-async function unsplashGallery(request: APIRequestContext) {
-  for (const path of sourcePages().filter(p => /^\/(ca|cay)\/[^/]+\/anh\/$/.test(p)).slice(0, 60)) {
-    const html = await (await request.get(path)).text()
-    if (/data-unsplash/.test(html)) return path
-  }
-  return undefined
-}
-
-test('gallery viewer: an Unsplash photo\'s credit links its photographer and Unsplash, with the UTM, and the photo\'s own page', async ({ page, request, errors }) => {
-  const path = await unsplashGallery(request)
-  test.skip(!path, 'no gallery with an Unsplash photo in this build')
-  await page.goto(path!)
-  await page.waitForLoadState()
+test('album viewer: an Unsplash photo\'s credit links its photographer and Unsplash, with the UTM, and the photo\'s own page', async ({ page, request, errors }) => {
+  const found = await albumPage(request, 'ca', a => a.photos.some(p => p.un)) ?? await albumPage(request, 'cay', a => a.photos.some(p => p.un))
+  test.skip(!found, 'no album with an Unsplash photo in this build')
+  const { path, album } = found!
   // One whose photographer's page is known, and one not yet (the fixture's flowerhorn has both).
   for (const has of [true, false]) {
-    const tile = page.locator(`[data-gallery] a[data-unsplash]${has ? '[data-by]' : ':not([data-by])'}`).first()
-    if (!(await tile.count())) continue
-    const [name, src, by] = await tile.evaluate(a => [a.dataset.author!, a.dataset.src!, a.dataset.by])
-    await tile.click()
+    const i = album.photos.findIndex(p => p.un && !!p.b === has)
+    if (i < 0) continue
+    const p = album.photos[i]!
+    await page.goto(`${path}#a${i + 1}`)
     const credit = page.locator('dialog.lb .by')
     await expect(credit).toBeVisible()
-    await line(credit, name, by ?? src)
-    if (by) await expect(credit.getByRole('link', { name: 'Xem ảnh gốc ↗' })).toHaveAttribute('href', src)
+    await line(credit, p.a, p.b ?? p.s)
+    if (p.b) await expect(credit.getByRole('link', { name: 'Xem ảnh gốc ↗' })).toHaveAttribute('href', p.s)
     await page.keyboard.press('Escape')
     await expect(credit).toBeHidden()
   }

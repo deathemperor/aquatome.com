@@ -151,7 +151,9 @@ function galleryBlock(lang: Lang, sources: Partial<Record<SourceId, SourceInfo>>
   return [{
     t: 'gallery', title: t('Ảnh {name}', { name }), note: galleryNote(t, gallery, sources), photos,
     strip: strip.flatMap(p => (p && at.has(p.url) ? [at.get(p.url)!] : [])),
-    ...(viPath && served(lang, viPath) ? { href: appPath(lang, viPath) } : {}),
+    // The album's old web address, which forwards to the fish's or plant's page since the album has none of its own (the
+    // app doesn't open it; the protocols drop it at their next change).
+    ...(viPath ? { href: appPath(lang, viPath) } : {}),
   }]
 }
 

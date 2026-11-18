@@ -1,14 +1,15 @@
 import type { Content } from '@aq/schema'
 import { APP_PAGE, APP_STATE } from './app'
-import type { Breed } from './breeds'
 import { getContent } from './content'
 import { categoriesIn } from './equipment'
 import { localizePath, OTHER_LANGS, PAGES, routeIn, served } from './i18n'
-import { albumOf, hasPhotoPage } from './photo-page'
 import { videoChannels } from './video'
 
-/** One sitemap per kind, so Search Console counts what's indexed for each. `/sitemap.xml` is their index. */
-export const SITEMAP_KINDS = ['fish', 'fish-photos', 'plants', 'plant-photos', 'guides', 'videos', 'glossary', 'equipment', 'products', 'other'] as const
+/**
+ * One sitemap per kind, so Search Console counts what's indexed for each. `/sitemap.xml` is their index. The photo pages'
+ * two (fish-photos, plant-photos) went with the pages on 18 Nov: an album opens over its fish's or plant's page.
+ */
+export const SITEMAP_KINDS = ['fish', 'plants', 'guides', 'videos', 'glossary', 'equipment', 'products', 'other'] as const
 export type SitemapKind = (typeof SITEMAP_KINDS)[number]
 export type SitemapEntry = { kind: SitemapKind; path: string; lastmod?: string }
 
@@ -22,14 +23,11 @@ export async function sitemapEntries(): Promise<SitemapEntry[]> {
     const c = await getContent(lang)
     const add = (kind: SitemapKind, viPath: string, files: string[] = []) => out.push({ kind, path: localizePath(lang, viPath), lastmod: lastChanged(c.pageDates, files) })
     const text = (folder: string, id: string) => [`${folder}/${id}/entity.json`, `${folder}/${id}/${lang}.json`]
-    const photos = (folder: string, id: string) => [`${folder}/${id}/${lang}.json`, `gallery/${id}.json`]
 
     const fish = [...c.species.map(s => ({ s, folder: 'species' })), ...c.breeds.map(s => ({ s, folder: 'breeds' }))].filter(x => x.s.t.quality.indexable)
     if (served(lang, '/vi/ca/x/')) for (const { s, folder } of fish) add('fish', `/vi/ca/${s.t.slug}/`, [...text(folder, s.id), ...(folder === 'species' && lang === 'vi' ? [`summaries/${s.id}.json`] : [])])
-    if (served(lang, '/vi/ca/x/anh/')) for (const { s, folder } of fish) if (hasPhotoPage(folder === 'breeds' ? albumOf(c, 'breeds', s as Breed) : albumOf(c, 'species', s))) add('fish-photos', `/vi/ca/${s.t.slug}/anh/`, photos(folder, s.id))
     const plants = c.plants.filter(p => p.t.quality.indexable)
     if (served(lang, '/vi/cay/x/')) for (const p of plants) add('plants', `/vi/cay/${p.t.slug}/`, text('plants', p.id))
-    if (served(lang, '/vi/cay/x/anh/')) for (const p of plants) if (hasPhotoPage(albumOf(c, 'plants', p))) add('plant-photos', `/vi/cay/${p.t.slug}/anh/`, photos('plants', p.id))
     if (served(lang, '/vi/huong-dan/x/')) for (const g of c.guides) if (g.t.quality.indexable) add(g.video ? 'videos' : 'guides', `/vi/huong-dan/${g.t.slug}/`, text('guides', g.id))
     if (served(lang, '/vi/thuat-ngu/x/')) for (const g of c.glossary) if (g.t.quality.indexable) add('glossary', `/vi/thuat-ngu/${g.t.slug}/`, text('glossary', g.id))
     if (served(lang, '/vi/thiet-bi/x/')) {

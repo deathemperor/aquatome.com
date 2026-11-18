@@ -282,9 +282,11 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   if (res.status === 404 && isPage(url.pathname)) {
     const to = await redirectFor(env.ASSETS, url.origin, url.pathname)
     if (to) return finish(new Response(null, { status: 301, headers: { location: to } }), env)
-    const parent = galleryParent(url.pathname) ?? listParent(url.pathname)
+    // An album's address for good (it has no page of its own since 18 Nov), a list's numbered page for now (it can come back).
+    const album = galleryParent(url.pathname)
+    const parent = album ?? listParent(url.pathname)
     if (parent && (await env.ASSETS.fetch(new Request(`${url.origin}${parent}`))).ok) {
-      return finish(new Response(null, { status: 302, headers: { location: parent + url.search } }), env)
+      return finish(new Response(null, { status: album ? 301 : 302, headers: { location: parent + url.search } }), env)
     }
   }
   if (!res.headers.get('content-type')?.includes('text/html')) return finish(res, env)

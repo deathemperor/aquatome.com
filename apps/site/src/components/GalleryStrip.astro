@@ -1,36 +1,44 @@
 ---
 import type { Photo } from '@aq/schema'
 import AiPhotoLabel from './AiPhotoLabel.astro'
-import { GALLERY_STRIP } from '../lib/gallery'
+import { albumJson, albumPhotos } from '../lib/album'
+import { GALLERY_MIN, GALLERY_STRIP } from '../lib/gallery'
 import { smallSrc } from '../lib/img'
-import { i18n, served } from '../lib/i18n'
+import { i18n } from '../lib/i18n'
 /**
- * `href`: the gallery page; without one (too few photos for a page, or none in this language) each thumb opens its photo.
+ * `photos`: the whole album (lib/photo-page.ts albumOf). A thumb opens its photo in the viewer over the page, which steps
+ * through all of them (scripts/album.ts), and so does "Xem tất cả … ảnh", from the first: the album has no page of its
+ * own (the owner, 17 Nov 2026: "opening a new page for it is unnecessary"). Without the script a thumb opens its photo.
  * `shown`: of the first photos, those the page doesn't show already (lib/pictures.ts), null for the others: each thumb
- * keeps its place, so it still opens its own photo on the gallery page.
+ * keeps its place, so it still opens its own photo.
  * `column`: in the photo column of a fish's page, under its photo (pages/ca/[slug].astro): inside the page's margins,
  * and beside the facts (above 860 px) headed like their parts.
- * `more`: the gallery's next photos, after `shown` and placed like them (lib/pictures.ts morePhotos), for the column on
+ * `more`: the album's next photos, after `shown` and placed like them (lib/pictures.ts morePhotos), for the column on
  * a tall computer screen, which they fill in whole rows; elsewhere they don't show.
- * `readers`: the gallery page has readers' photos under its own (a species'), and the link says so.
  * On a phone the column is a single row under the photo, a thumbnail high: `shown`, which swipes sideways, and the
- * gallery page's link beside it. It had gone after the care text, to keep the first care question within three screens;
+ * album's link beside it. It had gone after the care text, to keep the first care question within three screens;
  * one row keeps it there, and the owner asked twice (4 and 8 November) why the gallery was at the bottom.
  */
-interface Props { photos: Photo[]; href?: string; name: string; shown?: (Photo | null)[]; column?: boolean; more?: (Photo | null)[]; readers?: boolean }
-const { t, lang } = i18n(Astro.url)
-const href = Astro.props.href && served(lang, Astro.props.href) ? Astro.props.href : undefined
-const { photos, name, column, more = [], readers } = Astro.props
+interface Props { photos: Photo[]; name: string; shown?: (Photo | null)[]; column?: boolean; more?: (Photo | null)[] }
+const { t } = i18n(Astro.url)
+const { photos, name, column, more = [] } = Astro.props
 const shown = Astro.props.shown ?? photos.slice(0, GALLERY_STRIP)
+// "Xem tất cả": an album of GALLERY_MIN or more, as the photo page had it.
+const all = photos.length >= GALLERY_MIN
+const data = albumJson({ name, ai: t('Ảnh do AI tạo'), altered: t('Ảnh đã chỉnh sửa'), photos: albumPhotos(photos) })
 ---
-<section class:list={['strip', column ? 'column' : 'wrap']} aria-labelledby="gal-h">
-  <div class="head"><h2 id="gal-h">{t('Ảnh {name}', { name })}</h2>{href && <a href={href}>{readers ? t('Xem tất cả {n} ảnh và ảnh bạn đọc →', { n: photos.length }) : t('Xem tất cả {n} ảnh →', { n: photos.length })}</a>}</div>
+<section class:list={['strip', column ? 'column' : 'wrap']} aria-labelledby="gal-h" data-album>
+  <div class="head"><h2 id="gal-h">{t('Ảnh {name}', { name })}</h2>{all && <a href="#a1">{t('Xem tất cả {n} ảnh →', { n: photos.length })}</a>}</div>
   <ul style={column ? `--rows: ${Math.ceil(shown.filter(Boolean).length / 4)}` : undefined}>
     {[...shown, ...more].map((p, i) => p && (
-      <li class={i >= shown.length ? 'more' : undefined}><a href={href ? `${href}#a${i + 1}` : p.url}><img src={smallSrc(p)} alt={p.caption ?? name} width={p.width} height={p.height} loading="lazy" decoding="async" /><AiPhotoLabel photo={p} /></a></li>
+      <li class={i >= shown.length ? 'more' : undefined}><a href={p.url} data-i={i}><img src={smallSrc(p)} alt={p.caption ?? name} width={p.width} height={p.height} loading="lazy" decoding="async" /><AiPhotoLabel photo={p} /></a></li>
     ))}
   </ul>
-  {column && href && <a class="all" href={href}>{t('Xem tất cả {n} ảnh →', { n: photos.length })}</a>}
+  {column && all && <a class="all" href="#a1">{t('Xem tất cả {n} ảnh →', { n: photos.length })}</a>}
+  <script type="application/json" set:html={data}></script>
+  <script>
+    import '../scripts/album'
+  </script>
 </section>
 <style>
   .strip { padding-block: var(--space-5); }

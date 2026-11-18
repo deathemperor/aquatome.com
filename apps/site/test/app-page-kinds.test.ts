@@ -11,6 +11,7 @@ import { smallSrc } from '../src/lib/img'
 import { speciesParts } from '../src/lib/species-page'
 import { appPath, LANGS, licenceLabel, translator } from '../src/lib/i18n'
 import { appHref, appPage, DIST } from './dist'
+import type { AlbumPhoto } from '../src/lib/album'
 
 // The app draws fish, plant and glossary pages from these copies (once the index counts their kinds): what they hold
 // must be the page, credits and sources first.
@@ -130,8 +131,9 @@ function wild(d: PageDoc, dom: HTMLElement): boolean {
 }
 
 /**
- * The gallery as the page's strip shows it and its gallery page lists it. The strip's own thumbnails: the further ones a
- * computer's photo column shows (`li.more`) are the gallery's, which the copy carries whole.
+ * The gallery as the page's strip shows it and its album holds it (GalleryStrip.astro: the album opens over the page). The
+ * strip's own thumbnails: the further ones a computer's photo column shows (`li.more`) are the album's, which the copy
+ * carries whole, but for pictures made by AI, which the app's album grid can't label yet.
  */
 function gallery(d: PageDoc, dom: HTMLElement) {
   const g = one(d, 'gallery')
@@ -140,15 +142,11 @@ function gallery(d: PageDoc, dom: HTMLElement) {
   if (!g) return
   expect(g.title, d.path).toBe(txt(dom.querySelector('#gal-h')))
   expect(g.strip.map(i => g.photos[i]!.thumb ?? g.photos[i]!.src), d.path).toEqual(strip.map(i => i.getAttribute('src')))
-  const all = appPage(g.href!).dom
-  expect(g.photos.map(p => p.src), d.path).toEqual(all.querySelectorAll('[data-gallery] a').map(a => a.getAttribute('data-full')))
-  expect(g.photos.map(p => p.credit!.url), d.path).toEqual(all.querySelectorAll('[data-gallery] a').map(a => a.getAttribute('data-src')))
-  // "6 ảnh từ Wikimedia Commons, giấy phép mở.": the gallery page's line, with the count its title gives there, without the
-  // scientific name before it or the link after.
-  const lead = all.querySelector('.lead')!
-  lead.querySelectorAll('.sci, a').forEach(x => x.remove())
+  const album = (JSON.parse(dom.querySelector('[data-album] script[type="application/json"]')!.textContent).photos as AlbumPhoto[]).filter(p => !p.ai)
+  expect(g.photos.map(p => p.src), d.path).toEqual(album.map(p => p.u))
+  expect(g.photos.map(p => p.credit!.url), d.path).toEqual(album.map(p => p.s))
+  // "6 ảnh từ Wikimedia Commons, giấy phép mở.": the count the album holds.
   expect(g.note, d.path).toContain(String(g.photos.length))
-  expect(g.note.toLowerCase(), d.path).toContain(clean(lead.textContent.replace(/^ ·/, '')).toLowerCase())
 }
 
 test('each fish\'s copy reads as its built page: header, credits, sources, card sources, tank mates, climate, gallery, breeds, videos', async () => {
@@ -268,7 +266,7 @@ test('each breed\'s copy reads as its built page: header, parents, card sources,
       expect(trust?.rows.map(r => [r.field, r.label, !!r.conflict, !!r.marked, r.note, r.items]) ?? [], d.path).toEqual(rows.map(r => [
         r.getAttribute('data-src-field'), txt(r.querySelector('dt')), r.getAttribute('data-conflict') === 'true', !!r.querySelector('dt .mark'), r.querySelector('dd > p') ? txt(r.querySelector('dd > p')) : undefined, r.querySelectorAll('li').map(txt),
       ]))
-      // The gallery's strip; its gallery page's photos when it has one.
+      // The gallery's strip; its album's photos when it has "Xem tất cả".
       const g = one(d, 'gallery')
       const strip = dom.querySelectorAll('.strip li:not(.more) img')
       expect(!!g, d.path).toBe(strip.length > 0)

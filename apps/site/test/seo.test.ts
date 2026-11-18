@@ -45,7 +45,9 @@ test('/sitemap.xml is the index of one sitemap per kind of page, and a page is i
   expect(index).toContain('<sitemapindex')
   expect(index).not.toContain('<urlset')
   const kinds = [...index.matchAll(/\/sitemap-([a-z-]+)\.xml<\/loc>/g)].map(m => m[1])
-  expect(kinds).toEqual(expect.arrayContaining(['fish', 'fish-photos', 'plants', 'plant-photos', 'guides', 'videos', 'glossary', 'equipment', 'products', 'other']))
+  expect(kinds).toEqual(expect.arrayContaining(['fish', 'plants', 'guides', 'videos', 'glossary', 'equipment', 'products', 'other']))
+  // The photo pages' two went with the pages on 18 Nov: an album opens over its fish's or plant's page.
+  expect(kinds.filter(k => k!.endsWith('photos'))).toEqual([])
   const locs = [...sitemapText().matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1])
   expect(locs.length).toBeGreaterThan(30)
   expect(locs.filter((l, i) => locs.indexOf(l) !== i)).toEqual([])
@@ -64,13 +66,13 @@ test('every page a sitemap lists, and every redirect target, is a page the build
 // The dates are the fixture's page-dates.json, all in the past: a page's own files, the latest of them.
 test('a page\'s last-changed date is the latest of its own files, never the build\'s; a page with no files of its own has none', () => {
   expect(dateIn(sheet('fish'), '/ca/ca-neon-vua/')?.[1], 'entity, vi and summary: the summary is the latest').toBe('2026-11-04')
-  expect(dateIn(sheet('fish-photos'), '/ca/ca-neon-vua/anh/')?.[1], 'the gallery and the names, not the summary').toBe('2026-11-03')
   expect(dateIn(sheet('guides'), '/huong-dan/setup-be-thuy-sinh-dau-tien/')?.[1]).toBe('2026-10-31')
   const tools = dateIn(sheet('other'), '/cong-cu/')
   expect(tools, 'the tools page is listed').not.toBeNull()
   expect(tools?.[1], 'a fixed page').toBeUndefined()
   const dates = new Set([...sitemapText().matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map(m => m[1]))
-  expect([...dates].sort()).toEqual(['2026-10-31', '2026-11-03', '2026-11-04'])
+  // (2026-11-03 was a photo page's: its gallery and names. The photo pages went on 18 Nov.)
+  expect([...dates].sort()).toEqual(['2026-10-31', '2026-11-04'])
 })
 
 test('robots: production points to the sitemap, staging blocks everything', () => {
@@ -86,8 +88,7 @@ test('search index is built and pages carry an accent-free search alias', () => 
   expect(dom.querySelector('h1[data-pagefind-meta="aka[data-aka]"]')?.getAttribute('data-aka')).toContain('ca dia')
   expect(() => page('/tim-kiem/')).not.toThrow()
 })
-test('search leaves out photo galleries, reference lists, old names and other names lists', () => {
-  expect(page('/ca/ca-neon-vua/anh/').dom.querySelector('[data-pagefind-body]')).toBeNull()
+test('search leaves out reference lists, old names and other names lists', () => {
   const { dom } = page('/ca/ca-neon-xanh/')
   for (const sel of ['section[data-section="references"]', 'section.refs', 'p.alt']) expect(dom.querySelector(sel)?.closest('[data-pagefind-ignore]'), sel).not.toBeNull()
   expect(page('/ca/ca-neon-vua/').dom.querySelector('p.redirected')?.hasAttribute('data-pagefind-ignore')).toBe(true)
@@ -131,11 +132,11 @@ test('markdown for agents: every page has index.md — front matter, headings, f
   expect(md).toMatch(/^-\s+\*\*Nhiệt độ:\*\* \d/m)
   expect(md).not.toMatch(/<[a-z][^>]*>/)
   expect(md).not.toContain('Gửi bình luận')
-  // Readers' photos load live: neither the fish's copy nor its gallery's has their section.
+  // Readers' photos load live: the fish's copy hasn't their section.
   expect(md).not.toContain('Ảnh bạn đọc')
-  const gallery = readFileSync(join(DIST, 'ca', 'ca-neon-vua', 'anh', 'index.md'), 'utf8')
-  expect(gallery).not.toContain('Ảnh bạn đọc')
-  expect(gallery).not.toContain('#rp-h') // the link down to them, empty until the page says how many
+  // Nor a fish's album data, which only the viewer over its page reads (GalleryStrip.astro).
+  expect(readFileSync(join(DIST, 'ca', 'ca-neon-vua', 'index.html'), 'utf8')).toContain('data-album')
+  expect(readFileSync(join(DIST, 'ca', 'ca-neon-vua', 'index.md'), 'utf8')).not.toMatch(/"photos":\[/)
   expect(md).not.toContain('/go/')
   expect(md).toMatch(/\]\(https?:\/\/[^)]+\)/) // links are absolute
   // The app page has none while it's the owner's (worker/app-switch.ts).

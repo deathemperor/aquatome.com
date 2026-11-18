@@ -15,6 +15,7 @@ import { smallSrc } from '../src/lib/img'
 import { isFish } from '../src/lib/taxa-places'
 import { pageIsFish } from '../src/lib/breeds'
 import { PAGE } from '../src/scripts/filter-list'
+import { galleryParent } from '../worker/paths'
 
 export const CHECKS = {
   repeat: 'the same picture twice',
@@ -26,6 +27,7 @@ export const CHECKS = {
   'link-mark': 'a marker localizeLinks left in the page, which no page may ship with',
   'name-twice': "a scientific name said twice: a fish's or plant's title, description, photo text or structured data, or a name with the scientific name printed beside it that the name says already",
   uncredited: 'a photo shown without its credit anywhere on the page',
+  album: "a link to a fish's or plant's album as a page of its own, or a strip's thumb that opens another photo than the one it shows",
   'not-fish': 'a crab\'s, a shrimp\'s or a snail\'s page (its photos\', its group\'s, its lines\') that calls it a fish: "Loài cá" at the head of its trail, or any line of the site\'s own words that says fish; or a reason to keep a crab, a shrimp or a snail away that calls it one, on any page',
 } as const
 export type Check = keyof typeof CHECKS
@@ -53,13 +55,13 @@ export type Facts = {
 }
 
 /**
- * A crab's, a shrimp's or a snail's pages in this language: its page and its photos page, a line's too, and a group's that
+ * A crab's, a shrimp's or a snail's pages in this language: its page, a line's too, and a group's that
  * holds no fish, with each of its numbered pages (PAGE species a page; Codex's read, 17 Nov: the shrimp's second page).
  */
 export function notFishPaths(c: Pick<Content, 'species' | 'breeds'>, lang: Lang): string[] {
   const groups = [...new Set(c.species.map(s => s.group))].filter(g => !isFish({ group: g, order: '' }))
   return [
-    ...[...c.species, ...c.breeds].filter(s => !pageIsFish(c, s)).flatMap(s => ['', 'anh/'].map(p => localizePath(lang, `/vi/ca/${s.t.slug}/${p}`))),
+    ...[...c.species, ...c.breeds].filter(s => !pageIsFish(c, s)).map(s => localizePath(lang, `/vi/ca/${s.t.slug}/`)),
     ...groups.flatMap(g => {
       const pages = Math.ceil(c.species.filter(s => s.group === g).length / PAGE)
       return [`/vi/nhom/${g}/`, ...Array.from({ length: Math.max(pages - 1, 0) }, (_, i) => `/vi/nhom/${g}/trang/${i + 2}/`)].map(p => localizePath(lang, p))
@@ -95,8 +97,8 @@ export async function loadFacts(root: string): Promise<Facts> {
  * a source link is one, so a kind of page added later is covered without a line here. Our own drawings (their source is
  * our own site's page) are no one else's to credit. */
 const OURS = /^https:\/\/(www\.)?aquatome\.com\//
-/** Where a page credits a photo: the footer's list, a figure's © (lib/cite.ts photoMark), an album's thumb (GalleryPage). */
-const CREDIT_LINKS = '#photo-credits a[href], a.cite.pic[href], .pic-by[data-src], .pic-by a[href], a[data-src][data-author]'
+/** Where a page credits a photo: the footer's list, a figure's © (lib/cite.ts photoMark). */
+const CREDIT_LINKS = '#photo-credits a[href], a.cite.pic[href], .pic-by[data-src], .pic-by a[href]'
 function addCredits(credits: Facts['credits'], content: unknown) {
   const seen = new Set<object>()
   const walk = (x: unknown): void => {
@@ -261,8 +263,8 @@ export function checkPage(path: string, html: string, facts: Facts): Problem[] {
     seen.add(src)
   }
 
-  // Every photo shown has its credit on the page: in the footer's list, its figure's ©, a caption's line or an album's
-  // thumb (which the viewer credits), a link to (or the data-src of) the source its record names. A link elsewhere doesn't
+  // Every photo shown has its credit on the page: in the footer's list, its figure's © or a caption's line, a link to (or
+  // the data-src of) the source its record names. A link elsewhere doesn't
   // count: a text source's link can be the article a photo came from. CC BY and BY-SA ask for a credit wherever a photo
   // shows, a 32 px one too: on 15 November a term's rows, a fish's tank mates and the guide cards under fish, plants and
   // products had none.
@@ -270,6 +272,22 @@ export function checkPage(path: string, html: string, facts: Facts): Problem[] {
   for (const src of new Set(pictures.map(i => i.getAttribute('src')!))) {
     const from = facts.credits.get(pictureOf(src, {}).key)
     if (from && ![...from].some(u => links.has(u))) out.push({ check: 'uncredited', detail: src })
+  }
+
+  // An album opens over its page (GalleryStrip.astro): no link anywhere goes to one of the photo pages it had until 18 Nov
+  // (the owner, 17 Nov: "opening a new page for it is unnecessary"), and each of a strip's thumbs opens the photo it shows.
+  for (const a of root.querySelectorAll('a[href]')) {
+    const href = a.getAttribute('href')!
+    const at = /^(?:https:\/\/(?:www\.)?aquatome\.com)?(\/[^?#]*)/.exec(href)?.[1]
+    if (at && galleryParent(at)) out.push({ check: 'album', detail: `a link to ${href}` })
+  }
+  for (const box of root.querySelectorAll('[data-album]')) {
+    let photos: { u: string }[] = []
+    try { photos = (JSON.parse(box.querySelector('script[type="application/json"]')?.textContent ?? '') as { photos: { u: string }[] }).photos } catch { out.push({ check: 'album', detail: 'a strip without its album' }); continue }
+    for (const a of box.querySelectorAll('a[data-i]')) {
+      const i = Number(a.getAttribute('data-i'))
+      if (photos[i]?.u !== a.getAttribute('href')) out.push({ check: 'album', detail: `thumb ${i + 1} shows ${a.getAttribute('href')}, opens ${photos[i]?.u ?? 'nothing'}` })
+    }
   }
 
   const scientific = (name: string) => facts.genera.has(name.split(' ')[0]!)

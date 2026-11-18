@@ -22,8 +22,9 @@ export const isViPage = (path: string) => {
 }
 
 /**
- * A fish's or plant's photo page the build didn't make (its album a picture short of six) forwards to its page, in every
- * language (test/photo-pages.test.ts holds each served one, and its line in wrangler.jsonc's run_worker_first).
+ * A fish's or plant's photo page forwards to its page for good, in every language: the album opens over the page since
+ * 18 Nov (the owner, 17 Nov: "opening a new page for it is unnecessary"), and the browser keeps a photo's #aN, which opens
+ * it there. test/photo-pages.test.ts holds each language's form, and its line in wrangler.jsonc's run_worker_first.
  */
 export const galleryParent = (path: string) => {
   const match = /^(\/(?:ca|cay)\/[^/]+\/)anh\/?$|^(\/(?:id|ms)\/(?:ikan|tanaman|tumbuhan)\/[^/]+\/)foto\/?$|^(\/th\/(?:fish|plants)\/[^/]+\/)photos\/?$/.exec(path)
