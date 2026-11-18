@@ -4,7 +4,7 @@ import type Anthropic from '@anthropic-ai/sdk'
 import type { PageDoc } from '@aq/schema/app-page'
 import { LANGS } from '@aq/schema/langs'
 import { describe, expect, test, vi } from 'vitest'
-import { answerQuestion, ANSWER_LINE, ASK_WORD, CHAT_LIMITS, CHAT_PRESENT, NO_THINKING, firstMessage, openedTank, HANDBOOK, HANDOVER_MS, LAST_TRY, LAST_WORD, MAX_TOKENS, OPENING_SYSTEM, SYSTEM, unaccented, type ChatOptions, type Start } from '../chat/agent'
+import { answerQuestion, ANSWER_LINE, ASK_WORD, CHAT_LIMITS, CHAT_PRESENT, NO_THINKING, firstMessage, openedTank, HANDBOOK, HANDOVER_MS, LAST_TRY, LAST_WORD, MAX_TOKENS, OPENING_SYSTEM, OPENING_TOKENS, SYSTEM, unaccented, type ChatOptions, type Start } from '../chat/agent'
 import { answered, answerFeed, ANSWER_SCHEMA, choiceOf, fill, MAX_BLOCKS, MIN_TEXT, OFF_TOPIC, picksReader, readAnswer, textReader, type Answer, type Choice } from '../chat/answer'
 import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
 import { fold, search, searchTopics } from '../chat/search'
@@ -1121,8 +1121,8 @@ test('the first line and the short last answer turn thinking off as each model a
     const line = bodies.find(b => b.call === 0)!.body, last = bodies.filter(b => b.call > 0)[1]!.body
     return { line: [line.thinking, line.max_tokens, line.output_config?.effort], last: [last.thinking, last.max_tokens, last.output_config?.effort, last.tool_choice] }
   }
-  expect(await sent('claude-sonnet-5-5')).toEqual({ line: [{ type: 'between_tools' }, 150, undefined], last: [{ type: 'between_tools' }, LAST_TRY.maxTokens, 'low', { type: 'none' }] })
-  expect(await sent('claude-opus-5-5')).toEqual({ line: [undefined, 150 + 1_024, 'low'], last: [undefined, LAST_TRY.maxTokens + 1_024, 'low', { type: 'none' }] })
+  expect(await sent('claude-sonnet-5-5')).toEqual({ line: [{ type: 'between_tools' }, OPENING_TOKENS, undefined], last: [{ type: 'between_tools' }, LAST_TRY.maxTokens, 'low', { type: 'none' }] })
+  expect(await sent('claude-opus-5-5')).toEqual({ line: [undefined, OPENING_TOKENS + 1_024, 'low'], last: [undefined, LAST_TRY.maxTokens + 1_024, 'low', { type: 'none' }] })
   // A model with no row of its own is sent what no model refuses: Opus's way.
   expect(await sent('claude-next-6')).toEqual(await sent('claude-opus-5-5'))
   expect(Object.keys(NO_THINKING)).toEqual(['claude-haiku-5-5', 'claude-sonnet-5-5', 'claude-opus-5-5'])
@@ -1327,11 +1327,12 @@ test('Vietnamese typed without accents is read as a keeper means it: the first m
   expect(said('id', 'ikan neon ada jamur putih')).not.toContain('without Vietnamese accents')
 })
 
-test('a long post\'s first line is written from its end; the run still reads the whole post', async () => {
+test('a long post\'s first line is written from its opening and its end; the run still reads the whole post', async () => {
   const h = await hb()
   const final = answer([], { text: 'Chia đèn hai đợt được.' })
   const bodies: { call: number; body: Anthropic.MessageCreateParamsNonStreaming }[] = []
-  const question = `Dòng đầu của bài viết. ${'Bể em set 3 tháng, đèn 8 tiếng, thay nước mỗi tuần. '.repeat(12)}Lá ráy có đốm rêu xanh. Có nên chia đèn không?`
+  const set = 'Bể em set 3 tháng, đèn 8 tiếng, thay nước mỗi tuần. '.repeat(6)
+  const question = `Dòng đầu của bài viết. ${set}Giữa bài viết. ${set}Lá ráy có đốm rêu xanh. Có nên chia đèn không?`
   await answerQuestion({
     send: async (body, opts) => {
       bodies.push({ call: opts.call, body })
@@ -1341,8 +1342,9 @@ test('a long post\'s first line is written from its end; the run still reads the
   })
   const said = (n: number) => JSON.stringify(bodies.find(b => b.call === n)!.body.messages)
   expect(said(0)).toContain('Có nên chia đèn không?')
-  expect(said(0)).not.toContain('Dòng đầu của bài viết')
-  expect(said(1)).toContain('Dòng đầu của bài viết')
+  expect(said(0)).toContain('Dòng đầu của bài viết')
+  expect(said(0)).not.toContain('Giữa bài viết')
+  expect(said(1)).toContain('Giữa bài viết')
 })
 
 test('the first line comes from a call of its own beside the run\'s first, before the first step; it counts in the turn\'s tokens, and the run\'s calls are as without it', async () => {
@@ -1449,6 +1451,11 @@ test('no first line is shown when it says the question is off topic, isn\'t in t
   expect(await turn({ line: text('Mình đang tra cẩm nang về cá neon xanh.'), first: later, onOpening: () => { throw new Error('the reader has left') } })).toMatchObject({ answered: final.text })
   expect(await turn({ lang: 'id', line: text('Mình sedang mencari panduan tentang air keruh.') })).toMatchObject({ shown: [], opening: undefined, answered: final.text })
   expect(await turn({ line: async () => { throw Object.assign(new Error('overloaded'), { status: 529 }) } })).toMatchObject({ shown: [], opening: undefined, answered: final.text, output: 100 })
+  // A line whose call ran out of room is cut, mid-word, though it passes the check: not shown (Thai, 17 Nov). Ended of
+  // its own accord, the same words are.
+  const cut = 'เรากำลังเปิดคู่มือดูว่าปลาหางนกยูงของคุณตายไป 3 ตัว ที่เหลือว่ายเอียง หางลีบ เปลี่ยนน้ำทุกวันทำให้ปลา'
+  expect(await turn({ lang: 'th', line: async () => message([{ type: 'text', text: cut }], 'max_tokens'), first: later })).toMatchObject({ shown: [], opening: undefined, answered: final.text })
+  expect(await turn({ lang: 'th', line: text(cut), first: later })).toMatchObject({ shown: [cut], opening: cut })
   // The line's call answers only once the first step is out.
   const after = new Promise<void>(r => { stepped = r })
   expect(await turn({ line: async () => { await after; return message([{ type: 'text', text: 'Mình đang tra cẩm nang về cá neon xanh.' }]) } })).toMatchObject({ shown: [], opening: undefined, answered: final.text })
@@ -1459,4 +1466,29 @@ test('no first line is shown when it says the question is off topic, isn\'t in t
   // Shown, then the answer is off topic: the run keeps the line it showed, for the transcript (the turn leaves it out: api.ts).
   const offTopic = await turn({ line: text('Mình đang tra cẩm nang về cá neon xanh.'), first: later, text: JSON.stringify({ ...final, offTopic: true }) })
   expect([offTopic.shown.length, offTopic.opening]).toEqual([1, 'Mình đang tra cẩm nang về cá neon xanh.'])
+})
+
+test('a long post whose questions don\'t all fit in a line has its line written from its first, and the rest said after it (17 of 21 long Vietnamese tries got no line, 17 and 18 Nov)', async () => {
+  const h = await hb()
+  const final = answer([], { text: 'Nền trơ vẫn trồng được ráy.' })
+  const question = 'Bể mình 60x30x30, mới set được hai tuần, trồng ráy và rong đuôi chồn, đèn bật 8 tiếng mỗi ngày, chưa thả cá con nào. Mình nên dùng phân nền gì cho bể này? Chơi nền trơ có được không, hay phải có phân nền mới lên cây? Lọc thác 6W chạy cho bể này có đủ không?'
+  let asked = ''
+  const sent: string[] = []
+  const out = await answerQuestion({
+    send: async (body, opts) => {
+      if (opts.call === 0) {
+        asked = JSON.stringify(body.messages)
+        return message([{ type: 'text', text: 'Mình đang tra cẩm nang xem bể 60x30x30 của bạn nên dùng phân nền gì.' }])
+      }
+      if (opts.call === 1) { await new Promise(r => setTimeout(r, 0)); return message([readPage], 'tool_use') }
+      return message([{ type: 'text', text: JSON.stringify(final) }])
+    },
+    model: 'claude-haiku-5-5', lang: 'vi', question, earlier: [], start: {}, handbook: h, tanks: async () => [],
+    opening: true, onOpening: l => sent.push(l), onStep: () => {},
+  })
+  expect(asked).toContain('Mình nên dùng phân nền gì cho bể này?')
+  expect(asked).not.toContain('Lọc thác')
+  expect(out.opening).toBe('Mình đang tra cẩm nang xem bể 60x30x30 của bạn nên dùng phân nền gì, và xem thêm các câu hỏi khác của bạn.')
+  // The reader is sent the line the run keeps.
+  expect(sent).toEqual([out.opening])
 })

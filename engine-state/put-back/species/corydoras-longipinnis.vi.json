@@ -1,0 +1,47 @@
+{
+ "at": "2026-11-18T02:17:10Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "Trong lô cá nhập có lẫn một con Corydoras ellisae",
+   "why": "Talks about the source shop's own imported shipment as if the reader knew it."
+  }
+ ],
+ "text": {
+  "slug": "ca-chuot-vay-dai",
+  "name": "Cá chuột vây dài",
+  "altNames": [
+   "Cá chuột CW003",
+   "Long-finned Cory",
+   "Langfinnet Pansermalle",
+   "CW003"
+  ],
+  "sections": {
+   "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Corydoras(ln6) longipinnis Knaack, 2007</li><li>Tên thường gọi: CW003, Long-finned Cory, Langfinnet Pansermalle (Đan Mạch)</li><li>Kích thước: 61 mm SL (chiều dài chuẩn, không tính vây đuôi)</li><li>Nguồn gốc tên: tên loài đặt theo bộ vây dài của nó (pinnis nghĩa là vây).</li><li>Sách Đỏ IUCN: Chưa được đánh giá</li></ul>",
+   "distribution:planetcatfish": "<p>Nam Mỹ: sông Río Dulce ở Argentina. Nơi thu mẫu chuẩn là sông Río Dulce, đoạn cách Termas de Río Hondo khoảng 20 km về phía hạ lưu, thuộc tỉnh Santiago del Estero, Argentina, tọa độ khoảng 27°29'29''S, 64°41'58''W.</p>",
+   "reproduction:planetcatfish": "<p>Sinh sản: Chưa có ghi nhận. Đến nay chưa có báo cáo nào về chuyện loài này sinh sản.</p>",
+   "references:planetcatfish": "<p>Vertebrate Zoology v. 57 (no. 1), pp 36, Figs. 1-28, 31-39.</p>",
+   "quickFacts:glaser": "<p>Corydoras longipinnis được Joachim Knaack mô tả khoa học năm 2007. Nó là họ hàng gần của Corydoras paleatus, loài cá chuột ai cũng biết, và trông hơi giống dòng vây dài của loài này. Điểm khác là ở C. longipinnis chỉ con đực mới có vây ngực dài thướt tha, còn ở dòng vây dài của C. paleatus thì con cái cũng có vây dài.</p>",
+   "distribution:glaser": "<p>Cá nhập về từ Paraguay. Mẫu dùng để mô tả loài thì lấy ở sông río Dulce, Argentina.</p>",
+   "waterConditions:glaser": "<p>Corydoras longipinnis là cá vùng cận nhiệt đới, nuôi ở nhiệt độ phòng là được. Thông số nước không quan trọng lắm, chỉ cần giữ pH không dưới 6 và không quá 8,5.</p>",
+   "equipment:glaser": "<p>Nhà nào có ao vườn thì mùa hè có thể thả chúng ra ao.</p>",
+   "diet:glaser": "<p>Loài này dễ ăn, thức ăn cá thông thường nào cũng ăn ngay.</p>",
+   "behaviour:glaser": "<p>Nên nuôi Corydoras longipinnis theo đàn, ít nhất 7 con. Chúng rất hiền, không đụng chạm gì tới cá chuột khác hay bất kỳ cá nuôi chung nào. Cây trong bể cũng không bị phá.</p>",
+   "dimorphism:glaser": "<p>Chỉ con đực mới có vây ngực kéo dài.</p>",
+   "reproduction:glaser": "<p>C. longipinnis đẻ dễ, cách cho đẻ giống hệt C. paleatus. Đầu tiên cho cá ăn thật nhiều tới khi bụng con cái căng tròn. Sau đó thay thật nhiều nước, làm vài lần liền, và bù bằng nước mát hơn nước cũ 3–5 °C. Đợt nước mát này sẽ kích cá bắt cặp và đẻ.</p>",
+   "notes:glaser": "<p>Trong lô cá nhập có lẫn một con Corydoras ellisae, và con này khá thú vị. C. ellisae bình thường chỉ có hai đốm lớn trên nền thân nhạt, nhưng con này lại mang hoa văn hơi giống C. longipinnis.</p>",
+   "references:glaser": "<p>Knaack, J. (2007): Beiträge zur Kenntnis der Callichthyidae (Teleostei: Siluruformes). III. Corydoras longipinnis sp. n. – ein neuer Panzerwels aus dem río Dulce in Argentinien (Teleostei: Siluriformes: Callichthyidae). Vertebrate Zoology 57 (1): 35-55</p>"
+  },
+  "quality": {
+   "score": 0.8,
+   "indexable": true,
+   "bySource": {
+    "planetcatfish": 0.8,
+    "glaser": 0.9
+   }
+  }
+ }
+}

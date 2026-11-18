@@ -15,10 +15,10 @@
     "reproduction:glaser": "<p>หลังผสมพันธุ์ ตัวเมียจะอุ้มไข่ไว้ระหว่างขาว่ายน้ำจนกว่าไข่จะฟัก</p>"
   },
   "quality": {
-    "score": 0.6,
-    "indexable": false,
+    "score": 0.85,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.6
+      "glaser": 0.85
     }
   }
 }

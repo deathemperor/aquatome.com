@@ -1,0 +1,101 @@
+{
+  "id": "awaous-lateristriga",
+  "native": {
+    "input": "52008debbf98d243",
+    "at": "2026-11-17T11:42:48.614Z",
+    "claims": [
+      {
+        "code": "SN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The freshwater goby Awaous lateristriga originates from the coastal ranges of western Africa between Senegal and Angola.",
+        "words": "Senegal",
+        "ok": true
+      },
+      {
+        "code": "AO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The freshwater goby Awaous lateristriga originates from the coastal ranges of western Africa between Senegal and Angola.",
+        "words": "Angola",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Awaous lateristriga",
+    "status": "ACCEPTED",
+    "taxonKey": 5208768,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        68
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        36
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        20
+      ],
+      [
+        "5e1d2d54-f5db-43ac-87c5-55a9f79ac718",
+        19
+      ],
+      [
+        "999e2b4b-5dae-475a-bd2d-beae8fd6c8c9",
+        10
+      ],
+      [
+        "1c6b8a9f-5bd9-4358-9915-b7643779b03e",
+        8
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        5
+      ],
+      [
+        "1b18bab9-abdb-41b4-83c8-368ca2e6d391",
+        3
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        3
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "SN",
+      "AO"
+    ],
+    "requests": 13,
+    "at": "2026-11-17T11:42:48.614Z"
+  }
+}

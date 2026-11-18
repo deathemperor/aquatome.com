@@ -1,8 +1,13 @@
 {
   "slug": "mahe",
-  "name": "Mahé",
+  "name": "Pulau Mahé",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-17T17:58:24.737Z"
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

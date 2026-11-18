@@ -1,16 +1,16 @@
 # Photo galleries
 
-Written by `pnpm engine gallery` (2026-11-17). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
+Written by `pnpm engine gallery` (2026-11-18). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
 
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 701 | 31 | 9 | 24 | 717 |
-| rest | 20 | 1764 | 75 | 0 | 95 | 1744 |
+| covered | 30 | 733 | 31 | 9 | 24 | 749 |
+| rest | 20 | 1812 | 79 | 0 | 103 | 1788 |
 
-## Short of target: every source read (602)
+## Short of target: every source read (664)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -136,10 +136,10 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | plants/utricularia-graminifolia | shop | 13 | 60 |
 | species/poropanchax-normani | shop | 6 | 60 |
 | species/hasemania-nana | shop | 1 | 60 |
-| plants/marsilea-hirsuta | shop | 12 | 60 |
 | species/gyrinocheilus-aymonieri | shop | 14 | 60 |
-| species/erpetoichthys-calabaricus | shop | 2 | 60 |
+| plants/marsilea-hirsuta | shop | 12 | 60 |
 | plants/sagittaria-subulata | shop | 13 | 60 |
+| species/erpetoichthys-calabaricus | shop | 2 | 60 |
 | plants/lilaeopsis-brasiliensis | shop | 8 | 60 |
 | species/trichopsis-vittata | shop | 11 | 60 |
 | species/boraras-urophthalmoides | shop | 1 | 60 |
@@ -150,7 +150,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/corydoras-panda | shop | 13 | 60 |
 | species/corydoras-sterbai | shop | 14 | 60 |
 | species/scleropages-jardinii | shop | 3 | 60 |
-| species/scleropages-formosus | shop | 38 | 60 |
+| species/scleropages-formosus | shop | 36 | 60 |
 | species/polypterus-senegalus | shop | 14 | 60 |
 | species/channa-pulchra | shop | 0 | 60 |
 | species/channa-stewartii | shop | 0 | 60 |
@@ -252,7 +252,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/macropodus-opercularis | popular | 20 | 40 |
 | species/pelvicachromis-pulcher | popular | 9 | 40 |
 | species/thorichthys-meeki | popular | 14 | 40 |
-| species/heros-severus | popular | 12 | 40 |
+| species/heros-severus | popular | 8 | 40 |
 | species/rocio-octofasciata | popular | 37 | 40 |
 | species/channa-barca | popular | 0 | 40 |
 | species/channa-bleheri | popular | 1 | 40 |
@@ -273,9 +273,9 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | breeds/albino-oscar | covered | 7 | 30 |
 | species/epiplatys-annulatus | covered | 2 | 30 |
 | species/akysis-vespa | covered | 0 | 30 |
+| species/ambastaia-sidthimunki | covered | 1 | 30 |
 | species/corydoras-fowleri | covered | 1 | 30 |
 | species/aguarunichthys-torosus | covered | 0 | 30 |
-| species/ambastaia-sidthimunki | covered | 1 | 30 |
 | species/amblydoras-nauticus | covered | 0 | 30 |
 | species/aphanotorulus-unicolor | covered | 0 | 30 |
 | species/axelrodia-riesei | covered | 1 | 30 |
@@ -327,7 +327,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/trichogaster-chuna | covered | 10 | 30 |
 | species/xyliphius-lepturus | covered | 0 | 30 |
 | species/acanthicus-adonis | covered | 1 | 30 |
-| species/acarichthys-heckelii | covered | 1 | 30 |
+| species/acarichthys-heckelii | covered | 0 | 30 |
 | species/acentronichthys-leptos | covered | 0 | 30 |
 | species/acestridium-dichromum | covered | 0 | 30 |
 | species/acestrorhynchus-altus | covered | 0 | 30 |
@@ -344,6 +344,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/akysis-portellus | covered | 0 | 30 |
 | species/akysis-prashadi | covered | 0 | 30 |
 | species/akysis-varius | covered | 0 | 30 |
+| species/altolamprologus-calvus | covered | 1 | 30 |
 | species/altolamprologus-compressiceps | covered | 1 | 30 |
 | species/amaralia-hypsiura | covered | 0 | 30 |
 | species/ambastaia-nigrolineata | covered | 1 | 30 |
@@ -360,12 +361,15 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/apistogramma-borellii | covered | 19 | 30 |
 | species/apistogramma-cacatuoides | covered | 22 | 30 |
 | species/apistogramma-commbrae | covered | 1 | 30 |
+| species/apistogramma-elizabethae | covered | 0 | 30 |
+| species/apistogramma-eunotus | covered | 0 | 30 |
 | species/apistogramma-macmasteri | covered | 3 | 30 |
 | species/apistogramma-mendezi | covered | 1 | 30 |
 | species/apistogramma-panduro | covered | 3 | 30 |
 | species/apistogramma-paulmuelleri | covered | 0 | 30 |
 | species/apistogramma-trifasciata | covered | 3 | 30 |
 | species/ariopsis-felis | covered | 26 | 30 |
+| species/ariopsis-seemanni | covered | 0 | 30 |
 | species/aspidoras-pauciradiatus | covered | 4 | 30 |
 | species/aspidoras-taurus | covered | 3 | 30 |
 | species/asterophysus-batrachus | covered | 1 | 30 |
@@ -374,6 +378,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/auchenipterus-nigripinnis | covered | 0 | 30 |
 | species/auchenoglanis-occidentalis | covered | 5 | 30 |
 | species/axelrodia-stigmatias | covered | 0 | 30 |
+| species/bagre-marinus | covered | 10 | 30 |
 | species/bagrichthys-hypselopterus | covered | 0 | 30 |
 | species/bagrichthys-macracanthus | covered | 0 | 30 |
 | species/bagrichthys-obscurus | covered | 0 | 30 |
@@ -396,6 +401,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/betta-brownorum | covered | 0 | 30 |
 | species/betta-burdigala | covered | 0 | 30 |
 | species/betta-channoides | covered | 0 | 30 |
+| species/betta-coccina | covered | 1 | 30 |
 | species/betta-dennisyongi | covered | 0 | 30 |
 | species/betta-dimidiata | covered | 0 | 30 |
 | species/betta-edithae | covered | 11 | 30 |
@@ -420,16 +426,20 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/betta-rubra | covered | 2 | 30 |
 | species/betta-rutilans | covered | 1 | 30 |
 | species/betta-simorum | covered | 0 | 30 |
+| species/betta-simplex | covered | 1 | 30 |
 | species/betta-smaragdina | covered | 0 | 30 |
 | species/betta-uberis | covered | 0 | 30 |
 | species/biotodoma-cupido | covered | 1 | 30 |
 | species/biotodoma-wavrini | covered | 0 | 30 |
 | species/biotoecus-opercularis | covered | 0 | 30 |
 | species/boraras-maculatus | covered | 1 | 30 |
+| species/boraras-micros | covered | 1 | 30 |
 | species/boraras-naevus | covered | 2 | 30 |
 | species/botia-histrionica | covered | 1 | 30 |
 | species/boulengerella-maculata | covered | 4 | 30 |
+| species/brachychalcinus-orbicularis | covered | 0 | 30 |
 | species/brachygobius-aggregatus | covered | 0 | 30 |
+| species/brachygobius-sabanus | covered | 0 | 30 |
 | species/brachyplatystoma-juruense | covered | 0 | 30 |
 | species/brachyplatystoma-tigrinum | covered | 0 | 30 |
 | species/brachyrhamdia-heteropleura | covered | 0 | 30 |
@@ -459,11 +469,13 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/chitala-blanci | covered | 0 | 30 |
 | species/chrysichthys-auratus | covered | 0 | 30 |
 | species/cichla-orinocensis | covered | 1 | 30 |
+| species/cichla-temensis | covered | 1 | 30 |
 | species/clarias-meladerma | covered | 0 | 30 |
 | species/clarias-pachynema | covered | 0 | 30 |
 | species/cleithracara-maronii | covered | 5 | 30 |
 | species/clypeobarbus-congicus | covered | 0 | 30 |
 | species/copadichromis-borleyi | covered | 2 | 30 |
+| species/copella-arnoldi | covered | 1 | 30 |
 | species/corydoras-amandajanea | covered | 0 | 30 |
 | species/corydoras-armatus | covered | 0 | 30 |
 | species/corydoras-atropersonatus | covered | 0 | 30 |
@@ -547,6 +559,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/epiplatys-dageti | covered | 0 | 30 |
 | species/erethistes-pusillus | covered | 1 | 30 |
 | species/eretmodus-cyanostictus | covered | 0 | 30 |
+| species/ernstichthys-megistus | covered | 0 | 30 |
 | species/erythrinus-erythrinus | covered | 0 | 30 |
 | species/etroplus-canarensis | covered | 0 | 30 |
 | species/etroplus-maculatus | covered | 24 | 30 |
@@ -566,6 +579,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/geophagus-winemilleri | covered | 0 | 30 |
 | species/gnathochromis-permaxillaris | covered | 1 | 30 |
 | species/gobioides-broussonnetii | covered | 6 | 30 |
+| species/gymnallabes-typus | covered | 0 | 30 |
 | species/gymnocorymbus-bondi | covered | 0 | 30 |
 | species/haludaria-fasciata | covered | 11 | 30 |
 | species/hampala-macrolepidota | covered | 4 | 30 |
@@ -577,6 +591,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/hemibagrus-macropterus | covered | 0 | 30 |
 | species/hemichromis-bimaculatus | covered | 0 | 30 |
 | species/hemichromis-elongatus | covered | 0 | 30 |
+| species/hemigrammus-bellottii | covered | 0 | 30 |
 | species/hemigrammus-hyanuary | covered | 0 | 30 |
 | species/hemigrammus-ocellifer | covered | 0 | 30 |
 | species/hemigrammus-rhodostomus | covered | 8 | 30 |
@@ -586,10 +601,12 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/hemisilurus-moolenburghi | covered | 0 | 30 |
 | species/heros-efasciatus | covered | 13 | 30 |
 | species/herotilapia-multispinosa | covered | 0 | 30 |
+| species/hisonotus-nigricauda | covered | 0 | 30 |
 | species/homaloptera-parclitella | covered | 3 | 30 |
 | species/homalopteroides-tweediei | covered | 0 | 30 |
 | species/hydrocynus-goliath | covered | 7 | 30 |
 | species/hydrolycus-armatus | covered | 1 | 30 |
+| species/hydrolycus-scomberoides | covered | 1 | 30 |
 | species/hydrolycus-tatauaia | covered | 0 | 30 |
 | species/hypancistrus-contradens | covered | 0 | 30 |
 | species/hypancistrus-debilittera | covered | 0 | 30 |
@@ -618,3 +635,48 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/hypostomus-soniae | covered | 0 | 30 |
 | species/hypostomus-taphorni | covered | 0 | 30 |
 | species/hypselecara-temporalis | covered | 4 | 30 |
+| species/hypseleotris-compressa | covered | 8 | 30 |
+| species/hypselobarbus-jerdoni | covered | 0 | 30 |
+| species/hypsophrys-nicaraguensis | covered | 0 | 30 |
+| species/iheringichthys-megalops | covered | 0 | 30 |
+| species/ilyodon-furcidens | covered | 22 | 30 |
+| species/imparfinis-mirini | covered | 0 | 30 |
+| species/indostomus-paradoxus | covered | 0 | 30 |
+| species/jordanella-floridae | covered | 16 | 30 |
+| species/julidochromis-marlieri | covered | 8 | 30 |
+| species/knodus-borki | covered | 2 | 30 |
+| species/kottelatia-brittani | covered | 0 | 30 |
+| species/kronichthys-heylandi | covered | 0 | 30 |
+| species/kronichthys-subteres | covered | 0 | 30 |
+| species/kryptopterus-cryptopterus | covered | 0 | 30 |
+| species/labeo-boga | covered | 0 | 30 |
+| species/labeo-calbasu | covered | 0 | 30 |
+| species/labeo-chrysophekadion | covered | 0 | 30 |
+| species/labeo-cyclorhynchus | covered | 0 | 30 |
+| species/labiobarbus-leptocheilus | covered | 1 | 30 |
+| species/ladigesia-roloffi | covered | 4 | 30 |
+| species/laemolyta-taeniata | covered | 0 | 30 |
+| species/laetacara-araguaiae | covered | 1 | 30 |
+| species/laetacara-curviceps | covered | 1 | 30 |
+| species/laetacara-dorsigera | covered | 0 | 30 |
+| species/laetacara-fulvipinnis | covered | 0 | 30 |
+| species/lamontichthys-filamentosus | covered | 0 | 30 |
+| species/lamontichthys-llanero | covered | 0 | 30 |
+| species/lampiella-gibbosa | covered | 0 | 30 |
+| species/lamprologus-signatus | covered | 0 | 30 |
+| species/lasiancistrus-heteracanthus | covered | 0 | 30 |
+| species/laubuka-dadiburjori | covered | 1 | 30 |
+| species/laubuka-laubuca | covered | 0 | 30 |
+| species/leiarius-marmoratus | covered | 2 | 30 |
+| species/lepidocephalichthys-guntea | covered | 1 | 30 |
+| species/lepidosiren-paradoxa | covered | 7 | 30 |
+| species/leporacanthicus-galaxias | covered | 0 | 30 |
+| species/leporacanthicus-triactis | covered | 0 | 30 |
+| species/leporellus-vittatus | covered | 7 | 30 |
+| species/leporinus-arcus | covered | 0 | 30 |
+| species/leporinus-friderici | covered | 5 | 30 |
+| species/leptobarbus-hoevenii | covered | 2 | 30 |
+| species/leptobotia-elongata | covered | 0 | 30 |
+| species/leptodoras-cataniai | covered | 1 | 30 |
+| species/leptodoras-linnelli | covered | 0 | 30 |
+| species/limia-melanogaster | covered | 0 | 30 |

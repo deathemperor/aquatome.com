@@ -1,0 +1,71 @@
+{
+  "id": "yasuhikotakia-caudipunctata",
+  "native": {
+    "input": "e82bc25744511e5d",
+    "at": "2026-11-17T18:05:08.130Z",
+    "claims": [
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the Mekong river drainage in Laos with the type series collected from close to the city of Pakse, Champasak province and further north near the capital city of Vientiane, Vientiane province.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Both localities are situated close to the border with eastern Thailand so the species presumably occurs in some Mekong tributaries there, but specific details have not been obtained to date.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Described from the Mekong river drainage in Laos with the type series collected from close to the city of Pakse, Champasak province and further north near the capital city of Vientiane, Vientiane province.",
+        "country": "LA",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": [
+        "TH"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Yasuhikotakia caudipunctata",
+    "status": "ACCEPTED",
+    "taxonKey": 2367787,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        9
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "LA",
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-17T18:05:08.130Z"
+  }
+}

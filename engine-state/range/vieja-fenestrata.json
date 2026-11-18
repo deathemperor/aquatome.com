@@ -1,0 +1,151 @@
+{
+  "id": "vieja-fenestrata",
+  "native": {
+    "input": "e1668a1bab69804e",
+    "at": "2026-11-17T11:42:48.614Z",
+    "claims": [
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Vieja fenestrata is a large cichlid endemic to Mexico, occurring in and between the rivers Papaloapán and Chachalacas.",
+        "words": "Mexico",
+        "ok": true
+      },
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Mexico, occurring both in and between the rivers Papaloapán and Chachalacas.",
+        "words": "Mexico",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Papaloapán",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Mexico, occurring both in and between the rivers Papaloapán and Chachalacas.",
+        "country": "MX",
+        "ok": true
+      },
+      {
+        "name": "Chachalacas",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Mexico, occurring both in and between the rivers Papaloapán and Chachalacas.",
+        "country": "MX",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Vieja fenestrata",
+    "status": "ACCEPTED",
+    "taxonKey": 2372020,
+    "datasets": [
+      [
+        "ec79bfca-83fc-4f89-baad-9a76d320953b",
+        149
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        69
+      ],
+      [
+        "7ff09cba-f762-11e1-a439-00145eb45e9a",
+        56
+      ],
+      [
+        "d74f14ea-0bd6-42e9-b62e-e490b21a9ab4",
+        42
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        25
+      ],
+      [
+        "f6cc0fcc-1605-4bd4-bbea-dd12f697a2ba",
+        20
+      ],
+      [
+        "8008770e-f762-11e1-a439-00145eb45e9a",
+        19
+      ],
+      [
+        "4ec633b0-8b1f-405e-86cf-7f782a3ced53",
+        14
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        10
+      ],
+      [
+        "7c95ae39-b477-4863-8dda-2d74dc48b067",
+        9
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        9
+      ],
+      [
+        "e8989ab2-94dc-4570-9783-c3ab92300872",
+        9
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        5
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        5
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        4
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        4
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        3
+      ],
+      [
+        "805bbcde-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        3
+      ],
+      [
+        "727b83c1-e8a7-4dd9-a9a2-4c4a9ea9636c",
+        2
+      ],
+      [
+        "7f6b3fe8-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "ba5b0f3a-73dd-459f-a7f1-9abc327aed00",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ]
+    ],
+    "native": [
+      "MX"
+    ],
+    "requests": 14,
+    "at": "2026-11-17T11:42:48.614Z"
+  }
+}

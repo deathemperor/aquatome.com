@@ -11,6 +11,74 @@
     "kunene",
     "namibia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "AO",
+        "NA"
+      ],
+      "regions": [
+        "Kunene River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Etymology: kunenensis, –ensis, suffix denoting place: Kunene River system, Angola-Namibia border, where it appears to be endemic.",
+          "countries": [
+            "AO",
+            "NA"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Southwestern Africa: Kunene River, Angola/Namibia border.",
+          "countries": [],
+          "regions": [
+            "Kunene River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961349,
+      "total": 7,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "NA",
+          5
+        ],
+        [
+          "AO",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          12.65625,
+          -18.28125,
+          5,
+          5
+        ],
+        [
+          14.0625,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          15.46875,
+          -21.09375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

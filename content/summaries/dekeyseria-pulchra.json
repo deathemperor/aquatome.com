@@ -1,9 +1,13 @@
 {
   "id": "dekeyseria-pulchra",
-  "summary": "Hồ sơ Cá L168 (Dekeyseria pulchra) chưa có thông tin về bể, nước, thức ăn hay độ khó, và thẻ dữ liệu cũng trống, nên chưa đủ cơ sở để nói loài này hợp với ai. Hồ sơ chỉ cho biết có một lứa L168 nuôi sinh sản về từ một người nuôi đẻ có tiếng. Phần ghi chú nêu tên khoa học là Zonancistrus brachyurus, và tên \"Peckoltia pulcher\" trên danh sách hàng là tên sai.",
-  "mistakes": [],
-  "speciesUpdatedAt": "2026-11-04",
-  "generatedAt": "2026-11-05T00:34:40.929Z",
-  "review": "approved",
-  "writtenFrom": "fe4abff121a73f9d"
+  "summary": "Cá L168 (Dekeyseria pulchra) hợp với người muốn nuôi một loài hiền, dài tối đa 15 cm, có thể nuôi thành đàn đông vì chúng rất hiền với đồng loại. Loài này sống ở hệ sông Rio Negro, Brazil. Hồ sơ chỉ nêu nước thật mềm, pH 5,5–6 cho việc cho đẻ, còn bể tối thiểu và độ khó thì không ghi. Điểm khó nhất là định danh, vì tên bị đổi nhiều lần và cá hay bị nhầm với L52.",
+  "mistakes": [
+    "Tin vào tên khoa học khi chọn cá: nên đối chiếu theo mã L168, vì mã L đáng tin hơn tên và loài này hay bị nhầm với L52.",
+    "Nuôi lẻ con rồi muốn cho đẻ: nên nuôi thành đàn đông, vì đàn đông dễ đẻ hơn.",
+    "Cho đẻ mà không chuẩn bị hang hay nước mềm: L168 là loài đẻ trong hang điển hình, nên cho hang và giữ nước thật mềm, pH 5,5–6."
+  ],
+  "speciesUpdatedAt": "2026-11-17",
+  "writtenFrom": "6bef307fabd32ceb",
+  "generatedAt": "2026-11-17T19:50:17.275Z",
+  "review": "approved"
 }

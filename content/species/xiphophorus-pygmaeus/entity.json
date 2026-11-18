@@ -10,6 +10,70 @@
     "mexico",
     "panuco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MX"
+      ],
+      "regions": [
+        "Pánuco River",
+        "Rio Axtla"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "Xiphophorus pygmaeus is a freshwater species endemic to Mexico and occurs exclusively in the Rio Axtla and its tributaries (Rio Tancuilin and Rio Huichihuayan) within the Pánuco River system.",
+          "countries": [
+            "MX"
+          ],
+          "regions": [
+            "Pánuco River",
+            "Rio Axtla"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2350195,
+      "total": 101,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "MX",
+          101
+        ]
+      ],
+      "cells": [
+        [
+          -101.25,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          -99.84375,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          -99.84375,
+          21.09375,
+          98,
+          98
+        ],
+        [
+          -99.84375,
+          22.5,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

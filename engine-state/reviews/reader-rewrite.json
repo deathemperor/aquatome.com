@@ -71,6 +71,21 @@
       "kept": false
     }
   ],
+  "vi/guides/aquariumbreeder-crayfish-and-molting-process#body": [
+    {
+      "at": "2026-11-17T18:17:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [
+        "\"Vài ngày đầu sau khi lột\" adds \"đầu\" (first few days), slightly more specific than \"vài ngày sau khi lột\"; minor nuance.",
+        "\"ăn hết lớp vỏ đó để lấy lại khoáng chất\" became \"ăn lại lớp vỏ đó\"; \"hết\" moved to the end clause, meaning essentially kept."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/aquariumbreeder-how-to-choose-aquarium-plants-for-beginners#body": [
     {
       "at": "2026-11-09T13:57:24Z",
@@ -228,6 +243,22 @@
         "\"cá bản địa ở châu Âu\" -> \"cá sống hoang ở châu Âu\": arguably a more accurate wording, but the meaning shifts slightly",
         "\"Ngoài môi trường gốc\" -> \"Ở môi trường gốc tại Bắc Mỹ\": adds \"Bắc Mỹ\", which is consistent with the later sentence",
         "\"các quần thể pumpkinseed hoang dã\" -> \"pumpkinseed hoang dã\": minor"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/glaser-en-25-perchlike-fishes-a-little-sensation-the-first-documented-ob-discus#body": [
+    {
+      "at": "2026-11-18T01:13:05Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "\"Bị động\" became \"bị quấy hoặc giật mình\": small addition/nuance shift.",
+        "\"Gần như chắc chắn\" kept; fine.",
+        "\"Thích nghi rất tốt\" became \"quen bể rất nhanh\": slight shift from adaptation quality to speed."
       ],
       "attempt": "first",
       "kept": true
@@ -410,6 +441,22 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-37GntJo93ec#body": [
+    {
+      "at": "2026-11-17T11:56:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "AFTER adds \"Cây dán trên đá\" (plants glued on rock), which BEFORE never mentions. BEFORE only talks about not gluing plants to driftwood (lũa), so this is an added or changed fact.",
+        "\"Nhìn từ mỗi phía\" replaces \"nhìn quanh bể\", a slight shift in meaning.",
+        "BEFORE's \"vì…\" reason clause is split into a separate sentence, and the invented rock detail changes its logic."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-7DFk4bnIxEg#body": [
     {
       "at": "2026-11-06T21:51:26Z",
@@ -453,6 +500,21 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-BsRyej3Zte8#body": [
+    {
+      "at": "2026-11-17T18:19:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "BEFORE: hẹ must 'bám chặt nền trong dòng nước chảy' (stay firmly rooted in the current); AFTER: 'đung đưa như ở sông' (sway like in a river) changes the meaning, and the rooting idea is lost.",
+        "AFTER adds 'dòng chảy đủ mạnh' (strong enough current), which BEFORE does not state."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-C3jPFBWzK68#body": [
     {
       "at": "2026-11-08T11:28:30Z",
@@ -491,6 +553,35 @@
       "cli": "2.1.322",
       "score": 0.97,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-FVElZJMaBeo#body": [
+    {
+      "at": "2026-11-18T01:10:20Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "\"con cá bị hại nhiều hơn được\" (fish does more harm than good) became \"con cá phá nhiều hơn là đáng giữ\" (does more damage than is worth keeping): shifts the meaning toward whether to keep the fish, which adds a suggestion BEFORE does not state.",
+        "\"cá lau kiếng ăn cây\" -> \"gặm cây\" and \"hay bị gặm\" -> \"hay bị nó ăn\": wording swapped, fine, hedge \"hay\" kept."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-G2iSTDzETi0#body": [
+    {
+      "at": "2026-11-17T18:21:19Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "\"lọc thùng (sump)\" changed to \"lọc tràn (sump)\": different term for the same sump, minor terminology shift."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -575,6 +666,18 @@
         "\"không chịu nước\" became \"không chạm nước\": this changes the reason given. The original says the pieces are not water-resistant. The rewrite says they don't touch water, which is a small nuance shift.",
         "The polycarbonate option is kept as a hedge (\"có thể\"), and the drawback is kept."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-Ox-PCTr1E-s#body": [
+    {
+      "at": "2026-11-17T11:58:06Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.97,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -758,6 +861,22 @@
         "\"2 giọt mỗi giây\" became \"2 bọt mỗi giây\": the dosing unit changed from drops to bubbles.",
         "\"Cây trồng nổi\" became \"Cây trồng cạn\": the plant category was changed.",
         "\"phần thân lá thì vươn lên khỏi mặt nước\" is a slight restructuring that adds the detail of stems and leaves."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-hENX7VGbPUA#body": [
+    {
+      "at": "2026-11-17T11:56:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Added advice not in BEFORE: \"nên lau ngay từ bây giờ\". BEFORE only says wiping once there is water is also easy, but reaching the back is hard when the tank is full.",
+        "Nuance changed: \"lau cũng dễ\" became \"lau dễ hơn\". BEFORE says it is also easy, while AFTER makes it a comparison.",
+        "\"Một cách là đắp...\" became \"Có thể đắp...\". This is minor, but it turns one example method into a general possibility."
       ],
       "attempt": "first",
       "kept": false

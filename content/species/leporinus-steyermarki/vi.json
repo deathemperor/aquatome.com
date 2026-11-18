@@ -3,18 +3,20 @@
   "name": "Cá Leporinus đốm vàng",
   "altNames": [
     "Golden Spotted Leporinus",
-    "Grey Leporinus"
+    "Grey Leporinus",
+    "Cá Leporinus xám"
   ],
   "sections": {
-    "quickFacts:glaser": "<p>Leporinus steyermarki là một loài tetra cỡ lớn rất đẹp, quê ở Venezuela. Cá lớn tối đa khoảng 30 cm.</p>",
-    "diet:glaser": "<p>Như mọi loài Leporinus khác, cá này ăn tạp và ăn nhiều rau.</p>",
-    "notes:glaser": "<p>Ở Đức, thỉnh thoảng người ta gọi loài này là \"Grey Leporinus\" (Leporinus xám). Cái tên này chắc chắn không đúng với màu của cá. Có lẽ người ta đã nhầm nó với một loài khác trong số rất nhiều loài Leporinus.</p><p>Nguồn gốc tên: Leporinus là tiếng Latin, nghĩa là \"mũi thỏ rừng\". Tên steyermarki đặt theo Julian A. Steyermark, người dẫn đầu chuyến khảo sát thực vật ở Venezuela năm 1953 của Bảo tàng Lịch sử Tự nhiên Chicago. Loài cá này được tìm thấy trong chuyến khảo sát đó.</p><p>Tên thường gọi đề xuất: Golden Spotted Leporinus</p>"
+    "quickFacts:glaser": "<p>Leporinus steyermarki là một loài tetra cỡ lớn, rất đẹp. Cá lớn tối đa khoảng 30 cm và có nguồn gốc từ Venezuela.</p>",
+    "diet:glaser": "<p>Như mọi loài Leporinus khác, đây là cá ăn tạp và ăn nhiều rau, cây.</p>",
+    "behaviour:glaser": "<p>Lúc còn dài 4–6 cm, chúng sống với nhau rất hiền.</p>",
+    "notes:glaser": "<p>Trong tiếng Đức, loài này thỉnh thoảng bị gọi là \"Leporinus xám\". Cái tên này chắc chắn không đúng với màu của cá. Có thể người ta đã nhầm nó với một loài khác trong số rất nhiều loài Leporinus.</p><p>Nguồn gốc tên gọi: Leporinus là tiếng Latin, nghĩa là \"mũi thỏ rừng\". Tên steyermarki đặt theo Julian A. Steyermark, người dẫn chuyến khảo sát thực vật ở Venezuela năm 1953 của Bảo tàng Lịch sử Tự nhiên Chicago. Loài cá này được tìm thấy trong chính chuyến đi đó.</p><p>Tên thường gọi đề xuất: cá Leporinus đốm vàng</p>"
   },
   "quality": {
-    "score": 0.6,
+    "score": 0.7,
     "indexable": false,
     "bySource": {
-      "glaser": 0.6
+      "glaser": 0.7
     },
     "reason": "thin"
   }

@@ -10,6 +10,68 @@
     "democratic-republic-of-the-congo",
     "congo-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD"
+      ],
+      "regions": [
+        "Congo River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Etymology: the specific name ineac was given for the Centre de l'Institut National pour l'Etude Agronomique du Congo belge (I.N.E.A.C.), Stanleyville (now Kisangani, Democratic Republic of the Congo), near the type locality.",
+          "countries": [
+            "CD"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Africa: Congo River basin.",
+          "countries": [],
+          "regions": [
+            "Congo River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340848,
+      "total": 13,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "CD",
+          13
+        ]
+      ],
+      "cells": [
+        [
+          22.5,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          23.90625,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          23.90625,
+          0,
+          11,
+          11
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

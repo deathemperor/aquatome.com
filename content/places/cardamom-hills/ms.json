@@ -3,6 +3,12 @@
   "name": "Bukit Cardamom",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.4,
+    "at": "2026-11-17T17:56:31.894Z",
+    "why": "\"Bukit Cardamom\" leaves \"Cardamom\" untranslated, whereas an atlas in Malaysia would write the Malay name \"Bukit-bukau Cardamom\" or \"Banjaran Cardamom\" using the Malay word for the range; \"Bukit\" (single hill) is the wrong kind word for a range of hills."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

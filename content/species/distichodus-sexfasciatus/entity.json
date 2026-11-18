@@ -21,10 +21,12 @@
         "TZ"
       ],
       "regions": [
-        "Lake Tanganyika"
+        "Lake Tanganyika",
+        "Congo River"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -39,10 +41,18 @@
         },
         {
           "source": "seriouslyfish",
-          "quote": "Cameroon, Democratic Republic of Congo, Tanzania. It is present in Lake Tanganyika.",
+          "quote": "It is present in Lake Tanganyika.",
           "countries": [],
           "regions": [
             "Lake Tanganyika"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Distichodus sexfasciatus originates from the Congo River basin in the Democratic Republic of the Congo (formerly Zaire).",
+          "countries": [],
+          "regions": [
+            "Congo River"
           ]
         }
       ]

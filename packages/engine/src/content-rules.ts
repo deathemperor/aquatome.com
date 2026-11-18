@@ -1379,7 +1379,7 @@ ${r.errors.length ? `\nRules that failed on a page (fix the rule):\n\n${r.errors
 ${sections.join('\n')}`
 }
 
-type Stored = { name?: string; altNames?: string[]; sections?: Record<string, string>; body?: string; definition?: string; summary?: string[]; faq?: { q: string; a: string }[] }
+type Stored = { name?: string; altNames?: string[]; linkNames?: string[]; sections?: Record<string, string>; body?: string; definition?: string; summary?: string[]; faq?: { q: string; a: string }[] }
 /**
  * The fixes made on write (tidyHtml on its HTML, unescapePlain on its plain text) and, on both, the words Vietnamese
  * readers write another way (viWording), on one stored translation.
@@ -1391,6 +1391,7 @@ export function fixTranslation(t: Stored): Stored {
     ...t,
     ...(t.name !== undefined ? { name: plain(t.name) } : {}),
     ...(t.altNames ? { altNames: t.altNames.map(plain) } : {}),
+    ...(t.linkNames ? { linkNames: t.linkNames.map(plain) } : {}),
     ...(t.sections ? { sections: Object.fromEntries(Object.entries(t.sections).map(([k, v]) => [k, html(v)])) } : {}),
     ...(t.body !== undefined ? { body: html(t.body) } : {}),
     ...(t.definition !== undefined ? { definition: html(t.definition) } : {}),

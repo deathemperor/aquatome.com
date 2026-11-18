@@ -1,10 +1,13 @@
 {
   "slug": "arroyo-pozo-hondo",
-  "name": "Arroyo Pozo Hondo",
-  "altNames": [],
+  "name": "suối Pozo Hondo",
+  "altNames": [
+    "Arroyo Pozo Hondo"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

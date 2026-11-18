@@ -18,9 +18,11 @@
         "CD"
       ],
       "regions": [
-        "Congo River"
+        "Congo River",
+        "Congo"
       ],
       "sources": [
+        "glaser",
         "seriouslyfish"
       ],
       "quotes": [
@@ -33,6 +35,14 @@
           ],
           "regions": [
             "Congo River"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Barbus congicus originates from the Congo river in Central Africa.",
+          "countries": [],
+          "regions": [
+            "Congo"
           ]
         }
       ]

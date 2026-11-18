@@ -1,0 +1,25 @@
+{
+  "slug": "chaetobranchopsis-australis",
+  "name": "Chaetobranchopsis australis",
+  "altNames": [
+    "Chaetobranchopsis"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Chaetobranchopsis australis adalah cichlid asal Paraguay yang khusus memakan organisme plankton berukuran kecil. Ikan ini bisa tumbuh hingga 12–14 cm.</p>",
+    "diet:glaser": "<p>Ikan ini menyedot air seperti penyedot debu, lalu menyaring plankton dari air tersebut dengan tapis insang (gill raker) yang panjang. Saat diimpor (September lalu), plankton di Paraguay sedang cukup langka, sehingga ikan-ikannya lebih kurus daripada yang diharapkan.</p>",
+    "reproduction:glaser": "<p>Chaetobranchopsis adalah salah satu dari sedikit sekali genus cichlid yang perilaku berkembang biaknya sama sekali belum diketahui. Ikan di akuarium pernah terlihat membersihkan batu, jadi mungkin mereka termasuk pemijah terbuka (open brooder). Namun, hal ini belum diketahui.</p>"
+  },
+  "quality": {
+    "score": 0.75,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.75
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-18"
+  }
+}

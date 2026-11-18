@@ -10,6 +10,61 @@
     "brazil",
     "tapajos"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Tapajós",
+        "Rio Cururu",
+        "Rio Jamanxim"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The type locality is given as: Creek at left bank of Rio Cururu, tributary of upper River Tapajós near Maloca do Conzale, about 7°45’S, 58°00’W, Pará State, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Cururu"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "According to the exporter, the species comes from the Rio Jamanxim, a tributary of the Tapajós.",
+          "countries": [],
+          "regions": [
+            "Tapajós",
+            "Rio Jamanxim"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342749,
+      "total": 1,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -59.0625,
+          -8.4375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {
@@ -33,6 +88,16 @@
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/glaser/ec4860c0cce3b900.webp",
+      "thumb": "https://media.aquatome.com/glaser/ec4860c0cce3b900-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/brochis-bifasciata-corydoras-bifasciatus-2/",
+      "source": "glaser"
+    },
+    {
       "url": "https://media.aquatome.com/glaser/f6761be1b8edfddf.webp",
       "thumb": "https://media.aquatome.com/glaser/f6761be1b8edfddf-480.webp",
       "width": 850,
@@ -55,16 +120,6 @@
     {
       "url": "https://media.aquatome.com/glaser/2b4f96f9000989ce.webp",
       "thumb": "https://media.aquatome.com/glaser/2b4f96f9000989ce-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/brochis-bifasciata-corydoras-bifasciatus-2/",
-      "source": "glaser"
-    },
-    {
-      "url": "https://media.aquatome.com/glaser/ec4860c0cce3b900.webp",
-      "thumb": "https://media.aquatome.com/glaser/ec4860c0cce3b900-480.webp",
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",

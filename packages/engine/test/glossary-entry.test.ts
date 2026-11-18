@@ -16,7 +16,7 @@ const facts: TopicFacts = {
     { section: 'what', fact: 'Driftwood releases tannins that lower pH slightly and tint the water brown', source: 0 },
     { section: 'steps', fact: 'Soak new driftwood for one to two weeks, changing the water, before it goes in a tank', source: 1 },
     { section: 'other', fact: 'Bogwood is wood preserved in a peat bog', source: 2 },
-    { section: 'other', fact: 'Vietnamese keepers write "gỗ lũa" and "cây lũa"; NH3 is not about wood', source: 1 },
+    { section: 'other', fact: 'Vietnamese keepers write the term as "gỗ lũa" and "cây lũa"; NH3 is not about wood', source: 1 },
   ],
   species: [],
   sources: [
@@ -955,7 +955,7 @@ test('a name the term\'s notes take off leaves its other names, saved or newly w
   await mkdir(join(root, 'content/glossary/gh'), { recursive: true })
   await writeFile(join(root, 'content/glossary/gh/entity.json'), JSON.stringify({ id: 'gh', en: 'General hardness' }))
   await writeFile(join(root, 'content/glossary/gh/vi.json'), JSON.stringify({ slug: 'gh', name: 'GH', altNames: ['dGH', 'độ cứng tổng'], sections: {}, definition: 'Độ cứng tổng của nước.', quality: { score: 0.9, indexable: true } }))
-  const named: TopicFacts = { ...facts, facts: [...facts.facts, { section: 'other', fact: 'Keepers here write "độ cứng chung" for GH and measure it in dGH', source: 1 }] }
+  const named: TopicFacts = { ...facts, facts: [...facts.facts, { section: 'other', fact: 'Keepers here write the term as "độ cứng chung" and measure it in dGH', source: 1 }] }
   const llm: Llm = async ({ prompt }) => {
     if (prompt.startsWith('GLOSSARY RULES')) return { notes: [] } as never
     if (isCheck(prompt)) return verdicts(prompt) as never
@@ -965,4 +965,27 @@ test('a name the term\'s notes take off leaves its other names, saved or newly w
   expect(r).toMatchObject({ id: 'gh', score: 1 })
   const vi = JSON.parse(await readFile(join(root, 'content/glossary/gh/vi.json'), 'utf8'))
   expect(vi.altNames).toEqual(['độ cứng tổng', 'độ cứng chung'])
+})
+
+// The chief of staff, 18 Nov 2026: "Tên khác" holds only what a keeper calls the thing. A link phrase stays one, kept on
+// the save; a phrase the writer offers that a fact only quotes, and not as the term's name, is not an other name.
+test('a term\'s link phrases are kept and never become its other names; a writer\'s name stays only when a fact gives it as one', async () => {
+  const root = await site()
+  await mkdir(join(root, 'content/glossary/gh'), { recursive: true })
+  await writeFile(join(root, 'content/glossary/gh/entity.json'), JSON.stringify({ id: 'gh', en: 'General hardness' }))
+  await writeFile(join(root, 'content/glossary/gh/vi.json'), JSON.stringify({ slug: 'gh', name: 'GH', altNames: ['độ cứng tổng'], sections: {}, linkNames: ['độ cứng của nước'], definition: 'Độ cứng tổng của nước.', quality: { score: 0.9, indexable: true } }))
+  const quoted: TopicFacts = { ...facts, facts: [...facts.facts,
+    { section: 'other', fact: 'Name for the term: "độ cứng chung".', source: 1 },
+    { section: 'other', fact: 'A shop says "nước rất cứng" scales heaters, and calls "độ cứng của nước" the first thing to test', source: 1 },
+    { section: 'other', fact: 'GH is short for General hardness, measured in dGH', source: 1 }] }
+  const llm: Llm = async ({ prompt }) => {
+    if (prompt.startsWith('GLOSSARY RULES')) return { notes: [] } as never
+    if (isCheck(prompt)) return verdicts(prompt) as never
+    return { definition: 'GH là độ cứng tổng của nước.', altNames: ['độ cứng chung', 'độ cứng của nước', 'nước rất cứng', 'General hardness'], body: '<h3>Trong bể của bạn</h3><p>GH đo canxi và magie trong nước.</p>', related: [] } as never
+  }
+  const r = await makeGlossaryEntry(root, { research: async () => quoted as never, llm }, 'gh', { kind: 'care' })
+  expect(r).toMatchObject({ id: 'gh', score: 1 })
+  const vi = JSON.parse(await readFile(join(root, 'content/glossary/gh/vi.json'), 'utf8'))
+  expect(vi.altNames).toEqual(['độ cứng tổng', 'độ cứng chung', 'General hardness'])
+  expect(vi.linkNames).toEqual(['độ cứng của nước'])
 })

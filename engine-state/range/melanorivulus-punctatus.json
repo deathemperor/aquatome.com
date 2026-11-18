@@ -1,0 +1,83 @@
+{
+  "id": "melanorivulus-punctatus",
+  "native": {
+    "input": "f8fd1d184607c6cb",
+    "at": "2026-11-17T18:05:08.130Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Melanorivulus punctatus",
+    "status": "ACCEPTED",
+    "taxonKey": 7193389,
+    "datasets": [
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        83
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        29
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        19
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        6
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        6
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        6
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        4
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        3
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        2
+      ],
+      [
+        "527885fc-bae8-48fd-8e13-349bb6dae9b8",
+        1
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "f8ba5386-8b91-4976-95bd-692e5d105eae",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-17T18:05:08.130Z"
+  }
+}

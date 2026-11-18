@@ -1,8 +1,8 @@
 {
   "id": "ernstichthys-megistus",
   "native": {
-    "input": "75d2fda47934c28d",
-    "at": "2026-11-17T05:18:20.405Z",
+    "input": "1c76819c7d99db40",
+    "at": "2026-11-17T11:42:48.614Z",
     "claims": [
       {
         "code": "EC",
@@ -19,9 +19,57 @@
         "quote": "Other known museum specimens originate from Peru.",
         "words": "Peru",
         "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Bobonaza and Marañon River basins of Ecuador and Peru.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Bobonaza and Marañon River basins of Ecuador and Peru.",
+        "words": "Peru",
+        "ok": true
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Bobonaza",
+        "source": "scotcat",
+        "quote": "South America: Bobonaza and Marañon River basins of Ecuador and Peru.",
+        "country": "EC",
+        "ok": true
+      },
+      {
+        "name": "Marañon",
+        "source": "scotcat",
+        "quote": "South America: Bobonaza and Marañon River basins of Ecuador and Peru.",
+        "ok": true
+      },
+      {
+        "name": "Río Pastaza",
+        "source": "scotcat",
+        "quote": "Although there are few records of the species in the literature and ichthyological collections, Ernstichthys megistus seems to be potentially present in a large area, since these few records are from the Río Pastaza and Río Marañon basins in Ecuador and in the upper Río Madre de Dios and in the Apurimac River Valley in Peru.",
+        "ok": true
+      },
+      {
+        "name": "Río Madre de Dios",
+        "source": "scotcat",
+        "quote": "Although there are few records of the species in the literature and ichthyological collections, Ernstichthys megistus seems to be potentially present in a large area, since these few records are from the Río Pastaza and Río Marañon basins in Ecuador and in the upper Río Madre de Dios and in the Apurimac River Valley in Peru.",
+        "ok": true
+      },
+      {
+        "name": "Apurimac River",
+        "source": "scotcat",
+        "quote": "Although there are few records of the species in the literature and ichthyological collections, Ernstichthys megistus seems to be potentially present in a large area, since these few records are from the Río Pastaza and Río Marañon basins in Ecuador and in the upper Río Madre de Dios and in the Apurimac River Valley in Peru.",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {

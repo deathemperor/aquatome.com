@@ -1,14 +1,22 @@
 {
   "id": "channa-bleheri",
   "native": {
-    "input": "2d6d721553872bbd",
-    "at": "2026-11-05T22:45:18.315Z",
+    "input": "b19ed0584ff2a291",
+    "at": "2026-11-18T00:54:56.623Z",
     "claims": [
       {
         "code": "IN",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Endemic to the Brahmaputra River basin in the states of Assam and Arunachal Pradesh, northeastern India, with the full extent of its distribution unclear.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The rainbow snakehead (Channa bleheri) from the state of Assam in India is one of the most beautiful snakehead species.",
         "words": "India",
         "ok": true
       }
@@ -18,7 +26,6 @@
         "name": "Brahmaputra",
         "source": "seriouslyfish",
         "quote": "Endemic to the Brahmaputra River basin in the states of Assam and Arunachal Pradesh, northeastern India, with the full extent of its distribution unclear.",
-        "country": "IN",
         "ok": true
       },
       {

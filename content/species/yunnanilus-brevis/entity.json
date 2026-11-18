@@ -11,6 +11,63 @@
     "inle-lake",
     "lake-inle"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Lake Inlé"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Petruichthys brevis is a species of loach that originates from Burma.",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from isolated Lake Inlé and surrounding watershed in Shan state, eastern Myanmar, and the nearby He-Ho plain.",
+          "countries": [],
+          "regions": [
+            "Lake Inlé"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358258,
+      "total": 25,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "MM",
+          25
+        ]
+      ],
+      "cells": [
+        [
+          95.625,
+          19.6875,
+          11,
+          11
+        ],
+        [
+          97.03125,
+          19.6875,
+          14,
+          14
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

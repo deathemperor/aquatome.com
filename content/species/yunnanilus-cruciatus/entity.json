@@ -12,6 +12,59 @@
     "an-lao-river",
     "perfume"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VN"
+      ],
+      "regions": [
+        "An Lao River",
+        "Phong Nha River"
+      ],
+      "sources": [
+        "aquariumbreeder",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "Yunnanilus cruciatus is endemic to Vietnam.",
+          "countries": [
+            "VN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "aquariumbreeder",
+          "quote": "These fish can be found in the coastal rivers of central Vietnam from the An Lao River (Binh Dinh Province) to the Phong Nha River (Quang Binh Province).",
+          "countries": [],
+          "regions": [
+            "An Lao River",
+            "Phong Nha River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358243,
+      "total": 11,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "VN",
+          11
+        ]
+      ],
+      "cells": [
+        [
+          106.875,
+          15.46875,
+          11,
+          11
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -3,6 +3,8 @@ import { expect, test } from 'vitest'
 import { accounts, type AccountDeps, type AccountsEnv } from '../accounts/api'
 import { sha256 } from '../accounts/session'
 import { removeMethod } from '../accounts/users'
+import { emailHash } from '../accounts/email'
+import { TESTER_ADDRESS } from '../accounts/tester'
 import { testD1 } from './d1'
 
 const NOW = new Date('2026-11-01T00:00:00.000Z')
@@ -101,6 +103,19 @@ test('a passkey answer sent twice at once with the same counter (a cloned key) s
   const answers = await Promise.all([0, 1].map(async () => a.get((await call('POST', '/api/v1/auth/passkey/options', { body: {} })).json)))
   const both = await Promise.all(answers.map(response => call('POST', '/api/v1/auth/passkey', { body: { response } })))
   expect(both.map(r => r.status).sort()).toEqual([200, 401])
+})
+
+// Codex's read of #1606: the chat's test account (accounts/tester.ts) signs in by its own email code alone, so it adds no
+// passkey; another account still does.
+test('the test account adds no passkey', async () => {
+  const { google, add, db, env } = setup()
+  const cookie = await google('g-tester')
+  const { user_id } = (await db.prepare(`SELECT user_id FROM credentials WHERE subject = 'g-tester'`).first<{ user_id: string }>())!
+  const hash = await emailHash(env.ACCOUNT_HMAC_KEY!, TESTER_ADDRESS!)
+  await db.prepare(`INSERT INTO credentials (id, user_id, kind, subject, email_hash, created_at, last_used_at) VALUES ('t', ?, 'email', ?, ?, ?, ?)`).bind(user_id, hash, hash, NOW.toISOString(), NOW.toISOString()).run()
+  expect((await add(cookie, await authenticator())).json).toEqual({ error: 'credential_in_use' })
+  expect((await db.prepare(`SELECT COUNT(*) AS n FROM credentials WHERE kind = 'passkey'`).first<{ n: number }>())!.n).toBe(0)
+  expect((await add(await google('g-reader'), await authenticator())).status).toBe(200)
 })
 
 test('adding a passkey: a credential id over 1023 bytes and transports that are not a list are refused, not a server error', async () => {

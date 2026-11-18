@@ -256,12 +256,12 @@
   "dataCard": {
     "sizeCm": [
       {
-        "source": "glaser",
-        "value": 4
-      },
-      {
         "source": "seriouslyfish",
         "value": 3.5
+      },
+      {
+        "source": "glaser",
+        "value": 4
       }
     ],
     "tempC": [
@@ -308,8 +308,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias_dancena_en/",
-      "html": "<p>O. dancena is an absolutely peaceful schooling fish that preferably swims near the water surface. It becomes about 4 cm long.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias-dancena-thailand-2/",
+      "html": "<p>Oryzias dancena can be distinguished from other, similar species quite well by the white-edged fins. The fish attains a maximum length of about 3-4 cm.</p>"
     },
     {
       "key": "quickFacts",
@@ -322,6 +322,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-dancena",
       "html": "<p>Described from 'the estuary below Calcutta', which presumably refers to the mouth of the Hooghly River south of Kolkata, West Bengal state, eastern India.</p><p>Current knowledge suggests it to be widely-distributed throughout eastern and southern India, Sri Lanka, Bangladesh and Myanmar.</p><p>There also exist records from the western slope of the Malay Peninsula including Ranong province in southern (Peninsular) Thailand and Penang state, northern Peninsular Malaysia.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias-dancena-thailand-2/",
+      "html": "<p>Usually the rice fish (Oryzias dancena, in older books often referred to as O. melastigma) is obtained from India, which is also the country from where it was scientifically described. Very healthy and vivid specimens have now also been obtained from Thailand.</p>"
     },
     {
       "key": "habitat",
@@ -348,10 +354,22 @@
       "html": "<ul><li>Temperature: 23–27°C</li><li>pH: 6.5–8.5</li><li>Hardness: 5–25 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias-dancena-thailand-2/",
+      "html": "<p>Hard, slightly alkaline water is preferred, but any water that can be used as drinking water for humans can be used to keep and breed Oryzias dancena.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-dancena",
       "html": "<p>A micropredator feeding on small insects, worms, crustaceans and other zooplankton in nature.</p><p>In the aquarium it will accept dried foods of a suitable size but should be offered daily meals of small live and frozen fare such as Daphnia, Artemia, chopped bloodworm, etc., along with good quality, suitably-sized flakes and granules.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias-dancena-thailand-2/",
+      "html": "<p>Feeding is problem-free, as the fish readily take any usual fish food. However, food particles must not be too large.</p>"
     },
     {
       "key": "behaviour",
@@ -360,10 +378,22 @@
       "html": "<p>Generally peaceful but doesn't make an ideal addition to many communities due to its small size.</p><p>Should you wish to maintain it alongside other fishes diminutive species enjoying similar conditions such as Microdevario, Trigonostigma, Pseudomugi and some Danio spp. constitute the best options, while freshwater shrimp of the genera Caridina and Neocaridina are also suitable.</p><p>If the intention is breeding then obviously it should ideally be maintained alone, and we don't recommend keeping it with other Oryzias spp. due to the potential of hybridisation, already proven in laboratory experiments.</p><p>It's mostly non-aggressive towards conspecifics, and tends to look most effective and behave more confidently in a group of 8 or more.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias-dancena-thailand-2/",
+      "html": "<p>Oryzias dancena are absolutely peaceful fish that fit perfectly in any community tank. They live mainly in the upper third of the tank.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-dancena",
       "html": "<p>Adult males possess elongated, filamentous rays in the dorsal and anal fins, some of them tipped with a white marking, and have a slightly slimmer body shape than females.</p><p>The distal margin of the anal-fin is convex in males, straight or slightly concave in females, and the blue distal band is more intensely-coloured in males.</p><p>The genital papilla in males forms a short tube, while in females it is bilobed.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias-dancena-thailand-2/",
+      "html": "<p>The anal fin of the male has an irregular border. In very old males the fin rays may even be extended.</p>"
     },
     {
       "key": "reproduction",
@@ -372,10 +402,10 @@
       "html": "<p>Quite easy to breed and fairly prolific, with females capable of producing batches of eggs every few days or even on a daily basis when in good condition.</p><p>Spawning normally occurs in the early morning, with males darkening in colouration and defending small, temporary territories against one another while attempting to entice females.</p><p>The adhesive eggs are typically expelled as a single mass and fertilised simultaneously, after which they continue to hang from the genital pore of the female for a period before eventually being deposited singly or in small clumps among vegetation or other suitable media.</p><p>Fine-leaved plants such as Cabomba, Ceratophyllum or Taxiphylum spp. are ideal, but synthetic spawning mops or other artificial alternatives also work.</p><p>The incubation period is temperature dependant to an extent but typically 1-3 weeks, and while the adults tend to ignore the eggs they do predate free-swimming fry, though if the tank is densely-planted some will usually survive.</p><p>Alternatively the eggs or fry can be removed to a separate rearing container filled with water from the adults tank.</p><p>Once free-swimming the fry are able to accept microworm, Artemia nauplii, etc.</p><p>Caution is recommended when housing juveniles of different ages together as the older will predate on the younger if there is a large enough discrepancy in size.</p>"
     },
     {
-      "key": "notes",
+      "key": "reproduction",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias_dancena_en/",
-      "html": "<p>The elder hobbyists will know this nice blue-eye from India under the name of O. melastigmus; but this is another species, which is hardly ever kept in aquaria.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias-dancena-thailand-2/",
+      "html": "<p>The females of this species carry the eggs around for a while after spawning, before they deposit them on plant leaves. This behaviour is typical for all Oryzias species.</p>"
     },
     {
       "key": "notes",
@@ -396,15 +426,15 @@
       "thumb": "https://media.aquatome.com/inaturalist/304682978-480.webp",
       "width": 1024,
       "height": 1023,
-      "licence": "CC BY",
-      "author": "Paulmathi Vinod",
-      "sourceUrl": "https://www.inaturalist.org/photos/304682978",
-      "caption": "Nhóm cá lúa Ấn Độ bơi trong bể thủy sinh",
       "large": {
         "url": "https://media.aquatome.com/inaturalist/304682978-large.webp",
         "width": 1201,
         "height": 1200
-      }
+      },
+      "licence": "CC BY",
+      "author": "Paulmathi Vinod",
+      "sourceUrl": "https://www.inaturalist.org/photos/304682978",
+      "caption": "Nhóm cá lúa Ấn Độ bơi trong bể thủy sinh"
     }
   ],
   "videos": [
@@ -448,5 +478,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-17"
 }

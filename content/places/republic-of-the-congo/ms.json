@@ -3,6 +3,12 @@
   "name": "Republik Congo",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T11:35:51.090Z",
+    "why": "Malaysian usage (DBP) writes \"Republik Congo\" less often than \"Republik Congo (Brazzaville)\", and Malay normally spells it \"Kongo\", so \"Congo\" keeps the foreign spelling and is not the usual atlas form."
+  },
   "quality": {
     "score": 0.4,
     "indexable": false

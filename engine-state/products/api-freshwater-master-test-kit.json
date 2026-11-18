@@ -1,0 +1,233 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "Parameters tested",
+      "value": "pH, high range pH, ammonia, nitrite, nitrate (no GH or KH)",
+      "source": 0
+    },
+    {
+      "key": "Contents",
+      "value": "7 test solutions, 4 test tubes with caps, holding tray, laminated color card, instructions",
+      "source": 0
+    },
+    {
+      "key": "Number of tests",
+      "value": "Over 800",
+      "source": 7
+    },
+    {
+      "key": "Water type",
+      "value": "Freshwater aquariums only",
+      "source": 7
+    },
+    {
+      "key": "pH (low range)",
+      "value": "6.0–7.6",
+      "source": 1
+    },
+    {
+      "key": "pH (high range)",
+      "value": "7.4–8.8",
+      "source": 1
+    },
+    {
+      "key": "Ammonia range",
+      "value": "0–8.0 ppm",
+      "source": 1
+    },
+    {
+      "key": "Nitrite range",
+      "value": "0–5.0 ppm",
+      "source": 1
+    },
+    {
+      "key": "Nitrate range",
+      "value": "0–160 ppm",
+      "source": 1
+    }
+  ],
+  "variants": [
+    {
+      "name": "API Freshwater Master Test Kit (combined kit)",
+      "specs": [
+        {
+          "key": "Tests",
+          "value": "pH, high range pH, NH3/NH4, NO2, NO3; 800+ tests",
+          "source": 7
+        }
+      ]
+    },
+    {
+      "name": "API single liquid kits sold separately in Vietnam",
+      "specs": [
+        {
+          "key": "pH kit",
+          "value": "250 tests, pH 6.0–7.6",
+          "source": 3
+        },
+        {
+          "key": "NO2 kit",
+          "value": "180 tests",
+          "source": 3
+        },
+        {
+          "key": "NO3 kit",
+          "value": "90 tests",
+          "source": 3
+        },
+        {
+          "key": "NH3/NH4 kit",
+          "value": "130 tests",
+          "source": 3
+        },
+        {
+          "key": "GH & KH kit",
+          "value": "Sold separately; not part of the Master kit",
+          "source": 3
+        }
+      ]
+    }
+  ],
+  "prices": [],
+  "fits": [
+    {
+      "fact": "Designed for freshwater aquariums. Do not use it for saltwater tanks.",
+      "source": 7
+    },
+    {
+      "fact": "It does not measure hardness, so planted or shrimp tanks that need GH/KH readings require the separate API GH & KH kit.",
+      "source": 3
+    },
+    {
+      "fact": "In planted tanks dosed with KNO3 fertilizer, nitrate readings come out higher.",
+      "source": 1
+    },
+    {
+      "fact": "A Vietnamese retailer's guide calls it one of the most trusted kits for checking pH, ammonia, nitrite and nitrate.",
+      "source": 2
+    }
+  ],
+  "usage": [
+    {
+      "fact": "Fill a tube with tank water, add the drops for one parameter, then compare the color with the card.",
+      "source": 0
+    },
+    {
+      "fact": "API recommends testing weekly, and also whenever fish look unwell.",
+      "source": 0
+    },
+    {
+      "fact": "Shake reagent bottles hard. Invert the capped tube gently for the stated time, holding the cap with a finger.",
+      "source": 0
+    },
+    {
+      "fact": "Rinse the tubes right after each test so they don't stain.",
+      "source": 0
+    },
+    {
+      "fact": "Shake nitrate bottle #2 thoroughly because its crystals settle. The mixed sample also needs about a minute of shaking.",
+      "source": 1
+    },
+    {
+      "fact": "Hold the bottle vertically and upside down when dropping. Fill the sample to the white line, measured at the bottom of the meniscus.",
+      "source": 1
+    },
+    {
+      "fact": "Tap water tested straight from the faucet can show a high pH from dissolved CO2. Letting it stand for 24 hours gives a more representative reading.",
+      "source": 1
+    }
+  ],
+  "issues": [
+    {
+      "fact": "Nitrate is the most error-prone test. Results vary with shaking technique, and the 40 and 80 ppm colors look nearly the same.",
+      "source": 1
+    },
+    {
+      "fact": "A hobbyist found its nitrate readings much higher than test strips gave.",
+      "source": 5
+    },
+    {
+      "fact": "An expired nitrate kit read 0 every time, while two other brands showed nitrate present.",
+      "source": 6
+    },
+    {
+      "fact": "The reviewer says reagents older than about 3–4 years may give poor results, especially nitrate.",
+      "source": 1
+    },
+    {
+      "fact": "The ammonia test reads ammonia and ammonium together. Tap water containing ammonium can produce a small reading in a new tank.",
+      "source": 1
+    },
+    {
+      "fact": "There are only 4 tubes, and the instructions are long. Color-blind users may find the color matching hard.",
+      "source": 1
+    },
+    {
+      "fact": "Despite the handbook title, this kit does not test GH or KH. Those need the separate API GH & KH kit.",
+      "source": 3
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "API",
+      "model": "Single test kits (pH, NO2, NO3, NH3/NH4, GH&KH)",
+      "why": "Sold separately at a Vietnamese shop, from 150,000 to 250,000 đ each. You can buy only the tests you need and add GH/KH.",
+      "source": 3
+    },
+    {
+      "brand": "JBL",
+      "model": "ProAquaTest Combi Set Plus NH4",
+      "why": "Liquid kit that adds KH to pH, NO2, NO3 and NH4. Described as accurate and usable in freshwater or saltwater.",
+      "source": 2
+    },
+    {
+      "brand": "Tetra",
+      "model": "EasyStrips 6-in-1",
+      "why": "Faster and simpler strips that include GH, KH and chlorine, but less accurate than liquid kits.",
+      "source": 2
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.apifishcare.com/products/api-freshwater-master-test-kit",
+      "title": "API Freshwater Master Test Kit – API Fishcare",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://spec-tanks.com/api-freshwater-master-test-kit-review/",
+      "title": "API Freshwater Master Test Kit Review – Spec Tanks",
+      "kind": "review"
+    },
+    {
+      "url": "https://aquazonefish.vn/blogs/kien-thuc/top-5-bo-test-nuoc-be-ca-dang-tin-cay",
+      "title": "Top 5 Bộ Test Nước Bể Cá Đáng Tin Cậy – AquaZone",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.bachkhoaaqua.com/san-pham/bo-test-chi-so-nuoc-api",
+      "title": "Bộ Test chỉ số nước API – Bách Khoa Aqua",
+      "kind": "shop"
+    },
+    {
+      "url": "https://cacung.vn/api-test-kit-test-no2-no3-nh3-nh4-test-ph-canxi-bo-kiem-tra-nuoc-ho-ca-api-hang-cty",
+      "title": "API Test Kit – Cá Cưng",
+      "kind": "shop"
+    },
+    {
+      "url": "https://forum.aquariumcoop.com/topic/25139-aquarium-coop-test-strips-versus-api-master-kit/",
+      "title": "Aquarium Co-op test strips versus API master kit",
+      "kind": "forum"
+    },
+    {
+      "url": "https://forums.reefcentral.com/threads/api-test-kit-support-is-horrible.1899842",
+      "title": "API test kit support is horrible – Reef Central",
+      "kind": "forum"
+    },
+    {
+      "url": "https://www.petsmart.com/fish/food-and-care/water-quality-testers/api-freshwater-aquarium-master-test-kit-17465.html",
+      "title": "API Freshwater Aquarium Master Test Kit – PetSmart",
+      "kind": "shop"
+    }
+  ]
+}

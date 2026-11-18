@@ -3,6 +3,12 @@
   "name": "Saddang",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-17T11:39:51.198Z",
+    "why": "Saddang is the usual Indonesian spelling of this river, but the name is missing the kind word 'Sungai' that an Indonesian atlas would use."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

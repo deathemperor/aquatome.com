@@ -3,6 +3,12 @@
   "name": "คอโมโรส",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-17T11:40:34.864Z",
+    "why": "The Thai atlas and Royal Institute name for Comoros is คอโมโรส or คอโมโรส? The standard Thai spelling is \"คอโมโรส\" (Royal Institute lists \"คอโมโรส\"), so this matches, though some sources write \"โคโมโรส\"."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

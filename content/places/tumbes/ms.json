@@ -3,6 +3,12 @@
   "name": "Tumbes",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T18:00:53.103Z",
+    "why": "Tumbes is a Peruvian region, and Malay atlases would typically write \"Wilayah Tumbes\" or \"Wilayah Tumbes\" with the kind word, so the bare \"Tumbes\" lacks it, though the proper name is spelled correctly."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

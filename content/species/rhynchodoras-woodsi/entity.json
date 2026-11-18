@@ -8,7 +8,11 @@
   "places": [
     "south-america",
     "ecuador",
-    "maranon"
+    "maranon",
+    "pastaza",
+    "brazil",
+    "amazon",
+    "guyana"
   ],
   "range": {
     "native": {
@@ -152,6 +156,10 @@
       {
         "source": "seriouslyfish",
         "value": 11
+      },
+      {
+        "source": "glaser",
+        "value": 10.5
       }
     ],
     "tankCm": [
@@ -175,10 +183,22 @@
       "html": "<p>The parrot doradid, Rhynchodoras woodsi, is a doradid catfish that appears to be endemic to the Rio Marañon basin, Ecuador. Rare in the hobby, it takes its name from its inquisitive feeding habits and a bony growth extending from the upper mouthparts, whose use is not known. Very peaceful and tolerant of conspecifics, it does not compete well for food with other bottom dwellers.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/rhynchodoras-woodsi-2/",
+      "html": "<p>Only very rarely members of the enigmatic genus Rhynchodoras (family Doradidae) appear in the ornamental fish trade. It is believed that these fish live deep on the riverbed where collectors of ornamental fishes usually do not fish at all. All species of Rhynchodoras have a strange appendix on the jaw that looks like a plowshare; the function of this structure is unknown.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rhynchodoras-woodsi",
       "html": "<p>Appears to be endemic to the Rio Marañon basin, Ecuador.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/rhynchodoras-woodsi-2/",
+      "html": "<p>Three species are currently recognized in the genus, none of them is reported from Peru so far; the imported fish are from Peru. It is nevertheless very likely that these specimens belong to Rhynchodoras woodsi, a species described in 1976 from the Rio Pastaza basin in Ecuador. Besides Ecuador, it is reported so far from the Amazon basin in Brazil (not in the rivers Xingu and Tocantins) and Guyana.</p>"
     },
     {
       "key": "habitat",
@@ -191,6 +211,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rhynchodoras-woodsi",
       "html": "<p>Standard length: 110 mm SL. Aquarium base: 90 × 38 cm. Volume: ~103 litres.</p><p>A standard 90 × 38 × 30 cm (~103 litres) tank is big enough to house a small group of these comfortably.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/rhynchodoras-woodsi-2/",
+      "html": "<p>Maximum length reported is 10.5 cm; the fish are currently 3-4 cm long.</p>"
     },
     {
       "key": "maintenance",
@@ -235,8 +261,62 @@
       "html": "<p>An interesting but rare species in the hobby, R. woodsi is nicknamed the \"parrot doradid\" due to its inquisitive feeding habits, and the curious bony growth extending from the upper mouthparts. The precise use of the bony growth isn't known, although one theory suggests it provides protection for the delicate barbels. Another hypothesis considers that it's some sort of feeding tool, possibly being used to lever aquatic invertebrates from crevices in submerged logs and roots.</p>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/3338cf4c78fbc4e6.webp",
+      "thumb": "https://media.aquatome.com/glaser/3338cf4c78fbc4e6-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/rhynchodoras-woodsi-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/511c0b27032d958a.webp",
+      "thumb": "https://media.aquatome.com/glaser/511c0b27032d958a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/rhynchodoras-woodsi-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/f3023c1135006420.webp",
+      "thumb": "https://media.aquatome.com/glaser/f3023c1135006420-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/rhynchodoras-woodsi-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/f0b3bd2d1f36d5a0.webp",
+      "thumb": "https://media.aquatome.com/glaser/f0b3bd2d1f36d5a0-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/rhynchodoras-woodsi-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "EoryPRFDBro",
+      "title": "Rhynchodoras woodsi 伍德西黃紋鐵甲",
+      "durationSec": 33,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "qLcs_8e-T9k",
+      "title": "Cameron talks Parrot Doradids (Rhynchodoras woodsi) #aquarium #fish",
+      "durationSec": 104,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -266,5 +346,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-17"
 }

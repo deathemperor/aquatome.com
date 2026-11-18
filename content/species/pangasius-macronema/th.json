@@ -1,0 +1,26 @@
+{
+  "slug": "pangasius-macronema",
+  "name": "Pangasius macronema",
+  "altNames": [
+    "ปลาสายยู",
+    "ปลาสังกะวาด",
+    "ปลาสังกะวาดเหลือง"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>ชื่อวิทยาศาสตร์: Pangasius macronema Bleeker, 1850</li><li>ชื่อสามัญ: Haiwels (เยอรมนี)</li><li>แหล่งที่พบตัวอย่างต้นแบบ: บันจาร์มาซิน กาลิมันตัน เกาะบอร์เนียว ประเทศอินโดนีเซีย</li><li>สถานภาพในบัญชีแดงของ IUCN: มีความเสี่ยงน้อย (Least Concern) ประเมินล่าสุดปี 2019</li></ul>",
+    "distribution:planetcatfish": "<p>เอเชีย: แม่น้ำโขง คาบสมุทรมลายู และแม่น้ำบนหมู่เกาะซุนดาใหญ่ ได้แก่ เกาะชวา เกาะสุมาตรา และเกาะบอร์เนียว</p>",
+    "equipment:planetcatfish": "<p>ต้องการพื้นที่โล่งกว้างมากสำหรับว่ายน้ำ และควรมีไม้น้ำบ้างเพื่อช่วยลดความขี้ตกใจของปลา</p>",
+    "diet:planetcatfish": "<p>กินหอยและแมลงในวงศ์ Chironomidae (เช่น หนอนแดง) เป็นอาหาร</p>",
+    "dimorphism:planetcatfish": "<p>ตัวเมียมีลำตัวอ้วนกลมกว่า</p>",
+    "reproduction:planetcatfish": "<p>ยังไม่มีรายงานการเพาะพันธุ์</p>",
+    "notes:planetcatfish": "<p>การจำแนกชนิด: ลำตัวค่อนข้างลึก ไม่มีแถบสีกลางลำตัวและแถบที่ท้อง ไม่มีจุดสีดำที่โคนครีบหลัง ฟันบนเพดานปากแยกเป็น 4 กลุ่ม (ฟันที่กระดูกโวเมอร์ 2 กลุ่ม และฟันที่กระดูกเพดานปาก 3 กลุ่ม) หนวดที่ขากรรไกรบนยาวถึงปลายครีบอก</p><p>ที่มาของชื่อ: ชื่อ Pangasius มาจากชื่อท้องถิ่น (ภาษาเบงกาลี) ของปลาชนิดนี้ (pungas)</p>",
+    "references:planetcatfish": "<p>Natuurkundig Tijdschrift voor Nederlandsch Indië v. 1 (no. 1), pp 11.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": true,
+    "bySource": {
+      "planetcatfish": 0.85
+    }
+  }
+}

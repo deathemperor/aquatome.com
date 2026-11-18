@@ -3,6 +3,12 @@
   "name": "Sungai Mutiara",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.35,
+    "at": "2026-11-17T11:35:08.250Z",
+    "why": "Malaysian atlases write the Pearl River as \"Sungai Zhujiang\" (or \"Sungai Pearl\"), not a word-for-word translation \"Sungai Mutiara\" of the Chinese name's meaning."
+  },
   "quality": {
     "score": 0.4,
     "indexable": false

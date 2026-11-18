@@ -1,0 +1,22 @@
+{
+  "slug": "ca-dao-den-peru",
+  "name": "Cá dao đen Peru",
+  "altNames": [
+    "Black knifefish"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>Loài cá dao đen này được nhập về từ Peru.</p>",
+    "notes:glaser": "<p>Lô cá dao đen nhập từ Peru này (\"preto\" nghĩa là \"đen\") có lẽ là lô đầu tiên về tới châu Âu. Toàn thân đen một màu là đặc điểm dễ dùng để phân biệt loài này với các loài khác cùng chi. Hiện người ta biết năm loài Sternarchogiton.</p><p>Nhưng nhiều bức ảnh vẫn chụp được một vệt sáng chạy dọc lưng cá. Vệt này không phải màu thật mà là do ánh sáng. Lớp nhớt trên lưng cá rõ ràng rất dày, và vệt sáng là do lớp nhớt đó.</p>",
+    "behaviour:glaser": "<p>Nuôi trong bể thì thấy rõ loài cá dao này hay bơi sát mặt nước. Chúng thường ngậm cả không khí lẫn nước vào miệng, rồi phun nước ra thành một tia nhỏ. Cũng như hầu hết các loài cá dao, chúng rất khôn, và ngồi xem chúng cực kỳ thú vị.</p>",
+    "diet:glaser": "<p>Ngoài tự nhiên, loài cá này có lẽ ăn côn trùng trên cạn rơi xuống nước.</p>",
+    "quickFacts:glaser": "<p>Cá lớn tới 20–25 cm.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  }
+}

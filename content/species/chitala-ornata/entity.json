@@ -28,14 +28,22 @@
         "Mae Klong"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
+          "quote": "The clown featherback, Chitala ornata, is a large notopterid native to the Mae Klong, Chao Phraya and Mekong river systems of Thailand and Indochina.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
           "quote": "Native to the Mae Klong, Chao Phraya, and Mekong river systems in Thailand, plus the Mekong basin in Laos, Cambodia, and Vietnam.",
           "countries": [
-            "TH",
             "LA",
             "KH",
             "VN"

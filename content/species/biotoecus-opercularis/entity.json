@@ -18,11 +18,12 @@
         "BR"
       ],
       "regions": [
+        "Amazon",
         "Madeira",
         "Tapajós",
-        "Trombetas",
         "Negro",
-        "Amazon"
+        "Trombetas",
+        "Rio Tapajos"
       ],
       "sources": [
         "seriouslyfish",
@@ -46,8 +47,16 @@
           "regions": [
             "Madeira",
             "Tapajós",
-            "Trombetas",
-            "Negro"
+            "Negro",
+            "Trombetas"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Aquarium Glaser has regularly imported this dwarf cichlid from the Rio Tapajos in Brazil for quite a while.",
+          "countries": [],
+          "regions": [
+            "Rio Tapajos"
           ]
         }
       ]

@@ -3,6 +3,12 @@
   "name": "Ivaí",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-17T11:34:21.925Z",
+    "why": "Ivaí is a Brazilian place name (a municipality and a river in Paraná), and Malay keeps the Portuguese spelling. But the record calls it a region and gives no kind word, so it is unclear whether \"Ivaí\" alone names the right place."
+  },
   "quality": {
     "score": 0.4,
     "indexable": false

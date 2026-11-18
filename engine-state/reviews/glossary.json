@@ -1,49 +1,4 @@
 {
-  "id/glossary/nen-be": [
-    {
-      "at": "2026-11-17T04:48:27Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.9,
-      "notes": [
-        "Minor: \"soil\" is left in English; Indonesian hobbyists do commonly say \"soil\" (aqua soil), but consider \"tanah/soil aquascape\" on first use, e.g. \"soil (tanah substrat)\".",
-        "Minor: \"batu lava\" is fine for sỏi núi lửa, but \"kerikil vulkanik\" is also used; optional."
-      ],
-      "attempt": "first",
-      "kept": true
-    }
-  ],
-  "ms/glossary/nen-be": [
-    {
-      "at": "2026-11-17T05:06:21Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.9,
-      "notes": [
-        "\"batu kelikir\" is slightly awkward for \"sỏi\" (gravel). \"kerikil\" is the more common Malaysian term.",
-        "\"batu lava\" for \"sỏi núi lửa\" (volcanic gravel) is understandable. \"batu volkanik\" or \"kerikil volkanik\" is more natural."
-      ],
-      "attempt": "first",
-      "kept": true
-    }
-  ],
-  "th/glossary/nen-be": [
-    {
-      "at": "2026-11-17T04:51:21Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.95,
-      "notes": [
-        "Optional: Thai hobbyists often say 'วัสดุปูพื้น' or just 'พื้นตู้'; current wording is fine.",
-        "Optional: 'หินภูเขาไฟ' is understood; 'ดินปลูกไม้น้ำ' is the common term for aqua soil, so this is OK."
-      ],
-      "attempt": "first",
-      "kept": true
-    }
-  ],
   "vi/glossary/artemia": [
     {
       "at": "2026-11-16T17:21:56Z",
@@ -289,6 +244,84 @@
       "kept": true
     }
   ],
+  "vi/glossary/la-bang": [
+    {
+      "at": "2026-11-18T02:28:32Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Bắt đầu với một lá cho khoảng 20–30 lít.\" (not \"Với lá cỡ vừa (khoảng 15 cm), bắt đầu dè dặt với một lá cho khoảng 20–30 lít.\": Rule 12: \"Với lá cỡ vừa (khoảng 15 cm), bắt đầu dè dặt với một lá cho khoảng 20–30 lít.\" The 15 cm dose table (fact 18) has to go, and so does its 'start conservatively'. This se…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Tiệm thứ hai cũng ghi: muốn nước màu trà đậm hơn thì thêm lá dần tới khi được màu ưng ý.\" (not \"Tiệm thứ hai cũng ghi: muốn làm nước đen (blackwater) thì thêm lá cùng các loại gỗ mềm như lũa Malaysia hay gỗ cholla tới khi được màu ưng ý.\": Rules 3 and 12: \"Tiệm thứ hai cũng ghi: muốn làm nước đen (blackwa…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Châm quá tay nước lá bàng, tức nước nấu từ lá khô.\" (not \"Châm quá tay nước lá bàng.\": Rule 12: \"Châm quá tay nước lá bàng.\" The required wording is \"Châm quá tay nước lá bàng, tức nước nấu từ lá khô.\" The explanation of what the leaf water is (facts 30, 31: two pages) has been dropped. / it drops the adv…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T02:28:32Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Lá nhả tanin làm nước ngả màu trà và hạ pH chậm.\": THIS TERM says the definition ends at \"hạ pH\". The word \"chậm\" comes only from the US shop (facts 1 and 15 are both source 0), so it has to go. The sentence should read exactly \"Lá nhả tanin làm nước ngả màu trà và hạ pH.\"",
+        "Rule 12: \"Chọn lá khô đã rụng hoặc đã ngả vàng.\": only one news report (fact 8, source 5) says the leaves are yellowed, and here that claim is written as plain fact. THIS TERM says \"hoặc đã ngả vàng\" goes, and the step should read exactly \"Chọn lá khô đã rụng.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T02:19:41Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Bắt đầu với một lá cho khoảng 20–30 lít.\" (not \"Với lá cỡ vừa (khoảng 15 cm), bắt đầu dè dặt với một lá cho 20–30 lít.\": Rule 12: \"Với lá cỡ vừa (khoảng 15 cm), bắt đầu dè dặt với một lá cho 20–30 lít.\" This comes from the 15 cm dose table (fact 18), which THIS TERM removes, along with its \"start conserva…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Tiệm thứ hai cũng ghi: muốn nước màu trà đậm hơn thì thêm lá dần tới khi được màu ưng ý.\" (not \"Muốn làm nước đen (blackwater) thì thêm lá cùng các loại gỗ mềm như lũa Malaysia hay gỗ cholla, cho tới khi được màu ưng ý.\": Rules 3 and 12: \"Muốn làm nước đen (blackwater) thì thêm lá cùng các loại gỗ mềm như…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T02:19:41Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Một tiệm ghi: ngâm lá 24–48 giờ trong nước đã khử clo thì đợt ra màu đầu nhẹ hơn.\" must be written word for word as \"Một tiệm ghi: ngâm lá 24–48 giờ trong nước đã khử clo thì lúc mới thả, nước ra màu nhẹ hơn.\"",
+        "Rules 10 and 12: \"Một tiệm khác ghi: đừng luộc lá trước khi thả, vì luộc làm lá nhả hết tanin ra nồi.\" adds \"ra nồi\", but fact 23 doesn't say where the tannin goes. The required wording ends at \"nhả hết tanin.\"",
+        "Rule 12: \"Tiệm thứ nhất cũng ghi: thay lá sau khoảng 2–3 tuần; trong bể tép có thể để lá đến khi chỉ còn bộ gân.\" must be written word for word as \"Tiệm thứ nhất cũng ghi: cứ 2–3 tuần thay lá một lần; trong bể tép có thể để lá đến khi chỉ còn bộ gân.\"",
+        "Rule 12: \"Tiệm thứ nhất cũng ghi: lá ở đường đông xe có thể dính khói xe.\" must be written word for word as \"Tiệm thứ nhất cũng ghi: lá cây ven đường đông xe có thể dính khói xe.\" Fact 37 says roadsides.",
+        "Rule 12: \"Chuyện lá diệt được ký sinh trùng và vi khuẩn mà người bán hay kể chưa được kiểm chứng.\" keeps \"mà người bán hay kể\", which must go. That sellers tell it comes from the news report alone (fact 48). The required wording is \"Chuyện lá diệt được ký sinh trùng và vi khuẩn chưa được kiểm chứng.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T01:11:05Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Bắt đầu với một lá cho khoảng 20–30 lít.\" (not \"Với lá cỡ vừa (khoảng 15 cm), bắt đầu với một lá cho khoảng 20–30 lít.\": Rule 12: \"Với lá cỡ vừa (khoảng 15 cm), bắt đầu với một lá cho khoảng 20–30 lít.\" uses the 15 cm dose table (fact 18), which this term drops. The rules require the exact sentence \"Bắt đ…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Tiệm thứ hai cũng ghi: muốn nước màu trà đậm hơn thì thêm lá dần tới khi được màu ưng ý.\" (not \"Tiệm thứ hai cũng ghi: muốn nước đen (blackwater) thì thêm lá cùng các loại gỗ mềm như lũa Malaysia hay gỗ cholla, tới khi được màu ưng ý.\": Rules 3 and 12: \"muốn nước đen (blackwater)\" in \"Tiệm thứ hai cũng gh…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T01:11:05Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Thay lá sau khoảng 2–3 tuần. Tiệm thứ nhất cũng ghi: trong bể tép có thể để lá đến khi chỉ còn bộ gân.\" states the 2–3-week replacement as plain fact. Only the first shop gives this for whole leaves (fact 28), so it must sit under that shop's credit. The required wording is \"Tiệm thứ nhất cũng ghi: thay lá sau khoảng 2–3 tuần; trong bể tép có thể để lá đến khi chỉ còn bộ gân.\"",
+        "Rules 10 and 12: \"Chuyện lá diệt được ký sinh trùng và vi khuẩn mà người bán hay kể chưa có gì chứng minh.\" Saying \"chưa có gì chứng minh\" claims more than the facts, which call the sellers' claims untested or unsourced (facts 42, 48, 49). The required sentence ends \"chưa được kiểm chứng.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    }
+  ],
   "vi/glossary/lua": [
     {
       "at": "2026-11-14T04:29:50Z",
@@ -504,79 +537,539 @@
   ],
   "vi/glossary/ph": [
     {
-      "at": "2026-11-17T00:28:35Z",
+      "at": "2026-11-18T02:15:40Z",
       "model": "sonnet",
-      "cli": "2.1.325",
+      "cli": "2.1.326",
       "score": 1,
       "notes": [
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Trước khi set bể, đo pH nước máy hoặc nước giếng xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\" (not \"Trước khi set bể, đo nước máy xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\": Rule 12: \"đo nước máy xem có hợp với…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,2 đơn vị, rồi đo lại.\" (not \"Dùng thứ nào thì cũng nâng pH từ từ, tránh thay đổi đột ngột, rồi đo lại.\": Rule 12: \"Dùng thứ nào thì cũng nâng pH từ từ, tránh thay đổi đột ngột, rồi đo lại.\" leaves out the pace THIS TERM requires: no more than 0,2 u…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Khi cá ngộ độc amoniac, thay 50% nước.\" (not \"Khi cá ngộ độc amoniac, thay 25–50% nước.\": Rule 12: \"Khi cá ngộ độc amoniac, thay 25–50% nước.\" uses a range, but THIS TERM requires the single figure of 50% for ammonia poisoning (\"Khi cá ngộ độc amoniac, thay 50% nước.\").)"
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Trước khi set bể, đo pH nước máy hoặc nước giếng xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\" (not \"Trước khi set bể, đo nước máy xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\": Rule 12: \"đo nước máy\" in \"Trước khi…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Đo pH vào cùng một giờ mỗi lần và đừng tin vào một lần đo lẻ.\" (not \"Đo pH vào cùng một giờ mỗi lần và thận trọng với một lần đo lẻ, vì pH thay đổi trong ngày.\": it drops the caution \"đừng\")",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,2 đơn vị, rồi đo lại.\" (not \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,5 đơn vị, rồi đo lại.\": Rule 12: \"mỗi ngày không quá 0,5 đơn vị\" in \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,5 đơn vị, rồi đo lại.\": THIS TERM …",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Khi cá ngộ độc amoniac, thay 50% nước.\" (not \"Khi cá ngộ độc amoniac, thay 25–50% nước và, nếu cá chịu được, hạ pH xuống khoảng 6,0–6,5.\": Rule 12: \"Khi cá ngộ độc amoniac, thay 25–50% nước và, nếu cá chịu được, hạ pH xuống khoảng 6,0–6,5.\": THIS TERM says to leave out lowering pH to about 6.0–6.5 during …"
       ],
       "attempt": "rewrite",
       "kept": true
     },
     {
-      "at": "2026-11-17T00:28:35Z",
+      "at": "2026-11-18T02:15:40Z",
       "model": "sonnet",
-      "cli": "2.1.325",
+      "cli": "2.1.326",
       "score": 1,
       "notes": [
-        "Rule 12: \"còn ở nước có KH trên 4–5 thì gần như không đổi\" breaks the Indian almond leaf line under THIS TERM, which says to give no KH figure. Source 8 gives \"KH 4–5\" with no unit, but this entry gives KH in mg/L. Say instead that the effect is negligible in hard, well-buffered water, as in \"còn ở nước cứng, đệm tốt thì gần như không đổi.\""
+        "Rules 4 and 12: The 0.2-a-day pace is in the wrong place and in the wrong words. The entry puts it in the mistakes list as \"Khi nâng pH, dùng thứ nào cũng chỉ nâng mỗi ngày không quá 0,2 đơn vị, rồi đo lại.\" It must be said once, in the low-pH step, right after the coral trade-off (\"...sau này khó kiểm soát.\"), word for word: \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,2 đơn vị, rồ…",
+        "Rules 4 and 12: The mistake \"Chỉnh pH quá nhanh.\" repeats the pace. The same bullet says \"Muốn đổi pH thì đổi chậm để cá và cây không bị sốc\" and also gives the 0.2-a-day limit, so it tells the keeper how to go slow twice. The mistake should not repeat the pace, which belongs only in the low-pH step.",
+        "Rules 4, 10 and 12: \"Lá bàng hạ pH chậm.\" has to go. Only one shop says the leaves work slowly, and the opening line already says they lower pH (\"tanin trong chúng làm pH xuống\"). The item should read word for word: \"Lá bàng và lũa: tanin trong chúng làm pH xuống. Một tiệm ghi: trong nước mềm, lá bàng hạ pH khoảng 0,2–0,5 đơn vị, còn ở nước cứng, đệm tốt thì gần như không đổi.\""
       ],
       "attempt": "rewrite",
       "kept": false
     },
     {
-      "at": "2026-11-16T18:06:41Z",
+      "at": "2026-11-18T02:09:57Z",
       "model": "sonnet",
-      "cli": "2.1.325",
+      "cli": "2.1.326",
       "score": 1,
       "notes": [
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Trước khi set bể, đo pH nước máy hoặc nước giếng xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\" (not \"Trước khi set bể, kiểm tra nước máy xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\": Rule 12: \"Trước khi set bể, ki…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Đo pH vào cùng một giờ mỗi lần và đừng tin vào một lần đo lẻ.\" (not \"Đo pH vào cùng một giờ mỗi lần và thận trọng với kết quả của một lần đo lẻ.\": it drops the caution \"đừng\")",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,2 đơn vị, rồi đo lại.\" (not \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,5 đơn vị.\": Rule 12: \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,5 đơn vị.\" The pace has to be the slower figure, no more than 0.2 a day, followed…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Khi cá ngộ độc amoniac, thay 50% nước.\" (not \"Khi cá ngộ độc amoniac, thay 25–50% nước và, nếu cá chịu được, hạ pH xuống khoảng 6,0–6,5.\": Rule 12: \"Khi cá ngộ độc amoniac, thay 25–50% nước và, nếu cá chịu được, hạ pH xuống khoảng 6,0–6,5.\" The water change has to be the single figure 50%, as in \"Khi cá n…"
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-16T18:06:41Z",
-      "model": "sonnet",
-      "cli": "2.1.325",
-      "score": 0.98,
-      "notes": [
-        "\"Lá bàng hạ pH chậm, có thể tới khoảng 1–2 đơn vị.\": the facts don't carry it (contradicts, contradicts, unsupported): other sources: only 0.2–0.5 in soft water, negligible in hard water / leaves out the hardness limit: other sources say only 0.2–0.5 in soft water and almost none in hard water",
-        "Rules 10 and 12: \"Lá bàng hạ pH chậm, có thể tới khoảng 1–2 đơn vị.\" uses the 1–2 unit figure, which comes from only one shop (source 3). THIS TERM forbids that figure because two pages say the leaves have only a mild effect. The line also leaves out what the facts give: about 0,2–0,5 units in soft water, and almost no change where KH is above 4–5 (source 8). It should read like \"Lá bàng hạ pH ch…"
+        "The rewrite dropped from \"Bể đệm yếu hoặc có châm CO2 thì pH dao động mạnh hơn.\" the advice \"Bể đệm yếu\", the advice \"có châm CO2 thì pH dao động mạnh hơn\", and nothing lets that sentence go: write it as it was, word for word.",
+        "Rule 4: \"Lá bàng và lũa: tanin trong chúng làm pH xuống.\" already says that Indian almond leaves lower pH. The next sentence, \"Một tiệm ghi: lá bàng hạ pH nhẹ và chậm.\", says it again. The leaves' effect on pH should be said once, in the two shop-credited lines THIS TERM requires. The opening line could cover only driftwood (lũa), or be dropped."
       ],
       "attempt": "rewrite",
       "kept": false
     },
     {
-      "at": "2026-11-16T00:55:17Z",
+      "at": "2026-11-18T02:09:57Z",
       "model": "sonnet",
-      "cli": "2.1.323",
+      "cli": "2.1.326",
       "score": 1,
       "notes": [
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Lá bàng hạ pH chậm, có thể tới khoảng 1–2 đơn vị.\" (not \"Lá bàng hạ pH nhẹ và chậm.\": Rule 12: \"Lá bàng hạ pH nhẹ và chậm.\" uses \"nhẹ\" and leaves out the range. It must state the range as a ceiling, without \"nhẹ\": \"Lá bàng hạ pH chậm, có thể tới khoảng 1–2 đơn vị.\" / it drops the figure 1, the figure 2, t…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Trước khi set bể, đo pH nước máy hoặc nước giếng xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\" (not \"Trước khi set bể, đo pH nước máy xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\": Rule 12: \"đo pH nước máy xem có h…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,2 đơn vị, rồi đo lại.\" (not \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,5 đơn vị.\": Rule 12: \"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,5 đơn vị\" uses the faster pace from source 1. It must use the slower pace from so…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Khi cá ngộ độc amoniac, thay 50% nước.\" (not \"Khi cá ngộ độc amoniac, thay 25–50% nước, và nếu cá chịu được thì hạ pH xuống khoảng 6,0–6,5.\": Rules 4 and 12: \"Khi cá ngộ độc amoniac, thay 25–50% nước\" gives 25–50%. This entry and the nitrogen-cycle entry must share one figure, 50%. It should read \"Khi cá …",
-        "Rules 4 and 12: Indian almond leaves are said to lower pH in two places: \"Lá bàng và lũa: tanin trong chúng làm pH xuống.\" and \"Lá bàng hạ pH chậm, có thể tới khoảng 1–2 đơn vị.\" THIS TERM asks for Indian almond leaves in one sentence. The first line should cover only driftwood (lũa), and the leaves should appear only in \"Lá bàng hạ pH chậm, có thể tới khoảng 1–2 đơn vị.\""
+        "The rewrite dropped from \"Trước khi set bể, đo pH nước máy hoặc nước giếng xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\" the advice \"tìm hiểu nhu cầu nước của từng loài trước khi mua\", and nothing lets that sentence go: write it as it was, word for word.",
+        "Rules 4 and 12: \"Muốn đổi pH thì đổi chậm để cá và cây không bị sốc\" in the mistakes list repeats the pace already given once in the low-pH step (\"Dùng thứ nào thì cũng nâng pH từ từ, mỗi ngày không quá 0,2 đơn vị, rồi đo lại.\"). THIS TERM says the mistake \"Chỉnh pH quá nhanh\" must not repeat that pace. Keep \"Chỉnh pH quá nhanh. pH đổi đột ngột có thể làm cá chết.\" and drop the extra advice to ch…"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T02:09:57Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Trước khi set bể, đo pH nước máy hoặc nước giếng xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\" (not \"Trước khi set bể, kiểm tra nước máy trước xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\": Rule 12: \"kiểm tra nước …",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Khi cá ngộ độc amoniac, thay 50% nước.\" (not \"Khi cá ngộ độc amoniac, thay 25–50% nước, và nếu cá chịu được thì hạ pH xuống khoảng 6,0–6,5.\": Rule 12: \"Khi cá ngộ độc amoniac, thay 25–50% nước, và nếu cá chịu được thì hạ pH xuống khoảng 6,0–6,5.\" The water change must be the single figure of 50%, as in \"K…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Khi nâng pH, dùng thứ nào cũng chỉ nâng mỗi ngày không quá 0,2 đơn vị, rồi đo lại.\" (not \"Khi nâng pH, nâng từ từ, mỗi ngày không quá 0,5 đơn vị.\": Rules 4 and 12: \"Khi nâng pH, nâng từ từ, mỗi ngày không quá 0,5 đơn vị.\" The pace is in the mistakes list and uses the faster figure from source 1. It must b…",
+        "Rule 12: \"Lá bàng hạ pH chậm.\" is stated plainly, without saying which page claims it, which THIS TERM forbids. Only one shop says Indian almond leaves lower pH mildly and slowly. The required wording is \"Một tiệm ghi: lá bàng hạ pH nhẹ và chậm.\", and the claim must also say \"nhẹ\" (mildly).",
+        "Rule 12: \"Một tiệm ghi: trong nước mềm, lá bàng hạ pH khoảng 0,2–0,5 đơn vị, còn ở nước cứng, đệm tốt thì gần như không đổi.\" This claim comes from a different shop, so THIS TERM requires it to open with \"Một tiệm khác ghi:\", following the first shop's line, word for word.",
+        "Rules 4 and 12: \"Khi nâng pH, dùng thứ nào cũng chỉ nâng mỗi ngày không quá 0,2 đơn vị, rồi đo lại.\" The pace for raising pH has moved into the mistakes item \"Chỉnh pH quá nhanh.\", which therefore repeats the pace. THIS TERM says the pace must never go in the mistakes list. It belongs once in the low-pH step, right after the coral trade-off, word for word: \"Dùng thứ nào thì cũng nâng pH từ từ, mỗ…",
+        "The entry is 626 words: hold it to about 620, and leave what is left out to the pages that use the term."
       ],
       "attempt": "rewrite",
       "kept": true
     },
     {
-      "at": "2026-11-16T00:55:17Z",
+      "at": "2026-11-18T01:53:50Z",
       "model": "sonnet",
-      "cli": "2.1.323",
+      "cli": "2.1.326",
       "score": 1,
       "notes": [
-        "Rules 6 and 12: \"cichlid Rift Lake\" in \"Cá neon vua ở Rio Negro sống trong nước dưới pH 5,5, còn cichlid Rift Lake ưa pH 8,0–9,0.\": THIS TERM requires \"cichlid hồ châu Phi\", as it was written before, and never \"cichlid Rift Lake\".",
-        "Rule 12: \"Nếu dùng CO2 để hạ pH, ghi lại pH trước khi bật CO2, đo 30 phút một lần trong lúc chạy và dừng khi pH thấp hơn mức ban đầu khoảng 1 đơn vị.\": THIS TERM forbids \"Nếu dùng CO2 để hạ pH…\". The CO2 limit must be given as a cap on how far pH may fall while the CO2 runs, not as a way to lower the tank's pH, and it must say \"tắt CO2\", for example \"Khi châm CO2, pH tụt trong lúc CO2 chạy: ghi p…",
-        "Rules 1 and 12: \"Lá bàng hạ pH nhẹ và chậm, khoảng 1–2 đơn vị.\": THIS TERM forbids \"nhẹ\" next to the figure, because two units isn't light. It also wants the range given as a ceiling, as in \"Lá bàng hạ pH chậm, có thể tới khoảng 1–2 đơn vị.\""
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Trước khi set bể, đo pH nước máy hoặc nước giếng xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\" (not \"Trước khi set bể, đo nước máy xem có hợp với loài định nuôi không, và tìm hiểu nhu cầu nước của từng loài trước khi mua.\": Rule 12: \"Trước khi set bể, đo nước …",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Đo pH vào cùng một giờ mỗi lần và đừng tin vào một lần đo lẻ.\" (not \"Đo pH vào cùng một giờ mỗi lần và thận trọng với một lần đo lẻ.\": it drops the caution \"đừng\")",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Khi cá ngộ độc amoniac, thay 50% nước.\" (not \"Khi cá ngộ độc amoniac, thay 25–50% nước và, nếu cá chịu được, hạ pH xuống khoảng 6,0–6,5.\": Rule 12: \"Khi cá ngộ độc amoniac, thay 25–50% nước và, nếu cá chịu được, hạ pH xuống khoảng 6,0–6,5.\": the water change for ammonia poisoning must be 50%, the figure s…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Khi nâng pH, dùng thứ nào cũng chỉ nâng mỗi ngày không quá 0,2 đơn vị, rồi đo lại.\" (not \"Khi nâng pH, nâng từ từ, mỗi ngày không quá 0,5 đơn vị.\": Rule 12: \"Khi nâng pH, nâng từ từ, mỗi ngày không quá 0,5 đơn vị.\": the pace must be the slower one, no more than 0.2 a day (source 6), whatever is used, with…",
+        "The entry is 626 words: hold it to about 620, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    }
+  ],
+  "vi/glossary/thuc-an-kho": [
+    {
+      "at": "2026-11-18T03:04:26Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong vài phút, thường là 2–5 phút hoặc ít hơn.\" (not \"Theo PetMD, cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong 2–5 phút.\": Rules 4 and 12: \"Theo PetMD, cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong 2–5 phút.\": sev…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T03:04:26Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Rules 8 and 12: \"Loại ghi là đầy đủ dinh dưỡng thì đủ chất để làm thức ăn hằng ngày: Tetra và sera ghi vậy cho loại mảnh của họ.\" names the brands Tetra and sera. The makers' sentence must name no one and must match word for word (\"...để làm thức ăn hằng ngày.\"). Naming them also puts more than three pages in the entry.",
+        "Rules 5 and 12: altNames is empty. The other names must include \"cám\" (two shops' pages, so no credit) and the English name the FACTS give, \"dry food\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T02:50:07Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 0.97,
+      "notes": [
+        "\"Loại ghi là đầy đủ dinh dưỡng thì đủ chất để làm thức ăn hằng ngày: Tetra và sera ghi vậy cho loại mảnh của họ.\": the facts don't carry it (unsupported, unsupported, loose): States as a general rule what Tetra and sera say about their own flakes; drops the JBL and UK Pet Food warnings that a community tank needs more than one food / drops caveat: one complete food may not suffice in community ta…"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T02:50:07Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong vài phút, thường là 2–5 phút hoặc ít hơn.\" (not \"Cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong 2–5 phút.\": Rules 4 and 12: \"mỗi lần chỉ lượng cá ăn hết trong 2–5 phút\" gives 2–5 minutes alone as the rule. The rules forbid this…",
+        "Rule 12: The first paragraph under \"Trong bể của bạn\" still has \"Bể nuôi nhiều loài thì rất có thể cần vài loại thức ăn khác nhau. Một loại đầy đủ dinh dưỡng chưa chắc hợp với mọi con cá trong bể.\" These two sentences come from UK Pet Food's page (fact 62). THIS TERM says they go and must not appear anywhere in the entry. The paragraph should be the makers' sentence alone, word for word.",
+        "Rule 12: The other names are missing because altNames is empty. THIS TERM says the other names for dry food as a whole are \"cám\" (on two shops' pages, no credit) and the English \"dry food\". Both should be listed among the other names."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T02:45:40Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong vài phút, thường là 2–5 phút hoặc ít hơn.\" (not \"Cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong hai đến năm phút.\": Rules 4 and 12: \"mỗi lần chỉ lượng cá ăn hết trong hai đến năm phút\" gives 2–5 minutes alone as the rule, which…",
+        "Rule 12: \"Tetra và sera ghi loại mảnh của họ là đầy đủ dinh dưỡng, để cho cá ăn hằng ngày.\" must be the makers' sentence word for word: \"Loại ghi là đầy đủ dinh dưỡng thì đủ chất để làm thức ăn hằng ngày: Tetra và sera ghi vậy cho loại mảnh của họ.\"",
+        "Rule 12: \"Bể nuôi nhiều loài thì rất có thể cần vài loại thức ăn khác nhau. Một loại đầy đủ dinh dưỡng chưa chắc hợp với mọi con cá trong bể.\" must be removed. The first paragraph under \"Trong bể của bạn\" is the makers' sentence alone, and no sentence anywhere in the entry may say that a mixed tank needs different foods or that one complete food may not suit every fish (the chief of staff's rulin…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T02:45:40Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 0.97,
+      "notes": [
+        "\"Loại ghi là đầy đủ dinh dưỡng thì đủ chất để làm thức ăn hằng ngày: Tetra và sera ghi vậy cho loại mảnh của họ.\": the facts don't carry it (unsupported, loose, unsupported): States maker claim as fact; drops JBL/UK Pet Food caveat that one food isn't enough in community tanks / States makers' claim as general fact; drops the caveat that one food may not suit a community tank / States the maker c…"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    }
+  ],
+  "id/glossary/nen-be": [
+    {
+      "at": "2026-11-17T04:48:27Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "Minor: \"soil\" is left in English; Indonesian hobbyists do commonly say \"soil\" (aqua soil), but consider \"tanah/soil aquascape\" on first use, e.g. \"soil (tanah substrat)\".",
+        "Minor: \"batu lava\" is fine for sỏi núi lửa, but \"kerikil vulkanik\" is also used; optional."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/glossary/nen-be": [
+    {
+      "at": "2026-11-17T05:06:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "\"batu kelikir\" is slightly awkward for \"sỏi\" (gravel). \"kerikil\" is the more common Malaysian term.",
+        "\"batu lava\" for \"sỏi núi lửa\" (volcanic gravel) is understandable. \"batu volkanik\" or \"kerikil volkanik\" is more natural."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/glossary/nen-be": [
+    {
+      "at": "2026-11-17T04:51:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "Optional: Thai hobbyists often say 'วัสดุปูพื้น' or just 'พื้นตู้'; current wording is fine.",
+        "Optional: 'หินภูเขาไฟ' is understood; 'ดินปลูกไม้น้ำ' is the common term for aqua soil, so this is OK."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/glossary/vay-lung": [
+    {
+      "at": "2026-11-18T03:55:59Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Bài viết thứ nhất cũng ghi: vây cụp do môi trường thường đỡ trong 24–72 giờ sau khi sửa lại nước.\" (not \"Bài viết thứ nhất cũng ghi: vây cụp do môi trường thường đỡ trong 24–72 giờ sau khi các điều kiện nuôi được khắc phục.\": Rule 12: \"Bài viết thứ nhất cũng ghi: vây cụp do môi trường thường đỡ trong 24–7…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T03:55:59Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Rule 12: The fin-count sentence \"Tùy loài, cá có một, hai hoặc ba vây lưng; cá vàng có một.\" is missing. It must be written word for word as the first sentence under \"Trong bể của bạn\". It belongs in the same paragraph as \"Ở một số loài, vây lưng có gai cứng và nhọn để tự vệ.\" and comes before it."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T03:43:26Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Bài viết thứ nhất cũng ghi: vây cụp do môi trường thường đỡ trong 24–72 giờ sau khi sửa lại nước.\" (not \"Bài viết thứ nhất cũng ghi: vây cụp do môi trường thường đỡ trong 24–72 giờ sau khi điều kiện nuôi được khắc phục.\": Rule 12: \"Bài viết thứ nhất cũng ghi: vây cụp do môi trường thường đỡ trong 24–72 gi…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T03:43:26Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Rule 12: The definition \"Vây lưng là vây đơn mọc giữa sống lưng của hầu hết các loài cá. Nó giữ cho cá không bị lật nghiêng khi bơi và giúp cá rẽ gấp.\" uses \"vây đơn\", \"hầu hết các loài\" and \"rẽ gấp\", which THIS TERM forbids. It must read word for word: \"Vây lưng là vây mọc trên lưng cá. Nó giữ cho cá không bị lật nghiêng khi bơi và giúp cá đổi hướng.\"",
+        "Rule 12: \"Tùy loài, cá có một, hai hoặc ba vây lưng. Cá vàng chỉ có một.\" comes from only one page (fact 9), and a keeper can't act on it. With three pages already named, it must be left out.",
+        "Rule 12: \"và gai của vài loài có nọc độc\" in \"Ở một số loài, vây lưng có gai cứng và nhọn để tự vệ, và gai của vài loài có nọc độc.\" comes from only one page (fact 8) and must be left out. The sentence must read word for word: \"Ở một số loài, vây lưng có gai cứng và nhọn để tự vệ.\"",
+        "Rule 12: \"và khoảng 25–27 tia ở vây phía sau\" (the rear fin's ray count, fact 13) must be left out. \"Một tiệm ở Việt Nam ghi cá rồng châu Á dòng kim long có 15–19 tia vây lưng … Tiệm này dựa vào số tia để chọn cá.\" also has no colon after \"ghi\", and a full stop ends the credit before the shop's second claim. It must read word for word: \"Một tiệm ở Việt Nam ghi: cá rồng châu Á Kim Long có 15–19 ti…",
+        "Rule 12: \"Một nguồn ghi vây cụp là khi cá xếp vây ép sát thân thay vì xòe ra. Theo nguồn này, vây cụp là dấu hiệu…\" uses the forbidden opening \"Một nguồn\", and a full stop ends the credit. It must read word for word: \"Một bài viết ghi: vây cụp là khi cá xếp vây ép sát thân thay vì xòe ra; đó là dấu hiệu cá đang căng thẳng hoặc bệnh, bản thân nó không phải một bệnh.\"",
+        "Rule 12: \"Một nguồn khác ghi trong bể nuôi chung, vây rách thường là do bị cá khác rỉa…\" uses \"Một nguồn khác\" instead of \"Một bài viết khác ghi:\". It also splits the page's claims with full stops (\"…vướng rách vây. Vây bị rỉa…\", \"…vẫn khỏe. Còn thối vây…\") where semicolons are required, as in the prescribed text.",
+        "Rule 12: \"Khi cá cụp vây, nguồn đầu tiên ghi các bước sau:\" uses the forbidden \"nguồn đầu tiên\". It must read word for word: \"Bài viết thứ nhất cũng ghi: khi cá cụp vây, làm theo các bước sau:\"",
+        "Rule 12: \"Cũng theo nguồn này, vây cụp do môi trường thường đỡ trong 24–72 giờ sau khi sửa lại nước.\" must read word for word: \"Bài viết thứ nhất cũng ghi: vây cụp do môi trường thường đỡ trong 24–72 giờ sau khi sửa lại nước.\"",
+        "Rule 12: \"Với vây rách, nguồn thứ hai ghi vết rách nhỏ… Nguồn này khuyên không nuôi… Nguồn này cũng khuyên không chữa vây bằng muối cho cá không vảy.\" uses the forbidden \"nguồn thứ hai\" and breaks the credit with full stops. It must read word for word: \"Bài viết thứ hai cũng ghi: vết rách nhỏ, mép gọn thường tự lành trong một đến hai tuần nếu nước được giữ sạch, không cần thuốc; đừng nuôi cá hay …",
+        "Rule 12: \"Nguồn về vây cụp nêu một sai lầm là coi như đã xong trong khi cá vẫn cụp vây. Vây còn cụp nghĩa là nguyên nhân vẫn còn đó.\" uses the forbidden \"Nguồn về vây cụp\", and a full stop splits the claim. It must read word for word: \"Bài viết thứ nhất cũng ghi một sai lầm: coi như đã xong trong khi cá vẫn cụp vây, vì vây còn cụp nghĩa là nguyên nhân vẫn còn đó.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T03:35:37Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 0.73,
+      "notes": [
+        "\"Một trang thú y ghi: vây cụp là khi cá xếp vây ép sát thân thay vì xòe ra; đó là dấu hiệu cá đang căng thẳng hoặc bệnh, bản thân nó không phải một bệnh.\": the facts don't carry it (loose, unsupported, unsupported): Content matches; source kind is 'other', not a vet site / Source isn't identified as a vet site; content otherwise matches / Calls source a vet site; its kind is only 'other'",
+        "\"Trang thú y này cũng ghi: khi cá cụp vây, làm theo các bước sau:\": the facts don't carry it (not a claim, unsupported, unsupported): Transition introducing steps / Calls the source a vet page, which the facts don't say / Calls source a vet site; its kind is only 'other'",
+        "\"Trang thú y này cũng ghi: vây cụp do môi trường thường đỡ trong 24–72 giờ sau khi sửa lại nước.\": the facts don't carry it (loose, unsupported, unsupported): Content matches; source called a vet site without basis / Calls the source a vet page; content otherwise matches / Calls source a vet site; also says 'fixing the water' where source says 'conditions corrected'",
+        "\"Trang thú y này cũng ghi một sai lầm: coi như đã xong trong khi cá vẫn cụp vây, vì vây còn cụp nghĩa là nguyên nhân vẫn còn đó.\": the facts don't carry it (loose, unsupported, unsupported): Content matches; source called a vet site without basis / Calls the source a vet page; content otherwise matches / Calls source a vet site; its kind is only 'other'"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T03:35:37Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Ở một số loài, vây lưng có gai cứng và nhọn để tự vệ, và gai của vài loài có nọc độc.\" (not \"Ở một số loài, vây lưng có gai cứng và nhọn để tự vệ, và ở vài loài cá da trơn, gai này có nọc độc.\": Rule 12: \"Ở một số loài, vây lưng có gai cứng và nhọn để tự vệ, và ở vài loài cá da trơn, gai này có nọc độc.\":…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Một nguồn khác ghi trong bể nuôi chung, vây rách thường là do bị cá khác rỉa, và cá vây dài hay bị nhắm tới.\" (not \"Trong bể nuôi chung, bị cá khác rỉa là nguyên nhân làm hỏng vây thường gặp nhất, và cá vây dài hay bị nhắm tới.\": Rule 12: \"Một nguồn ghi vây cụp là khi cá xếp vây ép sát thân thay vì xòe ra…",
+        "Rule 12: definition \"Vây lưng là vây đơn mọc giữa sống lưng của hầu hết các loài cá. Nó giữ cho cá không bị lật nghiêng khi bơi và giúp cá rẽ gấp.\" uses the banned \"vây đơn\", \"hầu hết các loài\" and \"rẽ gấp\". It must read word for word: \"Vây lưng là vây mọc trên lưng cá. Nó giữ cho cá không bị lật nghiêng khi bơi và giúp cá đổi hướng.\"",
+        "Rule 12: \"Tùy loài, cá có một, hai hoặc ba vây lưng. Cá vàng chỉ có một.\" gives the number of dorsal fins and says goldfish have one (fact 9). This is a one-page claim a keeper can't act on, and THIS TERM says it goes.",
+        "Rule 12: \"Ở một số loài, vây lưng có gai cứng và nhọn để tự vệ, và gai của vài loài có nọc độc.\" adds the venomous spines (fact 8), which must go. The sentence must be word for word: \"Ở một số loài, vây lưng có gai cứng và nhọn để tự vệ.\"",
+        "Rule 12: \"Một tiệm ở Việt Nam ghi cá rồng châu Á dòng kim long có 15–19 tia vây lưng và khoảng 25–27 tia ở vây phía sau. Tiệm này dựa vào số tia để chọn cá.\" keeps the rear fin's ray count (fact 13), which must go. It also has no colon after the credit and ends the credit with a full stop. It must be word for word: \"Một tiệm ở Việt Nam ghi: cá rồng châu Á Kim Long có 15–19 tia vây lưng, và tiệm d…",
+        "Rule 12: \"Một nguồn ghi vây cụp là khi cá xếp vây ép sát thân thay vì xòe ra. Theo nguồn này, vây cụp là dấu hiệu...\" uses the banned \"Một nguồn\" and splits the credit with a full stop. It must be: \"Một trang thú y ghi: vây cụp là khi cá xếp vây ép sát thân thay vì xòe ra; đó là dấu hiệu cá đang căng thẳng hoặc bệnh, bản thân nó không phải một bệnh.\"",
+        "Rule 12: \"Một nguồn khác ghi trong bể nuôi chung, vây rách thường là do bị cá khác rỉa...\" uses the banned \"nguồn\" wording instead of \"Một trang về thú nuôi ghi:\". It also splits the page's claims with full stops (\"...vướng rách vây. Vây bị rỉa...\", \"...vẫn khỏe. Còn thối vây...\") instead of semicolons inside one credit.",
+        "Rule 12: \"Khi cá cụp vây, nguồn đầu tiên ghi các bước sau:\" uses the banned \"nguồn đầu tiên\". It must be: \"Trang thú y này cũng ghi: khi cá cụp vây, làm theo các bước sau:\"",
+        "Rule 12: \"Cũng theo nguồn này, vây cụp do môi trường thường đỡ trong 24–72 giờ sau khi sửa lại nước.\" must be: \"Trang thú y này cũng ghi: vây cụp do môi trường thường đỡ trong 24–72 giờ sau khi sửa lại nước.\""
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    }
+  ],
+  "vi/glossary/mang-sinh-hoc": [
+    {
+      "at": "2026-11-18T02:01:16Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Trên lũa mới thả thường xuất hiện một lớp lông tơ trắng, nhầy.\" (not \"Trên lũa mới thả, màng sinh học hiện ra thành một lớp lông tơ màu trắng hoặc xám.\": Rules 12 and 7: \"Trên lũa mới thả, màng sinh học hiện ra thành một lớp lông tơ màu trắng hoặc xám.\" does not follow the required wording, \"Trên lũa mới …"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T02:01:16Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Rule 12: in the definition, \"Nó gồm vi khuẩn, nấm và các vi sinh vật khác, dính với nhau bằng chất keo do chúng tự tiết ra.\" uses \"dính với nhau\", which the THIS TERM line forbids, and \"chất keo\" in place of \"chất nhầy\". The line asks for this wording exactly: \"Nó gồm vi khuẩn, nấm, các vi sinh vật khác và lớp chất nhầy do chúng tự tiết ra.\"",
+        "Rules 12 and 4: \"Lũa mới thả vài ngày thường xuất hiện một lớp lông trắng, nhầy.\" The line asks for this wording exactly, with no time: \"Trên lũa mới thả thường xuất hiện một lớp lông tơ trắng, nhầy.\" This sentence adds a time (\"vài ngày\") and writes \"lông\" instead of \"lông tơ\". The added \"vài ngày\" also repeats the time given later in \"màng cần vài ngày để bắt đầu mọc\".",
+        "Rule 12: \"Tiệm thứ hai cũng ghi: chỉnh đầu ra của lọc cho mặt nước gợn nhẹ, tránh bắn tung tóe mạnh.\" is not the required wording: \"Tiệm thứ hai cũng ghi: chỉnh đầu ra của lọc cho mặt nước gợn nhẹ, không bắn tung tóe.\"",
+        "Rule 12: \"Lắp skimmer hút váng nếu muốn hết lâu dài.\" is not the required wording: \"Muốn hết váng lâu dài thì lắp skimmer hút váng.\"",
+        "Rule 12: \"Thả tép khi bể chưa chạy xong chu trình.\" is forbidden by name in THIS TERM, because it joins facts 35 and 36. The cycled-tank mistake should be one sentence from fact 39 only.",
+        "Rule 12: \"Nguồn người nuôi này cũng ghi: nhiều màng không có nghĩa là bể đã chạy xong chu trình, đo nước rồi mới thả tép.\" is not the required wording: \"Nguồn người nuôi này cũng ghi: thấy nhiều màng chưa có nghĩa là bể đã chạy xong chu trình, nên đo nước rồi mới thả tép.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T01:23:52Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Lũa mới thả vài ngày thường xuất hiện một lớp lông trắng, nhầy.\" (not \"Lũa mới thả vài ngày đến một tuần có thể xuất hiện một lớp màng trắng, nhầy.\": Rule 12: \"Lũa mới thả vài ngày đến một tuần có thể xuất hiện một lớp màng trắng, nhầy.\" must be written word for word as \"Lũa mới thả vài ngày thường xuất h…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Thả tép khi bể chưa chạy xong chu trình.\" (not \"Thả tép khi bể chưa ổn định đủ thời gian.\": Rule 12: \"Thả tép khi bể chưa ổn định đủ thời gian.\" must be written word for word as \"Thả tép khi bể chưa chạy xong chu trình.\". This keeps the mistake tied to the film and to the cycle. \"ổn định đủ thời gian\" is …"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T01:23:52Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"tép con mới nở sống gần như chỉ nhờ nó trong mấy tuần đầu\" uses \"tép con mới nở\". THIS TERM requires \"tép con\" here because fact 24 says baby shrimp, not newly hatched shrimp.",
+        "Rule 12: \"Màng trên lũa thường cứ để yên là được.\" should be removed. Leaving the film on wood alone is a claim from only one page (fact 31), and the entry doesn't name that page. As written, it reads as plain fact with no credit.",
+        "Rule 12: In \"Nên làm gì\", the required line \"Tiệm thứ nhất cũng ghi: không cần cọ lớp màng trắng trên lũa mới, vì nó sẽ mọc lại.\" (fact 33) is missing. It should replace the 'leave it alone' sentence, word for word, and come before \"Có thể hút bớt màng trên lũa bằng ống xi phông.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T01:15:05Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Thả tép khi bể chưa chạy xong chu trình.\" (not \"Thả tép khi bể chưa ổn định, trong khi bể cần 6 đến 8 tuần để ổn định.\": Rule 12: \"Thả tép khi bể chưa ổn định, trong khi bể cần 6 đến 8 tuần để ổn định.\" should read word for word \"Thả tép khi bể chưa chạy xong chu trình.\", as THIS TERM says. The \"6 đến 8 t…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T01:15:05Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Nó phủ trên kính, lũa, đá nham thạch và cây trong bể.\": the meaning must say word for word \"Nó phủ trên lũa, đá và các bề mặt khác trong bể.\" Glass (fact 12) and plants (fact 13) each come from only one page, so they can't be named here. \"Đá nham thạch\" should be \"đá\", and \"các bề mặt khác\" is missing.",
+        "Rule 12: \"Lũa mới thả vài ngày thường xuất hiện một lớp lông trắng hoặc xám, nhầy, có khi thành sợi.\": this must read word for word \"Lũa mới thả vài ngày thường xuất hiện một lớp lông trắng, nhầy.\" Grey (\"hoặc xám\", fact 10) and stringy (\"có khi thành sợi\", fact 11) each come from only one page and must be left out.",
+        "Rule 12: \"Tiệm thứ nhất cũng ghi: màu xanh là tảo, còn màu nâu có thể là tảo nâu hoặc màng có lẫn tảo nâu. Vi khuẩn nở rộ làm đục cả nước bể, còn màng sinh học bám trên bề mặt.\": the full stop ends the credit, so the bloom sentence, which comes from only one page (fact 15), stands as plain fact. It must be joined with a semicolon: \"…màng có lẫn tảo nâu; vi khuẩn nở rộ làm đục cả nước bể, còn màng…",
+        "Rule 12: \"Mảng nào bong ra thì hút bằng ống xi phông.\": this must read \"Có thể hút bớt màng trên lũa bằng ống xi phông.\" \"Bong ra\" (loose bits) comes from only one page (fact 31) and must go.",
+        "Rule 12: \"Nguồn người nuôi này cũng ghi: muốn màng mọc nhiều hơn, … cho màng bám vào rễ. Màng cần vài ngày để bắt đầu mọc và vài tuần mới dày.\": the full stop ends the credit, so fact 30, which comes from only one page, stands as plain fact. It must be joined with a semicolon: \"…cho màng bám vào rễ; màng cần vài ngày để bắt đầu mọc và vài tuần mới dày.\"",
+        "Rule 12: \"Cho ăn nhiều hoặc rắc quá tay thức ăn bột để nuôi màng. Nguồn người nuôi này cũng ghi: làm vậy sẽ đẩy amoniac, nitrit, nitrat lên…\": the mistake itself comes from only one page (fact 37), so it can't stand as a plain sentence before the credit. It must read word for word \"Nguồn người nuôi này cũng ghi: cho ăn nhiều hoặc rắc quá tay thức ăn bột để nuôi màng sẽ đẩy amoniac, nitrit, nitrat…"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    }
+  ],
+  "vi/glossary/thuc-an-dong-lanh": [
+    {
+      "at": "2026-11-18T02:33:46Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cách thứ hai là rã riêng một phần mồi trong cốc nhỏ nước bể vài phút, tráng mồi rồi cho ăn.\" (not \"Cách thứ hai là rã riêng một phần mồi trong cốc nhỏ nước bể vài phút rồi cho ăn.\": Rule 12: \"Cách thứ hai là rã riêng một phần mồi trong cốc nhỏ nước bể vài phút rồi cho ăn.\" leaves out \"tráng mồi\". The line…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Mỗi bữa chỉ cho lượng cá ăn hết trong vài phút.\" (not \"Mỗi bữa chỉ cho lượng cá ăn hết trong 2–3 phút.\": Rule 12: \"Mỗi bữa chỉ cho lượng cá ăn hết trong 2–3 phút.\" lets one page's figure stand alone. The pages give 2–3 minutes (fact 30) and, for bloodworm, 3–5 minutes (fact 31). The line requires \"trong v…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Đồ đông lạnh thường cho ăn vài lần mỗi tuần, xen với thức ăn khác.\" (not \"Với cá ăn tạp và cá nuôi chung thông thường, đồ đông lạnh có thể cho ăn từ một lần đến vài lần mỗi tuần, xen với thức ăn khác.\": Rule 12: \"Với cá ăn tạp và cá nuôi chung thông thường, đồ đông lạnh có thể cho ăn từ một lần đến vài lầ…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cho ăn quá nhiều đồ đông lạnh làm bẩn nước.\" (not \"Cần kiểm soát khẩu phần đồ đông lạnh để tránh làm bẩn nước bể.\": Rule 12: In the mistakes list, \"Cần kiểm soát khẩu phần đồ đông lạnh để tránh làm bẩn nước bể.\" gives overfeeding as advice. The line says never \"Cần kiểm soát lượng …\" and requires this wor…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T02:33:46Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Rules 6 and 12: \"Betta\" in \"Tiệm thứ nhất cũng ghi: loại này hợp với cá ăn thịt như Betta.\": the fish has a page, and the line under THIS TERM requires the bloodworm item to say \"cá betta\" word for word: \"Tiệm thứ nhất cũng ghi: loại này hợp với cá ăn thịt như cá betta.\" It must never say \"như Betta\".",
+        "Rule 12: \"Một tiệm khác ghi: tép chỉ nên thỉnh thoảng mới ăn đồ đông lạnh.\" does not follow the required wording \"Một tiệm khác ghi: chỉ nên thỉnh thoảng cho tép ăn đồ đông lạnh.\" The rule asks for that wording so that nobody reads \"tép chỉ\".",
+        "Rule 12: the allergy paragraph says \"người nuôi tự phòng bằng găng tay, kẹp gắp, loại đã chia sẵn từng viên và khẩu trang\". The required wording has \"mồi đã chia sẵn từng viên\", not \"loại đã chia sẵn từng viên\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T02:24:05Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (the definition's first sentence): \"Thức ăn đông lạnh là mồi như trùng huyết, artemia, bobo hay trùn chỉ, được cấp đông nhanh để giữ dinh dưỡng.\"",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cách thứ hai là rã riêng một phần mồi trong cốc nhỏ nước bể vài phút, tráng mồi rồi cho ăn.\" (not \"Cách thứ hai là rã riêng một phần mồi trong cốc nhỏ nước bể vài phút rồi mới cho ăn.\": Rule 12: \"Cách thứ hai là rã riêng một phần mồi trong cốc nhỏ nước bể vài phút rồi mới cho ăn.\" leaves out the rinse. Th…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Mỗi bữa chỉ cho lượng cá ăn hết trong vài phút.\" (not \"Mỗi bữa chỉ cho lượng cá ăn hết trong 2–3 phút.\": Rule 12: \"Mỗi bữa chỉ cho lượng cá ăn hết trong 2–3 phút.\" gives one shop's figure (fact 30) as plain fact. The line says neither 2–3 nor 3–5 minutes stands alone, so it should read \"trong vài phút\".)",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Đồ đông lạnh thường cho ăn vài lần mỗi tuần, xen với thức ăn khác.\" (not \"Cá ăn tạp và cá nuôi chung có thể ăn đồ đông lạnh từ một lần đến vài lần mỗi tuần, xen với thức ăn khác.\": Rule 12: \"Cá ăn tạp và cá nuôi chung có thể ăn đồ đông lạnh từ một lần đến vài lần mỗi tuần, xen với thức ăn khác.\" keeps \"on…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cho ăn quá nhiều đồ đông lạnh làm bẩn nước.\" (not \"Cần kiểm soát lượng đồ đông lạnh mỗi bữa để không làm bẩn nước bể.\": Rule 12: \"Cần kiểm soát lượng đồ đông lạnh mỗi bữa để không làm bẩn nước bể.\" words overfeeding as advice, which the line forbids (never \"Cần kiểm soát lượng …\"). It must state the mista…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T02:24:05Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Rule 12: The artemia item has to be written word for word as \"…con artemia dài khoảng 1 cm, vỏ kitin của nó là chất xơ, giúp…\". The entry has \"con artemia dài khoảng 1 cm, có vỏ kitin là chất xơ, giúp cá vàng, cá betta (cá xiêm), Apistogramma đỡ sình bụng và táo bón.\"",
+        "Rule 12: The thaw-water sentence has to be written word for word as \"Tiệm thứ hai cũng ghi: đổ bỏ nước rã đông trước khi tráng mồi.\" The entry drops \"trước khi tráng mồi\" and has \"Tiệm thứ hai cũng ghi: đổ bỏ nước rã đông.\"",
+        "Rule 12: The allergy paragraph has to be written whole and word for word, with \"theo các trường hợp người nuôi kể lại, loại sấy khô gắn với nhiều ca dị ứng hơn\". The entry has \"loại sấy khô được kể là gắn với nhiều ca dị ứng hơn\".",
+        "Rules 12 and 4: The overfeeding mistake has to be said as the mistake it is: \"Cho ăn quá nhiều đồ đông lạnh làm bẩn nước.\" The line is never to read \"Cần kiểm soát lượng …\". The entry has \"Cần kiểm soát lượng đồ đông lạnh cho ăn để tránh làm bẩn nước bể.\", which turns the mistake into advice and joins the facts with \"để\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T01:43:02Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cách thứ hai là rã riêng một phần mồi trong cốc nhỏ nước bể vài phút, tráng mồi rồi cho ăn.\" (not \"Cách thứ hai là rã riêng mồi trong một lọ nhỏ nước bể vài phút rồi mới cho ăn.\": Rule 12: \"Cách thứ hai là rã riêng mồi trong một lọ nhỏ nước bể vài phút rồi mới cho ăn.\": the thawed way leaves out the rinse…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Mỗi bữa chỉ cho lượng cá ăn hết trong vài phút.\" (not \"Mỗi bữa chỉ cho lượng cá ăn hết trong 2–3 phút.\": Rules 4 and 12: \"Mỗi bữa chỉ cho lượng cá ăn hết trong 2–3 phút.\": the pages give 2–3 minutes (fact 30) and, for bloodworms, 3–5 minutes (fact 31), so neither figure should stand alone. THIS TERM says …",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Đồ đông lạnh thường cho ăn vài lần mỗi tuần, xen với thức ăn khác.\" (not \"Với cá ăn tạp và cá nuôi chung thông thường, đồ đông lạnh có thể cho ăn từ mỗi tuần một lần đến vài lần mỗi tuần, xen với các loại thức ăn khác.\": Rule 12: \"Với cá ăn tạp và cá nuôi chung thông thường, đồ đông lạnh có thể cho ăn từ …",
+        "Loose, reworded: \"Cho ăn quá nhiều đồ đông lạnh làm bẩn nước.\" → \"Cần kiểm soát lượng đồ đông lạnh cho ăn để tránh làm bẩn nước bể.\" (supported)"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T01:43:02Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"con artemia lớn, dài khoảng 1 cm. Tiệm thứ nhất cũng ghi: vỏ kitin của nó là chất xơ, giúp cá vàng, cá betta (cá xiêm), Apistogramma đỡ sình bụng và táo bón.\" The artemia item must be one sentence, word for word: \"Tiệm thứ nhất cũng ghi: con artemia dài khoảng 1 cm, có vỏ kitin là chất xơ, giúp cá vàng, cá betta (cá xiêm), Apistogramma đỡ sình bụng và táo bón.\" \"lớn\" is not allowed. The…",
+        "Rule 12: \"Cá ăn tạp và cá nuôi chung ăn đồ đông lạnh từ một lần đến vài lần mỗi tuần, xen với thức ăn khác.\" \"Once a week\" (\"từ một lần\") and \"omnivores and community fish\" (\"Cá ăn tạp và cá nuôi chung\") come only from fact 32 and must go. The line must read word for word: \"Đồ đông lạnh thường cho ăn vài lần mỗi tuần, xen với thức ăn khác.\"",
+        "Rule 12: \"Một tạp chí ghi: một số người nuôi bị dị ứng trùng huyết, từ nổi mẩn tới có ca phải đi cấp cứu. Theo các trường hợp người nuôi kể lại, loại sấy khô gắn với nhiều ca dị ứng hơn, ... Người nuôi tự phòng bằng găng tay, kẹp gắp, loại đã chia sẵn từng viên và khẩu trang. Ai đã có triệu chứng thì nên đi khám.\" The allergy warning must be the two given sentences, word for word: \"Một tạp chí gh…"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    }
+  ],
+  "vi/glossary/dong-chay": [
+    {
+      "at": "2026-11-18T03:40:38Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Tiệm thứ nhất cũng ghi: khi cúp điện, bơm ngừng vài tiếng là vi khuẩn kỵ khí sinh độc, oxy tụt và vi khuẩn trong lọc yếu đi, nên cá có thể căng thẳng rất nhanh, nhất là khi trời nóng hoặc bể nuôi dày; có điện lại mà đo nước thấy chất độc tăng thì thay một phần nước bằng nước đã khử clo, chứ đừng chỉ bật l…",
+        "Rule 4: The point that a filter's real flow is lower than its rated flow appears twice. It is first made in \"Tiệm thứ nhất cũng ghi: lưu lượng thật giảm 20–30% khi vật liệu lọc bẩn…\" and then repeated in \"…cao hơn mức tính ra 20–30%, vì dòng thật yếu hơn.\" It should be said once, in one place."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T03:40:38Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Tiệm thứ nhất cũng ghi: nên chọn lọc có lưu lượng ghi trên hộp cao hơn mức tính ra 20–30%, vì dòng thật yếu hơn.\" the advice \"vì dòng thật yếu hơn\", and nothing lets that sentence go: write it as it was, word for word.",
+        "Rule 10: \"cá nhỏ, bơi yếu cần dòng nhẹ hơn hết, còn cá betta cần dòng rất nhẹ\" can be read as saying small, weak-swimming fish need the gentlest flow of all, gentler than bettas. The FACTS make no such comparison. Fact 41 only says weak flow is the top priority for small, weak-swimming fish."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T03:40:38Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Khi dòng quá mạnh, cá bơi vất vả hoặc nép vào chỗ trốn.\" states the signs of too strong a flow as plain fact, without the first shop's credit. The required wording, word for word, is \"Một tiệm ghi: khi dòng quá mạnh, cá phải bơi ngược dòng liên tục, đuôi bị cuốn đi, hoặc nép vào một góc bể.\"",
+        "Rule 12: \"cá bơi vất vả hoặc nép vào chỗ trốn\" takes the betta signs (swimming with difficulty, looking for hiding places; fact 17, betta page only) and applies them to fish in general. Fact 17 names only bettas.",
+        "Rule 12: \"Một tiệm ghi: lưu lượng thật giảm 20–30% khi vật liệu lọc bẩn…\" opens with the wrong credit. Once the signs of too strong a flow open the first shop's credit, this claim must open \"Tiệm thứ nhất cũng ghi: lưu lượng thật giảm 20–30% …\".",
+        "Rule 4: the point that real flow falls below the rated flow, with the figure 20–30%, is made twice: in \"lưu lượng thật giảm 20–30% khi vật liệu lọc bẩn\" and again in \"cao hơn mức tính ra 20–30%, vì dòng thật yếu hơn\". It should be said once.",
+        "Rule 12: \"altNames\":[] leaves out the English name \"Water flow\". The THIS TERM line says other names are given with \"Water flow\", and the FACTS give it as the term's English name."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T03:31:57Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Khi dòng quá mạnh, cá bơi vất vả hoặc nép vào chỗ trốn.\" (not \"Khi dòng quá mạnh, cá phải bơi ngược dòng liên tục, đuôi bị cuốn đi, hoặc nép vào một góc bể.\": Rule 12: \"Khi dòng quá mạnh, cá phải bơi ngược dòng liên tục, đuôi bị cuốn đi, hoặc nép vào một góc bể.\" breaks the line for this term on signs of …",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Tiệm thứ nhất cũng ghi: khi cúp điện, bơm ngừng vài tiếng là vi khuẩn kỵ khí sinh độc, oxy tụt và vi khuẩn trong lọc yếu đi, nên cá có thể căng thẳng rất nhanh, nhất là khi trời nóng hoặc bể nuôi dày; có điện lại mà đo nước thấy chất độc tăng thì thay một phần nước bằng nước đã khử clo, chứ đừng chỉ bật l…",
+        "Rule 4: The entry warns twice that a filter's real flow is lower than its rated flow. It says so in \"Một tiệm ghi: lưu lượng thật giảm 20–30% khi vật liệu lọc bẩn, và bông lọc nghẹt có thể cắt mất 50–70% mà người nuôi không để ý.\" under \"Trong bể của bạn\", and again in \"nên chọn lọc có lưu lượng ghi trên hộp cao hơn mức tính ra 20–30%, vì dòng thật yếu hơn.\" under \"Nên làm gì\". The same figure, \"…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T03:31:57Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Nó đưa oxy đi khắp bể, đẩy chất bẩn về phía lọc và giữ nhiệt độ đều.\" the advice \"đẩy chất bẩn về phía lọc\", and nothing lets that sentence go: write it as it was, word for word.",
+        "Rules 10 and 1: \"cá nhỏ, bơi yếu cần dòng nhẹ hơn hết\" says small, weak-swimming fish need the gentlest flow of all. Fact 40 only says weak flow is the top priority for them; it never compares them with other fish. The claim also clashes with the entry's own figures: planted tanks with small fish get \"5–8 lần thể tích bể mỗi giờ\", while betta tanks get \"khoảng 2–4 lần thể tích bể mỗi giờ\" and bet…"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T03:31:57Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"đẩy chất bẩn về phía lọc\" in the definition is a claim from only one page (source 3, fact 7), but it is written as plain fact. The entry already names three pages, so this claim should be dropped rather than credited as a fourth.",
+        "Rule 12: \"Cặn bẩn hay đọng ở đó và ở các góc bể.\" adds the tank's corners, which come from one page only (fact 18). The line must read word for word \"Cặn bẩn hay đọng ở đó.\"",
+        "Rule 12: \"Khi dòng quá mạnh, cá bơi vất vả và hay nép vào một góc hoặc chỗ trốn.\" uses \"một góc\", which is from fact 15 alone. The line must read word for word \"Khi dòng quá mạnh, cá bơi vất vả hoặc nép vào chỗ trốn.\"",
+        "Rule 12: \"Cá lớn hoặc bơi nhanh, như cá đĩa: 8–12 lần thể tích bể mỗi giờ. Dù vậy, nên tránh để dòng mạnh xả thẳng vào cá đĩa.\" is split at a full stop, which leaves the second half as plain fact outside the first shop's credit. It must be one sentence, word for word: \"Cá lớn hoặc bơi nhanh, như cá đĩa: 8–12 lần thể tích bể mỗi giờ, nhưng nên tránh để dòng mạnh xả thẳng vào cá đĩa.\"",
+        "Rule 12: \"Tiệm thứ hai cũng ghi: có thể giảm dòng theo các cách sau:\" leaves out the betta, which fact 31 names. It must read word for word \"Tiệm thứ hai cũng ghi: có thể giảm dòng cho cá betta theo các cách sau:\"",
+        "Rule 12: altNames is empty, so the English name \"Water flow\" that the FACTS give is missing. The other-names line asks for it alongside any new names."
       ],
       "attempt": "rewrite",
       "kept": false

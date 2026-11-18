@@ -1,0 +1,60 @@
+{
+  "id": "distichodus-teugelsi",
+  "native": {
+    "input": "799400a7bd25b2f6",
+    "at": "2026-11-17T18:05:08.130Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "glaser",
+        "quote": "DR Congo: the fish inhabit the middle course of the Congo river.",
+        "words": "DR Congo",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Congo",
+        "source": "glaser",
+        "quote": "DR Congo: the fish inhabit the middle course of the Congo river.",
+        "country": "CD",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Distichodus teugelsi",
+    "status": "ACCEPTED",
+    "taxonKey": 2355918,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        27
+      ],
+      [
+        "cca0058d-d593-4c7e-844c-dcc0b8feae86",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ]
+    ],
+    "native": [
+      "CD"
+    ],
+    "requests": 12,
+    "at": "2026-11-17T18:05:08.130Z"
+  }
+}

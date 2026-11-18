@@ -379,6 +379,11 @@ export const HeldSchema = z.object({ checks: z.array(z.string()), at: z.string()
 
 export const TranslationSchema = z.object({
   slug: z.string(), name: z.string(), altNames: z.array(z.string()), sections: z.record(z.string(), z.string()),
+  /**
+   * A glossary term's link phrases: words other pages link to the term from ("sống theo đàn" for Cá đàn), never printed
+   * as its other names, which hold only what a keeper calls the thing (the chief of staff, 18 Nov 2026).
+   */
+  linkNames: z.array(z.string()).optional(),
   body: z.string().optional(), definition: z.string().optional(),
   /** Video guides: key takeaways, questions readers ask, and the video's chapter titles in Vietnamese (same order). */
   summary: z.array(z.string()).optional(), faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(), chapters: z.array(z.string()).optional(),

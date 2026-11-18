@@ -1,0 +1,200 @@
+{
+  "id": "ambystoma-mexicanum",
+  "scientificName": "Ambystoma mexicanum",
+  "order": "Caudata",
+  "family": "Ambystomatidae",
+  "genus": "Ambystoma",
+  "group": "other",
+  "places": [
+    "north-america",
+    "mexico",
+    "xochimilco"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 15,
+          "max": 18
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 7.4,
+          "max": 7.8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 7,
+          "max": 14
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquariumbreeder",
+        "value": 30
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 4
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 10,
+          "max": 10
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/axolotl-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Other names: Axies, Water dogs, Walking fish</li><li>Minimum tank: 20 gallons (about 80 litres)</li><li>Keeping: medium; breeding: medium to difficult</li><li>pH: 7.4–7.8; GH 7–14; KH 3–8; nitrate below 10</li><li>Dwells: mid and bottom</li><li>Diet: carnivore</li><li>Temperament: peaceful (with caution)</li><li>Life span: up to 10 years</li><li>Colour forms: black, grey, white, pinkish, bronze</li></ul><p>Axolotls are not fish but salamanders (amphibians), commonly nicknamed Mexican walking fish. They have external gills and can regenerate limbs. Full-grown animals are usually 22–30 cm long.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/axolotl-guide-care-diet-and-breeding/",
+      "html": "<p>Axolotls can be kept as pets, but their endangered status makes them illegal to own or ship in some US states. Check local legality before purchasing. They can be bought from breeders or online. Axolotls are not for beginners: the large tank makes water changes harder and temperature must be monitored closely, as overheating can cause brain damage and cold makes them move less. An intermediate level of experience or higher is advised.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/axolotl-guide-care-diet-and-breeding/",
+      "html": "<p>Axolotls are native to Mexico and are endangered in the wild due to urbanisation, water pollution and the introduction of invasive predators.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/axolotl-guide-care-diet-and-breeding/",
+      "html": "<p>Their natural habitat is Lake Xochimilco, but numbers are dwindling because of water pollution, invasive species eating the axolotls and their eggs, and their being treated as a delicacy by locals. Populations have decreased over time, and axolotls now tend to do better in aquariums where conditions can be controlled.</p><p>The salamander is associated with Mexican culture as the twin of the Aztec god Quetzalcoatl.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/axolotl-guide-care-diet-and-breeding/",
+      "html": "<p>Axolotls can grow up to 30 cm long, sometimes more, and walk along the bottom, so they prefer tanks that are longer rather than higher. A good rule is one axolotl per 10 gallons (40 litres); more space is fine. One axolotl can live alone in a 20-gallon (80 litre) tank or larger. Use a secure lid, as some axolotls jump out.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/axolotl-guide-care-diet-and-breeding/",
+      "html": "<p>Tanks should be cycled before adding axolotls. Axolotls are very messy and produce a lot of waste, so remove it as soon as it is seen, for example with a turkey baster or a small siphoning after every feeding. Do weekly water changes of about one third with fresh dechlorinated water.</p><p>Anything put in the tank should be checked for sharp edges.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/axolotl-guide-care-diet-and-breeding/",
+      "html": "<p>Temperature: 15–18 °C after adding the axolotls. They can survive between 10 and 21 °C but prefer the lower end. Warm water can lead to various diseases and high temperatures may cause brain damage, so monitor it.</p><ul><li>Ammonia: 0 ppm</li><li>Nitrite: 0 ppm</li><li>Nitrate: below 10 ppm</li><li>pH: 7.4–7.8</li><li>GH: 7–14°</li><li>KH: 3–8°</li><li>Oxygen saturation: 70–100%</li><li>Salinity: N/A</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/axolotl-guide-care-diet-and-breeding/",
+      "html": "<p><strong>Substrate:</strong> a bare bottom is fine and easier to clean, but may limit movement as axolotls can slip. Sand can be tried; it clouded one tank, but other keepers use it without issue. Pebble substrate should be avoided at all costs, as axolotls can swallow stones smaller than their head, which can require surgery or cause death. No substrate is better than pebbles.</p><p><strong>Lighting:</strong> axolotls have very sensitive eyes and no eyelids, so bright light hurts them. For live plants choose low-light species.</p><p><strong>Filtration:</strong> any filter suited to the tank size, but water flow must not be too fast as they dislike it.</p><p><strong>Plants and decorations:</strong> provide hiding places such as a log or cave large enough for the animal. Anubias, marimo moss balls, Java fern, Java moss, hornwort, Lilaeopsis and pothos can be used; pothos helps reduce nitrate. Avoid tender plants that will be crushed. Artificial plants are an option if aquarium safe and free of sharp edges. A chiller may be needed in warm climates.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/axolotl-guide-care-diet-and-breeding/",
+      "html": "<p>Axolotls are carnivores, not picky, and will eat almost anything that fits in their mouth. Foods include earthworms, blackworms, bloodworms, red wigglers, brine shrimp, daphnia and ghost shrimp. Nutritional pellets made for axolotls are also available. Hatchlings eat brine shrimp and/or daphnia. Feeding involves handling live or chopped worms.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/axolotl-guide-care-diet-and-breeding/",
+      "html": "<p>Axolotls are laid back and have no sense of personal space; they may sit or walk on each other. They are not territorial or aggressive, but they are not social and do not benefit from a companion. They can still become violent towards one another depending on character and tank size, and may bite each other by mistake during feeding, so feed them in separate corners. Nipping can occur if food or space is insufficient; hiding places help.</p><p><strong>Tankmates:</strong> axolotls are best kept with other axolotls. Do not keep juveniles together; separate them once they have front legs. Axolotls under 15 cm are in a cannibalistic phase. Small fish will be eaten, and large or aggressive fish may nip the gills. Dwarf shrimp such as ghost shrimp become snacks. Snails should be avoided as they can be swallowed and cause impaction. African dwarf frogs cannot be kept with them, as they are eaten and need much warmer water. Other household pets such as cats may be a problem, so use a lid.</p><p><strong>Handling:</strong> axolotls are fully aquatic and should not be picked up or played with. Transfer them with a soft net. If touching is unavoidable, hands must be clean and wet, since residue is absorbed through the skin and the slime coat can be damaged.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/axolotl-guide-care-diet-and-breeding/",
+      "html": "<p>The sex of an axolotl cannot be told accurately before about a year of age. Sexual maturity is reached at 10–18 months, when the fingertips change colour (lighter animals develop black fingertips, darker ones lighter fingertips). The genitals are behind the back legs under the tail. Males have a swollen cloaca that looks like a round bump; females do not. Females grow bigger, while males tend to be longer and slimmer.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/axolotl-guide-care-diet-and-breeding/",
+      "html": "<p>Males produce spermatophores, clear jelly-like cones, around the tank and may try to guide the female onto them in a courtship \"waltz\". If successful, the female lays eggs within hours or a few days on plants and surfaces, darting around the tank. Axolotls can lay up to 1000 eggs, so keep males and females separate if not ready to breed. Non-viable eggs will not hatch. Breeders often sell eggs or separate them into plastic tubs until the young can be shipped.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/4a0f2f5d32ce08e4.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/4a0f2f5d32ce08e4-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/axolotl-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "hZzSbCCC3KM",
+      "title": "AXOLOTL CARE GUIDE | Housing, Feeding, & Tank Mates | Ambystoma mexicanum",
+      "durationSec": 477,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "6Wtb0q7rW9I",
+      "title": "Acquario per Axolotl! 🦎🌿 #axolotl #aquarium #ambystomamexicanum",
+      "durationSec": 114,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "HX_tcb6aPyI",
+      "title": "Starter Video: Infos zur Axolotl Haltung + Aquarium | Ambystoma Mexicanum deutsch",
+      "durationSec": 928,
+      "lang": "de"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể kính dài 80 lít",
+        "bể nuôi axolotl"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy làm lạnh nước bể cá",
+        "quạt làm mát bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên cho axolotl",
+        "giun đất sấy cho axolotl"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng dòng chảy nhẹ",
+        "lọc treo êm cho bể axolotl"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-18"
+}

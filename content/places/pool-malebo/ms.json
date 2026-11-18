@@ -3,6 +3,12 @@
   "name": "Pool Malebo",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-17T11:35:21.675Z",
+    "why": "\"Pool Malebo\" keeps the English/French word \"Pool\" untranslated; Malay atlases would write \"Tasik Malebo\" (or \"Kolam Malebo\"), using the Malay kind word for a lake-like widening of the river."
+  },
   "quality": {
     "score": 0.4,
     "indexable": false

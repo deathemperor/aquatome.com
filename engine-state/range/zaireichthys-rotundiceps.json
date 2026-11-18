@@ -1,0 +1,148 @@
+{
+  "id": "zaireichthys-rotundiceps",
+  "native": {
+    "input": "2668c8a0f268ee56",
+    "at": "2026-11-17T18:05:08.130Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "doubtful",
+        "source": "scotcat",
+        "quote": "It has been reported from the Democratic Republic of Congo to Kenya, and south to South Africa, but it might only be present in Tanzania.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      },
+      {
+        "code": "KE",
+        "status": "doubtful",
+        "source": "scotcat",
+        "quote": "It has been reported from the Democratic Republic of Congo to Kenya, and south to South Africa, but it might only be present in Tanzania.",
+        "words": "Kenya",
+        "ok": true
+      },
+      {
+        "code": "ZA",
+        "status": "doubtful",
+        "source": "scotcat",
+        "quote": "It has been reported from the Democratic Republic of Congo to Kenya, and south to South Africa, but it might only be present in Tanzania.",
+        "words": "South Africa",
+        "ok": true
+      },
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "It has been reported from the Democratic Republic of Congo to Kenya, and south to South Africa, but it might only be present in Tanzania.",
+        "words": "Tanzania",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Cunene",
+        "source": "scotcat",
+        "quote": "Africa: Cunene, Okavango and Zambezi, Pungwe, Buse and Save basins, and Lake Malawi basin, Lake Rukwa basin.",
+        "ok": true
+      },
+      {
+        "name": "Okavango",
+        "source": "scotcat",
+        "quote": "Africa: Cunene, Okavango and Zambezi, Pungwe, Buse and Save basins, and Lake Malawi basin, Lake Rukwa basin.",
+        "ok": true
+      },
+      {
+        "name": "Zambezi",
+        "source": "scotcat",
+        "quote": "Africa: Cunene, Okavango and Zambezi, Pungwe, Buse and Save basins, and Lake Malawi basin, Lake Rukwa basin.",
+        "ok": true
+      },
+      {
+        "name": "Lake Malawi",
+        "source": "scotcat",
+        "quote": "Africa: Cunene, Okavango and Zambezi, Pungwe, Buse and Save basins, and Lake Malawi basin, Lake Rukwa basin.",
+        "ok": true
+      },
+      {
+        "name": "Lake Rukwa",
+        "source": "scotcat",
+        "quote": "Africa: Cunene, Okavango and Zambezi, Pungwe, Buse and Save basins, and Lake Malawi basin, Lake Rukwa basin.",
+        "ok": true
+      },
+      {
+        "name": "Pungwe",
+        "source": "scotcat",
+        "quote": "Africa: Cunene, Okavango and Zambezi, Pungwe, Buse and Save basins, and Lake Malawi basin, Lake Rukwa basin.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ZM",
+        "MZ",
+        "MW",
+        "ZW",
+        "AO",
+        "BW"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Zaireichthys rotundiceps",
+    "status": "ACCEPTED",
+    "taxonKey": 2340785,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        18
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        13
+      ],
+      [
+        "c2914e4b-381d-4814-8a34-66a7d949fd44",
+        12
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        9
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        9
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "93c707dc-4708-47fc-93d8-424702116442",
+        1
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        1
+      ]
+    ],
+    "native": [
+      "TZ"
+    ],
+    "requests": 12,
+    "at": "2026-11-17T18:05:08.130Z"
+  }
+}

@@ -3,6 +3,12 @@
   "name": "Petén",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T11:35:15.840Z",
+    "why": "Malay usage normally writes the department as \"Petén\" or \"Peten\" with the Spanish accent, but atlases often add \"Jabatan\" for a department; the bare form is acceptable yet leaves out the kind word and is only moderately certain."
+  },
   "quality": {
     "score": 0.4,
     "indexable": false

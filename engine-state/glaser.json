@@ -141,6 +141,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/02-living-fossils/atractosteus-spatula-2/": {
+    "lastmod": "2017-07-24T17:34:13+00:00",
+    "entityIds": [
+      "species/atractosteus-spatula"
+    ],
+    "updatedAt": "2026-11-17T18:43:50.446Z",
+    "hash": "996e8bdcd5a522a0832e9723dcb4796eaa7ae3a743fdf2de289ce68824e5ca91",
+    "processedHash": "996e8bdcd5a522a0832e9723dcb4796eaa7ae3a743fdf2de289ce68824e5ca91",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/02-living-fossils/atractosteus_tristoechus_en/": {
     "lastmod": "2016-11-21T15:56:15+00:00",
     "entityIds": [
@@ -203,6 +214,17 @@
     "status": "skipped",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/02-living-fossils/polypterus-lapradei-2/": {
+    "lastmod": "2018-02-02T09:42:53+00:00",
+    "entityIds": [
+      "species/polypterus-bichir"
+    ],
+    "updatedAt": "2026-11-18T01:23:09.027Z",
+    "hash": "8c57785738eec9d36dec0088faabcb81583b71f3deee121719106625c540a09b",
+    "processedHash": "8c57785738eec9d36dec0088faabcb81583b71f3deee121719106625c540a09b",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/02-living-fossils/polypterus-mokelembembe-en/": {
     "lastmod": "2016-12-19T14:36:53+00:00",
     "entityIds": [
@@ -211,6 +233,28 @@
     "updatedAt": "2026-11-10T22:02:29.657Z",
     "hash": "06db6dceef7fc5f22fe5375f67915040c9d191c9e9d77e3e30e09f6309ae925e",
     "processedHash": "06db6dceef7fc5f22fe5375f67915040c9d191c9e9d77e3e30e09f6309ae925e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/02-living-fossils/polypterus-palmas-2/": {
+    "lastmod": "2017-07-31T16:20:04+00:00",
+    "entityIds": [
+      "species/polypterus-palmas"
+    ],
+    "updatedAt": "2026-11-17T18:47:46.287Z",
+    "hash": "a133e95a7a3e1ebdd5e0a0a6a197988e741d762d400518d1af90b719cb040d1b",
+    "processedHash": "a133e95a7a3e1ebdd5e0a0a6a197988e741d762d400518d1af90b719cb040d1b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/02-living-fossils/polypterus-teugelsi-bred/": {
+    "lastmod": "2018-01-17T10:44:37+00:00",
+    "entityIds": [
+      "species/polypterus-teugelsi"
+    ],
+    "updatedAt": "2026-11-18T01:12:05.578Z",
+    "hash": "e96a1db7c7be6347a1de84f9041c8c5bc573e3ddc9f7d8c850269eb54eb2c412",
+    "processedHash": "e96a1db7c7be6347a1de84f9041c8c5bc573e3ddc9f7d8c850269eb54eb2c412",
     "status": "processed",
     "attempts": 0
   },
@@ -277,6 +321,17 @@
     "updatedAt": "2026-10-29T04:20:06.034Z",
     "hash": "275d08e744cc4ebbaecd28ce490ba4f4cedac7c7e2328e6678035dc462d552da",
     "processedHash": "275d08e744cc4ebbaecd28ce490ba4f4cedac7c7e2328e6678035dc462d552da",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/03-bony-tongues/chitala-blanci-2/": {
+    "lastmod": "2017-06-28T14:32:19+00:00",
+    "entityIds": [
+      "species/chitala-blanci"
+    ],
+    "updatedAt": "2026-11-17T16:17:05.638Z",
+    "hash": "4c113fe01d961b235485233fad8e51bdac8a744fb1f406709df9c746cc3db70b",
+    "processedHash": "4c113fe01d961b235485233fad8e51bdac8a744fb1f406709df9c746cc3db70b",
     "status": "processed",
     "attempts": 0
   },
@@ -428,6 +483,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/05-eels-en/gymnothorax-polyuranodon-2/": {
+    "lastmod": "2017-09-22T15:18:02+00:00",
+    "entityIds": [
+      "species/gymnothorax-polyuranodon"
+    ],
+    "updatedAt": "2026-11-17T19:09:59.048Z",
+    "hash": "69df76a31c2a2a1136bfb50189dc982f2a25856bd800301bfe528689159423ba",
+    "processedHash": "69df76a31c2a2a1136bfb50189dc982f2a25856bd800301bfe528689159423ba",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/05-eels-en/ophichthus-apicalis-en/": {
     "lastmod": "2016-12-19T14:51:26+00:00",
     "entityIds": [
@@ -458,6 +524,17 @@
     "updatedAt": "2026-10-29T04:28:28.801Z",
     "hash": "d93ff8be246e8d629626d3c1791214b2711144b444075af75e5466292ece773a",
     "processedHash": "d93ff8be246e8d629626d3c1791214b2711144b444075af75e5466292ece773a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/acantopsis-rungthipae-2/": {
+    "lastmod": "2017-11-29T16:21:52+00:00",
+    "entityIds": [
+      "species/acantopsis-rungthipae"
+    ],
+    "updatedAt": "2026-11-18T00:59:35.857Z",
+    "hash": "4f4ad9cdaaadf4b2c9bb16354859535f90b6fe911eb22076ead8658ee929678a",
+    "processedHash": "4f4ad9cdaaadf4b2c9bb16354859535f90b6fe911eb22076ead8658ee929678a",
     "status": "processed",
     "attempts": 0
   },
@@ -532,6 +609,15 @@
     "hash": "50e7a08be377e7295037e4782ef8ae28e02f0c3c068507611249590799cb825f",
     "processedHash": "50e7a08be377e7295037e4782ef8ae28e02f0c3c068507611249590799cb825f",
     "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/danio-sp-hikari-blue-yellow-4/": {
+    "lastmod": "2017-04-20T17:17:23+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-17T15:51:08.888Z",
+    "hash": "d5020944b9beb6e9157628923d860f43bf5edc5229e0787ca4cd52dde7e2f506",
+    "processedHash": "d5020944b9beb6e9157628923d860f43bf5edc5229e0787ca4cd52dde7e2f506",
+    "status": "skipped",
     "attempts": 0
   },
   "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/gastromyzon-punctulatus-2/": {
@@ -652,6 +738,17 @@
     "updatedAt": "2026-10-31T00:28:34.598Z",
     "hash": "a511ed114c3a25b0def74210b736e58da8f9ce2d11394ee68b9ff8a1dfd3add5",
     "processedHash": "a511ed114c3a25b0def74210b736e58da8f9ce2d11394ee68b9ff8a1dfd3add5",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/misgurnus-anguillicaudatus-2/": {
+    "lastmod": "2017-06-23T13:34:35+00:00",
+    "entityIds": [
+      "species/misgurnus-anguillicaudatus"
+    ],
+    "updatedAt": "2026-11-17T16:14:12.393Z",
+    "hash": "82dc0a5eaed6505850b61496f5211fd3f7ac6abaa14154522c64361586e6a983",
+    "processedHash": "82dc0a5eaed6505850b61496f5211fd3f7ac6abaa14154522c64361586e6a983",
     "status": "processed",
     "attempts": 0
   },
@@ -1275,6 +1372,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/boraras-brigittae-2/": {
+    "lastmod": "2017-04-21T16:37:40+00:00",
+    "entityIds": [
+      "species/boraras-brigittae"
+    ],
+    "updatedAt": "2026-11-17T15:51:38.378Z",
+    "hash": "7364eb646b717d92633124af31619e715eb0244f76c3d5110634cce36d59369f",
+    "processedHash": "7364eb646b717d92633124af31619e715eb0244f76c3d5110634cce36d59369f",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/boraras_cf_micros_en/": {
     "lastmod": "2017-01-09T13:59:30+00:00",
     "entityIds": [
@@ -1316,6 +1424,17 @@
     "updatedAt": "2026-10-28T15:54:34.807Z",
     "hash": "e7197312268da91e9689f8a72ab11bc7e09deb2871fd70d2ac3e71a552ec3503",
     "processedHash": "e7197312268da91e9689f8a72ab11bc7e09deb2871fd70d2ac3e71a552ec3503",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/brevibora-dorsiocellata-4/": {
+    "lastmod": "2017-06-17T17:01:25+00:00",
+    "entityIds": [
+      "species/brevibora-dorsiocellata"
+    ],
+    "updatedAt": "2026-11-17T16:11:54.164Z",
+    "hash": "f5f04414cdb74b41384761f2e275157f980bb4cf056dbc32421ea7b7f2acb2d8",
+    "processedHash": "f5f04414cdb74b41384761f2e275157f980bb4cf056dbc32421ea7b7f2acb2d8",
     "status": "processed",
     "attempts": 0
   },
@@ -1438,6 +1557,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/cyprinion-semiplotum/": {
+    "lastmod": "2017-02-10T11:59:50+00:00",
+    "entityIds": [
+      "species/cyprinion-semiplotum"
+    ],
+    "updatedAt": "2026-11-17T12:48:29.929Z",
+    "hash": "71c9c352cd77660cce1437d10f123b34c6c20e064309521b46139e4d93c3f2fd",
+    "processedHash": "71c9c352cd77660cce1437d10f123b34c6c20e064309521b46139e4d93c3f2fd",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/cyprinion_semiplotum_en/": {
     "lastmod": "2017-01-04T14:34:50+00:00",
     "entityIds": [
@@ -1447,6 +1577,15 @@
     "hash": "303ba08515c259e71514c587c6fb9346b2050fd64b7b84ce1e255026bcae0541",
     "processedHash": "303ba08515c259e71514c587c6fb9346b2050fd64b7b84ce1e255026bcae0541",
     "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danio-sp-hikari-blue-yellow-2/": {
+    "lastmod": "2017-03-08T14:15:52+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-17T13:31:09.331Z",
+    "hash": "d5020944b9beb6e9157628923d860f43bf5edc5229e0787ca4cd52dde7e2f506",
+    "processedHash": "d5020944b9beb6e9157628923d860f43bf5edc5229e0787ca4cd52dde7e2f506",
+    "status": "skipped",
     "attempts": 0
   },
   "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/danio_aesculapii_danio_sp_pantherinus__en/": {
@@ -1749,6 +1888,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/garra-culiciphaga-2/": {
+    "lastmod": "2017-12-06T13:52:20+00:00",
+    "entityIds": [
+      "species/garra-culiciphaga"
+    ],
+    "updatedAt": "2026-11-18T01:01:34.876Z",
+    "hash": "ac5553b1a85b251feb5ebaefd27e64d550fbf69b3193f96095930ac635ad6635",
+    "processedHash": "ac5553b1a85b251feb5ebaefd27e64d550fbf69b3193f96095930ac635ad6635",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/garra_flavatra_en-2/": {
     "lastmod": "2017-01-09T12:26:01+00:00",
     "entityIds": [
@@ -1940,6 +2090,17 @@
     "updatedAt": "2026-11-02T19:38:51.462Z",
     "hash": "bc2aa40e0c749f82ae276d9d9aaf6a94777d054cd9954cf737b9023166d6c71f",
     "processedHash": "bc2aa40e0c749f82ae276d9d9aaf6a94777d054cd9954cf737b9023166d6c71f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/luciosoma-setigerum-2/": {
+    "lastmod": "2017-05-03T16:59:41+00:00",
+    "entityIds": [
+      "species/luciosoma-setigerum"
+    ],
+    "updatedAt": "2026-11-17T15:57:05.755Z",
+    "hash": "47872c0d70d48c76ed3d57ae56e33b2d38d7a16f9503417ed8ee73697d79a2c8",
+    "processedHash": "47872c0d70d48c76ed3d57ae56e33b2d38d7a16f9503417ed8ee73697d79a2c8",
     "status": "processed",
     "attempts": 0
   },
@@ -2168,6 +2329,15 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/puntius-titteya-longfin-2/": {
+    "lastmod": "2017-05-08T13:30:00+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-17T16:00:56.502Z",
+    "hash": "25318e2d8c25527a9dd182dd80445b94010d6962281d084b451c8d5d08aad121",
+    "processedHash": "25318e2d8c25527a9dd182dd80445b94010d6962281d084b451c8d5d08aad121",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-rubrodorsalis-2/": {
     "lastmod": "2022-03-30T10:02:05+00:00",
     "entityIds": [
@@ -2176,6 +2346,17 @@
     "updatedAt": "2026-11-02T20:05:41.936Z",
     "hash": "8ee0863f6b57eddd191659821a5df430850b401501ecd30563cd1774989c8cb2",
     "processedHash": "8ee0863f6b57eddd191659821a5df430850b401501ecd30563cd1774989c8cb2",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-sarawakensis-2/": {
+    "lastmod": "2017-10-04T15:55:40+00:00",
+    "entityIds": [
+      "species/rasbora-sarawakensis"
+    ],
+    "updatedAt": "2026-11-17T19:14:01.184Z",
+    "hash": "0bd7145962d1ade3dd753726fc86a323a2e03f5dae4656c1ddc1440ad4c164e6",
+    "processedHash": "0bd7145962d1ade3dd753726fc86a323a2e03f5dae4656c1ddc1440ad4c164e6",
     "status": "processed",
     "attempts": 0
   },
@@ -2369,6 +2550,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tor-putitora-2/": {
+    "lastmod": "2017-11-28T06:02:38+00:00",
+    "entityIds": [
+      "species/tor-putitora"
+    ],
+    "updatedAt": "2026-11-18T00:57:52.407Z",
+    "hash": "e42f94e740f14ac42cf28a2f8b52c14a8b1269f76e9ec436f421f305ce496f57",
+    "processedHash": "e42f94e740f14ac42cf28a2f8b52c14a8b1269f76e9ec436f421f305ce496f57",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/trigonopoma-pauciperforatum-2/": {
     "lastmod": "2019-12-02T09:37:07+00:00",
     "entityIds": [
@@ -2399,6 +2591,17 @@
     "updatedAt": "2026-10-31T06:13:36.826Z",
     "hash": "be1ba2fae24ddaa80664cefc737c3b2a08e8ff685c4dc866958f935b7e2ea315",
     "processedHash": "be1ba2fae24ddaa80664cefc737c3b2a08e8ff685c4dc866958f935b7e2ea315",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/trigonostigma-somphongsi-2/": {
+    "lastmod": "2017-07-19T15:40:06+00:00",
+    "entityIds": [
+      "species/trigonostigma-somphongsi"
+    ],
+    "updatedAt": "2026-11-17T18:41:13.983Z",
+    "hash": "db41c382e635f8343e9586fb51d136e4c928f0fb3f4461361eebfc68a25e6c3a",
+    "processedHash": "db41c382e635f8343e9586fb51d136e4c928f0fb3f4461361eebfc68a25e6c3a",
     "status": "processed",
     "attempts": 0
   },
@@ -2639,6 +2842,17 @@
     "status": "skipped",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/anostomus-anostomus-2/": {
+    "lastmod": "2018-02-19T11:49:33+00:00",
+    "entityIds": [
+      "species/anostomus-anostomus"
+    ],
+    "updatedAt": "2026-11-18T01:34:28.550Z",
+    "hash": "27f646ef8356f13867393bf4a57373cdb4d8b1126513a3fef5c431b4c0598616",
+    "processedHash": "27f646ef8356f13867393bf4a57373cdb4d8b1126513a3fef5c431b4c0598616",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/anostomus_ternetzi_en/": {
     "lastmod": "2016-11-21T15:58:43+00:00",
     "entityIds": [
@@ -2736,6 +2950,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/black-winged-dwarf-hatchets/": {
+    "lastmod": "2017-03-11T08:24:14+00:00",
+    "entityIds": [
+      "guides/glaser-en-09-characoids-tetra-relationship-black-winged-dwarf-hatchets"
+    ],
+    "updatedAt": "2026-11-17T13:31:39.770Z",
+    "hash": "fa65b201f20a18dda2ce13e07060143c371421a814844988ab879501821a7ee8",
+    "processedHash": "fa65b201f20a18dda2ce13e07060143c371421a814844988ab879501821a7ee8",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/black_winged_dwarf_hatchets_en/": {
     "lastmod": "2017-01-09T15:46:28+00:00",
     "entityIds": [
@@ -2777,6 +3002,17 @@
     "updatedAt": "2026-11-17T07:29:31.557Z",
     "hash": "6b89dd8338ebad1744f280b6e74ca55327d8dd6705ff92b8bbdcf76d0c1e4a38",
     "processedHash": "6b89dd8338ebad1744f280b6e74ca55327d8dd6705ff92b8bbdcf76d0c1e4a38",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/brycon-hilarii-2/": {
+    "lastmod": "2017-06-12T17:19:56+00:00",
+    "entityIds": [
+      "species/brycon-hilarii"
+    ],
+    "updatedAt": "2026-11-17T16:10:30.658Z",
+    "hash": "13191608c5760ad05f9dccf302397f07f9251fe5c2468a9991f575aa4611aee8",
+    "processedHash": "13191608c5760ad05f9dccf302397f07f9251fe5c2468a9991f575aa4611aee8",
     "status": "processed",
     "attempts": 0
   },
@@ -2911,6 +3147,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/copella-arnoldi-2/": {
+    "lastmod": "2017-05-02T16:22:50+00:00",
+    "entityIds": [
+      "species/copella-arnoldi"
+    ],
+    "updatedAt": "2026-11-17T15:55:45.884Z",
+    "hash": "8a8f33ddde2f228ff3341789fd65fa1e37d4b88f2251f3f6d5fb88e5bb3ba5f2",
+    "processedHash": "8a8f33ddde2f228ff3341789fd65fa1e37d4b88f2251f3f6d5fb88e5bb3ba5f2",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/copella_arnoldi_en/": {
     "lastmod": "2016-11-21T15:59:22+00:00",
     "entityIds": [],
@@ -2950,6 +3197,28 @@
     "updatedAt": "2026-11-14T04:23:12.208Z",
     "hash": "e7be214590ab978fff2891ad15d41aec695e2eb3a10e7b4515152498fcebd73c",
     "processedHash": "e7be214590ab978fff2891ad15d41aec695e2eb3a10e7b4515152498fcebd73c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/distichodus-lusosso-2/": {
+    "lastmod": "2018-02-26T08:15:45+00:00",
+    "entityIds": [
+      "species/distichodus-lusosso"
+    ],
+    "updatedAt": "2026-11-18T01:38:14.334Z",
+    "hash": "ef1de80acb3194261e32f7332a300c77bbe432c0c3aad677a3450390fed9ce45",
+    "processedHash": "ef1de80acb3194261e32f7332a300c77bbe432c0c3aad677a3450390fed9ce45",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/distichodus-teugelsi-2/": {
+    "lastmod": "2017-02-27T07:05:22+00:00",
+    "entityIds": [
+      "species/distichodus-teugelsi"
+    ],
+    "updatedAt": "2026-11-17T13:22:12.432Z",
+    "hash": "2944cb4e68e0b7817268c67cac1834f2cf5e136569ea6a934ba6a9eb8071ad88",
+    "processedHash": "2944cb4e68e0b7817268c67cac1834f2cf5e136569ea6a934ba6a9eb8071ad88",
     "status": "processed",
     "attempts": 0
   },
@@ -3183,6 +3452,17 @@
     "status": "skipped",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hemigrammus-bellottii-the-golden-glowlight-tetra/": {
+    "lastmod": "2017-02-24T05:45:40+00:00",
+    "entityIds": [
+      "species/hemigrammus-bellottii"
+    ],
+    "updatedAt": "2026-11-17T13:17:19.496Z",
+    "hash": "f9d14749d2b48e5ab2d51b1b396b894de6c008fcb21657a18f26f88e314163eb",
+    "processedHash": "f9d14749d2b48e5ab2d51b1b396b894de6c008fcb21657a18f26f88e314163eb",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hemigrammus-luelingi-2/": {
     "lastmod": "2024-02-07T11:49:02+00:00",
     "entityIds": [
@@ -3202,6 +3482,17 @@
     "updatedAt": "2026-10-31T13:55:20.389Z",
     "hash": "cba6af7f800f66cc085ab0a398cbabb8b8462f535b0c051ba369b2d29483bc83",
     "processedHash": "cba6af7f800f66cc085ab0a398cbabb8b8462f535b0c051ba369b2d29483bc83",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hemigrammus-rubrostriatus-4/": {
+    "lastmod": "2017-04-05T17:06:35+00:00",
+    "entityIds": [
+      "species/hemigrammus-rubrostriatus"
+    ],
+    "updatedAt": "2026-11-17T15:44:26.626Z",
+    "hash": "1efaacf83d2ad8dac80184f99d89013e05453911771bfbe345565a7087926660",
+    "processedHash": "1efaacf83d2ad8dac80184f99d89013e05453911771bfbe345565a7087926660",
     "status": "processed",
     "attempts": 0
   },
@@ -3433,6 +3724,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-cf-agulha-red-tail-2/": {
+    "lastmod": "2017-09-01T12:42:32+00:00",
+    "entityIds": [
+      "species/hyphessobrycon-agulha"
+    ],
+    "updatedAt": "2026-11-17T18:59:40.064Z",
+    "hash": "d7c794a4a9a7cc71604fcf01598a9f51239e0a0081172f5c865ff69750b893e3",
+    "processedHash": "d7c794a4a9a7cc71604fcf01598a9f51239e0a0081172f5c865ff69750b893e3",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-copelandi/": {
     "lastmod": "2016-11-21T15:58:41+00:00",
     "entityIds": [
@@ -3499,6 +3801,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-herbertaxelrodi-wild-2/": {
+    "lastmod": "2017-06-03T14:26:53+00:00",
+    "entityIds": [
+      "species/hyphessobrycon-herbertaxelrodi"
+    ],
+    "updatedAt": "2026-11-17T16:04:02.519Z",
+    "hash": "383aa7116840048970c8c4ffc18d048359109ba5b287988858d3f251ed2370f5",
+    "processedHash": "383aa7116840048970c8c4ffc18d048359109ba5b287988858d3f251ed2370f5",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-heterorhabdus-2/": {
     "lastmod": "2021-02-26T14:47:36+00:00",
     "entityIds": [
@@ -3518,6 +3831,28 @@
     "updatedAt": "2026-11-03T09:46:14.462Z",
     "hash": "1fe6e592fcfdb8b9c33f0893acfd35deb69e6e4f31890d3260b6c9dca96134b9",
     "processedHash": "1fe6e592fcfdb8b9c33f0893acfd35deb69e6e4f31890d3260b6c9dca96134b9",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-melanostichos-2/": {
+    "lastmod": "2017-04-28T15:51:25+00:00",
+    "entityIds": [
+      "species/hyphessobrycon-melanostichos"
+    ],
+    "updatedAt": "2026-11-17T15:52:30.703Z",
+    "hash": "0f6d084c4affb44a7550f9258d59d88abb1a1519efb51e52ba4b011a523a5a64",
+    "processedHash": "0f6d084c4affb44a7550f9258d59d88abb1a1519efb51e52ba4b011a523a5a64",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-paepkei-2/": {
+    "lastmod": "2018-02-09T18:02:26+00:00",
+    "entityIds": [
+      "species/hyphessobrycon-paepkei"
+    ],
+    "updatedAt": "2026-11-18T01:28:21.464Z",
+    "hash": "6fd4d5292df5085769b948a31cf2a88c42ad037e2588da8c5c970b205d3dc4c0",
+    "processedHash": "6fd4d5292df5085769b948a31cf2a88c42ad037e2588da8c5c970b205d3dc4c0",
     "status": "processed",
     "attempts": 0
   },
@@ -3551,6 +3886,17 @@
     "updatedAt": "2026-10-31T13:29:59.933Z",
     "hash": "c827ff0e814a55ba1680172b44d7fc246c8052ef2d6af27aa565b3e5c0ee6707",
     "processedHash": "c827ff0e814a55ba1680172b44d7fc246c8052ef2d6af27aa565b3e5c0ee6707",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-sp-red-blue-peru-tetra-now-h-margitae/": {
+    "lastmod": "2017-04-12T17:15:55+00:00",
+    "entityIds": [
+      "species/hyphessobrycon-margitae"
+    ],
+    "updatedAt": "2026-11-17T15:48:57.199Z",
+    "hash": "1184ea31fde72b8af96aefd0769276eea3a9255ac554a663ceb87f21218e6f62",
+    "processedHash": "1184ea31fde72b8af96aefd0769276eea3a9255ac554a663ceb87f21218e6f62",
     "status": "processed",
     "attempts": 0
   },
@@ -3868,6 +4214,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus-steyermarki-2/": {
+    "lastmod": "2017-09-22T15:23:31+00:00",
+    "entityIds": [
+      "species/leporinus-steyermarki"
+    ],
+    "updatedAt": "2026-11-17T19:11:19.595Z",
+    "hash": "eaae5dfcfecf4154f22d2a89497b24ca0c6278c3752a7f6715b20214e2f8c88b",
+    "processedHash": "eaae5dfcfecf4154f22d2a89497b24ca0c6278c3752a7f6715b20214e2f8c88b",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus_arcus_en/": {
     "lastmod": "2017-01-05T13:18:49+00:00",
     "entityIds": [
@@ -4029,6 +4386,26 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/melanocharacidium-cf-dispilomma-2/": {
+    "lastmod": "2018-02-21T14:31:22+00:00",
+    "entityIds": [
+      "species/melanocharacidium-dispilomma"
+    ],
+    "updatedAt": "2026-11-18T01:35:31.320Z",
+    "hash": "5d0b98cab8a522fbdc7b7af876f8ade3511951e5df8a3c561f597f66334fb28c",
+    "processedHash": "5d0b98cab8a522fbdc7b7af876f8ade3511951e5df8a3c561f597f66334fb28c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/melanocharacidium-sp-peru-2/": {
+    "lastmod": "2017-03-03T14:54:07+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-17T13:25:20.599Z",
+    "hash": "b7c8fe683ebc876d7e932ab9bc02fe8ede47447bfdbd3a04296e74266d177888",
+    "processedHash": "b7c8fe683ebc876d7e932ab9bc02fe8ede47447bfdbd3a04296e74266d177888",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/metynnis-lippincottianus-2/": {
     "lastmod": "2020-07-31T13:05:17+00:00",
     "entityIds": [
@@ -4070,6 +4447,17 @@
     "updatedAt": "2026-11-03T06:54:37.831Z",
     "hash": "0f80f1dfe005c7f8deb892ed70c85ed7f3888b442dcfcb22c5574009ba3676c0",
     "processedHash": "0f80f1dfe005c7f8deb892ed70c85ed7f3888b442dcfcb22c5574009ba3676c0",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia-agnesae/": {
+    "lastmod": "2017-07-28T13:11:13+00:00",
+    "entityIds": [
+      "species/moenkhausia-agnesae"
+    ],
+    "updatedAt": "2026-11-17T18:46:23.430Z",
+    "hash": "ee3e2cf1dca26b2039aad21de705e75976d20c3e89dbe117cfb4cb2d1117b6b4",
+    "processedHash": "ee3e2cf1dca26b2039aad21de705e75976d20c3e89dbe117cfb4cb2d1117b6b4",
     "status": "processed",
     "attempts": 0
   },
@@ -4154,6 +4542,17 @@
     "updatedAt": "2026-10-31T13:38:41.132Z",
     "hash": "39822a24c540e740e39c6b427fcb31c99fcb74c5e1b4f3d99238825a1fefc208",
     "processedHash": "39822a24c540e740e39c6b427fcb31c99fcb74c5e1b4f3d99238825a1fefc208",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/monostichodus-mesmaekersi-2/": {
+    "lastmod": "2017-07-10T17:21:23+00:00",
+    "entityIds": [
+      "species/monostichodus-mesmaekersi"
+    ],
+    "updatedAt": "2026-11-17T16:21:04.637Z",
+    "hash": "1cd612bdd16c435362fb2b6fa06b6a0c633952594de66c2446a066bdc397a89e",
+    "processedHash": "1cd612bdd16c435362fb2b6fa06b6a0c633952594de66c2446a066bdc397a89e",
     "status": "processed",
     "attempts": 0
   },
@@ -4433,6 +4832,15 @@
     "hash": "aa05ef4674eccdf099e33cd4fcee69ba669dce0a98c4d3d58868c036b3a04f7e",
     "processedHash": "aa05ef4674eccdf099e33cd4fcee69ba669dce0a98c4d3d58868c036b3a04f7e",
     "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/phenacogrammus-interruptus-albino-2/": {
+    "lastmod": "2017-03-15T14:23:19+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-17T13:34:11.793Z",
+    "hash": "871dd0d84a0a1d3a27c959fa62bf7402c612070fcf87134f3af710ba6fa7de3e",
+    "processedHash": "871dd0d84a0a1d3a27c959fa62bf7402c612070fcf87134f3af710ba6fa7de3e",
+    "status": "skipped",
     "attempts": 0
   },
   "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/phenacogrammus_aurantiacus_en/": {
@@ -5095,6 +5503,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/two-new-tetras-from-the-rio-negro-region-hyphessobrycon-paepkei-and-h-cf-agulha/": {
+    "lastmod": "2017-05-05T15:06:16+00:00",
+    "entityIds": [
+      "guides/glaser-en-09-characoids-tetra-relationship-two-new-tetras-from-the-rio-negro-region-hyphessobrycon-paepkei-and-h-cf-agulha"
+    ],
+    "updatedAt": "2026-11-17T15:59:13.458Z",
+    "hash": "4f1705eca2c78eb0bf716f3e0cd094cf2a714ffd63a6281491c3880c81ddb470",
+    "processedHash": "4f1705eca2c78eb0bf716f3e0cd094cf2a714ffd63a6281491c3880c81ddb470",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/two_beautiful_pyrrhulinas_from_peru_en/": {
     "lastmod": "2016-11-21T15:59:21+00:00",
     "entityIds": [
@@ -5236,6 +5655,15 @@
     "hash": "9e73b6a0bec63ab34ed009ee2d6bb8124c9eb387b276482a79a6a743b3dd6b9c",
     "processedHash": "9e73b6a0bec63ab34ed009ee2d6bb8124c9eb387b276482a79a6a743b3dd6b9c",
     "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras-elegans-peru-2/": {
+    "lastmod": "2017-06-07T13:19:49+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-17T16:05:10.586Z",
+    "hash": "94e635d45c978ea670afa34caeda38c8ec885c3386967dfab99a38f021692558",
+    "processedHash": "94e635d45c978ea670afa34caeda38c8ec885c3386967dfab99a38f021692558",
+    "status": "skipped",
     "attempts": 0
   },
   "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/corydoras-fowleri-coriatae-2/": {
@@ -6404,6 +6832,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hemiloricaria-teffeana-2/": {
+    "lastmod": "2017-03-06T17:13:12+00:00",
+    "entityIds": [
+      "species/rineloricaria-teffeana"
+    ],
+    "updatedAt": "2026-11-17T13:28:24.209Z",
+    "hash": "c770d9af0acdaff2762e8ef09d929901082f780a2eda1b6baca0b2a0fcc77ef6",
+    "processedHash": "c770d9af0acdaff2762e8ef09d929901082f780a2eda1b6baca0b2a0fcc77ef6",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hemiloricaria_beni_en/": {
     "lastmod": "2017-01-05T15:29:36+00:00",
     "entityIds": [
@@ -6442,6 +6881,17 @@
     "hash": "a37ceb5d38c522550d61f603157635fe489c34aba62eb7cddcce360b8e4418f0",
     "processedHash": "a37ceb5d38c522550d61f603157635fe489c34aba62eb7cddcce360b8e4418f0",
     "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hemiodontichthys-acipenserinus-2/": {
+    "lastmod": "2017-03-28T05:02:18+00:00",
+    "entityIds": [
+      "species/hemiodontichthys-acipenserinus"
+    ],
+    "updatedAt": "2026-11-17T15:41:37.671Z",
+    "hash": "ccf38f69316478b87cb76f91216271a2e08fe4d25334ca3f56dea702f0855f7d",
+    "processedHash": "ccf38f69316478b87cb76f91216271a2e08fe4d25334ca3f56dea702f0855f7d",
+    "status": "processed",
     "attempts": 0
   },
   "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hemiodontichthys_acipenserinus_en-2/": {
@@ -6826,6 +7276,17 @@
     "updatedAt": "2026-11-04T15:23:29.344Z",
     "hash": "2215519a3f1eb42701844d320531d24ad742824facf2b122cb34603c9769346d",
     "processedHash": "2215519a3f1eb42701844d320531d24ad742824facf2b122cb34603c9769346d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l168-zonancistrus-brachyurus/": {
+    "lastmod": "2017-10-18T13:10:51+00:00",
+    "entityIds": [
+      "species/dekeyseria-pulchra"
+    ],
+    "updatedAt": "2026-11-17T19:21:02.592Z",
+    "hash": "8a69379fa0de3b46709f9725fd5ab93a3c3be20fbf80055dc439b2501f1411f1",
+    "processedHash": "8a69379fa0de3b46709f9725fd5ab93a3c3be20fbf80055dc439b2501f1411f1",
     "status": "processed",
     "attempts": 0
   },
@@ -7291,6 +7752,15 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/peckoltia-sp-red-tiger-l209-2/": {
+    "lastmod": "2017-03-24T18:16:30+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-17T13:41:13.480Z",
+    "hash": "ee9b6a36a64ee23ff7e27579c32714ddf25b447d3de4d77111c676a270fdd5da",
+    "processedHash": "ee9b6a36a64ee23ff7e27579c32714ddf25b447d3de4d77111c676a270fdd5da",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/peckoltia_sp_alto_nhamunda_en-2/": {
     "lastmod": "2016-11-22T08:51:10+00:00",
     "entityIds": [
@@ -7575,6 +8045,15 @@
     "updatedAt": "2026-11-17T01:04:01.553Z",
     "hash": "6fc4b455bcf0f61c9b07a485b73011fda91c665ec500430aa4aec5524e3e2e21",
     "processedHash": "6fc4b455bcf0f61c9b07a485b73011fda91c665ec500430aa4aec5524e3e2e21",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/zonancistrus-sp-l52-2/": {
+    "lastmod": "2017-02-15T18:37:21+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-17T13:05:36.473Z",
+    "hash": "6a0d377dc9160f669305fd79ba7b6b963caa09cad384076bdbee7b2dd1270c7d",
+    "processedHash": "6a0d377dc9160f669305fd79ba7b6b963caa09cad384076bdbee7b2dd1270c7d",
     "status": "skipped",
     "attempts": 0
   },
@@ -7995,6 +8474,17 @@
     "updatedAt": "2026-11-14T22:11:34.080Z",
     "hash": "0dec064164415db38aa8091943e7546d01308787d57488b66736e338f7933a6a",
     "processedHash": "0dec064164415db38aa8091943e7546d01308787d57488b66736e338f7933a6a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/rhynchodoras-woodsi-2/": {
+    "lastmod": "2017-06-09T14:13:26+00:00",
+    "entityIds": [
+      "species/rhynchodoras-woodsi"
+    ],
+    "updatedAt": "2026-11-17T16:07:17.119Z",
+    "hash": "4ff686a34856606ee3f84bfe0a4d823ec7c723d21cce5ad5186f5e467d94a21c",
+    "processedHash": "4ff686a34856606ee3f84bfe0a4d823ec7c723d21cce5ad5186f5e467d94a21c",
     "status": "processed",
     "attempts": 0
   },
@@ -8701,6 +9191,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/10-catfishes/brochiloricaria-macrodon/": {
+    "lastmod": "2018-01-15T17:07:15+00:00",
+    "entityIds": [
+      "species/brochiloricaria-macrodon"
+    ],
+    "updatedAt": "2026-11-18T01:10:56.324Z",
+    "hash": "3a95bf01d59b8e3e6e71bef35542afa7b004e44c42e3fa23e69eb5c041958e9f",
+    "processedHash": "3a95bf01d59b8e3e6e71bef35542afa7b004e44c42e3fa23e69eb5c041958e9f",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/10-catfishes/brochis-multiradiatus-bred/": {
     "lastmod": "2019-07-05T10:07:30+00:00",
     "entityIds": [
@@ -8831,6 +9332,28 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/10-catfishes/corydoras-longipinnis-2/": {
+    "lastmod": "2018-02-12T11:51:34+00:00",
+    "entityIds": [
+      "species/corydoras-longipinnis"
+    ],
+    "updatedAt": "2026-11-18T01:29:15.826Z",
+    "hash": "e6e3369c27e5a68d1209da86662e4327a86878677b254b754263d3e32e7266e7",
+    "processedHash": "e6e3369c27e5a68d1209da86662e4327a86878677b254b754263d3e32e7266e7",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/corydoras-orcesi-and-c-pastazensis/": {
+    "lastmod": "2017-10-20T16:37:44+00:00",
+    "entityIds": [
+      "guides/glaser-en-10-catfishes-corydoras-orcesi-and-c-pastazensis"
+    ],
+    "updatedAt": "2026-11-17T19:22:02.677Z",
+    "hash": "f6b40f860cd5c887059d61971d89447a7fad2d1054516377006ff8e8918e4718",
+    "processedHash": "f6b40f860cd5c887059d61971d89447a7fad2d1054516377006ff8e8918e4718",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/10-catfishes/corydoras-panda-2/": {
     "lastmod": "2019-05-13T10:36:20+00:00",
     "entityIds": [
@@ -8839,6 +9362,17 @@
     "updatedAt": "2026-10-30T21:09:04.691Z",
     "hash": "16c1671a9c88f802f32ab3d421d38097fb4f73e47af76b7b7d10d6c3c3ab177c",
     "processedHash": "16c1671a9c88f802f32ab3d421d38097fb4f73e47af76b7b7d10d6c3c3ab177c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/corydoras-pantanalensis-2/": {
+    "lastmod": "2017-10-25T17:42:29+00:00",
+    "entityIds": [
+      "species/corydoras-pantanalensis"
+    ],
+    "updatedAt": "2026-11-17T19:24:00.242Z",
+    "hash": "1c8a1a85a2e1762277f8e251a6dcd3e07160e226a6891caa445e220dd636b7ea",
+    "processedHash": "1c8a1a85a2e1762277f8e251a6dcd3e07160e226a6891caa445e220dd636b7ea",
     "status": "processed",
     "attempts": 0
   },
@@ -9057,6 +9591,28 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/10-catfishes/glyptoperichthys-scrophus-2/": {
+    "lastmod": "2017-08-04T15:23:56+00:00",
+    "entityIds": [
+      "species/pterygoplichthys-scrophus"
+    ],
+    "updatedAt": "2026-11-17T18:48:51.541Z",
+    "hash": "f1dadd37b1782ca35459d811b726ab2fc2b7813d991dc20aeff83afe5f484dc4",
+    "processedHash": "f1dadd37b1782ca35459d811b726ab2fc2b7813d991dc20aeff83afe5f484dc4",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/gymnallabes-typus-2/": {
+    "lastmod": "2017-10-09T14:57:28+00:00",
+    "entityIds": [
+      "species/gymnallabes-typus"
+    ],
+    "updatedAt": "2026-11-17T19:16:11.839Z",
+    "hash": "efb94dbac738820e826e3ef3d4d437d3d7df749de7478b37c5c2ced8f700cc04",
+    "processedHash": "efb94dbac738820e826e3ef3d4d437d3d7df749de7478b37c5c2ced8f700cc04",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/10-catfishes/hara-hara-erethistes-pusillus-2/": {
     "lastmod": "2022-09-19T17:53:40+00:00",
     "entityIds": [
@@ -9066,6 +9622,26 @@
     "hash": "33b9804e53c85b249bdf92d2d2c5ccd97353e54a4146a597e4e18cc93e0b4c9f",
     "processedHash": "33b9804e53c85b249bdf92d2d2c5ccd97353e54a4146a597e4e18cc93e0b4c9f",
     "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/hemiloricaria-melini-2/": {
+    "lastmod": "2017-11-10T17:48:58+00:00",
+    "entityIds": [
+      "species/rineloricaria-melini"
+    ],
+    "updatedAt": "2026-11-17T19:35:18.995Z",
+    "hash": "336c63270d1c0abf4ac28d92533a66719bb5f77f4ba48b16703cb36841ba0d9f",
+    "processedHash": "336c63270d1c0abf4ac28d92533a66719bb5f77f4ba48b16703cb36841ba0d9f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/hemiloricaria-sp-puerto-ayacucho-2/": {
+    "lastmod": "2017-10-27T17:48:18+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-17T19:27:46.635Z",
+    "hash": "c07d4496a13a0ac7671244e4588c4bbe2962605dd6f4c803563e07504aa926b5",
+    "processedHash": "c07d4496a13a0ac7671244e4588c4bbe2962605dd6f4c803563e07504aa926b5",
+    "status": "skipped",
     "attempts": 0
   },
   "https://www.aquariumglaser.de/en/10-catfishes/hypancistrus-contradens-l201a-big-spots-2/": {
@@ -9090,6 +9666,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/10-catfishes/hypoptopoma-psilogaster-2/": {
+    "lastmod": "2017-09-01T12:34:47+00:00",
+    "entityIds": [
+      "species/hypoptopoma-psilogaster"
+    ],
+    "updatedAt": "2026-11-17T18:58:31.040Z",
+    "hash": "db4e13d78b9638d484fb1d6702f3e7d530957ce3ae6c4609ec0e89b18fc95881",
+    "processedHash": "db4e13d78b9638d484fb1d6702f3e7d530957ce3ae6c4609ec0e89b18fc95881",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/10-catfishes/hypostomus_sp_lda10_en/": {
     "lastmod": "2016-11-22T08:51:10+00:00",
     "entityIds": [],
@@ -9108,6 +9695,15 @@
     "hash": "5407fbd34e296eae3c6da978247704b596b6aed076c4e59367d521256b246ee8",
     "processedHash": "5407fbd34e296eae3c6da978247704b596b6aed076c4e59367d521256b246ee8",
     "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/l-128-hemiancistrus-sp-or-ancistrinae-gen-sp/": {
+    "lastmod": "2017-07-23T06:11:37+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-17T18:43:08.030Z",
+    "hash": "699fe97c91413cc1bc1b6a31adf102364b5b95ecc53c379cb119e929e7f0f435",
+    "processedHash": "699fe97c91413cc1bc1b6a31adf102364b5b95ecc53c379cb119e929e7f0f435",
+    "status": "skipped",
     "attempts": 0
   },
   "https://www.aquariumglaser.de/en/10-catfishes/l129-var-hypancistrus-debilittera-2/": {
@@ -9163,6 +9759,15 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/10-catfishes/leporacanthicus-sp-l326-2/": {
+    "lastmod": "2017-12-15T15:35:18+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-18T01:08:37.091Z",
+    "hash": "b35e7d4e41eb5e8ffdba0e73c87a9a3300ef88cf8a1736b09d19c38414978843",
+    "processedHash": "b35e7d4e41eb5e8ffdba0e73c87a9a3300ef88cf8a1736b09d19c38414978843",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/10-catfishes/leporacanthicus-triactis-l91-variety/": {
     "lastmod": "2018-04-27T15:32:50+00:00",
     "entityIds": [
@@ -9196,6 +9801,28 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/10-catfishes/parauchenoglanis-punctatus-2/": {
+    "lastmod": "2017-11-17T16:43:49+00:00",
+    "entityIds": [
+      "species/parauchenoglanis-punctatus"
+    ],
+    "updatedAt": "2026-11-17T19:37:19.976Z",
+    "hash": "8ec18044f24dc8a51e0e234ee3c7f00584a91299611975b09d2b2d4f2c96e969",
+    "processedHash": "8ec18044f24dc8a51e0e234ee3c7f00584a91299611975b09d2b2d4f2c96e969",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/peckoltia-brevis-lda-78-2/": {
+    "lastmod": "2017-09-18T14:30:41+00:00",
+    "entityIds": [
+      "species/peckoltia-brevis"
+    ],
+    "updatedAt": "2026-11-17T19:07:41.736Z",
+    "hash": "56109f34cd4d276b78162185332683e723bb77ad5e496815696490f93bd4f703",
+    "processedHash": "56109f34cd4d276b78162185332683e723bb77ad5e496815696490f93bd4f703",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/10-catfishes/planiloricaria-cryptodon-2/": {
     "lastmod": "2024-02-07T11:04:20+00:00",
     "entityIds": [
@@ -9218,6 +9845,37 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/10-catfishes/synodontis-batensoda-3/": {
+    "lastmod": "2017-06-26T14:34:17+00:00",
+    "entityIds": [
+      "species/synodontis-batensoda"
+    ],
+    "updatedAt": "2026-11-17T16:16:34.021Z",
+    "hash": "00da3090d0f7bd41002ae81e66c096091af93ad2f1212dd14428b245123d1e68",
+    "processedHash": "00da3090d0f7bd41002ae81e66c096091af93ad2f1212dd14428b245123d1e68",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/synodontis-soloni-2/": {
+    "lastmod": "2018-02-23T16:31:03+00:00",
+    "entityIds": [
+      "species/synodontis-soloni"
+    ],
+    "updatedAt": "2026-11-18T01:37:04.796Z",
+    "hash": "5501fb57da860abd8541e1f69e555810412444893b97cc8e22b48676794911c5",
+    "processedHash": "5501fb57da860abd8541e1f69e555810412444893b97cc8e22b48676794911c5",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/tatia-dunni-white-2/": {
+    "lastmod": "2017-11-13T17:56:06+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-17T19:36:16.931Z",
+    "hash": "7e6af71c8f84bbbb6f2988d793cb4971cd8c9ad0f778d36dc0853e865f229da7",
+    "processedHash": "7e6af71c8f84bbbb6f2988d793cb4971cd8c9ad0f778d36dc0853e865f229da7",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/10-catfishes/tatia-intermedia-2/": {
     "lastmod": "2022-08-12T10:52:12+00:00",
     "entityIds": [
@@ -9237,6 +9895,17 @@
     "updatedAt": "2026-11-11T04:37:39.250Z",
     "hash": "d44406f37497d1670b41f318523548425bf41d4f400aa7d7cd86134e05e4c1da",
     "processedHash": "d44406f37497d1670b41f318523548425bf41d4f400aa7d7cd86134e05e4c1da",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/10-catfishes/wallagonia-micropogon-2/": {
+    "lastmod": "2018-02-07T11:44:34+00:00",
+    "entityIds": [
+      "species/wallago-leerii"
+    ],
+    "updatedAt": "2026-11-18T01:25:45.911Z",
+    "hash": "e16694e1581c2b3d8e2ba611b33bbdade1a488eefe85cc219ed1b3e2b52190ef",
+    "processedHash": "e16694e1581c2b3d8e2ba611b33bbdade1a488eefe85cc219ed1b3e2b52190ef",
     "status": "processed",
     "attempts": 0
   },
@@ -9282,6 +9951,15 @@
     "hash": "e86d65fabe3b4d2ff97b408c6830a4163ba882ab6599abbbf48e91cf2be00d9f",
     "processedHash": "e86d65fabe3b4d2ff97b408c6830a4163ba882ab6599abbbf48e91cf2be00d9f",
     "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/apteronotus-albifrons-white-4/": {
+    "lastmod": "2017-07-17T17:30:16+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-17T18:39:56.922Z",
+    "hash": "db0a7a8d22889731617d2fdf3646555c2421b81a8c1b684aa3a8e71ddee71648",
+    "processedHash": "db0a7a8d22889731617d2fdf3646555c2421b81a8c1b684aa3a8e71ddee71648",
+    "status": "skipped",
     "attempts": 0
   },
   "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/apteronotus-leptorhynchus-a-macrostomus-2/": {
@@ -9336,6 +10014,17 @@
     "updatedAt": "2026-11-16T13:26:04.540Z",
     "hash": "8462e84021f45f5d8cfc3767de62217165bd1b12af735e58074c6126f719dfd4",
     "processedHash": "8462e84021f45f5d8cfc3767de62217165bd1b12af735e58074c6126f719dfd4",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/how-to-pack-600-volts/": {
+    "lastmod": "2017-02-13T16:15:27+00:00",
+    "entityIds": [
+      "species/electrophorus-electricus"
+    ],
+    "updatedAt": "2026-11-17T12:54:12.627Z",
+    "hash": "71f97a06405da9d175f1cc028d5292d0e7dc9755320203f6934f7ae507fabb0b",
+    "processedHash": "71f97a06405da9d175f1cc028d5292d0e7dc9755320203f6934f7ae507fabb0b",
     "status": "processed",
     "attempts": 0
   },
@@ -9394,6 +10083,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/sternarchogiton-preto-2/": {
+    "lastmod": "2018-01-29T13:47:17+00:00",
+    "entityIds": [
+      "species/sternarchogiton-preto"
+    ],
+    "updatedAt": "2026-11-18T01:20:28.789Z",
+    "hash": "a7a63e0be12fc19192ea27a68b9085c0222ef5338ef3f5dc55fa4df92079ebee",
+    "processedHash": "a7a63e0be12fc19192ea27a68b9085c0222ef5338ef3f5dc55fa4df92079ebee",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/sternrachorhynchus-from-peru/": {
     "lastmod": "2016-12-20T13:51:28+00:00",
     "entityIds": [
@@ -9438,6 +10138,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/chilatherina-sentanensis/": {
+    "lastmod": "2017-08-10T16:47:43+00:00",
+    "entityIds": [
+      "species/chilatherina-sentaniensis"
+    ],
+    "updatedAt": "2026-11-17T18:50:27.665Z",
+    "hash": "7c4a859def0905914203ebba478726af60db67780a4081b786de3f29fd1027de",
+    "processedHash": "7c4a859def0905914203ebba478726af60db67780a4081b786de3f29fd1027de",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/glossolepis-incisus-2/": {
     "lastmod": "2019-10-11T06:01:44+00:00",
     "entityIds": [
@@ -9457,6 +10168,17 @@
     "updatedAt": "2026-11-10T22:39:56.881Z",
     "hash": "c2a75faab2fe7542872ea2e85c01ade23f2dbe5e32280b37ad357dd02959dab4",
     "processedHash": "c2a75faab2fe7542872ea2e85c01ade23f2dbe5e32280b37ad357dd02959dab4",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/iriatherina-werneri-2/": {
+    "lastmod": "2017-06-19T17:51:48+00:00",
+    "entityIds": [
+      "species/iriatherina-werneri"
+    ],
+    "updatedAt": "2026-11-17T16:12:47.662Z",
+    "hash": "90d5d37c44c12b88fd6c99104d9970fcc3c4f451909b46abca591e96e2031b60",
+    "processedHash": "90d5d37c44c12b88fd6c99104d9970fcc3c4f451909b46abca591e96e2031b60",
     "status": "processed",
     "attempts": 0
   },
@@ -9641,6 +10363,28 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion-gabunense-marginatum-2/": {
+    "lastmod": "2018-01-26T13:57:46+00:00",
+    "entityIds": [
+      "species/aphyosemion-gabunense"
+    ],
+    "updatedAt": "2026-11-18T01:16:32.635Z",
+    "hash": "565af004286652d7563de244d0313dc75984283677e4856a0f6cb8d93d011056",
+    "processedHash": "565af004286652d7563de244d0313dc75984283677e4856a0f6cb8d93d011056",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion-punctatum-2/": {
+    "lastmod": "2018-02-05T11:57:20+00:00",
+    "entityIds": [
+      "species/aphyosemion-punctatum"
+    ],
+    "updatedAt": "2026-11-18T01:24:50.588Z",
+    "hash": "823010e0020e722a3dffb0ddf222182aeb0e15b323c671211f8bd22a81294fab",
+    "processedHash": "823010e0020e722a3dffb0ddf222182aeb0e15b323c671211f8bd22a81294fab",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion_bivittatum_en/": {
     "lastmod": "2016-11-22T08:55:44+00:00",
     "entityIds": [],
@@ -9692,6 +10436,15 @@
     "hash": "a123942643e2c0211c8b84a0956b549b00ca706a76069d5790975d92308ebbf7",
     "processedHash": "a123942643e2c0211c8b84a0956b549b00ca706a76069d5790975d92308ebbf7",
     "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilus-lineatus-gold-2/": {
+    "lastmod": "2017-07-14T14:55:03+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-17T18:39:22.127Z",
+    "hash": "4fe9512531d291ad4861cde79bbf35c86a9b9881cab5e422c1c4744d398b344b",
+    "processedHash": "4fe9512531d291ad4861cde79bbf35c86a9b9881cab5e422c1c4744d398b344b",
+    "status": "skipped",
     "attempts": 0
   },
   "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilus-panchax-2/": {
@@ -9874,6 +10627,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/epiplatys-dageti-monroviae-2/": {
+    "lastmod": "2018-02-16T16:37:30+00:00",
+    "entityIds": [
+      "species/epiplatys-dageti-monroviae"
+    ],
+    "updatedAt": "2026-11-18T01:32:46.770Z",
+    "hash": "84aba83fa63139c3f7ec604c71118a1f7ba23af79d3dee4be3ccf4e4bc0c349a",
+    "processedHash": "84aba83fa63139c3f7ec604c71118a1f7ba23af79d3dee4be3ccf4e4bc0c349a",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/epiplatys_dageti_en/": {
     "lastmod": "2016-11-22T08:55:43+00:00",
     "entityIds": [
@@ -9934,6 +10698,51 @@
     "hash": "686194bf7e453f8e99d76ed4a6dcc508fc7dea7f2f25cc0be4c247ad86522ebc",
     "processedHash": "686194bf7e453f8e99d76ed4a6dcc508fc7dea7f2f25cc0be4c247ad86522ebc",
     "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/guppy-endler-black-bar-2/": {
+    "lastmod": "2018-02-02T09:52:29+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-18T01:24:10.297Z",
+    "hash": "99db2d7527d9c52a3e3dab78d71620ee0052924a861fbdd323e55d723e131b53",
+    "processedHash": "99db2d7527d9c52a3e3dab78d71620ee0052924a861fbdd323e55d723e131b53",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/guppy-endler-ginga-rubra-2/": {
+    "lastmod": "2017-10-20T16:45:56+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-17T19:23:25.503Z",
+    "hash": "b291f07ebb50be4c497f2c610112353fa2f59259afef86ff1dd0f8c590ada50f",
+    "processedHash": "b291f07ebb50be4c497f2c610112353fa2f59259afef86ff1dd0f8c590ada50f",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/guppy-full-platinum-2/": {
+    "lastmod": "2017-08-30T14:10:02+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-17T18:58:22.832Z",
+    "hash": "326444cfce04664917b7f1a23ce981065df4f477f08721e0c48b7b0882e1feba",
+    "processedHash": "326444cfce04664917b7f1a23ce981065df4f477f08721e0c48b7b0882e1feba",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/guppy-magenta-tuxedo-2/": {
+    "lastmod": "2017-08-04T15:16:32+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-17T18:48:43.613Z",
+    "hash": "5d7b8b6354d1566f91a24e3f9f6d27e9c27aea0186baea880a66fdfbfeae214d",
+    "processedHash": "5d7b8b6354d1566f91a24e3f9f6d27e9c27aea0186baea880a66fdfbfeae214d",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/guppy-platinum-gold-2/": {
+    "lastmod": "2017-12-20T18:57:33+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-18T01:10:22.981Z",
+    "hash": "16b47ab712ba2a9d8a2272f7d3534af990ebe97989320455717c1a696fe61c57",
+    "processedHash": "16b47ab712ba2a9d8a2272f7d3534af990ebe97989320455717c1a696fe61c57",
+    "status": "skipped",
     "attempts": 0
   },
   "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/guppy_albino_en/": {
@@ -10183,6 +10992,15 @@
     "status": "skipped",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/new-guppy-elephant-ear/": {
+    "lastmod": "2017-09-06T17:42:40+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-17T19:00:17.534Z",
+    "hash": "01c837dc51f6bebfd88e4492451bf86c379ee337aa5873c1326bb952c4068f31",
+    "processedHash": "01c837dc51f6bebfd88e4492451bf86c379ee337aa5873c1326bb952c4068f31",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/new_endler_sports_en/": {
     "lastmod": "2016-11-22T08:55:39+00:00",
     "entityIds": [
@@ -10231,6 +11049,17 @@
     "updatedAt": "2026-11-11T10:16:58.659Z",
     "hash": "2d3a73769a959970898c4c0e39fd93b44c076ce0b4b1a70fc2a6807746a48326",
     "processedHash": "2d3a73769a959970898c4c0e39fd93b44c076ce0b4b1a70fc2a6807746a48326",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius-eggersi-kubiti-utete-07-2/": {
+    "lastmod": "2017-10-11T13:56:22+00:00",
+    "entityIds": [
+      "species/nothobranchius-eggersi"
+    ],
+    "updatedAt": "2026-11-17T19:18:00.387Z",
+    "hash": "46e2bd89fe054827cc1490d9458a18996989483e27bff7e0135764e4744155e2",
+    "processedHash": "46e2bd89fe054827cc1490d9458a18996989483e27bff7e0135764e4744155e2",
     "status": "processed",
     "attempts": 0
   },
@@ -10334,6 +11163,17 @@
     "hash": "9f7d53bee43660260f91a41630d8fa2a2b155b8db66289796f6ff550a22808b2",
     "processedHash": "9f7d53bee43660260f91a41630d8fa2a2b155b8db66289796f6ff550a22808b2",
     "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias-dancena-thailand-2/": {
+    "lastmod": "2017-03-01T10:19:20+00:00",
+    "entityIds": [
+      "species/oryzias-dancena"
+    ],
+    "updatedAt": "2026-11-17T13:23:54.338Z",
+    "hash": "b8c55f7c7b4d3c6e35f5cca990eb35e3bf4a4341bbdf499b7528ec98867ff06d",
+    "processedHash": "b8c55f7c7b4d3c6e35f5cca990eb35e3bf4a4341bbdf499b7528ec98867ff06d",
+    "status": "processed",
     "attempts": 0
   },
   "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias-javanicus-2/": {
@@ -10496,6 +11336,17 @@
     "status": "skipped",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecila-mexicana-campeche/": {
+    "lastmod": "2017-08-23T16:19:04+00:00",
+    "entityIds": [
+      "species/poecilia-mexicana"
+    ],
+    "updatedAt": "2026-11-17T18:57:03.615Z",
+    "hash": "69af4e0bb8af888d15f0b71b109a3e41a6a79d15680f2af0f5373eb7ccfcaa37",
+    "processedHash": "69af4e0bb8af888d15f0b71b109a3e41a6a79d15680f2af0f5373eb7ccfcaa37",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia-limia-tridens-2/": {
     "lastmod": "2019-03-15T15:24:35+00:00",
     "entityIds": [
@@ -10515,6 +11366,17 @@
     "updatedAt": "2026-11-01T01:59:28.297Z",
     "hash": "15512bcf006f573495d6ceb533ce56d5f04ed3ffe147a971419c5b0afca0245a",
     "processedHash": "15512bcf006f573495d6ceb533ce56d5f04ed3ffe147a971419c5b0afca0245a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia-wingei-endlers-livebearer-white-peacock/": {
+    "lastmod": "2017-04-10T16:42:02+00:00",
+    "entityIds": [
+      "species/poecilia-wingei"
+    ],
+    "updatedAt": "2026-11-17T15:47:49.862Z",
+    "hash": "86de824529465f9cafa3a6ba9a6c83d92713cc4d255b3920760b8bc60985b003",
+    "processedHash": "86de824529465f9cafa3a6ba9a6c83d92713cc4d255b3920760b8bc60985b003",
     "status": "processed",
     "attempts": 0
   },
@@ -10759,6 +11621,17 @@
     "status": "skipped",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/rivulus-punctatus/": {
+    "lastmod": "2017-02-13T15:56:24+00:00",
+    "entityIds": [
+      "species/melanorivulus-punctatus"
+    ],
+    "updatedAt": "2026-11-17T12:50:32.833Z",
+    "hash": "497c252a3b9bda3cee1adec6f2d9dc11312a32444508863d864e56d1b98ed1a3",
+    "processedHash": "497c252a3b9bda3cee1adec6f2d9dc11312a32444508863d864e56d1b98ed1a3",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/rivulus_hartii_en/": {
     "lastmod": "2016-11-22T08:55:41+00:00",
     "entityIds": [
@@ -10866,6 +11739,17 @@
     "updatedAt": "2026-11-09T09:58:28.104Z",
     "hash": "2155fdb27f498f07b045bfb4efebb38f2a0f90332ff21956ffd523e96d20a279",
     "processedHash": "2155fdb27f498f07b045bfb4efebb38f2a0f90332ff21956ffd523e96d20a279",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/the-story-of-the-cologne-wild-guppy/": {
+    "lastmod": "2017-02-15T18:30:27+00:00",
+    "entityIds": [
+      "guides/glaser-en-18-toothcarps-killis-and-livebearers-the-story-of-the-cologne-wild-guppy"
+    ],
+    "updatedAt": "2026-11-17T13:02:48.777Z",
+    "hash": "8e752f82a0cb783d3281ce9e9c8f64df200e063ec71c806bd68a9ea4c78145c7",
+    "processedHash": "8e752f82a0cb783d3281ce9e9c8f64df200e063ec71c806bd68a9ea4c78145c7",
     "status": "processed",
     "attempts": 0
   },
@@ -11356,6 +12240,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/19-halfbeaks/nomorhamphus-liemi-2/": {
+    "lastmod": "2017-11-03T13:46:39+00:00",
+    "entityIds": [
+      "species/nomorhamphus-liemi"
+    ],
+    "updatedAt": "2026-11-17T19:28:20.401Z",
+    "hash": "2336a2a485d511cf98d664e0713a6e78edc657fadebb2c8597aab83f4938d254",
+    "processedHash": "2336a2a485d511cf98d664e0713a6e78edc657fadebb2c8597aab83f4938d254",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/19-halfbeaks/nomorhamphus_celebensis_en/": {
     "lastmod": "2016-11-22T08:56:26+00:00",
     "entityIds": [
@@ -11474,6 +12369,17 @@
     "updatedAt": "2026-11-02T19:37:36.940Z",
     "hash": "a225b5dd2a9817cad505282c3b6444639bcabe4870bc2ff829a49d52688b1b48",
     "processedHash": "a225b5dd2a9817cad505282c3b6444639bcabe4870bc2ff829a49d52688b1b48",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/21-seahorses-and-pipefish/freshwater-pipefish-from-west-africa/": {
+    "lastmod": "2017-04-28T16:09:36+00:00",
+    "entityIds": [
+      "guides/glaser-en-21-seahorses-and-pipefish-freshwater-pipefish-from-west-africa"
+    ],
+    "updatedAt": "2026-11-17T15:53:16.386Z",
+    "hash": "0c8ac651b24077388c39f6a209f3f3b5ea38a8de05ea88c4215985c815c4a4f4",
+    "processedHash": "0c8ac651b24077388c39f6a209f3f3b5ea38a8de05ea88c4215985c815c4a4f4",
     "status": "processed",
     "attempts": 0
   },
@@ -11620,6 +12526,37 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/22-spiny-eels/mastacembelus-pantherinus-2/": {
+    "lastmod": "2017-08-17T17:30:22+00:00",
+    "entityIds": [
+      "species/mastacembelus-pantherinus"
+    ],
+    "updatedAt": "2026-11-17T18:53:10.423Z",
+    "hash": "b988871fe522474bf4683c080a11b6704b272806b80762ef8cecbecbaef0e807",
+    "processedHash": "b988871fe522474bf4683c080a11b6704b272806b80762ef8cecbecbaef0e807",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/22-spiny-eels/mastacembelus-sp-nargis-2/": {
+    "lastmod": "2017-03-17T07:11:38+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-17T13:37:09.256Z",
+    "hash": "e633e8407b1ec4bac1d16cca01a536faceb9ccf5122e56e532ca95d9bc80414a",
+    "processedHash": "e633e8407b1ec4bac1d16cca01a536faceb9ccf5122e56e532ca95d9bc80414a",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/22-spiny-eels/mastacembelus-unicolor-2/": {
+    "lastmod": "2018-02-09T11:46:45+00:00",
+    "entityIds": [
+      "species/mastacembelus-unicolor"
+    ],
+    "updatedAt": "2026-11-18T01:27:14.279Z",
+    "hash": "8204840bc3c49c44f1dcde8347d1510ff98dc5e925e1ea8bf5b64e083f8db613",
+    "processedHash": "8204840bc3c49c44f1dcde8347d1510ff98dc5e925e1ea8bf5b64e083f8db613",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/22-spiny-eels/mastacembelus_caudiocellatus_en/": {
     "lastmod": "2017-01-05T11:11:14+00:00",
     "entityIds": [
@@ -11682,6 +12619,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/22-spiny-eels/monopterus_albinus_en/": {
+    "lastmod": "2017-11-27T06:10:24+00:00",
+    "entityIds": [
+      "species/monopterus-cuchia"
+    ],
+    "updatedAt": "2026-11-18T00:55:44.804Z",
+    "hash": "8c6a41d112f1727c9387eed2709f9c56df71a707d0b59bc9652fbcd3c92982cd",
+    "processedHash": "8c6a41d112f1727c9387eed2709f9c56df71a707d0b59bc9652fbcd3c92982cd",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/22-spiny-eels/synbranchus_marmoratus_en/": {
     "lastmod": "2017-01-05T09:58:02+00:00",
     "entityIds": [
@@ -11702,6 +12650,15 @@
     "hash": "e0cefb31c082a251caa10c46e9a60f5c5f5182564ba31a4ae770856202c200f9",
     "processedHash": "e0cefb31c082a251caa10c46e9a60f5c5f5182564ba31a4ae770856202c200f9",
     "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/150234/": {
+    "lastmod": "2017-08-08T15:08:43+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-17T18:49:56.137Z",
+    "hash": "b7d84c63399be33f61932eab98a93bf90ce0142992ef2d34e382a589da4ac83d",
+    "processedHash": "b7d84c63399be33f61932eab98a93bf90ce0142992ef2d34e382a589da4ac83d",
+    "status": "skipped",
     "attempts": 0
   },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/_en-41/": {
@@ -11777,6 +12734,15 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/another-new-sport-of-fighting-fish-fancy-dragon-pla-kat/": {
+    "lastmod": "2017-06-09T14:20:42+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-17T16:09:26.038Z",
+    "hash": "70ad5b321647bf8ea362a434488ccfd9c2620a416c357cc66b7338f6c400ad23",
+    "processedHash": "70ad5b321647bf8ea362a434488ccfd9c2620a416c357cc66b7338f6c400ad23",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/available_again_sphaerichthys_selatanensis_en/": {
     "lastmod": "2016-11-22T08:59:58+00:00",
     "entityIds": [],
@@ -11792,6 +12758,37 @@
     "updatedAt": "2026-11-16T13:40:39.158Z",
     "hash": "f401ba3ed72cdf3280a922bbf3552d3301d0424f6afb799cf92d45618d9028e4",
     "processedHash": "f401ba3ed72cdf3280a922bbf3552d3301d0424f6afb799cf92d45618d9028e4",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/betta-coccina-2/": {
+    "lastmod": "2017-02-20T18:09:21+00:00",
+    "entityIds": [
+      "species/betta-coccina"
+    ],
+    "updatedAt": "2026-11-17T13:12:30.834Z",
+    "hash": "e9f38a5a75ef15109ccba084a2323483aec693cd17f9f72b4f6a80542a7141ec",
+    "processedHash": "e9f38a5a75ef15109ccba084a2323483aec693cd17f9f72b4f6a80542a7141ec",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/betta-simplex-2/": {
+    "lastmod": "2017-04-12T17:26:11+00:00",
+    "entityIds": [
+      "species/betta-simplex"
+    ],
+    "updatedAt": "2026-11-17T15:50:04.444Z",
+    "hash": "841565f8c77e597e5f0299b253875dfd2e2266ac7bb3eb0028462469e8bcadd2",
+    "processedHash": "841565f8c77e597e5f0299b253875dfd2e2266ac7bb3eb0028462469e8bcadd2",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/betta-splendens-real-fighter-pla-kat-luk-maw/": {
+    "lastmod": "2017-05-05T14:08:47+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-17T15:58:11.469Z",
+    "hash": "9ff707e12efde11fc00d777a0fc4888e54001b286260075edd397904a76ad9ab",
+    "processedHash": "9ff707e12efde11fc00d777a0fc4888e54001b286260075edd397904a76ad9ab",
     "status": "skipped",
     "attempts": 0
   },
@@ -11974,6 +12971,17 @@
     "updatedAt": "2026-11-09T10:20:43.629Z",
     "hash": "362780d305ed397a22dd19ae624b8ead0046a114a26f4c0d2c90f738ef1d71a8",
     "processedHash": "362780d305ed397a22dd19ae624b8ead0046a114a26f4c0d2c90f738ef1d71a8",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa-sp-meghalaya-2/": {
+    "lastmod": "2017-02-19T08:25:11+00:00",
+    "entityIds": [
+      "guides/glaser-en-25-perchlike-fishes-25a-perchlike-fishes-1-labyrinth-fishes-channa-sp-meghalaya-2"
+    ],
+    "updatedAt": "2026-11-17T13:08:47.971Z",
+    "hash": "a85322ba6e8de029848ff833d05f2ced72f5e732c7376a17f9a2b1389b673343",
+    "processedHash": "a85322ba6e8de029848ff833d05f2ced72f5e732c7376a17f9a2b1389b673343",
     "status": "processed",
     "attempts": 0
   },
@@ -12406,6 +13414,17 @@
     "status": "skipped",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/sphaerichthys-acrostoma-2/": {
+    "lastmod": "2017-02-24T06:39:33+00:00",
+    "entityIds": [
+      "species/sphaerichthys-acrostoma"
+    ],
+    "updatedAt": "2026-11-17T13:18:37.939Z",
+    "hash": "319f7709d6ee787edaf0a418efb7c7e7b34902e78ad3982367603f282ddbb3df",
+    "processedHash": "319f7709d6ee787edaf0a418efb7c7e7b34902e78ad3982367603f282ddbb3df",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/sphaerichthys-vaillanti/": {
     "lastmod": "2016-11-22T08:59:56+00:00",
     "entityIds": [
@@ -12510,6 +13529,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/altolamprologus-calvus-2/": {
+    "lastmod": "2017-04-07T16:03:44+00:00",
+    "entityIds": [
+      "species/altolamprologus-calvus"
+    ],
+    "updatedAt": "2026-11-17T15:46:20.561Z",
+    "hash": "3a87e27ce5104cfb147f67aa355fa591aca55ddf21b8afac20f671dadecf78a6",
+    "processedHash": "3a87e27ce5104cfb147f67aa355fa591aca55ddf21b8afac20f671dadecf78a6",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/altolamprologus_compressiceps_en/": {
     "lastmod": "2017-01-05T10:44:33+00:00",
     "entityIds": [
@@ -12606,6 +13636,17 @@
     "updatedAt": "2026-10-31T06:18:56.657Z",
     "hash": "b6cd9134a79448489a7ef149d629df371203bfdb701e44f4759210728593a145",
     "processedHash": "b6cd9134a79448489a7ef149d629df371203bfdb701e44f4759210728593a145",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/dimidiochromis-strigatus-2/": {
+    "lastmod": "2017-06-23T13:43:59+00:00",
+    "entityIds": [
+      "species/dimidiochromis-strigatus"
+    ],
+    "updatedAt": "2026-11-17T16:15:23.093Z",
+    "hash": "ead824e05beb8bca06e8df6cab0e79ee56b3fb5981eeedc890564ca4e6c6d5b5",
+    "processedHash": "ead824e05beb8bca06e8df6cab0e79ee56b3fb5981eeedc890564ca4e6c6d5b5",
     "status": "processed",
     "attempts": 0
   },
@@ -12809,6 +13850,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/benitochromis-nigrodorsalis-2/": {
+    "lastmod": "2017-04-02T17:18:45+00:00",
+    "entityIds": [
+      "species/benitochromis-nigrodorsalis"
+    ],
+    "updatedAt": "2026-11-17T15:43:13.589Z",
+    "hash": "08f1668430dfe243fa72967dc7168658c994f87e1d4c4ffadb7179f7135d732a",
+    "processedHash": "08f1668430dfe243fa72967dc7168658c994f87e1d4c4ffadb7179f7135d732a",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/benitochromis_finleyi_mungo_en/": {
     "lastmod": "2016-11-22T10:08:01+00:00",
     "entityIds": [
@@ -12848,6 +13900,15 @@
     "updatedAt": "2026-11-16T12:43:18.656Z",
     "hash": "b52761d8c79542fe2871d5e5a4a74ee30ce2bfa507d03b195a3c6b07cbaa1151",
     "processedHash": "b52761d8c79542fe2871d5e5a4a74ee30ce2bfa507d03b195a3c6b07cbaa1151",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/hemichromis-sp-neon-2/": {
+    "lastmod": "2017-03-03T15:04:51+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-17T13:26:17.000Z",
+    "hash": "079f7248e1cb2a2c1f7425c6d23c8acb1f07bec9b5e5f0b3698c6ade84a0f644",
+    "processedHash": "079f7248e1cb2a2c1f7425c6d23c8acb1f07bec9b5e5f0b3698c6ade84a0f644",
     "status": "skipped",
     "attempts": 0
   },
@@ -12965,6 +14026,26 @@
     "updatedAt": "2026-11-01T02:05:35.065Z",
     "hash": "001ffde0a5bcba2419bc56b83e99adea047cabd1e45477cba1d4a160675e8198",
     "processedHash": "001ffde0a5bcba2419bc56b83e99adea047cabd1e45477cba1d4a160675e8198",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pelvicachromis-pulcher-wild-yellow/": {
+    "lastmod": "2017-03-06T17:01:53+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-17T13:27:55.078Z",
+    "hash": "efa268aa200fabb0c620a8a38fef48e2c1c06d3c407778476e8a754e7033bb9d",
+    "processedHash": "efa268aa200fabb0c620a8a38fef48e2c1c06d3c407778476e8a754e7033bb9d",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pelvicachromis-roloffi-2/": {
+    "lastmod": "2017-06-01T14:57:14+00:00",
+    "entityIds": [
+      "species/pelvicachromis-roloffi"
+    ],
+    "updatedAt": "2026-11-17T16:02:57.617Z",
+    "hash": "d9d5daaea242c2ae7e30b20c9e34e359134219a334a9f48718b62cad6e39a634",
+    "processedHash": "d9d5daaea242c2ae7e30b20c9e34e359134219a334a9f48718b62cad6e39a634",
     "status": "processed",
     "attempts": 0
   },
@@ -13201,6 +14282,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/wallaceochromis-humilis-kasewe-2/": {
+    "lastmod": "2017-05-30T13:12:56+00:00",
+    "entityIds": [
+      "species/pelvicachromis-humilis"
+    ],
+    "updatedAt": "2026-11-17T16:02:10.424Z",
+    "hash": "9ffc008d0742076fd0d90acd99e0c55fc6cd230f0071bdce1cdaf12c4743961c",
+    "processedHash": "9ffc008d0742076fd0d90acd99e0c55fc6cd230f0071bdce1cdaf12c4743961c",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/wallaceochromis-signatus-2/": {
     "lastmod": "2017-06-06T17:55:21+00:00",
     "entityIds": [
@@ -13265,6 +14357,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma-borellii-paraguay-wild-2/": {
+    "lastmod": "2017-03-11T08:33:47+00:00",
+    "entityIds": [
+      "species/apistogramma-borellii"
+    ],
+    "updatedAt": "2026-11-17T13:33:12.508Z",
+    "hash": "4733514193ce55e8b891c9d3aca923d7321c2f70ba17be3783d3bce3560821f7",
+    "processedHash": "4733514193ce55e8b891c9d3aca923d7321c2f70ba17be3783d3bce3560821f7",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma-borellii-wild/": {
     "lastmod": "2016-11-22T10:08:19+00:00",
     "entityIds": [
@@ -13273,6 +14376,28 @@
     "updatedAt": "2026-11-09T16:18:45.584Z",
     "hash": "2f348b39bb6f57be2ff7fba5bb38f8d3f3186f1cf8662d29adc94073bfee6cab",
     "processedHash": "2f348b39bb6f57be2ff7fba5bb38f8d3f3186f1cf8662d29adc94073bfee6cab",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma-elizabethae-2/": {
+    "lastmod": "2017-02-24T06:48:38+00:00",
+    "entityIds": [
+      "species/apistogramma-elizabethae"
+    ],
+    "updatedAt": "2026-11-17T13:19:48.426Z",
+    "hash": "853c6cbe618998499de04874ae7e3706f7921ff1be14c26d88d5cb4606a6344d",
+    "processedHash": "853c6cbe618998499de04874ae7e3706f7921ff1be14c26d88d5cb4606a6344d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma-eunotus-rio-tapiche-2/": {
+    "lastmod": "2017-02-22T17:59:42+00:00",
+    "entityIds": [
+      "species/apistogramma-eunotus"
+    ],
+    "updatedAt": "2026-11-17T13:16:06.052Z",
+    "hash": "104050001ec3c71f7283763dcfaf0f60a00de0fe4d4365ea42176eaf906b7677",
+    "processedHash": "104050001ec3c71f7283763dcfaf0f60a00de0fe4d4365ea42176eaf906b7677",
     "status": "processed",
     "attempts": 0
   },
@@ -13304,6 +14429,15 @@
     "updatedAt": "2026-11-09T16:15:23.086Z",
     "hash": "80e95dc08f2d2aeab0b82543ea069b2e5edec0f6d20a2d48aeae55f6fca7474f",
     "processedHash": "80e95dc08f2d2aeab0b82543ea069b2e5edec0f6d20a2d48aeae55f6fca7474f",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma-trifasciata-rio-san-martin/": {
+    "lastmod": "2017-02-16T05:58:31+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-17T13:07:27.424Z",
+    "hash": "b46780802892c7ebff06a0c28dde8ae9fae4d432b43770e1c27d7f2eadba33cc",
+    "processedHash": "b46780802892c7ebff06a0c28dde8ae9fae4d432b43770e1c27d7f2eadba33cc",
     "status": "skipped",
     "attempts": 0
   },
@@ -13906,6 +15040,17 @@
     "status": "skipped",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/taeniacara-candidi-2/": {
+    "lastmod": "2017-11-17T16:53:50+00:00",
+    "entityIds": [
+      "species/taeniacara-candidi"
+    ],
+    "updatedAt": "2026-11-17T19:37:52.532Z",
+    "hash": "1af7f0b722baff5080700140cb5155b0067e41f9373a492020a65596223634ed",
+    "processedHash": "1af7f0b722baff5080700140cb5155b0067e41f9373a492020a65596223634ed",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/teleocichla_centrarchus_en-2/": {
     "lastmod": "2016-12-18T08:48:11+00:00",
     "entityIds": [
@@ -13936,6 +15081,17 @@
     "updatedAt": "2026-11-09T16:28:34.253Z",
     "hash": "dfb5cc538e4bfcd027b3675accbae5dbabfc60c2eeeb0ad5d89d9f1b8a872358",
     "processedHash": "dfb5cc538e4bfcd027b3675accbae5dbabfc60c2eeeb0ad5d89d9f1b8a872358",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/wild-rams/": {
+    "lastmod": "2017-03-28T04:53:47+00:00",
+    "entityIds": [
+      "species/mikrogeophagus-ramirezi"
+    ],
+    "updatedAt": "2026-11-17T13:41:38.957Z",
+    "hash": "1b7e5caea9faecbebe1a1948fa1fbd89330f13632090521feed55c872a80a76b",
+    "processedHash": "1b7e5caea9faecbebe1a1948fa1fbd89330f13632090521feed55c872a80a76b",
     "status": "processed",
     "attempts": 0
   },
@@ -14216,6 +15372,17 @@
     "updatedAt": "2026-11-15T19:15:35.632Z",
     "hash": "036efddf2d860b1e34167a631726c51108dae9ef3110403576c2e23891950905",
     "processedHash": "036efddf2d860b1e34167a631726c51108dae9ef3110403576c2e23891950905",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/chaetobranchopsis-australis-2/": {
+    "lastmod": "2017-03-08T14:09:13+00:00",
+    "entityIds": [
+      "species/chaetobranchopsis-australis"
+    ],
+    "updatedAt": "2026-11-17T13:29:36.950Z",
+    "hash": "042fb966938ed54a678506fc752797991b7ac43bab300fe62cf1308a6c788a38",
+    "processedHash": "042fb966938ed54a678506fc752797991b7ac43bab300fe62cf1308a6c788a38",
     "status": "processed",
     "attempts": 0
   },
@@ -14558,6 +15725,17 @@
     "updatedAt": "2026-11-09T22:15:23.676Z",
     "hash": "7cef8ff702c445634f696383dd0d119ada9308f57064bdcb098d3b75806f9e9d",
     "processedHash": "7cef8ff702c445634f696383dd0d119ada9308f57064bdcb098d3b75806f9e9d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/discus-heckel-cross-jatapu/": {
+    "lastmod": "2017-02-20T17:17:10+00:00",
+    "entityIds": [
+      "guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-discus-heckel-cross-jatapu"
+    ],
+    "updatedAt": "2026-11-17T13:11:23.887Z",
+    "hash": "0ae80bef4d399de41baf80ba8d81c6202487c54fc28a27ed1bdb20bbfe9b2da5",
+    "processedHash": "0ae80bef4d399de41baf80ba8d81c6202487c54fc28a27ed1bdb20bbfe9b2da5",
     "status": "processed",
     "attempts": 0
   },
@@ -14978,6 +16156,17 @@
     "hash": "fd9d516a08c80282d60b96ea47899c1f961778d0ebff765ae687505fff44287f",
     "processedHash": "fd9d516a08c80282d60b96ea47899c1f961778d0ebff765ae687505fff44287f",
     "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/heros-liberifer-german-bred/": {
+    "lastmod": "2017-02-19T07:04:55+00:00",
+    "entityIds": [
+      "species/heros-liberifer"
+    ],
+    "updatedAt": "2026-11-17T13:08:15.512Z",
+    "hash": "ae27d528f618e5b1d05c4385a2095851447bde91614546c1b27096dca6ba9f08",
+    "processedHash": "ae27d528f618e5b1d05c4385a2095851447bde91614546c1b27096dca6ba9f08",
+    "status": "processed",
     "attempts": 0
   },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/heros_cf_efasciatus_japaueri_en/": {
@@ -15540,6 +16729,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/wonderful-bred-altum-angels-available/": {
+    "lastmod": "2017-05-10T13:12:55+00:00",
+    "entityIds": [
+      "species/pterophyllum-altum"
+    ],
+    "updatedAt": "2026-11-17T16:01:37.946Z",
+    "hash": "74004e53fed89ff1b694d8f260d6f8b308a4bae5e6c947a43d9baa6d78afa5eb",
+    "processedHash": "74004e53fed89ff1b694d8f260d6f8b308a4bae5e6c947a43d9baa6d78afa5eb",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/wonderful_german_bred_south_american_cichlids_en/": {
     "lastmod": "2017-01-09T12:37:36+00:00",
     "entityIds": [
@@ -15619,6 +16819,17 @@
     "updatedAt": "2026-11-10T15:45:27.178Z",
     "hash": "96311a6eb2007b5ae9afeed6dec3ba1388c56ca8052f1418e97c8c536e8abaed",
     "processedHash": "96311a6eb2007b5ae9afeed6dec3ba1388c56ca8052f1418e97c8c536e8abaed",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/brachygobius-sabanus-thailand-2/": {
+    "lastmod": "2017-03-20T18:49:25+00:00",
+    "entityIds": [
+      "species/brachygobius-sabanus"
+    ],
+    "updatedAt": "2026-11-17T13:37:54.834Z",
+    "hash": "d1ce83f744ce25fcbd6a5b338eaefe24b6d217e52170385574f4be88cb4894be",
+    "processedHash": "d1ce83f744ce25fcbd6a5b338eaefe24b6d217e52170385574f4be88cb4894be",
     "status": "processed",
     "attempts": 0
   },
@@ -15840,6 +17051,28 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/stiphodon-semoni-3/": {
+    "lastmod": "2017-03-15T14:31:28+00:00",
+    "entityIds": [
+      "species/stiphodon-semoni"
+    ],
+    "updatedAt": "2026-11-17T13:35:19.156Z",
+    "hash": "2c627bda33128d1a6bbc22b2b9acd70b03f170ac3dcef575e717d12c1ba7c29a",
+    "processedHash": "2c627bda33128d1a6bbc22b2b9acd70b03f170ac3dcef575e717d12c1ba7c29a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/stiphodon-semoni-5/": {
+    "lastmod": "2017-03-22T15:05:55+00:00",
+    "entityIds": [
+      "species/stiphodon-semoni"
+    ],
+    "updatedAt": "2026-11-17T13:40:13.392Z",
+    "hash": "2c627bda33128d1a6bbc22b2b9acd70b03f170ac3dcef575e717d12c1ba7c29a",
+    "processedHash": "2c627bda33128d1a6bbc22b2b9acd70b03f170ac3dcef575e717d12c1ba7c29a",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/stiphodon-semoni/": {
     "lastmod": "2017-01-10T07:58:13+00:00",
     "entityIds": [
@@ -15956,6 +17189,17 @@
     "updatedAt": "2026-11-13T05:40:57.744Z",
     "hash": "e59ae219e8ff5879b3b8466fe2bae9c66b4121c446710d7036ccd6bc2e22a13f",
     "processedHash": "e59ae219e8ff5879b3b8466fe2bae9c66b4121c446710d7036ccd6bc2e22a13f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/elassoma-zonatum-2/": {
+    "lastmod": "2017-02-22T17:48:05+00:00",
+    "entityIds": [
+      "species/elassoma-zonatum"
+    ],
+    "updatedAt": "2026-11-17T13:14:46.047Z",
+    "hash": "2782b775fc3d8156b4d60aee49574fe71a9b76d4566ea435517db8c5436d3829",
+    "processedHash": "2782b775fc3d8156b4d60aee49574fe71a9b76d4566ea435517db8c5436d3829",
     "status": "processed",
     "attempts": 0
   },
@@ -16087,6 +17331,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/only-in-the-transit/": {
+    "lastmod": "2017-02-14T17:45:36+00:00",
+    "entityIds": [
+      "species/etheostoma-caeruleum"
+    ],
+    "updatedAt": "2026-11-17T12:59:07.279Z",
+    "hash": "e98e9306e5f7815991a18c3f9dde78ba1be2cb5e0cf3253a5dc6c8233c173751",
+    "processedHash": "e98e9306e5f7815991a18c3f9dde78ba1be2cb5e0cf3253a5dc6c8233c173751",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/parambassis_siamensis_en/": {
     "lastmod": "2016-11-22T10:12:31+00:00",
     "entityIds": [
@@ -16164,6 +17419,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/a-little-sensation-the-first-documented-ob-discus/": {
+    "lastmod": "2017-10-27T17:37:34+00:00",
+    "entityIds": [
+      "guides/glaser-en-25-perchlike-fishes-a-little-sensation-the-first-documented-ob-discus"
+    ],
+    "updatedAt": "2026-11-17T19:24:54.537Z",
+    "hash": "78fde92feebbbb05bcaa631a7a8b48e3f34686a168c7d9611ed7086e7c45ac12",
+    "processedHash": "78fde92feebbbb05bcaa631a7a8b48e3f34686a168c7d9611ed7086e7c45ac12",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/amatitlania-sajica-2/": {
     "lastmod": "2019-08-23T14:35:49+00:00",
     "entityIds": [
@@ -16172,6 +17438,17 @@
     "updatedAt": "2026-11-02T19:41:34.336Z",
     "hash": "d4a0918f7f4d89b668d734773fbebddae56775b18e94886e1a79e5f242671cde",
     "processedHash": "d4a0918f7f4d89b668d734773fbebddae56775b18e94886e1a79e5f242671cde",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/amphilophus-xiloaensis-2/": {
+    "lastmod": "2017-06-30T10:01:42+00:00",
+    "entityIds": [
+      "species/amphilophus-xiloaensis"
+    ],
+    "updatedAt": "2026-11-17T16:18:14.633Z",
+    "hash": "f65981fb3336de4025c1aa07f79c866c3729d98025f58c2066950ce6d06814aa",
+    "processedHash": "f65981fb3336de4025c1aa07f79c866c3729d98025f58c2066950ce6d06814aa",
     "status": "processed",
     "attempts": 0
   },
@@ -16186,6 +17463,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-gibbiceps-2/": {
+    "lastmod": "2017-11-24T18:48:24+00:00",
+    "entityIds": [
+      "species/apistogramma-gibbiceps"
+    ],
+    "updatedAt": "2026-11-18T00:54:37.478Z",
+    "hash": "daf50eef01f7ca87e8c069204cff592baa4d70c12283526f32b52cef37a5d6b7",
+    "processedHash": "daf50eef01f7ca87e8c069204cff592baa4d70c12283526f32b52cef37a5d6b7",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-uaupesi-2/": {
     "lastmod": "2019-01-14T10:03:28+00:00",
     "entityIds": [
@@ -16194,6 +17482,17 @@
     "updatedAt": "2026-11-06T05:43:56.143Z",
     "hash": "1096c195ffa1cde9c257f806bbd18836f9ce977a2f2e9077edacc8e523441286",
     "processedHash": "1096c195ffa1cde9c257f806bbd18836f9ce977a2f2e9077edacc8e523441286",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/badis-autumnum-2/": {
+    "lastmod": "2017-08-21T12:43:44+00:00",
+    "entityIds": [
+      "species/badis-autumnum"
+    ],
+    "updatedAt": "2026-11-17T18:55:35.143Z",
+    "hash": "d638ae5ecd9c60fb9d75fb678d8b9f9b1aa647ecf647717ff3f5a53281c8efba",
+    "processedHash": "d638ae5ecd9c60fb9d75fb678d8b9f9b1aa647ecf647717ff3f5a53281c8efba",
     "status": "processed",
     "attempts": 0
   },
@@ -16216,6 +17515,39 @@
     "updatedAt": "2026-11-09T15:54:12.122Z",
     "hash": "1e7971121c51791fc1db02f8de6674516084c07d221da1fea2645c3813f9709a",
     "processedHash": "1e7971121c51791fc1db02f8de6674516084c07d221da1fea2645c3813f9709a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-ferox-2/": {
+    "lastmod": "2017-03-17T06:52:59+00:00",
+    "entityIds": [
+      "species/betta-ferox"
+    ],
+    "updatedAt": "2026-11-17T13:36:19.140Z",
+    "hash": "3a3cbfafc3835971557dd85c69cb7b59970db80ae138079d5710969883bdbaed",
+    "processedHash": "3a3cbfafc3835971557dd85c69cb7b59970db80ae138079d5710969883bdbaed",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-splendens-wild-2/": {
+    "lastmod": "2017-10-06T13:59:47+00:00",
+    "entityIds": [
+      "species/betta-splendens"
+    ],
+    "updatedAt": "2026-11-17T19:14:58.658Z",
+    "hash": "66ab853d9d22332e882b398655331e0d00647ee89c539625146a1c202d35ed54",
+    "processedHash": "66ab853d9d22332e882b398655331e0d00647ee89c539625146a1c202d35ed54",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-bleheri-2/": {
+    "lastmod": "2017-07-27T12:49:52+00:00",
+    "entityIds": [
+      "species/channa-bleheri"
+    ],
+    "updatedAt": "2026-11-17T18:45:17.379Z",
+    "hash": "aa433a06271204b76917039aa45b8f2998d40083edfea9582cffa8d87d8df15d",
+    "processedHash": "aa433a06271204b76917039aa45b8f2998d40083edfea9582cffa8d87d8df15d",
     "status": "processed",
     "attempts": 0
   },
@@ -16272,6 +17604,15 @@
     "hash": "01e2a4189c388fa83a887dc3683f7e044065ad14edae7db857e7a8e45133ac16",
     "processedHash": "01e2a4189c388fa83a887dc3683f7e044065ad14edae7db857e7a8e45133ac16",
     "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-sp-burmese-red-rim-rainbow-2/": {
+    "lastmod": "2017-08-18T14:26:39+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-17T18:54:44.146Z",
+    "hash": "80c3badd40b19f0d94b4337c356cec19251b972b3bbe772162ab5b27fe724536",
+    "processedHash": "80c3badd40b19f0d94b4337c356cec19251b972b3bbe772162ab5b27fe724536",
+    "status": "skipped",
     "attempts": 0
   },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-stewartii-2/": {
@@ -16338,6 +17679,15 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/danakilia-sp-sukoray-2/": {
+    "lastmod": "2018-01-31T10:34:54+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-18T01:21:34.808Z",
+    "hash": "ae59245f83fd028b6e25c9930d133acda3732528734e17a9d6675e01fd0afc3f",
+    "processedHash": "ae59245f83fd028b6e25c9930d133acda3732528734e17a9d6675e01fd0afc3f",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/dicrossus-filamentosus-2/": {
     "lastmod": "2022-07-01T09:38:52+00:00",
     "entityIds": [
@@ -16346,6 +17696,70 @@
     "updatedAt": "2026-11-02T20:08:37.388Z",
     "hash": "684be5120032f5ff817334e8a8ea15e63596986a033611573e83a4aa17bb0abe",
     "processedHash": "684be5120032f5ff817334e8a8ea15e63596986a033611573e83a4aa17bb0abe",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/dimidiochromis-compressiceps-albino-2/": {
+    "lastmod": "2018-01-19T09:36:35+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-18T01:12:43.389Z",
+    "hash": "626c2a38f2e73f22ec02e2410a7841cd021d083c8f38c7544d6ab2c162f6e61a",
+    "processedHash": "626c2a38f2e73f22ec02e2410a7841cd021d083c8f38c7544d6ab2c162f6e61a",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/elassoma-evergladei-2/": {
+    "lastmod": "2020-02-14T11:09:36+00:00",
+    "entityIds": [
+      "species/elassoma-evergladei"
+    ],
+    "updatedAt": "2026-11-17T15:39:13.387Z",
+    "hash": "efa6c1faa542759757b07568b44a1ed2f76f0fb976bb6a6296e40b37933fc18a",
+    "processedHash": "efa6c1faa542759757b07568b44a1ed2f76f0fb976bb6a6296e40b37933fc18a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/elassoma-evergladei-4/": {
+    "lastmod": "2024-02-07T11:39:29+00:00",
+    "entityIds": [
+      "species/elassoma-evergladei"
+    ],
+    "updatedAt": "2026-11-17T15:40:21.330Z",
+    "hash": "a01a28aa1bdbfe47032cf0417bb7777438e8343edce24aeabe1525a4c94e0a79",
+    "processedHash": "a01a28aa1bdbfe47032cf0417bb7777438e8343edce24aeabe1525a4c94e0a79",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/etroplus-canarensis-2/": {
+    "lastmod": "2017-10-13T15:42:57+00:00",
+    "entityIds": [
+      "species/etroplus-canarensis"
+    ],
+    "updatedAt": "2026-11-17T19:19:03.625Z",
+    "hash": "3631b9f846a971d4de08cb48bdbc0988cc7fa3aaba970eda2d834de0d4c28d06",
+    "processedHash": "3631b9f846a971d4de08cb48bdbc0988cc7fa3aaba970eda2d834de0d4c28d06",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/etroplus-maculatus-2/": {
+    "lastmod": "2017-11-22T18:40:20+00:00",
+    "entityIds": [
+      "species/etroplus-maculatus"
+    ],
+    "updatedAt": "2026-11-17T19:39:36.732Z",
+    "hash": "4664e676f2732abfbac4fffeb6bfeb84e887feb207b55cdb45ce24d8faaa078b",
+    "processedHash": "4664e676f2732abfbac4fffeb6bfeb84e887feb207b55cdb45ce24d8faaa078b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/geophagus-cf-abalios-2/": {
+    "lastmod": "2018-02-16T16:31:24+00:00",
+    "entityIds": [
+      "species/geophagus-abalios"
+    ],
+    "updatedAt": "2026-11-18T01:31:43.574Z",
+    "hash": "48320c10c153a1b078b1342041dbfffa6c530170aeea4be6bd7ce1dbc43ff54d",
+    "processedHash": "48320c10c153a1b078b1342041dbfffa6c530170aeea4be6bd7ce1dbc43ff54d",
     "status": "processed",
     "attempts": 0
   },
@@ -16360,6 +17774,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/hemichromis-exsul-2/": {
+    "lastmod": "2018-01-29T08:36:09+00:00",
+    "entityIds": [
+      "species/hemichromis-exsul"
+    ],
+    "updatedAt": "2026-11-18T01:18:35.553Z",
+    "hash": "a5485645f5574ae0fcf2d20258caa1ef11eee8ee1ee4420e9949a0bbf28d30af",
+    "processedHash": "a5485645f5574ae0fcf2d20258caa1ef11eee8ee1ee4420e9949a0bbf28d30af",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/julidochromis-marlieri-2/": {
     "lastmod": "2022-06-08T10:17:49+00:00",
     "entityIds": [
@@ -16368,6 +17793,17 @@
     "updatedAt": "2026-11-02T20:07:24.879Z",
     "hash": "91e6c709e558456ea78024ab2265842c334565dcf377b73fcdf3e6604a7da031",
     "processedHash": "91e6c709e558456ea78024ab2265842c334565dcf377b73fcdf3e6604a7da031",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/laetacara-curviceps-2/": {
+    "lastmod": "2017-08-11T15:39:34+00:00",
+    "entityIds": [
+      "species/laetacara-curviceps"
+    ],
+    "updatedAt": "2026-11-17T18:51:36.453Z",
+    "hash": "57788eb01d70ed99758b9759a1e57cfabc7b0c0e7874f9c7f952b64a1b1830d9",
+    "processedHash": "57788eb01d70ed99758b9759a1e57cfabc7b0c0e7874f9c7f952b64a1b1830d9",
     "status": "processed",
     "attempts": 0
   },
@@ -16426,6 +17862,28 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/madeira-discus-arrived/": {
+    "lastmod": "2017-12-11T15:23:38+00:00",
+    "entityIds": [
+      "guides/glaser-en-25-perchlike-fishes-madeira-discus-arrived"
+    ],
+    "updatedAt": "2026-11-18T01:05:19.973Z",
+    "hash": "9c4f64458b37f62c6f142e38fa69d1f1578b68dfa839288d277a97a713be8b6d",
+    "processedHash": "9c4f64458b37f62c6f142e38fa69d1f1578b68dfa839288d277a97a713be8b6d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/maylandia-greshakei-2/": {
+    "lastmod": "2017-11-10T17:40:28+00:00",
+    "entityIds": [
+      "species/maylandia-greshakei"
+    ],
+    "updatedAt": "2026-11-17T19:34:16.612Z",
+    "hash": "4304ffb3081a426da80193b6b4a876a2b80b4c629a7134efb666e5a1375a7984",
+    "processedHash": "4304ffb3081a426da80193b6b4a876a2b80b4c629a7134efb666e5a1375a7984",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/monodactylus-argenteus-3/": {
     "lastmod": "2021-04-16T10:34:44+00:00",
     "entityIds": [
@@ -16445,6 +17903,39 @@
     "updatedAt": "2026-10-31T13:37:30.548Z",
     "hash": "2952bc0cdfb820871602b96ca47644428621a7ccbad705c6c8486da07fdb9615",
     "processedHash": "2952bc0cdfb820871602b96ca47644428621a7ccbad705c6c8486da07fdb9615",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/nandus-nebulosus-2/": {
+    "lastmod": "2017-09-28T16:14:43+00:00",
+    "entityIds": [
+      "species/nandus-nebulosus"
+    ],
+    "updatedAt": "2026-11-17T19:12:52.202Z",
+    "hash": "91e409cec35224e87b5ea1556a989d7ccb5b6581117c27187b7a791c43e73e4f",
+    "processedHash": "91e409cec35224e87b5ea1556a989d7ccb5b6581117c27187b7a791c43e73e4f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/osphronemus-exodon-2/": {
+    "lastmod": "2017-09-20T15:18:09+00:00",
+    "entityIds": [
+      "species/osphronemus-exodon"
+    ],
+    "updatedAt": "2026-11-17T19:08:59.269Z",
+    "hash": "d8903733c7b10ede99cd2ec526390d114464117381e9a974bd85ee0b01f5f1d8",
+    "processedHash": "d8903733c7b10ede99cd2ec526390d114464117381e9a974bd85ee0b01f5f1d8",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/otopharynx-lithobates-2/": {
+    "lastmod": "2017-09-11T17:36:15+00:00",
+    "entityIds": [
+      "species/otopharynx-lithobates"
+    ],
+    "updatedAt": "2026-11-17T19:05:17.472Z",
+    "hash": "373a0aec8e5572a9296684fba9b2cdd989bc2def95a2a039288353c80b49d89b",
+    "processedHash": "373a0aec8e5572a9296684fba9b2cdd989bc2def95a2a039288353c80b49d89b",
     "status": "processed",
     "attempts": 0
   },
@@ -16556,6 +18047,28 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/scatophagus-tetracanthus-2/": {
+    "lastmod": "2017-09-13T15:29:39+00:00",
+    "entityIds": [
+      "species/scatophagus-tetracanthus"
+    ],
+    "updatedAt": "2026-11-17T19:06:35.616Z",
+    "hash": "734d378b0719aa515f84d1dbcd1a1a0164e0f9b76c3379cfe227184efcf93e6c",
+    "processedHash": "734d378b0719aa515f84d1dbcd1a1a0164e0f9b76c3379cfe227184efcf93e6c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/sphaerichtys-vaillanti/": {
+    "lastmod": "2018-02-28T08:24:27+00:00",
+    "entityIds": [
+      "species/sphaerichthys-vaillanti"
+    ],
+    "updatedAt": "2026-11-18T01:39:09.090Z",
+    "hash": "9da0dcf38fa3ae855f2f20d1b2a8a452eaf18bc4b205882f899ac132c6a9ea8b",
+    "processedHash": "9da0dcf38fa3ae855f2f20d1b2a8a452eaf18bc4b205882f899ac132c6a9ea8b",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/symphysodon-aequifasciatus-royal-green-tefe-2/": {
     "lastmod": "2023-01-20T11:41:30+00:00",
     "entityIds": [
@@ -16564,6 +18077,50 @@
     "updatedAt": "2026-10-30T18:30:19.016Z",
     "hash": "98e5d0239bd46bf0b6e393654a920d7547bd9f7f427d81e59b7cea410b00b9e6",
     "processedHash": "98e5d0239bd46bf0b6e393654a920d7547bd9f7f427d81e59b7cea410b00b9e6",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/the-total-ban-of-channa-in-the-eu-is-off-the-table/": {
+    "lastmod": "2017-12-08T12:03:57+00:00",
+    "entityIds": [
+      "guides/glaser-en-25-perchlike-fishes-the-total-ban-of-channa-in-the-eu-is-off-the-table"
+    ],
+    "updatedAt": "2026-11-18T01:02:34.006Z",
+    "hash": "29723135e431813eda22d8b69211becf02b7a2a1f9d7f2f71c77aaa57d30b95a",
+    "processedHash": "29723135e431813eda22d8b69211becf02b7a2a1f9d7f2f71c77aaa57d30b95a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/thorichthys-meeki-2/": {
+    "lastmod": "2017-12-15T15:25:26+00:00",
+    "entityIds": [
+      "species/thorichthys-meeki"
+    ],
+    "updatedAt": "2026-11-18T01:07:29.678Z",
+    "hash": "6b6aca5665ba7c221d007c552164ec7bb7659b29990495a4e050b732ecb23d11",
+    "processedHash": "6b6aca5665ba7c221d007c552164ec7bb7659b29990495a4e050b732ecb23d11",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/tilapia-buettikoferi-2/": {
+    "lastmod": "2017-11-08T17:41:25+00:00",
+    "entityIds": [
+      "species/heterotilapia-buttikoferi"
+    ],
+    "updatedAt": "2026-11-17T19:33:28.133Z",
+    "hash": "566a9d72f719fce59165c3f403d6aa988b9b0d54b3b9f5f4a061e28072fa1e16",
+    "processedHash": "566a9d72f719fce59165c3f403d6aa988b9b0d54b3b9f5f4a061e28072fa1e16",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/trichogaster-leerii-wild-2/": {
+    "lastmod": "2017-06-30T10:11:33+00:00",
+    "entityIds": [
+      "species/trichopodus-leerii"
+    ],
+    "updatedAt": "2026-11-17T16:19:45.157Z",
+    "hash": "8e58a44e5f19c323c0cb058a595d7f4e22e0ecb83dc102b5c8da30f68110c026",
+    "processedHash": "8e58a44e5f19c323c0cb058a595d7f4e22e0ecb83dc102b5c8da30f68110c026",
     "status": "processed",
     "attempts": 0
   },
@@ -16586,6 +18143,17 @@
     "updatedAt": "2026-11-03T06:19:18.868Z",
     "hash": "96e8e6149e478ad391f8cc9259eaf2aff12d32a9c2b58b122468e54a40fde42d",
     "processedHash": "96e8e6149e478ad391f8cc9259eaf2aff12d32a9c2b58b122468e54a40fde42d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/26-flatfishes/catathyridium-jenynsii-2/": {
+    "lastmod": "2017-11-06T18:49:50+00:00",
+    "entityIds": [
+      "species/catathyridium-jenynsii"
+    ],
+    "updatedAt": "2026-11-17T19:31:09.486Z",
+    "hash": "0fccfa6e1d9d8285ab424450c54a69654cde0519e5d2e9960d84f8180ad448d8",
+    "processedHash": "0fccfa6e1d9d8285ab424450c54a69654cde0519e5d2e9960d84f8180ad448d8",
     "status": "processed",
     "attempts": 0
   },
@@ -16670,6 +18238,17 @@
     "updatedAt": "2026-11-10T16:00:24.040Z",
     "hash": "127ac6e6e6d1c1a8d40233aa0837ce9a1c7784ecfbaaa7cbc07865f790a857cf",
     "processedHash": "127ac6e6e6d1c1a8d40233aa0837ce9a1c7784ecfbaaa7cbc07865f790a857cf",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/27-puffers/chelonodon-patoca-2/": {
+    "lastmod": "2017-10-16T17:40:00+00:00",
+    "entityIds": [
+      "species/chelonodon-patoca"
+    ],
+    "updatedAt": "2026-11-17T19:19:58.851Z",
+    "hash": "9c59f2b42614c76a404fb28db4d01a901c33b919f798c8aeab93d53529fc69ad",
+    "processedHash": "9c59f2b42614c76a404fb28db4d01a901c33b919f798c8aeab93d53529fc69ad",
     "status": "processed",
     "attempts": 0
   },
@@ -16803,6 +18382,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/29-lungfishes/lepidosiren-paradoxus-2/": {
+    "lastmod": "2017-03-29T17:53:32+00:00",
+    "entityIds": [
+      "species/lepidosiren-paradoxa"
+    ],
+    "updatedAt": "2026-11-17T15:42:13.446Z",
+    "hash": "b3447821aaa9dd20df2c16e99c928d04bb9abd1432b759a435e74b0c1ea77cc4",
+    "processedHash": "b3447821aaa9dd20df2c16e99c928d04bb9abd1432b759a435e74b0c1ea77cc4",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/29-lungfishes/lepidosiren_paradoxus_en/": {
     "lastmod": "2016-11-22T10:13:27+00:00",
     "entityIds": [
@@ -16822,6 +18412,17 @@
     "updatedAt": "2026-11-10T16:01:24.460Z",
     "hash": "2381599130c9a9468fa94064eae1da989afe3934165f932fa8943d44e953d2f7",
     "processedHash": "2381599130c9a9468fa94064eae1da989afe3934165f932fa8943d44e953d2f7",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/29-lungfishes/protopterus-annectens-nigeria-2/": {
+    "lastmod": "2018-01-24T14:20:51+00:00",
+    "entityIds": [
+      "species/protopterus-annectens"
+    ],
+    "updatedAt": "2026-11-18T01:15:08.911Z",
+    "hash": "8b69ad9ed1b08a897eeabd2bfdf91513a5f87a4bcc3dce4e10995760a273ea31",
+    "processedHash": "8b69ad9ed1b08a897eeabd2bfdf91513a5f87a4bcc3dce4e10995760a273ea31",
     "status": "processed",
     "attempts": 0
   },
@@ -17205,6 +18806,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cherax-peknyi-2/": {
+    "lastmod": "2017-11-03T13:54:08+00:00",
+    "entityIds": [
+      "species/cherax-peknyi"
+    ],
+    "updatedAt": "2026-11-17T19:29:47.640Z",
+    "hash": "eba5fd14326a5910dfcfc771b263ab36e8694547d46c87890469ebecd2880ca7",
+    "processedHash": "eba5fd14326a5910dfcfc771b263ab36e8694547d46c87890469ebecd2880ca7",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cherax-quadricarinatus-2/": {
     "lastmod": "2023-07-12T11:03:47+00:00",
     "entityIds": [
@@ -17519,6 +19131,17 @@
     "status": "skipped",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/laevimon-kottelati-2/": {
+    "lastmod": "2017-03-22T14:56:57+00:00",
+    "entityIds": [
+      "species/laevimon-kottelati"
+    ],
+    "updatedAt": "2026-11-17T13:39:07.836Z",
+    "hash": "638962e7f6630ecd53474ce8c181e6e5825ab2d478a5f187207e36d69156eaf2",
+    "processedHash": "638962e7f6630ecd53474ce8c181e6e5825ab2d478a5f187207e36d69156eaf2",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/land_hermits_coenobita_rugosus_imported__en/": {
     "lastmod": "2017-01-06T09:46:53+00:00",
     "entityIds": [],
@@ -17547,6 +19170,17 @@
     "updatedAt": "2026-11-17T07:38:23.838Z",
     "hash": "5ffc47dfd771410ba09ab293094f2cfb3c38507db8b25741b4ec7bf2468a9d7f",
     "processedHash": "5ffc47dfd771410ba09ab293094f2cfb3c38507db8b25741b4ec7bf2468a9d7f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/macrobrachium-scabriculum-2/": {
+    "lastmod": "2017-12-18T14:51:22+00:00",
+    "entityIds": [
+      "species/macrobrachium-scabriculum"
+    ],
+    "updatedAt": "2026-11-18T01:09:16.710Z",
+    "hash": "5ef1d9a224057cfd724efce1a6c5b4aca48aad99b257ced955efcd3e04577cc5",
+    "processedHash": "5ef1d9a224057cfd724efce1a6c5b4aca48aad99b257ced955efcd3e04577cc5",
     "status": "processed",
     "attempts": 0
   },
@@ -17751,6 +19385,17 @@
     "hash": "4969643ac9b48d9e9ef702ff2f0251d790885c38cc2923f9957ed519a1709729",
     "processedHash": "4969643ac9b48d9e9ef702ff2f0251d790885c38cc2923f9957ed519a1709729",
     "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/nerita-polita-2/": {
+    "lastmod": "2018-02-14T11:55:11+00:00",
+    "entityIds": [
+      "species/nerita-polita"
+    ],
+    "updatedAt": "2026-11-18T01:30:21.471Z",
+    "hash": "873c628fcbc25e454e7b54f916941b4b0baca9e6b32c9d70fe7de95a44c98fe8",
+    "processedHash": "873c628fcbc25e454e7b54f916941b4b0baca9e6b32c9d70fe7de95a44c98fe8",
+    "status": "processed",
     "attempts": 0
   },
   "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/neritina_pulligera_en/": {
@@ -18114,6 +19759,17 @@
     "status": "skipped",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/32-all-the-rest/kneria-stappersii-2/": {
+    "lastmod": "2018-01-22T11:49:23+00:00",
+    "entityIds": [
+      "species/kneria-stappersii"
+    ],
+    "updatedAt": "2026-11-18T01:14:06.037Z",
+    "hash": "78884ee4752902599afe385cda4b00be8c0562ab37b4ff6dc743f4a0737f163f",
+    "processedHash": "78884ee4752902599afe385cda4b00be8c0562ab37b4ff6dc743f4a0737f163f",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/32-all-the-rest/new_in_stock_calendar_week_1_2011_en/": {
     "lastmod": "2017-01-09T12:00:39+00:00",
     "entityIds": [],
@@ -18283,6 +19939,17 @@
     "updatedAt": "2026-11-07T03:11:28.804Z",
     "hash": "05e7d4722442a7a553065556266384a4b7c4ee7ba2797c7219bdd102a183d3f5",
     "processedHash": "05e7d4722442a7a553065556266384a4b7c4ee7ba2797c7219bdd102a183d3f5",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/fisharchive/awaous-flavus-a-strigatus-2/": {
+    "lastmod": "2025-04-25T10:13:25+00:00",
+    "entityIds": [
+      "species/awaous-flavus"
+    ],
+    "updatedAt": "2026-11-17T12:44:11.954Z",
+    "hash": "30066e35a8aa83b8ee89d73689e12807f35725fc1818b2be8c14ef7cc5d179a7",
+    "processedHash": "30066e35a8aa83b8ee89d73689e12807f35725fc1818b2be8c14ef7cc5d179a7",
     "status": "processed",
     "attempts": 0
   },
@@ -19427,6 +21094,17 @@
     "updatedAt": "2026-10-31T03:26:17.573Z",
     "hash": "fe4891b9e1d9b92719494bad527124fb91519d91d0481207fb3c0d38d6dbf44e",
     "processedHash": "fe4891b9e1d9b92719494bad527124fb91519d91d0481207fb3c0d38d6dbf44e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/general/a-visit-at-ornamental-fish-breeder-julich/": {
+    "lastmod": "2017-09-09T18:47:18+00:00",
+    "entityIds": [
+      "guides/glaser-en-general-a-visit-at-ornamental-fish-breeder-julich"
+    ],
+    "updatedAt": "2026-11-17T19:00:43.938Z",
+    "hash": "4361a048bb34a35296927572dc5df8374021b060a7b763a47fee4da4fbdb9493",
+    "processedHash": "4361a048bb34a35296927572dc5df8374021b060a7b763a47fee4da4fbdb9493",
     "status": "processed",
     "attempts": 0
   },
