@@ -278,7 +278,7 @@ final class MasterModel {
           // back, so no word that something else changed it and AquaTome left it.
           case .already: if b.guessed == true { tell(b.earlier ? maybePutBack : changed) } else if !b.earlier, let l = b.left ?? kept[c.target], l != c.on { tell(changed) }
           case .hold: tell(String(localized: "AquaTome không tự bật lại CO2. Cần thì bật ổ CO2 trong Bể của tôi."))
-          case .heater: tell(String(localized: "Ổ \(name) giờ được ghi là ổ sưởi nên AquaTome để nguyên. Bạn xem lại ổ này."))
+          case .heater: tell(String(localized: "Ổ \(name) giờ được ghi là cắm sưởi nên AquaTome để nguyên. Bạn xem lại ổ này."))
           // Made a heater after a put-back try that may have gone: that try could still land (the chief, 18 Nov).
           case .heaterAfterTry: tell(unknown)
           case .leave: tell(changed)
