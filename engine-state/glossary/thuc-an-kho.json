@@ -349,6 +349,94 @@
       "section": "vietnam",
       "fact": "The Vietnamese aquarium shop Aquarium Care calls dry pellet food \"cám\", for example: \"Cám Thái Inve 5/8 hạt nhỏ là một loại thức ăn phù hợp cho rất nhiều loại cá cảnh, từ cá nhỏ đến cá trưởng thành.\"",
       "source": 16
+    },
+    {
+      "section": "what",
+      "fact": "Flakes float at first and then sink slowly, so surface and mid-water fish can both reach them.",
+      "source": 17,
+      "also": [
+        18
+      ]
+    },
+    {
+      "section": "what",
+      "fact": "Flakes are thin, dried pieces that float briefly before slowly sinking.",
+      "source": 19
+    },
+    {
+      "section": "what",
+      "fact": "Flake food can be crushed to match the size of the fry.",
+      "source": 20
+    },
+    {
+      "section": "what",
+      "fact": "Pellets are compressed cylinders or spheres. They are denser than flakes and break down more slowly.",
+      "source": 19
+    },
+    {
+      "section": "what",
+      "fact": "Some pellets, such as Hikari Micro Pellets, float for a short time and then sink slowly, so both surface and mid-water feeders can eat them.",
+      "source": 21
+    },
+    {
+      "section": "what",
+      "fact": "sera Cichlid Sticks are floating sticks that keep their shape and do not cloud the water. They are made for larger cichlids and other large fish.",
+      "source": 22
+    },
+    {
+      "section": "what",
+      "fact": "Tetra Micro Sticks float and then sink slowly. They are meant for small fish that feed in the top and middle of the water, and they soften quickly so fish can eat them easily.",
+      "source": 23
+    },
+    {
+      "section": "what",
+      "fact": "Wafers sink to the bottom right away and slowly soften.",
+      "source": 24
+    },
+    {
+      "section": "what",
+      "fact": "A wafer is not eaten in one bite. It breaks up as the fish nibble at it.",
+      "source": 24
+    },
+    {
+      "section": "what",
+      "fact": "Wafers sink and keep their shape. They suit algae eaters and plecos.",
+      "source": 18
+    },
+    {
+      "section": "what",
+      "fact": "Powdered food is ultra-fine and best for newly hatched fish.",
+      "source": 20
+    },
+    {
+      "section": "what",
+      "fact": "Freeze-dried foods include bloodworms, brine shrimp, daphnia and tubifex. Freeze-drying removes their moisture but keeps their nutrition and taste.",
+      "source": 19
+    },
+    {
+      "section": "what",
+      "fact": "Freeze-dried food floats until it has soaked up water.",
+      "source": 18
+    },
+    {
+      "section": "what",
+      "fact": "Dry food is convenient, keeps for months on the shelf and is easy to portion.",
+      "source": 25
+    },
+    {
+      "section": "what",
+      "fact": "Flake foods are easy to keep and have fairly long shelf lives.",
+      "source": 26
+    },
+    {
+      "section": "what",
+      "fact": "Freeze-dried foods are convenient: they have a long shelf life, are easy to handle and need no refrigeration.",
+      "source": 19
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Vietnamese aquarium site says these fish feeds (cám) can usually be used for a long time and stored safely and cleanly.",
+      "source": 27
     }
   ],
   "species": [
@@ -439,6 +527,61 @@
     {
       "url": "https://aquariumcare.vn/tin-tuc/1743/huong-dan-cach-cho-ca-thuy-sinh-an-chuan-nhat.html",
       "title": "HƯỚNG DẪN CÁCH CHO CÁ THỦY SINH ĂN CHUẨN NHẤT - Vi Sinh Cá Cảnh Aquarium Care",
+      "kind": "shop"
+    },
+    {
+      "url": "https://gensou.sg/?p=22564",
+      "title": "Aquarium Fish Food Types Explained: Flake, Pellet, Frozen and Live - Gensou Premium Aquascaping",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.kwikpets.com/blogs/aquatic/what-do-fish-eat",
+      "title": "What Do Fish Eat ? A Complete Guide to Feeding Pet Fish",
+      "kind": "shop"
+    },
+    {
+      "url": "https://wiki.petmall.co.nz/guides/fish-food-types-nz",
+      "title": "Fish Food Types NZ: Flakes, Pellets, Frozen and Live Food Explained",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.swelluk.com/aquarium/food-testing-and-treatments/aquarium-fish-food/fish-fry-food",
+      "title": "Fish Fry Food",
+      "kind": "shop"
+    },
+    {
+      "url": "https://roxyaquarium.com.au/product/hikari-micro-pellets-semi-floating/",
+      "title": "Hikari Micro Pellets Semi Floating - Roxy Aquarium",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.sera.de/us/product/freshwater-aquarium/sera-cichlid-sticks",
+      "title": "sera Cichlid Sticks | sera",
+      "kind": "maker"
+    },
+    {
+      "url": "https://www.tetra.net/en-roa/products/tetra-micro-sticks",
+      "title": "Tetra Micro Sticks",
+      "kind": "maker"
+    },
+    {
+      "url": "https://www.modernaquarium.com/blog/types-of-fish-food-and-how-to-use-them/",
+      "title": "Types of Fish Food & How to Use Them",
+      "kind": "shop"
+    },
+    {
+      "url": "https://gensou.sg/?p=21107",
+      "title": "Live Food vs Dry Food for Aquarium Fish: What Is Best?",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.aquaticcommunity.com/?p=405",
+      "title": "Types Of Fish Food | Aquatic Community",
+      "kind": "magazine"
+    },
+    {
+      "url": "https://thuysinh4u.com/thuc-an-cho-ca-canh-thuy-sinh",
+      "title": "9 loại thức ăn cho cá cảnh thủy sinh tốt và kích màu cá nhanh",
       "kind": "shop"
     }
   ]

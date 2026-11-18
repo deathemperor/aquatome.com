@@ -539,6 +539,83 @@
   ],
   "vi/glossary/thuc-an-kho": [
     {
+      "at": "2026-11-18T00:12:02Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong vài phút, khoảng từ hai phút trở xuống tới 5 phút.\" (not \"Cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong hai đến năm phút.\": Rules 4 and 12: \"mỗi lần chỉ lượng cá ăn hết trong hai đến năm phút\" in \"Cho ăn ngày một đến hai lần, …"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T00:12:02Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"dễ cất, để được lâu và cho ăn nhanh\" in the definition: \"cho ăn nhanh\" comes from one page (fact 7) and should be cut. The first sentence should end \"dễ cất, để được lâu và tiện dùng.\"",
+        "Rules 5 and 12: altNames is empty. It should list \"cám\" (two shops) and the English name \"dry food\" that the facts give.",
+        "Rule 12: \"Bể nuôi nhiều loài thì chắc là phải dùng vài loại thức ăn khác nhau, vì một loại đầy đủ dinh dưỡng chưa chắc hợp với mọi con cá trong bể.\" This should be the two sentences given word for word, not joined by \"vì\": \"Bể nuôi nhiều loài thì rất có thể cần vài loại thức ăn khác nhau. Một loại đầy đủ dinh dưỡng chưa chắc hợp với mọi con cá trong bể.\"",
+        "Rule 12: \"Một tiệm ở Singapore (độ ẩm 75–90%) ghi thức ăn khô hỏng có mùi ôi…\": the facts on spoiled food (fact 20) don't name Singapore or the humidity. The shop's first mention should be \"Một tiệm ghi:\" with no place.",
+        "Rules 4 and 12: The Singapore shop is brought in again as if it were new: \"Cũng theo tiệm ở Singapore nói trên\", \"Một tiệm ở Singapore (độ ẩm 75–90%) ghi hộp đã mở…\" and \"tiệm ở Singapore này khuyên\". After the first mention it should be \"Tiệm này cũng ghi:\". The place and humidity belong only in the vitamin C sentence.",
+        "Rule 12: \"Một tiệm ở Singapore (độ ẩm 75–90%) ghi hộp đã mở mất khoảng một nửa vitamin C sau 8–12 tuần.\" This should be word for word: \"Tiệm này cũng ghi: ở Singapore, độ ẩm 75–90%, hộp đã mở mất khoảng một nửa vitamin C sau 8–12 tuần.\"",
+        "Rule 12: \"Ở khí hậu nóng ẩm, tiệm ở Singapore này khuyên…\": fact 43 doesn't name Singapore. This item should sit under \"Tiệm này cũng ghi:\" and keep its opening \"Ở khí hậu nóng ẩm\".",
+        "Rule 12: \"mảnh mỏng và mềm, nổi trên mặt rồi chìm dần xuống cho cá tầng giữa và tầng đáy\": \"mềm\" (fact 11) and reaching bottom fish (fact 10) are each on only one page. The flakes item should say only that they are thin, float, then sink slowly.",
+        "Rule 12: \"Bóp vụn ra là cho cá bột và cá nano ăn được.\": nano fish come from one page and should be cut. It should read \"Bóp vụn ra là cho cá bột ăn được.\"",
+        "Rule 12: \"tấm chìm chậm xuống đáy\": \"chìm chậm\" is never used for wafers, because one page says they sink right away. They should simply sink to the bottom."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-17T23:59:16Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 0.97,
+      "notes": [
+        "\"Một tiệm ở Singapore ghi thức ăn khô hỏng có mùi ôi như dầu ăn cũ hay sáp màu, các mảnh dính cục vì ẩm, viên lên màu trông xỉn hoặc bạc màu, hoặc có mốc thấy được bằng mắt.\": the facts don't carry it (unsupported, unsupported, unsupported): facts never say the shop is in Singapore / Facts don't say the shop is in Singapore",
+        "Rule 12: \"Bể nuôi nhiều loài thì chắc là phải dùng vài loại thức ăn khác nhau, vì một loại đầy đủ dinh dưỡng chưa chắc hợp với mọi con cá trong bể.\": the mixed-tank caution has to be two sentences and can never be joined by \"vì\". It should also say \"rất có thể cần\", not \"chắc là phải\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "draft": "67d4b31bc60f3aa44377897d58f5c7a6134d1e06e270f38954e96d270bdedd5d"
+    },
+    {
+      "at": "2026-11-17T23:59:16Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Bể nuôi nhiều loài thì chắc là phải dùng vài loại thức ăn khác nhau, vì một loại đầy đủ dinh dưỡng chưa chắc hợp với mọi con cá trong bể.\" the caution \"phải\", and nothing lets that sentence go: write it as it was, word for word.",
+        "Rule 12: \"Tiệm ở Singapore nói trên cũng ghi đông khô hút ẩm trong không khí và có thể mốc nhanh.\": this is a later mention of the Singapore shop. After its first opening (\"Một tiệm ở Singapore ghi …\" in the spoilage paragraph), later mentions must say \"Tiệm này cũng ghi …\".",
+        "Rule 12: \"Tiệm ở Singapore cũng ghi là ở độ ẩm 75–90%, hộp đã mở mất khoảng một nửa vitamin C sau 8–12 tuần.\": this is also a later mention of the Singapore shop, so it must open \"Tiệm này cũng ghi …\", not \"Tiệm ở Singapore cũng ghi\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-17T23:59:16Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"dễ cất, để được lâu và cho ăn nhanh\" in the meaning: \"cho ăn nhanh\" (fact 7, one page) has to go, and the sentence should end \"dễ cất, để được lâu và tiện dùng\".",
+        "Rules 5 and 12: altNames is empty. It should give \"cám\" and the English name the FACTS give, \"dry food\".",
+        "Rule 12: \"Bể nuôi nhiều loài thì chắc là phải dùng vài loại thức ăn khác nhau, vì một loại đầy đủ dinh dưỡng chưa chắc hợp với mọi con cá trong bể.\" The mixed-tank caution must be two sentences, never joined by \"vì\". It should also say \"rất có thể cần\", not \"chắc là phải\".",
+        "Rules 4 and 12: \"Một tiệm ở Singapore (độ ẩm 75–90%) ghi thức ăn khô hỏng…\": the humidity belongs only in the vitamin C sentence, never on the spoilage signs (fact 20 gives none). It is also said twice, here and in the storage list.",
+        "Rule 12: \"Một tiệm ở Singapore (độ ẩm 75–90%) ghi hộp đã mở mất khoảng một nửa vitamin C sau 8–12 tuần.\" This repeats the Singapore shop's opening. Later mentions must be \"Tiệm này cũng ghi …\", with the humidity worded as \"ở độ ẩm 75–90%, hộp đã mở mất…\".",
+        "Rule 12: \"Cũng theo tiệm ở Singapore nói trên, đông khô hút ẩm…\" and \"tiệm ở Singapore này khuyên…\": later mentions of the Singapore shop must be \"Tiệm này cũng ghi …\".",
+        "Rule 12: \"mảnh mỏng và mềm, nổi trên mặt rồi chìm dần xuống cho cá tầng giữa và tầng đáy\": the flakes' item gives only what two pages give (thin, floats, then sinks slowly). \"mềm\" and reaching the bottom are each on one page only.",
+        "Rule 12: \"Bóp vụn ra là cho cá bột và cá nano ăn được.\" Nano fish (fact 10 alone) go. The line should be \"Bóp vụn ra là cho cá bột ăn được.\"",
+        "Rule 12: \"tấm chìm chậm xuống đáy\": \"chìm chậm\" is never used for wafers, because one page says they sink at once. Write that they sink to the bottom.",
+        "Rule 12: \"que tan chậm, hợp với cá hay gặm. Que nổi dành cho cá tầng mặt, que chìm cho cá đáy.\" Sticks dissolving slowly, suiting grazers and sinking sticks for bottom fish are each on one page and go. Only floating sticks for fish feeding at the top stays."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-17T18:41:16Z",
       "model": "sonnet",
       "cli": "2.1.326",
@@ -549,89 +626,6 @@
       ],
       "attempt": "rewrite",
       "kept": true
-    },
-    {
-      "at": "2026-11-17T18:41:16Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 1,
-      "notes": [
-        "Rule 12: altNames is empty. The other names must be \"cám\" and the English \"dry food\".",
-        "Rule 12: \"Thức ăn khô ghi là đầy đủ dinh dưỡng thì có đủ đạm, chất béo, vitamin và khoáng, nên dùng làm thức ăn hằng ngày cho cá được.\" joins the nutrients and the daily feeding with \"nên\". They are two facts side by side and must be joined with \"và\" or split into two sentences.",
-        "Rule 12: The line next to the complete food is missing. It should say that a tank of several kinds will likely need different foods, so one complete food may not suit every fish in a community tank (facts 62, 66).",
-        "Rule 12: \"Thức ăn khô hỏng có mùi ôi như dầu ăn cũ hay sáp màu, ... hoặc có mốc thấy được bằng mắt.\" Spoiled food's signs come from the Singapore shop alone and must sit under its opening, \"Một tiệm ở Singapore (độ ẩm 75–90%) ghi …\". Here they are written as plain fact.",
-        "Rule 12: \"Trong nước, mảnh có thể mất tới 90% vitamin chỉ trong 30 giây, còn viên giữ vitamin lâu hơn.\" The 90% vitamin loss in 30 seconds (fact 54) is named to go.",
-        "Rule 12: \"Loại này không đủ dinh dưỡng, chỉ cho ăn thêm một hai lần mỗi tuần, và chỉ khi nước trên 18 °C.\" This must be credited as \"Theo PetMD …\" and give the figure as \"từ khoảng 18 °C (65 °F)\", never \"trên 18 °C\".",
-        "Rule 12: \"Đông khô hút ẩm trong không khí và có thể mốc nhanh.\" This is the Singapore shop's claim (fact 44) and must sit under its opening, not stand as plain fact.",
-        "Rule 12: \"Độc tố nấm có thể đã sinh ra trước khi thấy mốc.\" The mycotoxins line (fact 44) is named to go.",
-        "Rule 12: \"mỗi lần chỉ lượng cá ăn hết trong 2–5 phút\" gives 2–5 minutes alone as the rule. It must say what the fish finish in a few minutes, with the pages' range: two minutes or less, 2–3 minutes, 2–5 minutes.",
-        "Rule 12: \"Riêng cá betta thì đếm viên: 2–4 viên mỗi lần. Viên gặp nước có thể nở to trong bụng cá betta ... nên ngâm nước khoảng một hai phút trước khi cho ăn.\" The 2–4 pellets and the soaking come from the betta site alone and need its credit (\"Một nguồn người nuôi ghi …\"). Here they are written as plain fact."
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-17T18:15:13Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 1,
-      "notes": [
-        "The rewrite dropped from \"Đông khô hút ẩm trong không khí và có thể mốc nhanh.\" the advice \"Đông khô hút ẩm trong không khí\" under Thức ăn đông khô, the advice \"có thể mốc nhanh\" under Thức ăn đông khô, and nothing lets that sentence go: write it as it was, word for word.",
-        "The rewrite dropped from \"Đựng trong lọ kín nắp vặn, côn trùng không chui vào được.\" the advice \"Đựng trong lọ kín nắp vặn\", the advice \"côn trùng không chui vào được\", and nothing lets that sentence go: write it as it was, word for word.",
-        "Rule 12: \"viên gặp nước có thể nở to trong bụng cá betta và gây sình bụng\" in \"Một nguồn người nuôi ghi cá betta mỗi lần chỉ ăn 2–4 viên, còn viên gặp nước có thể nở to trong bụng cá betta và gây sình bụng, nên ngâm nước khoảng một hai phút trước khi cho ăn.\": the line under THIS TERM and source 10 are about pellets that swell in water. This wording reads as if any pellet can swell once it is wet…"
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-17T18:15:13Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 1,
-      "notes": [
-        "The rewrite dropped from \"Đông khô hút ẩm trong không khí và có thể mốc nhanh.\" the advice \"Đông khô hút ẩm trong không khí\" under Thức ăn đông khô, the advice \"có thể mốc nhanh\" under Thức ăn đông khô, and nothing lets that sentence go: write it as it was, word for word.",
-        "Rule 12: \"Thức ăn khô ghi là đầy đủ dinh dưỡng thì có đủ đạm, chất béo, vitamin và khoáng, nên dùng làm thức ăn hằng ngày cho cá được\" uses \"nên\" to make the nutrients the reason the food can be fed daily. No single fact links these as cause and effect: the makers say both things side by side. Join the two facts with \"và\" (complete foods supply these nutrients and are made for daily feeding), or …",
-        "Rule 12: \"Đựng trong lọ kín nắp vặn, côn trùng không chui vào được.\" is written as plain fact, but each part comes from only one page. The pest-proof container is from the vet manual (fact 32), which is being dropped, and the screw-top jar is from source 1 alone (fact 38). These are steps a keeper would act on, so they wait for a second page from research, and the entry can't credit a fourth page…",
-        "Rule 12: The Singapore shop is credited with more than one opening: \"Một tiệm ở Singapore (độ ẩm 75–90%) ghi …\", then \"tiệm này khuyên …\", then \"Cũng theo tiệm này, đông khô hút ẩm trong không khí và có thể mốc nhanh.\" The shop's claims are also split between the storage list and a separate paragraph. The rule is one opening carrying all of that page's claims. The next sentence, \"Thức ăn khô hỏng…",
-        "Rule 12: The betta site is also credited with two openings: \"Một nguồn người nuôi ghi cá betta mỗi lần chỉ ăn 2–4 viên.\" and then \"Nguồn này cũng ghi viên gặp nước có thể nở to trong bụng cá betta …\". Both claims should sit under one opening."
-      ],
-      "attempt": "rewrite",
-      "kept": false,
-      "draft": "3ff9fe0a13705fa9c65cf74055d7f35bf39a5497d8e2d8fde934b0caf8cda71f"
-    },
-    {
-      "at": "2026-11-17T18:15:13Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 1,
-      "notes": [
-        "Rules 5 and 12: altNames is empty. The other names the term requires are missing: \"cám\" (one shop's name, source 6) and the English name \"dry food\" that the FACTS give.",
-        "Rule 12: \"Thức ăn khô ghi là đầy đủ dinh dưỡng thì có đủ đạm, chất béo, vitamin và khoáng, nên dùng làm thức ăn hằng ngày cho cá được.\" is missing the required line beside it: a tank of several kinds will likely need different foods, so one complete food may not suit every fish in a community tank (facts 62, 66).",
-        "Rule 12: \"Thức ăn khô hỏng có mùi ôi như dầu ăn cũ hay sáp màu, các mảnh dính cục vì ẩm, viên lên màu trông xỉn hoặc bạc màu, hoặc có mốc thấy được bằng mắt.\" comes from one shop (fact 20) but is written as plain fact. It needs the Singapore shop's opening, \"Một tiệm ở Singapore (độ ẩm 75–90%) ghi …\".",
-        "Rule 12: \"Trong nước, mảnh có thể mất tới 90% vitamin chỉ trong 30 giây, còn viên giữ vitamin lâu hơn.\" must go. The 90% vitamin loss in 30 seconds (fact 54) is one of the claims the term drops.",
-        "Rule 12: \"và chỉ khi nước trên 18 °C\" must be credited to PetMD and use the required figure: \"Theo PetMD …\" with \"từ khoảng 18 °C (65 °F)\", never \"trên 18 °C\".",
-        "Rule 12: \"Đông khô hút ẩm trong không khí và có thể mốc nhanh.\" comes from one page (fact 44) but is written as plain fact. It belongs under the Singapore shop's opening.",
-        "Rule 12: \"Độc tố nấm có thể đã sinh ra trước khi thấy mốc.\" must go. The mycotoxins-before-mould claim is one the term drops.",
-        "Rule 12: \"mỗi lần chỉ lượng cá ăn hết trong 2–5 phút\" gives 2–5 minutes alone as the rule. It must give the pages' range once, in one sentence: from two minutes or less, through 2–3 minutes, to 2–5 minutes.",
-        "Rule 12: \"Riêng cá betta thì đếm viên: 2–4 viên mỗi lần. Viên gặp nước có thể nở to trong bụng cá betta và gây sình bụng, nên ngâm nước khoảng một hai phút trước khi cho ăn.\" comes from the betta site, a single keeper's page (facts 27, 28), but is written as plain fact. It needs that site's credit opening, such as \"Một nguồn người nuôi ghi …\".",
-        "Rule 12: \"Cất ở chỗ khô, mát vì nóng và ẩm làm thức ăn mau hỏng, lên mốc và bị ôi.\" keeps the storage reason (fact 32), which must go. It should say only dry and cool, with no reason."
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-17T17:29:43Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 0.97,
-      "notes": [
-        "The rewrite dropped from \"Ở khí hậu nóng ẩm, hộp đã mở mất khoảng một nửa vitamin C sau 8–12 tuần, còn ở nước mát và khô thì có lẽ phải chừng sáu tháng mới mất ngần ấy.\" the advice \"khô thì có lẽ phải chừng sáu tháng mới mất ngần ấy\", and nothing lets that sentence go: write it as it was, word for word.",
-        "\"Theo sổ tay thú y MSD, hộp đã mở để ở nhiệt độ phòng thì bỏ sau 2 tháng, còn thức ăn cất ngăn đá thì bỏ sau 6 tháng.\": the facts don't carry it (unsupported, unsupported, unsupported): source name 'MSD' not given in facts / facts don't name the MSD manual as the source / facts don't name the source MSD manual",
-        "Rule 12: \"Thức ăn khô ghi là đầy đủ dinh dưỡng thì có đủ đạm, chất béo, vitamin và khoáng, nên dùng làm thức ăn hằng ngày cho cá được.\" uses \"nên\" to join two separate facts. One is that complete foods supply protein, fats, vitamins and minerals (source 0). The other is the makers' statement that a complete food is for daily feeding (sources 11–13, fact 65). No single fact makes the second follow…",
-        "The entry is 634 words: hold it to about 600, and leave what is left out to the pages that use the term."
-      ],
-      "attempt": "rewrite",
-      "kept": false
     }
   ]
 }
