@@ -2,6 +2,20 @@
   {
     "date": "2026-11-17",
     "kind": "species",
+    "id": "caridina-babaulti",
+    "source": "aquatome",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-17",
+    "kind": "species",
+    "id": "leporinus-nijsseni",
+    "source": "aquatome",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-17",
+    "kind": "species",
     "id": "taeniacara-candidi",
     "source": "glaser",
     "action": "updated"
@@ -3482,20 +3496,6 @@
     "date": "2026-11-15",
     "kind": "species",
     "id": "pseudecheneis-sulcata",
-    "source": "scotcat",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-15",
-    "kind": "species",
-    "id": "pogonopoma-wertheimeri",
-    "source": "scotcat",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-15",
-    "kind": "species",
-    "id": "orinocodoras-eigenmanni",
     "source": "scotcat",
     "action": "updated"
   }

@@ -8061,6 +8061,24 @@
   ],
   "vi/guides/youtube-BBMFDKrIGmM": [
     {
+      "at": "2026-11-18T00:13:20Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.6,
+      "notes": [
+        "\"Một bể thủy sinh mới set thường có vài chỗ chưa ổn: cây thưa, đá đứng rời từng cụm, rêu bám lũa, phông nền lem nhem\": the video only comments on separate tanks. Rewrite it as a hedged lead-in to the examples, or remove it.",
+        "\"Những lỗi này sửa không khó, thường chỉ cần thêm cây đúng chỗ, chỉnh đèn hoặc đổi phông nền\": the video never says this. Remove it.",
+        "\"Lỗi hay gặp là bể chia rõ thành từng khúc\": this was one tank's problem in the video, not a common one. Say \"Có bể bị chia rõ thành từng khúc\", or write it as an example.",
+        "\"Phông nền bị bong tróc hay loang lổ làm hỏng cả bể\": the video can't tell what the background is and only says a black one would look good. Remove the claim that it ruins the tank and keep only a hedged \"phông đen sẽ đẹp hơn\".",
+        "\"Không cần mua, có thể nhặt đá ở địa phương\": the video only says to get rocks locally, because an 11-year-old may not afford to buy them. Remove \"không cần mua\" and \"nhặt\", and keep \"lấy đá ở địa phương\" with the check that the rock is safe.",
+        "\"Với bể mới trồng cây thật lần đầu, thêm cây là việc đầu tiên nên làm\": this is the creator's suggestion for one tank, stated as general advice. Hedge it as \"có thể thêm cây trước\", or turn it into an example of that one tank.",
+        "\"Hy vọng là chỉ vài tuần nữa cây sẽ lên rất đẹp\" and the matching summary bullet: this is a reaction to one tank and reads awkwardly as guide advice. Remove it or fold it into the example."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-17T18:11:28Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -10880,6 +10898,24 @@
     }
   ],
   "vi/guides/youtube-FL7P3A4MdIY": [
+    {
+      "at": "2026-11-18T00:13:27Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.6,
+      "notes": [
+        "\"Muốn nuôi vài con cá endler và tép thì cần bát lớn hơn bát này\": the video gives no such advice, and it shows endlers and shrimp in a bowl of that size. Remove the sentence, or only say the video would not recommend fish in a bowl this small.",
+        "\"Rắc một ít như ở đây đã đủ dùng ít nhất khoảng một năm\" (bullet list): the bare \"ở đây\" reads like a translation. Rewrite it, for example \"Rắc một ít là đủ dùng ít nhất khoảng một năm\".",
+        "\"Bát dùng ở đây rất nhỏ\": bare \"ở đây\" reads like a translation. Say \"Bát rất nhỏ\" or give the actual size.",
+        "\"Bát nhỏ này không hợp để nuôi cá\" and \"Bể này chỉ đặt cạnh cửa sổ\": bare \"này\" referring to the video's own bowl is awkward. Name the thing, for example \"bát nhỏ cỡ này\", or say it as a general statement.",
+        "\"Ốc nerite cũng thả được\": the video only says nerites are tiny and that the creator preferred the lava snail. It never recommends nerite for this bowl. Remove the sentence or hedge it.",
+        "\"Đổ bỏ phần gel trong cốc\": the video says to pour off the nutrient-dense liquid, not a gel. Change \"gel\" to the liquid or nutrient solution.",
+        "\"Người ta vẫn bỏ nó vào giỏ trồng cây trong hồ ngoài trời mà không gây chuyện gì\": the video only says the soil goes in pond baskets without causing issues. Soften this to \"loại đất này còn dùng được cho giỏ trồng cây trong hồ\" and drop \"Người ta vẫn\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
     {
       "at": "2026-11-15T16:10:47Z",
       "model": "sonnet",

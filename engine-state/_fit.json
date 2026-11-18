@@ -68410,7 +68410,7 @@
    }
   ],
   "sourceRead": true,
-  "mendTried": "2026-11-15"
+  "mendTried": "2026-11-18"
  },
  "vi/guides/youtube-0qI2Y-DHzQs": {
   "at": "2026-11-08",
@@ -68561,7 +68561,7 @@
   "products": [
    "AquaClear 70"
   ],
-  "mendTried": "2026-11-15"
+  "mendTried": "2026-11-18"
  },
  "vi/guides/youtube-0SQjE8svImY": {
   "at": "2026-11-08",
@@ -74586,7 +74586,8 @@
     "fix": "cỏ tóc"
    }
   ],
-  "products": []
+  "products": [],
+  "mendTried": "2026-11-18"
  },
  "vi/guides/youtube-BCdWPvNrAl4": {
   "at": "2026-11-15",
@@ -78641,7 +78642,7 @@
    }
   ],
   "products": [],
-  "mendTried": "2026-11-15"
+  "mendTried": "2026-11-18"
  },
  "vi/guides/youtube-FlHv3rgDj6g": {
   "at": "2026-11-08",
@@ -110965,6 +110966,14 @@
   ],
   "products": []
  },
+ "vi/species/caridina-babaulti": {
+  "at": "2026-11-18",
+  "hash": "1cf999771ac77a44",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/species/caridina-logemanni": {
   "at": "2026-11-07",
   "hash": "081f6932c776118b",
@@ -123320,6 +123329,14 @@
     "by": "model"
    }
   ],
+  "products": []
+ },
+ "vi/species/leporinus-nijsseni": {
+  "at": "2026-11-18",
+  "hash": "c05ccdb7dfde78c3",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "vi/species/leporinus-steyermarki": {
