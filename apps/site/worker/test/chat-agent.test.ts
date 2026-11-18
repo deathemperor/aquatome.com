@@ -4,7 +4,7 @@ import type Anthropic from '@anthropic-ai/sdk'
 import type { PageDoc } from '@aq/schema/app-page'
 import { LANGS } from '@aq/schema/langs'
 import { expect, test, vi } from 'vitest'
-import { answerQuestion, CHAT_LIMITS, NO_THINKING, firstMessage, openedTank, HANDBOOK, HANDOVER_MS, LAST_TRY, LAST_WORD, MAX_TOKENS, OPENING_SYSTEM, SYSTEM, unaccented, type ChatOptions, type Start } from '../chat/agent'
+import { answerQuestion, CHAT_LIMITS, NO_THINKING, firstMessage, openedTank, HANDBOOK, HANDOVER_MS, LAST_TRY, LAST_WORD, MAX_TOKENS, OPENING_SYSTEM, OPENING_TOKENS, SYSTEM, unaccented, type ChatOptions, type Start } from '../chat/agent'
 import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, OFF_TOPIC, picksReader, readAnswer, textReader, type Answer, type Choice } from '../chat/answer'
 import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
 import { fold, search, searchTopics } from '../chat/search'
@@ -1121,8 +1121,8 @@ test('the first line and the short last answer turn thinking off as each model a
     const line = bodies.find(b => b.call === 0)!.body, last = bodies.filter(b => b.call > 0)[1]!.body
     return { line: [line.thinking, line.max_tokens, line.output_config?.effort], last: [last.thinking, last.max_tokens, last.output_config?.effort, last.tool_choice] }
   }
-  expect(await sent('claude-sonnet-5-5')).toEqual({ line: [{ type: 'between_tools' }, 150, undefined], last: [{ type: 'between_tools' }, LAST_TRY.maxTokens, 'low', { type: 'none' }] })
-  expect(await sent('claude-opus-5-5')).toEqual({ line: [undefined, 150 + 1_024, 'low'], last: [undefined, LAST_TRY.maxTokens + 1_024, 'low', { type: 'none' }] })
+  expect(await sent('claude-sonnet-5-5')).toEqual({ line: [{ type: 'between_tools' }, OPENING_TOKENS, undefined], last: [{ type: 'between_tools' }, LAST_TRY.maxTokens, 'low', { type: 'none' }] })
+  expect(await sent('claude-opus-5-5')).toEqual({ line: [undefined, OPENING_TOKENS + 1_024, 'low'], last: [undefined, LAST_TRY.maxTokens + 1_024, 'low', { type: 'none' }] })
   // A model with no row of its own is sent what no model refuses: Opus's way.
   expect(await sent('claude-next-6')).toEqual(await sent('claude-opus-5-5'))
   expect(Object.keys(NO_THINKING)).toEqual(['claude-haiku-5-5', 'claude-sonnet-5-5', 'claude-opus-5-5'])
@@ -1274,6 +1274,11 @@ test('no first line is shown when it says the question is off topic, isn\'t in t
   expect(await turn({ line: text('Mình đang tra cẩm nang về cá neon xanh.'), first: later, onOpening: () => { throw new Error('the reader has left') } })).toMatchObject({ answered: final.text })
   expect(await turn({ lang: 'id', line: text('Mình sedang mencari panduan tentang air keruh.') })).toMatchObject({ shown: [], opening: undefined, answered: final.text })
   expect(await turn({ line: async () => { throw Object.assign(new Error('overloaded'), { status: 529 }) } })).toMatchObject({ shown: [], opening: undefined, answered: final.text, output: 100 })
+  // A line whose call ran out of room is cut, mid-word, though it passes the check: not shown (Thai, 17 Nov). Ended of
+  // its own accord, the same words are.
+  const cut = 'เรากำลังเปิดคู่มือดูว่าปลาหางนกยูงของคุณตายไป 3 ตัว ที่เหลือว่ายเอียง หางลีบ เปลี่ยนน้ำทุกวันทำให้ปลา'
+  expect(await turn({ lang: 'th', line: async () => message([{ type: 'text', text: cut }], 'max_tokens'), first: later })).toMatchObject({ shown: [], opening: undefined, answered: final.text })
+  expect(await turn({ lang: 'th', line: text(cut), first: later })).toMatchObject({ shown: [cut], opening: cut })
   // The line's call answers only once the first step is out.
   const after = new Promise<void>(r => { stepped = r })
   expect(await turn({ line: async () => { await after; return message([{ type: 'text', text: 'Mình đang tra cẩm nang về cá neon xanh.' }]) } })).toMatchObject({ shown: [], opening: undefined, answered: final.text })
