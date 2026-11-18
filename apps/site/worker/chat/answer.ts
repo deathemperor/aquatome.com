@@ -116,7 +116,9 @@ const whole = (text: string) => {
  * or false is no answer, never one on topic.
  */
 export function answered(m: Anthropic.Message): Anthropic.Message {
-  const first = m.content.find(answers)
+  // Words that only begin like an answer don't hide send_answer's after them (Codex, 18 Nov): its answer is the answer.
+  const sent = m.content.some(b => b.type === 'tool_use' && b.name === SEND_ANSWER)
+  const first = m.content.find(b => answers(b) && !(sent && b.type === 'text' && !whole(b.text)))
   if (!first) return m
   const ended = m.stop_reason === 'tool_use' ? 'end_turn' : m.stop_reason
   if (first.type === 'text') {

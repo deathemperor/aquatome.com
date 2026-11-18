@@ -1238,6 +1238,17 @@ describe('the answer read is the one written (Codex, 17 Nov)', () => {
     }
   })
 
+  test('words that only begin like an answer, then send_answer: the tool\'s answer is the answer, with no call more (Codex, 18 Nov)', async () => {
+    let calls = 0
+    const out = await turn(async () => {
+      if (++calls > 1) return message([{ type: 'text', text: json }])
+      return message([{ type: 'text', text: '{"blocks":[{"t":"species"' }, sendAnswer(JSON.parse(json))], 'tool_use')
+    })
+    expect([calls, out.stopped, out.answer?.text]).toEqual([1, 'answer', text])
+    const m = answered(message([{ type: 'text', text: '{"blocks":[' }, sendAnswer(JSON.parse(json))], 'tool_use'))
+    expect([m.content.length, m.stop_reason, readAnswer(m)?.text]).toEqual([1, 'end_turn', text])
+  })
+
   test('send_answer\'s offTopic is true or false: any other flag, or none, is no answer, never one on topic', async () => {
     const football = 'Đội tuyển nào sẽ vô địch World Cup năm nay, theo bạn?'
     for (const flag of [{ offTopic: 'true' }, { offTopic: 'false' }, { offTopic: 1 }, { offTopic: null }, {}]) {
