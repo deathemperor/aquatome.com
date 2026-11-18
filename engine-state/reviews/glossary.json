@@ -710,6 +710,35 @@
   ],
   "vi/glossary/thuc-an-dong-lanh": [
     {
+      "at": "2026-11-18T02:24:05Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (the definition's first sentence): \"Thức ăn đông lạnh là mồi như trùng huyết, artemia, bobo hay trùn chỉ, được cấp đông nhanh để giữ dinh dưỡng.\"",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cách thứ hai là rã riêng một phần mồi trong cốc nhỏ nước bể vài phút, tráng mồi rồi cho ăn.\" (not \"Cách thứ hai là rã riêng một phần mồi trong cốc nhỏ nước bể vài phút rồi mới cho ăn.\": Rule 12: \"Cách thứ hai là rã riêng một phần mồi trong cốc nhỏ nước bể vài phút rồi mới cho ăn.\" leaves out the rinse. Th…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Mỗi bữa chỉ cho lượng cá ăn hết trong vài phút.\" (not \"Mỗi bữa chỉ cho lượng cá ăn hết trong 2–3 phút.\": Rule 12: \"Mỗi bữa chỉ cho lượng cá ăn hết trong 2–3 phút.\" gives one shop's figure (fact 30) as plain fact. The line says neither 2–3 nor 3–5 minutes stands alone, so it should read \"trong vài phút\".)",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Đồ đông lạnh thường cho ăn vài lần mỗi tuần, xen với thức ăn khác.\" (not \"Cá ăn tạp và cá nuôi chung có thể ăn đồ đông lạnh từ một lần đến vài lần mỗi tuần, xen với thức ăn khác.\": Rule 12: \"Cá ăn tạp và cá nuôi chung có thể ăn đồ đông lạnh từ một lần đến vài lần mỗi tuần, xen với thức ăn khác.\" keeps \"on…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cho ăn quá nhiều đồ đông lạnh làm bẩn nước.\" (not \"Cần kiểm soát lượng đồ đông lạnh mỗi bữa để không làm bẩn nước bể.\": Rule 12: \"Cần kiểm soát lượng đồ đông lạnh mỗi bữa để không làm bẩn nước bể.\" words overfeeding as advice, which the line forbids (never \"Cần kiểm soát lượng …\"). It must state the mista…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T02:24:05Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Rule 12: The artemia item has to be written word for word as \"…con artemia dài khoảng 1 cm, vỏ kitin của nó là chất xơ, giúp…\". The entry has \"con artemia dài khoảng 1 cm, có vỏ kitin là chất xơ, giúp cá vàng, cá betta (cá xiêm), Apistogramma đỡ sình bụng và táo bón.\"",
+        "Rule 12: The thaw-water sentence has to be written word for word as \"Tiệm thứ hai cũng ghi: đổ bỏ nước rã đông trước khi tráng mồi.\" The entry drops \"trước khi tráng mồi\" and has \"Tiệm thứ hai cũng ghi: đổ bỏ nước rã đông.\"",
+        "Rule 12: The allergy paragraph has to be written whole and word for word, with \"theo các trường hợp người nuôi kể lại, loại sấy khô gắn với nhiều ca dị ứng hơn\". The entry has \"loại sấy khô được kể là gắn với nhiều ca dị ứng hơn\".",
+        "Rules 12 and 4: The overfeeding mistake has to be said as the mistake it is: \"Cho ăn quá nhiều đồ đông lạnh làm bẩn nước.\" The line is never to read \"Cần kiểm soát lượng …\". The entry has \"Cần kiểm soát lượng đồ đông lạnh cho ăn để tránh làm bẩn nước bể.\", which turns the mistake into advice and joins the facts with \"để\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-18T01:43:02Z",
       "model": "sonnet",
       "cli": "2.1.326",
@@ -758,30 +787,6 @@
         "Rules 4 and 12: \"Cách thứ nhất là thả thẳng viên hoặc một mẩu vào bể cho mồi tự rã.\" Dropping food straight into the tank is first given as an ordinary way. The same step then says \"Hai tiệm ghi khác nhau về chuyện thả thẳng viên mồi vào bể…\". So direct dropping is covered twice, and the first sentence takes one shop's side. The entry should only say once that the two shops differ.",
         "Rule 12: \"loại đã chia sẵn thành viên\". THIS TERM requires \"loại đã chia sẵn từng viên\", because \"thành viên\" reads as \"members\".",
         "Rule 12: \"Nó cũng có thể thích trùng huyết hơn cám viên.\" The fish must be named: \"Cá cũng có thể thích trùng huyết hơn cám viên.\""
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-18T00:32:24Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 1,
-      "notes": [
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cách thứ hai là rã riêng một phần mồi trong cốc nhỏ nước bể vài phút, đổ bỏ nước rã đông, tráng mồi rồi cho ăn.\" (not \"Cách thứ hai là rã riêng một phần mồi trong cốc nhỏ nước bể hoặc nước đã khử clo, đổ bỏ nước rã đông, tráng mồi rồi cho ăn từng ít một.\": Rule 12: \"rã riêng một phần mồi trong cốc nhỏ nướ…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Mỗi bữa chỉ cho lượng cá ăn hết trong vài phút.\" (not \"Mỗi bữa chỉ cho lượng cá ăn hết trong 2–3 phút.\": Rule 12: \"Mỗi bữa chỉ cho lượng cá ăn hết trong 2–3 phút.\" The line for this term asks for \"trong vài phút\" because the pages give both 2–3 minutes (fact 30) and 3–5 minutes for bloodworm (fact 31), so…",
-        "Loose, reworded: \"Loại sấy khô hay bị nhắc tới hơn, nhưng loại đông lạnh và loại sống cũng có thể gây dị ứng ở người nhạy cảm.\" → \"Theo các trường hợp người nuôi kể lại, loại sấy khô gắn với nhiều ca dị ứng hơn, nhưng loại đông lạnh và loại sống cũng có thể gây triệu chứng ở người nhạy cảm.\" (supported)"
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-18T00:32:24Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 1,
-      "notes": [
-        "The rewrite dropped from \"Cách thứ nhất là thả thẳng viên hoặc một mẩu vào bể cho mồi tự rã.\" the advice \"Cách thứ nhất là thả thẳng viên\", and nothing lets that sentence go: write it as it was, word for word."
       ],
       "attempt": "rewrite",
       "kept": false
