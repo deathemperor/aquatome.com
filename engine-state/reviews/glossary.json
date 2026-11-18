@@ -463,6 +463,31 @@
   ],
   "vi/glossary/mang-sinh-hoc": [
     {
+      "at": "2026-11-18T01:23:52Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Lũa mới thả vài ngày thường xuất hiện một lớp lông trắng, nhầy.\" (not \"Lũa mới thả vài ngày đến một tuần có thể xuất hiện một lớp màng trắng, nhầy.\": Rule 12: \"Lũa mới thả vài ngày đến một tuần có thể xuất hiện một lớp màng trắng, nhầy.\" must be written word for word as \"Lũa mới thả vài ngày thường xuất h…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Thả tép khi bể chưa chạy xong chu trình.\" (not \"Thả tép khi bể chưa ổn định đủ thời gian.\": Rule 12: \"Thả tép khi bể chưa ổn định đủ thời gian.\" must be written word for word as \"Thả tép khi bể chưa chạy xong chu trình.\". This keeps the mistake tied to the film and to the cycle. \"ổn định đủ thời gian\" is …"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T01:23:52Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"tép con mới nở sống gần như chỉ nhờ nó trong mấy tuần đầu\" uses \"tép con mới nở\". THIS TERM requires \"tép con\" here because fact 24 says baby shrimp, not newly hatched shrimp.",
+        "Rule 12: \"Màng trên lũa thường cứ để yên là được.\" should be removed. Leaving the film on wood alone is a claim from only one page (fact 31), and the entry doesn't name that page. As written, it reads as plain fact with no credit.",
+        "Rule 12: In \"Nên làm gì\", the required line \"Tiệm thứ nhất cũng ghi: không cần cọ lớp màng trắng trên lũa mới, vì nó sẽ mọc lại.\" (fact 33) is missing. It should replace the 'leave it alone' sentence, word for word, and come before \"Có thể hút bớt màng trên lũa bằng ống xi phông.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-18T01:15:05Z",
       "model": "sonnet",
       "cli": "2.1.326",
@@ -513,30 +538,6 @@
         "Rule 12: \"Tép, cá bột và cá Otocinclus đều gặm lớp màng này.\" puts fish fry (\"cá bột\") in the uncredited sentence. Fry grazing the film comes only from the first shop (fact 24). It belongs under that shop's credit, next to the baby shrimp, or should be left out. The plain sentence should be \"Tép và cá Otocinclus đều gặm lớp màng này.\"",
         "Rule 12: \"Tiệm thứ nhất cũng ghi: lắp skimmer hút váng nếu muốn hết lâu dài.\" gives the skimmer advice a credit. THIS TERM says this line takes no credit and never \"Tiệm thứ nhất cũng ghi:\", because several pages say it (facts 54, 73, 76, 78). The skimmer fact also isn't the first shop's.",
         "Rule 12: \"Nguồn người nuôi này cũng ghi một lỗi:\" breaks the required wording. Later mentions must open exactly \"Nguồn người nuôi này cũng ghi:\" with the colon straight after \"ghi\", never \"ghi một lỗi:\"."
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-18T01:00:31Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 1,
-      "notes": [
-        "The rewrite dropped from \"Tiệm thứ hai cũng ghi: chỉnh đầu ra của lọc cho mặt nước gợn nhẹ, tránh bắn tung tóe mạnh.\" the caution \"tránh\", the advice \"Tiệm thứ hai cũng ghi\", the advice \"chỉnh đầu ra của lọc cho mặt nước gợn nhẹ\", the advice \"tránh bắn tung tóe mạnh\", and nothing lets that sentence go: write it as it was, word for word.",
-        "Rule 12: \"Nguồn người nuôi này cũng ghi một lỗi: cho ăn nhiều hoặc rắc quá tay thức ăn bột để nuôi màng.\": later mentions of the keeper's page should open with exactly \"Nguồn người nuôi này cũng ghi:\", with the colon straight after \"ghi\". Adding \"một lỗi\" before the colon changes that opening."
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-18T01:00:31Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 1,
-      "notes": [
-        "The rewrite dropped from \"Tiệm thứ hai cũng ghi: chỉnh đầu ra của lọc cho mặt nước gợn nhẹ, tránh bắn tung tóe mạnh.\" the caution \"tránh\", the advice \"Tiệm thứ hai cũng ghi\", the advice \"chỉnh đầu ra của lọc cho mặt nước gợn nhẹ\", the advice \"tránh bắn tung tóe mạnh\", and nothing lets that sentence go: write it as it was, word for word.",
-        "Rule 12: \"Nguồn người nuôi này cũng ghi một lỗi: cho ăn nhiều hoặc rắc quá tay thức ăn bột để nuôi màng.\": this changes the set credit wording. THIS TERM says the keeper's page is credited as \"Nguồn người nuôi này cũng ghi:\" with the colon straight after \"ghi\" (\"The colon, never 'ghi muốn …'\"), so \"ghi một lỗi:\" should be \"Nguồn người nuôi này cũng ghi:\". It already sits under \"Sai lầm hay gặp\", …"
       ],
       "attempt": "rewrite",
       "kept": false
