@@ -37,8 +37,7 @@ export type ChatRunRecord = {
   timing?: { before: number; words?: number; last?: number; answered?: number; done?: number; seen?: number }
   cost: number
   tokens: { input: number; output: number }
-  /** `asked`: the call a limit asked to answer through send_answer did, or read instead (loop.ts `askWord`). */
-  agent: { calls: number; tools: number; stopped: string; asked?: 'answered' | 'read' }
+  agent: { calls: number; tools: number; stopped: string }
   answer?: { text: string; covered: boolean; blocks: number; dropped: string[] }
   /** The first line the reader was shown while the run read (agent.ts `opening`), when one was. */
   opening?: string
