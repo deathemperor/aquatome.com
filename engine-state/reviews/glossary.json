@@ -246,6 +246,31 @@
   ],
   "vi/glossary/la-bang": [
     {
+      "at": "2026-11-18T02:28:32Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Bắt đầu với một lá cho khoảng 20–30 lít.\" (not \"Với lá cỡ vừa (khoảng 15 cm), bắt đầu dè dặt với một lá cho khoảng 20–30 lít.\": Rule 12: \"Với lá cỡ vừa (khoảng 15 cm), bắt đầu dè dặt với một lá cho khoảng 20–30 lít.\" The 15 cm dose table (fact 18) has to go, and so does its 'start conservatively'. This se…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Tiệm thứ hai cũng ghi: muốn nước màu trà đậm hơn thì thêm lá dần tới khi được màu ưng ý.\" (not \"Tiệm thứ hai cũng ghi: muốn làm nước đen (blackwater) thì thêm lá cùng các loại gỗ mềm như lũa Malaysia hay gỗ cholla tới khi được màu ưng ý.\": Rules 3 and 12: \"Tiệm thứ hai cũng ghi: muốn làm nước đen (blackwa…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Châm quá tay nước lá bàng, tức nước nấu từ lá khô.\" (not \"Châm quá tay nước lá bàng.\": Rule 12: \"Châm quá tay nước lá bàng.\" The required wording is \"Châm quá tay nước lá bàng, tức nước nấu từ lá khô.\" The explanation of what the leaf water is (facts 30, 31: two pages) has been dropped. / it drops the adv…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T02:28:32Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Lá nhả tanin làm nước ngả màu trà và hạ pH chậm.\": THIS TERM says the definition ends at \"hạ pH\". The word \"chậm\" comes only from the US shop (facts 1 and 15 are both source 0), so it has to go. The sentence should read exactly \"Lá nhả tanin làm nước ngả màu trà và hạ pH.\"",
+        "Rule 12: \"Chọn lá khô đã rụng hoặc đã ngả vàng.\": only one news report (fact 8, source 5) says the leaves are yellowed, and here that claim is written as plain fact. THIS TERM says \"hoặc đã ngả vàng\" goes, and the step should read exactly \"Chọn lá khô đã rụng.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-18T02:19:41Z",
       "model": "sonnet",
       "cli": "2.1.326",
@@ -292,38 +317,6 @@
       "notes": [
         "Rule 12: \"Thay lá sau khoảng 2–3 tuần. Tiệm thứ nhất cũng ghi: trong bể tép có thể để lá đến khi chỉ còn bộ gân.\" states the 2–3-week replacement as plain fact. Only the first shop gives this for whole leaves (fact 28), so it must sit under that shop's credit. The required wording is \"Tiệm thứ nhất cũng ghi: thay lá sau khoảng 2–3 tuần; trong bể tép có thể để lá đến khi chỉ còn bộ gân.\"",
         "Rules 10 and 12: \"Chuyện lá diệt được ký sinh trùng và vi khuẩn mà người bán hay kể chưa có gì chứng minh.\" Saying \"chưa có gì chứng minh\" claims more than the facts, which call the sellers' claims untested or unsourced (facts 42, 48, 49). The required sentence ends \"chưa được kiểm chứng.\""
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-18T00:04:12Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 1,
-      "notes": [
-        "Loose, rewording read as unsupported, old wording kept for the reader: \"Bắt đầu với một lá cho khoảng 20–30 lít.\" (not \"Với lá cỡ vừa (khoảng 15 cm), tiệm thứ hai ghi nên bắt đầu dè dặt với một lá cho khoảng 20–30 lít.\": unsupported, unsupported, unsupported)",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Thay lá sau khoảng 2–3 tuần.\" (not \"Tiệm thứ nhất ghi nên thay lá sau khoảng 2–3 tuần.\": Rule 12: \"Tiệm thứ nhất ghi nên thay lá sau khoảng 2–3 tuần.\" Replacing leaves after about 2–3 weeks is on more than one page (facts 22 and 28), so the line under THIS TERM says to give it as the rule with no credit, …"
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-18T00:04:12Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 1,
-      "notes": [
-        "Rule 12: \"Một nguồn người nuôi ghi bể nhỏ thì cắt đôi lá.\" must be written word for word with the colon: \"Một nguồn người nuôi ghi: bể nhỏ thì cắt đôi lá.\"",
-        "Rule 12: \"Một tiệm ghi muốn đợt ra màu đầu nhẹ hơn thì ngâm lá 24–48 giờ trong nước đã khử clo.\" uses \"ghi muốn …\" with no colon. It must read word for word: \"Một tiệm ghi: ngâm lá 24–48 giờ trong nước đã khử clo thì đợt ra màu đầu nhẹ hơn.\"",
-        "Rule 12: \"Một tiệm khác ghi muốn giữ màu thì đừng luộc, vì luộc làm lá nhả hết tanin ra nồi.\" keeps \"muốn giữ màu\", which the fact doesn't say, and has no colon. It must read word for word: \"Một tiệm khác ghi: đừng luộc lá trước khi thả, vì luộc làm lá nhả hết tanin ra nồi.\"",
-        "Rule 12: \"Tiệm này cũng ghi muốn lá nằm đáy sớm thì chặn lên bằng một hòn đá hay vật trang trí.\" must read word for word: \"Tiệm thứ hai cũng ghi: muốn lá nằm đáy sớm thì chặn bằng một hòn đá hay vật trang trí.\"",
-        "Rule 12: \"Tiệm không luộc lá nói trên cũng ghi muốn nước màu trà đậm hơn…\" names the shop by one of its steps and has no colon. It must read: \"Tiệm thứ hai cũng ghi: muốn nước màu trà đậm hơn thì thêm lá dần tới khi được màu ưng ý.\"",
-        "Rules 4 and 12: \"Tiệm ngâm lá 24–48 giờ nói trên cũng ghi trong bể tép có thể để lá tới khi chỉ còn bộ gân.\" names the shop by its step, which says the 24–48 hours again. It must read word for word: \"Tiệm thứ nhất cũng ghi: trong bể tép có thể để lá đến khi chỉ còn bộ gân.\"",
-        "Rule 12: \"Tiệm không luộc lá nói trên cũng ghi người ta thường không dùng lá bàng cho các loài này.\" names the shop by its step, has no colon, and leaves out the fish. It must read: \"Tiệm thứ hai cũng ghi: người ta thường không dùng lá bàng cho cichlid châu Phi và nhiều loài cá đẻ con.\"",
-        "Rule 12: \"Nguồn người nuôi nói trên cũng ghi châm nhiều quá có thể làm pH tụt đột ngột khiến cá bị sốc. Gặp vậy thì thay 25% nước hoặc bỏ than hoạt tính vào lọc.\" has the wrong opening and no colon. The split also leaves the fix, which only this keeper's page gives, standing as plain fact. It must read: \"Nguồn người nuôi này cũng ghi: châm nhiều quá có thể làm pH tụt đột ngột khiến cá bị sốc, gặp…",
-        "Rule 12: \"Nguồn này cũng ghi than hút mất màu tanin, thành ra làm ngược với lá.\" must open \"Nguồn người nuôi này cũng ghi: than hút mất màu tanin, thành ra làm ngược với lá.\"",
-        "Rules 4 and 12: \"Tiệm ngâm lá 24–48 giờ nói trên cũng ghi lá ở đường đông xe có thể dính khói xe.\" names the shop by its step and says the 24–48 hours yet again. It must read: \"Tiệm thứ nhất cũng ghi: lá ở đường đông xe có thể dính khói xe.\""
       ],
       "attempt": "rewrite",
       "kept": false
