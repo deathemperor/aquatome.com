@@ -1,6 +1,6 @@
-import { readFileSync } from 'node:fs'
+import { readdirSync, readFileSync } from 'node:fs'
+import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { execFileSync } from 'node:child_process'
 import { expect, test, vi } from 'vitest'
 import { exportJWK, generateKeyPair, SignJWT, createLocalJWKSet } from 'jose'
 import { accounts, type AccountDeps, type AccountsEnv } from '../accounts/api'
@@ -452,11 +452,14 @@ test('the test account\'s session is no session to anything but the chat: the ac
     const as = async (bearer: string) => { const r = await call(method, path, { body, bearer, origin: null }); return [r.status, r.text] }
     expect(await as(token), `${method} ${path}`).toEqual(await as(none))
   }
+  // The Worker's own code, read as files (no process): its one call that asks for the tester's session is the chat's.
   const root = fileURLToPath(new URL('..', import.meta.url).href)
-  const callers = execFileSync('git', ['grep', '-n', 'sessionOf(', '--', '.', ':!test'], { cwd: root, encoding: 'utf8' }).trim().split('\n')
+  const callers = readdirSync(root, { recursive: true, encoding: 'utf8' }).filter(f => f.endsWith('.ts') && !f.startsWith('test'))
+    .flatMap(f => readFileSync(join(root, f), 'utf8').split('\n').filter(l => l.includes('sessionOf(')).map(l => `${f}: ${l.trim()}`))
+  expect(callers.length).toBeGreaterThan(5)
   const asks = callers.filter(l => /tester:/.test(l))
   expect(asks).toHaveLength(1)
-  expect(asks[0]).toMatch(/^chat\/api\.ts:\d+:export const chatSession = .*\{ tester: testerOn\(env\) \}/)
+  expect(asks[0]).toMatch(/^chat\/api\.ts: export const chatSession = .*\{ tester: testerOn\(env\) \}/)
 })
 
 test('signing in as someone else on a signed-in browser switches accounts: never joins them (a shared computer)', async () => {
