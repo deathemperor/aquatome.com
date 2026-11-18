@@ -915,6 +915,28 @@
   ],
   "vi/glossary/vay-lung": [
     {
+      "at": "2026-11-18T03:55:59Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Bài viết thứ nhất cũng ghi: vây cụp do môi trường thường đỡ trong 24–72 giờ sau khi sửa lại nước.\" (not \"Bài viết thứ nhất cũng ghi: vây cụp do môi trường thường đỡ trong 24–72 giờ sau khi các điều kiện nuôi được khắc phục.\": Rule 12: \"Bài viết thứ nhất cũng ghi: vây cụp do môi trường thường đỡ trong 24–7…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T03:55:59Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Rule 12: The fin-count sentence \"Tùy loài, cá có một, hai hoặc ba vây lưng; cá vàng có một.\" is missing. It must be written word for word as the first sentence under \"Trong bể của bạn\". It belongs in the same paragraph as \"Ở một số loài, vây lưng có gai cứng và nhọn để tự vệ.\" and comes before it."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-18T03:43:26Z",
       "model": "sonnet",
       "cli": "2.1.327",
@@ -978,34 +1000,6 @@
       ],
       "attempt": "rewrite",
       "kept": true
-    },
-    {
-      "at": "2026-11-18T03:25:48Z",
-      "model": "sonnet",
-      "cli": "2.1.327",
-      "score": 1,
-      "notes": [
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Ở một số loài, vây lưng có gai cứng và nhọn để tự vệ, và gai của vài loài có nọc độc.\" (not \"Ở một số loài, vây lưng có gai cứng và nhọn để tự vệ, và ở vài loài cá da trơn, gai này có nọc độc.\": Rule 12: \"Tùy loài, cá có một, hai hoặc ba vây lưng. Cá vàng chỉ có một.\" and \"ở vài loài cá da trơn, gai này c…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Một nguồn khác ghi trong bể nuôi chung, vây rách thường là do bị cá khác rỉa, và cá vây dài hay bị nhắm tới.\" (not \"Trong bể nuôi chung, bị cá khác rỉa là nguyên nhân thường gặp nhất làm vây bị tổn thương, và cá vây dài hay bị nhắm tới.\": Rule 12: \"Trong bể nuôi chung, bị cá khác rỉa là nguyên nhân thường…",
-        "Rule 12: \"Tùy loài, cá có một, hai hoặc ba vây lưng. Cá vàng chỉ có một.\" Only one page (source 0) gives this, but the entry states it as plain fact without saying whose claim it is. The entry already names three pages (the shop, \"Một nguồn\" and \"Một nguồn khác\"), so adding a fourth isn't allowed. This background claim, which a keeper can't act on, should be left out.",
-        "Rule 12: \"và gai của vài loài có nọc độc\" Only one page (source 0) says the spines are venomous, and it says this of some catfish. The entry states it as plain fact about \"vài loài\" without saying whose claim it is. Because the entry is already at its three-page limit, this one-page background claim should be left out."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-18T03:25:48Z",
-      "model": "sonnet",
-      "cli": "2.1.327",
-      "score": 1,
-      "notes": [
-        "Rule 4: \"Vây lưng nằm trên đường giữa sống lưng và không có vây đôi\" repeats the definition's \"vây đơn mọc giữa sống lưng của hầu hết các loài cá\". Where the fin sits and that it is unpaired should be said once. The body's wording \"không có vây đôi\" also turns the fact's \"unpaired fin\" into a different claim.",
-        "Rule 4: \"Nó giữ thăng bằng như bánh lái, để cá không lật hay xoay tròn khi bơi, và giúp cá đổi hướng gấp, chính xác\" repeats the definition's \"Nó giữ cho cá không bị lật nghiêng khi bơi và giúp cá rẽ gấp\". The fin's job (not rolling, quick turns) should be said once.",
-        "Rule 4: \"Liều và cách dùng: xem bài hướng dẫn chữa bệnh\" sends the keeper to dose and treatment advice that the FACTS don't give. The FACTS only say to treat with medicine once a specific illness has been identified, so the entry should stop there.",
-        "The entry is 455 words: hold it to about 400, and leave what is left out to the pages that use the term."
-      ],
-      "attempt": "first",
-      "kept": false
     }
   ]
 }
