@@ -73,6 +73,90 @@ export const ANSWER_SCHEMA = {
   },
 } as const
 
+/**
+ * The answer as a tool's input (16 Nov). After a round of tools, Opus and Sonnet hold a text answer back until it's
+ * whole: 7.5 s of nothing, then all of it within 10 ms, with the format or without it (probes 3, 5 and 6, 15 Nov). They
+ * stream a tool's input as it's written, the format on (probe 8, 16 Nov: Opus's first words 5.4 s into the call,
+ * Sonnet's 1.1 s). Its input is the schema's, read by the same readers as text, keys in the schema's order (offTopic,
+ * then text, in every probe). Haiku answers in text, which it streams, and that stays an answer too.
+ */
+export const SEND_ANSWER = 'send_answer'
+export const answerTool = {
+  name: SEND_ANSWER,
+  description: 'Send the reader your answer. Call it once, when you have read what you need: what you pass is your answer, in the answer\'s form, and the reader sees its text as you write it.',
+  input_schema: ANSWER_SCHEMA as unknown as Anthropic.Tool.InputSchema,
+  answers: true as const,
+  run: async (): Promise<string> => { throw new Error('send_answer is the answer: nothing runs it') },
+}
+
+/**
+ * Which block of a message is its answer: the first that answers, a text block of the answer's JSON or a send_answer call.
+ * Words before a tool call ("Now I'll send the answer.") aren't one. The stream shows the first block that begins as one
+ * (`answerFeed`) and the run reads the first that is one (`answered`): when they differ, as text cut short before a
+ * send_answer, a run that showed any of it fails rather than keep another (`streaming`, agent.ts).
+ */
+const json = (text: string) => text.trimStart().startsWith('{')
+const answers = (b: Anthropic.ContentBlock) => (b.type === 'text' && json(b.text)) || (b.type === 'tool_use' && b.name === SEND_ANSWER)
+
+/** A text block that is a whole JSON object: an answer, not words that only begin like one ("{"blocks":…). */
+const whole = (text: string) => {
+  try {
+    const v: unknown = JSON.parse(text)
+    return !!v && typeof v === 'object' && !Array.isArray(v)
+  } catch {
+    return false
+  }
+}
+
+/**
+ * A message as one answer: one that answered through send_answer, as one that answered in text, its input as the JSON
+ * text, and the words and reading tools beside it dropped; one that answered in text, with other words beside it
+ * dropped, and its tools too once it is whole, whether or not any of it was shown (a call that doesn't stream, as the
+ * next key's after a stream that failed, shows nothing: Codex, 17 Nov). One cut short keeps its stop reason, and
+ * `readAnswer` then reads no answer from it. send_answer's input isn't held to the schema: an `offTopic` that isn't true
+ * or false is no answer, never one on topic.
+ */
+export function answered(m: Anthropic.Message): Anthropic.Message {
+  // Text that doesn't read as an answer, cut short or another object, doesn't hide send_answer's after it (Codex, 18 Nov).
+  const sent = m.content.some(b => b.type === 'tool_use' && b.name === SEND_ANSWER)
+  const first = m.content.find(b => answers(b) && !(sent && b.type === 'text' && !answerOf(b.text)))
+  if (!first) return m
+  const ended = m.stop_reason === 'tool_use' ? 'end_turn' : m.stop_reason
+  if (first.type === 'text') {
+    const answer = whole(first.text)
+    const drop = (b: Anthropic.ContentBlock) => b !== first && (b.type === 'text' || (answer && b.type === 'tool_use'))
+    return m.content.some(drop) ? { ...m, content: m.content.filter(b => !drop(b)), ...(answer ? { stop_reason: ended } : {}) } : m
+  }
+  if (first.type !== 'tool_use') return m
+  const flag = (first.input as { offTopic?: unknown } | null)?.offTopic
+  return { ...m, content: [{ type: 'text', text: typeof flag === 'boolean' ? JSON.stringify(first.input) : '', citations: null }], stop_reason: ended }
+}
+
+/**
+ * What of a streamed call goes to the reader, event by event: the pieces of its answer as they're written, a text
+ * block's or send_answer's input, from the first block that answers (as `answered` reads it); undefined for the rest.
+ */
+export function answerFeed(): (e: Anthropic.MessageStreamEvent) => string | undefined {
+  const calls = new Set<number>()
+  /** A text block's words so far, until its first character says whether it is the answer's JSON. */
+  const held = new Map<number, string>()
+  const words = new Set<number>()
+  let fed: number | undefined
+  return e => {
+    if (e.type === 'content_block_start' && e.content_block.type === 'tool_use' && e.content_block.name === SEND_ANSWER) calls.add(e.index)
+    if (e.type !== 'content_block_delta') return undefined
+    if (fed !== undefined) return fed === e.index ? (e.delta.type === 'text_delta' ? e.delta.text : e.delta.type === 'input_json_delta' ? e.delta.partial_json : undefined) || undefined : undefined
+    if (e.delta.type === 'input_json_delta' && calls.has(e.index) && e.delta.partial_json.trim() !== '') { fed = e.index; return e.delta.partial_json }
+    if (e.delta.type !== 'text_delta' || words.has(e.index)) return undefined
+    const text = (held.get(e.index) ?? '') + e.delta.text
+    if (text.trim() === '') { held.set(e.index, text); return undefined }
+    held.delete(e.index)
+    if (!json(text)) { words.add(e.index); return undefined }
+    fed = e.index
+    return text
+  }
+}
+
 export type Choice = { t: (typeof BLOCKS)[number]; ids: string[]; path: string | null; heading: string | null; tool: ToolName | null; fish: { id: string; count: number }[]; tank: { l: number; w: number; h: number } | null; tankId: string | null }
 export type Answer = { offTopic: boolean; text: string; covered: boolean; blocks: Choice[]; suggestions: string[]; clashes: Clash[] }
 
@@ -93,14 +177,80 @@ export const MIN_TEXT = 10
 /** The answer in Claude's message: its JSON (the schema's), or undefined for a refusal, one cut short, or one with no text. */
 export function readAnswer(m: Anthropic.Message): Answer | undefined {
   if (m.stop_reason === 'refusal' || m.stop_reason === 'max_tokens') return undefined
-  const text = m.content.flatMap(b => (b.type === 'text' ? [b.text] : [])).join('')
+  return answerOf(m.content.flatMap(b => (b.type === 'text' ? [b.text] : [])).join(''))
+}
+
+/** An answer's JSON as text, read: undefined for text that isn't one. */
+function answerOf(text: string): Answer | undefined {
   try {
     const a = JSON.parse(text) as Answer
     if (a.offTopic === true) return { offTopic: true, text: '', covered: true, blocks: [], suggestions: [], clashes: [] }
-    return typeof a.text === 'string' && a.text.trim().length >= MIN_TEXT && typeof a.covered === 'boolean' && Array.isArray(a.blocks) && Array.isArray(a.suggestions) ? { ...a, offTopic: false, clashes: Array.isArray(a.clashes) ? a.clashes : [] } : undefined
+    // send_answer's input isn't held to the schema as a text answer is (not strict): a suggestion that isn't words, or a
+    // clash that isn't two places, is left out, and a pick that isn't one is the filler's to drop (`choiceOf`).
+    return typeof a.text === 'string' && a.text.trim().length >= MIN_TEXT && typeof a.covered === 'boolean' && Array.isArray(a.blocks) && Array.isArray(a.suggestions)
+      ? { ...a, offTopic: false, suggestions: a.suggestions.filter(x => typeof x === 'string'), clashes: Array.isArray(a.clashes) ? a.clashes.filter(isClash) : [] }
+      : undefined
   } catch {
     return undefined
   }
+}
+
+const str = (v: unknown): v is string => typeof v === 'string'
+const strOrNull = (v: unknown) => v === null || typeof v === 'string'
+const num = (v: unknown) => typeof v === 'number' && Number.isFinite(v)
+const obj = (v: unknown): v is Record<string, unknown> => !!v && typeof v === 'object' && !Array.isArray(v)
+const isPlace = (v: unknown) => obj(v) && str(v.path) && str(v.passage)
+const isClash = (v: unknown): v is Clash => obj(v) && isPlace(v.a) && isPlace(v.b)
+/**
+ * A pick as the filler reads it, or undefined for one it can't: send_answer's input, unlike a text answer's, isn't held to
+ * the schema. A field left out is its empty value (no ids, no fish, null); one of the wrong kind drops the pick.
+ */
+export function choiceOf(v: unknown): Choice | undefined {
+  if (!obj(v) || !(BLOCKS as readonly unknown[]).includes(v.t)) return undefined
+  const c = { ids: [], path: null, heading: null, tool: null, fish: [], tank: null, tankId: null, ...v } as Record<string, unknown>
+  const ok = Array.isArray(c.ids) && c.ids.every(str) && strOrNull(c.path) && strOrNull(c.heading) && (c.tool === null || (TOOLS as readonly unknown[]).includes(c.tool))
+    && Array.isArray(c.fish) && c.fish.every(f => obj(f) && str(f.id) && num(f.count))
+    && (c.tank === null || (obj(c.tank) && num(c.tank.l) && num(c.tank.w) && num(c.tank.h))) && strOrNull(c.tankId)
+  return ok ? (c as Choice) : undefined
+}
+
+/**
+ * Whether the answer's raw JSON, as written, names a top-level key twice. JSON.parse keeps the last, where the stream
+ * showed the first (`textReader`), so such an answer is none (Codex, 17 Nov). Keys are read as JSON reads them.
+ */
+export function repeatsKey(raw: string): boolean {
+  const seen = new Set<string>()
+  let depth = 0
+  let quoted = false
+  let escaped = false
+  let wantKey = false
+  let keyAt = -1
+  for (let i = 0; i < raw.length; i++) {
+    const c = raw[i]!
+    if (quoted) {
+      if (escaped) escaped = false
+      else if (c === '\\') escaped = true
+      else if (c === '"') {
+        quoted = false
+        if (keyAt >= 0) {
+          let key: string
+          try { key = JSON.parse(raw.slice(keyAt, i + 1)) as string } catch { key = raw.slice(keyAt, i + 1) }
+          if (seen.has(key)) return true
+          seen.add(key)
+          keyAt = -1
+          wantKey = false
+        }
+      }
+    } else if (c === '"') {
+      quoted = true
+      if (depth === 1 && wantKey) keyAt = i
+    } else if (c === '{' || c === '[') {
+      depth++
+      if (depth === 1) wantKey = true
+    } else if (c === '}' || c === ']') depth--
+    else if (c === ',' && depth === 1) wantKey = true
+  }
+  return false
 }
 
 const SPACE = new Set([' ', '\t', '\n', '\r'])
@@ -358,8 +508,10 @@ export function filler(hb: Handbook, checks: readonly MatesCheck[] = [], shownBe
   const seen = new Set([...shownBefore.flatMap(repeatKey), ...(startedOn ? [`species: ${startedOn}`] : [])])
   let picks = 0
   return {
-    add: async (p: Choice): Promise<ChatBlock | undefined> => {
+    add: async (pick: Choice): Promise<ChatBlock | undefined> => {
       if (picks++ >= MAX_BLOCKS) return undefined
+      const p = choiceOf(pick)
+      if (!p) { dropped.push(`not a pick: ${JSON.stringify(pick).slice(0, 120)}`); return undefined }
       const b = await one(p)
       const again = typeof b === 'string' ? [] : repeatKey(b).filter(k => seen.has(k))
       if (typeof b === 'string') dropped.push(b)
